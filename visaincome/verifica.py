@@ -107,7 +107,7 @@ Uso (dalla radice del repository, dopo python3 visaincome/genera.py):
 30. Liste delle università per i visti dei laureati (/top-university-visas/, 5/11/2026, dati/top_university.json): impronta del JSON, fonti lette
     (HTTP 200, SHA-256, data); righe delle liste HPI 2021-2026 = tabelle GOV.UK rilette con un lettore proprio, righe TTPS = PDF riletto con
     pdftotext -raw (stesso numero, stesso ordine, asterischi delle nuove), nomi giapponesi J-Find presenti nel PDF; frammenti trovati nei file grezzi;
-    valori numerici scritti nei frammenti; università = righe delle liste; pagine attese (indice, 6 HPI, TTPS, J-Find, una per università, una
+    valori numerici scritti nei frammenti; università = righe delle liste; pagine attese (indice, 6 HPI, TTPS, J-Find, 39 università: anni HPI misti e britanniche, una
     per Paese + India e Nigeria) in sitemap e nessuna in più, titoli ≤ 70 con l'anno, canonical, FAQPage, BreadcrumbList, avviso, nessuna
     promessa né affiliazione; prima frase con risposta, fonte e data; tabelle ricalcolate (liste per università, righe delle liste, entrate e uscite
     HPI, conteggi per Paese, confronto dei visti); citazioni = frammenti; FAQ da ricerche salvate; link da home e How it works; piè di pagina e
@@ -3907,7 +3907,12 @@ def controlla_tu():
     # 3. pagine attese, sitemap, titoli, JSON-LD, avviso, niente affiliazioni
     sez = G.SEZ_TU
     paesi = sorted({u["paese"] for u in U.values()}) + ["India", "Nigeria"]
-    attese = {""} | {f"hpi-{a}" for a in anni} | {"ttps", "j-find"} | {f"universities/{i}" for i in U} | {f"countries/{G.slug_testo(p)}" for p in paesi}
+    # pagine università solo per gli anni HPI misti e le britanniche presenti a Hong Kong e in Giappone (decisione sul contenuto sottile, 5/11/2026)
+    con_pag = {i for i, u in U.items() if 0 < sum(f"hpi-{a}" in u["liste"] for a in anni) < len(anni)
+               or (u["paese"] == "United Kingdom" and "ttps" in u["liste"] and "j-find" in u["liste"])}
+    if con_pag != set(G.PAG_UNI_TU) or len(con_pag) != 39:
+        errori.append(f"30: università con pagina {len(G.PAG_UNI_TU)} diverse dal ricalcolo ({len(con_pag)}, attese 28 + 11)")
+    attese = {""} | {f"hpi-{a}" for a in anni} | {"ttps", "j-find"} | {f"universities/{i}" for i in con_pag} | {f"countries/{G.slug_testo(p)}" for p in paesi}
     cart = SITO / sez.rstrip("/")
     trovate = {f.parent.relative_to(cart).as_posix().replace(".", "") for f in cart.rglob("index.html")}
     if trovate != attese:
@@ -3929,6 +3934,9 @@ def controlla_tu():
                 errori.append(f"30: manca {x!r} in {percorso}")
         if re.search(r'rel="[^"]*sponsored', main) or "Affiliate" in main or "wise.com" in main:
             errori.append(f"30: link di affiliazione in {percorso} (nessun riquadro previsto: Wise non ha un link attivo)")
+        for x in ("in force from 1 january 2026", "updated 21 october 2024", "graduated from a university ranked in the”", "possession of 200,000 yen for living”"):
+            if x in html.unescape(main).lower():
+                errori.append(f"30: frase corretta dalla revisione ancora presente ({x!r}) in {percorso}")
         for x in ("guarantee", "you will get", "you qualify", "you are eligible"):
             if x in main.lower():
                 errori.append(f"30: promessa ({x!r}) in {percorso}")
@@ -3943,14 +3951,21 @@ def controlla_tu():
         if s not in pagine:
             continue
         t, main, lead, perc, titolo = pagine[s]
-        if not lead.startswith(f"Yes: {u['nome']} ({u['paese']}) is on "):
-            errori.append(f"30 {i}: la prima frase non comincia con la risposta")
-        su = {"hpi-2026": "High Potential Individual (HPI) list 2026", "ttps": "Top Talent Pass Scheme (TTPS) list in force from 1 January 2026", "j-find": "J-Find list as of October 2026"}
+        correnti = [k for k in ("hpi-2026", "ttps", "j-find") if k in u["liste"]]
+        brevi = {"hpi-2026": "the UK's HPI list 2026", "ttps": "Hong Kong's TTPS list", "j-find": "Japan's J-Find list"}
+        testa = {3: "On all three lists:", 2: "On two of the three lists:", 1: f"Only on {brevi[correnti[0]] if correnti else ''}:", 0: "On none of the current lists:"}[len(correnti)]
+        na = ("the " + u["nome"]) if u["nome"].startswith("University of ") else u["nome"]
+        if not lead.startswith(f"{testa} {na} ({u['paese']}) is ") or lead.startswith("Yes"):
+            errori.append(f"30 {i}: la prima frase non comincia con la risposta attesa ({testa!r})")
+        if lead.count("but not") > 0:
+            errori.append(f"30 {i}: 'but not' nella prima frase")
+        su = {"hpi-2026": "High Potential Individual (HPI) list 2026", "ttps": "Top Talent Pass Scheme (TTPS) list of December 2025", "j-find": "J-Find list of October 2026"}
         for k, frase in su.items():
             if (k in u["liste"]) != (frase in lead):
                 errori.append(f"30 {i}: prima frase sbagliata per {k}")
-        if "hpi-2026" not in u["liste"] and not any(f"hpi-{a}" in u["liste"] for a in anni) and "not on any UK HPI list (2021–2026)" not in lead:
-            errori.append(f"30 {i}: manca 'not on any UK HPI list' nella prima frase")
+        vecchi = [a for a in anni if f"hpi-{a}" in u["liste"] and a != 2026]
+        if vecchi and len(vecchi) + ("hpi-2026" in u["liste"]) < len(anni) and f"It was on the HPI list" not in lead:
+            errori.append(f"30 {i}: manca la frase sulla storia HPI")
         righe = _righe29(main, "t-uni-tu")
         att = []
         for k in ordine:
@@ -3958,7 +3973,7 @@ def controlla_tu():
                 va = f"qualifications awarded from {G.data_lunga(L[k]['dal'])} to {G.data_lunga(L[k]['al'])}"
                 nl = f"HPI list {k[4:]}"
             else:
-                va = "in force from 1 January 2026" if k == "ttps" else "as of October 2026"
+                va = "list of December 2025" if k == "ttps" else "as of October 2026"
                 nl = "TTPS list" if k == "ttps" else "J-Find list"
             att.append([nl, va, "Yes" if k in u["liste"] else "No", u["liste"].get(k, "–")])
         if righe != att:
@@ -4001,6 +4016,9 @@ def controlla_tu():
                 errori.append(f"30 indice: prima frase senza {x!r}")
         if len(_righe29(main, "t-tu") or []) != len(U):
             errori.append("30 indice: la tabella delle università non ha tutte le università")
+        linkate = set(re.findall(r'href="universities/([^/"]+)/"', re.search(r'<table class="ord" id="t-tu".*?</table>', main, re.S).group(0)))
+        if linkate != con_pag:
+            errori.append(f"30 indice: link alle pagine università diversi dalle pagine generate ({len(linkate)} contro {len(con_pag)})")
         h26 = {x["id"] for x in L["hpi-2026"]["voci"]}
         jf = {x["id"] for x in L["j-find"]["voci"]}
         if h26 <= jf and {U[i]["paese"] for i in jf - h26} == {"United Kingdom"}:
@@ -4010,7 +4028,8 @@ def controlla_tu():
             errori.append("30 indice: frase sul confronto HPI 2026 / J-Find non più vera")
         conf = _testo29(re.search(r'<table id="t-confronto".*?</table>', main, re.S).group(0))
         for x in (f"£{LT['hpi_tassa']}", f"£{LT['hpi_ihs']:,}", f"£{LT['hpi_ecctis']}", f"£{LT['hpi_fondi']:,}", f"HK${LT['ttps_tassa_domanda']}", f"HK${LT['ttps_tassa_visto']:,}",
-                  f"¥{LT['jf_fondi']:,}", "36 months", "24 months", f"Up to {LT['jf_durata']} years", "does not list a fee"):
+                  f"¥{LT['jf_fondi']:,}", "36 months", "24 months", f"May be granted a stay of up to {LT['jf_durata']} years", "does not list a fee",
+                  "Category B: no limit on the year of the degree, but at least three years of work experience in the past five"):
             if x not in conf:
                 errori.append(f"30 indice: confronto senza {x!r}")
     for p in paesi:

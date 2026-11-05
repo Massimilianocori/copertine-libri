@@ -12542,6 +12542,13 @@ ANNI_HPI = sorted(int(k[4:]) for k in LISTE_TU if k.startswith("hpi-"))
 HPI1 = f"hpi-{ANNI_HPI[-1]}"                      # lista HPI più recente (2026: titoli dal 1/11/2026 al 31/10/2027)
 ORD_LISTE = [f"hpi-{a}" for a in reversed(ANNI_HPI)] + ["ttps", "j-find"]
 PAESI_ZERO_TU = ["India", "Nigeria"]              # Paesi senza università in nessuna lista, con pagina perché la domanda c'è
+TTPS_DATA = date(int(FT["ttps_pdf"]["modificato"].split()[-2]), MESI.index(next(m for m in MESI if m[:3] == FT["ttps_pdf"]["modificato"].split()[1])) + 1, 1).strftime("%B %Y") if FT["ttps_pdf"].get("modificato") else "December 2025"
+TTPS_DESC = f"list published {TTPS_DATA} (four universities removed with effect from {data_lunga(LT['ttps_tolte_dal'])})"
+# Pagine università (decisione sul contenuto sottile, 5/11/2026): solo le università con anni HPI misti e quelle britanniche presenti nelle
+# liste di Hong Kong e del Giappone. Le altre restano righe delle tabelle (indice e Paesi), senza link. Altre pagine solo con query vere in Search Console.
+PAG_UNI_TU = sorted(i for i, u in UNI_TU.items()
+                    if 0 < sum(f"hpi-{a}" in u["liste"] for a in ANNI_HPI) < len(ANNI_HPI)
+                    or (u["paese"] == "United Kingdom" and "ttps" in u["liste"] and "j-find" in u["liste"]))
 FAQ_TU = {}   # percorso -> [(chiave dell'autocompletamento, suggerimento, domanda)] (controllo 30)
 
 
@@ -12559,6 +12566,12 @@ def slug_paese_tu(p):
 
 def perc_paese_tu(p):
     return f"{SEZ_TU}countries/{slug_paese_tu(p)}/"
+
+
+def link_uni_tu(i, rel_uni, testo=None):
+    """Nome dell'università con link alla sua pagina solo se la pagina esiste."""
+    t = escape(testo or UNI_TU[i]["nome"])
+    return f'<a href="{rel_uni}{i}/">{t}</a>' if i in PAG_UNI_TU else t
 
 
 def in_lista_tu(i, k):
@@ -12603,7 +12616,7 @@ def valido_tu(k):
     if k.startswith("hpi-"):
         return f"qualifications awarded from {periodo_hpi_tu(int(k[4:]))}"
     if k == "ttps":
-        return f"in force from {data_lunga(LT['ttps_tolte_dal'])}"
+        return f"list of {TTPS_DATA}"
     return "as of October 2026"
 
 
@@ -12622,7 +12635,7 @@ def fonte_tu_p(chiavi):
     voci = []
     for k in chiavi:
         f = FT[k]
-        agg = f" (updated {data_lunga(f['aggiornata'])})" if f.get("aggiornata") else ""
+        agg = f" (updated {data_lunga(f['aggiornata'])})" if f.get("aggiornata") and k != "hpi_guida" else ""   # guida: la data GOV.UK è quella della revisione principale
         voci.append(f"{f_link_tu(k)}{agg}")
     return f'<p class="fonte">Source: {"; ".join(voci)}; read on {data_lunga(LETTO_TU)}.</p>'
 
@@ -12658,7 +12671,7 @@ def righe_uni_tu(ids, rel_uni):
         u = UNI_TU[i]
         anni = [a for a in anni_hpi_tu(i) if a != ANNI_HPI[-1]]
         nuova = any(x["id"] == i and x["nuova"] for x in LISTE_TU["ttps"]["voci"])
-        righe += (f'<tr><td><a href="{rel_uni}{i}/">{escape(u["nome"])}</a></td><td>{escape(u["paese"])}</td>{cella_si_tu(in_lista_tu(i, HPI1))}'
+        righe += (f'<tr><td>{link_uni_tu(i, rel_uni)}</td><td>{escape(u["paese"])}</td>{cella_si_tu(in_lista_tu(i, HPI1))}'
                   f'<td data-v="{len(anni)}">{testo_anni_tu(anni) if anni else "–"}</td>{cella_si_tu(in_lista_tu(i, "ttps"), " (new)" if nuova else "")}'
                   f'{cella_si_tu(in_lista_tu(i, "j-find"))}</tr>')
     return righe
@@ -12672,7 +12685,7 @@ def tabella_uni_tu(ids, rel_uni, id_tab="t-tu", filtro=True):
             f'{th_ord(f"HPI {ANNI_HPI[0]}–{ANNI_HPI[-2]}", False)}{th_ord("TTPS", False)}{th_ord("J-Find", False)}</tr></thead>'
             f'<tbody>{righe_uni_tu(ids, rel_uni)}</tbody></table></div>'
             f'<p class="small">HPI {ANNI_HPI[-1]} = the list for qualifications awarded from {periodo_hpi_tu(ANNI_HPI[-1])}; the earlier column shows the years of the older HPI lists. '
-            f'TTPS = Hong Kong list in force from {data_lunga(LT["ttps_tolte_dal"])} ("new" = marked as newly added). J-Find = Japan list as of October 2026. Tap a column heading to sort.</p>')
+            f'TTPS = Hong Kong {TTPS_DESC} ("new" = marked as newly added). J-Find = Japan list as of October 2026. Tap a column heading to sort.</p>')
 
 
 def ordina_uni_tu(ids):
@@ -12704,16 +12717,16 @@ def confronto_tu(rel_sez):
     righe = [
         ("Country", "United Kingdom", "Hong Kong", "Japan"),
         ("Official list", f'<a href="{rel_sez}{HPI1}/">{n[HPI1]} universities</a> (list {ANNI_HPI[-1]}, for qualifications awarded from {periodo_hpi_tu(ANNI_HPI[-1])}); one list per year since {ANNI_HPI[0]}',
-         f'<a href="{rel_sez}ttps/">{n["ttps"]} universities and institutions</a> (aggregate list, in force from {data_lunga(LT["ttps_tolte_dal"])})',
+         f'<a href="{rel_sez}ttps/">{n["ttps"]} universities and institutions</a> (aggregate {TTPS_DESC})',
          f'<a href="{rel_sez}j-find/">{n["j-find"]} universities</a> (list as of October 2026)'),
         ("How the list is made", cita_tu("hpi_classifiche"), f'Compiled by the Labour and Welfare Bureau from {cita_tu("ttps_classifiche")}, plus hotel, art and design and Mainland rankings',
          f'Universities in the top 100 of at least two of three world rankings (QS, THE, Shanghai): {cita_ja_tu("jf_classifiche")}'),
         ("When you graduated", f'{cita_tu("hpi_5anni")} Use the list for the date your qualification was awarded.',
-         f'Within the past five years (Categories B and C): {cita_tu("ttps_5anni")}', f'Within 5 years of the degree: {cita_ja_tu("jf_5anni")}'),
+         f'Category C: degree in the past five years ({cita_tu("ttps_5anni")}). Category B: no limit on the year of the degree, but at least three years of work experience in the past five', f'Within 5 years of the degree: {cita_ja_tu("jf_5anni")}'),
         ("Degree level", "Same level as a UK bachelor’s degree, postgraduate degree, PhD or doctorate; checked by Ecctis",
          f'Bachelor’s degree or above: {cita_tu("ttps_bachelor")}', "Graduated from a listed university, or a degree after a graduate course there"),
         ("Length of stay", f'{LT["hpi_durata"]} years (3 with a PhD or other doctoral qualification): {cita_tu("hpi_durata")}',
-         f'24 months for Categories B and C, 36 months for Category A: {cita_tu("ttps_durata")}', f'Up to {LT["jf_durata"]} years: {cita_tu("jf_en_durata")}'),
+         f'24 months for Categories B and C, 36 months for Category A: {cita_tu("ttps_durata")}', f'May be granted a stay of up to {LT["jf_durata"]} years: {cita_tu("jf_en_durata")}'),
         ("Job offer needed", f'No: {cita_tu("hpi_offerta")}', f'No: the applicants {cita_tu("ttps_offerta")}', "No: the status is for job hunting or start-up preparation"),
         ("Yearly limit", cita_tu("hpi_limite"), f'Only Category C (less than 3 years of work experience): {cita_tu("ttps_quota")}', "None mentioned on the J-Find page"),
         ("Money and fees", f'£{LT["hpi_tassa"]} application fee, healthcare surcharge (£{LT["hpi_ihs"]:,} a year, £{LT["hpi_ihs2"]:,} for 2 years), £{LT["hpi_ecctis"]} Ecctis check, '
@@ -12750,12 +12763,12 @@ def faq_costo_hpi_tu():
 def faq_requisiti_jf_tu():
     return (("in|j-find visa", "j-find visa requirements"), "What are the J-Find visa requirements?",
             f"Three, according to the Immigration Services Agency: a degree from a university in the top 100 of at least two of three world rankings (QS, THE, Shanghai), "
-            f"awarded within the last {LT['jf_5anni']} years, and savings of at least ¥{LT['jf_fondi']:,} when you apply. The stay is up to {LT['jf_durata']} years, for job hunting or preparing a start-up.")
+            f"awarded within the last {LT['jf_5anni']} years, and savings of at least ¥{LT['jf_fondi']:,} when you apply. You may be granted a stay of up to {LT['jf_durata']} years, for job hunting or preparing a start-up.")
 
 
 def faq_requisiti_ttps_tu():
     return (("in|top talent pass scheme", "top talent pass scheme hong kong requirements"), "What are the Top Talent Pass Scheme requirements?",
-            f"Category A: annual income of HK$2.5 million or more in the year before applying. Category B: a bachelor's degree from a listed university and at least three years of work experience in the past five years. "
+            f"Category A: annual income of HK$2.5 million or more in the year before applying. Category B: a bachelor's degree from a listed university (no limit on the year of the degree) and at least three years of work experience in the past five years. "
             f"Category C: a degree from a listed university in the past five years with less than three years of work experience, subject to an annual quota. No job offer is needed (Immigration Department, read on {data_lunga(LETTO_TU)}).")
 
 
@@ -12765,30 +12778,47 @@ def faq_costo_ttps_tu():
             f"for the main applicant and for each dependant (fees from {data_lunga(LT['ttps_tariffe_dal'])}, Immigration Department).")
 
 
+def nome_art_tu(nome, maiuscola=False):
+    """Nome con l'articolo quando serve in inglese ('the University of Tokyo', 'the University College London' no)."""
+    if nome.startswith("University of "):
+        return ("The " if maiuscola else "the ") + nome
+    return nome
+
+
 def frase_uni_tu(i):
-    """Prima frase della pagina dell'università: risposta, fonte e data."""
+    """Prima frase della pagina dell'università: risposta (liste correnti), fonte e data; poi le liste che mancano e la storia HPI in frasi separate."""
     u = UNI_TU[i]
     anni = anni_hpi_tu(i)
-    si, no = [], []
-    if in_lista_tu(i, HPI1):
-        si.append(f"the UK's High Potential Individual (HPI) list {ANNI_HPI[-1]}, for qualifications awarded from {periodo_hpi_tu(ANNI_HPI[-1])}"
-                  + (f" (it is on {testo_anni_tu(anni)})" if anni == ANNI_HPI else f" (HPI lists: {testo_anni_tu(anni)})"))
-    elif anni:
-        si.append(f"the UK's HPI lists {testo_anni_tu(anni)}, but not the {ANNI_HPI[-1]} list")
+    descr = {HPI1: f"the UK's High Potential Individual (HPI) list {ANNI_HPI[-1]} (degrees awarded from {periodo_hpi_tu(ANNI_HPI[-1])})",
+             "ttps": f"Hong Kong's Top Talent Pass Scheme (TTPS) list of {TTPS_DATA}", "j-find": "Japan's J-Find list of October 2026"}
+    breve = {HPI1: f"the UK's HPI list {ANNI_HPI[-1]}", "ttps": "Hong Kong's TTPS list", "j-find": "Japan's J-Find list"}
+    si = [k for k in (HPI1, "ttps", "j-find") if in_lista_tu(i, k)]
+    no = [k for k in (HPI1, "ttps", "j-find") if not in_lista_tu(i, k)]
+    elenco = lambda xs, e: xs[0] if len(xs) == 1 else ", ".join(xs[:-1]) + f" {e} " + xs[-1]  # noqa: E731
+    nome = escape(nome_art_tu(u["nome"]))
+    fonte = f"({fonti_brevi_tu()}, read on {data_lunga(LETTO_TU)})"
+    if not si:
+        f = f"On none of the current lists: {nome} ({escape(u['paese'])}) is not on {elenco([breve[k] for k in no], 'or')} {fonte}."
     else:
-        no.append(f"any UK HPI list ({ANNI_HPI[0]}–{ANNI_HPI[-1]})")
-    (si if in_lista_tu(i, "ttps") else no).append(f"Hong Kong's Top Talent Pass Scheme (TTPS) list in force from {data_lunga(LT['ttps_tolte_dal'])}" if in_lista_tu(i, "ttps") else "Hong Kong's TTPS list")
-    (si if in_lista_tu(i, "j-find") else no).append("Japan's J-Find list as of October 2026" if in_lista_tu(i, "j-find") else "Japan's J-Find list")
-    elenco = lambda xs: xs[0] if len(xs) == 1 else ", ".join(xs[:-1]) + " and " + xs[-1]  # noqa: E731
-    f = f"Yes: {escape(u['nome'])} ({escape(u['paese'])}) is on {elenco(si)}"
-    if no:
-        f += f", but not on {no[0] if len(no) == 1 else ', '.join(no[:-1]) + ' or ' + no[-1]}"
-    return f + f" ({fonti_brevi_tu()}, read on {data_lunga(LETTO_TU)})."
+        testa = {3: "On all three lists:", 2: "On two of the three lists:", 1: f"Only on {breve[si[0]]}:"}[len(si)]
+        f = f"{testa} {nome} ({escape(u['paese'])}) is on {elenco([descr[k] for k in si], 'and')} {fonte}."
+        if no:
+            f += f" It is not on {elenco([breve[k] for k in no], 'or')}."
+    vecchi = [a for a in anni if a != ANNI_HPI[-1]]
+    if vecchi and anni != ANNI_HPI:
+        f += (f" It was on the HPI list{'s' if len(vecchi) > 1 else ''} {testo_anni_tu(vecchi)}"
+              + (", and is on the 2026 one." if in_lista_tu(i, HPI1) else f", not on the {ANNI_HPI[-1]} one."))
+    elif anni == ANNI_HPI:
+        f += f" It is on all {len(ANNI_HPI)} HPI lists ({ANNI_HPI[0]}–{ANNI_HPI[-1]})."
+    elif u["paese"] == "United Kingdom":
+        f += " UK universities are not eligible for the HPI."
+    return f
 
 
 def titolo_uni_tu(nome):
-    for t in (f"Is {nome} on the HPI, TTPS and J-Find lists? ({ANNO})", f"{nome}: HPI, TTPS and J-Find lists ({ANNO})",
-              f"{nome}: HPI, TTPS, J-Find ({ANNO})", f"{nome} ({ANNO} visa lists)"):
+    na = nome_art_tu(nome)
+    for t in (f"Is {na} on the HPI, TTPS and J-Find lists? ({ANNO})", f"{nome_art_tu(nome, True)}: HPI, TTPS and J-Find lists ({ANNO})",
+              f"{nome_art_tu(nome, True)}: HPI, TTPS, J-Find ({ANNO})", f"{nome} ({ANNO} visa lists)"):
         if len(t) <= 70:
             return t
     return f"{nome[:70 - 7].rstrip()} ({ANNO})"
@@ -12818,26 +12848,26 @@ def pagina_tu_uni(i):
         mancano = [a for a in ANNI_HPI if a not in anni]
         note.append(f"It is not on the HPI list{'s' if len(mancano) > 1 else ''} {testo_anni_tu(mancano)}: for the HPI, what counts is the list for the date your qualification was awarded. "
                     f"The guide says: {cita_tu('hpi_mese')}.")
-    stessi = ordina_uni_tu([j for j, v in UNI_TU.items() if v["paese"] == u["paese"] and j != i])
+    stessi = ordina_uni_tu([j for j, v in UNI_TU.items() if v["paese"] == u["paese"] and j != i and j in PAG_UNI_TU])
     q_hpi = ("in|hpi visa university list", "hpi visa university list")
     q_ttps = ("in|top talent pass scheme university list", "top talent pass scheme university list")
     q_jf = ("in|j-find visa university list", "j-find visa university list")
     r_hpi = (f"Yes, on the HPI list {ANNI_HPI[-1]} (qualifications awarded from {periodo_hpi_tu(ANNI_HPI[-1])})" + (f" and on the lists {testo_anni_tu([a for a in anni if a != ANNI_HPI[-1]])}." if len(anni) > 1 else ".")
-             if in_lista_tu(i, HPI1) else (f"Not on the {ANNI_HPI[-1]} list, but on the HPI lists {testo_anni_tu(anni)}: those lists apply to qualifications awarded in their own periods "
+             if in_lista_tu(i, HPI1) else (f"Not on the {ANNI_HPI[-1]} list, but on the HPI list{'s' if len(anni) > 1 else ''} {testo_anni_tu(anni)}: {'those lists apply' if len(anni) > 1 else 'that list applies'} to qualifications awarded in their own periods "
                                             f"({'; '.join(f'{a}: {periodo_hpi_tu(a)}' for a in anni)})." if anni else
                                             f"No. It is not on any of the {len(ANNI_HPI)} HPI lists published on GOV.UK ({ANNI_HPI[0]}–{ANNI_HPI[-1]})."
                                             + (" UK universities are not eligible for the HPI." if u["paese"] == "United Kingdom" else "")))
-    r_ttps = (f"Yes. It is on the aggregate list of eligible universities in force from {data_lunga(LT['ttps_tolte_dal'])}" + (", marked as newly added." if nuova else ".")
-              + " The list counts for Categories B and C." if in_lista_tu(i, "ttps") else
-              f"No. It is not on the aggregate list of {len(LISTE_TU['ttps']['voci'])} universities in force from {data_lunga(LT['ttps_tolte_dal'])}.")
-    r_jf = ("Yes. It is on the Immigration Services Agency's list as of October 2026. The agency says the list is based on the October 2026 rankings and asks applicants to check the three latest world rankings too."
-            if in_lista_tu(i, "j-find") else
-            f"No. It is not on the list of {len(LISTE_TU['j-find']['voci'])} universities as of October 2026. The rule is the rank in the three world rankings, so the agency asks applicants to check the latest rankings too.")
-    faq = registra_faq_tu(percorso, [(q_hpi, f"Is {nome} on the HPI visa university list?", r_hpi),
-                                     (q_ttps, f"Is {nome} on the Top Talent Pass Scheme university list?", r_ttps),
-                                     (q_jf, f"Is {nome} on the J-Find visa university list?", r_jf)])
+    r_ttps = f"No. It is not on the aggregate list of {len(LISTE_TU['ttps']['voci'])} universities ({TTPS_DESC})."
+    r_jf = (f"No. It is not on the list of {len(LISTE_TU['j-find']['voci'])} universities as of October 2026. The rule is the rank in the three world rankings, so the agency asks applicants to check the latest rankings too.")
+    na = nome_art_tu(nome)
+    domande = [(q_hpi, f"Is {na} on the HPI visa university list?", r_hpi)]   # la sola risposta che cambia per tutte le pagine
+    if not in_lista_tu(i, "ttps"):
+        domande.append((q_ttps, f"Is {na} on the Top Talent Pass Scheme university list?", r_ttps))
+    if not in_lista_tu(i, "j-find"):
+        domande.append((q_jf, f"Is {na} on the J-Find visa university list?", r_jf))
+    faq = registra_faq_tu(percorso, domande)
     n_si = sum(1 for k in (HPI1, "ttps", "j-find") if in_lista_tu(i, k))
-    corpo = f"""<section class="hero"><h1>Is {escape(nome)} on the HPI, TTPS and J-Find university lists?</h1>
+    corpo = f"""<section class="hero"><h1>Is {escape(nome_art_tu(nome))} on the HPI, TTPS and J-Find university lists?</h1>
 <p class="lead">{frase_uni_tu(i)}</p></section>
 <section class="card summary" aria-label="Summary">
 <div class="s-top">{bandiera(u["paese"])}<span>{escape(nome)}</span><span>{escape(u["paese"])}</span></div>
@@ -12854,13 +12884,13 @@ def pagina_tu_uni(i):
 {AD}
 <h2>What each visa asks for</h2>
 <ul class="testo"><li><strong>UK HPI:</strong> {cita_tu("hpi_5anni")} The visa lasts {LT["hpi_durata"]} years (3 with a doctorate); fee £{LT["hpi_tassa"]} plus the healthcare surcharge.</li>
-<li><strong>Hong Kong TTPS:</strong> a bachelor's degree from a listed university in the past five years (Category C, with an annual quota, if you have less than three years of work experience; Category B with at least three years); stay of 24 months.</li>
-<li><strong>Japan J-Find:</strong> a degree from a listed university within the last {LT["jf_5anni"]} years and savings of at least ¥{LT["jf_fondi"]:,}; stay of up to {LT["jf_durata"]} years for job hunting or start-up preparation.</li></ul>
+<li><strong>Hong Kong TTPS:</strong> a bachelor's degree from a listed university. Category C: degree in the past five years and less than three years of work experience, with an annual quota. Category B: no limit on the year of the degree, but at least three years of work experience in the past five. Stay of 24 months.</li>
+<li><strong>Japan J-Find:</strong> a degree from a listed university within the last {LT["jf_5anni"]} years and savings of at least ¥{LT["jf_fondi"]:,}; you may be granted a stay of up to {LT["jf_durata"]} years for job hunting or start-up preparation.</li></ul>
 <p><a href="../../">Compare the three visas: requirements, length of stay and fees</a></p>
 <h2>Questions people ask</h2>
 <div class="testo">{faq_html(faq)}</div>
 <h2>Other universities in {escape(art(u["paese"]))}</h2>
-<p>{" · ".join(f'<a href="../{j}/">{escape(UNI_TU[j]["nome"])}</a>' for j in stessi[:30]) or f"No other university in {escape(art(u['paese']))} is on these lists."}{" · …" if len(stessi) > 30 else ""}</p>
+<p>{" · ".join(f'<a href="../{j}/">{escape(UNI_TU[j]["nome"])}</a>' for j in stessi[:30]) or f"No other university in {escape(art(u['paese']))} has its own page; all of them are in the country table."}{" · …" if len(stessi) > 30 else ""}</p>
 <p><a href="../../countries/{slug_paese_tu(u["paese"])}/">All universities in {escape(art(u["paese"]))} on the three lists</a> · <a href="../../">All {len(UNI_TU)} universities</a></p>"""
     titolo = titolo_uni_tu(nome)
     descr = (f"{nome} on the official university lists for the UK HPI visa ({ANNI_HPI[0]}–{ANNI_HPI[-1]}), Hong Kong's Top Talent Pass Scheme and Japan's J-Find, "
@@ -12883,10 +12913,12 @@ def pagina_tu_paese(p):
                 f"({fonti_brevi_tu()}, read on {letto}).")
     else:
         lead = (f"No university in {escape(P)} is on any of the three official lists: the UK's HPI lists {ANNI_HPI[0]}–{ANNI_HPI[-1]}, "
-                f"Hong Kong's Top Talent Pass Scheme list in force from {data_lunga(LT['ttps_tolte_dal'])} and Japan's J-Find list as of October 2026 "
+                f"Hong Kong's Top Talent Pass Scheme {TTPS_DESC} and Japan's J-Find list as of October 2026 "
                 f"({fonti_brevi_tu()}, read on {letto}).")
     if p == "United Kingdom":
         lead = lead[:-1] + f". UK universities are not on the HPI lists: the GOV.UK guide says {cita_tu('hpi_uk')}"
+    nota_adelaide = ('<p>Hong Kong lists both the University of Adelaide and the new Adelaide University, as written in the PDF; we keep them as two rows.</p>'
+                     if {"adelaide-university", "university-of-adelaide"} <= {i for i in ids} else "")
     c = paesi_tu()
     altri = sorted(c, key=lambda x: (-c[x], x))
     domande = []
@@ -12938,6 +12970,7 @@ def pagina_tu_paese(p):
 </div></section>
 {AVVISO_TU}
 {tab}
+{nota_adelaide}
 {fonte_tu_p([f"hpi-{a}" for a in reversed(ANNI_HPI)] + ["ttps_pdf", "jf_pdf"])}
 {AD}
 <h2>Questions people ask</h2>
@@ -12945,7 +12978,7 @@ def pagina_tu_paese(p):
 <h2>Other countries</h2>
 {link_paesi_tu("../../", p)}
 <p><a href="../../">Compare the HPI, TTPS and J-Find visas</a> · {" · ".join(f'<a href="../../{k}/">{escape(nome_lista_tu(k, True))}</a>' for k in (HPI1, "ttps", "j-find"))}</p>"""
-    descr = (f"{n} universities in {P} on the official lists: {h} on the UK HPI list {ANNI_HPI[-1]}, {t} on Hong Kong's TTPS list, {j} on Japan's J-Find list. Official sources."
+    descr = (f"{n} {'university' if n == 1 else 'universities'} in {P} on the official lists: {h} on the UK HPI list {ANNI_HPI[-1]}, {t} on Hong Kong's TTPS list, {j} on Japan's J-Find list. Official sources."
              if n else f"No university in {P} is on the UK HPI, Hong Kong TTPS or Japan J-Find lists ({ANNO}). The {len(c)} countries that are, with official sources.")
     pagina(percorso, titolo, descr, corpo, jsonld_extra=[ld_faq(faq)], briciole=[("Top university visas", SEZ_TU), (p, percorso)], ordina=True)
 
@@ -12961,7 +12994,7 @@ def pagina_tu_hpi(a):
     prec = f"hpi-{a - 1}" if f"hpi-{a - 1}" in LISTE_TU else None
     entrate = ordina_uni_tu([i for i in ids if prec and not in_lista_tu(i, prec)])
     uscite = ordina_uni_tu([x["id"] for x in LISTE_TU[prec]["voci"] if x["id"] not in ids]) if prec else []
-    righe = "".join(f'<tr><td><a href="../universities/{x["id"]}/">{escape(x["nome"])}</a></td><td>{escape(x["paese_lista"])}</td>'
+    righe = "".join(f'<tr><td>{link_uni_tu(x["id"], "../universities/", x["nome"])}</td><td>{escape(x["paese_lista"])}</td>'
                     + (cella_si_tu(in_lista_tu(x["id"], prec)) if prec else "") + f'{cella_si_tu(in_lista_tu(x["id"], "ttps"))}{cella_si_tu(in_lista_tu(x["id"], "j-find"))}</tr>'
                     for x in L["voci"])
     from collections import Counter
@@ -12972,8 +13005,8 @@ def pagina_tu_hpi(a):
     cambi = ""
     if prec:
         cambi = (f'<h2>What changed from the {a - 1} list</h2><p><strong>{len(entrate)} added:</strong> '
-                 + (", ".join(f'<a href="../universities/{i}/">{escape(UNI_TU[i]["nome"])}</a>' for i in entrate) or "none") + ". "
-                 f'<strong>{len(uscite)} not on the {a} list:</strong> ' + (", ".join(f'<a href="../universities/{i}/">{escape(UNI_TU[i]["nome"])}</a>' for i in uscite) or "none")
+                 + (", ".join(link_uni_tu(i, "../universities/") for i in entrate) or "none") + ". "
+                 f'<strong>{len(uscite)} not on the {a} list:</strong> ' + (", ".join(link_uni_tu(i, "../universities/") for i in uscite) or "none")
                  + '. Some names are written differently from one year to the next: we compare the universities, not the spelling.</p>')
     q_anno = next((("in|hpi visa university list", s) for s in TU["domanda"]["query"]["in|hpi visa university list"] if s.endswith(str(a))), None) or \
         next((("in|high potential individual visa university list", s) for s in TU["domanda"]["query"]["in|high potential individual visa university list"] if s.endswith(str(a))), None) or \
@@ -13008,7 +13041,7 @@ def pagina_tu_hpi(a):
 {cambi}
 {AD}
 <h2>Other HPI requirements</h2>
-<ul class="testo"><li>{cita_tu("hpi_5anni")}</li><li>{cita_tu("hpi_livello")}; {cita_tu("hpi_ecctis_uni")}</li>
+<ul class="testo"><li>{cita_tu("hpi_5anni")}</li><li>Your qualification must be at the same level as a UK bachelor’s degree, a UK postgraduate degree, or a UK PhD or doctorate. {cita_tu("hpi_ecctis_uni")}</li>
 <li>English at level B2 (unless exempt), and at least £{LT["hpi_fondi"]:,} in savings unless exempt. {cita_tu("hpi_offerta")}</li>
 <li>{cita_tu("hpi_durata")} {cita_tu("hpi_proroga")} {cita_tu("hpi_limite")}</li>
 <li>Fees: £{LT["hpi_tassa"]} application fee, healthcare surcharge of £{LT["hpi_ihs"]:,} a year, £{LT["hpi_ecctis"]} for Ecctis.</li></ul>
@@ -13032,11 +13065,11 @@ def pagina_tu_ttps():
     n = len(L["voci"])
     np_ = len({x["paese"] for x in L["voci"]})
     nuove = [x for x in L["voci"] if x["nuova"]]
-    righe = "".join(f'<tr><td><a href="../universities/{x["id"]}/">{escape(x["nome"])}</a>{" *" if x["nuova"] else ""}</td><td>{escape(x["paese_lista"])}</td>'
+    righe = "".join(f'<tr><td>{link_uni_tu(x["id"], "../universities/", x["nome"])}{" *" if x["nuova"] else ""}</td><td>{escape(x["paese_lista"])}</td>'
                     f'{cella_si_tu(in_lista_tu(x["id"], HPI1))}{cella_si_tu(in_lista_tu(x["id"], "j-find"))}</tr>' for x in L["voci"])
     tolte = LT["ttps_tolte"]
     pdf = FT["ttps_pdf"]
-    lead = (f"Hong Kong's Top Talent Pass Scheme (TTPS) aggregate list of eligible universities has <strong>{n}</strong> universities and institutions in {np_} countries and territories, "
+    lead = (f"Hong Kong's Top Talent Pass Scheme (TTPS) aggregate list of eligible universities, published {TTPS_DATA}, has <strong>{n}</strong> universities and institutions in {np_} countries and territories, "
             f"{len(nuove)} of them newly added, and {len(tolte)} removed from {data_lunga(LT['ttps_tolte_dal'])} (Immigration Department of Hong Kong, PDF list, read on {data_lunga(LETTO_TU)}).")
     domande = [(("in|top talent pass scheme university list", "top talent pass scheme university list"), "How many universities are on the Top Talent Pass Scheme list?",
                 f"{n} universities and institutions in {np_} countries and territories, including {len(nuove)} newly added: {escape(', '.join(x['nome'] for x in nuove))}. "
@@ -13050,7 +13083,7 @@ def pagina_tu_ttps():
     corpo = f"""<section class="hero">{h1_diviso(f"Top Talent Pass Scheme university list {ANNO}: {n} universities")}
 <p class="lead">{lead}</p></section>
 <section class="card summary" aria-label="Summary">
-<div class="s-top">{bandiera("Hong Kong")}<span>Top Talent Pass Scheme</span><span>From {data_lunga(LT["ttps_tolte_dal"])}</span></div>
+<div class="s-top">{bandiera("Hong Kong")}<span>Top Talent Pass Scheme</span><span>List of {TTPS_DATA}</span></div>
 <div class="s-body">
 <p class="cifra"><span class="c-lab">Eligible universities and institutions</span><span class="sr">: </span><strong>{n}</strong></p>
 <div class="kpi"><div><b>{len(nuove)}</b><span>newly added (*)</span></div><div><b>{len(tolte)}</b><span>removed from {data_lunga(LT["ttps_tolte_dal"])}</span></div><div><b>{conta_tu("ttps", "United States")}</b><span>in the United States</span></div><div><b>{conta_tu("ttps", "China")}</b><span>in the Chinese Mainland</span></div></div>
@@ -13061,6 +13094,7 @@ def pagina_tu_ttps():
 <h2>All {n} universities, in the order of the official list</h2>
 <p class="filtro"><label><span class="sr">Filter universities</span><input type="search" placeholder="Filter: e.g. Milano" data-filtro="t-ttps" autocomplete="off"></label></p>
 <div class="tab compatta"><table class="ord" id="t-ttps"><caption class="sr">TTPS aggregate list of eligible universities</caption><thead><tr>{th_ord("University or institution", False, "ascending")}{th_ord("Country or territory (as written)", False, "ascending")}{th_ord(f"HPI {ANNI_HPI[-1]}", False)}{th_ord("J-Find", False)}</tr></thead><tbody>{righe}</tbody></table></div>
+<p class="small">Hong Kong lists both the University of Adelaide and the new Adelaide University, as written in the PDF.</p>
 <p class="small">* {cita_tu("ttps_nuove")} The official list also gives the Chinese names of the universities in Hong Kong, the Chinese Mainland and Taiwan.</p>
 <h2>Removed from the list</h2>
 <p>{cita_tu("ttps_tolte")} {cita_tu("ttps_tolte_dal")}</p>
@@ -13068,7 +13102,7 @@ def pagina_tu_ttps():
 {AD}
 <h2>Categories and rules</h2>
 <ul class="testo"><li><strong>Category A:</strong> annual income {cita_tu("ttps_a")} in the year before the application; stay of 36 months.</li>
-<li><strong>Category B:</strong> degree graduates of the eligible universities {cita_tu("ttps_b")} over the past five years; stay of 24 months.</li>
+<li><strong>Category B:</strong> degree graduates of the eligible universities {cita_tu("ttps_b")} over the past five years: no limit on the year of the degree, the five years apply to the work experience; stay of 24 months.</li>
 <li><strong>Category C:</strong> degree graduates of the eligible universities in the past five years {cita_tu("ttps_c")}, {cita_tu("ttps_quota")}. {cita_tu("ttps_c_locali")} (who studied a full-time locally-accredited bachelor's programme in Hong Kong).</li>
 <li>{cita_tu("ttps_5anni")} The degree {cita_tu("ttps_bachelor")}. {cita_tu("ttps_verifica")}.</li>
 <li>No job offer is needed: applicants {cita_tu("ttps_offerta")}. {cita_tu("ttps_esclusi")}</li>
@@ -13092,12 +13126,12 @@ def pagina_tu_jf():
     percorso = perc_lista_tu(k)
     n = len(L["voci"])
     np_ = len({x["paese"] for x in L["voci"]})
-    righe = "".join(f'<tr><td><a href="../universities/{x["id"]}/">{escape(x["nome"])}</a></td><td lang="ja">{escape(x["nome_ja"])}</td><td>{escape(x["paese"])}</td>'
+    righe = "".join(f'<tr><td>{link_uni_tu(x["id"], "../universities/", x["nome"])}</td><td lang="ja">{escape(x["nome_ja"])}</td><td>{escape(x["paese"])}</td>'
                     f'{cella_si_tu(in_lista_tu(x["id"], HPI1))}{cella_si_tu(in_lista_tu(x["id"], "ttps"))}</tr>' for x in L["voci"])
     from collections import Counter
     cp = Counter(x["paese"] for x in L["voci"]).most_common()
     lead = (f"Japan's J-Find list has <strong>{n}</strong> universities in {np_} countries and territories, as of October 2026; graduates of these universities in the last {LT['jf_5anni']} years "
-            f"with savings of at least ¥{LT['jf_fondi']:,} can stay up to {LT['jf_durata']} years to look for work or prepare a start-up (Immigration Services Agency of Japan, read on {data_lunga(LETTO_TU)}).")
+            f"with savings of at least ¥{LT['jf_fondi']:,} may be granted a stay of up to {LT['jf_durata']} years to look for work or prepare a start-up (Immigration Services Agency of Japan, read on {data_lunga(LETTO_TU)}).")
     domande = [(("in|j-find visa university list", "j-find visa university list 2026"), "Which universities are on the J-Find visa university list 2026?",
                 f"{n} universities as of October 2026: " + ", ".join(f"{c} in {art(p)}" for p, c in cp[:5]) + f", and {sum(c for _, c in cp[5:])} in other countries. "
                 f"No university in India, Africa or Latin America is on it."),
@@ -13125,9 +13159,9 @@ def pagina_tu_jf():
 <p>No university in {", ".join(escape(x) for x in assenti[:-1])} or {escape(assenti[-1])} is on the list.</p>
 {AD}
 <h2>J-Find requirements</h2>
-<ul class="testo"><li>A degree from a listed university (or a degree after a graduate course there): {cita_tu("jf_en_classifiche")} top 100 of two of the three rankings.</li>
+<ul class="testo"><li>A degree from a listed university (or a degree after a graduate course there): a university in the top 100 of at least two of the three rankings. In Japanese: {cita_ja_tu("jf_classifiche")}.</li>
 <li>{cita_tu("jf_en_5anni")}: {cita_ja_tu("jf_5anni")}.</li>
-<li>{cita_tu("jf_en_fondi")} expenses at the beginning of stay: {cita_ja_tu("jf_fondi")}.</li>
+<li>At least ¥{LT["jf_fondi"]:,} in savings for living expenses at the beginning of the stay: {cita_ja_tu("jf_fondi")}.</li>
 <li>{cita_tu("jf_en_durata")}: {cita_ja_tu("jf_durata")}. The activities are job hunting and {cita_tu("jf_en_attivita")}.</li>
 <li>The J-Find page does not list a fee or a processing time.</li></ul>
 {fonte_tu_p(["jf_pagina", "jf_outline"])}
@@ -13150,7 +13184,7 @@ def frase_hpi_jf_tu():
     if not h <= j or paesi_extra != {"United Kingdom"}:
         return ""
     return (f'<p>Every university on the HPI list {ANNI_HPI[-1]} ({len(h)}) is also on the J-Find list; the other {len(extra)} J-Find universities are all in the United Kingdom, '
-            f'which the HPI leaves out: {", ".join(f"<a href=\"universities/{i}/\">{escape(UNI_TU[i]["nome"])}</a>" for i in ordina_uni_tu(extra))}.</p>')
+            f'which the HPI leaves out: {", ".join(link_uni_tu(i, "universities/") for i in ordina_uni_tu(extra))}.</p>')
 
 
 def pagina_tu_indice():
@@ -13160,7 +13194,7 @@ def pagina_tu_indice():
     c = paesi_tu()
     n = {k: len(LISTE_TU[k]["voci"]) for k in (HPI1, "ttps", "j-find")}
     lead = (f"<strong>{len(UNI_TU)}</strong> universities are on at least one of three official lists: {n[HPI1]} on the UK's High Potential Individual (HPI) list {ANNI_HPI[-1]}, for qualifications "
-            f"awarded from {periodo_hpi_tu(ANNI_HPI[-1])}; {n['ttps']} on Hong Kong's Top Talent Pass Scheme (TTPS) list, in force from {data_lunga(LT['ttps_tolte_dal'])}; and {n['j-find']} on Japan's J-Find list "
+            f"awarded from {periodo_hpi_tu(ANNI_HPI[-1])}; {n['ttps']} on Hong Kong's Top Talent Pass Scheme (TTPS) {TTPS_DESC}; and {n['j-find']} on Japan's J-Find list "
             f"as of October 2026. {len(tre)} are on all three ({fonti_brevi_tu()}, read on {data_lunga(LETTO_TU)}).")
     domande = [(("in|hpi visa university list", "hpi visa university list"), "What is the HPI visa university list?",
                 f"The list of universities outside the UK whose graduates can apply for the UK's High Potential Individual visa. GOV.UK publishes one list a year, each for qualifications awarded "
@@ -13170,7 +13204,7 @@ def pagina_tu_indice():
                 f"UK universities are not on the list, and you cannot apply if you have already had a Graduate visa. You can only apply once."),
                faq_costo_hpi_tu(),
                (("us|top talent pass scheme university list", "hong kong top talent pass scheme university list"), "How many universities are on Hong Kong's Top Talent Pass Scheme list?",
-                f"{n['ttps']} universities and institutions on the aggregate list in force from {data_lunga(LT['ttps_tolte_dal'])}, including {sum(1 for x in LISTE_TU['ttps']['voci'] if x['nuova'])} newly added."),
+                f"{n['ttps']} universities and institutions on the aggregate {TTPS_DESC}, including {sum(1 for x in LISTE_TU['ttps']['voci'] if x['nuova'])} newly added."),
                faq_costo_ttps_tu(),
                faq_requisiti_jf_tu()]
     faq = registra_faq_tu(percorso, domande)
@@ -13214,7 +13248,7 @@ def genera_tu():
         pagina_tu_hpi(a)
     pagina_tu_ttps()
     pagina_tu_jf()
-    for i in UNI_TU:
+    for i in PAG_UNI_TU:
         pagina_tu_uni(i)
     for p in sorted(paesi_tu()) + PAESI_ZERO_TU:
         pagina_tu_paese(p)
@@ -13271,7 +13305,7 @@ def main():
           f"sezioni es/pt (entrar a Europa): {2 * (5 + len(PAGINE_STATO_EE))} pagine, importi della tabella del {DATA_RIF_EE}; "
           f"visti di lunga durata per nazionalità (es/pt): {2 + len(pagine_vl())} pagine, cambi del {C_VL['data']}; "
           f"infermieri formati all'estero: {5 + len(PAG_INF)} pagine (NMC al {NMC_D[-1]}, Irlanda {IE_A1}); UK Ancestry visa: 1 pagina ({ANC_TRIM[0]}–{ANC_TRIM[-1]}); "
-          f"liste delle università per i visti dei laureati (HPI {ANNI_HPI[0]}–{ANNI_HPI[-1]}, TTPS, J-Find): {len(UNI_TU)} università, {3 + len(ANNI_HPI) + len(UNI_TU) + len(paesi_tu()) + len(PAESI_ZERO_TU)} pagine.")
+          f"liste delle università per i visti dei laureati (HPI {ANNI_HPI[0]}–{ANNI_HPI[-1]}, TTPS, J-Find): {len(UNI_TU)} università, {3 + len(ANNI_HPI) + len(PAG_UNI_TU) + len(paesi_tu()) + len(PAESI_ZERO_TU)} pagine ({len(PAG_UNI_TU)} università con pagina).")
 
 
 if __name__ == "__main__":
