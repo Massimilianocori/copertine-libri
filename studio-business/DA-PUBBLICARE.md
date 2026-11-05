@@ -4,11 +4,11 @@ Sezioni già revisionate, con i sorgenti salvati, che aspettano la pubblicazione
 
 | Sito (cartella) | Sezione | Revisione | Note |
 |---|---|---|---|
-| touristtax | Santiago de Compostela (`/santiago-de-compostela/`) e Napoli (`/naples/`), 9 correzioni del revisore applicate (commit 9ee192b) | 4/11/2026, pubblicabile | Tourist Tax già pubblicato il 4/11: pubblicare il 5/11 |
-| visaincome | Visti lunghi es/pt per nazionalità (`/es/visados/`, `/pt/vistos/`, 40 pagine), 10 correzioni del revisore applicate (commit 3e8ae56; lo script richiede LibreOffice `soffice` per il .xls di Bogotá) | 4/11/2026, pubblicabile | Visa Income già pubblicato il 4/11: pubblicare il 5/11 |
 | beforeyoufly (prossimo giro) | Amsterdam: la pagina GVB ora si apre (multa 70 € + tariffa), da aggiungere ai mezzi pubblici | da fare | segnalato dal revisore del 31/10 |
 
 Pubblicato il 31/10/2026 alle 14:20 circa (ora di Roma): Visa Income, Before You Fly, EsameB1 (tutte le sezioni revisionate del giorno). Esperimento citazioni: conteggio dal 1/11/2026.
+
+Pubblicato il 5/11/2026 alle 2:30 circa: Visa Income (visti lunghi es/pt, 40 pagine) e Tourist Tax (Santiago de Compostela, Napoli).
 
 Pubblicato il 1/11/2026 alle 00:15 circa: Visa Income (cerimonie australiane, es/pt) e Before You Fly (animali, Croazia, India, biglietti Giappone/USA, scooter). Tourist Tax: Niseko 3% già online.
 
