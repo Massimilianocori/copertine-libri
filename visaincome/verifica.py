@@ -104,6 +104,14 @@ Uso (dalla radice del repository, dopo python3 visaincome/genera.py):
     conversioni BCE, Ancestry per nazionalità e per anno) = ricalcolo indipendente; grado del codice e lista OMS 2023 (55 Paesi, Kenya assente);
     lista OMS 2026 dichiarata non pubblicata e nessuna cifra della lista provvisoria; nessun "£1,170"; ogni citazione = frammento ufficiale; ogni
     domanda della FAQ legata a un suggerimento salvato dell'autocompletamento; link da home, How it works e /visa-refusal-rates/uk/; piè di pagina invariato.
+30. Liste delle università per i visti dei laureati (/top-university-visas/, 5/11/2026, dati/top_university.json): impronta del JSON, fonti lette
+    (HTTP 200, SHA-256, data); righe delle liste HPI 2021-2026 = tabelle GOV.UK rilette con un lettore proprio, righe TTPS = PDF riletto con
+    pdftotext -raw (stesso numero, stesso ordine, asterischi delle nuove), nomi giapponesi J-Find presenti nel PDF; frammenti trovati nei file grezzi;
+    valori numerici scritti nei frammenti; università = righe delle liste; pagine attese (indice, 6 HPI, TTPS, J-Find, una per università, una
+    per Paese + India e Nigeria) in sitemap e nessuna in più, titoli ≤ 70 con l'anno, canonical, FAQPage, BreadcrumbList, avviso, nessuna
+    promessa né affiliazione; prima frase con risposta, fonte e data; tabelle ricalcolate (liste per università, righe delle liste, entrate e uscite
+    HPI, conteggi per Paese, confronto dei visti); citazioni = frammenti; FAQ da ricerche salvate; link da home e How it works; piè di pagina e
+    pagine di controllo dell'esperimento senza la sezione.
 Il controllo 8 comprende dal 28/10/2026 anche i visti UK di famiglia e del partner (coniuge).
 Monetizzazione (30/10/2026, controllo comune di studio-business/strumenti/monetizzazione.py): i link di affiliazione sono
 ammessi solo verso i domini di monetizzazione.json, con rel="sponsored noopener" e la riga di trasparenza nella pagina;
@@ -3771,6 +3779,287 @@ def controlla_infermieri():
     return errori, len(pagine), note
 
 
+def _norm30(t):
+    return re.sub(r"\s+", " ", html.unescape(re.sub(r"<script.*?</script>|<style.*?</style>", " ", t, flags=re.S)).replace("\xa0", " ")).strip()
+
+
+def _testo_html30(b):
+    t = b.decode("utf-8", "replace") if isinstance(b, bytes) else b
+    return _norm30(re.sub(r"<[^>]+>", " ", re.sub(r"<script.*?</script>|<style.*?</style>", " ", t, flags=re.S)))
+
+
+def _hpi30(body):
+    """Lettore proprio delle tabelle GOV.UK: righe (università, Paese) con HTMLParser."""
+    class P(HTMLParser):
+        def __init__(self):
+            super().__init__()
+            self.righe, self.cella, self.riga, self.in_td, self.in_body = [], [], None, False, False
+
+        def handle_starttag(self, tag, a):
+            if tag == "tbody":
+                self.in_body = True
+            elif tag == "tr" and self.in_body:
+                self.riga = []
+            elif tag == "td" and self.riga is not None:
+                self.in_td, self.cella = True, []
+
+        def handle_endtag(self, tag):
+            if tag == "td" and self.in_td:
+                self.riga.append(re.sub(r"\s+", " ", "".join(self.cella)).strip())
+                self.in_td = False
+            elif tag == "tr" and self.riga is not None:
+                self.righe.append(tuple(self.riga))
+                self.riga = None
+
+        def handle_data(self, d):
+            if self.in_td:
+                self.cella.append(d)
+    p = P()
+    p.feed(body)
+    return p.righe
+
+
+def controlla_tu():
+    import hashlib
+    errori = []
+    note = []
+    T = json.loads((SITO.parent / "dati" / "top_university.json").read_text(encoding="utf-8"))
+    cont = {k: T[k] for k in ("letture", "fonti", "liste", "universita")}
+    if hashlib.sha256(json.dumps(cont, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:20] != T["impronta"]:
+        errori.append("30: impronta del JSON diversa dal contenuto")
+    for k, f in T["fonti"].items():
+        if f.get("http") != 200 or not re.fullmatch(r"[0-9a-f]{64}", f.get("sha256_file", "")) or f.get("letto_il") != T["letto_il"]:
+            errori.append(f"30: fonte {k} senza HTTP 200, impronta o data di lettura")
+    L, U = T["liste"], T["universita"]
+    LT = {k: v["valore"] for k, v in T["letture"].items()}
+    anni = sorted(int(k[4:]) for k in L if k.startswith("hpi-"))
+    if anni != list(range(2021, 2027)) or set(L) != {f"hpi-{a}" for a in anni} | {"ttps", "j-find"}:
+        errori.append(f"30: liste inattese {sorted(L)}")
+    # 1. ricalcolo indipendente dai file grezzi, se ci sono (stessa impronta)
+    gr = SITO.parent / "raccolta" / "_grezzi" / "top_university"
+    grezzi_ok = 0
+    for a in anni:
+        f = gr / f"hpi-{a}.json"
+        if f.exists() and hashlib.sha256(f.read_bytes()).hexdigest() == T["fonti"][f"hpi-{a}"]["sha256_file"]:
+            grezzi_ok += 1
+            body = json.loads(f.read_bytes())["details"]["body"]
+            righe = [(html.unescape(x), html.unescape(c)) for x, c in _hpi30(body)]
+            if righe != [(x["nome"], x["paese_lista"]) for x in L[f"hpi-{a}"]["voci"]]:
+                errori.append(f"30 HPI {a}: righe del JSON diverse dalla tabella GOV.UK")
+            if f"between 1 November {a} " not in _testo_html30(body) or f"31 October {a + 1}" not in _testo_html30(body):
+                errori.append(f"30 HPI {a}: periodo dei titoli non trovato nella pagina")
+    f = gr / "aggregate_list.pdf"
+    if f.exists() and hashlib.sha256(f.read_bytes()).hexdigest() == T["fonti"]["ttps_pdf"]["sha256_file"]:
+        grezzi_ok += 1
+        t = subprocess.run(["pdftotext", "-raw", str(f), "-"], capture_output=True, text=True).stdout
+        paesi_cn = ("阿根廷|澳洲|奧地利|比利時|巴西|加拿大|智利|中國內地|丹麥|芬蘭|法國|德國|香港|愛爾蘭|以色列|意大利|日本|馬來西亞|墨西哥|荷蘭|紐西蘭|挪威|俄羅斯|沙特阿拉伯|"
+                    "新加坡|韓國|西班牙|瑞典|瑞士|台灣|英國|美國")
+        righe = [r for r in t.split("\n") if re.search(r"(?:" + paesi_cn + r")\s*$", r) and not re.search(r"國家|Country", r)]
+        if len(righe) != len(L["ttps"]["voci"]):
+            errori.append(f"30 TTPS: {len(righe)} righe con il Paese nel PDF (lettura -raw), {len(L['ttps']['voci'])} nel JSON")
+        for x, r in zip(L["ttps"]["voci"], righe):
+            if not r.startswith(x["nome_lista"].split(" / ")[0]):
+                errori.append(f"30 TTPS: riga {r[:60]!r} diversa da {x['nome_lista'][:60]!r}")
+                break
+        if sum(1 for x in L["ttps"]["voci"] if x["nuova"]) != t.count("*") - 2:   # due asterischi nella nota in cinese e in inglese
+            errori.append("30 TTPS: numero di università nuove (*) diverso dal PDF")
+    f = gr / "jfind.pdf"
+    if f.exists() and hashlib.sha256(f.read_bytes()).hexdigest() == T["fonti"]["jf_pdf"]["sha256_file"]:
+        grezzi_ok += 1
+        t = re.sub(r"\s+", "", subprocess.run(["pdftotext", "-raw", str(f), "-"], capture_output=True, text=True).stdout)
+        for x in L["j-find"]["voci"]:
+            if re.sub(r"\s+", "", x["nome_ja"]) not in t:
+                errori.append(f"30 J-Find: nome giapponese {x['nome_ja']!r} non trovato nel PDF")
+        if len({x["nome_ja"] for x in L["j-find"]["voci"]}) != len(L["j-find"]["voci"]):
+            errori.append("30 J-Find: nomi giapponesi doppi")
+    for k, f_ in (("hpi_guida", "hpi-guida.json"), ("ttps_pagina", "ttps_pagina.html"), ("ttps_tariffe", "ttps_tariffe.html"), ("jf_pagina", "jfind.html")):
+        f = gr / f_
+        if f.exists() and hashlib.sha256(f.read_bytes()).hexdigest() == T["fonti"][k]["sha256_file"]:
+            grezzi_ok += 1
+            b = f.read_bytes()
+            testo = (" ".join(f'{x["title"]}. {_testo_html30(x["body"])}' for x in json.loads(b)["details"]["parts"]) if f_.endswith(".json") else _testo_html30(b))
+            for c, v in T["letture"].items():
+                if v["fonte"] == k and v["frammento"] not in testo:
+                    errori.append(f"30: frammento {c} non trovato nel file grezzo {f_}")
+    if grezzi_ok < 12:
+        note.append(f"file grezzi presenti e uguali all'impronta: {grezzi_ok} su 12 (ricalcolo parziale)")
+    # ogni valore numerico delle letture è scritto nel frammento
+    for c, v in T["letture"].items():
+        x = v["valore"]
+        if isinstance(x, int) and not isinstance(x, bool) and x > 9:
+            forme = {str(x), f"{x:,}", f"{x / 1e6:g} million", f"{x:,}".replace(",", "")}
+            if c.startswith("jf_") and x == 200000:
+                forme |= {"２０万円", "200,000 yen"}
+            if not any(fm in v["frammento"] for fm in forme):
+                errori.append(f"30: valore {x} di {c} non scritto nel frammento")
+    # 2. università: ogni riga ha la sua università e viceversa; Paesi; India e Nigeria assenti
+    ids = {x["id"] for l in L.values() for x in l["voci"]}
+    if ids != set(U):
+        errori.append(f"30: università del JSON diverse dalle righe delle liste ({len(ids)} contro {len(U)})")
+    for i, u in U.items():
+        attese = {k: x["nome"] for k, l in L.items() for x in l["voci"] if x["id"] == i}
+        if u["liste"] != attese:
+            errori.append(f"30: {i}: liste {sorted(u['liste'])} diverse da {sorted(attese)}")
+    if any(u["paese"] in ("India", "Nigeria") for u in U.values()):
+        errori.append("30: università in India o Nigeria: le pagine dei Paesi senza università non valgono più")
+    if L["hpi-2026"]["dal"] != "2026-11-01" or L["hpi-2026"]["al"] != "2027-10-31":
+        errori.append("30: la lista HPI 2026 non è per i titoli dal 1/11/2026 al 31/10/2027")
+    # 3. pagine attese, sitemap, titoli, JSON-LD, avviso, niente affiliazioni
+    sez = G.SEZ_TU
+    paesi = sorted({u["paese"] for u in U.values()}) + ["India", "Nigeria"]
+    attese = {""} | {f"hpi-{a}" for a in anni} | {"ttps", "j-find"} | {f"universities/{i}" for i in U} | {f"countries/{G.slug_testo(p)}" for p in paesi}
+    cart = SITO / sez.rstrip("/")
+    trovate = {f.parent.relative_to(cart).as_posix().replace(".", "") for f in cart.rglob("index.html")}
+    if trovate != attese:
+        errori.append(f"30: pagine diverse da quelle attese (in più {sorted(trovate - attese)[:5]}, mancanti {sorted(attese - trovate)[:5]})")
+    sitemap = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    letto = G.data_lunga(T["letto_il"])
+    pagine = {}
+    for s in sorted(attese & trovate):
+        percorso = f"{sez}{s + '/' if s else ''}"
+        t = (SITO / percorso / "index.html").read_text(encoding="utf-8")
+        main = t.split('<main id="main">', 1)[1].split("</main>", 1)[0]
+        if f"<loc>{G.URL_SITO}/{percorso}</loc>" not in sitemap:
+            errori.append(f"30: {percorso} non in sitemap")
+        titolo = html.unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+        if len(titolo) > 70 or not re.search(r"\b20\d\d\b", titolo):
+            errori.append(f"30: titolo oltre 70 caratteri o senza anno in {percorso} ({titolo!r})")
+        for x in ("FAQPage", "BreadcrumbList", f'<link rel="canonical" href="{G.URL_SITO}/{percorso}">', "Not immigration or legal advice.</strong>"):
+            if x not in t:
+                errori.append(f"30: manca {x!r} in {percorso}")
+        if re.search(r'rel="[^"]*sponsored', main) or "Affiliate" in main or "wise.com" in main:
+            errori.append(f"30: link di affiliazione in {percorso} (nessun riquadro previsto: Wise non ha un link attivo)")
+        for x in ("guarantee", "you will get", "you qualify", "you are eligible"):
+            if x in main.lower():
+                errori.append(f"30: promessa ({x!r}) in {percorso}")
+        lead = _testo29(re.search(r'<p class="lead">(.*?)</p>', main, re.S).group(1))
+        if f"read on {letto}" not in lead or not any(x in lead for x in ("GOV.UK", "Immigration")):
+            errori.append(f"30: prima frase senza fonte o data di lettura in {percorso}")
+        pagine[s] = (t, main, lead, percorso, titolo)
+    # 4. pagine delle università: risposta nella prima frase e tabella ricalcolate
+    ordine = [f"hpi-{a}" for a in reversed(anni)] + ["ttps", "j-find"]
+    for i, u in U.items():
+        s = f"universities/{i}"
+        if s not in pagine:
+            continue
+        t, main, lead, perc, titolo = pagine[s]
+        if not lead.startswith(f"Yes: {u['nome']} ({u['paese']}) is on "):
+            errori.append(f"30 {i}: la prima frase non comincia con la risposta")
+        su = {"hpi-2026": "High Potential Individual (HPI) list 2026", "ttps": "Top Talent Pass Scheme (TTPS) list in force from 1 January 2026", "j-find": "J-Find list as of October 2026"}
+        for k, frase in su.items():
+            if (k in u["liste"]) != (frase in lead):
+                errori.append(f"30 {i}: prima frase sbagliata per {k}")
+        if "hpi-2026" not in u["liste"] and not any(f"hpi-{a}" in u["liste"] for a in anni) and "not on any UK HPI list (2021–2026)" not in lead:
+            errori.append(f"30 {i}: manca 'not on any UK HPI list' nella prima frase")
+        righe = _righe29(main, "t-uni-tu")
+        att = []
+        for k in ordine:
+            if k.startswith("hpi-"):
+                va = f"qualifications awarded from {G.data_lunga(L[k]['dal'])} to {G.data_lunga(L[k]['al'])}"
+                nl = f"HPI list {k[4:]}"
+            else:
+                va = "in force from 1 January 2026" if k == "ttps" else "as of October 2026"
+                nl = "TTPS list" if k == "ttps" else "J-Find list"
+            att.append([nl, va, "Yes" if k in u["liste"] else "No", u["liste"].get(k, "–")])
+        if righe != att:
+            errori.append(f"30 {i}: tabella delle liste diversa dal ricalcolo")
+        if u["paese"] == "United Kingdom" and "UK universities are not eligible." not in main:
+            errori.append(f"30 {i}: manca la regola delle università britanniche")
+    # 5. pagine delle liste: righe = liste ufficiali, nell'ordine
+    for k, id_tab in [(f"hpi-{a}", "t-hpi") for a in anni] + [("ttps", "t-ttps"), ("j-find", "t-jf")]:
+        if k not in pagine:
+            continue
+        t, main, lead, perc, titolo = pagine[k]
+        righe = _righe29(main, id_tab)
+        voci = L[k]["voci"]
+        if righe is None or len(righe) != len(voci):
+            errori.append(f"30 {k}: {len(righe or [])} righe in tabella, {len(voci)} nella lista")
+            continue
+        for r, x in zip(righe, voci):
+            nome = x["nome"] + (" *" if x.get("nuova") else "")
+            att_r = [nome, x["nome_ja"], x["paese"]] if k == "j-find" else [nome, x["paese_lista"]]
+            if r[:len(att_r)] != att_r:
+                errori.append(f"30 {k}: riga {r[:3]} diversa dalla lista {att_r}")
+                break
+        if f"<strong>{len(voci)}</strong>" not in main or str(len(voci)) not in titolo:
+            errori.append(f"30 {k}: numero di università assente dalla prima frase o dal titolo")
+        if k.startswith("hpi-"):
+            a = int(k[4:])
+            if f"{G.data_lunga(L[k]['dal'])} to {G.data_lunga(L[k]['al'])}" not in lead:
+                errori.append(f"30 {k}: periodo dei titoli assente dalla prima frase")
+            if f"hpi-{a - 1}" in L:
+                prima = {x["id"] for x in L[f"hpi-{a - 1}"]["voci"]}
+                ora = {x["id"] for x in voci}
+                if f"{len(ora - prima)} added:" not in _testo29(main) or f"{len(prima - ora)} not on the {a} list:" not in _testo29(main):
+                    errori.append(f"30 {k}: università entrate e uscite diverse dal ricalcolo")
+    # 6. indice e Paesi: conteggi e confronto dei visti
+    if "" in pagine:
+        t, main, lead, perc, titolo = pagine[""]
+        tre = sum(1 for u in U.values() if all(k in u["liste"] for k in ("hpi-2026", "ttps", "j-find")))
+        for x in (f"{len(U)} universities", f"{len(L['hpi-2026']['voci'])} on the UK's", f"{len(L['ttps']['voci'])} on Hong Kong's", f"{len(L['j-find']['voci'])} on Japan's", f"{tre} are on all three"):
+            if x not in lead:
+                errori.append(f"30 indice: prima frase senza {x!r}")
+        if len(_righe29(main, "t-tu") or []) != len(U):
+            errori.append("30 indice: la tabella delle università non ha tutte le università")
+        h26 = {x["id"] for x in L["hpi-2026"]["voci"]}
+        jf = {x["id"] for x in L["j-find"]["voci"]}
+        if h26 <= jf and {U[i]["paese"] for i in jf - h26} == {"United Kingdom"}:
+            if f"Every university on the HPI list 2026 ({len(h26)}) is also on the J-Find list; the other {len(jf - h26)} J-Find universities are all in the United Kingdom" not in _testo29(main):
+                errori.append("30 indice: frase sul confronto HPI 2026 / J-Find assente o con numeri diversi")
+        elif "is also on the J-Find list; the other" in main:
+            errori.append("30 indice: frase sul confronto HPI 2026 / J-Find non più vera")
+        conf = _testo29(re.search(r'<table id="t-confronto".*?</table>', main, re.S).group(0))
+        for x in (f"£{LT['hpi_tassa']}", f"£{LT['hpi_ihs']:,}", f"£{LT['hpi_ecctis']}", f"£{LT['hpi_fondi']:,}", f"HK${LT['ttps_tassa_domanda']}", f"HK${LT['ttps_tassa_visto']:,}",
+                  f"¥{LT['jf_fondi']:,}", "36 months", "24 months", f"Up to {LT['jf_durata']} years", "does not list a fee"):
+            if x not in conf:
+                errori.append(f"30 indice: confronto senza {x!r}")
+    for p in paesi:
+        s = f"countries/{G.slug_testo(p)}"
+        if s not in pagine:
+            continue
+        t, main, lead, perc, titolo = pagine[s]
+        ids_p = [i for i, u in U.items() if u["paese"] == p]
+        if ids_p:
+            h = sum(1 for i in ids_p if "hpi-2026" in U[i]["liste"])
+            tt = sum(1 for i in ids_p if "ttps" in U[i]["liste"])
+            j = sum(1 for i in ids_p if "j-find" in U[i]["liste"])
+            if not re.search(rf"^{len(ids_p)} universit(y|ies) in ", lead) or f"{h} on the UK's HPI list" not in lead or f"{tt} on Hong Kong's" not in lead or f"{j} on Japan's" not in lead:
+                errori.append(f"30 {s}: conteggi della prima frase diversi dal ricalcolo")
+            if len(_righe29(main, "t-tu") or []) != len(ids_p):
+                errori.append(f"30 {s}: righe della tabella diverse dalle università del Paese")
+        elif not lead.startswith(f"No university in {p} is on any of the three official lists"):
+            errori.append(f"30 {s}: la prima frase non dice che non ci sono università")
+    # 7. citazioni = frammenti ufficiali (o frase della lista HPI); FAQ da ricerche vere
+    orig = G.pagina
+    G.pagina = lambda *a, **k: None
+    try:
+        G.FAQ_TU.clear()
+        G.genera_tu()
+    finally:
+        G.pagina = orig
+    frammenti = [v["frammento"] for v in T["letture"].values()] + [l["frase"] for l in L.values() if "frase" in l]
+    dom = T["domanda"]["query"]
+    for s, (t, main, lead, perc, titolo) in pagine.items():
+        for q in re.findall(r"“([^”]+)”", html.unescape(main)):
+            q = q.rstrip(".").strip()
+            if not any(q in f for f in frammenti):
+                errori.append(f"30 {perc}: citazione non presente nei frammenti ufficiali: {q[:80]!r}")
+        faq = G.FAQ_TU.get(perc, [])
+        h3 = re.findall(r"<h3>(.*?)</h3>", main.split("Questions people ask", 1)[-1])
+        if not faq or [html.unescape(x) for x in h3] != [d for _, _, d in faq]:
+            errori.append(f"30 {perc}: domande della FAQ diverse da quelle legate a ricerche dell'autocompletamento")
+        for k, sug, d in faq:
+            if sug not in (dom.get(k) or []):
+                errori.append(f"30 {perc}: la domanda {d!r} non viene da una ricerca salvata ({k} -> {sug!r})")
+    # 8. collegamenti dal resto del sito; piè di pagina comune invariato (vincolo dell'esperimento A/B)
+    for f, x in (("index.html", f'href="{sez}"'), ("how-it-works/index.html", f'href="../{sez}"')):
+        if x not in leggi(f):
+            errori.append(f"30: manca il link {x} in {f}")
+    if "top-university" in G.piede_en("") or any("top-university" in leggi(f"visa-refusal-rates/{c}/index.html") for c in G.ESP.get("controllo", [])):
+        errori.append("30: il piè di pagina comune o una pagina di controllo dell'esperimento è cambiata")
+    return errori, len(pagine), note
+
+
 def main():
     errori = controlla_esempi()
     print(f"1. Esempi a mano: {len(ESEMPI)} importi e {len(ESITI)} confronti con il reddito, {len(errori)} errori")
@@ -3854,7 +4143,12 @@ def main():
           f"Health and Care Worker, lista rossa, costi NMC e cambi, Ancestry per nazionalità e per anno), citazioni = frammenti, FAQ da ricerche vere, link, piè di pagina: {len(e29)} errori")
     for x in r29:
         print("    ·", x)
-    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28 + e29
+    e30, n30, r30 = controlla_tu()
+    print(f"30. Liste delle università per i visti dei laureati (HPI, TTPS, J-Find): {n30} pagine, impronte e fonti, righe = liste ufficiali (lettore proprio sui file grezzi), "
+          f"frammenti, università e Paesi, prima frase con risposta, fonte e data, tabelle ricalcolate, confronto dei visti, citazioni, FAQ da ricerche vere, nessun affiliato, link, piè di pagina: {len(e30)} errori")
+    for x in r30:
+        print("    ·", x)
+    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28 + e29 + e30
     for e in tutti:
         print(" -", e)
     if tutti:
