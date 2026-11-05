@@ -5,7 +5,7 @@ Sezioni già revisionate, con i sorgenti salvati, che aspettano la pubblicazione
 | Sito (cartella) | Sezione | Revisione | Note |
 |---|---|---|---|
 | esameb1 | Decreto flussi 2027, date dei click day (`/decreto-flussi-click-day/`), 11 correzioni del revisore applicate (commit dcbe06f; anche il selettore di lingua corretto su tutte le pagine senza traduzione) | 4-5/11/2026, pubblicabile | EsameB1 non ancora pubblicato il 5/11: va nella pubblicazione serale del 5/11 |
-| beforeyoufly | Blue Badge abroad (`/blue-badge-abroad/`, 25 pagine) e Amsterdam nei mezzi pubblici, 14 correzioni del revisore applicate (commit dd0c8d1); con i dati dei passaporti australiani del 4/11 | 5/11/2026, pubblicabile | Before You Fly non ancora pubblicato il 5/11: va nella pubblicazione serale del 5/11 |
+| beforeyoufly | Blue Badge abroad (`/blue-badge-abroad/`, 25 pagine) e Amsterdam nei mezzi pubblici, 14 correzioni del revisore applicate (commit dd0c8d1); con i dati dei passaporti australiani del 4/11 | 5/11/2026, pubblicabile | Before You Fly non ancora pubblicato il 5/11: va nella pubblicazione serale del 5/11. ATTENZIONE: dal 5/11 alle 3 un costruttore aggiunge aeroporti ai liquidi e riquadri DiscoverCars/Stay22 nella stessa cartella; si pubblica solo se anche quella aggiunta ha passato il revisore indipendente, altrimenti Before You Fly slitta al giorno dopo |
 
 Pubblicato il 31/10/2026 alle 14:20 circa (ora di Roma): Visa Income, Before You Fly, EsameB1 (tutte le sezioni revisionate del giorno). Esperimento citazioni: conteggio dal 1/11/2026.
 
