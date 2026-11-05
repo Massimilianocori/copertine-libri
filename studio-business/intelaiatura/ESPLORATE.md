@@ -834,3 +834,16 @@ Nessuna idea nuova arriva a 7: il fronte era già quasi tutto valutato. L'unico 
 | Canone concordato per Comune e Comuni ad alta tensione abitativa (IT) | RISERVA (5): domanda forte per città, ma nessun archivio unico (mit.gov.it 000, Milano 403), Confedilizia ha già archivio ed elenco; nessun pagatore | fronti-2026-11-05-affitti-proprietari |
 | Aumento massimo dell'affitto per giurisdizione USA (riserva del 31/10) | **Fatto nuovo**: Oregon 2027 = 10 %; pagatori letti (TurboTenant 40 $ + 5 $, RentRedi 20 %); voto 6 invariato, sezione di FloodCost | fronti-2026-11-05-affitti-proprietari |
 | Registrazione degli affitti per città USA; aumento NYC del Rent Guidelines Board; tribunali degli affitti in Canada (fonti 404); aumento massimo NL 2026; regole e cauzioni per Stato in Australia | NO (3-4,5) | fronti-2026-11-05-affitti-proprietari |
+
+## Ricerca a rotazione Stati Uniti e Canada: cloni di EsameB1 e di Visa Income (5/11/2026)
+
+Nessuna idea a 8. Le due costruibili subito sono sezioni a costo zero: Visa Income H-1B (7) e Tourist Tax USA/Canada (6,5). Lezione: i passaggi obbligatori per Stato (corsi per lavorare, matrimoni, licenze) hanno già in prima pagina chi vende il corso o siti `pages.dev`; restano liberi i numeri ufficiali nati da regole del 2026. Prove in `idee-2026-11-05-usa-canada.md`.
+| Nicchia | Esito | Studio |
+|---|---|---|
+| **Livello salariale H-1B per occupazione × area + probabilità nella lotteria pesata** (OFLC 2026-27 zip 200, ALC_Export 449.441 righe; regola del 29/12/2025 in vigore dal 27/2/2026; "h1b wage level" 10, "h1b lottery odds" 10; nessuna pagina occupazione × area in Google) | **SEZIONE da costruire** in Visa Income entro metà gennaio 2027 (voto 7; 200 / 1.050 / 4.200 €/anno; 12-18 ore; solo AdSense) | idee-2026-11-05-usa-canada |
+| **Tassa sugli alberghi nelle città di USA e Canada** (Florida DR-15TDT 200 per 67 contee, Texas Socrata 200 per città, NYC e Chicago 200 con TID 1,5 % da maggio 2026; Vancouver e Revenu Québec 403; roommaster, taxo-com.pages.dev ed engine.com già presenti) | **MODULO** di Tourist Tax (voto 6,5; 150 / 700 / 2.500 €/anno; 15-25 ore; AdSense + DiscoverCars ~20 $ + Stay22 dopo l'iscrizione) | idee-2026-11-05-usa-canada |
+| Promossi all'esame da agente immobiliare per scuola (AL, NE ufficiali; TREC 404; Aceable 10-20 % o 25 $ da terzi) | RISERVA (5) | idee-2026-11-05-usa-canada |
+| CELPIP / IELTS General / PTE Core per città (Canada ed estero) | RISERVA (5): celpip.ca, paragontesting.ca e ielts.ca 403 | idee-2026-11-05-usa-canada |
+| Licenza di matrimonio per contea o provincia | NO (4,5): marriagelicensebystate.pages.dev, civillywedd.pages.dev; 3.000 cancellerie (filtro duro) | idee-2026-11-05-usa-canada |
+| Food handler card e licenze per servire alcolici per Stato e provincia (TABC, RBS, Smart Serve, Serving It Right, ProServe) | NO (4,5): fonti 404/403, corsi da 7-15 $, programmi non trovati | idee-2026-11-05-usa-canada |
+| Tetto dei workers' comp per Stato, massimale WCB per provincia | RISERVA debole (5, non approfondita) | idee-2026-11-05-usa-canada |
