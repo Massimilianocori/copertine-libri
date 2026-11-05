@@ -2738,7 +2738,7 @@ def pagina_flussi():
     def fonte(*chiavi):
         lette = sorted({fo[k]["letta_il"] for k in chiavi})
         return (f'<div class="fonte">{ic("doc")}<span>{"Fonti" if len(chiavi) > 1 else "Fonte"}: {" · ".join(a(k) for k in chiavi)}'
-                f' · letta il {data_breve(lette[-1])}</span></div>')
+                f' · {"lette" if len(chiavi) > 1 else "letta"} il {data_breve(lette[-1])}</span></div>')
 
     def gm(iso):
         x = d(iso)
@@ -2810,7 +2810,9 @@ def pagina_flussi():
         (f"Quando è il click day {anno} per colf e badanti?",
          f"Per il lavoro domestico nel settore dell'assistenza familiare il click day è il {gm(cd[3]['data'])} {anno}, dalle ore 9:00, con il modello A-bis. "
          f"Le quote sono {punti(14000)}. Per il 2026-2028 questa quota è riservata ai rapporti di lavoro domestico; le altre assunzioni nella sanità e "
-         f"nell'assistenza sociale usano il modello B2020 (click day del {gm(cd[2]['data'])})."),
+         f"nell'assistenza sociale usano il modello B2020 (click day del {gm(cd[2]['data'])}). Fuori dalle quote, e quindi senza click day, dal 1° gennaio 2026 "
+         "il Portale ALI permette il modello A-BIS fuori quota per l'assistenza a grandi anziani, persone con disabilità e bambini fino a sei anni "
+         "(art. 2, comma 2, del decreto-legge 145/2024)."),
         (f"Quante sono le quote del decreto flussi {anno}?",
          f"{punti(q['totale'])} in tutto: {punti(q['non_stagionale']['totale'])} per lavoro subordinato non stagionale (di cui {punti(14000)} per l'assistenza "
          f"familiare), {punti(q['stagionale']['totale'])} per lavoro stagionale nell'agricoltura e nel turismo e {punti(q['autonomo']['totale'])} per lavoro autonomo. "
@@ -2827,9 +2829,11 @@ def pagina_flussi():
          "Per i settori diversi dall'assistenza familiare: reddito imponibile o fatturato di almeno 30.000 € l'anno. Per il lavoro domestico: almeno 20.000 € "
          "se il datore vive da solo, 27.000 € se in famiglia ci sono più persone conviventi. Il requisito non si chiede al datore con patologie o disabilità "
          "che ne limitano l'autosufficienza, che assume chi lo assiste. Sono le regole della circolare n. 8047 del 16 ottobre 2025."),
-        (f"Quali Paesi sono ammessi nel decreto flussi {anno}?",
-         f"Il DPCM riserva quote ai cittadini di 38 Paesi: {paesi}. Dal {anno} la circolare aggiunge il Kenya. Altre quote sono per i Paesi con accordi "
-         "che entrano in vigore nel triennio: l'elenco è sui siti dei Ministeri. Per il lavoro stagionale valgono solo questi Paesi."),
+        (f"Per quali Paesi valgono le quote riservate del decreto flussi {anno}?",
+         f"L'elenco di 38 Paesi del DPCM ({paesi}) vale per le {punti(25000)} quote riservate del lavoro non stagionale e, insieme ai Paesi con nuovi accordi, "
+         f"per tutto il lavoro stagionale. Il Kenya, dal {anno}, è tra i Paesi con nuovi accordi (Memorandum d'intesa del 2 luglio 2026), non nell'elenco dei 38. "
+         f"Per l'assistenza familiare ({punti(14000)}), per apolidi e rifugiati ({punti(300)}) e per le {punti(10900)} quote non riservate il DPCM non fissa "
+         "un elenco di Paesi."),
         ("Come funziona il click day?",
          "Dalle 9:00 del giorno fissato si inviano, dal Portale ALI, solo le domande già precompilate. Le quote si assegnano per provincia, nell'ordine di invio "
          "delle domande. Se la domanda non rientra nelle quote, nell'area riservata compare la scritta «La pratica risulta al momento non in quota». "
@@ -2867,8 +2871,8 @@ def pagina_flussi():
 <strong>{data_breve(ter["data"])}</strong>, finché ci sono quote.</p>
 <div class="fatti">{"".join(scheda_cd(c) for c in cd)}</div>
 <p class="small">I giorni (12 gennaio, 9, 16 e 18 febbraio) sono fissati dal DPCM per tutti e tre gli anni 2026, 2027 e 2028. La circolare del 1° ottobre 2026
-non fissa un click day per le {punti(q["autonomo"]["totale"])} quote di lavoro autonomo. Le domande che non entrano nelle quote entro sei mesi dopo il
-31 dicembre {anno} vengono archiviate.</p>
+non fissa un click day per le {punti(q["autonomo"]["totale"])} quote di lavoro autonomo. Le domande non entrate in quota entro il 30 giugno {anno + 1},
+e i nulla osta a cui entro quella data non è seguito il visto, vengono archiviati (sei mesi dopo il 31 dicembre {anno}, art. 8 del DPCM).</p>
 {fonte("circolare_2027", "dpcm", "im_flussi2027")}
 </section>
 <section>
@@ -2905,11 +2909,16 @@ se c'è un lavoratore già in Italia, con il modulo del Ministero del Lavoro. Se
 Non serve se la domanda la manda un'organizzazione che ha firmato il protocollo con il Ministero del Lavoro, né per il datore non autosufficiente che assume chi lo assiste (al suo posto serve il certificato del medico di base o di una struttura pubblica).</div></li>
 <li><div><strong>Reddito</strong>: almeno 30.000 € l'anno (reddito imponibile o fatturato) per i settori diversi dall'assistenza familiare; per il lavoro domestico
 almeno 20.000 € se il datore vive da solo, 27.000 € con più familiari conviventi.</div></li>
-<li><div><strong>Alloggio</strong>: la documentazione sull'alloggio del lavoratore e l'asseverazione vanno <strong>firmate digitalmente</strong>; ogni file al massimo 2 MB.</div></li>
+<li><div><strong>Alloggio</strong>: la documentazione sull'alloggio del lavoratore e l'asseverazione vanno <strong>firmate digitalmente</strong>; ogni file al massimo 2 MB.
+Se il lavoratore alloggia in un albergo o in un'altra struttura ricettiva, o nei dormitori stabili di un cantiere, la circolare del 1° ottobre 2026 rimanda alle indicazioni
+della circolare del Ministero dell'Interno n. 9859 del 15 dicembre 2025.</div></li>
 </ol>
-<p class="small">Sono le regole della circolare del 16 ottobre 2025, che per il {anno} restano valide dove la circolare del 1° ottobre 2026 non dice altro.
-Il manuale con tutti i passaggi è nel {portale}, alla voce «Manuale»; per i problemi tecnici c'è il link «Scrivi all'Help Desk».</p>
-{fonte("circolare_2025", "im_precompilazione", "circolare_2027")}
+<p class="small">Sono le regole della circolare del 16 ottobre 2025 (e della sua rettifica del 30 ottobre 2025, circ. n. 8524) e del manuale del portale, che per il {anno}
+restano valide dove la circolare del 1° ottobre 2026 non dice altro. Il manuale con tutti i passaggi è nel {portale}, alla voce «Manuale».</p>
+<p class="small"><strong>Assistenza tecnica:</strong> dal 22 ottobre 2026 le richieste all'help desk del Portale ALI si mandano per e-mail a
+<a href="mailto:assistenza.dlci@interno.it">assistenza.dlci@interno.it</a>, seguendo le istruzioni della pagina di assistenza del portale; i vecchi moduli
+non sono più disponibili. Il servizio è attivo dal lunedì al venerdì dalle 8:00 alle 20:00 e il sabato dalle 8:00 alle 14:00.</p>
+{fonte("circolare_2025", "circolare_rettifica", "im_precompilazione", "circolare_2027", "portale_ali", "im_flussi2027")}
 </section>
 <section>
 <h2 id="quote">{ic("lista")}Le quote {anno}: {punti(q["totale"])} ingressi</h2>
@@ -2920,8 +2929,10 @@ Il manuale con tutti i passaggi è nel {portale}, alla voce «Manuale»; per i p
 {tab_quote("stagionale", "Lavoro stagionale (agricoltura e turismo)")}
 {tab_quote("autonomo", "Lavoro autonomo")}
 <h3 id="paesi">Quali Paesi</h3>
-<p>Le quote riservate sono per i cittadini di 38 Paesi: {escape(paesi)}. <strong>Dal {anno} c'è anche il Kenya</strong>. Altre quote sono per i Paesi con accordi che entrano in vigore
-nel triennio (l'elenco è sui siti dei Ministeri). Per il lavoro stagionale valgono solo questi Paesi.</p>
+<p>Il DPCM elenca 38 Paesi: {escape(paesi)}. L'elenco vale per le <strong>{punti(25000)} quote riservate</strong> del lavoro non stagionale e per il lavoro stagionale.
+Altre quote sono per i Paesi con accordi che entrano in vigore nel triennio (l'elenco è sui siti dei Ministeri): <strong>dal {anno} tra questi c'è il Kenya</strong>
+(Memorandum d'intesa del 2 luglio 2026). Per il lavoro stagionale valgono solo i cittadini dei 38 Paesi e dei Paesi con nuovi accordi (come il Kenya).
+Per l'assistenza familiare ({punti(14000)}), per apolidi e rifugiati ({punti(300)}) e per le {punti(10900)} quote non riservate il DPCM non fissa un elenco di Paesi.</p>
 {fonte("dpcm", "circolare_2025", "circolare_2027")}
 </section>
 <section>
@@ -2934,7 +2945,7 @@ Per i lavoratori del Bangladesh, del Pakistan, dello Sri Lanka e del Marocco ser
 <li><div><strong>Conferma e visto.</strong> Quando il consolato ha finito i controlli sulla domanda di visto, il datore ha <strong>15 giorni</strong> per confermare
 (novità: prima erano 7); senza conferma la richiesta si considera rifiutata. Poi il consolato rilascia il visto.</div></li>
 <li><div><strong>In Italia: contratto di soggiorno e permesso.</strong> Entro <strong>15 giorni</strong> dall'arrivo (prima erano 8) datore e lavoratore firmano il contratto di soggiorno;
-il datore lo manda online allo Sportello unico, che avvia la richiesta del <strong>permesso di soggiorno</strong>. Il lavoratore può iniziare a lavorare subito.</div></li>
+il datore lo manda online allo Sportello unico, che avvia la richiesta del <strong>permesso di soggiorno</strong>. Il lavoratore può iniziare a lavorare subito: in quel caso il datore fa da solo la comunicazione obbligatoria di assunzione (per il lavoro domestico all'INPS).</div></li>
 </ol>
 {fonte("circolare_2025", "circolare_2027")}
 </section>
@@ -2949,16 +2960,13 @@ anche l'impronta e noi ricontrolliamo la pagina.</p>
 <div class="tab-wrap rc-tab"><table class="conf"><thead><tr><th scope="col">Fonte</th><th scope="col">Letta il</th><th scope="col">Impronta</th></tr></thead>
 <tbody>{righe_fonti}</tbody></table></div>
 </section>
-<div class="due">
 <section>
 <h2 id="poi">{ic("scudo")}E poi?</h2>
 <p>Il decreto flussi riguarda l'ingresso per lavoro. Una volta in Italia con il permesso di soggiorno, negli anni possono servirti altre pratiche:
 il <a href="../reddito-ricongiungimento-familiare/">ricongiungimento familiare</a> (con il reddito minimo), la carta di soggiorno (permesso UE di lungo periodo),
 che chiede un test di italiano A2 (<a href="../esonero-test-italiano/">chi è esonerato</a>), e più avanti la <a href="../cittadinanza/">cittadinanza italiana</a>,
 che chiede un certificato di italiano almeno B1: <a href="../#date">tutte le date d'esame</a> e <a href="../#citta">sedi per città</a>.</p>
-</section>
-<aside>{modulo()}</aside>
-</div>"""
+</section>"""
     titolo = titolo_pagina(f"Decreto flussi {anno}: date dei click day e quote", f"Click day {anno}: date del decreto flussi")
     desc = descrizione_pagina(
         f"Click day decreto flussi {anno}: {gm(cd[0]['data'])} (agricoli), {gm(cd[1]['data'])} (turismo), {gm(cd[2]['data'])} (non stagionali), "

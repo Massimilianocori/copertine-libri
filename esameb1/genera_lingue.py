@@ -125,7 +125,7 @@ def menu_lingue(G, lg, percorso, rel_root):
     g = gruppo(lg, percorso)
     voci = []
     for x in ORDINE:
-        dest = g.get(x) or HOME[x]
+        dest = percorso if x == lg else (g.get(x) or HOME[x])  # la lingua corrente porta alla pagina stessa (4/11/2026)
         href = (rel_root + url_rel(dest)) or "./"
         corrente = ' aria-current="true"' if x == lg else ""
         voci.append(f'<li><a href="{href}" hreflang="{x}" lang="{x}"{corrente}>{NOME_LINGUA[x]}</a></li>')

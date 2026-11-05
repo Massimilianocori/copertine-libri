@@ -24,6 +24,13 @@
       "letta_il": "2026-11-04",
       "impronta": "ea64b69d66428701"
     },
+    "circolare_rettifica": {
+      "nome": "Circolare interministeriale di rettifica prot. n. 8524 del 30 ottobre 2025 (errata corrige della circolare n. 8047: aggiunge Confartigianato Imprese all'elenco delle organizzazioni del turismo)",
+      "breve": "circolare di rettifica n. 8524 del 30 ottobre 2025",
+      "url": "https://www.lavoro.gov.it/documenti-e-norme/normativa/circolare-congiunta-di-rettifica-n-8524",
+      "letta_il": "2026-11-04",
+      "impronta": "a5c5ccc6b73c99a1"
+    },
     "lavoro_notizia": {
       "nome": "Ministero del Lavoro, «Decreto Flussi 2027, pubblicata la Circolare con le indicazioni operative» (1° ottobre 2026)",
       "breve": "Ministero del Lavoro, notizia del 1° ottobre 2026",
@@ -51,6 +58,13 @@
       "url": "https://www.interno.gov.it/it/servizi/servizi-line/procedure-flussi",
       "letta_il": "2026-11-04",
       "impronta": "2e501a613fa9da7f"
+    },
+    "portale_ali": {
+      "nome": "Portale Servizi ALI del Ministero dell'Interno, pagina iniziale con gli avvisi (precompilazione e click day 2027, help desk dal 22/10/2026, modello A-BIS fuori quota)",
+      "breve": "Portale ALI, avvisi",
+      "url": "https://portaleservizi.dlci.interno.it/AliSportello/ali/home.htm",
+      "letta_il": "2026-11-04",
+      "impronta": "ee4a18b2bce33689"
     }
   },
   "portale": {
@@ -514,6 +528,82 @@
     {
       "fonte": "interno_procedure",
       "testo": "sarà sufficiente collegarsi dal proprio computer"
+    },
+    {
+      "fonte": "circolare_rettifica",
+      "testo": "Errata corrige alla circolare congiunta prot. n. 8047 del 16 ottobre 2025"
+    },
+    {
+      "fonte": "circolare_rettifica",
+      "testo": "Confartigianato"
+    },
+    {
+      "fonte": "circolare_2027",
+      "testo": "il Memorandum d'intesa in materia di migrazione e mobilità"
+    },
+    {
+      "fonte": "circolare_2027",
+      "testo": "si richiamano le indicazioni fornite con la circolare del Ministero dell'Interno prot. n. 9859 del 15 dicembre 2025"
+    },
+    {
+      "fonte": "circolare_2027",
+      "testo": "presso strutture alberghiere o ricettive e presso i dormitori stabili dei cantieri"
+    },
+    {
+      "fonte": "circolare_2027",
+      "testo": "della sezione \"Manuale\" della home page del Portale Servizi ALI"
+    },
+    {
+      "fonte": "circolare_2025",
+      "testo": "provvedere autonomamente alla comunicazione obbligatoria ai Servizi Competenti"
+    },
+    {
+      "fonte": "circolare_2025",
+      "testo": "comunicazione obbligatoria all'INPS"
+    },
+    {
+      "fonte": "dpcm",
+      "testo": "decadono e vengono archiviati d'ufficio"
+    },
+    {
+      "fonte": "dpcm",
+      "testo": "dei Paesi di cui all'art. 6, comma 2, lettere a) e b), residenti all'estero"
+    },
+    {
+      "fonte": "portale_ali",
+      "testo": "dal 22 ottobre 2026 le richieste di assistenza al ServiceDesk dovranno essere trasmesse via mail all'indirizzo: assistenza.dlci@interno.it"
+    },
+    {
+      "fonte": "portale_ali",
+      "testo": "Il servizio di assistenza è attivo dal lunedì al venerdì dalle 8:00 alle 20:00 e il sabato dalle 8:00 alle 14:00"
+    },
+    {
+      "fonte": "portale_ali",
+      "testo": "gli attuali form in uso per l'invio di segnalazioni"
+    },
+    {
+      "fonte": "portale_ali",
+      "testo": "a favore di grandi anziani, persone con disabilità e bambini fino a sei anni di età"
+    },
+    {
+      "fonte": "portale_ali",
+      "testo": "modello A-BIS fuori quota"
+    },
+    {
+      "fonte": "portale_ali",
+      "testo": "Art. 2 co 2 DL 145/2024"
+    },
+    {
+      "fonte": "portale_ali",
+      "testo": "A partire dal 1° gennaio 2026"
+    },
+    {
+      "fonte": "im_flussi2027",
+      "testo": "Un servizio di assistenza tecnica può essere contattato via mail all'indirizzo"
+    },
+    {
+      "fonte": "circolare_2027",
+      "testo": "con il quale l'Italia ha stipulato il 2 luglio 2026 il Memorandum"
     }
   ]
 }
