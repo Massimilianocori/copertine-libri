@@ -10,7 +10,7 @@ X-PUBLISHED-TTL:P1D
 BEGIN:VEVENT
 UID:grand-sumo-tournaments-uscita-torneo-2026-12-05@before-you-fly.netlify.
  app
-DTSTAMP:20261104T000000Z
+DTSTAMP:20261105T000000Z
 DTSTART;VALUE=DATE:20261205
 DTEND;VALUE=DATE:20261206
 SUMMARY:Grand Sumo advance tickets go on sale (for the January 2027 tournam
@@ -35,7 +35,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:grand-sumo-tournaments-uscita-torneo-2027-02-06@before-you-fly.netlify.
  app
-DTSTAMP:20261104T000000Z
+DTSTAMP:20261105T000000Z
 DTSTART;VALUE=DATE:20270206
 DTEND;VALUE=DATE:20270207
 SUMMARY:Grand Sumo advance tickets go on sale (for the March 2027 tournamen
@@ -60,7 +60,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:grand-sumo-tournaments-uscita-torneo-2027-04-10@before-you-fly.netlify.
  app
-DTSTAMP:20261104T000000Z
+DTSTAMP:20261105T000000Z
 DTSTART;VALUE=DATE:20270410
 DTEND;VALUE=DATE:20270411
 SUMMARY:Grand Sumo advance tickets go on sale (for the May 2027 tournament 
