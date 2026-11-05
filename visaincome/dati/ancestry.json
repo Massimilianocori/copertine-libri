@@ -1,0 +1,15258 @@
+{
+"_nota": "Generato da raccolta/ancestry.py: non modificare a mano. naz: nazionalità -> anno della decisione -> M (richiedenti principali) / D (familiari) = [concessi, rifiutati, ritirati, decaduti], trimestri dell'anno presenti nel file. Home Office e GOV.UK: OGL v3.0.",
+"generato_il": "2026-11-05",
+"letto_il": "2026-11-05",
+"impronta": "a13a24e1ab49bab9e821",
+"domanda": {
+"data": "2026-11-05",
+"metodo": "https://suggestqueries.google.com/complete/search?client=firefox&gl=<Paese>&hl=en&q=…",
+"query": {
+"za|uk ancestry visa": [
+"uk ancestry visa",
+"uk ancestry visa requirements",
+"uk ancestry visa cost",
+"uk ancestry visa application",
+"uk ancestry visa south africa",
+"uk ancestry visa great grandparent",
+"uk ancestry visa cost south africa",
+"uk ancestry visa processing time",
+"uk ancestry visa for australian citizens",
+"uk ancestry visa nz"
+],
+"au|uk ancestry visa": [
+"uk ancestry visa",
+"uk ancestry visa for australian citizens",
+"uk ancestry visa cost",
+"uk ancestry visa requirements",
+"uk ancestry visa application",
+"uk ancestry visa australia",
+"uk ancestry visa age limit",
+"uk ancestry visa great grandparent",
+"uk ancestry visa documents",
+"uk ancestry visa grandparent"
+],
+"ca|uk ancestry visa": [
+"uk ancestry visa",
+"uk ancestry visa application",
+"uk ancestry visa requirements",
+"uk ancestry visa great grandparent",
+"uk ancestry visa cost",
+"uk ancestry visa reddit",
+"uk ancestry visa grandparent",
+"uk ancestry visa canada",
+"uk ancestry visa declined",
+"uk ancestry visa for australian citizens"
+],
+"nz|uk ancestry visa": [
+"uk ancestry visa",
+"uk ancestry visa nz",
+"uk ancestry visa cost",
+"uk ancestry visa requirements",
+"uk ancestry visa application",
+"uk ancestry visa great grandparent",
+"uk ancestry visa for australian citizens",
+"uk ancestry visa changes",
+"uk ancestry visa documents",
+"uk ancestry visa to citizenship"
+],
+"za|ancestry visa uk": [
+"ancestry visa uk",
+"ancestry visa uk cost",
+"ancestry visa uk requirements",
+"ancestry visa uk processing time",
+"ancestry visa uk from nz",
+"ancestry visa uk partner",
+"ancestry visa uk eligibility",
+"ancestry visa uk for australians",
+"ancestry visa uk application",
+"ancestry visa uk great grandparent"
+],
+"za|uk ancestry visa refused": [
+"uk ancestry visa declined"
+],
+"za|uk ancestry visa success rate": [],
+"za|uk ancestry visa requirements": [
+"uk ancestry visa requirements",
+"british ancestry visa requirements",
+"uk ancestry visa required documents",
+"uk ancestry visa application",
+"uk ancestry visa rules",
+"uk ancestry visa application form",
+"uk ancestry visa application fee",
+"uk ancestry visa application process",
+"uk ancestry visa application time",
+"uk ancestry visa financial requirements"
+],
+"za|uk ancestry visa cost": [
+"uk ancestry visa cost",
+"uk ancestry visa cost south africa",
+"uk ancestry visa cost australia",
+"uk ancestry visa cost 2025",
+"uk ancestry visa cost in aud",
+"british ancestry visa cost",
+"uk heritage visa cost",
+"uk ancestry visa total cost",
+"uk ancestry visa dependent cost",
+"uk ancestry visa full cost"
+],
+"za|uk ancestry visa great grandparent": [
+"uk ancestry visa great grandparent",
+"uk ancestry visa great grandparent reddit",
+"british ancestry visa great grandparent",
+"uk ancestry visa grandparent",
+"uk ancestry visa grandparent birth certificate",
+"can i get uk ancestry visa through a great grandparent",
+"can i get british citizenship through my great grandparents",
+"can i get irish citizenship through my great great grandparents",
+"how to get a uk ancestry visa",
+"my great grandparents were scottish can i get citizenship"
+],
+"za|uk ancestry visa statistics": [],
+"in|uk ancestry visa": [
+"uk ancestry visa",
+"uk ancestry visa requirements",
+"uk ancestry visa cost",
+"uk ancestry visa application",
+"uk ancestry visa great grandparent",
+"uk ancestry visa nz",
+"uk ancestry visa changes",
+"uk ancestry visa for australian citizens",
+"uk ancestry visa documents",
+"uk ancestry visa to citizenship"
+],
+"us|uk ancestry visa": [
+"uk ancestry visa",
+"uk ancestry visa requirements",
+"uk ancestry visa great grandparent",
+"uk ancestry visa application",
+"uk ancestry visa us citizen",
+"uk ancestry visa to citizenship",
+"uk ancestry visa cost",
+"uk ancestry visa for americans",
+"uk ancestry visa nz",
+"uk ancestry visa changes"
+],
+"gb|ancestry visa": [
+"ancestry visa uk",
+"ancestry visa",
+"ancestry visa uk cost",
+"ancestry visa cost",
+"ancestry visa uk requirements",
+"ancestry visa scotland",
+"ancestry visa ireland",
+"ancestry visa meaning",
+"ancestry visa ilr",
+"ancestry visa countries"
+],
+"za|can i get a uk ancestry visa": [
+"can i get a uk ancestry visa",
+"can you get a uk ancestry visa twice",
+"how do i get a uk ancestry visa",
+"can an american get a uk ancestry visa",
+"can i get uk ancestry visa through a great grandparent",
+"can a us citizen get a uk ancestry visa",
+"how do i apply for a uk ancestry visa",
+"can i study on a uk ancestry visa",
+"how long does it take to get a uk ancestry visa",
+"how to get a uk ancestry visa"
+]
+}
+},
+"letture": {
+"chi": {
+"valore": [
+"a Commonwealth citizen",
+"a British overseas citizen",
+"a British overseas territories citizen",
+"a British national (overseas)",
+"a citizen of Zimbabwe"
+],
+"fonte": "guida",
+"frammento": "You can apply for a UK Ancestry visa if you’re one of the following: a Commonwealth citizen a British overseas citizen a British overseas territories citizen a British national (overseas) a citizen of Zimbabwe"
+},
+"nonno": {
+"valore": true,
+"fonte": "guida",
+"frammento": "prove one of your grandparents was born in the UK, the Channel Islands or the Isle of Man"
+},
+"irlanda": {
+"valore": "1922-03-31",
+"fonte": "guida",
+"frammento": "in the UK, the Channel Islands or the Isle of Man before 31 March 1922 in what is now Ireland"
+},
+"patrigno": {
+"valore": true,
+"fonte": "guida",
+"frammento": "You cannot claim UK ancestry through step-parents."
+},
+"eta": {
+"valore": 17,
+"fonte": "guida",
+"frammento": "are 17 or over"
+},
+"lavoro": {
+"valore": true,
+"fonte": "guida",
+"frammento": "can and plan to work in the UK"
+},
+"soldi": {
+"valore": true,
+"fonte": "guida",
+"frammento": "have enough money without help from public funds to support and house yourself and any dependants"
+},
+"tassa": {
+"valore": 726,
+"fonte": "guida",
+"frammento": "A UK Ancestry visa costs £726."
+},
+"ihs": {
+"valore": true,
+"fonte": "guida",
+"frammento": "You may also have to pay the healthcare surcharge as part of your application."
+},
+"durata": {
+"valore": 5,
+"fonte": "guida",
+"frammento": "You can stay in the UK for 5 years on this visa."
+},
+"tempi": {
+"valore": 3,
+"fonte": "guida",
+"frammento": "You should get a decision on your visa within 3 weeks when you apply from outside the UK."
+},
+"proroga_tassa": {
+"valore": 1407,
+"fonte": "guida",
+"frammento": "the £1,407 application fee"
+},
+"ilr": {
+"valore": true,
+"fonte": "guida",
+"frammento": "You may be able to apply for indefinite leave to remain if you’ve spent 5 years in the UK on a UK Ancestry visa."
+},
+"ilr_cittadinanza": {
+"valore": true,
+"fonte": "guida",
+"frammento": "You can use it to apply for British citizenship."
+}
+},
+"fonti": {
+"guida": {
+"url": "https://www.gov.uk/ancestry-visa",
+"api": "https://www.gov.uk/api/content/ancestry-visa",
+"http": 200,
+"titolo": "UK Ancestry visa",
+"aggiornata": "2015-02-26",
+"sha256": "01fb5c4156ce564d06ac085e005adef8d5be91500220270ec69b4f7d0b9ed8b6",
+"letto_il": "2026-11-05",
+"licenza": "Open Government Licence v3.0"
+},
+"ho": {
+"titolo": "Entry clearance visa applications and outcomes detailed datasets, year ending June 2026",
+"editore": "Home Office, Immigration System Statistics",
+"url": "https://assets.publishing.service.gov.uk/media/6a85c3741b45e4e555421eda/entry-clearance-visa-outcomes-datasets-jun-2026.xlsx",
+"pagina": "https://www.gov.uk/government/statistical-data-sets/immigration-system-statistics-data-tables",
+"formato": "XLSX",
+"byte": 33032191,
+"sha256": "5151f0bdce2f057a4a89e712f2234dceedddb9857f5d97820d48c693477fcdef",
+"scaricato_il": "2026-10-15",
+"pubblicato": "27 August 2026",
+"prossimo": "26 November 2026",
+"periodo": "Year ending June 2026",
+"pagina_aggiornata": "2026-08-27"
+}
+},
+"trimestri": [
+"2005 Q1",
+"2005 Q2",
+"2005 Q3",
+"2005 Q4",
+"2006 Q1",
+"2006 Q2",
+"2006 Q3",
+"2006 Q4",
+"2007 Q1",
+"2007 Q2",
+"2007 Q3",
+"2007 Q4",
+"2008 Q1",
+"2008 Q2",
+"2008 Q3",
+"2008 Q4",
+"2009 Q1",
+"2009 Q2",
+"2009 Q3",
+"2009 Q4",
+"2010 Q1",
+"2010 Q2",
+"2010 Q3",
+"2010 Q4",
+"2011 Q1",
+"2011 Q2",
+"2011 Q3",
+"2011 Q4",
+"2012 Q1",
+"2012 Q2",
+"2012 Q3",
+"2012 Q4",
+"2013 Q1",
+"2013 Q2",
+"2013 Q3",
+"2013 Q4",
+"2014 Q1",
+"2014 Q2",
+"2014 Q3",
+"2014 Q4",
+"2015 Q1",
+"2015 Q2",
+"2015 Q3",
+"2015 Q4",
+"2016 Q1",
+"2016 Q2",
+"2016 Q3",
+"2016 Q4",
+"2017 Q1",
+"2017 Q2",
+"2017 Q3",
+"2017 Q4",
+"2018 Q1",
+"2018 Q2",
+"2018 Q3",
+"2018 Q4",
+"2019 Q1",
+"2019 Q2",
+"2019 Q3",
+"2019 Q4",
+"2020 Q1",
+"2020 Q2",
+"2020 Q3",
+"2020 Q4",
+"2021 Q1",
+"2021 Q2",
+"2021 Q3",
+"2021 Q4",
+"2022 Q1",
+"2022 Q2",
+"2022 Q3",
+"2022 Q4",
+"2023 Q1",
+"2023 Q2",
+"2023 Q3",
+"2023 Q4",
+"2024 Q1",
+"2024 Q2",
+"2024 Q3",
+"2024 Q4",
+"2025 Q1",
+"2025 Q2",
+"2025 Q3",
+"2025 Q4",
+"2026 Q1",
+"2026 Q2"
+],
+"controlli_work": 236,
+"naz": {
+"Australia": {
+"2005": {
+"M": [
+4742,
+1,
+73,
+15
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2006": {
+"M": [
+4548,
+11,
+74,
+21
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2007": {
+"M": [
+3781,
+28,
+77,
+2
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2008": {
+"M": [
+3126,
+23,
+47,
+1
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2009": {
+"M": [
+2177,
+74,
+13,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2010": {
+"M": [
+2116,
+55,
+11,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2011": {
+"M": [
+1934,
+20,
+21,
+6
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2012": {
+"M": [
+1574,
+19,
+12,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2013": {
+"M": [
+1667,
+18,
+5,
+1
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2014": {
+"M": [
+1875,
+15,
+8,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2015": {
+"M": [
+1935,
+35,
+6,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2016": {
+"M": [
+1412,
+15,
+8,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2017": {
+"M": [
+1152,
+19,
+2,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2018": {
+"M": [
+1084,
+26,
+19,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2019": {
+"M": [
+832,
+13,
+10,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2020": {
+"M": [
+407,
+1,
+1,
+0
+],
+"D": [
+17,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2021": {
+"M": [
+363,
+2,
+2,
+0
+],
+"D": [
+76,
+0,
+3,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+640,
+1,
+11,
+0
+],
+"D": [
+114,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+627,
+0,
+7,
+0
+],
+"D": [
+129,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+423,
+1,
+4,
+0
+],
+"D": [
+98,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+356,
+5,
+6,
+0
+],
+"D": [
+77,
+2,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+259,
+0,
+3,
+0
+],
+"D": [
+46,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Botswana": {
+"2005": {
+"M": [
+4,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q4"
+]
+},
+"2006": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2007": {
+"M": [
+4,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2009": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2010": {
+"M": [
+4,
+3,
+1,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2011": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3"
+]
+},
+"2013": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2014": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3",
+"Q4"
+]
+},
+"2015": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2017": {
+"M": [
+1,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+},
+"2018": {
+"M": [
+2,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q4"
+]
+},
+"2019": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2020": {
+"M": [
+3,
+0,
+1,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2021": {
+"M": [
+6,
+0,
+0,
+0
+],
+"D": [
+4,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2022": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q4"
+]
+},
+"2023": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q4"
+]
+},
+"2024": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2025": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"British overseas citizens": {
+"2005": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2011": {
+"M": [
+0,
+0,
+1,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2012": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+},
+"2015": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2024": {
+"M": [
+0,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2026": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Cameroon": {
+"2005": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2010": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2023": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+},
+"2024": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q4"
+]
+},
+"2026": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Canada": {
+"2005": {
+"M": [
+584,
+14,
+26,
+16
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2006": {
+"M": [
+556,
+37,
+16,
+5
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2007": {
+"M": [
+518,
+22,
+17,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2008": {
+"M": [
+497,
+17,
+38,
+1
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2009": {
+"M": [
+479,
+11,
+38,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2010": {
+"M": [
+526,
+35,
+48,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2011": {
+"M": [
+471,
+27,
+60,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2012": {
+"M": [
+492,
+18,
+3,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2013": {
+"M": [
+516,
+34,
+2,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2014": {
+"M": [
+460,
+80,
+1,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2015": {
+"M": [
+511,
+48,
+6,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2016": {
+"M": [
+447,
+56,
+0,
+1
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2017": {
+"M": [
+381,
+22,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2018": {
+"M": [
+362,
+8,
+1,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2019": {
+"M": [
+367,
+7,
+8,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2020": {
+"M": [
+212,
+0,
+4,
+0
+],
+"D": [
+11,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2021": {
+"M": [
+241,
+3,
+1,
+0
+],
+"D": [
+54,
+0,
+5,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+272,
+2,
+11,
+0
+],
+"D": [
+44,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+253,
+2,
+5,
+0
+],
+"D": [
+46,
+2,
+2,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+219,
+4,
+4,
+0
+],
+"D": [
+54,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+237,
+1,
+0,
+0
+],
+"D": [
+45,
+2,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+109,
+0,
+3,
+0
+],
+"D": [
+15,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"China": {
+"2005": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2022": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+2,
+0
+],
+"trimestri": [
+"Q2",
+"Q4"
+]
+},
+"2023": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+8,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+7,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+2,
+0
+],
+"trimestri": [
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+2,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Ghana": {
+"2005": {
+"M": [
+5,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2006": {
+"M": [
+3,
+2,
+1,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2007": {
+"M": [
+5,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2008": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2009": {
+"M": [
+5,
+4,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q4"
+]
+},
+"2010": {
+"M": [
+5,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2011": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2012": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2013": {
+"M": [
+1,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3"
+]
+},
+"2014": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2015": {
+"M": [
+0,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2016": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q4"
+]
+},
+"2017": {
+"M": [
+2,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+},
+"2018": {
+"M": [
+2,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+},
+"2019": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3"
+]
+},
+"2020": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2021": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+2,
+0
+],
+"trimestri": [
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+6,
+0,
+0,
+0
+],
+"D": [
+4,
+0,
+7,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+3,
+0,
+1,
+0
+],
+"D": [
+4,
+0,
+3,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+2,
+1,
+1,
+0
+],
+"D": [
+0,
+3,
+8,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+3,
+0,
+5,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2026": {
+"M": [
+2,
+1,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Guyana": {
+"2005": {
+"M": [
+3,
+4,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2006": {
+"M": [
+0,
+1,
+0,
+1
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+},
+"2008": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2012": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2015": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2016": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+},
+"2021": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2023": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+}
+},
+"India": {
+"2005": {
+"M": [
+30,
+13,
+2,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2006": {
+"M": [
+24,
+18,
+2,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2007": {
+"M": [
+21,
+12,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2008": {
+"M": [
+14,
+3,
+2,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2009": {
+"M": [
+23,
+9,
+2,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2010": {
+"M": [
+25,
+10,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2011": {
+"M": [
+5,
+6,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2012": {
+"M": [
+9,
+2,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2013": {
+"M": [
+16,
+5,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2014": {
+"M": [
+13,
+14,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2015": {
+"M": [
+17,
+12,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2016": {
+"M": [
+13,
+8,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2017": {
+"M": [
+25,
+12,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2018": {
+"M": [
+13,
+2,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2019": {
+"M": [
+29,
+5,
+2,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2020": {
+"M": [
+20,
+5,
+0,
+0
+],
+"D": [
+4,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2021": {
+"M": [
+70,
+19,
+0,
+0
+],
+"D": [
+81,
+1,
+3,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+170,
+6,
+4,
+0
+],
+"D": [
+179,
+1,
+16,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+202,
+7,
+7,
+0
+],
+"D": [
+187,
+2,
+23,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+16,
+77,
+16,
+0
+],
+"D": [
+25,
+57,
+23,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+16,
+18,
+1,
+0
+],
+"D": [
+24,
+4,
+18,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+3,
+2,
+1,
+0
+],
+"D": [
+8,
+2,
+9,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Jamaica": {
+"2005": {
+"M": [
+5,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q4"
+]
+},
+"2006": {
+"M": [
+4,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3"
+]
+},
+"2007": {
+"M": [
+0,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2008": {
+"M": [
+0,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2009": {
+"M": [
+4,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2011": {
+"M": [
+1,
+2,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+},
+"2012": {
+"M": [
+0,
+1,
+0,
+1
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3"
+]
+},
+"2013": {
+"M": [
+4,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q4"
+]
+},
+"2014": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q4"
+]
+},
+"2015": {
+"M": [
+4,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2016": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q4"
+]
+},
+"2017": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+},
+"2018": {
+"M": [
+6,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2019": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q4"
+]
+},
+"2020": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q4"
+]
+},
+"2021": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+5,
+1,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2023": {
+"M": [
+9,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+2,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2025": {
+"M": [
+7,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+1,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+}
+},
+"Kenya": {
+"2005": {
+"M": [
+11,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2006": {
+"M": [
+6,
+3,
+1,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2007": {
+"M": [
+7,
+6,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2008": {
+"M": [
+5,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3"
+]
+},
+"2009": {
+"M": [
+4,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2010": {
+"M": [
+4,
+2,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+},
+"2011": {
+"M": [
+6,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2012": {
+"M": [
+4,
+0,
+1,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3",
+"Q4"
+]
+},
+"2013": {
+"M": [
+4,
+0,
+1,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q4"
+]
+},
+"2014": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q4"
+]
+},
+"2015": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q4"
+]
+},
+"2016": {
+"M": [
+5,
+3,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2017": {
+"M": [
+8,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2018": {
+"M": [
+2,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3"
+]
+},
+"2019": {
+"M": [
+5,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2020": {
+"M": [
+8,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+2,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2021": {
+"M": [
+5,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+5,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+3,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+7,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+9,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+8,
+0,
+0,
+0
+],
+"D": [
+4,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Malawi": {
+"2005": {
+"M": [
+10,
+1,
+2,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2006": {
+"M": [
+2,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+},
+"2007": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3"
+]
+},
+"2008": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+},
+"2009": {
+"M": [
+2,
+2,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q4"
+]
+},
+"2010": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3"
+]
+},
+"2011": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2012": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2013": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2014": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2015": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q4"
+]
+},
+"2016": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2017": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2018": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+},
+"2019": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2020": {
+"M": [
+0,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2022": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2023": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3"
+]
+},
+"2024": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2025": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+5,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Malta": {
+"2005": {
+"M": [
+0,
+0,
+0,
+1
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2021": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+5,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+4,
+1,
+1,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+},
+"2025": {
+"M": [
+4,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Namibia": {
+"2005": {
+"M": [
+3,
+0,
+0,
+1
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2009": {
+"M": [
+4,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2011": {
+"M": [
+2,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q4"
+]
+},
+"2012": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2015": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q4"
+]
+},
+"2016": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2017": {
+"M": [
+1,
+2,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+},
+"2018": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2019": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+},
+"2020": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2021": {
+"M": [
+5,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+6,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2024": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2025": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2026": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"New Zealand": {
+"2005": {
+"M": [
+2092,
+3,
+17,
+6
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2006": {
+"M": [
+2247,
+1,
+17,
+8
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2007": {
+"M": [
+2063,
+6,
+7,
+1
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2008": {
+"M": [
+1823,
+43,
+14,
+1
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2009": {
+"M": [
+962,
+32,
+1,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2010": {
+"M": [
+1055,
+26,
+7,
+2
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2011": {
+"M": [
+978,
+12,
+13,
+1
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2012": {
+"M": [
+962,
+11,
+1,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2013": {
+"M": [
+1001,
+10,
+3,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2014": {
+"M": [
+964,
+7,
+0,
+1
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2015": {
+"M": [
+1111,
+16,
+5,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2016": {
+"M": [
+812,
+15,
+2,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2017": {
+"M": [
+648,
+16,
+7,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2018": {
+"M": [
+585,
+15,
+9,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2019": {
+"M": [
+489,
+5,
+4,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2020": {
+"M": [
+169,
+1,
+4,
+0
+],
+"D": [
+5,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2021": {
+"M": [
+175,
+1,
+0,
+0
+],
+"D": [
+20,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+368,
+1,
+4,
+0
+],
+"D": [
+45,
+1,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+375,
+0,
+4,
+0
+],
+"D": [
+52,
+2,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+221,
+1,
+4,
+0
+],
+"D": [
+41,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+255,
+0,
+1,
+0
+],
+"D": [
+25,
+0,
+3,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+160,
+0,
+0,
+0
+],
+"D": [
+17,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Pakistan": {
+"2005": {
+"M": [
+4,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2006": {
+"M": [
+1,
+2,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q4"
+]
+},
+"2007": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2008": {
+"M": [
+3,
+1,
+1,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q4"
+]
+},
+"2009": {
+"M": [
+0,
+2,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q4"
+]
+},
+"2010": {
+"M": [
+1,
+6,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2011": {
+"M": [
+3,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2012": {
+"M": [
+4,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2013": {
+"M": [
+2,
+2,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2014": {
+"M": [
+8,
+5,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2015": {
+"M": [
+12,
+3,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2016": {
+"M": [
+5,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q4"
+]
+},
+"2017": {
+"M": [
+5,
+2,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2018": {
+"M": [
+6,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2019": {
+"M": [
+3,
+1,
+1,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q4"
+]
+},
+"2020": {
+"M": [
+5,
+1,
+1,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2021": {
+"M": [
+5,
+0,
+0,
+0
+],
+"D": [
+4,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q4"
+]
+},
+"2022": {
+"M": [
+4,
+0,
+0,
+0
+],
+"D": [
+7,
+0,
+6,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+6,
+0,
+0,
+0
+],
+"D": [
+4,
+1,
+5,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+9,
+6,
+0,
+0
+],
+"D": [
+13,
+1,
+4,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+13,
+2,
+0,
+0
+],
+"D": [
+8,
+1,
+9,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+4,
+3,
+0,
+0
+],
+"D": [
+0,
+3,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"South Africa": {
+"2005": {
+"M": [
+2298,
+72,
+18,
+1
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2006": {
+"M": [
+2045,
+325,
+8,
+3
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2007": {
+"M": [
+1722,
+169,
+1,
+10
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2008": {
+"M": [
+2007,
+168,
+0,
+12
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2009": {
+"M": [
+1125,
+50,
+4,
+12
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2010": {
+"M": [
+946,
+73,
+2,
+8
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2011": {
+"M": [
+877,
+60,
+2,
+2
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2012": {
+"M": [
+713,
+85,
+6,
+1
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2013": {
+"M": [
+870,
+45,
+1,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2014": {
+"M": [
+911,
+39,
+3,
+5
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2015": {
+"M": [
+1099,
+31,
+3,
+12
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2016": {
+"M": [
+1248,
+26,
+1,
+5
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2017": {
+"M": [
+1303,
+28,
+2,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2018": {
+"M": [
+1632,
+34,
+3,
+1
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2019": {
+"M": [
+1730,
+15,
+6,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2020": {
+"M": [
+1471,
+4,
+8,
+0
+],
+"D": [
+475,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2021": {
+"M": [
+1582,
+1,
+2,
+0
+],
+"D": [
+1124,
+5,
+7,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+1758,
+1,
+11,
+0
+],
+"D": [
+1188,
+1,
+6,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+1398,
+3,
+5,
+0
+],
+"D": [
+702,
+1,
+13,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+750,
+8,
+0,
+0
+],
+"D": [
+379,
+3,
+6,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+479,
+1,
+0,
+0
+],
+"D": [
+166,
+6,
+4,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+218,
+2,
+1,
+0
+],
+"D": [
+96,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Sri Lanka": {
+"2005": {
+"M": [
+11,
+5,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2006": {
+"M": [
+3,
+5,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2007": {
+"M": [
+4,
+3,
+1,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2008": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2009": {
+"M": [
+0,
+0,
+1,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2011": {
+"M": [
+1,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+},
+"2012": {
+"M": [
+1,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2013": {
+"M": [
+1,
+2,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q4"
+]
+},
+"2014": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2015": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+},
+"2016": {
+"M": [
+1,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q4"
+]
+},
+"2018": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+},
+"2019": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3"
+]
+},
+"2020": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+2,
+1,
+0,
+0
+],
+"trimestri": [
+"Q3",
+"Q4"
+]
+},
+"2021": {
+"M": [
+2,
+0,
+1,
+0
+],
+"D": [
+5,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q4"
+]
+},
+"2022": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3"
+]
+},
+"2023": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+4,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+},
+"2024": {
+"M": [
+4,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+2,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q4"
+]
+}
+},
+"Tanzania": {
+"2005": {
+"M": [
+1,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3"
+]
+},
+"2006": {
+"M": [
+8,
+2,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2007": {
+"M": [
+8,
+2,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2008": {
+"M": [
+0,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2009": {
+"M": [
+2,
+3,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+},
+"2010": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2011": {
+"M": [
+1,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q4"
+]
+},
+"2012": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2020": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2022": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3"
+]
+},
+"2024": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2026": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Trinidad and Tobago": {
+"2005": {
+"M": [
+5,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2006": {
+"M": [
+6,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2007": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+},
+"2008": {
+"M": [
+6,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2009": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q4"
+]
+},
+"2010": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2011": {
+"M": [
+2,
+2,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+},
+"2012": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+},
+"2013": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3",
+"Q4"
+]
+},
+"2014": {
+"M": [
+0,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2015": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q4"
+]
+},
+"2016": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+},
+"2017": {
+"M": [
+2,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+},
+"2018": {
+"M": [
+7,
+3,
+1,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2019": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+7,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+},
+"2023": {
+"M": [
+5,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+},
+"2024": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q4"
+]
+},
+"2025": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+}
+},
+"Uganda": {
+"2005": {
+"M": [
+3,
+5,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2006": {
+"M": [
+5,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2007": {
+"M": [
+4,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2008": {
+"M": [
+3,
+2,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2009": {
+"M": [
+0,
+1,
+1,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q4"
+]
+},
+"2011": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2012": {
+"M": [
+0,
+2,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2013": {
+"M": [
+2,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+},
+"2016": {
+"M": [
+0,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2017": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2019": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3",
+"Q4"
+]
+},
+"2020": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2021": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+5,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q4"
+]
+},
+"2022": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2023": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+},
+"2024": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+4,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2025": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"United States": {
+"2005": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q4"
+]
+},
+"2006": {
+"M": [
+1,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2007": {
+"M": [
+0,
+4,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3"
+]
+},
+"2008": {
+"M": [
+4,
+12,
+2,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2009": {
+"M": [
+2,
+28,
+2,
+1
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2010": {
+"M": [
+5,
+14,
+1,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2011": {
+"M": [
+2,
+6,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2012": {
+"M": [
+1,
+9,
+2,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2013": {
+"M": [
+2,
+10,
+1,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2014": {
+"M": [
+4,
+7,
+1,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2015": {
+"M": [
+6,
+21,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2016": {
+"M": [
+4,
+18,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2017": {
+"M": [
+4,
+7,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2018": {
+"M": [
+6,
+13,
+1,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2019": {
+"M": [
+7,
+2,
+2,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2020": {
+"M": [
+0,
+10,
+1,
+0
+],
+"D": [
+5,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2021": {
+"M": [
+4,
+10,
+0,
+0
+],
+"D": [
+32,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+8,
+2,
+5,
+0
+],
+"D": [
+17,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+5,
+0,
+1,
+0
+],
+"D": [
+26,
+0,
+2,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+8,
+3,
+4,
+0
+],
+"D": [
+25,
+2,
+4,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+7,
+2,
+6,
+0
+],
+"D": [
+15,
+3,
+4,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+5,
+0,
+8,
+0
+],
+"D": [
+9,
+0,
+2,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Zambia": {
+"2005": {
+"M": [
+19,
+5,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2006": {
+"M": [
+10,
+2,
+0,
+1
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2007": {
+"M": [
+9,
+2,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2008": {
+"M": [
+9,
+2,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2009": {
+"M": [
+2,
+3,
+0,
+2
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q4"
+]
+},
+"2010": {
+"M": [
+1,
+2,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3"
+]
+},
+"2011": {
+"M": [
+4,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q4"
+]
+},
+"2012": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q4"
+]
+},
+"2013": {
+"M": [
+3,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2014": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q4"
+]
+},
+"2015": {
+"M": [
+5,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q4"
+]
+},
+"2016": {
+"M": [
+5,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2017": {
+"M": [
+8,
+3,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2018": {
+"M": [
+5,
+2,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2019": {
+"M": [
+6,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2020": {
+"M": [
+4,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2021": {
+"M": [
+5,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+8,
+0,
+0,
+0
+],
+"D": [
+8,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+8,
+0,
+0,
+0
+],
+"D": [
+4,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+5,
+0,
+0,
+0
+],
+"D": [
+2,
+2,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2025": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+5,
+1,
+0,
+0
+],
+"trimestri": [
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+4,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Zimbabwe": {
+"2005": {
+"M": [
+291,
+58,
+3,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2006": {
+"M": [
+257,
+81,
+4,
+6
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2007": {
+"M": [
+218,
+41,
+2,
+2
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2008": {
+"M": [
+189,
+42,
+1,
+7
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2009": {
+"M": [
+75,
+23,
+1,
+1
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2010": {
+"M": [
+64,
+8,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2011": {
+"M": [
+47,
+7,
+0,
+1
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2012": {
+"M": [
+52,
+14,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2013": {
+"M": [
+57,
+8,
+1,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2014": {
+"M": [
+104,
+7,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2015": {
+"M": [
+102,
+8,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2016": {
+"M": [
+147,
+21,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2017": {
+"M": [
+131,
+11,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2018": {
+"M": [
+106,
+7,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2019": {
+"M": [
+162,
+7,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2020": {
+"M": [
+95,
+2,
+2,
+0
+],
+"D": [
+23,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2021": {
+"M": [
+59,
+1,
+0,
+0
+],
+"D": [
+20,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+100,
+3,
+0,
+0
+],
+"D": [
+38,
+2,
+4,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+91,
+1,
+0,
+0
+],
+"D": [
+49,
+1,
+11,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+79,
+9,
+0,
+0
+],
+"D": [
+24,
+10,
+2,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+68,
+9,
+0,
+0
+],
+"D": [
+23,
+2,
+4,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+27,
+2,
+1,
+0
+],
+"D": [
+13,
+1,
+4,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Bangladesh": {
+"2005": {
+"M": [
+2,
+2,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+},
+"2006": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q4"
+]
+},
+"2009": {
+"M": [
+0,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2010": {
+"M": [
+0,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2011": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2013": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+},
+"2015": {
+"M": [
+0,
+2,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q4"
+]
+},
+"2016": {
+"M": [
+0,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2017": {
+"M": [
+1,
+2,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+},
+"2018": {
+"M": [
+0,
+2,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2019": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3",
+"Q4"
+]
+},
+"2020": {
+"M": [
+7,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2021": {
+"M": [
+1,
+1,
+0,
+0
+],
+"D": [
+1,
+3,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q4"
+]
+},
+"2022": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+},
+"2023": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+2,
+0
+],
+"trimestri": [
+"Q1",
+"Q3"
+]
+},
+"2024": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+5,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+0,
+1,
+0,
+0
+],
+"D": [
+3,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Mozambique": {
+"2005": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2007": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2023": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Nigeria": {
+"2005": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q4"
+]
+},
+"2006": {
+"M": [
+5,
+2,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3",
+"Q4"
+]
+},
+"2007": {
+"M": [
+4,
+2,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2008": {
+"M": [
+7,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2009": {
+"M": [
+5,
+2,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2010": {
+"M": [
+0,
+3,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q4"
+]
+},
+"2011": {
+"M": [
+6,
+3,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2012": {
+"M": [
+4,
+3,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2013": {
+"M": [
+1,
+2,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2014": {
+"M": [
+6,
+3,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2015": {
+"M": [
+4,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3"
+]
+},
+"2016": {
+"M": [
+2,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q4"
+]
+},
+"2017": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q4"
+]
+},
+"2018": {
+"M": [
+8,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2019": {
+"M": [
+7,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2020": {
+"M": [
+5,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2021": {
+"M": [
+5,
+1,
+0,
+0
+],
+"D": [
+3,
+2,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+10,
+1,
+0,
+0
+],
+"D": [
+8,
+0,
+8,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+8,
+0,
+0,
+0
+],
+"D": [
+8,
+2,
+16,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+6,
+1,
+1,
+0
+],
+"D": [
+12,
+2,
+20,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+6,
+2,
+0,
+0
+],
+"D": [
+10,
+0,
+18,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+4,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+7,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Bahamas, The": {
+"2005": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2008": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2009": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3",
+"Q4"
+]
+},
+"2010": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2011": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2014": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+},
+"2015": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2016": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q4"
+]
+},
+"2017": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+},
+"2018": {
+"M": [
+1,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+},
+"2019": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2021": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2022": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2023": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+},
+"2024": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2025": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Barbados": {
+"2005": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3",
+"Q4"
+]
+},
+"2006": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2008": {
+"M": [
+1,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3",
+"Q4"
+]
+},
+"2009": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2010": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2013": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+},
+"2016": {
+"M": [
+0,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2017": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3"
+]
+},
+"2020": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2021": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2022": {
+"M": [
+0,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2024": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+},
+"2025": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+}
+},
+"Mauritania": {
+"2005": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+}
+},
+"Singapore": {
+"2005": {
+"M": [
+1,
+0,
+1,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3",
+"Q4"
+]
+},
+"2007": {
+"M": [
+0,
+0,
+1,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2008": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2010": {
+"M": [
+1,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+},
+"2011": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2012": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2014": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+},
+"2015": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3",
+"Q4"
+]
+},
+"2017": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2018": {
+"M": [
+6,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2019": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2020": {
+"M": [
+3,
+0,
+1,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2021": {
+"M": [
+3,
+0,
+1,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+7,
+0,
+3,
+0
+],
+"D": [
+1,
+0,
+2,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2023": {
+"M": [
+6,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2024": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3"
+]
+},
+"2025": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q4"
+]
+},
+"2026": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"St Lucia": {
+"2005": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3",
+"Q4"
+]
+},
+"2006": {
+"M": [
+0,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2008": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2009": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+},
+"2010": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2011": {
+"M": [
+0,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2016": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2018": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2019": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2021": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2023": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2025": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Hong Kong": {
+"2005": {
+"M": [
+0,
+0,
+1,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2019": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2021": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Malaysia": {
+"2005": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2006": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+},
+"2007": {
+"M": [
+1,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3",
+"Q4"
+]
+},
+"2008": {
+"M": [
+1,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q4"
+]
+},
+"2009": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3",
+"Q4"
+]
+},
+"2010": {
+"M": [
+4,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q4"
+]
+},
+"2011": {
+"M": [
+3,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+},
+"2012": {
+"M": [
+4,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+},
+"2013": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2014": {
+"M": [
+6,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2015": {
+"M": [
+3,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+},
+"2016": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q4"
+]
+},
+"2017": {
+"M": [
+4,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2018": {
+"M": [
+5,
+0,
+1,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2019": {
+"M": [
+5,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2020": {
+"M": [
+4,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+},
+"2021": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+},
+"2022": {
+"M": [
+6,
+0,
+1,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+5,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q4"
+]
+},
+"2024": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2025": {
+"M": [
+4,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Sierra Leone": {
+"2005": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2007": {
+"M": [
+0,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2013": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2022": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2023": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q3"
+]
+}
+},
+"Eswatini": {
+"2006": {
+"M": [
+0,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2007": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q4"
+]
+},
+"2008": {
+"M": [
+2,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+},
+"2009": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+},
+"2018": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3",
+"Q4"
+]
+},
+"2021": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2022": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2023": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2025": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+}
+},
+"Fiji": {
+"2006": {
+"M": [
+1,
+1,
+3,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+},
+"2007": {
+"M": [
+0,
+6,
+0,
+1
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2017": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q4"
+]
+},
+"2018": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2020": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2022": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2023": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+}
+},
+"Mauritius": {
+"2006": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2007": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+},
+"2009": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2010": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2016": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2018": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2019": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2020": {
+"M": [
+1,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2023": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+},
+"2025": {
+"M": [
+4,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3"
+]
+},
+"2026": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Seychelles": {
+"2006": {
+"M": [
+1,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q4"
+]
+},
+"2008": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2013": {
+"M": [
+0,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2014": {
+"M": [
+0,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2020": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Austria": {
+"2006": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2021": {
+"M": [
+0,
+1,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2025": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+1,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Egypt": {
+"2007": {
+"M": [
+0,
+0,
+1,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2009": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2022": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2023": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+3,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Russia": {
+"2007": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2020": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2021": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2022": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+4,
+0,
+2,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+},
+"2023": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+1,
+0
+],
+"trimestri": [
+"Q2",
+"Q4"
+]
+},
+"2024": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q4"
+]
+}
+},
+"Turkey": {
+"2007": {
+"M": [
+0,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2020": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2021": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2022": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+3,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2023": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+2,
+1,
+5,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+3,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2025": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+}
+},
+"Brazil": {
+"2008": {
+"M": [
+0,
+0,
+0,
+1
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2009": {
+"M": [
+0,
+5,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2020": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2022": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2023": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2024": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q4"
+]
+}
+},
+"Paraguay": {
+"2008": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Venezuela": {
+"2008": {
+"M": [
+0,
+0,
+1,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2020": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+}
+},
+"Philippines": {
+"2008": {
+"M": [
+0,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2018": {
+"M": [
+0,
+0,
+1,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2021": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+2,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q4"
+]
+},
+"2022": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+4,
+7,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q4"
+]
+},
+"2023": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+4,
+0,
+11,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+1,
+5,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2025": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+4,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+0,
+0,
+2,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Dominica": {
+"2008": {
+"M": [
+0,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2017": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2023": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2024": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+}
+},
+"Papua New Guinea": {
+"2008": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2011": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2021": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2022": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2024": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3",
+"Q4"
+]
+}
+},
+"Other and unknown": {
+"2008": {
+"M": [
+0,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+}
+},
+"St Vincent and the Grenadines": {
+"2009": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2012": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+}
+},
+"Jordan": {
+"2010": {
+"M": [
+0,
+0,
+1,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2025": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+}
+},
+"Samoa": {
+"2010": {
+"M": [
+0,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Grenada": {
+"2010": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2014": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2016": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2017": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2018": {
+"M": [
+0,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2019": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2023": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+}
+},
+"Refugee": {
+"2012": {
+"M": [
+0,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Antigua and Barbuda": {
+"2014": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2018": {
+"M": [
+1,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+},
+"2026": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"South Korea": {
+"2014": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2021": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2022": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2025": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+}
+},
+"Costa Rica": {
+"2014": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+}
+},
+"Mexico": {
+"2014": {
+"M": [
+0,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2022": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2024": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Syria": {
+"2015": {
+"M": [
+0,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Brunei": {
+"2017": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2021": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2023": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+}
+},
+"Israel": {
+"2018": {
+"M": [
+0,
+2,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3"
+]
+},
+"2021": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+},
+"2023": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2024": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2026": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Belize": {
+"2018": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3",
+"Q4"
+]
+},
+"2019": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2021": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2023": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+}
+},
+"St Kitts and Nevis": {
+"2019": {
+"M": [
+0,
+2,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2020": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+}
+},
+"Vanuatu": {
+"2020": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2021": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2022": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2026": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Morocco": {
+"2020": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2023": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+1,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2026": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Serbia": {
+"2020": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2021": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2022": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+}
+},
+"Sudan": {
+"2020": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2022": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2023": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Cyprus": {
+"2021": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2023": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+}
+},
+"France": {
+"2021": {
+"M": [
+0,
+0,
+1,
+0
+],
+"D": [
+4,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q4"
+]
+},
+"2022": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+2,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+},
+"2023": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+5,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2024": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+2,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+},
+"2025": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2026": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Indonesia": {
+"2021": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2023": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+6,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q4"
+]
+},
+"2024": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2025": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+4,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+}
+},
+"Italy": {
+"2021": {
+"M": [
+1,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3"
+]
+},
+"2022": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+4,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3"
+]
+},
+"2024": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2025": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+},
+"2026": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Taiwan": {
+"2021": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Netherlands": {
+"2021": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+2,
+0
+],
+"trimestri": [
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+4,
+0,
+0,
+0
+],
+"D": [
+5,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2024": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2025": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2026": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Colombia": {
+"2021": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+1,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2024": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+},
+"2026": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Congo (Democratic Republic)": {
+"2021": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2022": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+3,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2025": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Dominican Republic": {
+"2021": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+1,
+1,
+0
+],
+"trimestri": [
+"Q3"
+]
+}
+},
+"Sweden": {
+"2021": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2025": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2026": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Armenia": {
+"2021": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+}
+},
+"Bulgaria": {
+"2021": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q4"
+]
+}
+},
+"Germany": {
+"2021": {
+"M": [
+0,
+1,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2022": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+},
+"2023": {
+"M": [
+0,
+0,
+1,
+0
+],
+"D": [
+1,
+0,
+2,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+8,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+3,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+}
+},
+"Greece": {
+"2021": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2023": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2026": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Guinea-Bissau": {
+"2021": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+2,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2024": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Japan": {
+"2021": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2022": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+2,
+0
+],
+"trimestri": [
+"Q2",
+"Q4"
+]
+},
+"2024": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q4"
+]
+},
+"2025": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+}
+},
+"Peru": {
+"2021": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2023": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Portugal": {
+"2021": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2022": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q4"
+]
+},
+"2023": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+2,
+0
+],
+"trimestri": [
+"Q1",
+"Q3"
+]
+},
+"2024": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+4,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3"
+]
+},
+"2025": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3"
+]
+},
+"2026": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Romania": {
+"2021": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2023": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2024": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2025": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+2,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3"
+]
+}
+},
+"Ukraine": {
+"2021": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2023": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Denmark": {
+"2022": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Iran": {
+"2022": {
+"M": [
+0,
+2,
+0,
+0
+],
+"D": [
+0,
+0,
+2,
+0
+],
+"trimestri": [
+"Q1",
+"Q4"
+]
+}
+},
+"Lesotho": {
+"2022": {
+"M": [
+0,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2025": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+1,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Vietnam": {
+"2022": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+3,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2023": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2024": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Albania": {
+"2022": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+3,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2024": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2025": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Croatia": {
+"2022": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2026": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Latvia": {
+"2022": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2025": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+}
+},
+"Poland": {
+"2022": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2023": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2024": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+}
+},
+"Switzerland": {
+"2022": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2024": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q4"
+]
+},
+"2025": {
+"M": [
+1,
+0,
+1,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q4"
+]
+},
+"2026": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Nepal": {
+"2022": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2024": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q4"
+]
+},
+"2025": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q4"
+]
+}
+},
+"Bolivia": {
+"2023": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Chile": {
+"2023": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2024": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Ecuador": {
+"2023": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Palestine": {
+"2023": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Slovakia": {
+"2023": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Tunisia": {
+"2023": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Algeria": {
+"2023": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+1,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2025": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Belgium": {
+"2023": {
+"M": [
+1,
+0,
+1,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+},
+"2024": {
+"M": [
+0,
+0,
+1,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Gambia, The": {
+"2023": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2025": {
+"M": [
+0,
+1,
+0,
+0
+],
+"D": [
+0,
+1,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+}
+},
+"Lebanon": {
+"2023": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Thailand": {
+"2023": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q4"
+]
+},
+"2025": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Argentina": {
+"2024": {
+"M": [
+0,
+0,
+1,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2026": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Cuba": {
+"2024": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Lithuania": {
+"2024": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2025": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+}
+},
+"Finland": {
+"2024": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+}
+},
+"Mali": {
+"2024": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+}
+},
+"Norway": {
+"2024": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2026": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Saudi Arabia": {
+"2024": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+2,
+0
+],
+"trimestri": [
+"Q3"
+]
+}
+},
+"Iraq": {
+"2024": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+3,
+0
+],
+"trimestri": [
+"Q4"
+]
+}
+},
+"Yemen": {
+"2024": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+}
+},
+"Spain": {
+"2025": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+1,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+}
+},
+"East Timor": {
+"2025": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q3"
+]
+}
+},
+"Kuwait": {
+"2025": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+3,
+0
+],
+"trimestri": [
+"Q4"
+]
+}
+},
+"Tonga": {
+"2026": {
+"M": [
+0,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+}
+}
+}

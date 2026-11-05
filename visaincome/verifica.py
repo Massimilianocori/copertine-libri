@@ -96,6 +96,14 @@ Uso (dalla radice del repository, dopo python3 visaincome/genera.py):
     ogni tassa = numero scritto nel frammento ufficiale; data del listino in pagina; ogni <q> = frammento ufficiale; link esterni solo verso
     le fonti del JSON; nessun link sponsorizzato; FAQ da ricerche vere dell'autocompletamento; link da home, How it works, menu es/pt;
     piè di pagina comune invariato. Online: 8 frammenti a caso riletti sulle fonti.
+29. Infermieri formati all'estero (/nurses-abroad/) e UK Ancestry visa (/uk-ancestry-visa/) (5/11/2026, dati/infermieri.json e dati/ancestry.json):
+    impronte dei JSON, fonti lette (HTTP 200), file del Home Office = quello di dati/rifiuti.json; valori del JSON = file grezzi NMC e JQ06 riletti
+    con un lettore proprio; pagine attese (indice, 12 Paesi ricalcolati con la soglia di 1.000 sul registro, UK, Irlanda, lista rossa, costi, Ancestry)
+    in sitemap e nessuna in più, titoli ≤ 70, canonical, FAQPage, BreadcrumbList, avviso, nessun riquadro di affiliazione; prima frase con numero,
+    fonte e data; tabelle (registro, nuovi iscritti, Irlanda, Health and Care Worker, 20 Paesi UK, Paesi irlandesi, rossi e ambra, costi NMC,
+    conversioni BCE, Ancestry per nazionalità e per anno) = ricalcolo indipendente; grado del codice e lista OMS 2023 (55 Paesi, Kenya assente);
+    lista OMS 2026 dichiarata non pubblicata e nessuna cifra della lista provvisoria; nessun "£1,170"; ogni citazione = frammento ufficiale; ogni
+    domanda della FAQ legata a un suggerimento salvato dell'autocompletamento; link da home, How it works e /visa-refusal-rates/uk/; piè di pagina invariato.
 Il controllo 8 comprende dal 28/10/2026 anche i visti UK di famiglia e del partner (coniuge).
 Monetizzazione (30/10/2026, controllo comune di studio-business/strumenti/monetizzazione.py): i link di affiliazione sono
 ammessi solo verso i domini di monetizzazione.json, con rel="sponsored noopener" e la riga di trasparenza nella pagina;
@@ -3445,6 +3453,302 @@ def controlla_vl(online=True):
     return errori, len(pagine), riletti
 
 
+# ---------------------------------------------------------------- 29. Infermieri formati all'estero e UK Ancestry visa (5/11/2026)
+def _n29(x):
+    return f"{x:,}"
+
+
+def _testo29(s):
+    return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", s))).strip()
+
+
+def _righe29(main, id_tab):
+    m = re.search(r'<table[^>]*id="' + id_tab + r'".*?<tbody>(.*?)</tbody>', main, re.S)
+    if not m:
+        return None
+    return [[_testo29(c) for c in re.findall(r"<t[dh][^>]*>(.*?)</t[dh]>", tr, re.S)] for tr in re.findall(r"<tr[^>]*>(.*?)</tr>", m.group(1), re.S)]
+
+
+def _hcw29(I, naz, anno):
+    x = I["hcw"]["naz"].get(naz, {}).get(anno)
+    if not x:
+        return None
+    m, d = x["M"], x["D"]
+    return m[0], d[0], m[0] + d[0], m[1] + d[1]
+
+
+def _pc29(r, i):
+    return "–" if i + r == 0 else f"{r / (i + r) * 100:.1f}%"
+
+
+def controlla_infermieri():
+    import hashlib
+    errori = []
+    note = []
+    I = json.loads((SITO.parent / "dati" / "infermieri.json").read_text(encoding="utf-8"))
+    A = json.loads((SITO.parent / "dati" / "ancestry.json").read_text(encoding="utf-8"))
+    R = json.loads((SITO.parent / "dati" / "rifiuti.json").read_text(encoding="utf-8"))
+    for nome, D, chiavi in (("infermieri", I, ("letture", "fonti", "nmc", "irlanda", "codice", "oms", "hcw", "scartati")),
+                            ("ancestry", A, ("letture", "fonti", "trimestri", "controlli_work", "naz"))):
+        cont = {k: D[k] for k in chiavi}
+        if hashlib.sha256(json.dumps(cont, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:20] != D["impronta"]:
+            errori.append(f"29 {nome}: impronta del JSON diversa dal contenuto")
+        if any(f.get("http") not in (200, None) for f in D["fonti"].values() if isinstance(f, dict)):
+            errori.append(f"29 {nome}: fonte non letta (HTTP diverso da 200)")
+    if I["hcw"]["fonte"]["sha256"] != R["fonti"]["uk"]["sha256"] or A["fonti"]["ho"]["sha256"] != R["fonti"]["uk"]["sha256"]:
+        errori.append("29: file del Home Office diverso da quello di dati/rifiuti.json")
+    L = {k: v["valore"] for k, v in I["letture"].items()}
+    LA = {k: v["valore"] for k, v in A["letture"].items()}
+    nmc, ie, cod = I["nmc"], I["irlanda"], I["codice"]
+    date_ = nmc["date"]
+    # 1. ricalcolo indipendente dai file grezzi (NMC e JQ06), se ci sono
+    gr = SITO.parent / "raccolta" / "_grezzi" / "infermieri"
+    f_nmc = gr / I["fonti"]["nmc_xlsx"]["file"]
+    if f_nmc.exists() and hashlib.sha256(f_nmc.read_bytes()).hexdigest() == I["fonti"]["nmc_xlsx"]["sha256"]:
+        import openpyxl
+        wb = openpyxl.load_workbook(f_nmc, read_only=True, data_only=True)
+        for foglio, campo in (("Training Country ALL", "registro"), ("Training Country Joiners", "nuovi")):
+            righe = {}
+            for r in wb[foglio].iter_rows(values_only=True):   # la prima occorrenza: sotto ci sono le stesse righe in percentuale
+                if r[2] and r[2] != "Country of Training" and str(r[2]).strip() not in righe:
+                    righe[str(r[2]).strip()] = [int(x or 0) for x in r[3:15]]
+            for p in list(G.PAESI_INF) + ["Total"]:
+                atteso = righe.get(p)
+                v = (nmc["totale"] if campo == "registro" else nmc["totale_nuovi"]) if p == "Total" else nmc["paesi"][p][campo]
+                if atteso != v:
+                    errori.append(f"29 NMC: {foglio} {p} nel JSON {v} diverso dal file {atteso}")
+    else:
+        note.append("file NMC grezzo assente: ricalcolo dal file saltato")
+    f_ie = gr / "jq06.csv"
+    if f_ie.exists() and hashlib.sha256(f_ie.read_bytes()).hexdigest() == I["fonti"]["jq06_csv"]["sha256"]:
+        import csv
+        import io
+        for r in csv.DictReader(io.StringIO(f_ie.read_bytes().decode("cp1252"))):
+            c = r["QUALCOU"].strip()
+            if r["TRNGTYPE"] == "FOREIGN" and c in ie["paesi"]:
+                v = int(r["VALUE"]) if r["VALUE"].strip().isdigit() else None
+                if ie["paesi"][c]["v"].get(r["YEAR"]) != v:
+                    errori.append(f"29 JQ06: {c} {r['YEAR']} nel JSON {ie['paesi'][c]['v'].get(r['YEAR'])} diverso dal CSV {v}")
+            elif r["TRNGTYPE"] == "TOTAL" and int(r["VALUE"]) != ie["totale"][r["YEAR"]]:
+                errori.append(f"29 JQ06: totale {r['YEAR']} diverso dal CSV")
+    else:
+        note.append("CSV JQ06 grezzo assente: ricalcolo dal file saltato")
+    # 2. pagine attese, sitemap, titoli, JSON-LD, avvisi, niente affiliazioni
+    sez = G.SEZ_INF
+    attese = [""] + [G.PAESI_INF[p][0] for p in G.PAG_INF] + ["uk", "ireland", "red-list", "nmc-registration-cost"]
+    cart = SITO / sez.rstrip("/")
+    trovate = {f.parent.relative_to(cart).as_posix().replace(".", "") for f in cart.rglob("index.html")}
+    if trovate != set(attese):
+        errori.append(f"29: pagine diverse da quelle attese (in più {sorted(trovate - set(attese))}, mancanti {sorted(set(attese) - trovate)})")
+    sel = sorted([(v["registro"][-1], k) for k, v in nmc["paesi"].items() if v["area"] == "Rest of the World" and v["registro"][-1] >= 1000 and k not in ("Unknown", "Australia")], reverse=True)
+    if [k for _, k in sel] != G.PAG_INF or len(G.PAG_INF) != 12:
+        errori.append(f"29: Paesi con pagina {G.PAG_INF} diversi dal ricalcolo (soglia 1.000, fuori da UK e UE/SEE) {[k for _, k in sel]}")
+    sitemap = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    pagine = {}
+    for s in attese + ["@anc"]:
+        percorso = G.PERC_ANC if s == "@anc" else f"{sez}{s + '/' if s else ''}"
+        f = SITO / percorso / "index.html"
+        if not f.exists():
+            errori.append(f"29: manca {percorso}")
+            continue
+        t = f.read_text(encoding="utf-8")
+        main = t.split('<main id="main">', 1)[1].split("</main>", 1)[0]
+        if f"<loc>{G.URL_SITO}/{percorso}</loc>" not in sitemap:
+            errori.append(f"29: {percorso} non in sitemap")
+        titolo = html.unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+        if len(titolo) > 70:
+            errori.append(f"29: titolo oltre 70 caratteri in {percorso} ({len(titolo)})")
+        for x in ("FAQPage", "BreadcrumbList", f'<link rel="canonical" href="{G.URL_SITO}/{percorso}">'):
+            if x not in t:
+                errori.append(f"29: manca {x!r} in {percorso}")
+        if "not advice.</strong>" not in main and "Not immigration or legal advice.</strong>" not in main:
+            errori.append(f"29: avviso mancante in {percorso}")
+        if re.search(r'rel="[^"]*sponsored', main) or "Affiliate" in main:
+            errori.append(f"29: link di affiliazione in {percorso} (nessun riquadro previsto)")
+        for x in ("C.L.25.2026", "36 countries", "£1,170"):
+            if x in main:
+                errori.append(f"29: {x!r} in {percorso} (lista provvisoria o totale NMC che non torna)")
+        lead = _testo29(re.search(r'<p class="lead">(.*?)</p>', main, re.S).group(1))
+        pagine[s] = (t, main, lead, percorso)
+    d1 = G.data_lunga(date_[-1])
+    agg_ie = G.data_lunga(I["fonti"]["jq06_scheda"]["aggiornata"])
+    # 3. pagine Paese: prima frase, tabelle e FAQ ricalcolate
+    for p in G.PAG_INF:
+        slug, X, agg, iso, naz = G.PAESI_INF[p]
+        if slug not in pagine:
+            continue
+        t, main, lead, perc = pagine[slug]
+        v = nmc["paesi"][p]
+        ie1 = ie["paesi"][iso]["v"].get(ie["anni"][-1])
+        attesi_lead = [f"{_n29(v['registro'][-1])} people on the UK's nursing and midwifery register trained in {X} on {d1}", "NMC register data", f"JQ06, updated {agg_ie}",
+                       f"{_n29(v['nuovi'][-1])} nurses, midwives or nursing associates trained in {X} joined"]
+        attesi_lead.append(f"{_n29(ie1)} nurses and midwives practising in Ireland at the end of {ie['anni'][-1]}" if ie1 is not None else "under 25")
+        for x in attesi_lead:
+            if x not in lead:
+                errori.append(f"29 {slug}: prima frase senza {x!r}")
+        if lead.index("NMC") > 400:
+            errori.append(f"29 {slug}: fonte troppo lontana dall'inizio della prima frase")
+        reg = _righe29(main, "t-reg-inf")
+        att = [[G.data_lunga(date_[i]), _n29(v["registro"][i])] for i in sorted(set([i for i, d in enumerate(date_) if d.endswith("03-31")][-4:] + [len(date_) - 2]))]
+        if reg != att:
+            errori.append(f"29 {slug}: tabella del registro {reg} diversa dal ricalcolo {att}")
+        nu = _righe29(main, "t-nuovi-inf")
+        if nu != [[f"6 months to {G.data_lunga(date_[i])}", _n29(v["nuovi"][i])] for i in range(len(date_) - 4, len(date_))]:
+            errori.append(f"29 {slug}: tabella dei nuovi iscritti diversa dal ricalcolo")
+        ir = _righe29(main, "t-ie-inf")
+        if ir != [[f"End of {a}", _n29(ie["paesi"][iso]["v"][a]) if ie["paesi"][iso]["v"].get(a) is not None else "under 25",
+                   _n29(ie["totale"][a] - ie["irlanda"][a] - ie["sconosciuto"][a])] for a in ie["anni"]]:
+            errori.append(f"29 {slug}: tabella dell'Irlanda diversa dal ricalcolo")
+        hr = _righe29(main, "t-hcw-inf")
+        att_h = []
+        for a in sorted({a for x in I["hcw"]["naz"].values() for a in x}):
+            h = _hcw29(I, naz, a)
+            att_h.append(None if not h else [_n29(h[0]), _n29(h[1]), _n29(h[2]), _n29(h[3]), _pc29(h[3], h[2])])
+        if hr is None or [r[1:] if len(r) == 6 else None for r in hr] != att_h:
+            errori.append(f"29 {slug}: tabella dei visti Health and Care Worker diversa dal ricalcolo")
+        grado = "red" if p in cod["rosso"] else "amber" if p in cod["ambra"] else "green"
+        frase = {"red": "is on the red list", "amber": "is on the amber list", "green": "not on the red"}[grado]
+        if frase not in _testo29(main):
+            errori.append(f"29 {slug}: grado del codice ({grado}) non scritto")
+        oms = (cod["nomi_oms"].get(p, p) in I["oms"]["lista_2023"])
+        if (f"{X} is on the WHO health workforce support and safeguards list 2023" in _testo29(main)) != oms:
+            errori.append(f"29 {slug}: appartenenza alla lista OMS 2023 sbagliata")
+        if "Kenya" == p and oms:
+            errori.append("29: il Kenya risulta nella lista OMS 2023")
+    # 4. indice, Regno Unito, Irlanda
+    if "" in pagine:
+        _, main, lead, _ = pagine[""]
+        intl, tot = nmc["subtotali"]["International sub-total"][-1], nmc["totale"][-1]
+        for x in (f"{_n29(intl)} of the {_n29(tot)} people on the UK's NMC register ({intl / tot * 100:.1f}%) trained outside the UK", "NMC register data", "JQ06",
+                  f"{_n29(ie['totale'][ie['anni'][-1]] - ie['irlanda'][ie['anni'][-1]] - ie['sconosciuto'][ie['anni'][-1]])} of {_n29(ie['totale'][ie['anni'][-1]])} practising nurses"):
+            if x not in lead:
+                errori.append(f"29 indice: prima frase senza {x!r}")
+        righe = _righe29(main, "t-inf")
+        if not righe or [r[0] for r in righe] != G.PAG_INF:
+            errori.append("29 indice: righe della tabella diverse dai Paesi con pagina")
+        else:
+            for r in righe:
+                p = r[0]
+                v = nmc["paesi"][p]
+                h = _hcw29(I, G.PAESI_INF[p][4], G.HCW_A1)
+                ie1 = ie["paesi"][G.PAESI_INF[p][3]]["v"].get(ie["anni"][-1])
+                att = [_n29(v["registro"][-1]), _n29(v["registro"][-3]), _n29(v["nuovi"][-1]), _n29(v["nuovi"][-3]), _n29(ie1) if ie1 is not None else "under 25", _n29(h[2])]
+                if r[1:7] != att:
+                    errori.append(f"29 indice: riga {p} {r[1:7]} diversa dal ricalcolo {att}")
+    if "uk" in pagine:
+        _, main, lead, _ = pagine["uk"]
+        top = sorted(((v["registro"][-1], k) for k, v in nmc["paesi"].items() if v["area"] != "UK" and k != "Unknown"), reverse=True)[:20]
+        righe = _righe29(main, "t-top-inf")
+        if not righe or [[r[0], r[2], r[3], r[4]] for r in righe] != [[k, _n29(x), _n29(nmc["paesi"][k]["registro"][-3]), _n29(nmc["paesi"][k]["nuovi"][-1])] for x, k in top]:
+            errori.append("29 uk: tabella dei 20 Paesi diversa dal ricalcolo")
+        serie = _righe29(main, "t-serie-inf")
+        if serie != [[f"6 months to {G.data_lunga(d)}", _n29(nmc["subtotali_nuovi"]["International sub-total"][i]), _n29(nmc["totale_nuovi"][i])] for i, d in enumerate(date_)]:
+            errori.append("29 uk: serie dei nuovi iscritti diversa dal ricalcolo")
+    if "ireland" in pagine:
+        _, main, lead, _ = pagine["ireland"]
+        a1, a0 = ie["anni"][-1], ie["anni"][-2]
+        pubb = sorted(((v["v"][a1], c) for c, v in ie["paesi"].items() if v["v"].get(a1) is not None), reverse=True)
+        righe = _righe29(main, "t-ie-paesi")
+        if not righe or [r[:3] for r in righe] != [[ie["paesi"][c]["nome"], _n29(x), _n29(ie["paesi"][c]["v"][a0]) if ie["paesi"][c]["v"].get(a0) is not None else "–"] for x, c in pubb]:
+            errori.append("29 ireland: tabella dei Paesi diversa dal ricalcolo")
+        if "CC BY 4.0" not in main or "creativecommons.org/licenses/by/4.0" not in main:
+            errori.append("29 ireland: licenza CC BY 4.0 non citata")
+    # 5. lista rossa
+    if "red-list" in pagine:
+        _, main, lead, _ = pagine["red-list"]
+        righe = _righe29(main, "t-rossa")
+        att = []
+        for p in cod["rosso"] + cod["ambra"]:
+            h = _hcw29(I, cod["nomi_ho"].get(p, p), G.HCW_A1)
+            att.append([p, "red" if p in cod["rosso"] else "amber", "yes" if cod["nomi_oms"].get(p, p) in I["oms"]["lista_2023"] else "no"] + ([_n29(h[2]), _n29(h[3])] if h else ["–", "–"]))
+        if righe != att:
+            errori.append("29 red-list: tabella dei Paesi rossi e ambra diversa dal ricalcolo")
+        if len(cod["rosso"]) != 54 or cod["ambra"] != ["Kenya", "Nepal"] or len(I["oms"]["lista_2023"]) != 55 or "Nepal" not in I["oms"]["lista_2023"]:
+            errori.append("29 red-list: liste del codice o dell'OMS cambiate")
+        for x in ("not published the final 2026 list", "WHO health workforce support and safeguards list 2023", f"{L['oms_2023_55']} countries",
+                  G.data_lunga(I["fonti"]["codice"]["aggiornata"])):
+            if x not in lead:
+                errori.append(f"29 red-list: prima frase senza {x!r}")
+        if I["oms"]["lista_2026"] != "non pubblicata":
+            errori.append("29 red-list: la lista OMS 2026 risulta pubblicata: riscrivere la pagina")
+    # 6. costi NMC
+    if "nmc-registration-cost" in pagine:
+        _, main, lead, _ = pagine["nmc-registration-cost"]
+        voci = [L["costo_valutazione"], L["costo_cbt"], L["costo_osce"], L["costo_iscrizione"]]
+        if sum(voci) != L["costo_totale"]:
+            errori.append("29 costi: le voci non sommano al totale")
+        righe = _righe29(main, "t-costi-inf")
+        if not righe or [r[1] for r in righe] != [f"£{x:,}" for x in voci + [sum(voci)]]:
+            errori.append("29 costi: tabella dei costi diversa dalle letture")
+        if f"£{L['costo_totale']:,} in fees and tests" not in lead or "NMC" not in lead or "1 October 2026" not in lead:
+            errori.append("29 costi: prima frase senza totale, fonte o data")
+        C = G.CAMBI["tassi"]
+        val = _righe29(main, "t-valute-inf")
+        att = []
+        for v in ("INR", "PHP", "ZAR", "USD", "EUR"):
+            k = (1 if v == "EUR" else C[v]) / C["GBP"]
+            att.append([f"≈ {round(x * k):,}" for x in (L["costo_totale"], L["costo_cbt"], L["costo_osce"])])
+        if not val or [r[1:] for r in val] != att:
+            errori.append("29 costi: conversioni diverse dal ricalcolo con i cambi BCE")
+    # 7. UK Ancestry
+    if "@anc" in pagine:
+        _, main, lead, _ = pagine["@anc"]
+        trim = A["trimestri"]
+        a1 = str(int(trim[-1][:4]) - 1) if not trim[-1].endswith("Q4") else trim[-1][:4]
+
+        def tot(n, a):
+            x = A["naz"].get(n, {}).get(a)
+            return [0] * 4 if not x else [x["M"][i] + x["D"][i] for i in range(4)]
+        T = [sum(tot(n, a1)[i] for n in A["naz"]) for i in range(4)]
+        for x in (f"In {a1} the Home Office issued {_n29(T[0])} UK Ancestry visas and refused {_n29(T[1])} ({_pc29(T[1], T[0])} of decisions)",
+                  f"South Africa ({_n29(tot('South Africa', a1)[0])} issued, {_n29(tot('South Africa', a1)[1])} refused)", "published " + A["fonti"]["ho"]["pubblicato"]):
+            if x not in lead:
+                errori.append(f"29 ancestry: prima frase senza {x!r}")
+        righe = _righe29(main, "t-anc")
+        naz = sorted([n for n in A["naz"] if sum(tot(n, a1)) > 0], key=lambda n: (-tot(n, a1)[0], n))
+        att = [[n, _n29(tot(n, a1)[0]), _n29(tot(n, a1)[1]), _pc29(tot(n, a1)[1], tot(n, a1)[0])] for n in naz]
+        if not righe or [[r[0], r[3], r[4], r[6]] for r in righe[:-1]] != att:
+            errori.append("29 ancestry: tabella per nazionalità diversa dal ricalcolo")
+        anni = _righe29(main, "t-anc-anni")
+        anni_att = sorted({a for v in A["naz"].values() for a in v})
+        if not anni or [[r[1], r[2]] for r in anni] != [[_n29(sum(tot(n, a)[0] for n in A["naz"])), _n29(sum(tot(n, a)[1] for n in A["naz"]))] for a in anni_att]:
+            errori.append("29 ancestry: tabella anno per anno diversa dal ricalcolo")
+        if anni_att[0] != "2005" or len(anni_att) < 20:
+            errori.append("29 ancestry: anni disponibili inattesi")
+        if f"£{LA['tassa']}" not in main or "grandparents" not in main:
+            errori.append("29 ancestry: tassa o regola del nonno mancanti")
+    # 8. citazioni = frammenti ufficiali; FAQ da ricerche vere (le FAQ si registrano rigenerando le pagine senza scriverle)
+    orig = G.pagina
+    G.pagina = lambda *a, **k: None
+    try:
+        G.genera_inf()
+        G.pagina_anc()
+    finally:
+        G.pagina = orig
+    frammenti = [v["frammento"] for v in I["letture"].values()] + [v["frammento"] for v in A["letture"].values()]
+    for s, (t, main, lead, perc) in pagine.items():
+        for q in re.findall(r"“([^”]+)”", html.unescape(main)):
+            q = q.rstrip(".").strip()
+            if not any(q in f for f in frammenti):
+                errori.append(f"29 {perc}: citazione non presente nei frammenti ufficiali: {q[:80]!r}")
+        faq = G.FAQ_ANC if s == "@anc" else G.FAQ_INF.get(perc, [])
+        h3 = re.findall(r"<h3>(.*?)</h3>", main.split("Questions people ask", 1)[-1])
+        if not faq or [html.unescape(x) for x in h3] != [d for _, _, d in faq]:
+            errori.append(f"29 {perc}: domande della FAQ diverse da quelle legate a ricerche dell'autocompletamento")
+        dom = (A if s == "@anc" else I)["domanda"]["query"]
+        for k, sug, d in faq:
+            if sug not in (dom.get(k) or []):
+                errori.append(f"29 {perc}: la domanda {d!r} non viene da una ricerca salvata ({k} -> {sug!r})")
+    # 9. collegamenti dal resto del sito; piè di pagina comune invariato
+    for f, x in (("index.html", f'href="{sez}"'), ("index.html", f'href="{G.PERC_ANC}"'), ("how-it-works/index.html", f'href="../{sez}"'),
+                 ("visa-refusal-rates/uk/index.html", f'href="../../{G.PERC_ANC}"'), ("visa-refusal-rates/uk/index.html", f'href="../../{sez}"')):
+        if x not in leggi(f):
+            errori.append(f"29: manca il link {x} in {f}")
+    if "nurses-abroad" in G.piede_en("") or "ancestry" in G.piede_en(""):
+        errori.append("29: il piè di pagina comune è cambiato (vincolo dell'esperimento A/B)")
+    return errori, len(pagine), note
+
+
 def main():
     errori = controlla_esempi()
     print(f"1. Esempi a mano: {len(ESEMPI)} importi e {len(ESITI)} confronti con il reddito, {len(errori)} errori")
@@ -3523,7 +3827,12 @@ def main():
           f"hreflang, citazioni, link alle fonti, FAQ da ricerche vere, nessun affiliato, link; riletti online: {len(r28)}: {len(e28)} errori")
     for x in r28:
         print("    ·", x)
-    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28
+    e29, n29, r29 = controlla_infermieri()
+    print(f"29. Infermieri formati all'estero e UK Ancestry visa: {n29} pagine, ricalcolo dai file NMC e JQ06, prima frase, tabelle (registro, nuovi iscritti, Irlanda, "
+          f"Health and Care Worker, lista rossa, costi NMC e cambi, Ancestry per nazionalità e per anno), citazioni = frammenti, FAQ da ricerche vere, link, piè di pagina: {len(e29)} errori")
+    for x in r29:
+        print("    ·", x)
+    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28 + e29
     for e in tutti:
         print(" -", e)
     if tutti:

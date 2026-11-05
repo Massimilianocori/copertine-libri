@@ -2,8 +2,8 @@
 "_nota": "Scritto da genera.py: percorso -> [data dell'ultima modifica del contenuto, impronta]. Non modificare a mano.",
 "pagine": {
 "": [
-"2026-11-04",
-"e69901c6d71412b8d762"
+"2026-11-05",
+"b4b922e6ddb76d5aeaf9"
 ],
 "about/": [
 "2026-10-15",
@@ -786,8 +786,8 @@
 "246d2dbd2f2b48746972"
 ],
 "how-it-works/": [
-"2026-11-04",
-"c43dfa8ab3bb2d64ac47"
+"2026-11-05",
+"ea324a419f00a8ee096b"
 ],
 "hungary-white-card/": [
 "2026-10-31",
@@ -1753,6 +1753,74 @@
 "2026-10-31",
 "012e03fcb60dcd1c64bb"
 ],
+"nurses-abroad/": [
+"2026-11-05",
+"28f001b6dabed81f9bdd"
+],
+"nurses-abroad/ghana/": [
+"2026-11-05",
+"18cab2a131e58facd21d"
+],
+"nurses-abroad/india/": [
+"2026-11-05",
+"a54f607ce734225a791a"
+],
+"nurses-abroad/ireland/": [
+"2026-11-05",
+"d0fdd99c4eb402f41a05"
+],
+"nurses-abroad/jamaica/": [
+"2026-11-05",
+"520d02a47a94ddd9b158"
+],
+"nurses-abroad/kenya/": [
+"2026-11-05",
+"9be3dd4f43db3494f1bc"
+],
+"nurses-abroad/nepal/": [
+"2026-11-05",
+"be49676b07b58d327311"
+],
+"nurses-abroad/nigeria/": [
+"2026-11-05",
+"d081c7994eb23099c817"
+],
+"nurses-abroad/nmc-registration-cost/": [
+"2026-11-05",
+"17fc09e87c68fbbade9a"
+],
+"nurses-abroad/pakistan/": [
+"2026-11-05",
+"a5467ab1283f3481cf4b"
+],
+"nurses-abroad/philippines/": [
+"2026-11-05",
+"fcfb6060b5a136b5cb8c"
+],
+"nurses-abroad/red-list/": [
+"2026-11-05",
+"b69926fd4aeefbd1ae95"
+],
+"nurses-abroad/south-africa/": [
+"2026-11-05",
+"b4ec9fc0a397df4ab918"
+],
+"nurses-abroad/sri-lanka/": [
+"2026-11-05",
+"7c2dd569edadd6b09f3c"
+],
+"nurses-abroad/uk/": [
+"2026-11-05",
+"634e76aa89fefa7b3bcb"
+],
+"nurses-abroad/zambia/": [
+"2026-11-05",
+"286672801703e6b1524c"
+],
+"nurses-abroad/zimbabwe/": [
+"2026-11-05",
+"2f8f974ee63e7f1878e0"
+],
 "portugal-d7-visa/": [
 "2026-10-31",
 "67e8180a07ebbb81f58d"
@@ -2192,6 +2260,10 @@
 "thailand-dtv-visa/yangon/": [
 "2026-11-04",
 "ab60bd2946f9f9dee534"
+],
+"uk-ancestry-visa/": [
+"2026-11-05",
+"f23b4565097a9704373c"
 ],
 "uk-english-test/": [
 "2026-11-04",
@@ -3134,8 +3206,8 @@
 "0a3cce1db1ddbab458e6"
 ],
 "visa-refusal-rates/uk/": [
-"2026-10-28",
-"3f3f4e44dfdcf05a23e4"
+"2026-11-05",
+"310552a27dbf17d8e3a4"
 ],
 "visa-refusal-rates/uk/family-visas/": [
 "2026-10-28",

@@ -1,0 +1,26126 @@
+{
+"_nota": "Generato da raccolta/infermieri.py: non modificare a mano (i valori letti a mano stanno in LETTURE dentro lo script). NMC: registro e nuovi iscritti per Paese di formazione (citati come fatti); Irlanda: JQ06, CC BY 4.0; GOV.UK e Home Office: OGL v3.0; OMS: lista 2023 (la 2026 non è pubblicata). hcw.naz: nazionalità -> anno -> M (richiedenti principali) / D (familiari) = [concessi, rifiutati, ritirati, decaduti].",
+"generato_il": "2026-11-05",
+"letto_il": "2026-11-05",
+"impronta": "b176e1ca12a7ccc89d47",
+"domanda": {
+"data": "2026-11-05",
+"metodo": "https://suggestqueries.google.com/complete/search?client=firefox&gl=<Paese>&hl=en&q=…",
+"query": {
+"in|how many indian nurses in uk": [
+"how many indian nurses in uk",
+"can indian nurse work in uk",
+"how many indian nurses in usa"
+],
+"in|indian nurses in ireland": [
+"indian nurses in ireland",
+"indian nurses in ireland reddit",
+"indian nurses salary in ireland",
+"indian nurse died in ireland",
+"how many indian nurses in ireland",
+"indian nurse stabbed in ireland",
+"why are there so many indian nurses in ireland",
+"how to become a nurse in ireland from india",
+"how to become a nurse in ireland",
+"how to work as a nurse in ireland"
+],
+"in|can indian nurse work in uk": [
+"can indian nurse work in uk",
+"can indian dentist work as dental nurse in uk",
+"how to get nursing job in uk from india"
+],
+"ph|how many filipino nurses in uk": [
+"how many filipino nurses in uk",
+"how many filipino nurses in nhs"
+],
+"ph|filipino nurses in ireland": [
+"filipino nurses in ireland",
+"filipino nurse in ireland salary",
+"filipino nurse in ireland reddit",
+"pinoy nurses in ireland",
+"filipino nurses hiring in ireland",
+"how many filipino nurses in ireland",
+"how to be a nurse in ireland from philippines",
+"are filipino nurses good"
+],
+"ng|how many nigerian nurses in uk": [
+"how many nigerian nurses in uk",
+"how to become a nurse in uk from nigeria"
+],
+"ng|nigerian nurses in ireland": [
+"nigerian nurses in ireland",
+"association of nigerian nurses in ireland",
+"how to become a nurse in ireland",
+"how to become a nurse in nigeria",
+"how to register as a nurse in ireland",
+"how to work as a nurse in ireland"
+],
+"gh|ghanaian nurses in uk": [
+"ghanaian nurses in uk",
+"ghanaian nurse dies in uk",
+"ghanaian nurses association uk",
+"can a ghanaian nurse work in uk",
+"how much are ghanaian nurses paid"
+],
+"zw|zimbabwean nurses in uk": [
+"zimbabwean nurses in uk",
+"zimbabwean nurse dies in uk",
+"can a zimbabwean work in the uk",
+"latest nursing jobs in zimbabwe"
+],
+"np|nepali nurses in uk": [
+"nepali nurses in uk",
+"nepali nurse salary in uk",
+"can nepali nurses work in uk",
+"nepali nurse salary",
+"nurse nepali meaning",
+"nurse in nepali word"
+],
+"za|south african nurses in uk": [
+"south african nurses in uk",
+"south african nurses working in uk",
+"can south african nurses work in the uk",
+"does uk need nurses"
+],
+"ke|kenyan nurses in uk": [
+"kenyan nurses in uk",
+"kenyan nurse dies in uk",
+"kenyan nurses salary in uk",
+"kenyan nurses to work in uk",
+"kenyan nurses association uk",
+"can a kenyan nurse work in uk",
+"how much does a kenyan nurse earn per month"
+],
+"pk|pakistani nurses in uk": [
+"pakistani nurses in uk",
+"pakistani nurse salary in uk per month",
+"pakistani nurse salary in uk",
+"how many pakistani nurses in uk",
+"can pakistani nurses work in uk",
+"nursing jobs in uk for pakistani nurses",
+"how many pakistani doctors in uk",
+"how many foreign nurses work in the uk"
+],
+"zm|zambian nurses in uk": [
+"zambian nurses in uk",
+"latest nursing jobs in zambia"
+],
+"lk|sri lankan nurses in uk": [
+"sri lankan nurses in uk",
+"nursing qualifications in sri lanka",
+"nursing courses in sri lanka"
+],
+"jm|jamaican nurses in uk": [
+"jamaican nurses in uk",
+"how to become a nurse in jamaica",
+"nurses jobs in jamaica",
+"nurse salary in jamaica"
+],
+"au|australian nurses in uk": [
+"australian nurses in uk",
+"australian nurses working in uk",
+"australian nurse registration in uk",
+"australia nurse uk",
+"can australian nurses work in uk",
+"how to become a nurse in uk from australia",
+"can uk nurses work in australia"
+],
+"gb|foreign nurses in uk": [
+"foreign nurses in uk",
+"international nurses in uk",
+"overseas nurses in uk",
+"foreign nurses jobs in uk",
+"foreign nurses in nhs",
+"foreign nurse registration in uk",
+"foreign nurse salary in uk",
+"percentage of foreign nurses in uk",
+"hospitals recruiting foreign nurses in uk",
+"how many foreign nurses in uk"
+],
+"gb|international nurses in uk": [
+"international nurses in uk",
+"foreign nurses in uk",
+"international nurse vacancy in uk",
+"international nurses jobs in uk",
+"international nurses recruitment in uk",
+"international nurses day in uk",
+"international nurse salary in uk",
+"international nurses hiring in uk",
+"international nurses working in uk",
+"international nurses uk drop"
+],
+"ie|nurses in ireland from": [
+"nurse in ireland from us",
+"nursing in ireland from australia",
+"nurse hiring in ireland from philippines",
+"nurse vacancy in ireland from india",
+"working as a nurse in ireland from the us",
+"how to apply nurse in ireland from philippines",
+"how to become nurse in ireland from india",
+"how to be a nurse in ireland from philippines",
+"how to become a nurse in ireland from united states",
+"how to become a nurse in ireland from uk"
+],
+"ie|how many nurses in ireland": [
+"how many nurses in ireland",
+"how many healthcare workers in ireland",
+"how many indian nurses in ireland",
+"how many nurses in northern ireland",
+"how many registered nurses in ireland",
+"how many filipino nurses in ireland",
+"how many nurses work in ireland",
+"how many foreign nurses in ireland",
+"how many nurse prescribers in ireland",
+"how many nursing homes in ireland"
+],
+"ng|is nigeria on the red list": [
+"is nigeria on the red list",
+"is nigeria on red list in uk",
+"is nigeria on red list for sponsorship visa",
+"is nigeria on nhs red list",
+"is nigeria still on uk red list",
+"is nigeria a red list country"
+],
+"gh|is ghana on the red list": [
+"is ghana on the red list",
+"is ghana off the red list",
+"is ghana still on the who red list",
+"is ghana out of the red list",
+"is ghana a red list country",
+"is ghana still part of the red list"
+],
+"zw|is zimbabwe on the red list": [
+"is zimbabwe on the red list for recruitment",
+"is zimbabwe on the red list",
+"is zimbabwe still on the red list",
+"is zimbabwe on uk red list"
+],
+"ke|is kenya on the red list": [
+"kenya red list"
+],
+"np|is nepal on the red list": [
+"is nepal red list country"
+],
+"pk|is pakistan on the red list": [
+"is pakistan on the red list"
+],
+"zm|is zambia on the red list": [
+"is zambia on the red list for nurses",
+"is zambia on the red list",
+"is zambia still on the red list",
+"is zambia on the red list in uk",
+"is zambia off.the red list",
+"is zambia still on the uk red list"
+],
+"ng|red list countries for nurses": [
+"nhs red list countries for nurses",
+"who red list countries for nurses",
+"uk red list countries for healthcare workers",
+"who red list countries 2026 for nurses"
+],
+"gb|red list countries": [
+"red list countries",
+"red list countries uk",
+"red list countries uk gov",
+"red list countries money laundering",
+"red list countries uk military",
+"red list countries aml",
+"red list countries 2026",
+"red list countries law society",
+"red list countries update today",
+"red list countries for nurse recruitment"
+],
+"gb|who red list": [
+"who red list countries 2026",
+"who red list countries",
+"who red list",
+"who red list countries update today",
+"who red list meaning",
+"who red list countries 2026 pdf",
+"who published red list",
+"who is on interpol red list"
+],
+"gb|nhs red list countries": [
+"nhs red list countries",
+"nhs red list countries for nurses",
+"nhs red list countries recruitment",
+"nhs employers red list countries",
+"nhs red list"
+],
+"gh|nmc registration fee": [
+"nmc registration fee",
+"nmc registration fee 2026",
+"nmc registration fee for overseas nurses",
+"nmc registration fee increase",
+"nmc registration fee 2025",
+"nmc registration fee for nurses",
+"nmc registration fee for nursing associate",
+"how much is nmc registration fee"
+],
+"ng|nmc application fee": [
+"nmc application fee",
+"nmc application fee for overseas nurses",
+"nmc registration fee",
+"nmc registration fee 2026",
+"nmc registration fee 2025",
+"nmc registration fee increase",
+"nmc registration fee for overseas nurses",
+"nmc registration fee 2024",
+"nmc registration fee uk",
+"nmc registration fee tax relief"
+],
+"ng|nmc osce fee": [
+"nmc osce fees",
+"nmc osce exam fee",
+"uk nmc osce fee",
+"nmc osce resit fee",
+"nmc osce cost",
+"nmc osce pass rates"
+],
+"ng|nmc cbt fee": [
+"nmc cbt fee",
+"nmc cbt exam fee",
+"nmc cbt exam fee in nigeria",
+"nmc cbt exam fees in india",
+"nmc uk cbt fee",
+"nmc cbt passing score",
+"how much is cbt nmc exam",
+"nmc cbt test dates"
+],
+"ph|nmc uk fee": [
+"nmc uk fees",
+"nmc uk price",
+"nmc uk registration fee",
+"nmc uk verification fee",
+"nmc uk registration fee for overseas nurses",
+"nmc uk renewal fee",
+"nmc uk annual fee",
+"nmc uk osce fee",
+"nmc uk exam fee",
+"nmc uk application fee"
+],
+"gb|nmc osce resit fee": [
+"nmc osce resit fee",
+"osce exam uk fee",
+"nmc osce cost"
+],
+"in|nmc registration fee": [
+"nmc registration fee",
+"nmc registration fee 2026",
+"nmc registration fee for nurses",
+"nmc registration fee for overseas nurses",
+"nmc registration fee increase",
+"nmc registration fee 2025",
+"nmc registration fee for nursing associate",
+"how much is nmc registration fee"
+]
+}
+},
+"letture": {
+"costo_totale": {
+"valore": 1226,
+"fonte": "nmc_costi",
+"frammento": "The total cost of fees and tests is £1,226"
+},
+"costo_valutazione": {
+"valore": 167,
+"fonte": "nmc_costi",
+"frammento": "Qualification evaluation fee Paid to NMC on submission of eligibility and qualification application. This fee is non-refundable. £167"
+},
+"costo_cbt": {
+"valore": 83,
+"fonte": "nmc_costi",
+"frammento": "Computer based test (CBT) cost Paid to test provider before test. £83 first sitting"
+},
+"costo_cbt_resit": {
+"valore": 83,
+"fonte": "nmc_costi",
+"frammento": "For both Clinical and Numeracy £83 full resit"
+},
+"costo_cbt_clinical": {
+"valore": 70,
+"fonte": "nmc_costi",
+"frammento": "For Clinical only £70 partial resit"
+},
+"costo_cbt_numeracy": {
+"valore": 50,
+"fonte": "nmc_costi",
+"frammento": "For Numeracy only £50 partial resit"
+},
+"costo_osce": {
+"valore": 794,
+"fonte": "nmc_costi",
+"frammento": "Objective structured clinical examination (OSCE) cost Paid to test provider before exam. £794 first sitting"
+},
+"costo_osce_resit": {
+"valore": 794,
+"fonte": "nmc_costi",
+"frammento": "Payable if candidate fails in eight or more stations. £794 full resit"
+},
+"costo_osce_parziale": {
+"valore": 397,
+"fonte": "nmc_costi",
+"frammento": "Payable if candidate fails in up to seven stations. £397 partial resit"
+},
+"costo_iscrizione": {
+"valore": 182,
+"fonte": "nmc_costi",
+"frammento": "Registration fee Paid to NMC on submission of registration application. This fee is refundable in certain circumstances. £182"
+},
+"costo_aumento": {
+"valore": "2026-10-01",
+"fonte": "nmc_costi",
+"frammento": "Please note our fees increased on 1 October 2026."
+},
+"costo_escluso": {
+"valore": true,
+"fonte": "nmc_costi",
+"frammento": "This doesn't include the cost of your visa, flights to the UK and any accommodation and travel while in the UK."
+},
+"costo_resit": {
+"valore": true,
+"fonte": "nmc_costi",
+"frammento": "These costs could be higher if you need to resit tests."
+},
+"codice_da_oms": {
+"valore": "2023",
+"fonte": "codice",
+"frammento": "The red list is drawn from the WHO Health Workforce Support and Safeguards List 2023"
+},
+"codice_no_attivo": {
+"valore": true,
+"fonte": "codice",
+"frammento": "No active recruitment of health and care staff will be undertaken from countries on the red list."
+},
+"codice_rosso": {
+"valore": true,
+"fonte": "codice",
+"frammento": "Countries on the WHO health workforce support and safeguards list are graded red, which means no active recruitment is permitted from these countries."
+},
+"codice_ambra": {
+"valore": true,
+"fonte": "codice",
+"frammento": "The country will be added to the amber list and recruitment can happen only on the terms of the agreement."
+},
+"codice_verde": {
+"valore": true,
+"fonte": "codice",
+"frammento": "Active recruitment is permitted from green graded countries."
+},
+"codice_diretta": {
+"valore": true,
+"fonte": "codice",
+"frammento": "Individual health and social care employers may consider direct applications from individuals who are resident in countries on the code red and amber list"
+},
+"codice_diretta_def": {
+"valore": true,
+"fonte": "codice",
+"frammento": "A direct application can only be made in response to a specific advertised vacancy that is hosted by, and recruited to, the same sponsoring organisation."
+},
+"codice_3anni": {
+"valore": 3,
+"fonte": "codice",
+"frammento": "The WHO health workforce support and safeguards list is updated by WHO every 3 years, or more frequently if required."
+},
+"oms_data_qa": {
+"valore": "2026-08-05",
+"fonte": "oms_qa",
+"frammento": "5 August 2026 | Questions and answers"
+},
+"oms_flessibilita": {
+"valore": true,
+"fonte": "oms_qa",
+"frammento": "The update of the SSL from 2026 onwards includes the flexibility option in its application"
+},
+"oms_finale": {
+"valore": true,
+"fonte": "oms_qa",
+"frammento": "After incorporating Member State responses, WHO publishes the final list of countries and shares them with Member States and the public."
+},
+"oms_3anni": {
+"valore": 3,
+"fonte": "oms_qa",
+"frammento": "The SSL is scheduled to be updated every 3 years or earlier if necessary"
+},
+"oms_volontario": {
+"valore": true,
+"fonte": "oms_qa",
+"frammento": "are voluntary instruments adopted under article 23 of the WHO Constitution, and as such they are not legally binding"
+},
+"oms_2023_55": {
+"valore": 55,
+"fonte": "oms_ssl2023",
+"frammento": "The WHO health workforce support and safeguards list 2023 comprises 55 countries."
+},
+"oms_2023_data": {
+"valore": "2023-03-08",
+"fonte": "oms_ssl2023",
+"frammento": "WHO health workforce support and safeguards list 2023 8 March 2023 | Technical document"
+},
+"oms_2023_prossime": {
+"valore": [
+2026,
+2029
+],
+"fonte": "oms_pdf",
+"frammento": "with the next updates scheduled for publication in 2026 and 2029"
+},
+"jq06_soppressi": {
+"valore": 25,
+"fonte": "jq06_metadati",
+"frammento": "Any Country with a value smaller than 25 was suppressed for confidentiality purposes."
+},
+"jq06_ostetriche": {
+"valore": true,
+"fonte": "jq06_metadati",
+"frammento": "Note that figures also include midwives"
+},
+"jq06_copertura": {
+"valore": true,
+"fonte": "jq06_metadati",
+"frammento": "have self-reported to be practicing in Ireland"
+},
+"jq06_fine_anno": {
+"valore": true,
+"fonte": "jq06_metadati",
+"frammento": "Year (also referred to as data reference year) is taken as at the end of the calendar year of reference."
+}
+},
+"fonti": {
+"nmc_pagina": {
+"url": "https://www.nmc.org.uk/about-us/reports-and-accounts/registration-statistics/",
+"http": 200,
+"sha256": "25058317f4d9cb581ab8d1d46bc0c7dca40944e62411eb7c63f32e639f5c62b3",
+"letto_il": "2026-11-05",
+"aggiornata": "2026-07-29",
+"titolo": "NMC registration data reports"
+},
+"nmc_costi": {
+"url": "https://www.nmc.org.uk/registration/joining-the-register/register-nurse-midwife/trained-outside-uk/how-to-guide/check-ready/costs/",
+"http": 200,
+"sha256": "e8fe6ce6eea0d5eada06df0834ff062aacffefe3dbb42216af560b0c03079408",
+"letto_il": "2026-11-05",
+"aggiornata": "2019-10-07",
+"titolo": "NMC: How much is it going to cost? (trained outside the UK)"
+},
+"nmc_intl": {
+"url": "https://www.nmc.org.uk/registration/information-for-internationally-trained-applicants/",
+"http": 200,
+"sha256": "aa04eea9c953ce8e4b98efe87b638ece7d1b417618074dffeda021ba95f61c33",
+"letto_il": "2026-11-05",
+"aggiornata": "2026-10-08",
+"titolo": "NMC: Information for internationally trained applicants"
+},
+"oms_qa": {
+"url": "https://www.who.int/news-room/questions-and-answers/item/who-health-workforce-support-and-safeguards-list",
+"http": 200,
+"sha256": "f55e7175b912dadc7bc70133d7184a5344a91df00ae9312b41f7c4e5f58c1e1a",
+"letto_il": "2026-11-05",
+"titolo": "WHO: WHO health workforce support and safeguards list (questions and answers)",
+"pubblicazioni_collegate": [
+"WHO health workforce support and safeguards list 2023"
+]
+},
+"oms_ssl2023": {
+"url": "https://www.who.int/publications/i/item/9789240069787",
+"http": 200,
+"sha256": "ef7e645ef7ae035c48f48117c0f47590ae9263b19682eb17cb92961f06f14b8c",
+"letto_il": "2026-11-05",
+"titolo": "WHO health workforce support and safeguards list 2023"
+},
+"codice": {
+"url": "https://www.gov.uk/government/publications/code-of-practice-for-the-international-recruitment-of-health-and-social-care-personnel/code-of-practice-for-the-international-recruitment-of-health-and-social-care-personnel-in-england",
+"api": "https://www.gov.uk/api/content/government/publications/code-of-practice-for-the-international-recruitment-of-health-and-social-care-personnel/code-of-practice-for-the-international-recruitment-of-health-and-social-care-personnel-in-england",
+"http": 200,
+"titolo": "Code of practice for the international recruitment of health and social care personnel in England",
+"aggiornata": "2025-03-27",
+"sha256": "a0dadecc8ce0c72bb8e0fd67f1de5fd6558e28a30d757050e64bb86ac12af914",
+"letto_il": "2026-11-05",
+"licenza": "Open Government Licence v3.0"
+},
+"oms_pdf": {
+"url": "https://iris.who.int/server/api/core/bitstreams/7a4c60c5-0610-44da-ad9d-6e20fd938d92/content",
+"http": 200,
+"sha256": "aa4ea41ba13fb9bff4268834be059d8fcd93a69bba8c30379f96c3aa250142f9",
+"byte": 1308508,
+"letto_il": "2026-11-05",
+"titolo": "WHO health workforce support and safeguards list 2023 (PDF)",
+"licenza": "CC BY-NC-SA 3.0 IGO"
+},
+"nmc_xlsx": {
+"url": "https://www.nmc.org.uk/globalassets/sitedocuments/data-reports/2026/nmc-register-march-2026-uk-data-tables.xlsx",
+"file": "nmc-register-march-2026-uk-data-tables.xlsx",
+"byte": 863884,
+"sha256": "9f3a97117bdf3b6a19b3fa2f2de8285e4d6e149548c7503052822b1a2a8608c5",
+"http": 200,
+"last_modified": "Tue, 28 Jul 2026 16:37:54 GMT",
+"scaricato_il": "2026-11-05",
+"titolo": "NMC register data tables (UK)",
+"licenza": "NMC terms and conditions (section 6): figures cited as facts with a link"
+},
+"jq06_scheda": {
+"url": "https://data.gov.ie/dataset/jq06-stock-of-nurses-by-country-of-first-qualification",
+"api": "https://data.gov.ie/api/3/action/package_show?id=jq06-stock-of-nurses-by-country-of-first-qualification",
+"http": 200,
+"titolo": "JQ06 – Stock of nurses by country of first qualification",
+"editore": "Department of Health",
+"licenza": "Creative Commons Attribution 4.0",
+"licenza_url": "https://creativecommons.org/licenses/by/4.0/",
+"aggiornata": "2026-09-03",
+"letto_il": "2026-11-05"
+},
+"jq06_csv": {
+"url": "https://assets.gov.ie/static/documents/7edf5f10/JQ06_-_Stock_of_Nurses_by_country_of_training.csv",
+"byte": 125136,
+"sha256": "1d130d3887c68394d96db02573fe7684a33d4f5515c3873f864eefed4c0230f2",
+"codifica": "cp1252",
+"last_modified": "Tue, 17 Feb 2026 16:08:40 GMT",
+"scaricato_il": "2026-11-05",
+"http": 200
+},
+"jq06_metadati": {
+"url": "https://assets.gov.ie/static/documents/dbf69115/JQ06_-Metadata_Document.pdf",
+"http": 200,
+"sha256": "1dbfc3fd396b09a5fcf2039b5a543f69e3dbe03fcdb43cb24cfc72fed8a8af2a",
+"letto_il": "2026-11-05"
+}
+},
+"nmc": {
+"date": [
+"2020-09-30",
+"2021-03-31",
+"2021-09-30",
+"2022-03-31",
+"2022-09-30",
+"2023-03-31",
+"2023-09-30",
+"2024-03-31",
+"2024-09-30",
+"2025-03-31",
+"2025-09-30",
+"2026-03-31"
+],
+"paesi": {
+"England": {
+"area": "UK",
+"registro": [
+483703,
+485816,
+488641,
+491250,
+494140,
+498567,
+504108,
+508404,
+513212,
+518673,
+522750,
+526042
+],
+"nuovi": [
+11030,
+8861,
+10049,
+9936,
+9954,
+11990,
+12423,
+12155,
+12722,
+13770,
+12605,
+12695
+]
+},
+"Northern Ireland": {
+"area": "UK",
+"registro": [
+21971,
+21834,
+21637,
+21857,
+21809,
+21977,
+22162,
+22209,
+22303,
+22278,
+22137,
+22337
+],
+"nuovi": [
+492,
+233,
+167,
+589,
+245,
+569,
+480,
+441,
+487,
+404,
+258,
+656
+]
+},
+"Scotland": {
+"area": "UK",
+"registro": [
+72136,
+71732,
+72619,
+72385,
+72408,
+73056,
+73204,
+73916,
+73491,
+74733,
+73875,
+75272
+],
+"nuovi": [
+2068,
+654,
+1969,
+994,
+1042,
+1994,
+1202,
+2102,
+754,
+2663,
+346,
+2802
+]
+},
+"Wales": {
+"area": "UK",
+"registro": [
+30187,
+30175,
+30559,
+30605,
+31025,
+31070,
+31557,
+31672,
+31990,
+32006,
+32204,
+32175
+],
+"nuovi": [
+808,
+409,
+818,
+505,
+859,
+482,
+945,
+615,
+808,
+556,
+764,
+455
+]
+},
+"Austria": {
+"area": "EU/EEA",
+"registro": [
+42,
+42,
+41,
+39,
+39,
+37,
+35,
+35,
+37,
+36,
+38,
+38
+],
+"nuovi": [
+2,
+2,
+0,
+0,
+0,
+0,
+0,
+0,
+2,
+0,
+2,
+3
+]
+},
+"Belgium": {
+"area": "EU/EEA",
+"registro": [
+95,
+96,
+95,
+92,
+95,
+91,
+86,
+87,
+91,
+90,
+92,
+91
+],
+"nuovi": [
+5,
+2,
+3,
+3,
+4,
+3,
+0,
+2,
+5,
+3,
+6,
+0
+]
+},
+"Bulgaria": {
+"area": "EU/EEA",
+"registro": [
+866,
+859,
+852,
+841,
+841,
+824,
+814,
+807,
+796,
+786,
+764,
+756
+],
+"nuovi": [
+3,
+2,
+6,
+1,
+3,
+0,
+2,
+2,
+1,
+3,
+1,
+2
+]
+},
+"Croatia": {
+"area": "EU/EEA",
+"registro": [
+201,
+206,
+207,
+216,
+212,
+214,
+214,
+212,
+208,
+207,
+208,
+207
+],
+"nuovi": [
+7,
+6,
+8,
+10,
+1,
+2,
+2,
+0,
+2,
+1,
+4,
+1
+]
+},
+"Cyprus": {
+"area": "EU/EEA",
+"registro": [
+91,
+88,
+86,
+89,
+91,
+103,
+113,
+131,
+157,
+166,
+174,
+185
+],
+"nuovi": [
+1,
+0,
+0,
+4,
+9,
+13,
+14,
+19,
+30,
+12,
+10,
+12
+]
+},
+"Czechia": {
+"area": "EU/EEA",
+"registro": [
+260,
+259,
+251,
+249,
+250,
+246,
+245,
+244,
+241,
+237,
+235,
+234
+],
+"nuovi": [
+0,
+3,
+2,
+2,
+4,
+1,
+2,
+1,
+0,
+2,
+1,
+1
+]
+},
+"Denmark": {
+"area": "EU/EEA",
+"registro": [
+57,
+58,
+59,
+58,
+58,
+57,
+56,
+54,
+53,
+49,
+49,
+51
+],
+"nuovi": [
+4,
+0,
+5,
+1,
+0,
+1,
+1,
+1,
+1,
+1,
+0,
+4
+]
+},
+"Estonia": {
+"area": "EU/EEA",
+"registro": [
+98,
+99,
+96,
+94,
+93,
+92,
+91,
+89,
+89,
+89,
+85,
+84
+],
+"nuovi": [
+1,
+1,
+0,
+1,
+1,
+0,
+0,
+0,
+0,
+2,
+0,
+1
+]
+},
+"Finland": {
+"area": "EU/EEA",
+"registro": [
+264,
+267,
+265,
+267,
+265,
+267,
+268,
+273,
+272,
+278,
+284,
+284
+],
+"nuovi": [
+4,
+9,
+6,
+12,
+5,
+7,
+8,
+8,
+8,
+11,
+12,
+13
+]
+},
+"France": {
+"area": "EU/EEA",
+"registro": [
+209,
+221,
+219,
+219,
+217,
+216,
+220,
+211,
+204,
+205,
+205,
+211
+],
+"nuovi": [
+11,
+17,
+11,
+7,
+5,
+6,
+6,
+0,
+1,
+4,
+9,
+7
+]
+},
+"Germany": {
+"area": "EU/EEA",
+"registro": [
+412,
+404,
+395,
+389,
+380,
+374,
+375,
+366,
+366,
+364,
+356,
+351
+],
+"nuovi": [
+7,
+3,
+6,
+5,
+2,
+1,
+5,
+2,
+9,
+3,
+4,
+3
+]
+},
+"Greece": {
+"area": "EU/EEA",
+"registro": [
+840,
+847,
+842,
+850,
+844,
+845,
+850,
+857,
+851,
+858,
+845,
+838
+],
+"nuovi": [
+11,
+20,
+22,
+16,
+13,
+11,
+18,
+14,
+11,
+13,
+6,
+9
+]
+},
+"Hungary": {
+"area": "EU/EEA",
+"registro": [
+490,
+490,
+482,
+475,
+475,
+471,
+477,
+478,
+479,
+480,
+478,
+482
+],
+"nuovi": [
+5,
+3,
+2,
+5,
+4,
+9,
+7,
+9,
+4,
+6,
+6,
+3
+]
+},
+"Iceland": {
+"area": "EU/EEA",
+"registro": [
+19,
+21,
+19,
+19,
+19,
+19,
+19,
+18,
+19,
+19,
+19,
+20
+],
+"nuovi": [
+0,
+2,
+0,
+0,
+0,
+0,
+0,
+1,
+1,
+1,
+0,
+1
+]
+},
+"Italy": {
+"area": "EU/EEA",
+"registro": [
+3838,
+3735,
+3498,
+3407,
+3282,
+3228,
+3179,
+3142,
+3048,
+2978,
+2902,
+2866
+],
+"nuovi": [
+89,
+56,
+33,
+45,
+36,
+30,
+27,
+17,
+10,
+12,
+17,
+15
+]
+},
+"Latvia": {
+"area": "EU/EEA",
+"registro": [
+149,
+145,
+142,
+142,
+141,
+142,
+140,
+141,
+138,
+140,
+141,
+141
+],
+"nuovi": [
+0,
+0,
+0,
+1,
+1,
+0,
+0,
+1,
+1,
+0,
+1,
+0
+]
+},
+"Lithuania": {
+"area": "EU/EEA",
+"registro": [
+322,
+321,
+318,
+323,
+324,
+323,
+323,
+320,
+319,
+313,
+307,
+303
+],
+"nuovi": [
+0,
+3,
+2,
+7,
+2,
+0,
+1,
+3,
+0,
+1,
+1,
+1
+]
+},
+"Luxembourg": {
+"area": "EU/EEA",
+"registro": [
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1
+],
+"nuovi": null
+},
+"Malta": {
+"area": "EU/EEA",
+"registro": [
+77,
+81,
+93,
+98,
+102,
+105,
+104,
+111,
+110,
+111,
+111,
+111
+],
+"nuovi": [
+9,
+6,
+15,
+8,
+8,
+5,
+5,
+8,
+6,
+3,
+3,
+3
+]
+},
+"Netherlands": {
+"area": "EU/EEA",
+"registro": [
+143,
+148,
+147,
+150,
+158,
+160,
+159,
+157,
+153,
+154,
+157,
+155
+],
+"nuovi": [
+1,
+6,
+4,
+2,
+10,
+7,
+2,
+1,
+3,
+4,
+4,
+2
+]
+},
+"Norway": {
+"area": "EU/EEA",
+"registro": [
+53,
+53,
+51,
+52,
+53,
+54,
+55,
+53,
+49,
+47,
+47,
+51
+],
+"nuovi": [
+2,
+2,
+1,
+2,
+2,
+3,
+2,
+0,
+1,
+1,
+2,
+3
+]
+},
+"Poland": {
+"area": "EU/EEA",
+"registro": [
+2624,
+2600,
+2560,
+2547,
+2546,
+2549,
+2574,
+2652,
+2684,
+2731,
+2762,
+2779
+],
+"nuovi": [
+14,
+12,
+17,
+18,
+41,
+45,
+53,
+107,
+63,
+85,
+66,
+56
+]
+},
+"Portugal": {
+"area": "EU/EEA",
+"registro": [
+4439,
+4374,
+4272,
+4157,
+4113,
+4055,
+4023,
+3987,
+3938,
+3860,
+3786,
+3713
+],
+"nuovi": [
+63,
+72,
+27,
+31,
+42,
+33,
+36,
+31,
+26,
+15,
+14,
+8
+]
+},
+"Republic of Ireland": {
+"area": "EU/EEA",
+"registro": [
+1781,
+1738,
+1712,
+1717,
+1758,
+1741,
+1729,
+1711,
+1707,
+1691,
+1660,
+1637
+],
+"nuovi": [
+71,
+49,
+62,
+73,
+76,
+43,
+57,
+40,
+59,
+44,
+41,
+32
+]
+},
+"Romania": {
+"area": "EU/EEA",
+"registro": [
+7447,
+7478,
+7396,
+7389,
+7361,
+7356,
+7353,
+7378,
+7357,
+7321,
+7270,
+7226
+],
+"nuovi": [
+63,
+82,
+73,
+83,
+73,
+54,
+64,
+62,
+63,
+38,
+42,
+14
+]
+},
+"Slovakia": {
+"area": "EU/EEA",
+"registro": [
+229,
+230,
+223,
+219,
+215,
+215,
+210,
+212,
+212,
+213,
+212,
+208
+],
+"nuovi": [
+2,
+1,
+2,
+0,
+0,
+1,
+1,
+1,
+0,
+2,
+1,
+1
+]
+},
+"Slovenia": {
+"area": "EU/EEA",
+"registro": [
+20,
+21,
+21,
+20,
+19,
+19,
+21,
+21,
+21,
+21,
+22,
+21
+],
+"nuovi": [
+2,
+1,
+0,
+0,
+0,
+0,
+2,
+0,
+0,
+0,
+1,
+0
+]
+},
+"Spain": {
+"area": "EU/EEA",
+"registro": [
+4195,
+3843,
+3531,
+3230,
+3016,
+2869,
+2736,
+2615,
+2503,
+2400,
+2320,
+2236
+],
+"nuovi": [
+31,
+28,
+16,
+17,
+16,
+20,
+14,
+13,
+10,
+10,
+15,
+5
+]
+},
+"Sweden": {
+"area": "EU/EEA",
+"registro": [
+113,
+113,
+107,
+103,
+104,
+103,
+105,
+105,
+108,
+110,
+109,
+118
+],
+"nuovi": [
+5,
+6,
+1,
+1,
+3,
+1,
+3,
+2,
+5,
+3,
+1,
+10
+]
+},
+"Switzerland": {
+"area": "EU/EEA",
+"registro": [
+40,
+36,
+32,
+32,
+33,
+34,
+34,
+32,
+33,
+33,
+31,
+30
+],
+"nuovi": [
+1,
+0,
+0,
+2,
+1,
+1,
+1,
+0,
+1,
+1,
+2,
+0
+]
+},
+"Afghanistan": {
+"area": "Rest of the World",
+"registro": [
+3,
+3,
+3,
+3,
+3,
+3,
+3,
+3,
+3,
+3,
+3,
+3
+],
+"nuovi": null
+},
+"Albania": {
+"area": "Rest of the World",
+"registro": [
+7,
+11,
+15,
+20,
+27,
+33,
+37,
+42,
+49,
+56,
+57,
+67
+],
+"nuovi": [
+1,
+4,
+4,
+5,
+7,
+6,
+4,
+5,
+7,
+7,
+2,
+11
+]
+},
+"Algeria": {
+"area": "Rest of the World",
+"registro": [
+20,
+20,
+19,
+19,
+19,
+20,
+20,
+21,
+21,
+20,
+20,
+20
+],
+"nuovi": [
+0,
+0,
+0,
+0,
+0,
+1,
+0,
+1,
+0,
+0,
+0,
+0
+]
+},
+"Antigua and Barbuda": {
+"area": "Rest of the World",
+"registro": [
+7,
+6,
+8,
+9,
+9,
+12,
+14,
+16,
+18,
+20,
+22,
+22
+],
+"nuovi": [
+2,
+1,
+2,
+1,
+0,
+3,
+2,
+3,
+2,
+2,
+2,
+0
+]
+},
+"Argentina": {
+"area": "Rest of the World",
+"registro": [
+2,
+2,
+2,
+2,
+2,
+3,
+3,
+2,
+2,
+2,
+2,
+2
+],
+"nuovi": [
+1,
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+"Armenia": {
+"area": "Rest of the World",
+"registro": [
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1
+],
+"nuovi": null
+},
+"Aruba": {
+"area": "Rest of the World",
+"registro": [
+0,
+0,
+0,
+0,
+0,
+0,
+1,
+1,
+1,
+1,
+1,
+2
+],
+"nuovi": [
+0,
+0,
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+0,
+0,
+1
+]
+},
+"Australia": {
+"area": "Rest of the World",
+"registro": [
+1327,
+1368,
+1380,
+1371,
+1374,
+1412,
+1506,
+1565,
+1644,
+1665,
+1635,
+1607
+],
+"nuovi": [
+44,
+106,
+78,
+73,
+72,
+99,
+158,
+119,
+159,
+105,
+78,
+71
+]
+},
+"Bahamas": {
+"area": "Rest of the World",
+"registro": [
+6,
+6,
+8,
+7,
+7,
+10,
+10,
+11,
+11,
+10,
+10,
+10
+],
+"nuovi": [
+0,
+0,
+2,
+0,
+1,
+3,
+0,
+0,
+1,
+0,
+0,
+0
+]
+},
+"Bahrain": {
+"area": "Rest of the World",
+"registro": [
+7,
+7,
+8,
+11,
+13,
+14,
+17,
+18,
+19,
+21,
+21,
+21
+],
+"nuovi": [
+2,
+0,
+1,
+3,
+2,
+1,
+3,
+1,
+1,
+2,
+0,
+0
+]
+},
+"Bangladesh": {
+"area": "Rest of the World",
+"registro": [
+14,
+14,
+15,
+15,
+14,
+14,
+15,
+21,
+29,
+35,
+46,
+53
+],
+"nuovi": [
+0,
+0,
+1,
+0,
+0,
+0,
+1,
+6,
+8,
+6,
+11,
+7
+]
+},
+"Barbados": {
+"area": "Rest of the World",
+"registro": [
+135,
+138,
+147,
+153,
+156,
+168,
+178,
+189,
+198,
+199,
+199,
+194
+],
+"nuovi": [
+4,
+4,
+10,
+8,
+6,
+14,
+11,
+11,
+14,
+2,
+3,
+0
+]
+},
+"Belarus": {
+"area": "Rest of the World",
+"registro": [
+6,
+6,
+6,
+6,
+5,
+5,
+5,
+5,
+5,
+5,
+5,
+5
+],
+"nuovi": null
+},
+"Belize": {
+"area": "Rest of the World",
+"registro": [
+19,
+19,
+21,
+36,
+38,
+42,
+51,
+50,
+50,
+49,
+49,
+47
+],
+"nuovi": [
+3,
+0,
+2,
+15,
+2,
+4,
+9,
+0,
+0,
+0,
+0,
+1
+]
+},
+"Benin": {
+"area": "Rest of the World",
+"registro": [
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+1
+],
+"nuovi": [
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+1
+]
+},
+"Bermuda": {
+"area": "Rest of the World",
+"registro": [
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1
+],
+"nuovi": null
+},
+"Bhutan": {
+"area": "Rest of the World",
+"registro": [
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+2,
+2,
+3,
+3,
+3
+],
+"nuovi": [
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+1,
+0,
+1,
+0,
+1
+]
+},
+"Bosnia and Herzegovina": {
+"area": "Rest of the World",
+"registro": [
+7,
+7,
+7,
+7,
+7,
+7,
+7,
+7,
+8,
+8,
+8,
+7
+],
+"nuovi": [
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+0
+]
+},
+"Botswana": {
+"area": "Rest of the World",
+"registro": [
+250,
+258,
+264,
+284,
+299,
+337,
+460,
+570,
+669,
+694,
+700,
+696
+],
+"nuovi": [
+2,
+8,
+9,
+22,
+15,
+40,
+124,
+109,
+103,
+34,
+17,
+4
+]
+},
+"Brazil": {
+"area": "Rest of the World",
+"registro": [
+29,
+37,
+45,
+51,
+55,
+61,
+72,
+79,
+87,
+93,
+100,
+102
+],
+"nuovi": [
+2,
+8,
+9,
+6,
+6,
+6,
+11,
+9,
+10,
+6,
+8,
+3
+]
+},
+"Brunei": {
+"area": "Rest of the World",
+"registro": [
+4,
+4,
+4,
+4,
+5,
+5,
+5,
+5,
+5,
+5,
+7,
+7
+],
+"nuovi": [
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+0,
+0,
+0,
+2,
+0
+]
+},
+"Burundi": {
+"area": "Rest of the World",
+"registro": [
+2,
+2,
+2,
+2,
+2,
+2,
+2,
+2,
+2,
+2,
+2,
+2
+],
+"nuovi": null
+},
+"Cameroon": {
+"area": "Rest of the World",
+"registro": [
+58,
+68,
+73,
+83,
+87,
+105,
+119,
+145,
+168,
+187,
+217,
+239
+],
+"nuovi": [
+1,
+10,
+7,
+10,
+5,
+20,
+14,
+26,
+23,
+19,
+31,
+22
+]
+},
+"Canada": {
+"area": "Rest of the World",
+"registro": [
+282,
+293,
+306,
+309,
+318,
+325,
+325,
+319,
+321,
+328,
+321,
+328
+],
+"nuovi": [
+8,
+26,
+20,
+19,
+13,
+16,
+10,
+15,
+16,
+20,
+9,
+13
+]
+},
+"Cayman Islands": {
+"area": "Rest of the World",
+"registro": [
+0,
+1,
+3,
+5,
+8,
+10,
+11,
+12,
+12,
+12,
+12,
+12
+],
+"nuovi": [
+0,
+1,
+2,
+2,
+3,
+2,
+1,
+1,
+0,
+0,
+0,
+0
+]
+},
+"Central African Republic": {
+"area": "Rest of the World",
+"registro": [
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1
+],
+"nuovi": null
+},
+"Channel Islands": {
+"area": "Rest of the World",
+"registro": [
+8,
+8,
+8,
+8,
+8,
+8,
+8,
+8,
+8,
+8,
+8,
+7
+],
+"nuovi": null
+},
+"Chile": {
+"area": "Rest of the World",
+"registro": [
+9,
+8,
+8,
+10,
+11,
+14,
+15,
+15,
+19,
+20,
+23,
+25
+],
+"nuovi": [
+0,
+0,
+0,
+2,
+1,
+3,
+1,
+0,
+4,
+1,
+3,
+2
+]
+},
+"China": {
+"area": "Rest of the World",
+"registro": [
+295,
+298,
+299,
+300,
+304,
+304,
+308,
+319,
+320,
+332,
+336,
+341
+],
+"nuovi": [
+1,
+2,
+1,
+5,
+6,
+3,
+6,
+10,
+5,
+12,
+9,
+5
+]
+},
+"Colombia": {
+"area": "Rest of the World",
+"registro": [
+10,
+10,
+11,
+13,
+14,
+13,
+13,
+14,
+14,
+14,
+14,
+13
+],
+"nuovi": [
+0,
+0,
+1,
+2,
+1,
+0,
+0,
+1,
+0,
+0,
+0,
+0
+]
+},
+"Congo": {
+"area": "Rest of the World",
+"registro": [
+6,
+6,
+5,
+5,
+5,
+5,
+5,
+5,
+5,
+5,
+5,
+4
+],
+"nuovi": null
+},
+"Costa Rica": {
+"area": "Rest of the World",
+"registro": [
+4,
+4,
+4,
+4,
+4,
+4,
+4,
+4,
+4,
+4,
+4,
+4
+],
+"nuovi": null
+},
+"Cote d`Ivoire/Ivory Coast": {
+"area": "Rest of the World",
+"registro": [
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1
+],
+"nuovi": null
+},
+"Cuba": {
+"area": "Rest of the World",
+"registro": [
+13,
+16,
+23,
+28,
+28,
+33,
+40,
+43,
+49,
+49,
+49,
+50
+],
+"nuovi": [
+1,
+3,
+7,
+5,
+0,
+5,
+7,
+3,
+6,
+0,
+0,
+1
+]
+},
+"Democratic Republic of Congo (Zaire)": {
+"area": "Rest of the World",
+"registro": [
+8,
+7,
+7,
+7,
+7,
+7,
+7,
+7,
+7,
+7,
+7,
+7
+],
+"nuovi": null
+},
+"Dominica": {
+"area": "Rest of the World",
+"registro": [
+35,
+38,
+41,
+43,
+43,
+44,
+48,
+55,
+60,
+60,
+60,
+60
+],
+"nuovi": [
+2,
+5,
+4,
+2,
+0,
+1,
+4,
+7,
+6,
+0,
+0,
+0
+]
+},
+"Ecuador": {
+"area": "Rest of the World",
+"registro": [
+0,
+0,
+0,
+0,
+0,
+1,
+1,
+1,
+1,
+1,
+1,
+1
+],
+"nuovi": [
+0,
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+"Egypt": {
+"area": "Rest of the World",
+"registro": [
+8,
+9,
+15,
+22,
+25,
+31,
+39,
+58,
+76,
+91,
+99,
+106
+],
+"nuovi": [
+0,
+1,
+6,
+7,
+3,
+6,
+8,
+19,
+19,
+15,
+9,
+8
+]
+},
+"Eritrea": {
+"area": "Rest of the World",
+"registro": [
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+1,
+1,
+1,
+1
+],
+"nuovi": [
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+0
+]
+},
+"Eswatini": {
+"area": "Rest of the World",
+"registro": [
+110,
+111,
+115,
+121,
+126,
+137,
+153,
+196,
+272,
+323,
+349,
+359
+],
+"nuovi": [
+0,
+0,
+3,
+6,
+5,
+12,
+16,
+44,
+77,
+51,
+31,
+11
+]
+},
+"Ethiopia": {
+"area": "Rest of the World",
+"registro": [
+10,
+10,
+10,
+11,
+11,
+11,
+13,
+13,
+15,
+16,
+16,
+16
+],
+"nuovi": [
+0,
+0,
+0,
+1,
+0,
+0,
+2,
+0,
+3,
+1,
+0,
+1
+]
+},
+"Fiji": {
+"area": "Rest of the World",
+"registro": [
+23,
+22,
+22,
+24,
+24,
+27,
+28,
+32,
+33,
+34,
+34,
+34
+],
+"nuovi": [
+0,
+0,
+0,
+2,
+0,
+3,
+1,
+4,
+3,
+2,
+0,
+0
+]
+},
+"Gambia": {
+"area": "Rest of the World",
+"registro": [
+79,
+87,
+93,
+100,
+104,
+107,
+113,
+132,
+157,
+164,
+169,
+178
+],
+"nuovi": [
+1,
+7,
+6,
+6,
+4,
+5,
+7,
+19,
+26,
+9,
+6,
+11
+]
+},
+"Georgia": {
+"area": "Rest of the World",
+"registro": [
+1,
+1,
+2,
+3,
+3,
+4,
+5,
+6,
+7,
+7,
+7,
+8
+],
+"nuovi": [
+0,
+0,
+1,
+1,
+0,
+1,
+1,
+1,
+1,
+0,
+0,
+1
+]
+},
+"Ghana": {
+"area": "Rest of the World",
+"registro": [
+1606,
+1773,
+2100,
+2597,
+3127,
+3840,
+4710,
+5536,
+6362,
+7254,
+7979,
+8531
+],
+"nuovi": [
+46,
+180,
+336,
+508,
+543,
+725,
+887,
+850,
+856,
+927,
+779,
+612
+]
+},
+"Gibraltar": {
+"area": "Rest of the World",
+"registro": [
+16,
+14,
+14,
+14,
+13,
+14,
+13,
+13,
+13,
+13,
+15,
+16
+],
+"nuovi": [
+1,
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+0,
+0,
+1,
+1
+]
+},
+"Grenada": {
+"area": "Rest of the World",
+"registro": [
+57,
+60,
+70,
+71,
+75,
+78,
+85,
+90,
+94,
+94,
+94,
+96
+],
+"nuovi": [
+4,
+4,
+10,
+3,
+4,
+4,
+7,
+5,
+3,
+1,
+1,
+1
+]
+},
+"Guinea": {
+"area": "Rest of the World",
+"registro": [
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1
+],
+"nuovi": null
+},
+"Guyana": {
+"area": "Rest of the World",
+"registro": [
+528,
+547,
+584,
+651,
+722,
+785,
+882,
+938,
+968,
+968,
+952,
+938
+],
+"nuovi": [
+7,
+24,
+41,
+73,
+75,
+72,
+101,
+63,
+40,
+8,
+3,
+4
+]
+},
+"Hong Kong": {
+"area": "Rest of the World",
+"registro": [
+34,
+41,
+64,
+132,
+215,
+289,
+361,
+414,
+484,
+537,
+584,
+611
+],
+"nuovi": [
+1,
+7,
+22,
+69,
+84,
+75,
+72,
+64,
+72,
+60,
+52,
+41
+]
+},
+"India": {
+"area": "Rest of the World",
+"registro": [
+25054,
+28200,
+32578,
+37820,
+42575,
+48429,
+55430,
+62413,
+67576,
+70186,
+71937,
+73026
+],
+"nuovi": [
+1122,
+3237,
+4435,
+5334,
+4863,
+6005,
+7223,
+7392,
+5850,
+3399,
+2467,
+1748
+]
+},
+"Indonesia": {
+"area": "Rest of the World",
+"registro": [
+11,
+11,
+12,
+13,
+14,
+14,
+15,
+16,
+17,
+20,
+20,
+21
+],
+"nuovi": [
+0,
+0,
+1,
+1,
+1,
+0,
+1,
+1,
+1,
+3,
+0,
+1
+]
+},
+"Iran": {
+"area": "Rest of the World",
+"registro": [
+107,
+107,
+118,
+122,
+127,
+149,
+208,
+285,
+383,
+465,
+542,
+568
+],
+"nuovi": [
+2,
+1,
+11,
+8,
+7,
+24,
+58,
+76,
+98,
+86,
+80,
+29
+]
+},
+"Iraq": {
+"area": "Rest of the World",
+"registro": [
+5,
+5,
+5,
+6,
+6,
+5,
+6,
+7,
+8,
+9,
+9,
+9
+],
+"nuovi": [
+0,
+0,
+0,
+1,
+0,
+0,
+1,
+1,
+1,
+1,
+0,
+1
+]
+},
+"Israel": {
+"area": "Rest of the World",
+"registro": [
+36,
+41,
+43,
+43,
+44,
+44,
+44,
+42,
+43,
+43,
+44,
+44
+],
+"nuovi": [
+1,
+4,
+3,
+0,
+1,
+0,
+1,
+0,
+2,
+0,
+1,
+1
+]
+},
+"Jamaica": {
+"area": "Rest of the World",
+"registro": [
+738,
+778,
+814,
+871,
+928,
+1061,
+1208,
+1289,
+1336,
+1339,
+1327,
+1300
+],
+"nuovi": [
+25,
+49,
+48,
+68,
+64,
+140,
+154,
+91,
+57,
+15,
+5,
+5
+]
+},
+"Japan": {
+"area": "Rest of the World",
+"registro": [
+103,
+103,
+108,
+112,
+113,
+115,
+118,
+122,
+127,
+129,
+129,
+136
+],
+"nuovi": [
+0,
+1,
+5,
+3,
+1,
+3,
+4,
+5,
+4,
+3,
+3,
+6
+]
+},
+"Jordan": {
+"area": "Rest of the World",
+"registro": [
+88,
+88,
+92,
+101,
+98,
+99,
+100,
+106,
+106,
+110,
+110,
+107
+],
+"nuovi": [
+2,
+0,
+3,
+9,
+0,
+4,
+2,
+4,
+3,
+3,
+0,
+1
+]
+},
+"Kenya": {
+"area": "Rest of the World",
+"registro": [
+673,
+739,
+896,
+1189,
+1419,
+1661,
+1992,
+2240,
+2483,
+2536,
+2580,
+2585
+],
+"nuovi": [
+16,
+74,
+164,
+297,
+240,
+250,
+343,
+260,
+265,
+89,
+75,
+38
+]
+},
+"Kosovo": {
+"area": "Rest of the World",
+"registro": [
+1,
+1,
+1,
+1,
+2,
+2,
+3,
+3,
+4,
+4,
+6,
+6
+],
+"nuovi": [
+0,
+0,
+0,
+0,
+1,
+0,
+1,
+0,
+1,
+0,
+2,
+0
+]
+},
+"Kuwait": {
+"area": "Rest of the World",
+"registro": [
+25,
+32,
+35,
+35,
+36,
+37,
+41,
+45,
+48,
+49,
+49,
+49
+],
+"nuovi": [
+0,
+7,
+3,
+0,
+2,
+1,
+4,
+4,
+3,
+1,
+0,
+0
+]
+},
+"Lebanon": {
+"area": "Rest of the World",
+"registro": [
+15,
+18,
+20,
+38,
+68,
+109,
+181,
+230,
+277,
+326,
+359,
+362
+],
+"nuovi": [
+0,
+2,
+2,
+18,
+30,
+41,
+72,
+50,
+47,
+50,
+34,
+7
+]
+},
+"Leeward & Windward Islands": {
+"area": "Rest of the World",
+"registro": [
+1,
+1,
+1,
+1,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+],
+"nuovi": null
+},
+"Lesotho": {
+"area": "Rest of the World",
+"registro": [
+77,
+82,
+84,
+99,
+111,
+135,
+151,
+173,
+190,
+195,
+200,
+202
+],
+"nuovi": [
+1,
+5,
+3,
+15,
+12,
+23,
+16,
+24,
+17,
+5,
+6,
+3
+]
+},
+"Liberia": {
+"area": "Rest of the World",
+"registro": [
+3,
+3,
+3,
+3,
+4,
+4,
+4,
+5,
+6,
+6,
+6,
+6
+],
+"nuovi": [
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+1,
+1,
+0,
+0,
+0
+]
+},
+"Libya": {
+"area": "Rest of the World",
+"registro": [
+8,
+8,
+8,
+8,
+8,
+8,
+8,
+9,
+9,
+10,
+10,
+10
+],
+"nuovi": [
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+1,
+0,
+1,
+0,
+0
+]
+},
+"Macao": {
+"area": "Rest of the World",
+"registro": [
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+1,
+1,
+0,
+0
+],
+"nuovi": [
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+0
+]
+},
+"Malawi": {
+"area": "Rest of the World",
+"registro": [
+190,
+190,
+193,
+196,
+202,
+205,
+207,
+210,
+216,
+218,
+221,
+222
+],
+"nuovi": [
+1,
+1,
+4,
+3,
+6,
+2,
+6,
+4,
+6,
+5,
+3,
+6
+]
+},
+"Malaysia": {
+"area": "Rest of the World",
+"registro": [
+123,
+130,
+141,
+150,
+153,
+164,
+171,
+178,
+179,
+181,
+183,
+181
+],
+"nuovi": [
+0,
+7,
+10,
+10,
+10,
+13,
+8,
+9,
+3,
+6,
+5,
+2
+]
+},
+"Maldives": {
+"area": "Rest of the World",
+"registro": [
+4,
+5,
+6,
+6,
+7,
+7,
+8,
+8,
+9,
+9,
+7,
+7
+],
+"nuovi": [
+1,
+1,
+1,
+0,
+1,
+0,
+1,
+0,
+1,
+0,
+0,
+0
+]
+},
+"Mauritania": {
+"area": "Rest of the World",
+"registro": [
+12,
+12,
+11,
+11,
+11,
+11,
+11,
+10,
+10,
+10,
+9,
+9
+],
+"nuovi": null
+},
+"Mauritius": {
+"area": "Rest of the World",
+"registro": [
+403,
+402,
+398,
+398,
+391,
+391,
+399,
+412,
+413,
+405,
+399,
+391
+],
+"nuovi": [
+1,
+3,
+3,
+6,
+2,
+10,
+11,
+16,
+6,
+5,
+2,
+4
+]
+},
+"Mexico": {
+"area": "Rest of the World",
+"registro": [
+2,
+2,
+2,
+2,
+2,
+3,
+3,
+3,
+3,
+3,
+3,
+3
+],
+"nuovi": [
+0,
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+"Moldova": {
+"area": "Rest of the World",
+"registro": [
+2,
+2,
+2,
+4,
+6,
+6,
+7,
+8,
+10,
+11,
+11,
+12
+],
+"nuovi": [
+0,
+0,
+0,
+2,
+2,
+0,
+1,
+1,
+2,
+1,
+0,
+1
+]
+},
+"Montserrat": {
+"area": "Rest of the World",
+"registro": [
+0,
+0,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1
+],
+"nuovi": [
+0,
+0,
+1,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+"Morocco": {
+"area": "Rest of the World",
+"registro": [
+0,
+1,
+1,
+1,
+1,
+2,
+3,
+4,
+9,
+11,
+11,
+12
+],
+"nuovi": [
+0,
+1,
+0,
+0,
+0,
+1,
+1,
+1,
+5,
+2,
+0,
+1
+]
+},
+"Myanmar/Burma": {
+"area": "Rest of the World",
+"registro": [
+7,
+7,
+7,
+7,
+8,
+9,
+10,
+13,
+17,
+19,
+21,
+22
+],
+"nuovi": [
+0,
+0,
+0,
+0,
+1,
+1,
+1,
+3,
+4,
+2,
+2,
+1
+]
+},
+"Namibia": {
+"area": "Rest of the World",
+"registro": [
+42,
+46,
+50,
+56,
+60,
+60,
+67,
+72,
+78,
+84,
+83,
+82
+],
+"nuovi": [
+1,
+3,
+4,
+7,
+4,
+0,
+8,
+7,
+7,
+7,
+1,
+0
+]
+},
+"Nepal": {
+"area": "Rest of the World",
+"registro": [
+785,
+854,
+952,
+1055,
+1180,
+1340,
+1551,
+1860,
+2292,
+2595,
+2853,
+3087
+],
+"nuovi": [
+14,
+70,
+102,
+108,
+132,
+164,
+213,
+311,
+439,
+311,
+265,
+248
+]
+},
+"New Zealand": {
+"area": "Rest of the World",
+"registro": [
+434,
+424,
+409,
+400,
+408,
+422,
+438,
+461,
+488,
+496,
+505,
+502
+],
+"nuovi": [
+4,
+11,
+10,
+10,
+17,
+22,
+21,
+39,
+38,
+29,
+28,
+18
+]
+},
+"Nicaragua": {
+"area": "Rest of the World",
+"registro": [
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+2,
+2,
+2,
+2
+],
+"nuovi": [
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+0
+]
+},
+"Niger": {
+"area": "Rest of the World",
+"registro": [
+1,
+1,
+2,
+2,
+2,
+2,
+2,
+3,
+3,
+4,
+4,
+4
+],
+"nuovi": [
+0,
+0,
+1,
+0,
+0,
+0,
+0,
+1,
+0,
+1,
+0,
+0
+]
+},
+"Nigeria": {
+"area": "Rest of the World",
+"registro": [
+3786,
+4318,
+5622,
+7265,
+8900,
+10643,
+12098,
+13656,
+14815,
+15760,
+16546,
+17092
+],
+"nuovi": [
+118,
+566,
+1334,
+1675,
+1670,
+1790,
+1536,
+1637,
+1289,
+1074,
+931,
+683
+]
+},
+"North Macedonia": {
+"area": "Rest of the World",
+"registro": [
+4,
+4,
+4,
+5,
+5,
+6,
+6,
+7,
+7,
+7,
+7,
+7
+],
+"nuovi": [
+1,
+0,
+0,
+1,
+0,
+1,
+0,
+1,
+0,
+0,
+0,
+1
+]
+},
+"Oman": {
+"area": "Rest of the World",
+"registro": [
+28,
+37,
+44,
+50,
+54,
+53,
+56,
+56,
+53,
+51,
+51,
+50
+],
+"nuovi": [
+1,
+9,
+7,
+8,
+4,
+0,
+2,
+2,
+0,
+0,
+0,
+0
+]
+},
+"Pakistan": {
+"area": "Rest of the World",
+"registro": [
+1002,
+1013,
+1061,
+1109,
+1160,
+1219,
+1320,
+1448,
+1596,
+1701,
+1774,
+1838
+],
+"nuovi": [
+3,
+25,
+55,
+57,
+57,
+65,
+110,
+136,
+162,
+119,
+84,
+77
+]
+},
+"Palestine": {
+"area": "Rest of the World",
+"registro": [
+1,
+2,
+2,
+3,
+3,
+3,
+3,
+4,
+6,
+9,
+10,
+10
+],
+"nuovi": [
+0,
+1,
+0,
+1,
+0,
+0,
+0,
+1,
+2,
+3,
+1,
+0
+]
+},
+"Panama": {
+"area": "Rest of the World",
+"registro": [
+3,
+3,
+3,
+3,
+3,
+3,
+3,
+3,
+3,
+3,
+3,
+3
+],
+"nuovi": null
+},
+"Peru": {
+"area": "Rest of the World",
+"registro": [
+16,
+15,
+15,
+14,
+14,
+15,
+16,
+17,
+18,
+18,
+18,
+18
+],
+"nuovi": [
+0,
+0,
+0,
+0,
+0,
+1,
+1,
+1,
+1,
+0,
+0,
+0
+]
+},
+"Philippines": {
+"area": "Rest of the World",
+"registro": [
+33711,
+35687,
+38563,
+41095,
+43143,
+45482,
+47572,
+49092,
+50180,
+50485,
+50599,
+50527
+],
+"nuovi": [
+545,
+2129,
+3040,
+2724,
+2379,
+2744,
+2469,
+1966,
+1565,
+758,
+499,
+337
+]
+},
+"Qatar": {
+"area": "Rest of the World",
+"registro": [
+13,
+18,
+20,
+25,
+29,
+31,
+36,
+42,
+46,
+48,
+49,
+48
+],
+"nuovi": [
+3,
+5,
+2,
+5,
+4,
+3,
+6,
+8,
+4,
+2,
+1,
+0
+]
+},
+"Russia": {
+"area": "Rest of the World",
+"registro": [
+19,
+18,
+19,
+19,
+19,
+19,
+19,
+19,
+19,
+19,
+19,
+19
+],
+"nuovi": [
+0,
+0,
+1,
+0,
+1,
+0,
+0,
+0,
+1,
+0,
+0,
+0
+]
+},
+"Rwanda": {
+"area": "Rest of the World",
+"registro": [
+4,
+4,
+4,
+4,
+4,
+4,
+5,
+5,
+6,
+6,
+6,
+6
+],
+"nuovi": [
+0,
+0,
+0,
+0,
+0,
+0,
+1,
+0,
+1,
+0,
+0,
+1
+]
+},
+"Saint Kitts and Nevis": {
+"area": "Rest of the World",
+"registro": [
+2,
+5,
+5,
+8,
+9,
+10,
+11,
+11,
+11,
+11,
+11,
+11
+],
+"nuovi": [
+0,
+3,
+0,
+3,
+1,
+1,
+1,
+0,
+0,
+0,
+0,
+0
+]
+},
+"Saint Lucia": {
+"area": "Rest of the World",
+"registro": [
+71,
+77,
+86,
+89,
+91,
+101,
+105,
+115,
+126,
+132,
+131,
+129
+],
+"nuovi": [
+5,
+5,
+9,
+4,
+2,
+10,
+5,
+11,
+11,
+7,
+1,
+2
+]
+},
+"Saint Vincent and the Grenadines": {
+"area": "Rest of the World",
+"registro": [
+11,
+16,
+41,
+83,
+110,
+119,
+131,
+135,
+139,
+145,
+147,
+148
+],
+"nuovi": [
+2,
+5,
+25,
+42,
+28,
+12,
+12,
+5,
+5,
+5,
+4,
+1
+]
+},
+"Saudi Arabia": {
+"area": "Rest of the World",
+"registro": [
+233,
+259,
+309,
+366,
+412,
+495,
+581,
+642,
+677,
+695,
+703,
+704
+],
+"nuovi": [
+7,
+27,
+51,
+57,
+52,
+85,
+88,
+64,
+46,
+22,
+15,
+7
+]
+},
+"Serbia": {
+"area": "Rest of the World",
+"registro": [
+6,
+7,
+9,
+13,
+13,
+14,
+14,
+16,
+16,
+18,
+22,
+22
+],
+"nuovi": [
+0,
+1,
+2,
+4,
+0,
+1,
+0,
+2,
+1,
+2,
+4,
+0
+]
+},
+"Seychelles": {
+"area": "Rest of the World",
+"registro": [
+65,
+66,
+63,
+63,
+64,
+63,
+65,
+64,
+65,
+65,
+63,
+61
+],
+"nuovi": [
+0,
+1,
+0,
+0,
+1,
+0,
+1,
+0,
+1,
+0,
+0,
+0
+]
+},
+"Sierra Leone": {
+"area": "Rest of the World",
+"registro": [
+100,
+101,
+100,
+100,
+99,
+98,
+98,
+98,
+100,
+99,
+102,
+104
+],
+"nuovi": [
+0,
+1,
+0,
+0,
+0,
+0,
+1,
+0,
+2,
+1,
+4,
+2
+]
+},
+"Singapore": {
+"area": "Rest of the World",
+"registro": [
+188,
+190,
+211,
+230,
+255,
+270,
+277,
+286,
+291,
+295,
+297,
+292
+],
+"nuovi": [
+2,
+5,
+23,
+24,
+27,
+18,
+11,
+11,
+10,
+5,
+4,
+1
+]
+},
+"Sint Maarten": {
+"area": "Rest of the World",
+"registro": [
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+1
+],
+"nuovi": [
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+1
+]
+},
+"Solomon Islands": {
+"area": "Rest of the World",
+"registro": [
+0,
+0,
+0,
+0,
+0,
+0,
+1,
+1,
+1,
+1,
+1,
+1
+],
+"nuovi": [
+0,
+0,
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+0,
+0,
+0
+]
+},
+"Somalia": {
+"area": "Rest of the World",
+"registro": [
+9,
+9,
+9,
+9,
+9,
+9,
+9,
+9,
+9,
+9,
+9,
+9
+],
+"nuovi": null
+},
+"South Africa": {
+"area": "Rest of the World",
+"registro": [
+2990,
+2953,
+2926,
+2900,
+2887,
+2902,
+2914,
+2935,
+2970,
+2965,
+2903,
+2836
+],
+"nuovi": [
+3,
+24,
+34,
+36,
+30,
+54,
+63,
+62,
+87,
+35,
+17,
+8
+]
+},
+"South Korea": {
+"area": "Rest of the World",
+"registro": [
+46,
+46,
+53,
+60,
+67,
+69,
+73,
+83,
+91,
+91,
+95,
+96
+],
+"nuovi": [
+1,
+2,
+6,
+7,
+8,
+2,
+6,
+10,
+9,
+1,
+4,
+3
+]
+},
+"Sri Lanka": {
+"area": "Rest of the World",
+"registro": [
+190,
+190,
+190,
+197,
+215,
+257,
+351,
+497,
+751,
+1008,
+1214,
+1384
+],
+"nuovi": [
+2,
+2,
+3,
+11,
+22,
+44,
+94,
+145,
+260,
+260,
+212,
+175
+]
+},
+"St. Helena": {
+"area": "Rest of the World",
+"registro": [
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+1,
+1,
+2
+],
+"nuovi": [
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+1,
+0,
+1
+]
+},
+"Sudan": {
+"area": "Rest of the World",
+"registro": [
+1,
+1,
+1,
+1,
+3,
+4,
+6,
+8,
+11,
+14,
+16,
+16
+],
+"nuovi": [
+0,
+0,
+0,
+0,
+2,
+1,
+2,
+2,
+3,
+3,
+2,
+1
+]
+},
+"Suriname": {
+"area": "Rest of the World",
+"registro": [
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+1,
+1,
+1,
+1
+],
+"nuovi": [
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+0
+]
+},
+"Syria": {
+"area": "Rest of the World",
+"registro": [
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+1
+],
+"nuovi": [
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+1
+]
+},
+"Taiwan": {
+"area": "Rest of the World",
+"registro": [
+7,
+7,
+8,
+8,
+9,
+10,
+14,
+18,
+23,
+25,
+26,
+29
+],
+"nuovi": [
+0,
+0,
+1,
+1,
+1,
+1,
+4,
+4,
+5,
+2,
+1,
+3
+]
+},
+"Tajikistan": {
+"area": "Rest of the World",
+"registro": [
+0,
+0,
+0,
+0,
+0,
+0,
+1,
+1,
+1,
+1,
+1,
+1
+],
+"nuovi": [
+0,
+0,
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+0,
+0,
+0
+]
+},
+"Tanzania": {
+"area": "Rest of the World",
+"registro": [
+72,
+70,
+69,
+70,
+71,
+70,
+71,
+71,
+74,
+74,
+73,
+76
+],
+"nuovi": [
+0,
+0,
+0,
+1,
+2,
+0,
+0,
+1,
+4,
+2,
+1,
+4
+]
+},
+"Thailand": {
+"area": "Rest of the World",
+"registro": [
+20,
+21,
+21,
+21,
+22,
+25,
+27,
+30,
+31,
+31,
+31,
+33
+],
+"nuovi": [
+0,
+1,
+0,
+0,
+1,
+3,
+2,
+3,
+1,
+0,
+1,
+3
+]
+},
+"Trinidad & Tobago": {
+"area": "Rest of the World",
+"registro": [
+365,
+377,
+411,
+449,
+503,
+544,
+613,
+648,
+690,
+696,
+690,
+678
+],
+"nuovi": [
+10,
+16,
+36,
+44,
+51,
+49,
+73,
+43,
+45,
+16,
+6,
+1
+]
+},
+"Tunisia": {
+"area": "Rest of the World",
+"registro": [
+4,
+4,
+4,
+5,
+5,
+6,
+7,
+12,
+14,
+14,
+16,
+18
+],
+"nuovi": [
+0,
+0,
+0,
+1,
+0,
+1,
+1,
+5,
+2,
+0,
+2,
+2
+]
+},
+"Turkey": {
+"area": "Rest of the World",
+"registro": [
+25,
+25,
+24,
+26,
+35,
+43,
+54,
+72,
+88,
+104,
+119,
+128
+],
+"nuovi": [
+0,
+1,
+0,
+2,
+8,
+8,
+11,
+18,
+17,
+16,
+15,
+11
+]
+},
+"Uganda": {
+"area": "Rest of the World",
+"registro": [
+101,
+102,
+113,
+130,
+135,
+153,
+167,
+180,
+197,
+203,
+210,
+223
+],
+"nuovi": [
+1,
+3,
+12,
+18,
+8,
+18,
+16,
+13,
+18,
+8,
+11,
+15
+]
+},
+"Ukraine": {
+"area": "Rest of the World",
+"registro": [
+33,
+35,
+37,
+40,
+43,
+46,
+49,
+54,
+59,
+61,
+64,
+67
+],
+"nuovi": [
+0,
+2,
+2,
+3,
+3,
+3,
+3,
+5,
+5,
+2,
+3,
+4
+]
+},
+"United Arab Emirates": {
+"area": "Rest of the World",
+"registro": [
+144,
+198,
+249,
+307,
+342,
+407,
+451,
+482,
+500,
+501,
+501,
+499
+],
+"nuovi": [
+10,
+56,
+50,
+61,
+36,
+68,
+46,
+36,
+22,
+9,
+4,
+3
+]
+},
+"Uruguay": {
+"area": "Rest of the World",
+"registro": [
+0,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1
+],
+"nuovi": [
+0,
+1,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+]
+},
+"USA": {
+"area": "Rest of the World",
+"registro": [
+471,
+526,
+564,
+598,
+626,
+638,
+651,
+665,
+688,
+703,
+726,
+758
+],
+"nuovi": [
+9,
+62,
+57,
+67,
+44,
+36,
+43,
+40,
+53,
+42,
+54,
+45
+]
+},
+"Uzbekistan": {
+"area": "Rest of the World",
+"registro": [
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+1,
+1
+],
+"nuovi": [
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+1,
+0
+]
+},
+"Venezuela": {
+"area": "Rest of the World",
+"registro": [
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+2,
+2,
+2,
+2,
+2
+],
+"nuovi": [
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+1,
+0,
+0,
+0,
+0
+]
+},
+"Vietnam": {
+"area": "Rest of the World",
+"registro": [
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+0,
+0,
+0,
+0
+],
+"nuovi": null
+},
+"Zambia": {
+"area": "Rest of the World",
+"registro": [
+846,
+851,
+865,
+894,
+926,
+993,
+1178,
+1394,
+1561,
+1621,
+1641,
+1649
+],
+"nuovi": [
+7,
+10,
+23,
+34,
+45,
+80,
+189,
+220,
+184,
+70,
+33,
+27
+]
+},
+"Zimbabwe": {
+"area": "Rest of the World",
+"registro": [
+2608,
+2797,
+3230,
+3657,
+4024,
+4335,
+4596,
+4662,
+4704,
+4731,
+4794,
+4798
+],
+"nuovi": [
+51,
+206,
+463,
+450,
+389,
+329,
+283,
+96,
+63,
+74,
+98,
+55
+]
+},
+"Unknown": {
+"area": "Rest of the World",
+"registro": [
+5902,
+5771,
+5590,
+5479,
+5332,
+5207,
+5069,
+4957,
+4835,
+4702,
+4579,
+4455
+],
+"nuovi": null
+}
+},
+"subtotali": {
+"UK sub-total": [
+607997,
+609557,
+613456,
+616097,
+619382,
+624670,
+631031,
+636201,
+640996,
+647690,
+650966,
+655826
+],
+"EU/EEA sub-total": [
+29415,
+28874,
+28013,
+27484,
+27105,
+26810,
+26609,
+26500,
+26244,
+25988,
+25670,
+25428
+],
+"Rest of the World sub-total": [
+87101,
+93466,
+103379,
+114717,
+124953,
+137215,
+150827,
+163717,
+174118,
+180029,
+184165,
+186681
+],
+"International sub-total": [
+116516,
+122340,
+131392,
+142201,
+152058,
+164025,
+177436,
+190217,
+200362,
+206017,
+209835,
+212109
+]
+},
+"totale": [
+724513,
+731897,
+744848,
+758298,
+771440,
+788695,
+808467,
+826418,
+841358,
+853707,
+860801,
+867935
+],
+"subtotali_nuovi": {
+"UK sub-total": [
+14398,
+10157,
+13003,
+12024,
+12100,
+15035,
+15050,
+15313,
+14771,
+17393,
+13973,
+16608
+],
+"EU/EEA sub-total": [
+414,
+394,
+324,
+357,
+362,
+297,
+333,
+345,
+323,
+281,
+272,
+210
+],
+"Rest of the World sub-total": [
+2106,
+7047,
+10635,
+12097,
+11133,
+13266,
+14702,
+14248,
+12210,
+7855,
+6049,
+4430
+],
+"International sub-total": [
+2520,
+7441,
+10959,
+12454,
+11495,
+13563,
+15035,
+14593,
+12533,
+8136,
+6321,
+4640
+]
+},
+"totale_nuovi": [
+16918,
+17598,
+23962,
+24478,
+23595,
+28598,
+30085,
+29906,
+27304,
+25529,
+20294,
+21248
+]
+},
+"irlanda": {
+"anni": [
+"2021",
+"2022",
+"2023",
+"2024",
+"2025"
+],
+"totale": {
+"2021": 64072,
+"2022": 67808,
+"2023": 72543,
+"2024": 76558,
+"2025": 77090
+},
+"irlanda": {
+"2021": 34231,
+"2022": 34533,
+"2023": 34931,
+"2024": 35216,
+"2025": 35139
+},
+"sconosciuto": {
+"2021": 7,
+"2022": 5,
+"2023": 3,
+"2024": 1,
+"2025": 0
+},
+"estero": {
+"2021": 29834,
+"2022": 33270,
+"2023": 37609,
+"2024": 41341,
+"2025": 41951
+},
+"paesi": {
+"AFG": {
+"nome": "Afghanistan",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"ALB": {
+"nome": "Albania",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"DZA": {
+"nome": "Algeria",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": null
+}
+},
+"AND": {
+"nome": "Andorra",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": null,
+"2025": 0
+}
+},
+"AGO": {
+"nome": "Angola",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"ATG": {
+"nome": "Antigua and Barbuda",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"ARG": {
+"nome": "Argentina",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": null,
+"2025": null
+}
+},
+"ARM": {
+"nome": "Armenia",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"AUS": {
+"nome": "Australia",
+"v": {
+"2021": 132,
+"2022": 139,
+"2023": 137,
+"2024": 128,
+"2025": 131
+}
+},
+"AUT": {
+"nome": "Austria",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"AZE": {
+"nome": "Azerbaijan",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"BHS": {
+"nome": "Bahamas",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"BHR": {
+"nome": "Bahrain",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"BGD": {
+"nome": "Bangladesh",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"BRB": {
+"nome": "Barbados",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"BLR": {
+"nome": "Belarus",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": null
+}
+},
+"BEL": {
+"nome": "Belgium",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"BLZ": {
+"nome": "Belize",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"BEN": {
+"nome": "Benin",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"BTN": {
+"nome": "Bhutan",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"BOL": {
+"nome": "Bolivia",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"BIH": {
+"nome": "Bosnia and Herzegovina",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"BWA": {
+"nome": "Botswana",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"BRA": {
+"nome": "Brazil",
+"v": {
+"2021": null,
+"2022": 25,
+"2023": 34,
+"2024": 42,
+"2025": 50
+}
+},
+"BRN": {
+"nome": "Brunei Darussalam",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"BGR": {
+"nome": "Bulgaria",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"BFA": {
+"nome": "Burkina Faso",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"BDI": {
+"nome": "Burundi",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"CPV": {
+"nome": "Cabo Verde",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"KHM": {
+"nome": "Cambodia",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"CMR": {
+"nome": "Cameroon",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"CAN": {
+"nome": "Canada",
+"v": {
+"2021": 38,
+"2022": 36,
+"2023": 39,
+"2024": 47,
+"2025": 46
+}
+},
+"CAF": {
+"nome": "Central African Republic",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"TCD": {
+"nome": "Chad",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"CHL": {
+"nome": "Chile",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"CHN": {
+"nome": "China (People’s Republic of)",
+"v": {
+"2021": 39,
+"2022": 41,
+"2023": 48,
+"2024": 54,
+"2025": 54
+}
+},
+"COL": {
+"nome": "Colombia",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"COM": {
+"nome": "Comoros",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"COG": {
+"nome": "Congo",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"CRI": {
+"nome": "Costa Rica",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": null,
+"2025": null
+}
+},
+"CIV": {
+"nome": "Côte d'Ivoire",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"HRV": {
+"nome": "Croatia",
+"v": {
+"2021": 183,
+"2022": 191,
+"2023": 192,
+"2024": 192,
+"2025": 167
+}
+},
+"CUB": {
+"nome": "Cuba",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"CYP": {
+"nome": "Cyprus",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"CZE": {
+"nome": "Czech Republic",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"PRK": {
+"nome": "Democratic People's Republic of Korea",
+"v": {
+"2021": null,
+"2022": null,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"COD": {
+"nome": "Democratic Republic of the Congo",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"DNK": {
+"nome": "Denmark",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"DJI": {
+"nome": "Djibouti",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"DMA": {
+"nome": "Dominica",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"DOM": {
+"nome": "Dominican Republic",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"ECU": {
+"nome": "Ecuador",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"EGY": {
+"nome": "Egypt",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"SLV": {
+"nome": "El Salvador",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"GNQ": {
+"nome": "Equatorial Guinea",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"ERI": {
+"nome": "Eritrea",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"EST": {
+"nome": "Estonia",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"SWZ": {
+"nome": "Eswatini",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"ETH": {
+"nome": "Ethiopia",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"FJI": {
+"nome": "Fiji",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"FIN": {
+"nome": "Finland",
+"v": {
+"2021": 50,
+"2022": 55,
+"2023": 57,
+"2024": 58,
+"2025": 60
+}
+},
+"FRA": {
+"nome": "France",
+"v": {
+"2021": 28,
+"2022": 30,
+"2023": 31,
+"2024": 28,
+"2025": 26
+}
+},
+"GAB": {
+"nome": "Gabon",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": 0
+}
+},
+"GMB": {
+"nome": "Gambia",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"GEO": {
+"nome": "Georgia",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"DEU": {
+"nome": "Germany",
+"v": {
+"2021": 107,
+"2022": 106,
+"2023": 100,
+"2024": 99,
+"2025": 101
+}
+},
+"GHA": {
+"nome": "Ghana",
+"v": {
+"2021": null,
+"2022": 44,
+"2023": 142,
+"2024": 270,
+"2025": 305
+}
+},
+"GRC": {
+"nome": "Greece",
+"v": {
+"2021": null,
+"2022": 25,
+"2023": 28,
+"2024": 29,
+"2025": 28
+}
+},
+"GRD": {
+"nome": "Grenada",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"GTM": {
+"nome": "Guatemala",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"GIN": {
+"nome": "Guinea",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"GNB": {
+"nome": "Guinea-Bissau",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"GUY": {
+"nome": "Guyana",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"HTI": {
+"nome": "Haiti",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"HND": {
+"nome": "Honduras",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"HUN": {
+"nome": "Hungary",
+"v": {
+"2021": 46,
+"2022": 47,
+"2023": 46,
+"2024": 44,
+"2025": 42
+}
+},
+"ISL": {
+"nome": "Iceland",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"IND": {
+"nome": "India",
+"v": {
+"2021": 10647,
+"2022": 13482,
+"2023": 16851,
+"2024": 19642,
+"2025": 20568
+}
+},
+"IDN": {
+"nome": "Indonesia",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"IRN": {
+"nome": "Iran",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"IRQ": {
+"nome": "Iraq",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"ISR": {
+"nome": "Israel",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"ITA": {
+"nome": "Italy",
+"v": {
+"2021": 180,
+"2022": 178,
+"2023": 169,
+"2024": 165,
+"2025": 151
+}
+},
+"JAM": {
+"nome": "Jamaica",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": null,
+"2025": null
+}
+},
+"JPN": {
+"nome": "Japan",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"JOR": {
+"nome": "Jordan",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"KAZ": {
+"nome": "Kazakhstan",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"KEN": {
+"nome": "Kenya",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": 45,
+"2025": 60
+}
+},
+"KIR": {
+"nome": "Kiribati",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"KWT": {
+"nome": "Kuwait",
+"v": {
+"2021": 0,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"KGZ": {
+"nome": "Kyrgyzstan",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"LAO": {
+"nome": "Lao People's Democratic Republic",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"LVA": {
+"nome": "Latvia",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"LBN": {
+"nome": "Lebanon",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"LSO": {
+"nome": "Lesotho",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"LBR": {
+"nome": "Liberia",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"LBY": {
+"nome": "Libya",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"LIE": {
+"nome": "Liechtenstein",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"LTU": {
+"nome": "Lithuania",
+"v": {
+"2021": 88,
+"2022": 88,
+"2023": 82,
+"2024": 81,
+"2025": 75
+}
+},
+"LUX": {
+"nome": "Luxembourg",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": 0
+}
+},
+"MDG": {
+"nome": "Madagascar",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"MWI": {
+"nome": "Malawi",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"MYS": {
+"nome": "Malaysia",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"MDV": {
+"nome": "Maldives",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"MLI": {
+"nome": "Mali",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"MLT": {
+"nome": "Malta",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"MHL": {
+"nome": "Marshall Islands",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"MRT": {
+"nome": "Mauritania",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"MUS": {
+"nome": "Mauritius",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"MEX": {
+"nome": "Mexico",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": null,
+"2025": null
+}
+},
+"FSM": {
+"nome": "Micronesia (Federated States of)",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"MCO": {
+"nome": "Monaco",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"MNG": {
+"nome": "Mongolia",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"MNE": {
+"nome": "Montenegro",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"MAR": {
+"nome": "Morocco",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"MOZ": {
+"nome": "Mozambique",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"MMR": {
+"nome": "Myanmar",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": 0,
+"2025": null
+}
+},
+"NAM": {
+"nome": "Namibia",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"NRU": {
+"nome": "Nauru",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"NPL": {
+"nome": "Nepal",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": 29,
+"2025": 29
+}
+},
+"NLD": {
+"nome": "Netherlands",
+"v": {
+"2021": 28,
+"2022": 29,
+"2023": 33,
+"2024": 29,
+"2025": 27
+}
+},
+"NZL": {
+"nome": "New Zealand",
+"v": {
+"2021": 37,
+"2022": 37,
+"2023": 36,
+"2024": 39,
+"2025": 35
+}
+},
+"NIC": {
+"nome": "Nicaragua",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": null
+}
+},
+"NER": {
+"nome": "Niger",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"NGA": {
+"nome": "Nigeria",
+"v": {
+"2021": 351,
+"2022": 424,
+"2023": 558,
+"2024": 653,
+"2025": 676
+}
+},
+"MKD": {
+"nome": "North Macedonia",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"NOR": {
+"nome": "Norway",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"OMN": {
+"nome": "Oman",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"PAK": {
+"nome": "Pakistan",
+"v": {
+"2021": null,
+"2022": null,
+"2023": 31,
+"2024": 44,
+"2025": 57
+}
+},
+"PLW": {
+"nome": "Palau",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"PAN": {
+"nome": "Panama",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"PNG": {
+"nome": "Papua New Guinea",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"PRY": {
+"nome": "Paraguay",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"PER": {
+"nome": "Peru",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"PHL": {
+"nome": "Philippines",
+"v": {
+"2021": 5258,
+"2022": 5637,
+"2023": 6277,
+"2024": 6866,
+"2025": 6946
+}
+},
+"POL": {
+"nome": "Poland",
+"v": {
+"2021": 464,
+"2022": 470,
+"2023": 464,
+"2024": 457,
+"2025": 441
+}
+},
+"PRT": {
+"nome": "Portugal",
+"v": {
+"2021": 231,
+"2022": 224,
+"2023": 234,
+"2024": 252,
+"2025": 242
+}
+},
+"QAT": {
+"nome": "Qatar",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"KOR": {
+"nome": "Republic of Korea",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"MDA": {
+"nome": "Republic of Moldova",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"ROU": {
+"nome": "Romania",
+"v": {
+"2021": 487,
+"2022": 496,
+"2023": 495,
+"2024": 499,
+"2025": 481
+}
+},
+"RUS": {
+"nome": "Russian Federation",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"RWA": {
+"nome": "Rwanda",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"KNA": {
+"nome": "Saint Kitts and Nevis",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"LCA": {
+"nome": "Saint Lucia",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": null,
+"2025": null
+}
+},
+"VCT": {
+"nome": "Saint Vincent and the Grenadines",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": 0,
+"2025": 0
+}
+},
+"WSM": {
+"nome": "Samoa",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"SMR": {
+"nome": "San Marino",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"STP": {
+"nome": "Sao Tome and Principe",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"SAU": {
+"nome": "Saudi Arabia",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"SEN": {
+"nome": "Senegal",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"SRB": {
+"nome": "Serbia",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"SYC": {
+"nome": "Seychelles",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"SLE": {
+"nome": "Sierra Leone",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"SGP": {
+"nome": "Singapore",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"SVK": {
+"nome": "Slovak Republic",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"SVN": {
+"nome": "Slovenia",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"SLB": {
+"nome": "Solomon Islands",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"SOM": {
+"nome": "Somalia",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"ZAF": {
+"nome": "South Africa",
+"v": {
+"2021": 105,
+"2022": 108,
+"2023": 111,
+"2024": 109,
+"2025": 109
+}
+},
+"SSD": {
+"nome": "South Sudan",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"ESP": {
+"nome": "Spain",
+"v": {
+"2021": 244,
+"2022": 226,
+"2023": 231,
+"2024": 226,
+"2025": 212
+}
+},
+"LKA": {
+"nome": "Sri Lanka",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"SDN": {
+"nome": "Sudan",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"SUR": {
+"nome": "Suriname",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"SWE": {
+"nome": "Sweden",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"CHE": {
+"nome": "Switzerland",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"SYR": {
+"nome": "Syrian Arab Republic",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"TWN": {
+"nome": "Taiwan/Chinese Taipei",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"TJK": {
+"nome": "Tajikistan",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"THA": {
+"nome": "Thailand",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"TLS": {
+"nome": "Timor-Leste",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"TGO": {
+"nome": "Togo",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"TON": {
+"nome": "Tonga",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"TTO": {
+"nome": "Trinidad and Tobago",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"TUN": {
+"nome": "Tunisia",
+"v": {
+"2021": null,
+"2022": null,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"TUR": {
+"nome": "Turkey",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": null,
+"2025": null
+}
+},
+"TKM": {
+"nome": "Turkmenistan",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"TUV": {
+"nome": "Tuvalu",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"UGA": {
+"nome": "Uganda",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"UKR": {
+"nome": "Ukraine",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"ARE": {
+"nome": "United Arab Emirates",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"GBR": {
+"nome": "United Kingdom",
+"v": {
+"2021": 10156,
+"2022": 10090,
+"2023": 9917,
+"2024": 9877,
+"2025": 9486
+}
+},
+"TZA": {
+"nome": "United Republic of Tanzania",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": null,
+"2025": null
+}
+},
+"USA": {
+"nome": "United States of America",
+"v": {
+"2021": 196,
+"2022": 197,
+"2023": 203,
+"2024": 194,
+"2025": 178
+}
+},
+"URY": {
+"nome": "Uruguay",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"UZB": {
+"nome": "Uzbekistan",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"VUT": {
+"nome": "Vanuatu",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"VEN": {
+"nome": "Venezuela",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"VNM": {
+"nome": "Viet Nam",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"YEM": {
+"nome": "Yemen",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+},
+"ZMB": {
+"nome": "Zambia",
+"v": {
+"2021": null,
+"2022": null,
+"2023": null,
+"2024": 26,
+"2025": 28
+}
+},
+"ZWE": {
+"nome": "Zimbabwe",
+"v": {
+"2021": 337,
+"2022": 455,
+"2023": 633,
+"2024": 712,
+"2025": 718
+}
+},
+"NS": {
+"nome": "Other (n.e.c.)",
+"v": {
+"2021": 0,
+"2022": 0,
+"2023": 0,
+"2024": 0,
+"2025": 0
+}
+}
+}
+},
+"codice": {
+"rosso": [
+"Afghanistan",
+"Angola",
+"Bangladesh",
+"Benin",
+"Burkina Faso",
+"Burundi",
+"Cameroon",
+"Central African Republic",
+"Chad",
+"Comoros",
+"Congo",
+"Congo, Democratic Republic of",
+"Côte d’Ivoire",
+"Djibouti",
+"Equatorial Guinea",
+"Eritrea",
+"Ethiopia",
+"Gabon",
+"Gambia, The",
+"Ghana",
+"Guinea",
+"Guinea-Bissau",
+"Haiti",
+"Kiribati",
+"Lao People’s Democratic Republic",
+"Lesotho",
+"Liberia",
+"Madagascar",
+"Malawi",
+"Mali",
+"Mauritania",
+"Micronesia, Federated States of",
+"Mozambique",
+"Niger",
+"Nigeria",
+"Pakistan",
+"Papua New Guinea",
+"Rwanda",
+"Samoa",
+"Senegal",
+"Sierra Leone",
+"Solomon Islands",
+"Somalia",
+"South Sudan",
+"Sudan",
+"Tanzania, United Republic of",
+"Timor-Leste",
+"Togo",
+"Tuvalu",
+"Uganda",
+"Vanuatu",
+"Yemen, Republic of",
+"Zambia",
+"Zimbabwe"
+],
+"ambra": [
+"Kenya",
+"Nepal"
+],
+"verde": [
+"India",
+"Malaysia",
+"Philippines",
+"Sri Lanka"
+],
+"nomi_oms": {
+"Congo, Democratic Republic of": "Democratic Republic of the Congo",
+"Côte d’Ivoire": "Côte d'Ivoire",
+"Gambia, The": "Gambia",
+"Lao People’s Democratic Republic": "Lao People's Democratic Republic",
+"Micronesia, Federated States of": "Micronesia (Federated States of)",
+"Tanzania, United Republic of": "United Republic of Tanzania",
+"Yemen, Republic of": "Yemen"
+},
+"nomi_ho": {
+"Congo, Democratic Republic of": "Congo (Democratic Republic)",
+"Côte d’Ivoire": "Ivory Coast",
+"Lao People’s Democratic Republic": "Laos",
+"Micronesia, Federated States of": "Micronesia",
+"Tanzania, United Republic of": "Tanzania",
+"Yemen, Republic of": "Yemen",
+"Timor-Leste": "East Timor"
+},
+"assenti_dal_file_ho": [
+"Micronesia"
+]
+},
+"oms": {
+"lista_2023": [
+"Afghanistan",
+"Angola",
+"Bangladesh",
+"Benin",
+"Burkina Faso",
+"Burundi",
+"Cameroon",
+"Central African Republic",
+"Chad",
+"Comoros",
+"Congo",
+"Democratic Republic of the Congo",
+"Côte d'Ivoire",
+"Djibouti",
+"Equatorial Guinea",
+"Eritrea",
+"Ethiopia",
+"Gabon",
+"Gambia",
+"Ghana",
+"Guinea",
+"Guinea-Bissau",
+"Haiti",
+"Kiribati",
+"Lao People's Democratic Republic",
+"Lesotho",
+"Liberia",
+"Madagascar",
+"Malawi",
+"Mali",
+"Mauritania",
+"Micronesia (Federated States of)",
+"Mozambique",
+"Niger",
+"Nigeria",
+"Pakistan",
+"Papua New Guinea",
+"Rwanda",
+"Samoa",
+"Senegal",
+"Sierra Leone",
+"Solomon Islands",
+"Somalia",
+"South Sudan",
+"Sudan",
+"United Republic of Tanzania",
+"Timor-Leste",
+"Togo",
+"Tuvalu",
+"Uganda",
+"Vanuatu",
+"Yemen",
+"Zambia",
+"Zimbabwe",
+"Nepal"
+],
+"regioni_2023": {
+"African Region": 37,
+"Eastern Mediterranean Region": 6,
+"South-East Asia Region": 3,
+"Western Pacific Region": 8,
+"Region of the Americas": 1
+},
+"lista_2026": "non pubblicata"
+},
+"hcw": {
+"fonte": {
+"titolo": "Entry clearance visa applications and outcomes detailed datasets, year ending June 2026",
+"editore": "Home Office, Immigration System Statistics",
+"url": "https://assets.publishing.service.gov.uk/media/6a85c3741b45e4e555421eda/entry-clearance-visa-outcomes-datasets-jun-2026.xlsx",
+"pagina": "https://www.gov.uk/government/statistical-data-sets/immigration-system-statistics-data-tables",
+"formato": "XLSX",
+"byte": 33032191,
+"sha256": "5151f0bdce2f057a4a89e712f2234dceedddb9857f5d97820d48c693477fcdef",
+"scaricato_il": "2026-10-15",
+"pubblicato": "27 August 2026",
+"prossimo": "26 November 2026",
+"periodo": "Year ending June 2026",
+"pagina_aggiornata": "2026-08-27"
+},
+"trimestri": [
+"2020 Q4",
+"2021 Q1",
+"2021 Q2",
+"2021 Q3",
+"2021 Q4",
+"2022 Q1",
+"2022 Q2",
+"2022 Q3",
+"2022 Q4",
+"2023 Q1",
+"2023 Q2",
+"2023 Q3",
+"2023 Q4",
+"2024 Q1",
+"2024 Q2",
+"2024 Q3",
+"2024 Q4",
+"2025 Q1",
+"2025 Q2",
+"2025 Q3",
+"2025 Q4",
+"2026 Q1",
+"2026 Q2"
+],
+"controlli_work": 967,
+"naz": {
+"Australia": {
+"2020": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2021": {
+"M": [
+242,
+0,
+2,
+0
+],
+"D": [
+66,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+392,
+1,
+2,
+0
+],
+"D": [
+129,
+0,
+2,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+420,
+1,
+3,
+0
+],
+"D": [
+196,
+2,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+363,
+5,
+5,
+0
+],
+"D": [
+200,
+7,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+225,
+6,
+5,
+0
+],
+"D": [
+160,
+6,
+4,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+103,
+0,
+2,
+0
+],
+"D": [
+84,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Bahrain": {
+"2020": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2021": {
+"M": [
+39,
+0,
+0,
+0
+],
+"D": [
+21,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+64,
+1,
+1,
+0
+],
+"D": [
+29,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+63,
+0,
+0,
+0
+],
+"D": [
+15,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+43,
+2,
+0,
+0
+],
+"D": [
+26,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+17,
+1,
+0,
+0
+],
+"D": [
+10,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+5,
+0,
+0,
+0
+],
+"D": [
+4,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Bangladesh": {
+"2020": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2021": {
+"M": [
+166,
+1,
+1,
+0
+],
+"D": [
+208,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+792,
+60,
+4,
+0
+],
+"D": [
+710,
+41,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+9429,
+925,
+301,
+0
+],
+"D": [
+9587,
+975,
+237,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+558,
+545,
+64,
+0
+],
+"D": [
+1500,
+537,
+62,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+202,
+246,
+13,
+0
+],
+"D": [
+737,
+275,
+27,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+41,
+19,
+0,
+0
+],
+"D": [
+273,
+103,
+4,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Botswana": {
+"2020": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2021": {
+"M": [
+36,
+0,
+0,
+0
+],
+"D": [
+18,
+5,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+193,
+9,
+2,
+0
+],
+"D": [
+68,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+387,
+20,
+1,
+0
+],
+"D": [
+224,
+34,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+115,
+4,
+1,
+0
+],
+"D": [
+258,
+71,
+4,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+25,
+5,
+1,
+0
+],
+"D": [
+97,
+73,
+2,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+4,
+0,
+0,
+0
+],
+"D": [
+30,
+20,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Canada": {
+"2020": {
+"M": [
+5,
+0,
+0,
+0
+],
+"D": [
+13,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2021": {
+"M": [
+159,
+0,
+0,
+0
+],
+"D": [
+167,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+284,
+1,
+1,
+0
+],
+"D": [
+208,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+238,
+0,
+0,
+0
+],
+"D": [
+211,
+5,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+186,
+6,
+5,
+0
+],
+"D": [
+118,
+8,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+179,
+4,
+4,
+0
+],
+"D": [
+134,
+5,
+4,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+48,
+0,
+2,
+0
+],
+"D": [
+44,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Egypt": {
+"2020": {
+"M": [
+21,
+0,
+0,
+0
+],
+"D": [
+26,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2021": {
+"M": [
+802,
+1,
+0,
+0
+],
+"D": [
+1403,
+0,
+3,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+855,
+4,
+1,
+0
+],
+"D": [
+1398,
+1,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+918,
+8,
+6,
+0
+],
+"D": [
+1196,
+23,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+742,
+13,
+5,
+0
+],
+"D": [
+1155,
+39,
+2,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+612,
+5,
+3,
+0
+],
+"D": [
+1024,
+19,
+8,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+141,
+0,
+2,
+0
+],
+"D": [
+346,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Ghana": {
+"2020": {
+"M": [
+9,
+0,
+0,
+0
+],
+"D": [
+4,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2021": {
+"M": [
+990,
+2,
+1,
+0
+],
+"D": [
+685,
+11,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+3295,
+188,
+13,
+0
+],
+"D": [
+2412,
+108,
+8,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+13995,
+1183,
+124,
+0
+],
+"D": [
+16341,
+1902,
+111,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+1248,
+407,
+34,
+0
+],
+"D": [
+5870,
+2128,
+52,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+389,
+74,
+9,
+0
+],
+"D": [
+2289,
+1464,
+32,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+64,
+12,
+1,
+0
+],
+"D": [
+850,
+866,
+6,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Greece": {
+"2020": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2021": {
+"M": [
+120,
+0,
+2,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+188,
+0,
+4,
+0
+],
+"D": [
+23,
+0,
+3,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+200,
+2,
+15,
+0
+],
+"D": [
+31,
+1,
+11,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+197,
+0,
+10,
+0
+],
+"D": [
+30,
+0,
+6,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+179,
+1,
+11,
+0
+],
+"D": [
+53,
+0,
+9,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+75,
+1,
+1,
+0
+],
+"D": [
+15,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Hong Kong": {
+"2020": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2021": {
+"M": [
+32,
+0,
+0,
+0
+],
+"D": [
+11,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+32,
+0,
+0,
+0
+],
+"D": [
+12,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+27,
+1,
+1,
+0
+],
+"D": [
+5,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+9,
+0,
+0,
+0
+],
+"D": [
+5,
+4,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+19,
+0,
+1,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+7,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"India": {
+"2020": {
+"M": [
+288,
+0,
+0,
+0
+],
+"D": [
+262,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2021": {
+"M": [
+12186,
+7,
+4,
+0
+],
+"D": [
+14819,
+23,
+7,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+24923,
+360,
+36,
+0
+],
+"D": [
+33399,
+160,
+31,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+38896,
+3079,
+283,
+0
+],
+"D": [
+57705,
+1936,
+155,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+7666,
+1976,
+95,
+1
+],
+"D": [
+22576,
+1431,
+124,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+3156,
+1013,
+47,
+0
+],
+"D": [
+11433,
+918,
+90,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+634,
+266,
+10,
+0
+],
+"D": [
+4295,
+423,
+20,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Iraq": {
+"2020": {
+"M": [
+6,
+0,
+0,
+0
+],
+"D": [
+11,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2021": {
+"M": [
+77,
+0,
+0,
+0
+],
+"D": [
+80,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+135,
+2,
+0,
+0
+],
+"D": [
+160,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+136,
+0,
+0,
+0
+],
+"D": [
+109,
+3,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+113,
+3,
+1,
+0
+],
+"D": [
+88,
+2,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+77,
+2,
+3,
+0
+],
+"D": [
+69,
+1,
+3,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+15,
+1,
+0,
+0
+],
+"D": [
+27,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Italy": {
+"2020": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2021": {
+"M": [
+89,
+0,
+3,
+0
+],
+"D": [
+4,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+136,
+0,
+5,
+0
+],
+"D": [
+20,
+0,
+5,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+156,
+3,
+4,
+0
+],
+"D": [
+57,
+1,
+15,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+139,
+0,
+9,
+0
+],
+"D": [
+29,
+0,
+11,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+129,
+4,
+3,
+0
+],
+"D": [
+31,
+0,
+8,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+61,
+0,
+7,
+0
+],
+"D": [
+14,
+0,
+4,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Jamaica": {
+"2020": {
+"M": [
+5,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2021": {
+"M": [
+129,
+1,
+0,
+0
+],
+"D": [
+143,
+6,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+674,
+4,
+1,
+0
+],
+"D": [
+300,
+10,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+693,
+29,
+2,
+0
+],
+"D": [
+587,
+134,
+8,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+171,
+7,
+7,
+0
+],
+"D": [
+330,
+141,
+3,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+20,
+4,
+2,
+0
+],
+"D": [
+87,
+73,
+6,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+7,
+0,
+0,
+0
+],
+"D": [
+36,
+15,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Jordan": {
+"2020": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2021": {
+"M": [
+129,
+0,
+0,
+0
+],
+"D": [
+132,
+1,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+180,
+2,
+0,
+0
+],
+"D": [
+200,
+3,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+212,
+1,
+1,
+0
+],
+"D": [
+169,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+146,
+1,
+1,
+0
+],
+"D": [
+132,
+12,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+101,
+3,
+1,
+0
+],
+"D": [
+133,
+1,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+29,
+0,
+0,
+0
+],
+"D": [
+65,
+2,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Kenya": {
+"2020": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+4,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2021": {
+"M": [
+574,
+2,
+1,
+0
+],
+"D": [
+273,
+5,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+1532,
+117,
+9,
+0
+],
+"D": [
+934,
+38,
+6,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+2815,
+220,
+17,
+0
+],
+"D": [
+2323,
+288,
+10,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+412,
+80,
+8,
+0
+],
+"D": [
+2037,
+488,
+15,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+170,
+56,
+4,
+0
+],
+"D": [
+698,
+371,
+11,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+17,
+2,
+0,
+0
+],
+"D": [
+190,
+116,
+2,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Kuwait": {
+"2020": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2021": {
+"M": [
+15,
+0,
+0,
+0
+],
+"D": [
+13,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+20,
+0,
+0,
+0
+],
+"D": [
+13,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+17,
+0,
+1,
+0
+],
+"D": [
+15,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+10,
+0,
+0,
+0
+],
+"D": [
+12,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+8,
+0,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Libya": {
+"2020": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2021": {
+"M": [
+15,
+0,
+0,
+0
+],
+"D": [
+46,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+44,
+0,
+0,
+0
+],
+"D": [
+72,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+39,
+0,
+0,
+0
+],
+"D": [
+61,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+29,
+0,
+0,
+0
+],
+"D": [
+41,
+2,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+15,
+2,
+0,
+0
+],
+"D": [
+34,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+7,
+0,
+0,
+0
+],
+"D": [
+15,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Malaysia": {
+"2020": {
+"M": [
+8,
+0,
+0,
+0
+],
+"D": [
+7,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2021": {
+"M": [
+211,
+0,
+0,
+0
+],
+"D": [
+83,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+449,
+1,
+2,
+0
+],
+"D": [
+148,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+343,
+5,
+7,
+0
+],
+"D": [
+128,
+5,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+279,
+7,
+4,
+0
+],
+"D": [
+115,
+11,
+2,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+314,
+6,
+5,
+0
+],
+"D": [
+125,
+3,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+65,
+0,
+1,
+0
+],
+"D": [
+47,
+2,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Malta": {
+"2020": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2021": {
+"M": [
+42,
+0,
+1,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+56,
+0,
+3,
+0
+],
+"D": [
+19,
+0,
+2,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+32,
+0,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+45,
+0,
+1,
+0
+],
+"D": [
+6,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+40,
+2,
+1,
+0
+],
+"D": [
+12,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+11,
+0,
+0,
+0
+],
+"D": [
+4,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Morocco": {
+"2020": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2021": {
+"M": [
+5,
+1,
+0,
+0
+],
+"D": [
+7,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+24,
+16,
+0,
+0
+],
+"D": [
+21,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+50,
+6,
+3,
+0
+],
+"D": [
+24,
+3,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+17,
+13,
+2,
+0
+],
+"D": [
+31,
+6,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+11,
+3,
+2,
+0
+],
+"D": [
+25,
+3,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+4,
+0,
+0,
+0
+],
+"D": [
+8,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Myanmar (Burma)": {
+"2020": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2021": {
+"M": [
+100,
+0,
+0,
+0
+],
+"D": [
+46,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+86,
+0,
+0,
+0
+],
+"D": [
+68,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+126,
+5,
+6,
+0
+],
+"D": [
+87,
+1,
+3,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+108,
+4,
+1,
+0
+],
+"D": [
+84,
+3,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+95,
+1,
+0,
+0
+],
+"D": [
+84,
+6,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+31,
+0,
+2,
+0
+],
+"D": [
+17,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Nepal": {
+"2020": {
+"M": [
+7,
+0,
+0,
+0
+],
+"D": [
+5,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2021": {
+"M": [
+337,
+0,
+1,
+0
+],
+"D": [
+140,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+700,
+18,
+0,
+0
+],
+"D": [
+448,
+8,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+1321,
+140,
+14,
+0
+],
+"D": [
+1224,
+93,
+4,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+470,
+142,
+10,
+0
+],
+"D": [
+732,
+107,
+3,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+243,
+50,
+1,
+0
+],
+"D": [
+318,
+39,
+3,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+31,
+5,
+0,
+0
+],
+"D": [
+121,
+9,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Netherlands": {
+"2020": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2021": {
+"M": [
+24,
+0,
+1,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+31,
+0,
+1,
+0
+],
+"D": [
+13,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+31,
+1,
+0,
+0
+],
+"D": [
+16,
+0,
+2,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+26,
+0,
+5,
+0
+],
+"D": [
+12,
+0,
+3,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+14,
+1,
+1,
+0
+],
+"D": [
+11,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+8,
+0,
+1,
+0
+],
+"D": [
+1,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"New Zealand": {
+"2020": {
+"M": [
+4,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2021": {
+"M": [
+35,
+0,
+0,
+0
+],
+"D": [
+30,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+66,
+0,
+0,
+0
+],
+"D": [
+44,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+67,
+0,
+2,
+0
+],
+"D": [
+26,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+61,
+2,
+1,
+0
+],
+"D": [
+31,
+3,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+55,
+1,
+2,
+0
+],
+"D": [
+28,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+11,
+0,
+1,
+0
+],
+"D": [
+20,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Nigeria": {
+"2020": {
+"M": [
+57,
+0,
+0,
+0
+],
+"D": [
+38,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2021": {
+"M": [
+4139,
+20,
+1,
+0
+],
+"D": [
+4725,
+44,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+11782,
+766,
+32,
+0
+],
+"D": [
+16642,
+643,
+24,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+26186,
+2535,
+260,
+0
+],
+"D": [
+50233,
+5874,
+289,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+2862,
+671,
+85,
+0
+],
+"D": [
+16501,
+4405,
+167,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+1512,
+207,
+19,
+0
+],
+"D": [
+6200,
+3152,
+101,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+402,
+20,
+1,
+0
+],
+"D": [
+1844,
+1174,
+16,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Pakistan": {
+"2020": {
+"M": [
+12,
+0,
+0,
+0
+],
+"D": [
+9,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2021": {
+"M": [
+1026,
+7,
+3,
+0
+],
+"D": [
+1513,
+17,
+8,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+1906,
+101,
+12,
+0
+],
+"D": [
+2234,
+60,
+9,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+10406,
+1283,
+89,
+0
+],
+"D": [
+15927,
+1550,
+98,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+2411,
+1495,
+51,
+0
+],
+"D": [
+6015,
+1186,
+86,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+1366,
+702,
+34,
+0
+],
+"D": [
+2916,
+507,
+39,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+311,
+81,
+8,
+0
+],
+"D": [
+913,
+172,
+11,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Philippines": {
+"2020": {
+"M": [
+201,
+0,
+0,
+0
+],
+"D": [
+80,
+1,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2021": {
+"M": [
+5807,
+17,
+2,
+0
+],
+"D": [
+2958,
+172,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+8362,
+113,
+2,
+0
+],
+"D": [
+5070,
+147,
+8,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+6643,
+189,
+26,
+0
+],
+"D": [
+5769,
+279,
+24,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+2080,
+81,
+14,
+0
+],
+"D": [
+4047,
+423,
+27,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+710,
+29,
+8,
+0
+],
+"D": [
+1640,
+219,
+16,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+74,
+11,
+2,
+0
+],
+"D": [
+480,
+130,
+2,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Portugal": {
+"2020": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2021": {
+"M": [
+77,
+0,
+1,
+0
+],
+"D": [
+7,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+162,
+0,
+7,
+0
+],
+"D": [
+21,
+0,
+5,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+168,
+1,
+5,
+0
+],
+"D": [
+37,
+0,
+2,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+82,
+1,
+4,
+0
+],
+"D": [
+19,
+1,
+3,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+43,
+1,
+3,
+0
+],
+"D": [
+24,
+0,
+2,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+13,
+0,
+0,
+0
+],
+"D": [
+7,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"South Africa": {
+"2020": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2021": {
+"M": [
+221,
+2,
+1,
+0
+],
+"D": [
+202,
+2,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+853,
+73,
+2,
+0
+],
+"D": [
+599,
+32,
+3,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+1040,
+90,
+11,
+0
+],
+"D": [
+1051,
+143,
+13,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+423,
+26,
+20,
+0
+],
+"D": [
+601,
+146,
+7,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+176,
+14,
+8,
+0
+],
+"D": [
+218,
+86,
+9,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+44,
+4,
+1,
+0
+],
+"D": [
+52,
+27,
+3,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Sri Lanka": {
+"2020": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2021": {
+"M": [
+306,
+0,
+1,
+0
+],
+"D": [
+422,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+1338,
+26,
+2,
+0
+],
+"D": [
+2361,
+37,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+3537,
+168,
+26,
+0
+],
+"D": [
+6921,
+323,
+21,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+959,
+152,
+8,
+0
+],
+"D": [
+1879,
+229,
+9,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+482,
+101,
+2,
+0
+],
+"D": [
+718,
+100,
+10,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+93,
+4,
+0,
+0
+],
+"D": [
+278,
+16,
+2,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Sudan": {
+"2020": {
+"M": [
+11,
+0,
+0,
+0
+],
+"D": [
+12,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2021": {
+"M": [
+324,
+0,
+2,
+0
+],
+"D": [
+535,
+2,
+2,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+374,
+0,
+4,
+0
+],
+"D": [
+670,
+5,
+2,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+291,
+4,
+1,
+0
+],
+"D": [
+524,
+17,
+3,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+307,
+10,
+1,
+0
+],
+"D": [
+451,
+22,
+8,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+214,
+8,
+2,
+0
+],
+"D": [
+269,
+9,
+2,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+39,
+0,
+0,
+0
+],
+"D": [
+86,
+5,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Switzerland": {
+"2020": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2021": {
+"M": [
+15,
+0,
+1,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+23,
+0,
+1,
+0
+],
+"D": [
+6,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+23,
+0,
+0,
+0
+],
+"D": [
+19,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+19,
+0,
+0,
+0
+],
+"D": [
+5,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+17,
+0,
+0,
+0
+],
+"D": [
+10,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+5,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Thailand": {
+"2020": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2021": {
+"M": [
+8,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+18,
+6,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+40,
+7,
+0,
+0
+],
+"D": [
+14,
+2,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+23,
+2,
+3,
+0
+],
+"D": [
+6,
+0,
+2,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+16,
+4,
+2,
+0
+],
+"D": [
+4,
+2,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+4,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Turkey": {
+"2020": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2021": {
+"M": [
+33,
+0,
+0,
+0
+],
+"D": [
+21,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+108,
+5,
+3,
+0
+],
+"D": [
+75,
+3,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+204,
+5,
+0,
+0
+],
+"D": [
+161,
+17,
+7,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+205,
+21,
+11,
+0
+],
+"D": [
+137,
+7,
+10,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+125,
+4,
+6,
+0
+],
+"D": [
+124,
+7,
+6,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+32,
+0,
+1,
+0
+],
+"D": [
+39,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"United States": {
+"2020": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2021": {
+"M": [
+161,
+0,
+0,
+0
+],
+"D": [
+153,
+2,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+220,
+2,
+5,
+0
+],
+"D": [
+236,
+6,
+2,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+203,
+1,
+5,
+0
+],
+"D": [
+253,
+19,
+2,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+128,
+8,
+11,
+0
+],
+"D": [
+126,
+18,
+8,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+127,
+3,
+12,
+0
+],
+"D": [
+133,
+15,
+3,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+46,
+1,
+9,
+0
+],
+"D": [
+50,
+4,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Zambia": {
+"2020": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2021": {
+"M": [
+92,
+1,
+0,
+0
+],
+"D": [
+59,
+2,
+2,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+605,
+36,
+0,
+0
+],
+"D": [
+206,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+905,
+48,
+6,
+0
+],
+"D": [
+829,
+96,
+3,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+152,
+7,
+1,
+0
+],
+"D": [
+800,
+205,
+5,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+34,
+5,
+2,
+0
+],
+"D": [
+355,
+128,
+7,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+9,
+0,
+0,
+0
+],
+"D": [
+91,
+48,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Zimbabwe": {
+"2020": {
+"M": [
+20,
+0,
+0,
+0
+],
+"D": [
+19,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2021": {
+"M": [
+1600,
+24,
+3,
+0
+],
+"D": [
+1642,
+31,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+12109,
+723,
+19,
+0
+],
+"D": [
+9895,
+439,
+13,
+1
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+18724,
+1358,
+118,
+0
+],
+"D": [
+24899,
+2267,
+131,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+1921,
+245,
+32,
+0
+],
+"D": [
+13743,
+2753,
+81,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+630,
+118,
+8,
+0
+],
+"D": [
+3523,
+1753,
+28,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+84,
+10,
+0,
+0
+],
+"D": [
+854,
+644,
+6,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Afghanistan": {
+"2021": {
+"M": [
+7,
+0,
+0,
+0
+],
+"D": [
+6,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+14,
+0,
+0,
+0
+],
+"D": [
+23,
+4,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+72,
+11,
+0,
+0
+],
+"D": [
+98,
+20,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+31,
+4,
+3,
+0
+],
+"D": [
+67,
+19,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+9,
+12,
+2,
+0
+],
+"D": [
+39,
+6,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+6,
+2,
+0,
+0
+],
+"D": [
+4,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Albania": {
+"2021": {
+"M": [
+18,
+4,
+3,
+0
+],
+"D": [
+4,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+119,
+17,
+0,
+0
+],
+"D": [
+58,
+8,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+269,
+29,
+0,
+0
+],
+"D": [
+220,
+49,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+47,
+5,
+1,
+0
+],
+"D": [
+34,
+22,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+28,
+3,
+0,
+0
+],
+"D": [
+9,
+13,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+4,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Argentina": {
+"2021": {
+"M": [
+5,
+0,
+0,
+0
+],
+"D": [
+5,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q4"
+]
+},
+"2022": {
+"M": [
+9,
+0,
+0,
+0
+],
+"D": [
+8,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+10,
+3,
+0,
+0
+],
+"D": [
+10,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+4,
+0,
+1,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+4,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q4"
+]
+},
+"2026": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Armenia": {
+"2021": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+4,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+},
+"2022": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3"
+]
+},
+"2023": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q4"
+]
+},
+"2024": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+4,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q4"
+]
+}
+},
+"Azerbaijan": {
+"2021": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+4,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3"
+]
+},
+"2022": {
+"M": [
+9,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+7,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2024": {
+"M": [
+4,
+0,
+0,
+0
+],
+"D": [
+1,
+2,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+4,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+}
+},
+"Bahamas, The": {
+"2021": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+6,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+4,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+3,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+},
+"2025": {
+"M": [
+1,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q4"
+]
+}
+},
+"Barbados": {
+"2021": {
+"M": [
+14,
+0,
+0,
+0
+],
+"D": [
+13,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+51,
+0,
+0,
+0
+],
+"D": [
+19,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+39,
+0,
+0,
+0
+],
+"D": [
+28,
+10,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+9,
+0,
+0,
+0
+],
+"D": [
+24,
+12,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+4,
+1,
+0,
+0
+],
+"D": [
+7,
+3,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Belgium": {
+"2021": {
+"M": [
+38,
+0,
+1,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+32,
+0,
+0,
+0
+],
+"D": [
+4,
+0,
+5,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+44,
+0,
+1,
+0
+],
+"D": [
+12,
+0,
+4,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+44,
+0,
+3,
+0
+],
+"D": [
+15,
+0,
+5,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+43,
+1,
+1,
+0
+],
+"D": [
+22,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+7,
+0,
+0,
+0
+],
+"D": [
+9,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Belize": {
+"2021": {
+"M": [
+11,
+0,
+0,
+0
+],
+"D": [
+8,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+10,
+0,
+0,
+0
+],
+"D": [
+9,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+6,
+0,
+0,
+0
+],
+"D": [
+9,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+1,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Bhutan": {
+"2021": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2022": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+6,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+9,
+0,
+0,
+0
+],
+"D": [
+9,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+3,
+5,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Brazil": {
+"2021": {
+"M": [
+20,
+0,
+0,
+0
+],
+"D": [
+8,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+63,
+8,
+2,
+0
+],
+"D": [
+35,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+62,
+2,
+1,
+0
+],
+"D": [
+51,
+4,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+31,
+7,
+7,
+0
+],
+"D": [
+22,
+2,
+4,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+35,
+0,
+2,
+0
+],
+"D": [
+22,
+2,
+4,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+14,
+2,
+0,
+0
+],
+"D": [
+11,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Bulgaria": {
+"2021": {
+"M": [
+8,
+0,
+1,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+14,
+0,
+0,
+0
+],
+"D": [
+7,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+11,
+0,
+1,
+0
+],
+"D": [
+4,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+15,
+0,
+3,
+0
+],
+"D": [
+6,
+0,
+3,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+15,
+0,
+0,
+0
+],
+"D": [
+4,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+7,
+0,
+1,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Cameroon": {
+"2021": {
+"M": [
+29,
+0,
+0,
+0
+],
+"D": [
+11,
+2,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+356,
+38,
+3,
+0
+],
+"D": [
+103,
+8,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+1419,
+171,
+10,
+0
+],
+"D": [
+1481,
+224,
+11,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+138,
+49,
+9,
+0
+],
+"D": [
+653,
+216,
+17,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+23,
+12,
+2,
+0
+],
+"D": [
+226,
+115,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+0,
+1,
+0,
+0
+],
+"D": [
+45,
+46,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Chile": {
+"2021": {
+"M": [
+7,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+6,
+0,
+0,
+0
+],
+"D": [
+4,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+7,
+0,
+0,
+0
+],
+"D": [
+10,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+5,
+0,
+1,
+0
+],
+"D": [
+8,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+7,
+0,
+0,
+0
+],
+"D": [
+5,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+6,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"China": {
+"2021": {
+"M": [
+8,
+0,
+0,
+0
+],
+"D": [
+6,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+24,
+0,
+0,
+0
+],
+"D": [
+9,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+38,
+4,
+3,
+0
+],
+"D": [
+26,
+3,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+27,
+2,
+5,
+0
+],
+"D": [
+17,
+3,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+27,
+1,
+6,
+0
+],
+"D": [
+14,
+0,
+3,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+5,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Colombia": {
+"2021": {
+"M": [
+5,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2022": {
+"M": [
+13,
+2,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+12,
+1,
+1,
+0
+],
+"D": [
+10,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+},
+"2025": {
+"M": [
+4,
+1,
+0,
+0
+],
+"D": [
+2,
+1,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+}
+},
+"Comoros": {
+"2021": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q4"
+]
+}
+},
+"Congo (Democratic Republic)": {
+"2021": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+},
+"2022": {
+"M": [
+8,
+2,
+0,
+0
+],
+"D": [
+10,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+13,
+5,
+0,
+0
+],
+"D": [
+25,
+6,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+5,
+0,
+0,
+0
+],
+"D": [
+13,
+7,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+10,
+2,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+6,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Croatia": {
+"2021": {
+"M": [
+7,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q4"
+]
+},
+"2022": {
+"M": [
+15,
+0,
+1,
+0
+],
+"D": [
+5,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+10,
+0,
+0,
+0
+],
+"D": [
+5,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+9,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+4,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+4,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2026": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Cuba": {
+"2021": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q4"
+]
+},
+"2022": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3"
+]
+},
+"2023": {
+"M": [
+6,
+1,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+5,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+},
+"2025": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+1,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Cyprus": {
+"2021": {
+"M": [
+11,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2022": {
+"M": [
+16,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+29,
+1,
+0,
+0
+],
+"D": [
+2,
+5,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+26,
+0,
+0,
+0
+],
+"D": [
+10,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+21,
+0,
+1,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+9,
+0,
+1,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Dominica": {
+"2021": {
+"M": [
+8,
+0,
+0,
+0
+],
+"D": [
+20,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+18,
+0,
+0,
+0
+],
+"D": [
+13,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+18,
+0,
+0,
+0
+],
+"D": [
+19,
+2,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+13,
+1,
+0,
+0
+],
+"D": [
+19,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+12,
+0,
+1,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Eswatini": {
+"2021": {
+"M": [
+9,
+0,
+0,
+0
+],
+"D": [
+8,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+37,
+1,
+0,
+0
+],
+"D": [
+18,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+136,
+2,
+0,
+0
+],
+"D": [
+55,
+2,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+117,
+1,
+0,
+0
+],
+"D": [
+91,
+13,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+38,
+1,
+0,
+0
+],
+"D": [
+81,
+19,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+8,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Finland": {
+"2021": {
+"M": [
+8,
+0,
+1,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+9,
+0,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+16,
+1,
+0,
+0
+],
+"D": [
+19,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+5,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+10,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+7,
+0,
+0,
+0
+],
+"D": [
+5,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"France": {
+"2021": {
+"M": [
+12,
+0,
+1,
+0
+],
+"D": [
+4,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+34,
+0,
+2,
+0
+],
+"D": [
+27,
+0,
+12,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+36,
+0,
+1,
+0
+],
+"D": [
+16,
+3,
+32,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+20,
+0,
+5,
+0
+],
+"D": [
+24,
+0,
+27,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+26,
+1,
+1,
+0
+],
+"D": [
+25,
+1,
+15,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+6,
+0,
+0,
+0
+],
+"D": [
+10,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Georgia": {
+"2021": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2022": {
+"M": [
+4,
+1,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2024": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2025": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Germany": {
+"2021": {
+"M": [
+37,
+0,
+2,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+56,
+0,
+3,
+0
+],
+"D": [
+28,
+0,
+5,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+51,
+0,
+0,
+0
+],
+"D": [
+16,
+0,
+5,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+59,
+1,
+2,
+0
+],
+"D": [
+31,
+1,
+4,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+39,
+1,
+1,
+0
+],
+"D": [
+29,
+1,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+13,
+0,
+0,
+0
+],
+"D": [
+14,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Grenada": {
+"2021": {
+"M": [
+16,
+0,
+0,
+0
+],
+"D": [
+17,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+20,
+1,
+0,
+0
+],
+"D": [
+25,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+22,
+0,
+1,
+0
+],
+"D": [
+25,
+3,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+6,
+0,
+1,
+0
+],
+"D": [
+5,
+8,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+6,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Guyana": {
+"2021": {
+"M": [
+129,
+0,
+0,
+0
+],
+"D": [
+105,
+3,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+297,
+1,
+1,
+0
+],
+"D": [
+193,
+7,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+264,
+2,
+1,
+0
+],
+"D": [
+300,
+39,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+37,
+0,
+0,
+0
+],
+"D": [
+208,
+80,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+11,
+0,
+0,
+0
+],
+"D": [
+63,
+24,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+27,
+5,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Hungary": {
+"2021": {
+"M": [
+11,
+0,
+1,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+22,
+0,
+3,
+0
+],
+"D": [
+4,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+20,
+0,
+0,
+0
+],
+"D": [
+17,
+0,
+4,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+12,
+0,
+1,
+0
+],
+"D": [
+7,
+0,
+5,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+15,
+1,
+1,
+0
+],
+"D": [
+11,
+0,
+4,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Indonesia": {
+"2021": {
+"M": [
+7,
+0,
+0,
+0
+],
+"D": [
+4,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+34,
+0,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+21,
+4,
+0,
+0
+],
+"D": [
+4,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+6,
+0,
+2,
+0
+],
+"D": [
+12,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+5,
+0,
+0,
+0
+],
+"D": [
+8,
+0,
+2,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+2,
+3,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Iran": {
+"2021": {
+"M": [
+38,
+0,
+0,
+0
+],
+"D": [
+31,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+108,
+1,
+1,
+0
+],
+"D": [
+62,
+2,
+5,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+291,
+6,
+2,
+0
+],
+"D": [
+185,
+4,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+342,
+11,
+7,
+0
+],
+"D": [
+235,
+6,
+2,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+271,
+4,
+4,
+0
+],
+"D": [
+122,
+2,
+5,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+100,
+4,
+0,
+0
+],
+"D": [
+46,
+2,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Israel": {
+"2021": {
+"M": [
+9,
+0,
+0,
+0
+],
+"D": [
+17,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+28,
+1,
+0,
+0
+],
+"D": [
+49,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+25,
+1,
+0,
+0
+],
+"D": [
+31,
+3,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+33,
+0,
+2,
+0
+],
+"D": [
+55,
+7,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+19,
+0,
+0,
+0
+],
+"D": [
+49,
+5,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+14,
+0,
+1,
+0
+],
+"D": [
+21,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Japan": {
+"2021": {
+"M": [
+5,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2022": {
+"M": [
+13,
+0,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+11,
+0,
+1,
+0
+],
+"D": [
+6,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+10,
+0,
+1,
+0
+],
+"D": [
+10,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+6,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2026": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Lebanon": {
+"2021": {
+"M": [
+47,
+0,
+0,
+0
+],
+"D": [
+25,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+80,
+0,
+0,
+0
+],
+"D": [
+59,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+72,
+1,
+1,
+0
+],
+"D": [
+51,
+2,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+44,
+2,
+0,
+0
+],
+"D": [
+36,
+2,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+31,
+0,
+0,
+0
+],
+"D": [
+32,
+3,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+11,
+0,
+0,
+0
+],
+"D": [
+7,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Lesotho": {
+"2021": {
+"M": [
+19,
+0,
+0,
+0
+],
+"D": [
+19,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+36,
+3,
+0,
+0
+],
+"D": [
+30,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+64,
+2,
+0,
+0
+],
+"D": [
+45,
+1,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+17,
+1,
+1,
+0
+],
+"D": [
+77,
+6,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+4,
+1,
+0,
+0
+],
+"D": [
+15,
+3,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Lithuania": {
+"2021": {
+"M": [
+4,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2022": {
+"M": [
+9,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+2,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+17,
+1,
+1,
+0
+],
+"D": [
+5,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+5,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q4"
+]
+},
+"2026": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Malawi": {
+"2021": {
+"M": [
+19,
+0,
+0,
+0
+],
+"D": [
+9,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+135,
+26,
+0,
+0
+],
+"D": [
+81,
+4,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+238,
+40,
+4,
+0
+],
+"D": [
+216,
+52,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+20,
+5,
+0,
+0
+],
+"D": [
+136,
+41,
+5,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+8,
+3,
+0,
+0
+],
+"D": [
+52,
+18,
+2,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+18,
+4,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Mauritius": {
+"2021": {
+"M": [
+31,
+0,
+0,
+0
+],
+"D": [
+32,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+138,
+19,
+0,
+0
+],
+"D": [
+95,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+149,
+13,
+2,
+0
+],
+"D": [
+136,
+6,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+81,
+9,
+0,
+0
+],
+"D": [
+41,
+12,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+30,
+5,
+0,
+0
+],
+"D": [
+18,
+4,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+7,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Mexico": {
+"2021": {
+"M": [
+8,
+0,
+0,
+0
+],
+"D": [
+4,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+12,
+1,
+0,
+0
+],
+"D": [
+7,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+20,
+4,
+0,
+0
+],
+"D": [
+17,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+6,
+0,
+2,
+0
+],
+"D": [
+3,
+2,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+5,
+1,
+2,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2026": {
+"M": [
+3,
+1,
+1,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Namibia": {
+"2021": {
+"M": [
+14,
+0,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+28,
+5,
+0,
+0
+],
+"D": [
+16,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+27,
+7,
+1,
+0
+],
+"D": [
+36,
+8,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+16,
+5,
+1,
+0
+],
+"D": [
+24,
+6,
+2,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+5,
+2,
+0,
+0
+],
+"D": [
+2,
+6,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+2,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Norway": {
+"2021": {
+"M": [
+8,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q4"
+]
+},
+"2023": {
+"M": [
+9,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2024": {
+"M": [
+6,
+0,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2025": {
+"M": [
+5,
+0,
+0,
+0
+],
+"D": [
+7,
+0,
+2,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Oman": {
+"2021": {
+"M": [
+5,
+0,
+0,
+0
+],
+"D": [
+5,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q4"
+]
+},
+"2022": {
+"M": [
+11,
+0,
+0,
+0
+],
+"D": [
+11,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+7,
+0,
+2,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+5,
+1,
+0,
+0
+],
+"D": [
+5,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+},
+"2025": {
+"M": [
+12,
+0,
+1,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+4,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Other and unknown": {
+"2021": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+},
+"2022": {
+"M": [
+12,
+0,
+1,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+12,
+0,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+6,
+2,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Palestine": {
+"2021": {
+"M": [
+90,
+0,
+0,
+0
+],
+"D": [
+54,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+131,
+2,
+1,
+0
+],
+"D": [
+136,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+132,
+1,
+0,
+0
+],
+"D": [
+99,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+64,
+1,
+1,
+0
+],
+"D": [
+106,
+3,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+27,
+0,
+5,
+0
+],
+"D": [
+37,
+2,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+9,
+0,
+1,
+0
+],
+"D": [
+23,
+0,
+3,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Poland": {
+"2021": {
+"M": [
+49,
+0,
+3,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+58,
+1,
+1,
+0
+],
+"D": [
+26,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+42,
+1,
+1,
+0
+],
+"D": [
+7,
+0,
+6,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+44,
+0,
+3,
+0
+],
+"D": [
+13,
+0,
+5,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+26,
+1,
+1,
+0
+],
+"D": [
+5,
+0,
+2,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+6,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Refugee": {
+"2021": {
+"M": [
+4,
+0,
+0,
+0
+],
+"D": [
+8,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+6,
+1,
+0,
+0
+],
+"D": [
+16,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+5,
+1,
+0,
+0
+],
+"D": [
+7,
+2,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+4,
+0,
+0,
+0
+],
+"D": [
+9,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+12,
+1,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+9,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Romania": {
+"2021": {
+"M": [
+32,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+72,
+1,
+1,
+0
+],
+"D": [
+19,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+85,
+7,
+6,
+0
+],
+"D": [
+28,
+0,
+4,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+68,
+2,
+1,
+0
+],
+"D": [
+15,
+1,
+2,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+44,
+3,
+2,
+0
+],
+"D": [
+33,
+1,
+3,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+12,
+0,
+1,
+0
+],
+"D": [
+3,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Russia": {
+"2021": {
+"M": [
+11,
+0,
+0,
+0
+],
+"D": [
+11,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+12,
+1,
+1,
+0
+],
+"D": [
+10,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+15,
+2,
+0,
+0
+],
+"D": [
+16,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+9,
+0,
+1,
+0
+],
+"D": [
+23,
+0,
+3,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+9,
+1,
+0,
+0
+],
+"D": [
+25,
+3,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+1,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Saudi Arabia": {
+"2021": {
+"M": [
+25,
+0,
+0,
+0
+],
+"D": [
+13,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+44,
+0,
+1,
+0
+],
+"D": [
+34,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+39,
+0,
+0,
+0
+],
+"D": [
+28,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+18,
+0,
+1,
+0
+],
+"D": [
+24,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+15,
+0,
+1,
+0
+],
+"D": [
+10,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+7,
+0,
+0,
+0
+],
+"D": [
+6,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Singapore": {
+"2021": {
+"M": [
+40,
+0,
+1,
+0
+],
+"D": [
+18,
+3,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+79,
+0,
+2,
+0
+],
+"D": [
+26,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+59,
+1,
+2,
+0
+],
+"D": [
+19,
+4,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+50,
+1,
+2,
+0
+],
+"D": [
+11,
+4,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+37,
+2,
+3,
+0
+],
+"D": [
+10,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+16,
+1,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Slovakia": {
+"2021": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q4"
+]
+},
+"2022": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+4,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q3"
+]
+},
+"2023": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+1,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2024": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2025": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+2,
+0
+],
+"trimestri": [
+"Q1",
+"Q4"
+]
+},
+"2026": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Somalia": {
+"2021": {
+"M": [
+13,
+0,
+0,
+0
+],
+"D": [
+23,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+21,
+0,
+1,
+0
+],
+"D": [
+24,
+2,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+57,
+17,
+1,
+0
+],
+"D": [
+44,
+5,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+32,
+9,
+1,
+0
+],
+"D": [
+22,
+8,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+11,
+3,
+1,
+0
+],
+"D": [
+4,
+4,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"South Korea": {
+"2021": {
+"M": [
+19,
+0,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+20,
+1,
+0,
+0
+],
+"D": [
+7,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+34,
+0,
+1,
+0
+],
+"D": [
+13,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+25,
+1,
+3,
+0
+],
+"D": [
+11,
+0,
+2,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+16,
+0,
+1,
+0
+],
+"D": [
+3,
+0,
+3,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+9,
+0,
+0,
+0
+],
+"D": [
+0,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Spain": {
+"2021": {
+"M": [
+65,
+0,
+1,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+112,
+2,
+2,
+0
+],
+"D": [
+29,
+0,
+7,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+143,
+1,
+4,
+0
+],
+"D": [
+32,
+0,
+14,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+120,
+2,
+9,
+0
+],
+"D": [
+35,
+6,
+18,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+72,
+0,
+1,
+0
+],
+"D": [
+26,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+37,
+0,
+2,
+0
+],
+"D": [
+7,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"St Kitts and Nevis": {
+"2021": {
+"M": [
+6,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+7,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+5,
+0,
+0,
+0
+],
+"D": [
+9,
+2,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+},
+"2025": {
+"M": [
+6,
+0,
+0,
+0
+],
+"D": [
+2,
+2,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"St Lucia": {
+"2021": {
+"M": [
+16,
+1,
+0,
+0
+],
+"D": [
+21,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+58,
+2,
+0,
+0
+],
+"D": [
+18,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+82,
+3,
+1,
+0
+],
+"D": [
+35,
+9,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+15,
+1,
+0,
+0
+],
+"D": [
+44,
+19,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+5,
+0,
+0,
+0
+],
+"D": [
+6,
+9,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"St Vincent and the Grenadines": {
+"2021": {
+"M": [
+60,
+0,
+0,
+0
+],
+"D": [
+17,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+67,
+1,
+0,
+0
+],
+"D": [
+39,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+39,
+1,
+0,
+0
+],
+"D": [
+52,
+9,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+8,
+0,
+0,
+0
+],
+"D": [
+21,
+19,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+11,
+4,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+2,
+2,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Sweden": {
+"2021": {
+"M": [
+12,
+0,
+1,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+16,
+0,
+3,
+0
+],
+"D": [
+13,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+24,
+0,
+0,
+0
+],
+"D": [
+7,
+0,
+2,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+18,
+1,
+1,
+0
+],
+"D": [
+9,
+0,
+3,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+14,
+0,
+1,
+0
+],
+"D": [
+11,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+10,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Syria": {
+"2021": {
+"M": [
+27,
+0,
+0,
+0
+],
+"D": [
+53,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+52,
+0,
+1,
+0
+],
+"D": [
+97,
+0,
+2,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+61,
+0,
+0,
+0
+],
+"D": [
+70,
+0,
+2,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+38,
+2,
+2,
+0
+],
+"D": [
+45,
+2,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+27,
+4,
+0,
+0
+],
+"D": [
+14,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+14,
+2,
+0,
+0
+],
+"D": [
+15,
+3,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Taiwan": {
+"2021": {
+"M": [
+11,
+0,
+0,
+0
+],
+"D": [
+4,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+22,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+54,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+72,
+0,
+2,
+0
+],
+"D": [
+5,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+86,
+0,
+0,
+0
+],
+"D": [
+11,
+1,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+33,
+1,
+0,
+0
+],
+"D": [
+4,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Tanzania": {
+"2021": {
+"M": [
+6,
+0,
+0,
+0
+],
+"D": [
+7,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+57,
+7,
+0,
+0
+],
+"D": [
+17,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+171,
+20,
+2,
+0
+],
+"D": [
+100,
+15,
+3,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+23,
+3,
+0,
+0
+],
+"D": [
+81,
+39,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+6,
+3,
+1,
+0
+],
+"D": [
+13,
+12,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+7,
+2,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Trinidad and Tobago": {
+"2021": {
+"M": [
+140,
+1,
+0,
+0
+],
+"D": [
+105,
+2,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+211,
+2,
+1,
+0
+],
+"D": [
+175,
+4,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+220,
+4,
+0,
+0
+],
+"D": [
+175,
+35,
+2,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+108,
+0,
+2,
+0
+],
+"D": [
+106,
+45,
+2,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+64,
+2,
+1,
+0
+],
+"D": [
+57,
+22,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+11,
+0,
+1,
+0
+],
+"D": [
+10,
+8,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Uganda": {
+"2021": {
+"M": [
+44,
+1,
+0,
+0
+],
+"D": [
+32,
+2,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+470,
+46,
+1,
+0
+],
+"D": [
+128,
+4,
+5,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+1338,
+144,
+9,
+0
+],
+"D": [
+817,
+137,
+2,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+114,
+39,
+3,
+0
+],
+"D": [
+786,
+331,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+35,
+14,
+0,
+0
+],
+"D": [
+252,
+151,
+2,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+7,
+1,
+0,
+0
+],
+"D": [
+78,
+75,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Ukraine": {
+"2021": {
+"M": [
+11,
+2,
+0,
+0
+],
+"D": [
+4,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+7,
+1,
+1,
+0
+],
+"D": [
+8,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+4,
+0,
+0,
+0
+],
+"D": [
+6,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2024": {
+"M": [
+3,
+0,
+1,
+0
+],
+"D": [
+3,
+0,
+4,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2025": {
+"M": [
+3,
+1,
+1,
+0
+],
+"D": [
+7,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Yemen": {
+"2021": {
+"M": [
+15,
+0,
+0,
+0
+],
+"D": [
+50,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+11,
+0,
+0,
+0
+],
+"D": [
+16,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+21,
+0,
+0,
+0
+],
+"D": [
+33,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+10,
+3,
+0,
+0
+],
+"D": [
+11,
+4,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+3,
+1,
+0,
+0
+],
+"D": [
+10,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2026": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Austria": {
+"2021": {
+"M": [
+12,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+6,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+1,
+0
+],
+"trimestri": [
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+11,
+0,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+13,
+0,
+0,
+0
+],
+"D": [
+4,
+1,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+10,
+0,
+2,
+0
+],
+"D": [
+5,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+4,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Belarus": {
+"2021": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q4"
+]
+},
+"2022": {
+"M": [
+6,
+0,
+0,
+0
+],
+"D": [
+8,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+5,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3"
+]
+},
+"2025": {
+"M": [
+4,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Bosnia and Herzegovina": {
+"2021": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+5,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q4"
+]
+},
+"2022": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+4,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2023": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2024": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q4"
+]
+},
+"2025": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q4"
+]
+},
+"2026": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Brunei": {
+"2021": {
+"M": [
+8,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+7,
+0,
+0,
+0
+],
+"D": [
+8,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2023": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+},
+"2024": {
+"M": [
+6,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+13,
+0,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Ethiopia": {
+"2021": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2022": {
+"M": [
+8,
+2,
+0,
+0
+],
+"D": [
+4,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+24,
+8,
+1,
+0
+],
+"D": [
+7,
+2,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+20,
+3,
+0,
+0
+],
+"D": [
+17,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+13,
+0,
+0,
+0
+],
+"D": [
+11,
+4,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+3,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Gambia, The": {
+"2021": {
+"M": [
+6,
+0,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+37,
+4,
+0,
+0
+],
+"D": [
+11,
+2,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+123,
+25,
+0,
+0
+],
+"D": [
+71,
+11,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+22,
+6,
+3,
+0
+],
+"D": [
+62,
+15,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+9,
+2,
+1,
+0
+],
+"D": [
+26,
+9,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+14,
+4,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Honduras": {
+"2021": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+},
+"2022": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2023": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+4,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+6,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+},
+"2025": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Maldives": {
+"2021": {
+"M": [
+5,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+4,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3"
+]
+},
+"2023": {
+"M": [
+7,
+0,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2024": {
+"M": [
+8,
+0,
+0,
+0
+],
+"D": [
+10,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+6,
+1,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+},
+"2026": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Mozambique": {
+"2021": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+},
+"2022": {
+"M": [
+3,
+2,
+0,
+0
+],
+"D": [
+7,
+3,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+10,
+1,
+1,
+0
+],
+"D": [
+9,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+7,
+2,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3"
+]
+},
+"2025": {
+"M": [
+1,
+1,
+0,
+0
+],
+"D": [
+5,
+2,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Serbia": {
+"2021": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+5,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+5,
+0,
+0,
+0
+],
+"D": [
+6,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+1,
+1,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2025": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2026": {
+"M": [
+1,
+0,
+1,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Slovenia": {
+"2021": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+},
+"2022": {
+"M": [
+8,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+6,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+5,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+5,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+2,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Stateless": {
+"2021": {
+"M": [
+6,
+0,
+0,
+0
+],
+"D": [
+4,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3"
+]
+},
+"2023": {
+"M": [
+6,
+0,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q4"
+]
+}
+},
+"Tunisia": {
+"2021": {
+"M": [
+5,
+0,
+0,
+0
+],
+"D": [
+5,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+11,
+0,
+1,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+30,
+0,
+1,
+0
+],
+"D": [
+39,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+11,
+3,
+1,
+0
+],
+"D": [
+23,
+5,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+9,
+1,
+2,
+0
+],
+"D": [
+6,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+2,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Algeria": {
+"2021": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2022": {
+"M": [
+9,
+1,
+0,
+0
+],
+"D": [
+4,
+3,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+17,
+1,
+0,
+0
+],
+"D": [
+19,
+2,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+10,
+0,
+0,
+0
+],
+"D": [
+22,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+8,
+1,
+0,
+0
+],
+"D": [
+8,
+2,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+5,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Antigua and Barbuda": {
+"2021": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2022": {
+"M": [
+9,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+10,
+0,
+0,
+0
+],
+"D": [
+3,
+3,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+5,
+0,
+0,
+0
+],
+"D": [
+12,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+6,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+},
+"2026": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Costa Rica": {
+"2021": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2023": {
+"M": [
+0,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2025": {
+"M": [
+0,
+0,
+1,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Denmark": {
+"2021": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2022": {
+"M": [
+3,
+0,
+1,
+0
+],
+"D": [
+4,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+4,
+0,
+0,
+0
+],
+"D": [
+6,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+},
+"2024": {
+"M": [
+5,
+0,
+1,
+0
+],
+"D": [
+4,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+5,
+0,
+0,
+0
+],
+"D": [
+4,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Djibouti": {
+"2021": {
+"M": [
+4,
+0,
+0,
+0
+],
+"D": [
+4,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+4,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+},
+"2023": {
+"M": [
+1,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+}
+},
+"Estonia": {
+"2021": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q3"
+]
+},
+"2023": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2024": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Guatemala": {
+"2021": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2022": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2023": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q4"
+]
+},
+"2024": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Kazakhstan": {
+"2021": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+4,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2022": {
+"M": [
+8,
+0,
+0,
+0
+],
+"D": [
+4,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q4"
+]
+},
+"2024": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+3,
+1,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+},
+"2026": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Latvia": {
+"2021": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2022": {
+"M": [
+4,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q4"
+]
+},
+"2023": {
+"M": [
+4,
+0,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3"
+]
+},
+"2026": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Peru": {
+"2021": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+7,
+0,
+0,
+0
+],
+"D": [
+5,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+4,
+0,
+0,
+0
+],
+"D": [
+6,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+4,
+0,
+0,
+0
+],
+"D": [
+4,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+6,
+0,
+1,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q4"
+]
+},
+"2026": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Senegal": {
+"2021": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2023": {
+"M": [
+4,
+0,
+0,
+0
+],
+"D": [
+4,
+2,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+1,
+1,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3"
+]
+},
+"2025": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Sierra Leone": {
+"2021": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+4,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+54,
+16,
+0,
+0
+],
+"D": [
+27,
+4,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+201,
+75,
+4,
+0
+],
+"D": [
+209,
+54,
+4,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+30,
+18,
+0,
+0
+],
+"D": [
+123,
+76,
+5,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+7,
+3,
+0,
+0
+],
+"D": [
+23,
+34,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+0,
+1,
+0,
+0
+],
+"D": [
+5,
+15,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"United Arab Emirates": {
+"2021": {
+"M": [
+6,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q4"
+]
+},
+"2023": {
+"M": [
+5,
+0,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+}
+},
+"Uzbekistan": {
+"2021": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2022": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+5,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2023": {
+"M": [
+3,
+1,
+0,
+0
+],
+"D": [
+7,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+2,
+0,
+1,
+0
+],
+"D": [
+9,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q4"
+]
+},
+"2025": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2026": {
+"M": [
+0,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+2,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Vietnam": {
+"2021": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3",
+"Q4"
+]
+},
+"2022": {
+"M": [
+5,
+0,
+0,
+0
+],
+"D": [
+7,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+9,
+0,
+0,
+0
+],
+"D": [
+9,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+4,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+},
+"2026": {
+"M": [
+4,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Benin": {
+"2021": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2022": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2023": {
+"M": [
+2,
+1,
+1,
+0
+],
+"D": [
+10,
+7,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+5,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q4"
+]
+}
+},
+"Czechia": {
+"2021": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2022": {
+"M": [
+5,
+0,
+0,
+0
+],
+"D": [
+4,
+0,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+7,
+0,
+0,
+0
+],
+"D": [
+5,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2024": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+1,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+9,
+0,
+0,
+0
+],
+"D": [
+11,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Kosovo": {
+"2021": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2022": {
+"M": [
+4,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+1,
+0,
+1,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2024": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2025": {
+"M": [
+2,
+0,
+1,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q4"
+]
+}
+},
+"Liberia": {
+"2021": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2022": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2023": {
+"M": [
+18,
+6,
+0,
+0
+],
+"D": [
+7,
+2,
+1,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+0,
+1,
+0,
+0
+],
+"D": [
+8,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+},
+"2025": {
+"M": [
+0,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Montenegro": {
+"2021": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+}
+},
+"North Macedonia": {
+"2021": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2022": {
+"M": [
+3,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q4"
+]
+},
+"2023": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2024": {
+"M": [
+6,
+0,
+0,
+0
+],
+"D": [
+2,
+4,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+2,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+}
+},
+"Qatar": {
+"2021": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2022": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2024": {
+"M": [
+0,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2025": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2026": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Congo": {
+"2022": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2026": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Dominican Republic": {
+"2022": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q4"
+]
+},
+"2023": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+5,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q4"
+]
+},
+"2024": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q4"
+]
+},
+"2025": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Ireland": {
+"2022": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2023": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2025": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+}
+},
+"Nicaragua": {
+"2022": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Rwanda": {
+"2022": {
+"M": [
+8,
+3,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+34,
+5,
+1,
+0
+],
+"D": [
+26,
+3,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+1,
+1,
+0,
+0
+],
+"D": [
+5,
+5,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+2,
+1,
+0,
+0
+],
+"D": [
+5,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+},
+"2026": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+1,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Seychelles": {
+"2022": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2023": {
+"M": [
+3,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2024": {
+"M": [
+4,
+0,
+0,
+0
+],
+"D": [
+2,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q4"
+]
+},
+"2025": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Venezuela": {
+"2022": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2023": {
+"M": [
+2,
+0,
+1,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+1,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+}
+},
+"Andorra": {
+"2022": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2023": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Angola": {
+"2022": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+},
+"2023": {
+"M": [
+3,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3"
+]
+},
+"2025": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Kyrgyzstan": {
+"2022": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+},
+"2023": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2024": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+1,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2025": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Mauritania": {
+"2022": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Panama": {
+"2022": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2023": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2025": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3",
+"Q4"
+]
+}
+},
+"Sao Tome and Principe": {
+"2022": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Burundi": {
+"2022": {
+"M": [
+0,
+1,
+0,
+0
+],
+"D": [
+0,
+4,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2023": {
+"M": [
+5,
+0,
+0,
+0
+],
+"D": [
+4,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2024": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+5,
+2,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q4"
+]
+},
+"2025": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2026": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Ecuador": {
+"2022": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2023": {
+"M": [
+5,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+1,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2025": {
+"M": [
+2,
+1,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+}
+},
+"Eritrea": {
+"2022": {
+"M": [
+3,
+1,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2025": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+3,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+}
+},
+"Fiji": {
+"2022": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+2,
+2,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3"
+]
+},
+"2024": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Luxembourg": {
+"2022": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2025": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3"
+]
+}
+},
+"Moldova": {
+"2022": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2023": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+4,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+0,
+0,
+1,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2025": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+3,
+2,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q4"
+]
+},
+"2026": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Niger": {
+"2022": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3",
+"Q4"
+]
+},
+"2023": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+4,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q4"
+]
+},
+"2024": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Uruguay": {
+"2022": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2025": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+}
+},
+"Anguilla (British)": {
+"2022": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+}
+},
+"Burkina Faso": {
+"2022": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2023": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+5,
+2,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2025": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Cambodia": {
+"2022": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2023": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"El Salvador": {
+"2022": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2023": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2024": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+}
+},
+"Guinea": {
+"2022": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2023": {
+"M": [
+5,
+2,
+0,
+0
+],
+"D": [
+13,
+6,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+0,
+1,
+0,
+0
+],
+"D": [
+2,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Ivory Coast": {
+"2022": {
+"M": [
+1,
+2,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2023": {
+"M": [
+5,
+6,
+1,
+0
+],
+"D": [
+9,
+4,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+1,
+1,
+0,
+0
+],
+"D": [
+4,
+2,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2025": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3",
+"Q4"
+]
+},
+"2026": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Mongolia": {
+"2022": {
+"M": [
+4,
+0,
+0,
+0
+],
+"D": [
+7,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2023": {
+"M": [
+5,
+0,
+0,
+0
+],
+"D": [
+6,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+7,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Turkmenistan": {
+"2022": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2023": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+4,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2025": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Haiti": {
+"2023": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Iceland": {
+"2023": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+},
+"2024": {
+"M": [
+3,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2025": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3"
+]
+}
+},
+"South Sudan": {
+"2023": {
+"M": [
+2,
+1,
+0,
+0
+],
+"D": [
+1,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q4"
+]
+},
+"2024": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+0,
+2,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q4"
+]
+},
+"2025": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+3,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3"
+]
+},
+"2026": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Suriname": {
+"2023": {
+"M": [
+6,
+0,
+0,
+0
+],
+"D": [
+3,
+1,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+2,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+},
+"2025": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+1,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+}
+},
+"Tajikistan": {
+"2023": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1",
+"Q2"
+]
+}
+},
+"Equatorial Guinea": {
+"2023": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Liechtenstein": {
+"2023": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Togo": {
+"2023": {
+"M": [
+2,
+0,
+0,
+0
+],
+"D": [
+7,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2",
+"Q3",
+"Q4"
+]
+},
+"2024": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+},
+"2025": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+}
+},
+"Central African Republic": {
+"2023": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+}
+},
+"Macau": {
+"2023": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2024": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+},
+"2025": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2026": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Cape Verde": {
+"2023": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+}
+},
+"Guinea-Bissau": {
+"2023": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+2,
+4,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2024": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Vanuatu": {
+"2023": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q4"
+]
+},
+"2025": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+},
+"2026": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"Bolivia": {
+"2024": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Gabon": {
+"2024": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Laos": {
+"2024": {
+"M": [
+0,
+0,
+0,
+0
+],
+"D": [
+1,
+0,
+0,
+0
+],
+"trimestri": [
+"Q2"
+]
+}
+},
+"British overseas citizens": {
+"2024": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+2,
+0,
+0,
+0
+],
+"trimestri": [
+"Q3"
+]
+}
+},
+"Madagascar": {
+"2025": {
+"M": [
+1,
+0,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+},
+"Papua New Guinea": {
+"2025": {
+"M": [
+0,
+1,
+0,
+0
+],
+"D": [
+0,
+0,
+0,
+0
+],
+"trimestri": [
+"Q1"
+]
+}
+}
+}
+},
+"scartati": {
+"nmc_intl_totale": {
+"fonte": "nmc_intl",
+"frammento": "The total cost for application and registration is £1,170.",
+"voci": [
+"Qualification evaluation fee - £167",
+"Computer-based test (CBT) - £83",
+"Objective Structured Clinical Examination (OSCE) - £794",
+"Registration fee for entry onto our register - £182"
+],
+"motivo": "£167 + £83 + £794 + £182 = £1.226, non £1.170 (importo precedente all'aumento del 1/10/2026?): usata la pagina dei costi",
+"presente": true
+}
+}
+}
