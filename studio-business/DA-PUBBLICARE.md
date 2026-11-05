@@ -5,6 +5,7 @@ Sezioni già revisionate, con i sorgenti salvati, che aspettano la pubblicazione
 | Sito (cartella) | Sezione | Revisione | Note |
 |---|---|---|---|
 | esameb1 | Decreto flussi 2027, date dei click day (`/decreto-flussi-click-day/`), 11 correzioni del revisore applicate (commit dcbe06f; anche il selettore di lingua corretto su tutte le pagine senza traduzione) | 4-5/11/2026, pubblicabile | EsameB1 non ancora pubblicato il 5/11: va nella pubblicazione serale del 5/11 |
+| touristtax | Licenze per affitti turistici in Spagna (`/spain-holiday-let-licence/`, 27 pagine), 10 correzioni del revisore applicate (commit 9dc3a88) | 5/11/2026, pubblicabile | Tourist Tax già pubblicato il 5/11 (alle 2:30): pubblicare il 6/11 |
 | visaincome | Infermieri all'estero (`/nurses-abroad/`, 17 pagine) e visto UK Ancestry (`/uk-ancestry-visa/`), 14 correzioni del revisore applicate (commit 536c2c7); **liste università per visti da laureati** (`/top-university-visas/`, 82 pagine: 39 pagine università, le altre 161 solo in tabella per il contenuto sottile), correzioni del revisore applicate (commit e1eb9ed) | 5/11/2026, pubblicabile | Visa Income già pubblicato il 5/11 (alle 2:30): pubblicare il 6/11 |
 | beforeyoufly | Blue Badge abroad (`/blue-badge-abroad/`, 25 pagine) e Amsterdam nei mezzi pubblici (commit dd0c8d1); **liquidi: 37 aeroporti nuovi** e riquadri DiscoverCars (52 pagine) e Stay22 (5), 8 correzioni del revisore applicate (commit 4f95272); dati dei passaporti australiani del 4/11 | 5/11/2026, tutto pubblicabile | Before You Fly non ancora pubblicato il 5/11: va nella pubblicazione serale del 5/11 |
 
@@ -28,7 +29,6 @@ Pubblicato il 1/11/2026 alle 00:15 circa: Visa Income (cerimonie australiane, es
 
 | Sito | Sezione | Voto | Quando | Fonte (file di ricerca) |
 |---|---|---|---|---|
-| touristtax | Licenza per affitti turistici in Spagna per Comune (prima leggere la sentenza 620/2026 sul BOE) | 6 | dopo Santiago | idee-2026-11-04-europa.md |
 | touristtax | Versioni es/pt (con la francese già in coda) | 6,5 | dopo | idee-2026-11-04-america-latina.md |
 | visaincome | Pensione statale britannica congelata o no, Paese per Paese | 6,5 | con la sezione pensioni HMRC già in coda | idee-2026-11-04-africa-medio-oriente.md |
 | visaincome | Israele nelle pagine moved-to (API data.gov.il) | 5,5 | coda bassa | idee-2026-11-04-africa-medio-oriente.md |
