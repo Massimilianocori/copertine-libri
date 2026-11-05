@@ -8956,7 +8956,7 @@ def storico_cer(r):
 
 def ld_cer(nome, descr, percorso):
     d = ld_dataset(nome, descr, percorso, [F_CER["attese"]["url"]], f"{AL_CER[:7]}", LIC_CER["url"])
-    d["creator"] = {"@type": "GovernmentOrganization", "name": LIC_CER["attribuzione"]}
+    d["creator"] = {"@type": "Organization", "name": LIC_CER["attribuzione"]}
     d["publisher"] = {"@type": "Organization", "name": NOME, "url": URL_SITO + "/"}
     d["dateModified"] = PUB_CER
     return d
