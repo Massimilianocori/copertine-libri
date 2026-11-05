@@ -154,6 +154,13 @@ Uso (dalla radice del repository, dopo python3 beforeyoufly/genera.py):
     sponsorizzato (etichetta, trasparenza, dopo le informazioni ufficiali, solo in inglese); nessun rivenditore di visti; FAQ da ricerche vere
     (JSON-LD = testo visibile); titoli <= 70 con l'anno; sitemap; link in entrata; nessun link nelle sezioni già revisionate; Playwright a
     375 px (chiaro e scuro) e 1280 px su 8 pagine, con il filtro per Paese e per tipo di visto.
+29. "Blue Badge abroad" (dati/bluebadge.json da raccolta/bluebadge.py, 4/11/2026): fonti solo GOV.UK (API dei contenuti), Your Europe e
+    Commissione europea, disabilita.governo.it, service-public.gouv.fr, HTTP 200, data e impronta; dalla copia salvata ogni citazione parola
+    per parola, l'impronta della zona citata e del testo, la tabella GOV.UK e le note di modifica; esiti = celle GOV.UK lette in modo
+    indipendente; Paesi con pagina = ricerche vere ricalcolate; prima frase con fonte e date; citazioni, traduzioni, link e date nelle pagine;
+    numeri nostri solo dalle citazioni; FAQ da ricerche vere (JSON-LD = testo visibile); titoli <= 70 con l'anno; sitemap; nessun link FIA né
+    di affiliazione, solo link esterni ufficiali; link andata e ritorno con Driving abroad (solo patente britannica); home, About, 404.
+    Nel browser (punto 7) indice, Italia, Spagna, carte europee e Amsterdam (trasporto pubblico) a 375 px chiaro/scuro.
 Monetizzazione (30/10/2026, controllo comune di studio-business/strumenti/monetizzazione.py): i link di affiliazione sono
 ammessi solo verso i domini di monetizzazione.json, con rel="sponsored noopener" e la riga di trasparenza nella pagina;
 domini bloccati e link sponsorizzati verso altri domini sono errori; script AdSense, ads.txt e sezione privacy ci sono
@@ -752,6 +759,10 @@ def controlla_meta():
         if rel.startswith((G.IN_BASE + "/", G.IN_VOA + "/", G.IN_ARR + "/")):  # sezione "India e-Visa fee": fino a 70 caratteri con l'anno (il punto 27 controlla il resto)
             if len(tit) > G.LIMITE_TITOLO_IN or str(G.ANNO) not in tit:
                 errori.append(f"titolo di {len(tit)} caratteri (> {G.LIMITE_TITOLO_IN}) o senza l'anno in {rel}: {tit}")
+            continue
+        if rel.startswith(G.BB_BASE + "/"):  # sezione "Blue Badge abroad": fino a 70 caratteri con l'anno (il punto 29 controlla il resto)
+            if len(tit) > G.LIMITE_TITOLO_BB or str(G.ANNO) not in tit:
+                errori.append(f"titolo di {len(tit)} caratteri (> {G.LIMITE_TITOLO_BB}) o senza l'anno in {rel}: {tit}")
             continue
         if rel.startswith(G.PED_BASE + "/"):  # sezione "Tolls with a rental car": fino a 70 caratteri con l'anno (il punto 20 controlla il resto)
             if len(tit) > G.LIMITE_TITOLO_PED or str(G.ANNO) not in tit:
@@ -1495,7 +1506,7 @@ srv.listen(0, async () => {
         if (tema === 'light') await p.screenshot({ path: process.argv[3] + '/' + u.split('/').filter(Boolean).join('-') + '-375.png', fullPage: false });
       }
       if (u.startsWith('/tolls-rental-car/') || u.startsWith('/winter-tyres-rental-car/') || u.startsWith('/foreign-licence-canada-australia-nz/') || u.startsWith('/public-transport-rules/') ||
-          u.startsWith('/train-luggage-rules/') || u.startsWith('/eurostar-check-in-times/') || u.startsWith('/scooter-rental-licence/') || u.startsWith('/ticket-release-dates/')) {
+          u.startsWith('/train-luggage-rules/') || u.startsWith('/eurostar-check-in-times/') || u.startsWith('/scooter-rental-licence/') || u.startsWith('/ticket-release-dates/') || u.startsWith('/blue-badge-abroad/')) {
         const vis = async (sel) => p.$eval(sel, e => { const r = e.getBoundingClientRect(); return r.height > 0 && r.width > 0 && r.width <= window.innerWidth; }).catch(() => false);
         out.prove.push({ caso: 'ped:' + tema + ':' + u, testo: await p.textContent('main'), risposta: await vis('#answer'), btn: await vis('[data-noleggio] a.btn'),
                          citazioni: await p.$$eval('blockquote.cit', e => e.filter(x => x.getBoundingClientRect().height > 0).length) });
@@ -1588,6 +1599,8 @@ PAGINE_TB_BROWSER = ["/train-luggage-rules/", "/train-luggage-rules/eurostar/", 
                      "/eurostar-check-in-times/"]
 PAGINE_SC_BROWSER = ["/scooter-rental-licence/", "/scooter-rental-licence/france/", "/scooter-rental-licence/greece/",
                      "/ticket-release-dates/ghibli-museum/", "/ticket-release-dates/washington-monument/", "/ticket-release-dates/grand-sumo-tournaments/"]
+PAGINE_BB_BROWSER = ["/blue-badge-abroad/", "/blue-badge-abroad/italy/", "/blue-badge-abroad/spain/", "/blue-badge-abroad/european-disability-card/",
+                     "/public-transport-rules/amsterdam/"]
 PAGINE_FL_BROWSER = ["/foreign-licence-canada-australia-nz/", "/foreign-licence-canada-australia-nz/canada/ontario/", "/foreign-licence-canada-australia-nz/australia/new-south-wales/", "/foreign-licence-canada-australia-nz/new-zealand/"]
 PAGINE_BAG_BROWSER = ["/cabin-bags/", "/cabin-bags/ryanair/", "/cabin-bags/does-my-bag-fit/", "/cabin-bags/size/40x30x20/", "/cabin-bags/eu-personal-item-rule/"]
 
@@ -1600,7 +1613,7 @@ def controlla_browser():
         fh.write(BROWSER_JS)
     try:
         r = subprocess.run(["node", fh.name, str(SITO), cartella, json.dumps(PAGINE_ESTERE_BROWSER), json.dumps(CASI_BORSA), json.dumps(PAGINE_BAG_BROWSER),
-                            json.dumps(PAGINE_IT_BROWSER + PAGINE_SRV_BROWSER + PAGINE_PAT_BROWSER + PAGINE_PED_BROWSER + PAGINE_GOM_BROWSER + PAGINE_FL_BROWSER + PAGINE_TR_BROWSER + PAGINE_TB_BROWSER + PAGINE_SC_BROWSER)],
+                            json.dumps(PAGINE_IT_BROWSER + PAGINE_SRV_BROWSER + PAGINE_PAT_BROWSER + PAGINE_PED_BROWSER + PAGINE_GOM_BROWSER + PAGINE_FL_BROWSER + PAGINE_TR_BROWSER + PAGINE_TB_BROWSER + PAGINE_SC_BROWSER + PAGINE_BB_BROWSER)],
                            capture_output=True, text=True, timeout=600)
     finally:
         os.unlink(fh.name)
@@ -1714,6 +1727,11 @@ def controlla_browser():
             x = next((y for y in o["prove"] if y["caso"] == f"ped:{tema}:{u}"), None)
             if not x or not x["risposta"] or x["btn"] or (u != "/scooter-rental-licence/" and x["citazioni"] < 2):
                 errori.append(f"{u} ({tema}): risposta o citazioni non visibili a 375 px, o riquadro di noleggio presente")
+    for u in PAGINE_BB_BROWSER:  # Blue Badge (4/11/2026) e Amsterdam: risposta e citazioni visibili a 375 px, nessun riquadro di affiliazione
+        for tema in ("light", "dark"):
+            x = next((y for y in o["prove"] if y["caso"] == f"ped:{tema}:{u}"), None)
+            if not x or not x["risposta"] or x["btn"] or x["citazioni"] < 3:
+                errori.append(f"{u} ({tema}): risposta o citazioni non visibili a 375 px, o riquadro di affiliazione presente")
     if sum(1 for x in o["prove"] if x["caso"].startswith("contrasto-")) != 2:
         errori.append("Prova del contrasto del controllo (tema chiaro e scuro) non eseguita")
     return errori, (o, cartella)
@@ -4819,6 +4837,257 @@ def controlla_scooter():
     return errori, conti
 
 
+# ---------------------------------------------------------------- 29. Blue Badge all'estero (4/11/2026)
+_spec_bb = importlib.util.spec_from_file_location("raccolta_bluebadge", Path(__file__).resolve().parent / "raccolta" / "bluebadge.py")
+RBB = importlib.util.module_from_spec(_spec_bb)
+_spec_bb.loader.exec_module(RBB)
+# Fonti ammesse: GOV.UK (API dei contenuti), Your Europe e Commissione europea, governo italiano (disabilità), governo francese (service-public)
+FONTI_UFFICIALI_BB = re.compile(r"^https://(?:www\.gov\.uk/api/content/|europa\.eu/youreurope/|commission\.europa\.eu/|www\.disabilita\.governo\.it/|www\.service-public\.gouv\.fr/)")
+LINK_UFFICIALI_BB = re.compile(r"^https://(?:www\.gov\.uk/|europa\.eu/youreurope/|commission\.europa\.eu/|www\.disabilita\.governo\.it/|www\.service-public\.gouv\.fr/)")
+# Pagine non pubbliche collegate dalla guida GOV.UK (FIA): mai nella sezione; niente affiliazioni né noleggi
+VIETATI_BB = re.compile(r"disabledmotoring\.fia|disabledmotorists\.eu|\bFIA\b|discovercars|rentalcars|\bwise\b|viator|stay22|safetywing|booking\.com", re.I)
+ESITO_CELLA_BB = {"Yes": "si", "Accepts non-EU parking cards.": "non_ue", "Non-EU parking cards accepted in some regions only.": "regioni",
+                  "May not recognise non-EU issue parking card.": "forse_no", "No information": "non_detto"}
+
+
+def _esito_cella_bb(cella):
+    """Lettura indipendente della cella GOV.UK (non usa le etichette di genera.py): "Yes" e le formule fisse; Spagna = decisa localmente."""
+    if cella in ESITO_CELLA_BB:
+        return ESITO_CELLA_BB[cella]
+    return "locale" if re.search(r"decided by local administrations", cella) else None
+
+
+def controlla_bluebadge():
+    """Punto 29: dati = manuali; fonti ufficiali con HTTP 200, data e impronta, citazioni e tabella GOV.UK ricalcolate dalla copia salvata; esiti
+    = celle GOV.UK; pagine = Paesi con ricerche vere + indice + carte europee; prima frase con fonte e data; citazioni, traduzioni, fonti e
+    date nelle pagine; numeri delle parole nostre solo dalle citazioni; FAQ da ricerche vere (JSON-LD = testo visibile); titoli <= 70 con
+    l'anno; sitemap; nessun link FIA, nessuna affiliazione; link andata e ritorno con Driving abroad; home, About, 404."""
+    from html import unescape
+    errori = []
+    conti = {"paesi": 0, "pagine": 0, "fonti": 0, "citazioni": 0, "traduzioni": 0, "faq": 0, "righe": 0, "cache": "no", "link": 0}
+    if not G.BB:
+        return ["dati/bluebadge.json mancante (rilanciare raccolta/bluebadge.py)"], conti
+    M = json.loads((SITO.parent / "dati" / "bluebadge_manuali.json").read_text(encoding="utf-8"))
+    campi = ("nome_gov", "fcdo_nomina", "ye", "ricerche", "pagina")
+    if (M["citazioni"] != G.BB["citazioni"] or M["generali"] != G.BB["generali"] or M["faq_indice"] != G.BB["faq_indice"] or M["faq_carte"] != G.BB["faq_carte"]
+            or M["paesi"] != [{k: v for k, v in p.items() if k not in campi} for p in G.BB["paesi"]]):
+        errori.append("dati/bluebadge.json non è aggiornato rispetto a dati/bluebadge_manuali.json (rilanciare raccolta/bluebadge.py)")
+    if len({(c["f"], c["x"]) for c in G.BB["citazioni"]}) != len(G.BB["citazioni"]) or len(G.BB_CIT) != len(G.BB["citazioni"]):
+        errori.append("blue badge: citazioni o id ripetuti")
+    D = json.loads((SITO.parent / "dati" / "bluebadge_domanda.json").read_text(encoding="utf-8"))
+    ricerche = RBB.tutte_ricerche(D)
+    # a) fonti: HTTP 200, domini ufficiali, date, impronta; dalla copia salvata frasi, impronte e tabella GOV.UK ricalcolate
+    for fid, F in G.BB["fonti"].items():
+        conti["fonti"] += 1
+        if F["http"] != 200 or not FONTI_UFFICIALI_BB.match(F["url"]) or not LINK_UFFICIALI_BB.match(F["pagina"]) or fid not in RBB.FONTI:
+            errori.append(f"blue badge fonte {fid}: HTTP {F['http']} o indirizzo non ufficiale ({F['url']})")
+        if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", F["letto_il"] or "") or F["letto_il"] > G.OGGI.isoformat():
+            errori.append(f"blue badge fonte {fid}: data di lettura non valida {F['letto_il']}")
+        if F["frasi"] and not F.get("impronta") or not F.get("impronta_testo"):
+            errori.append(f"blue badge fonte {fid}: impronta mancante")
+        f_c = RBB.file_cache(fid) if fid in RBB.FONTI else None
+        if f_c and f_c.exists():
+            raw = f_c.read_bytes()
+            t = RBB.testo_fonte(raw, F["tipo"])
+            frasi = RBB.frasi_fonte(G.BB, fid)
+            for x in frasi:
+                if x not in t:
+                    errori.append(f"blue badge fonte {fid}: la citazione non è parola per parola nella copia salvata: {x[:70]}")
+            if frasi and RBB.impronta_zona(t, frasi) != F["impronta"]:
+                errori.append(f"blue badge fonte {fid}: impronta diversa dalla copia salvata (rilanciare la raccolta)")
+            if RBB.impronta(t) != F["impronta_testo"]:
+                errori.append(f"blue badge fonte {fid}: impronta del testo diversa dalla copia salvata")
+            if fid == "gov_eu" and RBB.tabella_govuk(raw) != G.BB["tabella_govuk"]:
+                errori.append("blue badge: tabella GOV.UK diversa dalla copia salvata")
+            if fid == "gov_pub" and RBB.storico_govuk(raw) != G.BB["storico_govuk"]:
+                errori.append("blue badge: note di modifica GOV.UK diverse dalla copia salvata")
+            if fid.startswith("fcdo_") and ("Blue Badge" in t) != G.BB_PER[fid[5:]]["fcdo_nomina"]:
+                errori.append(f"blue badge fonte {fid}: 'nomina il Blue Badge' diverso dal testo salvato")
+            conti["cache"] = "sì"
+    for c in G.BB["citazioni"]:
+        F = G.BB["fonti"].get(c["f"])
+        if not F:
+            errori.append(f"blue badge: citazione {c['id']} da una fonte sconosciuta")
+        elif F["lingua"] != "en" and not c.get("tr"):
+            errori.append(f"blue badge: citazione {c['id']} senza traduzione")
+    # b) esiti = celle della tabella GOV.UK (lettura indipendente); Paesi con pagina = ricerche vere ricalcolate
+    righe = {r["paese"]: r for r in G.BB["tabella_govuk"]}
+    if len(righe) != len(G.BB_PAESI):
+        errori.append(f"blue badge: {len(righe)} righe GOV.UK per {len(G.BB_PAESI)} Paesi")
+    attese = {f"{G.BB_BASE}/index.html", G.BB_CARTE + "index.html"}
+    for p in G.BB_PAESI:
+        conti["paesi"] += 1
+        r = righe.get(p["nome_gov"])
+        if not r or r["riconosciuto"] != p["riconosciuto"] or r["info"] != p["info"] or _esito_cella_bb(r["riconosciuto"]) != p["esito"]:
+            errori.append(f"blue badge {p['iso2']}: esito o cella diversi dalla tabella GOV.UK ({r})")
+        qq = next(x[5] for x in RBB.PAESI if x[0] == p["iso2"])
+        cerca = RBB.ricerche_paese(D, qq)
+        if cerca != p["ricerche"] or bool(cerca) != p["pagina"]:
+            errori.append(f"blue badge {p['iso2']}: ricerche o pagina diverse dal ricalcolo")
+        if p["pagina"]:
+            attese.add(G.url_bb(p) + "index.html")
+    trovate = {q.relative_to(SITO).as_posix() for q in (SITO / G.BB_BASE).rglob("*.html")} if (SITO / G.BB_BASE).exists() else set()
+    if attese != trovate:
+        errori.append(f"pagine {G.BB_BASE} diverse dai dati: mancano {sorted(attese - trovate)}, in più {sorted(trovate - attese)}")
+    sm = leggi("sitemap.xml")
+    cit_numeri = set().union(*[_numeri_gom(c["x"]) for c in G.BB["citazioni"]])
+
+    def faq_ok(rel, t, voci, numeri):
+        faq_ld = [json.loads(x) for x in re.findall(r'<script type="application/ld\+json">(.*?)</script>', t)]
+        faq_ld = next((x for x in faq_ld if x.get("@type") == "FAQPage"), None)
+        attese_faq = G.faq_bb(voci)
+        if not faq_ld or [(e["name"], e["acceptedAnswer"]["text"]) for e in faq_ld["mainEntity"]] != attese_faq:
+            errori.append(f"{rel}: FAQ JSON-LD diversa dalle domande previste")
+        for (qd, a), q in zip(attese_faq, voci):
+            conti["faq"] += 1
+            if f"<h3>{escape(qd)}</h3><p>{escape(a)}</p>" not in t:
+                errori.append(f"{rel}: FAQ visibile diversa dal JSON-LD: {qd}")
+            if q["query"] not in ricerche:
+                errori.append(f"{rel}: FAQ «{qd}» senza una ricerca vera ({q['query']!r})")
+            if any(G.BB["fonti"][G.BB_CIT[i]["f"]]["lingua"] != "en" for i in q["cit"]) and "our translation" not in q["pre"]:
+                errori.append(f"{rel}: FAQ «{qd}» con citazione tradotta senza dirlo")
+            extra = _numeri_gom(q["pre"] + " " + q["post"] + " " + q["q"]) - numeri
+            if extra:
+                errori.append(f"{rel}: numeri non presi dalle fonti nella FAQ «{qd}»: {sorted(extra)}")
+
+    def comune(rel, t, ids, attesa_prima):
+        vis = unescape(re.sub(r"<[^>]+>", " ", t))
+        m = re.search(r'<p class="lead" id="answer">(.*?)</p>', t)
+        if not m or unescape(m.group(1)) != attesa_prima:
+            errori.append(f"{rel}: prima frase diversa da quella prevista (fonte, data, risposta)")
+        for i in ids:
+            c = G.BB_CIT[i]
+            conti["citazioni"] += 1
+            if escape(c["x"], quote=False) not in t and escape(c["x"]) not in t:
+                errori.append(f"{rel}: citazione mancante: {c['x'][:60]}")
+            if c.get("tr"):
+                conti["traduzioni"] += 1
+                if escape(c["tr"], quote=False) not in t and escape(c["tr"]) not in t:
+                    errori.append(f"{rel}: traduzione mancante: {c['tr'][:60]}")
+            F = G.BB["fonti"][c["f"]]
+            if f'href="{escape(F["pagina"])}"' not in t or f"checked on {G.data_lunga(F['letto_il'])}" not in vis:
+                errori.append(f"{rel}: manca il link o la data della fonte {c['f']}")
+            if F.get("aggiornato_il") and f"page updated on {G.data_lunga(F['aggiornato_il'])}" not in vis:
+                errori.append(f"{rel}: manca la data di aggiornamento della fonte {c['f']}")
+        tit = unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+        if len(tit) > G.LIMITE_TITOLO_BB or str(G.ANNO) not in tit:
+            errori.append(f"{rel}: titolo oltre {G.LIMITE_TITOLO_BB} caratteri o senza l'anno: {tit}")
+        if G.MON.link_affiliati(t) or 'rel="sponsored' in t:
+            errori.append(f"{rel}: link di affiliazione nella sezione")
+        mm = VIETATI_BB.search(t) or VIETATE_SRV.search(vis) or AGGIRARE.search(vis)
+        if mm:
+            errori.append(f"{rel}: parola o link vietati '{mm.group(0)}'")
+        if "not legal advice" not in vis:
+            errori.append(f"{rel}: manca 'not legal advice'")
+        for u in re.findall(r'<main.*?</main>', t, re.S)[:1]:
+            for h in re.findall(r'href="(https?://[^"]+)"', u):
+                if not LINK_UFFICIALI_BB.match(h) and not h.startswith(G.OGL):
+                    errori.append(f"{rel}: link esterno non ufficiale {h}")
+        return vis, tit
+
+    # c) pagine Paese
+    for p in G.BB_PAGINE:
+        rel = G.url_bb(p) + "index.html"
+        if not (SITO / rel).exists():
+            continue
+        conti["pagine"] += 1
+        t = leggi(rel)
+        ids = G.ids_pagina_bb(p)
+        vis, tit = comune(rel, t, ids, G.prefisso_bb() + p["risposta"])
+        F = G.BB["fonti"]["gov_eu"]
+        if not G.prefisso_bb().startswith(f"According to GOV.UK (Department for Transport), in guidance updated on {G.data_lunga(F['aggiornato_il'])} and checked on {G.data_lunga(F['letto_il'])}"):
+            errori.append("blue badge: prefisso della prima frase senza le date della guida GOV.UK")
+        if p["nome"] not in tit and G.nf_bb(p) not in tit or tit != G.scegli(G.titoli_bb(p), G.LIMITE_TITOLO_BB):
+            errori.append(f"{rel}: titolo senza il Paese o non tra le forme previste: {tit}")
+        if f"<loc>{G.URL_SITO}/{G.url_bb(p)}</loc><lastmod>{G.data_pagina_bb(p)}</lastmod>" not in sm:
+            errori.append(f"{rel}: non in sitemap o lastmod diverso dalla data di lettura")
+        riga = f"<td>{escape(p['nome_gov'])}</td><td>{escape(p['riconosciuto'])}</td>"
+        if riga not in t:
+            errori.append(f"{rel}: riga GOV.UK mancante o diversa")
+        if p.get("nota") and "data-nota" not in t:
+            errori.append(f"{rel}: manca la nota")
+        ammessi = set().union(*[_numeri_gom(G.BB_CIT[i]["x"]) for i in ids], {str(G.ANNO)})
+        for s in (p["risposta"], p.get("nota", "")):
+            extra = _numeri_gom(s) - ammessi - cit_numeri
+            if extra:
+                errori.append(f"{rel}: numeri non presi dalle fonti: {sorted(extra)} in «{s[:60]}»")
+        faq_ok(rel, t, p["faq"], ammessi | cit_numeri)
+        if not G.BB["generali"]["fcdo"].get(p["iso2"]) and "does not mention the Blue Badge" not in vis:
+            errori.append(f"{rel}: manca la frase sul consiglio FCDO che non nomina il Blue Badge")
+        if f'href="../../{G.BB_BASE}/"' not in t or f'href="../../{G.BB_CARTE}"' not in t:
+            errori.append(f"{rel}: manca il link all'indice o alla pagina delle carte europee")
+        if G.PAT and p["iso2"] in G.PAGINE_PAT["uk"]:
+            conti["link"] += 2
+            if f'href="../../{G.url_pat("uk", p["iso2"])}"' not in t:
+                errori.append(f"{rel}: manca il link a Driving abroad ({G.url_pat('uk', p['iso2'])})")
+            if f'href="../../../{G.url_bb(p)}"' not in leggi(G.url_pat("uk", p["iso2"]) + "index.html"):
+                errori.append(f"{G.url_pat('uk', p['iso2'])}: manca il link di ritorno a {G.url_bb(p)}")
+    # nessun link Blue Badge nelle pagine Driving abroad di altre patenti né dei Paesi senza pagina
+    for k in G.PATENTI:
+        for iso in G.PAGINE_PAT[k]:
+            t = leggi(G.url_pat(k, iso) + "index.html")
+            if f'{G.BB_BASE}/' in t and (k != "uk" or not G.ha_pagina_bb(iso)):
+                errori.append(f"{G.url_pat(k, iso)}: link alla sezione Blue Badge non previsto")
+    # d) indice: prima frase con i conteggi ricalcolati dalle celle, righe = tabella GOV.UK, FAQ
+    idx = f"{G.BB_BASE}/index.html"
+    if (SITO / idx).exists():
+        t = leggi(idx)
+        vis, _ = comune(idx, t, G.BB["generali"]["indice"] + ["ec_when"], G.prima_frase_bb())
+        es = [_esito_cella_bb(r["riconosciuto"]) for r in G.BB["tabella_govuk"]]
+        pf = G.prima_frase_bb()
+        if f"in {es.count('si')} of the {len(es)} European countries" not in pf or f"{es.count('non_ue')} more accept non-EU parking cards" not in pf:
+            errori.append(f"{idx}: conteggi della prima frase diversi dalla tabella GOV.UK")
+        if f"<loc>{G.URL_SITO}/{G.BB_BASE}/</loc><lastmod>{G.BB['controllato_il']}</lastmod>" not in sm:
+            errori.append(f"{idx}: non in sitemap o lastmod diverso")
+        righe_html = re.findall(r'<tr data-voce id="([a-z]{2})">(.*?)</tr>', t)
+        if [r[0] for r in righe_html] != [p["iso2"].lower() for p in G.BB_PAESI]:
+            errori.append(f"{idx}: righe della tabella diverse dai Paesi dei dati")
+        for (cod, r), p in zip(righe_html, G.BB_PAESI):
+            conti["righe"] += 1
+            celle = [unescape(re.sub(r"<[^>]+>", "", x)) for x in re.findall(r"<td[^>]*>(.*?)</td>", r)]
+            if celle[1:3] != [righe[p["nome_gov"]]["riconosciuto"], righe[p["nome_gov"]]["info"] or "–"]:
+                errori.append(f"{idx}: riga {cod} diversa dalla tabella GOV.UK: {celle}")
+            if p["pagina"] != (f'href="../{G.url_bb(p)}"' in r):
+                errori.append(f"{idx}: riga {cod} con o senza link alla pagina in modo diverso dai dati")
+        faq_ok(idx, t, G.BB["faq_indice"], cit_numeri | {str(G.ANNO)})
+        if f'href="../{G.PAT_BASE}/"' not in t:
+            errori.append(f"{idx}: manca il link a Driving abroad")
+    else:
+        errori.append(f"indice {G.BB_BASE} mancante")
+    # e) carte europee: prima frase, date della tabella tutte nelle citazioni
+    rel = G.BB_CARTE + "index.html"
+    if (SITO / rel).exists():
+        t = leggi(rel)
+        G_ = G.BB["generali"]
+        ids = ["ec_when", "ec_gaps", "ec_replace"] + G_["carte_cosa"] + G_["carte_chi"] + G_["carte_parcheggio"] + G_["carte_pilota"] + G_["carte_poi"]
+        vis, _ = comune(rel, t, list(dict.fromkeys(ids)), G.prima_frase_carte_bb())
+        quando = G.BB_CIT["ec_when"]["x"]
+        if "By 5 June 2027" not in quando or "from 5 June 2028" not in quando or "by 5 June 2027" not in G.prima_frase_carte_bb() or "from 5 June 2028" not in G.prima_frase_carte_bb():
+            errori.append(f"{rel}: le date del 5/6/2027 e del 5/6/2028 non coincidono con la citazione della Commissione")
+        testo_cit = " ".join(G.BB_CIT[i]["x"] for i in ids)
+        for d_ in re.findall(r'<td data-l="When">(.*?)</td>', t):
+            if unescape(d_) not in testo_cit:
+                errori.append(f"{rel}: data della tabella non presente nelle citazioni: {d_}")
+        faq_ok(rel, t, G.BB["faq_carte"], cit_numeri | {str(G.ANNO)})
+        if f"<loc>{G.URL_SITO}/{G.BB_CARTE}</loc><lastmod>{G.BB['fonti']['ec_carte']['letto_il']}</lastmod>" not in sm:
+            errori.append(f"{rel}: non in sitemap o lastmod diverso")
+    else:
+        errori.append(f"{rel} mancante")
+    # f) collegamenti in entrata
+    if f'href="{G.BB_BASE}/"' not in leggi("index.html"):
+        errori.append("home senza link alla sezione Blue Badge")
+    if f'id="{G.BB_BASE}"' not in leggi("about/index.html"):
+        errori.append("About senza la sezione Blue Badge")
+    if f'href="/{G.BB_BASE}/"' not in leggi("404.html"):
+        errori.append("404 senza link alla sezione Blue Badge")
+    if f'href="../{G.BB_BASE}/"' not in leggi(f"{G.PAT_BASE}/index.html"):
+        errori.append(f"{G.PAT_BASE}/index.html: manca il link alla sezione Blue Badge")
+    for nome in ("bluebadge.json", "bluebadge_manuali.json", "bluebadge_domanda.json"):
+        if VIETATE_SRV.search((SITO.parent / "dati" / nome).read_text(encoding="utf-8")):
+            errori.append(f"dati/{nome}: nome di un assistente di intelligenza artificiale")
+    return errori, conti
+
+
 def main():
     e1 = controlla_casi()
     print(f"1. Casi del passaporto calcolati a mano: {len(CASI)}, {len(e1)} errori")
@@ -4837,7 +5106,7 @@ def main():
         o, cartella = info
         n375 = sum(1 for x in o["pagine"] if x["tema"] in ("light", "dark"))
         print(f"7. Browser 375 px: {len(o['pagine'])} viste ({n375 // 2} pagine × tema chiaro e scuro + {len(o['pagine']) - n375} a 820 px; nuove: "
-              f"{', '.join(PAGINE_ESTERE_BROWSER + PAGINE_BAG_BROWSER + PAGINE_IT_BROWSER + PAGINE_SRV_BROWSER + PAGINE_PAT_BROWSER + PAGINE_PED_BROWSER + PAGINE_GOM_BROWSER + PAGINE_FL_BROWSER + PAGINE_TR_BROWSER + PAGINE_TB_BROWSER + PAGINE_SC_BROWSER)}; {len(CASI_BORSA)} casi dello strumento borsa), "
+              f"{', '.join(PAGINE_ESTERE_BROWSER + PAGINE_BAG_BROWSER + PAGINE_IT_BROWSER + PAGINE_SRV_BROWSER + PAGINE_PAT_BROWSER + PAGINE_PED_BROWSER + PAGINE_GOM_BROWSER + PAGINE_FL_BROWSER + PAGINE_TR_BROWSER + PAGINE_TB_BROWSER + PAGINE_SC_BROWSER + PAGINE_BB_BROWSER)}; {len(CASI_BORSA)} casi dello strumento borsa), "
               f"{len(o['prove'])} prove, {len(e7)} errori; schermate in {cartella}")
     else:
         print(f"7. Browser 375 px: {e7[0] if e7 else ''}")
@@ -4935,9 +5204,16 @@ def main():
           f"ricalcolate dal testo salvato: {c28['cache']}), {c28['citazioni']} citazioni e {c28['traduzioni']} traduzioni nelle pagine, numeri solo "
           f"dalle fonti, esiti con citazione, prima frase con fonte e data, {c28['faq']} risposte FAQ da ricerche vere (JSON-LD = testo visibile), "
           f"titoli <= {G.LIMITE_TITOLO_SC} con l'anno, {c28['link']} link andata e ritorno con Driving abroad, nessuna affiliazione né promessa: {len(e28)} errori")
+    e29, c29 = controlla_bluebadge()
+    print(f"29. Blue Badge abroad: {c29['paesi']} Paesi della tabella GOV.UK ({c29['righe']} righe dell'indice = tabella ricalcolata dalla copia salvata, "
+          f"esiti = celle lette in modo indipendente), {c29['pagine']} pagine Paese (solo con ricerche vere) + indice + carte europee, {c29['fonti']} fonti "
+          f"ufficiali (GOV.UK, FCDO, Your Europe, Commissione, governi italiano e francese; HTTP 200, impronte e citazioni ricalcolate dalla copia salvata: "
+          f"{c29['cache']}), {c29['citazioni']} citazioni e {c29['traduzioni']} traduzioni nelle pagine, numeri solo dalle fonti, prima frase con fonte e data, "
+          f"{c29['faq']} risposte FAQ da ricerche vere (JSON-LD = testo visibile), titoli <= {G.LIMITE_TITOLO_BB} con l'anno, nessun link FIA né affiliazione, "
+          f"{c29['link']} link andata e ritorno con Driving abroad: {len(e29)} errori")
     e19, i19 = G.MON.controlla_sito(G.SITO_ID, SITO)  # controllo comune di monetizzazione (monetizzazione.py)
     print("19. " + G.MON.riepilogo(G.SITO_ID, i19, e19))
-    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28
+    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28 + e29
     for e in tutti:
         print(" -", e)
     if tutti:

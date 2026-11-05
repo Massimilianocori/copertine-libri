@@ -1,7 +1,35 @@
 {
  "_nota": "Regole del trasporto pubblico per città: fatti scritti a mano in dati/trasporti_manuali.json (citazioni parola per parola), fonti rilette da raccolta/trasporti.py (HTTP, data di lettura, impronta della zona citata); 'non_lette' = esito dell'ultima richiesta alla pagina ufficiale delle città senza pagina (nessun aggiramento). Non modificare a mano: rilanciare lo script.",
- "controllato_il": "2026-10-31",
+ "controllato_il": "2026-11-04",
  "fonti": {
+  "ams_check": {
+   "url": "https://www.gvb.nl/en/boarding-means-checking-in",
+   "url_finale": "https://www.gvb.nl/en/boarding-means-checking-in",
+   "http": 200,
+   "byte": 123922,
+   "ente": "GVB (Amsterdam’s public transport company)",
+   "titolo": "GVB: Boarding means checking in",
+   "lingua": "en",
+   "tipo": "html",
+   "letto_il": "2026-11-04",
+   "cambiato_il": "2026-11-04",
+   "impronta": "ad20fad18b872f92",
+   "frasi": 3
+  },
+  "ams_miss": {
+   "url": "https://www.gvb.nl/en/customer-service/missed-check-out",
+   "url_finale": "https://www.gvb.nl/en/customer-service/missed-check-out",
+   "http": 200,
+   "byte": 153829,
+   "ente": "GVB (Amsterdam’s public transport company)",
+   "titolo": "GVB: Missed check out",
+   "lingua": "en",
+   "tipo": "html",
+   "letto_il": "2026-11-04",
+   "cambiato_il": "2026-11-04",
+   "impronta": "a1804bc5b24b2202",
+   "frasi": 4
+  },
   "ath_fines": {
    "url": "https://www.oasa.gr/en/passenger-service/information/payment-of-fines/",
    "url_finale": "https://www.oasa.gr/en/passenger-service/information/payment-of-fines/",
@@ -11,7 +39,7 @@
    "titolo": "OASA: Information – payment of fines",
    "lingua": "en",
    "tipo": "html",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "c6dbfc3c1200b34c",
    "frasi": 2
@@ -25,7 +53,7 @@
    "titolo": "OASA: Useful information – validation of tickets and cards",
    "lingua": "en",
    "tipo": "html",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "65549074889213db",
    "frasi": 3
@@ -34,12 +62,12 @@
    "url": "https://www.tmb.cat/en/barcelona-fares-metro-bus/bank-card-validation",
    "url_finale": "https://www.tmb.cat/en/barcelona-fares-metro-bus/bank-card-validation",
    "http": 200,
-   "byte": 311872,
+   "byte": 310384,
    "ente": "TMB (Transports Metropolitans de Barcelona)",
    "titolo": "TMB: Bank card validation",
    "lingua": "en",
    "tipo": "html",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "ab44ba56a10efa47",
    "frasi": 3
@@ -53,7 +81,7 @@
    "titolo": "TMB: Offences and appeals",
    "lingua": "en",
    "tipo": "html",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "0e33c702ec3856be",
    "frasi": 3
@@ -67,7 +95,7 @@
    "titolo": "TMB: How to validate T-mobilitat",
    "lingua": "en",
    "tipo": "html",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "eab7caffbf4e46f0",
    "frasi": 1
@@ -81,7 +109,7 @@
    "titolo": "BVG: Ticket control – information about fines and legal rights",
    "lingua": "en",
    "tipo": "html",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "309b4ebad6248d82",
    "frasi": 2
@@ -95,7 +123,7 @@
    "titolo": "BVG: FAQ for tourists",
    "lingua": "en",
    "tipo": "html",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "346ce09efa97ae8a",
    "frasi": 2
@@ -109,7 +137,7 @@
    "titolo": "STIB-MIVB: Your bank card is your ticket",
    "lingua": "en",
    "tipo": "html",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "ab8fd75f23421380",
    "frasi": 4
@@ -123,7 +151,7 @@
    "titolo": "STIB-MIVB: Fines and infringements",
    "lingua": "en",
    "tipo": "html",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "8a330535514c8540",
    "frasi": 2
@@ -137,7 +165,7 @@
    "titolo": "BKK news, 22 April 2026: Buy and validate your single ticket with a single tap",
    "lingua": "en",
    "tipo": "html",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "4cca8381910c44b1",
    "frasi": 3
@@ -146,12 +174,12 @@
    "url": "https://bkk.hu/en/news/2026/10/ticket-validation-has-become-simpler-on-bkks-lines-in-street-level-transport.17477/",
    "url_finale": "https://bkk.hu/en/news/2026/10/ticket-validation-has-become-simpler-on-bkks-lines-in-street-level-transport.17477/",
    "http": 200,
-   "byte": 35226,
+   "byte": 35259,
    "ente": "BKK (Centre for Budapest Transport)",
    "titolo": "BKK news, 29 October 2026: Ticket validation has become simpler on BKK’s lines in street-level transport",
    "lingua": "en",
    "tipo": "html",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "690d0b9bd1589893",
    "frasi": 1
@@ -160,12 +188,12 @@
    "url": "https://bkk.hu/en/tickets-and-passes/information-about-penalty-fares/general-information/",
    "url_finale": "https://bkk.hu/en/tickets-and-passes/information-about-penalty-fares/general-information/",
    "http": 200,
-   "byte": 34619,
+   "byte": 34586,
    "ente": "BKK (Centre for Budapest Transport)",
    "titolo": "BKK: Penalty fare – general information",
    "lingua": "en",
    "tipo": "html",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "7af1594de55bf600",
    "frasi": 2
@@ -179,7 +207,7 @@
    "titolo": "BKK: Guide for tourists on how to use tickets, travelcards and passes",
    "lingua": "en",
    "tipo": "html",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "cb71a78c97ac81f5",
    "frasi": 2
@@ -188,12 +216,12 @@
    "url": "https://www.transportforireland.ie/fares/fare-evasion-on-tfi-services/",
    "url_finale": "https://www.transportforireland.ie/fares/fare-evasion-on-tfi-services/",
    "http": 200,
-   "byte": 88723,
+   "byte": 88754,
    "ente": "Transport for Ireland (National Transport Authority)",
    "titolo": "TFI: Fare evasion on TFI services",
    "lingua": "en",
    "tipo": "html",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "2e605fecd1c26812",
    "frasi": 3
@@ -202,12 +230,12 @@
    "url": "https://www.transportforireland.ie/fares/luas-fares/",
    "url_finale": "https://www.transportforireland.ie/fares/luas-fares/",
    "http": 200,
-   "byte": 85604,
+   "byte": 85573,
    "ente": "Transport for Ireland (National Transport Authority)",
    "titolo": "TFI: Luas tram fare info",
    "lingua": "en",
    "tipo": "html",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "915e6ef0e4fbb9ee",
    "frasi": 1
@@ -221,7 +249,7 @@
    "titolo": "Edinburgh Trams: Contactless payment cards – conditions of use",
    "lingua": "en",
    "tipo": "html",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "8fe2c3a3b1a73de8",
    "frasi": 2
@@ -235,7 +263,7 @@
    "titolo": "Edinburgh Trams: Tap On, Tap Off",
    "lingua": "en",
    "tipo": "html",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "1911dcaec321be71",
    "frasi": 1
@@ -244,12 +272,12 @@
    "url": "https://www.tpg.ch/en/travel-good-standing",
    "url_finale": "https://www.tpg.ch/en/travel-good-standing",
    "http": 200,
-   "byte": 99849,
+   "byte": 99850,
    "ente": "tpg (Transports publics genevois)",
    "titolo": "tpg: Travel in good standing",
    "lingua": "en",
    "tipo": "html",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "0d5251ea16cc34f1",
    "frasi": 3
@@ -263,7 +291,7 @@
    "titolo": "hvv Gemeinschaftstarif, valid from 3 November 2026 (PDF)",
    "lingua": "de",
    "tipo": "pdf",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "eb37138696a2c65c",
    "frasi": 7
@@ -277,7 +305,7 @@
    "titolo": "Metro Lisboa: Metro + bank card",
    "lingua": "en",
    "tipo": "html",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "85c7d59fb8c42f02",
    "frasi": 2
@@ -286,12 +314,12 @@
    "url": "https://www.metrolisboa.pt/en/travel/legal-information/",
    "url_finale": "https://www.metrolisboa.pt/en/travel/legal-information/",
    "http": 200,
-   "byte": 236021,
+   "byte": 236022,
    "ente": "Metropolitano de Lisboa",
    "titolo": "Metro Lisboa: Legal information",
    "lingua": "en",
    "tipo": "html",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "b9202b51f1092171",
    "frasi": 3
@@ -305,7 +333,7 @@
    "titolo": "Metro de Madrid: Rules for the use of EMV-compliant contactless bank cards",
    "lingua": "en",
    "tipo": "html",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "d34ce5eb2ff3d1ae",
    "frasi": 3
@@ -319,7 +347,7 @@
    "titolo": "Metro de Madrid: Extraordinary travel card top-up",
    "lingua": "en",
    "tipo": "html",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "d8951027bab50f91",
    "frasi": 1
@@ -328,12 +356,12 @@
    "url": "https://www.atm.it/en/ViaggiaConNoi/Biglietti/Pages/contactless_cards_metro.aspx",
    "url_finale": "https://www.atm.it/en/ViaggiaConNoi/Biglietti/Pages/contactless_cards_metro.aspx",
    "http": 200,
-   "byte": 70277,
+   "byte": 70033,
    "ente": "ATM (Azienda Trasporti Milanesi)",
    "titolo": "ATM: Contactless pay as you go",
    "lingua": "en",
    "tipo": "html",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "bdba04afcb481879",
    "frasi": 4
@@ -342,12 +370,12 @@
    "url": "https://www.atm.it/it/ViaggiaConNoi/Guide/Pagine/Usarebigliettieabbonamenti.aspx",
    "url_finale": "https://www.atm.it/it/ViaggiaConNoi/Guide/Pagine/Usarebigliettieabbonamenti.aspx",
    "http": 200,
-   "byte": 59343,
+   "byte": 59348,
    "ente": "ATM (Azienda Trasporti Milanesi)",
    "titolo": "ATM: Usare biglietti e abbonamenti (guide)",
    "lingua": "it",
    "tipo": "html",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "7316827f212ba9e6",
    "frasi": 1
@@ -361,7 +389,7 @@
    "titolo": "ATM fare finder (STIBM): Mi3 – Mi4 tickets and passes",
    "lingua": "it",
    "tipo": "html",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "acbcc85ee6538e2c",
    "frasi": 1
@@ -375,7 +403,7 @@
    "titolo": "ATM: Sanzioni amministrative dal 09/01/2023 (PDF)",
    "lingua": "it",
    "tipo": "pdf",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "21c2b79e825f3b0c",
    "frasi": 3
@@ -389,7 +417,7 @@
    "titolo": "STM: 1-trip, All modes A",
    "lingua": "en",
    "tipo": "html",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "b5eea95b22c7ef47",
    "frasi": 1
@@ -403,7 +431,7 @@
    "titolo": "STM: Fares and pricing",
    "lingua": "en",
    "tipo": "html",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "64e31578617cfe6e",
    "frasi": 2
@@ -412,12 +440,12 @@
    "url": "https://www.mvg.de/services/ebe.html?lang=en",
    "url_finale": "https://www.mvg.de/services/ebe.html?lang=en",
    "http": 200,
-   "byte": 70533,
+   "byte": 70934,
    "ente": "MVG (Münchner Verkehrsgesellschaft)",
    "titolo": "MVG: Erhöhtes Beförderungsentgelt",
    "lingua": "de",
    "tipo": "html",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "a99347181257334d",
    "frasi": 4
@@ -431,7 +459,7 @@
    "titolo": "Ruter: Ticket inspections",
    "lingua": "en",
    "tipo": "html",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "cd72b61e0912ecec",
    "frasi": 3
@@ -445,7 +473,7 @@
    "titolo": "Ruter: Single ticket",
    "lingua": "en",
    "tipo": "html",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "36122002b935a93a",
    "frasi": 2
@@ -459,7 +487,7 @@
    "titolo": "DPP: Cashless payment of fare",
    "lingua": "en",
    "tipo": "html",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "ec0faa47b0ecc3d0",
    "frasi": 3
@@ -473,7 +501,7 @@
    "titolo": "DPP: Surcharge amount",
    "lingua": "en",
    "tipo": "html",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "7157ea6968d40658",
    "frasi": 2
@@ -487,7 +515,7 @@
    "titolo": "PID: New PID tariff from 1 January 2026",
    "lingua": "en",
    "tipo": "html",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "c20b509443308b6c",
    "frasi": 1
@@ -501,7 +529,7 @@
    "titolo": "TTC: Proof-of-Payment and fare inspection",
    "lingua": "en",
    "tipo": "html",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "c5e9c1c95d0354c9",
    "frasi": 4
@@ -515,7 +543,7 @@
    "titolo": "TransLink: Fare enforcement",
    "lingua": "en",
    "tipo": "html",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "10f19d84669ca225",
    "frasi": 3
@@ -529,7 +557,7 @@
    "titolo": "TransLink: Fare infraction",
    "lingua": "en",
    "tipo": "html",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "8ceefcd50c59c9e1",
    "frasi": 1
@@ -543,7 +571,7 @@
    "titolo": "ZVV: Ticket inspection",
    "lingua": "en",
    "tipo": "html",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "a94ff59db1ce93de",
    "frasi": 1
@@ -557,28 +585,20 @@
    "titolo": "ZVV: Penalty fares in the ZVV region",
    "lingua": "en",
    "tipo": "html",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-04",
    "cambiato_il": "2026-10-31",
    "impronta": "83d499a3a5cb287d",
    "frasi": 2
   }
  },
  "non_lette": {
-  "amsterdam": {
-   "url": "https://www.gvb.nl/en/boarding-means-checking-in",
-   "http": 200,
-   "antirobot": false,
-   "byte": 123922,
-   "testo": 3037,
-   "provato_il": "2026-10-31"
-  },
   "bologna": {
    "url": "https://www.tper.it/sanzioni-a-bordo-mezzo",
    "http": 200,
    "antirobot": false,
-   "byte": 197253,
+   "byte": 197280,
    "testo": 10882,
-   "provato_il": "2026-10-31"
+   "provato_il": "2026-11-04"
   },
   "copenhagen": {
    "url": "https://m.dk/en/travel-with-the-metro/contact-and-customer-service/inspection-fee/",
@@ -586,15 +606,15 @@
    "antirobot": false,
    "byte": 195900,
    "testo": 1768,
-   "provato_il": "2026-10-31"
+   "provato_il": "2026-11-04"
   },
   "florence": {
    "url": "https://www.at-bus.it/en/fines",
    "http": 200,
    "antirobot": true,
-   "byte": 130609,
-   "testo": 5472,
-   "provato_il": "2026-10-31"
+   "byte": 132560,
+   "testo": 6591,
+   "provato_il": "2026-11-04"
   },
   "helsinki": {
    "url": "https://www.hsl.fi/en/tickets-and-fares/penalty-fare",
@@ -602,15 +622,15 @@
    "antirobot": false,
    "byte": 0,
    "testo": 0,
-   "provato_il": "2026-10-31"
+   "provato_il": "2026-11-04"
   },
   "krakow": {
    "url": "https://ztp.krakow.pl/en/kmk-public-transport/kmk-ticket-inspection",
    "http": 200,
    "antirobot": false,
-   "byte": 145759,
+   "byte": 145780,
    "testo": 13748,
-   "provato_il": "2026-10-31"
+   "provato_il": "2026-11-04"
   },
   "london": {
    "url": "https://tfl.gov.uk/fares/find-fares/penalty-fares-and-how-to-pay-them",
@@ -618,7 +638,7 @@
    "antirobot": false,
    "byte": 0,
    "testo": 0,
-   "provato_il": "2026-10-31"
+   "provato_il": "2026-11-04"
   },
   "lyon": {
    "url": "https://www.tcl.fr/en/help/fraud-and-fines/amount-fines",
@@ -626,15 +646,15 @@
    "antirobot": false,
    "byte": 0,
    "testo": 0,
-   "provato_il": "2026-10-31"
+   "provato_il": "2026-11-04"
   },
   "naples": {
    "url": "https://www.anm.it/index.php?option=com_content&task=view&id=1421&Itemid=415",
    "http": 200,
    "antirobot": true,
-   "byte": 403907,
+   "byte": 406255,
    "testo": 54,
-   "provato_il": "2026-10-31"
+   "provato_il": "2026-11-04"
   },
   "new-york": {
    "url": "https://www.mta.info/fares-tolls/subway-bus",
@@ -642,7 +662,7 @@
    "antirobot": false,
    "byte": 0,
    "testo": 0,
-   "provato_il": "2026-10-31"
+   "provato_il": "2026-11-04"
   },
   "paris": {
    "url": "https://www.iledefrance-mobilites.fr/en/actualites/valider-transports-carte-bancaire-ile-de-france",
@@ -650,7 +670,7 @@
    "antirobot": false,
    "byte": 0,
    "testo": 0,
-   "provato_il": "2026-10-31"
+   "provato_il": "2026-11-04"
   },
   "porto": {
    "url": "https://en.metrodoporto.pt/pages/394",
@@ -658,7 +678,7 @@
    "antirobot": false,
    "byte": 59101,
    "testo": 10789,
-   "provato_il": "2026-10-31"
+   "provato_il": "2026-11-04"
   },
   "riga": {
    "url": "https://www.rigassatiksme.lv/en/about-us/frequently-asked-questions/ticket-control",
@@ -666,15 +686,15 @@
    "antirobot": false,
    "byte": 0,
    "testo": 0,
-   "provato_il": "2026-10-31"
+   "provato_il": "2026-11-04"
   },
   "rome": {
    "url": "https://www.atac.roma.it/customer-experience/multe-e-rimborsi",
    "http": 200,
    "antirobot": true,
-   "byte": 15074,
-   "testo": 716,
-   "provato_il": "2026-10-31"
+   "byte": 15075,
+   "testo": 717,
+   "provato_il": "2026-11-04"
   },
   "stockholm": {
    "url": "https://sl.se/en/fares-and-tickets/penalties-and-enforcement",
@@ -682,7 +702,7 @@
    "antirobot": false,
    "byte": 78916,
    "testo": 25,
-   "provato_il": "2026-10-31"
+   "provato_il": "2026-11-04"
   },
   "sydney": {
    "url": "https://www.opal.com.au/en/opal-fares/travelling_with_a_valid_ticket",
@@ -690,7 +710,7 @@
    "antirobot": true,
    "byte": 212,
    "testo": 0,
-   "provato_il": "2026-10-31"
+   "provato_il": "2026-11-04"
   },
   "turin": {
    "url": "https://www.gtt.to.it/cms/biglietti-abbonamenti/8600-faq-contactless",
@@ -698,7 +718,7 @@
    "antirobot": false,
    "byte": 52,
    "testo": 0,
-   "provato_il": "2026-10-31"
+   "provato_il": "2026-11-04"
   },
   "valencia": {
    "url": "https://www.metrovalencia.es/en/regulations/",
@@ -706,7 +726,7 @@
    "antirobot": false,
    "byte": 128,
    "testo": 0,
-   "provato_il": "2026-10-31"
+   "provato_il": "2026-11-04"
   },
   "venice": {
    "url": "https://avm.avmspa.it/en/content/fines-actv",
@@ -714,15 +734,15 @@
    "antirobot": false,
    "byte": 28280,
    "testo": 7393,
-   "provato_il": "2026-10-31"
+   "provato_il": "2026-11-04"
   },
   "vienna": {
    "url": "https://www.wienerlinien.at/befoerderungsbedingungen",
    "http": 200,
    "antirobot": true,
-   "byte": 17325,
-   "testo": 1177,
-   "provato_il": "2026-10-31"
+   "byte": 17327,
+   "testo": 1179,
+   "provato_il": "2026-11-04"
   },
   "warsaw": {
    "url": "https://www.wtp.waw.pl/en/additional-fees/",
@@ -730,7 +750,7 @@
    "antirobot": false,
    "byte": 2003,
    "testo": 0,
-   "provato_il": "2026-10-31"
+   "provato_il": "2026-11-04"
   }
  },
  "citta": [
@@ -740,11 +760,100 @@
    "paese": "Netherlands",
    "iso2": "NL",
    "slug": "amsterdam",
-   "letta": false,
-   "ente": "GVB",
-   "url_provato": "https://www.gvb.nl/en/boarding-means-checking-in",
-   "motivo_tipo": "bloccata",
-   "motivo": "GVB’s pages answered several of our checks with HTTP 403 (they opened at other times), so we could not confirm its rules."
+   "letta": true,
+   "chi": "GVB, Amsterdam’s public transport company",
+   "rete": "GVB trams, buses and metro",
+   "multa": "€70 plus the fare",
+   "contactless": "si",
+   "contactless_breve": "Yes: check in and out with a debit card, credit card or phone (OVpay)",
+   "convalida": "si",
+   "convalida_breve": "Yes: everyone must check in when boarding and check out, with every ticket, card or season ticket",
+   "pagamento": "OVpay (debit card, credit card or phone), a barcode ticket in the GVB app, an OV-chipkaart or a paper ticket",
+   "risposta": "if you do not check in when boarding you do not have a valid ticket, and if you are checked you receive a €70 fine and also pay the fare; you can check in and out with a debit card, credit card or phone (OVpay), a barcode ticket in the GVB app, an OV-chipkaart or a paper ticket.",
+   "nota": "This page covers GVB, Amsterdam’s city transport company (trams, buses and metro), not trains. Check out as well: GVB says the rate for a missed check-in or check-out is €4 (full rate), and explains how to ask for a refund.",
+   "citazioni": [
+    {
+     "id": "ams1",
+     "f": "ams_check",
+     "tema": "multa",
+     "x": "If you do not check in when boarding, you do not have a valid ticket. If you're checked, you'll receive a €70 fine and you'll also pay the fare."
+    },
+    {
+     "id": "ams2",
+     "f": "ams_check",
+     "tema": "pagamento",
+     "x": "To travel by public transport you need a valid ticket. You always have to check in and out for this. And that has never been easier than with OVpay (debit card, credit card or mobile) or a barcode ticket via the GVB app."
+    },
+    {
+     "id": "ams4",
+     "f": "ams_check",
+     "tema": "convalida",
+     "x": "Whether you travel with a paper ticket, a GVB app barcode ticket or a (presale) travel product on your OV-chipkaart. Everyone must check in and out. Without this check-in you will not have a valid at hand. This also applies if you travel with a season ticket or a studentenreisproduct (student travel product)."
+    },
+    {
+     "id": "ams5",
+     "f": "ams_miss",
+     "tema": "convalida",
+     "x": "Did you forget to check in when you boarded? If so, you do not have valid proof of transport. As a result, you must check in as quickly as possible using your OV-chipkaart, debit card, barcode ticket or paper card. Buses and trams are equipped with card readers where you can do this at any thime."
+    },
+    {
+     "id": "ams6",
+     "f": "ams_miss",
+     "tema": "convalida",
+     "x": "Are you travelling by metro? If so, exit at the next stop to check in on the platform or at a metro gate before you continue your journey."
+    },
+    {
+     "id": "ams7",
+     "f": "ams_miss",
+     "tema": "altro",
+     "x": "The rate that applies for a missed check-in or check-out is €4 (full rate). This amount may be different if an age discount, discount product or season ticket applies to your trip during your trip."
+    },
+    {
+     "id": "ams8",
+     "f": "ams_miss",
+     "tema": "altro",
+     "x": "You forgot to check out with your debit card, credit card, contactless mobile payment or smart watch. Follow the steps below to request a refund."
+    }
+   ],
+   "faq": [
+    {
+     "q": "What is the fine on the Amsterdam metro?",
+     "query": "amsterdam metro fine",
+     "pre": "GVB says:",
+     "cit": [
+      "ams1"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Does the Amsterdam metro take contactless?",
+     "query": "does amsterdam metro take contactless",
+     "pre": "Yes. GVB says:",
+     "cit": [
+      "ams2"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Do you need to validate tickets in Amsterdam?",
+     "query": "do you need to validate tickets in amsterdam",
+     "pre": "Yes: in Amsterdam you check in and out. GVB says:",
+     "cit": [
+      "ams4",
+      "ams5"
+     ],
+     "post": ""
+    },
+    {
+     "q": "How do you pay for the tram in Amsterdam?",
+     "query": "how to pay for tram in amsterdam",
+     "pre": "GVB says:",
+     "cit": [
+      "ams2"
+     ],
+     "post": "If you forget to check in, GVB says to do it as quickly as possible: buses and trams have card readers on board."
+    }
+   ]
   },
   {
    "id": "athens",

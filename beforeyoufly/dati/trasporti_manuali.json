@@ -8,11 +8,100 @@
    "paese": "Netherlands",
    "iso2": "NL",
    "slug": "amsterdam",
-   "letta": false,
-   "ente": "GVB",
-   "url_provato": "https://www.gvb.nl/en/boarding-means-checking-in",
-   "motivo_tipo": "bloccata",
-   "motivo": "GVB’s pages answered several of our checks with HTTP 403 (they opened at other times), so we could not confirm its rules."
+   "letta": true,
+   "chi": "GVB, Amsterdam’s public transport company",
+   "rete": "GVB trams, buses and metro",
+   "multa": "€70 plus the fare",
+   "contactless": "si",
+   "contactless_breve": "Yes: check in and out with a debit card, credit card or phone (OVpay)",
+   "convalida": "si",
+   "convalida_breve": "Yes: everyone must check in when boarding and check out, with every ticket, card or season ticket",
+   "pagamento": "OVpay (debit card, credit card or phone), a barcode ticket in the GVB app, an OV-chipkaart or a paper ticket",
+   "risposta": "if you do not check in when boarding you do not have a valid ticket, and if you are checked you receive a €70 fine and also pay the fare; you can check in and out with a debit card, credit card or phone (OVpay), a barcode ticket in the GVB app, an OV-chipkaart or a paper ticket.",
+   "nota": "This page covers GVB, Amsterdam’s city transport company (trams, buses and metro), not trains. Check out as well: GVB says the rate for a missed check-in or check-out is €4 (full rate), and explains how to ask for a refund.",
+   "citazioni": [
+    {
+     "id": "ams1",
+     "f": "ams_check",
+     "tema": "multa",
+     "x": "If you do not check in when boarding, you do not have a valid ticket. If you're checked, you'll receive a €70 fine and you'll also pay the fare."
+    },
+    {
+     "id": "ams2",
+     "f": "ams_check",
+     "tema": "pagamento",
+     "x": "To travel by public transport you need a valid ticket. You always have to check in and out for this. And that has never been easier than with OVpay (debit card, credit card or mobile) or a barcode ticket via the GVB app."
+    },
+    {
+     "id": "ams4",
+     "f": "ams_check",
+     "tema": "convalida",
+     "x": "Whether you travel with a paper ticket, a GVB app barcode ticket or a (presale) travel product on your OV-chipkaart. Everyone must check in and out. Without this check-in you will not have a valid at hand. This also applies if you travel with a season ticket or a studentenreisproduct (student travel product)."
+    },
+    {
+     "id": "ams5",
+     "f": "ams_miss",
+     "tema": "convalida",
+     "x": "Did you forget to check in when you boarded? If so, you do not have valid proof of transport. As a result, you must check in as quickly as possible using your OV-chipkaart, debit card, barcode ticket or paper card. Buses and trams are equipped with card readers where you can do this at any thime."
+    },
+    {
+     "id": "ams6",
+     "f": "ams_miss",
+     "tema": "convalida",
+     "x": "Are you travelling by metro? If so, exit at the next stop to check in on the platform or at a metro gate before you continue your journey."
+    },
+    {
+     "id": "ams7",
+     "f": "ams_miss",
+     "tema": "altro",
+     "x": "The rate that applies for a missed check-in or check-out is €4 (full rate). This amount may be different if an age discount, discount product or season ticket applies to your trip during your trip."
+    },
+    {
+     "id": "ams8",
+     "f": "ams_miss",
+     "tema": "altro",
+     "x": "You forgot to check out with your debit card, credit card, contactless mobile payment or smart watch. Follow the steps below to request a refund."
+    }
+   ],
+   "faq": [
+    {
+     "q": "What is the fine on the Amsterdam metro?",
+     "query": "amsterdam metro fine",
+     "pre": "GVB says:",
+     "cit": [
+      "ams1"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Does the Amsterdam metro take contactless?",
+     "query": "does amsterdam metro take contactless",
+     "pre": "Yes. GVB says:",
+     "cit": [
+      "ams2"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Do you need to validate tickets in Amsterdam?",
+     "query": "do you need to validate tickets in amsterdam",
+     "pre": "Yes: in Amsterdam you check in and out. GVB says:",
+     "cit": [
+      "ams4",
+      "ams5"
+     ],
+     "post": ""
+    },
+    {
+     "q": "How do you pay for the tram in Amsterdam?",
+     "query": "how to pay for tram in amsterdam",
+     "pre": "GVB says:",
+     "cit": [
+      "ams2"
+     ],
+     "post": "If you forget to check in, GVB says to do it as quickly as possible: buses and trams have card readers on board."
+    }
+   ]
   },
   {
    "id": "athens",

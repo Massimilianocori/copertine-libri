@@ -1,0 +1,2102 @@
+{
+ "_nota": "Blue Badge all'estero, scritto il 4/11/2026 da uno script di partenza fuori dal repository che estrae le citazioni parola per parola dal testo normalizzato delle fonti (raccolta/bluebadge.py --testo ID). 'riconosciuto' e 'info' = celle della tabella GOV.UK (controllate a ogni lettura); 'esito' = nostra etichetta della cella; 'tr' = traduzione nostra. Rilanciare raccolta/bluebadge.py dopo ogni modifica.",
+ "scritto_il": "2026-11-04",
+ "citazioni": [
+  {
+   "id": "g_intro",
+   "f": "gov_eu",
+   "tema": "govuk",
+   "x": "You can use your UK Blue Badge when travelling in some European countries."
+  },
+  {
+   "id": "g_check",
+   "f": "gov_eu",
+   "tema": "govuk",
+   "x": "Before visiting a country, check whether it recognises the UK Blue Badge. Some countries may require you to display a local parking notice as well as your Blue Badge."
+  },
+  {
+   "id": "g_local",
+   "f": "gov_eu",
+   "tema": "govuk",
+   "x": "Even in countries that recognise the Blue Badge, parking rules can vary in different parts of the country. Rules can also change, and some countries may have changed their rules since the pages linked to this guidance page were published."
+  },
+  {
+   "id": "g_research",
+   "f": "gov_eu",
+   "tema": "govuk",
+   "x": "You should research local parking regulations or get in touch with the relevant local authority for specific information. Local tourist information centres can also provide advice on parking rules for disabled people and may tell you about any specific requirements or restrictions in the area you are visiting."
+  },
+  {
+   "id": "g_always",
+   "f": "gov_eu",
+   "tema": "govuk",
+   "x": "For up-to-date information always check the local parking rules of the place you want to use your Blue Badge before parking."
+  },
+  {
+   "id": "g_docs",
+   "f": "gov_eu",
+   "tema": "govuk",
+   "x": "We recommend that you carry any supporting documentation that may be required, such as a doctor’s note or a translation of your Blue Badge, especially when travelling to countries with stricter parking rules."
+  },
+  {
+   "id": "g_spain",
+   "f": "gov_eu",
+   "tema": "govuk",
+   "x": "The UK is working with Spain to ensure mutual recognition of parking permits for disabled people."
+  },
+  {
+   "id": "g_vary",
+   "f": "gov_eu",
+   "tema": "govuk",
+   "x": "Parking concessions vary in each country."
+  },
+  {
+   "id": "p_same",
+   "f": "gov_park",
+   "tema": "govuk",
+   "x": "The Blue Badge is recognised in some European countries and allows you to make use of the same parking concessions as the country’s own citizens with disability."
+  },
+  {
+   "id": "p_differ",
+   "f": "gov_park",
+   "tema": "govuk",
+   "x": "Parking concessions for holders of a disabled parking card differ from country to country - check the rules in the country you’re visiting."
+  },
+  {
+   "id": "es_accordo",
+   "f": "gov_es",
+   "tema": "govuk",
+   "x": "We will work to sign an arrangement in order to ensure mutual recognition of parking permits for Disabled persons, as established under the UK Blue Badge Scheme and Spanish legislation, for travel between the UK and Spain."
+  },
+  {
+   "id": "ye_card",
+   "f": "ye_gen",
+   "tema": "ue",
+   "x": "If you have a disability that leads to reduced mobility, you might be entitled to an EU disability parking card in your country of residence, which should be recognised in all EU countries."
+  },
+  {
+   "id": "ye_display",
+   "f": "ye_gen",
+   "tema": "ue",
+   "x": "When you use your card you should display it at the front of the vehicle. The front of the card must be clearly visible for checking purposes."
+  },
+  {
+   "id": "ye_warn",
+   "f": "ye_gen",
+   "tema": "ue",
+   "x": "Before travelling to another EU country, check the conditions applicable in that country."
+  },
+  {
+   "id": "ye_new",
+   "f": "ye_gen",
+   "tema": "carte",
+   "x": "This new parking card will guarantee the use of parking spaces and facilities reserved for persons with disabilities in all EU countries and will replace national parking cards."
+  },
+  {
+   "id": "ec_dir",
+   "f": "ec_carte",
+   "tema": "carte",
+   "x": "To facilitate free movement of persons with disabilities around the EU, the Directive (EU) 2024/2841, adopted in October 2024, established a new European Disability Card and an improved European Parking Card for persons with disabilities."
+  },
+  {
+   "id": "ec_equal",
+   "f": "ec_carte",
+   "tema": "carte",
+   "x": "When travelling across the EU, cardholders will be able to benefit from such special conditions or preferential treatment on equal terms and conditions as residents with disabilities in the Member State they visit."
+  },
+  {
+   "id": "ec_short",
+   "f": "ec_carte",
+   "tema": "carte",
+   "x": "The cards are meant for short stays of up to 3 months, with an exception for card holders that participate in an EU mobility programme in another Member State."
+  },
+  {
+   "id": "ec_benefits",
+   "f": "ec_carte",
+   "tema": "carte",
+   "x": "The special conditions can apply when using transport, attending cultural events and visiting museums, leisure and sports centres, amusement parks, and more."
+  },
+  {
+   "id": "ec_edc_who",
+   "f": "ec_carte",
+   "tema": "carte",
+   "x": "The European Disability Card will benefit EU citizens and their family members with recognised disability status or entitlement to specific services based on a disability by the competent authorities or bodies in their Member State of residence."
+  },
+  {
+   "id": "ec_tcn",
+   "f": "ec_carte",
+   "tema": "carte",
+   "x": "The Directive 2024/2842 extends the personal scope to third-country nationals legally residing in a Member State."
+  },
+  {
+   "id": "ec_epc",
+   "f": "ec_carte",
+   "tema": "carte",
+   "x": "The improved European Parking Card will serve as proof of right to parking conditions and facilities reserved for persons with disabilities in all EU countries. It will also contain security features to prevent and combat fraud."
+  },
+  {
+   "id": "ec_epc_who",
+   "f": "ec_carte",
+   "tema": "carte",
+   "x": "The European Parking Card will benefit EU citizens and their family members with recognised rights to parking conditions and facilities reserved for persons with disabilities by the competent authorities or bodies in their Member State of residence."
+  },
+  {
+   "id": "ec_replace",
+   "f": "ec_carte",
+   "tema": "carte",
+   "x": "By 5 December 2029, the European Parking Card will replace national parking cards for persons with disabilities."
+  },
+  {
+   "id": "ec_when",
+   "f": "ec_carte",
+   "tema": "carte",
+   "x": "By 5 June 2027, Member States have to adopt and publish the national laws and rules needed to implement Directives 2024/2841 and 2024/2842, and inform the Commission of those measures. Member States have to apply those measures from 5 June 2028. From that date, Member States have to issue the cards to eligible persons with disabilities."
+  },
+  {
+   "id": "ec_gaps",
+   "f": "ec_carte",
+   "tema": "carte",
+   "x": "assessment of remaining gaps related to the free movement of persons with disabilities (by 5 June 2029)"
+  },
+  {
+   "id": "ec_qr",
+   "f": "ec_carte",
+   "tema": "carte",
+   "x": "In July 2026, the Commission adopted a delegated regulation (C/2026/4534) setting out the QR codes to be used on the physical versions of the European Disability Card and the European Parking Card, to ensure the security and interoperability of both cards."
+  },
+  {
+   "id": "ec_digital",
+   "f": "ec_carte",
+   "tema": "carte",
+   "x": "The cards remain a flagship initiative, with the aim of making them available in people’s digital wallets."
+  },
+  {
+   "id": "ec_pilot",
+   "f": "ec_carte",
+   "tema": "carte",
+   "x": "This initiative is built on the experience of the ongoing EU Disability Card pilot project launched in February 2016 in eight EU countries and the EU parking card for persons with disabilities based on Council Recommendation 98/376/EC."
+  },
+  {
+   "id": "ec_pilot_list",
+   "f": "ec_carte",
+   "tema": "carte",
+   "x": "You can access to the national EU Disability Card websites of: Belgium Cyprus Finland Italy Malta Romania Slovenia In addition, Croatia has implemented an EU-funded project to already support the introduction of both cards."
+  },
+  {
+   "id": "ec_national",
+   "f": "ec_carte",
+   "tema": "carte",
+   "x": "The Directive does not affect Member States’ competence to determine the conditions for assessing and recognising disability status or the entitlement to specific services based on a disability, or for granting the right to parking conditions and facilities reserved for persons with disabilities."
+  },
+  {
+   "id": "it_c1",
+   "f": "it_circ",
+   "tema": "riconoscimento",
+   "x": "Il Blue Badge rilasciato dalle competenti autorità del Regno Unito (Inghilterra, Scozia, Galles e Irlanda del Nord) deve essere riconosciuto come pienamente valido sul territorio italiano, purché in corso di validità e conforme alle caratteristiche grafiche standard del modello britannico recante il simbolo internazionale della sedia a ruote (Allegato A).",
+   "tr": "The Blue Badge issued by the competent UK authorities (England, Scotland, Wales and Northern Ireland) must be recognised as fully valid in Italy, provided that it is in date and matches the standard design of the British model with the international wheelchair symbol (Annex A)."
+  },
+  {
+   "id": "it_c2",
+   "f": "it_circ",
+   "tema": "riconoscimento",
+   "x": "I titolari di Blue Badge beneficiano dei medesimi diritti di parcheggio (es. uso degli stalli riservati alle persone con disabilità) e di circolazione (es. accesso alle Zone a Traffico Limitato - ZTL, ove regolamentato dai singoli Comuni ai sensi dell'art. 7 del Codice della Strada) previsti per i titolari di Contrassegno Unificato Disabili Europeo (CUDE) italiano.",
+   "tr": "Blue Badge holders have the same parking rights (for example the use of the bays reserved for people with disabilities) and traffic rights (for example access to Limited Traffic Zones – ZTL, where each town regulates this under article 7 of the Highway Code) as holders of the Italian European disabled parking card (CUDE)."
+  },
+  {
+   "id": "it_c3",
+   "f": "it_circ",
+   "tema": "regole",
+   "x": "Il Blue Badge deve essere esposto in modo ben visibile sulla parte anteriore del veicolo (cruscotto o parabrezza), al fine di consentire i necessari controlli da parte degli organi di polizia stradale e degli ausiliari del traffico.",
+   "tr": "The Blue Badge must be displayed clearly at the front of the vehicle (dashboard or windscreen), so that the traffic police and traffic wardens can check it."
+  },
+  {
+   "id": "it_uk",
+   "f": "it_uso",
+   "tema": "riconoscimento",
+   "x": "L'Italia riconosce la validità dei Contrassegni emessi dal Regno Unito (blue badge), a seguito della Circolare del Ministero delle infrastrutture e dei trasporti del 28 settembre 2026 e del relativo allegato. Ai possessori di Blue Badge rilasciato dal Regno Unito sono garantiti i medesimi diritti di sosta e di circolazione riconosciuti ai titolari di Contrassegno di parcheggio UE emesso dagli altri Stati membri ai sensi della Raccomandazione 98/376/CE.",
+   "tr": "Italy recognises parking cards issued by the United Kingdom (Blue Badge), following the circular of the Ministry of Infrastructure and Transport of 28 September 2026 and its annex. Holders of a Blue Badge issued by the United Kingdom have the same parking and traffic rights as holders of an EU parking card issued by the other Member States under Recommendation 98/376/EC."
+  },
+  {
+   "id": "it_bordo",
+   "f": "it_uso",
+   "tema": "regole",
+   "x": "Il Blue Badge deve essere sempre esposto in modo visibile dal parabrezza anteriore del veicolo e può essere utilizzato esclusivamente se il titolare è a bordo.",
+   "tr": "The Blue Badge must always be displayed so that it can be seen through the front windscreen, and it can be used only if the holder is in the vehicle."
+  },
+  {
+   "id": "it_gialle",
+   "f": "it_uso",
+   "tema": "parcheggio",
+   "x": "Il Contrassegno dà diritto al parcheggio negli spazi riservati (strisce gialle) segnalati tramite l'apposita cartellonistica stradale",
+   "tr": "The card gives the right to park in the reserved spaces (yellow lines) marked by the special road signs"
+  },
+  {
+   "id": "it_blu",
+   "f": "it_uso",
+   "tema": "parcheggio",
+   "x": "La sosta sulle strisce blu è completamente gratuita, senza limiti di orario, su tutto il territorio nazionale.",
+   "tr": "Parking in blue-line (paid) bays is completely free, with no time limit, throughout the country."
+  },
+  {
+   "id": "it_ztl",
+   "f": "it_uso",
+   "tema": "ztl",
+   "x": "Per i cittadini dei Comuni che hanno aderito alla Piattaforma unica nazionale delle targhe associate il passaggio nelle ZTL dei Comuni che hanno aderito alla Piattaforma è consentito anche senza previa o successiva autorizzazione da parte del Comune, a condizione che il cittadino abbia registrato la propria targa. Negli altri casi, consultare i canali del Comune di riferimento per richiedere l'autorizzazione all'accesso alle ZTL.",
+   "tr": "For residents of towns that have joined the national platform for associated number plates, driving into the ZTLs of towns that have joined the platform is allowed without asking the town for permission before or after, provided that the person has registered their number plate. In other cases, use the town’s channels to ask for permission to enter the ZTL."
+  },
+  {
+   "id": "it_adesione",
+   "f": "it_ztl",
+   "tema": "ztl",
+   "x": "Per accedere alla piattaforma, è indispensabile che il richiedente presenti al Comune che ha emesso il Contrassegno la richiesta di adesione.",
+   "tr": "To use the platform, the applicant must send a request to join to the town (Comune) that issued the card."
+  },
+  {
+   "id": "it_altri",
+   "f": "it_ztl",
+   "tema": "ztl",
+   "x": "ATTENZIONE: In tutti gli altri Comuni che ancora non hanno aderito alla Piattaforma, continueranno a valere le modalità operative precedenti per segnalare il transito del proprio veicolo.",
+   "tr": "WARNING: in all the other towns that have not yet joined the platform, the previous procedures for reporting that your vehicle has driven through still apply."
+  },
+  {
+   "id": "fr_mention",
+   "f": "fr_cmi",
+   "tema": "nazionale",
+   "x": "Mention Stationnement qui permet de se garer gratuitement",
+   "tr": "“Stationnement” (parking) mention, which lets you park free of charge"
+  },
+  {
+   "id": "fr_cmi1",
+   "f": "fr_cmi",
+   "tema": "nazionale",
+   "x": "La carte vous permet, vous et la personne qui vous accompagne, d'utiliser gratuitement et sans limitation de durée toutes les places de stationnement ouvertes au public en France et dans l'ensemble des pays de l'Union européenne",
+   "tr": "The card lets you, and the person travelling with you, use free of charge and with no time limit all parking spaces open to the public in France and in every European Union country"
+  },
+  {
+   "id": "fcdo_at1",
+   "f": "fcdo_AT",
+   "tema": "fcdo",
+   "x": "If you are visiting Austria, you may be able to use your Blue Badge in some circumstances. Check local parking rules."
+  },
+  {
+   "id": "fcdo_be1",
+   "f": "fcdo_BE",
+   "tema": "fcdo",
+   "x": "If you are visiting Belgium, you may be able to use your Blue Badge in some circumstances. Check local parking rules."
+  },
+  {
+   "id": "fcdo_hr1",
+   "f": "fcdo_HR",
+   "tema": "fcdo",
+   "x": "If you are visiting Croatia, you may be able to use your Blue Badge in some circumstances. Check local parking rules."
+  },
+  {
+   "id": "fcdo_cy1",
+   "f": "fcdo_CY",
+   "tema": "fcdo",
+   "x": "If you are visiting Cyprus, you may be able to use your Blue Badge in some circumstances. Check local parking rules."
+  },
+  {
+   "id": "fcdo_dk1",
+   "f": "fcdo_DK",
+   "tema": "fcdo",
+   "x": "If you are visiting Denmark, you may be able to use your Blue Badge in some circumstances. Check local parking rules."
+  },
+  {
+   "id": "fcdo_ee1",
+   "f": "fcdo_EE",
+   "tema": "fcdo",
+   "x": "If you are visiting Estonia, you may be able to use your Blue Badge in some circumstances. Check local parking rules."
+  },
+  {
+   "id": "fcdo_fi1",
+   "f": "fcdo_FI",
+   "tema": "fcdo",
+   "x": "If you are visiting Finland, you may be able to use your Blue Badge in some circumstances. Check local parking rules."
+  },
+  {
+   "id": "fcdo_fr1",
+   "f": "fcdo_FR",
+   "tema": "fcdo",
+   "x": "If you are visiting France, you may be able to use your Blue Badge in some circumstances. Check local parking rules."
+  },
+  {
+   "id": "fcdo_de1",
+   "f": "fcdo_DE",
+   "tema": "fcdo",
+   "x": "If you are visiting Germany, you may be able to use your Blue Badge in some circumstances. Check local parking rules."
+  },
+  {
+   "id": "fcdo_hu1",
+   "f": "fcdo_HU",
+   "tema": "fcdo",
+   "x": "If you are visiting Hungary, you may be able to use your Blue Badge in some circumstances. Check local parking rules."
+  },
+  {
+   "id": "fcdo_ie1",
+   "f": "fcdo_IE",
+   "tema": "fcdo",
+   "x": "If you are visiting Ireland, you may be able to use your Blue Badge in some circumstances. Check local parking rules."
+  },
+  {
+   "id": "fcdo_it1",
+   "f": "fcdo_IT",
+   "tema": "fcdo",
+   "x": "Valid Blue Badges issued in England, Scotland, Wales or Northern Ireland are recognised in Italy and benefit from the same parking and mobility concessions available to holders of the Italian disability parking permit (CUDE). This includes access to designated disabled parking spaces and, where permitted by local regulations, access to Limited Traffic Zones (ZTLs)."
+  },
+  {
+   "id": "fcdo_it2",
+   "f": "fcdo_IT",
+   "tema": "fcdo",
+   "x": "To use your valid Blue Badge in Italy, you should: display it clearly at the front of the vehicle (on the dashboard or windscreen) comply with any local requirements that may apply The arrangements apply to holders of a valid UK Blue Badge visiting Italy."
+  },
+  {
+   "id": "fcdo_lv1",
+   "f": "fcdo_LV",
+   "tema": "fcdo",
+   "x": "If you are visiting Latvia, you may be able to use your Blue Badge in some circumstances. Check local parking rules."
+  },
+  {
+   "id": "fcdo_li1",
+   "f": "fcdo_LI",
+   "tema": "fcdo",
+   "x": "If you are visiting Liechtenstein, you may be able to use your Blue Badge in some circumstances. Check local parking rules."
+  },
+  {
+   "id": "fcdo_mt1",
+   "f": "fcdo_MT",
+   "tema": "fcdo",
+   "x": "You can use your Blue Badge in Malta."
+  },
+  {
+   "id": "fcdo_no1",
+   "f": "fcdo_NO",
+   "tema": "fcdo",
+   "x": "If you are visiting Norway, you may be able to use your Blue Badge in some circumstances. Check local parking rules."
+  },
+  {
+   "id": "fcdo_pl1",
+   "f": "fcdo_PL",
+   "tema": "fcdo",
+   "x": "If you are visiting Poland, you may be able to use your Blue Badge in some circumstances. Check local parking rules."
+  },
+  {
+   "id": "fcdo_pt1",
+   "f": "fcdo_PT",
+   "tema": "fcdo",
+   "x": "If you are visiting Portugal, you may be able to use your Blue Badge in some circumstances. Check local parking rules."
+  },
+  {
+   "id": "fcdo_sk1",
+   "f": "fcdo_SK",
+   "tema": "fcdo",
+   "x": "If you are visiting Slovakia, you may be able to use your Blue Badge in some circumstances. Check local parking rules."
+  },
+  {
+   "id": "fcdo_se1",
+   "f": "fcdo_SE",
+   "tema": "fcdo",
+   "x": "If you are visiting Sweden, you may be able to use your Blue Badge in some circumstances. Check local parking rules."
+  },
+  {
+   "id": "fcdo_ch1",
+   "f": "fcdo_CH",
+   "tema": "fcdo",
+   "x": "If you are visiting Switzerland, you may be able to use your Blue Badge in some circumstances. Check local parking rules."
+  },
+  {
+   "id": "ye_at_generale",
+   "f": "ye_AT",
+   "tema": "ye_generale",
+   "x": "On roads and in car parks, parking places reserved for disabled people are marked with a wheelchair symbol (road sign and/or road marking). Do not park if the space is marked with a vehicle registration number."
+  },
+  {
+   "id": "ye_at_strada",
+   "f": "ye_AT",
+   "tema": "ye_strada",
+   "x": "Do not park on roads where stopping and parking is prohibited (stopping for getting in and out of the vehicle is allowed). In most areas you may park free of charge where otherwise payment is required - Check locally You may park without time limit on roads where parking is restricted by time. You may drive and park in pedestrian zones, but only during vehicle delivery access times and times specifically set by the authority - Check locally"
+  },
+  {
+   "id": "ye_at_parcheggi",
+   "f": "ye_AT",
+   "tema": "ye_parcheggi",
+   "x": "Public car parks generally offer no concessions to vehicles displaying the parking card."
+  },
+  {
+   "id": "ye_be_generale",
+   "f": "ye_BE",
+   "tema": "ye_generale",
+   "x": "On roads and in car parks, parking places reserved for disabled people are marked with a wheelchair symbol."
+  },
+  {
+   "id": "ye_be_strada",
+   "f": "ye_BE",
+   "tema": "ye_strada",
+   "x": "Do not park on roads where parking is prohibited. In most areas you may park free of charge and without time limit on roads where payment is required - Check locally You may park without time limit on roads where parking is free but restricted by time. Do not drive or park in pedestrian zones."
+  },
+  {
+   "id": "ye_be_parcheggi",
+   "f": "ye_BE",
+   "tema": "ye_parcheggi",
+   "x": "Some car parks allow vehicles displaying the parking card to be parked free of charge. Check car park notices or ask an attendant"
+  },
+  {
+   "id": "ye_bg_generale",
+   "f": "ye_BG",
+   "tema": "ye_generale",
+   "x": "On roads and in car parks, parking places reserved for disabled people are marked with a wheelchair symbol."
+  },
+  {
+   "id": "ye_bg_strada",
+   "f": "ye_BG",
+   "tema": "ye_strada",
+   "x": "For parking outside populated areas, vehicles should stop offroad. Parking on the road is prohibited. In populated areas, the owner or the administration managing the road is allowed to designate areas, roads, or parts of roads as zones for short-term parking during certain hours. This time should not be less than 30 minutes and more than 3 hours."
+  },
+  {
+   "id": "ye_bg_parcheggi",
+   "f": "ye_BG",
+   "tema": "ye_parcheggi",
+   "x": "The parking areas are marked by road signs, road markings and notices instructing the driver about the parking terms. The corresponding municipal council is allowed to set a parking fee."
+  },
+  {
+   "id": "ye_hr_generale",
+   "f": "ye_HR",
+   "tema": "ye_generale",
+   "x": "On roads and in car parks, parking places reserved for vehicles of persons with disabilities are marked with a wheelchair symbol and plotted in yellow. Only the holders of a parking card may park their vehicles in car parks reserved for vehicles of persons with disabilities."
+  },
+  {
+   "id": "ye_hr_strada",
+   "f": "ye_HR",
+   "tema": "ye_strada",
+   "x": "Parking charges and parking time concessions for vehicles displaying the parking card vary - check locally Do not park on roads where parking is prohibited - check locally Do not drive or park in a pedestrian or limited traffic areas unless local concessions specifically allow it - check locally"
+  },
+  {
+   "id": "ye_hr_parcheggi",
+   "f": "ye_HR",
+   "tema": "ye_parcheggi",
+   "x": "In some car parks, payment concessions are given to vehicles displaying the parking card. Check car park notices or ask an attendant."
+  },
+  {
+   "id": "ye_cy_generale",
+   "f": "ye_CY",
+   "tema": "ye_generale",
+   "x": "On roads and in car parks, parking places reserved for disabled people are marked with a wheelchair symbol."
+  },
+  {
+   "id": "ye_cy_strada",
+   "f": "ye_CY",
+   "tema": "ye_strada",
+   "x": "Do not park on roads where parking is prohibited. You may park free of charge and without time limit on roads where payment is required - Check locally"
+  },
+  {
+   "id": "ye_cy_parcheggi",
+   "f": "ye_CY",
+   "tema": "ye_parcheggi",
+   "x": "Some public car parks allow vehicles displaying the parking card to be parked free of charge. Check car park notices or ask an attendant."
+  },
+  {
+   "id": "ye_cz_generale",
+   "f": "ye_CZ",
+   "tema": "ye_generale",
+   "x": "The holders of the parking card may park their vehicles in parking spaces reserved for disabled people."
+  },
+  {
+   "id": "ye_cz_strada",
+   "f": "ye_CZ",
+   "tema": "ye_strada",
+   "x": "In individual cases, and if it is urgently necessary, the drivers with a parking card may ignore a \"parking prohibited\" sign for the necessary time (safety and fluidity of the road traffic must not be impaired). In individual cases, and if it is urgently necessary, the cars displaying the parking card may ignore the following signs: \"No entry\" \"For access only\" \"Supply only\" \"Except only\" \"Resident traffic\" \"Except resident traffic\". In individual cases, and if it is urgently necessary, the holders of the parking card can park in areas signposted \"pedestrian zone\"."
+  },
+  {
+   "id": "ye_cz_parcheggi",
+   "f": "ye_CZ",
+   "tema": "ye_parcheggi",
+   "x": "Check locally whether private car parks apply a special regime for disabled persons. A holder of the parking card may ask the administrative authority for a reserved parking place to be established at his/her residence."
+  },
+  {
+   "id": "ye_dk_generale",
+   "f": "ye_DK",
+   "tema": "ye_generale",
+   "x": "On roads and in car parks, parking places reserved for disabled people are marked with a wheelchair symbol."
+  },
+  {
+   "id": "ye_dk_strada",
+   "f": "ye_DK",
+   "tema": "ye_strada",
+   "x": "The following time limits apply in most areas to vehicles displaying the parking card: Where parking is prohibited you may park for up to 15 minutes, but only if you are not causing an obstruction Where parking is limited to 15-30 minutes, you may park for up to an hour Where parking is free but limited to one, two or three hours, you may park for an unlimited time. Unless a time limit is stated on a sign with the wheelchair symbol Where a fee is being charged to park on roads, you may be permitted to park without time limit, if you pay for the maximum time allowed on arrival - check locally Do not drive or park in pedestrian zones unless local concessions specifically allow it - check locally"
+  },
+  {
+   "id": "ye_dk_parcheggi",
+   "f": "ye_DK",
+   "tema": "ye_parcheggi",
+   "x": "Car parks offer no concessions to vehicles displaying the parking card."
+  },
+  {
+   "id": "ye_ee_generale",
+   "f": "ye_EE",
+   "tema": "ye_generale",
+   "x": "On roads and in car parks, parking places for disabled people are marked with a wheelchair symbol."
+  },
+  {
+   "id": "ye_ee_strada",
+   "f": "ye_EE",
+   "tema": "ye_strada",
+   "x": "You may be permitted to park on roads where parking is prohibited but only if the car is wholly parked on the footpath and if you are not causing an obstruction you are strongly advised to check locally You may park free of charge and without time limit on roads where payment is required You may park without time limit on roads where parking is free but restricted by time A disabled driver should have no time limit for parking A driver of a disabled person may stop in order to pick up or set down a disabled person Do not drive or park in pedestrian zones"
+  },
+  {
+   "id": "ye_ee_parcheggi",
+   "f": "ye_EE",
+   "tema": "ye_parcheggi",
+   "x": "Some car parks allow vehicles displaying the parking card to be parked free of charge. Check car park notices or ask an attendant."
+  },
+  {
+   "id": "ye_fi_generale",
+   "f": "ye_FI",
+   "tema": "ye_generale",
+   "x": "On roads and in car parks, parking places reserved for disabled people are marked with a wheelchair symbol. Do not park if the space is marked with a person's name or vehicle registration number."
+  },
+  {
+   "id": "ye_fi_strada",
+   "f": "ye_FI",
+   "tema": "ye_strada",
+   "x": "In some areas you may park where parking is prohibited, but only if you are not causing an obstruction - Check locally You may park free of charge and exceed the time limit in areas where payment is required You may exceed the time limit in areas where parking is free but limited by time Do not drive or park in pedestrian zones"
+  },
+  {
+   "id": "ye_fi_parcheggi",
+   "f": "ye_FI",
+   "tema": "ye_parcheggi",
+   "x": "Regulations in car parks vary. Check car park notices or ask an attendant."
+  },
+  {
+   "id": "ye_fr_generale",
+   "f": "ye_FR",
+   "tema": "ye_generale",
+   "x": "On roads and in car parks, parking places reserved for disabled people are marked with a wheelchair symbol. Although there is a national system of parking concessions, local variations can apply - Check locally Legislation insists on a free access to reserved parking places for disabled people and prohibits any kind of equipment which limits their access."
+  },
+  {
+   "id": "ye_fr_strada",
+   "f": "ye_FR",
+   "tema": "ye_strada",
+   "x": "Do not park on roads where parking is prohibited. You must pay to park on roads where payment is required. In Paris and in some other cities, vehicles displaying the parking card may be parked on roads free of charge - Check locally In many areas you may park without time limit on roads where parking is free but restricted by time - Check locally Do not drive or park in pedestrian zones"
+  },
+  {
+   "id": "ye_fr_parcheggi",
+   "f": "ye_FR",
+   "tema": "ye_parcheggi",
+   "x": "Car parks give concessions to vehicles displaying the parking card. Check car park notices or ask an attendant."
+  },
+  {
+   "id": "ye_de_generale",
+   "f": "ye_DE",
+   "tema": "ye_generale",
+   "x": "On roads and in car parks, parking places reserved for disabled people are marked with a wheelchair symbol. Do not park if the space is marked with a person's name, a vehicle registration number or a parking card number, reserving it for other disabled people."
+  },
+  {
+   "id": "ye_de_strada",
+   "f": "ye_DE",
+   "tema": "ye_strada",
+   "x": "You may park for up to three hours on roads or in zones where waiting is otherwise prohibited. You have to show the time of arrival with a parking disc. You may exceed the parking time on roads or in zones where parking time is restricted. You may park free of charge and without time limit in parking places or on roads where payment is required through pay and display machines or parking meters and where the parking time is limited. You may park in parking places reserved for residents for up to three hours. You may park outside the marked spaces, in traffic-calm areas, provided you do not hinder through traffic. Park in pedestrian zones only if local concessions explicitly allow it. You may park in pedestrian zones, where loading and unloading is allowed, during the specified times - Check locally Note: These parking concessions only apply if there is no alternative parking option available nearby. The maximum time limit for parking cannot exceed 24 hours."
+  },
+  {
+   "id": "ye_de_parcheggi",
+   "f": "ye_DE",
+   "tema": "ye_parcheggi",
+   "x": "Regulations in car parks vary. Check car park notices or ask an attendant."
+  },
+  {
+   "id": "ye_gr_generale",
+   "f": "ye_GR",
+   "tema": "ye_generale",
+   "x": "On roads and in car parks, parking places reserved for disabled people are marked with a wheelchair symbol. Do not park if the space is marked with a person's name or vehicle registration number."
+  },
+  {
+   "id": "ye_gr_strada",
+   "f": "ye_GR",
+   "tema": "ye_strada",
+   "x": "The use of the parking card allows priority parking on public roads or places for vehicle traffic, pedestrians or animals. Do not park on roads where parking is prohibited. In most areas you must pay to park where payment is required - Check locally In most areas you may park without time limit on roads where parking is free but restricted by time - Check locally Do not drive or park in pedestrian zones."
+  },
+  {
+   "id": "ye_gr_parcheggi",
+   "f": "ye_GR",
+   "tema": "ye_parcheggi",
+   "x": "Some car parks allow vehicles displaying the parking card to be parked free of charge. Check car park notices or ask an attendant."
+  },
+  {
+   "id": "ye_hu_generale",
+   "f": "ye_HU",
+   "tema": "ye_generale",
+   "x": "On roads and in car parks, parking places reserved for persons with disabilities are normally close to the entrance and marked with a wheelchair symbol. Displaying the parking card is obligatory all the time"
+  },
+  {
+   "id": "ye_hu_strada",
+   "f": "ye_HU",
+   "tema": "ye_strada",
+   "x": "You may park free of charge on roads where payment is required You may exceed the time limit on roads where parking is free but restricted by time You may park in pedestrian zones even if it is prohibited You may park on roads where parking is otherwise prohibited with a traffic sign"
+  },
+  {
+   "id": "ye_hu_parcheggi",
+   "f": "ye_HU",
+   "tema": "ye_parcheggi",
+   "x": "Regulations in car parks vary. In most areas you may park free of charge and without time limit where payment is required. Check car park notices or ask an attendant"
+  },
+  {
+   "id": "ye_ie_generale",
+   "f": "ye_IE",
+   "tema": "ye_generale",
+   "x": "On roads and in car parks, parking places reserved for disabled people are marked with a wheelchair symbol."
+  },
+  {
+   "id": "ye_ie_strada",
+   "f": "ye_IE",
+   "tema": "ye_strada",
+   "x": "Do not park on roads where parking is prohibited. Parking charges and parking time concessions for vehicles displaying the parking card vary - Check locally Do not drive or park in pedestrian zones"
+  },
+  {
+   "id": "ye_ie_parcheggi",
+   "f": "ye_IE",
+   "tema": "ye_parcheggi",
+   "x": "In some car parks, payment concessions are given to vehicles displaying the parking card. Check car park notices or ask an attendant."
+  },
+  {
+   "id": "ye_it_generale",
+   "f": "ye_IT",
+   "tema": "ye_generale",
+   "x": "On roads and in car parks, parking places reserved for disabled people are marked with a yellow line and wheelchair symbol. Do not park if there is a specific signal marked with a number that identifies the permission of the person authorized to use it."
+  },
+  {
+   "id": "ye_it_strada",
+   "f": "ye_IT",
+   "tema": "ye_strada",
+   "x": "You may park on roads where parking is prohibited but only in an emergency and only if you are not causing an obstruction. In most areas you must not pay to park where payment is required - Check locally You may park without time limit on roads where parking is free even if it is restricted by time. Do not drive or park in a pedestrian or ZTL (limited traffic areas) zones unless local concessions specifically allow it - Check locally"
+  },
+  {
+   "id": "ye_it_parcheggi",
+   "f": "ye_IT",
+   "tema": "ye_parcheggi",
+   "x": "At least 1 in 50 spaces in public car parks is marked for use by vehicles displaying the parking card. Vehicles displaying the parking card may be parked in those spaces free of charge and without time limit. Check car park notices or ask an attendant"
+  },
+  {
+   "id": "ye_lv_generale",
+   "f": "ye_LV",
+   "tema": "ye_generale",
+   "x": "On roads and in car parks, parking places reserved for disabled people are marked with a wheelchair symbol."
+  },
+  {
+   "id": "ye_lv_strada",
+   "f": "ye_LV",
+   "tema": "ye_strada",
+   "x": "You may park your car for free in the specially marked parking places for persons with disabilities. Persons with a parking card for people with disabilities may ignore the following signs: \"Parking prohibited\" \"Waiting prohibited\""
+  },
+  {
+   "id": "ye_lv_parcheggi",
+   "f": "ye_LV",
+   "tema": "ye_parcheggi",
+   "x": "No concessions are offered to vehicles displaying the parking card."
+  },
+  {
+   "id": "ye_lt_generale",
+   "f": "ye_LT",
+   "tema": "ye_generale",
+   "x": "On roads and in car parks, parking places reserved for disabled people are marked with a wheelchair symbol."
+  },
+  {
+   "id": "ye_lt_strada",
+   "f": "ye_LT",
+   "tema": "ye_strada",
+   "x": "You may park on roads where parking is prohibited but only if you are not causing an obstruction. You may park free of charge and without time limit on roads where payment is required, but only in spaces marked with a wheelchair symbol. You may park without time limit on roads where parking is free but restricted by time. You may drive in a zone where traffic is prohibited"
+  },
+  {
+   "id": "ye_lt_parcheggi",
+   "f": "ye_LT",
+   "tema": "ye_parcheggi",
+   "x": "Some car parks allow vehicles displaying the parking card to park free of charge, but only in parking bays reserved for disabled people. Check car park notices or ask an attendant"
+  },
+  {
+   "id": "ye_lu_generale",
+   "f": "ye_LU",
+   "tema": "ye_generale",
+   "x": "On roads and in car parks, parking places reserved for disabled people are marked with a wheelchair symbol. Parking on roads No concessions are offered to vehicles displaying the parking card. Parking in car parks No concessions are offered to vehicles displaying the parking card."
+  },
+  {
+   "id": "ye_mt_generale",
+   "f": "ye_MT",
+   "tema": "ye_generale",
+   "x": "On roads and in car parks, parking places reserved for disabled people are marked with a wheelchair symbol. Details of parking concessions available to disabled people can be obtained from Maltese authorities at the following address: Aġenzija Sapport Head Office Patri Ġwann Azzopardi Street Santa Venera SVR 1614 Malta E-mail: bluebadge.sapport@gov.mt Parking on roads Check locally Parking in car parks Check locally"
+  },
+  {
+   "id": "ye_nl_generale",
+   "f": "ye_NL",
+   "tema": "ye_generale",
+   "x": "On roads and in car parks, parking places reserved for disabled people are marked with a wheelchair symbol. Do not park if the space is marked with a person's name or vehicle registration number."
+  },
+  {
+   "id": "ye_nl_strada",
+   "f": "ye_NL",
+   "tema": "ye_strada",
+   "x": "You may park for up to three hours on roads where parking is prohibited, but only if you are not causing obstruction. You must pay to park where payment is required and you must keep within the time limit. Local variations may apply - Check locally You may park without time limit on roads where parking is free but restricted by time (blue zone). Do not drive or park in pedestrian zones"
+  },
+  {
+   "id": "ye_nl_parcheggi",
+   "f": "ye_NL",
+   "tema": "ye_parcheggi",
+   "x": "No concessions are offered to vehicles displaying the parking card."
+  },
+  {
+   "id": "ye_pl_generale",
+   "f": "ye_PL",
+   "tema": "ye_generale",
+   "x": "On roads and in car parks, parking places reserved for disabled people are marked with a wheelchair symbol. Persons with a parking card for people with disabilities may, under the condition that they exercise extreme caution, disregard the following traffic signs: \"No movement in both directions\" \"No entry for engine vehicles, with the exception of one-track motor bikes\" \"No entry for buses\" \"No entry for motor bikes\" \"No entry for motorized bicycles\" \"No parking\" \"No parking on odd days\" \"No parking on even days\" \"Area of restricted parking\". The above mentioned provision applies also to: a person driving a vehicle, transporting a person possessing a parking card a person driving a vehicle belonging to the institution which deals with the care, rehabilitation or education of persons with disabilities and possesses a parking card, if the driver carries a person having significantly reduced mobility and the person remains under the care of the institution drivers of vehicles displaying the parking card issued abroad"
+  },
+  {
+   "id": "ye_pl_strada",
+   "f": "ye_PL",
+   "tema": "ye_strada",
+   "x": "Do not park on roads where parking is prohibited. Check locally You may park free of charge and without time limit on roads where payment is required, but only in spaces marked with a wheelchair symbol - Check locally You may park on either side of the road where parking is restricted on odd and even days but only if you are not causing an obstruction - Check locally Do not drive or park in pedestrian zones unless local concessions specifically allow it - Check locally"
+  },
+  {
+   "id": "ye_pl_parcheggi",
+   "f": "ye_PL",
+   "tema": "ye_parcheggi",
+   "x": "No concessions are offered to vehicles displaying the parking card. But local variations may apply - Check locally"
+  },
+  {
+   "id": "ye_pt_generale",
+   "f": "ye_PT",
+   "tema": "ye_generale",
+   "x": "On roads and in car parks, parking places reserved for disabled people are marked with a wheelchair symbol or a symbol of a pregnant woman or a woman with a child in her arms."
+  },
+  {
+   "id": "ye_pt_strada",
+   "f": "ye_PT",
+   "tema": "ye_strada",
+   "x": "Do not park on roads where parking is prohibited unless it is an absolute necessity and only if it is for a short time and does not obstruct vehicles or pedestrians. You must pay to park on roads where payment is required and you must not exceed the time paid for You must not exceed time limits on roads where time restrictions apply Parking places close to disabled persons' residences can be reserved - Check locally Do not drive or park in pedestrian zones"
+  },
+  {
+   "id": "ye_pt_parcheggi",
+   "f": "ye_PT",
+   "tema": "ye_parcheggi",
+   "x": "Car parks generally do not offer concessions to vehicles displaying a disabled person's parking card. Some local authorities establish a reserved parking place at the residence of a disabled person."
+  },
+  {
+   "id": "ye_ro_generale",
+   "f": "ye_RO",
+   "tema": "ye_generale",
+   "x": "At least 4% of the total number of parking places, but not less than 2 places, close to public services or in organised parking areas, are adapted, reserved and indicated using the internationally recognised sign for free use by disabled persons. The administrator responsible for distributing parking places in the public domain allocates free parking places for disabled people who ask and need a parking place as close to their domicile as possible."
+  },
+  {
+   "id": "ye_sk_generale",
+   "f": "ye_SK",
+   "tema": "ye_generale",
+   "x": "On roads and in car parks, parking places reserved for disabled people are marked with a wheelchair symbol. The use of restricted parking areas is allowed for vehicles marked with the no. O1 symbol. Do not park if the space is marked with a vehicle registration number."
+  },
+  {
+   "id": "ye_sk_strada",
+   "f": "ye_SK",
+   "tema": "ye_strada",
+   "x": "The driver of a vehicle transporting a seriously handicapped person having to rely on individual transportation, marked with the no. O1 symbol is not obliged to adhere to parking prohibitions, provided the driver does not obstruct through traffic. A vehicle with the no. O1 marking symbol can ignore the follow signs: \"Except for Deliveries\", \"Deliveries Only\" \"Except for Transport Services\" \"Transport Services\"."
+  },
+  {
+   "id": "ye_sk_parcheggi",
+   "f": "ye_SK",
+   "tema": "ye_parcheggi",
+   "x": "Some car parks allow vehicles displaying the parking card to park free of charge or for a reduced fee. Check car park notices or ask an attendant."
+  },
+  {
+   "id": "ye_si_generale",
+   "f": "ye_SI",
+   "tema": "ye_generale",
+   "x": "On roads and in car parks, parking places reserved for disabled people are marked with a wheelchair symbol."
+  },
+  {
+   "id": "ye_si_strada",
+   "f": "ye_SI",
+   "tema": "ye_strada",
+   "x": "You may park for up to two hours on roads where parking is prohibited but only if you are not causing an obstruction You must pay to park on roads where payment is required and keep within time limit Where you are permitted to park on pavements, you must ensure that at least 1,6m is available for pedestrians - Check locally Do not drive or park in pedestrian zones"
+  },
+  {
+   "id": "ye_si_parcheggi",
+   "f": "ye_SI",
+   "tema": "ye_parcheggi",
+   "x": "Some car parks allow vehicles displaying the parking card to be parked free of charge. Check car park notices or ask an attendant"
+  },
+  {
+   "id": "ye_es_generale",
+   "f": "ye_ES",
+   "tema": "ye_generale",
+   "x": "On roads and in car parks, parking places reserved for people with disabilities are marked with a wheelchair symbol."
+  },
+  {
+   "id": "ye_es_strada",
+   "f": "ye_ES",
+   "tema": "ye_strada",
+   "x": "Do not park on roads where parking is prohibited unless local concessions specifically allow it - Check locally Parking charges and parking time limit concessions for vehicles displaying the parking card vary - Check locally Do not drive or park in pedestrian zones - Check locally"
+  },
+  {
+   "id": "ye_es_parcheggi",
+   "f": "ye_ES",
+   "tema": "ye_parcheggi",
+   "x": "In most places car parks offer concessions to vehicles displaying the parking card. Check car park notices or ask an attendant."
+  },
+  {
+   "id": "ye_se_generale",
+   "f": "ye_SE",
+   "tema": "ye_generale",
+   "x": "Parking cards only exempt holders from local road traffic regulations governing parking. Local traffic regulations are usually determined by the district authority and denoted by road signs. Parking spaces reserved especially for the physically disabled with parking cards on road and in car parks are marked with a wheelchair symbol. In some districts parking is free for those displaying a parking card."
+  },
+  {
+   "id": "ye_se_strada",
+   "f": "ye_SE",
+   "tema": "ye_strada",
+   "x": "Parking for up to three hours is permitted in areas where parking is prohibited or permitted for periods shorter than three hours under local road traffic regulations. Parking for up to 24 hours is permitted in areas where parking is permitted for periods of between three hours and 24 hours under local traffic regulations. Parking in pedestrian precincts is permitted for up to three hours. Parking is permitted in parking spaces reserved for the physically disabled with a parking card under local road traffic regulations. The maximum parking time for the parking space in question must be observed. You may not park in parking spaces intended for a specific purpose or type of vehicle."
+  },
+  {
+   "id": "ye_se_parcheggi",
+   "f": "ye_SE",
+   "tema": "ye_parcheggi",
+   "x": "The rules set out under the above heading parking on roads also apply to public car parks. Landowners may permit or prohibit all car parking, including people who possess a parking card."
+  }
+ ],
+ "generali": {
+  "govuk": [
+   "g_check",
+   "g_local",
+   "g_research",
+   "g_always",
+   "g_docs"
+  ],
+  "indice": [
+   "g_intro",
+   "g_check",
+   "g_local",
+   "g_research",
+   "g_docs",
+   "g_vary",
+   "p_same"
+  ],
+  "ue_paese": [
+   "p_same",
+   "ye_warn",
+   "ye_display"
+  ],
+  "non_ue": [
+   "p_differ"
+  ],
+  "spagna": [
+   "g_spain",
+   "es_accordo"
+  ],
+  "italia": [
+   "it_c1",
+   "it_c2",
+   "it_c3",
+   "it_uk",
+   "it_bordo",
+   "it_gialle",
+   "it_blu",
+   "it_ztl",
+   "it_adesione",
+   "it_altri"
+  ],
+  "francia": [
+   "fr_mention",
+   "fr_cmi1"
+  ],
+  "carte_cosa": [
+   "ec_dir",
+   "ec_equal",
+   "ec_short",
+   "ec_benefits"
+  ],
+  "carte_chi": [
+   "ec_edc_who",
+   "ec_epc_who",
+   "ec_tcn",
+   "ec_national"
+  ],
+  "carte_parcheggio": [
+   "ec_epc",
+   "ye_new",
+   "ye_card"
+  ],
+  "carte_pilota": [
+   "ec_pilot",
+   "ec_pilot_list"
+  ],
+  "carte_poi": [
+   "ec_qr",
+   "ec_digital"
+  ],
+  "fcdo": {
+   "AT": [
+    "fcdo_at1"
+   ],
+   "BE": [
+    "fcdo_be1"
+   ],
+   "HR": [
+    "fcdo_hr1"
+   ],
+   "CY": [
+    "fcdo_cy1"
+   ],
+   "DK": [
+    "fcdo_dk1"
+   ],
+   "EE": [
+    "fcdo_ee1"
+   ],
+   "FI": [
+    "fcdo_fi1"
+   ],
+   "FR": [
+    "fcdo_fr1"
+   ],
+   "DE": [
+    "fcdo_de1"
+   ],
+   "HU": [
+    "fcdo_hu1"
+   ],
+   "IE": [
+    "fcdo_ie1"
+   ],
+   "IT": [
+    "fcdo_it1",
+    "fcdo_it2"
+   ],
+   "LV": [
+    "fcdo_lv1"
+   ],
+   "LI": [
+    "fcdo_li1"
+   ],
+   "MT": [
+    "fcdo_mt1"
+   ],
+   "NO": [
+    "fcdo_no1"
+   ],
+   "PL": [
+    "fcdo_pl1"
+   ],
+   "PT": [
+    "fcdo_pt1"
+   ],
+   "SK": [
+    "fcdo_sk1"
+   ],
+   "SE": [
+    "fcdo_se1"
+   ],
+   "CH": [
+    "fcdo_ch1"
+   ]
+  },
+  "ye": {
+   "AT": {
+    "generale": "ye_at_generale",
+    "strada": "ye_at_strada",
+    "parcheggi": "ye_at_parcheggi"
+   },
+   "BE": {
+    "generale": "ye_be_generale",
+    "strada": "ye_be_strada",
+    "parcheggi": "ye_be_parcheggi"
+   },
+   "BG": {
+    "generale": "ye_bg_generale",
+    "strada": "ye_bg_strada",
+    "parcheggi": "ye_bg_parcheggi"
+   },
+   "HR": {
+    "generale": "ye_hr_generale",
+    "strada": "ye_hr_strada",
+    "parcheggi": "ye_hr_parcheggi"
+   },
+   "CY": {
+    "generale": "ye_cy_generale",
+    "strada": "ye_cy_strada",
+    "parcheggi": "ye_cy_parcheggi"
+   },
+   "CZ": {
+    "generale": "ye_cz_generale",
+    "strada": "ye_cz_strada",
+    "parcheggi": "ye_cz_parcheggi"
+   },
+   "DK": {
+    "generale": "ye_dk_generale",
+    "strada": "ye_dk_strada",
+    "parcheggi": "ye_dk_parcheggi"
+   },
+   "EE": {
+    "generale": "ye_ee_generale",
+    "strada": "ye_ee_strada",
+    "parcheggi": "ye_ee_parcheggi"
+   },
+   "FI": {
+    "generale": "ye_fi_generale",
+    "strada": "ye_fi_strada",
+    "parcheggi": "ye_fi_parcheggi"
+   },
+   "FR": {
+    "generale": "ye_fr_generale",
+    "strada": "ye_fr_strada",
+    "parcheggi": "ye_fr_parcheggi"
+   },
+   "DE": {
+    "generale": "ye_de_generale",
+    "strada": "ye_de_strada",
+    "parcheggi": "ye_de_parcheggi"
+   },
+   "GR": {
+    "generale": "ye_gr_generale",
+    "strada": "ye_gr_strada",
+    "parcheggi": "ye_gr_parcheggi"
+   },
+   "HU": {
+    "generale": "ye_hu_generale",
+    "strada": "ye_hu_strada",
+    "parcheggi": "ye_hu_parcheggi"
+   },
+   "IE": {
+    "generale": "ye_ie_generale",
+    "strada": "ye_ie_strada",
+    "parcheggi": "ye_ie_parcheggi"
+   },
+   "IT": {
+    "generale": "ye_it_generale",
+    "strada": "ye_it_strada",
+    "parcheggi": "ye_it_parcheggi"
+   },
+   "LV": {
+    "generale": "ye_lv_generale",
+    "strada": "ye_lv_strada",
+    "parcheggi": "ye_lv_parcheggi"
+   },
+   "LT": {
+    "generale": "ye_lt_generale",
+    "strada": "ye_lt_strada",
+    "parcheggi": "ye_lt_parcheggi"
+   },
+   "LU": {
+    "generale": "ye_lu_generale"
+   },
+   "MT": {
+    "generale": "ye_mt_generale"
+   },
+   "NL": {
+    "generale": "ye_nl_generale",
+    "strada": "ye_nl_strada",
+    "parcheggi": "ye_nl_parcheggi"
+   },
+   "PL": {
+    "generale": "ye_pl_generale",
+    "strada": "ye_pl_strada",
+    "parcheggi": "ye_pl_parcheggi"
+   },
+   "PT": {
+    "generale": "ye_pt_generale",
+    "strada": "ye_pt_strada",
+    "parcheggi": "ye_pt_parcheggi"
+   },
+   "RO": {
+    "generale": "ye_ro_generale"
+   },
+   "SK": {
+    "generale": "ye_sk_generale",
+    "strada": "ye_sk_strada",
+    "parcheggi": "ye_sk_parcheggi"
+   },
+   "SI": {
+    "generale": "ye_si_generale",
+    "strada": "ye_si_strada",
+    "parcheggi": "ye_si_parcheggi"
+   },
+   "ES": {
+    "generale": "ye_es_generale",
+    "strada": "ye_es_strada",
+    "parcheggi": "ye_es_parcheggi"
+   },
+   "SE": {
+    "generale": "ye_se_generale",
+    "strada": "ye_se_strada",
+    "parcheggi": "ye_se_parcheggi"
+   }
+  }
+ },
+ "paesi": [
+  {
+   "iso2": "AT",
+   "nome": "Austria",
+   "nome_frase": "Austria",
+   "slug": "austria",
+   "riconosciuto": "Yes",
+   "info": "",
+   "esito": "si",
+   "risposta": "the UK Blue Badge is recognised in Austria, but parking rules vary from place to place, so check the local rules before you park.",
+   "nota": "",
+   "faq": [
+    {
+     "q": "Can I use my UK Blue Badge in Austria?",
+     "query": "can i use my uk blue badge in austria",
+     "pre": "Yes. GOV.UK answers “Yes” for Austria in its table of countries that recognise the UK Blue Badge. The FCDO travel advice says:",
+     "cit": [
+      "fcdo_at1"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Where can you park with a Blue Badge in Austria?",
+     "query": "disabled parking in austria",
+     "pre": "GOV.UK does not list local rules. Your Europe, the European Commission’s guide, gives these rules for holders of the EU parking card in Austria:",
+     "cit": [
+      "ye_at_strada"
+     ],
+     "post": "GOV.UK says that rules can vary in different parts of a country: check the signs and the local rules where you park."
+    }
+   ]
+  },
+  {
+   "iso2": "BE",
+   "nome": "Belgium",
+   "nome_frase": "Belgium",
+   "slug": "belgium",
+   "riconosciuto": "Yes",
+   "info": "",
+   "esito": "si",
+   "risposta": "the UK Blue Badge is recognised in Belgium, but parking rules vary from place to place, so check the local rules before you park.",
+   "nota": "",
+   "faq": [
+    {
+     "q": "Can I use my UK Blue Badge in Belgium?",
+     "query": "can i use my uk blue badge in belgium",
+     "pre": "Yes. GOV.UK answers “Yes” for Belgium in its table of countries that recognise the UK Blue Badge. The FCDO travel advice says:",
+     "cit": [
+      "fcdo_be1"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Where can you park with a Blue Badge in Belgium?",
+     "query": "blue badge parking in belgium",
+     "pre": "GOV.UK does not list local rules. Your Europe, the European Commission’s guide, gives these rules for holders of the EU parking card in Belgium:",
+     "cit": [
+      "ye_be_strada"
+     ],
+     "post": "GOV.UK says that rules can vary in different parts of a country: check the signs and the local rules where you park."
+    }
+   ]
+  },
+  {
+   "iso2": "BG",
+   "nome": "Bulgaria",
+   "nome_frase": "Bulgaria",
+   "slug": "bulgaria",
+   "riconosciuto": "No information",
+   "info": "",
+   "esito": "non_detto",
+   "risposta": "there is no information on whether Bulgaria recognises the UK Blue Badge: check with the local authority before you rely on it there.",
+   "nota": "Your Europe gives the local rules for EU parking cards only; it does not say whether a UK Blue Badge is accepted.",
+   "faq": [
+    {
+     "q": "Can I use my UK Blue Badge in Bulgaria?",
+     "query": "can i use my blue badge in bulgaria",
+     "pre": "GOV.UK does not say: its table gives “No information” for Bulgaria. It says:",
+     "cit": [
+      "g_check"
+     ],
+     "post": ""
+    }
+   ]
+  },
+  {
+   "iso2": "HR",
+   "nome": "Croatia",
+   "nome_frase": "Croatia",
+   "slug": "croatia",
+   "riconosciuto": "Yes",
+   "info": "",
+   "esito": "si",
+   "risposta": "the UK Blue Badge is recognised in Croatia, but parking rules vary from place to place, so check the local rules before you park.",
+   "nota": "",
+   "faq": [
+    {
+     "q": "Can I use my UK Blue Badge in Croatia?",
+     "query": "can i use my blue badge in croatia",
+     "pre": "Yes. GOV.UK answers “Yes” for Croatia in its table of countries that recognise the UK Blue Badge. The FCDO travel advice says:",
+     "cit": [
+      "fcdo_hr1"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Where can you park with a Blue Badge in Croatia?",
+     "query": "blue badge parking croatia",
+     "pre": "GOV.UK does not list local rules. Your Europe, the European Commission’s guide, gives these rules for holders of the EU parking card in Croatia:",
+     "cit": [
+      "ye_hr_strada"
+     ],
+     "post": "GOV.UK says that rules can vary in different parts of a country: check the signs and the local rules where you park."
+    }
+   ]
+  },
+  {
+   "iso2": "CY",
+   "nome": "Cyprus",
+   "nome_frase": "Cyprus",
+   "slug": "cyprus",
+   "riconosciuto": "Yes",
+   "info": "",
+   "esito": "si",
+   "risposta": "the UK Blue Badge is recognised in Cyprus, but parking rules vary from place to place, so check the local rules before you park.",
+   "nota": "",
+   "faq": [
+    {
+     "q": "Can I use my UK Blue Badge in Cyprus?",
+     "query": "can i use my uk blue badge in cyprus",
+     "pre": "Yes. GOV.UK answers “Yes” for Cyprus in its table of countries that recognise the UK Blue Badge. The FCDO travel advice says:",
+     "cit": [
+      "fcdo_cy1"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Where can you park with a Blue Badge in Cyprus?",
+     "query": "blue badge parking in cyprus",
+     "pre": "GOV.UK does not list local rules. Your Europe, the European Commission’s guide, gives these rules for holders of the EU parking card in Cyprus:",
+     "cit": [
+      "ye_cy_strada"
+     ],
+     "post": "GOV.UK says that rules can vary in different parts of a country: check the signs and the local rules where you park."
+    }
+   ]
+  },
+  {
+   "iso2": "CZ",
+   "nome": "Czechia",
+   "nome_frase": "Czechia",
+   "slug": "czechia",
+   "riconosciuto": "Yes",
+   "info": "",
+   "esito": "si",
+   "risposta": "the UK Blue Badge is recognised in Czechia, but parking rules vary from place to place, so check the local rules before you park.",
+   "nota": "",
+   "faq": []
+  },
+  {
+   "iso2": "DK",
+   "nome": "Denmark",
+   "nome_frase": "Denmark",
+   "slug": "denmark",
+   "riconosciuto": "Yes",
+   "info": "You must use a parking disc (clock) if using parking time concessions.",
+   "esito": "si",
+   "risposta": "the UK Blue Badge is recognised in Denmark, but parking rules vary from place to place, so check the local rules before you park.",
+   "nota": "",
+   "faq": [
+    {
+     "q": "Can I use my UK Blue Badge in Denmark?",
+     "query": "can i use my blue badge in denmark",
+     "pre": "Yes. GOV.UK answers “Yes” for Denmark in its table of countries that recognise the UK Blue Badge. The FCDO travel advice says:",
+     "cit": [
+      "fcdo_dk1"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Where can you park with a Blue Badge in Denmark?",
+     "query": "disabled parking denmark",
+     "pre": "GOV.UK does not list local rules. Your Europe, the European Commission’s guide, gives these rules for holders of the EU parking card in Denmark:",
+     "cit": [
+      "ye_dk_strada"
+     ],
+     "post": "GOV.UK says that rules can vary in different parts of a country: check the signs and the local rules where you park."
+    }
+   ]
+  },
+  {
+   "iso2": "EE",
+   "nome": "Estonia",
+   "nome_frase": "Estonia",
+   "slug": "estonia",
+   "riconosciuto": "Yes",
+   "info": "",
+   "esito": "si",
+   "risposta": "the UK Blue Badge is recognised in Estonia, but parking rules vary from place to place, so check the local rules before you park.",
+   "nota": "",
+   "faq": []
+  },
+  {
+   "iso2": "FI",
+   "nome": "Finland",
+   "nome_frase": "Finland",
+   "slug": "finland",
+   "riconosciuto": "Yes",
+   "info": "",
+   "esito": "si",
+   "risposta": "the UK Blue Badge is recognised in Finland, but parking rules vary from place to place, so check the local rules before you park.",
+   "nota": "",
+   "faq": [
+    {
+     "q": "Where can you park with a Blue Badge in Finland?",
+     "query": "disabled parking finland",
+     "pre": "GOV.UK does not list local rules. Your Europe, the European Commission’s guide, gives these rules for holders of the EU parking card in Finland:",
+     "cit": [
+      "ye_fi_strada"
+     ],
+     "post": "GOV.UK says that rules can vary in different parts of a country: check the signs and the local rules where you park."
+    }
+   ]
+  },
+  {
+   "iso2": "FR",
+   "nome": "France",
+   "nome_frase": "France",
+   "slug": "france",
+   "riconosciuto": "Yes",
+   "info": "",
+   "esito": "si",
+   "risposta": "the UK Blue Badge is recognised in France, but parking rules vary from place to place, so check the local rules before you park.",
+   "nota": "Two official pages differ on paid street parking: Your Europe says you must pay where payment is required (free in Paris and some other cities), while the French government page says that the French card gives free parking with no time limit. Check the signs and the parking meter before you leave the car.",
+   "faq": [
+    {
+     "q": "Can I use my UK Blue Badge in France?",
+     "query": "can i use my uk blue badge in france",
+     "pre": "Yes. GOV.UK answers “Yes” for France in its table of countries that recognise the UK Blue Badge. The FCDO travel advice says:",
+     "cit": [
+      "fcdo_fr1"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Where can you park with a Blue Badge in France?",
+     "query": "blue badge parking in france",
+     "pre": "GOV.UK does not list local rules. Your Europe, the European Commission’s guide, gives these rules for holders of the EU parking card in France:",
+     "cit": [
+      "ye_fr_strada"
+     ],
+     "post": "GOV.UK says that rules can vary in different parts of a country: check the signs and the local rules where you park."
+    },
+    {
+     "q": "What is the Blue Badge equivalent in France?",
+     "query": "blue badge equivalent in france",
+     "pre": "The French card is the carte mobilité inclusion (CMI) with the “Stationnement” mention. Service-Public.gouv.fr says (our translation):",
+     "cit": [
+      "fr_cmi1"
+     ],
+     "post": "That page describes the French card; GOV.UK does not say whether a UK Blue Badge gets exactly the same."
+    }
+   ]
+  },
+  {
+   "iso2": "DE",
+   "nome": "Germany",
+   "nome_frase": "Germany",
+   "slug": "germany",
+   "riconosciuto": "Yes",
+   "info": "",
+   "esito": "si",
+   "risposta": "the UK Blue Badge is recognised in Germany, but parking rules vary from place to place, so check the local rules before you park.",
+   "nota": "",
+   "faq": [
+    {
+     "q": "Can I use my UK Blue Badge in Germany?",
+     "query": "can i use my uk blue badge in germany",
+     "pre": "Yes. GOV.UK answers “Yes” for Germany in its table of countries that recognise the UK Blue Badge. The FCDO travel advice says:",
+     "cit": [
+      "fcdo_de1"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Where can you park with a Blue Badge in Germany?",
+     "query": "blue badge parking in germany",
+     "pre": "GOV.UK does not list local rules. Your Europe, the European Commission’s guide, gives these rules for holders of the EU parking card in Germany:",
+     "cit": [
+      "ye_de_strada"
+     ],
+     "post": "GOV.UK says that rules can vary in different parts of a country: check the signs and the local rules where you park."
+    },
+    {
+     "q": "Is there a European disability card in Germany?",
+     "query": "european disability card germany",
+     "pre": "Not yet: Germany is not among the countries of the pilot project listed by the European Commission, which says:",
+     "cit": [
+      "ec_pilot_list",
+      "ec_when"
+     ],
+     "post": ""
+    }
+   ]
+  },
+  {
+   "iso2": "GR",
+   "nome": "Greece",
+   "nome_frase": "Greece",
+   "slug": "greece",
+   "riconosciuto": "Accepts non-EU parking cards.",
+   "info": "",
+   "esito": "non_ue",
+   "risposta": "Greece accepts non-EU parking cards such as the UK Blue Badge (GOV.UK’s table says “Accepts non-EU parking cards.”), but check the local rules before you park.",
+   "nota": "",
+   "faq": [
+    {
+     "q": "Can I use my UK Blue Badge in Greece?",
+     "query": "can i use my uk blue badge in greece",
+     "pre": "Yes: GOV.UK’s table says that Greece “Accepts non-EU parking cards.” It also says:",
+     "cit": [
+      "g_check"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Where can you park with a Blue Badge in Greece?",
+     "query": "blue badge parking greece",
+     "pre": "GOV.UK does not list local rules. Your Europe, the European Commission’s guide, gives these rules for holders of the EU parking card in Greece:",
+     "cit": [
+      "ye_gr_strada"
+     ],
+     "post": "GOV.UK says that rules can vary in different parts of a country: check the signs and the local rules where you park."
+    }
+   ]
+  },
+  {
+   "iso2": "HU",
+   "nome": "Hungary",
+   "nome_frase": "Hungary",
+   "slug": "hungary",
+   "riconosciuto": "Yes",
+   "info": "",
+   "esito": "si",
+   "risposta": "the UK Blue Badge is recognised in Hungary, but parking rules vary from place to place, so check the local rules before you park.",
+   "nota": "",
+   "faq": []
+  },
+  {
+   "iso2": "IS",
+   "nome": "Iceland",
+   "nome_frase": "Iceland",
+   "slug": "iceland",
+   "riconosciuto": "Accepts non-EU parking cards.",
+   "info": "",
+   "esito": "non_ue",
+   "risposta": "Iceland accepts non-EU parking cards such as the UK Blue Badge (GOV.UK’s table says “Accepts non-EU parking cards.”), but check the local rules before you park.",
+   "nota": "",
+   "faq": [
+    {
+     "q": "Can I use my UK Blue Badge in Iceland?",
+     "query": "can i use my uk blue badge in iceland",
+     "pre": "Yes: GOV.UK’s table says that Iceland “Accepts non-EU parking cards.” It also says:",
+     "cit": [
+      "g_check"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Where can you park with a Blue Badge in Iceland?",
+     "query": "blue badge parking iceland",
+     "pre": "GOV.UK does not give local rules for Iceland. It says:",
+     "cit": [
+      "p_differ"
+     ],
+     "post": "Your Europe, the European Commission’s guide, covers EU countries only, and Iceland is not in the EU."
+    }
+   ]
+  },
+  {
+   "iso2": "IE",
+   "nome": "Ireland",
+   "nome_frase": "Ireland",
+   "slug": "ireland",
+   "riconosciuto": "Yes",
+   "info": "",
+   "esito": "si",
+   "risposta": "the UK Blue Badge is recognised in Ireland, but parking rules vary from place to place, so check the local rules before you park.",
+   "nota": "",
+   "faq": [
+    {
+     "q": "Can I use my UK Blue Badge in Ireland?",
+     "query": "can i use my blue badge in ireland",
+     "pre": "Yes. GOV.UK answers “Yes” for Ireland in its table of countries that recognise the UK Blue Badge. The FCDO travel advice says:",
+     "cit": [
+      "fcdo_ie1"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Where can you park with a Blue Badge in Ireland?",
+     "query": "blue badge parking ireland",
+     "pre": "GOV.UK does not list local rules. Your Europe, the European Commission’s guide, gives these rules for holders of the EU parking card in Ireland:",
+     "cit": [
+      "ye_ie_strada"
+     ],
+     "post": "GOV.UK says that rules can vary in different parts of a country: check the signs and the local rules where you park."
+    }
+   ]
+  },
+  {
+   "iso2": "IT",
+   "nome": "Italy",
+   "nome_frase": "Italy",
+   "slug": "italy",
+   "riconosciuto": "Yes",
+   "info": "",
+   "esito": "si",
+   "risposta": "the UK Blue Badge is recognised in Italy, and the FCDO travel advice adds that it gives the same parking and mobility concessions as the Italian disabled parking card (CUDE), including access to Limited Traffic Zones (ZTL) where local rules allow it.",
+   "nota": "The Italian rules below are written for holders of the Italian card and of EU parking cards; Italy’s government says that UK Blue Badge holders have the same rights. Entering a ZTL can need the town’s permission first: ask the town (Comune) before you drive in.",
+   "faq": [
+    {
+     "q": "Can I use my UK Blue Badge in Italy?",
+     "query": "can i use my blue badge in italy",
+     "pre": "Yes. GOV.UK answers “Yes” for Italy in its table of countries that recognise the UK Blue Badge. The FCDO travel advice says:",
+     "cit": [
+      "fcdo_it1"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Where can you park with a Blue Badge in Italy?",
+     "query": "blue badge parking in italy",
+     "pre": "GOV.UK does not list local rules. Your Europe, the European Commission’s guide, gives these rules for holders of the EU parking card in Italy:",
+     "cit": [
+      "ye_it_strada"
+     ],
+     "post": "GOV.UK says that rules can vary in different parts of a country: check the signs and the local rules where you park."
+    },
+    {
+     "q": "Is there a disabled parking permit in Italy for tourists?",
+     "query": "disabled parking permit in italy for tourists",
+     "pre": "Italy recognises the UK Blue Badge. Italy’s Department for policies for persons with disabilities says (our translation):",
+     "cit": [
+      "it_uk"
+     ],
+     "post": ""
+    },
+    {
+     "q": "How do I use a Blue Badge in Italy?",
+     "query": "blue badge use in italy",
+     "pre": "Display it at the front of the car and use it only when the holder is in the car. Italy’s government says (our translation):",
+     "cit": [
+      "it_c3",
+      "it_bordo"
+     ],
+     "post": "To drive into a Limited Traffic Zone (ZTL), ask the town first: see the ZTL rules on this page."
+    },
+    {
+     "q": "Is there an EU disability card in Italy?",
+     "query": "eu disability card italy",
+     "pre": "Italy is one of the countries of the EU Disability Card pilot project. The European Commission says:",
+     "cit": [
+      "ec_pilot_list"
+     ],
+     "post": "Those cards are for people whose disability is recognised in Italy."
+    }
+   ]
+  },
+  {
+   "iso2": "LV",
+   "nome": "Latvia",
+   "nome_frase": "Latvia",
+   "slug": "latvia",
+   "riconosciuto": "Yes",
+   "info": "",
+   "esito": "si",
+   "risposta": "the UK Blue Badge is recognised in Latvia, but parking rules vary from place to place, so check the local rules before you park.",
+   "nota": "",
+   "faq": []
+  },
+  {
+   "iso2": "LI",
+   "nome": "Liechtenstein",
+   "nome_frase": "Liechtenstein",
+   "slug": "liechtenstein",
+   "riconosciuto": "Yes",
+   "info": "",
+   "esito": "si",
+   "risposta": "the UK Blue Badge is recognised in Liechtenstein, but parking rules vary from place to place, so check the local rules before you park.",
+   "nota": "",
+   "faq": []
+  },
+  {
+   "iso2": "LT",
+   "nome": "Lithuania",
+   "nome_frase": "Lithuania",
+   "slug": "lithuania",
+   "riconosciuto": "Non-EU parking cards accepted in some regions only.",
+   "info": "",
+   "esito": "regioni",
+   "risposta": "Lithuania accepts non-EU parking cards in some regions only, so check with the local authority before you rely on your Blue Badge there.",
+   "nota": "",
+   "faq": []
+  },
+  {
+   "iso2": "LU",
+   "nome": "Luxembourg",
+   "nome_frase": "Luxembourg",
+   "slug": "luxembourg",
+   "riconosciuto": "Accepts non-EU parking cards.",
+   "info": "",
+   "esito": "non_ue",
+   "risposta": "Luxembourg accepts non-EU parking cards such as the UK Blue Badge (GOV.UK’s table says “Accepts non-EU parking cards.”), but check the local rules before you park.",
+   "nota": "",
+   "faq": [
+    {
+     "q": "Where can you park with a Blue Badge in Luxembourg?",
+     "query": "disabled parking luxembourg",
+     "pre": "GOV.UK does not list local rules. Your Europe, the European Commission’s guide, gives these rules for holders of the EU parking card in Luxembourg:",
+     "cit": [
+      "ye_lu_generale"
+     ],
+     "post": "GOV.UK says that rules can vary in different parts of a country: check the signs and the local rules where you park."
+    }
+   ]
+  },
+  {
+   "iso2": "MT",
+   "nome": "Malta",
+   "nome_frase": "Malta",
+   "slug": "malta",
+   "riconosciuto": "Yes",
+   "info": "",
+   "esito": "si",
+   "risposta": "the UK Blue Badge is recognised in Malta, but parking rules vary from place to place, so check the local rules before you park.",
+   "nota": "",
+   "faq": [
+    {
+     "q": "Can I use my UK Blue Badge in Malta?",
+     "query": "can i use my uk blue badge in malta",
+     "pre": "Yes. GOV.UK answers “Yes” for Malta in its table of countries that recognise the UK Blue Badge. The FCDO travel advice says:",
+     "cit": [
+      "fcdo_mt1"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Where can you park with a Blue Badge in Malta?",
+     "query": "blue badge parking in malta",
+     "pre": "GOV.UK does not list local rules. Your Europe, the European Commission’s guide, gives these rules for holders of the EU parking card in Malta:",
+     "cit": [
+      "ye_mt_generale"
+     ],
+     "post": "GOV.UK says that rules can vary in different parts of a country: check the signs and the local rules where you park."
+    },
+    {
+     "q": "Is there an EU disability card in Malta?",
+     "query": "eu disability card malta",
+     "pre": "Malta is one of the countries of the EU Disability Card pilot project. The European Commission says:",
+     "cit": [
+      "ec_pilot_list"
+     ],
+     "post": "Those cards are for people whose disability is recognised in Malta."
+    }
+   ]
+  },
+  {
+   "iso2": "NL",
+   "nome": "Netherlands",
+   "nome_frase": "the Netherlands",
+   "slug": "netherlands",
+   "riconosciuto": "Yes",
+   "info": "",
+   "esito": "si",
+   "risposta": "the UK Blue Badge is recognised in the Netherlands, but parking rules vary from place to place, so check the local rules before you park.",
+   "nota": "",
+   "faq": [
+    {
+     "q": "Can I use my UK Blue Badge in the Netherlands?",
+     "query": "can i use my uk blue badge in netherlands",
+     "pre": "Yes. GOV.UK answers “Yes” for the Netherlands in its table of countries that recognise the UK Blue Badge. It also says:",
+     "cit": [
+      "g_check"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Where can you park with a Blue Badge in the Netherlands?",
+     "query": "blue badge parking netherlands",
+     "pre": "GOV.UK does not list local rules. Your Europe, the European Commission’s guide, gives these rules for holders of the EU parking card in the Netherlands:",
+     "cit": [
+      "ye_nl_strada"
+     ],
+     "post": "GOV.UK says that rules can vary in different parts of a country: check the signs and the local rules where you park."
+    }
+   ]
+  },
+  {
+   "iso2": "NO",
+   "nome": "Norway",
+   "nome_frase": "Norway",
+   "slug": "norway",
+   "riconosciuto": "Yes",
+   "info": "",
+   "esito": "si",
+   "risposta": "the UK Blue Badge is recognised in Norway, but parking rules vary from place to place, so check the local rules before you park.",
+   "nota": "",
+   "faq": [
+    {
+     "q": "Can I use my UK Blue Badge in Norway?",
+     "query": "can i use my blue badge in norway",
+     "pre": "Yes. GOV.UK answers “Yes” for Norway in its table of countries that recognise the UK Blue Badge. The FCDO travel advice says:",
+     "cit": [
+      "fcdo_no1"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Where can you park with a Blue Badge in Norway?",
+     "query": "disabled parking norway",
+     "pre": "GOV.UK does not give local rules for Norway. It says:",
+     "cit": [
+      "p_differ"
+     ],
+     "post": "Your Europe, the European Commission’s guide, covers EU countries only, and Norway is not in the EU."
+    }
+   ]
+  },
+  {
+   "iso2": "PL",
+   "nome": "Poland",
+   "nome_frase": "Poland",
+   "slug": "poland",
+   "riconosciuto": "Yes",
+   "info": "",
+   "esito": "si",
+   "risposta": "the UK Blue Badge is recognised in Poland, but parking rules vary from place to place, so check the local rules before you park.",
+   "nota": "",
+   "faq": [
+    {
+     "q": "Can I use my UK Blue Badge in Poland?",
+     "query": "can i use my uk blue badge in poland",
+     "pre": "Yes. GOV.UK answers “Yes” for Poland in its table of countries that recognise the UK Blue Badge. The FCDO travel advice says:",
+     "cit": [
+      "fcdo_pl1"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Where can you park with a Blue Badge in Poland?",
+     "query": "disabled parking poland",
+     "pre": "GOV.UK does not list local rules. Your Europe, the European Commission’s guide, gives these rules for holders of the EU parking card in Poland:",
+     "cit": [
+      "ye_pl_strada"
+     ],
+     "post": "GOV.UK says that rules can vary in different parts of a country: check the signs and the local rules where you park."
+    }
+   ]
+  },
+  {
+   "iso2": "PT",
+   "nome": "Portugal",
+   "nome_frase": "Portugal",
+   "slug": "portugal",
+   "riconosciuto": "Yes",
+   "info": "",
+   "esito": "si",
+   "risposta": "the UK Blue Badge is recognised in Portugal, but parking rules vary from place to place, so check the local rules before you park.",
+   "nota": "",
+   "faq": [
+    {
+     "q": "Can I use my UK Blue Badge in Portugal?",
+     "query": "can i use my blue badge in portugal",
+     "pre": "Yes. GOV.UK answers “Yes” for Portugal in its table of countries that recognise the UK Blue Badge. The FCDO travel advice says:",
+     "cit": [
+      "fcdo_pt1"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Where can you park with a Blue Badge in Portugal?",
+     "query": "blue badge parking in portugal",
+     "pre": "GOV.UK does not list local rules. Your Europe, the European Commission’s guide, gives these rules for holders of the EU parking card in Portugal:",
+     "cit": [
+      "ye_pt_strada"
+     ],
+     "post": "GOV.UK says that rules can vary in different parts of a country: check the signs and the local rules where you park."
+    },
+    {
+     "q": "Do I need a translation of my Blue Badge for Portugal?",
+     "query": "blue badge translation for portugal",
+     "pre": "GOV.UK does not say that a translation is required, but it recommends carrying one where rules are stricter:",
+     "cit": [
+      "g_docs"
+     ],
+     "post": ""
+    }
+   ]
+  },
+  {
+   "iso2": "RO",
+   "nome": "Romania",
+   "nome_frase": "Romania",
+   "slug": "romania",
+   "riconosciuto": "Accepts non-EU parking cards.",
+   "info": "",
+   "esito": "non_ue",
+   "risposta": "Romania accepts non-EU parking cards such as the UK Blue Badge (GOV.UK’s table says “Accepts non-EU parking cards.”), but check the local rules before you park.",
+   "nota": "",
+   "faq": [
+    {
+     "q": "Can I use my UK Blue Badge in Romania?",
+     "query": "can i use my blue badge in romania",
+     "pre": "Yes: GOV.UK’s table says that Romania “Accepts non-EU parking cards.” It also says:",
+     "cit": [
+      "g_check"
+     ],
+     "post": ""
+    }
+   ]
+  },
+  {
+   "iso2": "SK",
+   "nome": "Slovakia",
+   "nome_frase": "Slovakia",
+   "slug": "slovakia",
+   "riconosciuto": "Yes",
+   "info": "",
+   "esito": "si",
+   "risposta": "the UK Blue Badge is recognised in Slovakia, but parking rules vary from place to place, so check the local rules before you park.",
+   "nota": "",
+   "faq": []
+  },
+  {
+   "iso2": "SI",
+   "nome": "Slovenia",
+   "nome_frase": "Slovenia",
+   "slug": "slovenia",
+   "riconosciuto": "May not recognise non-EU issue parking card.",
+   "info": "",
+   "esito": "forse_no",
+   "risposta": "Slovenia may not recognise a parking card issued outside the EU, so check with the local authority before you rely on your Blue Badge there.",
+   "nota": "",
+   "faq": []
+  },
+  {
+   "iso2": "ES",
+   "nome": "Spain",
+   "nome_frase": "Spain",
+   "slug": "spain",
+   "riconosciuto": "UK Blue Badge recognition across Spain decided by local administrations (*)",
+   "info": "",
+   "esito": "locale",
+   "risposta": "recognition of the UK Blue Badge in Spain, including the Balearic and Canary Islands, is decided by local administrations, so check with the local authority where you want to park before you rely on it.",
+   "nota": "GOV.UK first listed the UK Blue Badge as recognised in Spain, then changed its guidance for Spain: the table now leaves it to local administrations (the dates are in GOV.UK’s change history, below).",
+   "faq": [
+    {
+     "q": "Can I use my UK Blue Badge in Spain?",
+     "query": "can i use my uk blue badge in spain",
+     "pre": "It depends on where you park. GOV.UK’s table says that “UK Blue Badge recognition across Spain” is “decided by local administrations”, and adds:",
+     "cit": [
+      "g_spain"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Where can you park with a Blue Badge in Spain?",
+     "query": "blue badge parking spain",
+     "pre": "GOV.UK does not list local rules. Your Europe, the European Commission’s guide, gives these rules for holders of the EU parking card in Spain:",
+     "cit": [
+      "ye_es_strada"
+     ],
+     "post": "GOV.UK says that rules can vary in different parts of a country: check the signs and the local rules where you park."
+    },
+    {
+     "q": "Can I use my Blue Badge in Spain after Brexit?",
+     "query": "can i use my blue badge in spain after brexit",
+     "pre": "It depends on the local administration. GOV.UK’s table now says that recognition across Spain is “decided by local administrations”. In its framework with Spain, published on GOV.UK, the UK government said:",
+     "cit": [
+      "es_accordo"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Can I use my Blue Badge in Tenerife?",
+     "query": "can i use my blue badge in tenerife",
+     "pre": "GOV.UK’s row for “Spain (including Balearic and Canary Isles)” says that recognition is “decided by local administrations”. GOV.UK says:",
+     "cit": [
+      "g_research"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Can I use my Blue Badge in Lanzarote?",
+     "query": "can i use my blue badge in lanzarote",
+     "pre": "GOV.UK’s row for “Spain (including Balearic and Canary Isles)” says that recognition is “decided by local administrations”. GOV.UK says:",
+     "cit": [
+      "g_research"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Can I use my Blue Badge in Majorca?",
+     "query": "can i use my blue badge in majorca",
+     "pre": "GOV.UK’s row for “Spain (including Balearic and Canary Isles)” says that recognition is “decided by local administrations”. GOV.UK says:",
+     "cit": [
+      "g_research"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Do I need a translation of my Blue Badge for Spain?",
+     "query": "blue badge translation for spain",
+     "pre": "GOV.UK does not say that a translation is required, but it recommends carrying one where rules are stricter:",
+     "cit": [
+      "g_docs"
+     ],
+     "post": ""
+    }
+   ]
+  },
+  {
+   "iso2": "SE",
+   "nome": "Sweden",
+   "nome_frase": "Sweden",
+   "slug": "sweden",
+   "riconosciuto": "Yes",
+   "info": "",
+   "esito": "si",
+   "risposta": "the UK Blue Badge is recognised in Sweden, but parking rules vary from place to place, so check the local rules before you park.",
+   "nota": "",
+   "faq": [
+    {
+     "q": "Can I use my UK Blue Badge in Sweden?",
+     "query": "can i use my uk blue badge in sweden",
+     "pre": "Yes. GOV.UK answers “Yes” for Sweden in its table of countries that recognise the UK Blue Badge. The FCDO travel advice says:",
+     "cit": [
+      "fcdo_se1"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Where can you park with a Blue Badge in Sweden?",
+     "query": "disabled parking sweden",
+     "pre": "GOV.UK does not list local rules. Your Europe, the European Commission’s guide, gives these rules for holders of the EU parking card in Sweden:",
+     "cit": [
+      "ye_se_strada"
+     ],
+     "post": "GOV.UK says that rules can vary in different parts of a country: check the signs and the local rules where you park."
+    }
+   ]
+  },
+  {
+   "iso2": "CH",
+   "nome": "Switzerland",
+   "nome_frase": "Switzerland",
+   "slug": "switzerland",
+   "riconosciuto": "Yes",
+   "info": "You must use a parking disc (clock) if using parking time concessions.",
+   "esito": "si",
+   "risposta": "the UK Blue Badge is recognised in Switzerland, but parking rules vary from place to place, so check the local rules before you park.",
+   "nota": "",
+   "faq": [
+    {
+     "q": "Can I use my UK Blue Badge in Switzerland?",
+     "query": "can i use my uk blue badge in switzerland",
+     "pre": "Yes. GOV.UK answers “Yes” for Switzerland in its table of countries that recognise the UK Blue Badge. The FCDO travel advice says:",
+     "cit": [
+      "fcdo_ch1"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Where can you park with a Blue Badge in Switzerland?",
+     "query": "blue badge parking in switzerland",
+     "pre": "GOV.UK’s table says for Switzerland: “You must use a parking disc (clock) if using parking time concessions.” It also says:",
+     "cit": [
+      "p_differ"
+     ],
+     "post": "Your Europe, the European Commission’s guide, covers EU countries only, and Switzerland is not in the EU."
+    }
+   ]
+  }
+ ],
+ "faq_indice": [
+  {
+   "q": "Can I use my UK Blue Badge in Europe?",
+   "query": "can i use my uk blue badge in europe",
+   "pre": "In some countries. GOV.UK says:",
+   "cit": [
+    "g_intro",
+    "g_check"
+   ],
+   "post": "The table on this page gives GOV.UK’s answer for each country."
+  },
+  {
+   "q": "Can I use my Blue Badge abroad?",
+   "query": "can i use my blue badge abroad",
+   "pre": "In the countries that recognise it. GOV.UK says:",
+   "cit": [
+    "p_same",
+    "p_differ"
+   ],
+   "post": ""
+  },
+  {
+   "q": "Do I need any documents with my Blue Badge abroad?",
+   "query": "blue badge abroad rules",
+   "pre": "GOV.UK says:",
+   "cit": [
+    "g_docs"
+   ],
+   "post": ""
+  },
+  {
+   "q": "Will a European parking card replace the Blue Badge?",
+   "query": "european parking card",
+   "pre": "The new card is for EU countries. The European Commission says:",
+   "cit": [
+    "ec_replace",
+    "ec_epc_who"
+   ],
+   "post": "The Commission’s page does not mention the UK Blue Badge."
+  }
+ ],
+ "faq_carte": [
+  {
+   "q": "What is the European Disability Card?",
+   "query": "european disability card",
+   "pre": "The European Commission says:",
+   "cit": [
+    "ec_dir",
+    "ec_equal"
+   ],
+   "post": ""
+  },
+  {
+   "q": "When will the European Parking Card be available?",
+   "query": "european parking card directive",
+   "pre": "The European Commission says:",
+   "cit": [
+    "ec_when"
+   ],
+   "post": ""
+  },
+  {
+   "q": "Can UK citizens get a European Disability Card?",
+   "query": "european disability card for uk citizens",
+   "pre": "The European Commission’s page does not mention the UK. It says that the card is for people recognised in their EU country of residence:",
+   "cit": [
+    "ec_edc_who",
+    "ec_tcn"
+   ],
+   "post": "The page says nothing about people who live in the UK."
+  },
+  {
+   "q": "What are the benefits of the European Disability Card?",
+   "query": "european disability card benefits",
+   "pre": "The European Commission says:",
+   "cit": [
+    "ec_benefits",
+    "ec_equal"
+   ],
+   "post": ""
+  },
+  {
+   "q": "Is there a European disability card for tourists?",
+   "query": "european disability card for tourists",
+   "pre": "The card is issued in your EU country of residence and used when you visit another EU country. The European Commission says:",
+   "cit": [
+    "ec_short"
+   ],
+   "post": ""
+  }
+ ]
+}

@@ -47,6 +47,10 @@ UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chr
 
 # id -> url, ente, titolo della pagina, lingua delle citazioni, tipo (html, pdf)
 FONTI = {
+    "ams_check": {"url": "https://www.gvb.nl/en/boarding-means-checking-in", "ente": "GVB (Amsterdam’s public transport company)",
+                  "titolo": "GVB: Boarding means checking in", "lingua": "en"},
+    "ams_miss": {"url": "https://www.gvb.nl/en/customer-service/missed-check-out", "ente": "GVB (Amsterdam’s public transport company)",
+                 "titolo": "GVB: Missed check out", "lingua": "en"},
     "ath_info": {"url": "https://www.oasa.gr/en/tickets/useful-information/", "ente": "OASA (Athens Urban Transport Organisation)",
                  "titolo": "OASA: Useful information – validation of tickets and cards", "lingua": "en"},
     "ath_fines": {"url": "https://www.oasa.gr/en/passenger-service/information/payment-of-fines/", "ente": "OASA (Athens Urban Transport Organisation)",

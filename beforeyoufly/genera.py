@@ -3824,7 +3824,7 @@ def pagina_pat(k, c):
 {dove_idp(k)}
 {box_noleggio(k, c)}
 {link_ped(rel, c)}
-{link_gom(rel, c)}{link_fl(rel, c)}{link_tr_paese(rel, c)}{link_sc_pat(rel, c)}{link_pet(rel, c) if k == "uk" else ""}
+{link_gom(rel, c)}{link_fl(rel, c)}{link_tr_paese(rel, c)}{link_sc_pat(rel, c)}{link_pet(rel, c) if k == "uk" else ""}{link_bb(rel, c) if k == "uk" else ""}
 {f'<h2>Other licences in {escape(P)}</h2><div class="tab tab-b"><table><caption class="sr">International driving permit in {escape(P)} for other licences, from official advice</caption><thead><tr><th>Licence</th><th>In {escape(nome_srv(c))}</th><th>Checked</th></tr></thead><tbody>{"".join(altri)}</tbody></table></div>' if altri else ""}
 {f'<h2>Before you travel to {escape(P)}</h2><ul>' + "".join(f"<li>{x}</li>" for x in ingresso) + "</ul>" if ingresso else ""}
 {faq_h}
@@ -3939,6 +3939,7 @@ def pagina_hub_pat():
 {f'<p class="altri-pass">{ico("car")}<span>Driving in winter? <a href="{rel}{GOM_BASE}/">Winter tyres and snow chains with a rental car in {len(GOM_PAESI)} European countries</a></span></p>' if GOM else ""}
 {f'<p class="altri-pass">{ico("car")}<span>Staying longer or moving? <a href="{rel}{FL_BASE}/">How long you can drive on a foreign licence in Canada, Australia and New Zealand, by province and state</a></span></p>' if FL else ""}
 {f'<p class="altri-pass">{ico("globe")}<span>Not driving? <a href="{rel}{TR_BASE}/">Public transport fines, validation and contactless payment in {len(TR_CITTA)} cities</a></span></p>' if TR else ""}
+{f'<p class="altri-pass">{ico("car")}<span>Blue Badge holder? <a href="{rel}{BB_BASE}/">Where your UK Blue Badge is recognised in Europe, country by country</a></span></p>' if BB else ""}
 {f'<p class="altri-pass">{ico("car")}<span>Renting a scooter instead? <a href="{rel}{SC_BASE}/">Moped and 125 cc on a car licence: what the official texts say in {len(SC_PAESI)} countries</a></span></p>' if SC else ""}
 <h2>How we check</h2>
 <p>{metodo_pat("uk")} {metodo_pat("ca")} {metodo_pat("au")} We only use official government sources and never fill a gap with our own reading: where the advice is silent, we say so. More on the <a href="{rel}about/#driving-abroad">About page</a>.</p>"""
@@ -5749,8 +5750,9 @@ AVVISO_TR = ('<p class="avviso"><strong>Fines and payment rules change, often at
 
 
 def mezzo_tr(c):
-    # Edimburgo: letta solo la pagina dei tram, il titolo non promette tutta la rete
-    return "Trams" if c["id"] == "edinburgh" else "Public Transport"
+    # Edimburgo: letta solo la pagina dei tram, il titolo non promette tutta la rete. Amsterdam: lette solo le pagine GVB (tram, bus e metro
+    # della città, non i treni): il titolo dice tram e metro, come le ricerche («amsterdam metro fine», «how to pay for tram in amsterdam»)
+    return {"edinburgh": "Trams", "amsterdam": "Trams and Metro"}.get(c["id"], "Public Transport")
 
 
 def h1_tr(c):
@@ -6924,6 +6926,388 @@ def about_pet(rel):
     return f"""<h2 id="{PET_BASE}">Pets: from the UK to the EU</h2>
 <p>Sources: GOV.UK guides of the Animal and Plant Health Agency (“Taking your pet dog, cat or ferret abroad”, “Bringing your pet dog, cat or ferret to Great Britain”), the Defra page on the UK–EU SPS agreement for the veterinary sector, the GOV.UK lists of approved air, sea and rail carriers and routes, read through the GOV.UK Content API, and three pages of the European Commission (DG Health and Food Safety) on bringing pets into the EU, the travellers' points of entry and each country's information, {len(PET["fonti"])} pages in all, read on {data_lunga(PET["controllato_il"])}. GOV.UK text is licensed under the <a href="{OGL}" rel="noopener">Open Government Licence v3.0</a>.</p>
 <p>Rules: every sentence between quotation marks is copied word for word; the tables of approved routes are copied row by row; the summaries and the date calculator are ours. The European Commission's page says that the EU rules are now in Commission Delegated Regulation (EU) 2026/131; EUR-Lex does not answer our automated checks, so we quote the Commission's own summary of the rules rather than the regulation itself. We give no veterinary advice: every page says to check with your vet and the official page. A country gets a page only when people search for taking a pet there from the UK. This is information, not legal advice.</p>"""
+
+
+# ---------------------------------------------------------------- Blue Badge all'estero, Paese per Paese, e le carte europee (4/11/2026)
+# Piano: studio-business/intelaiatura/idee-2026-11-04-europa.md (idea 2). Fatti scritti a mano in dati/bluebadge_manuali.json (citazioni parola per
+# parola da GOV.UK, FCDO, Your Europe e Commissione europea, governo italiano e francese), fonti rilette da raccolta/bluebadge.py (HTTP 200, data,
+# impronta) che copia anche la tabella GOV.UK riga per riga e scrive dati/bluebadge.json. Una pagina Paese solo con una ricerca vera sul Paese.
+# Nessun consiglio legale; nessun link di affiliazione (nessun programma pertinente; il riquadro DiscoverCars resta nelle sue sezioni); AdSense sì.
+BB_BASE = "blue-badge-abroad"
+BB_CARTE = f"{BB_BASE}/european-disability-card/"
+_f_bb = DATI / "bluebadge.json"
+BB = json.loads(_f_bb.read_text(encoding="utf-8")) if _f_bb.exists() else None
+BB_PAESI = BB["paesi"] if BB else []
+BB_PER = {p["iso2"]: p for p in BB_PAESI}
+BB_PAGINE = [p for p in BB_PAESI if p["pagina"]]
+BB_CIT = {c["id"]: c for c in BB["citazioni"]} if BB else {}
+LIMITE_TITOLO_BB = 70
+# Etichette nostre della cella "UK Blue Badge recognised" della tabella GOV.UK (la cella si mostra sempre parola per parola accanto)
+ESITI_BB = {"si": "Recognised", "non_ue": "Accepts non-EU cards", "regioni": "Some regions only", "forse_no": "May not be recognised",
+            "locale": "Decided locally", "non_detto": "No information"}
+BREVE_BB = {"si": "Yes", "non_ue": "Accepted", "regioni": "In Some Regions", "forse_no": "Maybe Not", "locale": "It Depends", "non_detto": "No Information"}
+LINGUE_BB = {"it": "Italian", "fr": "French"}
+TEMI_YE_BB = [("generale", "General rules"), ("strada", "Parking on the street"), ("parcheggi", "In car parks")]
+
+
+def url_bb(p=None):
+    return f"{BB_BASE}/" + (f"{p['slug']}/" if p else "")
+
+
+def ha_pagina_bb(c):
+    return bool(BB_PER.get(c, {}).get("pagina"))
+
+
+def fonte_bb(fid):
+    return BB["fonti"][fid]
+
+
+def link_fonte_bb(fid):
+    F = fonte_bb(fid)
+    return f'<a href="{escape(F["pagina"])}" rel="noopener">{escape(F["titolo"])}</a>'
+
+
+def data_fonte_bb(fid):
+    """'page updated on X, checked on Y' (la data di aggiornamento solo quando la fonte la dichiara)."""
+    F = fonte_bb(fid)
+    agg = f"page updated on {data_lunga(F['aggiornato_il'])}, " if F.get("aggiornato_il") else ""
+    return f"{agg}checked on {data_lunga(F['letto_il'])}"
+
+
+def blocco_cit_bb(ids):
+    """Citazioni raggruppate per fonte, con link, ente e date; traduzione nostra sotto le citazioni non in inglese."""
+    out, gruppi = [], []
+    for i in ids:
+        c = BB_CIT[i]
+        if gruppi and gruppi[-1][0] == c["f"]:
+            gruppi[-1][1].append(c)
+        else:
+            gruppi.append((c["f"], [c]))
+    for fid, cc in gruppi:
+        F = fonte_bb(fid)
+        lingua = f' lang="{F["lingua"]}"' if F["lingua"] != "en" else ""
+        h = "".join(f"<p>{escape(c['x'])}</p>" + (f'<p class="trad" lang="en"><em>Our translation:</em> {escape(c["tr"])}</p>' if c.get("tr") else "")
+                    for c in cc)
+        lin = f" Quoted word for word in {LINGUE_BB[F['lingua']]}." if F["lingua"] != "en" else " Quoted word for word."
+        out.append(f'<blockquote class="cit"{lingua}>{h}</blockquote><p class="fonte">Source: {link_fonte_bb(fid)} ({escape(F["ente"])}), '
+                   f'{data_fonte_bb(fid)}.{lin}</p>')
+    return "".join(out)
+
+
+def data_bb(ids):
+    return max(fonte_bb(BB_CIT[i]["f"])["letto_il"] for i in ids)
+
+
+def fonti_pagina_bb(p):
+    """Fonti citate nella pagina di un Paese (per la data della pagina e i controlli)."""
+    return sorted({BB_CIT[i]["f"] for i in ids_pagina_bb(p)} | {"gov_eu"})
+
+
+def ids_pagina_bb(p):
+    G, c = BB["generali"], p["iso2"]
+    ids = list(G["govuk"]) + list(G["fcdo"].get(c, []))
+    if c == "ES":
+        ids += G["spagna"]
+    if c == "IT":
+        ids += G["italia"]
+    if c == "FR":
+        ids += G["francia"]
+    ids += list(G["ye"].get(c, {}).values()) + (G["ue_paese"] if p["ye"] else G["non_ue"])
+    return list(dict.fromkeys(ids))
+
+
+def data_pagina_bb(p):
+    return max(fonte_bb(f)["letto_il"] for f in fonti_pagina_bb(p))
+
+
+def prefisso_bb():
+    F = fonte_bb("gov_eu")
+    return (f"According to GOV.UK (Department for Transport), in guidance updated on {data_lunga(F['aggiornato_il'])} and checked on "
+            f"{data_lunga(F['letto_il'])}, ")
+
+
+def risposta_bb(p):
+    return prefisso_bb() + p["risposta"]
+
+
+def faq_bb(voci):
+    """FAQ: pre + citazioni intere + post (JSON-LD = testo visibile)."""
+    out = []
+    for f in voci:
+        parti = ([f["pre"]] if f.get("pre") else []) + [f"“{BB_CIT[i]['x']}”" for i in f.get("cit", [])] + ([f["post"]] if f.get("post") else [])
+        out.append((f["q"], " ".join(parti)))
+    return out
+
+
+def html_faq_bb(faq):
+    h = "".join(f"<h3>{escape(q)}</h3><p>{escape(a)}</p>" for q, a in faq)
+    ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]}
+    return f'<section class="faq"><h2>Questions</h2>{h}</section>', [ld]
+
+
+AVVISO_BB = ('<p class="avviso"><strong>This is information, not legal advice.</strong> Parking rules for disabled people differ from town to town and '
+             'change. We quote GOV.UK, the European Commission and national governments word for word, with the date we checked them. Always check the '
+             'local signs and rules before you park, and ask the local authority when the official answer is unclear.</p>')
+NOTA_LIC_BB = (f'<p class="small">GOV.UK text: contains public sector information licensed under the <a href="{OGL}" rel="noopener">Open Government Licence v3.0</a>. '
+               'European Commission text: reuse authorised with acknowledgement of the source. Before You Fly is not a government site.</p>')
+
+
+def storico_paese_bb(p):
+    """Note di modifica della pubblicazione GOV.UK che nominano il Paese (data e nota, parola per parola)."""
+    return [s for s in BB["storico_govuk"] if re.search(r"\b" + re.escape(p["nome"]) + r"\b", s["nota"])]
+
+
+def riga_govuk_bb(p):
+    return (f'<div class="tab tab-b"><table><caption class="cap">Row copied from the GOV.UK table “Links to country information”, '
+            f'{data_fonte_bb("gov_eu")}</caption><thead><tr><th>Country or territory</th><th>UK Blue Badge recognised</th><th>More information</th></tr></thead>'
+            f'<tbody><tr><td>{escape(p["nome_gov"])}</td><td>{escape(p["riconosciuto"])}</td><td>{escape(p["info"]) or "–"}</td></tr></tbody></table></div>')
+
+
+def link_guida_bb(rel, c):
+    """Collegamenti con Driving abroad (patente britannica) e con i pedaggi dello stesso Paese."""
+    voci = []
+    if PAT and c in PAGINE_PAT.get("uk", []):
+        voci.append(f'<a href="{rel}{url_pat("uk", c)}">Driving in {escape(BB_PER[c]["nome"])} with a UK licence: do you need an IDP?</a>')
+    if PED and c in PED_PER:
+        voci.append(f'<a href="{rel}{url_ped(c)}">Tolls in {escape(PED_PER[c]["nome_frase"])}</a>')
+    return f'<p class="altri-pass">{ico("car")}<span>Driving there? {" · ".join(voci)}</span></p>' if voci else ""
+
+
+def link_bb(rel, c):
+    """Riga 'Blue Badge holder?' nelle pagine Driving abroad della patente britannica dello stesso Paese."""
+    p = BB_PER.get(c)
+    if not BB or not p or not p["pagina"]:
+        return ""
+    return (f'<p class="altri-pass">{ico("car")}<span>Blue Badge holder? <a href="{rel}{url_bb(p)}">Using a UK Blue Badge in {escape(nf_bb(p))}: '
+            f'{escape(ESITI_BB[p["esito"]].lower())} (GOV.UK) and where you can park</a></span></p>')
+
+
+def nf_bb(p):
+    """Nome del Paese nelle frasi ("the Netherlands")."""
+    return p.get("nome_frase") or p["nome"]
+
+
+def h1_bb(p):
+    return f"Using a UK Blue Badge in {nf_bb(p)}: is it recognised and where can you park? ({ANNO})"
+
+
+def titoli_bb(p):
+    n = nf_bb(p)
+    return [f"Can I Use My UK Blue Badge in {n}? {BREVE_BB[p['esito']]} ({ANNO})", f"UK Blue Badge in {n}? {BREVE_BB[p['esito']]} ({ANNO})",
+            f"UK Blue Badge in {n} ({ANNO})"]
+
+
+def descrizione_bb(p):
+    d = data_lunga(data_pagina_bb(p))
+    n = nf_bb(p)
+    return scegli([f"UK Blue Badge in {n}: GOV.UK says “{p['riconosciuto']}”. Local parking rules and what to carry, from official sources checked on {d}.",
+                   f"UK Blue Badge in {n}: {ESITI_BB[p['esito']].lower()} (GOV.UK). Local parking rules from official sources, checked on {d}.",
+                   f"Using a UK Blue Badge in {n}: official sources, checked on {d}."], LIMITE_DESCRIZIONE)
+
+
+def sguardo_bb(p):
+    G, c = BB["generali"], p["iso2"]
+    fc = fonte_bb(f"fcdo_{c}")
+    fcdo = ("Mentions the Blue Badge (quoted below)" if G["fcdo"].get(c) else "Does not mention the Blue Badge")
+    st = storico_paese_bb(p)
+    return (f'<tr><th scope="row">GOV.UK: UK Blue Badge recognised</th><td>“{escape(p["riconosciuto"])}” ({escape(ESITI_BB[p["esito"]])})</td></tr>'
+            f'<tr><th scope="row">Extra requirement (GOV.UK)</th><td>{"“" + escape(p["info"]) + "”" if p["info"] else "None stated in the table"}</td></tr>'
+            f'<tr><th scope="row">FCDO travel advice</th><td>{fcdo} (page updated on {data_lunga(fc["aggiornato_il"])})</td></tr>'
+            f'<tr><th scope="row">Local parking rules</th><td>{"Your Europe page for the EU parking card (quoted below)" if p["ye"] else "Not covered by Your Europe (not in the EU)"}</td></tr>'
+            f'<tr><th scope="row">Latest GOV.UK change for {escape(nf_bb(p))}</th><td>{escape(data_lunga(st[0]["data"]) + ": " + st[0]["nota"]) if st else "None in the change history"}</td></tr>'
+            f'<tr><th scope="row">Checked</th><td>{data_lunga(data_pagina_bb(p))}</td></tr>')
+
+
+def pagina_paese_bb(p):
+    rel = "../../"
+    G, c, n = BB["generali"], p["iso2"], nf_bb(p)
+    fc = G["fcdo"].get(c, [])
+    fcdo = (blocco_cit_bb(fc) if fc else f'<p>The FCDO travel advice for {escape(n)} does not mention the Blue Badge ({link_fonte_bb(f"fcdo_{c}")}, '
+                                             f'{data_fonte_bb(f"fcdo_{c}")}).</p>')
+    nazionale = ""
+    if c == "IT":
+        nazionale = (f'<h2 id="italy">What the Italian government says</h2><p>A circular of 28 September 2026 from the Ministry of Infrastructure and Transport and '
+                     f'the Department for policies for persons with disabilities tells the police and the towns how to treat UK Blue Badges:</p>'
+                     f'{blocco_cit_bb(["it_c1", "it_c2", "it_c3"])}<p>The Department’s page on the Italian card adds:</p>{blocco_cit_bb(["it_uk", "it_bordo"])}'
+                     f'<h3>Where you can park in Italy</h3>{blocco_cit_bb(["it_gialle", "it_blu"])}'
+                     f'<h3 id="ztl">Limited Traffic Zones (ZTL)</h3>{blocco_cit_bb(["it_ztl", "it_adesione", "it_altri"])}'
+                     f'<p>The national number-plate platform is joined through the town that issued the card. With a UK Blue Badge, ask each town (Comune) '
+                     f'how to tell it about your car before you drive into its ZTL.</p>')
+    elif c == "ES":
+        nazionale = (f'<h2 id="spain">Spain: recognition decided locally</h2><p>GOV.UK’s table marks Spain with a note:</p>{blocco_cit_bb(["g_spain"])}'
+                     f'<p>In September 2025 the UK government said, after a meeting with the Spanish government:</p>{blocco_cit_bb(["es_accordo"])}'
+                     f'<p>GOV.UK’s change history for Spain: {"; ".join(escape(data_lunga(s["data"]) + ": " + s["nota"].rstrip(".")) for s in storico_paese_bb(p))}.</p>')
+    elif c == "FR":
+        nazionale = (f'<h2 id="france">The French card (CMI)</h2><p>The French government describes the French card, the carte mobilité inclusion (CMI), like this:</p>'
+                     f'{blocco_cit_bb(["fr_mention", "fr_cmi1"])}<p>This is the rule for the French card. GOV.UK does not say whether a UK Blue Badge gets exactly '
+                     f'the same in France, and Your Europe (below) says that you must pay where street parking is paid, except in Paris and some other cities.</p>')
+    ye = G["ye"].get(c, {})
+    if ye:
+        locali = (f'<p>GOV.UK says what a recognised Blue Badge gives you:</p>{blocco_cit_bb(["p_same"])}'
+                  f'<p>Your Europe, the European Commission’s guide, gives these local rules for holders of the EU parking card in {escape(n)}:</p>'
+                  + "".join(f'<h3>{t}</h3>{blocco_cit_bb([ye[k]])}' for k, t in TEMI_YE_BB if k in ye)
+                  + f'<p>On using a parking card in another EU country, Your Europe says:</p>{blocco_cit_bb(["ye_warn", "ye_display"])}')
+    else:
+        locali = (f'<p>Your Europe, the European Commission’s guide to local parking rules, covers EU countries only, and {escape(n)} is not in the EU. '
+                  f'GOV.UK says:</p>{blocco_cit_bb(["p_differ"])}')
+    altri = "".join(f'<a href="{rel}{url_bb(x)}">{escape(x["nome"])}<small>{escape(ESITI_BB[x["esito"]])}</small></a>' for x in BB_PAGINE if x["iso2"] != c)
+    faq_h, faq_ld = html_faq_bb(faq_bb(p["faq"]))
+    d = data_lunga(data_pagina_bb(p))
+    corpo = f"""<section class="hero">{h1_diviso(h1_bb(p))}</section>
+<section class="card summary" aria-label="Answer">
+<div class="s-top"><span class="sq">{ico("car")}</span><span>Blue Badge · {escape(p["nome"])}</span><span>{ANNO}</span></div>
+<div class="s-body">
+<p class="lead" id="answer">{escape(risposta_bb(p))}</p>
+{f'<p class="small" data-nota>{escape(p["nota"])}</p>' if p.get("nota") else ""}
+</div></section>
+{AVVISO_BB}
+<h2>At a glance</h2>
+<div class="tab tab-g"><table><caption class="cap">UK Blue Badge in {escape(n)}: our summary of the official sources, checked on {d}</caption><tbody>{sguardo_bb(p)}</tbody></table></div>
+<h2 id="official">What GOV.UK says</h2>
+{riga_govuk_bb(p)}
+{blocco_cit_bb(G["govuk"])}
+<h3>FCDO travel advice for {escape(n)}</h3>
+{fcdo}
+{nazionale}
+<h2 id="local">Where you can park: local rules</h2>
+{locali}
+{AD}
+{link_guida_bb(rel, c)}
+<p class="altri-pass">{ico("calendar")}<span>Coming in 2027 and 2028: <a href="{rel}{BB_CARTE}">the European Disability Card and European Parking Card</a></span></p>
+<h2>Other countries</h2>
+<div class="griglia">{altri}</div>
+<p><a href="{rel}{BB_BASE}/">Blue Badge abroad: every country in one table</a> · <a href="{rel}{PAT_BASE}/">Driving abroad: do you need an international driving permit?</a></p>
+{faq_h}
+<p class="small">Spotted a change? <a href="{rel}contact/?ref={BB_BASE}">Tell us</a>.</p>
+{NOTA_LIC_BB}"""
+    pagina(url_bb(p), scegli(titoli_bb(p), LIMITE_TITOLO_BB), descrizione_bb(p), corpo,
+           briciole=[("Blue Badge abroad", f"{BB_BASE}/"), (p["nome"], url_bb(p))], ld_extra=faq_ld)
+    LASTMOD[url_bb(p)] = data_pagina_bb(p)
+
+
+def conti_bb():
+    return {e: [p for p in BB_PAESI if p["esito"] == e] for e in ESITI_BB}
+
+
+def prima_frase_bb():
+    k = conti_bb()
+    nomi = lambda e: ", ".join(p["nome"] for p in k[e])
+    frase = (f"the UK Blue Badge is recognised (“Yes”) in {len(k['si'])} of the {len(BB_PAESI)} European countries in its table; "
+             f"{len(k['non_ue'])} more accept non-EU parking cards ({nomi('non_ue')})")
+    poco = [p["nome"] + " (" + p["riconosciuto"].rstrip(".") + ")" for e in ("regioni", "forse_no", "non_detto") for p in k[e]]
+    if k["locale"]:
+        frase += f"; in {nomi('locale')} recognition is decided by local administrations"
+    if poco:
+        frase += f"; less clear: {'; '.join(poco)}"
+    return prefisso_bb() + frase + "."
+
+
+def riga_bb(p, rel):
+    G = BB["generali"]
+    nome = f'<a href="{rel}{url_bb(p)}">{escape(p["nome"])}</a>' if p["pagina"] else escape(p["nome"])
+    fcdo = "Mentions it" if G["fcdo"].get(p["iso2"]) else "Does not mention it"
+    return (f'<tr data-voce id="{p["iso2"].lower()}"><td data-l="Country">{nome}</td><td data-l="UK Blue Badge recognised (GOV.UK)">{escape(p["riconosciuto"])}</td>'
+            f'<td data-l="More information (GOV.UK)">{escape(p["info"]) or "–"}</td><td data-l="FCDO travel advice">{fcdo}</td></tr>')
+
+
+def pagina_indice_bb():
+    rel = "../"
+    d = data_lunga(BB["controllato_il"])
+    righe = "".join(riga_bb(p, rel) for p in BB_PAESI)
+    voci = "".join(f'<a href="{rel}{url_bb(p)}">{escape(p["nome"])}<small>{escape(ESITI_BB[p["esito"]])}</small></a>' for p in BB_PAGINE)
+    faq_h, faq_ld = html_faq_bb(faq_bb(BB["faq_indice"]))
+    corpo = f"""<section class="hero">{h1_diviso(f"Blue Badge abroad: where your UK Blue Badge is recognised in Europe ({ANNO})")}
+<p class="lead" id="answer">{escape(prima_frase_bb())}</p></section>
+{AVVISO_BB}
+<h2>Countries</h2>
+<div class="griglia">{voci}</div>
+{AD}
+<h2>Every country in the GOV.UK table</h2>
+<p>The two GOV.UK columns are copied word for word from “Using a Blue Badge in Europe” ({data_fonte_bb("gov_eu")}). The last column says whether the FCDO travel advice for the country mentions the Blue Badge.</p>
+<div class="cerca-box">{ico("search")}<input class="cerca" type="search" placeholder="Type a country, e.g. Spain" data-filtro-multi aria-label="Search countries"></div>
+<div class="tab tab-b tab-srv"><table><caption class="sr">Where the UK Blue Badge is recognised in Europe, from GOV.UK, checked on {d}</caption><thead><tr><th>Country</th><th>UK Blue Badge recognised (GOV.UK)</th><th>More information (GOV.UK)</th><th>FCDO travel advice</th></tr></thead><tbody>{righe}</tbody></table></div>
+<h2 id="official">What GOV.UK says</h2>
+{blocco_cit_bb(BB["generali"]["indice"])}
+<h2 id="eu-cards">The European Disability Card and European Parking Card</h2>
+{blocco_cit_bb(["ec_when"])}
+<p>The European Commission’s page does not mention the UK Blue Badge. <a href="{rel}{BB_CARTE}">Who can get the two cards and the dates, from the European Commission</a>.</p>
+<p class="altri-pass">{ico("car")}<span>Driving abroad? <a href="{rel}{PAT_BASE}/">Do you need an international driving permit? UK, Canadian and Australian licences</a></span></p>
+{faq_h}
+<h2>How we check</h2>
+<p>We read the GOV.UK guide “Using a Blue Badge in Europe” (Department for Transport) and copy its table row by row, the FCDO travel advice for each country, the Your Europe pages of the European Commission on the EU parking card, and, for Italy and France, the national government pages. GOV.UK links each country to pages that are not run by a government: we do not use them. Every sentence between quotation marks is copied word for word, with the date; Italian and French quotes come with our translation. A country gets its own page when people search for using a Blue Badge there. We check the sources again every month. More on the <a href="{rel}about/#{BB_BASE}">About page</a>. Spotted a change? <a href="{rel}contact/?ref={BB_BASE}">Tell us</a>.</p>
+{NOTA_LIC_BB}"""
+    desc = scegli([f"Where the UK Blue Badge is recognised in Europe, country by country, from GOV.UK, with local parking rules and the EU cards. Checked on {d}.",
+                   f"UK Blue Badge abroad: GOV.UK’s answer for {len(BB_PAESI)} European countries, checked on {d}."], LIMITE_DESCRIZIONE)
+    pagina(f"{BB_BASE}/", scegli([f"Blue Badge Abroad ({ANNO}): Where Your UK Badge Works in Europe", f"Blue Badge Abroad ({ANNO})"], LIMITE_TITOLO_BB), desc, corpo,
+           briciole=[("Blue Badge abroad", f"{BB_BASE}/")], js=APP_JS_FILTRO, ld_extra=faq_ld)
+    LASTMOD[f"{BB_BASE}/"] = BB["controllato_il"]
+
+
+def prima_frase_carte_bb():
+    F = fonte_bb("ec_carte")
+    return (f"According to the European Commission, page updated on {data_lunga(F['aggiornato_il'])} and checked on {data_lunga(F['letto_il'])}, EU countries "
+            f"have to adopt the national laws for the European Disability Card and the European Parking Card by 5 June 2027 and issue the cards from 5 June 2028.")
+
+
+def pagina_carte_bb():
+    rel = "../../"
+    G = BB["generali"]
+    F = fonte_bb("ec_carte")
+    righe = [("October 2024", "Directive (EU) 2024/2841 adopted", "ec_dir"), ("July 2026", "QR codes for the physical cards (delegated regulation)", "ec_qr"),
+             ("5 June 2027", "EU countries adopt and publish their national laws", "ec_when"), ("5 June 2028", "EU countries apply the rules and issue the cards", "ec_when"),
+             ("5 June 2029", "Assessment of remaining gaps in free movement", "ec_gaps"), ("5 December 2029", "The European Parking Card replaces national parking cards", "ec_replace")]
+    tab = "".join(f'<tr><td data-l="When">{escape(a)}</td><td data-l="What">{escape(b)}</td></tr>' for a, b, _ in righe)
+    faq_h, faq_ld = html_faq_bb(faq_bb(BB["faq_carte"]))
+    corpo = f"""<section class="hero">{h1_diviso(f"European Disability Card and European Parking Card: what changes and when ({ANNO})")}</section>
+<section class="card summary" aria-label="Answer">
+<div class="s-top"><span class="sq">{ico("calendar")}</span><span>EU cards · dates</span><span>{ANNO}</span></div>
+<div class="s-body"><p class="lead" id="answer">{escape(prima_frase_carte_bb())}</p>
+<p class="small" data-nota>The European Commission’s page does not mention the United Kingdom or the UK Blue Badge. For where the UK Blue Badge is recognised today, see <a href="{rel}{BB_BASE}/">the GOV.UK table</a>.</p></div></section>
+{AVVISO_BB}
+<h2>Key dates</h2>
+<div class="tab tab-b"><table><caption class="cap">European Disability Card and European Parking Card: dates from the European Commission, {data_fonte_bb("ec_carte")}</caption><thead><tr><th>When</th><th>What</th></tr></thead><tbody>{tab}</tbody></table></div>
+<h2 id="official">What the European Commission says</h2>
+{blocco_cit_bb(["ec_when", "ec_gaps", "ec_replace"])}
+<h3>What the cards are</h3>
+{blocco_cit_bb(G["carte_cosa"])}
+<h3>Who can get them</h3>
+{blocco_cit_bb(G["carte_chi"])}
+<h3>The European Parking Card</h3>
+{blocco_cit_bb(G["carte_parcheggio"])}
+{AD}
+<h3>Where the EU Disability Card already exists</h3>
+{blocco_cit_bb(G["carte_pilota"])}
+<h3>What comes next</h3>
+{blocco_cit_bb(G["carte_poi"])}
+<p>EUR-Lex, where the directive is published, does not answer our automated checks, so we quote the European Commission’s own summary of the rules.</p>
+<p><a href="{rel}{BB_BASE}/">Blue Badge abroad: where your UK Blue Badge is recognised, country by country</a> · <a href="{rel}{PAT_BASE}/">Driving abroad</a></p>
+{faq_h}
+<p class="small">Spotted a change? <a href="{rel}contact/?ref={BB_BASE}">Tell us</a>.</p>
+{NOTA_LIC_BB}"""
+    d = data_lunga(F["letto_il"])
+    pagina(BB_CARTE, scegli([f"European Disability Card and Parking Card: Key Dates ({ANNO})", f"European Disability Card ({ANNO})"], LIMITE_TITOLO_BB),
+           scegli([f"European Disability Card and European Parking Card: national laws by 5 June 2027, cards from 5 June 2028. European Commission, checked {d}.",
+                   f"European Disability Card and European Parking Card: the dates, from the European Commission, checked on {d}."], LIMITE_DESCRIZIONE), corpo,
+           briciole=[("Blue Badge abroad", f"{BB_BASE}/"), ("European Disability Card", BB_CARTE)], ld_extra=faq_ld)
+    LASTMOD[BB_CARTE] = F["letto_il"]
+
+
+def home_bb():
+    if not BB:
+        return ""
+    voci = "".join(f'<a href="{url_bb(p)}">{escape(p["nome"])}<small>{escape(ESITI_BB[p["esito"]])}</small></a>'
+                   for p in BB_PAGINE if p["iso2"] in ("FR", "ES", "IT", "PT", "DE", "GR", "IE", "NL", "BE", "MT", "CY", "CH"))
+    return (f'<h2>Blue Badge abroad</h2><p>Where the UK Blue Badge is recognised in Europe, from GOV.UK, with the local parking rules and the '
+            f'<a href="{BB_CARTE}">European Disability Card dates</a>: <a href="{BB_BASE}/">every country in one table</a>.</p><div class="griglia">{voci}</div>')
+
+
+def about_bb(rel):
+    if not BB:
+        return ""
+    return f"""<h2 id="{BB_BASE}">Blue Badge abroad</h2>
+<p>Sources: the GOV.UK guide “Using a Blue Badge in Europe” (Department for Transport) and its change history, the GOV.UK page “Find out where Blue Badge holders can park”, the FCDO travel advice for each country in the GOV.UK table, a GOV.UK news story on the UK–Spain framework, read through the GOV.UK Content API; the Your Europe pages of the European Commission on the EU parking card (general page and one page per EU country) and the European Commission’s page on the European Disability Card and European Parking Card; for Italy, the pages of the Department for policies for persons with disabilities and the circular of 28 September 2026; for France, Service-Public.gouv.fr. {len(BB["fonti"])} pages in all, read on {data_lunga(BB["controllato_il"])}. GOV.UK text is licensed under the <a href="{OGL}" rel="noopener">Open Government Licence v3.0</a>.</p>
+<p>Rules: the GOV.UK table is copied row by row and every sentence between quotation marks is copied word for word (Italian and French with our translation); the short labels such as “Recognised” or “Decided locally” are ours and always sit next to the GOV.UK words. GOV.UK links each country to pages that are not run by a government: we do not use them. Where the official answer is vague, the page says so. A country gets its own page when people search for using a Blue Badge there. This is information, not legal advice.</p>"""
 
 
 # ---------------------------------------------------------------- e-Visa per l'India: costo per nazionalità, visto all'arrivo, e-Arrival card (31/10/2026)
@@ -8172,6 +8556,7 @@ def home():
 {home_tr()}
 {home_tb()}
 {home_pet()}
+{home_bb()}
 {home_in()}
 {home_sc()}
 {box_affiliati()}
@@ -8247,6 +8632,7 @@ def about():
 {about_tr(rel)}
 {about_tb(rel)}
 {about_pet(rel)}
+{about_bb(rel)}
 {about_in(rel)}
 {about_sc(rel)}
 <h2>EES and ETIAS</h2>
@@ -8317,7 +8703,7 @@ def extra():
 """)
     pagina("404.html", f"Page not found | {NOME}", "Page not found.",
            '<section class="hero"><h1>Page not found</h1><p class="lead">Go to the <a href="/">home page</a>, the <a href="/passport-validity/">passport validity rules</a> '
-           'the <a href="/liquids/">liquids rules by airport</a>, the <a href="/cabin-bags/">cabin bag size by airline</a> <a href="/available-in/">apps and services by country</a> <a href="/driving-abroad/">driving abroad with your licence</a>, <a href="/tolls-rental-car/">tolls with a rental car</a>, <a href="/winter-tyres-rental-car/">winter tyres with a rental car</a>, <a href="/foreign-licence-canada-australia-nz/">driving in Canada, Australia and New Zealand on a foreign licence</a>, <a href="/ticket-release-dates/">when tickets go on sale at major attractions</a>, <a href="/public-transport-rules/">public transport fines and contactless payment by city</a>, <a href="/train-luggage-rules/">luggage rules on European trains</a>, <a href="/eurostar-check-in-times/">Eurostar check-in times</a>, <a href="/scooter-rental-licence/">which licence you need to rent a scooter</a> or the <a href="/india-e-visa-fee/">India e-Visa fee by nationality</a>.</p></section>', indicizza=False, assoluto=True)
+           'the <a href="/liquids/">liquids rules by airport</a>, the <a href="/cabin-bags/">cabin bag size by airline</a> <a href="/available-in/">apps and services by country</a> <a href="/driving-abroad/">driving abroad with your licence</a>, <a href="/tolls-rental-car/">tolls with a rental car</a>, <a href="/winter-tyres-rental-car/">winter tyres with a rental car</a>, <a href="/foreign-licence-canada-australia-nz/">driving in Canada, Australia and New Zealand on a foreign licence</a>, <a href="/ticket-release-dates/">when tickets go on sale at major attractions</a>, <a href="/public-transport-rules/">public transport fines and contactless payment by city</a>, <a href="/train-luggage-rules/">luggage rules on European trains</a>, <a href="/eurostar-check-in-times/">Eurostar check-in times</a>, <a href="/scooter-rental-licence/">which licence you need to rent a scooter</a>, <a href="/blue-badge-abroad/">where your UK Blue Badge is recognised abroad</a> or the <a href="/india-e-visa-fee/">India e-Visa fee by nationality</a>.</p></section>', indicizza=False, assoluto=True)
 
 
 def copia_grafica():
@@ -8595,6 +8981,36 @@ def controlli():
                     errori.append(f"Eurostar: FAQ «{f['q']}» senza stazione o citazioni note")
             if len(scegli(titolo_es(), LIMITE_TITOLO_TB)) > LIMITE_TITOLO_TB:
                 errori.append("Eurostar: titolo oltre il limite")
+    if BB:  # Blue Badge all'estero: fonti con HTTP 200, citazioni note e tradotte, esiti, FAQ, titoli (verifica.py, punto 28, ricontrolla tutto)
+        if len(BB_CIT) != len(BB["citazioni"]):
+            errori.append("blue badge: id di citazione duplicati")
+        if len({p["slug"] for p in BB_PAESI}) != len(BB_PAESI) or len({p["iso2"] for p in BB_PAESI}) != len(BB_PAESI):
+            errori.append("blue badge: slug o codici duplicati")
+        for x in BB["citazioni"]:
+            F = BB["fonti"].get(x["f"])
+            if not F or F["http"] != 200 or not F.get("impronta"):
+                errori.append(f"blue badge: citazione {x['id']} da una fonte non letta con HTTP 200 o senza impronta")
+            elif F["lingua"] != "en" and not x.get("tr"):
+                errori.append(f"blue badge: citazione {x['id']} senza traduzione")
+        if any(F["http"] != 200 for F in BB["fonti"].values()):
+            errori.append("blue badge: fonte non letta con HTTP 200")
+        for p in BB_PAESI:
+            if p["esito"] not in ESITI_BB or p["iso2"] not in PAESI_ISO:
+                errori.append(f"blue badge {p['iso2']}: esito o codice Paese non validi")
+            if not p["pagina"]:
+                continue
+            for q in p["faq"]:
+                if not q["cit"] or any(i not in BB_CIT for i in q["cit"]) or not q.get("query"):
+                    errori.append(f"blue badge {p['iso2']}: FAQ «{q['q']}» senza citazioni note o senza ricerca")
+                if any(BB["fonti"][BB_CIT[i]["f"]]["lingua"] != "en" for i in q["cit"]) and "our translation" not in q["pre"]:
+                    errori.append(f"blue badge {p['iso2']}: FAQ «{q['q']}» con citazione tradotta senza dirlo")
+            if len(scegli(titoli_bb(p), LIMITE_TITOLO_BB)) > LIMITE_TITOLO_BB or str(ANNO) not in scegli(titoli_bb(p), LIMITE_TITOLO_BB):
+                errori.append(f"blue badge {p['iso2']}: titolo oltre {LIMITE_TITOLO_BB} caratteri o senza l'anno")
+            if any(i not in BB_CIT for i in ids_pagina_bb(p)):
+                errori.append(f"blue badge {p['iso2']}: citazione sconosciuta nella pagina")
+        for q in BB["faq_indice"] + BB["faq_carte"]:
+            if not q["cit"] or any(i not in BB_CIT for i in q["cit"]):
+                errori.append(f"blue badge: FAQ «{q['q']}» senza citazioni note")
     errori += controlli_in()
     if errori:
         raise SystemExit("ERRORI NEI DATI:\n" + "\n".join(errori))
@@ -8687,6 +9103,11 @@ def main():
         pagina_rotte_pet()
         for p in PET_PAGINE:
             pagina_paese_pet(p)
+    if BB:
+        pagina_indice_bb()
+        pagina_carte_bb()
+        for p in BB_PAGINE:
+            pagina_paese_bb(p)
     if SC:
         pagina_indice_sc()
         for p in SC_PAESI:
@@ -8722,7 +9143,8 @@ def main():
           + (f"; pets UK to EU: indice + calcolatore + passaporto 2027 + rotte approvate ({len(PET['rotte']['aria'])} compagnie aeree, {PET['rotte']['charter']} charter contati) + {len(PET_PAGINE)} pagine Paese "
              f"({len(PET['fonti'])} fonti)" if PET else "")
           + (f"; India e-Visa: indice ({len(IN_PAESI)} Paesi) + {len(IN_PAGINE)} pagine per nazionalità + visto all'arrivo + e-Arrival card + pagine in tedesco e francese "
-             f"({len(IN['fonti'])} fonti)" if IN else ""))
+             f"({len(IN['fonti'])} fonti)" if IN else "")
+          + (f"; blue badge abroad: indice + carte europee + {len(BB_PAGINE)} pagine Paese ({len(BB['fonti'])} fonti)" if BB else ""))
 
 
 if __name__ == "__main__":
