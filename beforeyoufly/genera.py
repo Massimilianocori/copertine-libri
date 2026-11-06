@@ -20,7 +20,7 @@ import sys
 import unicodedata
 from datetime import date, datetime, timedelta
 from html import escape
-from urllib.parse import urlparse
+from urllib.parse import quote_plus, urlparse
 from pathlib import Path
 
 RADICE = Path(__file__).resolve().parent
@@ -507,7 +507,7 @@ a.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:
 .altri-pass.noleggio-home{flex-wrap:nowrap;align-items:flex-start}.noleggio-home .ico{flex:none;margin-top:4px}
 .cal-link{display:flex;gap:8px;align-items:flex-start;margin:12px 0}.cal-link .ico{flex:none;margin-top:3px;color:var(--accent)}.cal-lista{padding-left:20px}.cal-lista .cal-link{margin:4px 0 10px}details.tutte{margin:10px 0}details.tutte summary{cursor:pointer;font-weight:700;padding:6px 0}.ufficiale{margin:22px 0}.ufficiale p{margin:0 0 10px}
 .aff-tag{display:inline-block;vertical-align:middle;margin-left:6px;font-family:var(--mono);font-size:.68rem;font-weight:400;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);border:1px solid var(--line-2);border-radius:999px;padding:1px 8px}
-.noleggio{margin:14px 0 22px}.noleggio p{margin:0 0 12px}.noleggio p.aff-nota{margin:0}
+.noleggio{margin:14px 0 22px}.noleggio p{margin:0 0 12px}.noleggio p.aff-nota{margin:0}.amz-lista{margin:0 0 12px;padding-left:20px}.amz-lista li{margin:4px 0}
 caption.cap{caption-side:top;text-align:left;padding:10px 12px;font-size:.84rem;color:var(--ink-3);background:var(--card)}
 .tab-g th[scope=row]{width:34%;background:transparent;color:var(--ink-3);border-right:1px solid var(--line)}
 blockquote.cit p.trad{font-size:.9rem;color:var(--ink-2);border-top:1px dashed var(--line);padding-top:6px}
@@ -678,13 +678,19 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
 
 
 def box_affiliati():
-    """Riquadro affiliati: vuoto (non mostrato) finché dati/affiliati.json non ha URL."""
+    """Riquadro generico «Before you go» (assicurazione, eSIM, parcheggi/lounge: voci di dati/affiliati.json con 'url' pieno, tranne
+    'bagagli' e le voci con '_'): vuoto (non mostrato) finché non ci sono URL.
+    Dal 6/11/2026 (eSIM Roamable acceso) compare SOLO dove chi legge sta preparando un viaggio all'estero: pagine destinazione e indici
+    del passaporto britannico (FCDO), canadese e australiano, e pagina EES/ETIAS. Tolto dalla home (pagina generica), dalle pagine e
+    dall'indice dei liquidi (chi legge è spesso all'aeroporto di partenza o su un volo nazionale; le pagine di vacanza hanno già i
+    riquadri noleggio e alloggio) e mai nel bagaglio a mano (lì c'è box_bagagli). verifica.py, punto 31, controlla questi posti."""
     voci = [v for k, v in AFFILIATI.items() if not k.startswith("_") and k != "bagagli" and isinstance(v, dict) and v.get("url")]
     if not voci:
         return ""
     righe = "".join(f'<li><a href="{escape(v["url"])}" rel="sponsored noopener" target="_blank">{escape(v["titolo"])}</a> '
-                    f'<span class="small">{escape(v.get("nome", ""))} {escape(v["testo"])}</span></li>' for v in voci)
-    return (f'<section class="card" style="margin-top:22px"><h2 style="margin-top:0">Before you go</h2><ul style="margin:0 0 8px;padding-left:20px">{righe}</ul>'
+                    f'<span class="small">{escape(v["nome"]) + ": " if v.get("nome") else ""}{escape(v["testo"])}</span></li>' for v in voci)
+    return (f'<section class="card" style="margin-top:22px" aria-label="Before you go, affiliate links" data-affiliati><h2 style="margin-top:0">Before you go <span class="aff-tag">Affiliate</span></h2>'
+            f'<ul style="margin:0 0 8px;padding-left:20px">{righe}</ul>'
             f'<p class="small" style="margin:0">{MON.RIGA_EN}</p></section>')  # riga di trasparenza comune (monetizzazione.py)
 
 
@@ -2421,7 +2427,6 @@ def pagina_aeroporto(A, nazionale=False):
 <h2>Medicines, baby food and duty-free</h2>
 <p>Exemptions are set out on the official page linked above. For UK airports, GOV.UK lists them on its <a href="https://www.gov.uk/hand-luggage-restrictions/liquids" rel="noopener">hand luggage restrictions page</a>; for EU airports, see <a href="https://europa.eu/youreurope/citizens/travel/carry/luggage-restrictions/index_en.htm" rel="noopener">Your Europe</a>.</p>
 <p class="small">Spotted a change? <a href="{rel}contact/?ref=liq-{A['slug']}">Tell us</a>.</p>
-{box_affiliati()}
 <p><a href="{rel}liquids/">All airports</a> · <a href="{rel}passport-validity/">Passport validity and visa rules</a> · <a href="{rel}ees-etias/">EES and ETIAS status</a></p>"""
     pagina(f"liquids/{A['slug']}/", scegli(titoli_liquidi(A, nazionale), LIMITE_TITOLO), scegli(descrizioni_liquidi(A, nazionale), LIMITE_DESCRIZIONE), corpo,
            briciole=[("Liquids by airport", "liquids/"), (titolo_breve, f"liquids/{A['slug']}/")], ld_extra=faq_ld)
@@ -2461,8 +2466,7 @@ def indice_liquidi():
 <p>We only publish an airport when we can read its official page and the rule on it is clear. Not included on {data_lunga(AER['controllato_il'])}:</p>
 <ul>{esclusi}</ul>
 <p class="small">Last checked: {data_lunga(AER['controllato_il'])} (each airport row shows its own date). Spotted a change? <a href="{rel}contact/?ref=liquids">Tell us</a>.</p>
-<p>Packing hand luggage? See the <a href="{rel}cabin-bags/">cabin bag size by airline</a>.</p>
-{box_affiliati()}"""
+<p>Packing hand luggage? See the <a href="{rel}cabin-bags/">cabin bag size by airline</a>.</p>"""
     pagina("liquids/", f"Airport Liquid Rules {ANNO}: 100 ml or 2 Litres? ({len(AER['aeroporti'])} Airports)",
            f"The liquid limit at {len(AER['aeroporti'])} airports: which allow 2 litres and which keep 100 ml (Heathrow, Barcelona, Berlin, Prague, Palma…), plus US TSA rules. Official, dated.",
            corpo, briciole=[("Liquids by airport", "liquids/")])
@@ -2758,13 +2762,81 @@ AVVISO_BAG = ('<p class="avviso"><strong>Airlines change their bag rules and mea
               'handles). We quote each airline\'s official page on the date shown; the official rule and the airline staff decide. Check your booking before you fly.</p>')
 
 
-def box_bagagli():
-    """Riquadro per un futuro link a borse della misura giusta: vuoto (non mostrato) finché dati/affiliati.json non ha l'URL della voce 'bagagli'."""
-    v = AFFILIATI.get("bagagli") or {}
-    if not v.get("url"):
+# ---- Amazon Associates (acceso il 6/11/2026): link di RICERCA Amazon per la misura della pagina, solo nel bagaglio a mano.
+# Mai ASIN né pagine prodotto: solo https://www.<dominio>/s?k=<misura + tipo di borsa>&tag=<tag del dominio>. Tag in dati/affiliati.json
+# (voce "bagagli", campo "tag"); 'url' della voce è l'interruttore (vuoto = riquadro spento ovunque).
+# Mercato scelto dal pubblico della pagina:
+#   - compagnie europee (area "Europe") → amazon.co.uk: pubblico britannico ed europeo, misure in centimetri;
+#   - compagnie di USA e Canada ("North America") → amazon.com, con i pollici ufficiali della compagnia;
+#   - Medio Oriente e Australia (Emirates, Qatar, Qantas: pubblico misto) → entrambi;
+#   - pagine per misura (/cabin-bags/size/<misura>/: centimetri, misure delle compagnie europee) → amazon.co.uk;
+#   - indice e strumento «Does my bag fit?» (tutte le compagnie, pubblico misto) → entrambi, ricerca generica.
+# verifica.py, punto 31, ricontrolla tag per dominio, assenza di ASIN, mercato per pagina e la frase obbligatoria di Amazon.
+AMAZON_BAG = AFFILIATI.get("bagagli") or {}
+AMAZON_ACCESO = bool((AMAZON_BAG.get("url") or "").strip())
+AMAZON_TAG = dict(AMAZON_BAG.get("tag") or {})
+AMAZON_FRASE = "As an Amazon Associate we earn from qualifying purchases."  # frase richiesta da Amazon Associates
+AMAZON_NOME = {"amazon.co.uk": "Amazon.co.uk", "amazon.com": "Amazon.com"}
+MERCATI_AREA = {"Europe": ["amazon.co.uk"], "North America": ["amazon.com"], "Middle East and Australia": ["amazon.co.uk", "amazon.com"]}
+
+
+def amazon_link(dominio, ricerca):
+    """Link di ricerca Amazon con il tag del dominio (nessun ASIN)."""
+    return f"https://www.{dominio}/s?k={quote_plus(ricerca)}&tag={AMAZON_TAG[dominio]}"
+
+
+def mercati_bag(C):
+    return MERCATI_AREA.get(C["area"], ["amazon.co.uk", "amazon.com"])  # area sconosciuta: pubblico non chiaro, entrambi
+
+
+def ricerche_compagnia(C):
+    """(dominio, ricerca, etichetta) per ogni borsa della compagnia e ogni mercato della pagina, senza doppioni.
+    amazon.co.uk: centimetri ufficiali; amazon.com: pollici ufficiali se la compagnia li pubblica, altrimenti centimetri."""
+    out, viste = [], set()
+    for dom in mercati_bag(C):
+        for b in C["borse"]:
+            sotto = b["tipo"] == "sotto"
+            if dom == "amazon.com" and b.get("pollici") and b.get("pollici_ufficiali"):
+                v, u = sorted(b["pollici"], reverse=True), "in"
+            else:
+                v, u = sorted(b["cm"], reverse=True), "cm"
+            mis = "x".join(n2(x) for x in v)
+            if dom == "amazon.com":
+                tipo, nome = ("personal item bag", "Personal item bags") if sotto else ("carry on bag", "Carry-on bags")
+            else:
+                tipo, nome = ("under seat bag", "Under-seat bags") if sotto else ("cabin bag", "Cabin bags")
+            ricerca = f"{mis}{' cm' if u == 'cm' and dom == 'amazon.com' else ''} {tipo}"
+            if (dom, ricerca) in viste:
+                continue
+            viste.add((dom, ricerca))
+            out.append((dom, ricerca, f"{nome} {mis.replace('x', ' x ')} {u} on {AMAZON_NOME[dom]}"))
+    return out
+
+
+def box_bagagli(C=None, misura=None):
+    """Riquadro «Bags in the right size» con link di ricerca Amazon (voce 'bagagli' di dati/affiliati.json): '' se spento.
+    C = pagina compagnia (le sue misure), misura = (slug, misure) della pagina per misura; nessuno dei due = indice o strumento."""
+    if not AMAZON_ACCESO:
         return ""
-    return (f'<section class="card" style="margin-top:22px"><h2 style="margin-top:0">{escape(v["titolo"])}</h2><p><a href="{escape(v["url"])}" rel="sponsored noopener" target="_blank">'
-            f'{escape(v.get("nome", ""))}</a> {escape(v["testo"])}</p><p class="small" style="margin:0">{MON.RIGA_EN}</p></section>')
+    if C is not None:
+        voci = ricerche_compagnia(C)
+        frase = (f"These links open an Amazon search for bags in {escape(poss(C['nome']))} sizes. The results are Amazon's, not checked by us: "
+                 f"measure each bag, wheels and handles included, against {escape(poss(C['nome']))} official limit above before you buy.")
+    elif misura is not None:
+        sl, m = misura
+        tipo = "under seat bag" if max(m) <= 45 else "cabin bag"
+        voci = [("amazon.co.uk", f"{sl} {tipo}", f"{sl.replace('x', ' x ')} cm {tipo.replace('under seat', 'under-seat')}s on Amazon.co.uk")]
+        frase = (f"This link opens an Amazon search for {sl.replace('x', ' x ')} cm bags. The results are Amazon's, not checked by us: check the size of each "
+                 "bag, wheels and handles included, and your airline's official limit before you buy.")
+    else:
+        voci = [("amazon.co.uk", "cabin bag", "Cabin and under-seat bags on Amazon.co.uk"), ("amazon.com", "carry on bag", "Carry-on and personal item bags on Amazon.com")]
+        frase = ("These links open an Amazon search. Look up your airline's limit first (table above), then search with that size. "
+                 "The results are Amazon's, not checked by us: measure each bag, wheels and handles included, before you buy.")
+    righe = "".join(f'<li><a href="{escape(amazon_link(d, r))}" rel="sponsored noopener" target="_blank">{escape(e)}</a></li>' for d, r, e in voci)
+    return (f'<h2 id="bags">{escape(AMAZON_BAG.get("titolo") or "Bags in the right size")} <span class="aff-tag">Affiliate</span></h2>'
+            f'<section class="card noleggio" aria-label="Bags on Amazon, affiliate links" data-amazon>'
+            f'<p>{frase}</p><ul class="amz-lista">{righe}</ul>'
+            f'<p class="small aff-nota">{MON.RIGA_EN} {AMAZON_FRASE}</p></section>')
 
 
 def dati_bag_client():
@@ -2867,7 +2939,7 @@ def pagina_compagnia(C):
 <h2>Other airlines ({escape(C["area"])})</h2>
 <div class="griglia">{altre}</div>
 <p class="small">Spotted a change? <a href="{rel}contact/?ref=bag-{C['slug']}">Tell us</a>.</p>
-{box_bagagli()}
+{box_bagagli(C)}
 <p><a href="{rel}{BAG_BASE}/">Cabin bag size by airline</a> · <a href="{rel}{BAG_UE}">EU free personal item rule</a> · <a href="{rel}liquids/">Liquids rules by airport</a></p>"""
     pagina(f"{BAG_BASE}/{C['slug']}/", scegli(titoli_bag(C), LIMITE_TITOLO), scegli(descrizioni_bag(C), LIMITE_DESCRIZIONE), corpo,
            briciole=[("Cabin bags", f"{BAG_BASE}/"), (C["nome"], f"{BAG_BASE}/{C['slug']}/")], ld_extra=faq_ld)
@@ -2914,7 +2986,7 @@ def pagina_misura(sl, m):
 <h2>Check another size</h2>
 <p>Enter your own bag in the <a href="{rel}{BAG_STRUMENTO}">bag size checker</a>, or see another common size:</p>
 <div class="griglia">{altre_m}</div>
-{box_bagagli()}
+{box_bagagli(misura=(sl, m))}
 <p><a href="{rel}{BAG_BASE}/">Cabin bag size by airline</a> · <a href="{rel}{BAG_UE}">EU free personal item rule</a></p>"""
     desc = (f"Does a {sl} cm bag fit? Free with every fare at {len(E['gratis'])} of {len(COMPAGNIE)} airlines, {len(E['altre'])} only with some fares or paid. "
             "From official pages.")
@@ -8665,7 +8737,6 @@ def home():
 {home_bb()}
 {home_in()}
 {home_sc()}
-{box_affiliati()}
 {dati_json('tutti-dati', [dati_client(P) for P in PAESI])}"""
     pagina("", f"Before You Fly {ANNO}: Passport, Visas, Liquids, Cabin Bags, EES",
            f"Passport and visa rules (FCDO) for {len(PAESI)} destinations, liquid limits at {len(AER['aeroporti'])} airports, cabin bag sizes of {len(COMPAGNIE)} airlines, EES/ETIAS. Official sources.",
@@ -8769,12 +8840,17 @@ def privacy():
     # Cookie, link di affiliazione e pubblicità: con AdSense acceso (monetizzazione.json) o con link di affiliazione, il testo
     # comune di monetizzazione.py (GoatCounter senza cookie, pubblicità con il consenso di Google); altrimenti il testo di oggi.
     cookie = MON.privacy_cookie("en", SITO_ID, ci_sono_affiliati()) or """<h2>Cookies and visit counter</h2><p>This site does not use profiling cookies. To count visits we use <a href="https://www.goatcounter.com/" rel="noopener">GoatCounter</a>, a privacy-friendly counter: it sets no cookies and stores nothing in your browser, builds no profiles and does not store your IP address, your full browser signature or any identifier. It keeps only aggregate numbers (page, hour or day, browser, country, screen width) on servers in the European Union and shares nothing with third parties; see <a href="https://www.goatcounter.com/help/privacy" rel="noopener">GoatCounter's privacy policy</a>. If we add advertising or affiliate links in the future, we will update this notice and ask for your consent where required before any advertising cookies are used.</p>"""
-    corpo = f"""<section class="hero"><h1>Privacy notice</h1><p class="small">Last updated: October 2026</p></section><div class="testo">
+    # Amazon Associates (dal 6/11/2026, solo con i link Amazon accesi nel bagaglio a mano): frase obbligatoria anche qui
+    amazon = ("<h2>Amazon Associates</h2><p>Before You Fly is a participant in the Amazon Associates programmes of Amazon.co.uk and Amazon.com. "
+              f"{AMAZON_FRASE} Our cabin bag pages link to Amazon searches for bags in the right size; the links are marked as affiliate links.</p>"
+              if AMAZON_ACCESO else "")
+    corpo = f"""<section class="hero"><h1>Privacy notice</h1><p class="small">Last updated: November 2026</p></section><div class="testo">
 <h2>Who is responsible</h2><p>The data controller is Massimiliano Cori (Italy), who runs {NOME} as an independent project. You can contact us through the <a href="contact/">contact form</a>.</p>
 <h2>What we collect</h2><p>Only what you type in the contact form: your email, the country or airport and your message. We also record the page or link you came from, to understand which pages need corrections. The passport checker runs in your browser: the dates you type are not sent to us.</p>
 <h2>Why</h2><p>To answer your messages and correct the site. The legal basis is your consent (Art. 6(1)(a) GDPR), which you can withdraw at any time.</p>
 <h2>Who processes data for us</h2><p>The site and its form are hosted by Netlify, Inc., which stores form data on our behalf and may process it outside the EU with the safeguards required by the GDPR (standard contractual clauses). We do not sell or share your data.</p>
 {cookie}
+{amazon}
 <h2>How long</h2><p>Messages are kept for up to 12 months after our last exchange.</p>
 <h2>Your rights</h2><p>You can ask for access, correction, deletion, restriction, portability and objection (Articles 15–22 GDPR) and you can complain to the Italian data protection authority (<a href="https://www.garanteprivacy.it" rel="noopener">garanteprivacy.it</a>) or the authority in your country.</p></div>"""
     pagina("privacy.html", f"Privacy | {NOME}", f"Privacy notice of {NOME}.", corpo)
@@ -8877,6 +8953,14 @@ def controlli():
         A, v = per_slug.get(s_), STAY22_BIG.get(k)
         if not A or s_ not in NOLEGGIO_LIQ or not v or v["citta"] != A["citta"] or not v["url"].startswith("https://booking.stay22.com/massimilianocori/"):
             errori.append(f"affiliati.json: riquadro Stay22 dei liquidi su {s_} senza aeroporto di vacanza o senza link Stay22 della stessa città ({k})")
+    if AMAZON_ACCESO:  # Amazon Associates nel bagaglio a mano: un tag per ciascuno dei due mercati, 'url' = ricerca generica britannica
+        if set(AMAZON_TAG) != {"amazon.co.uk", "amazon.com"} or not all(re.fullmatch(r"[a-z0-9-]+-2[01]", v or "") for v in AMAZON_TAG.values()):
+            errori.append(f"affiliati.json, bagagli: tag Amazon mancanti o non validi: {AMAZON_TAG}")
+        elif AMAZON_BAG["url"] != amazon_link("amazon.co.uk", "cabin bag"):
+            errori.append(f"affiliati.json, bagagli: 'url' diverso dalla ricerca generica attesa {amazon_link('amazon.co.uk', 'cabin bag')}")
+        for C in COMPAGNIE:
+            if C["area"] not in MERCATI_AREA:
+                errori.append(f"compagnia {C['slug']}: area {C['area']} senza mercato Amazon dichiarato (MERCATI_AREA)")
     for C in COMPAGNIE:
         for k in ("slug", "nome", "area", "fonti", "borse", "tariffe", "controllato_il"):
             if not C.get(k):

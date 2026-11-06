@@ -169,6 +169,13 @@ Uso (dalla radice del repository, dopo python3 beforeyoufly/genera.py):
     degli aeroporti di vacanza ricalcolate qui (Spagna, Portogallo, Italia, Grecia, Malta, Croazia, Islanda e Antalya), mai su Regno Unito,
     Irlanda, isole della Manica, USA, Canada e scali di transito; "Where to stay in <città>" (Stay22) solo su Barcellona, Fiumicino, Linate,
     Malpensa e Granada con il link della stessa città scritto qui, dopo il riquadro noleggio, con etichetta, trasparenza e senza promesse.
+31. Amazon nel bagaglio a mano ed eSIM (6/11/2026): ogni link verso un dominio Amazon in tutto il sito è https://www.amazon.co.uk o
+    https://www.amazon.com, percorso /s con solo k e tag, tag giusto per il dominio (scritti qui: beforeyoufly-21 e beforeyoufl08-20),
+    nessun ASIN né pagina prodotto, rel="sponsored noopener", e la pagina mostra «As an Amazon Associate we earn from qualifying
+    purchases.»; link solo nelle 40 pagine del bagaglio a mano (indice, strumento, compagnie, misure), con il mercato ricalcolato qui
+    (Europa e pagine per misura: .co.uk; USA e Canada: .com; Medio Oriente e Australia, indice e strumento: entrambi) e la misura della
+    pagina nella ricerca; frase anche nella privacy. eSIM: link Awin con awinmid 118127, awinaffid 3145171 e ued verso roamable.co;
+    riquadro «Before you go» solo nelle pagine passaporto (britannico, canadese, australiano) e nella pagina EES/ETIAS.
 Monetizzazione (30/10/2026, controllo comune di studio-business/strumenti/monetizzazione.py): i link di affiliazione sono
 ammessi solo verso i domini di monetizzazione.json, con rel="sponsored noopener" e la riga di trasparenza nella pagina;
 domini bloccati e link sponsorizzati verso altri domini sono errori; script AdSense, ads.txt e sezione privacy ci sono
@@ -5279,6 +5286,122 @@ def controlla_bluebadge():
     return errori, conti
 
 
+# ---------------------------------------------------------------- 31. Amazon nel bagaglio a mano ed eSIM Roamable (6/11/2026)
+# Scritti qui a mano, indipendenti da genera.py e da affiliati.json: tag Amazon per dominio, frase obbligatoria, link eSIM atteso.
+AMAZON_TAG_ATTESI = {"www.amazon.co.uk": "beforeyoufly-21", "www.amazon.com": "beforeyoufl08-20"}
+AMAZON_FRASE = "As an Amazon Associate we earn from qualifying purchases."
+# mercato atteso per area della compagnia (pubblico della pagina)
+AMAZON_MERCATO_AREA = {"Europe": {"www.amazon.co.uk"}, "North America": {"www.amazon.com"},
+                       "Middle East and Australia": {"www.amazon.co.uk", "www.amazon.com"}}
+ESIM_PARAMETRI = {"awinmid": "118127", "awinaffid": "3145171", "ued": "https://roamable.co/"}
+# cartelle dove il riquadro generico «Before you go» (eSIM) è ammesso: viaggi all'estero
+ESIM_CARTELLE = ("passport-validity/", "canadian-passport/", "australian-passport/", "ees-etias/")
+_RE_ASIN = re.compile(r"(/dp/|/gp/product|/gp/aw/d/|/exec/obidos|/o/ASIN|\bB0[A-Z0-9]{8}\b|[?&](asin|ASIN)=)")
+
+
+def controlla_amazon_esim():
+    from html import unescape
+    from urllib.parse import parse_qs
+    errori, c = [], {"amazon_pagine": 0, "amazon_link": 0, "uk": 0, "us": 0, "entrambi": 0, "esim_pagine": 0}
+    attese = {f"{G.BAG_BASE}/index.html": None, f"{G.BAG_STRUMENTO}index.html": None}
+    for C in G.COMPAGNIE:
+        attese[f"{G.BAG_BASE}/{C['slug']}/index.html"] = C
+    for sl, _ in G.MISURE_COMUNI:
+        attese[f"{G.BAG_BASE}/size/{sl}/index.html"] = sl
+    acceso = bool((G.AFFILIATI.get("bagagli") or {}).get("url"))
+    esim = (G.AFFILIATI.get("esim") or {}).get("url") or ""
+    if esim:
+        u = urlparse(esim)
+        q = {k: v[0] for k, v in parse_qs(u.query).items()}
+        if u.scheme != "https" or u.hostname != "www.awin1.com" or u.path != "/cread.php" or q != ESIM_PARAMETRI:
+            errori.append(f"eSIM: link Awin diverso da quello atteso (awinmid 118127, awinaffid 3145171, ued https://roamable.co/): {esim}")
+    pagine_esim = set()
+    for f in sorted(SITO.rglob("*.html")):
+        rel = str(f.relative_to(SITO))
+        t = f.read_text(encoding="utf-8", errors="replace")
+        testo = G.MON.testo_visibile(t)
+        n_amz, host_pagina, ricerche = 0, set(), []
+        for m in re.finditer(r"<a\b[^>]*>", t):
+            tag_a = m.group(0)
+            href = unescape((re.search(r'href="([^"]*)"', tag_a) or [None, ""])[1])
+            if not href.startswith(("http://", "https://", "//")):
+                continue
+            u = urlparse(href if not href.startswith("//") else "https:" + href)
+            host = (u.hostname or "").lower()
+            if esim and href == esim:
+                pagine_esim.add(rel)
+            if not re.search(r"(^|\.)amazon\.[a-z.]+$", host) and not re.search(r"(^|\.)(amzn\.to|amzn\.eu|a\.co)$", host):
+                continue
+            n_amz += 1
+            if host not in AMAZON_TAG_ATTESI:
+                errori.append(f"{rel}: link Amazon verso un dominio non ammesso ({host}): solo www.amazon.co.uk e www.amazon.com")
+                continue
+            q = parse_qs(u.query)
+            if u.scheme != "https" or u.path != "/s" or set(q) != {"k", "tag"} or len(q["tag"]) != 1:
+                errori.append(f"{rel}: link Amazon che non è una ricerca /s?k=…&tag=… ({href[:90]})")
+            elif q["tag"][0] != AMAZON_TAG_ATTESI[host]:
+                errori.append(f"{rel}: link {host} con il tag {q['tag'][0]} invece di {AMAZON_TAG_ATTESI[host]}")
+            if _RE_ASIN.search(href):
+                errori.append(f"{rel}: link Amazon con un ASIN o una pagina prodotto ({href[:90]})")
+            r = set((re.search(r'rel="([^"]*)"', tag_a) or [None, ""])[1].split())
+            if not {"sponsored", "noopener"} <= r:
+                errori.append(f"{rel}: link Amazon senza rel=\"sponsored noopener\"")
+            host_pagina.add(host)
+            ricerche.append((host, (q.get("k") or [""])[0]))
+        if n_amz:
+            c["amazon_pagine"] += 1
+            c["amazon_link"] += n_amz
+            if AMAZON_FRASE not in testo:
+                errori.append(f"{rel}: link Amazon senza la frase «{AMAZON_FRASE}»")
+            if rel not in attese:
+                errori.append(f"{rel}: link Amazon fuori dalle pagine del bagaglio a mano")
+                continue
+        if rel not in attese or not acceso:
+            continue
+        if not n_amz:
+            errori.append(f"{rel}: pagina del bagaglio a mano senza link Amazon (voce 'bagagli' accesa)")
+            continue
+        voce = attese[rel]
+        if isinstance(voce, dict):  # pagina compagnia: mercato dall'area, ogni ricerca con una misura ufficiale della compagnia
+            atteso = AMAZON_MERCATO_AREA.get(voce["area"], {"www.amazon.co.uk", "www.amazon.com"})
+            misure = set()
+            for b in voce["borse"]:
+                misure.add("x".join(f"{round(x, 2):g}" for x in sorted(b["cm"], reverse=True)))
+                if b.get("pollici") and b.get("pollici_ufficiali"):
+                    misure.add("x".join(f"{round(x, 2):g}" for x in sorted(b["pollici"], reverse=True)))
+            for h, k in ricerche:
+                if k.split(" ")[0] not in misure:
+                    errori.append(f"{rel}: ricerca Amazon «{k}» senza una misura ufficiale di {voce['nome']}")
+        elif isinstance(voce, str):  # pagina per misura: solo .co.uk, con la misura dello slug
+            atteso = {"www.amazon.co.uk"}
+            for h, k in ricerche:
+                if not k.startswith(voce + " "):
+                    errori.append(f"{rel}: ricerca Amazon «{k}» senza la misura {voce}")
+        else:  # indice e strumento: pubblico misto
+            atteso = {"www.amazon.co.uk", "www.amazon.com"}
+        if host_pagina != atteso:
+            errori.append(f"{rel}: mercati Amazon {sorted(host_pagina)} invece di {sorted(atteso)}")
+        c["entrambi" if len(atteso) == 2 else ("uk" if "www.amazon.co.uk" in atteso else "us")] += 1
+    if acceso:
+        priv = (SITO / "privacy.html").read_text(encoding="utf-8")
+        if AMAZON_FRASE not in G.MON.testo_visibile(priv):
+            errori.append(f"privacy.html: manca la frase «{AMAZON_FRASE}»")
+    # eSIM (riquadro generico «Before you go»): solo nelle pagine dei viaggi all'estero, e in tutte quelle che hanno il riquadro
+    for rel in sorted(pagine_esim):
+        if not rel.startswith(ESIM_CARTELLE):
+            errori.append(f"{rel}: link eSIM fuori dalle pagine dei viaggi all'estero (passaporti, EES/ETIAS)")
+    if esim:
+        for rel in ("passport-validity/index.html", "passport-validity/spain/index.html", "canadian-passport/index.html",
+                    "australian-passport/index.html", "ees-etias/index.html"):
+            if rel not in pagine_esim:
+                errori.append(f"{rel}: riquadro eSIM mancante")
+        for rel in ("index.html", "liquids/index.html", "liquids/malaga/index.html", f"{G.BAG_BASE}/index.html"):
+            if rel in pagine_esim:
+                errori.append(f"{rel}: riquadro eSIM in una pagina dove non c'entra")
+    c["esim_pagine"] = len(pagine_esim)
+    return errori, c
+
+
 def main():
     e1 = controlla_casi()
     print(f"1. Casi del passaporto calcolati a mano: {len(CASI)}, {len(e1)} errori")
@@ -5407,9 +5530,13 @@ def main():
           f"ricerche vere, fonte accanto alla risposta), esclusi del 5/11 con il motivo; riquadro 'Hire a car at' (DiscoverCars) su {c30['noleggio']} "
           f"pagine di vacanza, 'Where to stay' (Stay22) su {c30['stay22']}, nessun riquadro su {c30['senza']} pagine di partenza (UK, Irlanda, "
           f"isole della Manica, USA, Canada): {len(e30)} errori")
+    e31, c31 = controlla_amazon_esim()
+    print(f"31. Amazon ed eSIM: {c31['amazon_link']} link Amazon in {c31['amazon_pagine']} pagine del bagaglio a mano (solo .co.uk: {c31['uk']}, "
+          f"solo .com: {c31['us']}, entrambi: {c31['entrambi']}), tag giusto per dominio, solo ricerche /s senza ASIN, misura della pagina, "
+          f"frase di Amazon nelle pagine e nella privacy; eSIM Roamable (Awin) in {c31['esim_pagine']} pagine di viaggi all'estero: {len(e31)} errori")
     e19, i19 = G.MON.controlla_sito(G.SITO_ID, SITO)  # controllo comune di monetizzazione (monetizzazione.py)
     print("19. " + G.MON.riepilogo(G.SITO_ID, i19, e19))
-    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28 + e29 + e30
+    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28 + e29 + e30 + e31
     for e in tutti:
         print(" -", e)
     if tutti:

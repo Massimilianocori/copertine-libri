@@ -73,6 +73,9 @@ _ignoti = [s for s in ADSENSE_SITI if s not in SITI]
 if _ignoti:
     raise SystemExit(f"monetizzazione.json: siti sconosciuti in adsense_siti: {_ignoti} (nomi ammessi: {', '.join(SITI)})")
 DOMINI_AFFILIAZIONE = [d.strip().lower() for d in CONFIG.get("domini_affiliazione", []) if d.strip()]
+# Domini Amazon Associates: ogni link verso questi deve avere il tag di affiliazione (tag=). amazon.it (Italia), dal 6/11/2026
+# anche amazon.co.uk e amazon.com (Before You Fly, bagaglio a mano; il tag giusto per dominio lo controlla verifica.py del sito).
+DOMINI_AMAZON = ["amazon.it", "amazon.co.uk", "amazon.com"]
 DOMINI_BLOCCATI = [d.strip().lower() for d in CONFIG.get("domini_bloccati", []) if d.strip()]
 for _d in DOMINI_AFFILIAZIONE + DOMINI_BLOCCATI:
     if "/" in _d or "?" in _d or "=" in _d or " " in _d:
@@ -291,8 +294,8 @@ def controlla_link_pagina(html, nome, lingua=None):
             errori.append(f"{nome}: link di affiliazione verso un dominio non ammesso ({host}): aggiungerlo a monetizzazione.json solo se è un programma vero")
         if "sponsored" not in rel or "noopener" not in rel:
             errori.append(f"{nome}: link di affiliazione senza rel=\"sponsored noopener\" ({host})")
-        if dominio_in(host, ["amazon.it"]) and not re.search(r"[?&]tag=[^&]+", href):
-            errori.append(f"{nome}: link Amazon.it senza il tag di affiliazione (tag=)")
+        if dominio_in(host, DOMINI_AMAZON) and not re.search(r"[?&]tag=[^&]+", href):
+            errori.append(f"{nome}: link Amazon ({host}) senza il tag di affiliazione (tag=)")
     if voci and riga(lingua) not in testo_visibile(html):
         errori.append(f"{nome}: link di affiliazione senza la riga di trasparenza «{riga(lingua)}»")
     return errori, len(voci)
