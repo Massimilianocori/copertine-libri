@@ -2,6 +2,8 @@
 
 Sezioni già revisionate, con i sorgenti salvati, che aspettano la pubblicazione serale unica (regola crediti Netlify del 31/10/2026: una pubblicazione per sito al giorno). Il punto 0 della routine serale le pubblica e poi cancella la riga.
 
+**Nota per la routine serale del 6/11/2026:** un ricercatore (fronte nuovo "dal pagatore") è già partito alle 15; stasera al massimo 1 ricercatore in più (budget del 5/11).
+
 | Sito (cartella) | Sezione | Revisione | Note |
 |---|---|---|---|
 
