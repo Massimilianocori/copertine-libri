@@ -249,3 +249,5 @@ Si riprendono solo quando la soglia è raggiunta. Prima vengono i libri KDP già
 - 12/10/2026: Airalo respinge la domanda. Motivo probabile: siti nuovi, senza traffico. Nessun cambiamento ai siti (il link Airalo non era ancora online). Si ripresenta con i numeri.
 
 - 11/10/2026: creata la gestione da manager su richiesta di Massimiliano. Soglie fissate prima di vedere i numeri (skill `rete-siti`, sez. 3).
+
+**6/11/2026, account aperti da Massimiliano:** Amazon Associates UK (tag `beforeyoufly-21`) e US (tag `beforeyoufl08-20`), conto e moduli fiscali fatti (UK e US 0 %; Canada completo, conta solo per Amazon.ca); negozi collegati in un report unico con l'account Italia `guideesami-21`. Scadenza: 3 vendite entro 180 giorni (entro il 5/5/2027) o l'account si chiude. Bing Webmaster Tools importato da Search Console (tutti i siti, sitemap comprese); dati entro 48 ore; sezione "AI Performance" (beta) = citazioni in Copilot, da leggere insieme all'esperimento citazioni di Visa Income.
