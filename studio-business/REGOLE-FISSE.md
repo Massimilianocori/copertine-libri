@@ -118,3 +118,7 @@ Massimiliano (5/11/2026, giovedì 13:00): "abbiamo consumato già il 30% del set
 ## Regola del 6/11/2026: decido io, sui dati
 
 Massimiliano: "devi sempre decidere in base ai dati e alla previsione di guadagno" e "non devo decidere io, devi decidere tu in base alle analisi di quello che è meglio". Quindi: le scelte di lavoro (cosa costruire, in che ordine, spostare, unire o congelare sezioni e siti, priorità della coda) le prendo io, con i numeri (domanda, visite, stima prudente/centrale/ottimista in €, costo) scritti nel cruscotto o in DA-PUBBLICARE.md, e poi lo informo in breve. A lui chiedo SOLO: spese di denaro, azioni che può fare solo lui (account, moduli, password, foto BookBeam), e i vincoli di sicurezza già scritti (email, social, dati personali). Restano valide le asticelle per i siti nuovi (voto ≥ 7, ≥ 5.000 €/anno): un sito nuovo che le passa si costruisce senza aspettare il suo sì, se non costa denaro.
+
+## Regola del 6/11/2026: scrivere a Massimiliano solo per cose buone
+
+Massimiliano: "io voglio sapere solo quando porti cose buone". Quindi i messaggi a lui solo per: (1) un risultato concreto (guadagno, sezione o sito nuovo online con stima in €, idea che passa l'asticella e parte la costruzione, crescita misurata); (2) un'azione che può fare solo lui, con il guadagno che sblocca. Le analisi, le idee scartate, i voti bassi e i problemi si risolvono e si scrivono nei file (CRUSCOTTO, ESPLORATE, DA-PUBBLICARE), non in chat. Un problema si dice solo se blocca soldi e serve lui, sempre insieme alla soluzione.
