@@ -945,7 +945,7 @@
    "stato": "firmata",
    "badge": "Law from Jan. 1, 2027",
    "legge": "HB 395 (2026)",
-   "risposta": "Yes, from January 1, 2027: as of {data}, Virginia law (Code § 56-596.8, from HB 395 of 2026) will allow plug-in solar devices of up to 1,200 watts per customer, or per unit in multifamily housing, after a notice to the utility.",
+   "risposta": "Yes, from January 1, 2027: as of {data}, Virginia law (Code § 56-596.8, enacted in 2026) will allow plug-in solar devices of up to 1,200 watts per customer, or per unit in multifamily housing, after a notice to the utility.",
    "legge_punti": [
     {
      "t": "Code of Virginia § 56-596.8, \"Small portable solar generation devices; exempt from interconnection\", takes effect on January 1, 2027.",
@@ -954,7 +954,7 @@
      ]
     },
     {
-     "t": "Its history note cites 2026 Acts of Assembly chapter 1052 (HB 395) and chapter 998 (SB 250).",
+     "t": "Its history note cites 2026 Acts of Assembly chapters 998 and 1052.",
      "s": [
       "va-code"
      ]
@@ -1004,7 +1004,7 @@
     {
      "q": "What is Virginia's balcony solar law?",
      "ricerca": "balcony solar virginia law",
-     "a": "It is § 56-596.8 of the Code of Virginia, from HB 395 and SB 250 of 2026, effective January 1, 2027. A device of up to 1,200 watts per customer, or per unit in multifamily housing, needs no interconnection, approval or fee, but you must notify the utility on the State Corporation Commission's form before installing it.",
+     "a": "It is § 56-596.8 of the Code of Virginia, effective January 1, 2027 (2026 Acts of Assembly chapters 998 and 1052). A device of up to 1,200 watts per customer, or per unit in multifamily housing, needs no interconnection, approval or fee, but you must notify the utility on the State Corporation Commission's form before installing it.",
      "s": [
       "va-code"
      ]
@@ -1095,7 +1095,7 @@
     {
      "q": "Is balcony solar legal in New Jersey?",
      "ricerca": "is balcony solar legal in new jersey",
-     "a": "The Garden State Balcony Solar Act (S2368) allows certified plug-in devices of up to 1,200 watts per address or dwelling unit and stops condo and HOA rules from banning them, with reasonable restrictions allowed. It takes effect six months after enactment. A third-party tracker reports it was signed on September 1, 2026; we could not confirm this on the Legislature's site.",
+     "a": "The Garden State Balcony Solar Act (S2368) would allow certified plug-in devices of up to 1,200 watts per address or dwelling unit and stop condo and HOA rules from banning them, with reasonable restrictions allowed. It takes effect six months after enactment. A third-party tracker reports it was signed on September 1, 2026; we could not confirm this on the Legislature's site.",
      "s": [
       "nj-text",
       "nj-bs"

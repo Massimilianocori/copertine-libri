@@ -8,7 +8,7 @@ Sezioni già revisionate, con i sorgenti salvati, che aspettano la pubblicazione
 
 | Sito (cartella) | Sezione | Revisione | Note |
 |---|---|---|---|
-| fhacondos | Balcony solar in condos, `/balcony-solar/` (indice + 16 Stati, 17 pagine; costruita il 6/11/2026) | da revisionare | FHA Condos era congelato: questa sezione lo riapre; pubblicare solo dopo la revisione indipendente (fatti sulle fonti ufficiali e aspetto) e con la decisione di riaprire il sito. Fonti non lette: California (403), Connecticut e Ohio/Illinois (certificato), New Hampshire (connessione chiusa), stato finale del New Jersey (pagina JavaScript). Nessun link di affiliazione (riquadro `kit_solari` spento). Dettagli in `fhacondos/NOTE.md` |
+| fhacondos | Balcony solar in condos, `/balcony-solar/` (indice + 16 Stati, 17 pagine; costruita il 6/11/2026) | revisionato il 6/11, correzioni applicate, pubblicabile | Correzione Connecticut non applicata: da questo ambiente cga.ct.gov dà ancora errore di certificato, la fonte resta "Not read" (vedi NOTE.md).  FHA Condos era congelato: questa sezione lo riapre; pubblicare solo dopo la revisione indipendente (fatti sulle fonti ufficiali e aspetto) e con la decisione di riaprire il sito. Fonti non lette: California (403), Connecticut e Ohio/Illinois (certificato), New Hampshire (connessione chiusa), stato finale del New Jersey (pagina JavaScript). Nessun link di affiliazione (riquadro `kit_solari` spento). Dettagli in `fhacondos/NOTE.md` |
 
 Pubblicato il 31/10/2026 alle 14:20 circa (ora di Roma): Visa Income, Before You Fly, EsameB1 (tutte le sezioni revisionate del giorno). Esperimento citazioni: conteggio dal 1/11/2026.
 

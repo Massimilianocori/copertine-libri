@@ -1485,8 +1485,9 @@ def bs_badge(s):
     return f'<span class="badge {BADGE_BS[s["stato"]]}">{h(s["badge"])}</span>'
 
 
-def bs_titolo(nome):
-    return f"Is Balcony Solar Legal in {nome}? {BS_VERIFICA.year} Plug-In Solar Law"
+def bs_titolo(nome, stato):
+    tipo = "Bill" if stato in ("attesa_firma", "in_discussione", "ferma") else "Law"  # Stati senza legge: "Bill"
+    return f"Is Balcony Solar Legal in {nome}? {BS_VERIFICA.year} Plug-In Solar {tipo}"
 
 
 def pagina_bs_stato(s):
@@ -1525,7 +1526,7 @@ def pagina_bs_stato(s):
     art = {"@context": "https://schema.org", "@type": "Article", "headline": f"Is balcony solar legal in {nome}?", "description": descr,
            "dateModified": BS_VERIFICA.isoformat(), "author": {"@type": "Organization", "name": NOME, "url": URL_SITO + "/"},
            "publisher": {"@type": "Organization", "name": NOME, "url": URL_SITO + "/"}, "mainEntityOfPage": URL_SITO + "/" + url}
-    pagina(url, bs_titolo(nome), descr, "\n".join(corpo), briciole=[("Balcony solar", BS_DIR), (nome, url)], testata=testata,
+    pagina(url, bs_titolo(nome, s["stato"]), descr, "\n".join(corpo), briciole=[("Balcony solar", BS_DIR), (nome, url)], testata=testata,
            jsonld_extra=[art, faq_ld])
 
 

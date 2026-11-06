@@ -195,10 +195,19 @@ tracker di terzi dichiarato come tale. Ohio e Illinois: siti ufficiali con error
   da solo (`blocco_kit()`) quando arriva un link vero (Amazon US con questo dominio registrato, oppure EcoFlow) e il dominio è in
   `monetizzazione.json`. Il controllo `controlla_balcony_solar` in `verifica.py` va allora adattato (oggi vieta ogni link sponsorizzato
   nella sezione).
-- **Controlli (`verifica.py`, `controlla_balcony_solar`):** ogni affermazione con fonte esistente; fonti con HTTP 200 o motivo scritto,
-  e con la rete le fonti lette rispondono ancora 200 (39 su 39 il 6/11); terzi marcati; FAQ dalle ricerche salvate; JSON-LD = testo;
+- **Controlli (`verifica.py`, `controlla_balcony_solar`):** ogni affermazione con fonte esistente; fonti con HTTP 200 o motivo scritto
+  (**43 fonti: 37 lette, 6 con motivo scritto**), e con la rete le fonti registrate con HTTP 200 rispondono ancora 200 (39 su 39 il 6/11); terzi marcati; FAQ dalle ricerche salvate; JSON-LD = testo;
   titoli; prima frase con la data; rimandi verso fonti elencate; sitemap; link interni nei due sensi; nessun link di affiliazione.
   `verifica_browser.js` prova anche indice, Colorado, New Jersey e Connecticut a 375 e 1280 px.
 - **Da ricontrollare:** ogni mese da gennaio a giugno 2027 (sessioni legislative) e subito: firma del governatore di New York,
   conciliazione del Massachusetts, testo di SB 868 (California) quando leginfo risponde, siti di Connecticut, New Hampshire, Ohio,
   Illinois. Cambiare `verificato_il` solo dopo aver riletto le fonti.
+- **Revisione indipendente del 6/11/2026: pubblicabile con correzioni, applicate** (Virginia senza abbinamento capitolo/disegno di legge,
+  titoli "Plug-In Solar Bill" per gli Stati senza legge: NY, MA, PA, MI, NC, WA; New Jersey "would allow" nella FAQ e nel JSON-LD).
+  - **Connecticut:** il revisore legge la pagina di stato di HB 5340 su cga.ct.gov con 200 ("Public Act No. 26-127", "An Act Concerning
+    Renewable Power Generation"). Da questo ambiente la stessa pagina dà ancora errore di certificato (curl e Python, 6/11 sera): non
+    l'abbiamo letta, quindi la fonte `ct-cga` resta "Not read" e la pagina CT non cita numero e titolo del PA come letti. Al prossimo
+    giro rileggerla e, se si apre, segnarla letta (http 200, senza motivo) con numero e titolo; limiti e data 1/10/2026 restano "dal
+    tracker" finché non si apre il PDF dell'atto.
+  - **Colorado:** "in force since August 12, 2026" viene dalla pagina del bill e dalla legge di sessione lette il 6/11 (200); il revisore
+    riceve 406 da leg.colorado.gov con curl. Riconfermare la data sulla pagina del bill al prossimo controllo.
