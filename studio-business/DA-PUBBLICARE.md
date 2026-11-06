@@ -4,11 +4,10 @@ Sezioni già revisionate, con i sorgenti salvati, che aspettano la pubblicazione
 
 | Sito (cartella) | Sezione | Revisione | Note |
 |---|---|---|---|
-| beforeyoufly | Amazon acceso nel bagaglio a mano (ricerche per misura: 27 pagine amazon.co.uk, 8 amazon.com, 5 entrambi; tag UK beforeyoufly-21, US beforeyoufl08-20) ed eSIM Roamable (Awin) nel riquadro «Before you go», ora solo nelle 631 pagine passaporti ed EES/ETIAS (tolto da home e liquidi); vedi `beforeyoufly/NOTE.md`, sezione 6/11/2026 | 6/11/2026: revisore indipendente PUBBLICABILE (70 link controllati, Awin verificato, nessuna regressione); ritocco del testo dello strumento applicato | pubblicare il 6/11 sera |
-| touristtax | Licenze per affitti turistici in Spagna (`/spain-holiday-let-licence/`, 27 pagine), 10 correzioni del revisore applicate (commit 9dc3a88) | 5/11/2026, pubblicabile | Tourist Tax già pubblicato il 5/11 (alle 2:30): pubblicare il 6/11 |
-| visaincome | Infermieri all'estero (`/nurses-abroad/`, 17 pagine) e visto UK Ancestry (`/uk-ancestry-visa/`), 14 correzioni del revisore applicate (commit 536c2c7); **liste università per visti da laureati** (`/top-university-visas/`, 82 pagine: 39 pagine università, le altre 161 solo in tabella per il contenuto sottile), correzioni del revisore applicate (commit e1eb9ed) | 5/11/2026, pubblicabile | Visa Income già pubblicato il 5/11 (alle 2:30): pubblicare il 6/11 |
 
 Pubblicato il 31/10/2026 alle 14:20 circa (ora di Roma): Visa Income, Before You Fly, EsameB1 (tutte le sezioni revisionate del giorno). Esperimento citazioni: conteggio dal 1/11/2026.
+
+Pubblicato il 6/11/2026 alle 13:00 circa: Visa Income (infermieri, UK Ancestry, università, correzione creator), Tourist Tax (licenze Spagna), Before You Fly (Amazon UK/US nel bagaglio a mano, eSIM Roamable); IndexNow fatto. Nessun'altra pubblicazione di questi tre siti il 6/11.
 
 Pubblicato il 5/11/2026 alle 23:30 circa: EsameB1 (click day del decreto flussi) e Before You Fly (Blue Badge, Amsterdam, 37 aeroporti dei liquidi, riquadri DiscoverCars e Stay22); IndexNow fatto.
 
