@@ -4,6 +4,8 @@ Sezioni già revisionate, con i sorgenti salvati, che aspettano la pubblicazione
 
 **Nota per la routine serale del 6/11/2026:** i 2 ricercatori di stasera (Spagna CCSE/DELE e fronte mai toccato) sono già partiti alle 18; **stasera nessun ricercatore in più**: fai solo la PARTE A e, quando i due finiscono, i verificatori per le idee che passano l'asticella.
 
+**Promemoria (6/11/2026):** quando la sezione `/balcony-solar/` di ApprovedCondos è online, scrivere a Massimiliano di iscriversi a **EcoFlow** (US, prima riga) ed **EcoFlow UK** su Awin, indicando ApprovedCondos, e di aggiungere `https://fha-approved-condos-list.netlify.app` ai siti dell'account Amazon US. Non prima: con la sezione assente rischiamo il rifiuto.
+
 | Sito (cartella) | Sezione | Revisione | Note |
 |---|---|---|---|
 
