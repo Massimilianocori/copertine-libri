@@ -544,6 +544,12 @@ a.card.guida:hover{border-color:var(--accent)}
 .altri ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
 .altri a{display:flex;flex-direction:column;gap:2px;padding:10px 14px;border:1px solid var(--line);border-radius:var(--r-s);background:var(--card);text-decoration:none;color:var(--ink);font-weight:700;max-width:420px}
 .altri a small{font-weight:500;color:var(--ink-3);font-size:.85rem}.altri a:hover{border-color:var(--accent)}
+.fatti{margin:0 0 8px;padding-left:20px}.fatti li{margin-bottom:8px}
+sup.ref{font-size:.72em;line-height:0;margin-left:2px;white-space:nowrap}sup.ref a{text-decoration:none;font-weight:700}
+.faq{border-top:1px solid var(--line);padding:4px 0 6px}.faq h3{margin:16px 0 6px}.faq p{margin:0 0 6px}
+.bs-risposta{padding:20px 22px}.bs-sintesi{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px 18px;margin:16px 0 0;padding:14px 0 0;border-top:1px solid var(--line)}
+.bs-sintesi dt{font-size:.74rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}.bs-sintesi dd{margin:2px 0 0;font-weight:600}
+.fonti-bs{list-style:none;padding:0!important}.fonti-bs li{margin-bottom:10px}.bs-tab td{min-width:90px}
 .form{display:grid;gap:14px}.form label{display:grid;gap:6px;font-weight:600;font-size:.95rem}
 .form input,.form textarea{font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line-2);border-radius:var(--r-s);padding:10px 12px;width:100%;min-height:46px}
 .form .check{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:.9rem;color:var(--ink-2)}.form .check input{width:auto;min-height:0;margin-top:4px}
@@ -704,7 +710,7 @@ def pagina(percorso, titolo_p, descrizione, corpo, briciole=None, indicizza=True
         bc = ('<nav class="briciole" aria-label="Breadcrumb"><a href="' + rel + '">Home</a>' +
               "".join(f' › <a href="{rel}{p}">{h(n)}</a>' for n, p in briciole[:-1]) + f" › {h(briciole[-1][0])}</nav>")
     if jsonld_extra:
-        ld.append(jsonld_extra)
+        ld.extend(jsonld_extra if isinstance(jsonld_extra, list) else [jsonld_extra])
     ld_html = "".join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>' for x in ld)
     voci_menu = [("states/", "States"), ("is-my-condo-fha-approved/", "How to check"), ("condo-not-fha-approved/", "Not approved?"),
                  ("methodology/", "Methodology")]
@@ -761,7 +767,7 @@ def pagina(percorso, titolo_p, descrizione, corpo, briciole=None, indicizza=True
 <strong>Approval can change at any time:</strong> confirm a project's current status in the <a href="{HUD_LOOKUP}" rel="noopener">official HUD lookup</a> and with your lender before you rely on it. Nothing here is mortgage, legal or financial advice.</p>
 </div><div>
 <h2>Explore</h2>
-<ul><li><a href="{rel}states/">All states</a></li><li><a href="{rel}is-my-condo-fha-approved/">Is my condo FHA approved?</a></li><li><a href="{rel}condo-not-fha-approved/">If a condo is not approved</a></li><li><a href="{rel}fha-vs-va-vs-warrantable-condos/">FHA vs VA vs warrantable</a></li><li><a href="{rel}methodology/">Methodology and sources</a></li><li><a href="{rel}about/">About</a></li><li><a href="{rel}contact/">Contact</a></li><li><a href="{rel}privacy.html">Privacy</a></li></ul>
+<ul><li><a href="{rel}states/">All states</a></li><li><a href="{rel}is-my-condo-fha-approved/">Is my condo FHA approved?</a></li><li><a href="{rel}condo-not-fha-approved/">If a condo is not approved</a></li><li><a href="{rel}fha-vs-va-vs-warrantable-condos/">FHA vs VA vs warrantable</a></li><li><a href="{rel}balcony-solar/">Balcony solar laws by state</a></li><li><a href="{rel}methodology/">Methodology and sources</a></li><li><a href="{rel}about/">About</a></li><li><a href="{rel}contact/">Contact</a></li><li><a href="{rel}privacy.html">Privacy</a></li></ul>
 </div></div>
 <p class="f-base">Data: HUD FHA Condominium Lookup, as of {data_lunga(ASOF)} · Updated weekly.</p>
 </div></footer>
@@ -1029,6 +1035,9 @@ def pagina_stato(st):
         corpo.append(tabella_recenti(R, "t-r"))
     corpo.append(blocco_affiliati())
     corpo.append(link_guide())
+    if st in BS_STATI:  # andata e ritorno con la sezione /balcony-solar/
+        corpo.append(f'<p class="lead" style="margin-top:26px">{ico("info")} Thinking about a plug-in solar panel on the balcony? See '
+                     f'<a href="{{rel}}{url_bs(st)}">whether balcony solar is legal in {h(nome)}</a> and what a condo association can ban.</p>')
     if fc:
         corpo.append(f'<p class="lead" style="margin-top:26px">{ico("info")} Buying a condo near the water? See <a href="{FLOODCOST}/{fc}" rel="noopener">what flood insurance costs in {h(nome)}</a> on FloodCost.</p>')
     corpo.append(fonte_box())
@@ -1379,6 +1388,204 @@ def guida_confronto():
            briciole=[("FHA vs VA vs warrantable condos", "fha-vs-va-vs-warrantable-condos/")], testata=testata, jsonld_extra=ld)
 
 
+# ---------------------------------------------------------------- pannello solare da balcone (/balcony-solar/)
+# Dati e fonti in dati/balcony_solar.json (leggi lette sui siti dei Parlamenti statali il giorno "verificato_il"); NOTE.md spiega
+# il metodo. Ogni affermazione ha una fonte; le fonti di terzi (tracker di Bright Saver) sono dichiarate come tali; le domande delle
+# FAQ vengono dall'autocompletamento di Google ("ricerche") e il JSON-LD FAQPage ripete lo stesso testo. Nessun link di affiliazione:
+# il riquadro "kit_solari" di dati/affiliati.json resta spento finché il suo url è vuoto.
+BS = carica("balcony_solar.json")
+BS_DIR = "balcony-solar/"
+BS_VERIFICA = date.fromisoformat(BS["verificato_il"])
+BS_STATI = {s["st"]: s for s in BS["stati"]}
+BS_FONTI = BS["fonti"]
+BADGE_BS = {"in_vigore": "b-ok", "firmata": "b-soon", "firmata_non_letta": "b-soon", "attesa_firma": "b-soon",
+            "da_confermare": "b-mute", "non_letta": "b-mute", "in_discussione": "b-mute", "ferma": "b-bad"}
+ORDINE_BS = ["in_vigore", "firmata", "firmata_non_letta", "da_confermare", "non_letta", "attesa_firma", "in_discussione", "ferma"]
+
+
+NOMI_BS = {"WA": "Washington State"}  # come lo cercano le persone ("is balcony solar legal in washington state")
+
+
+def nome_bs(st):
+    return NOMI_BS.get(st) or nome_stato(st)
+
+
+def url_bs(st):
+    return BS_DIR + url_stato(st)
+
+
+def bs_ordinati():
+    return sorted(BS["stati"], key=lambda s: (ORDINE_BS.index(s["stato"]), nome_stato(s["st"])))
+
+
+def bs_testo(t):
+    return t.replace("{data}", data_lunga(BS_VERIFICA))
+
+
+class Rimandi:
+    """Numerazione delle fonti di una pagina: [1], [2]... nell'ordine in cui compaiono; elenco in fondo con id src-<id>."""
+
+    def __init__(self):
+        self.ordine = []
+
+    def ref(self, ids):
+        out = []
+        for i in ids:
+            if i not in BS_FONTI:
+                raise SystemExit(f"balcony_solar.json: fonte '{i}' inesistente")
+            if i not in self.ordine:
+                self.ordine.append(i)
+            out.append((self.ordine.index(i) + 1, i))
+        return '<sup class="ref">' + "".join(f'<a href="#src-{h(i)}">[{n}]</a>' for n, i in sorted(set(out))) + "</sup>"
+
+    def elenco(self):
+        voci = []
+        for n, i in enumerate(self.ordine, start=1):
+            f = BS_FONTI[i]
+            terzi = ' <span class="badge b-mute">Third party</span>' if f.get("tipo") == "terzi" else ""
+            if f.get("http") == 200 and not f.get("motivo"):
+                stato = f"Read on {data_lunga(BS_VERIFICA)}."
+            else:
+                stato = f"<strong>Not read:</strong> {h(f['motivo'])}"
+            voci.append(f'<li id="src-{h(i)}">[{n}] <a href="{h(f["url"])}" rel="noopener">{h(f["titolo"])}</a>{terzi}<br><span class="small">{stato}</span></li>')
+        return (f'<section class="fonti-box"><h2>{ico("doc")}Sources</h2><ul class="fonti-bs">{"".join(voci)}</ul>'
+                f'<p class="small">We read official sources on state legislature websites. Third-party pages are used only to find bills and are '
+                f'always marked; where an official page could not be read, we say so. <a href="{{rel}}{BS_DIR}#how">How we check</a>.</p></section>')
+
+
+def bs_punti(punti, rim):
+    return '<ul class="fatti">' + "".join(f'<li>{h(p["t"])}{rim.ref(p["s"])}</li>' for p in punti) + "</ul>"
+
+
+def bs_faq(faq, rim):
+    html = "".join(f'<div class="faq"><h3>{h(f["q"])}</h3><p>{h(f["a"])}</p><p class="cite">Sources: {rim.ref(f["s"])}</p></div>' for f in faq)
+    ld = {"@context": "https://schema.org", "@type": "FAQPage",
+          "mainEntity": [{"@type": "Question", "name": f["q"], "acceptedAnswer": {"@type": "Answer", "text": f["a"]}} for f in faq]}
+    return html, ld
+
+
+def bs_prima():
+    """Riquadro fisso: dove controllare. Nessun consiglio legale o elettrico."""
+    return (f'<div class="nota">{ico("alert")}<p><strong>Before you buy a kit, check three things.</strong> 1. The law itself, through the links in the '
+            f'sources below: laws change, and this page summarizes them. 2. Your electric utility: whether it wants a notice or a form. '
+            f'3. Your condo or HOA documents (declaration, bylaws, rules) and the board\'s written answer about balconies and railings.</p>'
+            f'<p>This page is general information, not legal or electrical advice. For your rights, ask a lawyer licensed in your state; for wiring, '
+            f'outlets and panels, ask a licensed electrician.</p></div>')
+
+
+def blocco_kit():
+    a = AFFILIATI.get("kit_solari") if isinstance(AFFILIATI, dict) else None
+    if not a or not a.get("url"):
+        return ""
+    return (f'<aside class="aff-box"><p><strong>{h(a.get("titolo", ""))}</strong><br><span class="small">{h(a.get("testo", ""))} {MON.RIGA_EN}</span></p>'
+            f'<a class="btn" href="{h(a["url"])}" rel="sponsored noopener" target="_blank">{h(a.get("bottone", "See kits"))}</a></aside>')
+
+
+def bs_badge(s):
+    return f'<span class="badge {BADGE_BS[s["stato"]]}">{h(s["badge"])}</span>'
+
+
+def bs_titolo(nome):
+    return f"Is Balcony Solar Legal in {nome}? {BS_VERIFICA.year} Plug-In Solar Law"
+
+
+def pagina_bs_stato(s):
+    st = s["st"]
+    nome = nome_bs(st)
+    url = url_bs(st)
+    rim = Rimandi()
+    risposta = bs_testo(s["risposta"])
+    ref_risposta = rim.ref(list(dict.fromkeys(i for p in s["legge_punti"] for i in p["s"])))
+    punti = {k: bs_punti(s[k], rim) for k in ("legge_punti", "limiti", "condo")}
+    faq_html, faq_ld = bs_faq(s["faq"], rim)
+    sint = s["sintesi"]
+    letta = any(BS_FONTI[i].get("http") == 200 and not BS_FONTI[i].get("motivo") and BS_FONTI[i].get("tipo") != "terzi" for i in rim.ordine)
+    altri_bs = [(url_bs(x["st"]), nome_bs(x["st"]), h(x["badge"])) for x in bs_ordinati() if x["st"] != st]
+    corpo = [f'<div class="card pull bs-risposta"><p class="lead" style="margin:0">{h(risposta)}{ref_risposta}</p>'
+             f'<dl class="bs-sintesi"><div><dt>Status</dt><dd>{bs_badge(s)}</dd></div><div><dt>Law or bill</dt><dd>{h(s["legge"])}</dd></div>'
+             f'<div><dt>Maximum output</dt><dd>{h(sint["watt"])}</dd></div><div><dt>Notice to the utility</dt><dd>{h(sint["avviso"])}</dd></div>'
+             f'<div><dt>Condo and HOA bans</dt><dd>{h(sint["hoa"])}</dd></div></dl></div>',
+             f'<div class="testo"><h2 id="law">What the law says</h2>{punti["legge_punti"]}',
+             f'<h2 id="limits">Limits: watts, outlet and utility</h2>{punti["limiti"]}',
+             f'<h2 id="condo">Condos and HOAs: what the association can and cannot ban</h2>{punti["condo"]}',
+             bs_prima(), blocco_kit(), AD,
+             f'<h2 id="faq">Questions people ask</h2>{faq_html}</div>']
+    if st in STATI_C:
+        corpo.append(f'<p class="lead" style="margin-top:26px">{ico("building")} Buying a condo in {h(nome)}? See the '
+                     f'<a href="{{rel}}{url_stato(st)}">FHA-approved condo projects in {h(nome_stato(st))}</a> on HUD\'s list.</p>')
+    corpo.append(f'<h2>Balcony solar rules in other states</h2>{griglia(altri_bs)}'
+                 f'<p class="small" style="margin-top:12px"><a href="{{rel}}{BS_DIR}">All states: balcony solar laws compared</a>.</p>')
+    corpo.append(rim.elenco())
+    testata = banda(f"Balcony solar · {nome}", f"Is balcony solar legal in {nome}?",
+                    f"Plug-in solar rules for condo owners and renters in {h(nome)}: the law, the limits and what your association can ban. Checked on {data_lunga(BS_VERIFICA)}.",
+                    f'<ul class="trust"><li>{ico("doc")}{"Official sources linked" if letta else "Official site could not be read"}</li><li>{ico("calendar")}Checked {data_lunga(BS_VERIFICA)}</li>'
+                    f'<li>{ico("shield")}No legal or electrical advice</li></ul>')
+    descr = (f"Plug-in balcony solar in {nome}: {s['legge']}, {s['badge'][0].lower() + s['badge'][1:]}. Watt limit, utility notice and condo "
+             f"or HOA rules. Checked {data_breve(BS_VERIFICA)}.")
+    art = {"@context": "https://schema.org", "@type": "Article", "headline": f"Is balcony solar legal in {nome}?", "description": descr,
+           "dateModified": BS_VERIFICA.isoformat(), "author": {"@type": "Organization", "name": NOME, "url": URL_SITO + "/"},
+           "publisher": {"@type": "Organization", "name": NOME, "url": URL_SITO + "/"}, "mainEntityOfPage": URL_SITO + "/" + url}
+    pagina(url, bs_titolo(nome), descr, "\n".join(corpo), briciole=[("Balcony solar", BS_DIR), (nome, url)], testata=testata,
+           jsonld_extra=[art, faq_ld])
+
+
+def pagina_bs_indice():
+    rim = Rimandi()
+    st_ord = bs_ordinati()
+    vigore = [nome_stato(s["st"]) for s in st_ord if s["stato"] == "in_vigore"]
+    righe = "".join(
+        f'<tr><td><a href="{{rel}}{url_bs(s["st"])}">{h(nome_bs(s["st"]))}</a></td><td>{bs_badge(s)}</td><td>{h(s["legge"])}</td>'
+        f'<td class="hide-s">{h(s["sintesi"]["watt"])}</td><td class="hide-s">{h(s["sintesi"]["avviso"])}</td><td class="hide-s">{h(s["sintesi"]["hoa"])}</td></tr>'
+        for s in st_ord)
+    altri = BS["altri"]
+    con = "".join(f'<li><strong>{h(x["nome"])}</strong>: {h(x["legge"])} ({h(x["tracker"].lower())})</li>' for x in altri["con_proposta"])
+    faq_html, faq_ld = bs_faq(BS["faq_indice"], rim)
+    intro = (f"As of {data_lunga(BS_VERIFICA)}, plug-in (balcony) solar is allowed by a state law we read in {', '.join(vigore[:-1])} and {vigore[-1]}. "
+             f"Virginia's law starts on January 1, 2027, and California's governor has signed SB 868. Only a few of these laws limit what a condo "
+             f"association or HOA may ban.")
+    corpo = f"""<div class="card pull bs-risposta"><p class="lead" style="margin:0">{h(intro)}{rim.ref(["ut-text", "co-law", "me-law", "md-code", "vt-law", "va-code", "ca-gov"])}</p></div>
+<div class="testo">
+<p style="margin-top:22px">A plug-in or "balcony" solar kit is a small panel with its own inverter that plugs into a regular outlet{rim.ref(["ut-text", "md-code"])}. A growing number of states now say, in their own words, how big it may be, whether you must tell your electric utility and, in a few states, whether a condominium or homeowners association may ban it. Below is each state with a law or an official bill, read on the legislature's own site.</p>
+</div>
+{bs_prima()}
+<h2 id="states">States with a law or a bill</h2>
+<div class="tab scorre"><table class="pl bs-tab"><thead><tr><th>State</th><th>Status</th><th>Law or bill</th><th class="hide-s">Maximum output</th><th class="hide-s">Notice to the utility</th><th class="hide-s">Condo and HOA bans</th></tr></thead><tbody>{righe}</tbody></table></div>
+<p class="small">Each state page has the details, with numbered sources. "Not read" means the official site could not be opened; figures marked "tracker" then come from a third-party tracker.</p>
+{AD}
+<h2 id="others">Other states</h2>
+<div class="testo"><p>Bright Saver's tracker{rim.ref(["bs-index"])}, a third-party list kept by a seller of plug-in kits that also campaigns for these laws, lists bills in these states. We have not read them on official sites yet, and none of them is law:</p>
+<ul class="bs-altri">{con}</ul>
+<p>The same tracker lists no bill in {h(", ".join(altri["senza_proposta"][:-1]))} and {h(altri["senza_proposta"][-1])}. There, your utility's usual rules and your condo or HOA documents apply.</p></div>
+<h2 id="faq">Questions people ask</h2>
+<div class="testo">{faq_html}</div>
+<h2 id="how">How we check</h2>
+<div class="testo"><ul><li>We read each law or bill on the state legislature's website (or the governor's office for a signature) on {data_lunga(BS_VERIFICA)}, and we link the exact page.</li>
+<li>Every statement on these pages has a numbered source. When an official site refused our request or did not open, we say so and do not fill the gap with guesses.</li>
+<li>Third-party trackers are used only to find bills, and are always marked as third party.</li>
+<li>Laws and bills change, so we check these pages again: the date at the top of each page is the date of our last check.</li></ul></div>
+{blocco_kit()}
+<p class="lead" style="margin-top:26px">{ico("building")} Looking for a condo? See <a href="{{rel}}states/">FHA-approved condo projects by state</a>, from HUD's list.</p>
+{rim.elenco()}"""
+    testata = banda("Balcony solar · state laws", "Balcony solar in condos: is it legal in your state?",
+                    f"Plug-in solar laws and bills state by state, with what condo and HOA rules can still ban. Checked on {data_lunga(BS_VERIFICA)}.",
+                    f'<ul class="trust"><li>{ico("doc")}Official texts, linked</li><li>{ico("calendar")}Checked {data_lunga(BS_VERIFICA)}</li>'
+                    f'<li>{ico("shield")}No legal or electrical advice</li></ul>')
+    descr = (f"Is plug-in balcony solar legal in your state? {len(st_ord)} states with a law or bill: watt limits, utility notice and condo or HOA "
+             f"rules. Checked {data_breve(BS_VERIFICA)}.")
+    art = {"@context": "https://schema.org", "@type": "Article", "headline": "Balcony solar in condos: is it legal in your state?", "description": descr,
+           "dateModified": BS_VERIFICA.isoformat(), "author": {"@type": "Organization", "name": NOME, "url": URL_SITO + "/"},
+           "publisher": {"@type": "Organization", "name": NOME, "url": URL_SITO + "/"}, "mainEntityOfPage": URL_SITO + "/" + BS_DIR}
+    pagina(BS_DIR, f"Balcony Solar Laws by State ({BS_VERIFICA.year}): Is It Legal in Condos?", descr, corpo,
+           briciole=[("Balcony solar", BS_DIR)], testata=testata, jsonld_extra=[art, faq_ld])
+
+
+def sezione_balcony_solar():
+    pagina_bs_indice()
+    for s in BS["stati"]:
+        pagina_bs_stato(s)
+    return 1 + len(BS["stati"])
+
+
 # ---------------------------------------------------------------- pagine fisse
 def metodologia():
     S = stat_naz()
@@ -1574,7 +1781,7 @@ def controlli():
     if doppi:
         err.append(f"URL duplicati: {doppi[:10]}")
     riservati = {"states/", "methodology/", "about/", "contact/", "data/", "assets/", "is-my-condo-fha-approved/", "condo-not-fha-approved/",
-                 "fha-vs-va-vs-warrantable-condos/"}
+                 "fha-vs-va-vs-warrantable-condos/", "balcony-solar/"}
     if riservati & set(url_stato(s) for s in STATI_C):
         err.append("uno Stato usa un indirizzo riservato")
     if err:
@@ -1604,6 +1811,7 @@ def main():
     guida_controllo()
     guida_non_approvato()
     guida_confronto()
+    n_bs = sezione_balcony_solar()
     metodologia()
     about()
     contatti()
@@ -1612,7 +1820,7 @@ def main():
     extra()
     n = Counter(c["tipo"] for c in CONDOMINI)
     print(f"Sito generato in {SITO}: {len(URLS)} pagine indicizzabili; Stati {conti['stato']}, contee {conti['contea']}, città {conti['citta']}. "
-          f"Condomini: {n['A']} approvati, {n['E']} scaduti e {n['W']} ritirati negli ultimi {MESI_RECENTI} mesi. HUD as of {ASOF}.")
+          f"Balcony solar: {n_bs} pagine. Condomini: {n['A']} approvati, {n['E']} scaduti e {n['W']} ritirati negli ultimi {MESI_RECENTI} mesi. HUD as of {ASOF}.")
 
 
 if __name__ == "__main__":

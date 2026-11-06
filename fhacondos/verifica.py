@@ -21,6 +21,9 @@ Uso (dalla radice del repository, dopo python3 fhacondos/genera.py):
 8. 20 condomini scelti a caso ricontrollati uno per uno sul modulo HUD (raccolta/ricontrolla.py) e confrontati anche con la
    riga pubblicata nella pagina.
 9. Peso totale del sito.
+10. Sezione /balcony-solar/ (controlla_balcony_solar): ogni affermazione con fonte, fonti con HTTP 200 o motivo scritto (con la rete
+   si ricontrollano), FAQ dalle ricerche salvate e JSON-LD uguale al testo, titoli ≤ 70 caratteri con l'anno, prima frase con la data
+   della verifica, link interni (indice ↔ Stati ↔ pagine FHA), sitemap, nessun link di affiliazione.
 Monetizzazione (30/10/2026, controllo comune di studio-business/strumenti/monetizzazione.py): i link di affiliazione sono
 ammessi solo verso i domini di monetizzazione.json, con rel="sponsored noopener" e la riga di trasparenza nella pagina;
 domini bloccati e link sponsorizzati verso altri domini sono errori; script AdSense, ads.txt e sezione privacy ci sono
@@ -404,6 +407,187 @@ def controlla_monetizzazione():
     print(G.MON.riepilogo(G.SITO_ID, info, errori) + ".")
 
 
+class TestoBS(HTMLParser):
+    """Testi visibili della sezione /balcony-solar/: h1, prima frase della risposta, domande e risposte FAQ, rimandi, JSON-LD."""
+
+    def __init__(self):
+        super().__init__()
+        self.h1, self.risposta, self.faq, self.refs, self.src_ids, self.ld = "", None, [], [], set(), []
+        self._in, self._buf, self._faq, self._card, self._sup = None, [], False, False, 0
+
+    def handle_starttag(self, tag, attrs):
+        a = dict(attrs)
+        cls = a.get("class") or ""
+        if tag == "h1":
+            self._in, self._buf = "h1", []
+        if tag == "div" and "bs-risposta" in cls:
+            self._card = True
+        if tag == "p" and self._card and self.risposta is None and "lead" in cls:
+            self._in, self._buf = "risposta", []
+        if tag == "div" and cls == "faq":
+            self._faq = True
+        if self._faq and tag == "h3":
+            self._in, self._buf = "q", []
+        if self._faq and tag == "p" and not cls:
+            self._in, self._buf = "a", []
+        if tag == "sup" and "ref" in cls:
+            self._sup += 1
+        if tag == "a" and self._sup and (a.get("href") or "").startswith("#src-"):
+            self.refs.append(a["href"][5:])
+        if tag == "li" and (a.get("id") or "").startswith("src-"):
+            self.src_ids.add(a["id"][4:])
+        if tag == "script" and a.get("type") == "application/ld+json":
+            self._in, self._buf = "ld", []
+
+    def handle_endtag(self, tag):
+        if tag == "sup" and self._sup:
+            self._sup -= 1
+        if self._in == "h1" and tag == "h1":
+            self.h1, self._in = "".join(self._buf), None
+        elif self._in == "risposta" and tag == "p":
+            self.risposta, self._in, self._card = "".join(self._buf), None, False
+        elif self._in == "q" and tag == "h3":
+            self.faq.append(["".join(self._buf), None])
+            self._in = None
+        elif self._in == "a" and tag == "p":
+            self.faq[-1][1] = "".join(self._buf)
+            self._in, self._faq = None, False
+        elif self._in == "ld" and tag == "script":
+            self.ld.append(json.loads("".join(self._buf)))
+            self._in = None
+
+    def handle_data(self, d):
+        if self._in and not (self._sup and self._in != "ld"):
+            self._buf.append(d)
+
+
+def controlla_balcony_solar():
+    """Sezione /balcony-solar/ (dati/balcony_solar.json):
+    - ogni affermazione (legge, limiti, condomini, FAQ) ha almeno una fonte che esiste; ogni fonte ha HTTP 200 oppure un motivo scritto;
+      le fonti di terzi sono marcate; ogni Stato cita almeno una fonte ufficiale (anche se non leggibile, con il motivo);
+    - le domande FAQ vengono dalle ricerche salvate (autocompletamento) e il JSON-LD FAQPage è uguale al testo visibile;
+    - pagine: titolo ≤ 70 caratteri con l'anno, prima frase con la risposta e la data della verifica, rimandi [n] verso fonti
+      elencate, fonti non lette dichiarate «Not read»; indice e pagine nella sitemap;
+    - link interni: indice ↔ pagine Stato, pagina Stato ↔ pagina FHA dello stesso Stato;
+    - nessun link di affiliazione (rel="sponsored", domini di affiliazione, tag=) finché il riquadro "kit_solari" ha url vuoto;
+    - con la rete (senza --senza-fonte): ogni fonte registrata con HTTP 200 risponde ancora 200."""
+    BS = G.BS
+    fonti = BS["fonti"]
+    data_txt = G.data_lunga(G.BS_VERIFICA)
+    anno = str(G.BS_VERIFICA.year)
+    ricerche = {x for k, v in BS["ricerche"].items() if not k.startswith("_") for x in v}
+    for i, f in fonti.items():
+        if not f.get("url", "").startswith("https://"):
+            errore(f"balcony: fonte {i} senza url https")
+        if f.get("http") != 200 and not f.get("motivo"):
+            errore(f"balcony: fonte {i} con HTTP {f.get('http')} e nessun motivo scritto")
+        if "brightsaver.org" in f.get("url", "") and f.get("tipo") != "terzi":
+            errore(f"balcony: fonte {i} di terzi non marcata come tale")
+
+    def punti_di(s):
+        return [p for k in ("legge_punti", "limiti", "condo") for p in s[k]] + s["faq"]
+    for s in BS["stati"] + [{"st": "indice", "legge_punti": [], "limiti": [], "condo": [], "faq": BS["faq_indice"]}]:
+        usate = set()
+        for p in punti_di(s):
+            testo = p.get("t") or p.get("a")
+            if not testo or not p.get("s"):
+                errore(f"balcony {s['st']}: affermazione senza fonte: {str(testo)[:60]}")
+            for i in p.get("s", []):
+                if i not in fonti:
+                    errore(f"balcony {s['st']}: fonte inesistente {i}")
+                usate.add(i)
+        for f in s["faq"]:
+            if f.get("ricerca") not in ricerche:
+                errore(f"balcony {s['st']}: la domanda '{f['q']}' non viene da una ricerca salvata ('{f.get('ricerca')}')")
+        if s["st"] != "indice":
+            if not any(fonti[i].get("tipo") != "terzi" for i in usate if i in fonti):
+                errore(f"balcony {s['st']}: nessuna fonte ufficiale citata")
+            if "{data}" not in s["risposta"]:
+                errore(f"balcony {s['st']}: la risposta non contiene la data della verifica")
+            if s["st"] not in G.STATI_C:
+                errore(f"balcony {s['st']}: manca la pagina FHA dello Stato per il collegamento di ritorno")
+    sm = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    pagine = [(G.BS_DIR, None)] + [(G.url_bs(s["st"]), s) for s in BS["stati"]]
+    dominio_aff = [d for d in G.MON.DOMINI_AFFILIAZIONE] + ["ecoflow.com", "anker.com", "jackery.com", "amzn.to"]
+    for u, s in pagine:
+        f = SITO / u / "index.html"
+        if not f.exists():
+            errore(f"balcony: pagina mancante {u}")
+            continue
+        t = f.read_text(encoding="utf-8")
+        p = TestoBS()
+        p.feed(t)
+        if f"<loc>{G.URL_SITO}/{u}</loc>" not in sm:
+            errore(f"balcony: {u} non è nella sitemap")
+        titolo = G_html_unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+        if len(titolo) > 70 or anno not in titolo:
+            errore(f"balcony: {u} titolo di {len(titolo)} caratteri o senza l'anno: {titolo}")
+        prima = re.split(r"(?<=[.?!])\s+(?=[A-Z])", (p.risposta or "").strip())[0]
+        if data_txt not in prima:
+            errore(f"balcony: {u} la prima frase non contiene la data della verifica ({prima[:80]})")
+        for r in set(p.refs):
+            if r not in p.src_ids:
+                errore(f"balcony: {u} rimando a una fonte non elencata: {r}")
+        for i in p.src_ids:
+            fo = fonti.get(i, {})
+            blocco = re.search(rf'<li id="src-{re.escape(i)}">(.*?)</li>', t, re.S).group(1)
+            if (fo.get("http") != 200 or fo.get("motivo")) and "Not read:" not in blocco:
+                errore(f"balcony: {u} la fonte non letta {i} non è dichiarata come tale")
+            if fo.get("tipo") == "terzi" and "Third party" not in blocco:
+                errore(f"balcony: {u} la fonte di terzi {i} non è marcata")
+        faq_ld = [x for x in p.ld if x.get("@type") == "FAQPage"]
+        faq_dati = BS["faq_indice"] if s is None else s["faq"]
+        if not faq_ld:
+            errore(f"balcony: {u} senza JSON-LD FAQPage")
+        else:
+            ld = [(q["name"], q["acceptedAnswer"]["text"]) for q in faq_ld[0]["mainEntity"]]
+            vis = [(q.strip(), (a or "").strip()) for q, a in p.faq]
+            if ld != vis or ld != [(x["q"], x["a"]) for x in faq_dati]:
+                errore(f"balcony: {u} JSON-LD FAQPage diverso dal testo visibile")
+        if 'rel="sponsored' in t or "aff-box" in t or re.search(r"[?&]tag=", t):
+            errore(f"balcony: {u} contiene un link di affiliazione")
+        for d in dominio_aff:
+            if re.search(r'href="https?://([a-z0-9-]+\.)*' + re.escape(d), t):
+                errore(f"balcony: {u} link verso il dominio di affiliazione {d}")
+        if s is None:
+            for x in BS["stati"]:
+                if f'href="../{G.url_bs(x["st"])}"' not in t:
+                    errore(f"balcony: l'indice non collega {G.url_bs(x['st'])}")
+        else:
+            if f'href="../../{G.BS_DIR}"' not in t:
+                errore(f"balcony: {u} non collega l'indice")
+            if f'href="../../{G.url_stato(s["st"])}"' not in t:
+                errore(f"balcony: {u} non collega la pagina FHA {G.url_stato(s['st'])}")
+            fha = (SITO / G.url_stato(s["st"]) / "index.html").read_text(encoding="utf-8")
+            if f'href="../{u}"' not in fha:
+                errore(f"balcony: la pagina FHA {G.url_stato(s['st'])} non collega {u}")
+    if (G.AFFILIATI.get("kit_solari") or {}).get("url"):
+        print("Balcony solar: riquadro kit_solari ACCESO (url presente).")
+    controllate = 0
+    if "--senza-fonte" not in sys.argv:
+        for i, f in fonti.items():
+            if f.get("http") != 200:
+                continue
+            try:
+                req = urllib.request.Request(f["url"], headers={"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) ApprovedCondos source check"})
+                with urllib.request.urlopen(req, timeout=60) as r:
+                    r.read(2048)
+                    if r.status != 200:
+                        errore(f"balcony: fonte {i} risponde {r.status}")
+            except Exception as e:
+                errore(f"balcony: fonte {i} non risponde 200 ({e})")
+            controllate += 1
+    print(f"Balcony solar: {len(pagine)} pagine, {len(fonti)} fonti "
+          f"({sum(1 for f in fonti.values() if f.get('http') == 200 and not f.get('motivo'))} lette, "
+          f"{sum(1 for f in fonti.values() if f.get('http') != 200 or f.get('motivo'))} con motivo scritto); "
+          f"{controllate} fonti ricontrollate in rete; nessun link di affiliazione.")
+
+
+def G_html_unescape(x):
+    from html import unescape
+    return unescape(x)
+
+
 def main():
     pagine = controlla_pagine()
     controlla_http(pagine)
@@ -413,6 +597,7 @@ def main():
     if "--senza-fonte" not in sys.argv:
         controlla_fonte()
     controlla_indexnow()
+    controlla_balcony_solar()
     controlla_monetizzazione()
     peso()
     if "--browser" in sys.argv:

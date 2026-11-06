@@ -5,5 +5,12 @@
     "titolo": "Compare FHA loan offers",
     "testo": "Rates and fees vary between lenders. Ask several for a quote on the same condo.",
     "bottone": "Compare lenders"
+  },
+  "_nota_kit_solari": "Riquadro 'plug-in solar kits' nelle pagine /balcony-solar/: SPENTO finché 'url' è vuoto (6/11/2026: Amazon US non ha ancora questo dominio tra i siti registrati, EcoFlow non è attivo). Si accende da solo con un URL di affiliazione vero di un programma a cui Massimiliano è iscritto (dominio ammesso in monetizzazione.json), mai inventato. Esce con rel=\"sponsored\" e la riga di trasparenza.",
+  "kit_solari": {
+    "url": "",
+    "titolo": "Plug-in solar kits",
+    "testo": "Check the kit's certification, its output in watts and your state's limit before you buy.",
+    "bottone": "See plug-in solar kits"
   }
 }

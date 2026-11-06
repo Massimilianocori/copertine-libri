@@ -42,7 +42,8 @@ function campione() {
     if (fs.existsSync(path.join(SITO, s, 'index.html'))) pagine.push('/' + s + '/');
   for (const [s, n] of [['virginia', 3], ['california', 3], ['maryland', 2], ['colorado', 2]])
     sottocartelle(s).slice(0, n).forEach(d => pagine.push('/' + s + '/' + d + '/'));
-  for (const extra of ['/virginia/fairfax-county/', '/virginia/alexandria-city/', '/virginia/alexandria/'])
+  for (const extra of ['/virginia/fairfax-county/', '/virginia/alexandria-city/', '/virginia/alexandria/',
+    '/balcony-solar/', '/balcony-solar/colorado/', '/balcony-solar/new-jersey/', '/balcony-solar/connecticut/'])
     if (fs.existsSync(path.join(SITO, extra, 'index.html'))) pagine.push(extra);
   return [...new Set(pagine)];
 }
@@ -50,7 +51,7 @@ function campione() {
 const SCATTI = { '/': 'home', '/states/': 'stati', '/virginia/': 'stato-virginia', '/florida/': 'stato-florida', '/louisiana/': 'stato-louisiana',
   '/virginia/fairfax-county/': 'contea-fairfax', '/virginia/alexandria/': 'citta-alexandria', '/is-my-condo-fha-approved/': 'guida-controllo',
   '/condo-not-fha-approved/': 'guida-non-approvato', '/fha-vs-va-vs-warrantable-condos/': 'guida-confronto', '/methodology/': 'metodologia',
-  '/contact/': 'contatti', '/does-not-exist/': '404' };
+  '/contact/': 'contatti', '/does-not-exist/': '404', '/balcony-solar/': 'balcony-indice', '/balcony-solar/colorado/': 'balcony-colorado' };
 
 (async () => {
   const srv = server();

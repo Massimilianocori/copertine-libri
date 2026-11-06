@@ -1,0 +1,1862 @@
+{
+ "_nota": "Sezione /balcony-solar/ (pannello solare da balcone, 'plug-in solar'). Ogni affermazione ('t') ha almeno una fonte ('s') che esiste in 'fonti'. Fonti ufficiali lette con curl il 6/11/2026; 'http' è il codice letto; se la fonte non si è potuta leggere c'è 'motivo'. Le fonti di tipo 'terzi' (Bright Saver, venditore e promotore delle leggi) servono solo come indice per trovare le leggi e sono sempre dichiarate come tali. Le domande FAQ vengono dall'autocompletamento di Google (USA, 'ricerche'). Nessun consiglio legale o elettrico. Da ricontrollare ogni mese da gennaio a giugno 2027 (sessioni legislative).",
+ "verificato_il": "2026-11-06",
+ "ricerche": {
+  "_nota": "Autocompletamento Google, gl=us, hl=en, letto il 2026-11-06 (suggestqueries.google.com, client=firefox).",
+  "is balcony solar legal in": [
+   "is balcony solar legal in california",
+   "is balcony solar legal in texas",
+   "is balcony solar legal in pennsylvania",
+   "is balcony solar legal in ny",
+   "is balcony solar legal in massachusetts",
+   "is balcony solar legal in nj",
+   "is balcony solar legal in washington state",
+   "is balcony solar legal in nc",
+   "is balcony solar legal in florida",
+   "is balcony solar legal in illinois"
+  ],
+  "plug in solar legal in": [
+   "plug in solar legal in california",
+   "plug in solar legal in texas",
+   "plug in solar legal in florida",
+   "plug in solar legal in ohio",
+   "plug in solar legal in georgia",
+   "plug in solar legal in oregon",
+   "plug in solar legal in michigan",
+   "plug in solar legal in nc",
+   "plug in solar legal in arizona",
+   "plug in solar legal in nj"
+  ],
+  "is plug in solar legal in": [
+   "is plug in solar legal in california",
+   "is plug in solar legal in texas",
+   "is plug in solar legal in florida",
+   "is plug in solar legal in pennsylvania",
+   "is plug in solar legal in ny",
+   "is plug in solar legal in arizona",
+   "is plug in solar legal in washington state",
+   "is plug in solar legal in north carolina",
+   "is plug in solar legal in michigan",
+   "is plug in solar legal in massachusetts"
+  ],
+  "balcony solar law": [
+   "balcony solar law",
+   "balcony solar law california",
+   "balcony solar law nj",
+   "balcony solar laws by state",
+   "balcony solar law utah",
+   "balcony solar law virginia",
+   "balcony solar laws us",
+   "balcony solar legal states",
+   "balcony solar legal",
+   "balcony solar legal in california"
+  ],
+  "balcony solar bill": [
+   "balcony solar bill",
+   "balcony solar bill california",
+   "balcony solar bill new jersey",
+   "balcony solar bill virginia",
+   "balcony solar bills nj governor",
+   "balcony solar bill colorado",
+   "balcony solar bill utah",
+   "patio solar bill",
+   "balcony solar legislation",
+   "balcony solar legislation uk"
+  ],
+  "balcony solar condo": [
+   "balcony solar apartment",
+   "condo balcony solar panel",
+   "condo balcony solar",
+   "can i put solar panels on my balcony",
+   "condo balcony ideas",
+   "condo balcony rules",
+   "balcony sun shade ideas"
+  ],
+  "can hoa prevent": [
+   "can hoa prevent you from renting",
+   "can hoa prevent you from flying american flag",
+   "can hoa prevent you from renting your house",
+   "can hoa prevent adu",
+   "can hoa prevent section 8",
+   "can hoa prevent solar panels",
+   "can hoa prevent political signs",
+   "can hoa prevent airbnb",
+   "can hoa prevent renting",
+   "can hoa prevent no trespassing signs"
+  ],
+  "which states allow balcony solar": [
+   "which states allow balcony solar",
+   "can i put solar panels on my balcony",
+   "solar access laws by state"
+  ],
+  "is plug in solar safe": [
+   "is plug in solar safe",
+   "is plug in solar safe uk",
+   "are plug in solar panels safe uk",
+   "are plug in solar panels safe to use",
+   "is plug and play solar safe",
+   "plug in solar safety",
+   "plug in solar safety risks",
+   "plug in solar safety restrictions",
+   "plug in solar safety study",
+   "plug in solar safety concerns"
+  ],
+  "do you need an electrician for plug in solar": [
+   "do you need an electrician for plug in solar",
+   "do i need an electrical permit to add an outlet",
+   "how much does it cost to put electric in garage",
+   "do you need an electrical license to install solar panels",
+   "can i do my own electrical work",
+   "can i do my own electrical work in my house"
+  ],
+  "balcony solar renters": [
+   "balcony solar for renters",
+   "new jersey balcony solar renters",
+   "apartment balcony sun shade ideas",
+   "can i put solar panels on my balcony"
+  ],
+  "plug in solar notify": [
+   "plug in solar notify dno",
+   "plug in solar notification",
+   "plug in solar dno notification",
+   "is plug in solar legal",
+   "how does plug in solar work",
+   "are plug in solar panels any good"
+  ],
+  "balcony solar maine": [
+   "balcony solar maine",
+   "balcony solar panels maine",
+   "maine balcony solar law",
+   "maine balcony solar bill",
+   "can i put solar panels on my balcony",
+   "balcony sun protection ideas",
+   "balcony sun shade ideas",
+   "how to cover balcony from sunlight"
+  ],
+  "balcony solar virginia": [
+   "balcony solar virginia",
+   "balcony solar virginia law",
+   "patio solar virginia",
+   "balcony solar panels virginia",
+   "balcony solar kit virginia",
+   "balcony solar west virginia",
+   "balcony solar power virginia",
+   "can i put solar panels on my balcony",
+   "balcony sun shade ideas",
+   "balcony sun protection ideas"
+  ],
+  "balcony solar colorado": [
+   "balcony solar colorado",
+   "balcony solar colorado bill",
+   "balcony solar colorado reddit",
+   "balcony solar colorado law",
+   "patio solar colorado",
+   "balcony solar co",
+   "balcony solar panels colorado",
+   "balcony solar kit colorado",
+   "balcony solar system colorado",
+   "plug in balcony solar colorado"
+  ],
+  "balcony solar maryland": [
+   "balcony solar maryland",
+   "balcony solar maryland law",
+   "balcony solar md",
+   "balcony solar panels maryland",
+   "balcony solar kit maryland",
+   "maryland balcony solar bill",
+   "can i put solar panels on my balcony",
+   "balcony sun protection ideas",
+   "how to cover balcony from sunlight",
+   "plants suitable for sunny balcony"
+  ],
+  "balcony solar vermont": [
+   "balcony solar vermont",
+   "balcony solar panels vermont",
+   "vermont balcony solar law",
+   "vermont balcony solar bill",
+   "can i put solar panels on my balcony",
+   "balcony sun shade ideas"
+  ],
+  "balcony solar new jersey": [
+   "balcony solar new jersey",
+   "balcony solar panels new jersey",
+   "balcony solar bill new jersey",
+   "is balcony solar legal in new jersey",
+   "new jersey balcony solar law",
+   "new jersey balcony solar renters",
+   "can i put solar panels on my balcony",
+   "balcony sun shade ideas",
+   "balcony net cost"
+  ],
+  "balcony solar california": [
+   "balcony solar california",
+   "balcony solar california legal",
+   "balcony solar california reddit",
+   "balcony solar california bill",
+   "balcony solar california law",
+   "balcony solar california cost",
+   "balcony solar california kit",
+   "balcony solar california how does it work",
+   "balcony solar california sb 868",
+   "balcony solar california newsom"
+  ],
+  "balcony solar pennsylvania": [
+   "balcony solar pennsylvania",
+   "balcony solar panels pennsylvania",
+   "pennsylvania balcony solar bill",
+   "pennsylvania balcony solar law",
+   "can i put solar panels on my balcony",
+   "can you put solar panels on a patio cover",
+   "patio balcony difference",
+   "balcony sun shade ideas"
+  ],
+  "balcony solar new york": [
+   "balcony solar new york",
+   "balcony solar new york state",
+   "balcony solar new york times",
+   "balcony solar new york city",
+   "balcony solar panels new york",
+   "is balcony solar legal in new york",
+   "is balcony solar legal in new york state",
+   "new york balcony solar bill",
+   "new york balcony solar law",
+   "can i put solar panels on my balcony"
+  ],
+  "balcony solar massachusetts": [
+   "balcony solar massachusetts",
+   "balcony solar massachusetts law",
+   "balcony solar mass",
+   "balcony solar panels massachusetts",
+   "massachusetts balcony solar bill",
+   "can i put solar panels on my balcony",
+   "balcony sun shade ideas",
+   "balcony sun protection ideas"
+  ],
+  "balcony solar washington": [
+   "balcony solar washington state",
+   "balcony solar washington dc",
+   "balcony solar washington",
+   "balcony solar washington post",
+   "balcony solar wa",
+   "balcony solar panels washington state",
+   "washington balcony solar bill",
+   "can i put solar panels on my balcony",
+   "elevation solar customer service"
+  ],
+  "balcony solar michigan": [
+   "balcony solar michigan",
+   "balcony solar panels michigan",
+   "michigan balcony solar bill",
+   "can i put solar panels on my balcony",
+   "balcony sun shade ideas",
+   "apartment balcony sun shade ideas"
+  ],
+  "balcony solar north carolina": [
+   "balcony solar north carolina",
+   "balcony solar panels north carolina",
+   "is balcony solar legal in north carolina",
+   "balcony sun shade ideas",
+   "can i put solar panels on my balcony",
+   "balcony sun protection ideas",
+   "balcony shade near me"
+  ],
+  "balcony solar connecticut": [
+   "balcony solar connecticut",
+   "can i put solar panels on my balcony",
+   "balcony sun shade ideas",
+   "can you put solar panels on a south facing roof"
+  ],
+  "balcony solar new hampshire": [
+   "balcony solar new hampshire",
+   "balcony solar panels new hampshire",
+   "is balcony solar legal in new hampshire",
+   "new hampshire balcony solar law",
+   "plants for balcony without sun",
+   "balcony plants that survive winter",
+   "balcony plants near me"
+  ]
+ },
+ "fonti": {
+  "bs-index": {
+   "titolo": "Bright Saver, \"Is plug-in solar legal?\" state tracker (third party: a seller of kits that also campaigns for these laws)",
+   "url": "https://www.brightsaver.org/is-plug-in-solar-legal",
+   "http": 200,
+   "tipo": "terzi"
+  },
+  "ut-status": {
+   "titolo": "Utah Legislature, H.B. 340 (2025) bill status data",
+   "url": "https://le.utah.gov/data/2025GS/HB0340.json",
+   "http": 200
+  },
+  "ut-page": {
+   "titolo": "Utah Legislature, H.B. 340 Solar Power Amendments (2025 General Session)",
+   "url": "https://le.utah.gov/~2025/bills/static/HB0340.html",
+   "http": 200
+  },
+  "ut-text": {
+   "titolo": "H.B. 340, enrolled copy (PDF)",
+   "url": "https://le.utah.gov/Session/2025/bills/enrolled/HB0340.pdf",
+   "http": 200
+  },
+  "ut-code": {
+   "titolo": "Utah Code 54-15-601 (current version)",
+   "url": "https://le.utah.gov/xcode/Title54/Chapter15/54-15-S601.html",
+   "http": 200
+  },
+  "co-page": {
+   "titolo": "Colorado General Assembly, HB26-1007 Improve Customer Use Distributed Energy Resources",
+   "url": "https://leg.colorado.gov/bills/hb26-1007",
+   "http": 200
+  },
+  "co-law": {
+   "titolo": "Colorado Session Laws 2026, Chapter 127 (HB26-1007, signed act, PDF)",
+   "url": "https://leg.colorado.gov/laws/session-laws/HB26-1007/127/download",
+   "http": 200
+  },
+  "me-page": {
+   "titolo": "Maine Legislature, LD 1730 (SP 676), text and status, 132nd Legislature",
+   "url": "https://legislature.maine.gov/legis/bills/display_ps.asp?LD=1730&snum=132",
+   "http": 200
+  },
+  "me-law": {
+   "titolo": "Maine Public Law 2026, Chapter 644 (LD 1730, PDF)",
+   "url": "https://legislature.maine.gov/legis/bills/getPDF.asp?paper=SP0676&item=5&snum=132",
+   "http": 200
+  },
+  "me-eff": {
+   "titolo": "Maine Legislature home page: general effective date for the Second Regular Session of the 132nd Legislature",
+   "url": "https://legislature.maine.gov/",
+   "http": 200
+  },
+  "md-page": {
+   "titolo": "Maryland General Assembly, HB 1532 (2026 Regular Session)",
+   "url": "https://mgaleg.maryland.gov/mgawebsite/Legislation/Details/hb1532?ys=2026RS",
+   "http": 200
+  },
+  "md-code": {
+   "titolo": "Maryland Code, Public Utilities § 7-321",
+   "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gpu&section=7-321&enactments=true",
+   "http": 200
+  },
+  "md-note": {
+   "titolo": "Fiscal and Policy Note, HB 1532, Enrolled - Revised (PDF)",
+   "url": "https://mgaleg.maryland.gov/2026RS/fnotes/bil_0002/hb1532.pdf",
+   "http": 200
+  },
+  "vt-page": {
+   "titolo": "Vermont Legislature, S.202 (Act 149) bill status",
+   "url": "https://legislature.vermont.gov/bill/status/2026/S.202",
+   "http": 200
+  },
+  "vt-law": {
+   "titolo": "Vermont Act 149 of 2026, as enacted (PDF)",
+   "url": "https://legislature.vermont.gov/Documents/2026/Docs/ACTS/ACT149/ACT149%20As%20Enacted.pdf",
+   "http": 200
+  },
+  "va-code": {
+   "titolo": "Code of Virginia § 56-596.8 (effective January 1, 2027)",
+   "url": "https://law.lis.virginia.gov/vacode/title56/chapter23/section56-596.8/",
+   "http": 200
+  },
+  "va-bill": {
+   "titolo": "Virginia LIS, HB 395 (2026 Regular Session)",
+   "url": "https://lis.virginia.gov/bill-details/20261/HB395",
+   "http": 200,
+   "motivo": "The page loads its content with JavaScript; we could not read the bill history or the date the governor acted."
+  },
+  "nj-text": {
+   "titolo": "New Jersey Legislature, S2368, third reprint (as reported by the Assembly Budget Committee, June 28, 2026)",
+   "url": "https://pub.njleg.gov/bills/2026/S2500/2368_R3.HTM",
+   "http": 200
+  },
+  "nj-stmt": {
+   "titolo": "Assembly Budget Committee statement to S2368 (June 28, 2026)",
+   "url": "https://pub.njleg.gov/bills/2026/S2500/2368_S4.HTM",
+   "http": 200
+  },
+  "nj-status": {
+   "titolo": "New Jersey Legislature, bill search for S2368 (2026)",
+   "url": "https://www.njleg.state.nj.us/bill-search/2026/S2368",
+   "http": 200,
+   "motivo": "The page loads the bill status with JavaScript; we could not read the final votes or the governor's action."
+  },
+  "nj-bs": {
+   "titolo": "Bright Saver, New Jersey page (third party)",
+   "url": "https://www.brightsaver.org/is-plug-in-solar-legal-/new-jersey",
+   "http": 200,
+   "tipo": "terzi"
+  },
+  "ca-gov": {
+   "titolo": "Office of the Governor of California, \"Governor Newsom issues legislative update 9.30.2026\"",
+   "url": "https://www.gov.ca.gov/2026/09/30/governor-newsom-issues-legislative-update-9-30-2026/",
+   "http": 200
+  },
+  "ca-leginfo": {
+   "titolo": "California Legislative Information, SB 868 (2025-2026)",
+   "url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB868",
+   "http": 403,
+   "motivo": "The site answered 403 (access refused) to our request on November 6, 2026, so we have not read the text of SB 868."
+  },
+  "ca-bs": {
+   "titolo": "Bright Saver, California page (third party)",
+   "url": "https://www.brightsaver.org/is-plug-in-solar-legal-/california",
+   "http": 200,
+   "tipo": "terzi"
+  },
+  "ny-asm": {
+   "titolo": "New York State Assembly, A09111C (same as S08512-C): summary, actions and text",
+   "url": "https://nyassembly.gov/leg/?default_fld=&leg_video=&bn=A09111&term=2025&Summary=Y&Actions=Y&Text=Y",
+   "http": 200
+  },
+  "ny-sen": {
+   "titolo": "New York State Senate, S8512 (2025-2026)",
+   "url": "https://www.nysenate.gov/legislation/bills/2025/S8512",
+   "http": 403,
+   "motivo": "The site answered 403 (access refused) on November 6, 2026; we used the Assembly's page for the same bill."
+  },
+  "ma-page": {
+   "titolo": "Massachusetts Legislature, H.5175 (194th General Court): bill history",
+   "url": "https://malegislature.gov/Bills/194/H5175",
+   "http": 200
+  },
+  "ma-house": {
+   "titolo": "H.5175 as passed by the House, February 26, 2026 (PDF)",
+   "url": "https://malegislature.gov/Bills/194/H5175.pdf",
+   "http": 200
+  },
+  "ma-senate": {
+   "titolo": "S.3166, the Senate's text of the same bill, July 1, 2026 (PDF)",
+   "url": "https://malegislature.gov/Bills/194/S3166.pdf",
+   "http": 200
+  },
+  "pa-page": {
+   "titolo": "Pennsylvania General Assembly, HB 1971 (2025-2026 Regular Session)",
+   "url": "https://www.palegis.us/legislation/bills/2025/hb1971",
+   "http": 200
+  },
+  "pa-text": {
+   "titolo": "HB 1971, Printer's No. 2530 (bill text)",
+   "url": "https://www.palegis.us/legislation/bills/text/HTM/2025/0/HB1971/PN2530",
+   "http": 200
+  },
+  "mi-page": {
+   "titolo": "Michigan Legislature, House Bill 5764 of 2026",
+   "url": "https://legislature.mi.gov/Bills/Bill?ObjectName=2026-HB-5764",
+   "http": 200
+  },
+  "mi-text": {
+   "titolo": "House Bill 5764, as introduced",
+   "url": "https://legislature.mi.gov/documents/2025-2026/billintroduced/House/htm/2026-HIB-5764.htm",
+   "http": 200
+  },
+  "nc-page": {
+   "titolo": "North Carolina General Assembly, House Bill 1129 (2025-2026 Session), \"Balcony Solar.\"",
+   "url": "https://www.ncleg.gov/BillLookUp/2025/H1129",
+   "http": 200
+  },
+  "nc-text": {
+   "titolo": "House Bill 1129, first edition (PDF)",
+   "url": "https://www.ncleg.gov/Sessions/2025/Bills/House/PDF/H1129v1.pdf",
+   "http": 200
+  },
+  "wa-page": {
+   "titolo": "Washington State Legislature, SB 6050 (2025-26)",
+   "url": "https://app.leg.wa.gov/billsummary?BillNumber=6050&Year=2026&Initiative=false",
+   "http": 200
+  },
+  "wa-text": {
+   "titolo": "Substitute Senate Bill 6050 (PDF)",
+   "url": "https://lawfilesext.leg.wa.gov/biennium/2025-26/Pdf/Bills/Senate%20Bills/6050-S.pdf",
+   "http": 200
+  },
+  "ct-cga": {
+   "titolo": "Connecticut General Assembly, bill status of HB 5340 (2026)",
+   "url": "https://www.cga.ct.gov/asp/cgabillstatus/cgabillstatus.asp?selBillType=Bill&which_year=2026&bill_num=5340",
+   "http": null,
+   "motivo": "The secure connection failed on November 6, 2026 (the site's certificate could not be verified), so we have not read the bill or the public act."
+  },
+  "ct-bs": {
+   "titolo": "Bright Saver, Connecticut page (third party)",
+   "url": "https://www.brightsaver.org/is-plug-in-solar-legal-/connecticut",
+   "http": 200,
+   "tipo": "terzi"
+  },
+  "nh-gc": {
+   "titolo": "New Hampshire General Court, bill status",
+   "url": "https://gc.nh.gov/bill_status/",
+   "http": null,
+   "motivo": "The server closed the connection without answering on November 6, 2026, so we have not read SB 540."
+  },
+  "nh-bs": {
+   "titolo": "Bright Saver, New Hampshire page (third party)",
+   "url": "https://www.brightsaver.org/is-plug-in-solar-legal-/new-hampshire",
+   "http": 200,
+   "tipo": "terzi"
+  },
+  "tx-bs": {
+   "titolo": "Bright Saver, Texas page (third party)",
+   "url": "https://www.brightsaver.org/is-plug-in-solar-legal-/texas",
+   "http": 200,
+   "tipo": "terzi"
+  },
+  "fl-bs": {
+   "titolo": "Bright Saver, Florida page (third party)",
+   "url": "https://www.brightsaver.org/is-plug-in-solar-legal-/florida",
+   "http": 200,
+   "tipo": "terzi"
+  }
+ },
+ "stati": [
+  {
+   "st": "UT",
+   "stato": "in_vigore",
+   "badge": "Law in force",
+   "legge": "H.B. 340 (2025)",
+   "risposta": "Yes: as of {data}, Utah law lets you plug in a solar device of up to 1,200 watts without your utility's approval or any fee, under H.B. 340, in force since May 7, 2025.",
+   "legge_punti": [
+    {
+     "t": "H.B. 340, \"Solar Power Amendments\", passed in the 2025 General Session; the governor signed it on March 25, 2025.",
+     "s": [
+      "ut-status"
+     ]
+    },
+    {
+     "t": "It took effect on May 7, 2025. It added Utah Code 54-15-601 and a definition of \"portable solar generation device\" in 54-15-102.",
+     "s": [
+      "ut-text"
+     ]
+    },
+    {
+     "t": "The Utah Code site lists the 2025 text of 54-15-601 as the current version.",
+     "s": [
+      "ut-code"
+     ]
+    }
+   ],
+   "limiti": [
+    {
+     "t": "Maximum power output: 1,200 watts, through a standard 120-volt AC outlet.",
+     "s": [
+      "ut-text"
+     ]
+    },
+    {
+     "t": "The device must meet the latest National Electrical Code and be certified by UL or an equivalent nationally recognized testing laboratory.",
+     "s": [
+      "ut-text"
+     ]
+    },
+    {
+     "t": "It must include a feature that stops it from energizing the building's wiring during a power outage.",
+     "s": [
+      "ut-text"
+     ]
+    },
+    {
+     "t": "The utility may not require its approval, a fee, or equipment beyond what is built into the device. The law does not mention a notice to the utility.",
+     "s": [
+      "ut-text"
+     ]
+    },
+    {
+     "t": "The device is outside net metering, and the utility is not liable for damage or injury it causes.",
+     "s": [
+      "ut-text"
+     ]
+    }
+   ],
+   "condo": [
+    {
+     "t": "H.B. 340 does not mention condominium associations, HOAs or landlords: it limits what the utility can require, not what your association's rules say.",
+     "s": [
+      "ut-text"
+     ]
+    },
+    {
+     "t": "Because the law is silent on associations, read your declaration, bylaws and rules, and ask the board in writing before you buy a kit.",
+     "s": [
+      "ut-text"
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "What is the balcony solar law in Utah?",
+     "ricerca": "balcony solar law utah",
+     "a": "It is H.B. 340 of 2025, now Utah Code 54-15-601. Since May 7, 2025, a certified plug-in solar device of up to 1,200 watts that plugs into a standard 120-volt outlet needs no interconnection agreement, no utility approval and no fee. The law says nothing about condominium or HOA rules.",
+     "s": [
+      "ut-text",
+      "ut-code"
+     ]
+    }
+   ],
+   "sintesi": {
+    "watt": "1,200 W",
+    "avviso": "Not mentioned",
+    "hoa": "Not addressed"
+   }
+  },
+  {
+   "st": "CO",
+   "stato": "in_vigore",
+   "badge": "Law in force",
+   "legge": "HB26-1007 (2026)",
+   "risposta": "Yes: as of {data}, Colorado law allows plug-in solar devices of up to 1,920 watts with no utility approval or fee, and from January 1, 2027 a condo or HOA cannot unreasonably prohibit them (HB26-1007, in force since August 12, 2026).",
+   "legge_punti": [
+    {
+     "t": "HB26-1007, \"Improve Customer Use Distributed Energy Resources\", became law: the governor signed it on May 7, 2026.",
+     "s": [
+      "co-page",
+      "co-law"
+     ]
+    },
+    {
+     "t": "It is Chapter 127 of the 2026 Session Laws, with an effective date of August 12, 2026. It adds section 40-2-140 to the Colorado Revised Statutes.",
+     "s": [
+      "co-page",
+      "co-law"
+     ]
+    }
+   ],
+   "limiti": [
+    {
+     "t": "One photovoltaic system per address, designed to supply at most 1,920 watts to the grid, labeled and listed by a nationally recognized testing laboratory.",
+     "s": [
+      "co-law"
+     ]
+    },
+    {
+     "t": "No more than one device on a single wall outlet per address, and a feature that stops it from energizing the grid during an outage.",
+     "s": [
+      "co-law"
+     ]
+    },
+    {
+     "t": "The utility may not require its approval, a fee or extra equipment. It may ask you to tell it that you use a device and its size in kilowatts.",
+     "s": [
+      "co-law"
+     ]
+    },
+    {
+     "t": "Devices of 391 watts or less are exempt from code or listing provisions that would require changes to the building's wiring. From January 1, 2027, devices above 391 watts that are not UL labeled and listed may not be sold, leased or rented in Colorado.",
+     "s": [
+      "co-law"
+     ]
+    },
+    {
+     "t": "Installation must follow fire code requirements and local building codes on health and safety.",
+     "s": [
+      "co-law"
+     ]
+    }
+   ],
+   "condo": [
+    {
+     "t": "From January 1, 2027, a covenant or restriction that unreasonably prohibits or restricts a plug-in device is void, and the device counts as an \"energy efficiency measure\" under the common interest community law (CRS 38-33.3-106.7).",
+     "s": [
+      "co-law"
+     ]
+    },
+    {
+     "t": "An owner may install and use a device on a limited common element, such as a balcony, patio or deck that serves only the owner's unit.",
+     "s": [
+      "co-law"
+     ]
+    },
+    {
+     "t": "The association may require the owner to secure the device reasonably to the unit or to that balcony, patio or deck. The owner may be responsible for the costs and liability of installation, maintenance and removal, and may have to indemnify the association and other owners.",
+     "s": [
+      "co-law"
+     ]
+    },
+    {
+     "t": "Reasonable restrictions remain possible, for example prior notice, rules to prevent fire or electrical overload, and the location of the device.",
+     "s": [
+      "co-law"
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "What does Colorado's balcony solar law say?",
+     "ricerca": "balcony solar colorado law",
+     "a": "HB26-1007, signed on May 7, 2026 and in force since August 12, 2026, lets a customer use one plug-in solar system per address of up to 1,920 watts without utility approval or fees; the utility may ask for a notice of the device and its size. From January 1, 2027, condo and HOA rules cannot unreasonably prohibit these devices, but reasonable restrictions on notice, safety and location are allowed.",
+     "s": [
+      "co-law",
+      "co-page"
+     ]
+    }
+   ],
+   "sintesi": {
+    "watt": "1,920 W",
+    "avviso": "Utility may ask",
+    "hoa": "Unreasonable bans void from Jan. 1, 2027"
+   }
+  },
+  {
+   "st": "ME",
+   "stato": "in_vigore",
+   "badge": "Law in force",
+   "legge": "LD 1730 (2026)",
+   "risposta": "Yes: as of {data}, Maine law allows plug-in solar and plug-in battery systems at home, up to 420 watts with no notice and up to 1,200 watts with a licensed electrician and a notice to the utility (LD 1730, Public Law 2026, Chapter 644).",
+   "legge_punti": [
+    {
+     "t": "LD 1730 (SP 676), \"An Act to Make Small Plug-in Solar Generation Devices Accessible for All Maine Residents\", was enacted and signed by the governor on April 6, 2026, as Chapter 644 of the Public Laws.",
+     "s": [
+      "me-page",
+      "me-law"
+     ]
+    },
+    {
+     "t": "It adds section 3475 to Title 35-A. The law has no emergency clause, and the Legislature gives July 29, 2026 as the general effective date for non-emergency laws of that session.",
+     "s": [
+      "me-law",
+      "me-eff"
+     ]
+    }
+   ],
+   "limiti": [
+    {
+     "t": "Eligible systems have an export capacity of 1,200 watts or less and are listed or certified under UL 3700 or a comparable standard, or configured under the National Electrical Code adopted in Maine.",
+     "s": [
+      "me-law"
+     ]
+    },
+    {
+     "t": "Up to 420 watts of combined inverter output per service address: no notice is needed.",
+     "s": [
+      "me-law"
+     ]
+    },
+    {
+     "t": "From 420 to 1,200 watts: each system must be installed by a Maine-licensed electrician on a dedicated circuit with a single outlet, and you must notify the utility within 30 days on the form set by the Public Utilities Commission.",
+     "s": [
+      "me-law"
+     ]
+    },
+    {
+     "t": "The utility may not require approval, an interconnection application, a fee or extra equipment, and may not deny a system that follows the law. The system cannot be used for net energy billing.",
+     "s": [
+      "me-law"
+     ]
+    }
+   ],
+   "condo": [
+    {
+     "t": "Chapter 644 does not mention condominium associations or HOAs.",
+     "s": [
+      "me-law"
+     ]
+    },
+    {
+     "t": "If you install a system on a structure you do not own, you must make sure it does not compromise the structure or break building, fire or zoning codes, and you must restore the structure when you remove the system.",
+     "s": [
+      "me-law"
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "What is Maine's balcony solar law?",
+     "ricerca": "maine balcony solar law",
+     "a": "It is LD 1730, Public Law 2026, Chapter 644, signed on April 6, 2026. You may use plug-in solar or battery systems of up to 420 watts per service address without notice; between 420 and 1,200 watts, a licensed electrician must install each system on a dedicated circuit and you must notify the utility within 30 days.",
+     "s": [
+      "me-law",
+      "me-page"
+     ]
+    }
+   ],
+   "sintesi": {
+    "watt": "1,200 W (over 420 W: licensed electrician)",
+    "avviso": "Over 420 W: within 30 days",
+    "hoa": "Not addressed"
+   }
+  },
+  {
+   "st": "MD",
+   "stato": "in_vigore",
+   "badge": "Law in force",
+   "legge": "HB 1532 (2026)",
+   "risposta": "Yes: as of {data}, Maryland law allows one portable solar system of up to 1,200 watts per electric meter for residential use, with a notice to your utility before you install it (Public Utilities § 7-321, from HB 1532 of 2026).",
+   "legge_punti": [
+    {
+     "t": "HB 1532, the Utility RELIEF Act, was approved by the governor on May 12, 2026 as Chapter 353. Among many energy measures it adds § 7-321 to the Public Utilities Article.",
+     "s": [
+      "md-page",
+      "md-code"
+     ]
+    },
+    {
+     "t": "The Department of Legislative Services gives July 1, 2026 as the effective date of the portable solar provisions.",
+     "s": [
+      "md-note"
+     ]
+    }
+   ],
+   "limiti": [
+    {
+     "t": "A movable system that plugs into a standard outlet, supplies at most 1,200 watts back to the building's electric system and is certified by UL or an equivalent laboratory.",
+     "s": [
+      "md-code"
+     ]
+    },
+    {
+     "t": "Not more than one system per electric meter, for residential use only.",
+     "s": [
+      "md-code"
+     ]
+    },
+    {
+     "t": "You must notify your electric company before installation and give it a certification of the system's safety features and maximum capacity. If the system requires an automatic locking disconnect switch, you pay for its installation.",
+     "s": [
+      "md-code"
+     ]
+    },
+    {
+     "t": "The utility may not require approval, a fee for feeding power back, or other extra equipment. Systems of 391 watts or less are exempt from listing provisions that would require changes to wiring or panels.",
+     "s": [
+      "md-code"
+     ]
+    }
+   ],
+   "condo": [
+    {
+     "t": "§ 7-321 does not mention condominium associations, HOAs or landlords.",
+     "s": [
+      "md-code"
+     ]
+    },
+    {
+     "t": "Your association's declaration, bylaws and rules therefore still matter: ask the board in writing before you place a panel on a balcony or railing.",
+     "s": [
+      "md-code"
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "What is the balcony solar law in Maryland?",
+     "ricerca": "balcony solar maryland law",
+     "a": "It is § 7-321 of the Public Utilities Article, added by HB 1532 (Chapter 353 of 2026). You may install one portable solar system of up to 1,200 watts per meter for residential use, after notifying the electric company and certifying the system's safety features and maximum capacity.",
+     "s": [
+      "md-code",
+      "md-page"
+     ]
+    }
+   ],
+   "sintesi": {
+    "watt": "1,200 W, one system per meter",
+    "avviso": "Before installing",
+    "hoa": "Not addressed"
+   }
+  },
+  {
+   "st": "VT",
+   "stato": "in_vigore",
+   "badge": "Law in force",
+   "legge": "S.202, Act 149 (2026)",
+   "risposta": "Yes: as of {data}, Vermont law allows plug-in solar devices with up to 1,200 watts per electric meter, and condo or HOA covenants may not prohibit them (Act 149 of 2026, in force since July 1, 2026).",
+   "legge_punti": [
+    {
+     "t": "S.202 became Act 149, \"An act relating to plug-in photovoltaic devices\". The governor signed it on June 16, 2026, and it took effect on July 1, 2026.",
+     "s": [
+      "vt-page",
+      "vt-law"
+     ]
+    },
+    {
+     "t": "It adds 30 V.S.A. § 256 and amends the rules on zoning bylaws (24 V.S.A. § 4413) and on deed restrictions and covenants (27 V.S.A. § 544).",
+     "s": [
+      "vt-law"
+     ]
+    }
+   ],
+   "limiti": [
+    {
+     "t": "One or more devices per electric meter with a maximum combined inverter capacity of 1,200 watts, plugged into a receptacle, certified under UL 3700 or an equivalent.",
+     "s": [
+      "vt-law"
+     ]
+    },
+    {
+     "t": "Devices may only be connected to systems with smart meters, must be temporarily but securely attached to the ground or a structure, and must stop energizing the building during an outage.",
+     "s": [
+      "vt-law"
+     ]
+    },
+    {
+     "t": "The utility may not require approval, a fee or extra controls, but may recover costs if a device overloads the service.",
+     "s": [
+      "vt-law"
+     ]
+    },
+    {
+     "t": "A customer with net metering may not also install a plug-in device, and power sent to the grid is not paid for.",
+     "s": [
+      "vt-law"
+     ]
+    }
+   ],
+   "condo": [
+    {
+     "t": "Deed restrictions, covenants and similar binding agreements may not prohibit, or have the effect of prohibiting, renewable energy devices; for plug-in devices this covers devices appurtenant to the buildings.",
+     "s": [
+      "vt-law"
+     ]
+    },
+    {
+     "t": "The exception for patio railings in condominiums, cooperatives and apartments does not apply to plug-in photovoltaic devices.",
+     "s": [
+      "vt-law"
+     ]
+    },
+    {
+     "t": "Tenants must give the landlord at least 10 days' notice. The landlord may answer within 10 days with reasonable restrictions; without an answer, the tenant may go ahead. Electrical work needs the landlord's permission.",
+     "s": [
+      "vt-law"
+     ]
+    },
+    {
+     "t": "Town zoning bylaws may not regulate the installation, operation and maintenance of plug-in devices.",
+     "s": [
+      "vt-law"
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "What is Vermont's balcony solar law?",
+     "ricerca": "vermont balcony solar law",
+     "a": "It is Act 149 of 2026 (S.202), in force since July 1, 2026. You may use plug-in solar devices with up to 1,200 watts of combined inverter capacity per meter, on a smart meter, without utility approval or fees. Covenants may not prohibit them, and the condo patio-railing exception does not apply to plug-in devices.",
+     "s": [
+      "vt-law",
+      "vt-page"
+     ]
+    }
+   ],
+   "sintesi": {
+    "watt": "1,200 W per meter",
+    "avviso": "Not mentioned",
+    "hoa": "Covenants cannot prohibit"
+   }
+  },
+  {
+   "st": "VA",
+   "stato": "firmata",
+   "badge": "Law from Jan. 1, 2027",
+   "legge": "HB 395 (2026)",
+   "risposta": "Yes, from January 1, 2027: as of {data}, Virginia law (Code § 56-596.8, from HB 395 of 2026) will allow plug-in solar devices of up to 1,200 watts per customer, or per unit in multifamily housing, after a notice to the utility.",
+   "legge_punti": [
+    {
+     "t": "Code of Virginia § 56-596.8, \"Small portable solar generation devices; exempt from interconnection\", takes effect on January 1, 2027.",
+     "s": [
+      "va-code"
+     ]
+    },
+    {
+     "t": "Its history note cites 2026 Acts of Assembly chapter 1052 (HB 395) and chapter 998 (SB 250).",
+     "s": [
+      "va-code"
+     ]
+    }
+   ],
+   "limiti": [
+    {
+     "t": "Maximum output of 1,200 watts per customer, or per residential unit in multifamily housing; connected through an electrical outlet; certified by a nationally recognized testing laboratory; meeting the latest National Electrical Code.",
+     "s": [
+      "va-code"
+     ]
+    },
+    {
+     "t": "Before installing, you must notify the utility using the form set by the State Corporation Commission. The utility has 15 days to review it; if it does not answer, the notice requirement counts as met.",
+     "s": [
+      "va-code"
+     ]
+    },
+    {
+     "t": "No utility approval, fee or extra equipment, but the utility may install an automatic locking disconnect switch where a property has more than one device or the circuit requires it.",
+     "s": [
+      "va-code"
+     ]
+    },
+    {
+     "t": "Devices of 391 watts or less are exempt from listing provisions that would require changes to wiring or panels. The section does not apply to rental units billed through a ratio utility billing system.",
+     "s": [
+      "va-code"
+     ]
+    }
+   ],
+   "condo": [
+    {
+     "t": "§ 56-596.8 does not mention condominium unit owners' associations or property owners' associations.",
+     "s": [
+      "va-code"
+     ]
+    },
+    {
+     "t": "The 1,200-watt limit is counted per residential unit in multifamily housing, so each condo unit has its own limit.",
+     "s": [
+      "va-code"
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "What is Virginia's balcony solar law?",
+     "ricerca": "balcony solar virginia law",
+     "a": "It is § 56-596.8 of the Code of Virginia, from HB 395 and SB 250 of 2026, effective January 1, 2027. A device of up to 1,200 watts per customer, or per unit in multifamily housing, needs no interconnection, approval or fee, but you must notify the utility on the State Corporation Commission's form before installing it.",
+     "s": [
+      "va-code"
+     ]
+    }
+   ],
+   "sintesi": {
+    "watt": "1,200 W per customer or unit",
+    "avviso": "Before installing (state form)",
+    "hoa": "Not addressed"
+   }
+  },
+  {
+   "st": "NJ",
+   "stato": "da_confermare",
+   "badge": "Reported signed (not verified)",
+   "legge": "S2368 (2026)",
+   "risposta": "Probably yes, from 2027: as of {data}, the Garden State Balcony Solar Act (S2368) would allow plug-in devices of up to 1,200 watts and bar condo associations from banning them, and a third-party tracker reports it was signed on September 1, 2026, but we could not confirm the signature on the Legislature's site.",
+   "legge_punti": [
+    {
+     "t": "S2368, the \"Garden State Balcony Solar Act\", was reported by the Assembly Budget Committee on June 28, 2026 (third reprint), identical to Assembly Bill 4836.",
+     "s": [
+      "nj-text",
+      "nj-stmt"
+     ]
+    },
+    {
+     "t": "The bill says it takes effect six months after enactment.",
+     "s": [
+      "nj-text"
+     ]
+    },
+    {
+     "t": "The Legislature's status page needs JavaScript and we could not read the final votes. Bright Saver's tracker lists it as signed on September 1, 2026, effective March 1, 2027.",
+     "s": [
+      "nj-status",
+      "nj-bs"
+     ]
+    }
+   ],
+   "limiti": [
+    {
+     "t": "A device of up to 1,200 watts that plugs into a standard 120-volt outlet, is listed or certified under UL 3700 or a comparable standard, and stops exporting power during an outage.",
+     "s": [
+      "nj-text"
+     ]
+    },
+    {
+     "t": "The combined output at one service address, or at one dwelling unit in multifamily housing, may not exceed 1,200 watts without an interconnection agreement.",
+     "s": [
+      "nj-text"
+     ]
+    },
+    {
+     "t": "Utilities may not require approval, a fee or extra equipment. Devices of 400 watts or less are exempt from code provisions that would require changes to wiring or panels.",
+     "s": [
+      "nj-text"
+     ]
+    },
+    {
+     "t": "Municipalities may not prohibit the devices on residential property or require a permit or fee for placing them.",
+     "s": [
+      "nj-text"
+     ]
+    }
+   ],
+   "condo": [
+    {
+     "t": "A condominium association, HOA or cooperative may not enforce a master deed, bylaw or rule that prohibits a unit owner or tenant from using a device or placing it on the exterior of their premises; such provisions are void.",
+     "s": [
+      "nj-text",
+      "nj-stmt"
+     ]
+    },
+    {
+     "t": "The association may set reasonable restrictions on size, placement and manner of placement, and may require indemnification for damage caused by negligent installation, maintenance or use.",
+     "s": [
+      "nj-text"
+     ]
+    },
+    {
+     "t": "A tenant who pays for the unit's electricity must give written notice to the landlord and to the association at least 14 days before placing or using a device, with documentation and the proposed location.",
+     "s": [
+      "nj-text"
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "Is balcony solar legal in New Jersey?",
+     "ricerca": "is balcony solar legal in new jersey",
+     "a": "The Garden State Balcony Solar Act (S2368) allows certified plug-in devices of up to 1,200 watts per address or dwelling unit and stops condo and HOA rules from banning them, with reasonable restrictions allowed. It takes effect six months after enactment. A third-party tracker reports it was signed on September 1, 2026; we could not confirm this on the Legislature's site.",
+     "s": [
+      "nj-text",
+      "nj-bs"
+     ]
+    },
+    {
+     "q": "Can New Jersey renters use balcony solar?",
+     "ricerca": "new jersey balcony solar renters",
+     "a": "Under S2368, a landlord may not prohibit a tenant who pays for the unit's electricity from using a device inside the leased premises, including a leased balcony or patio. The tenant must give written notice at least 14 days before, and the landlord may set reasonable restrictions on size and placement.",
+     "s": [
+      "nj-text"
+     ]
+    }
+   ],
+   "sintesi": {
+    "watt": "1,200 W per address or unit",
+    "avviso": "Not mentioned",
+    "hoa": "Bans unenforceable (bill text)"
+   }
+  },
+  {
+   "st": "CA",
+   "stato": "firmata_non_letta",
+   "badge": "Signed Sept. 30, 2026",
+   "legge": "SB 868 (2026)",
+   "risposta": "Yes, a law is coming: as of {data}, Governor Newsom has signed SB 868 on portable solar generation devices (September 30, 2026), but we could not read its text on the Legislature's site, so check the details there.",
+   "legge_punti": [
+    {
+     "t": "On September 30, 2026 the governor announced that he had signed SB 868 by Senator Scott Wiener, \"Electricity: portable solar generation devices\".",
+     "s": [
+      "ca-gov"
+     ]
+    },
+    {
+     "t": "The Legislature's site refused our request (403), so we have not read the text, the limits or the start date.",
+     "s": [
+      "ca-leginfo"
+     ]
+    },
+    {
+     "t": "Bright Saver's tracker gives January 1, 2027 as the start date, a 1,200-watt limit and devices that plug into standard 120-volt outlets, with a notice to the utility that may be required after installation.",
+     "s": [
+      "ca-bs"
+     ]
+    }
+   ],
+   "limiti": [
+    {
+     "t": "We have not read the limits in the law itself. According to Bright Saver (third party): up to 1,200 watts, standard 120-volt outlet, no interconnection with the utility.",
+     "s": [
+      "ca-bs",
+      "ca-leginfo"
+     ]
+    }
+   ],
+   "condo": [
+    {
+     "t": "We could not read whether SB 868 says anything about condominium associations or HOAs. Until you can, treat your association's rules as still in force and ask the board in writing.",
+     "s": [
+      "ca-leginfo"
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "Is balcony solar legal in California?",
+     "ricerca": "is balcony solar legal in california",
+     "a": "Governor Newsom signed SB 868, \"Electricity: portable solar generation devices\", on September 30, 2026. A third-party tracker says it starts on January 1, 2027 and covers devices of up to 1,200 watts; we could not read the official text because the Legislature's site refused access.",
+     "s": [
+      "ca-gov",
+      "ca-bs",
+      "ca-leginfo"
+     ]
+    },
+    {
+     "q": "What is SB 868 in California?",
+     "ricerca": "balcony solar california sb 868",
+     "a": "SB 868 is a 2026 bill by Senator Scott Wiener titled \"Electricity: portable solar generation devices\". The governor announced on September 30, 2026 that he had signed it.",
+     "s": [
+      "ca-gov"
+     ]
+    }
+   ],
+   "sintesi": {
+    "watt": "Not read (tracker: 1,200 W)",
+    "avviso": "Not read",
+    "hoa": "Not read"
+   }
+  },
+  {
+   "st": "NY",
+   "stato": "attesa_firma",
+   "badge": "Passed, awaiting governor",
+   "legge": "A9111C / S8512C (2026)",
+   "risposta": "Not yet: as of {data}, New York's plug-in solar bill (A9111C, same as S8512C) has passed both houses but the governor has not acted on it, so no state law allows it yet.",
+   "legge_punti": [
+    {
+     "t": "The \"Solar Up Now NY Act\" passed the Assembly and the Senate on May 28, 2026. The Assembly's action list shows no later step, such as delivery to the governor or a signature.",
+     "s": [
+      "ny-asm"
+     ]
+    },
+    {
+     "t": "If signed, it would take effect on the ninetieth day after becoming law.",
+     "s": [
+      "ny-asm"
+     ]
+    },
+    {
+     "t": "The Senate's bill page refused our request (403); we read the same bill on the Assembly's site.",
+     "s": [
+      "ny-sen"
+     ]
+    }
+   ],
+   "limiti": [
+    {
+     "t": "Bill: a system plugged into a standard outlet with at most 1,200 watts of inverter output to the grid, listed or certified as a complete plug-in system, installed under the state fire and building code and the maker's instructions.",
+     "s": [
+      "ny-asm"
+     ]
+    },
+    {
+     "t": "Bill: no interconnection or net metering, no utility approval or fee; the owner notifies the utility within 30 days of installing, on a simple form the utility must publish.",
+     "s": [
+      "ny-asm"
+     ]
+    }
+   ],
+   "condo": [
+    {
+     "t": "The bill text does not mention condominium boards, co-op boards or HOAs.",
+     "s": [
+      "ny-asm"
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "Is balcony solar legal in New York State?",
+     "ricerca": "is balcony solar legal in new york state",
+     "a": "Not yet by state law. The Solar Up Now NY Act (A9111C, same as S8512C) passed both houses on May 28, 2026, and as of November 6, 2026 the Assembly's record shows no action by the governor. If signed, it would allow plug-in systems of up to 1,200 watts with a notice to the utility within 30 days, 90 days after it becomes law.",
+     "s": [
+      "ny-asm"
+     ]
+    }
+   ],
+   "sintesi": {
+    "watt": "1,200 W (bill)",
+    "avviso": "Within 30 days (bill)",
+    "hoa": "Not addressed"
+   }
+  },
+  {
+   "st": "MA",
+   "stato": "in_discussione",
+   "badge": "Bill in conference",
+   "legge": "H.5175 (2026)",
+   "risposta": "Not yet: as of {data}, Massachusetts has no plug-in solar law; both chambers passed versions of the energy bill H.5175 that include it, and a conference committee has been working on the differences since July 16, 2026.",
+   "legge_punti": [
+    {
+     "t": "H.5175, \"An Act relative to energy affordability, clean power and economic competitiveness\", passed the House on February 26, 2026 (128 to 27).",
+     "s": [
+      "ma-page"
+     ]
+    },
+    {
+     "t": "The Senate replaced its text with S.3166 and passed it on July 1, 2026 (32 to 8). On July 16, 2026 the House did not concur and a conference committee was appointed.",
+     "s": [
+      "ma-page"
+     ]
+    }
+   ],
+   "limiti": [
+    {
+     "t": "House text: a device of up to 1,200 watts on a standard 120-volt outlet, meeting the National Electrical Code and certified by UL or an equivalent, exempt from interconnection and net metering, with no utility approval or fee.",
+     "s": [
+      "ma-house"
+     ]
+    },
+    {
+     "t": "Senate text: certified plug-in solar and battery systems, exemption from listing provisions for systems of 391 watts or less, a notice to the utility within 30 days, and no approval, interconnection application or fee.",
+     "s": [
+      "ma-senate"
+     ]
+    }
+   ],
+   "condo": [
+    {
+     "t": "The House text does not mention associations. The Senate text says no one may unreasonably prohibit these devices and that covenants or restrictions that unreasonably prohibit them are void.",
+     "s": [
+      "ma-house",
+      "ma-senate"
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "Is balcony solar legal in Massachusetts?",
+     "ricerca": "is balcony solar legal in massachusetts",
+     "a": "There is no Massachusetts law on it yet. The House and the Senate passed different versions of H.5175 that include plug-in solar, and a conference committee was appointed on July 16, 2026. The final rules depend on the text that comes out of that committee.",
+     "s": [
+      "ma-page",
+      "ma-house",
+      "ma-senate"
+     ]
+    }
+   ],
+   "sintesi": {
+    "watt": "1,200 W (House text)",
+    "avviso": "Within 30 days (Senate text)",
+    "hoa": "Unreasonable bans void (Senate text)"
+   }
+  },
+  {
+   "st": "PA",
+   "stato": "in_discussione",
+   "badge": "Bill in committee",
+   "legge": "HB 1971 (2025)",
+   "risposta": "Not yet: as of {data}, Pennsylvania has no plug-in solar law; HB 1971 has been in the House Energy Committee since October 28, 2025, with no votes.",
+   "legge_punti": [
+    {
+     "t": "HB 1971 was introduced on October 27, 2025 and referred to the House Committee on Energy on October 28, 2025. The Legislature's page shows no votes and no committee report.",
+     "s": [
+      "pa-page",
+      "pa-text"
+     ]
+    }
+   ],
+   "limiti": [
+    {
+     "t": "Bill: a system of up to 1,200 watts back to the grid, plugged into a standard outlet and certified by UL or an equivalent; it may include battery storage.",
+     "s": [
+      "pa-text"
+     ]
+    },
+    {
+     "t": "Bill: no interconnection application, inspection or fee, and the utility could not require approval, registration or notification. No net metering and no payment for exported power.",
+     "s": [
+      "pa-text"
+     ]
+    }
+   ],
+   "condo": [
+    {
+     "t": "The bill does not mention condominium associations or HOAs.",
+     "s": [
+      "pa-text"
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "Is balcony solar legal in Pennsylvania?",
+     "ricerca": "is balcony solar legal in pennsylvania",
+     "a": "Not by a specific state law yet. HB 1971 would exempt plug-in systems of up to 1,200 watts from interconnection, fees and utility notification, but it has been in the House Energy Committee since October 28, 2025 without a vote.",
+     "s": [
+      "pa-page",
+      "pa-text"
+     ]
+    }
+   ],
+   "sintesi": {
+    "watt": "1,200 W (bill)",
+    "avviso": "Utility could not require it (bill)",
+    "hoa": "Not addressed"
+   }
+  },
+  {
+   "st": "MI",
+   "stato": "in_discussione",
+   "badge": "Bill in committee",
+   "legge": "HB 5764 (2026)",
+   "risposta": "Not yet: as of {data}, Michigan has no plug-in solar law; House Bill 5764 has been in the House Committee on Energy since March 19, 2026.",
+   "legge_punti": [
+    {
+     "t": "HB 5764 was introduced on March 19, 2026 and referred to the Committee on Energy; the Legislature's history shows no later action.",
+     "s": [
+      "mi-page"
+     ]
+    }
+   ],
+   "limiti": [
+    {
+     "t": "Bill: a device of up to 1,200 watts on a standard 120-volt outlet, meeting the National Electrical Code and certified by UL or an equivalent, with a feature that stops it from energizing the building during an outage.",
+     "s": [
+      "mi-text"
+     ]
+    },
+    {
+     "t": "Bill: no utility approval, fee or extra equipment; notice to the utility within 30 days of installing, on a form set by the Public Service Commission.",
+     "s": [
+      "mi-text"
+     ]
+    }
+   ],
+   "condo": [
+    {
+     "t": "The bill does not mention condominium associations or HOAs. If you install on a meter or panel you do not own, you would have to avoid damaging the structure and restore it on removal.",
+     "s": [
+      "mi-text"
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "Is plug-in solar legal in Michigan?",
+     "ricerca": "is plug in solar legal in michigan",
+     "a": "Not by a specific state law yet. House Bill 5764 would allow plug-in systems of up to 1,200 watts without utility approval or fees, with a notice within 30 days, but it has been in the House Committee on Energy since March 19, 2026.",
+     "s": [
+      "mi-page",
+      "mi-text"
+     ]
+    }
+   ],
+   "sintesi": {
+    "watt": "1,200 W (bill)",
+    "avviso": "Within 30 days (bill)",
+    "hoa": "Not addressed"
+   }
+  },
+  {
+   "st": "NC",
+   "stato": "in_discussione",
+   "badge": "Bill in committee",
+   "legge": "HB 1129 (2026)",
+   "risposta": "Not yet: as of {data}, North Carolina has no plug-in solar law; House Bill 1129, \"Balcony Solar\", has been in the House Rules Committee since April 30, 2026.",
+   "legge_punti": [
+    {
+     "t": "HB 1129 was filed on April 29, 2026, passed first reading and was referred to the Committee on Rules, Calendar, and Operations of the House on April 30, 2026. No later action is shown.",
+     "s": [
+      "nc-page"
+     ]
+    }
+   ],
+   "limiti": [
+    {
+     "t": "Bill: a movable device of up to 1.2 kilowatts on a standard 120-volt outlet, meeting the North Carolina Electrical Code and certified by UL or an equivalent.",
+     "s": [
+      "nc-text"
+     ]
+    },
+    {
+     "t": "Bill: notice to the utility on a standard form at least 15 days before operating; no interconnection agreement, approval or fee; no net metering.",
+     "s": [
+      "nc-text"
+     ]
+    }
+   ],
+   "condo": [
+    {
+     "t": "The bill does not mention condominium associations or HOAs. It would stop landlords with more than four rental dwellings from prohibiting a tenant's device on the exterior of the premises, with 7 days' notice and reasonable restrictions on size and placement.",
+     "s": [
+      "nc-text"
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "Is balcony solar legal in North Carolina?",
+     "ricerca": "is balcony solar legal in north carolina",
+     "a": "Not by a specific state law yet. House Bill 1129 would allow plug-in devices of up to 1.2 kilowatts with a notice to the utility 15 days before use, but it has been in the House Rules Committee since April 30, 2026.",
+     "s": [
+      "nc-page",
+      "nc-text"
+     ]
+    }
+   ],
+   "sintesi": {
+    "watt": "1.2 kW (bill)",
+    "avviso": "15 days before use (bill)",
+    "hoa": "Not addressed"
+   }
+  },
+  {
+   "st": "WA",
+   "stato": "ferma",
+   "badge": "Did not pass in 2026",
+   "legge": "SB 6050 (2026)",
+   "risposta": "Not yet: as of {data}, Washington has no plug-in solar law; SB 6050 cleared a Senate committee in January 2026 but stopped in the Senate Rules Committee and did not pass in the 2026 session.",
+   "legge_punti": [
+    {
+     "t": "SB 6050, \"Expanding the use of distributed energy resources\", was heard in the Senate Environment, Energy and Technology Committee, which recommended a substitute on January 30, 2026.",
+     "s": [
+      "wa-page"
+     ]
+    },
+    {
+     "t": "It went to the Rules Committee on February 2 and was placed in the Rules \"X\" file on February 26, 2026; the status page shows it did not pass the Senate.",
+     "s": [
+      "wa-page"
+     ]
+    }
+   ],
+   "limiti": [
+    {
+     "t": "Substitute bill: one device per premises of up to 1,200 watts, on a standard 120-volt outlet, certified under UL 3700, with notice to the utility before installing.",
+     "s": [
+      "wa-text"
+     ]
+    },
+    {
+     "t": "Substitute bill: utilities with fewer than 25,000 customers could still prohibit the devices.",
+     "s": [
+      "wa-text"
+     ]
+    }
+   ],
+   "condo": [
+    {
+     "t": "The substitute bill would have barred HOA governing documents (RCW 64.38.055) from prohibiting a portable device on the owner's or resident's property, while allowing the association to require indemnification.",
+     "s": [
+      "wa-text"
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "Is balcony solar legal in Washington State?",
+     "ricerca": "is balcony solar legal in washington state",
+     "a": "There is no specific state law yet. SB 6050 would have allowed plug-in devices of up to 1,200 watts and stopped HOA documents from banning them, but it was placed in the Senate Rules \"X\" file on February 26, 2026 and did not pass in the 2026 session.",
+     "s": [
+      "wa-page",
+      "wa-text"
+     ]
+    }
+   ],
+   "sintesi": {
+    "watt": "1,200 W (bill)",
+    "avviso": "Before installing (bill)",
+    "hoa": "HOA bans barred (bill)"
+   }
+  },
+  {
+   "st": "CT",
+   "stato": "non_letta",
+   "badge": "Reported law (not verified)",
+   "legge": "HB 5340 (2026)",
+   "risposta": "Probably yes: as of {data}, a third-party tracker reports that Connecticut's HB 5340 became Public Act 26-127 and took effect on October 1, 2026, but we could not open the General Assembly's site to confirm it.",
+   "legge_punti": [
+    {
+     "t": "Bright Saver's tracker lists HB 5340 as Public Act 26-127, signed on June 4, 2026, effective October 1, 2026.",
+     "s": [
+      "ct-bs"
+     ]
+    },
+    {
+     "t": "The General Assembly's site could not be opened (certificate error), so we have not read the act.",
+     "s": [
+      "ct-cga"
+     ]
+    }
+   ],
+   "limiti": [
+    {
+     "t": "According to Bright Saver (third party): up to 1,200 watts per customer, no permit and no utility approval or notice.",
+     "s": [
+      "ct-bs",
+      "ct-cga"
+     ]
+    }
+   ],
+   "condo": [
+    {
+     "t": "We could not read whether the act says anything about condominium associations or HOAs. Until you can, treat your association's rules as still in force and ask the board in writing.",
+     "s": [
+      "ct-cga"
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "Is balcony solar legal in Connecticut?",
+     "ricerca": "balcony solar connecticut",
+     "a": "A third-party tracker reports that HB 5340 became Public Act 26-127 on June 4, 2026 and took effect on October 1, 2026, allowing plug-in systems of up to 1,200 watts. We could not open the General Assembly's site to confirm it: read the act there before you buy.",
+     "s": [
+      "ct-bs",
+      "ct-cga"
+     ]
+    }
+   ],
+   "sintesi": {
+    "watt": "Not read (tracker: 1,200 W)",
+    "avviso": "Not read",
+    "hoa": "Not read"
+   }
+  },
+  {
+   "st": "NH",
+   "stato": "non_letta",
+   "badge": "Reported law (not verified)",
+   "legge": "SB 540 (2026)",
+   "risposta": "Probably yes, from 2027: as of {data}, a third-party tracker reports that New Hampshire's SB 540 was signed on July 2, 2026 and takes effect on January 1, 2027, but we could not open the General Court's site to confirm it.",
+   "legge_punti": [
+    {
+     "t": "Bright Saver's tracker lists SB 540 as signed on July 2, 2026, effective January 1, 2027.",
+     "s": [
+      "nh-bs"
+     ]
+    },
+    {
+     "t": "The General Court's bill site closed the connection without answering, so we have not read the bill.",
+     "s": [
+      "nh-gc"
+     ]
+    }
+   ],
+   "limiti": [
+    {
+     "t": "According to Bright Saver (third party): up to 1,200 watts per customer, no permit and no utility approval or notice.",
+     "s": [
+      "nh-bs",
+      "nh-gc"
+     ]
+    }
+   ],
+   "condo": [
+    {
+     "t": "We could not read whether SB 540 says anything about condominium associations or HOAs. Until you can, treat your association's rules as still in force and ask the board in writing.",
+     "s": [
+      "nh-gc"
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "Is balcony solar legal in New Hampshire?",
+     "ricerca": "is balcony solar legal in new hampshire",
+     "a": "A third-party tracker reports that SB 540 was signed on July 2, 2026 and takes effect on January 1, 2027, for plug-in systems of up to 1,200 watts. We could not open the General Court's site to confirm it: read the law there before you buy.",
+     "s": [
+      "nh-bs",
+      "nh-gc"
+     ]
+    }
+   ],
+   "sintesi": {
+    "watt": "Not read (tracker: 1,200 W)",
+    "avviso": "Not read",
+    "hoa": "Not read"
+   }
+  }
+ ],
+ "altri": {
+  "_nota": "Stati senza pagina: solo nell'indice, con lo stato dichiarato dal tracker di terzi (non letto sul sito ufficiale).",
+  "con_proposta": [
+   {
+    "nome": "Illinois",
+    "legge": "SB 3104",
+    "tracker": "Deferred to 2027 session"
+   },
+   {
+    "nome": "Ohio",
+    "legge": "HB 755",
+    "tracker": "Bill in progress"
+   },
+   {
+    "nome": "District of Columbia",
+    "legge": "B26-0602",
+    "tracker": "Bill in progress"
+   },
+   {
+    "nome": "Alaska",
+    "legge": "HB 257",
+    "tracker": "Deferred to 2027 session"
+   },
+   {
+    "nome": "Arizona",
+    "legge": "SB 1606",
+    "tracker": "Deferred to 2027 session"
+   },
+   {
+    "nome": "Delaware",
+    "legge": "SB 270",
+    "tracker": "Deferred to 2027 session"
+   },
+   {
+    "nome": "Georgia",
+    "legge": "HB 1304",
+    "tracker": "Deferred to 2027 session"
+   },
+   {
+    "nome": "Hawaii",
+    "legge": "SB 2902",
+    "tracker": "Deferred to 2027 session"
+   },
+   {
+    "nome": "Idaho",
+    "legge": "HB 612",
+    "tracker": "Deferred to 2027 session"
+   },
+   {
+    "nome": "Indiana",
+    "legge": "SB 74 / HB 1084",
+    "tracker": "Deferred to 2027 session"
+   },
+   {
+    "nome": "Iowa",
+    "legge": "HF 2046",
+    "tracker": "Deferred to 2027 session"
+   },
+   {
+    "nome": "Minnesota",
+    "legge": "SF 4504",
+    "tracker": "Deferred to 2027 session"
+   },
+   {
+    "nome": "Missouri",
+    "legge": "HB 2528 / HB 2444",
+    "tracker": "Deferred to 2027 session"
+   },
+   {
+    "nome": "New Mexico",
+    "legge": "SB 157",
+    "tracker": "Deferred to 2027 session"
+   },
+   {
+    "nome": "Oklahoma",
+    "legge": "HB 4060",
+    "tracker": "Deferred to 2027 session"
+   },
+   {
+    "nome": "Oregon",
+    "legge": "HB 4080",
+    "tracker": "Deferred to 2027 session"
+   },
+   {
+    "nome": "Rhode Island",
+    "legge": "HB 7269",
+    "tracker": "Deferred to 2027 session"
+   },
+   {
+    "nome": "South Carolina",
+    "legge": "HB 4579",
+    "tracker": "Deferred to 2027 session"
+   },
+   {
+    "nome": "Wyoming",
+    "legge": "HB 146",
+    "tracker": "Deferred to 2027 session"
+   }
+  ],
+  "senza_proposta": [
+   "Alabama",
+   "Arkansas",
+   "Florida",
+   "Kansas",
+   "Kentucky",
+   "Louisiana",
+   "Mississippi",
+   "Montana",
+   "Nebraska",
+   "Nevada",
+   "North Dakota",
+   "South Dakota",
+   "Tennessee",
+   "Texas",
+   "West Virginia",
+   "Wisconsin"
+  ]
+ },
+ "faq_indice": [
+  {
+   "q": "Which states allow balcony solar?",
+   "ricerca": "which states allow balcony solar",
+   "a": "As of November 6, 2026, we read laws in force in Utah, Colorado, Maine, Maryland and Vermont, and a law that starts on January 1, 2027 in Virginia. California's governor signed SB 868 on September 30, 2026. New Jersey, Connecticut and New Hampshire are reported as signed by a third-party tracker, but we could not confirm them on official sites. New York's bill passed both houses and awaits the governor.",
+   "s": [
+    "ut-text",
+    "co-law",
+    "me-law",
+    "md-code",
+    "vt-law",
+    "va-code",
+    "ca-gov",
+    "bs-index",
+    "ny-asm"
+   ]
+  },
+  {
+   "q": "Can I put solar panels on my balcony?",
+   "ricerca": "can i put solar panels on my balcony",
+   "a": "It depends on two sets of rules: your state's law on plug-in devices and your building's rules. Even where the state law protects plug-in solar, condo and HOA rules on balconies and railings can still apply unless the law limits them, as Colorado's law does from January 1, 2027 and Vermont's law does for covenants. Ask your association in writing before you buy.",
+   "s": [
+    "co-law",
+    "vt-law"
+   ]
+  },
+  {
+   "q": "Can an HOA prevent solar panels on a balcony?",
+   "ricerca": "can hoa prevent solar panels",
+   "a": "Among the laws we read, Colorado (from January 1, 2027) voids covenants that unreasonably prohibit plug-in devices, and Vermont's law stops covenants from prohibiting them, including on condo patio railings. New Jersey's S2368 text bars condo and HOA rules that ban them. Utah, Maine, Maryland and Virginia's plug-in laws do not mention associations, so your association's rules still matter there.",
+   "s": [
+    "co-law",
+    "vt-law",
+    "nj-text",
+    "ut-text",
+    "me-law",
+    "md-code",
+    "va-code"
+   ]
+  },
+  {
+   "q": "Is plug-in solar safe?",
+   "ricerca": "is plug in solar safe",
+   "a": "We cannot judge the safety of a product or of your wiring; ask a licensed electrician. What the laws require is clear: a device certified by a nationally recognized testing laboratory (UL 3700 is named in Maine, Vermont and New Jersey) and a feature that stops it from sending power during an outage. Maine requires a licensed electrician and a dedicated circuit above 420 watts.",
+   "s": [
+    "me-law",
+    "vt-law",
+    "nj-text",
+    "ut-text"
+   ]
+  },
+  {
+   "q": "Do you need an electrician for plug-in solar?",
+   "ricerca": "do you need an electrician for plug in solar",
+   "a": "Among the laws we read, only Maine requires one: systems with combined output above 420 watts, up to 1,200 watts, must be installed by a Maine-licensed electrician on a dedicated circuit with a single outlet. Elsewhere the laws do not require one for a device that simply plugs in, but any change to wiring follows the electrical code. For questions about your outlet or panel, ask a licensed electrician.",
+   "s": [
+    "me-law",
+    "co-law",
+    "md-code",
+    "va-code"
+   ]
+  },
+  {
+   "q": "Can renters use balcony solar?",
+   "ricerca": "balcony solar for renters",
+   "a": "Vermont's law lets a tenant install after giving the landlord 10 days' notice, unless the landlord answers with reasonable restrictions. New Jersey's S2368 text stops landlords from banning devices for tenants who pay their own electricity, with 14 days' written notice. North Carolina's HB 1129, still a bill, would do something similar for larger landlords.",
+   "s": [
+    "vt-law",
+    "nj-text",
+    "nc-text"
+   ]
+  },
+  {
+   "q": "Do I have to notify my utility about plug-in solar?",
+   "ricerca": "plug in solar notification",
+   "a": "It depends on the state. Maryland and Virginia require a notice before you install; Maine requires one within 30 days for systems above 420 watts; Colorado lets the utility ask for one. Utah's law does not mention a notice. Check your utility's website for its form.",
+   "s": [
+    "md-code",
+    "va-code",
+    "me-law",
+    "co-law",
+    "ut-text"
+   ]
+  },
+  {
+   "q": "Is balcony solar legal in Texas?",
+   "ricerca": "is balcony solar legal in texas",
+   "a": "Texas has no plug-in solar law that we could find. A third-party tracker lists no Texas bill as of the 2026 session, so the usual rules of your electric utility and your condo or HOA apply. Ask your utility before connecting anything that sends power into your home's wiring.",
+   "s": [
+    "tx-bs",
+    "bs-index"
+   ]
+  },
+  {
+   "q": "Is balcony solar legal in Florida?",
+   "ricerca": "is balcony solar legal in florida",
+   "a": "Florida has no plug-in solar law that we could find. A third-party tracker lists no Florida bill as of the 2026 session, so the usual rules of your electric utility and your condo association apply. Ask your utility before connecting anything that sends power into your home's wiring.",
+   "s": [
+    "fl-bs",
+    "bs-index"
+   ]
+  }
+ ]
+}

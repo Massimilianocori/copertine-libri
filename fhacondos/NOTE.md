@@ -153,3 +153,52 @@ Se i crediti stringono, pubblicare ogni due settimane (le date "as of" restano g
 - **Controlli del 30/10/2026:** `python3 fhacondos/verifica.py --senza-fonte --browser` → «Tutti i controlli superati»; `monetizzazione.py verifica fhacondos` → AdSense acceso, 0 errori; Playwright a 375 px su home (script AdSense caricato davvero): nessun errore JS, nessuno scorrimento orizzontale. Da fare in AdSense: aggiungere il sito (Siti → Aggiungi) e controllare che il messaggio di consenso UE copra anche questo dominio. Nessun commit, nessuna pubblicazione.
 - **`verifica_browser.js` e AdSense (30/10/2026):** con lo script AdSense nelle pagine Playwright segnalava come «richiesta fallita» i beacon di Google interrotti al cambio pagina (`pagead2.googlesyndication.com/pagead/ping`). Ora le richieste ai server degli annunci (costante `PUBBLICITA`: googlesyndication.com, doubleclick.net, googleadservices.com, adtrafficquality.google, fundingchoicesmessages.google.com) ricevono una risposta vuota e non contano come errori: la prova non dipende da annunci esterni. Lo script e il suo indirizzo li controlla `monetizzazione.py`.
 - Home: la riga «Free, no sign-up, no tracking» della testata diventa «Free, no sign-up» con AdSense acceso (gli annunci di Google usano cookie e identificatori, con il consenso): `genera.py`, funzione della home, condizione `MON.adsense_attivo(SITO_ID)`.
+
+## Sezione "Balcony solar in condos" (`/balcony-solar/`, 6/11/2026, da revisionare)
+
+Dallo studio `studio-business/intelaiatura/fronti-2026-11-06-nascenti.md` (pannello solare da balcone, voto 6): stesso pubblico di chi
+compra o vive in un condominio, domanda vera ("is balcony solar legal in" 10 suggerimenti negli USA, con california, texas, pennsylvania,
+ny, massachusetts, nj, washington state, nc, florida, illinois). **17 pagine**: indice + 16 Stati. **Regno Unito escluso**: il sito parla
+a chi compra un condominio negli USA (HUD/FHA), una pagina britannica non c'entra con questo pubblico.
+
+| Stato | Legge | Stato della legge (verificato il 6/11/2026) | Fonte ufficiale |
+|---|---|---|---|
+| Utah | H.B. 340 | in vigore dal 7/5/2025 (firmata 25/3/2025), 1.200 W | le.utah.gov (testo, dati di stato, Utah Code) |
+| Colorado | HB26-1007 | in vigore dal 12/8/2026 (firmata 7/5/2026), 1.920 W; HOA: divieti irragionevoli nulli dal 1/1/2027 | leg.colorado.gov |
+| Maine | LD 1730 | Public Law 644, firmata 6/4/2026, in vigore 29/7/2026 (data generale; il tracker di terzi dice 15/7: sbagliato) | legislature.maine.gov |
+| Maryland | HB 1532 | Chapter 353, firmata 12/5/2026, in vigore 1/7/2026, PU § 7-321 | mgaleg.maryland.gov |
+| Vermont | S.202 | Act 149, firmata 16/6/2026, in vigore 1/7/2026; covenant non possono vietarli | legislature.vermont.gov |
+| Virginia | HB 395 (+ SB 250) | Code § 56-596.8, in vigore dal 1/1/2027 | law.lis.virginia.gov (la pagina del disegno di legge su lis.virginia.gov richiede JavaScript) |
+| California | SB 868 | firmata il 30/9/2026 (comunicato del governatore) | **testo non letto**: leginfo 403 |
+| New Jersey | S2368 | testo del 28/6/2026 letto; firma (1/9/2026) solo dal tracker di terzi | pub.njleg.gov; la pagina di stato richiede JavaScript |
+| Connecticut | HB 5340 (PA 26-127) | solo tracker di terzi | **non letto**: cga.ct.gov, errore di certificato |
+| New Hampshire | SB 540 | solo tracker di terzi | **non letto**: gc.nh.gov chiude la connessione |
+| New York | A9111C / S8512C | approvata dalle due Camere il 28/5/2026, nessuna azione del governatore | nyassembly.gov (nysenate.gov 403) |
+| Massachusetts | H.5175 | in commissione di conciliazione dal 16/7/2026 | malegislature.gov |
+| Pennsylvania | HB 1971 | in commissione Energia dal 28/10/2025 | palegis.us |
+| Michigan | HB 5764 | in commissione Energia dal 19/3/2026 | legislature.mi.gov |
+| North Carolina | HB 1129 | in commissione Rules dal 30/4/2026 | ncleg.gov |
+| Washington | SB 6050 | ferma nel 2026 (Rules "X" file il 26/2/2026) | app.leg.wa.gov |
+
+Altri Stati (Illinois, Ohio, DC e altri 16 con proposte; 16 senza proposte, tra cui Texas e Florida) solo nell'indice, con lo stato del
+tracker di terzi dichiarato come tale. Ohio e Illinois: siti ufficiali con errore di certificato, non letti.
+
+- **Dati:** `dati/balcony_solar.json` (fonti con codice HTTP o motivo, affermazioni con fonti, FAQ con la ricerca da cui vengono,
+  autocompletamento salvato, sintesi per la tabella). Il generatore (`genera.py`, blocco "pannello solare da balcone") non inventa testo:
+  numera le fonti [n] per pagina, mette "Not read" e "Third party" dove serve, JSON-LD Article + FAQPage con lo stesso testo.
+- **Pagine:** risposta nella prima frase con la data della verifica; riquadro sintesi; legge; limiti; condomini/HOA; riquadro fisso
+  "Before you buy" (rimandi a legge, compagnia elettrica e regolamento del condominio, nessun consiglio legale o elettrico); FAQ; link alla
+  pagina FHA dello Stato; altri Stati; fonti. Titoli ≤ 70 caratteri con l'anno ("Is Balcony Solar Legal in X? 2026 Plug-In Solar Law").
+- **Collegamenti:** indice ↔ pagine Stato; pagina Stato ↔ pagina FHA dello stesso Stato (paragrafo dopo le guide); piè di pagina
+  "Balcony solar laws by state" in tutte le pagine; sitemap automatica.
+- **Monetizzazione:** nessun link di affiliazione. Riquadro `kit_solari` in `dati/affiliati.json` **spento** (url vuoto): si accende
+  da solo (`blocco_kit()`) quando arriva un link vero (Amazon US con questo dominio registrato, oppure EcoFlow) e il dominio è in
+  `monetizzazione.json`. Il controllo `controlla_balcony_solar` in `verifica.py` va allora adattato (oggi vieta ogni link sponsorizzato
+  nella sezione).
+- **Controlli (`verifica.py`, `controlla_balcony_solar`):** ogni affermazione con fonte esistente; fonti con HTTP 200 o motivo scritto,
+  e con la rete le fonti lette rispondono ancora 200 (39 su 39 il 6/11); terzi marcati; FAQ dalle ricerche salvate; JSON-LD = testo;
+  titoli; prima frase con la data; rimandi verso fonti elencate; sitemap; link interni nei due sensi; nessun link di affiliazione.
+  `verifica_browser.js` prova anche indice, Colorado, New Jersey e Connecticut a 375 e 1280 px.
+- **Da ricontrollare:** ogni mese da gennaio a giugno 2027 (sessioni legislative) e subito: firma del governatore di New York,
+  conciliazione del Massachusetts, testo di SB 868 (California) quando leginfo risponde, siti di Connecticut, New Hampshire, Ohio,
+  Illinois. Cambiare `verificato_il` solo dopo aver riletto le fonti.
