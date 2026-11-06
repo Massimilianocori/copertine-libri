@@ -847,3 +847,14 @@ Nessuna idea a 8. Le due costruibili subito sono sezioni a costo zero: Visa Inco
 | Licenza di matrimonio per contea o provincia | NO (4,5): marriagelicensebystate.pages.dev, civillywedd.pages.dev; 3.000 cancellerie (filtro duro) | idee-2026-11-05-usa-canada |
 | Food handler card e licenze per servire alcolici per Stato e provincia (TABC, RBS, Smart Serve, Serving It Right, ProServe) | NO (4,5): fonti 404/403, corsi da 7-15 $, programmi non trovati | idee-2026-11-05-usa-canada |
 | Tetto dei workers' comp per Stato, massimale WCB per provincia | RISERVA debole (5, non approfondita) | idee-2026-11-05-usa-canada |
+
+## Fronte dal pagatore: metodo rovesciato, si parte dai programmi già approvati (6/11/2026)
+
+Commissioni lette oggi: DiscoverCars ~20 $ a prenotazione (365 giorni), italki 18 $, SafetyWing ~10 % del premio, Roamable 10 % (Awin 118127), Amazon IT/UK libri 5 %, US 4,5 %; EVASIM non letta. Un lettore vale 15-75 € ogni 1.000 visite sul noleggio, 2-15 € altrove: per 5.000 €/anno servono 6.000-12.000 visite al mese sulle pagine del noleggio. Nessuna idea a 7.
+| Nicchia | Esito | Studio |
+|---|---|---|
+| **Auto a noleggio oltre confine e sul traghetto, coppia per coppia** ("can i take a rental car from croatia/italy/germany to" 10 ciascuna, "mietwagen grenzübertritt" 10, "can you take a rental car on the ferry to" 10; prima pagina di forum e due `pages.dev` automatici; GOV.UK API su carta verde e assicurazione di frontiera 200, PDF UE dei controlli alle frontiere interne 200; compagnie 403/404) | **SEZIONE da costruire** in Before You Fly (voto 6,5; 30 / 250 / 1.700 €/anno; 12-18 ore; DiscoverCars) | fronti-2026-11-06-dal-pagatore |
+| Patente straniera negli Stati USA, Stato per Stato ("can i drive in america with a uk" 10; forum e notizie 2012) | RISERVA (6): 6 fonti statali su 7 in 404/403 | fronti-2026-11-06-dal-pagatore |
+| Assicurazione di viaggio obbligatoria Paese per Paese ("is travel insurance mandatory for" 10; assicuratori indiani) | aggiunta (5,5) alla sezione GHIC in coda, pubblico indiano | fronti-2026-11-06-dal-pagatore |
+| Hotel la notte prima della crociera per porto (Stay22; "hotel near cruise port" 10) | RISERVA (5): solo mappa Stay22 sulle pagine porto esistenti | fronti-2026-11-06-dal-pagatore |
+| Noleggio auto con carta di debito per Paese/Stato; obblighi in auto (etilometro Francia, gilet, adesivo UK) con Amazon; eSIM in crociera e Paesi con limiti (Roamable/EVASIM); libri degli esami ufficiali (Life in the UK) | NO (3,5-4,5): nessuna fonte pubblica o risposta "non serve"; venditori e testate già primi; 1-2 € a vendita | fronti-2026-11-06-dal-pagatore |
