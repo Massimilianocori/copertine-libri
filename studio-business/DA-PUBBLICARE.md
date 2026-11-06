@@ -4,7 +4,7 @@ Sezioni già revisionate, con i sorgenti salvati, che aspettano la pubblicazione
 
 **Nota per la routine serale del 6/11/2026:** i 2 ricercatori di stasera (Spagna CCSE/DELE e fronte mai toccato) sono già partiti alle 18; **stasera nessun ricercatore in più**: fai solo la PARTE A e, quando i due finiscono, i verificatori per le idee che passano l'asticella.
 
-**Promemoria (6/11/2026):** quando la sezione `/balcony-solar/` di ApprovedCondos è online, scrivere a Massimiliano di iscriversi a **EcoFlow** (US, prima riga) ed **EcoFlow UK** su Awin, indicando ApprovedCondos, e di aggiungere `https://fha-approved-condos-list.netlify.app` ai siti dell'account Amazon US. Non prima: con la sezione assente rischiamo il rifiuto.
+**6/11/2026 sera:** Massimiliano ha aggiunto ApprovedCondos su Awin (spazio promozionale) e su Amazon US, e ha chiesto l'iscrizione a **EcoFlow USA** su Awin. Quando arriva l'email di approvazione EcoFlow: accendere il riquadro `kit_solari` di `fhacondos/dati/affiliati.json` con il link awin1 (awinmid dalla pagina del programma, awinaffid 3145171).
 
 | Sito (cartella) | Sezione | Revisione | Note |
 |---|---|---|---|
@@ -35,6 +35,7 @@ Pubblicato il 1/11/2026 alle 00:15 circa: Visa Income (cerimonie australiane, es
 
 | Sito | Sezione | Voto | Quando | Fonte (file di ricerca) |
 |---|---|---|---|---|
+| fhacondos | **Amazon US acceso nella sezione /balcony-solar/** (dominio aggiunto all'account Amazon US il 6/11; tag `beforeyoufl08-20`): riquadro con ricerche Amazon per "plug in solar kit" / "balcony solar kit 800W" sulle 17 pagine, frase di trasparenza Amazon, privacy aggiornata, controllo del tag in verifica.py; nessuna promessa di legalità legata al prodotto | 7 | turno del 7/11 (PRIMO), pubblicare il 7/11 sera | decisione del 6/11 |
 | touristtax | Versioni es/pt (con la francese già in coda) | 6,5 | dopo | idee-2026-11-04-america-latina.md |
 | visaincome | Pensione statale britannica congelata o no, Paese per Paese | 6,5 | con la sezione pensioni HMRC già in coda | idee-2026-11-04-africa-medio-oriente.md |
 | visaincome | Israele nelle pagine moved-to (API data.gov.il) | 5,5 | coda bassa | idee-2026-11-04-africa-medio-oriente.md |
