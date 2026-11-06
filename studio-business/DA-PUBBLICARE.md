@@ -8,9 +8,10 @@ Sezioni già revisionate, con i sorgenti salvati, che aspettano la pubblicazione
 
 | Sito (cartella) | Sezione | Revisione | Note |
 |---|---|---|---|
-| fhacondos | Balcony solar in condos, `/balcony-solar/` (indice + 16 Stati, 17 pagine; costruita il 6/11/2026) | revisionato il 6/11, correzioni applicate, pubblicabile | Correzione Connecticut non applicata: da questo ambiente cga.ct.gov dà ancora errore di certificato, la fonte resta "Not read" (vedi NOTE.md).  FHA Condos era congelato: questa sezione lo riapre; pubblicare solo dopo la revisione indipendente (fatti sulle fonti ufficiali e aspetto) e con la decisione di riaprire il sito. Fonti non lette: California (403), Connecticut e Ohio/Illinois (certificato), New Hampshire (connessione chiusa), stato finale del New Jersey (pagina JavaScript). Nessun link di affiliazione (riquadro `kit_solari` spento). Dettagli in `fhacondos/NOTE.md` |
 
 Pubblicato il 31/10/2026 alle 14:20 circa (ora di Roma): Visa Income, Before You Fly, EsameB1 (tutte le sezioni revisionate del giorno). Esperimento citazioni: conteggio dal 1/11/2026.
+
+Pubblicato il 6/11/2026 alle 21:00 circa: ApprovedCondos (pannello solare da balcone, 17 pagine; riaperto dal congelamento per questa sezione); IndexNow fatto. Connecticut: fonte cga.ct.gov da rileggere (errore di certificato).
 
 Pubblicato il 6/11/2026 alle 13:00 circa: Visa Income (infermieri, UK Ancestry, università, correzione creator), Tourist Tax (licenze Spagna), Before You Fly (Amazon UK/US nel bagaglio a mano, eSIM Roamable); IndexNow fatto. Nessun'altra pubblicazione di questi tre siti il 6/11.
 
@@ -43,7 +44,6 @@ Pubblicato il 1/11/2026 alle 00:15 circa: Visa Income (cerimonie australiane, es
 | touristtax | Tassa sugli alberghi USA/Canada: prima Florida (67 contee, dr15tdt.pdf) e Texas (data.texas.gov er34-v24h), poi ~15 città a mano | 6,5 | dopo le versioni es/pt/fr | idee-2026-11-05-usa-canada.md |
 | beforeyoufly | **Scioperi in Italia come sezione di Before You Fly** (`/italy-strikes/`): spostare Italy Strikes (0 pagine indicizzate su 119 dopo 4 settimane, 1 visita al mese) dentro BYF, con 301 dal vecchio sito; il robot degli scioperi resta uguale ma pubblica BYF. Domanda: "italy strike today", "italy strikes november 2026", "train strike italy today" (autocomplete gb/us 6/11). Stima 40 / 180 / 900 €/anno | 6 | dopo H-1B e Available in, prima di febbraio 2027 (picco di marzo) | decisione del 6/11, CRUSCOTTO |
 | beforeyoufly | Auto a noleggio oltre confine e sul traghetto, coppia per coppia (DiscoverCars): prima verificare che le offerte mostrino le condizioni per l'estero, poi 3 pagine di prova (Croazia→Bosnia, Germania→Polonia, Sicilia in traghetto) | 6,5 (250 €/anno centrali) | coda bassa, dopo gli scioperi | fronti-2026-11-06-dal-pagatore.md |
-| fhacondos (COSTRUITA il 6/11/2026: Stati USA, Regno Unito escluso; vedi tabella da pubblicare) | **Pannello solare da balcone: regole Stato per Stato (USA) e Regno Unito, condomini/HOA e compagnie elettriche** (UK legale dal 27/8/2026; Stati USA nelle sessioni 2027; "is balcony solar legal in" 10, "plug in solar legal uk" 10; EcoFlow 5-8 % su ~1.500 $, Amazon US attivo). FHA Condos è congelato: decidere se va lì (riapertura) o in un sito nuovo, con la regola "entrare prima della data" | 6 (300 / 2.000 / 8.000 €/anno) | prima delle sessioni legislative USA 2027 (gennaio) | fronti-2026-11-06-nascenti.md |
 | beforeyoufly | Ryder Cup 2027: alloggi per distanza da Adare Manor (CSV Fáilte Ireland) | 6 | entro gennaio 2027 | fronti-2026-11-04-grandi-eventi.md |
 | beforeyoufly | Cina senza visto nel 2027 | 5,5 | il giorno dell'annuncio ufficiale (cs.mfa.gov.cn) | idee-2026-11-04-asia-pacifico.md |
 | beforeyoufly | Los Angeles 2028 sede per sede | 6 | febbraio-aprile 2027 | fronti-2026-11-04-grandi-eventi.md |
