@@ -2830,7 +2830,7 @@ def box_bagagli(C=None, misura=None):
                  "bag, wheels and handles included, and your airline's official limit before you buy.")
     else:
         voci = [("amazon.co.uk", "cabin bag", "Cabin and under-seat bags on Amazon.co.uk"), ("amazon.com", "carry on bag", "Carry-on and personal item bags on Amazon.com")]
-        frase = ("These links open an Amazon search. Look up your airline's limit first (table above), then search with that size. "
+        frase = ("These links open an Amazon search. Look up your airline's official limit first, then search with that size. "
                  "The results are Amazon's, not checked by us: measure each bag, wheels and handles included, before you buy.")
     righe = "".join(f'<li><a href="{escape(amazon_link(d, r))}" rel="sponsored noopener" target="_blank">{escape(e)}</a></li>' for d, r, e in voci)
     return (f'<h2 id="bags">{escape(AMAZON_BAG.get("titolo") or "Bags in the right size")} <span class="aff-tag">Affiliate</span></h2>'
