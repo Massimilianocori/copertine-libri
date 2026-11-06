@@ -81,6 +81,8 @@ Archiviati (non fanno parte della rete): orelab (abbandonato, vedi REGOLE-FISSE)
 
 A 12 mesi: realistico 1.000-4.000 €. Cifre lorde, prima di tasse e contributi. Libri KDP esclusi.
 
+**Stima a regime rifatta il 6/11/2026 sui dati veri** (GoatCounter: 729 visite in 7 giorni = ~3.100 al mese, raddoppiate in una settimana; tutte le affiliazioni accese). Modello: visite al mese della rete a 12-18 mesi × € ogni 1.000 visite (AdSense + affiliazioni, misti EN/IT) × 12, più il libro KDP Esame B1. Prudente: 20.000 visite × 12 € = 2.900 €; centrale: 50.000 × 18 € = 10.800 €; ottimista: 120.000 × 25 € = 36.000 €. Libro B1: 1.100 / 2.500 / 6.500 €. **Totale a regime: ~4.000 / ~13.000 / ~42.000 €/anno lordi (centrale ~1.100 € al mese)**, esclusi gli altri libri KDP di Massimiliano. Si rifà ogni mese con le visite vere.
+
 **Aggiornamento del 30/10/2026 (monetizzazione attiva, numeri veri: ~1.300 visite al mese sulla rete, EsameB1 ~750):** € ogni 1.000 visite stimati: AdSense 3-5 € (IT) / 6-10 € (EN) se approvato; italki 10-16 € (EsameB1); Amazon libri 1-2 €; SafetyWing 1-3 €; DiscoverCars 0-20 € (dipende dal traffico delle pagine Driving). Previsione: novembre 2026 20-40 €/mese; febbraio 2027 80-150; giugno 2027 150-350; ottobre 2027 250-800; primi 12 mesi ~1.500 € prudente, ~3.500 € ottimista (libri KDP esclusi). Primi incassi dicembre-febbraio (soglie: AdSense 70 €, Amazon 25 €). Da rifare a fine novembre con i clic veri dei link affiliati.
 
 ## 3. Decisioni per sito
