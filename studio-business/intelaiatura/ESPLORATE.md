@@ -858,3 +858,11 @@ Commissioni lette oggi: DiscoverCars ~20 $ a prenotazione (365 giorni), italki 1
 | Assicurazione di viaggio obbligatoria Paese per Paese ("is travel insurance mandatory for" 10; assicuratori indiani) | aggiunta (5,5) alla sezione GHIC in coda, pubblico indiano | fronti-2026-11-06-dal-pagatore |
 | Hotel la notte prima della crociera per porto (Stay22; "hotel near cruise port" 10) | RISERVA (5): solo mappa Stay22 sulle pagine porto esistenti | fronti-2026-11-06-dal-pagatore |
 | Noleggio auto con carta di debito per Paese/Stato; obblighi in auto (etilometro Francia, gilet, adesivo UK) con Amazon; eSIM in crociera e Paesi con limiti (Roamable/EVASIM); libri degli esami ufficiali (Life in the UK) | NO (3,5-4,5): nessuna fonte pubblica o risposta "non serve"; venditori e testate già primi; 1-2 € a vendita | fronti-2026-11-06-dal-pagatore |
+
+### Ricerca del 6/11/2026: clone di EsameB1 per la Spagna (CCSE + DELE A2), rivalutato con i numeri di oggi
+
+Fatto nuovo che ha riaperto la riserva: EsameB1 cresce (226 → 362 visite a settimana, 36 iscritti) e la Spagna ha il record di domande di nazionalità (295.107 nel 2025, +20 %; 221.284 concessioni; INE 299.732 acquisizioni). Esito invariato: la domanda va su quiz e risultati, non sulle sedi; i centri non sono leggibili né riusabili; chi paga paga poco. Prove in `idee-2026-11-06-spagna-ccse.md`.
+
+| Nicchia | Esito | Studio |
+|---|---|---|
+| **Sito nuovo CCSE + DELE A2 per la nacionalidad española** (calendario 2027 leggibile su cervantes.org: CCSE 10 convocatorie, iscrizioni dal 23/11/2026; DELE dal 18/11/2026; `ccse.cervantes.es` e `dele.cervantes.es` in manutenzione; centri solo in Salesforce JS con diritti riservati; "resultados ccse" 10 varianti per mese, "examen ccse" 10 quasi tutte "300 preguntas pdf"; città 1-2 varianti tranne Madrid 4-5 e Barcellona 5-7; arc-legal, parainmigrantes, università e quiz già presenti) | **RISERVA** (voto 5,5; prudente 250, centrale ≈ 800, ottimista ≈ 2.500 €/anno; 25-35 ore): sotto l'asticella dei siti nuovi. Si riapre se il nuovo sito esami del Cervantes pubblica i centri con licenza di riuso (fine gennaio 2027) o se EsameB1 supera 1.500 visite a settimana con rese vere | idee-2026-11-06-spagna-ccse |
