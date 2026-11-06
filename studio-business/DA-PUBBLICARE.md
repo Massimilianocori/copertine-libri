@@ -2,7 +2,7 @@
 
 Sezioni già revisionate, con i sorgenti salvati, che aspettano la pubblicazione serale unica (regola crediti Netlify del 31/10/2026: una pubblicazione per sito al giorno). Il punto 0 della routine serale le pubblica e poi cancella la riga.
 
-**Nota per la routine serale del 6/11/2026:** un ricercatore (fronte nuovo "dal pagatore") è già partito alle 15; stasera al massimo 1 ricercatore in più (budget del 5/11).
+**Nota per la routine serale del 6/11/2026:** un ricercatore (fronte nuovo "dal pagatore") è già partito alle 15; stasera al massimo 1 ricercatore in più (budget del 5/11). **Tema obbligato di stasera (Massimiliano: "nel mondo c'è molto da trovare"):** solo idee GRANDI (≥ 10.000 €/anno nel caso ottimista, o niente) su strade mai battute: (a) vendere i dati unici che già raccogliamo ogni giorno (scioperi italiani, passi alpini, misure dei bagagli, regole dei liquidi per aeroporto, tassi di rifiuto dei visti) come API o file a pagamento a app di viaggio, agenzie, assicurazioni (RapidAPI, Datarade, AWS Data Exchange, vendita diretta con pagina e prezzo; niente email a freddo); (b) le app e i connettori per gli assistenti AI (app di ChatGPT, GPT, server MCP) costruiti sui nostri dati, con chi paga; (c) siti o domini con autorità già esistente (scaduti o in vendita) per i temi che funzionano, solo stima e prezzi (spesa = sì di Massimiliano); (d) un grande mercato non inglese mai toccato (Giappone, Germania con angolo nuovo, Brasile, Corea). File `fronti-2026-11-06-grandi.md`.
 
 | Sito (cartella) | Sezione | Revisione | Note |
 |---|---|---|---|
