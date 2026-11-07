@@ -8,7 +8,7 @@ Sezioni già revisionate, con i sorgenti salvati, che aspettano la pubblicazione
 
 | Sito (cartella) | Sezione | Revisione | Note |
 |---|---|---|---|
-| beforeyoufly | Available in: +4 servizi (Google Wallet, Wise, Uber, Stripe; 4 pagine servizio + 127 servizio × Paese; sorgenti salvati, `sito/` non committato) | da revisionare | **Non pubblicare oggi: pubblicare l'8/11.** Saltati: Revolut e Tidal (anti-bot), Disney+ (solo JavaScript), Prime Video (503/403 ai robot), PayPal (solo selettore), Netflix (solo «non disponibile»), Samsung Wallet/Payoneer/Crunchyroll (nessuna lista); vedi NOTE.md 7/11 |
+| beforeyoufly | Available in: +4 servizi (Google Wallet, Wise, Uber, Stripe; 4 pagine servizio + 127 servizio × Paese; sorgenti salvati, `sito/` non committato) | revisionato il 7/11, correzioni applicate, pubblicare l'8/11 | **Non pubblicare oggi: pubblicare l'8/11.** Saltati: Revolut e Tidal (anti-bot), Disney+ (solo JavaScript), Prime Video (503/403 ai robot), PayPal (solo selettore), Netflix (solo «non disponibile»), Samsung Wallet/Payoneer/Crunchyroll (nessuna lista); vedi NOTE.md 7/11 |
 
 Pubblicato il 31/10/2026 alle 14:20 circa (ora di Roma): Visa Income, Before You Fly, EsameB1 (tutte le sezioni revisionate del giorno). Esperimento citazioni: conteggio dal 1/11/2026.
 
