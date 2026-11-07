@@ -8,10 +8,10 @@ Sezioni già revisionate, con i sorgenti salvati, che aspettano la pubblicazione
 
 | Sito (cartella) | Sezione | Revisione | Note |
 |---|---|---|---|
-| visaincome | **H-1B wage level and weighted lottery odds** (`/h1b-wage-level/`, costruita il 7/11/2026): 160 pagine = indice con calcolatore (299 occupazioni × 530 aree: SOC + Stato e contea + salario → livello I-IV e biglietti), pagina delle probabilità, 34 occupazioni (gruppi SOC 15 e 17) con le 60 aree con più posti, 124 pagine occupazione × area (≥ 5.000 posti, Geo Level 1, max 10 per occupazione). Fonti: OFLC_Wages_2026-27.zip, BLS OEWS maggio 2025, Federal Register 90 FR 60864 (29/12/2025), 91 FR 60497, 91 FR 54817, 91 FR 15454 | **revisionato il 7/11, correzioni applicate, pubblicabile il 7/11 sera** | `verifica.py --offline` TUTTO OK (controllo 31); monetizzazione 0 errori. Dettagli e correzioni in `visaincome/NOTE.md` |
-| fhacondos | **Amazon US acceso nella sezione /balcony-solar/** (7/11/2026): riquadro `kit_solari` con 2 ricerche Amazon.com (tag `beforeyoufl08-20`, mai ASIN) sulle 17 pagine /balcony-solar/ e in nessun'altra: "plug in balcony solar kit" (con 1200W/1920W solo nei 6 Stati con legge letta: UT, CO, ME, MD, VT, VA) e "portable power station"; testo senza promesse di legalità (legge, compagnia elettrica, condominio prima di comprare), frase Amazon nel riquadro e nella privacy; `controlla_amazon` in verifica.py; verifica e monetizzazione.py: 0 errori | revisionato il 7/11, correzioni applicate, pubblicabile il 7/11 sera | sorgenti salvati; rigenerare con `python3 fhacondos/genera.py` prima di pubblicare |
 
 Pubblicato il 31/10/2026 alle 14:20 circa (ora di Roma): Visa Income, Before You Fly, EsameB1 (tutte le sezioni revisionate del giorno). Esperimento citazioni: conteggio dal 1/11/2026.
+
+Pubblicato il 7/11/2026 alle 16:00 circa: Visa Income (H-1B, 160 pagine) e ApprovedCondos (link Amazon US nella sezione solare); IndexNow fatto.
 
 Pubblicato il 6/11/2026 alle 21:00 circa: ApprovedCondos (pannello solare da balcone, 17 pagine; riaperto dal congelamento per questa sezione); IndexNow fatto. Connecticut: fonte cga.ct.gov da rileggere (errore di certificato).
 
