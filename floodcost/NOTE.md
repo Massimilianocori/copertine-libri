@@ -260,7 +260,7 @@ comunicati IRS scaricati (tutte giuste; tutte le 1.719 aree e 288 dichiarazioni 
 dei comunicati IRS (+4 pagine Indiana), dichiarazione OpenFEMA col testo esatto, ora di lettura, prima frase degli Stati e dell'indice
 con la fonte ("FEMA lists…"), "No FEMA declaration" nelle griglie, riquadro "No open IRS postponed deadline today" al posto di "None open".
 
-## Sezione "California home insurance crisis by ZIP: FAIR Plan policies and non-renewals" (7/11/2026, da revisionare)
+## Sezione "California FAIR Plan policies and non-renewals by ZIP code" (7/11/2026, revisionata, correzioni applicate)
 Idea n. 1 di `studio-business/intelaiatura/fronti-2026-11-07-settori-nuovi.md` (voto 7 come sezione; 300 / 2.750 / 11.000 €/anno).
 **Riapre FloodCost dal congelamento del 6/11** (0 visite), come ApprovedCondos con il pannello solare: tema nuovo dentro un sito che ha già
 le pagine ZIP della California. Indirizzo `/california-home-insurance/` (non `/california/`: è la pagina NFIP dello Stato). Voce "California" nel menu e nel piè di pagina.
@@ -268,7 +268,7 @@ le pagine ZIP della California. Indirizzo `/california-home-insurance/` (non `/c
 **Pagine (3 nuove + blocco in 81 pagine esistenti):**
 | Tipo | Quante | Regola |
 |---|---|---|
-| Indice `/california-home-insurance/` | 1 | prima frase con il dato e la data; ricerca nel browser su 2.180 ZIP (`data/california-zip.json`: ZIP, luogo, contea, polizze FAIR Plan 2022 e 2026, premio medio, non rinnovi 2023 e tasso, link); tabella delle 58 contee; classifiche (più polizze, crescita dal 2022 con almeno 500 polizze, tasso di non rinnovo 2023 con almeno 1.000 polizze nuove + rinnovate); limiti; aiuto ufficiale; 7 FAQ; fonti con impronta |
+| Indice `/california-home-insurance/` | 1 | prima frase con il dato e la data; ricerca nel browser su 2.179 ZIP (97635, Oregon, escluso) (`data/california-zip.json`: ZIP, luogo, contea, polizze FAIR Plan 2022 e 2026, premio medio, non rinnovi 2023 e tasso, link); tabella delle 58 contee; classifiche (più polizze, crescita dal 2022 con almeno 500 polizze, tasso di non rinnovo 2023 con almeno 1.000 polizze nuove + rinnovate); limiti; aiuto ufficiale; 7 FAQ; fonti con impronta |
 | Città con domanda `/california-home-insurance/<città>/` | 2 | Los Angeles e San Diego: le sole aree con ≥ 1.000 polizze FAIR Plan **e** un suggerimento vero ("california fair plan los angeles", "california fair plan san diego"). Provate 44 contee e 175 città con ≥ 1.000 polizze con "california fair plan <luogo>", "fair plan <luogo>", "insurance non renewal <luogo>" (gl=us): nessuna contea, nessun'altra città. Tabella di tutti gli ZIP del luogo, anni 2022-2026 e 2020-2023, premio per gruppo di rischio, 3 FAQ |
 | Blocco "Home insurance availability in ZIP …" | 81 | tutte le pagine ZIP della California che FloodCost aveva già (soglia NFIP 300 case), dopo la tabella delle zone: prima frase con dato e data, 4 cifre, tabelle anni, limiti, fonti, link all'indice |
 | Rimandi | 1 + contee CA | pagina NFIP della California e pagine NFIP delle contee della California: una riga con le polizze FAIR Plan della contea e il link; home: riga "California" |
@@ -323,3 +323,16 @@ Se l'autocomplete fa nascere pagine nuove di città o contea, controllare che ab
 **Numeri principali (7/11/2026):** Stato 665.673 polizze FAIR Plan (265.909 nel 2022, ×2,5; +7,2 % in un anno), $714,7 miliardi; Los Angeles (69 ZIP)
 41.982 polizze, premio medio $1.934, non rinnovi 2023 26.805 (9,6 %); San Diego (52 ZIP) 14.556 polizze, $2.170, 21.210 (8,6 %).
 Tasso di non rinnovo 2023 più alto: 95954 Magalia 78,6 % (969 su 1.233), poi Shingletown, Paradise.
+
+**Revisione indipendente del 7/11/2026 (pubblicabile con correzioni), applicate lo stesso giorno:**
+1. Il conteggio CDI per ZIP è il "Non-Renewed/Canceled" del fact sheet (stessi totali): ovunque "not renewed or cancelled (the Department's
+   'non-renewed/canceled' count, 75-80% initiated by policyholders, e.g. after a sale)" (costante `NR_DEF`); 788.485 non è mai presentato come
+   "polizze non rinnovate" e basta; nei limiti la spiegazione completa e il rapporto (non-renewed + canceled) ÷ (new + renewed).
+2. Limiti e Methodology: solo mercato volontario, compagnie con ≥ $5 milioni di premi (~98 % del mercato), esclusi HO-4 e HO-6.
+3. "Fastest growth since 2022": solo ZIP con ≥ 100 polizze nel 2022 (`CA_MIN_BASE`), con la nota sulle percentuali gonfiate dalle basi piccole.
+4. Los Angeles e San Diego: prima frase e scheda dicono che la pagina copre i 69 (52) ZIP con nome postale Los Angeles (San Diego) e danno
+   il totale della contea (Los Angeles County 155.124, San Diego County 63.401 polizze FAIR Plan).
+5. 97635 (Oregon, assegnato dal PDF a "Lake") escluso da contee e ricerca (`ca_in_california`, 90000-96199; ricerca su 2.179 ZIP); lastmod
+   delle 81 pagine ZIP con il blocco = data dei dati California; teaser della home "residential policies"; H1 senza "crisis".
+`verifica.py` controlla anche: frasi "not renewed or cancelled", "non-renewed/canceled", "$5 million", HO-4/HO-6 in ogni pagina e blocco;
+base minima della classifica di crescita; H1 senza "crisis"; ricerca senza ZIP fuori dalla California; lastmod delle pagine ZIP con il blocco.

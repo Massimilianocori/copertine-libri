@@ -639,7 +639,8 @@ def controlla_california():
         if not (prima.startswith(f"On {data_al}, the California FAIR Plan had ") and f"dated {data_pub}" in prima):
             errore(f"California {x}: la prima frase non dà il dato con la data")
         corpo = unescape(re.sub(r"<[^>]+>", " ", t[t.find("<main"):t.find("</main>")]))
-        for frase in ("not a quote", f"Non-renewals stop in {ult}", "75-80%", G.TEL_CDI, "Questions people ask"):
+        for frase in ("not a quote", f"Non-renewals stop in {ult}", "75-80%", G.TEL_CDI, "Questions people ask", "not renewed or cancelled",
+                      "non-renewed/canceled", "$5 million", "HO-4", "HO-6"):
             if frase not in corpo:
                 errore(f"California {x}: manca '{frase}'")
         for u in (G.URL_CDI_AIUTO, G.URL_CFP_APPLY, G.URL_CDI_FINDER, G.URL_CFP, G.URL_CDI_DATI):
@@ -686,11 +687,17 @@ def controlla_california():
             if G.ca_ha_zip_nfip(z) and f'href="../{G.url_zip(z)}"' not in riga and f'href="../../{G.url_zip(z)}"' not in riga:
                 errore(f"California {x}: la riga {z} non collega la pagina ZIP")
         for c, riga in re.findall(r'<tr data-contea="([^"]+)">(.*?)</tr>', t, re.S):
-            ec = _ca_attesi(Zv, [z for z in Zv if Z.get(z, {}).get("contea") == unescape(c) and Z[z].get("fips")], ult)
+            ec = _ca_attesi(Zv, [z for z in Zv if Z.get(z, {}).get("contea") == unescape(c) and Z[z].get("fips") and G.ca_in_california(z)], ult)
             testo = unescape(re.sub(r"<[^>]+>", " ", riga))
             if G.intero(ec["pif"]) not in testo or G.usd(ec["avg"]) not in testo:
                 errore(f"California {x}: contea {c} con numeri diversi dal ricalcolo")
         if x == G.CA_DIR:
+            i = t.find("Fastest growth since")
+            for z in re.findall(r'<tr data-z="(\d{5})">', t[i:t.find("</table>", i)]):
+                if Zv[z]["pif"][0] < G.CA_MIN_BASE:
+                    errore(f"California: crescita, ZIP {z} con meno di {G.CA_MIN_BASE} polizze nel {G.CA_ANNI[0]}")
+            if "crisis" in re.search(r"<h1>(.*?)</h1>", t, re.S).group(1).lower():
+                errore("California: H1 con 'crisis'")
             for _, _, u, _ in aree:
                 if f'href="../{u}"' not in t:
                     errore(f"California: l'indice non collega {u}")
@@ -713,7 +720,10 @@ def controlla_california():
         n_blocchi += 1
         _ca_attr_ok(t, m.group(0), _ca_attesi(Zv, [z], ult), f"ZIP {z} blocco")
         b = unescape(re.sub(r"<[^>]+>", " ", m.group(0)))
-        if f"On {data_al}" not in b or f"stop in {ult}" not in b or "75-80%" not in b or "not a quote" not in b:
+        if f'<loc>{G.URL_SITO}/{G.url_zip(z)}</loc><lastmod>{G.CA_OGGI}</lastmod>' not in sm:
+            errore(f"California: la pagina ZIP {z} con il blocco nuovo non ha lastmod {G.CA_OGGI} nella sitemap")
+        if (f"On {data_al}" not in b or f"stop in {ult}" not in b or "75-80%" not in b or "not a quote" not in b
+                or "not renewed or cancelled" not in b or "non-renewed/canceled" not in b):
             errore(f"California: blocco ZIP {z} senza data, limiti o avviso")
         if f'href="../../{G.CA_DIR}"' not in m.group(0):
             errore(f"California: il blocco ZIP {z} non collega la sezione")
@@ -724,8 +734,11 @@ def controlla_california():
         if C["st"] == "CA" and any(r.get("fips") == f_ for r in Z.values()):
             if G.CA_DIR not in (SITO / G.url_contea(f_) / "index.html").read_text(encoding="utf-8"):
                 errore(f"California: la contea NFIP {f_} non collega la sezione")
-    # 4. ricerca nel browser
+    # 4. ricerca nel browser (solo ZIP della California)
     s = json.loads((SITO / "data" / "california-zip.json").read_text(encoding="utf-8"))
+    fuori = [row[0] for row in s["z"] if not G.ca_in_california(row[0])]
+    if fuori:
+        errore(f"California: ZIP fuori dalla California nella ricerca: {fuori}")
     for row in s["z"]:
         e = _ca_attesi(Zv, [row[0]], ult)
         r = Zv.get(row[0], {})

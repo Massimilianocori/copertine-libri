@@ -527,7 +527,7 @@ APP_JS = r"""
     function scheda(x){var t='ZIP '+x[0]+(x[1]?' · '+x[1]:'')+(x[2]?', '+x[2]+' County':'');var s=[];
       if(x[4]!=null)s.push(fm(x[4])+' FAIR Plan policies'+(x[3]!=null?' ('+fm(x[3])+' in 2022)':''));else s.push('not in the FAIR Plan report');
       if(x[5]!=null)s.push('average premium $'+fm(x[5])+' (owner-occupied home)');
-      if(x[6]!=null)s.push(fm(x[6])+' not renewed in 2023'+(x[7]!=null?' ('+x[7].toFixed(1)+'%)':''));
+      if(x[6]!=null)s.push(fm(x[6])+' not renewed or cancelled in 2023'+(x[7]!=null?' ('+x[7].toFixed(1)+'%)':''));
       var d='<b>'+es(t)+'</b><span>'+es(s.join(' · '))+'</span>';
       return x[8]?'<a href="'+es(crel+x[8])+'">'+d+'</a>':'<div class="ris">'+d+'</div>';}
     function cerca(){var q=ci.value.trim(),v=nr(q);if(v.length<2){co.innerHTML='';return;}
@@ -1692,6 +1692,7 @@ CA = carica("california.json") if (DATI / "california.json").exists() else None
 CA_DOM = carica("california-domanda.json") if (DATI / "california-domanda.json").exists() else {}
 CA_DIR = "california-home-insurance/"  # non "california/": è la pagina NFIP dello Stato (url_stato)
 CA_MIN = 10        # polizze minime per pubblicare un premio medio o un valore medio (stessa soglia del resto del sito)
+CA_MIN_BASE = 100  # polizze minime nel 2022 per la classifica della crescita (sotto, le percentuali gonfiano)
 CA_MIN_CDI = 100   # polizze nuove + rinnovate minime per pubblicare il tasso di non rinnovo di uno ZIP
 CONTROLLO_CA = "2026-11-07"  # data in cui abbiamo letto le pagine FAIR Plan e CDI citate qui sotto (CA_CITAZIONI)
 URL_CFP = "https://www.cfpnet.com/key-statistics-data/"
@@ -1703,6 +1704,9 @@ URL_CDI_AIUTO = "https://www.insurance.ca.gov/01-consumers/101-help/index.cfm"
 URL_CDI_FINDER = "https://homeinsurancefinder.insurance.ca.gov/"
 URL_GEONAMES = "https://www.geonames.org/"
 TEL_CDI = "1-800-927-4357"
+# Il conteggio CDI per ZIP è il "Non-Renewed/Canceled" del fact sheet (stessi totali: 2023 = 788.485): sempre "not renewed or cancelled".
+NR_DEF = ("not renewed or cancelled (the Department's \"non-renewed/canceled\" count, 75-80% initiated by policyholders, "
+          "e.g. after a sale)")
 # Frasi ufficiali riportate tra virgolette nelle pagine: verifica.py (con la rete) controlla che siano ancora nelle pagine d'origine.
 CA_CITAZIONI = {
     URL_CFP_DWE: ["The California FAIR Plan Dwelling Fire Policy is a named peril policy, which provides coverage only for damage caused by the specific causes of loss listed in the policy",
@@ -1859,6 +1863,11 @@ def ca_area_di(z):
     return None
 
 
+def ca_in_california(z):
+    """ZIP della California (90000-96199): il rapporto FAIR Plan contiene anche 97635 (Oregon, sul confine)."""
+    return 90000 <= int(z) <= 96199
+
+
 def ca_ha_zip_nfip(z):
     return z in ZIPS and ZIPS[z]["st"] == "CA"
 
@@ -1872,11 +1881,14 @@ AVVISO_CA = (f'<p class="nota">{ico("info")}<strong>Public data, not advice and 
 def ca_limiti():
     """Limiti dei dati, scritti in ogni pagina della sezione."""
     return (f'<ul class="link-uff">'
-            f'<li><strong>Non-renewals stop in {CA_CDI_ULT}.</strong> The Department of Insurance file covers {CA_CDI_ANNI[0]}–{CA_CDI_ULT}: nothing newer is published by ZIP code yet. '
-            f'They are the <em>total</em> non-renewals of the voluntary market (ordinary insurers, FAIR Plan excluded). The Department writes that "{CA["cdi"]["frasi"][0]}"; '
-            f'the rest are initiated by insurers. The file does not name insurers.</li>'
-            f'<li><strong>Non-renewal rate</strong> = non-renewed policies ÷ (new + renewed policies), the ratio the Department uses in its fact sheet. '
-            f'We show it only when a ZIP code has at least {CA_MIN_CDI} new and renewed policies.</li>'
+            f'<li><strong>Non-renewals stop in {CA_CDI_ULT}.</strong> The Department of Insurance file covers {CA_CDI_ANNI[0]}–{CA_CDI_ULT}: nothing newer is published by ZIP code yet.</li>'
+            f'<li><strong>"Not renewed or cancelled"</strong> is the Department\'s "non-renewed/canceled" count: <em>all</em> policies of the voluntary market (ordinary insurers, FAIR Plan excluded) '
+            f'that ended without renewal or were cancelled, whoever asked. The Department writes that "{CA["cdi"]["frasi"][0]}", for instance when they buy or sell a home or change insurance company; '
+            f'the remaining 20-25% are initiated by insurers. So these counts are not the number of homes dropped by insurers, and the file does not name insurers.</li>'
+            f'<li><strong>Which policies.</strong> Voluntary market only. The Department collects the counts from insurers writing $5 million or more in homeowners and dwelling-fire premiums '
+            f'(about 98% of the market, according to its fact sheet), and the file excludes renters (HO-4) and condominium unit (HO-6) policies.</li>'
+            f'<li><strong>Non-renewal rate</strong> = policies not renewed or cancelled ÷ (new + renewed policies), the ratio the Department uses in its fact sheet '
+            f'((non-renewed + canceled) ÷ (new + renewed)). We show it only when a ZIP code has at least {CA_MIN_CDI} new and renewed policies.</li>'
             f'<li><strong>FAIR Plan policies</strong> are residential policies in force on September 30 of each year (owner-occupied and rented homes, renters and condo unit owners). '
             f'The FAIR Plan sells basic fire coverage; many owners add a separate Difference in Conditions (DIC) policy from another insurer, which is not in these counts.</li>'
             f'<li><strong>Average premium</strong> = premium of the FAIR Plan policies in force on {data_lunga(CA_AL)} ÷ number of those policies, for owner-occupied single-family homes, '
@@ -1891,7 +1903,7 @@ def ca_fonti_box():
         (f["tiv_zip"], "California FAIR Plan – Exposure Growth by Fiscal Year (Residential Line), data by ZIP code: total insured value, same dates"),
         (f["pol_cat"], f"California FAIR Plan – Policy count by category, residential policies, as of {data_lunga(CA_AL)}"),
         (f["prem_cat"], f"California FAIR Plan – Premium by category, residential policies, as of {data_lunga(CA_AL)}"),
-        (f["cdi_zip"], f"California Department of Insurance – Residential insurance, voluntary market: new, renewed and non-renewed policies by ZIP code, {CA_CDI_ANNI[0]}–{CA_CDI_ULT} ({intero(f['cdi_zip']['righe'])} rows)"),
+        (f["cdi_zip"], f"California Department of Insurance – Residential insurance, voluntary market: new, renewed and non-renewed/canceled policies by ZIP code, {CA_CDI_ANNI[0]}–{CA_CDI_ULT} ({intero(f['cdi_zip']['righe'])} rows)"),
         (f["cdi_fact"], f"California Department of Insurance – Fact sheet: Summary on Residential Insurance Policies and the FAIR Plan (published {f['cdi_fact']['pubblicato']})"),
     ]
     li = "".join(f'<li><a href="{h(v["url"])}" rel="noopener">{h(t)}</a>. File fingerprint (SHA-256) <code>{v["sha256"][:12]}</code>.</li>' for v, t in voci)
@@ -1947,9 +1959,9 @@ def ca_faq_indice(S, zz_media, zz_nr):
         {"q": "What is a DIC policy in California?", "ricerca": "what is a dic policy in california", "a": dic},
         {"q": "Is there a list of State Farm non-renewal ZIP codes in California?", "ricerca": "state farm non renewal zip codes california",
          "a": f"Not from official data by company. The Department of Insurance publishes non-renewals by ZIP code for all insurers together, and its latest year is {CA_CDI_ULT}. "
-              f"In {CA_CDI_ULT}, {intero(fs[CA_CDI_ULT][2])} homeowners and dwelling policies of the voluntary market were not renewed statewide, {S['tasso']:.1f}% of new and renewed policies. "
+              f"In {CA_CDI_ULT}, {intero(fs[CA_CDI_ULT][2])} homeowners and dwelling policies of the voluntary market were {NR_DEF}, statewide: {S['tasso']:.1f}% of new and renewed policies. "
               f"Among ZIP codes with at least 1,000 new and renewed policies, the highest rates were in {top}. "
-              f"The Department notes that 75-80% of non-renewals are initiated by policyholders."},
+              "These totals include policies ended at the owner's request, so they do not show how many homes a given company dropped."},
         {"q": "Which insurance companies are writing new policies in California?", "ricerca": "which insurance companies are writing new policies in california",
          "a": "This site does not track insurers. The Department of Insurance runs a Home Insurance Finder: \"This online service allows you to find insurance companies and licensed agents/brokers that are appointed with them who have been identified to sell homeowners, renters, condominium, or mobile home insurance.\""},
         {"q": "What to do if homeowners insurance is not renewed?", "ricerca": "what to do if homeowners insurance is not renewed",
@@ -1966,8 +1978,8 @@ def ca_faq_area(nome, S, ricerca_nr):
                     "It is an average across different homes and coverage amounts, not a quote.") if S["sfr_media"] else
                    f"The FAIR Plan does not publish prices, and {nome} has too few owner-occupied single-family policies in its report for an average."},
              {"q": f"How many homeowners policies were not renewed in {nome}?", "ricerca": ricerca_nr,
-              "a": f"In {CA_CDI_ULT}, the latest year the Department of Insurance publishes by ZIP code, {intero(S['cdi'][2])} policies of the voluntary market were not renewed in the ZIP codes of {nome}, "
-                   f"{S['tasso']:.1f}% of new and renewed policies (statewide {CA_S['tasso']:.1f}%). The Department notes that 75-80% of non-renewals are initiated by policyholders."
+              "a": f"In {CA_CDI_ULT}, the latest year the Department of Insurance publishes by ZIP code, {intero(S['cdi'][2])} policies of the voluntary market in the ZIP codes of {nome} were {NR_DEF}: "
+                   f"{S['tasso']:.1f}% of new and renewed policies (statewide {CA_S['tasso']:.1f}%)."
               if S["tasso"] is not None else f"The Department of Insurance file has too few policies in {nome} for a rate."},
              {"q": "What does the California FAIR Plan cover?", "ricerca": "what does california fair plan cover", "a": ca_frase_copertura()}]
     return righe
@@ -1998,13 +2010,13 @@ def ca_riga_zip(z, rel_link=True):
             f'<td class="n" data-l="{CA_ANNI[-1]}"><strong>{intero(s["pif"]) if "pif" in r else "–"}</strong></td>'
             f'<td class="n" data-l="Change">{pct_int(s["var4"]) if "pif" in r else "–"}</td>'
             f'<td class="n" data-l="Avg premium">{usd(s["sfr_media"])}</td>'
-            f'<td class="n" data-l="Not renewed {CA_CDI_ULT}">{nr}</td>'
+            f'<td class="n" data-l="Not renewed/cancelled {CA_CDI_ULT}">{nr}</td>'
             f'<td class="n" data-l="Rate">{tasso}</td></tr>')
 
 
 def ca_tabella_zip(zips, didascalia=""):
     testa = (f'<thead><tr><th>ZIP code</th><th class="n">FAIR Plan policies {CA_ANNI[0]}</th><th class="n">{CA_ANNI[-1]}</th><th class="n">Change</th>'
-             f'<th class="n">Avg premium, owner-occupied home</th><th class="n">Not renewed {CA_CDI_ULT}</th><th class="n">Non-renewal rate</th></tr></thead>')
+             f'<th class="n">Avg premium, owner-occupied home</th><th class="n">Not renewed or cancelled {CA_CDI_ULT}</th><th class="n">Non-renewal rate</th></tr></thead>')
     return (f'{didascalia}<div class="tab"><table class="ot ca-t">{testa}<tbody>'
             + "".join(ca_riga_zip(z) for z in zips) + "</tbody></table></div>")
 
@@ -2016,9 +2028,9 @@ def ca_tabella_anni(A, nome):
                       f'<td class="n">{(str(S["tassi"][a]) + "%") if S["tassi"][a] is not None else "–"}</td></tr>' for a in CA_CDI_ANNI)
     return (f'<div class="cols"><div><h3>FAIR Plan, year by year</h3><div class="tab"><table class="tt ca-anni"><thead><tr><th>Date</th><th class="n">Residential policies</th>'
             f'<th class="n">Insured value</th></tr></thead><tbody>{righe_f}</tbody></table></div></div>'
-            f'<div><h3>Policies not renewed, {CA_CDI_ANNI[0]}–{CA_CDI_ULT}</h3><div class="tab"><table class="tt ca-anni"><thead><tr><th>Year</th><th class="n">New</th><th class="n">Renewed</th>'
-            f'<th class="n">Not renewed</th><th class="n">Rate</th></tr></thead><tbody>{righe_c}</tbody></table></div>'
-            f'<p class="small">Voluntary market (ordinary insurers), homeowners and dwelling policies. Statewide rate in {CA_CDI_ULT}: {CA_S["tasso"]:.1f}%.</p></div></div>')
+            f'<div><h3>Policies not renewed or cancelled, {CA_CDI_ANNI[0]}–{CA_CDI_ULT}</h3><div class="tab"><table class="tt ca-anni"><thead><tr><th>Year</th><th class="n">New</th><th class="n">Renewed</th>'
+            f'<th class="n">Not renewed or cancelled</th><th class="n">Rate</th></tr></thead><tbody>{righe_c}</tbody></table></div>'
+            f'<p class="small">Voluntary market (ordinary insurers), homeowners and dwelling policies; the Department\'s "non-renewed/canceled" count, 75-80% initiated by policyholders. Statewide rate in {CA_CDI_ULT}: {CA_S["tasso"]:.1f}%.</p></div></div>')
 
 
 def ca_scheda(S, etichetta, attributi):
@@ -2026,7 +2038,7 @@ def ca_scheda(S, etichetta, attributi):
     tiles = [(usd_m(S["tiv"]), "insured value of these policies"),
              (usd(S["sfr_media"]), "average premium per owner-occupied single-family policy"),
              (pct_int(S["var4"]), f"change since Sep 30, {CA_ANNI[0]} ({intero(S['pif0'])} policies)"),
-             (f'{S["tasso"]:.1f}%' if S["tasso"] is not None else "–", f"non-renewal rate in {CA_CDI_ULT} (voluntary market)")]
+             (f'{S["tasso"]:.1f}%' if S["tasso"] is not None else "–", f"of policies not renewed or cancelled in {CA_CDI_ULT}, voluntary market (non-renewal rate; 75-80% at the owner's request)")]
     side = "".join(f'<div class="tile"><b>{v}</b><span>{t}</span></div>' for v, t in tiles)
     return f"""<section class="card key pull" aria-label="Key figures" {attributi}>
 <div class="key-top">{ico("house")}<span>{h(etichetta)}</span><span>FAIR Plan data as of {data_breve(CA_AL)}</span></div>
@@ -2056,19 +2068,19 @@ def ca_prima_frase(S, dove):
 
 
 def ca_cerca():
-    n = sum(1 for r in CA_Z.values() if "pif" in r or "cdi" in r)
+    n = sum(1 for z, r in CA_Z.items() if ("pif" in r or "cdi" in r) and ca_in_california(z))
     return f"""<section class="card cerca-card" id="search" data-cerca-ca data-url="{{rel}}data/california-zip.json" data-rel="{{rel}}">
 <form role="search"><label for="qca">{ico("pin")}Find your California ZIP code</label>
 <div class="cerca-box">{ico("search")}<input id="qca" class="cerca" type="search" placeholder="e.g. 95247, Paradise, Placer" autocomplete="off" inputmode="search"></div></form>
 <div class="risultati" aria-live="polite"></div>
-<p class="esempi">The search runs in your browser on {intero(n)} ZIP codes: FAIR Plan policies on {data_breve(CA_AL)} (and in {CA_ANNI[0]}), average premium for an owner-occupied home and {CA_CDI_ULT} non-renewals. Type a ZIP code, a place or a county.</p>
+<p class="esempi">The search runs in your browser on {intero(n)} ZIP codes: FAIR Plan policies on {data_breve(CA_AL)} (and in {CA_ANNI[0]}), average premium for an owner-occupied home and policies not renewed or cancelled in {CA_CDI_ULT}. Type a ZIP code, a place or a county.</p>
 </section>"""
 
 
 def ca_indice_ricerca():
     righe = []
     for z, r in sorted(CA_Z.items()):
-        if "pif" not in r and "cdi" not in r:
+        if ("pif" not in r and "cdi" not in r) or not ca_in_california(z):
             continue
         s = ca_zip_sintesi(z)
         area = ca_area_di(z)
@@ -2083,7 +2095,7 @@ def ca_contee():
     """Somme per contea (contea assegnata dal rapporto FAIR Plan; per gli ZIP fuori dal rapporto, quella del file CDI o di GeoNames)."""
     out = {}
     for z, r in CA_Z.items():
-        if r.get("contea") and r.get("fips"):
+        if r.get("contea") and r.get("fips") and ca_in_california(z):
             out.setdefault(r["contea"], []).append(z)
     return {c: (zips, ca_sintesi(ca_aggrega(zips))) for c, zips in out.items()}
 
@@ -2123,39 +2135,39 @@ def pagina_ca_indice():
         nomec = f'<a href="{{rel}}{url_area_contea[c]}">{h(c)}</a>' if c in url_area_contea else h(c)
         righe_c.append(f'<tr data-contea="{h(c)}"><td>{nomec}</td><td class="n" data-l="Policies">{intero(s["pif"])}</td><td class="n" data-l="Since {CA_ANNI[0]}">{pct_int(s["var4"])}</td>'
                        f'<td class="n" data-l="Insured value">{usd_m(s["tiv"])}</td><td class="n" data-l="Avg premium">{usd(s["sfr_media"])}</td>'
-                       f'<td class="n" data-l="Not renewed {CA_CDI_ULT}">{intero(s["cdi"][2])}</td><td class="n" data-l="Rate">{(str(s["tasso"]) + "%") if s["tasso"] is not None else "–"}</td></tr>')
+                       f'<td class="n" data-l="Not renewed/cancelled {CA_CDI_ULT}">{intero(s["cdi"][2])}</td><td class="n" data-l="Rate">{(str(s["tasso"]) + "%") if s["tasso"] is not None else "–"}</td></tr>')
     con_pif = [z for z, r in CA_Z.items() if "pif" in r]
     top_n = sorted(con_pif, key=lambda z: (-CA_Z[z]["pif"][-1], z))[:20]
-    top_g = sorted((z for z in con_pif if CA_Z[z]["pif"][-1] >= 500 and CA_Z[z]["pif"][0] > 0),
+    top_g = sorted((z for z in con_pif if CA_Z[z]["pif"][-1] >= 500 and CA_Z[z]["pif"][0] >= CA_MIN_BASE),
                    key=lambda z: (-(CA_Z[z]["pif"][-1] / CA_Z[z]["pif"][0]), z))[:15]
     top_nr = [z for z, t in zz_nr[:15]]
     grid_aree = griglia([(url, nome_contea_ca(nome) if tipo == "contee" else nome, f'{intero(ca_sintesi(ca_aggrega(zips))["pif"])} FAIR Plan policies') for tipo, nome, url, zips in aree]) if aree else ""
     n_zip = sum(1 for r in CA_Z.values() if "pif" in r)
     f1 = (f"On {data_lunga(CA_AL)}, the California FAIR Plan had {intero(S['pif'])} residential policies in force, {'up' if S['var1'] >= 0 else 'down'} {abs(S['var1']):.0f}% in a year and "
           f"{volte(S['pif'], S['pif0'])} as many as in {CA_ANNI[0]}, according to its ZIP code report dated {data_lunga(CA_PUB)}. "
-          f"In {CA_CDI_ULT}, the latest year with official data by ZIP code, {intero(S['cdi'][2])} homeowners and dwelling policies were not renewed.")
+          f"In {CA_CDI_ULT}, the latest year with official data by ZIP code, {intero(S['cdi'][2])} homeowners and dwelling policies of the voluntary market were {NR_DEF}.")
     corpo = f"""<div class="pull">{ca_cerca()}</div>
 <div style="margin-top:22px">{ca_scheda(S, "California, all ZIP codes", ca_attr(S, f' data-n-zip="{n_zip}"')).replace(" pull", "")}</div>
 {AD}
 {AVVISO_CA}
 {box_casa_ca()}
 <h2>FAIR Plan policies and non-renewals by county</h2>
-<p class="lead">Sum of the ZIP codes in each county. "Avg premium" is for owner-occupied single-family homes; "not renewed" and the rate are for {CA_CDI_ULT}, the Department of Insurance's latest year.</p>
+<p class="lead">Sum of the ZIP codes in each county. "Avg premium" is for owner-occupied single-family homes; "not renewed or cancelled" (the Department's non-renewed/canceled count, 75-80% initiated by policyholders) and the rate are for {CA_CDI_ULT}, the Department of Insurance's latest year.</p>
 <div class="tab"><table class="ot"><thead><tr><th>County</th><th class="n">FAIR Plan policies {CA_ANNI[-1]}</th><th class="n">Since {CA_ANNI[0]}</th>
-<th class="n">Insured value</th><th class="n">Avg premium</th><th class="n">Not renewed {CA_CDI_ULT}</th><th class="n">Non-renewal rate</th></tr></thead><tbody>{"".join(righe_c)}</tbody></table></div>
+<th class="n">Insured value</th><th class="n">Avg premium</th><th class="n">Not renewed or cancelled {CA_CDI_ULT}</th><th class="n">Non-renewal rate</th></tr></thead><tbody>{"".join(righe_c)}</tbody></table></div>
 {('<h2>Pages by place</h2><p class="lead">Places where people search for the FAIR Plan, with every ZIP code in a table.</p>' + grid_aree) if grid_aree else ""}
 <h2>ZIP codes with the most FAIR Plan policies</h2>
 {ca_tabella_zip(top_n)}
 <h2>Fastest growth since {CA_ANNI[0]}</h2>
-{ca_tabella_zip(top_g, f'<p class="lead">ZIP codes with at least 500 FAIR Plan policies on {data_breve(CA_AL)}, by growth since September 30, {CA_ANNI[0]}.</p>')}
+{ca_tabella_zip(top_g, f'<p class="lead">ZIP codes with at least 500 FAIR Plan policies on {data_breve(CA_AL)} and at least {CA_MIN_BASE} on September 30, {CA_ANNI[0]}, by growth since then. Percentages on small starting numbers grow very fast, so ZIP codes with fewer than {CA_MIN_BASE} policies in {CA_ANNI[0]} are left out of this list.</p>')}
 <h2>Highest non-renewal rates in {CA_CDI_ULT}</h2>
-{ca_tabella_zip(top_nr, f'<p class="lead">ZIP codes with at least 1,000 new and renewed policies in {CA_CDI_ULT}. Statewide, non-renewals were {S["tasso"]:.1f}% of new and renewed policies.</p>')}
+{ca_tabella_zip(top_nr, f'<p class="lead">ZIP codes with at least 1,000 new and renewed policies in {CA_CDI_ULT}. Statewide, policies not renewed or cancelled were {S["tasso"]:.1f}% of new and renewed policies; 75-80% of them are initiated by policyholders, so a high rate is not the same as insurers leaving.</p>')}
 <h2>How to read these numbers</h2>
 {ca_limiti()}
 {ca_link_uff()}
 {faq_html}
 {ca_fonti_box()}"""
-    testata = banda("California home insurance · FAIR Plan + Department of Insurance data", "California home insurance crisis by ZIP code: FAIR Plan policies and non-renewals", h(f1))
+    testata = banda("California home insurance · FAIR Plan + Department of Insurance data", "California FAIR Plan policies and non-renewals by ZIP code", h(f1))
     LASTMOD[CA_DIR] = CA_OGGI
     pagina(CA_DIR, titolo_corto(["California FAIR Plan by ZIP code: cost and non-renewals"]),
            taglia(f1 + " Search your ZIP code: policies since 2022, average premium and non-renewals."),
@@ -2167,12 +2179,18 @@ def pagina_ca_area(tipo, nome, url, zips):
     A = ca_aggrega(zips)
     S = ca_sintesi(A)
     etichetta = nome_contea_ca(nome) if tipo == "contee" else nome
-    dove = etichetta if tipo == "contee" else f"the ZIP codes of {nome}"
+    dove = etichetta if tipo == "contee" else f"the {len(zips)} ZIP codes whose postal name is {nome}"
     faq = ca_faq_area_dati(tipo, nome, zips)
     faq_html, faq_ld = ca_faq_html(faq)
-    f1 = ca_prima_frase(S, dove)
-    f2 = (f"In {CA_CDI_ULT}, the latest year with official data, {intero(S['cdi'][2])} homeowners and dwelling policies were not renewed there"
-          + (f", {S['tasso']:.1f}% of new and renewed policies (statewide {CA_S['tasso']:.1f}%)." if S["tasso"] is not None else "."))
+    copre = ""
+    if tipo == "citta":
+        contee_c = ca_contee()
+        cc = sorted({CA_Z[z].get("contea") for z in zips if CA_Z[z].get("contea")})
+        copre = (f"This page covers the {len(zips)} ZIP codes whose postal name is {nome}; "
+                 + "; ".join(f"{nome_contea_ca(c)} has {intero(contee_c[c][1]['pif'])} FAIR Plan policies" for c in cc if c in contee_c) + ".")
+    f1 = ca_prima_frase(S, dove) + (" " + copre if copre else "")
+    f2 = (f"In {CA_CDI_ULT}, the latest year with official data, {intero(S['cdi'][2])} homeowners and dwelling policies of the voluntary market there were {NR_DEF}"
+          + (f": {S['tasso']:.1f}% of new and renewed policies (statewide {CA_S['tasso']:.1f}%)." if S["tasso"] is not None else "."))
     zz = sorted((z for z in zips if any((CA_Z[z].get("pif") or [0])) or sum((CA_Z[z].get("cdi") or {}).get(CA_CDI_ULT, [0, 0, 0]))),
                 key=lambda z: (-(CA_Z[z].get("pif") or [0])[-1], z))
     contee_coinv = sorted({CA_Z[z].get("contea") for z in zips if CA_Z[z].get("contea")})
@@ -2181,9 +2199,12 @@ def pagina_ca_area(tipo, nome, url, zips):
     rimandi = " · ".join(f'<a href="{{rel}}{url_contea(f)}">flood insurance cost in {h(nome_contea(f))}</a>' for f in nfip_link)
     regola = ("ZIP codes the FAIR Plan report assigns to the county" if tipo == "contee" else
               f"ZIP codes whose postal place name is {h(nome)} (GeoNames); a ZIP code can also cover nearby areas")
-    corpo = f"""{ca_scheda(S, etichetta, ca_attr(S, f' data-n-zip="{len(zips)}"'))}
+    scheda = ca_scheda(S, etichetta if tipo == "contee" else f"{nome}: {len(zips)} ZIP codes with postal name {nome}", ca_attr(S, f' data-n-zip="{len(zips)}"'))
+    if copre:
+        scheda = scheda.replace('<p class="k-txt">', f'<p class="k-txt">{h(copre)} ', 1)
+    corpo = f"""{scheda}
 {AD}
-<p class="lead" style="margin-top:20px">{h(f2)}{(" The ZIP codes are in " + h(", ".join(nome_contea_ca(c) for c in contee_coinv)) + ".") if tipo == "citta" else ""}</p>
+<p class="lead" style="margin-top:20px">{h(f2)}</p>
 {AVVISO_CA}
 {box_casa_ca()}
 <h2>Every ZIP code in {h(etichetta)}</h2>
@@ -2215,13 +2236,14 @@ def blocco_ca_zip(z):
     if "pif" not in r and "cdi" not in r:
         return ""
     area = ca_area_di(z)
+    LASTMOD[url_zip(z)] = CA_OGGI  # pagina cambiata con il blocco nuovo: lastmod = data dei dati California
     righe = []
     if "pif" in r:
         righe.append(f'<div class="stat"><b>{intero(S["pif"])}</b><span>FAIR Plan residential policies, {data_breve(CA_AL)} ({pct_testo(S["var1"])} in a year)</span></div>')
         righe.append(f'<div class="stat"><b>{usd_m(S["tiv"])}</b><span>insured value of those policies</span></div>')
         righe.append(f'<div class="stat"><b>{usd(S["sfr_media"])}</b><span>average premium, owner-occupied single-family policy</span></div>')
     if "cdi" in r:
-        righe.append(f'<div class="stat"><b>{intero(S["cdi"][2])}</b><span>policies not renewed in {CA_CDI_ULT}'
+        righe.append(f'<div class="stat"><b>{intero(S["cdi"][2])}</b><span>policies not renewed or cancelled in {CA_CDI_ULT}, voluntary market'
                      + (f' ({S["tasso"]:.1f}% of new and renewed; statewide {CA_S["tasso"]:.1f}%)' if S["tasso"] is not None else "") + '</span></div>')
     prima = (ca_prima_frase(S, f"ZIP code {z}") if "pif" in r else
              f"ZIP code {z} is not in the FAIR Plan report dated {data_lunga(CA_PUB)}.")
@@ -2230,7 +2252,7 @@ def blocco_ca_zip(z):
 <p class="lead">{h(prima)} The FAIR Plan describes itself as "an insurer of last resort, established by statute to provide basic property insurance to Californians statewide when no other option is reasonably available".</p>
 <div class="stat-row">{"".join(righe)}</div>
 {ca_tabella_anni(ca_aggrega([z]), f"ZIP {z}")}
-<p class="nota">{ico("info")}<strong>Limits.</strong> Non-renewals by ZIP code stop in {CA_CDI_ULT} (Department of Insurance, voluntary market, all insurers together; the Department notes that 75-80% are initiated by policyholders). The FAIR Plan average premium is premium ÷ policies in its report, not a quote. Not insurance advice: <a href="{URL_CDI_AIUTO}" rel="noopener">Department of Insurance consumer help</a>, {TEL_CDI}.</p>
+<p class="nota">{ico("info")}<strong>Limits.</strong> Non-renewals by ZIP code stop in {CA_CDI_ULT}. The count is the Department of Insurance's "non-renewed/canceled" figure for the voluntary market (insurers with $5 million or more in premiums, renters and condo unit policies excluded), all insurers together: 75-80% are initiated by policyholders, e.g. after a sale. The FAIR Plan average premium is premium ÷ policies in its report, not a quote. Not insurance advice: <a href="{URL_CDI_AIUTO}" rel="noopener">Department of Insurance consumer help</a>, {TEL_CDI}.</p>
 <p class="small">Sources: <a href="{h(CA_FONTI["pif_zip"]["url"])}" rel="noopener">California FAIR Plan ZIP code reports</a> (dated {data_lunga(CA_PUB)}, data as of {data_lunga(CA_AL)}) and <a href="{h(CA_FONTI["cdi_zip"]["url"])}" rel="noopener">Department of Insurance file by ZIP code, {CA_CDI_ANNI[0]}–{CA_CDI_ULT}</a>, downloaded {data_lunga(CA_OGGI)}.
 More: <a href="{{rel}}{CA_DIR}">California FAIR Plan and non-renewals for every ZIP code</a>{f' · <a href="{{rel}}{area[1]}">{h(area[0])}</a>' if area else ""}.</p>
 </section>"""
@@ -2258,7 +2280,7 @@ def rimando_ca(tipo, chiave):
 def teaser_ca():
     if not CA:
         return ""
-    return (f'<p class="nota">{ico("house")}<strong>California:</strong> {intero(CA_F["pif_tot"][-1])} homes and other residential properties on the FAIR Plan, the insurer of last resort, '
+    return (f'<p class="nota">{ico("house")}<strong>California:</strong> {intero(CA_F["pif_tot"][-1])} residential policies on the FAIR Plan, the insurer of last resort, '
             f'on {data_breve(CA_AL)}. <a href="{{rel}}{CA_DIR}">FAIR Plan policies, average premium and non-renewals by ZIP code</a>.</p>')
 
 
@@ -2330,7 +2352,7 @@ def metodologia():
 <li><strong>Geography.</strong> ZIP codes and counties are taken from FEMA's records as reported; a few records have a missing or wrong code and are counted only in the state and national figures.</li>
 </ul>
 <h2>California: FAIR Plan policies and non-renewals</h2>
-<p>The <a href="{{rel}}california-home-insurance/">California section</a> does not use FEMA data. It uses the California FAIR Plan's ZIP code reports (residential policies in force and insured value on September 30 of each year since 2022; policies and premium by risk group and type of policy) and the California Department of Insurance file of new, renewed and non-renewed policies by ZIP code ({'2020–2023' if not CA else CA_CDI_ANNI[0] + '–' + CA_CDI_ULT}). Average premium = premium of the FAIR Plan policies in force ÷ number of those policies, for owner-occupied single-family homes; non-renewal rate = non-renewed ÷ (new + renewed), as in the Department's fact sheet. The limits of these files (non-renewals stop in {'2023' if not CA else CA_CDI_ULT}; totals include non-renewals asked by policyholders) are written on every page of the section.</p>
+<p>The <a href="{{rel}}california-home-insurance/">California section</a> does not use FEMA data. It uses the California FAIR Plan's ZIP code reports (residential policies in force and insured value on September 30 of each year since 2022; policies and premium by risk group and type of policy) and the California Department of Insurance file of new, renewed and non-renewed policies by ZIP code ({'2020–2023' if not CA else CA_CDI_ANNI[0] + '–' + CA_CDI_ULT}). Average premium = premium of the FAIR Plan policies in force ÷ number of those policies, for owner-occupied single-family homes; policies "not renewed or cancelled" = the Department's non-renewed/canceled count (75-80% initiated by policyholders), voluntary market only, from insurers writing $5 million or more in premiums (about 98% of the market), renters (HO-4) and condo unit (HO-6) policies excluded; non-renewal rate = (non-renewed + canceled) ÷ (new + renewed), as in the Department's fact sheet. The limits of these files (non-renewals stop in {'2023' if not CA else CA_CDI_ULT}; totals include non-renewals asked by policyholders) are written on every page of the section.</p>
 <h2>Updates</h2>
 <p>We refresh the data every month after FEMA's update. This edition: policies in force on {data_lunga(RIF)}, data retrieved {data_lunga(FONTI["scaricato_il"])}, pages built {data_lunga(FONTI["generato_il"])}.</p>
 <h2>Check any number</h2>
