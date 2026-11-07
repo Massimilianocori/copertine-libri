@@ -674,7 +674,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-27",
-  "visto_ultimo": "2026-11-06",
+  "visto_ultimo": "2026-11-07",
   "modifiche": [],
   "fonte": "cgsse",
   "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/382381",
@@ -694,11 +694,25 @@
   "modalita": "DALLE ORE 9.01 ALLE ORE 16.59",
   "proclamazione": "",
   "ricezione": "",
-  "note": "",
-  "stato": "in programma",
+  "note": "REVOCATO (CGSSE)",
+  "stato": "revocato",
   "visto_prima": "2026-10-28",
-  "visto_ultimo": "2026-11-06",
-  "modifiche": [],
+  "visto_ultimo": "2026-11-07",
+  "modifiche": [
+   {
+    "il": "2026-11-07",
+    "campi": {
+     "note": [
+      "",
+      "REVOCATO (CGSSE)"
+     ],
+     "stato": [
+      "in programma",
+      "revocato"
+     ]
+    }
+   }
+  ],
   "fonte": "cgsse",
   "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/382437",
   "settore_cgsse": "Trasporto ferroviario",
@@ -717,11 +731,25 @@
   "modalita": "DALLE ORE 2.00 ALLE ORE 23.59",
   "proclamazione": "",
   "ricezione": "",
-  "note": "",
-  "stato": "in programma",
+  "note": "REVOCATO (CGSSE)",
+  "stato": "revocato",
   "visto_prima": "2026-10-28",
-  "visto_ultimo": "2026-11-06",
-  "modifiche": [],
+  "visto_ultimo": "2026-11-07",
+  "modifiche": [
+   {
+    "il": "2026-11-07",
+    "campi": {
+     "note": [
+      "",
+      "REVOCATO (CGSSE)"
+     ],
+     "stato": [
+      "in programma",
+      "revocato"
+     ]
+    }
+   }
+  ],
   "fonte": "cgsse",
   "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/382665",
   "settore_cgsse": "Trasporto ferroviario",
@@ -743,7 +771,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-29",
-  "visto_ultimo": "2026-11-06",
+  "visto_ultimo": "2026-11-07",
   "modifiche": [],
   "fonte": "cgsse",
   "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/382734",
@@ -785,7 +813,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-27",
-  "visto_ultimo": "2026-11-06",
+  "visto_ultimo": "2026-11-07",
   "modifiche": [],
   "fonte": "cgsse",
   "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/382399",
@@ -846,7 +874,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-11-03",
-  "visto_ultimo": "2026-11-06",
+  "visto_ultimo": "2026-11-07",
   "modifiche": [],
   "fonte": "cgsse",
   "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/382842",
@@ -907,7 +935,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-11-06",
-  "visto_ultimo": "2026-11-06",
+  "visto_ultimo": "2026-11-07",
   "modifiche": [],
   "fonte": "cgsse",
   "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/382962",
@@ -968,11 +996,34 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-11-06",
-  "visto_ultimo": "2026-11-06",
+  "visto_ultimo": "2026-11-07",
   "modifiche": [],
   "fonte": "cgsse",
   "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/382981",
   "settore_cgsse": "Generale nazionale",
+  "ambito_cgsse": "NAZIONALE"
+ },
+ "cgsse-383015": {
+  "id": "cgsse-383015",
+  "inizio": "2026-11-20",
+  "fine": "2026-11-21",
+  "settore": "Ferroviario",
+  "rilevanza": "Nazionale",
+  "regione": "Italia",
+  "provincia": "Tutte",
+  "sindacati": "ASSEMBLEA NAZIONALE PDM/PDB",
+  "categoria": "GRUPPO FSI, MERCITALIA RAIL, TRENITALIA, TRENITALIA TPER SCARL",
+  "modalita": "DALLE ORE 21.00 DEL 20/11 ALLE ORE 20.00 DEL 21/11",
+  "proclamazione": "",
+  "ricezione": "",
+  "note": "",
+  "stato": "in programma",
+  "visto_prima": "2026-11-07",
+  "visto_ultimo": "2026-11-07",
+  "modifiche": [],
+  "fonte": "cgsse",
+  "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/383015",
+  "settore_cgsse": "Trasporto ferroviario",
   "ambito_cgsse": "NAZIONALE"
  },
  "8571": {
@@ -1023,7 +1074,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-29",
-  "visto_ultimo": "2026-11-06",
+  "visto_ultimo": "2026-11-07",
   "modifiche": [
    {
     "il": "2026-11-05",
@@ -1094,7 +1145,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-11-03",
-  "visto_ultimo": "2026-11-06",
+  "visto_ultimo": "2026-11-07",
   "modifiche": [],
   "fonte": "cgsse",
   "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/382862",
@@ -1146,7 +1197,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-11-04",
-  "visto_ultimo": "2026-11-06",
+  "visto_ultimo": "2026-11-07",
   "modifiche": [],
   "fonte": "cgsse",
   "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/382773",
