@@ -9,9 +9,10 @@ Sezioni già revisionate, con i sorgenti salvati, che aspettano la pubblicazione
 | Sito (cartella) | Sezione | Revisione | Note |
 |---|---|---|---|
 | visaincome | Thailand DTV allargata: 6 pagine per tema (`thailand-dtv-visa/fee/`, `requirements/`, `duration-and-extension/`, `soft-power-activities/`, `proof-of-funds/`, `dtv-vs-ltr-elite-retirement/`), titoli e prime frasi di indice e 16 sedi su fee/requirements/duration con 2026 e data di verifica, FAQ da autocompletamento in 8 Paesi | da revisionare, pubblicare l'8/11 | Visa Income già pubblicato il 7/11. Sorgenti nel commit del 7/11, `sito/` non committato; `verifica.py --offline` TUTTO OK (controllo 18 esteso, A/B identico); vedi NOTE.md 7/11 |
-| touristtax | Tassa sugli alberghi USA, prima parte: Florida (67 contee, DR-15TDT e DR-15DSS 2026) e Texas (6 % + er34-v24h), 69 pagine `usa/` | revisionato il 7/11, correzioni applicate, pubblicabile | sorgenti nel commit del 7/11; NOTE.md 7/11; seconda parte (~15 città a mano, Canada) ancora da fare: idee-2026-11-05-usa-canada.md |
 
 Pubblicato il 31/10/2026 alle 14:20 circa (ora di Roma): Visa Income, Before You Fly, EsameB1 (tutte le sezioni revisionate del giorno). Esperimento citazioni: conteggio dal 1/11/2026.
+
+Pubblicato il 7/11/2026 sera: Tourist Tax (Stati Uniti: Florida e Texas, 69 pagine); IndexNow fatto.
 
 Pubblicato il 7/11/2026 alle 18:00 circa: Before You Fly (Available in: Google Wallet, Wise, Uber, Stripe, 131 pagine); IndexNow fatto.
 
