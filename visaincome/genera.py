@@ -1227,8 +1227,7 @@ def pagina_programma(P):
 <div class="s-body">
 <p class="cifra"><span class="c-lab">Minimum for the main applicant{(' (' + escape(V0['nome'].lower()) + ')') if len(P['varianti']) > 1 else ''}</span><span class="sr">: </span>{figura}</p>
 {fonte_breve(P)}
-{eur_eq}
-{riga_salute(P, rel)}
+{eur_eq}{riga_salute(P, rel)}
 <p class="lead">{escape(P['descrizione'])} Official name: <em>{escape(P['nome_ufficiale'])}</em>.</p>
 </div>
 </section>
@@ -14794,9 +14793,11 @@ VISTI_ASS = [
      "no_box": "the Berlin immigration office asks for German statutory or comparable private insurance and says foreign insurance is not sufficient"},
     {"id": "thailand-ltr-visa", "paese": "Thailand", "nome": "Thailand Long-Term Resident (LTR) visa", "breve": "Thailand LTR visa", "cat": "Long-term resident (all four types)",
      "programma": None, "query": "us|health insurance for ltr visa thailand",
-     "obbligo": "Yes, or Thai social security, or a USD 100,000 deposit for 12 months", "minimo": "USD 50,000",
-     "locale": "Not stated", "viaggio": "Not stated", "durata": "Kept for the whole length of the visa",
-     "chiavi": ["th_ltr_seguro", "th_ltr_mantenere"], "box": "hs"},
+     "obbligo": "Yes, or Thai social security, or a USD 100,000 deposit for 12 months", "minimo": "USD 50,000 for hospitalisation and medical treatment in Thailand",
+     "locale": "Not stated", "viaggio": "No: the BOI checklist says travel insurance is not accepted",
+     "durata": "The whole stay, with at least 10 months of cover remaining when you apply; kept for the whole visa",
+     "chiavi": ["th_ltr_seguro", "th_ltr_durata", "th_ltr_viaggio", "th_ltr_mantenere"], "box": None,
+     "no_box": "the BOI checklist says travel insurance is not accepted, and we have no partner we have checked against the LTR rule"},
     {"id": "thailand-dtv-visa", "paese": "Thailand", "nome": "Thailand Destination Thailand Visa (DTV)", "breve": "Thailand DTV visa", "cat": "Digital nomad",
      "programma": None, "query": "us|health insurance for dtv visa thailand", "link_sez": SEZ_DTV,
      "obbligo": f"Not asked on the {DTV_LETTE} embassy pages we read", "minimo": "–", "locale": "–", "viaggio": "–", "durata": "–",
@@ -14807,7 +14808,7 @@ VISTI_ASS = [
      "chiavi": [], "box": None},
     {"id": "uk-visas", "paese": "United Kingdom", "nome": "UK visas (Skilled Worker, family, Graduate, Ancestry, Student)", "cat": "Work, family, study",
      "programma": "uk-skilled-worker-visa", "query": None,
-     "obbligo": "No private insurance: most people pay the immigration health surcharge (IHS)", "minimo": "IHS £1,035 a year (£776 for students and under-18s)",
+     "obbligo": "No private insurance: most people pay the immigration health surcharge (IHS)", "minimo": "No insurance cover: Immigration Health Surcharge £1,035 a year (£776 for students and under-18s), a fee for NHS access",
      "locale": "–", "viaggio": "–", "durata": "Paid per year of the visa; not for 6 months or less applying from outside the UK",
      "chiavi": ["uk_ihs", "uk_ihs_nhs", "uk_ihs_altri", "uk_ihs_studenti", "uk_ihs_minori", "uk_ihs_breve"], "box": None},
 ]
@@ -14883,15 +14884,17 @@ def riga_salute(P, rel):
     if not v:
         return ""
     dove = perc_ass(v) if v in PAG_ASS else f"{SEZ_ASS}#{v['id']}"
-    return (f'<p class="small">{ico("shield")} <strong>Health insurance:</strong> {escape(v["obbligo"])}; minimum cover: {escape(v["minimo"][0].lower() + v["minimo"][1:] if v["minimo"][1:2].islower() else v["minimo"])}. '
+    if v["id"] == "uk-visas":
+        return (f'\n<p class="small">{ico("shield")} <strong>Health insurance:</strong> no private insurance needed; most people pay the Immigration Health Surcharge '
+                f'£{L_ASS["uk_ihs_altri"]["valore"]:,} a year (a fee for NHS access, not an insurance cover). <a href="{rel}{dove}">What the official source says</a>.</p>')
+    return (f'\n<p class="small">{ico("shield")} <strong>Health insurance:</strong> {escape(v["obbligo"])}; minimum cover: {escape(v["minimo"][0].lower() + v["minimo"][1:] if v["minimo"][1:2].islower() else v["minimo"])}. '
             f'<a href="{rel}{dove}">What the official source says</a>.</p>')
 
 
 def box_pagina_ass(v, rel):
     if v["box"] == "hs":
         regole = {"portugal-d7-visa": "The Portuguese consulates ask for valid travel insurance covering necessary medical expenses, urgent medical care and possible repatriation.",
-                  "portugal-student-visa": "Higher education students at a recognised institution are exempt; vocational students and other residence visa applicants are asked for travel insurance covering medical expenses, urgent care and repatriation.",
-                  "thailand-ltr-visa": "The LTR visa asks for health insurance with at least USD 50,000 of cover (or Thai social security, or a USD 100,000 deposit), kept for the whole visa."}
+                  "portugal-student-visa": "Higher education students at a recognised institution are exempt; vocational students and other residence visa applicants are asked for travel insurance covering medical expenses, urgent care and repatriation."}
         return box_hs(f"health-{v['id']}", regole[v["id"]])
     if v["box"] == "sw":
         testi = {"portugal-d8-digital-nomad-visa": "The Portuguese consulates ask D8 applicants for valid travel insurance covering necessary medical expenses, urgent medical care and possible repatriation.",
@@ -14959,14 +14962,18 @@ FAQ_PAGINE_ASS = {
     ],
     "thailand-ltr-visa": [
         ("us|health insurance for ltr visa thailand", "What health insurance do I need for the Thailand LTR visa?",
-         "Health insurance with at least USD 50,000 of cover, or Thai social security benefits, or at least USD 100,000 kept in a bank account in your name for 12 months. "
-         "The BOI says the insurance cover must be maintained for the whole length of the visa."),
+         "Health insurance covering hospitalisation and medical treatment in Thailand for at least USD 50,000, for your whole stay, with at least 10 months of cover remaining, "
+         "or Thai social security benefits, or at least USD 100,000 kept in a bank account in your name for 12 months. The BOI checklist says travel insurance and life insurance "
+         "without health insurance are not accepted, and the cover must be maintained for the whole length of the visa."),
     ],
     "thailand-dtv-visa": [
         ("us|health insurance for dtv visa thailand", "Do I need health insurance for the Thailand DTV visa?",
          f"None of the {DTV_LETTE} official DTV pages we read asks for health insurance."),
     ],
 }
+
+
+BOX_IN_FONDO_ASS = {"portugal-student-visa"}   # revisione del 7/11: gli universitari sono esenti, il riquadro va dopo le FAQ
 
 
 def pagina_ass_visto(v):
@@ -14992,13 +14999,14 @@ def pagina_ass_visto(v):
 {citazioni_ass(v, rel)}
 {non_dice_ass(v)}
 {link_prog}
-{box_pagina_ass(v, rel)}
+{"" if v["id"] in BOX_IN_FONDO_ASS else box_pagina_ass(v, rel)}
 {AD}
 <h2>Other long-stay visas</h2>
 {tabella_ass(rel, [v] + [x for x in VISTI_ASS if x["paese"] == v["paese"] and x is not v])}
 <p><a href="{rel}{SEZ_ASS}">Health insurance for every visa in one table</a> · <a href="{rel}{PERC_SCH_ASS}">Schengen visa insurance: the official rule</a></p>
 <h2>Questions people ask</h2>
 <div class="testo">{faq_html(faq)}</div>
+{box_pagina_ass(v, rel) if v["id"] in BOX_IN_FONDO_ASS else ""}
 <div class="griglia">{"".join(f'<a href="{rel}{perc_ass(x)}"><span class="ic f">{bandiera(x["paese"])}</span><span>{escape(x["nome"])}</span></a>' for x in altri)}</div>"""
     descr = f"Health insurance for the {v['nome']}: {v['obbligo'].lower()}. Minimum cover, local or foreign insurer, travel insurance, duration, from the official source ({data_lunga(LETTO_ASS)})."
     descr = re.sub(r"[“”]", '"', descr)
@@ -15015,13 +15023,13 @@ def pagina_ass_indice():
             continue
         dettagli += f'<h3 id="{v["id"]}">{bandiera(v["paese"])} {escape(v["nome"])}</h3>{citazioni_ass(v, rel)}{non_dice_ass(v)}'
     n_obbl = sum(1 for v in VISTI_ASS if v["obbligo"].startswith("Yes"))
-    regola_idx = ("Where the official source accepts a travel insurance policy or does not ask for a local insurer (Portugal, Croatia, Thailand LTR, Schengen visit visas), "
-                  "you can compare policies before you buy. Spain and Germany ask for an insurer authorised in the country: this offer is not for those visas.")
+    regola_idx = ("Where the official source accepts a travel insurance policy (Portugal, Croatia, Schengen visit visas), "
+                  "you can compare policies before you buy. Spain and Germany ask for an insurer authorised in the country, and the Thailand LTR checklist says travel insurance is not accepted: this offer is not for those visas.")
     faq = [
         ("Which visas require health insurance?", f"{n_obbl} of the {len(VISTI_ASS)} long-stay visas in our table ask for health insurance or an equivalent: Spain, Portugal, Italy, Croatia, Hungary, Germany and the Thailand LTR. "
          "The Thailand DTV and Mexico pages we read do not ask for it; the UK asks for the immigration health surcharge instead of insurance."),
         ("Is travel insurance enough for a long-stay visa?", "It depends on the country. Portugal and Croatia accept travel insurance; the Spanish consulate's study visa page says travel insurance is not valid; "
-         "the Berlin immigration office says foreign health insurance is not sufficient for the EU Blue Card."),
+         "the Berlin immigration office says foreign health insurance is not sufficient for the EU Blue Card; the BOI's checklist for the Thailand LTR says travel insurance is not accepted."),
         ("Do I need a local insurer?", "Spain asks for an insurer authorised to operate in Spain; Germany asks for German statutory or comparable private insurance. "
          "The Portuguese, Croatian, Hungarian, Italian and Thai pages do not say the insurer must be local."),
     ]
@@ -15068,13 +15076,14 @@ def pagina_ass_schengen():
 {fonte_ass_p(["ue_15_3_minimo"])}
 </div></section>
 {AVVISO_ASS}
-<h2>The rule, word for word</h2>
+<h2>The rule, word for word (Article 15)</h2>
 <ul class="testo">
 <li><strong>What it covers (15(1)):</strong> {cita_ass("ue_15_1")}</li>
 <li><strong>Multiple-entry visas (15(2)):</strong> {cita_ass("ue_15_2")} {cita_ass("ue_15_2_dich")}</li>
-<li><strong>Where and how long (15(3)):</strong> {cita_ass("ue_15_3")} {cita_ass("ue_15_3_minimo")}</li>
-<li><strong>Where to buy it (15(4)):</strong> {cita_ass("ue_15_4")}</li>
+<li><strong>Where and how long (15(3)):</strong> {cita_ass("ue_15_3")} {cita_ass("ue_15_3_minimo")} {cita_ass("ue_15_3_ltv")}</li>
+<li><strong>Where to buy it (15(4)):</strong> {cita_ass("ue_15_4")} {cita_ass("ue_15_4_terzi")}</li>
 <li><strong>What the consulate checks (15(5)):</strong> {cita_ass("ue_15_5")}</li>
+<li><strong>Exemptions (15(6)-(7)):</strong> {cita_ass("ue_15_6")} {cita_ass("ue_15_7")}</li>
 </ul>
 <p>The European Commission's page lists among the documents: {cita_ass("ue_commissione")}</p>
 {fonte_ass_p(["ue_15_1", "ue_commissione"])}

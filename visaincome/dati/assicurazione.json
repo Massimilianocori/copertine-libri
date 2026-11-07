@@ -10,7 +10,7 @@
    "http": 200,
    "letto_il": "2026-11-07",
    "byte": 146930,
-   "sha256": "2178db37561f3c5ad11340ce60e77ba344dabccaf9839663c8b21202cf72308d",
+   "sha256": "3f2b6dafcc0ecc6f14e14ebbcd97476d7a245e47ed8b3f834443d8bc126fa607",
    "formato": "html",
    "sha256_testo": "c8e5df153b502d5f4516b91a8a61c4f5a54eb10894a47ee65fe35dc7a61ed534"
   },
@@ -22,7 +22,7 @@
    "http": 200,
    "letto_il": "2026-11-07",
    "byte": 145141,
-   "sha256": "e23da156abba7c0b3c013bd5c2d7cea9e2e2dc718ce36211d1ed329ed5462cfc",
+   "sha256": "559088b038c9e30967e8b392fb791fb21b28041f1aa0e53f0dff3f4880a89a55",
    "formato": "html",
    "sha256_testo": "aef647aada4f44d8fdaf258b626b7dd04880160480348d80c54b132b76571d81"
   },
@@ -34,7 +34,7 @@
    "http": 200,
    "letto_il": "2026-11-07",
    "byte": 179694,
-   "sha256": "b9eba9668f0ef4d435c56fd58c32820d5addc9b5425a31a662a1728d0077ece4",
+   "sha256": "c64add209fb9a1aea46afdaa3f26493f290bf3381af92229cfc8f94122a2ee29",
    "formato": "html",
    "sha256_testo": "31228656c66fb01b5e43298b6af777e8c3a2d1c3609641c1e83c8a8fb912f611"
   },
@@ -46,7 +46,7 @@
    "http": 200,
    "letto_il": "2026-11-07",
    "byte": 1040895,
-   "sha256": "5cfb317f79ff04521840be00d87c957ca322740f82f1b3d85e23a79a3c0891f1",
+   "sha256": "5598975cd21ca884604f9f2ffdd07ad3e0a3515ef371a888882a320f6ec9d423",
    "formato": "html",
    "sha256_testo": "8312cbeb8669f04f0ab182d6cbef58d60ca754b8a983909aac1e1f29103c5102"
   },
@@ -58,7 +58,7 @@
    "http": 200,
    "letto_il": "2026-11-07",
    "byte": 50469,
-   "sha256": "268e3dfb807ec6366743a5787e12f080211608352c5c88f272d1c6db60210d79",
+   "sha256": "9910cf40162973340c9237e456570fa433dd25c281e0107a16a997010c649ac2",
    "formato": "html",
    "sha256_testo": "c2ea062caafaeb16e323f1061d5d4d184cdbe998af171d310e6af7b61b886c59"
   },
@@ -106,7 +106,7 @@
    "http": 200,
    "letto_il": "2026-11-07",
    "byte": 34357,
-   "sha256": "80ddd6e0d0429398938fafcca733615d8a6df25b14472508f0d24e558f098975",
+   "sha256": "d1dbed99f7f3533b94448d09d91a43a3f34686752002747fd78219f487da8153",
    "formato": "html",
    "sha256_testo": "9ddd7a1d457f02a4528082ab4e4065e79da125366648c1661a506c070bd6eca6"
   },
@@ -118,7 +118,7 @@
    "http": 200,
    "letto_il": "2026-11-07",
    "byte": 240752,
-   "sha256": "bccce16ecb3963a42e0621ef6f079a6a8c0928ca58c118f6ee54bb994e3f530c",
+   "sha256": "caded17b201d4c438b913dc05559ce86f2025229714714a00350d1b7bb8683d2",
    "formato": "html",
    "sha256_testo": "7e3e3549f13733268de1d1361cba7ed8f0e10b99d6f351d07b4885361db8faa0"
   },
@@ -130,7 +130,7 @@
    "http": 200,
    "letto_il": "2026-11-07",
    "byte": 53227,
-   "sha256": "b476f3be18eeb1ceb2eee388aed94aa66313f8f70b1d213f84d954ebdcb2c955",
+   "sha256": "586fa8ad5f82cf11745029a592a46ac775b0fd14297af22fb6d58abbb8524926",
    "formato": "html",
    "sha256_testo": "444e527ad36e634d70a5879c8eb86d6fb5943ec53afcf695cc59de735dd44766"
   },
@@ -146,6 +146,19 @@
    "formato": "html",
    "sha256_testo": "7dd90995f43aae4c2f1ad9cf88fecbbbeeb8219bf22c441890ff9b2ca4c029bc"
   },
+  "th_ltr_doc": {
+   "titolo": "Thailand Board of Investment, LTR visa required documents checklist (Wealthy Pensioners, 6 November 2025; the same insurance text is in the other three checklists)",
+   "editore": "Thailand Board of Investment",
+   "url": "https://ltr.boi.go.th/documents/Required-docs-Wealthy-Pensioners-06-11-2025.pdf",
+   "pagina": "https://ltr.boi.go.th/page/required-documents.html",
+   "lingua": "en",
+   "formato": "pdf",
+   "http": 200,
+   "letto_il": "2026-11-07",
+   "byte": 199546,
+   "sha256": "04e187cc0c88081611aad757b953fd23c76114fc6b96868816383288d749e14d",
+   "sha256_testo": "f41638b266373de9b7e57a1fc1ff50dd3782ad774c1265e68c461709bd12587e"
+  },
   "uk_ihs": {
    "titolo": "GOV.UK, Pay for UK healthcare as part of your immigration application",
    "editore": "UK Visas and Immigration",
@@ -154,7 +167,7 @@
    "http": 200,
    "letto_il": "2026-11-07",
    "byte": 90013,
-   "sha256": "3c01068ae0f93d1089b87e40ac809a2b06aeb4a28b4411bfedae90de18d83382",
+   "sha256": "d35be011fab55e159bbc17c7c1d39f4ceed5f2d069b128ad57aef73c0e8bdbd3",
    "formato": "html",
    "sha256_testo": "f7fa3aefc5fee4a199a35aa181cf0e86cfa21a584f9d1030eedc8bce0f2cdcc6"
   },
@@ -166,7 +179,7 @@
    "http": 200,
    "letto_il": "2026-11-07",
    "byte": 72929,
-   "sha256": "55ea43ef126f48a6e3763456e97581339a09da7065d69f13f626397c05c32558",
+   "sha256": "27d44cbf77e2c3672e7cb1772d0409d65d92a622c2963acf57433721bba9bc4e",
    "formato": "html",
    "sha256_testo": "378ad9c5d9afc320fdf5593030002309d9acc6417d9c3e7ce6180da6fa23167c"
   },
@@ -303,6 +316,15 @@
    "fonte": "th_ltr",
    "frammento": "Every condition and requirement must be maintained during the length of the visa, including investment amounts, employment status, bank account balances, and insurance coverage."
   },
+  "th_ltr_durata": {
+   "fonte": "th_ltr_doc",
+   "frammento": "Must cover the entire duration of stay in Thailand for hospitalization and medical treatment at least USD 50,000 with a remaining coverage period of at least 10 months.",
+   "valore": 50000
+  },
+  "th_ltr_viaggio": {
+   "fonte": "th_ltr_doc",
+   "frammento": "Life insurance without health insurance and travel insurance are not accepted."
+  },
   "uk_ihs": {
    "fonte": "uk_ihs",
    "frammento": "Most people need to pay the immigration health surcharge"
@@ -350,6 +372,22 @@
    "fonte": "ue_codice",
    "frammento": "The minimum coverage shall be EUR 30 000.",
    "valore": 30000
+  },
+  "ue_15_3_ltv": {
+   "fonte": "ue_codice",
+   "frammento": "When a visa with limited territorial validity covering the territory of more than one Member State is issued, the insurance cover shall be valid at least in the Member States concerned."
+  },
+  "ue_15_4_terzi": {
+   "fonte": "ue_codice",
+   "frammento": "When another person takes out insurance in the name of the applicant, the conditions set out in paragraph 3 shall apply."
+  },
+  "ue_15_6": {
+   "fonte": "ue_codice",
+   "frammento": "The insurance requirement may be considered to have been met where it is established that an adequate level of insurance may be presumed in the light of the applicant’s professional situation. The exemption from presenting proof of travel medical insurance may concern particular professional groups, such as seafarers, who are already covered by travel medical insurance as a result of their professional activities."
+  },
+  "ue_15_7": {
+   "fonte": "ue_codice",
+   "frammento": "Holders of diplomatic passports shall be exempt from the requirement to hold travel medical insurance."
   },
   "ue_15_4": {
    "fonte": "ue_codice",
@@ -591,5 +629,5 @@
    ]
   }
  },
- "impronta": "de3cf2c940d406973077"
+ "impronta": "2b9eae4fb829f98039e8"
 }

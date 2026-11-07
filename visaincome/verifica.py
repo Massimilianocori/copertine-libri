@@ -4727,7 +4727,7 @@ def controlla_ass(online=True):
             if L[k]["frammento"] not in t:
                 errori.append(f"32: {v['id']}: lettura {k} non citata nella pagina")
     sch = html.unescape(leggi(G.PERC_SCH_ASS + "index.html"))
-    for k in ("ue_15_1", "ue_15_2", "ue_15_3", "ue_15_3_minimo", "ue_15_4", "ue_15_5", "ue_commissione"):
+    for k in ("ue_15_1", "ue_15_2", "ue_15_2_dich", "ue_15_3", "ue_15_3_minimo", "ue_15_3_ltv", "ue_15_4", "ue_15_4_terzi", "ue_15_5", "ue_15_6", "ue_15_7", "ue_commissione"):
         if L[k]["frammento"] not in sch:
             errori.append(f"32: pagina Schengen senza la lettura {k}")
     if "€30,000" not in sch or "Article 15" not in sch:
@@ -4739,6 +4739,15 @@ def controlla_ass(online=True):
             errori.append(f"32: {slug}: manca la riga Health insurance con il link alla sezione")
     if "schengen-visa-insurance/" not in leggi(G.SEZ + "index.html"):
         errori.append("32: manca il link dalla pagina indice dei rifiuti")
+    for v in G.VISTI_ASS:
+        if v["viaggio"].startswith("No") and v["box"]:
+            errori.append(f"32: {v['id']}: riquadro assicurativo dove la fonte esclude l'assicurazione di viaggio")
+    ltr = html.unescape(leggi(G.perc_ass(G.V_ASS["thailand-ltr-visa"]) + "index.html"))
+    if "travel insurance are not accepted" not in ltr or "hellosafe" in ltr.lower() or "safetywing.com/nomad-insurance?" in ltr:
+        errori.append("32: Thailandia LTR: manca la frase del BOI sull'assicurazione di viaggio o c'è un riquadro assicurativo")
+    pst = leggi(G.perc_ass(G.V_ASS["portugal-student-visa"]) + "index.html")
+    if 'id="aff-hs-h"' in pst and pst.index('id="aff-hs-h"') < pst.index("Questions people ask"):
+        errori.append("32: Portogallo studio: riquadro HelloSafe prima delle FAQ")
     # HelloSafe: interruttore, link, rel, trasparenza, testo, pagine ammesse; mai nelle pagine dell'esperimento
     hs = A.get("_hellosafe", {})
     acceso = bool(hs.get("attivo"))
