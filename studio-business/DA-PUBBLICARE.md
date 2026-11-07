@@ -8,6 +8,7 @@ Sezioni già revisionate, con i sorgenti salvati, che aspettano la pubblicazione
 
 | Sito (cartella) | Sezione | Revisione | Note |
 |---|---|---|---|
+| touristtax | Tassa sugli alberghi USA, prima parte: Florida (67 contee, DR-15TDT e DR-15DSS 2026) e Texas (6 % + er34-v24h), 69 pagine `usa/` | da revisionare | sorgenti nel commit del 7/11; NOTE.md 7/11; seconda parte (~15 città a mano, Canada) ancora da fare: idee-2026-11-05-usa-canada.md |
 
 Pubblicato il 31/10/2026 alle 14:20 circa (ora di Roma): Visa Income, Before You Fly, EsameB1 (tutte le sezioni revisionate del giorno). Esperimento citazioni: conteggio dal 1/11/2026.
 
@@ -43,7 +44,6 @@ Pubblicato il 1/11/2026 alle 00:15 circa: Visa Income (cerimonie australiane, es
 | visaincome | Pensione statale britannica congelata o no, Paese per Paese | 6,5 | con la sezione pensioni HMRC già in coda | idee-2026-11-04-africa-medio-oriente.md |
 | visaincome | Israele nelle pagine moved-to (API data.gov.il) | 5,5 | coda bassa | idee-2026-11-04-africa-medio-oriente.md |
 | beforeyoufly | Liquidi, pagine a 2 litri (Fiumicino, Vienna, Bologna, Bergamo, Knock e altre UE): la FAQ sul 2026 cita Your Europe (100 ml) sotto una risposta "2 litres"; aggiungere la frase ponte come nella FAQ sulla busta | piccola | prossimo giro di Before You Fly | revisione del 5/11 |
-| touristtax | Tassa sugli alberghi USA/Canada: prima Florida (67 contee, dr15tdt.pdf) e Texas (data.texas.gov er34-v24h), poi ~15 città a mano | 6,5 | dopo le versioni es/pt/fr | idee-2026-11-05-usa-canada.md |
 | beforeyoufly | **Scioperi in Italia come sezione di Before You Fly** (`/italy-strikes/`): spostare Italy Strikes (0 pagine indicizzate su 119 dopo 4 settimane, 1 visita al mese) dentro BYF, con 301 dal vecchio sito; il robot degli scioperi resta uguale ma pubblica BYF. Domanda: "italy strike today", "italy strikes november 2026", "train strike italy today" (autocomplete gb/us 6/11). Stima 40 / 180 / 900 €/anno | 6 | dopo H-1B e Available in, prima di febbraio 2027 (picco di marzo) | decisione del 6/11, CRUSCOTTO |
 | beforeyoufly | Auto a noleggio oltre confine e sul traghetto, coppia per coppia (DiscoverCars): prima verificare che le offerte mostrino le condizioni per l'estero, poi 3 pagine di prova (Croazia→Bosnia, Germania→Polonia, Sicilia in traghetto) | 6,5 (250 €/anno centrali) | coda bassa, dopo gli scioperi | fronti-2026-11-06-dal-pagatore.md |
 | visaincome | **Assicurazione sanitaria richiesta da ogni visto** (sezione) + **assicurazione Schengen HelloSafe Atlas sulle pagine rifiuti** (fino al 50 % del premio, cookie 90 giorni): costruire appena Massimiliano è iscritto ad Atlas e il pannello dice per quali Paesi di residenza vende; il riquadro Schengen sulle pagine dell'esperimento citazioni solo dopo il verdetto del 28/12 | 6-7 (1.500 + 600 €/anno centrali; ottimista 15.000 + 10.800) | dopo l'iscrizione ad Atlas | fronti-2026-11-07-alto-compenso.md |

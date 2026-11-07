@@ -29,6 +29,12 @@ Uso (dalla radice del repository, dopo python3 touristtax/genera.py):
    BOE), fonti ufficiali con HTTP 200, data e impronta sha256, conteggi INE e dei registri uguali agli esempi letti a mano, nessun dato personale
    (dati/spagna_numeri.json e pagine), 27 pagine in sitemap con titolo ≤ 70 e l'anno, prima frase con cifra, fonte e data, FAQPage visibile,
    frasi delle regole regionali, avviso "Not legal advice", nessun affiliato, link dalla pagina Spagna e da /about/.
+15. USA, tassa sugli alberghi in Florida e Texas (7/11/2026, sezione usa/): fonti ufficiali (Florida Department of Revenue, Texas Comptroller,
+   data.texas.gov, Census) con HTTP 200, data e impronta; DR-15TDT, DR-15DSS e dataset del Texas riscaricati, impronta uguale e aliquote
+   rilette con un metodo diverso (pdftotext -raw, JSON riga per riga) uguali ai dati e agli esempi letti a mano; calcoli a mano e JS = Python;
+   pagine in sitemap con titolo ≤ 70 e aliquota ricalcolata, prima frase con aliquota e data, FAQ visibili = JSON-LD, avviso, calcolatore,
+   nessun affiliato, nessuna frase sulle piattaforme in Florida (le fonti non ne parlano), frase del Comptroller sulle piattaforme in Texas,
+   link da home, elenco delle destinazioni e about. Serve la rete (riscarica i file) e node.
 10. Giappone, rimborso dell'imposta sui consumi dal 1/11/2026 (pagina japan-tax-free-refund/): dati uguali alle fonti lette, fonti
    ufficiali (JTA, NTA, Dogane) con HTTP 200 e data, sitemap, link da home e pagine giapponesi, titolo ≤ 70 con l'anno, prima frase
    con risposta, fonti e data, calcolo ricontrollato (esempi a mano, frazioni esatte, JS = Python), FAQPage visibile, nessun affiliato.
@@ -38,6 +44,7 @@ domini bloccati e link sponsorizzati verso altri domini sono errori; script AdSe
 solo se AdSense è acceso per questo sito in monetizzazione.json.
 Esce con codice 1 se qualcosa non va.
 """
+import hashlib
 import json
 import random
 import re
@@ -1169,6 +1176,237 @@ def controlla_spagna():
     return errori
 
 
+# 15. USA, tassa sugli alberghi in Florida e Texas (7/11/2026, sezione usa/).
+# Aliquote lette a mano il 7/11/2026 sui file ufficiali (pdftotext del DR-15TDT R. 10/26 e del DR-15DSS 2026 R. 11/25; JSON di er34-v24h):
+# contea -> (tassa turistica %, sovrimposta totale 2026 %, chi riscuote)
+ESEMPI_US_FL = {"Orange": (6, 0.5, "County"), "Miami-Dade": (6, 1.0, "County"), "Bay": (5, 1.0, "County"), "Citrus": (5, 0, "DOR"),
+                "Sumter": (0, 1.0, "N/A"), "Hamilton": (3, 2.0, "DOR"), "Palm Beach": (6, 0.5, "County"), "Martin": (5, 0.5, "County"),
+                "Hillsborough": (6, 1.5, "County"), "Monroe": (5, 1.5, "County"), "Walton": (5, 1.0, "County"), "Okaloosa": (6, 1.0, "County"),
+                "Collier": (5, 0, "County"), "Osceola": (6, 1.5, "County"), "Duval": (6, 1.5, "County"), "Liberty": (0, 1.5, "N/A"),
+                "Highlands": (5, 1.5, "County"), "Levy": (4, 1.0, "DOR"), "Desoto": (3, 1.5, "DOR"), "St. Johns": (5, 0.5, "County")}
+# (tipo, nome) -> (tax_rate_351, tax_rate_334) come stringhe del file
+ESEMPI_US_TX = {("city", "Austin"): ("0.09", "0.02"), ("city", "Houston"): ("0.07", None), ("city", "Dallas"): ("0.07", "0.02"),
+                ("city", "San Antonio"): ("0.09", None), ("city", "Galveston"): ("0.09", None), ("city", "South Padre Island"): ("0.09", "0.02"),
+                ("city", "Abilene"): ("0.07", "0.02"), ("county", "Bexar"): ("0", "0.018"), ("county", "Harris"): ("0.09", "0.02"),
+                ("county", "Cameron"): ("0.02", "0.02"), ("county", "Brazos"): ("0.03", None)}
+# (pagina, zona, check-in, notti, prezzo, toggle accesi o None = predefiniti, totale atteso calcolato a mano)
+ESEMPI_US_CALC = [
+    ("usa/florida/orlando/", 0, "2026-11-10", 3, 200, None, 75.00),             # 200 × 3 × 12,5 %
+    ("usa/florida/miami-beach/", 0, "2026-11-10", 3, 200, None, 84.00),         # 6 + 1 + 7 = 14 %
+    ("usa/florida/miami/", 0, "2026-11-10", 2, 150, None, 39.00),               # 6 + 1 + 6 = 13 %
+    ("usa/florida/bay-county/", 1, "2026-11-10", 2, 100, None, 14.00),          # resto della contea: 6 + 1 = 7 %
+    ("usa/florida/brevard-county/", 0, "2026-12-30", 4, 100, None, 46.00),      # 30-31/12 al 12 %, 1-2/1/2027 all'11 % (sovrimposta scaduta)
+    ("usa/florida/sumter-county/", 0, "2026-11-10", 1, 100, None, 7.00),        # nessuna tassa turistica
+    ("usa/florida/walton-county/", 1, "2026-11-10", 3, 100, None, 27.00),       # resto della contea: 6 + 1 + 2 = 9 %
+    ("usa/florida/orlando/", 0, "2026-11-10", 200, 100, None, None),            # oltre sei mesi: non calcolato
+    ("usa/texas/austin/", 0, "2026-11-10", 3, 200, None, 102.00),               # 6 + 9 + 2 = 17 %
+    ("usa/texas/houston/", 0, "2026-11-10", 40, 100, None, 510.00),             # 17 % sulle prime 30 notti
+    ("usa/texas/austin/", 0, "2026-11-10", 2, 10, None, 2.20),                  # sotto 15 $: solo le tasse locali (11 %)
+    ("usa/texas/austin/", 0, "2026-11-10", 2, 1, None, 0.00),                   # sotto 2 $: nessuna tassa
+    ("usa/texas/san-antonio/", 0, "2026-11-10", 1, 100, [True, True, True], 16.80),  # 6 + 9 + 1,8 (Bexar, spuntata)
+    ("usa/texas/harris-county/", 0, "2026-11-10", 1, 100, None, 17.00),         # 6 + 9 + 2
+]
+US_DOMINI = ("https://floridarevenue.com/", "https://comptroller.texas.gov/", "https://data.texas.gov/", "https://www2.census.gov/")
+
+
+def _scarica_us(url, dest):
+    r = subprocess.run(["curl", "-sS", "-L", "-m", "120", "-A", "Mozilla/5.0 (X11; Linux x86_64)", "-o", str(dest), "-w", "%{http_code}", url],
+                       capture_output=True, text=True)
+    return r.stdout.strip()
+
+
+def controlla_usa():
+    """15. USA (Florida e Texas): fonti ufficiali con impronta e data; aliquote dei dati = file ufficiali riscaricati e riletti qui con un metodo diverso
+    (pdftotext -raw invece di -layout; JSON confrontato riga per riga) = esempi letti a mano; calcolatore Python = JS su casi casuali e = esempi a mano;
+    titoli e prima frase con la cifra ricalcolata qui dai dati; FAQ visibili = JSON-LD; pagine in sitemap; link da home, elenco, about, menu."""
+    errori = []
+    U = G.US
+    # fonti
+    for k, f in U["fonti"].items():
+        if (f["http"] != 200 or f["controllato_il"] < "2026-11-07" or not f["url"].startswith(US_DOMINI)
+                or not re.fullmatch(r"sha256:[0-9a-f]{64}", f.get("impronta", "")) or f.get("impronta_di") not in ("file", "testo", "json")):
+            errori.append(f"USA: fonte {k} non ufficiale, non letta, senza data o senza impronta")
+    if U["fonti"]["fl_tdt"].get("revisione") != "10/26" or U["fonti"]["fl_dss"].get("anno") != 2026:
+        errori.append("USA: revisione del DR-15TDT o anno del DR-15DSS diversi da quelli letti a mano (10/26, 2026): rileggere i moduli")
+    # dati = esempi a mano
+    FLC = {c["nome"]: c for c in U["florida"]["contee"]}
+    if len(FLC) != 67:
+        errori.append(f"USA: contee della Florida {len(FLC)} invece di 67")
+    for n, (tdt, sur, chi) in ESEMPI_US_FL.items():
+        c = FLC.get(n)
+        if not c or c["aliquota"] != tdt or abs(c["surtax"]["totale"] - sur) > 1e-9 or c["riscossa_da"] != chi:
+            errori.append(f"USA: {n}: dati {c and (c['aliquota'], c['surtax']['totale'], c['riscossa_da'])}, a mano {(tdt, sur, chi)}")
+    TXR = {(r["tipo"], r["nome"]): r for r in U["texas"]["righe"]}
+    for k, (a, b) in ESEMPI_US_TX.items():
+        r = TXR.get(k)
+        if not r or r["r351"] != a or r["r334"] != b:
+            errori.append(f"USA: Texas {k}: dati {r and (r['r351'], r['r334'])}, a mano {(a, b)}")
+    # file ufficiali riscaricati e riletti con un metodo diverso
+    with tempfile.TemporaryDirectory() as tmp:
+        tmp = Path(tmp)
+        for k in ("fl_tdt", "fl_dss"):
+            f = U["fonti"][k]
+            dest = tmp / f"{k}.pdf"
+            codice = _scarica_us(f["url"], dest)
+            if codice != "200":
+                errori.append(f"USA: {k} non scaricabile (HTTP {codice}): {f['url']}")
+                continue
+            imp = "sha256:" + hashlib.sha256(dest.read_bytes()).hexdigest()
+            if imp != f["impronta"]:
+                errori.append(f"USA: {k} è cambiato dopo la raccolta (impronta diversa): rilanciare python3 -I touristtax/raccolta/usa.py e rileggere")
+            raw = re.sub(r"\s+", " ", subprocess.run(["pdftotext", "-raw", str(dest), "-"], capture_output=True, text=True).stdout)
+            for c in U["florida"]["contee"]:
+                nome = re.escape(c["nome"])
+                if k == "fl_tdt":
+                    m = re.search(rf"\b{nome}(?: \(\d\))? (\d+)% (County|DOR|N/A)", raw)
+                    if not m or float(m.group(1)) != c["aliquota"] or m.group(2) != c["riscossa_da"]:
+                        errori.append(f"USA: DR-15TDT riletto: {c['nome']} {m and m.groups()} invece di {(c['aliquota'], c['riscossa_da'])}")
+                else:
+                    alias = {"Desoto": "DeSoto"}.get(c["nome"], c["nome"])
+                    m = re.search(rf"\b{re.escape(alias)} (\.?\d+(?:\.\d+)?%|None)", raw)
+                    tot = float(m.group(1).rstrip("%")) if m and m.group(1) != "None" else 0.0
+                    if not m or abs(tot - c["surtax"]["totale"]) > 1e-9:
+                        errori.append(f"USA: DR-15DSS riletto: {c['nome']} {m and m.group(1)} invece di {c['surtax']['totale']}")
+                    if abs(sum(p["aliquota"] for p in c["surtax"]["parti"]) - c["surtax"]["totale"]) > 1e-9:
+                        errori.append(f"USA: {c['nome']}: parti della sovrimposta che non sommano al totale")
+        f = U["fonti"]["tx_dati"]
+        dest = tmp / "tx.json"
+        codice = _scarica_us(f["url_dati"], dest)
+        if codice != "200":
+            errori.append(f"USA: dataset del Texas non scaricabile (HTTP {codice})")
+        else:
+            righe = json.loads(dest.read_text(encoding="utf-8"))
+            ordinate = sorted(righe, key=lambda r: (r.get("type", ""), r.get("name", "")))
+            imp = "sha256:" + hashlib.sha256(json.dumps(ordinate, sort_keys=True, ensure_ascii=False, separators=(",", ":")).encode("utf-8")).hexdigest()
+            if imp != f["impronta"]:
+                errori.append("USA: il dataset del Texas è cambiato dopo la raccolta: rilanciare python3 -I touristtax/raccolta/usa.py")
+            nuovi = {(r["type"], r["name"]): (r.get("tax_rate_351"), r.get("tax_rate_334")) for r in righe}
+            for r in U["texas"]["righe"]:
+                if nuovi.get((r["tipo"], r["nome_file"])) != (r["r351"], r["r334"]):
+                    errori.append(f"USA: Texas {r['nome_file']}: dati {(r['r351'], r['r334'])}, file {nuovi.get((r['tipo'], r['nome_file']))}")
+                    break
+            if len(righe) != len(U["texas"]["righe"]):
+                errori.append(f"USA: Texas: {len(righe)} righe nel file, {len(U['texas']['righe'])} nei dati")
+    # calcolatore: esempi a mano
+    voci = G.us_pagine()
+    luoghi = {L["pagina"]: L for _, _, L, _, _, _ in voci}
+    for pag, z, ci, notti, prezzo, on, atteso in ESEMPI_US_CALC:
+        L = luoghi.get(pag)
+        if not L:
+            errori.append(f"USA: esempio su una pagina che non c'è: {pag}")
+            continue
+        on = on if on is not None else G.us_on(L["zone"][z])
+        o = G.us_calcola(L, z, on, ci, notti, prezzo)
+        got = None if o["fuori"] else G.r2(o["totale"])
+        if got != atteso:
+            errori.append(f"USA: esempio {pag} {ci} {notti} notti {prezzo} $: {got}, a mano {atteso}")
+    # calcolatore: JS = Python su casi casuali
+    rnd = random.Random(11)
+    casi = []
+    tutti = [L for _, _, L, _, _, _ in voci] + [G.fl_luogo(c) for c in G.US_FL["contee"]]
+    for _ in range(1500):
+        L = rnd.choice(tutti)
+        z = rnd.randrange(len(L["zone"]))
+        on = [bool(c["on"]) if not c.get("opz") else rnd.random() < 0.5 for c in L["zone"][z]["comp"]]
+        ci = (G.date(2026, 11, 1) + G.timedelta(days=rnd.randrange(500))).isoformat()
+        casi.append([L, z, on, ci, rnd.choice([1, 2, 3, 7, 29, 30, 31, 45, 181, 182, 184, 200]), rnd.choice([0, 1, 2, 10, 14.99, 15, 89.5, 200, 640])])
+    with tempfile.TemporaryDirectory() as tmp:
+        f = Path(tmp) / "us.js"
+        f.write_text(G.MOTORE_JS + G.US_JS + "\nvar C=" + json.dumps(casi) + ";console.log(JSON.stringify(C.map(function(c){"
+                     "var o=usCalcola(c[0],c[1],c[2],c[3],c[4],c[5]);return [o.totale,o.fuori,o.tassate,o.dopo,o.trenta,o.righe];})));", encoding="utf-8")
+        out = subprocess.run(["node", str(f)], capture_output=True, text=True)
+    if out.returncode != 0:
+        errori.append("USA: errore node: " + out.stderr[:300])
+    else:
+        for c, r in zip(casi, json.loads(out.stdout)):
+            o = G.us_calcola(*c)
+            py = [o["totale"], o["fuori"], o["tassate"], o["dopo"], o["trenta"], o["righe"]]
+            if abs(py[0] - r[0]) > 1e-6 or py[1:5] != r[1:5] or [x[0] for x in py[5]] != [x[0] for x in r[5]] or [x[2] for x in py[5]] != [x[2] for x in r[5]]:
+                errori.append(f"USA: JS diverso da Python: {c[0]['nome']} {c[1:]}: py={py[:5]} js={r[:5]}")
+                break
+    # pagine
+    sm = _sitemap()
+    oggi = G.OGGI.isoformat()
+    pagine = [G.US_HUB, G.US_FLS, G.US_TXS] + list(luoghi)
+    attese = 3 + sum(len(v) for v in U["pagine"].values())
+    if len(set(pagine)) != attese:
+        errori.append(f"USA: attese {attese} pagine distinte, trovate {len(set(pagine))}")
+    for p in U["pagine"].values():
+        for x in p:
+            if len(x["suggerimenti"]) < 2:
+                errori.append(f"USA: pagina senza ricerche vere sufficienti: {x['nome']}")
+    for pag in pagine:
+        f = SITO / pag / "index.html"
+        if not f.exists():
+            errori.append(f"USA: pagina mancante {pag}")
+            continue
+        t = f.read_text(encoding="utf-8")
+        vis = G.MON.testo_visibile(t)
+        titolo = unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+        if len(titolo) > 70 or not re.search(r"\d%", titolo):
+            errori.append(f"USA: titolo oltre 70 caratteri o senza aliquota in {pag}: {titolo} ({len(titolo)})")
+        r = re.search(r'<p class="risposta">(.*?)</p>', t, re.S)
+        prima = unescape(r.group(1)) if r else ""
+        prima = re.split(r"(?<!\bSt)(?<=[a-z0-9%)])\.\s+(?=[A-Z])", prima)[0]
+        if not re.search(r"\d+(\.\d+)?%", prima) or not re.search(r"checked on \d{1,2} [A-Z][a-z]+ 20\d\d", prima):
+            errori.append(f"USA: la prima frase non ha aliquota e data del controllo in {pag}")
+        if not re.search(r'<p class="fonte">Official sources?: <a href="https://(floridarevenue\.com|comptroller\.texas\.gov|data\.texas\.gov)', t):
+            errori.append(f"USA: manca la riga della fonte ufficiale in {pag}")
+        if f"{G.URL_SITO}/{pag}" not in sm:
+            errori.append(f"USA: {pag} non nella sitemap")
+        ld = [json.loads(x) for x in re.findall(r'<script type="application/ld\+json">(.*?)</script>', t, re.S)]
+        faq = [x for x in ld if x.get("@type") == "FAQPage"]
+        if len(faq) != 1 or len(faq[0]["mainEntity"]) < 3:
+            errori.append(f"USA: FAQPage mancante o con meno di 3 domande in {pag}")
+        else:
+            vis_q = re.findall(r'<details class="faq"><summary>(.*?)</summary><p>(.*?)</p></details>', t, re.S)
+            ld_q = [(G.escape(q["name"]), G.escape(q["acceptedAnswer"]["text"])) for q in faq[0]["mainEntity"]]
+            if vis_q != ld_q:
+                errori.append(f"USA: FAQ visibili diverse dal JSON-LD in {pag}")
+        if 'data-us' not in t or "usCalcola" not in t:
+            errori.append(f"USA: manca il calcolatore in {pag}")
+        if "Not tax advice." not in vis:
+            errori.append(f"USA: manca l'avviso 'Not tax advice' in {pag}")
+        if G.MON.link_affiliati(t) or "sponsored" in t:
+            errori.append(f"USA: link di affiliazione in {pag} (nessun programma previsto per gli USA)")
+        if pag.startswith(G.US_FLS) and re.search(r"online travel compan|Airbnb|platform", vis):
+            errori.append(f"USA: frase sulle piattaforme in una pagina della Florida (le fonti lette non ne parlano): {pag}")
+        if pag.startswith(G.US_TXS) and pag != G.US_TXS and G.US_FR["tx_hot"]["piattaforme"] not in G.MON.testo_visibile(t).replace("’", "'"):
+            errori.append(f"USA: manca la frase del Comptroller sulle piattaforme in {pag}")
+    # cifre dei titoli ricalcolate qui dai dati (non con le funzioni di genera.py)
+    def fl_tot(c, tdt):
+        s = sum(p["aliquota"] for p in c["surtax"]["parti"] if (not p["dal"] or p["dal"] <= oggi) and (not p["al"] or oggi <= p["al"]))
+        return 6 + s + tdt
+    for tipo, _, L, _, _, extra in voci:
+        t = (SITO / L["pagina"] / "index.html").read_text(encoding="utf-8")
+        titolo = unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+        if tipo == "fl_contea" and len(G.fl_zone(extra["c"])) == 1:
+            c = extra["c"]
+            att = G.us_pct(fl_tot(c, c["aliquota"]))
+        elif tipo == "fl_citta" and len(L["zone"]) == 1:
+            c = extra["c"]
+            zid = (extra.get("zone") or [""])[0]
+            tdt = next((z["aliquota"] for z in G.US_ZONE.get(c["id"], []) if z["id"] == zid), c["aliquota"])
+            att = G.us_pct(fl_tot(c, tdt))
+        elif tipo == "tx_citta":
+            r = extra["r"]
+            att = "17%" if r["nome"] == "Houston" else G.us_pct(6 + float(r["r351"] or 0) * 100 + float(r["r334"] or 0) * 100)
+        else:
+            continue
+        if att not in titolo:
+            errori.append(f"USA: il titolo di {L['pagina']} non ha il totale ricalcolato {att}: {titolo}")
+    # collegamenti in entrata
+    home = (SITO / "index.html").read_text(encoding="utf-8")
+    for x in (f'href="{G.US_HUB}"', f'href="{G.US_FLS}orlando/"', f'href="{G.US_TXS}houston/"'):
+        if x not in home:
+            errori.append(f"USA: la home non ha il link {x}")
+    if f'href="../{G.US_HUB}"' not in (SITO / "about" / "index.html").read_text(encoding="utf-8"):
+        errori.append("USA: la pagina about non cita la sezione")
+    if 'id="lista-dest"' in home and f'href="{G.US_FLS}orlando/"' not in home.split('id="lista-dest"')[1].split("</div>")[0]:
+        errori.append("USA: Orlando manca dall'elenco delle destinazioni della home")
+    return errori
+
+
 def voce_futura_nel_titolo(titolo, attese, oggi):
     fut = [x for x in attese if x[0] > oggi]
     return bool(fut) and G.soldi(fut[0][1], "MXN") in titolo
@@ -1209,9 +1447,13 @@ def main():
     ees = controlla_spagna()
     print(f"Spagna, licenza per affitti turistici (sentenze BOE, {len(G.ES['fonti'])} fonti con impronta e data, conteggi = esempi a mano, nessun dato personale, "
           f"{2 + len(G.ES['regioni']) + len(G.ES['comuni']) - 1} pagine, titoli, prima frase, FAQ, regole regionali): {len(ees)} errori")
+    eus = controlla_usa()
+    print(f"USA, Florida e Texas ({len(G.US['fonti'])} fonti con impronta e data, aliquote = file riscaricati e riletti = {len(ESEMPI_US_FL) + len(ESEMPI_US_TX)} "
+          f"esempi a mano, {len(ESEMPI_US_CALC)} calcoli a mano, JS = Python, {3 + sum(len(v) for v in G.US['pagine'].values())} pagine, titoli, prima frase, "
+          f"FAQ = JSON-LD, sitemap, link): {len(eus)} errori")
     em, im = G.MON.controlla_sito(G.SITO_ID, SITO)  # controllo comune di monetizzazione (monetizzazione.py)
     print(G.MON.riepilogo(G.SITO_ID, im, em))
-    tutti = errori + ej + el + ef + ea + ei + e7 + en + et + ex + ejp + ejt + ebe + esn + ees + em
+    tutti = errori + ej + el + ef + ea + ei + e7 + en + et + ex + ejp + ejt + ebe + esn + ees + eus + em
     for e in tutti[:40]:
         print("  -", e)
     if tutti:
