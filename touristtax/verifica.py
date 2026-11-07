@@ -1203,8 +1203,11 @@ ESEMPI_US_CALC = [
     ("usa/texas/houston/", 0, "2026-11-10", 40, 100, None, 510.00),             # 17 % sulle prime 30 notti
     ("usa/texas/austin/", 0, "2026-11-10", 2, 10, None, 2.20),                  # sotto 15 $: solo le tasse locali (11 %)
     ("usa/texas/austin/", 0, "2026-11-10", 2, 1, None, 0.00),                   # sotto 2 $: nessuna tassa
-    ("usa/texas/san-antonio/", 0, "2026-11-10", 1, 100, [True, True, True], 16.80),  # 6 + 9 + 1,8 (Bexar, spuntata)
-    ("usa/texas/harris-county/", 0, "2026-11-10", 1, 100, None, 17.00),         # 6 + 9 + 2
+    ("usa/texas/san-antonio/", 0, "2026-11-10", 1, 100, None, 16.80),           # 6 + 9 + 1,8 (venue tax di Bexar, accesa di default)
+    ("usa/texas/san-antonio/", 0, "2026-11-10", 1, 100, [True, True, False], 15.00),  # Bexar tolta
+    ("usa/texas/harris-county/", 0, "2026-11-10", 1, 100, None, 10.00),         # 6 + 2 + 2 (esempio del Comptroller), non il 9 % del file
+    ("usa/texas/austin/", 0, "2026-11-10", 1, 100, None, 17.00),                # Bastrop (7 %, porzione marginale): solo nota, non nel calcolo
+    ("usa/florida/brevard-county/", 0, "2027-01-02", 1, 100, None, 11.00),      # Brevard perde tutta la sovrimposta (1 %) dal 1/1/2027
 ]
 US_DOMINI = ("https://floridarevenue.com/", "https://comptroller.texas.gov/", "https://data.texas.gov/", "https://www2.census.gov/")
 
@@ -1374,6 +1377,8 @@ def controlla_usa():
         if pag.startswith(G.US_TXS) and pag != G.US_TXS and G.US_FR["tx_hot"]["piattaforme"] not in G.MON.testo_visibile(t).replace("’", "'"):
             errori.append(f"USA: manca la frase del Comptroller sulle piattaforme in {pag}")
     # cifre dei titoli ricalcolate qui dai dati (non con le funzioni di genera.py)
+    U_K = {r["nome"].lower(): r for r in U["texas"]["righe"] if r["tipo"] == "county"}
+
     def fl_tot(c, tdt):
         s = sum(p["aliquota"] for p in c["surtax"]["parti"] if (not p["dal"] or p["dal"] <= oggi) and (not p["al"] or oggi <= p["al"]))
         return 6 + s + tdt
@@ -1390,11 +1395,26 @@ def controlla_usa():
             att = G.us_pct(fl_tot(c, tdt))
         elif tipo == "tx_citta":
             r = extra["r"]
-            att = "17%" if r["nome"] == "Houston" else G.us_pct(6 + float(r["r351"] or 0) * 100 + float(r["r334"] or 0) * 100)
+            venue = sum(float(U_K[k]["r334"] or 0) * 100 for k in (x.lower() for x in r.get("contee", [])) if k in U_K and k != "harris")
+            att = "17%" if r["nome"] == "Houston" else G.us_pct(6 + float(r["r351"] or 0) * 100 + float(r["r334"] or 0) * 100 + venue)
         else:
             continue
         if att not in titolo:
             errori.append(f"USA: il titolo di {L['pagina']} non ha il totale ricalcolato {att}: {titolo}")
+    # revisione del 7/11/2026: Harris dalla FAQ, anomalia del file segnalata; sovrimposte in scadenza; etichette della Florida
+    vh = G.MON.testo_visibile((SITO / G.US_TXS / "harris-county" / "index.html").read_text(encoding="utf-8"))
+    for frase in ("2% Harris County tax and 2% Harris County - Houston Sports Authority tax", "not consistent with the Comptroller's example", "10%"):
+        if frase not in vh:
+            errori.append(f"USA: Harris County: manca '{frase}'")
+    if "not consistent with the Comptroller's example" not in G.MON.testo_visibile((SITO / G.US_TXS / "index.html").read_text(encoding="utf-8")):
+        errori.append("USA: tabella delle contee del Texas senza la nota sull'anomalia di Harris")
+    vf = G.MON.testo_visibile((SITO / G.US_FLS / "index.html").read_text(encoding="utf-8"))
+    for frase in ("Brevard County: the whole 1%", "Charlotte County: the whole 1%", "Liberty County: 0.5% (of 1.5%)", "Santa Rosa County: 0.5% (of 1%)"):
+        if frase not in vf:
+            errori.append(f"USA: Florida, cambi della sovrimposta: manca '{frase}'")
+    for pag in luoghi:
+        if pag.startswith(G.US_FLS) and "tourist development tax," in G.MON.testo_visibile((SITO / pag / "index.html").read_text(encoding="utf-8")).split("Questions")[0][:600]:
+            errori.append(f"USA: {pag}: etichetta 'tourist development tax' nella risposta invece di 'local option transient rental tax'")
     # collegamenti in entrata
     home = (SITO / "index.html").read_text(encoding="utf-8")
     for x in (f'href="{G.US_HUB}"', f'href="{G.US_FLS}orlando/"', f'href="{G.US_TXS}houston/"'):

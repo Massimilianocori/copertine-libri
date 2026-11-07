@@ -3476,7 +3476,7 @@ def fl_comp(c, aliquota, zona_nome=""):
     for p in c["surtax"]["parti"]:
         comp.append({"label": f"{fl_nome(c)} discretionary sales surtax", "pct": p["aliquota"], "dal": p["dal"], "al": p["al"], "on": True})
     if aliquota > 0:
-        lab = (f"Local option transient rental taxes ({zona_nome})" if c["id"] == "miami-dade" else f"{fl_nome(c)} tourist development tax")
+        lab = (f"Local option transient rental taxes ({zona_nome})" if c["id"] == "miami-dade" else f"{fl_nome(c)} local option transient rental tax")
         comp.append({"label": lab, "pct": aliquota, "on": True})
     return comp
 
@@ -3485,6 +3485,15 @@ def fl_luogo(c, nome=None, pagina=None, zone=None):
     zz = [z for z in fl_zone(c) if zone is None or z[0] in zone]
     return {"nome": nome or fl_nome(c), "gruppo": "Florida", "pagina": pagina or fl_slug(c), "regola": "fl", "fine": US_FINE_DSS,
             "zone": [{"id": i, "nome": n, "comp": fl_comp(c, a, n)} for i, n, a in zz]}
+
+
+def fl_fine_surtax(c):
+    """'the whole 1%' / '0.5% (of 1.5%)': parte della sovrimposta che il modulo dà in scadenza alla fine dell'anno del modulo."""
+    fin = sum(p["aliquota"] for p in c["surtax"]["parti"] if p["al"] and OGGI.isoformat() <= p["al"] <= US_FINE_DSS)
+    if not fin:
+        return ""
+    tot = fl_surtax(c)
+    return f"the whole {us_pct(tot)}" if abs(fin - tot) < 1e-9 else f"{us_pct(fin)} (of {us_pct(tot)})"
 
 
 def fl_surtax(c, d=None):
@@ -3516,6 +3525,20 @@ def tx_contee_righe(r):
     return [US_TXK[k.lower()] for k in r.get("contee", []) if k.lower() in US_TXK and tx_tot_locale(US_TXK[k.lower()]) > 0]
 
 
+def tx_contee_venue(r):
+    """Contee con una venue tax (capitolo 334): nel calcolo della città, casella accesa (revisione del 7/11/2026)."""
+    return [k for k in tx_contee_righe(r) if tx_val(k["r334"]) > 0 and k["nome"] != "Harris"]
+
+
+def tx_contee_nota(r):
+    """Contee con una hotel occupancy tax di contea (capitolo 352): solo una nota, il file non dice se vale dentro la città."""
+    return [k for k in tx_contee_righe(r) if tx_val(k["r351"]) > 0 and k["nome"] != "Harris"]
+
+
+def tx_venue_frase(k):
+    return f"{us_pct(tx_val(k['r334']))} {k['nome']} County venue tax where it applies (the file reports {k['r334']})"
+
+
 def tx_comp_contea(k, on):
     out = []
     if tx_val(k["r351"]) > 0:
@@ -3534,8 +3557,8 @@ def tx_comp(r):
     if r["nome"] == "Houston":
         comp += [{"label": lab, "pct": p, "min": US_TX["soglia_locale"], "on": True} for lab, p in TX_HOUSTON]
     else:
-        for k in tx_contee_righe(r):
-            comp += tx_comp_contea(k, False)
+        for k in tx_contee_venue(r):
+            comp.append({"label": f"{k['nome']} County venue tax (reported)", "pct": tx_val(k["r334"]), "min": US_TX["soglia_locale"], "on": True, "opz": True})
     return comp
 
 
@@ -3544,7 +3567,11 @@ def tx_luogo(r):
 
 
 def tx_luogo_contea(k):
-    comp = [{"label": "Texas state hotel occupancy tax", "pct": US_TX["stato"], "min": US_TX["soglia_stato"], "on": True}] + tx_comp_contea(k, True)
+    comp = [{"label": "Texas state hotel occupancy tax", "pct": US_TX["stato"], "min": US_TX["soglia_stato"], "on": True}]
+    if k["nome"] == "Harris":  # dalla FAQ del Comptroller (esempio di Houston); il 9 % del file non è coerente con l'esempio
+        comp += [{"label": lab, "pct": p, "min": US_TX["soglia_locale"], "on": True} for lab, p in TX_HOUSTON]
+    else:
+        comp += tx_comp_contea(k, True)
     return {"nome": f"{k['nome']} County", "gruppo": "Texas", "pagina": tx_slug_contea(k), "regola": "tx", "zone": [{"id": "", "nome": "", "comp": comp}]}
 
 
@@ -3708,11 +3735,11 @@ def us_tabella(L, z=0, rel=""):
                 nota = f" (part ends {data_lunga(fine[0])})" if fine else ""
         else:
             fonte = "tx_faq" if (k in dict(TX_HOUSTON) or k.startswith("Texas")) else "tx_dati"
-            nota = " (optional: where it applies)" if c.get("opz") else ""
+            nota = " (where it applies)" if c.get("opz") else ""
         righe.append(f"<tr><td>{escape(k)}{escape(nota)}</td><td>{us_pct(p)}</td><td>{us_link(fonte, US_F[fonte]['ente'].split(',')[0])}</td></tr>")
     tot = us_tot_pct(L["zone"][z])
     return (f'<div class="tab sintesi us-tab"><table><thead><tr><th>Tax</th><th>Rate today</th><th>Source</th></tr></thead><tbody>{"".join(righe)}'
-            f'<tr><th>Total{" (without the optional taxes)" if any(c.get("opz") for c in L["zone"][z]["comp"]) else ""}</th><th>{us_pct(tot)}</th><th></th></tr></tbody></table></div>')
+            f'<tr><th>Total</th><th>{us_pct(tot)}</th><th></th></tr></tbody></table></div>')
 
 
 def us_faq_html(faq):
@@ -3742,7 +3769,7 @@ def fl_parti_testo(c, aliquota, zona=""):
     if s:
         parti.append(f"{us_pct(s)} {fl_nome(c)} discretionary sales surtax")
     if aliquota:
-        parti.append(f"{us_pct(aliquota)} " + ("local option transient rental taxes" if c["id"] == "miami-dade" else "tourist development tax"))
+        parti.append(f"{us_pct(aliquota)} " + ("local option transient rental taxes" if c["id"] == "miami-dade" else "local option transient rental tax"))
     return ", ".join(parti[:-1]) + " and " + parti[-1] if len(parti) > 1 else parti[0]
 
 
@@ -3757,10 +3784,10 @@ def fl_risposta(c, nome_luogo, zone=None):
         dove = f" ({zn})" if zn and zone is None else ""
         if a == 0:
             return (f"In {nome_luogo}{dove} a hotel stay pays {us_pct(fl_tot(c, 0))} of the room price: {fl_parti_testo(c, 0)}; the Department lists no "
-                    f"tourist development tax there (0%), {FL_FONTE_FRASE}.")
+                    f"local option transient rental tax there (0%), {FL_FONTE_FRASE}.")
         return f"The hotel tax in {nome_luogo}{dove} is {us_pct(fl_tot(c, a))} of the room price: {fl_parti_testo(c, a)}, {FL_FONTE_FRASE}."
     prima = zz[0]
-    altre = [f"{us_pct(fl_tot(c, a))} in {n[0].lower() + n[1:] if n.startswith('Rest') else n}" + (" (no tourist development tax)" if a == 0 else "")
+    altre = [f"{us_pct(fl_tot(c, a))} in {n[0].lower() + n[1:] if n.startswith('Rest') else n}" + (" (no local option transient rental tax)" if a == 0 else "")
              for _, n, a in zz[1:]]
     return (f"The hotel tax in {nome_luogo} is {us_pct(fl_tot(c, prima[2]))} of the room price in {prima[1]} ({fl_parti_testo(c, prima[2])}), "
             + " and ".join(altre) + f", {FL_FONTE_FRASE}.")
@@ -3782,16 +3809,33 @@ def tx_risposta(r, L):
         return (f"The hotel tax in Houston, Texas is {us_pct(tot)} of the room price: 6% state tax, 7% city tax, 2% Harris County tax and 2% Harris County - "
                 f"Houston Sports Authority tax, according to the Texas Comptroller of Public Accounts (hotel occupancy tax FAQs, checked on "
                 f"{data_lunga(US_F['tx_faq']['controllato_il'])}); the City of Houston reported the same 7% for fiscal year {US_TX['anno_fiscale']}.")
-    s = (f"The hotel tax in {r['nome']}, Texas is {us_pct(tot)} of the room price: {tx_parti_testo(L)}, as reported by the city to the Texas Comptroller "
-         f"for fiscal year {US_TX['anno_fiscale']} (data updated {US_TX_AGG}, checked on {data_lunga(US_F['tx_dati']['controllato_il'])}).")
-    kk = tx_contee_righe(r)
+    vv = tx_contee_venue(r)
+    base = US_TX["stato"] + tx_tot_locale(r)
+    if vv:
+        citta = [c for c in L["zone"][0]["comp"] if c["on"] and "venue tax (reported)" not in c["label"]]
+        s = (f"The hotel tax in {r['nome']}, Texas is {us_pct(base)}–{us_pct(tot)} of the room price: " + tx_parti_testo({"zone": [{"comp": citta}]})
+             + ", plus " + " and ".join(tx_venue_frase(k) for k in vv)
+             + f", as reported to the Texas Comptroller for fiscal year {US_TX['anno_fiscale']} (data updated {US_TX_AGG}, checked on "
+             f"{data_lunga(US_F['tx_dati']['controllato_il'])}).")
+        if any(k["nome"] == "Bexar" for k in vv):
+            s += " Bexar County's own website did not answer when we checked (HTTP 429), so we could not compare the 1.8% with the county's own figure."
+    else:
+        s = (f"The hotel tax in {r['nome']}, Texas is {us_pct(tot)} of the room price: {tx_parti_testo(L)}, as reported by the city to the Texas Comptroller "
+             f"for fiscal year {US_TX['anno_fiscale']} (data updated {US_TX_AGG}, checked on {data_lunga(US_F['tx_dati']['controllato_il'])}).")
+    kk = tx_contee_nota(r)
     if kk:
-        s += (" " + " and ".join(f"{k['nome']} County" for k in kk) + f" also reported a county tax ({', '.join(us_pct(tx_tot_locale(k)) for k in kk)}): "
-              "it is not in this total; add it in the calculator if your hotel bill shows it.")
+        s += (" " + " and ".join(f"{k['nome']} County" for k in kk) + " also reported a county hotel occupancy tax ("
+              + ", ".join(us_pct(tx_val(k["r351"])) for k in kk) + "): the data does not say whether it applies inside the city, so it is not counted.")
     return s
 
 
 def tx_risposta_contea(k):
+    if k["nome"] == "Harris":
+        return (f"In Harris County, Texas the hotel tax is 10% of the room price outside a city with its own tax: 6% state tax, 2% Harris County tax and 2% "
+                f"Harris County - Houston Sports Authority tax, as in the Texas Comptroller's example for Houston (hotel occupancy tax FAQs, checked on "
+                f"{data_lunga(US_F['tx_faq']['controllato_il'])}); inside a city the city's tax is added (Houston: 7%, 17% in all). The Comptroller's "
+                f"dataset reports {us_pct(tx_val(k['r351']))} and {us_pct(tx_val(k['r334']))} for Harris County for fiscal year {US_TX['anno_fiscale']}, "
+                "which is not consistent with the Comptroller's example.")
     parti = []
     if tx_val(k["r351"]):
         parti.append(f"a {us_pct(tx_val(k['r351']))} county hotel occupancy tax")
@@ -3800,8 +3844,6 @@ def tx_risposta_contea(k):
     s = (f"{k['nome']} County, Texas reported " + " and ".join(parti) + f" to the Texas Comptroller for fiscal year {US_TX['anno_fiscale']} (data updated "
          f"{US_TX_AGG}, checked on {data_lunga(US_F['tx_dati']['controllato_il'])}), on top of the 6% state hotel occupancy tax: "
          f"{us_pct(US_TX['stato'] + tx_tot_locale(k))} in all where the county taxes apply; a hotel inside a city also pays that city's hotel tax.")
-    if k["nome"] == "Harris":
-        s += " For a hotel in Houston the Comptroller's own example counts 2% Harris County tax and 2% Harris County - Houston Sports Authority tax (17% in all)."
     return s
 
 
@@ -3817,8 +3859,8 @@ def fl_faq(c, nome_luogo, sugg, zone=None, citta=False, nome_q=None):
     if us_ha(sugg + us_sugg("florida hotel tax"), r"taxes and fees|breakdown|tourist development tax|occupancy tax|lodging tax|room tax|tourism tax"):
         faq.append((f"What taxes are on a hotel bill in {nome_q}?",
                     "Three kinds, all as a percentage of the room price: the 6% Florida state sales tax, the county discretionary sales surtax "
-                    f"({us_pct(fl_surtax(c))} in {fl_nome(c)} in {US_FL['dss_anno']}) and the local option transient rental tax, often called the tourist "
-                    "development tax: " + ("; ".join(f"{us_pct(a)} ({n})" for _, n, a in zz) if any(n for _, n, _ in zz) else f"{us_pct(zz[0][2])} in {fl_nome(c)}") + ". "
+                    f"({us_pct(fl_surtax(c))} in {fl_nome(c)} in {US_FL['dss_anno']}) and the local option transient rental tax, which according to form "
+                    "DR-15TDT includes the tourist development tax, convention development tax, tourist impact tax and municipal resort tax: " + ("; ".join(f"{us_pct(a)} ({n})" for _, n, a in zz) if any(n for _, n, _ in zz) else f"{us_pct(zz[0][2])} in {fl_nome(c)}") + ". "
                     "The Department of Revenue's form says the local tax is in addition to the 6% state sales tax and any applicable discretionary sales surtax."))
     if us_ha(sugg, r"resort tax"):
         faq.append(("What is the Miami Beach resort tax?",
@@ -3933,9 +3975,15 @@ def us_titolo(tipo, L, extra):
         tot = us_tot_pct(z0)
         if r["nome"] == "Houston":
             return f"Houston hotel tax: {us_pct(tot)} (state, city, county, sports authority)"
+        base = US_TX["stato"] + tx_tot_locale(r)
+        if tx_contee_venue(r):
+            t = f"{r['nome']} hotel tax: {us_pct(base)}–{us_pct(tot)} (state, city, county venue tax)"
+            return t if len(t) <= 70 else f"{r['nome']} hotel tax: {us_pct(base)}–{us_pct(tot)}"
         t = f"{r['nome']} hotel tax: {us_pct(tot)} ({us_pct(US_TX['stato'])} state + {us_pct(tx_tot_locale(r))} city), calculator"
         return t if len(t) <= 70 else f"{r['nome']} hotel tax: {us_pct(tot)} (6% state + {us_pct(tx_tot_locale(r))} city)"
     k = extra["k"]
+    if k["nome"] == "Harris":
+        return "Harris County hotel tax (Texas): 2% county + 2% sports authority (10%)"
     parti = " + ".join(x for x in ((f"{us_pct(tx_val(k['r351']))} county" if tx_val(k["r351"]) else ""),
                                    (f"{us_pct(tx_val(k['r334']))} venue tax" if tx_val(k["r334"]) else "")) if x)
     return f"{k['nome']} County hotel tax (Texas): {parti}, reported"
@@ -3952,11 +4000,12 @@ def us_note_fl(c, zona_note=True):
     elif chi == "DOR":
         li.append(f"Who collects it: in {fl_nome(c)} the local option transient rental tax is reported and paid to the Florida Department of Revenue, "
                   "with the 6% state sales tax and the surtax (form DR-15TDT).")
+    li.append(f"What the local rate covers: form DR-15TDT says “{US_FR['fl_tdt']['include']}” The rate shown is the total for the county.")
     li.append(f"Cities and changes: form DR-15TDT says “{US_FR['fl_tdt']['ambito']}” and “{US_FR['fl_tdt']['non_tutte']}”")
     li.append("The surtax applies to transient rentals, and its $5,000 cap does not apply to them (Florida Department of Revenue, Discretionary Sales Surtax page).")
-    fini = sorted({p["al"] for p in c["surtax"]["parti"] if p["al"] and p["al"] <= US_FINE_DSS and p["al"] >= OGGI.isoformat()})
-    if fini:
-        li.append(f"Surtax change: according to the {US_FL['dss_anno']} form, part of the {fl_nome(c)} surtax ends on {data_lunga(fini[0])}. "
+    fine = fl_fine_surtax(c)
+    if fine:
+        li.append(f"Surtax change: according to the {US_FL['dss_anno']} form, {fine} of the {fl_nome(c)} surtax ends on {data_lunga(US_FINE_DSS)}. "
                   "The Department publishes the next year's form every November; we update this page when it does.")
     return "<ul>" + "".join(f"<li>{escape(x)}</li>" for x in li) + "</ul>"
 
@@ -4020,14 +4069,14 @@ def pagina_us_luogo(tipo, chiave_, L, nome_luogo, sugg, extra):
             r = extra["r"]
             risp = tx_risposta(r, L)
             faq = tx_faq(r, L, sugg)
-            kk = tx_contee_righe(r) if r["nome"] != "Houston" else []
+            kk = tx_contee_nota(r) if r["nome"] != "Houston" else []
             cn = r.get("contee", [])
             dove = (f"<p>{escape(r['nome'])} is in " + (f"{cn[0]} County" if len(cn) == 1 else ", ".join(cn[:-1]) + f" and {cn[-1]} counties")
                     + " (2020 Census place-by-county file)."
                     + (" " + " ".join(f"{escape(k['nome'])} County reported " + " and ".join(x for x in (
                         (f"a county hotel occupancy tax of {us_pct(tx_val(k['r351']))}" if tx_val(k['r351']) else ""),
                         (f"a venue tax of {us_pct(tx_val(k['r334']))}" if tx_val(k['r334']) else "")) if x) + "." for k in kk)
-                       + " The data does not say in which parts of the county a county tax applies: tick it in the calculator if your bill shows it." if kk else "")
+                       + " The data does not say whether a county hotel occupancy tax applies inside the city, so it is not in the calculator." if kk else "")
                     + "</p>") if r.get("contee") else ""
             fonti = ["tx_faq", "tx_dati"] if r["nome"] == "Houston" else ["tx_dati", "tx_hot"]
         else:
@@ -4037,11 +4086,20 @@ def pagina_us_luogo(tipo, chiave_, L, nome_luogo, sugg, extra):
             citta = sorted((x for x in US_TXR if x["tipo"] != "county" and k["nome"] in x.get("contee", []) and tx_tot_locale(x) > 0), key=lambda x: x["nome"])
             dove = ""
             if citta:
+                if k["nome"] == "Harris":
+                    agg, spiega = 4.0, ("“With county taxes” adds, for Houston, the 2% Harris County tax and the 2% Harris County - Houston Sports Authority "
+                                        "tax of the Comptroller's example; the example covers Houston only, so the column is empty for the other cities.")
+                elif tx_val(k["r334"]):
+                    agg, spiega = tx_val(k["r334"]), (f"“With county taxes” adds the {us_pct(tx_val(k['r334']))} county venue tax, as on the city pages; "
+                                                      "not the county hotel occupancy tax, because the data does not say whether it applies inside cities.")
+                else:
+                    agg, spiega = 0.0, ("“With county taxes” equals city + state: the data does not say whether the county hotel occupancy tax applies "
+                                        "inside cities, so the city pages do not count it.")
                 righe = "".join(f"<tr><td>{escape(x['nome'])}</td><td>{us_pct(tx_val(x['r351']))}</td><td>{us_pct(tx_val(x['r334'])) if tx_val(x['r334']) else '–'}</td>"
-                                f"<td>{us_pct(US_TX['stato'] + tx_tot_locale(x))}</td></tr>" for x in citta)
+                                f"<td>{us_pct(US_TX['stato'] + tx_tot_locale(x))}</td><td>{'–' if k['nome'] == 'Harris' and x['nome'] != 'Houston' else us_pct(US_TX['stato'] + tx_tot_locale(x) + agg)}</td></tr>" for x in citta)
                 dove = (f"<h2>Cities in {escape(k['nome'])} County with their own hotel tax</h2><p>Rates reported by each city for fiscal year {US_TX['anno_fiscale']}; "
-                        "the total adds the 6% state tax, not the county taxes. Cities from the 2020 Census place-by-county file.</p>"
-                        f'<div class="tab sintesi us-tab"><table><thead><tr><th>City</th><th>City tax</th><th>Venue tax</th><th>City + state</th></tr></thead><tbody>{righe}</tbody></table></div>')
+                        f"cities from the 2020 Census place-by-county file. {escape(spiega)}</p>"
+                        f'<div class="tab sintesi us-tab"><table><thead><tr><th>City</th><th>City tax</th><th>Venue tax</th><th>City + state</th><th>With county taxes</th></tr></thead><tbody>{righe}</tbody></table></div>')
             fonti = ["tx_dati", "tx_hot"] + (["tx_faq"] if k["nome"] == "Harris" else [])
         note = us_note_tx()
         elenco = ["tx_hot", "tx_faq", "tx_report", "tx_dati", "tx_storico", "census"]
@@ -4090,7 +4148,7 @@ def fl_risposta_stato():
     con, aa, tt, ss = fl_stat()
     return (f"Florida charges its 6% state sales tax on hotel rooms and other rentals of six months or less, plus the county discretionary sales surtax "
             f"({us_pct(ss[0])} to {us_pct(ss[-1])} in {US_FL['dss_anno']}) and, in {len(con)} of the 67 counties, a local option transient rental tax "
-            f"(tourist development tax) of {us_pct(aa[0])} to {us_pct(aa[-1])}: {us_pct(tt[0])} to {us_pct(tt[-1])} of the room price in total, "
+            f"(which includes the tourist development tax) of {us_pct(aa[0])} to {us_pct(aa[-1])}: {us_pct(tt[0])} to {us_pct(tt[-1])} of the room price in total, "
             f"{FL_FONTE_FRASE}.")
 
 
@@ -4133,7 +4191,7 @@ def pagina_us_florida():
         righe.append(f"<tr><td>{link}</td><td>{tdt}</td><td>{us_pct(fl_surtax(c))}</td><td>{tot}</td><td>{escape(c['riscossa_da'])}</td></tr>")
     note = "".join(f"<li>({k}) {escape(v)}</li>" for k, v in US_FL["note_tdt"].items())
     luoghi = [fl_luogo(c) for c in sorted(US_FL["contee"], key=lambda c: c["nome"])]
-    fini = sorted({(p["al"], fl_nome(c)) for c in US_FL["contee"] for p in c["surtax"]["parti"] if p["al"] == US_FINE_DSS})
+    fini = [f"{fl_nome(c)}: {fl_fine_surtax(c)}" for c in sorted(US_FL["contee"], key=lambda c: c["nome"]) if fl_fine_surtax(c)]
     faq_html, ld = us_faq_html(fl_faq_stato())
     citta = [(L, sub) for L, sub in us_voci_stato("fl") if not L["pagina"].endswith("-county/")]
     corpo = f"""<section class="hero">{h1_diviso(f"Florida hotel tax {ANNO}: every county, with a calculator")}
@@ -4147,7 +4205,7 @@ def pagina_us_florida():
 <h2>Cities</h2>
 {us_griglia(rel, citta)}
 <h2>Hotel tax by county ({US_FL['dss_anno']})</h2>
-<p>Tourist tax = local option transient rental tax (tourist development tax) from form DR-15TDT; surtax = discretionary sales surtax from form DR-15DSS; total = both plus the 6% state sales tax. “Collected by”: County = the county collects its tourist tax itself; DOR = the Florida Department of Revenue collects it.</p>
+<p>Tourist tax = local option transient rental tax from form DR-15TDT ({escape(US_FR['fl_tdt']['include'][0].lower() + US_FR['fl_tdt']['include'][1:])}); surtax = discretionary sales surtax from form DR-15DSS; total = both plus the 6% state sales tax. “Collected by”: County = the county collects its tourist tax itself; DOR = the Florida Department of Revenue collects it.</p>
 <div class="cerca-box">{ico("search")}<input class="cerca" type="search" placeholder="Search a county" data-filtro="fl-contee" aria-label="Search counties"></div>
 <div class="tab sintesi us-tab"><table><thead><tr><th>County</th><th>Tourist tax</th><th>Surtax</th><th>Total</th><th>Collected by</th></tr></thead><tbody id="fl-contee">{"".join(righe)}</tbody></table></div>
 <p class="small">Notes of form DR-15TDT:</p><ul class="small">{note}</ul>
@@ -4159,7 +4217,7 @@ def pagina_us_florida():
 <li>Cities: in Miami-Dade County the form gives 7% for Miami Beach and 4% for Surfside and Bal Harbour; {escape(US_FR['fl_local']['resort'][0].lower() + US_FR['fl_local']['resort'][1:])} (municipal resort tax, Local Option Taxes page).</li>
 <li>{escape(US_FR['fl_tdt']['non_tutte'])} {escape(US_FR['fl_tdt']['verifica'])}</li></ul>
 <h2>Surtax changes</h2>
-<p>According to the {US_FL['dss_anno']} form, these surtaxes end on {data_lunga(US_FINE_DSS)}: {escape(", ".join(f"{n}" for _, n in fini) or "none")}. The Department publishes the form for the next year every November; we update the rates when it does.</p>
+<p>According to the {US_FL['dss_anno']} form, these surtaxes end on {data_lunga(US_FINE_DSS)}: {escape("; ".join(fini) or "none")}. The Department publishes the form for the next year every November; we update the rates when it does.</p>
 <h2>Questions</h2>
 {faq_html}
 <h2>Official sources</h2>
@@ -4222,7 +4280,9 @@ def pagina_us_texas():
     righe_k = []
     for k in sorted(kk, key=lambda r: r["nome"]):
         nome = f'<a href="{rel}{tx_slug_contea(k)}">{escape(k["nome"])} County</a>' if tx_slug_contea(k) in pagine_tx else escape(k["nome"] + " County")
-        righe_k.append(f"<tr><td>{nome}</td><td>{us_pct(tx_val(k['r351'])) if tx_val(k['r351']) else '–'}</td><td>{us_pct(tx_val(k['r334'])) if tx_val(k['r334']) else '–'}</td></tr>")
+        nota_k = (" <span class=\"small\">(reported in the dataset, not consistent with the Comptroller's example for Houston: 2% Harris County tax and "
+                  "2% Harris County - Houston Sports Authority tax)</span>" if k["nome"] == "Harris" else "")
+        righe_k.append(f"<tr><td>{nome}{nota_k}</td><td>{us_pct(tx_val(k['r351'])) if tx_val(k['r351']) else '–'}</td><td>{us_pct(tx_val(k['r334'])) if tx_val(k['r334']) else '–'}</td></tr>")
     luoghi = [L for t, _, L, _, _, _ in us_pagine() if t.startswith("tx")]
     faq_html, ld = us_faq_html(tx_faq_stato())
     corpo = f"""<section class="hero">{h1_diviso("Texas hotel occupancy tax: 6% state + local rates by city")}
