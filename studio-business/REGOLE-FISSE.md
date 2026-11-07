@@ -141,3 +141,5 @@ Massimiliano: "io voglio sapere solo quando porti cose buone". Quindi i messaggi
 4. **Dall'idea al sito senza aspettare:** idee ≥ 8 o siti/sezioni con voto ≥ 7 e ≥ 5.000 €/anno centrali → verificatore indipendente → in cima alla coda → costruttore → revisore con un modello diverso → pubblicazione appena il sito non è stato pubblicato quel giorno → IndexNow.
 5. **Espandere per primo ciò che cresce** (Search Console e GoatCounter) e aggirare ciò che non cresce (congelare o spostare dentro un sito che cresce).
 6. **A Massimiliano solo cose buone** e le azioni che può fare solo lui, con il guadagno che sbloccano.
+
+**Aggiunta del 7/11/2026 (Massimiliano: "gira e rigira vai sempre a finire nelle stesse nicchie"):** regola anti-ancoraggio. Le ricerche non partono più dai nostri siti o modelli: partono da fonti ESTERNE di ciò che cresce o vende adesso (classifiche dei marketplace, tendenze, reti di affiliazione con le commissioni più alte, regole nuove con data, domande nei forum). Ogni idea cita la fonte esterna da cui è nata. Il brief comune dei ricercatori è in `studio-business/intelaiatura/BRIEF-RICERCA.md` (le routine lo usano al posto del vecchio).
