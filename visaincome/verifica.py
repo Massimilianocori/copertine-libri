@@ -4200,7 +4200,7 @@ def controlla_h1b(online=True):
     if occ != G.OCC_H1:
         errori.append(f"31: occupazioni con pagina {len(G.OCC_H1)} diverse dal ricalcolo ({len(occ)})")
     top = {s: [a for a, _ in sorted(D["impieghi"][s].items(), key=lambda x: (-x[1], x[0]))][:60] for s in occ}
-    cop = {s: [a for a in top[s] if D["impieghi"][s][a] >= 1000 and (S["soc"][s][pos[a]] or [None] * 6)[5] == 1 and soglie(s, a)][:10] for s in occ}
+    cop = {s: [a for a in top[s] if D["impieghi"][s][a] >= 5000 and (S["soc"][s][pos[a]] or [None] * 6)[5] == 1 and soglie(s, a)][:10] for s in occ}
     if cop != G.COPPIE_H1:
         errori.append("31: coppie occupazione × area diverse dal ricalcolo")
     # 3. pagine attese, sitemap, titoli, JSON-LD, avviso, niente affiliazioni
@@ -4323,7 +4323,8 @@ def controlla_h1b(online=True):
         if righe != [[f"Level {l}", str(L["pesi"][l]), _n29(c[l]), G.pct_h1(L["stima_casuale"]), G.pct_h1(L["stima_dhs"][l])] for l in ("I", "II", "III", "IV")]:
             errori.append("31: tabella dei pesi dell'indice diversa dai dati")
         stato = _righe31(main, "t-stato-h1b")
-        if not stato or [r[1] for r in stato] != ["In force", "In force", "Proposal", "Proposal"] or "103,265" not in stato[2][0] or "17th to the 34th" not in stato[3][2]:
+        if (not stato or [r[1] for r in stato] != ["In force", "In force", "Proposal", "Proposal"] or "103,265" not in stato[2][0] or "17th to the 34th" not in stato[3][2]
+                or "Proclamation 10973" not in stato[1][2] or "outside the United States" not in stato[1][2] or "national interest" not in stato[1][2]):
             errori.append("31: tabella dello stato delle regole: proposta presentata come in vigore o dati mancanti")
         for x in ("lottery-odds/", f"../{G.SEZ_OPT}"):
             if f'href="{x}"' not in main:

@@ -116,7 +116,7 @@ LETTURE = {
     "senza_reimmissione": {"valore": True, "fonte": "pdf:regola",
                            "frammento": "Since unique beneficiaries can be selected only once, the selection process is conducted without replacement."},
     "due_fasi": {"valore": True, "fonte": "pdf:regola",
-                 "frammento": "The final rule will maintain this twostage selection process to keep a higher chance of beneficiaries with a qualifying U.S. master’s degree or higher of being selected."},
+                 "frammento": "The final rule will maintain this two-stage selection process to keep a higher chance of beneficiaries with a qualifying U.S. master’s degree or higher of being selected."},
     "fasi": {"valore": True, "fonte": "pdf:regola",
              "frammento": "USCIS first selects from a pool of all unique beneficiaries, including those eligible for the advanced degree exemption. USCIS then selects "
                           "from the remaining unique beneficiaries a sufficient number projected as needed to reach the advanced degree exemption."},
@@ -147,6 +147,11 @@ LETTURE = {
                   "frammento": "is restricted, except for those aliens whose petitions are accompanied or supplemented by a payment of $100,000"},
     "pagamento_fino": {"valore": "2027-09-21", "fonte": "pdf:proclamazione",
                        "frammento": "to extend the 2025 Proclamation for an additional 12 months, until 12:00 a.m. eastern daylight time on September 21, 2027."},
+    "proclamazione_2025": {"valore": "2025-09-19", "fonte": "pdf:proclamazione",
+                           "frammento": "On September 19, 2025, Proclamation 10973 (Restriction on Entry of Certain Nonimmigrant Workers) (2025 Proclamation), was issued"},
+    "eccezioni": {"valore": True, "fonte": "pdf:proclamazione",
+                  "frammento": "shall not apply to any individual alien, all aliens working for a company, or all aliens working in an industry, if the Secretary of Homeland "
+                               "Security determines, in the Secretary’s discretion, that the hiring of such aliens to be employed as H–1B specialty occupation workers is in the national interest"},
     "pagamento_fuori": {"valore": True, "fonte": "pdf:proclamazione",
                         "frammento": "The Secretary of Homeland Security shall restrict decisions on petitions not accompanied by a $100,000 payment for H–1B specialty "
                                      "occupation workers under section 101(a)(15)(H)(i)(b) of the INA, who are currently outside the United States"},
@@ -206,11 +211,18 @@ def sha(b):
     return hashlib.sha256(b).hexdigest()
 
 
+# pdftotext perde il trattino di alcune parole spezzate a fine riga: si rimettono quelle citate in pagina
+TRATTINI = {"twostage": "two-stage"}
+
+
 def pdf_testo(b):
     with tempfile.TemporaryDirectory() as tmp:
         f = Path(tmp) / "doc.pdf"
         f.write_bytes(b)
-        return norm(subprocess.run(["pdftotext", str(f), "-"], capture_output=True, text=True, timeout=180).stdout)
+        t = norm(subprocess.run(["pdftotext", str(f), "-"], capture_output=True, text=True, timeout=180).stdout)
+    for x, y in TRATTINI.items():
+        t = t.replace(x, y)
+    return t
 
 
 def testo_html(b):

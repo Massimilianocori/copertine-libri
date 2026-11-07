@@ -13281,7 +13281,7 @@ POS_H1 = {a: i for i, a in enumerate(H1S["aree"])}
 AREE_H1 = H1["aree"]
 OCC_TUTTE_H1 = H1["occupazioni"]
 SOGLIA_AREE_H1 = 20      # aree con impieghi pubblicati dal BLS perché un'occupazione abbia la sua pagina
-SOGLIA_POSTI_H1 = 1000   # posti nell'area (OEWS maggio 2025) per una pagina occupazione × area
+SOGLIA_POSTI_H1 = 5000   # posti nell'area (OEWS maggio 2025) per una pagina occupazione × area (revisione del 7/11/2026: prima 1.000, 260 pagine)
 MAX_COPPIE_H1 = 10       # pagine occupazione × area per occupazione, al massimo
 N_AREE_OCC_H1 = 60       # aree nella tabella della pagina dell'occupazione
 ANNO_SAL_H1 = "2026-27"
@@ -13290,6 +13290,12 @@ NOMI_BREVI_H1 = {"15-1221": "Computer Research Scientists", "15-1244": "Network 
                  "15-1255": "Web and Interface Designers", "17-1011": "Architects", "17-2031": "Biomedical Engineers", "17-2072": "Electronics Engineers",
                  "17-2111": "Health and Safety Engineers", "15-1299": "Other Computer Occupations", "17-2151": "Mining and Geological Engineers", "17-2121": "Marine Engineers"}
 FAQ_H1 = {}   # percorso -> [(chiave dell'autocompletamento, suggerimento, domanda)] (controllo 31)
+# Contea della prima città del nome dell'area: scelta di partenza del calcolatore (scritta a mano, 7/11/2026; controllo: la contea è in Geography.csv con quell'area)
+CONTEA_H1 = {"12060": ("GA", "Fulton County"), "12420": ("TX", "Travis County"), "12580": ("MD", "Baltimore city"), "14460": ("MA", "Suffolk County"),
+             "16980": ("IL", "Cook County"), "19100": ("TX", "Dallas County"), "19740": ("CO", "Denver County"), "19820": ("MI", "Wayne County"),
+             "26420": ("TX", "Harris County"), "31080": ("CA", "Los Angeles County"), "33100": ("FL", "Miami-Dade County"), "33460": ("MN", "Hennepin County"),
+             "35620": ("NY", "New York County"), "37980": ("PA", "Philadelphia County"), "38060": ("AZ", "Maricopa County"), "41860": ("CA", "San Francisco County"),
+             "41940": ("CA", "Santa Clara County"), "42660": ("WA", "King County"), "47900": ("DC", "District of Columbia")}
 
 
 def riga_h1(s, a):
@@ -13490,15 +13496,16 @@ def calc_h1(rel, soc=None, area=None, coppie=None):
         ordine = sorted(OCC_TUTTE_H1, key=lambda s: nome_occ_h1(s).lower())
         opz = "".join(f'<option value="{s}"{" selected" if s == "15-1252" else ""}>{escape(nome_occ_h1(s))} ({s})</option>' for s in ordine)
         nota_occ = f"{len(OCC_TUTTE_H1)} occupations"
-    stato = AREE_H1[area]["stati"][0] if area else "CA"
+    area = area or "41940"
+    stato, contea = CONTEA_H1.get(area, (AREE_H1[area]["stati"][0], ""))
     contee = H1["contee"]
     opz_st = "".join(f'<option value="{st}"{" selected" if st == stato else ""}>{escape(contee[st]["nome"].title() if contee[st]["nome"].isupper() else contee[st]["nome"])}</option>' for st in sorted(contee, key=lambda x: contee[x]["nome"].lower()))
-    k = {"base": f"{rel}{SEZ_H1}data/", "rel": rel, "ore": ORE_H1, "pesi": LH["pesi"], "stima": LH["stima_dhs"], "area": area or "41940",
+    k = {"base": f"{rel}{SEZ_H1}data/", "rel": rel, "ore": ORE_H1, "pesi": LH["pesi"], "stima": LH["stima_dhs"], "area": area, "contea": contea,
          "alto": LH["alto"]["anno"], "pagine": coppie or {}}
     campi = (f'<label class="pieno"><span class="lt">{ico("list")}Occupation (SOC code) <span class="small">· {nota_occ}</span></span><select name="soc">{opz}</select></label>'
              f'<label><span class="lt">{ico("globe")}State of the job</span><select name="stato">{opz_st}</select></label>'
              f'<label><span class="lt">{ico("globe")}County or town of the job</span><select name="contea"><option value="">Loading…</option></select></label>'
-             f'<label><span class="lt">{ico("calc")}Offered salary (USD)</span><input type="number" name="salario" min="0" step="1" inputmode="numeric" placeholder="e.g. 140000"></label>'
+             f'<label><span class="lt">{ico("calc")}Offered salary (USD)</span><input type="number" name="salario" min="0" step="0.01" inputmode="decimal" placeholder="e.g. 140000"></label>'
              f'<label><span class="lt">{ico("calendar")}Per</span><select name="per"><option value="anno">year</option><option value="ora">hour</option></select></label>')
     return (f'<section class="card calc" data-h1b data-k=\'{json.dumps(k, separators=(",", ":"))}\' aria-label="H-1B wage level calculator">'
             f'<div class="calc-grid"><form autocomplete="off"><h2 style="margin:0 0 14px;font-size:1.2rem">{ico("calc")} H-1B wage level and lottery entries</h2><div class="campi">{campi}</div>'
@@ -13523,7 +13530,7 @@ function carica(u){if(!cache[u])cache[u]=fetch(u).then(function(r){if(!r.ok)thro
 document.querySelectorAll('[data-h1b]').forEach(function(box){
  var k=JSON.parse(box.getAttribute('data-k'));var f=box.querySelector('form');var out=box.querySelector('[data-out]');var A=null;
  function riempi(st,area){var c=A.contee[st];if(!c)return;f.contea.innerHTML=c[1].map(function(x,i){return '<option value="'+i+'">'+x[0].replace(/[&<]/g,'')+'</option>';}).join('');
-  if(area){for(var i=0;i<c[1].length;i++)if(c[1][i][1]===area){f.contea.value=String(i);break;}}}
+  if(area){var j=-1;for(var i=0;i<c[1].length;i++)if(c[1][i][1]===area){if(j<0)j=i;if(c[1][i][0]===k.contea){j=i;break;}}if(j>=0)f.contea.value=String(j);}}
  function go(){if(!A)return;var st=f.stato.value,c=A.contee[st];if(!c){out.innerHTML='';return;}var x=c[1][+f.contea.value||0];if(!x){out.innerHTML='';return;}
   var area=x[1],soc=f.soc.value,nomeA=A.aree[area][0];
   carica(k.base+'soc/'+soc+'.json').then(function(D){
@@ -13531,13 +13538,13 @@ document.querySelectorAll('[data-h1b]').forEach(function(box){
    if(!r){out.innerHTML='<div class="esito warn">The OFLC file has no wage for this occupation in '+nomeA+'.</div>';return;}
    var s=soglie(r,et,k.ore);
    h+='<p class="r-lab">'+D.t+' ('+soc+') in</p><p style="margin:2px 0 8px;font-weight:700">'+nomeA+'</p>';
-   if(!s){out.innerHTML=h+'<div class="esito warn">OFLC publishes no Level I to IV wages for this occupation in this area'+(et==='h'?': the wage is at or above '+fmt(k.alto)+' a year':'')+'. The rule says that the registrant then selects the level that corresponds to the requirements of the position, using the Department of Labor prevailing wage guidance.</div>';return;}
+   if(!s){var uno=r[4]!==null&&r[4]!==undefined?annuo(r[4],et,k.ore):null;out.innerHTML=h+'<div class="esito warn">OFLC publishes a single prevailing wage for all four levels of this occupation in this area'+(et==='h'?' ('+fmt(k.alto)+' a year)':(uno?' ('+fmt(uno)+' a year)':''))+', so this calculator cannot show a level. Ask the Department of Labor or an immigration lawyer which level to select.</div>';return;}
    var sal=annuale(f.salario.value,f.per.value,k.ore);
    if(sal!==null){var l=livelloPer(r,et,k.ore,f.salario.value,f.per.value);sal=Math.round(sal);
     if(l===0)h+='<div class="esito warn">'+(f.per.value==='ora'?'$'+f.salario.value+' an hour':fmt(sal)+' a year')+' is below Level I ('+fmt(s[0])+' a year). An H-1B employer must pay at least the prevailing wage; if that wage comes from another legitimate source, the registration counts as Level I (1 entry).</div>';
     else{h+='<p class="r-lab">Wage level</p><p class="tot">Level '+ROM[l-1]+' <span>'+k.pesi[ROM[l-1]]+' lottery entr'+(k.pesi[ROM[l-1]]===1?'y':'ies')+'</span></p>'+
      '<p class="r-anno">'+(f.per.value==='ora'?'$'+f.salario.value+' an hour (about '+fmt(sal)+' a year at '+k.ore+' hours)':fmt(sal)+' a year')+' is at or above Level '+ROM[l-1]+' ('+fmt(s[l-1])+(f.per.value==='ora'&&et!=='a'?', $'+(r[l-1]/100).toFixed(2)+' an hour':'')+')'+(l<4?' and below Level '+ROM[l]+' ('+fmt(s[l])+')':'')+'.</p>';
-     if(l<4)h+='<p class="small">'+(f.per.value==='ora'&&et!=='a'?'$'+((r[l]-Math.round(parseFloat(f.salario.value)*100))/100).toFixed(2)+' more an hour':fmt(Math.max(1,Math.ceil(s[l]-parseFloat(f.salario.value))))+' more a year')+' would reach Level '+ROM[l]+' ('+k.pesi[ROM[l]]+' entries).</p>';
+     if(l<4)h+='<p class="small">'+(f.per.value==='ora'&&et!=='a'?'$'+((r[l]-Math.round(parseFloat(f.salario.value)*100))/100).toFixed(2)+' more an hour':fmt(Math.max(1,s[l]-sal))+' more a year')+' would reach Level '+ROM[l]+' ('+k.pesi[ROM[l]]+' entries).</p>';
      h+='<p class="small">DHS estimated a '+k.stima[ROM[l-1]]+'% chance of selection at this level for its assumed pool (final rule); the real chance depends on how many people register at each level.</p>';}}
    else h+='<p class="small">Enter the offered salary to see the level.</p>';
    h+='<ul class="r-righe">'+s.map(function(v,i){return '<li><span class="r-lab">Level '+ROM[i]+' · '+k.pesi[ROM[i]]+' entr'+(i===0?'y':'ies')+'</span><b>'+fmt(v)+' a year</b></li>';}).join('')+'</ul>';
@@ -13599,7 +13606,9 @@ def tabella_stato_h1():
         ("Weighted lottery by wage level (1 to 4 entries)", '<span class="stato vigore">In force</span>',
          f'since {data_lunga(r["effective_on"])}; used for the FY 2027 registration', link_fr_h1("regola", True)),
         (f"{usd(LH['pagamento'])} payment for certain H-1B petitions", '<span class="stato vigore">In force</span>',
-         f'proclamation extended until {data_lunga(LH["pagamento_fino"])}; it restricts decisions on petitions without the payment for workers {cita_h1("pagamento_fuori").split("who are ")[-1].rstrip("”")}', link_fr_h1("proclamazione", True)),
+         f'paid with the employer\'s petition for new H-1B workers outside the United States: restriction on entry of Proclamation 10973 of {data_lunga(LH["proclamazione_2025"])}, '
+         f'extended until {data_lunga(LH["pagamento_fino"])}; DHS can exempt an individual, all workers of a company or all workers in an industry when it finds their hiring '
+         f'“is in the national interest”', link_fr_h1("proclamazione", True)),
         (f"{usd(LH['tassa_proposta'])} fee on H-1B cap-subject petitions", '<span class="stato proposta">Proposal</span>',
          f'not in force; comments closed on {data_lunga(t["comments_close_on"])}', link_fr_h1("tassa", True)),
         ("Higher OEWS wage levels (DOL)", '<span class="stato proposta">Proposal</span>',
@@ -13948,6 +13957,12 @@ def controlli_h1b():
             sg = soglie_h1(s, a)
             if sg != sorted(sg) or len(set(sg)) != 4:
                 errori.append(f"h1b: soglie non crescenti per {s} {a}: {sg}")
+    for a, (st, c) in CONTEA_H1.items():
+        if [c, a] not in H1["contee"].get(st, {}).get("voci", []):
+            errori.append(f"h1b: contea principale {c} ({st}) non appartiene all'area {a} in Geography.csv")
+    for a in {x for v in COPPIE_H1.values() for x in v}:
+        if a not in CONTEA_H1:
+            errori.append(f"h1b: area {a} con pagine ma senza contea principale in CONTEA_H1")
     for k, d in FRH.items():
         if not d.get("sha256_pdf"):
             errori.append(f"h1b: documento {k} senza PDF letto")
