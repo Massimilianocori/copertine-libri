@@ -14,7 +14,8 @@
 "alias": [
 "Abu Dhabi",
 "Dubai",
-"UAE"
+"UAE",
+"United Arab Emirates (UAE)"
 ]
 },
 {
@@ -384,7 +385,8 @@
 "iso2": "CZ",
 "nome": "Czechia",
 "alias": [
-"Czech Republic"
+"Czech Republic",
+"Czech Rep"
 ]
 },
 {
@@ -690,7 +692,9 @@
 {
 "iso2": "IE",
 "nome": "Ireland",
-"alias": []
+"alias": [
+"Republic of Ireland"
+]
 },
 {
 "iso2": "IL",

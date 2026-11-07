@@ -8,6 +8,7 @@ Sezioni già revisionate, con i sorgenti salvati, che aspettano la pubblicazione
 
 | Sito (cartella) | Sezione | Revisione | Note |
 |---|---|---|---|
+| beforeyoufly | Available in: +4 servizi (Google Wallet, Wise, Uber, Stripe; 4 pagine servizio + 127 servizio × Paese; sorgenti salvati, `sito/` non committato) | da revisionare | **Non pubblicare oggi: pubblicare l'8/11.** Saltati: Revolut e Tidal (anti-bot), Disney+ (solo JavaScript), Prime Video (503/403 ai robot), PayPal (solo selettore), Netflix (solo «non disponibile»), Samsung Wallet/Payoneer/Crunchyroll (nessuna lista); vedi NOTE.md 7/11 |
 
 Pubblicato il 31/10/2026 alle 14:20 circa (ora di Roma): Visa Income, Before You Fly, EsameB1 (tutte le sezioni revisionate del giorno). Esperimento citazioni: conteggio dal 1/11/2026.
 
@@ -41,7 +42,6 @@ Pubblicato il 1/11/2026 alle 00:15 circa: Visa Income (cerimonie australiane, es
 | visaincome | Pensione statale britannica congelata o no, Paese per Paese | 6,5 | con la sezione pensioni HMRC già in coda | idee-2026-11-04-africa-medio-oriente.md |
 | visaincome | Israele nelle pagine moved-to (API data.gov.il) | 5,5 | coda bassa | idee-2026-11-04-africa-medio-oriente.md |
 | beforeyoufly | Liquidi, pagine a 2 litri (Fiumicino, Vienna, Bologna, Bergamo, Knock e altre UE): la FAQ sul 2026 cita Your Europe (100 ml) sotto una risposta "2 litres"; aggiungere la frase ponte come nella FAQ sulla busta | piccola | prossimo giro di Before You Fly | revisione del 5/11 |
-| beforeyoufly | **Available in: +8 servizi** con lista ufficiale dei Paesi (Google Wallet, PayPal, Revolut, Wise, Disney+, Netflix, Uber, Prime Video; solo quelli con lista ufficiale leggibile). Motivo: sezione passata da 0 a 49 visite in una settimana (Starlink in testa) | 7 | PRIMA in coda per Before You Fly, dopo Amsterdam/Blue Badge | GoatCounter 28/10-4/11 |
 | touristtax | Tassa sugli alberghi USA/Canada: prima Florida (67 contee, dr15tdt.pdf) e Texas (data.texas.gov er34-v24h), poi ~15 città a mano | 6,5 | dopo le versioni es/pt/fr | idee-2026-11-05-usa-canada.md |
 | beforeyoufly | **Scioperi in Italia come sezione di Before You Fly** (`/italy-strikes/`): spostare Italy Strikes (0 pagine indicizzate su 119 dopo 4 settimane, 1 visita al mese) dentro BYF, con 301 dal vecchio sito; il robot degli scioperi resta uguale ma pubblica BYF. Domanda: "italy strike today", "italy strikes november 2026", "train strike italy today" (autocomplete gb/us 6/11). Stima 40 / 180 / 900 €/anno | 6 | dopo H-1B e Available in, prima di febbraio 2027 (picco di marzo) | decisione del 6/11, CRUSCOTTO |
 | beforeyoufly | Auto a noleggio oltre confine e sul traghetto, coppia per coppia (DiscoverCars): prima verificare che le offerte mostrino le condizioni per l'estero, poi 3 pagine di prova (Croazia→Bosnia, Germania→Polonia, Sicilia in traghetto) | 6,5 (250 €/anno centrali) | coda bassa, dopo gli scioperi | fronti-2026-11-06-dal-pagatore.md |

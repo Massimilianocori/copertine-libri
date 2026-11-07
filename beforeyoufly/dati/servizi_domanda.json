@@ -1,6 +1,18 @@
 {
- "_nota": "Ricerche vere (autocompletamento di Google, client=firefox, hl=en) che nominano un Paese: una pagina servizio × Paese esiste solo per queste coppie. Riscritto da raccolta/servizi.py --domanda.",
- "letto_il": "2026-10-28",
+ "_nota": "Ricerche vere (autocompletamento di Google, client=firefox, hl=en) che nominano un Paese: una pagina servizio × Paese esiste solo per queste coppie. Riscritto da raccolta/servizi.py --domanda (--domanda=slug,slug rilegge solo quei servizi).",
+ "letto_il": "2026-11-07",
+ "letto_il_servizi": {
+  "apple-music": "2026-10-28",
+  "apple-pay": "2026-10-28",
+  "apple-tv": "2026-10-28",
+  "google-wallet": "2026-11-07",
+  "spotify": "2026-10-28",
+  "starlink": "2026-10-28",
+  "stripe": "2026-11-07",
+  "uber": "2026-11-07",
+  "wise": "2026-11-07",
+  "youtube-premium": "2026-10-28"
+ },
  "modelli": [
   "is {} available in",
   "{} available in",
@@ -43,6 +55,19 @@
   "spotify": [
    "spotify",
    "spotify premium"
+  ],
+  "google-wallet": [
+   "google wallet",
+   "google pay"
+  ],
+  "wise": [
+   "wise"
+  ],
+  "uber": [
+   "uber"
+  ],
+  "stripe": [
+   "stripe"
   ]
  },
  "servizi": {
@@ -846,6 +871,715 @@
    ],
    "ZW": [
     "does spotify work in zimbabwe"
+   ]
+  },
+  "google-wallet": {
+   "AE": [
+    "google wallet available in uae",
+    "does google wallet work in uae",
+    "can i use google wallet in uae",
+    "is google pay available in uae",
+    "is google pay available in dubai",
+    "google pay available in uae",
+    "is google pay in dubai",
+    "is google pay in uae",
+    "google pay not available in uae",
+    "does google pay work in dubai",
+    "does google pay work in uae",
+    "can i use google pay in uae",
+    "can i use google pay in dubai",
+    "is google pay available in the uae"
+   ],
+   "AU": [
+    "is google pay available in australia",
+    "google pay available in australia",
+    "is google pay in australia",
+    "does google pay work in australia",
+    "can i use google pay in australia"
+   ],
+   "BD": [
+    "google wallet available in bangladesh",
+    "is google pay available in bangladesh",
+    "google pay available in bangladesh",
+    "is google pay in bangladesh",
+    "can i use google pay in bangladesh"
+   ],
+   "BS": [
+    "is google pay available in the bahamas"
+   ],
+   "CA": [
+    "does google wallet work in canada",
+    "is google pay available in canada",
+    "google pay available in canada",
+    "is google pay in canada",
+    "does google pay work in canada",
+    "can i use google pay in canada"
+   ],
+   "CN": [
+    "does google wallet work in china",
+    "can i use google wallet in china",
+    "does google pay work in china",
+    "can i use google pay in china"
+   ],
+   "DE": [
+    "does google wallet work in germany"
+   ],
+   "EG": [
+    "is google wallet available in egypt",
+    "google wallet available in egypt",
+    "does google wallet work in egypt",
+    "is google pay available in egypt",
+    "does google pay work in egypt"
+   ],
+   "GB": [
+    "is google wallet available in uk",
+    "is google wallet available in the uk",
+    "is google pay available in uk",
+    "is google pay in uk",
+    "does google pay work in uk",
+    "is google pay available in the uk"
+   ],
+   "HK": [
+    "does google wallet work in hong kong",
+    "does google pay work in hong kong"
+   ],
+   "ID": [
+    "can i use google wallet in indonesia",
+    "can i use google pay in indonesia"
+   ],
+   "IN": [
+    "is google wallet available in india",
+    "google wallet available in india",
+    "is google wallet in india",
+    "google wallet not available in india",
+    "does google wallet work in india",
+    "can i use google wallet in india",
+    "is google pay available in india",
+    "google pay available in india",
+    "is google pay in india",
+    "google pay not available in india",
+    "does google pay work in india",
+    "can i use google pay in india"
+   ],
+   "IT": [
+    "does google wallet work in italy"
+   ],
+   "JP": [
+    "does google wallet work in japan",
+    "can i use google wallet in japan",
+    "does google pay work in japan",
+    "can i use google pay in japan"
+   ],
+   "KE": [
+    "is google wallet available in kenya",
+    "is google wallet in kenya",
+    "is google pay in kenya"
+   ],
+   "KR": [
+    "does google wallet work in korea",
+    "can i use google wallet in korea",
+    "does google pay work in south korea",
+    "does google pay work in korea",
+    "can i use google pay in korea"
+   ],
+   "KW": [
+    "google pay available in kuwait"
+   ],
+   "LK": [
+    "is google wallet available in sri lanka",
+    "google wallet available in sri lanka",
+    "is google pay available in sri lanka",
+    "is google pay in sri lanka",
+    "does google pay work in sri lanka"
+   ],
+   "MY": [
+    "can i use google wallet in malaysia",
+    "is google pay in malaysia",
+    "can i use google pay in malaysia"
+   ],
+   "NG": [
+    "is google wallet available in nigeria",
+    "does google wallet work in nigeria",
+    "can i use google wallet in nigeria",
+    "is google pay available in nigeria",
+    "does google pay work in nigeria",
+    "can i use google pay in nigeria"
+   ],
+   "NL": [
+    "is google pay available in the netherlands"
+   ],
+   "NP": [
+    "is google pay available in nepal",
+    "google pay available in nepal",
+    "does google pay work in nepal",
+    "can i use google pay in nepal"
+   ],
+   "OM": [
+    "google wallet available in oman"
+   ],
+   "PH": [
+    "is google wallet available in the philippines",
+    "google wallet available in philippines",
+    "does google wallet work in the philippines",
+    "can i use google wallet in philippines",
+    "is google pay available in philippines",
+    "google pay available in philippines",
+    "is google pay in the philippines",
+    "is google pay in philippines",
+    "google pay not available in philippines",
+    "does google pay work in the philippines",
+    "does google pay work in philippines",
+    "can i use google pay in the philippines",
+    "can i use google pay in philippines",
+    "is google pay available in the philippines"
+   ],
+   "PK": [
+    "is google wallet available in pakistan",
+    "google wallet available in pakistan",
+    "is google wallet in pakistan",
+    "does google wallet work in pakistan",
+    "can i use google wallet in pakistan",
+    "is google pay available in pakistan",
+    "google pay available in pakistan",
+    "is google pay in pakistan",
+    "does google pay work in pakistan",
+    "can i use google pay in pakistan"
+   ],
+   "SA": [
+    "google wallet available in saudi arabia",
+    "does google wallet work in saudi arabia",
+    "google pay available in saudi arabia",
+    "does google pay work in saudi arabia"
+   ],
+   "SG": [
+    "does google pay work in singapore",
+    "can i use google pay in singapore"
+   ],
+   "TH": [
+    "can i use google wallet in thailand",
+    "is google pay available in thailand",
+    "does google pay work in thailand",
+    "can i use google pay in thailand"
+   ],
+   "TR": [
+    "is google wallet available in turkey"
+   ],
+   "US": [
+    "is google wallet available in usa",
+    "does google wallet work in usa",
+    "is google wallet available in the us",
+    "is google pay available in usa",
+    "is google pay available in the us",
+    "google pay available in usa",
+    "is google pay in usa",
+    "google pay not available in usa",
+    "does google pay work in usa",
+    "can i use google pay in usa",
+    "is google pay available in the usa"
+   ],
+   "VN": [
+    "does google pay work in vietnam",
+    "can i use google pay in vietnam"
+   ],
+   "ZA": [
+    "is google wallet available in south africa",
+    "does google wallet work in south africa",
+    "is google pay available in south africa",
+    "does google pay work in south africa",
+    "can i use google pay in south africa"
+   ]
+  },
+  "wise": {
+   "AE": [
+    "is wise available in uae",
+    "is wise available in dubai",
+    "wise available in uae",
+    "is wise in uae",
+    "wise not available in uae",
+    "does wise work in uae",
+    "does wise work in dubai",
+    "can i use wise in uae",
+    "can i use wise in dubai",
+    "is wise available in the uae"
+   ],
+   "AU": [
+    "is wise available in australia",
+    "is wise in australia",
+    "does wise work in australia",
+    "can i use wise in australia"
+   ],
+   "BD": [
+    "is wise available in bangladesh",
+    "wise available in bangladesh"
+   ],
+   "BR": [
+    "does wise work in brazil"
+   ],
+   "BS": [
+    "is wise available in the bahamas"
+   ],
+   "CA": [
+    "is wise available in canada",
+    "wise available in canada",
+    "is wise in canada",
+    "does wise work in canada",
+    "can i use wise in canada"
+   ],
+   "CN": [
+    "is wise available in china",
+    "wise available in china",
+    "does wise work in china",
+    "can i use wise in china"
+   ],
+   "CR": [
+    "does wise work in costa rica"
+   ],
+   "DO": [
+    "is wise available in the dominican republic"
+   ],
+   "FJ": [
+    "does wise work in fiji",
+    "can i use wise in fiji"
+   ],
+   "GB": [
+    "is wise available in the uk",
+    "is wise available in uk",
+    "is wise in the uk",
+    "does wise work in the uk",
+    "does wise work in uk"
+   ],
+   "HK": [
+    "is wise available in hong kong",
+    "does wise work in hong kong",
+    "can i use wise in hong kong"
+   ],
+   "ID": [
+    "is wise available in indonesia",
+    "wise not available in indonesia",
+    "can i use wise in indonesia"
+   ],
+   "IN": [
+    "is wise available in india",
+    "wise available in india",
+    "is wise in india",
+    "wise not available in india",
+    "does wise work in india",
+    "can i use wise in india"
+   ],
+   "JP": [
+    "is wise available in japan",
+    "does wise work in japan",
+    "can i use wise in japan"
+   ],
+   "KE": [
+    "is wise available in kenya",
+    "is wise in kenya",
+    "does wise work in kenya"
+   ],
+   "KR": [
+    "does wise work in south korea",
+    "can i use wise in korea",
+    "can i use wise in south korea"
+   ],
+   "LK": [
+    "is wise available in sri lanka",
+    "wise available in sri lanka"
+   ],
+   "MX": [
+    "is wise available in mexico",
+    "wise not available in mexico",
+    "does wise work in mexico",
+    "can i use wise in mexico"
+   ],
+   "NG": [
+    "is wise available in nigeria",
+    "wise available in nigeria",
+    "is wise in nigeria",
+    "does wise work in nigeria",
+    "does wise work in nigeria now",
+    "can i use wise in nigeria"
+   ],
+   "NL": [
+    "is wise available in the netherlands"
+   ],
+   "PH": [
+    "is wise available in the philippines",
+    "is wise available in philippines",
+    "wise available in philippines",
+    "is wise in the philippines",
+    "wise not available in philippines",
+    "does wise work in the philippines",
+    "can i use wise in the philippines",
+    "can i use wise in philippines"
+   ],
+   "PK": [
+    "is wise available in pakistan",
+    "wise available in pakistan",
+    "is wise in pakistan",
+    "wise not available in pakistan",
+    "does wise work in pakistan",
+    "can i use wise in pakistan"
+   ],
+   "PL": [
+    "is wise available in poland"
+   ],
+   "RU": [
+    "does wise work in russia"
+   ],
+   "SA": [
+    "is wise available in saudi arabia",
+    "wise available in saudi arabia",
+    "does wise work in saudi arabia"
+   ],
+   "TH": [
+    "wise not available in thailand",
+    "does wise work in thailand",
+    "can i use wise in thailand"
+   ],
+   "TR": [
+    "is wise available in turkey",
+    "does wise work in turkey"
+   ],
+   "TW": [
+    "wise not available in taiwan",
+    "does wise work in taiwan",
+    "can i use wise in taiwan"
+   ],
+   "US": [
+    "is wise available in the us",
+    "is wise available in usa",
+    "wise available in usa",
+    "is wise in the us",
+    "is wise in usa",
+    "does wise work in the us",
+    "does wise work in usa",
+    "can i use wise in the us",
+    "is wise available in the united states"
+   ],
+   "VN": [
+    "is wise available in vietnam",
+    "wise not available in vietnam",
+    "does wise work in vietnam",
+    "can i use wise in vietnam"
+   ],
+   "ZA": [
+    "is wise available in south africa",
+    "is wise in south africa",
+    "does wise work in south africa",
+    "can i use wise in south africa"
+   ],
+   "ZW": [
+    "does wise work in zimbabwe"
+   ]
+  },
+  "uber": {
+   "AE": [
+    "is uber available in dubai",
+    "is uber available in uae",
+    "is uber available in abu dhabi",
+    "uber available in dubai",
+    "is uber in dubai",
+    "is uber in uae",
+    "is uber in abu dhabi",
+    "does uber work in dubai",
+    "does uber work in abu dhabi",
+    "can i use uber in dubai",
+    "is uber available in the uae"
+   ],
+   "BS": [
+    "is uber available in the bahamas"
+   ],
+   "CA": [
+    "is uber in canada",
+    "does uber work in canada",
+    "can i use uber in canada"
+   ],
+   "CN": [
+    "is uber available in china",
+    "is uber in china",
+    "does uber work in china",
+    "can i use uber in china"
+   ],
+   "DE": [
+    "is uber in germany",
+    "does uber work in germany"
+   ],
+   "DO": [
+    "is uber available in the dominican republic"
+   ],
+   "ES": [
+    "uber available in spain",
+    "is uber in spain",
+    "does uber work in spain",
+    "can i use uber in spain"
+   ],
+   "FJ": [
+    "is uber in fiji"
+   ],
+   "GB": [
+    "is uber in uk",
+    "is uber available in the uk"
+   ],
+   "GH": [
+    "is uber available in ghana",
+    "is uber in ghana"
+   ],
+   "HK": [
+    "is uber available in hong kong",
+    "is uber in hong kong",
+    "does uber work in hong kong",
+    "can i use uber in hong kong"
+   ],
+   "IE": [
+    "is uber in ireland"
+   ],
+   "IN": [
+    "is uber in india"
+   ],
+   "IT": [
+    "is uber available in italy",
+    "uber available in italy",
+    "is uber in italy",
+    "does uber work in italy",
+    "can i use uber in italy"
+   ],
+   "JP": [
+    "is uber available in japan",
+    "is uber in japan",
+    "does uber work in japan",
+    "can i use uber in japan"
+   ],
+   "KR": [
+    "is uber available in korea",
+    "is uber available in south korea",
+    "does uber work in south korea",
+    "does uber work in korea",
+    "can i use uber in korea"
+   ],
+   "LK": [
+    "is uber available in sri lanka",
+    "does uber work in sri lanka"
+   ],
+   "MO": [
+    "is uber available in macau",
+    "does uber work in macau"
+   ],
+   "MU": [
+    "is uber available in mauritius",
+    "is uber in mauritius",
+    "does uber work in mauritius"
+   ],
+   "MX": [
+    "does uber work in mexico",
+    "can i use uber in mexico"
+   ],
+   "NA": [
+    "does uber work in namibia"
+   ],
+   "NG": [
+    "is uber available in nigeria",
+    "is uber in nigeria",
+    "does uber work in nigeria"
+   ],
+   "NL": [
+    "is uber available in the netherlands"
+   ],
+   "NZ": [
+    "is uber available in new zealand",
+    "is uber in new zealand",
+    "does uber work in new zealand",
+    "can i use uber in new zealand"
+   ],
+   "OM": [
+    "does uber work in oman"
+   ],
+   "PH": [
+    "is uber available in philippines",
+    "is uber in the philippines",
+    "does uber work in philippines",
+    "is uber available in the philippines"
+   ],
+   "PK": [
+    "is uber available in pakistan",
+    "uber available in pakistan",
+    "is uber in pakistan",
+    "does uber work in pakistan"
+   ],
+   "SA": [
+    "is uber available in saudi arabia",
+    "does uber work in saudi arabia"
+   ],
+   "SG": [
+    "is uber available in singapore",
+    "is uber in singapore",
+    "uber not available in singapore",
+    "does uber work in singapore",
+    "can i use uber in singapore"
+   ],
+   "TR": [
+    "is uber available in turkey",
+    "does uber work in turkey"
+   ],
+   "TW": [
+    "is uber available in taiwan",
+    "does uber work in taiwan"
+   ],
+   "US": [
+    "is uber available in usa",
+    "is uber in usa",
+    "does uber work in usa",
+    "is uber available in the usa"
+   ],
+   "VN": [
+    "can i use uber in vietnam"
+   ],
+   "ZA": [
+    "is uber available in south africa",
+    "is uber in south africa",
+    "does uber work in south africa"
+   ],
+   "ZM": [
+    "is uber in zambia"
+   ],
+   "ZW": [
+    "is uber in zimbabwe",
+    "does uber work in zimbabwe"
+   ]
+  },
+  "stripe": {
+   "AE": [
+    "is stripe available in uae",
+    "is stripe available in dubai",
+    "stripe available in uae",
+    "does stripe work in dubai",
+    "does stripe work in uae",
+    "can i use stripe in uae",
+    "is stripe available in the uae"
+   ],
+   "AU": [
+    "is stripe available in australia",
+    "is stripe in australia",
+    "does stripe work in australia",
+    "can i use stripe in australia"
+   ],
+   "BD": [
+    "is stripe available in bangladesh",
+    "stripe available in bangladesh",
+    "can i use stripe in bangladesh"
+   ],
+   "BS": [
+    "is stripe available in the bahamas"
+   ],
+   "CA": [
+    "is stripe available in canada",
+    "stripe available in canada",
+    "is stripe in canada",
+    "does stripe work in canada",
+    "can i use stripe in canada"
+   ],
+   "CN": [
+    "is stripe available in china",
+    "does stripe work in china"
+   ],
+   "DO": [
+    "is stripe available in the dominican republic"
+   ],
+   "EG": [
+    "does stripe work in egypt"
+   ],
+   "GB": [
+    "is stripe available in uk",
+    "is stripe in the uk",
+    "does stripe work in the uk",
+    "does stripe work in uk",
+    "can i use stripe in the uk",
+    "is stripe available in the uk"
+   ],
+   "GH": [
+    "does stripe work in ghana"
+   ],
+   "ID": [
+    "is stripe available in indonesia",
+    "stripe not available in indonesia",
+    "can i use stripe in indonesia"
+   ],
+   "IN": [
+    "is stripe available in india",
+    "stripe available in india",
+    "is stripe in india",
+    "stripe not available in india",
+    "does stripe work in india",
+    "can i use stripe in india"
+   ],
+   "JM": [
+    "is stripe available in jamaica",
+    "does stripe work in jamaica"
+   ],
+   "KE": [
+    "is stripe available in kenya",
+    "is stripe in kenya",
+    "does stripe work in kenya",
+    "can i use stripe in kenya"
+   ],
+   "LK": [
+    "is stripe available in sri lanka",
+    "does stripe work in sri lanka"
+   ],
+   "MX": [
+    "does stripe work in mexico"
+   ],
+   "NG": [
+    "is stripe available in nigeria",
+    "stripe available in nigeria",
+    "is stripe in nigeria",
+    "stripe not available in nigeria",
+    "does stripe work in nigeria",
+    "can i use stripe in nigeria"
+   ],
+   "NL": [
+    "is stripe available in the netherlands"
+   ],
+   "NP": [
+    "stripe available in nepal"
+   ],
+   "OM": [
+    "is stripe available in oman"
+   ],
+   "PH": [
+    "is stripe available in the philippines",
+    "stripe available in philippines",
+    "is stripe in philippines",
+    "stripe not available in philippines",
+    "does stripe work in the philippines",
+    "can i use stripe in the philippines"
+   ],
+   "PK": [
+    "is stripe available in pakistan",
+    "stripe available in pakistan",
+    "is stripe in pakistan",
+    "stripe not available in pakistan",
+    "does stripe work in pakistan",
+    "can i use stripe in pakistan"
+   ],
+   "SA": [
+    "is stripe available in saudi arabia",
+    "stripe available in saudi arabia",
+    "does stripe work in saudi arabia"
+   ],
+   "TR": [
+    "does stripe work in turkey"
+   ],
+   "US": [
+    "is stripe available in the us",
+    "is stripe available in the usa"
+   ],
+   "ZA": [
+    "is stripe available in south africa",
+    "stripe available in south africa",
+    "is stripe in south africa",
+    "stripe not available in south africa",
+    "does stripe work in south africa",
+    "can i use stripe in south africa"
    ]
   }
  }

@@ -61,6 +61,9 @@ Uso (dalla radice del repository, dopo python3 beforeyoufly/genera.py):
     "non nella lista non vuol dire vietato", le citazioni, la FAQ (JSON-LD = testo visibile = prima frase), titolo <= 70 con la domanda, lastmod
     della sitemap = data della lettura; nessun nome di assistente di intelligenza artificiale e nessun consiglio per aggirare blocchi (VPN,
     proxy...); link da home, menu e About. Nel browser (punto 7) 5 pagine nuove a 375 px in tema chiaro e scuro e 2 a 820 px.
+    Dal 7/11/2026 anche Google Wallet (riga "Tap to pay" della fonte nella prima frase, lista Google Pay online), Wise ("Not supported" per i
+    Paesi non serviti, frase sull'invio = lista "send to"), Uber e Stripe; le liste in più (online, invio) sono ricalcolate dalla cache e
+    fanno parte dell'impronta.
 18. "Driving abroad" (dati/patenti.json da raccolta/patenti.py, 28/10/2026): se ci sono i grezzi (raccolta/.cache/patenti/, .cache/ca/, .cache/au/,
     fuori dal repository) esiti, frasi, convenzioni, impronte e testo sono ricalcolati e devono essere uguali al file; ogni frase citata è nel testo
     ufficiale salvato; impronte = testo; i fatti scritti a mano (dati/patenti_manuali.json) sono applicati e non scaduti; controllo indipendente
@@ -1772,7 +1775,8 @@ def _pagine_estere():
 PAGINE_ESTERE_BROWSER = _pagine_estere()
 PAGINE_IT_BROWSER = ["/it/documenti/", "/it/documenti/egitto/", "/it/documenti/spagna/", "/it/documenti/stati-uniti/"]
 PAGINE_SRV_BROWSER = ["/available-in/", "/available-in/starlink/", "/available-in/starlink/pakistan/", "/available-in/spotify/china/",
-                      "/available-in/youtube-premium/russia/"]
+                      "/available-in/youtube-premium/russia/", "/available-in/google-wallet/", "/available-in/google-wallet/india/",
+                      "/available-in/wise/pakistan/", "/available-in/uber/united-arab-emirates/"]  # ultime 4 dal 7/11/2026
 PAGINE_PAT_BROWSER = ["/driving-abroad/", "/driving-abroad/uk-licence/", "/driving-abroad/uk-licence/japan/", "/driving-abroad/canadian-licence/italy/",
                       "/driving-abroad/australian-licence/united-states/"]
 PAGINE_PED_BROWSER = ["/tolls-rental-car/", "/tolls-rental-car/portugal/", "/tolls-rental-car/austria/", "/tolls-rental-car/france/"]
@@ -1967,7 +1971,8 @@ def _attesa_breve(slug, voce):
         return "Not on the list"
     st = voce["stato"]
     if st == "si":
-        return "Yes"
+        # Google Wallet (7/11/2026): app nella lista ma croce rossa sulla riga "Tap to pay"
+        return "Yes, no tap to pay" if slug == "google-wallet" and voce.get("tocco") is False else "Yes"
     if st == "in_arrivo":
         return "Coming soon"
     if st == "per_regione":  # Starlink "exclude": il Paese è colorato regione per regione (revisione del 28/10/2026)
@@ -1976,6 +1981,8 @@ def _attesa_breve(slug, voce):
         return "No service shown"
     if slug == "youtube-premium":
         return voce["nota"][0].upper() + voce["nota"][1:]
+    if slug == "wise":  # tra i Paesi dove Wise non offre i servizi (7/11/2026)
+        return "Not supported"
     return "Not listed"
 
 
@@ -2002,9 +2009,12 @@ def controlla_servizi():
         conti["cache"] = "presente"
         grezzi = {k: (cache / f"{k}.{F['tipo']}").read_text(encoding="utf-8") for k, F in RS.FONTI.items()}
         for S in D["servizi"]:
-            paesi, _ = RS.costruisci(S["slug"], grezzi)
+            paesi, extra = RS.costruisci(S["slug"], grezzi)
             if paesi != S["paesi"]:
                 errori.append(f"servizi {S['slug']}: la lista del JSON non è quella ricalcolata dalla pagina salvata")
+            for k in RS.LISTE_IN_PIU:  # Google Pay online, Wise invio (7/11/2026)
+                if extra.get(k) != S.get("extra", {}).get(k):
+                    errori.append(f"servizi {S['slug']}: lista in più '{k}' diversa da quella ricalcolata dalla pagina salvata")
         for k, x in D["frasi"].items():
             if x["frase"] not in RS.testo(grezzi[x["fonte"]]):
                 errori.append(f"servizi: frase {k} non più nella pagina salvata")
@@ -2013,7 +2023,7 @@ def controlla_servizi():
     for S in D["servizi"]:
         conti["servizi"] += 1
         sl = S["slug"]
-        if RS.impronta(S["paesi"]) != S["impronta"]:
+        if RS.impronta(S["paesi"], S.get("extra")) != S["impronta"]:
             errori.append(f"servizi {sl}: impronta diversa dalla lista")
         if not S["url_fonte"].startswith("https://") or not S["pagina"].startswith("https://") or S.get("http") != 200:
             errori.append(f"servizi {sl}: fonte non https o lettura non 200")
@@ -2052,6 +2062,20 @@ def controlla_servizi():
                 errori.append(f"{rel}: prima frase senza la risposta attesa, la fonte o la data: {r[:90]}")
             if voce and voce.get("nota") and voce["stato"] != "no" and f"“{voce['nota']}”" not in r:
                 errori.append(f"{rel}: la nota della fonte non è nella risposta")
+            # Google Wallet: la riga "Tap to pay" della fonte nella prima frase; FAQ Google Pay con la lista online (7/11/2026)
+            if sl == "google-wallet" and voce and voce["stato"] == "si":
+                atteso_t = "as available there." if voce["tocco"] else "as not available there."
+                if f"shows tap to pay (contactless payments in shops) {atteso_t}" not in r:
+                    errori.append(f"{rel}: la riga 'Tap to pay' della fonte non è nella risposta")
+            if sl == "google-wallet":
+                on = c in S["extra"]["online"]
+                frase_on = "Google Pay on participating websites and apps includes" if on else "is not on Google's list of countries where you can pay with Google Pay"
+                if frase_on not in unescape(t):
+                    errori.append(f"{rel}: frase su Google Pay online diversa dalla lista")
+            if sl == "wise":
+                inv = c in S["extra"]["invio"]
+                if inv != ("is on Wise's list of countries and regions you can send money to" in unescape(t)):
+                    errori.append(f"{rel}: frase sull'invio con Wise diversa dalla lista")
             if voce is None and "is not the same as being banned" not in t and sl != "starlink":
                 errori.append(f"{rel}: manca la frase 'non nella lista non vuol dire vietato'")
             if re.search(r"\b(?:is|are) (?:banned|illegal|blocked|prohibited)\b", unescape(t), re.I):
