@@ -4,6 +4,7 @@ visaincome/dati/dtv.json (sezione "Thailand DTV visa" del sito, dal 30/10/2026).
 Uso (dalla radice del repository):
     python3 visaincome/raccolta/dtv.py              # rilegge tutte le pagine e scrive il JSON (domanda: quella già salvata)
     python3 visaincome/raccolta/dtv.py --domanda    # rifà anche l'autocompletamento di Google (circa 5 minuti)
+    python3 visaincome/raccolta/dtv.py --temi       # rifà l'autocompletamento dei temi (costo, requisiti, durata...; 8 Paesi, circa 3 minuti)
 
 Come funziona
 - Elenco delle sedi: pagina www.thaiembassy.org (Ministero degli Esteri thailandese), dati della pagina (__NEXT_DATA__):
@@ -21,6 +22,9 @@ Come funziona
 - Domanda: autocompletamento di Google (client=firefox, hl=en, gl=us/uk/in/vn), salvata in "domanda"; una sede ha una pagina
   propria solo se almeno un suggerimento con "dtv" nomina la sua città (o il suo Paese, per l'ambasciata) e se abbiamo letto
   almeno il costo o la regola sulla residenza.
+- Dal 7/11/2026 TEMI: pagine ufficiali per le pagine per tema (costo, requisiti, durata e proroga, attività "soft power", prova dei
+  fondi, confronto con LTR, Thailand Privilege, ED e visti da pensionato) con frammenti con un nome, controllati come LETTURE;
+  "domanda_temi" (con --temi) = autocompletamento in 8 Paesi, da cui vengono le domande delle FAQ.
 Nessun testo copiato per intero: si pubblicano fatti brevi (importi, condizioni) con il link alla pagina ufficiale.
 """
 import hashlib
@@ -247,6 +251,121 @@ GENERALE = {
                                            "Nationals of the following 60 countries and territories are entitled to visa exemption for the purpose of tourism for up to 30 days period of stay"]},
 }
 
+# Pagine per tema (7/11/2026): costo, requisiti, durata, attività "soft power", prova dei fondi, confronto con gli altri visti lunghi.
+# Ogni voce: URL ufficiale, "generico" = pagina fuori dal sistema thaiembassy.org (testo dell'HTML), frammenti con un nome
+# (genera.py li cita per nome; se uno sparisce lo script si ferma come per LETTURE).
+TEMI = {
+    "londra_dtv": {"url": "https://london.thaiembassy.org/en/page/destination-thailand-visa", "frammenti": {
+        "dtv1": "DTV1 - Workcation (Digital nomad/remote worker/foreign talent/freelancer)",
+        "dtv2": "DTV2 - Thai soft power related activities (e.g., Muay Thai, Thai culinary training, and medical treatment)",
+        "dtv3": "DTV3 - Spouse and children under 20 years old of DTV visa holders",
+        "validita": "Visa Validity: 5 years / Multiple Entries",
+        "soggiorno": "Period of Stay: 180 days per entry",
+        "estensione": "One time for a period not exceeding 180 days per entry",
+        "uscita": "After the maximum stay of 180 days + 180 days, the visa holders need to depart Thailand and re-enter the country with the same DTV visa within the visa's validity date",
+        "doc_passaporto": "Biodata page of Passport or Travel Document",
+        "doc_foto": "Photograph taken within the last six months",
+        "doc_residenza": "Proof of permanent residence in the UK, Ireland, or the British Overseas Territories",
+        "doc_fondi": "Financial evidence: amount of no less than £12,000 (500,000 THB) (e.g., bank statements)",
+        "doc_lavoro": "Employment contract or employment certificate in their country or professional portfolio showcasing digital nomad, remote worker, foreign talent or freelancer status",
+        "doc_polizia": "Police clearance certificate issued within 6 months from the date of submission",
+        "doc_attivita": "Proof of confirmation to attend the activity or letter of appointment from hospital/medical center",
+        "doc_famiglia": "Proof of relationship to the DTV visa holder (e.g., a copy of marriage certificate, birth certificate, or certificate of adoption)",
+        "doc_visto_titolare": "DTV visa of the DTV holder",
+        "traduzioni": "must be accompanied by certified English translations",
+        "contatto_estensione": "For an extension of stay, please contact the Immigration Bureau directly once you are in Thailand"}},
+    "londra_info": {"url": "https://london.thaiembassy.org/en/page/visa-general-information", "frammenti": {
+        "tempi": "The current processing time is approximately 15 working days",
+        "anticipo": "At the earliest, applicants can apply for a visa 90 days before their intended arrival date",
+        "rimborso": "the visa fee is non-refundable and non-transferable",
+        "non_garantito": "Submission of a visa application cannot be implied that a visa will be granted",
+        "estratti_esteri": "Any bank statements issued outside of the UK, Ireland, or UK Territories, need to be submitted together with a letter from the bank stating the balance equivalent to Pound Sterling (GBP), United States Dollars (USD), or Euro (EUR)"}},
+    "londra_tariffe": {"url": "https://london.thaiembassy.org/en/publicservice/81755-visa-fees", "frammenti": {
+        "non_imm": "4. Non-Immigrant (3 months validity / Up to 90 days / Single Entry) | 60 |",
+        "oa": "6 . Non-Immigrant O-A (1 year validity / Up to 1 year / Multiple Entries) | 150 |",
+        "ox": "7. Non-Immigrant O-X (5 year validity / Up to 5 year / Multiple Entries) | 300 |",
+        "ltr": "13. Long-Term Resident (10 year validity / Multiple Entries) | 1,500 |",
+        "valuta": "Visa fees are payable in pound sterling (£) only"}},
+    "londra_pensione": {"url": "https://london.thaiembassy.org/en/page/retirement-visa", "frammenti": {
+        "oa": "NON-IMMIGRANT VISA TYPE O-A (For retirement long stay: valid for 1 year / Multiple entries)",
+        "oa_fondi": "Financial evidence showing monthly income of no less than 65,000 THB (£1,500) or having the current balance of 800,000 THB (£18,000)",
+        "oa_assicurazione": "with the insured sum of no less than 100,000 USD or 3,000,000 THB",
+        "ox": "NON-IMMIGRANT VISA TYPE O-X (For retirement long stay: valid for 5 years / Multiple entries)",
+        "ox_fondi": "fixed deposit of no less than 3,000,000 THB"}},
+    "londra_studio": {"url": "https://london.thaiembassy.org/en/page/education-visa", "frammenti": {
+        "chi": "students of educational establishments in Thailand approved by Thai authorities",
+        "ingresso": "The ED Visa is valid for a single entry into Thailand",
+        "soggiorno": "They will be allowed to stay in Thailand for a period of up to 90 days, counting from the date of entry",
+        "estensione": "The extension of stay is at the discretion of the immigration officer"}},
+    "londra_ltr": {"url": "https://london.thaiembassy.org/en/page/long-term-resident-visa", "frammenti": {
+        "boi": "will have to submit their application and documents online with the Thailand Board of Investment (BOI)"}},
+    "boi_ltr": {"url": "https://ltr.boi.go.th/", "generico": True, "frammenti": {
+        "durata": "Permission will be granted to stay in Thailand the first time for five years which can be extended for 5 more years if qualifications are met",
+        "lavoro": "Permission to work in Thailand (Digital Work permit)",
+        "tasse": "Tax exemption for overseas income",
+        "tipi": "Wealthy Global Citizen, Wealthy Pensioners, Work-from-Thailand Professionals, and Highly skilled Professionals",
+        "remoti": "Remote workers working for well-established overseas companies",
+        "reddito": "Minimum average personal income of USD 80,000 / year in the past two years",
+        "pensionati": "Retirees aged 50 years and older who have an annual pension or stable passive income",
+        "pensione": "Minimum unearned or passive income* of USD 80,000 / year at the time of application",
+        "ricchi": "Owning at least USD 1 million in global assets or Thai assets in the applicant’s name",
+        "assicurazione": "Insured under a health insurance covering a minimum of USD 50,000"}},
+    "privilege": {"url": "https://www.thailandprivilege.co.th/membership/bronze", "generico": True, "frammenti": {
+        "bronze": "Bronze THB 650,000 Membership Fee 5 Years Validity"}},
+    "privilege_chi": {"url": "https://www.thailandprivilege.co.th/about", "generico": True, "frammenti": {
+        "ente": "We are a state enterprise dedicated to offering exclusive membership programs designed to provide long-term visas",
+        "tat": "with TAT as its sole shareholder"}},
+    "washington_dtv": {"url": "https://washingtondc.thaiembassy.org/en/page/dtv-visa", "frammenti": {
+        "estratti": "Recent saving or checking bank statements for the last three months with an ending balance of no less than 500,000 THB or ($16,000 USD) for each month that shows the applicant's name and date",
+        "famiglia": "In case of submitting a family bank statement, proof of relationship (i.e. birth certificate, marriage certificate) must be provided",
+        "polizia": "Certificate of criminal record clearance (i.e. FBI certificate issued within 3 months)",
+        "attivita": "Letter of acceptance from institute or company organizing activities, letter of appointment from hospital/medical center",
+        "passaporto": "Passport Biodata Page or Travel Document (Must be valid within 6 months from travel date)",
+        "dtv2": "Thai soft power related activities e.g. Muaythai, Thai culinary training and medical treatment"}},
+    "la_tariffe": {"url": "https://thaiconsulatela.thaiembassy.org/en/page/visa-types-requirments", "frammenti": {
+        "dtv1": "DTV | Workcation (Digital Nomad/remote worker/foreign talent/freelancer | N/A | 400 | 5 years |",
+        "dtv2": "DTV | Thai soft power related activities e.g. Muaythai, Thai culinary training, and medical treatment | N/A | 400 | 5 years |",
+        "dtv3": "DTV | Spouse and children under 20 years old of DTV visa holders | N/A | 400 | 5 years |",
+        "ed_muay": "ED | To study in a short course (Thai or English language) / attend Muaythai traning | 80 | N/A | 90 days |",
+        "elite": "Visa for Non-Thai nationals who hold a Thailand Elite /Thailand Privilege Card"}},
+    "savannakhet_dtv": {"url": "https://savannakhet.thaiembassy.org/th/publicservice/destination-thailand-visa", "frammenti": {
+        "attivita": "such as Muay Thai training, Thai culinary courses, or medical treatment",
+        "validita": "The visa is valid for 5 years from the date of issuance"}},
+    "budapest_dtv": {"url": "https://budapest.thaiembassy.org/en/publicservice/destination-thailand-visa-dtv", "frammenti": {
+        "attivita": "Muay Thai courses • Thai cooking courses • Sports training • Medical treatment • Seminars • Music festivals",
+        "lavoro": "holders are prohibited from obtaining a Thai work permit and working for companies in Thailand or performing freelance work for Thai clients"}},
+    "phnompenh_dtv": {"url": "https://phnompenh.thaiembassy.org/en/publicservice/destination-thailand-visa-dtv", "frammenti": {
+        "attivita": "Participants in activities such as Muay Thai courses, Thai Cooking classes, Sport training, Medical treatment, Seminars, Music Festivals"}},
+    "telaviv_dtv": {"url": "https://telaviv.thaiembassy.org/en/content/destination-thailand-visa-dtv", "frammenti": {
+        "attivita": "Participants in activities such as Muay Thai courses, Thai cooking classes, sport training, medical treatment, seminars and music festivals"}},
+    "canberra_dtv": {"url": "https://canberra.thaiembassy.org/en/content/destination-thailand-visa-dtv", "frammenti": {
+        "attivita": "frequent participants in Muay Thai courses, Thai cooking classes, medical treatment, seminars, sport training, and music festivals in Thailand"}},
+    "hcm_dtv": {"url": "https://hochiminh.thaiembassy.org/en/page/destination-thailand-visa-dtv-thị-thực-điểm-đến-th", "frammenti": {
+        "attivita": "Muay Thai courses, cooking classes, sport trainings, medical treatment, seminars, as well as music festivals",
+        "estensione": "may be granted such extension for a period of 180 days"}},
+    "helsinki_dtv": {"url": "https://helsinki.thaiembassy.org/en/publicservice/destination-thailand-visa-dtv", "frammenti": {
+        "estensione": "Extension of Stay : for another 180 days is possible at the Thai Immigration Bureau"}},
+    "kl_dtv": {"url": "https://kualalumpur.thaiembassy.org/en/publicservice/destination-thailand-visa-dtv", "frammenti": {
+        "tempi": "The processing time for DTV may take approximately 1 month or more"}},
+}
+
+# Ricerche dei temi (con --temi): gl=us, gb, au, in, de, fr, ph, sg (7/11/2026)
+GL_TEMI = ("us", "gb", "au", "in", "de", "fr", "ph", "sg")
+QUERY_TEMI = ["thailand dtv visa", "dtv visa thailand", "dtv thailand", "thailand dtv visa ", "dtv visa ",
+              "thailand dtv visa requirements", "thailand dtv visa cost", "thailand dtv visa fee", "dtv visa fee", "dtv visa price", "dtv visa cost",
+              "thailand dtv visa for ", "dtv visa thailand for ", "dtv visa for ", "dtv visa from ",
+              "thailand dtv visa income requirements", "dtv visa financial requirements", "dtv visa proof of funds", "dtv visa 500", "dtv visa bank statement",
+              "dtv visa soft power", "dtv visa muay thai", "dtv visa cooking", "dtv visa medical treatment", "dtv visa activities",
+              "dtv visa extension", "dtv visa 180 days", "dtv visa duration", "dtv visa validity", "dtv visa multiple entry", "dtv visa benefits",
+              "thailand dtv visa benefits", "thailand dtv visa duration", "dtv visa changes", "dtv visa criminal record", "dtv visa new rules",
+              "dtv visa 2026", "thailand dtv visa 2026", "dtv vs ltr", "dtv visa vs", "dtv vs elite", "dtv vs privilege", "dtv vs ed visa",
+              "dtv vs retirement visa", "dtv vs non o", "dtv visa tax", "dtv visa work", "dtv visa processing time", "dtv visa how long",
+              "dtv visa application", "dtv visa official", "thailand dtv visa fee 2025", "thailand dtv visa requirements 2025",
+              "thailand dtv visa cost and", "thailand dtv visa cost duration", "dtv visa philippines", "dtv visa australia", "dtv visa germany",
+              "dtv visa france", "dtv visa bangladesh", "dtv visa pakistan", "dtv visa indonesia", "dtv visa japan", "dtv visa spouse",
+              "dtv visa family", "dtv visa remote work", "dtv visa freelancer", "dtv visa digital nomad", "thailand digital nomad visa"]
+
+
 # Ricerche per l'autocompletamento (con --domanda): gl=us su QUERY_US, gl=uk/in/vn su QUERY_ALTRE
 CITTA_US = ("london|washington|vientiane|hanoi|ho chi minh|kuala lumpur|singapore|phnom penh|new delhi|dubai|penang|jakarta|tokyo|sydney|"
             "los angeles|new york|berlin|savannakhet|manila|seoul|hong kong|taipei|colombo|kathmandu|yangon|mumbai|chennai|kolkata|canberra|"
@@ -300,6 +419,28 @@ def leggi(u):
     tx = testo(d.get("html") or d.get("description"))
     return {"url": u, "http": st, "ok": True, "titolo": (d.get("name") or d.get("title") or "").strip(), "inserita": (d.get("date") or "")[:10],
             "modificata": (d.get("date_edit") or "")[:10], "caratteri": len(tx), "sha256": hashlib.sha256(tx.encode("utf-8")).hexdigest(), "_testo": tx}
+
+
+def leggi_generico(u):
+    """Pagine fuori dal sistema thaiembassy.org (BOI, Thailand Privilege): testo dell'HTML senza script e stili."""
+    st, t = get(u)
+    if st != 200 or not t:
+        return {"url": u, "http": st, "ok": False}
+    t = re.sub(r"<script.*?</script>|<style.*?</style>|<noscript.*?</noscript>", " ", t, flags=re.S)
+    tx = testo(t)
+    m = re.search(r"<title>(.*?)</title>", t, re.S)
+    return {"url": u, "http": st, "ok": True, "titolo": H.unescape(m.group(1)).strip() if m else "", "caratteri": len(tx),
+            "sha256": hashlib.sha256(tx.encode("utf-8")).hexdigest(), "_testo": tx}
+
+
+def domanda_temi():
+    out = {}
+    for gl in GL_TEMI:
+        for q in QUERY_TEMI:
+            out[f"{gl}|{q}"] = autocompleta(q, gl)
+            time.sleep(0.25)
+    return {"data": date.today().isoformat(), "metodo": "https://suggestqueries.google.com/complete/search?client=firefox&gl=<" + "|".join(GL_TEMI) + ">&hl=en&q=…",
+            "query": out}
 
 
 def elenco_sedi():
@@ -371,9 +512,11 @@ def main():
     with cf.ThreadPoolExecutor(8) as ex:
         sedi = list(ex.map(stato_sito, sedi))
     # pagine DTV
-    tutte = sorted({u for L in LETTURE for u in L["pagine"]} | {g["url"] for g in GENERALE.values()})
+    tutte = sorted({u for L in LETTURE for u in L["pagine"]} | {g["url"] for g in GENERALE.values()}
+                   | {g["url"] for g in TEMI.values() if not g.get("generico")})
     with cf.ThreadPoolExecutor(8) as ex:
         lette = {r["url"]: r for r in ex.map(leggi, tutte)}
+        lette.update({r["url"]: r for r in ex.map(leggi_generico, sorted({g["url"] for g in TEMI.values() if g.get("generico")}))})
     for u, r in lette.items():
         if not r["ok"]:
             errori.append(f"pagina non leggibile (HTTP {r['http']}): {u}")
@@ -396,6 +539,10 @@ def main():
         for f in g["frammenti"]:
             if f not in lette.get(g["url"], {}).get("_testo", ""):
                 errori.append(f"{k}: frammento non trovato in {g['url']}: {f!r}")
+    for k, g in TEMI.items():
+        for nome, f in g["frammenti"].items():
+            if f not in lette.get(g["url"], {}).get("_testo", ""):
+                errori.append(f"tema {k}.{nome}: frammento non trovato in {g['url']}: {f!r}")
     # annuncio del Dipartimento degli affari consolari (pagina in thailandese: si controlla solo il titolo e la data)
     a_st, a_t = get(ANNUNCIO_MFA)
     a_d = dati_pagina(a_t) if a_st == 200 else None
@@ -404,6 +551,9 @@ def main():
     # domanda
     vecchio = json.loads(USCITA.read_text(encoding="utf-8")) if USCITA.exists() else {}
     dom = nuova_domanda() if "--domanda" in sys.argv else vecchio.get("domanda")
+    dom_temi = domanda_temi() if "--temi" in sys.argv else vecchio.get("domanda_temi")
+    if not dom_temi:
+        errori.append("domanda dei temi: nessun dato di autocompletamento (lanciare con --temi)")
     if not dom:
         errori.append("domanda: nessun dato di autocompletamento (lanciare con --domanda)")
     # coerenza delle sedi lette con l'elenco ufficiale
@@ -431,7 +581,10 @@ def main():
         s["dtv"] = re.match(r"https?://([^/]+)", s["sito"]).group(1).replace("www.", "") in lette_h
     contenuto = {"sedi": sedi, "letture": letture,
                  "generale": {k: {"url": g["url"], "frammenti": g["frammenti"], "modificata": lette[g["url"]]["modificata"], "sha256": lette[g["url"]]["sha256"]}
-                              for k, g in GENERALE.items()}}
+                              for k, g in GENERALE.items()},
+                 "temi": {k: {"url": g["url"], "frammenti": g["frammenti"], "titolo": lette[g["url"]].get("titolo", ""),
+                              "modificata": lette[g["url"]].get("modificata", ""), "http": lette[g["url"]]["http"], "sha256": lette[g["url"]]["sha256"]}
+                          for k, g in TEMI.items()}}
     uscita = {"_nota": "Generato da raccolta/dtv.py: non modificare a mano (i valori letti a mano stanno in LETTURE dentro lo script). "
                        "Fonte: siti delle ambasciate e dei consolati generali thailandesi (Ministero degli Esteri thailandese), letti il giorno indicato.",
               "generato_il": oggi, "letto_il": oggi,
@@ -440,7 +593,7 @@ def main():
                         "annuncio_mfa": {"url": ANNUNCIO_MFA, "titolo": (a_d.get("name") or a_d.get("title") or "").strip(), "data": (a_d.get("date") or "")[:10],
                                          "editore": "Department of Consular Affairs, Ministry of Foreign Affairs of Thailand", "letto_il": oggi},
                         "evisa": {"url": EVISA, "titolo": "Thai e-Visa (official website)"}},
-              "domanda": dom, **contenuto}
+              "domanda": dom, "domanda_temi": dom_temi, **contenuto}
     USCITA.write_text(json.dumps(uscita, ensure_ascii=False, indent=0) + "\n", encoding="utf-8")
     con_pag = [L["id"] for L in letture if L["domanda"] and ("costo" in L or "residenza" in L)]
     print(f"Scritto {USCITA}: {len(sedi)} sedi nell'elenco ufficiale ({sum(1 for s in sedi if s['http'] == 200)} con la home in HTTP 200), "

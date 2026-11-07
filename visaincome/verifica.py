@@ -1307,15 +1307,16 @@ def controlla_dtv(online=True):
     errori = []
     D = json.loads((SITO.parent / "dati" / "dtv.json").read_text(encoding="utf-8"))
     aff = json.loads((SITO.parent / "dati" / "affiliati.json").read_text(encoding="utf-8")).get("_safetywing_dtv", {})
-    cont = {"sedi": D["sedi"], "letture": D["letture"], "generale": D["generale"]}
+    cont = {"sedi": D["sedi"], "letture": D["letture"], "generale": D["generale"], "temi": D.get("temi", {})}
     if hashlib.sha256(json.dumps(cont, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:20] != D["impronta"]:
         errori.append("DTV: impronta di dati/dtv.json diversa dal contenuto (file modificato a mano?)")
     L = D["letture"]
     con_pag = [x["id"] for x in L if x["domanda"] and ("costo" in x or "residenza" in x)]
     sez = SITO / "thailand-dtv-visa"
     trovate = {f.parent.relative_to(sez).as_posix().replace(".", "") for f in sez.rglob("index.html")}
-    if trovate != set([""] + con_pag):
-        errori.append(f"DTV: pagine diverse da quelle attese (in più {sorted(trovate - set([''] + con_pag))}, mancanti {sorted(set([''] + con_pag) - trovate)})")
+    attese = set([""] + con_pag + (TEMI_DTV_SLUG if D.get("temi") else []))
+    if trovate != attese:
+        errori.append(f"DTV: pagine diverse da quelle attese (in più {sorted(trovate - attese)}, mancanti {sorted(attese - trovate)})")
     sitemap = (SITO / "sitemap.xml").read_text(encoding="utf-8")
     letto = G.data_lunga(D["letto_il"])
     def costo(c):
@@ -1400,7 +1401,11 @@ def controlla_dtv(online=True):
             errori.append(f"DTV: {f} non rimanda alla sezione")
     if "Thailand (DTV)," in (SITO / "digital-nomad-visa-income-requirements" / "index.html").read_text(encoding="utf-8"):
         errori.append("DTV: la pagina dei nomadi elenca ancora la Thailandia tra i visti non coperti")
-    # 10 frammenti a caso ricontrollati sulle pagine ufficiali riscaricate
+    if D.get("temi"):
+        e_t, n_t = _controlla_dtv_temi(D, aff, sitemap, letto, costo)
+        errori += e_t
+        n += n_t
+    # 10 frammenti a caso ricontrollati sulle pagine ufficiali riscaricate (dal 7/11/2026 anche quelli delle pagine per tema: 6 + 6)
     ricontrollati = []
     if online:
         sys.path.insert(0, str(SITO.parent / "raccolta"))
@@ -1408,15 +1413,222 @@ def controlla_dtv(online=True):
         rng = random.Random(20261030)
         campioni = [(x["id"], campo, v) for x in L for campo in ("costo", "residenza", "saldo") if campo in x for v in [x[campo]]]
         campioni += [(x["id"], "altre", a) for x in L for a in x.get("altre", [])]
-        for sid, campo, v in rng.sample(campioni, 10):
-            x = next(y for y in L if y["id"] == sid)
-            u = x["pagine"][v["p"]]["url"]
-            letta = R.leggi(u)
-            ok = letta["ok"] and v["frammento"] in letta["_testo"]
-            ricontrollati.append(f"{sid} {campo}: {'presente' if ok else 'ASSENTE'} ({v['frammento'][:50]}…)")
+        da_leggere = [(f"{sid} {campo}", next(y for y in L if y["id"] == sid)["pagine"][v["p"]]["url"], v["frammento"], False)
+                      for sid, campo, v in rng.sample(campioni, 6 if D.get("temi") else 10)]
+        temi = [(f"tema {k}.{nome}", t["url"], f, "thaiembassy.org" not in t["url"]) for k, t in D.get("temi", {}).items() for nome, f in t["frammenti"].items()]
+        da_leggere += rng.sample(temi, min(6, len(temi)))
+        for etichetta, u, fr, generico in da_leggere:
+            letta = R.leggi_generico(u) if generico else R.leggi(u)
+            ok = letta["ok"] and fr in letta["_testo"]
+            ricontrollati.append(f"{etichetta}: {'presente' if ok else 'ASSENTE'} ({fr[:50]}…)")
             if not ok:
-                errori.append(f"DTV: frammento non più nella pagina ufficiale: {sid} {campo} ({u})")
+                errori.append(f"DTV: frammento non più nella pagina ufficiale: {etichetta} ({u})")
     return errori, n, ricontrollati
+
+
+# pagine per tema della sezione DTV (7/11/2026): slug scritti qui, non presi da genera.py
+TEMI_DTV_SLUG = ["fee", "requirements", "duration-and-extension", "soft-power-activities", "proof-of-funds", "dtv-vs-ltr-elite-retirement"]
+
+
+def _controlla_dtv_temi(D, aff, sitemap, letto, costo):
+    """18 (dal 7/11/2026): le 6 pagine per tema. Sitemap, titolo ≤ 70 con l'anno, prima frase con la data, avviso, nessuna promessa;
+    citazioni “…” = frammenti ufficiali salvati; FAQ = ricerche salvate (domanda/domanda_temi) e JSON-LD = testo; SafetyWing dopo la prima
+    tabella e solo lui; tabelle ricalcolate con i cambi di dati/cambi.json (costo in valuta, euro, dollari; 500.000 baht; conteggio delle
+    attività; tariffe di Londra e Thailand Privilege); tabella per nazionalità = elenco delle sedi; collegamenti da indice, sedi e home."""
+    errori = []
+    n = 0
+    L = D["letture"]
+    T = D["temi"]
+    anno = D["letto_il"][:4]
+    C = json.loads((SITO.parent / "dati" / "cambi.json").read_text(encoding="utf-8"))["tassi"]
+    def eur(v, x):
+        return x if v == "EUR" else (x / C[v] if v in C else None)
+    frammenti = ([f for t in T.values() for f in t["frammenti"].values()] + [g for x in D["generale"].values() for g in x["frammenti"]]
+                 + [x[c]["frammento"] for x in L for c in ("costo", "residenza", "saldo") if c in x] + [a["frammento"] for x in L for a in x.get("altre", [])])
+    salvati = {f: (D.get(f) or {}).get("query", {}) for f in ("domanda", "domanda_temi")}
+    if [s_ for s_, _ in G.PAG_TEMI_DTV] != TEMI_DTV_SLUG:
+        errori.append("DTV temi: elenco delle pagine in genera.py diverso da quello atteso")
+    # FAQ registrate: si rigenerano le pagine DTV senza scriverle
+    orig = G.pagina
+    G.pagina = lambda *a, **k: None
+    try:
+        G.FAQ_DTV.clear()
+        G.genera_dtv()
+    finally:
+        G.pagina = orig
+    def faq_ok(percorso, t, main, uguali=True):
+        reg = G.FAQ_DTV.get(percorso, [])
+        parte = main.split("Questions people ask", 1)[-1]
+        h3 = [html.unescape(x) for x in re.findall(r"<h3>(.*?)</h3>", parte)]
+        dom = [d for *_, d in reg]
+        if not reg or (uguali and h3 != dom) or (not uguali and not set(dom) <= set(h3)):
+            errori.append(f"DTV {percorso}: domande della FAQ diverse da quelle legate a ricerche salvate")
+        for fonte, k, sug, d in reg:
+            if sug not in (salvati[fonte].get(k) or []):
+                errori.append(f"DTV {percorso}: la domanda {d!r} non viene da una ricerca salvata ({fonte} {k} -> {sug!r})")
+        risposte = [_testo29(x) for x in re.findall(r"</h3><p>(.*?)</p>", parte, re.S)]
+        ld = next((json.loads(x) for x in re.findall(r'<script type="application/ld\+json">(.*?)</script>', t, re.S) if '"FAQPage"' in x), None)
+        if not ld or [q["name"] for q in ld["mainEntity"]] != h3 or [re.sub(r"\s+", " ", q["acceptedAnswer"]["text"]).strip() for q in ld["mainEntity"]] != risposte:
+            errori.append(f"DTV {percorso}: JSON-LD FAQPage diverso dal testo della FAQ")
+    pagine = {}
+    for slug in TEMI_DTV_SLUG:
+        percorso = f"thailand-dtv-visa/{slug}/"
+        f = SITO / percorso / "index.html"
+        if not f.exists():
+            errori.append(f"DTV temi: {percorso} mancante")
+            continue
+        n += 1
+        t = f.read_text(encoding="utf-8")
+        main = t.split('<main id="main">', 1)[1].split("</main>", 1)[0]
+        pagine[slug] = main
+        testo_main = html.unescape(re.sub(r"<[^>]+>", " ", main))
+        if f"<loc>{G.URL_SITO}/{percorso}</loc>" not in sitemap:
+            errori.append(f"DTV temi: {percorso} non in sitemap")
+        titolo = html.unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+        if len(titolo) > 70 or anno not in titolo:
+            errori.append(f"DTV temi: titolo oltre 70 caratteri o senza l'anno in {percorso}: {titolo!r}")
+        lead = html.unescape(re.sub(r"<[^>]+>", "", re.search(r'<p class="lead">(.*?)</p>', main, re.S).group(1)))
+        if letto not in lead:
+            errori.append(f"DTV temi: prima frase senza la data di lettura in {percorso}")
+        for frase in ("Not legal or immigration advice.", "FAQPage", "BreadcrumbList"):
+            if frase not in t:
+                errori.append(f"DTV temi: manca {frase!r} in {percorso}")
+        if re.search(r"\b(guarantee[sd]?|will be approved|will get (?:a|the|your) visa|100% approval|easy approval)\b", testo_main, re.I):
+            errori.append(f"DTV temi: promessa sull'approvazione in {percorso}")
+        for q in re.findall(r"“([^”]+)”", html.unescape(main)):
+            if not any(q.rstrip(".").strip() in fr for fr in frammenti):
+                errori.append(f"DTV temi {percorso}: citazione non presente nei frammenti ufficiali: {q[:80]!r}")
+        sw = re.findall(r'<a [^>]*href="([^"]*safetywing[^"]*)"[^>]*rel="([^"]*)"', main)
+        altri_sp = [h for h in re.findall(r'<a [^>]*href="([^"]+)"[^>]*rel="[^"]*sponsored', main) if "safetywing.com" not in h]
+        if altri_sp:
+            errori.append(f"DTV temi: link sponsorizzati non ammessi in {percorso}: {altri_sp[:2]}")
+        if aff.get("url"):
+            if len(sw) != 1 or html.unescape(sw[0][0]) != aff["url"] or sw[0][1] != "sponsored noopener":
+                errori.append(f"DTV temi: riquadro SafetyWing assente, doppio o con rel sbagliato in {percorso}")
+            if G.MON.RIGA_EN not in main or "Insurance is not a DTV requirement" not in main:
+                errori.append(f"DTV temi: riga di trasparenza o frase 'assicurazione non richiesta' mancanti in {percorso}")
+            if main.find("safetywing") < main.find("<table"):
+                errori.append(f"DTV temi: SafetyWing prima delle informazioni ufficiali in {percorso}")
+        elif sw:
+            errori.append(f"DTV temi: link SafetyWing in {percorso} ma voce spenta")
+        if 'href="../"' not in main or any(f'href="../{x}/"' not in main for x in TEMI_DTV_SLUG if x != slug):
+            errori.append(f"DTV temi: {percorso} non rimanda all'indice o alle altre pagine per tema")
+        faq_ok(percorso, t, main)
+    def righe(main, id_tab):
+        m = re.search(rf'id="{id_tab}">.*?<tbody>(.*?)</tbody>', main, re.S)
+        return re.findall(r"<tr>(.*?)</tr>", m.group(1), re.S) if m else []
+    # costo
+    if "fee" in pagine:
+        main = pagine["fee"]
+        cc = [x for x in L if "costo" in x]
+        rr = righe(main, "t-costo")
+        if len(rr) != len(cc):
+            errori.append(f"DTV fee: {len(rr)} righe, attese {len(cc)}")
+        ordine = sorted(cc, key=lambda x: (eur(x["costo"]["valuta"], x["costo"]["importo"]) is None, eur(x["costo"]["valuta"], x["costo"]["importo"]) or 0, x["sede"]))
+        for x, r in zip(ordine, rr):
+            r_ = html.unescape(r)
+            c = x["costo"]
+            e = eur(c["valuta"], c["importo"])
+            u = c["importo"] if c["valuta"] == "USD" else (e * C["USD"] if e else None)
+            if x["sede"] not in r_ or costo(c) not in r_:
+                errori.append(f"DTV fee: riga fuori ordine o costo diverso per {x['sede']}")
+            if e and f"€{round(e):,}<" not in r_:
+                errori.append(f"DTV fee: euro di {x['sede']} diverso dal ricalcolo ({round(e):,})")
+            if u and f"US${round(u):,}<" not in r_:
+                errori.append(f"DTV fee: dollari di {x['sede']} diversi dal ricalcolo ({round(u):,})")
+            if x["pagine"][c["p"]]["url"] not in r_:
+                errori.append(f"DTV fee: link ufficiale di {x['sede']} mancante")
+        con_e = [x for x in ordine if eur(x["costo"]["valuta"], x["costo"]["importo"])]
+        kpi = html.unescape(re.search(r'<div class="kpi">(.*?)</div></div>', main, re.S).group(1))
+        for x, cosa in ((con_e[0], "lowest"), (con_e[-1], "highest")):
+            e = eur(x["costo"]["valuta"], x["costo"]["importo"])
+            if f"<b>€{round(e):,}</b><span>{cosa}: {x['sede']}, {costo(x['costo'])}" not in kpi:
+                errori.append(f"DTV fee: riquadro, costo {cosa} diverso dal ricalcolo ({x['sede']}, €{round(e):,})")
+        lead = html.unescape(re.sub(r"<[^>]+>", "", re.search(r'<p class="lead">(.*?)</p>', main, re.S).group(1)))
+        for v, imp in (("GBP", 300), ("USD", 400), ("EUR", 350), ("INR", 30000), ("THB", 10000)):
+            gr = [x for x in cc if (x["costo"]["valuta"], x["costo"]["importo"]) == (v, imp)]
+            if gr and (costo(gr[0]["costo"]) not in lead or any(x["sede"].replace(", DC", " DC") not in lead for x in gr)):
+                errori.append(f"DTV fee: gruppo {v} {imp} incompleto nella prima frase")
+    # requisiti: tabella per nazionalità
+    if "requirements" in pagine:
+        rr = righe(pagine["requirements"], "t-nazionalita")
+        if len(rr) != len(G.NAZ_DTV):
+            errori.append("DTV requirements: righe per nazionalità diverse da NAZ_DTV")
+        alias = {"United States": "United States of America", "Russia": "Russian Federation"}
+        for (chi, paese, sug), r in zip(G.NAZ_DTV, rr):
+            if not any(sug in (v or []) for q in salvati.values() for v in q.values()):
+                errori.append(f"DTV requirements: la riga {chi} non viene da una ricerca salvata ({sug!r})")
+            sedi = [s_ for s_ in D["sedi"] if s_["paese"] in (paese, alias.get(paese))]
+            celle = re.findall(r"<td[^>]*>(.*?)</td>", r, re.S)
+            if len(celle) < 2 or len(re.split(r"<br>", celle[1])) != len(sedi) or any(html.escape(s_["sede"], quote=False) not in celle[1] for s_ in sedi):
+                errori.append(f"DTV requirements: sedi di {paese} diverse dall'elenco ufficiale")
+            per_host = {x["sito"].split("//")[1]: x for x in L}
+            for s_, voce in zip(sorted(sedi, key=lambda s_: (s_["tipo"] != "Embassy", s_["sede"])), re.split(r"<br>", celle[1]) if len(celle) > 1 else []):
+                x = per_host.get(re.match(r"https?://([^/]+)", s_["sito"]).group(1).replace("www.", ""))
+                attesa = ("fee " + costo(x["costo"])) if x and "costo" in x else ("DTV page read, fee not written in its text" if x else None)
+                if not re.sub(r"<[^>]+>", "", html.unescape(voce)).startswith((x["sede"] if x else s_["sede"]) + ": ") or (attesa and attesa not in html.unescape(voce)):
+                    errori.append(f"DTV requirements: voce di {s_['sede']} nella tabella per nazionalità diversa dai dati")
+    # attività soft power: conteggi ricalcolati
+    if "soft-power-activities" in pagine:
+        fonti = [("londra_dtv", "dtv2"), ("washington_dtv", "dtv2"), ("budapest_dtv", "attivita"), ("phnompenh_dtv", "attivita"),
+                 ("telaviv_dtv", "attivita"), ("canberra_dtv", "attivita"), ("hcm_dtv", "attivita"), ("savannakhet_dtv", "attivita")]
+        testi = [T[k]["frammenti"][nm].lower() for k, nm in fonti]
+        for nome, pat in (("Muay Thai", r"muay ?thai"), ("Thai cooking or culinary training", r"cooking|culinary"), ("Medical treatment", r"medical"),
+                          ("Sports training", r"sport"), ("Seminars", r"seminar"), ("Music festivals", r"music festival")):
+            k_ = sum(1 for x in testi if re.search(pat, x))
+            if f">{nome}</th><td class=\"n\" data-v=\"{k_}\">{k_} of {len(fonti)}<" not in pagine["soft-power-activities"]:
+                errori.append(f"DTV soft power: conteggio di {nome} diverso dal ricalcolo ({k_})")
+    # prova dei fondi
+    if "proof-of-funds" in pagine:
+        main = pagine["proof-of-funds"]
+        cs = [x for x in L if "saldo" in x]
+        rr = righe(main, "t-fondi")
+        if len(rr) != len(cs):
+            errori.append(f"DTV proof of funds: {len(rr)} righe, attese {len(cs)}")
+        e500 = 500000 / C["THB"]
+        if f"€{round(e500):,}" not in html.unescape(re.search(r'<p class="lead">(.*?)</p>', main, re.S).group(1)):
+            errori.append("DTV proof of funds: 500.000 baht in euro diverso dal ricalcolo nella prima frase")
+        for x in cs:
+            r_ = next((html.unescape(r) for r in rr if f'>{html.escape(x["sede"], quote=False)}<' in r), None)
+            if not r_ or x["saldo"]["frammento"].rstrip(".") not in r_:
+                errori.append(f"DTV proof of funds: riga di {x['sede']} mancante o senza il frammento")
+                continue
+            loc = G.SALDO_LOCALE_DTV.get(x["id"])
+            if loc and f"{loc[1]:,}" not in x["saldo"]["frammento"]:
+                errori.append(f"DTV proof of funds: importo locale di {x['sede']} non nel frammento ufficiale")
+            e = eur(*loc) if loc else e500
+            if e and f"€{round(e):,}<" not in r_:
+                errori.append(f"DTV proof of funds: euro di {x['sede']} diverso dal ricalcolo ({round(e):,})")
+    # confronto con gli altri visti: tariffe di Londra e Thailand Privilege dai frammenti
+    if "dtv-vs-ltr-elite-retirement" in pagine:
+        tab = html.unescape("".join(righe(pagine["dtv-vs-ltr-elite-retirement"], "t-confronto")))
+        tar = T["londra_tariffe"]["frammenti"]
+        for k in ("ltr", "oa", "ox", "non_imm"):
+            v = int(re.search(r"\| ([\d,]+) \|$", tar[k]).group(1).replace(",", ""))
+            if f"£{v:,}" not in tab:
+                errori.append(f"DTV confronto: tariffa {k} (£{v:,}) assente dalla tabella")
+        pv = re.search(r"THB ([\d,]+)", T["privilege"]["frammenti"]["bronze"]).group(1)
+        lon = next(x for x in L if x["id"] == "london")
+        if f"THB {pv}" not in tab or costo(lon["costo"]) not in tab:
+            errori.append("DTV confronto: Thailand Privilege o costo DTV di Londra diversi dai frammenti")
+    # durata: le tre frasi di Londra nella tabella
+    if "duration-and-extension" in pagine:
+        for nm in ("validita", "soggiorno", "estensione", "uscita"):
+            if html.escape(T["londra_dtv"]["frammenti"][nm], quote=False) not in pagine["duration-and-extension"].replace("&#x27;", "'"):
+                errori.append(f"DTV durata: frase {nm} di Londra assente")
+    # indice e sedi: FAQ legate alle ricerche, link alle pagine per tema
+    t_i = (SITO / "thailand-dtv-visa" / "index.html").read_text(encoding="utf-8")
+    m_i = t_i.split('<main id="main">', 1)[1].split("</main>", 1)[0]
+    faq_ok("thailand-dtv-visa/", t_i, m_i)
+    if any(f'href="{x}/"' not in m_i for x in TEMI_DTV_SLUG):
+        errori.append("DTV: l'indice non rimanda a tutte le pagine per tema")
+    for percorso in [p_ for p_ in G.FAQ_DTV if p_ != "thailand-dtv-visa/" and p_.count("/") == 2 and p_.split("/")[1] not in TEMI_DTV_SLUG]:
+        t_s = (SITO / percorso / "index.html").read_text(encoding="utf-8")
+        faq_ok(percorso, t_s, t_s.split('<main id="main">', 1)[1].split("</main>", 1)[0], uguali=False)
+    home = (SITO / "index.html").read_text(encoding="utf-8")
+    if any(f'href="thailand-dtv-visa/{x}/"' not in home for x in TEMI_DTV_SLUG):
+        errori.append("DTV: la home non rimanda a tutte le pagine per tema")
+    return errori, n
 
 # ---------------------------------------------------------------- 19-20. Sezioni per studenti: US OPT e UK Graduate visa (30/10/2026)
 from datetime import date as _date, timedelta as _td
@@ -4463,7 +4675,8 @@ def main():
     for x in r17:
         print("    ·", x)
     e18, n18, r18 = controlla_dtv(online="--offline" not in sys.argv)
-    print(f"18. Thailand DTV visa: {n18} pagine (indice + sedi), costi, regole, frammenti, affiliati, link; frammenti ricontrollati online: {len(r18)}: {len(e18)} errori")
+    print(f"18. Thailand DTV visa: {n18} pagine (indice + sedi + 6 per tema), costi, regole, frammenti, citazioni, tabelle ricalcolate (euro, dollari, 500.000 baht, attività, tariffe), "
+          f"FAQ da ricerche vere = JSON-LD, affiliati, link; frammenti ricontrollati online: {len(r18)}: {len(e18)} errori")
     for x in r18:
         print("    ·", x)
     e19, n19, j19, r19 = controlla_opt(online="--offline" not in sys.argv)

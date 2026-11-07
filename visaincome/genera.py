@@ -1348,9 +1348,10 @@ def home():
 <h2>UK visa English tests (SELT)</h2>
 <p class="lead">Which English level each UK visa needs (A1 for a first spouse visa, B1 for settlement and citizenship, B2 for settlement from {data_lunga(DATA_B2)}) and the {intero(len(CENTRI_UK))} approved test centres in the UK and {intero(len(CENTRI_EST))} abroad (Home Office lists of {data_lunga(DATA_ELENCO)}).</p>
 <p><a href="{SEZ_SELT}">UK visa English tests: levels and test centres</a> · {" · ".join(f'<a href="{SEZ_SELT}{SLUG_SELT[x]}/">{escape(NOMI_PAESI_SELT.get(x, x))}</a>' for x in ("London", "Birmingham", "Manchester", "Pakistan", "India", "Nigeria") if x in CITTA_PAG + PAESI_PAG)}</p>
-<h2>Thailand DTV visa by embassy</h2>
-<p class="lead">The DTV fee and who can apply change from one Thai embassy to another: {costo_dtv(next(L for L in LET_DTV if L["id"] == "vientiane")["costo"])} in Vientiane, {costo_dtv(next(L for L in LET_DTV if L["id"] == "london")["costo"])} in London, {costo_dtv(next(L for L in LET_DTV if L["id"] == "washington-dc")["costo"])} in Washington (official pages read on {data_lunga(LETTO_DTV)}), and since 31 August 2026 you apply where you live permanently.</p>
+<h2>Thailand DTV visa: fee, requirements and duration</h2>
+<p class="lead">The DTV is valid for 5 years with stays of up to 180 days per entry, but the fee and who can apply change from one Thai embassy to another: {costo_dtv(next(L for L in LET_DTV if L["id"] == "vientiane")["costo"])} in Vientiane, {costo_dtv(next(L for L in LET_DTV if L["id"] == "london")["costo"])} in London, {costo_dtv(next(L for L in LET_DTV if L["id"] == "washington-dc")["costo"])} in Washington (official pages read on {data_lunga(LETTO_DTV)}), and since 31 August 2026 you apply where you live permanently.</p>
 <p><a href="{SEZ_DTV}">Thailand DTV visa: all embassies</a> · {" · ".join(f'<a href="{SEZ_DTV}{L["id"]}/">{escape(L["sede"])}</a>' for L in PAG_DTV if L["id"] in ("london", "ho-chi-minh-city", "vientiane", "kuala-lumpur", "singapore", "new-delhi"))}</p>
+<p><a href="{SEZ_DTV}fee/">DTV fee at each embassy</a> · <a href="{SEZ_DTV}requirements/">DTV requirements</a> · <a href="{SEZ_DTV}duration-and-extension/">Duration and extension</a> · <a href="{SEZ_DTV}soft-power-activities/">Soft power activities</a> · <a href="{SEZ_DTV}proof-of-funds/">Proof of funds</a> · <a href="{SEZ_DTV}dtv-vs-ltr-elite-retirement/">DTV vs LTR and other visas</a></p>
 <h2>Students: US OPT and the UK Graduate visa</h2>
 <p class="lead">OPT and the STEM OPT extension cost {usd(vo("tassa_online"))} online or {usd(vo("tassa_carta"))} on paper (Form I-765), and you file from {vo("finestra")["prima"]} days before to {vo("finestra")["dopo"]} days after your program end date (USCIS, read on {data_lunga(LETTO_OPT)}). The UK Graduate visa lasts 2 years if you apply by 31 December 2026 and 18 months from 1 January 2027 (GOV.UK, read on {data_lunga(LETTO_GRAD)}).</p>
 <p><a href="{SEZ_OPT}">US OPT and STEM OPT: fees and deadlines</a> · <a href="{SEZ_OPT}opt-application-deadline-calculator/">OPT deadline calculator</a> · <a href="{SEZ_OPT}opt-unemployment-days/">OPT unemployment days</a> · <a href="{SEZ_GRAD}">UK Graduate visa</a> · <a href="{SEZ_GRAD}18-months/">Graduate visa 18 months</a> · <a href="{SEZ_GRAD}cost/">Graduate visa cost</a></p>
@@ -1426,7 +1427,7 @@ def pagina_confronto_nomadi():
 <h2>Not covered yet</h2>
 <p>We publish a visa only when we can read the complete rule on an official page or in the official gazette. Not covered on the date we checked, because the official source was not readable or was incomplete: Greece (digital nomad visa, financially independent person), Cyprus, Malta (Nomad Residence Permit), Estonia, Czechia, Romania, Latvia, Iceland, Costa Rica, Brazil, Panama, Colombia and the United Arab Emirates. See <a href="{rel}how-it-works/">How it works</a>.</p>
 <p>{ico("passport")} <strong>Mexico:</strong> the temporary resident visa asks for a net income above {intero(GIORNI_MX["tr"][0])} days of UMA ({mxn(pesos_uma(GIORNI_MX["tr"][0]))} a month in {ANNO}), and each consulate publishes it in its own currency. See <a href="{rel}{SEZ_MX}">Mexico residency: fees and income requirements by consulate</a>.</p>
-<p>{ico("passport")} <strong>Thailand (DTV):</strong> the Destination Thailand Visa asks for savings (usually 500,000 baht in the bank), not a monthly income, and each Thai embassy sets its own fee and residence rule. See <a href="{rel}{SEZ_DTV}">Thailand DTV visa by embassy: fees and who can apply where</a>.</p>"""
+<p>{ico("passport")} <strong>Thailand (DTV):</strong> the Destination Thailand Visa asks for savings (usually 500,000 baht in the bank, see <a href="{rel}{SEZ_DTV}proof-of-funds/">DTV proof of funds</a>), not a monthly income, and each Thai embassy sets its own fee and residence rule. See <a href="{rel}{SEZ_DTV}">Thailand DTV visa by embassy: fees and who can apply where</a>, <a href="{rel}{SEZ_DTV}requirements/">DTV requirements</a> and <a href="{rel}{SEZ_DTV}dtv-vs-ltr-elite-retirement/">DTV compared with the LTR and other long-stay visas</a>.</p>"""
     pagina("digital-nomad-visa-income-requirements/", f"Digital nomad visa income requirements {ANNO}: official amounts by country (table)",
            f"Digital nomad visa income requirements {ANNO} compared: Spain, Portugal, Croatia, Hungary and Italy, for singles, couples and families of 4, in euros and US dollars, with official sources.",
            corpo, calcolatore=True, briciole=[(f"Digital nomad visa income requirements {ANNO}", "digital-nomad-visa-income-requirements/")])
@@ -1512,7 +1513,7 @@ def pagina_come_funziona():
 <h2>Not covered yet</h2>
 <p>Greece (digital nomad visa and financially independent person visa), Cyprus, Malta, Estonia, Czechia, Romania, Latvia, Iceland, Costa Rica, Brazil, Panama, Colombia and the United Arab Emirates: the official page could not be read by our checks or gave conflicting figures. Colombia's rule is in Colombian pesos, a currency the ECB does not publish. Thailand's DTV has no income threshold (it asks for savings) and its fee and residence rule change from embassy to embassy: see <a href="{rel}{SEZ_DTV}">Thailand DTV visa by embassy</a>. Mexico's amount depends on the consulate: see <a href="{rel}{SEZ_MX}">Mexico residency by consulate</a>.</p>
 <h2>9. Thailand DTV visa and Ireland's PPS numbers</h2>
-<p>The <a href="{rel}{SEZ_DTV}">Thailand DTV visa</a> pages quote the official DTV pages of the Thai embassies and consulates. A script reads each page again and checks that every fee and rule we show is still written there; if a page changes, nothing is updated until we read it again. The Ireland pages in <a href="{rel}{SEZ_TR}">Who moved where</a> use the monthly PPS number files of Ireland's Department of Social Protection (CC BY 4.0); a script checks that the months add up to the yearly totals.</p>
+<p>The <a href="{rel}{SEZ_DTV}">Thailand DTV visa</a> pages quote the official DTV pages of the Thai embassies and consulates. A script reads each page again and checks that every fee and rule we show is still written there; if a page changes, nothing is updated until we read it again. The pages on the <a href="{rel}{SEZ_DTV}fee/">fee</a>, <a href="{rel}{SEZ_DTV}requirements/">requirements</a>, <a href="{rel}{SEZ_DTV}duration-and-extension/">duration</a>, <a href="{rel}{SEZ_DTV}soft-power-activities/">soft power activities</a>, <a href="{rel}{SEZ_DTV}proof-of-funds/">proof of funds</a> and the <a href="{rel}{SEZ_DTV}dtv-vs-ltr-elite-retirement/">comparison with other visas</a> work the same way, with the pages of the Thailand Board of Investment (LTR) and of Thailand Privilege; their questions come from searches people actually type (Google suggestions in eight countries). The Ireland pages in <a href="{rel}{SEZ_TR}">Who moved where</a> use the monthly PPS number files of Ireland's Department of Social Protection (CC BY 4.0); a script checks that the months add up to the yearly totals.</p>
 <h2>10. US OPT and the UK Graduate visa</h2>
 <p>The <a href="{rel}{SEZ_OPT}">US OPT and STEM OPT</a> pages use the USCIS fee schedule (Form G-1055), the USCIS pages on Form I-765, OPT and STEM OPT, the SEVP help pages and the Federal Register; the <a href="{rel}{SEZ_GRAD}">UK Graduate visa</a> pages use GOV.UK, the Immigration Rules (Appendix Graduate), the Statement of Changes HC 1333 and the Home Office fees table. A script reads every page again and checks that each figure we show is still written there; if a page changes, nothing is updated until we read it again. Proposals and rules on hold are labelled as such. The date calculators run in your browser.</p>
 <h2>11. Mexico residency</h2>
@@ -5449,29 +5450,34 @@ def pagina_dtv_indice():
     vecchie = [L for L in LET_DTV if L.get("residenza", {}).get("tipo") == "vecchia"]
     prima = sorted([L for L in LET_DTV if max(x["modificata"] for x in L["pagine"]) < "2026-08-31"], key=lambda L: L["sede"])
     eur = sorted(((eur_dtv(L["costo"]), L["id"]) for L in con_costo if eur_dtv(L["costo"])))
-    domande = [
-        ("How much does the Thailand DTV visa cost?",
+    domande = faq_dtv(SEZ_DTV, [
+        ("thailand dtv visa cost", "How much does the Thailand DTV visa cost?",
          f"It depends on the embassy or consulate, and each charges in its own currency. On the pages we read on {data_lunga(LETTO_DTV)}: "
          + "; ".join(f'{L["sede"]} {costo_dtv(L["costo"])}' for L in sorted(con_costo, key=lambda L: L["sede"])) + "."),
-        ("Can I apply for the DTV in a country where I am only a tourist?",
-         "Not since 31 August 2026 at most missions: applicants must submit proof of permanent residence in the country or territory where they apply. "
+        ("thailand dtv visa requirements", "What are the requirements for the Thailand DTV visa?",
+         "A passport, a recent photo, proof of permanent residence in the country where you apply, financial evidence of at least 500,000 baht, a police clearance certificate "
+         "and proof of your purpose (remote work, a soft power activity such as Muay Thai, or your family link to a DTV holder)."),
+        ("dtv visa duration", "How long is the DTV valid and how long can I stay?",
+         "The DTV is valid for 5 years with multiple entries. Each entry allows a stay of up to 180 days, which can be extended once by up to 180 days at the Immigration Bureau in Thailand."),
+        ("dtv visa new rules", "What are the new DTV rules?",
+         "Since 31 August 2026 applicants must submit proof of permanent residence in the country or territory where they apply and a criminal record certificate. "
          "For example, Ho Chi Minh City accepts only a Temporary or Permanent Residence Card from foreigners, and Singapore grants the DTV only to its citizens and permanent residents."),
-        ("Do I need health insurance for the DTV?",
+        ("dtv visa thailand health insurance", "Do I need health insurance for the DTV?",
          "None of the DTV pages we read lists health insurance among the required documents. Check the official page of your mission, because requirements can change."),
-        ("How much money do I need in the bank for the DTV?",
+        ("dtv visa bank balance", "How much money do I need in the bank for the DTV?",
          "Most pages ask for financial evidence of at least 500,000 baht, usually bank statements for the last 3 months. Some write it in their own currency: "
          "£12,000 in London, US$16,000 in Washington, €15,000 in Helsinki; Hong Kong asks for 150,000 Hong Kong dollars and Cairo for 850,000 Egyptian pounds."),
-        ("Where do I apply for the DTV?",
+        ("thailand dtv visa official website", "Where do I apply for the DTV?",
          f"Online, on the Thai e-Visa website ({DTV['fonti']['evisa']['url']}), choosing the embassy or consulate for the place where you live. Some missions add their own rules: "
          "Vientiane takes the fee in cash and needs an appointment."),
-        ("Do I need a DTV for a short holiday?",
+        ("is thailand visa free", "Do I need a DTV for a short holiday?",
          "Maybe not. Since 15 September 2026 many nationalities, including British, Irish and US citizens, can enter Thailand without a visa for up to 30 days for tourism."),
-    ]
+    ])
     ld = [ld_faq(domande), ld_dataset("Thailand DTV visa fees and residence rules by embassy",
                                       f"Fees and residence rules for the Destination Thailand Visa read on the official pages of {len(LET_DTV)} Thai embassies and consulates.",
                                       percorso, [DTV["fonti"]["elenco"]["url"]], LETTO_DTV, "https://creativecommons.org/licenses/by/4.0/")]
-    corpo = f"""<section class="hero">{h1_diviso(f"Thailand DTV visa by embassy: fees and who can apply where ({ANNO})")}
-<p class="lead">The Destination Thailand Visa (DTV) fee depends on where you apply: <strong>{costo_dtv(vie["costo"])}</strong> in cash at the embassy in Vientiane, <strong>{costo_dtv(lon["costo"])}</strong> in London and <strong>{costo_dtv(was["costo"])}</strong> in Washington, according to the official pages of the Thai embassies and consulates we read on {data_lunga(LETTO_DTV)}. Since 31 August 2026 you also need proof of permanent residence in the country where you apply and a criminal record certificate (Thai Ministry of Foreign Affairs).</p></section>
+    corpo = f"""<section class="hero">{h1_diviso(f"Thailand DTV visa ({ANNO}): fee, requirements, duration and who can apply, embassy by embassy")}
+<p class="lead">The Destination Thailand Visa (DTV) costs <strong>{costo_dtv(vie["costo"])}</strong> in cash at the embassy in Vientiane, <strong>{costo_dtv(lon["costo"])}</strong> in London and <strong>{costo_dtv(was["costo"])}</strong> in Washington, is valid for 5 years with stays of up to 180 days per entry, and needs savings of about 500,000 baht, according to the official pages of the Thai embassies and consulates we read on {data_lunga(LETTO_DTV)}. Since 31 August 2026 you also need proof of permanent residence in the country where you apply and a criminal record certificate (Thai Ministry of Foreign Affairs).</p></section>
 <section class="card summary" aria-label="Summary">
 <div class="s-top">{ico("passport")}<span>Thailand DTV visa</span><span>read on {data_lunga(LETTO_DTV)}</span></div>
 <div class="s-body">
@@ -5480,6 +5486,8 @@ def pagina_dtv_indice():
 <p class="fonte">Source: official websites of the Thai embassies and consulates-general (list: <a href="{DTV["fonti"]["elenco"]["url"]}" rel="noopener">Ministry of Foreign Affairs of Thailand</a>), read on {data_lunga(LETTO_DTV)}. Every row links to the page it comes from.</p>
 </div></section>
 {AVVISO_DTV}
+<h2 id="guides">DTV fee, requirements, duration and benefits</h2>
+{nav_temi_dtv("")}
 {AD}
 <h2 id="table">DTV fee and residence rule, embassy by embassy</h2>
 <p class="small">One row per embassy or consulate whose DTV page we could read. "Who can apply here" quotes the page. "Updated" is the date the mission last edited the page. Euro amounts are approximate (ECB reference rates of {data_lunga(CAMBI["data"])}); you pay in the currency shown. Type to filter, or tap a column heading to sort.</p>
@@ -5506,10 +5514,19 @@ def pagina_dtv_indice():
 <div class="tab compatta"><table class="ord" id="t-altre"><thead><tr>{th_ord("Mission", False, "ascending")}{th_ord("Country", False, "ascending")}<th scope="col">Website</th><th scope="col">What we found</th></tr></thead><tbody>{righe_altre}</tbody></table></div>
 <p class="fonte">Source: list of Royal Thai Embassies and Consulates-General, <a href="{DTV["fonti"]["elenco"]["url"]}" rel="noopener">Ministry of Foreign Affairs of Thailand</a>, read on {data_lunga(LETTO_DTV)}.</p>
 <p><a href="{rel}digital-nomad-visa-income-requirements/">Digital nomad visa income requirements in Europe</a> · <a href="{rel}{SEZ}">Visa refusal rates</a> · <a href="{rel}">Visa income calculator</a></p>"""
-    titolo = f"Thailand DTV visa by embassy {ANNO}: fees and residence rules"
-    descr = (f"DTV visa fee and residence rule at {len(LET_DTV)} Thai embassies and consulates: {costo_dtv(vie['costo'])} in Vientiane, {costo_dtv(lon['costo'])} in London, "
-             f"{costo_dtv(was['costo'])} in Washington. Proof of permanent residence since 31 August 2026; 30-day visa exemption since 15 September 2026.")
+    titolo = f"Thailand DTV visa {ANNO}: fee, requirements and rules by embassy"
+    descr = (f"Thailand DTV visa {ANNO} at {len(LET_DTV)} Thai embassies and consulates: fee ({costo_dtv(vie['costo'])} in Vientiane, {costo_dtv(lon['costo'])} in London, "
+             f"{costo_dtv(was['costo'])} in Washington), requirements, 5-year validity and 180-day stays, proof of permanent residence since 31 August 2026. Read on {data_lunga(LETTO_DTV)}.")
     pagina(percorso, titolo, descr, corpo, ordina=True, jsonld_extra=ld, briciole=[("Thailand DTV visa by embassy", percorso)])
+
+
+# Ricerche per nazionalità che portano a una sede (suggerimento salvato, chi): solo dove l'autocompletamento le mostra (7/11/2026)
+NAZ_SEDE_DTV = {"washington-dc": ("thailand dtv visa for us citizens", "US citizens"), "los-angeles": ("thailand dtv visa for us citizens", "US citizens"),
+                "chicago": ("thailand dtv visa for us citizens", "US citizens"), "new-delhi": ("dtv visa thailand for indian citizens", "Indian citizens"),
+                "yangon": ("dtv visa for myanmar", "Myanmar citizens")}
+ESENZIONE_SEDE_DTV = {"United States": "For tourist trips of up to 30 days, US passport holders can enter Thailand without a visa (Embassy in Washington).",
+                      "India": "For tourism, Indian ordinary passport holders can stay up to 30 days without a visa (Embassy in New Delhi).",
+                      "United Kingdom": "For tourist trips of up to 30 days, British and Irish passport holders can enter Thailand without a visa (Embassy in London)."}
 
 
 def pagina_dtv_sede(L):
@@ -5575,10 +5592,19 @@ def pagina_dtv_sede(L):
          (f"The {chi} asks for financial evidence: " + re.sub(r"<[^>]+>", "", citazione(s)) + "." if s else "Most missions ask for at least 500,000 baht in bank statements over 3 months; this page does not give an amount.")),
         ("Do I need health insurance for the DTV?", "The DTV pages we read, this one included, do not list health insurance among the required documents."),
     ]
+    # domanda per nazionalità (7/11/2026), solo dove la ricerca esiste: legata al suggerimento salvato (FAQ_DTV, controllo 18)
+    FAQ_DTV.pop(percorso, None)
+    naz = NAZ_SEDE_DTV.get(L["id"])
+    if naz:
+        sug, chi_naz = naz
+        domande += faq_dtv(percorso, [(sug, f"Can {chi_naz} get the Thailand DTV visa in {L['sede']}?",
+                                       f"Yes, if they live permanently in {paese_art(L['paese'])}: since 31 August 2026 you apply at the Thai mission for the country where you live permanently, whatever your passport. "
+                                       + (f"The {chi} lists the fee as {costo_dtv(c)}. " if c else "")
+                                       + ESENZIONE_SEDE_DTV.get(L["paese"], ""))])
     altri_paese = (f'<h2>Other Thai missions in {escape(paese_art(L["paese"]))}</h2><ul class="testo">' + "".join(
         f'<li>{(f"<a href=\"../{x["id"]}/\">" + escape(x["sede"]) + "</a>") if x in PAG_DTV else escape(x["sede"])}: '
         f'{("fee " + costo_dtv(x["costo"])) if "costo" in x else "fee not written on the page"}; residence: {residenza_dtv(x)[0].lower() + residenza_dtv(x)[1:] if not x.get("residenza") else residenza_dtv(x)}</li>' for x in stesso) + "</ul>") if stesso else ""
-    corpo = f"""<section class="hero"><h1>Thailand DTV visa in {escape(L["sede"])}: fee and who can apply ({ANNO})</h1>
+    corpo = f"""<section class="hero"><h1>Thailand DTV visa in {escape(L["sede"])}: fee, requirements and who can apply ({ANNO})</h1>
 <p class="lead">{prima}</p></section>
 <section class="card summary" aria-label="Summary">
 <div class="s-top">{bandiera(L["paese"]) if '<svg class="flag"' in bandiera(L["paese"]) else ico("passport")}<span>{escape(chi)}</span><span>read on {data_lunga(LETTO_DTV)}</span></div>
@@ -5596,22 +5622,608 @@ def pagina_dtv_sede(L):
 {regola_dtv(rel, breve=True)}
 {esenzione_dtv(rel, breve=True)}
 {altri_paese}
+<h2>Documents, duration and money for every DTV</h2>
+<p>The other DTV rules are the same at every mission: the visa is valid for 5 years with stays of up to 180 days per entry, and you upload a passport, a photo, proof of permanent residence, bank statements, a police certificate and proof of your purpose.</p>
+{nav_temi_dtv("../")}
 {box_assicurazione_dtv(rel)}
 <h2>Questions people ask</h2>
 <div class="testo">{faq_html(domande)}</div>
 <p><a href="../">Thailand DTV visa: all embassies and consulates</a> · <a href="{rel}digital-nomad-visa-income-requirements/">Digital nomad visa income requirements</a> · <a href="{rel}">Visa income calculator</a></p>"""
-    titolo = titolo_breve([f"Thailand DTV visa in {L['sede']} ({ANNO}): fee and who can apply", f"DTV visa {L['sede']} {ANNO}: fee and residence rule",
-                           f"DTV visa {L['sede']} {ANNO}: fee and rules", f"DTV visa {L['sede']} ({ANNO})"])
+    titolo = titolo_breve([f"Thailand DTV visa {L['sede']} {ANNO}: fee, requirements, who can apply", f"Thailand DTV visa {L['sede']} {ANNO}: fee and requirements",
+                           f"DTV visa {L['sede']} {ANNO}: fee and requirements", f"DTV visa {L['sede']} ({ANNO})"])
     descr = (f"DTV visa at the {chi}: " + (f"fee {costo_dtv(c)}" if c else "fee not written on the page")
              + f", who can apply there (residence rule), money to show and the official page (updated {data_lunga(agg)}, read {data_lunga(LETTO_DTV)}).")
     pagina(percorso, titolo, descr, corpo, jsonld_extra=[ld_faq(domande)],
            briciole=[("Thailand DTV visa by embassy", SEZ_DTV), (L["sede"], percorso)])
 
 
+# ---------------------------------------------------------------- Thailand DTV: pagine per tema (7/11/2026)
+# Dati: dati/dtv.json → "temi" (pagine ufficiali con frammenti con un nome, controllati da raccolta/dtv.py) e "domanda_temi"
+# (autocompletamento gl=us, gb, au, in, de, fr, ph, sg). Ogni domanda delle FAQ è legata a un suggerimento salvato (FAQ_DTV, controllo 18).
+TEMI_DTV = DTV.get("temi", {})
+SUGG_DTV = {}   # suggerimento -> (fonte "domanda_temi"|"domanda", chiave "gl|query")
+for _f in ("domanda_temi", "domanda"):
+    for _k, _v in ((DTV.get(_f) or {}).get("query") or {}).items():
+        for _s in _v or []:
+            SUGG_DTV.setdefault(_s, (_f, _k))
+FAQ_DTV = {}    # percorso -> [(fonte, chiave, suggerimento, domanda)]
+NOMI_TEMI_DTV = {
+    "londra_dtv": "Royal Thai Embassy, London: Destination Thailand Visa",
+    "londra_info": "Royal Thai Embassy, London: Visa General Information",
+    "londra_tariffe": "Royal Thai Embassy, London: Visa Fees",
+    "londra_pensione": "Royal Thai Embassy, London: Retirement Visa",
+    "londra_studio": "Royal Thai Embassy, London: Education Visa",
+    "londra_ltr": "Royal Thai Embassy, London: Long Term Resident Visa",
+    "boi_ltr": "Thailand Board of Investment (BOI): LTR Visa",
+    "privilege": "Thailand Privilege Card Co., Ltd.: Bronze membership",
+    "privilege_chi": "Thailand Privilege Card Co., Ltd.: Who We Are",
+    "washington_dtv": "Royal Thai Embassy, Washington, DC: Destination Thailand Visa (DTV)",
+    "la_tariffe": "Royal Thai Consulate-General, Los Angeles: Visa Types / Visa Fees / Validity",
+    "savannakhet_dtv": "Royal Thai Consulate-General, Savannakhet: Destination Thailand Visa (DTV)",
+    "budapest_dtv": "Royal Thai Embassy, Budapest: Destination Thailand Visa (DTV)",
+    "phnompenh_dtv": "Royal Thai Embassy, Phnom Penh: Destination Thailand Visa (DTV)",
+    "telaviv_dtv": "Royal Thai Embassy, Tel Aviv: Destination Thailand Visa (DTV)",
+    "canberra_dtv": "Royal Thai Embassy, Canberra: Destination Thailand Visa (DTV)",
+    "hcm_dtv": "Royal Thai Consulate-General, Ho Chi Minh City: Destination Thailand Visa (DTV)",
+    "helsinki_dtv": "Royal Thai Embassy, Helsinki: Destination Thailand Visa (DTV)",
+    "kl_dtv": "Royal Thai Embassy, Kuala Lumpur: Destination Thailand Visa (DTV)",
+}
+# pagine per tema: slug, nome breve (griglia e briciole)
+PAG_TEMI_DTV = [("fee", "DTV visa fee at each embassy"), ("requirements", "DTV requirements and documents"),
+                ("duration-and-extension", "Duration, extension and benefits"), ("soft-power-activities", "Soft power activities (Muay Thai, cooking…)"),
+                ("proof-of-funds", "Proof of funds: 500,000 baht"), ("dtv-vs-ltr-elite-retirement", "DTV vs LTR, Elite, ED and retirement visas")]
+# nazionalità cercate (suggerimento salvato) -> Paese in cui si fa domanda (righe della tabella "by nationality")
+NAZ_DTV = [("US citizens", "United States", "thailand dtv visa for us citizens"), ("Indians", "India", "thailand dtv visa for indians"),
+           ("Bangladeshis", "Bangladesh", "thailand dtv visa for bangladeshi"), ("Pakistanis", "Pakistan", "thailand dtv visa for pakistani"),
+           ("Filipinos", "Philippines", "dtv visa thailand for filipino"), ("Canadians", "Canada", "dtv visa thailand for canadian"),
+           ("Chinese citizens", "China", "dtv visa for chinese"), ("Myanmar citizens", "Myanmar", "dtv visa for myanmar"),
+           ("Vietnamese citizens", "Vietnam", "dtv visa from vietnam"), ("Australians", "Australia", "dtv visa thailand australia"),
+           ("People living in the UK", "United Kingdom", "dtv visa thailand uk")]
+# saldo scritto nella valuta locale (controllato: l'importo formattato deve stare nel frammento ufficiale della sede)
+SALDO_LOCALE_DTV = {"london": ("GBP", 12000), "washington-dc": ("USD", 16000), "helsinki": ("EUR", 15000), "singapore": ("SGD", 20000),
+                    "hong-kong": ("HKD", 150000), "cairo": ("EGP", 850000)}
+SALDO_THB_DTV = 500000
+# attività "soft power" nominate dalle sedi: nome, espressione cercata nei frammenti (controllo 18 ricalcola i conteggi)
+ATTIVITA_DTV = [("Muay Thai", r"muay ?thai"), ("Thai cooking or culinary training", r"cooking|culinary"), ("Medical treatment", r"medical"),
+                ("Sports training", r"sport"), ("Seminars", r"seminar"), ("Music festivals", r"music festival")]
+FONTI_ATTIVITA_DTV = [("londra_dtv", "dtv2"), ("washington_dtv", "dtv2"), ("budapest_dtv", "attivita"), ("phnompenh_dtv", "attivita"),
+                      ("telaviv_dtv", "attivita"), ("canberra_dtv", "attivita"), ("hcm_dtv", "attivita"), ("savannakhet_dtv", "attivita")]
+
+
+def ft(k, nome):
+    return TEMI_DTV[k]["frammenti"][nome]
+
+
+def qt(k, nome):
+    return f'“{escape(ft(k, nome).rstrip("."))}”'
+
+
+def num_tabella(k, nome):
+    """Importo di una riga di tabella ufficiale ("... | 150 |" o "... | 400 | 5 years |"): primo numero dopo la descrizione."""
+    m = re.search(r"\|\s*(?:N/A\s*\|\s*)?([\d,]+)\s*\|", ft(k, nome))
+    return int(m.group(1).replace(",", ""))
+
+
+def agg_tema(k):
+    m = TEMI_DTV[k].get("modificata")
+    return f" (updated {data_lunga(m)})" if m else ""
+
+
+def fonte_temi_p(chiavi, extra=""):
+    voci = "; ".join(f'<a href="{escape(TEMI_DTV[k]["url"])}" rel="noopener">{escape(NOMI_TEMI_DTV[k])}</a>{agg_tema(k)}' for k in chiavi)
+    return f'<p class="fonte">Source{"s" if len(chiavi) > 1 else ""}: {voci}{extra}. Read on {data_lunga(LETTO_DTV)}.</p>'
+
+
+def faq_dtv(percorso, voci, aggiungi=False):
+    """voci: [(suggerimento salvato, domanda, risposta)]. Registra il legame (controllo 18) e restituisce [(domanda, risposta)]."""
+    reg = FAQ_DTV.setdefault(percorso, []) if aggiungi else []
+    out = []
+    for sug, d, r in voci:
+        if sug not in SUGG_DTV:
+            raise SystemExit(f"DTV: la domanda {d!r} non viene da una ricerca salvata ({sug!r}): rilanciare raccolta/dtv.py --temi o cambiare domanda")
+        reg.append((*SUGG_DTV[sug], sug, d))
+        out.append((d, r))
+    FAQ_DTV[percorso] = reg
+    return out
+
+
+def L_dtv(i):
+    return next(L for L in LET_DTV if L["id"] == i)
+
+
+def thb_eur(x):
+    return x / CAMBI["tassi"]["THB"]
+
+
+def eur_usd(x):
+    return x * CAMBI["tassi"]["USD"]
+
+
+def valuta_eur(valuta, importo):
+    if valuta == "EUR":
+        return importo
+    r = CAMBI["tassi"].get(valuta)
+    return importo / r if r else None
+
+
+def nav_temi_dtv(rel_sez, attuale=""):
+    voci = [("", "DTV visa by embassy")] + PAG_TEMI_DTV
+    return ('<nav class="griglia" aria-label="Thailand DTV visa guides">' + "".join(
+        f'<a href="{rel_sez}{s + "/" if s else ""}"' + (' aria-current="page"' if s == attuale else "") +
+        f'><span class="ic">{ico("passport")}</span><span>{escape(n)}</span></a>' for s, n in voci) + "</nav>")
+
+
+def link_sede_dtv(L, rel_sez):
+    return f'<a href="{rel_sez}{L["id"]}/">{escape(L["sede"])}</a>' if L in PAG_DTV else escape(L["sede"])
+
+
+def elenco_sedi_dtv(lista):
+    """Nomi delle sedi in una frase: "A, B and C" (Washington, DC senza la virgola interna)."""
+    n = [x["sede"].replace(", DC", " DC") for x in lista]
+    return n[0] if len(n) == 1 else ", ".join(n[:-1]) + " and " + n[-1]
+
+
+def gruppi_costo_dtv():
+    """Costi uguali raggruppati: (valuta, importo) -> sedi, nell'ordine della prima frase."""
+    g = {}
+    for L in sorted((L for L in LET_DTV if "costo" in L), key=lambda L: L["sede"]):
+        g.setdefault((L["costo"]["valuta"], L["costo"]["importo"]), []).append(L)
+    return g
+
+
+ORDINE_LEAD_DTV = [("GBP", 300), ("USD", 400), ("EUR", 350), ("INR", 30000), ("THB", 10000)]
+
+
+def pagina_tema_dtv(slug, titolo, descr, h1, lead, riassunto, corpo, domande, ld_extra=None):
+    rel = "../../"
+    percorso = f"{SEZ_DTV}{slug}/"
+    nome = dict(PAG_TEMI_DTV)[slug]
+    testo = f"""<section class="hero">{h1_diviso(h1)}
+<p class="lead">{lead}</p></section>
+{riassunto}
+{AVVISO_DTV}
+{AD}
+{corpo}
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(domande)}</div>
+<h2>More about the Thailand DTV visa</h2>
+{nav_temi_dtv("../", slug)}
+<p><a href="../">Thailand DTV visa: all embassies and consulates</a> · <a href="{rel}digital-nomad-visa-income-requirements/">Digital nomad visa income requirements</a> · <a href="{rel}">Visa income calculator</a></p>"""
+    pagina(percorso, titolo, descr, testo, ordina=True, jsonld_extra=[ld_faq(domande)] + (ld_extra or []),
+           briciole=[("Thailand DTV visa by embassy", SEZ_DTV), (nome, percorso)])
+
+
+def riassunto_dtv(etichetta, cifra, kpi, fonte):
+    k = "".join(f'<div><b>{a}</b><span>{b}</span></div>' for a, b in kpi)
+    return f"""<section class="card summary" aria-label="Summary">
+<div class="s-top">{ico("passport")}<span>Thailand DTV visa</span><span>read on {data_lunga(LETTO_DTV)}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">{etichetta}</span><span class="sr">: </span><strong>{cifra}</strong></p>
+<div class="kpi">{k}</div>
+{fonte}
+</div></section>"""
+
+
+def pagina_dtv_costo():
+    slug = "fee"
+    con_costo = [L for L in LET_DTV if "costo" in L]
+    righe_l = sorted(con_costo, key=lambda L: (eur_dtv(L["costo"]) is None, eur_dtv(L["costo"]) or 0, L["sede"]))
+    con_eur = [L for L in righe_l if eur_dtv(L["costo"])]
+    lo, hi = con_eur[0], con_eur[-1]
+    g = gruppi_costo_dtv()
+    parti = [f'<strong>{costo_dtv(L0["costo"])}</strong> in {escape(elenco_sedi_dtv(g[k]))}'
+             for k in ORDINE_LEAD_DTV if k in g for L0 in [g[k][0]]]
+    lon = L_dtv("london")
+    lead = (f'According to the official pages of the Thai embassies and consulates we read on {data_lunga(LETTO_DTV)}, each mission charges the DTV visa fee '
+            f'in its own currency: {"; ".join(parti)}. One fee pays for a visa valid for 5 years with multiple entries, and it is not refunded.')
+    def riga(L):
+        c = L["costo"]
+        e = eur_dtv(c)
+        u = c["importo"] if c["valuta"] == "USD" else (eur_usd(e) if e else None)
+        pg = L["pagine"][c["p"]]
+        return (f'<tr><td>{link_sede_dtv(L, "../")}<br><span class="small">{escape(L["paese"])} · {"embassy" if L["tipo"] == "Embassy" else "consulate"}</span></td>'
+                f'<td data-v="{e or 0:.2f}">{costo_dtv(c)}</td>'
+                + (f'<td class="n" data-v="{e:.2f}">€{intero(round(e))}</td>' if e else '<td class="n" data-v="">–</td>')
+                + (f'<td class="n" data-v="{u:.2f}">US${intero(round(u))}</td>' if u else '<td class="n" data-v="">–</td>')
+                + f'<td class="small">{escape(c.get("nota", ""))}</td><td data-v="{pg["modificata"].replace("-", "")}">{data_lunga(pg["modificata"])}</td>'
+                f'<td><a href="{escape(pg["url"])}" rel="noopener">official page</a></td></tr>')
+    righe = "".join(riga(L) for L in righe_l)
+    senza = [L for L in LET_DTV if "costo" not in L]
+    pagamento = [L for L in con_costo if re.search(r"cash|card", L["costo"].get("nota", ""))]
+    riassunto = riassunto_dtv("Thai missions with the DTV fee written on their page", f"{len(con_costo)} of {len(LET_DTV)}",
+                              [(f'€{intero(round(eur_dtv(lo["costo"])))}', f'lowest: {escape(lo["sede"])}, {costo_dtv(lo["costo"])}'),
+                               (f'€{intero(round(eur_dtv(hi["costo"])))}', f'highest: {escape(hi["sede"])}, {costo_dtv(hi["costo"])}'),
+                               ("5 years", "validity, multiple entries"), ("No refund", "if the visa is refused (London)")],
+                              f'<p class="fonte">Source: the official page linked in each row of the table, read on {data_lunga(LETTO_DTV)}. Euro and dollar amounts at ECB reference rates of {data_lunga(CAMBI["data"])}.</p>')
+    corpo = f"""<h2 id="table">DTV fee at each Thai embassy and consulate</h2>
+<p class="small">Sorted from the lowest to the highest fee in euros. You pay the amount in the "Fee" column, in that currency; the euro and US dollar amounts are approximate (ECB reference rates of {data_lunga(CAMBI["data"])}). "Fee page updated" is the date the mission last edited the page with the fee. Tap a column heading to sort.</p>
+<div class="tab compatta"><table class="ord larga" id="t-costo"><caption class="sr">Thailand DTV visa fee by Thai embassy and consulate, in local currency, euros and US dollars</caption><thead><tr>{th_ord("Embassy or consulate", False, "ascending")}{th_ord("Fee", True, "ascending")}{th_ord("≈ in euros", True, "ascending")}{th_ord("≈ in US dollars", True, "ascending")}<th scope="col">Note</th>{th_ord("Fee page updated")}<th scope="col">Source</th></tr></thead><tbody>{righe}</tbody></table></div>
+<p class="fonte">Source: the official page linked in each row (websites of the Royal Thai Embassies and Consulates-General, Ministry of Foreign Affairs of Thailand), read on {data_lunga(LETTO_DTV)}. The consulates in Los Angeles, New York and Chicago give the amount in a fee table without a currency sign. Egyptian pounds have no ECB reference rate.</p>
+<p class="small">{len(senza)} other missions have a DTV page that does not write the fee in its text ({", ".join(escape(L["sede"]) for L in sorted(senza, key=lambda L: L["sede"]))}): the e-Visa system shows it when you apply. See the <a href="../#table">table of all embassies</a> for their residence rules.</p>
+<h2>What the fee pays for</h2>
+<ul class="testo"><li>One visa for the three DTV purposes: remote work, Thai soft power activities and the spouse and children of a DTV holder. London lists one fee for a visa with {qt("londra_dtv", "validita")}, and the Consulate-General in Los Angeles lists the same amount, {num_tabella("la_tariffe", "dtv1")} (US dollars; its table has no currency sign), for each of the three purposes.</li>
+<li>{qt("londra_dtv", "soggiorno")}; the stay can be extended once, {qt("londra_dtv", "estensione")} (London). See <a href="../duration-and-extension/">DTV duration and extension</a>.</li></ul>
+{fonte_temi_p(["londra_dtv", "la_tariffe"])}
+<h2>Payment and refunds</h2>
+<ul class="testo"><li>The Embassy in London writes that {qt("londra_info", "rimborso")}, and that {qt("londra_info", "non_garantito")}.</li>
+{"".join(f'<li>{escape(L["sede"])}: {escape(L["costo"]["nota"])}.</li>' for L in pagamento)}</ul>
+{fonte_temi_p(["londra_info"])}
+<h2 id="extension-fee">Is there a fee for the extension of stay?</h2>
+<p>None of the DTV pages we read gives a fee for the 180-day extension. Extensions are made in Thailand, at the Immigration Bureau, not at the embassy: {qt("londra_dtv", "contatto_estensione")} (London). Check the fee with the Immigration Bureau when you apply.</p>
+<h2>Other costs</h2>
+<p>The pages also ask for documents that usually cost money, but they do not give amounts: a police clearance certificate ({qt("londra_dtv", "doc_polizia")}) and translations (documents issued outside Thailand and the UK {qt("londra_dtv", "traduzioni")}). See <a href="../requirements/">all DTV requirements</a>.</p>
+{fonte_temi_p(["londra_dtv"])}
+{box_assicurazione_dtv("../../")}"""
+    vie, was = L_dtv("vientiane"), L_dtv("washington-dc")
+    hcm = L_dtv("ho-chi-minh-city")
+    domande = faq_dtv(f"{SEZ_DTV}{slug}/", [
+        ("how much does thailand dtv visa cost", "How much does the Thailand DTV visa cost?",
+         f"It depends on where you apply. On the pages we read on {data_lunga(LETTO_DTV)}: " + "; ".join(
+             f'{costo_dtv(g[k][0]["costo"])} in {elenco_sedi_dtv(g[k])}' for k in ORDINE_LEAD_DTV if k in g)
+         + f". In euros the fees go from about €{intero(round(eur_dtv(lo['costo'])))} ({lo['sede']}) to €{intero(round(eur_dtv(hi['costo'])))} ({hi['sede']})."),
+        ("thailand 5 year dtv visa cost", "How much is the 5-year DTV visa?",
+         f"There is only one DTV and it is valid for 5 years with multiple entries, so the fee in the table is the 5-year price: for example {costo_dtv(lon['costo'])} in London and {costo_dtv(was['costo'])} in Washington."),
+        ("muay thai dtv visa cost", "Does the DTV for Muay Thai cost the same?",
+         f"Yes. The fee does not change with the purpose: the Consulate-General in Los Angeles lists {num_tabella('la_tariffe', 'dtv2')} (US dollars) for soft power activities such as Muay Thai, the same as for remote work and for family members, and London lists one fee of {costo_dtv(lon['costo'])}."),
+        ("thailand dtv visa application fee", "Is the DTV application fee refunded if the visa is refused?",
+         f"No. The Embassy in London writes that \"{ft('londra_info', 'rimborso')}\". Paying the fee does not mean the visa will be granted."),
+        ("dtv visa thailand extension fee", "How much is the DTV extension fee?",
+         "None of the DTV pages we read gives it. The 180-day extension is made at the Immigration Bureau in Thailand, which sets its own fee."),
+        ("dtv visa cost vietnam", "How much is the DTV visa in Vietnam?",
+         f"The Consulate-General in Ho Chi Minh City lists {costo_dtv(hcm['costo'])} ({hcm['costo'].get('nota', '')}) and accepts only a Temporary or Permanent Residence Card from foreigners. The Embassy in Hanoi publishes its DTV page as images, so we could not read its fee."),
+    ])
+    lds = [ld_dataset("Thailand DTV visa fee by embassy", f"DTV visa fee written on the official pages of {len(con_costo)} Thai embassies and consulates, in local currency.",
+                      f"{SEZ_DTV}{slug}/", [DTV["fonti"]["elenco"]["url"]], LETTO_DTV, "https://creativecommons.org/licenses/by/4.0/")]
+    pagina_tema_dtv(slug, f"Thailand DTV visa fee {ANNO}: cost at each embassy, in local currency",
+                    f"DTV visa fee at {len(con_costo)} Thai embassies and consulates, in local currency, euros and US dollars: {costo_dtv(lon['costo'])} in London, "
+                    f"{costo_dtv(was['costo'])} in Washington, {costo_dtv(vie['costo'])} in Vientiane. Official pages read on {data_lunga(LETTO_DTV)}.",
+                    f"Thailand DTV visa fee and cost ({ANNO}): what each Thai embassy charges", lead, riassunto, corpo, domande, lds)
+
+
+def missioni_paese_dtv(paese, rel_sez):
+    """Sedi thailandesi in un Paese con quello che dice la loro pagina DTV (per la tabella per nazionalità)."""
+    per_host = {L["sito"].split("//")[1]: L for L in LET_DTV}
+    nomi = {paese, {"United States": "United States of America", "Russia": "Russian Federation"}.get(paese, paese)}
+    out = []
+    for s in sorted((s for s in SEDI_DTV if s["paese"] in nomi), key=lambda s: (s["tipo"] != "Embassy", s["sede"])):
+        L = per_host.get(re.match(r"https?://([^/]+)", s["sito"]).group(1).replace("www.", ""))
+        if L:
+            dett = ("fee " + costo_dtv(L["costo"])) if "costo" in L else "DTV page read, fee not written in its text"
+            out.append(f'{link_sede_dtv(L, rel_sez)}: {dett}')
+        else:
+            out.append(f'<a href="{escape(s["sito"])}" rel="noopener">{escape(s["sede"])}</a>: '
+                       + ("website not reachable from our checks" if s["http"] != 200 else "no DTV page found on its website"))
+    return out
+
+
+ESENZIONE_PAESE_DTV = {
+    "United States": "Yes: the Embassy in Washington lists the United States among the 60 countries and territories with 30 days visa-free for tourism",
+    "India": "Yes: 30 days for Indian ordinary passport holders, for tourism (Embassy in New Delhi)",
+    "United Kingdom": "British and Irish passports: 30 days for tourism (Embassy in London)",
+}
+
+
+def pagina_dtv_requisiti():
+    slug = "requirements"
+    lon = L_dtv("london")
+    docs = [("Passport", "doc_passaporto", (1, 1, 1)), ("Photo", "doc_foto", (1, 1, 1)), ("Proof of permanent residence where you apply", "doc_residenza", (1, 1, 1)),
+            ("Money (financial evidence)", "doc_fondi", (1, 1, 1)), ("Proof of remote work or freelance status", "doc_lavoro", (1, 0, 0)),
+            ("Proof you will attend the activity or treatment", "doc_attivita", (0, 1, 0)), ("Police clearance certificate", "doc_polizia", (1, 1, 1)),
+            ("The DTV of the main holder", "doc_visto_titolare", (0, 0, 1)), ("Proof of your relationship to the DTV holder", "doc_famiglia", (0, 0, 1))]
+    si = '<td class="n">Yes</td>'
+    no = '<td class="n">–</td>'
+    righe = "".join(f'<tr><th scope="row">{escape(n)}</th><td class="small">{qt("londra_dtv", k)}</td>{"".join(si if x else no for x in v)}</tr>' for n, k, v in docs)
+    sg, hcm = L_dtv("singapore"), L_dtv("ho-chi-minh-city")
+    sg_banca = next(a for a in sg.get("altre", []) if "bank" in a["frammento"])
+    righe_naz = ""
+    for chi, paese, sug in NAZ_DTV:
+        if sug not in SUGG_DTV:
+            raise SystemExit(f"DTV: riga {chi} senza ricerca salvata ({sug!r})")
+        miss = missioni_paese_dtv(paese, "../")
+        righe_naz += (f'<tr><th scope="row">{escape(chi)}</th><td>{escape(paese_art(paese))}</td><td class="small">{"<br>".join(miss) or "no Thai mission on the list"}</td>'
+                      f'<td class="small">{escape(ESENZIONE_PAESE_DTV.get(paese, "Not checked on this site: ask the Thai embassy"))}</td></tr>')
+    lead = (f'To apply for a DTV you upload your passport, a photo taken in the last six months, proof of permanent residence in the country where you apply, '
+            f'financial evidence of at least 500,000 baht, a police clearance certificate and proof of your purpose (remote work, a soft power activity such as Muay Thai, '
+            f'or your family link to a DTV holder), according to the Royal Thai Embassy in London (page updated {data_lunga(TEMI_DTV["londra_dtv"]["modificata"])}) '
+            f'and the other official pages we read on {data_lunga(LETTO_DTV)}.')
+    riassunto = riassunto_dtv("Documents for a remote-work DTV (London)", "6",
+                              [("500,000 baht", "money to show, usually 3 months of bank statements"), ("31 Aug 2026", "proof of permanent residence and police certificate required since"),
+                               ("15 working days", "processing time in London"), ("90 days", "earliest you can apply before travel (London)")],
+                              fonte_temi_p(["londra_dtv", "londra_info"]))
+    corpo = f"""<h2 id="documents">DTV documents by purpose</h2>
+<p class="small">The list of the Royal Thai Embassy in London, in its own words. Other missions ask for the same documents with small differences (below). "Yes" means the London page lists the document for that purpose.</p>
+<div class="tab compatta"><table id="t-documenti"><caption class="sr">Documents for the Thailand DTV visa by purpose</caption><thead><tr><th scope="col">Document</th><th scope="col">Official wording (London)</th><th scope="col" class="n">Remote work</th><th scope="col" class="n">Soft power</th><th scope="col" class="n">Spouse or child</th></tr></thead><tbody>{righe}</tbody></table></div>
+<p>All documents issued outside Thailand and the UK {qt("londra_dtv", "traduzioni")}. Missions can ask for more documents or an interview.</p>
+{fonte_temi_p(["londra_dtv"])}
+<h2>How missions differ</h2>
+<ul class="testo"><li>Police certificate: London asks for a {qt("londra_dtv", "doc_polizia")}; Washington for a {qt("washington_dtv", "polizia")}.</li>
+<li>Passport: Washington asks for a {qt("washington_dtv", "passaporto")}.</li>
+<li>Bank statements: Washington wants {qt("washington_dtv", "estratti")}. Singapore: {citazione(sg_banca)}. More in <a href="../proof-of-funds/">DTV proof of funds</a>.</li>
+<li>Residence: Singapore writes {citazione(sg["residenza"])}; Ho Chi Minh City writes {citazione(hcm["residenza"])}. Every mission's rule is in the <a href="../#table">table of all embassies</a>.</li></ul>
+{fonte_temi_p(["washington_dtv"])}
+{fonte_dtv_p(sg)}
+{fonte_dtv_p(hcm)}
+{regola_dtv("../../", breve=True)}
+<h2 id="income">Is there an income requirement?</h2>
+<p>The DTV pages we read ask for money in the bank, not for a minimum monthly income: usually at least 500,000 baht, shown with bank statements. London writes {qt("londra_dtv", "doc_fondi")}. Remote workers also show an employment contract or a portfolio ({qt("londra_dtv", "doc_lavoro")}). See <a href="../proof-of-funds/">DTV proof of funds</a> for the amount each mission writes.</p>
+<h2 id="by-nationality">Requirements by nationality: where you apply</h2>
+<p>Your passport does not change the documents. Since 31 August 2026 what matters is where you live: you apply at the Thai embassy or consulate for the country where you have permanent residence. The table shows, for the nationalities people search for most, the Thai missions in their home country and what their DTV page says. If you live permanently in another country, apply there.</p>
+<div class="tab compatta"><table id="t-nazionalita"><caption class="sr">Where to apply for the Thailand DTV visa by nationality</caption><thead><tr><th scope="col">Nationality</th><th scope="col">If you live in</th><th scope="col">Thai missions there and their DTV page</th><th scope="col">30-day visa exemption for tourism</th></tr></thead><tbody>{righe_naz}</tbody></table></div>
+<p class="fonte">Sources: list of Royal Thai Embassies and Consulates-General (<a href="{DTV["fonti"]["elenco"]["url"]}" rel="noopener">Ministry of Foreign Affairs of Thailand</a>) and the DTV pages linked in the <a href="../#table">table of all embassies</a>; visa exemption: pages of the Embassies in London, Washington and New Delhi. Read on {data_lunga(LETTO_DTV)}.</p>
+<h2 id="processing-time">How long it takes</h2>
+<ul class="testo"><li>London: {qt("londra_info", "tempi")} ({qt("londra_info", "anticipo")}).</li>
+<li>Kuala Lumpur: {qt("kl_dtv", "tempi")}.</li></ul>
+{fonte_temi_p(["londra_info", "kl_dtv"])}
+{box_assicurazione_dtv("../../")}"""
+    nd = L_dtv("new-delhi")
+    was = L_dtv("washington-dc")
+    domande = faq_dtv(f"{SEZ_DTV}{slug}/", [
+        ("thailand dtv visa requirements", "What are the requirements for the Thailand DTV visa?",
+         "A passport, a recent photo, proof of permanent residence in the country where you apply, financial evidence of at least 500,000 baht, a police clearance certificate, "
+         "and proof of your purpose: an employment contract or portfolio for remote work, a confirmation from the school, gym or hospital for soft power activities, "
+         "or the DTV of your spouse or parent and proof of the relationship (Royal Thai Embassy in London)."),
+        ("dtv visa thailand criminal record", "Do I need a criminal record certificate for the DTV?",
+         f"Yes, since 31 August 2026 for all DTV applicants. London asks for a police clearance certificate issued within 6 months from the date of submission; Washington asks for an FBI certificate issued within 3 months."),
+        ("thailand dtv visa income requirements", "Is there an income requirement for the DTV?",
+         "No monthly income threshold is written on the pages we read. They ask for financial evidence, usually a bank balance of at least 500,000 baht over the last 3 months."),
+        ("thailand dtv visa for us citizens", "Can US citizens apply for the DTV?",
+         f"Yes. Since 31 August 2026 you apply at the Thai mission for the country where you live permanently; in the United States the Embassy in Washington lists the fee as {costo_dtv(was['costo'])}. "
+         "For tourist trips of up to 30 days, US passport holders can enter Thailand without a visa."),
+        ("thailand dtv visa for indians", "Can Indians apply for the DTV?",
+         f"Yes. Residents of India apply through the Thai missions in India; the Embassy in New Delhi lists the fee as {costo_dtv(nd['costo'])}. "
+         "For tourism, Indian ordinary passport holders can stay up to 30 days without a visa, as the Embassy in New Delhi writes."),
+        ("thailand dtv visa for bangladeshi", "Can Bangladeshi citizens get the DTV?",
+         "Yes, the DTV is not limited by nationality, but you apply where you live permanently. The Royal Thai Embassy in Dhaka has a DTV page, but it does not write the fee or the rules in its text, so check with the embassy."),
+        ("thailand dtv visa for pakistani", "Can Pakistani citizens get the DTV?",
+         "Yes, under the same rules: you apply at the Thai mission for the country where you live permanently. We did not find a DTV page on the websites of the Thai missions in Islamabad and Karachi, so check with them or on the e-Visa website."),
+        ("dtv visa thailand how long does it take", "How long does the DTV take?",
+         f"The Embassy in London writes that \"{ft('londra_info', 'tempi')}\", and Kuala Lumpur that \"{ft('kl_dtv', 'tempi')}\". Requests for more documents or an interview add time."),
+    ])
+    pagina_tema_dtv(slug, f"Thailand DTV visa requirements {ANNO}: documents and new rules",
+                    f"Thailand DTV visa requirements {ANNO}: documents for remote work, soft power and family, 500,000 baht, proof of permanent residence and police certificate since 31 August 2026, by nationality. Read on {data_lunga(LETTO_DTV)}.",
+                    f"Thailand DTV visa requirements ({ANNO}): documents, money and where to apply", lead, riassunto, corpo, domande)
+
+
+def pagina_dtv_durata():
+    slug = "duration-and-extension"
+    lon = L_dtv("london")
+    righe = [("Validity", [("londra_dtv", "validita"), ("savannakhet_dtv", "validita")]),
+             ("Stay per entry", [("londra_dtv", "soggiorno")]),
+             ("Extension", [("londra_dtv", "estensione"), ("helsinki_dtv", "estensione"), ("hcm_dtv", "estensione")]),
+             ("After 180 + 180 days", [("londra_dtv", "uscita")]),
+             ("Family", [("londra_dtv", "dtv3")])]
+    tab = "".join(f'<tr><th scope="row" style="vertical-align:top">{escape(a)}</th><td>' + "<br>".join(f'{qt(k, n)} <span class="small">({escape(NOMI_TEMI_DTV[k].split(":")[0])})</span>' for k, n in v) + "</td></tr>" for a, v in righe)
+    lead = (f'The DTV is valid for <strong>5 years</strong> with multiple entries, and each entry allows a stay of up to <strong>180 days</strong>, which can be extended once by up to 180 days '
+            f'at Thailand\'s Immigration Bureau; after 180 + 180 days you must leave Thailand and can come back with the same visa (Royal Thai Embassy in London, page updated '
+            f'{data_lunga(TEMI_DTV["londra_dtv"]["modificata"])}, read on {data_lunga(LETTO_DTV)}).')
+    riassunto = riassunto_dtv("Validity of the DTV", "5 years",
+                              [("Multiple", "entries"), ("180 days", "stay per entry"), ("+180 days", "one extension per entry, at the Immigration Bureau"),
+                               (costo_dtv(lon["costo"]), "one fee for the 5 years (London)")], fonte_temi_p(["londra_dtv"]))
+    corpo = f"""<h2 id="official">What the official pages say</h2>
+<div class="tab compatta"><table id="t-durata"><caption class="sr">Thailand DTV visa validity, stay and extension: official wording</caption><thead><tr><th scope="col">Item</th><th scope="col">Official wording</th></tr></thead><tbody>{tab}</tbody></table></div>
+{fonte_temi_p(["londra_dtv", "savannakhet_dtv", "helsinki_dtv", "hcm_dtv"])}
+<h2 id="benefits">What the DTV gives you, according to the official pages</h2>
+<ul class="testo"><li><strong>Five years of travel on one visa</strong>, with multiple entries, for one fee ({costo_dtv(lon["costo"])} in London; see <a href="../fee/">the fee at each embassy</a>).</li>
+<li><strong>Up to 180 days per entry</strong>, plus one extension of up to 180 days at the Immigration Bureau in Thailand.</li>
+<li><strong>Three purposes</strong>: remote work for employers or clients outside Thailand ({qt("londra_dtv", "dtv1")}), Thai soft power activities such as Muay Thai, cooking courses and medical treatment (<a href="../soft-power-activities/">soft power activities</a>), and family: {qt("londra_dtv", "dtv3")}.</li>
+<li><strong>Savings, not income</strong>: you show about 500,000 baht in the bank, not a monthly salary (<a href="../proof-of-funds/">proof of funds</a>).</li></ul>
+<h2 id="limits">What the DTV does not allow</h2>
+<p>The Embassy in Budapest writes that DTV {qt("budapest_dtv", "lavoro")} (page updated {data_lunga(TEMI_DTV["budapest_dtv"]["modificata"])}). Remote work for an employer or clients abroad is the purpose of the visa. The DTV pages we read do not mention tax: ask a tax adviser about your own situation.</p>
+{fonte_temi_p(["budapest_dtv"])}
+<h2 id="extension">How the extension works</h2>
+<p>The embassies do not extend the stay. {qt("londra_dtv", "contatto_estensione")} (London). None of the DTV pages we read gives the extension fee.</p>
+{box_assicurazione_dtv("../../")}"""
+    domande = faq_dtv(f"{SEZ_DTV}{slug}/", [
+        ("dtv visa how long can stay", "How long can I stay in Thailand with a DTV?",
+         "Up to 180 days per entry. You can extend the stay once, by up to 180 days, at the Immigration Bureau in Thailand. The visa itself is valid for 5 years with multiple entries."),
+        ("dtv visa 180 day extension", "How do I get the 180-day DTV extension?",
+         f"At the Immigration Bureau, once you are in Thailand: the Embassy in London writes \"{ft('londra_dtv', 'contatto_estensione')}\". The embassy pages do not give the extension fee."),
+        ("dtv visa after 180 days", "What happens after 180 days on a DTV?",
+         "You either extend once, by up to 180 days, or leave Thailand. After 180 + 180 days you must leave and can re-enter with the same DTV while it is still valid."),
+        ("dtv visa multiple entry", "Is the DTV a multiple-entry visa?",
+         "Yes. London writes \"Visa Validity: 5 years / Multiple Entries\"; every entry gives a new stay of up to 180 days."),
+        ("dtv visa can work in thailand", "Can I work in Thailand with a DTV?",
+         f"Not for Thai employers or clients. The Embassy in Budapest writes that holders \"{ft('budapest_dtv', 'lavoro').replace('holders ', '', 1)}\". The DTV is for remote work for employers or clients abroad."),
+        ("thailand dtv visa benefits", "What are the benefits of the DTV?",
+         "On the official pages: 5 years of multiple entries for one fee, stays of up to 180 days per entry with one extension, three purposes (remote work, soft power activities, family) and savings instead of an income threshold."),
+        ("thailand dtv visa for spouse", "Can my spouse and children get a DTV too?",
+         "Yes: the spouse and children under 20 of a DTV holder can apply. London asks for the DTV of the holder and proof of the relationship, such as a marriage or birth certificate, as well as the same money and police certificate."),
+        ("dtv visa tax", "Does the DTV say anything about tax?",
+         "No. The official DTV pages we read do not mention tax. Ask a tax adviser or the Thai tax authority about your own case."),
+    ])
+    pagina_tema_dtv(slug, f"Thailand DTV visa duration {ANNO}: 5 years, 180 days, extension",
+                    f"How long the Thailand DTV visa lasts: 5 years with multiple entries, 180 days per entry, one 180-day extension, family members and what it does not allow. Official pages read on {data_lunga(LETTO_DTV)}.",
+                    f"Thailand DTV visa duration and benefits ({ANNO}): 5 years, 180 days per entry, one extension", lead, riassunto, corpo, domande)
+
+
+def conta_attivita_dtv():
+    testi = [ft(k, n).lower() for k, n in FONTI_ATTIVITA_DTV]
+    return [(nome, sum(1 for t in testi if re.search(pat, t))) for nome, pat in ATTIVITA_DTV]
+
+
+def pagina_dtv_soft_power():
+    slug = "soft-power-activities"
+    conti = conta_attivita_dtv()
+    righe = "".join(f'<tr><td>{escape(NOMI_TEMI_DTV[k].split(":")[0])}</td><td class="small">{qt(k, n)}</td>'
+                    f'<td data-v="{TEMI_DTV[k]["modificata"].replace("-", "")}">{data_lunga(TEMI_DTV[k]["modificata"])}</td>'
+                    f'<td><a href="{escape(TEMI_DTV[k]["url"])}" rel="noopener">official page</a></td></tr>' for k, n in FONTI_ATTIVITA_DTV)
+    righe_c = "".join(f'<tr><th scope="row">{escape(a)}</th><td class="n" data-v="{n}">{n} of {len(FONTI_ATTIVITA_DTV)}</td></tr>' for a, n in conti)
+    lon = L_dtv("london")
+    lead = (f'The DTV soft power category is for people who come to Thailand for activities such as Muay Thai courses, Thai cooking courses, sports training, medical treatment, '
+            f'seminars and music festivals (Royal Thai Embassy in Budapest; the same list is on the pages of Phnom Penh, Tel Aviv, Canberra and Ho Chi Minh City), and you need '
+            f'proof that you will attend, plus the same money and police certificate as other DTV applicants (Royal Thai Embassy in London), on the official pages we read on {data_lunga(LETTO_DTV)}.')
+    riassunto = riassunto_dtv("Missions that name Muay Thai", f"{conti[0][1]} of {len(FONTI_ATTIVITA_DTV)}",
+                              [(f"{n} of {len(FONTI_ATTIVITA_DTV)}", f"pages name {a[0].lower() + a[1:] if not a.startswith('Thai') else a}") for a, n in conti[1:4]] + [(costo_dtv(lon["costo"]), "same fee as the other DTV purposes (London)")],
+                              '<p class="fonte">Source: the official pages listed in the table below, read on ' + data_lunga(LETTO_DTV) + '.</p>')
+    corpo = f"""<h2 id="official">Which activities the official pages name</h2>
+<p class="small">Each row quotes the DTV page of a Thai embassy or consulate. The pages give examples ("such as", "e.g."), not a closed list.</p>
+<div class="tab compatta"><table class="ord" id="t-attivita"><caption class="sr">Thai soft power activities for the DTV, as written by each mission</caption><thead><tr>{th_ord("Mission", False, "ascending")}<th scope="col">Official wording</th>{th_ord("Updated")}<th scope="col">Source</th></tr></thead><tbody>{righe}</tbody></table></div>
+<h2>How many of these pages name each activity</h2>
+<div class="tab compatta"><table id="t-conteggio"><caption class="sr">Number of official DTV pages that name each soft power activity</caption><thead><tr><th scope="col">Activity</th><th scope="col" class="n">Pages that name it</th></tr></thead><tbody>{righe_c}</tbody></table></div>
+<p class="small">Counted on the {len(FONTI_ATTIVITA_DTV)} quotes above. An activity that a page does not name is not excluded by that page: the lists are examples.</p>
+<h2 id="documents">Documents for the soft power DTV</h2>
+<ul class="testo"><li>Proof of the activity: London asks for {qt("londra_dtv", "doc_attivita")}; Washington for a {qt("washington_dtv", "attivita")}.</li>
+<li>The same money as other DTV applicants: {qt("londra_dtv", "doc_fondi")} (London). See <a href="../proof-of-funds/">proof of funds</a>.</li>
+<li>Proof of permanent residence where you apply and a police clearance certificate, like every DTV applicant since 31 August 2026. See <a href="../requirements/">all requirements</a>.</li></ul>
+{fonte_temi_p(["londra_dtv", "washington_dtv"])}
+<h2>Fee</h2>
+<p>The fee is the same as for the other DTV purposes: the Consulate-General in Los Angeles lists {num_tabella("la_tariffe", "dtv2")} (US dollars; its table has no currency sign) for soft power activities, as for remote work, and London charges {costo_dtv(lon["costo"])} for every DTV. For a single course of up to 90 days there is also the education (ED) visa: Los Angeles lists an ED visa “To study in a short course (Thai or English language) / attend Muaythai traning” for {num_tabella("la_tariffe", "ed_muay")} (US dollars), single entry, 90 days. See <a href="../dtv-vs-ltr-elite-retirement/">DTV compared with other visas</a>.</p>
+{fonte_temi_p(["la_tariffe"])}
+{box_assicurazione_dtv("../../")}"""
+    domande = faq_dtv(f"{SEZ_DTV}{slug}/", [
+        ("dtv visa soft power activities", "Which activities count as soft power for the DTV?",
+         "The official pages give examples: Muay Thai courses, Thai cooking courses, sports training, medical treatment, seminars and music festivals (Budapest, Phnom Penh, Tel Aviv, Canberra, Ho Chi Minh City). London and Washington name Muay Thai, Thai culinary training and medical treatment."),
+        ("dtv visa for muay thai", "Can I get a DTV for Muay Thai training?",
+         f"Yes: Muay Thai is named on all {conti[0][1]} pages we quote. You need a letter from the gym or school that confirms your training, plus the documents every DTV applicant needs."),
+        ("dtv visa cooking class", "Does a Thai cooking class qualify for the DTV?",
+         "Yes: Thai cooking courses or Thai culinary training are named on the pages of London, Washington, Budapest and the other missions in the table. You need proof of enrolment from the cooking school."),
+        ("thailand dtv visa medical treatment", "Can I get a DTV for medical treatment in Thailand?",
+         "Yes: medical treatment is one of the soft power purposes. London asks for a letter of appointment from the hospital or medical center."),
+        ("dtv visa soft power requirements", "What documents do I need for the soft power DTV?",
+         "Proof that you will attend the activity (a letter of acceptance or confirmation from the organiser, or a hospital appointment), plus your passport, a photo, proof of permanent residence, financial evidence of at least 500,000 baht and a police certificate."),
+        ("muay thai dtv visa cost", "How much does the Muay Thai DTV cost?",
+         f"The same as any DTV at the mission where you apply, for example {costo_dtv(lon['costo'])} in London or US$400 at the consulates in the United States. Course fees are separate and not on the official pages."),
+    ])
+    pagina_tema_dtv(slug, f"Thailand DTV soft power visa {ANNO}: Muay Thai, cooking and more",
+                    f"Which soft power activities the Thailand DTV visa covers (Muay Thai, Thai cooking, sports training, medical treatment, seminars, music festivals), documents and fee, from official pages read on {data_lunga(LETTO_DTV)}.",
+                    f"DTV visa for soft power activities ({ANNO}): Muay Thai, Thai cooking, medical treatment and more", lead, riassunto, corpo, domande)
+
+
+def importo_txt(valuta, x):
+    simboli = {"GBP": "£", "USD": "US$", "EUR": "€", "SGD": "S$"}
+    return f"{simboli[valuta]}{intero(x)}" if valuta in simboli else f"{intero(x)} {valuta}"
+
+
+def pagina_dtv_fondi():
+    slug = "proof-of-funds"
+    con_saldo = sorted((L for L in LET_DTV if "saldo" in L), key=lambda L: (L["paese"], L["sede"]))
+    for i, (v, x) in SALDO_LOCALE_DTV.items():
+        if f"{x:,}" not in L_dtv(i)["saldo"]["frammento"]:
+            raise SystemExit(f"DTV: importo {x} non nel frammento del saldo di {i}")
+    e500 = thb_eur(SALDO_THB_DTV)
+    def riga(L):
+        s = L["saldo"]
+        pg = L["pagine"][s["p"]]
+        if L["id"] in SALDO_LOCALE_DTV:
+            v, x = SALDO_LOCALE_DTV[L["id"]]
+            e = valuta_eur(v, x)
+            cifra = importo_txt(v, x)
+        else:
+            e, cifra = e500, "500,000 baht"
+        return (f'<tr><td>{link_sede_dtv(L, "../")}<br><span class="small">{escape(L["paese"])}</span></td><td>{cifra}</td>'
+                + (f'<td class="n" data-v="{e:.2f}">€{intero(round(e))}</td>' if e else '<td class="n" data-v="">–</td>')
+                + f'<td class="small">{citazione(s)}</td><td data-v="{pg["modificata"].replace("-", "")}">{data_lunga(pg["modificata"])}</td>'
+                f'<td><a href="{escape(pg["url"])}" rel="noopener">official page</a></td></tr>')
+    righe = "".join(riga(L) for L in con_saldo)
+    n_thb = sum(1 for L in con_saldo if L["id"] not in SALDO_LOCALE_DTV or "500,000" in L["saldo"]["frammento"])
+    sg = L_dtv("singapore")
+    sg_banca = next(a for a in sg.get("altre", []) if "bank" in a["frammento"])
+    lead = (f'Most of the Thai embassies and consulates whose DTV pages we read ask for financial evidence of at least <strong>500,000 baht</strong> (about €{intero(round(e500))} or US${intero(round(eur_usd(e500)))} '
+            f'at the ECB rate of {data_lunga(CAMBI["data"])}), usually bank statements for the last 3 months; some write the amount in their own currency, such as '
+            f'£12,000 in London, US$16,000 in Washington and €15,000 in Helsinki, on the official pages we read on {data_lunga(LETTO_DTV)}.')
+    riassunto = riassunto_dtv("Money to show for a DTV", "500,000 baht",
+                              [(f"€{intero(round(e500))}", f"about, in euros (ECB {data_lunga(CAMBI['data'])})"), (f"US${intero(round(eur_usd(e500)))}", "about, in US dollars"),
+                               (f"{n_thb} of {len(con_saldo)}", "pages that write 500,000 baht"), ("3 months", "of bank statements (Washington, Singapore)")],
+                              f'<p class="fonte">Source: the official pages in the table below, read on {data_lunga(LETTO_DTV)}; ECB reference rates of {data_lunga(CAMBI["data"])}.</p>')
+    corpo = f"""<h2 id="table">Amount written by each mission</h2>
+<p class="small">{len(con_saldo)} DTV pages that write the money to show. "Amount" is the figure on the page (500,000 baht unless the page gives another currency); the euro column converts it at ECB reference rates of {data_lunga(CAMBI["data"])}. Egyptian pounds have no ECB rate.</p>
+<div class="tab compatta"><table class="ord larga" id="t-fondi"><caption class="sr">Thailand DTV proof of funds by Thai embassy and consulate</caption><thead><tr>{th_ord("Embassy or consulate", False, "ascending")}<th scope="col">Amount</th>{th_ord("≈ in euros", True, "ascending")}<th scope="col">Official wording</th>{th_ord("Updated")}<th scope="col">Source</th></tr></thead><tbody>{righe}</tbody></table></div>
+<p class="fonte">Source: the official page linked in each row, read on {data_lunga(LETTO_DTV)}.</p>
+<h2 id="rules">Rules for the bank statements</h2>
+<ul class="testo"><li>Washington: {qt("washington_dtv", "estratti")}. {qt("washington_dtv", "famiglia")}.</li>
+<li>London: {qt("londra_info", "estratti_esteri")}.</li>
+<li>Singapore: {citazione(sg_banca)}.</li></ul>
+{fonte_temi_p(["washington_dtv", "londra_info"])}
+{fonte_dtv_p(sg)}
+<p>It is a balance, not an income: the pages do not ask for a monthly salary. Some missions convert the 500,000 baht into their own currency with a rounded amount, so the figure in your currency can differ from today's exchange rate; show at least the amount your mission writes.</p>
+{box_assicurazione_dtv("../../")}"""
+    lon, was = L_dtv("london"), L_dtv("washington-dc")
+    domande = faq_dtv(f"{SEZ_DTV}{slug}/", [
+        ("dtv visa bank balance", "How much money do I need in the bank for the DTV?",
+         f"At least 500,000 baht on most pages, about €{intero(round(e500))} at the ECB rate of {data_lunga(CAMBI['data'])}. Some missions write their own currency: £12,000 in London, US$16,000 in Washington, €15,000 in Helsinki, 20,000 Singapore dollars in Singapore, 150,000 Hong Kong dollars in Hong Kong and 850,000 Egyptian pounds in Cairo."),
+        ("dtv visa proof of funds", "What counts as proof of funds for the DTV?",
+         "Bank statements in your name. Washington asks for saving or checking account statements for the last three months with an ending balance of at least 500,000 baht (US$16,000) each month; London asks for financial evidence such as bank statements."),
+        ("dtv visa bank statement", "How many months of bank statements do I need for the DTV?",
+         "Three months on the pages that say it: Washington (\"for the last three months\") and Singapore (\"for the past 3 months\")."),
+        ("thailand dtv visa income requirements", "Is the 500,000 baht a monthly income?",
+         "No. It is money in the bank, shown with statements, not a monthly salary. Remote workers also show an employment contract or a portfolio."),
+        ("dtv visa thailand financial requirements", "Can I use a family bank account for the DTV?",
+         f"Washington accepts a family bank statement with proof of the relationship: \"{ft('washington_dtv', 'famiglia')}\". Other missions do not say; ask yours."),
+    ])
+    pagina_tema_dtv(slug, f"Thailand DTV proof of funds {ANNO}: the 500,000 baht rule",
+                    f"DTV proof of funds: 500,000 baht (about €{intero(round(e500))}) in bank statements, and the amount each Thai embassy writes in its own currency (£12,000 London, US$16,000 Washington). Read on {data_lunga(LETTO_DTV)}.",
+                    f"DTV visa proof of funds ({ANNO}): 500,000 baht, bank statements and the amount at each embassy", lead, riassunto, corpo, domande)
+
+
+def pagina_dtv_confronto():
+    slug = "dtv-vs-ltr-elite-retirement"
+    lon = L_dtv("london")
+    gbp = lambda x: f"£{intero(x)}"
+    priv = int(re.search(r"THB ([\d,]+)", ft("privilege", "bronze")).group(1).replace(",", ""))
+    f_ltr, f_oa, f_ox, f_ni = (num_tabella("londra_tariffe", k) for k in ("ltr", "oa", "ox", "non_imm"))
+    d_tar = data_lunga(TEMI_DTV["londra_tariffe"]["modificata"])
+    righe = [
+        ("DTV", "Remote workers, soft power activities (Muay Thai, cooking, medical treatment), spouse and children of DTV holders",
+         f'{qt("londra_dtv", "validita")}; {qt("londra_dtv", "soggiorno")}, one extension', costo_dtv(lon["costo"]),
+         f'{qt("londra_dtv", "doc_fondi")}', "londra_dtv"),
+        ("LTR (Long-Term Resident)", f'Four types: {qt("boi_ltr", "tipi")}', f'{qt("boi_ltr", "durata")}',
+         gbp(f_ltr), f'Remote workers: {qt("boi_ltr", "reddito")}; pensioners: {qt("boi_ltr", "pensione")}; {qt("boi_ltr", "assicurazione")}', "boi_ltr"),
+        ("Thailand Privilege (formerly Thailand Elite)", f'Membership programme of a state enterprise ({qt("privilege_chi", "tat")}); Los Angeles lists a {qt("la_tariffe", "elite")}',
+         "Bronze membership: 5 years", f"THB {intero(priv)} membership fee (Bronze)", "The Bronze membership page does not write an income or savings threshold", "privilege"),
+        ("Retirement O-A", "Retirement long stay", f'{qt("londra_pensione", "oa")}', gbp(f_oa),
+         f'{qt("londra_pensione", "oa_fondi")}; health insurance {qt("londra_pensione", "oa_assicurazione")}', "londra_pensione"),
+        ("Retirement O-X", "Retirement long stay", f'{qt("londra_pensione", "ox")}', gbp(f_ox), f'{qt("londra_pensione", "ox_fondi")} in a Thai bank', "londra_pensione"),
+        ("Education (ED)", f'For {qt("londra_studio", "chi")}', f'{qt("londra_studio", "ingresso")}; {qt("londra_studio", "soggiorno")}',
+         gbp(f_ni) + " (Non-Immigrant, single entry)", "Financial evidence such as bank statements or a sponsor letter (no amount written)", "londra_studio"),
+    ]
+    tab = "".join(f'<tr><th scope="row" style="vertical-align:top">{escape(a)}</th><td class="small">{b}</td><td class="small">{c}</td><td>{d}</td><td class="small">{e}</td>'
+                  f'<td><a href="{escape(TEMI_DTV[k]["url"])}" rel="noopener">source</a></td></tr>' for a, b, c, d, e, k in righe)
+    lead = (f'The DTV costs {costo_dtv(lon["costo"])} in London for 5 years of stays of up to 180 days with 500,000 baht in savings, while the LTR visa costs {gbp(f_ltr)} '
+            f'for 10 years and asks remote workers for an average income of USD 80,000 a year over the last two years (less in some cases), the retirement O-A visa costs {gbp(f_oa)} for 1 year with 800,000 baht or 65,000 baht a month, '
+            f'and Thailand Privilege membership starts at THB {intero(priv)} for 5 years (Royal Thai Embassy in London, Thailand Board of Investment and Thailand Privilege, read on {data_lunga(LETTO_DTV)}).')
+    riassunto = riassunto_dtv("DTV fee in London, 5 years", costo_dtv(lon["costo"]),
+                              [(gbp(f_oa), "retirement O-A, 1 year"), (gbp(f_ox), "retirement O-X, 5 years"), (gbp(f_ltr), "LTR, 10 years"),
+                               (f"THB {intero(priv)}", "Thailand Privilege Bronze, 5 years")],
+                              fonte_temi_p(["londra_dtv", "londra_tariffe", "privilege"]))
+    corpo = f"""<h2 id="table">DTV compared with Thailand's other long-stay visas</h2>
+<p class="small">Fees are those of the Royal Thai Embassy in London, in pounds (the fee list was last updated on {d_tar}; the DTV fee is on the DTV page); other missions charge in their own currency. Thailand Privilege is a membership, not a visa fee. Quotes are the official wording.</p>
+<div class="tab compatta"><table class="larga" id="t-confronto"><caption class="sr">Thailand DTV, LTR, Thailand Privilege, retirement and education visas compared</caption><thead><tr><th scope="col">Visa</th><th scope="col">For whom</th><th scope="col">Validity and stay</th><th scope="col">Fee</th><th scope="col">Money or income asked</th><th scope="col">Source</th></tr></thead><tbody>{tab}</tbody></table></div>
+{fonte_temi_p(["londra_dtv", "londra_tariffe", "boi_ltr", "londra_ltr", "privilege", "privilege_chi", "la_tariffe", "londra_pensione", "londra_studio"])}
+<h2>How they differ</h2>
+<ul class="testo"><li><strong>DTV vs LTR</strong>: the LTR is approved first by the Board of Investment (London: applicants {qt("londra_ltr", "boi")}), lasts longer and gives more rights, such as {qt("boi_ltr", "lavoro")} and, as the BOI writes, {qt("boi_ltr", "tasse")}; it asks for high income or assets. The DTV asks for savings of about 500,000 baht and does not allow work for Thai employers.</li>
+<li><strong>DTV vs Thailand Privilege (Elite)</strong>: Privilege is a paid membership run by Thailand Privilege Card Co., Ltd. ({qt("privilege_chi", "ente")}); the Bronze membership costs THB {intero(priv)} for 5 years, against {costo_dtv(lon["costo"])} for a 5-year DTV in London.</li>
+<li><strong>DTV vs retirement visa</strong>: the O-A and O-X visas are for retirement and ask for more money ({qt("londra_pensione", "oa_fondi")} for the O-A) and health insurance; the DTV has no age condition on the pages we read and asks for 500,000 baht. The BOI's LTR for pensioners is for {qt("boi_ltr", "pensionati")}.</li>
+<li><strong>DTV vs ED visa</strong>: the ED visa is for students of approved schools, single entry, up to 90 days, and {qt("londra_studio", "estensione")}. For Muay Thai or Thai cooking courses the DTV soft power category gives 5 years of entries (see <a href="../soft-power-activities/">soft power activities</a>).</li></ul>
+{box_assicurazione_dtv("../../")}"""
+    domande = faq_dtv(f"{SEZ_DTV}{slug}/", [
+        ("dtv vs ltr visa thailand", "What is the difference between the DTV and the LTR visa?",
+         f"The DTV ({costo_dtv(lon['costo'])} in London) lasts 5 years with stays of up to 180 days per entry and asks for about 500,000 baht in savings. The LTR ({gbp(f_ltr)} in London) lasts 5 years plus 5, is approved by the Board of Investment and asks, for example, remote workers for an average income of USD 80,000 a year; the BOI lists permission to work in Thailand (digital work permit) among its privileges."),
+        ("dtv visa vs elite visa", "DTV or Thailand Privilege (Elite): which costs less?",
+         f"The DTV: {costo_dtv(lon['costo'])} in London for 5 years. Thailand Privilege membership starts at THB {intero(priv)} (Bronze, 5 years)."),
+        ("dtv vs retirement visa thailand", "DTV or retirement visa if I am retired?",
+         f"The retirement O-A visa ({gbp(f_oa)} in London, 1 year) asks for 800,000 baht in the bank or 65,000 baht a month and health insurance of at least USD 100,000; the DTV asks for 500,000 baht and has no age condition, but stays are limited to 180 days per entry plus one extension."),
+        ("dtv vs ed visa thailand", "DTV or ED visa for a Muay Thai or language course?",
+         f"The ED visa is single entry for up to 90 days ({gbp(f_ni)} in London for a single-entry Non-Immigrant visa); the DTV covers soft power activities such as Muay Thai for 5 years with stays of up to 180 days, for {costo_dtv(lon['costo'])} in London."),
+    ])
+    pagina_tema_dtv(slug, f"DTV vs LTR vs Elite vs retirement visa ({ANNO}): official comparison",
+                    f"Thailand DTV compared with the LTR visa, Thailand Privilege (Elite), retirement O-A and O-X and ED visas: fees, validity and money asked, from official pages read on {data_lunga(LETTO_DTV)}.",
+                    f"DTV vs LTR, Thailand Privilege (Elite), retirement and ED visas ({ANNO}): what the official pages say", lead, riassunto, corpo, domande)
+
+
+def genera_dtv_temi():
+    pagina_dtv_costo()
+    pagina_dtv_requisiti()
+    pagina_dtv_durata()
+    pagina_dtv_soft_power()
+    pagina_dtv_fondi()
+    pagina_dtv_confronto()
+
+
 def genera_dtv():
     pagina_dtv_indice()
     for L in PAG_DTV:
         pagina_dtv_sede(L)
+    genera_dtv_temi()
 
 
 def controlli_dtv():
