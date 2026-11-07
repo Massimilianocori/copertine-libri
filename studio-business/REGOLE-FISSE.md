@@ -132,3 +132,12 @@ Massimiliano: "io voglio sapere solo quando porti cose buone". Quindi i messaggi
 **Aggiunta del 7/11/2026 (Massimiliano: "io non ho niente in contrario a metterci del mio, sono sempre qui davanti al pc"):** il vincolo "niente ore di Massimiliano" è allentato: le idee possono chiedere sue ore al mese (scritte in numero e per fare cosa) e usare il suo mestiere di fotografo e il suo archivio in modi nuovi. Restano: niente servizi fotografici ai turisti, niente social, niente email a freddo, spese solo con il suo sì.
 
 **7/11/2026:** non chiedere più a Massimiliano "Richiedi indicizzazione" in Search Console: il suo account risponde sempre "quota superata" (anche a ottobre). Le pagine nuove si fanno trovare con sitemap, link interni dalle pagine già indicizzate e IndexNow a ogni pubblicazione.
+
+## Metodo di lavoro fisso (7/11/2026, Massimiliano: "lo devi segnare questo metodo di lavoro, devi ricercare sempre")
+
+1. **La ricerca non si ferma mai.** Ogni giorno almeno 3 ricercatori su fronti nuovi (1 al turno di metà giornata, 2 la sera), il mercoledì 3 sulle idee grandi. Se c'è margine di budget fuori dai turni, il primo agente in più è un ricercatore.
+2. **Fronti davvero nuovi:** settori, modelli o mercati non ancora in ESPLORATE.md; vietati come "fronte nuovo" viaggi, visti, immigrazione, esami di lingua, tasse locali, burocrazia per stranieri. Ogni ricerca porta almeno un fronte mai visto.
+3. **Ogni idea con i numeri:** domanda (autocomplete con numero di suggerimenti), chi paga con la cifra letta, stima prudente/centrale/ottimista, ore (anche di Massimiliano se servono), voto severo.
+4. **Dall'idea al sito senza aspettare:** idee ≥ 8 o siti/sezioni con voto ≥ 7 e ≥ 5.000 €/anno centrali → verificatore indipendente → in cima alla coda → costruttore → revisore con un modello diverso → pubblicazione appena il sito non è stato pubblicato quel giorno → IndexNow.
+5. **Espandere per primo ciò che cresce** (Search Console e GoatCounter) e aggirare ciò che non cresce (congelare o spostare dentro un sito che cresce).
+6. **A Massimiliano solo cose buone** e le azioni che può fare solo lui, con il guadagno che sbloccano.
