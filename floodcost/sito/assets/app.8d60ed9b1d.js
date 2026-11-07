@@ -11,6 +11,30 @@
     fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(form)).toString()})
     .then(function(r){if(!r.ok)throw new Error(r.status);form.hidden=true;form.parentNode.querySelector('[data-ok]').hidden=false;})
     .catch(function(){err.hidden=false;bt.disabled=false;});});});
+  var ca=document.querySelector('[data-cerca-ca]');
+  if(ca){(function(){
+    var ci=ca.querySelector('input'),co=ca.querySelector('.risultati'),CD=null,cc=false,cq=null,crel=ca.getAttribute('data-rel')||'';
+    function nr(s){return String(s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9]+/g,' ').trim();}
+    function es(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+    function fm(x){return Number(x).toLocaleString('en-US');}
+    function car(cb){if(CD)return cb();cq=cb;if(cc)return;cc=true;co.innerHTML='<p class="small">Loading the list…</p>';
+      fetch(ca.getAttribute('data-url')).then(function(r){if(!r.ok)throw new Error(r.status);return r.json();}).then(function(d){CD=d;
+        d.z.forEach(function(x){x.k=' '+nr(x[1])+' '+nr(x[2])+' '+nr(x[2]+' county');});if(cq)cq();})
+      .catch(function(){co.innerHTML='<p class="errore">Could not load the list. Please try again.</p>';cc=false;});}
+    function scheda(x){var t='ZIP '+x[0]+(x[1]?' · '+x[1]:'')+(x[2]?', '+x[2]+' County':'');var s=[];
+      if(x[4]!=null)s.push(fm(x[4])+' FAIR Plan policies'+(x[3]!=null?' ('+fm(x[3])+' in 2022)':''));else s.push('not in the FAIR Plan report');
+      if(x[5]!=null)s.push('average premium $'+fm(x[5])+' (owner-occupied home)');
+      if(x[6]!=null)s.push(fm(x[6])+' not renewed or cancelled in 2023'+(x[7]!=null?' ('+x[7].toFixed(1)+'%)':''));
+      var d='<b>'+es(t)+'</b><span>'+es(s.join(' · '))+'</span>';
+      return x[8]?'<a href="'+es(crel+x[8])+'">'+d+'</a>':'<div class="ris">'+d+'</div>';}
+    function cerca(){var q=ci.value.trim(),v=nr(q);if(v.length<2){co.innerHTML='';return;}
+      car(function(){var r=[];
+        if(/^\d{2,5}$/.test(v)){CD.z.forEach(function(x){if(r.length<10&&x[0].indexOf(v)===0)r.push(x);});}
+        else{CD.z.forEach(function(x){if(x.k.indexOf(' '+v)>=0)r.push(x);});r.sort(function(a,b){return (b[4]||0)-(a[4]||0);});r=r.slice(0,12);}
+        co.innerHTML=r.length?r.map(scheda).join(''):'<p class="small">Nothing found for "'+es(q)+'". Try a 5-digit California ZIP code, a place or a county.</p>';});}
+    ci.addEventListener('input',cerca);ci.addEventListener('focus',function(){car(function(){});},{once:true});
+    ca.querySelector('form').addEventListener('submit',function(e){e.preventDefault();cerca();});
+  })();}
   var box=document.querySelector('[data-cerca]');if(!box)return;
   var inp=box.querySelector('input'),out=box.querySelector('.risultati'),D=null,carico=false,coda=null,rel=box.getAttribute('data-rel')||'';
   function norm(s){return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9]+/g,' ').trim();}
