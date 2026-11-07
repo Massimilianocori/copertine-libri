@@ -1965,10 +1965,10 @@ VIETATE_SRV = re.compile(r"\b(" + "|".join(w[::-1] for w in _AI_CONTRARIO) + r")
 AGGIRARE = re.compile(r"\bVPN\b|\bproxy\b|smart ?DNS|get around|bypass|circumvent|change your (?:region|location)|unblock", re.I)
 
 
-def _attesa_breve(slug, voce):
-    """Etichetta attesa, scritta qui di nuovo (controllo indipendente da genera.breve_srv)."""
+def _attesa_breve(slug, voce, invio=False):
+    """Etichetta attesa, scritta qui di nuovo (controllo indipendente da genera.breve_srv). invio = Wise, Paese nella lista "send to"."""
     if voce is None:
-        return "Not on the list"
+        return "Not for holding money" if (slug == "wise" and invio) else "Not on the list"
     st = voce["stato"]
     if st == "si":
         # Google Wallet (7/11/2026): app nella lista ma croce rossa sulla riga "Tap to pay"
@@ -1986,8 +1986,10 @@ def _attesa_breve(slug, voce):
     return "Not listed"
 
 
-def _attesa_inizio(slug, voce):
+def _attesa_inizio(slug, voce, invio=False):
     if voce is None:
+        if slug == "wise" and invio:  # revisione del 7/11/2026: niente "No" per chi può inviare denaro
+            return "Not for holding money:"
         return "Not known." if slug == "starlink" else "No, not according to the official list."
     return {"si": "Yes.", "in_arrivo": "Not yet.", "per_regione": "It depends on the region.", "no": "No"}[voce["stato"]]
 
@@ -2037,7 +2039,7 @@ def controlla_servizi():
         if len(righe) != len(iso):
             errori.append(f"servizi {sl}: {len(righe)} righe nella tabella invece di {len(iso)}")
         for c in iso:
-            atteso = _attesa_breve(sl, S["paesi"].get(c))
+            atteso = _attesa_breve(sl, S["paesi"].get(c), c in S.get("extra", {}).get("invio", []))
             if unescape(righe.get(c.lower(), "")) != atteso:
                 errori.append(f"servizi {sl}: riga {c} '{righe.get(c.lower())}' invece di '{atteso}'")
             conti["righe"] += 1
@@ -2058,7 +2060,8 @@ def controlla_servizi():
             voce = S["paesi"].get(c)
             m = re.search(r'<p class="lead" id="answer">(.*?)</p>', t)
             r = unescape(m.group(1)) if m else ""
-            if not r.startswith(_attesa_inizio(sl, voce)) or f"checked on {d})" not in r:
+            invio = c in S.get("extra", {}).get("invio", [])
+            if not r.startswith(_attesa_inizio(sl, voce, invio)) or f"checked on {d})" not in r:
                 errori.append(f"{rel}: prima frase senza la risposta attesa, la fonte o la data: {r[:90]}")
             if voce and voce.get("nota") and voce["stato"] != "no" and f"“{voce['nota']}”" not in r:
                 errori.append(f"{rel}: la nota della fonte non è nella risposta")
@@ -2072,11 +2075,19 @@ def controlla_servizi():
                 frase_on = "Google Pay on participating websites and apps includes" if on else "is not on Google's list of countries where you can pay with Google Pay"
                 if frase_on not in unescape(t):
                     errori.append(f"{rel}: frase su Google Pay online diversa dalla lista")
+            # revisione del 7/11/2026: Uber elenca città, Stripe è per le aziende ed etichette non spiegate
+            if sl == "uber" and voce and "Uber's page lists cities, not whole countries" not in r:
+                errori.append(f"{rel}: manca la frase fissa sulle città di Uber nella risposta")
+            if sl == "stripe" and ("businesses opening a Stripe account" not in unescape(t)
+                                   or (voce and voce.get("nota") and "Stripe's page does not explain these labels" not in r)):
+                errori.append(f"{rel}: manca la frase su chi riguarda la lista Stripe o sulle etichette non spiegate")
+            if sl == "wise" and voce is None and invio and ("Not for holding money" not in t or 'class="esito e-srv no"' in t):
+                errori.append(f"{rel}: Paese della lista 'send to' mostrato come un No")
             if sl == "wise":
                 inv = c in S["extra"]["invio"]
                 if inv != ("is on Wise's list of countries and regions you can send money to" in unescape(t)):
                     errori.append(f"{rel}: frase sull'invio con Wise diversa dalla lista")
-            if voce is None and "is not the same as being banned" not in t and sl != "starlink":
+            if voce is None and "is not the same as being banned" not in t and sl != "starlink" and not (sl == "wise" and invio):
                 errori.append(f"{rel}: manca la frase 'non nella lista non vuol dire vietato'")
             if re.search(r"\b(?:is|are) (?:banned|illegal|blocked|prohibited)\b", unescape(t), re.I):
                 errori.append(f"{rel}: la pagina dice 'vietato/bloccato', che nessuna fonte dice")

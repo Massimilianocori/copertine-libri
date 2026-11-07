@@ -3158,6 +3158,12 @@ SRV_TESTI = {
     "stripe": {"fonte": "Stripe", "lista": "Stripe's list of countries and regions where Stripe is currently supported"},
 }
 # Google Wallet (dal 7/11/2026): la riga "Tap to pay" della pagina di ogni Paese (spunta verde o croce rossa), detta con parole fisse
+# Revisione del 7/11/2026: frasi fisse per Uber (la pagina elenca città) e Stripe (etichette non spiegate, lista per le aziende)
+UBER_CITTA = ("Uber's page lists cities, not whole countries: {P} is here because at least one city there is on the page; "
+              "check your city on the official page.")
+STRIPE_ETICHETTE = "Stripe's page does not explain these labels"
+STRIPE_CHI = ("This list is about businesses opening a Stripe account to accept payments, not about paying with your card on a website "
+              "or in a shop that uses Stripe.")
 TOCCO_GW = {True: "The same page shows tap to pay (contactless payments in shops) as available there.",
             False: "The same page shows tap to pay (contactless payments in shops) as not available there."}
 # Starlink: parole della legenda della mappa ufficiale (codice di starlink.com/map letto il 28/10/2026; vedi raccolta/servizi.py)
@@ -3193,6 +3199,11 @@ def stato_srv(S, c):
     return (v["stato"], v) if v else ("assente", None)
 
 
+def solo_invio_wise(S, c):
+    """Wise (revisione del 7/11/2026): Paese assente dalla tabella "hold money" ma nella lista "send to": "Not for holding money", non un No."""
+    return S["slug"] == "wise" and c not in S["paesi"] and c in S.get("extra", {}).get("invio", [])
+
+
 def breve_srv(S, c):
     """Risposta breve per titolo, tabella e riquadro."""
     st, v = stato_srv(S, c)
@@ -3210,17 +3221,26 @@ def breve_srv(S, c):
         if S["slug"] == "wise":
             return "Not supported"  # tra i Paesi dove Wise "does not offer its services"
         return "Not listed"
+    if solo_invio_wise(S, c):
+        return "Not for holding money"
     return "Not on the list"
 
 
-def classe_srv(st):
+def classe_srv(st, S=None, c=None):
+    if S is not None and solo_invio_wise(S, c):
+        return "manuale"
     return {"si": "si", "in_arrivo": "manuale", "per_regione": "manuale", "no": "no", "assente": "no"}[st]
 
 
 def badge_srv(S, c, con_nota=True):
     st, v = stato_srv(S, c)
     k = {"si": "gratis", "in_arrivo": "altre", "per_regione": "altre", "no": "no", "assente": "no"}[st]
+    if solo_invio_wise(S, c):
+        k = "altre"
     nota = f' <span class="small">{escape(v["nota"])}</span>' if (con_nota and v and v.get("nota") and st == "si") else ""
+    if nota and S["slug"] == "stripe":
+        nota = nota[:-7] + f' ({escape(STRIPE_ETICHETTE)})</span>'
+
     return f'<span class="badge b-{k}">{escape(breve_srv(S, c))}</span>{nota}'
 
 
@@ -3246,10 +3266,17 @@ def risposta_srv(S, c):
             return (f"No. Starlink's official availability map shows no Starlink service for {P}: it is not marked “Available” or “Coming soon” "
                     f"({T['fonte']}, checked on {d}).")
         return f"Not known. {Pm} is not in Starlink's official availability map data ({T['fonte']}, checked on {d})."
+    if solo_invio_wise(S, c):
+        return (f"Not for holding money: {P} is not on {T['lista']} ({T['fonte']}, checked on {d}). Wise says “{SRV['frasi']['wise_ovunque']['frase']}”, "
+                f"and {P} is on its list of countries and regions you can send money to.")
     if st == "si":
         nota = f" The list adds: “{v['nota']}”." if v.get("nota") else ""
         if S["slug"] == "google-wallet":
             nota = " " + TOCCO_GW[bool(v.get("tocco"))]
+        if S["slug"] == "stripe" and nota:
+            nota += f" {STRIPE_ETICHETTE}."
+        if S["slug"] == "uber":
+            nota = " " + UBER_CITTA.format(P=P)
         return f"Yes. {Pm} is on {T['lista']} ({T['fonte']}, checked on {d}).{nota}"
     if st == "no":
         if S["slug"] == "google-wallet":
@@ -3271,6 +3298,10 @@ def significato_srv(S, c):
     st, _ = stato_srv(S, c)
     pay = (" This list is about cards from local banks. It does not say whether a card from your own bank works abroad: that depends on your bank."
            if S["slug"] == "apple-pay" else "")
+    if S["slug"] == "stripe" and not S.get("_chi"):
+        return STRIPE_CHI + " " + significato_srv({**S, "_chi": True}, c)
+    if solo_invio_wise(S, c):
+        return "This list is only about holding money in your account; Wise does not give reasons."
     if st == "assente" and S["slug"] == "wise":
         return (f"Not being on this list is not the same as being banned: Wise says “{SRV['frasi']['wise_ovunque']['frase']}”, "
                 "and this list is only about holding money in your account.")
@@ -3294,7 +3325,7 @@ def titoli_srv(S, c):
     n, P, b = S["nome"], frase_srv(c), breve_srv(S, c)
     b_tit = {"Not on the list": "Not on the Official List", "Coming soon": "Coming Soon", "No service shown": "No Service Shown",
              "Not listed": "Not Listed", "By region": "Depends on the Region", "Not supported": "Not Supported",
-             "Yes, no tap to pay": "Yes, No Tap to Pay"}.get(b, b.title() if b != "Yes" else b)
+             "Yes, no tap to pay": "Yes, No Tap to Pay", "Not for holding money": "Not for Holding Money"}.get(b, b.title() if b != "Yes" else b)
     return [f"Is {n} Available in {P}? {b_tit} ({ANNO})", f"Is {n} Available in {P}? ({ANNO})", f"{n} in {P}: {b_tit} ({ANNO})",
             f"{n} in {P} ({ANNO})"]
 
@@ -3321,21 +3352,12 @@ def link_srv(S, c, rel):
     return f"{rel}{url_srv(S)}#{c.lower()}"
 
 
-def a_fonte_srv(S):
-    """Link alla fonte ufficiale. Se il dominio è tra quelli di affiliazione della rete (wise.com, programma Wise via Partnerize) la fonte
-    resta testo con l'indirizzo scritto per intero, senza link: un link a wise.com conterebbe come link di affiliazione (monetizzazione.py)
-    e nella sezione non se ne aggiungono (7/11/2026)."""
-    if MON.dominio_in(urlparse(S["pagina"]).hostname, MON.DOMINI_AFFILIAZIONE):
-        return f'{escape(S["titolo_fonte"])} (<span class="small">{escape(S["pagina"])}</span>)'
-    return f'<a href="{escape(S["pagina"])}" rel="noopener">{escape(S["titolo_fonte"])}</a>'
-
-
 def fonte_srv(S):
     d = f"checked on {data_controllo_srv(S)}"
     pub = f", page published on {data_lunga(S['data_fonte'])}" if S.get("data_fonte") else ""
     cambio = f"; list unchanged since our first check on {data_lunga(S['cambiato_il'])}" if S["cambiato_il"] != S["letto_il"] else ""
     file_ = f', data file <a href="{escape(S["url_fonte"])}" rel="noopener">{escape(S["url_fonte"])}</a>' if S["url_fonte"] != S["pagina"] else ""
-    return (f'<p class="fonte">Source: {a_fonte_srv(S)}{file_}, {d}{pub}{cambio}. '
+    return (f'<p class="fonte">Source: <a href="{escape(S["pagina"])}" rel="noopener">{escape(S["titolo_fonte"])}</a>{file_}, {d}{pub}{cambio}. '
             f'We copy the list as published and match each name to an ISO country code; we add nothing.</p>')
 
 
@@ -3449,7 +3471,7 @@ def pagina_srv_paese(S, c):
     rel = "../../../"
     st, v = stato_srv(S, c)
     P, n = frase_srv(c), S["nome"]
-    icona = {"si": "check", "in_arrivo": "alert", "per_regione": "alert", "no": "x", "assente": "x"}[st]
+    icona = "alert" if solo_invio_wise(S, c) else {"si": "check", "in_arrivo": "alert", "per_regione": "alert", "no": "x", "assente": "x"}[st]
     nomi_fonte = [x for x in (v or {}).get("nomi_fonte", []) if _chiave_nome(x) != _chiave_nome(nome_srv(c))]
     sotto = (f'<p>{escape(S["fornitore"].split(" (")[0])} writes the name as “{escape(" / ".join(nomi_fonte))}”.</p>' if nomi_fonte else "")
     c_lista, c_viaggio = CIT_SRV[S["slug"]]
@@ -3460,7 +3482,10 @@ def pagina_srv_paese(S, c):
     else:
         cosa_dice = f'<p>The official page introduces its list with these words:</p>{cit_srv(c_lista)}'
     se_no = st != "si"
-    tit_viaggio = (f"If {n} is not available in {P}" if se_no else f"Travelling or moving to {P} with {n}")
+    tit_viaggio = (f"If {n} is not available in {P}" if se_no else
+                   {"stripe": f"Using Stripe from {P}", "uber": f"Using Uber in {P}"}.get(S["slug"], f"Travelling or moving to {P} with {n}"))
+    if solo_invio_wise(S, c):
+        tit_viaggio = f"Using Wise from {P}"
     if S["slug"] == "starlink":
         viaggio = ("<p>Check your exact address on Starlink's official map before you buy equipment or travel with it: the status can change and can "
                    "differ within a country.</p>")
@@ -3484,13 +3509,14 @@ def pagina_srv_paese(S, c):
 <section class="card summary" aria-label="Answer">
 <div class="s-top"><span class="sq">{ico("apps")}</span><span>{escape(n)} · {escape(nome_srv(c))}</span><span>{ANNO}</span></div>
 <div class="s-body">
-<div class="esito e-srv {classe_srv(st)}">{ico(icona)}<strong>{escape(breve_srv(S, c))}</strong></div>
+<div class="esito e-srv {classe_srv(st, S, c)}">{ico(icona)}<strong>{escape(breve_srv(S, c))}</strong></div>
 <p class="lead" id="answer">{escape(risposta_srv(S, c))}</p>
 <p class="lead">{escape(significato_srv(S, c))}</p>
 {fonte_srv(S)}
 </div></section>
 <h2>What the official source says</h2>
 {cosa_dice}
+{f'<p><strong>What this list covers:</strong> {escape(S["cosa"])}.</p>' if S["slug"] == "stripe" else ""}
 {sotto}
 {piu_srv(S, c)}
 <p><a href="{rel}{url_srv(S)}">All countries for {escape(n)}</a> (table with every country and region on the official list).</p>
@@ -3510,6 +3536,18 @@ def pagina_srv_paese(S, c):
 
 def ordine_srv(c):
     return unicodedata.normalize("NFKD", nome_srv(c)).encode("ascii", "ignore").decode().lower()
+
+
+def extra_servizio_srv(S):
+    """Frasi fisse in testa alla pagina del servizio (revisione del 7/11/2026)."""
+    if S["slug"] == "uber":
+        return f'<p class="lead">{escape(UBER_CITTA.replace("{P} is here", "a country is here"))}</p>'
+    if S["slug"] == "stripe":
+        return (f'<p class="lead">{escape(STRIPE_CHI)} What this list covers: {escape(S["cosa"])}. Some countries carry the label “Preview” or '
+                f'“Extended network”; {escape(STRIPE_ETICHETTE)}.</p>')
+    if S["slug"] == "wise":
+        return ('<p class="lead">“Not for holding money” means the country is not on this list but is on Wise\'s list of countries you can send money to.</p>')
+    return ""
 
 
 def titoli_srv_servizio(S):
@@ -3538,13 +3576,16 @@ def pagina_srv_servizio(S):
 
     def nota(c):
         st, v = stato_srv(S, c)
+        if solo_invio_wise(S, c):
+            return "on Wise's list of countries you can send money to"
         if not v:
             return "–"
         x = []
         if v.get("nomi_fonte") and any(_chiave_nome(y) != _chiave_nome(nome_srv(c)) for y in v["nomi_fonte"]):
             x.append("listed as “" + " / ".join(v["nomi_fonte"]) + "”")
         if v.get("nota"):
-            x.append(("Apple TV app: " if S["slug"] == "apple-tv" else "") + "“" + v["nota"] + "”")
+            x.append(("Apple TV app: " if S["slug"] == "apple-tv" else "") + "“" + v["nota"] + "”"
+                     + (f" ({STRIPE_ETICHETTE})" if S["slug"] == "stripe" else ""))
         if S["slug"] == "apple-tv" and st == "no" and not v.get("app_tv"):
             x.append("no Apple TV app listed")
         if S["slug"] == "google-wallet":
@@ -3572,7 +3613,7 @@ def pagina_srv_servizio(S):
                        f'<p>Wise also says:</p>{cit_srv(["wise_ovunque"])}')
     griglia = "".join(f'<a href="{rel}{url_srv(S, c)}">{escape(nome_srv(c))}<small>{escape(breve_srv(S, c))}</small></a>' for c in pagine)
     corpo = f"""<section class="hero">{h1_diviso(f"Where is {n} available? Official list of countries ({ANNO})")}
-<p class="lead" id="answer">{escape(prima)}</p></section>
+<p class="lead" id="answer">{escape(prima)}</p>{extra_servizio_srv(S)}</section>
 <ul class="stat"><li><strong>{len(con)}</strong>{"“Available”" if S["slug"] == "starlink" else "on the list"}</li>{f'<li><strong>{len(arr)}</strong>“Coming soon”</li>' if S["slug"] == "starlink" else ""}{f'<li><strong>{sum(1 for c in con if S["paesi"][c].get("tocco"))}</strong>with tap to pay</li>' if S["slug"] == "google-wallet" else ""}<li><strong>{d}</strong>last checked</li></ul>
 {fonte_srv(S)}
 <h2>Is {escape(n)} available in my country?</h2>
@@ -3596,7 +3637,7 @@ def indice_srv():
     nomi = ", ".join(S["nome"] for S in SERVIZI_SRV[:-1]) + " and " + SERVIZI_SRV[-1]["nome"]
     tab_s = "".join(f'<tr data-voce><td data-l="Service"><a href="{rel}{url_srv(S)}"><strong>{escape(S["nome"])}</strong></a></td>'
                     f'<td data-l="Countries on the list">{sum(1 for c in PAESI_ISO if stato_srv(S, c)[0] == "si")}</td>'
-                    f'<td data-l="Official source">{a_fonte_srv(S)}</td>'
+                    f'<td data-l="Official source"><a href="{escape(S["pagina"])}" rel="noopener">{escape(S["titolo_fonte"])}</a></td>'
                     f'<td data-l="Checked">{data_controllo_srv(S)}</td></tr>' for S in SERVIZI_SRV)
     righe = "".join(f'<tr data-voce><td data-l="Country or region"><strong>{escape(nome_srv(c))}</strong>{alias_srv(c)}</td>' +
                     "".join(f'<td data-l="{escape(S["nome"])}"><a class="a-badge" href="{link_srv(S, c, rel)}">{badge_srv(S, c, False)}</a></td>' for S in SERVIZI_SRV) + "</tr>"
@@ -3615,7 +3656,7 @@ def indice_srv():
 <div class="griglia">{"".join(popolari)}</div>
 {AD}
 <h2>Every country, every service</h2>
-<p>“Yes” means the country is on the provider's list; for Starlink, “Coming soon”, “No service shown” and “By region” describe the provider's map. For Google Wallet, “Yes, no tap to pay” means the app is listed but tap to pay is not; for Wise, “Not supported” means Wise lists the country among the places where it does not offer its services. Click an answer for the details and the source.</p>
+<p>“Yes” means the country is on the provider's list; for Starlink, “Coming soon”, “No service shown” and “By region” describe the provider's map. For Google Wallet, “Yes, no tap to pay” means the app is listed but tap to pay is not; for Wise, “Not supported” means Wise lists the country among the places where it does not offer its services, and “Not for holding money” means you can send money there but the country is not on Wise's list for holding money. Uber's page lists cities, not whole countries; Stripe's list is for businesses opening an account. Click an answer for the details and the source.</p>
 <div class="cerca-box">{ico("search")}<input class="cerca" type="search" placeholder="Type a country, e.g. Nigeria" data-filtro-multi aria-label="Search countries"></div>
 <div class="tab tab-b tab-srv"><table><caption class="sr">Official availability of {len(SERVIZI_SRV)} services in {len(PAESI_ISO)} countries and territories, checked on {d}</caption><thead><tr><th>Country or region</th>{"".join(f"<th>{escape(S['nome'])}</th>" for S in SERVIZI_SRV)}</tr></thead><tbody>{righe}</tbody></table></div>
 <h2>How we check</h2>
@@ -3645,7 +3686,7 @@ def home_srv():
 def about_srv(rel):
     if not SERVIZI_SRV:
         return ""
-    righe = "".join(f'<li><strong>{escape(S["nome"])}</strong>: {a_fonte_srv(S)}'
+    righe = "".join(f'<li><strong>{escape(S["nome"])}</strong>: <a href="{escape(S["pagina"])}" rel="noopener">{escape(S["titolo_fonte"])}</a>'
                     + (f' (data file {escape(S["url_fonte"])})' if S["url_fonte"] != S["pagina"] else "") + f', checked on {data_controllo_srv(S)}.</li>'
                     for S in SERVIZI_SRV)
     return f"""<h2 id="available-in">Apps and services by country</h2>
