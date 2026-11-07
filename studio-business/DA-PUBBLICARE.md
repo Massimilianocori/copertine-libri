@@ -8,7 +8,7 @@ Sezioni già revisionate, con i sorgenti salvati, che aspettano la pubblicazione
 
 | Sito (cartella) | Sezione | Revisione | Note |
 |---|---|---|---|
-| fhacondos | **Amazon US acceso nella sezione /balcony-solar/** (7/11/2026): riquadro `kit_solari` con 2 ricerche Amazon.com (tag `beforeyoufl08-20`, mai ASIN) sulle 17 pagine /balcony-solar/ e in nessun'altra: "plug in balcony solar kit" (con 1200W/1920W solo nei 6 Stati con legge letta: UT, CO, ME, MD, VT, VA) e "portable power station"; testo senza promesse di legalità (legge, compagnia elettrica, condominio prima di comprare), frase Amazon nel riquadro e nella privacy; `controlla_amazon` in verifica.py; verifica e monetizzazione.py: 0 errori | da revisionare | sorgenti salvati; rigenerare con `python3 fhacondos/genera.py` prima di pubblicare |
+| fhacondos | **Amazon US acceso nella sezione /balcony-solar/** (7/11/2026): riquadro `kit_solari` con 2 ricerche Amazon.com (tag `beforeyoufl08-20`, mai ASIN) sulle 17 pagine /balcony-solar/ e in nessun'altra: "plug in balcony solar kit" (con 1200W/1920W solo nei 6 Stati con legge letta: UT, CO, ME, MD, VT, VA) e "portable power station"; testo senza promesse di legalità (legge, compagnia elettrica, condominio prima di comprare), frase Amazon nel riquadro e nella privacy; `controlla_amazon` in verifica.py; verifica e monetizzazione.py: 0 errori | revisionato il 7/11, correzioni applicate, pubblicabile il 7/11 sera | sorgenti salvati; rigenerare con `python3 fhacondos/genera.py` prima di pubblicare |
 
 Pubblicato il 31/10/2026 alle 14:20 circa (ora di Roma): Visa Income, Before You Fly, EsameB1 (tutte le sezioni revisionate del giorno). Esperimento citazioni: conteggio dal 1/11/2026.
 

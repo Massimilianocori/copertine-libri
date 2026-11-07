@@ -203,6 +203,9 @@ tracker di terzi dichiarato come tale. Ohio e Illinois: siti ufficiali con error
     nelle pagine dei condomini FHA (Stati, contee, città, guide).
   - **Testo:** nessuna promessa di legalità o conformità del prodotto ("a kit being on sale does not mean you may use it at home"):
     prima di comprare, legge dello Stato (fonti della pagina), compagnia elettrica (avviso o modulo) e regolamento del condominio/HOA.
+    Revisione del 7/11: negli Stati senza legge in vigore o firmata (o non letta) il riquadro dice che la legge non c'è ancora o non
+    l'abbiamo letta e rimanda allo stato del disegno di legge; nelle pagine Stato rimanda ai Limits per l'elettricista abilitato sotto
+    soglie più basse (Maine: oltre 420 W).
     Etichetta "Affiliate", `rel="sponsored noopener"`, riga di trasparenza e frase di Amazon «As an Amazon Associate we earn from
     qualifying purchases.» nel riquadro; sezione «Amazon Associates» con la stessa frase in `privacy.html`.
   - **Interruttore:** `kit_solari.url` (= ricerca generica). Vuoto = riquadro spento ovunque e privacy senza la sezione Amazon.

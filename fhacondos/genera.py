@@ -1526,8 +1526,11 @@ def blocco_kit(s=None):
     else:
         nome = nome_bs(s["st"])
         w = watt_legge(s)
-        dove = f"the rules in {nome} (sources below)"
+        legge = s["stato"] in ("in_vigore", "firmata")
+        dove = (f"the rules in {nome} (sources below)" if legge else
+                f"the bill's status in the sources below ({nome} has no plug-in solar law in force yet, or we could not read it: see above)")
         limite = (f" The first search adds the {w:,}-watt limit set by {nome}'s law as a search word: Amazon does not filter kits by it." if w else "")
+        limite += " Some states require a licensed electrician above a lower threshold: see Limits above."  # es. Maine: oltre 420 W
     frase = (f"These links open an Amazon search.{limite} The results are Amazon's, not checked by us, and a kit being on sale does not mean "
              f"you may use it at home. Before you buy, check {dove}, ask your electric utility whether it wants a notice or a form, and read "
              f"your condo or HOA rules on balconies and railings.")
