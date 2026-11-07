@@ -1,0 +1,595 @@
+{
+ "_nota": "Generato da raccolta/assicurazione.py: non modificare a mano. Le letture sono frammenti dei testi ufficiali, ricontrollati a ogni lancio.",
+ "letto_il": "2026-11-07",
+ "fonti": {
+  "es_nd": {
+   "titolo": "Consulate General of Spain in Buenos Aires, Residence visa for remote work (digital nomad)",
+   "editore": "Spanish Ministry of Foreign Affairs",
+   "url": "https://www.exteriores.gob.es/Consulados/buenosaires/es/ServiciosConsulares/Paginas/index.aspx?scca=Visados&scco=Argentina&scd=40&scs=Visados+Nacionales+-+Visado+de+residencia+para+teletrabajo+%28n%C3%B3mada+digital%29",
+   "lingua": "es",
+   "http": 200,
+   "letto_il": "2026-11-07",
+   "byte": 146930,
+   "sha256": "2178db37561f3c5ad11340ce60e77ba344dabccaf9839663c8b21202cf72308d",
+   "formato": "html",
+   "sha256_testo": "c8e5df153b502d5f4516b91a8a61c4f5a54eb10894a47ee65fe35dc7a61ed534"
+  },
+  "es_nl": {
+   "titolo": "Consulate General of Spain in Buenos Aires, Non-lucrative residence visa",
+   "editore": "Spanish Ministry of Foreign Affairs",
+   "url": "https://www.exteriores.gob.es/Consulados/buenosaires/es/ServiciosConsulares/Paginas/index.aspx?scca=Visados&scco=Argentina&scd=40&scs=Visados+Nacionales+-+Visado+de+residencia+no+lucrativa",
+   "lingua": "es",
+   "http": 200,
+   "letto_il": "2026-11-07",
+   "byte": 145141,
+   "sha256": "e23da156abba7c0b3c013bd5c2d7cea9e2e2dc718ce36211d1ed329ed5462cfc",
+   "formato": "html",
+   "sha256_testo": "aef647aada4f44d8fdaf258b626b7dd04880160480348d80c54b132b76571d81"
+  },
+  "es_es": {
+   "titolo": "Consulate General of Spain in Buenos Aires, Study visa",
+   "editore": "Spanish Ministry of Foreign Affairs",
+   "url": "https://www.exteriores.gob.es/Consulados/buenosaires/es/ServiciosConsulares/Paginas/index.aspx?scca=Visados&scco=Argentina&scd=40&scs=Visados+Nacionales+-+Visado+de+estudios",
+   "lingua": "es",
+   "http": 200,
+   "letto_il": "2026-11-07",
+   "byte": 179694,
+   "sha256": "b9eba9668f0ef4d435c56fd58c32820d5addc9b5425a31a662a1728d0077ece4",
+   "formato": "html",
+   "sha256_testo": "31228656c66fb01b5e43298b6af777e8c3a2d1c3609641c1e83c8a8fb912f611"
+  },
+  "es_rd": {
+   "titolo": "Royal Decree 1155/2024, Regulation of the Organic Law 4/2000 on foreigners (BOE, consolidated text)",
+   "editore": "Boletín Oficial del Estado",
+   "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2024-24099",
+   "lingua": "es",
+   "http": 200,
+   "letto_il": "2026-11-07",
+   "byte": 1040895,
+   "sha256": "5cfb317f79ff04521840be00d87c957ca322740f82f1b3d85e23a79a3c0891f1",
+   "formato": "html",
+   "sha256_testo": "8312cbeb8669f04f0ab182d6cbef58d60ca754b8a983909aac1e1f29103c5102"
+  },
+  "es_dgsfp": {
+   "titolo": "Directorate General for Insurance and Pension Funds (DGSFP), register of insurance companies",
+   "editore": "Spanish Ministry of Economy",
+   "url": "https://dgsfp.mineco.gob.es/es/Entidades/Paginas/rrpp.aspx",
+   "lingua": "es",
+   "http": 200,
+   "letto_il": "2026-11-07",
+   "byte": 50469,
+   "sha256": "268e3dfb807ec6366743a5787e12f080211608352c5c88f272d1c6db60210d79",
+   "formato": "html",
+   "sha256_testo": "c2ea062caafaeb16e323f1061d5d4d184cdbe998af171d310e6af7b61b886c59"
+  },
+  "pt_res": {
+   "titolo": "Portuguese Ministry of Foreign Affairs, National visas: necessary documentation, Residency",
+   "editore": "Ministério dos Negócios Estrangeiros",
+   "url": "https://vistos.mne.gov.pt/en/national-visas/necessary-documentation/residency",
+   "lingua": "en",
+   "http": 200,
+   "letto_il": "2026-11-07",
+   "byte": 68342,
+   "sha256": "faad0e49af6a31efb46b20af9cf3d487d0d23684e64eeeb37ca13764c7902c91",
+   "formato": "html",
+   "sha256_testo": "a5deb39b4bc24ba4b979e1103eae3fc187d091e9553b254669c4700d0cd86b20"
+  },
+  "it_dn": {
+   "titolo": "Decree of 29 February 2024 on digital nomads and remote workers, Gazzetta Ufficiale no. 79 of 4 April 2024",
+   "editore": "Gazzetta Ufficiale della Repubblica Italiana",
+   "url": "https://www.gazzettaufficiale.it/eli/gu/2024/04/04/79/sg/pdf",
+   "lingua": "it",
+   "formato": "pdf",
+   "http": 200,
+   "letto_il": "2026-11-07",
+   "byte": 3222404,
+   "sha256": "ff49437bf6ebe0d1cce7da52848c901e6918f37f95e05b7e2a4f64865c94b75a",
+   "sha256_testo": "604ef046cf9c8edf040974fd1622611e78ec05e9d1ffff0e910f83679d80897e"
+  },
+  "it_boston": {
+   "titolo": "Consulate General of Italy in Boston, Digital nomad / remote worker visa",
+   "editore": "Italian Ministry of Foreign Affairs",
+   "url": "https://consboston.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/digital-nomad-remote-worker/",
+   "lingua": "en",
+   "http": 200,
+   "letto_il": "2026-11-07",
+   "byte": 63949,
+   "sha256": "b428e65b5ce57f26fbf1984202db986a8d2b0e303618617d1a140265a58ea3bd",
+   "formato": "html",
+   "sha256_testo": "eda017bae5268b2ad5bb10f91db65a865443083c8a57378d091f203f63cd3268"
+  },
+  "hr_mup": {
+   "titolo": "Croatian Ministry of the Interior, Temporary stay of digital nomads",
+   "editore": "Ministarstvo unutarnjih poslova",
+   "url": "https://mup.gov.hr/aliens-281621/stay-and-work/temporary-stay-of-digital-nomads/286833",
+   "lingua": "en",
+   "http": 200,
+   "letto_il": "2026-11-07",
+   "byte": 34357,
+   "sha256": "80ddd6e0d0429398938fafcca733615d8a6df25b14472508f0d24e558f098975",
+   "formato": "html",
+   "sha256_testo": "9ddd7a1d457f02a4528082ab4e4065e79da125366648c1661a506c070bd6eca6"
+  },
+  "hu_oif": {
+   "titolo": "National Directorate-General for Aliens Policing, White Card (digital nomad stay)",
+   "editore": "Országos Idegenrendészeti Főigazgatóság",
+   "url": "https://oif.gov.hu/tajekoztatok/feher-kartya-digitalis-nomad-tartozkodas",
+   "lingua": "hu",
+   "http": 200,
+   "letto_il": "2026-11-07",
+   "byte": 240752,
+   "sha256": "bccce16ecb3963a42e0621ef6f079a6a8c0928ca58c118f6ee54bb994e3f530c",
+   "formato": "html",
+   "sha256_testo": "7e3e3549f13733268de1d1361cba7ed8f0e10b99d6f351d07b4885361db8faa0"
+  },
+  "de_berlin": {
+   "titolo": "Service-Portal Berlin, EU Blue Card",
+   "editore": "State of Berlin, Landesamt für Einwanderung",
+   "url": "https://service.berlin.de/dienstleistung/324659/en/",
+   "lingua": "en",
+   "http": 200,
+   "letto_il": "2026-11-07",
+   "byte": 53227,
+   "sha256": "b476f3be18eeb1ceb2eee388aed94aa66313f8f70b1d213f84d954ebdcb2c955",
+   "formato": "html",
+   "sha256_testo": "444e527ad36e634d70a5879c8eb86d6fb5943ec53afcf695cc59de735dd44766"
+  },
+  "th_ltr": {
+   "titolo": "Thailand Board of Investment, Long-Term Resident (LTR) Visa",
+   "editore": "Thailand Board of Investment",
+   "url": "https://ltr.boi.go.th/",
+   "lingua": "en",
+   "http": 200,
+   "letto_il": "2026-11-07",
+   "byte": 71218,
+   "sha256": "117de80df68f2da4ddfe4a556b1f730b269a43e33e6d2018b88d5114c6afa3c1",
+   "formato": "html",
+   "sha256_testo": "7dd90995f43aae4c2f1ad9cf88fecbbbeeb8219bf22c441890ff9b2ca4c029bc"
+  },
+  "uk_ihs": {
+   "titolo": "GOV.UK, Pay for UK healthcare as part of your immigration application",
+   "editore": "UK Visas and Immigration",
+   "url": "https://www.gov.uk/healthcare-immigration-application",
+   "lingua": "en",
+   "http": 200,
+   "letto_il": "2026-11-07",
+   "byte": 90013,
+   "sha256": "3c01068ae0f93d1089b87e40ac809a2b06aeb4a28b4411bfedae90de18d83382",
+   "formato": "html",
+   "sha256_testo": "f7fa3aefc5fee4a199a35aa181cf0e86cfa21a584f9d1030eedc8bce0f2cdcc6"
+  },
+  "uk_ihs_costo": {
+   "titolo": "GOV.UK, Pay for UK healthcare as part of your immigration application: how much you have to pay",
+   "editore": "UK Visas and Immigration",
+   "url": "https://www.gov.uk/healthcare-immigration-application/how-much-pay",
+   "lingua": "en",
+   "http": 200,
+   "letto_il": "2026-11-07",
+   "byte": 72929,
+   "sha256": "55ea43ef126f48a6e3763456e97581339a09da7065d69f13f626397c05c32558",
+   "formato": "html",
+   "sha256_testo": "378ad9c5d9afc320fdf5593030002309d9acc6417d9c3e7ce6180da6fa23167c"
+  },
+  "ue_codice": {
+   "titolo": "Regulation (EC) No 810/2009 (Visa Code), consolidated text of 2 February 2020, Article 15",
+   "editore": "Publications Office of the European Union",
+   "url": "https://publications.europa.eu/resource/cellar/82b7a82d-473e-11ea-b81b-01aa75ed71a1.0006.03/DOC_4",
+   "pubblico": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:02009R0810-20200202",
+   "lingua": "en",
+   "http": 200,
+   "letto_il": "2026-11-07",
+   "byte": 577676,
+   "sha256": "f2560b317e0dc982cf8209b2e59928207d768f62906a8e165d3c9c29f4b90949",
+   "formato": "html",
+   "sha256_testo": "1e0c209e187909c8bcd182dce55999167846a55e883a1d6ff5839141f7bce6be"
+  },
+  "ue_commissione": {
+   "titolo": "European Commission, Applying for a Schengen visa",
+   "editore": "European Commission",
+   "url": "https://home-affairs.ec.europa.eu/policies/schengen/visa-policy/applying-schengen-visa_en",
+   "lingua": "en",
+   "http": 200,
+   "letto_il": "2026-11-07",
+   "byte": 324725,
+   "sha256": "9813c40139ec8834e98d3749280a86555f814276d44eb53d68b9a6989e56aece",
+   "formato": "html",
+   "sha256_testo": "954d4e86c670a1f551e9106e2dacb2c985ba44e660e3fe06969dff0c23c51167"
+  }
+ },
+ "letture": {
+  "es_nd_seguro": {
+   "fonte": "es_nd",
+   "frammento": "certificado de seguro de enfermedad público o privado contratado con una entidad aseguradora autorizada a operar en España"
+  },
+  "es_nd_riesgos": {
+   "fonte": "es_nd",
+   "frammento": "El seguro debe cubrir todos los riesgos asegurados por el sistema público de salud en España."
+  },
+  "es_nd_ss": {
+   "fonte": "es_nd",
+   "frammento": "No es necesario presentar el seguro de enfermedad si se prueba la cobertura por el sistema público de la Seguridad Social española."
+  },
+  "es_nd_convenio": {
+   "fonte": "es_nd",
+   "frammento": "en lugar del seguro de enfermedad, se presentará un certificado de derecho de cobertura emitido por la institución competente del Estado en cuyo sistema de Seguridad Social esté asegurado"
+  },
+  "es_nl_seguro": {
+   "fonte": "es_nl",
+   "frammento": "certificado de seguro de enfermedad público o privado contratado con una entidad aseguradora autorizada a operar en España. El seguro debe cubrir todos los riesgos asegurados por el sistema público de salud en España."
+  },
+  "es_nl_100": {
+   "fonte": "es_nl",
+   "frammento": "Se deberá contratar una cobertura médica durante el primer año de residencia que cubra el 100% de los gastos médicos, sin copagos y sin carencias."
+  },
+  "es_rd_61": {
+   "fonte": "es_rd",
+   "frammento": "sin necesidad de desarrollar ninguna actividad laboral o profesional, de conformidad con lo dispuesto en este capítulo. b) Contar con un seguro de enfermedad."
+  },
+  "es_rd_64": {
+   "fonte": "es_rd",
+   "frammento": "Haber mantenido durante la vigencia de la autorización que se pretende renovar y continuar con un seguro de enfermedad."
+  },
+  "es_es_seguro": {
+   "fonte": "es_es",
+   "frammento": "certificado de seguro de enfermedad público o privado contratado con una entidad aseguradora autorizada a operar en España, con prestaciones similares las concedidas por la cartera común básica de servicios asistenciales del Sistema Nacional de Salud, válido para la duración de la estancia prevista."
+  },
+  "es_es_viaje": {
+   "fonte": "es_es",
+   "frammento": "no son válidos los seguros de viajero ni asociados a tarjetas de crédito"
+  },
+  "es_es_100": {
+   "fonte": "es_es",
+   "frammento": "ha de cubrir 100% de los gastos médicos hospitalarios y extrahospitalarios, sin copagos ni carencias."
+  },
+  "es_rd_35": {
+   "fonte": "es_rd",
+   "frammento": "i) Contar con un seguro de enfermedad, concertado con una entidad aseguradora autorizada para operar en España, con prestaciones similares a las concedidas por la cartera común básica de servicios asistenciales del Sistema Nacional de Salud, válido para la duración de la estancia prevista."
+  },
+  "pt_viagem": {
+   "fonte": "pt_res",
+   "frammento": "Valid travel insurance, covering necessary medical expenses, including urgent medical assistance and possible repatriation"
+  },
+  "pt_acordo": {
+   "fonte": "pt_res",
+   "frammento": "this requirement may be waived in the case of a Bilateral/International Agreement between Portugal and the country of origin concerning medical assistance that qualifies certain beneficiaries with recognized insurance, as for example in the case of Brazil (PB4) and the United Kingdom (S1)."
+  },
+  "pt_estudantes": {
+   "fonte": "pt_res",
+   "frammento": "Higher education students admitted to a higher education institution officially recognized under the terms of the legislation in force (Article 91-B of Law 23/2007) are exempt from presenting health insurance or equivalent"
+  },
+  "pt_formacao": {
+   "fonte": "pt_res",
+   "frammento": "if they prove they have the means, travel insurance and insurance of health."
+  },
+  "it_dn_decreto": {
+   "fonte": "it_dn",
+   "frammento": "dispongano di una assicurazione sanitaria per cure mediche e ricovero ospedaliero valida per il territorio nazionale e per il periodo del soggiorno"
+  },
+  "it_boston_polizza": {
+   "fonte": "it_boston",
+   "frammento": "Letter or certificate of travel medical insurance showing coverage for medical expenses, hospitalization costs and repatriation for medical reasons, for the days you are outside the United States."
+  },
+  "it_boston_minimo": {
+   "fonte": "it_boston",
+   "frammento": "Insurance coverage must not be less than 30,000 Euro (or $50,000).",
+   "valore": 30000
+  },
+  "hr_seguro": {
+   "fonte": "hr_mup",
+   "frammento": "proof of health insurance for the period of time that you plan to be in Croatia (travel or private health insurance must cover the territory of the Republic of Croatia)"
+  },
+  "hu_biztositas": {
+   "fonte": "hu_oif",
+   "frammento": "Önnek okirattal igazolnia kell, hogy az egészségügyi ellátások teljes körére biztosítottnak minősül, vagy az egészségügyi ellátás költségeit biztosítani képes."
+  },
+  "hu_megelhetes": {
+   "fonte": "hu_oif",
+   "frammento": "a megélhetését igazoló okiratok alapján egészségügyi ellátása költségeit biztosítani képes."
+  },
+  "de_seguro": {
+   "fonte": "de_berlin",
+   "frammento": "You have health insurance in Germany, either in the statutory health insurance system or a comparable private health insurance."
+  },
+  "de_estero": {
+   "fonte": "de_berlin",
+   "frammento": "Foreign health insurance is not sufficient."
+  },
+  "th_ltr_seguro": {
+   "fonte": "th_ltr",
+   "frammento": "Insured under a health insurance covering a minimum of USD 50,000 OR currently receiving social security benefits in Thailand OR deposit and maintain at least USD 100,000 in bank account balance",
+   "valore": 50000
+  },
+  "th_ltr_mantenere": {
+   "fonte": "th_ltr",
+   "frammento": "Every condition and requirement must be maintained during the length of the visa, including investment amounts, employment status, bank account balances, and insurance coverage."
+  },
+  "uk_ihs": {
+   "fonte": "uk_ihs",
+   "frammento": "Most people need to pay the immigration health surcharge"
+  },
+  "uk_ihs_nhs": {
+   "fonte": "uk_ihs",
+   "frammento": "You can start using the NHS free of charge from the date your visa starts."
+  },
+  "uk_ihs_studenti": {
+   "fonte": "uk_ihs_costo",
+   "frammento": "£776 per year for students, their dependants, and those on a Youth Mobility Scheme visa",
+   "valore": 776
+  },
+  "uk_ihs_minori": {
+   "fonte": "uk_ihs_costo",
+   "frammento": "£776 per year for visa and immigration applicants who are under the age of 18 at time of application",
+   "valore": 776
+  },
+  "uk_ihs_breve": {
+   "fonte": "uk_ihs_costo",
+   "frammento": "You do not need to pay the surcharge if you’re applying from outside the UK for 6 months or less."
+  },
+  "uk_ihs_altri": {
+   "fonte": "uk_ihs_costo",
+   "frammento": "£1,035 per year for all other visa and immigration applications",
+   "valore": 1035
+  },
+  "ue_15_1": {
+   "fonte": "ue_codice",
+   "frammento": "Applicants for a uniform visa for one or two entries shall prove that they are in possession of adequate and valid travel medical insurance to cover any expenses which might arise in connection with repatriation for medical reasons, urgent medical attention and/or emergency hospital treatment or death, during their stay(s) on the territory of the Member States."
+  },
+  "ue_15_2": {
+   "fonte": "ue_codice",
+   "frammento": "Applicants for a multiple-entry visa shall prove that they are in possession of adequate and valid travel medical insurance covering the period of their first intended visit."
+  },
+  "ue_15_2_dich": {
+   "fonte": "ue_codice",
+   "frammento": "In addition, such applicants shall sign the statement, set out in the application form, declaring that they are aware of the need to be in possession of travel medical insurance for subsequent stays."
+  },
+  "ue_15_3": {
+   "fonte": "ue_codice",
+   "frammento": "The insurance shall be valid throughout the territory of the Member States and cover the entire period of the person’s intended stay or transit."
+  },
+  "ue_15_3_minimo": {
+   "fonte": "ue_codice",
+   "frammento": "The minimum coverage shall be EUR 30 000.",
+   "valore": 30000
+  },
+  "ue_15_4": {
+   "fonte": "ue_codice",
+   "frammento": "Applicants shall, in principle, take out insurance in their country of residence. Where this is not possible, they shall seek to obtain insurance in any other country."
+  },
+  "ue_15_5": {
+   "fonte": "ue_codice",
+   "frammento": "When assessing whether the insurance cover is adequate, consulates shall ascertain whether claims against the insurance company would be recoverable in a Member State."
+  },
+  "ue_commissione": {
+   "fonte": "ue_commissione",
+   "frammento": "Medical insurance covering emergency medical care, hospitalisation and repatriation (including in the event of death)."
+  }
+ },
+ "domanda": {
+  "data": "2026-11-07",
+  "metodo": "https://suggestqueries.google.com/complete/search?client=firefox&gl=<us|in|gb>&hl=en&q=…",
+  "query": {
+   "us|health insurance for spain visa": [
+    "health insurance for spain visa",
+    "health insurance for spanish visa",
+    "health insurance for spanish visa reddit",
+    "health insurance for spain student visa",
+    "private health insurance for spain visa",
+    "health insurance for spain student visa reddit",
+    "health insurance for spain student visa cost",
+    "health insurance for spanish student visa",
+    "cheapest health insurance for spanish visa",
+    "best health insurance for spanish visa"
+   ],
+   "us|health insurance for spain non lucrative visa": [
+    "health insurance for spain non lucrative visa",
+    "private health insurance spain for non lucrative visa",
+    "spain health insurance for non lucrative visa cost",
+    "how much is a non lucrative visa for spain",
+    "can i apply for a non lucrative visa in spain",
+    "spain visa insurance requirements",
+    "non lucrative visa spain cost"
+   ],
+   "us|health insurance for spain digital nomad visa": [
+    "health insurance for spain digital nomad visa",
+    "spanish health insurance for digital nomad visa",
+    "portugal digital nomad visa requirements",
+    "health insurance for residency in spain"
+   ],
+   "us|health insurance for spain student visa": [
+    "health insurance for spain student visa",
+    "health insurance for spain student visa reddit",
+    "health insurance for spain student visa cost",
+    "health insurance for spanish student visa",
+    "best health insurance for spain student visa",
+    "cheapest health insurance for spanish student visa",
+    "asisa health insurance spain student visa",
+    "sanitas health insurance spain student visa",
+    "spain visa insurance requirements"
+   ],
+   "us|health insurance for portugal visa": [
+    "health insurance for portugal visa",
+    "health insurance for portugal d7 visa",
+    "health insurance for portugal d7 visa cost",
+    "health insurance for portugal d8 visa",
+    "health insurance for portugal student visa",
+    "health insurance for portugal job seeker visa",
+    "travel medical insurance for portugal visa",
+    "how to get health insurance in portugal"
+   ],
+   "us|health insurance for portugal d7 visa": [
+    "health insurance for portugal d7 visa",
+    "health insurance for portugal d7 visa cost",
+    "portugal d7 visa benefits",
+    "what is a d7 visa for portugal",
+    "d7 visa requirements portugal",
+    "portugal d7 visa income requirements"
+   ],
+   "us|health insurance for portugal d8 visa": [
+    "health insurance for portugal d8 visa"
+   ],
+   "us|health insurance for portugal student visa": [
+    "health insurance for portugal student visa",
+    "how to get health insurance in portugal"
+   ],
+   "us|insurance for d7 visa": [
+    "health insurance for d7 visa portugal",
+    "travel insurance for d7 visa",
+    "health insurance for d7 visa",
+    "travel insurance for portugal d7 visa",
+    "health insurance for portugal d7 visa cost",
+    "what insurance is required for d7 visa portugal",
+    "what is d7 visa",
+    "d7 visa requirements"
+   ],
+   "us|health insurance for italy visa": [
+    "health insurance for italy visa",
+    "medical insurance for italy visa",
+    "health insurance for italy student visa",
+    "health insurance for italy student visa from pakistan",
+    "health insurance for italy tourist visa",
+    "health insurance for italy study visa",
+    "travel + health insurance for italy visa",
+    "health insurance for schengen visa italy",
+    "how does health insurance work in italy",
+    "how much is health insurance for schengen visa"
+   ],
+   "us|health insurance for italy digital nomad visa": [],
+   "us|health insurance for croatia digital nomad": [],
+   "us|health insurance for hungary white card": [],
+   "us|health insurance for germany blue card": [
+    "health insurance for germany blue card",
+    "health insurance for eu blue card germany",
+    "blue card germany eligibility",
+    "what is blue card holder in germany",
+    "what is blue card in germany",
+    "blue card germany benefits"
+   ],
+   "us|health insurance for ltr visa thailand": [
+    "health insurance for ltr visa thailand",
+    "how much is health insurance in thailand",
+    "do i need health insurance in thailand",
+    "can foreigners buy health insurance in thailand",
+    "is health insurance mandatory in thailand"
+   ],
+   "us|health insurance for dtv visa thailand": [
+    "health insurance for dtv visa thailand",
+    "do i need health insurance in thailand",
+    "how much is health insurance in thailand",
+    "do i need health insurance to travel to thailand"
+   ],
+   "us|insurance for dtv": [
+    "health insurance for dtv visa thailand",
+    "insurance distribution cost",
+    "what does tv insurance cover",
+    "is tv insurance worth it"
+   ],
+   "us|schengen visa insurance": [
+    "schengen visa insurance",
+    "schengen visa insurance requirements",
+    "schengen visa insurance refundable",
+    "schengen visa insurance reddit",
+    "schengen visa insurance from uk",
+    "schengen visa insurance uae",
+    "schengen visa insurance cost",
+    "schengen visa insurance india",
+    "schengen visa insurance philippines",
+    "schengen visa insurance axa"
+   ],
+   "us|schengen visa insurance requirements": [
+    "schengen visa insurance requirements",
+    "schengen visa insurance requirements india",
+    "schengen visa insurance requirements france",
+    "schengen visa insurance requirements philippines",
+    "schengen visa insurance requirements reddit",
+    "schengen visa insurance requirements germany",
+    "schengen visa insurance requirements netherlands",
+    "schengen visa insurance requirements spain",
+    "schengen travel insurance requirements",
+    "schengen travel insurance requirements france"
+   ],
+   "us|travel insurance for schengen visa": [
+    "travel insurance for schengen visa",
+    "travel insurance for schengen visa from usa",
+    "travel insurance for schengen visa from india",
+    "travel insurance for schengen visa cheapest",
+    "travel insurance for schengen visa reddit",
+    "travel insurance for schengen visa refundable",
+    "travel insurance for schengen visa cost",
+    "travel insurance for schengen visa from uk",
+    "travel insurance for schengen visa from pakistan",
+    "travel insurance for schengen visa in nepal"
+   ],
+   "in|schengen visa insurance": [
+    "schengen visa insurance",
+    "schengen visa insurance requirements",
+    "schengen visa insurance cost",
+    "schengen visa insurance coverage requirements",
+    "schengen visa insurance list",
+    "schengen visa insurance requirements india",
+    "schengen visa insurance companies list",
+    "schengen visa insurance from uk",
+    "schengen visa insurance uae",
+    "schengen visa insurance india"
+   ],
+   "in|schengen visa insurance requirements": [
+    "schengen visa insurance requirements",
+    "schengen visa insurance requirements india",
+    "schengen visa insurance requirements france",
+    "schengen visa insurance requirements philippines",
+    "schengen visa insurance requirements reddit",
+    "schengen visa insurance requirements germany",
+    "schengen visa insurance requirements netherlands",
+    "schengen visa insurance requirements spain",
+    "schengen travel insurance requirements",
+    "schengen travel insurance requirements france"
+   ],
+   "in|travel insurance for schengen visa": [
+    "travel insurance for schengen visa",
+    "travel insurance for schengen visa from india",
+    "travel insurance for schengen visa cost",
+    "travel insurance for schengen visa from india price",
+    "travel insurance for schengen visa cheapest",
+    "travel insurance for schengen visa 30 000 euro",
+    "travel insurance for schengen visa reddit",
+    "travel insurance for schengen visa from uk",
+    "travel insurance for schengen visa icici lombard",
+    "travel insurance for schengen visa refundable"
+   ],
+   "gb|schengen visa insurance": [
+    "schengen visa insurance",
+    "schengen visa insurance requirements",
+    "schengen visa insurance from uk",
+    "schengen visa insurance uae",
+    "schengen visa insurance cost",
+    "schengen visa insurance india",
+    "schengen visa insurance reddit",
+    "schengen visa insurance philippines",
+    "schengen visa insurance axa",
+    "schengen visa insurance refundable"
+   ],
+   "gb|health insurance for spain visa": [
+    "health insurance for spain visa",
+    "health insurance for spanish visa",
+    "health insurance for spanish visa reddit",
+    "medical insurance for spanish visa",
+    "health insurance for spain student visa",
+    "private health insurance for spain visa",
+    "health insurance for spain study visa",
+    "health insurance for spain student visa cost",
+    "health insurance for spanish student visa",
+    "cheapest health insurance for spanish visa"
+   ],
+   "gb|health insurance for portugal visa": [
+    "health insurance for portugal visa",
+    "health insurance for portugal d7 visa",
+    "health insurance for portugal d7 visa cost",
+    "health insurance for portugal d8 visa",
+    "health insurance for portugal student visa",
+    "health insurance for portugal job seeker visa",
+    "travel medical insurance for portugal visa",
+    "how to get health insurance in portugal"
+   ]
+  }
+ },
+ "impronta": "de3cf2c940d406973077"
+}

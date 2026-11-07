@@ -63,7 +63,7 @@ ADSENSE_HEAD = MON.script_adsense(SITO_ID)  # "" con AdSense spento; altrimenti 
 def ci_sono_affiliati():
     """True se il sito pubblica almeno un link di affiliazione (voce con "url" in dati/affiliati.json e il link SafetyWing delle pagine dei rifiuti):
     accende la sezione privacy sui link di affiliazione. Domini ammessi in monetizzazione.json, controlli in verifica.py."""
-    return any(isinstance(v, dict) and v.get("url") for k, v in AFFILIATI.items() if not k.startswith("_")) or bool(URL_SAFETYWING)
+    return any(isinstance(v, dict) and v.get("url") for k, v in AFFILIATI.items() if not k.startswith("_")) or bool(URL_SAFETYWING) or HS_ATTIVO
 
 
 def riquadro_trasparenza(corpo, lingua="en"):
@@ -1228,6 +1228,7 @@ def pagina_programma(P):
 <p class="cifra"><span class="c-lab">Minimum for the main applicant{(' (' + escape(V0['nome'].lower()) + ')') if len(P['varianti']) > 1 else ''}</span><span class="sr">: </span>{figura}</p>
 {fonte_breve(P)}
 {eur_eq}
+{riga_salute(P, rel)}
 <p class="lead">{escape(P['descrizione'])} Official name: <em>{escape(P['nome_ufficiale'])}</em>.</p>
 </div>
 </section>
@@ -1577,7 +1578,11 @@ def privacy():
     cookie = MON.privacy_cookie("en", SITO_ID, ci_sono_affiliati())
     if cookie and URL_SAFETYWING:
         cookie += ("\n<p>Affiliate links to SafetyWing (travel medical insurance) appear in the box marked “Affiliate” on the visa refusal "
-                   "rate pages" + (" and on the Thailand DTV visa pages" if URL_SW_DTV else "") + (" and on the Mexico residency pages" if URL_SW_MX else "") + (" and on the Study in Italy health insurance page" if URL_SW_IT else "") + ". Buying a policy does not change the decision on your visa.</p>")
+                   "rate pages" + (" and on the Thailand DTV visa pages" if URL_SW_DTV else "") + (" and on the Mexico residency pages" if URL_SW_MX else "") + (" and on the Study in Italy health insurance page" if URL_SW_IT else "") + (" and on the nomad pages of the health insurance for visas section" if URL_SW_SALUTE else "") + ". Buying a policy does not change the decision on your visa.</p>")
+    if cookie and HS_ATTIVO:
+        cookie += ("\n<p>Affiliate links to HelloSafe (comparison of travel and health insurance) appear in the box marked “Affiliate” on the Schengen visa insurance page "
+                   "and on some pages of the health insurance for visas section: our site sets no cookie for them, but if you click one you go to HelloSafe's website, "
+                   "which uses its own cookies under its own privacy policy and tells HelloSafe that you came from us. Buying a policy does not change the decision on your visa.</p>")
     if cookie and URL_ITALKI:
         cookie += ("\n<p>Affiliate links to italki (online English teachers) appear in the box marked “Affiliate” on the UK visa English test pages. "
                    "Lessons do not change your test result or the decision on your visa.</p>")
@@ -2738,6 +2743,7 @@ def pagina_rif_panoramica():
 <p class="lead">Refusal and approval rates by nationality from the immigration authorities of Australia (student and visitor visas), New Zealand (visitor, student and work visas) and Canada (temporary residents). Each country defines its rate differently: the notes on each page say how.</p>
 {schede_destinazioni("")}
 {box_assicurazione(rel)}
+<p class="small">{ico("shield")} The insurance rule in full: <a href="{rel}schengen-visa-insurance/">Schengen visa insurance: €{COPERTURA_ASS:,} minimum, all Schengen countries, the whole stay (Article 15 of the Visa Code)</a>.</p>
 <h2 id="method">What these numbers mean</h2>
 <div class="testo">
 <h3>Schengen (European Commission)</h3>
@@ -13144,6 +13150,7 @@ def controlli():
     errori += controlli_inf()
     errori += controlli_anc()
     errori += controlli_h1b()
+    errori += controlli_ass()
     if errori:
         raise SystemExit("ERRORI NEI DATI:\n" + "\n".join(errori))
 
@@ -14584,6 +14591,539 @@ def controlli_h1b():
     return errori
 
 
+# ---------------------------------------------------------------- Health insurance for visas + Schengen visa insurance (7/11/2026)
+# Dati: dati/assicurazione.json, scritto da raccolta/assicurazione.py (frammenti dei testi ufficiali ricontrollati a ogni lancio).
+# Una tabella indice (/visa-health-insurance/), una pagina per visto SOLO dove l'autocompletamento salvato mostra la domanda
+# (chiave "query" di VISTI_ASS), la pagina /schengen-visa-insurance/ (art. 15 del Codice dei visti). Riquadri: HelloSafe Atlas
+# (interruttore _hellosafe in dati/affiliati.json) sulle pagine dove la fonte accetta un'assicurazione di viaggio o non chiede un
+# assicuratore locale; SafetyWing (_safetywing_salute) sulle pagine per nomadi; nessun riquadro dove la fonte chiede un assicuratore
+# autorizzato nel Paese (Spagna, Germania). Mai nelle pagine dell'esperimento /visa-refusal-rates/<paese>/ (verifica.py, controllo 32).
+import urllib.parse as _up
+
+ASS = json.loads((DATI / "assicurazione.json").read_text(encoding="utf-8"))
+SEZ_ASS = "visa-health-insurance/"
+PERC_SCH_ASS = "schengen-visa-insurance/"
+F_ASS = ASS["fonti"]
+L_ASS = ASS["letture"]
+DOM_ASS = ASS["domanda"]["query"]
+LETTO_ASS = ASS["letto_il"]
+_HS = AFFILIATI.get("_hellosafe", {})
+HS_ATTIVO = bool(_HS.get("attivo")) and bool(_HS.get("ref")) and _HS.get("url_base", "").startswith("https://hellosafe.com/")
+_SWS = AFFILIATI.get("_safetywing_salute", {})
+URL_SW_SALUTE = _SWS.get("url", "")
+COPERTURA_ASS = L_ASS["ue_15_3_minimo"]["valore"]
+# Paesi di residenza del riquadro Schengen (codice ISO per countryResidence): i Paesi da cui arrivano più domande di visto
+# nella sezione rifiuti; HelloSafe mostra le offerte vendute ai residenti di ciascuno (se ce ne sono)
+RESIDENZE_HS = [("India", "IN"), ("Pakistan", "PK"), ("Philippines", "PH"), ("Nigeria", "NG"), ("Morocco", "MA"), ("Egypt", "EG"),
+                ("Algeria", "DZ"), ("Tunisia", "TN"), ("Türkiye", "TR"), ("United Arab Emirates", "AE"), ("United Kingdom", "GB")]
+
+# Traduzioni nostre dei frammenti non inglesi (la pagina mostra la traduzione e il testo ufficiale)
+TRAD_ASS = {
+    "es_nd_seguro": "certificate of public or private health insurance taken out with an insurance company authorised to operate in Spain",
+    "es_nd_riesgos": "The insurance must cover all the risks covered by the Spanish public health system.",
+    "es_nd_ss": "You do not need to present health insurance if you prove cover by the Spanish public Social Security system.",
+    "es_nd_convenio": "instead of the health insurance, you present a certificate of entitlement to cover issued by the competent institution of the State whose Social Security system insures you",
+    "es_nl_seguro": "certificate of public or private health insurance taken out with an insurance company authorised to operate in Spain. The insurance must cover all the risks covered by the Spanish public health system.",
+    "es_nl_100": "For the first year of residence you must take out medical cover that pays 100% of medical costs, with no co-payments and no waiting periods.",
+    "es_rd_61": "without needing to carry out any work or professional activity, in accordance with this chapter. b) Have health insurance.",
+    "es_es_seguro": "certificate of public or private health insurance taken out with an insurance company authorised to operate in Spain, with benefits similar to those of the basic common portfolio of the National Health System, valid for the length of the planned stay.",
+    "es_es_viaje": "travel insurance and insurance linked to credit cards are not valid",
+    "es_es_100": "it must cover 100% of hospital and outpatient medical costs, with no co-payments and no waiting periods.",
+    "es_rd_64": "Having kept health insurance during the authorisation you want to renew, and continuing to have it.",
+    "es_rd_35": "i) Have health insurance taken out with an insurance company authorised to operate in Spain, with benefits similar to those of the basic common portfolio of the National Health System, valid for the length of the planned stay.",
+    "it_dn_decreto": "have health insurance for medical care and hospital stays, valid in Italy and for the period of the stay",
+    "hu_biztositas": "You must prove with a document that you are insured for the full range of health services, or that you are able to pay for the cost of health care.",
+    "hu_megelhetes": "on the basis of the documents proving your means of subsistence, you are able to pay for the cost of your health care.",
+}
+
+
+def lettura_ass(k):
+    return L_ASS[k]["frammento"]
+
+
+def cita_ass(k):
+    """Citazione del testo ufficiale: in inglese com'è; nelle altre lingue la nostra traduzione e, sotto, il testo ufficiale."""
+    fr = escape(lettura_ass(k))
+    lingua = F_ASS[L_ASS[k]["fonte"]]["lingua"]
+    if lingua == "en":
+        return f'<q class="cit-ass">{fr}</q>'
+    return (f'<q class="cit-ass-t">{escape(TRAD_ASS[k])}</q> <span class="small">(our translation; official text: '
+            f'<q lang="{lingua}" class="cit-ass">{fr}</q>)</span>')
+
+
+def link_f_ass(k, testo=None):
+    f = F_ASS[k]
+    return f'<a href="{escape(f.get("pubblico") or f["url"])}" rel="noopener">{escape(testo or f["titolo"])}</a>'
+
+
+def fonte_ass_p(chiavi, extra=""):
+    fonti = list(dict.fromkeys(L_ASS[k]["fonte"] if k in L_ASS else k for k in chiavi))
+    return ('<p class="fonte">Source' + ("s" if len(fonti) > 1 else "") + ": " +
+            "; ".join(f'{link_f_ass(f)} ({escape(F_ASS[f]["editore"])}, read on {data_lunga(F_ASS[f]["letto_il"])})' for f in fonti) +
+            (f". {extra}" if extra else ".") + "</p>")
+
+
+def url_hs(sezione, paese=None, schengen=False):
+    """Link HelloSafe Atlas: stessi ref e utm_source del link verificato il 7/11/2026; utm_campaign per sezione; Paese solo se noto."""
+    p = [("ref", _HS["ref"]), ("utm_source", _HS["utm_source"]), ("utm_medium", "affiliate"), ("utm_campaign", f"vic-{sezione}"),
+         ("utm_content", "schengen" if schengen else sezione)]
+    if schengen:
+        p.append(("intent", "schengenArea"))
+    if paese:
+        p.append(("countryResidence", paese))
+    return _HS["url_base"] + "?" + _up.urlencode(p)
+
+
+def box_hs(sezione, regola, paese=None):
+    """Riquadro HelloSafe per le pagine dei visti lunghi: prima la regola ufficiale, poi il link; nessuna promessa sul visto."""
+    if not HS_ATTIVO:
+        return ""
+    return (f'<section class="card aff-r" aria-labelledby="aff-hs-h"><div class="aff-r-t"><span class="ic">{ico("shield")}</span>'
+            f'<h2 id="aff-hs-h">Compare travel and health insurance</h2><span class="aff-tag">Affiliate</span></div>'
+            f'<p>{regola} HelloSafe compares policies from several insurers online. Check that the policy you choose matches every point of the official rule '
+            f'(cover, dates, where it is valid) and ask the consulate if you are unsure: we have not checked any policy against a consulate\'s requirements.</p>'
+            f'<p class="aff-r-cta"><a class="btn" href="{escape(url_hs(sezione, paese))}" rel="sponsored noopener" target="_blank">Compare policies on HelloSafe{ico("arrow")}'
+            f'<span class="sr"> (opens in a new tab)</span></a></p>'
+            f'<p class="small">{MON.RIGA_EN} Buying insurance does not guarantee a visa: the consulate decides.</p></section>')
+
+
+def box_hs_schengen():
+    """Riquadro HelloSafe della pagina Schengen: un link per Paese di residenza (countryResidence), più uno senza Paese."""
+    if not HS_ATTIVO:
+        return ""
+    voci = "".join(f'<a href="{escape(url_hs("schengen-visa-insurance", iso, schengen=True))}" rel="sponsored noopener" target="_blank">'
+                   f'<span class="ic">{ico("globe")}</span><span>I live in {escape(art(n))}<span class="sr"> (opens in a new tab)</span></span></a>' for n, iso in RESIDENZE_HS)
+    voci += (f'<a href="{escape(url_hs("schengen-visa-insurance", schengen=True))}" rel="sponsored noopener" target="_blank">'
+             f'<span class="ic">{ico("globe")}</span><span>I live in another country<span class="sr"> (opens in a new tab)</span></span></a>')
+    return (f'<section class="card aff-r" aria-labelledby="aff-hs-h"><div class="aff-r-t"><span class="ic">{ico("shield")}</span>'
+            f'<h2 id="aff-hs-h">Compare Schengen visa insurance by country of residence</h2><span class="aff-tag">Affiliate</span></div>'
+            f'<p>Article 15 asks you, in principle, to take out the insurance in the country where you live, with at least €{COPERTURA_ASS:,} of cover, valid in all '
+            f'Schengen countries for your whole stay. Choose the country where you live: HelloSafe shows the policies its insurers sell to residents of that country, if any. '
+            f'Check the cover, the dates and the certificate before you pay.</p>'
+            f'<div class="griglia">{voci}</div>'
+            f'<p class="small">{MON.RIGA_EN} Buying insurance does not guarantee a visa: the consulate decides, and we have not checked any policy against a consulate\'s requirements.</p></section>')
+
+
+def box_sw_ass(testo):
+    """Riquadro SafetyWing per le pagine dei visti per nomadi (Portogallo D8, Thailandia DTV): FAQ SafetyWing, nessuna garanzia di accettazione."""
+    if not URL_SW_SALUTE:
+        return ""
+    return (f'<section class="card aff-r" aria-labelledby="aff-sw-h"><div class="aff-r-t"><span class="ic">{ico("shield")}</span>'
+            f'<h2 id="aff-sw-h">Health cover for nomads</h2><span class="aff-tag">Affiliate</span></div>'
+            f'<p>{testo} SafetyWing\'s own FAQ says that many members have used its Nomad Insurance for visa applications, but that it <strong>cannot guarantee</strong> '
+            f'the policy will be accepted by every authority (<a href="{URL_SW_FAQ}" rel="sponsored noopener">SafetyWing FAQ</a>, read on {data_lunga(DATA_SW_FAQ)}).</p>'
+            f'<p class="aff-r-cta"><a class="btn" href="{escape(URL_SW_SALUTE)}" rel="sponsored noopener" target="_blank">See SafetyWing nomad insurance{ico("arrow")}'
+            f'<span class="sr"> (opens in a new tab)</span></a></p>'
+            f'<p class="small">SafetyWing sells travel medical insurance for travellers and nomads online. {MON.RIGA_EN} Buying insurance does not guarantee a visa: the consulate decides.</p></section>')
+
+
+def nessun_box_ass(motivo):
+    return f'<p class="small">{ico("check")} No insurance offer on this page: {motivo}</p>'
+
+
+DTV_LETTE = len(LET_DTV)
+DTV_DATA = DTV["letto_il"]
+MX_DATA = MX["letto_il"]
+F_CIRC_ASS = SI["fonti"]["circolare"]
+
+# Una voce per visto. obbligo/minimo/locale/viaggio/durata: celle della tabella (testo breve, preso dalle letture citate in "chiavi").
+# query: ricerca dell'autocompletamento salvato che giustifica la pagina (None = solo riga nella tabella).
+# box: "hs" (HelloSafe), "sw" (SafetyWing) o None (motivo in "no_box").
+VISTI_ASS = [
+    {"id": "spain-non-lucrative-visa", "paese": "Spain", "nome": "Spain non-lucrative visa", "cat": "Retirement / passive income",
+     "programma": "spain-non-lucrative-visa", "query": "us|health insurance for spain non lucrative visa",
+     "obbligo": "Yes", "minimo": "All risks of the Spanish public health system; 100% of costs, no co-payments, no waiting periods in year 1",
+     "locale": "Yes: an insurer authorised to operate in Spain", "viaggio": "Not stated for this visa (the study visa page excludes it)",
+     "durata": "Full cover for the first year of residence; kept for renewals (art. 64)", "chiavi": ["es_nl_seguro", "es_nl_100", "es_rd_61", "es_rd_64"],
+     "box": None, "no_box": "the consulate asks for a policy from an insurer authorised in Spain, and we have no partner we have checked against that rule. "
+     "The official register of authorised insurers is kept by the DGSFP"},
+    {"id": "spain-digital-nomad-visa", "paese": "Spain", "nome": "Spain digital nomad visa", "cat": "Digital nomad",
+     "programma": "spain-digital-nomad-visa", "query": "us|health insurance for spain digital nomad visa",
+     "obbligo": "Yes, unless you are covered by Spanish Social Security or a social security agreement", "minimo": "All risks of the Spanish public health system",
+     "locale": "Yes: an insurer authorised to operate in Spain", "viaggio": "Not stated", "durata": "Not stated on the page",
+     "chiavi": ["es_nd_seguro", "es_nd_riesgos", "es_nd_ss", "es_nd_convenio"],
+     "box": None, "no_box": "the consulate asks for a policy from an insurer authorised in Spain, or Spanish or foreign social security cover, and we have no partner "
+     "we have checked against that rule. The official register of authorised insurers is kept by the DGSFP"},
+    {"id": "spain-student-visa", "paese": "Spain", "nome": "Spain student visa", "cat": "Student",
+     "programma": None, "query": "us|health insurance for spain student visa",
+     "obbligo": "Yes", "minimo": "Benefits similar to the Spanish National Health System; 100% of costs, no co-payments, no waiting periods",
+     "locale": "Yes: an insurer authorised to operate in Spain", "viaggio": "No: travel insurance and credit-card insurance are not valid",
+     "durata": "The whole planned stay", "chiavi": ["es_es_seguro", "es_es_viaje", "es_es_100", "es_rd_35"],
+     "box": None, "no_box": "the consulate says travel insurance is not valid and asks for an insurer authorised in Spain, and we have no partner we have checked "
+     "against that rule. The official register of authorised insurers is kept by the DGSFP"},
+    {"id": "portugal-d7-visa", "paese": "Portugal", "nome": "Portugal D7 visa (passive income)", "cat": "Retirement / passive income",
+     "programma": "portugal-d7-visa", "query": "us|health insurance for portugal d7 visa",
+     "obbligo": "Yes, unless a health agreement covers you (e.g. Brazil PB4, UK S1)", "minimo": "Necessary medical expenses, urgent care and repatriation; no amount stated",
+     "locale": "Not stated", "viaggio": "Yes: the page asks for “valid travel insurance”", "durata": "Not stated on the page",
+     "chiavi": ["pt_viagem", "pt_acordo"], "box": "hs"},
+    {"id": "portugal-d8-digital-nomad-visa", "paese": "Portugal", "nome": "Portugal D8 digital nomad visa", "cat": "Digital nomad",
+     "programma": "portugal-d8-digital-nomad-visa", "query": "us|health insurance for portugal d8 visa",
+     "obbligo": "Yes, unless a health agreement covers you (e.g. Brazil PB4, UK S1)", "minimo": "Necessary medical expenses, urgent care and repatriation; no amount stated",
+     "locale": "Not stated", "viaggio": "Yes: the page asks for “valid travel insurance”", "durata": "Not stated on the page",
+     "chiavi": ["pt_viagem", "pt_acordo"], "box": "sw"},
+    {"id": "portugal-student-visa", "paese": "Portugal", "nome": "Portugal student visa", "cat": "Student",
+     "programma": None, "query": "us|health insurance for portugal student visa",
+     "obbligo": "No for higher education students at a recognised institution; yes for level 4-5 vocational courses", "minimo": "No amount stated",
+     "locale": "Not stated", "viaggio": "Vocational students: travel insurance and health insurance", "durata": "Not stated on the page",
+     "chiavi": ["pt_estudantes", "pt_formacao", "pt_viagem"], "box": "hs"},
+    {"id": "italy-digital-nomad-visa", "paese": "Italy", "nome": "Italy digital nomad visa", "cat": "Digital nomad",
+     "programma": "italy-digital-nomad-visa", "query": None,
+     "obbligo": "Yes", "minimo": "Medical care and hospital stays; the Boston consulate asks for at least €30,000 (or $50,000)",
+     "locale": "Not stated", "viaggio": "The Boston consulate asks for travel medical insurance", "durata": "The period of the stay",
+     "chiavi": ["it_dn_decreto", "it_boston_polizza", "it_boston_minimo"], "box": None},
+    {"id": "italy-student-visa", "paese": "Italy", "nome": "Italy student visa (university)", "cat": "Student",
+     "programma": None, "query": None, "link": f"{SEZ_IT}health-insurance/",
+     "obbligo": "Yes", "minimo": "Medical care and hospital stays (circular MUR/MAECI 2026-2028)",
+     "locale": "Not stated", "viaggio": "See our Study in Italy page", "durata": "The whole stay",
+     "chiavi": [], "box": None},
+    {"id": "croatia-digital-nomad-visa", "paese": "Croatia", "nome": "Croatia digital nomad permit", "cat": "Digital nomad",
+     "programma": "croatia-digital-nomad-visa", "query": None,
+     "obbligo": "Yes", "minimo": "No amount stated; must cover Croatia", "locale": "Not stated",
+     "viaggio": "Yes: “travel or private health insurance”", "durata": "The time you plan to be in Croatia",
+     "chiavi": ["hr_seguro"], "box": None},
+    {"id": "hungary-white-card", "paese": "Hungary", "nome": "Hungary White Card", "cat": "Digital nomad",
+     "programma": "hungary-white-card", "query": None,
+     "obbligo": "Yes: insurance, a health agreement, or proof you can pay for care", "minimo": "The full range of health services",
+     "locale": "Not stated", "viaggio": "Not stated", "durata": "Not stated on the page",
+     "chiavi": ["hu_biztositas", "hu_megelhetes"], "box": None},
+    {"id": "germany-eu-blue-card", "paese": "Germany", "nome": "Germany EU Blue Card", "cat": "Work",
+     "programma": "germany-eu-blue-card", "query": "us|health insurance for germany blue card",
+     "obbligo": "Yes", "minimo": "Statutory health insurance or comparable private insurance in Germany",
+     "locale": "Yes: “Foreign health insurance is not sufficient” (Berlin)", "viaggio": "No (foreign insurance is not sufficient)", "durata": "Not stated on the page",
+     "chiavi": ["de_seguro", "de_estero"], "box": None,
+     "no_box": "the Berlin immigration office asks for German statutory or comparable private insurance and says foreign insurance is not sufficient"},
+    {"id": "thailand-ltr-visa", "paese": "Thailand", "nome": "Thailand Long-Term Resident (LTR) visa", "breve": "Thailand LTR visa", "cat": "Long-term resident (all four types)",
+     "programma": None, "query": "us|health insurance for ltr visa thailand",
+     "obbligo": "Yes, or Thai social security, or a USD 100,000 deposit for 12 months", "minimo": "USD 50,000",
+     "locale": "Not stated", "viaggio": "Not stated", "durata": "Kept for the whole length of the visa",
+     "chiavi": ["th_ltr_seguro", "th_ltr_mantenere"], "box": "hs"},
+    {"id": "thailand-dtv-visa", "paese": "Thailand", "nome": "Thailand Destination Thailand Visa (DTV)", "breve": "Thailand DTV visa", "cat": "Digital nomad",
+     "programma": None, "query": "us|health insurance for dtv visa thailand", "link_sez": SEZ_DTV,
+     "obbligo": f"Not asked on the {DTV_LETTE} embassy pages we read", "minimo": "–", "locale": "–", "viaggio": "–", "durata": "–",
+     "chiavi": [], "box": "sw"},
+    {"id": "mexico-temporary-resident", "paese": "Mexico", "nome": "Mexico temporary resident visa", "cat": "Retirement / passive income",
+     "programma": None, "query": None, "link": SEZ_MX,
+     "obbligo": f"Not asked on the {len(CONS_MX)} consulate pages we read", "minimo": "–", "locale": "–", "viaggio": "–", "durata": "–",
+     "chiavi": [], "box": None},
+    {"id": "uk-visas", "paese": "United Kingdom", "nome": "UK visas (Skilled Worker, family, Graduate, Ancestry, Student)", "cat": "Work, family, study",
+     "programma": "uk-skilled-worker-visa", "query": None,
+     "obbligo": "No private insurance: most people pay the immigration health surcharge (IHS)", "minimo": "IHS £1,035 a year (£776 for students and under-18s)",
+     "locale": "–", "viaggio": "–", "durata": "Paid per year of the visa; not for 6 months or less applying from outside the UK",
+     "chiavi": ["uk_ihs", "uk_ihs_nhs", "uk_ihs_altri", "uk_ihs_studenti", "uk_ihs_minori", "uk_ihs_breve"], "box": None},
+]
+V_ASS = {v["id"]: v for v in VISTI_ASS}
+PAG_ASS = [v for v in VISTI_ASS if v["query"] and len(DOM_ASS.get(v["query"]) or []) > 0]
+PROG_ASS = {}   # slug del programma -> voce (riga "Health insurance" nelle pagine dei programmi)
+for _v in VISTI_ASS:
+    if _v["programma"] and _v["id"] != "uk-visas":
+        PROG_ASS[_v["programma"]] = _v
+PROG_ASS["uk-skilled-worker-visa"] = V_ASS["uk-visas"]
+PROG_ASS["uk-spouse-visa"] = V_ASS["uk-visas"]
+FAQ_ASS = {}   # percorso -> [ricerca dell'autocompletamento] (controllo 32: ogni ricerca è tra quelle salvate)
+
+AVVISO_ASS = ('<p class="avviso"><strong>Not immigration or insurance advice.</strong> These are the words of the official pages on the date we read them. '
+              'Consulates can ask for more, and each consulate decides whether your policy is acceptable: check with the consulate or visa centre where you apply before you buy.</p>')
+
+
+def perc_ass(v):
+    return f"{SEZ_ASS}{v['id']}/"
+
+
+def link_v_ass(v, rel):
+    """Link della riga della tabella: pagina propria, pagina di un'altra sezione o ancora nella pagina indice."""
+    if v in PAG_ASS:
+        return f'<a href="{rel}{perc_ass(v)}">{escape(v["nome"])}</a>'
+    if v.get("link"):
+        return f'<a href="{rel}{v["link"]}">{escape(v["nome"])}</a>'
+    return f'<a href="{rel}{SEZ_ASS}#{v["id"]}">{escape(v["nome"])}</a>'
+
+
+def citazioni_ass(v, rel):
+    """Le parole delle fonti per un visto (lista), con le fonti sotto."""
+    if v["id"] == "thailand-dtv-visa":
+        return (f'<p>None of the {DTV_LETTE} official DTV pages of Thai embassies and consulates we read (last read on {data_lunga(DTV_DATA)}) asks for health insurance: they ask for '
+                f'a passport, a photo, proof of residence, bank statements, a criminal record certificate and proof of the purpose of your stay. '
+                f'<a href="{rel}{SEZ_DTV}">The DTV embassy by embassy</a>.</p>')
+    if v["id"] == "mexico-temporary-resident":
+        return (f'<p>None of the {len(CONS_MX)} Mexican consulate pages we read on {data_lunga(MX_DATA)} asks for health insurance for the temporary resident visa. '
+                f'<a href="{rel}{SEZ_MX}">Mexico residency: income and savings by consulate</a>.</p>')
+    if v["id"] == "italy-student-visa":
+        return (f'<p>The circular of the Ministries of University and Foreign Affairs for 2026-2028 asks international students for '
+                f'<q lang="it">{escape(SI["letture"]["assicurazione"]["frammento"])}</q> (“adequate insurance cover for medical care and hospital stays”). '
+                f'Once you hold a study permit you can also register with the National Health Service for at least €{LIT["ssn_minimo"]} a year. '
+                f'<a href="{rel}{SEZ_IT}health-insurance/">Health insurance for studying in Italy: the options in detail</a>.</p>'
+                f'<p class="fonte">Source: <a href="{escape(F_CIRC_ASS["url"])}" rel="noopener">{escape(F_CIRC_ASS["titolo"])}</a> ({escape(F_CIRC_ASS["editore"])}, read on {data_lunga(F_CIRC_ASS["letto_il"])}).</p>')
+    voci = "".join(f"<li>{cita_ass(k)}</li>" for k in v["chiavi"])
+    extra = ""
+    if v["paese"] == "Spain":
+        extra = ("We read the pages of the Spanish consulate in Buenos Aires: other Spanish consulates publish their own document lists, so check the one where you apply. "
+                 f'Register of insurers authorised in Spain: {link_f_ass("es_dgsfp", "DGSFP, insurance companies register")}')
+    if v["id"] == "spain-non-lucrative-visa":
+        extra = "Article 61 of Royal Decree 1155/2024 sets the requirement; article 64 asks you to keep the insurance to renew. " + extra
+    return f'<ul class="testo">{voci}</ul>{fonte_ass_p(v["chiavi"], extra)}'
+
+
+def riga_tab_ass(v, rel):
+    return (f'<tr id="{v["id"]}-r"><td>{bandiera(v["paese"])} {link_v_ass(v, rel)}<br><span class="small">{escape(v["cat"])}</span></td>'
+            f'<td>{escape(v["obbligo"])}</td><td>{escape(v["minimo"])}</td><td>{escape(v["locale"])}</td><td>{escape(v["viaggio"])}</td>'
+            f'<td>{escape(v["durata"])}</td></tr>')
+
+
+def tabella_ass(rel, voci=None):
+    voci = voci or VISTI_ASS
+    return ('<div class="tab compatta"><table id="t-ass"><caption class="sr">Health insurance asked for each long-stay visa</caption><thead><tr>'
+            '<th scope="col">Visa</th><th scope="col">Insurance required?</th><th scope="col">Minimum cover</th><th scope="col">Local insurer only?</th>'
+            '<th scope="col">Travel insurance accepted?</th><th scope="col">How long</th></tr></thead><tbody>' +
+            "".join(riga_tab_ass(v, rel) for v in voci) + "</tbody></table></div>")
+
+
+def riga_salute(P, rel):
+    """Riga "Health insurance" nelle pagine dei programmi, accanto al reddito minimo."""
+    v = PROG_ASS.get(P["slug"])
+    if not v:
+        return ""
+    dove = perc_ass(v) if v in PAG_ASS else f"{SEZ_ASS}#{v['id']}"
+    return (f'<p class="small">{ico("shield")} <strong>Health insurance:</strong> {escape(v["obbligo"])}; minimum cover: {escape(v["minimo"][0].lower() + v["minimo"][1:] if v["minimo"][1:2].islower() else v["minimo"])}. '
+            f'<a href="{rel}{dove}">What the official source says</a>.</p>')
+
+
+def box_pagina_ass(v, rel):
+    if v["box"] == "hs":
+        regole = {"portugal-d7-visa": "The Portuguese consulates ask for valid travel insurance covering necessary medical expenses, urgent medical care and possible repatriation.",
+                  "portugal-student-visa": "Higher education students at a recognised institution are exempt; vocational students and other residence visa applicants are asked for travel insurance covering medical expenses, urgent care and repatriation.",
+                  "thailand-ltr-visa": "The LTR visa asks for health insurance with at least USD 50,000 of cover (or Thai social security, or a USD 100,000 deposit), kept for the whole visa."}
+        return box_hs(f"health-{v['id']}", regole[v["id"]])
+    if v["box"] == "sw":
+        testi = {"portugal-d8-digital-nomad-visa": "The Portuguese consulates ask D8 applicants for valid travel insurance covering necessary medical expenses, urgent medical care and possible repatriation.",
+                 "thailand-dtv-visa": "The DTV pages we read do not ask for health insurance; a DTV allows stays of up to 180 days per entry, so many nomads take a policy anyway."}
+        return box_sw_ass(testi[v["id"]])
+    if v.get("no_box"):
+        return nessun_box_ass(escape(v["no_box"]) + (f' ({link_f_ass("es_dgsfp", "register")}).' if "DGSFP" in v["no_box"] else "."))
+    return ""
+
+
+def non_dice_ass(v):
+    """Cosa la fonte NON dice (una lista), dalle celle "Not stated"."""
+    voci = []
+    if v["locale"].startswith("Not stated"):
+        voci.append("whether the insurer must be local or can be foreign")
+    if v["viaggio"].startswith("Not stated"):
+        voci.append("whether a travel insurance policy is enough")
+    if v["minimo"].startswith("No amount") or "no amount" in v["minimo"]:
+        voci.append("a minimum amount of cover")
+    if v["durata"].startswith("Not stated"):
+        voci.append("how long the policy must last")
+    if not voci or not v["chiavi"]:
+        return ""
+    return f'<p><strong>What the official page does not say:</strong> {"; ".join(voci)}. Ask the consulate or immigration office where you apply.</p>'
+
+
+FAQ_PAGINE_ASS = {
+    "spain-non-lucrative-visa": [
+        ("us|health insurance for spain non lucrative visa", "What health insurance do I need for the Spain non-lucrative visa?",
+         "Public or private health insurance from a company authorised to operate in Spain, covering all the risks covered by the Spanish public health system; "
+         "for the first year it must pay 100% of medical costs with no co-payments and no waiting periods (Consulate General of Spain in Buenos Aires)."),
+        ("us|health insurance for spain non lucrative visa", "Can I use travel insurance for the Spain non-lucrative visa?",
+         "The non-lucrative visa page does not mention travel insurance: it asks for a policy from an insurer authorised in Spain with full cover and no co-payments. "
+         "The same consulate's study visa page says travel insurance is not valid."),
+    ],
+    "spain-digital-nomad-visa": [
+        ("us|health insurance for spain digital nomad visa", "What health insurance do I need for the Spain digital nomad visa?",
+         "Public or private health insurance from a company authorised to operate in Spain, covering all the risks covered by the Spanish public health system. "
+         "You do not need it if you prove Spanish Social Security cover; if a social security agreement lets you keep your home cover, you present a certificate of entitlement instead."),
+    ],
+    "spain-student-visa": [
+        ("us|health insurance for spain student visa", "What health insurance do I need for a Spain student visa?",
+         "A policy from an insurer authorised in Spain, with benefits similar to the Spanish National Health System, for your whole stay, covering 100% of costs with no co-payments and no waiting periods. "
+         "Travel insurance and credit-card insurance are not valid (Consulate General of Spain in Buenos Aires)."),
+    ],
+    "portugal-d7-visa": [
+        ("us|health insurance for portugal d7 visa", "What insurance do I need for the Portugal D7 visa?",
+         "The Portuguese Ministry of Foreign Affairs asks residence visa applicants for valid travel insurance covering necessary medical expenses, urgent medical care and possible repatriation. "
+         "It can be waived under a health agreement, for example Brazil (PB4) and the United Kingdom (S1)."),
+        ("us|insurance for d7 visa", "Is travel insurance enough for the D7 visa?",
+         "The official list of documents asks for “valid travel insurance” with medical expenses, urgent care and repatriation; it gives no minimum amount and no duration, so ask the consulate where you apply."),
+    ],
+    "portugal-d8-digital-nomad-visa": [
+        ("us|health insurance for portugal d8 visa", "What health insurance do I need for the Portugal D8 digital nomad visa?",
+         "The same as every Portuguese residence visa: valid travel insurance covering necessary medical expenses, urgent medical care and possible repatriation, unless a health agreement covers you."),
+    ],
+    "portugal-student-visa": [
+        ("us|health insurance for portugal student visa", "Do I need health insurance for a Portugal student visa?",
+         "Not if you are a higher education student admitted to an officially recognised institution: the Ministry of Foreign Affairs says you are exempt from presenting health insurance. "
+         "Students on level 4 or 5 vocational courses must show travel insurance and health insurance."),
+    ],
+    "germany-eu-blue-card": [
+        ("us|health insurance for germany blue card", "What health insurance do I need for the German EU Blue Card?",
+         "German statutory health insurance or comparable private health insurance. The Berlin immigration office says foreign health insurance is not sufficient."),
+    ],
+    "thailand-ltr-visa": [
+        ("us|health insurance for ltr visa thailand", "What health insurance do I need for the Thailand LTR visa?",
+         "Health insurance with at least USD 50,000 of cover, or Thai social security benefits, or at least USD 100,000 kept in a bank account in your name for 12 months. "
+         "The BOI says the insurance cover must be maintained for the whole length of the visa."),
+    ],
+    "thailand-dtv-visa": [
+        ("us|health insurance for dtv visa thailand", "Do I need health insurance for the Thailand DTV visa?",
+         f"None of the {DTV_LETTE} official DTV pages we read asks for health insurance."),
+    ],
+}
+
+
+def pagina_ass_visto(v):
+    percorso = perc_ass(v)
+    rel = "../../"
+    faq_v = FAQ_PAGINE_ASS.get(v["id"], [])
+    FAQ_ASS[percorso] = [q for q, _, _ in faq_v]
+    faq = [(d, escape(a)) for _, d, a in faq_v]
+    altri = [x for x in PAG_ASS if x is not v]
+    prog = next((p for p in PROG if p["slug"] == v["programma"]), None)
+    link_prog = (f'<p class="small">{ico("check")} Income for this visa: <a href="{rel}{prog["slug"]}/">{escape(nome_prog(prog))}: {escape(riassunto(prog))}</a>.</p>'
+                 if prog else "")
+    if v["id"] == "thailand-ltr-visa":
+        link_prog = f'<p class="small">{ico("check")} More on Thai long-stay visas: <a href="{rel}{SEZ_DTV}">Thailand DTV visa, embassy by embassy</a>.</p>'
+    corto = v.get("breve") or v["nome"].split(" (")[0]
+    varianti = [f"Health insurance for the {v['nome']}: official rules ({ANNO})", f"Health insurance for the {corto}: official rules ({ANNO})",
+                f"Health insurance for the {corto} ({ANNO})"]
+    titolo = next((x for x in varianti if len(x) <= 70), varianti[-1])
+    corpo = f"""<section class="hero">{h1_diviso(f"Health insurance for the {v['nome']}: what the official source asks")}
+<p class="lead"><strong>Insurance required:</strong> {escape(v["obbligo"])}.{"" if v["minimo"] == "–" else f' <strong>Minimum cover:</strong> {escape(v["minimo"])}. <strong>Local insurer only:</strong> {escape(v["locale"])}. <strong>Travel insurance accepted:</strong> {escape(v["viaggio"])}. <strong>How long:</strong> {escape(v["durata"])}.'} Official pages read on {data_lunga(LETTO_ASS if v["chiavi"] else DTV_DATA)}.</p></section>
+{AVVISO_ASS}
+<h2>What the official source says</h2>
+{citazioni_ass(v, rel)}
+{non_dice_ass(v)}
+{link_prog}
+{box_pagina_ass(v, rel)}
+{AD}
+<h2>Other long-stay visas</h2>
+{tabella_ass(rel, [v] + [x for x in VISTI_ASS if x["paese"] == v["paese"] and x is not v])}
+<p><a href="{rel}{SEZ_ASS}">Health insurance for every visa in one table</a> · <a href="{rel}{PERC_SCH_ASS}">Schengen visa insurance: the official rule</a></p>
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(faq)}</div>
+<div class="griglia">{"".join(f'<a href="{rel}{perc_ass(x)}"><span class="ic f">{bandiera(x["paese"])}</span><span>{escape(x["nome"])}</span></a>' for x in altri)}</div>"""
+    descr = f"Health insurance for the {v['nome']}: {v['obbligo'].lower()}. Minimum cover, local or foreign insurer, travel insurance, duration, from the official source ({data_lunga(LETTO_ASS)})."
+    descr = re.sub(r"[“”]", '"', descr)
+    pagina(percorso, titolo, descr[:300], corpo, jsonld_extra=[ld_faq(faq)] if faq else None,
+           briciole=[("Health insurance for visas", SEZ_ASS), (v["nome"], percorso)])
+
+
+def pagina_ass_indice():
+    percorso = SEZ_ASS
+    rel = "../"
+    dettagli = ""
+    for v in VISTI_ASS:
+        if v in PAG_ASS:
+            continue
+        dettagli += f'<h3 id="{v["id"]}">{bandiera(v["paese"])} {escape(v["nome"])}</h3>{citazioni_ass(v, rel)}{non_dice_ass(v)}'
+    n_obbl = sum(1 for v in VISTI_ASS if v["obbligo"].startswith("Yes"))
+    regola_idx = ("Where the official source accepts a travel insurance policy or does not ask for a local insurer (Portugal, Croatia, Thailand LTR, Schengen visit visas), "
+                  "you can compare policies before you buy. Spain and Germany ask for an insurer authorised in the country: this offer is not for those visas.")
+    faq = [
+        ("Which visas require health insurance?", f"{n_obbl} of the {len(VISTI_ASS)} long-stay visas in our table ask for health insurance or an equivalent: Spain, Portugal, Italy, Croatia, Hungary, Germany and the Thailand LTR. "
+         "The Thailand DTV and Mexico pages we read do not ask for it; the UK asks for the immigration health surcharge instead of insurance."),
+        ("Is travel insurance enough for a long-stay visa?", "It depends on the country. Portugal and Croatia accept travel insurance; the Spanish consulate's study visa page says travel insurance is not valid; "
+         "the Berlin immigration office says foreign health insurance is not sufficient for the EU Blue Card."),
+        ("Do I need a local insurer?", "Spain asks for an insurer authorised to operate in Spain; Germany asks for German statutory or comparable private insurance. "
+         "The Portuguese, Croatian, Hungarian, Italian and Thai pages do not say the insurer must be local."),
+    ]
+    corpo = f"""<section class="hero">{h1_diviso(f"Health insurance for visas: what each long-stay visa asks ({ANNO})")}
+<p class="lead">Spain asks for an insurer authorised in Spain with 100% cover and no co-payments, Germany says foreign insurance is not sufficient, Portugal and Croatia accept travel insurance, Thailand's LTR asks for USD 50,000 of cover, and the UK charges a health surcharge instead. One row per visa, from the official pages read on {data_lunga(LETTO_ASS)}; where the source says nothing, the table says so.</p></section>
+{AVVISO_ASS}
+{tabella_ass(rel)}
+<p class="small">“Not stated” means the official page we read does not say it: it does not mean the consulate will not ask. Rows with a link have their own page with the official words.</p>
+{box_hs("health-insurance", regola_idx)}
+{AD}
+<h2>The official words, visa by visa</h2>
+<div class="testo">{dettagli}</div>
+<h2>Visa pages</h2>
+<div class="griglia">{"".join(f'<a href="{perc_ass(x).replace(SEZ_ASS, "")}"><span class="ic f">{bandiera(x["paese"])}</span><span>{escape(x["nome"])}</span></a>' for x in PAG_ASS)}</div>
+<h2>Visas we could not check</h2>
+<p>Greece (digital nomad and financially independent persons visas): the official pages of the Ministry of Migration answered 404 and the Ministry of Foreign Affairs page 403 on {data_lunga(LETTO_ASS)}, so we do not publish a rule.</p>
+<p><a href="{rel}{PERC_SCH_ASS}">Schengen visa insurance (short stays): the official rule</a> · <a href="{rel}digital-nomad-visa-income-requirements/">Digital nomad visa income requirements</a></p>
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(faq)}</div>"""
+    titolo = f"Health insurance for visas: requirements by country ({ANNO})"
+    descr = (f"Health insurance asked for {len(VISTI_ASS)} long-stay visas (Spain, Portugal D7/D8, Italy, Croatia, Hungary, Germany, Thailand DTV/LTR, Mexico, UK): "
+             "required or not, minimum cover, local insurer, travel insurance, duration. Official sources.")
+    pagina(percorso, titolo, descr, corpo, jsonld_extra=[ld_faq(faq)], briciole=[("Health insurance for visas", percorso)])
+
+
+def pagina_ass_schengen():
+    percorso = PERC_SCH_ASS
+    rel = "../"
+    FAQ_ASS[percorso] = ["us|schengen visa insurance requirements", "in|schengen visa insurance", "us|travel insurance for schengen visa"]
+    faq = [
+        ("What are the Schengen visa insurance requirements?", f"Article 15 of the Visa Code asks for travel medical insurance covering repatriation for medical reasons, urgent medical attention, emergency hospital treatment and death, "
+         f"valid in all Schengen countries for your whole stay, with at least €{COPERTURA_ASS:,} of cover."),
+        ("How much cover do I need for a Schengen visa?", f"At least €{COPERTURA_ASS:,} (Article 15(3) of the Visa Code)."),
+        ("Do I need insurance for the whole validity of a multiple-entry visa?", "No: Article 15(2) asks multiple-entry applicants to prove insurance for their first intended visit, and to sign a statement that they know they need insurance for later stays."),
+        ("Can I buy Schengen insurance outside my country of residence?", "Article 15(4) says applicants should in principle take out insurance in their country of residence and, where this is not possible, in any other country."),
+        ("Is Schengen visa insurance refundable if my visa is refused?", "The Visa Code does not say: refunds depend on the terms of each policy. Read them before you buy."),
+    ]
+    corpo = f"""<section class="hero">{h1_diviso(f"Schengen visa insurance: €{COPERTURA_ASS:,} minimum, all Schengen countries, the whole stay")}
+<p class="lead">To get a Schengen visa you must show travel medical insurance with at least <strong>€{COPERTURA_ASS:,}</strong> of cover, valid in <strong>all Schengen countries</strong> for the <strong>whole stay</strong>, covering urgent medical care, emergency hospital treatment and repatriation for medical reasons or death (Article 15 of the EU Visa Code, read on {data_lunga(LETTO_ASS)}).</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{ico("shield")}<span>Schengen visa (short stay)</span><span>Visa Code, Article 15</span></div>
+<div class="s-body">
+<div class="kpi"><div><b>€{COPERTURA_ASS:,}</b><span>minimum cover</span></div><div><b>All</b><span>Schengen countries</span></div><div><b>Whole stay</b><span>or transit</span></div><div><b>First trip</b><span>for multiple-entry visas</span></div></div>
+{fonte_ass_p(["ue_15_3_minimo"])}
+</div></section>
+{AVVISO_ASS}
+<h2>The rule, word for word</h2>
+<ul class="testo">
+<li><strong>What it covers (15(1)):</strong> {cita_ass("ue_15_1")}</li>
+<li><strong>Multiple-entry visas (15(2)):</strong> {cita_ass("ue_15_2")} {cita_ass("ue_15_2_dich")}</li>
+<li><strong>Where and how long (15(3)):</strong> {cita_ass("ue_15_3")} {cita_ass("ue_15_3_minimo")}</li>
+<li><strong>Where to buy it (15(4)):</strong> {cita_ass("ue_15_4")}</li>
+<li><strong>What the consulate checks (15(5)):</strong> {cita_ass("ue_15_5")}</li>
+</ul>
+<p>The European Commission's page lists among the documents: {cita_ass("ue_commissione")}</p>
+{fonte_ass_p(["ue_15_1", "ue_commissione"])}
+<p><strong>What the Visa Code does not say:</strong> it names no approved insurers and says nothing about refunds if the visa is refused; some consulates publish their own lists of accepted insurers, so check the page of the consulate or visa centre where you apply.</p>
+{box_hs_schengen()}
+{AD}
+<h2>Before you apply</h2>
+<div class="griglia"><a href="{rel}{SEZ}"><span class="ic">{ico("list")}</span><span>Schengen visa refusal rates by country</span></a><a href="{rel}{PERCORSO_MEV}"><span class="ic">{ico("list")}</span><span>Multiple-entry Schengen visas</span></a><a href="{rel}schengen-visa-from-uk/"><span class="ic">{ico("passport")}</span><span>Schengen visa from the UK</span></a><a href="{rel}schengen-visa-from-dubai/"><span class="ic">{ico("passport")}</span><span>Schengen visa from Dubai</span></a></div>
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(faq)}</div>
+<p><a href="{rel}{SEZ_ASS}">Health insurance for long-stay visas (Spain, Portugal, Italy, Germany, Thailand and more)</a></p>"""
+    titolo = f"Schengen visa insurance requirements: €{COPERTURA_ASS:,}, whole stay ({ANNO})"
+    descr = (f"Schengen visa insurance: at least €{COPERTURA_ASS:,} of cover, valid in all Schengen countries for the whole stay, urgent care, hospital and repatriation. "
+             "Article 15 of the EU Visa Code, word for word.")
+    pagina(percorso, titolo, descr, corpo, jsonld_extra=[ld_faq(faq)], briciole=[("Schengen visa insurance", percorso)])
+
+
+def genera_ass():
+    pagina_ass_indice()
+    for v in PAG_ASS:
+        pagina_ass_visto(v)
+    pagina_ass_schengen()
+
+
+def controlli_ass():
+    import hashlib
+    errori = []
+    cont = {"url": {k: f["url"] for k, f in F_ASS.items()}, "letture": L_ASS, "domanda": ASS["domanda"]}
+    if hashlib.sha256(json.dumps(cont, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:20] != ASS["impronta"]:
+        errori.append("assicurazione: impronta del JSON diversa dal contenuto (file modificato a mano?)")
+    for k, f in F_ASS.items():
+        if f.get("http") != 200:
+            errori.append(f"assicurazione: fonte {k} non letta (HTTP {f.get('http')})")
+    for k in L_ASS:
+        if F_ASS[L_ASS[k]["fonte"]]["lingua"] != "en" and k not in TRAD_ASS:
+            errori.append(f"assicurazione: lettura {k} senza traduzione")
+    for v in VISTI_ASS:
+        for k in v["chiavi"]:
+            if k not in L_ASS:
+                errori.append(f"assicurazione: {v['id']} cita una lettura inesistente ({k})")
+        if v["query"] and v not in PAG_ASS:
+            errori.append(f"assicurazione: {v['id']} senza domanda nell'autocompletamento salvato: niente pagina")
+    if _HS.get("attivo") and not HS_ATTIVO:
+        errori.append("assicurazione: _hellosafe attivo ma senza ref o url_base hellosafe.com")
+    if URL_SW_SALUTE and not URL_SW_SALUTE.startswith("https://safetywing.com/"):
+        errori.append("assicurazione: link SafetyWing non valido (_safetywing_salute)")
+    return errori
+
+
 def main():
     controlli()
     if SITO.exists():
@@ -14619,6 +15159,7 @@ def main():
     pagina_anc()
     genera_tu()
     genera_h1b()
+    genera_ass()
     pagina_come_funziona()
     about()
     contatti()

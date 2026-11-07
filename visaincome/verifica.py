@@ -120,6 +120,13 @@ Uso (dalla radice del repository, dopo python3 visaincome/genera.py):
     la risposta e la data; tabelle dei livelli, delle altre aree e delle 60 aree ricalcolate; confronto con la media nazionale; stato delle regole
     (proposte mai in vigore); citazioni = frammenti; FAQ da ricerche salvate e JSON-LD = testo; calcolatore: file di dati, motore JS = Python e = tabelle
     statiche su un campione di 40 pagine + 400 casi a caso, probabilità JS = stime DHS; link da home, How it works e /us-opt/; piè di pagina invariato.
+32. Health insurance for visas (/visa-health-insurance/) e Schengen visa insurance (/schengen-visa-insurance/), 7/11/2026, dati/assicurazione.json:
+    impronta, fonti (HTTP 200, SHA-256, data), valori = numeri dei frammenti (30.000 euro), pagine per visto solo dove la ricerca salvata ha
+    suggerimenti, titoli ≤ 70 con l'anno, sitemap, canonical, FAQPage, BreadcrumbList, avviso, citazioni = frammenti ufficiali, riga "Health
+    insurance" nelle pagine dei programmi, link dall'indice dei rifiuti; HelloSafe: con l'interruttore spento nessun hellosafe.com nel sito, acceso
+    link con ref=wzxn7mck, utm_campaign vic-, rel="sponsored noopener", riga di trasparenza, nessuna promessa sul visto, countryResidence e intent solo
+    sulla pagina Schengen, solo nelle pagine previste; mai HelloSafe e SafetyWing nella stessa pagina; nessun HelloSafe né link alla sezione nelle
+    pagine dell'esperimento /visa-refusal-rates/<paese>/; online: 6 frammenti a caso riletti.
 Il controllo 8 comprende dal 28/10/2026 anche i visti UK di famiglia e del partner (coniuge).
 Monetizzazione (30/10/2026, controllo comune di studio-business/strumenti/monetizzazione.py): i link di affiliazione sono
 ammessi solo verso i domini di monetizzazione.json, con rel="sponsored noopener" e la riga di trasparenza nella pagina;
@@ -4654,6 +4661,152 @@ def controlla_h1b(online=True):
     return errori, len(pagine), len(casi), note
 
 
+# ---------------------------------------------------------------- 32. Health insurance for visas + Schengen visa insurance (7/11/2026)
+def controlla_ass(online=True):
+    """Sezione assicurazione sanitaria per visto e pagina dell'assicurazione Schengen; interruttore HelloSafe (acceso o spento)."""
+    import hashlib
+    import importlib.util
+    import urllib.parse as up
+    errori, note = [], []
+    D = json.loads((SITO.parent / "dati" / "assicurazione.json").read_text(encoding="utf-8"))
+    A = json.loads((SITO.parent / "dati" / "affiliati.json").read_text(encoding="utf-8"))
+    errori += [f"32: {e}" for e in G.controlli_ass()]
+    cont = {"url": {k: f["url"] for k, f in D["fonti"].items()}, "letture": D["letture"], "domanda": D["domanda"]}
+    if hashlib.sha256(json.dumps(cont, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:20] != D["impronta"]:
+        errori.append("32: impronta di dati/assicurazione.json diversa dal contenuto")
+    for k, f in D["fonti"].items():
+        if f.get("http") != 200 or not re.fullmatch(r"[0-9a-f]{64}", f.get("sha256") or "") or f.get("letto_il") != D["letto_il"]:
+            errori.append(f"32: fonte {k} senza HTTP 200, impronta o data di lettura")
+    L = D["letture"]
+    # valori numerici = numeri scritti nei frammenti (lettore indipendente)
+    def numero(fr):
+        m = re.search(r"(?:EUR|USD|£)\s?([\d][\d ,]*\d)|([\d][\d,]*) Euro", fr)
+        return int(re.sub(r"[ ,]", "", m.group(1) or m.group(2))) if m else None
+    for k, v in L.items():
+        if "valore" in v and numero(v["frammento"]) != v["valore"]:
+            errori.append(f"32: valore di {k} ({v['valore']}) diverso dal numero del frammento")
+    if L["ue_15_3_minimo"]["valore"] != 30000:
+        errori.append("32: copertura minima Schengen diversa da 30.000 euro")
+    # pagine attese
+    dom = D["domanda"]["query"]
+    attese = {G.SEZ_ASS, G.PERC_SCH_ASS}
+    for v in G.VISTI_ASS:
+        if v["query"]:
+            sugg = dom.get(v["query"]) or []
+            q = v["query"].split("|", 1)[1]
+            if not sugg or not any(q in s or s in q for s in sugg):
+                errori.append(f"32: {v['id']}: ricerca {q!r} senza suggerimenti salvati, ma con pagina" if v in G.PAG_ASS else f"32: {v['id']}: niente domanda")
+            else:
+                attese.add(G.perc_ass(v))
+    mappa = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    trovate = {str(f.parent.relative_to(SITO)) + "/" for f in (SITO / G.SEZ_ASS).rglob("index.html")} | ({G.PERC_SCH_ASS} if (SITO / G.PERC_SCH_ASS / "index.html").exists() else set())
+    if trovate != attese:
+        errori.append(f"32: pagine diverse dalle attese: in più {sorted(trovate - attese)}, mancanti {sorted(attese - trovate)}")
+    frammenti = {html.unescape(v["frammento"]) for v in L.values()}
+    for p in sorted(attese & trovate):
+        t = leggi(p + "index.html")
+        tit = re.search(r"<title>(.*?)</title>", t).group(1)
+        if len(html.unescape(tit)) > 70 or str(G.ANNO) not in tit:
+            errori.append(f"32: {p}: titolo oltre 70 caratteri o senza l'anno ({tit})")
+        if f"<loc>{G.URL_SITO}/{p}</loc>" not in mappa or f'rel="canonical" href="{G.URL_SITO}/{p}"' not in t:
+            errori.append(f"32: {p}: fuori dalla sitemap o senza canonical")
+        if '"FAQPage"' not in t or '"BreadcrumbList"' not in t or "Not immigration or insurance advice." not in t:
+            errori.append(f"32: {p}: FAQPage, BreadcrumbList o avviso mancanti")
+        for q in re.findall(r'<q[^>]*class="cit-ass"[^>]*>(.*?)</q>', t, re.S):
+            if html.unescape(q) not in frammenti:
+                errori.append(f"32: {p}: citazione che non è un frammento ufficiale: {html.unescape(q)[:60]}")
+        if "read on " not in t:
+            errori.append(f"32: {p}: nessuna data di lettura della fonte")
+        for q in G.FAQ_ASS.get(p, []):
+            if not dom.get(q):
+                errori.append(f"32: {p}: FAQ legata a una ricerca senza suggerimenti salvati ({q})")
+    # la pagina di ogni visto cita tutte le sue letture
+    for v in G.PAG_ASS:
+        t = html.unescape(leggi(G.perc_ass(v) + "index.html"))
+        for k in v["chiavi"]:
+            if L[k]["frammento"] not in t:
+                errori.append(f"32: {v['id']}: lettura {k} non citata nella pagina")
+    sch = html.unescape(leggi(G.PERC_SCH_ASS + "index.html"))
+    for k in ("ue_15_1", "ue_15_2", "ue_15_3", "ue_15_3_minimo", "ue_15_4", "ue_15_5", "ue_commissione"):
+        if L[k]["frammento"] not in sch:
+            errori.append(f"32: pagina Schengen senza la lettura {k}")
+    if "€30,000" not in sch or "Article 15" not in sch:
+        errori.append("32: pagina Schengen senza €30,000 o senza Article 15")
+    # riga "Health insurance" accanto al reddito nelle pagine dei programmi
+    for slug, v in G.PROG_ASS.items():
+        t = leggi(f"{slug}/index.html")
+        if "<strong>Health insurance:</strong>" not in t or G.SEZ_ASS not in t:
+            errori.append(f"32: {slug}: manca la riga Health insurance con il link alla sezione")
+    if "schengen-visa-insurance/" not in leggi(G.SEZ + "index.html"):
+        errori.append("32: manca il link dalla pagina indice dei rifiuti")
+    # HelloSafe: interruttore, link, rel, trasparenza, testo, pagine ammesse; mai nelle pagine dell'esperimento
+    hs = A.get("_hellosafe", {})
+    acceso = bool(hs.get("attivo"))
+    if acceso != G.HS_ATTIVO:
+        errori.append("32: interruttore _hellosafe e genera.HS_ATTIVO non coincidono")
+    vietate = ("guarantee your visa", "guaranteed visa", "will be accepted", "accepted by every", "approved by the consulate", "embassy-approved",
+               "visa-approved", "get your visa", "100% accepted")
+    ammesse = {G.SEZ_ASS, G.PERC_SCH_ASS} | {G.perc_ass(v) for v in G.PAG_ASS if v["box"] == "hs"}
+    iso_ok = {iso for _, iso in G.RESIDENZE_HS}
+    n_link = 0
+    for f in SITO.rglob("*.html"):
+        rel_p = str(f.parent.relative_to(SITO)) + "/" if f.name == "index.html" else str(f.relative_to(SITO))
+        rel_p = "" if rel_p == "./" else rel_p
+        t = f.read_text(encoding="utf-8")
+        parti = f.relative_to(SITO).parts
+        if parti[0] == "visa-refusal-rates" and len(parti) == 3 and ("hellosafe" in t.lower() or "schengen-visa-insurance/" in t or G.SEZ_ASS in t):
+            errori.append(f"32: pagina dell'esperimento {rel_p} con HelloSafe o link alla sezione (deve restare identica fino al 28/12)")
+        if "hellosafe.com" not in t:
+            continue
+        if not acceso:
+            errori.append(f"32: HelloSafe spento ma {rel_p} contiene hellosafe.com")
+            continue
+        if rel_p not in ammesse:
+            errori.append(f"32: link HelloSafe in una pagina non prevista: {rel_p}")
+        if "safetywing.com/nomad-insurance?" in t:
+            errori.append(f"32: {rel_p}: due riquadri assicurativi (HelloSafe e SafetyWing) nella stessa pagina")
+        if G.MON.RIGA_EN not in t or "does not guarantee a visa" not in t:
+            errori.append(f"32: {rel_p}: riga di trasparenza o frase sul visto mancante")
+        basso = html.unescape(re.sub(r"<[^>]+>", " ", t)).lower()
+        for x in vietate:
+            if x in basso:
+                errori.append(f"32: {rel_p}: promessa vietata ({x})")
+        for a in re.finditer(r'<a [^>]*href="(https://hellosafe\.com[^"]*)"[^>]*>', t):
+            n_link += 1
+            tag, url = a.group(0), html.unescape(a.group(1))
+            u = up.urlsplit(url)
+            qs = dict(up.parse_qsl(u.query))
+            if u.netloc != "hellosafe.com" or not qs.get("ref", "").startswith("wzxn7mck") or qs.get("utm_medium") != "affiliate" or not qs.get("utm_campaign", "").startswith("vic-"):
+                errori.append(f"32: {rel_p}: link HelloSafe senza ref=wzxn7mck, utm_medium o utm_campaign vic-: {url}")
+            if not re.search(r'rel="sponsored noopener"', tag):
+                errori.append(f"32: {rel_p}: link HelloSafe senza rel=\"sponsored noopener\"")
+            if "countryResidence" in qs and (rel_p != G.PERC_SCH_ASS or qs["countryResidence"] not in iso_ok):
+                errori.append(f"32: {rel_p}: countryResidence dove la pagina non sa il Paese del lettore ({qs['countryResidence']})")
+            if ("intent" in qs) != (rel_p == G.PERC_SCH_ASS):
+                errori.append(f"32: {rel_p}: intent=schengenArea solo sulla pagina Schengen")
+    if acceso and n_link < len(G.RESIDENZE_HS) + 2:
+        errori.append(f"32: HelloSafe acceso ma solo {n_link} link nel sito")
+    note.append(f"HelloSafe {'acceso' if acceso else 'spento'}: {n_link} link")
+    # online: 6 frammenti a caso riletti sulle fonti
+    if online:
+        spec = importlib.util.spec_from_file_location("ass_racc", SITO.parent / "raccolta" / "assicurazione.py")
+        R = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(R)
+        scelte = random.sample(sorted(L), 6)
+        cache = {}
+        for k in scelte:
+            fk = L[k]["fonte"]
+            if fk not in cache:
+                st, b = R.get(D["fonti"][fk]["url"], tentativi=2)
+                cache[fk] = R.testo(b) if st == 200 else None
+            if cache[fk] is None:
+                note.append(f"{k}: fonte {fk} non raggiungibile ora")
+            elif L[k]["frammento"] not in cache[fk]:
+                errori.append(f"32: frammento {k} non più presente in {fk}: rileggere la fonte")
+        note.append(f"riletti online: {len(scelte)} frammenti")
+    return errori, len(trovate), note
+
+
 def main():
     errori = controlla_esempi()
     print(f"1. Esempi a mano: {len(ESEMPI)} importi e {len(ESITI)} confronti con il reddito, {len(errori)} errori")
@@ -4749,7 +4902,13 @@ def main():
           f"calcolatore (JS = Python e = pagine statiche su {j31} casi), link, piè di pagina: {len(e31)} errori")
     for x in r31:
         print("    ·", x)
-    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28 + e29 + e30 + e31
+    e32, n32, r32 = controlla_ass(online="--offline" not in sys.argv)
+    print(f"32. Health insurance for visas e Schengen visa insurance: {n32} pagine, impronta e fonti, valori = frammenti, pagine per visto solo con domanda salvata, "
+          f"titoli, sitemap, FAQ, citazioni = frammenti, riga Health insurance nei programmi, HelloSafe (interruttore, ref, rel, trasparenza, nessuna promessa, "
+          f"pagine ammesse), nessun riquadro doppio, pagine A/B intatte: {len(e32)} errori")
+    for x in r32:
+        print("    ·", x)
+    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28 + e29 + e30 + e31 + e32
     for e in tutti:
         print(" -", e)
     if tutti:

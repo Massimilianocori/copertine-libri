@@ -68,5 +68,25 @@
     "nota": "Usato SOLO nelle due pagine sull'assicurazione delle sezioni in spagnolo e portoghese (es/seguro-de-viaje-obligatorio-europa/, pt/seguro-viagem-obrigatorio-europa/; box_sw_ee in genera.py), dopo le regole ufficiali. Stesso referenceID 26614957 del link attivo (_safetywing_schengen), campagna entrar-europa per contare i clic a parte (31/10/2026). Il riquadro dice che per chi non ha bisogno del visto il Codice frontiere Schengen non chiede l'assicurazione, e riporta la FAQ di SafetyWing (nessuna garanzia di accettazione per il visto).",
     "attivo_dal": "2026-10-31",
     "regole": "rel=\"sponsored noopener\", etichetta Afiliado/Afiliado, riga di trasparenza (anche in inglese, come chiede monetizzazione.py); nessuna promessa sul visto o sull'ingresso. Per spegnerlo: url vuoto e rigenerare."
+  },
+  "_hellosafe": {
+    "attivo": true,
+    "nome": "HelloSafe",
+    "url_base": "https://hellosafe.com/en/travel-insurance/app",
+    "ref": "wzxn7mck-njwar3t3",
+    "utm_source": "hellosafe-in",
+    "link_verificato": "https://hellosafe.com/en/travel-insurance/app?ref=wzxn7mck-njwar3t3&utm_source=hellosafe-in&utm_medium=affiliate&utm_campaign=direct&utm_content=schengen&intent=schengenArea&countryResidence=IN",
+    "link_breve": "https://atlas.hellosafe.com/r/njwar3t3",
+    "nota": "INTERRUTTORE dei riquadri HelloSafe Atlas (sezione Health insurance for visas, dal 7/11/2026): con 'attivo': false le pagine escono senza riquadro e senza alcun link a hellosafe.com (verifica.py lo controlla). Account approvato il 7/11/2026 (email di accettazione delle 17:58), codice partner wzxn7mck. Il link si costruisce in genera.py (url_hs): stessi ref e utm_source del link verificato, utm_campaign=vic-<sezione>, intent=schengenArea solo sulla pagina Schengen, countryResidence (codice ISO) solo quando la pagina sa dove vive il lettore. Riquadri: pagina /schengen-visa-insurance/ (un link per Paese di residenza), indice /visa-health-insurance/ e pagine Portogallo D7, Portogallo studio e Thailandia LTR. MAI nelle pagine dell'esperimento /visa-refusal-rates/<paese>/ prima del verdetto del 28/12/2026.",
+    "attivo_dal": "2026-11-07",
+    "compenso": "fino al 50 % del premio, cookie 90 giorni (pagina del programma Atlas); il tasso vero si legge nel pannello",
+    "regole": "rel=\"sponsored noopener\", etichetta Affiliate, riga di trasparenza; nessuna promessa sul visto o sull'accettazione della polizza da parte del consolato. Per spegnere: 'attivo': false e rigenerare."
+  },
+  "_safetywing_salute": {
+    "url": "https://safetywing.com/nomad-insurance?referenceID=26614957&campaign=visa-health-insurance&utm_campaign=visa-health-insurance&utm_source=26614957&utm_medium=Ambassador",
+    "nome": "SafetyWing",
+    "nota": "Usato SOLO nelle pagine per nomadi della sezione Health insurance for visas (Portogallo D8 e Thailandia DTV; box_sw_ass in genera.py), al posto di HelloSafe: mai due riquadri assicurativi nella stessa pagina. Stesso referenceID 26614957 del link attivo (_safetywing_schengen), campagna visa-health-insurance per contare i clic a parte (7/11/2026).",
+    "attivo_dal": "2026-11-07",
+    "regole": "rel=\"sponsored noopener\", etichetta Affiliate, riga di trasparenza; riporta la FAQ SafetyWing (nessuna garanzia di accettazione). Per spegnerlo: url vuoto e rigenerare."
   }
 }
