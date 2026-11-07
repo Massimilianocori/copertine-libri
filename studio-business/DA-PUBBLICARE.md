@@ -8,7 +8,7 @@ Sezioni già revisionate, con i sorgenti salvati, che aspettano la pubblicazione
 
 | Sito (cartella) | Sezione | Revisione | Note |
 |---|---|---|---|
-| visaincome | Thailand DTV allargata: 6 pagine per tema (`thailand-dtv-visa/fee/`, `requirements/`, `duration-and-extension/`, `soft-power-activities/`, `proof-of-funds/`, `dtv-vs-ltr-elite-retirement/`), titoli e prime frasi di indice e 16 sedi su fee/requirements/duration con 2026 e data di verifica, FAQ da autocompletamento in 8 Paesi | da revisionare, pubblicare l'8/11 | Visa Income già pubblicato il 7/11. Sorgenti nel commit del 7/11, `sito/` non committato; `verifica.py --offline` TUTTO OK (controllo 18 esteso, A/B identico); vedi NOTE.md 7/11 |
+| visaincome | Thailand DTV allargata: 6 pagine per tema (`thailand-dtv-visa/fee/`, `requirements/`, `duration-and-extension/`, `soft-power-activities/`, `proof-of-funds/`, `dtv-vs-ltr-elite-retirement/`), titoli e prime frasi di indice e 16 sedi su fee/requirements/duration con 2026 e data di verifica, FAQ da autocompletamento in 8 Paesi | revisionato il 7/11, correzioni applicate, pubblicare l'8/11 | Visa Income già pubblicato il 7/11. Sorgenti nel commit del 7/11, `sito/` non committato; `verifica.py --offline` TUTTO OK (controllo 18 esteso, A/B identico); vedi NOTE.md 7/11 |
 
 Pubblicato il 31/10/2026 alle 14:20 circa (ora di Roma): Visa Income, Before You Fly, EsameB1 (tutte le sezioni revisionate del giorno). Esperimento citazioni: conteggio dal 1/11/2026.
 

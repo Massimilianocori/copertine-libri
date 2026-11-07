@@ -1027,6 +1027,12 @@ Esito 7/11/2026: `verifica.py --offline` **TUTTO OK** (1062 URL); Playwright 375
 - "Thailand Privilege (formerly Thailand Elite)": appoggiato a Los Angeles ("Thailand Elite /Thailand Privilege Card").
 - Nessuna frase sulle tasse: le pagine DTV non ne parlano e la FAQ lo dice.
 
+### Correzioni della revisione indipendente (7/11/2026, "pubblicabile con correzioni")
+- `requirements/`: tolto "Your passport does not change the documents"; ora "where you live decides the mission" e i documenti in più per chi non è cittadino, con le parole di Londra (BRP o lettera UKVI, lettera del datore di lavoro in UK/Irlanda) e di Washington (green card o visto USA valido); tolto "whatever your passport" dalle FAQ per nazionalità delle sedi; FAQ Bangladesh e Pakistan: "None of the pages we read excludes a nationality; you apply where you live…"; riga USA: "(list published as an image)".
+- Confronto: accanto a £1.500 (tariffario di Londra del 2022) la tassa del BOI, 50.000 baht a persona se il visto LTR si ritira in Thailandia (≈ €1.327 al cambio BCE di `dati/cambi.json`), e all'estero "the fee may vary and considerably be more expensive" (frammenti nuovi `tassa_thai`, `tassa_estero`; anche `non_cittadini`, `brp`, `datore`, `green_card`: 79 frammenti).
+- Sedi: quando la tabella delle tariffe ha una data diversa dalla pagina DTV la prima frase le distingue (Los Angeles: "fee table updated on 1 September 2026", "DTV page updated on 1 October 2026").
+- Controllo 18: tassa LTR del BOI e ricalcolo in euro, documenti per i non cittadini, frasi tolte, doppia data di Los Angeles. Esito: `verifica.py --offline` TUTTO OK (A/B 36/36 identiche), `monetizzazione.py verifica visaincome` 0 errori.
+
 ### Da ricontrollare
 - Ogni settimana con il resto della sezione: `raccolta/dtv.py` (si ferma anche se cambia un frammento dei `TEMI`; il BOI a volte chiude la connessione: rilanciare). Una volta al mese `--temi`.
 - Misura a 30 giorni (Search Console): impressioni e clic su fee/cost, requirements, duration/extension, soft power, proof of funds, vs ltr; se una pagina per tema resta sotto 100 impressioni al mese, unirla all'indice.

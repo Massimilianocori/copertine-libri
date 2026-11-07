@@ -1611,6 +1611,23 @@ def _controlla_dtv_temi(D, aff, sitemap, letto, costo):
         lon = next(x for x in L if x["id"] == "london")
         if f"THB {pv}" not in tab or costo(lon["costo"]) not in tab:
             errori.append("DTV confronto: Thailand Privilege o costo DTV di Londra diversi dai frammenti")
+        bt = int(re.search(r"([\d,]+) Baht per person", T["boi_ltr"]["frammenti"]["tassa_thai"]).group(1).replace(",", ""))
+        if f"about €{round(bt / C['THB']):,})" not in tab or T["boi_ltr"]["frammenti"]["tassa_estero"] not in tab:
+            errori.append("DTV confronto: tassa LTR del BOI (in Thailandia, in euro, all'estero) assente o diversa dal ricalcolo")
+    if "requirements" in pagine:
+        m_r = html.unescape(pagine["requirements"])
+        for k, nm in (("londra_dtv", "brp"), ("londra_dtv", "datore"), ("washington_dtv", "green_card")):
+            if T[k]["frammenti"][nm] not in m_r:
+                errori.append(f"DTV requirements: manca il documento per i non cittadini {k}.{nm}")
+        if "Your passport does not change" in m_r or "not limited by nationality" in m_r:
+            errori.append("DTV requirements: frase sulla nazionalità corretta dalla revisione ancora presente")
+    f_la = SITO / "thailand-dtv-visa" / "los-angeles" / "index.html"
+    if f_la.exists():
+        la = next(x for x in L if x["id"] == "los-angeles")
+        lead_la = html.unescape(re.sub(r"<[^>]+>", "", re.search(r'<p class="lead">(.*?)</p>', f_la.read_text(encoding="utf-8"), re.S).group(1)))
+        if (f"fee table updated on {G.data_lunga(la['pagine'][la['costo']['p']]['modificata'])}" not in lead_la
+                or f"DTV page updated on {G.data_lunga(la['pagine'][0]['modificata'])}" not in lead_la):
+            errori.append("DTV: Los Angeles, la prima frase non distingue la data della pagina DTV e quella della tabella delle tariffe")
     # durata: le tre frasi di Londra nella tabella
     if "duration-and-extension" in pagine:
         for nm in ("validita", "soggiorno", "estensione", "uscita"):

@@ -273,7 +273,10 @@ TEMI = {
         "doc_famiglia": "Proof of relationship to the DTV visa holder (e.g., a copy of marriage certificate, birth certificate, or certificate of adoption)",
         "doc_visto_titolare": "DTV visa of the DTV holder",
         "traduzioni": "must be accompanied by certified English translations",
-        "contatto_estensione": "For an extension of stay, please contact the Immigration Bureau directly once you are in Thailand"}},
+        "contatto_estensione": "For an extension of stay, please contact the Immigration Bureau directly once you are in Thailand",
+        "non_cittadini": "For non-UK citizens, please provide additional documents",
+        "brp": "A copy of BRP card or letter from UKVI (UK visa) settlement status",
+        "datore": "A letter confirming employment details from an employer in the UK or Ireland"}},
     "londra_info": {"url": "https://london.thaiembassy.org/en/page/visa-general-information", "frammenti": {
         "tempi": "The current processing time is approximately 15 working days",
         "anticipo": "At the earliest, applicants can apply for a visa 90 days before their intended arrival date",
@@ -309,7 +312,9 @@ TEMI = {
         "pensionati": "Retirees aged 50 years and older who have an annual pension or stable passive income",
         "pensione": "Minimum unearned or passive income* of USD 80,000 / year at the time of application",
         "ricchi": "Owning at least USD 1 million in global assets or Thai assets in the applicant’s name",
-        "assicurazione": "Insured under a health insurance covering a minimum of USD 50,000"}},
+        "assicurazione": "Insured under a health insurance covering a minimum of USD 50,000",
+        "tassa_thai": "The processing fee for the 10-year visa with multiple entry is 50,000 Baht per person in case of collecting LTR Visa in Thailand",
+        "tassa_estero": "the fee may vary and considerably be more expensive than 50,000 THB per person per 10 years"}},
     "privilege": {"url": "https://www.thailandprivilege.co.th/membership/bronze", "generico": True, "frammenti": {
         "bronze": "Bronze THB 650,000 Membership Fee 5 Years Validity"}},
     "privilege_chi": {"url": "https://www.thailandprivilege.co.th/about", "generico": True, "frammenti": {
@@ -321,7 +326,9 @@ TEMI = {
         "polizia": "Certificate of criminal record clearance (i.e. FBI certificate issued within 3 months)",
         "attivita": "Letter of acceptance from institute or company organizing activities, letter of appointment from hospital/medical center",
         "passaporto": "Passport Biodata Page or Travel Document (Must be valid within 6 months from travel date)",
-        "dtv2": "Thai soft power related activities e.g. Muaythai, Thai culinary training and medical treatment"}},
+        "dtv2": "Thai soft power related activities e.g. Muaythai, Thai culinary training and medical treatment",
+        "non_cittadini": "For non-US citizens, please provide additional documents",
+        "green_card": "A copy of the permanent resident alien card or a copy of a valid US visa (at least 6 months validity)"}},
     "la_tariffe": {"url": "https://thaiconsulatela.thaiembassy.org/en/page/visa-types-requirments", "frammenti": {
         "dtv1": "DTV | Workcation (Digital Nomad/remote worker/foreign talent/freelancer | N/A | 400 | 5 years |",
         "dtv2": "DTV | Thai soft power related activities e.g. Muaythai, Thai culinary training, and medical treatment | N/A | 400 | 5 years |",
