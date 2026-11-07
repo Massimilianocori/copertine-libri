@@ -257,6 +257,10 @@ details.faq[open] summary::after{content:"–"}
 details.faq p{margin:0 0 14px;color:var(--ink-2);max-width:760px}
 @media (max-width:560px){.vc{grid-template-columns:1fr}.vc-data{flex-direction:row;align-items:baseline;gap:8px;border-right:0;border-bottom:1px solid var(--line);padding:10px 16px;background:var(--accent-2)}
 .vc-g{font-size:1.45rem}.vc-m{margin-top:0}.vc-c{padding:14px 16px}.risposta{font-size:1rem}}
+.us-tab td:first-child{white-space:normal;min-width:9em}
+.calc .us-opzioni{display:grid;gap:8px}
+.calc label.us-opz{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:.9rem}
+.calc label.us-opz input{width:auto;min-height:0;margin-top:3px;flex:none}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://tourist-tax-calculator.netlify.app/"}, {"@type": "ListItem", "position": 2, "name": "Japan accommodation tax", "item": "https://tourist-tax-calculator.netlify.app/japan-accommodation-tax/"}, {"@type": "ListItem", "position": 3, "name": "Nagano Prefecture", "item": "https://tourist-tax-calculator.netlify.app/japan-accommodation-tax/nagano/"}, {"@type": "ListItem", "position": 4, "name": "Matsumoto", "item": "https://tourist-tax-calculator.netlify.app/japan-accommodation-tax/matsumoto/"}]}</script>
@@ -266,8 +270,8 @@ details.faq p{margin:0 0 14px;color:var(--ink-2);max-width:760px}
 <a class="skip" href="#main">Skip to content</a>
 <header class="top"><div class="wrap">
 <a class="logo" href="../../"><svg viewBox="0 0 40 40" aria-hidden="true" focusable="false"><rect width="40" height="40" rx="11" fill="#B23F1B"/><path d="M8 29v-8.5a2 2 0 0 1 2-2h20a2 2 0 0 1 2 2V29M8 25h24M11 18.5v-3a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v3" fill="none" stroke="#FFF7EE" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="29" cy="11.5" r="5" fill="#F2B544"/><circle cx="29" cy="11.5" r="2.3" fill="none" stroke="#B23F1B" stroke-width="1.6"/></svg><span>Tourist Tax <b>Calculator</b></span></a>
-<nav class="menu" aria-label="Menu"><a href="../../">Calculator</a><a href="../../tourist-taxes-europe-2026/">Europe 2026</a><a href="../../france/">France</a><a href="../../japan-accommodation-tax/">Japan</a><a href="../../how-tourist-taxes-work/">How it works</a><a href="../../about/">Sources</a></nav>
-<details class="nav-m"><summary aria-label="Open the menu"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-menu"/></svg>Menu</summary><nav aria-label="Menu"><a href="../../">Calculator</a><a href="../../tourist-taxes-europe-2026/">Europe 2026</a><a href="../../france/">France</a><a href="../../japan-accommodation-tax/">Japan</a><a href="../../how-tourist-taxes-work/">How it works</a><a href="../../about/">Sources</a></nav></details>
+<nav class="menu" aria-label="Menu"><a href="../../">Calculator</a><a href="../../tourist-taxes-europe-2026/">Europe 2026</a><a href="../../france/">France</a><a href="../../japan-accommodation-tax/">Japan</a><a href="../../usa/">USA</a><a href="../../how-tourist-taxes-work/">How it works</a><a href="../../about/">Sources</a></nav>
+<details class="nav-m"><summary aria-label="Open the menu"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-menu"/></svg>Menu</summary><nav aria-label="Menu"><a href="../../">Calculator</a><a href="../../tourist-taxes-europe-2026/">Europe 2026</a><a href="../../france/">France</a><a href="../../japan-accommodation-tax/">Japan</a><a href="../../usa/">USA</a><a href="../../how-tourist-taxes-work/">How it works</a><a href="../../about/">Sources</a></nav></details>
 </div></header>
 <main id="main">
 
@@ -297,7 +301,7 @@ details.faq p{margin:0 0 14px;color:var(--ink-2);max-width:760px}
 </div>
 <script type="application/json" id="jt-dati">[{"id":"matsumoto","nome":"Matsumoto","pref":"Nagano Prefecture","pagina":"japan-accommodation-tax/matsumoto/","comp":[{"label":"Matsumoto City accommodation tax","regole":[{"dal":"2026-06-01","tipo":"bande","bande":[[0,6000,0],[6000,null,100]],"al":"2029-05-31"},{"dal":"2029-06-01","tipo":"bande","bande":[[0,6000,0],[6000,null,150]]}],"eta":false,"pref":false},{"label":"Nagano Prefecture accommodation tax","regole":[{"dal":"2026-06-01","tipo":"bande","bande":[[0,6000,0],[6000,null,100]],"al":"2029-05-31"},{"dal":"2029-06-01","tipo":"bande","bande":[[0,6000,0],[6000,null,150]]}],"eta":false,"pref":true}],"eta_label":"","prezzo":30000,"inizio_testo":"1 June 2026","tariffe":false}]</script>
 <details class="formula"><summary><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-calc"/></svg>Formula used</summary><p>Tax per night = for each tax that applies (city, town or village, and prefecture): the amount for the band of the room-only price per person (price per night ÷ guests), or the percentage of that price per person (Okinawa: rounded down to the nearest ¥1,000, counted up to ¥100,000, with a maximum per person), times the guests who pay. A tax counts only on nights from its start date. Children are left out only where the official rules exempt them by age. The accommodation may round the amounts: check the final figure with them.</p></details>
-<p class="esempio">Example: 2 guests, room-only price ¥30,000 per night (¥15,000 per person), 3 nights from 6 November 2026 → <strong>¥1,200</strong> in total.</p>
+<p class="esempio">Example: 2 guests, room-only price ¥30,000 per night (¥15,000 per person), 3 nights from 7 November 2026 → <strong>¥1,200</strong> in total.</p>
 <p class="avviso"><strong>Not tax advice.</strong> Tourist taxes are set by local or national authorities and can change. They are usually collected by your hotel or host, who applies the official rules: check the final amount with your accommodation.</p>
 <div class="ad-slot" aria-hidden="true"></div>
 <h2>Official rates</h2>
@@ -324,13 +328,13 @@ details.faq p{margin:0 0 14px;color:var(--ink-2);max-width:760px}
 <strong>Tourist taxes are set by local or national authorities and can change. Your accommodation collects the tax: check the exact amount with them.</strong> Nothing on this site is tax or legal advice.</p>
 </div><div>
 <h2>Explore</h2>
-<ul><li><a href="../../about/">About and sources</a></li><li><a href="../../contact/">Contact</a></li><li><a href="../../privacy.html">Privacy</a></li><li><a href="../../how-tourist-taxes-work/">How tourist taxes work</a></li><li><a href="../../tourist-taxes-europe-2026/">Tourist taxes in Europe 2026</a></li><li><a href="../../tourist-tax-changes-2027/">Tourist tax changes in 2027</a></li><li><a href="../../contact/?ref=spotted-a-change">Spotted a change? Tell us</a></li></ul>
+<ul><li><a href="../../about/">About and sources</a></li><li><a href="../../contact/">Contact</a></li><li><a href="../../privacy.html">Privacy</a></li><li><a href="../../how-tourist-taxes-work/">How tourist taxes work</a></li><li><a href="../../tourist-taxes-europe-2026/">Tourist taxes in Europe 2026</a></li><li><a href="../../tourist-tax-changes-2027/">Tourist tax changes in 2027</a></li><li><a href="../../usa/">Hotel tax in the USA</a></li><li><a href="../../contact/?ref=spotted-a-change">Spotted a change? Tell us</a></li></ul>
 </div></div>
 <div class="f-altri"><h2>Other useful tools for your trip</h2><ul><li><a href="https://italy-strikes-today.netlify.app/" rel="noopener">Italy Strikes Today</a> — Transport strikes in Italy today and tomorrow, from the official register</li><li><a href="https://before-you-fly.netlify.app/" rel="noopener">Before You Fly</a> — Passport validity, airport liquid rules, cabin bag sizes</li><li><a href="https://visa-income-checker.netlify.app/" rel="noopener">Visa Income Checker</a> — Income requirements and refusal rates for visas</li><li><a href="https://cruise-health-scores.netlify.app/" rel="noopener">Cruise Health Scores</a> — CDC sanitation scores of every cruise ship</li></ul></div>
 <p class="f-base">Official sources only · the calculator runs in your browser.</p>
 </div></footer>
 <script>
-var VAL={"EUR":["€","",2],"GBP":["£","",2],"JPY":["¥","",0],"CZK":[""," CZK",0],"ISK":["ISK ","",0],"IDR":["IDR ","",0],"TRY":["TRY ","",2],"TND":["TND ","",2],"MXN":["MXN ","",2]};
+var VAL={"EUR":["€","",2],"GBP":["£","",2],"JPY":["¥","",0],"CZK":[""," CZK",0],"ISK":["ISK ","",0],"IDR":["IDR ","",0],"TRY":["TRY ","",2],"TND":["TND ","",2],"MXN":["MXN ","",2],"USD":["$","",2]};
 function r2(x){return Math.floor(x*100+0.5+1e-9)/100;}
 function grp(n,dec){var s=dec?r2(n).toFixed(2):String(Math.floor(n+0.5+1e-9));var p=s.split('.');p[0]=p[0].replace(/\B(?=(\d{3})+(?!\d))/g,',');return p.join('.');}
 function soldi(v,c){var x=VAL[c];return x[0]+grp(v,x[2])+x[1];}
