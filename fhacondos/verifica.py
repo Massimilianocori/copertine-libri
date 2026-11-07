@@ -16,14 +16,20 @@ Uso (dalla radice del repository, dopo python3 fhacondos/genera.py):
    di almeno una pagina; la ricerca (data/search.json) contiene tutti i condomini e porta a righe esistenti.
 5. Dati personali: nessun indirizzo email o numero di telefono nelle pagine e nei dati pubblicati; il testo libero HUD
    ("Composition of Project") non compare nel sito.
-6. Riquadro affiliati assente finché dati/affiliati.json non ha un URL.
+6. Riquadro affiliati "mutuo" assente finché dati/affiliati.json non ha un URL; link sponsorizzati fuori da /balcony-solar/ solo con quello.
 7. Nessun nome di modelli o servizi di intelligenza artificiale nei file del progetto (cache esclusa).
 8. 20 condomini scelti a caso ricontrollati uno per uno sul modulo HUD (raccolta/ricontrolla.py) e confrontati anche con la
    riga pubblicata nella pagina.
 9. Peso totale del sito.
 10. Sezione /balcony-solar/ (controlla_balcony_solar): ogni affermazione con fonte, fonti con HTTP 200 o motivo scritto (con la rete
    si ricontrollano), FAQ dalle ricerche salvate e JSON-LD uguale al testo, titoli ≤ 70 caratteri con l'anno, prima frase con la data
-   della verifica, link interni (indice ↔ Stati ↔ pagine FHA), sitemap, nessun link di affiliazione.
+   della verifica, link interni (indice ↔ Stati ↔ pagine FHA), sitemap, nessun link di affiliazione salvo il riquadro Amazon del punto 11.
+11. Amazon nel riquadro kit_solari (controlla_amazon, 7/11/2026): ogni link verso un dominio Amazon in tutto il sito è https://www.amazon.com,
+   percorso /s con solo k e tag, tag beforeyoufl08-20 (scritto qui), nessun ASIN né pagina prodotto, rel="sponsored noopener"; la pagina
+   mostra «As an Amazon Associate we earn from qualifying purchases.», e anche la privacy; riquadro e link SOLO nelle 17 pagine
+   /balcony-solar/ (indice + 16 Stati), uno per pagina, con al massimo 3 ricerche: esattamente quelle attese, ricalcolate qui (kit plug-in,
+   con il limite di watt solo negli Stati dove una legge letta lo fissa, scritti qui a mano; power station portatile); il testo del
+   riquadro rimanda a compagnia elettrica e condominio e non usa "legal", "compliant", "approved"; url di affiliati.json = ricerca generica.
 Monetizzazione (30/10/2026, controllo comune di studio-business/strumenti/monetizzazione.py): i link di affiliazione sono
 ammessi solo verso i domini di monetizzazione.json, con rel="sponsored noopener" e la riga di trasparenza nella pagina;
 domini bloccati e link sponsorizzati verso altri domini sono errori; script AdSense, ads.txt e sezione privacy ci sono
@@ -155,7 +161,7 @@ def controlla_pagine():
             errore(f"{rel}: manca il canonical")
         if "Other useful tools" not in t or G.FLOODCOST not in t:
             errore(f"{rel}: manca il blocco 'Other useful tools' con FloodCost")
-        if 'rel="sponsored' in t and not (G.AFFILIATI.get("mutuo") or {}).get("url"):
+        if 'rel="sponsored' in t and not (G.AFFILIATI.get("mutuo") or {}).get("url") and not rel.startswith(G.BS_DIR):  # /balcony-solar/: punto 11
             errore(f"{rel}: riquadro affiliati senza URL in affiliati.json")
         if re.search(r'<div class="ad-slot"[^>]*>(?!</div>)', t):
             errore(f"{rel}: lo spazio pubblicitario non è vuoto")
@@ -469,7 +475,8 @@ def controlla_balcony_solar():
     - pagine: titolo ≤ 70 caratteri con l'anno, prima frase con la risposta e la data della verifica, rimandi [n] verso fonti
       elencate, fonti non lette dichiarate «Not read»; indice e pagine nella sitemap;
     - link interni: indice ↔ pagine Stato, pagina Stato ↔ pagina FHA dello stesso Stato;
-    - nessun link di affiliazione (rel="sponsored", domini di affiliazione, tag=) finché il riquadro "kit_solari" ha url vuoto;
+    - nessun link di affiliazione (rel="sponsored", domini di affiliazione, tag=) finché il riquadro "kit_solari" ha url vuoto; acceso,
+      solo i link Amazon del riquadro (controllati in controlla_amazon) e nessun altro dominio di affiliazione;
     - con la rete (senza --senza-fonte): ogni fonte registrata con HTTP 200 risponde ancora 200."""
     BS = G.BS
     fonti = BS["fonti"]
@@ -509,6 +516,7 @@ def controlla_balcony_solar():
     sm = (SITO / "sitemap.xml").read_text(encoding="utf-8")
     pagine = [(G.BS_DIR, None)] + [(G.url_bs(s["st"]), s) for s in BS["stati"]]
     dominio_aff = [d for d in G.MON.DOMINI_AFFILIAZIONE] + ["ecoflow.com", "anker.com", "jackery.com", "amzn.to"]
+    kit_acceso = bool((G.AFFILIATI.get("kit_solari") or {}).get("url"))
     for u, s in pagine:
         f = SITO / u / "index.html"
         if not f.exists():
@@ -544,9 +552,11 @@ def controlla_balcony_solar():
             vis = [(q.strip(), (a or "").strip()) for q, a in p.faq]
             if ld != vis or ld != [(x["q"], x["a"]) for x in faq_dati]:
                 errore(f"balcony: {u} JSON-LD FAQPage diverso dal testo visibile")
-        if 'rel="sponsored' in t or "aff-box" in t or re.search(r"[?&]tag=", t):
+        if not kit_acceso and ('rel="sponsored' in t or "aff-box" in t or re.search(r"[?&]tag=", t)):
             errore(f"balcony: {u} contiene un link di affiliazione")
         for d in dominio_aff:
+            if kit_acceso and d in G.MON.DOMINI_AMAZON:
+                continue  # link Amazon del riquadro: controlla_amazon
             if re.search(r'href="https?://([a-z0-9-]+\.)*' + re.escape(d), t):
                 errore(f"balcony: {u} link verso il dominio di affiliazione {d}")
         if s is None:
@@ -561,8 +571,8 @@ def controlla_balcony_solar():
             fha = (SITO / G.url_stato(s["st"]) / "index.html").read_text(encoding="utf-8")
             if f'href="../{u}"' not in fha:
                 errore(f"balcony: la pagina FHA {G.url_stato(s['st'])} non collega {u}")
-    if (G.AFFILIATI.get("kit_solari") or {}).get("url"):
-        print("Balcony solar: riquadro kit_solari ACCESO (url presente).")
+    if kit_acceso:
+        print("Balcony solar: riquadro kit_solari ACCESO (Amazon US, controlli al punto 11).")
     controllate = 0
     if "--senza-fonte" not in sys.argv:
         for i, f in fonti.items():
@@ -580,7 +590,105 @@ def controlla_balcony_solar():
     print(f"Balcony solar: {len(pagine)} pagine, {len(fonti)} fonti "
           f"({sum(1 for f in fonti.values() if f.get('http') == 200 and not f.get('motivo'))} lette, "
           f"{sum(1 for f in fonti.values() if f.get('http') != 200 or f.get('motivo'))} con motivo scritto); "
-          f"{controllate} fonti ricontrollate in rete; nessun link di affiliazione.")
+          f"{controllate} fonti ricontrollate in rete; "
+          f"{'solo i link Amazon del riquadro kit_solari' if kit_acceso else 'nessun link di affiliazione'}.")
+
+
+# ---------------------------------------------------------------- 11. Amazon nel riquadro kit_solari (7/11/2026)
+# Scritti qui a mano, indipendenti da genera.py e da affiliati.json: tag, frase obbligatoria, ricerche e limiti di watt di legge.
+AMAZON_TAG_ATTESO = {"www.amazon.com": "beforeyoufl08-20"}  # Amazon Associates US, dominio aggiunto all'account il 6/11/2026
+AMAZON_FRASE = "As an Amazon Associate we earn from qualifying purchases."
+# limite di watt fissato da una legge letta (in vigore o firmata, dati/balcony_solar.json del 6/11/2026); negli altri Stati nessun watt
+WATT_LEGGE_ATTESI = {"UT": 1200, "CO": 1920, "ME": 1200, "MD": 1200, "VT": 1200, "VA": 1200}
+RICERCA_KIT, RICERCA_POWER = "plug in balcony solar kit", "portable power station"
+URL_GENERICO = "https://www.amazon.com/s?k=plug+in+balcony+solar+kit&tag=beforeyoufl08-20"
+_RE_ASIN = re.compile(r"(/dp/|/gp/product|/gp/aw/d/|/exec/obidos|/o/ASIN|\bB0[A-Z0-9]{8}\b|[?&](asin|ASIN)=)")
+_RE_PROMESSA = re.compile(r"\b(legal|legally|compliant|complies|compliance|approved|certified to|code-compliant)\b", re.I)
+
+
+def controlla_amazon():
+    from html import unescape
+    from urllib.parse import parse_qs
+    kit = G.AFFILIATI.get("kit_solari") or {}
+    acceso = bool(kit.get("url"))
+    if acceso and kit["url"] != URL_GENERICO:
+        errore(f"affiliati.json, kit_solari: 'url' diverso dalla ricerca generica attesa {URL_GENERICO}")
+    attese = {f"{G.BS_DIR}index.html": None}
+    for s in G.BS["stati"]:
+        attese[f"{G.url_bs(s['st'])}index.html"] = s
+    n_pag, n_link = 0, 0
+    for f in sorted(SITO.rglob("*.html")):
+        rel = f.relative_to(SITO).as_posix()
+        t = f.read_text(encoding="utf-8")
+        testo = G.MON.testo_visibile(t)
+        ricerche = []
+        for m in re.finditer(r"<a\b[^>]*>", t):
+            tag_a = m.group(0)
+            href = unescape((re.search(r'href="([^"]*)"', tag_a) or [None, ""])[1])
+            if not href.startswith(("http://", "https://", "//")):
+                continue
+            u = urlparse(href if not href.startswith("//") else "https:" + href)
+            host = (u.hostname or "").lower()
+            if not re.search(r"(^|\.)amazon\.[a-z.]+$", host) and not re.search(r"(^|\.)(amzn\.to|amzn\.eu|a\.co)$", host):
+                continue
+            if host not in AMAZON_TAG_ATTESO:
+                errore(f"{rel}: link Amazon verso un dominio non ammesso ({host}): solo www.amazon.com")
+                continue
+            q = parse_qs(u.query)
+            if u.scheme != "https" or u.path != "/s" or set(q) != {"k", "tag"} or len(q["tag"]) != 1 or len(q["k"]) != 1:
+                errore(f"{rel}: link Amazon che non è una ricerca /s?k=…&tag=… ({href[:90]})")
+            elif q["tag"][0] != AMAZON_TAG_ATTESO[host]:
+                errore(f"{rel}: link Amazon con il tag {q['tag'][0]} invece di {AMAZON_TAG_ATTESO[host]}")
+            if _RE_ASIN.search(href):
+                errore(f"{rel}: link Amazon con un ASIN o una pagina prodotto ({href[:90]})")
+            r = set((re.search(r'rel="([^"]*)"', tag_a) or [None, ""])[1].split())
+            if not {"sponsored", "noopener"} <= r:
+                errore(f"{rel}: link Amazon senza rel=\"sponsored noopener\"")
+            ricerche.append((q.get("k") or [""])[0])
+        riquadri = re.findall(r'<section class="aff-box aff-kit"[^>]*data-amazon>(.*?)</section>', t, re.S)
+        if ricerche or riquadri:
+            if rel not in attese:
+                errore(f"{rel}: link o riquadro Amazon fuori dalle pagine /balcony-solar/")
+                continue
+            if not acceso:
+                errore(f"{rel}: link Amazon con il riquadro kit_solari spento")
+            n_pag += 1
+            n_link += len(ricerche)
+            if AMAZON_FRASE not in testo:
+                errore(f"{rel}: link Amazon senza la frase «{AMAZON_FRASE}»")
+        if rel not in attese or not acceso:
+            continue
+        if len(riquadri) != 1:
+            errore(f"{rel}: {len(riquadri)} riquadri Amazon invece di 1")
+            continue
+        s = attese[rel]
+        w = WATT_LEGGE_ATTESI.get(s["st"]) if s else None
+        atteso = [f"{RICERCA_KIT} {w}W" if w else RICERCA_KIT, RICERCA_POWER]
+        if len(ricerche) > 3 or ricerche != atteso:
+            errore(f"{rel}: ricerche Amazon {ricerche} invece di {atteso}")
+        box = G.MON.testo_visibile(riquadri[0])
+        if AMAZON_FRASE not in box or G.MON.RIGA_EN not in box:
+            errore(f"{rel}: riquadro Amazon senza la riga di trasparenza e la frase di Amazon")
+        if "electric utility" not in box or "condo or HOA" not in box or "Before you buy" not in box:
+            errore(f"{rel}: il riquadro Amazon non rimanda a legge, compagnia elettrica e condominio prima dell'acquisto")
+        p = _RE_PROMESSA.search(box)
+        if p:
+            errore(f"{rel}: il riquadro Amazon usa «{p.group(0)}» (nessuna promessa di legalità o conformità)")
+    if acceso:
+        mancano = [r for r in attese if not (SITO / r).exists()]
+        if mancano:
+            errore(f"pagine /balcony-solar/ mancanti: {mancano}")
+        if n_pag != len(attese):
+            errore(f"riquadro Amazon in {n_pag} pagine invece di {len(attese)}")
+        if len(attese) != 17:
+            errore(f"pagine /balcony-solar/ attese: {len(attese)} invece di 17 (aggiornare WATT_LEGGE_ATTESI e NOTE.md)")
+        if set(WATT_LEGGE_ATTESI) - set(s["st"] for s in G.BS["stati"]):
+            errore("WATT_LEGGE_ATTESI cita Stati assenti da balcony_solar.json")
+        priv = (SITO / "privacy.html").read_text(encoding="utf-8")
+        if AMAZON_FRASE not in G.MON.testo_visibile(priv):
+            errore(f"privacy.html: manca la frase «{AMAZON_FRASE}»")
+    print(f"Amazon (kit_solari {'acceso' if acceso else 'spento'}): {n_link} link di ricerca in {n_pag} pagine /balcony-solar/; "
+          f"watt nella ricerca in {len(WATT_LEGGE_ATTESI)} Stati con legge letta.")
 
 
 def G_html_unescape(x):
@@ -598,6 +706,7 @@ def main():
         controlla_fonte()
     controlla_indexnow()
     controlla_balcony_solar()
+    controlla_amazon()
     controlla_monetizzazione()
     peso()
     if "--browser" in sys.argv:

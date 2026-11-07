@@ -74,7 +74,7 @@ Fonti delle guide (lette il 17/10/2026, solo fatti scritti lì):
 | `genera.py` | genera `sito/` (circa 1 secondo), sitemap, robots, `netlify.toml`, `data/search.json` |
 | `verifica.py` | tutti i controlli prima di pubblicare (vedi sotto); `--browser` lancia `verifica_browser.js` |
 | `verifica_browser.js` | Playwright a 375 e 1280 px, chiaro e scuro: niente scorrimento orizzontale, niente errori, ricerca, filtro, tema; screenshot in `cache/screenshot/` (o nella cartella `SHOT_DIR`) |
-| `dati/affiliati.json` | riquadro "Compare lenders": **nascosto** finché `mutuo.url` è vuoto. Mettere solo un URL di affiliazione vero |
+| `dati/affiliati.json` | riquadro "Compare lenders": **nascosto** finché `mutuo.url` è vuoto. Mettere solo un URL di affiliazione vero. Riquadro `kit_solari` (Amazon US, solo ricerche): **acceso dal 7/11/2026**, solo nelle 17 pagine `/balcony-solar/` |
 | `grafica/` | font Lora e Libre Franklin (licenza OFL inclusa), `og.html` + `og.js` → `og.png` |
 | `TEST.md` | esito del test della fonte |
 
@@ -144,7 +144,7 @@ Se i crediti stringono, pubblicare ogni due settimane (le date "as of" restano g
 ## Monetizzazione: come si attiva (30/10/2026)
 - **Dove si scrive:** un solo file per tutta la rete, `studio-business/strumenti/monetizzazione.json` (`adsense_client`, `adsense_siti`, domini di affiliazione ammessi). In una riga: `python3 studio-business/strumenti/monetizzazione.py attiva ca-pub-XXXXXXXXXXXXXXXX fhacondos`, poi `python3 fhacondos/genera.py`. Il nome del sito nel file è `fhacondos` (`SITO_ID` in `genera.py`).
 - **Cosa cambia con AdSense acceso:** script ufficiale nel `<head>` di ogni pagina (annunci automatici, nessun blocco manuale), `sito/ads.txt` con `google.com, pub-…, DIRECT, f08c47fec0942fa0`, sezione «Advertising (Google AdSense)» in `privacy.html`, sottotitolo e descrizione senza più «No cookies, no tracking», frase sulla California aggiornata; la frase sui cookie diventa «GoatCounter non usa cookie, la pubblicità sì». Prima di pubblicare: in AdSense accendere il messaggio di consenso certificato di Google (Privacy e messaggi, regolamenti europei: UE/SEE, Regno Unito, Svizzera), che la privacy descrive.
-- **Link di affiliazione:** `dati/affiliati.json` (voce `mutuo`, campo `url`). Ammessi solo verso i domini di `domini_affiliazione`, con `rel="sponsored noopener"` e la riga di trasparenza (la aggiunge `riquadro_trasparenza()` se manca); con almeno un link la privacy aggiunge la sezione sui link di affiliazione.
+- **Link di affiliazione:** `dati/affiliati.json` (voce `mutuo`, campo `url`; voce `kit_solari` per la sezione /balcony-solar/, vedi sotto). Ammessi solo verso i domini di `domini_affiliazione`, con `rel="sponsored noopener"` e la riga di trasparenza (la aggiunge `riquadro_trasparenza()` se manca); con almeno un link la privacy aggiunge la sezione sui link di affiliazione.
 - **Come si verifica:** `python3 fhacondos/verifica.py --senza-fonte`; controllo comune in `monetizzazione.py` (script e `ads.txt` solo con AdSense acceso, privacy coerente, nessun dominio fuori elenco o bloccato, Amazon.it solo con `tag=`).
 - **Con il codice vuoto o il sito fuori elenco l'output non cambia:** il 30/10/2026 `sito/` è stato rigenerato identico byte per byte.
 
@@ -191,13 +191,31 @@ tracker di terzi dichiarato come tale. Ohio e Illinois: siti ufficiali con error
   pagina FHA dello Stato; altri Stati; fonti. Titoli ≤ 70 caratteri con l'anno ("Is Balcony Solar Legal in X? 2026 Plug-In Solar Law").
 - **Collegamenti:** indice ↔ pagine Stato; pagina Stato ↔ pagina FHA dello stesso Stato (paragrafo dopo le guide); piè di pagina
   "Balcony solar laws by state" in tutte le pagine; sitemap automatica.
-- **Monetizzazione:** nessun link di affiliazione. Riquadro `kit_solari` in `dati/affiliati.json` **spento** (url vuoto): si accende
-  da solo (`blocco_kit()`) quando arriva un link vero (Amazon US con questo dominio registrato, oppure EcoFlow) e il dominio è in
-  `monetizzazione.json`. Il controllo `controlla_balcony_solar` in `verifica.py` va allora adattato (oggi vieta ogni link sponsorizzato
-  nella sezione).
+- **Monetizzazione: Amazon US acceso il 7/11/2026** (riquadro `kit_solari` di `dati/affiliati.json`). Il 6/11/2026 Massimiliano ha
+  aggiunto `https://fha-approved-condos-list.netlify.app` ai siti del suo account Amazon Associates US (tag `beforeyoufl08-20`, lo
+  stesso di Before You Fly; schema ripreso da `beforeyoufly/genera.py`: `amazon_link`, `AMAZON_FRASE`, `box_bagagli`).
+  - **Solo link di RICERCA** `https://www.amazon.com/s?k=<ricerca>&tag=beforeyoufl08-20`, mai ASIN né pagine prodotto (`amazon_link`,
+    `ricerche_kit`, `blocco_kit` in `genera.py`). 2 ricerche per pagina: `plug in balcony solar kit` e `portable power station`. Il
+    limite di watt entra nella prima ricerca solo dove una legge che abbiamo letto lo fissa (stato `in_vigore` o `firmata`:
+    `watt_legge`): Utah, Maryland, Maine, Vermont, Virginia `1200W`, Colorado `1920W`. Nessun watt per New Jersey (firma non
+    confermata), California (testo non letto) e Stati con un disegno di legge.
+  - **Dove:** indice `/balcony-solar/` (dopo "How we check") e 16 pagine Stato (dopo il riquadro "Before you buy", prima delle FAQ). Mai
+    nelle pagine dei condomini FHA (Stati, contee, città, guide).
+  - **Testo:** nessuna promessa di legalità o conformità del prodotto ("a kit being on sale does not mean you may use it at home"):
+    prima di comprare, legge dello Stato (fonti della pagina), compagnia elettrica (avviso o modulo) e regolamento del condominio/HOA.
+    Etichetta "Affiliate", `rel="sponsored noopener"`, riga di trasparenza e frase di Amazon «As an Amazon Associate we earn from
+    qualifying purchases.» nel riquadro; sezione «Amazon Associates» con la stessa frase in `privacy.html`.
+  - **Interruttore:** `kit_solari.url` (= ricerca generica). Vuoto = riquadro spento ovunque e privacy senza la sezione Amazon.
+  - **Scadenza Amazon:** l'account US è condiviso con Before You Fly: le 3 vendite entro 180 giorni contano per l'account intero.
+  - **EcoFlow (Awin):** iscrizione chiesta il 6/11; se approvata, decidere se affiancarlo ad Amazon e adattare `controlla_amazon`.
 - **Controlli (`verifica.py`, `controlla_balcony_solar`):** ogni affermazione con fonte esistente; fonti con HTTP 200 o motivo scritto
   (**43 fonti: 37 lette, 6 con motivo scritto**), e con la rete le fonti registrate con HTTP 200 rispondono ancora 200 (39 su 39 il 6/11); terzi marcati; FAQ dalle ricerche salvate; JSON-LD = testo;
-  titoli; prima frase con la data; rimandi verso fonti elencate; sitemap; link interni nei due sensi; nessun link di affiliazione.
+  titoli; prima frase con la data; rimandi verso fonti elencate; sitemap; link interni nei due sensi; nessun link di affiliazione
+  salvo il riquadro Amazon. **`controlla_amazon` (punto 11, 7/11/2026):** in tutto il sito ogni link Amazon è `https://www.amazon.com/s`
+  con solo `k` e `tag=beforeyoufl08-20` (scritto in `verifica.py`), nessun ASIN, `rel="sponsored noopener"`, frase di Amazon nella
+  pagina e nella privacy; un riquadro per pagina e solo nelle 17 pagine /balcony-solar/; ricerche esattamente quelle attese (watt di
+  legge scritti a mano in `WATT_LEGGE_ATTESI`); testo con compagnia elettrica e condominio, senza "legal", "compliant", "approved";
+  `url` = ricerca generica. Controllo comune `monetizzazione.py verifica fhacondos`: 34 link in 17 pagine, 0 errori (7/11/2026).
   `verifica_browser.js` prova anche indice, Colorado, New Jersey e Connecticut a 375 e 1280 px.
 - **Da ricontrollare:** ogni mese da gennaio a giugno 2027 (sessioni legislative) e subito: firma del governatore di New York,
   conciliazione del Massachusetts, testo di SB 868 (California) quando leginfo risponde, siti di Connecticut, New Hampshire, Ohio,

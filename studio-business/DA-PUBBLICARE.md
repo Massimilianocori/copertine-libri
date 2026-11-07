@@ -8,6 +8,7 @@ Sezioni già revisionate, con i sorgenti salvati, che aspettano la pubblicazione
 
 | Sito (cartella) | Sezione | Revisione | Note |
 |---|---|---|---|
+| fhacondos | **Amazon US acceso nella sezione /balcony-solar/** (7/11/2026): riquadro `kit_solari` con 2 ricerche Amazon.com (tag `beforeyoufl08-20`, mai ASIN) sulle 17 pagine /balcony-solar/ e in nessun'altra: "plug in balcony solar kit" (con 1200W/1920W solo nei 6 Stati con legge letta: UT, CO, ME, MD, VT, VA) e "portable power station"; testo senza promesse di legalità (legge, compagnia elettrica, condominio prima di comprare), frase Amazon nel riquadro e nella privacy; `controlla_amazon` in verifica.py; verifica e monetizzazione.py: 0 errori | da revisionare | sorgenti salvati; rigenerare con `python3 fhacondos/genera.py` prima di pubblicare |
 
 Pubblicato il 31/10/2026 alle 14:20 circa (ora di Roma): Visa Income, Before You Fly, EsameB1 (tutte le sezioni revisionate del giorno). Esperimento citazioni: conteggio dal 1/11/2026.
 
@@ -35,7 +36,6 @@ Pubblicato il 1/11/2026 alle 00:15 circa: Visa Income (cerimonie australiane, es
 
 | Sito | Sezione | Voto | Quando | Fonte (file di ricerca) |
 |---|---|---|---|---|
-| fhacondos | **Amazon US acceso nella sezione /balcony-solar/** (dominio aggiunto all'account Amazon US il 6/11; tag `beforeyoufl08-20`): riquadro con ricerche Amazon per "plug in solar kit" / "balcony solar kit 800W" sulle 17 pagine, frase di trasparenza Amazon, privacy aggiornata, controllo del tag in verifica.py; nessuna promessa di legalità legata al prodotto | 7 | turno del 7/11 (PRIMO), pubblicare il 7/11 sera | decisione del 6/11 |
 | touristtax | Versioni es/pt (con la francese già in coda) | 6,5 | dopo | idee-2026-11-04-america-latina.md |
 | visaincome | Pensione statale britannica congelata o no, Paese per Paese | 6,5 | con la sezione pensioni HMRC già in coda | idee-2026-11-04-africa-medio-oriente.md |
 | visaincome | Israele nelle pagine moved-to (API data.gov.il) | 5,5 | coda bassa | idee-2026-11-04-africa-medio-oriente.md |

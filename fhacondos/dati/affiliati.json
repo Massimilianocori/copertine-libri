@@ -6,11 +6,14 @@
     "testo": "Rates and fees vary between lenders. Ask several for a quote on the same condo.",
     "bottone": "Compare lenders"
   },
-  "_nota_kit_solari": "Riquadro 'plug-in solar kits' nelle pagine /balcony-solar/: SPENTO finché 'url' è vuoto (6/11/2026: Amazon US non ha ancora questo dominio tra i siti registrati, EcoFlow non è attivo). Si accende da solo con un URL di affiliazione vero di un programma a cui Massimiliano è iscritto (dominio ammesso in monetizzazione.json), mai inventato. Esce con rel=\"sponsored\" e la riga di trasparenza.",
+  "_nota_kit_solari": "Riquadro 'Plug-in solar kits' SOLO nelle 17 pagine /balcony-solar/ (indice + 16 Stati), mai nelle pagine dei condomini FHA. ACCESO il 7/11/2026 con Amazon Associates US: il 6/11/2026 Massimiliano ha aggiunto https://fha-approved-condos-list.netlify.app ai siti del suo account (tag beforeyoufl08-20, lo stesso di Before You Fly). SOLO link di RICERCA https://www.amazon.com/s?k=<ricerca>&tag=beforeyoufl08-20, mai ASIN o pagine prodotto: genera.py (amazon_link, ricerche_kit, blocco_kit) ne mette 2 per pagina, 'plug in balcony solar kit' (con il limite di watt, es. '1200W', solo dove una legge letta lo fissa: in vigore o firmata) e 'portable power station'. Il testo non dice mai che un prodotto è legale o conforme: rimanda a legge dello Stato, compagnia elettrica e regolamento del condominio. rel=\"sponsored noopener\", riga di trasparenza e frase di Amazon («As an Amazon Associate we earn from qualifying purchases.») nel riquadro e nella privacy. 'url' è l'interruttore (vuoto = riquadro spento) e la ricerca generica. Se arriva EcoFlow (Awin), decidere se affiancarlo o sostituirlo e adattare verifica.py.",
   "kit_solari": {
-    "url": "",
+    "url": "https://www.amazon.com/s?k=plug+in+balcony+solar+kit&tag=beforeyoufl08-20",
+    "nome": "Amazon",
+    "tag": "beforeyoufl08-20",
     "titolo": "Plug-in solar kits",
-    "testo": "Check the kit's certification, its output in watts and your state's limit before you buy.",
-    "bottone": "See plug-in solar kits"
+    "testo": "Amazon searches for plug-in balcony solar kits and portable power stations. Check your state's law, your utility and your condo rules before you buy.",
+    "attivo_dal": "2026-11-07",
+    "nota_spegnimento": "Per spegnerlo: url vuoto e rigenerare (python3 fhacondos/genera.py); verifica.py (controlla_amazon) controlla tag, assenza di ASIN, ricerche per pagina, frase di Amazon e pagine."
   }
 }

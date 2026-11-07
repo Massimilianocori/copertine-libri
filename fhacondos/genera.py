@@ -9,7 +9,8 @@ Uso (dalla radice del repository):
 Dati (tutti dal modulo HUD FHA Condominium Lookup, vedi NOTE.md):
     dati/condomini.json  un oggetto per condominio: approvati (tipo A) + scaduti (E) e ritirati (W) negli ultimi 24 mesi
     dati/conteggi.json   totali dichiarati dal modulo per Stato e tipo, data "as of" di HUD, edizione della cache
-    dati/affiliati.json  riquadro affiliati: nascosto finché non c'è un URL vero (mai inventarlo)
+    dati/affiliati.json  riquadri affiliati: nascosti finché non c'è un URL vero (mai inventarlo); "kit_solari" (Amazon US, ricerche)
+                         acceso dal 7/11/2026 solo nelle pagine /balcony-solar/
 
 Pagine: home con ricerca nel browser (data/search.json), elenco degli Stati, una pagina per Stato, per contea e per città
 sopra soglia (SOGLIA_CONTEA, SOGLIA_CITTA), 3 guide, methodology, about, contact, privacy, 404.
@@ -24,6 +25,7 @@ from collections import Counter, defaultdict
 from datetime import date, datetime
 from html import escape
 from pathlib import Path
+from urllib.parse import quote_plus
 
 RADICE = Path(__file__).resolve().parent
 DATI = RADICE / "dati"
@@ -523,6 +525,9 @@ ol.passi>li{padding:14px 14px 14px 52px}ol.passi>li::before{left:12px;top:14px;w
 .ad-slot{margin:24px 0}.ad-slot:empty{display:none}
 .aff-box{margin:24px 0;display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:var(--accent-2);border:1px solid color-mix(in srgb,var(--accent) 30%,transparent);border-radius:var(--r);padding:18px 20px}
 .aff-box p{margin:0;max-width:620px}
+.aff-kit{display:block}.aff-kit h2{margin:0 0 8px}.aff-kit p{margin:0 0 10px;max-width:780px}.aff-kit p.aff-nota{margin:0}
+.aff-tag{display:inline-block;vertical-align:middle;margin-left:6px;font-family:var(--sans);font-size:.68rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);border:1px solid var(--line-2);border-radius:999px;padding:1px 8px}
+.amz-lista{margin:0 0 12px;padding-left:20px}.amz-lista li{margin:4px 0}
 .testo p,.testo li{max-width:780px}.testo li{margin-bottom:6px}
 .testo h2{margin-top:36px}
 ol.passi{counter-reset:p;list-style:none;padding:0;margin:0;display:grid;gap:12px}
@@ -1391,8 +1396,8 @@ def guida_confronto():
 # ---------------------------------------------------------------- pannello solare da balcone (/balcony-solar/)
 # Dati e fonti in dati/balcony_solar.json (leggi lette sui siti dei Parlamenti statali il giorno "verificato_il"); NOTE.md spiega
 # il metodo. Ogni affermazione ha una fonte; le fonti di terzi (tracker di Bright Saver) sono dichiarate come tali; le domande delle
-# FAQ vengono dall'autocompletamento di Google ("ricerche") e il JSON-LD FAQPage ripete lo stesso testo. Nessun link di affiliazione:
-# il riquadro "kit_solari" di dati/affiliati.json resta spento finché il suo url è vuoto.
+# FAQ vengono dall'autocompletamento di Google ("ricerche") e il JSON-LD FAQPage ripete lo stesso testo. Unico link di affiliazione:
+# il riquadro "kit_solari" (Amazon US, solo link di ricerca, vedi blocco_kit), spento se il suo url in dati/affiliati.json è vuoto.
 BS = carica("balcony_solar.json")
 BS_DIR = "balcony-solar/"
 BS_VERIFICA = date.fromisoformat(BS["verificato_il"])
@@ -1473,12 +1478,64 @@ def bs_prima():
             f'outlets and panels, ask a licensed electrician.</p></div>')
 
 
-def blocco_kit():
-    a = AFFILIATI.get("kit_solari") if isinstance(AFFILIATI, dict) else None
-    if not a or not a.get("url"):
+# ---- Amazon Associates US nel riquadro "kit_solari" (7/11/2026). Il 6/11/2026 Massimiliano ha aggiunto questo dominio ai siti del suo
+# account Amazon Associates US (tag beforeyoufl08-20, lo stesso di Before You Fly). Solo link di RICERCA, mai ASIN né pagine prodotto:
+# https://www.amazon.com/s?k=<ricerca>&tag=<tag>, al massimo 2 per pagina (kit plug-in da balcone, power station portatile). Il limite
+# di watt entra nella ricerca solo dove una legge letta lo fissa (stato "in_vigore" o "firmata": watt_legge). Il riquadro non dice mai
+# che un prodotto è legale o conforme: rimanda a legge dello Stato, compagnia elettrica e regolamento del condominio. 'url' della voce
+# è l'interruttore (vuoto = riquadro spento) e la ricerca generica; il riquadro esce SOLO nelle pagine /balcony-solar/.
+# verifica.py (controlla_amazon) ricontrolla tag, assenza di ASIN, ricerche per pagina, frase di Amazon (pagina e privacy) e pagine.
+KIT = AFFILIATI.get("kit_solari") if isinstance(AFFILIATI, dict) else None
+KIT = KIT or {}
+AMAZON_ACCESO = bool((KIT.get("url") or "").strip())
+AMAZON_TAG = (KIT.get("tag") or "").strip()
+AMAZON_FRASE = "As an Amazon Associate we earn from qualifying purchases."  # frase richiesta da Amazon Associates
+RICERCA_KIT = "plug in balcony solar kit"
+RICERCA_POWER = "portable power station"
+
+
+def amazon_link(ricerca):
+    """Link di ricerca Amazon.com con il tag (nessun ASIN)."""
+    return f"https://www.amazon.com/s?k={quote_plus(ricerca)}&tag={AMAZON_TAG}"
+
+
+def watt_legge(s):
+    """Limite di watt fissato da una legge che abbiamo letto (in vigore o firmata), altrimenti None (disegni di legge, firme non
+    confermate, testi non letti)."""
+    if s is None or s["stato"] not in ("in_vigore", "firmata"):
+        return None
+    m = re.match(r"([\d,]+) W\b", s["sintesi"]["watt"])
+    return int(m.group(1).replace(",", "")) if m else None
+
+
+def ricerche_kit(s=None):
+    """(ricerca, etichetta) del riquadro: kit plug-in (con il limite di legge se c'è) e power station portatile."""
+    w = watt_legge(s)
+    kit = (f"{RICERCA_KIT} {w}W", f"Plug-in balcony solar kits, searched with \u201c{w}W\u201d, on Amazon.com") if w else \
+          (RICERCA_KIT, "Plug-in balcony solar kits on Amazon.com")
+    return [kit, (RICERCA_POWER, "Portable power stations on Amazon.com")]
+
+
+def blocco_kit(s=None):
+    """Riquadro «Plug-in solar kits» con link di ricerca Amazon.com: '' se spento. s = Stato della pagina (None = indice)."""
+    if not AMAZON_ACCESO:
         return ""
-    return (f'<aside class="aff-box"><p><strong>{h(a.get("titolo", ""))}</strong><br><span class="small">{h(a.get("testo", ""))} {MON.RIGA_EN}</span></p>'
-            f'<a class="btn" href="{h(a["url"])}" rel="sponsored noopener" target="_blank">{h(a.get("bottone", "See kits"))}</a></aside>')
+    if s is None:
+        dove = "your state's law or bill (state pages above)"
+        limite = ""
+    else:
+        nome = nome_bs(s["st"])
+        w = watt_legge(s)
+        dove = f"the rules in {nome} (sources below)"
+        limite = (f" The first search adds the {w:,}-watt limit set by {nome}'s law as a search word: Amazon does not filter kits by it." if w else "")
+    frase = (f"These links open an Amazon search.{limite} The results are Amazon's, not checked by us, and a kit being on sale does not mean "
+             f"you may use it at home. Before you buy, check {dove}, ask your electric utility whether it wants a notice or a form, and read "
+             f"your condo or HOA rules on balconies and railings.")
+    righe = "".join(f'<li><a href="{h(amazon_link(r))}" rel="sponsored noopener" target="_blank">{h(e)}</a></li>' for r, e in ricerche_kit(s))
+    return (f'<section class="aff-box aff-kit" aria-label="Plug-in solar kits on Amazon, affiliate links" data-amazon><div>'
+            f'<h2 id="kits">{h(KIT.get("titolo") or "Plug-in solar kits")} <span class="aff-tag">Affiliate</span></h2>'
+            f'<p>{h(frase)}</p><ul class="amz-lista">{righe}</ul>'
+            f'<p class="small aff-nota">{MON.RIGA_EN} {AMAZON_FRASE}</p></div></section>')
 
 
 def bs_badge(s):
@@ -1509,7 +1566,7 @@ def pagina_bs_stato(s):
              f'<div class="testo"><h2 id="law">What the law says</h2>{punti["legge_punti"]}',
              f'<h2 id="limits">Limits: watts, outlet and utility</h2>{punti["limiti"]}',
              f'<h2 id="condo">Condos and HOAs: what the association can and cannot ban</h2>{punti["condo"]}',
-             bs_prima(), blocco_kit(), AD,
+             bs_prima(), blocco_kit(s), AD,
              f'<h2 id="faq">Questions people ask</h2>{faq_html}</div>']
     if st in STATI_C:
         corpo.append(f'<p class="lead" style="margin-top:26px">{ico("building")} Buying a condo in {h(nome)}? See the '
@@ -1668,6 +1725,10 @@ def privacy():
     # Cookie, link di affiliazione e pubblicità: con AdSense acceso (monetizzazione.json) o con link di affiliazione, il testo
     # comune di monetizzazione.py (GoatCounter senza cookie, pubblicità con il consenso di Google); altrimenti il testo di oggi.
     cookie = MON.privacy_cookie("en", SITO_ID, ci_sono_affiliati()) or """<h2>Cookies and visit counter</h2><p>This site sets no cookies. To count visits we use <a href="https://www.goatcounter.com/" rel="noopener">GoatCounter</a>, a privacy-friendly counter: it sets no cookies and stores nothing in your browser, builds no profiles and does not store your IP address, your full browser signature or any identifier. It keeps only aggregate numbers (page, hour or day, browser, country, screen width) on servers in the European Union and shares nothing with third parties; see <a href="https://www.goatcounter.com/help/privacy" rel="noopener">GoatCounter's privacy policy</a>. If we add advertising or affiliate links, we will update this notice and ask for your consent where required before any advertising cookies are used.</p>"""
+    # Amazon Associates US (dal 7/11/2026, solo con il riquadro kit_solari acceso): frase obbligatoria di Amazon anche qui
+    amazon = ("<h2>Amazon Associates</h2><p>ApprovedCondos is a participant in the Amazon Associates program of Amazon.com. "
+              f"{AMAZON_FRASE} Our balcony solar pages link to Amazon searches for plug-in solar kits and portable power stations; the links "
+              "are marked as affiliate links. We do not check the products in the results.</p>" if AMAZON_ACCESO else "")
     corpo = f"""<div class="testo"><p class="small" style="margin-top:28px">Last updated: {MESI[OGGI.month - 1]} {OGGI.year}</p>
 <h2>Who is responsible</h2><p>The data controller is Massimiliano Cori (Italy), who runs {NOME} as an independent project. Contact: the <a href="{{rel}}contact/">contact form</a>.</p>
 <h2>What we collect</h2><p>Only what you type in the contact form: your email, the project or page and your message, plus the page you came from. The search box and the table filters run in your browser: what you type is not sent to us. If you switch the light or dark theme, your choice is stored in your browser only.</p>
@@ -1675,6 +1736,7 @@ def privacy():
 <h2>Why</h2><p>To answer your messages and correct the site. The legal basis is your consent (Art. 6(1)(a) GDPR), which you can withdraw at any time.</p>
 <h2>Who processes data for us</h2><p>The site and its form are hosted by Netlify, Inc., which stores form data on our behalf and may process it outside the EU with the safeguards required by the GDPR (standard contractual clauses). Netlify keeps technical server logs (such as IP addresses) for security. We do not sell or share your data.</p>
 {cookie}
+{amazon}
 <h2>How long</h2><p>Messages are kept for up to 12 months after our last exchange.</p>
 <h2>Your rights</h2><p>You can ask for access, correction, deletion, restriction, portability and objection (Articles 15–22 GDPR) and you can complain to the Italian data protection authority (<a href="https://www.garanteprivacy.it" rel="noopener">garanteprivacy.it</a>) or the authority where you live. {MON.frase_california(SITO_ID) or 'California residents: we do not sell or share personal information.'}</p></div>"""
     # Sottotitolo e descrizione dicono "no cookies, no tracking": con AdSense acceso o con link di affiliazione si usa la frase

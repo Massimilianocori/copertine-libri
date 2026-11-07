@@ -57,7 +57,7 @@
     "pxf.io",
     "evyy.net"
   ],
-  "_domini_affiliazione_reti": "awin1.com = Awin (italki, Holiday Extras, Roamable); amazon.co.uk e amazon.com = Amazon Associates UK e USA (Before You Fly, dal 6/11/2026); tradedoubler.com = Tradedoubler (AXA Schengen, InsureandGo); prf.hn = Partnerize (Wise); anrdoezrs.net, dpbolvw.net, jdoqocy.com, kqzyfj.com, tkqlhce.com = CJ (CruiseDirect); sjv.io, pxf.io, evyy.net = Impact (Babbel).",
+  "_domini_affiliazione_reti": "awin1.com = Awin (italki, Holiday Extras, Roamable); amazon.co.uk e amazon.com = Amazon Associates UK e USA (Before You Fly, dal 6/11/2026; amazon.com anche ApprovedCondos, sezione /balcony-solar/, dal 7/11/2026); tradedoubler.com = Tradedoubler (AXA Schengen, InsureandGo); prf.hn = Partnerize (Wise); anrdoezrs.net, dpbolvw.net, jdoqocy.com, kqzyfj.com, tkqlhce.com = CJ (CruiseDirect); sjv.io, pxf.io, evyy.net = Impact (Babbel).",
   "_domini_bloccati_nota": "Sempre vietati, anche con rel=\"sponsored\": Travelpayouts (la verifica del sito chiede uno script con cookie, in pausa dal 17/10/2026) e i servizi visto 'assistiti' come iVisa (regola del 10/10/2026: non mandiamo i lettori a pagare più del sito ufficiale).",
   "domini_bloccati": [
     "travelpayouts.com",
