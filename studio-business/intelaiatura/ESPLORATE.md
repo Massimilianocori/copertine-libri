@@ -892,3 +892,18 @@ Commissioni lette oggi sulle pagine ufficiali: bunq 35 € a conto personale / 6
 | Assicurazione per Chancenkarte, visto per cercare lavoro e studenti sopra i 30 anni in Germania | NO (4,5): Feather e Fintiba con pagine dedicate, commissioni non lette | fronti-2026-11-07-alto-compenso |
 | Assicurazione sanitaria per sottoclasse di visto australiana (482, 485, 500, 600, 870, 8501) | NO (3): Finder, Savvy, Compare Club e Allianz con una pagina per visto; nessun programma per affiliati | fronti-2026-11-07-alto-compenso |
 | Codice Remitly per corridoio; VPN; hosting; software per freelance (FreshBooks, Bonsai, Xero); tasse degli americani all'estero; corsi Coursera; prestiti per studenti (MPOWER, Prodigy) | NO (2-3,5): settori saturi o programma vietato sui siti (MPOWER) o inesistente (Prodigy, Sprintax) | fronti-2026-11-07-alto-compenso |
+
+## Fronte nuovo: 12 settori fuori da viaggi e burocrazia (7/11/2026)
+
+Settori: assicurazione casa, genitori, e-bike, golf cart, animali, acqua, fotografia, lavoro (CDL), partite IVA, fondi pensione, videogiochi, fitness. Nessuna idea passa l'asticella del sito nuovo. Lezione: dove il pagatore è ricco i primi risultati sono comparatori, e dove i risultati sono deboli una visita rende poco. L'incontro sta in un dato ufficiale nuovo dentro una crisi con CPC alto, da mettere in un sito che c'è già.
+
+| Nicchia | Esito | Studio |
+|---|---|---|
+| **California: polizze FAIR Plan e rinnovi negati per CAP** (cfpnet PDF FY26 al 30/9/2026, 1.686 CAP 2022-2026 + valore assicurato; CDI XLSX non rinnovate per CAP 2020-2023; "california fair plan cost by zip code calculator", "state farm non renewal zip codes california"; risultati spam e calcolatori generici; diverso dal NO "rischio incendi per CAP" del 15/10) | **SEZIONE di FloodCost** (voto 7; 6,5 come sito; 300 / 2.750 / 11.000 €/anno; 14-18 ore) | fronti-2026-11-07-settori-nuovi |
+| Scadenza dei seggiolini auto per marca e modello (USA/Canada; 10 suggerimenti per ognuna di 11 marche; risultati pieni di spam; Chicco, Evenflo, Maxi-Cosi, Cybex, Britax 200; Graco e Clek 403) | RISERVA (6): Amazon 3 %, 300 / 1.650 / 8.100 €; sotto l'asticella del sito nuovo | fronti-2026-11-07-settori-nuovi |
+| Leggi e incentivi e-bike (USA per Stato, Italia per Regione e Comune, FR, ES; Ride1Up 5 %, ordine medio 1.500 $, letta) | NO (5): Velosurance, Tern, Radio Flyer, tracker di Portland State, PeopleForBikes; mesaidesvelo.fr ufficiale in Francia; bandi italiani pochi e brevi | fronti-2026-11-07-settori-nuovi |
+| Golf cart e LSV per Stato (USA) | NO (5): leggi in testo libero e ordinanze locali, si guadagna poco | fronti-2026-11-07-settori-nuovi |
+| Periodi di attesa delle assicurazioni per animali; animali esotici legali per Stato | NO (3 e 4): Pawlicy, NerdWallet, Bankrate; exoticpetcompliance.pages.dev | fronti-2026-11-07-settori-nuovi |
+| Durezza dell'acqua per Comune (FR/IT/DE/ES); PFAS per CAP (USA) | NO (4 e 3,5): eau.selectra.info per Comune; EWG, protectmyzip, checkclearwater | fronti-2026-11-07-settori-nuovi |
+| Usato fotografico (MPB contro KEH, durata dell'otturatore, foto d'esempio dall'archivio) | NO (4,5 con 2-4 ore al mese di Massimiliano): MPB 2 % o 10 €, apotelyt e gearfocus per modello, solo 2-3 obiettivi suoi | fronti-2026-11-07-settori-nuovi |
+| Costo della patente CDL per Stato; coefficienti del forfettario per ATECO 2025; rendimenti dei fondi pensione COVIP; Steam Deck verified; prezzi di Planet Fitness | NO (2-4): directory dei camionisti, Fiscozen/fiscomania/partitaiva.it (riserva se esce la tabella ATECO 2025), COVIP stessa, Steam/ProtonDB, nessun pagatore | fronti-2026-11-07-settori-nuovi |
