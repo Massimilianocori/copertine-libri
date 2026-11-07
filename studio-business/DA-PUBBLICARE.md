@@ -6,6 +6,8 @@ Sezioni già revisionate, con i sorgenti salvati, che aspettano la pubblicazione
 
 **6/11/2026 sera:** Massimiliano ha aggiunto ApprovedCondos su Awin (spazio promozionale) e su Amazon US, e ha chiesto l'iscrizione a **EcoFlow USA** su Awin. Quando arriva l'email di approvazione EcoFlow: accendere il riquadro `kit_solari` di `fhacondos/dati/affiliati.json` con il link awin1 (awinmid dalla pagina del programma, awinaffid 3145171).
 
+**PAUSA DI BUDGET dal 7/11/2026 sera fino a mercoledì 11/11 alle 21:00 (Massimiliano: limite settimanale al 77 %):** NESSUN agente (niente ricercatori, costruttori, revisori, verificatori) in nessuna routine, compresa la revisione del mercoledì mattina (solo numeri e messaggio breve, niente ricerca). Le routine fanno solo i lavori quotidiani leggeri: pubblicare le sezioni già revisionate (la DTV di Visa Income l'8/11), passi alpini, aste, IndexNow. Il turno delle 11:43 è disattivato; si riattiva dopo le 21:00 dell'11/11. La sezione California FAIR Plan (FloodCost) resta 'da revisionare' fino alla ripresa.
+
 | Sito (cartella) | Sezione | Revisione | Note |
 |---|---|---|---|
 | visaincome | Thailand DTV allargata: 6 pagine per tema (`thailand-dtv-visa/fee/`, `requirements/`, `duration-and-extension/`, `soft-power-activities/`, `proof-of-funds/`, `dtv-vs-ltr-elite-retirement/`), titoli e prime frasi di indice e 16 sedi su fee/requirements/duration con 2026 e data di verifica, FAQ da autocompletamento in 8 Paesi | revisionato il 7/11, correzioni applicate, pubblicare l'8/11 | Visa Income già pubblicato il 7/11. Sorgenti nel commit del 7/11, `sito/` non committato; `verifica.py --offline` TUTTO OK (controllo 18 esteso, A/B identico); vedi NOTE.md 7/11 |
