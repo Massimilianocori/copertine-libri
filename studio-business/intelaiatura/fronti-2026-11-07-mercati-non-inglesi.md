@@ -125,3 +125,55 @@ Idee lasciate senza scheda perché toccano temi esclusi: bollo auto elettrica pe
 | priwatt, kleineskraftwerk, solakon, yuma, tibber, ostrom (pagine affiliati) | 404 | – |
 | barkibu, santevet, kozoo, kiwoko, tiendanimal, mascotaplanet, zooplus.es, cobasi (affiliati) | 404 | – |
 | petlove.com.br/afiliados | 403 | – |
+
+## Verifica indipendente del 7/11 (idea 1, Brasile: consumo e costo in bolletta di ogni condizionatore)
+
+Verificatore separato, con curl e senza aggirare anti-bot o geo-blocchi. Asticella: voto ≥ 7 e ≥ 5.000 €/anno centrali. Titolare: fotografo italiano con partita IVA forfettaria, **senza CPF/CNPJ né conto in Brasile**.
+
+### 1. Il pagatore (decisivo): nessuno paga un affiliato straniero con una cifra scritta
+
+| Programma | HTTP | Cosa c'è scritto oggi |
+|---|---|---|
+| **Amazon Associados Brasil**, Políticas do Programa `associados.amazon.com.br/help/operating/policies`, cl. 6 "Relatórios e Pagamentos de Comissões" | 200 | Pagamento in moneta locale a circa 60 giorni. **Opção 1, Depósito Direto**: "assim que você informar seu número de **CPF ou CNPJ**, o nome e o código do seu banco, o número da conta **atrelado ao CPF ou CNPJ**"; minimo R$ 30. **Opção 2 Vale-presente: "Indisponível". Opção 3 Cheque: "Indisponível"** (Quadro de Pagamento Mínimo BR). Quindi l'unico canale di pagamento richiede un CPF/CNPJ e un conto brasiliano intestato a quel CPF/CNPJ. |
+| Amazon Associados Brasil, Contrato Operacional (15/10/2025) | 200 | Entità: Amazon Serviços de Varejo do Brasil Ltda.; legge e arbitrato brasiliani; Anexo 3: trattenute "conforme definido pela legislação tributária brasileira" e diritto di trattenere le commissioni finché non si forniscono le informazioni fiscali. Nessuna clausola per non residenti. |
+| Amazon Associados Brasil, FAQ e pagina "payments"/"participation" | 200 | gusci vuoti: contenuto solo con JavaScript dopo il login ("Ative o Java Script"); `/apply` 404. |
+| **Lomadee** `lomadee.com.br/pt-br` | 200 | FAQ: "Os pagamentos são feitos **via Pix**"; "Preciso de CNPJ? Não. **Pessoa física** pode se cadastrar … e receber comissão via Pix". Pix e pessoa física = CPF e conto brasiliano. Nessuna percentuale scritta in pagina. |
+| **Parceiro Magalu / magazinevoce.com.br** | 200 → captcha | pagina chiusa da anti-bot ("Complete o CAPTCHA"), non aggirata. |
+| **Awin Brasil** `awin.com/br/` e `/br/afiliados/…` | 200 / 404 | pagine di marketing ("14 países"); FAQ sui pagamenti 404, iscrizione `ui.awin.com` solo JavaScript. **Nessuna condizione di pagamento né elenco di venditori di condizionatori letti.** Awin è una rete globale e in linea di principio accetta editori di altri Paesi, ma oggi non è una cifra scritta. |
+| Rakuten Advertising pt-BR, Admitad | 200 / 404 | solo marketing; Admitad publisher 404. |
+| Marche e negozi: Samsung BR `/affiliate` 404, Electrolux `/afiliados` 503, Midea Carrier 404, Gree nessuna pagina, Brastemp e Consul `/afiliados` = pagina di categoria prodotti (non un programma), Casas Bahia 403, Mercado Livre afiliados → solo login, Shopee afiliados 000/503 | – | nessun programma diretto con cifra per un estero. |
+
+**Esito.** L'8 % di Amazon.com.br sugli elettrodomestici (letta stamattina) è **inutilizzabile per il titolare**: l'unica forma di pagamento disponibile in Brasile è il bonifico su conto intestato a CPF/CNPJ; buoni e assegni sono "Indisponível". Lomadee paga via Pix a persone fisiche brasiliane. Magalu chiuso da captcha. Awin, Rakuten, marche: nessuna cifra scritta. **Senza un partner con CNPJ e conto in Brasile, l'idea vale solo AdSense in portoghese.**
+
+### 2. Domanda (autocomplete Google, gl=br, hl=pt-BR, oggi)
+
+| Domanda | n. | Suggerimenti |
+|---|---|---|
+| consumo ar condicionado | 10 | 12000/9000/18000/24000 btus, inverter, "12000 btus inverter 8 horas por dia", "lg dual inverter 12000", "daikin 12000" |
+| quanto gasta um ar condicionado | 10 | de 12000/9000/18000 btus, "ligado 8 horas por dia", "ligado 12 horas por dia", "por mes" |
+| ar condicionado samsung consumo | 10 | "de energia", 12000, 9000, inverter, **windfree**, **ar12dyfaawknaz** (codice modello) |
+| ar condicionado lg consumo | 10 | portátil, 12000, 9000, dual inverter, **tsnc122h4w0** (codice modello) |
+| ar condicionado gree consumo | 10 | 12000, 9000, 18000, portátil, janela, inverter |
+| ar condicionado mais economico | 10 | 2026, 12000, 18000, 9000, "2026 inmetro", gree |
+| 12000 btus consumo kwh / 9000 … / 18000 … | 2 / 2 / 1 | "ar condicionado 12000 btus consumo kwh", "… kwh mes" |
+| quanto custa 1 kwh enel | 4 | ce, rj, sp |
+
+La domanda è confermata, larga e per modello (i codici modello compaiono nei suggerimenti): è la parte buona dell'idea. **Composizione dei primi risultati**: Google risponde a curl con la pagina di reindirizzamento anti-bot, DuckDuckGo html con 202 (sfida), Bing pt-BR con risultati degradati (troncati a "ar"): **chiusi, non aggirati**. Resta la composizione letta stamattina con la ricerca web (Canaltech, Buscapé, Zoom, webarcondicionado, tecnoblog), non riverificata oggi.
+
+### 3. Dati
+
+- **INMETRO.** La URL di stamattina (`…/assuntos/avaliacao-da-conformidade/…/condicionadores-de-ar`) oggi **302 → pagina di login** e il PDF **404** `{"error_type":"NotFound"}`: la tabella è stata spostata sotto `…/assuntos/regulamentacao/avaliacao-da-conformidade/programa-brasileiro-de-etiquetagem/tabelas-de-eficiencia-energetica/condicionadores-de-ar`, dove `condicionadores-de-ar.pdf/@@download/file` risponde **200**, `application/pdf`, 3.903.699 byte, 132 pagine, prodotto da Excel 2010 il 29/05/2026, "Data de Atualização: 31/12/2025"; in pagina anche `condicionadores-de-ar-2025.pdf`. Formato: **solo PDF** (nessun XLSX/CSV; dados.gov.br API 401). Licenza: piè di pagina gov.br "Todo o conteúdo deste site está publicado sob a licença **Creative Commons Atribuição-SemDerivações 3.0** Não Adaptada": i numeri sono fatti, ma una tabella rielaborata è formalmente un derivato di un'opera ND; rischio basso ma non zero, e va scritta l'attribuzione. Il percorso è cambiato nel giro di una giornata: lettore e URL da sorvegliare.
+- **ANEEL.** `dadosabertos.aneel.gov.br/dataset/tarifas-distribuidoras-energia-eletrica` **200**; API CKAN `package_show`: licenza **ODbL** (`odc-odbl`), risorse **CSV, XML, Parquet** + dizionario PDF, `metadata_modified` 2026-11-07T10:30, frequenza "Semanal", copertura dal 2010. Leggibile e riusabile con attribuzione e share-alike del database derivato. Il CSV scaricato in parte (prime righe) è ben formato.
+
+### 4. Stima prudente / centrale / ottimista (solo AdSense, assunzioni scritte)
+
+- Visite su dominio .netlify.app nuovo, in portoghese, con stagione dicembre-marzo: prudente 2.000/mese, centrale 10.000/mese a 18 mesi, ottimista 40.000/mese. Pagine per visita 1,4.
+- AdSense Brasile per contenuti di consumo domestico: 0,8-1,5 € per 1.000 pagine viste → **≈ 1,5 € per 1.000 visite** (il valore per visita in Brasile è circa un decimo di USA/Germania).
+- Affiliazione: 0 € (nessun pagatore). Solo nell'ottimista si aggiunge l'ipotesi, **non letta**, che Awin BR accetti il titolare e abbia un venditore di condizionatori al 3 % (R$ 2.500 → ≈ 12 € a vendita), 4 % di clic, 1 % di acquisti.
+- Risultato: **prudente ≈ 40 €/anno, centrale ≈ 200 €/anno, ottimista ≈ 3.000 €/anno** (720 € AdSense + ≈ 2.300 € Awin ipotetico). Anche l'ottimista resta sotto i 5.000 € centrali richiesti.
+- **Ore:** 30-40 (lettore PDF, unione modelli × 60 distributrici, ≈ 1.000 pagine modello, testi in portoghese) + 5 all'anno per il PDF che cambia percorso e formato. Massimiliano: 0 ore, ma un eventuale partner brasiliano (CNPJ, conto) è una trattativa sua.
+- **Rischi:** pagatore assente (decisivo); stagionalità forte; comparatori (Buscapé, Zoom, Canaltech) e negozi con blog sulle domande generiche; portoghese brasiliano da scrivere senza errori; licenza ND di gov.br; percorso del PDF instabile; anti-bot sui motori che impedisce perfino di misurare la concorrenza da qui.
+
+### Voto severo e verdetto
+
+**Voto 3,5** come sito nuovo (era 6,5: la differenza è tutta nel pagatore). **Verdetto: NO.** Il voto risale a 6,5-7 solo con un innesco preciso e documentato: un partner con CNPJ e conto brasiliano che incassi le commissioni Amazon.com.br (8 %), oppure Awin/Rakuten con un venditore di condizionatori a cifra scritta e pagamento in euro. Fino ad allora non si costruisce, e la domanda (forte, per modello) resta annotata.
