@@ -112,6 +112,14 @@ Uso (dalla radice del repository, dopo python3 visaincome/genera.py):
     promessa né affiliazione; prima frase con risposta, fonte e data; tabelle ricalcolate (liste per università, righe delle liste, entrate e uscite
     HPI, conteggi per Paese, confronto dei visti); citazioni = frammenti; FAQ da ricerche salvate; link da home e How it works; piè di pagina e
     pagine di controllo dell'esperimento senza la sezione.
+31. H-1B wage level and weighted lottery odds (/h1b-wage-level/, 7/11/2026, dati/h1b.json e dati/h1b_salari.json): impronte, fonti (HTTP 200,
+    SHA-256, data), documenti del Federal Register attesi (tipo, citazione, data, PDF letto); stime DHS ricalcolate da 94.900 selezioni e dai conteggi;
+    estratto dei salari = ALC_Export.csv dello zip ufficiale riletto (se lo zip in _grezzi ha la stessa impronta), aree e contee = Geography.csv, valori
+    nazionali = file BLS; occupazioni con pagina e coppie occupazione × area ricalcolate con la regola dichiarata; pagine attese in sitemap e nessuna in
+    più, titoli ≤ 70 con l'anno, canonical, FAQPage, BreadcrumbList, avviso con il rimando all'avvocato, nessuna affiliazione né promessa; prima frase con
+    la risposta e la data; tabelle dei livelli, delle altre aree e delle 60 aree ricalcolate; confronto con la media nazionale; stato delle regole
+    (proposte mai in vigore); citazioni = frammenti; FAQ da ricerche salvate e JSON-LD = testo; calcolatore: file di dati, motore JS = Python e = tabelle
+    statiche su un campione di 40 pagine + 400 casi a caso, probabilità JS = stime DHS; link da home, How it works e /us-opt/; piè di pagina invariato.
 Il controllo 8 comprende dal 28/10/2026 anche i visti UK di famiglia e del partner (coniuge).
 Monetizzazione (30/10/2026, controllo comune di studio-business/strumenti/monetizzazione.py): i link di affiliazione sono
 ammessi solo verso i domini di monetizzazione.json, con rel="sponsored noopener" e la riga di trasparenza nella pagina;
@@ -4079,6 +4087,343 @@ def controlla_tu():
     return errori, len(pagine), note
 
 
+# ---------------------------------------------------------------- 31. H-1B wage level and weighted lottery odds (7/11/2026)
+def _annuo31(c, et=""):
+    """Calcolo indipendente: centesimi orari × 2080 arrotondati al dollaro (Decimal), o valore già annuale con l'etichetta Annual Wage."""
+    from decimal import Decimal, ROUND_HALF_UP
+    if c is None:
+        return None
+    x = Decimal(c) / 100 if et == "a" else Decimal(c) * 2080 / 100
+    return int(x.quantize(Decimal(1), rounding=ROUND_HALF_UP))
+
+
+def _righe31(main, id_tab):
+    m = re.search(rf'<table[^>]*id="{id_tab}".*?<tbody>(.*?)</tbody>', main, re.S)
+    if not m:
+        return None
+    return [[_testo29(c) for c in re.findall(r"<t[hd][^>]*>(.*?)</t[hd]>", tr, re.S)] for tr in re.findall(r"<tr>(.*?)</tr>", m.group(1), re.S)]
+
+
+def _usd31(x):
+    return f"${x:,}"
+
+
+def controlla_h1b(online=True):
+    import csv
+    import hashlib
+    import io
+    import zipfile
+    from decimal import Decimal, ROUND_HALF_UP
+    errori, note = [], []
+    D = json.loads((SITO.parent / "dati" / "h1b.json").read_text(encoding="utf-8"))
+    S = json.loads((SITO.parent / "dati" / "h1b_salari.json").read_text(encoding="utf-8"))
+    cont = {k: D[k] for k in ("letture", "fonti", "federal_register", "aree", "contee", "occupazioni", "nazionale", "impieghi", "salari", "controllo_medie")}
+    if hashlib.sha256(json.dumps(cont, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:20] != D["impronta"]:
+        errori.append("31: impronta di dati/h1b.json diversa dal contenuto")
+    if hashlib.sha256(json.dumps(S, ensure_ascii=False, separators=(",", ":")).encode()).hexdigest() != D["salari"]["sha256"]:
+        errori.append("31: dati/h1b_salari.json diverso da quello registrato in dati/h1b.json")
+    for k, f in D["fonti"].items():
+        if f.get("http") != 200 or not re.fullmatch(r"[0-9a-f]{64}", f.get("sha256", "")) or f.get("letto_il") != D["letto_il"]:
+            errori.append(f"31: fonte {k} senza HTTP 200, impronta o data di lettura")
+    attesi = {"regola": ("Rule", "90 FR 60864", "2025-12-29"), "proclamazione": ("Presidential Document", "91 FR 60497", "2026-09-23"),
+              "tassa": ("Proposed Rule", "91 FR 54817", "2026-08-25"), "salari_dol": ("Proposed Rule", "91 FR 15454", "2026-03-27")}
+    FR = D["federal_register"]
+    for k, (tipo, cit, data_) in attesi.items():
+        d = FR.get(k, {})
+        if (d.get("type"), d.get("citation"), d.get("publication_date")) != (tipo, cit, data_) or not d.get("sha256_pdf"):
+            errori.append(f"31: documento del Federal Register {k} diverso dall'atteso o senza PDF letto")
+    if FR["regola"].get("effective_on") != "2026-02-27":
+        errori.append("31: la regola sulla selezione pesata non è in vigore dal 27/2/2026 secondo i dati")
+    L = {k: v["valore"] for k, v in D["letture"].items()}
+    if L["pesi"] != {"I": 1, "II": 2, "III": 3, "IV": 4} or L["ore_anno"] != 2080:
+        errori.append("31: pesi o ore annue letti diversi da 1-4 e 2080")
+    # le stime DHS: ricalcolo dai conteggi e dalle selezioni scritti nella regola
+    c = L["conteggi_dhs"]
+    den = sum(c[l] * L["pesi"][l] for l in c)
+    if round(L["selezioni_dhs"] / den * 100, 2) != L["stima_dhs"]["I"] or any(round(L["stima_dhs"]["I"] * L["pesi"][l], 2) != L["stima_dhs"][l] for l in c):
+        errori.append("31: stime DHS non ricalcolabili da 94.900 selezioni e dai conteggi per livello")
+    # 1. ricalcolo dai file grezzi (stessa impronta dello zip)
+    gr = SITO.parent / "raccolta" / "_grezzi" / "h1b"
+    z = gr / "OFLC_Wages_2026-27.zip"
+    pos = {a: i for i, a in enumerate(S["aree"])}
+    grezzi = False
+    if z.exists() and hashlib.sha256(z.read_bytes()).hexdigest() == D["fonti"]["oflc_zip"]["sha256"]:
+        grezzi = True
+        zz = zipfile.ZipFile(z)
+        alc = list(csv.reader(io.StringIO(zz.read("ALC_Export.csv").decode("utf-8-sig"))))
+        h = alc[0]
+        i_ = {n: h.index(n) for n in ("Area", "SocCode", "GeoLvl", "Level1", "Level2", "Level3", "Level4", "Average", "Label")}
+        def cc(x):
+            x = x.strip()
+            return None if not x else int(x.replace(".", "")) * (100 if "." not in x else (10 if len(x.split(".")[1]) == 1 else 1))
+        visti = 0
+        for r in alc[1:]:
+            s = r[i_["SocCode"]]
+            if s not in S["soc"]:
+                continue
+            v = S["soc"][s][pos[r[i_["Area"]]]]
+            atteso = [cc(r[i_[n]]) for n in ("Level1", "Level2", "Level3", "Level4", "Average")] + [int(r[i_["GeoLvl"]])]
+            if v != atteso:
+                errori.append(f"31: {s} {r[i_['Area']]}: estratto {v} diverso dal CSV ufficiale {atteso}")
+            et = {"Annual Wage": "a", "High Wage": "h", "No Leveled Wage": "n"}.get(r[i_["Label"]], "")
+            if S["etichette"].get(s, {}).get(r[i_["Area"]], "") != et:
+                errori.append(f"31: {s} {r[i_['Area']]}: etichetta diversa dal CSV ufficiale")
+            visti += 1
+        pieni = sum(1 for s in S["soc"] for v in S["soc"][s] if v)
+        if visti != pieni:
+            errori.append(f"31: l'estratto ha {pieni} righe, il CSV ufficiale {visti} per le stesse occupazioni")
+        geo = list(csv.DictReader(io.StringIO(zz.read("Geography.csv").decode("utf-8-sig"))))
+        if {r["Area"] for r in geo} != set(D["aree"]) or sum(len(v["voci"]) for v in D["contee"].values()) != len(geo):
+            errori.append("31: aree o contee diverse da Geography.csv")
+        note.append(f"estratto = ALC_Export.csv ufficiale su {visti} righe; aree e contee = Geography.csv")
+    else:
+        note.append("file grezzi assenti o diversi: ricalcolo dal CSV ufficiale saltato")
+    if (gr / "oesm25nat.zip").exists() and hashlib.sha256((gr / "oesm25nat.zip").read_bytes()).hexdigest() == D["fonti"]["bls_nazionale"]["sha256"]:
+        import openpyxl
+        wb = openpyxl.load_workbook(io.BytesIO(zipfile.ZipFile(gr / "oesm25nat.zip").read("oesm25nat/national_M2025_dl.xlsx")), read_only=True)
+        it = wb.worksheets[0].iter_rows(values_only=True)
+        h = next(it)
+        naz = {r[h.index("OCC_CODE")]: (r[h.index("TOT_EMP")], r[h.index("A_MEAN")], r[h.index("A_MEDIAN")]) for r in it if r[h.index("O_GROUP")] in ("detailed", "broad")}
+        for s in G.OCC_H1:
+            n = D["nazionale"][s]
+            if naz.get(s) != (n["tot_emp"], n["a_mean"], n["a_median"]):
+                errori.append(f"31: {s}: valori nazionali BLS diversi dal file ufficiale")
+        note.append("valori nazionali BLS = file oesm25nat")
+    # 2. selezione ricalcolata (indipendente dalle funzioni di genera)
+    def soglie(s, a):
+        v = S["soc"][s][pos[a]]
+        et = S["etichette"].get(s, {}).get(a, "")
+        if not v or et in ("h", "n") or any(x is None for x in v[:4]):
+            return None
+        return [_annuo31(x, et) for x in v[:4]]
+    occ = sorted(s for s in D["impieghi"] if (s.startswith("15-") or s == "17-1011" or s.startswith("17-2")) and D["occupazioni"][s]["istruzione"] and len(D["impieghi"][s]) >= 20)
+    if occ != G.OCC_H1:
+        errori.append(f"31: occupazioni con pagina {len(G.OCC_H1)} diverse dal ricalcolo ({len(occ)})")
+    top = {s: [a for a, _ in sorted(D["impieghi"][s].items(), key=lambda x: (-x[1], x[0]))][:60] for s in occ}
+    cop = {s: [a for a in top[s] if D["impieghi"][s][a] >= 1000 and (S["soc"][s][pos[a]] or [None] * 6)[5] == 1 and soglie(s, a)][:10] for s in occ}
+    if cop != G.COPPIE_H1:
+        errori.append("31: coppie occupazione × area diverse dal ricalcolo")
+    # 3. pagine attese, sitemap, titoli, JSON-LD, avviso, niente affiliazioni
+    sez = G.SEZ_H1
+    attese = {"", "lottery-odds"} | {G.SLUG_OCC_H1[s] for s in occ} | {f"{G.SLUG_OCC_H1[s]}/{G.SLUG_AREA_H1[a]}" for s in occ for a in cop[s]}
+    cart = SITO / sez.rstrip("/")
+    trovate = {f.parent.relative_to(cart).as_posix().replace(".", "") for f in cart.rglob("index.html")}
+    if trovate != attese:
+        errori.append(f"31: pagine diverse da quelle attese (in più {sorted(trovate - attese)[:5]}, mancanti {sorted(attese - trovate)[:5]})")
+    sitemap = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    letto = G.data_lunga(D["letto_il"])
+    frammenti = [v["frammento"] for v in D["letture"].values()]
+    dom = D["domanda"]["query"]
+    orig = G.pagina
+    G.pagina = lambda *a, **k: None
+    try:
+        G.FAQ_H1.clear()
+        G.pagina_h1_indice()   # solo le pagine (non genera_h1b, che riscriverebbe i file di dati del calcolatore)
+        G.pagina_h1_odds()
+        for s in G.OCC_H1:
+            G.pagina_h1_occ(s)
+            for a in G.COPPIE_H1[s]:
+                G.pagina_h1_coppia(s, a)
+    finally:
+        G.pagina = orig
+    pagine = {}
+    for s_ in sorted(attese & trovate):
+        percorso = f"{sez}{s_ + '/' if s_ else ''}"
+        t = (SITO / percorso / "index.html").read_text(encoding="utf-8")
+        main = t.split('<main id="main">', 1)[1].split("</main>", 1)[0]
+        pagine[s_] = (t, main)
+        if f"<loc>{G.URL_SITO}/{percorso}</loc>" not in sitemap:
+            errori.append(f"31: {percorso} non in sitemap")
+        titolo = html.unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+        if len(titolo) > 70 or not re.search(r"\b20\d\d\b", titolo):
+            errori.append(f"31: titolo oltre 70 caratteri o senza anno in {percorso} ({titolo!r})")
+        for x in ("FAQPage", "BreadcrumbList", f'<link rel="canonical" href="{G.URL_SITO}/{percorso}">', "Not legal or immigration advice.</strong>", "ask an immigration lawyer"):
+            if x not in t:
+                errori.append(f"31: manca {x!r} in {percorso}")
+        if re.search(r'rel="[^"]*sponsored', main) or "Affiliate" in main:
+            errori.append(f"31: link di affiliazione in {percorso}")
+        for x in ("guarantee", "you will be selected", "you qualify", "you are eligible"):
+            if x in main.lower():
+                errori.append(f"31: promessa ({x!r}) in {percorso}")
+        lead = _testo29(re.search(r'<p class="lead">(.*?)</p>', main, re.S).group(1))
+        if f"read on {letto}" not in lead:
+            errori.append(f"31: prima frase senza la data di lettura in {percorso}")
+        # citazioni = frammenti ufficiali
+        for q in re.findall(r"“([^”]+)”", html.unescape(main)):
+            if not any(q.rstrip(".").strip() in f for f in frammenti):
+                errori.append(f"31 {percorso}: citazione non presente nei frammenti ufficiali: {q[:80]!r}")
+        # FAQ visibili = registrate, da ricerche salvate; JSON-LD = testo
+        faq = G.FAQ_H1.get(percorso, [])
+        parte = main.split("Questions people ask", 1)[-1]
+        h3 = [html.unescape(x) for x in re.findall(r"<h3>(.*?)</h3>", parte)]
+        if not faq or h3 != [d for _, _, d in faq]:
+            errori.append(f"31 {percorso}: domande della FAQ diverse da quelle legate a ricerche dell'autocompletamento")
+        for k, sug, d in faq:
+            if sug not in (dom.get(k) or []):
+                errori.append(f"31 {percorso}: la domanda {d!r} non viene da una ricerca salvata ({k} -> {sug!r})")
+        risposte = [_testo29(x) for x in re.findall(r"</h3><p>(.*?)</p>", parte, re.S)]
+        ld = next((json.loads(x) for x in re.findall(r'<script type="application/ld\+json">(.*?)</script>', t, re.S) if '"FAQPage"' in x), None)
+        if not ld or [q["name"] for q in ld["mainEntity"]] != h3 or [re.sub(r"\s+", " ", q["acceptedAnswer"]["text"]).strip() for q in ld["mainEntity"]] != risposte:
+            errori.append(f"31 {percorso}: JSON-LD FAQPage diverso dal testo della FAQ")
+        if "data-h1b" in main and "window.CALC_H1B=" not in t:
+            errori.append(f"31 {percorso}: calcolatore senza il suo script")
+    # 4. pagine occupazione × area: prima frase, tabella dei livelli, confronto, altre aree
+    naz = D["nazionale"]
+    for s in occ:
+        for a in cop[s]:
+            s_ = f"{G.SLUG_OCC_H1[s]}/{G.SLUG_AREA_H1[a]}"
+            if s_ not in pagine:
+                continue
+            t, main = pagine[s_]
+            sg = soglie(s, a)
+            lead = _testo29(re.search(r'<p class="lead">(.*?)</p>', main, re.S).group(1))
+            if not lead.startswith(f"For {D['occupazioni'][s]['titolo']} (SOC {s}) in {D['aree'][a]['nome']}") or any(_usd31(x) not in lead for x in sg):
+                errori.append(f"31 {s_}: prima frase senza la risposta ricalcolata")
+            righe = _righe31(main, "t-livelli")
+            v = S["soc"][s][pos[a]]
+            attese_r = [[f"Level {l}", _usd31(sg[i]), (f"up to {_usd31(sg[i + 1] - 1)}" if i < 3 else "and above"), f"${v[i] / 100:.2f}", str(i + 1),
+                         G.pct_h1(L["stima_dhs"][l])] for i, l in enumerate(("I", "II", "III", "IV"))]
+            if not righe or righe[:4] != attese_r:
+                errori.append(f"31 {s_}: tabella dei livelli diversa dal ricalcolo")
+            altre = _righe31(main, "t-altre")
+            att = [[D["aree"][x]["nome"], _n29(D["impieghi"][s][x])] + [_usd31(y) for y in soglie(s, x)] + [str(S["soc"][s][pos[x]][5])] for x in [a] + [y for y in cop[s] if y != a]]
+            if altre != att:
+                errori.append(f"31 {s_}: tabella delle altre aree diversa dal ricalcolo")
+            n = naz[s]
+            if n["a_mean"]:
+                d1 = round((sg[0] - n["a_mean"]) / n["a_mean"] * 100)
+                atteso = "the same as" if d1 == 0 else (f"{d1}% above" if d1 > 0 else f"{-d1}% below")
+                if f"mean wage of {_usd31(n['a_mean'])}" not in _testo29(main) or f"{_usd31(sg[0])}, {atteso} the US mean" not in _testo29(main):
+                    errori.append(f"31 {s_}: confronto con la media nazionale diverso dal ricalcolo")
+    # 5. pagine delle occupazioni: 60 aree nell'ordine dei posti, valori
+    for s in occ:
+        s_ = G.SLUG_OCC_H1[s]
+        if s_ not in pagine:
+            continue
+        t, main = pagine[s_]
+        righe = _righe31(main, "t-aree")
+        att = []
+        for a in top[s]:
+            sg = soglie(s, a)
+            att.append([D["aree"][a]["nome"], _n29(D["impieghi"][s][a])] + ([_usd31(x) for x in sg] if sg else ["no levels published"]) + [str(S["soc"][s][pos[a]][5]) if S["soc"][s][pos[a]] else "–"])
+        if righe != att:
+            errori.append(f"31 {s_}: tabella delle aree diversa dal ricalcolo")
+        con = [a for a in top[s] if soglie(s, a)]
+        l2 = [soglie(s, a)[1] for a in con]
+        lead = _testo29(re.search(r'<p class="lead">(.*?)</p>', main, re.S).group(1))
+        if f"from {_usd31(min(l2))}" not in lead or f"to {_usd31(max(l2))}" not in lead:
+            errori.append(f"31 {s_}: prima frase (Level II più basso e più alto) diversa dal ricalcolo")
+    # 6. indice e pagina delle probabilità
+    if "" in pagine:
+        t, main = pagine[""]
+        lead = _testo29(re.search(r'<p class="lead">(.*?)</p>', main, re.S).group(1))
+        if _usd31(soglie("15-1252", "41940")[1]) not in lead or _usd31(soglie("15-1252", "19100")[1]) not in lead or "90 FR 60864" not in lead:
+            errori.append("31: prima frase dell'indice diversa dal ricalcolo")
+        righe = _righe31(main, "t-pesi")
+        if righe != [[f"Level {l}", str(L["pesi"][l]), _n29(c[l]), G.pct_h1(L["stima_casuale"]), G.pct_h1(L["stima_dhs"][l])] for l in ("I", "II", "III", "IV")]:
+            errori.append("31: tabella dei pesi dell'indice diversa dai dati")
+        stato = _righe31(main, "t-stato-h1b")
+        if not stato or [r[1] for r in stato] != ["In force", "In force", "Proposal", "Proposal"] or "103,265" not in stato[2][0] or "17th to the 34th" not in stato[3][2]:
+            errori.append("31: tabella dello stato delle regole: proposta presentata come in vigore o dati mancanti")
+        for x in ("lottery-odds/", f"../{G.SEZ_OPT}"):
+            if f'href="{x}"' not in main:
+                errori.append(f"31: manca il link {x} nell'indice")
+    if "lottery-odds" in pagine:
+        t, main = pagine["lottery-odds"]
+        tt = _testo29(main)
+        for x in ("46.3%", "17.8%", "15.29%", "61.16%", "29.59%", "620,755"):
+            if x not in tt:
+                errori.append(f"31: manca {x} nella pagina delle probabilità")
+    # 7. calcolatore: file di dati, motore JS = Python (campione di pagine statiche e casi a caso), calcolo delle probabilità
+    cd = SITO / sez / "data"
+    socs = sorted(S["soc"])
+    mancano = [s for s in socs if not (cd / "soc" / f"{s}.json").exists()]
+    if mancano or not (cd / "areas.json").exists():
+        errori.append(f"31: file di dati del calcolatore mancanti ({mancano[:3]})")
+    for s in socs:   # ogni file del calcolatore = estratto (e quindi = tabelle delle pagine statiche)
+        f = cd / "soc" / f"{s}.json"
+        if f.exists():
+            d = json.loads(f.read_text(encoding="utf-8"))
+            atteso = {a: v for a, v in zip(S["aree"], S["soc"][s]) if v}
+            if d.get("r") != atteso or d.get("e", {}) != S["etichette"].get(s, {}) or d.get("t") != D["occupazioni"][s]["titolo"]:
+                errori.append(f"31: file del calcolatore {s}.json diverso dall'estratto dei salari")
+    ar = json.loads((cd / "areas.json").read_text(encoding="utf-8")) if (cd / "areas.json").exists() else {"aree": {}, "contee": {}}
+    if set(ar["aree"]) != set(D["aree"]) or any(x[1] not in ar["aree"] for v in ar["contee"].values() for x in v[1]):
+        errori.append("31: areas.json del calcolatore diverso dalle aree del file OFLC")
+    rng = random.Random(31)
+    casi = []
+    for s_ in rng.sample(sorted(x for x in pagine if "/" in x), min(40, sum(1 for x in pagine if "/" in x))):
+        s = next(k for k, v in G.SLUG_OCC_H1.items() if v == s_.split("/")[0])
+        a = next(k for k, v in G.SLUG_AREA_H1.items() if v == s_.split("/")[1])
+        sg = [int(r[1].replace("$", "").replace(",", "")) for r in _righe31(pagine[s_][1], "t-livelli")[:4]]
+        for sal in (sg[0] - 1, sg[0], sg[1] - 1, sg[1], sg[2], sg[3] - 1, sg[3], sg[3] + 50000):
+            casi.append((s, a, sal, "anno", sg))
+    for _ in range(400):
+        s = rng.choice(socs)
+        a = rng.choice(S["aree"])
+        casi.append((s, a, rng.choice([rng.randint(30000, 300000), round(rng.uniform(15, 150), 2)]), rng.choice(["anno", "ora"]), None))
+    if "" in pagine:
+        js = next(x for x in re.findall(r"<script>(.*?)</script>", pagine[""][0], re.S) if "window.CALC_H1B=" in x)
+        dati = {}
+        for s, a, *_ in casi:
+            dati.setdefault(s, json.loads((cd / "soc" / f"{s}.json").read_text(encoding="utf-8")))
+        prog = ("var window={};var document={querySelectorAll:function(){return [];}};\n" + js +
+                "\nvar D=" + json.dumps(dati) + ";var CASI=" + json.dumps([[s, a, sal, per] for s, a, sal, per, _ in casi]) +
+                ";var C=window.CALC_H1B;console.log(JSON.stringify(CASI.map(function(c){var d=D[c[0]],r=d.r[c[1]],et=(d.e||{})[c[1]]||'';"
+                "var s=C.soglie(r,et,2080);return [s,C.livelloPer(r,et,2080,c[2],c[3])];})));")
+        with tempfile.NamedTemporaryFile("w", suffix=".js", delete=False) as fh:
+            fh.write(prog)
+        r = subprocess.run(["node", fh.name], capture_output=True, text=True, timeout=120)
+        if r.returncode != 0:
+            errori.append(f"31: JS del calcolatore non eseguibile: {r.stderr[-300:]}")
+        else:
+            for (s, a, sal, per, sg_pag), (sj, lj) in zip(casi, json.loads(r.stdout)):
+                sp = soglie(s, a)
+                v = S["soc"][s][pos[a]]
+                et = S["etichette"].get(s, {}).get(a, "")
+                if not sp:
+                    lp = None
+                elif per == "ora" and et != "a":   # salario orario: confronto con i livelli orari del file, in centesimi
+                    cent = int((Decimal(str(sal)) * 100).quantize(Decimal(1), rounding=ROUND_HALF_UP))
+                    lp = max([i + 1 for i in range(4) if cent >= v[i]] or [0])
+                else:                              # salario annuale: confronto con le soglie annuali (orario × 2080 arrotondato)
+                    x = Decimal(str(sal)) * (2080 if per == "ora" else 1)
+                    lp = max([i + 1 for i, y in enumerate(sp) if x >= y] or [0])
+                if sj != sp or lj != lp:
+                    errori.append(f"31: calcolatore JS {s} {a} {sal}/{per}: {sj} {lj} contro Python {sp} {lp}")
+                if sg_pag and sj != sg_pag:
+                    errori.append(f"31: calcolatore e pagina statica diversi per {s} {a}: {sj} contro {sg_pag}")
+    if "lottery-odds" in pagine:
+        js = next(x for x in re.findall(r"<script>(.*?)</script>", pagine["lottery-odds"][0], re.S) if "window.CALC_ODDS=" in x)
+        prog = ("var window={};var document={querySelectorAll:function(){return [];}};\n" + js +
+                f"\nconsole.log(JSON.stringify(window.CALC_ODDS.prob({json.dumps([c[l] for l in ('I', 'II', 'III', 'IV')])},{L['selezioni_dhs']})));")
+        with tempfile.NamedTemporaryFile("w", suffix=".js", delete=False) as fh:
+            fh.write(prog)
+        r = subprocess.run(["node", fh.name], capture_output=True, text=True, timeout=60)
+        p = json.loads(r.stdout) if r.returncode == 0 else None
+        if not p or any(abs(p[i] * 100 - L["stima_dhs"][l]) > 0.011 for i, l in enumerate(("I", "II", "III", "IV"))):
+            errori.append(f"31: calcolo delle probabilità diverso dalle stime DHS ({p})")
+    # 8. collegamenti dal resto del sito; piè di pagina comune invariato
+    for f, x in (("index.html", f'href="{sez}"'), ("how-it-works/index.html", f'href="../{sez}"'), (f"{G.SEZ_OPT}index.html", f'href="../{sez}"')):
+        if x not in leggi(f):
+            errori.append(f"31: manca il link {x} in {f}")
+    if "h1b" in G.piede_en("") or any("h1b-wage-level" in leggi(f"visa-refusal-rates/{c}/index.html") for c in G.ESP.get("controllo", [])):
+        errori.append("31: il piè di pagina comune o una pagina di controllo dell'esperimento è cambiata")
+    # 9. online: documenti del Federal Register riletti (tipo, citazione, data)
+    if online:
+        for k, (tipo, cit, data_) in attesi.items():
+            try:
+                d = json.loads(urllib.request.urlopen(urllib.request.Request(f"https://www.federalregister.gov/api/v1/documents/{FR[k]['document_number']}.json",
+                                                                             headers={"User-Agent": "Mozilla/5.0"}), timeout=60).read())
+                if (d.get("type"), d.get("citation"), d.get("publication_date")) != (tipo, cit, data_):
+                    errori.append(f"31: Federal Register {k} cambiato online")
+                else:
+                    note.append(f"Federal Register {cit} riletto")
+            except Exception as e:  # noqa: BLE001
+                note.append(f"Federal Register {k} non letto online ({e.__class__.__name__})")
+    return errori, len(pagine), len(casi), note
+
+
 def main():
     errori = controlla_esempi()
     print(f"1. Esempi a mano: {len(ESEMPI)} importi e {len(ESITI)} confronti con il reddito, {len(errori)} errori")
@@ -4167,7 +4512,13 @@ def main():
           f"frammenti, università e Paesi, prima frase con risposta, fonte e data, tabelle ricalcolate, confronto dei visti, citazioni, FAQ da ricerche vere, nessun affiliato, link, piè di pagina: {len(e30)} errori")
     for x in r30:
         print("    ·", x)
-    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28 + e29 + e30
+    e31, n31, j31, r31 = controlla_h1b(online="--offline" not in sys.argv)
+    print(f"31. H-1B wage level e lotteria pesata: {n31} pagine, impronte e fonti, estratto = CSV OFLC (file grezzi), valori BLS, selezione di occupazioni e aree ricalcolata, "
+          f"prima frase, tabelle dei livelli e delle aree ricalcolate, confronto nazionale, stime DHS, stato delle regole, citazioni, FAQ da ricerche vere = JSON-LD, "
+          f"calcolatore (JS = Python e = pagine statiche su {j31} casi), link, piè di pagina: {len(e31)} errori")
+    for x in r31:
+        print("    ·", x)
+    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28 + e29 + e30 + e31
     for e in tutti:
         print(" -", e)
     if tutti:

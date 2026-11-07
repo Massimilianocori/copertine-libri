@@ -2,8 +2,8 @@
 "_nota": "Scritto da genera.py: percorso -> [data dell'ultima modifica del contenuto, impronta]. Non modificare a mano.",
 "pagine": {
 "": [
-"2026-11-05",
-"3614bdd610ca821ca8d6"
+"2026-11-07",
+"47578afd853e4aca900e"
 ],
 "about/": [
 "2026-10-15",
@@ -785,9 +785,1193 @@
 "2026-10-31",
 "246d2dbd2f2b48746972"
 ],
+"h1b-wage-level/": [
+"2026-11-07",
+"69515b1557429197d3af"
+],
+"h1b-wage-level/actuaries/": [
+"2026-11-07",
+"a3dd73d94db175a2dd61"
+],
+"h1b-wage-level/actuaries/chicago-il/": [
+"2026-11-07",
+"9ee7459760682828a762"
+],
+"h1b-wage-level/actuaries/minneapolis-mn/": [
+"2026-11-07",
+"9370f660509a53ab85cb"
+],
+"h1b-wage-level/actuaries/new-york-ny/": [
+"2026-11-07",
+"620ee071db7953d68fb2"
+],
+"h1b-wage-level/aerospace-engineers/": [
+"2026-11-07",
+"661732503c7720183cc3"
+],
+"h1b-wage-level/aerospace-engineers/dallas-tx/": [
+"2026-11-07",
+"1e1470c2210d041e6710"
+],
+"h1b-wage-level/aerospace-engineers/dayton-oh/": [
+"2026-11-07",
+"2ff9d47dda2517fa7136"
+],
+"h1b-wage-level/aerospace-engineers/denver-co/": [
+"2026-11-07",
+"7916e09f7c085a3eea9a"
+],
+"h1b-wage-level/aerospace-engineers/houston-tx/": [
+"2026-11-07",
+"0d939cc1d8286b697c70"
+],
+"h1b-wage-level/aerospace-engineers/huntsville-al/": [
+"2026-11-07",
+"8ea6297c74e188fcc282"
+],
+"h1b-wage-level/aerospace-engineers/los-angeles-ca/": [
+"2026-11-07",
+"4997fbe0b6cbafb040b3"
+],
+"h1b-wage-level/aerospace-engineers/seattle-wa/": [
+"2026-11-07",
+"c437f80f97b02aac147c"
+],
+"h1b-wage-level/aerospace-engineers/tucson-az/": [
+"2026-11-07",
+"fbcce232d27c4e05133c"
+],
+"h1b-wage-level/aerospace-engineers/washington-dc/": [
+"2026-11-07",
+"f286e9de7766b87c62db"
+],
+"h1b-wage-level/aerospace-engineers/wichita-ks/": [
+"2026-11-07",
+"614704d7c309ddfae504"
+],
+"h1b-wage-level/architects/": [
+"2026-11-07",
+"60b070f45e2d7270fc3d"
+],
+"h1b-wage-level/architects/boston-ma/": [
+"2026-11-07",
+"d10b10cd252d4c5389f4"
+],
+"h1b-wage-level/architects/chicago-il/": [
+"2026-11-07",
+"db8200398fcfde9e1ca3"
+],
+"h1b-wage-level/architects/dallas-tx/": [
+"2026-11-07",
+"fe4b3a3a587049dc1035"
+],
+"h1b-wage-level/architects/houston-tx/": [
+"2026-11-07",
+"12a0963da3a2aca4d632"
+],
+"h1b-wage-level/architects/los-angeles-ca/": [
+"2026-11-07",
+"6e075b6ea2fa95df5520"
+],
+"h1b-wage-level/architects/new-york-ny/": [
+"2026-11-07",
+"0b2e6244318947fb8dd7"
+],
+"h1b-wage-level/architects/philadelphia-pa/": [
+"2026-11-07",
+"81e4d94efbe8769d4ab1"
+],
+"h1b-wage-level/architects/san-francisco-ca/": [
+"2026-11-07",
+"bd1d58637e298a0b82f1"
+],
+"h1b-wage-level/architects/seattle-wa/": [
+"2026-11-07",
+"6a7ce4b32588709b7600"
+],
+"h1b-wage-level/architects/washington-dc/": [
+"2026-11-07",
+"9633f53d938571a505e5"
+],
+"h1b-wage-level/biomedical-engineers/": [
+"2026-11-07",
+"d476f57dad1fd60b1702"
+],
+"h1b-wage-level/biomedical-engineers/boston-ma/": [
+"2026-11-07",
+"16bf25c9494244009e92"
+],
+"h1b-wage-level/biomedical-engineers/minneapolis-mn/": [
+"2026-11-07",
+"19b86d69bc5190b323c2"
+],
+"h1b-wage-level/chemical-engineers/": [
+"2026-11-07",
+"2ad97c5302e9a4f45b4d"
+],
+"h1b-wage-level/chemical-engineers/houston-tx/": [
+"2026-11-07",
+"749a3c2e6a49ac502a73"
+],
+"h1b-wage-level/civil-engineers/": [
+"2026-11-07",
+"0fa8076c544033ae6b6e"
+],
+"h1b-wage-level/civil-engineers/boston-ma/": [
+"2026-11-07",
+"295e7f012b60b8ed6ef1"
+],
+"h1b-wage-level/civil-engineers/chicago-il/": [
+"2026-11-07",
+"3e4c257689a060849d86"
+],
+"h1b-wage-level/civil-engineers/dallas-tx/": [
+"2026-11-07",
+"2caa502ea5cb564e403a"
+],
+"h1b-wage-level/civil-engineers/denver-co/": [
+"2026-11-07",
+"1fe9ac6e8a39277a715f"
+],
+"h1b-wage-level/civil-engineers/houston-tx/": [
+"2026-11-07",
+"83b1dfd3a6679bd5a9bb"
+],
+"h1b-wage-level/civil-engineers/los-angeles-ca/": [
+"2026-11-07",
+"4942a67cdf59617bd5bf"
+],
+"h1b-wage-level/civil-engineers/new-york-ny/": [
+"2026-11-07",
+"3cf7b7b0396344c2e023"
+],
+"h1b-wage-level/civil-engineers/san-francisco-ca/": [
+"2026-11-07",
+"2ce393178518f00cffde"
+],
+"h1b-wage-level/civil-engineers/seattle-wa/": [
+"2026-11-07",
+"b02faee3911a1459205b"
+],
+"h1b-wage-level/civil-engineers/washington-dc/": [
+"2026-11-07",
+"36ce447a3155dcd44966"
+],
+"h1b-wage-level/computer-hardware-engineers/": [
+"2026-11-07",
+"af939fffbb553eca9f11"
+],
+"h1b-wage-level/computer-hardware-engineers/austin-tx/": [
+"2026-11-07",
+"49a7dd57437ce9a56c91"
+],
+"h1b-wage-level/computer-hardware-engineers/boston-ma/": [
+"2026-11-07",
+"9469182ac624dd572248"
+],
+"h1b-wage-level/computer-hardware-engineers/dallas-tx/": [
+"2026-11-07",
+"b79e7a9034e7c2bd0a21"
+],
+"h1b-wage-level/computer-hardware-engineers/los-angeles-ca/": [
+"2026-11-07",
+"1583ff69f8918364c4be"
+],
+"h1b-wage-level/computer-hardware-engineers/new-york-ny/": [
+"2026-11-07",
+"bfc36aa2b78456821b39"
+],
+"h1b-wage-level/computer-hardware-engineers/phoenix-az/": [
+"2026-11-07",
+"8c290b310ac316f61978"
+],
+"h1b-wage-level/computer-hardware-engineers/san-diego-ca/": [
+"2026-11-07",
+"e402b1cf58a19d1451cc"
+],
+"h1b-wage-level/computer-hardware-engineers/san-francisco-ca/": [
+"2026-11-07",
+"209633af198d72d76625"
+],
+"h1b-wage-level/computer-hardware-engineers/san-jose-ca/": [
+"2026-11-07",
+"496756be2a6aee197c65"
+],
+"h1b-wage-level/computer-hardware-engineers/washington-dc/": [
+"2026-11-07",
+"30cf222efcf629e2dd01"
+],
+"h1b-wage-level/computer-network-architects/": [
+"2026-11-07",
+"aa4b83b43e6c0f4abc03"
+],
+"h1b-wage-level/computer-network-architects/atlanta-ga/": [
+"2026-11-07",
+"47f6d6125d99cbef6445"
+],
+"h1b-wage-level/computer-network-architects/boston-ma/": [
+"2026-11-07",
+"2d24ac491ad93775ba1d"
+],
+"h1b-wage-level/computer-network-architects/chicago-il/": [
+"2026-11-07",
+"0eebd4476598b52ce7e5"
+],
+"h1b-wage-level/computer-network-architects/dallas-tx/": [
+"2026-11-07",
+"62af846717f1c0a350a1"
+],
+"h1b-wage-level/computer-network-architects/denver-co/": [
+"2026-11-07",
+"37f8241d927b20164628"
+],
+"h1b-wage-level/computer-network-architects/los-angeles-ca/": [
+"2026-11-07",
+"12a3e79bc8bae59ff201"
+],
+"h1b-wage-level/computer-network-architects/new-york-ny/": [
+"2026-11-07",
+"81bb0c34be6cc7f46cf0"
+],
+"h1b-wage-level/computer-network-architects/san-francisco-ca/": [
+"2026-11-07",
+"8cf2b1ae5b9e4aa2789a"
+],
+"h1b-wage-level/computer-network-architects/seattle-wa/": [
+"2026-11-07",
+"8acc17a5b910b10ad55a"
+],
+"h1b-wage-level/computer-network-architects/washington-dc/": [
+"2026-11-07",
+"489cb5ac71678acd9fcf"
+],
+"h1b-wage-level/computer-programmers/": [
+"2026-11-07",
+"252e601e9936eb88350d"
+],
+"h1b-wage-level/computer-programmers/albany-ny/": [
+"2026-11-07",
+"2c36a49cc4fc9549b268"
+],
+"h1b-wage-level/computer-programmers/boston-ma/": [
+"2026-11-07",
+"98ca3965d5de7e7823e6"
+],
+"h1b-wage-level/computer-programmers/dallas-tx/": [
+"2026-11-07",
+"1a64f155171cce4f8f53"
+],
+"h1b-wage-level/computer-programmers/los-angeles-ca/": [
+"2026-11-07",
+"23ceb571fa319b2594a6"
+],
+"h1b-wage-level/computer-programmers/minneapolis-mn/": [
+"2026-11-07",
+"0b8776100dca7cfe0338"
+],
+"h1b-wage-level/computer-programmers/new-york-ny/": [
+"2026-11-07",
+"663bc0ba5f6a242be907"
+],
+"h1b-wage-level/computer-programmers/philadelphia-pa/": [
+"2026-11-07",
+"0c371f4a58bca9d726a6"
+],
+"h1b-wage-level/computer-programmers/san-diego-ca/": [
+"2026-11-07",
+"48c6e260308e1a01d344"
+],
+"h1b-wage-level/computer-programmers/san-francisco-ca/": [
+"2026-11-07",
+"1e45858753dc3a375410"
+],
+"h1b-wage-level/computer-programmers/washington-dc/": [
+"2026-11-07",
+"e866012e0d94d7b8fee6"
+],
+"h1b-wage-level/computer-research-scientists/": [
+"2026-11-07",
+"d20763ce0e7612ff1501"
+],
+"h1b-wage-level/computer-research-scientists/baltimore-md/": [
+"2026-11-07",
+"38d791651d8f15e0a60e"
+],
+"h1b-wage-level/computer-research-scientists/boston-ma/": [
+"2026-11-07",
+"38ae74318f24fdc366a1"
+],
+"h1b-wage-level/computer-research-scientists/new-york-ny/": [
+"2026-11-07",
+"eda0d2b108688b19795b"
+],
+"h1b-wage-level/computer-research-scientists/san-diego-ca/": [
+"2026-11-07",
+"f2d9a08b1dd313cf84db"
+],
+"h1b-wage-level/computer-research-scientists/san-francisco-ca/": [
+"2026-11-07",
+"a4941d357aec00ccd2f4"
+],
+"h1b-wage-level/computer-research-scientists/san-jose-ca/": [
+"2026-11-07",
+"409db4be9f7bd1fd2cd4"
+],
+"h1b-wage-level/computer-research-scientists/seattle-wa/": [
+"2026-11-07",
+"724a9fe228f05a953f3b"
+],
+"h1b-wage-level/computer-research-scientists/washington-dc/": [
+"2026-11-07",
+"4c70961eef1642b19600"
+],
+"h1b-wage-level/computer-systems-analysts/": [
+"2026-11-07",
+"b8ba3228f28551748b77"
+],
+"h1b-wage-level/computer-systems-analysts/boston-ma/": [
+"2026-11-07",
+"b2fc9c75e734a49c1fa5"
+],
+"h1b-wage-level/computer-systems-analysts/chicago-il/": [
+"2026-11-07",
+"240dbdd3385fc6406bb4"
+],
+"h1b-wage-level/computer-systems-analysts/dallas-tx/": [
+"2026-11-07",
+"f4db727d4d8e8ec03e6b"
+],
+"h1b-wage-level/computer-systems-analysts/los-angeles-ca/": [
+"2026-11-07",
+"79fb4e3b6471ddbc58c3"
+],
+"h1b-wage-level/computer-systems-analysts/miami-fl/": [
+"2026-11-07",
+"92d34060e6ec017e61e3"
+],
+"h1b-wage-level/computer-systems-analysts/new-york-ny/": [
+"2026-11-07",
+"d98a1dca0a4efc9806e6"
+],
+"h1b-wage-level/computer-systems-analysts/phoenix-az/": [
+"2026-11-07",
+"846af9e8600f16f37b88"
+],
+"h1b-wage-level/computer-systems-analysts/san-francisco-ca/": [
+"2026-11-07",
+"0d1c4435090b728d3f10"
+],
+"h1b-wage-level/computer-systems-analysts/seattle-wa/": [
+"2026-11-07",
+"344494ff863069ceb2f2"
+],
+"h1b-wage-level/computer-systems-analysts/washington-dc/": [
+"2026-11-07",
+"92abc666e52c560fc7b7"
+],
+"h1b-wage-level/data-scientists/": [
+"2026-11-07",
+"025bae97e2eaf67b25e6"
+],
+"h1b-wage-level/data-scientists/atlanta-ga/": [
+"2026-11-07",
+"fa6cf39af9eeccd877f7"
+],
+"h1b-wage-level/data-scientists/boston-ma/": [
+"2026-11-07",
+"efb8ff31695e2500a459"
+],
+"h1b-wage-level/data-scientists/chicago-il/": [
+"2026-11-07",
+"7d2357fda5e69ce32067"
+],
+"h1b-wage-level/data-scientists/dallas-tx/": [
+"2026-11-07",
+"11338cf3d5c7410ea226"
+],
+"h1b-wage-level/data-scientists/los-angeles-ca/": [
+"2026-11-07",
+"7beee527cae98dc7390c"
+],
+"h1b-wage-level/data-scientists/new-york-ny/": [
+"2026-11-07",
+"e1118377709ca6e8f14c"
+],
+"h1b-wage-level/data-scientists/philadelphia-pa/": [
+"2026-11-07",
+"9c3d327f449164a94d6f"
+],
+"h1b-wage-level/data-scientists/san-francisco-ca/": [
+"2026-11-07",
+"6e30fc44d74e78e4bb0b"
+],
+"h1b-wage-level/data-scientists/seattle-wa/": [
+"2026-11-07",
+"7a5a9526f8fefb7d69b5"
+],
+"h1b-wage-level/data-scientists/washington-dc/": [
+"2026-11-07",
+"6e9c49188685746cb93f"
+],
+"h1b-wage-level/database-administrators/": [
+"2026-11-07",
+"c877e2f94044cf116c50"
+],
+"h1b-wage-level/database-administrators/atlanta-ga/": [
+"2026-11-07",
+"133a1c7cc1a743a6d86d"
+],
+"h1b-wage-level/database-administrators/baltimore-md/": [
+"2026-11-07",
+"4cb630462deaf82fef23"
+],
+"h1b-wage-level/database-administrators/boston-ma/": [
+"2026-11-07",
+"816f68fbe4bccc885e94"
+],
+"h1b-wage-level/database-administrators/chicago-il/": [
+"2026-11-07",
+"c7923677ac231ce8b1a4"
+],
+"h1b-wage-level/database-administrators/dallas-tx/": [
+"2026-11-07",
+"3657223b5ed4a42c24df"
+],
+"h1b-wage-level/database-administrators/los-angeles-ca/": [
+"2026-11-07",
+"01d702afc9efd6b7eda7"
+],
+"h1b-wage-level/database-administrators/new-york-ny/": [
+"2026-11-07",
+"c86fe7a4281c5b2c6eb5"
+],
+"h1b-wage-level/database-administrators/philadelphia-pa/": [
+"2026-11-07",
+"b50088f8d3a181e119ae"
+],
+"h1b-wage-level/database-administrators/san-francisco-ca/": [
+"2026-11-07",
+"7d11ee22b3e15a8fe519"
+],
+"h1b-wage-level/database-administrators/washington-dc/": [
+"2026-11-07",
+"2691cc773b8b88706594"
+],
+"h1b-wage-level/database-architects/": [
+"2026-11-07",
+"e67f08e6fa37d09e633d"
+],
+"h1b-wage-level/database-architects/atlanta-ga/": [
+"2026-11-07",
+"98e311b3cbd9554faf98"
+],
+"h1b-wage-level/database-architects/boston-ma/": [
+"2026-11-07",
+"0e89d80ed3d6edcdb0ac"
+],
+"h1b-wage-level/database-architects/charlotte-nc/": [
+"2026-11-07",
+"557263fdbdd390b1441b"
+],
+"h1b-wage-level/database-architects/dallas-tx/": [
+"2026-11-07",
+"aefac0fcb95d812e1713"
+],
+"h1b-wage-level/database-architects/los-angeles-ca/": [
+"2026-11-07",
+"6be084094af81c3ce598"
+],
+"h1b-wage-level/database-architects/new-york-ny/": [
+"2026-11-07",
+"ef28258ac22056f7f8ad"
+],
+"h1b-wage-level/database-architects/philadelphia-pa/": [
+"2026-11-07",
+"4838a5f1820d901feacc"
+],
+"h1b-wage-level/database-architects/san-francisco-ca/": [
+"2026-11-07",
+"a93245e662710e1787f7"
+],
+"h1b-wage-level/database-architects/seattle-wa/": [
+"2026-11-07",
+"590984a4ec2677428752"
+],
+"h1b-wage-level/database-architects/washington-dc/": [
+"2026-11-07",
+"44c577313b110c6e446d"
+],
+"h1b-wage-level/electrical-engineers/": [
+"2026-11-07",
+"8458975ac88db5dc9191"
+],
+"h1b-wage-level/electrical-engineers/austin-tx/": [
+"2026-11-07",
+"11688e10a831a660b5c1"
+],
+"h1b-wage-level/electrical-engineers/chicago-il/": [
+"2026-11-07",
+"c8755e52d0eaf828ca9b"
+],
+"h1b-wage-level/electrical-engineers/dallas-tx/": [
+"2026-11-07",
+"b2ae0df34f4384eac684"
+],
+"h1b-wage-level/electrical-engineers/detroit-mi/": [
+"2026-11-07",
+"60ae217d78d66adcda61"
+],
+"h1b-wage-level/electrical-engineers/houston-tx/": [
+"2026-11-07",
+"5a1a2a1653e8856230af"
+],
+"h1b-wage-level/electrical-engineers/los-angeles-ca/": [
+"2026-11-07",
+"fdc8efd0f860ccaea94a"
+],
+"h1b-wage-level/electrical-engineers/new-york-ny/": [
+"2026-11-07",
+"ec2e6799873678c9b503"
+],
+"h1b-wage-level/electrical-engineers/san-jose-ca/": [
+"2026-11-07",
+"0de519bda103fbbef251"
+],
+"h1b-wage-level/electrical-engineers/seattle-wa/": [
+"2026-11-07",
+"f8cec1370010f29c5c73"
+],
+"h1b-wage-level/electrical-engineers/washington-dc/": [
+"2026-11-07",
+"2b995e2fd0331c0907f6"
+],
+"h1b-wage-level/electronics-engineers/": [
+"2026-11-07",
+"b785def3192683aff2ed"
+],
+"h1b-wage-level/electronics-engineers/boston-ma/": [
+"2026-11-07",
+"1b132601c4fe13b30972"
+],
+"h1b-wage-level/electronics-engineers/dallas-tx/": [
+"2026-11-07",
+"b3cf56cd7a66b6aa1b79"
+],
+"h1b-wage-level/electronics-engineers/denver-co/": [
+"2026-11-07",
+"45fbf08362b20a0ba62c"
+],
+"h1b-wage-level/electronics-engineers/detroit-mi/": [
+"2026-11-07",
+"c189ad7c1f569f688fdd"
+],
+"h1b-wage-level/electronics-engineers/los-angeles-ca/": [
+"2026-11-07",
+"7648425c6b90a3b3d6c0"
+],
+"h1b-wage-level/electronics-engineers/new-york-ny/": [
+"2026-11-07",
+"4e6626b409660cd93b75"
+],
+"h1b-wage-level/electronics-engineers/san-diego-ca/": [
+"2026-11-07",
+"2b92fa78417862065e88"
+],
+"h1b-wage-level/electronics-engineers/san-francisco-ca/": [
+"2026-11-07",
+"a3cbcba2092d1abdc5c1"
+],
+"h1b-wage-level/electronics-engineers/san-jose-ca/": [
+"2026-11-07",
+"ac3dc6f57415729a6da0"
+],
+"h1b-wage-level/electronics-engineers/washington-dc/": [
+"2026-11-07",
+"1f359d47250d14ca70f8"
+],
+"h1b-wage-level/engineers-all-other/": [
+"2026-11-07",
+"e8b686177906c230aa3f"
+],
+"h1b-wage-level/engineers-all-other/atlanta-ga/": [
+"2026-11-07",
+"39bf9fd003c65f6c3bcd"
+],
+"h1b-wage-level/engineers-all-other/detroit-mi/": [
+"2026-11-07",
+"0a48ccfdb68af2a13263"
+],
+"h1b-wage-level/engineers-all-other/houston-tx/": [
+"2026-11-07",
+"3827e6ed42ea6957a5c3"
+],
+"h1b-wage-level/engineers-all-other/huntsville-al/": [
+"2026-11-07",
+"12424e342486a3417668"
+],
+"h1b-wage-level/engineers-all-other/los-angeles-ca/": [
+"2026-11-07",
+"3b7cd49172ea260a3443"
+],
+"h1b-wage-level/engineers-all-other/new-york-ny/": [
+"2026-11-07",
+"1b6f1c1285276584c6a8"
+],
+"h1b-wage-level/engineers-all-other/san-diego-ca/": [
+"2026-11-07",
+"2ac78d88814cd6c6ffc1"
+],
+"h1b-wage-level/engineers-all-other/san-francisco-ca/": [
+"2026-11-07",
+"a4bac6ef71d9e2cbc5af"
+],
+"h1b-wage-level/engineers-all-other/san-jose-ca/": [
+"2026-11-07",
+"f60a5dcfefe80bd71e73"
+],
+"h1b-wage-level/engineers-all-other/washington-dc/": [
+"2026-11-07",
+"2c1950232a268869e292"
+],
+"h1b-wage-level/environmental-engineers/": [
+"2026-11-07",
+"58692c9896be64e8f35d"
+],
+"h1b-wage-level/environmental-engineers/boston-ma/": [
+"2026-11-07",
+"31d21228353e5be096be"
+],
+"h1b-wage-level/environmental-engineers/new-york-ny/": [
+"2026-11-07",
+"c37c017573c804bf43e8"
+],
+"h1b-wage-level/environmental-engineers/philadelphia-pa/": [
+"2026-11-07",
+"17da44ca1f45cc825922"
+],
+"h1b-wage-level/environmental-engineers/sacramento-ca/": [
+"2026-11-07",
+"71941205e271cae8623e"
+],
+"h1b-wage-level/environmental-engineers/seattle-wa/": [
+"2026-11-07",
+"3e8696b4e7ac10d93cf5"
+],
+"h1b-wage-level/health-and-safety-engineers/": [
+"2026-11-07",
+"adc3167c80fd015f17ed"
+],
+"h1b-wage-level/health-and-safety-engineers/dallas-tx/": [
+"2026-11-07",
+"640a829bb00f2f3085c6"
+],
+"h1b-wage-level/health-and-safety-engineers/houston-tx/": [
+"2026-11-07",
+"6a78ad3312df5e553767"
+],
+"h1b-wage-level/health-and-safety-engineers/new-york-ny/": [
+"2026-11-07",
+"b302183ac35435552989"
+],
+"h1b-wage-level/industrial-engineers/": [
+"2026-11-07",
+"6aa7d89cb09e59645472"
+],
+"h1b-wage-level/industrial-engineers/boston-ma/": [
+"2026-11-07",
+"96c547ffaf89381d5c22"
+],
+"h1b-wage-level/industrial-engineers/chicago-il/": [
+"2026-11-07",
+"869bc9bdca6e6da92eba"
+],
+"h1b-wage-level/industrial-engineers/dallas-tx/": [
+"2026-11-07",
+"9e39733e1af3e9221ee7"
+],
+"h1b-wage-level/industrial-engineers/detroit-mi/": [
+"2026-11-07",
+"308bf7dfc86bcf99836e"
+],
+"h1b-wage-level/industrial-engineers/houston-tx/": [
+"2026-11-07",
+"765aad67788b54dc7c5b"
+],
+"h1b-wage-level/industrial-engineers/los-angeles-ca/": [
+"2026-11-07",
+"09c1eeeed4d86aed33ce"
+],
+"h1b-wage-level/industrial-engineers/minneapolis-mn/": [
+"2026-11-07",
+"a890fdcd0cb0505b530f"
+],
+"h1b-wage-level/industrial-engineers/new-york-ny/": [
+"2026-11-07",
+"0564d846c495e5393b44"
+],
+"h1b-wage-level/industrial-engineers/philadelphia-pa/": [
+"2026-11-07",
+"d951b566bb103d0a99ac"
+],
+"h1b-wage-level/industrial-engineers/phoenix-az/": [
+"2026-11-07",
+"7402136ed3987d4aadaa"
+],
+"h1b-wage-level/information-security-analysts/": [
+"2026-11-07",
+"351ca0af73e74f5c2422"
+],
+"h1b-wage-level/information-security-analysts/atlanta-ga/": [
+"2026-11-07",
+"abe9ba0e3e3d3be868a0"
+],
+"h1b-wage-level/information-security-analysts/baltimore-md/": [
+"2026-11-07",
+"381dc6c6df212a8f8187"
+],
+"h1b-wage-level/information-security-analysts/boston-ma/": [
+"2026-11-07",
+"70fe826498b95ce30dcf"
+],
+"h1b-wage-level/information-security-analysts/dallas-tx/": [
+"2026-11-07",
+"a711ae14d5ab0a6843b7"
+],
+"h1b-wage-level/information-security-analysts/denver-co/": [
+"2026-11-07",
+"c0a143a88abb8167bd4c"
+],
+"h1b-wage-level/information-security-analysts/los-angeles-ca/": [
+"2026-11-07",
+"facb0e136d9a3c638a77"
+],
+"h1b-wage-level/information-security-analysts/new-york-ny/": [
+"2026-11-07",
+"c98cb37460fa78b7c06e"
+],
+"h1b-wage-level/information-security-analysts/san-francisco-ca/": [
+"2026-11-07",
+"7651bd041cfb67393956"
+],
+"h1b-wage-level/information-security-analysts/seattle-wa/": [
+"2026-11-07",
+"0f6aa961294e67d3126b"
+],
+"h1b-wage-level/information-security-analysts/washington-dc/": [
+"2026-11-07",
+"73d850e7daaf874ba092"
+],
+"h1b-wage-level/lottery-odds/": [
+"2026-11-07",
+"12d6f24a2f87c6aa28e6"
+],
+"h1b-wage-level/materials-engineers/": [
+"2026-11-07",
+"f305cb898f7379f6e589"
+],
+"h1b-wage-level/materials-engineers/boston-ma/": [
+"2026-11-07",
+"6522cb3b8c6c710d1d2a"
+],
+"h1b-wage-level/materials-engineers/los-angeles-ca/": [
+"2026-11-07",
+"369b4a22980382d357d1"
+],
+"h1b-wage-level/mechanical-engineers/": [
+"2026-11-07",
+"2e57191448510122771d"
+],
+"h1b-wage-level/mechanical-engineers/boston-ma/": [
+"2026-11-07",
+"ea02e419ad1ccb11dee9"
+],
+"h1b-wage-level/mechanical-engineers/chicago-il/": [
+"2026-11-07",
+"7969487d90dad2a841c8"
+],
+"h1b-wage-level/mechanical-engineers/dallas-tx/": [
+"2026-11-07",
+"fc3234bab4b7408035e4"
+],
+"h1b-wage-level/mechanical-engineers/detroit-mi/": [
+"2026-11-07",
+"e0df00b5ccff3a58745f"
+],
+"h1b-wage-level/mechanical-engineers/houston-tx/": [
+"2026-11-07",
+"23bfac1f014de8bd8f85"
+],
+"h1b-wage-level/mechanical-engineers/los-angeles-ca/": [
+"2026-11-07",
+"f2992cc1af1cef273e8c"
+],
+"h1b-wage-level/mechanical-engineers/new-york-ny/": [
+"2026-11-07",
+"6618f0d693a35b9f8c1c"
+],
+"h1b-wage-level/mechanical-engineers/san-francisco-ca/": [
+"2026-11-07",
+"ac4c9e499afa1777cf8f"
+],
+"h1b-wage-level/mechanical-engineers/san-jose-ca/": [
+"2026-11-07",
+"553c8a4cb9ced1301653"
+],
+"h1b-wage-level/mechanical-engineers/washington-dc/": [
+"2026-11-07",
+"4cdfb3070ffc67a1b1b4"
+],
+"h1b-wage-level/mining-and-geological-engineers/": [
+"2026-11-07",
+"c1980595982c04559760"
+],
+"h1b-wage-level/network-and-systems-administrators/": [
+"2026-11-07",
+"e24ddc24b02a9b68a4ca"
+],
+"h1b-wage-level/network-and-systems-administrators/atlanta-ga/": [
+"2026-11-07",
+"99ee08faaf7df48543c9"
+],
+"h1b-wage-level/network-and-systems-administrators/boston-ma/": [
+"2026-11-07",
+"c1e13d08d1dbc8609b9d"
+],
+"h1b-wage-level/network-and-systems-administrators/chicago-il/": [
+"2026-11-07",
+"c765e75cd92617b0d40e"
+],
+"h1b-wage-level/network-and-systems-administrators/dallas-tx/": [
+"2026-11-07",
+"15cd49f2388f43a9f16e"
+],
+"h1b-wage-level/network-and-systems-administrators/houston-tx/": [
+"2026-11-07",
+"65e6e772731fccbd5b3d"
+],
+"h1b-wage-level/network-and-systems-administrators/los-angeles-ca/": [
+"2026-11-07",
+"711b99d7eeffdb751c8f"
+],
+"h1b-wage-level/network-and-systems-administrators/miami-fl/": [
+"2026-11-07",
+"785a86d2a13d2812aed8"
+],
+"h1b-wage-level/network-and-systems-administrators/new-york-ny/": [
+"2026-11-07",
+"63534964f739c377f777"
+],
+"h1b-wage-level/network-and-systems-administrators/seattle-wa/": [
+"2026-11-07",
+"ebf597963a26ac9add38"
+],
+"h1b-wage-level/network-and-systems-administrators/washington-dc/": [
+"2026-11-07",
+"e445b7ec3a07910be08e"
+],
+"h1b-wage-level/nuclear-engineers/": [
+"2026-11-07",
+"22b1a3df7b2cebcf1224"
+],
+"h1b-wage-level/nuclear-engineers/virginia-beach-va/": [
+"2026-11-07",
+"2db0fbedbeecd487d75b"
+],
+"h1b-wage-level/operations-research-analysts/": [
+"2026-11-07",
+"999105d202f83004e599"
+],
+"h1b-wage-level/operations-research-analysts/atlanta-ga/": [
+"2026-11-07",
+"15776fb98d5cfe3277db"
+],
+"h1b-wage-level/operations-research-analysts/baltimore-md/": [
+"2026-11-07",
+"6175d2d33f9aad4e87dc"
+],
+"h1b-wage-level/operations-research-analysts/boston-ma/": [
+"2026-11-07",
+"91a7e9ddb5e55c1e1aab"
+],
+"h1b-wage-level/operations-research-analysts/chicago-il/": [
+"2026-11-07",
+"f9b9d5d37b49d331d307"
+],
+"h1b-wage-level/operations-research-analysts/dallas-tx/": [
+"2026-11-07",
+"2bd64b840e898bacad94"
+],
+"h1b-wage-level/operations-research-analysts/houston-tx/": [
+"2026-11-07",
+"a06bbcfe82b7f1050fa0"
+],
+"h1b-wage-level/operations-research-analysts/los-angeles-ca/": [
+"2026-11-07",
+"5b3fb499fdf72b0668bb"
+],
+"h1b-wage-level/operations-research-analysts/new-york-ny/": [
+"2026-11-07",
+"e886990c6713b3d479c2"
+],
+"h1b-wage-level/operations-research-analysts/seattle-wa/": [
+"2026-11-07",
+"4e2014df7180c21cb079"
+],
+"h1b-wage-level/operations-research-analysts/washington-dc/": [
+"2026-11-07",
+"9f3b7d876146252b6e77"
+],
+"h1b-wage-level/other-computer-occupations/": [
+"2026-11-07",
+"fa72072ef0d9f58f1633"
+],
+"h1b-wage-level/other-computer-occupations/atlanta-ga/": [
+"2026-11-07",
+"37701bc10131673e7fe6"
+],
+"h1b-wage-level/other-computer-occupations/austin-tx/": [
+"2026-11-07",
+"420c245de8c2e9a9f15c"
+],
+"h1b-wage-level/other-computer-occupations/baltimore-md/": [
+"2026-11-07",
+"0b25208527d25fb546c6"
+],
+"h1b-wage-level/other-computer-occupations/dallas-tx/": [
+"2026-11-07",
+"0df385f38369db9d2455"
+],
+"h1b-wage-level/other-computer-occupations/houston-tx/": [
+"2026-11-07",
+"2f1657d43b27f0d3892e"
+],
+"h1b-wage-level/other-computer-occupations/los-angeles-ca/": [
+"2026-11-07",
+"0306c6dbd077b689e746"
+],
+"h1b-wage-level/other-computer-occupations/new-york-ny/": [
+"2026-11-07",
+"c18993f630716488602e"
+],
+"h1b-wage-level/other-computer-occupations/san-francisco-ca/": [
+"2026-11-07",
+"3964e0c8de09d017acbc"
+],
+"h1b-wage-level/other-computer-occupations/san-jose-ca/": [
+"2026-11-07",
+"550b4a72d8900cf5f05c"
+],
+"h1b-wage-level/other-computer-occupations/seattle-wa/": [
+"2026-11-07",
+"599b49a0f4d2d70c0bf1"
+],
+"h1b-wage-level/petroleum-engineers/": [
+"2026-11-07",
+"4dab3d34d53e114f2eab"
+],
+"h1b-wage-level/petroleum-engineers/houston-tx/": [
+"2026-11-07",
+"754e0156ac633889e65d"
+],
+"h1b-wage-level/software-developers/": [
+"2026-11-07",
+"ec48cbd18da905b0ee29"
+],
+"h1b-wage-level/software-developers/atlanta-ga/": [
+"2026-11-07",
+"1a1a123b6a0adc8a5a42"
+],
+"h1b-wage-level/software-developers/boston-ma/": [
+"2026-11-07",
+"23a329e62a8ff19fa4e3"
+],
+"h1b-wage-level/software-developers/chicago-il/": [
+"2026-11-07",
+"542dba1630d9c18960d9"
+],
+"h1b-wage-level/software-developers/dallas-tx/": [
+"2026-11-07",
+"2f3968fac75ce4ba417b"
+],
+"h1b-wage-level/software-developers/los-angeles-ca/": [
+"2026-11-07",
+"01ec6db6a35c5c612214"
+],
+"h1b-wage-level/software-developers/new-york-ny/": [
+"2026-11-07",
+"846906781d188d091967"
+],
+"h1b-wage-level/software-developers/san-francisco-ca/": [
+"2026-11-07",
+"0de47284ae7a54b05fbf"
+],
+"h1b-wage-level/software-developers/san-jose-ca/": [
+"2026-11-07",
+"1dd59ac457ea8db67d1b"
+],
+"h1b-wage-level/software-developers/seattle-wa/": [
+"2026-11-07",
+"e14fcb75185db0c1c490"
+],
+"h1b-wage-level/software-developers/washington-dc/": [
+"2026-11-07",
+"51cde9aa5cb0c5795cb0"
+],
+"h1b-wage-level/software-qa-analysts-and-testers/": [
+"2026-11-07",
+"477628e09d4aceb8a11f"
+],
+"h1b-wage-level/software-qa-analysts-and-testers/atlanta-ga/": [
+"2026-11-07",
+"280b05cb9aef6c4d180f"
+],
+"h1b-wage-level/software-qa-analysts-and-testers/boston-ma/": [
+"2026-11-07",
+"dc33af9588e658ab7abb"
+],
+"h1b-wage-level/software-qa-analysts-and-testers/chicago-il/": [
+"2026-11-07",
+"563ed3284e4e8bdfb0c0"
+],
+"h1b-wage-level/software-qa-analysts-and-testers/dallas-tx/": [
+"2026-11-07",
+"70334c89888dc6c7a321"
+],
+"h1b-wage-level/software-qa-analysts-and-testers/los-angeles-ca/": [
+"2026-11-07",
+"d2581b9bcb46e7dbdc0a"
+],
+"h1b-wage-level/software-qa-analysts-and-testers/new-york-ny/": [
+"2026-11-07",
+"38093bc6baf735634ed2"
+],
+"h1b-wage-level/software-qa-analysts-and-testers/san-francisco-ca/": [
+"2026-11-07",
+"03a2554505e770ce0f08"
+],
+"h1b-wage-level/software-qa-analysts-and-testers/san-jose-ca/": [
+"2026-11-07",
+"03a936b13171a0504b85"
+],
+"h1b-wage-level/software-qa-analysts-and-testers/seattle-wa/": [
+"2026-11-07",
+"d2e5ff34ce0347545fd1"
+],
+"h1b-wage-level/software-qa-analysts-and-testers/washington-dc/": [
+"2026-11-07",
+"854273b5991752857566"
+],
+"h1b-wage-level/statisticians/": [
+"2026-11-07",
+"1a9c4c94812101e3c11b"
+],
+"h1b-wage-level/statisticians/boston-ma/": [
+"2026-11-07",
+"6e4a99712c393af9ca5b"
+],
+"h1b-wage-level/statisticians/new-york-ny/": [
+"2026-11-07",
+"df0804edd8bdd0e79ae7"
+],
+"h1b-wage-level/statisticians/seattle-wa/": [
+"2026-11-07",
+"f40f22eec1b01ac24eac"
+],
+"h1b-wage-level/statisticians/washington-dc/": [
+"2026-11-07",
+"168e4237de128b8b750f"
+],
+"h1b-wage-level/web-and-interface-designers/": [
+"2026-11-07",
+"75b84eb655c3bbc105b6"
+],
+"h1b-wage-level/web-and-interface-designers/boston-ma/": [
+"2026-11-07",
+"e7e4de008f7609476959"
+],
+"h1b-wage-level/web-and-interface-designers/dallas-tx/": [
+"2026-11-07",
+"fc9d3ae2c9f3d5a56d7c"
+],
+"h1b-wage-level/web-and-interface-designers/denver-co/": [
+"2026-11-07",
+"f3dbac82d28372943cca"
+],
+"h1b-wage-level/web-and-interface-designers/los-angeles-ca/": [
+"2026-11-07",
+"41e8e9957ea764b74f5b"
+],
+"h1b-wage-level/web-and-interface-designers/nashville-tn/": [
+"2026-11-07",
+"0e94ee2c6e97d9f10b02"
+],
+"h1b-wage-level/web-and-interface-designers/new-york-ny/": [
+"2026-11-07",
+"1c76c35e314d77b1ec42"
+],
+"h1b-wage-level/web-and-interface-designers/san-francisco-ca/": [
+"2026-11-07",
+"8022b25ca079bc7616fb"
+],
+"h1b-wage-level/web-and-interface-designers/san-jose-ca/": [
+"2026-11-07",
+"67d87d3b01e15a42a5e9"
+],
+"h1b-wage-level/web-and-interface-designers/seattle-wa/": [
+"2026-11-07",
+"41939624ece34f300ca4"
+],
+"h1b-wage-level/web-and-interface-designers/washington-dc/": [
+"2026-11-07",
+"9ef1067e9317c233fd8a"
+],
+"h1b-wage-level/web-developers/": [
+"2026-11-07",
+"f8d5e2f923cdeadfb3fb"
+],
+"h1b-wage-level/web-developers/boston-ma/": [
+"2026-11-07",
+"b4fbe982a64ba9af9697"
+],
+"h1b-wage-level/web-developers/chicago-il/": [
+"2026-11-07",
+"8ced6c9792b13092c37f"
+],
+"h1b-wage-level/web-developers/dallas-tx/": [
+"2026-11-07",
+"897f8b2c2b3408e52276"
+],
+"h1b-wage-level/web-developers/houston-tx/": [
+"2026-11-07",
+"95e090116beac4579a4b"
+],
+"h1b-wage-level/web-developers/los-angeles-ca/": [
+"2026-11-07",
+"17fad65ce5c847f11cc2"
+],
+"h1b-wage-level/web-developers/new-york-ny/": [
+"2026-11-07",
+"fdce37563cd53f19cdc5"
+],
+"h1b-wage-level/web-developers/san-francisco-ca/": [
+"2026-11-07",
+"b211eb2289cab10e7230"
+],
+"h1b-wage-level/web-developers/san-jose-ca/": [
+"2026-11-07",
+"6afff9e440d7a846493e"
+],
+"h1b-wage-level/web-developers/seattle-wa/": [
+"2026-11-07",
+"5fed715282f74ceef1eb"
+],
+"h1b-wage-level/web-developers/washington-dc/": [
+"2026-11-07",
+"200b7803cf3180617dad"
+],
 "how-it-works/": [
-"2026-11-05",
-"06b41f54c98be346bcb2"
+"2026-11-07",
+"0b087287a9fe4c49f954"
 ],
 "hungary-white-card/": [
 "2026-10-31",
@@ -2942,8 +4126,8 @@
 "6b5de4684666e496f23d"
 ],
 "us-opt/": [
-"2026-10-30",
-"91a48657a07007f41444"
+"2026-11-07",
+"2a330d5d6ac1807ec3ad"
 ],
 "us-opt/opt-application-deadline-calculator/": [
 "2026-10-30",

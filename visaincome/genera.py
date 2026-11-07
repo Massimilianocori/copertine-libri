@@ -1375,6 +1375,9 @@ def home():
 <h2>Top university visas: HPI, TTPS and J-Find lists</h2>
 <p class="lead">{len(UNI_TU)} universities are on at least one of three official lists for graduates: the UK's High Potential Individual list {ANNI_HPI[-1]} ({len(LISTE_TU[HPI1]["voci"])}), Hong Kong's Top Talent Pass Scheme list ({len(LISTE_TU["ttps"]["voci"])}) and Japan's J-Find list ({len(LISTE_TU["j-find"]["voci"])}) (read on {data_lunga(LETTO_TU)}). Check your university and the year of your degree.</p>
 <p><a href="{SEZ_TU}">HPI, TTPS and J-Find compared</a> · <a href="{perc_lista_tu(HPI1)}">HPI university list {ANNI_HPI[-1]}</a> · <a href="{perc_lista_tu("ttps")}">TTPS university list</a> · <a href="{perc_lista_tu("j-find")}">J-Find university list</a> · <a href="{perc_paese_tu("India")}">Indian universities</a> · <a href="{perc_paese_tu("United States")}">US universities</a></p>
+<h2>H-1B wage level and the weighted lottery</h2>
+<p class="lead">Since {data_lunga(FRH["regola"]["effective_on"])} the H-1B lottery enters each person 1 to 4 times by wage level (Level I once, Level IV four times). Check the level of a salary for {len(OCC_TUTTE_H1)} occupations in all {len(AREE_H1)} US areas with the Department of Labor wages for July 2026 to June 2027 (read on {data_lunga(LETTO_H1)}).</p>
+<p><a href="{SEZ_H1}">H-1B wage level calculator</a> · <a href="{PERC_ODDS_H1}">H-1B lottery odds by wage level</a> · <a href="{perc_occ_h1("15-1252")}">Software developers</a> · <a href="{perc_occ_h1("15-2051")}">Data scientists</a> · <a href="{perc_coppia_h1("15-1252", "41940")}">Software developers in San Jose</a> · <a href="{perc_coppia_h1("15-1252", "42660")}">in Seattle</a></p>
 <h2>In Spanish and Portuguese: how much money to enter Europe</h2>
 <p class="lead">For travellers from Latin America and Brazil: the minimum money each Schengen country asks at the border (European Commission table of {data_lunga(DATA_RIF_EE)}), with a calculator by days and people, the entry conditions, Spain's invitation letter, travel insurance and ETIAS.</p>
 <p><a href="{perc_ee("es", "hub")}" lang="es" hreflang="es">¿Cuánto dinero necesito para entrar a Europa?</a> · <a href="{perc_ee("es", "Spain")}" lang="es" hreflang="es">Entrar a España</a> · <a href="{perc_ee("es", "carta")}" lang="es" hreflang="es">Carta de invitación</a> · <a href="{perc_ee("pt", "hub")}" lang="pt" hreflang="pt">Quanto dinheiro preciso para entrar na Europa?</a> · <a href="{perc_ee("pt", "Portugal")}" lang="pt" hreflang="pt">Entrar em Portugal</a> · <a href="{perc_ee("pt", "seguro")}" lang="pt" hreflang="pt">Seguro viagem</a></p>
@@ -1493,10 +1496,13 @@ def pagina_come_funziona():
 <p>The <a href="{rel}{SEZ_INF}">nurses trained abroad</a> pages use the NMC's register data tables (people on the register and people joining it, by country of training, every six months), the Irish Department of Health's table JQ06 (nurses practising in Ireland by country of first qualification, from NMBI registrations), the Home Office entry clearance dataset (Health and Care Worker visas by nationality), the UK code of practice for international recruitment (red, amber and green countries) and the WHO health workforce support and safeguards list 2023. A script checks that the countries add up to the totals of each file and that every sentence we quote is still in the official page. The three counts measure different things (training country, practice in Ireland, nationality) and are never added together. The <a href="{rel}{PERC_ANC}">UK Ancestry visa</a> page uses the same Home Office file (visa type "UK Ancestry") and the GOV.UK guide.</p>
 <h2>17. Top university visas: HPI, TTPS and J-Find lists</h2>
 <p>The <a href="{rel}{SEZ_TU}">top university visa</a> pages use the official lists only: the UK's High Potential Individual global universities lists {ANNI_HPI[0]}–{ANNI_HPI[-1]} (GOV.UK, one list per year of award), Hong Kong's Top Talent Pass Scheme aggregate list of eligible universities (Immigration Department, PDF) and Japan's J-Find list as of October 2026 (Immigration Services Agency, PDF), with the rules and fees from the official pages. A script reads every list again, checks that the number of rows matches the file and that each sentence we quote is still on the official page, and saves a fingerprint of each file with the date. The same university is often written differently in the lists ("The University of Tokyo", "University of Tokyo"): a table written by hand joins the names, and each university page shows the name exactly as each list writes it. We do not add universities from rankings.</p>
+<h2>18. H-1B wage levels and the weighted lottery</h2>
+<p>The <a href="{rel}{SEZ_H1}">H-1B wage level</a> pages use the Department of Labor wage data file for July 2026 to June 2027 (OFLC_Wages_2026-27.zip: the four OEWS wage levels for each occupation and area, the areas and their counties), the BLS OEWS May 2025 files (jobs by area, US mean and median) and the Federal Register: the DHS final rule on the weighted selection, the proclamation of 18 September 2026 and two proposed rules. A script downloads the files, saves their SHA-256 fingerprint and checks that every sentence we quote is still in the official text. The yearly salary is the hourly wage × 2,080 hours, as OFLC computes it. The calculator runs in your browser with the same file; the lottery chances are the DHS estimates, not a forecast.</p>
 <h2>Licences and attributions</h2>
 <ul><li>Laws, decrees and official notices (BOE, Gazzetta Ufficiale, Bundesanzeiger, Normattiva) are cited as facts with a link to the official text; we do not reproduce the documents.</li>
 <li>Exchange rates: European Central Bank, euro foreign exchange reference rates (source: ECB).</li>
 <li>UK: contains public sector information licensed under the Open Government Licence v3.0 (GOV.UK and Home Office immigration statistics).</li>
+<li>United States: Department of Labor (OFLC) wage data, BLS OEWS and Federal Register documents are U.S. government works in the public domain.</li>
 <li>Schengen visa statistics: European Commission, DG Migration and Home Affairs (reuse authorised with acknowledgement of the source).</li>
 <li>EU law (Schengen Borders Code, visa list, Visa Code): Official Journal of the European Union via EUR-Lex and the Publications Office; only EU legal texts published in the Official Journal are authentic.</li>
 <li>Australia: Australian Government Department of Home Affairs, licensed under Creative Commons Attribution 3.0 Australia (ceremony wait times and citizenship processing times).</li>
@@ -5984,7 +5990,7 @@ def pagina_opt_indice():
 <div class="testo">{faq_html(domande)}</div>
 <h2>OPT pages on this site</h2>
 {link_opt(rel, "")}
-<p><a href="{rel}{SEZ_GRAD}">Studying in the UK instead? UK Graduate visa: 2 years or 18 months</a> · <a href="{rel}{SEZ}united-states/">Schengen visa refusal rates for applications made in the United States</a></p>"""
+<p><a href="{rel}{SEZ_H1}">After OPT: H-1B wage level and lottery entries</a> · <a href="{rel}{SEZ_GRAD}">Studying in the UK instead? UK Graduate visa: 2 years or 18 months</a> · <a href="{rel}{SEZ}united-states/">Schengen visa refusal rates for applications made in the United States</a></p>"""
     titolo = f"US OPT and STEM OPT {ANNO}: fees, deadlines and calculator"
     descr = (f"OPT costs {usd(vo('tassa_online'))} online or {usd(vo('tassa_carta'))} on paper (Form I-765); file from {f['prima']} days before to {f['dopo']} days after your program end date. "
              f"Calculator for the filing window and the {K_DISOCC['opt']}/{K_DISOCC['stem']} unemployment days, and the status of the $70,000 fee proposal.")
@@ -12522,6 +12528,7 @@ def controlli():
     errori += controlli_vl()
     errori += controlli_inf()
     errori += controlli_anc()
+    errori += controlli_h1b()
     if errori:
         raise SystemExit("ERRORI NEI DATI:\n" + "\n".join(errori))
 
@@ -13254,6 +13261,699 @@ def genera_tu():
         pagina_tu_paese(p)
 
 
+# ---------------------------------------------------------------- H-1B wage level and weighted lottery odds (7/11/2026)
+# Dati: dati/h1b.json e dati/h1b_salari.json, scritti da raccolta/h1b.py (OFLC_Wages_2026-27.zip del DOL, BLS OEWS maggio 2025, Federal Register:
+# regola finale DHS del 29/12/2025 sulla selezione pesata, proclamazione 11069, proposta DHS sulla tassa, proposta DOL sui livelli). Ogni frase ufficiale
+# ha il frammento in "letture". Pagine: indice con il calcolatore, pagina delle probabilità, una pagina per occupazione (gruppi SOC 15 e 17, Appendix A,
+# BLS pubblica gli impieghi in almeno 20 aree), una per occupazione × area (al massimo 10 per occupazione: almeno 1.000 posti nell'area secondo l'OEWS
+# e salario OFLC calcolato sull'area stessa, Geo Level 1). Il calcolatore copre tutte le 299 occupazioni del file JSON e tutte le 530 aree.
+# Nessun riquadro di affiliazione.
+H1 = json.loads((DATI / "h1b.json").read_text(encoding="utf-8"))
+H1S = json.loads((DATI / "h1b_salari.json").read_text(encoding="utf-8"))
+SEZ_H1 = "h1b-wage-level/"
+PERC_ODDS_H1 = SEZ_H1 + "lottery-odds/"
+LH = {k: v["valore"] for k, v in H1["letture"].items()}
+FH, FRH = H1["fonti"], H1["federal_register"]
+LETTO_H1 = H1["letto_il"]
+ORE_H1 = LH["ore_anno"]
+LIV_H1 = ["I", "II", "III", "IV"]
+POS_H1 = {a: i for i, a in enumerate(H1S["aree"])}
+AREE_H1 = H1["aree"]
+OCC_TUTTE_H1 = H1["occupazioni"]
+SOGLIA_AREE_H1 = 20      # aree con impieghi pubblicati dal BLS perché un'occupazione abbia la sua pagina
+SOGLIA_POSTI_H1 = 1000   # posti nell'area (OEWS maggio 2025) per una pagina occupazione × area
+MAX_COPPIE_H1 = 10       # pagine occupazione × area per occupazione, al massimo
+N_AREE_OCC_H1 = 60       # aree nella tabella della pagina dell'occupazione
+ANNO_SAL_H1 = "2026-27"
+DAL_H1, AL_H1 = LH["anno_salari"]["dal"], LH["anno_salari"]["al"]
+NOMI_BREVI_H1 = {"15-1221": "Computer Research Scientists", "15-1244": "Network and Systems Administrators", "15-1253": "Software QA Analysts and Testers",
+                 "15-1255": "Web and Interface Designers", "17-1011": "Architects", "17-2031": "Biomedical Engineers", "17-2072": "Electronics Engineers",
+                 "17-2111": "Health and Safety Engineers", "15-1299": "Other Computer Occupations", "17-2151": "Mining and Geological Engineers", "17-2121": "Marine Engineers"}
+FAQ_H1 = {}   # percorso -> [(chiave dell'autocompletamento, suggerimento, domanda)] (controllo 31)
+
+
+def riga_h1(s, a):
+    v = H1S["soc"].get(s, [None] * len(POS_H1))[POS_H1[a]]
+    if not v:
+        return None
+    return {"c": v[:4], "media": v[4], "geo": v[5], "et": H1S["etichette"].get(s, {}).get(a, "")}
+
+
+def annuo_h1(c, et=""):
+    """Centesimi del file -> dollari l'anno: salario orario × 2080 arrotondato al dollaro (OFLC); con l'etichetta 'a' il valore è già annuale."""
+    if c is None:
+        return None
+    return (c + 50) // 100 if et == "a" else (c * ORE_H1 + 50) // 100
+
+
+def soglie_h1(s, a):
+    r = riga_h1(s, a)
+    if not r or r["et"] in ("h", "n") or any(x is None for x in r["c"]):
+        return None
+    return [annuo_h1(x, r["et"]) for x in r["c"]]
+
+
+def orario_h1(s, a):
+    r = riga_h1(s, a)
+    if not r or r["et"] == "a" or any(x is None for x in r["c"]):
+        return None
+    return [x / 100 for x in r["c"]]
+
+
+def livello_h1(soglie, salario):
+    """0 = sotto il Level I; altrimenti il livello più alto che il salario raggiunge o supera."""
+    return max([i + 1 for i, x in enumerate(soglie) if salario >= x] or [0])
+
+
+def media_area_h1(s, a):
+    r = riga_h1(s, a)
+    return annuo_h1(r["media"], r["et"]) if r and r["media"] is not None else None
+
+
+def nome_occ_h1(s, breve=False):
+    t = OCC_TUTTE_H1[s]["titolo"]
+    return NOMI_BREVI_H1.get(s, t) if breve else t
+
+
+def nome_area_h1(a):
+    return AREE_H1[a]["nome"]
+
+
+def breve_area_h1(a):
+    """'San Jose-Sunnyvale-Santa Clara, CA' -> 'San Jose, CA'; 'New York-Newark-Jersey City, NY-NJ' -> 'New York, NY'."""
+    n = AREE_H1[a]["nome"]
+    m = re.fullmatch(r"(.+?), ([A-Z]{2})(?:-[A-Z]{2})*", n)
+    if not m:
+        return n
+    return f"{m.group(1).split('-')[0].strip()}, {m.group(2)}"
+
+
+def occupazioni_h1():
+    imp = H1["impieghi"]
+    return sorted(s for s in imp if OCC_TUTTE_H1[s]["istruzione"] and len(imp[s]) >= SOGLIA_AREE_H1)
+
+
+OCC_H1 = occupazioni_h1()
+
+
+def aree_occ_h1(s):
+    """Le aree con più posti nell'occupazione (OEWS maggio 2025), al massimo 60."""
+    return [a for a, _ in sorted(H1["impieghi"][s].items(), key=lambda x: (-x[1], x[0]))][:N_AREE_OCC_H1]
+
+
+def coppie_h1(s):
+    return [a for a in aree_occ_h1(s) if H1["impieghi"][s][a] >= SOGLIA_POSTI_H1 and (riga_h1(s, a) or {}).get("geo") == 1 and soglie_h1(s, a)][:MAX_COPPIE_H1]
+
+
+COPPIE_H1 = {s: coppie_h1(s) for s in OCC_H1}
+SLUG_OCC_H1 = {s: slug_testo(nome_occ_h1(s, True)) for s in OCC_H1}
+_slug_a = {}
+for _a in sorted({a for v in COPPIE_H1.values() for a in v}):
+    _slug_a[_a] = slug_testo(breve_area_h1(_a))
+if len(set(_slug_a.values())) != len(_slug_a):
+    _slug_a = {a: slug_testo(nome_area_h1(a)) for a in _slug_a}
+SLUG_AREA_H1 = _slug_a
+
+
+def perc_occ_h1(s):
+    return f"{SEZ_H1}{SLUG_OCC_H1[s]}/"
+
+
+def perc_coppia_h1(s, a):
+    return f"{SEZ_H1}{SLUG_OCC_H1[s]}/{SLUG_AREA_H1[a]}/"
+
+
+def pct_h1(x):
+    return f"{x:.2f}".rstrip("0").rstrip(".") + "%"
+
+
+def link_fr_h1(k, breve=False):
+    d = FRH[k]
+    tipo = {"Proposed Rule": "proposed rule", "Rule": "final rule", "Presidential Document": "proclamation"}[d["type"]]
+    if breve:
+        return f'<a href="{escape(d["html_url"])}" rel="noopener">{escape(d["citation"])}</a>'
+    return f'Federal Register, <a href="{escape(d["html_url"])}" rel="noopener">{escape(d["title"])}</a> ({tipo}, {escape(d["citation"])}, {data_lunga(d["publication_date"])})'
+
+
+def link_oflc_h1():
+    f = FH["oflc_zip"]
+    return f'<a href="{escape(f["url"])}" rel="noopener">U.S. Department of Labor (OFLC), wage data file {ANNO_SAL_H1}</a> (OFLC_Wages_2026-27.zip, updated {data_lunga(LH["aggiornato"])})'
+
+
+def link_bls_h1():
+    return f'<a href="{escape(FH["bls_aree"]["pagina"])}" rel="noopener">U.S. Bureau of Labor Statistics, OEWS May 2025</a>'
+
+
+def fonte_h1_p(oflc=True, bls=False, fr=(), extra=""):
+    voci = ([link_oflc_h1()] if oflc else []) + ([link_bls_h1()] if bls else []) + [link_fr_h1(k) for k in fr]
+    return f'<p class="fonte">Source{"s" if len(voci) > 1 else ""}: {"; ".join(voci)}{extra}. Read on {data_lunga(LETTO_H1)}. U.S. government data, public domain.</p>'
+
+
+def cita_h1(k):
+    return f'“{escape(H1["letture"][k]["frammento"])}”'
+
+
+AVVISO_H1 = ('<p class="avviso"><strong>Not legal or immigration advice.</strong> This page reports the Department of Labor wage file and the DHS rule as we read them. '
+             'The level on a registration also depends on the job duties, the SOC code and the place of work chosen for the job, and the employer attests to it. '
+             'Check with USCIS and the Department of Labor, and ask an immigration lawyer about your own case.</p>')
+
+
+def registra_faq_h1(percorso, domande):
+    """domande: [((chiave, suggerimento), domanda, risposta)]; il suggerimento deve essere tra quelli salvati per la chiave (controllo 31)."""
+    FAQ_H1[percorso] = [(q[0], q[1], d) for q, d, _ in domande]
+    return [(d, a) for _, d, a in domande]
+
+
+def tabella_livelli_h1(s, a):
+    sg, orr = soglie_h1(s, a), orario_h1(s, a)
+    righe = ""
+    for i, l in enumerate(LIV_H1):
+        fino = f"up to {usd(sg[i + 1] - 1)}" if i < 3 else "and above"
+        righe += (f'<tr><th scope="row">Level {l}</th><td class="n">{usd(sg[i])}</td><td class="n">{fino}</td>'
+                  f'<td class="n">{"$" + format(orr[i], ".2f") if orr else "–"}</td><td class="n">{LH["pesi"][l]}</td><td class="n">{pct_h1(LH["stima_dhs"][l])}</td></tr>')
+    righe += (f'<tr><th scope="row">Below Level I</th><td class="n">under {usd(sg[0])}</td><td class="n">–</td><td class="n">–</td>'
+              f'<td class="n">1 if the wage comes from another legitimate source</td><td class="n">–</td></tr>')
+    return pila(f'<div class="tab compatta"><table id="t-livelli"><caption class="sr">H-1B wage levels for {escape(nome_occ_h1(s))} in {escape(nome_area_h1(a))}</caption>'
+                f'<thead><tr><th scope="col">Wage level</th><th scope="col" class="n">Yearly salary from</th><th scope="col" class="n">to</th><th scope="col" class="n">Hourly from</th>'
+                f'<th scope="col" class="n">Lottery entries</th><th scope="col" class="n">DHS estimated chance*</th></tr></thead><tbody>{righe}</tbody></table></div>'
+                f'<p class="small">Yearly salary = hourly wage × {ORE_H1:,} hours, rounded to the dollar (OFLC). *DHS estimate in the final rule for a combined pool with '
+                f'its FY 2020–2024 assumptions, not the chance for the next lottery: <a href="{"../" * (perc_coppia_h1(s, a).count("/"))}{PERC_ODDS_H1}">how the odds work</a>.</p>')
+
+
+def tabella_aree_h1(s, aree, rel_sez, id_tab, evidenzia=None):
+    """Tabella delle soglie annuali per area (link alle pagine occupazione × area che esistono)."""
+    righe = ""
+    for a in aree:
+        sg = soglie_h1(s, a)
+        r = riga_h1(s, a)
+        nome = escape(nome_area_h1(a))
+        if a in COPPIE_H1.get(s, []) and a != evidenzia:
+            nome = f'<a href="{rel_sez}{SLUG_OCC_H1[s]}/{SLUG_AREA_H1[a]}/">{nome}</a>'
+        elif a == evidenzia:
+            nome = f"<strong>{nome}</strong>"
+        celle = "".join(f'<td class="n" data-v="{x}">{usd(x)}</td>' for x in sg) if sg else '<td class="n" colspan="4">no levels published</td>'
+        posti = H1["impieghi"].get(s, {}).get(a)
+        righe += (f'<tr><td>{nome}</td><td class="n" data-v="{posti or 0}">{intero(posti) if posti else "–"}</td>{celle}'
+                  f'<td class="n" data-v="{r["geo"] if r else ""}">{r["geo"] if r else "–"}</td></tr>')
+    return (f'<div class="tab compatta"><table class="ord" id="{id_tab}"><caption class="sr">H-1B wage levels for {escape(nome_occ_h1(s))} by area</caption><thead><tr>'
+            f'{th_ord("Area", False, "ascending")}{th_ord("Jobs (May 2025)")}{th_ord("Level I")}{th_ord("Level II")}{th_ord("Level III")}{th_ord("Level IV")}{th_ord("Geo level", True, "ascending")}'
+            f'</tr></thead><tbody>{righe}</tbody></table></div>'
+            f'<p class="small">Yearly salary from which each level starts. Jobs: people employed in the occupation in the area (BLS OEWS, May 2025). '
+            f'Geo level 1 = wage computed from the area itself; 2 = area plus contiguous areas; 3 = statewide; 4 = national (OFLC). Tap a column heading to sort.</p>')
+
+
+def media_us_h1(s):
+    n = H1["nazionale"].get(s) or {}
+    return n.get("a_mean"), n.get("a_median"), n.get("tot_emp")
+
+
+def confronto_us_h1(s, a):
+    sg = soglie_h1(s, a)
+    mean, med, _ = media_us_h1(s)
+    if not mean:
+        return ""
+    def rel(x):
+        d = round((x - mean) / mean * 100)
+        return "the same as" if d == 0 else (f"{d}% above" if d > 0 else f"{-d}% below")
+    ma = media_area_h1(s, a)
+    return (f'<p>Across the United States, {escape(nome_occ_h1(s))} earn a mean wage of <strong>{usd(mean)}</strong> a year (median {usd(med)}, BLS OEWS May 2025). '
+            f'In {escape(breve_area_h1(a))} Level I starts at {usd(sg[0])}, {rel(sg[0])} the US mean, and Level II at {usd(sg[1])}, {rel(sg[1])} it. '
+            + (f'OFLC\'s average wage for this occupation in the area is ${riga_h1(s, a)["media"] / 100:.2f} an hour ({usd(ma)} a year at {ORE_H1:,} hours).' if ma else "") + "</p>")
+
+
+def calc_h1(rel, soc=None, area=None, coppie=None):
+    """Calcolatore: occupazione (fissa nelle pagine dell'occupazione) + Stato e contea + salario. I dati si leggono da data/ (H1B_JS)."""
+    if soc:
+        opz = f'<option value="{soc}">{escape(nome_occ_h1(soc))} ({soc})</option>'
+        nota_occ = f'<a href="{rel}{SEZ_H1}">Another occupation</a>'
+    else:
+        ordine = sorted(OCC_TUTTE_H1, key=lambda s: nome_occ_h1(s).lower())
+        opz = "".join(f'<option value="{s}"{" selected" if s == "15-1252" else ""}>{escape(nome_occ_h1(s))} ({s})</option>' for s in ordine)
+        nota_occ = f"{len(OCC_TUTTE_H1)} occupations"
+    stato = AREE_H1[area]["stati"][0] if area else "CA"
+    contee = H1["contee"]
+    opz_st = "".join(f'<option value="{st}"{" selected" if st == stato else ""}>{escape(contee[st]["nome"].title() if contee[st]["nome"].isupper() else contee[st]["nome"])}</option>' for st in sorted(contee, key=lambda x: contee[x]["nome"].lower()))
+    k = {"base": f"{rel}{SEZ_H1}data/", "rel": rel, "ore": ORE_H1, "pesi": LH["pesi"], "stima": LH["stima_dhs"], "area": area or "41940",
+         "alto": LH["alto"]["anno"], "pagine": coppie or {}}
+    campi = (f'<label class="pieno"><span class="lt">{ico("list")}Occupation (SOC code) <span class="small">· {nota_occ}</span></span><select name="soc">{opz}</select></label>'
+             f'<label><span class="lt">{ico("globe")}State of the job</span><select name="stato">{opz_st}</select></label>'
+             f'<label><span class="lt">{ico("globe")}County or town of the job</span><select name="contea"><option value="">Loading…</option></select></label>'
+             f'<label><span class="lt">{ico("calc")}Offered salary (USD)</span><input type="number" name="salario" min="0" step="1" inputmode="numeric" placeholder="e.g. 140000"></label>'
+             f'<label><span class="lt">{ico("calendar")}Per</span><select name="per"><option value="anno">year</option><option value="ora">hour</option></select></label>')
+    return (f'<section class="card calc" data-h1b data-k=\'{json.dumps(k, separators=(",", ":"))}\' aria-label="H-1B wage level calculator">'
+            f'<div class="calc-grid"><form autocomplete="off"><h2 style="margin:0 0 14px;font-size:1.2rem">{ico("calc")} H-1B wage level and lottery entries</h2><div class="campi">{campi}</div>'
+            f'<p class="small" style="margin:12px 0 0">OFLC wages for {data_lunga(DAL_H1)} to {data_lunga(AL_H1)}. The area is the one that contains the county. Runs in your browser and sends nothing.</p></form>'
+            f'<div class="calc-out"><div class="risultato" data-out aria-live="polite"><noscript>Turn on JavaScript to use the calculator; the levels are in the tables on this page.</noscript></div></div></div></section>')
+
+
+H1B_JS = r"""
+(function(){
+function fmt(n){return '$'+String(n).replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+function annuo(c,et,ore){if(c===null||c===undefined)return null;return et==='a'?Math.floor((c+50)/100):Math.floor((c*ore+50)/100);}
+function soglie(r,et,ore){if(!r||et==='h'||et==='n')return null;for(var i=0;i<4;i++)if(r[i]===null||r[i]===undefined)return null;return [0,1,2,3].map(function(i){return annuo(r[i],et,ore);});}
+function livello(s,sal){var l=0;for(var i=0;i<4;i++)if(sal>=s[i])l=i+1;return l;}
+function annuale(v,per,ore){v=parseFloat(v);if(!(v>0))return null;return per==='ora'?Math.round(v*ore):v;}
+function livelloPer(r,et,ore,v,per){v=parseFloat(v);var s=soglie(r,et,ore);if(!s||!(v>0))return null;
+ if(per==='ora'&&et!=='a'){var c=Math.round(v*100),l=0;for(var i=0;i<4;i++)if(c>=r[i])l=i+1;return l;}
+ return livello(s,per==='ora'?v*ore:v);}
+window.CALC_H1B={annuo:annuo,soglie:soglie,livello:livello,annuale:annuale,livelloPer:livelloPer};
+var ROM=['I','II','III','IV'];
+var cache={};
+function carica(u){if(!cache[u])cache[u]=fetch(u).then(function(r){if(!r.ok)throw 0;return r.json();});return cache[u];}
+document.querySelectorAll('[data-h1b]').forEach(function(box){
+ var k=JSON.parse(box.getAttribute('data-k'));var f=box.querySelector('form');var out=box.querySelector('[data-out]');var A=null;
+ function riempi(st,area){var c=A.contee[st];if(!c)return;f.contea.innerHTML=c[1].map(function(x,i){return '<option value="'+i+'">'+x[0].replace(/[&<]/g,'')+'</option>';}).join('');
+  if(area){for(var i=0;i<c[1].length;i++)if(c[1][i][1]===area){f.contea.value=String(i);break;}}}
+ function go(){if(!A)return;var st=f.stato.value,c=A.contee[st];if(!c){out.innerHTML='';return;}var x=c[1][+f.contea.value||0];if(!x){out.innerHTML='';return;}
+  var area=x[1],soc=f.soc.value,nomeA=A.aree[area][0];
+  carica(k.base+'soc/'+soc+'.json').then(function(D){
+   var r=D.r[area],et=(D.e||{})[area]||'',h='';
+   if(!r){out.innerHTML='<div class="esito warn">The OFLC file has no wage for this occupation in '+nomeA+'.</div>';return;}
+   var s=soglie(r,et,k.ore);
+   h+='<p class="r-lab">'+D.t+' ('+soc+') in</p><p style="margin:2px 0 8px;font-weight:700">'+nomeA+'</p>';
+   if(!s){out.innerHTML=h+'<div class="esito warn">OFLC publishes no Level I to IV wages for this occupation in this area'+(et==='h'?': the wage is at or above '+fmt(k.alto)+' a year':'')+'. The rule says that the registrant then selects the level that corresponds to the requirements of the position, using the Department of Labor prevailing wage guidance.</div>';return;}
+   var sal=annuale(f.salario.value,f.per.value,k.ore);
+   if(sal!==null){var l=livelloPer(r,et,k.ore,f.salario.value,f.per.value);sal=Math.round(sal);
+    if(l===0)h+='<div class="esito warn">'+(f.per.value==='ora'?'$'+f.salario.value+' an hour':fmt(sal)+' a year')+' is below Level I ('+fmt(s[0])+' a year). An H-1B employer must pay at least the prevailing wage; if that wage comes from another legitimate source, the registration counts as Level I (1 entry).</div>';
+    else{h+='<p class="r-lab">Wage level</p><p class="tot">Level '+ROM[l-1]+' <span>'+k.pesi[ROM[l-1]]+' lottery entr'+(k.pesi[ROM[l-1]]===1?'y':'ies')+'</span></p>'+
+     '<p class="r-anno">'+(f.per.value==='ora'?'$'+f.salario.value+' an hour (about '+fmt(sal)+' a year at '+k.ore+' hours)':fmt(sal)+' a year')+' is at or above Level '+ROM[l-1]+' ('+fmt(s[l-1])+(f.per.value==='ora'&&et!=='a'?', $'+(r[l-1]/100).toFixed(2)+' an hour':'')+')'+(l<4?' and below Level '+ROM[l]+' ('+fmt(s[l])+')':'')+'.</p>';
+     if(l<4)h+='<p class="small">'+(f.per.value==='ora'&&et!=='a'?'$'+((r[l]-Math.round(parseFloat(f.salario.value)*100))/100).toFixed(2)+' more an hour':fmt(Math.max(1,Math.ceil(s[l]-parseFloat(f.salario.value))))+' more a year')+' would reach Level '+ROM[l]+' ('+k.pesi[ROM[l]]+' entries).</p>';
+     h+='<p class="small">DHS estimated a '+k.stima[ROM[l-1]]+'% chance of selection at this level for its assumed pool (final rule); the real chance depends on how many people register at each level.</p>';}}
+   else h+='<p class="small">Enter the offered salary to see the level.</p>';
+   h+='<ul class="r-righe">'+s.map(function(v,i){return '<li><span class="r-lab">Level '+ROM[i]+' · '+k.pesi[ROM[i]]+' entr'+(i===0?'y':'ies')+'</span><b>'+fmt(v)+' a year</b></li>';}).join('')+'</ul>';
+   if(r[5]>1)h+='<p class="small">Geo level '+r[5]+': '+(r[5]===2?'no estimate for this area alone, so OFLC uses the area plus contiguous areas.':(r[5]===3?'OFLC uses statewide data for this area.':'OFLC uses the national average for this area.'))+'</p>';
+   var p=(k.pagine[soc]||{})[area];if(p)h+='<p class="calc-link"><a href="'+k.rel+p+'">Full page: '+D.t+' in this area</a></p>';
+   out.innerHTML=h;}).catch(function(){out.innerHTML='<div class="esito warn">The wage data could not be loaded. The levels are in the tables on this page.</div>';});}
+ carica(k.base+'areas.json').then(function(d){A=d;var st=f.stato.value;if(k.area&&A.aree[k.area]&&A.aree[k.area][1].indexOf(st)<0)st=A.aree[k.area][1][0];f.stato.value=st;riempi(st,k.area);go();}).catch(function(){out.innerHTML='<div class="esito warn">The area list could not be loaded.</div>';});
+ f.stato.addEventListener('change',function(){riempi(f.stato.value,null);go();});
+ f.addEventListener('input',function(e){if(e.target!==f.stato)go();});f.addEventListener('change',function(e){if(e.target!==f.stato)go();});
+ f.addEventListener('submit',function(e){e.preventDefault();go();});});
+})();
+"""
+
+ODDS_JS = r"""
+(function(){
+var ROM=['I','II','III','IV'];
+function prob(n,sel){var den=0;for(var i=0;i<4;i++)den+=(+n[i]||0)*(i+1);if(!(den>0))return null;return [0,1,2,3].map(function(i){return Math.min(1,sel*(i+1)/den);});}
+window.CALC_ODDS={prob:prob};
+document.querySelectorAll('[data-odds]').forEach(function(box){var f=box.querySelector('form'),out=box.querySelector('[data-out]');
+ function go(){var n=ROM.map(function(l){return Math.max(0,Math.floor(+f['n'+l].value||0));}),sel=Math.max(0,Math.floor(+f.sel.value||0));var p=prob(n,sel);
+  if(!p){out.innerHTML='<p class="small">Enter the number of registrations at each level.</p>';return;}var tot=n.reduce(function(a,b){return a+b;},0);
+  out.innerHTML='<p class="r-lab">Simple weighted chance of selection</p><ul class="r-righe">'+p.map(function(x,i){return '<li><span class="r-lab">Level '+ROM[i]+' · '+(i+1)+' entr'+(i?'ies':'y')+'</span><b>'+(Math.round(x*10000)/100).toFixed(2)+'%</b></li>';}).join('')+'</ul>'+
+  '<p class="small">Without weighting, everyone would have '+(tot?(Math.round(Math.min(1,sel/tot)*10000)/100).toFixed(2):'0.00')+'% ('+sel.toLocaleString('en-US')+' selections ÷ '+tot.toLocaleString('en-US')+' people). Above 100% means everyone at that level would be selected.</p>';}
+ f.addEventListener('input',go);f.addEventListener('submit',function(e){e.preventDefault();go();});go();});
+})();
+"""
+
+
+def calc_odds_h1():
+    c = LH["conteggi_dhs"]
+    campi = "".join(f'<label><span class="lt">{ico("user")}People registered at Level {l}</span><input type="number" name="n{l}" min="0" step="1" value="{c[l]}" inputmode="numeric"></label>' for l in LIV_H1)
+    campi += f'<label class="pieno"><span class="lt">{ico("check")}Selections</span><input type="number" name="sel" min="0" step="1" value="{LH["selezioni_dhs"]}" inputmode="numeric"></label>'
+    return (f'<section class="card calc" data-odds aria-label="H-1B lottery odds calculator"><div class="calc-grid"><form autocomplete="off">'
+            f'<h2 style="margin:0 0 14px;font-size:1.2rem">{ico("calc")} H-1B lottery odds by wage level</h2><div class="campi">{campi}</div>'
+            f'<p class="small" style="margin:12px 0 0">Filled in with the DHS assumptions of the final rule. Change them to test another mix. DHS multiplied the rounded Level I figure '
+            f'({pct_h1(LH["stima_dhs"]["I"])} × 3 = {pct_h1(LH["stima_dhs"]["III"])}); the calculator does not round first, so Levels III and IV can differ by 0.01. Runs in your browser.</p></form>'
+            f'<div class="calc-out"><div class="risultato" data-out aria-live="polite"></div></div></div></section>')
+
+
+def tabella_regola_h1():
+    righe = "".join(f'<tr><th scope="row">Level {l}</th><td class="n">{LH["pesi"][l]}</td><td class="n">{intero(LH["conteggi_dhs"][l])}</td>'
+                    f'<td class="n">{pct_h1(LH["stima_casuale"])}</td><td class="n">{pct_h1(LH["stima_dhs"][l])}</td></tr>' for l in LIV_H1)
+    return pila(f'<div class="tab compatta"><table id="t-pesi"><caption class="sr">H-1B lottery entries and DHS estimated chance by wage level</caption><thead><tr>'
+                f'<th scope="col">Wage level</th><th scope="col" class="n">Entries in the lottery</th><th scope="col" class="n">People assumed by DHS</th>'
+                f'<th scope="col" class="n">Chance, random lottery</th><th scope="col" class="n">Chance, weighted lottery (DHS)</th></tr></thead><tbody>{righe}</tbody></table></div>')
+
+
+def calcolo_dhs_h1():
+    c, s = LH["conteggi_dhs"], LH["selezioni_dhs"]
+    den = sum(c[l] * LH["pesi"][l] for l in LIV_H1)
+    return den, (f'{intero(s)} selections ÷ ({" + ".join(f"{intero(c[l])} × {LH["pesi"][l]}" for l in LIV_H1)} = {intero(den)} entries) = '
+                 f'{s / den * 100:.2f}% for one entry')
+
+
+def tabella_stato_h1():
+    p, t, d, r = FRH["proclamazione"], FRH["tassa"], FRH["salari_dol"], FRH["regola"]
+    lp = LH["livelli_proposti"]
+    righe = [
+        ("Weighted lottery by wage level (1 to 4 entries)", '<span class="stato vigore">In force</span>',
+         f'since {data_lunga(r["effective_on"])}; used for the FY 2027 registration', link_fr_h1("regola", True)),
+        (f"{usd(LH['pagamento'])} payment for certain H-1B petitions", '<span class="stato vigore">In force</span>',
+         f'proclamation extended until {data_lunga(LH["pagamento_fino"])}; it restricts decisions on petitions without the payment for workers {cita_h1("pagamento_fuori").split("who are ")[-1].rstrip("”")}', link_fr_h1("proclamazione", True)),
+        (f"{usd(LH['tassa_proposta'])} fee on H-1B cap-subject petitions", '<span class="stato proposta">Proposal</span>',
+         f'not in force; comments closed on {data_lunga(t["comments_close_on"])}', link_fr_h1("tassa", True)),
+        ("Higher OEWS wage levels (DOL)", '<span class="stato proposta">Proposal</span>',
+         f'Level I from the {lp["I"][0]}th to the {lp["I"][1]}th percentile, II {lp["II"][0]}th to {lp["II"][1]}nd, III {lp["III"][0]}th to {lp["III"][1]}th, IV {lp["IV"][0]}th to {lp["IV"][1]}th; '
+         f'not in force; comments closed on {data_lunga(d["comments_close_on"])}', link_fr_h1("salari_dol", True)),
+    ]
+    corpo = "".join(f'<tr><th scope="row">{a}</th><td>{b}</td><td class="small">{c}</td><td class="small">{e}</td></tr>' for a, b, c, e in righe)
+    return pila(f'<div class="tab compatta"><table id="t-stato-h1b"><caption class="sr">H-1B changes in force and proposed</caption><thead><tr><th scope="col">Change</th>'
+                f'<th scope="col">Status</th><th scope="col">Detail</th><th scope="col">Federal Register</th></tr></thead><tbody>{corpo}</tbody></table></div>')
+
+
+def regole_h1_html():
+    return (f'<ul class="testo"><li>The registrant must select {cita_h1("livello_scelto")}.</li>'
+            f'<li>Several places of work: {cita_h1("piu_sedi")}</li>'
+            f'<li>A salary range: {cita_h1("intervallo")}</li>'
+            f'<li>Below Level I: {cita_h1("sotto_livello_1")}</li>'
+            f'<li>No OEWS wage for the job: {cita_h1("senza_oews")}</li>'
+            f'<li>More than one registration for the same person: {cita_h1("piu_registrazioni")}.</li></ul>')
+
+
+def lista_occ_h1(rel_sez):
+    righe = ""
+    for s in sorted(OCC_H1, key=lambda s: nome_occ_h1(s).lower()):
+        mean, med, emp = media_us_h1(s)
+        righe += (f'<tr><td><a href="{rel_sez}{SLUG_OCC_H1[s]}/">{escape(nome_occ_h1(s))}</a></td><td>{s}</td><td class="n" data-v="{emp or 0}">{intero(emp) if emp else "–"}</td>'
+                  f'<td class="n" data-v="{mean or 0}">{usd(mean) if mean else "–"}</td><td class="n" data-v="{len(COPPIE_H1[s])}">{len(COPPIE_H1[s])}</td></tr>')
+    return (f'<div class="tab compatta"><table class="ord" id="t-occ"><caption class="sr">Occupations with a page</caption><thead><tr>{th_ord("Occupation", False, "ascending")}'
+            f'{th_ord("SOC", False, "ascending")}{th_ord("US jobs (May 2025)")}{th_ord("US mean wage")}{th_ord("Area pages")}</tr></thead><tbody>{righe}</tbody></table></div>')
+
+
+def pagine_calc_h1():
+    return {s: {a: perc_coppia_h1(s, a) for a in aa} for s, aa in COPPIE_H1.items()}
+
+
+def frase_esempio_h1():
+    s = "15-1252"
+    a1, a2 = "41940", "19100"
+    return (f'for software developers, Level II starts at {usd(soglie_h1(s, a1)[1])} a year in {breve_area_h1(a1)} and at {usd(soglie_h1(s, a2)[1])} in {breve_area_h1(a2)}')
+
+
+def pagina_h1_indice():
+    percorso = SEZ_H1
+    rel = "../"
+    sel = LH["selezioni_2027"]
+    lead = (f'Since {data_lunga(FRH["regola"]["effective_on"])}, the H-1B lottery enters each person <strong>1 to 4 times by wage level</strong>: Level IV four times, III three, II two and I once '
+            f'(DHS final rule, {FRH["regola"]["citation"]}). The level depends on the salary, the occupation (SOC code) and the area of the job: {frase_esempio_h1()} '
+            f'(Department of Labor wage file for {data_lunga(DAL_H1)} to {data_lunga(AL_H1)}, read on {data_lunga(LETTO_H1)}).')
+    den, calcolo = calcolo_dhs_h1()
+    domande = [
+        (("us|h1b wage level", "h1b wage level check"), "How do I check my H-1B wage level?",
+         f"Find the SOC code of the job and the area that contains the place of work, then compare the offered salary with the four OFLC levels for that pair: the level is the highest one "
+         f"the salary equals or exceeds. OFLC publishes hourly wages; the yearly figure is the hourly wage × {ORE_H1:,} hours. The calculator on this page does it for {len(OCC_TUTTE_H1)} occupations and all {len(AREE_H1)} areas."),
+        (("us|h1b weighted lottery", "h1b weighted lottery rule"), "What is the H-1B weighted lottery rule?",
+         f"A DHS final rule published on {data_lunga(FRH['regola']['publication_date'])} ({FRH['regola']['citation']}), in force since {data_lunga(FRH['regola']['effective_on'])}. "
+         f"If a random selection is needed, each person is entered once at Level I, twice at Level II, three times at Level III and four times at Level IV, "
+         f"and is still counted only once."),
+        (("in|h1b wage level", "h1b wage levels by state"), "Are H-1B wage levels set by state?",
+         "No. They are set for each occupation and each area: a metropolitan area or a nonmetropolitan part of a state. OFLC uses statewide data only when there is no estimate for the area "
+         "or for the area plus the areas next to it (Geo level 3)."),
+        (("us|h1b wage level software developer", "does h1b wage level include bonus"), "Does the H-1B wage level include bonus?",
+         f"Only in limited cases. DHS wrote: {cita_h1('bonus')} (under the Department of Labor rule 20 CFR 655.731(c)(2)), while stock options, profit sharing and similar benefits "
+         f"cannot reliably be counted. It adds: {cita_h1('salari_invariati')}"),
+        (("us|h1b wage level", "h1b wage level increase"), "Will the H-1B wage levels increase?",
+         f"OFLC publishes new wages every July, so the dollar amounts change each year. Separately, the Department of Labor proposed on {data_lunga(FRH['salari_dol']['publication_date'])} "
+         f"to raise Level I from the {LH['livelli_proposti']['I'][0]}th to the {LH['livelli_proposti']['I'][1]}th percentile and Level IV from the {LH['livelli_proposti']['IV'][0]}th to the "
+         f"{LH['livelli_proposti']['IV'][1]}th. It is a proposal, not in force."),
+        (("us|h1b lottery 2027", "h1b lottery 2027 dates"), "When is the H-1B lottery in 2027?",
+         f"USCIS announces the dates on uscis.gov. The rule says the registration period lasts at least {LH['periodo_14']} calendar days and that USCIS announces its start "
+         f"at least {LH['annuncio_30']} calendar days in advance."),
+    ]
+    faq = registra_faq_h1(percorso, domande)
+    sw = "15-1252"
+    corpo = f"""<section class="hero">{h1_diviso(f"H-1B wage level calculator: Level I to IV and lottery entries ({ANNO_SAL_H1})")}
+<p class="lead">{lead}</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{ico("list")}<span>H-1B weighted lottery</span><span>Read on {data_lunga(LETTO_H1)}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">Lottery entries by wage level</span><span class="sr">: </span><strong>I = 1 · II = 2 · III = 3 · IV = 4</strong></p>
+<div class="kpi"><div><b>{pct_h1(LH["stima_dhs"]["I"])} / {pct_h1(LH["stima_dhs"]["IV"])}</b><span>DHS estimated chance at Level I / IV</span></div><div><b>{pct_h1(LH["stima_casuale"])}</b><span>everyone, with a random lottery (DHS)</span></div><div><b>{sel["alti"]}%</b><span>of FY 2027 selections at Levels III and IV</span></div><div><b>{sel["basso"]}%</b><span>of FY 2027 selections at Level I</span></div></div>
+{fonte_h1_p(oflc=False, fr=("regola", "proclamazione"))}
+</div></section>
+{AVVISO_H1}
+{calc_h1(rel, coppie=pagine_calc_h1())}
+{AD}
+<h2 id="rule">How the wage level is chosen</h2>
+<p>The wage level is the one written on the registration, for the job's SOC code and the area of the place of work. The DHS rule says:</p>
+{regole_h1_html()}
+<p>{cita_h1("una_volta")}. Employers must still pay at least the required wage: DHS notes that {cita_h1("obbligo_salario")}</p>
+{fonte_h1_p(oflc=False, fr=("regola",))}
+<h2 id="entries">Entries and estimated chances</h2>
+{tabella_regola_h1()}
+<p>How DHS got {pct_h1(LH["stima_dhs"]["I"])}: {calcolo}; Level II is twice that, Level III three times, Level IV four times. These are DHS estimates for a pool shaped like {LH["ipotesi_dhs"]["quote"]["I"]}% Level I, {LH["ipotesi_dhs"]["quote"]["II"]}% Level II, {LH["ipotesi_dhs"]["quote"]["III"]}% Level III and {LH["ipotesi_dhs"]["quote"]["IV"]}% Level IV, not a forecast for the next lottery. <a href="lottery-odds/">H-1B lottery odds by wage level</a>.</p>
+{fonte_h1_p(oflc=False, fr=("regola",))}
+<h2 id="example">Example: software developers in the main areas</h2>
+<p>The same salary can be a different level in a different city. Yearly salary from which each level starts for {escape(nome_occ_h1(sw))} ({sw}) in the {len(COPPIE_H1[sw])} areas with the most jobs in the occupation:</p>
+{tabella_aree_h1(sw, COPPIE_H1[sw], "", "t-esempio")}
+{fonte_h1_p(bls=True)}
+<h2 id="changes">In force or proposed</h2>
+{tabella_stato_h1()}
+<h2 id="occupations">Occupations with a page</h2>
+<p>{len(OCC_H1)} occupations of the two SOC groups with the most H-1B cap petitions: DHS counted {cita_h1("gruppo_15")} and {cita_h1("gruppo_17")} We include the computer and mathematical occupations and the architects and engineers (17-1011 and 17-2000) that are on OFLC's Appendix A list (bachelor's degree or higher) and for which BLS publishes jobs in at least {SOGLIA_AREE_H1} areas. Each occupation page lists the {N_AREE_OCC_H1} areas with the most jobs; an area page exists where the occupation has at least {intero(SOGLIA_POSTI_H1)} jobs (OEWS May 2025) and OFLC computes the wage from the area itself (Geo level 1), up to {MAX_COPPIE_H1} per occupation. Every other occupation and area is in the calculator.</p>
+{lista_occ_h1("")}
+{fonte_h1_p(bls=True, fr=("regola",))}
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(faq)}</div>
+<h2>Sources</h2>
+<ul class="testo"><li>{link_oflc_h1()}: ALC_Export.csv (all industries; the higher-education table is not used here: {cita_h1("esenti")}), Geography.csv, oes_soc_occs.csv, Appendix A and the technical release notes ({cita_h1("base_maggio_2025")}). SHA-256 of the zip: <code>{FH["oflc_zip"]["sha256"][:16]}…</code></li>
+<li><a href="{escape(FH["oflc_ricerca"]["url"])}" rel="noopener">OFLC Wage Search</a>: {cita_h1("ore_anno")}</li>
+<li>{link_bls_h1()} (jobs by area, US mean and median).</li>
+<li>{link_fr_h1("regola")}; {link_fr_h1("proclamazione")}; {link_fr_h1("tassa")}; {link_fr_h1("salari_dol")}.</li></ul>
+<p><a href="lottery-odds/">H-1B lottery odds by wage level</a> · <a href="{rel}{SEZ_OPT}">US OPT and STEM OPT: fees and deadlines</a> · <a href="{rel}work-visa-salary-thresholds/">Work visa salary thresholds</a></p>"""
+    titolo = f"H-1B wage level calculator {ANNO_SAL_H1}: Level I-IV and lottery entries"
+    descr = (f"Check the H-1B wage level (I to IV) for {len(OCC_TUTTE_H1)} occupations in {len(AREE_H1)} US areas and the lottery entries it gives: OFLC wages July 2026–June 2027 "
+             f"and the DHS weighted selection rule.")
+    pagina(percorso, titolo, descr, corpo, jsonld_extra=[ld_faq(faq)], briciole=[("H-1B wage level", percorso)], ordina=True, script=H1B_JS, css_extra=CSS_STUDIO)
+
+
+def pagina_h1_odds():
+    percorso = PERC_ODDS_H1
+    rel = "../../"
+    sel, mas = LH["selezioni_2027"], LH["master_2027"]
+    st = LH["stima_dhs"]
+    den, calcolo = calcolo_dhs_h1()
+    lead = (f'DHS estimated that with the weighted lottery a person has about a <strong>{pct_h1(st["I"])} chance at Level I, {pct_h1(st["II"])} at Level II, {pct_h1(st["III"])} at Level III '
+            f'and {pct_h1(st["IV"])} at Level IV</strong>, against {pct_h1(LH["stima_casuale"])} for everyone in a random lottery (final rule of {data_lunga(FRH["regola"]["publication_date"])}, '
+            f'read on {data_lunga(LETTO_H1)}). In the first weighted lottery, for FY 2027, Levels III and IV got about {sel["alti"]}% of selections and Level I {sel["basso"]}% (Proclamation of '
+            f'{data_lunga("2026-09-18")}).')
+    domande = [
+        (("us|h1b lottery odds", "h1b lottery odds 2027"), "What are the H-1B lottery odds in 2027?",
+         f"Nobody knows them before the registration closes: they depend on how many people register at each level. DHS estimated {pct_h1(st['I'])} at Level I, {pct_h1(st['II'])} at Level II, "
+         f"{pct_h1(st['III'])} at Level III and {pct_h1(st['IV'])} at Level IV for a pool with its FY 2020–2024 assumptions."),
+        (("us|h1b lottery chances", "h1b lottery chances by wage level"), "Do H-1B lottery chances depend on the wage level?",
+         "Yes, since the FY 2027 registration. Each person is entered once at Level I, twice at Level II, three times at Level III and four times at Level IV, so a Level IV registration "
+         "has about four times the chance of a Level I one when few people are selected."),
+        (("us|h1b lottery odds", "h1b lottery odds masters"), "Do people with a US master's degree still have better odds?",
+         f"Yes. The two-step selection stays: {cita_h1('fasi')} DHS wrote: {cita_h1('due_fasi')} The weighting applies in both steps: {cita_h1('peso_master')}."),
+        (("us|h1b lottery 2027", "h1b lottery 2027 results"), "What were the H-1B lottery 2027 results by wage level?",
+         f"For FY 2027 the proclamation of {data_lunga('2026-09-18')} says: {cita_h1('selezioni_2027')} It also says that registrations for people with at least a US master's degree "
+         f"rose from {mas['2026']}% of registrants for FY 2026 to {mas['2027']}% for FY 2027."),
+    ]
+    faq = registra_faq_h1(percorso, domande)
+    corpo = f"""<section class="hero">{h1_diviso("H-1B lottery odds by wage level: the weighted selection (2027)")}
+<p class="lead">{lead}</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{ico("list")}<span>DHS estimate</span><span>Read on {data_lunga(LETTO_H1)}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">Estimated chance of selection</span><span class="sr">: </span><strong>{" · ".join(f"{l} {pct_h1(st[l])}" for l in LIV_H1)}</strong></p>
+<div class="kpi"><div><b>{pct_h1(LH["stima_casuale"])}</b><span>random lottery, every level</span></div><div><b>{intero(LH["selezioni_dhs"])}</b><span>selections assumed by DHS</span></div><div><b>{intero(LH["ipotesi_dhs"]["beneficiari"])}</b><span>people assumed to register</span></div><div><b>{sel["alti"]}% / {sel["basso"]}%</b><span>FY 2027 selections at Levels III–IV / Level I</span></div></div>
+{fonte_h1_p(oflc=False, fr=("regola", "proclamazione"))}
+</div></section>
+{AVVISO_H1}
+{calc_odds_h1()}
+{AD}
+<h2 id="how">How DHS computed the odds</h2>
+{tabella_regola_h1()}
+<p>{calcolo}. Level II is twice that, Level III three times and Level IV four times: DHS writes {cita_h1("formula_dhs")} This simple calculation is close to, but not the same as, the real draw: {cita_h1("senza_reimmissione")}</p>
+<p>The assumed pool is {intero(LH["ipotesi_dhs"]["beneficiari"])} people (the four DHS counts add up to {intero(sum(LH["conteggi_dhs"].values()))} because of rounding): {LH["ipotesi_dhs"]["quote"]["I"]}% at Level I, {LH["ipotesi_dhs"]["quote"]["II"]}% at Level II, {LH["ipotesi_dhs"]["quote"]["III"]}% at Level III and {LH["ipotesi_dhs"]["quote"]["IV"]}% at Level IV, from petitions of FY 2020 to FY 2024. If more people register at Levels III and IV, every chance goes down. DHS combined the regular cap and the master's cap in this estimate.</p>
+{fonte_h1_p(oflc=False, fr=("regola",))}
+<h2 id="fy2027">The first weighted lottery (FY 2027)</h2>
+<p>USCIS has not published selection rates by level in the sources we read. The proclamation of {data_lunga("2026-09-18")} gives two figures: {cita_h1("selezioni_2027")} It also reports {cita_h1("master_2027")}.</p>
+{fonte_h1_p(oflc=False, fr=("proclamazione",))}
+<h2 id="level">Which level is your salary?</h2>
+<p>The level comes from the Department of Labor wage file for the job's occupation and area: <a href="../">H-1B wage level calculator</a> ({len(OCC_TUTTE_H1)} occupations, {len(AREE_H1)} areas). For example, {frase_esempio_h1()}.</p>
+<h2 id="changes">In force or proposed</h2>
+{tabella_stato_h1()}
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(faq)}</div>
+<p><a href="../">H-1B wage level calculator</a> · <a href="{rel}{SEZ_OPT}">US OPT and STEM OPT</a></p>"""
+    titolo = "H-1B lottery odds 2027 by wage level: weighted selection explained"
+    descr = (f"DHS estimate: {pct_h1(st['I'])} at Level I, {pct_h1(st['II'])} at II, {pct_h1(st['III'])} at III, {pct_h1(st['IV'])} at IV (random lottery {pct_h1(LH['stima_casuale'])}). "
+             f"How the weighted H-1B selection works, with a calculator and the FY 2027 figures.")
+    pagina(percorso, titolo, descr, corpo, jsonld_extra=[ld_faq(faq)], briciole=[("H-1B wage level", SEZ_H1), ("Lottery odds", percorso)], script=ODDS_JS, css_extra=CSS_STUDIO)
+
+
+def titolo_h1(varianti):
+    return next((v for v in varianti if len(v) <= 70), varianti[-1])
+
+
+def pagina_h1_occ(s):
+    percorso = perc_occ_h1(s)
+    rel = "../../"
+    X, Xb = nome_occ_h1(s), nome_occ_h1(s, True)
+    aree = aree_occ_h1(s)
+    cop = COPPIE_H1[s]
+    mean, med, emp = media_us_h1(s)
+    con = [a for a in aree if soglie_h1(s, a)]
+    l2 = sorted(con, key=lambda a: -soglie_h1(s, a)[1])
+    alto, basso = l2[0], l2[-1]
+    sopra = sum(1 for a in con if soglie_h1(s, a)[1] > (mean or 0))
+    lead = (f'For {escape(X)} (SOC {s}), the salary that reaches H-1B wage Level II ranges from <strong>{usd(soglie_h1(s, basso)[1])} in {escape(breve_area_h1(basso))} to '
+            f'{usd(soglie_h1(s, alto)[1])} in {escape(breve_area_h1(alto))}</strong> among the {len(aree)} areas with the most jobs in the occupation (Department of Labor wage file '
+            f'for {data_lunga(DAL_H1)} to {data_lunga(AL_H1)}, read on {data_lunga(LETTO_H1)}). Level II gives 2 lottery entries, Level IV gives 4.')
+    domande = [(("us|h1b wage level", "h1b wage level salary range"), f"What are the H-1B wage level salary ranges for {X.lower() if s != '15-1299' else X}?",
+                f"They depend on the area. Among the {len(aree)} areas with the most jobs, Level I starts between {usd(min(soglie_h1(s, a)[0] for a in con))} and {usd(max(soglie_h1(s, a)[0] for a in con))} a year, "
+                f"and Level IV between {usd(min(soglie_h1(s, a)[3] for a in con))} and {usd(max(soglie_h1(s, a)[3] for a in con))}.")]
+    if s == "15-1252":
+        a = "42660"
+        domande.append((("us|h1b wage level software developer", "h1b wage level for software developer"), "What is the H-1B wage level for a software developer?",
+                        f"It depends on the salary and the area. In {breve_area_h1(a)}, for example, Level I starts at {usd(soglie_h1(s, a)[0])}, Level II at {usd(soglie_h1(s, a)[1])}, "
+                        f"Level III at {usd(soglie_h1(s, a)[2])} and Level IV at {usd(soglie_h1(s, a)[3])} a year (SOC 15-1252)."))
+    if s == "15-2051":
+        a = cop[0]
+        domande.append((("us|h1b wage level data scientist", "h1b wage level data scientist"), "What is the H-1B wage level for a data scientist?",
+                        f"For Data Scientists (SOC 15-2051) in {breve_area_h1(a)}, the area with the most jobs, Level I starts at {usd(soglie_h1(s, a)[0])}, Level II at {usd(soglie_h1(s, a)[1])}, "
+                        f"Level III at {usd(soglie_h1(s, a)[2])} and Level IV at {usd(soglie_h1(s, a)[3])} a year."))
+    domande.append((("us|h1b wage level", "h1b wage level 2 salary range"), f"What is the H-1B Level II salary for {X.lower() if s != '15-1299' else X}?",
+                    f"From {usd(soglie_h1(s, basso)[1])} in {breve_area_h1(basso)} to {usd(soglie_h1(s, alto)[1])} in {breve_area_h1(alto)} among the main areas; "
+                    f"in {sopra} of the {len(con)} areas it is above the US mean wage of the occupation{f' ({usd(mean)})' if mean else ''}."))
+    faq = registra_faq_h1(percorso, domande)
+    extra = ""
+    if s == "15-1299":
+        extra = "<p class=\"small\">SOC 15-1299 groups computer occupations without their own code. The Department of Labor lists Computer Systems Engineers/Architects (15-1299.08) and Information Technology Project Managers (15-1299.09) among the most common SOC codes in LCAs; they use these wages.</p>"
+    corpo = f"""<section class="hero">{h1_diviso(f"{X}: H-1B wage levels by area ({ANNO_SAL_H1})")}
+<p class="lead">{lead}</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{ico("list")}<span>SOC {s}</span><span>Read on {data_lunga(LETTO_H1)}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">US mean wage (OEWS May 2025)</span><span class="sr">: </span><strong>{usd(mean) if mean else "not published"}</strong></p>
+<div class="kpi"><div><b>{intero(emp) if emp else "–"}</b><span>jobs in the US</span></div><div><b>{usd(med) if med else "–"}</b><span>US median wage</span></div><div><b>{usd(soglie_h1(s, alto)[1])}</b><span>highest Level II: {escape(breve_area_h1(alto))}</span></div><div><b>{usd(soglie_h1(s, basso)[1])}</b><span>lowest Level II in the table: {escape(breve_area_h1(basso))}</span></div></div>
+{fonte_h1_p(bls=True)}
+</div></section>
+{AVVISO_H1}
+{calc_h1(rel, soc=s, area=cop[0] if cop else aree[0], coppie={s: {a: perc_coppia_h1(s, a) for a in cop}})}
+{AD}
+<h2 id="areas">Wage levels in the {len(aree)} areas with the most jobs</h2>
+<p class="filtro"><label><span class="sr">Filter areas</span><input type="search" placeholder="Filter: e.g. Texas or TX" data-filtro="t-aree" autocomplete="off"></label></p>
+{tabella_aree_h1(s, aree, "../", "t-aree")}
+<p>The US mean wage for {escape(X.lower() if s != "15-1299" else X)} is {usd(mean) if mean else "not published"}{f" (median {usd(med)})" if med else ""}. In {sopra} of these {len(con)} areas Level II starts above the US mean.</p>
+{extra}
+{fonte_h1_p(bls=True)}
+{"<h2>Area pages</h2>" + lista_link([(f"{SLUG_AREA_H1[a]}/", f"{Xb} in {breve_area_h1(a)}: Level II from {usd(soglie_h1(s, a)[1])}") for a in cop]) if cop else ""}
+<h2>Lottery entries</h2>
+<p>Level I = 1 entry, Level II = 2, Level III = 3, Level IV = 4 ({link_fr_h1("regola", True)}). DHS estimated a {pct_h1(LH["stima_dhs"]["I"])} chance at Level I and {pct_h1(LH["stima_dhs"]["IV"])} at Level IV for its assumed pool: <a href="../lottery-odds/">how the odds work</a>.</p>
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(faq)}</div>
+<p><a href="../">H-1B wage level calculator: all occupations</a> · <a href="../lottery-odds/">H-1B lottery odds</a> · <a href="{rel}{SEZ_OPT}">US OPT and STEM OPT</a></p>"""
+    titolo = titolo_h1([f"{X} H-1B wage levels {ANNO_SAL_H1} by area (SOC {s})", f"{Xb} H-1B wage levels {ANNO_SAL_H1} by area (SOC {s})",
+                        f"{Xb} H-1B wage levels by area ({ANNO_SAL_H1})"])
+    descr = (f"H-1B wage Level I to IV for {X} (SOC {s}) in the {len(aree)} US areas with the most jobs: yearly salary for 1, 2, 3 or 4 lottery entries. "
+             f"OFLC wages July 2026–June 2027.")
+    pagina(percorso, titolo, descr, corpo, jsonld_extra=[ld_faq(faq)], briciole=[("H-1B wage level", SEZ_H1), (Xb, percorso)], ordina=True, script=H1B_JS, css_extra=CSS_STUDIO)
+
+
+CITTA_SW_H1 = {"42660": "seattle", "16980": "chicago", "35620": "new york", "41860": "san francisco", "41940": "san jose"}
+
+
+def pagina_h1_coppia(s, a):
+    percorso = perc_coppia_h1(s, a)
+    rel = "../../../"
+    X, Xb = nome_occ_h1(s), nome_occ_h1(s, True)
+    Xl = X.lower() if s != "15-1299" else X
+    sg = soglie_h1(s, a)
+    A, Ab = nome_area_h1(a), breve_area_h1(a)
+    altre = [x for x in COPPIE_H1[s] if x != a]
+    ord_l2 = sorted(COPPIE_H1[s], key=lambda x: -soglie_h1(s, x)[1])
+    pos = ord_l2.index(a) + 1
+    posti = H1["impieghi"][s][a]
+    lead = (f'For {escape(X)} (SOC {s}) in {escape(A)}, an H-1B salary of <strong>{usd(sg[0])}</strong> a year reaches wage Level I (1 lottery entry), <strong>{usd(sg[1])}</strong> Level II (2 entries), '
+            f'<strong>{usd(sg[2])}</strong> Level III (3) and <strong>{usd(sg[3])}</strong> Level IV (4), according to the Department of Labor wage file for {data_lunga(DAL_H1)} to {data_lunga(AL_H1)} '
+            f'(read on {data_lunga(LETTO_H1)}).')
+    domande = [(("us|h1b wage level", "h1b wage level 2 salary range"), f"What is the H-1B Level II salary range for {Xl} in {Ab}?",
+                f"From {usd(sg[1])} to {usd(sg[2] - 1)} a year: from {usd(sg[2])} the job is Level III. Level II gives 2 lottery entries."),
+               (("us|h1b wage level", "h1b wage level 4 salary range"), f"What salary is H-1B wage Level IV for {Xl} in {Ab}?",
+                f"{usd(sg[3])} a year or more (${orario_h1(s, a)[3]:.2f} an hour × {ORE_H1:,}). Level IV gives 4 lottery entries.")]
+    if s == "15-1252" and a in CITTA_SW_H1:
+        c = CITTA_SW_H1[a]
+        domande.append((("us|h1b wage level software engineer", f"{c} h1b wage level software engineer"), f"What is the H-1B wage level for a software engineer in {Ab.split(',')[0]}?",
+                        f"If the job is classified as Software Developers (SOC 15-1252), the levels in {A} start at {usd(sg[0])} (I), {usd(sg[1])} (II), {usd(sg[2])} (III) and {usd(sg[3])} (IV) a year. "
+                        f"The employer chooses the SOC code that matches the duties of the job."))
+    faq = registra_faq_h1(percorso, domande)
+    corpo = f"""<section class="hero">{h1_diviso(f"H-1B wage levels: {X} in {Ab} ({ANNO_SAL_H1})")}
+<p class="lead">{lead}</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{ico("list")}<span>SOC {s} · {escape(Ab)}</span><span>Read on {data_lunga(LETTO_H1)}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">Level II (2 lottery entries) from</span><span class="sr">: </span><strong>{usd(sg[1])} a year</strong></p>
+<div class="kpi">{"".join(f'<div><b>{usd(sg[i])}</b><span>Level {l}: {LH["pesi"][l]} entr{"y" if i == 0 else "ies"}</span></div>' for i, l in enumerate(LIV_H1))}</div>
+{fonte_h1_p()}
+</div></section>
+{AVVISO_H1}
+<h2 id="levels">The four levels</h2>
+{tabella_livelli_h1(s, a)}
+{fonte_h1_p(fr=("regola",))}
+<h2 id="us">Compared with the US and the other main areas</h2>
+{confronto_us_h1(s, a)}
+<p>{intero(posti)} people work as {escape(Xl)} in this area (OEWS May 2025). Of the {len(COPPIE_H1[s])} areas with an area page for this occupation, {escape(Ab)} has the {"highest" if pos == 1 else ("lowest" if pos == len(ord_l2) else f"number {pos}")} Level II threshold.</p>
+{tabella_aree_h1(s, [a] + altre, "../../", "t-altre", evidenzia=a)}
+{fonte_h1_p(bls=True)}
+{calc_h1(rel, soc=s, area=a, coppie={s: {x: perc_coppia_h1(s, x) for x in COPPIE_H1[s]}})}
+{AD}
+<h2 id="rule">How the level is chosen</h2>
+<p>The level is {cita_h1("livello_scelto")}. If the job is in several places, the lowest level counts; if the salary is a range, the lowest salary counts. OFLC computes these wages from the area itself (Geo level {riga_h1(s, a)["geo"]}). <a href="../../#rule">The rule in full</a>.</p>
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(faq)}</div>
+<p><a href="../">{escape(Xb)}: all areas</a> · <a href="../../">H-1B wage level calculator</a> · <a href="../../lottery-odds/">H-1B lottery odds</a> · <a href="{rel}{SEZ_OPT}">US OPT and STEM OPT</a></p>"""
+    titolo = titolo_h1([f"H-1B wage levels for {Xb} in {Ab} ({ANNO_SAL_H1})", f"H-1B wage levels: {Xb} in {Ab} ({ANNO_SAL_H1})", f"{Xb} in {Ab}: H-1B levels {ANNO_SAL_H1}",
+                        f"{Xb}, {Ab}: H-1B levels {ANNO_SAL_H1}", f"H-1B levels {ANNO}: {Xb}, {Ab}"])
+    descr = (f"H-1B wage levels for {X} in {A}: Level I {usd(sg[0])}, II {usd(sg[1])}, III {usd(sg[2])}, IV {usd(sg[3])} a year, with lottery entries "
+             f"and a comparison with the US and other areas. OFLC wages {ANNO_SAL_H1}.")
+    pagina(percorso, titolo, descr, corpo, jsonld_extra=[ld_faq(faq)], briciole=[("H-1B wage level", SEZ_H1), (Xb, perc_occ_h1(s)), (Ab, percorso)],
+           ordina=True, script=H1B_JS, css_extra=CSS_STUDIO)
+
+
+def dati_calc_h1():
+    """File JSON del calcolatore (non pagine, non in sitemap): data/areas.json e data/soc/<SOC>.json."""
+    cart = SITO / SEZ_H1 / "data"
+    (cart / "soc").mkdir(parents=True, exist_ok=True)
+    aree = {a: [v["nome"], v["stati"]] for a, v in AREE_H1.items()}
+    contee = {st: [v["nome"], sorted(v["voci"], key=lambda x: x[0])] for st, v in H1["contee"].items()}
+    (cart / "areas.json").write_text(json.dumps({"aree": aree, "contee": contee}, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    for s in OCC_TUTTE_H1:
+        r = {a: v for a, v in zip(H1S["aree"], H1S["soc"][s]) if v}
+        d = {"t": nome_occ_h1(s), "r": r}
+        if H1S["etichette"].get(s):
+            d["e"] = H1S["etichette"][s]
+        (cart / "soc" / f"{s}.json").write_text(json.dumps(d, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+
+
+def genera_h1b():
+    pagina_h1_indice()
+    pagina_h1_odds()
+    for s in OCC_H1:
+        pagina_h1_occ(s)
+        for a in COPPIE_H1[s]:
+            pagina_h1_coppia(s, a)
+    dati_calc_h1()
+
+
+def controlli_h1b():
+    errori = []
+    cont = {k: H1[k] for k in ("letture", "fonti", "federal_register", "aree", "contee", "occupazioni", "nazionale", "impieghi", "salari", "controllo_medie")}
+    import hashlib
+    if hashlib.sha256(json.dumps(cont, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:20] != H1["impronta"]:
+        errori.append("h1b: impronta del JSON diversa dal contenuto")
+    testo_sal = json.dumps(H1S, ensure_ascii=False, separators=(",", ":"))
+    if hashlib.sha256(testo_sal.encode()).hexdigest() != H1["salari"]["sha256"]:
+        errori.append("h1b: dati/h1b_salari.json non è quello scritto da raccolta/h1b.py")
+    if LH["pesi"] != {"I": 1, "II": 2, "III": 3, "IV": 4} or ORE_H1 != 2080:
+        errori.append("h1b: pesi o ore diversi da quelli letti")
+    if len(OCC_H1) < 25 or sum(len(v) for v in COPPIE_H1.values()) < 100:
+        errori.append(f"h1b: troppe poche pagine ({len(OCC_H1)} occupazioni, {sum(len(v) for v in COPPIE_H1.values())} coppie)")
+    if len(set(SLUG_OCC_H1.values())) != len(SLUG_OCC_H1):
+        errori.append("h1b: nomi di pagina delle occupazioni doppi")
+    for s in OCC_H1:
+        for a in COPPIE_H1[s]:
+            sg = soglie_h1(s, a)
+            if sg != sorted(sg) or len(set(sg)) != 4:
+                errori.append(f"h1b: soglie non crescenti per {s} {a}: {sg}")
+    for k, d in FRH.items():
+        if not d.get("sha256_pdf"):
+            errori.append(f"h1b: documento {k} senza PDF letto")
+    return errori
+
+
 def main():
     controlli()
     if SITO.exists():
@@ -13288,6 +13988,7 @@ def main():
     genera_inf()
     pagina_anc()
     genera_tu()
+    genera_h1b()
     pagina_come_funziona()
     about()
     contatti()
@@ -13305,7 +14006,8 @@ def main():
           f"sezioni es/pt (entrar a Europa): {2 * (5 + len(PAGINE_STATO_EE))} pagine, importi della tabella del {DATA_RIF_EE}; "
           f"visti di lunga durata per nazionalità (es/pt): {2 + len(pagine_vl())} pagine, cambi del {C_VL['data']}; "
           f"infermieri formati all'estero: {5 + len(PAG_INF)} pagine (NMC al {NMC_D[-1]}, Irlanda {IE_A1}); UK Ancestry visa: 1 pagina ({ANC_TRIM[0]}–{ANC_TRIM[-1]}); "
-          f"liste delle università per i visti dei laureati (HPI {ANNI_HPI[0]}–{ANNI_HPI[-1]}, TTPS, J-Find): {len(UNI_TU)} università, {3 + len(ANNI_HPI) + len(PAG_UNI_TU) + len(paesi_tu()) + len(PAESI_ZERO_TU)} pagine ({len(PAG_UNI_TU)} università con pagina).")
+          f"liste delle università per i visti dei laureati (HPI {ANNI_HPI[0]}–{ANNI_HPI[-1]}, TTPS, J-Find): {len(UNI_TU)} università, {3 + len(ANNI_HPI) + len(PAG_UNI_TU) + len(paesi_tu()) + len(PAESI_ZERO_TU)} pagine ({len(PAG_UNI_TU)} università con pagina); "
+          f"H-1B wage level: {2 + len(OCC_H1) + sum(len(v) for v in COPPIE_H1.values())} pagine ({len(OCC_H1)} occupazioni, {sum(len(v) for v in COPPIE_H1.values())} occupazione × area), calcolatore con {len(OCC_TUTTE_H1)} occupazioni × {len(AREE_H1)} aree.")
 
 
 if __name__ == "__main__":
