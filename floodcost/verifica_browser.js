@@ -44,6 +44,9 @@ function campione() {
   ['/disaster-relief/', '/disaster-relief/florida/', '/disaster-relief/texas/', '/disaster-relief/indiana/',
    '/disaster-relief/florida/santa-rosa-county/', '/disaster-relief/texas/kerr-county/', '/disaster-relief/alabama/mobile-county/',
    '/disaster-relief/washington/snohomish-county/'].filter(p => fs.existsSync(path.join(SITO, p, 'index.html'))).forEach(p => pagine.push(p));
+  // sezione California (7/11/2026): indice, pagine di area con domanda, una pagina ZIP NFIP con il blocco FAIR Plan, Stato e contea con il rimando
+  ['/california-home-insurance/', '/california-home-insurance/los-angeles/', '/california-home-insurance/san-diego/', '/zip/90265/', '/california/', '/california/los-angeles-county/']
+    .filter(p => fs.existsSync(path.join(SITO, p, 'index.html'))).forEach(p => pagine.push(p));
   return [...new Set(pagine)];
 }
 
@@ -88,8 +91,17 @@ function campione() {
           if (t !== atteso) errori.push(`pulsante tema: atteso ${atteso}, trovato ${t}`);
           await page.evaluate(() => { document.documentElement.removeAttribute('data-theme'); try { localStorage.removeItem('fc-theme'); } catch (e) {} });
         }
+        if (p === '/california-home-insurance/') {
+          await page.fill('#qca', '9524');
+          await page.waitForSelector('.risultati .ris, .risultati a', { timeout: 5000 }).catch(() => errori.push('ricerca California: nessun risultato per 9524'));
+          await page.fill('#qca', 'paradise');
+          await page.waitForTimeout(300);
+          const r = await page.$$eval('.risultati .ris, .risultati a', a => a.length);
+          if (!r) errori.push('ricerca California: nessun risultato per paradise');
+          await page.fill('#qca', '');
+        }
         const nome = (p === '/' ? 'home' : p.replace(/\//g, '_').replace(/^_|_$/g, '')) + `-${w}-${tema}.png`;
-        if (['/', '/florida/', '/flood-zones/zone-ae/', '/zip/33904/', '/methodology/', '/states/', '/disaster-relief/', '/disaster-relief/texas/', '/disaster-relief/texas/kerr-county/', '/disaster-relief/alabama/mobile-county/'].includes(p) || p.startsWith('/florida/') && p.split('/').length === 4 && !fs.existsSync(path.join(SHOT, 'contea-' + w + '-' + tema + '.png')))
+        if (['/', '/florida/', '/flood-zones/zone-ae/', '/zip/33904/', '/methodology/', '/states/', '/disaster-relief/', '/disaster-relief/texas/', '/disaster-relief/texas/kerr-county/', '/disaster-relief/alabama/mobile-county/', '/california-home-insurance/', '/california-home-insurance/los-angeles/', '/zip/90265/'].includes(p) || p.startsWith('/florida/') && p.split('/').length === 4 && !fs.existsSync(path.join(SHOT, 'contea-' + w + '-' + tema + '.png')))
           await page.screenshot({ path: path.join(SHOT, p.startsWith('/florida/') && p !== '/florida/' ? 'contea-' + w + '-' + tema + '.png' : nome), fullPage: true });
         errori.forEach(e => problemi.push(`${w}px ${tema} ${p}: ${e}`));
         await page.close();

@@ -1,10 +1,18 @@
 {
- "_nota": "Riquadro 'get a quote' delle pagine. Compare SOLO quando una voce ha l'url compilato (il primo con url). Inserire solo URL di affiliazione veri ricevuti dopo l'iscrizione a un programma (es. preventivi casa/alluvione). Mai inventare URL. Testo neutro: niente promesse di risparmio.",
+ "_nota": "Riquadro 'get a quote' delle pagine. Compare SOLO quando una voce ha l'url compilato (il primo con url). Inserire solo URL di affiliazione veri ricevuti dopo l'iscrizione a un programma (es. preventivi casa/alluvione). Mai inventare URL. Testo neutro: niente promesse di risparmio. 'casa_california': riquadro della sezione California (pagine /california/), SPENTO finché url è vuoto; mai inventare l'URL.",
  "quote": {
   "url": "",
   "nome": "",
   "titolo": "Want a price for your own home?",
   "testo": "Compare flood insurance quotes from licensed providers for your address.",
+  "bottone": "Compare quotes"
+ },
+ "casa_california": {
+  "url": "",
+  "nome": "",
+  "candidati": "Lemonade (Awin), Policygenius o simili: solo dopo l'iscrizione di Massimiliano e l'approvazione del programma; controllare che il programma accetti traffico dalla California",
+  "titolo": "Looking for home insurance in California?",
+  "testo": "Compare homeowners insurance quotes from licensed providers.",
   "bottone": "Compare quotes"
  }
 }

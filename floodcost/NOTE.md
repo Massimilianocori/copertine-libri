@@ -259,3 +259,67 @@ Non letti dal server: disasterassistance.gov (403: solo link). Nessun commit, ne
 comunicati IRS scaricati (tutte giuste; tutte le 1.719 aree e 288 dichiarazioni coincidono con l'API); corretti: collegamento parziale
 dei comunicati IRS (+4 pagine Indiana), dichiarazione OpenFEMA col testo esatto, ora di lettura, prima frase degli Stati e dell'indice
 con la fonte ("FEMA lists…"), "No FEMA declaration" nelle griglie, riquadro "No open IRS postponed deadline today" al posto di "None open".
+
+## Sezione "California home insurance crisis by ZIP: FAIR Plan policies and non-renewals" (7/11/2026, da revisionare)
+Idea n. 1 di `studio-business/intelaiatura/fronti-2026-11-07-settori-nuovi.md` (voto 7 come sezione; 300 / 2.750 / 11.000 €/anno).
+**Riapre FloodCost dal congelamento del 6/11** (0 visite), come ApprovedCondos con il pannello solare: tema nuovo dentro un sito che ha già
+le pagine ZIP della California. Indirizzo `/california-home-insurance/` (non `/california/`: è la pagina NFIP dello Stato). Voce "California" nel menu e nel piè di pagina.
+
+**Pagine (3 nuove + blocco in 81 pagine esistenti):**
+| Tipo | Quante | Regola |
+|---|---|---|
+| Indice `/california-home-insurance/` | 1 | prima frase con il dato e la data; ricerca nel browser su 2.180 ZIP (`data/california-zip.json`: ZIP, luogo, contea, polizze FAIR Plan 2022 e 2026, premio medio, non rinnovi 2023 e tasso, link); tabella delle 58 contee; classifiche (più polizze, crescita dal 2022 con almeno 500 polizze, tasso di non rinnovo 2023 con almeno 1.000 polizze nuove + rinnovate); limiti; aiuto ufficiale; 7 FAQ; fonti con impronta |
+| Città con domanda `/california-home-insurance/<città>/` | 2 | Los Angeles e San Diego: le sole aree con ≥ 1.000 polizze FAIR Plan **e** un suggerimento vero ("california fair plan los angeles", "california fair plan san diego"). Provate 44 contee e 175 città con ≥ 1.000 polizze con "california fair plan <luogo>", "fair plan <luogo>", "insurance non renewal <luogo>" (gl=us): nessuna contea, nessun'altra città. Tabella di tutti gli ZIP del luogo, anni 2022-2026 e 2020-2023, premio per gruppo di rischio, 3 FAQ |
+| Blocco "Home insurance availability in ZIP …" | 81 | tutte le pagine ZIP della California che FloodCost aveva già (soglia NFIP 300 case), dopo la tabella delle zone: prima frase con dato e data, 4 cifre, tabelle anni, limiti, fonti, link all'indice |
+| Rimandi | 1 + contee CA | pagina NFIP della California e pagine NFIP delle contee della California: una riga con le polizze FAIR Plan della contea e il link; home: riga "California" |
+Nessuna pagina per i 2.000 ZIP senza pagina NFIP (sarebbero sottili): stanno nella ricerca e nelle tabelle.
+
+**Fonti (lette dal server il 7/11/2026, `raccolta/california.py`; file in `cache/california/`, fuori da git; impronte in `dati/california.json`):**
+| Fonte | File | SHA-256 (inizio) | Contenuto |
+|---|---|---|---|
+| FAIR Plan, Key Statistics & Data (`cfpnet.com/key-statistics-data/`) | `CFP-5-yr-PIF-Zip-FY26-DWE-261020.pdf` (36 pagine) | 6e551e84ece1 | polizze residenziali al 30/9 2022-2026, 1.687 righe ZIP (una è 97635, Oregon), totale 665.673 |
+| idem | `CFP-5-yr-TIV-Zip-FY26-DWE-261020.pdf` | b5cd3574c9f8 | valore assicurato, stessi ZIP: $714.651.760.473 |
+| idem | `Policies-by-category-DWE-as-of-260930-DL-261019v001.pdf` | dcab04e49c4f | polizze per ZIP × gruppo di rischio (Low/Medium/High) × tipo (Owner-occupied Single Family, Tenant-occupied, Renters, Condo, Other), 1.662 ZIP |
+| idem | `Premium-by-category-DWE-as-of-260930-DL-261019v001.pdf` | 3ad971d04d29 | premio delle stesse celle, 1.664 ZIP |
+| CDI, Data and Analysis on Wildfires and Insurance | `Residential-Insurance-Voluntary-Market-New-Renew-NonRenew-by-ZIP-2020-2023.xlsx` | 316d0ee62f11 | 8.032 righe: contea, ZIP, anno, nuove, rinnovate, non rinnovate (mercato volontario) |
+| idem | fact sheet `…FAIR-Plan-v-011325-2.pdf` (13/1/2025) | 1808dbaa3ea6 | definizioni: non rinnovi totali, "75-80% … initiated by policyholders", rapporto non rinnovi/(nuove+rinnovate); appendice A = totali dello Stato |
+| GeoNames postal codes `US.zip` (CC BY 4.0) | `US.zip` | cambia ogni giorno | nome del luogo e contea dello ZIP (attribuzione nelle fonti) |
+Il nome del file FAIR Plan porta la data 20/10/2026 ("report dated October 20, 2026" nelle pagine); il server dà Last-Modified 27/10/2026.
+Pagine citate tra virgolette (lette il 7/11/2026, `CA_CITAZIONI` in `genera.py`): FAIR Plan dwelling, DIC, how to apply; CDI consumer help
+(1-800-927-4357), Home Insurance Finder (`homeinsurancefinder.insurance.ca.gov`, rinvia a interactive.web.insurance.ca.gov).
+
+**Definizioni (uguali in `genera.py`, nella sezione "How to read these numbers" e in Methodology):**
+- Polizze FAIR Plan = polizze residenziali in vigore al 30/9 (anno fiscale). Variazioni ricalcolate dai conteggi (le crescite stampate nel PDF coincidono entro 1 punto: 12.954 confronti, 0 differenze).
+- **Premio medio** = premio delle polizze in vigore al 30/9/2026 ÷ numero di polizze, solo "Owner-occupied Single Family Residential" (somma dei 3 gruppi), pubblicato solo con ≥ 10 polizze. Stato: $1.562.500.858 / 520.412 = **$3.002** (Low $1.431, Medium $3.115, High $4.013). Non è un prezzo: lo dicono tutte le pagine.
+- **Tasso di non rinnovo** = non rinnovate ÷ (nuove + rinnovate), il rapporto del fact sheet CDI; pubblicato solo con ≥ 100 polizze nuove + rinnovate. Stato 2023: 788.485 / 8.300.730 = **9,5 %**.
+- Limiti scritti in ogni pagina: i non rinnovi finiscono nel **2023**; sono totali (75-80 % chiesti dagli assicurati secondo il CDI), solo mercato volontario, nessun nome di compagnia; la FAIR Plan dà solo copertura incendio di base (DIC a parte, non contato).
+- Contea dello ZIP: quella del PDF FAIR Plan per categoria (gli ZIP a cavallo vanno alla contea più popolosa), poi CDI, poi GeoNames. Somme per contea e città = somme degli ZIP.
+- **Difetto della fonte:** il PDF delle polizze per categoria finisce prima delle ultime 2 righe (95962 e 95972, Yuba, 305 polizze, presenti nel PDF dei premi): per quei 2 ZIP niente premio medio; la raccolta controlla che la differenza con la riga All sia esattamente quella.
+
+**FAQ (solo da ricerche vere, `dati/california-domanda.json`):** indice: "how much is the california fair plan", "california fair plan cost by zip code",
+"what does california fair plan cover", "what is a dic policy in california", "state farm non renewal zip codes california", "which insurance
+companies are writing new policies in california", "what to do if homeowners insurance is not renewed". Città: costo e non rinnovi locali + copertura.
+Risposte solo con numeri delle fonti o frasi ufficiali tra virgolette; nessun consiglio, nessun nome di compagnia. JSON-LD FAQPage = testo.
+
+**Monetizzazione:** AdSense già acceso (annunci automatici). Nessun programma nuovo. Voce `casa_california` in `dati/affiliati.json`
+(**spenta**, `url` vuoto; candidati Lemonade su Awin, Policygenius o simili, solo dopo l'iscrizione di Massimiliano): il riquadro
+`box_casa_ca()` compare solo nelle pagine della sezione quando `url` è compilato; `box_quote()` (alluvione) la ignora.
+
+**Controlli (`verifica.py`, `controlla_california`):** impronta dei dati e delle fonti (file in cache con la stessa SHA-256, riscaricati se mancano);
+**ricalcolo di tutti i 2.180 ZIP dai file sorgente con motori diversi dalla raccolta** (raccolta: pdftotext per i PDF a 5 anni, pdfplumber per quelli
+per categoria, openpyxl per l'XLSX; verifica: il contrario e l'XML grezzo dell'XLSX); somme = righe Total/All; totali CDI = appendice A del fact sheet
+(2023: 724.037 / 7.576.693 / 788.485); pagine attese e sitemap con lastmod; titoli ≤ 70; prima frase con dato e data; scheda, ogni riga ZIP, ogni contea,
+81 blocchi ZIP e la ricerca uguali al ricalcolo; limiti e avvisi; nessuna frase da consulenza; nessun link di affiliazione; FAQ da ricerche salvate = JSON-LD;
+link indice ↔ città, blocchi → indice, Stato e contee NFIP → sezione; con la rete, 9 frasi ufficiali citate ancora presenti e avviso se la pagina FAIR Plan
+collega file nuovi. `verifica_browser.js`: indice (con prova della ricerca "9524" e "paradise"), Los Angeles, San Diego, ZIP 90265.
+Esito del 7/11/2026: tutti i controlli superati (3.408 pagine HTML, 3.407 nella sitemap).
+
+**Aggiornamento:** la pagina FAIR Plan dice che i dati si aggiornano ogni trimestre (i file a 5 anni sono per anno fiscale, al 30/9); il CDI pubblica
+il file per ZIP una volta l'anno (il 2024 non c'è ancora: quando esce, il nome cambia in `…-by-ZIP-2021-2024.xlsx` o simile e la raccolta lo prende da sola).
+Comandi: `python3 floodcost/raccolta/california.py` (circa 20 secondi più l'autocomplete, cache 28 giorni; `--senza-domanda` per non toccarlo) →
+`python3 floodcost/genera.py` → `python3 floodcost/verifica.py --browser` → commit di `floodcost/dati` (e di `floodcost/sito` solo nel push serale).
+Se l'autocomplete fa nascere pagine nuove di città o contea, controllare che abbiano senso prima di pubblicare.
+
+**Numeri principali (7/11/2026):** Stato 665.673 polizze FAIR Plan (265.909 nel 2022, ×2,5; +7,2 % in un anno), $714,7 miliardi; Los Angeles (69 ZIP)
+41.982 polizze, premio medio $1.934, non rinnovi 2023 26.805 (9,6 %); San Diego (52 ZIP) 14.556 polizze, $2.170, 21.210 (8,6 %).
+Tasso di non rinnovo 2023 più alto: 95954 Magalia 78,6 % (969 su 1.233), poi Shingletown, Paradise.
