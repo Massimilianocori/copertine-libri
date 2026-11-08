@@ -6,7 +6,7 @@ Sezioni già revisionate, con i sorgenti salvati, che aspettano la pubblicazione
 
 **6/11/2026 sera:** Massimiliano ha aggiunto ApprovedCondos su Awin (spazio promozionale) e su Amazon US, e ha chiesto l'iscrizione a **EcoFlow USA** su Awin. Quando arriva l'email di approvazione EcoFlow: accendere il riquadro `kit_solari` di `fhacondos/dati/affiliati.json` con il link awin1 (awinmid dalla pagina del programma, awinaffid 3145171).
 
-**Budget al 7/11/2026 sera: 62 % usato** (Massimiliano), ricarica mercoledì 11/11 alle 21:00: margine ~9-10 % al giorno. Ritmo normale: turno delle 11:43 con 1 costruttore + 1 revisore, sera al massimo 2 ricercatori, mercoledì mattina 3.
+**Budget all'8/11/2026 sera: 77 % usato** (Massimiliano; ieri 62 %: oggi ~15 % per domini, passaggio AdSense di EsameB1 e revisione), ricarica mercoledì 11/11 alle 21:00: margine ~7-8 % al giorno. **Ritmo leggero fino a mercoledì 21:00**: sera 1 solo ricercatore; turno delle 11:43 con 1 solo agente (costruttore piccolo O revisore, non entrambi) e nessuna costruzione grande; pubblicazioni solo di cose già pronte. Da mercoledì 21:00 si torna al ritmo pieno (3 ricercatori sulle idee grandi).
 
 | Sito (cartella) | Sezione | Revisione | Note |
 |---|---|---|---|
