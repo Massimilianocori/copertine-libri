@@ -8,8 +8,8 @@ X-WR-TIMEZONE:Europe/Madrid
 REFRESH-INTERVAL;VALUE=DURATION:P1D
 X-PUBLISHED-TTL:P1D
 BEGIN:VEVENT
-UID:sagrada-familia-orario-orari-2026-12-25@before-you-fly.netlify.app
-DTSTAMP:20261107T000000Z
+UID:sagrada-familia-orario-orari-2026-12-25@before-you-fly.com
+DTSTAMP:20261108T000000Z
 DTSTART;VALUE=DATE:20261225
 DTEND;VALUE=DATE:20261226
 SUMMARY:Sagrada Família: open 9:00 am to 2:00 pm
@@ -18,16 +18,15 @@ DESCRIPTION:Official rule: “Special opening hours On 25 and 26 December\,
  ce: https://sagradafamilia.org/en/schedules-how-to-get (checked on 4 Novem
  ber 2026)\nDate calculated by Before You Fly from the official rule. Rules
   can change: check the official page before you book.\nOfficial tickets: h
- ttps://sagradafamilia.org/en/tickets\nhttps://before-you-fly.netlify.app/t
- icket-release-dates/sagrada-familia/
-URL:https://before-you-fly.netlify.app/ticket-release-dates/sagrada-familia
- /
+ ttps://sagradafamilia.org/en/tickets\nhttps://before-you-fly.com/ticket-re
+ lease-dates/sagrada-familia/
+URL:https://before-you-fly.com/ticket-release-dates/sagrada-familia/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
-UID:sagrada-familia-orario-orari-2026-12-26@before-you-fly.netlify.app
-DTSTAMP:20261107T000000Z
+UID:sagrada-familia-orario-orari-2026-12-26@before-you-fly.com
+DTSTAMP:20261108T000000Z
 DTSTART;VALUE=DATE:20261226
 DTEND;VALUE=DATE:20261227
 SUMMARY:Sagrada Família: open 9:00 am to 2:00 pm
@@ -36,16 +35,15 @@ DESCRIPTION:Official rule: “Special opening hours On 25 and 26 December\,
  ce: https://sagradafamilia.org/en/schedules-how-to-get (checked on 4 Novem
  ber 2026)\nDate calculated by Before You Fly from the official rule. Rules
   can change: check the official page before you book.\nOfficial tickets: h
- ttps://sagradafamilia.org/en/tickets\nhttps://before-you-fly.netlify.app/t
- icket-release-dates/sagrada-familia/
-URL:https://before-you-fly.netlify.app/ticket-release-dates/sagrada-familia
- /
+ ttps://sagradafamilia.org/en/tickets\nhttps://before-you-fly.com/ticket-re
+ lease-dates/sagrada-familia/
+URL:https://before-you-fly.com/ticket-release-dates/sagrada-familia/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
-UID:sagrada-familia-orario-orari-2027-01-01@before-you-fly.netlify.app
-DTSTAMP:20261107T000000Z
+UID:sagrada-familia-orario-orari-2027-01-01@before-you-fly.com
+DTSTAMP:20261108T000000Z
 DTSTART;VALUE=DATE:20270101
 DTEND;VALUE=DATE:20270102
 SUMMARY:Sagrada Família: open 9:00 am to 2:00 pm
@@ -54,16 +52,15 @@ DESCRIPTION:Official rule: “Special opening hours On 25 and 26 December\,
  ce: https://sagradafamilia.org/en/schedules-how-to-get (checked on 4 Novem
  ber 2026)\nDate calculated by Before You Fly from the official rule. Rules
   can change: check the official page before you book.\nOfficial tickets: h
- ttps://sagradafamilia.org/en/tickets\nhttps://before-you-fly.netlify.app/t
- icket-release-dates/sagrada-familia/
-URL:https://before-you-fly.netlify.app/ticket-release-dates/sagrada-familia
- /
+ ttps://sagradafamilia.org/en/tickets\nhttps://before-you-fly.com/ticket-re
+ lease-dates/sagrada-familia/
+URL:https://before-you-fly.com/ticket-release-dates/sagrada-familia/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
-UID:sagrada-familia-orario-orari-2027-01-06@before-you-fly.netlify.app
-DTSTAMP:20261107T000000Z
+UID:sagrada-familia-orario-orari-2027-01-06@before-you-fly.com
+DTSTAMP:20261108T000000Z
 DTSTART;VALUE=DATE:20270106
 DTEND;VALUE=DATE:20270107
 SUMMARY:Sagrada Família: open 9:00 am to 2:00 pm
@@ -72,10 +69,9 @@ DESCRIPTION:Official rule: “Special opening hours On 25 and 26 December\,
  ce: https://sagradafamilia.org/en/schedules-how-to-get (checked on 4 Novem
  ber 2026)\nDate calculated by Before You Fly from the official rule. Rules
   can change: check the official page before you book.\nOfficial tickets: h
- ttps://sagradafamilia.org/en/tickets\nhttps://before-you-fly.netlify.app/t
- icket-release-dates/sagrada-familia/
-URL:https://before-you-fly.netlify.app/ticket-release-dates/sagrada-familia
- /
+ ttps://sagradafamilia.org/en/tickets\nhttps://before-you-fly.com/ticket-re
+ lease-dates/sagrada-familia/
+URL:https://before-you-fly.com/ticket-release-dates/sagrada-familia/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT

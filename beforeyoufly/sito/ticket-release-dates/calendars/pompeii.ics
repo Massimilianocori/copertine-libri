@@ -8,8 +8,8 @@ X-WR-TIMEZONE:Europe/Rome
 REFRESH-INTERVAL;VALUE=DURATION:P1D
 X-PUBLISHED-TTL:P1D
 BEGIN:VEVENT
-UID:pompeii-gratis-prima_domenica-2026-12-06@before-you-fly.netlify.app
-DTSTAMP:20261107T000000Z
+UID:pompeii-gratis-prima_domenica-2026-12-06@before-you-fly.com
+DTSTAMP:20261108T000000Z
 DTSTART;VALUE=DATE:20261206
 DTEND;VALUE=DATE:20261207
 SUMMARY:Pompeii: free entry
@@ -19,14 +19,14 @@ DESCRIPTION:Official rule: “Free ticket every first Sunday of the month
  ng-info/timetables-and-tickets/ (checked on 4 November 2026)\nDate calcula
  ted by Before You Fly from the official rule. Rules can change: check the 
  official page before you book.\nOfficial tickets: https://pompeii.vivatick
- et.it/\nhttps://before-you-fly.netlify.app/ticket-release-dates/pompeii/
-URL:https://before-you-fly.netlify.app/ticket-release-dates/pompeii/
+ et.it/\nhttps://before-you-fly.com/ticket-release-dates/pompeii/
+URL:https://before-you-fly.com/ticket-release-dates/pompeii/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
-UID:pompeii-chiusura-chiusure-2026-12-25@before-you-fly.netlify.app
-DTSTAMP:20261107T000000Z
+UID:pompeii-chiusura-chiusure-2026-12-25@before-you-fly.com
+DTSTAMP:20261108T000000Z
 DTSTART;VALUE=DATE:20261225
 DTEND;VALUE=DATE:20261226
 SUMMARY:Pompeii: closed
@@ -35,15 +35,14 @@ DESCRIPTION:Official rule: “Closed on: 25th December\, 1st January (Unles
  /en/visiting-info/timetables-and-tickets/ (checked on 4 November 2026)\nDa
  te calculated by Before You Fly from the official rule. Rules can change: 
  check the official page before you book.\nOfficial tickets: https://pompei
- i.vivaticket.it/\nhttps://before-you-fly.netlify.app/ticket-release-dates/
- pompeii/
-URL:https://before-you-fly.netlify.app/ticket-release-dates/pompeii/
+ i.vivaticket.it/\nhttps://before-you-fly.com/ticket-release-dates/pompeii/
+URL:https://before-you-fly.com/ticket-release-dates/pompeii/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
-UID:pompeii-chiusura-chiusure-2027-01-01@before-you-fly.netlify.app
-DTSTAMP:20261107T000000Z
+UID:pompeii-chiusura-chiusure-2027-01-01@before-you-fly.com
+DTSTAMP:20261108T000000Z
 DTSTART;VALUE=DATE:20270101
 DTEND;VALUE=DATE:20270102
 SUMMARY:Pompeii: closed
@@ -52,15 +51,14 @@ DESCRIPTION:Official rule: “Closed on: 25th December\, 1st January (Unles
  /en/visiting-info/timetables-and-tickets/ (checked on 4 November 2026)\nDa
  te calculated by Before You Fly from the official rule. Rules can change: 
  check the official page before you book.\nOfficial tickets: https://pompei
- i.vivaticket.it/\nhttps://before-you-fly.netlify.app/ticket-release-dates/
- pompeii/
-URL:https://before-you-fly.netlify.app/ticket-release-dates/pompeii/
+ i.vivaticket.it/\nhttps://before-you-fly.com/ticket-release-dates/pompeii/
+URL:https://before-you-fly.com/ticket-release-dates/pompeii/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
-UID:pompeii-gratis-prima_domenica-2027-01-03@before-you-fly.netlify.app
-DTSTAMP:20261107T000000Z
+UID:pompeii-gratis-prima_domenica-2027-01-03@before-you-fly.com
+DTSTAMP:20261108T000000Z
 DTSTART;VALUE=DATE:20270103
 DTEND;VALUE=DATE:20270104
 SUMMARY:Pompeii: free entry
@@ -70,14 +68,14 @@ DESCRIPTION:Official rule: “Free ticket every first Sunday of the month
  ng-info/timetables-and-tickets/ (checked on 4 November 2026)\nDate calcula
  ted by Before You Fly from the official rule. Rules can change: check the 
  official page before you book.\nOfficial tickets: https://pompeii.vivatick
- et.it/\nhttps://before-you-fly.netlify.app/ticket-release-dates/pompeii/
-URL:https://before-you-fly.netlify.app/ticket-release-dates/pompeii/
+ et.it/\nhttps://before-you-fly.com/ticket-release-dates/pompeii/
+URL:https://before-you-fly.com/ticket-release-dates/pompeii/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
-UID:pompeii-gratis-prima_domenica-2027-02-07@before-you-fly.netlify.app
-DTSTAMP:20261107T000000Z
+UID:pompeii-gratis-prima_domenica-2027-02-07@before-you-fly.com
+DTSTAMP:20261108T000000Z
 DTSTART;VALUE=DATE:20270207
 DTEND;VALUE=DATE:20270208
 SUMMARY:Pompeii: free entry
@@ -87,14 +85,14 @@ DESCRIPTION:Official rule: “Free ticket every first Sunday of the month
  ng-info/timetables-and-tickets/ (checked on 4 November 2026)\nDate calcula
  ted by Before You Fly from the official rule. Rules can change: check the 
  official page before you book.\nOfficial tickets: https://pompeii.vivatick
- et.it/\nhttps://before-you-fly.netlify.app/ticket-release-dates/pompeii/
-URL:https://before-you-fly.netlify.app/ticket-release-dates/pompeii/
+ et.it/\nhttps://before-you-fly.com/ticket-release-dates/pompeii/
+URL:https://before-you-fly.com/ticket-release-dates/pompeii/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
-UID:pompeii-gratis-prima_domenica-2027-03-07@before-you-fly.netlify.app
-DTSTAMP:20261107T000000Z
+UID:pompeii-gratis-prima_domenica-2027-03-07@before-you-fly.com
+DTSTAMP:20261108T000000Z
 DTSTART;VALUE=DATE:20270307
 DTEND;VALUE=DATE:20270308
 SUMMARY:Pompeii: free entry
@@ -104,14 +102,14 @@ DESCRIPTION:Official rule: “Free ticket every first Sunday of the month
  ng-info/timetables-and-tickets/ (checked on 4 November 2026)\nDate calcula
  ted by Before You Fly from the official rule. Rules can change: check the 
  official page before you book.\nOfficial tickets: https://pompeii.vivatick
- et.it/\nhttps://before-you-fly.netlify.app/ticket-release-dates/pompeii/
-URL:https://before-you-fly.netlify.app/ticket-release-dates/pompeii/
+ et.it/\nhttps://before-you-fly.com/ticket-release-dates/pompeii/
+URL:https://before-you-fly.com/ticket-release-dates/pompeii/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
-UID:pompeii-gratis-prima_domenica-2027-04-04@before-you-fly.netlify.app
-DTSTAMP:20261107T000000Z
+UID:pompeii-gratis-prima_domenica-2027-04-04@before-you-fly.com
+DTSTAMP:20261108T000000Z
 DTSTART;VALUE=DATE:20270404
 DTEND;VALUE=DATE:20270405
 SUMMARY:Pompeii: free entry
@@ -121,14 +119,14 @@ DESCRIPTION:Official rule: “Free ticket every first Sunday of the month
  ng-info/timetables-and-tickets/ (checked on 4 November 2026)\nDate calcula
  ted by Before You Fly from the official rule. Rules can change: check the 
  official page before you book.\nOfficial tickets: https://pompeii.vivatick
- et.it/\nhttps://before-you-fly.netlify.app/ticket-release-dates/pompeii/
-URL:https://before-you-fly.netlify.app/ticket-release-dates/pompeii/
+ et.it/\nhttps://before-you-fly.com/ticket-release-dates/pompeii/
+URL:https://before-you-fly.com/ticket-release-dates/pompeii/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
-UID:pompeii-gratis-prima_domenica-2027-05-02@before-you-fly.netlify.app
-DTSTAMP:20261107T000000Z
+UID:pompeii-gratis-prima_domenica-2027-05-02@before-you-fly.com
+DTSTAMP:20261108T000000Z
 DTSTART;VALUE=DATE:20270502
 DTEND;VALUE=DATE:20270503
 SUMMARY:Pompeii: free entry
@@ -138,8 +136,8 @@ DESCRIPTION:Official rule: “Free ticket every first Sunday of the month
  ng-info/timetables-and-tickets/ (checked on 4 November 2026)\nDate calcula
  ted by Before You Fly from the official rule. Rules can change: check the 
  official page before you book.\nOfficial tickets: https://pompeii.vivatick
- et.it/\nhttps://before-you-fly.netlify.app/ticket-release-dates/pompeii/
-URL:https://before-you-fly.netlify.app/ticket-release-dates/pompeii/
+ et.it/\nhttps://before-you-fly.com/ticket-release-dates/pompeii/
+URL:https://before-you-fly.com/ticket-release-dates/pompeii/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT

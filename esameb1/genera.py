@@ -3571,6 +3571,13 @@ def extra(urls):
   # Pubblica solo se è cambiato qualcosa in esameb1/sito (ogni pubblicazione consuma crediti Netlify).
   ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- ."
 
+# Dominio proprio dall'8/11/2026: il vecchio indirizzo esameb1.netlify.app porta al nuovo, pagina per pagina.
+[[redirects]]
+  from = "https://esameb1.netlify.app/*"
+  to = "https://esameb1.eu/:splat"
+  status = 301
+  force = true
+
 # La pagina delle prove d'esempio è diventata la sezione /esempi/ (31/10/2026): il vecchio indirizzo resta valido.
 [[redirects]]
   from = "/esempi-esame-b1"

@@ -9008,6 +9008,13 @@ def extra():
   # Deploy only when something changed in beforeyoufly/sito.
   ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- ."
 
+# Dominio proprio dall'8/11/2026: il vecchio indirizzo before-you-fly.netlify.app porta al nuovo, pagina per pagina.
+[[redirects]]
+  from = "https://before-you-fly.netlify.app/*"
+  to = "https://before-you-fly.com/:splat"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/*"
   [headers.values]

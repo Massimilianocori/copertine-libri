@@ -8,9 +8,8 @@ X-WR-TIMEZONE:Asia/Tokyo
 REFRESH-INTERVAL;VALUE=DURATION:P1D
 X-PUBLISHED-TTL:P1D
 BEGIN:VEVENT
-UID:imperial-palace-tour-uscita-online-2026-12-01@before-you-fly.netlify.ap
- p
-DTSTAMP:20261107T000000Z
+UID:imperial-palace-tour-uscita-online-2026-12-01@before-you-fly.com
+DTSTAMP:20261108T000000Z
 DTSTART:20261130T200000Z
 DTEND:20261130T203000Z
 SUMMARY:Imperial Palace tour: online applications open (for January 2027)
@@ -20,17 +19,15 @@ DESCRIPTION:Official rule: “Application Period 5.00 a.m. (JST) on the 1st
  html (checked on 4 November 2026)\nDate calculated by Before You Fly from 
  the official rule. Rules can change: check the official page before you bo
  ok.\nOfficial tickets: https://sankan.kunaicho.go.jp/register/month/1001?l
- ocale=en\nhttps://before-you-fly.netlify.app/ticket-release-dates/imperial
- -palace-tour/
-URL:https://before-you-fly.netlify.app/ticket-release-dates/imperial-palace
- -tour/
+ ocale=en\nhttps://before-you-fly.com/ticket-release-dates/imperial-palace-
+ tour/
+URL:https://before-you-fly.com/ticket-release-dates/imperial-palace-tour/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
-UID:imperial-palace-tour-chiusura-chiusure-2026-12-28@before-you-fly.netlif
- y.app
-DTSTAMP:20261107T000000Z
+UID:imperial-palace-tour-chiusura-chiusure-2026-12-28@before-you-fly.com
+DTSTAMP:20261108T000000Z
 DTSTART;VALUE=DATE:20261228
 DTEND;VALUE=DATE:20261229
 SUMMARY:Imperial Palace tour: closed
@@ -41,17 +38,15 @@ DESCRIPTION:Official rule: “Suspended Dates Sundays Mondays National holi
  kyo.html (checked on 4 November 2026)\nDate calculated by Before You Fly f
  rom the official rule. Rules can change: check the official page before yo
  u book.\nOfficial tickets: https://sankan.kunaicho.go.jp/register/month/10
- 01?locale=en\nhttps://before-you-fly.netlify.app/ticket-release-dates/impe
- rial-palace-tour/
-URL:https://before-you-fly.netlify.app/ticket-release-dates/imperial-palace
- -tour/
+ 01?locale=en\nhttps://before-you-fly.com/ticket-release-dates/imperial-pal
+ ace-tour/
+URL:https://before-you-fly.com/ticket-release-dates/imperial-palace-tour/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
-UID:imperial-palace-tour-chiusura-chiusure-2026-12-29@before-you-fly.netlif
- y.app
-DTSTAMP:20261107T000000Z
+UID:imperial-palace-tour-chiusura-chiusure-2026-12-29@before-you-fly.com
+DTSTAMP:20261108T000000Z
 DTSTART;VALUE=DATE:20261229
 DTEND;VALUE=DATE:20261230
 SUMMARY:Imperial Palace tour: closed
@@ -62,17 +57,15 @@ DESCRIPTION:Official rule: “Suspended Dates Sundays Mondays National holi
  kyo.html (checked on 4 November 2026)\nDate calculated by Before You Fly f
  rom the official rule. Rules can change: check the official page before yo
  u book.\nOfficial tickets: https://sankan.kunaicho.go.jp/register/month/10
- 01?locale=en\nhttps://before-you-fly.netlify.app/ticket-release-dates/impe
- rial-palace-tour/
-URL:https://before-you-fly.netlify.app/ticket-release-dates/imperial-palace
- -tour/
+ 01?locale=en\nhttps://before-you-fly.com/ticket-release-dates/imperial-pal
+ ace-tour/
+URL:https://before-you-fly.com/ticket-release-dates/imperial-palace-tour/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
-UID:imperial-palace-tour-chiusura-chiusure-2026-12-30@before-you-fly.netlif
- y.app
-DTSTAMP:20261107T000000Z
+UID:imperial-palace-tour-chiusura-chiusure-2026-12-30@before-you-fly.com
+DTSTAMP:20261108T000000Z
 DTSTART;VALUE=DATE:20261230
 DTEND;VALUE=DATE:20261231
 SUMMARY:Imperial Palace tour: closed
@@ -83,17 +76,15 @@ DESCRIPTION:Official rule: “Suspended Dates Sundays Mondays National holi
  kyo.html (checked on 4 November 2026)\nDate calculated by Before You Fly f
  rom the official rule. Rules can change: check the official page before yo
  u book.\nOfficial tickets: https://sankan.kunaicho.go.jp/register/month/10
- 01?locale=en\nhttps://before-you-fly.netlify.app/ticket-release-dates/impe
- rial-palace-tour/
-URL:https://before-you-fly.netlify.app/ticket-release-dates/imperial-palace
- -tour/
+ 01?locale=en\nhttps://before-you-fly.com/ticket-release-dates/imperial-pal
+ ace-tour/
+URL:https://before-you-fly.com/ticket-release-dates/imperial-palace-tour/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
-UID:imperial-palace-tour-chiusura-chiusure-2026-12-31@before-you-fly.netlif
- y.app
-DTSTAMP:20261107T000000Z
+UID:imperial-palace-tour-chiusura-chiusure-2026-12-31@before-you-fly.com
+DTSTAMP:20261108T000000Z
 DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:Imperial Palace tour: closed
@@ -104,17 +95,15 @@ DESCRIPTION:Official rule: “Suspended Dates Sundays Mondays National holi
  kyo.html (checked on 4 November 2026)\nDate calculated by Before You Fly f
  rom the official rule. Rules can change: check the official page before yo
  u book.\nOfficial tickets: https://sankan.kunaicho.go.jp/register/month/10
- 01?locale=en\nhttps://before-you-fly.netlify.app/ticket-release-dates/impe
- rial-palace-tour/
-URL:https://before-you-fly.netlify.app/ticket-release-dates/imperial-palace
- -tour/
+ 01?locale=en\nhttps://before-you-fly.com/ticket-release-dates/imperial-pal
+ ace-tour/
+URL:https://before-you-fly.com/ticket-release-dates/imperial-palace-tour/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
-UID:imperial-palace-tour-chiusura-chiusure-2027-01-01@before-you-fly.netlif
- y.app
-DTSTAMP:20261107T000000Z
+UID:imperial-palace-tour-chiusura-chiusure-2027-01-01@before-you-fly.com
+DTSTAMP:20261108T000000Z
 DTSTART;VALUE=DATE:20270101
 DTEND;VALUE=DATE:20270102
 SUMMARY:Imperial Palace tour: closed
@@ -125,17 +114,15 @@ DESCRIPTION:Official rule: “Suspended Dates Sundays Mondays National holi
  kyo.html (checked on 4 November 2026)\nDate calculated by Before You Fly f
  rom the official rule. Rules can change: check the official page before yo
  u book.\nOfficial tickets: https://sankan.kunaicho.go.jp/register/month/10
- 01?locale=en\nhttps://before-you-fly.netlify.app/ticket-release-dates/impe
- rial-palace-tour/
-URL:https://before-you-fly.netlify.app/ticket-release-dates/imperial-palace
- -tour/
+ 01?locale=en\nhttps://before-you-fly.com/ticket-release-dates/imperial-pal
+ ace-tour/
+URL:https://before-you-fly.com/ticket-release-dates/imperial-palace-tour/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
-UID:imperial-palace-tour-uscita-online-2027-01-01@before-you-fly.netlify.ap
- p
-DTSTAMP:20261107T000000Z
+UID:imperial-palace-tour-uscita-online-2027-01-01@before-you-fly.com
+DTSTAMP:20261108T000000Z
 DTSTART:20261231T200000Z
 DTEND:20261231T203000Z
 SUMMARY:Imperial Palace tour: online applications open (for February 2027)
@@ -145,17 +132,15 @@ DESCRIPTION:Official rule: “Application Period 5.00 a.m. (JST) on the 1st
  html (checked on 4 November 2026)\nDate calculated by Before You Fly from 
  the official rule. Rules can change: check the official page before you bo
  ok.\nOfficial tickets: https://sankan.kunaicho.go.jp/register/month/1001?l
- ocale=en\nhttps://before-you-fly.netlify.app/ticket-release-dates/imperial
- -palace-tour/
-URL:https://before-you-fly.netlify.app/ticket-release-dates/imperial-palace
- -tour/
+ ocale=en\nhttps://before-you-fly.com/ticket-release-dates/imperial-palace-
+ tour/
+URL:https://before-you-fly.com/ticket-release-dates/imperial-palace-tour/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
-UID:imperial-palace-tour-chiusura-chiusure-2027-01-02@before-you-fly.netlif
- y.app
-DTSTAMP:20261107T000000Z
+UID:imperial-palace-tour-chiusura-chiusure-2027-01-02@before-you-fly.com
+DTSTAMP:20261108T000000Z
 DTSTART;VALUE=DATE:20270102
 DTEND;VALUE=DATE:20270103
 SUMMARY:Imperial Palace tour: closed
@@ -166,17 +151,15 @@ DESCRIPTION:Official rule: “Suspended Dates Sundays Mondays National holi
  kyo.html (checked on 4 November 2026)\nDate calculated by Before You Fly f
  rom the official rule. Rules can change: check the official page before yo
  u book.\nOfficial tickets: https://sankan.kunaicho.go.jp/register/month/10
- 01?locale=en\nhttps://before-you-fly.netlify.app/ticket-release-dates/impe
- rial-palace-tour/
-URL:https://before-you-fly.netlify.app/ticket-release-dates/imperial-palace
- -tour/
+ 01?locale=en\nhttps://before-you-fly.com/ticket-release-dates/imperial-pal
+ ace-tour/
+URL:https://before-you-fly.com/ticket-release-dates/imperial-palace-tour/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
-UID:imperial-palace-tour-chiusura-chiusure-2027-01-03@before-you-fly.netlif
- y.app
-DTSTAMP:20261107T000000Z
+UID:imperial-palace-tour-chiusura-chiusure-2027-01-03@before-you-fly.com
+DTSTAMP:20261108T000000Z
 DTSTART;VALUE=DATE:20270103
 DTEND;VALUE=DATE:20270104
 SUMMARY:Imperial Palace tour: closed
@@ -187,17 +170,15 @@ DESCRIPTION:Official rule: “Suspended Dates Sundays Mondays National holi
  kyo.html (checked on 4 November 2026)\nDate calculated by Before You Fly f
  rom the official rule. Rules can change: check the official page before yo
  u book.\nOfficial tickets: https://sankan.kunaicho.go.jp/register/month/10
- 01?locale=en\nhttps://before-you-fly.netlify.app/ticket-release-dates/impe
- rial-palace-tour/
-URL:https://before-you-fly.netlify.app/ticket-release-dates/imperial-palace
- -tour/
+ 01?locale=en\nhttps://before-you-fly.com/ticket-release-dates/imperial-pal
+ ace-tour/
+URL:https://before-you-fly.com/ticket-release-dates/imperial-palace-tour/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
-UID:imperial-palace-tour-chiusura-chiusure-2027-01-04@before-you-fly.netlif
- y.app
-DTSTAMP:20261107T000000Z
+UID:imperial-palace-tour-chiusura-chiusure-2027-01-04@before-you-fly.com
+DTSTAMP:20261108T000000Z
 DTSTART;VALUE=DATE:20270104
 DTEND;VALUE=DATE:20270105
 SUMMARY:Imperial Palace tour: closed
@@ -208,17 +189,15 @@ DESCRIPTION:Official rule: “Suspended Dates Sundays Mondays National holi
  kyo.html (checked on 4 November 2026)\nDate calculated by Before You Fly f
  rom the official rule. Rules can change: check the official page before yo
  u book.\nOfficial tickets: https://sankan.kunaicho.go.jp/register/month/10
- 01?locale=en\nhttps://before-you-fly.netlify.app/ticket-release-dates/impe
- rial-palace-tour/
-URL:https://before-you-fly.netlify.app/ticket-release-dates/imperial-palace
- -tour/
+ 01?locale=en\nhttps://before-you-fly.com/ticket-release-dates/imperial-pal
+ ace-tour/
+URL:https://before-you-fly.com/ticket-release-dates/imperial-palace-tour/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
-UID:imperial-palace-tour-uscita-online-2027-02-01@before-you-fly.netlify.ap
- p
-DTSTAMP:20261107T000000Z
+UID:imperial-palace-tour-uscita-online-2027-02-01@before-you-fly.com
+DTSTAMP:20261108T000000Z
 DTSTART:20270131T200000Z
 DTEND:20270131T203000Z
 SUMMARY:Imperial Palace tour: online applications open (for March 2027)
@@ -228,17 +207,15 @@ DESCRIPTION:Official rule: “Application Period 5.00 a.m. (JST) on the 1st
  html (checked on 4 November 2026)\nDate calculated by Before You Fly from 
  the official rule. Rules can change: check the official page before you bo
  ok.\nOfficial tickets: https://sankan.kunaicho.go.jp/register/month/1001?l
- ocale=en\nhttps://before-you-fly.netlify.app/ticket-release-dates/imperial
- -palace-tour/
-URL:https://before-you-fly.netlify.app/ticket-release-dates/imperial-palace
- -tour/
+ ocale=en\nhttps://before-you-fly.com/ticket-release-dates/imperial-palace-
+ tour/
+URL:https://before-you-fly.com/ticket-release-dates/imperial-palace-tour/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
-UID:imperial-palace-tour-uscita-online-2027-03-01@before-you-fly.netlify.ap
- p
-DTSTAMP:20261107T000000Z
+UID:imperial-palace-tour-uscita-online-2027-03-01@before-you-fly.com
+DTSTAMP:20261108T000000Z
 DTSTART:20270228T200000Z
 DTEND:20270228T203000Z
 SUMMARY:Imperial Palace tour: online applications open (for April 2027)
@@ -248,17 +225,15 @@ DESCRIPTION:Official rule: “Application Period 5.00 a.m. (JST) on the 1st
  html (checked on 4 November 2026)\nDate calculated by Before You Fly from 
  the official rule. Rules can change: check the official page before you bo
  ok.\nOfficial tickets: https://sankan.kunaicho.go.jp/register/month/1001?l
- ocale=en\nhttps://before-you-fly.netlify.app/ticket-release-dates/imperial
- -palace-tour/
-URL:https://before-you-fly.netlify.app/ticket-release-dates/imperial-palace
- -tour/
+ ocale=en\nhttps://before-you-fly.com/ticket-release-dates/imperial-palace-
+ tour/
+URL:https://before-you-fly.com/ticket-release-dates/imperial-palace-tour/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
-UID:imperial-palace-tour-uscita-online-2027-04-01@before-you-fly.netlify.ap
- p
-DTSTAMP:20261107T000000Z
+UID:imperial-palace-tour-uscita-online-2027-04-01@before-you-fly.com
+DTSTAMP:20261108T000000Z
 DTSTART:20270331T200000Z
 DTEND:20270331T203000Z
 SUMMARY:Imperial Palace tour: online applications open (for May 2027)
@@ -268,17 +243,15 @@ DESCRIPTION:Official rule: “Application Period 5.00 a.m. (JST) on the 1st
  html (checked on 4 November 2026)\nDate calculated by Before You Fly from 
  the official rule. Rules can change: check the official page before you bo
  ok.\nOfficial tickets: https://sankan.kunaicho.go.jp/register/month/1001?l
- ocale=en\nhttps://before-you-fly.netlify.app/ticket-release-dates/imperial
- -palace-tour/
-URL:https://before-you-fly.netlify.app/ticket-release-dates/imperial-palace
- -tour/
+ ocale=en\nhttps://before-you-fly.com/ticket-release-dates/imperial-palace-
+ tour/
+URL:https://before-you-fly.com/ticket-release-dates/imperial-palace-tour/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
-UID:imperial-palace-tour-uscita-online-2027-05-01@before-you-fly.netlify.ap
- p
-DTSTAMP:20261107T000000Z
+UID:imperial-palace-tour-uscita-online-2027-05-01@before-you-fly.com
+DTSTAMP:20261108T000000Z
 DTSTART:20270430T200000Z
 DTEND:20270430T203000Z
 SUMMARY:Imperial Palace tour: online applications open (for June 2027)
@@ -288,10 +261,9 @@ DESCRIPTION:Official rule: “Application Period 5.00 a.m. (JST) on the 1st
  html (checked on 4 November 2026)\nDate calculated by Before You Fly from 
  the official rule. Rules can change: check the official page before you bo
  ok.\nOfficial tickets: https://sankan.kunaicho.go.jp/register/month/1001?l
- ocale=en\nhttps://before-you-fly.netlify.app/ticket-release-dates/imperial
- -palace-tour/
-URL:https://before-you-fly.netlify.app/ticket-release-dates/imperial-palace
- -tour/
+ ocale=en\nhttps://before-you-fly.com/ticket-release-dates/imperial-palace-
+ tour/
+URL:https://before-you-fly.com/ticket-release-dates/imperial-palace-tour/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
