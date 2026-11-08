@@ -3,7 +3,7 @@
 
     python3 studio-business/strumenti/indexnow.py            # invia tutti i siti
     python3 studio-business/strumenti/indexnow.py --prova    # non invia: stampa solo i conteggi
-    python3 studio-business/strumenti/indexnow.py --solo esameb1.netlify.app   # un solo sito (host)
+    python3 studio-business/strumenti/indexnow.py --solo esameb1.eu   # un solo sito (host)
 
 Per ogni sito legge tutti i <loc> di sito/sitemap.xml e manda un POST JSON a https://api.indexnow.org/indexnow
 ({"host", "key", "keyLocation", "urlList"}) a blocchi di al massimo 10.000 URL. La chiave (pubblica) è la stessa
@@ -28,8 +28,8 @@ SITI = [  # host -> cartella nel repository (sito/sitemap.xml)
     ("italy-strikes-today.netlify.app", "italystrikes"),
     ("tourist-tax-calculator.netlify.app", "touristtax"),
     ("visa-income-checker.netlify.app", "visaincome"),
-    ("before-you-fly.netlify.app", "beforeyoufly"),
-    ("esameb1.netlify.app", "esameb1"),
+    ("before-you-fly.com", "beforeyoufly"),
+    ("esameb1.eu", "esameb1"),
     ("esamidistato.netlify.app", "esamidistato"),
     ("flood-insurance-cost.netlify.app", "floodcost"),
     ("aste-giudiziarie-sconti.netlify.app", "aste"),
@@ -78,7 +78,7 @@ def main():
     prova = "--prova" in argv
     solo = argv[argv.index("--solo") + 1] if "--solo" in argv and argv.index("--solo") + 1 < len(argv) else None
     if "--solo" in argv and not solo:
-        sys.exit("--solo vuole l'host (es. --solo esameb1.netlify.app)")
+        sys.exit("--solo vuole l'host (es. --solo esameb1.eu)")
     siti = [(h, c) for h, c in SITI if (h == solo or c == solo) if solo] or [(h, c) for h, c in SITI if not solo and h not in NON_ONLINE]
     if not siti:
         sys.exit(f"host sconosciuto: {solo}. Conosciuti: {', '.join(h for h, _ in SITI)}")

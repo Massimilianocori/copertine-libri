@@ -30,7 +30,7 @@ GOOGLE_VERIFICA = "btXTQU_vAoe1K9f3q-43GisAXTiyKQCYcShozNhrAgI"  # Search Consol
 ALTRI_SITI = [  # blocco "Other useful tools for your trip" in fondo a ogni pagina (URL dai genera.py dei rispettivi siti)
     ("https://italy-strikes-today.netlify.app/", "Italy Strikes Today", "Transport strikes in Italy today and tomorrow, from the official register"),
     ("https://tourist-tax-calculator.netlify.app/", "Tourist Tax Calculator", "City tax per night in 200+ European destinations"),
-    ("https://before-you-fly.netlify.app/", "Before You Fly", "Passport validity, airport liquid rules, cabin bag sizes"),
+    ("https://before-you-fly.com/", "Before You Fly", "Passport validity, airport liquid rules, cabin bag sizes"),
 ]
 
 

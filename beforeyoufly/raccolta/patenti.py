@@ -61,7 +61,7 @@ CACHE_CA = QUI / ".cache" / "ca"
 CACHE_AU = QUI / ".cache" / "au"
 OFFLINE = os.environ.get("BYF_OFFLINE") == "1"
 CACHE_ORE = float(os.environ.get("BYF_CACHE_ORE", "20"))
-UA = "BeforeYouFly-raccolta/1.0 (+https://before-you-fly.netlify.app/about/)"
+UA = "BeforeYouFly-raccolta/1.0 (+https://before-you-fly.com/about/)"
 QUOTA_MINIMA = 0.8
 LONDRA = ZoneInfo("Europe/London")
 

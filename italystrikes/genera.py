@@ -29,12 +29,12 @@ GOOGLE_VERIFICA = "btXTQU_vAoe1K9f3q-43GisAXTiyKQCYcShozNhrAgI"  # Search Consol
 
 ALTRI_SITI = [  # blocco "Other useful tools for your trip" in fondo a ogni pagina (URL dai genera.py dei rispettivi siti)
     ("https://tourist-tax-calculator.netlify.app/", "Tourist Tax Calculator", "City tax per night in 200+ European destinations"),
-    ("https://before-you-fly.netlify.app/", "Before You Fly", "Passport validity, airport liquid rules, cabin bag sizes"),
+    ("https://before-you-fly.com/", "Before You Fly", "Passport validity, airport liquid rules, cabin bag sizes"),
     ("https://visa-income-checker.netlify.app/", "Visa Income Checker", "Income requirements and refusal rates for visas"),
 ]
 ALTRI_SITI_IT = [  # lo stesso blocco nelle pagine italiane (/it/, usato da genera_it.py)
     ("https://tourist-tax-calculator.netlify.app/", "Tourist Tax Calculator", "Tassa di soggiorno per notte in oltre 200 destinazioni europee"),
-    ("https://before-you-fly.netlify.app/it/documenti/", "Before You Fly", "Validità del passaporto, liquidi in aeroporto, misure del bagaglio a mano"),
+    ("https://before-you-fly.com/it/documenti/", "Before You Fly", "Validità del passaporto, liquidi in aeroporto, misure del bagaglio a mano"),
     ("https://visa-income-checker.netlify.app/", "Visa Income Checker", "Requisiti di reddito e tassi di rifiuto dei visti"),
 ]
 

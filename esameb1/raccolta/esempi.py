@@ -33,7 +33,7 @@ from datetime import date
 from pathlib import Path
 
 DATI = Path(__file__).resolve().parent.parent / "dati"
-UA = "Mozilla/5.0 (X11; Linux x86_64) EsameB1-controllo-fonti/1.0 (+https://esameb1.netlify.app)"
+UA = "Mozilla/5.0 (X11; Linux x86_64) EsameB1-controllo-fonti/1.0 (+https://esameb1.eu)"
 MAX_TESTO = 12_000_000  # byte massimi scaricati per leggere una fonte (il Quaderno PLIDA è 2,9 MB)
 OGGI = date.today().isoformat()
 

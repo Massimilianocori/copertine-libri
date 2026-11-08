@@ -42,7 +42,7 @@ RADICE = Path(__file__).resolve().parent.parent
 DATI = RADICE / "dati"
 CACHE = Path(tempfile.gettempdir()) / "esameb1-prefetture"  # testi delle pagine: fuori dal repository (possono contenere nomi di funzionari)
 BASE = "https://prefettura.interno.gov.it"
-UA = "Mozilla/5.0 (X11; Linux x86_64) EsameB1-controllo-fonti/1.0 (+https://esameb1.netlify.app)"
+UA = "Mozilla/5.0 (X11; Linux x86_64) EsameB1-controllo-fonti/1.0 (+https://esameb1.eu)"
 OGGI = date.today().isoformat()
 
 ELENCO = ("agrigento alessandria ancona aosta arezzo ascoli-piceno asti avellino bari barletta-andria-trani belluno benevento "

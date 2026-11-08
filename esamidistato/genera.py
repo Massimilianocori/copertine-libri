@@ -22,7 +22,7 @@ SITO = RADICE / "sito"
 URL_SITO = "https://esamidistato.netlify.app"  # cambiare qui se il nome del sito su Netlify è diverso
 NOME = "EsamiDiStato"
 ALTRI_SITI = [  # blocco "Altri strumenti utili" in fondo a ogni pagina (URL dal genera.py dell'altro sito)
-    ("https://esameb1.netlify.app/", "EsameB1",
+    ("https://esameb1.eu/", "EsameB1",
      "date, scadenze e sedi dell'esame di italiano B1 per la cittadinanza (CILS, CELI, PLIDA, CERT.IT), prese dalle fonti ufficiali degli enti."),
     ("https://italy-strikes-today.netlify.app/it/", "Scioperi dei trasporti in Italia oggi e domani",
      "treni, aerei e mezzi pubblici, dal registro ufficiale del Ministero."),

@@ -26,7 +26,7 @@ from pathlib import Path
 RADICE = Path(__file__).resolve().parent
 DATI = RADICE / "dati"
 SITO = RADICE / "sito"
-URL_SITO = "https://before-you-fly.netlify.app"  # unico punto da cambiare se il nome del sito su Netlify è diverso
+URL_SITO = "https://before-you-fly.com"  # unico punto da cambiare se il nome del sito su Netlify è diverso
 GOOGLE_VERIFICA = "btXTQU_vAoe1K9f3q-43GisAXTiyKQCYcShozNhrAgI"  # Search Console (stesso account degli altri siti): non rimuoverlo
 
 ALTRI_SITI = [  # blocco "Other useful tools for your trip" in fondo a ogni pagina (URL dai genera.py dei rispettivi siti)

@@ -19,7 +19,7 @@ from pathlib import Path
 RADICE = Path(__file__).resolve().parent
 DATI = RADICE / "dati"
 SITO = RADICE / "sito"
-URL_SITO = "https://esameb1.netlify.app"  # cambiare qui se il nome del sito su Netlify è diverso
+URL_SITO = "https://esameb1.eu"  # cambiare qui se il nome del sito su Netlify è diverso
 NOME = "EsameB1"
 ALTRI_SITI = [  # blocco "Altri strumenti utili" in fondo a ogni pagina (URL dal genera.py dell'altro sito)
     ("https://esamidistato.netlify.app/", "EsamiDiStato",
@@ -27,7 +27,7 @@ ALTRI_SITI = [  # blocco "Altri strumenti utili" in fondo a ogni pagina (URL dal
     ("https://italy-strikes-today.netlify.app/it/", "Scioperi dei trasporti in Italia oggi e domani",
      "treni, aerei e mezzi pubblici, dal registro ufficiale del Ministero."),
 ]
-GOOGLE_VERIFICA = "btXTQU_vAoe1K9f3q-43GisAXTiyKQCYcShozNhrAgI"  # Search Console, proprietà https://esameb1.netlify.app
+GOOGLE_VERIFICA = "btXTQU_vAoe1K9f3q-43GisAXTiyKQCYcShozNhrAgI"  # Search Console, proprietà https://esameb1.netlify.app (vecchio indirizzo; dal 8/11/2026 il sito è su https://esameb1.eu)
 
 # Contatore visite GoatCounter, account condiviso "rete-siti" della rete (nessun cookie, nessun dato personale conservato).
 # Il percorso inviato comprende l'host (location.host + percorso), così nel cruscotto https://rete-siti.goatcounter.com
