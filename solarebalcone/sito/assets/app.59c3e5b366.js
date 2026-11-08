@@ -1,7 +1,7 @@
 function calcola(ey,w,quota,prezzo,kit){var prod=ey*w/800,auto=prod*quota/100,eur=auto*prezzo;
   return {prod:prod,auto:auto,eur:eur,anni:(eur>0&&kit>0)?kit/eur:null};}
 function fmt(x,d,lang){d=d||0;var p=Math.pow(10,d),r=Math.floor(x*p+0.5)/p,l=String(lang||'it').slice(0,2),s=Math.abs(r).toFixed(d).split('.'),i=s[0];
-  if(!(l==='es'&&i.length<=4))i=i.replace(/\B(?=(\d{3})+(?!\d))/g,l==='fr'?'\u202f':'.');
+  i=i.replace(/\B(?=(\d{3})+(?!\d))/g,l==='fr'?'\u202f':'.');
   return (r<0?'-':'')+i+(s[1]?','+s[1]:'');}
 
 (function(){

@@ -3,7 +3,11 @@
  "verificato_il": "2026-11-08",
  "fonti": {
   "pvgis-api": {
-   "titolo": "PVGIS, API non interattiva (Commissione europea, Joint Research Centre)",
+   "titolo": {
+    "it": "PVGIS, API non interattiva (Commissione europea, Joint Research Centre)",
+    "es": "PVGIS, API no interactiva (Comisión Europea, Centro Común de Investigación)",
+    "fr": "PVGIS, API non interactive (Commission européenne, Centre commun de recherche)"
+   },
    "url": "https://joint-research-centre.ec.europa.eu/photovoltaic-geographical-information-system-pvgis/getting-started-pvgis/api-non-interactive-service_en",
    "tipo": "ufficiale",
    "cerca": [
@@ -11,7 +15,11 @@
    ]
   },
   "pvgis-licenza": {
-   "titolo": "PVGIS, Geospatial Data Download: condizioni di riuso",
+   "titolo": {
+    "it": "PVGIS, Geospatial Data Download: condizioni di riuso",
+    "es": "PVGIS, Geospatial Data Download: condiciones de reutilización",
+    "fr": "PVGIS, Geospatial Data Download : conditions de réutilisation"
+   },
    "url": "https://joint-research-centre.ec.europa.eu/photovoltaic-geographical-information-system-pvgis/pvgis-data-download_en",
    "tipo": "ufficiale",
    "cerca": [
@@ -19,7 +27,11 @@
    ]
   },
   "ec-avviso": {
-   "titolo": "Commissione europea, avviso legale (riuso dei contenuti, CC BY 4.0)",
+   "titolo": {
+    "it": "Commissione europea, avviso legale (riuso dei contenuti, CC BY 4.0)",
+    "es": "Comisión Europea, aviso legal (reutilización de contenidos, CC BY 4.0)",
+    "fr": "Commission européenne, avis juridique (réutilisation des contenus, CC BY 4.0)"
+   },
    "url": "https://commission.europa.eu/legal-notice_en",
    "tipo": "ufficiale",
    "cerca": [
@@ -27,14 +39,22 @@
    ]
   },
   "eurostat-dati": {
-   "titolo": "Eurostat, nrg_pc_204: prezzi dell'elettricità per le famiglie (semestrali)",
+   "titolo": {
+    "it": "Eurostat, nrg_pc_204: prezzi dell'elettricità per le famiglie (semestrali)",
+    "es": "Eurostat, nrg_pc_204: precios de la electricidad para los hogares (semestrales)",
+    "fr": "Eurostat, nrg_pc_204 : prix de l’électricité pour les ménages (semestriels)"
+   },
    "url": "https://ec.europa.eu/eurostat/databrowser/view/nrg_pc_204/default/table",
    "tipo": "dati",
    "cerca": [],
    "_nota": "pagina JavaScript: il valore si legge dall'API (dati/prezzi.json)"
   },
   "eurostat-copyright": {
-   "titolo": "Eurostat, avviso sul copyright e sul riuso",
+   "titolo": {
+    "it": "Eurostat, avviso sul copyright e sul riuso",
+    "es": "Eurostat, aviso sobre derechos de autor y reutilización",
+    "fr": "Eurostat, avis sur le droit d’auteur et la réutilisation"
+   },
    "url": "https://ec.europa.eu/eurostat/web/main/help/copyright-notice",
    "tipo": "ufficiale",
    "cerca": [
@@ -70,7 +90,18 @@
    "cerca": [
     "sulle parti di proprietà individuale dell'interessato",
     "ne dà comunicazione all'amministratore",
-    "Non sono soggetti ad autorizzazione gli impianti destinati alle singole unità abitative"
+    "Non sono soggetti ad autorizzazione gli impianti destinati alle singole unità abitative",
+    "preservando in ogni caso il decoro architettonico dell'edificio"
+   ]
+  },
+  "it-cc-1117": {
+   "titolo": "Codice civile, art. 1117: parti comuni dell'edificio (Normattiva, testo vigente)",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262~art1117",
+   "tipo": "ufficiale",
+   "sessione": "https://www.normattiva.it/atto/caricaArticolo?art.versione=2&art.idGruppo=140&art.flagTipoArticolo=2&art.codiceRedazionale=042U0262&art.idArticolo=1117&art.idSottoArticolo=1&art.idSottoArticolo1=10&art.dataPubblicazioneGazzetta=1942-04-04&art.progressivo=0",
+   "cerca": [
+    "se non risulta il contrario dal titolo",
+    "i cortili e le facciate"
    ]
   },
   "it-ade-ristrutturazioni": {
@@ -213,7 +244,7 @@
     },
     {
      "k": "Condominio",
-     "v": "nessuna autorizzazione per l'impianto del singolo appartamento"
+     "v": "nessuna autorizzazione per l'impianto del singolo appartamento, se non tocca parti comuni come la facciata"
     }
    ],
    "sezioni": [
@@ -228,7 +259,7 @@
        ]
       },
       {
-       "t": "ARERA chiama «Plug & Play» gli impianti fino a 350 W, completi e pronti da collegare con una spina a una presa dedicata e riconoscibile rispetto alle altre prese di casa. Sia questi impianti sia l'impianto elettrico di casa vanno realizzati secondo la Norma CEI 0-21.",
+       "t": "Secondo la scheda ARERA del 2020, sono «Plug & Play» gli impianti fino a 350 W, completi e pronti da collegare con una spina a una presa dedicata e riconoscibile rispetto alle altre prese di casa. Sia questi impianti sia l'impianto elettrico di casa vanno realizzati secondo la Norma CEI 0-21.",
        "s": [
         "it-arera-scheda"
        ]
@@ -240,7 +271,7 @@
        ]
       },
       {
-       "t": "La Norma CEI 0-21 è a pagamento e non l'abbiamo letta: i requisiti tecnici del kit e della presa chiedili al venditore e al distributore.",
+       "t": "La Norma CEI 0-21, anche nella versione aggiornata, è a pagamento e non l'abbiamo letta: se e come abbia cambiato le soglie della scheda ARERA del 2020 non lo sappiamo. I requisiti tecnici del kit e della presa chiedili al venditore e al distributore.",
        "s": [
         "it-cei-021"
        ]
@@ -287,25 +318,31 @@
      "titolo": "Condominio",
      "punti": [
       {
-       "t": "Il Codice civile consente di installare impianti a fonti rinnovabili al servizio della singola unità sulle parti di proprietà individuale, come il balcone, e su superfici comuni idonee.",
+       "t": "Il Codice civile consente di installare impianti a fonti rinnovabili al servizio della singola unità «sulle parti di proprietà individuale dell'interessato» e su superfici comuni idonee.",
        "s": [
         "it-cc-1122bis"
        ]
       },
       {
-       "t": "Se servono modifiche alle parti comuni, devi comunicarlo all'amministratore indicando cosa farai e come. L'assemblea può prescrivere modalità alternative o cautele per la stabilità, la sicurezza o il decoro architettonico dell'edificio.",
+       "t": "Le facciate sono tra le parti comuni dell'edificio, «se non risulta il contrario dal titolo» (art. 1117). Un kit fissato alla facciata, o a una ringhiera che il regolamento considera parte comune, può quindi toccare parti comuni.",
+       "s": [
+        "it-cc-1117"
+       ]
+      },
+      {
+       "t": "Qualora si rendano necessarie modificazioni delle parti comuni, devi darne comunicazione all'amministratore «indicando il contenuto specifico e le modalità di esecuzione degli interventi». L'assemblea può prescrivere modalità alternative o cautele per la stabilità, la sicurezza o il decoro architettonico dell'edificio.",
        "s": [
         "it-cc-1122bis"
        ]
       },
       {
-       "t": "L'articolo si chiude così: «Non sono soggetti ad autorizzazione gli impianti destinati alle singole unità abitative.»",
+       "t": "L'articolo si chiude così: «Non sono soggetti ad autorizzazione gli impianti destinati alle singole unità abitative.» Vale per l'impianto in sé; se tocchi parti comuni resta la comunicazione all'amministratore.",
        "s": [
         "it-cc-1122bis"
        ]
       },
       {
-       "t": "Prima di fissare il kit alla ringhiera, leggi il regolamento del tuo condominio e, se il kit cambia l'aspetto della facciata, parlane con l'amministratore.",
+       "t": "Prima di fissare il kit alla ringhiera, leggi il regolamento di condominio per sapere se ringhiera e facciata sono parti comuni e, se lo sono, scrivi all'amministratore.",
        "nota": true
       }
      ]
@@ -340,10 +377,11 @@
     {
      "q": "Serve un permesso per il fotovoltaico da balcone?",
      "ricerca": "fotovoltaico balcone permessi",
-     "a": "Sotto 800 W basta la Comunicazione Unica al distributore: è gratuita e vale come titolo per collegare e attivare l'impianto (delibera ARERA 315/2020/R/eel). In condominio il Codice civile non chiede autorizzazioni per l'impianto del singolo appartamento; se tocchi parti comuni devi comunicarlo all'amministratore.",
+     "a": "Sotto 800 W basta la Comunicazione Unica al distributore: è gratuita e vale come titolo per collegare e attivare l'impianto (delibera ARERA 315/2020/R/eel). In condominio l'impianto del singolo appartamento non è soggetto ad autorizzazione, se non tocca parti comuni: la facciata lo è (art. 1117 c.c.) e, se servono modifiche alle parti comuni, ne dai comunicazione all'amministratore (art. 1122-bis).",
      "s": [
       "it-arera-scheda",
-      "it-cc-1122bis"
+      "it-cc-1122bis",
+      "it-cc-1117"
      ]
     },
     {
@@ -358,17 +396,19 @@
     {
      "q": "In condominio serve il permesso dell'assemblea?",
      "ricerca": "fotovoltaico balcone condominio",
-     "a": "Per l'art. 1122-bis del Codice civile gli impianti destinati alle singole unità abitative non sono soggetti ad autorizzazione e si possono installare sulle parti di proprietà individuale. Se servono modifiche alle parti comuni, va data comunicazione all'amministratore e l'assemblea può imporre cautele per sicurezza e decoro dell'edificio.",
+     "a": "Per l'art. 1122-bis del Codice civile gli impianti destinati alle singole unità abitative non sono soggetti ad autorizzazione e si possono installare «sulle parti di proprietà individuale dell'interessato». La facciata però è tra le parti comuni (art. 1117): se servono modifiche alle parti comuni ne dai comunicazione all'amministratore, indicando cosa farai e come, e l'assemblea può imporre cautele per sicurezza e decoro. Leggi anche il regolamento di condominio per sapere se la ringhiera è parte comune.",
      "s": [
-      "it-cc-1122bis"
+      "it-cc-1122bis",
+      "it-cc-1117"
      ]
     },
     {
      "q": "Che differenza c'è tra 350 W e 800 W?",
      "ricerca": "fotovoltaico plug and play 350w",
-     "a": "ARERA chiama «Plug & Play» gli impianti fino a 350 W, pronti da collegare con una spina a una presa dedicata e riconoscibile. La Comunicazione Unica vale però per tutti gli impianti di potenza inferiore a 800 W.",
+     "a": "Secondo la scheda ARERA del 2020, sono «Plug & Play» gli impianti fino a 350 W, pronti da collegare con una spina a una presa dedicata e riconoscibile; la Comunicazione Unica vale però per tutti gli impianti di potenza inferiore a 800 W. La Norma CEI 0-21 aggiornata non l'abbiamo letta (è a pagamento).",
      "s": [
-      "it-arera-scheda"
+      "it-arera-scheda",
+      "it-cei-021"
      ]
     },
     {

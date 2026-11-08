@@ -35,7 +35,7 @@
   "eurostat-dati": {
    "http": 200,
    "letto_il": "2026-11-08",
-   "byte": 8675,
+   "byte": 8674,
    "sha256": "4af8ba92675c4cacbadf12a62b31a3c81e264e2714ba22761116a41183a6458a",
    "caratteri": 106,
    "trovate": {}
@@ -84,7 +84,19 @@
    "trovate": {
     "sulle parti di proprietà individuale dell'interessato": true,
     "ne dà comunicazione all'amministratore": true,
-    "Non sono soggetti ad autorizzazione gli impianti destinati alle singole unità abitative": true
+    "Non sono soggetti ad autorizzazione gli impianti destinati alle singole unità abitative": true,
+    "preservando in ogni caso il decoro architettonico dell'edificio": true
+   }
+  },
+  "it-cc-1117": {
+   "http": 200,
+   "letto_il": "2026-11-08",
+   "byte": 6062,
+   "sha256": "638237d48c24129786929625c614a23b267cb3f7dad6e1d5ac9137964d7d6e8a",
+   "caratteri": 1814,
+   "trovate": {
+    "se non risulta il contrario dal titolo": true,
+    "i cortili e le facciate": true
    }
   },
   "it-ade-ristrutturazioni": {

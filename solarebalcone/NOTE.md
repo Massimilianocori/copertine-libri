@@ -1,6 +1,6 @@
 # Balcony Solar Europe (solarebalcone) – note di lavoro
 
-Stato all'**8 novembre 2026**: sito costruito, **non pubblicato, da revisionare**. Serve il collegamento su Netlify da parte di
+Stato all'**8 novembre 2026**: sito costruito e **revisionato (correzioni applicate), pronto, non pubblicato**. Serve il collegamento su Netlify da parte di
 Massimiliano (passi in fondo). Indirizzo previsto: `https://balcony-solar-europe.netlify.app` (costante `URL_SITO` in `genera.py`,
 unico punto da cambiare). Origine: studio `studio-business/intelaiatura/fronti-2026-11-07-mercati-non-inglesi.md`, idea 2.2
 (Balkonkraftwerk città per città; voto 6, 750 / 4.600 / 15.000 €/anno con le quattro lingue) e riga "SITO NUOVO" della coda in
@@ -56,7 +56,7 @@ python3 solarebalcone/verifica.py --rete --browser   # deve finire con "Tutti i 
 ```
 Se si cambia `verificato_il` in `dati/regole.json`, farlo solo dopo aver riletto le fonti.
 
-## Fonti lette l'8/11/2026 (18 con HTTP 200 e frasi di controllo trovate, 3 non lette con motivo)
+## Fonti lette l'8/11/2026 (19 con HTTP 200 e frasi di controllo trovate, 3 non lette con motivo)
 
 - **Comuni:** PVGIS (pagina API: limite 30 chiamate/s; pagina "Geospatial Data Download": "free for public use if the source is
   acknowledged (PVGIS © European Communities, 2001-2026)"); avviso legale della Commissione (CC BY 4.0); Eurostat (avviso sul copyright:
@@ -64,7 +64,7 @@ Se si cambia `verificato_il` in `dati/regole.json`, farlo solo dopo aver riletto
   ES 0,2509, FR 0,2485, DE 0,3618 €/kWh).
 - **Italia:** ARERA, scheda tecnica e pagina della delibera 315/2020/R/eel (impianti < 800 W, Comunicazione Unica al distributore,
   gratis, titolo abilitante, nessun compenso per l'energia immessa, Plug & Play ≤ 350 W con presa dedicata, CEI 0-21, GAUDÌ);
-  Codice civile art. 1122-bis su Normattiva (serve il cookie di sessione: `raccolta/fonti.py` lo gestisce); Agenzia delle Entrate,
+  Codice civile artt. 1122-bis e 1117 (facciate parti comuni) su Normattiva (serve il cookie di sessione: `raccolta/fonti.py` lo gestisce); Agenzia delle Entrate,
   "Ristrutturazioni edilizie: che cos'è" (agg. 29/7/2026: 36%/50% abitazione principale nel 2025-2026, 30%/36% nel 2027).
   **Non lette:** Norma CEI 0-21 (a pagamento); Tuir art. 16-bis su Normattiva (tempo scaduto due volte): la pagina dice che non
   sappiamo se un kit con la spina rientri nella detrazione.
@@ -121,8 +121,14 @@ nome nella privacy: se Massimiliano vuole, si può aggiungere (decisione sua).
    AI. Browser: 30 pagine × 375/1280 px × chiaro/scuro, nessuno scorrimento orizzontale, nessun errore JS, calcolatore corretto
    dopo cambio di città/montaggio/potenza, avviso oltre la soglia, tema e menu del telefono funzionanti.
 
-**Da fare prima di pubblicare:** revisione indipendente su fatti e aspetto (regola del 15/10/2026), in particolare: testi spagnoli e
-francesi letti da un revisore, risposta FAQ "comunidad de vecinos", frase sulla detrazione italiana.
+**Revisione indipendente dell'8/11/2026: pubblicabile con correzioni, tutte applicate.** Euro non più doppio nelle pagine città
+(`st_eur`); titoli delle fonti comuni (PVGIS, Eurostat) nella lingua della pagina; elisione italiana davanti a 8, 11, 80… ("l'8 novembre",
+"all'8° posto", funzione `elidi` applicata alle pagine italiane); condominio italiano: "se non tocca parti comuni", facciata parte comune
+(art. 1117 c.c., fonte nuova letta su Normattiva) e ringhiera da controllare nel regolamento, con le parole dell'art. 1122-bis; "Plug &
+Play fino a 350 W" attribuito alla scheda ARERA del 2020 con la nota che la CEI 0-21 aggiornata non è stata letta; privacy francese
+riscritta ("contrairement à la publicité décrite ci-dessous"); spazio prima dei due punti in francese; spagnolo con il separatore delle
+migliaia anche a 4 cifre ("1.295 kWh", Python e JS). Dopo le correzioni: fonti rilette (19 lette, 3 non lette), `verifica.py --rete
+--browser` superato (una lettura di Normattiva andata in timeout e riuscita al secondo tentativo), `monetizzazione.py verifica` 0 errori.
 
 ## Germania (spenta)
 

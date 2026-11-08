@@ -67,6 +67,16 @@ LINGUE_ATTIVE = ["it", "es", "fr"]  # "de": previsto, spento finché manca l'Imp
 PAESE = {"it": "IT", "es": "ES", "fr": "FR", "de": "DE"}
 
 
+DUE_PUNTI = {"it": ": ", "es": ": ", "fr": "\u00a0: "}  # in francese spazio (indivisibile) prima dei due punti
+
+
+def elidi(testo):
+    """Italiano: articolo e preposizione elisi davanti ai numeri che si leggono «otto...» o «undici» (l'8 novembre, all'8° posto,
+    dell'11, l'80%)."""
+    return re.sub(r"\b(il|del|al|dal|nel)\s(8\d*|11)(?=[\s°%.,)]|$)",
+                  lambda m: {"il": "l'", "del": "dell'", "al": "all'", "dal": "dall'", "nel": "nell'"}[m.group(1)] + m.group(2), testo)
+
+
 def h(x):
     return escape(str(x), quote=True)
 
@@ -132,7 +142,7 @@ T = {
         "citta_sub": ("A {c} un kit da 800 Wp rivolto a sud produce circa <strong>{k35} kWh l'anno</strong> inclinato a 35° e "
                       "{k90} kWh in verticale sulla ringhiera (PVGIS)."),
         "citta_d": "Fotovoltaico da balcone a {c}: un kit da 800 Wp produce circa {k35} kWh l'anno (PVGIS) e fa risparmiare {eur} € l'anno. Mese per mese e rientro.",
-        "st_k35": "kWh l'anno, inclinato 35°", "st_k90": "kWh l'anno, verticale", "st_eur": "€ l'anno di risparmio*", "st_anni": "anni per un kit da {kit} €*",
+        "st_k35": "kWh l'anno, inclinato 35°", "st_k90": "kWh l'anno, verticale", "st_eur": "di risparmio l'anno*", "st_anni": "anni per un kit da {kit} €*",
         "st_nota": "* Inclinato 35°, {quota}% dell'energia usata in casa, {prezzo} €/kWh (Eurostat, {periodo}).",
         "mesi_h": "Mese per mese a {c}", "mesi_th": ["Mese", "Inclinato 35°", "Verticale"],
         "mesi_testo": "Il mese migliore è {best} ({vb} kWh inclinato), il peggiore {worst} ({vw} kWh). In verticale la produzione d'inverno cala meno: a dicembre è il {pdic}% di quella inclinata, a luglio il {plug}%.",
@@ -144,8 +154,8 @@ T = {
         "altre_h": "Altre città", "citta_faq_q1": "Quanto produce un pannello da balcone a {c}?",
         "citta_faq_a1": "Secondo PVGIS, a {c} un kit da 800 Wp rivolto a sud produce circa {k35} kWh l'anno inclinato a 35° e {k90} kWh in verticale. Con il {quota}% usato in casa a {prezzo} €/kWh il risparmio è di circa {eur} € l'anno.",
         "citta_faq_q2": "Servono permessi a {c}?",
-        "citta_faq_a2": "Le regole sono nazionali: sotto 800 W basta la Comunicazione Unica al distributore, gratis (ARERA). In condominio non serve l'autorizzazione per l'impianto del singolo appartamento; se tocchi parti comuni lo comunichi all'amministratore.",
-        "citta_faq_s2": ["it-arera-scheda", "it-cc-1122bis"],
+        "citta_faq_a2": "Le regole sono nazionali: sotto 800 W basta la Comunicazione Unica al distributore, gratis (ARERA). In condominio l'impianto del singolo appartamento non è soggetto ad autorizzazione, se non tocca parti comuni: la facciata lo è (art. 1117 c.c.) e la ringhiera può esserlo secondo il regolamento di condominio. Se servono modifiche alle parti comuni, ne dai comunicazione all'amministratore (art. 1122-bis).",
+        "citta_faq_s2": ["it-arera-scheda", "it-cc-1117", "it-cc-1122bis"],
         "aff_h": "Kit da balcone", "aff_tag": "Affiliazione",
         "aff_testo": "Prima di comprare, controlla le regole qui sopra: un kit in vendita non vuol dire che puoi collegarlo senza Comunicazione Unica.",
         "contatti_t": "Contatti | Solare da balcone", "contatti_h1": "Scrivici",
@@ -223,7 +233,7 @@ T = {
         "citta_sub": ("En {c}, un kit de 800 Wp orientado al sur produce unos <strong>{k35} kWh al año</strong> inclinado 35° y "
                       "{k90} kWh en vertical en la barandilla (PVGIS)."),
         "citta_d": "Placas solares de balcón en {c}: un kit de 800 Wp produce unos {k35} kWh al año (PVGIS) y ahorra {eur} € al año. Mes a mes y amortización.",
-        "st_k35": "kWh al año, inclinado 35°", "st_k90": "kWh al año, vertical", "st_eur": "€ de ahorro al año*", "st_anni": "años para un kit de {kit} €*",
+        "st_k35": "kWh al año, inclinado 35°", "st_k90": "kWh al año, vertical", "st_eur": "de ahorro al año*", "st_anni": "años para un kit de {kit} €*",
         "st_nota": "* Inclinado 35°, {quota} % de la energía usada en casa, {prezzo} €/kWh (Eurostat, {periodo}).",
         "mesi_h": "Mes a mes en {c}", "mesi_th": ["Mes", "Inclinado 35°", "Vertical"],
         "mesi_testo": "El mejor mes es {best} ({vb} kWh inclinado) y el peor, {worst} ({vw} kWh). En vertical la producción baja menos en invierno: en diciembre es el {pdic} % de la inclinada y en julio, el {plug} %.",
@@ -314,7 +324,7 @@ T = {
         "citta_sub": ("À {c}, un kit de 800 Wc plein sud produit environ <strong>{k35} kWh par an</strong> incliné à 35° et "
                       "{k90} kWh à la verticale sur le garde-corps (PVGIS)."),
         "citta_d": "Panneau solaire de balcon à {c} : un kit de 800 Wc produit environ {k35} kWh par an (PVGIS), soit {eur} € d’économie par an. Mois par mois et retour.",
-        "st_k35": "kWh par an, incliné 35°", "st_k90": "kWh par an, vertical", "st_eur": "€ d’économie par an*", "st_anni": "ans pour un kit de {kit} €*",
+        "st_k35": "kWh par an, incliné 35°", "st_k90": "kWh par an, vertical", "st_eur": "d’économie par an*", "st_anni": "ans pour un kit de {kit} €*",
         "st_nota": "* Incliné à 35°, {quota} % de l’électricité consommée chez vous, {prezzo} €/kWh (Eurostat, {periodo}).",
         "mesi_h": "Mois par mois à {c}", "mesi_th": ["Mois", "Incliné 35°", "Vertical"],
         "mesi_testo": "Le meilleur mois est {best} ({vb} kWh incliné), le moins bon {worst} ({vw} kWh). À la verticale, la production baisse moins en hiver : en décembre elle vaut {pdic} % de la pose inclinée, en juillet {plug} %.",
@@ -386,15 +396,12 @@ def fmt_num(x, lingua, dec=0):
     cifre = intero.replace(",", "")
     neg = cifre.startswith("-")
     cifre = cifre.lstrip("-")
-    if lingua == "es" and len(cifre) <= 4:
-        gruppi = cifre  # in spagnolo i numeri di 4 cifre si scrivono senza separatore (come Intl es-ES)
-    else:
-        sep = " " if lingua == "fr" else "."
-        gruppi = ""
-        while len(cifre) > 3:
-            gruppi = sep + cifre[-3:] + gruppi
-            cifre = cifre[:-3]
-        gruppi = cifre + gruppi
+    sep = " " if lingua == "fr" else "."  # separatore delle migliaia sempre, anche in spagnolo (1.295)
+    gruppi = ""
+    while len(cifre) > 3:
+        gruppi = sep + cifre[-3:] + gruppi
+        cifre = cifre[:-3]
+    gruppi = cifre + gruppi
     return ("-" if neg else "") + gruppi + ("," + frazione if frazione else "")
 
 
@@ -432,7 +439,7 @@ CALC_JS = r"""
 function calcola(ey,w,quota,prezzo,kit){var prod=ey*w/800,auto=prod*quota/100,eur=auto*prezzo;
   return {prod:prod,auto:auto,eur:eur,anni:(eur>0&&kit>0)?kit/eur:null};}
 function fmt(x,d,lang){d=d||0;var p=Math.pow(10,d),r=Math.floor(x*p+0.5)/p,l=String(lang||'it').slice(0,2),s=Math.abs(r).toFixed(d).split('.'),i=s[0];
-  if(!(l==='es'&&i.length<=4))i=i.replace(/\B(?=(\d{3})+(?!\d))/g,l==='fr'?'\u202f':'.');
+  i=i.replace(/\B(?=(\d{3})+(?!\d))/g,l==='fr'?'\u202f':'.');
   return (r<0?'-':'')+i+(s[1]?','+s[1]:'');}
 """
 
@@ -779,7 +786,8 @@ class Rimandi:
             else:
                 stato = L["non_letta"].format(motivo=h(es.get("motivo", "?")))
             tipo = f' <span class="etich">{h(L["centro_risorse"])}</span>' if f.get("tipo") == "centro_risorse" else ""
-            voci.append(f'<li id="f{n}"><a href="{h(f["url"])}" rel="noopener">{h(f["titolo"])}</a>{tipo}. <span class="small">{stato}</span></li>')
+            tit = f["titolo"][self.lingua] if isinstance(f["titolo"], dict) else f["titolo"]
+            voci.append(f'<li id="f{n}"><a href="{h(f["url"])}" rel="noopener">{h(tit)}</a>{tipo}. <span class="small">{stato}</span></li>')
         return (f'<section class="fonti-box" aria-labelledby="fonti-h"><h2 id="fonti-h">{ico("doc")}{h(L["fonti_h"])}</h2>'
                 f'<ol>{"".join(voci)}</ol><p class="small">{h(L["fonti_dati"])}</p></section>')
 
@@ -917,7 +925,7 @@ def pagina(lingua, percorso, titolo, descrizione, corpo, testata="", chiave=None
 <div class="f-grid"><div>
 <a class="logo" href="/{L['p_home']}">{LOGO}<span>{h(L['logo'][0])} <b>{h(L['logo'][1])}</b></span></a>
 <p>{L['footer']}</p>
-<p>{h(L['altre_lingue'])}: {altri_paesi}</p>
+<p>{h(L['altre_lingue'])}{DUE_PUNTI[lingua]}{altri_paesi}</p>
 </div><div>
 <h2>{h(L['esplora'])}</h2>
 <ul>{piede}</ul>
@@ -929,6 +937,8 @@ def pagina(lingua, percorso, titolo, descrizione, corpo, testata="", chiave=None
 </body>
 </html>
 """
+    if lingua == "it":
+        testo = elidi(testo)
     dest = SITO / file
     dest.parent.mkdir(parents=True, exist_ok=True)
     dest.write_text(testo, encoding="utf-8")
@@ -1211,7 +1221,7 @@ def privacy(lingua):
     cookie = MON.privacy_cookie(lingua, SITO_ID, aff)
     if not cookie:
         raise SystemExit("privacy: con AdSense spento e senza affiliati serve un testo proprio sui cookie (oggi AdSense è acceso)")
-    corpo = (f'<div class="testo"><p class="small" style="margin-top:28px">{h(L["agg"])}: {data_lunga(OGGI, lingua)}</p>'
+    corpo = (f'<div class="testo"><p class="small" style="margin-top:28px">{h(L["agg"])}{DUE_PUNTI[lingua]}{data_lunga(OGGI, lingua)}</p>'
              + PRIVACY[lingua].format(contatti="/" + L["p_contatti"], cookie=cookie) + "</div>")
     breve = MON.privacy_breve(lingua, SITO_ID, aff)
     testata = banda(L["privacy_h1"], L["privacy_h1"], h(breve), corta=True, icona="shield")

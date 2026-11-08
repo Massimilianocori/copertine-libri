@@ -274,7 +274,7 @@ _PRIVACY_LINGUE = {
            "breve_ads": "Qué recogemos, el contador de visitas sin cookies y las cookies publicitarias de Google, solo con tu consentimiento.",
            "breve_aff": "Qué recogemos (muy poco), el contador de visitas sin cookies y cómo funcionan los enlaces de afiliación."},
     "fr": {"gc": _GC_FR, "aff": _AFF_FR, "ads": _ADS_FR, "titolo": "Cookies et compteur de visites",
-           "fine_ads": " Le compteur ne dépose aucun cookie ; la publicité décrite ci-dessous, si.",
+           "fine_ads": " Le compteur ne dépose aucun cookie, contrairement à la publicité décrite ci-dessous.",
            "fine_no": " Ce site n'utilise pas de cookies de profilage et n'affiche pas de publicité.",
            "breve_ads": "Ce que nous collectons, le compteur de visites sans cookies et les cookies publicitaires de Google, utilisés seulement avec votre consentement.",
            "breve_aff": "Ce que nous collectons (très peu), le compteur de visites sans cookies et le fonctionnement des liens d'affiliation."},
