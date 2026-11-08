@@ -1,7 +1,4 @@
-{"letto_il":"2026-11-07T23:19+01:00","veicoli":[
-{"id":4648203,"tipo":"Veicolo","marca":null,"anno":2003,"comune":"Ravenna","prov":"Ravenna","base":5000,"minima":null,"data":"2026-11-07T15:00","disp":null,"tribunale":"Ravenna"},
-{"id":4649094,"tipo":"Automobile","marca":"Ford","anno":2009,"comune":"Ravenna","prov":"Ravenna","base":450,"minima":450,"data":"2026-11-07T15:00","disp":null,"tribunale":"Ravenna"},
-{"id":4652453,"tipo":"Veicolo commerciale","marca":"Fiat","anno":2010,"comune":"Ravenna","prov":"Ravenna","base":3600,"minima":3600,"data":"2026-11-07T15:00","disp":null,"tribunale":"Ravenna"},
+{"letto_il":"2026-11-08T23:18+01:00","veicoli":[
 {"id":4640438,"tipo":"Automobile","marca":"Mitsubishi","anno":2020,"comune":"Taranto","prov":"Taranto","base":8100,"minima":7290,"data":"2026-11-09T11:00","disp":null,"tribunale":"Taranto"},
 {"id":4635823,"tipo":"Automobile","marca":"Fiat","anno":null,"comune":"Viadana","prov":"Mantova","base":960,"minima":960,"data":"2026-11-09T12:00","disp":null,"tribunale":"Mantova"},
 {"id":4636385,"tipo":"Automobile","marca":"Alfa Romeo","anno":null,"comune":"San Giorgio Bigarello","prov":"Mantova","base":2080,"minima":2080,"data":"2026-11-09T12:00","disp":null,"tribunale":"Mantova"},
