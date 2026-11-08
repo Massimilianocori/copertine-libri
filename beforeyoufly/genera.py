@@ -33,13 +33,13 @@ GOOGLE_VERIFICA_DOMINIO = "0ZhaE8igdTdGY_RGD8Gqv6PpMxkx1kyQFGo15A4UYoY"  # Searc
 ALTRI_SITI = [  # blocco "Other useful tools for your trip" in fondo a ogni pagina (URL dai genera.py dei rispettivi siti)
     ("https://italy-strikes-today.netlify.app/", "Italy Strikes Today", "Transport strikes in Italy today and tomorrow, from the official register"),
     ("https://tourist-tax-calculator.netlify.app/", "Tourist Tax Calculator", "City tax per night in 200+ European destinations"),
-    ("https://visa-income-checker.netlify.app/", "Visa Income Checker", "Income requirements and refusal rates for visas"),
+    ("https://visaincomechecker.com/", "Visa Income Checker", "Income requirements and refusal rates for visas"),
     ("https://cruise-health-scores.netlify.app/", "Cruise Health Scores", "CDC sanitation scores of every cruise ship"),
 ]
 ALTRI_SITI_IT = [  # lo stesso blocco nelle pagine italiane (it/documenti/)
     ("https://italy-strikes-today.netlify.app/it/", "Italy Strikes Today", "Scioperi dei trasporti in Italia oggi e domani, dal registro ufficiale"),
     ("https://tourist-tax-calculator.netlify.app/", "Tourist Tax Calculator", "Tassa di soggiorno per notte in oltre 200 destinazioni europee"),
-    ("https://visa-income-checker.netlify.app/", "Visa Income Checker", "Requisiti di reddito e tassi di rifiuto dei visti"),
+    ("https://visaincomechecker.com/", "Visa Income Checker", "Requisiti di reddito e tassi di rifiuto dei visti"),
 ]
 
 

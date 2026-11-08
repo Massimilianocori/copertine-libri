@@ -41,7 +41,7 @@ USCITA = RADICE / "dati" / "h1b.json"
 USCITA_SAL = RADICE / "dati" / "h1b_salari.json"
 GREZZI = Path(__file__).resolve().parent / "_grezzi" / "h1b"
 UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0 Safari/537.36"}
-UA_BLS = {"User-Agent": "VisaIncomeChecker data collection (+https://visa-income-checker.netlify.app/contact/)"}
+UA_BLS = {"User-Agent": "VisaIncomeChecker data collection (+https://visaincomechecker.com/contact/)"}
 
 URL_ZIP = "https://flag.dol.gov/sites/default/files/wages/OFLC_Wages_2026-27.zip"
 URL_DOWNLOADS = "https://flag.dol.gov/wage-data/wage-data-downloads"

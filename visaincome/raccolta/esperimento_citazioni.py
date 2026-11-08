@@ -30,7 +30,7 @@ RADICE = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(RADICE))
 FILE = RADICE / "dati" / "esperimento_citazioni.json"
 API = "https://rete-siti.goatcounter.com/api/v0/"
-HOST = "visa-income-checker.netlify.app"
+HOST = "visaincomechecker.com"
 ORIGINE = "chatgpt.com"   # provenienza misurata (nome come lo scrive GoatCounter)
 SEME = 20261031           # seme fisso dell'assegnazione
 INIZIO_CONTATORE = "2026-10-17"   # primo giorno con il contatore in linea

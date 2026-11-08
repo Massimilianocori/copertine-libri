@@ -27,7 +27,7 @@ MAX_URL = 10_000  # limite di IndexNow per ogni richiesta
 SITI = [  # host -> cartella nel repository (sito/sitemap.xml)
     ("italy-strikes-today.netlify.app", "italystrikes"),
     ("tourist-tax-calculator.netlify.app", "touristtax"),
-    ("visa-income-checker.netlify.app", "visaincome"),
+    ("visaincomechecker.com", "visaincome"),
     ("before-you-fly.com", "beforeyoufly"),
     ("esameb1.eu", "esameb1"),
     ("esamidistato.netlify.app", "esamidistato"),

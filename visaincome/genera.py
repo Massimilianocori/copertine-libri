@@ -24,7 +24,7 @@ from pathlib import Path
 RADICE = Path(__file__).resolve().parent
 DATI = RADICE / "dati"
 SITO = RADICE / "sito"
-URL_SITO = "https://visa-income-checker.netlify.app"  # unico punto da cambiare se il nome del sito su Netlify è diverso
+URL_SITO = "https://visaincomechecker.com"  # unico punto da cambiare se il nome del sito su Netlify è diverso
 GOOGLE_VERIFICA = "btXTQU_vAoe1K9f3q-43GisAXTiyKQCYcShozNhrAgI"  # Search Console (stesso account degli altri siti), 10/10/2026: non rimuoverlo
 
 ALTRI_SITI = [  # blocco "Other useful tools for your trip" in fondo a ogni pagina (URL dai genera.py dei rispettivi siti)
@@ -13071,6 +13071,13 @@ def extra():
   # I cambi BCE arrivano alle pagine da GitHub (italystrikes/dati/cambi-bce.json, aggiornato due volte al giorno dal workflow
   # di Italy Strikes) e non richiedono pubblicazioni; visaincome/dati/cambi.json è solo il valore di riserva scritto nelle pagine.
   ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- ."
+
+# Dominio proprio dall'8/11/2026: il vecchio indirizzo visa-income-checker.netlify.app porta al nuovo, pagina per pagina.
+[[redirects]]
+  from = "https://visa-income-checker.netlify.app/*"
+  to = "https://visaincomechecker.com/:splat"
+  status = 301
+  force = true
 
 [[headers]]
   for = "/*"

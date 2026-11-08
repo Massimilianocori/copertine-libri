@@ -94,7 +94,7 @@ CDC_SUGGERIMENTI = "https://www.cdc.gov/vessel-sanitation/communication-resource
 
 ALTRI_SITI = [  # blocco "Other useful tools" (URL presi dai genera.py dei rispettivi siti)
     ("https://before-you-fly.com", "Before You Fly", "Passport validity, liquids rules by airport, EES and ETIAS"),
-    ("https://visa-income-checker.netlify.app", "Visa Income Checker", "Minimum income for digital nomad, retirement and work visas"),
+    ("https://visaincomechecker.com", "Visa Income Checker", "Minimum income for digital nomad, retirement and work visas"),
     ("https://flood-insurance-cost.netlify.app", "Flood Insurance Cost", "What NFIP flood insurance really costs, by ZIP code and county"),
 ]
 
