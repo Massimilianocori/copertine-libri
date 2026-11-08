@@ -10,9 +10,10 @@ Sezioni già revisionate, con i sorgenti salvati, che aspettano la pubblicazione
 
 | Sito (cartella) | Sezione | Revisione | Note |
 |---|---|---|---|
-| solarebalcone (SITO NUOVO, `https://balcony-solar-europe.netlify.app`) | Balcony Solar Europe: fotovoltaico da balcone in italiano, spagnolo e francese (29 pagine: home con calcolatore PVGIS + Eurostat, regole ufficiali, FAQ, 9 città IT, 1 ES, 3 FR con domanda vera, contatti, privacy); `/de/` prevista e spenta finché manca l'Impressum | **revisionato l'8/11, correzioni applicate, pronto: serve il collegamento su Netlify da parte di Massimiliano** (base directory `solarebalcone/sito`, build vuoto; passi in `solarebalcone/NOTE.md`) | Costruito l'8/11/2026; `verifica.py --rete --browser` superato (18 fonti lette, 3 non lette con motivo). AdSense acceso nei file, riquadro affiliati EcoFlow/Zendure/Amazon spento (url vuoti). Il giorno della pubblicazione togliere l'host da `NON_ONLINE` in `indexnow.py` e lanciare IndexNow `--solo`. |
 
 Pubblicato il 31/10/2026 alle 14:20 circa (ora di Roma): Visa Income, Before You Fly, EsameB1 (tutte le sezioni revisionate del giorno). Esperimento citazioni: conteggio dal 1/11/2026.
+
+Pubblicato l'8/11/2026 alle 13:30 circa: SITO NUOVO balcony-solar-europe.netlify.app (solarebalcone: IT/ES/FR, 29 pagine), collegato da Massimiliano; IndexNow fatto.
 
 Pubblicato l'8/11/2026 alle 12:00 circa: Visa Income (DTV Thailandia allargata; assicurazione per visto e Schengen con HelloSafe acceso); IndexNow fatto.
 

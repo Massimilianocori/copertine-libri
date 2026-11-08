@@ -39,7 +39,7 @@ SITI = [  # host -> cartella nel repository (sito/sitemap.xml)
 ]
 # Siti non ancora collegati a Netlify: saltati nell'invio di tutti i siti (la chiave non è online e IndexNow risponderebbe 403).
 # Si inviano solo con --solo; togliere l'host da qui il giorno in cui il sito è online.
-NON_ONLINE = {"balcony-solar-europe.netlify.app"}
+NON_ONLINE = set()
 SPIEGAZIONE = {200: "ok", 202: "ok, preso in carico", 400: "richiesta malformata", 403: "chiave non ancora pubblicata (o diversa dal file online)",
                422: "URL non validi per questo host", 429: "troppe richieste: riprovare più tardi"}
 
