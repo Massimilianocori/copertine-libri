@@ -2,8 +2,8 @@
 "_nota": "Scritto da genera.py: percorso -> [data dell'ultima modifica del contenuto, impronta]. Non modificare a mano.",
 "pagine": {
 "": [
-"2026-11-07",
-"47578afd853e4aca900e"
+"2026-11-08",
+"7dece6b0dd7408320b87"
 ],
 "about/": [
 "2026-10-15",
@@ -602,16 +602,16 @@
 "bace9c953ddc81af628c"
 ],
 "croatia-digital-nomad-visa/": [
-"2026-10-31",
-"050678821fafc24b0277"
+"2026-11-08",
+"b7d2918ac5f841fca92e"
 ],
 "denmark-pay-limit-scheme/": [
 "2026-10-31",
 "6b3115294a410789dae9"
 ],
 "digital-nomad-visa-income-requirements/": [
-"2026-10-31",
-"239d823f0791c443fabb"
+"2026-11-08",
+"4b733604fb5b171022bf"
 ],
 "es/": [
 "2026-10-31",
@@ -782,8 +782,8 @@
 "a108f2635fa3bc92a022"
 ],
 "germany-eu-blue-card/": [
-"2026-10-31",
-"246d2dbd2f2b48746972"
+"2026-11-08",
+"e9a73aac5d47db8e6d17"
 ],
 "h1b-wage-level/": [
 "2026-11-07",
@@ -1426,12 +1426,12 @@
 "3b26600f07af91c0d2dc"
 ],
 "how-it-works/": [
-"2026-11-07",
-"0b087287a9fe4c49f954"
+"2026-11-08",
+"22b16e5d2eeb2e31b659"
 ],
 "hungary-white-card/": [
-"2026-10-31",
-"a5bd0006b741a65d4eb9"
+"2026-11-08",
+"105b49d3991eb21fc085"
 ],
 "ireland-critical-skills-employment-permit/": [
 "2026-10-31",
@@ -1446,8 +1446,8 @@
 "0b9df64ee7b931325f28"
 ],
 "italy-digital-nomad-visa/": [
-"2026-10-31",
-"986e58db1fb4c3e3d256"
+"2026-11-08",
+"2508d2630d0bc66f2ecd"
 ],
 "mexico-residency/": [
 "2026-10-31",
@@ -2462,16 +2462,16 @@
 "d5d4b2ca5102d93520ce"
 ],
 "portugal-d7-visa/": [
-"2026-10-31",
-"67e8180a07ebbb81f58d"
+"2026-11-08",
+"6223caa9d301714cda2f"
 ],
 "portugal-d8-digital-nomad-visa/": [
-"2026-10-31",
-"9ac63510e952cb8ec75c"
+"2026-11-08",
+"0530f9a5d4fd6709152f"
 ],
 "privacy.html": [
-"2026-10-31",
-"f5aebc3bec94fa53b24d"
+"2026-11-08",
+"3ddaa73f813814216ea6"
 ],
 "pt/": [
 "2026-10-31",
@@ -2761,13 +2761,17 @@
 "2026-10-31",
 "e2f9ba439b21ac60de48"
 ],
+"schengen-visa-insurance/": [
+"2026-11-08",
+"d346ce57fac6f381d5bd"
+],
 "spain-digital-nomad-visa/": [
-"2026-10-31",
-"04fc8ec3c9dfdda63c7a"
+"2026-11-08",
+"3b08c1efdbb2ac501161"
 ],
 "spain-non-lucrative-visa/": [
-"2026-10-31",
-"5250c618129cf1da17a2"
+"2026-11-08",
+"f74b54535b19a30ab9b3"
 ],
 "study-in-italy/": [
 "2026-10-31",
@@ -2834,72 +2838,96 @@
 "52b77c89ad3b03e99cf3"
 ],
 "thailand-dtv-visa/": [
-"2026-11-04",
-"2865e4fa3145cc58a792"
+"2026-11-08",
+"7674c311f7c2b8a4cce6"
 ],
 "thailand-dtv-visa/bucharest/": [
-"2026-11-04",
-"f7070d73e5364fd3f7fa"
+"2026-11-08",
+"89a04953754109da6b45"
 ],
 "thailand-dtv-visa/chicago/": [
-"2026-11-04",
-"3cbc06cc0990e55e0f59"
+"2026-11-08",
+"97840ff906c6902e6a9a"
+],
+"thailand-dtv-visa/dtv-vs-ltr-elite-retirement/": [
+"2026-11-08",
+"aa0b529b4fa3a2f1200c"
+],
+"thailand-dtv-visa/duration-and-extension/": [
+"2026-11-08",
+"7ddc6df4477a1af46de8"
+],
+"thailand-dtv-visa/fee/": [
+"2026-11-08",
+"910e6ef7b0fc570b66ee"
 ],
 "thailand-dtv-visa/ho-chi-minh-city/": [
-"2026-11-04",
-"631c8fb5b3fdf3f6ef99"
+"2026-11-08",
+"cd9459b3202032a9ee35"
 ],
 "thailand-dtv-visa/hong-kong/": [
-"2026-11-04",
-"18f563c2de67f4dcdf86"
+"2026-11-08",
+"9f4eaecfca6e70adda8c"
 ],
 "thailand-dtv-visa/kuala-lumpur/": [
-"2026-11-04",
-"cbabc86b1051ac92cc45"
+"2026-11-08",
+"ed36af512b5ea847db0c"
 ],
 "thailand-dtv-visa/london/": [
-"2026-11-04",
-"d587628e4815bd7017f7"
+"2026-11-08",
+"82dac4332c0d1b122999"
 ],
 "thailand-dtv-visa/los-angeles/": [
-"2026-11-04",
-"a48c4ab3683cd8935eae"
+"2026-11-08",
+"71fd3946cb06fd8e0248"
 ],
 "thailand-dtv-visa/madrid/": [
-"2026-11-04",
-"c9ff7995243f02830a4b"
+"2026-11-08",
+"f290ab564cd8b4153f9f"
 ],
 "thailand-dtv-visa/moscow/": [
-"2026-11-04",
-"e0f677c394c3870468c3"
+"2026-11-08",
+"d3fa99d80a3f1dbd8f94"
 ],
 "thailand-dtv-visa/new-delhi/": [
-"2026-11-04",
-"145ac7d16a055c85318f"
+"2026-11-08",
+"9c396e1b765a8fec3e99"
+],
+"thailand-dtv-visa/proof-of-funds/": [
+"2026-11-08",
+"5b4cc71eb0f7a9ed5158"
+],
+"thailand-dtv-visa/requirements/": [
+"2026-11-08",
+"a47dc82c0a121ce81b65"
 ],
 "thailand-dtv-visa/rome/": [
-"2026-11-04",
-"a9d233f6f614814ff474"
+"2026-11-08",
+"9a91160fae9cd73119e1"
 ],
 "thailand-dtv-visa/singapore/": [
-"2026-11-04",
-"2159f27101d8124f4a71"
+"2026-11-08",
+"474ae79a8758a9bb00f0"
+],
+"thailand-dtv-visa/soft-power-activities/": [
+"2026-11-08",
+"2c046228821f89f527c6"
 ],
 "thailand-dtv-visa/vientiane/": [
-"2026-11-04",
-"97937328d49512c19ec4"
+"2026-11-08",
+"54f2770e66ad74249293"
 ],
 "thailand-dtv-visa/warsaw/": [
-"2026-11-04",
-"d05385b2d59571cacc1e"
+"2026-11-08",
+"fac195a8750e5527994f"
 ],
 "thailand-dtv-visa/washington-dc/": [
-"2026-11-04",
-"b632909a94a6fcf42549"
+"2026-11-08",
+"dd3f05cbfa7813be1ba7"
 ],
 "thailand-dtv-visa/yangon/": [
-"2026-11-04",
-"ab60bd2946f9f9dee534"
+"2026-11-08",
+"3354e6a27bec365d0cf6"
 ],
 "top-university-visas/": [
 "2026-11-05",
@@ -3574,12 +3602,12 @@
 "5f1a23a5f96ba5a154df"
 ],
 "uk-skilled-worker-visa/": [
-"2026-10-31",
-"2d4bc7830c96ddca4ac0"
+"2026-11-08",
+"6d17f93f5b9b8b63fc8f"
 ],
 "uk-spouse-visa/": [
-"2026-10-31",
-"6b5de4684666e496f23d"
+"2026-11-08",
+"f5327d2bbb3b8c1ee8ec"
 ],
 "us-opt/": [
 "2026-11-07",
@@ -3605,9 +3633,49 @@
 "2026-10-30",
 "e5c16b4a8499d7df74cd"
 ],
+"visa-health-insurance/": [
+"2026-11-08",
+"cbc28fc807b0717ed08c"
+],
+"visa-health-insurance/germany-eu-blue-card/": [
+"2026-11-08",
+"54a0d4f0648ae228b88c"
+],
+"visa-health-insurance/portugal-d7-visa/": [
+"2026-11-08",
+"a2df65eb3bf4b57d693f"
+],
+"visa-health-insurance/portugal-d8-digital-nomad-visa/": [
+"2026-11-08",
+"0a3c9d073a87cd5f6994"
+],
+"visa-health-insurance/portugal-student-visa/": [
+"2026-11-08",
+"f6a8d75954a3000d93b8"
+],
+"visa-health-insurance/spain-digital-nomad-visa/": [
+"2026-11-08",
+"35d9ad095fa05a4533af"
+],
+"visa-health-insurance/spain-non-lucrative-visa/": [
+"2026-11-08",
+"119c92e93bbe1fab7549"
+],
+"visa-health-insurance/spain-student-visa/": [
+"2026-11-08",
+"cbdbd662664aaf317e95"
+],
+"visa-health-insurance/thailand-dtv-visa/": [
+"2026-11-08",
+"6449f38786a3888fa744"
+],
+"visa-health-insurance/thailand-ltr-visa/": [
+"2026-11-08",
+"37877b58eb2d32ad2bf9"
+],
 "visa-refusal-rates/": [
-"2026-10-31",
-"0489144f659219a418bc"
+"2026-11-08",
+"6d4579e568744729178b"
 ],
 "visa-refusal-rates/algeria/": [
 "2026-10-31",
