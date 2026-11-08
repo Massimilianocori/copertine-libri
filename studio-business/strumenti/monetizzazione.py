@@ -5,7 +5,8 @@ Le impostazioni stanno in un solo file, monetizzazione.json (accanto a questo). 
     import monetizzazione as MON
 
 Cosa fa, per ogni sito (identificato dal nome della sua cartella: "esameb1", "visaincome", ...):
-- script_adsense(sito): lo script ufficiale di AdSense per il <head> (annunci automatici), oppure "" se AdSense è spento;
+- script_adsense(sito, con_pubblicita=True): lo script ufficiale di AdSense per il <head> (annunci automatici), oppure "" se
+  AdSense è spento; con con_pubblicita=False il segno SEGNO_SENZA_ADSENSE (pagina volutamente senza pubblicità);
 - scrivi_ads_txt(sito, cartella_sito): scrive sito/ads.txt solo con AdSense acceso (e lo toglie se è spento);
 - privacy_cookie(lingua, sito, affiliati): le sezioni privacy su cookie, link di affiliazione e pubblicità, oppure "" se
   il sito non ha né pubblicità né link di affiliazione (in quel caso ogni sito tiene il suo testo di oggi, invariato);
@@ -102,10 +103,18 @@ def tag_adsense(sito):
     return f'<script async src="{URL_ADSENSE_JS}?client={ADSENSE_CLIENT}" crossorigin="anonymous"></script>'
 
 
-def script_adsense(sito):
+# Pagine volutamente senza pubblicità (dal 9/11/2026, EsameB1: pagine noindex o con poco testo): il sito mette questo
+# segno nel <head> al posto dello script e controlla_sito chiede allora zero script AdSense in quella pagina. Senza il
+# segno il controllo resta quello di sempre (uno script per pagina con AdSense acceso): gli altri siti non cambiano.
+SEGNO_SENZA_ADSENSE = "<!-- adsense: no (pagina noindex o con poco testo) -->"
+
+
+def script_adsense(sito, con_pubblicita=True):
     """Da mettere subito dopo il meta di verifica Google nel <head>: '' se spento (l'output resta identico),
-    altrimenti un a capo seguito dal tag di AdSense."""
+    altrimenti un a capo seguito dal tag di AdSense. con_pubblicita=False (AdSense acceso): a capo + SEGNO_SENZA_ADSENSE."""
     t = tag_adsense(sito)
+    if t and not con_pubblicita:
+        return "\n" + SEGNO_SENZA_ADSENSE
     return "\n" + t if t else ""
 
 
@@ -399,7 +408,10 @@ def controlla_sito(sito, cartella_sito):
         fine_testa = t.lower().find("</head>")
         if fine_testa >= 0 and not re.fullmatch(r"google[0-9a-f]+\.html", f.name):
             testa = t[:fine_testa]
-            if attivo:
+            if attivo and SEGNO_SENZA_ADSENSE in testa:
+                if "adsbygoogle" in t or "googlesyndication.com" in t:
+                    errori.append(f"{nome}: pagina segnata senza pubblicità ma con codice AdSense")
+            elif attivo:
                 if testa.count(tag) != 1:
                     errori.append(f"{nome}: script AdSense assente, doppio o con un codice editore diverso nel <head>")
             elif "adsbygoogle" in t or "googlesyndication.com" in t:

@@ -49,6 +49,24 @@ import genera_en as EN  # noqa: E402  sezione inglese /en/ (dal 31/10/2026)
 import genera_lingue as LG  # noqa: E402  sezioni /uk/ e /ro/ (dal 31/10/2026); hreflang e menu delle lingue per tutto il sito
 SITO_ID = "esameb1"  # nome del sito in monetizzazione.json ("adsense_siti")
 ADSENSE_HEAD = MON.script_adsense(SITO_ID)  # "" con AdSense spento; altrimenti a capo + script ufficiale, subito dopo il meta di verifica Google
+# Qualità per AdSense (9/11/2026): niente script AdSense nelle pagine noindex o con meno di MIN_PAROLE_ADSENSE parole
+# di contenuto principale (testo del <main> senza moduli, script e icone). Al posto dello script il <head> ha il segno
+# MON.SEGNO_SENZA_ADSENSE, che monetizzazione.py verifica. Vale anche per /en/, /uk/ e /ro/ (testa_adsense()).
+MIN_PAROLE_ADSENSE = 400
+
+
+def parole_principali(corpo):
+    """Parole del contenuto principale di una pagina: testo visibile del corpo, senza moduli, script, stili e icone SVG."""
+    t = re.sub(r"<(form|script|style|svg)\b.*?</\1>", " ", corpo, flags=re.S | re.I)
+    t = unescape(re.sub(r"<[^>]+>", " ", t))
+    return len(re.findall(r"\w+", t))
+
+
+def testa_adsense(corpo, indicizza=True):
+    """Script AdSense per il <head> (a capo compreso), oppure il segno «senza pubblicità» se la pagina è noindex o ha poco testo."""
+    return MON.script_adsense(SITO_ID, indicizza and parole_principali(corpo) >= MIN_PAROLE_ADSENSE)
+
+
 AFFILIATI = json.loads((DATI / "affiliati.json").read_text(encoding="utf-8")) if (DATI / "affiliati.json").exists() else {}  # link di affiliazione (dal 30/10/2026: italki)
 
 
@@ -391,6 +409,8 @@ table.conf{width:100%;border-collapse:collapse;font-size:.95rem;background:var(-
 table.conf th{font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-3);background:var(--surface-2)}
 table.conf th,table.conf td{border-bottom:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
 .tab-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+ul.passi-lista{list-style:none;padding:0;display:grid;gap:10px}
+ul.passi-lista li{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
 ol.passi{counter-reset:p;list-style:none;padding:0;display:grid;gap:10px}
 ol.passi li{counter-increment:p;display:grid;grid-template-columns:36px 1fr;gap:12px;align-items:start;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
 ol.passi li::before{content:counter(p);display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--brand);color:var(--on-brand);font-weight:800}
@@ -401,6 +421,7 @@ ol.passi li::before{content:counter(p);display:grid;place-items:center;width:32p
 .modulo-testa h2{margin:0;font-size:1.25rem}
 .form{display:grid;gap:14px;margin-top:14px}
 .form label{display:grid;gap:6px;font-weight:650;font-size:.95rem}
+.form textarea{font:inherit;font-size:1rem;padding:11px 12px;min-height:120px;border:1.5px solid var(--line-2);border-radius:10px;background:var(--bg);color:var(--ink);width:100%;min-width:0;resize:vertical}
 .form input,.form select{font:inherit;font-size:1rem;padding:11px 12px;min-height:48px;border:1.5px solid var(--line-2);border-radius:10px;background:var(--bg);color:var(--ink);width:100%;min-width:0}
 .form input:focus,.form select:focus{border-color:var(--brand)}
 .form .check{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:.9rem;color:var(--ink-2)}
@@ -605,7 +626,7 @@ JS = """
   var src=document.querySelectorAll('input[name=source]');
   var v='';try{var q=new URLSearchParams(location.search);v=q.get('ref')||q.get('utm_source')||document.referrer||'diretto';}catch(e){v='diretto';}
   src.forEach(function(i){i.value=String(v).slice(0,200);});
-  document.querySelectorAll('form.avvisami').forEach(function(form){
+  document.querySelectorAll('form.avvisami,form.segnala').forEach(function(form){
     form.addEventListener('submit',function(ev){
       ev.preventDefault();
       var err=form.querySelector('[data-errore]');err.hidden=true;
@@ -680,8 +701,10 @@ def prossima_di(prossime, sigle=None):
     return next((s for s in prossime if sigle is None or s["ente"] in sigle), None)
 
 
-def pagina(percorso, titolo, descrizione, corpo, jsonld=None, base=None):
-    """Scrive sito/<percorso> con la struttura comune. base: prefisso dei link ("/" per la 404)."""
+def pagina(percorso, titolo, descrizione, corpo, jsonld=None, base=None, indicizza=True):
+    """Scrive sito/<percorso> con la struttura comune. base: prefisso dei link ("/" per la 404).
+    indicizza=False: <meta name="robots" content="noindex, follow">, niente AdSense; la pagina resta online e linkata
+    (main() la toglie dalla sitemap)."""
     if len(titolo) > MAX_TITOLO or len(descrizione) > MAX_DESC:
         raise SystemExit(f"{percorso}: titolo {len(titolo)}/{MAX_TITOLO} o description {len(descrizione)}/{MAX_DESC} troppo lunghi")
     profondita = percorso.count("/")
@@ -704,7 +727,7 @@ def pagina(percorso, titolo, descrizione, corpo, jsonld=None, base=None):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{escape(titolo)}</title>
 <meta name="description" content="{escape(descrizione)}">
-<link rel="canonical" href="{canonico}">{alternati}
+<link rel="canonical" href="{canonico}">{alternati}{"" if indicizza else chr(10) + '<meta name="robots" content="noindex, follow">'}
 <meta property="og:title" content="{escape(titolo)}">
 <meta property="og:description" content="{escape(descrizione)}">
 <meta property="og:type" content="website">
@@ -715,7 +738,7 @@ def pagina(percorso, titolo, descrizione, corpo, jsonld=None, base=None):
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0B6B4F">
 <meta name="google-site-verification" content="{GOOGLE_VERIFICA}">
-<meta name="google-site-verification" content="{GOOGLE_VERIFICA_DOMINIO}">{ADSENSE_HEAD}
+<meta name="google-site-verification" content="{GOOGLE_VERIFICA_DOMINIO}">{testa_adsense(corpo, indicizza)}
 <link rel="icon" href="{FAVICON}">
 <link rel="preload" href="/fonts/figtree.woff2" as="font" type="font/woff2" crossorigin>
 <style>{CSS}</style>
@@ -738,13 +761,14 @@ def pagina(percorso, titolo, descrizione, corpo, jsonld=None, base=None):
 <div>
 <a class="logo" href="{home_href}">{MARCHIO}<span class="logo-testo">Esame<b>B1</b></span></a>
 <ul class="piede-link">
-<li><a href="{rel}#date">Date d'esame</a></li><li><a href="{rel}#citta">Sedi per città</a></li><li><a href="{rel}come-funziona/">Come funziona</a></li><li><a href="{rel}costo/">Costo</a></li><li><a href="{rel}risultati/">Risultati</a></li><li><a href="{rel}esenzioni-e-domande/">Orale e domande</a></li><li><a href="{rel}esonero-test-italiano/">Chi è esonerato</a></li><li><a href="{rel}esempi/">Prove d'esempio</a></li><li><a href="{rel}esempi/confronto/">CILS, CELI, PLIDA, CERT.IT a confronto</a></li><li><a href="{rel}cittadinanza/">Domanda di cittadinanza</a></li><li><a href="{rel}reddito-minimo-cittadinanza/">Reddito minimo</a></li><li><a href="{rel}decreto-flussi-click-day/">Decreto flussi: click day</a></li>{enti_link}{LG.link_piede_lingue("it", percorso, radice)}<li><a href="{rel}privacy.html">Privacy</a></li>
+<li><a href="{rel}#date">Date d'esame</a></li><li><a href="{rel}#citta">Sedi per città</a></li><li><a href="{rel}come-funziona/">Come funziona</a></li><li><a href="{rel}costo/">Costo</a></li><li><a href="{rel}risultati/">Risultati</a></li><li><a href="{rel}esenzioni-e-domande/">Orale e domande</a></li><li><a href="{rel}esonero-test-italiano/">Chi è esonerato</a></li><li><a href="{rel}esempi/">Prove d'esempio</a></li><li><a href="{rel}esempi/confronto/">CILS, CELI, PLIDA, CERT.IT a confronto</a></li><li><a href="{rel}cittadinanza/">Domanda di cittadinanza</a></li><li><a href="{rel}reddito-minimo-cittadinanza/">Reddito minimo</a></li><li><a href="{rel}decreto-flussi-click-day/">Decreto flussi: click day</a></li>{enti_link}{LG.link_piede_lingue("it", percorso, radice)}<li><a href="{rel}chi-siamo/">Chi siamo</a></li><li><a href="{rel}come-lavoriamo/">Come lavoriamo</a></li><li><a href="{rel}come-lavoriamo/#segnala">Segnala un errore</a></li><li><a href="{rel}privacy.html">Privacy</a></li>
 </ul>
 </div>
 <div>
 <p><strong>{NOME}</strong> è un sito indipendente, non affiliato agli enti certificatori. CILS, CELI, PLIDA e CERT.IT sono marchi dei rispettivi enti.
 Le informazioni vengono dalle fonti ufficiali indicate accanto a ogni dato. <strong>Prima di iscriverti verifica sempre sul sito della sede.</strong>
-Questo sito non dà consulenza sulla pratica di cittadinanza: per quella vedi la <a href="https://www.interno.gov.it/it/temi/cittadinanza-e-altri-diritti-civili/cittadinanza" rel="noopener">pagina del Ministero dell'Interno</a>.</p>
+Questo sito non dà consulenza sulla pratica di cittadinanza: per quella vedi la <a href="https://www.interno.gov.it/it/temi/cittadinanza-e-altri-diritti-civili/cittadinanza" rel="noopener">pagina del Ministero dell'Interno</a>.
+<a href="{rel}chi-siamo/">Chi siamo</a> · <a href="{rel}come-lavoriamo/">come raccogliamo e controlliamo i dati</a>.</p>
 <p><span class="dati">{ic("scudo")}Dati controllati il {verificato_ultimo()}.</span></p>
 </div>
 </div>
@@ -809,7 +833,7 @@ def lista_sessioni(lista, con_filtri=True):
         bottoni = ['<button type="button" data-filtro="tutti" aria-pressed="true">Tutte</button>',
                    f'<button type="button" data-filtro="citt" aria-pressed="false">{ic("ok")}Solo cittadinanza</button>']
         bottoni += [f'<button type="button" data-filtro="{e}" aria-pressed="false"><span class="pt" style="background:var(--{e.replace(".", "").lower()})"></span>{e}</button>'
-                    for e in ENTE]
+                    for e in ENTE if any(s["ente"] == e for s in lista)]
         filtri = (f'<div class="filtri chips" role="group" aria-label="Filtra per ente">{"".join(bottoni)}</div>'
                   '<p class="esito" aria-live="polite"></p>')
     return (f'<div data-elenco>{note_scadenze(lista)}{filtri}<div class="sessioni">' + "\n".join(scheda_sessione(s) for s in lista)
@@ -827,7 +851,7 @@ def risposta(prossime, rel=""):
 <div class="r-cosa">{eb(s['ente'])}<span>{escape(", ".join(s['esami']))}</span></div>
 <p style="margin:12px 0 0"><span class="conta {classe_conta(s['data'], 'esame')}" data-conta="{s['data']}" data-modo="esame">{testo_conta(s['data'], 'esame')}</span></p>
 </div>""")
-    con_scad = sorted((s for s in prossime if s.get("scadenza")), key=lambda s: (s["scadenza"], s["data"]))
+    con_scad = sorted((s for s in prossime if s.get("scadenza") and d(s["scadenza"]) >= OGGI), key=lambda s: (s["scadenza"], s["data"]))
     opz_s, primo = [], True
     for s in con_scad:
         visibile = primo and d(s["scadenza"]) >= OGGI
@@ -1115,6 +1139,27 @@ def faq_jsonld(faq):
 
 
 # ---------------------------------------------------------------- pagine
+def passi_home(prossime):
+    """Il percorso completo, dall'esonero alla domanda: ogni passo rimanda alla pagina con le fonti."""
+    tempi = "; ".join(f'{e}: {RISULTATI["enti"][e]["tabella"]["tempi"]}' if RISULTATI["enti"][e]["tabella"]["tempi"]
+                      else f'{e}: {"online, nel tuo account (l\'ente non indica i tempi)" if RISULTATI["enti"][e]["tabella"]["login"] else "chiedi alla sede"}' for e in ENTE)
+    voci = [
+        ("Controlla se devi farlo", 'Il certificato B1 serve per la cittadinanza per residenza o per matrimonio. Alcune persone sono esonerate, per esempio chi ha il permesso UE per soggiornanti di lungo periodo: <a href="esonero-test-italiano/">chi è esonerato</a>.'),
+        ("Scegli l'ente", 'CILS, CELI, PLIDA e CERT.IT rilasciano un certificato B1 valido per la cittadinanza. Cambiano prezzo, durata e modo di contare i punti: <a href="esempi/confronto/">i 4 esami a confronto</a>.'),
+        ("Trova una sede", f'Ci sono {len(sedi)} sedi in Italia. Cerca la tua città nell\'<a href="#citta">elenco per città</a>: per ogni sede trovi indirizzo e contatti pubblicati dall\'ente.'),
+        ("Iscriviti presso la sede", 'Chiedi alla sede prezzo, documenti e ultimo giorno per iscriverti: può chiudere prima del termine nazionale. <a href="costo/">Quanto costa</a>.'),
+        ("Fai l'esame", 'Si fa in presenza, con un documento d\'identità valido: scritto (ascolto, lettura, scrittura) e orale di 10-15 minuti, di solito lo stesso giorno. <a href="come-funziona/">Come si svolge</a> · <a href="esempi/">prove d\'esempio gratis</a>.'),
+        ("Aspetta il risultato", f'{tempi}. <a href="risultati/">Dove vederlo, ente per ente</a>.'),
+        ("Manda la domanda di cittadinanza", f'Online sul portale del Ministero dell\'Interno, con SPID o CIE e un contributo di {CITT["contributo_eur"]} €. Prima controlla il <a href="reddito-minimo-cittadinanza/">reddito minimo</a>. <a href="cittadinanza/">La domanda, prefettura per prefettura</a>.'),
+    ]
+    righe = "".join(f"<li><span><strong>{t}.</strong> {x}</span></li>" for t, x in voci)
+    return f"""<section id="passi">
+<h2>{ic("lista")}Dal certificato alla cittadinanza: i passi</h2>
+<ol class="passi">{righe}</ol>
+<p class="small">Questo sito non dà consulenza sulla pratica: per il tuo caso decide la Prefettura.</p>
+</section>"""
+
+
 def home(prossime):
     faq = [  # (domanda, risposta in HTML): visibili in pagina e, senza tag, nel JSON-LD FAQPage
         ("Quale esame devo fare per la cittadinanza?", f'Serve un certificato di italiano almeno di livello B1, rilasciato da un ente riconosciuto. I 4 enti principali, con sedi in tutta Italia, sono CILS (Università per Stranieri di Siena), CELI (Università per Stranieri di Perugia), PLIDA (Società Dante Alighieri) e CERT.IT (Università Roma Tre). Fonte: <a href="{PREFETTURA}" rel="noopener">Prefettura – Ministero dell\'Interno</a>. Il Vademecum del Ministero (2025) elenca anche l\'Università per Stranieri «Dante Alighieri» di Reggio Calabria. Per i casi particolari (titoli di studio italiani, esenzioni) leggi <a href="esonero-test-italiano/">chi è esonerato secondo la legge e il Ministero</a> e chiedi alla Prefettura.'),
@@ -1138,7 +1183,8 @@ def home(prossime):
     corpo = f"""<section class="hero">
 <span class="occhiello">{ic("scudo")}CILS · CELI · PLIDA · CERT.IT</span>
 <h1>Esame di italiano B1 per la cittadinanza: tutte le date 2026 e 2027</h1>
-<p class="lead">Date, scadenze e sedi dei 4 enti principali, per chi chiede la cittadinanza italiana per residenza o matrimonio.</p>
+<p class="lead">Per chiedere la cittadinanza italiana per residenza o matrimonio serve un certificato di italiano almeno B1. Qui trovi date, scadenze e sedi
+dei 4 enti principali: le date sono uguali in tutta Italia, ci si iscrive presso la sede.</p>
 {risposta(prossime)}
 <div class="azioni"><a class="btn" href="#avvisami">{ic("campana")}Avvisami per la mia città</a><a class="btn btn-2" href="#citta">{ic("pin")}Trova una sede</a></div>
 <ul class="cifre"><li>{ic("edificio")}<span><strong>{len(sedi)}</strong> sedi d'esame in Italia</span></li>
@@ -1155,6 +1201,7 @@ def home(prossime):
 {modulo()}
 </aside>
 </div>
+{passi_home(prossime)}
 {riquadro_preparati("")}
 <section id="citta">
 <h2>{ic("pin")}Sedi per città</h2>
@@ -1206,9 +1253,9 @@ Controlliamo il calendario ogni settimana: <a href="#avvisami">avvisami quando e
         esami = "".join(
             f'<div data-fino="{s["data"]}"{"" if i == 0 else " hidden"}><div class="pe-data">{data_breve(s["data"])}'
             f'<span class="conta {classe_conta(s["data"], "esame")}" data-conta="{s["data"]}" data-modo="esame">{testo_conta(s["data"], "esame")}</span></div>'
-            f'<p class="pe-cosa">{escape(", ".join(s["esami"]))}</p></div>' for i, s in enumerate(lista[:10]))
-        con_scad = [s for s in lista if s.get("scadenza")]
-        if con_scad:
+            f'<p class="pe-cosa">{escape(", ".join(s["esami"]))}</p></div>' for i, s in enumerate(lista[:6]))
+        con_scad = [s for s in lista if s.get("scadenza") and d(s["scadenza"]) >= OGGI][:6]
+        if any(s.get("scadenza") for s in lista):
             righe, primo = [], True
             for s in con_scad:
                 vis = primo and d(s["scadenza"]) >= OGGI
@@ -1242,6 +1289,105 @@ def sezione_dopo_b1(c):
 <p>Con il certificato B1 la domanda si manda online; poi la segue la <strong>Prefettura di {escape(nome)}</strong>. Prima controlla il reddito minimo.</p>
 <div class="griglia link3">{pref}<a href="../../reddito-minimo-cittadinanza/">{ic("euro")}<span>Reddito minimo per la cittadinanza<small>soglie ufficiali e calcolatore</small></span></a><a href="../../cittadinanza/#come">{ic("lista")}<span>Come si presenta la domanda<small>online, 250 €, documenti</small></span></a></div>
 </section>"""
+
+NOINDEX = json.loads((DATI / "noindex.json").read_text(encoding="utf-8"))  # pagine città fuori indice (9/11/2026), con la regola
+
+
+def citta_indicizzata(c):
+    """False per le pagine città in dati/noindex.json che contano ancora al massimo max_sedi sedi sue."""
+    voce = NOINDEX["citta"].get(c["slug"])
+    if not voce:
+        return True
+    if sedi_di(c) > NOINDEX["max_sedi"]:
+        print(f"AVVISO: {c['nome']} ha ora {sedi_di(c)} sedi: la pagina torna in indice (togli la voce da dati/noindex.json)")
+        return True
+    return False
+
+
+def elenco_e(voci):
+    """["a", "b", "c"] → "a, b e c"."""
+    voci = list(voci)
+    return voci[0] if len(voci) == 1 else ", ".join(voci[:-1]) + " e " + voci[-1]
+
+
+def comuni_delle_sedi(lista):
+    """Comuni dove sono le sedi, dal più fornito: "Milano (30), Monza (2)"."""
+    conta = {}
+    for s in lista:
+        conta[s["citta"]] = conta.get(s["citta"], 0) + 1
+    return ", ".join(f"{escape(n)} ({k})" for n, k in sorted(conta.items(), key=lambda x: (-x[1], x[0])))
+
+
+def costo_breve(e):
+    """Una frase sul costo, presa da dati/enti.json (fatti.costo)."""
+    if e == "CILS":
+        x = ENTE["CILS"]
+        return f'{x["prezzo_esame"]}: {x["prezzo_eur"]} €, la stessa tassa in tutte le sedi'
+    if e == "CERT.IT":
+        return "CERT.IT B1: " + ENTE[e]["fatti"]["costo"]["breve"] + ", nelle altre sedi il prezzo lo decide la sede"
+    return f"{e}: il prezzo lo decide la sede"
+
+
+def passi_citta(c, enti_prov, mie, prossime):
+    """«Come fare l'esame a X, passo per passo»: solo dati della pagina (sedi, enti, date) e fatti con fonte di enti.json e risultati.json."""
+    nome_pref = PREF[pref_di(c["provincia"])]["nome"] if pref_di(c["provincia"]) else None
+    enti_link = elenco_e(f'<a href="#sedi-{SLUG_ENTE[e]}">{e}</a>' for e in enti_prov)
+    cosa_portare = "Porta un documento d'identità valido: l'esame si fa solo in presenza, nella sede."
+    if "CILS" in enti_prov:
+        cosa_portare += " Al CILS serve una penna nera."
+    if "PLIDA" in enti_prov:
+        cosa_portare += " Per il PLIDA apri prima un account sul sito dell'ente e dai la tua email al centro."
+    tempi = []
+    for e in enti_prov:
+        t = RISULTATI["enti"][e]["tabella"]
+        tempi.append(f'{e}: {t["tempi"]}' if t["tempi"] else (f'{e}: online, nel tuo account (l\'ente non indica i tempi)' if t["login"] else f'{e}: chiedi alla sede'))
+    domanda_txt = (f'Con il certificato mandi la domanda online (SPID o CIE, contributo di {CITT["contributo_eur"]} €); la segue la '
+                   f'<a href="#domanda-cittadinanza">Prefettura di {escape(nome_pref)}</a>.' if nome_pref else
+                   f'Con il certificato mandi la domanda online (SPID o CIE, contributo di {CITT["contributo_eur"]} €).')
+    voci = [
+        ("Scegli l'ente e la sede",
+         f'{"A" + a_(c)[1:] if not c.get("capoluogo", True) else "In provincia di " + escape(nome_provincia(c))} trovi sedi {enti_link}: tutti rilasciano un certificato B1 valido per la cittadinanza. '
+         f'Le sedi sono a {comuni_delle_sedi(mie)}.'),
+        ("Guarda la data e la scadenza",
+         'Le date d\'esame sono uguali in tutta Italia: le trovi <a href="#date">nell\'elenco qui sotto</a>, con il termine nazionale per iscriversi. '
+         'La sede può chiudere le iscrizioni prima di quel termine.'),
+        ("Contatta la sede e iscriviti",
+         f'Chiedi prezzo, documenti e ultimo giorno per iscriverti. {"; ".join(costo_breve(e) for e in enti_prov)}. '
+         f'<a href="../../costo/">Costi con le fonti</a>.'),
+        ("Il giorno dell'esame", cosa_portare + ' <a href="../../come-funziona/#durata">Quanto dura ogni prova</a>.'),
+        ("Il risultato", f'{"; ".join(tempi)}. <a href="#risultati">Dove vederlo</a>.'),
+        ("La domanda di cittadinanza", domanda_txt),
+    ]
+    righe = "".join(f"<li><span><strong>{t}.</strong> {x}</span></li>" for t, x in voci)
+    return f"""<section>
+<h2 id="passi">{ic("lista")}Come fare l'esame B1 {a_(c)}, passo per passo</h2>
+<ol class="passi">{righe}</ol>
+</section>"""
+
+
+def faq_citta(c, enti_prov, mancano, regione):
+    """Domande frequenti della pagina città: risposte solo con i dati della pagina e i fatti con fonte."""
+    prov = escape(nome_provincia(c))
+    faq = [(f"Quanto costa l'esame B1 {a_(c)}?",
+            f'Dipende dall\'ente: {"; ".join(costo_breve(e) for e in enti_prov)}. Prima di pagare chiedi alla sede il prezzo finale, '
+            f'con eventuali spese. <a href="../../costo/">Tutti i costi, con le fonti</a>.'),
+           (f"Le date d'esame {a_(c)} sono diverse dal resto d'Italia?",
+            "No. Ogni ente fissa le date per tutte le sue sedi, quindi sono le stesse in tutta Italia. "
+            "Cambia la scadenza per iscriversi: ogni sede può chiudere le iscrizioni prima del termine nazionale.")]
+    if mancano:
+        dove = elenco_e(f'<a href="../../ente/{SLUG_ENTE[e]}/#{ancora_regione(e, regione)}">{e}</a>' for e in mancano)
+        faq.append((f"Ci sono sedi {elenco_e(mancano)} in provincia di {prov}?",
+                    f"No: le fonti ufficiali non riportano sedi {elenco_e(mancano)} in provincia di {prov}. "
+                    f"Le sedi delle altre province, divise per regione, sono nelle pagine {dove}. "
+                    "Per la cittadinanza vale il certificato B1 di uno qualsiasi degli enti riconosciuti, quindi puoi scegliere anche un ente con sedi qui."))
+    sl = pref_di(c["provincia"])
+    if sl:
+        nome = escape(PREF[sl]["nome"])
+        link = f"../../cittadinanza/{pref_url(sl)}/" if ha_pagina_pref(sl) else f"../../cittadinanza/#{pref_url(sl)}"
+        faq.append((f"Dopo l'esame, dove presento la domanda di cittadinanza {a_(c)}?",
+                    f"La domanda si manda online sul portale del Ministero dell'Interno, con SPID o CIE, e si paga un contributo di {CITT['contributo_eur']} €. "
+                    f'La pratica la segue la Prefettura di {nome}: <a href="{link}">contatti e cosa scrive la Prefettura</a>.'))
+    return faq
 
 
 def pagina_citta(c, prossime):
@@ -1291,6 +1437,18 @@ def pagina_citta(c, prossime):
     vicine_griglia = "".join(
         f'<a href="../{x["slug"]}/">{ic("pin")}<span>{escape(x["nome"])}<small>{n_sedi(sedi_di(x))}</small></span></a>' for x in citta_vicine(c))
     vicine_titolo = "Sedi nelle città vicine" if c["slug"] in VICINE else f"Sedi in altre città: {escape(regione)}"
+    # Elenco delle date (9/11/2026): le prossime 6 sessioni degli enti con sedi in provincia; tutte le altre sono nel calendario
+    # completo della home (le date sono nazionali: ripeterle tutte in 94 pagine città non aggiunge nulla).
+    enti_prov = [e for e in ENTE if any(s["ente"] == e for s in qui)]
+    locali = [s for s in prossime if s["ente"] in enti_prov]
+    titolo_date = (f"Le prossime date (valide anche {a_(c)})" if len(enti_prov) == len(ENTE)
+                   else f"Le prossime date {elenco_e(enti_prov)} (valide anche {a_(c)})")
+    altri = [e for e in ENTE if e not in enti_prov]
+    nota_date = (f'<p class="small">{"Qui ci sono le prossime " + str(min(6, len(locali))) + " sessioni" if len(locali) > 6 else "Qui ci sono tutte le sessioni in programma"}'
+                 f'{" degli enti con sedi in provincia di " + prov if altri else ""}. '
+                 f'<a href="../../#date">Calendario completo: tutte le {len(prossime)} sessioni di CILS, CELI, PLIDA e CERT.IT</a>.</p>')
+    locali = locali[:6]
+    faq = faq_citta(c, enti_prov, mancano, regione)
     corpo = f"""<section class="hero">
 {briciole(("EsameB1", "../../"), ("Città", "../../#citta"), (c["nome"], None))}
 <h1>Esame B1 per la cittadinanza {a_(c)}: date e sedi {anni(prossime)}</h1>
@@ -1300,14 +1458,16 @@ Le date d'esame sono le stesse in tutta Italia; la scadenza per iscriversi può 
 <div class="azioni"><a class="btn" href="#avvisami">{ic("campana")}Avvisami per {escape(c['nome'])}</a><a class="btn btn-2" href="#sedi">{ic("pin")}Vedi {'la sede' if len(mie) == 1 else f'le {len(mie)} sedi'}</a></div>
 </section>
 {avviso("Contatta la sede prima di iscriverti: ti dice costo, documenti e ultimo giorno per iscriverti.")}
+{passi_citta(c, enti_prov, mie, prossime)}
 <section>
 <h2 id="per-ente">{ic("cal")}Prossime date {a_(c)}, ente per ente</h2>
 {per_ente(c, qui, in_citta, prossime)}
 </section>
 <div class="due">
 <section>
-<h2 id="date">{ic("lista")}Tutte le prossime date (valide anche {a_(c)})</h2>
-{lista_sessioni(prossime)}
+<h2 id="date">{ic("lista")}{titolo_date}</h2>
+{lista_sessioni(locali, con_filtri=len(enti_prov) > 1)}
+{nota_date}
 </section>
 <aside>
 {modulo(c['nome'])}
@@ -1329,6 +1489,10 @@ Le date d'esame sono le stesse in tutta Italia; la scadenza per iscriversi può 
 <div class="griglia link3">{"".join(f'<a href="../../risultati/{SLUG_RISULTATI[e]}/">{ic("ok")}<span>Risultati {e}<small>{escape(RISULTATI["enti"][e]["titolo"])}</small></span></a>' for e in enti_qui)}<a href="../../risultati/">{ic("lista")}<span>Tutti gli enti a confronto<small>tempi, punteggio, se non superi</small></span></a></div>
 </section>
 {sezione_dopo_b1(c)}
+<section>
+<h2 id="domande">{ic("info")}Domande frequenti su {escape(c["nome"])}</h2>
+{"".join(domanda(q, a) for q, a in faq)}
+</section>
 <section><h2>{ic("pin")}Altre città</h2>{vicine_html}<div class="altre">{altre}</div></section>"""
     # Titolo con la prossima data degli enti che hanno sedi qui: si aggiorna da solo a ogni rigenerazione (dati/sessioni.json).
     a_c = f"{'ad' if c['nome'][0] == 'A' else 'a'} {c['nome']}"  # come a_(), senza escape: titolo e description li passa escape() in pagina()
@@ -1351,7 +1515,10 @@ Le date d'esame sono le stesse in tutta Italia; la scadenza per iscriversi può 
         f"Esame di italiano B1 per la cittadinanza {dove_d}: {quali}, {prossimo_d}, scadenze e contatti.",
         f"Esame B1 cittadinanza {dove_d}: {quali}, {prossimo_d}, scadenze e contatti delle sedi.",
         f"Esame B1 cittadinanza {dove_d}: {n_sedi(len(mie))}, {prossimo_d}, scadenze e contatti delle sedi.")
-    pagina(f"citta/{c['slug']}/index.html", titolo, descr, corpo)
+    jsonld = {"@context": "https://schema.org", "@graph": [faq_jsonld(faq)]}
+    indicizza = citta_indicizzata(c)
+    pagina(f"citta/{c['slug']}/index.html", titolo, descr, corpo, jsonld, indicizza=indicizza)
+    return indicizza
 
 
 # Come la gente cerca ogni esame (Google, suggerimenti di ricerca del 12/10/2026).
@@ -1441,10 +1608,27 @@ def come_funziona():
         if f:
             online_fonti.append(f["fonti"][0])
     online_link = " · ".join(f'<a href="{escape(x["url"])}" rel="noopener">{escape(x["nome"])}</a>' for x in online_fonti)
+    faq = [
+        ("Quanto dura in tutto l'esame B1?",
+         "Lo scritto dura da 1 ora e 30 minuti (CERT.IT) a 2 ore e 20 minuti (CELI e PLIDA); il CILS B1 Cittadinanza circa 1 ora e 50 minuti. "
+         'Poi c\'è l\'orale, di 10-15 minuti. <a href="#durata">I tempi di ogni prova</a>.'),
+        ("Cosa devo portare il giorno dell'esame?",
+         "Un documento d'identità valido. Al CILS serve una penna nera; al CELI una penna nera o blu, e telefono, dizionario e libri si consegnano all'ingresso. "
+         "Per il PLIDA devi avere già un account sul sito dell'ente. La sede ti dice se serve altro."),
+        ("Il B1 Cittadinanza è diverso dal B1 normale?",
+         "CILS e CELI hanno un esame B1 pensato per la cittadinanza (CILS B1 Cittadinanza, CELI 2 i cittadinanza). Anche il B1 normale degli stessi enti, "
+         'il PLIDA B1 e il CERT.IT B1 sono certificati di livello B1. <a href="../esempi/confronto/">I 4 esami a confronto</a>.'),
+        ("Si può fare l'esame online?",
+         "No. Tutti e quattro gli enti fanno l'esame in presenza, in una sede d'esame. A Roma Tre lo scritto del CERT.IT B1 si fa al computer, ma sempre in sede."),
+        ("Dove trovo una prova d'esempio?",
+         'Ogni ente pubblica gratis una prova d\'esempio ufficiale, con audio e soluzioni. <a href="../esempi/">Le prove d\'esempio ente per ente</a>.'),
+    ]
     corpo = f"""<section class="hero">
 {briciole(("EsameB1", "../"), ("Come funziona", None))}
 <h1>Esame B1 per la cittadinanza: come funziona, quanto dura, cosa portare</h1>
-<p class="lead">Spiegato in modo semplice: chi deve farlo, quali esami valgono, quanto dura, cosa portare, dove trovare esempi d'esame gratis.</p>
+<p class="lead"><strong>L'esame B1 ha 4 prove: ascolto, lettura, scrittura e orale.</strong> Si fa solo in presenza, in una sede d'esame.
+Lo scritto dura da 1 ora e 30 minuti a 2 ore e 20 minuti secondo l'ente, l'orale 10-15 minuti, di solito lo stesso giorno.
+Ci si iscrive presso la sede, che indica prezzo, documenti e scadenza. Qui sotto i dettagli di ogni ente, con le fonti.</p>
 </section>
 <h2>{ic("info")}Chi deve fare l'esame</h2>
 <p>Dal 4 dicembre 2018 chi chiede la cittadinanza italiana <strong>per residenza o per matrimonio</strong> deve dimostrare di conoscere l'italiano
@@ -1480,36 +1664,82 @@ per CERT.IT l'orale si fa in presenza. A Roma Tre lo scritto del CERT.IT B1 si f
 <h2>{ic("euro")}Costo e risultati</h2>
 <p>CILS B1 Cittadinanza costa 100 €, CERT.IT B1 80 € a Roma Tre; per CELI e PLIDA il prezzo lo decide il centro. <a href="../costo/">Tutti i costi</a> ·
 <a href="../risultati/">Quando arrivano i risultati</a>.</p>
+<h2 id="domande">{ic("info")}Domande frequenti</h2>
+{"".join(domanda(q, a) for q, a in faq)}
 {modulo()}"""
     pagina("come-funziona/index.html", titolo_pagina("Esame B1 cittadinanza: come funziona, quanto dura, cosa portare"),
            descrizione_pagina(f"Le 4 prove dell'esame B1 per la cittadinanza (ascolto, lettura, scrittura, orale di 10-15 minuti), i {len(enti)} enti "
-                              "principali, cosa portare, esempi gratis."), corpo)
+                              "principali, cosa portare, esempi gratis."), corpo,
+           {"@context": "https://schema.org", "@graph": [faq_jsonld(faq)]})
 
 
 def pagina_costo():
+    cils = ENTE["CILS"]["prezzo_eur"]  # tassa ufficiale unica (dati/enti.json, con prezzo_url); CERT.IT: solo alla sede di Roma Tre
+    certit = re.match(r"(\d+) €", ENTE["CERT.IT"]["fatti"]["costo"]["breve"]).group(1)
+    chi = {"CILS": "l'ente: uguale in tutte le sedi", "CELI": "il centro d'esame", "PLIDA": "il centro PLIDA",
+           "CERT.IT": "Roma Tre per la sua sede; il centro nelle sedi convenzionate"}
+    righe = "".join(
+        f'<tr><td>{eb(e["sigla"])}</td><td>{escape(e["fatti"]["costo"]["breve"])}</td><td>{chi[e["sigla"]]}</td>'
+        f'<td><a href="{escape(e["fatti"]["costo"]["fonti"][0]["url"])}" rel="noopener">{escape(e["fatti"]["costo"]["fonti"][0]["nome"])}</a></td></tr>'
+        for e in enti)
+    ripeti = "".join(f'<li>{eb(e)}<span>{escape(RISULTATI["enti"][e]["tabella"]["ripeti"])}</span></li>' for e in ENTE)
+    faq = [
+        ("Il prezzo è uguale in tutta Italia?",
+         f"Solo per il CILS B1 Cittadinanza: {cils} €, la stessa tassa in Italia e all'estero. Per CELI e PLIDA il prezzo lo decide il centro d'esame; "
+         f"per CERT.IT B1 è {certit} € alla sede di Roma Tre, mentre nelle sedi convenzionate lo decide la sede."),
+        ("Perché due sedi CELI chiedono prezzi diversi?",
+         "Perché il prezzo lo fissa ogni centro, secondo l'accordo con l'Università per Stranieri di Perugia, e alcune sedi aggiungono spese amministrative. "
+         "Esempio pubblicato: CELI 2 i cittadinanza 90 € all'Università degli Studi di Milano, cioè 65 € di tassa d'esame e 25 € di spese."),
+        ("Il CILS B1 standard costa come il B1 Cittadinanza?",
+         "Non per forza: il prezzo del CILS B1 standard lo indica la sede. Al Centro Linguistico dell'Università di Padova, per esempio, costa 90 €."),
+        ("Se non supero l'esame, devo pagare di nuovo?",
+         "Dipende dall'ente. Al CELI rifai entro 1 anno solo la parte non superata, con il 70% della tassa. Al CILS B1 Cittadinanza rifai tutto l'esame. "
+         "Al PLIDA entro 18 mesi recuperi le abilità non superate. Il prezzo del nuovo esame o del recupero te lo dice la sede."),
+        ("Quali altri costi ci sono per la cittadinanza?",
+         f"Per la domanda di cittadinanza si paga un contributo di {CITT['contributo_eur']} € e servono gli estremi di una marca da bollo telematica, "
+         'secondo la pagina del Ministero dell\'Interno. <a href="../cittadinanza/#come">Come si presenta la domanda</a>.'),
+    ]
     corpo = f"""<section class="hero">
 {briciole(("EsameB1", "../"), ("Costo", None))}
 <h1>Quanto costa l'esame B1 per la cittadinanza</h1>
-<p class="lead">Il prezzo cambia secondo l'ente e, per CELI e PLIDA, secondo la sede. Qui trovi le cifre pubblicate dagli enti, con la fonte.</p>
+<p class="lead"><strong>CILS B1 Cittadinanza costa {cils} € in tutte le sedi. CERT.IT B1 costa {certit} € alla sede di Roma Tre.</strong>
+Per CELI e PLIDA il prezzo lo decide il centro d'esame: un esempio pubblicato è 90 € per il CELI 2 i cittadinanza all'Università degli Studi di Milano.
+Le cifre sono quelle scritte dagli enti, con la fonte.</p>
 </section>
+<h2 id="in-breve">{ic("euro")}Il costo ente per ente, in breve</h2>
+<div class="tab-wrap"><table class="conf"><thead><tr><th>Ente</th><th>Prezzo</th><th>Chi lo decide</th><th>Fonte</th></tr></thead>
+<tbody>{righe}</tbody></table></div>
+<h2 id="dettagli">{ic("doc")}I dettagli, con le fonti</h2>
 {schede_per_ente("costo", breve=True)}
 {avviso("Chiedi sempre alla sede il <strong>prezzo finale</strong> prima di pagare: alcune sedi aggiungono spese amministrative (all'Università degli Studi di Milano, per esempio, 25 € sui 90 € del CELI 2 i cittadinanza).")}
+<h2 id="come-chiedere">{ic("lista")}Come sapere il prezzo della tua sede, passo per passo</h2>
+<ol class="passi">
+<li><span><strong>Trova la sede.</strong> Scegli la tua città nell'elenco qui sotto: per ogni sede trovi indirizzo, telefono, email e sito, quando l'ente li pubblica.</span></li>
+<li><span><strong>Chiedi il prezzo finale.</strong> Domanda quanto costa la tassa d'esame, se ci sono spese amministrative e se il prezzo vale per il B1 Cittadinanza o per il B1 standard.</span></li>
+<li><span><strong>Chiedi la scadenza.</strong> La sede può chiudere le iscrizioni prima del termine nazionale: controlla le <a href="../#date">prossime date</a>.</span></li>
+<li><span><strong>Paga e conserva la ricevuta.</strong> Il giorno dell'esame porta un documento d'identità valido.</span></li>
+</ol>
+<h2 id="se-non-superi">{ic("ok")}Se non superi l'esame</h2>
+<p>Ogni ente ha regole diverse per riprovare. Il costo del nuovo esame o del recupero lo indica la sede, tranne il CELI, che scrive il 70% della tassa.</p>
+<ul class="note-scad">{ripeti}</ul>
+<p class="small">Fonte: le pagine ufficiali degli enti, raccolte nella pagina <a href="../risultati/">risultati</a>.</p>
 <div class="due">
 <section>
 <h2>{ic("pin")}Trova una sede e chiedi il prezzo</h2>
-<p>Scegli la tua città: per ogni sede trovi indirizzo, telefono, email e sito.</p>
+<p>Scegli la tua città: per ogni sede trovi i contatti pubblicati dall'ente.</p>
 {citta_per_regione("../")}
-<h2>{ic("info")}Altre domande</h2>
+<h2>{ic("info")}Domande frequenti</h2>
+{"".join(domanda(q, a) for q, a in faq)}
+<h2>{ic("lista")}Altre guide</h2>
 {link_guide("../", salta="costo/")}
 </section>
 <aside>{modulo()}</aside>
 </div>
 {riquadro_preparati("../")}"""
-    cils = ENTE["CILS"]["prezzo_eur"]  # tassa ufficiale unica (dati/enti.json, con prezzo_url); CERT.IT: solo alla sede di Roma Tre
-    certit = re.match(r"(\d+) €", ENTE["CERT.IT"]["fatti"]["costo"]["breve"]).group(1)
     pagina("costo/index.html", titolo_pagina(f"Quanto costa l'esame B1 cittadinanza? CILS {cils} €, CELI e PLIDA"),
            descrizione_pagina(f"Esame B1 per la cittadinanza: CILS B1 Cittadinanza {cils} € in tutta Italia, CERT.IT B1 {certit} € a Roma Tre, "
-                              "CELI e PLIDA a prezzo del centro. Fonti ufficiali."), corpo)
+                              "CELI e PLIDA a prezzo del centro. Fonti ufficiali."), corpo,
+           {"@context": "https://schema.org", "@graph": [faq_jsonld(faq)]})
 
 
 # ---------------------------------------------------------------- risultati (indice + una pagina per ente, dal 30/10/2026)
@@ -3545,17 +3775,164 @@ Qui sotto, per ognuna delle {len(PREF)} Prefetture, i contatti dell'ufficio citt
     pagina("cittadinanza/index.html", titolo, descr, corpo, jsonld)
 
 
+# ---------------------------------------------------------------- chi siamo e come lavoriamo (9/11/2026)
+# Nessun dato personale del gestore (nome, indirizzo, telefono, partita IVA, IBAN) in queste pagine.
+def modulo_segnala():
+    return f"""<section class="card" id="segnala">
+<div class="modulo-testa"><span class="bolla">{ic("attenzione")}</span><div>
+<h2>Segnala un errore</h2>
+<p class="small" style="margin:4px 0 0">Una data sbagliata, una sede chiusa, un link che non funziona: scrivici cosa hai visto. Controlliamo sulla fonte ufficiale e correggiamo.</p></div></div>
+<form class="form segnala" name="segnalazioni" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field">
+<input type="hidden" name="form-name" value="segnalazioni">
+<input type="hidden" name="source" value="">
+<p class="hp"><label>Non compilare <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+<label>Pagina o città (facoltativo)<input type="text" name="pagina" maxlength="200" placeholder="per esempio: pagina di Torino"></label>
+<label>Cosa è sbagliato<textarea name="messaggio" required maxlength="3000"></textarea></label>
+<label>Link alla fonte corretta (facoltativo)<input type="url" name="fonte" maxlength="500" placeholder="https://"></label>
+<label>La tua email, se vuoi una risposta (facoltativo)<input type="email" name="email" autocomplete="email"></label>
+<p class="small" style="margin:0">Usiamo questi dati solo per controllare la segnalazione e, se lasci l'email, per risponderti. <a href="/privacy.html">Privacy</a>.</p>
+<button class="btn" type="submit">{ic("mail")}Invia la segnalazione</button>
+<p class="errore" data-errore hidden>Non è stato possibile inviare. Riprova tra poco.</p>
+</form>
+<div class="ok" data-ok hidden>{ic("ok")}<span><strong>Grazie!</strong> Controlliamo la segnalazione sulla fonte ufficiale.</span></div>
+</section>"""
+
+
+def testo_pubblicita():
+    """Come si mantiene il sito: AdSense e link di affiliazione, solo se sono accesi (monetizzazione.json, dati/affiliati.json)."""
+    parti = []
+    if MON.adsense_attivo(SITO_ID):
+        parti.append("<li><span><strong>Pubblicità di Google AdSense.</strong> Google sceglie e mostra gli annunci in modo automatico, con il tuo consenso "
+                     f"dove la legge lo chiede. Non mostriamo annunci nelle pagine con poco testo. Gli annunci non cambiano mai date, sedi o costi. "
+                     f'<a href="../privacy.html">Cookie e consenso nella privacy</a>.</span></li>')
+    aff = []
+    if url_affiliato("italki"):
+        aff.append("lezioni di italiano su italki")
+    if url_affiliato("amazon"):
+        aff.append("libri su Amazon.it")
+    if aff:
+        parti.append(f"<li><span><strong>Link di affiliazione</strong> ({elenco_e(aff)}), solo nel riquadro «Preparati alla prova orale». "
+                     "Se compri dopo aver cliccato, possiamo ricevere una commissione, senza costi in più per te. Accanto c'è sempre il link alle prove "
+                     "d'esempio ufficiali, che sono gratis. I link sono segnalati con la frase «Alcuni link sono di affiliazione»"
+                     f'{" e, per Amazon, con la frase richiesta dal programma di affiliazione" if url_affiliato("amazon") else ""}.</span></li>')
+    if not parti:
+        return "<p>Oggi il sito non ha pubblicità né link di affiliazione.</p>"
+    return ('<p>Il sito è gratuito e si mantiene così:</p><ul class="passi-lista">' + "".join(parti) + "</ul>"
+            "<p>Nessun ente, scuola o sede paga per comparire nel sito o per avere più spazio.</p>")
+
+
+def chi_siamo():
+    corpo = f"""<section class="hero">
+{briciole(("EsameB1", "../"), ("Chi siamo", None))}
+<h1>Chi siamo</h1>
+<p class="lead"><strong>{NOME} è un progetto informativo indipendente e gratuito.</strong> Raccoglie in un solo posto le date, le scadenze e le sedi
+dell'esame di italiano B1 per la cittadinanza, prese dalle fonti ufficiali.</p>
+</section>
+<h2 id="perche">{ic("info")}Perché esiste questo sito</h2>
+<p>Chi chiede la cittadinanza italiana per residenza o per matrimonio deve presentare un certificato di italiano almeno B1. Le date, le sedi e le regole
+sono divise tra i siti di quattro enti, del Ministero dell'Interno e di {len(PREF)} Prefetture, spesso in PDF difficili da leggere. {NOME} mette queste informazioni
+in un solo posto, in italiano semplice, con il link alla fonte accanto a ogni dato. Il sito è online da ottobre 2026.</p>
+<h2 id="cosa-trovi">{ic("lista")}Cosa trovi</h2>
+<ul class="passi-lista">
+<li><span>Le <a href="../#date">date d'esame</a> di CILS, CELI, PLIDA e CERT.IT ({len(future(sessioni))} sessioni in programma) e le scadenze per iscriversi.</span></li>
+<li><span>{len(sedi)} sedi d'esame in Italia, divise per <a href="../#citta">città</a> e per ente, con i contatti pubblicati dagli enti.</span></li>
+<li><span>Le guide su <a href="../costo/">costo</a>, <a href="../come-funziona/">come si svolge l'esame</a>, <a href="../risultati/">risultati</a>,
+<a href="../esempi/">prove d'esempio ufficiali</a> ed <a href="../esonero-test-italiano/">esoneri</a>.</span></li>
+<li><span>Il passo dopo l'esame: la <a href="../cittadinanza/">domanda di cittadinanza</a>, Prefettura per Prefettura, e il <a href="../reddito-minimo-cittadinanza/">reddito minimo</a>.</span></li>
+<li><span>Alcune guide anche in inglese, ucraino e rumeno, per chi legge meglio in un'altra lingua.</span></li>
+</ul>
+<h2 id="cosa-non-facciamo">{ic("attenzione")}Cosa non facciamo</h2>
+<ul class="passi-lista">
+<li><span><strong>Non siamo un ente certificatore</strong> e non siamo affiliati a CILS (Università per Stranieri di Siena), CELI (Università per Stranieri di Perugia),
+PLIDA (Società Dante Alighieri) o CERT.IT (Università Roma Tre). CILS, CELI, PLIDA e CERT.IT sono marchi dei rispettivi enti.</span></li>
+<li><span><strong>Non siamo un ufficio pubblico</strong>: non abbiamo legami con il Ministero dell'Interno, le Prefetture o le Questure.</span></li>
+<li><span><strong>Non vendiamo esami e non raccogliamo iscrizioni</strong>: ci si iscrive presso la sede d'esame.</span></li>
+<li><span><strong>Non diamo consulenza</strong> sulla pratica di cittadinanza o sul permesso di soggiorno: per il tuo caso decide la Prefettura o la Questura.</span></li>
+</ul>
+<h2 id="pubblicita">{ic("euro")}Pubblicità e link di affiliazione</h2>
+{testo_pubblicita()}
+<h2 id="contatti">{ic("mail")}Contatti</h2>
+<p>Per segnalare un errore o chiedere una correzione usa il <a href="../come-lavoriamo/#segnala">modulo «Segnala un errore»</a>.
+Per ricevere un'email quando escono nuove date nella tua città c'è il modulo <a href="../#avvisami">«Avvisami»</a>. Non rispondiamo a domande sulla singola
+pratica di cittadinanza: per quelle scrivi alla tua Prefettura (trovi i contatti nella pagina <a href="../cittadinanza/">domanda di cittadinanza</a>).</p>
+<p>{NOME} fa parte di una piccola rete di siti informativi gratuiti dello stesso gestore, elencati in fondo a ogni pagina («Altri strumenti utili»).
+<a href="../come-lavoriamo/">Come raccogliamo e controlliamo i dati</a>.</p>"""
+    pagina("chi-siamo/index.html", titolo_pagina("Chi siamo: un sito indipendente sull'esame B1 cittadinanza"),
+           descrizione_pagina(f"{NOME} è un sito informativo indipendente e gratuito: date, sedi e regole dell'esame B1 per la cittadinanza, "
+                              "dalle fonti ufficiali."), corpo)
+
+
+def come_lavoriamo():
+    n_pref = len(PREF)
+    corpo = f"""<section class="hero">
+{briciole(("EsameB1", "../"), ("Come lavoriamo", None))}
+<h1>Come lavoriamo: fonti, aggiornamenti e correzioni</h1>
+<p class="lead"><strong>Ogni dato del sito viene da una fonte ufficiale e porta accanto il link e la data in cui l'abbiamo controllato.</strong>
+Se un ente non pubblica un dato, lo scriviamo e ti rimandiamo alla sede: non mettiamo cifre o date stimate.</p>
+<p><span class="dati">{ic("scudo")}Ultimo controllo dei dati: {verificato_ultimo()}.</span></p>
+</section>
+<h2 id="fonti">{ic("doc")}Da dove prendiamo i dati</h2>
+<ul class="passi-lista">
+<li><span><strong>Enti certificatori</strong>: le date, le sedi, i costi, la durata e i risultati vengono dai siti ufficiali di
+<a href="{escape(ENTE["CILS"]["sito"])}" rel="noopener">CILS</a> (Università per Stranieri di Siena),
+<a href="{escape(ENTE["CELI"]["sito"])}" rel="noopener">CELI</a> (Università per Stranieri di Perugia),
+<a href="{escape(ENTE["PLIDA"]["sito"])}" rel="noopener">PLIDA</a> (Società Dante Alighieri) e
+<a href="{escape(ENTE["CERT.IT"]["sito"])}" rel="noopener">CERT.IT</a> (Università Roma Tre): calendari, elenchi dei centri, regolamenti, sillabi e prove d'esempio.</span></li>
+<li><span><strong>Ministero dell'Interno</strong>: come si presenta la domanda di cittadinanza, il contributo, i tempi e gli esoneri, dalle pagine del Ministero
+e del Dipartimento per le libertà civili e l'immigrazione.</span></li>
+<li><span><strong>Prefetture</strong>: le pagine «Cittadinanza» delle {n_pref} Prefetture, con contatti e indicazioni locali. Quando una Prefettura scrive una regola
+in modo diverso dalle altre, riportiamo la sua frase e il link.</span></li>
+<li><span><strong>Leggi e altri enti pubblici</strong>: Normattiva e Gazzetta Ufficiale per il testo delle leggi, l'INPS per l'assegno sociale (usato per i redditi minimi),
+il Ministero del Lavoro per il decreto flussi.</span></li>
+</ul>
+<p>Le sedi le leggiamo in modo automatico dagli elenchi ufficiali degli enti; le date d'esame le inseriamo a mano, una per una, dal calendario ufficiale,
+con il link e la data di controllo. Non usiamo forum o gruppi social come fonte; quando un dato viene dal sito di una sede d'esame
+(per esempio un prezzo), lo scriviamo accanto al dato.</p>
+<h2 id="aggiornamenti">{ic("cal")}Ogni quanto aggiorniamo</h2>
+<ol class="passi">
+<li><span><strong>Ogni settimana.</strong> Rileggiamo gli elenchi delle sedi, controlliamo se le pagine dei calendari ufficiali sono cambiate e verifichiamo
+che i link alle prove d'esempio funzionino. Se esce una data nuova la aggiungiamo, con la fonte.</span></li>
+<li><span><strong>Ogni mese.</strong> Rileggiamo le pagine «Cittadinanza» delle Prefetture e controlliamo che le frasi citate siano ancora lì.</span></li>
+<li><span><strong>Ogni anno, a gennaio.</strong> Aggiorniamo gli importi che cambiano con l'anno, come l'assegno sociale dell'INPS.</span></li>
+<li><span><strong>Ogni giorno, da solo.</strong> Il calendario nel tuo browser nasconde gli esami già passati e le scadenze già chiuse, anche tra un aggiornamento e l'altro.</span></li>
+</ol>
+<h2 id="regole">{ic("scudo")}Le nostre regole</h2>
+<ul class="passi-lista">
+<li><span>Ogni data, sede e prezzo ha il link alla fonte e la data di controllo.</span></li>
+<li><span>Niente dati «probabili»: se l'ente non scrive i tempi dei risultati o il prezzo, la pagina lo dice.</span></li>
+<li><span>Quando citiamo una regola, la attribuiamo a chi la scrive («secondo la Prefettura di…»): decide sempre l'ufficio competente.</span></li>
+<li><span>Non copiamo i testi d'esame: per le prove d'esempio ci sono solo i link ai file sui siti degli enti.</span></li>
+<li><span>Italiano semplice, frasi corte: molti lettori stanno ancora imparando la lingua.</span></li>
+</ul>
+<h2 id="correzioni">{ic("ok")}Come correggiamo gli errori</h2>
+<ol class="passi">
+<li><span><strong>Ci scrivi</strong> con il modulo qui sotto: basta dire cosa è sbagliato e, se puoi, dove hai letto il dato giusto.</span></li>
+<li><span><strong>Controlliamo sulla fonte ufficiale</strong> (il sito dell'ente, della Prefettura o del Ministero), non sulla segnalazione da sola.</span></li>
+<li><span><strong>Correggiamo il dato</strong> e la pagina mostra la nuova data di controllo. La correzione esce con l'aggiornamento settimanale del sito.</span></li>
+<li><span><strong>Se la fonte ufficiale si contraddice</strong>, lo scriviamo in pagina e ti diciamo a chi chiedere conferma.</span></li>
+</ol>
+{avviso("Anche con questi controlli, una sede può cambiare scadenza o prezzo senza aggiornare subito il suo sito. <strong>Prima di iscriverti, chiedi sempre conferma alla sede.</strong>")}
+<h2 id="pubblicita">{ic("euro")}Pubblicità e indipendenza</h2>
+{testo_pubblicita()}
+<p>{NOME} non è affiliato agli enti certificatori, al Ministero dell'Interno o alle Prefetture. <a href="../chi-siamo/">Chi siamo</a>.</p>
+{modulo_segnala()}"""
+    pagina("come-lavoriamo/index.html", titolo_pagina("Come lavoriamo: fonti, aggiornamenti e correzioni"),
+           descrizione_pagina("Da dove vengono date, sedi e costi dell'esame B1 su EsameB1: enti certificatori, Ministero dell'Interno, Prefetture. "
+                              "Aggiornamenti e correzioni."), corpo)
+
+
 def privacy():
     # Cookie, link di affiliazione e pubblicità: con AdSense acceso (monetizzazione.json) o con link di affiliazione, il testo
     # comune di monetizzazione.py (GoatCounter senza cookie, pubblicità con il consenso di Google); altrimenti il testo di oggi.
     cookie = MON.privacy_cookie("it", SITO_ID, ci_sono_affiliati()) or """<h2>Cookie e contatore visite</h2><p>Questo sito non usa cookie di profilazione. Per contare le visite usiamo <a href="https://www.goatcounter.com/" rel="noopener">GoatCounter</a>, un contatore rispettoso della privacy: non usa cookie e non salva nulla nel browser, non crea profili e non conserva l'indirizzo IP, la firma completa del browser né altri identificativi. Tiene solo numeri aggregati (pagina, ora o giorno, browser, Paese, larghezza dello schermo) su server nell'Unione europea e non cede nulla a terzi; vedi l'<a href="https://www.goatcounter.com/help/privacy" rel="noopener">informativa privacy di GoatCounter</a>.</p>"""
-    corpo = f"""<section class="hero">{briciole(("EsameB1", "./"), ("Privacy", None))}<h1>Informativa privacy</h1><p class="small">Ultimo aggiornamento: ottobre 2026</p></section>
+    corpo = f"""<section class="hero">{briciole(("EsameB1", "./"), ("Privacy", None))}<h1>Informativa privacy</h1><p class="small">Ultimo aggiornamento: novembre 2026</p></section>
 <h2>Chi tratta i dati</h2><p>Titolare del trattamento è Massimiliano Cori (Italia), che gestisce {NOME} come progetto indipendente. Puoi scriverci rispondendo a qualsiasi email che ti mandiamo.</p>
 <h2>Quali dati raccogliamo</h2><p>Solo se compili il modulo "Avvisami": la tua email, la città e l'ente che scegli, e la pagina o il link da cui arrivi (per capire quali canali funzionano).</p>
+<p>Se usi il modulo "Segnala un errore": il testo che scrivi, la pagina e il link che indichi e, solo se la lasci, la tua email. Li usiamo per controllare la segnalazione e per risponderti; non ti iscriviamo agli avvisi.</p>
 <h2>Perché</h2><p>Per mandarti avvisi sulle date e sulle scadenze dell'esame B1. La base giuridica è il tuo consenso (art. 6.1.a GDPR), che puoi ritirare quando vuoi.</p>
 <h2>Chi li gestisce per noi</h2><p>Il sito e il modulo sono ospitati da Netlify, Inc., che conserva i dati del modulo per nostro conto. Netlify può trattare i dati fuori dall'UE con le garanzie previste dal GDPR (clausole contrattuali standard). Non vendiamo né cediamo i tuoi dati.</p>
 {cookie}{PRIVACY_AMAZON if url_affiliato("amazon") else ""}
-<h2>Per quanto tempo</h2><p>Finché resti iscritto agli avvisi. Se chiedi la cancellazione, cancelliamo i tuoi dati.</p>
+<h2>Per quanto tempo</h2><p>Finché resti iscritto agli avvisi. Le segnalazioni le teniamo finché servono a controllare e correggere il dato. Se chiedi la cancellazione, cancelliamo i tuoi dati.</p>
 <h2>I tuoi diritti</h2><p>Puoi chiedere accesso, correzione, cancellazione, limitazione, portabilità e opposizione (artt. 15-22 GDPR) e puoi fare reclamo al Garante per la protezione dei dati personali (<a href="https://www.garanteprivacy.it" rel="noopener">garanteprivacy.it</a>).</p>"""
     pagina("privacy.html", "Privacy | EsameB1", "Informativa privacy del sito EsameB1.", corpo)
 
@@ -3660,9 +4037,12 @@ def main():
         (SITO / nome).write_bytes(contenuto)
     home(prossime)
     urls = [""]
+    fuori_indice = []
     for c in citta:
-        pagina_citta(c, prossime)
-        urls.append(f"citta/{c['slug']}/")
+        if pagina_citta(c, prossime):
+            urls.append(f"citta/{c['slug']}/")
+        else:
+            fuori_indice.append(f"citta/{c['slug']}/")
     for e in enti:
         pagina_ente(e, prossime)
         urls.append(f"ente/{SLUG_ENTE[e['sigla']]}/")
@@ -3698,6 +4078,10 @@ def main():
         if ha_pagina_pref(sl):
             pagina_prefettura(sl, prossime)
             urls.append(f"cittadinanza/{pref_url(sl)}/")
+    chi_siamo()
+    urls.append("chi-siamo/")
+    come_lavoriamo()
+    urls.append("come-lavoriamo/")
     privacy()
     urls.append("privacy.html")
     urls += EN.genera(sys.modules[__name__], prossime)  # sezione inglese /en/ (genera_en.py)
@@ -3705,7 +4089,8 @@ def main():
     extra(urls)
     n_en = EN.controlli(sys.modules[__name__])  # cifre /en/ = cifre italiane, link tra le lingue
     n_l = LG.controlli(sys.modules[__name__])  # cifre /uk/ e /ro/, hreflang reciproci su tutto il sito, calcolatore identico in 4 lingue
-    print(f"Sito generato in {SITO}: {len(urls)} pagine ({n_en} in inglese, {n_l['uk']} in ucraino, {n_l['ro']} in rumeno, controllate), "
+    print(f"Pagine città fuori indice (noindex, fuori sitemap, senza AdSense): {len(fuori_indice)}: {', '.join(fuori_indice)}")
+    print(f"Sito generato in {SITO}: {len(urls)} pagine in sitemap ({n_en} in inglese, {n_l['uk']} in ucraino, {n_l['ro']} in rumeno, controllate), "
           f"{len(prossime)} sessioni future, {len(sedi)} sedi.")
 
 

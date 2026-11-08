@@ -1,0 +1,61 @@
+{
+ "_nota": "Pagine città con <meta name=\"robots\" content=\"noindex, follow\">, fuori dalla sitemap e senza AdSense, ma online e linkate (decisione del 9/11/2026, revisione AdSense «contenuti di scarso valore»). Regola: la pagina conta al massimo 2 sedi sue (sedi_pagina: provincia per un capoluogo, il solo comune per le altre città; il resto della pagina è uguale in tutte le città) E ha avuto meno di 3 visite in 28 giorni su GoatCounter (somma di esameb1.netlify.app ed esameb1.eu). genera.py rimette da sola la pagina in indice se le sedi diventano più di 2 (e lo stampa). Per rimetterla in indice a mano (per esempio se le visite salgono a 3 o più in 28 giorni): togliere la voce e rigenerare.",
+ "misurato_il": "2026-11-08",
+ "periodo_visite": "2026-10-12 / 2026-11-08",
+ "max_sedi": 2,
+ "min_visite": 3,
+ "citta": {
+  "alba": {
+   "sedi_pagina": 1,
+   "visite_28_giorni": 0
+  },
+  "arezzo": {
+   "sedi_pagina": 2,
+   "visite_28_giorni": 0
+  },
+  "asti": {
+   "sedi_pagina": 1,
+   "visite_28_giorni": 0
+  },
+  "borgomanero": {
+   "sedi_pagina": 1,
+   "visite_28_giorni": 0
+  },
+  "civitanova-marche": {
+   "sedi_pagina": 1,
+   "visite_28_giorni": 1
+  },
+  "ferrara": {
+   "sedi_pagina": 2,
+   "visite_28_giorni": 0
+  },
+  "gavardo": {
+   "sedi_pagina": 1,
+   "visite_28_giorni": 0
+  },
+  "lodi": {
+   "sedi_pagina": 1,
+   "visite_28_giorni": 1
+  },
+  "pordenone": {
+   "sedi_pagina": 2,
+   "visite_28_giorni": 2
+  },
+  "rovereto": {
+   "sedi_pagina": 1,
+   "visite_28_giorni": 0
+  },
+  "rovigo": {
+   "sedi_pagina": 2,
+   "visite_28_giorni": 0
+  },
+  "schio": {
+   "sedi_pagina": 1,
+   "visite_28_giorni": 0
+  },
+  "voghera": {
+   "sedi_pagina": 2,
+   "visite_28_giorni": 0
+  }
+ }
+}

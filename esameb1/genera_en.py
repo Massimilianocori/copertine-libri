@@ -401,7 +401,8 @@ def pagina_en(G, percorso, titolo, descrizione, corpo, it=None, jsonld=None):
 <meta property="og:url" content="{canonico}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0B6B4F">
-<meta name="google-site-verification" content="{G.GOOGLE_VERIFICA}">{G.ADSENSE_HEAD}
+<meta name="google-site-verification" content="{G.GOOGLE_VERIFICA}">
+<meta name="google-site-verification" content="{G.GOOGLE_VERIFICA_DOMINIO}">{G.testa_adsense(corpo)}
 <link rel="icon" href="{G.FAVICON}">
 <link rel="preload" href="/fonts/figtree.woff2" as="font" type="font/woff2" crossorigin>
 <style>{G.CSS}</style>
@@ -424,7 +425,7 @@ def pagina_en(G, percorso, titolo, descrizione, corpo, it=None, jsonld=None):
 <div>
 <a class="logo" href="{rel}">{G.MARCHIO}<span class="logo-testo">Esame<b>B1</b></span></a>
 <ul class="piede-link">
-<li><a href="{rel}">EsameB1 in English</a></li>{guide_piede}{LG.link_piede_lingue("en", percorso, rel_root)}<li><a href="{rel}privacy/">Privacy</a></li>
+<li><a href="{rel}">EsameB1 in English</a></li>{guide_piede}{LG.link_piede_lingue("en", percorso, rel_root)}<li><a href="{rel_root}chi-siamo/" lang="it">About us (in Italian)</a></li><li><a href="{rel_root}come-lavoriamo/" lang="it">How we collect and check the data (in Italian)</a></li><li><a href="{rel}privacy/">Privacy</a></li>
 </ul>
 </div>
 <div>

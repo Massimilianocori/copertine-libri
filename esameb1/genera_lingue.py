@@ -656,7 +656,8 @@ def pagina_l(G, lg, percorso, titolo, descrizione, corpo, jsonld=None):
 <meta property="og:url" content="{canonico}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0B6B4F">
-<meta name="google-site-verification" content="{G.GOOGLE_VERIFICA}">{G.ADSENSE_HEAD}
+<meta name="google-site-verification" content="{G.GOOGLE_VERIFICA}">
+<meta name="google-site-verification" content="{G.GOOGLE_VERIFICA_DOMINIO}">{G.testa_adsense(corpo)}
 <link rel="icon" href="{G.FAVICON}">
 <link rel="preload" href="/fonts/figtree.woff2" as="font" type="font/woff2" crossorigin>
 <style>{G.CSS}</style>
@@ -679,7 +680,7 @@ def pagina_l(G, lg, percorso, titolo, descrizione, corpo, jsonld=None):
 <div>
 <a class="logo" href="{rel}">{G.MARCHIO}<span class="logo-testo">Esame<b>B1</b></span></a>
 <ul class="piede-link">
-<li><a href="{rel}">{t["in_breve"]}</a></li>{guide_piede}{link_piede_lingue(lg, percorso, rel_root)}<li><a href="{rel_root}privacy.html" hreflang="it" lang="it">{t["privacy"]}</a> · <a href="{rel_root}en/privacy/" hreflang="en" lang="en">{t["privacy_en"]}</a></li>
+<li><a href="{rel}">{t["in_breve"]}</a></li>{guide_piede}{link_piede_lingue(lg, percorso, rel_root)}<li><a href="{rel_root}chi-siamo/" lang="it">{"Про нас (італійською)" if lg == "uk" else "Despre noi (în italiană)"}</a></li><li><a href="{rel_root}come-lavoriamo/" lang="it">{"Як ми збираємо і перевіряємо дані (італійською)" if lg == "uk" else "Cum colectăm și verificăm datele (în italiană)"}</a></li><li><a href="{rel_root}privacy.html" hreflang="it" lang="it">{t["privacy"]}</a> · <a href="{rel_root}en/privacy/" hreflang="en" lang="en">{t["privacy_en"]}</a></li>
 </ul>
 </div>
 <div>
