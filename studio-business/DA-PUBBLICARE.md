@@ -10,10 +10,10 @@ Sezioni già revisionate, con i sorgenti salvati, che aspettano la pubblicazione
 
 | Sito (cartella) | Sezione | Revisione | Note |
 |---|---|---|---|
-| visaincome | Thailand DTV allargata: 6 pagine per tema (`thailand-dtv-visa/fee/`, `requirements/`, `duration-and-extension/`, `soft-power-activities/`, `proof-of-funds/`, `dtv-vs-ltr-elite-retirement/`), titoli e prime frasi di indice e 16 sedi su fee/requirements/duration con 2026 e data di verifica, FAQ da autocompletamento in 8 Paesi | revisionato il 7/11, correzioni applicate, pubblicare l'8/11 | Visa Income già pubblicato il 7/11. Sorgenti nel commit del 7/11, `sito/` non committato; `verifica.py --offline` TUTTO OK (controllo 18 esteso, A/B identico); vedi NOTE.md 7/11 |
-| visaincome | **Health insurance for visas** (`/visa-health-insurance/`: tabella di 15 visti + 9 pagine per visto con domanda) e **Schengen visa insurance** (`/schengen-visa-insurance/`, art. 15 del Codice dei visti); riquadri HelloSafe Atlas (Schengen per Paese di residenza, indice, PT D7, PT studio) e SafetyWing (PT D8, DTV); nessun riquadro su Spagna, Germania e Thailandia LTR; riga "Health insurance" in 10 pagine dei programmi; link dall'indice dei rifiuti; pagine A/B intatte; 1073 URL nella sitemap | revisionato il 7/11, correzioni applicate, pubblicare l'8/11 insieme alla DTV | HelloSafe approvato il 7/11, riquadro acceso (interruttore `_hellosafe` in `visaincome/dati/affiliati.json`). Sorgenti nel commit del 7/11, `sito/` non committato; `verifica.py --offline` TUTTO OK (controllo 32, A/B 36/36 identiche), `monetizzazione.py verifica visaincome` 0 errori; vedi NOTE.md 7/11 (correzioni della revisione: LTR senza riquadro, art. 15 completo). Riquadro HelloSafe nelle pagine Paese dei rifiuti solo dopo il verdetto del 28/12 |
 
 Pubblicato il 31/10/2026 alle 14:20 circa (ora di Roma): Visa Income, Before You Fly, EsameB1 (tutte le sezioni revisionate del giorno). Esperimento citazioni: conteggio dal 1/11/2026.
+
+Pubblicato l'8/11/2026 alle 12:00 circa: Visa Income (DTV Thailandia allargata; assicurazione per visto e Schengen con HelloSafe acceso); IndexNow fatto.
 
 Pubblicato il 7/11/2026 sera: FloodCost (California FAIR Plan per CAP; riaperto dal congelamento); IndexNow fatto.
 Pubblicato il 7/11/2026 sera: Tourist Tax (Stati Uniti: Florida e Texas, 69 pagine); IndexNow fatto.
