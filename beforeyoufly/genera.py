@@ -28,6 +28,7 @@ DATI = RADICE / "dati"
 SITO = RADICE / "sito"
 URL_SITO = "https://before-you-fly.com"  # unico punto da cambiare se il nome del sito su Netlify è diverso
 GOOGLE_VERIFICA = "btXTQU_vAoe1K9f3q-43GisAXTiyKQCYcShozNhrAgI"  # Search Console (stesso account degli altri siti): non rimuoverlo
+GOOGLE_VERIFICA_DOMINIO = "0ZhaE8igdTdGY_RGD8Gqv6PpMxkx1kyQFGo15A4UYoY"  # Search Console, proprietà https://before-you-fly.com (8/11/2026): non rimuoverlo
 
 ALTRI_SITI = [  # blocco "Other useful tools for your trip" in fondo a ogni pagina (URL dai genera.py dei rispettivi siti)
     ("https://italy-strikes-today.netlify.app/", "Italy Strikes Today", "Transport strikes in Italy today and tomorrow, from the official register"),
@@ -629,7 +630,8 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="google-site-verification" content="{GOOGLE_VERIFICA}">{ADSENSE_HEAD}
+<meta name="google-site-verification" content="{GOOGLE_VERIFICA}">
+<meta name="google-site-verification" content="{GOOGLE_VERIFICA_DOMINIO}">{ADSENSE_HEAD}
 <title>{escape(titolo)}</title>
 <meta name="description" content="{escape(descrizione)}">
 {canonico}
