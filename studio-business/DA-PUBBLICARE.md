@@ -48,6 +48,7 @@ Pubblicato il 1/11/2026 alle 00:15 circa: Visa Income (cerimonie australiane, es
 
 | Sito | Sezione | Voto | Quando | Fonte (file di ricerca) |
 |---|---|---|---|---|
+| **esameb1 (PRIMO, 9/11)** | **Passaggio di qualità AdSense** prima della nuova revisione su esameb1.eu (respinto per "Low value content" sul vecchio indirizzo): noindex alle pagine città sottili senza dati propri; guide vere sulle pagine più viste; pagine "Chi siamo" e "Come lavoriamo"; niente annunci sulle pagine con poco testo; revisione indipendente; poi Massimiliano verifica il sito in AdSense e chiede la revisione (anche before-you-fly.com, già verificabile) | – | lunedì 9/11, prima di tutto | errore AdSense del 7-8/11 |
 | touristtax | Versioni es/pt (con la francese già in coda) | 6,5 | dopo | idee-2026-11-04-america-latina.md |
 | visaincome | Pensione statale britannica congelata o no, Paese per Paese | 6,5 | con la sezione pensioni HMRC già in coda | idee-2026-11-04-africa-medio-oriente.md |
 | visaincome | Israele nelle pagine moved-to (API data.gov.il) | 5,5 | coda bassa | idee-2026-11-04-africa-medio-oriente.md |
