@@ -1,0 +1,224 @@
+{
+ "_nota": "Esito della lettura delle fonti di dati/regole.json (raccolta/fonti.py). http = codice letto; sha256 = impronta del testo visibile normalizzato; trovate = frasi di 'cerca' presenti nel testo; motivo = perché una fonte non è stata letta.",
+ "letto_il": "2026-11-08",
+ "fonti": {
+  "pvgis-api": {
+   "http": 200,
+   "letto_il": "2026-11-08",
+   "byte": 178513,
+   "sha256": "66d1dffe8c40c25110a39120263dd08ea610c553305101cac0ca93bb0d09a36d",
+   "caratteri": 28094,
+   "trovate": {
+    "rate limit of 30 calls/second": true
+   }
+  },
+  "pvgis-licenza": {
+   "http": 200,
+   "letto_il": "2026-11-08",
+   "byte": 114589,
+   "sha256": "3e4023f2af452910726d962625b0e1b82325f73c20c212c70cb62250d8c9337b",
+   "caratteri": 7090,
+   "trovate": {
+    "free for public use if the source is acknowledged": true
+   }
+  },
+  "ec-avviso": {
+   "http": 200,
+   "letto_il": "2026-11-08",
+   "byte": 153991,
+   "sha256": "18299c8aa69f081a2efd98f92cc65431a551ee01ff122ee96748a7151ee6ef03",
+   "caratteri": 9292,
+   "trovate": {
+    "Creative Commons Attribution 4.0 International": true
+   }
+  },
+  "eurostat-dati": {
+   "http": 200,
+   "letto_il": "2026-11-08",
+   "byte": 8675,
+   "sha256": "4af8ba92675c4cacbadf12a62b31a3c81e264e2714ba22761116a41183a6458a",
+   "caratteri": 106,
+   "trovate": {}
+  },
+  "eurostat-copyright": {
+   "http": 200,
+   "letto_il": "2026-11-08",
+   "byte": 177942,
+   "sha256": "b4f4ae25f928bfb809b22a99c0b89527d87daf11b6c31229520736330edf01b1",
+   "caratteri": 9504,
+   "trovate": {
+    "authorised provided the source is acknowledged": true
+   }
+  },
+  "it-arera-scheda": {
+   "http": 200,
+   "letto_il": "2026-11-08",
+   "byte": 185073,
+   "sha256": "830adfd1de1ce62d8bfc5cf2d752e611e00deeaaf8b358ab76d78176c5e0f619",
+   "caratteri": 9280,
+   "trovate": {
+    "impianti di produzione di potenza inferiore a 800 W": true,
+    "Comunicazione Unica": true,
+    "rinunciare a qualsiasi remunerazione": true,
+    "inferiore o uguale a 350 W": true,
+    "Norma CEI 0-21": true,
+    "sistema GAUDÌ": true
+   }
+  },
+  "it-arera-delibera": {
+   "http": 200,
+   "letto_il": "2026-11-08",
+   "byte": 192244,
+   "sha256": "c69badb58687404cf2abbf05fc8dbe0b0a02c17b2f5ac666020d4a18488cacbd",
+   "caratteri": 5210,
+   "trovate": {
+    "315/2020/R/eel": true
+   }
+  },
+  "it-cc-1122bis": {
+   "http": 200,
+   "letto_il": "2026-11-08",
+   "byte": 6718,
+   "sha256": "25efec40644a1bf416f5aff7b0570c1784304da3cd93eb68aa8ad00c72ad8c84",
+   "caratteri": 2374,
+   "trovate": {
+    "sulle parti di proprietà individuale dell'interessato": true,
+    "ne dà comunicazione all'amministratore": true,
+    "Non sono soggetti ad autorizzazione gli impianti destinati alle singole unità abitative": true
+   }
+  },
+  "it-ade-ristrutturazioni": {
+   "http": 200,
+   "letto_il": "2026-11-08",
+   "byte": 124098,
+   "sha256": "fcae98a62c0afd402e5713b17f074985c05cd139bd0c8cb92d49abdb57aa784e",
+   "caratteri": 15617,
+   "trovate": {
+    "per le spese sostenute negli anni 2025 e 2026, la detrazione spetta nella misura del 36% (ovvero del 50% in caso di abitazione principale)": true,
+    "per le spese sostenute nel 2027, la detrazione è del 30%": true
+   }
+  },
+  "it-cei-021": {
+   "http": null,
+   "motivo": "norma tecnica a pagamento sul catalogo CEI: non l'abbiamo letta; ne riportiamo solo ciò che dice la scheda ARERA",
+   "letto_il": "2026-11-08"
+  },
+  "it-tuir-16bis": {
+   "http": null,
+   "motivo": "l'8/11/2026 il testo dell'articolo su Normattiva non ha risposto (tempo scaduto due volte): non l'abbiamo letto",
+   "letto_il": "2026-11-08"
+  },
+  "es-boe-rd244": {
+   "http": 200,
+   "letto_il": "2026-11-08",
+   "byte": 327078,
+   "sha256": "f0ebeeac302339f5308becf9254c1e30e7dc932c8b0b2c02a19538d57de370ca",
+   "caratteri": 166577,
+   "trovate": {
+    "se deberá instalar un mecanismo antivertido": true,
+    "estarán exentas de obtener permisos de acceso y conexión": true,
+    "potencia igual o inferior a 15 kW": true,
+    "la inscripción en el registro de autoconsumo se llevara a cabo de oficio": true,
+    "compartan equipo de medida y protecciones con la instalación de generación": true
+   }
+  },
+  "es-idae-guia": {
+   "http": 200,
+   "letto_il": "2026-11-08",
+   "byte": 5151008,
+   "sha256": "ec9053cb5cdf5303b5957aeefe3088ecc851889bab15e59d1dbb055aa4220491",
+   "caratteri": 412585,
+   "trovate": {
+    "potencia P<800 VA, no están": true,
+    "kit generador": true,
+    "igual o inferior a 10mA": true
+   }
+  },
+  "es-boe-lph": {
+   "http": 200,
+   "letto_il": "2026-11-08",
+   "byte": 298132,
+   "sha256": "0e168710e73a425167d3656d4f90a780e85838385fd3ee92cafced069c8684c4",
+   "caratteri": 94059,
+   "trovate": {
+    "su configuración o estado exteriores": true,
+    "debiendo dar cuenta de tales obras previamente a quien represente a la comunidad": true,
+    "de aprovechamiento de energías renovables": true,
+    "por un tercio de los integrantes de la comunidad": true
+   }
+  },
+  "es-boe-trlrhl": {
+   "http": 200,
+   "letto_il": "2026-11-08",
+   "byte": 1337089,
+   "sha256": "4686ac19cb57220f52c2833466a101c19fdc91e91466b3e65364478787ce76c0",
+   "caratteri": 440540,
+   "trovate": {
+    "bonificación de hasta el 50 por ciento de la cuota íntegra del impuesto para los bienes inmuebles en los que se hayan instalado sistemas para el aprovechamiento térmico o eléctrico de la energía proveniente del sol": true
+   }
+  },
+  "fr-enedis-autoconso": {
+   "http": 200,
+   "letto_il": "2026-11-08",
+   "byte": 88525,
+   "sha256": "5f9ca4711a6676ce2f906480c9aa9d1bcabc16973a6e6a789713d8d8338076eb",
+   "caratteri": 5164,
+   "trovate": {
+    "est obligatoire, même sans injection, quel que soit son niveau de puissance": true,
+    "connect-racco.enedis.fr": true,
+    "Dispense possible pour les équipements": true,
+    "Aucun revenu n’est généré": true
+   }
+  },
+  "fr-enedis-cacsi": {
+   "http": 200,
+   "letto_il": "2026-11-08",
+   "byte": 647988,
+   "sha256": "dc54c974d21cb1ee43f449b51a4e75a2e5a2172bb63e0529a800848c551fe423",
+   "caratteri": 48234,
+   "trovate": {
+    "inférieure ou égale à 36 kVA": true,
+    "15 jours calendaires": true,
+    "si la puissance installée de l'appareil dépasse 3 kVA": true,
+    "s'il y a pose d'une batterie": true,
+    "fabriqué, assemblé et essayé en usine": true
+   }
+  },
+  "fr-sp-toit": {
+   "http": 200,
+   "letto_il": "2026-11-08",
+   "byte": 109384,
+   "sha256": "9f6ee758e5775ea31eee122ee76a0fad4de4a554549034963c84e3d0de8cf074",
+   "caratteri": 11001,
+   "trovate": {
+    "car vous modifiez l'aspect extérieur de votre bâtiment": true
+   }
+  },
+  "fr-sp-sol": {
+   "http": 200,
+   "letto_il": "2026-11-08",
+   "byte": 197806,
+   "sha256": "9bb718f6dcb4d1586a2a7e2a4d1706908a869d7a8d8c4a81235879248f3f9ca8",
+   "caratteri": 19233,
+   "trovate": {
+    "d'une hauteur maximale au-dessus du sol limitée à 1,80 m est dispensée de formalité": true
+   }
+  },
+  "fr-pvinfo-kits": {
+   "http": 200,
+   "letto_il": "2026-11-08",
+   "byte": 193545,
+   "sha256": "cca4e02b0b3e44e331d4a05df80ca95935133b6b514d2a495f6bf2ff9278f6eb",
+   "caratteri": 31071,
+   "trovate": {
+    "incompatible avec la présence d’une installation en autoconsommation avec vente des surplus": true,
+    "Attention à ne pas surcharger la prise de courant": true
+   }
+  },
+  "fr-loi-1965": {
+   "http": null,
+   "motivo": "Légifrance répond 403 (accès refusé) aux lectures automatiques : texte non lu",
+   "letto_il": "2026-11-08"
+  }
+ }
+}

@@ -1,0 +1,47 @@
+{
+ "_nota": "Eurostat nrg_pc_204: prezzo dell'elettricità per le famiglie, fascia DC 2.500-4.999 kWh/anno, tutte le tasse comprese, EUR/kWh, ultimo semestre pubblicato. Media nazionale: la bolletta di ciascuno può essere diversa.",
+ "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_pc_204?format=JSON&lang=EN&geo=IT&geo=ES&geo=FR&geo=DE&nrg_cons=KWH2500-4999&tax=I_TAX&currency=EUR&unit=KWH&lastTimePeriod=3",
+ "pagina": "https://ec.europa.eu/eurostat/databrowser/view/nrg_pc_204/default/table",
+ "http": 200,
+ "sha256": "adbc12f75b29bb3b22a03d5fc073bbe1624e1732ea054795018e0da6f86a6b9b",
+ "aggiornato_eurostat": "2026-10-19T23:00:00+0200",
+ "letto_il": "2026-11-08",
+ "paesi": {
+  "DE": {
+   "eur_kwh": 0.3618,
+   "periodo": "2026-S1",
+   "serie": {
+    "2025-S1": 0.3835,
+    "2025-S2": 0.3869,
+    "2026-S1": 0.3618
+   }
+  },
+  "ES": {
+   "eur_kwh": 0.2509,
+   "periodo": "2026-S1",
+   "serie": {
+    "2025-S1": 0.2612,
+    "2025-S2": 0.2669,
+    "2026-S1": 0.2509
+   }
+  },
+  "FR": {
+   "eur_kwh": 0.2485,
+   "periodo": "2026-S1",
+   "serie": {
+    "2025-S1": 0.2671,
+    "2025-S2": 0.2561,
+    "2026-S1": 0.2485
+   }
+  },
+  "IT": {
+   "eur_kwh": 0.3142,
+   "periodo": "2026-S1",
+   "serie": {
+    "2025-S1": 0.3291,
+    "2025-S2": 0.2966,
+    "2026-S1": 0.3142
+   }
+  }
+ }
+}

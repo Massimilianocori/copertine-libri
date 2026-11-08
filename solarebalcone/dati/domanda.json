@@ -1,0 +1,948 @@
+{
+ "_nota": "Autocompletamento Google (suggestqueries.google.com, client=firefox, hl=gl=lingua), letto il giorno indicato. 'base': ricerca -> suggerimenti. 'citta': slug -> {ricerca con città -> suggerimenti}; 'domanda' = suggerimenti che contengono ricerca e città (null = servizio non raggiungibile).",
+ "letto_il": "2026-11-08",
+ "lingue": {
+  "it": {
+   "base": {
+    "fotovoltaico balcone": [
+     "fotovoltaico balcone",
+     "fotovoltaico balcone con accumulo",
+     "fotovoltaico balcone condominio",
+     "fotovoltaico balcone plug and play",
+     "fotovoltaico balcone enel",
+     "fotovoltaico balcone 800w",
+     "fotovoltaico balcone conviene",
+     "fotovoltaico balcone permessi",
+     "fotovoltaico balcone leroy merlin",
+     "fotovoltaico balcone legge"
+    ],
+    "pannello solare balcone": [
+     "pannello solare balcone",
+     "pannello solare balcone condominio",
+     "pannello solare balcone plug and play",
+     "pannello solare balcone enel",
+     "pannello solare balcone lidl",
+     "pannello solare balcone tecnomat",
+     "pannello solare balcone 800w",
+     "pannello solare balcone con batteria",
+     "pannello solare da balcone con accumulo",
+     "pannello solare da balcone come funziona"
+    ],
+    "fotovoltaico da balcone": [
+     "fotovoltaico da balcone",
+     "fotovoltaico da balcone con accumulo",
+     "fotovoltaico da balcone con accumulo 3 kw",
+     "fotovoltaico da balcone con accumulo prezzo",
+     "fotovoltaico da balcone plug and play",
+     "fotovoltaico da balcone 800w",
+     "fotovoltaico da balcone permessi",
+     "fotovoltaico da balcone ikea",
+     "fotovoltaico da balcone prezzo",
+     "fotovoltaico da balcone come funziona"
+    ],
+    "pannelli solari balcone": [
+     "pannelli solari balcone",
+     "pannelli solari balcone con accumulo",
+     "pannelli solari balcone conviene",
+     "pannelli solari balcone condominio",
+     "pannelli solari balcone incentivi",
+     "pannelli solari balcone costo",
+     "pannelli solari balcone d'italia",
+     "pannelli solari balcone lidl",
+     "pannelli solari da balcone ikea",
+     "pannelli solari da balcone 3 kw"
+    ],
+    "fotovoltaico plug and play": [
+     "fotovoltaico plug and play",
+     "fotovoltaico plug and play 800 watt",
+     "fotovoltaico plug and play con accumulo",
+     "fotovoltaico plug and play 350w",
+     "fotovoltaico plug and play come funziona",
+     "fotovoltaico plug and play leroy merlin",
+     "fotovoltaico plug and play 800w normativa",
+     "fotovoltaico plug and play 800 watt prezzo",
+     "fotovoltaico plug and play enel",
+     "fotovoltaico plug and play tecnomat"
+    ],
+    "comunicazione unica fotovoltaico": [
+     "comunicazione unica fotovoltaico plug and play",
+     "comunicazione unica fotovoltaico e distribuzione",
+     "comunicazione unica fotovoltaico",
+     "comunicazione unica fotovoltaico 800w",
+     "comunicazione unica mini fotovoltaico",
+     "comunicazione unica per fotovoltaico da balcone"
+    ]
+   },
+   "citta": {
+    "roma": {
+     "ricerche": {
+      "fotovoltaico balcone roma": [
+       "fotovoltaico da balcone roma"
+      ],
+      "fotovoltaico da balcone roma": [
+       "fotovoltaico da balcone roma"
+      ],
+      "pannelli solari balcone roma": [
+       "pannelli solari da balcone roma"
+      ],
+      "pannello solare balcone roma": []
+     },
+     "domanda": [
+      "fotovoltaico da balcone roma",
+      "pannelli solari da balcone roma"
+     ]
+    },
+    "milano": {
+     "ricerche": {
+      "fotovoltaico balcone milano": [
+       "fotovoltaico balcone milano",
+       "fotovoltaico da balcone milano"
+      ],
+      "fotovoltaico da balcone milano": [
+       "fotovoltaico da balcone milano"
+      ],
+      "pannelli solari balcone milano": [],
+      "pannello solare balcone milano": []
+     },
+     "domanda": [
+      "fotovoltaico balcone milano",
+      "fotovoltaico da balcone milano"
+     ]
+    },
+    "napoli": {
+     "ricerche": {
+      "fotovoltaico balcone napoli": [],
+      "fotovoltaico da balcone napoli": [],
+      "pannelli solari balcone napoli": [],
+      "pannello solare balcone napoli": []
+     },
+     "domanda": []
+    },
+    "torino": {
+     "ricerche": {
+      "fotovoltaico balcone torino": [
+       "fotovoltaico balcone torino"
+      ],
+      "fotovoltaico da balcone torino": [
+       "fotovoltaico da balcone torino"
+      ],
+      "pannelli solari balcone torino": [
+       "pannelli solari da balcone torino"
+      ],
+      "pannello solare balcone torino": []
+     },
+     "domanda": [
+      "fotovoltaico balcone torino",
+      "fotovoltaico da balcone torino",
+      "pannelli solari da balcone torino"
+     ]
+    },
+    "palermo": {
+     "ricerche": {
+      "fotovoltaico balcone palermo": [
+       "fotovoltaico da balcone palermo"
+      ],
+      "fotovoltaico da balcone palermo": [
+       "fotovoltaico da balcone palermo"
+      ],
+      "pannelli solari balcone palermo": [],
+      "pannello solare balcone palermo": []
+     },
+     "domanda": [
+      "fotovoltaico da balcone palermo"
+     ]
+    },
+    "genova": {
+     "ricerche": {
+      "fotovoltaico balcone genova": [],
+      "fotovoltaico da balcone genova": [],
+      "pannelli solari balcone genova": [],
+      "pannello solare balcone genova": []
+     },
+     "domanda": []
+    },
+    "bologna": {
+     "ricerche": {
+      "fotovoltaico balcone bologna": [
+       "fotovoltaico balcone bologna"
+      ],
+      "fotovoltaico da balcone bologna": [
+       "fotovoltaico da balcone bologna"
+      ],
+      "pannelli solari balcone bologna": [
+       "pannelli solari da balcone bologna"
+      ],
+      "pannello solare balcone bologna": []
+     },
+     "domanda": [
+      "fotovoltaico balcone bologna",
+      "fotovoltaico da balcone bologna",
+      "pannelli solari da balcone bologna"
+     ]
+    },
+    "firenze": {
+     "ricerche": {
+      "fotovoltaico balcone firenze": [],
+      "fotovoltaico da balcone firenze": [],
+      "pannelli solari balcone firenze": [],
+      "pannello solare balcone firenze": []
+     },
+     "domanda": []
+    },
+    "bari": {
+     "ricerche": {
+      "fotovoltaico balcone bari": [],
+      "fotovoltaico da balcone bari": [],
+      "pannelli solari balcone bari": [],
+      "pannello solare balcone bari": []
+     },
+     "domanda": []
+    },
+    "catania": {
+     "ricerche": {
+      "fotovoltaico balcone catania": [],
+      "fotovoltaico da balcone catania": [],
+      "pannelli solari balcone catania": [],
+      "pannello solare balcone catania": []
+     },
+     "domanda": []
+    },
+    "venezia": {
+     "ricerche": {
+      "fotovoltaico balcone venezia": [],
+      "fotovoltaico da balcone venezia": [],
+      "pannelli solari balcone venezia": [],
+      "pannello solare balcone venezia": []
+     },
+     "domanda": []
+    },
+    "verona": {
+     "ricerche": {
+      "fotovoltaico balcone verona": [
+       "fotovoltaico da balcone verona"
+      ],
+      "fotovoltaico da balcone verona": [
+       "fotovoltaico da balcone verona"
+      ],
+      "pannelli solari balcone verona": [],
+      "pannello solare balcone verona": []
+     },
+     "domanda": [
+      "fotovoltaico da balcone verona"
+     ]
+    },
+    "messina": {
+     "ricerche": {
+      "fotovoltaico balcone messina": [],
+      "fotovoltaico da balcone messina": [],
+      "pannelli solari balcone messina": [],
+      "pannello solare balcone messina": []
+     },
+     "domanda": []
+    },
+    "padova": {
+     "ricerche": {
+      "fotovoltaico balcone padova": [
+       "fotovoltaico da balcone padova"
+      ],
+      "fotovoltaico da balcone padova": [
+       "fotovoltaico da balcone padova"
+      ],
+      "pannelli solari balcone padova": [],
+      "pannello solare balcone padova": []
+     },
+     "domanda": [
+      "fotovoltaico da balcone padova"
+     ]
+    },
+    "trieste": {
+     "ricerche": {
+      "fotovoltaico balcone trieste": [],
+      "fotovoltaico da balcone trieste": [],
+      "pannelli solari balcone trieste": [],
+      "pannello solare balcone trieste": []
+     },
+     "domanda": []
+    },
+    "brescia": {
+     "ricerche": {
+      "fotovoltaico balcone brescia": [],
+      "fotovoltaico da balcone brescia": [],
+      "pannelli solari balcone brescia": [],
+      "pannello solare balcone brescia": []
+     },
+     "domanda": []
+    },
+    "parma": {
+     "ricerche": {
+      "fotovoltaico balcone parma": [
+       "fotovoltaico da balcone parma"
+      ],
+      "fotovoltaico da balcone parma": [
+       "fotovoltaico da balcone parma"
+      ],
+      "pannelli solari balcone parma": [],
+      "pannello solare balcone parma": []
+     },
+     "domanda": [
+      "fotovoltaico da balcone parma"
+     ]
+    },
+    "modena": {
+     "ricerche": {
+      "fotovoltaico balcone modena": [
+       "fotovoltaico da balcone modena"
+      ],
+      "fotovoltaico da balcone modena": [
+       "fotovoltaico da balcone modena"
+      ],
+      "pannelli solari balcone modena": [],
+      "pannello solare balcone modena": []
+     },
+     "domanda": [
+      "fotovoltaico da balcone modena"
+     ]
+    },
+    "cagliari": {
+     "ricerche": {
+      "fotovoltaico balcone cagliari": [],
+      "fotovoltaico da balcone cagliari": [],
+      "pannelli solari balcone cagliari": [],
+      "pannello solare balcone cagliari": []
+     },
+     "domanda": []
+    },
+    "perugia": {
+     "ricerche": {
+      "fotovoltaico balcone perugia": [],
+      "fotovoltaico da balcone perugia": [],
+      "pannelli solari balcone perugia": [],
+      "pannello solare balcone perugia": []
+     },
+     "domanda": []
+    },
+    "pescara": {
+     "ricerche": {
+      "fotovoltaico balcone pescara": [],
+      "fotovoltaico da balcone pescara": [],
+      "pannelli solari balcone pescara": [],
+      "pannello solare balcone pescara": []
+     },
+     "domanda": []
+    },
+    "ancona": {
+     "ricerche": {
+      "fotovoltaico balcone ancona": [],
+      "fotovoltaico da balcone ancona": [],
+      "pannelli solari balcone ancona": [],
+      "pannello solare balcone ancona": []
+     },
+     "domanda": []
+    },
+    "trento": {
+     "ricerche": {
+      "fotovoltaico balcone trento": [],
+      "fotovoltaico da balcone trento": [],
+      "pannelli solari balcone trento": [],
+      "pannello solare balcone trento": []
+     },
+     "domanda": []
+    },
+    "bolzano": {
+     "ricerche": {
+      "fotovoltaico balcone bolzano": [],
+      "fotovoltaico da balcone bolzano": [],
+      "pannelli solari balcone bolzano": [],
+      "pannello solare balcone bolzano": []
+     },
+     "domanda": []
+    },
+    "lecce": {
+     "ricerche": {
+      "fotovoltaico balcone lecce": [],
+      "fotovoltaico da balcone lecce": [],
+      "pannelli solari balcone lecce": [],
+      "pannello solare balcone lecce": []
+     },
+     "domanda": []
+    },
+    "reggio-calabria": {
+     "ricerche": {
+      "fotovoltaico balcone reggio calabria": [],
+      "fotovoltaico da balcone reggio calabria": [],
+      "pannelli solari balcone reggio calabria": [],
+      "pannello solare balcone reggio calabria": []
+     },
+     "domanda": []
+    }
+   }
+  },
+  "es": {
+   "base": {
+    "placas solares balcón": [
+     "placas solares balcón leroy merlin",
+     "placas solares balcón",
+     "placas solares balcón permiso comunidad",
+     "placas solares balcón lidl",
+     "placas solares balcón precio",
+     "placas solares balcón con batería",
+     "placas solares balcon piso",
+     "placas solares balcon opiniones",
+     "placas solares balcon repsol",
+     "placas solares balcon 800w"
+    ],
+    "kit solar balcón": [
+     "kit solar balcón lidl",
+     "kit solar balcón 800w",
+     "kit solar balcón con batería",
+     "kit solar balcón",
+     "kit solar balcón leroy merlin",
+     "kit solar balcón enchufable",
+     "kit solar balcón ecoflow",
+     "kit solar balcón opiniones",
+     "kit solar balcón lidl opiniones",
+     "kit solar balcon plug and play"
+    ],
+    "placas solares balcon": [
+     "placas solares balcon",
+     "placas solares balcon con bateria",
+     "placas solares balcon lidl",
+     "placas solares balcon opiniones",
+     "placas solares balcon piso",
+     "placas solares balcon permiso comunidad",
+     "placas solares balcon leroy merlin",
+     "placas solares balcon repsol",
+     "placas solares balcon 800w",
+     "placas solares balcon barcelona"
+    ],
+    "placas solares enchufables": [
+     "placas solares enchufables",
+     "placas solares enchufables opiniones",
+     "placas solares enchufables leroy merlin",
+     "placas solares enchufables balcón",
+     "placas solares enchufables 800w",
+     "placas solares enchufables a la red",
+     "placas solares enchufables con bateria",
+     "placas solares enchufables como funcionan",
+     "placas solares enchufables bricodepot",
+     "kit placas solares enchufables"
+    ],
+    "autoconsumo sin excedentes": [
+     "autoconsumo sin excedentes",
+     "autoconsumo sin excedentes más de 100 kw",
+     "autoconsumo colectivo sin excedentes",
+     "instalación autoconsumo sin excedentes",
+     "autoconsumo individual sin excedentes",
+     "autoconsumo colectivo sin excedentes acogido a compensación",
+     "esquema autoconsumo sin excedentes",
+     "autoconsumo con excedentes sin compensación",
+     "placas solares autoconsumo sin excedentes",
+     "kit solar autoconsumo sin excedentes"
+    ]
+   },
+   "citta": {
+    "madrid": {
+     "ricerche": {
+      "placas solares balcón madrid": [],
+      "kit solar balcón madrid": [],
+      "paneles solares balcon madrid": []
+     },
+     "domanda": []
+    },
+    "barcelona": {
+     "ricerche": {
+      "placas solares balcón barcelona": [
+       "placas solares balcon barcelona"
+      ],
+      "kit solar balcón barcelona": [],
+      "paneles solares balcon barcelona": []
+     },
+     "domanda": [
+      "placas solares balcon barcelona"
+     ]
+    },
+    "valencia": {
+     "ricerche": {
+      "placas solares balcón valencia": [],
+      "kit solar balcón valencia": [],
+      "paneles solares balcon valencia": []
+     },
+     "domanda": []
+    },
+    "sevilla": {
+     "ricerche": {
+      "placas solares balcón sevilla": [],
+      "kit solar balcón sevilla": [],
+      "paneles solares balcon sevilla": []
+     },
+     "domanda": []
+    },
+    "zaragoza": {
+     "ricerche": {
+      "placas solares balcón zaragoza": [],
+      "kit solar balcón zaragoza": [],
+      "paneles solares balcon zaragoza": []
+     },
+     "domanda": []
+    },
+    "malaga": {
+     "ricerche": {
+      "placas solares balcón malaga": [],
+      "kit solar balcón malaga": [],
+      "paneles solares balcon malaga": []
+     },
+     "domanda": []
+    },
+    "murcia": {
+     "ricerche": {
+      "placas solares balcón murcia": [],
+      "kit solar balcón murcia": [],
+      "paneles solares balcon murcia": []
+     },
+     "domanda": []
+    },
+    "palma": {
+     "ricerche": {
+      "placas solares balcón palma": [],
+      "kit solar balcón palma": [],
+      "paneles solares balcon palma": []
+     },
+     "domanda": []
+    },
+    "las-palmas": {
+     "ricerche": {
+      "placas solares balcón las palmas": [],
+      "kit solar balcón las palmas": [],
+      "paneles solares balcon las palmas": []
+     },
+     "domanda": []
+    },
+    "bilbao": {
+     "ricerche": {
+      "placas solares balcón bilbao": [],
+      "kit solar balcón bilbao": [],
+      "paneles solares balcon bilbao": []
+     },
+     "domanda": []
+    },
+    "alicante": {
+     "ricerche": {
+      "placas solares balcón alicante": [],
+      "kit solar balcón alicante": [],
+      "paneles solares balcon alicante": []
+     },
+     "domanda": []
+    },
+    "cordoba": {
+     "ricerche": {
+      "placas solares balcón cordoba": [],
+      "kit solar balcón cordoba": [],
+      "paneles solares balcon cordoba": []
+     },
+     "domanda": []
+    },
+    "valladolid": {
+     "ricerche": {
+      "placas solares balcón valladolid": [],
+      "kit solar balcón valladolid": [],
+      "paneles solares balcon valladolid": []
+     },
+     "domanda": []
+    },
+    "vigo": {
+     "ricerche": {
+      "placas solares balcón vigo": [],
+      "kit solar balcón vigo": [],
+      "paneles solares balcon vigo": []
+     },
+     "domanda": []
+    },
+    "gijon": {
+     "ricerche": {
+      "placas solares balcón gijon": [],
+      "kit solar balcón gijon": [],
+      "paneles solares balcon gijon": []
+     },
+     "domanda": []
+    },
+    "granada": {
+     "ricerche": {
+      "placas solares balcón granada": [],
+      "kit solar balcón granada": [],
+      "paneles solares balcon granada": []
+     },
+     "domanda": []
+    },
+    "a-coruna": {
+     "ricerche": {
+      "placas solares balcón a coruña": [],
+      "kit solar balcón a coruña": [],
+      "paneles solares balcon a coruña": []
+     },
+     "domanda": []
+    },
+    "vitoria": {
+     "ricerche": {
+      "placas solares balcón vitoria": [],
+      "kit solar balcón vitoria": [],
+      "paneles solares balcon vitoria": []
+     },
+     "domanda": []
+    },
+    "santa-cruz-de-tenerife": {
+     "ricerche": {
+      "placas solares balcón santa cruz de tenerife": [],
+      "kit solar balcón santa cruz de tenerife": [],
+      "paneles solares balcon santa cruz de tenerife": []
+     },
+     "domanda": []
+    },
+    "pamplona": {
+     "ricerche": {
+      "placas solares balcón pamplona": [],
+      "kit solar balcón pamplona": [],
+      "paneles solares balcon pamplona": []
+     },
+     "domanda": []
+    },
+    "santander": {
+     "ricerche": {
+      "placas solares balcón santander": [],
+      "kit solar balcón santander": [],
+      "paneles solares balcon santander": []
+     },
+     "domanda": []
+    },
+    "oviedo": {
+     "ricerche": {
+      "placas solares balcón oviedo": [],
+      "kit solar balcón oviedo": [],
+      "paneles solares balcon oviedo": []
+     },
+     "domanda": []
+    },
+    "san-sebastian": {
+     "ricerche": {
+      "placas solares balcón san sebastian": [],
+      "kit solar balcón san sebastian": [],
+      "paneles solares balcon san sebastian": []
+     },
+     "domanda": []
+    },
+    "almeria": {
+     "ricerche": {
+      "placas solares balcón almeria": [],
+      "kit solar balcón almeria": [],
+      "paneles solares balcon almeria": []
+     },
+     "domanda": []
+    }
+   }
+  },
+  "fr": {
+   "base": {
+    "panneau solaire balcon": [
+     "panneau solaire balcon",
+     "panneau solaire balcon plug and play",
+     "panneau solaire balcon copropriété",
+     "panneau solaire balcon lidl",
+     "panneau solaire balcon avec batterie",
+     "panneau solaire balcon appartement",
+     "panneau solaire balcon sunology",
+     "panneau solaire balcon batterie",
+     "panneau solaire balcon reglementation",
+     "panneau solaire balcon autorisation"
+    ],
+    "kit solaire plug and play": [
+     "kit solaire plug and play",
+     "kit solaire plug and play avec batterie",
+     "kit solaire plug and play 3000w",
+     "kit solaire plug and play 1000w",
+     "kit solaire plug and play 2000w",
+     "kit solaire plug and play 3000w avec batterie",
+     "kit solaire plug and play leroy merlin",
+     "kit solaire plug and play triphasé",
+     "kit solaire plug and play 2000w avec batterie",
+     "kit solaire plug and play sur toiture"
+    ],
+    "panneaux solaires balcon": [
+     "panneaux solaires balcon",
+     "panneaux solaires balcon france",
+     "panneaux solaires balcon ikea",
+     "panneaux solaires balcon luxembourg",
+     "panneaux photovoltaïques balcon",
+     "panneau solaire balcon plug and play",
+     "panneau solaire balcon copropriété",
+     "panneau solaire balcon appartement",
+     "panneau solaire balcon avec batterie",
+     "panneau solaire balcon lidl"
+    ],
+    "kit solaire balcon": [
+     "kit solaire balcon",
+     "kit solaire balcon plug and play",
+     "kit solaire balcon avec batterie",
+     "kit solaire balcon lidl",
+     "kit solaire balcon flexible",
+     "kit solaire balcon ecoflow",
+     "kit solar balcon 400w",
+     "kit panneau balcon",
+     "kit solaire terrasse",
+     "kit solaire exterieur"
+    ],
+    "panneau solaire plug and play": [
+     "panneau solaire plug and play",
+     "panneau solaire plug and play 3000w",
+     "panneau solaire plug and play avec batterie",
+     "panneau solaire plug and play leroy merlin",
+     "panneau solaire plug and play 1000w",
+     "panneau solaire plug and play 2000w",
+     "panneau solaire plug and play 3000w avec batterie",
+     "panneau solaire plug and play avis",
+     "panneau solaire plug and play 500w",
+     "panneau solaire plug and play toiture"
+    ]
+   },
+   "citta": {
+    "paris": {
+     "ricerche": {
+      "panneau solaire balcon paris": [
+       "panneau solaire balcon paris"
+      ],
+      "panneaux solaires balcon paris": [
+       "panneau solaire balcon paris"
+      ],
+      "kit solaire plug and play paris": [],
+      "kit solaire balcon paris": []
+     },
+     "domanda": [
+      "panneau solaire balcon paris"
+     ]
+    },
+    "marseille": {
+     "ricerche": {
+      "panneau solaire balcon marseille": [],
+      "panneaux solaires balcon marseille": [],
+      "kit solaire plug and play marseille": [],
+      "kit solaire balcon marseille": []
+     },
+     "domanda": []
+    },
+    "lyon": {
+     "ricerche": {
+      "panneau solaire balcon lyon": [],
+      "panneaux solaires balcon lyon": [],
+      "kit solaire plug and play lyon": [],
+      "kit solaire balcon lyon": []
+     },
+     "domanda": []
+    },
+    "toulouse": {
+     "ricerche": {
+      "panneau solaire balcon toulouse": [],
+      "panneaux solaires balcon toulouse": [],
+      "kit solaire plug and play toulouse": [
+       "kit solaire plug and play toulouse"
+      ],
+      "kit solaire balcon toulouse": []
+     },
+     "domanda": [
+      "kit solaire plug and play toulouse"
+     ]
+    },
+    "nice": {
+     "ricerche": {
+      "panneau solaire balcon nice": [],
+      "panneaux solaires balcon nice": [],
+      "kit solaire plug and play nice": [],
+      "kit solaire balcon nice": []
+     },
+     "domanda": []
+    },
+    "nantes": {
+     "ricerche": {
+      "panneau solaire balcon nantes": [],
+      "panneaux solaires balcon nantes": [],
+      "kit solaire plug and play nantes": [
+       "kit solaire plug and play nantes"
+      ],
+      "kit solaire balcon nantes": []
+     },
+     "domanda": [
+      "kit solaire plug and play nantes"
+     ]
+    },
+    "montpellier": {
+     "ricerche": {
+      "panneau solaire balcon montpellier": [],
+      "panneaux solaires balcon montpellier": [],
+      "kit solaire plug and play montpellier": [],
+      "kit solaire balcon montpellier": []
+     },
+     "domanda": []
+    },
+    "strasbourg": {
+     "ricerche": {
+      "panneau solaire balcon strasbourg": [],
+      "panneaux solaires balcon strasbourg": [],
+      "kit solaire plug and play strasbourg": [],
+      "kit solaire balcon strasbourg": []
+     },
+     "domanda": []
+    },
+    "bordeaux": {
+     "ricerche": {
+      "panneau solaire balcon bordeaux": [],
+      "panneaux solaires balcon bordeaux": [],
+      "kit solaire plug and play bordeaux": [],
+      "kit solaire balcon bordeaux": []
+     },
+     "domanda": []
+    },
+    "lille": {
+     "ricerche": {
+      "panneau solaire balcon lille": [],
+      "panneaux solaires balcon lille": [],
+      "kit solaire plug and play lille": [],
+      "kit solaire balcon lille": []
+     },
+     "domanda": []
+    },
+    "rennes": {
+     "ricerche": {
+      "panneau solaire balcon rennes": [],
+      "panneaux solaires balcon rennes": [],
+      "kit solaire plug and play rennes": [],
+      "kit solaire balcon rennes": []
+     },
+     "domanda": []
+    },
+    "reims": {
+     "ricerche": {
+      "panneau solaire balcon reims": [],
+      "panneaux solaires balcon reims": [],
+      "kit solaire plug and play reims": [],
+      "kit solaire balcon reims": []
+     },
+     "domanda": []
+    },
+    "toulon": {
+     "ricerche": {
+      "panneau solaire balcon toulon": [],
+      "panneaux solaires balcon toulon": [],
+      "kit solaire plug and play toulon": [],
+      "kit solaire balcon toulon": []
+     },
+     "domanda": []
+    },
+    "grenoble": {
+     "ricerche": {
+      "panneau solaire balcon grenoble": [],
+      "panneaux solaires balcon grenoble": [],
+      "kit solaire plug and play grenoble": [],
+      "kit solaire balcon grenoble": []
+     },
+     "domanda": []
+    },
+    "dijon": {
+     "ricerche": {
+      "panneau solaire balcon dijon": [],
+      "panneaux solaires balcon dijon": [],
+      "kit solaire plug and play dijon": [],
+      "kit solaire balcon dijon": []
+     },
+     "domanda": []
+    },
+    "angers": {
+     "ricerche": {
+      "panneau solaire balcon angers": [],
+      "panneaux solaires balcon angers": [],
+      "kit solaire plug and play angers": [],
+      "kit solaire balcon angers": []
+     },
+     "domanda": []
+    },
+    "brest": {
+     "ricerche": {
+      "panneau solaire balcon brest": [],
+      "panneaux solaires balcon brest": [],
+      "kit solaire plug and play brest": [],
+      "kit solaire balcon brest": []
+     },
+     "domanda": []
+    },
+    "tours": {
+     "ricerche": {
+      "panneau solaire balcon tours": [],
+      "panneaux solaires balcon tours": [],
+      "kit solaire plug and play tours": [],
+      "kit solaire balcon tours": []
+     },
+     "domanda": []
+    },
+    "limoges": {
+     "ricerche": {
+      "panneau solaire balcon limoges": [],
+      "panneaux solaires balcon limoges": [],
+      "kit solaire plug and play limoges": [],
+      "kit solaire balcon limoges": []
+     },
+     "domanda": []
+    },
+    "clermont-ferrand": {
+     "ricerche": {
+      "panneau solaire balcon clermont-ferrand": [],
+      "panneaux solaires balcon clermont-ferrand": [],
+      "kit solaire plug and play clermont-ferrand": [],
+      "kit solaire balcon clermont-ferrand": []
+     },
+     "domanda": []
+    },
+    "perpignan": {
+     "ricerche": {
+      "panneau solaire balcon perpignan": [],
+      "panneaux solaires balcon perpignan": [],
+      "kit solaire plug and play perpignan": [],
+      "kit solaire balcon perpignan": []
+     },
+     "domanda": []
+    },
+    "ajaccio": {
+     "ricerche": {
+      "panneau solaire balcon ajaccio": [],
+      "panneaux solaires balcon ajaccio": [],
+      "kit solaire plug and play ajaccio": [],
+      "kit solaire balcon ajaccio": []
+     },
+     "domanda": []
+    },
+    "metz": {
+     "ricerche": {
+      "panneau solaire balcon metz": [],
+      "panneaux solaires balcon metz": [],
+      "kit solaire plug and play metz": [],
+      "kit solaire balcon metz": []
+     },
+     "domanda": []
+    },
+    "rouen": {
+     "ricerche": {
+      "panneau solaire balcon rouen": [],
+      "panneaux solaires balcon rouen": [],
+      "kit solaire plug and play rouen": [],
+      "kit solaire balcon rouen": []
+     },
+     "domanda": []
+    },
+    "caen": {
+     "ricerche": {
+      "panneau solaire balcon caen": [],
+      "panneaux solaires balcon caen": [],
+      "kit solaire plug and play caen": [],
+      "kit solaire balcon caen": []
+     },
+     "domanda": []
+    }
+   }
+  }
+ }
+}

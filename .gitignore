@@ -11,3 +11,6 @@ floodcost/cache/
 
 # Aste giudiziarie: risposte grezze PVP e OMI (si riscaricano con aste/raccolta/aggiorna.py)
 aste/cache/
+
+# Balcony Solar Europe: screenshot delle prove nel browser
+solarebalcone/cache/

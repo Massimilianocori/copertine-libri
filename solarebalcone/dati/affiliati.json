@@ -1,0 +1,18 @@
+{
+  "_nota": "Riquadro 'kit da balcone' SPENTO: compare solo quando una voce ha 'url' compilato con il link di affiliazione vero (mai inventarlo). Una voce per programma e lingua. Il dominio del link deve stare in studio-business/strumenti/monetizzazione.json ('domini_affiliazione'): EcoFlow passa da Awin (awin1.com, già in elenco); Zendure: aggiungere il dominio dei suoi link tracciati quando Massimiliano ha il programma; Amazon (.it, .es, .fr già in elenco): solo link di ricerca con tag=. Dove va: pagine città e pagina regole, dopo il calcolatore, con etichetta, rel=\"sponsored noopener\" e la riga di trasparenza nella lingua della pagina.",
+  "it": [
+    {"id": "ecoflow", "nome": "EcoFlow", "url": "", "testo": "Kit da balcone e batterie EcoFlow"},
+    {"id": "zendure", "nome": "Zendure", "url": "", "testo": "Kit da balcone e accumuli Zendure"},
+    {"id": "amazon", "nome": "Amazon.it", "url": "", "tag": "", "ricerca": "kit fotovoltaico balcone", "testo": "Cerca kit da balcone su Amazon.it"}
+  ],
+  "es": [
+    {"id": "ecoflow", "nome": "EcoFlow", "url": "", "testo": "Kits de balcón y baterías EcoFlow"},
+    {"id": "zendure", "nome": "Zendure", "url": "", "testo": "Kits de balcón y baterías Zendure"},
+    {"id": "amazon", "nome": "Amazon.es", "url": "", "tag": "", "ricerca": "kit solar balcon", "testo": "Buscar kits de balcón en Amazon.es"}
+  ],
+  "fr": [
+    {"id": "ecoflow", "nome": "EcoFlow", "url": "", "testo": "Kits de balcon et batteries EcoFlow"},
+    {"id": "zendure", "nome": "Zendure", "url": "", "testo": "Kits de balcon et batteries Zendure"},
+    {"id": "amazon", "nome": "Amazon.fr", "url": "", "tag": "", "ricerca": "kit solaire balcon", "testo": "Chercher des kits de balcon sur Amazon.fr"}
+  ]
+}

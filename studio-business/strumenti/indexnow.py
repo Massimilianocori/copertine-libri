@@ -35,7 +35,11 @@ SITI = [  # host -> cartella nel repository (sito/sitemap.xml)
     ("aste-giudiziarie-sconti.netlify.app", "aste"),
     ("fha-approved-condos-list.netlify.app", "fhacondos"),
     ("cruise-health-scores.netlify.app", "cruisescores"),
+    ("balcony-solar-europe.netlify.app", "solarebalcone"),
 ]
+# Siti non ancora collegati a Netlify: saltati nell'invio di tutti i siti (la chiave non è online e IndexNow risponderebbe 403).
+# Si inviano solo con --solo; togliere l'host da qui il giorno in cui il sito è online.
+NON_ONLINE = {"balcony-solar-europe.netlify.app"}
 SPIEGAZIONE = {200: "ok", 202: "ok, preso in carico", 400: "richiesta malformata", 403: "chiave non ancora pubblicata (o diversa dal file online)",
                422: "URL non validi per questo host", 429: "troppe richieste: riprovare più tardi"}
 
@@ -75,7 +79,7 @@ def main():
     solo = argv[argv.index("--solo") + 1] if "--solo" in argv and argv.index("--solo") + 1 < len(argv) else None
     if "--solo" in argv and not solo:
         sys.exit("--solo vuole l'host (es. --solo esameb1.netlify.app)")
-    siti = [(h, c) for h, c in SITI if not solo or h == solo or c == solo]
+    siti = [(h, c) for h, c in SITI if (h == solo or c == solo) if solo] or [(h, c) for h, c in SITI if not solo and h not in NON_ONLINE]
     if not siti:
         sys.exit(f"host sconosciuto: {solo}. Conosciuti: {', '.join(h for h, _ in SITI)}")
     problemi = 0

@@ -11,7 +11,8 @@
     "floodcost",
     "aste",
     "fhacondos",
-    "cruisescores"
+    "cruisescores",
+    "solarebalcone"
   ],
   "_siti_della_rete": [
     "italystrikes",
@@ -23,9 +24,10 @@
     "floodcost",
     "aste",
     "fhacondos",
-    "cruisescores"
+    "cruisescores",
+    "solarebalcone"
   ],
-  "_domini_affiliazione_nota": "Solo domini (nessun ID, nessun link). Un link di affiliazione è ammesso solo se punta a uno di questi domini o a un loro sottodominio, ha rel=\"sponsored noopener\" e la pagina ha la riga di trasparenza. I link ad Amazon (amazon.it, amazon.co.uk, amazon.com) devono avere il tag di affiliazione (tag=). Per aggiungere un programma nuovo: aggiungere qui il dominio dei suoi link tracciati.",
+  "_domini_affiliazione_nota": "Solo domini (nessun ID, nessun link). Un link di affiliazione è ammesso solo se punta a uno di questi domini o a un loro sottodominio, ha rel=\"sponsored noopener\" e la pagina ha la riga di trasparenza. I link ad Amazon (amazon.it, amazon.co.uk, amazon.com, amazon.es, amazon.fr) devono avere il tag di affiliazione (tag=). Per aggiungere un programma nuovo: aggiungere qui il dominio dei suoi link tracciati.",
   "domini_affiliazione": [
     "safetywing.com",
     "italki.com",
@@ -33,6 +35,8 @@
     "amazon.it",
     "amazon.co.uk",
     "amazon.com",
+    "amazon.es",
+    "amazon.fr",
     "discovercars.com",
     "babbel.com",
     "italianpod101.com",
@@ -57,7 +61,7 @@
     "evyy.net",
     "hellosafe.com"
   ],
-  "_domini_affiliazione_reti": "awin1.com = Awin (italki, Holiday Extras, Roamable); amazon.co.uk e amazon.com = Amazon Associates UK e USA (Before You Fly, dal 6/11/2026; amazon.com anche ApprovedCondos, sezione /balcony-solar/, dal 7/11/2026); tradedoubler.com = Tradedoubler (AXA Schengen, InsureandGo); prf.hn = Partnerize (Wise; wise.com tolto il 7/11/2026: i link tracciati Wise passano da prf.hn, e wise.com resta un dominio normale per le fonti ufficiali); anrdoezrs.net, dpbolvw.net, jdoqocy.com, kqzyfj.com, tkqlhce.com = CJ (CruiseDirect); sjv.io, pxf.io, evyy.net = Impact (Babbel); hellosafe.com = HelloSafe Atlas (link diretti con ref=, Visa Income dal 7/11/2026).",
+  "_domini_affiliazione_reti": "awin1.com = Awin (italki, Holiday Extras, Roamable); amazon.co.uk e amazon.com = Amazon Associates UK e USA (Before You Fly, dal 6/11/2026; amazon.com anche ApprovedCondos, sezione /balcony-solar/, dal 7/11/2026); amazon.es e amazon.fr = Amazon Spagna e Francia (Solar de balcón / Solaire de balcon: riquadro spento finché Massimiliano non ha i tag, dall'8/11/2026); tradedoubler.com = Tradedoubler (AXA Schengen, InsureandGo); prf.hn = Partnerize (Wise; wise.com tolto il 7/11/2026: i link tracciati Wise passano da prf.hn, e wise.com resta un dominio normale per le fonti ufficiali); anrdoezrs.net, dpbolvw.net, jdoqocy.com, kqzyfj.com, tkqlhce.com = CJ (CruiseDirect); sjv.io, pxf.io, evyy.net = Impact (Babbel); hellosafe.com = HelloSafe Atlas (link diretti con ref=, Visa Income dal 7/11/2026).",
   "_domini_bloccati_nota": "Sempre vietati, anche con rel=\"sponsored\": Travelpayouts (la verifica del sito chiede uno script con cookie, in pausa dal 17/10/2026) e i servizi visto 'assistiti' come iVisa (regola del 10/10/2026: non mandiamo i lettori a pagare più del sito ufficiale).",
   "domini_bloccati": [
     "travelpayouts.com",

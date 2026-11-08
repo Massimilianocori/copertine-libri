@@ -1,0 +1,822 @@
+{
+ "_nota": "Regole del fotovoltaico da balcone per Paese, nella lingua del Paese. Ogni affermazione ('t') ha almeno una fonte ('s') che esiste in 'fonti', salvo le note nostre marcate 'nota': true (frasi di prudenza o 'non abbiamo trovato'), che il sito mostra come tali. Le fonti si rileggono con raccolta/fonti.py, che scrive in dati/fonti.json il codice HTTP, l'impronta del testo letto e se le frasi di 'cerca' ci sono ancora. Le domande delle FAQ vengono dall'autocompletamento di Google ('ricerca', in dati/domanda.json). Segnaposto nei testi: {kwh35:città}, {kwh90:città}, {eur:città}, {anni:città:prezzo_kit}, {prezzo}, {periodo} (li calcola genera.py dai dati PVGIS ed Eurostat). Nessun consiglio elettrico o legale.",
+ "verificato_il": "2026-11-08",
+ "fonti": {
+  "pvgis-api": {
+   "titolo": "PVGIS, API non interattiva (Commissione europea, Joint Research Centre)",
+   "url": "https://joint-research-centre.ec.europa.eu/photovoltaic-geographical-information-system-pvgis/getting-started-pvgis/api-non-interactive-service_en",
+   "tipo": "ufficiale",
+   "cerca": [
+    "rate limit of 30 calls/second"
+   ]
+  },
+  "pvgis-licenza": {
+   "titolo": "PVGIS, Geospatial Data Download: condizioni di riuso",
+   "url": "https://joint-research-centre.ec.europa.eu/photovoltaic-geographical-information-system-pvgis/pvgis-data-download_en",
+   "tipo": "ufficiale",
+   "cerca": [
+    "free for public use if the source is acknowledged"
+   ]
+  },
+  "ec-avviso": {
+   "titolo": "Commissione europea, avviso legale (riuso dei contenuti, CC BY 4.0)",
+   "url": "https://commission.europa.eu/legal-notice_en",
+   "tipo": "ufficiale",
+   "cerca": [
+    "Creative Commons Attribution 4.0 International"
+   ]
+  },
+  "eurostat-dati": {
+   "titolo": "Eurostat, nrg_pc_204: prezzi dell'elettricità per le famiglie (semestrali)",
+   "url": "https://ec.europa.eu/eurostat/databrowser/view/nrg_pc_204/default/table",
+   "tipo": "dati",
+   "cerca": [],
+   "_nota": "pagina JavaScript: il valore si legge dall'API (dati/prezzi.json)"
+  },
+  "eurostat-copyright": {
+   "titolo": "Eurostat, avviso sul copyright e sul riuso",
+   "url": "https://ec.europa.eu/eurostat/web/main/help/copyright-notice",
+   "tipo": "ufficiale",
+   "cerca": [
+    "authorised provided the source is acknowledged"
+   ]
+  },
+  "it-arera-scheda": {
+   "titolo": "ARERA, scheda tecnica della delibera 315/2020/R/eel (5 agosto 2020): connessione semplificata degli impianti di potenza inferiore a 800 W",
+   "url": "https://www.arera.it/schede-tecniche/dettaglio/it/schedetecniche/20/315-20st",
+   "tipo": "ufficiale",
+   "cerca": [
+    "impianti di produzione di potenza inferiore a 800 W",
+    "Comunicazione Unica",
+    "rinunciare a qualsiasi remunerazione",
+    "inferiore o uguale a 350 W",
+    "Norma CEI 0-21",
+    "sistema GAUDÌ"
+   ]
+  },
+  "it-arera-delibera": {
+   "titolo": "ARERA, delibera 315/2020/R/eel: pagina dell'atto e allegati",
+   "url": "https://www.arera.it/atti-e-provvedimenti/dettaglio/20/315-20",
+   "tipo": "ufficiale",
+   "cerca": [
+    "315/2020/R/eel"
+   ]
+  },
+  "it-cc-1122bis": {
+   "titolo": "Codice civile, art. 1122-bis (Normattiva, testo vigente)",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262~art1122bis",
+   "tipo": "ufficiale",
+   "sessione": "https://www.normattiva.it/atto/caricaArticolo?art.versione=1&art.idGruppo=140&art.flagTipoArticolo=2&art.codiceRedazionale=042U0262&art.idArticolo=1122&art.idSottoArticolo=2&art.idSottoArticolo1=10&art.dataPubblicazioneGazzetta=1942-04-04&art.progressivo=0",
+   "cerca": [
+    "sulle parti di proprietà individuale dell'interessato",
+    "ne dà comunicazione all'amministratore",
+    "Non sono soggetti ad autorizzazione gli impianti destinati alle singole unità abitative"
+   ]
+  },
+  "it-ade-ristrutturazioni": {
+   "titolo": "Agenzia delle Entrate, Ristrutturazioni edilizie: che cos'è (aggiornata al 29 luglio 2026)",
+   "url": "https://www.agenziaentrate.gov.it/portale/schede/agevolazioni/detrristredil36/schinfodetrristredil36",
+   "tipo": "ufficiale",
+   "cerca": [
+    "per le spese sostenute negli anni 2025 e 2026, la detrazione spetta nella misura del 36% (ovvero del 50% in caso di abitazione principale)",
+    "per le spese sostenute nel 2027, la detrazione è del 30%"
+   ]
+  },
+  "it-cei-021": {
+   "titolo": "Norma CEI 0-21 (regola tecnica di connessione in bassa tensione)",
+   "url": "https://mycatalogo.ceinorme.it/",
+   "tipo": "ufficiale",
+   "non_letta": true,
+   "motivo": "norma tecnica a pagamento sul catalogo CEI: non l'abbiamo letta; ne riportiamo solo ciò che dice la scheda ARERA"
+  },
+  "it-tuir-16bis": {
+   "titolo": "Tuir (DPR 917/1986), art. 16-bis: detrazione per gli interventi di recupero edilizio (Normattiva)",
+   "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:presidente.repubblica:decreto:1986-12-22;917~art16bis",
+   "tipo": "ufficiale",
+   "non_letta": true,
+   "motivo": "l'8/11/2026 il testo dell'articolo su Normattiva non ha risposto (tempo scaduto due volte): non l'abbiamo letto"
+  },
+  "es-boe-rd244": {
+   "titolo": "Real Decreto 244/2019, de 5 de abril, condiciones del autoconsumo (BOE, texto consolidado, última actualización 21/03/2026)",
+   "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2019-5089",
+   "tipo": "ufficiale",
+   "cerca": [
+    "se deberá instalar un mecanismo antivertido",
+    "estarán exentas de obtener permisos de acceso y conexión",
+    "potencia igual o inferior a 15 kW",
+    "la inscripción en el registro de autoconsumo se llevara a cabo de oficio",
+    "compartan equipo de medida y protecciones con la instalación de generación"
+   ]
+  },
+  "es-idae-guia": {
+   "titolo": "IDAE, Guía profesional de tramitación del autoconsumo, v.6 (julio de 2024), en la librería del MITECO",
+   "url": "https://libreria.miteco.gob.es/ebook/416/free_download",
+   "tipo": "ufficiale",
+   "pdf": true,
+   "cerca": [
+    "potencia P<800 VA, no están",
+    "kit generador",
+    "igual o inferior a 10mA"
+   ]
+  },
+  "es-boe-lph": {
+   "titolo": "Ley 49/1960, de 21 de julio, sobre propiedad horizontal (BOE, texto consolidado, última actualización 03/10/2026)",
+   "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1960-10906",
+   "tipo": "ufficiale",
+   "cerca": [
+    "su configuración o estado exteriores",
+    "debiendo dar cuenta de tales obras previamente a quien represente a la comunidad",
+    "de aprovechamiento de energías renovables",
+    "por un tercio de los integrantes de la comunidad"
+   ]
+  },
+  "es-boe-trlrhl": {
+   "titolo": "Real Decreto Legislativo 2/2004, Ley Reguladora de las Haciendas Locales, art. 74.5 (BOE, texto consolidado)",
+   "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2004-4214",
+   "tipo": "ufficiale",
+   "cerca": [
+    "bonificación de hasta el 50 por ciento de la cuota íntegra del impuesto para los bienes inmuebles en los que se hayan instalado sistemas para el aprovechamiento térmico o eléctrico de la energía proveniente del sol"
+   ]
+  },
+  "fr-enedis-autoconso": {
+   "titolo": "Enedis, « Autoconsommer la totalité de l’énergie produite par vos panneaux »",
+   "url": "https://www.enedis.fr/autoconsommer-la-totalite-de-lenergie-produite-par-vos-panneaux",
+   "tipo": "ufficiale",
+   "cerca": [
+    "est obligatoire, même sans injection, quel que soit son niveau de puissance",
+    "connect-racco.enedis.fr",
+    "Dispense possible pour les équipements",
+    "Aucun revenu n’est généré"
+   ]
+  },
+  "fr-enedis-cacsi": {
+   "titolo": "Enedis, Convention d’AutoConsommation Sans Injection (CACSI), Enedis-FOR-RAC_43E, version 6 du 01/01/2025 (PDF)",
+   "url": "https://www.enedis.fr/media/1955/download",
+   "tipo": "ufficiale",
+   "pdf": true,
+   "cerca": [
+    "inférieure ou égale à 36 kVA",
+    "15 jours calendaires",
+    "si la puissance installée de l'appareil dépasse 3 kVA",
+    "s'il y a pose d'une batterie",
+    "fabriqué, assemblé et essayé en usine"
+   ]
+  },
+  "fr-sp-toit": {
+   "titolo": "Service-Public.fr, « Faut-il une autorisation d’urbanisme pour poser des panneaux solaires sur un toit ? » (vérifié le 07/02/2025)",
+   "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F36798",
+   "tipo": "ufficiale",
+   "cerca": [
+    "car vous modifiez l'aspect extérieur de votre bâtiment"
+   ]
+  },
+  "fr-sp-sol": {
+   "titolo": "Service-Public.fr (Entreprendre), panneaux solaires au sol et ombrières : autorisation d’urbanisme (vérifié le 17/01/2025)",
+   "url": "https://www.service-public.fr/professionnels-entreprises/vosdroits/F31923",
+   "tipo": "ufficiale",
+   "cerca": [
+    "d'une hauteur maximale au-dessus du sol limitée à 1,80 m est dispensée de formalité"
+   ]
+  },
+  "fr-pvinfo-kits": {
+   "titolo": "photovoltaique.info (centre de ressources de l’association Hespul), « Les kits solaires Plug and Play » (modifié le 09/12/2024)",
+   "url": "https://www.photovoltaique.info/fr/realiser-une-installation/choix-du-materiel/batteries-stockage-virtuel-et-autres-accesoires/les-kits-solaires-plug-and-play/",
+   "tipo": "centro_risorse",
+   "cerca": [
+    "incompatible avec la présence d’une installation en autoconsommation avec vente des surplus",
+    "Attention à ne pas surcharger la prise de courant"
+   ]
+  },
+  "fr-loi-1965": {
+   "titolo": "Loi n° 65-557 du 10 juillet 1965 fixant le statut de la copropriété (Légifrance)",
+   "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000880200",
+   "tipo": "ufficiale",
+   "non_letta": true,
+   "motivo": "Légifrance répond 403 (accès refusé) aux lectures automatiques : texte non lu"
+  }
+ },
+ "paesi": {
+  "it": {
+   "titolo_pagina": "Fotovoltaico da balcone: le regole in Italia",
+   "sintesi": [
+    {
+     "k": "Potenza",
+     "v": "sotto 800 W (procedura semplificata ARERA)"
+    },
+    {
+     "k": "A chi lo comunichi",
+     "v": "al distributore, con la Comunicazione Unica, gratis"
+    },
+    {
+     "k": "Energia in rete",
+     "v": "nessun compenso"
+    },
+    {
+     "k": "Condominio",
+     "v": "nessuna autorizzazione per l'impianto del singolo appartamento"
+    }
+   ],
+   "sezioni": [
+    {
+     "id": "potenza",
+     "titolo": "Quanto può essere grande l'impianto",
+     "punti": [
+      {
+       "t": "La procedura semplificata di ARERA vale per gli impianti di potenza inferiore a 800 W, installati dove è già attivo un contratto di fornitura con potenza disponibile non inferiore a quella dell'impianto.",
+       "s": [
+        "it-arera-scheda"
+       ]
+      },
+      {
+       "t": "ARERA chiama «Plug & Play» gli impianti fino a 350 W, completi e pronti da collegare con una spina a una presa dedicata e riconoscibile rispetto alle altre prese di casa. Sia questi impianti sia l'impianto elettrico di casa vanno realizzati secondo la Norma CEI 0-21.",
+       "s": [
+        "it-arera-scheda"
+       ]
+      },
+      {
+       "t": "Si possono aggiungere pannelli con una nuova Comunicazione Unica, purché la potenza complessiva resti inferiore a 800 W.",
+       "s": [
+        "it-arera-scheda"
+       ]
+      },
+      {
+       "t": "La Norma CEI 0-21 è a pagamento e non l'abbiamo letta: i requisiti tecnici del kit e della presa chiedili al venditore e al distributore.",
+       "s": [
+        "it-cei-021"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "comunicazione",
+     "titolo": "Cosa devi comunicare e a chi",
+     "punti": [
+      {
+       "t": "Basta inviare la Comunicazione Unica (il modulo dell'Allegato 1 del TICA) all'impresa distributrice nella cui rete si trova il tuo punto di connessione. Non si paga nessun corrispettivo.",
+       "s": [
+        "it-arera-scheda",
+        "it-arera-delibera"
+       ]
+      },
+      {
+       "t": "L'invio della Comunicazione Unica è il titolo che abilita la connessione e l'attivazione: non serve nessun'altra pratica per collegare l'impianto alla rete.",
+       "s": [
+        "it-arera-scheda"
+       ]
+      },
+      {
+       "t": "Con questa procedura non firmi un contratto di dispacciamento. Puoi immettere in rete l'energia che non consumi, ma in tutto non oltre 800 W, e rinunci a qualsiasi compenso per quell'energia.",
+       "s": [
+        "it-arera-scheda"
+       ]
+      },
+      {
+       "t": "Dopo la Comunicazione Unica, il distributore registra l'impianto nei propri portali e nel sistema GAUDÌ.",
+       "s": [
+        "it-arera-scheda"
+       ]
+      },
+      {
+       "t": "Il distributore è l'azienda che gestisce la rete e il contatore della tua zona, che può essere diversa dal venditore che ti manda la bolletta.",
+       "nota": true
+      }
+     ]
+    },
+    {
+     "id": "condominio",
+     "titolo": "Condominio",
+     "punti": [
+      {
+       "t": "Il Codice civile consente di installare impianti a fonti rinnovabili al servizio della singola unità sulle parti di proprietà individuale, come il balcone, e su superfici comuni idonee.",
+       "s": [
+        "it-cc-1122bis"
+       ]
+      },
+      {
+       "t": "Se servono modifiche alle parti comuni, devi comunicarlo all'amministratore indicando cosa farai e come. L'assemblea può prescrivere modalità alternative o cautele per la stabilità, la sicurezza o il decoro architettonico dell'edificio.",
+       "s": [
+        "it-cc-1122bis"
+       ]
+      },
+      {
+       "t": "L'articolo si chiude così: «Non sono soggetti ad autorizzazione gli impianti destinati alle singole unità abitative.»",
+       "s": [
+        "it-cc-1122bis"
+       ]
+      },
+      {
+       "t": "Prima di fissare il kit alla ringhiera, leggi il regolamento del tuo condominio e, se il kit cambia l'aspetto della facciata, parlane con l'amministratore.",
+       "nota": true
+      }
+     ]
+    },
+    {
+     "id": "incentivi",
+     "titolo": "Incentivi e detrazioni",
+     "punti": [
+      {
+       "t": "Con la Comunicazione Unica non c'è nessun compenso per l'energia immessa in rete: il guadagno è solo la bolletta più bassa.",
+       "s": [
+        "it-arera-scheda"
+       ]
+      },
+      {
+       "t": "La detrazione per le ristrutturazioni edilizie, per le spese del 2025 e del 2026, è del 36%, o del 50% per l'abitazione principale, su un massimo di 96.000 euro per unità immobiliare; per le spese del 2027 scende al 30% (36% per l'abitazione principale).",
+       "s": [
+        "it-ade-ristrutturazioni"
+       ]
+      },
+      {
+       "t": "La scheda dell'Agenzia delle Entrate non dice se un kit da balcone con la spina rientri nella detrazione, e il testo dell'art. 16-bis del Tuir non siamo riusciti a leggerlo: chiedilo a un CAF o a un commercialista prima di comprare.",
+       "s": [
+        "it-ade-ristrutturazioni",
+        "it-tuir-16bis"
+       ]
+      }
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "Serve un permesso per il fotovoltaico da balcone?",
+     "ricerca": "fotovoltaico balcone permessi",
+     "a": "Sotto 800 W basta la Comunicazione Unica al distributore: è gratuita e vale come titolo per collegare e attivare l'impianto (delibera ARERA 315/2020/R/eel). In condominio il Codice civile non chiede autorizzazioni per l'impianto del singolo appartamento; se tocchi parti comuni devi comunicarlo all'amministratore.",
+     "s": [
+      "it-arera-scheda",
+      "it-cc-1122bis"
+     ]
+    },
+    {
+     "q": "Come si fa la Comunicazione Unica?",
+     "ricerca": "comunicazione unica per fotovoltaico da balcone",
+     "a": "Si compila il modulo dell'Allegato 1 del TICA (delibera ARERA 315/2020/R/eel) e lo si invia all'impresa distributrice della rete a cui è collegato il tuo contatore. Non si paga nulla e non serve altro: l'invio vale come titolo per connettere e attivare l'impianto sotto 800 W.",
+     "s": [
+      "it-arera-scheda",
+      "it-arera-delibera"
+     ]
+    },
+    {
+     "q": "In condominio serve il permesso dell'assemblea?",
+     "ricerca": "fotovoltaico balcone condominio",
+     "a": "Per l'art. 1122-bis del Codice civile gli impianti destinati alle singole unità abitative non sono soggetti ad autorizzazione e si possono installare sulle parti di proprietà individuale. Se servono modifiche alle parti comuni, va data comunicazione all'amministratore e l'assemblea può imporre cautele per sicurezza e decoro dell'edificio.",
+     "s": [
+      "it-cc-1122bis"
+     ]
+    },
+    {
+     "q": "Che differenza c'è tra 350 W e 800 W?",
+     "ricerca": "fotovoltaico plug and play 350w",
+     "a": "ARERA chiama «Plug & Play» gli impianti fino a 350 W, pronti da collegare con una spina a una presa dedicata e riconoscibile. La Comunicazione Unica vale però per tutti gli impianti di potenza inferiore a 800 W.",
+     "s": [
+      "it-arera-scheda"
+     ]
+    },
+    {
+     "q": "Si può mettere un kit da 800 W?",
+     "ricerca": "pannello solare balcone 800w",
+     "a": "La procedura semplificata di ARERA vale per impianti di potenza inferiore a 800 W, e in tutto non si possono immettere in rete più di 800 W. Controlla sulla scheda del kit la potenza dell'impianto e chiedi al distributore se rientra nella Comunicazione Unica.",
+     "s": [
+      "it-arera-scheda"
+     ]
+    },
+    {
+     "q": "Quale legge regola il fotovoltaico da balcone?",
+     "ricerca": "fotovoltaico balcone legge",
+     "a": "Per il collegamento alla rete, la delibera ARERA 315/2020/R/eel, che ha introdotto la Comunicazione Unica per gli impianti sotto 800 W e richiama la Norma CEI 0-21. Per il condominio, l'art. 1122-bis del Codice civile.",
+     "s": [
+      "it-arera-scheda",
+      "it-cc-1122bis"
+     ]
+    },
+    {
+     "q": "Conviene il fotovoltaico da balcone?",
+     "ricerca": "fotovoltaico balcone conviene",
+     "a": "Dipende da dove vivi e da quanta energia usi mentre il sole c'è. A Roma, secondo PVGIS, un kit da 800 Wp inclinato a 35° verso sud produce circa {kwh35:roma} kWh l'anno. Se ne usi in casa il 60% al prezzo medio italiano di {prezzo} €/kWh (Eurostat, {periodo}), risparmi circa {eur:roma} € l'anno: un kit da 500 € si ripaga in circa {anni:roma:500} anni. L'energia che va in rete non viene pagata.",
+     "s": [
+      "pvgis-api",
+      "eurostat-dati",
+      "it-arera-scheda"
+     ]
+    },
+    {
+     "q": "Con la batteria cambia qualcosa?",
+     "ricerca": "fotovoltaico balcone con accumulo",
+     "a": "La scheda ARERA che abbiamo letto non parla di batterie. Prima di comprare un kit con accumulo, chiedi al distributore se rientra nella Comunicazione Unica e al venditore se il sistema rispetta la Norma CEI 0-21.",
+     "s": [
+      "it-arera-scheda"
+     ]
+    },
+    {
+     "q": "Come funziona un pannello solare da balcone?",
+     "ricerca": "pannello solare da balcone come funziona",
+     "a": "I pannelli producono corrente continua; un microinverter la trasforma in corrente alternata e la manda nell'impianto di casa. L'energia viene usata subito dagli apparecchi accesi in quel momento (frigorifero, router, lavatrice); quella che avanza va in rete senza compenso.",
+     "s": [
+      "it-arera-scheda"
+     ]
+    },
+    {
+     "q": "Ci sono incentivi per i pannelli solari da balcone?",
+     "ricerca": "pannelli solari balcone incentivi",
+     "a": "Con la Comunicazione Unica l'energia immessa in rete non viene pagata. Per le spese del 2025 e del 2026 la detrazione per le ristrutturazioni è del 36% (50% per l'abitazione principale), ma la scheda dell'Agenzia delle Entrate non dice se un kit con la spina vi rientri: chiedilo a un CAF o a un commercialista prima di comprare.",
+     "s": [
+      "it-arera-scheda",
+      "it-ade-ristrutturazioni"
+     ]
+    }
+   ]
+  },
+  "es": {
+   "titolo_pagina": "Placas solares de balcón: la normativa en España",
+   "sintesi": [
+    {
+     "k": "Potencia",
+     "v": "sin límite propio para kits; 800 VA para no usar circuito dedicado (IDAE)"
+    },
+    {
+     "k": "Sin excedentes",
+     "v": "mecanismo antivertido obligatorio"
+    },
+    {
+     "k": "Registro",
+     "v": "de oficio por la comunidad autónoma (menos de 100 kW en baja tensión)"
+    },
+    {
+     "k": "Comunidad",
+     "v": "avisar antes; no alterar el estado exterior sin acuerdo"
+    }
+   ],
+   "sezioni": [
+    {
+     "id": "modalidades",
+     "titolo": "Con o sin excedentes",
+     "punti": [
+      {
+       "t": "El Real Decreto 244/2019 distingue dos modalidades: sin excedentes, en la que hay que instalar un mecanismo antivertido que impida inyectar energía a la red, y con excedentes, en la que la energía que sobra puede verterse a la red.",
+       "s": [
+        "es-boe-rd244"
+       ]
+      },
+      {
+       "t": "Las instalaciones sin excedentes están exentas de obtener permisos de acceso y conexión. Con excedentes también lo están las de 15 kW o menos situadas en suelo urbanizado.",
+       "s": [
+        "es-boe-rd244"
+       ]
+      },
+      {
+       "t": "Un kit que vierte a la red porque no tiene mecanismo antivertido no cumple la definición de autoconsumo sin excedentes del artículo 4.",
+       "s": [
+        "es-boe-rd244"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "kits",
+     "titolo": "Kits que se enchufan",
+     "punti": [
+      {
+       "t": "No hemos encontrado en el Real Decreto 244/2019 un régimen propio para los kits «enchufables» ni un límite de 800 W. La cifra de 800 VA aparece en la guía del IDAE para otra cosa: el circuito dedicado.",
+       "s": [
+        "es-boe-rd244",
+        "es-idae-guia"
+       ]
+      },
+      {
+       "t": "Según la guía del IDAE (v.6, julio de 2024), las instalaciones sin excedentes de menos de 800 VA no están obligadas a conectarse a un circuito independiente y dedicado. Si se conectan sin circuito dedicado, la documentación la entrega al usuario el fabricante, el importador o el responsable de comercializar el kit.",
+       "s": [
+        "es-idae-guia"
+       ]
+      },
+      {
+       "t": "Si eliges un circuito dedicado, debe hacerlo una empresa instaladora habilitada, que tramita los certificados de instalación.",
+       "s": [
+        "es-idae-guia"
+       ]
+      },
+      {
+       "t": "En viviendas, las instalaciones que no se conectan con un circuito dedicado o con un transformador de aislamiento deben tener una corriente de fuga igual o inferior a 10 mA (ITC-BT-40).",
+       "s": [
+        "es-idae-guia"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "registro",
+     "titolo": "Registro y contrato",
+     "punti": [
+      {
+       "t": "Para consumidores en baja tensión con generación de menos de 100 kW, la inscripción en el registro de autoconsumo la hace de oficio la comunidad autónoma, con la información que recibe por el Reglamento Electrotécnico de Baja Tensión.",
+       "s": [
+        "es-boe-rd244"
+       ]
+      },
+      {
+       "t": "En esos mismos casos, la distribuidora modifica el contrato de acceso a partir de la documentación que le envía la comunidad autónoma.",
+       "s": [
+        "es-boe-rd244"
+       ]
+      },
+      {
+       "t": "Cada comunidad autónoma puede pedir documentos distintos: consulta la web de industria o energía de la tuya antes de instalar.",
+       "nota": true
+      }
+     ]
+    },
+    {
+     "id": "comunidad",
+     "titolo": "Comunidad de propietarios",
+     "punti": [
+      {
+       "t": "Puedes modificar los elementos de tu piso si no alteras la seguridad del edificio, su estructura general, su configuración o estado exteriores, ni perjudicas a otro propietario, y debes avisar antes a quien represente a la comunidad.",
+       "s": [
+        "es-boe-lph"
+       ]
+      },
+      {
+       "t": "La instalación de sistemas comunes o privativos de aprovechamiento de energías renovables puede acordarse, a petición de cualquier propietario, por un tercio de los propietarios que representen un tercio de las cuotas.",
+       "s": [
+        "es-boe-lph"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ayudas",
+     "titolo": "Ayudas",
+     "punti": [
+      {
+       "t": "Los ayuntamientos pueden aprobar en su ordenanza fiscal una bonificación de hasta el 50% del IBI para inmuebles con sistemas de aprovechamiento eléctrico de la energía del sol, condicionada a la homologación de la instalación. Si existe y con qué condiciones lo decide cada ayuntamiento.",
+       "s": [
+        "es-boe-trlrhl"
+       ]
+      },
+      {
+       "t": "No hemos encontrado una ayuda estatal en vigor pensada para los kits de balcón.",
+       "nota": true
+      }
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "¿Necesito permiso de la comunidad de vecinos?",
+     "ricerca": "placas solares balcón permiso comunidad",
+     "a": "La Ley de Propiedad Horizontal permite modificar tu piso si no alteras la seguridad, la estructura ni la configuración o el estado exteriores del edificio, y obliga a avisar antes a quien represente a la comunidad. Si el kit altera la fachada, no basta con avisar: habla antes con la comunidad. Para instalar sistemas de energías renovables, la ley permite un acuerdo de un tercio de los propietarios que representen un tercio de las cuotas.",
+     "s": [
+      "es-boe-lph"
+     ]
+    },
+    {
+     "q": "¿Puedo poner un kit de 800 W?",
+     "ricerca": "placas solares balcon 800w",
+     "a": "El Real Decreto 244/2019 no fija un límite de 800 W para los kits. La guía del IDAE usa la cifra de 800 VA para otra cosa: por debajo, una instalación sin excedentes no está obligada a ir en un circuito dedicado. Por encima, el circuito dedicado y la documentación los hace una empresa instaladora habilitada.",
+     "s": [
+      "es-boe-rd244",
+      "es-idae-guia"
+     ]
+    },
+    {
+     "q": "¿Se puede enchufar un kit solar a un enchufe normal?",
+     "ricerca": "kit solar balcón enchufable",
+     "a": "Según la guía del IDAE, una instalación sin excedentes de menos de 800 VA puede conectarse sin circuito dedicado; entonces la documentación la da el fabricante, el importador o quien vende el kit, y la corriente de fuga debe ser de 10 mA o menos. Para ser «sin excedentes» necesita un mecanismo antivertido.",
+     "s": [
+      "es-idae-guia",
+      "es-boe-rd244"
+     ]
+    },
+    {
+     "q": "¿Y con batería?",
+     "ricerca": "placas solares balcón con batería",
+     "a": "El Real Decreto 244/2019 dice que, mientras no haya una norma propia para el almacenamiento en autoconsumo, las baterías se instalan de forma que compartan equipo de medida y protecciones con la instalación de generación. Pregunta al vendedor cómo lo cumple su kit.",
+     "s": [
+      "es-boe-rd244"
+     ]
+    },
+    {
+     "q": "¿Merece la pena en un piso?",
+     "ricerca": "placas solares balcon piso",
+     "a": "En Madrid, según PVGIS, un kit de 800 Wp inclinado 35° hacia el sur produce unos {kwh35:madrid} kWh al año; colgado en vertical de la barandilla, unos {kwh90:madrid} kWh. Si usas en casa el 60% al precio medio español de {prezzo} €/kWh (Eurostat, {periodo}), ahorras unos {eur:madrid} € al año: un kit de 500 € se paga en unos {anni:madrid:500} años.",
+     "s": [
+      "pvgis-api",
+      "eurostat-dati"
+     ]
+    },
+    {
+     "q": "¿Cuánto cuesta y cuánto se ahorra?",
+     "ricerca": "placas solares balcón precio",
+     "a": "No publicamos precios de tiendas. Con la calculadora puedes poner el precio de tu kit: el ahorro anual depende de tu ciudad, de la orientación, de cuánta energía uses mientras hay sol y de lo que pagas por cada kWh.",
+     "s": [
+      "pvgis-api",
+      "eurostat-dati"
+     ]
+    }
+   ]
+  },
+  "fr": {
+   "titolo_pagina": "Panneau solaire de balcon : la réglementation en France",
+   "sintesi": [
+    {
+     "k": "Déclaration",
+     "v": "obligatoire auprès d’Enedis, même sans injection"
+    },
+    {
+     "k": "Convention",
+     "v": "CACSI, engagement à ne rien injecter"
+    },
+    {
+     "k": "Consuel",
+     "v": "dispense possible pour un kit assemblé en usine"
+    },
+    {
+     "k": "Seuils lus",
+     "v": "3 kVA (Consuel) et 36 kVA (CACSI)"
+    }
+   ],
+   "sezioni": [
+    {
+     "id": "declaration",
+     "titolo": "Déclarer le kit à Enedis",
+     "punti": [
+      {
+       "t": "Selon Enedis, la déclaration d’une installation en autoconsommation totale est obligatoire, même sans injection, quel que soit son niveau de puissance.",
+       "s": [
+        "fr-enedis-autoconso"
+       ]
+      },
+      {
+       "t": "Elle se fait sur le portail Enedis-Connect (connect-racco.enedis.fr) : formulaire de demande, Consuel ou attestation sur l’honneur, et acceptation de la CACSI, qui formalise l’engagement à ne pas injecter sur le réseau.",
+       "s": [
+        "fr-enedis-autoconso"
+       ]
+      },
+      {
+       "t": "La mise en service est possible après acceptation de la convention sur Enedis-Connect, ou 15 jours calendaires après l’envoi du dossier complet. Un compteur électromécanique est remplacé par un compteur électronique, aux frais d’Enedis.",
+       "s": [
+        "fr-enedis-cacsi"
+       ]
+      },
+      {
+       "t": "En autoconsommation totale, aucun revenu n’est généré : vous ne vendez pas votre électricité.",
+       "s": [
+        "fr-enedis-autoconso"
+       ]
+      },
+      {
+       "t": "Si votre réseau n’est pas géré par Enedis (entreprise locale de distribution), la démarche se fait auprès de votre propre gestionnaire de réseau.",
+       "nota": true
+      }
+     ]
+    },
+    {
+     "id": "consuel",
+     "titolo": "Consuel et puissance",
+     "punti": [
+      {
+       "t": "Enedis prévoit une dispense de Consuel pour les équipements « plug & play » déjà assemblés et conformes à la norme NF EN 50549-1.",
+       "s": [
+        "fr-enedis-autoconso"
+       ]
+      },
+      {
+       "t": "Pour s’en passer, le producteur atteste que l’appareil a été fabriqué, assemblé et essayé en usine sans création de circuits fixes sur place, qu’il a un dispositif de découplage conforme et qu’il est branché sur un circuit conforme à la NF C 15-100.",
+       "s": [
+        "fr-enedis-cacsi"
+       ]
+      },
+      {
+       "t": "D’après le glossaire de la CACSI, un Consuel est nécessaire notamment si l’on ajoute une batterie, ou si la puissance de l’appareil dépasse 3 kVA, car il faut alors créer un nouveau circuit depuis le tableau électrique.",
+       "s": [
+        "fr-enedis-cacsi"
+       ]
+      },
+      {
+       "t": "La CACSI concerne les installations jusqu’à 36 kVA ; la puissance de production ne doit pas dépasser la puissance souscrite du logement.",
+       "s": [
+        "fr-enedis-cacsi"
+       ]
+      },
+      {
+       "t": "Nous n’avons pas trouvé, dans ces textes Enedis, de limite propre aux kits de balcon du type « 800 W » : les seuils lus sont 3 kVA et 36 kVA.",
+       "s": [
+        "fr-enedis-autoconso",
+        "fr-enedis-cacsi"
+       ]
+      },
+      {
+       "t": "Le centre de ressources photovoltaique.info (association Hespul) rappelle de ne pas surcharger la prise, et qu’un kit plug and play est incompatible avec une installation déjà en autoconsommation avec vente du surplus.",
+       "s": [
+        "fr-pvinfo-kits"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "urbanisme",
+     "titolo": "Mairie et urbanisme",
+     "punti": [
+      {
+       "t": "Sur un toit, il faut une déclaration préalable de travaux en mairie, parce que les panneaux modifient l’aspect extérieur du bâtiment.",
+       "s": [
+        "fr-sp-toit"
+       ]
+      },
+      {
+       "t": "Au sol, une installation de moins de 3 kW et d’au plus 1,80 m de hauteur est dispensée de formalité ; les règles changent dans les secteurs protégés.",
+       "s": [
+        "fr-sp-sol"
+       ]
+      },
+      {
+       "t": "Aucune de ces deux fiches officielles ne traite le cas d’un kit accroché à un garde-corps de balcon : demandez à votre mairie, surtout si le kit change l’aspect de la façade.",
+       "s": [
+        "fr-sp-toit",
+        "fr-sp-sol"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "copropriete",
+     "titolo": "Copropriété",
+     "punti": [
+      {
+       "t": "Nous n’avons pas pu lire la loi du 10 juillet 1965 sur Légifrance (accès refusé). Si le kit est fixé à la façade ou au garde-corps, demandez au syndic et lisez le règlement de copropriété avant de le poser.",
+       "s": [
+        "fr-loi-1965"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "aides",
+     "titolo": "Aides",
+     "punti": [
+      {
+       "t": "Nous n’avons pas trouvé d’aide nationale de l’État pour les kits prêts à brancher. Certaines collectivités en proposent : renseignez-vous auprès de votre commune ou de votre métropole.",
+       "nota": true
+      }
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "Que dit la réglementation sur les panneaux solaires de balcon ?",
+     "ricerca": "panneau solaire balcon reglementation",
+     "a": "Selon Enedis, toute installation en autoconsommation totale doit être déclarée, même sans injection et quelle que soit sa puissance : sur Enedis-Connect, avec un Consuel ou une attestation sur l’honneur, et l’acceptation de la convention CACSI. Un kit assemblé en usine et conforme à la norme NF EN 50549-1 peut être dispensé de Consuel.",
+     "s": [
+      "fr-enedis-autoconso"
+     ]
+    },
+    {
+     "q": "Faut-il une autorisation de la mairie ?",
+     "ricerca": "panneau solaire balcon autorisation",
+     "a": "Service-Public.fr exige une déclaration préalable pour des panneaux sur un toit, et dispense de formalité les panneaux au sol de moins de 3 kW et d’au plus 1,80 m. Aucune des deux fiches ne parle des kits sur un garde-corps de balcon : demandez à votre mairie.",
+     "s": [
+      "fr-sp-toit",
+      "fr-sp-sol"
+     ]
+    },
+    {
+     "q": "Et en copropriété ?",
+     "ricerca": "panneau solaire balcon copropriété",
+     "a": "Nous n’avons pas pu lire la loi de 1965 sur Légifrance. Avant de fixer un kit à la façade ou au garde-corps, demandez au syndic et lisez le règlement de copropriété.",
+     "s": [
+      "fr-loi-1965"
+     ]
+    },
+    {
+     "q": "Un panneau de balcon est-il rentable en appartement ?",
+     "ricerca": "panneau solaire balcon appartement",
+     "a": "À Paris, selon PVGIS, un kit de 800 Wc orienté plein sud et incliné à 35° produit environ {kwh35:paris} kWh par an ; accroché à la verticale au garde-corps, environ {kwh90:paris} kWh. Si vous en consommez 60 % au prix moyen français de {prezzo} €/kWh (Eurostat, {periodo}), l’économie est d’environ {eur:paris} € par an : un kit de 500 € est remboursé en environ {anni:paris:500} ans. Rien n’est payé pour l’énergie non consommée.",
+     "s": [
+      "pvgis-api",
+      "eurostat-dati",
+      "fr-enedis-autoconso"
+     ]
+    },
+    {
+     "q": "Et avec une batterie ?",
+     "ricerca": "panneau solaire balcon avec batterie",
+     "a": "D’après la convention CACSI d’Enedis, l’ajout d’une batterie impose une attestation Consuel, parce qu’il faut un dispositif de protection contre les surintensités.",
+     "s": [
+      "fr-enedis-cacsi"
+     ]
+    },
+    {
+     "q": "Peut-on brancher un kit de 2000 ou 3000 W sur une prise ?",
+     "ricerca": "kit solaire plug and play 3000w",
+     "a": "Selon la CACSI, au-delà de 3 kVA il faut créer un nouveau circuit depuis le tableau et obtenir un Consuel ; la puissance installée ne doit pas dépasser la puissance souscrite. photovoltaique.info met en garde contre la surcharge de la prise.",
+     "s": [
+      "fr-enedis-cacsi",
+      "fr-pvinfo-kits"
+     ]
+    }
+   ]
+  },
+  "de": {
+   "_nota": "Germania: da accendere quando Massimiliano conferma l'Impressum (nome, indirizzo e partita IVA sul sito pubblico). Fonti da leggere: Bundesnetzagentur e Marktstammdatenregister (registrazione), Solarspitzengesetz/EEG (800 VA dal 16/5/2024, da rileggere su gesetze-im-internet.de), WEG § 20 (Steckersolargeräte come privilegierte Maßnahme), Förderprogramme comunali.",
+   "attiva": false
+  }
+ }
+}
