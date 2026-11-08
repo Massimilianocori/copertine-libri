@@ -203,6 +203,8 @@ table.conf{width:100%;border-collapse:collapse;font-size:.95rem;background:var(-
 table.conf th{font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-3);background:var(--surface-2)}
 table.conf th,table.conf td{border-bottom:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
 .tab-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+ul.passi-lista{list-style:none;padding:0;display:grid;gap:10px}
+ul.passi-lista li{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
 ol.passi{counter-reset:p;list-style:none;padding:0;display:grid;gap:10px}
 ol.passi li{counter-increment:p;display:grid;grid-template-columns:36px 1fr;gap:12px;align-items:start;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
 ol.passi li::before{content:counter(p);display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--brand);color:var(--on-brand);font-weight:800}
@@ -213,6 +215,7 @@ ol.passi li::before{content:counter(p);display:grid;place-items:center;width:32p
 .modulo-testa h2{margin:0;font-size:1.25rem}
 .form{display:grid;gap:14px;margin-top:14px}
 .form label{display:grid;gap:6px;font-weight:650;font-size:.95rem}
+.form textarea{font:inherit;font-size:1rem;padding:11px 12px;min-height:120px;border:1.5px solid var(--line-2);border-radius:10px;background:var(--bg);color:var(--ink);width:100%;min-width:0;resize:vertical}
 .form input,.form select{font:inherit;font-size:1rem;padding:11px 12px;min-height:48px;border:1.5px solid var(--line-2);border-radius:10px;background:var(--bg);color:var(--ink);width:100%;min-width:0}
 .form input:focus,.form select:focus{border-color:var(--brand)}
 .form .check{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:.9rem;color:var(--ink-2)}
@@ -389,15 +392,16 @@ nav.menu details.lingue li a[aria-current]{color:var(--brand-ink);background:var
 </nav>
 </div></header>
 <main class="wrap" id="contenuto">
-<section class="hero"><nav class="briciole" aria-label="Sei qui"><a href="./">EsameB1</a> <span aria-hidden="true">›</span> <span aria-current="page">Privacy</span></nav><h1>Informativa privacy</h1><p class="small">Ultimo aggiornamento: ottobre 2026</p></section>
+<section class="hero"><nav class="briciole" aria-label="Sei qui"><a href="./">EsameB1</a> <span aria-hidden="true">›</span> <span aria-current="page">Privacy</span></nav><h1>Informativa privacy</h1><p class="small">Ultimo aggiornamento: novembre 2026</p></section>
 <h2>Chi tratta i dati</h2><p>Titolare del trattamento è Massimiliano Cori (Italia), che gestisce EsameB1 come progetto indipendente. Puoi scriverci rispondendo a qualsiasi email che ti mandiamo.</p>
 <h2>Quali dati raccogliamo</h2><p>Solo se compili il modulo "Avvisami": la tua email, la città e l'ente che scegli, e la pagina o il link da cui arrivi (per capire quali canali funzionano).</p>
+<p>Se usi il modulo "Segnala un errore": il testo che scrivi, la pagina e il link che indichi e, solo se la lasci, la tua email. Li usiamo solo per controllare e correggere il dato segnalato e, se lasci l'email, per risponderti; la base giuridica è il nostro legittimo interesse a correggere gli errori del sito (art. 6.1.f GDPR). Non ti iscriviamo agli avvisi e cancelliamo la segnalazione quando l'abbiamo gestita.</p>
 <h2>Perché</h2><p>Per mandarti avvisi sulle date e sulle scadenze dell'esame B1. La base giuridica è il tuo consenso (art. 6.1.a GDPR), che puoi ritirare quando vuoi.</p>
 <h2>Chi li gestisce per noi</h2><p>Il sito e il modulo sono ospitati da Netlify, Inc., che conserva i dati del modulo per nostro conto. Netlify può trattare i dati fuori dall'UE con le garanzie previste dal GDPR (clausole contrattuali standard). Non vendiamo né cediamo i tuoi dati.</p>
 <h2>Cookie e contatore visite</h2><p>Per contare le visite usiamo <a href="https://www.goatcounter.com/" rel="noopener">GoatCounter</a>, un contatore rispettoso della privacy: non usa cookie e non salva nulla nel browser, non crea profili e non conserva l'indirizzo IP, la firma completa del browser né altri identificativi. Tiene solo numeri aggregati (pagina, ora o giorno, browser, Paese, larghezza dello schermo) su server nell'Unione europea e non cede nulla a terzi; vedi <a href="https://www.goatcounter.com/help/privacy" rel="noopener">l'informativa privacy di GoatCounter</a>. Il contatore non usa cookie; la pubblicità descritta qui sotto sì.</p>
 <h2>Link di affiliazione</h2><p>Alcuni link sono di affiliazione e sono segnalati come tali: se acquisti tramite questi link potremmo ricevere una commissione, senza costi in più per te. Il nostro sito non usa cookie per questi link. Se ne apri uno, arrivi sul sito del partner, che può usare i propri cookie, secondo la propria informativa, per registrare che arrivi da noi. Riceviamo solo resoconti aggregati (clic, vendite, commissioni), mai il tuo nome o i tuoi recapiti. I partner non decidono mai cosa pubblichiamo.</p>
 <h2>Pubblicità (Google AdSense)</h2><p>Questo sito mostra annunci forniti da Google AdSense. Google e i partner pubblicitari con cui lavora usano cookie e tecnologie simili (come gli identificatori pubblicitari e la memoria locale del browser) per mostrare gli annunci, limitare quante volte vedi lo stesso annuncio, misurarne i risultati, prevenire le frodi e, solo se lo consenti, personalizzarli in base alle tue visite a questo e ad altri siti. Per questi annunci Google tratta i dati che raccoglie come titolare autonomo.</p><p>Se ti trovi nello Spazio economico europeo, nel Regno Unito o in Svizzera, alla prima visita compare un messaggio di consenso: è la piattaforma di gestione del consenso certificata di Google («Privacy e messaggi», certificata nel Transparency &amp; Consent Framework di IAB). Cookie e identificatori pubblicitari si usano solo con il tuo consenso, e puoi cambiare o ritirare la scelta quando vuoi dal link alle impostazioni di privacy e cookie che il messaggio lascia nella pagina. Se rifiuti, potresti comunque vedere annunci non personalizzati. La base giuridica è il tuo consenso (art. 6.1.a GDPR e art. 122 del Codice privacy).</p><p>Come Google usa i dati dei siti che mostrano i suoi annunci: <a href="https://policies.google.com/technologies/partner-sites" rel="noopener">policies.google.com/technologies/partner-sites</a>. Puoi disattivare gli annunci personalizzati di Google quando vuoi dalle <a href="https://adssettings.google.com" rel="noopener">impostazioni annunci di Google</a>. Google può trattare i dati fuori dall'UE con le garanzie previste dal GDPR.</p><h2>Programma di Affiliazione Amazon</h2><p>Partecipiamo al Programma di Affiliazione Amazon EU, un programma di affiliazione che permette ai siti di ricevere una commissione pubblicitaria pubblicizzando e fornendo link al sito Amazon.it. In qualità di Affiliato Amazon, ricevo un guadagno dagli acquisti idonei. I link ad Amazon.it portano a ricerche di libri: prezzi e disponibilità li vedi solo su Amazon e possono cambiare.</p>
-<h2>Per quanto tempo</h2><p>Finché resti iscritto agli avvisi. Se chiedi la cancellazione, cancelliamo i tuoi dati.</p>
+<h2>Per quanto tempo</h2><p>Finché resti iscritto agli avvisi. Le segnalazioni le cancelliamo dopo averle gestite. Se chiedi la cancellazione, cancelliamo i tuoi dati.</p>
 <h2>I tuoi diritti</h2><p>Puoi chiedere accesso, correzione, cancellazione, limitazione, portabilità e opposizione (artt. 15-22 GDPR) e puoi fare reclamo al Garante per la protezione dei dati personali (<a href="https://www.garanteprivacy.it" rel="noopener">garanteprivacy.it</a>).</p>
 </main>
 <footer class="piede"><div class="wrap">
@@ -409,13 +413,14 @@ nav.menu details.lingue li a[aria-current]{color:var(--brand-ink);background:var
 <rect x="11" y="25.6" width="6" height="2.4" rx="1.1" fill="#3FB37F"/><rect x="17" y="25.6" width="6" height="2.4" rx="1.1" fill="#FFFFFF"/><rect x="23" y="25.6" width="6" height="2.4" rx="1.1" fill="#E4573D"/>
 </svg><span class="logo-testo">Esame<b>B1</b></span></a>
 <ul class="piede-link">
-<li><a href="./#date">Date d'esame</a></li><li><a href="./#citta">Sedi per città</a></li><li><a href="./come-funziona/">Come funziona</a></li><li><a href="./costo/">Costo</a></li><li><a href="./risultati/">Risultati</a></li><li><a href="./esenzioni-e-domande/">Orale e domande</a></li><li><a href="./esonero-test-italiano/">Chi è esonerato</a></li><li><a href="./esempi/">Prove d'esempio</a></li><li><a href="./esempi/confronto/">CILS, CELI, PLIDA, CERT.IT a confronto</a></li><li><a href="./cittadinanza/">Domanda di cittadinanza</a></li><li><a href="./reddito-minimo-cittadinanza/">Reddito minimo</a></li><li><a href="./decreto-flussi-click-day/">Decreto flussi: click day</a></li><li><a href="./ente/cils/">CILS</a></li><li><a href="./ente/celi/">CELI</a></li><li><a href="./ente/plida/">PLIDA</a></li><li><a href="./ente/certit/">CERT.IT</a></li><li><a href="./en/privacy/" hreflang="en" lang="en">English</a></li><li><a href="./uk/" hreflang="uk" lang="uk">Українська</a></li><li><a href="./ro/" hreflang="ro" lang="ro">Română</a></li><li><a href="./privacy.html">Privacy</a></li>
+<li><a href="./#date">Date d'esame</a></li><li><a href="./#citta">Sedi per città</a></li><li><a href="./come-funziona/">Come funziona</a></li><li><a href="./costo/">Costo</a></li><li><a href="./risultati/">Risultati</a></li><li><a href="./esenzioni-e-domande/">Orale e domande</a></li><li><a href="./esonero-test-italiano/">Chi è esonerato</a></li><li><a href="./esempi/">Prove d'esempio</a></li><li><a href="./esempi/confronto/">CILS, CELI, PLIDA, CERT.IT a confronto</a></li><li><a href="./cittadinanza/">Domanda di cittadinanza</a></li><li><a href="./reddito-minimo-cittadinanza/">Reddito minimo</a></li><li><a href="./decreto-flussi-click-day/">Decreto flussi: click day</a></li><li><a href="./ente/cils/">CILS</a></li><li><a href="./ente/celi/">CELI</a></li><li><a href="./ente/plida/">PLIDA</a></li><li><a href="./ente/certit/">CERT.IT</a></li><li><a href="./en/privacy/" hreflang="en" lang="en">English</a></li><li><a href="./uk/" hreflang="uk" lang="uk">Українська</a></li><li><a href="./ro/" hreflang="ro" lang="ro">Română</a></li><li><a href="./chi-siamo/">Chi siamo</a></li><li><a href="./come-lavoriamo/">Come lavoriamo</a></li><li><a href="./come-lavoriamo/#segnala">Segnala un errore</a></li><li><a href="./privacy.html">Privacy</a></li>
 </ul>
 </div>
 <div>
 <p><strong>EsameB1</strong> è un sito indipendente, non affiliato agli enti certificatori. CILS, CELI, PLIDA e CERT.IT sono marchi dei rispettivi enti.
 Le informazioni vengono dalle fonti ufficiali indicate accanto a ogni dato. <strong>Prima di iscriverti verifica sempre sul sito della sede.</strong>
-Questo sito non dà consulenza sulla pratica di cittadinanza: per quella vedi la <a href="https://www.interno.gov.it/it/temi/cittadinanza-e-altri-diritti-civili/cittadinanza" rel="noopener">pagina del Ministero dell'Interno</a>.</p>
+Questo sito non dà consulenza sulla pratica di cittadinanza: per quella vedi la <a href="https://www.interno.gov.it/it/temi/cittadinanza-e-altri-diritti-civili/cittadinanza" rel="noopener">pagina del Ministero dell'Interno</a>.
+<a href="./chi-siamo/">Chi siamo</a> · <a href="./come-lavoriamo/">come raccogliamo e controlliamo i dati</a>.</p>
 <p><span class="dati"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-scudo"/></svg>Dati controllati il 4 novembre 2026.</span></p>
 </div>
 </div>
@@ -474,7 +479,7 @@ Questo sito non dà consulenza sulla pratica di cittadinanza: per quella vedi la
   var src=document.querySelectorAll('input[name=source]');
   var v='';try{var q=new URLSearchParams(location.search);v=q.get('ref')||q.get('utm_source')||document.referrer||'diretto';}catch(e){v='diretto';}
   src.forEach(function(i){i.value=String(v).slice(0,200);});
-  document.querySelectorAll('form.avvisami').forEach(function(form){
+  document.querySelectorAll('form.avvisami,form.segnala').forEach(function(form){
     form.addEventListener('submit',function(ev){
       ev.preventDefault();
       var err=form.querySelector('[data-errore]');err.hidden=true;

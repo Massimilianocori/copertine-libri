@@ -57,5 +57,6 @@
    "sedi_pagina": 2,
    "visite_28_giorni": 0
   }
- }
+ },
+ "_comuni_non_capoluogo": "Controllo del 8/11/2026 dopo la correzione (pagine dei comuni limitate alle sedi del comune): quota dei gruppi di 6 parole della pagina presenti anche nella pagina del capoluogo. Sopra 0,70 e meno di 3 visite → noindex; sopra 0,70 con 3 visite o più → resta in indice con canonical su sé stessa. Esito: busto-arsizio 0,78 (4 visite), crema 0,84 (9), treviglio 0,72 (5) restano in indice; rovereto 0,84, voghera 0,86, borgomanero 0,71 erano già qui; alba 0,69, arzignano 0,64, gavardo 0,65, schio 0,65, civitanova-marche 0,67. Riferimento: due città qualsiasi con gli stessi enti si sovrappongono già per 0,60-0,78 (testo nazionale comune)."
 }

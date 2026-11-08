@@ -840,9 +840,10 @@ def lista_sessioni(lista, con_filtri=True):
             + '</div><button class="btn btn-2 mostra" type="button" hidden>Mostra tutte le date</button></div>')
 
 
-def risposta(prossime, rel=""):
-    """Scheda in cima: prossimo esame e prossima scadenza nazionale ancora aperta. Il JS la tiene aggiornata tra un rilascio e l'altro."""
-    esami = prossime[:12]
+def risposta(prossime, rel="", quante=12, link_date=None):
+    """Scheda in cima: prossimo esame e prossima scadenza nazionale ancora aperta. Il JS la tiene aggiornata tra un rilascio e l'altro.
+    quante: quante sessioni e scadenze mettere nell'HTML (12 in home; 4 nelle pagine città, che passano solo gli enti con sedi lì)."""
+    esami = prossime[:quante]
     opz_e = []
     for i, s in enumerate(esami):
         x = d(s["data"])
@@ -851,7 +852,7 @@ def risposta(prossime, rel=""):
 <div class="r-cosa">{eb(s['ente'])}<span>{escape(", ".join(s['esami']))}</span></div>
 <p style="margin:12px 0 0"><span class="conta {classe_conta(s['data'], 'esame')}" data-conta="{s['data']}" data-modo="esame">{testo_conta(s['data'], 'esame')}</span></p>
 </div>""")
-    con_scad = sorted((s for s in prossime if s.get("scadenza") and d(s["scadenza"]) >= OGGI), key=lambda s: (s["scadenza"], s["data"]))
+    con_scad = sorted((s for s in prossime if s.get("scadenza") and d(s["scadenza"]) >= OGGI), key=lambda s: (s["scadenza"], s["data"]))[:quante]
     opz_s, primo = [], True
     for s in con_scad:
         visibile = primo and d(s["scadenza"]) >= OGGI
@@ -869,7 +870,7 @@ def risposta(prossime, rel=""):
     return f"""<div class="risposta">
 <div class="slot" data-slot><div class="r-et">{ic("cal")}Prossimo esame</div>{"".join(opz_e)}</div>
 <div class="slot" data-slot><div class="r-et">{ic("orologio")}Iscrizioni ancora aperte</div>{"".join(opz_s)}{riserva}</div>
-<div class="r-piede"><a href="{rel}#date">Tutte le date {ic("freccia")}</a><span>{ic("info")}Le date d'esame sono le stesse in tutta Italia.</span></div>
+<div class="r-piede"><a href="{link_date or rel + '#date'}">Tutte le date {ic("freccia")}</a><span>{ic("info")}Le date d'esame sono le stesse in tutta Italia.</span></div>
 </div>"""
 
 
@@ -1148,7 +1149,7 @@ def passi_home(prossime):
         ("Scegli l'ente", 'CILS, CELI, PLIDA e CERT.IT rilasciano un certificato B1 valido per la cittadinanza. Cambiano prezzo, durata e modo di contare i punti: <a href="esempi/confronto/">i 4 esami a confronto</a>.'),
         ("Trova una sede", f'Ci sono {len(sedi)} sedi in Italia. Cerca la tua città nell\'<a href="#citta">elenco per città</a>: per ogni sede trovi indirizzo e contatti pubblicati dall\'ente.'),
         ("Iscriviti presso la sede", 'Chiedi alla sede prezzo, documenti e ultimo giorno per iscriverti: può chiudere prima del termine nazionale. <a href="costo/">Quanto costa</a>.'),
-        ("Fai l'esame", 'Si fa in presenza, con un documento d\'identità valido: scritto (ascolto, lettura, scrittura) e orale di 10-15 minuti, di solito lo stesso giorno. <a href="come-funziona/">Come si svolge</a> · <a href="esempi/">prove d\'esempio gratis</a>.'),
+        ("Fai l'esame", 'Si fa in presenza, con un documento d\'identità valido: scritto (ascolto, lettura, scrittura) e orale di 10-15 minuti; al CILS di solito lo stesso giorno, per gli altri enti il giorno lo dice la sede. <a href="come-funziona/">Come si svolge</a> · <a href="esempi/">prove d\'esempio gratis</a>.'),
         ("Aspetta il risultato", f'{tempi}. <a href="risultati/">Dove vederlo, ente per ente</a>.'),
         ("Manda la domanda di cittadinanza", f'Online sul portale del Ministero dell\'Interno, con SPID o CIE e un contributo di {CITT["contributo_eur"]} €. Prima controlla il <a href="reddito-minimo-cittadinanza/">reddito minimo</a>. <a href="cittadinanza/">La domanda, prefettura per prefettura</a>.'),
     ]
@@ -1168,7 +1169,7 @@ def home(prossime):
         ('Che differenza c\'è tra "B1 cittadinanza" e B1 normale?', 'CILS e CELI hanno un esame B1 pensato per la cittadinanza, con più sessioni durante l\'anno. Il B1 "normale" degli stessi enti, il PLIDA B1 e il CERT.IT B1 sono anch\'essi certificati di livello B1. Leggi la <a href="come-funziona/">pagina Come funziona</a>.'),
         ("Come mi iscrivo?", "Ci si iscrive presso la sede d'esame, non su questo sito. Scegli una sede nella tua città, contattala e chiedi costo, documenti e scadenza."),
         ("Quanto costa l'esame B1 per la cittadinanza?", "CILS B1 Cittadinanza: 100 €, la stessa tassa in tutta Italia. CERT.IT B1: 80 € alla sede di Roma Tre. CELI e PLIDA: il prezzo lo decide il centro d'esame (per esempio CELI 2 i cittadinanza 90 € all'Università degli Studi di Milano). <a href=\"costo/\">Tutti i costi, con le fonti</a>."),
-        ("Quanto dura l'esame?", "Lo scritto dura da 1 ora e 30 minuti (CERT.IT) a 2 ore e 20 minuti (CELI e PLIDA), secondo l'ente. Poi c'è un orale di 10-15 minuti, di solito lo stesso giorno. <a href=\"come-funziona/#durata\">Durata di ogni esame e cosa portare</a>."),
+        ("Quanto dura l'esame?", "Lo scritto dura da 1 ora e 30 minuti (CERT.IT) a 2 ore e 20 minuti (CELI e PLIDA), secondo l'ente. Poi c'è un orale di 10-15 minuti: al CILS di solito lo stesso giorno, per gli altri enti il giorno lo dice la sede. <a href=\"come-funziona/#durata\">Durata di ogni esame e cosa portare</a>."),
         ("Quando arrivano i risultati e dove li vedo?", "CILS: circa 3 mesi dopo l'esame, online con matricola e data di nascita. CELI: circa 90 giorni lavorativi, online nell'area riservata del CVCL. PLIDA: online nel tuo account PLIDA. CERT.IT: il sito di Roma Tre non lo spiega, chiedi alla sede. <a href=\"risultati/\">Risultati ente per ente</a>: " + ", ".join(f'<a href="risultati/{SLUG_RISULTATI[e]}/">{e}</a>' for e in ENTE) + "."),
         ("Dove trovo esempi gratis dell'esame B1?", "Ogni ente pubblica gratis sul suo sito una prova d'esempio ufficiale, con audio e soluzioni: CILS B1 Cittadinanza, CELI 2 i, PLIDA B1 e CERT.IT B1. <a href=\"esempi/\">Tutte le prove d'esempio, ente per ente</a>."),
         ("Si può fare l'esame online?", "No. L'esame B1 per la cittadinanza si fa in presenza, in una sede d'esame, con un documento d'identità. <a href=\"come-funziona/#online\">Fonti ufficiali</a>."),
@@ -1281,12 +1282,12 @@ def sezione_dopo_b1(c):
         return ""
     nome = PREF[sl]["nome"]
     if ha_pagina_pref(sl):
-        pref = f'<a href="../../cittadinanza/{pref_url(sl)}/">{ic("edificio")}<span>Prefettura di {escape(nome)}<small>contatti e cosa scrive sulla cittadinanza</small></span></a>'
+        pref = f'<a href="../../cittadinanza/{pref_url(sl)}/">{ic("edificio")}<span>Prefettura {di_(nome)}<small>contatti e cosa scrive sulla cittadinanza</small></span></a>'
     else:
-        pref = f'<a href="../../cittadinanza/#{pref_url(sl)}">{ic("edificio")}<span>Prefettura di {escape(nome)}<small>contatti dell\'ufficio cittadinanza</small></span></a>'
+        pref = f'<a href="../../cittadinanza/#{pref_url(sl)}">{ic("edificio")}<span>Prefettura {di_(nome)}<small>contatti dell\'ufficio cittadinanza</small></span></a>'
     return f"""<section>
 <h2 id="domanda-cittadinanza">{ic("edificio")}Dopo il B1: la domanda di cittadinanza</h2>
-<p>Con il certificato B1 la domanda si manda online; poi la segue la <strong>Prefettura di {escape(nome)}</strong>. Prima controlla il reddito minimo.</p>
+<p>Con il certificato B1 la domanda si manda online; poi la segue la <strong>Prefettura {di_(nome)}</strong>. Prima controlla il reddito minimo.</p>
 <div class="griglia link3">{pref}<a href="../../reddito-minimo-cittadinanza/">{ic("euro")}<span>Reddito minimo per la cittadinanza<small>soglie ufficiali e calcolatore</small></span></a><a href="../../cittadinanza/#come">{ic("lista")}<span>Come si presenta la domanda<small>online, 250 €, documenti</small></span></a></div>
 </section>"""
 
@@ -1310,49 +1311,88 @@ def elenco_e(voci):
     return voci[0] if len(voci) == 1 else ", ".join(voci[:-1]) + " e " + voci[-1]
 
 
+def a_nome(nome):
+    """"a Parma", "ad Alba"."""
+    return f"{'ad' if nome[:1] in 'AaEe' else 'a'} {escape(nome)}"
+
+
+DI_SPECIALI = {"L'Aquila": "dell'Aquila", "La Spezia": "della Spezia"}
+
+
+def di_(nome):
+    """"di Parma", "dell'Aquila", "della Spezia" (testo già sicuro per l'HTML)."""
+    return escape(DI_SPECIALI.get(nome, "di " + nome))
+
+
 def comuni_delle_sedi(lista):
-    """Comuni dove sono le sedi, dal più fornito: "Milano (30), Monza (2)"."""
+    """Dove sono le sedi: "La sede è ad Alba", "Le 3 sedi sono tutte a Parma", "Le sedi sono in 2 comuni: Parma (3), Fidenza (1)"."""
     conta = {}
-    for s in lista:
-        conta[s["citta"]] = conta.get(s["citta"], 0) + 1
-    return ", ".join(f"{escape(n)} ({k})" for n, k in sorted(conta.items(), key=lambda x: (-x[1], x[0])))
+    for x in lista:
+        conta[x["citta"]] = conta.get(x["citta"], 0) + 1
+    if len(conta) == 1:
+        nome = next(iter(conta))
+        return f"La sede è {a_nome(nome)}." if len(lista) == 1 else f"Le {len(lista)} sedi sono tutte {a_nome(nome)}."
+    elenco = ", ".join(f"{escape(n)} ({k})" for n, k in sorted(conta.items(), key=lambda x: (-x[1], x[0])))
+    return f"Le sedi sono in {len(conta)} comuni: {elenco}."
 
 
 def costo_breve(e):
-    """Una frase sul costo, presa da dati/enti.json (fatti.costo)."""
+    """Una frase sul costo di un ente, presa da dati/enti.json (fatti.costo)."""
     if e == "CILS":
         x = ENTE["CILS"]
-        return f'{x["prezzo_esame"]}: {x["prezzo_eur"]} €, la stessa tassa in tutte le sedi'
+        return f'il {x["prezzo_esame"]} costa {x["prezzo_eur"]} €, la stessa tassa in tutte le sedi'
     if e == "CERT.IT":
-        return "CERT.IT B1: " + ENTE[e]["fatti"]["costo"]["breve"] + ", nelle altre sedi il prezzo lo decide la sede"
-    return f"{e}: il prezzo lo decide la sede"
+        return f'il CERT.IT B1 costa {ENTE[e]["fatti"]["costo"]["breve"]}, nelle altre sedi il prezzo lo decide la sede'
+    return f"per il {e} il prezzo lo decide la sede"
 
 
-def passi_citta(c, enti_prov, mie, prossime):
-    """«Come fare l'esame a X, passo per passo»: solo dati della pagina (sedi, enti, date) e fatti con fonte di enti.json e risultati.json."""
+def frase_costi(enti_qui):
+    """"Qui c'è solo il CILS: il CILS B1 Cittadinanza costa 100 €…" oppure "Dipende dall'ente. Il CILS…; per il PLIDA…"."""
+    if len(enti_qui) == 1:
+        return f"Qui c'è solo il {enti_qui[0]}: {costo_breve(enti_qui[0])}."
+    fissi = [costo_breve(e) for e in enti_qui if e in ("CILS", "CERT.IT")]
+    centro = [e for e in enti_qui if e not in ("CILS", "CERT.IT")]
+    if centro:
+        fissi.append(f"per il {centro[0]} il prezzo lo decide la sede" if len(centro) == 1 else f"per {elenco_e(centro)} il prezzo lo decide la sede")
+    t = "; ".join(fissi)
+    return f"Dipende dall'ente. {t[0].upper() + t[1:]}."
+
+
+def passi_citta(c, enti_qui, mie, cap, n_altre):
+    """«Come fare l'esame a X, passo per passo»: solo dati della pagina (sedi, enti, date) e fatti con fonte di enti.json e risultati.json.
+    enti_qui e mie: gli enti e le sedi che la pagina conta come sue (provincia per un capoluogo, il solo comune per le altre città)."""
     nome_pref = PREF[pref_di(c["provincia"])]["nome"] if pref_di(c["provincia"]) else None
-    enti_link = elenco_e(f'<a href="#sedi-{SLUG_ENTE[e]}">{e}</a>' for e in enti_prov)
+    enti_link = elenco_e(f'<a href="#sedi-{SLUG_ENTE[e]}">{e}</a>' for e in enti_qui)
+    capoluogo = c.get("capoluogo", True) or cap is None  # senza pagina del capoluogo la pagina conta le sedi della provincia
+    dove = f"In provincia {di_(nome_provincia(c))}" if capoluogo else "A" + a_(c)[1:]
+    if len(enti_qui) == 1:
+        scegli = f"{dove} c'è solo il {enti_link} ({n_sedi(len(mie))}): rilascia un certificato B1 valido per la cittadinanza. "
+    else:
+        scegli = f"{dove} trovi sedi {enti_link}: tutti rilasciano un certificato B1 valido per la cittadinanza. "
+    if capoluogo:
+        scegli += comuni_delle_sedi(mie)
+    elif cap and n_altre:
+        scegli += ((f"L'altra sede della provincia è" if n_altre == 1 else f"Le altre {n_altre} sedi della provincia, anche di altri enti, sono")
+                   + f' nella pagina di <a href="../{cap["slug"]}/">{escape(cap["nome"])}</a>.')
     cosa_portare = "Porta un documento d'identità valido: l'esame si fa solo in presenza, nella sede."
-    if "CILS" in enti_prov:
+    if "CILS" in enti_qui:
         cosa_portare += " Al CILS serve una penna nera."
-    if "PLIDA" in enti_prov:
-        cosa_portare += " Per il PLIDA apri prima un account sul sito dell'ente e dai la tua email al centro."
+    if "PLIDA" in enti_qui:
+        cosa_portare += " Per il PLIDA, prima di iscriverti, apri un account sul sito PLIDA: il centro ti dice come iscriverti e cosa portare."
     tempi = []
-    for e in enti_prov:
+    for e in enti_qui:
         t = RISULTATI["enti"][e]["tabella"]
         tempi.append(f'{e}: {t["tempi"]}' if t["tempi"] else (f'{e}: online, nel tuo account (l\'ente non indica i tempi)' if t["login"] else f'{e}: chiedi alla sede'))
     domanda_txt = (f'Con il certificato mandi la domanda online (SPID o CIE, contributo di {CITT["contributo_eur"]} €); la segue la '
-                   f'<a href="#domanda-cittadinanza">Prefettura di {escape(nome_pref)}</a>.' if nome_pref else
+                   f'<a href="#domanda-cittadinanza">Prefettura {di_(nome_pref)}</a>.' if nome_pref else
                    f'Con il certificato mandi la domanda online (SPID o CIE, contributo di {CITT["contributo_eur"]} €).')
     voci = [
-        ("Scegli l'ente e la sede",
-         f'{"A" + a_(c)[1:] if not c.get("capoluogo", True) else "In provincia di " + escape(nome_provincia(c))} trovi sedi {enti_link}: tutti rilasciano un certificato B1 valido per la cittadinanza. '
-         f'Le sedi sono a {comuni_delle_sedi(mie)}.'),
+        ("Scegli l'ente e la sede", scegli),
         ("Guarda la data e la scadenza",
          'Le date d\'esame sono uguali in tutta Italia: le trovi <a href="#date">nell\'elenco qui sotto</a>, con il termine nazionale per iscriversi. '
          'La sede può chiudere le iscrizioni prima di quel termine.'),
         ("Contatta la sede e iscriviti",
-         f'Chiedi prezzo, documenti e ultimo giorno per iscriverti. {"; ".join(costo_breve(e) for e in enti_prov)}. '
+         f'Chiedi prezzo, documenti e ultimo giorno per iscriverti. {frase_costi(enti_qui)} '
          f'<a href="../../costo/">Costi con le fonti</a>.'),
         ("Il giorno dell'esame", cosa_portare + ' <a href="../../come-funziona/#durata">Quanto dura ogni prova</a>.'),
         ("Il risultato", f'{"; ".join(tempi)}. <a href="#risultati">Dove vederlo</a>.'),
@@ -1365,28 +1405,33 @@ def passi_citta(c, enti_prov, mie, prossime):
 </section>"""
 
 
-def faq_citta(c, enti_prov, mancano, regione):
-    """Domande frequenti della pagina città: risposte solo con i dati della pagina e i fatti con fonte."""
-    prov = escape(nome_provincia(c))
+def faq_citta(c, enti_qui, mancano, regione, cap):
+    """Domande frequenti della pagina città: (domanda, risposta, nel JSON-LD). La domanda sulle date è uguale in tutte le città:
+    resta visibile ma fuori dal FAQPage, per non ripetere lo stesso dato strutturato in 94 pagine."""
+    capoluogo = c.get("capoluogo", True) or cap is None
+    dove = f"in provincia {di_(nome_provincia(c))}" if capoluogo else a_(c)
     faq = [(f"Quanto costa l'esame B1 {a_(c)}?",
-            f'Dipende dall\'ente: {"; ".join(costo_breve(e) for e in enti_prov)}. Prima di pagare chiedi alla sede il prezzo finale, '
-            f'con eventuali spese. <a href="../../costo/">Tutti i costi, con le fonti</a>.'),
+            f'{frase_costi(enti_qui)} Prima di pagare chiedi alla sede il prezzo finale, '
+            f'con eventuali spese. <a href="../../costo/">Tutti i costi, con le fonti</a>.', True),
            (f"Le date d'esame {a_(c)} sono diverse dal resto d'Italia?",
             "No. Ogni ente fissa le date per tutte le sue sedi, quindi sono le stesse in tutta Italia. "
-            "Cambia la scadenza per iscriversi: ogni sede può chiudere le iscrizioni prima del termine nazionale.")]
+            "Cambia la scadenza per iscriversi: ogni sede può chiudere le iscrizioni prima del termine nazionale.", False)]
     if mancano:
-        dove = elenco_e(f'<a href="../../ente/{SLUG_ENTE[e]}/#{ancora_regione(e, regione)}">{e}</a>' for e in mancano)
-        faq.append((f"Ci sono sedi {elenco_e(mancano)} in provincia di {prov}?",
-                    f"No: le fonti ufficiali non riportano sedi {elenco_e(mancano)} in provincia di {prov}. "
-                    f"Le sedi delle altre province, divise per regione, sono nelle pagine {dove}. "
-                    "Per la cittadinanza vale il certificato B1 di uno qualsiasi degli enti riconosciuti, quindi puoi scegliere anche un ente con sedi qui."))
+        if capoluogo:
+            altrove = "Le sedi delle altre province, divise per regione, sono nelle pagine " + elenco_e(
+                f'<a href="../../ente/{SLUG_ENTE[e]}/#{ancora_regione(e, regione)}">{e}</a>' for e in mancano) + ". "
+        else:
+            altrove = f'Le sedi del resto della provincia sono nella pagina di <a href="../{cap["slug"]}/">{escape(cap["nome"])}</a>. '
+        faq.append((f"Ci sono sedi {elenco_e(mancano)} {dove}?",
+                    f"No: le fonti ufficiali non riportano sedi {elenco_e(mancano)} {dove}. {altrove}"
+                    "Per la cittadinanza vale il certificato B1 di uno qualsiasi degli enti riconosciuti, quindi puoi scegliere anche un ente con sedi qui.", True))
     sl = pref_di(c["provincia"])
     if sl:
-        nome = escape(PREF[sl]["nome"])
+        nome = PREF[sl]["nome"]
         link = f"../../cittadinanza/{pref_url(sl)}/" if ha_pagina_pref(sl) else f"../../cittadinanza/#{pref_url(sl)}"
         faq.append((f"Dopo l'esame, dove presento la domanda di cittadinanza {a_(c)}?",
                     f"La domanda si manda online sul portale del Ministero dell'Interno, con SPID o CIE, e si paga un contributo di {CITT['contributo_eur']} €. "
-                    f'La pratica la segue la Prefettura di {nome}: <a href="{link}">contatti e cosa scrive la Prefettura</a>.'))
+                    f'La pratica la segue la Prefettura {di_(nome)}: <a href="{link}">contatti e cosa scrive la Prefettura</a>.', True))
     return faq
 
 
@@ -1394,8 +1439,15 @@ def pagina_citta(c, prossime):
     qui = [s for s in sedi if s["provincia"] == c["provincia"]]
     in_citta = [s for s in qui if nel_capoluogo(s, c)]
     prov = escape(nome_provincia(c))
+    di_prov = di_(nome_provincia(c))
     in_prov = [s for s in qui if s not in in_citta]
     regione = regione_di(c)
+    capoluogo = c.get("capoluogo", True)
+    cap = None if capoluogo else next((x for x in citta if x["provincia"] == c["provincia"] and x.get("capoluogo", True)), None)
+    # Dal 9/11/2026 la pagina di un comune che non è capoluogo parla solo delle sedi del comune (enti, date, domande); il resto della
+    # provincia sta nella pagina del capoluogo. Senza pagina del capoluogo restano le sedi della provincia, come prima.
+    solo_comune = not capoluogo and cap is not None
+    locale = in_citta if solo_comune else qui
     blocchi = []
     for e in ENTE:
         lista = [s for s in in_citta if s["ente"] == e]
@@ -1403,18 +1455,24 @@ def pagina_citta(c, prossime):
                  if regione else "")
         if lista:
             blocchi.append(f'<h3 id="sedi-{SLUG_ENTE[e]}">{eb(e)} {e} {a_(c)} ({len(lista)})</h3><ul class="sedi">{"".join(scheda_sede(s) for s in lista)}</ul>{tutte}')
-        elif any(s["ente"] == e for s in in_prov):
-            blocchi.append(f'<h3 id="sedi-{SLUG_ENTE[e]}">{eb(e)} {e} in provincia di {prov}</h3>'
+        elif not solo_comune and any(s["ente"] == e for s in in_prov):
+            blocchi.append(f'<h3 id="sedi-{SLUG_ENTE[e]}">{eb(e)} {e} in provincia {di_prov}</h3>'
                            f'<ul class="sedi">{"".join(scheda_sede(s) for s in in_prov if s["ente"] == e)}</ul>{tutte}')
-    mancano = [e for e in ENTE if not any(s["ente"] == e for s in qui)]
-    altre_prov = [s for s in in_prov if any(s["ente"] == e for e in ENTE) and any(x["ente"] == s["ente"] for x in in_citta)]
-    if altre_prov:
-        blocchi.append(f'<details><summary>Altre sedi in provincia di {prov} ({len(altre_prov)}){ic("giu")}</summary>'
-                       f'<ul class="sedi">{"".join(scheda_sede(s) for s in altre_prov)}</ul></details>')
+    mancano = [e for e in ENTE if not any(s["ente"] == e for s in locale)]
+    if solo_comune:
+        if in_prov:
+            blocchi.append(f'<p>{"L\'altra sede" if len(in_prov) == 1 else f"Le altre {len(in_prov)} sedi"} della provincia {di_prov} '
+                           f'{"è" if len(in_prov) == 1 else "sono"} nella pagina di <a href="../{cap["slug"]}/#sedi">{escape(cap["nome"])}</a>.</p>')
+    else:
+        altre_prov = [s for s in in_prov if any(x["ente"] == s["ente"] for x in in_citta)]
+        if altre_prov:
+            blocchi.append(f'<details><summary>Altre sedi in provincia {di_prov} ({len(altre_prov)}){ic("giu")}</summary>'
+                           f'<ul class="sedi">{"".join(scheda_sede(s) for s in altre_prov)}</ul></details>')
     nota_mancano = ""
     if mancano:
-        nota_mancano = (f'<p class="small">In provincia di {prov} non risultano sedi {", ".join(mancano)}: '
-                        f'guarda le sedi nelle province vicine nelle pagine {", ".join(f'<a href="../../ente/{SLUG_ENTE[e]}/#{ancora_regione(e, regione)}">{e}</a>' for e in mancano)}.</p>')
+        dove_m = a_(c) if solo_comune else f"in provincia {di_prov}"
+        nota_mancano = (f'<p class="small">{dove_m[0].upper() + dove_m[1:]} non risultano sedi {elenco_e(mancano)}: '
+                        f'guarda le sedi vicine nelle pagine {elenco_e(f"<a href=\"../../ente/{SLUG_ENTE[e]}/#{ancora_regione(e, regione)}\">{e}</a>" for e in mancano)}.</p>')
     ordinate = sorted(citta, key=lambda x: x["nome"])
     vicine = [x for x in ordinate if x != c and regione and regione_di(x) == regione]
     altre = "".join(f'<a href="../{x["slug"]}/">{escape(x["nome"])}</a>'
@@ -1422,7 +1480,6 @@ def pagina_citta(c, prossime):
     altre += f'<a href="../../#citta">Tutte le {len(citta)} città</a>'
     vicine_html = (f'<h3>{ic("pin")}In {escape(regione)}</h3><div class="altre">{"".join(f"<a href=\"../{x["slug"]}/\">{escape(x["nome"])}</a>" for x in vicine)}</div><h3>Altre città in Italia</h3>'
                    if vicine else "")
-    capoluogo = c.get("capoluogo", True)
     mie = qui if capoluogo else in_citta  # le sedi che la pagina conta come sue
     enti_qui = [e for e in ENTE if any(s["ente"] == e for s in mie)]
     conteggio = ", ".join(f"{sum(1 for s in mie if s['ente'] == e)} {e}" for e in enti_qui)
@@ -1431,37 +1488,37 @@ def pagina_citta(c, prossime):
         in_piu = ""
     else:
         dove = f"{"A" + a_(c)[1:]} {'c\'è' if len(mie) == 1 else 'ci sono'} <strong>{n_sedi(len(mie))}</strong>"
-        cap = next((x for x in citta if x["provincia"] == c["provincia"] and x.get("capoluogo", True)), None)
-        in_piu = (f" In provincia di {prov} {'ce n\'è un\'altra' if len(in_prov) == 1 else f'ce ne sono altre {len(in_prov)}'}"
+        in_piu = (f" In provincia {di_prov} {'ce n\'è un\'altra' if len(in_prov) == 1 else f'ce ne sono altre {len(in_prov)}'}"
                   + (f', vedi anche la pagina di <a href="../{cap["slug"]}/">{escape(cap["nome"])}</a>.' if cap else ".")) if in_prov else ""
     vicine_griglia = "".join(
         f'<a href="../{x["slug"]}/">{ic("pin")}<span>{escape(x["nome"])}<small>{n_sedi(sedi_di(x))}</small></span></a>' for x in citta_vicine(c))
     vicine_titolo = "Sedi nelle città vicine" if c["slug"] in VICINE else f"Sedi in altre città: {escape(regione)}"
     # Elenco delle date (9/11/2026): le prossime 6 sessioni degli enti con sedi in provincia; tutte le altre sono nel calendario
     # completo della home (le date sono nazionali: ripeterle tutte in 94 pagine città non aggiunge nulla).
-    enti_prov = [e for e in ENTE if any(s["ente"] == e for s in qui)]
+    enti_prov = [e for e in ENTE if any(s["ente"] == e for s in locale)]
     locali = [s for s in prossime if s["ente"] in enti_prov]
+    in_alto = risposta(locali, "", quante=4, link_date="../../#date")
     titolo_date = (f"Le prossime date (valide anche {a_(c)})" if len(enti_prov) == len(ENTE)
                    else f"Le prossime date {elenco_e(enti_prov)} (valide anche {a_(c)})")
     altri = [e for e in ENTE if e not in enti_prov]
     nota_date = (f'<p class="small">{"Qui ci sono le prossime " + str(min(6, len(locali))) + " sessioni" if len(locali) > 6 else "Qui ci sono tutte le sessioni in programma"}'
-                 f'{" degli enti con sedi in provincia di " + prov if altri else ""}. '
+                 f'{(" degli enti con sedi " + (a_(c) if solo_comune else "in provincia " + di_prov)) if altri else ""}. '
                  f'<a href="../../#date">Calendario completo: tutte le {len(prossime)} sessioni di CILS, CELI, PLIDA e CERT.IT</a>.</p>')
     locali = locali[:6]
-    faq = faq_citta(c, enti_prov, mancano, regione)
+    faq = faq_citta(c, enti_prov, mancano, regione, cap)
     corpo = f"""<section class="hero">
 {briciole(("EsameB1", "../../"), ("Città", "../../#citta"), (c["nome"], None))}
 <h1>Esame B1 per la cittadinanza {a_(c)}: date e sedi {anni(prossime)}</h1>
 <p class="lead">{dove} dove puoi fare l'esame di italiano B1 per la cittadinanza ({conteggio}).{in_piu}
 Le date d'esame sono le stesse in tutta Italia; la scadenza per iscriversi può cambiare da sede a sede.</p>
-{risposta(prossime, "")}
+{in_alto}
 <div class="azioni"><a class="btn" href="#avvisami">{ic("campana")}Avvisami per {escape(c['nome'])}</a><a class="btn btn-2" href="#sedi">{ic("pin")}Vedi {'la sede' if len(mie) == 1 else f'le {len(mie)} sedi'}</a></div>
 </section>
 {avviso("Contatta la sede prima di iscriverti: ti dice costo, documenti e ultimo giorno per iscriverti.")}
-{passi_citta(c, enti_prov, mie, prossime)}
+{passi_citta(c, enti_prov, locale, cap, len(in_prov))}
 <section>
 <h2 id="per-ente">{ic("cal")}Prossime date {a_(c)}, ente per ente</h2>
-{per_ente(c, qui, in_citta, prossime)}
+{per_ente(c, locale, in_citta, prossime)}
 </section>
 <div class="due">
 <section>
@@ -1491,7 +1548,7 @@ Le date d'esame sono le stesse in tutta Italia; la scadenza per iscriversi può 
 {sezione_dopo_b1(c)}
 <section>
 <h2 id="domande">{ic("info")}Domande frequenti su {escape(c["nome"])}</h2>
-{"".join(domanda(q, a) for q, a in faq)}
+{"".join(domanda(q, a) for q, a, _ in faq)}
 </section>
 <section><h2>{ic("pin")}Altre città</h2>{vicine_html}<div class="altre">{altre}</div></section>"""
     # Titolo con la prossima data degli enti che hanno sedi qui: si aggiorna da solo a ogni rigenerazione (dati/sessioni.json).
@@ -1515,7 +1572,7 @@ Le date d'esame sono le stesse in tutta Italia; la scadenza per iscriversi può 
         f"Esame di italiano B1 per la cittadinanza {dove_d}: {quali}, {prossimo_d}, scadenze e contatti.",
         f"Esame B1 cittadinanza {dove_d}: {quali}, {prossimo_d}, scadenze e contatti delle sedi.",
         f"Esame B1 cittadinanza {dove_d}: {n_sedi(len(mie))}, {prossimo_d}, scadenze e contatti delle sedi.")
-    jsonld = {"@context": "https://schema.org", "@graph": [faq_jsonld(faq)]}
+    jsonld = {"@context": "https://schema.org", "@graph": [faq_jsonld([(q, a) for q, a, nel_ld in faq if nel_ld])]}
     indicizza = citta_indicizzata(c)
     pagina(f"citta/{c['slug']}/index.html", titolo, descr, corpo, jsonld, indicizza=indicizza)
     return indicizza
@@ -1627,7 +1684,7 @@ def come_funziona():
 {briciole(("EsameB1", "../"), ("Come funziona", None))}
 <h1>Esame B1 per la cittadinanza: come funziona, quanto dura, cosa portare</h1>
 <p class="lead"><strong>L'esame B1 ha 4 prove: ascolto, lettura, scrittura e orale.</strong> Si fa solo in presenza, in una sede d'esame.
-Lo scritto dura da 1 ora e 30 minuti a 2 ore e 20 minuti secondo l'ente, l'orale 10-15 minuti, di solito lo stesso giorno.
+Lo scritto dura da 1 ora e 30 minuti a 2 ore e 20 minuti secondo l'ente, l'orale 10-15 minuti: al CILS di solito lo stesso giorno, per gli altri enti il giorno lo dice la sede.
 Ci si iscrive presso la sede, che indica prezzo, documenti e scadenza. Qui sotto i dettagli di ogni ente, con le fonti.</p>
 </section>
 <h2>{ic("info")}Chi deve fare l'esame</h2>
@@ -1647,7 +1704,7 @@ Fonte: <a href="{PREFETTURA}" rel="noopener">Prefettura – Ministero dell'Inter
 <li><span>Paga e conserva la ricevuta. Il giorno dell'esame porta un documento d'identità valido.</span></li>
 </ol>
 <h2 id="durata">{ic("orologio")}Quanto dura l'esame</h2>
-<p>Prima c'è lo scritto (ascolto, lettura, scrittura), poi un orale di 10-15 minuti con un esaminatore, di solito lo stesso giorno.</p>
+<p>Prima c'è lo scritto (ascolto, lettura, scrittura), poi un orale di 10-15 minuti con un esaminatore: al CILS di solito lo stesso giorno, per gli altri enti il giorno lo dice la sede.</p>
 {schede_per_ente("durata")}
 <h2 id="documenti">{ic("doc")}Documenti e cosa portare</h2>
 {schede_per_ente("documenti")}
@@ -3928,11 +3985,11 @@ def privacy():
     corpo = f"""<section class="hero">{briciole(("EsameB1", "./"), ("Privacy", None))}<h1>Informativa privacy</h1><p class="small">Ultimo aggiornamento: novembre 2026</p></section>
 <h2>Chi tratta i dati</h2><p>Titolare del trattamento è Massimiliano Cori (Italia), che gestisce {NOME} come progetto indipendente. Puoi scriverci rispondendo a qualsiasi email che ti mandiamo.</p>
 <h2>Quali dati raccogliamo</h2><p>Solo se compili il modulo "Avvisami": la tua email, la città e l'ente che scegli, e la pagina o il link da cui arrivi (per capire quali canali funzionano).</p>
-<p>Se usi il modulo "Segnala un errore": il testo che scrivi, la pagina e il link che indichi e, solo se la lasci, la tua email. Li usiamo per controllare la segnalazione e per risponderti; non ti iscriviamo agli avvisi.</p>
+<p>Se usi il modulo "Segnala un errore": il testo che scrivi, la pagina e il link che indichi e, solo se la lasci, la tua email. Li usiamo solo per controllare e correggere il dato segnalato e, se lasci l'email, per risponderti; la base giuridica è il nostro legittimo interesse a correggere gli errori del sito (art. 6.1.f GDPR). Non ti iscriviamo agli avvisi e cancelliamo la segnalazione quando l'abbiamo gestita.</p>
 <h2>Perché</h2><p>Per mandarti avvisi sulle date e sulle scadenze dell'esame B1. La base giuridica è il tuo consenso (art. 6.1.a GDPR), che puoi ritirare quando vuoi.</p>
 <h2>Chi li gestisce per noi</h2><p>Il sito e il modulo sono ospitati da Netlify, Inc., che conserva i dati del modulo per nostro conto. Netlify può trattare i dati fuori dall'UE con le garanzie previste dal GDPR (clausole contrattuali standard). Non vendiamo né cediamo i tuoi dati.</p>
 {cookie}{PRIVACY_AMAZON if url_affiliato("amazon") else ""}
-<h2>Per quanto tempo</h2><p>Finché resti iscritto agli avvisi. Le segnalazioni le teniamo finché servono a controllare e correggere il dato. Se chiedi la cancellazione, cancelliamo i tuoi dati.</p>
+<h2>Per quanto tempo</h2><p>Finché resti iscritto agli avvisi. Le segnalazioni le cancelliamo dopo averle gestite. Se chiedi la cancellazione, cancelliamo i tuoi dati.</p>
 <h2>I tuoi diritti</h2><p>Puoi chiedere accesso, correzione, cancellazione, limitazione, portabilità e opposizione (artt. 15-22 GDPR) e puoi fare reclamo al Garante per la protezione dei dati personali (<a href="https://www.garanteprivacy.it" rel="noopener">garanteprivacy.it</a>).</p>"""
     pagina("privacy.html", "Privacy | EsameB1", "Informativa privacy del sito EsameB1.", corpo)
 

@@ -205,6 +205,8 @@ table.conf{width:100%;border-collapse:collapse;font-size:.95rem;background:var(-
 table.conf th{font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-3);background:var(--surface-2)}
 table.conf th,table.conf td{border-bottom:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
 .tab-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+ul.passi-lista{list-style:none;padding:0;display:grid;gap:10px}
+ul.passi-lista li{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
 ol.passi{counter-reset:p;list-style:none;padding:0;display:grid;gap:10px}
 ol.passi li{counter-increment:p;display:grid;grid-template-columns:36px 1fr;gap:12px;align-items:start;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
 ol.passi li::before{content:counter(p);display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--brand);color:var(--on-brand);font-weight:800}
@@ -215,6 +217,7 @@ ol.passi li::before{content:counter(p);display:grid;place-items:center;width:32p
 .modulo-testa h2{margin:0;font-size:1.25rem}
 .form{display:grid;gap:14px;margin-top:14px}
 .form label{display:grid;gap:6px;font-weight:650;font-size:.95rem}
+.form textarea{font:inherit;font-size:1rem;padding:11px 12px;min-height:120px;border:1.5px solid var(--line-2);border-radius:10px;background:var(--bg);color:var(--ink);width:100%;min-width:0;resize:vertical}
 .form input,.form select{font:inherit;font-size:1rem;padding:11px 12px;min-height:48px;border:1.5px solid var(--line-2);border-radius:10px;background:var(--bg);color:var(--ink);width:100%;min-width:0}
 .form input:focus,.form select:focus{border-color:var(--brand)}
 .form .check{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:.9rem;color:var(--ink-2)}
@@ -499,13 +502,14 @@ il decreto chiede un certificato «non inferiore» all'A2.</p>
 <rect x="11" y="25.6" width="6" height="2.4" rx="1.1" fill="#3FB37F"/><rect x="17" y="25.6" width="6" height="2.4" rx="1.1" fill="#FFFFFF"/><rect x="23" y="25.6" width="6" height="2.4" rx="1.1" fill="#E4573D"/>
 </svg><span class="logo-testo">Esame<b>B1</b></span></a>
 <ul class="piede-link">
-<li><a href="../#date">Date d'esame</a></li><li><a href="../#citta">Sedi per città</a></li><li><a href="../come-funziona/">Come funziona</a></li><li><a href="../costo/">Costo</a></li><li><a href="../risultati/">Risultati</a></li><li><a href="../esenzioni-e-domande/">Orale e domande</a></li><li><a href="../esonero-test-italiano/">Chi è esonerato</a></li><li><a href="../esempi/">Prove d'esempio</a></li><li><a href="../esempi/confronto/">CILS, CELI, PLIDA, CERT.IT a confronto</a></li><li><a href="../cittadinanza/">Domanda di cittadinanza</a></li><li><a href="../reddito-minimo-cittadinanza/">Reddito minimo</a></li><li><a href="../decreto-flussi-click-day/">Decreto flussi: click day</a></li><li><a href="../ente/cils/">CILS</a></li><li><a href="../ente/celi/">CELI</a></li><li><a href="../ente/plida/">PLIDA</a></li><li><a href="../ente/certit/">CERT.IT</a></li><li><a href="../en/language-test-exemptions/" hreflang="en" lang="en">English</a></li><li><a href="../uk/zvilnennia-vid-ispytu/" hreflang="uk" lang="uk">Українська</a></li><li><a href="../ro/scutire-test-italiana/" hreflang="ro" lang="ro">Română</a></li><li><a href="../privacy.html">Privacy</a></li>
+<li><a href="../#date">Date d'esame</a></li><li><a href="../#citta">Sedi per città</a></li><li><a href="../come-funziona/">Come funziona</a></li><li><a href="../costo/">Costo</a></li><li><a href="../risultati/">Risultati</a></li><li><a href="../esenzioni-e-domande/">Orale e domande</a></li><li><a href="../esonero-test-italiano/">Chi è esonerato</a></li><li><a href="../esempi/">Prove d'esempio</a></li><li><a href="../esempi/confronto/">CILS, CELI, PLIDA, CERT.IT a confronto</a></li><li><a href="../cittadinanza/">Domanda di cittadinanza</a></li><li><a href="../reddito-minimo-cittadinanza/">Reddito minimo</a></li><li><a href="../decreto-flussi-click-day/">Decreto flussi: click day</a></li><li><a href="../ente/cils/">CILS</a></li><li><a href="../ente/celi/">CELI</a></li><li><a href="../ente/plida/">PLIDA</a></li><li><a href="../ente/certit/">CERT.IT</a></li><li><a href="../en/language-test-exemptions/" hreflang="en" lang="en">English</a></li><li><a href="../uk/zvilnennia-vid-ispytu/" hreflang="uk" lang="uk">Українська</a></li><li><a href="../ro/scutire-test-italiana/" hreflang="ro" lang="ro">Română</a></li><li><a href="../chi-siamo/">Chi siamo</a></li><li><a href="../come-lavoriamo/">Come lavoriamo</a></li><li><a href="../come-lavoriamo/#segnala">Segnala un errore</a></li><li><a href="../privacy.html">Privacy</a></li>
 </ul>
 </div>
 <div>
 <p><strong>EsameB1</strong> è un sito indipendente, non affiliato agli enti certificatori. CILS, CELI, PLIDA e CERT.IT sono marchi dei rispettivi enti.
 Le informazioni vengono dalle fonti ufficiali indicate accanto a ogni dato. <strong>Prima di iscriverti verifica sempre sul sito della sede.</strong>
-Questo sito non dà consulenza sulla pratica di cittadinanza: per quella vedi la <a href="https://www.interno.gov.it/it/temi/cittadinanza-e-altri-diritti-civili/cittadinanza" rel="noopener">pagina del Ministero dell'Interno</a>.</p>
+Questo sito non dà consulenza sulla pratica di cittadinanza: per quella vedi la <a href="https://www.interno.gov.it/it/temi/cittadinanza-e-altri-diritti-civili/cittadinanza" rel="noopener">pagina del Ministero dell'Interno</a>.
+<a href="../chi-siamo/">Chi siamo</a> · <a href="../come-lavoriamo/">come raccogliamo e controlliamo i dati</a>.</p>
 <p><span class="dati"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-scudo"/></svg>Dati controllati il 4 novembre 2026.</span></p>
 </div>
 </div>
@@ -564,7 +568,7 @@ Questo sito non dà consulenza sulla pratica di cittadinanza: per quella vedi la
   var src=document.querySelectorAll('input[name=source]');
   var v='';try{var q=new URLSearchParams(location.search);v=q.get('ref')||q.get('utm_source')||document.referrer||'diretto';}catch(e){v='diretto';}
   src.forEach(function(i){i.value=String(v).slice(0,200);});
-  document.querySelectorAll('form.avvisami').forEach(function(form){
+  document.querySelectorAll('form.avvisami,form.segnala').forEach(function(form){
     form.addEventListener('submit',function(ev){
       ev.preventDefault();
       var err=form.querySelector('[data-errore]');err.hidden=true;
