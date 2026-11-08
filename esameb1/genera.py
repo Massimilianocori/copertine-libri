@@ -28,6 +28,7 @@ ALTRI_SITI = [  # blocco "Altri strumenti utili" in fondo a ogni pagina (URL dal
      "treni, aerei e mezzi pubblici, dal registro ufficiale del Ministero."),
 ]
 GOOGLE_VERIFICA = "btXTQU_vAoe1K9f3q-43GisAXTiyKQCYcShozNhrAgI"  # Search Console, proprietà https://esameb1.netlify.app (vecchio indirizzo; dal 8/11/2026 il sito è su https://esameb1.eu)
+GOOGLE_VERIFICA_DOMINIO = "oqTPjb5TjEbrEBUVj-ToW2AiPp1Vw85qL8ZHibY28FI"  # Search Console, proprietà https://esameb1.eu (8/11/2026): non rimuoverlo
 
 # Contatore visite GoatCounter, account condiviso "rete-siti" della rete (nessun cookie, nessun dato personale conservato).
 # Il percorso inviato comprende l'host (location.host + percorso), così nel cruscotto https://rete-siti.goatcounter.com
@@ -713,7 +714,8 @@ def pagina(percorso, titolo, descrizione, corpo, jsonld=None, base=None):
 <meta property="og:url" content="{canonico}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0B6B4F">
-<meta name="google-site-verification" content="{GOOGLE_VERIFICA}">{ADSENSE_HEAD}
+<meta name="google-site-verification" content="{GOOGLE_VERIFICA}">
+<meta name="google-site-verification" content="{GOOGLE_VERIFICA_DOMINIO}">{ADSENSE_HEAD}
 <link rel="icon" href="{FAVICON}">
 <link rel="preload" href="/fonts/figtree.woff2" as="font" type="font/woff2" crossorigin>
 <style>{CSS}</style>
