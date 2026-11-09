@@ -1,6 +1,6 @@
 {
  "_nota": "e-Visa per l'India: tabelle ufficiali dei costi estratte dai PDF (pdftotext -layout) e fonti rilette da raccolta/india_evisa.py (HTTP, Last-Modified, data di lettura, impronta); citazioni e FAQ da dati/india_evisa_manuali.json; pagine per nazionalità solo con ricerche vere (dati/india_evisa_domanda.json). Non modificare a mano: rilanciare lo script.",
- "controllato_il": "2026-11-04",
+ "controllato_il": "2026-11-09",
  "fonti": {
   "fee_tv": {
    "url": "https://indianvisaonline.gov.in/evisa/images/Etourist_fee_final.pdf",
@@ -12,7 +12,7 @@
    "tipo": "pdf",
    "last_modified": "Fri, 30 Oct 2026 11:39:36 GMT",
    "file_del": "2026-10-30",
-   "letto_il": "2026-11-04",
+   "letto_il": "2026-11-09",
    "sha256": "9d421607c20f6a810113a982625170f720bc20bc08b2c8c793a6303e66cbe9f5",
    "righe": 175,
    "data_tabella": "2026-09-08",
@@ -30,7 +30,7 @@
    "tipo": "pdf",
    "last_modified": "Fri, 30 Oct 2026 11:39:38 GMT",
    "file_del": "2026-10-30",
-   "letto_il": "2026-11-04",
+   "letto_il": "2026-11-09",
    "sha256": "bba19619ec91a5a0accb14a94edadb29a664791f22ebf5e2c521a6bc240e8260",
    "righe": 176,
    "data_tabella": "2026-04-15",
@@ -48,7 +48,7 @@
    "tipo": "html",
    "last_modified": "Fri, 30 Oct 2026 11:39:40 GMT",
    "file_del": "2026-10-30",
-   "letto_il": "2026-11-04",
+   "letto_il": "2026-11-09",
    "impronta": "7072fe234b5d579b",
    "cambiato_il": "2026-10-31",
    "frasi": 26
@@ -61,9 +61,9 @@
    "ente": "Bureau of Immigration, Ministry of Home Affairs (Government of India)",
    "titolo": "Indian Visa Online (home page)",
    "tipo": "html",
-   "last_modified": "Wed, 19 Aug 2026 12:32:36 GMT",
-   "file_del": "2026-08-19",
-   "letto_il": "2026-11-04",
+   "last_modified": "Wed, 02 Sep 2026 09:35:20 GMT",
+   "file_del": "2026-09-02",
+   "letto_il": "2026-11-09",
    "impronta": "63faf647e0a3ad51",
    "cambiato_il": "2026-10-31",
    "frasi": 5
@@ -78,7 +78,7 @@
    "tipo": "html",
    "last_modified": "Wed, 14 Oct 2026 10:30:18 GMT",
    "file_del": "2026-10-14",
-   "letto_il": "2026-11-04",
+   "letto_il": "2026-11-09",
    "impronta": "c44ff8b47895fc38",
    "cambiato_il": "2026-10-31",
    "frasi": 10
@@ -87,13 +87,13 @@
    "url": "https://boi.gov.in/boi/contents/travelling-to-india/foreigners/visa-free-regime-visa-on-arrival",
    "url_finale": "https://boi.gov.in/boi/contents/travelling-to-india/foreigners/visa-free-regime-visa-on-arrival",
    "http": 200,
-   "byte": 290339,
+   "byte": 290343,
    "ente": "Bureau of Immigration, Ministry of Home Affairs (Government of India)",
    "titolo": "Bureau of Immigration: Visa free Regime & Visa on Arrival",
    "tipo": "html",
    "last_modified": null,
    "file_del": null,
-   "letto_il": "2026-11-04",
+   "letto_il": "2026-11-09",
    "impronta": "ec570255dc69f46c",
    "cambiato_il": "2026-10-31",
    "frasi": 3
@@ -102,13 +102,13 @@
    "url": "https://boi.gov.in/boi/contents/travelling-to-india/general-guidelines",
    "url_finale": "https://boi.gov.in/boi/contents/travelling-to-india/general-guidelines",
    "http": 200,
-   "byte": 289682,
+   "byte": 289686,
    "ente": "Bureau of Immigration, Ministry of Home Affairs (Government of India)",
    "titolo": "Bureau of Immigration: General Guidelines (travelling to India)",
    "tipo": "html",
    "last_modified": null,
    "file_del": null,
-   "letto_il": "2026-11-04",
+   "letto_il": "2026-11-09",
    "impronta": "81b7d79e60b60893",
    "cambiato_il": "2026-10-31",
    "frasi": 2
@@ -6569,7 +6569,8 @@
    "nome_pdf": "Czech Republic",
    "slug": "czechia",
    "alias": [
-    "Czech Republic"
+    "Czech Republic",
+    "Czech Rep"
    ],
    "tv": {
     "tv30_apr_giu": 10,
@@ -7178,7 +7179,9 @@
    "nome": "Ireland",
    "nome_pdf": "Ireland",
    "slug": "ireland",
-   "alias": [],
+   "alias": [
+    "Republic of Ireland"
+   ],
    "tv": {
     "tv30_apr_giu": 10,
     "tv30_lug_mar": 25,
@@ -9054,7 +9057,8 @@
    "alias": [
     "Abu Dhabi",
     "Dubai",
-    "UAE"
+    "UAE",
+    "United Arab Emirates (UAE)"
    ],
    "tv": {
     "tv30_apr_giu": 10,
