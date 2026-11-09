@@ -109,6 +109,10 @@ Routine del 3/11 e del 4/11 non partite (sessione riavviata). Il 4/11 sera: 11 f
 
 47 follow-up 2 (invii del 27/10). 0 rimbalzi, 0 risposte vere. Restano solo 2 follow-up 2 per il 10/11. Bozza post LinkedIn pronta.
 
+## Chiusura (9/11)
+
+Scrollcraft chiuso per decisione di Massimiliano. Totale: ~470 contatti, ~1.200 email, 0 risposte positive, 0 clienti. Routine fermate; i 2 follow-up del 10/11 non partono.
+
 ## Crediti
 
 | Data | Higgsfield (piano Ultra) | Apollo lead credit (ciclo 3/10-3/11) |

@@ -141,3 +141,7 @@ Fonti (lette dai riassunti di ricerca: le pagine complete sono bloccate dal prox
 - **Higgsfield (19/10, Massimiliano):** rinnovo automatico del piano Ultra disdetto il 16/10. Si riattiva un piano solo quando serve per un lavoro pagato o approvato.
 - **Verifica del 23/10 (19/10, Massimiliano):** NO alla regola "senza 1 pilota o 3 risposte interessate si cambia approccio". Si continua con il piano attuale; non riproporre la regola.
 - **Upwork (20/10, Massimiliano):** proposta del doc 58 rifiutata ("dopo tutto questo investimento la proposta è Upwork, lascia stare"). Non riproporre Upwork né marketplace simili.
+
+## Chiusura Scrollcraft (9/11/2026)
+
+Decisione di Massimiliano del 9/11: "si chiude". Risultato finale dal 1/10 al 9/11: circa 470 contatti USA con email a freddo e 2 follow-up, 0 risposte positive, 0 preventivi, 0 clienti. Fermate le routine (outreach delle 15:10 e piano del mattino, disattivate, non cancellate). Non inviati gli ultimi 2 follow-up del 10/11. Studio 59 (rete personale) non adottato. Lezione: un servizio senza clienti, recensioni né rete di contatti non si vende con email a freddo a sconosciuti (studio 58); prima di investire in strumenti serve almeno un cliente o un contatto caldo.
