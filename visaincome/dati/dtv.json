@@ -1,20 +1,20 @@
 {
 "_nota": "Generato da raccolta/dtv.py: non modificare a mano (i valori letti a mano stanno in LETTURE dentro lo script). Fonte: siti delle ambasciate e dei consolati generali thailandesi (Ministero degli Esteri thailandese), letti il giorno indicato.",
-"generato_il": "2026-11-07",
-"letto_il": "2026-11-07",
-"impronta": "35ffca7984ea8237fbda",
+"generato_il": "2026-11-09",
+"letto_il": "2026-11-09",
+"impronta": "8ec4d30871a97827c36c",
 "fonti": {
 "elenco": {
 "url": "https://www.thaiembassy.org/",
 "titolo": "Thai Embassy and Consulates (Ministry of Foreign Affairs of Thailand)",
-"letto_il": "2026-11-07"
+"letto_il": "2026-11-09"
 },
 "annuncio_mfa": {
 "url": "https://consular.mfa.go.th/th/content/28-8-69-00?cate=5ddbe42115e39c4768007e1d",
 "titolo": "ประกาศแจ้งเตือน การปรับเพิ่มเอกสารประกอบคำร้องการตรวจลงตรา ประเภท ‘Destination Thailand Visa (DTV)",
 "data": "2026-08-28",
 "editore": "Department of Consular Affairs, Ministry of Foreign Affairs of Thailand",
-"letto_il": "2026-11-07"
+"letto_il": "2026-11-09"
 },
 "evisa": {
 "url": "https://www.thaievisa.go.th/",
@@ -6143,7 +6143,7 @@
 "tipo": "Embassy",
 "sito": "http://thaiembassy.at",
 "sistema": "other",
-"http": 0,
+"http": 200,
 "dtv": false
 },
 {
@@ -6241,7 +6241,7 @@
 "tipo": "Embassy",
 "sito": "http://www.thaiembassy.cz",
 "sistema": "other",
-"http": 0,
+"http": 200,
 "dtv": false
 },
 {
@@ -6686,7 +6686,7 @@
 "tipo": "Embassy",
 "sito": "http://thaiembassy.se/en/home",
 "sistema": "other",
-"http": 0,
+"http": 200,
 "dtv": false
 },
 {
@@ -8491,10 +8491,10 @@
 "frammenti": {
 "bronze": "Bronze THB 650,000 Membership Fee 5 Years Validity"
 },
-"titolo": "Discover BRONZE Card Essential Privileges & Benefits.​",
+"titolo": "Who We Are? - Thailand Privilege",
 "modificata": "",
 "http": 200,
-"sha256": "43ba0e8d6f6e28935bdb96db16cda8dd451d4bf2703e49d5141e63c2133782e2"
+"sha256": "8953ac92fe3ef065f51b4b5b50daa6e1b57d5fcbf25030f9909e057c0a7b9ea7"
 },
 "privilege_chi": {
 "url": "https://www.thailandprivilege.co.th/about",
