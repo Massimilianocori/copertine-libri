@@ -518,7 +518,7 @@ def risposta(G, lg, prossime, rel, pagina_date):
 <div class="r-cosa">{G.eb(s['ente'])}<span>{escape(", ".join(esame(lg, e) for e in s['esami']))}</span></div>
 <p style="margin:12px 0 0"><span class="conta {G.classe_conta(s['data'], 'esame')}" data-conta="{s['data']}" data-modo="esame">{testo_conta(lg, s['data'], 'esame', G.OGGI)}</span></p>
 </div>""")
-    con_scad = sorted((s for s in prossime if s.get("scadenza")), key=lambda s: (s["scadenza"], s["data"]))
+    con_scad = sorted((s for s in prossime if s.get("scadenza") and d(s["scadenza"]) >= G.OGGI), key=lambda s: (s["scadenza"], s["data"]))
     opz_s, primo = [], True
     for s in con_scad:
         visibile = primo and d(s["scadenza"]) >= G.OGGI
