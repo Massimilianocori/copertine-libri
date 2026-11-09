@@ -1,5 +1,5 @@
 {
- "scaricato_il": "2026-11-04",
+ "scaricato_il": "2026-11-09",
  "green_sheet": {
   "navi": 205,
   "ultima_ispezione": "2026-10-17"
@@ -12,17 +12,17 @@
   "attive": 205,
   "archiviate": 12
  },
- "ispezioni": 3715,
+ "ispezioni": 3717,
  "prima_ispezione": "1992-06-14",
  "rapporti": 615,
  "n_rapporti": 3,
  "archiviate_dal": "2023-01-01",
  "archiviate_min": 3,
  "info_controllate_il": {
-  "faq": "2026-11-04",
-  "otto-aree": "2026-11-04",
-  "ispezioni": "2026-11-04",
-  "epidemie": "2026-11-04"
+  "faq": "2026-11-09",
+  "otto-aree": "2026-11-09",
+  "ispezioni": "2026-11-09",
+  "epidemie": "2026-11-09"
  },
  "controlli_info": {
   "faq_85": true,
