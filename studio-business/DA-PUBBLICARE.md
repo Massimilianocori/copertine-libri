@@ -78,5 +78,7 @@ Pubblicato il 1/11/2026 alle 00:15 circa: Visa Income (cerimonie australiane, es
 | Permessi foto nei parchi USA | 1.200 | ~20 | ~60 | dati sparsi | fronti-2026-11-10-rete-prima-sicurezza-digitale.md |
 | Valore di fusione monete USA | 1.000 | ~15 | ~65 | US Mint 403 | fronti-2026-11-09-collezionismo.md |
 | Pass rate DMV California per ufficio | 1.200 | ~20 | ~60 | dati solo con richiesta pubblica (Massimiliano, 20 min) | fronti-2026-11-10-esami-di-guida.md |
+| Sezione "spesa vera dei libri contro il tetto del Ministero" (10-40 pagine su un sito italiano esistente) | 600 | ~12 | ~50 | decidere entro aprile 2027 (stagione maggio-settembre) | verifica-2026-11-10-libri-di-testo.md |
+| Filtri caldaia USA, versione compatta (~45 pagine) | 400 | ~15 | ~27 | un rivenditore al 7 % che ci accetti (Filter King su Awin) e un sito USA della rete sopra 30 visite a settimana | verifica-2026-11-10-filtri-caldaia.md |
 
 Le idee della riserva entrano nella coda di costruzione nell'ordine della colonna €/ora, appena il loro ostacolo è tolto; i turni di costruzione le prendono quando la coda principale è vuota o in attesa.

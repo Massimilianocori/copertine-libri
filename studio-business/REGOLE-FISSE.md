@@ -3,6 +3,8 @@
 
 **OBIETTIVO UNICO (Massimiliano, 10/11/2026): "il tuo goal è portare il guadagno maggiore possibile".** Ogni scelta si misura in euro attesi: 1) far rendere il traffico che c'è già (AdSense, affiliazioni sulle pagine più viste); 2) espandere ciò che cresce; 3) costruire tutto ciò che rende, in ordine di €/anno ÷ ore; 4) ricerca continua di idee più grandi. Tante piccole cose insieme fanno un grande ritorno.
 
+**Lezione del 10/11/2026 (tre verifiche, tre ridimensionamenti):** le stime dei ricercatori sono state troppo ottimiste (furti di dati 4.600 → 2.100, libri di testo 3.800 → 1.900, filtri 4.500 → 400) perché non leggevano i concorrenti. Da ora ogni ricercatore, PRIMA di stimare, legge le pagine dei 3 concorrenti più probabili per 5 esempi concreti e scrive cosa manca a loro; senza un vuoto dimostrato il voto massimo è 5. E prima di costruire un sito nuovo servono le 4 prove (domanda, dati leggibili, pagatore attivo, nessuno che fa già meglio), con verificatore indipendente (Massimiliano: "non voglio che crei cose che portano a nulla").
+
 Da controllare PRIMA di proporre un business, non dopo.
 
 1. **Zero spese finché non c'è un ritorno.** Niente pubblicità a pagamento, niente abbonamenti a strumenti.

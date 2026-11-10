@@ -19,3 +19,5 @@ Consegna: il tuo file in `studio-business/intelaiatura/` (nome indicato nel comp
 `git add <tuoi file> && git commit -m "Ricerca <data>: <tema>" -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>" -m "Claude-Session: https://claude.ai/code/session_01BzC8eDnqLFMycBfFEFEcZf"` e `git push -q origin ccr-b7fd6b9e-n096cr || (git pull -q --rebase --autostash origin ccr-b7fd6b9e-n096cr && git push -q origin ccr-b7fd6b9e-n096cr)`. Altri agenti lavorano in parallelo: niente `git add -A` né `git add .`; se ESPLORATE.md è in conflitto, tieni entrambe le parti.
 
 Risposta finale (max 15 righe): le idee con voto, ognuna con la fonte esterna da cui è nata, la migliore, quelle che passano l'asticella.
+
+**Obbligo dal 10/11/2026:** prima di stimare, leggere le pagine dei 3 concorrenti più probabili su 5 esempi concreti e scrivere cosa manca a loro. Senza un vuoto dimostrato il voto massimo è 5. (Tre idee ridimensionate dalla verifica il 10/11: furti di dati, libri di testo, filtri caldaia.)
