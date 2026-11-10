@@ -679,14 +679,76 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
     dest.write_text(testo, encoding="utf-8")
 
 
-def box_affiliati():
+# eSIM (10/11/2026): tre programmi Awin nel riquadro «Before you go». Ordine e frasi da dati/esim.json (raccolta/esim.py: elenco dei Paesi
+# pubblicato da Vodafone e da Pocket eSIM). Pagina di una destinazione: Vodafone per primo se il suo elenco comprende la destinazione, poi
+# Roamable (nessun elenco per Paese letto: testo generico), poi Pocket se il suo elenco la comprende; un fornitore con l'elenco letto che NON
+# comprende la destinazione non compare. Pagine senza destinazione (indici, EES/ETIAS) e destinazioni senza codice ISO: Roamable, Vodafone,
+# Pocket con il testo generico «check that your destination is on its list». Nessuna promessa su copertura, velocità o prezzi.
+ESIM_VOCI = ("esim", "esim_vodafone", "esim_pocket")
+_f_esim = DATI / "esim.json"
+ESIM = json.loads(_f_esim.read_text(encoding="utf-8")) if _f_esim.exists() else {"fornitori": {}}
+
+
+def esim_elenco(k):
+    """Paesi (ISO) dell'elenco letto per la voce eSIM k (None se la voce non ha un elenco letto)."""
+    f = (AFFILIATI.get(k) or {}).get("elenco")
+    F = ESIM["fornitori"].get(f) if f else None
+    return set(F["paesi"]) if F else None
+
+
+def esim_voci(iso=None):
+    accese = {k: AFFILIATI[k] for k in ESIM_VOCI if (AFFILIATI.get(k) or {}).get("url")}
+    if not accese:
+        return []
+    if iso:
+        ordine = ["esim_vodafone", "esim", "esim_pocket"]
+    else:
+        ordine = ["esim", "esim_vodafone", "esim_pocket"]
+    out = []
+    for k in ordine:
+        if k not in accese:
+            continue
+        v = dict(accese[k])
+        el = esim_elenco(k)
+        if el is not None:
+            F = ESIM["fornitori"][v["elenco"]]
+            if iso and iso in el:
+                v["testo"] = v["testo_paese"].format(paese=frase_srv(iso), data=data_lunga(F["letto_il"]))
+            elif iso:
+                continue  # elenco letto senza la destinazione: il fornitore non compare
+        out.append(v)
+    return out
+
+
+_ISO_PASS = {}
+
+
+def iso_destinazione(nome, url=""):
+    """Codice ISO di una pagina destinazione (passaporto britannico o australiano): dall'indirizzo della fonte collegato al codice in
+    dati/patenti.json (stesse pagine FCDO e Smartraveller), poi dal nome o da un alias di dati/paesi_iso.json; None se non si trova."""
+    if not _ISO_PASS:
+        for p in (PAT or {}).get("paesi", []):
+            for pat in ("uk", "au"):
+                u = ((p.get(pat) or {}).get("url") or "").split("#")[0]
+                if pat == "uk":
+                    u = "/".join(u.split("/")[:5])  # https://www.gov.uk/foreign-travel-advice/<slug>
+                if u:
+                    _ISO_PASS.setdefault(u, p["iso2"])
+        for c, p in PAESI_ISO.items():
+            for n in [p["nome"]] + (p.get("alias") or []):
+                _ISO_PASS.setdefault(n.casefold(), c)
+    return _ISO_PASS.get(url.split("#")[0].rstrip("/")) or _ISO_PASS.get(nome.casefold())
+
+
+def box_affiliati(iso=None):
     """Riquadro generico «Before you go» (assicurazione, eSIM, parcheggi/lounge: voci di dati/affiliati.json con 'url' pieno, tranne
     'bagagli' e le voci con '_'): vuoto (non mostrato) finché non ci sono URL.
     Dal 6/11/2026 (eSIM Roamable acceso) compare SOLO dove chi legge sta preparando un viaggio all'estero: pagine destinazione e indici
     del passaporto britannico (FCDO), canadese e australiano, e pagina EES/ETIAS. Tolto dalla home (pagina generica), dalle pagine e
     dall'indice dei liquidi (chi legge è spesso all'aeroporto di partenza o su un volo nazionale; le pagine di vacanza hanno già i
     riquadri noleggio e alloggio) e mai nel bagaglio a mano (lì c'è box_bagagli). verifica.py, punto 31, controlla questi posti."""
-    voci = [v for k, v in AFFILIATI.items() if not k.startswith("_") and k != "bagagli" and isinstance(v, dict) and v.get("url")]
+    voci = [v for k, v in AFFILIATI.items() if not k.startswith("_") and k not in ("bagagli",) + ESIM_VOCI and isinstance(v, dict) and v.get("url")]
+    voci += esim_voci(iso)
     if not voci:
         return ""
     righe = "".join(f'<li><a href="{escape(v["url"])}" rel="sponsored noopener" target="_blank">{escape(v["titolo"])}</a> '
@@ -997,7 +1059,7 @@ def pagina_paese(P):
 {cambi}
 <p>Read the full <a href="{escape(P['url'])}" rel="noopener">FCDO travel advice for {escape(P['nome'])}</a> (safety, visas, health) before you travel.</p>
 <p class="small">Spotted a change? <a href="{rel}contact/?ref=pass-{P['slug']}">Tell us</a>.</p>
-{box_affiliati()}
+{box_affiliati(iso_destinazione(P["nome"], P["url"]))}
 {link_simili}
 <p><a href="{rel}passport-validity/">Passport validity rules for all destinations</a> · <a href="{rel}liquids/">Liquids rules by airport</a> · <a href="{rel}ees-etias/">EES and ETIAS status</a></p>
 {dati_json('paese-dati', [dati_client(P)])}"""
@@ -1441,7 +1503,7 @@ def pagina_estera(v):
 {AD}
 <p>Read the full <a href="{escape(p['url'])}" rel="noopener">official travel advice for {escape(nome_frase(v))}</a> (safety, health, local laws) before you travel.</p>
 <p class="small">Spotted a change? <a href="{rel}contact/?ref={k}-{v['slug']}">Tell us</a>.</p>
-{box_affiliati()}
+{box_affiliati(p.get("iso") or iso_destinazione(v["nome"], p.get("url", "")))}
 <p><a href="{rel}{c['base']}/">{c['agg']} passport: all destinations</a> · <a href="{rel}passport-validity/">British passport rules</a> · <a href="{rel}liquids/">Liquids rules by airport</a> · <a href="{rel}ees-etias/">EES and ETIAS status</a></p>"""
     ld = [{"@context": "https://schema.org", "@type": "WebPage", "name": f"{v['nome']} entry requirements for {c['agg']} passport holders ({ANNO})",
            "url": f"{URL_SITO}/{v['url_pag']}", "inLanguage": "en", "isBasedOn": p["url"], "dateModified": c["dati"]["controllato_il"],
@@ -3842,6 +3904,7 @@ DIPENDE_A_MANO = {
     ("au", "TH"): "on how long you stay (people living in Thailand for an extended period need a Thai licence)",
     ("ca", "RO"): "on how long you stay",
     ("au", "AZ"): "on your travel and car insurance (Smartraveller says to check with your insurer and car provider)",
+    ("uk", "SZ"): "on your car insurance (GOV.UK says your insurer may ask for an IDP after an accident)",
 }
 DIPENDE_SCHEMI = [
     (re.compile(r"\bstates?\b|\bprovinces?\b|\bterritories\b|\bDubai\b|\bemirates?\b", re.I), "on the state or province where you drive"),

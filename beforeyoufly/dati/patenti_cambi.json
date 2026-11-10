@@ -1,6 +1,38 @@
 {
  "cambi": [
   {
+   "rilevato_il": "2026-11-10",
+   "iso2": "SZ",
+   "patente": "uk",
+   "esito_prima": "da_leggere",
+   "esito_dopo": "dipende",
+   "testo_cambiato": false
+  },
+  {
+   "rilevato_il": "2026-11-10",
+   "iso2": "LR",
+   "patente": "au",
+   "esito_prima": "si",
+   "esito_dopo": "si",
+   "testo_cambiato": true
+  },
+  {
+   "rilevato_il": "2026-11-10",
+   "iso2": "GA",
+   "patente": "au",
+   "esito_prima": "si",
+   "esito_dopo": "si",
+   "testo_cambiato": true
+  },
+  {
+   "rilevato_il": "2026-11-10",
+   "iso2": "SZ",
+   "patente": "uk",
+   "esito_prima": "si",
+   "esito_dopo": "da_leggere",
+   "testo_cambiato": true
+  },
+  {
    "rilevato_il": "2026-11-04",
    "iso2": "TH",
    "patente": "au",

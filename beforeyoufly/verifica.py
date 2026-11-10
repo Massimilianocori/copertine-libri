@@ -179,6 +179,15 @@ Uso (dalla radice del repository, dopo python3 beforeyoufly/genera.py):
     (Europa e pagine per misura: .co.uk; USA e Canada: .com; Medio Oriente e Australia, indice e strumento: entrambi) e la misura della
     pagina nella ricerca; frase anche nella privacy. eSIM: link Awin con awinmid 118127, awinaffid 3145171 e ued verso roamable.co;
     riquadro «Before you go» solo nelle pagine passaporto (britannico, canadese, australiano) e nella pagina EES/ETIAS.
+    Dal 10/11/2026 anche Vodafone Travel eSIM (awinmid 123870) e Pocket eSIM (awinmid 131040), awinaffid 3145171 (parametri scritti qui):
+    elenchi dei Paesi in dati/esim.json validi (HTTP 200, almeno 100 Paesi ISO, data); in ogni pagina destinazione fornitori e ordine
+    ricalcolati qui dall'elenco (Vodafone primo se l'elenco comprende il Paese e assente se no; Roamable; Pocket solo se l'elenco lo
+    comprende); frase «list of destinations includes X (checked on <data>)» solo se X è nell'elenco e con la data della lettura; indici e
+    EES/ETIAS con Roamable per primo e il testo generico; rel="sponsored noopener" su ogni link eSIM.
+AVVISI (10/11/2026): le copie delle fonti in raccolta/.cache/ non sono nel repository. Il ricalcolo dalla copia (frasi, impronte, tabelle,
+seconda lettura dei PDF) dei punti 13, 17, 18, 20-29 si salta con un avviso (stampato, contato, elencato in fondo, non è un errore) se la
+copia manca, se è una pagina di blocco o anti-robot (titolo), o se è più recente dell'ultima lettura buona dei dati (la raccolta ha
+rifiutato di scrivere il JSON). Con una copia della stessa lettura dei dati gli errori restano errori; gli altri controlli non cambiano.
 Monetizzazione (30/10/2026, controllo comune di studio-business/strumenti/monetizzazione.py): i link di affiliazione sono
 ammessi solo verso i domini di monetizzazione.json, con rel="sponsored noopener" e la riga di trasparenza nella pagina;
 domini bloccati e link sponsorizzati verso altri domini sono errori; script AdSense, ads.txt e sezione privacy ci sono
@@ -209,6 +218,68 @@ _spec.loader.exec_module(RP)
 
 SITO = G.SITO
 P = {p["slug"]: p for p in G.PASS["paesi"]}
+
+# ---------------------------------------------------------------- avvisi sulle copie salvate (10/11/2026)
+# Le copie delle fonti in raccolta/.cache/ non sono nel repository (gitignore): ogni contenitore nuovo parte vuoto o con le sole raccolte
+# rilanciate. Il RICALCOLO DALLA COPIA di una fonte (frasi parola per parola, impronte, tabelle, seconda lettura dei PDF) si salta con un
+# AVVISO (stampato, contato, elencato in fondo) e non con un errore solo in tre casi:
+#   1) la copia manca;
+#   2) la copia è una pagina di blocco o anti-robot (il blocco non si aggira: restano i dati dell'ultima lettura buona);
+#   3) la copia è più recente dell'ultima lettura buona scritta nei dati (la raccolta ha rifiutato di aggiornare il JSON): gli errori
+#      del ricalcolo di quella fonte diventano avvisi, perché la copia non è quella da cui vengono i dati.
+# Se la copia è della stessa lettura dei dati, gli errori del ricalcolo restano errori. Tutti gli altri controlli (dati = pagine,
+# citazioni nei nostri JSON, prezzi solo dai dati, link, JSON-LD) restano errori come prima.
+AVVISI = []
+_CARTELLE_ASSENTI = set()
+_RE_BLOCCO = re.compile(r"accesso negato|access denied|access to this page has been denied|just a moment|attention required|"
+                        r"quick security check|are you a robot|verify you are (a )?human|request (was )?(blocked|rejected)|captcha|"
+                        r"\b40[13] forbidden\b|^forbidden$|zugriff verweigert|acc[eè]s refus[ée]", re.I)
+
+
+def avviso(punto, testo):
+    AVVISI.append((str(punto), testo))
+
+
+def pagina_di_blocco(raw):
+    """True se la copia salvata è una pagina di blocco o anti-robot: si guarda solo il <title> (un testo normale può nominare i controlli)."""
+    if isinstance(raw, bytes):
+        if raw[:5] == b"%PDF-":
+            return False
+        raw = raw.decode("utf-8", errors="replace")
+    m = re.search(r"<title[^>]*>(.*?)</title>", raw[:200000], re.I | re.S)
+    return bool(m and _RE_BLOCCO.search(re.sub(r"\s+", " ", m.group(1)).strip()))
+
+
+def copia_usabile(punto, fid, f_c, raccolta):
+    """Copia salvata da usare per il ricalcolo: True, oppure False con l'avviso (copia mancante o pagina di blocco)."""
+    if f_c is None or not Path(f_c).exists():
+        cartella = Path(f_c).parent if f_c is not None else None
+        if cartella is not None and not cartella.exists():
+            if (punto, str(cartella)) not in _CARTELLE_ASSENTI:
+                _CARTELLE_ASSENTI.add((punto, str(cartella)))
+                avviso(punto, f"copie salvate assenti ({cartella.relative_to(SITO.parent)}/, fuori dal repository): ricalcolo dalle copie "
+                              f"saltato per tutte le fonti; dati dell'ultima lettura buona (per ricrearle: python3 -I beforeyoufly/raccolta/{raccolta})")
+        else:
+            avviso(punto, f"fonte {fid}: copia salvata mancante: ricalcolo dalla copia saltato (python3 -I beforeyoufly/raccolta/{raccolta})")
+        return False
+    if pagina_di_blocco(Path(f_c).read_bytes()):
+        avviso(punto, f"fonte {fid}: la copia salvata è una pagina di blocco o anti-robot (non si aggira): ricalcolo dalla copia saltato, "
+                      "dati dell'ultima lettura buona")
+        return False
+    return True
+
+
+def esito_copia(punto, fid, ef, f_c, letto_il):
+    """Errori del ricalcolo dalla copia di una fonte: restano errori se la copia è della lettura dei dati (o più vecchia); diventano avvisi
+    se la copia è più recente dell'ultima lettura buona (la raccolta ha rifiutato di aggiornare il JSON e ha tenuto i dati vecchi)."""
+    if not ef:
+        return []
+    giorno = date.fromtimestamp(Path(f_c).stat().st_mtime).isoformat()
+    if letto_il and giorno > str(letto_il)[:10]:
+        for e in ef:
+            avviso(punto, f"{e} [copia del {giorno}, dati dell'ultima lettura buona del {str(letto_il)[:10]}: la raccolta non ha aggiornato il JSON]")
+        return []
+    return ef
 
 # (descrizione, paese, emissione, scadenza, arrivo, partenza, esito atteso, date minime attese in ordine dei controlli)
 CASI = [
@@ -1440,9 +1511,14 @@ def controlla_italiani():
     D = G.DOC_IT
     if not D:
         return ["documenti per italiani: manca dati/documenti_it.json"], conti
-    if not RIT.CACHE.exists() or len(list(RIT.CACHE.glob("[A-Z][A-Z][A-Z].json"))) < 0.8 * D["schede_elenco"]:
-        return [f"documenti per italiani: cache delle schede assente in {RIT.CACHE} (non è nel repository per la licenza incerta): "
-                "lanciare prima `python3 -I beforeyoufly/raccolta/documenti_it.py`"], conti
+    # copie delle schede (raccolta/.cache/it/, fuori dal repository per la licenza incerta): se mancano, il ricalcolo dalla copia si salta
+    # con un avviso (10/11/2026); i controlli dati = pagine qui sotto restano tutti
+    n_copie = len(list(RIT.CACHE.glob("[A-Z][A-Z][A-Z].json"))) if RIT.CACHE.exists() else 0
+    con_copie = n_copie >= 0.8 * D["schede_elenco"]
+    if not con_copie:
+        avviso(13, f"copie delle schede Viaggiare Sicuri assenti o incomplete ({n_copie} su {D['schede_elenco']} in {RIT.CACHE.relative_to(SITO.parent)}/, "
+                   "fuori dal repository): ricalcolo dei fatti, citazioni nel campo della scheda e testo copiato saltati; dati dell'ultima lettura buona "
+                   f"({D.get('controllato_il')}); per ricrearle: python3 -I beforeyoufly/raccolta/documenti_it.py")
     if len(D["paesi"]) < 0.8 * D["schede_elenco"]:
         errori.append(f"documenti per italiani: lette {len(D['paesi'])} schede su {D['schede_elenco']}")
     manuali = json.loads(RIT.FILE_MANUALI.read_text(encoding="utf-8"))["paesi"] if RIT.FILE_MANUALI.exists() else {}
@@ -1450,26 +1526,33 @@ def controlla_italiani():
     for p in D["paesi"]:
         iso = p["iso3"]
         # a) la cache è la stessa versione della scheda da cui vengono i fatti (impronte), e i fatti sono quelli che dà la lettura sul campo salvato
-        try:
+        #    (solo con la copia: senza copia, o con una copia più recente dei dati, avviso e niente ricalcolo per questa scheda)
+        campi, testi, imp = None, None, dict(p["impronte"])
+        f_c = RIT.CACHE / f"{iso}.json"
+        if con_copie and copia_usabile(13, iso, f_c, "documenti_it.py"):
             campi, j = RIT.campi_da_cache(iso)
-        except FileNotFoundError:
-            errori.append(f"{iso}: scheda non in cache")
-            continue
-        imp = {k: RIT.impronta(v) for k, v in campi.items()}
-        if imp != p["impronte"]:
-            errori.append(f"{iso}: la scheda in cache non è quella da cui sono stati scritti i fatti (impronte diverse): rilanciare la raccolta e genera.py")
-            continue
-        if p["aggiornata"] != RIT.data_scheda(j.get("updateDate", "")):
-            errori.append(f"{iso}: data della scheda diversa dalla cache")
-        rec, _, scaduti = RIT.leggi_paese({"Codice-3": iso, "Codice-2": p["iso2"], "Nome": p["nome_fonte"]}, j)
-        for k in ("documento", "validita", "visto", "note_extra", "cronologia"):
-            if rec.get(k) != p.get(k):
-                errori.append(f"{iso}: fatto «{k}» diverso da quello ricalcolato sul campo salvato")
-        if scaduti:
-            errori.append(f"{iso}: fatti scritti a mano su una versione vecchia della scheda: {scaduti}")
+            imp_c = {k: RIT.impronta(v) for k, v in campi.items()}
+            ef = []
+            if imp_c != p["impronte"]:
+                ef.append(f"{iso}: la scheda in cache non è quella da cui sono stati scritti i fatti (impronte diverse): rilanciare la raccolta e genera.py")
+            else:
+                if p["aggiornata"] != RIT.data_scheda(j.get("updateDate", "")):
+                    ef.append(f"{iso}: data della scheda diversa dalla cache")
+                rec, _, scaduti = RIT.leggi_paese({"Codice-3": iso, "Codice-2": p["iso2"], "Nome": p["nome_fonte"]}, j)
+                for k in ("documento", "validita", "visto", "note_extra", "cronologia"):
+                    if rec.get(k) != p.get(k):
+                        ef.append(f"{iso}: fatto «{k}» diverso da quello ricalcolato sul campo salvato")
+                if scaduti:
+                    ef.append(f"{iso}: fatti scritti a mano su una versione vecchia della scheda: {scaduti}")
+            ef = esito_copia(13, iso, ef, f_c, D.get("controllato_il"))
+            errori += ef
+            if ef or imp_c != p["impronte"]:
+                campi = None  # copia diversa dai dati: i controlli sul campo salvato non hanno senso
+            else:
+                imp = imp_c
+                testi = {k: RIT.testo(v) for k, v in campi.items()}
         if not p["url"].startswith(RIT.PAGINA) or not p["aggiornata"]:
             errori.append(f"{iso}: link o data della scheda mancanti")
-        testi = {k: RIT.testo(v) for k, v in campi.items()}
         # b) ogni fatto è legato a un campo della scheda e ogni citazione è in quel campo, parola per parola, al massimo 20 parole
         fatti = [(k, p[k]) for k in ("documento", "validita", "visto")] + [("note_extra", x) for x in p.get("note_extra", [])]
         for k, f in fatti:
@@ -1478,7 +1561,7 @@ def controlla_italiani():
                     errori.append(f"{iso} {k}: niente riassunto ma nessun motivo")
                 continue
             campo = f.get("campo")
-            if campo not in testi:
+            if campo not in imp:
                 errori.append(f"{iso} {k}: fatto senza campo della scheda")
                 continue
             qq = _citazioni_fatto(f)
@@ -1486,13 +1569,13 @@ def controlla_italiani():
                 errori.append(f"{iso} {k}: fatto senza citazione")
             for q in qq:
                 conti["citazioni"] += 1
-                if not RIT.in_campo(q, testi[campo]):
+                if testi is not None and not RIT.in_campo(q, testi[campo]):
                     errori.append(f"{iso} {k}: citazione non trovata nel campo «{campo}»: {q[:70]}")
                 if len(q.replace(RIT.ELISIONE, " ").split()) > RIT.MAX_PAROLE:
                     errori.append(f"{iso} {k}: citazione di più di {RIT.MAX_PAROLE} parole")
             for q in f.get("obblighi_pp", []):  # obblighi scritti solo nel riquadro "In primo piano": citazione breve da quel campo
                 conti["citazioni"] += 1
-                if not RIT.in_campo(q, testi["primo_piano"]):
+                if testi is not None and not RIT.in_campo(q, testi["primo_piano"]):
                     errori.append(f"{iso} {k}: citazione del riquadro «In primo piano» non trovata: {q[:70]}")
                 if len(q.replace(RIT.ELISIONE, " ").split()) > RIT.MAX_PAROLE:
                     errori.append(f"{iso} {k}: citazione del riquadro «In primo piano» di più di {RIT.MAX_PAROLE} parole")
@@ -1506,8 +1589,8 @@ def controlla_italiani():
                 conti["manuali"] += 1
                 if iso not in manuali or not imp[campo].startswith(manuali[iso]["campi"][campo]):
                     errori.append(f"{iso} {k}: fatto manuale senza impronta valida")
-            # c) controlli indipendenti sui fatti automatici
-            if f.get("manuale"):
+            # c) controlli indipendenti sui fatti automatici (sul campo salvato: solo con la copia)
+            if f.get("manuale") or campi is None:
                 continue
             if k == "documento":
                 tp = testi["passaporto"]
@@ -1581,9 +1664,9 @@ def controlla_italiani():
             tuk = leggi(f"passport-validity/{s}/index.html")
             if f'{v["url_pag"]}"' not in tuk or "Italian citizens: " not in tuk:
                 errori.append(f"{s}: manca il link «Italian citizens: documenti per italiani» verso {v['url_pag']}")
-    # f) nessun testo lungo copiato: più di MAX_COPIA parole di fila uguali a una scheda (tutte le sezioni di tutte le schede)
-    g = _ngram_fonti()
-    pagine_it = list((G.SITO / "it").rglob("*.html"))
+    # f) nessun testo lungo copiato: più di MAX_COPIA parole di fila uguali a una scheda (tutte le sezioni di tutte le schede; solo con le copie)
+    g = _ngram_fonti() if con_copie else set()
+    pagine_it = list((G.SITO / "it").rglob("*.html")) if con_copie else []
     for f in pagine_it:
         r = _run_massimo(_parole_it(_testo_visibile(f.read_text(encoding="utf-8"))), g)
         conti["copia_max"] = max(conti["copia_max"], r)
@@ -2010,16 +2093,22 @@ def controlla_servizi():
     if all((cache / f"{k}.{F['tipo']}").exists() for k, F in RS.FONTI.items()):
         conti["cache"] = "presente"
         grezzi = {k: (cache / f"{k}.{F['tipo']}").read_text(encoding="utf-8") for k, F in RS.FONTI.items()}
+        ef = []
         for S in D["servizi"]:
             paesi, extra = RS.costruisci(S["slug"], grezzi)
             if paesi != S["paesi"]:
-                errori.append(f"servizi {S['slug']}: la lista del JSON non è quella ricalcolata dalla pagina salvata")
+                ef.append(f"servizi {S['slug']}: la lista del JSON non è quella ricalcolata dalla pagina salvata")
             for k in RS.LISTE_IN_PIU:  # Google Pay online, Wise invio (7/11/2026)
                 if extra.get(k) != S.get("extra", {}).get(k):
-                    errori.append(f"servizi {S['slug']}: lista in più '{k}' diversa da quella ricalcolata dalla pagina salvata")
+                    ef.append(f"servizi {S['slug']}: lista in più '{k}' diversa da quella ricalcolata dalla pagina salvata")
         for k, x in D["frasi"].items():
             if x["frase"] not in RS.testo(grezzi[x["fonte"]]):
-                errori.append(f"servizi: frase {k} non più nella pagina salvata")
+                ef.append(f"servizi: frase {k} non più nella pagina salvata")
+        f_rec = max((cache / f"{k}.{F['tipo']}" for k, F in RS.FONTI.items()), key=lambda f: f.stat().st_mtime)
+        errori += esito_copia(17, "servizi", ef, f_rec, D.get("letto_il"))
+    else:
+        avviso(17, f"copie salvate delle liste ufficiali assenti o incomplete ({cache.relative_to(SITO.parent)}/, fuori dal repository): ricalcolo "
+                   "delle liste e delle frasi dalle copie saltato; dati dell'ultima lettura buona (python3 -I beforeyoufly/raccolta/servizi.py)")
     if {S["slug"] for S in D["servizi"]} & {w[::-1] for w in _AI_CONTRARIO} or VIETATE_SRV.search(json.dumps(D, ensure_ascii=False)):
         errori.append("servizi: un assistente di intelligenza artificiale tra i servizi")
     for S in D["servizi"]:
@@ -2210,6 +2299,10 @@ def controlla_patenti():
     # a) ricalcolo dai grezzi salvati (fuori dal repository): stessi esiti, frasi e impronte del file
     if (RPAT.CACHE / "govuk-driving-abroad.json").exists() and (RPAT.CACHE / "uk").exists() and any(RPAT.CACHE_CA.glob("cta-cap-*.json")):
         conti["cache"] = "presente"
+        ef = []
+        if not RPAT.CACHE_AU.exists() or not any(RPAT.CACHE_AU.iterdir()):
+            avviso(18, "copie Smartraveller (raccolta/.cache/au/) assenti: ricalcolo della patente australiana saltato "
+                       "(python3 -I beforeyoufly/raccolta/passaporti_au.py, poi patenti.py)")
         RPAT.OFFLINE = True
         try:
             g = RPAT.scarica_tutto()
@@ -2222,16 +2315,20 @@ def controlla_patenti():
                     w = RPAT.voce(pat, c, v, M, avv)
                     d = (per.get(c) or {}).get(pat)
                     if not d:
-                        errori.append(f"patenti {pat} {c}: nei grezzi ma non in dati/patenti.json")
+                        ef.append(f"patenti {pat} {c}: nei grezzi ma non in dati/patenti.json")
                         continue
                     for k in ("esito", "frasi", "convenzione", "impronta", "testo"):
                         if w[k] != d[k]:
-                            errori.append(f"patenti {pat} {c}: '{k}' diverso dal ricalcolo sui grezzi salvati")
+                            ef.append(f"patenti {pat} {c}: '{k}' diverso dal ricalcolo sui grezzi salvati")
                             break
             if avv:
-                errori += [f"patenti: {a}" for a in avv if a.startswith("FATTO MANUALE")]
+                ef += [f"patenti: {a}" for a in avv if a.startswith("FATTO MANUALE")]
         finally:
             RPAT.OFFLINE = os.environ.get("BYF_OFFLINE") == "1"
+        errori += esito_copia(18, "patenti", ef, RPAT.CACHE / "govuk-driving-abroad.json", D.get("controllato_il"))
+    else:
+        avviso(18, "copie salvate GOV.UK / FCDO / travel.gc.ca assenti (raccolta/.cache/patenti/ e .cache/ca/, fuori dal repository): ricalcolo "
+                   "degli esiti dalle copie saltato; dati dell'ultima lettura buona (python3 -I beforeyoufly/raccolta/patenti.py)")
     # b) dati: esiti ammessi, frasi parola per parola, impronte, fonti ufficiali, date, controlli indipendenti
     for p in D["paesi"]:
         conti["paesi"] += 1
@@ -2459,14 +2556,16 @@ def controlla_pedaggi():
         if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", F["letto_il"] or "") or F["letto_il"] > G.OGGI.isoformat():
             errori.append(f"fonte {fid}: data di lettura non valida {F['letto_il']}")
         f_c = RPED.CACHE / f"{fid}.{'json' if RPED.FONTI[fid].get('tipo') == 'api_hu' else 'html'}"
-        if cache and f_c.exists():
+        if copia_usabile(20, fid, f_c, "pedaggi.py"):
+            ef = []
             t = RPED.testo_fonte(f_c.read_text(encoding="utf-8"), RPED.FONTI[fid].get("tipo", "html"))
             frasi = RPED.frasi_fonte(G.PED, fid)
             for x in frasi:
                 if x not in t:
-                    errori.append(f"fonte {fid}: la frase non è nel testo salvato: {x[:70]}")
+                    ef.append(f"fonte {fid}: la frase non è nel testo salvato: {x[:70]}")
             if RPED.impronta_zona(t, frasi) != F["impronta"]:
-                errori.append(f"fonte {fid}: impronta diversa dal testo salvato (rilanciare raccolta/pedaggi.py)")
+                ef.append(f"fonte {fid}: impronta diversa dal testo salvato (rilanciare raccolta/pedaggi.py)")
+            errori += esito_copia(20, fid, ef, f_c, F["letto_il"])
             conti["cache"] = "sì"
     sm = leggi("sitemap.xml")
     # b) una pagina per Paese, coerente con i dati
@@ -2552,14 +2651,16 @@ def controlla_pedaggi():
             if not legge or escape(legge[0]["x"], quote=False) not in t:
                 errori.append(f"{rel}: manca la frase della legge con la data ({HR_DATA_LEGGE!r})")
             f_z = RPED.CACHE / "hr_zakon.html"
-            if cache and f_z.exists() and HR_DATA_LEGGE not in RPED.testo_fonte(f_z.read_text(encoding="utf-8")):
-                errori.append(f"{rel}: la data della legge non è più nel testo salvato della Gazzetta ufficiale")
+            if f_z.exists() and not pagina_di_blocco(f_z.read_bytes()) and HR_DATA_LEGGE not in RPED.testo_fonte(f_z.read_text(encoding="utf-8")):
+                errori += esito_copia(20, "hr_zakon", [f"{rel}: la data della legge non è più nel testo salvato della Gazzetta ufficiale"],
+                                      f_z, G.PED["fonti"].get("hr_zakon", {}).get("letto_il"))
             hac = [x for x in p["citazioni"] if x["f"] == "hr_crolibertas_zakon" and HR_DATA_HAC in x["x"]]
             if not hac or escape(hac[0]["x"], quote=False) not in t:
                 errori.append(f"{rel}: manca la frase di HAC (Crolibertas) con la data ({HR_DATA_HAC!r})")
             f_h = RPED.CACHE / "hr_crolibertas_zakon.html"
-            if cache and f_h.exists() and HR_DATA_HAC not in RPED.testo_fonte(f_h.read_text(encoding="utf-8")):
-                errori.append(f"{rel}: la data di HAC non è più nel testo salvato del sito Crolibertas")
+            if f_h.exists() and not pagina_di_blocco(f_h.read_bytes()) and HR_DATA_HAC not in RPED.testo_fonte(f_h.read_text(encoding="utf-8")):
+                errori += esito_copia(20, "hr_crolibertas_zakon", [f"{rel}: la data di HAC non è più nel testo salvato del sito Crolibertas"],
+                                      f_h, G.PED["fonti"].get("hr_crolibertas_zakon", {}).get("letto_il"))
             if "does not give a start date" in vis:
                 errori.append(f"{rel}: la pagina dice che HAC non scrive la data, ma la notizia Crolibertas del 24/12/2025 la scrive")
             if p["noleggio"] == "detto" or "ask the rental company" not in vis.lower():
@@ -2679,14 +2780,16 @@ def controlla_gomme():
         if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", F["letto_il"] or "") or F["letto_il"] > G.OGGI.isoformat():
             errori.append(f"fonte {fid}: data di lettura non valida {F['letto_il']}")
         f_c = RGOM.file_cache(fid)
-        if cache and f_c.exists():
+        if copia_usabile(21, fid, f_c, "gomme.py"):
+            ef = []
             t = RGOM.testo_fonte(f_c.read_bytes(), RGOM.FONTI[fid].get("tipo", "html"))
             frasi = RGOM.frasi_fonte(G.GOM, fid)
             for x in frasi:
                 if x not in t:
-                    errori.append(f"fonte {fid}: la frase non è nel testo salvato: {x[:70]}")
+                    ef.append(f"fonte {fid}: la frase non è nel testo salvato: {x[:70]}")
             if RGOM.impronta_zona(t, frasi) != F["impronta"]:
-                errori.append(f"fonte {fid}: impronta diversa dal testo salvato (rilanciare raccolta/gomme.py)")
+                ef.append(f"fonte {fid}: impronta diversa dal testo salvato (rilanciare raccolta/gomme.py)")
+            errori += esito_copia(21, fid, ef, f_c, F["letto_il"])
             conti["cache"] = "sì"
     # b) pagine Paese solo dove ci sono ricerche vere (ricalcolate da gomme_domanda.json)
     attese_pag = sorted(p["iso2"] for p in M["paesi"] if len(RGOM.ricerche_paese(D, p["iso2"])) >= RGOM.MIN_RICERCHE)
@@ -2883,15 +2986,17 @@ def controlla_patente_straniera():
         if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", F["letto_il"] or "") or F["letto_il"] > G.OGGI.isoformat():
             errori.append(f"fonte {fid}: data di lettura non valida {F['letto_il']}")
         f_c = RFL.file_cache(fid)
-        if cache and f_c.exists():
+        if copia_usabile(23, fid, f_c, "patente_straniera.py"):
+            ef = []
             t = RFL.testo_fonte(f_c.read_bytes(), RFL.FONTI[fid].get("tipo", "html"))
             frasi = RFL.frasi_fonte(G.FL, fid)
             for x in frasi:
                 if x not in t:
-                    errori.append(f"fonte {fid}: la frase non è nel testo salvato: {x[:70]}")
+                    ef.append(f"fonte {fid}: la frase non è nel testo salvato: {x[:70]}")
             if RFL.impronta_zona(t, frasi) != F["impronta"]:
-                errori.append(f"fonte {fid}: impronta diversa dal testo salvato (rilanciare la raccolta)")
+                ef.append(f"fonte {fid}: impronta diversa dal testo salvato (rilanciare la raccolta)")
             conti["cache"] = "sì"
+            errori += esito_copia(23, fid, ef, f_c, F["letto_il"])
     # b) pagine bloccate: davvero non aperte (codice diverso da 200 o pagina anti-robot), domini ufficiali, nessuna regola
     for bid, B in G.FL["bloccate"].items():
         conti["bloccate"] += 1
@@ -3243,15 +3348,17 @@ def controlla_biglietti():
         if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", F["letto_il"] or "") or F["letto_il"] > G.OGGI.isoformat():
             errori.append(f"fonte {fid}: data di lettura non valida {F['letto_il']}")
         f_c = RBIG.file_cache(fid)
-        if cache and f_c.exists():
+        if copia_usabile(22, fid, f_c, "biglietti.py"):
+            ef = []
             t = RBIG.testo_fonte(f_c.read_bytes())
             frasi = RBIG.frasi_fonte(G.BIG, fid)
             for x in frasi:
                 if x not in t:
-                    errori.append(f"fonte {fid}: la frase non è nel testo salvato: {x[:70]}")
+                    ef.append(f"fonte {fid}: la frase non è nel testo salvato: {x[:70]}")
             if RBIG.impronta_zona(t, frasi) != F["impronta"]:
-                errori.append(f"fonte {fid}: impronta diversa dal testo salvato (rilanciare raccolta/biglietti.py)")
+                ef.append(f"fonte {fid}: impronta diversa dal testo salvato (rilanciare raccolta/biglietti.py)")
             conti["cache"] = "sì"
+            errori += esito_copia(22, fid, ef, f_c, F["letto_il"])
     # a2) attrazioni escluse con un indirizzo provato: il motivo scritto deve essere coerente con l'esito della rilettura
     for x in G.BIG["escluse"]:
         if not x.get("url"):
@@ -3591,15 +3698,17 @@ def controlla_trasporti():
         if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", F["letto_il"] or "") or F["letto_il"] > G.OGGI.isoformat():
             errori.append(f"fonte {fid}: data di lettura non valida {F['letto_il']}")
         f_c = RTR.file_cache(fid) if fid in RTR.FONTI else None
-        if cache and f_c and f_c.exists():
+        if copia_usabile(24, fid, f_c, "trasporti.py"):
+            ef = []
             t = RTR.testo_fonte(f_c.read_bytes(), RTR.FONTI[fid].get("tipo", "html"))
             frasi = RTR.frasi_fonte(G.TR, fid)
             for x in frasi:
                 if x not in t:
-                    errori.append(f"fonte {fid}: la citazione non è parola per parola nella copia della fonte: {x[:70]}")
+                    ef.append(f"fonte {fid}: la citazione non è parola per parola nella copia della fonte: {x[:70]}")
             if RTR.impronta_zona(t, frasi) != F["impronta"]:
-                errori.append(f"fonte {fid}: impronta diversa dalla copia salvata (rilanciare la raccolta)")
+                ef.append(f"fonte {fid}: impronta diversa dalla copia salvata (rilanciare la raccolta)")
             conti["cache"] = "sì"
+            errori += esito_copia(24, fid, ef, f_c, F["letto_il"])
     # b) pagine = città lette + indice
     sm = leggi("sitemap.xml")
     attese = {G.url_tr(c) + "index.html" for c in G.TR_LETTE} | {f"{G.TR_BASE}/index.html"}
@@ -3810,19 +3919,19 @@ def controlla_treni_bagagli():
         if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", F["letto_il"] or "") or F["letto_il"] > G.OGGI.isoformat():
             errori.append(f"fonte {fid}: data di lettura non valida {F['letto_il']}")
         f_c = RTB.file_cache(fid)
-        if cache and f_c.exists():
+        if copia_usabile(25, fid, f_c, "treni_bagagli.py"):
+            ef = []
             t = RTB.testo_fonte(f_c.read_bytes())
             frasi = RTB.frasi_fonte(G.TB, fid)
             for x in frasi:
                 if x not in t:
-                    errori.append(f"fonte {fid}: testo non parola per parola nella copia della fonte: {x[:70]}")
+                    ef.append(f"fonte {fid}: testo non parola per parola nella copia della fonte: {x[:70]}")
             if E and fid == E["fonte_tabella"]:
                 conti["stazioni"] = sum(1 for s in E["stazioni"] if RTB.riga_stazione(s) in t)
             if RTB.impronta_zona(t, frasi) != F["impronta"]:
-                errori.append(f"fonte {fid}: impronta diversa dalla copia salvata (rilanciare la raccolta)")
+                ef.append(f"fonte {fid}: impronta diversa dalla copia salvata (rilanciare la raccolta)")
             conti["cache"] = "sì"
-        elif cache:
-            errori.append(f"fonte {fid}: copia salvata mancante")
+            errori += esito_copia(25, fid, ef, f_c, F["letto_il"])
     # b) pagine = compagnie lette + indice + pagina Eurostar
     sm = leggi("sitemap.xml")
     attese = {G.url_tb(c) + "index.html" for c in G.TB_LETTE} | {f"{G.TB_BASE}/index.html"}
@@ -4235,29 +4344,31 @@ def controlla_animali():
             errori.append(f"fonte {fid}: data di lettura non valida {F['letto_il']}")
         tipo = RANI.FONTI[fid].get("tipo", "html")
         f_c = RANI.CACHE / f"{fid}.{'json' if tipo == 'govuk' else 'html'}"
-        if cache and f_c.exists():
+        if copia_usabile(26, fid, f_c, "animali.py"):
+            ef = []
             raw = f_c.read_text(encoding="utf-8")
             t = RANI.testo_fonte(raw, tipo)
             frasi = [c["x"] for c in G.PET["citazioni"] if c["f"] == fid]
             for x in frasi:
                 if x not in t:
-                    errori.append(f"fonte {fid}: frase non più nel testo salvato: {x[:70]}")
+                    ef.append(f"fonte {fid}: frase non più nel testo salvato: {x[:70]}")
             if frasi and RANI.impronta_zona(t, frasi) != F["impronta"]:
-                errori.append(f"fonte {fid}: impronta diversa dal testo salvato (rilanciare raccolta/animali.py)")
+                ef.append(f"fonte {fid}: impronta diversa dal testo salvato (rilanciare raccolta/animali.py)")
             if fid == "gov_aria":
                 ta = RANI.tabelle_aria(raw)
                 if [r for r in ta if r["tipo"] == "commerciale"] != G.PET["rotte"]["aria"] or sum(1 for r in ta if r["tipo"] == "charter") != G.PET["rotte"]["charter"]:
-                    errori.append("tabella delle compagnie aeree (o numero dei charter) diversa dalla copia salvata di GOV.UK")
+                    ef.append("tabella delle compagnie aeree (o numero dei charter) diversa dalla copia salvata di GOV.UK")
             if fid == "gov_mare":
                 m = RANI.tabelle_mare(raw)
                 if any(m[k] != G.PET["rotte"][k] for k in ("mare", "crociera", "treno")):
-                    errori.append("tabelle di traghetti, crociere e treni diverse dalla copia salvata di GOV.UK")
+                    ef.append("tabelle di traghetti, crociere e treni diverse dalla copia salvata di GOV.UK")
             if fid == "ue_ingresso":
                 L = RANI.link_ue(raw)
                 for p in G.PET_PAESI:
                     if L.get(p["nome_ue"]) != p["ingresso"]:
-                        errori.append(f"{p['iso2']}: link della Commissione ai punti di ingresso diverso dalla copia salvata")
+                        ef.append(f"{p['iso2']}: link della Commissione ai punti di ingresso diverso dalla copia salvata")
             conti["cache"] = "sì"
+            errori += esito_copia(26, fid, ef, f_c, F["letto_il"])
     for c in G.PET["citazioni"]:
         if c.get("elenco") and " ".join(c["elenco"]) != c["x"]:
             errori.append(f"citazione {c['id']}: le voci dell'elenco non ricompongono la frase")
@@ -4510,26 +4621,38 @@ def controlla_india():
         if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", F["letto_il"] or "") or F["letto_il"] > G.OGGI.isoformat():
             errori.append(f"fonte {fid}: data di lettura non valida")
         f_c = RIN.file_cache(fid)
-        if not f_c.exists():
-            errori.append(f"fonte {fid}: copia salvata mancante (rilanciare raccolta/india_evisa.py)")
+        if not copia_usabile(27, fid, f_c, "india_evisa.py"):
             continue
+        ef = []
         if F["tipo"] == "pdf" and hashlib.sha256(f_c.read_bytes()).hexdigest() != F["sha256"]:
-            errori.append(f"fonte {fid}: il PDF salvato non è quello da cui sono stati estratti i dati (rilanciare la raccolta)")
+            ef.append(f"fonte {fid}: il PDF salvato non è quello da cui sono stati estratti i dati (rilanciare la raccolta)")
         t = RIN.testo_fonte(fid, f_c)
         for c in I["citazioni"]:
             if c["f"] == fid and c["x"] not in t:
-                errori.append(f"fonte {fid}: citazione {c['id']} non parola per parola nel testo salvato")
+                ef.append(f"fonte {fid}: citazione {c['id']} non parola per parola nel testo salvato")
         if fid == "evisa":
-            errori += RIN.controlla_porti(M, t)
+            ef += RIN.controlla_porti(M, t)
+        errori += esito_copia(27, fid, ef, f_c, F["letto_il"])
     for c in I["citazioni"]:
         if len(c["x"].split()) > RIN.MAX_PAROLE:
             errori.append(f"citazione {c['id']} oltre {RIN.MAX_PAROLE} parole")
     # b) seconda lettura dei PDF: stesso numero di righe e di Paesi, numeri d'ordine 1..N, stessi nomi e stessi valori dei dati
     pdf = {}
     for fid, k in COLONNE_PDF_IN.items():
-        righe, metodo = righe_pdf_indipendenti(RIN.file_cache(fid), k)
-        conti["metodo"] = metodo
         T = I["tabelle"][fid]
+        f_pdf = RIN.file_cache(fid)
+        if not f_pdf.exists() or hashlib.sha256(f_pdf.read_bytes()).hexdigest() != I["fonti"][fid]["sha256"]:
+            # PDF salvato mancante (avviso già dato sopra) o diverso da quello dei dati (errore o avviso sopra): niente seconda lettura;
+            # le celle delle pagine si controllano contro i valori grezzi dei dati (sotto, punto c)
+            if f_pdf.exists():
+                avviso(27, f"{fid}: seconda lettura del PDF saltata (il PDF salvato non è quello dei dati): pagine controllate contro i dati")
+            else:
+                avviso(27, f"{fid}: seconda lettura del PDF saltata (PDF salvato mancante): pagine controllate contro i dati")
+            conti["righe_tv" if fid == "fee_tv" else "righe_altri"] = len(T["righe"])
+            pdf[fid] = {d["iso2"]: dict(zip([c for c, _ in T["colonne"]], d["grezzi"])) for d in T["righe"]}
+            continue
+        righe, metodo = righe_pdf_indipendenti(f_pdf, k)
+        conti["metodo"] = metodo
         conti["righe_tv" if fid == "fee_tv" else "righe_altri"] = len(righe)
         if [r[0] for r in righe] != list(range(1, len(righe) + 1)):
             errori.append(f"{fid}: la seconda lettura del PDF non dà numeri d'ordine consecutivi")
@@ -4893,15 +5016,17 @@ def controlla_scooter():
         if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", F["letto_il"] or "") or F["letto_il"] > G.OGGI.isoformat():
             errori.append(f"scooter fonte {fid}: data di lettura non valida {F['letto_il']}")
         f_c = RSC.file_cache(fid)
-        if f_c.exists():
+        if copia_usabile(28, fid, f_c, "scooter.py"):
+            ef = []
             t = RSC.testo_fonte(fid, f_c.read_bytes(), F.get("charset"))
             frasi = RSC.frasi_fonte(G.SC, fid)
             for x in frasi:
                 if x not in t:
-                    errori.append(f"scooter fonte {fid}: la frase non è nel testo salvato: {x[:70]}")
+                    ef.append(f"scooter fonte {fid}: la frase non è nel testo salvato: {x[:70]}")
             if RSC.impronta_zona(t, frasi) != F["impronta"]:
-                errori.append(f"scooter fonte {fid}: impronta diversa dal testo salvato (rilanciare raccolta/scooter.py)")
+                ef.append(f"scooter fonte {fid}: impronta diversa dal testo salvato (rilanciare raccolta/scooter.py)")
             conti["cache"] = "sì"
+            errori += esito_copia(28, fid, ef, f_c, F["letto_il"])
     # b) Paesi non letti: motivo coerente con la rilettura (non risponde = HTTP diverso da 200; regola assente = HTTP 200 e 0 frasi)
     for x in G.SC["non_letti"]:
         conti["non_letti"] += 1
@@ -5116,24 +5241,26 @@ def controlla_bluebadge():
         if F["frasi"] and not F.get("impronta") or not F.get("impronta_testo"):
             errori.append(f"blue badge fonte {fid}: impronta mancante")
         f_c = RBB.file_cache(fid) if fid in RBB.FONTI else None
-        if f_c and f_c.exists():
+        if copia_usabile(29, fid, f_c, "bluebadge.py"):
+            ef = []
             raw = f_c.read_bytes()
             t = RBB.testo_fonte(raw, F["tipo"])
             frasi = RBB.frasi_fonte(G.BB, fid)
             for x in frasi:
                 if x not in t:
-                    errori.append(f"blue badge fonte {fid}: la citazione non è parola per parola nella copia salvata: {x[:70]}")
+                    ef.append(f"blue badge fonte {fid}: la citazione non è parola per parola nella copia salvata: {x[:70]}")
             if frasi and RBB.impronta_zona(t, frasi) != F["impronta"]:
-                errori.append(f"blue badge fonte {fid}: impronta diversa dalla copia salvata (rilanciare la raccolta)")
+                ef.append(f"blue badge fonte {fid}: impronta diversa dalla copia salvata (rilanciare la raccolta)")
             if RBB.impronta(t) != F["impronta_testo"]:
-                errori.append(f"blue badge fonte {fid}: impronta del testo diversa dalla copia salvata")
+                ef.append(f"blue badge fonte {fid}: impronta del testo diversa dalla copia salvata")
             if fid == "gov_eu" and RBB.tabella_govuk(raw) != G.BB["tabella_govuk"]:
-                errori.append("blue badge: tabella GOV.UK diversa dalla copia salvata")
+                ef.append("blue badge: tabella GOV.UK diversa dalla copia salvata")
             if fid == "gov_pub" and RBB.storico_govuk(raw) != G.BB["storico_govuk"]:
-                errori.append("blue badge: note di modifica GOV.UK diverse dalla copia salvata")
+                ef.append("blue badge: note di modifica GOV.UK diverse dalla copia salvata")
             if fid.startswith("fcdo_") and ("Blue Badge" in t) != G.BB_PER[fid[5:]]["fcdo_nomina"]:
-                errori.append(f"blue badge fonte {fid}: 'nomina il Blue Badge' diverso dal testo salvato")
+                ef.append(f"blue badge fonte {fid}: 'nomina il Blue Badge' diverso dal testo salvato")
             conti["cache"] = "sì"
+            errori += esito_copia(29, fid, ef, f_c, F["letto_il"])
     for c in G.BB["citazioni"]:
         F = G.BB["fonti"].get(c["f"])
         if not F:
@@ -5329,6 +5456,10 @@ AMAZON_FRASE = "As an Amazon Associate we earn from qualifying purchases."
 AMAZON_MERCATO_AREA = {"Europe": {"www.amazon.co.uk"}, "North America": {"www.amazon.com"},
                        "Middle East and Australia": {"www.amazon.co.uk", "www.amazon.com"}}
 ESIM_PARAMETRI = {"awinmid": "118127", "awinaffid": "3145171", "ued": "https://roamable.co/"}
+# eSIM Awin del 9/11/2026 (accesi il 10/11): voce di affiliati.json -> parametri attesi del link e nome del fornitore in dati/esim.json
+ESIM_ALTRI = {"esim_vodafone": ({"awinmid": "123870", "awinaffid": "3145171"}, "vodafone"),
+              "esim_pocket": ({"awinmid": "131040", "awinaffid": "3145171"}, "pocket")}
+ESIM_MINIMO_PAESI = 100
 # cartelle dove il riquadro generico «Before you go» (eSIM) è ammesso: viaggi all'estero
 ESIM_CARTELLE = ("passport-validity/", "canadian-passport/", "australian-passport/", "ees-etias/")
 _RE_ASIN = re.compile(r"(/dp/|/gp/product|/gp/aw/d/|/exec/obidos|/o/ASIN|\bB0[A-Z0-9]{8}\b|[?&](asin|ASIN)=)")
@@ -5337,7 +5468,8 @@ _RE_ASIN = re.compile(r"(/dp/|/gp/product|/gp/aw/d/|/exec/obidos|/o/ASIN|\bB0[A-
 def controlla_amazon_esim():
     from html import unescape
     from urllib.parse import parse_qs
-    errori, c = [], {"amazon_pagine": 0, "amazon_link": 0, "uk": 0, "us": 0, "entrambi": 0, "esim_pagine": 0}
+    errori, c = [], {"amazon_pagine": 0, "amazon_link": 0, "uk": 0, "us": 0, "entrambi": 0, "esim_pagine": 0,
+                     "esim_link": {"esim": 0, "esim_vodafone": 0, "esim_pocket": 0}, "esim_ordine": 0}
     attese = {f"{G.BAG_BASE}/index.html": None, f"{G.BAG_STRUMENTO}index.html": None}
     for C in G.COMPAGNIE:
         attese[f"{G.BAG_BASE}/{C['slug']}/index.html"] = C
@@ -5350,7 +5482,24 @@ def controlla_amazon_esim():
         q = {k: v[0] for k, v in parse_qs(u.query).items()}
         if u.scheme != "https" or u.hostname != "www.awin1.com" or u.path != "/cread.php" or q != ESIM_PARAMETRI:
             errori.append(f"eSIM: link Awin diverso da quello atteso (awinmid 118127, awinaffid 3145171, ued https://roamable.co/): {esim}")
+    link_esim = {esim: "esim"} if esim else {}
+    for k, (par, forn) in ESIM_ALTRI.items():
+        url = (G.AFFILIATI.get(k) or {}).get("url") or ""
+        if not url:
+            continue
+        u = urlparse(url)
+        q = {a: b[0] for a, b in parse_qs(u.query).items()}
+        if u.scheme != "https" or u.hostname != "www.awin1.com" or u.path != "/cread.php" or q != par:
+            errori.append(f"eSIM {k}: link Awin diverso da quello atteso ({par}): {url}")
+        F = G.ESIM["fornitori"].get(forn)
+        if not F or F.get("http") != 200 or len(F.get("paesi", {})) < ESIM_MINIMO_PAESI or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", F.get("letto_il") or "") \
+                or F["letto_il"] > G.OGGI.isoformat() or (G.AFFILIATI[k].get("elenco") != forn):
+            errori.append(f"eSIM {k}: elenco dei Paesi '{forn}' mancante o non valido in dati/esim.json (rilanciare raccolta/esim.py)")
+        elif not set(F["paesi"]) <= set(G.PAESI_ISO):
+            errori.append(f"eSIM {k}: codici non ISO nell'elenco '{forn}'")
+        link_esim[url] = k
     pagine_esim = set()
+    righe_esim = {}  # pagina -> [(voce, testo della riga)] nell'ordine della pagina
     for f in sorted(SITO.rglob("*.html")):
         rel = str(f.relative_to(SITO))
         t = f.read_text(encoding="utf-8", errors="replace")
@@ -5363,8 +5512,13 @@ def controlla_amazon_esim():
                 continue
             u = urlparse(href if not href.startswith("//") else "https:" + href)
             host = (u.hostname or "").lower()
-            if esim and href == esim:
+            if href in link_esim:
                 pagine_esim.add(rel)
+                c["esim_link"][link_esim[href]] += 1
+                if not {"sponsored", "noopener"} <= set((re.search(r'rel="([^"]*)"', tag_a) or [None, ""])[1].split()):
+                    errori.append(f"{rel}: link eSIM senza rel=\"sponsored noopener\"")
+                riga = re.search(r"</a>\s*<span class=\"small\">(.*?)</span>", t[m.end():m.end() + 1200], re.S)
+                righe_esim.setdefault(rel, []).append((link_esim[href], unescape(riga.group(1)) if riga else ""))
             if not re.search(r"(^|\.)amazon\.[a-z.]+$", host) and not re.search(r"(^|\.)(amzn\.to|amzn\.eu|a\.co)$", host):
                 continue
             n_amz += 1
@@ -5433,6 +5587,57 @@ def controlla_amazon_esim():
         for rel in ("index.html", "liquids/index.html", "liquids/malaga/index.html", f"{G.BAG_BASE}/index.html"):
             if rel in pagine_esim:
                 errori.append(f"{rel}: riquadro eSIM in una pagina dove non c'entra")
+    # eSIM: ordine e frasi dei tre fornitori ricalcolati qui da dati/esim.json (non dalle funzioni di genera.py)
+    for rel, righe in sorted(righe_esim.items()):
+        voci = [k for k, _ in righe]
+        testi = dict(righe)
+        if len(voci) != len(set(voci)):
+            errori.append(f"{rel}: un fornitore eSIM ripetuto nel riquadro")
+        destinazione = rel.count("/") == 2 and not rel.startswith("ees-etias/")
+        for k, (_, forn) in ESIM_ALTRI.items():
+            if k not in testi:
+                continue
+            F = G.ESIM["fornitori"].get(forn) or {}
+            mm = re.search(r"list of destinations includes (.+?) \(checked on (.+?)\)\.", testi[k])
+            if mm:
+                if not destinazione:
+                    errori.append(f"{rel}: frase «includes …» di {k} in una pagina senza destinazione")
+                if mm.group(2) != G.data_lunga(F.get("letto_il", "")):
+                    errori.append(f"{rel}: data di lettura dell'elenco {forn} diversa da dati/esim.json")
+                nome = re.sub(r"^the ", "", mm.group(1))
+                codici = {cc for cc, pp in G.PAESI_ISO.items() if nome in [pp["nome"]] + (pp.get("alias") or [])}
+                if not codici & set(F.get("paesi", {})):
+                    errori.append(f"{rel}: {k} dice che il suo elenco comprende {nome}, ma {nome} non è nell'elenco '{forn}' di dati/esim.json")
+                if k == "esim_vodafone":
+                    c["esim_ordine"] += 1
+                    if voci[0] != "esim_vodafone":
+                        errori.append(f"{rel}: Vodafone comprende la destinazione ma non è il primo del riquadro eSIM")
+            elif destinazione and "check that your destination is on" not in testi[k].lower():
+                errori.append(f"{rel}: riga {k} senza la frase sulla destinazione e senza il testo generico")
+            elif not destinazione and "check that your destination is on" not in testi[k].lower():
+                errori.append(f"{rel}: riga {k} senza il testo generico in una pagina senza destinazione")
+        if not destinazione and voci and voci[0] != "esim":
+            errori.append(f"{rel}: in una pagina senza destinazione il riquadro eSIM deve iniziare con Roamable")
+        if destinazione and "esim_vodafone" in voci and voci[0] != "esim_vodafone" and "includes" in testi["esim_vodafone"]:
+            errori.append(f"{rel}: Vodafone non è il primo")
+    # ogni pagina destinazione: fornitori e ordine attesi ricalcolati qui (Vodafone primo se l'elenco comprende il Paese, assente se non lo
+    # comprende; poi Roamable; Pocket solo se il suo elenco lo comprende; destinazione senza codice ISO: Roamable, Vodafone, Pocket)
+    accese = [k for k in ("esim", "esim_vodafone", "esim_pocket") if (G.AFFILIATI.get(k) or {}).get("url")]
+    el = {k: set((G.ESIM["fornitori"].get(f) or {}).get("paesi", {})) for k, (_, f) in ESIM_ALTRI.items()}
+    dest = [(f"passport-validity/{P['slug']}/index.html", G.iso_destinazione(P["nome"], P["url"])) for P in G.PAESI]
+    for k in G.ESTERI:
+        for v in G.VOCI[k]:
+            dest.append((v["url_pag"] + "index.html", v["p"].get("iso") or G.iso_destinazione(v["nome"], v["p"].get("url", ""))))
+    c["esim_senza_iso"] = 0
+    for rel, iso in dest:
+        if iso:
+            attese = [k for k in ("esim_vodafone", "esim", "esim_pocket") if k in accese and (k == "esim" or iso in el[k])]
+        else:
+            c["esim_senza_iso"] += 1
+            attese = [k for k in ("esim", "esim_vodafone", "esim_pocket") if k in accese]
+        trovate = [k for k, _ in righe_esim.get(rel, [])]
+        if trovate != attese:
+            errori.append(f"{rel}: fornitori eSIM {trovate} invece di {attese} (ricalcolati da dati/esim.json, Paese {iso})")
     c["esim_pagine"] = len(pagine_esim)
     return errori, c
 
@@ -5568,15 +5773,26 @@ def main():
     e31, c31 = controlla_amazon_esim()
     print(f"31. Amazon ed eSIM: {c31['amazon_link']} link Amazon in {c31['amazon_pagine']} pagine del bagaglio a mano (solo .co.uk: {c31['uk']}, "
           f"solo .com: {c31['us']}, entrambi: {c31['entrambi']}), tag giusto per dominio, solo ricerche /s senza ASIN, misura della pagina, "
-          f"frase di Amazon nelle pagine e nella privacy; eSIM Roamable (Awin) in {c31['esim_pagine']} pagine di viaggi all'estero: {len(e31)} errori")
+          f"frase di Amazon nelle pagine e nella privacy; eSIM (Awin) in {c31['esim_pagine']} pagine di viaggi all'estero, link Roamable "
+          f"{c31['esim_link']['esim']}, Vodafone {c31['esim_link']['esim_vodafone']}, Pocket {c31['esim_link']['esim_pocket']}; Vodafone primo "
+          f"(elenco con la destinazione) in {c31['esim_ordine']} pagine, ordine e presenza ricalcolati da dati/esim.json, {c31.get('esim_senza_iso', 0)} "
+          f"destinazioni senza codice ISO (testo generico): {len(e31)} errori")
     e19, i19 = G.MON.controlla_sito(G.SITO_ID, SITO)  # controllo comune di monetizzazione (monetizzazione.py)
     print("19. " + G.MON.riepilogo(G.SITO_ID, i19, e19))
     tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28 + e29 + e30 + e31
+    if AVVISI:  # ricalcoli dalle copie salvati saltati (copia mancante, pagina di blocco, raccolta che non ha aggiornato il JSON): non sono errori
+        per_punto = {}
+        for k, _ in AVVISI:
+            per_punto[k] = per_punto.get(k, 0) + 1
+        print(f"AVVISI: {len(AVVISI)} (" + ", ".join(f"punto {k}: {n}" for k, n in sorted(per_punto.items(), key=lambda x: int(x[0]))) +
+              "); ricalcoli dalle copie saltati, tutti gli altri controlli fatti:")
+        for k, a in AVVISI:
+            print(f" ~ [{k}] {a}")
     for e in tutti:
         print(" -", e)
     if tutti:
         sys.exit(1)
-    print("TUTTO OK")
+    print("TUTTO OK" + (f" (con {len(AVVISI)} avvisi)" if AVVISI else ""))
 
 
 if __name__ == "__main__":

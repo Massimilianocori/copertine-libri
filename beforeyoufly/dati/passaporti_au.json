@@ -5,7 +5,7 @@
  "licenza_url": "https://creativecommons.org/licenses/by/4.0/",
  "copyright_url": "https://www.smartraveller.gov.au/copyright",
  "attribuzione": "the Department of Foreign Affairs and Trade's Smartraveller website - www.smartraveller.gov.au",
- "controllato_il": "2026-11-04",
+ "controllato_il": "2026-11-10",
  "pagine_indice": 179,
  "paesi": [
   {
@@ -14,7 +14,7 @@
    "nome": "Afghanistan",
    "url": "https://www.smartraveller.gov.au/destinations/asia/afghanistan",
    "aggiornata": "2026-06-29",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -133,7 +133,7 @@
    "nome": "Albania",
    "url": "https://www.smartraveller.gov.au/destinations/europe/albania",
    "aggiornata": "2026-10-16",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -252,7 +252,7 @@
    "nome": "Algeria",
    "url": "https://www.smartraveller.gov.au/destinations/africa/algeria",
    "aggiornata": "2026-06-04",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -443,7 +443,7 @@
    "nome": "Angola",
    "url": "https://www.smartraveller.gov.au/destinations/africa/angola",
    "aggiornata": "2026-06-02",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -640,7 +640,7 @@
    "nome": "Argentina",
    "url": "https://www.smartraveller.gov.au/destinations/americas/argentina",
    "aggiornata": "2026-07-21",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -1031,7 +1031,7 @@
    "nome": "Armenia",
    "url": "https://www.smartraveller.gov.au/destinations/europe/armenia",
    "aggiornata": "2026-06-17",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -1310,7 +1310,7 @@
    "nome": "Austria",
    "url": "https://www.smartraveller.gov.au/destinations/europe/austria",
    "aggiornata": "2026-09-02",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -1670,7 +1670,7 @@
    "nome": "Azerbaijan",
    "url": "https://www.smartraveller.gov.au/destinations/europe/azerbaijan",
    "aggiornata": "2026-06-17",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -1927,7 +1927,7 @@
    "nome": "Bahrain",
    "url": "https://www.smartraveller.gov.au/destinations/middle-east/bahrain",
    "aggiornata": "2026-10-23",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -2273,7 +2273,7 @@
    "nome": "Bangladesh",
    "url": "https://www.smartraveller.gov.au/destinations/asia/bangladesh",
    "aggiornata": "2026-09-17",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -2446,7 +2446,7 @@
    "nome": "Belarus",
    "url": "https://www.smartraveller.gov.au/destinations/europe/belarus",
    "aggiornata": "2026-07-09",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -2828,7 +2828,7 @@
    "nome": "Belgium",
    "url": "https://www.smartraveller.gov.au/destinations/europe/belgium",
    "aggiornata": "2026-04-29",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -3212,8 +3212,8 @@
    "regione": "americas",
    "nome": "Belize",
    "url": "https://www.smartraveller.gov.au/destinations/americas/belize",
-   "aggiornata": "2026-06-15",
-   "ancora_valida_il": "2026-11-05",
+   "aggiornata": "2026-11-06",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -3508,7 +3508,7 @@
    "nome": "Benin",
    "url": "https://www.smartraveller.gov.au/destinations/africa/benin",
    "aggiornata": "2025-12-23",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -3669,7 +3669,7 @@
    "nome": "Bhutan",
    "url": "https://www.smartraveller.gov.au/destinations/asia/bhutan",
    "aggiornata": "2026-01-28",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -3916,7 +3916,7 @@
    "nome": "Bolivia",
    "url": "https://www.smartraveller.gov.au/destinations/americas/bolivia",
    "aggiornata": "2026-09-18",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -4115,7 +4115,7 @@
    "nome": "Bosnia and Herzegovina",
    "url": "https://www.smartraveller.gov.au/destinations/europe/bosnia-and-herzegovina",
    "aggiornata": "2026-07-31",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -4346,7 +4346,7 @@
    "nome": "Botswana",
    "url": "https://www.smartraveller.gov.au/destinations/africa/botswana",
    "aggiornata": "2026-10-09",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -4587,7 +4587,7 @@
    "nome": "Brazil",
    "url": "https://www.smartraveller.gov.au/destinations/americas/brazil",
    "aggiornata": "2026-10-27",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -4816,7 +4816,7 @@
    "nome": "Brunei Darussalam",
    "url": "https://www.smartraveller.gov.au/destinations/asia/brunei-darussalam",
    "aggiornata": "2026-09-14",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -5089,7 +5089,7 @@
    "nome": "Bulgaria",
    "url": "https://www.smartraveller.gov.au/destinations/europe/bulgaria",
    "aggiornata": "2026-10-07",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -5438,7 +5438,7 @@
    "nome": "Burkina Faso",
    "url": "https://www.smartraveller.gov.au/destinations/africa/burkina-faso",
    "aggiornata": "2026-10-28",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -5607,7 +5607,7 @@
    "nome": "Burundi",
    "url": "https://www.smartraveller.gov.au/destinations/africa/burundi",
    "aggiornata": "2026-05-28",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -5838,7 +5838,7 @@
    "nome": "Cambodia",
    "url": "https://www.smartraveller.gov.au/destinations/asia/cambodia",
    "aggiornata": "2026-09-22",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -6115,8 +6115,8 @@
    "regione": "africa",
    "nome": "Cameroon",
    "url": "https://www.smartraveller.gov.au/destinations/africa/cameroon",
-   "aggiornata": "2026-03-18",
-   "ancora_valida_il": "2026-11-05",
+   "aggiornata": "2026-11-09",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -6241,6 +6241,10 @@
      },
      {
       "t": "p",
+      "x": "You may be subject to temperature screening on arrival at Yaoundé Nsimalen and Douala international airports, in response to the Ebola outbreak in the Democratic Republic of the Congo (DRC). Health screening measures may change at short notice."
+     },
+     {
+      "t": "p",
       "x": "In the past, borders with Cameroon's neighbours have closed with little or no warning. Monitor news and consult travel providers for the latest updates."
      },
      {
@@ -6311,6 +6315,10 @@
      },
      {
       "t": "p",
+      "x": "You may be subject to temperature screening on arrival at Yaoundé Nsimalen and Douala international airports, in response to the Ebola outbreak in the Democratic Republic of the Congo (DRC). Health screening measures may change at short notice."
+     },
+     {
+      "t": "p",
       "x": "In the past, borders with Cameroon's neighbours have closed with little or no warning. Monitor news and consult travel providers for the latest updates."
      },
      {
@@ -6377,7 +6385,7 @@
    "nome": "Canada",
    "url": "https://www.smartraveller.gov.au/destinations/americas/canada",
    "aggiornata": "2026-10-26",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -6752,7 +6760,7 @@
    "nome": "Central African Republic",
    "url": "https://www.smartraveller.gov.au/destinations/africa/central-african-republic",
    "aggiornata": "2026-06-03",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -6913,7 +6921,7 @@
    "nome": "Chad",
    "url": "https://www.smartraveller.gov.au/destinations/africa/chad",
    "aggiornata": "2025-11-10",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -7080,7 +7088,7 @@
    "nome": "Chile",
    "url": "https://www.smartraveller.gov.au/destinations/americas/chile",
    "aggiornata": "2026-10-22",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -7386,7 +7394,7 @@
    "nome": "China",
    "url": "https://www.smartraveller.gov.au/destinations/asia/china",
    "aggiornata": "2026-09-28",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -7793,7 +7801,7 @@
    "nome": "Colombia",
    "url": "https://www.smartraveller.gov.au/destinations/americas/colombia",
    "aggiornata": "2026-10-06",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -8150,7 +8158,7 @@
    "nome": "Cook Islands",
    "url": "https://www.smartraveller.gov.au/destinations/pacific/cook-islands",
    "aggiornata": "2026-07-22",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -8333,7 +8341,7 @@
    "nome": "Costa Rica",
    "url": "https://www.smartraveller.gov.au/destinations/americas/costa-rica",
    "aggiornata": "2026-03-12",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -8636,7 +8644,7 @@
    "nome": "Croatia",
    "url": "https://www.smartraveller.gov.au/destinations/europe/croatia",
    "aggiornata": "2026-10-16",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -8924,7 +8932,7 @@
    "nome": "Cuba",
    "url": "https://www.smartraveller.gov.au/destinations/americas/cuba",
    "aggiornata": "2026-06-05",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -9251,7 +9259,7 @@
    "nome": "Cyprus",
    "url": "https://www.smartraveller.gov.au/destinations/europe/cyprus",
    "aggiornata": "2026-07-23",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -9611,7 +9619,7 @@
    "nome": "Czech Republic",
    "url": "https://www.smartraveller.gov.au/destinations/europe/czech-republic",
    "aggiornata": "2026-04-14",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -9988,7 +9996,7 @@
    "nome": "Côte d'Ivoire (Ivory Coast)",
    "url": "https://www.smartraveller.gov.au/destinations/africa/cote-divoire-ivory-coast",
    "aggiornata": "2026-09-07",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -10197,7 +10205,7 @@
    "nome": "Democratic Republic of the Congo",
    "url": "https://www.smartraveller.gov.au/destinations/africa/democratic-republic-congo",
    "aggiornata": "2026-07-06",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -10452,7 +10460,7 @@
    "nome": "Denmark",
    "url": "https://www.smartraveller.gov.au/destinations/europe/denmark",
    "aggiornata": "2026-04-14",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -10862,7 +10870,7 @@
    "nome": "Djibouti",
    "url": "https://www.smartraveller.gov.au/destinations/africa/djibouti",
    "aggiornata": "2026-02-06",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -11021,7 +11029,7 @@
    "nome": "Dominican Republic",
    "url": "https://www.smartraveller.gov.au/destinations/americas/dominican-republic",
    "aggiornata": "2026-02-25",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -11290,7 +11298,7 @@
    "nome": "Ecuador",
    "url": "https://www.smartraveller.gov.au/destinations/americas/ecuador",
    "aggiornata": "2026-06-23",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -11595,7 +11603,7 @@
    "nome": "Egypt",
    "url": "https://www.smartraveller.gov.au/destinations/africa/egypt",
    "aggiornata": "2026-09-14",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -11965,7 +11973,7 @@
    "nome": "El Salvador",
    "url": "https://www.smartraveller.gov.au/destinations/americas/el-salvador",
    "aggiornata": "2026-01-12",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -12290,7 +12298,7 @@
    "nome": "Eritrea",
    "url": "https://www.smartraveller.gov.au/destinations/africa/eritrea",
    "aggiornata": "2026-06-05",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -12523,7 +12531,7 @@
    "nome": "Estonia",
    "url": "https://www.smartraveller.gov.au/destinations/europe/estonia",
    "aggiornata": "2026-10-29",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -12930,8 +12938,8 @@
    "regione": "africa",
    "nome": "Eswatini",
    "url": "https://www.smartraveller.gov.au/destinations/africa/eswatini",
-   "aggiornata": "2026-02-13",
-   "ancora_valida_il": "2026-11-05",
+   "aggiornata": "2026-11-06",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -13024,7 +13032,11 @@
      },
      {
       "t": "p",
-      "x": "Tourists can enter Eswatini for up to 30 days without a visa. Your passport must be valid for six months after departure and have two blank pages. You'll need to get a visa in advance for other types of visits."
+      "x": "Tourists can enter Eswatini for up to 30 days without a visa. Your passport must be valid for six months after departure and have two blank pages."
+     },
+     {
+      "t": "p",
+      "x": "You'll need to get a visa in advance for other types of visits. You may be eligible for an e-visa. Visit the Ministry of Home Affairs' visa portal for more information."
      },
      {
       "t": "p",
@@ -13052,7 +13064,7 @@
      },
      {
       "t": "li",
-      "x": "Eswatini Ministry of Home Affairs"
+      "x": "Eswatini Ministry of Home Affairs visa portal"
      },
      {
       "t": "li",
@@ -13066,7 +13078,11 @@
      },
      {
       "t": "p",
-      "x": "Tourists can enter Eswatini for up to 30 days without a visa. Your passport must be valid for six months after departure and have two blank pages. You'll need to get a visa in advance for other types of visits."
+      "x": "Tourists can enter Eswatini for up to 30 days without a visa. Your passport must be valid for six months after departure and have two blank pages."
+     },
+     {
+      "t": "p",
+      "x": "You'll need to get a visa in advance for other types of visits. You may be eligible for an e-visa. Visit the Ministry of Home Affairs' visa portal for more information."
      },
      {
       "t": "p",
@@ -13094,7 +13110,7 @@
      },
      {
       "t": "li",
-      "x": "Eswatini Ministry of Home Affairs"
+      "x": "Eswatini Ministry of Home Affairs visa portal"
      },
      {
       "t": "li",
@@ -13180,7 +13196,7 @@
    "nome": "Ethiopia",
    "url": "https://www.smartraveller.gov.au/destinations/africa/ethiopia",
    "aggiornata": "2026-10-01",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -13352,8 +13368,8 @@
    "regione": "pacific",
    "nome": "Federated States of Micronesia",
    "url": "https://www.smartraveller.gov.au/destinations/pacific/federated-states-micronesia",
-   "aggiornata": "2026-07-22",
-   "ancora_valida_il": "2026-11-05",
+   "aggiornata": "2026-11-09",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -13462,7 +13478,7 @@
      },
      {
       "t": "p",
-      "x": "Phone: (+691) 320 5844, (+691) 320 2605 or (+691) 320 2606"
+      "x": "Phone: +691 320 5844, +691 320 2605 or +691 320 2606"
      },
      {
       "t": "p",
@@ -13486,7 +13502,7 @@
      },
      {
       "t": "li",
-      "x": "US travel advice (Smartraveller)"
+      "x": "US travel advice"
      },
      {
       "t": "h4",
@@ -13566,7 +13582,7 @@
      },
      {
       "t": "p",
-      "x": "Phone: (+691) 320 5844, (+691) 320 2605 or (+691) 320 2606"
+      "x": "Phone: +691 320 5844, +691 320 2605 or +691 320 2606"
      },
      {
       "t": "p",
@@ -13575,10 +13591,6 @@
      {
       "t": "p",
       "x": "More information:"
-     },
-     {
-      "t": "li",
-      "x": "Marine Division"
      },
      {
       "t": "li",
@@ -13608,7 +13620,7 @@
      },
      {
       "t": "p",
-      "x": "Phone: (+691) 320 5844, (+691) 320 2605 or (+691) 320 2606"
+      "x": "Phone: +691 320 5844, +691 320 2605 or +691 320 2606"
      },
      {
       "t": "p",
@@ -13632,7 +13644,7 @@
      },
      {
       "t": "li",
-      "x": "US travel advice (Smartraveller)"
+      "x": "US travel advice"
      },
      {
       "t": "h4",
@@ -13712,7 +13724,7 @@
      },
      {
       "t": "p",
-      "x": "Phone: (+691) 320 5844, (+691) 320 2605 or (+691) 320 2606"
+      "x": "Phone: +691 320 5844, +691 320 2605 or +691 320 2606"
      },
      {
       "t": "p",
@@ -13721,10 +13733,6 @@
      {
       "t": "p",
       "x": "More information:"
-     },
-     {
-      "t": "li",
-      "x": "Marine Division"
      },
      {
       "t": "li",
@@ -13744,7 +13752,7 @@
    "nome": "Fiji",
    "url": "https://www.smartraveller.gov.au/destinations/pacific/fiji",
    "aggiornata": "2026-10-19",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -13983,7 +13991,7 @@
    "nome": "Finland",
    "url": "https://www.smartraveller.gov.au/destinations/europe/finland",
    "aggiornata": "2026-08-03",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -14350,8 +14358,8 @@
    "regione": "europe",
    "nome": "France",
    "url": "https://www.smartraveller.gov.au/destinations/europe/france",
-   "aggiornata": "2026-10-30",
-   "ancora_valida_il": "2026-11-05",
+   "aggiornata": "2026-11-06",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -14744,7 +14752,7 @@
    "nome": "French Polynesia",
    "url": "https://www.smartraveller.gov.au/destinations/pacific/french-polynesia",
    "aggiornata": "2026-07-22",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -15216,8 +15224,8 @@
    "regione": "africa",
    "nome": "Gabon",
    "url": "https://www.smartraveller.gov.au/destinations/africa/gabon",
-   "aggiornata": "2026-01-09",
-   "ancora_valida_il": "2026-11-05",
+   "aggiornata": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -15310,7 +15318,7 @@
      },
      {
       "t": "p",
-      "x": "You should get a visa to enter Gabon. Those entering Gabon under visa-free arrangements have experienced immigration issues during their stay."
+      "x": "You need a visa to enter Gabon. Travellers can apply online through Gabon’s e-visa system."
      },
      {
       "t": "p",
@@ -15323,6 +15331,30 @@
      {
       "t": "p",
       "x": "Entry and exit conditions can change at short notice. Contact the nearest embassy or consulate for the latest details about visas, currency, customs and other travel requirements."
+     },
+     {
+      "t": "h4",
+      "x": "Yellow fever vaccination"
+     },
+     {
+      "t": "p",
+      "x": "To enter Gabon, you must present a valid yellow fever vaccination certificate. Some airlines may also require proof of vaccination when you depart the country."
+     },
+     {
+      "t": "p",
+      "x": "When entering Australia, you must declare if you’ve visited a yellow fever risk country or area."
+     },
+     {
+      "t": "p",
+      "x": "Find out about returning to Australia after exposure to yellow fever."
+     },
+     {
+      "t": "p",
+      "x": "More information:"
+     },
+     {
+      "t": "p",
+      "x": "Countries with a risk of yellow fever"
      }
     ],
     "testo_paese": [
@@ -15332,7 +15364,7 @@
      },
      {
       "t": "p",
-      "x": "You should get a visa to enter Gabon. Those entering Gabon under visa-free arrangements have experienced immigration issues during their stay."
+      "x": "You need a visa to enter Gabon. Travellers can apply online through Gabon’s e-visa system."
      },
      {
       "t": "p",
@@ -15345,40 +15377,38 @@
      {
       "t": "p",
       "x": "Entry and exit conditions can change at short notice. Contact the nearest embassy or consulate for the latest details about visas, currency, customs and other travel requirements."
+     },
+     {
+      "t": "h4",
+      "x": "Yellow fever vaccination"
+     },
+     {
+      "t": "p",
+      "x": "To enter Gabon, you must present a valid yellow fever vaccination certificate. Some airlines may also require proof of vaccination when you depart the country."
+     },
+     {
+      "t": "p",
+      "x": "When entering Australia, you must declare if you’ve visited a yellow fever risk country or area."
+     },
+     {
+      "t": "p",
+      "x": "Find out about returning to Australia after exposure to yellow fever."
+     },
+     {
+      "t": "p",
+      "x": "More information:"
+     },
+     {
+      "t": "p",
+      "x": "Countries with a risk of yellow fever"
      }
     ],
-    "frase": "You should get a visa to enter Gabon.",
+    "frase": "You need a visa to enter Gabon.",
     "schema": null,
     "sintesi": null,
-    "motivo": "The first official sentence does not match a wording we summarise."
+    "motivo": "The official text also mentions an eVisa, electronic travel authority, arrival card, online form or registration, visa on arrival, tourist card or fee: read it in full."
    },
-   "altre_sezioni": [
-    {
-     "titolo": "Other formalities",
-     "testo": [
-      {
-       "t": "h4",
-       "x": "Yellow fever vaccination"
-      },
-      {
-       "t": "p",
-       "x": "You'll need a valid yellow fever vaccination certificate to enter Gabon. Some airlines may want to see one when you leave."
-      },
-      {
-       "t": "p",
-       "x": "Find out about returning to Australia after exposure to yellow fever."
-      },
-      {
-       "t": "p",
-       "x": "More information:"
-      },
-      {
-       "t": "p",
-       "x": "Countries with a risk of yellow fever"
-      }
-     ]
-    }
-   ]
+   "altre_sezioni": []
   },
   {
    "slug_fonte": "georgia",
@@ -15386,7 +15416,7 @@
    "nome": "Georgia",
    "url": "https://www.smartraveller.gov.au/destinations/europe/georgia",
    "aggiornata": "2026-08-05",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -15602,7 +15632,7 @@
    "nome": "Germany",
    "url": "https://www.smartraveller.gov.au/destinations/europe/germany",
    "aggiornata": "2026-10-30",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -16010,8 +16040,8 @@
    "regione": "africa",
    "nome": "Ghana",
    "url": "https://www.smartraveller.gov.au/destinations/africa/ghana",
-   "aggiornata": "2026-07-30",
-   "ancora_valida_il": "2026-11-05",
+   "aggiornata": "2026-11-06",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -16111,16 +16141,40 @@
       "x": "Entry and exit conditions can change at short notice. Contact the High Commission of Ghana for details about visas, currency, customs and quarantine rules."
      },
      {
-      "t": "p",
+      "t": "h4",
       "x": "Border measures"
      },
      {
       "t": "p",
-      "x": "You need to show a valid yellow fever vaccination certificate when you arrive."
+      "x": "Measures are frequently reviewed and may change at short notice. Check the Accra International Airport website for the latest details."
+     },
+     {
+      "t": "h4",
+      "x": "Ebola"
      },
      {
       "t": "p",
-      "x": "Measures are frequently reviewed and may change at short notice. Check the Accra International Airport website for the latest details."
+      "x": "Due to the outbreak of Ebola in some parts of Africa, international travellers may need to undergo thermal screening and complete health declaration forms on arrival in Ghana."
+     },
+     {
+      "t": "h4",
+      "x": "Yellow Fever"
+     },
+     {
+      "t": "p",
+      "x": "To enter Ghana, you must present a valid yellow fever vaccination certificate. Some airlines may also require proof of vaccination when you depart the country."
+     },
+     {
+      "t": "p",
+      "x": "When entering Australia, you must declare if you’ve visited a yellow fever risk country or area."
+     },
+     {
+      "t": "p",
+      "x": "More information:"
+     },
+     {
+      "t": "p",
+      "x": "Countries with a risk of yellow fever"
      }
     ],
     "testo_paese": [
@@ -16137,51 +16191,51 @@
       "x": "Entry and exit conditions can change at short notice. Contact the High Commission of Ghana for details about visas, currency, customs and quarantine rules."
      },
      {
-      "t": "p",
+      "t": "h4",
       "x": "Border measures"
      },
      {
       "t": "p",
-      "x": "You need to show a valid yellow fever vaccination certificate when you arrive."
+      "x": "Measures are frequently reviewed and may change at short notice. Check the Accra International Airport website for the latest details."
+     },
+     {
+      "t": "h4",
+      "x": "Ebola"
      },
      {
       "t": "p",
-      "x": "Measures are frequently reviewed and may change at short notice. Check the Accra International Airport website for the latest details."
+      "x": "Due to the outbreak of Ebola in some parts of Africa, international travellers may need to undergo thermal screening and complete health declaration forms on arrival in Ghana."
+     },
+     {
+      "t": "h4",
+      "x": "Yellow Fever"
+     },
+     {
+      "t": "p",
+      "x": "To enter Ghana, you must present a valid yellow fever vaccination certificate. Some airlines may also require proof of vaccination when you depart the country."
+     },
+     {
+      "t": "p",
+      "x": "When entering Australia, you must declare if you’ve visited a yellow fever risk country or area."
+     },
+     {
+      "t": "p",
+      "x": "More information:"
+     },
+     {
+      "t": "p",
+      "x": "Countries with a risk of yellow fever"
      }
     ],
     "frase": "You'll need a visa to travel to Ghana.",
-    "schema": "visto_richiesto",
-    "sintesi": "You need a visa to travel to Ghana",
-    "motivo": null
+    "schema": null,
+    "sintesi": null,
+    "motivo": "The official text also mentions an eVisa, electronic travel authority, arrival card, online form or registration, visa on arrival, tourist card or fee: read it in full."
    },
    "altre_sezioni": [
     {
      "titolo": "Other formalities",
      "testo": [
-      {
-       "t": "h4",
-       "x": "Yellow fever vaccination"
-      },
-      {
-       "t": "p",
-       "x": "You'll need to present a valid yellow fever vaccination certificate to border officials to enter Ghana. Some airlines may want to see one when you leave."
-      },
-      {
-       "t": "p",
-       "x": "You may need a valid yellow fever vaccination certificate to travel to other countries after visiting Ghana."
-      },
-      {
-       "t": "p",
-       "x": "Find out about returning to Australia after exposure to yellow fever."
-      },
-      {
-       "t": "p",
-       "x": "More information:"
-      },
-      {
-       "t": "p",
-       "x": "Countries with a risk of yellow fever"
-      },
       {
        "t": "h4",
        "x": "Customs rules"
@@ -16208,7 +16262,7 @@
    "nome": "Greece",
    "url": "https://www.smartraveller.gov.au/destinations/europe/greece",
    "aggiornata": "2026-09-30",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -16542,7 +16596,7 @@
    "nome": "Guam",
    "url": "https://www.smartraveller.gov.au/destinations/pacific/guam",
    "aggiornata": "2026-10-20",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -16840,7 +16894,7 @@
    "nome": "Guatemala",
    "url": "https://www.smartraveller.gov.au/destinations/americas/guatemala",
    "aggiornata": "2026-10-06",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -17209,7 +17263,7 @@
    "nome": "Guinea",
    "url": "https://www.smartraveller.gov.au/destinations/africa/guinea",
    "aggiornata": "2026-06-15",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -17390,7 +17444,7 @@
    "nome": "Guyana",
    "url": "https://www.smartraveller.gov.au/destinations/americas/guyana",
    "aggiornata": "2026-04-29",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -17629,7 +17683,7 @@
    "nome": "Haiti",
    "url": "https://www.smartraveller.gov.au/destinations/americas/haiti",
    "aggiornata": "2026-07-06",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -17900,7 +17954,7 @@
    "nome": "Honduras",
    "url": "https://www.smartraveller.gov.au/destinations/americas/honduras",
    "aggiornata": "2026-09-01",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -18213,7 +18267,7 @@
    "nome": "Hong Kong",
    "url": "https://www.smartraveller.gov.au/destinations/asia/hong-kong",
    "aggiornata": "2026-07-30",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -18452,7 +18506,7 @@
    "nome": "Hungary",
    "url": "https://www.smartraveller.gov.au/destinations/europe/hungary",
    "aggiornata": "2026-09-30",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -18793,7 +18847,7 @@
    "nome": "Iceland",
    "url": "https://www.smartraveller.gov.au/destinations/europe/iceland",
    "aggiornata": "2026-10-29",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -19081,7 +19135,7 @@
    "nome": "India",
    "url": "https://www.smartraveller.gov.au/destinations/asia/india",
    "aggiornata": "2026-10-29",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -19734,7 +19788,7 @@
    "nome": "Indonesia",
    "url": "https://www.smartraveller.gov.au/destinations/asia/indonesia",
    "aggiornata": "2026-10-21",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -20236,7 +20290,7 @@
    "nome": "Iran",
    "url": "https://www.smartraveller.gov.au/destinations/middle-east/iran",
    "aggiornata": "2026-10-29",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -20581,7 +20635,7 @@
    "nome": "Iraq",
    "url": "https://www.smartraveller.gov.au/destinations/middle-east/iraq",
    "aggiornata": "2026-09-02",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -20848,7 +20902,7 @@
    "nome": "Ireland",
    "url": "https://www.smartraveller.gov.au/destinations/europe/ireland",
    "aggiornata": "2026-02-19",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -21167,7 +21221,7 @@
    "nome": "Israel",
    "url": "https://www.smartraveller.gov.au/destinations/middle-east/israel",
    "aggiornata": "2026-10-15",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -21554,7 +21608,7 @@
    "nome": "Italy",
    "url": "https://www.smartraveller.gov.au/destinations/europe/italy",
    "aggiornata": "2026-10-29",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -21882,7 +21936,7 @@
    "nome": "Jamaica",
    "url": "https://www.smartraveller.gov.au/destinations/americas/jamaica",
    "aggiornata": "2026-11-04",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -22121,7 +22175,7 @@
    "nome": "Japan",
    "url": "https://www.smartraveller.gov.au/destinations/asia/japan",
    "aggiornata": "2026-08-25",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -22378,7 +22432,7 @@
    "nome": "Jordan",
    "url": "https://www.smartraveller.gov.au/destinations/middle-east/jordan",
    "aggiornata": "2026-09-02",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -22665,7 +22719,7 @@
    "nome": "Kazakhstan",
    "url": "https://www.smartraveller.gov.au/destinations/asia/kazakhstan",
    "aggiornata": "2026-09-11",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -22979,7 +23033,7 @@
    "nome": "Kenya",
    "url": "https://www.smartraveller.gov.au/destinations/africa/kenya",
    "aggiornata": "2026-11-04",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -23292,7 +23346,7 @@
    "nome": "Kosovo",
    "url": "https://www.smartraveller.gov.au/destinations/europe/kosovo",
    "aggiornata": "2026-09-26",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -23515,7 +23569,7 @@
    "nome": "Kuwait",
    "url": "https://www.smartraveller.gov.au/destinations/middle-east/kuwait",
    "aggiornata": "2026-10-30",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -23874,7 +23928,7 @@
    "nome": "Kyrgyz Republic",
    "url": "https://www.smartraveller.gov.au/destinations/asia/kyrgyz-republic",
    "aggiornata": "2026-09-03",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -24172,7 +24226,7 @@
    "nome": "Laos",
    "url": "https://www.smartraveller.gov.au/destinations/asia/laos",
    "aggiornata": "2026-08-18",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -24434,7 +24488,7 @@
    "nome": "Latvia",
    "url": "https://www.smartraveller.gov.au/destinations/europe/latvia",
    "aggiornata": "2026-06-02",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -24819,7 +24873,7 @@
    "nome": "Lebanon",
    "url": "https://www.smartraveller.gov.au/destinations/middle-east/lebanon",
    "aggiornata": "2026-09-24",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -25064,7 +25118,7 @@
    "nome": "Lesotho",
    "url": "https://www.smartraveller.gov.au/destinations/africa/lesotho",
    "aggiornata": "2026-03-26",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -25273,8 +25327,8 @@
    "regione": "africa",
    "nome": "Liberia",
    "url": "https://www.smartraveller.gov.au/destinations/africa/liberia",
-   "aggiornata": "2026-01-28",
-   "ancora_valida_il": "2026-11-05",
+   "aggiornata": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -25362,10 +25416,6 @@
       "generico": true
      },
      {
-      "t": "h4",
-      "x": "Visa conditions"
-     },
-     {
       "t": "p",
       "x": "You need a visa to travel to Liberia. Entry and exit conditions can change at short notice. Contact the nearest Embassy or Consulate of Liberia for details about visas, currency and customs."
      },
@@ -25375,19 +25425,27 @@
      },
      {
       "t": "p",
-      "x": "You need to show a valid yellow fever vaccination certificate when you arrive (see 'Health risks')."
+      "x": "Travellers may be subject to heightened health screening measures at border points due to Ebola outbreaks in other parts of Africa."
+     },
+     {
+      "t": "p",
+      "x": "You'll need a valid yellow fever vaccination certificate to enter Liberia (see 'Health risks'). Some airlines may want to see one when you leave."
      },
      {
       "t": "p",
       "x": "Measures are frequently reviewed and may change at short notice. Land borders (with Sierra Leone, Guinea and Côte d’Ivoire) and ports may close with little notice. Expect strict enforcement of border controls."
+     },
+     {
+      "t": "p",
+      "x": "More information:"
+     },
+     {
+      "t": "li",
+      "x": "Countries with a risk of yellow fever"
      }
     ],
     "testo_paese": [
      {
-      "t": "h4",
-      "x": "Visa conditions"
-     },
-     {
       "t": "p",
       "x": "You need a visa to travel to Liberia. Entry and exit conditions can change at short notice. Contact the nearest Embassy or Consulate of Liberia for details about visas, currency and customs."
      },
@@ -25397,11 +25455,23 @@
      },
      {
       "t": "p",
-      "x": "You need to show a valid yellow fever vaccination certificate when you arrive (see 'Health risks')."
+      "x": "Travellers may be subject to heightened health screening measures at border points due to Ebola outbreaks in other parts of Africa."
+     },
+     {
+      "t": "p",
+      "x": "You'll need a valid yellow fever vaccination certificate to enter Liberia (see 'Health risks'). Some airlines may want to see one when you leave."
      },
      {
       "t": "p",
       "x": "Measures are frequently reviewed and may change at short notice. Land borders (with Sierra Leone, Guinea and Côte d’Ivoire) and ports may close with little notice. Expect strict enforcement of border controls."
+     },
+     {
+      "t": "p",
+      "x": "More information:"
+     },
+     {
+      "t": "li",
+      "x": "Countries with a risk of yellow fever"
      }
     ],
     "frase": "You need a visa to travel to Liberia.",
@@ -25417,7 +25487,7 @@
    "nome": "Libya",
    "url": "https://www.smartraveller.gov.au/destinations/africa/libya",
    "aggiornata": "2026-08-13",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -25627,7 +25697,7 @@
    "nome": "Lithuania",
    "url": "https://www.smartraveller.gov.au/destinations/europe/lithuania",
    "aggiornata": "2026-04-14",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -26024,7 +26094,7 @@
    "nome": "Macau",
    "url": "https://www.smartraveller.gov.au/destinations/asia/macau",
    "aggiornata": "2026-07-30",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -26247,7 +26317,7 @@
    "nome": "Madagascar",
    "url": "https://www.smartraveller.gov.au/destinations/africa/madagascar",
    "aggiornata": "2026-08-25",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -26552,7 +26622,7 @@
    "nome": "Malawi",
    "url": "https://www.smartraveller.gov.au/destinations/africa/malawi",
    "aggiornata": "2026-07-10",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -26748,7 +26818,7 @@
    "nome": "Malaysia",
    "url": "https://www.smartraveller.gov.au/destinations/asia/malaysia",
    "aggiornata": "2026-10-02",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -27042,7 +27112,7 @@
    "nome": "Maldives",
    "url": "https://www.smartraveller.gov.au/destinations/asia/maldives",
    "aggiornata": "2026-06-11",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -27231,7 +27301,7 @@
    "nome": "Mali",
    "url": "https://www.smartraveller.gov.au/destinations/africa/mali",
    "aggiornata": "2026-06-11",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -27388,7 +27458,7 @@
    "nome": "Malta",
    "url": "https://www.smartraveller.gov.au/destinations/europe/malta",
    "aggiornata": "2026-10-07",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -27723,8 +27793,8 @@
    "regione": "pacific",
    "nome": "Marshall Islands",
    "url": "https://www.smartraveller.gov.au/destinations/pacific/marshall-islands",
-   "aggiornata": "2026-09-18",
-   "ancora_valida_il": "2026-11-05",
+   "aggiornata": "2026-11-06",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -27993,7 +28063,7 @@
    "nome": "Mauritania",
    "url": "https://www.smartraveller.gov.au/destinations/africa/mauritania",
    "aggiornata": "2026-05-14",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -28145,8 +28215,8 @@
    "regione": "africa",
    "nome": "Mauritius",
    "url": "https://www.smartraveller.gov.au/destinations/africa/mauritius",
-   "aggiornata": "2026-10-20",
-   "ancora_valida_il": "2026-11-05",
+   "aggiornata": "2026-11-09",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -28234,12 +28304,12 @@
       "generico": true
      },
      {
-      "t": "h4",
-      "x": "Visas"
+      "t": "p",
+      "x": "You should complete the Mauritius All-in-One Travel Digital Form either online before you travel or when you arrive at the airport."
      },
      {
-      "t": "p",
-      "x": "Make sure you meet all entry and exit conditions. If you don't, the Australian Government can’t help you."
+      "t": "h4",
+      "x": "Visas"
      },
      {
       "t": "p",
@@ -28255,6 +28325,10 @@
      },
      {
       "t": "p",
+      "x": "Make sure you meet all entry and exit conditions. If you don't, the Australian Government can’t help you."
+     },
+     {
+      "t": "p",
       "x": "More information:"
      },
      {
@@ -28267,15 +28341,15 @@
      },
      {
       "t": "p",
-      "x": "The Government of Mauritius has introduced border measures in response to the Ebola disease outbreak in parts of Africa. These include restrictions on entry and health screening checks for travellers who have recently visited DRC, Uganda or South Sudan:"
+      "x": "The Government of Mauritius has introduced border measures in response to the Ebola disease outbreak in parts of Africa. These include restrictions on entry and health screening checks for travellers who have recently visited DRC or South Sudan:"
      },
      {
       "t": "li",
-      "x": "Non-Mauritian nationals that have travelled from DRC, Uganda or South Sudan within the preceding 21 days and that do not hold a valid work permit, residence permit, occupation permit, business, or student visa are not allowed to enter Mauritius"
+      "x": "Non-Mauritian nationals that have travelled from, transited through, or been present in the DRC or South Sudan within the preceding 21 days are temporarily prohibited from entering Mauritius."
      },
      {
       "t": "li",
-      "x": "Mauritian nationals, and non-Mauritians holding a valid work permit, residence permit, occupation permit, business visa or student visa who have travelled from, transited through, or been present in DRC, Uganda or South Sudan within the preceding 21 days will be permitted entry but will be subject to a 21-day mandatory quarantine."
+      "x": "Mauritian nationals, and non-Mauritians holding a valid work permit, residence permit, occupation permit, business visa or student visa who have travelled from, transited through, or been present in the DRC or South Sudan within the preceding 21 days will be permitted entry but will be subject to a 21-day mandatory quarantine on arrival."
      },
      {
       "t": "p",
@@ -28292,10 +28366,6 @@
      {
       "t": "h4",
       "x": "Yellow fever and Malaria"
-     },
-     {
-      "t": "p",
-      "x": "You should complete the Mauritius All-in-One Travel Digital Form either online before you travel or when you arrive at the airport."
      },
      {
       "t": "p",
@@ -28316,12 +28386,12 @@
     ],
     "testo_paese": [
      {
-      "t": "h4",
-      "x": "Visas"
+      "t": "p",
+      "x": "You should complete the Mauritius All-in-One Travel Digital Form either online before you travel or when you arrive at the airport."
      },
      {
-      "t": "p",
-      "x": "Make sure you meet all entry and exit conditions. If you don't, the Australian Government can’t help you."
+      "t": "h4",
+      "x": "Visas"
      },
      {
       "t": "p",
@@ -28337,6 +28407,10 @@
      },
      {
       "t": "p",
+      "x": "Make sure you meet all entry and exit conditions. If you don't, the Australian Government can’t help you."
+     },
+     {
+      "t": "p",
       "x": "More information:"
      },
      {
@@ -28349,15 +28423,15 @@
      },
      {
       "t": "p",
-      "x": "The Government of Mauritius has introduced border measures in response to the Ebola disease outbreak in parts of Africa. These include restrictions on entry and health screening checks for travellers who have recently visited DRC, Uganda or South Sudan:"
+      "x": "The Government of Mauritius has introduced border measures in response to the Ebola disease outbreak in parts of Africa. These include restrictions on entry and health screening checks for travellers who have recently visited DRC or South Sudan:"
      },
      {
       "t": "li",
-      "x": "Non-Mauritian nationals that have travelled from DRC, Uganda or South Sudan within the preceding 21 days and that do not hold a valid work permit, residence permit, occupation permit, business, or student visa are not allowed to enter Mauritius"
+      "x": "Non-Mauritian nationals that have travelled from, transited through, or been present in the DRC or South Sudan within the preceding 21 days are temporarily prohibited from entering Mauritius."
      },
      {
       "t": "li",
-      "x": "Mauritian nationals, and non-Mauritians holding a valid work permit, residence permit, occupation permit, business visa or student visa who have travelled from, transited through, or been present in DRC, Uganda or South Sudan within the preceding 21 days will be permitted entry but will be subject to a 21-day mandatory quarantine."
+      "x": "Mauritian nationals, and non-Mauritians holding a valid work permit, residence permit, occupation permit, business visa or student visa who have travelled from, transited through, or been present in the DRC or South Sudan within the preceding 21 days will be permitted entry but will be subject to a 21-day mandatory quarantine on arrival."
      },
      {
       "t": "p",
@@ -28377,10 +28451,6 @@
      },
      {
       "t": "p",
-      "x": "You should complete the Mauritius All-in-One Travel Digital Form either online before you travel or when you arrive at the airport."
-     },
-     {
-      "t": "p",
       "x": "If you're arriving from a country known to have malaria, you'll receive a follow-up call or visit from the Mauritian Health Department. You may be asked to do a blood test."
      },
      {
@@ -28396,7 +28466,7 @@
       "x": "Countries with a risk of yellow fever"
      }
     ],
-    "frase": "Make sure you meet all entry and exit conditions.",
+    "frase": "You should complete the Mauritius All-in-One Travel Digital Form either online before you travel or when you arrive at the airport.",
     "schema": null,
     "sintesi": null,
     "motivo": "The first official sentence does not match a wording we summarise."
@@ -28409,7 +28479,7 @@
    "nome": "Mexico",
    "url": "https://www.smartraveller.gov.au/destinations/americas/mexico",
    "aggiornata": "2026-10-15",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -28882,7 +28952,7 @@
    "nome": "Moldova",
    "url": "https://www.smartraveller.gov.au/destinations/europe/moldova",
    "aggiornata": "2026-07-31",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -29089,7 +29159,7 @@
    "nome": "Mongolia",
    "url": "https://www.smartraveller.gov.au/destinations/asia/mongolia",
    "aggiornata": "2026-10-12",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -29376,7 +29446,7 @@
    "nome": "Montenegro",
    "url": "https://www.smartraveller.gov.au/destinations/europe/montenegro",
    "aggiornata": "2026-07-31",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -29537,7 +29607,7 @@
    "nome": "Morocco",
    "url": "https://www.smartraveller.gov.au/destinations/africa/morocco",
    "aggiornata": "2026-07-29",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -29760,7 +29830,7 @@
    "nome": "Mozambique",
    "url": "https://www.smartraveller.gov.au/destinations/africa/mozambique",
    "aggiornata": "2026-09-24",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -30065,7 +30135,7 @@
    "nome": "Myanmar",
    "url": "https://www.smartraveller.gov.au/destinations/asia/myanmar",
    "aggiornata": "2026-04-07",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -30419,7 +30489,7 @@
    "nome": "Namibia",
    "url": "https://www.smartraveller.gov.au/destinations/africa/namibia",
    "aggiornata": "2026-03-11",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -30709,7 +30779,7 @@
    "nome": "Nepal",
    "url": "https://www.smartraveller.gov.au/destinations/asia/nepal",
    "aggiornata": "2026-10-13",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -30925,7 +30995,7 @@
    "nome": "Netherlands",
    "url": "https://www.smartraveller.gov.au/destinations/europe/netherlands",
    "aggiornata": "2026-09-29",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -31293,7 +31363,7 @@
    "nome": "New Caledonia",
    "url": "https://www.smartraveller.gov.au/destinations/pacific/new-caledonia",
    "aggiornata": "2026-08-27",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -31578,7 +31648,7 @@
    "nome": "New Zealand",
    "url": "https://www.smartraveller.gov.au/destinations/pacific/new-zealand",
    "aggiornata": "2026-07-22",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -31882,7 +31952,7 @@
    "nome": "Nicaragua",
    "url": "https://www.smartraveller.gov.au/destinations/americas/nicaragua",
    "aggiornata": "2026-06-22",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -32279,7 +32349,7 @@
    "nome": "Niger",
    "url": "https://www.smartraveller.gov.au/destinations/africa/niger",
    "aggiornata": "2026-06-24",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -32448,7 +32518,7 @@
    "nome": "Nigeria",
    "url": "https://www.smartraveller.gov.au/destinations/africa/nigeria",
    "aggiornata": "2026-10-23",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -32665,7 +32735,7 @@
    "nome": "Niue",
    "url": "https://www.smartraveller.gov.au/destinations/pacific/niue",
    "aggiornata": "2026-07-22",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -32854,7 +32924,7 @@
    "nome": "North Korea (Democratic People's Republic of Korea)",
    "url": "https://www.smartraveller.gov.au/destinations/asia/north-korea-democratic-peoples-republic-korea",
    "aggiornata": "2026-03-31",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -33175,7 +33245,7 @@
    "nome": "North Macedonia",
    "url": "https://www.smartraveller.gov.au/destinations/europe/north-macedonia",
    "aggiornata": "2026-09-02",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -33382,7 +33452,7 @@
    "nome": "Norway",
    "url": "https://www.smartraveller.gov.au/destinations/europe/norway",
    "aggiornata": "2026-06-09",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -33779,7 +33849,7 @@
    "nome": "Oman",
    "url": "https://www.smartraveller.gov.au/destinations/middle-east/oman",
    "aggiornata": "2026-10-23",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -34133,8 +34203,8 @@
    "regione": "asia",
    "nome": "Pakistan",
    "url": "https://www.smartraveller.gov.au/destinations/asia/pakistan",
-   "aggiornata": "2026-10-14",
-   "ancora_valida_il": "2026-11-05",
+   "aggiornata": "2026-11-06",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -34508,7 +34578,7 @@
    "nome": "Palau",
    "url": "https://www.smartraveller.gov.au/destinations/pacific/palau",
    "aggiornata": "2026-07-22",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -34765,7 +34835,7 @@
    "nome": "Palestine",
    "url": "https://www.smartraveller.gov.au/destinations/middle-east/palestine",
    "aggiornata": "2026-09-14",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -35082,7 +35152,7 @@
    "nome": "Panama",
    "url": "https://www.smartraveller.gov.au/destinations/americas/panama",
    "aggiornata": "2026-09-17",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -35441,7 +35511,7 @@
    "nome": "Papua New Guinea",
    "url": "https://www.smartraveller.gov.au/destinations/pacific/papua-new-guinea",
    "aggiornata": "2026-09-07",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -35656,7 +35726,7 @@
    "nome": "Paraguay",
    "url": "https://www.smartraveller.gov.au/destinations/americas/paraguay",
    "aggiornata": "2026-10-20",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -35937,7 +36007,7 @@
    "nome": "Peru",
    "url": "https://www.smartraveller.gov.au/destinations/americas/peru",
    "aggiornata": "2026-10-02",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -36255,7 +36325,7 @@
    "nome": "Philippines",
    "url": "https://www.smartraveller.gov.au/destinations/asia/philippines",
    "aggiornata": "2026-09-24",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -36735,7 +36805,7 @@
    "nome": "Poland",
    "url": "https://www.smartraveller.gov.au/destinations/europe/poland",
    "aggiornata": "2026-10-16",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -37164,7 +37234,7 @@
    "nome": "Portugal",
    "url": "https://www.smartraveller.gov.au/destinations/europe/portugal",
    "aggiornata": "2026-10-16",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -37636,7 +37706,7 @@
    "nome": "Qatar",
    "url": "https://www.smartraveller.gov.au/destinations/middle-east/qatar",
    "aggiornata": "2026-10-08",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -37930,7 +38000,7 @@
    "nome": "Romania",
    "url": "https://www.smartraveller.gov.au/destinations/europe/romania",
    "aggiornata": "2026-06-17",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -38275,7 +38345,7 @@
    "nome": "Russia",
    "url": "https://www.smartraveller.gov.au/destinations/europe/russia",
    "aggiornata": "2026-10-30",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -38978,7 +39048,7 @@
    "nome": "Rwanda",
    "url": "https://www.smartraveller.gov.au/destinations/africa/rwanda",
    "aggiornata": "2026-10-02",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -39207,7 +39277,7 @@
    "nome": "Samoa",
    "url": "https://www.smartraveller.gov.au/destinations/pacific/samoa",
    "aggiornata": "2026-08-05",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -39446,7 +39516,7 @@
    "nome": "Saudi Arabia",
    "url": "https://www.smartraveller.gov.au/destinations/middle-east/saudi-arabia",
    "aggiornata": "2026-11-04",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -40157,7 +40227,7 @@
    "nome": "Senegal",
    "url": "https://www.smartraveller.gov.au/destinations/africa/senegal",
    "aggiornata": "2026-05-06",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -40346,7 +40416,7 @@
    "nome": "Serbia",
    "url": "https://www.smartraveller.gov.au/destinations/europe/serbia",
    "aggiornata": "2026-10-27",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -40577,7 +40647,7 @@
    "nome": "Seychelles",
    "url": "https://www.smartraveller.gov.au/destinations/africa/seychelles",
    "aggiornata": "2026-10-28",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -40810,7 +40880,7 @@
    "nome": "Sierra Leone",
    "url": "https://www.smartraveller.gov.au/destinations/africa/sierra-leone",
    "aggiornata": "2026-10-14",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -41073,7 +41143,7 @@
    "nome": "Singapore",
    "url": "https://www.smartraveller.gov.au/destinations/asia/singapore",
    "aggiornata": "2026-11-03",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -41353,7 +41423,7 @@
    "nome": "Slovakia",
    "url": "https://www.smartraveller.gov.au/destinations/europe/slovakia",
    "aggiornata": "2026-04-14",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -41729,7 +41799,7 @@
    "nome": "Slovenia",
    "url": "https://www.smartraveller.gov.au/destinations/europe/slovenia",
    "aggiornata": "2026-04-14",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -42113,7 +42183,7 @@
    "nome": "Solomon Islands",
    "url": "https://www.smartraveller.gov.au/destinations/pacific/solomon-islands",
    "aggiornata": "2026-09-28",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -42280,7 +42350,7 @@
    "nome": "Somalia",
    "url": "https://www.smartraveller.gov.au/destinations/africa/somalia",
    "aggiornata": "2026-06-18",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -42591,7 +42661,7 @@
    "nome": "South Africa",
    "url": "https://www.smartraveller.gov.au/destinations/africa/south-africa",
    "aggiornata": "2026-09-08",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -42910,7 +42980,7 @@
    "nome": "South Korea (Republic of Korea)",
    "url": "https://www.smartraveller.gov.au/destinations/asia/south-korea-republic-korea",
    "aggiornata": "2026-10-12",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -43176,7 +43246,7 @@
    "nome": "South Sudan",
    "url": "https://www.smartraveller.gov.au/destinations/africa/south-sudan",
    "aggiornata": "2026-05-22",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -43415,8 +43485,8 @@
    "regione": "europe",
    "nome": "Spain",
    "url": "https://www.smartraveller.gov.au/destinations/europe/spain",
-   "aggiornata": "2026-10-29",
-   "ancora_valida_il": "2026-11-05",
+   "aggiornata": "2026-11-06",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -43765,7 +43835,7 @@
    "nome": "Sri Lanka",
    "url": "https://www.smartraveller.gov.au/destinations/asia/sri-lanka",
    "aggiornata": "2026-08-14",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -43988,7 +44058,7 @@
    "nome": "Sudan",
    "url": "https://www.smartraveller.gov.au/destinations/africa/sudan",
    "aggiornata": "2026-05-01",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -44219,7 +44289,7 @@
    "nome": "Sweden",
    "url": "https://www.smartraveller.gov.au/destinations/europe/sweden",
    "aggiornata": "2026-10-07",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -44600,7 +44670,7 @@
    "nome": "Switzerland",
    "url": "https://www.smartraveller.gov.au/destinations/europe/switzerland",
    "aggiornata": "2026-09-07",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -44965,7 +45035,7 @@
    "nome": "Syria",
    "url": "https://www.smartraveller.gov.au/destinations/middle-east/syria",
    "aggiornata": "2026-09-02",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -45378,7 +45448,7 @@
    "nome": "Taiwan",
    "url": "https://www.smartraveller.gov.au/destinations/asia/taiwan",
    "aggiornata": "2026-10-27",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -45663,7 +45733,7 @@
    "nome": "Tajikistan",
    "url": "https://www.smartraveller.gov.au/destinations/asia/tajikistan",
    "aggiornata": "2026-07-30",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -45909,7 +45979,7 @@
    "nome": "Tanzania",
    "url": "https://www.smartraveller.gov.au/destinations/africa/tanzania",
    "aggiornata": "2026-10-23",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -46212,7 +46282,7 @@
    "nome": "Thailand",
    "url": "https://www.smartraveller.gov.au/destinations/asia/thailand",
    "aggiornata": "2026-10-26",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -46588,7 +46658,7 @@
    "nome": "The Bahamas",
    "url": "https://www.smartraveller.gov.au/destinations/americas/bahamas",
    "aggiornata": "2026-06-02",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -46883,7 +46953,7 @@
    "nome": "The Gambia",
    "url": "https://www.smartraveller.gov.au/destinations/africa/gambia",
    "aggiornata": "2026-08-07",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -47098,7 +47168,7 @@
    "nome": "Timor-Leste",
    "url": "https://www.smartraveller.gov.au/destinations/asia/timor-leste",
    "aggiornata": "2026-07-23",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -47273,7 +47343,7 @@
    "nome": "Tonga",
    "url": "https://www.smartraveller.gov.au/destinations/pacific/tonga",
    "aggiornata": "2026-09-11",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -47400,7 +47470,7 @@
    "nome": "Trinidad and Tobago",
    "url": "https://www.smartraveller.gov.au/destinations/americas/trinidad-and-tobago",
    "aggiornata": "2026-09-21",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -47647,7 +47717,7 @@
    "nome": "Tunisia",
    "url": "https://www.smartraveller.gov.au/destinations/africa/tunisia",
    "aggiornata": "2026-10-30",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -47781,8 +47851,8 @@
    "regione": "asia",
    "nome": "Turkmenistan",
    "url": "https://www.smartraveller.gov.au/destinations/asia/turkmenistan",
-   "aggiornata": "2026-06-17",
-   "ancora_valida_il": "2026-11-05",
+   "aggiornata": "2026-11-09",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -47875,7 +47945,7 @@
      },
      {
       "t": "p",
-      "x": "You need a letter of invitation from the State Migration Service of Turkmenistan to apply for a visa, even if you're only transiting. You must keep the letter of invitation with you when you are in Turkmenistan."
+      "x": "You need a letter of invitation from the State Migration Service of Turkmenistan to apply for a visa, even if you're only transiting. You must keep the letter of invitation with you at all times when you are in Turkmenistan."
      },
      {
       "t": "p",
@@ -47973,7 +48043,7 @@
      },
      {
       "t": "p",
-      "x": "You need a letter of invitation from the State Migration Service of Turkmenistan to apply for a visa, even if you're only transiting. You must keep the letter of invitation with you when you are in Turkmenistan."
+      "x": "You need a letter of invitation from the State Migration Service of Turkmenistan to apply for a visa, even if you're only transiting. You must keep the letter of invitation with you at all times when you are in Turkmenistan."
      },
      {
       "t": "p",
@@ -48071,47 +48141,6 @@
    },
    "altre_sezioni": [
     {
-     "titolo": "Border crossings from Iran",
-     "testo": [
-      {
-       "t": "p",
-       "x": "The Iran-Turkmenistan border is open for humanitarian purposes at Sarakhs, Bajgiran or Artyk border crossing posts. Crossing the border requires a special authorisation from the Government of Turkmenistan."
-      },
-      {
-       "t": "p",
-       "x": "If you want to enter Turkmenistan from Iran, you must email the Australian Embassy in Moscow before you travel at crisis.moscow@dfat.gov.au and provide the following:"
-      },
-      {
-       "t": "li",
-       "x": "colour copy of your Australian passport"
-      },
-      {
-       "t": "li",
-       "x": "information on which border crossing you'll use (Sarakhs, Bajgiran or Artyk)"
-      },
-      {
-       "t": "li",
-       "x": "details of your outward flight with a departure time from Turkmenistan within 72 hours of your arrival into Turkmenistan"
-      },
-      {
-       "t": "p",
-       "x": "You must wait for a confirmation email from the Australian Embassy before crossing the border."
-      },
-      {
-       "t": "p",
-       "x": "You'll need to provide a printout of your valid airline ticket at the relevant border crossing."
-      },
-      {
-       "t": "p",
-       "x": "You'll need to pay visa fees of between USD 55-100 in cash on arrival in Turkmenistan."
-      },
-      {
-       "t": "p",
-       "x": "Border crossing requirements may change without notice. Check with Turkmenistan authorities on the latest entry requirements and border arrangements before you travel."
-      }
-     ]
-    },
-    {
      "titolo": "Border measures",
      "testo": [
       {
@@ -48125,14 +48154,6 @@
       {
        "t": "p",
        "x": "Travel restrictions may apply to Australians travelling overland from Turkmenistan to neighbouring countries."
-      },
-      {
-       "t": "p",
-       "x": "Crossing the border requires a special authorisation from the Government of Turkmenistan. The authorisation process may be lengthy. A passport and valid visa may not be sufficient documentation. Don't travel to the border with Turkmenistan until you're sure you have the paperwork and travel arrangements required to cross."
-      },
-      {
-       "t": "p",
-       "x": "Normal visa fees may also be applied on arrival in Turkmenistan."
       },
       {
        "t": "p",
@@ -48245,7 +48266,7 @@
    "nome": "Türkiye",
    "url": "https://www.smartraveller.gov.au/destinations/europe/turkiye",
    "aggiornata": "2026-10-30",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -48586,7 +48607,7 @@
    "nome": "Uganda",
    "url": "https://www.smartraveller.gov.au/destinations/africa/uganda",
    "aggiornata": "2026-11-03",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -48801,7 +48822,7 @@
    "nome": "Ukraine",
    "url": "https://www.smartraveller.gov.au/destinations/europe/ukraine",
    "aggiornata": "2026-11-02",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -49095,7 +49116,7 @@
    "nome": "United Arab Emirates",
    "url": "https://www.smartraveller.gov.au/destinations/middle-east/united-arab-emirates",
    "aggiornata": "2026-10-08",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -49397,7 +49418,7 @@
    "nome": "United Kingdom",
    "url": "https://www.smartraveller.gov.au/destinations/europe/united-kingdom",
    "aggiornata": "2026-09-11",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -49813,8 +49834,8 @@
    "regione": "americas",
    "nome": "United States of America",
    "url": "https://www.smartraveller.gov.au/destinations/americas/united-states-america",
-   "aggiornata": "2026-09-26",
-   "ancora_valida_il": "2026-11-05",
+   "aggiornata": "2026-11-06",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -50272,7 +50293,7 @@
      },
      {
       "t": "p",
-      "x": "If you show signs of illness, US authorities may prevent you from boarding a US-bound flight."
+      "x": "If you've recently visited a country subject to travel restrictions, or show signs of illness, US authorities may prevent you from boarding a US-bound flight."
      },
      {
       "t": "p",
@@ -50630,7 +50651,7 @@
      },
      {
       "t": "p",
-      "x": "If you show signs of illness, US authorities may prevent you from boarding a US-bound flight."
+      "x": "If you've recently visited a country subject to travel restrictions, or show signs of illness, US authorities may prevent you from boarding a US-bound flight."
      },
      {
       "t": "p",
@@ -50748,7 +50769,7 @@
    "nome": "Uruguay",
    "url": "https://www.smartraveller.gov.au/destinations/americas/uruguay",
    "aggiornata": "2026-05-18",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -50969,7 +50990,7 @@
    "nome": "Uzbekistan",
    "url": "https://www.smartraveller.gov.au/destinations/asia/uzbekistan",
    "aggiornata": "2026-01-23",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -51275,8 +51296,8 @@
    "regione": "pacific",
    "nome": "Vanuatu",
    "url": "https://www.smartraveller.gov.au/destinations/pacific/vanuatu",
-   "aggiornata": "2026-10-26",
-   "ancora_valida_il": "2026-11-05",
+   "aggiornata": "2026-11-09",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -51525,7 +51546,7 @@
    "nome": "Venezuela",
    "url": "https://www.smartraveller.gov.au/destinations/americas/venezuela",
    "aggiornata": "2026-09-02",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -51782,7 +51803,7 @@
    "nome": "Vietnam",
    "url": "https://www.smartraveller.gov.au/destinations/asia/vietnam",
    "aggiornata": "2026-09-24",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -52179,7 +52200,7 @@
    "nome": "Yemen",
    "url": "https://www.smartraveller.gov.au/destinations/middle-east/yemen",
    "aggiornata": "2026-10-23",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -52489,7 +52510,7 @@
    "nome": "Zambia",
    "url": "https://www.smartraveller.gov.au/destinations/africa/zambia",
    "aggiornata": "2026-08-21",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [
@@ -52827,7 +52848,7 @@
    "nome": "Zimbabwe",
    "url": "https://www.smartraveller.gov.au/destinations/africa/zimbabwe",
    "aggiornata": "2026-06-05",
-   "ancora_valida_il": "2026-11-05",
+   "ancora_valida_il": "2026-11-10",
    "passaporto": {
     "titolo_sezione": "Passport",
     "testo": [

@@ -109,12 +109,13 @@
    "auto": "da_leggere"
   },
   "SZ": {
-   "esito": "si",
+   "esito": "dipende",
    "frasi": [
-    "You’ll need to have both the 1949 version of the international driving permit (IDP) and your UK driving licence with you in the car."
+    "You may need to show an IDP to your insurance company if you’re involved in an accident.",
+    "You’ll need to have a UK or other valid driving licence to drive in Eswatini."
    ],
-   "motivo": "frase FCDO esplicita",
-   "impronta": "5c3e8eed364b2bb3",
+   "motivo": "dal 10/11/2026: i consigli FCDO (aggiornati il 9/11/2026) non chiedono più l'IDP, solo la patente; la tabella GOV.UK elenca l'Eswatini con l'IDP 1949 e dice che l'assicurazione può chiederlo dopo un incidente: dipende, la pagina cita entrambe",
+   "impronta": "cc62ce37dc639493",
    "auto": "da_leggere"
   },
   "FK": {
