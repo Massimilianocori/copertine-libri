@@ -66,3 +66,19 @@ Pubblicato il 1/11/2026 alle 00:15 circa: Visa Income (cerimonie australiane, es
 | beforeyoufly | Ryder Cup 2027: alloggi per distanza da Adare Manor (CSV Fáilte Ireland) | 6 | entro gennaio 2027 | fronti-2026-11-04-grandi-eventi.md |
 | beforeyoufly | Cina senza visto nel 2027 | 5,5 | il giorno dell'annuncio ufficiale (cs.mfa.gov.cn) | idee-2026-11-04-asia-pacifico.md |
 | beforeyoufly | Los Angeles 2028 sede per sede | 6 | febbraio-aprile 2027 | fronti-2026-11-04-grandi-eventi.md |
+
+## Riserva costruibile (regola del 10/11/2026: nessuna soglia, ordine per €/anno ÷ ore)
+
+| Idea | €/anno centrali | Ore stimate | €/ora | Ostacolo da togliere | File |
+|---|---|---|---|---|---|
+| Furti di dati USA, v1 "is this letter real" | 2.100 | ~15 | ~140 | nessuno (in coda) | verifica-2026-11-10-lettere-furto-dati.md |
+| Payroll tax Australia | 3.100 | ~30 | ~100 | nessuno (in coda, primo) | verifica-2026-11-09-payroll-tax-australia.md |
+| "Is my router still safe?" (CISA, USA) | 1.800 | ~20 | ~90 | pagatore oltre Amazon | fronti-2026-11-10-rete-prima-sicurezza-digitale.md |
+| Soglia 1099 a 2.000 $ Stato per Stato (USA) | 1.600 | ~20 | ~80 | fonti statali 404 | fronti-2026-11-09-pomeriggio-software-piccole-imprese.md |
+| Price to Compare luce USA | ~1.500 (pagatore a ~4 $) | ~35 | ~45 | pagatore migliore | fronti-2026-11-09-sera-scelta-fornitore.md |
+| Costo e attese del grading carte (PSA ecc.) | 1.300 | ~25 | ~50 | dati PSA bloccati (serve copia a mano) | fronti-2026-11-09-collezionismo.md |
+| Permessi foto nei parchi USA | 1.200 | ~20 | ~60 | dati sparsi | fronti-2026-11-10-rete-prima-sicurezza-digitale.md |
+| Valore di fusione monete USA | 1.000 | ~15 | ~65 | US Mint 403 | fronti-2026-11-09-collezionismo.md |
+| Pass rate DMV California per ufficio | 1.200 | ~20 | ~60 | dati solo con richiesta pubblica (Massimiliano, 20 min) | fronti-2026-11-10-esami-di-guida.md |
+
+Le idee della riserva entrano nella coda di costruzione nell'ordine della colonna €/ora, appena il loro ostacolo è tolto; i turni di costruzione le prendono quando la coda principale è vuota o in attesa.
