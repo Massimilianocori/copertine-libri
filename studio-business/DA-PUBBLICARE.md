@@ -8,6 +8,8 @@ Sezioni già revisionate, con i sorgenti salvati, che aspettano la pubblicazione
 
 **Budget al 10/11/2026 pomeriggio: 90 % usato** (Massimiliano; ricarica mercoledì 11/11 alle 21:00). Massimiliano: usare il residuo per trovare nuove opportunità → 2 ricercatori partiti il 10/11 pomeriggio (rete-prima, esami di guida). **Sera del 10/11: nessun ricercatore in più** (solo PARTE A). **Mercoledì 11/11 mezzogiorno: nessun agente** (solo lavori senza agenti). Da mercoledì 21:00 ritmo pieno: sito payroll tax Australia e 3 ricercatori sulle idee grandi.
 
+**Piano dalla ricarica di mercoledì 11/11 alle 21:00 (deciso il 10/11 con Massimiliano: "sempre idee nuove oltre a migliorare quello che abbiamo"):** sempre in parallelo le due cose. (1) Costruttore: sito payroll tax Australia (piano in verifica-2026-11-09). (2) Costruttore: Visa Income, espandere le sezioni che crescono di più (scegliere dalle visite GoatCounter pagina per pagina delle ultime 2 settimane; da ~15 a 80+ visite al giorno). (3) Ricerca di idee nuove ogni giorno (mezzogiorno + sera + 3 il mercoledì), con l'obbligo nuovo: leggere i concorrenti su 5 esempi prima di stimare.
+
 | Sito (cartella) | Sezione | Revisione | Note |
 |---|---|---|---|
 
