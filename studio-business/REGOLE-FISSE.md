@@ -1,5 +1,8 @@
 # Regole fisse di Massimiliano (valide per qualsiasi idea futura)
 
+
+**OBIETTIVO UNICO (Massimiliano, 10/11/2026): "il tuo goal è portare il guadagno maggiore possibile".** Ogni scelta si misura in euro attesi: 1) far rendere il traffico che c'è già (AdSense, affiliazioni sulle pagine più viste); 2) espandere ciò che cresce; 3) costruire tutto ciò che rende, in ordine di €/anno ÷ ore; 4) ricerca continua di idee più grandi. Tante piccole cose insieme fanno un grande ritorno.
+
 Da controllare PRIMA di proporre un business, non dopo.
 
 1. **Zero spese finché non c'è un ritorno.** Niente pubblicità a pagamento, niente abbonamenti a strumenti.
