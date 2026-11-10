@@ -820,6 +820,29 @@
   "settore_cgsse": "Trasporto pubblico locale",
   "ambito_cgsse": "COSENZA"
  },
+ "cgsse-383053": {
+  "id": "cgsse-383053",
+  "inizio": "2026-11-10",
+  "fine": "2026-11-10",
+  "settore": "Trasporto pubblico locale",
+  "rilevanza": "Locale",
+  "regione": "Sicilia",
+  "provincia": "Messina",
+  "sindacati": "FAISA CISAL/ORSA TRASPORTI/FILT CGIL/UILTRASPORTI/UGL",
+  "categoria": "ATM",
+  "modalita": "DALLE ORE 16.00 ALLE ORE 20.00",
+  "proclamazione": "",
+  "ricezione": "",
+  "note": "",
+  "stato": "in programma",
+  "visto_prima": "2026-11-10",
+  "visto_ultimo": "2026-11-10",
+  "modifiche": [],
+  "fonte": "cgsse",
+  "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/383053",
+  "settore_cgsse": "Trasporto pubblico locale",
+  "ambito_cgsse": "MESSINA"
+ },
  "8598": {
   "id": "8598",
   "inizio": "2026-11-13",
@@ -1026,6 +1049,29 @@
   "settore_cgsse": "Trasporto ferroviario",
   "ambito_cgsse": "NAZIONALE"
  },
+ "cgsse-383057": {
+  "id": "cgsse-383057",
+  "inizio": "2026-11-20",
+  "fine": "2026-11-21",
+  "settore": "Plurisettoriale",
+  "rilevanza": "Nazionale",
+  "regione": "Italia",
+  "provincia": "Tutte",
+  "sindacati": "CAT",
+  "categoria": "AZIENDE CHE SVOLGONO ATTIVITA FERROVIARIA",
+  "modalita": "DALLE ORE 21.00 DEL 20/11 ALLE ORE 20.00 DEL 21/11",
+  "proclamazione": "",
+  "ricezione": "",
+  "note": "",
+  "stato": "in programma",
+  "visto_prima": "2026-11-10",
+  "visto_ultimo": "2026-11-10",
+  "modifiche": [],
+  "fonte": "cgsse",
+  "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/383057",
+  "settore_cgsse": "Trasporto merci su rotaia, Trasporto pubblico locale, Trasporto ferroviario",
+  "ambito_cgsse": "NAZIONALE"
+ },
  "8571": {
   "id": "8571",
   "inizio": "2026-11-21",
@@ -1142,11 +1188,25 @@
   "modalita": "DALLE ORE 00.00 ALLE ORE 23.59",
   "proclamazione": "",
   "ricezione": "",
-  "note": "",
-  "stato": "in programma",
+  "note": "REVOCATO (CGSSE)",
+  "stato": "revocato",
   "visto_prima": "2026-11-03",
   "visto_ultimo": "2026-11-10",
-  "modifiche": [],
+  "modifiche": [
+   {
+    "il": "2026-11-10",
+    "campi": {
+     "note": [
+      "",
+      "REVOCATO (CGSSE)"
+     ],
+     "stato": [
+      "in programma",
+      "revocato"
+     ]
+    }
+   }
+  ],
   "fonte": "cgsse",
   "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/382862",
   "settore_cgsse": "Trasporto aereo",
