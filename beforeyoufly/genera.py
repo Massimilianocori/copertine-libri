@@ -700,10 +700,8 @@ def esim_voci(iso=None):
     accese = {k: AFFILIATI[k] for k in ESIM_VOCI if (AFFILIATI.get(k) or {}).get("url")}
     if not accese:
         return []
-    if iso:
-        ordine = ["esim_vodafone", "esim", "esim_pocket"]
-    else:
-        ordine = ["esim", "esim_vodafone", "esim_pocket"]
+    # Roamable primo ovunque (11/11/2026: EPC 4,66 USD su Awin, l'unico con numeri); Vodafone e Pocket solo dove il loro elenco comprende la meta
+    ordine = ["esim", "esim_vodafone", "esim_pocket"]
     out = []
     for k in ordine:
         if k not in accese:

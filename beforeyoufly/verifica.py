@@ -5610,18 +5610,18 @@ def controlla_amazon_esim():
                     errori.append(f"{rel}: {k} dice che il suo elenco comprende {nome}, ma {nome} non è nell'elenco '{forn}' di dati/esim.json")
                 if k == "esim_vodafone":
                     c["esim_ordine"] += 1
-                    if voci[0] != "esim_vodafone":
-                        errori.append(f"{rel}: Vodafone comprende la destinazione ma non è il primo del riquadro eSIM")
+                    if voci[0] != "esim":
+                        errori.append(f"{rel}: Roamable non è il primo del riquadro eSIM")
             elif destinazione and "check that your destination is on" not in testi[k].lower():
                 errori.append(f"{rel}: riga {k} senza la frase sulla destinazione e senza il testo generico")
             elif not destinazione and "check that your destination is on" not in testi[k].lower():
                 errori.append(f"{rel}: riga {k} senza il testo generico in una pagina senza destinazione")
         if not destinazione and voci and voci[0] != "esim":
             errori.append(f"{rel}: in una pagina senza destinazione il riquadro eSIM deve iniziare con Roamable")
-        if destinazione and "esim_vodafone" in voci and voci[0] != "esim_vodafone" and "includes" in testi["esim_vodafone"]:
-            errori.append(f"{rel}: Vodafone non è il primo")
-    # ogni pagina destinazione: fornitori e ordine attesi ricalcolati qui (Vodafone primo se l'elenco comprende il Paese, assente se non lo
-    # comprende; poi Roamable; Pocket solo se il suo elenco lo comprende; destinazione senza codice ISO: Roamable, Vodafone, Pocket)
+        if voci and voci[0] != "esim":
+            errori.append(f"{rel}: il riquadro eSIM deve iniziare con Roamable (11/11/2026: EPC più alto)")
+    # ogni pagina destinazione: fornitori e ordine attesi ricalcolati qui (Roamable primo; Vodafone se l'elenco comprende il Paese, assente se non lo
+    # comprende; Pocket solo se il suo elenco lo comprende; destinazione senza codice ISO: Roamable, Vodafone, Pocket)
     accese = [k for k in ("esim", "esim_vodafone", "esim_pocket") if (G.AFFILIATI.get(k) or {}).get("url")]
     el = {k: set((G.ESIM["fornitori"].get(f) or {}).get("paesi", {})) for k, (_, f) in ESIM_ALTRI.items()}
     dest = [(f"passport-validity/{P['slug']}/index.html", G.iso_destinazione(P["nome"], P["url"])) for P in G.PAESI]
@@ -5631,7 +5631,7 @@ def controlla_amazon_esim():
     c["esim_senza_iso"] = 0
     for rel, iso in dest:
         if iso:
-            attese = [k for k in ("esim_vodafone", "esim", "esim_pocket") if k in accese and (k == "esim" or iso in el[k])]
+            attese = [k for k in ("esim", "esim_vodafone", "esim_pocket") if k in accese and (k == "esim" or iso in el[k])]
         else:
             c["esim_senza_iso"] += 1
             attese = [k for k in ("esim", "esim_vodafone", "esim_pocket") if k in accese]
@@ -5774,7 +5774,7 @@ def main():
     print(f"31. Amazon ed eSIM: {c31['amazon_link']} link Amazon in {c31['amazon_pagine']} pagine del bagaglio a mano (solo .co.uk: {c31['uk']}, "
           f"solo .com: {c31['us']}, entrambi: {c31['entrambi']}), tag giusto per dominio, solo ricerche /s senza ASIN, misura della pagina, "
           f"frase di Amazon nelle pagine e nella privacy; eSIM (Awin) in {c31['esim_pagine']} pagine di viaggi all'estero, link Roamable "
-          f"{c31['esim_link']['esim']}, Vodafone {c31['esim_link']['esim_vodafone']}, Pocket {c31['esim_link']['esim_pocket']}; Vodafone primo "
+          f"{c31['esim_link']['esim']}, Vodafone {c31['esim_link']['esim_vodafone']}, Pocket {c31['esim_link']['esim_pocket']}; Roamable primo, Vodafone presente "
           f"(elenco con la destinazione) in {c31['esim_ordine']} pagine, ordine e presenza ricalcolati da dati/esim.json, {c31.get('esim_senza_iso', 0)} "
           f"destinazioni senza codice ISO (testo generico): {len(e31)} errori")
     e19, i19 = G.MON.controlla_sito(G.SITO_ID, SITO)  # controllo comune di monetizzazione (monetizzazione.py)
