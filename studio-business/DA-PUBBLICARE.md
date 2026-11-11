@@ -88,5 +88,7 @@ Pubblicato il 1/11/2026 alle 00:15 circa: Visa Income (cerimonie australiane, es
 | Pass rate DMV California per ufficio | 1.200 | ~20 | ~60 | dati solo con richiesta pubblica (Massimiliano, 20 min) | fronti-2026-11-10-esami-di-guida.md |
 | Sezione "spesa vera dei libri contro il tetto del Ministero" (10-40 pagine su un sito italiano esistente) | 600 | ~12 | ~50 | decidere entro aprile 2027 (stagione maggio-settembre) | verifica-2026-11-10-libri-di-testo.md |
 | Filtri caldaia USA, versione compatta (~45 pagine) | 400 | ~15 | ~27 | un rivenditore al 7 % che ci accetti (Filter King su Awin) e un sito USA della rete sopra 30 visite a settimana | verifica-2026-11-10-filtri-caldaia.md |
+| Polonia: codici di errore KSeF uno per pagina (in polacco) | 850 | ~20 | ~40 | pagatori letti (Fakturownia 30 % 24 mesi, wFirma 30 % a vita, iFirma); chiedere al commercialista la fattura a società UE dal forfettario; vuoto solo sulla coda lunga | fronti-2026-11-11-mercati-nuovi.md |
+| Giappone: tutte le multe ai ciclisti (cartellino blu dal 1/4/2026) in inglese e giapponese | 220 | ~15 | ~15 | solo AdSense | fronti-2026-11-11-mercati-nuovi.md |
 
 Le idee della riserva entrano nella coda di costruzione nell'ordine della colonna €/ora, appena il loro ostacolo è tolto; i turni di costruzione le prendono quando la coda principale è vuota o in attesa.
