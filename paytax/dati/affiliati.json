@@ -1,0 +1,35 @@
+{
+ "_nota": "Riquadri di affiliazione PREPARATI MA SPENTI (regola del titolare: domanda ai programmi solo quando il sito arriva a 1.000 visite al mese). Si accendono mettendo attivo=true e url compilato, e aggiungendo il dominio del link tracciato in studio-business/strumenti/monetizzazione.json (domini_affiliazione). Nessun premio o incentivo per prenotare una demo (termini Employment Hero).",
+ "employment_hero": {
+  "attivo": false,
+  "url": "",
+  "programma": "Employment Hero su PartnerStack (AUD 200 a demo qualificata)",
+  "nome": "Employment Hero",
+  "titolo": "Over the threshold? Payroll software that files STP and pays super each payday",
+  "testo": "Employment Hero runs payroll, Single Touch Payroll reporting and super payments in one place.",
+  "cta": "See Employment Hero",
+  "pagine": [
+   "calculator-risultato",
+   "payday-super",
+   "over-the-threshold",
+   "stati"
+  ]
+ },
+ "myob": {
+  "attivo": false,
+  "url": "",
+  "programma": "MYOB Affiliate Program (AUD 80 a iscrizione idonea)",
+  "nome": "MYOB",
+  "titolo": "Or an accounting and payroll package",
+  "testo": "MYOB combines accounting, payroll and super in one subscription.",
+  "cta": "See MYOB",
+  "pagine": [
+   "calculator-risultato",
+   "payday-super",
+   "over-the-threshold",
+   "stati",
+   "due-dates",
+   "thresholds-history"
+  ]
+ }
+}

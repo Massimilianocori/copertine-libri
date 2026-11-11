@@ -1,0 +1,472 @@
+{
+ "_nota": "Ogni domanda nasce da una ricerca vera dell'autocompletamento (dati/domanda.json, gl=au); risposte solo dalle fonti indicate.",
+ "faq": [
+  {
+   "pagina": "home",
+   "ricerca": "payroll tax rates by state",
+   "q": "What are the payroll tax rates by state in 2026-27?",
+   "a": "New South Wales 5.45%; Victoria 4.85% (1.2125% for regional employers); Queensland 4.75%, or 4.95% when Australian wages are above $6.5 million; Western Australia 5.5%; South Australia 0% to 4.95% between $1.5 million and $1.7 million of Australian wages and 4.95% above; Tasmania 4% on wages from $1,250,001 to $2 million and 6.1% above; ACT 6.75% to 8.75% depending on total Australian wages; Northern Territory 5.5%, or 6.5% when Australian wages are $100 million or more.",
+   "fonti": [
+    "portal_rates"
+   ]
+  },
+  {
+   "pagina": "home",
+   "ricerca": "payroll tax threshold 2026",
+   "q": "What is the payroll tax threshold in each state for 2026-27?",
+   "a": "Annual thresholds for 2026-27: NSW $1,200,000; Victoria $1,000,000; Queensland $1,300,000; Western Australia $1,000,000; South Australia $1,500,000; Tasmania $1,250,000; ACT $1,750,000; Northern Territory $2,500,000. The thresholds are tested against your total Australian wages (or your group's), not just the wages paid in one state.",
+   "fonti": [
+    "portal_rates"
+   ]
+  },
+  {
+   "pagina": "home",
+   "ricerca": "is payroll tax state or federal",
+   "q": "Is payroll tax a state or federal tax?",
+   "a": "Payroll tax is a state and territory tax. Each of the eight revenue offices sets its own rates and thresholds, and you register with each state or territory where you pay taxable wages once your Australia-wide wages exceed the threshold.",
+   "fonti": [
+    "portal_rates",
+    "portal_registration"
+   ]
+  },
+  {
+   "pagina": "home",
+   "ricerca": "which state has the lowest payroll tax",
+   "q": "Which state has the lowest payroll tax?",
+   "a": "It depends on your payroll. The Northern Territory has the highest tax-free threshold ($2.5 million) and Victoria and Western Australia the lowest ($1 million). The lowest rates are Victoria's regional rate of 1.2125% and Tasmania's 4% band on wages between $1.25 million and $2 million; the highest are the ACT's 6.75% to 8.75%. Because each threshold is shared by your wage share in that state, the calculator gives the real comparison for your numbers.",
+   "fonti": [
+    "portal_rates"
+   ]
+  },
+  {
+   "pagina": "home",
+   "ricerca": "does payroll tax include super",
+   "q": "Does payroll tax include superannuation?",
+   "a": "Yes. Employer superannuation contributions are part of taxable wages for payroll tax, together with salaries, fringe benefits, termination payments, some contractor payments, allowances, bonuses, directors' fees and shares and options (Revenue NSW list; the other states follow harmonised rules).",
+   "fonti": [
+    "nsw_register"
+   ]
+  },
+  {
+   "pagina": "calculator",
+   "ricerca": "how is payroll tax calculated in australia",
+   "q": "How is payroll tax calculated in Australia?",
+   "a": "Each state taxes the wages paid in that state above its share of the threshold. Your share is the threshold multiplied by the state's wages divided by your total Australian wages, and by the days you paid wages divided by the days in the financial year. Some states also shrink the threshold as wages grow (Victoria, Queensland, Western Australia, Northern Territory) or set the rate by your total wages (Queensland, South Australia, ACT, Northern Territory).",
+   "fonti": [
+    "nsw_rates",
+    "portal_lodging"
+   ]
+  },
+  {
+   "pagina": "calculator",
+   "ricerca": "claiming payroll tax threshold in multiple states",
+   "q": "How do I claim the payroll tax threshold in multiple states?",
+   "a": "You do not get a full threshold in every state. Each state gives you its threshold multiplied by the share of your Australian wages paid there: for example, with $900,000 of NSW wages out of $3,000,000 in total, your NSW threshold is $1,200,000 × 900,000 ÷ 3,000,000 = $360,000.",
+   "fonti": [
+    "nsw_rates",
+    "nsw_interstate"
+   ]
+  },
+  {
+   "pagina": "calculator",
+   "ricerca": "payroll tax monthly threshold",
+   "q": "What are the monthly payroll tax thresholds?",
+   "a": "For 2026-27: NSW $92,055, $98,630 or $101,918 for a 28, 30 or 31-day month; Victoria $83,333; Queensland $108,333; Western Australia $83,333; South Australia $125,000; Tasmania days in the month ÷ days in the year × $1.25 million; ACT $145,833.33; Northern Territory $208,333. Monthly thresholds decide when you must register; your tax for the year is settled in the annual return.",
+   "fonti": [
+    "portal_rates",
+    "nsw_rates",
+    "tas_rates"
+   ]
+  },
+  {
+   "pagina": "nsw",
+   "ricerca": "payroll tax threshold nsw 2026",
+   "q": "What is the NSW payroll tax threshold for 2026-27?",
+   "a": "$1,200,000 a year, and the rate is 5.45% of wages above it. The threshold is reduced if you also pay wages interstate (by the NSW share of your Australian wages) or if you did not pay wages for the whole year (by days).",
+   "fonti": [
+    "nsw_rates"
+   ]
+  },
+  {
+   "pagina": "nsw",
+   "ricerca": "payroll tax threshold nsw monthly",
+   "q": "What is the NSW monthly payroll tax threshold?",
+   "a": "For 2026-27 it is $92,055 for a 28-day month, $98,630 for a 30-day month and $101,918 for a 31-day month. Register within 7 days after the month in which your total Australian wages go above it.",
+   "fonti": [
+    "nsw_rates",
+    "nsw_register"
+   ]
+  },
+  {
+   "pagina": "nsw",
+   "ricerca": "payroll tax nsw due dates",
+   "q": "When is NSW payroll tax due?",
+   "a": "Monthly returns are due on the 7th of the following month (the December 2026 return is due on 14 January 2027). There is no June monthly return: June is included in the annual return, due on 28 July 2027 for 2026-27.",
+   "fonti": [
+    "nsw_keydates"
+   ]
+  },
+  {
+   "pagina": "vic",
+   "ricerca": "payroll tax threshold vic 2026",
+   "q": "What is the Victorian payroll tax threshold for 2026-27?",
+   "a": "$1,000,000 a year ($83,333 a month). Employers and groups with Australian wages between $3 million and $5 million get a reduced threshold (phased out at 50%), and above $5 million there is no threshold.",
+   "fonti": [
+    "vic_rates",
+    "vic_phase"
+   ]
+  },
+  {
+   "pagina": "vic",
+   "ricerca": "payroll tax rate victoria regional",
+   "q": "What is the regional payroll tax rate in Victoria?",
+   "a": "1.2125%, instead of 4.85%, if at least 85% of your Victorian taxable wages are paid to regional employees, that is employees who do more than half of their work for you in regional Victoria.",
+   "fonti": [
+    "vic_regional"
+   ]
+  },
+  {
+   "pagina": "vic",
+   "ricerca": "mental health and wellbeing surcharge victoria payroll tax",
+   "q": "What is the Victorian mental health and wellbeing surcharge?",
+   "a": "It is one of two payroll tax surcharges (the other is the COVID-19 debt temporary surcharge, until 30 June 2033). With Australian wages over $10 million each is 0.5% (1% in total); over $100 million each adds another 0.5% (2% in total). They apply only to Victorian taxable wages above the thresholds, which are shared by the Victorian share of wages and by days employed.",
+   "fonti": [
+    "vic_surcharges"
+   ]
+  },
+  {
+   "pagina": "vic",
+   "ricerca": "how is payroll tax calculated in victoria",
+   "q": "How is payroll tax calculated in Victoria?",
+   "a": "Take your Victorian taxable wages, subtract your threshold (the $1,000,000 threshold times your Victorian share of Australian wages and the share of the year you employed, reduced further between $3 million and $5 million), then multiply by 4.85%, or 1.2125% for regional employers.",
+   "fonti": [
+    "vic_phase",
+    "vic_rates"
+   ]
+  },
+  {
+   "pagina": "qld",
+   "ricerca": "payroll tax threshold qld 2026",
+   "q": "What is the Queensland payroll tax threshold for 2026-27?",
+   "a": "$1.3 million of Australian taxable wages a year. Above it, the deduction falls by $1 for every $7 of wages, reaching zero at $10.4 million.",
+   "fonti": [
+    "qld_rates",
+    "qld_deductions"
+   ]
+  },
+  {
+   "pagina": "qld",
+   "ricerca": "payroll tax rate qld",
+   "q": "What is the payroll tax rate in Queensland?",
+   "a": "4.75% if you (or your group) pay $6.5 million or less in Australian taxable wages, and 4.95% above $6.5 million. Eligible regional employers get 1% off until 30 June 2030 (3.75% or 3.95%).",
+   "fonti": [
+    "qld_rates",
+    "qld_regional"
+   ]
+  },
+  {
+   "pagina": "qld",
+   "ricerca": "mental health levy qld payroll tax",
+   "q": "How does the Queensland mental health levy work?",
+   "a": "It is added to payroll tax for employers or groups with Australian taxable wages over $10 million: 0.25% of Queensland wages above the (shared) $10 million threshold, plus 0.5% of Queensland wages above the (shared) $100 million threshold. A Queensland-only employer with $112 million pays $255,000 + $60,000 = $315,000.",
+   "fonti": [
+    "qld_mhl"
+   ]
+  },
+  {
+   "pagina": "qld",
+   "ricerca": "payroll tax qld due dates 2026",
+   "q": "When is Queensland payroll tax due in 2026-27?",
+   "a": "Periodic returns are due 7 days after the end of the month (December 2026 is due on 14 January 2027). The 2026-27 annual return, which includes June, is due on 21 July 2027.",
+   "fonti": [
+    "qld_due"
+   ]
+  },
+  {
+   "pagina": "wa",
+   "ricerca": "payroll tax threshold wa 2026",
+   "q": "What is the WA payroll tax threshold for 2026-27?",
+   "a": "$1,000,000 a year ($83,333 a month). It is a diminishing threshold: above $1 million it falls by $2 for every $13 of wages and disappears at $7.5 million of Australian taxable wages.",
+   "fonti": [
+    "wa_calc",
+    "wa_act"
+   ]
+  },
+  {
+   "pagina": "wa",
+   "ricerca": "payroll tax rate wa",
+   "q": "What is the payroll tax rate in Western Australia?",
+   "a": "5.5% of taxable wages above your deductable amount. For example, with WA wages of $1,200,000 the deductable amount is $969,231 and the tax is $12,692.30.",
+   "fonti": [
+    "wa_calc",
+    "wa_local"
+   ]
+  },
+  {
+   "pagina": "wa",
+   "ricerca": "payroll tax wa due dates",
+   "q": "When is WA payroll tax due?",
+   "a": "Monthly returns are due on the 7th day of the following month; the annual reconciliation, together with the June return, is due on or before 21 July.",
+   "fonti": [
+    "wa_returns"
+   ]
+  },
+  {
+   "pagina": "sa",
+   "ricerca": "payroll tax threshold sa",
+   "q": "What is the South Australian payroll tax threshold?",
+   "a": "$1,500,000 a year ($125,000 a month or $28,846 a week). Above it, you deduct up to $600,000 a year from your SA wages, shared by your SA share of Australian wages and the part of the year you paid wages.",
+   "fonti": [
+    "sa_rates",
+    "sa_how"
+   ]
+  },
+  {
+   "pagina": "sa",
+   "ricerca": "payroll tax rate sa",
+   "q": "What is the payroll tax rate in South Australia?",
+   "a": "4.95% when your annualised Australian wages are above $1.7 million. Between $1.5 million and $1.7 million the rate rises in a straight line from 0% to 4.95%: (annualised wages − $1,500,000) ÷ $200,000 × 4.95%.",
+   "fonti": [
+    "sa_rates",
+    "sa_act"
+   ]
+  },
+  {
+   "pagina": "sa",
+   "ricerca": "payroll tax sa due date",
+   "q": "When is SA payroll tax due?",
+   "a": "Monthly returns are due on the 7th of the following month and the annual reconciliation on 28 July (28 July 2027 for 2026-27).",
+   "fonti": [
+    "sa_returns"
+   ]
+  },
+  {
+   "pagina": "tas",
+   "ricerca": "payroll tax threshold tasmania",
+   "q": "What is the Tasmanian payroll tax threshold?",
+   "a": "$1,250,000 a year. Wages from $1,250,001 to $2,000,000 are taxed at 4% and wages above $2,000,000 at 6.1%; both thresholds are shared by your Tasmanian share of Australian wages and by days employed.",
+   "fonti": [
+    "tas_rates",
+    "tas_act"
+   ]
+  },
+  {
+   "pagina": "tas",
+   "ricerca": "payroll tax rate tasmania",
+   "q": "Is the Tasmanian 6.1% rate charged on all wages?",
+   "a": "No. 4% applies to the band between the two thresholds and 6.1% only to wages above $2 million (as shared). A Tasmania-only employer with $2.4 million pays $30,000 + $24,400 = $54,400.",
+   "fonti": [
+    "tas_guide",
+    "tas_act"
+   ]
+  },
+  {
+   "pagina": "tas",
+   "ricerca": "payroll tax tasmania due date",
+   "q": "When is Tasmanian payroll tax due?",
+   "a": "Monthly returns are due on the 7th of the following month; the annual adjustment return is due by 21 July each year.",
+   "fonti": [
+    "tas_lodge"
+   ]
+  },
+  {
+   "pagina": "act",
+   "ricerca": "payroll tax threshold act 2026",
+   "q": "What is the ACT payroll tax threshold for 2026-27?",
+   "a": "$1,750,000 a year ($145,833.33 a month), down from $2,000,000 in 2025-26.",
+   "fonti": [
+    "act_det2026",
+    "act_det2025"
+   ]
+  },
+  {
+   "pagina": "act",
+   "ricerca": "payroll tax rate act 2026",
+   "q": "What are the ACT payroll tax rates for 2026-27?",
+   "a": "The rate depends on your total Australian wages (or your group's): 6.75% above $1.75 million up to $20 million; 6.85% up to $50 million; 7.35% up to $100 million; 7.85% up to $150 million; 8.75% above $150 million. The rate applies to all your ACT wages above the threshold, not just to the slice in each bracket. Eligible universities are capped at 6.85%.",
+   "fonti": [
+    "act_det2026"
+   ]
+  },
+  {
+   "pagina": "nt",
+   "ricerca": "payroll tax threshold nt 2026",
+   "q": "What is the NT payroll tax threshold for 2026-27?",
+   "a": "$2,500,000 a year ($208,333 a month). Above it, the annual deduction falls by $1 for every $2 of wages and is zero at $7.5 million.",
+   "fonti": [
+    "portal_rates",
+    "nt_act"
+   ]
+  },
+  {
+   "pagina": "nt",
+   "ricerca": "payroll tax rate northern territory",
+   "q": "What is the payroll tax rate in the Northern Territory?",
+   "a": "5.5%. From 1 July 2026 it is 6.5% for employers and groups with Australian wages of $100 million or more.",
+   "fonti": [
+    "portal_rates",
+    "nt_act"
+   ]
+  },
+  {
+   "pagina": "nt",
+   "ricerca": "northern territory payroll tax due date",
+   "q": "When is NT payroll tax due?",
+   "a": "The Payroll Tax Act 2009 requires a return within 21 days after the end of each month, and the June return with the annual adjustment within 21 days after the end of June.",
+   "fonti": [
+    "nt_act"
+   ]
+  },
+  {
+   "pagina": "interstate-wages",
+   "ricerca": "payroll tax interstate wages",
+   "q": "What are interstate wages for payroll tax?",
+   "a": "Wages that are taxable under the payroll tax law of another state or territory. You declare them in each state's returns so that the state can work out your share of its threshold.",
+   "fonti": [
+    "nsw_interstate"
+   ]
+  },
+  {
+   "pagina": "interstate-wages",
+   "ricerca": "payroll tax for employees working in multiple states",
+   "q": "Which state taxes an employee who works in more than one state?",
+   "a": "The nexus rules decide it, month by month: first where the employee is based (principal place of residence), then where the employer is based, then where the wages are paid, then where the services are mainly performed.",
+   "fonti": [
+    "tas_guide",
+    "act_act"
+   ]
+  },
+  {
+   "pagina": "grouping",
+   "ricerca": "payroll tax grouping rules",
+   "q": "What are the payroll tax grouping rules?",
+   "a": "Businesses are grouped if they are related corporations, share employees, or are controlled by the same person or people (more than 50%), including through trusts. A group shares one threshold, claimed by the designated group employer.",
+   "fonti": [
+    "vic_grouping",
+    "nsw_rates"
+   ]
+  },
+  {
+   "pagina": "grouping",
+   "ricerca": "payroll tax grouping exclusion",
+   "q": "Can a business be excluded from a payroll tax group?",
+   "a": "Sometimes. The law gives the Commissioner discretion to exclude a member from a group in certain circumstances (in Victoria the factors are set out in Revenue Ruling PTA-031v2), but corporations that are related bodies corporate cannot apply to be excluded. You apply to the revenue office of each state concerned.",
+   "fonti": [
+    "vic_grouping"
+   ]
+  },
+  {
+   "pagina": "regional-rates",
+   "ricerca": "payroll tax regional victoria",
+   "q": "Who counts as a regional employer in Victoria?",
+   "a": "An employer that pays at least 85% of its Victorian taxable wages to regional employees, who must do more than half of their work for it in regional Victoria (the listed regional councils and six alpine resorts). For the annual return the 85% rule is tested over the whole year.",
+   "fonti": [
+    "vic_regional"
+   ]
+  },
+  {
+   "pagina": "regional-rates",
+   "ricerca": "payroll tax regional discount qld",
+   "q": "Who gets the Queensland regional payroll tax discount?",
+   "a": "An employer whose principal place of employment (its registered ABN address) is in regional Queensland and that pays at least 85% of its Queensland taxable wages to employees who live in regional Queensland. The discount is 1% until 30 June 2030 and does not apply above $350 million of wages.",
+   "fonti": [
+    "qld_regional"
+   ]
+  },
+  {
+   "pagina": "thresholds-history",
+   "ricerca": "payroll tax threshold vic historical",
+   "q": "How has the Victorian payroll tax threshold changed?",
+   "a": "$700,000 from 1 July 2021 to 30 June 2024, $900,000 in 2024-25 and $1,000,000 from 1 July 2025. The phase-out between $3 million and $5 million started on 1 July 2024 (45%, then 50% from 2025-26).",
+   "fonti": [
+    "vic_hist",
+    "vic_phase"
+   ]
+  },
+  {
+   "pagina": "thresholds-history",
+   "ricerca": "payroll tax threshold nsw 2022",
+   "q": "What was the NSW payroll tax threshold in 2022?",
+   "a": "$1,200,000, at a rate of 5.45%, for 2022-23. It has stayed at $1,200,000 and 5.45% every year since.",
+   "fonti": [
+    "nsw_rates"
+   ]
+  },
+  {
+   "pagina": "due-dates",
+   "ricerca": "payroll tax annual reconciliation due date 2026",
+   "q": "When is the payroll tax annual reconciliation due?",
+   "a": "21 July in Victoria, Queensland, Western Australia, Tasmania and the Northern Territory; 28 July in NSW, South Australia and the ACT. If the date falls on a weekend or public holiday, the next business day is accepted.",
+   "fonti": [
+    "portal_rates",
+    "portal_lodging"
+   ]
+  },
+  {
+   "pagina": "due-dates",
+   "ricerca": "payroll tax due dates 2027",
+   "q": "What are the payroll tax due dates in 2027?",
+   "a": "Monthly returns are due on the 7th of each month for the month before (in 2027 NSW and Queensland list 14 January for December 2026, 8 February, 8 March, 7 April, 7 May and 7 June). The 2026-27 annual returns are due on 21 July 2027 or 28 July 2027 depending on the state.",
+   "fonti": [
+    "nsw_keydates",
+    "qld_due",
+    "sa_returns"
+   ]
+  },
+  {
+   "pagina": "what-changed-2026-27",
+   "ricerca": "payroll tax 2026-2027",
+   "q": "What changed in payroll tax on 1 July 2026?",
+   "a": "The ACT lowered its threshold to $1.75 million and replaced its flat rate and surcharges with five rates from 6.75% to 8.75%; the Northern Territory added a 6.5% rate for employers with Australian wages of $100 million or more. NSW, Victoria, Queensland, Western Australia, South Australia and Tasmania kept their 2025-26 thresholds and rates.",
+   "fonti": [
+    "act_det2026",
+    "portal_rates",
+    "nt_act"
+   ]
+  },
+  {
+   "pagina": "payday-super",
+   "ricerca": "payday super due date",
+   "q": "When is super due under Payday Super?",
+   "a": "From 1 July 2026, contributions must be received by the employee's fund within 7 business days after the day you pay their qualifying earnings (the QE day). The first contribution for a new employee, or to a new fund, can take up to 20 business days.",
+   "fonti": [
+    "payday_act"
+   ]
+  },
+  {
+   "pagina": "payday-super",
+   "ricerca": "payday super penalties",
+   "q": "What are the penalties under Payday Super?",
+   "a": "If contributions arrive late or short you owe the superannuation guarantee charge for that payday, which includes the shortfall, a notional earnings component and an administrative uplift of up to 60% of the shortfall (which regulations can reduce), plus a choice loading if you ignored the employee's choice of fund.",
+   "fonti": [
+    "payday_act"
+   ]
+  },
+  {
+   "pagina": "over-the-threshold",
+   "ricerca": "do i need to register for payroll tax",
+   "q": "Do I need to register for payroll tax?",
+   "a": "You must register in each state or territory where you pay taxable wages once your Australia-wide wages (or your group's) are above the threshold. Most states test this monthly: for example NSW and WA require registration within 7 days after the month in which you go over.",
+   "fonti": [
+    "portal_registration",
+    "nsw_register",
+    "wa_register"
+   ]
+  },
+  {
+   "pagina": "over-the-threshold",
+   "ricerca": "payroll tax registration threshold",
+   "q": "What wage level triggers payroll tax registration?",
+   "a": "The monthly or weekly threshold of each state: NSW $92,055 to $101,918 a month; Victoria $83,333; Queensland $25,000 a week; WA $83,333; SA $125,000 a month ($28,846 a week); Tasmania $24,038 a week during a month; ACT $145,833.33; NT $208,333 a month.",
+   "fonti": [
+    "nsw_rates",
+    "vic_rates",
+    "qld_register",
+    "wa_register",
+    "sa_register",
+    "tas_register",
+    "portal_rates"
+   ]
+  }
+ ]
+}

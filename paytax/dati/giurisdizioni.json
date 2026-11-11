@@ -1,0 +1,304 @@
+{
+ "_nota": "Parametri 2026-27 e fatti per giurisdizione. Ogni cifra ha la sua fonte (id in dati/fonti.json). Aggiornare ogni 1 luglio (vedi NOTE.md).",
+ "anno_fiscale": "2026-27",
+ "inizio": "2026-07-01",
+ "fine": "2027-06-30",
+ "giorni_anno": 365,
+ "controllato_il": "2026-11-11",
+ "parametri": {
+  "nsw": {
+   "soglia": 1200000,
+   "aliquota": 5.45
+  },
+  "vic": {
+   "soglia": 1000000,
+   "aliquota": 4.85,
+   "regionale": 1.2125,
+   "phase_da": 3000000,
+   "phase_a": 5000000,
+   "phase_quota": 50,
+   "sovrattasse": [
+    [
+     10000000,
+     1.0
+    ],
+    [
+     100000000,
+     1.0
+    ]
+   ]
+  },
+  "qld": {
+   "soglia": 1300000,
+   "rapporto": 7,
+   "aliquota": 4.75,
+   "aliquota_alta": 4.95,
+   "aliquota_alta_da": 6500000,
+   "sconto_regionale": 1.0,
+   "regionale_max": 350000000,
+   "levy": [
+    [
+     10000000,
+     0.25
+    ],
+    [
+     100000000,
+     0.5
+    ]
+   ]
+  },
+  "wa": {
+   "soglia": 1000000,
+   "soglia_superiore": 7500000,
+   "aliquota": 5.5
+  },
+  "sa": {
+   "soglia": 1500000,
+   "piena_da": 1700000,
+   "deduzione": 600000,
+   "aliquota": 4.95
+  },
+  "tas": {
+   "soglia": 1250000,
+   "soglia2": 2000000,
+   "aliquota1": 4.0,
+   "aliquota2": 6.1
+  },
+  "act": {
+   "soglia": 1750000,
+   "scaglioni": [
+    [
+     20000000,
+     6.75
+    ],
+    [
+     50000000,
+     6.85
+    ],
+    [
+     100000000,
+     7.35
+    ],
+    [
+     150000000,
+     7.85
+    ],
+    [
+     null,
+     8.75
+    ]
+   ]
+  },
+  "nt": {
+   "soglia": 2500000,
+   "aliquota": 5.5,
+   "aliquota_alta": 6.5,
+   "aliquota_alta_da": 100000000
+  }
+ },
+ "giurisdizioni": {
+  "nsw": {
+   "nome": "New South Wales",
+   "breve": "NSW",
+   "ufficio": "Revenue NSW",
+   "slug": "nsw",
+   "url_ufficio": "https://www.revenue.nsw.gov.au/taxes-duties-levies-royalties/payroll-tax",
+   "soglia_testo": "$1,200,000",
+   "aliquota_testo": "5.45%",
+   "mensile_testo": "$92,055 / $98,630 / $101,918 (28 / 30 / 31-day month)",
+   "deduzione_testo": "Full threshold, shared by NSW share of Australian wages and days employed",
+   "regionale_testo": "None",
+   "annuale": "28 July",
+   "mensile_scad": "7th of the following month",
+   "registrazione": "Register within 7 days after the month in which total Australian wages (or group wages) go above the monthly threshold.",
+   "fonti": {
+    "tariffe": "nsw_rates",
+    "esempio": "nsw_rates",
+    "interstatale": "nsw_interstate",
+    "scadenze": "nsw_keydates",
+    "registrazione": "nsw_register",
+    "grouping": "nsw_grouping",
+    "calcolatore": "nsw_calc",
+    "portale": "portal_rates"
+   }
+  },
+  "vic": {
+   "nome": "Victoria",
+   "breve": "VIC",
+   "ufficio": "State Revenue Office Victoria",
+   "slug": "vic",
+   "url_ufficio": "https://www.sro.vic.gov.au/payroll-tax",
+   "soglia_testo": "$1,000,000",
+   "aliquota_testo": "4.85%",
+   "mensile_testo": "$83,333",
+   "deduzione_testo": "Phased out at 50% between $3m and $5m of Australian wages; none above $5m",
+   "regionale_testo": "1.2125% if at least 85% of Victorian wages go to regional employees",
+   "annuale": "21 July",
+   "mensile_scad": "7th of the following month",
+   "registrazione": "Register if you pay wages in Victoria and your taxable Australian wages exceed the threshold (monthly $83,333).",
+   "fonti": {
+    "tariffe": "vic_rates",
+    "csv": "vic_csv",
+    "esempio": "vic_phase",
+    "regionale": "vic_regional",
+    "sovrattasse": "vic_surcharges",
+    "storico": "vic_hist",
+    "scadenze": "vic_monthly",
+    "annuale": "vic_annual",
+    "registrazione": "vic_register",
+    "grouping": "vic_grouping",
+    "portale": "portal_rates"
+   }
+  },
+  "qld": {
+   "nome": "Queensland",
+   "breve": "QLD",
+   "ufficio": "Queensland Revenue Office",
+   "slug": "qld",
+   "url_ufficio": "https://qro.qld.gov.au/payroll-tax/",
+   "soglia_testo": "$1,300,000",
+   "aliquota_testo": "4.75% (4.95% above $6.5m)",
+   "mensile_testo": "$108,333",
+   "deduzione_testo": "Reduced by $1 for every $7 above $1.3m; zero at $10.4m",
+   "regionale_testo": "1% off the rate until 30 June 2030 (3.75% / 3.95%)",
+   "annuale": "21 July",
+   "mensile_scad": "7th of the following month",
+   "registrazione": "Register within 7 days of the first month in which Australian wages (or group wages) exceed $25,000 a week.",
+   "fonti": {
+    "tariffe": "qld_rates",
+    "deduzioni": "qld_deductions",
+    "esempio": "qld_deduction_example",
+    "regionale": "qld_regional",
+    "levy": "qld_mhl",
+    "legge": "qld_act",
+    "scadenze": "qld_due",
+    "registrazione": "qld_register",
+    "grouping": "qld_grouping",
+    "calcolatore": "qld_calcs",
+    "portale": "portal_rates"
+   }
+  },
+  "wa": {
+   "nome": "Western Australia",
+   "breve": "WA",
+   "ufficio": "RevenueWA (Department of Treasury and Finance)",
+   "slug": "wa",
+   "url_ufficio": "https://www.wa.gov.au/organisation/department-of-treasury-and-finance/about-payroll-tax",
+   "soglia_testo": "$1,000,000",
+   "aliquota_testo": "5.5%",
+   "mensile_testo": "$83,333",
+   "deduzione_testo": "Diminishing threshold: reduced by $2 for every $13 above $1m; none at $7.5m or more",
+   "regionale_testo": "None",
+   "annuale": "21 July",
+   "mensile_scad": "7th of the following month",
+   "registrazione": "Register within 7 days after the end of the month in which total Australian wages exceed $83,333.",
+   "fonti": {
+    "tariffe": "wa_calc",
+    "esempio": "wa_local",
+    "interstatale": "wa_interstate",
+    "legge": "wa_act",
+    "scadenze": "wa_returns",
+    "registrazione": "wa_register",
+    "grouping": "wa_grouping",
+    "calcolatore": "wa_calculator",
+    "portale": "portal_rates"
+   }
+  },
+  "sa": {
+   "nome": "South Australia",
+   "breve": "SA",
+   "ufficio": "RevenueSA",
+   "slug": "sa",
+   "url_ufficio": "https://www.revenuesa.sa.gov.au/payrolltax",
+   "soglia_testo": "$1,500,000",
+   "aliquota_testo": "0% to 4.95% between $1.5m and $1.7m; 4.95% above",
+   "mensile_testo": "$125,000",
+   "deduzione_testo": "Deduction of up to $600,000, shared by SA share of Australian wages and days employed",
+   "regionale_testo": "None",
+   "annuale": "28 July",
+   "mensile_scad": "7th of the following month",
+   "registrazione": "Register when Australian wages (or group wages) exceed the threshold: $28,846 a week, $125,000 a month.",
+   "fonti": {
+    "tariffe": "sa_rates",
+    "esempio": "sa_how",
+    "legge": "sa_act",
+    "tabella": "sa_table",
+    "scadenze": "sa_returns",
+    "registrazione": "sa_register",
+    "grouping": "sa_grouping",
+    "nexus": "sa_nexus",
+    "calcolatore": "sa_calculator",
+    "portale": "portal_rates"
+   }
+  },
+  "tas": {
+   "nome": "Tasmania",
+   "breve": "TAS",
+   "ufficio": "State Revenue Office of Tasmania",
+   "slug": "tas",
+   "url_ufficio": "https://www.sro.tas.gov.au/payroll-tax",
+   "soglia_testo": "$1,250,000",
+   "aliquota_testo": "4% from $1,250,001 to $2m; 6.1% above $2m",
+   "mensile_testo": "days in month ÷ days in year × $1.25m",
+   "deduzione_testo": "Two thresholds ($1.25m and $2m), shared by Tasmanian share of wages and days employed",
+   "regionale_testo": "None",
+   "annuale": "21 July",
+   "mensile_scad": "7th of the following month",
+   "registrazione": "Liable (and must register) when Australian wages (or group wages) exceed $1.25m a year or $24,038 a week during a month.",
+   "fonti": {
+    "tariffe": "tas_rates",
+    "esempio": "tas_guide",
+    "legge": "tas_act",
+    "formula": "tas_act_formula",
+    "scadenze": "tas_lodge",
+    "registrazione": "tas_register",
+    "grouping": "tas_grouping",
+    "calcolatore": "tas_calculator",
+    "portale": "portal_rates"
+   }
+  },
+  "act": {
+   "nome": "Australian Capital Territory",
+   "breve": "ACT",
+   "ufficio": "ACT Revenue Office",
+   "slug": "act",
+   "url_ufficio": "https://www.revenue.act.gov.au/payroll-tax",
+   "soglia_testo": "$1,750,000",
+   "aliquota_testo": "6.75% to 8.75%, set by total Australian wages",
+   "mensile_testo": "$145,833.33",
+   "deduzione_testo": "Threshold shared by ACT share of wages and days employed; no taper",
+   "regionale_testo": "None (eligible universities capped at 6.85%)",
+   "annuale": "28 July",
+   "mensile_scad": "7th of the following month",
+   "registrazione": "Register when Australian wages (or group wages) are above the monthly threshold of $145,833.33 in any month.",
+   "fonti": {
+    "tariffe": "act_det2026",
+    "legge": "act_act",
+    "portale": "portal_rates",
+    "ufficio": "act_revenue",
+    "registrazione": "portal_registration"
+   }
+  },
+  "nt": {
+   "nome": "Northern Territory",
+   "breve": "NT",
+   "ufficio": "Territory Revenue Office",
+   "slug": "nt",
+   "url_ufficio": "https://treasury.nt.gov.au/dtf/territory-revenue-office/payroll-tax",
+   "soglia_testo": "$2,500,000",
+   "aliquota_testo": "5.5% (6.5% with Australian wages of $100m or more)",
+   "mensile_testo": "$208,333",
+   "deduzione_testo": "Deduction reduced by $1 for every $2 above $2.5m; zero at $7.5m",
+   "regionale_testo": "None",
+   "annuale": "21 July",
+   "mensile_scad": "within 21 days after the end of the month (Payroll Tax Act 2009, s 9)",
+   "registrazione": "Register when Australian wages (or group wages) are above the monthly threshold in any month.",
+   "fonti": {
+    "tariffe": "portal_rates",
+    "legge": "nt_act",
+    "ufficio": "nt_treasury",
+    "registrazione": "portal_registration"
+   }
+  }
+ }
+}

@@ -1,0 +1,1375 @@
+{
+ "_nota": "scritto da raccolta/fonti.py: non modificare a mano",
+ "definizioni": {
+  "portal_rates": {
+   "url": "https://www.payrolltax.gov.au/resources",
+   "titolo": "Payroll tax rates and thresholds (all states and territories)",
+   "chi": "Australian Revenue Offices (payrolltax.gov.au)",
+   "cerca": [
+    "Last updated on: 28/10/2026",
+    "6.75% more than $1.75 million but not more than $20 million",
+    "8.75% more than $150 million",
+    "Annual $1 750 000",
+    "Monthly $145 833.33",
+    "New South Wales 5.45% Annual $1 200 000",
+    "higher payroll tax rate of 6.5% for employers",
+    "Annual $2 500 000 Monthly $208 333",
+    "4.75% $6 500 000 or less 4.95% more than $6 500 000",
+    "1% discount on the rate until 30 June 2030",
+    "Annual $1 300 000 Monthly $108 333",
+    "0% to 4.95% Exceeds $1 500 000 but not $1 700 000",
+    "$600 000",
+    "4% $1 250 001 - $2 000 000 6.1% $2 000 001 or more",
+    "4.85% 1.2125% for regional employers",
+    "Annual $1 000 000 Monthly $83 333",
+    "Additional 0.25% (primary rate) more than $10 million (primary threshold)",
+    "+ 0.5% (additional rate) more than $100 million",
+    "must be lodged by the 21st July each year, except in the ACT, New South Wales and South Australia, where it must be lodged by 28th July"
+   ]
+  },
+  "portal_lodging": {
+   "url": "https://www.payrolltax.gov.au/lodging",
+   "titolo": "Lodging payroll tax returns",
+   "chi": "Australian Revenue Offices (payrolltax.gov.au)",
+   "cerca": [
+    "Monthly returns are due on the 7th of the following month",
+    "only the DGE is entitled to the threshold/deduction"
+   ]
+  },
+  "portal_registration": {
+   "url": "https://www.payrolltax.gov.au/registration",
+   "titolo": "Registration",
+   "chi": "Australian Revenue Offices (payrolltax.gov.au)",
+   "cerca": [
+    "you must register with each state and territory where you pay taxable wages",
+    "Employers who voluntarily declare their liabilities may receive significantly lower penalties than those who do not"
+   ]
+  },
+  "nsw_rates": {
+   "url": "https://www.revenue.nsw.gov.au/taxes-duties-levies-royalties/payroll-tax/lodge-and-pay-returns/thresholds-and-rates",
+   "titolo": "Payroll tax thresholds and rates",
+   "chi": "Revenue NSW",
+   "cerca": [
+    "Last updated: 01 July 2026",
+    "1 July 2026 – 30 June 2027 $1,200,000 5.45%",
+    "28 $92,055 30 $98,630 31 $101,918",
+    "$1,200,000 x (184 ÷ 365) = $604,931.51",
+    "2025-26 threshold $360,000",
+    "$400,000 x (184 ÷ 365) = $201,643.84",
+    "1 July 2022 – 30 June 2023 $1,200,000 5.45%"
+   ]
+  },
+  "nsw_interstate": {
+   "url": "https://www.revenue.nsw.gov.au/taxes-duties-levies-royalties/payroll-tax/taxable-wages/interstate-wages",
+   "titolo": "Payroll tax and interstate wages",
+   "chi": "Revenue NSW",
+   "cerca": [
+    "$400,000 = ($1,000,000 ÷ $3,000,000) x $1,200,000",
+    "Your annual tax-free threshold would currently be $960,000"
+   ]
+  },
+  "nsw_keydates": {
+   "url": "https://www.revenue.nsw.gov.au/taxes-duties-levies-royalties/payroll-tax/lodge-and-pay-returns/key-dates",
+   "titolo": "Key dates for payroll tax",
+   "chi": "Revenue NSW",
+   "cerca": [
+    "July monthly return 7 August 2026",
+    "December monthly return 14 January 2027",
+    "2027 Annual return 28 July 2027"
+   ]
+  },
+  "nsw_register": {
+   "url": "https://www.revenue.nsw.gov.au/taxes-duties-levies-royalties/payroll-tax/registration/register-for-payroll-tax",
+   "titolo": "Register for payroll tax",
+   "chi": "Revenue NSW",
+   "cerca": [
+    "register for payroll tax within 7 days after the month when your total Australian wages go above the monthly threshold"
+   ]
+  },
+  "nsw_grouping": {
+   "url": "https://www.revenue.nsw.gov.au/taxes-duties-levies-royalties/payroll-tax/grouping",
+   "titolo": "Payroll tax grouping",
+   "chi": "Revenue NSW",
+   "cerca": [
+    "group"
+   ]
+  },
+  "nsw_calc": {
+   "url": "https://apps09.revenue.nsw.gov.au/erevenue/calculators/payrolltax.php",
+   "titolo": "Payroll tax calculator",
+   "chi": "Revenue NSW",
+   "cerca": []
+  },
+  "vic_rates": {
+   "url": "https://www.sro.vic.gov.au/payroll-tax-current-rates",
+   "titolo": "Payroll tax (current rates)",
+   "chi": "State Revenue Office Victoria",
+   "cerca": [
+    "From 1 July 2025 onward $1,000,000 $83,333 4.85% 1.2125% for regional Victorian employers",
+    "From 1 July 2025 and each subsequent financial year it is 50%",
+    "Businesses with a national payroll above $10 million will pay a combined 1%",
+    "Businesses with a national payroll above $100 million will pay a combined 2%",
+    "Updated: 29 September 2026",
+    "between $3,000,000 and $5,000,000 are eligible for a reduced deduction"
+   ]
+  },
+  "vic_csv": {
+   "url": "https://www.sro.vic.gov.au/sites/default/files/2026-07/ptx-rates-from-1-July-2025.csv",
+   "tipo": "csv",
+   "titolo": "Payroll tax rates from 1 July 2025 (CSV)",
+   "chi": "State Revenue Office Victoria",
+   "cerca": [
+    "\"$1,000,000\",\"$83,333\",4.85% and 1.2125% for regional Victorian employers"
+   ]
+  },
+  "vic_phase": {
+   "url": "https://www.sro.vic.gov.au/businesses-and-organisations/payroll-tax/thresholds-and-grouping/threshold-and-phase-out-rate",
+   "titolo": "Threshold and phase-out rate",
+   "chi": "State Revenue Office Victoria",
+   "cerca": [
+    "50% from the 2025-26 financial year onwards",
+    "The employer is entitled to a payroll tax-free threshold of $360,000",
+    "The employer is entitled to a payroll tax-free threshold of $210,030",
+    "Step 2: Multiply $3 million by the percentage of Victorian wages"
+   ]
+  },
+  "vic_regional": {
+   "url": "https://www.sro.vic.gov.au/businesses-and-organisations/payroll-tax/industries-and-locations/regional-employers",
+   "titolo": "Regional employers",
+   "chi": "State Revenue Office Victoria",
+   "cerca": [
+    "the regional employer rate of payroll tax is 1.2125%",
+    "you must pay at least 85% of your Victorian taxable wages to regional employees"
+   ]
+  },
+  "vic_surcharges": {
+   "url": "https://www.sro.vic.gov.au/businesses-and-organisations/payroll-tax/thresholds-and-grouping/payroll-tax-surcharges",
+   "titolo": "Payroll tax surcharges",
+   "chi": "State Revenue Office Victoria",
+   "cerca": [
+    "Over $10 million 0.5% 0.5% 1%",
+    "Over $100 million Additional 0.5% Additional 0.5% 2%",
+    "$10,000,000 × 230 ÷ 365 = $6,301,370",
+    "= $5,333,333.33",
+    "The surcharges only apply to Victorian taxable wages above the relevant thresholds"
+   ]
+  },
+  "vic_hist": {
+   "url": "https://www.sro.vic.gov.au/about-us/rates-and-statistics/historical-rates/payroll-tax-historical-rates",
+   "titolo": "Payroll tax (historical rates)",
+   "chi": "State Revenue Office Victoria",
+   "cerca": [
+    "1 July 2024 to 30 June 2025 900,000 75,000 4.85 1.2125 (regional)",
+    "1 July 2021 to 30 June 2024 700,000 58,333 4.85 1.2125 (regional)"
+   ]
+  },
+  "vic_grouping": {
+   "url": "https://www.sro.vic.gov.au/businesses-and-organisations/payroll-tax/thresholds-and-grouping/grouping",
+   "titolo": "Grouping",
+   "chi": "State Revenue Office Victoria",
+   "cerca": [
+    "Businesses may be grouped for payroll tax if they share ownership, control or employees"
+   ]
+  },
+  "vic_monthly": {
+   "url": "https://www.sro.vic.gov.au/businesses-and-organisations/payroll-tax/managing-your-payroll-tax/lodge-your-monthly-return",
+   "titolo": "Lodge your monthly return",
+   "chi": "State Revenue Office Victoria",
+   "cerca": [
+    "you must pay by the 7th of the next month"
+   ]
+  },
+  "vic_annual": {
+   "url": "https://www.sro.vic.gov.au/businesses-and-organisations/payroll-tax/managing-your-payroll-tax/lodge-your-annual-reconciliation",
+   "titolo": "Lodge your annual reconciliation",
+   "chi": "State Revenue Office Victoria",
+   "cerca": [
+    "You must lodge and pay your annual return by 21 July"
+   ]
+  },
+  "vic_register": {
+   "url": "https://www.sro.vic.gov.au/businesses-and-organisations/payroll-tax/managing-your-payroll-tax/register-payroll-tax",
+   "titolo": "Register for payroll tax",
+   "chi": "State Revenue Office Victoria",
+   "cerca": [
+    "You must register for payroll tax if you pay wages in Victoria"
+   ]
+  },
+  "qld_rates": {
+   "url": "https://qro.qld.gov.au/payroll-tax/calculate/rates-thresholds/",
+   "titolo": "Payroll tax rates and thresholds",
+   "chi": "Queensland Revenue Office",
+   "cerca": [
+    "4.75% for employers or groups of employers who pay $6.5 million or less in Australian taxable wages",
+    "4.95% for employers or groups of employers who pay more than $6.5 million",
+    "The current threshold is $1.3 million",
+    "the $1.3 million threshold is calculated proportionately on the number of days"
+   ]
+  },
+  "qld_deductions": {
+   "url": "https://qro.qld.gov.au/payroll-tax/calculate/deductions/",
+   "titolo": "Payroll tax deductions",
+   "chi": "Queensland Revenue Office",
+   "cerca": [
+    "the deduction reduces by $1 for every $7 of taxable wages over this amount",
+    "The deduction reduces to zero when your Australian taxable wages reach $10.4 million",
+    "yearly taxable wages from $1,300,000 to $10,400,000",
+    "Queensland taxable wages $1,356,789 Australian taxable wages $1,789,776"
+   ]
+  },
+  "qld_deduction_example": {
+   "url": "https://qro.qld.gov.au/files/AD-July-2023.png",
+   "tipo": "img",
+   "titolo": "Worked example image: annual deduction (Q $1,356,789 of A $1,789,776 → $932,460)",
+   "chi": "Queensland Revenue Office",
+   "cerca": []
+  },
+  "qld_regional": {
+   "url": "https://qro.qld.gov.au/payroll-tax/calculate/regional-discount/",
+   "titolo": "Payroll tax discount for regional businesses",
+   "chi": "Queensland Revenue Office",
+   "cerca": [
+    "3.75% for employers or groups of employers who pay $6.5 million or less",
+    "The discount does not apply for employers who pay more than $350 million",
+    "These rates apply from 1 July 2019 to 30 June 2030",
+    "pay at least 85% of your Queensland taxable wages to regional employees"
+   ]
+  },
+  "qld_mhl": {
+   "url": "https://qro.qld.gov.au/payroll-tax/mental-health-levy/calculating/",
+   "titolo": "Calculating the mental health levy",
+   "chi": "Queensland Revenue Office",
+   "cerca": [
+    "$255,000 + $60,000 = $315,000",
+    "= $3,750 (annual mental health levy liability)",
+    "= $48,750 (annual mental health levy liability)",
+    "The levy is then applied proportionately to Queensland taxable wages that exceed the thresholds"
+   ]
+  },
+  "qld_calcs": {
+   "url": "https://qro.qld.gov.au/payroll-tax/calculate/calculators/",
+   "titolo": "Payroll tax calculators",
+   "chi": "Queensland Revenue Office",
+   "cerca": [
+    "(Total Queensland taxable wages – Deduction) × Payroll tax rate = Payroll tax liability"
+   ]
+  },
+  "qld_due": {
+   "url": "https://qro.qld.gov.au/payroll-tax/returns/due-dates/",
+   "titolo": "Payroll tax due dates",
+   "chi": "Queensland Revenue Office",
+   "cerca": [
+    "7 August 2026 July 2026 monthly periodic",
+    "14 January 2027 December 2026",
+    "21 July 2027 2026–27 annual return"
+   ]
+  },
+  "qld_register": {
+   "url": "https://qro.qld.gov.au/payroll-tax/register/",
+   "titolo": "Register for payroll tax",
+   "chi": "Queensland Revenue Office",
+   "cerca": [
+    "You must register within 7 days of the first month that your Australian wages (or your group’s Australian wages) exceed $25,000 a week"
+   ]
+  },
+  "qld_grouping": {
+   "url": "https://qro.qld.gov.au/payroll-tax/liability/grouping/",
+   "titolo": "Grouping",
+   "chi": "Queensland Revenue Office",
+   "cerca": [
+    "group"
+   ]
+  },
+  "qld_amnesty": {
+   "url": "https://qro.qld.gov.au/2026/11/payroll-tax-regional-discount-amnesty/",
+   "titolo": "Payroll tax amnesty for regional employers",
+   "chi": "Queensland Revenue Office",
+   "cerca": [
+    "The amnesty period will last up until 31 December 2026"
+   ]
+  },
+  "qld_act": {
+   "url": "https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-1971-037",
+   "titolo": "Payroll Tax Act 1971 (Qld)",
+   "chi": "Queensland Legislation",
+   "cerca": [
+    "K means 1,300,000",
+    "(a) for an annual return period—$6,500,000",
+    "(a) for an annual return period—$350,000,000"
+   ]
+  },
+  "qld_act_formula": {
+   "url": "https://www.legislation.qld.gov.au/image/_1b934ee2-07b2-4998-ac61-dbd46abb5ebe.gif",
+   "tipo": "img",
+   "titolo": "Payroll Tax Act 1971 (Qld), s 29: annual deduction formula (image)",
+   "chi": "Queensland Legislation",
+   "cerca": []
+  },
+  "wa_calc": {
+   "url": "https://www.wa.gov.au/government/multi-step-guides/payroll-tax-employer-guide/calculation-payroll-tax-employer-guide",
+   "titolo": "Calculation: Payroll Tax Employer Guide",
+   "chi": "Department of Treasury and Finance (WA)",
+   "cerca": [
+    "The payroll tax rate is 5.5% on the taxable wages paid by employers or groups of employers",
+    "This can be simplified to 2/13",
+    "$1,000,000 - [($1,200,000 - $1,000,000) X (2/13)] = $969,231",
+    "Payroll tax of $6,600 will apply during this period",
+    "Last updated: 2 June 2026",
+    "upper threshold of $7,500,000"
+   ]
+  },
+  "wa_interstate": {
+   "url": "https://www.wa.gov.au/government/multi-step-guides/payroll-tax-employer-guide/calculation-payroll-tax-employer-guide/interstate-non-group-employer-payroll-tax",
+   "titolo": "Interstate non-group employer: Payroll tax",
+   "chi": "Department of Treasury and Finance (WA)",
+   "cerca": [
+    "$538,462 x 0.25 = $134,616",
+    "$865,384 x 5.5% = $47,596.12"
+   ]
+  },
+  "wa_local": {
+   "url": "https://www.wa.gov.au/government/multi-step-guides/payroll-tax-employer-guide/calculation-payroll-tax-employer-guide/local-non-group-employer-payroll-tax",
+   "titolo": "Local non-group employer: Payroll tax",
+   "chi": "Department of Treasury and Finance (WA)",
+   "cerca": [
+    "$230,769 x 5.5% = $12,692.30"
+   ]
+  },
+  "wa_returns": {
+   "url": "https://www.wa.gov.au/government/multi-step-guides/payroll-tax-employer-guide/returns-payroll-tax-employer-guide",
+   "titolo": "Returns: Payroll Tax Employer Guide",
+   "chi": "Department of Treasury and Finance (WA)",
+   "cerca": [
+    "the monthly return for April must be lodged by 7 May",
+    "Annual reconciliation returns, together with the June return, are due on or before 21 July"
+   ]
+  },
+  "wa_register": {
+   "url": "https://www.wa.gov.au/government/multi-step-guides/payroll-tax-employer-guide/registration-payroll-tax-employer-guide",
+   "titolo": "Registration: Payroll Tax Employer Guide",
+   "chi": "Department of Treasury and Finance (WA)",
+   "cerca": [
+    "Register within seven days after the end of the month in which"
+   ]
+  },
+  "wa_grouping": {
+   "url": "https://www.wa.gov.au/government/multi-step-guides/payroll-tax-employer-guide/grouping-payroll-tax-employer-guide",
+   "titolo": "Grouping: Payroll Tax Employer Guide",
+   "chi": "Department of Treasury and Finance (WA)",
+   "cerca": [
+    "group"
+   ]
+  },
+  "wa_act": {
+   "url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_42096.pdf",
+   "tipo": "pdf",
+   "titolo": "Pay-roll Tax Assessment Act 2002 (WA), ss 8, 10, 13",
+   "chi": "WA Legislation",
+   "cerca": [
+    "The annual threshold amount for a financial year beginning on or after 1 July 2020 is $1 000 000",
+    "The upper threshold amount for a financial year beginning on or after 1 July 2020 is $7 500 000",
+    "AAT is the apportioned annual threshold amount for the part-year"
+   ]
+  },
+  "wa_calculator": {
+   "url": "https://apps.osr.wa.gov.au/portal/0/calculators/payrolltax",
+   "titolo": "Payroll tax calculator",
+   "chi": "RevenueWA",
+   "cerca": []
+  },
+  "sa_rates": {
+   "url": "https://www.revenuesa.sa.gov.au/payrolltax/rates-and-thresholds",
+   "titolo": "Rates and thresholds",
+   "chi": "RevenueSA",
+   "cerca": [
+    "from 1 January 2019 nil variable from 0% to 4.95% 4.95%",
+    "from 1 January 2019 $1,500,000 per annum (equivalent to $28,846 per week or $125,000 per month)",
+    "from 1 July 2009 $600,000 $50,000"
+   ]
+  },
+  "sa_how": {
+   "url": "https://www.revenuesa.sa.gov.au/payrolltax/how-is-payroll-tax-calculated",
+   "titolo": "How is payroll tax calculated?",
+   "chi": "RevenueSA",
+   "cerca": [
+    "X 365 = Annualised wages of $1,729,857",
+    "the employer would be eligible to claim an annual deduction entitlement of $200,000 in South Australia"
+   ]
+  },
+  "sa_table": {
+   "url": "https://www.revenuesa.sa.gov.au/__data/assets/pdf_file/0007/205459/PRT-Rate-Table.pdf",
+   "tipo": "pdf",
+   "titolo": "Payroll Tax Rate Table from 1 January 2019 (indicative)",
+   "chi": "RevenueSA",
+   "cerca": [
+    "Payroll Tax Rate Table - from 1 January 2019",
+    "Rates provided in this table are an indication only"
+   ]
+  },
+  "sa_act": {
+   "url": "https://www.legislation.sa.gov.au/_legislation-documents/lz/c/a/payroll-tax-act-2009/current/2009.22.auth.pdf",
+   "tipo": "pdf",
+   "titolo": "Payroll Tax Act 2009 (SA), Schedule 1",
+   "chi": "South Australian Legislation",
+   "cerca": [
+    "EA is $600 000",
+    "TA or threshold amount is $1 500 000",
+    "R is 4.95%",
+    "more than $1 700 000, R is 4.95%"
+   ]
+  },
+  "sa_returns": {
+   "url": "https://www.revenuesa.sa.gov.au/payrolltax/returns-and-annual-reconciliation",
+   "titolo": "Returns and annual reconciliation",
+   "chi": "RevenueSA",
+   "cerca": [
+    "The due date for completion and lodgement of the annual reconciliation return is 28 July",
+    "Annual Reconciliation 2026-27 Wednesday 28 July 2027"
+   ]
+  },
+  "sa_register": {
+   "url": "https://www.revenuesa.sa.gov.au/payrolltax/register-for-payroll-tax",
+   "titolo": "Register for payroll tax",
+   "chi": "RevenueSA",
+   "cerca": [
+    "the weekly payroll tax threshold is $28,846"
+   ]
+  },
+  "sa_grouping": {
+   "url": "https://www.revenuesa.sa.gov.au/payrolltax/grouping-of-employers",
+   "titolo": "Grouping of employers",
+   "chi": "RevenueSA",
+   "cerca": [
+    "group"
+   ]
+  },
+  "sa_nexus": {
+   "url": "https://www.revenuesa.sa.gov.au/payrolltax/nexus-provisions",
+   "titolo": "Nexus provisions",
+   "chi": "RevenueSA",
+   "cerca": [
+    "nexus"
+   ]
+  },
+  "sa_calculator": {
+   "url": "https://www.revenuesaonline.sa.gov.au/external/prt/calculator.xhtml",
+   "titolo": "Payroll tax calculator",
+   "chi": "RevenueSA Online",
+   "cerca": []
+  },
+  "tas_rates": {
+   "url": "https://www.sro.tas.gov.au/payroll-tax/rates-thresholds",
+   "titolo": "Rates and thresholds",
+   "chi": "State Revenue Office of Tasmania",
+   "cerca": [
+    "0 to 1 250 000 0 1 250 001 to 2 000 000 4 2 000 001 and above 6.1",
+    "2026-27 financial year"
+   ]
+  },
+  "tas_guide": {
+   "url": "https://www.sro.tas.gov.au/Documents/Annual-Adjustment-Return-Guideline.pdf",
+   "tipo": "pdf",
+   "titolo": "Annual Adjustment Return Guideline (worked examples)",
+   "chi": "State Revenue Office of Tasmania",
+   "cerca": [
+    "$54 400",
+    "$77 589",
+    "$72 800",
+    "$112 523",
+    "$44 741",
+    "$76 466",
+    "$116 153"
+   ]
+  },
+  "tas_act": {
+   "url": "https://www.legislation.tas.gov.au/view/whole/html/inforce/current/act-2008-016",
+   "titolo": "Payroll Tax Act 2008 (Tas), Schedule 1",
+   "chi": "Tasmanian Legislation",
+   "cerca": [
+    "R 1 is 4%",
+    "R 2 is 6.1%",
+    "TA or threshold amount is $1 250 000",
+    "TTB or top tax bracket threshold is $2 000 000"
+   ]
+  },
+  "tas_act_formula": {
+   "url": "https://www.legislation.tas.gov.au/image/taxma184s5.gif",
+   "tipo": "img",
+   "titolo": "Payroll Tax Act 2008 (Tas), sch 1 cl 4(5): formula above the subsequent threshold (image)",
+   "chi": "Tasmanian Legislation",
+   "cerca": []
+  },
+  "tas_lodge": {
+   "url": "https://www.sro.tas.gov.au/payroll-tax/lodge-your-return",
+   "titolo": "Lodge your return",
+   "chi": "State Revenue Office of Tasmania",
+   "cerca": [
+    "Returns must be lodged by the 7th of the month following",
+    "The AAR must be lodged by 21 July each year"
+   ]
+  },
+  "tas_register": {
+   "url": "https://www.sro.tas.gov.au/payroll-tax/Registration",
+   "titolo": "Registration",
+   "chi": "State Revenue Office of Tasmania",
+   "cerca": [
+    "$24 038.00 per week during a month"
+   ]
+  },
+  "tas_grouping": {
+   "url": "https://www.sro.tas.gov.au/payroll-tax/grouping-de-grouping",
+   "titolo": "Grouping and de-grouping",
+   "chi": "State Revenue Office of Tasmania",
+   "cerca": [
+    "group"
+   ]
+  },
+  "tas_calculator": {
+   "url": "https://www.tro.tas.gov.au/Home/CalculatorPayrollTax",
+   "titolo": "Payroll tax thresholds calculator",
+   "chi": "Tasmanian Revenue Online",
+   "cerca": []
+  },
+  "act_det2026": {
+   "url": "https://www.legislation.act.gov.au/DownloadFile/di/2026-151/current/PDF/2026-151.PDF",
+   "tipo": "pdf",
+   "titolo": "Taxation Administration (Amounts and Rates—Payroll Tax) Determination 2026 (DI2026-151)",
+   "chi": "ACT Legislation Register",
+   "cerca": [
+    "The annual threshold amount for the purposes of schedule 1 of the Act is $1 750 000",
+    "The monthly threshold amount for the purposes of section 86 of the Act is $145 833.33",
+    "more than $1.75 million but not more than $20 million 6.75 per cent",
+    "more than $20 million but not more than $50 million 6.85 per cent",
+    "more than $50 million but not more than $100 million 7.35 per cent",
+    "more than $100 million but not more than $150 million 7.85 per cent",
+    "more than $150 million 8.75 per cent",
+    "capped at 6.85 per cent"
+   ]
+  },
+  "act_es2026": {
+   "url": "https://www.legislation.act.gov.au/DownloadFile/es/db_74770/current/PDF/db_74770.PDF",
+   "tipo": "pdf",
+   "titolo": "Explanatory statement to the Payroll Tax Determination 2026",
+   "chi": "ACT Legislation Register",
+   "cerca": [
+    "Payroll tax is collected monthly, but it is an annual tax based on Australia-wide wages",
+    "From 1 July 2026 the payroll tax surcharge, that applied for larger employers, has been incorporated into the general rate"
+   ]
+  },
+  "act_act": {
+   "url": "https://www.legislation.act.gov.au/DownloadFile/a/2011-18/current/PDF/2011-18.PDF",
+   "tipo": "pdf",
+   "titolo": "Payroll Tax Act 2011 (ACT), Schedule 1 and s 9",
+   "chi": "ACT Legislation Register",
+   "cerca": [
+    "TA (or threshold amount) means the amount determined under the Taxation Administration Act 1999, section 139 for this schedule",
+    "within 28 days after the end of June"
+   ]
+  },
+  "act_det2025": {
+   "url": "https://www.legislation.act.gov.au/DownloadFile/di/2025-161/20250701-87703/PDF/2025-161.PDF",
+   "tipo": "pdf",
+   "titolo": "Payroll Tax Determination 2025 (DI2025-161), now revoked",
+   "chi": "ACT Legislation Register",
+   "cerca": [
+    "The annual threshold amount for the purposes of schedule 1 of the Act is $2 000 000",
+    "more than $100 million 6.85 per cent 1.00 per cent"
+   ]
+  },
+  "act_det2024": {
+   "url": "https://www.legislation.act.gov.au/DownloadFile/di/2024-173/20240701-84146/PDF/2024-173.PDF",
+   "tipo": "pdf",
+   "titolo": "Payroll Tax Determination 2024 (DI2024-173), now revoked",
+   "chi": "ACT Legislation Register",
+   "cerca": [
+    "more than $100 million 6.85 per cent 0.50 per cent"
+   ]
+  },
+  "act_det2016": {
+   "url": "https://www.legislation.act.gov.au/DownloadFile/di/2016-145/20160701-63940/PDF/2016-145.PDF",
+   "tipo": "pdf",
+   "titolo": "Payroll Tax Determination 2016 (No 1) (DI2016-145), now revoked",
+   "chi": "ACT Legislation Register",
+   "cerca": [
+    "is $2 000 000",
+    "6.85%"
+   ]
+  },
+  "act_revenue": {
+   "url": "https://www.revenue.act.gov.au/payroll-tax",
+   "titolo": "Payroll tax",
+   "chi": "ACT Revenue Office",
+   "cerca": [],
+   "non_letta": true,
+   "motivo": "answers 403 (Cloudflare check) to our server; figures taken from the joint portal and the ACT legislation register"
+  },
+  "nt_act": {
+   "url": "https://legislation.nt.gov.au/api/sitecore/Act/PDF?id=12078",
+   "tipo": "pdf",
+   "titolo": "Payroll Tax Act 2009 (NT), as in force at 1 July 2026",
+   "chi": "Northern Territory Legislation",
+   "cerca": [
+    "As in force at 1 July 2026",
+    "the rate of payroll tax is 5.5%",
+    "is 6.5% if either",
+    "the threshold amount is $100 000 000",
+    "TA or threshold amount means $2 500 000",
+    "AD or annual deduction means",
+    "within 21 days after the end of the month",
+    "within 21 days after the end of each month (except June)"
+   ]
+  },
+  "nt_treasury": {
+   "url": "https://treasury.nt.gov.au/dtf/territory-revenue-office/payroll-tax",
+   "titolo": "Payroll tax",
+   "chi": "Territory Revenue Office (NT)",
+   "cerca": [],
+   "non_letta": true,
+   "motivo": "answers 403 (Cloudflare check) to our server; figures taken from the joint portal and the Payroll Tax Act 2009"
+  },
+  "payday_act": {
+   "url": "https://www.legislation.gov.au/C2025A00057/asmade/2025-11-06/text/1/epub/OEBPS/document_1/document_1.html",
+   "titolo": "Treasury Laws Amendment (Payday Superannuation) Act 2025 (No. 57, 2025)",
+   "chi": "Federal Register of Legislation",
+   "cerca": [
+    "[ Assented to 6 November 2025 ]",
+    "1 July 2026",
+    "ending on the seventh business day after the QE day",
+    "ending on the 20th business day after the QE day",
+    "charge percentage means 12",
+    "The employer’s administrative uplift amount for the QE day is equal to 60%",
+    "definition of approved clearing house"
+   ]
+  },
+  "ato_payday": {
+   "url": "https://www.ato.gov.au/businesses-and-organisations/super-for-employers/payday-super",
+   "titolo": "Payday Super",
+   "chi": "Australian Taxation Office",
+   "cerca": [],
+   "non_letta": true,
+   "motivo": "answers 403 to our server; what we write comes from the Act itself"
+  }
+ },
+ "fonti": {
+  "portal_rates": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "fa9e3ac09111747e55250c7e0388fa87febba198638cedccc9f28291d448c4b5",
+   "byte": 33629,
+   "aggiornata": "Last updated on: 28/10/2026",
+   "trovate": {
+    "Last updated on: 28/10/2026": true,
+    "6.75% more than $1.75 million but not more than $20 million": true,
+    "8.75% more than $150 million": true,
+    "Annual $1 750 000": true,
+    "Monthly $145 833.33": true,
+    "New South Wales 5.45% Annual $1 200 000": true,
+    "higher payroll tax rate of 6.5% for employers": true,
+    "Annual $2 500 000 Monthly $208 333": true,
+    "4.75% $6 500 000 or less 4.95% more than $6 500 000": true,
+    "1% discount on the rate until 30 June 2030": true,
+    "Annual $1 300 000 Monthly $108 333": true,
+    "0% to 4.95% Exceeds $1 500 000 but not $1 700 000": true,
+    "$600 000": true,
+    "4% $1 250 001 - $2 000 000 6.1% $2 000 001 or more": true,
+    "4.85% 1.2125% for regional employers": true,
+    "Annual $1 000 000 Monthly $83 333": true,
+    "Additional 0.25% (primary rate) more than $10 million (primary threshold)": true,
+    "+ 0.5% (additional rate) more than $100 million": true,
+    "must be lodged by the 21st July each year, except in the ACT, New South Wales and South Australia, where it must be lodged by 28th July": true
+   }
+  },
+  "portal_lodging": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "9e49e8f968ae40e3d02e2cce5c7236665c3d96a33443f46cf221cdc5522cb5ce",
+   "byte": 47418,
+   "aggiornata": "Last updated on: 09/06/2026",
+   "trovate": {
+    "Monthly returns are due on the 7th of the following month": true,
+    "only the DGE is entitled to the threshold/deduction": true
+   }
+  },
+  "portal_registration": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "cad7ddf41e084f462b0b270cdd2916c44fa9a7c02f0d33b6967dc8a3468e3fe2",
+   "byte": 47849,
+   "aggiornata": "Last updated on: 10/07/2024",
+   "trovate": {
+    "you must register with each state and territory where you pay taxable wages": true,
+    "Employers who voluntarily declare their liabilities may receive significantly lower penalties than those who do not": true
+   }
+  },
+  "nsw_rates": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "0ff5361d3cd245516f6407912dd975e9412e6c19204a9af5d06ff367f7fca12d",
+   "byte": 102684,
+   "aggiornata": "Last updated: 01 July 2026",
+   "trovate": {
+    "Last updated: 01 July 2026": true,
+    "1 July 2026 – 30 June 2027 $1,200,000 5.45%": true,
+    "28 $92,055 30 $98,630 31 $101,918": true,
+    "$1,200,000 x (184 ÷ 365) = $604,931.51": true,
+    "2025-26 threshold $360,000": true,
+    "$400,000 x (184 ÷ 365) = $201,643.84": true,
+    "1 July 2022 – 30 June 2023 $1,200,000 5.45%": true
+   }
+  },
+  "nsw_interstate": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "6ec881a2d00b41f63aef62c51b8220138cc9d8f44be58a9b276d6892b14c7858",
+   "byte": 115432,
+   "trovate": {
+    "$400,000 = ($1,000,000 ÷ $3,000,000) x $1,200,000": true,
+    "Your annual tax-free threshold would currently be $960,000": true
+   }
+  },
+  "nsw_keydates": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "5b011684a98febfcabf50a1557abe004b6be58c13b03d1e49d246661cdb299e9",
+   "byte": 102596,
+   "aggiornata": "Last updated: 26 October 2026",
+   "trovate": {
+    "July monthly return 7 August 2026": true,
+    "December monthly return 14 January 2027": true,
+    "2027 Annual return 28 July 2027": true
+   }
+  },
+  "nsw_register": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "8055bdb47be7284ff0bbfaa831b455819fda1ad2d064472e368b61858ad2e1ea",
+   "byte": 98612,
+   "aggiornata": "Last updated: 01 June 2026",
+   "trovate": {
+    "register for payroll tax within 7 days after the month when your total Australian wages go above the monthly threshold": true
+   }
+  },
+  "nsw_grouping": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "5c3f9ed84e6612a9c76807011817b7a75802dae29207d86f5b74685e89fdf729",
+   "byte": 66771,
+   "trovate": {
+    "group": true
+   }
+  },
+  "nsw_calc": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "9f6af70db584d2fce1a73cebecc178177b193d71e421b2fc833ce509ec88c65b",
+   "byte": 9616,
+   "trovate": {}
+  },
+  "vic_rates": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "cb398ec378d205e3a293fc5732ab7b30a114592f2522667379fe0060a8ffedb2",
+   "byte": 435955,
+   "aggiornata": "Updated: 29 September 2026",
+   "trovate": {
+    "From 1 July 2025 onward $1,000,000 $83,333 4.85% 1.2125% for regional Victorian employers": true,
+    "From 1 July 2025 and each subsequent financial year it is 50%": true,
+    "Businesses with a national payroll above $10 million will pay a combined 1%": true,
+    "Businesses with a national payroll above $100 million will pay a combined 2%": true,
+    "Updated: 29 September 2026": true,
+    "between $3,000,000 and $5,000,000 are eligible for a reduced deduction": true
+   }
+  },
+  "vic_csv": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "95ac35e76868c455cd395da6debbce24a12d51a495993c158427414687bd827e",
+   "byte": 183,
+   "trovate": {
+    "\"$1,000,000\",\"$83,333\",4.85% and 1.2125% for regional Victorian employers": true
+   }
+  },
+  "vic_phase": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "e2349b3e77386d5b09e76147bdcae6bfd973707ac669024a7752fa55a51c5940",
+   "byte": 435886,
+   "aggiornata": "Updated: 22 October 2026",
+   "trovate": {
+    "50% from the 2025-26 financial year onwards": true,
+    "The employer is entitled to a payroll tax-free threshold of $360,000": true,
+    "The employer is entitled to a payroll tax-free threshold of $210,030": true,
+    "Step 2: Multiply $3 million by the percentage of Victorian wages": true
+   }
+  },
+  "vic_regional": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "1c10eaae963fc1d69b6a78b53c59b35c84e06ae6c26f4f8d10ecfeca62247b18",
+   "byte": 437249,
+   "aggiornata": "Updated: 22 October 2026",
+   "trovate": {
+    "the regional employer rate of payroll tax is 1.2125%": true,
+    "you must pay at least 85% of your Victorian taxable wages to regional employees": true
+   }
+  },
+  "vic_surcharges": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "a15745e69f4833bf751d98bdef49a38b87f469188dcdbf742fdeefe36c67ec09",
+   "byte": 438856,
+   "aggiornata": "Updated: 22 October 2026",
+   "trovate": {
+    "Over $10 million 0.5% 0.5% 1%": true,
+    "Over $100 million Additional 0.5% Additional 0.5% 2%": true,
+    "$10,000,000 × 230 ÷ 365 = $6,301,370": true,
+    "= $5,333,333.33": true,
+    "The surcharges only apply to Victorian taxable wages above the relevant thresholds": true
+   }
+  },
+  "vic_hist": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "22f22bf57b3a1c0dd8685492942492da91e65f3ceb1920973a8368d0be2b08e2",
+   "byte": 434689,
+   "aggiornata": "Updated: 29 September 2026",
+   "trovate": {
+    "1 July 2024 to 30 June 2025 900,000 75,000 4.85 1.2125 (regional)": true,
+    "1 July 2021 to 30 June 2024 700,000 58,333 4.85 1.2125 (regional)": true
+   }
+  },
+  "vic_grouping": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "adf9a507666b5d8b81b47e3193a460d3c46849c6d15ae0003bff6e496b862404",
+   "byte": 450986,
+   "aggiornata": "Updated: 22 October 2026",
+   "trovate": {
+    "Businesses may be grouped for payroll tax if they share ownership, control or employees": true
+   }
+  },
+  "vic_monthly": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "8a835aa2bcfc21ca81755a3fb899e8cad8f111448cdb34516552749262fac46a",
+   "byte": 433178,
+   "aggiornata": "Updated: 22 October 2026",
+   "trovate": {
+    "you must pay by the 7th of the next month": true
+   }
+  },
+  "vic_annual": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "1b14a5f7b4b3666c2dc3b42a5b7bea365d4fe071def666ce0e5843fd32383f2f",
+   "byte": 440057,
+   "aggiornata": "Updated: 22 October 2026",
+   "trovate": {
+    "You must lodge and pay your annual return by 21 July": true
+   }
+  },
+  "vic_register": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "369b555d8c9ca94bd93302c95f6ad275ce79ac892f67acfd5e4f2e290b6ceb49",
+   "byte": 434232,
+   "aggiornata": "Updated: 4 November 2026",
+   "trovate": {
+    "You must register for payroll tax if you pay wages in Victoria": true
+   }
+  },
+  "qld_rates": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "3a272246fab3d17061f7ba839dbf296ae1e1a340463256b0a716429af069b242",
+   "byte": 98090,
+   "aggiornata": "Last updated: 17 July 2024",
+   "trovate": {
+    "4.75% for employers or groups of employers who pay $6.5 million or less in Australian taxable wages": true,
+    "4.95% for employers or groups of employers who pay more than $6.5 million": true,
+    "The current threshold is $1.3 million": true,
+    "the $1.3 million threshold is calculated proportionately on the number of days": true
+   }
+  },
+  "qld_deductions": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "34809b7ce8bc598b979375a7de628b2cf7444b59c47a3454e9add11f82fb3cca",
+   "byte": 113805,
+   "aggiornata": "Last updated: 17 September 2025",
+   "trovate": {
+    "the deduction reduces by $1 for every $7 of taxable wages over this amount": true,
+    "The deduction reduces to zero when your Australian taxable wages reach $10.4 million": true,
+    "yearly taxable wages from $1,300,000 to $10,400,000": true,
+    "Queensland taxable wages $1,356,789 Australian taxable wages $1,789,776": true
+   }
+  },
+  "qld_deduction_example": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "a8670b7f20947583736a6a87d77c8ae6d553ad1813a97e2560472ab8daa6186c",
+   "byte": 21694,
+   "trovate": {}
+  },
+  "qld_regional": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "8397a846c0f712fe5dc05490b84d145b58d22c1a37a19edd2c8a409aa8b7c69a",
+   "byte": 104614,
+   "aggiornata": "Last updated: 11 November 2026",
+   "trovate": {
+    "3.75% for employers or groups of employers who pay $6.5 million or less": true,
+    "The discount does not apply for employers who pay more than $350 million": true,
+    "These rates apply from 1 July 2019 to 30 June 2030": true,
+    "pay at least 85% of your Queensland taxable wages to regional employees": true
+   }
+  },
+  "qld_mhl": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "694b4be796d3d8423ce291e636d62a8aeeb3ec7a93a6f1c9f54af1fd9679a58b",
+   "byte": 133063,
+   "aggiornata": "Last updated: 11 August 2026",
+   "trovate": {
+    "$255,000 + $60,000 = $315,000": true,
+    "= $3,750 (annual mental health levy liability)": true,
+    "= $48,750 (annual mental health levy liability)": true,
+    "The levy is then applied proportionately to Queensland taxable wages that exceed the thresholds": true
+   }
+  },
+  "qld_calcs": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "689cb491858ca503e4a7d1a86b43ae7818e2d3879bb5521287baf52111518c35",
+   "byte": 99036,
+   "aggiornata": "Last updated: 3 July 2026",
+   "trovate": {
+    "(Total Queensland taxable wages – Deduction) × Payroll tax rate = Payroll tax liability": true
+   }
+  },
+  "qld_due": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "95cd763d7d08a8c6ba9583d5fcd1172bb09ef87f5f2b599162da276e918a4d73",
+   "byte": 100954,
+   "aggiornata": "Last updated: 5 August 2026",
+   "trovate": {
+    "7 August 2026 July 2026 monthly periodic": true,
+    "14 January 2027 December 2026": true,
+    "21 July 2027 2026–27 annual return": true
+   }
+  },
+  "qld_register": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "c3948e85877ae49ac1573c9b5d36e52cddc4b94f3a5f4d01951753f980164663",
+   "byte": 115167,
+   "aggiornata": "Last updated: 15 April 2026",
+   "trovate": {
+    "You must register within 7 days of the first month that your Australian wages (or your group’s Australian wages) exceed $25,000 a week": true
+   }
+  },
+  "qld_grouping": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "049811a8ef2ee3a8f9b40b71b3db52984f954d847b2145a7e5aef4c30e533efe",
+   "byte": 104540,
+   "trovate": {
+    "group": true
+   }
+  },
+  "qld_amnesty": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "902a1149a0463aebe1bba96af155b0e7766580cecab62e801c63cf2630d37905",
+   "byte": 93845,
+   "trovate": {
+    "The amnesty period will last up until 31 December 2026": true
+   }
+  },
+  "qld_act": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "59ca016603ec7122d14c8ba7b9a45886c85d141b06350ba25376fa85e7c81fca",
+   "byte": 1053459,
+   "trovate": {
+    "K means 1,300,000": true,
+    "(a) for an annual return period—$6,500,000": true,
+    "(a) for an annual return period—$350,000,000": true
+   }
+  },
+  "qld_act_formula": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "86d3cd14a84b82a4fe271bcda92ca097a1c3209e0eb8abafa1d6d85600f117e5",
+   "byte": 4589,
+   "trovate": {}
+  },
+  "wa_calc": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "f030d30d4e1ef6fd81f93a6e234ae16b1f7c06a5692690d86e306168c209e77b",
+   "byte": 95736,
+   "aggiornata": "Last updated: 2 June 2026",
+   "trovate": {
+    "The payroll tax rate is 5.5% on the taxable wages paid by employers or groups of employers": true,
+    "This can be simplified to 2/13": true,
+    "$1,000,000 - [($1,200,000 - $1,000,000) X (2/13)] = $969,231": true,
+    "Payroll tax of $6,600 will apply during this period": true,
+    "Last updated: 2 June 2026": true,
+    "upper threshold of $7,500,000": true
+   }
+  },
+  "wa_interstate": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "3042a2e123bfcd5dd6275db224adf677dbf69b236e891f0b4fbfdd1d15087446",
+   "byte": 83843,
+   "aggiornata": "Last updated: 2 June 2026",
+   "trovate": {
+    "$538,462 x 0.25 = $134,616": true,
+    "$865,384 x 5.5% = $47,596.12": true
+   }
+  },
+  "wa_local": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "356704e89e255eda301449cf29bd722a5c33e0b9bd801536dab274cb0d983354",
+   "byte": 84304,
+   "aggiornata": "Last updated: 2 June 2026",
+   "trovate": {
+    "$230,769 x 5.5% = $12,692.30": true
+   }
+  },
+  "wa_returns": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "b8093dafec454887dfd4e606b53c0c1d6f701758ae04ea53eb55e06d2728faa6",
+   "byte": 86284,
+   "aggiornata": "Last updated: 14 March 2026",
+   "trovate": {
+    "the monthly return for April must be lodged by 7 May": true,
+    "Annual reconciliation returns, together with the June return, are due on or before 21 July": true
+   }
+  },
+  "wa_register": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "287957f26dca0852a79eb101110eaeb9938402481c6039884508bd0bf05062ed",
+   "byte": 87236,
+   "aggiornata": "Last updated: 14 March 2026",
+   "trovate": {
+    "Register within seven days after the end of the month in which": true
+   }
+  },
+  "wa_grouping": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "441a917cd4476818bbca03b0f8954e74172a5b261bb8c0d96e94164a47fdf119",
+   "byte": 95330,
+   "aggiornata": "Last updated: 14 March 2026",
+   "trovate": {
+    "group": true
+   }
+  },
+  "wa_act": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "9af5f84075c05ff9e40ab6392fb284b348f24cbb3441acde5e4fb9bfdd4f8e6a",
+   "byte": 816112,
+   "trovate": {
+    "The annual threshold amount for a financial year beginning on or after 1 July 2020 is $1 000 000": true,
+    "The upper threshold amount for a financial year beginning on or after 1 July 2020 is $7 500 000": true,
+    "AAT is the apportioned annual threshold amount for the part-year": true
+   }
+  },
+  "wa_calculator": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "92ecab05e670486798f04030ea57d5189e0d806dbc9a6d0ed049a0e66e12d92f",
+   "byte": 6920,
+   "trovate": {}
+  },
+  "sa_rates": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "ad71f144db5875c229c8b9ea3420b24233c152b343e9b1b62af0e2791f2d1542",
+   "byte": 147349,
+   "trovate": {
+    "from 1 January 2019 nil variable from 0% to 4.95% 4.95%": true,
+    "from 1 January 2019 $1,500,000 per annum (equivalent to $28,846 per week or $125,000 per month)": true,
+    "from 1 July 2009 $600,000 $50,000": true
+   }
+  },
+  "sa_how": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "3f323f5b13bd247ab0db4d570f68b38be161b678bbf639bdcac94b44251f78fc",
+   "byte": 164472,
+   "trovate": {
+    "X 365 = Annualised wages of $1,729,857": true,
+    "the employer would be eligible to claim an annual deduction entitlement of $200,000 in South Australia": true
+   }
+  },
+  "sa_table": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "7a3400c81c81548491f41b542e0ed3d62b987b64e4deaade375897e9aa7fe7db",
+   "byte": 159127,
+   "trovate": {
+    "Payroll Tax Rate Table - from 1 January 2019": true,
+    "Rates provided in this table are an indication only": true
+   }
+  },
+  "sa_act": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "6f6bc227eb0170325026bcbaef32f1a33e43dfb447aff9335d7a366e908e0fc7",
+   "byte": 657854,
+   "trovate": {
+    "EA is $600 000": true,
+    "TA or threshold amount is $1 500 000": true,
+    "R is 4.95%": true,
+    "more than $1 700 000, R is 4.95%": true
+   }
+  },
+  "sa_returns": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "e4461aaad08d0437cbedd70d0f450cc6fabc3c99c87ebf4e848ef0ba589f59b6",
+   "byte": 155080,
+   "trovate": {
+    "The due date for completion and lodgement of the annual reconciliation return is 28 July": true,
+    "Annual Reconciliation 2026-27 Wednesday 28 July 2027": true
+   }
+  },
+  "sa_register": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "cd80b5bfbdb7bcc95e5d6ac7930ff1c6c92dc4a0911d0262b54a0d8eaf7766de",
+   "byte": 154993,
+   "trovate": {
+    "the weekly payroll tax threshold is $28,846": true
+   }
+  },
+  "sa_grouping": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "7a3afb9b436e04ac3b35d55cde84a52b9b8800d818b275f6b6a1971eab0818c0",
+   "byte": 150342,
+   "trovate": {
+    "group": true
+   }
+  },
+  "sa_nexus": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "c2060f890cc794df774839dad2b1bccde7ef798058b68024b353dd510e2b65f6",
+   "byte": 145544,
+   "trovate": {
+    "nexus": true
+   }
+  },
+  "sa_calculator": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "41f3ae9eb3738b309c186f3c88f75d16fc44989c38c22a7e919e3ba7cb1fd9e8",
+   "byte": 17552,
+   "trovate": {}
+  },
+  "tas_rates": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "b31caee8250bfdd5c93c58fa6d865a6730b56c2d30fa01067903838e9b015a54",
+   "byte": 108078,
+   "aggiornata": "Last published on: 29/06/2026",
+   "trovate": {
+    "0 to 1 250 000 0 1 250 001 to 2 000 000 4 2 000 001 and above 6.1": true,
+    "2026-27 financial year": true
+   }
+  },
+  "tas_guide": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "55dc4df0585117a8cf85599d0a6c5553ea4396d468cb434a44f6f965747babb8",
+   "byte": 340439,
+   "trovate": {
+    "$54 400": true,
+    "$77 589": true,
+    "$72 800": true,
+    "$112 523": true,
+    "$44 741": true,
+    "$76 466": true,
+    "$116 153": true
+   }
+  },
+  "tas_act": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "822c85b34fbc5209a627ad8f1871bec37692ebb98e647feec68e97d2cf3c40ed",
+   "byte": 327848,
+   "trovate": {
+    "R 1 is 4%": true,
+    "R 2 is 6.1%": true,
+    "TA or threshold amount is $1 250 000": true,
+    "TTB or top tax bracket threshold is $2 000 000": true
+   }
+  },
+  "tas_act_formula": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "7f7108c579b0dcd2986916512b1e0947ff4e1eda72a73849a815ff610fdcbb7a",
+   "byte": 5241,
+   "trovate": {}
+  },
+  "tas_lodge": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "fdb9e760d2966b781ec2f0ba0569bfa7d560662110955d2ed6359b8c9d40630e",
+   "byte": 69840,
+   "aggiornata": "Last published on: 18/07/2023",
+   "trovate": {
+    "Returns must be lodged by the 7th of the month following": true,
+    "The AAR must be lodged by 21 July each year": true
+   }
+  },
+  "tas_register": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "3b9c5cb2765d582b0b07c128da2f5f433740e6ad7e03fe1f387063f81ce3480b",
+   "byte": 76214,
+   "aggiornata": "Last published on: 28/08/2025",
+   "trovate": {
+    "$24 038.00 per week during a month": true
+   }
+  },
+  "tas_grouping": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "16bfb3bb24bcf4011c42d112fcfecdc45c8e94d3fd74756f35d3f245d93db3fc",
+   "byte": 93626,
+   "aggiornata": "Last published on: 29/08/2024",
+   "trovate": {
+    "group": true
+   }
+  },
+  "tas_calculator": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "4e80dc7f713935ce099a5d1d0481e1ee63d857aa8cda6734810b55c66f514ba1",
+   "byte": 50533,
+   "trovate": {}
+  },
+  "act_det2026": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "de6309125f70aa342a9e0206a562a75260133252038297e110dff7a724fa36ef",
+   "byte": 216670,
+   "trovate": {
+    "The annual threshold amount for the purposes of schedule 1 of the Act is $1 750 000": true,
+    "The monthly threshold amount for the purposes of section 86 of the Act is $145 833.33": true,
+    "more than $1.75 million but not more than $20 million 6.75 per cent": true,
+    "more than $20 million but not more than $50 million 6.85 per cent": true,
+    "more than $50 million but not more than $100 million 7.35 per cent": true,
+    "more than $100 million but not more than $150 million 7.85 per cent": true,
+    "more than $150 million 8.75 per cent": true,
+    "capped at 6.85 per cent": true
+   }
+  },
+  "act_act": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "1f91f907af66bd2c690bb4a047711447329fd07ecba7674ce5f3af093f6da599",
+   "byte": 1212081,
+   "trovate": {
+    "TA (or threshold amount) means the amount determined under the Taxation Administration Act 1999, section 139 for this schedule": true,
+    "within 28 days after the end of June": true
+   }
+  },
+  "act_det2025": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "59f448485d2d6e8f98607f9fc2aadfbd60f35d88cf9cb4c94ac1169aa20172ad",
+   "byte": 185740,
+   "trovate": {
+    "The annual threshold amount for the purposes of schedule 1 of the Act is $2 000 000": true,
+    "more than $100 million 6.85 per cent 1.00 per cent": true
+   }
+  },
+  "act_det2024": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "6d76ae973cb77888fa98e53a4b67ce693111241a1cb1527d2f8707ac232345b4",
+   "byte": 186173,
+   "trovate": {
+    "more than $100 million 6.85 per cent 0.50 per cent": true
+   }
+  },
+  "act_det2016": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "17fc50060defb08feb60d74325d33f5ab30414d3a561d92ed0907ef208b02f53",
+   "byte": 33774,
+   "trovate": {
+    "is $2 000 000": true,
+    "6.85%": true
+   }
+  },
+  "act_revenue": {
+   "http": 403,
+   "letto_il": "2026-11-11",
+   "motivo": "answers 403 (Cloudflare check) to our server; figures taken from the joint portal and the ACT legislation register"
+  },
+  "nt_act": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "203c7ed963581a0558007d33996ddba15208148780abf6109fad2b58ece26d45",
+   "byte": 543026,
+   "trovate": {
+    "As in force at 1 July 2026": true,
+    "the rate of payroll tax is 5.5%": true,
+    "is 6.5% if either": true,
+    "the threshold amount is $100 000 000": true,
+    "TA or threshold amount means $2 500 000": true,
+    "AD or annual deduction means": true,
+    "within 21 days after the end of the month": true,
+    "within 21 days after the end of each month (except June)": true
+   }
+  },
+  "nt_treasury": {
+   "http": 403,
+   "letto_il": "2026-11-11",
+   "motivo": "answers 403 (Cloudflare check) to our server; figures taken from the joint portal and the Payroll Tax Act 2009"
+  },
+  "payday_act": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "062c783478f0e8d1f37f4155df3eefdf976002520b2e6498d49103fa04d05eb2",
+   "byte": 300579,
+   "trovate": {
+    "[ Assented to 6 November 2025 ]": true,
+    "1 July 2026": true,
+    "ending on the seventh business day after the QE day": true,
+    "ending on the 20th business day after the QE day": true,
+    "charge percentage means 12": true,
+    "The employer’s administrative uplift amount for the QE day is equal to 60%": true,
+    "definition of approved clearing house": true
+   }
+  },
+  "ato_payday": {
+   "http": 403,
+   "letto_il": "2026-11-11",
+   "motivo": "answers 403 to our server; what we write comes from the Act itself"
+  },
+  "act_es2026": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "c3a7afb3f720498d0d0b7a7898d10a5496e9bd6fd999e475ab193a768bb3b70c",
+   "byte": 219237,
+   "trovate": {
+    "Payroll tax is collected monthly, but it is an annual tax based on Australia-wide wages": true,
+    "From 1 July 2026 the payroll tax surcharge, that applied for larger employers, has been incorporated into the general rate": true
+   }
+  }
+ }
+}

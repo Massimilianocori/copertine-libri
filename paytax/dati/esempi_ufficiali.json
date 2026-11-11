@@ -1,0 +1,1304 @@
+{
+ "_nota": "Casi numerici presi dalle pagine e dai testi ufficiali (fonte = id in dati/fonti.json). verifica.py li ricalcola con motore.py e con il JS pubblicato. 'parametri' sovrascrive i parametri 2026-27 quando l'esempio ufficiale è di un anno precedente.",
+ "casi": [
+  {
+   "id": "nsw_interstate_900k",
+   "fonte": "nsw_rates",
+   "descr": "NSW wages $900,000, Queensland and Victorian wages $2,100,000: threshold $360,000",
+   "salari": {
+    "nsw": 900000,
+    "altro": 2100000
+   },
+   "atteso": {
+    "nsw.soglia": 360000
+   },
+   "toll": 0.005
+  },
+  {
+   "id": "nsw_part_year_184",
+   "fonte": "nsw_rates",
+   "descr": "NSW only, $1,500,000, employed 184 of 365 days: threshold $604,931.51, tax on $895,068.49",
+   "salari": {
+    "nsw": 1500000
+   },
+   "giorni": 184,
+   "atteso": {
+    "nsw.soglia": 604931.51,
+    "nsw.imponibile": 895068.49
+   },
+   "toll": 0.005
+  },
+  {
+   "id": "nsw_interstate_part_year",
+   "fonte": "nsw_rates",
+   "descr": "NSW $1,000,000 + VIC/QLD $2,000,000, all paid for 184 days: threshold $201,643.84",
+   "salari": {
+    "nsw": 1000000,
+    "altro": 2000000
+   },
+   "giorni": 184,
+   "atteso": {
+    "nsw.soglia": 201643.84
+   },
+   "toll": 0.005
+  },
+  {
+   "id": "nsw_interstate_qld",
+   "fonte": "nsw_interstate",
+   "descr": "NSW $1,000,000, QLD $2,000,000: threshold $400,000",
+   "salari": {
+    "nsw": 1000000,
+    "qld": 2000000
+   },
+   "atteso": {
+    "nsw.soglia": 400000
+   },
+   "toll": 0.005
+  },
+  {
+   "id": "nsw_full",
+   "fonte": "nsw_rates",
+   "descr": "NSW only, $1,500,000 for 365 days: tax calculated on $300,000",
+   "salari": {
+    "nsw": 1500000
+   },
+   "atteso": {
+    "nsw.imponibile": 300000
+   },
+   "toll": 0.005
+  },
+  {
+   "id": "nsw_group",
+   "fonte": "nsw_rates",
+   "descr": "Group: NSW wages $600,000 of group Australian wages $2,000,000: group threshold $360,000",
+   "salari": {
+    "nsw": 600000,
+    "altro": 1400000
+   },
+   "atteso": {
+    "nsw.soglia": 360000
+   },
+   "toll": 0.005
+  },
+  {
+   "id": "vic_example1_2024_25",
+   "fonte": "vic_phase",
+   "descr": "2024-25 rules ($900,000, 45%): Victorian wages $4.2m only, full year: threshold $360,000",
+   "parametri": {
+    "vic": {
+     "soglia": 900000,
+     "phase_quota": 45
+    }
+   },
+   "salari": {
+    "vic": 4200000
+   },
+   "atteso": {
+    "vic.soglia": 360000
+   },
+   "toll": 0.5
+  },
+  {
+   "id": "vic_example2_2024_25",
+   "fonte": "vic_phase",
+   "descr": "2024-25 rules: Victorian $1.5m + interstate $2m, 335 of 365 days: threshold $210,030",
+   "parametri": {
+    "vic": {
+     "soglia": 900000,
+     "phase_quota": 45
+    }
+   },
+   "salari": {
+    "vic": 1500000,
+    "altro": 2000000
+   },
+   "giorni": 335,
+   "atteso": {
+    "vic.soglia": 210030
+   },
+   "toll": 1.5
+  },
+  {
+   "id": "qld_annual_deduction",
+   "fonte": "qld_deduction_example",
+   "descr": "Queensland $1,356,789 of Australian $1,789,776: annual deduction $932,460",
+   "salari": {
+    "qld": 1356789,
+    "altro": 432987
+   },
+   "atteso": {
+    "qld.soglia": 932460
+   },
+   "toll": 1.0
+  },
+  {
+   "id": "qld_fixed_periodic",
+   "fonte": "qld_deductions",
+   "descr": "Estimated Queensland $387,524 of Australian $1,500,000: fixed periodic (monthly) deduction $27,373",
+   "salari": {
+    "qld": 387524,
+    "altro": 1112476
+   },
+   "atteso": {
+    "qld.soglia/12": 27373
+   },
+   "toll": 2.0
+  },
+  {
+   "id": "qld_levy_112m",
+   "fonte": "qld_mhl",
+   "descr": "Mental health levy: Queensland-only employer, $112m: $255,000 + $60,000 = $315,000",
+   "salari": {
+    "qld": 112000000
+   },
+   "atteso": {
+    "qld.extra": 315000
+   },
+   "toll": 0.005
+  },
+  {
+   "id": "qld_levy_interstate",
+   "fonte": "qld_mhl",
+   "descr": "Mental health levy: $4m in Queensland of $16m Australian: $3,750",
+   "salari": {
+    "qld": 4000000,
+    "nsw": 12000000
+   },
+   "atteso": {
+    "qld.extra": 3750
+   },
+   "toll": 0.005
+  },
+  {
+   "id": "qld_levy_group",
+   "fonte": "qld_mhl",
+   "descr": "Mental health levy: group with $27m in Queensland and $9m in Victoria: $48,750",
+   "salari": {
+    "qld": 27000000,
+    "vic": 9000000
+   },
+   "atteso": {
+    "qld.extra": 48750
+   },
+   "toll": 0.005
+  },
+  {
+   "id": "wa_local_1_2m",
+   "fonte": "wa_local",
+   "descr": "WA only $1,200,000: deductable amount $969,231, tax $12,692.30",
+   "salari": {
+    "wa": 1200000
+   },
+   "atteso": {
+    "wa.soglia": 969231,
+    "wa.tassa": 12692.3
+   },
+   "toll": 0.5
+  },
+  {
+   "id": "wa_interstate",
+   "fonte": "wa_interstate",
+   "descr": "WA $1,000,000 + SA $3,000,000: deductable amount $134,616, tax $47,596.12",
+   "salari": {
+    "wa": 1000000,
+    "sa": 3000000
+   },
+   "atteso": {
+    "wa.soglia": 134616,
+    "wa.tassa": 47596.12
+   },
+   "toll": 1.0
+  },
+  {
+   "id": "wa_monthly_92k",
+   "fonte": "wa_calc",
+   "descr": "WA $92,000 a month ($1,104,000 a year): payroll tax $6,600",
+   "salari": {
+    "wa": 1104000
+   },
+   "atteso": {
+    "wa.tassa": 6600
+   },
+   "toll": 0.005
+  },
+  {
+   "id": "sa_interstate",
+   "fonte": "sa_how",
+   "descr": "SA $700,000 of Australia-wide $2.1m: deduction $200,000",
+   "salari": {
+    "sa": 700000,
+    "altro": 1400000
+   },
+   "atteso": {
+    "sa.soglia": 200000
+   },
+   "toll": 0.005
+  },
+  {
+   "id": "sa_only_1_6m",
+   "fonte": "sa_how",
+   "descr": "SA only, $1.6m: deduction $600,000, tax calculated on $1 million",
+   "salari": {
+    "sa": 1600000
+   },
+   "atteso": {
+    "sa.imponibile": 1000000
+   },
+   "toll": 0.005
+  },
+  {
+   "id": "sa_annualised",
+   "fonte": "sa_how",
+   "descr": "$1m paid over 211 days annualises to $1,729,857: rate 4.95%",
+   "salari": {
+    "sa": 1000000
+   },
+   "giorni": 211,
+   "atteso": {
+    "sa.aliquota": 0.0495
+   },
+   "toll": 1e-09
+  },
+  {
+   "id": "tas_ex1_full",
+   "fonte": "tas_guide",
+   "descr": "Tasmania only, $2.4m, full year: $30,000 + $24,400 = $54,400",
+   "salari": {
+    "tas": 2400000
+   },
+   "atteso": {
+    "tas.tassa": 54400
+   },
+   "toll": 0.005
+  },
+  {
+   "id": "tas_ex1_part",
+   "fonte": "tas_guide",
+   "descr": "Tasmania only, $2.4m, 273 days: $77,589",
+   "salari": {
+    "tas": 2400000
+   },
+   "giorni": 273,
+   "atteso": {
+    "tas.tassa": 77589
+   },
+   "toll": 2.0
+  },
+  {
+   "id": "tas_ex2_full",
+   "fonte": "tas_guide",
+   "descr": "Tasmania $2.4m of Australian $3m, full year: $72,800",
+   "salari": {
+    "tas": 2400000,
+    "altro": 600000
+   },
+   "atteso": {
+    "tas.tassa": 72800
+   },
+   "toll": 0.005
+  },
+  {
+   "id": "tas_ex2_part",
+   "fonte": "tas_guide",
+   "descr": "Tasmania $2.4m of Australian $3m, 168 days: $112,523",
+   "salari": {
+    "tas": 2400000,
+    "altro": 600000
+   },
+   "giorni": 168,
+   "atteso": {
+    "tas.tassa": 112523
+   },
+   "toll": 2.0
+  },
+  {
+   "id": "tas_ex3_group_full",
+   "fonte": "tas_guide",
+   "descr": "Group: Tasmanian group wages $1,475,000 of $3m: DGE $516 + other members $44,225 = $44,741",
+   "salari": {
+    "tas": 1475000,
+    "altro": 1525000
+   },
+   "atteso": {
+    "tas.tassa": 44741
+   },
+   "toll": 1.0
+  },
+  {
+   "id": "tas_ex3_group_part",
+   "fonte": "tas_guide",
+   "descr": "Same group, 109 days: $32,241 + $44,225 = $76,466",
+   "salari": {
+    "tas": 1475000,
+    "altro": 1525000
+   },
+   "giorni": 109,
+   "atteso": {
+    "tas.tassa": 76466
+   },
+   "toll": 2.0
+  },
+  {
+   "id": "tas_ex4_shared_full",
+   "fonte": "tas_guide",
+   "descr": "Group sharing the threshold: Tasmania $2m of $9m: $25,388 + $35,544 + $40,622 = $101,554",
+   "salari": {
+    "tas": 2000000,
+    "altro": 7000000
+   },
+   "atteso": {
+    "tas.tassa": 101554
+   },
+   "toll": 3.0
+  },
+  {
+   "id": "tas_ex4_shared_part",
+   "fonte": "tas_guide",
+   "descr": "Same group, 234 days: $27,223 + $38,112 + $43,557 = $108,892",
+   "salari": {
+    "tas": 2000000,
+    "altro": 7000000
+   },
+   "giorni": 234,
+   "atteso": {
+    "tas.tassa": 108892
+   },
+   "toll": 3.0
+  },
+  {
+   "id": "tas_ex5_part",
+   "fonte": "tas_guide",
+   "descr": "Nominated member, Tasmanian group $2.4m, 120 days: $116,153",
+   "salari": {
+    "tas": 2400000
+   },
+   "giorni": 120,
+   "atteso": {
+    "tas.tassa": 116153
+   },
+   "toll": 2.0
+  }
+ ],
+ "scaglioni_act": {
+  "fonte": "act_det2026",
+  "descr": "Rate set by total wages (DI2026-151, Table 1)",
+  "casi": [
+   [
+    1750001,
+    6.75
+   ],
+   [
+    20000000,
+    6.75
+   ],
+   [
+    20000001,
+    6.85
+   ],
+   [
+    50000000,
+    6.85
+   ],
+   [
+    50000001,
+    7.35
+   ],
+   [
+    100000000,
+    7.35
+   ],
+   [
+    100000001,
+    7.85
+   ],
+   [
+    150000000,
+    7.85
+   ],
+   [
+    150000001,
+    8.75
+   ]
+  ]
+ },
+ "nt_legge": {
+  "fonte": "nt_act",
+  "descr": "Payroll Tax Act 2009 (NT): AD = ETA − (W − ETA)/2, zero from 3 × ETA; 6.5% when W is $100m or more",
+  "casi": [
+   {
+    "W": 7500000,
+    "AD": 0
+   },
+   {
+    "W": 5000000,
+    "AD": 1250000
+   },
+   {
+    "W": 99999999,
+    "R": 5.5
+   },
+   {
+    "W": 100000000,
+    "R": 6.5
+   }
+  ]
+ },
+ "sa_tabella": {
+  "fonte": "sa_table",
+  "descr": "RevenueSA indicative rate table (1 Jan 2019): each row within 0.01 percentage points of the Act formula",
+  "righe": [
+   [
+    1500000,
+    0.0
+   ],
+   [
+    1501000,
+    0.02
+   ],
+   [
+    1502000,
+    0.05
+   ],
+   [
+    1503000,
+    0.07
+   ],
+   [
+    1504000,
+    0.09
+   ],
+   [
+    1505000,
+    0.12
+   ],
+   [
+    1506000,
+    0.14
+   ],
+   [
+    1507000,
+    0.17
+   ],
+   [
+    1508000,
+    0.19
+   ],
+   [
+    1509000,
+    0.22
+   ],
+   [
+    1510000,
+    0.24
+   ],
+   [
+    1511000,
+    0.27
+   ],
+   [
+    1512000,
+    0.29
+   ],
+   [
+    1513000,
+    0.32
+   ],
+   [
+    1514000,
+    0.34
+   ],
+   [
+    1515000,
+    0.37
+   ],
+   [
+    1516000,
+    0.39
+   ],
+   [
+    1517000,
+    0.42
+   ],
+   [
+    1518000,
+    0.44
+   ],
+   [
+    1519000,
+    0.47
+   ],
+   [
+    1520000,
+    0.49
+   ],
+   [
+    1521000,
+    0.52
+   ],
+   [
+    1522000,
+    0.54
+   ],
+   [
+    1523000,
+    0.56
+   ],
+   [
+    1524000,
+    0.59
+   ],
+   [
+    1525000,
+    0.61
+   ],
+   [
+    1526000,
+    0.64
+   ],
+   [
+    1527000,
+    0.67
+   ],
+   [
+    1528000,
+    0.69
+   ],
+   [
+    1529000,
+    0.71
+   ],
+   [
+    1530000,
+    0.74
+   ],
+   [
+    1531000,
+    0.76
+   ],
+   [
+    1532000,
+    0.79
+   ],
+   [
+    1533000,
+    0.81
+   ],
+   [
+    1534000,
+    0.84
+   ],
+   [
+    1535000,
+    0.86
+   ],
+   [
+    1536000,
+    0.89
+   ],
+   [
+    1537000,
+    0.91
+   ],
+   [
+    1538000,
+    0.94
+   ],
+   [
+    1539000,
+    0.96
+   ],
+   [
+    1540000,
+    0.99
+   ],
+   [
+    1541000,
+    1.01
+   ],
+   [
+    1542000,
+    1.04
+   ],
+   [
+    1543000,
+    1.06
+   ],
+   [
+    1544000,
+    1.08
+   ],
+   [
+    1545000,
+    1.11
+   ],
+   [
+    1546000,
+    1.13
+   ],
+   [
+    1547000,
+    1.16
+   ],
+   [
+    1548000,
+    1.18
+   ],
+   [
+    1549000,
+    1.21
+   ],
+   [
+    1550000,
+    1.23
+   ],
+   [
+    1551000,
+    1.26
+   ],
+   [
+    1552000,
+    1.28
+   ],
+   [
+    1553000,
+    1.31
+   ],
+   [
+    1554000,
+    1.33
+   ],
+   [
+    1555000,
+    1.36
+   ],
+   [
+    1556000,
+    1.38
+   ],
+   [
+    1557000,
+    1.41
+   ],
+   [
+    1558000,
+    1.43
+   ],
+   [
+    1559000,
+    1.46
+   ],
+   [
+    1560000,
+    1.48
+   ],
+   [
+    1561000,
+    1.51
+   ],
+   [
+    1562000,
+    1.53
+   ],
+   [
+    1563000,
+    1.55
+   ],
+   [
+    1564000,
+    1.58
+   ],
+   [
+    1565000,
+    1.6
+   ],
+   [
+    1566000,
+    1.63
+   ],
+   [
+    1567000,
+    1.65
+   ],
+   [
+    1568000,
+    1.68
+   ],
+   [
+    1569000,
+    1.7
+   ],
+   [
+    1570000,
+    1.73
+   ],
+   [
+    1571000,
+    1.75
+   ],
+   [
+    1572000,
+    1.78
+   ],
+   [
+    1573000,
+    1.8
+   ],
+   [
+    1574000,
+    1.83
+   ],
+   [
+    1575000,
+    1.85
+   ],
+   [
+    1576000,
+    1.88
+   ],
+   [
+    1577000,
+    1.9
+   ],
+   [
+    1578000,
+    1.93
+   ],
+   [
+    1579000,
+    1.95
+   ],
+   [
+    1580000,
+    1.98
+   ],
+   [
+    1581000,
+    2.0
+   ],
+   [
+    1582000,
+    2.03
+   ],
+   [
+    1583000,
+    2.05
+   ],
+   [
+    1584000,
+    2.07
+   ],
+   [
+    1585000,
+    2.1
+   ],
+   [
+    1586000,
+    2.12
+   ],
+   [
+    1587000,
+    2.15
+   ],
+   [
+    1588000,
+    2.17
+   ],
+   [
+    1589000,
+    2.2
+   ],
+   [
+    1590000,
+    2.22
+   ],
+   [
+    1591000,
+    2.25
+   ],
+   [
+    1592000,
+    2.27
+   ],
+   [
+    1593000,
+    2.3
+   ],
+   [
+    1594000,
+    2.32
+   ],
+   [
+    1595000,
+    2.35
+   ],
+   [
+    1596000,
+    2.37
+   ],
+   [
+    1597000,
+    2.4
+   ],
+   [
+    1598000,
+    2.42
+   ],
+   [
+    1599000,
+    2.45
+   ],
+   [
+    1600000,
+    2.47
+   ],
+   [
+    1601000,
+    2.5
+   ],
+   [
+    1602000,
+    2.52
+   ],
+   [
+    1603000,
+    2.54
+   ],
+   [
+    1604000,
+    2.57
+   ],
+   [
+    1605000,
+    2.59
+   ],
+   [
+    1606000,
+    2.62
+   ],
+   [
+    1607000,
+    2.64
+   ],
+   [
+    1608000,
+    2.67
+   ],
+   [
+    1609000,
+    2.69
+   ],
+   [
+    1610000,
+    2.72
+   ],
+   [
+    1611000,
+    2.74
+   ],
+   [
+    1612000,
+    2.77
+   ],
+   [
+    1613000,
+    2.79
+   ],
+   [
+    1614000,
+    2.82
+   ],
+   [
+    1615000,
+    2.84
+   ],
+   [
+    1616000,
+    2.87
+   ],
+   [
+    1617000,
+    2.89
+   ],
+   [
+    1618000,
+    2.92
+   ],
+   [
+    1619000,
+    2.94
+   ],
+   [
+    1620000,
+    2.97
+   ],
+   [
+    1621000,
+    2.99
+   ],
+   [
+    1622000,
+    3.02
+   ],
+   [
+    1623000,
+    3.04
+   ],
+   [
+    1624000,
+    3.06
+   ],
+   [
+    1625000,
+    3.09
+   ],
+   [
+    1626000,
+    3.11
+   ],
+   [
+    1627000,
+    3.14
+   ],
+   [
+    1628000,
+    3.16
+   ],
+   [
+    1629000,
+    3.19
+   ],
+   [
+    1630000,
+    3.21
+   ],
+   [
+    1631000,
+    3.24
+   ],
+   [
+    1632000,
+    3.26
+   ],
+   [
+    1633000,
+    3.29
+   ],
+   [
+    1634000,
+    3.31
+   ],
+   [
+    1635000,
+    3.34
+   ],
+   [
+    1636000,
+    3.36
+   ],
+   [
+    1637000,
+    3.39
+   ],
+   [
+    1638000,
+    3.41
+   ],
+   [
+    1639000,
+    3.44
+   ],
+   [
+    1640000,
+    3.46
+   ],
+   [
+    1641000,
+    3.49
+   ],
+   [
+    1642000,
+    3.51
+   ],
+   [
+    1643000,
+    3.53
+   ],
+   [
+    1644000,
+    3.56
+   ],
+   [
+    1645000,
+    3.58
+   ],
+   [
+    1646000,
+    3.61
+   ],
+   [
+    1647000,
+    3.63
+   ],
+   [
+    1648000,
+    3.66
+   ],
+   [
+    1649000,
+    3.68
+   ],
+   [
+    1650000,
+    3.71
+   ],
+   [
+    1651000,
+    3.73
+   ],
+   [
+    1652000,
+    3.76
+   ],
+   [
+    1653000,
+    3.78
+   ],
+   [
+    1654000,
+    3.81
+   ],
+   [
+    1655000,
+    3.83
+   ],
+   [
+    1656000,
+    3.86
+   ],
+   [
+    1657000,
+    3.88
+   ],
+   [
+    1658000,
+    3.91
+   ],
+   [
+    1659000,
+    3.93
+   ],
+   [
+    1660000,
+    3.96
+   ],
+   [
+    1661000,
+    3.98
+   ],
+   [
+    1662000,
+    4.01
+   ],
+   [
+    1663000,
+    4.03
+   ],
+   [
+    1664000,
+    4.05
+   ],
+   [
+    1665000,
+    4.08
+   ],
+   [
+    1666000,
+    4.1
+   ],
+   [
+    1667000,
+    4.13
+   ],
+   [
+    1668000,
+    4.15
+   ],
+   [
+    1669000,
+    4.18
+   ],
+   [
+    1670000,
+    4.2
+   ],
+   [
+    1671000,
+    4.23
+   ],
+   [
+    1672000,
+    4.25
+   ],
+   [
+    1673000,
+    4.28
+   ],
+   [
+    1674000,
+    4.3
+   ],
+   [
+    1675000,
+    4.33
+   ],
+   [
+    1676000,
+    4.35
+   ],
+   [
+    1677000,
+    4.38
+   ],
+   [
+    1678000,
+    4.4
+   ],
+   [
+    1679000,
+    4.43
+   ],
+   [
+    1680000,
+    4.45
+   ],
+   [
+    1681000,
+    4.48
+   ],
+   [
+    1682000,
+    4.5
+   ],
+   [
+    1683000,
+    4.52
+   ],
+   [
+    1684000,
+    4.55
+   ],
+   [
+    1685000,
+    4.57
+   ],
+   [
+    1686000,
+    4.6
+   ],
+   [
+    1687000,
+    4.62
+   ],
+   [
+    1688000,
+    4.65
+   ],
+   [
+    1689000,
+    4.67
+   ],
+   [
+    1690000,
+    4.7
+   ],
+   [
+    1691000,
+    4.72
+   ],
+   [
+    1692000,
+    4.75
+   ],
+   [
+    1693000,
+    4.77
+   ],
+   [
+    1694000,
+    4.8
+   ],
+   [
+    1695000,
+    4.82
+   ],
+   [
+    1696000,
+    4.85
+   ],
+   [
+    1697000,
+    4.87
+   ],
+   [
+    1698000,
+    4.9
+   ],
+   [
+    1699000,
+    4.92
+   ]
+  ]
+ },
+ "soglie_mensili_nsw": {
+  "fonte": "nsw_rates",
+  "descr": "Monthly threshold = days in month ÷ days in year × $1.2m, rounded",
+  "casi": [
+   [
+    28,
+    92055
+   ],
+   [
+    30,
+    98630
+   ],
+   [
+    31,
+    101918
+   ]
+  ]
+ },
+ "soglie_sovrattasse_vic": {
+  "fonte": "vic_surcharges",
+  "descr": "Adjusted surcharge thresholds",
+  "casi": [
+   {
+    "giorni": 230,
+    "q": 1,
+    "lim": 10000000,
+    "atteso": 6301370,
+    "toll": 0.5
+   },
+   {
+    "giorni": 230,
+    "q": 1,
+    "lim": 100000000,
+    "atteso": 63013699,
+    "toll": 0.5
+   },
+   {
+    "giorni": 365,
+    "q": 0.5333333333333333,
+    "lim": 10000000,
+    "atteso": 5333333.33,
+    "toll": 0.005
+   },
+   {
+    "giorni": 365,
+    "q": 0.5333333333333333,
+    "lim": 100000000,
+    "atteso": 53333333.33,
+    "toll": 0.005
+   }
+  ]
+ }
+}

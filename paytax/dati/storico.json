@@ -1,0 +1,348 @@
+{
+ "_nota": "Soglie annue e aliquote per anno fiscale. null = non pubblicato in una fonte ufficiale che abbiamo potuto leggere (non si stima).",
+ "anni": [
+  "2021-22",
+  "2022-23",
+  "2023-24",
+  "2024-25",
+  "2025-26",
+  "2026-27"
+ ],
+ "righe": {
+  "nsw": {
+   "2021-22": null,
+   "2022-23": {
+    "soglia": 1200000,
+    "aliquota": "5.45%",
+    "fonti": [
+     "nsw_rates"
+    ]
+   },
+   "2023-24": {
+    "soglia": 1200000,
+    "aliquota": "5.45%",
+    "fonti": [
+     "nsw_rates"
+    ]
+   },
+   "2024-25": {
+    "soglia": 1200000,
+    "aliquota": "5.45%",
+    "fonti": [
+     "nsw_rates"
+    ]
+   },
+   "2025-26": {
+    "soglia": 1200000,
+    "aliquota": "5.45%",
+    "fonti": [
+     "nsw_rates"
+    ]
+   },
+   "2026-27": {
+    "soglia": 1200000,
+    "aliquota": "5.45%",
+    "fonti": [
+     "nsw_rates"
+    ]
+   }
+  },
+  "vic": {
+   "2021-22": {
+    "soglia": 700000,
+    "aliquota": "4.85% (regional 1.2125%)",
+    "fonti": [
+     "vic_hist"
+    ]
+   },
+   "2022-23": {
+    "soglia": 700000,
+    "aliquota": "4.85% (regional 1.2125%)",
+    "fonti": [
+     "vic_hist"
+    ]
+   },
+   "2023-24": {
+    "soglia": 700000,
+    "aliquota": "4.85% (regional 1.2125%)",
+    "fonti": [
+     "vic_hist"
+    ]
+   },
+   "2024-25": {
+    "soglia": 900000,
+    "aliquota": "4.85% (regional 1.2125%); threshold phased out at 45% between $3m and $5m",
+    "fonti": [
+     "vic_hist",
+     "vic_phase"
+    ]
+   },
+   "2025-26": {
+    "soglia": 1000000,
+    "aliquota": "4.85% (regional 1.2125%); phase-out 50%",
+    "fonti": [
+     "vic_rates",
+     "vic_phase"
+    ]
+   },
+   "2026-27": {
+    "soglia": 1000000,
+    "aliquota": "4.85% (regional 1.2125%); phase-out 50%",
+    "fonti": [
+     "vic_rates",
+     "vic_csv"
+    ]
+   }
+  },
+  "qld": {
+   "2021-22": {
+    "soglia": 1300000,
+    "aliquota": "4.75% (4.95% above $6.5m); deduction reaches zero at $6.5m",
+    "fonti": [
+     "qld_rates",
+     "qld_deductions"
+    ]
+   },
+   "2022-23": {
+    "soglia": 1300000,
+    "aliquota": "4.75% (4.95% above $6.5m); deduction range widened to $10.4m from 1 January 2023",
+    "fonti": [
+     "qld_rates",
+     "qld_deductions"
+    ]
+   },
+   "2023-24": {
+    "soglia": 1300000,
+    "aliquota": "4.75% (4.95% above $6.5m)",
+    "fonti": [
+     "qld_rates",
+     "qld_deductions"
+    ]
+   },
+   "2024-25": {
+    "soglia": 1300000,
+    "aliquota": "4.75% (4.95% above $6.5m)",
+    "fonti": [
+     "qld_rates",
+     "qld_deductions"
+    ]
+   },
+   "2025-26": {
+    "soglia": 1300000,
+    "aliquota": "4.75% (4.95% above $6.5m)",
+    "fonti": [
+     "qld_rates",
+     "qld_deductions"
+    ]
+   },
+   "2026-27": {
+    "soglia": 1300000,
+    "aliquota": "4.75% (4.95% above $6.5m)",
+    "fonti": [
+     "qld_rates",
+     "portal_rates"
+    ]
+   }
+  },
+  "wa": {
+   "2021-22": {
+    "soglia": 1000000,
+    "aliquota": "5.5%; 6% on wages from $100m to $1.5bn; 6.5% above $1.5bn",
+    "fonti": [
+     "wa_calc"
+    ]
+   },
+   "2022-23": {
+    "soglia": 1000000,
+    "aliquota": "5.5%; 6% on wages from $100m to $1.5bn; 6.5% above $1.5bn",
+    "fonti": [
+     "wa_calc"
+    ]
+   },
+   "2023-24": {
+    "soglia": 1000000,
+    "aliquota": "5.5%",
+    "fonti": [
+     "wa_calc"
+    ]
+   },
+   "2024-25": {
+    "soglia": 1000000,
+    "aliquota": "5.5%",
+    "fonti": [
+     "wa_calc"
+    ]
+   },
+   "2025-26": {
+    "soglia": 1000000,
+    "aliquota": "5.5%",
+    "fonti": [
+     "wa_calc"
+    ]
+   },
+   "2026-27": {
+    "soglia": 1000000,
+    "aliquota": "5.5%",
+    "fonti": [
+     "wa_calc",
+     "portal_rates"
+    ]
+   }
+  },
+  "sa": {
+   "2021-22": {
+    "soglia": 1500000,
+    "aliquota": "0% to 4.95% between $1.5m and $1.7m; 4.95% above; deduction up to $600,000",
+    "fonti": [
+     "sa_rates"
+    ]
+   },
+   "2022-23": {
+    "soglia": 1500000,
+    "aliquota": "0% to 4.95% between $1.5m and $1.7m; 4.95% above; deduction up to $600,000",
+    "fonti": [
+     "sa_rates"
+    ]
+   },
+   "2023-24": {
+    "soglia": 1500000,
+    "aliquota": "0% to 4.95% between $1.5m and $1.7m; 4.95% above; deduction up to $600,000",
+    "fonti": [
+     "sa_rates"
+    ]
+   },
+   "2024-25": {
+    "soglia": 1500000,
+    "aliquota": "0% to 4.95% between $1.5m and $1.7m; 4.95% above; deduction up to $600,000",
+    "fonti": [
+     "sa_rates"
+    ]
+   },
+   "2025-26": {
+    "soglia": 1500000,
+    "aliquota": "0% to 4.95% between $1.5m and $1.7m; 4.95% above; deduction up to $600,000",
+    "fonti": [
+     "sa_rates"
+    ]
+   },
+   "2026-27": {
+    "soglia": 1500000,
+    "aliquota": "0% to 4.95% between $1.5m and $1.7m; 4.95% above; deduction up to $600,000",
+    "fonti": [
+     "sa_rates"
+    ]
+   }
+  },
+  "tas": {
+   "2021-22": {
+    "soglia": 1250000,
+    "aliquota": "4% from $1,250,001 to $2m; 6.1% above $2m",
+    "fonti": [
+     "tas_rates"
+    ]
+   },
+   "2022-23": {
+    "soglia": 1250000,
+    "aliquota": "4% from $1,250,001 to $2m; 6.1% above $2m",
+    "fonti": [
+     "tas_rates"
+    ]
+   },
+   "2023-24": {
+    "soglia": 1250000,
+    "aliquota": "4% from $1,250,001 to $2m; 6.1% above $2m",
+    "fonti": [
+     "tas_rates"
+    ]
+   },
+   "2024-25": {
+    "soglia": 1250000,
+    "aliquota": "4% from $1,250,001 to $2m; 6.1% above $2m",
+    "fonti": [
+     "tas_rates"
+    ]
+   },
+   "2025-26": {
+    "soglia": 1250000,
+    "aliquota": "4% from $1,250,001 to $2m; 6.1% above $2m",
+    "fonti": [
+     "tas_rates"
+    ]
+   },
+   "2026-27": {
+    "soglia": 1250000,
+    "aliquota": "4% from $1,250,001 to $2m; 6.1% above $2m",
+    "fonti": [
+     "tas_rates"
+    ]
+   }
+  },
+  "act": {
+   "2021-22": {
+    "soglia": 2000000,
+    "aliquota": "6.85%",
+    "fonti": [
+     "act_det2016"
+    ]
+   },
+   "2022-23": {
+    "soglia": 2000000,
+    "aliquota": "6.85%",
+    "fonti": [
+     "act_det2016"
+    ]
+   },
+   "2023-24": {
+    "soglia": 2000000,
+    "aliquota": "6.85%",
+    "fonti": [
+     "act_det2016"
+    ]
+   },
+   "2024-25": {
+    "soglia": 2000000,
+    "aliquota": "6.85%; surcharge +0.25% above $50m, +0.5% above $100m",
+    "fonti": [
+     "act_det2024"
+    ]
+   },
+   "2025-26": {
+    "soglia": 2000000,
+    "aliquota": "6.85%; surcharge +0.5% above $50m, +1% above $100m; 8.75% from 1 January 2026 for wages above $150m",
+    "fonti": [
+     "act_det2025",
+     "act_act"
+    ]
+   },
+   "2026-27": {
+    "soglia": 1750000,
+    "aliquota": "6.75% to 8.75% by total wages (five brackets)",
+    "fonti": [
+     "act_det2026",
+     "portal_rates"
+    ]
+   }
+  },
+  "nt": {
+   "2021-22": null,
+   "2022-23": null,
+   "2023-24": null,
+   "2024-25": null,
+   "2025-26": {
+    "soglia": 2500000,
+    "aliquota": "5.5%",
+    "fonti": [
+     "portal_rates"
+    ]
+   },
+   "2026-27": {
+    "soglia": 2500000,
+    "aliquota": "5.5% (6.5% with Australian wages of $100m or more)",
+    "fonti": [
+     "portal_rates",
+     "nt_act"
+    ]
+   }
+  }
+ }
+}
