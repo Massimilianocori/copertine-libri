@@ -267,6 +267,7 @@ def modulo(G, rel):
 <p class="small" style="margin:4px 0 0">Free. We write when a new exam session is published or when a deadline is about to close in your city. Emails are in Italian.</p></div></div>
 <form class="form avvisami" name="avvisami" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field">
 <input type="hidden" name="form-name" value="avvisami">
+<input type="hidden" name="fonte" value="date">
 <input type="hidden" name="source" value="">
 <p class="hp"><label>Do not fill in <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
 <label>Your email<input type="email" name="email" required autocomplete="email" placeholder="name@example.com"></label>

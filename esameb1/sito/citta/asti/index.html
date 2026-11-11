@@ -208,6 +208,7 @@ ol.passi li{counter-increment:p;display:grid;grid-template-columns:36px 1fr;gap:
 ol.passi li::before{content:counter(p);display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--brand);color:var(--on-brand);font-weight:800}
 /* modulo */
 .modulo-testa{display:flex;gap:12px;align-items:flex-start;margin-bottom:6px}
+.libro{margin-top:28px}
 .modulo-testa .bolla{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:var(--brand-soft);color:var(--brand);flex:none}
 .modulo-testa .bolla .i{width:22px;height:22px}
 .modulo-testa h2{margin:0;font-size:1.25rem}
@@ -399,7 +400,7 @@ Le date d'esame sono le stesse in tutta Italia; la scadenza per iscriversi può 
 <div class="slot" data-slot><div class="r-et"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-cal"/></svg>Prossimo esame</div><div data-fino="2026-11-18">
 <div class="r-data">18 novembre <small>2026</small></div>
 <div class="r-cosa"><span class="eb eb-PLIDA">PLIDA</span><span>PLIDA B1</span></div>
-<p style="margin:12px 0 0"><span class="conta vicino" data-conta="2026-11-18" data-modo="esame">tra 9 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta vicino" data-conta="2026-11-18" data-modo="esame">tra 7 giorni</span></p>
 </div></div>
 <div class="slot" data-slot><div class="r-et"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg>Iscrizioni ancora aperte</div><p data-riserva class="r-nota">In questo momento non ci sono termini nazionali aperti: per PLIDA e CERT.IT la scadenza la decide ogni centro. Chiedi alla sede.</p></div>
 <div class="r-piede"><a href="../../#date">Tutte le date <svg class="i" aria-hidden="true" focusable="false"><use href="#i-freccia"/></svg></a><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-info"/></svg>Le date d'esame sono le stesse in tutta Italia.</span></div>
@@ -415,7 +416,7 @@ Le date d'esame sono le stesse in tutta Italia; la scadenza per iscriversi può 
 <h2 id="per-ente"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-cal"/></svg>Prossime date ad Asti, ente per ente</h2>
 <div class="perente"><article class="pe pe-PLIDA">
 <div class="pe-testa"><span class="eb eb-PLIDA">PLIDA</span><a href="#sedi-plida"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg>1 sede ad Asti</a></div>
-<div data-slot><div class="pe-et"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-cal"/></svg>Prossimo esame</div><div data-fino="2026-11-18"><div class="pe-data">18 novembre 2026<span class="conta vicino" data-conta="2026-11-18" data-modo="esame">tra 9 giorni</span></div><p class="pe-cosa">PLIDA B1</p></div></div>
+<div data-slot><div class="pe-et"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-cal"/></svg>Prossimo esame</div><div data-fino="2026-11-18"><div class="pe-data">18 novembre 2026<span class="conta vicino" data-conta="2026-11-18" data-modo="esame">tra 7 giorni</span></div><p class="pe-cosa">PLIDA B1</p></div></div>
 <div data-slot><div class="pe-et"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg>Iscrizioni (termine nazionale)</div><p class="pe-cosa" style="margin:0">La scadenza la decide ogni centro PLIDA: chiedila alla sede.</p></div>
 </article></div>
 </section>
@@ -439,6 +440,7 @@ Le date d'esame sono le stesse in tutta Italia; la scadenza per iscriversi può 
 <p class="small" style="margin:4px 0 0">Gratis. Ti scriviamo quando esce una nuova sessione o quando una scadenza sta per chiudere nella tua città.</p></div></div>
 <form class="form avvisami" name="avvisami" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field">
 <input type="hidden" name="form-name" value="avvisami">
+<input type="hidden" name="fonte" value="date">
 <input type="hidden" name="source" value="">
 <p class="hp"><label>Non compilare <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
 <label>La tua email<input type="email" name="email" required autocomplete="email" placeholder="nome@esempio.it"></label>

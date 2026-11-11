@@ -212,6 +212,7 @@ ol.passi li{counter-increment:p;display:grid;grid-template-columns:36px 1fr;gap:
 ol.passi li::before{content:counter(p);display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--brand);color:var(--on-brand);font-weight:800}
 /* modulo */
 .modulo-testa{display:flex;gap:12px;align-items:flex-start;margin-bottom:6px}
+.libro{margin-top:28px}
 .modulo-testa .bolla{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:var(--brand-soft);color:var(--brand);flex:none}
 .modulo-testa .bolla .i{width:22px;height:22px}
 .modulo-testa h2{margin:0;font-size:1.25rem}
@@ -453,12 +454,31 @@ Su italki scegli tu un insegnante di italiano: fai lezioni 1 a 1 e paghi a lezio
 <p>CILS e CELI hanno un esame B1 pensato per la cittadinanza (CILS B1 Cittadinanza, CELI 2 i cittadinanza). Anche il B1 normale degli stessi enti, il PLIDA B1 e il CERT.IT B1 sono certificati di livello B1. <a href="../esempi/confronto/">I 4 esami a confronto</a>.</p></details><details><summary>Si può fare l'esame online?<svg class="i" aria-hidden="true" focusable="false"><use href="#i-giu"/></svg></summary>
 <p>No. Tutti e quattro gli enti fanno l'esame in presenza, in una sede d'esame. A Roma Tre lo scritto del CERT.IT B1 si fa al computer, ma sempre in sede.</p></details><details><summary>Dove trovo una prova d'esempio?<svg class="i" aria-hidden="true" focusable="false"><use href="#i-giu"/></svg></summary>
 <p>Ogni ente pubblica gratis una prova d'esempio ufficiale, con audio e soluzioni. <a href="../esempi/">Le prove d'esempio ente per ente</a>.</p></details>
+<section class="card libro" id="libro">
+<div class="modulo-testa"><span class="bolla"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-libro"/></svg></span><div>
+<h2>Libro «Esame B1 cittadinanza» in arrivo: avvisami</h2>
+<p class="small" style="margin:4px 0 0">Stiamo preparando un libro per esercitarsi all'esame B1 per la cittadinanza. Non è ancora uscito e non c'è ancora una data:
+se vuoi saperlo, lascia la tua email. Ti scriviamo una sola email quando esce.</p></div></div>
+<form class="form avvisami" name="avvisami" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field">
+<input type="hidden" name="form-name" value="avvisami">
+<input type="hidden" name="fonte" value="libro">
+<input type="hidden" name="source" value="">
+<p class="hp"><label>Non compilare <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+<label>La tua email<input type="email" name="email" required autocomplete="email" placeholder="nome@esempio.it"></label>
+<label class="check"><input type="checkbox" name="consenso" value="si" required>
+<span>Accetto di ricevere da EsameB1 una sola email quando esce il libro. Ho letto la <a href="/privacy.html">privacy</a>.</span></label>
+<button class="btn" type="submit"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-libro"/></svg>Avvisami quando esce</button>
+<p class="errore" data-errore hidden>Non è stato possibile inviare. Riprova tra poco.</p>
+</form>
+<div class="ok" data-ok hidden><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg><span><strong>Fatto!</strong> Ti scriveremo una sola volta, quando il libro esce.</span></div>
+</section>
 <section class="card" id="avvisami">
 <div class="modulo-testa"><span class="bolla"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-campana"/></svg></span><div>
 <h2>Avvisami quando ci sono nuove date</h2>
 <p class="small" style="margin:4px 0 0">Gratis. Ti scriviamo quando esce una nuova sessione o quando una scadenza sta per chiudere nella tua città.</p></div></div>
 <form class="form avvisami" name="avvisami" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field">
 <input type="hidden" name="form-name" value="avvisami">
+<input type="hidden" name="fonte" value="date">
 <input type="hidden" name="source" value="">
 <p class="hp"><label>Non compilare <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
 <label>La tua email<input type="email" name="email" required autocomplete="email" placeholder="nome@esempio.it"></label>

@@ -212,6 +212,7 @@ ol.passi li{counter-increment:p;display:grid;grid-template-columns:36px 1fr;gap:
 ol.passi li::before{content:counter(p);display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--brand);color:var(--on-brand);font-weight:800}
 /* modulo */
 .modulo-testa{display:flex;gap:12px;align-items:flex-start;margin-bottom:6px}
+.libro{margin-top:28px}
 .modulo-testa .bolla{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:var(--brand-soft);color:var(--brand);flex:none}
 .modulo-testa .bolla .i{width:22px;height:22px}
 .modulo-testa h2{margin:0;font-size:1.25rem}
@@ -426,6 +427,7 @@ Scegli l'ente: per ognuno trovi i link ai file ufficiali (per CERT.IT la pagina 
 <p class="small" style="margin:4px 0 0">Gratis. Ti scriviamo quando esce una nuova sessione o quando una scadenza sta per chiudere nella tua città.</p></div></div>
 <form class="form avvisami" name="avvisami" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field">
 <input type="hidden" name="form-name" value="avvisami">
+<input type="hidden" name="fonte" value="date">
 <input type="hidden" name="source" value="">
 <p class="hp"><label>Non compilare <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
 <label>La tua email<input type="email" name="email" required autocomplete="email" placeholder="nome@esempio.it"></label>
@@ -477,6 +479,24 @@ Su italki scegli tu un insegnante di italiano: fai lezioni 1 a 1 e paghi a lezio
 <section>
 <h2><svg class="i" aria-hidden="true" focusable="false"><use href="#i-info"/></svg>Altre domande</h2>
 <div class="griglia link3"><a href="../costo/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-euro"/></svg><span>Quanto costa<small>i prezzi di ogni ente</small></span></a><a href="../come-funziona/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-lista"/></svg><span>Come si svolge<small>durata, cosa portare, esempi</small></span></a><a href="../risultati/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg><span>Risultati<small>quando arrivano e dove vederli</small></span></a><a href="../esenzioni-e-domande/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-voce"/></svg><span>Orale e domande<small>com'è l'orale, durata, domande</small></span></a><a href="../esonero-test-italiano/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-scudo"/></svg><span>Chi è esonerato<small>dal B1 e dal test A2, con le fonti</small></span></a><a href="../esempi/confronto/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-lista"/></svg><span>I 4 esami a confronto<small>durata, prove, punteggio</small></span></a></div>
+</section>
+<section class="card libro" id="libro">
+<div class="modulo-testa"><span class="bolla"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-libro"/></svg></span><div>
+<h2>Libro «Esame B1 cittadinanza» in arrivo: avvisami</h2>
+<p class="small" style="margin:4px 0 0">Stiamo preparando un libro per esercitarsi all'esame B1 per la cittadinanza. Non è ancora uscito e non c'è ancora una data:
+se vuoi saperlo, lascia la tua email. Ti scriviamo una sola email quando esce.</p></div></div>
+<form class="form avvisami" name="avvisami" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field">
+<input type="hidden" name="form-name" value="avvisami">
+<input type="hidden" name="fonte" value="libro">
+<input type="hidden" name="source" value="">
+<p class="hp"><label>Non compilare <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+<label>La tua email<input type="email" name="email" required autocomplete="email" placeholder="nome@esempio.it"></label>
+<label class="check"><input type="checkbox" name="consenso" value="si" required>
+<span>Accetto di ricevere da EsameB1 una sola email quando esce il libro. Ho letto la <a href="/privacy.html">privacy</a>.</span></label>
+<button class="btn" type="submit"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-libro"/></svg>Avvisami quando esce</button>
+<p class="errore" data-errore hidden>Non è stato possibile inviare. Riprova tra poco.</p>
+</form>
+<div class="ok" data-ok hidden><svg class="i" aria-hidden="true" focusable="false"><use href="#i-ok"/></svg><span><strong>Fatto!</strong> Ti scriveremo una sola volta, quando il libro esce.</span></div>
 </section>
 </main>
 <footer class="piede"><div class="wrap">

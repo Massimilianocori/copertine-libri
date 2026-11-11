@@ -213,6 +213,7 @@ ol.passi li{counter-increment:p;display:grid;grid-template-columns:36px 1fr;gap:
 ol.passi li::before{content:counter(p);display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--brand);color:var(--on-brand);font-weight:800}
 /* modulo */
 .modulo-testa{display:flex;gap:12px;align-items:flex-start;margin-bottom:6px}
+.libro{margin-top:28px}
 .modulo-testa .bolla{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:var(--brand-soft);color:var(--brand);flex:none}
 .modulo-testa .bolla .i{width:22px;height:22px}
 .modulo-testa h2{margin:0;font-size:1.25rem}
@@ -434,6 +435,7 @@ nav.menu details.lingue li a[aria-current]{color:var(--brand-ink);background:var
 <p class="small" style="margin:4px 0 0">Gratuit. Vă scriem când se publică o nouă sesiune de examen sau când în orașul dumneavoastră se apropie termenul de înscriere. E-mailurile sunt în italiană.</p></div></div>
 <form class="form avvisami" name="avvisami" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field">
 <input type="hidden" name="form-name" value="avvisami">
+<input type="hidden" name="fonte" value="date">
 <input type="hidden" name="source" value="">
 <p class="hp"><label>Nu completați <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
 <label>E-mailul dumneavoastră<input type="email" name="email" required autocomplete="email" placeholder="nome@esempio.it"></label>

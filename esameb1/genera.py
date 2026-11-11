@@ -416,6 +416,7 @@ ol.passi li{counter-increment:p;display:grid;grid-template-columns:36px 1fr;gap:
 ol.passi li::before{content:counter(p);display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--brand);color:var(--on-brand);font-weight:800}
 /* modulo */
 .modulo-testa{display:flex;gap:12px;align-items:flex-start;margin-bottom:6px}
+.libro{margin-top:28px}
 .modulo-testa .bolla{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:var(--brand-soft);color:var(--brand);flex:none}
 .modulo-testa .bolla .i{width:22px;height:22px}
 .modulo-testa h2{margin:0;font-size:1.25rem}
@@ -885,6 +886,7 @@ def modulo(citta_scelta=""):
 <p class="small" style="margin:4px 0 0">Gratis. Ti scriviamo quando esce una nuova sessione o quando una scadenza sta per chiudere nella tua città.</p></div></div>
 <form class="form avvisami" name="avvisami" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field">
 <input type="hidden" name="form-name" value="avvisami">
+<input type="hidden" name="fonte" value="date">
 <input type="hidden" name="source" value="">
 <p class="hp"><label>Non compilare <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
 <label>La tua email<input type="email" name="email" required autocomplete="email" placeholder="nome@esempio.it"></label>
@@ -898,6 +900,30 @@ def modulo(citta_scelta=""):
 <p class="errore" data-errore hidden>Non è stato possibile inviare. Riprova tra poco.</p>
 </form>
 <div class="ok" data-ok hidden>{ic("ok")}<span><strong>Fatto!</strong> Ti scriveremo quando ci sono novità per la tua città.</span></div>
+</section>"""
+
+
+def riquadro_libro():
+    """Riquadro «Libro in arrivo: avvisami» (11/11/2026): stesso modulo Netlify `avvisami` del sito, con il campo nascosto
+    fonte=libro (il modulo delle date ha fonte=date) per distinguere le iscrizioni. Solo email e consenso, niente città.
+    Nessun prezzo e nessuna data: il libro non è ancora uscito. Su home, /esempi/ e /come-funziona/, dopo il contenuto principale."""
+    return f"""<section class="card libro" id="libro">
+<div class="modulo-testa"><span class="bolla">{ic("libro")}</span><div>
+<h2>Libro «Esame B1 cittadinanza» in arrivo: avvisami</h2>
+<p class="small" style="margin:4px 0 0">Stiamo preparando un libro per esercitarsi all'esame B1 per la cittadinanza. Non è ancora uscito e non c'è ancora una data:
+se vuoi saperlo, lascia la tua email. Ti scriviamo una sola email quando esce.</p></div></div>
+<form class="form avvisami" name="avvisami" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field">
+<input type="hidden" name="form-name" value="avvisami">
+<input type="hidden" name="fonte" value="libro">
+<input type="hidden" name="source" value="">
+<p class="hp"><label>Non compilare <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+<label>La tua email<input type="email" name="email" required autocomplete="email" placeholder="nome@esempio.it"></label>
+<label class="check"><input type="checkbox" name="consenso" value="si" required>
+<span>Accetto di ricevere da {NOME} una sola email quando esce il libro. Ho letto la <a href="/privacy.html">privacy</a>.</span></label>
+<button class="btn" type="submit">{ic("libro")}Avvisami quando esce</button>
+<p class="errore" data-errore hidden>Non è stato possibile inviare. Riprova tra poco.</p>
+</form>
+<div class="ok" data-ok hidden>{ic("ok")}<span><strong>Fatto!</strong> Ti scriveremo una sola volta, quando il libro esce.</span></div>
 </section>"""
 
 
@@ -1220,7 +1246,8 @@ dei 4 enti principali: le date sono uguali in tutta Italia, ci si iscrive presso
 {faq_html}
 <p class="small">Per chiedere la cittadinanza italiana per residenza o matrimonio serve un certificato di italiano di livello B1.
 Qui trovi in un solo posto le date, le scadenze e le sedi dei 4 enti principali: CILS, CELI, PLIDA e CERT.IT.</p>
-</section>"""
+</section>
+{riquadro_libro()}"""
     p = prossime[0]  # main() si ferma se non ci sono sessioni future
     titolo = titolo_pagina(f"Esame B1 cittadinanza {anni(prossime)}: prossima data {giorno_mese(p['data'])}",
                            f"Esame B1 cittadinanza: prossima data {giorno_mese(p['data'])}")
@@ -1723,6 +1750,7 @@ per CERT.IT l'orale si fa in presenza. A Roma Tre lo scritto del CERT.IT B1 si f
 <a href="../risultati/">Quando arrivano i risultati</a>.</p>
 <h2 id="domande">{ic("info")}Domande frequenti</h2>
 {"".join(domanda(q, a) for q, a in faq)}
+{riquadro_libro()}
 {modulo()}"""
     pagina("come-funziona/index.html", titolo_pagina("Esame B1 cittadinanza: come funziona, quanto dura, cosa portare"),
            descrizione_pagina(f"Le 4 prove dell'esame B1 per la cittadinanza (ascolto, lettura, scrittura, orale di 10-15 minuti), i {len(enti)} enti "
@@ -2361,7 +2389,8 @@ Scegli l'ente: per ognuno trovi i link ai file ufficiali (per CERT.IT la pagina 
 <section>
 <h2>{ic("info")}Altre domande</h2>
 {link_guide("../", salta="esempi/", dopo_b1=False)}
-</section>"""
+</section>
+{riquadro_libro()}"""
     pagina("esempi/index.html",
            titolo_pagina("Esempi esame B1 cittadinanza: prove ufficiali PDF e audio, 4 enti"),
            descrizione_pagina("Prove d'esempio ufficiali e gratuite dell'esame B1 per la cittadinanza (CILS, CELI 2 i, PLIDA, CERT.IT) con PDF, audio e "
@@ -3985,6 +4014,7 @@ def privacy():
     corpo = f"""<section class="hero">{briciole(("EsameB1", "./"), ("Privacy", None))}<h1>Informativa privacy</h1><p class="small">Ultimo aggiornamento: novembre 2026</p></section>
 <h2>Chi tratta i dati</h2><p>Titolare del trattamento è Massimiliano Cori (Italia), che gestisce {NOME} come progetto indipendente. Puoi scriverci rispondendo a qualsiasi email che ti mandiamo.</p>
 <h2>Quali dati raccogliamo</h2><p>Solo se compili il modulo "Avvisami": la tua email, la città e l'ente che scegli, e la pagina o il link da cui arrivi (per capire quali canali funzionano).</p>
+<p>Se lasci l'email nel riquadro «Libro in arrivo»: solo l'email e la pagina da cui arrivi, che usiamo con il tuo consenso per scriverti una sola email quando esce il libro; dopo quell'email la cancelliamo, se non sei iscritto anche agli avvisi sulle date.</p>
 <p>Se usi il modulo "Segnala un errore": il testo che scrivi, la pagina e il link che indichi e, solo se la lasci, la tua email. Li usiamo solo per controllare e correggere il dato segnalato e, se lasci l'email, per risponderti; la base giuridica è il nostro legittimo interesse a correggere gli errori del sito (art. 6.1.f GDPR). Non ti iscriviamo agli avvisi e cancelliamo la segnalazione quando l'abbiamo gestita.</p>
 <h2>Perché</h2><p>Per mandarti avvisi sulle date e sulle scadenze dell'esame B1. La base giuridica è il tuo consenso (art. 6.1.a GDPR), che puoi ritirare quando vuoi.</p>
 <h2>Chi li gestisce per noi</h2><p>Il sito e il modulo sono ospitati da Netlify, Inc., che conserva i dati del modulo per nostro conto. Netlify può trattare i dati fuori dall'UE con le garanzie previste dal GDPR (clausole contrattuali standard). Non vendiamo né cediamo i tuoi dati.</p>

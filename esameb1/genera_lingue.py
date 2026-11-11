@@ -566,6 +566,7 @@ def modulo(G, lg, rel_root):
 <p class="small" style="margin:4px 0 0">{testi[1]}</p></div></div>
 <form class="form avvisami" name="avvisami" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field">
 <input type="hidden" name="form-name" value="avvisami">
+<input type="hidden" name="fonte" value="date">
 <input type="hidden" name="source" value="">
 <p class="hp"><label>{testi[2]} <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
 <label>{testi[3]}<input type="email" name="email" required autocomplete="email" placeholder="nome@esempio.it"></label>
