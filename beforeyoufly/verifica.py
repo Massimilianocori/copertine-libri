@@ -131,8 +131,9 @@ Uso (dalla radice del repository, dopo python3 beforeyoufly/genera.py):
     prova registrata nei domini previsti; pagine = compagnie lette + indice + pagina Eurostar; prima frase = fonte, data e risposta;
     citazioni, traduzioni, link e date nella pagina; nessun numero nelle frasi nostre (riassunti, risposta, nota, FAQ, traduzioni) che non
     stia in una citazione della stessa compagnia; tabella Eurostar nella pagina = dati; FAQ da ricerche vere (JSON-LD = testo visibile,
-    traduzione dichiarata); titoli <= 70 con l'anno; sitemap con lastmod della lettura; nessun link di affiliazione né nomi di rivenditori
-    o depositi bagagli; link da home, About, 404, pagina EES, indice del bagaglio a mano, e nessun link nelle pagine già revisionate
+    traduzione dichiarata); titoli <= 70 con l'anno; sitemap con lastmod della lettura; nessun link di affiliazione (tranne, dall'11/11/2026,
+    il solo link Italo di Awin nella pagina di Italo: awinmid 9685, awinaffid 3145171, ued italotreno.com/en, sponsored, trasparenza, dopo le
+    citazioni) né nomi di rivenditori o depositi bagagli; link da home, About, 404, pagina EES, indice del bagaglio a mano, e nessun link nelle pagine già revisionate
     (trasporto pubblico, patente straniera). Nel browser (punto 7) indice, 3 compagnie e la pagina Eurostar a 375 px chiaro/scuro, indice
     e pagina Eurostar a 820 px.
 26. "Pets: from the UK to the EU" (dati/animali.json da raccolta/animali.py, 31/10/2026): fonti solo GOV.UK e Commissione europea, HTTP 200
@@ -206,7 +207,7 @@ from html import escape
 from html.parser import HTMLParser
 from datetime import date, datetime, timedelta
 from pathlib import Path
-from urllib.parse import urlparse
+from urllib.parse import parse_qs, urlparse
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import genera as G  # noqa: E402
@@ -3889,6 +3890,31 @@ FONTI_UFFICIALI_TB = re.compile(r"^https://(?:www\.eurostar\.com|help\.eurostar\
 # Pagine provate per le compagnie non lette
 FONTI_NON_LETTE_TB = re.compile(r"^https://(?:iryo\.eu|trenitalia\.fr|www\.sbb\.ch|www\.lner\.co\.uk)/")
 # Nessun link di affiliazione nella sezione (nessun programma attivo pertinente): nemmeno nomi di rivenditori di biglietti o servizi bagagli
+ITALO_TB_ATTESO = {"awinmid": "9685", "awinaffid": "3145171", "ued": "https://www.italotreno.com/en"}
+
+
+def controlla_italo_tb(rel, t):
+    """Riquadro Italo (Awin, dall'11/11/2026) nella sola pagina di Italo: un solo link di affiliazione, awin1.com con awinmid 9685,
+    awinaffid 3145171 e ued verso italotreno.com/en, rel="sponsored noopener", target="_blank", etichetta "Affiliate" e riga di
+    trasparenza nel riquadro, riquadro dopo le citazioni ufficiali (id="official")."""
+    err = []
+    voci = G.MON.link_affiliati(t)
+    if len(voci) != 1:
+        return [f"{rel}: attesi 1 link di affiliazione (Italo), trovati {len(voci)}"]
+    href, host, r = voci[0]
+    q = {k: v[0] for k, v in parse_qs(urlparse(href).query).items()}
+    if host != "www.awin1.com" or q != ITALO_TB_ATTESO or href != G.ITALO_TB:
+        err.append(f"{rel}: link Italo diverso da quello atteso ({ITALO_TB_ATTESO}): {href}")
+    if not {"sponsored", "noopener"} <= r:
+        err.append(f"{rel}: link Italo senza rel=\"sponsored noopener\"")
+    m = re.search(r'<h2 id="book-italo">.*?</section>', t, re.S)
+    if not m or 'target="_blank"' not in m.group(0) or "Affiliate" not in m.group(0) or G.MON.RIGA_EN not in m.group(0):
+        err.append(f"{rel}: riquadro Italo senza target=\"_blank\", etichetta Affiliate o riga di trasparenza")
+    elif t.find('id="official"') < 0 or m.start() < t.find('id="official"'):
+        err.append(f"{rel}: riquadro Italo prima delle citazioni ufficiali")
+    return err
+
+
 VIETATI_TB = re.compile(r"\bwise\b|prf\.hn|partnerize|trainline|omio|rail ?europe|getyourguide|tiqets|klook|viator|discovercars|"
                         r"radical ?storage|stasher|luggage ?buddy|sherpr|send ?my ?bag|zyppy|bagaglio facile", re.I)
 
@@ -3970,7 +3996,9 @@ def controlla_treni_bagagli():
             conti["faq"] += 1
             if f"<h3>{escape(qd)}</h3><p>{escape(a)}</p>" not in t:
                 errori.append(f"{rel}: FAQ visibile diversa dal JSON-LD: {qd}")
-        if G.MON.link_affiliati(t) or 'rel="sponsored' in t:
+        if rel == G.url_tb(G.TB_PER["italo"]) + "index.html" and G.ITALO_TB:
+            errori.extend(controlla_italo_tb(rel, t))
+        elif G.MON.link_affiliati(t) or 'rel="sponsored' in t:
             errori.append(f"{rel}: link di affiliazione nella sezione")
         mm = VIETATI_TB.search(vis) or VIETATE_SRV.search(vis) or AGGIRARE.search(vis)
         if mm:
@@ -5736,7 +5764,7 @@ def main():
           f"{c25['pagine']} pagine, {c25['fonti']} fonti ufficiali (HTTP 200, domini ammessi; citazioni parola per parola, {c25['stazioni']} righe "
           f"della tabella Eurostar e impronte ricalcolate dalla copia salvata: {c25['cache']}), {c25['citazioni']} citazioni nelle pagine, numeri "
           f"solo dalle fonti, {c25['faq']} risposte FAQ da ricerche vere (JSON-LD = testo visibile), titoli <= {G.LIMITE_TITOLO_TB} con l'anno, "
-          f"sitemap con lastmod della lettura, nessun link di affiliazione, {c25['link']} link in entrata: {len(e25)} errori")
+          f"sitemap con lastmod della lettura, nessun link di affiliazione (solo Italo/Awin nella pagina Italo), {c25['link']} link in entrata: {len(e25)} errori")
     e26, c26 = controlla_animali()
     print(f"26. Pets UK to EU: {c26['fonti']} fonti ufficiali (GOV.UK e Commissione, HTTP 200; frasi, impronte, tabelle delle rotte e link per Paese ricalcolati "
           f"dalla copia salvata: {c26['cache']}), {c26['pagine']} pagine (indice, calcolatore, passaporto 2027, rotte, {c26['paesi']} Paesi con ricerche vere), "

@@ -35,6 +35,13 @@
   "liquidi_nota": "Dal 5/11/2026 anche nel riquadro 'Hire a car at <aeroporto>' delle pagine liquidi degli aeroporti di vacanza qui sotto (box_noleggio_liq in genera.py, dopo la regola ufficiale e le eccezioni; verifica.py, punto 30). Stesso link generale: DiscoverCars non documenta un parametro pubblico di destinazione (i link profondi si fanno solo con il generatore di landing page del pannello affiliati), quindi niente pagine per aeroporto. Mai sugli aeroporti di partenza del Regno Unito, dell'Irlanda, degli USA e del Canada (area 'UK and Ireland' e regole nazionali) né sugli scali di transito (Istanbul, Dubai, Doha, Hong Kong).",
   "liquidi": ["rome-fiumicino", "milan-linate", "milan-malpensa", "lisbon", "porto", "faro", "madeira", "madrid", "barcelona", "malaga", "palma-de-mallorca", "alicante", "athens", "malta", "tenerife-south", "lanzarote", "gran-canaria", "ibiza", "fuerteventura", "menorca", "valencia", "seville", "reus", "murcia", "almeria", "la-palma", "bilbao", "girona", "tenerife-north", "santiago-de-compostela", "jerez", "granada", "thessaloniki", "corfu", "chania", "kefalonia", "zakynthos", "rhodes", "kos", "mykonos", "santorini", "preveza-aktion", "kavala", "mytilene", "samos", "skiathos", "milan-bergamo", "bologna", "dubrovnik", "zadar", "keflavik", "antalya"]
  },
+ "_italo_treni": {
+  "url": "https://www.awin1.com/cread.php?awinmid=9685&awinaffid=3145171&ued=https%3A%2F%2Fwww.italotreno.com%2Fen",
+  "nome": "Italo",
+  "nota": "Italo Treno IT tramite Awin: publisher 3145171, inserzionista awinmid 9685, approvato l'11/11/2026. Usato SOLO nel riquadro 'Booking an Italo train?' della pagina train-luggage-rules/italo/ (box_italo_tb in genera.py, dopo le citazioni ufficiali); nessun'altra pagina della sezione bagagli sui treni ha link di affiliazione (verifica.py, punto 25). Controllato con curl l'11/11/2026: 302 diretto verso https://www.italotreno.com/en con aw_affid=3145171 e awc; senza ued Awin manda alla home italiana passando dal contatore DoubleClick di Italo.",
+  "attivo_dal": "2026-11-11",
+  "nota_spegnimento": "Per spegnerlo: url vuoto e rigenerare (python3 beforeyoufly/genera.py)."
+ },
  "_safetywing_india": {
   "url": "https://safetywing.com/nomad-insurance?referenceID=26614957&campaign=india-e-visa&utm_campaign=india-e-visa&utm_source=26614957&utm_medium=Ambassador",
   "nome": "SafetyWing",

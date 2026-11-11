@@ -72,7 +72,7 @@ ADSENSE_HEAD = MON.script_adsense(SITO_ID)  # "" con AdSense spento; altrimenti 
 def ci_sono_affiliati():
     """True se il sito pubblica almeno un link di affiliazione (voce con "url" in dati/affiliati.json e il riquadro noleggio NOLEGGIO_AUTO):
     accende la sezione privacy sui link di affiliazione. Domini ammessi in monetizzazione.json, controlli in verifica.py."""
-    return any(isinstance(v, dict) and v.get("url") for k, v in AFFILIATI.items() if not k.startswith("_")) or bool(NOLEGGIO_AUTO) or bool(STAY22_BIG) or bool(SW_IN)
+    return any(isinstance(v, dict) and v.get("url") for k, v in AFFILIATI.items() if not k.startswith("_")) or bool(NOLEGGIO_AUTO) or bool(STAY22_BIG) or bool(SW_IN) or bool(ITALO_TB)
 
 
 def riquadro_trasparenza(corpo, lingua="en"):
@@ -6281,7 +6281,8 @@ def home_tr():
 # Fatti scritti a mano in dati/treni_bagagli_manuali.json, fonti rilette da raccolta/treni_bagagli.py (HTTP 200, data, impronta) che scrive
 # dati/treni_bagagli.json. Una pagina solo per le compagnie con la regola letta da una pagina ufficiale attuale; le altre restano
 # nell'indice come "Not read" con il motivo, senza dati. Pagina a parte: orari di arrivo Eurostar per stazione (tabella ufficiale) con l'EES.
-# Nessun riquadro di affiliazione (nessun programma attivo pertinente in affiliati.json al 31/10/2026); AdSense sì (spazio {AD}).
+# Nessun riquadro di affiliazione (nessun programma attivo pertinente in affiliati.json al 31/10/2026), tranne dall'11/11/2026 il riquadro
+# Italo (Awin, voce _italo_treni) nella sola pagina di Italo (box_italo_tb); AdSense sì (spazio {AD}).
 TB_BASE = "train-luggage-rules"
 TB_ES = "eurostar-check-in-times"
 _f_tb = DATI / "treni_bagagli.json"
@@ -6401,6 +6402,23 @@ def link_es_tb(rel):
             f'with the EES border checks</a></span></p>')
 
 
+ITALO_TB = ((AFFILIATI.get("_italo_treni") or {}).get("url") or "").strip()
+
+
+def box_italo_tb(c):
+    """Riquadro "Booking an Italo train?" (Italo tramite Awin, link di affiliazione) SOLO nella pagina di Italo, dopo le citazioni
+    ufficiali: '' per le altre compagnie o con l'URL vuoto in dati/affiliati.json (_italo_treni)."""
+    if c["id"] != "italo" or not ITALO_TB:
+        return ""
+    return (f'<h2 id="book-italo">Booking an Italo train? <span class="aff-tag">Affiliate</span></h2>'
+            f'<section class="card noleggio" aria-label="Italo trains, affiliate link" data-italo>'
+            '<p>Italo sells its tickets on its own website, where you can check timetables and fares. The luggage rules on this page are '
+            'the ones quoted from Italo’s luggage page: check them again when you book.</p>'
+            f'<p class="noleggio-btn"><a class="btn" href="{escape(ITALO_TB)}" rel="sponsored noopener" target="_blank">{ico("calendar")}'
+            'See Italo timetables and fares</a></p>'
+            f'{MON.nota_trasparenza("en")}</section>')
+
+
 def pagina_tb(c):
     rel = "../../"
     temi = "".join(f'<h3>{escape(t)}</h3>{blocco_cit_tb([x for x in c["citazioni"] if x["tema"] == k])}'
@@ -6426,7 +6444,7 @@ def pagina_tb(c):
 <h2>At a glance</h2>
 <div class="tab tab-g"><table><caption class="cap">{escape(c["nome"])} luggage: our summary of the official pages, checked on {data_lunga(data_tb(c))}</caption><tbody>{sguardo}</tbody></table></div>
 <h2 id="official">What the official pages say</h2>
-{temi}
+{temi}{box_italo_tb(c)}
 {AD}
 {link_es_tb(rel) if c["id"] == "eurostar" else ""}
 <p class="altri-pass">{ico("bag")}<span>Flying instead? <a href="{rel}{BAG_BASE}/">Cabin bag size by airline</a> · <a href="{rel}liquids/">liquids rules by airport</a></span></p>
