@@ -184,6 +184,7 @@ h3{font-size:1.08rem;margin:24px 0 10px;font-weight:720}
 .aff .btn .i{width:16px;height:16px}
 .aff .nota{margin:10px 0 0;font-size:.8rem;color:var(--ink-3);line-height:1.5}
 .aff .guida{margin:0 0 10px}
+.aff[hidden]{display:none}
 .fonte a{color:var(--ink-3)}
 /* filtri */
 .filtri{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 16px}
@@ -404,7 +405,13 @@ nav.menu{display:none}
     document.querySelectorAll('[data-conta]').forEach(function(el){
       var n=filtra(dati,el.dataset.conta,el.dataset.filtro||'passengers').length;
       el.textContent=n;var box=el.closest('.riq');if(box){box.classList.toggle('si',n>0);box.classList.toggle('uno',n===1);}});
-    document.querySelectorAll('[data-giorno]').forEach(function(el){var r=fin(el.dataset.giorno);el.textContent=interv(r[0],r[1]);});}
+    document.querySelectorAll('[data-giorno]').forEach(function(el){var r=fin(el.dataset.giorno);el.textContent=interv(r[0],r[1]);});
+    italo(dati);}
+  var IT_RE=new RegExp("\\bITALO\\b|\\bNTV\\b",'i'),TUTTI_RE=new RegExp("RFI|RETE FERROVIARIA|GRUPPO FS|\\bFSI?\\b|FERROVIE DELLO STATO|ATTIVIT\\S* FERROVIARI|SETTORI|CATEGORIE|GENERALE|TUTT",'i'),ALTRO_RE=new RegExp("^(Trenitalia|Trenord|Ferrovie del Sud Est|EAV)\\b");
+  function italoForse(v){if(v.settori.indexOf('trains')<0||v.stato==='revocato'||v.stato==='rimosso dal registro')return false;
+    if(IT_RE.test([v.chi||'',v.categoria||'',v.titolo||'',v.note||''].join(' ')))return true;
+    return !(ALTRO_RE.test(v.chi||'')&&!TUTTI_RE.test(v.categoria||''));}
+  function italo(dati){document.querySelectorAll('[data-italo]').forEach(function(el){el.hidden=filtra(dati,el.dataset.italo,'sector:trains').some(italoForse);});}
   var nodo=document.getElementById('dati');
   if(nodo){
     var D=JSON.parse(nodo.textContent);disegna(D.scioperi);
@@ -414,7 +421,8 @@ nav.menu{display:none}
         document.querySelectorAll('[data-reg]').forEach(function(e){e.textContent=breve(L.registro_aggiornato_al);});}
       document.querySelectorAll('[data-fonte-giu]').forEach(function(e){if(L&&L.fonte_non_raggiungibile_dal){e.textContent=(L.riserva_cgsse&&e.dataset.fonteRiserva||e.dataset.fonteGiu).replace('DATA',breve(L.fonte_non_raggiungibile_dal));e.hidden=false;}else{e.hidden=true;}});
     }).catch(function(){});}
-  }
+  }else if(document.querySelector('[data-italo]')&&window.fetch){fetch('https://raw.githubusercontent.com/Massimilianocori/copertine-libri/ccr-b7fd6b9e-n096cr/italystrikes/dati/vista.json',{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json();})
+    .then(function(L){if(L&&L.scioperi)italo(L.scioperi);}).catch(function(){});}
   document.querySelectorAll('.filtri').forEach(function(g){var bott=g.querySelectorAll('button');var bersaglio=document.getElementById(g.dataset.per);
     bott.forEach(function(b){b.addEventListener('click',function(){bott.forEach(function(x){x.setAttribute('aria-pressed','false');});
       b.setAttribute('aria-pressed','true');bersaglio.dataset.filtro=b.dataset.filtro;disegna(window.__D||JSON.parse(nodo.textContent).scioperi);});});});

@@ -867,6 +867,7 @@ h3{font-size:1.08rem;margin:24px 0 10px;font-weight:720}
 .aff .btn .i{width:16px;height:16px}
 .aff .nota{margin:10px 0 0;font-size:.8rem;color:var(--ink-3);line-height:1.5}
 .aff .guida{margin:0 0 10px}
+.aff[hidden]{display:none}
 .fonte a{color:var(--ink-3)}
 /* filtri */
 .filtri{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 16px}
@@ -960,6 +961,12 @@ nav.menu{display:none}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 """.replace("__M_INFO__", _maschera("info")).replace("__M_CHECK__", _maschera("check-circle")).replace("__M_PIN__", _maschera("pin"))
 
+# Riquadro Italo: regole per capire se uno sciopero treni può riguardare Italo (usate da italo_forse() e da italoForse() nel JS)
+ITALO_FINESTRA = "upcoming"
+ITALO_RE = r"\bITALO\b|\bNTV\b"
+TRENI_TUTTI_RE = r"RFI|RETE FERROVIARIA|GRUPPO FS|\bFSI?\b|FERROVIE DELLO STATO|ATTIVIT\S* FERROVIARI|SETTORI|CATEGORIE|GENERALE|TUTT"
+ALTRO_OPERATORE_RE = r"^(Trenitalia|Trenord|Ferrovie del Sud Est|EAV)\b"
+
 # Testi dell'elenco per giorno (home): uguali in Python (html_giorni) e nel JS (giorni); genera_it.py li sostituisce con TX_IT.
 TX_EN = {"today": "Today", "tomorrow": "Tomorrow", "none_today": "No strikes listed today",
          "none_tomorrow": "No strikes listed tomorrow", "none_week": "No other strikes listed in the next 7 days",
@@ -1047,7 +1054,13 @@ JS = r"""
     document.querySelectorAll('[data-conta]').forEach(function(el){
       var n=filtra(dati,el.dataset.conta,el.dataset.filtro||'passengers').length;
       el.textContent=n;var box=el.closest('.riq');if(box){box.classList.toggle('si',n>0);box.classList.toggle('uno',n===1);}});
-    document.querySelectorAll('[data-giorno]').forEach(function(el){var r=fin(el.dataset.giorno);el.textContent=interv(r[0],r[1]);});}
+    document.querySelectorAll('[data-giorno]').forEach(function(el){var r=fin(el.dataset.giorno);el.textContent=interv(r[0],r[1]);});
+    italo(dati);}
+  var IT_RE=new RegExp(__ITALO_RE__,'i'),TUTTI_RE=new RegExp(__TUTTI_RE__,'i'),ALTRO_RE=new RegExp(__ALTRO_RE__);
+  function italoForse(v){if(v.settori.indexOf('trains')<0||v.stato==='revocato'||v.stato==='rimosso dal registro')return false;
+    if(IT_RE.test([v.chi||'',v.categoria||'',v.titolo||'',v.note||''].join(' ')))return true;
+    return !(ALTRO_RE.test(v.chi||'')&&!TUTTI_RE.test(v.categoria||''));}
+  function italo(dati){document.querySelectorAll('[data-italo]').forEach(function(el){el.hidden=filtra(dati,el.dataset.italo,'sector:trains').some(italoForse);});}
   var nodo=document.getElementById('dati');
   if(nodo){
     var D=JSON.parse(nodo.textContent);disegna(D.scioperi);
@@ -1057,7 +1070,8 @@ JS = r"""
         document.querySelectorAll('[data-reg]').forEach(function(e){e.textContent=breve(L.registro_aggiornato_al);});}
       document.querySelectorAll('[data-fonte-giu]').forEach(function(e){if(L&&L.fonte_non_raggiungibile_dal){e.textContent=(L.riserva_cgsse&&e.dataset.fonteRiserva||e.dataset.fonteGiu).replace('DATA',breve(L.fonte_non_raggiungibile_dal));e.hidden=false;}else{e.hidden=true;}});
     }).catch(function(){});}
-  }
+  }else if(document.querySelector('[data-italo]')&&window.fetch){fetch('URL_LIVE',{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json();})
+    .then(function(L){if(L&&L.scioperi)italo(L.scioperi);}).catch(function(){});}
   document.querySelectorAll('.filtri').forEach(function(g){var bott=g.querySelectorAll('button');var bersaglio=document.getElementById(g.dataset.per);
     bott.forEach(function(b){b.addEventListener('click',function(){bott.forEach(function(x){x.setAttribute('aria-pressed','false');});
       b.setAttribute('aria-pressed','true');bersaglio.dataset.filtro=b.dataset.filtro;disegna(window.__D||JSON.parse(nodo.textContent).scioperi);});});});
@@ -1083,7 +1097,8 @@ JS = r"""
 """.replace("URL_LIVE", URL_DATI_LIVE).replace("'URL_REG'", "'" + URL_REGISTRO + "'").replace(
     "FONTE_CGSSE", FONTE_CGSSE).replace("FONTE_LIC", FONTE_CGSSE_LIC).replace(
     "__ICONE__", json.dumps({**{k: svg(n) for k, n in SETT_ICONA.items()}, "altro": svg("alert")}, ensure_ascii=False)).replace(
-    "__TX__", json.dumps(TX_EN, ensure_ascii=False)).replace("__OKI__", json.dumps(svg("check-circle")))
+    "__TX__", json.dumps(TX_EN, ensure_ascii=False)).replace("__OKI__", json.dumps(svg("check-circle"))).replace(
+    "__ITALO_RE__", json.dumps(ITALO_RE)).replace("__TUTTI_RE__", json.dumps(TRENI_TUTTI_RE)).replace("__ALTRO_RE__", json.dumps(ALTRO_OPERATORE_RE))
 
 # Il JS ridisegna con i dati più recenti; per i filtri tiene l'ultima versione in window.__D
 JS = JS.replace("disegna(L.scioperi);", "window.__D=L.scioperi;disegna(L.scioperi);")
@@ -1355,7 +1370,7 @@ AFF_STILE = {  # icona e testo del pulsante per ogni partner (i testi stanno in 
 def box_affiliati():
     """Riquadro 'Stuck by a strike?': una scheda per partner (icona, titolo, una riga, pulsante) con l'etichetta 'Affiliate'.
     Compare solo con almeno un URL in dati/affiliati.json (o con la guida PDF in vendita)."""
-    voci = [(k, v) for k, v in AFFILIATI.items() if not k.startswith("_") and v.get("url")]
+    voci = [(k, v) for k, v in AFFILIATI.items() if not k.startswith("_") and v.get("url") and not v.get("riquadro")]
     g = guida_in_vendita()
     if not voci and not g:
         return ""
@@ -1372,6 +1387,39 @@ def box_affiliati():
     nota = f'<p class="nota">{MON.RIGA_EN} It helps keep this site free.</p>' if voci else ""
     return (f'<section class="aff" aria-labelledby="aff-h"><div class="aff-t"><h2 id="aff-h">Stuck by a strike?</h2>{tag}</div>'
             f'{guida}{lista}{nota}</section>')
+
+
+# Riquadro Italo (Awin, dall'11/11/2026): solo nelle pagine sugli scioperi dei treni (/trains/ e guida dei treni garantiti).
+# Compare SOLO se nessuno sciopero treni della finestra (non revocato) può riguardare Italo: Italo nominato (chi, categoria, titolo,
+# note) oppure sciopero non limitato per certo a un'altra impresa (sciopero generale, tutto il settore ferroviario, RFI, gruppo FS).
+# Stessa regola nel JS (italoForse): con i dati dal vivo il riquadro compare o sparisce senza ripubblicare.
+# Costanti (ITALO_FINESTRA, ITALO_RE, TRENI_TUTTI_RE, ALTRO_OPERATORE_RE) definite prima del JS, che le usa.
+
+
+def italo_forse(v):
+    """True se lo sciopero può riguardare Italo (nel dubbio sì). Uguale a italoForse() nel JS."""
+    if "trains" not in v["settori"] or v["stato"] in ("revocato", "rimosso dal registro"):
+        return False
+    if re.search(ITALO_RE, " ".join([v.get("chi") or "", v.get("categoria") or "", v.get("titolo") or "", v.get("note") or ""]), re.I):
+        return True
+    return not (re.search(ALTRO_OPERATORE_RE, v.get("chi") or "") and not re.search(TRENI_TUTTI_RE, v.get("categoria") or "", re.I))
+
+
+def box_italo(sopra=True, rel="../"):
+    """Riquadro "Booking an alternative train?" con il link Italo (voce "italo" di dati/affiliati.json): '' senza URL.
+    Nascosto (attributo hidden) se uno sciopero treni della finestra può riguardare Italo; il JS lo ricalcola con i dati dal vivo."""
+    v = AFFILIATI.get("italo") or {}
+    if not v.get("url"):
+        return ""
+    nascosto = any(italo_forse(x) for x in filtra(ITALO_FINESTRA, "sector:trains"))
+    dettagli = "check the strike details above" if sopra else f'check the <a href="{rel}trains/">upcoming train strikes</a>'
+    return (f'<section class="aff aff-italo" aria-labelledby="italo-h" data-italo="{ITALO_FINESTRA}"{" hidden" if nascosto else ""}>'
+            f'<div class="aff-t"><h2 id="italo-h">{escape(v["titolo"])}</h2><span class="aff-tag">Affiliate</span></div>'
+            f'<ul><li><span class="gi" aria-hidden="true">{svg("train")}</span><div><strong>Check Italo\u2019s timetable</strong>'
+            f'<span class="tx">{escape(v["testo"])} {dettagli}.</span></div>'
+            f'<a class="btn" href="{escape(v["url"])}" rel="sponsored noopener" target="_blank">See Italo trains{svg("arrow")}'
+            f'<span class="hp"> ({escape(v["nome"])}, opens in a new tab)</span></a></li></ul>'
+            f'<p class="nota">{MON.RIGA_EN}</p></section>')
 
 
 def guida_in_vendita():
@@ -1799,6 +1847,7 @@ def pagina_settore(slug):
 {AVVISO}
 <h2 id="next">Upcoming {escape(nome.lower())} strikes</h2>
 {blocco("upcoming", "sector:" + slug)}
+{box_italo() if slug == "trains" else ""}
 {box_affiliati()}
 {AD}
 <h2>Other types of transport</h2>
@@ -1945,9 +1994,9 @@ def guide():
     rel = "../../"
     G = []
 
-    def guida(slug, titolo, descr, html):
+    def guida(slug, titolo, descr, html, dopo=""):
         G.append((slug, titolo, descr))
-        corpo = f'<section class="hero"><h1>{escape(titolo)}</h1><p class="lead">{escape(descr)}</p></section><div class="testo">{html}</div>{AD}{modulo(rel)}'
+        corpo = f'<section class="hero"><h1>{escape(titolo)}</h1><p class="lead">{escape(descr)}</p></section><div class="testo">{html}</div>{dopo}{AD}{modulo(rel)}'
         pagina(f"guides/{slug}/", titolo + f" | {NOME}", descr, corpo, briciole=[("Guides", "guides/"), (titolo, f"guides/{slug}/")])
 
     guida("how-strikes-work-in-italy", "How strikes work in Italy",
@@ -1989,7 +2038,7 @@ def guide():
 <ul><li><strong>Before the strike (Trenitalia):</strong> Trenitalia's strike notices let you give up the trip and get a refund up to the departure of the booked train for Frecce and Intercity, and only until midnight on the day before the strike for regional trains, or change to another train. Read the notice for your strike on {a_("trenitalia_garantiti", "Trenitalia's guaranteed trains page")}.</li>
 <li><strong>Trenord:</strong> refund requests within 30 days of the strike day.</li>
 <li><strong>After a cancellation or delay:</strong> see {a_("eu_rail_rights", "EU rail passenger rights")} and our page on <a href="{rel}guides/refunds-and-your-rights/">refunds and your rights</a>.</li></ul>
-<p>See <a href="{rel}trains/">upcoming train strikes</a>.</p>""")
+<p>See <a href="{rel}trains/">upcoming train strikes</a>.</p>""", dopo=box_italo(sopra=False, rel=rel))
 
     guida("flights-during-strikes", "Flights during strikes in Italy",
           "What happens to your flight during an Italian air transport strike: guaranteed time slots and guaranteed flights.", f"""

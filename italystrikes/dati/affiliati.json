@@ -26,6 +26,15 @@
     "attivo_dal": "2026-10-30",
     "nota_riattivazione": "Sospeso dal 17/10 al 30/10/2026 (siti solo informativi in attesa del codice ATECO 58.19.00); riattivato il 30/10/2026 dopo il sì alla monetizzazione del 28/10 e il codice ATECO aggiunto dal CAF. Per spegnerlo: url vuoto e rigenerare."
   },
+  "italo": {
+    "url": "https://www.awin1.com/cread.php?awinmid=9685&awinaffid=3145171&ued=https%3A%2F%2Fwww.italotreno.com%2Fen",
+    "nome": "Italo",
+    "titolo": "Booking an alternative train?",
+    "testo": "Italo is a private high-speed operator. During national rail strikes it may also be affected:",
+    "riquadro": "treni",
+    "attivo_dal": "2026-11-11",
+    "nota": "Italo Treno IT su Awin (publisher 3145171, awinmid 9685), approvato l'11/11/2026. Controllato con curl l'11/11/2026: senza ued awin1.com risponde 302 verso il contatore DoubleClick di Italo e poi italotreno.com/it (con aw_affid e awc); con ued https://www.italotreno.com/en risponde 302 direttamente a italotreno.com/en con aw_affid=3145171 e awc. NON va nel riquadro 'Stuck by a strike?' (campo riquadro): solo box_italo() in genera.py, su /trains/ e sulla guida dei treni garantiti, e solo quando nessuno sciopero treni in programma può riguardare Italo. Per spegnerlo: url vuoto e rigenerare."
+  },
   "ekta": {
     "url": "",
     "nome": "EKTA",

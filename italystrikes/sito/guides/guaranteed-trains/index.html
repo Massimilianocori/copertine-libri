@@ -184,6 +184,7 @@ h3{font-size:1.08rem;margin:24px 0 10px;font-weight:720}
 .aff .btn .i{width:16px;height:16px}
 .aff .nota{margin:10px 0 0;font-size:.8rem;color:var(--ink-3);line-height:1.5}
 .aff .guida{margin:0 0 10px}
+.aff[hidden]{display:none}
 .fonte a{color:var(--ink-3)}
 /* filtri */
 .filtri{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 16px}
@@ -304,7 +305,7 @@ nav.menu{display:none}
 <ul><li><strong>Before the strike (Trenitalia):</strong> Trenitalia's strike notices let you give up the trip and get a refund up to the departure of the booked train for Frecce and Intercity, and only until midnight on the day before the strike for regional trains, or change to another train. Read the notice for your strike on <a href="https://www.trenitalia.com/it/informazioni/treni-garantiti-incasodisciopero.html" rel="noopener">Trenitalia's guaranteed trains page</a>.</li>
 <li><strong>Trenord:</strong> refund requests within 30 days of the strike day.</li>
 <li><strong>After a cancellation or delay:</strong> see <a href="https://europa.eu/youreurope/citizens/travel/passenger-rights/rail/index_en.htm" rel="noopener">EU rail passenger rights</a> and our page on <a href="../../guides/refunds-and-your-rights/">refunds and your rights</a>.</li></ul>
-<p>See <a href="../../trains/">upcoming train strikes</a>.</p></div><div class="ad-slot" aria-hidden="true"></div><section class="card" id="alerts" style="margin-top:30px">
+<p>See <a href="../../trains/">upcoming train strikes</a>.</p></div><section class="aff aff-italo" aria-labelledby="italo-h" data-italo="upcoming" hidden><div class="aff-t"><h2 id="italo-h">Booking an alternative train?</h2><span class="aff-tag">Affiliate</span></div><ul><li><span class="gi" aria-hidden="true"><svg class="i" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="14" rx="3"/><path d="M5 10h14"/><path d="M9 13.5h.01M15 13.5h.01"/><path d="M8.5 21l1.5-4M15.5 21l-1.5-4"/></svg></span><div><strong>Check Italo’s timetable</strong><span class="tx">Italo is a private high-speed operator. During national rail strikes it may also be affected: check the <a href="../../trains/">upcoming train strikes</a>.</span></div><a class="btn" href="https://www.awin1.com/cread.php?awinmid=9685&amp;awinaffid=3145171&amp;ued=https%3A%2F%2Fwww.italotreno.com%2Fen" rel="sponsored noopener" target="_blank">See Italo trains<svg class="i" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span class="hp"> (Italo, opens in a new tab)</span></a></li></ul><p class="nota">Some links are affiliate links: we may earn a commission at no extra cost to you.</p></section><div class="ad-slot" aria-hidden="true"></div><section class="card" id="alerts" style="margin-top:30px">
 <h2 style="margin-top:0"><span class="gi-a"><svg class="i" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/></svg></span>Get an email if a strike hits your travel dates</h2>
 <p class="small" style="margin-top:-4px">Free, no spam. We check the official register every day and write to you only if a strike is listed for your dates and places.</p>
 <form class="form ajax" name="alerts" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field">
@@ -420,7 +421,13 @@ nav.menu{display:none}
     document.querySelectorAll('[data-conta]').forEach(function(el){
       var n=filtra(dati,el.dataset.conta,el.dataset.filtro||'passengers').length;
       el.textContent=n;var box=el.closest('.riq');if(box){box.classList.toggle('si',n>0);box.classList.toggle('uno',n===1);}});
-    document.querySelectorAll('[data-giorno]').forEach(function(el){var r=fin(el.dataset.giorno);el.textContent=interv(r[0],r[1]);});}
+    document.querySelectorAll('[data-giorno]').forEach(function(el){var r=fin(el.dataset.giorno);el.textContent=interv(r[0],r[1]);});
+    italo(dati);}
+  var IT_RE=new RegExp("\\bITALO\\b|\\bNTV\\b",'i'),TUTTI_RE=new RegExp("RFI|RETE FERROVIARIA|GRUPPO FS|\\bFSI?\\b|FERROVIE DELLO STATO|ATTIVIT\\S* FERROVIARI|SETTORI|CATEGORIE|GENERALE|TUTT",'i'),ALTRO_RE=new RegExp("^(Trenitalia|Trenord|Ferrovie del Sud Est|EAV)\\b");
+  function italoForse(v){if(v.settori.indexOf('trains')<0||v.stato==='revocato'||v.stato==='rimosso dal registro')return false;
+    if(IT_RE.test([v.chi||'',v.categoria||'',v.titolo||'',v.note||''].join(' ')))return true;
+    return !(ALTRO_RE.test(v.chi||'')&&!TUTTI_RE.test(v.categoria||''));}
+  function italo(dati){document.querySelectorAll('[data-italo]').forEach(function(el){el.hidden=filtra(dati,el.dataset.italo,'sector:trains').some(italoForse);});}
   var nodo=document.getElementById('dati');
   if(nodo){
     var D=JSON.parse(nodo.textContent);disegna(D.scioperi);
@@ -430,7 +437,8 @@ nav.menu{display:none}
         document.querySelectorAll('[data-reg]').forEach(function(e){e.textContent=breve(L.registro_aggiornato_al);});}
       document.querySelectorAll('[data-fonte-giu]').forEach(function(e){if(L&&L.fonte_non_raggiungibile_dal){e.textContent=(L.riserva_cgsse&&e.dataset.fonteRiserva||e.dataset.fonteGiu).replace('DATA',breve(L.fonte_non_raggiungibile_dal));e.hidden=false;}else{e.hidden=true;}});
     }).catch(function(){});}
-  }
+  }else if(document.querySelector('[data-italo]')&&window.fetch){fetch('https://raw.githubusercontent.com/Massimilianocori/copertine-libri/ccr-b7fd6b9e-n096cr/italystrikes/dati/vista.json',{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json();})
+    .then(function(L){if(L&&L.scioperi)italo(L.scioperi);}).catch(function(){});}
   document.querySelectorAll('.filtri').forEach(function(g){var bott=g.querySelectorAll('button');var bersaglio=document.getElementById(g.dataset.per);
     bott.forEach(function(b){b.addEventListener('click',function(){bott.forEach(function(x){x.setAttribute('aria-pressed','false');});
       b.setAttribute('aria-pressed','true');bersaglio.dataset.filtro=b.dataset.filtro;disegna(window.__D||JSON.parse(nodo.textContent).scioperi);});});});
