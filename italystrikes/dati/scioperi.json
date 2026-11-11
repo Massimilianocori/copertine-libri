@@ -792,10 +792,23 @@
   "proclamazione": "2026-10-16",
   "ricezione": "16/10/2026",
   "note": "",
-  "stato": "in programma",
+  "stato": "revocato",
   "visto_prima": "2026-10-16",
   "visto_ultimo": "2026-10-23",
-  "modifiche": []
+  "modifiche": [
+   {
+    "il": "2026-11-11",
+    "campi": {
+     "stato": [
+      "in programma",
+      "revocato"
+     ]
+    },
+    "fonte": "cgsse",
+    "url": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/382183"
+   }
+  ],
+  "revoca_cgsse": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/382183"
  },
  "cgsse-382399": {
   "id": "cgsse-382399",
@@ -811,7 +824,7 @@
   "proclamazione": "",
   "ricezione": "",
   "note": "",
-  "stato": "in programma",
+  "stato": "concluso",
   "visto_prima": "2026-10-27",
   "visto_ultimo": "2026-11-10",
   "modifiche": [],
@@ -834,7 +847,7 @@
   "proclamazione": "",
   "ricezione": "",
   "note": "",
-  "stato": "in programma",
+  "stato": "concluso",
   "visto_prima": "2026-11-10",
   "visto_ultimo": "2026-11-10",
   "modifiche": [],
@@ -894,11 +907,25 @@
   "modalita": "INTERA GIORNATA",
   "proclamazione": "",
   "ricezione": "",
-  "note": "",
-  "stato": "in programma",
+  "note": "REVOCATO (CGSSE)",
+  "stato": "revocato",
   "visto_prima": "2026-11-03",
-  "visto_ultimo": "2026-11-10",
-  "modifiche": [],
+  "visto_ultimo": "2026-11-11",
+  "modifiche": [
+   {
+    "il": "2026-11-11",
+    "campi": {
+     "note": [
+      "",
+      "REVOCATO (CGSSE)"
+     ],
+     "stato": [
+      "in programma",
+      "revocato"
+     ]
+    }
+   }
+  ],
   "fonte": "cgsse",
   "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/382842",
   "settore_cgsse": "Appalti ferroviari",
@@ -958,7 +985,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-11-06",
-  "visto_ultimo": "2026-11-10",
+  "visto_ultimo": "2026-11-11",
   "modifiche": [],
   "fonte": "cgsse",
   "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/382962",
@@ -1011,7 +1038,7 @@
   "rilevanza": "Nazionale",
   "regione": "Italia",
   "provincia": "Tutte",
-  "sindacati": "CLAP/CONFEDERAZIONE COBAS/SIAL COBAS",
+  "sindacati": "CLAP/CONFEDERAZIONE COBAS/SIAL COBAS (ADERENTE: ADL VARESE/CUB)",
   "categoria": "TUTTI I SETTORI PUBBLICI E PRIVATI",
   "modalita": "INTERA GIORNATA AD ESLUSIONE DEL TRASPORTO FERROVIARIO, TRASPORTO MERCI SU ROTAIA.PER LA SANITÀ LO SCIOPERO È ARTICOLATO DALL'INIZIO DEL PRIMO TURNO DEL 20/11 ALLA FINE DELL'ULTIMO",
   "proclamazione": "",
@@ -1019,8 +1046,18 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-11-06",
-  "visto_ultimo": "2026-11-10",
-  "modifiche": [],
+  "visto_ultimo": "2026-11-11",
+  "modifiche": [
+   {
+    "il": "2026-11-11",
+    "campi": {
+     "sindacati": [
+      "CLAP/CONFEDERAZIONE COBAS/SIAL COBAS",
+      "CLAP/CONFEDERAZIONE COBAS/SIAL COBAS (ADERENTE: ADL VARESE/CUB)"
+     ]
+    }
+   }
+  ],
   "fonte": "cgsse",
   "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/382981",
   "settore_cgsse": "Generale nazionale",
@@ -1042,7 +1079,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-11-07",
-  "visto_ultimo": "2026-11-10",
+  "visto_ultimo": "2026-11-11",
   "modifiche": [],
   "fonte": "cgsse",
   "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/383015",
@@ -1065,7 +1102,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-11-10",
-  "visto_ultimo": "2026-11-10",
+  "visto_ultimo": "2026-11-11",
   "modifiche": [],
   "fonte": "cgsse",
   "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/383057",
@@ -1120,7 +1157,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-29",
-  "visto_ultimo": "2026-11-10",
+  "visto_ultimo": "2026-11-11",
   "modifiche": [
    {
     "il": "2026-11-05",
@@ -1191,7 +1228,7 @@
   "note": "REVOCATO (CGSSE)",
   "stato": "revocato",
   "visto_prima": "2026-11-03",
-  "visto_ultimo": "2026-11-10",
+  "visto_ultimo": "2026-11-11",
   "modifiche": [
    {
     "il": "2026-11-10",
@@ -1257,7 +1294,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-11-04",
-  "visto_ultimo": "2026-11-10",
+  "visto_ultimo": "2026-11-11",
   "modifiche": [],
   "fonte": "cgsse",
   "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/382773",
