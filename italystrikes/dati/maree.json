@@ -1,13 +1,8 @@
 {
- "letto_il": "2026-11-11 13:45",
- "emessa": "2026-11-11 13:30",
+ "letto_il": "2026-11-11 23:01",
+ "emessa": "2026-11-11 22:30",
  "fonte": "https://dati.venezia.it/sites/default/files/dataset/opendata/previsione.json",
  "estremali": [
-  {
-   "t": "2026-11-11 17:45",
-   "tipo": "min",
-   "cm": 5
-  },
   {
    "t": "2026-11-12 00:30",
    "tipo": "max",
