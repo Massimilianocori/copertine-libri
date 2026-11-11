@@ -41,7 +41,7 @@ USCITA = RADICE / "dati" / "trasferimenti.json"
 ANNI = [str(a) for a in range(2019, 2026)]  # serie mostrata nelle pagine (2019-2025)
 
 # Cittadinanze coperte: codice Eurostat -> (nome nel file IRCC, nome nel file del Home Office).
-# Le 12 della richiesta del 28/10/2026 (comprendono le 8 indicate dal rapporto di ricerca dello stesso giorno).
+# Le 12 della richiesta del 28/10/2026 (comprendono le 8 indicate dal rapporto di ricerca dello stesso giorno) e 10 aggiunte l'11/11/2026.
 CITTADINANZE = {
     "US": ("United States of America", "United States"),
     "UK": ("United Kingdom and Overseas Territories", None),          # destinazione Regno Unito: non ha senso
@@ -55,6 +55,17 @@ CITTADINANZE = {
     "BR": ("Brazil", "Brazil"),
     "ZA": ("South Africa, Republic of", "South Africa"),
     "NZ": ("New Zealand", "New Zealand"),
+    # aggiunte dell'11/11/2026 (sezione in crescita; ricerche "how many <nazionalità> in <Paese>" lette con l'autocompletamento gl=us)
+    "BD": ("Bangladesh", "Bangladesh"),
+    "MA": ("Morocco", "Morocco"),
+    "TR": ("Turkey", "Turkey"),
+    "CO": ("Colombia", "Colombia"),
+    "EG": ("Egypt", "Egypt"),
+    "NP": ("Nepal", "Nepal"),
+    "LK": ("Sri Lanka", "Sri Lanka"),
+    "GH": ("Ghana", "Ghana"),
+    "KE": ("Kenya", "Kenya"),
+    "VN": ("Vietnam", "Vietnam"),
 }
 
 # ---------------------------------------------------------------- 1. Eurostat

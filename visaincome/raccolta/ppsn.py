@@ -44,6 +44,9 @@ NAZIONALITA = {
     "US": "United States of America (the)", "UK": "United Kingdom of Great Britain and Northern Ireland", "CA": "Canada",
     "AU": "Australia", "IN": "India", "PK": "Pakistan", "NG": "Nigeria", "PH": "Philippines (the)", "CN": "China",
     "BR": "Brazil", "ZA": "South Africa", "NZ": "New Zealand",
+    # 11/11/2026
+    "BD": "Bangladesh", "MA": "Morocco", "TR": "Turkiye", "EG": "Egypt", "NP": "Nepal", "LK": "Sri Lanka",
+    "GH": "Ghana", "KE": "Kenya",   # Colombia e Viet Nam: mesi non pubblicati (valori piccoli), lasciati fuori
 }
 # frasi della pagina del servizio PPS su gov.ie su cui si basano le pagine (controllate a ogni lancio)
 FRASI_SERVIZIO = ["helps you access social welfare benefits, public services and information in Ireland",

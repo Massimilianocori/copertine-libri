@@ -3833,6 +3833,17 @@ NAZ_TR = {
     "BR": ("brazilians", "Brazilians", "Brazilian citizens", "Brazil", None, "Brazilians"),
     "ZA": ("south-africans", "South Africans", "South African citizens", "South Africa", "SOUTH AFRICA", "South Africans"),
     "NZ": ("new-zealanders", "New Zealanders", "New Zealand citizens", "New Zealand", None, "New Zealanders"),
+    # 11/11/2026: dieci nazionalità in più (sezione in crescita; ricerche "how many <nazionalità> in <Paese>", autocompletamento gl=us)
+    "BD": ("bangladeshis", "Bangladeshis", "Bangladeshi citizens", "Bangladesh", "BANGLADESH", "Bangladeshis"),
+    "MA": ("moroccans", "Moroccans", "Moroccan citizens", "Morocco", "MOROCCO", "Moroccans"),
+    "TR": ("turkish", "Turkish citizens", "Turkish citizens", "Türkiye", "TÜRKIYE", "Turkish people"),
+    "CO": ("colombians", "Colombians", "Colombian citizens", "Colombia", None, "Colombians"),
+    "EG": ("egyptians", "Egyptians", "Egyptian citizens", "Egypt", "EGYPT", "Egyptians"),
+    "NP": ("nepalis", "Nepalis", "Nepali citizens", "Nepal", None, "Nepalese"),
+    "LK": ("sri-lankans", "Sri Lankans", "Sri Lankan citizens", "Sri Lanka", "SRI LANKA", "Sri Lankans"),
+    "GH": ("ghanaians", "Ghanaians", "Ghanaian citizens", "Ghana", "GHANA", "Ghanaians"),
+    "KE": ("kenyans", "Kenyans", "Kenyan citizens", "Kenya", "KENYA", "Kenyans"),
+    "VN": ("vietnamese", "Vietnamese citizens", "Vietnamese citizens", "Vietnam", "VIETNAM", "Vietnamese people"),
 }
 # nomi Eurostat -> nomi usati per bandiere e pagine Schengen (file della Commissione)
 _GEO_SITO = {"Czechia": "Czech Republic"}
@@ -4321,7 +4332,7 @@ def pagina_tr_uk(c, d="uk"):
 <h2>Questions people ask</h2>
 <div class="testo">{faq_html(domande)}</div>
 <h2>Visas and statistics for the UK on this site</h2>
-{lista_link(link_sito_dest(d, rel) + ([(f"{rel}{SEZ}{SLUG_RIF[nk]}/#uk", f"UK visa refusal rate for nationals of {art(nome_paese(nk))}")] if nk and nk in SLUG_RIF and ha_uk(nk) else []))}
+{lista_link(link_sito_dest(d, rel) + ([(f"{rel}{SEZ}{SLUG_RIF[nk]}/#uk", f"UK visa refusal rate for nationals of {art(nome_paese(nk))}")] if nk and nk in SLUG_RIF and ha_uk(nk) else []) + link_selt_naz(c, rel))}
 <h2>Where else {escape(X)} moved in {Y1}</h2><div class="griglia">{"".join(scheda_coppia(c, x, "../../") for x in [y for y in COPPIE_TR[c] if y != d][:8])}</div>
 <p><a href="../">How many {escape(X)} moved abroad in {Y1}</a> · <a href="../../">Who moved where: all nationalities</a> · <a href="{rel}">Visa income calculator</a></p>"""
     ld = ld_dataset(f"UK work, study and family visas granted to {cit}, {ANNI_TR[0]}-{Y1}", "Home Office entry clearance visas granted by nationality and year of decision.",
@@ -4688,7 +4699,7 @@ def pagina_tr_indice():
 <li><a href="{escape(F_PPS["pagina"]["url"])}" rel="noopener">Department of Social Protection, {escape(F_PPS["pagina"]["titolo"])}</a> – page updated on {data_lunga(F_PPS["pagina"]["aggiornata"])}, data to {mese_testo(PPS_ULTIMO)}; licence <a href="{escape(F_PPS["scheda"]["licenza_url"])}" rel="license noopener">{escape(F_PPS["scheda"]["licenza"])}</a> (<a href="{escape(F_PPS["scheda"]["url"])}" rel="noopener">data.gov.ie</a>).</li></ul>
 <p><a href="{rel}{SEZ}">Visa refusal rates</a> · <a href="{rel}digital-nomad-visa-income-requirements/">Digital nomad visa income requirements</a> · <a href="{rel}">Visa income calculator</a></p>"""
     ld = ld_dataset(f"First residence permits, new permanent residents and visas granted by nationality, {ANNI_TR[0]}-{Y1}",
-                    "Eurostat first residence permits (EU and EFTA), IRCC new permanent residents of Canada and Home Office visas granted, for 12 nationalities.",
+                    f"Eurostat first residence permits (EU and EFTA), IRCC new permanent residents of Canada and Home Office visas granted, for {len(NAZ_TR)} nationalities.",
                     SEZ_TR, [F_ES["pagina"], F_PR["url"], F_UKV["url"]], f"{ANNI_TR[0]}/{Y1}", "https://creativecommons.org/licenses/by/4.0/")
     pagina(SEZ_TR, f"Who moved where in {Y1}: Europe, Canada and the UK by nationality",
            f"How many Americans, British people, Indians and 9 more nationalities moved to Europe, Canada and the UK in {Y1}: "
@@ -4771,6 +4782,9 @@ def link_tr_naz(p, rel):
     """Dalle pagine dei visti rifiutati di India, Pakistan, Nigeria, Filippine, Cina e Sudafrica alla pagina 'How many ... moved to Europe'."""
     c = next((k for k, v in NAZ_TR.items() if v[4] == p), None)
     if not c:
+        return ""
+    # nazionalità aggiunte l'11/11/2026: niente riga nuova sulle pagine dell'esperimento A/B (trattate e di controllo restano come prima)
+    if c not in ("US", "UK", "CA", "AU", "IN", "PK", "NG", "PH", "CN", "BR", "ZA", "NZ") and SLUG_RIF.get(p) in set(ESP.get("trattate", [])) | set(ESP.get("controllo", [])):
         return ""
     return (f'<p class="small">{ico("globe")} How many {escape(NAZ_TR[c][1])} moved abroad? <a href="{rel}{SEZ_TR}{NAZ_TR[c][0]}/">'
             f'How many {escape(NAZ_TR[c][1])} moved to Europe in {Y1}</a> (first residence permits by country and reason, Eurostat).</p>')
@@ -5029,7 +5043,8 @@ def come_prenotare(estero=False):
 def link_luoghi_selt(rel_sez, escludi=None):
     c = " · ".join(f'<a href="{rel_sez}{SLUG_SELT[x]}/">{escape(x)}</a>' for x in CITTA_PAG if x != escludi)
     p = " · ".join(f'<a href="{rel_sez}{SLUG_SELT[x]}/">{escape(NOMI_PAESI_SELT.get(x, x))}</a>' for x in PAESI_PAG if x != escludi)
-    return f'<h2>Other places</h2><p><strong>UK:</strong> {c}</p><p><strong>Outside the UK:</strong> {p}</p>'
+    return (f'<h2>By level</h2><p>{link_livelli_selt(rel_sez)}</p>'
+            f'<h2>Other places</h2><p><strong>UK:</strong> {c}</p><p><strong>Outside the UK:</strong> {p}</p>')
 
 
 def fornitori_di(righe, i=0):
@@ -5159,6 +5174,7 @@ def pagina_selt_paese(p):
 {box_italki(rel)}
 <h2>Questions people ask</h2>
 <div class="testo">{faq_html(domande)}</div>
+{link_tr_selt(p, rel)}
 {link_luoghi_selt("../", p)}
 <p><a href="../">UK visa English tests: all centres and levels</a> · <a href="{rel}uk-spouse-visa/">UK spouse visa income requirement</a> · <a href="{rel}{SEZ}uk/family-visas/">UK family visa refusal rates</a></p>"""
     titolo = titolo_breve([f"UK visa English test in {nome}: {centri_n(n)} (SELT, {ANNO_SELT})",
@@ -5222,6 +5238,7 @@ def pagina_selt_indice():
 {AD}
 <h2>Which level for which visa</h2>
 {tabella_livelli(rel)}
+<p><strong>Test by level:</strong> {link_livelli_selt("")}</p>
 {sezione_b2(rel)}
 <h2>Which test to book</h2>
 <p>Each provider has its own SELT version. Book the exact test on the Home Office list for your level: for example IELTS Life Skills A1 for a first partner visa, not ordinary IELTS.</p>
@@ -5249,6 +5266,234 @@ def pagina_selt_indice():
     pagina(percorso, titolo, descr, corpo, ordina=True, jsonld_extra=ld, briciole=[("UK visa English tests", percorso)])
 
 
+# Pagine per livello (11/11/2026), sulle ricerche vere (autocompletamento gl=uk dell'11/11/2026): "a1 english test for uk spouse visa"
+# (in pakistan, cost, validity period, expiry date), "a2 english test for spouse visa extension" (near me, birmingham, book), "b1 english test
+# for uk citizenship" (near me, gov uk, book), "english test for ilr" / "b2 english test for ilr" (2027, spouse visa, uk). I test elencati sono
+# solo quelli degli elenchi ufficiali in selt.json (livello e tipo); le frasi sui livelli sono quelle delle guide GOV.UK (LIV) e di HC 1691.
+DOMANDA_LIVELLI_SELT = {"data": "2026-11-11", "metodo": "https://suggestqueries.google.com/complete/search?client=firefox&gl=uk&hl=en&q=…",
+                        "a1-english-test-spouse-visa": ["a1 english test for uk spouse visa", "a1 english test for uk spouse visa in pakistan",
+                                                        "a1 english test for uk spouse visa validity period", "what english test for spouse visa uk"],
+                        "a2-english-test-spouse-visa-extension": ["a2 english test for spouse visa extension", "a2 english test for spouse visa extension near me",
+                                                                  "which english test is required for uk spouse visa extension"],
+                        "b1-english-test-citizenship": ["b1 english test for uk citizenship", "b1 english test for uk citizenship near me",
+                                                        "which english test is required for uk citizenship", "do i need english test for british citizenship"],
+                        "b2-english-test-ilr": ["english test for ilr", "b2 english test for ilr", "b2 english test for ilr 2027", "b2 english test for ilr spouse visa"]}
+
+
+def _livelli_selt():
+    solo_b2_4 = nessun_b2_due_abilita()
+    return {
+        "a1-english-test-spouse-visa": dict(
+            liv="A1", tipo="2-facet", breve="A1", nome="A1 English test for a UK spouse visa",
+            uso="a first UK partner (spouse) or parent visa", fonte=fonte_liv("partner_primo", "Family visas: knowledge of English"),
+            frase_liv=LIV["partner_primo"]["frase"], dove="estero"),
+        "a2-english-test-spouse-visa-extension": dict(
+            liv="A2", tipo="2-facet", breve="A2", nome="A2 English test for a UK spouse visa extension",
+            uso="extending a UK partner (spouse) or parent visa after 2.5 years", fonte=fonte_liv("partner_proroga", "Family visas: knowledge of English"),
+            frase_liv="If you passed " + LIV["partner_proroga"]["frase"], dove="uk"),
+        "b1-english-test-citizenship": dict(
+            liv="B1", tipo="2-facet", breve="B1", nome="B1 English test for UK citizenship and ILR",
+            uso=f"British citizenship, and settlement (indefinite leave to remain) applications made before {data_lunga(DATA_B2)}",
+            fonte=fonte_liv("cittadinanza_residenza", "Prove your knowledge of English for citizenship and settling"),
+            frase_liv=LIV["cittadinanza_residenza"]["frase"], dove="uk"),
+        "b2-english-test-ilr": dict(
+            liv="B2", tipo="4-facet" if solo_b2_4 else "2-facet", breve="B2", nome=f"B2 English test for ILR from {data_lunga(DATA_B2)}",
+            uso=f"settlement (indefinite leave to remain) applications made on or after {data_lunga(DATA_B2)} on the routes listed in HC 1691",
+            fonte=fonte_hc(), frase_liv="These changes will come into force on 26 March 2027.", dove="uk"),
+    }
+
+
+LIVELLI_SELT = _livelli_selt()
+
+
+def link_livelli_selt(rel_sez, escludi=None):
+    return " · ".join(f'<a href="{rel_sez}{k}/">{escape(v["nome"])}</a>' for k, v in LIVELLI_SELT.items() if k != escludi)
+
+
+def tabella_test_livello(L):
+    righe = []
+    for dove, nome_dove in (("uk", "In the UK"), ("estero", "Outside the UK")):
+        for f, n, m in test_per_livello(dove, L["liv"], L["tipo"]):
+            righe.append(f'<tr><td>{nome_dove}</td><td>{escape(nome_forn_test(f))}</td><td>{escape(n)}</td><td>{escape(m)}</td></tr>')
+    return (f'<div class="tab compatta"><table id="t-test-liv"><thead><tr><th scope="col">Where you take it</th><th scope="col">Provider</th>'
+            f'<th scope="col">Approved test (name to book)</th><th scope="col">Minimum grade</th></tr></thead><tbody>{"".join(righe)}</tbody></table></div>'
+            f'<p class="fonte">Source: Home Office, <a href="{F_SELT["test_uk"]["url"]}" rel="noopener">List of approved secure English language tests taken in the UK</a> and '
+            f'<a href="{F_SELT["test_estero"]["url"]}" rel="noopener">taken outside the UK</a> (ODS, downloaded on {data_lunga(F_SELT["test_uk"]["scaricato_il"])}), '
+            f'Open Government Licence v3.0. Centres are on the Home Office lists of approved test centres (list dated {data_lunga(DATA_ELENCO)}).</p>'), len(righe)
+
+
+def tabella_luoghi_livello(L, rel_sez):
+    if L["dove"] == "uk":
+        conta = sorted(CITTA_SELT, key=lambda x: (-sum(1 for r in CENTRI_UK if r[2] == x), x))
+        righe = "".join(f'<tr><td>{f"<a href={chr(34)}{rel_sez}{SLUG_SELT[c]}/{chr(34)}>{escape(c)}</a>" if c in CITTA_PAG else escape(c)}</td>'
+                        f'<td class="n" data-v="{sum(1 for r in CENTRI_UK if r[2] == c)}">{sum(1 for r in CENTRI_UK if r[2] == c)}</td>'
+                        f'<td>{escape(", ".join(NOMI_FORN[f] for f in fornitori_di([r for r in CENTRI_UK if r[2] == c])))}</td></tr>' for c in conta)
+        return (f'<h2 id="where">Where to take it in the UK: {len(CITTA_SELT)} towns and cities</h2>'
+                f'<p class="small">All {intero(len(CENTRI_UK))} approved centres in the UK, by town. Tap a column heading to sort. The Home Office list does not say which '
+                f'tests each centre offers: check the provider\'s booking page.</p>'
+                f'<div class="tab compatta"><table class="ord" id="t-luoghi"><thead><tr>{th_ord("Town or city", False, "ascending")}{th_ord("Centres")}'
+                f'<th scope="col">Providers</th></tr></thead><tbody>{righe}</tbody></table></div>{fonte_selt_p()}'
+                f'<p class="small">Outside the UK: {intero(len(CENTRI_EST))} centres in {len(PAESI_SELT)} countries and territories, <a href="{rel_sez}#outside-uk">by country</a>.</p>')
+    conta = sorted(PAESI_SELT, key=lambda x: (-sum(1 for r in CENTRI_EST if r[2] == x), x))
+    righe = "".join(f'<tr><td>{f"<a href={chr(34)}{rel_sez}{SLUG_SELT[p]}/{chr(34)}>{escape(NOMI_PAESI_SELT.get(p, p))}</a>" if p in PAESI_PAG else escape(NOMI_PAESI_SELT.get(p, p))}</td>'
+                    f'<td class="n" data-v="{sum(1 for r in CENTRI_EST if r[2] == p)}">{sum(1 for r in CENTRI_EST if r[2] == p)}</td>'
+                    f'<td class="n" data-v="{len({r[3] for r in CENTRI_EST if r[2] == p})}">{len({r[3] for r in CENTRI_EST if r[2] == p})}</td></tr>' for p in conta)
+    return (f'<h2 id="where">Where to take it: {intero(len(CENTRI_EST))} centres in {len(PAESI_SELT)} countries</h2>'
+            f'<p class="small">Approved centres outside the UK, by country. Type to filter, or tap a column heading to sort. In the UK there are {intero(len(CENTRI_UK))} more, '
+            f'<a href="{rel_sez}#uk-centres">by town</a>.</p>'
+            f'<p class="filtro"><label><span class="sr">Filter countries</span><input type="search" placeholder="Filter: e.g. Pakistan" data-filtro="t-luoghi" autocomplete="off"></label></p>'
+            f'<div class="tab compatta"><table class="ord" id="t-luoghi"><thead><tr>{th_ord("Country or territory", False, "ascending")}{th_ord("Centres")}{th_ord("Cities")}'
+            f'</tr></thead><tbody>{righe}</tbody></table></div>{fonte_selt_p(estero=True)}')
+
+
+def pagina_selt_livello(k):
+    L = LIVELLI_SELT[k]
+    rel = "../../"
+    percorso = f"{SEZ_SELT}{k}/"
+    uk = test_per_livello("uk", L["liv"], L["tipo"])
+    es = test_per_livello("estero", L["liv"], L["tipo"])
+    nomi_uk = elenco_e(f"{n} ({nome_forn_test(f)})" for f, n, _ in uk)
+    nomi_es = elenco_e(f"{n} ({nome_forn_test(f)})" for f, n, _ in es)
+    abil = "speaking and listening" if L["tipo"] == "2-facet" else "reading, writing, speaking and listening"
+    n_test = len(uk) + len(es)
+    tab, _ = tabella_test_livello(L)
+    pk = "Pakistan" if "Pakistan" in PAESI_PAG else None
+    n_pk = sum(1 for r in CENTRI_EST if r[2] == "Pakistan")
+    lead = (f"For {L['uso']} you need English at <strong>{L['liv']} in {abil}</strong> ({L['fonte']}). The Home Office approves "
+            f"<strong>{n_test} tests at this level</strong>: {len(uk)} taken in the UK and {len(es)} taken outside the UK, at {intero(len(CENTRI_UK))} centres in the UK "
+            f"and {intero(len(CENTRI_EST))} outside (lists dated {data_lunga(DATA_ELENCO)}). Book the exact test name on the list, on the provider's website.")
+    if L["liv"] == "B2":
+        nota_b2 = (f" On the approved lists we read on {data_lunga(F_SELT['test_uk']['scaricato_il'])} there is no speaking-and-listening-only test at B2, so every "
+                   f"approved B2 test also assesses reading and writing." if L["tipo"] == "4-facet" else "")
+        lead = (f"For settlement (indefinite leave to remain) applications made <strong>on or after {data_lunga(DATA_B2)}</strong> on the routes listed in HC 1691, "
+                f"including Skilled Worker and Settlement Family Life, the English level goes up from B1 to <strong>B2 in speaking and listening</strong> ({fonte_hc()})."
+                f"{nota_b2} The Home Office lists {n_test} approved B2 tests: {len(uk)} taken in the UK and {len(es)} outside the UK (lists dated {data_lunga(DATA_ELENCO)}).")
+    domande = []
+    if k == "a1-english-test-spouse-visa":
+        domande = [
+            ("What English test do I need for a UK spouse visa?",
+             f"An approved SELT at A1 in speaking and listening, for your first partner visa. In the UK the approved A1 tests are {nomi_uk}; outside the UK, {nomi_es} "
+             f"(Home Office lists, downloaded on {data_lunga(F_SELT['test_uk']['scaricato_il'])})."),
+            ("How long is the A1 test result valid?",
+             "Test results are valid for 2 years from the date the test is awarded, for a new application (GOV.UK). When you extend after 2.5 years you need A2, "
+             "and GOV.UK says: \"" + LIV["partner_b1_riuso"]["frase"] + "\""),
+            ("Where can I take the A1 English test for a UK spouse visa in Pakistan?" if pk else "Where can I take the A1 test outside the UK?",
+             (f"At an approved centre in Pakistan: the Home Office list dated {data_lunga(DATA_ELENCO)} has {n_pk} in Pakistan. See the list of centres and cities on our Pakistan page."
+              if pk else f"At one of the {intero(len(CENTRI_EST))} approved centres in {len(PAESI_SELT)} countries and territories (list dated {data_lunga(DATA_ELENCO)}).")),
+            ("How much does the A1 English test cost?",
+             "Fees are set by each provider and are not on the Home Office lists, so we do not show them. If you book through an agent, GOV.UK says its fees should be "
+             "the same as, or lower than, the price on the provider's website."),
+        ]
+    elif k == "a2-english-test-spouse-visa-extension":
+        domande = [
+            ("Which English test is required for a UK spouse visa extension?",
+             f"An approved SELT at A2 in speaking and listening, if you passed A1 for your first visa (GOV.UK). In the UK the approved A2 tests are {nomi_uk}."),
+            ("Can I use my A1 result again for the extension?",
+             "No. GOV.UK says that if you passed level A1, you'll need to pass at least level A2 in speaking and listening. \"" + LIV["partner_b1_riuso"]["frase"] + "\""),
+            ("Where can I take the A2 test near me?",
+             f"At one of the {intero(len(CENTRI_UK))} approved centres in {len(CITTA_SELT)} UK towns and cities (Home Office list dated {data_lunga(DATA_ELENCO)}): see the table by town on this page."),
+            ("How much does the A2 test cost?",
+             "Fees are set by each provider and are not on the Home Office lists, so we do not show them. Check the provider's website before you book."),
+        ]
+    elif k == "b1-english-test-citizenship":
+        domande = [
+            ("Which English test is required for UK citizenship?",
+             f"An approved SELT at B1 in speaking and listening, or another way of proving B1 or above. GOV.UK says: \"{LIV['cittadinanza_residenza']['frase']}\". "
+             f"In the UK the approved B1 speaking and listening tests are {nomi_uk}."),
+            ("Do I need an English test for British citizenship?",
+             "Not always. Some people do not need a test, for example nationals of some English-speaking countries, people over 65, or people with a degree taught in English. "
+             "Check the GOV.UK guide Prove your knowledge of English for citizenship and settling for your own case."),
+            ("Is the B1 level for citizenship changing in 2027?",
+             f"Citizenship is not one of the routes listed in HC 1691. Settlement on those routes needs B2 in speaking and listening for applications made on or after {data_lunga(DATA_B2)}."),
+            ("Where can I take the B1 test near me?",
+             f"At one of the {intero(len(CENTRI_UK))} approved centres in {len(CITTA_SELT)} UK towns and cities (Home Office list dated {data_lunga(DATA_ELENCO)}): see the table by town on this page."),
+        ]
+    else:
+        domande = [
+            ("When does the B2 English requirement for ILR start?",
+             f"For settlement applications made on or after {data_lunga(DATA_B2)} on the routes listed in HC 1691. The explanatory memorandum says: "
+             f"\"These changes will come into force on 26 March 2027.\" Applications made before that date still need B1."),
+            ("Does the B2 requirement apply to ILR after a spouse visa?",
+             f"Settlement Family Life is one of the routes listed in the explanatory memorandum to HC 1691, so B2 in speaking and listening applies to those settlement "
+             f"applications made on or after {data_lunga(DATA_B2)}."),
+            ("Which B2 test can I take for ILR?",
+             (f"On the approved lists we read on {data_lunga(F_SELT['test_uk']['scaricato_il'])} there is no B2 test of speaking and listening only. The approved B2 tests "
+              f"taken in the UK, which also assess reading and writing, are {nomi_uk}." if L["tipo"] == "4-facet" else
+              f"The approved B2 speaking and listening tests taken in the UK are {nomi_uk}.") + " Check the provider's website before you book for a settlement application."),
+            ("Does citizenship need B2 too?",
+             "Citizenship is not one of the routes listed in HC 1691. The GOV.UK guide for citizenship and settling still asks for B1 or above."),
+        ]
+    prossimo = {
+        "A1": f'<p>When you extend after 2.5 years you need A2: <a href="../a2-english-test-spouse-visa-extension/">A2 English test for a spouse visa extension</a>. '
+              f'For settlement after 5 years: <a href="../b1-english-test-citizenship/">B1 before {data_lunga(DATA_B2)}</a>, <a href="../b2-english-test-ilr/">B2 on or after it</a> on the routes listed in HC 1691.</p>',
+        "A2": f'<p>For settlement after 5 years: <a href="../b1-english-test-citizenship/">B1 before {data_lunga(DATA_B2)}</a>, <a href="../b2-english-test-ilr/">B2 on or after it</a> '
+              f'on the routes listed in HC 1691, which include Settlement Family Life.</p>',
+        "B1": f'<p>Applying for settlement on or after {data_lunga(DATA_B2)}? On the routes listed in HC 1691 you need B2: <a href="../b2-english-test-ilr/">B2 English test for ILR</a>.</p>',
+        "B2": f'<p>Applying before {data_lunga(DATA_B2)}, or for citizenship? B1 is enough: <a href="../b1-english-test-citizenship/">B1 English test for citizenship and ILR</a>.</p>',
+    }[L["liv"]]
+    corpo = f"""<section class="hero">{h1_diviso(f"{L['nome']}: the approved tests")}
+<p class="lead">{lead}</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{bandiera("United Kingdom")}<span>{escape(L["breve"])} · {escape(abil)}</span><span>lists of {data_lunga(DATA_ELENCO)}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">Approved {L["liv"]} tests ({escape(abil)})</span><span class="sr">: </span><strong>{n_test}</strong> ({len(uk)} in the UK, {len(es)} outside)</p>
+<div class="kpi"><div><b>{L["liv"]}</b><span>minimum level (CEFR)</span></div><div><b>{intero(len(CENTRI_UK))}</b><span>approved centres in the UK</span></div><div><b>{intero(len(CENTRI_EST))}</b><span>approved centres outside the UK</span></div><div><b>2 years</b><span>a result is valid for a new application (GOV.UK)</span></div></div>
+{fonte_selt_p(entrambi=True)}
+</div></section>
+{AVVISO_SELT}
+{AD}
+<h2>The approved {L["liv"]} tests</h2>
+<p>Book exactly one of these names. Ordinary versions of the same exams (for example IELTS General or Academic without "for UKVI", or a non-SELT LanguageCert exam) are not on the Home Office list.</p>
+{tab}
+{"" if L["liv"] == "B2" else sezione_b2(rel, breve=True)}
+{sezione_b2(rel) if L["liv"] == "B2" else ""}
+<h2>What comes next</h2>
+{prossimo}
+{tabella_luoghi_livello(L, "../")}
+<h2 id="how-to-book">How to book</h2>
+{come_prenotare(estero=L["dove"] == "estero")}
+{box_italki(rel)}
+<h2>Which level for which visa</h2>
+{tabella_livelli(rel)}
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html([(q, escape(a)) for q, a in domande])}</div>
+<h2>Other levels</h2>
+<p>{link_livelli_selt("../", k)}</p>
+{link_luoghi_selt("../")}
+<p><a href="../">UK visa English tests: all centres and levels</a> · <a href="{rel}uk-spouse-visa/">UK spouse visa income requirement</a> · <a href="{rel}{SEZ}uk/family-visas/">UK family visa refusal rates</a></p>"""
+    titolo = (titolo_breve([f"{L['nome']}: the approved tests", L["nome"]]) if L["liv"] == "B2" else
+              titolo_breve([f"{L['nome']}: approved tests ({ANNO_SELT})", f"{L['nome']} ({ANNO_SELT})", L["nome"]]))
+    descr = (f"The {n_test} Home Office approved {L['liv']} English tests ({abil}) for {L['uso']}, where to take them "
+             f"({intero(len(CENTRI_UK))} UK centres, {intero(len(CENTRI_EST))} abroad) and how to book. Lists of {data_lunga(DATA_ELENCO)}.")
+    pagina(percorso, titolo, descr, corpo, ordina=True, jsonld_extra=[ld_faq(domande)],
+           briciole=[("UK visa English tests", SEZ_SELT), (L["nome"], percorso)])
+
+
+def selt_paese_naz(c):
+    """Paese dell'elenco SELT (con pagina) della nazionalità c della sezione "Who moved where", o None (11/11/2026)."""
+    x = TRA["uk"]["cittadinanze"].get(c)
+    nome = {"United States": "USA"}.get(x["nome"], x["nome"]) if x else None
+    return nome if nome in PAESI_PAG else None
+
+
+def link_selt_naz(c, rel):
+    p = selt_paese_naz(c)
+    if not p:
+        return []
+    n = sum(1 for r in CENTRI_EST if r[2] == p)
+    return [(f"{rel}{SEZ_SELT}{SLUG_SELT[p]}/", f"UK visa English test in {nome_p_selt(p)}: {centri_n(n)} (SELT)")]
+
+
+def link_tr_selt(p, rel):
+    """Dalla pagina SELT di un Paese alla pagina "Who moved where" dei suoi cittadini verso il Regno Unito, se esiste."""
+    c = next((k for k in NAZ_TR if selt_paese_naz(k) == p and "uk" in COPPIE_TR[k]), None)
+    if not c:
+        return ""
+    v = val_tr(c, "uk", Y1)
+    return (f'<p>{ico("globe")} <a href="{rel}{SEZ_TR}{NAZ_TR[c][0]}/uk/">How many {escape(NAZ_TR[c][1])} moved to the UK in {Y1}</a>: '
+            f'{intero(v)} work, study and family visas granted (Home Office).</p>')
+
+
 def link_selt(P, rel):
     """Riga di collegamento dalle pagine dei visti UK alla sezione dei test di inglese."""
     if P.get("paese") != "United Kingdom":
@@ -5259,6 +5504,8 @@ def link_selt(P, rel):
 
 def genera_selt():
     pagina_selt_indice()
+    for k in LIVELLI_SELT:
+        pagina_selt_livello(k)
     for c in CITTA_PAG:
         pagina_selt_citta(c)
     for p in PAESI_PAG:
@@ -9417,7 +9664,7 @@ DOM_CER = CER["domanda"]["council"]
 STATI_CER = {"NSW": "New South Wales", "VIC": "Victoria", "QLD": "Queensland", "WA": "Western Australia", "SA": "South Australia",
              "TAS": "Tasmania", "ACT": "Australian Capital Territory", "NT": "Northern Territory"}
 MIN_RANK_CER = 100   # persone in attesa minime per entrare nelle classifiche "più attese / meno attese"
-SOGLIA_DOMANDA_CER = 3   # suggerimenti di Google (gl=au) col nome del council per avere una pagina propria (131 council il 31/10/2026)
+SOGLIA_DOMANDA_CER = 2   # suggerimenti di Google (gl=au) col nome del council per avere una pagina propria (131 council con 3 il 31/10/2026; 2 dall'11/11/2026)
 _tolto = defaultdict(list)
 for _r in RIGHE_CER:
     _tolto[re.sub(r"^Greater ", "", NOMI_CER[_r[0]]["breve"])].append(_r[0])
@@ -9653,6 +9900,7 @@ def pagina_cer_indice():
 <h2>By state and territory</h2>
 <div class="tab compatta cer"><table class="ord"><thead><tr>{th_ord("State or territory", False, "ascending")}{th_ord("Councils")}{th_ord("Waiting")}{th_ord("Under 3 months")}{th_ord("3 to 6 months")}{th_ord("Over 6 months")}</tr></thead><tbody>{righe_s}</tbody></table></div>
 <p class="small">Shares weighted by the number of people waiting in each council (our calculation; councils shown as "&lt;5" left out).</p>
+<p><strong>State pages</strong> (every council, totals and history): {link_stati_cer("")}</p>
 <h2>Longest and shortest waits</h2>
 <p>Councils with at least {MIN_RANK_CER} approved applicants waiting, on {data_lunga(AL_CER)}.</p>
 <h3>Highest share waiting more than 6 months</h3>
@@ -9690,6 +9938,11 @@ OMONIMI_CER = {
     "Camden Council": ("in south-west Sydney, New South Wales", "The London Borough of Camden (UK) is not covered", None),
     "City of Stirling": ("in Perth's northern suburbs, Western Australia", "Stirling in Scotland is not covered", None),
     "City of Albany": ("in the Great Southern region of Western Australia", "Places called Albany outside Australia are not covered", None),
+    # dall'11/11/2026 (pagine con 2 suggerimenti)
+    "Somerset Regional Council": ("in South East Queensland (Esk, Kilcoy, Lowood)", "Somerset Council in England (UK) is not covered", None),
+    "Town of Claremont": ("in Perth's western suburbs, Western Australia", "Claremont in Tasmania is part of Glenorchy City Council", "Glenorchy City Council"),
+    "City of Bayswater": ("in Perth's eastern suburbs, Western Australia", "Bayswater in Victoria is part of Knox City Council. Bayswater in London (UK) is not covered",
+                          "Knox City Council"),
 }
 
 
@@ -9767,7 +10020,7 @@ def pagina_cer_council(r):
 {storico_cer(r)}
 <h2>Other councils in {escape(stato)}</h2>
 {tabella_cer(vicini, "../", stato=False)}
-<p class="small"><a href="../">All {len(RIGHE_CER)} councils</a></p>
+<p class="small"><a href="../">All {len(RIGHE_CER)} councils</a>{f' · <a href="../{SLUG_STATI_CER[r[1]]}/">{escape(stato)}: all councils, totals and history</a>' if r[1] in SLUG_STATI_CER else ""}</p>
 <h2>Questions people ask</h2>
 <div class="testo">{faq_html([(q, escape(a)) for q, a in domande])}</div>
 {link_cer_pagine("../", r[0], r[1])}"""
@@ -9777,6 +10030,137 @@ def pagina_cer_council(r):
              f"{r[5]}% over 6 months (Home Affairs). How ceremony dates and invitations work.")
     pagina(percorso, titolo, descr, corpo, ordina=True, css_extra=CSS_CER, jsonld_extra=ld,
            briciole=[("Citizenship ceremony wait times", SEZ_CER), (breve, percorso)])
+
+
+# Pagine per Stato (11/11/2026): ricerche vere "citizenship ceremony wait times nsw", "citizenship ceremony dates 2026 victoria",
+# "qld citizenship ceremony dates", "citizenship ceremony western australia / south australia / tasmania" (autocompletamento gl=au, 11/11/2026).
+# L'ACT ha un solo "council" (il governo del territorio): niente pagina di Stato, rimanda alla sua pagina.
+SLUG_STATI_CER = {"NSW": "new-south-wales", "VIC": "victoria", "QLD": "queensland", "WA": "western-australia", "SA": "south-australia",
+                  "TAS": "tasmania", "NT": "northern-territory"}
+DOMANDA_STATI_CER = {"data": "2026-11-11", "metodo": "https://suggestqueries.google.com/complete/search?client=firefox&gl=au&hl=en&q=…",
+                     "esempi": {"NSW": ["citizenship ceremony wait times nsw", "citizenship ceremony dates 2026 nsw"],
+                                "VIC": ["citizenship ceremony dates 2026 victoria", "australian citizenship ceremonies victoria"],
+                                "QLD": ["qld citizenship ceremony dates", "citizenship ceremony queensland"],
+                                "WA": ["citizenship ceremony western australia", "citizenship ceremony dates 2026 perth"],
+                                "SA": ["citizenship ceremony south australia", "citizenship ceremony dates adelaide 2026"],
+                                "TAS": ["citizenship ceremony tasmania", "hobart citizenship ceremony dates"],
+                                "NT": ["darwin citizenship ceremony dates", "darwin citizenship ceremony 2026 dates"]}}
+STATI_PAG_CER = [s for s in SLUG_STATI_CER if any(r[1] == s for r in RIGHE_CER)]
+
+
+def link_stati_cer(rel_sez, escludi=None):
+    voci = [f'<a href="{rel_sez}{SLUG_STATI_CER[s]}/">{escape(STATI_CER[s])}</a>' for s in STATI_PAG_CER if s != escludi]
+    act = next((r for r in RIGHE_CER if r[1] == "ACT" and r[0] in PAG_CER_NOMI), None)
+    if act and escludi != "ACT":
+        voci.append(f'<a href="{rel_sez}{SLUG_CER[act[0]]}/">ACT (Canberra)</a>')
+    return " · ".join(voci)
+
+
+def storico_stato_cer(s):
+    righe = []
+    for al, S in sorted(CER["storico"].items(), reverse=True):
+        rr = [[k, s, *v] for k, v in S["righe"].items() if any(x[0] == k and x[1] == s for x in RIGHE_CER)]
+        if not rr:
+            continue
+        tot, med = media_cer(rr)
+        righe.append(f'<tr><td>{data_lunga(al)}</td><td class="n">{len(rr)}</td><td class="n">{intero(tot)}</td>'
+                     + "".join(f'<td class="n">{pc_cer(x)}</td>' for x in med) + "</tr>")
+    return ('<div class="tab compatta cer"><table id="t-storico"><thead><tr><th scope="col">Figures to</th><th class="n" scope="col">Councils</th>'
+            '<th class="n" scope="col">Approved, waiting</th><th class="n" scope="col">Under 3 months</th><th class="n" scope="col">3 to 6 months</th>'
+            f'<th class="n" scope="col">Over 6 months</th></tr></thead><tbody>{"".join(righe)}</tbody></table></div>')
+
+
+def pagina_cer_stato(s):
+    rel = "../../"
+    percorso = f"{SEZ_CER}{SLUG_STATI_CER[s]}/"
+    stato = STATI_CER[s]
+    rr = [r for r in RIGHE_CER if r[1] == s]
+    tot, (m3, m36, m6) = media_cer(rr)
+    _, med_au = media_cer(RIGHE_CER)
+    tot_au = media_cer(RIGHE_CER)[0]
+    nov = T_CER["novanta"]
+    primi = sorted([r for r in rr if r[2]], key=lambda r: (-r[2], r[0]))[:3]
+    lenti = classifica_cer(rr, 5, 5)
+    veloci = classifica_cer(rr, 3, 5)
+    capitale = next((c for c, D in CER["domanda"]["citta"].items() if any(x[0] == D["council"] and x[1] == s for x in RIGHE_CER)), None)
+    frase = (f"On {data_lunga(AL_CER)}, <strong>{intero(tot)} people approved for Australian citizenship were waiting for a ceremony in {escape(stato)}</strong>, "
+             f"in {len(rr)} council areas: {pc_cer(m3)} had been waiting less than 3 months since approval, {pc_cer(m36)} between 3 and 6 months and "
+             f"{pc_cer(m6)} more than 6 months (our weighted calculation from the Department of Home Affairs ceremony wait times published on {data_lunga(PUB_CER)}).")
+    elenco_primi = "; ".join(f"{nome_cer(r)} ({intero(r[2])})" for r in primi)
+    domande = [
+        (f"How long is the citizenship ceremony wait time in {stato}?",
+         f"Home Affairs publishes the figures by council, not one waiting time for the state. On {data_lunga(AL_CER)}, {intero(tot)} approved applicants were waiting "
+         f"in {stato}'s {len(rr)} council areas: {pc_cer(m3)} for less than 3 months since approval, {pc_cer(m36)} for 3 to 6 months and {pc_cer(m6)} for more than "
+         f"6 months (our weighted calculation). Nationally, Home Affairs says 90% of approved applicants have the opportunity to attend a ceremony within "
+         f"{nov['cerimonia_mesi']} months of approval."),
+        (f"When are the citizenship ceremony dates in {stato}?",
+         f"Home Affairs does not publish ceremony dates. Your ceremony is usually with the council where you live, and many councils list their dates on their "
+         f"own website. Home Affairs says: \"{L_CER['frasi']['invito']}\""),
+        (f"Which {stato} councils have the most people waiting for a ceremony?",
+         f"On {data_lunga(AL_CER)}: {elenco_primi} (Department of Home Affairs)."),
+        ("Can I go to a ceremony with another council?",
+         f"Home Affairs says: \"{L_CER['frasi']['indirizzo']} {L_CER['frasi']['scelta']}\""),
+    ]
+    ld = [ld_faq(domande), ld_cer(f"{stato}: citizenship ceremony wait times by council",
+                                  f"Approved citizenship applicants waiting for a ceremony in each council area of {stato}, and the share by time waited since approval, "
+                                  f"to {data_lunga(AL_CER)}.", percorso)]
+    classifiche = ""
+    if lenti:
+        classifiche += (f"<h2>Longest waits in {escape(stato)}</h2><p>Councils with at least {MIN_RANK_CER} people waiting, by share waiting more than 6 months since approval:</p>"
+                        + lista_cer(lenti, "../", 5, "waiting over 6 months"))
+    if veloci:
+        classifiche += (f"<h2>Shortest waits in {escape(stato)}</h2><p>Councils with at least {MIN_RANK_CER} people waiting, by share waiting less than 3 months since approval:</p>"
+                        + lista_cer(veloci, "../", 3, "waiting under 3 months"))
+    nota_cap = ""
+    if capitale:
+        cap_r = next(x for x in RIGHE_CER if x[0] == CER["domanda"]["citta"][capitale]["council"])
+        cap_link = (f'<a href="../{SLUG_CER[cap_r[0]]}/">{escape(cap_r[0])}</a>' if cap_r[0] in PAG_CER_NOMI else escape(cap_r[0]))
+        nota_cap = (f'<p>People often search for "{escape(capitale)} citizenship ceremony dates", but the {escape(capitale.capitalize())} area is split between several councils: '
+                    f'{cap_link} covers only part of it, and your ceremony is with the council where you live.</p>')
+    corpo = f"""<section class="hero">{h1_diviso(f"{stato} citizenship ceremony wait times: {intero(tot)} people waiting")}
+<p class="lead">{frase}</p></section>
+<section class="card summary" aria-label="Summary">
+<div class="s-top">{bandiera("Australia")}<span>{escape(stato)}</span><span>to {data_lunga(AL_CER)}</span></div>
+<div class="s-body">
+<p class="cifra"><span class="c-lab">Approved applicants waiting for a ceremony</span><span class="sr">: </span><strong>{intero(tot)}</strong> in {len(rr)} councils ({tot / tot_au * 100:.0f}% of Australia's {intero(tot_au)})</p>
+<div class="kpi"><div><b>{pc_cer(m3)}</b><span>waiting under 3 months since approval</span></div><div><b>{pc_cer(m36)}</b><span>waiting 3 to 6 months</span></div><div><b>{pc_cer(m6)}</b><span>waiting over 6 months</span></div><div><b>{nov["cerimonia_mesi"]} months</b><span>nationally, 90% offered a ceremony within this time of approval (Home Affairs)</span></div></div>
+{fonte_cer_p(" State shares are our calculation from the council figures, weighted by the number of people waiting (councils shown as \"&lt;5\" left out).")}
+</div></section>
+{AVVISO_CER}
+{AD}
+<h2 id="councils">All {len(rr)} councils in {escape(stato)}</h2>
+<p class="small">By number of people waiting. Type to filter, or tap a column heading to sort. The percentages are the share of each council's approved applicants by time waited since approval.</p>
+<p class="filtro"><label><span class="sr">Filter councils</span><input type="search" placeholder="Filter: e.g. {escape(nome_cer(primi[0], True) if primi else stato)}" data-filtro="t-cer-s" autocomplete="off"></label></p>
+{tabella_cer(rr, "../", "t-cer-s", stato=False)}
+{fonte_cer_p()}
+<h2>Compared with Australia</h2>
+<div class="tab compatta cer"><table id="t-cmp"><thead><tr><th scope="col">Area</th><th class="n" scope="col">Waiting</th><th class="n" scope="col">Under 3 months</th><th class="n" scope="col">3 to 6 months</th><th class="n" scope="col">Over 6 months</th></tr></thead><tbody>
+<tr><td>{escape(stato)}</td><td class="n">{intero(tot)}</td>{"".join(f'<td class="n">{pc_cer(x)}</td>' for x in (m3, m36, m6))}</tr>
+<tr><td>Australia</td><td class="n">{intero(tot_au)}</td>{"".join(f'<td class="n">{pc_cer(x)}</td>' for x in med_au)}</tr></tbody></table></div>
+<p class="small">Our calculation from the council figures, weighted by the number of people waiting (councils shown as "&lt;5" left out).</p>
+{classifiche}
+<h2>What the numbers mean</h2>
+<p>{COSA_CER}</p>
+<h2>Ceremony dates and invitations in {escape(stato)}</h2>
+<p>Home Affairs does not publish ceremony dates: check your council's website for its ceremony calendar.</p>
+{nota_cap}
+{regole_cer()}
+<h2>How long the whole application takes</h2>
+<p>Nationally, 90% of applications for citizenship by conferral are processed within {nov["conferimento_mesi"]} months, 90% of approved applicants waited up to {T_CER["percentili"]["conferimento"]["approvazione_cerimonia"][3]} from approval to ceremony, and 90% up to {T_CER["percentili"]["conferimento"]["domanda_cerimonia"][3]} from application to ceremony (Home Affairs, updated {data_lunga(T_CER["aggiornata"])}). <a href="{rel}{SEZ_TEMPI_CER}">Australian citizenship processing time</a></p>
+<h2>History</h2>
+<p>Home Affairs shows only the latest figures. We save every update and add up the councils of {escape(stato)} here.</p>
+{storico_stato_cer(s)}
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html([(q, escape(a)) for q, a in domande])}</div>
+{link_cer_pagine("../", None, s)}
+<p><strong>Other states and territories:</strong> {link_stati_cer("../", s)}</p>
+<p class="small"><a href="../">All {len(RIGHE_CER)} councils in Australia</a></p>"""
+    titolo = titolo_breve([f"{stato} citizenship ceremony wait times by council ({mese_cer(AL_CER, True)})",
+                           f"{s} citizenship ceremony wait times by council ({mese_cer(AL_CER, True)})", f"{s} citizenship ceremony wait times"])
+    descr = (f"{intero(tot)} approved applicants waiting for a citizenship ceremony in {stato} on {data_lunga(AL_CER)}, council by council: {pc_cer(m3)} had waited "
+             f"under 3 months since approval, {pc_cer(m6)} over 6 months (Home Affairs). How ceremony dates work.")
+    pagina(percorso, titolo, descr, corpo, ordina=True, css_extra=CSS_CER, jsonld_extra=ld,
+           briciole=[("Citizenship ceremony wait times", SEZ_CER), (stato, percorso)])
 
 
 def pagina_cer_tempi():
@@ -9847,6 +10231,8 @@ def genera_cer():
     pagina_cer_indice()
     for r in PAG_CER:
         pagina_cer_council(r)
+    for s in STATI_PAG_CER:
+        pagina_cer_stato(s)
     pagina_cer_tempi()
 
 
@@ -9862,6 +10248,8 @@ def controlli_cer():
         errori.append(f"cerimonie: {len(RIGHE_CER)} council o Stati diversi da quelli attesi")
     if len(set(SLUG_CER.values())) != len(SLUG_CER):
         errori.append("cerimonie: slug dei council ripetuti")
+    if set(SLUG_STATI_CER.values()) & set(SLUG_CER.values()):
+        errori.append("cerimonie: slug di uno Stato uguale a quello di un council")
     if not PAG_CER:
         errori.append("cerimonie: nessun council con domanda (rilanciare raccolta/cerimonie.py --domanda)")
     if AL_CER not in CER["storico"] or T_CER["aggiornata"] not in CER["storico_tempi"]:

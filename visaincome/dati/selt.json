@@ -1,6 +1,6 @@
 {
 "_nota": "Generato da raccolta/selt.py: non modificare a mano. centri.uk: [fornitore, nome del centro, città, indirizzo, disponibilità]; centri.estero: [fornitore, nome del centro, Paese, città, indirizzo, disponibilità]; test: [livello CEFR, tipo, test, fornitore, voto minimo, in vigore dal]. Fonte: Home Office, GOV.UK (Open Government Licence v3.0).",
-"generato_il": "2026-11-09",
+"generato_il": "2026-11-11",
 "impronta": "a169842a41152b6e0e5f",
 "fonti": {
 "pagina": {
@@ -8,7 +8,7 @@
 "editore": "Home Office (GOV.UK)",
 "url": "https://www.gov.uk/guidance/prove-your-english-language-abilities-with-a-secure-english-language-test-selt",
 "aggiornata": "2026-11-02",
-"letta_il": "2026-11-09",
+"letta_il": "2026-11-11",
 "http": 200,
 "licenza": "Open Government Licence v3.0",
 "licenza_url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
@@ -18,7 +18,7 @@
 "file": "List_of_approved_Secure_English_Language_Tests_taken_in_the_UK+_5_.ods",
 "byte": 5261,
 "sha256": "e9707e9ceee31019a5041bcb77b793e76b66863c579ccfa3dee3e1ca318fc8be",
-"scaricato_il": "2026-11-09",
+"scaricato_il": "2026-11-11",
 "http": 200,
 "data_elenco": "",
 "righe": 35
@@ -28,7 +28,7 @@
 "file": "List_of_approved_Secure_English_Language_Tests_taken_outside_the_UK+_1_.ods",
 "byte": 5300,
 "sha256": "b384ef433fbfef88f661f9129cc457725dfe80504e9776fa2ddfba60ffcb5fef",
-"scaricato_il": "2026-11-09",
+"scaricato_il": "2026-11-11",
 "http": 200,
 "data_elenco": "",
 "righe": 35
@@ -38,7 +38,7 @@
 "file": "Copy_of_List_of_approved_test_centres_in_the_UK_from_October_2026_30.10.2026.ods",
 "byte": 7890,
 "sha256": "fdf7929b1b0ba8806ea3f87b62a288f3a0cb052715790ba913602d573385bef9",
-"scaricato_il": "2026-11-09",
+"scaricato_il": "2026-11-11",
 "http": 200,
 "data_elenco": "2026-10-30",
 "righe": 84
@@ -48,7 +48,7 @@
 "file": "Copy_of_List_of_approved_test_centres_outside_the_UK_from_October_2026_30.10.2026.ods",
 "byte": 92596,
 "sha256": "cdcf0904356ce58950f0b721252d92976c52f0a23049f65203a4b1f608534a9a",
-"scaricato_il": "2026-11-09",
+"scaricato_il": "2026-11-11",
 "http": 200,
 "data_elenco": "2026-10-30",
 "righe": 1277
@@ -59,7 +59,7 @@
 "memorandum": "https://www.gov.uk/government/publications/statement-of-changes-to-the-immigration-rules-hc-1619-5-march-2026/explanatory-memorandum-to-the-statement-of-changes-in-the-immigration-rules-hc-1691-5-march-2026-accessible",
 "testo": "https://www.gov.uk/government/publications/statement-of-changes-to-the-immigration-rules-hc-1619-5-march-2026/statement-of-changes-to-the-immigration-rules-hc-1691-5-march-2026-accessible-version",
 "pubblicato": "2026-03-06",
-"letto_il": "2026-11-09",
+"letto_il": "2026-11-11",
 "http": 200,
 "in_vigore": "2027-03-26",
 "frasi_memorandum": [
@@ -120,7 +120,7 @@
 "url": "https://www.gov.uk/uk-family-visa/knowledge-of-english",
 "titolo": "Family visas: apply, extend or switch",
 "frase": "You must pass at least level A1 on the Common European Framework of Reference for Languages ( CEFR ) scale for your first visa application.",
-"letta_il": "2026-11-09",
+"letta_il": "2026-11-11",
 "http": 200,
 "aggiornata": "2024-10-31"
 },
@@ -128,7 +128,7 @@
 "url": "https://www.gov.uk/uk-family-visa/knowledge-of-english",
 "titolo": "Family visas: apply, extend or switch",
 "frase": "level A1, you’ll need to pass at least level A2 in speaking and listening",
-"letta_il": "2026-11-09",
+"letta_il": "2026-11-11",
 "http": 200,
 "aggiornata": "2024-10-31"
 },
@@ -136,7 +136,7 @@
 "url": "https://www.gov.uk/uk-family-visa/knowledge-of-english",
 "titolo": "Family visas: apply, extend or switch",
 "frase": "If you pass level B1 or higher, you can use your test result again when you apply for settlement after 5 years.",
-"letta_il": "2026-11-09",
+"letta_il": "2026-11-11",
 "http": 200,
 "aggiornata": "2024-10-31"
 },
@@ -144,7 +144,7 @@
 "url": "https://www.gov.uk/english-language",
 "titolo": "Prove your knowledge of English for citizenship and settling",
 "frase": "You can prove it by having either: an English qualification at B1, B2, C1 or C2 level",
-"letta_il": "2026-11-09",
+"letta_il": "2026-11-11",
 "http": 200,
 "aggiornata": "2014-12-01"
 },
@@ -152,7 +152,7 @@
 "url": "https://www.gov.uk/skilled-worker-visa/knowledge-of-english",
 "titolo": "Skilled Worker visa",
 "frase": "You must prove you can read, write, speak and understand English to at least level B2 on the Common European Framework of Reference for Languages ( CEFR ) scale .",
-"letta_il": "2026-11-09",
+"letta_il": "2026-11-11",
 "http": 200,
 "aggiornata": "2024-10-31"
 },
@@ -160,7 +160,7 @@
 "url": "https://www.gov.uk/skilled-worker-visa/knowledge-of-english",
 "titolo": "Skilled Worker visa",
 "frase": "If you had this visa before 8 January 2026 and you’re applying to extend or update it, you need level B1 English.",
-"letta_il": "2026-11-09",
+"letta_il": "2026-11-11",
 "http": 200,
 "aggiornata": "2024-10-31"
 },
@@ -168,7 +168,7 @@
 "url": "https://www.gov.uk/health-care-worker-visa/knowledge-of-english",
 "titolo": "Health and Care Worker visa",
 "frase": "You must prove you can read, write, speak and understand English to at least level B2 on the Common European Framework of Reference for Languages ( CEFR ) scale .",
-"letta_il": "2026-11-09",
+"letta_il": "2026-11-11",
 "http": 200,
 "aggiornata": "2024-10-31"
 },
@@ -176,7 +176,7 @@
 "url": "https://www.gov.uk/student-visa/knowledge-of-english",
 "titolo": "Student visa",
 "frase": "Degree level or above Equivalent to CEFR level B2 Below degree level CEFR level B1",
-"letta_il": "2026-11-09",
+"letta_il": "2026-11-11",
 "http": 200,
 "aggiornata": "2024-10-31"
 },
@@ -184,7 +184,7 @@
 "url": "https://www.gov.uk/high-potential-individual-visa/knowledge-of-english",
 "titolo": "High Potential Individual (HPI) visa",
 "frase": "You must prove you can read, write, speak and understand English to at least level B2 on the Common European Framework of Reference for Languages (CEFR) scale .",
-"letta_il": "2026-11-09",
+"letta_il": "2026-11-11",
 "http": 200,
 "aggiornata": "2024-10-21"
 },
@@ -192,7 +192,7 @@
 "url": "https://www.gov.uk/scale-up-worker-visa/knowledge-of-english",
 "titolo": "Scale-up Worker visa",
 "frase": "You must prove you can read, write, speak and understand English to at least level B2 on the Common European Framework of Reference for Languages ( CEFR ) scale .",
-"letta_il": "2026-11-09",
+"letta_il": "2026-11-11",
 "http": 200,
 "aggiornata": "2024-10-21"
 }

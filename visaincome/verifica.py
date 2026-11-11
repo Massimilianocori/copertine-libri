@@ -1077,6 +1077,13 @@ def controlla_selt():
     attese = {"": None}
     attese.update({G.SLUG_SELT[c]: ("uk", c) for c in citta_pag})
     attese.update({G.SLUG_SELT[p]: ("estero", p) for p in paesi_pag})  # slug: configurazione del generatore; i numeri si ricalcolano qui
+    # pagine per livello (11/11/2026): slug e livello scritti qui; i test elencati si ricalcolano da selt.json
+    b2_tipo = "4-facet" if not any(r[0] == "B2" and r[1] == "2-facet" for w in ("uk", "estero") for r in D["test"][w]) else "2-facet"
+    livelli = {"a1-english-test-spouse-visa": ("A1", "2-facet"), "a2-english-test-spouse-visa-extension": ("A2", "2-facet"),
+               "b1-english-test-citizenship": ("B1", "2-facet"), "b2-english-test-ilr": ("B2", b2_tipo)}
+    if set(livelli) & set(attese):
+        errori.append("SELT: slug di una pagina per livello uguale a quello di un luogo")
+    attese.update({k: ("livello", v) for k, v in livelli.items()})
     trovate = {f.parent.relative_to(sez).as_posix().replace(".", "") for f in sez.rglob("index.html")}
     if trovate != set(attese):
         errori.append(f"SELT: pagine diverse da quelle attese (in più: {sorted(trovate - set(attese))[:5]}, mancanti: {sorted(set(attese) - trovate)[:5]})")
@@ -1138,6 +1145,31 @@ def controlla_selt():
                 errori.append("SELT: prima frase dell'indice senza il cambio B2 del 26 March 2027")
             continue
         dove, luogo = chi
+        if dove == "livello":
+            liv, tipo = luogo
+            att = [(w, r) for w in ("uk", "estero") for r in D["test"][w] if r[0] == liv and r[1] == tipo]
+            tab = re.search(r'<table[^>]*id="t-test-liv".*?<tbody>(.*?)</tbody>', main, re.S)
+            rr = [_celle(x) for x in re.findall(r"<tr>.*?</tr>", tab.group(1), re.S)] if tab else []
+            if len(rr) != len(att) or not att:
+                errori.append(f"SELT: {len(rr)} test nella tabella di {percorso}, attesi {len(att)}")
+            for (w, r), c in zip(att, rr):
+                if c[0] != ("In the UK" if w == "uk" else "Outside the UK") or c[3] != re.sub(r"\s+", " ", r[4]).strip() or c[2] != G.nome_test(r[2]):
+                    errori.append(f"SELT: riga {c} di {percorso} diversa dall'elenco ufficiale ({r[2]})")
+                    break
+            n_uk = sum(1 for w, _ in att if w == "uk")
+            if (f"{len(att)} approved {liv} tests" not in html.unescape(re.sub(r"<[^>]+>", "", prima)) and f"approves {len(att)} tests at this level" not in html.unescape(re.sub(r"<[^>]+>", "", prima))) \
+                    or f"{n_uk} taken in the UK and {len(att) - n_uk}" not in prima:
+                errori.append(f"SELT: numero dei test nella prima frase di {percorso} diverso dal ricalcolo ({len(att)})")
+            if liv == "B2" and (not b2_ok or "26 March 2027" not in prima):
+                errori.append(f"SELT: {percorso} senza la data del B2 letta in HC 1691")
+            if "FAQPage" in t:
+                ld_q = [x for x in re.findall(r'<script type="application/ld\+json">(.*?)</script>', t, re.S) if "FAQPage" in x]
+                vis = html.unescape(re.sub(r"<[^>]+>", "", main))
+                for q in (json.loads(ld_q[0])["mainEntity"] if ld_q else []):
+                    if q["name"] not in vis or html.unescape(re.sub(r"<[^>]+>", "", q["acceptedAnswer"]["text"])) not in vis:
+                        errori.append(f"SELT: domanda del JSON-LD non uguale al testo visibile in {percorso}: {q['name']!r}")
+                        break
+            continue
         qui = [r for r in uk if r[2] == luogo] if dove == "uk" else [r for r in est if r[2] == luogo]
         m = len(qui)
         if f"<strong>{m:,} approved centre{'s' if m != 1 else ''}</strong>" not in prima:
@@ -3033,14 +3065,18 @@ def controlla_cer():
                     errori.append(f"Cerimonie: riga di {nome} diversa dalla risposta ufficiale ({r} invece di {atteso})")
                 n_raw += 1
     # 2. pagine attese
-    soglia = 3
+    soglia = 2   # dall'11/11/2026 (prima 3)
     if G.SOGLIA_DOMANDA_CER != soglia:
         errori.append("Cerimonie: soglia della domanda cambiata in genera.py senza aggiornare il controllo 26")
     con_pagina = [r for r in righe if len(D["domanda"]["council"].get(r[0], [])) >= soglia and r[2]]
     slug = G.SLUG_CER
     if len(set(slug.values())) != len(slug):
         errori.append("Cerimonie: slug ripetuti")
-    pag = _pagine_sezione(G.SEZ_CER, [""] + [slug[r[0]] for r in con_pagina], errori, "Cerimonie")
+    stati_slug = {"NSW": "new-south-wales", "VIC": "victoria", "QLD": "queensland", "WA": "western-australia", "SA": "south-australia",
+                  "TAS": "tasmania", "NT": "northern-territory"}   # pagine per Stato dall'11/11/2026 (l'ACT ha un solo council)
+    if G.SLUG_STATI_CER != stati_slug:
+        errori.append("Cerimonie: pagine degli Stati in genera.py diverse da quelle del controllo 26")
+    pag = _pagine_sezione(G.SEZ_CER, [""] + [slug[r[0]] for r in con_pagina] + list(stati_slug.values()), errori, "Cerimonie")
     pag.update({"tempi": x for x in _pagine_sezione(G.SEZ_TEMPI_CER, [""], errori, "Cerimonie tempi").values()})
     tot, med = _media(righe)
     dl = G.data_lunga
@@ -3118,6 +3154,49 @@ def controlla_cer():
         nv = [_celle(x)[0] for x in re.findall(r"<tr[^>]*>.*?</tr>", vic.group(1), re.S)] if vic else []
         if nv != [x[0] for x in sorted([x for x in righe if x[1] == r[1] and x[0] != r[0]], key=lambda x: (-(x[2] if x[2] is not None else 1), x[0]))][:12]:
             errori.append(f"Cerimonie {s}: council vicini diversi dal ricalcolo")
+    # Stati (11/11/2026): prima frase, riquadro, tabella di tutti i council dello Stato, confronto con l'Australia, storico ricalcolati
+    for st, sl in stati_slug.items():
+        if sl not in pag:
+            continue
+        t, main, testo, lead, perc = pag[sl]
+        rr = [r for r in righe if r[1] == st]
+        n_s, m_s = _media(rr)
+        frase = (f"On {dl(al)}, {n_s:,} people approved for Australian citizenship were waiting for a ceremony in {G.STATI_CER[st]}, in {len(rr)} council areas: "
+                 f"{m_s[0]:.0f}% had been waiting less than 3 months since approval, {m_s[1]:.0f}% between 3 and 6 months and {m_s[2]:.0f}% more than 6 months "
+                 f"(our weighted calculation from the Department of Home Affairs ceremony wait times published on {dl(pub)}).")
+        if lead.strip() != frase:
+            errori.append(f"Cerimonie {sl}: prima frase diversa dal ricalcolo")
+        tb = re.search(r'<table class="ord" id="t-cer-s">.*?<tbody>(.*?)</tbody>', main, re.S)
+        trs = re.findall(r"<tr[^>]*>.*?</tr>", tb.group(1), re.S) if tb else []
+        corto = f"{int(al[8:])} {G.MESI[int(al[5:7]) - 1][:3]} {al[:4]}"
+        if len(trs) != len(rr):
+            errori.append(f"Cerimonie {sl}: {len(trs)} council nella tabella invece di {len(rr)}")
+        for tr in trs:
+            c = _celle(tr)
+            r = per_nome.get(c[0])
+            q = ["–"] * 3 if r and r[2] == 0 else [f"{x}%" for x in r[3:]] if r else []
+            if not r or r[1] != st or c != [r[0], "<5" if r[2] is None else f"{r[2]:,}", *q, corto]:
+                errori.append(f"Cerimonie {sl}: riga {c[:2]} diversa dal JSON")
+                break
+            if ('href="' in tr) != (r in con_pagina):
+                errori.append(f"Cerimonie {sl}: link della riga di {r[0]} incoerente con la pagina")
+                break
+        cmp_ = re.search(r'<table id="t-cmp">.*?<tbody>(.*?)</tbody>', main, re.S)
+        rc = [_celle(x)[1:] for x in re.findall(r"<tr>.*?</tr>", cmp_.group(1), re.S)] if cmp_ else []
+        if rc != [[f"{n_s:,}"] + [f"{x:.0f}%" for x in m_s], [f"{tot:,}"] + [f"{x:.0f}%" for x in med]]:
+            errori.append(f"Cerimonie {sl}: confronto con l'Australia diverso dal ricalcolo ({rc})")
+        sto = re.search(r'<table id="t-storico">.*?<tbody>(.*?)</tbody>', main, re.S)
+        rs = [_celle(x) for x in re.findall(r"<tr>.*?</tr>", sto.group(1), re.S)] if sto else []
+        att = []
+        for d, S in sorted(D["storico"].items(), reverse=True):
+            xs = [[k, st, *v] for k, v in S["righe"].items() if k in per_nome and per_nome[k][1] == st]
+            if xs:
+                n_d, m_d = _media(xs)
+                att.append([dl(d), str(len(xs)), f"{n_d:,}"] + [f"{x:.0f}%" for x in m_d])
+        if rs != att:
+            errori.append(f"Cerimonie {sl}: storico dello Stato diverso dal ricalcolo")
+        if f'href="../{sl}/"' not in leggi(f"{G.SEZ_CER}index.html").replace(f'href="{sl}/"', f'href="../{sl}/"'):
+            errori.append(f"Cerimonie: l'indice non rimanda alla pagina dello Stato {sl}")
     # tempi
     if "tempi" in pag:
         t, main, testo, lead, perc = pag["tempi"]

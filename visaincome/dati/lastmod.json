@@ -2,544 +2,712 @@
 "_nota": "Scritto da genera.py: percorso -> [data dell'ultima modifica del contenuto, impronta]. Non modificare a mano.",
 "pagine": {
 "": [
-"2026-11-09",
-"fbf1b76051073e8c08c5"
+"2026-11-11",
+"ba34a4d4a33de940ba94"
 ],
 "about/": [
 "2026-11-08",
 "c5893695f9e0f621e790"
 ],
 "australian-citizenship-ceremony-wait-times/": [
-"2026-11-08",
-"3f6a8c1156decf53b846"
+"2026-11-11",
+"de1f4f97c9a1286ea8a0"
 ],
 "australian-citizenship-ceremony-wait-times/act/": [
-"2026-11-08",
-"225519fb7cc3d3e29c79"
+"2026-11-11",
+"3eed4156d71fdec440ed"
+],
+"australian-citizenship-ceremony-wait-times/adelaide-hills/": [
+"2026-11-11",
+"aaa093677edf1d9d199a"
 ],
 "australian-citizenship-ceremony-wait-times/adelaide/": [
-"2026-11-08",
-"6fcc5b51ab59531c29bf"
+"2026-11-11",
+"d2be504b1e18b0ebee32"
 ],
 "australian-citizenship-ceremony-wait-times/albany/": [
-"2026-11-08",
-"5fd1817ebe246ae49916"
+"2026-11-11",
+"0610ee7185a8610bada9"
 ],
 "australian-citizenship-ceremony-wait-times/albury/": [
-"2026-11-08",
-"acf659e69f2cf2a4fcd2"
+"2026-11-11",
+"fcd0c7a7557e13231b79"
 ],
 "australian-citizenship-ceremony-wait-times/alice-springs/": [
-"2026-11-08",
-"ca62fcef171a991ea66e"
+"2026-11-11",
+"b82e5f973929483860e9"
 ],
 "australian-citizenship-ceremony-wait-times/armadale/": [
-"2026-11-08",
-"fa04b3343b1b455695c3"
+"2026-11-11",
+"3cdc8de13e53803308f8"
+],
+"australian-citizenship-ceremony-wait-times/armidale/": [
+"2026-11-11",
+"ce773ba084969b8c3442"
 ],
 "australian-citizenship-ceremony-wait-times/ballarat/": [
-"2026-11-08",
-"dcda6f0fee5ee9733072"
+"2026-11-11",
+"8453fc26872738103aa6"
+],
+"australian-citizenship-ceremony-wait-times/ballina/": [
+"2026-11-11",
+"463017579d1529091b5b"
 ],
 "australian-citizenship-ceremony-wait-times/banyule/": [
-"2026-11-08",
-"4519988188c55817bc33"
+"2026-11-11",
+"af6b2e06a85e3fb3da82"
+],
+"australian-citizenship-ceremony-wait-times/bass-coast/": [
+"2026-11-11",
+"82d26e4bb013bf7ec44f"
 ],
 "australian-citizenship-ceremony-wait-times/bayside-nsw/": [
-"2026-11-08",
-"fdf1beed76a6cc6a4790"
+"2026-11-11",
+"45d164c10a318ebb6476"
+],
+"australian-citizenship-ceremony-wait-times/bayswater/": [
+"2026-11-11",
+"526c6a4c3c0f5bfcf680"
 ],
 "australian-citizenship-ceremony-wait-times/belmont/": [
-"2026-11-08",
-"95aa87870ddf6c61cad8"
+"2026-11-11",
+"a8feba1b870d2b05ab5e"
 ],
 "australian-citizenship-ceremony-wait-times/bendigo/": [
-"2026-11-08",
-"d71677f533548651d9c4"
+"2026-11-11",
+"83015d0bc8da3caeea85"
 ],
 "australian-citizenship-ceremony-wait-times/blacktown/": [
-"2026-11-08",
-"00c25c1bf6bb986c1fb1"
+"2026-11-11",
+"aefc3234ec49fb933959"
+],
+"australian-citizenship-ceremony-wait-times/blue-mountains/": [
+"2026-11-11",
+"3ebd4cc83d8c81053226"
 ],
 "australian-citizenship-ceremony-wait-times/boroondara/": [
-"2026-11-08",
-"4f0cc82737765afb2dd9"
+"2026-11-11",
+"dd3cee3583a6cc72d288"
 ],
 "australian-citizenship-ceremony-wait-times/brimbank/": [
-"2026-11-08",
-"d7bf4c990fa97e9b6761"
+"2026-11-11",
+"b05b13372ff0e800f92c"
 ],
 "australian-citizenship-ceremony-wait-times/brisbane/": [
-"2026-11-08",
-"c234e4b04e09637fa94f"
+"2026-11-11",
+"8d64bc46278a7917416e"
+],
+"australian-citizenship-ceremony-wait-times/bunbury/": [
+"2026-11-11",
+"0d8f43f876d8c918fce9"
 ],
 "australian-citizenship-ceremony-wait-times/bundaberg/": [
-"2026-11-08",
-"c994ccebee5ae10be8ee"
+"2026-11-11",
+"c75153c596a2c5200423"
 ],
 "australian-citizenship-ceremony-wait-times/burnside/": [
-"2026-11-08",
-"d0d53aa7fca55e5f577e"
+"2026-11-11",
+"9ed6c439104925f63864"
 ],
 "australian-citizenship-ceremony-wait-times/burwood/": [
-"2026-11-08",
-"ce9f85be853999933835"
+"2026-11-11",
+"3ca48030fd69377c8c25"
+],
+"australian-citizenship-ceremony-wait-times/busselton/": [
+"2026-11-11",
+"16cffbbb13606276a1ba"
 ],
 "australian-citizenship-ceremony-wait-times/byron/": [
-"2026-11-08",
-"b6db07579a661a03ad93"
+"2026-11-11",
+"f27c003071a40685ddea"
 ],
 "australian-citizenship-ceremony-wait-times/cairns/": [
-"2026-11-08",
-"2657ea2579f33f831379"
+"2026-11-11",
+"6c8bf679626721dab211"
 ],
 "australian-citizenship-ceremony-wait-times/cambridge/": [
-"2026-11-08",
-"36148fff1ff809b2fedf"
+"2026-11-11",
+"9be94ddf6094f9b58b4e"
 ],
 "australian-citizenship-ceremony-wait-times/camden/": [
-"2026-11-08",
-"5168d324f08fa76b7302"
+"2026-11-11",
+"35e0e041d2a631c7936b"
 ],
 "australian-citizenship-ceremony-wait-times/campbelltown-sa/": [
-"2026-11-08",
-"3b0ca4e7ae1a154a9e12"
+"2026-11-11",
+"265eabcdec2452a426ef"
 ],
 "australian-citizenship-ceremony-wait-times/canada-bay/": [
-"2026-11-08",
-"4080ee28ee03a457afcc"
+"2026-11-11",
+"8dd9a0734f70ed61a5c9"
 ],
 "australian-citizenship-ceremony-wait-times/canning/": [
-"2026-11-08",
-"200837aaa4b5e36e0d12"
+"2026-11-11",
+"2b96b19efcb7e64fe666"
 ],
 "australian-citizenship-ceremony-wait-times/canterbury-bankstown/": [
-"2026-11-08",
-"288f3c42b85fd46d7070"
+"2026-11-11",
+"a8dae6b01ea868048ba1"
 ],
 "australian-citizenship-ceremony-wait-times/cardinia/": [
-"2026-11-08",
-"c63e75339c3e7c180736"
+"2026-11-11",
+"cbfe2b2dba2652d46b25"
 ],
 "australian-citizenship-ceremony-wait-times/casey/": [
-"2026-11-08",
-"b76890dbde1724535a2f"
+"2026-11-11",
+"5ab93731a712bd726ad0"
 ],
 "australian-citizenship-ceremony-wait-times/central-coast-nsw/": [
-"2026-11-08",
-"dac3930fa44180d8eb59"
+"2026-11-11",
+"313774a5f601e16064c9"
 ],
 "australian-citizenship-ceremony-wait-times/cessnock/": [
-"2026-11-08",
-"4e343c6211e523757f66"
+"2026-11-11",
+"bdb83a5e1f3d59ae6012"
 ],
 "australian-citizenship-ceremony-wait-times/charles-sturt/": [
-"2026-11-08",
-"d90959a258b81920298a"
+"2026-11-11",
+"3e933c258c1f5c59e9e3"
+],
+"australian-citizenship-ceremony-wait-times/claremont/": [
+"2026-11-11",
+"897833018821fae25b77"
 ],
 "australian-citizenship-ceremony-wait-times/clarence/": [
-"2026-11-08",
-"e209f1cb33f195840037"
+"2026-11-11",
+"e10819b3054e91479066"
 ],
 "australian-citizenship-ceremony-wait-times/cockburn/": [
-"2026-11-08",
-"f2811e3af6c0a4289691"
+"2026-11-11",
+"4c67696dc03cc887f997"
 ],
 "australian-citizenship-ceremony-wait-times/cumberland/": [
-"2026-11-08",
-"b303641bc2bfdd5a4651"
+"2026-11-11",
+"e0e9c7b4236a29530693"
 ],
 "australian-citizenship-ceremony-wait-times/dandenong/": [
-"2026-11-08",
-"8a1dc4fc58f5c8db9b3b"
+"2026-11-11",
+"52a4c9b21bbcb312c209"
 ],
 "australian-citizenship-ceremony-wait-times/darebin/": [
-"2026-11-08",
-"a81c8eaa308b66fc01c4"
+"2026-11-11",
+"8d02e8ae4ddc7c95e024"
 ],
 "australian-citizenship-ceremony-wait-times/darwin/": [
-"2026-11-08",
-"dd38a46ab384d8e0b59f"
+"2026-11-11",
+"c88deaff8e9ec2d45931"
 ],
 "australian-citizenship-ceremony-wait-times/dubbo/": [
-"2026-11-08",
-"4a83445e2b5d46aa568d"
+"2026-11-11",
+"c2c8f5a67dd2e0af7a68"
 ],
 "australian-citizenship-ceremony-wait-times/fairfield/": [
-"2026-11-08",
-"6b8f82dfb62bb52a3c07"
+"2026-11-11",
+"e45a6af6fb7dbd2a92b3"
 ],
 "australian-citizenship-ceremony-wait-times/frankston/": [
-"2026-11-08",
-"62ca8445ba9bba545e78"
+"2026-11-11",
+"7ac3312d234bcc02661c"
 ],
 "australian-citizenship-ceremony-wait-times/geelong/": [
-"2026-11-08",
-"6c99bc0d0f0b771d5ab9"
+"2026-11-11",
+"b9c3c14cabed40eedff8"
 ],
 "australian-citizenship-ceremony-wait-times/georges-river/": [
-"2026-11-08",
-"dfdafaa5d678fa3fcb50"
+"2026-11-11",
+"a451aac1a939b0827624"
 ],
 "australian-citizenship-ceremony-wait-times/gladstone/": [
-"2026-11-08",
-"e9bf0bd314bd307d3687"
+"2026-11-11",
+"564627d632fb60fb5a9a"
 ],
 "australian-citizenship-ceremony-wait-times/glen-eira/": [
-"2026-11-08",
-"e289c3b7b72e459bcabc"
+"2026-11-11",
+"7943db3aa1cb1fd95c8f"
 ],
 "australian-citizenship-ceremony-wait-times/glenorchy/": [
-"2026-11-08",
-"d70fb5c6d087adf0b861"
+"2026-11-11",
+"a740a73f1878257faddf"
 ],
 "australian-citizenship-ceremony-wait-times/gold-coast/": [
-"2026-11-08",
-"c9c8860e3957874db33a"
+"2026-11-11",
+"45d42c9dbd59bfb5af88"
 ],
 "australian-citizenship-ceremony-wait-times/gosnells/": [
-"2026-11-08",
-"27ef71616d413173e98e"
+"2026-11-11",
+"4f62e174e288a9a3168e"
 ],
 "australian-citizenship-ceremony-wait-times/griffith/": [
-"2026-11-08",
-"e47ec8040f0647a60aea"
+"2026-11-11",
+"b512f9aada8dcd736712"
+],
+"australian-citizenship-ceremony-wait-times/gympie/": [
+"2026-11-11",
+"d5a4be1143e6a1247745"
+],
+"australian-citizenship-ceremony-wait-times/hawkesbury/": [
+"2026-11-11",
+"d4b642a07ce8be2308c9"
 ],
 "australian-citizenship-ceremony-wait-times/hobart/": [
-"2026-11-08",
-"e9c86ea808e6fe3820d3"
+"2026-11-11",
+"55cb45e7c1cc52b00f62"
 ],
 "australian-citizenship-ceremony-wait-times/hobsons-bay/": [
-"2026-11-08",
-"34a9d04e72f683d3ed89"
+"2026-11-11",
+"d74892ff514165b7b442"
+],
+"australian-citizenship-ceremony-wait-times/holdfast-bay/": [
+"2026-11-11",
+"a229e51c9630c2fe9bba"
 ],
 "australian-citizenship-ceremony-wait-times/hornsby/": [
-"2026-11-08",
-"e6d229adac2f71574467"
+"2026-11-11",
+"ac47a695b9d31dc8778f"
 ],
 "australian-citizenship-ceremony-wait-times/hume/": [
-"2026-11-08",
-"afafa7efa900245f585c"
+"2026-11-11",
+"43733a30d52ca537d5bb"
 ],
 "australian-citizenship-ceremony-wait-times/inner-west/": [
-"2026-11-08",
-"bbc5a0676ea23d1a78f5"
+"2026-11-11",
+"e427ee2196c23c2ff95b"
 ],
 "australian-citizenship-ceremony-wait-times/ipswich/": [
-"2026-11-08",
-"9c1f7d986fbdf52185ef"
+"2026-11-11",
+"1cf0fbbe5c393a906431"
 ],
 "australian-citizenship-ceremony-wait-times/joondalup/": [
-"2026-11-08",
-"75674a70cfa99baa2aa4"
+"2026-11-11",
+"b0bbb0b5dc09cb1c90ae"
 ],
 "australian-citizenship-ceremony-wait-times/kalamunda/": [
-"2026-11-08",
-"d8f07f295a39feb5adc9"
+"2026-11-11",
+"b513b4fef8381abe6cb3"
+],
+"australian-citizenship-ceremony-wait-times/karratha/": [
+"2026-11-11",
+"636896f795b2814b5863"
 ],
 "australian-citizenship-ceremony-wait-times/kingston-vic/": [
-"2026-11-08",
-"dda30273d9acefcafbe6"
+"2026-11-11",
+"279839f8a05d87f7cb80"
 ],
 "australian-citizenship-ceremony-wait-times/knox/": [
-"2026-11-08",
-"963d75295f7bafa5cbbc"
+"2026-11-11",
+"5966cedcabe9511f351d"
 ],
 "australian-citizenship-ceremony-wait-times/ku-ring-gai/": [
-"2026-11-08",
-"9fc448e3df4d5b7c2312"
+"2026-11-11",
+"22beb0cb71adb612f225"
 ],
 "australian-citizenship-ceremony-wait-times/kwinana/": [
-"2026-11-08",
-"7eebe4c1561b270f40cc"
+"2026-11-11",
+"07e91d4f81fe45d51c6c"
 ],
 "australian-citizenship-ceremony-wait-times/lake-macquarie/": [
-"2026-11-08",
-"c85e6416225319c0f5e5"
+"2026-11-11",
+"8fb847311030b6e0dfb1"
 ],
 "australian-citizenship-ceremony-wait-times/lane-cove/": [
-"2026-11-08",
-"b78aaf63bd37296d0e7c"
+"2026-11-11",
+"6ba27817ad53e1b0680f"
+],
+"australian-citizenship-ceremony-wait-times/latrobe-vic/": [
+"2026-11-11",
+"7ac569e046ef70d8b5de"
 ],
 "australian-citizenship-ceremony-wait-times/launceston/": [
-"2026-11-08",
-"d387d8f48f6d228a6cec"
+"2026-11-11",
+"7ad58675346432a4bde5"
+],
+"australian-citizenship-ceremony-wait-times/lismore/": [
+"2026-11-11",
+"4f1418a19f203c0fa19d"
 ],
 "australian-citizenship-ceremony-wait-times/liverpool/": [
-"2026-11-08",
-"437b182432213cc1f00b"
+"2026-11-11",
+"03027bbf6538c31fb6f6"
 ],
 "australian-citizenship-ceremony-wait-times/logan/": [
-"2026-11-08",
-"c57261087c6d24a8488c"
+"2026-11-11",
+"c0c4b31f7c0a0304a3c6"
 ],
 "australian-citizenship-ceremony-wait-times/mackay/": [
-"2026-11-08",
-"4369638bdfc8bf0f4597"
+"2026-11-11",
+"d1dd319261125361013e"
 ],
 "australian-citizenship-ceremony-wait-times/mandurah/": [
-"2026-11-08",
-"a88a0a2c0355fed8e6a1"
+"2026-11-11",
+"05f1f0666b3a72ebaaa9"
 ],
 "australian-citizenship-ceremony-wait-times/manningham/": [
-"2026-11-08",
-"105e24bbde682d8dd7c5"
+"2026-11-11",
+"ef714f8818c0381a2220"
 ],
 "australian-citizenship-ceremony-wait-times/maribyrnong/": [
-"2026-11-08",
-"e757fe3e430340cb3aae"
+"2026-11-11",
+"7fd180c376558d492d40"
 ],
 "australian-citizenship-ceremony-wait-times/marion/": [
-"2026-11-08",
-"7a77f9ca686387744435"
+"2026-11-11",
+"87fa1c779baf4a2e40c5"
 ],
 "australian-citizenship-ceremony-wait-times/maroondah/": [
-"2026-11-08",
-"5c36a8e011063c8e7bc8"
+"2026-11-11",
+"8cfe72cdee9938e32c73"
 ],
 "australian-citizenship-ceremony-wait-times/melbourne/": [
-"2026-11-08",
-"9627cbf69aba41d13475"
+"2026-11-11",
+"48fb728e43919a37f09e"
 ],
 "australian-citizenship-ceremony-wait-times/melton/": [
-"2026-11-08",
-"0dbc463a64037fec05db"
+"2026-11-11",
+"548db0e8d587597c58e1"
 ],
 "australian-citizenship-ceremony-wait-times/melville/": [
-"2026-11-08",
-"3f754c3322e34252a1ae"
+"2026-11-11",
+"f7446456e8e650cfb00c"
 ],
 "australian-citizenship-ceremony-wait-times/merri-bek/": [
-"2026-11-08",
-"34ab5b2f280ca389f557"
+"2026-11-11",
+"dc1bb0064c4b644d9da6"
 ],
 "australian-citizenship-ceremony-wait-times/mildura/": [
-"2026-11-08",
-"8cab5dc80e467148a613"
+"2026-11-11",
+"40808b45e44a5139fd9e"
 ],
 "australian-citizenship-ceremony-wait-times/mitcham/": [
-"2026-11-08",
-"74cc974787f3c7cf332e"
+"2026-11-11",
+"515c3e9644f307fa52a2"
 ],
 "australian-citizenship-ceremony-wait-times/mitchell/": [
-"2026-11-08",
-"1f43425bfb8082545428"
+"2026-11-11",
+"577975dcbda06f0bd099"
 ],
 "australian-citizenship-ceremony-wait-times/monash/": [
-"2026-11-08",
-"581d7d4c2a0fef646070"
+"2026-11-11",
+"ca281fb271cf683db5f1"
 ],
 "australian-citizenship-ceremony-wait-times/moonee-valley/": [
-"2026-11-08",
-"5817a63bf3f468ae1410"
+"2026-11-11",
+"cbaff7c3694e42d4bcfc"
 ],
 "australian-citizenship-ceremony-wait-times/moreton-bay/": [
-"2026-11-08",
-"3d8fb00c00b57ba6d9f7"
+"2026-11-11",
+"ba00f09b7a9d0683d50e"
+],
+"australian-citizenship-ceremony-wait-times/mornington-peninsula/": [
+"2026-11-11",
+"f96eaeadb9002525759f"
 ],
 "australian-citizenship-ceremony-wait-times/mosman/": [
-"2026-11-08",
-"150c42accce12a2b2784"
+"2026-11-11",
+"dcd902c618ca50542985"
+],
+"australian-citizenship-ceremony-wait-times/mount-barker/": [
+"2026-11-11",
+"2b66641222d7c29ea091"
 ],
 "australian-citizenship-ceremony-wait-times/mount-isa/": [
-"2026-11-08",
-"4d92bd81f57e66a6603f"
+"2026-11-11",
+"d56cfdb8b55bf17df028"
+],
+"australian-citizenship-ceremony-wait-times/mundaring/": [
+"2026-11-11",
+"ece5be551775dfd1f821"
+],
+"australian-citizenship-ceremony-wait-times/nedlands/": [
+"2026-11-11",
+"11ceb39e9b613d6caab6"
+],
+"australian-citizenship-ceremony-wait-times/new-south-wales/": [
+"2026-11-11",
+"e016189a3b7875846dac"
 ],
 "australian-citizenship-ceremony-wait-times/newcastle/": [
-"2026-11-08",
-"683f66a379bdf5a0392b"
+"2026-11-11",
+"decbb355c52ce231da50"
 ],
 "australian-citizenship-ceremony-wait-times/noosa/": [
-"2026-11-08",
-"e8a38ddb9ec8845d56f0"
+"2026-11-11",
+"3a2ecc7bd5be9ff333bd"
 ],
 "australian-citizenship-ceremony-wait-times/north-sydney/": [
-"2026-11-08",
-"54686daeb5f13c3b0071"
+"2026-11-11",
+"40d3a4e541fc67af05dd"
+],
+"australian-citizenship-ceremony-wait-times/northam/": [
+"2026-11-11",
+"67c66ed0b2965b095eba"
 ],
 "australian-citizenship-ceremony-wait-times/northern-beaches/": [
-"2026-11-08",
-"c702d59c9281381d4370"
+"2026-11-11",
+"32b8b324d5a539de17bb"
+],
+"australian-citizenship-ceremony-wait-times/northern-territory/": [
+"2026-11-11",
+"8c4ca554df01e0bb238c"
+],
+"australian-citizenship-ceremony-wait-times/onkaparinga/": [
+"2026-11-11",
+"38bc14ef61cf1bd88a0e"
 ],
 "australian-citizenship-ceremony-wait-times/orange/": [
-"2026-11-08",
-"f7fa32e02d8a3ae33927"
+"2026-11-11",
+"275b07c5f137150269fb"
 ],
 "australian-citizenship-ceremony-wait-times/palmerston/": [
-"2026-11-08",
-"4ae4026d5a0a2c40c087"
+"2026-11-11",
+"14b9139373caf079015f"
 ],
 "australian-citizenship-ceremony-wait-times/parramatta/": [
-"2026-11-08",
-"08062694c776bab7566b"
+"2026-11-11",
+"2c8f293a17352431a3ed"
 ],
 "australian-citizenship-ceremony-wait-times/penrith/": [
-"2026-11-08",
-"bf9e87c4113ec81f4795"
+"2026-11-11",
+"6c9eaf478b21c9c96446"
 ],
 "australian-citizenship-ceremony-wait-times/perth/": [
-"2026-11-08",
-"2a51f5745c3527f4f359"
+"2026-11-11",
+"8f1ca69323151464752c"
 ],
 "australian-citizenship-ceremony-wait-times/playford/": [
-"2026-11-08",
-"11d76d6ec983210b0b9e"
+"2026-11-11",
+"2ddd7d340df78e2e7d7d"
 ],
 "australian-citizenship-ceremony-wait-times/port-adelaide-enfield/": [
-"2026-11-08",
-"03971621e1b172708c7e"
+"2026-11-11",
+"1ed99a815dd0c78d91da"
+],
+"australian-citizenship-ceremony-wait-times/port-hedland/": [
+"2026-11-11",
+"e3ced41048828b3f1dfa"
 ],
 "australian-citizenship-ceremony-wait-times/port-phillip/": [
-"2026-11-08",
-"317c6d462def50e1a702"
+"2026-11-11",
+"65c407c52e5974513643"
+],
+"australian-citizenship-ceremony-wait-times/port-stephens/": [
+"2026-11-11",
+"85fadf7d0c5ccc962c3c"
 ],
 "australian-citizenship-ceremony-wait-times/prospect/": [
-"2026-11-08",
-"f2e9c378b4299ef3113d"
+"2026-11-11",
+"51788faa70f82c801a51"
+],
+"australian-citizenship-ceremony-wait-times/queensland/": [
+"2026-11-11",
+"a104df08aef025d43d39"
 ],
 "australian-citizenship-ceremony-wait-times/randwick/": [
-"2026-11-08",
-"cf467d723cda3f516c54"
+"2026-11-11",
+"0de53686b023cd6c7245"
 ],
 "australian-citizenship-ceremony-wait-times/redland/": [
-"2026-11-08",
-"b9e190795a51223dd370"
+"2026-11-11",
+"11c16d145f542d52e506"
+],
+"australian-citizenship-ceremony-wait-times/rockhampton/": [
+"2026-11-11",
+"9f48527a358130215e26"
 ],
 "australian-citizenship-ceremony-wait-times/rockingham/": [
-"2026-11-08",
-"485281e32c03152d047a"
+"2026-11-11",
+"ff388d34a66b7a128019"
+],
+"australian-citizenship-ceremony-wait-times/ryde/": [
+"2026-11-11",
+"6fefd79d25187c79e7f9"
 ],
 "australian-citizenship-ceremony-wait-times/salisbury/": [
-"2026-11-08",
-"89dae5ee7b36081579ed"
+"2026-11-11",
+"f6a70435578d5035ef15"
+],
+"australian-citizenship-ceremony-wait-times/serpentine-jarrahdale/": [
+"2026-11-11",
+"532cfe0f26da071f2783"
+],
+"australian-citizenship-ceremony-wait-times/shellharbour/": [
+"2026-11-11",
+"0d2a2f2f9ad9e1cea5d3"
 ],
 "australian-citizenship-ceremony-wait-times/shepparton/": [
-"2026-11-08",
-"25cfa6d39bebf3128706"
+"2026-11-11",
+"5d52d6ec56ac6074f63f"
 ],
 "australian-citizenship-ceremony-wait-times/shoalhaven/": [
-"2026-11-08",
-"5a558526d1199abf074d"
+"2026-11-11",
+"19909adb1222094ca7c6"
+],
+"australian-citizenship-ceremony-wait-times/somerset/": [
+"2026-11-11",
+"69258794d742a3d0ee1b"
+],
+"australian-citizenship-ceremony-wait-times/south-australia/": [
+"2026-11-11",
+"ee83c2f8f443da97c18d"
 ],
 "australian-citizenship-ceremony-wait-times/south-perth/": [
-"2026-11-08",
-"be2c1bb7f3510554f2e0"
+"2026-11-11",
+"6c934c4cc8755b3c4da0"
 ],
 "australian-citizenship-ceremony-wait-times/stirling/": [
-"2026-11-08",
-"0519349dd5c1fb45de50"
+"2026-11-11",
+"c280135820467f18cc09"
 ],
 "australian-citizenship-ceremony-wait-times/stonnington/": [
-"2026-11-08",
-"2807cbc9f0a15e485d64"
+"2026-11-11",
+"d7959df0be8f42ced1dd"
 ],
 "australian-citizenship-ceremony-wait-times/strathfield/": [
-"2026-11-08",
-"c88ff5318ed157bb4773"
+"2026-11-11",
+"3947105b22ed136d2889"
+],
+"australian-citizenship-ceremony-wait-times/subiaco/": [
+"2026-11-11",
+"e57dd0ebcb810c509e1d"
 ],
 "australian-citizenship-ceremony-wait-times/sunshine-coast/": [
-"2026-11-08",
-"8153871b4e79227bc0f6"
+"2026-11-11",
+"eac2e7d1dde37ac9022e"
 ],
 "australian-citizenship-ceremony-wait-times/sutherland/": [
-"2026-11-08",
-"1152f9ded0cdaa0edd55"
+"2026-11-11",
+"50bc00cb4ccf35b7c345"
+],
+"australian-citizenship-ceremony-wait-times/swan-hill/": [
+"2026-11-11",
+"f0025ba8c3a996c5b5b3"
 ],
 "australian-citizenship-ceremony-wait-times/swan/": [
-"2026-11-08",
-"a0fa2ef493963770fb86"
+"2026-11-11",
+"4e18a7d33363e00cf61a"
 ],
 "australian-citizenship-ceremony-wait-times/sydney/": [
-"2026-11-08",
-"ca8ea15a617a4871b5d9"
+"2026-11-11",
+"3356f28435140d5f217b"
 ],
 "australian-citizenship-ceremony-wait-times/tamworth/": [
-"2026-11-08",
-"00ec896b985d0e241aaf"
+"2026-11-11",
+"01e39a63f4d9935f46e7"
+],
+"australian-citizenship-ceremony-wait-times/tasmania/": [
+"2026-11-11",
+"992faefdbef397cd424e"
 ],
 "australian-citizenship-ceremony-wait-times/tea-tree-gully/": [
-"2026-11-08",
-"4af700c064ce8d3cac74"
+"2026-11-11",
+"410bf7b5c4893db457c6"
 ],
 "australian-citizenship-ceremony-wait-times/the-hills-shire/": [
-"2026-11-08",
-"27c44d860a3adf6ea98a"
+"2026-11-11",
+"a89666bae344fb665d5b"
 ],
 "australian-citizenship-ceremony-wait-times/toowoomba/": [
-"2026-11-08",
-"bfa8ed34065054eed782"
+"2026-11-11",
+"2a8a039c2c54e6d98b9e"
 ],
 "australian-citizenship-ceremony-wait-times/townsville/": [
-"2026-11-08",
-"dbeed8be806e697d0ac5"
+"2026-11-11",
+"a6f917de3730dba54ed2"
 ],
 "australian-citizenship-ceremony-wait-times/tweed/": [
-"2026-11-08",
-"ce39d2bd89d816c726ae"
+"2026-11-11",
+"0064171231e158b7e60c"
 ],
 "australian-citizenship-ceremony-wait-times/unley/": [
-"2026-11-08",
-"a943237d6ecfe6de7db1"
+"2026-11-11",
+"9953f017fa9aa06455e4"
+],
+"australian-citizenship-ceremony-wait-times/victoria-park/": [
+"2026-11-11",
+"ec6b829b4abf949f7ed0"
+],
+"australian-citizenship-ceremony-wait-times/victoria/": [
+"2026-11-11",
+"8b331c7b3cdf2ae953e2"
+],
+"australian-citizenship-ceremony-wait-times/vincent/": [
+"2026-11-11",
+"8c1eb04599e39d600750"
+],
+"australian-citizenship-ceremony-wait-times/wagga-wagga/": [
+"2026-11-11",
+"494303356ad623bcb231"
 ],
 "australian-citizenship-ceremony-wait-times/wanneroo/": [
-"2026-11-08",
-"261d8e5f1b6d078d8f6d"
+"2026-11-11",
+"918fe979556facb14838"
 ],
 "australian-citizenship-ceremony-wait-times/warrnambool/": [
-"2026-11-08",
-"757a78ca51aaded2246b"
+"2026-11-11",
+"47d57c06e6d11f8ac77a"
 ],
 "australian-citizenship-ceremony-wait-times/waverley/": [
-"2026-11-08",
-"ba2abb063957b455ab64"
+"2026-11-11",
+"84b5e937759e373f2dc9"
 ],
 "australian-citizenship-ceremony-wait-times/wellington/": [
-"2026-11-08",
-"32f3079a5f8b01a1fa56"
+"2026-11-11",
+"3b118faadbb75947a039"
 ],
 "australian-citizenship-ceremony-wait-times/west-torrens/": [
-"2026-11-08",
-"346f38467a638436f260"
+"2026-11-11",
+"e1e6a0b561a4a56997b9"
+],
+"australian-citizenship-ceremony-wait-times/western-australia/": [
+"2026-11-11",
+"0edccfa0becbc4dbfa61"
 ],
 "australian-citizenship-ceremony-wait-times/whitehorse/": [
-"2026-11-08",
-"b031f950a2c998d38c87"
+"2026-11-11",
+"c07b6fb039ad03b15bd2"
 ],
 "australian-citizenship-ceremony-wait-times/whittlesea/": [
-"2026-11-08",
-"265da6cc1b5a91810eaf"
+"2026-11-11",
+"9720a30b92fd964c3c44"
 ],
 "australian-citizenship-ceremony-wait-times/willoughby/": [
-"2026-11-08",
-"86c0679eb490918f138c"
+"2026-11-11",
+"aee6a64ca166528e5bd2"
+],
+"australian-citizenship-ceremony-wait-times/wingecarribee/": [
+"2026-11-11",
+"e947d1aee45e938ca299"
 ],
 "australian-citizenship-ceremony-wait-times/wodonga/": [
-"2026-11-08",
-"678769d4a120f6741f74"
+"2026-11-11",
+"cadf12f94d47a87e40ba"
+],
+"australian-citizenship-ceremony-wait-times/wollondilly/": [
+"2026-11-11",
+"7f6c3840dbd1d12352a0"
 ],
 "australian-citizenship-ceremony-wait-times/wollongong/": [
-"2026-11-08",
-"8333393b5b596351842f"
+"2026-11-11",
+"d8d53ed759538202d46a"
 ],
 "australian-citizenship-ceremony-wait-times/woollahra/": [
-"2026-11-08",
-"3f0696faac4af57e889e"
+"2026-11-11",
+"d2cd7e99754b9c5a2d63"
 ],
 "australian-citizenship-ceremony-wait-times/wyndham/": [
-"2026-11-08",
-"f0188cc8f2e01d6e1df9"
+"2026-11-11",
+"dc22a56ed99d86b4996e"
 ],
 "australian-citizenship-ceremony-wait-times/yarra-ranges/": [
-"2026-11-08",
-"f5dcb93535df428d8c04"
+"2026-11-11",
+"f731a8f42be2eb942d19"
 ],
 "australian-citizenship-ceremony-wait-times/yarra/": [
-"2026-11-08",
-"19cea34c0b37af4742f1"
+"2026-11-11",
+"490adae45023eaa4e047"
 ],
 "australian-citizenship-processing-time/": [
-"2026-11-08",
-"4929780ab9c4d76cbe2c"
+"2026-11-11",
+"9816058eb5ea802d8256"
 ],
 "austria-eu-blue-card/": [
 "2026-11-08",
@@ -550,56 +718,56 @@
 "dca01768f46976c3f90e"
 ],
 "country/austria/": [
-"2026-11-08",
-"2d7db3d39c3f2fa42239"
+"2026-11-11",
+"35672648e64fc858a3da"
 ],
 "country/croatia/": [
-"2026-11-08",
-"d78d3007b0ebcdcfd437"
+"2026-11-11",
+"a63971f6fa310a482949"
 ],
 "country/denmark/": [
-"2026-11-08",
-"67c172b150da50ad7245"
+"2026-11-11",
+"8af888c3070051f3dced"
 ],
 "country/france/": [
-"2026-11-08",
-"3e09db1af44941975f5b"
+"2026-11-11",
+"9e724b6412926ae0b541"
 ],
 "country/germany/": [
-"2026-11-08",
-"565c96f88dd18ad81385"
+"2026-11-11",
+"ea59d6f19af58ed4d539"
 ],
 "country/hungary/": [
-"2026-11-08",
-"36d984a67fe38a1f4a5f"
+"2026-11-11",
+"41c941f6a30cc1fc3947"
 ],
 "country/ireland/": [
-"2026-11-08",
-"1348bff4bfc8c2c25987"
+"2026-11-11",
+"3792b6be34c29aef9bda"
 ],
 "country/italy/": [
-"2026-11-08",
-"23cb839ecdd67f61991f"
+"2026-11-11",
+"ba523a9e025a74c7682e"
 ],
 "country/netherlands/": [
-"2026-11-08",
-"7ee74ea13451a7162139"
+"2026-11-11",
+"c75a612931539b271977"
 ],
 "country/portugal/": [
-"2026-11-08",
-"faa0c91ec6f7c089c363"
+"2026-11-11",
+"5b2ab68e767f8e282aa6"
 ],
 "country/spain/": [
-"2026-11-08",
-"63ebf0aacb9541359fd2"
+"2026-11-11",
+"fdee4c48ec46b43482c4"
 ],
 "country/sweden/": [
-"2026-11-08",
-"9067d8ac7255528fa34f"
+"2026-11-11",
+"d6d1f3cb72fa46070f9d"
 ],
 "country/united-kingdom/": [
-"2026-11-08",
-"2bfb322c1c9e84d4f06d"
+"2026-11-11",
+"83735f1d8942ac9ff9f1"
 ],
 "croatia-digital-nomad-visa/": [
 "2026-11-08",
@@ -1502,888 +1670,1544 @@
 "13119e3a614d7af3a102"
 ],
 "moved-to/": [
-"2026-11-08",
-"64c9e2adfb11c308ce89"
+"2026-11-11",
+"78fa8cefedd8d38b4a08"
 ],
 "moved-to/americans/": [
-"2026-11-08",
-"f37ee762a6ba2e4936bb"
+"2026-11-11",
+"323d7e8f2b7cc5af897e"
 ],
 "moved-to/americans/austria/": [
-"2026-11-08",
-"1da2fc51e3849d0592f3"
+"2026-11-11",
+"a4fea7a3dded89e1c292"
 ],
 "moved-to/americans/belgium/": [
-"2026-11-08",
-"58eee3b1b9bd4f0a0708"
+"2026-11-11",
+"f528f5ffa54b360fb12b"
 ],
 "moved-to/americans/canada/": [
-"2026-11-08",
-"67a5d7381080d8aae3f2"
+"2026-11-11",
+"0949aebd50e92c8e6161"
 ],
 "moved-to/americans/czechia/": [
-"2026-11-08",
-"0c87d352837e0379e372"
+"2026-11-11",
+"4d8120b49984f1bddee9"
 ],
 "moved-to/americans/denmark/": [
-"2026-11-08",
-"c4768745bac38ecbce87"
+"2026-11-11",
+"46f7a28632de35d26029"
 ],
 "moved-to/americans/finland/": [
-"2026-11-08",
-"b46cecdf089511415e6d"
+"2026-11-11",
+"4aa0d405784bb076f615"
 ],
 "moved-to/americans/france/": [
-"2026-11-08",
-"5016170927d9afca486c"
+"2026-11-11",
+"6480bb794bae567ad7b3"
 ],
 "moved-to/americans/germany/": [
-"2026-11-08",
-"57623c882d36baea1e53"
+"2026-11-11",
+"a2f685f812b9348b8e6c"
 ],
 "moved-to/americans/greece/": [
-"2026-11-08",
-"cbfdafe9d2f82d49e40f"
+"2026-11-11",
+"cea089da1209e00f2a7b"
 ],
 "moved-to/americans/hungary/": [
-"2026-11-08",
-"954eefb7734062e97a46"
+"2026-11-11",
+"e7acfcea707897e8ccb4"
 ],
 "moved-to/americans/ireland/": [
-"2026-11-08",
-"58bdd4f517e6eb532b76"
+"2026-11-11",
+"2bd4350d53cedc281d2d"
 ],
 "moved-to/americans/italy/": [
-"2026-11-08",
-"669196c5ba2000383223"
+"2026-11-11",
+"63215c19df6a8e804f60"
 ],
 "moved-to/americans/malta/": [
-"2026-11-08",
-"219bb89338fff1838690"
+"2026-11-11",
+"295e0dea165c81149c3c"
 ],
 "moved-to/americans/netherlands/": [
-"2026-11-08",
-"d24a79d2866bb624f2eb"
+"2026-11-11",
+"61f11be344f3e2cbdae6"
 ],
 "moved-to/americans/norway/": [
-"2026-11-08",
-"233861dfe4216d2889cd"
+"2026-11-11",
+"30e5d5bdcfddbd10a84d"
 ],
 "moved-to/americans/poland/": [
-"2026-11-08",
-"9cd97665035a7ca06720"
+"2026-11-11",
+"24edc97a0770af6ec442"
 ],
 "moved-to/americans/portugal/": [
-"2026-11-08",
-"78ca8154d84bdf5b7ac9"
+"2026-11-11",
+"d569a4705f06a82f06ee"
 ],
 "moved-to/americans/romania/": [
-"2026-11-08",
-"f2912ed26fa9e5d00b38"
+"2026-11-11",
+"ad95c542725ddfb238e5"
 ],
 "moved-to/americans/slovakia/": [
-"2026-11-08",
-"30f21e2c202edd16e995"
+"2026-11-11",
+"54e046ae293c37bb3ed5"
 ],
 "moved-to/americans/spain/": [
-"2026-11-08",
-"e89ed1dc32d2e1f53bfb"
+"2026-11-11",
+"57e7c94df4c2d909af73"
 ],
 "moved-to/americans/sweden/": [
-"2026-11-08",
-"3bb551cd682f7b0b9ada"
+"2026-11-11",
+"d50608968b43407bf408"
 ],
 "moved-to/americans/switzerland/": [
-"2026-11-08",
-"be7363af0237b5d5cc8e"
+"2026-11-11",
+"dafae62ed171efc3b228"
 ],
 "moved-to/americans/uk/": [
-"2026-11-08",
-"1177d57c86f9f75a97d5"
+"2026-11-11",
+"5d5e8e85c2f0d0c81c81"
 ],
 "moved-to/australians/": [
-"2026-11-08",
-"af3e0948375e557a4a0c"
+"2026-11-11",
+"0ef3f42f1decdea9b8b6"
 ],
 "moved-to/australians/canada/": [
-"2026-11-08",
-"7ef514e99a1b6b8b867f"
+"2026-11-11",
+"798b5787e9849af5f3b4"
 ],
 "moved-to/australians/denmark/": [
-"2026-11-08",
-"5b3ebeaa89e806669731"
+"2026-11-11",
+"731a5eaa983e65ab05c9"
 ],
 "moved-to/australians/france/": [
-"2026-11-08",
-"3d5e8da90493e075d48f"
+"2026-11-11",
+"cfcb8980d5a534ce5586"
 ],
 "moved-to/australians/germany/": [
-"2026-11-08",
-"dd09bd948315b8d9ac75"
+"2026-11-11",
+"5372f4958da723e7dd6c"
 ],
 "moved-to/australians/ireland/": [
-"2026-11-08",
-"3e9ba4226ab507d629b3"
+"2026-11-11",
+"c3568437bbc0a383a0b0"
 ],
 "moved-to/australians/netherlands/": [
-"2026-11-08",
-"aa47852f0c19629f169b"
+"2026-11-11",
+"6050689faddd06ad7d76"
 ],
 "moved-to/australians/spain/": [
-"2026-11-08",
-"022a61b868e955d790f0"
+"2026-11-11",
+"1ecb91809f84876aa49f"
 ],
 "moved-to/australians/sweden/": [
-"2026-11-08",
-"72dc27504bfdf9051780"
+"2026-11-11",
+"8e26bc0900311885d2ee"
 ],
 "moved-to/australians/switzerland/": [
-"2026-11-08",
-"0de2f090a828d4c88a2a"
+"2026-11-11",
+"c7515c6619fdda42b8b5"
 ],
 "moved-to/australians/uk/": [
-"2026-11-08",
-"dff86ff02689d12cb7b9"
+"2026-11-11",
+"3a427616c5d1456646ca"
+],
+"moved-to/bangladeshis/": [
+"2026-11-11",
+"63c81d8b59d2da8d0f47"
+],
+"moved-to/bangladeshis/austria/": [
+"2026-11-11",
+"bfab44fc6045315d9c16"
+],
+"moved-to/bangladeshis/canada/": [
+"2026-11-11",
+"7449d93e2afc261017f1"
+],
+"moved-to/bangladeshis/croatia/": [
+"2026-11-11",
+"461c5f6bee689161a527"
+],
+"moved-to/bangladeshis/cyprus/": [
+"2026-11-11",
+"8920f021480ba41b427f"
+],
+"moved-to/bangladeshis/denmark/": [
+"2026-11-11",
+"83d04612342427282834"
+],
+"moved-to/bangladeshis/finland/": [
+"2026-11-11",
+"890e3fd9c3c9bf388aca"
+],
+"moved-to/bangladeshis/france/": [
+"2026-11-11",
+"c4c8b1547a9db4d61dcf"
+],
+"moved-to/bangladeshis/germany/": [
+"2026-11-11",
+"67caf282f0c4c5261ac9"
+],
+"moved-to/bangladeshis/hungary/": [
+"2026-11-11",
+"20017cc78b3cb85c68ea"
+],
+"moved-to/bangladeshis/ireland/": [
+"2026-11-11",
+"aa21564bdd6edd3deaa6"
+],
+"moved-to/bangladeshis/italy/": [
+"2026-11-11",
+"a88b206d7ec5742e2e0d"
+],
+"moved-to/bangladeshis/lithuania/": [
+"2026-11-11",
+"8c7c340a842db16e8a36"
+],
+"moved-to/bangladeshis/malta/": [
+"2026-11-11",
+"8102a9263cf3f220fb01"
+],
+"moved-to/bangladeshis/netherlands/": [
+"2026-11-11",
+"4e7817ccce9273787176"
+],
+"moved-to/bangladeshis/poland/": [
+"2026-11-11",
+"19b8213da112f344bb91"
+],
+"moved-to/bangladeshis/portugal/": [
+"2026-11-11",
+"2aef10994df070425f56"
+],
+"moved-to/bangladeshis/romania/": [
+"2026-11-11",
+"3dca91d4926babb13aae"
+],
+"moved-to/bangladeshis/spain/": [
+"2026-11-11",
+"684daeb8c7158109e930"
+],
+"moved-to/bangladeshis/sweden/": [
+"2026-11-11",
+"190582ed8a9bbe32e549"
+],
+"moved-to/bangladeshis/uk/": [
+"2026-11-11",
+"f72c74db902ef8c2c08b"
 ],
 "moved-to/brazilians/": [
-"2026-11-08",
-"390aaae0f9652fc72911"
+"2026-11-11",
+"70b3d12a889adc209897"
 ],
 "moved-to/brazilians/austria/": [
-"2026-11-08",
-"5efc967788ceade53ad7"
+"2026-11-11",
+"61540bc1e4b3cc979abb"
 ],
 "moved-to/brazilians/belgium/": [
-"2026-11-08",
-"dc17b8f7ef5ac542420c"
+"2026-11-11",
+"92352036fdda6c2bb360"
 ],
 "moved-to/brazilians/canada/": [
-"2026-11-08",
-"4721a7728b0645202937"
+"2026-11-11",
+"332a5e64bbd22651bd10"
 ],
 "moved-to/brazilians/denmark/": [
-"2026-11-08",
-"46816e71024dc2fb19ff"
+"2026-11-11",
+"44f9d186544e995805ff"
 ],
 "moved-to/brazilians/france/": [
-"2026-11-08",
-"b795586a6c9eed56dd69"
+"2026-11-11",
+"97ea8a341ba0f036da4a"
 ],
 "moved-to/brazilians/germany/": [
-"2026-11-08",
-"ad8c89bcfefad992475c"
+"2026-11-11",
+"ec1da579d9d36e90eafb"
 ],
 "moved-to/brazilians/ireland/": [
-"2026-11-08",
-"2036cf00cd07c185f54e"
+"2026-11-11",
+"8d7d66b3cc9f044aa1cf"
 ],
 "moved-to/brazilians/italy/": [
-"2026-11-08",
-"bc2fceb97fd873af82c7"
+"2026-11-11",
+"34d611e25c7c5814bd27"
 ],
 "moved-to/brazilians/malta/": [
-"2026-11-08",
-"67b972debfe3965bcdc0"
+"2026-11-11",
+"80e697f93163789d67d3"
 ],
 "moved-to/brazilians/netherlands/": [
-"2026-11-08",
-"fdffe99daad49d24bde5"
+"2026-11-11",
+"0964c1bf8ac7ecd9ba37"
 ],
 "moved-to/brazilians/poland/": [
-"2026-11-08",
-"c0550bfc344e088ec102"
+"2026-11-11",
+"15ab7c624f956a8bf13e"
 ],
 "moved-to/brazilians/portugal/": [
-"2026-11-08",
-"865a1d7d04f6ca09ddcc"
+"2026-11-11",
+"7d64e1f64143b3d50821"
 ],
 "moved-to/brazilians/spain/": [
-"2026-11-08",
-"25ef081f03bdf2eb7f48"
+"2026-11-11",
+"1feed4dac2f0f71ef796"
 ],
 "moved-to/brazilians/sweden/": [
-"2026-11-08",
-"e5ef04571f4b7c9e21af"
+"2026-11-11",
+"a5269a8b3b65174dc218"
 ],
 "moved-to/brazilians/switzerland/": [
-"2026-11-08",
-"0a753a151e991633bf66"
+"2026-11-11",
+"b98c1ad58a8638ff7c61"
 ],
 "moved-to/brazilians/uk/": [
-"2026-11-08",
-"5e36d482fe30addca15b"
+"2026-11-11",
+"a4d4f4f473d8141ae2c8"
 ],
 "moved-to/british/": [
-"2026-11-08",
-"127dda035137e85d33ad"
+"2026-11-11",
+"ede2036f286871d86273"
 ],
 "moved-to/british/belgium/": [
-"2026-11-08",
-"80b38684482619adb044"
+"2026-11-11",
+"ba9ed724b50db92c5c3b"
 ],
 "moved-to/british/bulgaria/": [
-"2026-11-08",
-"378205e2199d782cf790"
+"2026-11-11",
+"c11de3aaf092b0fabf78"
 ],
 "moved-to/british/canada/": [
-"2026-11-08",
-"7d3187d95ac068b6458b"
+"2026-11-11",
+"90e67a4f98fcb103500e"
 ],
 "moved-to/british/cyprus/": [
-"2026-11-08",
-"e8ebefa66987fbc4649d"
+"2026-11-11",
+"662eb64687d9d114b55d"
 ],
 "moved-to/british/czechia/": [
-"2026-11-08",
-"42a5af5ec4a12a7d17f9"
+"2026-11-11",
+"64ea184dad258ce983ee"
 ],
 "moved-to/british/denmark/": [
-"2026-11-08",
-"2988eed74425d3b12a0e"
+"2026-11-11",
+"143aaf6b2498c4821e40"
 ],
 "moved-to/british/finland/": [
-"2026-11-08",
-"6c49012be10892866348"
+"2026-11-11",
+"b968287e6677bc5d6c1e"
 ],
 "moved-to/british/france/": [
-"2026-11-08",
-"ddba446f008ad1d36ade"
+"2026-11-11",
+"d299ea519ccd4a13e4fe"
 ],
 "moved-to/british/germany/": [
-"2026-11-08",
-"324a9ccabb0a7f1e6d82"
+"2026-11-11",
+"8b34331a514ec848cf07"
 ],
 "moved-to/british/greece/": [
-"2026-11-08",
-"fe78060eaeeef58ad2ec"
+"2026-11-11",
+"7d37174ea16ee931f471"
 ],
 "moved-to/british/hungary/": [
-"2026-11-08",
-"7acb0a913a98badfa74c"
+"2026-11-11",
+"c01a1ea8d5b0b4bf4c1b"
 ],
 "moved-to/british/ireland/": [
-"2026-11-08",
-"8ebcb27aeacfe9e67b17"
+"2026-11-11",
+"0dc8fa8ee10776409214"
 ],
 "moved-to/british/italy/": [
-"2026-11-08",
-"8b45ac805e8f2573a4f3"
+"2026-11-11",
+"720be5e4f3dca43182b7"
 ],
 "moved-to/british/malta/": [
-"2026-11-08",
-"80e2dc02231c1df2d9e3"
+"2026-11-11",
+"2bfcbc04bd59e699c40d"
 ],
 "moved-to/british/netherlands/": [
-"2026-11-08",
-"47eed81cb31ff6ceb062"
+"2026-11-11",
+"97ae7606bc652c1ebceb"
 ],
 "moved-to/british/norway/": [
-"2026-11-08",
-"6cb79d82b6e166dbc899"
+"2026-11-11",
+"8ea60234f74cd1ed2898"
 ],
 "moved-to/british/poland/": [
-"2026-11-08",
-"a88ae57aa4f5e6a5d2c7"
+"2026-11-11",
+"cc23e59419a8baf3cb9f"
 ],
 "moved-to/british/portugal/": [
-"2026-11-08",
-"b27aad7ac1c14f42d3cd"
+"2026-11-11",
+"f4ee307d7f3a5acc99e3"
 ],
 "moved-to/british/spain/": [
-"2026-11-08",
-"7adc0e1cea47b0f27846"
+"2026-11-11",
+"a8ab6ecccfee8f90d7d8"
 ],
 "moved-to/british/sweden/": [
-"2026-11-08",
-"79a15075c1eb5279c1ad"
+"2026-11-11",
+"0f7ea2f87a4518520690"
 ],
 "moved-to/british/switzerland/": [
-"2026-11-08",
-"3e7e0013d841a8880758"
+"2026-11-11",
+"302a8eebccc156c8f7dc"
 ],
 "moved-to/canadians/": [
-"2026-11-08",
-"e52e74496654fbf65189"
+"2026-11-11",
+"1b69191a96a20a3ed051"
 ],
 "moved-to/canadians/belgium/": [
-"2026-11-08",
-"01c4b93ceca8c54513f5"
+"2026-11-11",
+"5a15a9af720b44e94a3b"
 ],
 "moved-to/canadians/denmark/": [
-"2026-11-08",
-"e422aee00a20793b74bf"
+"2026-11-11",
+"232625c4ee64898217d8"
 ],
 "moved-to/canadians/france/": [
-"2026-11-08",
-"14497df50a10d77078b7"
+"2026-11-11",
+"12ae60850eccd83b4f6f"
 ],
 "moved-to/canadians/germany/": [
-"2026-11-08",
-"0767d219acb995cdd4cd"
+"2026-11-11",
+"a46bbd685e5bf75d73e6"
 ],
 "moved-to/canadians/ireland/": [
-"2026-11-08",
-"60fc3b7ef7633aec46c3"
+"2026-11-11",
+"1d10f4960da504b32abd"
 ],
 "moved-to/canadians/italy/": [
-"2026-11-08",
-"850772198daab6bc8425"
+"2026-11-11",
+"46f2109a64742d9f9a2e"
 ],
 "moved-to/canadians/netherlands/": [
-"2026-11-08",
-"213a9c31b57cb4719570"
+"2026-11-11",
+"bed5cfe5e49b952326ca"
 ],
 "moved-to/canadians/portugal/": [
-"2026-11-08",
-"d41e7a0c68103335969c"
+"2026-11-11",
+"287d9889045a83ef78e3"
 ],
 "moved-to/canadians/spain/": [
-"2026-11-08",
-"5fa1f8f1ddfba6be390d"
+"2026-11-11",
+"c44497f1e7e75103dbf7"
 ],
 "moved-to/canadians/sweden/": [
-"2026-11-08",
-"6f3d1f70a772b0d8ee8f"
+"2026-11-11",
+"0288fc9f1c48a7319490"
 ],
 "moved-to/canadians/switzerland/": [
-"2026-11-08",
-"837bcb696f2bd4d8405f"
+"2026-11-11",
+"40804e6138b6788fa4f2"
 ],
 "moved-to/canadians/uk/": [
-"2026-11-08",
-"a95fef27f2776eb4776a"
+"2026-11-11",
+"321f529f5fd365c8e92b"
 ],
 "moved-to/chinese/": [
-"2026-11-08",
-"e3284e36c8a414a49cb9"
+"2026-11-11",
+"d33c55b0ef92c1031509"
 ],
 "moved-to/chinese/austria/": [
-"2026-11-08",
-"665c1295c93d2f2c3f6f"
+"2026-11-11",
+"c041c7ee5ca721631550"
 ],
 "moved-to/chinese/belgium/": [
-"2026-11-08",
-"60a171848d51c5e6a848"
+"2026-11-11",
+"348d48b36bc833a6f9d5"
 ],
 "moved-to/chinese/canada/": [
-"2026-11-08",
-"7363bb690c051dd256e2"
+"2026-11-11",
+"22fac13046cd37e5baef"
 ],
 "moved-to/chinese/croatia/": [
-"2026-11-08",
-"fd23d9a81747ab527a7c"
+"2026-11-11",
+"3b442795500ec23a9068"
 ],
 "moved-to/chinese/czechia/": [
-"2026-11-08",
-"f2d7492e986f49de0637"
+"2026-11-11",
+"9360bf2f264690c23ee0"
 ],
 "moved-to/chinese/denmark/": [
-"2026-11-08",
-"26f01ae97a4305cdea4a"
+"2026-11-11",
+"aed6caa60ca9e1274719"
 ],
 "moved-to/chinese/finland/": [
-"2026-11-08",
-"7c886f0bd7470a002758"
+"2026-11-11",
+"7a3de1545ff7c994828b"
 ],
 "moved-to/chinese/france/": [
-"2026-11-08",
-"e07411507ca80cdc475a"
+"2026-11-11",
+"d77f1a808d292a808098"
 ],
 "moved-to/chinese/germany/": [
-"2026-11-08",
-"06790cbfa5b5e48babff"
+"2026-11-11",
+"2270271c0d4de21a0da7"
 ],
 "moved-to/chinese/greece/": [
-"2026-11-08",
-"555e40bf5d653e8dcab1"
+"2026-11-11",
+"a9f7f9036a610703cb7e"
 ],
 "moved-to/chinese/hungary/": [
-"2026-11-08",
-"008f07288731d0a1432d"
+"2026-11-11",
+"1d133a2ff44adb852e21"
 ],
 "moved-to/chinese/ireland/": [
-"2026-11-08",
-"866216ba557cc4efdf06"
+"2026-11-11",
+"2c95e3ec7cf8c5011ade"
 ],
 "moved-to/chinese/italy/": [
-"2026-11-08",
-"79a4b7b0f8c56ab11070"
+"2026-11-11",
+"5e4db5f59773e84d44ff"
 ],
 "moved-to/chinese/malta/": [
-"2026-11-08",
-"0768731c906e00998011"
+"2026-11-11",
+"1f23bbfac7f79ab64b6e"
 ],
 "moved-to/chinese/netherlands/": [
-"2026-11-08",
-"543174aa572aeceed392"
+"2026-11-11",
+"63f828308bb3eaeafec5"
 ],
 "moved-to/chinese/norway/": [
-"2026-11-08",
-"3609bf64197e080d345c"
+"2026-11-11",
+"7e839d26555b82be11a5"
 ],
 "moved-to/chinese/poland/": [
-"2026-11-08",
-"dbca3c8842f62c211fea"
+"2026-11-11",
+"d0c124ad7f1354ffa2e7"
 ],
 "moved-to/chinese/portugal/": [
-"2026-11-08",
-"ce50e4b98e76ccec1c36"
+"2026-11-11",
+"8c60834d10237c67728f"
 ],
 "moved-to/chinese/romania/": [
-"2026-11-08",
-"68d0eee6c3bf4cb8dbac"
+"2026-11-11",
+"63ae997f76bd3aea1d5c"
 ],
 "moved-to/chinese/slovenia/": [
-"2026-11-08",
-"9f8411789e9a23657571"
+"2026-11-11",
+"5eb78546b5a87edf3d69"
 ],
 "moved-to/chinese/spain/": [
-"2026-11-08",
-"270928667f498a988dba"
+"2026-11-11",
+"865e915f394d884508cc"
 ],
 "moved-to/chinese/sweden/": [
-"2026-11-08",
-"ff142a174d82fb9bdbf0"
+"2026-11-11",
+"c287154a535054132960"
 ],
 "moved-to/chinese/switzerland/": [
-"2026-11-08",
-"d08296836009852714ae"
+"2026-11-11",
+"1296c428ae2a10fe82e2"
 ],
 "moved-to/chinese/uk/": [
-"2026-11-08",
-"275916e52b71fca4ffba"
+"2026-11-11",
+"237aa053d8c8efab962e"
+],
+"moved-to/colombians/": [
+"2026-11-11",
+"8bd03dd0511382b5726b"
+],
+"moved-to/colombians/austria/": [
+"2026-11-11",
+"270de8a9d598dee51225"
+],
+"moved-to/colombians/belgium/": [
+"2026-11-11",
+"ebc23c32e2a165b9b956"
+],
+"moved-to/colombians/canada/": [
+"2026-11-11",
+"8004ad808b4a2298346c"
+],
+"moved-to/colombians/france/": [
+"2026-11-11",
+"b94f17576e080dff76f6"
+],
+"moved-to/colombians/germany/": [
+"2026-11-11",
+"e1e3d3393438bd76bcde"
+],
+"moved-to/colombians/italy/": [
+"2026-11-11",
+"db210ef823c195ea041a"
+],
+"moved-to/colombians/malta/": [
+"2026-11-11",
+"3ed56a0bfc5cfde814c9"
+],
+"moved-to/colombians/netherlands/": [
+"2026-11-11",
+"a531f133055e82763a9f"
+],
+"moved-to/colombians/poland/": [
+"2026-11-11",
+"015b52fcf8c5eaa90541"
+],
+"moved-to/colombians/portugal/": [
+"2026-11-11",
+"d001aba495d2224c747e"
+],
+"moved-to/colombians/spain/": [
+"2026-11-11",
+"c0e1d9d501a8e7f8f16c"
+],
+"moved-to/colombians/switzerland/": [
+"2026-11-11",
+"b52725da3f5f0b25006b"
+],
+"moved-to/colombians/uk/": [
+"2026-11-11",
+"77e2cdc38763b72739e5"
+],
+"moved-to/egyptians/": [
+"2026-11-11",
+"64788f3fcff3d2b738e0"
+],
+"moved-to/egyptians/austria/": [
+"2026-11-11",
+"2192688c09ad89f4268c"
+],
+"moved-to/egyptians/canada/": [
+"2026-11-11",
+"75ac9a2b9e2c4464379f"
+],
+"moved-to/egyptians/croatia/": [
+"2026-11-11",
+"137a4a9f5a736bb13e6b"
+],
+"moved-to/egyptians/cyprus/": [
+"2026-11-11",
+"675d2626625971aa1a41"
+],
+"moved-to/egyptians/france/": [
+"2026-11-11",
+"a81e4140c37fa2aa7b8f"
+],
+"moved-to/egyptians/germany/": [
+"2026-11-11",
+"2f08705ba4cab92c26e2"
+],
+"moved-to/egyptians/greece/": [
+"2026-11-11",
+"febdd05da750dc673dff"
+],
+"moved-to/egyptians/hungary/": [
+"2026-11-11",
+"7e045df34313ecc2affa"
+],
+"moved-to/egyptians/ireland/": [
+"2026-11-11",
+"a5306c6ca7d61a2c105f"
+],
+"moved-to/egyptians/italy/": [
+"2026-11-11",
+"2ecd761b9fd306d70a19"
+],
+"moved-to/egyptians/netherlands/": [
+"2026-11-11",
+"f26d6cef78c45d56c60f"
+],
+"moved-to/egyptians/poland/": [
+"2026-11-11",
+"8e9c0b0ce008bc605191"
+],
+"moved-to/egyptians/portugal/": [
+"2026-11-11",
+"f04c9a96ca76c4ca2d27"
+],
+"moved-to/egyptians/romania/": [
+"2026-11-11",
+"7a8dd05238df866df6c3"
+],
+"moved-to/egyptians/spain/": [
+"2026-11-11",
+"df2e7993474c4566cd81"
+],
+"moved-to/egyptians/sweden/": [
+"2026-11-11",
+"7bd9c9bfc575d313dbad"
+],
+"moved-to/egyptians/uk/": [
+"2026-11-11",
+"aa6fd5ea30790939e276"
 ],
 "moved-to/filipinos/": [
-"2026-11-08",
-"4bbe83d634bfbfcde06f"
+"2026-11-11",
+"c3612a630d6f15b601f8"
 ],
 "moved-to/filipinos/austria/": [
-"2026-11-08",
-"449a0faf13336d94f265"
+"2026-11-11",
+"564be57f33c3da16c3b6"
 ],
 "moved-to/filipinos/belgium/": [
-"2026-11-08",
-"3c470279aba125042778"
+"2026-11-11",
+"89cd442c8dca0aa684e9"
 ],
 "moved-to/filipinos/canada/": [
-"2026-11-08",
-"dfb696782f3b5e5c8f90"
+"2026-11-11",
+"4c9f130c6f4bfddb27cf"
 ],
 "moved-to/filipinos/croatia/": [
-"2026-11-08",
-"ee9188706a8599710dda"
+"2026-11-11",
+"2e12b39728b15e2d33d1"
 ],
 "moved-to/filipinos/cyprus/": [
-"2026-11-08",
-"c489a9cf0ca4a39d7f17"
+"2026-11-11",
+"ed8961773e2a742bfe13"
 ],
 "moved-to/filipinos/czechia/": [
-"2026-11-08",
-"a091baf0de332c5ca301"
+"2026-11-11",
+"72bbb8099005f0d42ccf"
 ],
 "moved-to/filipinos/denmark/": [
-"2026-11-08",
-"df08b3c85e91240e9ed9"
+"2026-11-11",
+"601a38b37fe94d824fdd"
 ],
 "moved-to/filipinos/finland/": [
-"2026-11-08",
-"962043eff5561adb5f97"
+"2026-11-11",
+"294a98243b8ca79cbd7f"
 ],
 "moved-to/filipinos/france/": [
-"2026-11-08",
-"b98ca70a8801ff9e174d"
+"2026-11-11",
+"6dd24cb928878b66e461"
 ],
 "moved-to/filipinos/germany/": [
-"2026-11-08",
-"422ce67656dc69b602fe"
+"2026-11-11",
+"28ab11714425b68f5554"
 ],
 "moved-to/filipinos/greece/": [
-"2026-11-08",
-"00b630c3f52191c0ac95"
+"2026-11-11",
+"4fbe28db57a2f8ca651e"
 ],
 "moved-to/filipinos/hungary/": [
-"2026-11-08",
-"6f4e0fd36a9b05477acf"
+"2026-11-11",
+"cb3209ebcc7fc578289f"
 ],
 "moved-to/filipinos/ireland/": [
-"2026-11-08",
-"d694be85a01df8ceea6c"
+"2026-11-11",
+"27d39290f83b5327afd1"
 ],
 "moved-to/filipinos/italy/": [
-"2026-11-08",
-"6bacb3d6ced2ee607cdf"
+"2026-11-11",
+"5edd790a64a285693378"
 ],
 "moved-to/filipinos/lithuania/": [
-"2026-11-08",
-"f726fdb69e6d6a4d3b21"
+"2026-11-11",
+"1db5627f15310573f4e1"
 ],
 "moved-to/filipinos/malta/": [
-"2026-11-08",
-"044aca7b56de2f0d0199"
+"2026-11-11",
+"5d52ea1cf28b6fd43dcf"
 ],
 "moved-to/filipinos/netherlands/": [
-"2026-11-08",
-"2402db9ba9c47c107988"
+"2026-11-11",
+"88ef8ab4a66d7bc08e93"
 ],
 "moved-to/filipinos/norway/": [
-"2026-11-08",
-"9b40ab519e17f0f283fa"
+"2026-11-11",
+"c497651c36b4053b462e"
 ],
 "moved-to/filipinos/poland/": [
-"2026-11-08",
-"4cee68af5efe923d778b"
+"2026-11-11",
+"4bcba548503fdb8180d1"
 ],
 "moved-to/filipinos/portugal/": [
-"2026-11-08",
-"888a48de30744e81edfd"
+"2026-11-11",
+"9cbc7f0952f7ea5bac11"
 ],
 "moved-to/filipinos/romania/": [
-"2026-11-08",
-"649a114857c8331dde8a"
+"2026-11-11",
+"f7e4578ad87d6405f136"
 ],
 "moved-to/filipinos/slovakia/": [
-"2026-11-08",
-"861f6ed1f42343c4bc70"
+"2026-11-11",
+"2659464889224a798b30"
 ],
 "moved-to/filipinos/slovenia/": [
-"2026-11-08",
-"3d2f2517bcd744c65537"
+"2026-11-11",
+"ccefbe79d8c376716405"
 ],
 "moved-to/filipinos/spain/": [
-"2026-11-08",
-"a76735b685e432234282"
+"2026-11-11",
+"b6550d513d42b83da556"
 ],
 "moved-to/filipinos/sweden/": [
-"2026-11-08",
-"10934d076363dfa1d9c0"
+"2026-11-11",
+"c2ec8c7d53529c41e8af"
 ],
 "moved-to/filipinos/switzerland/": [
-"2026-11-08",
-"af296abda0f1bab49206"
+"2026-11-11",
+"2810c2e3a09ee7b9e448"
 ],
 "moved-to/filipinos/uk/": [
-"2026-11-08",
-"85c554f3ea12637d4ddb"
+"2026-11-11",
+"93554dc153d98f33d4b9"
+],
+"moved-to/ghanaians/": [
+"2026-11-11",
+"42603a996b521438aeed"
+],
+"moved-to/ghanaians/belgium/": [
+"2026-11-11",
+"bef9ef68f902a807cc86"
+],
+"moved-to/ghanaians/canada/": [
+"2026-11-11",
+"f2d683864b0d763f9109"
+],
+"moved-to/ghanaians/france/": [
+"2026-11-11",
+"cd1981d1084a9d03f594"
+],
+"moved-to/ghanaians/germany/": [
+"2026-11-11",
+"41934a6c932ee9fee4b0"
+],
+"moved-to/ghanaians/italy/": [
+"2026-11-11",
+"b7b599a4cc1f71e995f9"
+],
+"moved-to/ghanaians/netherlands/": [
+"2026-11-11",
+"f37cea59a5cf71925410"
+],
+"moved-to/ghanaians/spain/": [
+"2026-11-11",
+"6bc539ac110f84910779"
+],
+"moved-to/ghanaians/uk/": [
+"2026-11-11",
+"bd064a30d17cc508b230"
 ],
 "moved-to/indians/": [
-"2026-11-08",
-"e01c6aae21338ababe04"
+"2026-11-11",
+"b09a01d89776d6c152e8"
 ],
 "moved-to/indians/austria/": [
-"2026-11-08",
-"15ae21bf7063dc467918"
+"2026-11-11",
+"a8060c35451226612fff"
 ],
 "moved-to/indians/belgium/": [
-"2026-11-08",
-"1fea2a69af71f04800c8"
+"2026-11-11",
+"da9f97a29b336ce06166"
 ],
 "moved-to/indians/bulgaria/": [
-"2026-11-08",
-"a2ccf9fc38d84d0e3767"
+"2026-11-11",
+"e9fee42c9640227d3d06"
 ],
 "moved-to/indians/canada/": [
-"2026-11-08",
-"a1fcd7d0689ffdafbc6a"
+"2026-11-11",
+"537330a077ec10ab7b28"
 ],
 "moved-to/indians/croatia/": [
-"2026-11-08",
-"0bede264c46015d97471"
+"2026-11-11",
+"e27b49e7a8adf0ee943b"
 ],
 "moved-to/indians/cyprus/": [
-"2026-11-08",
-"2dda296c4207ea0355e6"
+"2026-11-11",
+"70975480f5001a6840e0"
 ],
 "moved-to/indians/czechia/": [
-"2026-11-08",
-"4abccab57fe85c3652fa"
+"2026-11-11",
+"7d24f32cfc70017eb0d6"
 ],
 "moved-to/indians/denmark/": [
-"2026-11-08",
-"cf86ef042364075cd81f"
+"2026-11-11",
+"f9c27c8348ca407d2e05"
 ],
 "moved-to/indians/finland/": [
-"2026-11-08",
-"889a79ee8bd531c79f8a"
+"2026-11-11",
+"3ccd3a361b832aa0bd87"
 ],
 "moved-to/indians/france/": [
-"2026-11-08",
-"46821a71e510a58b028a"
+"2026-11-11",
+"7268b074a26cd5a165dc"
 ],
 "moved-to/indians/germany/": [
-"2026-11-08",
-"73ab4a7a9ac24556ffb6"
+"2026-11-11",
+"88aad0ef58f8b4c00bf7"
 ],
 "moved-to/indians/greece/": [
-"2026-11-08",
-"cbe86aae8796651b330b"
+"2026-11-11",
+"32fcd14e244a0812405e"
 ],
 "moved-to/indians/hungary/": [
-"2026-11-08",
-"f3cb699c21f1862fe1a3"
+"2026-11-11",
+"29eaa343f5138bc37736"
 ],
 "moved-to/indians/ireland/": [
-"2026-11-08",
-"416b0901be8818c7fa8a"
+"2026-11-11",
+"d2b80a39da0362f95f6b"
 ],
 "moved-to/indians/italy/": [
-"2026-11-08",
-"dc088ec90bd539c2f44d"
+"2026-11-11",
+"24564f53ae0f88474d82"
 ],
 "moved-to/indians/latvia/": [
-"2026-11-08",
-"b6876327fef1d2dca3c2"
+"2026-11-11",
+"905925f95dbab7a8becb"
 ],
 "moved-to/indians/lithuania/": [
-"2026-11-08",
-"064b4699c8600b8fc531"
+"2026-11-11",
+"710cafbd9becea53009f"
 ],
 "moved-to/indians/luxembourg/": [
-"2026-11-08",
-"54befe224a63485cb394"
+"2026-11-11",
+"0222741b7540ec6c26c0"
 ],
 "moved-to/indians/malta/": [
-"2026-11-08",
-"661f8c8353ae12998ea3"
+"2026-11-11",
+"bc9981c42486ccf7289f"
 ],
 "moved-to/indians/netherlands/": [
-"2026-11-08",
-"3d6dac5ef229e5338903"
+"2026-11-11",
+"7a95dff17067a41f3faa"
 ],
 "moved-to/indians/norway/": [
-"2026-11-08",
-"8bf72df479fa48e05b95"
+"2026-11-11",
+"ddd99036876d72238d75"
 ],
 "moved-to/indians/poland/": [
-"2026-11-08",
-"232ca7e81ad0ea07d365"
+"2026-11-11",
+"3a6ac1317d18d6ac24ed"
 ],
 "moved-to/indians/portugal/": [
-"2026-11-08",
-"2b9b04b1a5556ef55adb"
+"2026-11-11",
+"8430ea09cd423db05080"
 ],
 "moved-to/indians/romania/": [
-"2026-11-08",
-"a43685e251ead93e0102"
+"2026-11-11",
+"300b32f0cb3ffa404a75"
 ],
 "moved-to/indians/slovakia/": [
-"2026-11-08",
-"2d2c7c600fcaaec51229"
+"2026-11-11",
+"e90c38be508416b6fc76"
 ],
 "moved-to/indians/slovenia/": [
-"2026-11-08",
-"ad9b7069b98390869f9c"
+"2026-11-11",
+"b631d35fa3d17ca64ce9"
 ],
 "moved-to/indians/spain/": [
-"2026-11-08",
-"0c59a983bfdece1dcf95"
+"2026-11-11",
+"0366249315ec7a97b196"
 ],
 "moved-to/indians/sweden/": [
-"2026-11-08",
-"d0bda6249e5c27fa058a"
+"2026-11-11",
+"b4e9898921ab2f5dcc31"
 ],
 "moved-to/indians/switzerland/": [
-"2026-11-08",
-"4e233e602178953318c5"
+"2026-11-11",
+"3109a37268cdf171b6b0"
 ],
 "moved-to/indians/uk/": [
-"2026-11-08",
-"665b7ec128dcf24ab206"
+"2026-11-11",
+"9f059a27e5f9c0e7149c"
+],
+"moved-to/kenyans/": [
+"2026-11-11",
+"90d4f27367ec6fe5fbbd"
+],
+"moved-to/kenyans/canada/": [
+"2026-11-11",
+"500d4c1e57133a0717aa"
+],
+"moved-to/kenyans/germany/": [
+"2026-11-11",
+"1f6ba995843719b71a03"
+],
+"moved-to/kenyans/hungary/": [
+"2026-11-11",
+"76cfb99c7e1391dea6b8"
+],
+"moved-to/kenyans/uk/": [
+"2026-11-11",
+"9262bd223037a7aadf6f"
+],
+"moved-to/moroccans/": [
+"2026-11-11",
+"52606ea0d47a343a8293"
+],
+"moved-to/moroccans/belgium/": [
+"2026-11-11",
+"e0a89cd3dcf634324bae"
+],
+"moved-to/moroccans/canada/": [
+"2026-11-11",
+"2cf59c8f19ab641163e2"
+],
+"moved-to/moroccans/france/": [
+"2026-11-11",
+"7f4a2bf387d14529b15b"
+],
+"moved-to/moroccans/germany/": [
+"2026-11-11",
+"3ec87e7f343168da7f76"
+],
+"moved-to/moroccans/italy/": [
+"2026-11-11",
+"20d71bfc0b6dffc2f029"
+],
+"moved-to/moroccans/lithuania/": [
+"2026-11-11",
+"681bc048f92ffca29a51"
+],
+"moved-to/moroccans/netherlands/": [
+"2026-11-11",
+"1353d9ce8a9a20ef2c3f"
+],
+"moved-to/moroccans/poland/": [
+"2026-11-11",
+"d24814bc3487a65d2116"
+],
+"moved-to/moroccans/portugal/": [
+"2026-11-11",
+"32279fa2b6c7a87f7857"
+],
+"moved-to/moroccans/romania/": [
+"2026-11-11",
+"ae7e1e3a56d4c84bf457"
+],
+"moved-to/moroccans/spain/": [
+"2026-11-11",
+"d834d500a14c94fe712c"
+],
+"moved-to/moroccans/sweden/": [
+"2026-11-11",
+"49f1e8716dd00603d955"
+],
+"moved-to/moroccans/switzerland/": [
+"2026-11-11",
+"e78b4ac83d1dfec23171"
+],
+"moved-to/moroccans/uk/": [
+"2026-11-11",
+"2180f31b6247598c692d"
+],
+"moved-to/nepalis/": [
+"2026-11-11",
+"66f132b80b2540367f59"
+],
+"moved-to/nepalis/belgium/": [
+"2026-11-11",
+"4cbac4d2b8efcf4638d9"
+],
+"moved-to/nepalis/bulgaria/": [
+"2026-11-11",
+"3f5384a953014ed24515"
+],
+"moved-to/nepalis/canada/": [
+"2026-11-11",
+"d70b146728be731474ed"
+],
+"moved-to/nepalis/croatia/": [
+"2026-11-11",
+"7e043c3e82eb84ea6156"
+],
+"moved-to/nepalis/cyprus/": [
+"2026-11-11",
+"1cc8503de9ab699c6638"
+],
+"moved-to/nepalis/denmark/": [
+"2026-11-11",
+"6dc99025ce3381e5bb52"
+],
+"moved-to/nepalis/finland/": [
+"2026-11-11",
+"ef743f93344d764d3e56"
+],
+"moved-to/nepalis/france/": [
+"2026-11-11",
+"b3999f5920848965c981"
+],
+"moved-to/nepalis/germany/": [
+"2026-11-11",
+"ffd210d68db7dcb7be97"
+],
+"moved-to/nepalis/greece/": [
+"2026-11-11",
+"688758fb74548f09080d"
+],
+"moved-to/nepalis/italy/": [
+"2026-11-11",
+"7275754c56101733559f"
+],
+"moved-to/nepalis/malta/": [
+"2026-11-11",
+"ff07d5134eb459811a17"
+],
+"moved-to/nepalis/poland/": [
+"2026-11-11",
+"6957381a1da2c39a89a6"
+],
+"moved-to/nepalis/portugal/": [
+"2026-11-11",
+"ca88d18b0cde6e8d6ed9"
+],
+"moved-to/nepalis/romania/": [
+"2026-11-11",
+"41dabdbc406879bd1e44"
+],
+"moved-to/nepalis/slovakia/": [
+"2026-11-11",
+"41c405d12c43c5a40607"
+],
+"moved-to/nepalis/slovenia/": [
+"2026-11-11",
+"7ceec8cee70926cfec1b"
+],
+"moved-to/nepalis/spain/": [
+"2026-11-11",
+"e297561dc3f0296632d7"
+],
+"moved-to/nepalis/sweden/": [
+"2026-11-11",
+"22c9d1b8d84d05ad8f01"
+],
+"moved-to/nepalis/uk/": [
+"2026-11-11",
+"4fee89d9f88a8971fced"
 ],
 "moved-to/new-zealanders/": [
-"2026-11-08",
-"c3f33fb574067a6a6d7c"
+"2026-11-11",
+"ff293a850f5e29d1d7c1"
 ],
 "moved-to/new-zealanders/netherlands/": [
-"2026-11-08",
-"377d1bdba5ee3f694519"
+"2026-11-11",
+"31aeeebdd3c48fa89951"
 ],
 "moved-to/new-zealanders/uk/": [
-"2026-11-08",
-"c840d73585451abe9731"
+"2026-11-11",
+"abd7e1c21f1a1e1e4513"
 ],
 "moved-to/nigerians/": [
-"2026-11-08",
-"1d19970975f381f301df"
+"2026-11-11",
+"1fdfd0012b580e6f7ccc"
 ],
 "moved-to/nigerians/austria/": [
-"2026-11-08",
-"dcecedd6d0ea5d96fd3c"
+"2026-11-11",
+"62ca9f198ec7581eab07"
 ],
 "moved-to/nigerians/canada/": [
-"2026-11-08",
-"abe76b83ad27e802651a"
+"2026-11-11",
+"14032492519cf217c2b1"
 ],
 "moved-to/nigerians/finland/": [
-"2026-11-08",
-"3d7c1f3a62375fd2796b"
+"2026-11-11",
+"70ad6f59e0c29694278c"
 ],
 "moved-to/nigerians/france/": [
-"2026-11-08",
-"1a9de42db15872bea2fc"
+"2026-11-11",
+"5f5b20f8310ee2e369c8"
 ],
 "moved-to/nigerians/germany/": [
-"2026-11-08",
-"99c93b9a360db49fc8da"
+"2026-11-11",
+"e2b5bb8a46e26a3ddc3e"
 ],
 "moved-to/nigerians/hungary/": [
-"2026-11-08",
-"d1efc25aacd1b6efa37b"
+"2026-11-11",
+"42b9e211751b4763175a"
 ],
 "moved-to/nigerians/ireland/": [
-"2026-11-08",
-"ad5861efe468bea7bdb4"
+"2026-11-11",
+"200123522e4e5538979e"
 ],
 "moved-to/nigerians/italy/": [
-"2026-11-08",
-"8c0437c34648ec7a159f"
+"2026-11-11",
+"11ee444810cabb20e45e"
 ],
 "moved-to/nigerians/malta/": [
-"2026-11-08",
-"c7aa0f28f854ded6f58a"
+"2026-11-11",
+"fd3ce3d160e8483d1741"
 ],
 "moved-to/nigerians/netherlands/": [
-"2026-11-08",
-"e88e795ca867b83f0bd4"
+"2026-11-11",
+"2c12e8715c4378569e09"
 ],
 "moved-to/nigerians/poland/": [
-"2026-11-08",
-"456f830b8c8601543e31"
+"2026-11-11",
+"cf03be10a8941b6c919a"
 ],
 "moved-to/nigerians/portugal/": [
-"2026-11-08",
-"5ed634c39317545b369c"
+"2026-11-11",
+"80b9b430883a92228576"
 ],
 "moved-to/nigerians/spain/": [
-"2026-11-08",
-"1976232a3c992042be52"
+"2026-11-11",
+"492d2c87da97cc327dac"
 ],
 "moved-to/nigerians/sweden/": [
-"2026-11-08",
-"029053e3b607a4ba0f82"
+"2026-11-11",
+"aa5fa2238a8a5c5844ee"
 ],
 "moved-to/nigerians/uk/": [
-"2026-11-08",
-"6c943b62684e687ba46c"
+"2026-11-11",
+"6201b464f305d5db8752"
 ],
 "moved-to/pakistanis/": [
-"2026-11-08",
-"004d4034a885b251c304"
+"2026-11-11",
+"d676db195cf41fc8eab2"
 ],
 "moved-to/pakistanis/austria/": [
-"2026-11-08",
-"986bb12e1154dce16362"
+"2026-11-11",
+"d98acc557cb4e298235e"
 ],
 "moved-to/pakistanis/belgium/": [
-"2026-11-08",
-"b6bb35f0054384a40858"
+"2026-11-11",
+"a75d35b224c6c9db72e1"
 ],
 "moved-to/pakistanis/canada/": [
-"2026-11-08",
-"304dcc5f47c0f01442da"
+"2026-11-11",
+"651598c30daf1d592190"
 ],
 "moved-to/pakistanis/cyprus/": [
-"2026-11-08",
-"623ad19ad893b9b7b62f"
+"2026-11-11",
+"c5de98cf117126f42cba"
 ],
 "moved-to/pakistanis/denmark/": [
-"2026-11-08",
-"c59a8ab3fb63716fa053"
+"2026-11-11",
+"fa01fc9459da5521a576"
 ],
 "moved-to/pakistanis/finland/": [
-"2026-11-08",
-"1e60bdc7e08015cd4b1c"
+"2026-11-11",
+"95908d3e4b3b2dccba6d"
 ],
 "moved-to/pakistanis/france/": [
-"2026-11-08",
-"d72c97a6c2bdb7d23d06"
+"2026-11-11",
+"a98e692a0aa5f8476add"
 ],
 "moved-to/pakistanis/germany/": [
-"2026-11-08",
-"dc2778e95a3756c98ddf"
+"2026-11-11",
+"f3d335798b898994543f"
 ],
 "moved-to/pakistanis/greece/": [
-"2026-11-08",
-"b8e8a869831ced734762"
+"2026-11-11",
+"2d7dae93d87a8c2cffec"
 ],
 "moved-to/pakistanis/hungary/": [
-"2026-11-08",
-"5f18c98ac04d8dc4a1ce"
+"2026-11-11",
+"210d8e9728929fa78e0a"
 ],
 "moved-to/pakistanis/ireland/": [
-"2026-11-08",
-"d48c5fd2c37cd189dba1"
+"2026-11-11",
+"93aa2536e3a513965433"
 ],
 "moved-to/pakistanis/italy/": [
-"2026-11-08",
-"bbaa4349b8cad2c725fd"
+"2026-11-11",
+"04c7db3b3f9559aea523"
 ],
 "moved-to/pakistanis/lithuania/": [
-"2026-11-08",
-"14cc2c9840081f9a687e"
+"2026-11-11",
+"7171da25f161108027ae"
 ],
 "moved-to/pakistanis/malta/": [
-"2026-11-08",
-"b188cb9f969e323ce5b9"
+"2026-11-11",
+"6bfd5c169f46dc435390"
 ],
 "moved-to/pakistanis/netherlands/": [
-"2026-11-08",
-"59fedc0dac3b2466504d"
+"2026-11-11",
+"66bf4995f30ca69e28de"
 ],
 "moved-to/pakistanis/norway/": [
-"2026-11-08",
-"0ca12e1ef173d3eaedd4"
+"2026-11-11",
+"e845aae4eefb011b05c5"
 ],
 "moved-to/pakistanis/poland/": [
-"2026-11-08",
-"69a97c780cd1f49952e4"
+"2026-11-11",
+"ddfeb889972460217ce6"
 ],
 "moved-to/pakistanis/portugal/": [
-"2026-11-08",
-"de0b78327927b3dc8069"
+"2026-11-11",
+"e343d6ae195ce646f46c"
 ],
 "moved-to/pakistanis/romania/": [
-"2026-11-08",
-"f880cd8d9b606784f051"
+"2026-11-11",
+"9e5113238e03ee9681f8"
 ],
 "moved-to/pakistanis/spain/": [
-"2026-11-08",
-"d58e072f5b291cc56f10"
+"2026-11-11",
+"5d1c3f7f1c3406079675"
 ],
 "moved-to/pakistanis/sweden/": [
-"2026-11-08",
-"66880e0f27fb1703e939"
+"2026-11-11",
+"18c99279eb7c5edf031c"
 ],
 "moved-to/pakistanis/uk/": [
-"2026-11-08",
-"5c074060fc11b41154b6"
+"2026-11-11",
+"37747a93d2b78c5d4a32"
 ],
 "moved-to/south-africans/": [
-"2026-11-08",
-"b70e1c80c4deb1d4d6c3"
+"2026-11-11",
+"ca3dc1d941a331647272"
 ],
 "moved-to/south-africans/canada/": [
-"2026-11-08",
-"e1456107c071fa63405f"
+"2026-11-11",
+"2804def139b7199a7b7a"
 ],
 "moved-to/south-africans/germany/": [
-"2026-11-08",
-"385b6a95eccc5569e101"
+"2026-11-11",
+"8868dc06c12493ba5783"
 ],
 "moved-to/south-africans/ireland/": [
-"2026-11-08",
-"8c3de928e031599b957d"
+"2026-11-11",
+"3479e14d6c5d09002f1c"
 ],
 "moved-to/south-africans/netherlands/": [
-"2026-11-08",
-"0600a2b9df799273a9bb"
+"2026-11-11",
+"cc63fa61a320e9ff3f6b"
 ],
 "moved-to/south-africans/portugal/": [
-"2026-11-08",
-"d1816cd4a963e1cdfdf6"
+"2026-11-11",
+"8d07a220c1fb8f1a6c46"
 ],
 "moved-to/south-africans/uk/": [
-"2026-11-08",
-"6eeb5d0221f4012b512c"
+"2026-11-11",
+"3caa78ea7b59763c881c"
+],
+"moved-to/sri-lankans/": [
+"2026-11-11",
+"7fa0cb4da35e3118701c"
+],
+"moved-to/sri-lankans/canada/": [
+"2026-11-11",
+"2e237f6841dc01c833d4"
+],
+"moved-to/sri-lankans/cyprus/": [
+"2026-11-11",
+"d711aa3d983391edda57"
+],
+"moved-to/sri-lankans/denmark/": [
+"2026-11-11",
+"7080173c5e44657f0b81"
+],
+"moved-to/sri-lankans/finland/": [
+"2026-11-11",
+"b50bfa02111f5d286e69"
+],
+"moved-to/sri-lankans/france/": [
+"2026-11-11",
+"5b37b85a5043f7398829"
+],
+"moved-to/sri-lankans/germany/": [
+"2026-11-11",
+"a4b5f822bbe51f2fd426"
+],
+"moved-to/sri-lankans/ireland/": [
+"2026-11-11",
+"730f4bef0ae8836f2e5c"
+],
+"moved-to/sri-lankans/italy/": [
+"2026-11-11",
+"a3ac4ead22f5d401c509"
+],
+"moved-to/sri-lankans/poland/": [
+"2026-11-11",
+"4fec6d053d9bdb6ac43a"
+],
+"moved-to/sri-lankans/romania/": [
+"2026-11-11",
+"10e249383f94e5b2eb6e"
+],
+"moved-to/sri-lankans/sweden/": [
+"2026-11-11",
+"dd744cc1a406c170a290"
+],
+"moved-to/sri-lankans/uk/": [
+"2026-11-11",
+"f1e0646cca8ae99af745"
+],
+"moved-to/turkish/": [
+"2026-11-11",
+"c429d7c62d5f4727d254"
+],
+"moved-to/turkish/austria/": [
+"2026-11-11",
+"7f1e0bb3167fe07b1370"
+],
+"moved-to/turkish/belgium/": [
+"2026-11-11",
+"acdf23ba69d7b185c99c"
+],
+"moved-to/turkish/bulgaria/": [
+"2026-11-11",
+"a1f2ca94346d2d50a91a"
+],
+"moved-to/turkish/canada/": [
+"2026-11-11",
+"f0ca93059b94d49044a3"
+],
+"moved-to/turkish/croatia/": [
+"2026-11-11",
+"9196db4c1b39957b52a7"
+],
+"moved-to/turkish/czechia/": [
+"2026-11-11",
+"d50b92f1f27353d43bc6"
+],
+"moved-to/turkish/denmark/": [
+"2026-11-11",
+"4049a921ad42bbae0d24"
+],
+"moved-to/turkish/finland/": [
+"2026-11-11",
+"44ca2d83c651626b38a2"
+],
+"moved-to/turkish/france/": [
+"2026-11-11",
+"c2ea7bae5763a62a3e44"
+],
+"moved-to/turkish/germany/": [
+"2026-11-11",
+"cb34253a761e2a2c13a8"
+],
+"moved-to/turkish/greece/": [
+"2026-11-11",
+"a23db62e467ef7661cd6"
+],
+"moved-to/turkish/hungary/": [
+"2026-11-11",
+"41cf10a45de18eb78244"
+],
+"moved-to/turkish/ireland/": [
+"2026-11-11",
+"d4daba967bf705f3c92f"
+],
+"moved-to/turkish/italy/": [
+"2026-11-11",
+"bd2d4df2a776d0dd4cda"
+],
+"moved-to/turkish/lithuania/": [
+"2026-11-11",
+"95254fbc6e6aefd2a72f"
+],
+"moved-to/turkish/malta/": [
+"2026-11-11",
+"53388e9181d9226828bf"
+],
+"moved-to/turkish/netherlands/": [
+"2026-11-11",
+"db8c5aa0a069638c833c"
+],
+"moved-to/turkish/norway/": [
+"2026-11-11",
+"803ffbcd2f9459aba9b3"
+],
+"moved-to/turkish/poland/": [
+"2026-11-11",
+"10a3c9b606b09c98c472"
+],
+"moved-to/turkish/portugal/": [
+"2026-11-11",
+"7840b29ba275bafc6807"
+],
+"moved-to/turkish/romania/": [
+"2026-11-11",
+"e743fd0b7d40bef7ccaa"
+],
+"moved-to/turkish/slovenia/": [
+"2026-11-11",
+"654f9802e6d5fa7fa618"
+],
+"moved-to/turkish/spain/": [
+"2026-11-11",
+"b227ee3d4529d2b75e4e"
+],
+"moved-to/turkish/sweden/": [
+"2026-11-11",
+"09a3f7883843f2bd586d"
+],
+"moved-to/turkish/switzerland/": [
+"2026-11-11",
+"42a28fc0eb8b4d789df5"
+],
+"moved-to/turkish/uk/": [
+"2026-11-11",
+"1b473d5240ce22726840"
+],
+"moved-to/vietnamese/": [
+"2026-11-11",
+"b888ffbb9607d7564503"
+],
+"moved-to/vietnamese/belgium/": [
+"2026-11-11",
+"18931d681aac9eeb9986"
+],
+"moved-to/vietnamese/bulgaria/": [
+"2026-11-11",
+"3671841129a6b0767fd7"
+],
+"moved-to/vietnamese/canada/": [
+"2026-11-11",
+"6a91122cf9980bffcd76"
+],
+"moved-to/vietnamese/cyprus/": [
+"2026-11-11",
+"d938a6d703aadb42f241"
+],
+"moved-to/vietnamese/czechia/": [
+"2026-11-11",
+"ba710a213647d8492812"
+],
+"moved-to/vietnamese/denmark/": [
+"2026-11-11",
+"619d180a5b6eea6ed44c"
+],
+"moved-to/vietnamese/finland/": [
+"2026-11-11",
+"557e89f3c3bb95d31af1"
+],
+"moved-to/vietnamese/france/": [
+"2026-11-11",
+"2e16404928b210747414"
+],
+"moved-to/vietnamese/germany/": [
+"2026-11-11",
+"54e5ae295b3c9e38afe3"
+],
+"moved-to/vietnamese/greece/": [
+"2026-11-11",
+"2befec056ce138f59295"
+],
+"moved-to/vietnamese/hungary/": [
+"2026-11-11",
+"a7c0d72cdba67863a183"
+],
+"moved-to/vietnamese/italy/": [
+"2026-11-11",
+"7b4bf588ec4eab4a9f82"
+],
+"moved-to/vietnamese/netherlands/": [
+"2026-11-11",
+"4f3bb09a46040c669121"
+],
+"moved-to/vietnamese/norway/": [
+"2026-11-11",
+"8b96610a668b1deb80b5"
+],
+"moved-to/vietnamese/poland/": [
+"2026-11-11",
+"93a65376118af581dfdb"
+],
+"moved-to/vietnamese/romania/": [
+"2026-11-11",
+"dfca3270e7f83b2a4a31"
+],
+"moved-to/vietnamese/slovakia/": [
+"2026-11-11",
+"f7a4fd3ec6d397dffb30"
+],
+"moved-to/vietnamese/spain/": [
+"2026-11-11",
+"af4bcbbb07ac3fdc0c20"
+],
+"moved-to/vietnamese/sweden/": [
+"2026-11-11",
+"68fdaf79ef9b12c5c927"
+],
+"moved-to/vietnamese/uk/": [
+"2026-11-11",
+"904f58fa11cfb8115007"
 ],
 "netherlands-eu-blue-card/": [
 "2026-11-08",
@@ -3262,328 +4086,344 @@
 "9d795df4425e9a9f992f"
 ],
 "uk-english-test/": [
-"2026-11-09",
-"0ec61ed872ea74d5f49f"
+"2026-11-11",
+"b897444368079fc9438f"
+],
+"uk-english-test/a1-english-test-spouse-visa/": [
+"2026-11-11",
+"5a1a798d629a6e1d0b57"
+],
+"uk-english-test/a2-english-test-spouse-visa-extension/": [
+"2026-11-11",
+"18d899ac729285afb8f3"
 ],
 "uk-english-test/albania/": [
-"2026-11-09",
-"c446090acec7243c07dd"
+"2026-11-11",
+"b5b8b4939589309bba1c"
 ],
 "uk-english-test/algeria/": [
-"2026-11-09",
-"6a89c6756378899ac590"
+"2026-11-11",
+"30e8f770a0883c6a72d0"
 ],
 "uk-english-test/argentina/": [
-"2026-11-09",
-"bc214904e4389dd35af6"
+"2026-11-11",
+"42e71753ee1fccd7ec3a"
 ],
 "uk-english-test/armenia/": [
-"2026-11-09",
-"1ae12a69515e2d618de0"
+"2026-11-11",
+"da57beff4b252c03a2bc"
 ],
 "uk-english-test/australia/": [
-"2026-11-09",
-"7ceff5ac2a9103a5df38"
+"2026-11-11",
+"db9a0630c845dd7ca375"
 ],
 "uk-english-test/azerbaijan/": [
-"2026-11-09",
-"9870c7f2a38b98a5ea33"
+"2026-11-11",
+"baf68e1bf1f71301eb2b"
+],
+"uk-english-test/b1-english-test-citizenship/": [
+"2026-11-11",
+"7d00e79e878658e08109"
+],
+"uk-english-test/b2-english-test-ilr/": [
+"2026-11-11",
+"f67a57ead6a58c817559"
 ],
 "uk-english-test/bahrain/": [
-"2026-11-09",
-"a79edae9bf8e17958132"
+"2026-11-11",
+"af8eeb9c4e8036db1a87"
 ],
 "uk-english-test/bangladesh/": [
-"2026-11-09",
-"38e83ab719e77b29508d"
+"2026-11-11",
+"bc78305aa4d99671f28c"
 ],
 "uk-english-test/belfast/": [
-"2026-11-09",
-"fcc2a24a23ce129cef13"
+"2026-11-11",
+"4f8d0e259083566bed35"
 ],
 "uk-english-test/birmingham/": [
-"2026-11-09",
-"4414517362098812b25d"
+"2026-11-11",
+"800cd839a0f09a0e513c"
 ],
 "uk-english-test/bradford/": [
-"2026-11-09",
-"7f33d2f7fd1de6b459e0"
+"2026-11-11",
+"a8412beaeb39d44bde0e"
 ],
 "uk-english-test/brazil/": [
-"2026-11-09",
-"075df7e245ac8aaaaba1"
+"2026-11-11",
+"f815d440b9e72518dcff"
 ],
 "uk-english-test/bristol/": [
-"2026-11-09",
-"b8c0d281cedded6cbe53"
+"2026-11-11",
+"15e96a80c59e55271a03"
 ],
 "uk-english-test/cambridge/": [
-"2026-11-09",
-"fda9750c728426427737"
+"2026-11-11",
+"29ea6887eb811c2d87b3"
 ],
 "uk-english-test/cardiff/": [
-"2026-11-09",
-"76033fe3d81be2c86a10"
+"2026-11-11",
+"42db264b946c39bd27a2"
 ],
 "uk-english-test/chile/": [
-"2026-11-09",
-"949e76b96622c8434403"
+"2026-11-11",
+"4cd75c9d1f983eb97697"
 ],
 "uk-english-test/china/": [
-"2026-11-09",
-"2053884f5d1563385688"
+"2026-11-11",
+"6720768d3d77b02d8dff"
 ],
 "uk-english-test/colombia/": [
-"2026-11-09",
-"61cb6393cb4589b21211"
+"2026-11-11",
+"4431bfe0a1af24a6ed4f"
 ],
 "uk-english-test/coventry/": [
-"2026-11-09",
-"ff84a7050a601501431f"
+"2026-11-11",
+"4af06894298e597f3132"
 ],
 "uk-english-test/croydon/": [
-"2026-11-09",
-"79b6eb1e6462559ee106"
+"2026-11-11",
+"cbba9a805e016c6a5b2c"
 ],
 "uk-english-test/cyprus-south/": [
-"2026-11-09",
-"972f43ab2c820ce5ee1f"
+"2026-11-11",
+"975822ed7dcc7adc1dd7"
 ],
 "uk-english-test/ecuador/": [
-"2026-11-09",
-"b688a6471994d56f802c"
+"2026-11-11",
+"c80325da87f92bae59f6"
 ],
 "uk-english-test/edinburgh/": [
-"2026-11-09",
-"277e7a08d0620912421a"
+"2026-11-11",
+"80d38c2099d01fdbfc4e"
 ],
 "uk-english-test/egypt/": [
-"2026-11-09",
-"70bc2bd1255ab5f4435b"
+"2026-11-11",
+"d4fbdad84cb34052e11c"
 ],
 "uk-english-test/exeter/": [
-"2026-11-09",
-"2ea23090ec0438e3666b"
+"2026-11-11",
+"db57cc2a572b9d86f78c"
 ],
 "uk-english-test/georgia/": [
-"2026-11-09",
-"1f6b36ad377e457b9cb8"
+"2026-11-11",
+"c8a30e427c0013c47844"
 ],
 "uk-english-test/ghana/": [
-"2026-11-09",
-"248533469786757a3499"
+"2026-11-11",
+"ee6ab9bf49a53ca075ca"
 ],
 "uk-english-test/glasgow/": [
-"2026-11-09",
-"4faf0174b053bcf3ab78"
+"2026-11-11",
+"b5d263f4c5ce77124434"
 ],
 "uk-english-test/india/": [
-"2026-11-09",
-"15fc88d6440ee1e76487"
+"2026-11-11",
+"fde02ec68b5883164bce"
 ],
 "uk-english-test/indonesia/": [
-"2026-11-09",
-"9fc7861f3259b20342e4"
+"2026-11-11",
+"8a3a964a349fa8b5f610"
 ],
 "uk-english-test/iran/": [
-"2026-11-09",
-"e5809cf03a479e4607eb"
+"2026-11-11",
+"ed2a38a345ef60182b00"
 ],
 "uk-english-test/iraq/": [
-"2026-11-09",
-"192a7a522daf890a46fd"
+"2026-11-11",
+"9291b86fc5ee584eb175"
 ],
 "uk-english-test/israel/": [
-"2026-11-09",
-"adeb7291fe8e810a2db1"
+"2026-11-11",
+"5496d1a1be973fcd4c52"
 ],
 "uk-english-test/jordan/": [
-"2026-11-09",
-"0606dbdb4cc7e214f647"
+"2026-11-11",
+"d54aa957b2496875c6e6"
 ],
 "uk-english-test/kazakhstan/": [
-"2026-11-09",
-"7030b3291ba8dc940e22"
+"2026-11-11",
+"ac9211dd4e93830eaab1"
 ],
 "uk-english-test/kuwait/": [
-"2026-11-09",
-"764254128c523d41cac7"
+"2026-11-11",
+"db08bc0b0288e4ed38c9"
 ],
 "uk-english-test/lebanon/": [
-"2026-11-09",
-"67edd145662a2cf495bb"
+"2026-11-11",
+"b7b78b13647b5d5a4fdb"
 ],
 "uk-english-test/leeds/": [
-"2026-11-09",
-"4f75103c39c54145d1c3"
+"2026-11-11",
+"cdc1dad6f0a0363e8877"
 ],
 "uk-english-test/leicester/": [
-"2026-11-09",
-"a02669660deaca8c0b01"
+"2026-11-11",
+"4104d622851edb18059b"
 ],
 "uk-english-test/liverpool/": [
-"2026-11-09",
-"1de9ab962036215d044b"
+"2026-11-11",
+"45d6efce164b66dbe765"
 ],
 "uk-english-test/london/": [
-"2026-11-09",
-"21a55951f9c94383c4ad"
+"2026-11-11",
+"69e7b5663bd5f4ba2516"
 ],
 "uk-english-test/maidstone/": [
-"2026-11-09",
-"8f352de52964ab957b3c"
+"2026-11-11",
+"639c61d1eeaac7915718"
 ],
 "uk-english-test/malaysia/": [
-"2026-11-09",
-"0cfdd840c12bfb37644d"
+"2026-11-11",
+"b5cff07a1dc2f0c1c682"
 ],
 "uk-english-test/manchester/": [
-"2026-11-09",
-"ba0b4660b1c25b74859e"
+"2026-11-11",
+"87590abcfbc4a43dd986"
 ],
 "uk-english-test/mexico/": [
-"2026-11-09",
-"4f051eefe6d901a1c153"
+"2026-11-11",
+"0a6affb23703fc36b888"
 ],
 "uk-english-test/milton-keynes/": [
-"2026-11-09",
-"e5b974f7add541654875"
+"2026-11-11",
+"95fc7654f6c8cb72a03e"
 ],
 "uk-english-test/morocco/": [
-"2026-11-09",
-"673e69bf5418e3400e02"
+"2026-11-11",
+"71031b63b60ae5247e56"
 ],
 "uk-english-test/nepal/": [
-"2026-11-09",
-"fb1f820e272f5e1ca245"
+"2026-11-11",
+"04198f68af6dcb57b797"
 ],
 "uk-english-test/newcastle/": [
-"2026-11-09",
-"3511f49f54e36a582c9a"
+"2026-11-11",
+"e2e3268ee52f637c1af7"
 ],
 "uk-english-test/nigeria/": [
-"2026-11-09",
-"e4dac80413a46acb5d9f"
+"2026-11-11",
+"2bf70d298d23d23fe9ad"
 ],
 "uk-english-test/oman/": [
-"2026-11-09",
-"120670a354af473fbdc0"
+"2026-11-11",
+"c600c7219afe854cd412"
 ],
 "uk-english-test/oxford/": [
-"2026-11-09",
-"07db386dba28fd5a093b"
+"2026-11-11",
+"d32be4600498186948f9"
 ],
 "uk-english-test/pakistan/": [
-"2026-11-09",
-"090d49867ebfc618b3fb"
+"2026-11-11",
+"bb44ebd6df6ebaa497ae"
 ],
 "uk-english-test/peru/": [
-"2026-11-09",
-"cfa7e0e8099b17c74a2a"
+"2026-11-11",
+"f144c1972bb305f4ee99"
 ],
 "uk-english-test/peterborough/": [
-"2026-11-09",
-"dfd90e1836a65c5c4a95"
+"2026-11-11",
+"941f013ad3dc725e735d"
 ],
 "uk-english-test/philippines/": [
-"2026-11-09",
-"6e07cb1f8ebe75beedf6"
+"2026-11-11",
+"cc8a945825d3781cc824"
 ],
 "uk-english-test/portsmouth/": [
-"2026-11-09",
-"70fc355a19295ddd6751"
+"2026-11-11",
+"72674c6630cbd6dae1d5"
 ],
 "uk-english-test/portugal/": [
-"2026-11-09",
-"f6c6e4a9a6af9479586a"
+"2026-11-11",
+"8dbdcb4e50cae017bb1b"
 ],
 "uk-english-test/preston/": [
-"2026-11-09",
-"ed292e0ef142e0a8f068"
+"2026-11-11",
+"5cca51b370e5cbfa379d"
 ],
 "uk-english-test/qatar/": [
-"2026-11-09",
-"ae519b12b7e5af1689c1"
+"2026-11-11",
+"677a0a1ef49615385474"
 ],
 "uk-english-test/saudi-arabia/": [
-"2026-11-09",
-"24bade3fa1018f2349a8"
+"2026-11-11",
+"1b290301ff2183d25bde"
 ],
 "uk-english-test/sheffield/": [
-"2026-11-09",
-"1e370c144cc689e6ceed"
+"2026-11-11",
+"a613dc29022f20c50c30"
 ],
 "uk-english-test/singapore/": [
-"2026-11-09",
-"b3d07e2b69da4b4e6435"
+"2026-11-11",
+"7b0b7238214f3a219a06"
 ],
 "uk-english-test/south-africa/": [
-"2026-11-09",
-"b68979da254d5be8c735"
+"2026-11-11",
+"dc5d92b498f2b0e938bf"
 ],
 "uk-english-test/southampton/": [
-"2026-11-09",
-"df7b99f20a4046850939"
+"2026-11-11",
+"1f8ab7e170d4cd222b3d"
 ],
 "uk-english-test/spain/": [
-"2026-11-09",
-"1b177956c7527401948f"
+"2026-11-11",
+"630078dbc9d795ec4679"
 ],
 "uk-english-test/sri-lanka/": [
-"2026-11-09",
-"fe2314af09242053055f"
+"2026-11-11",
+"e47a83788868c9485e4d"
 ],
 "uk-english-test/stratford/": [
-"2026-11-09",
-"51ca004aad195f3cfd07"
+"2026-11-11",
+"21fb8a520636d581f366"
 ],
 "uk-english-test/taiwan/": [
-"2026-11-09",
-"7ac52e9e24aed7812a95"
+"2026-11-11",
+"0f07ed5f88d804297592"
 ],
 "uk-english-test/tajikistan/": [
-"2026-11-09",
-"c2ca561cfcea7afdfbeb"
+"2026-11-11",
+"21cc8cba6010909b220b"
 ],
 "uk-english-test/thailand/": [
-"2026-11-09",
-"5a45d2cbc706f7e3b63b"
+"2026-11-11",
+"bfa9fc77454259db2917"
 ],
 "uk-english-test/tunisia/": [
-"2026-11-09",
-"684da4b8386fa270d286"
+"2026-11-11",
+"b3e56723a4a638a088d4"
 ],
 "uk-english-test/turkey/": [
-"2026-11-09",
-"763b8476f880b10d1d7c"
+"2026-11-11",
+"e373d2859ef60085c8e3"
 ],
 "uk-english-test/uganda/": [
-"2026-11-09",
-"e47c5226e920368b21f4"
+"2026-11-11",
+"172621ad81157de40c57"
 ],
 "uk-english-test/united-arab-emirates/": [
-"2026-11-09",
-"d70eaa89338079b1bfdf"
+"2026-11-11",
+"749cb8b9d220a5cc99a9"
 ],
 "uk-english-test/uxbridge/": [
-"2026-11-09",
-"652f1acb6c10bd208494"
+"2026-11-11",
+"92172ce389d78a71b844"
 ],
 "uk-english-test/uzbekistan/": [
-"2026-11-09",
-"a8b8aea6c132cd6a975a"
+"2026-11-11",
+"8b3ca4a735bf7e7252ac"
 ],
 "uk-english-test/vietnam/": [
-"2026-11-09",
-"78886a49f3c3fa73b8b3"
+"2026-11-11",
+"5a88c327a9d411b860cb"
 ],
 "uk-english-test/wolverhampton/": [
-"2026-11-09",
-"46b4f1ffc897d6fb11be"
+"2026-11-11",
+"c653b2ff70834519c37b"
 ],
 "uk-english-test/zambia/": [
-"2026-11-09",
-"f6359572542d4772253d"
+"2026-11-11",
+"817b26eaededbf88eace"
 ],
 "uk-graduate-visa/": [
 "2026-11-08",

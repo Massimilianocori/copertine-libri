@@ -1,15 +1,15 @@
 {
  "_nota": "Generato da raccolta/cerimonie.py: non modificare a mano. Righe: [council, Stato, persone approvate in attesa (null = '<5'), % in attesa da meno di 3 mesi, % da 3 a 6 mesi, % da oltre 6 mesi].",
- "letto_il": "2026-10-31",
+ "letto_il": "2026-11-11",
  "fonti": {
   "attese": {
    "titolo": "Ceremony wait times",
    "editore": "Department of Home Affairs",
    "url": "https://immi.homeaffairs.gov.au/citizenship/citizenship-processing-times/ceremony-wait-times",
    "http": 200,
-   "letto_il": "2026-10-31",
-   "byte": 1307243,
-   "sha256": "a35acc6a23860ea6da9e29610f0c8e24f91046efe6f913d5a088c523f0a9e28e"
+   "letto_il": "2026-11-11",
+   "byte": 1308621,
+   "sha256": "739c0daa32e1ea0b16e8a3c484e3d50a8f14249b544d410ccf564efc3966f78e"
   },
   "lista": {
    "titolo": "Ceremony wait times: list data (citizenshipCeremony)",
@@ -20,7 +20,7 @@
     "listName": "citizenshipCeremony"
    },
    "http": 200,
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-11",
    "byte": 147804,
    "sha256": "74681781748a58498309746c4ef6e47524e6cc2cfd58f659314f7f1127843bb7"
   },
@@ -29,18 +29,18 @@
    "editore": "Department of Home Affairs",
    "url": "https://immi.homeaffairs.gov.au/citizenship/citizenship-processing-times/citizenship-processing-times",
    "http": 200,
-   "letto_il": "2026-10-31",
-   "byte": 1313369,
-   "sha256": "022066681b35bb65a0b748ea7c633abfe8e6ff7304b45f1e11f95c4f449b904f"
+   "letto_il": "2026-11-11",
+   "byte": 1314850,
+   "sha256": "c1ebc8aa4de2c6fc2dd23cb57d493edb73494b2e4bafb38db8a23a9eea8c13e4"
   },
   "licenza": {
    "titolo": "Copyright and disclaimer",
    "editore": "Department of Home Affairs",
    "url": "https://www.homeaffairs.gov.au/access-and-accountability/using-our-website/copyright-and-disclaimer",
    "http": 200,
-   "letto_il": "2026-10-31",
-   "byte": 1373107,
-   "sha256": "2fa48525254f8cce06a8a7d3afd47bceb82e4d964cef91b9e79b6e0773a23999"
+   "letto_il": "2026-11-11",
+   "byte": 1373728,
+   "sha256": "2bab0e98f03f4a600aeef30874ab9d0db3c85fde280d086bc23ff3a7d0dd6b8b"
   }
  },
  "licenza": {
@@ -13603,5 +13603,5 @@
    }
   }
  },
- "impronta": "bf9cb525be7e0a7e6beb"
+ "impronta": "40a51fe6bd366167cbda"
 }
