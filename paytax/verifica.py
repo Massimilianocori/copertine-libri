@@ -18,7 +18,10 @@ Cosa controlla:
  5. Numeri stampati: risultato statico della home e dati del calcolatore uguali al motore; nessun segnaposto.
  6. FAQ: ogni domanda viene da una ricerca salvata (dati/domanda.json, gl=au); JSON-LD FAQPage = testo visibile.
  7. Struttura: canonical, titoli, descrizioni, link interni e ancore, sitemap = pagine con canonical, file accessori,
-    contatore GoatCounter in ogni pagina, fonti con data di controllo in ogni pagina di contenuto.
+    contatore GoatCounter in ogni pagina, fonti con data di controllo in ogni pagina di contenuto; parole del contenuto proprio
+    (solo <main>, senza calcolatore, fonti, griglie e avviso): almeno 500, almeno 900 per payday-super, regional-rates,
+    what-changed-2026-27 e how-we-check; modulo Netlify "corrections" con honeypot e consenso; spazio pubblicitario
+    sempre dopo il calcolatore.
  8. Monetizzazione: controlli comuni (monetizzazione.py); nessun link di affiliazione finché i riquadri sono spenti;
     il riquadro, se acceso, ha rel="sponsored noopener" e la riga di trasparenza.
  9. Niente dati personali, niente nomi di modelli AI nei file del sito e nel codice.
@@ -313,7 +316,8 @@ def controlla_esempi():
         v = c["lim"] * c["q"] * c["giorni"] / 365  # stessa espressione del motore (lim × q × f)
         if abs(v - c["atteso"]) > c["toll"]:
             errore(f"VIC sovrattasse: soglia {v:.2f} invece di {c['atteso']}")
-    print(f"3. Esempi ufficiali: {len(E['casi'])} casi ({n} cifre) entro la tolleranza, anche nel JS; tabella RevenueSA {len(righe)} righe "
+    legge = sum(1 for c in E["casi"] if c.get("legge"))
+    print(f"3. Esempi: {len(E['casi']) - legge} ufficiali + {legge} dalla formula della legge (VIC anno parziale), {n} cifre entro la tolleranza, anche nel JS; tabella RevenueSA {len(righe)} righe "
           f"(scarto massimo {peggiore:.4f} punti); {len(E['scaglioni_act']['casi'])} limiti ACT; {len(E['nt_legge']['casi'])} regole NT; soglie mensili NSW e sovrattasse VIC.")
 
 
@@ -428,6 +432,20 @@ def controlla_faq():
 
 # ---------------------------------------------------------------- 7. struttura
 SENZA_FONTI = {"about/", "privacy/", "404.html"}
+CONTEGGI = {}
+PAGINE_900 = {"payday-super/", "regional-rates/", "what-changed-2026-27/", "how-we-check/"}
+
+
+def parole_uniche(html):
+    """Parole del contenuto proprio della pagina: solo <main>, senza il calcolatore (uguale in più pagine), l'elenco delle fonti,
+    le griglie delle guide e degli Stati e l'avviso finale (blocchi ripetuti)."""
+    m = re.search(r"<main\b.*?</main>", html, re.S)
+    t = m.group(0) if m else html
+    t = re.sub(r'<section class="card calc[^"]*".*?</section>', " ", t, flags=re.S)
+    t = re.sub(r'<section class="fonti-box".*?</section>', " ", t, flags=re.S)
+    t = re.sub(r'<h2>(Guides|Other states and territories)</h2>\s*<ul class="griglia[^"]*">.*?</ul>', " ", t, flags=re.S)
+    t = re.sub(r'<p class="disclaimer">.*?</p>', " ", t, flags=re.S)
+    return len(testo(t).split())
 
 
 def controlla_struttura():
@@ -497,14 +515,33 @@ def controlla_struttura():
             errore(f"manca {nome}")
     if (SITO / f"{G.CHIAVE_INDEXNOW}.txt").read_text(encoding="utf-8") != G.CHIAVE_INDEXNOW:
         errore("file della chiave IndexNow diverso dalla chiave")
+    hw = (SITO / "how-we-check" / "index.html").read_text(encoding="utf-8")
+    for pezzo in ('name="corrections"', 'data-netlify="true"', 'netlify-honeypot="bot-field"', 'name="bot-field"', 'name="form-name" value="corrections"',
+                  'name="consent"', 'id="corrections"'):
+        if pezzo not in hw:
+            errore(f"modulo correzioni: manca {pezzo}")
+    if 'name="email" maxlength="200" autocomplete="email">' not in hw or 'type="email" name="email" maxlength="200" autocomplete="email" required' in hw:
+        errore("modulo correzioni: l'email deve esserci ed essere facoltativa")
+    if 'href="/how-we-check/#corrections"' not in (SITO / "privacy" / "index.html").read_text(encoding="utf-8"):
+        errore("privacy: non spiega il modulo correzioni")
+    for f in pagine():
+        t = f.read_text(encoding="utf-8")
+        i, j = t.find('class="ad-slot"'), t.find('id="calculator"')
+        if i >= 0 and j >= 0 and i < j:
+            errore(f"{f.relative_to(SITO)}: spazio pubblicitario prima del calcolatore")
     robots = (SITO / "robots.txt").read_text(encoding="utf-8")
     if f"Sitemap: {G.URL_SITO}/sitemap.xml" not in robots:
         errore("robots.txt senza la sitemap")
-    piccole = [percorso_di(f) for f in pagine() if f.name != "404.html" and percorso_di(f) not in SENZA_FONTI
-               and len(testo(f.read_text(encoding="utf-8")).split()) < 900]
+    conteggi = {percorso_di(f): parole_uniche(f.read_text(encoding="utf-8")) for f in pagine() if f.name != "404.html" and percorso_di(f) not in SENZA_FONTI}
+    # minimo 500 parole proprie per ogni pagina di contenuto; 900 per le guide segnalate dalla revisione del 11/11/2026
+    piccole = {p: n for p, n in conteggi.items() if n < (900 if p in PAGINE_900 else 500)}
     if piccole:
-        errore(f"pagine con poco testo (meno di 900 parole compresi menu e piede): {piccole}")
-    print(f"7. Struttura: {len(esistenti)} pagine, {len(canonici)} con canonical = sitemap; tutte le 21 pagine del piano; link e ancore validi; fonti datate e avviso in ogni pagina.")
+        errore(f"pagine con poco contenuto proprio (solo <main>, senza calcolatore, fonti, guide, avviso): {piccole}")
+    global CONTEGGI
+    CONTEGGI = conteggi
+    minimo = min(CONTEGGI.items(), key=lambda x: x[1]) if CONTEGGI else ("", 0)
+    print(f"7. Struttura: {len(esistenti)} pagine, {len(canonici)} con canonical = sitemap; tutte le 21 pagine del piano; link e ancore validi; fonti datate e avviso in ogni pagina; "
+          f"contenuto proprio (solo <main>, senza blocchi ripetuti) minimo {minimo[1]} parole (/{minimo[0]}), ≥ 900 per {', '.join(sorted(PAGINE_900))}.")
 
 
 # ---------------------------------------------------------------- 8. monetizzazione
@@ -559,6 +596,8 @@ def browser():
                                         ("/calculator/", {"qld": 112000000, "vic": 30000000}, 365, False, True),
                                         ("/act/", {"act": 1000000}, 200, False, False),
                                         ("/vic/", {"vic": 4200000, "altro": 800000}, 300, True, False),
+                                        ("/vic/", {"vic": 2900000}, 183, False, False),
+                                        ("/calculator/", {"act": 1000000, "nsw": 400000}, 200, False, False),
                                         ("/qld/", {"qld": 3000000}, 365, False, True)]:
         res = motore.calcola(G.P, sal, giorni, 365, rv, rq)
         casi.append({"pagina": pagina, "salari": sal, "giorni": giorni, "rv": rv, "rq": rq, "atteso": euro(res["complessivo"]),

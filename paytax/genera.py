@@ -328,11 +328,12 @@ def box_affiliati(contesto, aff=None, titolo_h="h2"):
 
 # ---------------------------------------------------------------- calcolatore
 TESTI_AVVISI = {
-    "vic_phase": "Victoria: your Australian wages are between $3m and $5m, so the threshold is phased out at 50%.",
-    "vic_no_soglia": "Victoria: there is no threshold when Australian wages are above $5m.",
+    "vic_phase": "Victoria: your Australian wages are above $3m (scaled by the days you employed), so the threshold is phased out at 50%.",
+    "vic_no_soglia": "Victoria: the threshold is fully phased out (Australian wages at or above $5m, scaled by the days you employed).",
     "vic_sovrattasse": "Victoria: includes the mental health and wellbeing surcharge and the COVID-19 debt surcharge (0.5% each above the shared $10m threshold, another 0.5% each above $100m).",
     "qld_levy": "Queensland: includes the mental health levy (0.25% above the shared $10m threshold, plus 0.5% above $100m).",
-    "qld_regionale_oltre": "Queensland: the regional discount does not apply above $350m of wages, so the standard rate is used.",
+    "qld_regionale_oltre": ("Queensland: above $350m of wages the regional discount does not apply, so the standard rate is used. QRO describes the cap as Australian taxable wages; "
+                            "the Act (s 10A(4)) refers to the taxable wages paid by the employer in the return period. Check with QRO if your Queensland wages alone are below $350m."),
     "wa_no_soglia": "Western Australia: no deductable amount at $7.5m or more of Australian wages (adjusted for part years).",
     "sa_variabile": "South Australia: your annualised Australian wages are between $1.5m and $1.7m, so the rate is between 0% and 4.95%.",
     "tas_due_fasce": "Tasmania: 4% on the band between the two shared thresholds, 6.1% on wages above the upper one.",
@@ -371,8 +372,10 @@ def risultato_statico(res, campi):
     if not res["righe"]:
         return f'<div class="vuoto">{vuoto_html(campi)}</div>'
     quota = res["complessivo"] / res["W"] * 100 if res["W"] else 0
-    out = (f'<div class="tot"><div class="main"><span>Estimated payroll tax, {ANNO}</span><b data-o="totale">{soldi(res["complessivo"])}</b></div>'
-           f'<div class="mensile"><span>Monthly average</span><b data-o="mensile">{soldi(res["mensile"])}</b></div>'
+    esc_act = bool(res["non_calcolati"])
+    et = f"Estimated payroll tax, {ANNO}" + (": total excludes ACT (not calculated)" if esc_act else "")
+    out = (f'<div class="tot"><div class="main"><span>{et}</span><b data-o="totale">{soldi(res["complessivo"])}</b></div>'
+           f'<div class="mensile"><span>Monthly average (annual ÷ 12)</span><b data-o="mensile">{soldi(res["mensile"])}</b></div>'
            f'<div><span>Total Australian wages</span><b>{soldi(res["W"])}</b></div><div><span>Share of wages</span><b>{quota:.2f}%</b></div></div>')
     out += '<table class="ris"><thead><tr><th scope="col">State</th><th scope="col" class="col-w">Wages</th><th scope="col">Threshold used</th><th scope="col">Rate</th><th scope="col">Tax</th></tr></thead><tbody>'
     for r in res["righe"]:
@@ -385,7 +388,7 @@ def risultato_statico(res, campi):
                 f'<td data-o="tassa-{r["s"]}">{soldi(r["tassa"])}</td></tr>')
         if r["extra"] > 0:
             out += f'<tr class="extra"><td colspan="4">{"Queensland mental health levy" if r["s"] == "qld" else "Victorian surcharges"}</td><td>{soldi(r["extra"])}</td></tr>'
-    out += f'</tbody><tfoot><tr><td>Total</td><td class="col-w">{soldi(res["W"])}</td><td></td><td></td><td>{soldi(res["complessivo"])}</td></tr></tfoot></table>'
+    out += f'</tbody><tfoot><tr><td>Total{" excl. ACT" if esc_act else ""}<span class="solo-m"> · wages {soldi(res["W"])}</span></td><td class="col-w">{soldi(res["W"])}</td><td></td><td></td><td>{soldi(res["complessivo"])}</td></tr></tfoot></table>'
     out += f'<ul class="avvisi"><li>{h(TESTI_AVVISI["stima"])}</li></ul>'
     return out
 
@@ -453,7 +456,7 @@ def calcolatore(stato=None, esempio=None, pull=True, titolo="Payroll tax calcula
 
 FORMULE = {
     "nsw": "threshold = $1,200,000 × share × days; tax = (NSW wages − threshold) × 5.45%.",
-    "vic": "threshold = $1,000,000 × share × days, cut by 50% of (Victorian wages − $3m × share × days) when W is between $3m and $5m, nil above $5m; tax at 4.85% (1.2125% regional); surcharges 1% above $10m and another 1% above $100m (shared thresholds).",
+    "vic": "threshold = the lesser of $1,000,000 × share × days and that amount minus 50% of (Victorian wages − $3m × share × days), never below nil (so it shrinks from $3m × days and is nil from $5m × days); tax at 4.85% (1.2125% regional); surcharges 1% above $10m and another 1% above $100m (shared thresholds).",
     "qld": "deduction = share × ($1.3m × days − (W − $1.3m × days) ÷ 7), not below nil; tax at 4.75% (4.95% if W is above $6.5m; 1% less for regional employers); mental health levy 0.25% above $10m and 0.5% above $100m (shared thresholds).",
     "wa": "nil if W ≤ $1m × days; 5.5% of all WA wages if W ≥ $7.5m × days; otherwise deductable amount = ($1m × days − (W − $1m × days) × 2/13) × share, tax = (WA wages − deductable amount) × 5.5%.",
     "sa": "nil if W ≤ $1.5m × days; deduction = $600,000 × share × days; rate 4.95%, or (annualised W − $1.5m) ÷ $200,000 × 4.95% when annualised W is $1.7m or less.",
@@ -490,6 +493,15 @@ def barre_soglie():
 
 TASSO_INIZIALE = {"nsw": P["nsw"]["aliquota"], "vic": P["vic"]["aliquota"], "qld": P["qld"]["aliquota"], "wa": P["wa"]["aliquota"], "sa": P["sa"]["aliquota"],
                   "tas": P["tas"]["aliquota1"], "act": P["act"]["scaglioni"][0][1], "nt": P["nt"]["aliquota"]}
+
+
+CONSIGLI_VIC = ["Alpine Shire", "Ararat Rural City", "Ballarat City", "Bass Coast Shire", "Baw Baw Shire", "Benalla Rural City", "Buloke Shire", "Campaspe Shire",
+                "Central Goldfields Shire", "Colac Otway Shire", "Corangamite Shire", "East Gippsland Shire", "Gannawarra Shire", "Glenelg Shire", "Golden Plains Shire",
+                "Greater Bendigo City", "Greater Geelong City", "Greater Shepparton City", "Hepburn Shire", "Hindmarsh Shire", "Horsham Rural City", "Indigo Shire", "Latrobe City",
+                "Loddon Shire", "Macedon Ranges Shire", "Mansfield Shire", "Mildura Rural City", "Mitchell Shire", "Moira Shire", "Moorabool Shire", "Mount Alexander Shire",
+                "Moyne Shire", "Murrindindi Shire", "Northern Grampians Shire", "Pyrenees Shire", "Borough of Queenscliffe", "South Gippsland Shire", "Southern Grampians Shire",
+                "Strathbogie Shire", "Surf Coast Shire", "Swan Hill Rural City", "Towong Shire", "Wangaratta Rural City", "Warrnambool City", "Wellington Shire", "West Wimmera Shire",
+                "Wodonga City", "Yarriambiack Shire"]
 
 
 def griglia_stati():
@@ -586,16 +598,18 @@ STATI = {
         "extra": [],
     },
     "vic": {
-        "sub": "4.85% (1.2125% regional) above a $1,000,000 threshold that is phased out between $3m and $5m of Australian wages.",
+        "sub": "4.85% (1.2125% regional) above a $1,000,000 threshold that is phased out between $3m and $5m of Australian wages (scaled by days for a part year).",
         "come": [
             "Victoria charges <strong>4.85%</strong> on Victorian taxable wages above your threshold, or <strong>1.2125%</strong> for regional employers.[[vic_rates,vic_csv]] "
             "The full threshold is <strong>$1,000,000</strong> a year ($83,333 a month).",
             "The State Revenue Office works the threshold out in four steps:[[vic_phase]] (1) multiply $1,000,000 by your Victorian share of Australian wages and the share of the year you employed; "
             "(2) multiply $3 million by the same two shares; (3) subtract step 2 from your Victorian wages and multiply by the phase-out rate, <strong>50%</strong> from 2025-26 onwards; "
-            "(4) subtract step 3 from step 1. Step 3 applies only when your Australian wages are between $3 million and $5 million; above $5 million there is no threshold at all.",
+            "(4) subtract step 3 from step 1. Schedule 1 of the Payroll Tax Act 2007 takes the lesser of step 4 and step 1, and treats a negative step 4 as nil.[[vic_act]]",
+            "Because the $3 million is scaled by the days you employed, the phase-out starts at $3 million × days ÷ 365 of Australian wages and the threshold reaches nil at $5 million × days ÷ 365. "
+            "For a full year that is $3 million and $5 million; for an employer that paid wages on only 183 days, $1.5 million and $2.5 million: with $2.9 million of Victorian wages over 183 days there is no threshold and the tax is $140,650.[[vic_act]]",
             "Employers and groups with Australian wages above $10 million also pay two surcharges on their Victorian wages above the shared thresholds (see below).[[vic_surcharges]]",
         ],
-        "formula": "D1 = $1,000,000 × share × days\nif W ≤ $3m:        threshold = D1\nif $3m < W ≤ $5m:  threshold = D1 − (VIC wages − $3m × share × days) × 50%\nif W > $5m:        threshold = 0\ntax = (VIC wages − threshold) × 4.85%   (1.2125% regional)",
+        "formula": "D1        = $1,000,000 × share × days ÷ 365\nphase-out = D1 − (VIC wages − $3,000,000 × share × days ÷ 365) × 50%, not below 0\nthreshold = the lesser of D1 and the phase-out amount\ntax       = (VIC wages − threshold) × 4.85%   (1.2125% regional)",
         "esempi": ["vic_example1_2024_25", "vic_example2_2024_25"],
         "nota_esempi": "The two official examples use the 2024-25 rules ($900,000 threshold, 45% phase-out); our calculator gives the same figures when run with those rules.",
         "mensile": "The monthly threshold is <strong>$83,333</strong>.[[vic_rates]] You must register if you pay wages in Victoria and your taxable Australian wages exceed the threshold.[[vic_register]]",
@@ -761,9 +775,9 @@ def pagina_stato(s):
               "nt": ({"nt": 4000000}, "NT-only employer, $4,000,000 of wages, full year")}[s]
         corpo += ('<h3>Worked example</h3><p class="small">The revenue office publishes no worked example we can read, so this one applies the formula in the Act; the result is ours, not an official figure.</p>'
                   + nostro_esempio(es[0], descr=es[1]))
-    corpo += AD
     corpo += f'<h2 id="calc">{h(g["breve"])} payroll tax calculator</h2><p>Enter your {h(g["nome"])} wages and, if you pay wages elsewhere, the total for the other states: the calculator applies the formula above. For several states at once, use the <a href="/calculator/">multi-state calculator</a>.</p>'
     corpo += calcolatore(stato=s, pull=False, titolo=f"{g['breve']} payroll tax calculator, {ANNO}")
+    corpo += AD
     for tit, testo in T["extra"]:
         corpo += f'<h2>{h(tit)}</h2><div class="testo"><p>{rim.t(testo)}</p></div>'
     corpo += f'<h2 id="register">Monthly threshold and registration</h2><div class="testo"><p>{rim.t(T["mensile"])}</p></div>'
@@ -874,7 +888,7 @@ def interstate():
     corpo += "<h2>The rule in every state</h2><div class=\"testo\">"
     corpo += rim.t("<p>Your share of a state's threshold = the state's threshold × wages paid in that state ÷ total Australian wages, and × days you paid wages ÷ days in the year for a part year.[[nsw_rates,sa_how]] "
                    "On top of that, some states reduce the threshold itself as total wages grow, before sharing it:</p><ul>"
-                   "<li>Victoria: phased out at 50% between $3m and $5m, nil above $5m.[[vic_phase]]</li>"
+                   "<li>Victoria: phased out at 50% from $3m, nil from $5m (both scaled by days for a part year).[[vic_phase,vic_act]]</li>"
                    "<li>Queensland: $1 less for every $7 above $1.3m, nil at $10.4m.[[qld_deductions]]</li>"
                    "<li>Western Australia: $2 less for every $13 above $1m, nil at $7.5m.[[wa_calc]]</li>"
                    "<li>Northern Territory: $1 less for every $2 above $2.5m, nil at $7.5m.[[nt_act]]</li></ul>"
@@ -922,7 +936,7 @@ def grouping():
                    "the result is the group total.</p>"
                    "<p>Failing to register a related entity under the grouping provisions is one of the reasons unregistered employers are penalised each year.[[portal_registration]]</p>"
                    "<p>The Commissioner has discretion to exclude a member from a group in certain circumstances (not related corporations): in Victoria the factors are in Revenue Ruling PTA-031v2.[[vic_grouping]] "
-                   "In Queensland, an Act that received Royal Assent on 22 October 2026 confirms that the Commissioner may exclude a set of persons from a group.[[qld_amnesty]]</p></div>")
+                   "In Queensland, the Home Ownership and Other Legislation Amendment Act 2026, assented on 22 October 2026, confirms that the Commissioner may exclude a set of persons from a group.[[qld_hoola]]</p></div>")
     corpo += AD
     links = []
     for s in ORDINE:
@@ -962,6 +976,25 @@ def regionale():
     corpo += rim.t("<p>Regional Queensland is defined by seven ABS statistical areas (SA4): Cairns, Central Queensland, Darling Downs – Maranoa, Mackay – Isaac – Whitsunday, Queensland – Outback, "
                    "Townsville and Wide Bay. Short-term residents such as working holiday makers and PALM scheme workers generally do not have their principal place of residence there.[[qld_regional]]</p>"
                    "<p>On 11 November 2026 QRO announced a temporary amnesty, until 31 December 2026, for certain employers who incorrectly claimed the discount.[[qld_amnesty]]</p></div>")
+    corpo += "<h2>The 48 regional Victorian councils</h2><div class=\"testo\">"
+    corpo += rim.t("<p>" + ", ".join(CONSIGLI_VIC) + ". The six alpine resorts (Mt Baw Baw, Mt Buller, Mt Hotham, Mt Stirling, Falls Creek and Lake Mountain) also count.[[vic_regional]]</p></div>")
+    corpo += "<h2>Victoria: monthly returns versus the annual test</h2><div class=\"testo\">"
+    corpo += rim.t("<p>The SRO's own example: in 2024-25 RedCar paid $100,000 of Victorian taxable wages every month ($1,200,000 for the year). Its regional employees received $90,000 a month "
+                   "from July to October and from March to June, but only $80,000 a month from November to February. In those four months it was below 85%, so its monthly returns used 4.85%; "
+                   "in the other eight months it used 1.2125%. Over the year it paid $1,040,000 to regional employees, 86.67% of its wages, so the annual reconciliation applied 1.2125% to the "
+                   "whole year and refunded the overpaid tax for November to February.[[vic_regional]]</p>"
+                   "<p>Groups that lodge a joint (schedule) return split the taxable amount: the share of wages paid by regional members is taxed at 1.2125% and the rest at 4.85%. In the SRO example, "
+                   "three grouped businesses paid $90,000 in July 2024 against a $75,000 monthly threshold; one third of the wages came from a regional member, so $5,000 of the $15,000 taxable amount "
+                   "was taxed at 1.2125% and $10,000 at 4.85%.[[vic_regional]] For a joint return, enter only the group totals in our calculator and work the split out by hand.</p></div>")
+    corpo += "<h2>Queensland: residence, ABN address and groups</h2><div class=\"testo\">"
+    corpo += rim.t("<p>An employee's principal place of residence is where they usually live, judged on facts such as whether they live there daily, where their belongings and immediate family are, "
+                   "how long they have lived there, their mail and electoral roll address, the address on their driver licence and whose name the utility accounts are in.[[qld_regional]]</p>"
+                   "<p>Your principal place of employment is your registered ABN business address on the Australian Business Register; without an ABN, your principal place of business.[[qld_regional]]</p>"
+                   "<p>In a group, each member is tested on its own: in QRO's example, two companies grouped with $7 million of Australian wages pay 3.95% (the regional member) and 4.95% "
+                   "(the member that is not regional).[[qld_regional]]</p>"
+                   "<p>The discount stops above $350 million of wages. QRO's page describes the cap as Australian taxable wages; the Payroll Tax Act 1971, s 10A(4), refers to the taxable wages paid by "
+                   "the employer during the return period. Our calculator applies the cap to total Australian wages and says so; if your Queensland wages alone are under $350 million but your "
+                   "Australian wages are above it, ask QRO.[[qld_regional,qld_act]]</p></div>")
     corpo += AD
     e1 = nostro_esempio({"vic": 2000000}, descr="Victoria-only employer, $2,000,000 of wages, standard rate")
     corpo += "<h2>What the regional rate is worth</h2>" + e1
@@ -1063,12 +1096,38 @@ def cambiamenti():
                    "The $2.5 million threshold, the deduction and the 5.5% rate are unchanged for everyone else.[[nt_act,portal_rates]]</p></div>")
     corpo += "<h2>The other states</h2><div class=\"testo\"><ul>"
     corpo += rim.t("<li><strong>NSW</strong>: $1,200,000 and 5.45%, as every year since 2022-23.[[nsw_rates]]</li>"
-                   "<li><strong>Victoria</strong>: $1,000,000 and the 50% phase-out, both from 2025-26.[[vic_rates]]</li>"
+                   "<li><strong>Victoria</strong>: $1,000,000 and the 50% phase-out, both from 2025-26; the two surcharges for Australian wages above $10 million continue, the COVID-19 debt surcharge until 30 June 2033.[[vic_rates,vic_surcharges]]</li>"
                    "<li><strong>Queensland</strong>: unchanged rates; regional discount to 30 June 2030 with an amnesty until 31 December 2026 for certain incorrect claims; "
-                   "an Act assented on 22 October 2026 confirms the Commissioner may exclude a set of persons from a group.[[qld_regional,qld_amnesty]]</li>"
+                   "the Home Ownership and Other Legislation Amendment Act 2026, assented on 22 October 2026, confirms the Commissioner may exclude a set of persons from a group.[[qld_regional,qld_amnesty,qld_hoola]]</li>"
                    "<li><strong>Western Australia</strong>: $1,000,000, 5.5%, diminishing to $7.5m.[[wa_calc]]</li>"
                    "<li><strong>South Australia</strong>: $1,500,000 and up to 4.95%.[[sa_rates]]</li>"
                    "<li><strong>Tasmania</strong>: $1.25m and $2m, 4% and 6.1%.[[tas_rates]]</li></ul></div>")
+    a = motore.calcola(P, {"act": 20000000}, GIORNI_ANNO, GIORNI_ANNO)["complessivo"]
+    b = motore.calcola(P, {"act": 20000001}, GIORNI_ANNO, GIORNI_ANNO)["complessivo"]
+    corpo += "<h2>ACT: watch the bracket limits</h2><div class=\"testo\">"
+    corpo += rim.t(f"<p>Because the ACT rate is chosen by total wages and then applied to all ACT wages above the threshold, one more dollar of wages at a bracket limit changes the tax on everything. "
+                   f"An ACT-only employer paying $20,000,000 for the full year pays {soldi(a)} at 6.75%; at $20,000,001 the rate is 6.85% and the tax {soldi(b)}, "
+                   f"{soldi(b - a)} more (our calculation with the formula of the Act).[[act_act,act_det2026]]</p>"
+                   "<p>Monthly returns use their own brackets on total monthly wages: 6.75% above $145,833.33 up to $1,666,666.66, 6.85% up to $4,166,666.66, 7.35% up to $8,333,333.33, "
+                   "7.85% up to $12,500,000 and 8.75% above.[[act_det2026]] The annual return then settles the year on the annual brackets.</p>"
+                   "<p>Five eligible universities are capped at 6.85%: Australian Catholic University, Charles Sturt University, The Australian National University, The University of New South Wales "
+                   "and University of Canberra. One in the lowest bracket pays 6.75%.[[act_det2026,act_es2026]]</p></div>")
+    n1 = motore.calcola(P, {"nt": 120000000}, GIORNI_ANNO, GIORNI_ANNO)["complessivo"]
+    corpo += "<h2>NT: what 6.5% means in dollars</h2><div class=\"testo\">"
+    corpo += rim.t(f"<p>The deduction is already nil at $7.5 million, so the new rate applies to every NT dollar. An NT-only employer with $120 million of wages pays {soldi(n1)} at 6.5%, "
+                   f"{soldi(120000000 * 0.01)} more than at 5.5% (our calculation). A group whose Australian wages reach $100 million pays 6.5% on its NT wages even if only a small part is paid "
+                   "in the Territory.[[nt_act]]</p></div>")
+    righe = []
+    for s_ in ORDINE:
+        v25 = STORICO["righe"][s_].get("2025-26")
+        v26 = STORICO["righe"][s_].get("2026-27")
+        righe.append(f'<tr><td><a href="/{s_}/">{h(J[s_]["nome"])}</a></td><td data-l="2025-26">{soldi(v25["soglia"]) if v25 else "–"}<br><span class="small">{h(v25["aliquota"]) if v25 else ""}</span></td>'
+                     f'<td data-l="2026-27">{soldi(v26["soglia"])}<br><span class="small">{h(v26["aliquota"])}</span>{rim.ref(v26["fonti"])}</td></tr>')
+    corpo += ('<h2>2025-26 and 2026-27 side by side</h2><div class="tab"><table class="dati stack"><thead><tr><th scope="col">State or territory</th><th scope="col">2025-26</th>'
+              '<th scope="col">2026-27</th></tr></thead><tbody>' + "".join(righe) + "</tbody></table></div>")
+    corpo += ("<h2>Payday Super, for every employer</h2><div class=\"testo\">" + rim.t("<p>Separate from state payroll tax, the Payday Superannuation Act moved super guarantee "
+              "contributions from quarterly to every payday from 1 July 2026: the fund must receive them within 7 business days of each payday.[[payday_act]] "
+              "<a href=\"/payday-super/\">How it works, with a worked example</a>.</p></div>"))
     corpo += AD
     faq_html, faq_ld = faq_blocco("what-changed-2026-27", rim)
     corpo += faq_html + '<h2>Guides</h2>' + griglia_guide("what-changed-2026-27/") + rim.elenco()
@@ -1079,28 +1138,23 @@ def cambiamenti():
            corpo, testata, briciole=[("Home", ""), ("What changed in 2026-27", "what-changed-2026-27/")], jsonld=[faq_ld] if faq_ld else None)
 
 
+PS = carica("payday_super.json")
+
+
 def payday():
     rim = Rimandi()
     corpo = '<div class="testo pull card" style="margin-bottom:8px">'
-    corpo += rim.t("<p>Payday Super is a federal change, separate from state payroll tax. The Treasury Laws Amendment (Payday Superannuation) Act 2025 (assented to on 6 November 2025) "
-                   "commenced on <strong>1 July 2026</strong>.[[payday_act]] Instead of paying super guarantee contributions quarterly, employers must make sure contributions reach each "
+    corpo += rim.t(f"<p>Payday Super is a federal change, separate from state payroll tax. The {PS['legge']} (assented to on {data_lunga(PS['assenso'])}) "
+                   f"commenced on <strong>{data_lunga(PS['inizio'])}</strong>.[[payday_act]] Instead of paying super guarantee contributions quarterly, employers must make sure contributions reach each "
                    "employee's fund shortly after every payday.</p></div>")
-    corpo += "<h2>The new deadline: 7 business days after payday</h2><div class=\"testo\">"
-    corpo += rim.t("<p>Every day on which you pay an employee qualifying earnings is a <strong>QE day</strong>. The contribution for that payday has to be received by the fund within the "
-                   "<strong>usual period</strong>, which starts on the QE day and ends on the <strong>seventh business day</strong> after it.[[payday_act]] Business days exclude weekends and public holidays "
-                   "that apply in a whole state or territory.[[payday_act]]</p>"
-                   "<p>A longer period, ending on the 20th business day after the QE day, applies in some cases, for example to the first contribution to a fund for a new employee or after you stop paying "
-                   "into another fund.[[payday_act]]</p>"
-                   "<p>The super guarantee is worked out on <strong>qualifying earnings</strong>: ordinary time earnings, commissions, directors' fees and some other payments, plus amounts the employee "
-                   "salary-sacrifices into super. The charge percentage is <strong>12</strong>.[[payday_act]]</p></div>")
-    corpo += "<h2>If a contribution is late or short</h2><div class=\"testo\">"
-    corpo += rim.t("<p>You owe the superannuation guarantee charge for that QE day. It is made up of the shortfall, a notional earnings component, an <strong>administrative uplift</strong> equal to "
-                   "60% of the shortfall and notional earnings (which regulations can reduce, for example if you disclose voluntarily), and a choice loading if you did not follow the employee's "
-                   "choice of fund.[[payday_act]]</p></div>")
-    corpo += "<h2>Clearing houses</h2><div class=\"testo\">"
-    corpo += rim.t("<p>The Act repeals the definition of “approved clearing house” in the Superannuation Guarantee (Administration) Act 1992.[[payday_act]] For what this means for the ATO's "
-                   "Small Business Superannuation Clearing House and for your payroll process, check the ATO's Payday Super page: ato.gov.au does not answer our checking server, so we do not "
-                   "summarise it here.[[ato_payday]]</p></div>")
+    for sez in PS["sezioni"]:
+        corpo += f'<h2>{h(sez["titolo"])}</h2><div class="testo">' + "".join(f"<p>{rim.t(x)}</p>" for x in sez["paragrafi"]) + "</div>"
+        if sez is PS["sezioni"][1]:
+            es = PS["esempio"]
+            righe = "".join(f'<tr><td>{h(a)}</td><td>{h(b)}</td></tr>' for a, b in es["righe"])
+            corpo += (f'<h2>{h(es["titolo"])}</h2><p class="small">{h(es["intro"])}{rim.ref(["payday_act"])}</p>'
+                      f'<div class="tab"><table class="dati"><thead><tr><th scope="col">Step</th><th scope="col">Result</th></tr></thead><tbody>{righe}</tbody></table></div>'
+                      f'<p>{h(es["nota"])}</p>')
     corpo += AD
     corpo += box_affiliati("payday-super")
     corpo += ('<h2>Payday Super and payroll tax</h2><div class="testo"><p>The two are separate, but connected: employer super contributions are taxable wages for payroll tax in every state.'
@@ -1109,9 +1163,9 @@ def payday():
     faq_html, faq_ld = faq_blocco("payday-super", rim)
     corpo += faq_html + '<h2>Guides</h2>' + griglia_guide("payday-super/") + rim.elenco()
     testata = banda("Payday Super · from 1 July 2026", "Payday Super: super due within 7 business days of payday",
-                    "What the Payday Superannuation Act 2025 requires of employers from 1 July 2026, read from the Act itself.", corta=True, icona="clock")
+                    "What the Payday Superannuation Act 2025 requires of employers from 1 July 2026, read from the Act itself, with a worked example.", corta=True, icona="clock")
     pagina("payday-super/", "Payday Super from 1 July 2026: 7 Business Days Rule",
-           "Payday Super from 1 July 2026: super must reach the fund within 7 business days of each payday. The rules, the 20-day exception and the charge, from the Act.",
+           "Payday Super from 1 July 2026: super must reach the fund within 7 business days of each payday. The rules, the 20-day exception, the charge and a worked example.",
            corpo, testata, briciole=[("Home", ""), ("Payday Super", "payday-super/")], jsonld=[faq_ld] if faq_ld else None)
 
 
@@ -1150,28 +1204,44 @@ def oltre_soglia():
 
 def about():
     corpo = ('<div class="testo pull card">'
-             f'<p><strong>{NOME}</strong> is an independent website that puts the payroll tax rules of Australia\'s eight states and territories side by side and estimates the tax with the formulas '
-             'they publish. It exists because each revenue office explains its own rules well, but none compares the states or shares a threshold across several of them in one tool.</p>'
+             f'<p><strong>{NOME}</strong> is an independent publication, part of a small network of websites that turn official data into plain-language guides and tools. '
+             'This site puts the payroll tax rules of Australia\'s eight states and territories side by side and estimates the tax with the formulas they publish. It exists because each revenue '
+             'office explains its own rules well, but none compares the states or shares a threshold across several of them in one tool.</p>'
              '<p>We are not a government website, a tax agent or an accounting firm, and we are not linked to any revenue office or software company. The site gives general information, '
              'not tax advice.</p></div>'
              '<h2>What we publish</h2><ul class="testo"><li>Only figures we have read on an official page or in the legislation, each linked to its source with the date we checked it.</li>'
              '<li>Formulas taken from the revenue offices and the payroll tax Acts, tested against every official worked example we could find.</li>'
              '<li>Where an official source cannot be read, or the law leaves a case open, we say so instead of filling the gap.</li></ul>'
-             '<h2>How the site is paid for</h2><div class="testo"><p>The site shows advertising served by Google AdSense, which never appears inside the calculator. In future it may link to payroll '
-             'software through partner programmes; any such link will be labelled, and partners will never decide what we publish or change a figure.</p></div>'
+             '<h2>How the site is paid for</h2><div class="testo"><p>The site shows advertising served by Google AdSense. Google\'s automatic placement decides where ads appear on a page; '
+             'the space we reserve for ads comes after the calculator. In future the site may link to payroll software through partner programmes; any such link will be labelled, '
+             'and partners will never decide what we publish or change a figure.</p></div>'
              '<h2>Your data</h2><div class="testo"><p>The calculator runs entirely in your browser: the wages you type are not sent to us or to anyone else. See the <a href="/privacy/">privacy page</a>.</p></div>'
-             '<h2>Corrections</h2><div class="testo"><p>Rates change every 1 July and sometimes mid-year. We re-read every official source on a schedule and before each update; see '
-             '<a href="/how-we-check/">how we check</a>.</p></div>')
-    testata = banda("About", f"About {NOME}", "Who makes this site, what it publishes and how it is paid for.", corta=True, icona="info")
+             '<h2>Corrections</h2><div class="testo"><p>Rates change every 1 July and sometimes mid-year. We re-read every official source on a schedule and before each update. If you spot an error, '
+             'use the <a href="/how-we-check/#corrections">corrections form</a>: we check it against the official source and fix the page.</p></div>')
+    testata = banda("About", f"About {NOME}", "What this site is, what it publishes and how it is paid for.", corta=True, icona="info")
     pagina("about/", f"About {NOME}", "About Payroll Tax by State: an independent Australian payroll tax comparison and calculator built only from official sources.",
            corpo, testata, briciole=[("Home", ""), ("About", "about/")])
+
+
+MODULO_CORREZIONI = """<form name="corrections" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form card" data-correzioni>
+<input type="hidden" name="form-name" value="corrections">
+<p class="hp"><label>Leave this field empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+<label>Page or figure<input type="text" name="page" required maxlength="300" placeholder="For example /vic/ or the ACT threshold"></label>
+<label>What is wrong?<textarea name="message" required rows="5" maxlength="3000"></textarea></label>
+<label>Official source (optional)<input type="url" name="source" maxlength="500" placeholder="https://"></label>
+<label>Your email (optional, only if you want a reply)<input type="email" name="email" maxlength="200" autocomplete="email"></label>
+<label class="check"><input type="checkbox" name="consent" value="yes" required><span>I agree that this message, and my email if I gave one, is stored to check and answer the correction (see <a href="/privacy/#corrections">privacy</a>).</span></label>
+<p class="errore" data-errore hidden>The message was not sent. Please try again.</p>
+<button type="submit" class="btn">Send correction</button>
+</form>
+<p class="ok" data-ok hidden><strong>Thank you.</strong> We will check it against the official source.</p>"""
 
 
 def come_controlliamo():
     rim = Rimandi()
     lette = sum(1 for k, v in ESITI.items() if not FONTI[k].get("non_letta") and v.get("http") == 200)
     frasi = sum(len(FONTI[k].get("cerca", [])) for k in FONTI if not FONTI[k].get("non_letta"))
-    n_casi = len(ESEMPI["casi"])
+    ufficiali = [c for c in ESEMPI["casi"] if not c.get("legge")]
     corpo = ('<div class="testo pull card">'
              f'<p>Every figure on this site comes from an official page or a piece of legislation. On {data_lunga(CONTROLLO)} we read <strong>{lette}</strong> official sources and checked '
              f'<strong>{frasi}</strong> exact phrases and figures in them (for example “$1,200,000 x (184 ÷ 365) = $604,931.51” on the Revenue NSW page). If a phrase disappears from its page, '
@@ -1179,24 +1249,43 @@ def come_controlliamo():
     corpo += "<h2>Where the figures come from</h2><div class=\"testo\"><ul>"
     corpo += rim.t("<li>The joint portal of the eight revenue offices, payrolltax.gov.au, for the current rates and thresholds of every state.[[portal_rates]]</li>"
                    "<li>The pages of Revenue NSW, the State Revenue Offices of Victoria and Tasmania, the Queensland Revenue Office, RevenueWA and RevenueSA.[[nsw_rates,vic_rates,qld_rates,wa_calc,sa_rates,tas_rates]]</li>"
-                   "<li>The legislation itself where the formula matters: the payroll tax Acts of Queensland, Western Australia, South Australia, Tasmania, the ACT and the Northern Territory, and the ACT 2026 determination.[[qld_act,wa_act,sa_act,tas_act,act_act,act_det2026,nt_act]]</li>"
+                   "<li>The legislation itself where the formula matters: the payroll tax Acts of Victoria, Queensland, Western Australia, South Australia, Tasmania, the ACT and the Northern Territory, and the ACT 2026 determination.[[vic_act,qld_act,wa_act,sa_act,tas_act,act_act,act_det2026,nt_act]]</li>"
                    "<li>The Federal Register of Legislation for Payday Super.[[payday_act]]</li></ul></div>")
+    conteggio = {}
+    for k in FONTI:
+        pref = k.split("_")[0]
+        conteggio[pref] = conteggio.get(pref, 0) + 1
+    nomi = {"portal": "Joint revenue office portal", "nsw": "New South Wales", "vic": "Victoria", "qld": "Queensland", "wa": "Western Australia", "sa": "South Australia",
+            "tas": "Tasmania", "act": "Australian Capital Territory", "nt": "Northern Territory", "payday": "Payday Super (Commonwealth)", "ato": "Payday Super (Commonwealth)"}
+    agg = {}
+    for k, n in conteggio.items():
+        agg[nomi[k]] = agg.get(nomi[k], 0) + n
+    corpo += ('<h2>Sources by jurisdiction</h2><div class="tab"><table class="dati"><thead><tr><th scope="col">Jurisdiction</th><th scope="col" class="n">Pages and documents we read</th></tr></thead><tbody>'
+              + "".join(f'<tr><td>{h(k)}</td><td class="n">{v}</td></tr>' for k, v in agg.items()) + "</tbody></table></div>")
     corpo += "<h2>What we could not read</h2><div class=\"testo\">"
     corpo += rim.t("<p>Three websites answer our checking server with a 403 (bot protection): the ATO, the ACT Revenue Office and the NT Treasury.[[ato_payday,act_revenue,nt_treasury]] We do not try to get "
                    "round these blocks. ACT and NT figures come from the joint portal and from the legislation; for Payday Super we rely on the Act and point you to the ATO page.</p></div>")
     corpo += "<h2>How the calculator is tested</h2><div class=\"testo\">"
     corpo += (f"<p>The calculator in your browser is a copy of a reference implementation that we run before every update. The checks:</p><ul>"
-              f"<li>recalculate <strong>{n_casi}</strong> worked examples published by the revenue offices (NSW, Victoria, Queensland, WA, SA and Tasmania), each within a dollar or two of the official figure where the office rounds its steps;</li>"
+              f"<li>recalculate <strong>{len(ufficiali)}</strong> worked examples published by the revenue offices (listed below), each within a dollar or two of the official figure where the office rounds its steps;</li>"
+              f"<li>recalculate cases worked out by hand from the formula in an Act where no office publishes an example (for instance Victoria for a part year);</li>"
               f"<li>compare every row of RevenueSA's indicative rate table with the formula in the South Australian Act;</li>"
               f"<li>check the ACT brackets and the NT rules at their limits;</li>"
               f"<li>run the browser calculator and the reference implementation on thousands of random payrolls and require identical results;</li>"
               f"<li>check that the official calculators and pages we link still answer.</li></ul>"
               f"<p>The formulas are listed on the <a href=\"/calculator/#method\">calculator page</a>.</p></div>")
-    corpo += "<h2>When we update</h2><div class=\"testo\"><p>Payroll tax rates and thresholds change on 1 July, and state budgets in May and June announce them. Each year the site moves to the new financial year only after every figure has been re-read on the official pages; between updates, the checks above run again and flag any page that has changed.</p></div>"
+    corpo += ('<h2>The official worked examples we test against</h2><ul class="testo">'
+              + "".join(f'<li>{h(c["descr"])}{rim.ref([c["fonte"]])}</li>' for c in ufficiali) + "</ul>")
+    corpo += "<h2>The one case we do not calculate</h2><div class=\"testo\">"
+    corpo += rim.t("<p>For the ACT, an employer that paid wages for only part of the year and whose total Australian wages are $1.75 million or less, but above its reduced threshold, is liable. "
+                   "The 2026 determination's rate table starts above $1.75 million, so it sets no rate for that level. Rather than guess, the calculator shows “not calculated” and sends you to the ACT Revenue Office.[[act_det2026,act_act]]</p></div>")
+    corpo += "<h2>When we update</h2><div class=\"testo\"><p>Payroll tax rates and thresholds change on 1 July, and state budgets in May and June announce them. Each year the site moves to the new financial year only after every figure has been re-read on the official pages; between updates, the checks above run again and flag any page that has changed. A page whose “last updated” date moves after our check is re-read by hand.</p></div>"
+    corpo += ('<h2 id="corrections">Report an error</h2><div class="testo"><p>Seen a figure that does not match the official page, or a rule that has changed? Tell us which page and, if you can, '
+              'link the official source. Your email is optional: give it only if you want a reply.</p></div>' + MODULO_CORREZIONI)
     corpo += rim.elenco()
-    testata = banda("How we check", "How we check every figure", "Our sources, what we could not read, and the tests the calculator passes before each update.", corta=True, icona="shield")
+    testata = banda("How we check", "How we check every figure", "Our sources, what we could not read, the tests the calculator passes before each update, and how to report an error.", corta=True, icona="shield")
     pagina("how-we-check/", "How We Check Payroll Tax Figures and Formulas",
-           "How Payroll Tax by State checks its figures: official sources, exact phrases re-read on each page, official worked examples and tests of the calculator.",
+           "How Payroll Tax by State checks its figures: official sources, exact phrases re-read on each page, official worked examples, calculator tests and corrections.",
            corpo, testata, briciole=[("Home", ""), ("How we check", "how-we-check/")])
 
 
@@ -1211,7 +1300,10 @@ def privacy():
              '<p>The site remembers your choice of light or dark theme in your browser (local storage). Nothing else is stored on your device by us.</p>'
              f'{cookie}'
              '<h2>Hosting</h2><p>The site is hosted on Netlify, which processes technical data (such as IP addresses) to deliver pages and protect the service.</p>'
-             '<h2>No accounts, no forms</h2><p>There are no accounts, newsletters or contact forms on this site, so we hold no names, email addresses or other personal details.</p>'
+             '<h2 id="corrections">Corrections form</h2><p>If you use the <a href="/how-we-check/#corrections">corrections form</a>, we receive the page you name, your message, the source link '
+             'and, only if you give it, your email address. The form is processed by Netlify Forms on our behalf. We use what you send only to check and answer the correction, and keep it only as long '
+             'as that takes. The legal basis is your consent, given with the tick box; you can ask us to delete your message by sending another one through the form. '
+             'There are no accounts or newsletters on this site.</p>'
              f'<h2>Changes</h2><p>We update this page when the site changes. Last update: {data_lunga(CONTROLLO)}.</p></div>')
     breve = MON.privacy_breve("en", SITO_ID, affiliati=ci_sono_affiliati()) or "What we collect (very little) and how the visit counter works."
     testata = banda("Privacy", "Privacy", h(breve), corta=True, icona="lock")

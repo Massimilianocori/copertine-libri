@@ -93,7 +93,7 @@ p{margin:0 0 14px}
 .ris th,.ris td{padding:7px 8px;border-bottom:1px solid var(--line);text-align:right;font-variant-numeric:tabular-nums;vertical-align:top}
 .ris th:first-child,.ris td:first-child{text-align:left}
 .ris th{background:var(--mute);font-size:.7rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-2)}
-.ris tfoot td{font-weight:800;border-bottom:0}.ris td small{display:block;color:var(--ink-3);font-size:.76rem;font-weight:600;text-align:left;margin-top:2px;white-space:normal}
+.ris tfoot td{font-weight:800;border-bottom:0}.solo-m{display:none;font-weight:600;color:var(--ink-2)}.ris td small{display:block;color:var(--ink-3);font-size:.76rem;font-weight:600;text-align:left;margin-top:2px;white-space:normal}
 .ris tr.extra td{color:var(--ink-2);font-size:.82rem}
 .ris tr.has-sp td{border-bottom:0;padding-bottom:2px}.ris tr.sp td{text-align:left;font-size:.78rem;color:var(--ink-3);padding-top:0;font-weight:500;line-height:1.4}
 .anteprima{display:none;margin:0;padding:10px 12px;border-radius:var(--r-s);background:var(--accent-2);font-weight:700;font-size:.92rem;color:var(--ink-2)}.anteprima b{color:var(--accent);font-family:var(--serif);font-size:1.15rem}.anteprima a{font-weight:700}
@@ -144,6 +144,11 @@ sup.ref{font-size:max(11px,.72em);line-height:0;margin-left:2px;white-space:nowr
 .fonti-box ol{margin:0 0 8px;padding-left:22px}.fonti-box li{margin-bottom:6px}.fonti-box a{overflow-wrap:anywhere}
 .fonti-box li:target{background:var(--ochre-2);border-radius:6px}
 .disclaimer{margin:28px 0 0;font-size:.88rem;color:var(--ink-2);background:var(--mute);border-radius:var(--r-s);padding:12px 16px}
+.form{display:grid;gap:14px;max-width:760px}.form label{display:grid;gap:6px;font-weight:700;font-size:.95rem}
+.form input[type=text],.form input[type=url],.form input[type=email],.form textarea{font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line-2);border-radius:var(--r-s);padding:10px 12px;width:100%;min-height:46px}
+.form input:focus,.form textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 22%,transparent)}
+.form .check{display:flex;font-weight:500}.form .btn{justify-self:start}
+.hp{position:absolute;left:-9999px}.ok{background:var(--accent-2);border:1px solid var(--accent);padding:14px;border-radius:var(--r-s);max-width:760px}.errore{color:var(--bad);font-weight:700;margin:0}
 .ad-slot{margin:24px 0}.ad-slot:empty{display:none}
 .aff-box{margin:20px 0;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--ochre);border-radius:var(--r);padding:16px 18px}
 .aff-box h2,.aff-box h3{margin:0 0 6px;font-size:1.1rem}.aff-box p{margin:0 0 8px}.aff-box ul{margin:0 0 10px;padding-left:20px}
@@ -167,7 +172,7 @@ table.stack td,table.stack th{border:0!important;padding:3px 0!important;text-al
 table.stack td[data-l]::before{content:attr(data-l) ": ";font-size:.86rem;font-weight:700;color:var(--ink-3)}
 table.stack th[scope=row],table.stack td:first-child{font-size:1rem}table.stack caption{display:block}
 .griglia{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.griglia a{padding:11px 12px}.calc-2{grid-template-columns:1fr}.card,.calc-in,.calc-out{padding:16px}.calc-h{padding:14px 16px}.calc-f{padding:12px 16px}
-.tot{grid-template-columns:1fr 1fr}.tot div.mensile{grid-column:1/-1}.stat{padding:14px}.ris{font-size:.8rem}.ris th,.ris td{padding:6px 5px}.ris .col-w{display:none}
+.tot{grid-template-columns:1fr 1fr}.solo-m{display:inline}.tot div.mensile{grid-column:1/-1}.stat{padding:14px}.ris{font-size:.8rem}.ris th,.ris td{padding:6px 5px}.ris .col-w{display:none}
 table.dati{font-size:.86rem}table.dati th,table.dati td{padding:8px}.logo{font-size:1.03rem;gap:8px}.logo img{width:30px;height:30px}
 .barre li{grid-template-columns:2.9em minmax(0,1fr) 5.6em}footer .f-grid{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
@@ -219,9 +224,8 @@ function calcolaStato(s,P,w,W,f,rv,rq){
     d=p.soglia*q*f;o.soglia=d;o.imponibile=pos(w-d);o.aliquota=p.aliquota/100;o.tassa=o.imponibile*o.aliquota;
   }else if(s==='vic'){
     var d1=p.soglia*f*q;
-    if(W<=p.phase_da){d=d1;}
-    else if(W<=p.phase_a){d=pos(d1-(w-p.phase_da*f*q)*(p.phase_quota/100));o.avvisi.push('vic_phase');}
-    else{d=0;o.avvisi.push('vic_no_soglia');}
+    d=Math.min(d1,pos(d1-(w-p.phase_da*f*q)*(p.phase_quota/100)));
+    if(W>p.phase_da*f)o.avvisi.push(d>0?'vic_phase':'vic_no_soglia');
     o.soglia=d;o.imponibile=pos(w-d);o.aliquota=(rv?p.regionale:p.aliquota)/100;o.tassa=o.imponibile*o.aliquota;
     extra=0;for(i=0;i<p.sovrattasse.length;i++){extra+=pos(w-p.sovrattasse[i][0]*q*f)*(p.sovrattasse[i][1]/100);}
     o.extra=extra;if(extra>0)o.avvisi.push('vic_sovrattasse');
@@ -278,7 +282,7 @@ function calcola(P,salari,giorni,giorniAnno,rv,rq){
   for(var i=0;i<ORDINE.length;i++){var s=ORDINE[i],w=salari[s]||0;if(!(w>0))continue;
     var r=calcolaStato(s,P,w,W,f,rv,rq);righe.push(r);
     if(r.stato==='non_calcolato'){nc.push(s);}else{tot+=r.tassa;extra+=r.extra;}}
-  return {W:W,f:f,righe:righe,totale:tot,extra:extra,complessivo:tot+extra,mensile:(tot+extra)/12,non_calcolati:nc};
+  return {W:W,f:f,righe:righe,totale:tot,extra:extra,complessivo:tot+extra,mensile:(tot+extra)/(12*f),non_calcolati:nc};
 }
 """
 
@@ -289,6 +293,12 @@ APP_JS = MOTORE_JS + r"""
   if(b)b.addEventListener('click',function(){var r=document.documentElement,c=r.getAttribute('data-theme');
     if(!c)c=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
     var n=c==='dark'?'light':'dark';r.setAttribute('data-theme',n);try{localStorage.setItem('pt-theme',n);}catch(e){}});
+  document.querySelectorAll('form[data-correzioni]').forEach(function(form){form.addEventListener('submit',function(ev){ev.preventDefault();
+    var err=form.querySelector('[data-errore]');err.hidden=true;if(!form.checkValidity()){form.reportValidity();return;}
+    var bt=form.querySelector('button');bt.disabled=true;
+    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(form)).toString()})
+    .then(function(r){if(!r.ok)throw new Error(r.status);form.hidden=true;var ok=form.parentNode.querySelector('[data-ok]');if(ok)ok.hidden=false;})
+    .catch(function(){err.hidden=false;bt.disabled=false;});});});
   var f=document.querySelector('[data-calc]');if(!f)return;
   var D=JSON.parse(document.getElementById('calc-dati').textContent),P=D.parametri;
   var M0=new Intl.NumberFormat('en-AU',{style:'currency',currency:'AUD',maximumFractionDigits:0,minimumFractionDigits:0});
@@ -307,7 +317,7 @@ APP_JS = MOTORE_JS + r"""
     if(r.stato==='sotto')return 'Total Australian wages are not above the '+D.nomi[r.s]+' threshold for the days you employed.';
     switch(r.s){
       case 'nsw':return '$1,200,000 × '+sh+' × '+dy+' = '+$(r.soglia)+'; tax = ('+$(r.w)+' − '+$(r.soglia)+') × 5.45%';
-      case 'vic':return (res.W<=p.phase_da?'$1,000,000 × '+sh+' × '+dy:res.W<=p.phase_a?'Phased-out threshold (50%) between $3m and $5m':'No threshold above $5m')+' = '+$(r.soglia)+'; tax at '+pc(r.aliquota)+(r.extra>0?'; surcharges '+$(r.extra):'');
+      case 'vic':return (res.W<=p.phase_da*fr?'$1,000,000 × '+sh+' × '+dy:r.soglia>0?'Threshold phased out at 50% above $3m × '+dy:'Threshold fully phased out ($5m × '+dy+' or more)')+' = '+$(r.soglia)+'; tax at '+pc(r.aliquota)+(r.extra>0?'; surcharges '+$(r.extra):'');
       case 'qld':return 'Deduction = '+sh+' × ($1.3m × '+dy+' − excess ÷ 7) = '+$(r.soglia)+'; rate '+pc(r.aliquota)+(r.extra>0?'; mental health levy '+$(r.extra):'');
       case 'wa':return r.soglia>0?'Diminishing threshold (2/13 taper) × '+sh+' = '+$(r.soglia)+'; tax at 5.5%':'No deductable amount at $7.5m or more; 5.5% on all WA wages';
       case 'sa':return 'Deduction = $600,000 × '+sh+' × '+dy+' = '+$(r.soglia)+'; rate '+pc(r.aliquota)+(r.aliquota<0.0495?' (variable band)':'');
@@ -318,8 +328,10 @@ APP_JS = MOTORE_JS + r"""
   function render(){
     var v=leggi(),res=calcola(P,v.salari,v.giorni,D.giorni_anno,v.rv,v.rq);ultimo={v:v,res:res};
     if(!res.righe.length){out.innerHTML='<div class="vuoto">'+D.vuoto_html+'</div>';if(ant)ant.textContent=D.testi.vuoto;aggiornaUrl(v);return;}
-    var h='<div class="tot"><div class="main"><span>Estimated payroll tax, '+D.anno+'</span><b>'+$(res.complessivo)+'</b></div>'+
-      '<div class="mensile"><span>Monthly average</span><b>'+$(res.mensile)+'</b></div>'+
+    var esc_act=res.non_calcolati.length>0,etTot=esc_act?'Estimated payroll tax, '+D.anno+': total excludes ACT (not calculated)':'Estimated payroll tax, '+D.anno;
+    var etMese=v.giorni<D.giorni_anno?'Per month employed ('+v.giorni+' days = '+(Math.round(v.giorni/D.giorni_anno*120)/10)+' months)':'Monthly average (annual ÷ 12)';
+    var h='<div class="tot"><div class="main"><span>'+etTot+'</span><b>'+$(res.complessivo)+'</b>'+(esc_act?'<span>ACT: ask the <a href="https://www.revenue.act.gov.au/payroll-tax" rel="noopener">ACT Revenue Office</a></span>':'')+'</div>'+
+      '<div class="mensile"><span>'+etMese+'</span><b>'+$(res.mensile)+'</b></div>'+
       '<div><span>Total Australian wages</span><b>'+$(res.W)+'</b></div>'+
       '<div><span>Share of wages</span><b>'+(res.W>0?(Math.round(res.complessivo/res.W*10000)/100).toFixed(2):'0.00')+'%</b></div></div>';
     h+='<table class="ris"><thead><tr><th scope="col">State</th><th scope="col" class="col-w">Wages</th><th scope="col">Threshold used</th><th scope="col">Rate</th><th scope="col">Tax</th></tr></thead><tbody>';
@@ -333,7 +345,7 @@ APP_JS = MOTORE_JS + r"""
       h+='<tr class="sp"><td colspan="5">'+esc(spiega(r,res))+'</td></tr>';
       if(r.extra>0)h+='<tr class="extra"><td colspan="4">'+(r.s==='qld'?'Queensland mental health levy':'Victorian surcharges (mental health + COVID-19 debt)')+'</td><td>'+$(r.extra)+'</td></tr>';
     });
-    h+='</tbody><tfoot><tr><td>Total</td><td class="col-w">'+$(res.W)+'</td><td></td><td></td><td>'+$(res.complessivo)+'</td></tr></tfoot></table>';
+    h+='</tbody><tfoot><tr><td>Total'+(esc_act?' excl. ACT':'')+'<span class="solo-m"> · wages '+$(res.W)+'</span></td><td class="col-w">'+$(res.W)+'</td><td></td><td></td><td>'+$(res.complessivo)+'</td></tr></tfoot></table>';
     var L=[];Object.keys(avv).forEach(function(a){if(D.testi[a])L.push('<li'+(a==='act_anno_parziale'?' class="forte"':'')+'>'+D.testi[a]+'</li>');});
     if(v.gruppo)L.push('<li>'+D.testi.gruppo+'</li>');
     if(v.giorni<D.giorni_anno)L.push('<li>'+D.testi.parziale+'</li>');
@@ -354,7 +366,7 @@ APP_JS = MOTORE_JS + r"""
     if(u.get('g')==='1'&&f.elements.gruppo)f.elements.gruppo.value='si';}catch(e){}}
   function testo(){if(!ultimo)return '';var r=ultimo.res,v=ultimo.v,t=['Payroll tax estimate '+D.anno+' ('+location.host+')','Total Australian wages: '+$(r.W)+'; days paid: '+v.giorni+'/'+D.giorni_anno];
     r.righe.forEach(function(x){t.push(D.brevi[x.s]+': wages '+$(x.w)+(x.stato==='non_calcolato'?' – not calculated (see the ACT Revenue Office)':', threshold used '+$(x.soglia)+', tax '+$(x.tassa)+(x.extra>0?' + '+$(x.extra)+(x.s==='qld'?' mental health levy':' surcharges'):'')));});
-    t.push('Total: '+$(r.complessivo)+' (monthly average '+$(r.mensile)+')');t.push('Estimate only, not tax advice. Formulas and sources: '+location.origin+'/how-we-check/');return t.join('\n');}
+    t.push('Total'+(r.non_calcolati.length?' excluding ACT (not calculated)':'')+': '+$(r.complessivo)+(v.giorni<D.giorni_anno?' (per month employed ':' (monthly average ')+$(r.mensile)+')');t.push('Estimate only, not tax advice. Formulas and sources: '+location.origin+'/how-we-check/');return t.join('\n');}
   function copia(txt,bt){var ok=function(){var o=bt.textContent;bt.textContent='Copied';setTimeout(function(){bt.textContent=o;},1600);};
     if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(ok,function(){fallback(txt);ok();});}else{fallback(txt);ok();}}
   function fallback(txt){var a=document.createElement('textarea');a.value=txt;a.setAttribute('readonly','');a.style.position='absolute';a.style.left='-9999px';document.body.appendChild(a);a.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(a);}

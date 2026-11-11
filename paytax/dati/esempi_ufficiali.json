@@ -1,5 +1,5 @@
 {
- "_nota": "Casi numerici presi dalle pagine e dai testi ufficiali (fonte = id in dati/fonti.json). verifica.py li ricalcola con motore.py e con il JS pubblicato. 'parametri' sovrascrive i parametri 2026-27 quando l'esempio ufficiale è di un anno precedente.",
+ "_nota": "Casi numerici presi dalle pagine e dai testi ufficiali (fonte = id in dati/fonti.json). verifica.py li ricalcola con motore.py e con il JS pubblicato. 'parametri' sovrascrive i parametri 2026-27 quando l'esempio ufficiale è di un anno precedente. I casi con legge=true sono calcolati a mano dalla formula della legge (non sono esempi pubblicati dall'ufficio): non si mostrano come esempi ufficiali.",
  "casi": [
   {
    "id": "nsw_interstate_900k",
@@ -377,6 +377,36 @@
     "tas.tassa": 116153
    },
    "toll": 2.0
+  },
+  {
+   "id": "vic_act_part_183",
+   "fonte": "vic_act",
+   "legge": true,
+   "descr": "Act formula (sch 1 cl 5): Victoria only, $2.9m paid over 183 days: threshold nil, tax $140,650.00",
+   "salari": {
+    "vic": 2900000
+   },
+   "giorni": 183,
+   "atteso": {
+    "vic.soglia": 0,
+    "vic.tassa": 140650.0
+   },
+   "toll": 0.005
+  },
+  {
+   "id": "vic_act_part_329",
+   "fonte": "vic_act",
+   "legge": true,
+   "descr": "Act formula (sch 1 cl 5): Victoria only, $2.9m paid over 329 days: threshold $803,424.66, tax $101,683.90",
+   "salari": {
+    "vic": 2900000
+   },
+   "giorni": 329,
+   "atteso": {
+    "vic.soglia": 803424.66,
+    "vic.tassa": 101683.9
+   },
+   "toll": 0.005
   }
  ],
  "scaglioni_act": {

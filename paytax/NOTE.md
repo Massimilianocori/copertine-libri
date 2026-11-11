@@ -28,13 +28,15 @@ FAQ: 48 domande, ognuna nata da un suggerimento vero dell'autocompletamento Goog
 
 ## Fonti (lette con il nostro server l'11/11/2026, nessun blocco aggirato)
 
-`raccolta/fonti.py` legge **67 fonti** e controlla **168 frasi esatte** (cifre ed esempi); scrive `dati/fonti.json` (HTTP, SHA-256, data
-"Last updated" della pagina, esito di ogni frase). 64 lette con HTTP 200; 3 **non lette** (403 Cloudflare, mai aggirate): ATO (Payday
+`raccolta/fonti.py` legge **69 fonti** e controlla **181 frasi esatte** (cifre ed esempi); scrive `dati/fonti.json` (HTTP, SHA-256, data
+"Last updated" della pagina, esito di ogni frase). 66 lette con HTTP 200; 3 **non lette** (403 Cloudflare, mai aggirate): ATO (Payday
 Super), ACT Revenue Office, NT Treasury. Le cifre ACT e NT vengono dal portale congiunto `payrolltax.gov.au/resources` e dai testi di legge.
 
 Principali: portale congiunto (Last updated 28/10/2026); Revenue NSW (rates, interstate, key dates, registration, grouping, calculator);
-SRO Victoria (current rates + CSV, threshold and phase-out, regional, surcharges, historical rates, grouping, lodgement); QRO (rates,
-deductions + immagine dell'esempio, regional discount, mental health levy, calculators, due dates, register, grouping, amnistia) e
+SRO Victoria (current rates + CSV, threshold and phase-out, regional, surcharges, historical rates, grouping, lodgement) e **Payroll Tax Act 2007 (Vic)**
+versione autorizzata 041, sch 1 cl 1, 1A, 5, 7A; QRO (rates,
+deductions + immagine dell'esempio, regional discount, mental health levy, calculators, due dates, register, grouping, amnistia, panoramica
+dell'Home Ownership and Other Legislation Amendment Act 2026) e
 **Payroll Tax Act 1971 (Qld)** s 10, 10A, 29; WA Payroll Tax Employer Guide (calculation, interstate, local, returns, registration,
 grouping) e **Pay-roll Tax Assessment Act 2002 (WA)** ss 8, 10, 13, 14; RevenueSA (rates, how calculated, rate table PDF, returns, register,
 grouping, nexus) e **Payroll Tax Act 2009 (SA)** sch 1; SRO Tasmania (rates, Annual Adjustment Return Guideline PDF con 5 esempi,
@@ -50,7 +52,7 @@ Tutte le formule del calcolatore sono in `motore.py` (riferimento Python) e iden
 | Stato | Formula (W = salari australiani, q = quota dello Stato, f = giorni/365) | Confermata su |
 |---|---|---|
 | NSW | soglia 1,2 mln × q × f; 5,45 % | pagina Revenue NSW con 5 esempi |
-| VIC | 4 passi SRO: D1 = 1 mln × f × q; tra 3 e 5 mln D1 − (w − 3 mln × f × q) × 50 %; 0 sopra 5 mln; 4,85 % / 1,2125 %; **sovrattasse calcolate** 1 % sopra 10 mln e +1 % sopra 100 mln (soglie × q × f) | pagina SRO (2 esempi 2024-25 riprodotti con 900k/45 %) + pagina surcharges (esempi delle soglie) |
+| VIC | Act 2007 sch 1 cl 5 (cl 7A gruppi): ND = minore tra (b) D1 = 1 mln × q × f e (a) D1 − (w − 3 mln × q × f) × 50 %, (a) negativo = 0; **nessun limite su W** (con anno parziale la riduzione parte da 3 mln × f e la soglia è nulla da 5 mln × f); 4,85 % / 1,2125 %; **sovrattasse calcolate** 1 % sopra STA1 = 10 mln × f e +1 % sopra 100 mln × f (× q) | Act (versione autorizzata 041) + pagina SRO (2 esempi 2024-25 con 900k/45 %) + pagina surcharges; 2 casi calcolati dalla legge: 2,9 mln in 183 giorni → soglia 0, imposta 140.650,00; in 329 giorni → soglia 803.424,66, imposta 101.683,90 |
 | QLD | AD = q × (K f − (W − K f)/7), K = 1,3 mln (Act s 29: **prima si riduce la soglia per i giorni, poi il taglio 1/7**, non "× f alla fine" come nel piano); 4,75 % / 4,95 % sopra 6,5 mln; −1 % regionale (non sopra 350 mln); **levy calcolata** 0,25 % sopra 10 mln e 0,5 % sopra 100 mln (soglie × q × f) | Act + esempio QRO 932.460 + 3 esempi levy (315.000, 3.750, 48.750) |
 | WA | AAT = 1 mln × f, AUT = 7,5 mln × f; D = (AAT − (W − AAT) × 2/13) × q (Act ss 10, 13: anche qui **soglie ridotte per i giorni prima del taglio**) | Act + 3 esempi (969.231; 134.616/47.596,12; 6.600) |
 | SA | nulla se W ≤ 1,5 mln × f; R = (W/f − 1,5 mln)/200.000 × 4,95 % fino a 1,7 mln annualizzati, poi 4,95 %; deduzione 600.000 × q × f | **Act sch 1 (formula esatta)**; la tabella RevenueSA è "indicativa": le 200 righe stanno entro 0,01 punti dalla formula |
@@ -80,20 +82,21 @@ Non modellati (detto nelle pagine): esenzioni, contractor, apprendisti, indennit
 | `raccolta/domanda.py` | autocompletamento Google gl=au -> `dati/domanda.json` |
 | `dati/giurisdizioni.json` | parametri 2026-27 (`parametri`) e fatti per Stato con gli id delle fonti |
 | `dati/storico.json` | soglie e aliquote 2021-22 → 2026-27 (null = nessuna fonte ufficiale leggibile: NSW 2021-22, NT fino al 2024-25) |
-| `dati/esempi_ufficiali.json` | 28 esempi numerici ufficiali + tabella SA (200 righe) + scaglioni ACT + regole NT + soglie mensili NSW + soglie sovrattasse VIC |
+| `dati/payday_super.json` | contenuto della pagina /payday-super/ (sezioni con fonti, esempio di un giorno di paga di luglio 2026 costruito solo con le regole della legge) |
+| `dati/esempi_ufficiali.json` | 28 esempi numerici ufficiali + 2 casi calcolati dalla legge VIC (`legge: true`, non mostrati come ufficiali) + tabella SA (200 righe) + scaglioni ACT + regole NT + soglie mensili NSW + soglie sovrattasse VIC |
 | `dati/faq.json` | 48 FAQ con la ricerca d'origine e le fonti |
 | `dati/affiliati.json` | Employment Hero e MYOB: **preparati, spenti** |
 | `grafica/` | font OFL (Public Sans, Source Serif 4), `og.html` + `og.js` -> `og.png` |
 
-## Controlli (`python3 paytax/verifica.py`, risultato dell'11/11/2026: 0 errori, 0 avvisi; con `--browser` 0 errori)
+## Controlli (`python3 paytax/verifica.py --browser`, risultato dell'11/11/2026 dopo la revisione: 0 errori, 0 avvisi)
 
-1. Fonti: 64 con HTTP 200, impronta, 168 frasi trovate; 3 non lette con motivo. Con `--rete` rilettura oggi; se la data "Last updated" di una pagina cambia o supera il nostro controllo: avviso.
+1. Fonti: 66 con HTTP 200, impronta, 181 frasi trovate; 3 non lette con motivo. Con `--rete` rilettura oggi; se la data "Last updated" di una pagina cambia o supera il nostro controllo: avviso.
 2. Parametri: ogni soglia, aliquota, rapporto del JSON è scritto in una frase trovata nella sua fonte; aliquote 0-10 %; anno fiscale non scaduto (errore dopo il 30/6/2027).
-3. Esempi ufficiali: 28 casi (31 cifre) entro tolleranza (1-3 $ dove l'ufficio arrotonda i passi), anche col JS; tabella SA; limiti ACT; regole NT; soglie mensili NSW; soglie sovrattasse VIC.
+3. Esempi: 28 ufficiali + 2 dalla legge VIC (35 cifre) entro tolleranza (1-3 $ dove l'ufficio arrotonda i passi), anche col JS; tabella SA; limiti ACT; regole NT; soglie mensili NSW; soglie sovrattasse VIC.
 4. JS pubblicato = Python su 5.038 casi (5.000 casuali + 38 limite), nessuna imposta negativa, soglia ripartita ≤ piena, aliquote 0-10 %.
 5. Numeri stampati (home) = motore; parametri nei calcolatori = JSON; nessun segnaposto.
 6. FAQ da ricerche vere; JSON-LD = testo.
-7. Canonical, titoli ≤ 65, descrizioni 70-165, un h1, link e ancore, sitemap = canonical, le 21 pagine del piano, robots, netlify.toml, chiave IndexNow, og.png, GoatCounter in ogni pagina (404 compresa), fonti con data e avviso "not tax advice" in ogni pagina di contenuto, nessuna pagina sotto 900 parole.
+7. Canonical, titoli ≤ 65, descrizioni 70-165, un h1, link e ancore, sitemap = canonical, le 21 pagine del piano, robots, netlify.toml, chiave IndexNow, og.png, GoatCounter in ogni pagina (404 compresa), fonti con data e avviso "not tax advice" in ogni pagina di contenuto; modulo `corrections` (honeypot, consenso, email facoltativa) e privacy che lo spiega; spazio pubblicitario sempre dopo il calcolatore; parole del **contenuto proprio** (solo `<main>`, senza calcolatore, fonti, griglie delle guide, avviso): almeno 500 per ogni pagina di contenuto (oggi il minimo è /over-the-threshold/ con 515) e almeno 900 per /payday-super/, /regional-rates/, /what-changed-2026-27/, /how-we-check/.
 8. Monetizzazione: `monetizzazione.controlla_sito` + nessun link affiliato a programmi spenti + prova di resa del riquadro acceso (rel="sponsored noopener", riga di trasparenza).
 9. Nessun dato personale, nessun nome di modello AI (sito, codice, dati, questa nota).
 
@@ -115,7 +118,8 @@ Ogni mese basta `python3 paytax/verifica.py --rete` (pagine ufficiali cambiate =
 
 - **AdSense acceso** come gli altri siti: `paytax` aggiunto a `SITI` in `studio-business/strumenti/monetizzazione.py` e a
   `adsense_siti` e `_siti_della_rete` in `monetizzazione.json`; `ads.txt` scritto da `genera.py`; privacy con la sezione AdSense.
-  Gli spazi `ad-slot` sono sempre dopo il calcolatore (annunci automatici: Google decide il posto).
+  Gli annunci sono automatici: è Google a decidere dove compaiono, quindi non si promette che non finiscano sopra il calcolatore;
+  lo spazio `ad-slot` riservato da noi è sempre dopo il calcolatore (controllato da `verifica.py`).
 - **Affiliazioni preparate ma spente** (regola: domande ai programmi solo a 1.000 visite al mese). Per accenderle: in
   `dati/affiliati.json` mettere `attivo: true` e l'`url` del link tracciato; aggiungere il dominio del link (es. quello di PartnerStack
   per Employment Hero) a `domini_affiliazione` in `monetizzazione.json`; rigenerare e verificare. I riquadri compaiono: sotto il risultato
@@ -134,4 +138,10 @@ Ogni mese basta `python3 paytax/verifica.py --rete` (pagine ufficiali cambiate =
 
 - Storico: NSW 2021-22 e NT fino al 2024-25 non sono in fonti ufficiali leggibili dal server (celle "not on a source we can read").
 - Payday Super: la pagina ATO risponde 403; scriviamo solo ciò che è nella legge e rimandiamo all'ATO per la clearing house.
-- Nessun modulo contatti (niente dati personali da gestire); le correzioni passano dalle verifiche periodiche.
+- Correzioni: modulo Netlify `corrections` in /how-we-check/#corrections (pagina, messaggio, fonte facoltativa, email facoltativa,
+  consenso obbligatorio, honeypot). Si attiva da solo quando il sito è su Netlify (Forms: controllare che il rilevamento dei moduli
+  sia acceso e impostare la notifica email nel pannello Netlify). La privacy spiega cosa si riceve e perché.
+- Media mensile: con l'anno intero è l'imposta annua ÷ 12; con un anno parziale è divisa per i mesi di impiego (giorni ÷ 365 × 12).
+- ACT non calcolato: il totale dice "total excludes ACT (not calculated)" e rimanda all'ACT Revenue Office.
+- QLD tetto dei 350 mln per lo sconto regionale: QRO parla di salari australiani, l'Act s 10A(4) dei salari imponibili del datore nel periodo;
+  il calcolatore applica il tetto ai salari australiani e lo dice (nessuna differenza sotto i 350 mln).

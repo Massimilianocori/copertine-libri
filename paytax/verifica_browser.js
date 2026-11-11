@@ -95,6 +95,10 @@ function pagine() {
     const nonCalc = await page.$$eval('[data-out] td', tds => tds.some(t => t.textContent.trim() === 'not calculated'));
     if (tot !== c.atteso) problemi.push(`calcolatore ${c.pagina} ${JSON.stringify(c.salari)} giorni ${c.giorni}: totale «${tot}» invece di «${c.atteso}»`);
     if (!!c.non_calcolato !== nonCalc) problemi.push(`calcolatore ${c.pagina}: riga "not calculated" ${nonCalc ? 'presente' : 'assente'} (attesa ${!!c.non_calcolato})`);
+    const etichetta = await page.textContent('[data-out] .tot .main span').catch(() => '');
+    if (!!c.non_calcolato !== /excludes ACT/.test(etichetta || '')) problemi.push(`calcolatore ${c.pagina}: etichetta del totale «${etichetta}» (ACT non calcolato: ${!!c.non_calcolato})`);
+    const ricavi = await page.$eval('[data-out] tfoot .solo-m', e => getComputedStyle(e).display !== 'none' && e.textContent.includes('wages')).catch(() => false);
+    if (!ricavi) problemi.push(`calcolatore ${c.pagina}: a 375 px la riga Total non mostra i salari`);
     const url = page.url();
     for (const k of Object.keys(c.salari)) if (!url.includes(k + '=')) problemi.push(`calcolatore ${c.pagina}: il link non contiene ${k}`);
   }

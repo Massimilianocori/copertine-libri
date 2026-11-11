@@ -104,6 +104,13 @@ FONTI = {
         "url": "https://www.sro.vic.gov.au/about-us/rates-and-statistics/historical-rates/payroll-tax-historical-rates",
         "titolo": "Payroll tax (historical rates)", "chi": "State Revenue Office Victoria",
         "cerca": ["1 July 2024 to 30 June 2025 900,000 75,000 4.85 1.2125 (regional)", "1 July 2021 to 30 June 2024 700,000 58,333 4.85 1.2125 (regional)"]},
+    "vic_act": {
+        "url": "https://content.legislation.vic.gov.au/sites/default/files/2026-05/07-26aa041-authorised.pdf", "tipo": "pdf",
+        "titolo": "Payroll Tax Act 2007 (Vic), authorised version 041, Schedule 1 cl 1, 1A, 5 and 7A", "chi": "Victorian Legislation",
+        "cerca": ["APT or annual phase out threshold means, for the financial year commencing on 1 July 2024 and each subsequent financial year—$3 000 000",
+                  "for the financial year commencing on 1 July 2025 and each subsequent financial year—50%", "where ND is the lesser of the following amounts",
+                  "if the amount calculated in accordance with the formula in paragraph (a) of the definition of the variable ND is an amount that is less than zero, the amount is taken to be zero",
+                  "the first surcharge threshold amount or STA1 for an employer or a group of employers is the amount calculated in accordance with the following formula— $10 million"]},
     "vic_grouping": {
         "url": "https://www.sro.vic.gov.au/businesses-and-organisations/payroll-tax/thresholds-and-grouping/grouping",
         "titolo": "Grouping", "chi": "State Revenue Office Victoria", "cerca": ["Businesses may be grouped for payroll tax if they share ownership, control or employees"]},
@@ -151,6 +158,10 @@ FONTI = {
     "qld_amnesty": {
         "url": "https://qro.qld.gov.au/2026/11/payroll-tax-regional-discount-amnesty/", "titolo": "Payroll tax amnesty for regional employers", "chi": "Queensland Revenue Office",
         "cerca": ["The amnesty period will last up until 31 December 2026"]},
+    "qld_hoola": {
+        "url": "https://qro.qld.gov.au/2026/11/home-ownership-other-legislation-overview/", "titolo": "Home Ownership and Other Legislation Amendment Act 2026: overview", "chi": "Queensland Revenue Office",
+        "cerca": ["The Home Ownership and Other Legislation Amendment Act 2026 received Royal Assent on 22 October 2026",
+                  "Payroll Tax Act 1971 Confirms that the Commissioner of State Revenue may exclude a set of persons from a group"]},
     "qld_act": {
         "url": "https://www.legislation.qld.gov.au/view/whole/html/inforce/current/act-1971-037", "titolo": "Payroll Tax Act 1971 (Qld)", "chi": "Queensland Legislation",
         "cerca": ["K means 1,300,000", "(a) for an annual return period—$6,500,000", "(a) for an annual return period—$350,000,000"]},
@@ -290,8 +301,11 @@ FONTI = {
         "url": "https://www.legislation.gov.au/C2025A00057/asmade/2025-11-06/text/1/epub/OEBPS/document_1/document_1.html",
         "titolo": "Treasury Laws Amendment (Payday Superannuation) Act 2025 (No. 57, 2025)", "chi": "Federal Register of Legislation",
         "cerca": ["[ Assented to 6 November 2025 ]", "1 July 2026", "ending on the seventh business day after the QE day",
-                  "ending on the 20th business day after the QE day", "charge percentage means 12",
-                  "The employer’s administrative uplift amount for the QE day is equal to 60%", "definition of approved clearing house"]},
+                  "ending on the 20th business day after the QE day", "charge percentage means 12", "definition of quarterly salary or wages base", "Omit “a quarter that ended”, substitute “a QE day”",
+                  "The employer’s administrative uplift amount for the QE day is equal to 60%", "definition of approved clearing house",
+                  "period ending on the day before the current QE day", "general interest charge rate has the same meaning as in section 8AAD of the Taxation Administration Act 1953",
+                  "Lodging a statement in the approved form can reduce the employer’s administrative uplift amount",
+                  "a day which is a public holiday for the whole of: (i) any State; or (ii) the Australian Capital Territory; or (iii) the Northern Territory"]},
     "ato_payday": {
         "url": "https://www.ato.gov.au/businesses-and-organisations/super-for-employers/payday-super", "titolo": "Payday Super", "chi": "Australian Taxation Office", "cerca": [],
         "non_letta": True, "motivo": "answers 403 to our server; what we write comes from the Act itself"},

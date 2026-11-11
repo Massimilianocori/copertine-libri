@@ -131,7 +131,7 @@
    "soglia_testo": "$1,000,000",
    "aliquota_testo": "4.85%",
    "mensile_testo": "$83,333",
-   "deduzione_testo": "Phased out at 50% between $3m and $5m of Australian wages; none above $5m",
+   "deduzione_testo": "Phased out at 50% between $3m and $5m of Australian wages (full year); none above",
    "regionale_testo": "1.2125% if at least 85% of Victorian wages go to regional employees",
    "annuale": "21 July",
    "mensile_scad": "7th of the following month",
@@ -147,7 +147,8 @@
     "annuale": "vic_annual",
     "registrazione": "vic_register",
     "grouping": "vic_grouping",
-    "portale": "portal_rates"
+    "portale": "portal_rates",
+    "legge": "vic_act"
    }
   },
   "qld": {

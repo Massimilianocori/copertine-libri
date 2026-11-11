@@ -8,9 +8,9 @@ il JS pubblicato con node su migliaia di casi e lo confronta con questo file, po
   f = C / FY (giorni in cui si sono pagati salari in Australia / giorni dell'anno fiscale).
 
   NSW  soglia = 1.200.000 × q × f;  imposta = (w − soglia) × 5,45 %                         (Revenue NSW, esempi)
-  VIC  D1 = 1.000.000 × f × q; se 3 < W ≤ 5 milioni D = D1 − (w − 3.000.000 × f × q) × 50 %;
-       W > 5 milioni D = 0; imposta = (w − D) × 4,85 % (1,2125 % regionale);
-       sovrattasse 1 % × (w − 10 mln × q × f) e altro 1 % × (w − 100 mln × q × f)           (SRO, 4 passi + esempi)
+  VIC  D1 = 1.000.000 × f × q; D = min(D1, max(0, D1 − (w − 3.000.000 × f × q) × 50 %)) (Act sch 1 cl 5, nessun
+       limite su W: con anno parziale la riduzione parte da 3 mln × f e la soglia è zero da 5 mln × f); imposta = (w − D) × 4,85 % (1,2125 % regionale);
+       sovrattasse 1 % × (w − 10 mln × q × f) e altro 1 % × (w − 100 mln × q × f)           (Act 2007 sch 1, SRO esempi)
   QLD  AD = q × (K f − (W − K f) / 7), K = 1,3 milioni, AD ≥ 0;  imposta = (w − AD) × 4,75 % (4,95 % se W > 6,5 mln;
        −1 % regionale se W ≤ 350 mln); levy 0,25 % × (w − 10 mln × q × f) + 0,5 % × (w − 100 mln × q × f)
                                                                               (Payroll Tax Act 1971 s 29, QRO)
@@ -64,15 +64,11 @@ def calcola_stato(s, P, w, W, f, regionale_vic=False, regionale_qld=False):
         out["aliquota"] = p["aliquota"] / 100
         out["tassa"] = out["imponibile"] * out["aliquota"]
     elif s == "vic":
+        # Payroll Tax Act 2007 (Vic) sch 1 cl 5: ND = minore tra (a) D1 − (w − APT × q × f) × PR (se negativo: 0) e (b) D1
         d1 = p["soglia"] * f * q
-        if W <= p["phase_da"]:
-            d = d1
-        elif W <= p["phase_a"]:
-            d = _pos(d1 - (w - p["phase_da"] * f * q) * (p["phase_quota"] / 100))
-            out["avvisi"].append("vic_phase")
-        else:
-            d = 0.0
-            out["avvisi"].append("vic_no_soglia")
+        d = min(d1, _pos(d1 - (w - p["phase_da"] * f * q) * (p["phase_quota"] / 100)))
+        if W > p["phase_da"] * f:
+            out["avvisi"].append("vic_phase" if d > 0 else "vic_no_soglia")
         out["soglia"] = d
         out["imponibile"] = _pos(w - d)
         out["aliquota"] = (p["regionale"] if regionale_vic else p["aliquota"]) / 100
@@ -212,5 +208,6 @@ def calcola(P, salari, giorni=365, giorni_anno=365, regionale_vic=False, regiona
         else:
             tot += r["tassa"]
             extra += r["extra"]
+    # media per mese di impiego: 12 × f mesi (con l'anno intero = imposta annua ÷ 12)
     return {"W": W, "f": f, "righe": righe, "totale": tot, "extra": extra, "complessivo": tot + extra,
-            "mensile": (tot + extra) / 12, "non_calcolati": non_calc}
+            "mensile": (tot + extra) / (12 * f), "non_calcolati": non_calc}

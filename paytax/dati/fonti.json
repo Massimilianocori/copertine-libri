@@ -163,6 +163,19 @@
     "1 July 2021 to 30 June 2024 700,000 58,333 4.85 1.2125 (regional)"
    ]
   },
+  "vic_act": {
+   "url": "https://content.legislation.vic.gov.au/sites/default/files/2026-05/07-26aa041-authorised.pdf",
+   "tipo": "pdf",
+   "titolo": "Payroll Tax Act 2007 (Vic), authorised version 041, Schedule 1 cl 1, 1A, 5 and 7A",
+   "chi": "Victorian Legislation",
+   "cerca": [
+    "APT or annual phase out threshold means, for the financial year commencing on 1 July 2024 and each subsequent financial year—$3 000 000",
+    "for the financial year commencing on 1 July 2025 and each subsequent financial year—50%",
+    "where ND is the lesser of the following amounts",
+    "if the amount calculated in accordance with the formula in paragraph (a) of the definition of the variable ND is an amount that is less than zero, the amount is taken to be zero",
+    "the first surcharge threshold amount or STA1 for an employer or a group of employers is the amount calculated in accordance with the following formula— $10 million"
+   ]
+  },
   "vic_grouping": {
    "url": "https://www.sro.vic.gov.au/businesses-and-organisations/payroll-tax/thresholds-and-grouping/grouping",
    "titolo": "Grouping",
@@ -286,6 +299,15 @@
    "chi": "Queensland Revenue Office",
    "cerca": [
     "The amnesty period will last up until 31 December 2026"
+   ]
+  },
+  "qld_hoola": {
+   "url": "https://qro.qld.gov.au/2026/11/home-ownership-other-legislation-overview/",
+   "titolo": "Home Ownership and Other Legislation Amendment Act 2026: overview",
+   "chi": "Queensland Revenue Office",
+   "cerca": [
+    "The Home Ownership and Other Legislation Amendment Act 2026 received Royal Assent on 22 October 2026",
+    "Payroll Tax Act 1971 Confirms that the Commissioner of State Revenue may exclude a set of persons from a group"
    ]
   },
   "qld_act": {
@@ -637,8 +659,14 @@
     "ending on the seventh business day after the QE day",
     "ending on the 20th business day after the QE day",
     "charge percentage means 12",
+    "definition of quarterly salary or wages base",
+    "Omit “a quarter that ended”, substitute “a QE day”",
     "The employer’s administrative uplift amount for the QE day is equal to 60%",
-    "definition of approved clearing house"
+    "definition of approved clearing house",
+    "period ending on the day before the current QE day",
+    "general interest charge rate has the same meaning as in section 8AAD of the Taxation Administration Act 1953",
+    "Lodging a statement in the approved form can reduce the employer’s administrative uplift amount",
+    "a day which is a public holiday for the whole of: (i) any State; or (ii) the Australian Capital Territory; or (iii) the Northern Territory"
    ]
   },
   "ato_payday": {
@@ -1352,8 +1380,14 @@
     "ending on the seventh business day after the QE day": true,
     "ending on the 20th business day after the QE day": true,
     "charge percentage means 12": true,
+    "definition of quarterly salary or wages base": true,
+    "Omit “a quarter that ended”, substitute “a QE day”": true,
     "The employer’s administrative uplift amount for the QE day is equal to 60%": true,
-    "definition of approved clearing house": true
+    "definition of approved clearing house": true,
+    "period ending on the day before the current QE day": true,
+    "general interest charge rate has the same meaning as in section 8AAD of the Taxation Administration Act 1953": true,
+    "Lodging a statement in the approved form can reduce the employer’s administrative uplift amount": true,
+    "a day which is a public holiday for the whole of: (i) any State; or (ii) the Australian Capital Territory; or (iii) the Northern Territory": true
    }
   },
   "ato_payday": {
@@ -1369,6 +1403,29 @@
    "trovate": {
     "Payroll tax is collected monthly, but it is an annual tax based on Australia-wide wages": true,
     "From 1 July 2026 the payroll tax surcharge, that applied for larger employers, has been incorporated into the general rate": true
+   }
+  },
+  "vic_act": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "9c4932947ed30496f860449f333b66bd4e182e801a1a1e3bdce7ca9b1c81a9e3",
+   "byte": 1046012,
+   "trovate": {
+    "APT or annual phase out threshold means, for the financial year commencing on 1 July 2024 and each subsequent financial year—$3 000 000": true,
+    "for the financial year commencing on 1 July 2025 and each subsequent financial year—50%": true,
+    "where ND is the lesser of the following amounts": true,
+    "if the amount calculated in accordance with the formula in paragraph (a) of the definition of the variable ND is an amount that is less than zero, the amount is taken to be zero": true,
+    "the first surcharge threshold amount or STA1 for an employer or a group of employers is the amount calculated in accordance with the following formula— $10 million": true
+   }
+  },
+  "qld_hoola": {
+   "http": 200,
+   "letto_il": "2026-11-11",
+   "sha256": "0a76e37bb4cd2be06e59c2e00044e11440a0149f4f48513484ce75ec3c4f0791",
+   "byte": 96527,
+   "trovate": {
+    "The Home Ownership and Other Legislation Amendment Act 2026 received Royal Assent on 22 October 2026": true,
+    "Payroll Tax Act 1971 Confirms that the Commissioner of State Revenue may exclude a set of persons from a group": true
    }
   }
  }

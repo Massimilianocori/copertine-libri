@@ -110,10 +110,11 @@
    "pagina": "vic",
    "ricerca": "payroll tax threshold vic 2026",
    "q": "What is the Victorian payroll tax threshold for 2026-27?",
-   "a": "$1,000,000 a year ($83,333 a month). Employers and groups with Australian wages between $3 million and $5 million get a reduced threshold (phased out at 50%), and above $5 million there is no threshold.",
+   "a": "$1,000,000 a year ($83,333 a month). With Australian wages above $3 million the threshold is phased out at 50%, and at $5 million there is none left (for a part year both limits are scaled by the days you employed).",
    "fonti": [
     "vic_rates",
-    "vic_phase"
+    "vic_phase",
+    "vic_act"
    ]
   },
   {
@@ -138,9 +139,10 @@
    "pagina": "vic",
    "ricerca": "how is payroll tax calculated in victoria",
    "q": "How is payroll tax calculated in Victoria?",
-   "a": "Take your Victorian taxable wages, subtract your threshold (the $1,000,000 threshold times your Victorian share of Australian wages and the share of the year you employed, reduced further between $3 million and $5 million), then multiply by 4.85%, or 1.2125% for regional employers.",
+   "a": "Take your Victorian taxable wages and subtract your threshold: $1,000,000 times your Victorian share of Australian wages and the share of the year you employed, reduced by 50% of the Victorian wages above $3 million (scaled the same way), never below nil. Then multiply by 4.85%, or 1.2125% for regional employers.",
    "fonti": [
     "vic_phase",
+    "vic_act",
     "vic_rates"
    ]
   },
@@ -437,7 +439,7 @@
    "pagina": "payday-super",
    "ricerca": "payday super penalties",
    "q": "What are the penalties under Payday Super?",
-   "a": "If contributions arrive late or short you owe the superannuation guarantee charge for that payday, which includes the shortfall, a notional earnings component and an administrative uplift of up to 60% of the shortfall (which regulations can reduce), plus a choice loading if you ignored the employee's choice of fund.",
+   "a": "If contributions arrive late or short you owe the superannuation guarantee charge for that payday. It includes the shortfall, a notional earnings component and an administrative uplift equal to 60% of the shortfall plus the notional earnings (regulations can reduce it), plus a choice loading if you did not follow the employee's choice of fund.",
    "fonti": [
     "payday_act"
    ]

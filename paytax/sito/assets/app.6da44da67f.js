@@ -8,9 +8,8 @@ function calcolaStato(s,P,w,W,f,rv,rq){
     d=p.soglia*q*f;o.soglia=d;o.imponibile=pos(w-d);o.aliquota=p.aliquota/100;o.tassa=o.imponibile*o.aliquota;
   }else if(s==='vic'){
     var d1=p.soglia*f*q;
-    if(W<=p.phase_da){d=d1;}
-    else if(W<=p.phase_a){d=pos(d1-(w-p.phase_da*f*q)*(p.phase_quota/100));o.avvisi.push('vic_phase');}
-    else{d=0;o.avvisi.push('vic_no_soglia');}
+    d=Math.min(d1,pos(d1-(w-p.phase_da*f*q)*(p.phase_quota/100)));
+    if(W>p.phase_da*f)o.avvisi.push(d>0?'vic_phase':'vic_no_soglia');
     o.soglia=d;o.imponibile=pos(w-d);o.aliquota=(rv?p.regionale:p.aliquota)/100;o.tassa=o.imponibile*o.aliquota;
     extra=0;for(i=0;i<p.sovrattasse.length;i++){extra+=pos(w-p.sovrattasse[i][0]*q*f)*(p.sovrattasse[i][1]/100);}
     o.extra=extra;if(extra>0)o.avvisi.push('vic_sovrattasse');
@@ -67,7 +66,7 @@ function calcola(P,salari,giorni,giorniAnno,rv,rq){
   for(var i=0;i<ORDINE.length;i++){var s=ORDINE[i],w=salari[s]||0;if(!(w>0))continue;
     var r=calcolaStato(s,P,w,W,f,rv,rq);righe.push(r);
     if(r.stato==='non_calcolato'){nc.push(s);}else{tot+=r.tassa;extra+=r.extra;}}
-  return {W:W,f:f,righe:righe,totale:tot,extra:extra,complessivo:tot+extra,mensile:(tot+extra)/12,non_calcolati:nc};
+  return {W:W,f:f,righe:righe,totale:tot,extra:extra,complessivo:tot+extra,mensile:(tot+extra)/(12*f),non_calcolati:nc};
 }
 
 (function(){
@@ -75,6 +74,12 @@ function calcola(P,salari,giorni,giorniAnno,rv,rq){
   if(b)b.addEventListener('click',function(){var r=document.documentElement,c=r.getAttribute('data-theme');
     if(!c)c=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
     var n=c==='dark'?'light':'dark';r.setAttribute('data-theme',n);try{localStorage.setItem('pt-theme',n);}catch(e){}});
+  document.querySelectorAll('form[data-correzioni]').forEach(function(form){form.addEventListener('submit',function(ev){ev.preventDefault();
+    var err=form.querySelector('[data-errore]');err.hidden=true;if(!form.checkValidity()){form.reportValidity();return;}
+    var bt=form.querySelector('button');bt.disabled=true;
+    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(form)).toString()})
+    .then(function(r){if(!r.ok)throw new Error(r.status);form.hidden=true;var ok=form.parentNode.querySelector('[data-ok]');if(ok)ok.hidden=false;})
+    .catch(function(){err.hidden=false;bt.disabled=false;});});});
   var f=document.querySelector('[data-calc]');if(!f)return;
   var D=JSON.parse(document.getElementById('calc-dati').textContent),P=D.parametri;
   var M0=new Intl.NumberFormat('en-AU',{style:'currency',currency:'AUD',maximumFractionDigits:0,minimumFractionDigits:0});
@@ -93,7 +98,7 @@ function calcola(P,salari,giorni,giorniAnno,rv,rq){
     if(r.stato==='sotto')return 'Total Australian wages are not above the '+D.nomi[r.s]+' threshold for the days you employed.';
     switch(r.s){
       case 'nsw':return '$1,200,000 × '+sh+' × '+dy+' = '+$(r.soglia)+'; tax = ('+$(r.w)+' − '+$(r.soglia)+') × 5.45%';
-      case 'vic':return (res.W<=p.phase_da?'$1,000,000 × '+sh+' × '+dy:res.W<=p.phase_a?'Phased-out threshold (50%) between $3m and $5m':'No threshold above $5m')+' = '+$(r.soglia)+'; tax at '+pc(r.aliquota)+(r.extra>0?'; surcharges '+$(r.extra):'');
+      case 'vic':return (res.W<=p.phase_da*fr?'$1,000,000 × '+sh+' × '+dy:r.soglia>0?'Threshold phased out at 50% above $3m × '+dy:'Threshold fully phased out ($5m × '+dy+' or more)')+' = '+$(r.soglia)+'; tax at '+pc(r.aliquota)+(r.extra>0?'; surcharges '+$(r.extra):'');
       case 'qld':return 'Deduction = '+sh+' × ($1.3m × '+dy+' − excess ÷ 7) = '+$(r.soglia)+'; rate '+pc(r.aliquota)+(r.extra>0?'; mental health levy '+$(r.extra):'');
       case 'wa':return r.soglia>0?'Diminishing threshold (2/13 taper) × '+sh+' = '+$(r.soglia)+'; tax at 5.5%':'No deductable amount at $7.5m or more; 5.5% on all WA wages';
       case 'sa':return 'Deduction = $600,000 × '+sh+' × '+dy+' = '+$(r.soglia)+'; rate '+pc(r.aliquota)+(r.aliquota<0.0495?' (variable band)':'');
@@ -104,8 +109,10 @@ function calcola(P,salari,giorni,giorniAnno,rv,rq){
   function render(){
     var v=leggi(),res=calcola(P,v.salari,v.giorni,D.giorni_anno,v.rv,v.rq);ultimo={v:v,res:res};
     if(!res.righe.length){out.innerHTML='<div class="vuoto">'+D.vuoto_html+'</div>';if(ant)ant.textContent=D.testi.vuoto;aggiornaUrl(v);return;}
-    var h='<div class="tot"><div class="main"><span>Estimated payroll tax, '+D.anno+'</span><b>'+$(res.complessivo)+'</b></div>'+
-      '<div class="mensile"><span>Monthly average</span><b>'+$(res.mensile)+'</b></div>'+
+    var esc_act=res.non_calcolati.length>0,etTot=esc_act?'Estimated payroll tax, '+D.anno+': total excludes ACT (not calculated)':'Estimated payroll tax, '+D.anno;
+    var etMese=v.giorni<D.giorni_anno?'Per month employed ('+v.giorni+' days = '+(Math.round(v.giorni/D.giorni_anno*120)/10)+' months)':'Monthly average (annual ÷ 12)';
+    var h='<div class="tot"><div class="main"><span>'+etTot+'</span><b>'+$(res.complessivo)+'</b>'+(esc_act?'<span>ACT: ask the <a href="https://www.revenue.act.gov.au/payroll-tax" rel="noopener">ACT Revenue Office</a></span>':'')+'</div>'+
+      '<div class="mensile"><span>'+etMese+'</span><b>'+$(res.mensile)+'</b></div>'+
       '<div><span>Total Australian wages</span><b>'+$(res.W)+'</b></div>'+
       '<div><span>Share of wages</span><b>'+(res.W>0?(Math.round(res.complessivo/res.W*10000)/100).toFixed(2):'0.00')+'%</b></div></div>';
     h+='<table class="ris"><thead><tr><th scope="col">State</th><th scope="col" class="col-w">Wages</th><th scope="col">Threshold used</th><th scope="col">Rate</th><th scope="col">Tax</th></tr></thead><tbody>';
@@ -119,7 +126,7 @@ function calcola(P,salari,giorni,giorniAnno,rv,rq){
       h+='<tr class="sp"><td colspan="5">'+esc(spiega(r,res))+'</td></tr>';
       if(r.extra>0)h+='<tr class="extra"><td colspan="4">'+(r.s==='qld'?'Queensland mental health levy':'Victorian surcharges (mental health + COVID-19 debt)')+'</td><td>'+$(r.extra)+'</td></tr>';
     });
-    h+='</tbody><tfoot><tr><td>Total</td><td class="col-w">'+$(res.W)+'</td><td></td><td></td><td>'+$(res.complessivo)+'</td></tr></tfoot></table>';
+    h+='</tbody><tfoot><tr><td>Total'+(esc_act?' excl. ACT':'')+'<span class="solo-m"> · wages '+$(res.W)+'</span></td><td class="col-w">'+$(res.W)+'</td><td></td><td></td><td>'+$(res.complessivo)+'</td></tr></tfoot></table>';
     var L=[];Object.keys(avv).forEach(function(a){if(D.testi[a])L.push('<li'+(a==='act_anno_parziale'?' class="forte"':'')+'>'+D.testi[a]+'</li>');});
     if(v.gruppo)L.push('<li>'+D.testi.gruppo+'</li>');
     if(v.giorni<D.giorni_anno)L.push('<li>'+D.testi.parziale+'</li>');
@@ -140,7 +147,7 @@ function calcola(P,salari,giorni,giorniAnno,rv,rq){
     if(u.get('g')==='1'&&f.elements.gruppo)f.elements.gruppo.value='si';}catch(e){}}
   function testo(){if(!ultimo)return '';var r=ultimo.res,v=ultimo.v,t=['Payroll tax estimate '+D.anno+' ('+location.host+')','Total Australian wages: '+$(r.W)+'; days paid: '+v.giorni+'/'+D.giorni_anno];
     r.righe.forEach(function(x){t.push(D.brevi[x.s]+': wages '+$(x.w)+(x.stato==='non_calcolato'?' – not calculated (see the ACT Revenue Office)':', threshold used '+$(x.soglia)+', tax '+$(x.tassa)+(x.extra>0?' + '+$(x.extra)+(x.s==='qld'?' mental health levy':' surcharges'):'')));});
-    t.push('Total: '+$(r.complessivo)+' (monthly average '+$(r.mensile)+')');t.push('Estimate only, not tax advice. Formulas and sources: '+location.origin+'/how-we-check/');return t.join('\n');}
+    t.push('Total'+(r.non_calcolati.length?' excluding ACT (not calculated)':'')+': '+$(r.complessivo)+(v.giorni<D.giorni_anno?' (per month employed ':' (monthly average ')+$(r.mensile)+')');t.push('Estimate only, not tax advice. Formulas and sources: '+location.origin+'/how-we-check/');return t.join('\n');}
   function copia(txt,bt){var ok=function(){var o=bt.textContent;bt.textContent='Copied';setTimeout(function(){bt.textContent=o;},1600);};
     if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(ok,function(){fallback(txt);ok();});}else{fallback(txt);ok();}}
   function fallback(txt){var a=document.createElement('textarea');a.value=txt;a.setAttribute('readonly','');a.style.position='absolute';a.style.left='-9999px';document.body.appendChild(a);a.select();try{document.execCommand('copy');}catch(e){}document.body.removeChild(a);}
