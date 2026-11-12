@@ -77,7 +77,7 @@
 "pagina": "acido-acetilsalicilico",
 "q": "Quanto costa Cardioaspirin?",
 "ricerca": "cardioaspirin 100 mg prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "acido-alendronico",
@@ -131,37 +131,37 @@
 "pagina": "acido-carglumico",
 "q": "Qual è l'equivalente di Carbaglu?",
 "ricerca": "carbaglu generic",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "acido-clodronico",
 "q": "Quanto costa Difosfonal?",
 "ricerca": "difosfonal 200 prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "acido-clodronico",
 "q": "Quanto costa acido clodronico?",
 "ricerca": "acido clodronico prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "acido-clodronico",
 "q": "Quanto costa Clasteon?",
 "ricerca": "clasteon 200 mg 6 fiale prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "acido-clodronico",
 "q": "Qual è l'equivalente di Clody?",
 "ricerca": "clody 200 generico prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "acido-clodronico",
 "q": "Quanto costa Clody?",
 "ricerca": "clody 200 prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "acido-folico",
@@ -197,7 +197,7 @@
 "pagina": "acido-tranexamico",
 "q": "Quanto costa Ugurol?",
 "ricerca": "ugurol fiale prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "acido-ursodesossicolico",
@@ -233,55 +233,55 @@
 "pagina": "acido-valproico-sale-di-sodio",
 "q": "Depakin è nell'elenco dei farmaci carenti?",
 "ricerca": "depakin farmaco mancante",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "acitretina",
 "q": "Quanto costa Zorias?",
 "ricerca": "zorias 25 mg prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "acitretina",
 "q": "Quanto costa acitretina?",
 "ricerca": "acitretina prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "acitretina",
 "q": "Quanto costa Neotigason?",
 "ricerca": "neotigason 25 mg prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "alfacalcidolo",
 "q": "Qual è l'equivalente di Deril?",
 "ricerca": "deril equivalente",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "alfacalcidolo",
 "q": "Quanto costa Deril?",
 "ricerca": "deril prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "alfacalcidolo",
 "q": "Quali sono gli equivalenti di alfacalcidolo?",
 "ricerca": "alfacalcidolo generico",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "alfacalcidolo",
 "q": "Quanto costa alfacalcidolo?",
 "ricerca": "alfacalcidolo prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "alfacalcidolo",
 "q": "Quanto costa Diseon?",
 "ricerca": "diseon prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "alfuzosina",
@@ -347,13 +347,13 @@
 "pagina": "amikacina",
 "q": "Quanto costa Likacin?",
 "ricerca": "likacin gel prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "amiloride-idroclorotiazide",
 "q": "Quanto costa Moduretic?",
 "ricerca": "moduretic prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "amisulpride",
@@ -371,13 +371,13 @@
 "pagina": "amitriptilina",
 "q": "Quanto costa Laroxyl?",
 "ricerca": "laroxyl gocce prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "amitriptilina",
 "q": "Quanto costa amitriptilina?",
 "ricerca": "amitriptilina gocce prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "amlodipina",
@@ -449,7 +449,7 @@
 "pagina": "anagrelide",
 "q": "Quanto costa anagrelide?",
 "ricerca": "anagrelide prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "anastrozolo",
@@ -533,13 +533,13 @@
 "pagina": "azatioprina",
 "q": "Quanto costa Azafor?",
 "ricerca": "azafor prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "azatioprina",
 "q": "Azafor è nell'elenco dei farmaci carenti?",
 "ricerca": "azafor non si trova",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "azitromicina",
@@ -575,43 +575,43 @@
 "pagina": "baclofene",
 "q": "Quanto costa Lioresal?",
 "ricerca": "lioresal 10 mg prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "baclofene",
 "q": "Quanto costa baclofene?",
 "ricerca": "baclofene prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "barnidipina",
 "q": "Qual è l'equivalente di Vasexten?",
 "ricerca": "vasexten equivalente",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "barnidipina",
 "q": "Quanto costa Vasexten?",
 "ricerca": "vasexten 10 mg prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "barnidipina",
 "q": "Quali sono gli equivalenti di barnidipina?",
 "ricerca": "barnidipina equivalente",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "barnidipina",
 "q": "Quanto costa barnidipina?",
 "ricerca": "barnidipina prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "barnidipina",
 "q": "Quanto costa Libradin?",
 "ricerca": "libradin 10 mg prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "beclometasone",
@@ -665,31 +665,31 @@
 "pagina": "benazepril",
 "q": "Quanto costa Zinadril?",
 "ricerca": "zinadril 5 mg prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "benazepril",
 "q": "Quali sono gli equivalenti di benazepril?",
 "ricerca": "benazepril generico prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "benazepril",
 "q": "Quanto costa benazepril?",
 "ricerca": "benazepril 5 mg prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "betaina",
 "q": "Qual è l'equivalente di Cystadane?",
 "ricerca": "cystadane generic",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "betaina",
 "q": "Quanto costa Cystadane?",
 "ricerca": "cystadane prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "betametasone",
@@ -803,49 +803,49 @@
 "pagina": "brimonidina-timololo",
 "q": "Qual è l'equivalente di Combigan?",
 "ricerca": "combigan generico",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "brimonidina-timololo",
 "q": "Quanto costa Combigan?",
 "ricerca": "combigan collirio prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "brimonidina-timololo",
 "q": "Quali sono gli equivalenti di brimonidina + timololo?",
 "ricerca": "brimonidina timololo generico",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "brinzolamide",
 "q": "Quanto costa Azopt?",
 "ricerca": "azopt collirio prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "brinzolamide",
 "q": "Quali sono gli equivalenti di brinzolamide?",
 "ricerca": "brinzolamide generico",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "brinzolamide",
 "q": "Quanto costa brinzolamide?",
 "ricerca": "brinzolamide collirio prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "brinzolamide-timololo",
 "q": "Qual è l'equivalente di Azarga?",
 "ricerca": "azarga equivalente",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "brinzolamide-timololo",
 "q": "Quanto costa Azarga?",
 "ricerca": "azarga prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "brivaracetam",
@@ -857,19 +857,19 @@
 "pagina": "brivudina",
 "q": "Quanto costa Brivirac?",
 "ricerca": "brivirac 125 prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "brivudina",
 "q": "Quanto costa brivudina?",
 "ricerca": "brivudina prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "brivudina",
 "q": "Quanto costa Zecovir?",
 "ricerca": "zecovir prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "budesonide",
@@ -965,31 +965,31 @@
 "pagina": "cabergolina",
 "q": "Quanto costa Dostinex?",
 "ricerca": "dostinex prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "cabergolina",
 "q": "Quanto costa cabergolina?",
 "ricerca": "cabergolina prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "calcifediolo",
 "q": "Quanto costa Didrogyl?",
 "ricerca": "didrogyl prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "calcifediolo",
 "q": "Quanto costa calcifediolo?",
 "ricerca": "calcifediolo prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "calcio-carbonato",
 "q": "Quanto costa Cacit?",
 "ricerca": "cacit 1000 prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "calcio-carbonato-colecalciferolo",
@@ -1025,13 +1025,13 @@
 "pagina": "calcipotriolo",
 "q": "Quanto costa Daivonex?",
 "ricerca": "daivonex crema prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "calcipotriolo",
 "q": "Quanto costa calcipotriolo?",
 "ricerca": "calcipotriolo crema prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "calcipotriolo-betametasone",
@@ -1115,7 +1115,7 @@
 "pagina": "captopril-idroclorotiazide",
 "q": "Quanto costa Acediur?",
 "ricerca": "acediur 50 25 prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "carvedilolo",
@@ -1283,19 +1283,19 @@
 "pagina": "ciclosporina",
 "q": "Quanto costa Ciqorin?",
 "ricerca": "ciqorin 100 mg prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "ciclosporina",
 "q": "Quanto costa ciclosporina?",
 "ricerca": "ciclosporina prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "ciclosporina",
 "q": "Quanto costa Sandimmun?",
 "ricerca": "sandimmun neoral 100 mg prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "cinacalcet",
@@ -1337,7 +1337,7 @@
 "pagina": "ciproterone-etinilestradiolo",
 "q": "Quanto costa Visofid?",
 "ricerca": "visofid costo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "citalopram",
@@ -1373,13 +1373,13 @@
 "pagina": "clobetasolo",
 "q": "Quanto costa Etrivex?",
 "ricerca": "etrivex shampoo prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "clobetasolo",
 "q": "Quanto costa clobetasolo?",
 "ricerca": "clobetasolo prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "clopidogrel",
@@ -1403,13 +1403,13 @@
 "pagina": "clopidogrel-acido-acetilsalicilico",
 "q": "Qual è l'equivalente di Duoplavin?",
 "ricerca": "duoplavin generico",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "clopidogrel-acido-acetilsalicilico",
 "q": "Quanto costa Duoplavin?",
 "ricerca": "duoplavin prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "clozapina",
@@ -1469,19 +1469,19 @@
 "pagina": "deferiprone",
 "q": "Qual è l'equivalente di Ferriprox?",
 "ricerca": "ferriprox generic",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "deferoxamina",
 "q": "Quanto costa deferoxamina?",
 "ricerca": "deferoxamina prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "desametasone",
 "q": "Quanto costa Soldesam?",
 "ricerca": "soldesam gocce prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "desloratadina",
@@ -1619,19 +1619,19 @@
 "pagina": "dorzolamide",
 "q": "Qual è l'equivalente di Trusopt?",
 "ricerca": "trusopt collirio equivalente",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "dorzolamide",
 "q": "Quanto costa Trusopt?",
 "ricerca": "trusopt collirio prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "dorzolamide",
 "q": "Quanto costa dorzolamide?",
 "ricerca": "dorzolamide collirio prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "dorzolamide-timololo",
@@ -1685,37 +1685,37 @@
 "pagina": "doxiciclina",
 "q": "Quanto costa Miraclin?",
 "ricerca": "miraclin prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "doxiciclina",
 "q": "Quanto costa doxiciclina?",
 "ricerca": "doxiciclina prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "doxiciclina",
 "q": "Quanto costa Bassado?",
 "ricerca": "bassado prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "dronedarone",
 "q": "Qual è l'equivalente di Multaq?",
 "ricerca": "multaq 400 mg alternative",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "dronedarone",
 "q": "Quanto costa Multaq?",
 "ricerca": "multaq prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "dronedarone",
 "q": "Quanto costa dronedarone?",
 "ricerca": "dronedarone prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "duloxetina",
@@ -1769,7 +1769,7 @@
 "pagina": "ebastina",
 "q": "Quanto costa Kestine?",
 "ricerca": "kestine prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "eletriptan",
@@ -1865,7 +1865,7 @@
 "pagina": "eslicarbazepina",
 "q": "Quanto costa Zebinix?",
 "ricerca": "zebinix prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "esomeprazolo",
@@ -1901,19 +1901,19 @@
 "pagina": "estradiolo",
 "q": "Quanto costa Dermestril?",
 "ricerca": "dermestril 50 prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "estradiolo-drospirenone",
 "q": "Quanto costa Angeliq?",
 "ricerca": "angeliq prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "estradiolo-drospirenone",
 "q": "Quanto costa Paosonelle?",
 "ricerca": "paosonelle prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "etoricoxib",
@@ -2063,7 +2063,7 @@
 "pagina": "famotidina",
 "q": "Quanto costa famotidina?",
 "ricerca": "famotidina 40 mg prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "febuxostat",
@@ -2129,7 +2129,7 @@
 "pagina": "ferroso-gluconato",
 "q": "Quanto costa Cromatonferro?",
 "ricerca": "cromatonferro 80 mg prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "fexofenadina",
@@ -2297,7 +2297,7 @@
 "pagina": "fluvastatina",
 "q": "Quanto costa Lescol?",
 "ricerca": "lescol 20 mg prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "formoterolo",
@@ -2351,19 +2351,19 @@
 "pagina": "fosinopril",
 "q": "Quanto costa Fosipres?",
 "ricerca": "fosipres 20 mg prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "fosinopril-idroclorotiazide",
 "q": "Qual è l'equivalente di Fosicombi?",
 "ricerca": "fosicombi equivalente",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "fosinopril-idroclorotiazide",
 "q": "Quanto costa Fosicombi?",
 "ricerca": "fosicombi prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "frovatriptan",
@@ -2399,37 +2399,37 @@
 "pagina": "galantamina",
 "q": "Quanto costa Reminyl?",
 "ricerca": "reminyl prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "galantamina",
 "q": "Quanto costa galantamina?",
 "ricerca": "galantamina prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "galantamina",
 "q": "Quanto costa Galnora?",
 "ricerca": "galnora 8 mg prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "gemfibrozil",
 "q": "Qual è l'equivalente di Lopid?",
 "ricerca": "lopid generic",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "glatiramer",
 "q": "Quanto costa Copaxone?",
 "ricerca": "copaxone prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "glatiramer",
 "q": "Quanto costa Copemyltri?",
 "ricerca": "copemyltri prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "gliclazide",
@@ -2441,25 +2441,25 @@
 "pagina": "glicopirronio",
 "q": "Qual è l'equivalente di Seebri?",
 "ricerca": "seebri generico",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "glicopirronio",
 "q": "Quanto costa Seebri?",
 "ricerca": "seebri breezhaler prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "glicopirronio",
 "q": "Quanto costa glicopirronio?",
 "ricerca": "glicopirronio bromuro crema prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "glicopirronio",
 "q": "Quanto costa Tovanor?",
 "ricerca": "tovanor breezhaler prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "glimepiride",
@@ -2495,31 +2495,31 @@
 "pagina": "idroclorotiazide",
 "q": "Quanto costa Esidrex?",
 "ricerca": "esidrex 25 mg prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "idrossicarbamide",
 "q": "Quanto costa Onco?",
 "ricerca": "onco carbide prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "idrossicarbamide",
 "q": "Quali sono gli equivalenti di idrossicarbamide?",
 "ricerca": "idrossicarbamide generico",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "idrossiclorochina",
 "q": "Quanto costa idrossiclorochina?",
 "ricerca": "idrossiclorochina prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "iloprost",
 "q": "Quanto costa iloprost?",
 "ricerca": "iloprost costo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "imatinib",
@@ -2537,25 +2537,25 @@
 "pagina": "imiquimod",
 "q": "Qual è l'equivalente di Aldara?",
 "ricerca": "aldara crema equivalente",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "imiquimod",
 "q": "Quanto costa Aldara?",
 "ricerca": "aldara crema prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "imiquimod",
 "q": "Quanto costa imiquimod?",
 "ricerca": "imiquimod crema prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "imiquimod",
 "q": "Quanto costa Imunocare?",
 "ricerca": "imunocare 5 prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "indapamide",
@@ -2723,7 +2723,7 @@
 "pagina": "ketotifene",
 "q": "Qual è l'equivalente di Chetotifene?",
 "ricerca": "chetotifene mylan generics",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "lacidipina",
@@ -2759,13 +2759,13 @@
 "pagina": "lamivudina",
 "q": "Quanto costa Zeffix?",
 "ricerca": "zeffix prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "lamivudina",
 "q": "Quanto costa lamivudina?",
 "ricerca": "lamivudina prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "lamotrigina",
@@ -2777,13 +2777,13 @@
 "pagina": "lanreotide",
 "q": "Quanto costa Ipstyl?",
 "ricerca": "ipstyl 120 prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "lanreotide",
 "q": "Quanto costa lanreotide?",
 "ricerca": "lanreotide 120 mg prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "lansoprazolo",
@@ -2849,13 +2849,13 @@
 "pagina": "leflunomide",
 "q": "Quanto costa Arava?",
 "ricerca": "arava 20 mg prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "leflunomide",
 "q": "Quanto costa leflunomide?",
 "ricerca": "leflunomide prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "lercanidipina",
@@ -2927,25 +2927,25 @@
 "pagina": "levocarnitina",
 "q": "Quanto costa Carnitene?",
 "ricerca": "carnitene 2g prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "levocetirizina",
 "q": "Quanto costa Xyzal?",
 "ricerca": "xyzal prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "levocetirizina",
 "q": "Quanto costa levocetirizina?",
 "ricerca": "levocetirizina prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "levodopa-carbidopa",
 "q": "Quanto costa levodopa + carbidopa?",
 "ricerca": "levodopa carbidopa prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "levodopa-carbidopa-entacapone",
@@ -2993,13 +2993,13 @@
 "pagina": "linezolid",
 "q": "Quanto costa Zyvoxid?",
 "ricerca": "zyvoxid prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "linezolid",
 "q": "Quanto costa linezolid?",
 "ricerca": "linezolid 600 prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "lisinopril",
@@ -3035,19 +3035,19 @@
 "pagina": "loratadina",
 "q": "Quanto costa Clarityn?",
 "ricerca": "clarityn prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "loratadina",
 "q": "Quanto costa loratadina?",
 "ricerca": "loratadina prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "loratadina",
 "q": "Quanto costa Fristamin?",
 "ricerca": "fristamin prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "losartan",
@@ -3107,7 +3107,7 @@
 "pagina": "lurasidone",
 "q": "Quanto costa lurasidone?",
 "ricerca": "lurasidone prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "magaldrato",
@@ -3125,31 +3125,31 @@
 "pagina": "manidipina",
 "q": "Quanto costa Vascoman?",
 "ricerca": "vascoman 20 mg prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "manidipina",
 "q": "Quali sono gli equivalenti di manidipina?",
 "ricerca": "manidipina equivalente",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "megestrolo",
 "q": "Quanto costa Megace?",
 "ricerca": "megace prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "meloxicam",
 "q": "Quanto costa Mobic?",
 "ricerca": "mobic prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "meloxicam",
 "q": "Quanto costa meloxicam?",
 "ricerca": "meloxicam prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "memantina",
@@ -3251,7 +3251,7 @@
 "pagina": "metoclopramide",
 "q": "Quanto costa Plasil?",
 "ricerca": "plasil compresse prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "metoprololo",
@@ -3281,13 +3281,13 @@
 "pagina": "metronidazolo",
 "q": "Quanto costa Flagyl?",
 "ricerca": "flagyl 250 prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "metronidazolo",
 "q": "Quanto costa Vagilen?",
 "ricerca": "vagilen 250 mg compresse prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "micofenolato-mofetile",
@@ -3317,7 +3317,7 @@
 "pagina": "miglustat",
 "q": "Qual è l'equivalente di Yargesa?",
 "ricerca": "yargesa generic",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "mirtazapina",
@@ -3365,31 +3365,31 @@
 "pagina": "moxifloxacina",
 "q": "Quanto costa Avalox?",
 "ricerca": "avalox 400 prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "moxonidina",
 "q": "Quanto costa Fisiotens?",
 "ricerca": "fisiotens 0 4 mg prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "naltrexone",
 "q": "Quanto costa Nalorex?",
 "ricerca": "nalorex 50 mg prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "naltrexone",
 "q": "Quanto costa naltrexone?",
 "ricerca": "naltrexone prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "naprossene",
 "q": "Quanto costa Synflex?",
 "ricerca": "synflex 550 prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "nebivololo",
@@ -3455,13 +3455,13 @@
 "pagina": "nitrofurantoina",
 "q": "Quanto costa Neofuradantin?",
 "ricerca": "neofuradantin 100 prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "nitrofurantoina",
 "q": "Quanto costa nitrofurantoina?",
 "ricerca": "nitrofurantoina 100 mg prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "nitroglicerina",
@@ -3491,7 +3491,7 @@
 "pagina": "norfloxacina",
 "q": "Quanto costa norfloxacina?",
 "ricerca": "norfloxacina 400 prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "octreotide",
@@ -3641,19 +3641,19 @@
 "pagina": "ossibutinina-cloridrato",
 "q": "Quanto costa Oxibutinina?",
 "ricerca": "oxibutinina prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "ossibutinina-cloridrato",
 "q": "Quanto costa ossibutinina cloridrato?",
 "ricerca": "ossibutinina cloridrato prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "ossicodone-oxicodone-cloridrato",
 "q": "Quanto costa Oxycontin?",
 "ricerca": "oxycontin prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "ossicodone-oxicodone-cloridrato-naloxone-cloridrato-diidrato",
@@ -3671,7 +3671,7 @@
 "pagina": "oxcarbazepina",
 "q": "Quanto costa Tolep?",
 "ricerca": "tolep 300 prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "pantoprazolo",
@@ -3707,13 +3707,13 @@
 "pagina": "paracalcitolo",
 "q": "Quanto costa Zemplar?",
 "ricerca": "zemplar prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "paracalcitolo",
 "q": "Quanto costa paracalcitolo?",
 "ricerca": "paracalcitolo prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "paracetamolo-codeina-fosfato",
@@ -3737,7 +3737,7 @@
 "pagina": "paromomicina",
 "q": "Quanto costa Humatin?",
 "ricerca": "humatin costo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "paroxetina",
@@ -3851,13 +3851,13 @@
 "pagina": "pioglitazone-metformina",
 "q": "Qual è l'equivalente di Competact?",
 "ricerca": "competact generico",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "pioglitazone-metformina",
 "q": "Quanto costa Competact?",
 "ricerca": "competact 15 850 prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "piperacillina-tazobactam",
@@ -3887,7 +3887,7 @@
 "pagina": "potassio-canrenoato",
 "q": "Quanto costa Kanrenol?",
 "ricerca": "kanrenol 25 mg prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "pramipexolo",
@@ -3905,13 +3905,13 @@
 "pagina": "prasugrel",
 "q": "Quanto costa Efient?",
 "ricerca": "efient 10 mg prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "prasugrel",
 "q": "Quanto costa prasugrel?",
 "ricerca": "prasugrel prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "pravastatina",
@@ -3977,7 +3977,7 @@
 "pagina": "progesterone",
 "q": "Quanto costa Prometrium?",
 "ricerca": "prometrium 200 prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "propafenone",
@@ -4031,7 +4031,7 @@
 "pagina": "raloxifene",
 "q": "Quanto costa raloxifene?",
 "ricerca": "raloxifene prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "ramipril",
@@ -4127,13 +4127,13 @@
 "pagina": "riluzolo",
 "q": "Quanto costa Rilutek?",
 "ricerca": "rilutek prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "riluzolo",
 "q": "Quanto costa riluzolo?",
 "ricerca": "riluzolo prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "rivaroxaban",
@@ -4283,31 +4283,31 @@
 "pagina": "salbutamolo-ipratropio-bromuro",
 "q": "Quanto costa Breva?",
 "ricerca": "breva aerosol prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "salbutamolo-ipratropio-bromuro",
 "q": "Quanto costa salbutamolo + ipratropio bromuro?",
 "ricerca": "salbutamolo ipratropio bromuro prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "salbutamolo-ipratropio-bromuro",
 "q": "Quanto costa Sosaria?",
 "ricerca": "sosaria prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "salmeterolo",
 "q": "Quanto costa Serevent?",
 "ricerca": "serevent spray prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "salmeterolo",
 "q": "Quanto costa salmeterolo?",
 "ricerca": "salmeterolo fluticasone prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "salmeterolo-fluticasone",
@@ -4343,25 +4343,25 @@
 "pagina": "sapropterina",
 "q": "Quanto costa Kuvan?",
 "ricerca": "kuvan prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "sapropterina",
 "q": "Quanto costa sapropterina?",
 "ricerca": "sapropterina dipharma prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "selegilina",
 "q": "Quanto costa Jumex?",
 "ricerca": "jumex 5 mg prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "selegilina",
 "q": "Quanto costa Selecom?",
 "ricerca": "selecom 5 mg prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "sertralina",
@@ -4547,37 +4547,37 @@
 "pagina": "sotalolo",
 "q": "Quanto costa sotalolo?",
 "ricerca": "sotalolo 80 mg prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "spironolattone",
 "q": "Quanto costa Uractone?",
 "ricerca": "uractone 100 mg prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "spironolattone",
 "q": "Quanto costa spironolattone?",
 "ricerca": "spironolattone prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "spironolattone",
 "q": "Quanto costa Aldactone?",
 "ricerca": "aldactone 25 mg prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "sucralfato",
 "q": "Quanto costa Antepsin?",
 "ricerca": "antepsin prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "sucralfato",
 "q": "Quanto costa sucralfato?",
 "ricerca": "sucralfato bustine prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "sumatriptan",
@@ -4655,7 +4655,7 @@
 "pagina": "tafluprost-timololo",
 "q": "Quanto costa Loyada?",
 "ricerca": "loyada costo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "tamoxifene",
@@ -4769,7 +4769,7 @@
 "pagina": "terbinafina",
 "q": "Quanto costa Lamisil?",
 "ricerca": "lamisil crema prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "teriflunomide",
@@ -4793,49 +4793,49 @@
 "pagina": "teriparatide",
 "q": "Quanto costa Forsteo?",
 "ricerca": "forsteo prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "teriparatide",
 "q": "Quanto costa teriparatide?",
 "ricerca": "teriparatide costo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "teriparatide",
 "q": "Quanto costa Patride?",
 "ricerca": "patride costo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "tetrabenazina",
 "q": "Quanto costa Xenazina?",
 "ricerca": "xenazina 25 mg prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "tetrabenazina",
 "q": "Quanto costa tetrabenazina?",
 "ricerca": "tetrabenazina prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "tibolone",
 "q": "Quanto costa Tibocina?",
 "ricerca": "tibocina 2 5 mg prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "tibolone",
 "q": "Quanto costa tibolone?",
 "ricerca": "tibolone prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "tibolone",
 "q": "Quanto costa Menec?",
 "ricerca": "menec prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "ticagrelor",
@@ -4853,7 +4853,7 @@
 "pagina": "ticlopidina",
 "q": "Quanto costa Tiklid?",
 "ricerca": "tiklid 250 mg prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "timololo",
@@ -4883,19 +4883,19 @@
 "pagina": "tiotropio",
 "q": "Quanto costa Spiriva?",
 "ricerca": "spiriva respimat prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "tobramicina",
 "q": "Quanto costa tobramicina?",
 "ricerca": "tobramicina collirio prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "tolvaptan",
 "q": "Quanto costa tolvaptan?",
 "ricerca": "tolvaptan prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "topiramato",
@@ -4913,19 +4913,19 @@
 "pagina": "torasemide",
 "q": "Quanto costa Diuremid?",
 "ricerca": "diuremid prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "torasemide",
 "q": "Quanto costa Diuresix?",
 "ricerca": "diuresix prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "torasemide",
 "q": "Quanto costa Toradiur?",
 "ricerca": "toradiur 10 mg prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "tramadolo-cloridrato",
@@ -4973,43 +4973,43 @@
 "pagina": "travoprost-timololo",
 "q": "Qual è l'equivalente di Duotrav?",
 "ricerca": "duotrav generico",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "travoprost-timololo",
 "q": "Quanto costa Duotrav?",
 "ricerca": "duotrav collirio prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "valaciclovir",
 "q": "Quanto costa Talavir?",
 "ricerca": "talavir 1000 prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "valaciclovir",
 "q": "Quanto costa valaciclovir?",
 "ricerca": "valaciclovir prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "valaciclovir",
 "q": "Quanto costa Zelitrex?",
 "ricerca": "zelitrex 1000 prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "valganciclovir",
 "q": "Quanto costa Valcyte?",
 "ricerca": "valcyte 450 mg prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "valganciclovir",
 "q": "Quanto costa valganciclovir?",
 "ricerca": "valganciclovir prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "valsartan-idroclorotiazide",
@@ -5021,37 +5021,37 @@
 "pagina": "vardenafil",
 "q": "Quali sono gli equivalenti di vardenafil?",
 "ricerca": "vardenafil 10 mg prezzo generico",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "vardenafil",
 "q": "Quanto costa vardenafil?",
 "ricerca": "vardenafil 10 mg prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "vareniclina",
 "q": "Quanto costa Champix?",
 "ricerca": "champix prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "vareniclina",
 "q": "Quali sono gli equivalenti di vareniclina?",
 "ricerca": "vareniclina generico prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "vareniclina",
 "q": "Quanto costa vareniclina?",
 "ricerca": "vareniclina prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "vildagliptin",
 "q": "Quanto costa Galvus?",
 "ricerca": "galvus met 50 1000 prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "vildagliptin-metformina",
@@ -5099,49 +5099,49 @@
 "pagina": "zofenopril",
 "q": "Quanto costa Zantipres?",
 "ricerca": "zantipres 15 mg prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "zofenopril",
 "q": "Quanto costa Bifril?",
 "ricerca": "bifril 30 mg prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "zofenopril-idroclorotiazide",
 "q": "Quanto costa Bifrizide?",
 "ricerca": "bifrizide prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "zofenopril-idroclorotiazide",
 "q": "Quanto costa zofenopril + idroclorotiazide?",
 "ricerca": "zofenopril idroclorotiazide prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "zofenopril-idroclorotiazide",
 "q": "Quanto costa Zantipride?",
 "ricerca": "zantipride 30 mg prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "zofenopril-idroclorotiazide",
 "q": "Quanto costa Zoprazide?",
 "ricerca": "zoprazide costo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "zolmitriptan",
 "q": "Quanto costa Zomig?",
 "ricerca": "zomig prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "zolmitriptan",
 "q": "Quanto costa zolmitriptan?",
 "ricerca": "zolmitriptan prezzo",
-"indicizzata": true
+"indicizzata": false
 },
 {
 "pagina": "zonisamide",

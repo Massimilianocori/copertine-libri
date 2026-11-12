@@ -208,16 +208,51 @@ LETTI = {pa: all(k in DOM["nomi"] for k in chiavi_pa(pa)) for pa in PA}
 # Interruttore per il revisore: con False si indicizzano solo le pagine con ricerche su equivalente/generico/carenza
 # (oggi 90 principi attivi invece di 334); le altre restano consultabili, noindex e senza pubblicità.
 INDICIZZA_CON_SOLO_PREZZO = True
+# Regola del revisore (12/11/2026, lezione AdSense «scarso valore»): il tipo di ricerca non distingue le pagine quasi uguali,
+# la quantità di dati propri sì. Una pagina principio attivo è indicizzata solo se ha (1) una ricerca vera, (2) almeno
+# MIN_CONFEZIONI confezioni nella lista e (3) meno di MAX_SOVRAPPOSIZIONE del suo testo (gruppi di 5 parole) in comune con
+# la pagina più simile tra tutte quelle dei principi attivi. La (3) si misura sulle pagine vere, in main() (vedi misura_sovrapposizione).
+MIN_CONFEZIONI = 8
+MAX_SOVRAPPOSIZIONE = 0.60
 
 
-def _indicizza(pa):
+def _domanda(pa):
     s = [x for v in PROVE[pa].values() for x in v]
     if not s:
         return False
     return INDICIZZA_CON_SOLO_PREZZO or any(TIPO_EQ.search(x) or TIPO_CAR.search(x) for x in s)
 
 
-INDICIZZA = {pa: _indicizza(pa) for pa in PA}
+DOMANDA = {pa: _domanda(pa) for pa in PA}
+INDICIZZA = {pa: DOMANDA[pa] and len(PA[pa]) >= MIN_CONFEZIONI for pa in PA}  # la soglia di sovrapposizione si applica in main()
+SOVRAPPOSIZIONE = {}  # pa -> (quota, pagina più simile), riempito da misura_sovrapposizione()
+_PROVA = None  # se è un dizionario, pagina() non scrive file: raccoglie il testo (serve a misurare la sovrapposizione)
+
+
+def gruppi_di_parole(html_, n=5):
+    t = re.sub(r"<(script|style|svg)\b.*?</\1>", " ", html_, flags=re.S | re.I)
+    w = re.findall(r"\w+", unescape(re.sub(r"<[^>]+>", " ", t)).lower())
+    return {" ".join(w[i:i + n]) for i in range(max(0, len(w) - n + 1))}
+
+
+def misura_sovrapposizione():
+    """Per ogni pagina principio attivo: quota dei suoi gruppi di 5 parole presenti nella pagina più simile (tutte le 373, anche noindex)."""
+    global _PROVA
+    _PROVA = {}
+    for p in sorted(PA):
+        pagina_pa(p)
+    testi, _PROVA = _PROVA, None
+    insiemi = {p: gruppi_di_parole(testi[SLUG[p] + "/"]) for p in PA}
+    for p, a in insiemi.items():
+        meglio = (0.0, "")
+        for q_, b in insiemi.items():
+            if q_ != p and a:
+                c = len(a & b) / len(a)
+                if c > meglio[0]:
+                    meglio = (c, SLUG[q_])
+        SOVRAPPOSIZIONE[p] = meglio
+        if INDICIZZA[p] and meglio[0] >= MAX_SOVRAPPOSIZIONE:
+            INDICIZZA[p] = False
 
 
 @functools.lru_cache(maxsize=None)
@@ -330,6 +365,9 @@ def menu_html(percorso):
 
 def pagina(percorso, titolo, descrizione, corpo, testata="", briciole=None, jsonld=None, indicizza=True, file=None):
     file = file or (percorso + "index.html" if percorso else "index.html")
+    if _PROVA is not None:
+        _PROVA[percorso] = testata + corpo + DISCLAIMER
+        return
     url_pag = f"{URL_SITO}/{percorso}"
     if indicizza:
         URLS.append(percorso)
@@ -525,6 +563,15 @@ def sezione_gruppo(g, rim):
     else:
         frase += (": nella lista c'è solo questa." if D(r0["diff"]) == 0 else f": differenza {euro(r0['diff'])}.")
     out += frase + "</p>"
+    note_g = sorted({r["nota"].strip().rstrip(".") for r in rr if r["nota"].strip() and "distribuzione diretta" not in r["nota"].lower()})
+    diretta = any("distribuzione diretta" in r["nota"].lower() for r in rr)
+    if note_g:
+        out += nota("<strong>Nota AIFA su questo gruppo:</strong> " + "; ".join(f"«{h(n)}»" for n in note_g) + ". La nota è di AIFA e vale per le confezioni "
+                    f"in cui compare nella tabella: prima di cambiare confezione, {FRASE_FISSA}.{rim.ref('trasparenza')}", "info", "info")
+    if diretta:
+        out += nota("<strong>AIFA annota per questo gruppo: «In distribuzione diretta da parte delle Regioni».</strong> Prezzo e differenza qui sotto sono "
+                    "quelli stampati nella lista; la consegna di questi medicinali segue le regole della Regione (art. 7, comma 1): "
+                    f"chiedi al farmacista o alla tua ASL.{rim.ref(['trasparenza', 'legge_art7'])}", "info", "info")
     if car:
         nc_zero = [r for r in non_car if D(r["diff"]) == 0]
         if non_car:
@@ -533,7 +580,10 @@ def sezione_gruppo(g, rim):
             out += nota(f'<strong>{len(car)} confezion{"e" if len(car) == 1 else "i"} di questo gruppo {"è" if len(car) == 1 else "sono"} nell\'elenco AIFA dei '
                         f'farmaci carenti del {data_lunga(DATA_C)}.</strong> Equivalenti non carenti nello stesso gruppo: {len(non_car)}'
                         + (f', di cui {len(nc_zero)} senza differenza da pagare: {el}.' if nc_zero else f': {el}.')
-                        + f' La sostituzione la decide il medico o la propone il farmacista: {FRASE_FISSA}.', "", "alert")
+                        + (f' Per questo gruppo AIFA ha pubblicato una nota (qui sopra): prima di ogni sostituzione, {FRASE_FISSA}.' if note_g else
+                           f' Per la consegna e la sostituzione di questi medicinali, {FRASE_FISSA}.' if diretta else
+                           f' Il farmacista può proporre la sostituzione solo dopo averti informato e se il medico non ha scritto «non sostituibile» '
+                           f'sulla ricetta (art. 7, commi 2 e 3){rim.ref("legge_art7")}: {FRASE_FISSA}.'), "", "alert")
         else:
             out += nota(f'<strong>Tutte le confezioni di questo gruppo sono nell\'elenco AIFA dei farmaci carenti del {data_lunga(DATA_C)}.</strong> '
                         f'Nella lista di trasparenza non c\'è un equivalente non carente: {FRASE_FISSA}.', "", "alert")
@@ -590,11 +640,11 @@ def faq_pa(pa, rim):
                 if is_pa:
                     a = (f"Nella lista di trasparenza AIFA del {data_lunga(DATA_T)} {pa.lower()} ha {len(gr)} grupp{'o' if len(gr) == 1 else 'i'} di equivalenza. "
                          + "; ".join(parti) + "." + resto
-                         + f" Le confezioni dello stesso gruppo sono considerate sostituibili da AIFA: {FRASE_FISSA}.")
+                         + f" Le confezioni dello stesso gruppo sono considerate sostituibili da AIFA, salvo sua diversa decisione: {FRASE_FISSA}.")
                 else:
                     a = (f"Nella lista di trasparenza AIFA del {data_lunga(DATA_T)} {nome_up} compare in {len(gr)} grupp{'o' if len(gr) == 1 else 'i'}: "
                          + "; ".join(parti) + "." + resto
-                         + f" Le confezioni dello stesso gruppo sono considerate sostituibili da AIFA: {FRASE_FISSA}.")
+                         + f" Le confezioni dello stesso gruppo sono considerate sostituibili da AIFA, salvo sua diversa decisione: {FRASE_FISSA}.")
                 ref = rim.ref(["trasparenza", "pagina_equivalenti"])
             elif tipo == "prezzo":
                 q = f"Quanto costa {nome}?" if not is_pa else f"Quanto costa {pa.lower()}?"
@@ -656,9 +706,9 @@ def titolo_pa(pa):
 
 def descr_pa(pa, info):
     m = marchio_principale(pa)
-    car = f"; {info['n_car']} carenti al {data_breve(DATA_C)}" if info["n_car"] else "; nessuna carente al " + data_breve(DATA_C)
+    car = f"; {info['n_car']} carent{'e' if info['n_car'] == 1 else 'i'} al {data_breve(DATA_C)}" if info["n_car"] else "; nessuna carente al " + data_breve(DATA_C)
     pre = f"{bello(m)} ({pa.lower()})" if m else pa
-    cands = [f"{pre}: {info['n_conf']} confezioni in {info['n_gr']} gruppi AIFA, prezzo di riferimento e differenza da pagare{car}.",
+    cands = [f"{pre}: {info['n_conf']} confezioni in {info['n_gr']} grupp{'o' if info['n_gr'] == 1 else 'i'} AIFA, prezzo di riferimento e differenza da pagare{car}.",
              f"{pre}: {info['n_conf']} confezioni nella lista AIFA, differenza fino a {euro(info['max_diff'])}{car}.",
              f"{pa}: {info['n_conf']} confezioni nella lista AIFA del {data_breve(DATA_T)}{car}.",
              f"{pa[:90]}: lista AIFA del {data_breve(DATA_T)} e carenze al {data_breve(DATA_C)}."]
@@ -801,6 +851,8 @@ def carenze():
               '<div class="filtri"><label for="filtro" class="hp">Filtra l\'elenco</label><input id="filtro" type="search" data-filtro placeholder="Filtra: nome, principio attivo, motivo…" autocomplete="off">'
               '<label class="check"><input type="checkbox" data-solo-eq> Solo con equivalente</label></div>'
               f'<p class="conteggio" data-conteggio aria-live="polite">{NUM["n_car"]} confezioni</p>' + corpo_tab +
+              '<p class="altre" data-altre hidden><button type="button" class="btn" data-altre-piu>Mostra altre 100</button> '
+              '<button type="button" class="btn sec" data-altre-tutte>Mostra tutte</button></p>' +
               '<p class="vuoto-ricerca" data-vuoto hidden>Nessuna confezione con questo filtro. Se il tuo farmaco non c\'è, per AIFA non è una carenza ufficiale: '
               'vedi <a href="/farmaco-mancante/">farmaco che non si trova</a>.</p></section>')
     corpo += ('<h2 id="legenda">Come leggere le colonne</h2><div class="testo"><ul>'
@@ -897,7 +949,7 @@ def home():
              f'<input id="q" type="search" data-cerca data-indice="/assets/{INDICE_FILE}" placeholder="Nome del farmaco o principio attivo: Augmentin, atorvastatina…" autocomplete="off"></form>'
              '<ul class="risultati" data-risultati hidden aria-live="polite"></ul>')
     testata = banda("Liste ufficiali AIFA", "Farmaco equivalente: prezzi, differenza da pagare e carenze",
-                    f"Cerca un farmaco: vedi gli equivalenti dello stesso gruppo, il prezzo di riferimento, quanto paghi in più con la marca e se è "
+                    f"Cerca un farmaco: vedi le confezioni dello stesso gruppo, il prezzo di riferimento, la differenza a carico di ogni confezione e se è "
                     f"nell'elenco dei carenti. Lista di trasparenza del <strong>{data_lunga(DATA_T)}</strong>, carenti del <strong>{data_lunga(DATA_C)}</strong>.",
                     extra=cerca)
     corpo = (f'<div class="card cifre pull"><div class="cifra main"><b>{NUM["n_conf"]}</b><span>confezioni nella lista di trasparenza</span></div>'
@@ -910,7 +962,7 @@ def home():
     corpo += (f'<p>Un farmaco equivalente ha lo stesso principio attivo, la stessa forma, via di somministrazione, modalità di rilascio, dosaggio e numero '
               f'di unità di un farmaco di riferimento con il brevetto scaduto; sulla confezione c\'è la scritta «Medicinale Equivalente».{rim.ref("pagina_equivalenti")} '
               f'AIFA mette questi farmaci nella <strong>lista di trasparenza</strong>, divisi in gruppi: dentro un gruppo le confezioni sono considerate '
-              f'sostituibili, salvo diversa decisione di AIFA.{rim.ref("pagina_trasparenza")}</p>')
+              f'sostituibili, salvo diversa decisione di AIFA.{rim.ref(["pagina_equivalenti", "pagina_trasparenza"])}</p>')
     corpo += ('<p>La regola del prezzo è nell\'articolo 7 del decreto-legge 18 settembre 2001, n. 347, convertito dalla legge 16 novembre 2001, n. 405:</p>'
               '<blockquote class="legge">«I medicinali, aventi uguale composizione in principi attivi, nonché forma farmaceutica, via di somministrazione, modalità '
               'di rilascio, numero di unità posologiche e dosi unitarie uguali, sono rimborsati al farmacista dal Servizio sanitario nazionale fino alla concorrenza '
@@ -934,9 +986,12 @@ def home():
                      etichette=["", "Carenti con equivalente", "Nella lista"])
     corpo += '<p><a class="btn" href="/carenze/">Tutto l\'elenco dei farmaci carenti</a></p>'
     # differenze più alte
-    alte = sorted(RIGHE, key=lambda r: (-D(r["diff"]), r["farmaco"]))[:10]
-    corpo += (f'<h2 id="differenze">Le differenze da pagare più alte</h2><p>Le dieci confezioni con la differenza a carico più alta nella lista del {data_lunga(DATA_T)}: '
-              f'è quanto si paga in più rispetto al prezzo di riferimento del gruppo.{rim.ref("trasparenza")}</p>')
+    n_dd = sum(1 for r in RIGHE if "distribuzione diretta" in r["nota"].lower())
+    alte = sorted([r for r in RIGHE if "distribuzione diretta" not in r["nota"].lower()], key=lambda r: (-D(r["diff"]), r["farmaco"], r["aic"]))[:10]
+    corpo += (f'<h2 id="differenze">Le differenze più alte nella lista</h2><p>Le dieci confezioni con la differenza più alta tra prezzo al pubblico e prezzo di '
+              f'riferimento nella lista del {data_lunga(DATA_T)}, escluse le {num(n_dd)} confezioni che AIFA annota come «In distribuzione diretta da parte '
+              f'delle Regioni» (la loro consegna segue regole regionali). È un elenco di cifre ufficiali, non un giudizio sui farmaci: '
+              f'per la scelta, {FRASE_FISSA}.{rim.ref("trasparenza")}</p>')
     corpo += tabella(["Farmaco", "Prezzo al pubblico", "Prezzo di riferimento", "Differenza"],
                      [[f'<a href="/{SLUG[r["pa"]]}/#aic-{r["aic"]}">{h(r["farmaco"])}</a><small>{h(r["pa"])}</small><small>{h(r["confezione"])}</small>', euro(r["prezzo"]),
                        euro(r["rif"]), euro(r["diff"])] for r in alte], num=[1, 2, 3], resp="resp", etichette=["", "Prezzo", "Riferimento", "Differenza"],
@@ -1003,7 +1058,8 @@ def come_lavoriamo(n_index, n_noindex, n_faq):
     corpo += '<h2 id="pagine">Quali pagine pubblichiamo</h2><div class="testo">'
     corpo += (f'<p>Una pagina per ogni principio attivo della lista ({NUM["n_pa"]}), con un blocco per ogni gruppo di equivalenza. Le cerchiamo nei suggerimenti '
               f'di ricerca di Google: {n_index} pagine hanno ricerche vere su equivalente, generico, prezzo o carenza (del principio attivo o di un suo nome '
-              f'commerciale) e sono indicizzate; le altre {n_noindex} restano consultabili dalla ricerca del sito ma chiediamo ai motori di non indicizzarle, '
+              f'commerciale), almeno {MIN_CONFEZIONI} confezioni nella lista e abbastanza dati propri da non somigliare troppo a un\'altra pagina: sono '
+              f'indicizzate. Le altre {n_noindex} restano consultabili dalla ricerca del sito ma chiediamo ai motori di non indicizzarle, '
               f'e non hanno pubblicità. Le {n_faq} domande frequenti delle pagine nascono da quelle ricerche.</p></div>')
     corpo += '<h2 id="cosa-non-facciamo">Cosa non facciamo</h2><div class="testo"><ul>'
     corpo += ('<li>Non diamo consigli medici, non facciamo diagnosi e non suggeriamo di cambiare farmaco.</li>'
@@ -1152,6 +1208,7 @@ def main():
     for nome, contenuto in conserva.items():
         (SITO / nome).write_bytes(contenuto)
     copia_grafica()
+    misura_sovrapposizione()
     home()
     carenze()
     farmaco_mancante()
@@ -1163,6 +1220,12 @@ def main():
             faq_tot += len(v)
         faq_usate += [{"pagina": SLUG[p], "q": q, "ricerca": s, "indicizzata": INDICIZZA[p]} for q, _, _, s in v]
     n_idx = sum(INDICIZZA.values())
+    (DATI / "indicizzazione.json").write_text(json.dumps({
+        "_nota": "Scritto da genera.py: perché ogni pagina principio attivo è indicizzata o no (verifica.py ricalcola la sovrapposizione dalle pagine)",
+        "regola": {"min_confezioni": MIN_CONFEZIONI, "max_sovrapposizione": MAX_SOVRAPPOSIZIONE, "con_solo_prezzo": INDICIZZA_CON_SOLO_PREZZO},
+        "pagine": {SLUG[p]: {"indicizzata": INDICIZZA[p], "domanda": DOMANDA[p], "confezioni": len(PA[p]),
+                             "sovrapposizione": round(SOVRAPPOSIZIONE[p][0], 3), "piu_simile": SOVRAPPOSIZIONE[p][1]} for p in sorted(PA)}},
+        ensure_ascii=False, indent=0) + "\n", encoding="utf-8")
     come_lavoriamo(n_idx, len(PA) - n_idx, faq_tot + sum(1 for x in FAQ))
     chi_siamo()
     privacy()

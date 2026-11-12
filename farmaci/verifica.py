@@ -407,11 +407,48 @@ def controlla_faq():
     print(f"FAQ: {n} domande nelle pagine, tutte nate da ricerche vere ({len(sugg_r) + len(sugg_n)} suggerimenti salvati il {DOM['letto_il']}); JSON-LD = testo visibile")
 
 
+# ---------------------------------------------------------------- 5b. indicizzazione (regola del revisore, 12/11/2026)
+MIN_CONFEZIONI, MAX_SOVRAPPOSIZIONE = 8, 0.60
+PAGINE_FISSE = {"index.html", "404.html", "carenze/index.html", "farmaco-mancante/index.html", "come-lavoriamo/index.html", "chi-siamo/index.html",
+                "privacy/index.html"}
+
+
+def controlla_indicizzazione():
+    """Nessuna pagina principio attivo indicizzata con meno di 8 confezioni o con il 60% o più del testo (gruppi di 5 parole)
+    in comune con un'altra pagina principio attivo. Ricalcolato qui dalle pagine scritte, senza usare genera.py."""
+    insiemi, indic, conf = {}, {}, {}
+    for p in pagine_html():
+        rel = str(p.relative_to(SITO))
+        if rel in PAGINE_FISSE or re.fullmatch(r"google[0-9a-f]+\.html", p.name):
+            continue
+        html = p.read_text(encoding="utf-8")
+        m = re.search(r"<main\b.*?</main>", html, re.S).group(0)
+        m = re.sub(r"<(script|style|svg)\b.*?</\1>", " ", m, flags=re.S | re.I)
+        w = re.findall(r"\w+", unescape(re.sub(r"<[^>]+>", " ", m)).lower())
+        insiemi[rel] = {" ".join(w[i:i + 5]) for i in range(len(w) - 4)}
+        indic[rel] = '<meta name="robots" content="noindex">' not in html
+        conf[rel] = len(re.findall(r'data-prezzo="', html))
+    peggio = 0.0
+    for rel, a in insiemi.items():
+        if not indic[rel]:
+            continue
+        if conf[rel] < MIN_CONFEZIONI:
+            errore(f"{rel}: indicizzata con {conf[rel]} confezioni (minimo {MIN_CONFEZIONI})")
+        q, simile = max(((len(a & b) / len(a), r2) for r2, b in insiemi.items() if r2 != rel), default=(0, ""))
+        peggio = max(peggio, q)
+        if q >= MAX_SOVRAPPOSIZIONE:
+            errore(f"{rel}: indicizzata ma {q:.0%} del testo è in comune con {simile}")
+    n = sum(indic.values())
+    print(f"Indicizzazione: {n} pagine principio attivo indicizzate su {len(indic)}, tutte con almeno {MIN_CONFEZIONI} confezioni; "
+          f"testo in comune con la pagina più simile al massimo {peggio:.0%} (soglia {MAX_SOVRAPPOSIZIONE:.0%})")
+
+
 # ---------------------------------------------------------------- 6. testi
 VIETATE = re.compile(r"\b(claude|anthropic|openai|chatgpt|gpt-?\d|gemini|llama|mistral|copilot|opus|sonnet|haiku)\b", re.I)
 TITOLARE = "Titolare del trattamento è Massimiliano Cori (Italia)"
 PERSONALI = re.compile(r"massimiliano|\bcori\b|@gmail|@outlook|@libero", re.I)
-CONSIGLI = re.compile(r"\b(ti consigliamo|consigliamo di|ti suggeriamo|prendi il|assumi|smetti di prendere|dosaggio consigliato|è meglio prendere)\b", re.I)
+CONSIGLI = re.compile(r"\b(ti consigliamo|consigliamo di|ti suggeriamo|prendi il|assumi|smetti di prendere|dosaggio consigliato|è meglio prendere|"
+                      r"con la marca|la sostituzione la decide|conviene|risparmi\w*|più efficace|migliore|il più economico)\b", re.I)
 
 
 def controlla_testi():
@@ -522,6 +559,15 @@ def controlla_browser():
                         if not (0 < vis < tot):
                             errore(f"browser: il filtro «quetiapina» mostra {vis} righe su {tot}")
                         pg.fill("[data-filtro]", "")
+                        vis0 = pg.locator("#elenco-carenti tbody tr:visible").count()
+                        if vis0 != 100 or not pg.locator("[data-altre]").is_visible():
+                            errore(f"browser: l'elenco dei carenti deve aprirsi con 100 righe e il pulsante «Mostra altre» (righe viste: {vis0})")
+                        pg.click("[data-altre-piu]")
+                        if pg.locator("#elenco-carenti tbody tr:visible").count() != 200:
+                            errore("browser: «Mostra altre 100» non porta le righe a 200")
+                        pg.click("[data-altre-tutte]")
+                        if pg.locator("#elenco-carenti tbody tr:visible").count() != tot or pg.locator("[data-altre]").is_visible():
+                            errore("browser: «Mostra tutte» non mostra tutte le righe")
                         pg.check("[data-solo-eq]")
                         vis_eq = pg.locator("#elenco-carenti tbody tr:visible").count()
                         n_eq = sum(1 for v in RAW_C.values() for c in v if c["eq"].lower().startswith("s"))
@@ -557,6 +603,7 @@ def main():
     controlla_cifre(tot)
     controlla_pagine()
     controlla_faq()
+    controlla_indicizzazione()
     controlla_testi()
     controlla_monetizzazione()
     controlla_date()

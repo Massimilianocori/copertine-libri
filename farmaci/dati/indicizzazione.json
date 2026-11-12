@@ -1,0 +1,2621 @@
+{
+"_nota": "Scritto da genera.py: perché ogni pagina principio attivo è indicizzata o no (verifica.py ricalcola la sovrapposizione dalle pagine)",
+"regola": {
+"min_confezioni": 8,
+"max_sovrapposizione": 0.6,
+"con_solo_prezzo": true
+},
+"pagine": {
+"acarbosio": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 10,
+"sovrapposizione": 0.571,
+"piu_simile": "omeprazolo"
+},
+"aceclofenac": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 8,
+"sovrapposizione": 0.588,
+"piu_simile": "metformina"
+},
+"aciclovir": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 41,
+"sovrapposizione": 0.373,
+"piu_simile": "ramipril-idroclorotiazide"
+},
+"acido-micofenolico": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 8,
+"sovrapposizione": 0.597,
+"piu_simile": "clopidogrel-acido-acetilsalicilico"
+},
+"acido-acetilsalicilico": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 11,
+"sovrapposizione": 0.629,
+"piu_simile": "gliclazide"
+},
+"acido-alendronico": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 42,
+"sovrapposizione": 0.394,
+"piu_simile": "amoxicillina-acido-clavulanico"
+},
+"acido-alendronico-colecalciferolo": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 17,
+"sovrapposizione": 0.49,
+"piu_simile": "acido-alendronico"
+},
+"acido-carglumico": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 5,
+"sovrapposizione": 0.624,
+"piu_simile": "deferiprone"
+},
+"acido-clodronico": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 7,
+"sovrapposizione": 0.525,
+"piu_simile": "ketoprofene"
+},
+"acido-folico": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 38,
+"sovrapposizione": 0.363,
+"piu_simile": "amlodipina"
+},
+"acido-tranexamico": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 3,
+"sovrapposizione": 0.686,
+"piu_simile": "fentanil"
+},
+"acido-ursodesossicolico": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 33,
+"sovrapposizione": 0.362,
+"piu_simile": "ketoprofene"
+},
+"acido-valproico-sale-di-sodio": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 2,
+"sovrapposizione": 0.627,
+"piu_simile": "celecoxib"
+},
+"acitretina": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 4,
+"sovrapposizione": 0.638,
+"piu_simile": "dienogest"
+},
+"acqua-per-preparazioni-iniettabili": {
+"indicizzata": false,
+"domanda": false,
+"confezioni": 2,
+"sovrapposizione": 0.886,
+"piu_simile": "sodio-cloruro"
+},
+"adrenalina": {
+"indicizzata": false,
+"domanda": false,
+"confezioni": 4,
+"sovrapposizione": 0.62,
+"piu_simile": "fentanil"
+},
+"alfacalcidolo": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 7,
+"sovrapposizione": 0.608,
+"piu_simile": "dorzolamide"
+},
+"alfuzosina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 14,
+"sovrapposizione": 0.565,
+"piu_simile": "metformina"
+},
+"allopurinolo": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 14,
+"sovrapposizione": 0.538,
+"piu_simile": "metformina"
+},
+"almotriptan": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 13,
+"sovrapposizione": 0.567,
+"piu_simile": "eletriptan"
+},
+"aloperidolo": {
+"indicizzata": false,
+"domanda": false,
+"confezioni": 2,
+"sovrapposizione": 0.775,
+"piu_simile": "desametasone"
+},
+"ambrisentan": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 9,
+"sovrapposizione": 0.573,
+"piu_simile": "acido-micofenolico"
+},
+"amikacina": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 8,
+"sovrapposizione": 0.614,
+"piu_simile": "ceftazidima"
+},
+"amiloride-idroclorotiazide": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 2,
+"sovrapposizione": 0.8,
+"piu_simile": "idroclorotiazide"
+},
+"amiodarone": {
+"indicizzata": false,
+"domanda": false,
+"confezioni": 8,
+"sovrapposizione": 0.661,
+"piu_simile": "pramipexolo"
+},
+"amisulpride": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 10,
+"sovrapposizione": 0.59,
+"piu_simile": "aciclovir"
+},
+"amitriptilina": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 4,
+"sovrapposizione": 0.726,
+"piu_simile": "meloxicam"
+},
+"amlodipina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 104,
+"sovrapposizione": 0.284,
+"piu_simile": "omeprazolo"
+},
+"amlodipina-valsartan": {
+"indicizzata": false,
+"domanda": false,
+"confezioni": 14,
+"sovrapposizione": 0.577,
+"piu_simile": "olmesartan-medoximil-amlodipina-idroclorotiazide"
+},
+"amlodipina-valsartan-idroclorotiazide": {
+"indicizzata": false,
+"domanda": false,
+"confezioni": 2,
+"sovrapposizione": 0.728,
+"piu_simile": "rosuvastatina-sale-di-calcio-amlodipina"
+},
+"amoxicillina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 26,
+"sovrapposizione": 0.445,
+"piu_simile": "amoxicillina-acido-clavulanico"
+},
+"amoxicillina-acido-clavulanico": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 119,
+"sovrapposizione": 0.233,
+"piu_simile": "omeprazolo"
+},
+"anagrelide": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 5,
+"sovrapposizione": 0.711,
+"piu_simile": "valganciclovir"
+},
+"anastrozolo": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 25,
+"sovrapposizione": 0.478,
+"piu_simile": "exemestane"
+},
+"apremilast": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 20,
+"sovrapposizione": 0.453,
+"piu_simile": "rivaroxaban"
+},
+"aripiprazolo": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 47,
+"sovrapposizione": 0.383,
+"piu_simile": "olanzapina"
+},
+"atenololo": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 30,
+"sovrapposizione": 0.441,
+"piu_simile": "metformina"
+},
+"atenololo-clortalidone": {
+"indicizzata": false,
+"domanda": false,
+"confezioni": 15,
+"sovrapposizione": 0.511,
+"piu_simile": "atenololo"
+},
+"atorvastatina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 145,
+"sovrapposizione": 0.235,
+"piu_simile": "rosuvastatina"
+},
+"atropina": {
+"indicizzata": false,
+"domanda": false,
+"confezioni": 2,
+"sovrapposizione": 0.768,
+"piu_simile": "adrenalina"
+},
+"azatioprina": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 5,
+"sovrapposizione": 0.672,
+"piu_simile": "losartan-idroclorotiazide"
+},
+"azitromicina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 38,
+"sovrapposizione": 0.41,
+"piu_simile": "ciprofloxacina"
+},
+"baclofene": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 3,
+"sovrapposizione": 0.736,
+"piu_simile": "tetrabenazina"
+},
+"barnidipina": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 6,
+"sovrapposizione": 0.583,
+"piu_simile": "omeprazolo"
+},
+"beclometasone": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 8,
+"sovrapposizione": 0.453,
+"piu_simile": "mesalazina"
+},
+"beclometasone-formoterolo": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 22,
+"sovrapposizione": 0.442,
+"piu_simile": "colecalciferolo"
+},
+"benazepril": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 5,
+"sovrapposizione": 0.603,
+"piu_simile": "omeprazolo"
+},
+"benazepril-idroclorotiazide": {
+"indicizzata": false,
+"domanda": false,
+"confezioni": 3,
+"sovrapposizione": 0.75,
+"piu_simile": "raloxifene"
+},
+"betaina": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 2,
+"sovrapposizione": 0.742,
+"piu_simile": "imiquimod"
+},
+"betametasone": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 20,
+"sovrapposizione": 0.458,
+"piu_simile": "metformina"
+},
+"bicalutamide": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 21,
+"sovrapposizione": 0.484,
+"piu_simile": "voriconazolo"
+},
+"bimatoprost": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 15,
+"sovrapposizione": 0.461,
+"piu_simile": "bimatoprost-timololo"
+},
+"bimatoprost-timololo": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 14,
+"sovrapposizione": 0.548,
+"piu_simile": "dorzolamide-timololo"
+},
+"bisoprololo": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 102,
+"sovrapposizione": 0.26,
+"piu_simile": "amlodipina"
+},
+"bisoprololo-idroclorotiazide": {
+"indicizzata": false,
+"domanda": false,
+"confezioni": 11,
+"sovrapposizione": 0.599,
+"piu_simile": "metformina"
+},
+"bosentan": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 14,
+"sovrapposizione": 0.527,
+"piu_simile": "ivabradina"
+},
+"brimonidina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 10,
+"sovrapposizione": 0.554,
+"piu_simile": "enalapril-idroclorotiazide"
+},
+"brimonidina-timololo": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 2,
+"sovrapposizione": 0.721,
+"piu_simile": "dorzolamide-timololo"
+},
+"brinzolamide": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 5,
+"sovrapposizione": 0.656,
+"piu_simile": "dorzolamide"
+},
+"brinzolamide-timololo": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 6,
+"sovrapposizione": 0.673,
+"piu_simile": "latanoprost-timololo"
+},
+"brivaracetam": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 36,
+"sovrapposizione": 0.41,
+"piu_simile": "rivaroxaban"
+},
+"brivudina": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 4,
+"sovrapposizione": 0.702,
+"piu_simile": "baclofene"
+},
+"budesonide": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 29,
+"sovrapposizione": 0.374,
+"piu_simile": "ketoprofene"
+},
+"budesonide-formoterolo": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 15,
+"sovrapposizione": 0.486,
+"piu_simile": "salmeterolo-fluticasone"
+},
+"buprenorfina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 15,
+"sovrapposizione": 0.486,
+"piu_simile": "fentanil"
+},
+"bupropione": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 11,
+"sovrapposizione": 0.56,
+"piu_simile": "fentanil"
+},
+"cabergolina": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 7,
+"sovrapposizione": 0.591,
+"piu_simile": "fentanil"
+},
+"calcifediolo": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 2,
+"sovrapposizione": 0.733,
+"piu_simile": "naltrexone"
+},
+"calcio-carbonato": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 3,
+"sovrapposizione": 0.751,
+"piu_simile": "ciproterone-etinilestradiolo"
+},
+"calcio-carbonato-colecalciferolo": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 11,
+"sovrapposizione": 0.49,
+"piu_simile": "atorvastatina"
+},
+"calcipotriolo": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 3,
+"sovrapposizione": 0.711,
+"piu_simile": "glicopirronio"
+},
+"calcipotriolo-betametasone": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 10,
+"sovrapposizione": 0.49,
+"piu_simile": "acarbosio"
+},
+"calcitriolo": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 10,
+"sovrapposizione": 0.552,
+"piu_simile": "metformina"
+},
+"candesartan-cilexetil": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 46,
+"sovrapposizione": 0.413,
+"piu_simile": "candesartan-cilexetil-idroclorotiazide"
+},
+"candesartan-cilexetil-amlodipina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 15,
+"sovrapposizione": 0.555,
+"piu_simile": "ramipril-amlodipina-idroclorotiazide"
+},
+"candesartan-cilexetil-idroclorotiazide": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 30,
+"sovrapposizione": 0.474,
+"piu_simile": "candesartan-cilexetil"
+},
+"capecitabina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 10,
+"sovrapposizione": 0.546,
+"piu_simile": "voriconazolo"
+},
+"captopril": {
+"indicizzata": false,
+"domanda": false,
+"confezioni": 4,
+"sovrapposizione": 0.73,
+"piu_simile": "nebivololo-amlodipina"
+},
+"captopril-idroclorotiazide": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 2,
+"sovrapposizione": 0.766,
+"piu_simile": "paromomicina"
+},
+"carbamazepina": {
+"indicizzata": false,
+"domanda": false,
+"confezioni": 9,
+"sovrapposizione": 0.536,
+"piu_simile": "nifedipina"
+},
+"carvedilolo": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 34,
+"sovrapposizione": 0.423,
+"piu_simile": "febuxostat"
+},
+"cefaclor": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 13,
+"sovrapposizione": 0.504,
+"piu_simile": "amoxicillina"
+},
+"cefazolina": {
+"indicizzata": false,
+"domanda": false,
+"confezioni": 5,
+"sovrapposizione": 0.707,
+"piu_simile": "ceftriaxone"
+},
+"cefixima": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 16,
+"sovrapposizione": 0.509,
+"piu_simile": "levofloxacina"
+},
+"cefotaxima": {
+"indicizzata": false,
+"domanda": false,
+"confezioni": 13,
+"sovrapposizione": 0.546,
+"piu_simile": "omeprazolo"
+},
+"cefpodoxima": {
+"indicizzata": false,
+"domanda": false,
+"confezioni": 11,
+"sovrapposizione": 0.547,
+"piu_simile": "claritromicina"
+},
+"ceftazidima": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 15,
+"sovrapposizione": 0.49,
+"piu_simile": "amikacina"
+},
+"ceftriaxone": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 39,
+"sovrapposizione": 0.382,
+"piu_simile": "ceftazidima"
+},
+"cefuroxima": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 9,
+"sovrapposizione": 0.593,
+"piu_simile": "ciprofloxacina"
+},
+"celecoxib": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 16,
+"sovrapposizione": 0.535,
+"piu_simile": "aciclovir"
+},
+"cetirizina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 71,
+"sovrapposizione": 0.337,
+"piu_simile": "amlodipina"
+},
+"ciclosporina": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 6,
+"sovrapposizione": 0.479,
+"piu_simile": "metformina"
+},
+"cinacalcet": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 15,
+"sovrapposizione": 0.506,
+"piu_simile": "ticagrelor"
+},
+"ciprofloxacina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 80,
+"sovrapposizione": 0.318,
+"piu_simile": "amoxicillina-acido-clavulanico"
+},
+"ciproterone-etinilestradiolo": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 3,
+"sovrapposizione": 0.76,
+"piu_simile": "calcio-carbonato"
+},
+"citalopram": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 43,
+"sovrapposizione": 0.368,
+"piu_simile": "olmesartan-medoxomil"
+},
+"claritromicina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 40,
+"sovrapposizione": 0.33,
+"piu_simile": "ciprofloxacina"
+},
+"clobetasolo": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 5,
+"sovrapposizione": 0.626,
+"piu_simile": "spironolattone"
+},
+"clopidogrel": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 29,
+"sovrapposizione": 0.43,
+"piu_simile": "tadalafil"
+},
+"clopidogrel-acido-acetilsalicilico": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 8,
+"sovrapposizione": 0.619,
+"piu_simile": "acido-micofenolico"
+},
+"clozapina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 15,
+"sovrapposizione": 0.499,
+"piu_simile": "aripiprazolo"
+},
+"colecalciferolo": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 160,
+"sovrapposizione": 0.173,
+"piu_simile": "atorvastatina"
+},
+"dabigatran": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 43,
+"sovrapposizione": 0.35,
+"piu_simile": "rivaroxaban"
+},
+"deferasirox": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 25,
+"sovrapposizione": 0.426,
+"piu_simile": "capecitabina"
+},
+"deferiprone": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 4,
+"sovrapposizione": 0.639,
+"piu_simile": "acido-carglumico"
+},
+"deferoxamina": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 2,
+"sovrapposizione": 0.749,
+"piu_simile": "octreotide"
+},
+"desametasone": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 2,
+"sovrapposizione": 0.626,
+"piu_simile": "estradiolo"
+},
+"desloratadina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 16,
+"sovrapposizione": 0.528,
+"piu_simile": "atorvastatina"
+},
+"desmopressina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 12,
+"sovrapposizione": 0.552,
+"piu_simile": "rizatriptan"
+},
+"diclofenac": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 37,
+"sovrapposizione": 0.298,
+"piu_simile": "ketoprofene"
+},
+"dienogest": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 15,
+"sovrapposizione": 0.518,
+"piu_simile": "acitretina"
+},
+"diltiazem": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 22,
+"sovrapposizione": 0.429,
+"piu_simile": "isosorbide-mononitrato"
+},
+"dimetilfumarato": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 12,
+"sovrapposizione": 0.477,
+"piu_simile": "voriconazolo"
+},
+"donepezil": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 32,
+"sovrapposizione": 0.454,
+"piu_simile": "olanzapina"
+},
+"dorzolamide": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 7,
+"sovrapposizione": 0.63,
+"piu_simile": "alfacalcidolo"
+},
+"dorzolamide-timololo": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 13,
+"sovrapposizione": 0.513,
+"piu_simile": "bimatoprost-timololo"
+},
+"doxazosin": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 58,
+"sovrapposizione": 0.351,
+"piu_simile": "ibuprofene"
+},
+"doxiciclina": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 3,
+"sovrapposizione": 0.712,
+"piu_simile": "spironolattone"
+},
+"dronedarone": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 3,
+"sovrapposizione": 0.676,
+"piu_simile": "memantina"
+},
+"duloxetina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 47,
+"sovrapposizione": 0.346,
+"piu_simile": "omeprazolo"
+},
+"dutasteride": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 25,
+"sovrapposizione": 0.455,
+"piu_simile": "omeprazolo"
+},
+"ebastina": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 10,
+"sovrapposizione": 0.636,
+"piu_simile": "atorvastatina"
+},
+"eletriptan": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 16,
+"sovrapposizione": 0.52,
+"piu_simile": "atorvastatina"
+},
+"enalapril": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 41,
+"sovrapposizione": 0.396,
+"piu_simile": "amlodipina"
+},
+"enalapril-idroclorotiazide": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 37,
+"sovrapposizione": 0.414,
+"piu_simile": "amlodipina"
+},
+"enalapril-lercanidipina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 18,
+"sovrapposizione": 0.525,
+"piu_simile": "escitalopram"
+},
+"entecavir": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 20,
+"sovrapposizione": 0.496,
+"piu_simile": "voriconazolo"
+},
+"eparina-sodica": {
+"indicizzata": false,
+"domanda": false,
+"confezioni": 2,
+"sovrapposizione": 0.623,
+"piu_simile": "iloprost"
+},
+"eplerenone": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 12,
+"sovrapposizione": 0.595,
+"piu_simile": "desmopressina"
+},
+"escitalopram": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 70,
+"sovrapposizione": 0.333,
+"piu_simile": "rosuvastatina"
+},
+"eslicarbazepina": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 4,
+"sovrapposizione": 0.711,
+"piu_simile": "riluzolo"
+},
+"esomeprazolo": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 108,
+"sovrapposizione": 0.32,
+"piu_simile": "pantoprazolo"
+},
+"estradiolo": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 2,
+"sovrapposizione": 0.681,
+"piu_simile": "ketoprofene"
+},
+"estradiolo-drospirenone": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 2,
+"sovrapposizione": 0.694,
+"piu_simile": "quetiapina"
+},
+"etoricoxib": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 42,
+"sovrapposizione": 0.342,
+"piu_simile": "olmesartan-medoxomil"
+},
+"exemestane": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 25,
+"sovrapposizione": 0.535,
+"piu_simile": "anastrozolo"
+},
+"ezetimibe": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 35,
+"sovrapposizione": 0.432,
+"piu_simile": "amlodipina"
+},
+"ezetimibe-atorvastatina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 52,
+"sovrapposizione": 0.417,
+"piu_simile": "atorvastatina"
+},
+"ezetimibe-simvastatina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 58,
+"sovrapposizione": 0.339,
+"piu_simile": "atorvastatina"
+},
+"famciclovir": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 11,
+"sovrapposizione": 0.579,
+"piu_simile": "valaciclovir"
+},
+"famotidina": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 6,
+"sovrapposizione": 0.689,
+"piu_simile": "simvastatina"
+},
+"febuxostat": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 34,
+"sovrapposizione": 0.443,
+"piu_simile": "simvastatina"
+},
+"felodipina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 12,
+"sovrapposizione": 0.587,
+"piu_simile": "rabeprazolo"
+},
+"fenofibrato": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 11,
+"sovrapposizione": 0.594,
+"piu_simile": "atorvastatina"
+},
+"fentanil": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 92,
+"sovrapposizione": 0.204,
+"piu_simile": "colecalciferolo"
+},
+"ferroso-gluconato": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 7,
+"sovrapposizione": 0.659,
+"piu_simile": "calcio-carbonato"
+},
+"fexofenadina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 11,
+"sovrapposizione": 0.544,
+"piu_simile": "metformina"
+},
+"finasteride": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 43,
+"sovrapposizione": 0.401,
+"piu_simile": "amoxicillina-acido-clavulanico"
+},
+"fingolimod": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 10,
+"sovrapposizione": 0.565,
+"piu_simile": "tadalafil"
+},
+"flecainide": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 18,
+"sovrapposizione": 0.5,
+"piu_simile": "tramadolo-cloridrato"
+},
+"fluconazolo": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 109,
+"sovrapposizione": 0.25,
+"piu_simile": "ciprofloxacina"
+},
+"flunisolide": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 27,
+"sovrapposizione": 0.399,
+"piu_simile": "aciclovir"
+},
+"fluoxetina": {
+"indicizzata": false,
+"domanda": false,
+"confezioni": 20,
+"sovrapposizione": 0.433,
+"piu_simile": "citalopram"
+},
+"fluticasone": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 8,
+"sovrapposizione": 0.499,
+"piu_simile": "salmeterolo-fluticasone"
+},
+"fluvastatina": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 6,
+"sovrapposizione": 0.696,
+"piu_simile": "atorvastatina"
+},
+"formoterolo": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 12,
+"sovrapposizione": 0.514,
+"piu_simile": "budesonide"
+},
+"fosfomicina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 15,
+"sovrapposizione": 0.524,
+"piu_simile": "amoxicillina-acido-clavulanico"
+},
+"fosinopril": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 6,
+"sovrapposizione": 0.712,
+"piu_simile": "fosinopril-idroclorotiazide"
+},
+"fosinopril-idroclorotiazide": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 4,
+"sovrapposizione": 0.707,
+"piu_simile": "lisinopril-idroclorotiazide"
+},
+"frovatriptan": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 8,
+"sovrapposizione": 0.581,
+"piu_simile": "almotriptan"
+},
+"furosemide": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 14,
+"sovrapposizione": 0.487,
+"piu_simile": "fentanil"
+},
+"gabapentin": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 46,
+"sovrapposizione": 0.378,
+"piu_simile": "olmesartan-medoxomil"
+},
+"galantamina": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 6,
+"sovrapposizione": 0.57,
+"piu_simile": "lanreotide"
+},
+"gemfibrozil": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 6,
+"sovrapposizione": 0.635,
+"piu_simile": "metoprololo"
+},
+"glatiramer": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 4,
+"sovrapposizione": 0.614,
+"piu_simile": "prasugrel"
+},
+"gliclazide": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 37,
+"sovrapposizione": 0.433,
+"piu_simile": "bisoprololo"
+},
+"glicopirronio": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 3,
+"sovrapposizione": 0.662,
+"piu_simile": "dronedarone"
+},
+"glimepiride": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 16,
+"sovrapposizione": 0.547,
+"piu_simile": "metformina"
+},
+"glucosio": {
+"indicizzata": false,
+"domanda": false,
+"confezioni": 30,
+"sovrapposizione": 0.377,
+"piu_simile": "adrenalina"
+},
+"granisetrone": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 8,
+"sovrapposizione": 0.58,
+"piu_simile": "omeprazolo"
+},
+"ibuprofene": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 51,
+"sovrapposizione": 0.337,
+"piu_simile": "amlodipina"
+},
+"idroclorotiazide": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 2,
+"sovrapposizione": 0.812,
+"piu_simile": "amiloride-idroclorotiazide"
+},
+"idrossicarbamide": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 2,
+"sovrapposizione": 0.725,
+"piu_simile": "manidipina"
+},
+"idrossiclorochina": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 2,
+"sovrapposizione": 0.793,
+"piu_simile": "raloxifene"
+},
+"iloprost": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 2,
+"sovrapposizione": 0.703,
+"piu_simile": "tobramicina"
+},
+"imatinib": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 12,
+"sovrapposizione": 0.551,
+"piu_simile": "deferasirox"
+},
+"imiquimod": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 2,
+"sovrapposizione": 0.693,
+"piu_simile": "betaina"
+},
+"indapamide": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 10,
+"sovrapposizione": 0.542,
+"piu_simile": "bisoprololo"
+},
+"irbesartan": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 37,
+"sovrapposizione": 0.452,
+"piu_simile": "irbesartan-idroclorotiazide"
+},
+"irbesartan-idroclorotiazide": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 53,
+"sovrapposizione": 0.368,
+"piu_simile": "irbesartan"
+},
+"isosorbide-mononitrato": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 21,
+"sovrapposizione": 0.426,
+"piu_simile": "diltiazem"
+},
+"isotretinoina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 16,
+"sovrapposizione": 0.499,
+"piu_simile": "acido-clodronico"
+},
+"itraconazolo": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 8,
+"sovrapposizione": 0.58,
+"piu_simile": "fluconazolo"
+},
+"ivabradina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 22,
+"sovrapposizione": 0.453,
+"piu_simile": "tadalafil"
+},
+"ketoprofene": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 26,
+"sovrapposizione": 0.362,
+"piu_simile": "amoxicillina-acido-clavulanico"
+},
+"ketorolac": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 10,
+"sovrapposizione": 0.593,
+"piu_simile": "ketoprofene"
+},
+"ketotifene": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 2,
+"sovrapposizione": 0.734,
+"piu_simile": "betaina"
+},
+"lacidipina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 21,
+"sovrapposizione": 0.454,
+"piu_simile": "perindopril-indapamide"
+},
+"lacosamide": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 81,
+"sovrapposizione": 0.314,
+"piu_simile": "pregabalin"
+},
+"lamivudina": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 4,
+"sovrapposizione": 0.688,
+"piu_simile": "linezolid"
+},
+"lamotrigina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 35,
+"sovrapposizione": 0.472,
+"piu_simile": "lacosamide"
+},
+"lanreotide": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 6,
+"sovrapposizione": 0.58,
+"piu_simile": "galantamina"
+},
+"lansoprazolo": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 137,
+"sovrapposizione": 0.26,
+"piu_simile": "pantoprazolo"
+},
+"latanoprost": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 26,
+"sovrapposizione": 0.453,
+"piu_simile": "latanoprost-timololo"
+},
+"latanoprost-timololo": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 11,
+"sovrapposizione": 0.574,
+"piu_simile": "brinzolamide-timololo"
+},
+"leflunomide": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 6,
+"sovrapposizione": 0.657,
+"piu_simile": "sildenafil"
+},
+"lercanidipina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 34,
+"sovrapposizione": 0.449,
+"piu_simile": "omeprazolo"
+},
+"letrozolo": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 34,
+"sovrapposizione": 0.462,
+"piu_simile": "amlodipina"
+},
+"levetiracetam": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 67,
+"sovrapposizione": 0.247,
+"piu_simile": "pregabalin"
+},
+"levocarnitina": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 2,
+"sovrapposizione": 0.714,
+"piu_simile": "tadalafil"
+},
+"levocetirizina": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 15,
+"sovrapposizione": 0.602,
+"piu_simile": "desloratadina"
+},
+"levodopa-carbidopa": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 4,
+"sovrapposizione": 0.682,
+"piu_simile": "sotalolo"
+},
+"levodopa-carbidopa-entacapone": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 24,
+"sovrapposizione": 0.477,
+"piu_simile": "dabigatran"
+},
+"levofloxacina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 42,
+"sovrapposizione": 0.431,
+"piu_simile": "ciprofloxacina"
+},
+"levotiroxina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 20,
+"sovrapposizione": 0.388,
+"piu_simile": "amoxicillina-acido-clavulanico"
+},
+"linezolid": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 4,
+"sovrapposizione": 0.678,
+"piu_simile": "lamivudina"
+},
+"lisinopril": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 38,
+"sovrapposizione": 0.437,
+"piu_simile": "enalapril"
+},
+"lisinopril-idroclorotiazide": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 15,
+"sovrapposizione": 0.595,
+"piu_simile": "enalapril-idroclorotiazide"
+},
+"loratadina": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 5,
+"sovrapposizione": 0.673,
+"piu_simile": "tibolone"
+},
+"losartan": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 37,
+"sovrapposizione": 0.42,
+"piu_simile": "losartan-idroclorotiazide"
+},
+"losartan-idroclorotiazide": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 39,
+"sovrapposizione": 0.421,
+"piu_simile": "losartan"
+},
+"lovastatina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 14,
+"sovrapposizione": 0.571,
+"piu_simile": "metoprololo"
+},
+"lurasidone": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 12,
+"sovrapposizione": 0.622,
+"piu_simile": "prasugrel"
+},
+"magaldrato": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 12,
+"sovrapposizione": 0.551,
+"piu_simile": "colecalciferolo"
+},
+"manidipina": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 10,
+"sovrapposizione": 0.632,
+"piu_simile": "lisinopril"
+},
+"megestrolo": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 4,
+"sovrapposizione": 0.741,
+"piu_simile": "alfacalcidolo"
+},
+"meloxicam": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 4,
+"sovrapposizione": 0.733,
+"piu_simile": "amitriptilina"
+},
+"memantina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 20,
+"sovrapposizione": 0.46,
+"piu_simile": "tadalafil"
+},
+"mesalazina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 54,
+"sovrapposizione": 0.238,
+"piu_simile": "colecalciferolo"
+},
+"metformina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 90,
+"sovrapposizione": 0.252,
+"piu_simile": "atorvastatina"
+},
+"metformina-glibenclamide": {
+"indicizzata": false,
+"domanda": false,
+"confezioni": 3,
+"sovrapposizione": 0.768,
+"piu_simile": "metronidazolo"
+},
+"metilprednisolone": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 9,
+"sovrapposizione": 0.507,
+"piu_simile": "ibuprofene"
+},
+"metoclopramide": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 2,
+"sovrapposizione": 0.725,
+"piu_simile": "desametasone"
+},
+"metoprololo": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 14,
+"sovrapposizione": 0.504,
+"piu_simile": "diclofenac"
+},
+"metotrexato": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 45,
+"sovrapposizione": 0.296,
+"piu_simile": "topiramato"
+},
+"metronidazolo": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 3,
+"sovrapposizione": 0.713,
+"piu_simile": "ossibutinina-cloridrato"
+},
+"micofenolato-mofetile": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 10,
+"sovrapposizione": 0.554,
+"piu_simile": "voriconazolo"
+},
+"midazolam": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 8,
+"sovrapposizione": 0.518,
+"piu_simile": "ondansetrone"
+},
+"miglustat": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 7,
+"sovrapposizione": 0.601,
+"piu_simile": "dimetilfumarato"
+},
+"mirtazapina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 17,
+"sovrapposizione": 0.539,
+"piu_simile": "metformina"
+},
+"montelukast": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 60,
+"sovrapposizione": 0.364,
+"piu_simile": "escitalopram"
+},
+"morfina-solfato": {
+"indicizzata": false,
+"domanda": false,
+"confezioni": 8,
+"sovrapposizione": 0.571,
+"piu_simile": "travoprost-timololo"
+},
+"moxifloxacina": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 5,
+"sovrapposizione": 0.68,
+"piu_simile": "nebivololo"
+},
+"moxonidina": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 6,
+"sovrapposizione": 0.648,
+"piu_simile": "benazepril"
+},
+"naltrexone": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 2,
+"sovrapposizione": 0.721,
+"piu_simile": "dronedarone"
+},
+"naprossene": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 8,
+"sovrapposizione": 0.654,
+"piu_simile": "metformina"
+},
+"nebivololo": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 21,
+"sovrapposizione": 0.527,
+"piu_simile": "amlodipina"
+},
+"nebivololo-amlodipina": {
+"indicizzata": false,
+"domanda": false,
+"confezioni": 4,
+"sovrapposizione": 0.738,
+"piu_simile": "captopril"
+},
+"nebivololo-idroclorotiazide": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 16,
+"sovrapposizione": 0.544,
+"piu_simile": "perindopril-indapamide"
+},
+"nifedipina": {
+"indicizzata": false,
+"domanda": false,
+"confezioni": 34,
+"sovrapposizione": 0.351,
+"piu_simile": "isosorbide-mononitrato"
+},
+"nimesulide": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 21,
+"sovrapposizione": 0.508,
+"piu_simile": "ketoprofene"
+},
+"nitisinone": {
+"indicizzata": false,
+"domanda": false,
+"confezioni": 8,
+"sovrapposizione": 0.555,
+"piu_simile": "trientina"
+},
+"nitrofurantoina": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 6,
+"sovrapposizione": 0.628,
+"piu_simile": "acitretina"
+},
+"nitroglicerina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 45,
+"sovrapposizione": 0.365,
+"piu_simile": "olmesartan-medoxomil-amlodipina"
+},
+"norfloxacina": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 3,
+"sovrapposizione": 0.789,
+"piu_simile": "vardenafil"
+},
+"octreotide": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 11,
+"sovrapposizione": 0.48,
+"piu_simile": "temozolomide"
+},
+"olanzapina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 69,
+"sovrapposizione": 0.295,
+"piu_simile": "memantina"
+},
+"olmesartan-medoximil-amlodipina-idroclorotiazide": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 25,
+"sovrapposizione": 0.499,
+"piu_simile": "fentanil"
+},
+"olmesartan-medoxomil": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 50,
+"sovrapposizione": 0.408,
+"piu_simile": "rosuvastatina"
+},
+"olmesartan-medoxomil-amlodipina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 47,
+"sovrapposizione": 0.439,
+"piu_simile": "olmesartan-medoxomil"
+},
+"olmesartan-medoxomil-idroclorotiazide": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 57,
+"sovrapposizione": 0.382,
+"piu_simile": "olmesartan-medoxomil"
+},
+"omega-polienoici-esteri-etilici-di-acidi-grassi-polinsaturi": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 37,
+"sovrapposizione": 0.412,
+"piu_simile": "doxazosin"
+},
+"omeprazolo": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 103,
+"sovrapposizione": 0.274,
+"piu_simile": "esomeprazolo"
+},
+"ondansetrone": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 15,
+"sovrapposizione": 0.475,
+"piu_simile": "fentanil"
+},
+"ossibutinina-cloridrato": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 2,
+"sovrapposizione": 0.734,
+"piu_simile": "levocetirizina"
+},
+"ossicodone-oxicodone-cloridrato": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 8,
+"sovrapposizione": 0.622,
+"piu_simile": "rosuvastatina"
+},
+"ossicodone-oxicodone-cloridrato-naloxone-cloridrato-diidrato": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 30,
+"sovrapposizione": 0.411,
+"piu_simile": "ossicodone-oxicodone-cloridrato"
+},
+"ossicodone-oxicodone-cloridrato-paracetamolo": {
+"indicizzata": false,
+"domanda": false,
+"confezioni": 6,
+"sovrapposizione": 0.688,
+"piu_simile": "nebivololo-amlodipina"
+},
+"oxcarbazepina": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 6,
+"sovrapposizione": 0.645,
+"piu_simile": "fentanil"
+},
+"paliperidone": {
+"indicizzata": false,
+"domanda": false,
+"confezioni": 12,
+"sovrapposizione": 0.476,
+"piu_simile": "octreotide"
+},
+"pantoprazolo": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 233,
+"sovrapposizione": 0.234,
+"piu_simile": "esomeprazolo"
+},
+"paracalcitolo": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 7,
+"sovrapposizione": 0.543,
+"piu_simile": "capecitabina"
+},
+"paracetamolo-codeina-fosfato": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 9,
+"sovrapposizione": 0.594,
+"piu_simile": "levofloxacina"
+},
+"paromomicina": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 2,
+"sovrapposizione": 0.779,
+"piu_simile": "captopril-idroclorotiazide"
+},
+"paroxetina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 33,
+"sovrapposizione": 0.405,
+"piu_simile": "escitalopram"
+},
+"perampanel": {
+"indicizzata": false,
+"domanda": false,
+"confezioni": 24,
+"sovrapposizione": 0.483,
+"piu_simile": "prasugrel"
+},
+"perindopril": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 33,
+"sovrapposizione": 0.474,
+"piu_simile": "perindopril-indapamide"
+},
+"perindopril-amlodipina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 49,
+"sovrapposizione": 0.376,
+"piu_simile": "perindopril-indapamide"
+},
+"perindopril-indapamide": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 31,
+"sovrapposizione": 0.412,
+"piu_simile": "perindopril-amlodipina"
+},
+"perindopril-indapamide-amlodipina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 20,
+"sovrapposizione": 0.509,
+"piu_simile": "perindopril-amlodipina"
+},
+"pioglitazone": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 15,
+"sovrapposizione": 0.528,
+"piu_simile": "quetiapina"
+},
+"pioglitazone-metformina": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 5,
+"sovrapposizione": 0.649,
+"piu_simile": "memantina"
+},
+"piperacillina": {
+"indicizzata": false,
+"domanda": false,
+"confezioni": 6,
+"sovrapposizione": 0.663,
+"piu_simile": "ceftriaxone"
+},
+"piperacillina-tazobactam": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 11,
+"sovrapposizione": 0.508,
+"piu_simile": "amoxicillina-acido-clavulanico"
+},
+"piroxicam": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 10,
+"sovrapposizione": 0.591,
+"piu_simile": "ketoprofene"
+},
+"posaconazolo": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 11,
+"sovrapposizione": 0.547,
+"piu_simile": "sevelamer"
+},
+"potassio-canrenoato": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 4,
+"sovrapposizione": 0.653,
+"piu_simile": "ondansetrone"
+},
+"pramipexolo": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 53,
+"sovrapposizione": 0.319,
+"piu_simile": "atorvastatina"
+},
+"prasugrel": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 6,
+"sovrapposizione": 0.648,
+"piu_simile": "lurasidone"
+},
+"pravastatina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 37,
+"sovrapposizione": 0.426,
+"piu_simile": "simvastatina"
+},
+"prednisone": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 32,
+"sovrapposizione": 0.41,
+"piu_simile": "atorvastatina"
+},
+"pregabalin": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 120,
+"sovrapposizione": 0.241,
+"piu_simile": "lacosamide"
+},
+"progesterone": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 4,
+"sovrapposizione": 0.668,
+"piu_simile": "isotretinoina"
+},
+"propafenone": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 11,
+"sovrapposizione": 0.576,
+"piu_simile": "fentanil"
+},
+"quetiapina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 92,
+"sovrapposizione": 0.191,
+"piu_simile": "metformina"
+},
+"quinapril": {
+"indicizzata": false,
+"domanda": false,
+"confezioni": 2,
+"sovrapposizione": 0.812,
+"piu_simile": "quinapril-idroclorotiazide"
+},
+"quinapril-idroclorotiazide": {
+"indicizzata": false,
+"domanda": false,
+"confezioni": 4,
+"sovrapposizione": 0.738,
+"piu_simile": "fosinopril-idroclorotiazide"
+},
+"rabeprazolo": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 30,
+"sovrapposizione": 0.469,
+"piu_simile": "omeprazolo"
+},
+"raloxifene": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 2,
+"sovrapposizione": 0.787,
+"piu_simile": "calcifediolo"
+},
+"ramipril": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 79,
+"sovrapposizione": 0.331,
+"piu_simile": "ramipril-idroclorotiazide"
+},
+"ramipril-amlodipina-idroclorotiazide": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 20,
+"sovrapposizione": 0.56,
+"piu_simile": "ramipril-amlodipina"
+},
+"ramipril-bisoprololo": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 18,
+"sovrapposizione": 0.543,
+"piu_simile": "ramipril-amlodipina-idroclorotiazide"
+},
+"ramipril-idroclorotiazide": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 48,
+"sovrapposizione": 0.374,
+"piu_simile": "valsartan-idroclorotiazide"
+},
+"ramipril-amlodipina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 64,
+"sovrapposizione": 0.325,
+"piu_simile": "rosuvastatina-ezetimibe"
+},
+"ranolazina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 23,
+"sovrapposizione": 0.522,
+"piu_simile": "metformina"
+},
+"rasagilina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 19,
+"sovrapposizione": 0.529,
+"piu_simile": "anastrozolo"
+},
+"repaglinide": {
+"indicizzata": false,
+"domanda": false,
+"confezioni": 38,
+"sovrapposizione": 0.44,
+"piu_simile": "ramipril-idroclorotiazide"
+},
+"riluzolo": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 4,
+"sovrapposizione": 0.692,
+"piu_simile": "rivastigmina"
+},
+"risperidone": {
+"indicizzata": false,
+"domanda": false,
+"confezioni": 24,
+"sovrapposizione": 0.43,
+"piu_simile": "tacrolimus"
+},
+"rivaroxaban": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 76,
+"sovrapposizione": 0.288,
+"piu_simile": "memantina"
+},
+"rivastigmina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 35,
+"sovrapposizione": 0.335,
+"piu_simile": "sevelamer"
+},
+"rizatriptan": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 24,
+"sovrapposizione": 0.499,
+"piu_simile": "ramipril-idroclorotiazide"
+},
+"ropinirolo": {
+"indicizzata": false,
+"domanda": false,
+"confezioni": 27,
+"sovrapposizione": 0.413,
+"piu_simile": "pramipexolo"
+},
+"rosuvastatina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 129,
+"sovrapposizione": 0.263,
+"piu_simile": "atorvastatina"
+},
+"rosuvastatina-sale-di-calcio-amlodipina": {
+"indicizzata": false,
+"domanda": false,
+"confezioni": 8,
+"sovrapposizione": 0.582,
+"piu_simile": "amlodipina-valsartan-idroclorotiazide"
+},
+"rosuvastatina-acido-acetilsalicilico": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 15,
+"sovrapposizione": 0.592,
+"piu_simile": "rosuvastatina"
+},
+"rosuvastatina-ezetimibe": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 56,
+"sovrapposizione": 0.368,
+"piu_simile": "atorvastatina"
+},
+"rotigotina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 8,
+"sovrapposizione": 0.545,
+"piu_simile": "rivastigmina"
+},
+"rupatadina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 9,
+"sovrapposizione": 0.585,
+"piu_simile": "atorvastatina"
+},
+"salbutamolo-ipratropio-bromuro": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 6,
+"sovrapposizione": 0.607,
+"piu_simile": "teriparatide"
+},
+"salmeterolo": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 2,
+"sovrapposizione": 0.701,
+"piu_simile": "tibolone"
+},
+"salmeterolo-fluticasone": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 58,
+"sovrapposizione": 0.272,
+"piu_simile": "amoxicillina-acido-clavulanico"
+},
+"sapropterina": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 7,
+"sovrapposizione": 0.602,
+"piu_simile": "imatinib"
+},
+"selegilina": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 2,
+"sovrapposizione": 0.758,
+"piu_simile": "idroclorotiazide"
+},
+"sertralina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 55,
+"sovrapposizione": 0.348,
+"piu_simile": "lacosamide"
+},
+"sevelamer": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 11,
+"sovrapposizione": 0.56,
+"piu_simile": "valaciclovir"
+},
+"sildenafil": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 13,
+"sovrapposizione": 0.48,
+"piu_simile": "tadalafil"
+},
+"silodosina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 26,
+"sovrapposizione": 0.498,
+"piu_simile": "febuxostat"
+},
+"simvastatina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 97,
+"sovrapposizione": 0.29,
+"piu_simile": "rosuvastatina"
+},
+"sitagliptin": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 56,
+"sovrapposizione": 0.345,
+"piu_simile": "etoricoxib"
+},
+"sitagliptin-metformina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 37,
+"sovrapposizione": 0.412,
+"piu_simile": "vildagliptin-metformina"
+},
+"sodio-risedronato": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 30,
+"sovrapposizione": 0.421,
+"piu_simile": "colecalciferolo"
+},
+"sodio-cloruro": {
+"indicizzata": false,
+"domanda": false,
+"confezioni": 21,
+"sovrapposizione": 0.435,
+"piu_simile": "acqua-per-preparazioni-iniettabili"
+},
+"sodio-ibandronato": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 16,
+"sovrapposizione": 0.536,
+"piu_simile": "pantoprazolo"
+},
+"solifenacina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 21,
+"sovrapposizione": 0.55,
+"piu_simile": "simvastatina"
+},
+"sotalolo": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 6,
+"sovrapposizione": 0.663,
+"piu_simile": "levodopa-carbidopa"
+},
+"spironolattone": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 5,
+"sovrapposizione": 0.62,
+"piu_simile": "doxiciclina"
+},
+"sucralfato": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 6,
+"sovrapposizione": 0.613,
+"piu_simile": "fentanil"
+},
+"sumatriptan": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 19,
+"sovrapposizione": 0.478,
+"piu_simile": "atorvastatina"
+},
+"tacrolimus": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 25,
+"sovrapposizione": 0.347,
+"piu_simile": "rivaroxaban"
+},
+"tadalafil": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 22,
+"sovrapposizione": 0.376,
+"piu_simile": "memantina"
+},
+"tafluprost-timololo": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 2,
+"sovrapposizione": 0.78,
+"piu_simile": "brimonidina-timololo"
+},
+"tamoxifene": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 10,
+"sovrapposizione": 0.581,
+"piu_simile": "atorvastatina"
+},
+"tamsulosina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 41,
+"sovrapposizione": 0.375,
+"piu_simile": "omeprazolo"
+},
+"tapentadolo": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 18,
+"sovrapposizione": 0.459,
+"piu_simile": "flecainide"
+},
+"teicoplanina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 9,
+"sovrapposizione": 0.571,
+"piu_simile": "estradiolo"
+},
+"telmisartan": {
+"indicizzata": false,
+"domanda": false,
+"confezioni": 30,
+"sovrapposizione": 0.442,
+"piu_simile": "pravastatina"
+},
+"telmisartan-idroclorotiazide": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 27,
+"sovrapposizione": 0.496,
+"piu_simile": "ramipril-idroclorotiazide"
+},
+"temozolomide": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 24,
+"sovrapposizione": 0.396,
+"piu_simile": "rivastigmina"
+},
+"terazosina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 24,
+"sovrapposizione": 0.428,
+"piu_simile": "simvastatina"
+},
+"terbinafina": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 10,
+"sovrapposizione": 0.626,
+"piu_simile": "ticlopidina"
+},
+"teriflunomide": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 12,
+"sovrapposizione": 0.508,
+"piu_simile": "voriconazolo"
+},
+"teriparatide": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 5,
+"sovrapposizione": 0.636,
+"piu_simile": "loratadina"
+},
+"tetrabenazina": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 3,
+"sovrapposizione": 0.693,
+"piu_simile": "nimesulide"
+},
+"tibolone": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 5,
+"sovrapposizione": 0.652,
+"piu_simile": "levofloxacina"
+},
+"ticagrelor": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 35,
+"sovrapposizione": 0.464,
+"piu_simile": "rivaroxaban"
+},
+"ticlopidina": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 10,
+"sovrapposizione": 0.613,
+"piu_simile": "terbinafina"
+},
+"timololo": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 14,
+"sovrapposizione": 0.475,
+"piu_simile": "acido-ursodesossicolico"
+},
+"tiotropio": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 5,
+"sovrapposizione": 0.644,
+"piu_simile": "calcipotriolo-betametasone"
+},
+"tobramicina": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 3,
+"sovrapposizione": 0.652,
+"piu_simile": "iloprost"
+},
+"tolvaptan": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 6,
+"sovrapposizione": 0.591,
+"piu_simile": "vinorelbina"
+},
+"topiramato": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 29,
+"sovrapposizione": 0.401,
+"piu_simile": "quetiapina"
+},
+"torasemide": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 8,
+"sovrapposizione": 0.627,
+"piu_simile": "amlodipina"
+},
+"tramadolo-cloridrato": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 25,
+"sovrapposizione": 0.433,
+"piu_simile": "flecainide"
+},
+"travoprost": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 14,
+"sovrapposizione": 0.537,
+"piu_simile": "latanoprost"
+},
+"travoprost-timololo": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 8,
+"sovrapposizione": 0.639,
+"piu_simile": "latanoprost-timololo"
+},
+"trientina": {
+"indicizzata": false,
+"domanda": false,
+"confezioni": 2,
+"sovrapposizione": 0.784,
+"piu_simile": "nitisinone"
+},
+"valaciclovir": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 11,
+"sovrapposizione": 0.601,
+"piu_simile": "sevelamer"
+},
+"valganciclovir": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 6,
+"sovrapposizione": 0.693,
+"piu_simile": "leflunomide"
+},
+"valsartan": {
+"indicizzata": false,
+"domanda": false,
+"confezioni": 51,
+"sovrapposizione": 0.382,
+"piu_simile": "valsartan-idroclorotiazide"
+},
+"valsartan-idroclorotiazide": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 62,
+"sovrapposizione": 0.321,
+"piu_simile": "ramipril-idroclorotiazide"
+},
+"vardenafil": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 3,
+"sovrapposizione": 0.743,
+"piu_simile": "tadalafil"
+},
+"vareniclina": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 7,
+"sovrapposizione": 0.513,
+"piu_simile": "paracalcitolo"
+},
+"venlafaxina": {
+"indicizzata": false,
+"domanda": false,
+"confezioni": 75,
+"sovrapposizione": 0.287,
+"piu_simile": "bisoprololo"
+},
+"verapamil": {
+"indicizzata": false,
+"domanda": false,
+"confezioni": 9,
+"sovrapposizione": 0.608,
+"piu_simile": "ketoprofene"
+},
+"vildagliptin": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 11,
+"sovrapposizione": 0.67,
+"piu_simile": "vildagliptin-metformina"
+},
+"vildagliptin-metformina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 21,
+"sovrapposizione": 0.51,
+"piu_simile": "sitagliptin-metformina"
+},
+"vinorelbina": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 8,
+"sovrapposizione": 0.593,
+"piu_simile": "tacrolimus"
+},
+"voriconazolo": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 10,
+"sovrapposizione": 0.525,
+"piu_simile": "capecitabina"
+},
+"zofenopril": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 6,
+"sovrapposizione": 0.725,
+"piu_simile": "zofenopril-idroclorotiazide"
+},
+"zofenopril-idroclorotiazide": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 8,
+"sovrapposizione": 0.624,
+"piu_simile": "itraconazolo"
+},
+"zolmitriptan": {
+"indicizzata": false,
+"domanda": true,
+"confezioni": 9,
+"sovrapposizione": 0.609,
+"piu_simile": "frovatriptan"
+},
+"zonisamide": {
+"indicizzata": true,
+"domanda": true,
+"confezioni": 9,
+"sovrapposizione": 0.563,
+"piu_simile": "pregabalin"
+}
+}
+}

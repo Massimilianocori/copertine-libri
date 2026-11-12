@@ -41,21 +41,33 @@ almeno un equivalente non carente nello stesso gruppo.
 | Pagina | Contenuto |
 |---|---|
 | `/` | ricerca nel browser (indice JSON di principi attivi, 3.695 nomi commerciali, farmaci carenti fuori lista), come funzionano equivalenti e prezzo di riferimento con l'art. 7 citato, carenti con equivalente non carente, 10 differenze più alte, indice A-Z, 6 FAQ |
-| `/carenze/` | elenco AIFA completo (2.552 righe) con filtro, «solo con equivalente», ordinamento per colonna (desktop), link al gruppo, legenda, 3 FAQ |
+| `/carenze/` | elenco AIFA completo (2.552 righe) con filtro, «solo con equivalente», ordinamento per colonna (desktop), 100 righe alla volta, link al gruppo, legenda, 3 FAQ |
 | `/farmaco-mancante/` | guida: carenza o indisponibilità, cosa prevede AIFA nei due casi, conteggi per indicazione, principi attivi con più carenti, 3 FAQ |
 | `/<principio-attivo>/` (373) | un blocco per gruppo di equivalenza: riferimento, tabella delle confezioni (prezzo, differenza, carenza), nota con gli equivalenti non carenti, dettaglio AIFA di ogni carenza, altre confezioni carenti con lo stesso ATC, FAQ dalle ricerche vere |
 | `/come-lavoriamo/`, `/chi-siamo/`, `/privacy/`, `404.html` | metodo, impronte dei file, licenza, cosa non facciamo, modulo «segnala un errore» (Netlify Forms) |
 
-**Indicizzazione.** Una pagina principio attivo è indicizzata solo se in `dati/domanda.json` c'è almeno un suggerimento vero con il
-nome (principio attivo o prima parola di un nome commerciale «di fantasia») e una parola d'interesse (generico, equivalente,
-prezzo, costo, carenza, non si trova, mutuabile…). Le altre sono `noindex`, fuori dalla sitemap e senza pubblicità.
-Il 12/11/2026 (1.837 richieste, 1.795 nomi letti): **340 pagine indicizzate** (334 principi attivi + home, carenze, guida,
-come lavoriamo, chi siamo, privacy) e **39 principi attivi noindex**. Delle 334: 81 con ricerche su equivalente/generico,
-9 su carenza/non si trova, 244 solo su prezzo/costo/mutuabile. Interruttore `INDICIZZA_CON_SOLO_PREZZO` in `genera.py`:
-con `False` restano indicizzate solo le 90 pagine «equivalente/carenza». 22 dei 39 principi attivi noindex hanno confezioni
-carenti: restano raggiungibili dalla ricerca e dall'elenco dei carenti. FAQ: 870 in tutto (858 nelle pagine dei principi attivi). Una pagina per principio attivo (non per gruppo)
+**Indicizzazione (regola del revisore, 12/11/2026).** Una pagina principio attivo è indicizzata solo se: (1) in `dati/domanda.json` c'è almeno
+un suggerimento vero con il nome (principio attivo o prima parola di un nome commerciale «di fantasia») e una parola d'interesse (generico,
+equivalente, prezzo, costo, carenza, non si trova, mutuabile…); (2) ha almeno 8 confezioni nella lista (`MIN_CONFEZIONI`); (3) meno del 60% del
+suo testo (gruppi di 5 parole) è in comune con la pagina principio attivo più simile (`MAX_SOVRAPPOSIZIONE`, misurata da `genera.py` sulle pagine
+vere e ricalcolata da `verifica.py`). Le altre sono `noindex`, fuori dalla sitemap e senza pubblicità; il perché di ogni pagina è in
+`dati/indicizzazione.json`.
+Numeri del 12/11/2026: **228 pagine indicizzate** (222 principi attivi + home, carenze, guida, come lavoriamo, chi siamo, privacy) e
+**151 principi attivi noindex** (39 senza ricerche, 95 con meno di 8 confezioni, 17 con 60% o più di testo in comune).
+Perché non 334 e non 90: con 334 (ogni pagina con una ricerca) 97 pagine avevano il 60% o più del testo uguale a un'altra pagina e 34 il 70% o più
+(fino all'81%: sono le pagine con 2-5 confezioni, quasi solo testo fisso). Con l'interruttore `INDICIZZA_CON_SOLO_PREZZO = False` (90 pagine) il
+problema restava: 22 sopra il 60% e 5 sopra il 70%, perché il tipo di ricerca non dice quanti dati propri ha la pagina. Con la regola nuova:
+0 pagine sopra il 60% (massimo 59%, mediana 46%), minimo 8 confezioni (mediana 24), almeno 230 gruppi di 5 parole che non compaiono in nessun'altra pagina.
+Dopo l'approvazione AdSense la soglia si può allargare (per esempio a 6 confezioni) guardando Search Console.
+FAQ: 870 in tutto (858 nelle pagine dei principi attivi). Una pagina per principio attivo (non per gruppo)
 per non creare centinaia di pagine quasi uguali: il gruppo è un'ancora (`#g-<codice>`), ogni confezione ha `#aic-<codice>`.
-Quota di testo in comune con la pagina più simile (gruppi di 5 parole, 40 pagine a caso): mediana 54%, da 26% a 78%.
+
+**Note AIFA nei gruppi (revisore, 12/11/2026).** 1.150 confezioni (190 gruppi interi) hanno la nota «In distribuzione diretta da parte delle Regioni»:
+il gruppo lo dice in un riquadro e la tabella della home «differenze più alte» le esclude (prima erano tutte e dieci farmaci in distribuzione diretta,
+con differenze fino a 4.356,75 € che il paziente non paga al banco). 32 gruppi hanno altre note AIFA (antiepilettici, levotiroxina, ciclosporina,
+nifedipina «non sostituibile con…», metotrexato): riquadro «Nota AIFA su questo gruppo» e, se c'è una carenza, nessun invito alla sostituzione.
+**Elenco dei carenti.** La pagina pesa 1,6 MB (148 KB compressa) e resta una sola, perché filtro e ordinamento lavorano su tutto l'elenco; il browser
+mostra 100 righe alla volta («Mostra altre 100», «Mostra tutte»): al telefono la pagina è alta 37.000 px invece di circa 900.000. Senza JavaScript si vedono tutte.
 
 ## Controlli (`python3 farmaci/verifica.py --browser`, 12/11/2026)
 1. Fonti: impronta SHA-256 di ogni file = `fonti.json`; HTTP 200; data di pubblicazione presente; 22 frasi ritrovate nelle pagine AIFA e Normattiva salvate.
@@ -104,7 +116,21 @@ che non sono nella lista di trasparenza.
 3. Search Console: proprietà `https://farmaci-equivalenti.netlify.app/` (meta di verifica già nelle pagine), inviare `sitemap.xml`.
 4. Dopo la pubblicazione: aggiungere l'host a `SITI` in `studio-business/strumenti/indexnow.py` (cartella `farmaci`) e lanciare l'invio.
 
-## Dubbi per il revisore indipendente
+## Revisione indipendente (12/11/2026)
+Cifre ricalcolate dai CSV riscaricati da AIFA (stesse impronte di `fonti.json`) con un lettore scritto a parte: tutte le 8.576 righe di confezione
+delle 373 pagine (prezzo, riferimento, differenza, gruppo, stato e date di carenza, motivo, fine presunta, indicazione AIFA), i conteggi di ogni gruppo
+e di ogni pagina, le 2.552 righe dell'elenco carenti, i numeri e le due tabelle della home, i conteggi della guida, le 281 righe «stesso ATC»:
+circa 61.500 controlli, 0 differenze. Art. 7 riletto su Normattiva (commi 1-4 uguali alle citazioni).
+Correzioni: regola di indicizzazione (sopra); note AIFA e distribuzione diretta nei gruppi; tabella «differenze più alte» senza distribuzione diretta;
+frase sulla sostituzione riscritta secondo l'art. 7, commi 2 e 3 (il farmacista propone dopo aver informato, il medico può scrivere «non sostituibile»);
+tolto «quanto paghi in più con la marca»; «salvo diversa decisione di AIFA» nelle FAQ; «1 carente»/«1 gruppo» nelle descrizioni; elenco carenti a blocchi di 100.
+Privacy: uguale alla convenzione della rete (stessa frase di EsameB1 e Paga CCNL), nessuna modifica.
+Dubbi che restano: (a) il nome commerciale nel titolo (es. «Glucobay ed equivalenti…») è informazione con dati ufficiali, non pubblicità, ma se AdSense
+o un titolare AIC protestano si toglie dal titolo con una riga in `titolo_pa`; (b) la differenza è quella nazionale stampata da AIFA: ticket e regole
+regionali non sono calcolati (scritto in home e in «come lavoriamo»); (c) l'elenco dei carenti cambia due volte alla settimana: senza l'aggiornamento
+settimanale le pagine invecchiano in fretta (`verifica.py` avvisa dopo 10 giorni).
+
+## Dubbi del costruttore (risolti dal revisore, vedi sopra)
 1. Indicizzazione larga: 244 delle 334 pagine indicizzate lo sono solo per ricerche «<nome> prezzo/costo». È domanda vera e la
    pagina risponde con il prezzo ufficiale, ma va pesato contro la lezione AdSense (pagine simili): con l'interruttore
    `INDICIZZA_CON_SOLO_PREZZO = False` si scende a 90 pagine principio attivo indicizzate.
