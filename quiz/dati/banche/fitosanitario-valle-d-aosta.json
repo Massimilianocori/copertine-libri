@@ -1,0 +1,2268 @@
+{
+"_nota": "Scritto da raccolta/estrai.py dal PDF ufficiale (vedi dati/fonti.json). Non modificare a mano.",
+"id": "fitosanitario-valle-d-aosta",
+"domande": [
+{
+"n": 1,
+"sezione": "Modulo 1: Le caratteristiche tecniche dei prodotti fitosanitari e dei loro coadiuvanti",
+"testo": "Che cosa sono i prodotti fitosanitari?",
+"risposte": [
+"Sono i prodotti che si impiegano per il controllo degli organismi nocivi delle colture e delle derrate alimentari, per il controllo delle piante infestanti e per la regolazione delle produzioni vegetali",
+"Sono esclusivamente insetticidi e fungicidi utilizzati per la difesa delle piante e delle derrate alimentari",
+"Sono tutti i prodotti che vengono utilizzati per la difesa delle piante agrarie ed ornamentali, classificati come molto tossici, tossici e nocivi."
+],
+"esatta": 0,
+"file": "fito_vda.pdf",
+"pagina": 1
+},
+{
+"n": 2,
+"sezione": "Modulo 1: Le caratteristiche tecniche dei prodotti fitosanitari e dei loro coadiuvanti",
+"testo": "È possibile impiegare prodotti fitosanitari per scopi diversi da quelli indicati in etichetta?",
+"risposte": [
+"Sì, solamente su consiglio del venditore o del tecnico che fornisce l’assistenza",
+"No, i prodotti fitosanitari vanno usati esclusivamente per gli usi riportati in etichetta",
+"Sì, solo se realmente necessario."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 1
+},
+{
+"n": 3,
+"sezione": "Modulo 1: Le caratteristiche tecniche dei prodotti fitosanitari e dei loro coadiuvanti",
+"testo": "Con gli insetticidi di impiego agricolo è possibile combattere i parassiti degli animali?",
+"risposte": [
+"Sì, solamente se gli animali non producono latte",
+"No, mai",
+"No, solo su ricetta del veterinario."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 1
+},
+{
+"n": 4,
+"sezione": "Modulo 1: Le caratteristiche tecniche dei prodotti fitosanitari e dei loro coadiuvanti",
+"testo": "Che cosa si intende per sostanza attiva?",
+"risposte": [
+"Un prodotto che può essere acquistato solamente da chi possiede il patentino",
+"È la parte del formulato commerciale che serve per migliorare le prestazioni del prodotto",
+"È la sostanza che possiede un’attività nei confronti degli organismi nocivi o dell’avversità da combattere."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 1
+},
+{
+"n": 5,
+"sezione": "Modulo 1: Le caratteristiche tecniche dei prodotti fitosanitari e dei loro coadiuvanti",
+"testo": "Perché è importante conoscere lo spettro d’azione della sostanza attiva?",
+"risposte": [
+"Perché specifica se il prodotto è nocivo agli insetti ed acari utili",
+"Perché indirizza l'agricoltore nella scelta del prodotto in relazione all’avversità da combattere",
+"Perché indica la quantità minima necessaria per combattere i parassiti"
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 2
+},
+{
+"n": 6,
+"sezione": "Modulo 1: Le caratteristiche tecniche dei prodotti fitosanitari e dei loro coadiuvanti",
+"testo": "Che cosa sono i coadiuvanti?",
+"risposte": [
+"Sono sostanze che aumentano l’efficacia delle sostanze attive e ne favoriscono la distribuzione",
+"Sono sostanze che riducono l'efficacia di un prodotto fitosanitario",
+"Sono sostanze che riducono il tempo di sicurezza."
+],
+"esatta": 0,
+"file": "fito_vda.pdf",
+"pagina": 2
+},
+{
+"n": 7,
+"sezione": "Modulo 1: Le caratteristiche tecniche dei prodotti fitosanitari e dei loro coadiuvanti",
+"testo": "Che cosa sono i coformulanti?",
+"risposte": [
+"Sono sostanze che hanno lo scopo di aumentare l’efficacia delle sostanze attive",
+"Sono sostanze che servono a ridurre la DL 50",
+"Sono sostanze che servono a ridurre la concentrazione attiva."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 2
+},
+{
+"n": 8,
+"sezione": "Modulo 1: Le caratteristiche tecniche dei prodotti fitosanitari e dei loro coadiuvanti",
+"testo": "Cosa sono i bagnanti-adesivanti?",
+"risposte": [
+"Sono prodotti che prevengono le fisiopatie",
+"Sono coadiuvanti di prodotti fitosanitari che favoriscono una maggior copertura della superficie irrorata e aumentano la resistenza al dilavamento",
+"Sono coadiuvanti antischiuma per gli erbicidi di post-emergenza."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 2
+},
+{
+"n": 9,
+"sezione": "Modulo 1: Le caratteristiche tecniche dei prodotti fitosanitari e dei loro coadiuvanti",
+"testo": "I corroboranti:",
+"risposte": [
+"Sono sostanze di origine naturale che migliorano la resistenza delle piante nei confronti degli organismi nocivi",
+"Sono sostanze che sostituiscono i coformulanti quando questi non sono già presenti nel prodotto fitosanitario",
+"Sono sostanze di origine naturale che vengono distribuite al terreno e che aumentano l’assorbimento dei fertilizzanti."
+],
+"esatta": 0,
+"file": "fito_vda.pdf",
+"pagina": 2
+},
+{
+"n": 10,
+"sezione": "Modulo 1: Le caratteristiche tecniche dei prodotti fitosanitari e dei loro coadiuvanti",
+"testo": "Quali sono i prodotti fitosanitari destinati ad utilizzatori non professionali?",
+"risposte": [
+"Tutti quei prodotti fitosanitari classificati come non pericolosi",
+"I prodotti impiegabili su piante ornamentali e da fiore (in appartamento, balcone e giardino domestico (PPO)) e quelli utilizzati su piante edibili coltivate in forma amatoriale, il cui raccolto sia destinato ad uso familiare, nonché sui tappeti erbosi e su aree incolte",
+"Tutti i coformulanti, in quanto non risultano tossici per l’uomo."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 2
+},
+{
+"n": 11,
+"sezione": "Modulo 1: Le caratteristiche tecniche dei prodotti fitosanitari e dei loro coadiuvanti",
+"testo": "I prodotti impiegabili su piante edibili coltivate in ambito domestico:",
+"risposte": [
+"Possono essere acquistati esclusivamente da coloro che possiedono il patentino",
+"Possono essere utilizzati sia da utilizzatori non professionali che da coloro che possiedono il patentino",
+"Possono essere acquistati ovunque, ma solo dagli utilizzatori professionali."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 2
+},
+{
+"n": 12,
+"sezione": "Modulo 1: Le caratteristiche tecniche dei prodotti fitosanitari e dei loro coadiuvanti",
+"testo": "Che cosa sono i prodotti fitosanitari anticrittogamici?",
+"risposte": [
+"Sono prodotti idonei per la lotta contro le malattie delle piante agrarie, causate dai funghi",
+"Sono prodotti idonei per la lotta contro le malattie delle piante agrarie, causate da funghi e virus",
+"Sono prodotti idonei per la lotta contro le malattie delle piante agrarie, causate da funghi e insetti."
+],
+"esatta": 0,
+"file": "fito_vda.pdf",
+"pagina": 3
+},
+{
+"n": 13,
+"sezione": "Modulo 1: Le caratteristiche tecniche dei prodotti fitosanitari e dei loro coadiuvanti",
+"testo": "A che cosa serve un prodotto fitosanitario insetticida?",
+"risposte": [
+"Serve a combattere gli insetti e acari dannosi alle colture",
+"Serve a combattere insetti dannosi alle colture",
+"Serve ad eliminare il danno causato sulle colture dagli insetti."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 3
+},
+{
+"n": 14,
+"sezione": "Modulo 1: Le caratteristiche tecniche dei prodotti fitosanitari e dei loro coadiuvanti",
+"testo": "Cosa sono i fitoregolatori?",
+"risposte": [
+"Sono prodotti utili per combattere le malattie crittogamiche",
+"Sono prodotti che promuovono o inibiscono determinati processi naturali delle piante e del patogeno",
+"Sono prodotti che promuovono o inibiscono determinati processi naturali delle piante."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 3
+},
+{
+"n": 15,
+"sezione": "Modulo 1: Le caratteristiche tecniche dei prodotti fitosanitari e dei loro coadiuvanti",
+"testo": "Che cosa si intende per selettività di un insetticida?",
+"risposte": [
+"La capacità di agire sugli insetti nocivi, pur essendo di bassa tossicità per l'uomo",
+"La capacità di eliminare tutti gli insetti presenti nella coltura",
+"La capacità di agire nei confronti degli insetti nocivi, ma di rispettare il più possibile gli insetti utili naturalmente presenti nei campi coltivati."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 3
+},
+{
+"n": 16,
+"sezione": "Modulo 1: Le caratteristiche tecniche dei prodotti fitosanitari e dei loro coadiuvanti",
+"testo": "I prodotti non classificati ed irritanti sono meno dannosi sugli insetti ed acari utili rispetto ai prodotti molto tossici, tossici e nocivi?",
+"risposte": [
+"Sì, poiché sono meno dannosi sugli insetti e acari utili",
+"No, perché l’effetto sugli insetti ed acari utili non è legato alla tossicità per l’uomo",
+"Non sono mai dannosi."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 3
+},
+{
+"n": 17,
+"sezione": "Modulo 1: Le caratteristiche tecniche dei prodotti fitosanitari e dei loro coadiuvanti",
+"testo": "Che cosa si intende per selettività di un diserbante?",
+"risposte": [
+"Solo la coltura è danneggiata, mentre le erbe infestanti sono risparmiate",
+"Il prodotto rispetta la coltura, agendo esclusivamente sulle erbe infestanti",
+"Il prodotto rispetta gli insetti utili."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 3
+},
+{
+"n": 18,
+"sezione": "Modulo 1: Le caratteristiche tecniche dei prodotti fitosanitari e dei loro coadiuvanti",
+"testo": "Fra le modalità d’azione degli insetticidi, quale è la più selettiva?",
+"risposte": [
+"Azione per contatto",
+"Azione per ingestione",
+"Azione per asfissia."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 3
+},
+{
+"n": 19,
+"sezione": "Modulo 1: Le caratteristiche tecniche dei prodotti fitosanitari e dei loro coadiuvanti",
+"testo": "Quale è la modalità di azione dei prodotti insetticidi e acaricidi?",
+"risposte": [
+"Stimolazione delle difese naturali della pianta",
+"Ingestione, contatto ed asfissia",
+"Limitazione dell’accoppiamento tra maschi e femmine."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 4
+},
+{
+"n": 20,
+"sezione": "Modulo 1: Le caratteristiche tecniche dei prodotti fitosanitari e dei loro coadiuvanti",
+"testo": "Qual è la caratteristica di un prodotto fungicida sistemico?",
+"risposte": [
+"La capacità di agire, sistematicamente, nei confronti di tutte le avversità presenti sulla pianta, indipendentemente dal tipo di patogeno",
+"La capacità di non essere tossico per l'operatore che effettua il trattamento",
+"La capacità di essere assorbito dai tessuti vegetali, di trasferirsi nelle diverse parti della pianta per via linfatica e combattere gli organismi nocivi non raggiungibili con prodotti che agiscono solo in superficie."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 4
+},
+{
+"n": 21,
+"sezione": "Modulo 1: Le caratteristiche tecniche dei prodotti fitosanitari e dei loro coadiuvanti",
+"testo": "Qual è l’epoca di intervento legata all’attività di un prodotto fungicida di copertura?",
+"risposte": [
+"Curativa: consente di combattere la malattia durante l’incubazione",
+"Eradicante: blocca lo sviluppo di infezioni già manifeste",
+"Preventiva: impedisce lo sviluppo dell’infezione."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 4
+},
+{
+"n": 22,
+"sezione": "Modulo 1: Le caratteristiche tecniche dei prodotti fitosanitari e dei loro coadiuvanti",
+"testo": "È corretto utilizzare prodotti fungicidi con finalità eradicante senza miscelarli con prodotti di copertura?",
+"risposte": [
+"Sì, perché si interviene solo quando la malattia è presente sulla coltura e si evitano trattamenti inutili",
+"No, perché il trattamento così effettuato risulta eccessivamente costoso",
+"No, perché il trattamento può risultare inefficace e si può incorrere nell’insorgenza di fenomeni di resistenza del patogeno."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 4
+},
+{
+"n": 23,
+"sezione": "Modulo 1: Le caratteristiche tecniche dei prodotti fitosanitari e dei loro coadiuvanti",
+"testo": "In base alla modalità d’azione, quali erbicidi possono influire negativamente sulla coltura che segue quella trattata?",
+"risposte": [
+"Di contatto (disseccanti)",
+"Antigerminello (residuali)",
+"Ad assorbimento fogliare sistemico."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 4
+},
+{
+"n": 24,
+"sezione": "Modulo 1: Le caratteristiche tecniche dei prodotti fitosanitari e dei loro coadiuvanti",
+"testo": "Non rispettare l’epoca di intervento riportata sull’etichetta di un diserbante può dar luogo a:",
+"risposte": [
+"Nessun danno, perché i diserbanti vengono applicati solo in pre – semina",
+"Danni consistenti alla coltura o, in casi estremi, la sua distruzione",
+"Danni consistenti, soltanto se si interviene dopo una pioggia"
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 4
+},
+{
+"n": 25,
+"sezione": "Modulo 1: Le caratteristiche tecniche dei prodotti fitosanitari e dei loro coadiuvanti",
+"testo": "In presenza di resistenza ad un insetticida, che cosa è opportuno fare?",
+"risposte": [
+"Aumentare il dosaggio del prodotto in questione e ripetere l’intervento con maggiore frequenza",
+"Utilizzare prodotti tossici o molto tossici per eliminare gli insetti dannosi resistenti all’insetticida in questione",
+"Usare principi attivi con un differente meccanismo d’azione, ricorrendo eventualmente a mezzi alternativi come la confusione sessuale."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 5
+},
+{
+"n": 26,
+"sezione": "Modulo 1: Le caratteristiche tecniche dei prodotti fitosanitari e dei loro coadiuvanti",
+"testo": "L'uso ripetuto degli stessi erbicidi può dar luogo:",
+"risposte": [
+"Alla presenza di piante rinate della coltura precedente",
+"Alla diffusione di malerbe resistenti agli erbicidi stessi",
+"A malerbe che soffocano la coltura."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 5
+},
+{
+"n": 27,
+"sezione": "Modulo 1: Le caratteristiche tecniche dei prodotti fitosanitari e dei loro coadiuvanti",
+"testo": "Cosa si intende per prodotto fitosanitario fitotossico?",
+"risposte": [
+"Un prodotto mortale per l'uomo",
+"Un prodotto dannoso per gli animali",
+"Un prodotto che provoca danni alle colture agrarie."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 5
+},
+{
+"n": 28,
+"sezione": "Modulo 1: Le caratteristiche tecniche dei prodotti fitosanitari e dei loro coadiuvanti",
+"testo": "Quali fenomeni si possono manifestare impiegando un erbicida a dose più alta di quella consigliata?",
+"risposte": [
+"Un aumento della produzione, perché si eliminano tutte le infestanti",
+"Nessuno, se dato in pre – emergenza",
+"Fenomeni di fitotossicità per la coltura."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 5
+},
+{
+"n": 29,
+"sezione": "Modulo 1: Le caratteristiche tecniche dei prodotti fitosanitari e dei loro coadiuvanti",
+"testo": "Che cosa è la persistenza d'azione di un prodotto fitosanitario?",
+"risposte": [
+"La capacità di non essere asportato dalla pioggia",
+"La capacità di essere attivo, nel tempo, contro il parassita",
+"La capacità di agire anche durante il riposo vegetativo di una pianta."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 5
+},
+{
+"n": 30,
+"sezione": "Modulo 1: Le caratteristiche tecniche dei prodotti fitosanitari e dei loro coadiuvanti",
+"testo": "É possibile miscelare prodotti fitosanitari diversi?",
+"risposte": [
+"No, in nessun caso",
+"Sì, sempre",
+"Sì, ma previa consultazione della compatibilità in etichetta"
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 5
+},
+{
+"n": 31,
+"sezione": "Modulo 1: Le caratteristiche tecniche dei prodotti fitosanitari e dei loro coadiuvanti",
+"testo": "Prima di miscelare due prodotti fitosanitari per un trattamento, cosa bisogna fare?",
+"risposte": [
+"Preparare una dose doppia di acqua, perché i prodotti sono due",
+"Preparare due soluzioni distinte, per poi unirle per vedere che cosa succede",
+"Leggere attentamente la voce \"Compatibilità” sulle due etichette oppure informarsi adeguatamente."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 5
+},
+{
+"n": 32,
+"sezione": "Modulo 1: Le caratteristiche tecniche dei prodotti fitosanitari e dei loro coadiuvanti",
+"testo": "Quando l'operatore agricolo miscela due o più prodotti fitosanitari con intervalli di sicurezza diversi, dopo quanti giorni può effettuare la raccolta?",
+"risposte": [
+"Dopo il numero di giorni indicato per il prodotto più tossico",
+"Non prima di trenta giorni",
+"Dopo il numero di giorni indicato sul prodotto con tempo di carenza più lungo."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 6
+},
+{
+"n": 33,
+"sezione": "Modulo 1: Le caratteristiche tecniche dei prodotti fitosanitari e dei loro coadiuvanti",
+"testo": "Quali vantaggi offrono le nuove formulazioni dei prodotti fitosanitari (es. granuli idrodisperdibili, fluido microincapsulato)?",
+"risposte": [
+"Nessuno, la loro efficacia non cambia",
+"Economici, in quanto diminuisce la quantità di prodotto che viene distribuita sulla coltura",
+"Minore pericolosità per l'operatore e maggiore facilità nella preparazione della miscela"
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 6
+},
+{
+"n": 34,
+"sezione": "Modulo 1: Le caratteristiche tecniche dei prodotti fitosanitari e dei loro coadiuvanti",
+"testo": "Cosa sono i trattamenti a secco?",
+"risposte": [
+"L’impiego di diserbanti su terreno libero da colture",
+"Sono trattamenti che non hanno bisogno di acqua come mezzo disperdente",
+"Sono trattamenti eseguiti su coltura asciutta."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 6
+},
+{
+"n": 35,
+"sezione": "Modulo 1: Le caratteristiche tecniche dei prodotti fitosanitari e dei loro coadiuvanti",
+"testo": "Per la scelta del prodotto fitosanitario da utilizzarsi in un trattamento, è necessario:",
+"risposte": [
+"Scegliere un prodotto sistemico, perché se piove il trattamento è più efficace",
+"Non occorrono particolari precauzioni, purché il prodotto sia efficace",
+"Verificare in etichetta se il prodotto è autorizzato sulla coltura e sull’organismo nocivo che si vuole combattere."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 6
+},
+{
+"n": 36,
+"sezione": "Modulo 1: Le caratteristiche tecniche dei prodotti fitosanitari e dei loro coadiuvanti",
+"testo": "Un prodotto registrato per la Peronospora della vite può essere utilizzato per combattere la Peronospora del pomodoro?",
+"risposte": [
+"Sì, in quanto è un prodotto specifico per combattere la Peronospora",
+"Solo se riporta in etichetta anche il pomodoro come coltura autorizzata e la Peronospora come organismo nocivo bersaglio",
+"Sì, l’uso del prodotto è indipendente dalla coltura interessata."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 6
+},
+{
+"n": 37,
+"sezione": "Modulo 1: Le caratteristiche tecniche dei prodotti fitosanitari e dei loro coadiuvanti",
+"testo": "I prodotti fitosanitari possono essere impiegati per trattamenti in aree non agricole?",
+"risposte": [
+"Sì, purché si rispetti il tempo di carenza",
+"No, in alcun caso",
+"Solamente quando è specificato in etichetta."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 6
+},
+{
+"n": 38,
+"sezione": "Modulo 1: Le caratteristiche tecniche dei prodotti fitosanitari e dei loro coadiuvanti",
+"testo": "Se si rende necessario eseguire un trattamento in prossimità della raccolta, quale tipo di prodotto occorre impiegare?",
+"risposte": [
+"Un prodotto fitosanitario che non venga assorbito per via cutanea, onde evitare rischi a carico della salute di chi esegue la raccolta",
+"Un prodotto fitosanitario che possieda un tempo di carenza inferiore a quello fra il trattamento e la presumibile data di raccolta",
+"Qualsiasi prodotto fitosanitario, purché il prodotto raccolto venga lavato accuratamente prima della vendita."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 7
+},
+{
+"n": 39,
+"sezione": "Modulo 1: Le caratteristiche tecniche dei prodotti fitosanitari e dei loro coadiuvanti",
+"testo": "L'intervallo di sicurezza di un prodotto fitosanitario varia se si diminuisce la concentrazione di impiego?",
+"risposte": [
+"Diminuisce solo riducendo la quantità di acqua impiegata",
+"Diminuisce proporzionalmente alle concentrazioni",
+"L’intervallo di sicurezza non è un parametro variabile."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 7
+},
+{
+"n": 40,
+"sezione": "Modulo 1: Le caratteristiche tecniche dei prodotti fitosanitari e dei loro coadiuvanti",
+"testo": "È corretto impiegare un prodotto fitosanitario a dose più elevata di quella indicata in etichetta?",
+"risposte": [
+"No, mai",
+"Solo se lo prescrive un consulente abilitato nella difesa fitosanitaria",
+"Solo se usato in miscela con altri prodotti."
+],
+"esatta": 0,
+"file": "fito_vda.pdf",
+"pagina": 7
+},
+{
+"n": 41,
+"sezione": "Modulo 1: Le caratteristiche tecniche dei prodotti fitosanitari e dei loro coadiuvanti",
+"testo": "Chi può richiedere il rilascio del patentino?",
+"risposte": [
+"Tutti i lavoratori agricoli",
+"Tutti i cittadini maggiorenni",
+"Solo chi effettua i trattamenti antiparassitari con prodotti ad uso professionale"
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 7
+},
+{
+"n": 42,
+"sezione": "Modulo 1: Le caratteristiche tecniche dei prodotti fitosanitari e dei loro coadiuvanti",
+"testo": "Ogni quanti anni deve essere rinnovata l’autorizzazione all’acquisto e all’impiego dei prodotti fitosanitari?",
+"risposte": [
+"Ogni 10 anni",
+"Ogni 5 anni",
+"Ogni 3 anni."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 7
+},
+{
+"n": 43,
+"sezione": "Modulo 1: Le caratteristiche tecniche dei prodotti fitosanitari e dei loro coadiuvanti",
+"testo": "A cosa serve il nuovo patentino fitosanitario previsto dal d.lgs. 150/2012?",
+"risposte": [
+"Per la conduzione di trattrici dotate di cabine pressurizzate",
+"Per l’acquisto i prodotti fitosanitari etichettati come molto tossici, tossici e nocivi",
+"Per l’acquisto di tutti i prodotti fitosanitari ad uso professionale e i loro coadiuvanti."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 7
+},
+{
+"n": 44,
+"sezione": "Modulo 2: DIFESA FITOSANITARIA",
+"testo": "Cosa sono i trattamenti fitosanitari a calendario?",
+"risposte": [
+"Sono trattamenti effettuati a scopo preventivo in momenti fenologici prestabiliti, tenendo conto della presenza del parassita",
+"Sono trattamenti effettuati a date fisse uguali ogni anno",
+"Sono trattamenti effettuati a scopo cautelativo in momenti fenologici prestabiliti senza tenere conto della presenza del parassita."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 8
+},
+{
+"n": 45,
+"sezione": "Modulo 2: DIFESA FITOSANITARIA",
+"testo": "È corretto eseguire i trattamenti fitosanitari a calendario seguendo esclusivamente le fasi fenologiche?",
+"risposte": [
+"No, perché non si è certi che il parassita sia presente, o abbia raggiunto un livello di reale dannosità per la coltura",
+"Sì, perché così si è sicuri di colpire in tempo l'avversità da combattere",
+"Sì, ma solo se si usano prodotti insetticidi o acaricidi."
+],
+"esatta": 0,
+"file": "fito_vda.pdf",
+"pagina": 8
+},
+{
+"n": 46,
+"sezione": "Modulo 2: DIFESA FITOSANITARIA",
+"testo": "Su cosa si basa la lotta guidata?",
+"risposte": [
+"Si basa sulla valutazione del costo dell’intervento fitosanitario rispetto al danno economico previsto",
+"Si basa sull'esecuzione dei trattamenti a turni fissi in base dell'andamento climatico",
+"Si basa sulla presenza di una guida tecnica nell’ambito delle rivendite."
+],
+"esatta": 0,
+"file": "fito_vda.pdf",
+"pagina": 8
+},
+{
+"n": 47,
+"sezione": "Modulo 2: DIFESA FITOSANITARIA",
+"testo": "Come avviene la valutazione della soglia di intervento?",
+"risposte": [
+"Avviene valutando la scadenza del precedente intervento fitosanitario",
+"Avviene attraverso monitoraggi e campionamenti di campo effettuati con procedura standard e ripetibile",
+"Avviene dividendo il numero di piante presenti nel campo coltivato per il numero di trattamenti fatti in un anno."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 8
+},
+{
+"n": 48,
+"sezione": "Modulo 2: DIFESA FITOSANITARIA",
+"testo": "Cosa si intende per lotta integrata?",
+"risposte": [
+"L'utilizzo integrato di prodotti fitosanitari selettivi",
+"L’impiego di antagonisti naturali per il contenimento degli organismi dannosi",
+"L’utilizzo di tutti i fattori e le tecniche di difesa disponibili di natura chimica, fisica, agronomica, biologica e biotecnologica."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 8
+},
+{
+"n": 49,
+"sezione": "Modulo 2: DIFESA FITOSANITARIA",
+"testo": "Qual è l’obiettivo della produzione integrata?",
+"risposte": [
+"Ottenere produzioni di qualità nel rispetto del produttore, del consumatore e dell’ambiente",
+"Favorire la produzione di prodotti integrali",
+"Incentivare, attraverso aiuti economici, la costituzione di aziende ad indirizzo misto zootecnico e frutti-viticolo"
+],
+"esatta": 0,
+"file": "fito_vda.pdf",
+"pagina": 8
+},
+{
+"n": 50,
+"sezione": "Modulo 2: DIFESA FITOSANITARIA",
+"testo": "Cosa si intende per lotta biologica?",
+"risposte": [
+"La totale abolizione dell'impiego di prodotti fitosanitari molto tossici, tossici e nocivi",
+"L'uso di antagonisti naturali per contenere le popolazioni degli organismi dannosi alle colture",
+"L'impiego di qualsiasi prodotto fitosanitario, purché sia selettivo e non elimini gli insetti utili."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 9
+},
+{
+"n": 51,
+"sezione": "Modulo 2: DIFESA FITOSANITARIA",
+"testo": "Le tecniche di lotta biologica possono essere utilizzate solo in agricoltura biologica?",
+"risposte": [
+"No, anche nell’agricoltura tradizionale ed integrata, nonché nell’ambiente forestale ed urbano",
+"Sì, poiché bisogna aderire ad un regolamento comunitario specifico",
+"Sì, perché lotta e agricoltura biologica sono la stessa cosa."
+],
+"esatta": 0,
+"file": "fito_vda.pdf",
+"pagina": 9
+},
+{
+"n": 52,
+"sezione": "Modulo 2: DIFESA FITOSANITARIA",
+"testo": "Che cosa si intende per agricoltura biologica?",
+"risposte": [
+"Una tecnica agricola in cui non si esegue mai nessun tipo di trattamento contro le avversità delle piante",
+"Una tecnica agricola in cui, per la difesa delle colture, si impiegano solo prodotti irritanti o non classificati",
+"Un sistema di produzione compatibile con l’ambiente che, per la difesa delle colture, si basa sull’abolizione delle sostanze chimiche di sintesi."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 9
+},
+{
+"n": 53,
+"sezione": "Modulo 2: DIFESA FITOSANITARIA",
+"testo": "Che cosa sono gli insetti predatori?",
+"risposte": [
+"Sono insetti dannosi che vanno eliminati dalle colture agrarie",
+"È l’insieme degli insetti utili e dannosi che si possono trovare sulle colture agrarie",
+"Si tratta di particolari specie di insetti che si nutrono di insetti o di acari dannosi per le colture"
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 9
+},
+{
+"n": 54,
+"sezione": "Modulo 2: DIFESA FITOSANITARIA",
+"testo": "È importante conoscere gli stadi di sviluppo degli insetti?",
+"risposte": [
+"Sì, per definire l’epoca di intervento in relazione al prodotto impiegato",
+"No, non influisce sull’effetto del trattamento",
+"Sì, perché gli insetticidi agiscono solo sulle larve e non sugli altri stadi di sviluppo."
+],
+"esatta": 0,
+"file": "fito_vda.pdf",
+"pagina": 9
+},
+{
+"n": 55,
+"sezione": "Modulo 3: Norme per l’acquisto, la vendita, il trasporto, la conservazione e l’impiego di prodotti fitosanitari",
+"testo": "Dove possono essere acquistati i prodotti fitosanitari?",
+"risposte": [
+"Presso qualunque rivenditore, poiché non esistono vincoli o autorizzazioni particolari per la loro vendita",
+"Esclusivamente da rivenditori autorizzati",
+"Presso qualunque rivenditore, purché i prodotti siano in confezione sigillata."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 10
+},
+{
+"n": 56,
+"sezione": "Modulo 3: Norme per l’acquisto, la vendita, il trasporto, la conservazione e l’impiego di prodotti fitosanitari",
+"testo": "Possono essere acquistati prodotti fitosanitari in confezioni non sigillate o non originali?",
+"risposte": [
+"No, in nessun caso",
+"Sì, purché si tratti di prodotti registrati",
+"Sì, purché il rivenditore ne garantisca la provenienza."
+],
+"esatta": 0,
+"file": "fito_vda.pdf",
+"pagina": 10
+},
+{
+"n": 57,
+"sezione": "Modulo 3: Norme per l’acquisto, la vendita, il trasporto, la conservazione e l’impiego di prodotti fitosanitari",
+"testo": "Il patentino o il nuovo certificato all’acquisto e utilizzo di prodotti fitosanitari può essere lasciato in deposito presso il rivenditore?",
+"risposte": [
+"Sì, se gli acquisti vengono eseguiti sempre nella medesima rivendita",
+"No, perché si tratta un documento strettamente personale",
+"Sì, fino a quando il patentino non è scaduto."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 10
+},
+{
+"n": 58,
+"sezione": "Modulo 3: Norme per l’acquisto, la vendita, il trasporto, la conservazione e l’impiego di prodotti fitosanitari",
+"testo": "Quale responsabilità assume chi acquista prodotti fitosanitari ad uso professionale?",
+"risposte": [
+"Nessuna responsabilità, se il prodotto viene impiegato da parenti",
+"È responsabile solamente se il prodotto viene impiegato da persone minorenni",
+"La responsabilità diretta di un’idonea conservazione e di un impiego corretto del prodotto."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 10
+},
+{
+"n": 59,
+"sezione": "Modulo 3: Norme per l’acquisto, la vendita, il trasporto, la conservazione e l’impiego di prodotti fitosanitari",
+"testo": "Il titolare del patentino può rivendere o regalare ad altre persone prodotti fitosanitari ad uso professionale?",
+"risposte": [
+"Sì, ma solamente se è certo che il loro impiego avvenga in modo corretto",
+"No, in nessun caso",
+"Sì, se queste persone sono in possesso del patentino."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 10
+},
+{
+"n": 60,
+"sezione": "Modulo 3: Norme per l’acquisto, la vendita, il trasporto, la conservazione e l’impiego di prodotti fitosanitari",
+"testo": "Quale deve essere il comportamento nel caso in cui si manifestino delle perdite di prodotto fitosanitario, al momento del loro trasporto dal rivenditore all’azienda agricola o al momento della loro distribuzione con il mezzo irrorante?",
+"risposte": [
+"Occorre informare la Pubblica Autorità Sanitaria, lavare la strada e convogliare il residuo nei fossi",
+"Raccogliere personalmente il materiale disperso e riporlo in adeguato contenitore",
+"Informare la Pubblica Autorità Sanitaria ed Ambientale, adoperandosi comunque per evitare ulteriori danni"
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 11
+},
+{
+"n": 61,
+"sezione": "Modulo 3: Norme per l’acquisto, la vendita, il trasporto, la conservazione e l’impiego di prodotti fitosanitari",
+"testo": "Come debbono essere conservati i prodotti fitosanitari?",
+"risposte": [
+"Devono essere conservati dentro locali, recinti o armadi areati e chiusi a chiave, su cui deve essere apposta la segnaletica di sicurezza e di salute e i numeri telefonici delle emergenze",
+"Possono essere conservati in un luogo appartato dell'abitazione",
+"È sufficiente tenerli separati da sostanze alimentari o mangimi."
+],
+"esatta": 0,
+"file": "fito_vda.pdf",
+"pagina": 11
+},
+{
+"n": 62,
+"sezione": "Modulo 3: Norme per l’acquisto, la vendita, il trasporto, la conservazione e l’impiego di prodotti fitosanitari",
+"testo": "Dove devono essere detenuti i prodotti fitosanitari dall’utilizzatore professionale?",
+"risposte": [
+"In un locale qualsiasi, purché riparato dalla pioggia",
+"In un locale refrigerato, non adibito al deposito di generi alimentari e mangimi",
+"In locali idonei, non adibiti al deposito di generi alimentari o mangimi."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 11
+},
+{
+"n": 63,
+"sezione": "Modulo 3: Norme per l’acquisto, la vendita, il trasporto, la conservazione e l’impiego di prodotti fitosanitari",
+"testo": "Quale deve essere il comportamento nel caso in cui le confezioni presenti nel locale adibito a magazzino dei prodotti fitosanitari si rompano e fuoriescano quantità anche minime di prodotto fitosanitario?",
+"risposte": [
+"Occorre lavare la superficie imbrattata con acqua, convogliando il residuo nella fognatura",
+"Occorre pulire immediatamente le superfici imbrattate, raccogliendo il prodotto (se liquido, con materiale assorbente quale segatura o sabbia) per impedire che quest’ultimo finisca nella fognatura e smaltendo poi il rifiuto secondo le norme vigenti",
+"È sufficiente asciugare la superficie con una spugna o con uno strofinaccio e smaltire il rifiuto secondo le norme vigenti."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 11
+},
+{
+"n": 64,
+"sezione": "Modulo 3: Norme per l’acquisto, la vendita, il trasporto, la conservazione e l’impiego di prodotti fitosanitari",
+"testo": "Se si devono pesare prodotti fitosanitari in polvere:",
+"risposte": [
+"È meglio pesarli in un locale chiuso, così non si inquina l’ambiente",
+"È meglio pesarli all’aperto in assenza di vento, cercando di non alzare polvere e di non disperderli",
+"È meglio pesarli in un locale chiuso, ma lontano dall’abitazione."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 11
+},
+{
+"n": 65,
+"sezione": "Modulo 3: Norme per l’acquisto, la vendita, il trasporto, la conservazione e l’impiego di prodotti fitosanitari",
+"testo": "Dove è opportuno miscelare i prodotti fitosanitari?",
+"risposte": [
+"Su di un tavolo, sotto una tettoia nelle vicinanze dell'abitazione",
+"Nell’area attrezzata o nel luogo più prossimo alla coltura che si intende trattare e, in ogni caso, lontano da abitazioni, pozzi e corsi d’acqua superficiali",
+"In un locale con porta munita di serratura, separato dall'abitazione."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 12
+},
+{
+"n": 66,
+"sezione": "Modulo 3: Norme per l’acquisto, la vendita, il trasporto, la conservazione e l’impiego di prodotti fitosanitari",
+"testo": "È permesso prelevare acqua dai fossi o dai canali direttamente con mezzi irroranti?",
+"risposte": [
+"No",
+"Sì, purché si lavi il tubo aspirante prima dell'uso",
+"Sì, solo se la valvola di ritegno montata sul dispositivo di riempimento del serbatoio dell’irroratrice è perfettamente funzionante."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 12
+},
+{
+"n": 67,
+"sezione": "Modulo 3: Norme per l’acquisto, la vendita, il trasporto, la conservazione e l’impiego di prodotti fitosanitari",
+"testo": "In caso di giornata ventosa, è corretto eseguire il trattamento?",
+"risposte": [
+"Sì, se questo è veramente necessario, purché si utilizzi la maschera protettiva",
+"No, perché vi è il rischio che la nube tossica colpisca l'operatore e si sposti lontano dalla coltura trattata",
+"Sì, purché si riduca la pressione di esercizio e la velocità di avanzamento."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 12
+},
+{
+"n": 68,
+"sezione": "Modulo 3: Norme per l’acquisto, la vendita, il trasporto, la conservazione e l’impiego di prodotti fitosanitari",
+"testo": "Sono consentiti i trattamenti insetticidi, acaricidi o con altri prodotti tossici per le api, durante il periodo della fioritura?",
+"risposte": [
+"Sì, su tutte le colture",
+"Sì, ad esclusione dei frutteti",
+"In nessun caso, onde evitare di danneggiare gli insetti impollinatori."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 12
+},
+{
+"n": 69,
+"sezione": "Modulo 3: Norme per l’acquisto, la vendita, il trasporto, la conservazione e l’impiego di prodotti fitosanitari",
+"testo": "Esiste un divieto legale d’impiego dei prodotti fitosanitari in aree di rispetto intorno a pozzi o sorgenti di acque destinate al consumo umano?",
+"risposte": [
+"No",
+"Sì, entro un raggio di 50 metri e salvo deroghe specifiche",
+"Sì, entro un raggio di 200 metri."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 12
+},
+{
+"n": 70,
+"sezione": "Modulo 3: Norme per l’acquisto, la vendita, il trasporto, la conservazione e l’impiego di prodotti fitosanitari",
+"testo": "Quali precauzioni obbligatorie vanno adottate trattando in prossimità di strade, corsi d'acqua e colture confinanti?",
+"risposte": [
+"Nessuna precauzione, se il prodotto fitosanitario non è molto tossico",
+"Tutte le precauzioni possibili, affinché la nube irrorante non fuoriesca dall'appezzamento trattato",
+"Nessuna precauzione, se in assenza di vento."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 12
+},
+{
+"n": 71,
+"sezione": "Modulo 3: Norme per l’acquisto, la vendita, il trasporto, la conservazione e l’impiego di prodotti fitosanitari",
+"testo": "Soffiare dentro gli ugelli di distribuzione otturati è corretto?",
+"risposte": [
+"Sì, ma solo se non si usano prodotti molto tossici, tossici e nocivi",
+"Sì, in quanto è l'unico metodo veloce per eliminare l'otturazione",
+"No, vi è un grave rischio di intossicazione."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 12
+},
+{
+"n": 72,
+"sezione": "Modulo 3: Norme per l’acquisto, la vendita, il trasporto, la conservazione e l’impiego di prodotti fitosanitari",
+"testo": "Come si deve comportare l'operatore al termine del trattamento?",
+"risposte": [
+"Deve lavarsi le mani e lavare i vestiti",
+"Può procedere con altre operazioni senza particolari accorgimenti",
+"Deve spogliarsi e lavarsi interamente con acqua e sapone."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 13
+},
+{
+"n": 73,
+"sezione": "Modulo 3: Norme per l’acquisto, la vendita, il trasporto, la conservazione e l’impiego di prodotti fitosanitari",
+"testo": "L’emendamento alla direttiva macchine (dir. N. 127/09) prevede che:",
+"risposte": [
+"Tutti i mezzi vengano opportunamente tarati",
+"Le attrezzature irroranti di nuova fabbricazione siano progettate e costruite secondo criteri che salvaguardino la salute dell’uomo e proteggano l’ambiente da fenomeni di inquinamento",
+"Non avvenga nessuna ricaduta pratica sulle irroratrici, che al contrario interessa altre tipologie di mezzi meccanici operanti in agricoltura."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 13
+},
+{
+"n": 74,
+"sezione": "Modulo 3: Norme per l’acquisto, la vendita, il trasporto, la conservazione e l’impiego di prodotti fitosanitari",
+"testo": "In seguito all’attuazione della Dir. Ce 128/09, l’obbligo di controllo funzionale riguarda:",
+"risposte": [
+"Nessuno, è legalmente prevista solo la forma di adesione “volontaria” al servizio di controllo delle attrezzature",
+"Solo le aziende che aderiscono ad alcune misure del Piano regionale di Sviluppo Rurale o che rientrano nel contesto applicativo dell’OCM ortofrutta",
+"Tutte le aziende che utilizzano, in modo professionale, i mezzi irroranti."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 13
+},
+{
+"n": 75,
+"sezione": "Modulo 3: Norme per l’acquisto, la vendita, il trasporto, la conservazione e l’impiego di prodotti fitosanitari",
+"testo": "Il controllo funzionale, la regolazione e la manutenzione delle macchine irroratrici sono necessarie per:",
+"risposte": [
+"Fare meno trattamenti, poiché aumenta notevolmente l’efficienza dell’attrezzatura",
+"Ridurre i tempi necessari per i trattamenti, poiché si utilizzano minori quantità d’acqua",
+"Ridurre gli effetti negativi sulla salute e l’ambiente, migliorando inoltre l'efficacia dei trattamenti."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 13
+},
+{
+"n": 76,
+"sezione": "Modulo 3: Norme per l’acquisto, la vendita, il trasporto, la conservazione e l’impiego di prodotti fitosanitari",
+"testo": "È necessaria la manutenzione ordinaria alle macchine utilizzate per i trattamenti?",
+"risposte": [
+"No, visto che le nuove attrezzature sono garantite dal costruttore",
+"Sì, basta un lavaggio manuale per evitare di intasare tubi e raccordi",
+"Sì, controllando regolarmente ugelli, raccordi, tubi, rubinetti e manometri, verificandone il loro stato di usura e il calo degli standard di efficacia."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 13
+},
+{
+"n": 77,
+"sezione": "Modulo 3: Norme per l’acquisto, la vendita, il trasporto, la conservazione e l’impiego di prodotti fitosanitari",
+"testo": "Il registro dei trattamenti deve essere compilato solo per i trattamenti effettuati nelle aziende agricole?",
+"risposte": [
+"Sì, indipendentemente dalla coltura trattata",
+"No, anche per i trattamenti effettuati negli orti e giardini familiari",
+"No, anche per la difesa delle derrate alimentari e per gli impieghi extra – agricoli (verde pubblico, diserbo canali, sedi ferroviarie ecc.)."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 13
+},
+{
+"n": 78,
+"sezione": "Modulo 3: Norme per l’acquisto, la vendita, il trasporto, la conservazione e l’impiego di prodotti fitosanitari",
+"testo": "Da chi deve essere compilato il registro dei trattamenti?",
+"risposte": [
+"Va compilato dall’organizzazione professionale di categoria o dal commercialista",
+"Va compilato dall’utilizzatore professionale che, eventualmente, può anche delegare una persona diversa purché vi sia una specifica delega scritta",
+"Va compilato da chi ha venduto il prodotto utilizzato per il trattamento."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 14
+},
+{
+"n": 79,
+"sezione": "Modulo 3: Norme per l’acquisto, la vendita, il trasporto, la conservazione e l’impiego di prodotti fitosanitari",
+"testo": "Per quanti anni deve essere conservato il registro dei trattamenti?",
+"risposte": [
+"Almeno per tre anni successivi a quelli a cui si riferiscono i trattamenti",
+"Almeno per tutto l’anno successivo a quello a cui si riferiscono i trattamenti",
+"Almeno per cinque anni successivi a quelli a cui si riferiscono ei trattamenti."
+],
+"esatta": 0,
+"file": "fito_vda.pdf",
+"pagina": 14
+},
+{
+"n": 80,
+"sezione": "Modulo 3: Norme per l’acquisto, la vendita, il trasporto, la conservazione e l’impiego di prodotti fitosanitari",
+"testo": "Quali sono i rischi nell’utilizzare prodotti fitosanitari illegali?",
+"risposte": [
+"Rischi legati a frode fiscale per l’agricoltore",
+"Rischi economici per le aziende produttrici di prodotti fitosanitari",
+"Rischi per la collettività, per l’agricoltore e per le aziende."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 14
+},
+{
+"n": 81,
+"sezione": "Modulo 3: Norme per l’acquisto, la vendita, il trasporto, la conservazione e l’impiego di prodotti fitosanitari",
+"testo": "Come bisogna comportarsi all’atto dell’acquisto di prodotti fitosanitari?",
+"risposte": [
+"Occorre controllare la corretta etichettatura dei prodotti fitosanitari",
+"È sufficiente acquistare confezioni integre da rivenditori autorizzati",
+"Occorre rivolgersi unicamente a rivenditori autorizzati e controllare la corretta etichettatura dei prodotti fitosanitari."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 14
+},
+{
+"n": 82,
+"sezione": "Modulo 3: Norme per l’acquisto, la vendita, il trasporto, la conservazione e l’impiego di prodotti fitosanitari",
+"testo": "In caso di dubbi circa la provenienza e l’autenticità dei prodotti fitosanitari, cosa occorre fare?",
+"risposte": [
+"Basta abbandonare, in un cassonetto della spazzatura, i prodotti fitosanitari appena acquistati per non correre rischi",
+"Avvisare le autorità competenti, quali il Comando dei Carabinieri per le Politiche Agricole",
+"È sufficiente smaltire correttamente le confezioni sospette."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 14
+},
+{
+"n": 83,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Cosa significa il parametro della Dose Letale 50 (DL50)?",
+"risposte": [
+"Il 50% del prodotto che può essere letale per via orale, cutanea e inalatoria",
+"La dose, espressa in mg/kg di peso dell’animale, che provoca la morte del 50% degli animali da esperimento esposti al prodotto",
+"La dose, da diluire al 50%, per avere un'azione tossica per gli animali da esperimento per via ingestiva in maniera superiore a quella inalatoria."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 15
+},
+{
+"n": 84,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Cosa significa il parametro della Concentrazione Letale 50 (CL50)?",
+"risposte": [
+"La dose di aria, satura di prodotto fitosanitario, che viene somministrata a 50 animali da esperimento su un totale di 100, mentre ai rimanenti 50 animali viene somministrata dell’acqua satura di prodotto fitosanitario concentrato",
+"La concentrazione, in aria o acqua, del prodotto che agisce allo stato di gas o di vapore e che ottiene lo stesso effetto della Dose Letale 50",
+"Il 50 % del prodotto può essere letale."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 15
+},
+{
+"n": 85,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Come sono etichettati e contrassegnati i prodotti fitosanitari tossici acuti di categoria 1, 2 e 3?",
+"risposte": [
+"Sono etichettati e contrassegnati con una croce di Sant'Andrea, in un riquadro rettangolare di colore giallo – arancio",
+"Sono contrassegnati da una scritta ben visibile “Attenzione, manipolare con prudenza” e “Prodotto Molto Tossico”",
+"Sono etichettati e contrassegnati con un pittogramma a forma di losanga con fondo bianco e bordo rosso, contenente il simbolo del teschio su tibie incrociate di colore nero."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 15
+},
+{
+"n": 86,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Come sono etichettati e contrassegnati i prodotti fitosanitari tossici acuti di categoria 4?",
+"risposte": [
+"Sono etichettati e contrassegnati con il simbolo di pericolo T, con teschio su tibie incrociate di colore nero in campo giallo – arancione e l’indicazione di pericolo \"Tossico”",
+"Sono contrassegnati da una scritta ben visibile “Attenzione, manipolare con prudenza” e “Prodotto Tossico”",
+"Sono etichettati e contrassegnati con un pittogramma a forma di losanga con fondo bianco e bordo rosso, contenente il simbolo del punto esclamativo di colore nero con avvertenza sottostante di “Attenzione”."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 15
+},
+{
+"n": 87,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Come sono etichettati e contrassegnati i prodotti fitosanitari “Tossici sulla prole per gli effetti della lattazione”?",
+"risposte": [
+"Non è previsto alcun pittogramma e avvertenza, ma è prevista l’indicazione di pericolo “H”",
+"Sono etichettati e contrassegnati con il simbolo di pericolo “T”, con un teschio su tibie incrociate di colore nero in campo giallo – arancione e l’indicazione di pericolo “Tossico”",
+"Sono etichettati e contrassegnati con un pittogramma a forma di losanga con fondo bianco e bordo rosso, contenente il simbolo del punto esclamativo di colore nero con avvertenza sottostante di “Attenzione”."
+],
+"esatta": 0,
+"file": "fito_vda.pdf",
+"pagina": 16
+},
+{
+"n": 88,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Il punto esclamativo si trova solo su prodotti tossici di categoria 4?",
+"risposte": [
+"Sì, sempre",
+"Indica solo i prodotti tossici e contemporaneamente infiammabili",
+"No, anche sui prodotti irritanti e sensibilizzanti per la pelle"
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 16
+},
+{
+"n": 89,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Come sono etichettati e contrassegnati i prodotti fitosanitari sensibilizzanti per inalazione?",
+"risposte": [
+"Sono etichettati e contrassegnati con un teschio nero su ossa incrociate inserite in un quadrato rettangolare di colore giallo – arancio e la scritta “Irritante”",
+"Sono etichettati e contrassegnati con un pittogramma a forma di losanga con fondo bianco e bordo rosso, contenente il simbolo della persona danneggiata di colore nero con avvertenza sottostante di pericolo",
+"Sono contrassegnati solo con scritta “Nocivo”, senza nessun contrassegno o disegno particolare."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 16
+},
+{
+"n": 90,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Come sono etichettati e contrassegnati i prodotti fitosanitari sensibilizzanti per contatto con la pelle?",
+"risposte": [
+"Sono etichettati e contrassegnati con un teschio nero su ossa incrociate inserite in un quadrato rettangolare di colore giallo – arancio e la scritta “Irritante”",
+"Sono contrassegnati dalla sola scritta “Nocivo” senza disegni particolari, ma il colore è sempre giallo – arancio",
+"Sono etichettati e contrassegnati con un pittogramma a forma di losanga con fondo bianco e bordo rosso, contenente il simbolo del punto esclamativo di colore nero con avvertenza sottostante di “Attenzione”"
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 16
+},
+{
+"n": 91,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Come sono etichettati e contrassegnati i prodotti fitosanitari irritanti per le vie respiratorie?",
+"risposte": [
+"Sono contrassegnati da una «I», inserita su di un quadrato di color arancio",
+"Sono etichettati e contrassegnati con il simbolo di pericolo “Xi”, con croce di S. Andrea nera in campo giallo – arancione e l’indicazione di pericolo \"Irritante”",
+"Sono etichettati e contrassegnati con un pittogramma a forma di losanga con fondo bianco e bordo rosso, contenente il simbolo del punto esclamativo di colore nero con avvertenza sottostante di “Attenzione”."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 16
+},
+{
+"n": 92,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Come sono etichettati e contrassegnati i prodotti fitosanitari cancerogeni, mutageni e tossici per il ciclo riproduttivo di categoria 2?",
+"risposte": [
+"Sono etichettati e contrassegnati con un pittogramma a forma di losanga con fondo bianco e bordo rosso, contenente il simbolo della persona danneggiata di colore nero con avvertenza sottostante di “Attenzione”",
+"Sono contrassegnati dalla sola scritta “Nocivo”, senza nessun contrassegno e disegno particolare",
+"Sono etichettati e contrassegnati con il simbolo di pericolo “Xn”, con croce di S. Andrea nera in campo giallo – arancio e l’indicazione di pericolo \"Nocivo”."
+],
+"esatta": 0,
+"file": "fito_vda.pdf",
+"pagina": 17
+},
+{
+"n": 93,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Come si fa a capire se un prodotto fitosanitario è nocivo per inalazione?",
+"risposte": [
+"Lo si deduce dalla lettura del simbolo di pericolo",
+"Lo si deduce dalla lettura del nome commerciale del prodotto fitosanitario",
+"Lo si deduce dalla lettura delle frasi di rischio nell’etichettatura di pericolo."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 17
+},
+{
+"n": 94,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Come sono etichettati e contrassegnati i prodotti fitosanitari facilmente infiammabili?",
+"risposte": [
+"Sono etichettati e contrassegnati da un pittogramma a forma di losanga con fondo bianco e bordo rosso, contenente una fiamma di colore nero con avvertenza sottostante di “Pericolo”",
+"Sono etichettati e contrassegnati con il simbolo di pericolo “F”, con fiamma nera in campo giallo – arancione e l’indicazione di pericolo “Facilmente infiammabile”",
+"Sono etichettati e contrassegnati con una croce di Sant'Andrea in un riquadro rettangolare di colore giallo – arancio e la scritta “Infiammabile”."
+],
+"esatta": 0,
+"file": "fito_vda.pdf",
+"pagina": 17
+},
+{
+"n": 95,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Un prodotto fitosanitario non classificato pericoloso può contenere sostanze pericolose per la salute dell’uomo?",
+"risposte": [
+"Sì, può contenere sostanze molto pericolose anche se in piccole quantità",
+"No, perché non è classificato pericoloso",
+"No, perché non è obbligatorio ottenere la scheda di sicurezza."
+],
+"esatta": 0,
+"file": "fito_vda.pdf",
+"pagina": 17
+},
+{
+"n": 96,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Che cosa si intende per etichettatura di pericolo dei prodotti fitosanitari?",
+"risposte": [
+"L’insieme del pittogramma, delle avvertenze, delle indicazioni di pericolo, dei consigli di prudenza con il nome del prodotto fitosanitario e dell’impresa che lo ha immesso in commercio",
+"L’etichetta che deve essere apposta per legge sulle confezioni di tutti i prodotti chimici",
+"Il simbolo di pericolo presente sull’etichetta delle confezioni."
+],
+"esatta": 0,
+"file": "fito_vda.pdf",
+"pagina": 17
+},
+{
+"n": 97,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Ottenere la scheda di sicurezza dei prodotti fitosanitari è obbligatorio?",
+"risposte": [
+"Sempre, per prodotti pericolosi e non pericolosi contenenti almeno una sostanza pericolosa",
+"Sempre, ma solo per confezioni con contenuto superiore a 1 litro",
+"No, non è obbligatorio ottenere la scheda di sicurezza per i prodotti fitosanitari non classificati pericolosi."
+],
+"esatta": 0,
+"file": "fito_vda.pdf",
+"pagina": 17
+},
+{
+"n": 98,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "A cosa serve la scheda di sicurezza di un prodotto fitosanitario per un utilizzatore professionale qualunque?",
+"risposte": [
+"Serve per scegliere le necessarie misure di prevenzione e protezione per l’uomo e l’ambiente",
+"Serve solo quando si impiegano prodotti molto tossici, tossici e nocivi",
+"Serve per adottare un corretto smaltimento dei contenitori dei prodotti fitosanitari."
+],
+"esatta": 0,
+"file": "fito_vda.pdf",
+"pagina": 18
+},
+{
+"n": 99,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Come ci si deve comportare se non viene consegnata la scheda di sicurezza di un prodotto fitosanitario all’atto del primo acquisto?",
+"risposte": [
+"Si attende che venga consegnata in un secondo momento",
+"Se non viene consegnata, vuol dire che non è necessaria",
+"La si richiede obbligatoriamente al rivenditore."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 18
+},
+{
+"n": 100,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "La scheda di sicurezza di un prodotto fitosanitario può essere consegnata su CD o per via elettronica?",
+"risposte": [
+"Sì, solo se si dichiara di essere in possesso di un computer collegato ad Internet",
+"No, la scheda dei dati di sicurezza deve essere consegnata sempre a mano in fotocopia cartacea",
+"La si richiede obbligatoriamente al rivenditore."
+],
+"esatta": 0,
+"file": "fito_vda.pdf",
+"pagina": 18
+},
+{
+"n": 101,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Si incorre in sanzioni se non si è in possesso della scheda di dati di sicurezza di un prodotto fitosanitario in fase di utilizzo?",
+"risposte": [
+"Sì, anche fino a € 18.000,00",
+"Se non viene consegnata, non si incorre in alcuna sanzione",
+"Solo il rivenditore viene sanzionato."
+],
+"esatta": 0,
+"file": "fito_vda.pdf",
+"pagina": 18
+},
+{
+"n": 102,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "A cosa serve la scheda dei dati di sicurezza di un prodotto fitosanitario per un datore di lavoro?",
+"risposte": [
+"Serve solo quando si impiegano prodotti molto tossici",
+"Serve prevalentemente per valutare il rischio da agenti chimici pericolosi e per scegliere le necessarie misure di prevenzione e protezione per l’uomo e l’ambiente",
+"Serve per adottare un corretto smaltimento dei contenitori."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 18
+},
+{
+"n": 103,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "È prevista la scheda di dati di sicurezza (SDS) per i prodotti fitosanitari solo infiammabili, ma non pericolosi per la salute?",
+"risposte": [
+"No, la SDS deve essere consegnata solo per i prodotti fitosanitari pericolosi",
+"No, i prodotti fitosanitari infiammabili non sono mai pericolosi per la salute",
+"Sì, la SDS deve essere consegnata per tutti i prodotti fitosanitari pericolosi."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 18
+},
+{
+"n": 104,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Cosa si intende per intervallo di sicurezza?",
+"risposte": [
+"L'intervallo, espresso in giorni, che deve intercorrere tra un trattamento e l'altro",
+"L'intervallo di tempo, espresso in giorni, che deve intercorrere tra l'ultimo trattamento e la raccolta o la messa in commercio di derrate alimentari immagazzinate (qualora trattate in magazzino)",
+"L'intervallo di tempo, espresso in giorni, dopo il quale diventa accessibile il terreno trattato."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 19
+},
+{
+"n": 105,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Se si effettuano trattamenti della frutta in post-raccolta, prima di immetterla sul mercato è necessario:",
+"risposte": [
+"Pulirla in maniera che non restino tracce evidenti del trattamento",
+"Lavarla, se la si utilizza prima del giorno di scadenza del periodo di sicurezza",
+"Rispettare comunque i tempi di carenza del prodotto impiegato."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 19
+},
+{
+"n": 106,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Il lavaggio e la conservazione dei prodotti ortofrutticoli successivi al trattamento modificano l'intervallo di sicurezza di un prodotto fitosanitario applicato in campo?",
+"risposte": [
+"Sì, il periodo di sicurezza viene annullato",
+"No, il periodo di sicurezza rimane inalterato",
+"Sì, il periodo di sicurezza viene ridotto"
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 19
+},
+{
+"n": 107,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Nel caso di vegetali destinati alla trasformazione industriale o surgelati, si deve o no tenere conto dell'intervallo di sicurezza?",
+"risposte": [
+"Sì, sempre",
+"No, se i prodotti vengono lavati con acqua calda",
+"No, mai."
+],
+"esatta": 0,
+"file": "fito_vda.pdf",
+"pagina": 19
+},
+{
+"n": 108,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Il tempo di carenza è indicato in etichetta?",
+"risposte": [
+"Sì, sempre",
+"No, è a discrezione della ditta produttrice del formulato inserire o meno tale indicazione",
+"No, mai."
+],
+"esatta": 0,
+"file": "fito_vda.pdf",
+"pagina": 19
+},
+{
+"n": 109,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Dovendo fare un trattamento su coltura ortiva a raccolta scalare:",
+"risposte": [
+"Bisogna rispettare i tempi di carenza soltanto per l'ultima raccolta",
+"Non si considerano i tempi di carenza, in quanto la raccolta è scalare",
+"Bisogna rispettare sempre il tempo di carenza, fin dalla prima raccolta."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 19
+},
+{
+"n": 110,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Cosa si intende per limite di tolleranza?",
+"risposte": [
+"Il residuo massimo di prodotto fitosanitario tollerato sui prodotti agricoli freschi o sulle derrate immesse al consumo",
+"La quantità massima di prodotto fitosanitario che è possibile distribuire in campo senza arrecare danni all’ambiente",
+"La dose massima di prodotto fitosanitario tollerata dalla pianta, affinché non si verifichino delle ustioni o comunque fenomeni di fitotossicità."
+],
+"esatta": 0,
+"file": "fito_vda.pdf",
+"pagina": 19
+},
+{
+"n": 111,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Che cosa si intende per residuo ammesso o limite di tolleranza di un prodotto fitosanitario?",
+"risposte": [
+"La percentuale di sostanza attiva presente nel prodotto commerciale",
+"La quantità massima di prodotto fitosanitario che può essere presente sui prodotti destinati all’alimentazione",
+"La quantità di prodotto fitosanitario che rimane nella botte al termine del trattamento."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 20
+},
+{
+"n": 112,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Che cosa è il tempo di rientro per l’operatore agricolo?",
+"risposte": [
+"L’intervallo di tempo tra il trattamento eseguito con un prodotto sistemico ed il suo assorbimento all’interno della pianta",
+"L’intervallo di tempo tra il trattamento e il rientro nell’area trattata per svolgere attività lavorative senza mezzi protettivi",
+"L’intervallo di tempo tra il momento in cui si esegue il trattamento e il rientro in azienda."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 20
+},
+{
+"n": 113,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Quando in etichetta non è indicato il tempo di rientro per l’operatore agricolo quanto tempo è consigliabile aspettare prima di entrare nelle aree trattate senza misure protettive?",
+"risposte": [
+"Almeno 48 ore",
+"1 ora",
+"Non è necessario aspettare tempo, ne rispettare nessuna misura protettiva in quanto in etichetta non è descritta nessuna precauzione"
+],
+"esatta": 0,
+"file": "fito_vda.pdf",
+"pagina": 20
+},
+{
+"n": 114,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Non rispettando le norme precauzionali per l'uso dei prodotti fitosanitari a quale rischio per la salute si sottopone l'operatore?",
+"risposte": [
+"Solo una intossicazione acuta",
+"Intossicazione acuta, intossicazione cronica e sviluppo di malattie",
+"Solo una intossicazione cronica e lo sviluppo di malattie allergiche."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 20
+},
+{
+"n": 115,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Quando si può verificare un’intossicazione acuta?",
+"risposte": [
+"Quando l’organismo è esposto, in tempi brevi, a quantità elevate di sostanze pericolose per la salute",
+"Quando l’organismo è esposto a quantità relativamente piccole di prodotti fitosanitari",
+"Quando l’organismo è esposto a prodotti fitosanitari classificati solo molto tossici e tossici."
+],
+"esatta": 0,
+"file": "fito_vda.pdf",
+"pagina": 20
+},
+{
+"n": 116,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Quando si può verificare un’intossicazione cronica?",
+"risposte": [
+"Solo se l’organismo è esposto, in tempi brevi, a quantità elevate di sostanze pericolose per la salute",
+"Successivamente ad una esposizione prolungata a quantità relativamente piccole di prodotti fitosanitari",
+"Solo quando l’organismo è esposto a prodotti fitosanitari solo classificati tossici e molto tossici"
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 20
+},
+{
+"n": 117,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Attraverso quali vie d’assorbimento dell’uomo può avvenire un’intossicazione acuta?",
+"risposte": [
+"Solamente per ingestione",
+"Solamente per contatto con le mani e con il corpo",
+"Per ingestione, per contatto o per inalazione."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 21
+},
+{
+"n": 118,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Attraverso quali vie d’assorbimento dell’uomo può avvenire un’intossicazione cronica?",
+"risposte": [
+"Solamente per ingestione",
+"Per ingestione, per contatto e per inalazione",
+"Particolarmente per ingestione e per contatto con le mani"
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 21
+},
+{
+"n": 119,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "All'insorgere di un’intossicazione che si ritiene collegata con l'impiego dei prodotti fitosanitari, com’è opportuno comportarsi?",
+"risposte": [
+"Bere del latte e distendersi per qualche ora",
+"Provocare il vomito e mettersi a riposo",
+"Chiamare immediatamente il 112 per il trasporto in ospedale."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 21
+},
+{
+"n": 120,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Nel caso di intossicazione acuta da prodotti fitosanitari, quali provvedimenti immediati occorre adottare?",
+"risposte": [
+"Lavare l'intossicato con acqua e somministrare una bevanda calda",
+"Mettere a letto l’intossicato, chiamare il medico curante facendogli vedere il luogo dell’intossicazione",
+"Chiamare il 112, trasportare l’intossicato lontano dal luogo della contaminazione, spogliarlo e lavarlo con acqua e non somministrare alcuna bevanda, consegnando al personale sanitario la scheda di scurezza del prodotto che ha causato l’intossicazione"
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 21
+},
+{
+"n": 121,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "All'insorgere di un malessere che si ritiene collegato con l'impiego dei prodotti fitosanitari, come è opportuno comportarsi?",
+"risposte": [
+"Bere del latte e distendersi per qualche ora",
+"Provocare il vomito e mettersi a riposo",
+"Rivolgersi al pronto soccorso portando con sé la scheda di sicurezza o l’etichetta dei prodotti utilizzati."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 21
+},
+{
+"n": 122,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "In caso di malessere o di intossicazione che si ritiene collegata con l'impiego dei prodotti fitosanitari, quale documentazione è necessario portare con sé al pronto soccorso?",
+"risposte": [
+"Il registro dei trattamenti eseguiti nei 30 giorni precedenti all’intossicazione",
+"La scheda di sicurezza del prodotto fitosanitario recentemente impiegato",
+"Il certificato di abilitazione all’acquisto e utilizzo o il patentino fitosanitario."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 21
+},
+{
+"n": 123,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "A quale categoria europea appartengono i dispositivi di protezione individuale (DPI) per il rischio d’esposizione a prodotti fitosanitari?",
+"risposte": [
+"Alla prima categoria",
+"Alla terza categoria",
+"Alla seconda categoria."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 22
+},
+{
+"n": 124,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Quali sono i requisiti essenziali di salute e di sicurezza che deve possedere un DPI?",
+"risposte": [
+"Dichiarazione di conformità CE, marcatura CE, nota informativa",
+"Nota tecnica illustrativa",
+"Marcatura CE."
+],
+"esatta": 0,
+"file": "fito_vda.pdf",
+"pagina": 22
+},
+{
+"n": 125,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Come deve essere la tuta protettiva degli addetti ai trattamenti?",
+"risposte": [
+"Di fattura comune",
+"Di qualsiasi tipo, purché pulita",
+"Deve possedere la marcatura e la dichiarazione di conformità CE, la nota informativa scritta e che indichi che è in grado di proteggere dal contatto con prodotti fitosanitari."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 22
+},
+{
+"n": 126,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Qual è il miglior tipo di protezione che deve garantire una tuta da impiegare per trattamenti fitosanitari con trattori non in possesso della cabina pressurizzata?",
+"risposte": [
+"Una tuta tipo 3, 4, 5, 6",
+"Una tuta tipo 5 e 6",
+"Una tuta tipo 6."
+],
+"esatta": 0,
+"file": "fito_vda.pdf",
+"pagina": 22
+},
+{
+"n": 127,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "A quale categoria appartengono i guanti in nitrile ed in neoprene da indossare quando si aprono le confezioni dei prodotti fitosanitari?",
+"risposte": [
+"Alla 1ª categoria",
+"Alla 2ª categoria",
+"Alla 3ª categoria."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 22
+},
+{
+"n": 128,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Per proteggere le mani durante l'impiego dei prodotti fitosanitari è opportuno utilizzare guanti:",
+"risposte": [
+"In pelle scamosciata",
+"In tessuto non tessuto",
+"Con pittogramma di protezione dal rischio chimico."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 22
+},
+{
+"n": 129,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Qual è il tipo di DPI per la protezione delle vie respiratorie più idoneo per un operatore agricolo che sta aprendo le confezioni di prodotti fitosanitari etichettati e contrassegnati con i simboli di pericolo del Molto Tossico, Tossico o Nocivo e che ha barba o basette lunghe?",
+"risposte": [
+"Semi – maschera o quarto di maschera",
+"Casco elettroventilato",
+"Facciale filtrante."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 22
+},
+{
+"n": 130,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Il filtro combinato per la protezione da polveri e gas che si producono nell’uso dei prodotti fitosanitari a quale categoria deve appartenere?",
+"risposte": [
+"Alla 1ª categoria",
+"Alla 2ª categoria",
+"Alla 3ª categoria."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 23
+},
+{
+"n": 131,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Con quali colori è contrassegnato un filtro combinato per polveri e gas che si producono nell’uso dei prodotti fitosanitari?",
+"risposte": [
+"Grigio – bianco",
+"Bianco – marrone",
+"Bianco – grigio – marrone."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 23
+},
+{
+"n": 132,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Nei trattamenti fitosanitari qual è il tipo di filtro che devono avere le trattrici con cabina pressurizzata?",
+"risposte": [
+"Non è necessario il filtro, quando il prodotto fitosanitario non è pericoloso",
+"Un filtro combinato in grado di trattenere polveri, vapori e nebbie",
+"Un filtro idoneo solo per polveri di prodotti fitosanitari molto tossici, tossici e nocivi."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 23
+},
+{
+"n": 133,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Come devono essere conservati i DPI?",
+"risposte": [
+"Appesi, in luogo fresco e riparato",
+"Insieme agli altri abiti da lavoro",
+"In luoghi asciutti e puliti, lontano dalla portata dei bambini."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 23
+},
+{
+"n": 134,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Quale manutenzione richiede la maschera che viene usata durante il trattamento?",
+"risposte": [
+"Deve essere lavata dopo l'uso, separando il filtro che va sostituito frequentemente e seguendo le indicazioni del costruttore",
+"Va revisionata almeno una volta all'anno presso il rivenditore autorizzato che rilascia sempre un attestato di conformità CE",
+"Va lavata con acqua e sapone dopo ogni utilizzo."
+],
+"esatta": 0,
+"file": "fito_vda.pdf",
+"pagina": 23
+},
+{
+"n": 135,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Per quale categoria di dispositivi di protezione individuale (DPI) è obbligatorio l’addestramento dei lavoratori?",
+"risposte": [
+"Solo per i DPI di 3ª categoria",
+"Per i DPI per l’udito e di 3ª categoria",
+"Per tutte le categorie."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 23
+},
+{
+"n": 136,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Per quale categoria di dispositivi di protezione individuale (DPI) è obbligatoria la formazione dei lavoratori?",
+"risposte": [
+"Solo per i DPI di 3ª categoria",
+"Per i DPI per l’udito di 3ª categoria",
+"Per tutte le categorie."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 23
+},
+{
+"n": 137,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Un prodotto fitosanitario non classificato pericoloso è un agente chimico pericoloso?",
+"risposte": [
+"Sì, perché può essere pericoloso durante l’impiego",
+"No, perché non è classificato pericoloso",
+"No, perché non è obbligatorio ottenere la scheda di sicurezza."
+],
+"esatta": 0,
+"file": "fito_vda.pdf",
+"pagina": 24
+},
+{
+"n": 138,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Quali sono le misure preventive e protettive da adottare obbligatoriamente quando vi è un rischio chimico rilevante per la salute e la sicurezza dei lavoratori?",
+"risposte": [
+"I dispositivi di protezione individuale",
+"Tutte le misure specifiche di prevenzione e protezione, le disposizioni in caso d’incidenti, la sorveglianza sanitaria, la formazione e l’informazione",
+"Le visite mediche e i dispositivi di protezione individuale."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 24
+},
+{
+"n": 139,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Le misure preventive e protettive più idonee per l’impiego dei prodotti fitosanitari:",
+"risposte": [
+"Sono quelle che vengono impiegate nelle aziende agricole del comune di residenza",
+"Sono quelle conseguenti alla valutazione del rischio chimico della propria azienda",
+"Sono quelle che vengono richieste dai lavoratori."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 24
+},
+{
+"n": 140,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Chi è abilitato ad effettuare le visite mediche nelle aziende agricole?",
+"risposte": [
+"Il medico scelto mediante il sistema delle prenotazioni specialistiche",
+"Il medico curante scelto dai singoli lavoratori",
+"Il medico competente nominato dal datore di lavoro."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 24
+},
+{
+"n": 141,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "È obbligatorio sostituire un prodotto fitosanitario pericoloso con uno meno pericoloso per la salute dei lavoratori?",
+"risposte": [
+"No, se è un prodotto fitosanitario che usano tutte le aziende agricole",
+"Sì, solo se è descritto nella scheda di sicurezza",
+"Sì, nel caso esista un prodotto di pari efficacia fitosanitaria."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 24
+},
+{
+"n": 142,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Quali sono le disposizioni in caso d’incidente o d’emergenza?",
+"risposte": [
+"I dispositivi di protezione individuale",
+"Le misure antincendio e di primo soccorso e le procedure da osservare in situazioni pericolose",
+"Solo le visite mediche"
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 24
+},
+{
+"n": 143,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Per effettuare i trattamenti fitosanitari in modo da soddisfare gli obblighi in materia di salute e di sicurezza sul lavoro il lavoratore deve:",
+"risposte": [
+"Essere informato sul rispetto dell’orario di lavoro e formato a lavorare in qualsiasi circostanza atmosferica",
+"Essere informato dei rischi, formato sui rischi ed addestrato all’uso delle misure protettive",
+"Partecipare ad uno specifico corso di informazione e di formazione."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 25
+},
+{
+"n": 144,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "È sanzionato l’agricoltore che non esegue l’informazione, la formazione e l’addestramento dei propri lavoratori all’impiego dei prodotti fitosanitari?",
+"risposte": [
+"No, in alcun caso",
+"Sì, con una ammenda fino a € 4.000,00",
+"Sì, ma solo se il lavoratore non è in possesso del patentino."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 25
+},
+{
+"n": 145,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "È sanzionato un lavoratore che nell’impiego dei prodotti fitosanitari non rispetta l’informazione, la formazione e l’addestramento che gli ha fornito il datore di lavoro?",
+"risposte": [
+"No",
+"Sì, ma solo se il lavoratore non è in possesso del patentino",
+"Sì, con una ammenda superiore a € 600,00."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 25
+},
+{
+"n": 146,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Chi è responsabile di eventuali danni agronomici e ambientali o di intossicazione verso terzi che potrebbero verificarsi in seguito all'uso scorretto dei prodotti fitosanitari etichettati con i simboli di pericolo del molto tossico, tossico e nocivo?",
+"risposte": [
+"Chiunque abbia effettuato il trattamento, in possesso dei necessari requisiti professionali, ed il titolare del patentino che ha acquistato il prodotto fitosanitario",
+"Chi ha venduto il prodotto",
+"Solo chi ha effettuato il trattamento."
+],
+"esatta": 0,
+"file": "fito_vda.pdf",
+"pagina": 25
+},
+{
+"n": 147,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Chi è responsabile di eventuali intossicazioni conseguenti al cattivo uso del DPI per la protezione delle vie respiratorie?",
+"risposte": [
+"Chi non ha cambiato il filtro del DPI e si è dimenticato di leggere attentamente la nota informativa",
+"Chi ha venduto il prodotto fitosanitario e non ha rilasciato un attestato di conformità CE, la nota informativa e una dichiarazione di conformità CE",
+"Il datore di lavoro che ha acquistato il prodotto fitosanitario e/o chi, pur informato, formato ed addestrato, ha utilizzato scorrettamente il DPI."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 25
+},
+{
+"n": 148,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "È consentito che una donna in gravidanza od in allattamento od un giovane di età inferiore a 18 anni collabori ai trattamenti con prodotti fitosanitari?",
+"risposte": [
+"Sì, in ogni caso",
+"Sì, se si è provvisti di DPI",
+"No, in nessun caso."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 25
+},
+{
+"n": 149,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "È vietato che una donna in gravidanza o fino a sette mesi dopo il parto od un giovane di età inferiore a 18 anni collabori ai trattamenti con prodotti fitosanitari tossici acuti di categoria 1,2 e 3?",
+"risposte": [
+"Sì, in ogni caso",
+"No, se si è provvisti di DPI",
+"No, se si usa il casco elettroventilato."
+],
+"esatta": 0,
+"file": "fito_vda.pdf",
+"pagina": 26
+},
+{
+"n": 150,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "È sanzionato il datore di lavoro che non fa eseguire le visite mediche obbligatorie ai propri lavoratori che impiegano i prodotti fitosanitari?",
+"risposte": [
+"No",
+"Sì, ma solo se il lavoratore non è in possesso del patentino",
+"Sì, qualora il lavoratore sia esposto a un rischio rilevante per la salute."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 26
+},
+{
+"n": 151,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Sono sanzionati i datori di lavoro che non adempiono agli obblighi in materia di tutela della salute e sicurezza sul lavoro relativi al contratto d’appalto o al contratto d’opera fra l’agricoltore e le imprese appaltatrici o i contoterzisti?",
+"risposte": [
+"No",
+"Sì, anche penalmente",
+"Sì, con una ammenda fino a € 5.000,00 euro ma solo se il lavoratore non è in possesso del patentino."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 26
+},
+{
+"n": 152,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Cosa deve verificare un agricoltore che affida i trattamenti fitosanitari ad un contoterzista?",
+"risposte": [
+"Deve verificare almeno l’iscrizione alla Camera di commercio, il possesso del patentino e del tesserino di riconoscimento",
+"Deve verificare almeno l’iscrizione ad una associazione di categoria e del tesserino di riconoscimento",
+"Deve verificare almeno l’iscrizione ad una associazione di categoria, il possesso del patentino e del tesserino di riconoscimento."
+],
+"esatta": 0,
+"file": "fito_vda.pdf",
+"pagina": 26
+},
+{
+"n": 153,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Un agricoltore che affida i trattamenti fitosanitari ad un contoterzista deve opportunamente:",
+"risposte": [
+"Consegnare un elenco di comportamenti corretti da eseguire sempre nella propria azienda",
+"Predisporre e concordare un adeguato contratto d’appalto con adozione di specifiche misure di prevenzione e protezione",
+"Richiedere un’autocertificazione dove venga evidenziata un’elevata capacità professionale."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 26
+},
+{
+"n": 154,
+"sezione": "Modulo 4: La valutazione di pericolosità dei prodotti fitosanitari, effetti sulla salute e modalità di prevenzione",
+"testo": "Chi è responsabile di un impiego dei prodotti fitosanitari a uso professionale non conforme all’etichettatura presente nelle confezioni?",
+"risposte": [
+"L’utilizzatore professionale di prodotti fitosanitari",
+"Il rivenditore di prodotti fitosanitari",
+"Il proprietario dell’azienda agricola, anche se ha delegato un utilizzatore ai trattamenti sulle sue colture."
+],
+"esatta": 0,
+"file": "fito_vda.pdf",
+"pagina": 27
+},
+{
+"n": 155,
+"sezione": "Modulo 5: I rischi e le precauzioni per l’ambiente e la tutela della biodiversità in aree protette",
+"testo": "L’impiego dei prodotti fitosanitari può causare danni all’ambiente?",
+"risposte": [
+"No, se il prodotto fitosanitario non è tossico acuto di categoria 1,2 o 3",
+"Sì, i prodotti fitosanitari possono contaminare suolo, aria e le acque superficiali se non utilizzati correttamente e secondo le dosi consigliate",
+"Sì, ma solo se in azienda vi sono corpi idrici superficiali o pozzi."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 28
+},
+{
+"n": 156,
+"sezione": "Modulo 5: I rischi e le precauzioni per l’ambiente e la tutela della biodiversità in aree protette",
+"testo": "I contenitori dei prodotti fitosanitari possono essere utilizzati per altri scopi?",
+"risposte": [
+"Sì, solo quelli dei prodotti meno pericolosi",
+"No, mai",
+"Sì, purché siano debitamente lavati e non siano adibiti a contenere sostanze alimentari."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 28
+},
+{
+"n": 157,
+"sezione": "Modulo 5: I rischi e le precauzioni per l’ambiente e la tutela della biodiversità in aree protette",
+"testo": "Gli agricoltori professionisti possono immettere i contenitori usati dei prodotti fitosanitari nei cassonetti dei rifiuti urbani?",
+"risposte": [
+"No, mai",
+"Sì, solo nei Comuni dove sono presenti gli inceneritori",
+"Sì, purché provvedano a bonificarli preventivamente con lavaggio."
+],
+"esatta": 0,
+"file": "fito_vda.pdf",
+"pagina": 28
+},
+{
+"n": 158,
+"sezione": "Modulo 5: I rischi e le precauzioni per l’ambiente e la tutela della biodiversità in aree protette",
+"testo": "È consentito abbandonare o disperdere i contenitori vuoti di prodotti fitosanitari?",
+"risposte": [
+"No, in nessun caso",
+"Sì, ma solo in attesa di interrarli",
+"Sì, purché lontano da sorgenti o corsi d'acqua."
+],
+"esatta": 0,
+"file": "fito_vda.pdf",
+"pagina": 28
+},
+{
+"n": 159,
+"sezione": "Modulo 5: I rischi e le precauzioni per l’ambiente e la tutela della biodiversità in aree protette",
+"testo": "I contenitori vuoti dei prodotti fitosanitari utilizzati da agricoltori professionisti debbono essere:",
+"risposte": [
+"Conferiti per lo smaltimento alla piattaforma individuata dalla Regione (per la Valle d’Aosta, l’Enval srl) previa sottoscrizione di apposita convenzione (solo per iscritti a Coldiretti), o conferiti a ditte specializzate nello smaltimento rifiuti previa iscrizione al Registro Nazionale dei Gestori Ambientali",
+"Sotterrati in luogo lontano dall'abitazione",
+"Bonificati e custoditi in luogo non accessibile, in attesa di un loro possibile riutilizzo."
+],
+"esatta": 0,
+"file": "fito_vda.pdf",
+"pagina": 28
+},
+{
+"n": 160,
+"sezione": "Modulo 5: I rischi e le precauzioni per l’ambiente e la tutela della biodiversità in aree protette",
+"testo": "Quali rischi possono provenire dai contenitori vuoti dei prodotti fitosanitari se non opportunamente bonificati e gestiti?",
+"risposte": [
+"Nessuno, se il contenitore è di materiale non infiammabile",
+"Intossicazioni a chi ne viene a contatto ed inquinamento ambientale",
+"Deturpamento del paesaggio ed inquinamento delle acque e del suolo."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 28
+},
+{
+"n": 161,
+"sezione": "Modulo 5: I rischi e le precauzioni per l’ambiente e la tutela della biodiversità in aree protette",
+"testo": "Cosa ne deve fare l’agricoltore professionista dei contenitori vuoti di prodotti fitosanitari?",
+"risposte": [
+"Deve conferiti per lo smaltimento alla piattaforma individuata dalla Regione (per la Valle d’Aosta, l’Enval srl) previa sottoscrizione di apposita convenzione (solo per iscritti a Coldiretti), o conferiti a ditte specializzate nello smaltimento rifiuti previa iscrizione al registro nazionale dei gestori ambientali",
+"Deve distruggerli, bruciandoli o interrandoli, e darne comunicazione all'Unità Sanitaria Locale e all’ARPA",
+"Deve conferirli presso stazioni ecologiche appositamente attrezzate."
+],
+"esatta": 0,
+"file": "fito_vda.pdf",
+"pagina": 29
+},
+{
+"n": 162,
+"sezione": "Modulo 5: I rischi e le precauzioni per l’ambiente e la tutela della biodiversità in aree protette",
+"testo": "Come devono essere gestiti i contenitori di prodotti fitosanitari derivanti dall’utilizzo da parte di agricoltori professionisti?",
+"risposte": [
+"Vanno immessi nei cassonetti dei rifiuti urbani",
+"Vanno conferiti per lo smaltimento alla piattaforma individuata dalla Regione (per la Valle d’Aosta, l’Enval srl) previa sottoscrizione di apposita convenzione (solo per iscritti a Coldiretti), o conferiti a ditte specializzate nello smaltimento rifiuti previa iscrizione al registro nazionale dei gestori ambientali",
+"Devono essere sotterrati in luoghi isolati."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 29
+},
+{
+"n": 163,
+"sezione": "Modulo 5: I rischi e le precauzioni per l’ambiente e la tutela della biodiversità in aree protette",
+"testo": "I prodotti fitosanitari non più utilizzabili (per esempio, revocati) come devono essere smaltiti dagli agricoltori professionisti?",
+"risposte": [
+"Occorre utilizzarli finché non sono finiti, perché la legge prevede l’utilizzo in deroga delle scorte presenti in azienda",
+"Vanno conferiti per lo smaltimento alla piattaforma individuata dalla Regione (per la Valle d’Aosta, l’Enval srl) previa sottoscrizione di apposita convenzione (solo per iscritti a Coldiretti), o conferiti a ditte specializzate nello smaltimento rifiuti previa iscrizione al registro nazionale dei gestori ambientali",
+"Vanno riversati nello scarico domestico, facendo scorrere a lungo l’acqua per diluire l’effetto dello sversamento."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 29
+},
+{
+"n": 164,
+"sezione": "Modulo 5: I rischi e le precauzioni per l’ambiente e la tutela della biodiversità in aree protette",
+"testo": "Quale tra quelli elencati è un corretto modo di bonificare i contenitori vuoti dei prodotti fitosanitari?",
+"risposte": [
+"Svuotare accuratamente il contenitore, versando tutto il prodotto fitosanitario nel mezzo irrorante",
+"Effettuare almeno tre risciacqui consecutivi del contenitore con acqua, versando il liquido nel mezzo irrorante",
+"Effettuare almeno un risciacquo del con acqua versando il liquido nel mezzo irrorante."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 29
+},
+{
+"n": 165,
+"sezione": "Modulo 5: I rischi e le precauzioni per l’ambiente e la tutela della biodiversità in aree protette",
+"testo": "Cosa occorre fare dell’acqua di lavaggio derivante dalla bonifica dei contenitori vuoti di prodotti fitosanitari?",
+"risposte": [
+"Deve essere scaricata per terra, avendo cura di non schizzarsi",
+"Deve essere versata nel mezzo irrorante, al momento della preparazione della miscela",
+"È possibile scaricarla in fognatura."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 29
+},
+{
+"n": 166,
+"sezione": "Modulo 5: I rischi e le precauzioni per l’ambiente e la tutela della biodiversità in aree protette",
+"testo": "Cosa si intende per organismi non bersaglio?",
+"risposte": [
+"Tutti gli insetti che muoiono a seguito di un trattamento insetticida",
+"Le specie animali e vegetali, terrestri o acquatiche raggiunte dai prodotti con azione sistemica",
+"Le specie animali e vegetali, terrestri o acquatiche che possono subire, in modo diretto o indiretto, qualsiasi forma di condizionamento a seguito della distribuzione di un prodotto fitosanitario."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 30
+},
+{
+"n": 167,
+"sezione": "Modulo 5: I rischi e le precauzioni per l’ambiente e la tutela della biodiversità in aree protette",
+"testo": "Quali sono le modalità attraverso cui i prodotti fitosanitari si disperdono nell’ambiente?",
+"risposte": [
+"Deriva, volatilità, ruscellamento e lisciviazione",
+"Contatto, asfissia e ingestione",
+"Abbruciamento dei contenitori vuoti utilizzati."
+],
+"esatta": 0,
+"file": "fito_vda.pdf",
+"pagina": 30
+},
+{
+"n": 168,
+"sezione": "Modulo 5: I rischi e le precauzioni per l’ambiente e la tutela della biodiversità in aree protette",
+"testo": "Quando in etichetta è riportata una fascia di rispetto di 30 metri dai corpi idrici occorre:",
+"risposte": [
+"Non avere un pozzo con acqua potabile nel raggio di 30 metri rispetto al punto di preparazione della miscela",
+"Rispettarla scrupolosamente come misura di mitigazione del rischi, lasciando una fascia non trattata di almeno 30 metri fra la coltura e il corpo idrico",
+"Eseguire il trattamento solo con vento in direzione opposta al corpo idrico."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 30
+},
+{
+"n": 169,
+"sezione": "Modulo 5: I rischi e le precauzioni per l’ambiente e la tutela della biodiversità in aree protette",
+"testo": "Per tutelare gli organismi non bersaglio di interesse agricolo (es. api) è necessario:",
+"risposte": [
+"Utilizzare i prodotti insetticidi alla dose più bassa riportata in etichetta durante la fioritura",
+"Rispettare scrupolosamente i vincoli riportati in etichetta",
+"Dare la preferenza ai prodotti di copertura."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 30
+},
+{
+"n": 170,
+"sezione": "Modulo 5: I rischi e le precauzioni per l’ambiente e la tutela della biodiversità in aree protette",
+"testo": "È sempre vietato l’uso dei PF nelle aree molto sensibili o specifiche?",
+"risposte": [
+"Nelle aree specifiche il loro uso è sempre vietato",
+"Nelle aree specifiche il loro uso non è mai vietato",
+"Nelle aree specifiche il loro uso, in determinati casi, può essere vietato o ridotto al minimo."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 30
+},
+{
+"n": 171,
+"sezione": "Modulo 5: I rischi e le precauzioni per l’ambiente e la tutela della biodiversità in aree protette",
+"testo": "Di cosa si deve tener conto per la tutela di aree specifiche?",
+"risposte": [
+"Della salute umana, dell’ambiente e della biodiversità e dei risultati dell’analisi di rischio",
+"Della salute umana, dell’ambiente e della biodiversità",
+"Della salute umana e dei risultati dell’analisi di rischio."
+],
+"esatta": 0,
+"file": "fito_vda.pdf",
+"pagina": 30
+},
+{
+"n": 172,
+"sezione": "Modulo 5: I rischi e le precauzioni per l’ambiente e la tutela della biodiversità in aree protette",
+"testo": "Come sono definiti i “metodi non chimici” dalla direttiva 128/09 sull’utilizzo sostenibile dei pesticidi?",
+"risposte": [
+"La direttiva all’art. 3, punto 8) identifica i metodi non chimici come metodi biologici di controllo dei parassiti",
+"La direttiva all’art. 3, punto 8) identifica i metodi non chimici come metodi meccanici di controllo dei parassiti",
+"La direttiva all’art. 3, punto 8) identifica i metodi non chimici come metodi alternativi ai pesticidi chimici sulla base di tecniche agronomiche o sistemi fisici, meccanici o biologici di controllo dei parassiti."
+],
+"esatta": 2,
+"file": "fito_vda.pdf",
+"pagina": 31
+},
+{
+"n": 173,
+"sezione": "Modulo 5: I rischi e le precauzioni per l’ambiente e la tutela della biodiversità in aree protette",
+"testo": "Sono consentite le irrorazioni aeree con l’utilizzo di fitofarmaci?",
+"risposte": [
+"No, il Piano di Azione Nazionale le vieta assolutamente",
+"Il piano di Azione Nazionale consente irrorazioni aeree in deroga per la difesa ordinaria e per contrastare emergenze fitosanitarie che devono essere autorizzate dalla Regione, acquisito parere del Ministero della Salute",
+"Sì, ma solo usando prodotti autorizzati per uso aereo dal Ministero della Salute."
+],
+"esatta": 1,
+"file": "fito_vda.pdf",
+"pagina": 31
+},
+{
+"n": 174,
+"sezione": "Modulo 5: I rischi e le precauzioni per l’ambiente e la tutela della biodiversità in aree protette",
+"testo": "I trattamenti fitosanitari lungo le strade o in zone frequentate dalla popolazione sono soggetti a restrizioni?",
+"risposte": [
+"Sì, il Piano di Azione Nazionale sull’uso sostenibile dei fitofarmaci prevede la limitazione o l’eliminazione, per quanto possibile, dell’uso di prodotti fitosanitari attraverso una serie di misure tra cui l’eliminazione, entro gennaio 2017, di sostanze che riportino in etichetta determinate frasi di rischio o le corrispondenti indicazioni di pericolo",
+"Sì, tali limitazioni però riguardano solo strade ricadenti in aree protette",
+"No, l’importante è che per ogni trattamento sia data informazione alla popolazione residente nella zona trattata."
+],
+"esatta": 0,
+"file": "fito_vda.pdf",
+"pagina": 31
+}
+]
+}

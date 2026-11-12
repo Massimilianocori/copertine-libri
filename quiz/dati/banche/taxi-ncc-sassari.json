@@ -1,0 +1,5606 @@
+{
+"_nota": "Scritto da raccolta/estrai.py dal PDF ufficiale (vedi dati/fonti.json). Non modificare a mano.",
+"id": "taxi-ncc-sassari",
+"domande": [
+{
+"n": 1,
+"sezione": "A",
+"riferimento": "NCdS art. 3 c. 1",
+"testo": "Che cos'è una corsia riservata?",
+"risposte": [
+"Una corsia di marcia destinata alla circolazione esclusiva di una o alcune categorie di veicoli",
+"Una parte della carreggiata in cui non è possibile circolare",
+"Una corsia destinata al solo accesso dei frontisti"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 1
+},
+{
+"n": 2,
+"sezione": "A",
+"riferimento": "NCdS art. 3 c. 1",
+"testo": "Che cos'è una zona a traffico limitato?",
+"risposte": [
+"Un'area in cui accesso e circolazione veicolare sono limitati ad ore prestabilite o a particolari categorie di utenti o di veicoli",
+"Una parte di una piazza destinata prevalentemente al parcheggio",
+"Una parte della strada riservata a mezzi pubblici e di emergenza"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 1
+},
+{
+"n": 3,
+"sezione": "A",
+"riferimento": "NCdS art. 23 c. 2",
+"testo": "È possibile installare su veicoli adibiti a servizi pubblici non di linea scritte o insegne pubblicitarie luminose?",
+"risposte": [
+"Sì",
+"No",
+"Solo nei casi previsti dal regolamento comunale di esercizio"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 1
+},
+{
+"n": 4,
+"sezione": "A",
+"riferimento": "NCdS art. 23 c. 2",
+"testo": "È possibile installare su veicoli adibiti a servizi pubblici non di linea scritte o insegne pubblicitarie rifrangenti?",
+"risposte": [
+"Sì",
+"No",
+"Sì, solo nei casi previsti dal regolamento di esecuzione del codice della strada"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 1
+},
+{
+"n": 5,
+"sezione": "A",
+"riferimento": "NCdS art. 23 c.11",
+"testo": "Qual è la sanzione per chi installa, su veicoli adibiti a servizi pubblici non di linea, scritte o insegne pubblicitarie luminose o rifrangenti in difformità di quanto eventualmente previsto o possibile?",
+"risposte": [
+"Sanzione pecuniaria",
+"Sanzione penale",
+"Sequestro del veicolo"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 1
+},
+{
+"n": 6,
+"sezione": "A",
+"riferimento": "NCdS art. 36 c. 1",
+"testo": "Quali sono i Comuni tenuti a dotarsi in ogni caso di un Piano Urbano del Traffico?",
+"risposte": [
+"Quelli con popolazione residente superiore a 15.000 abitanti",
+"Quelli con popolazione residente superiore a 30.000 abitanti",
+"Quelli con popolazione residente superiore a 100.000 abitanti"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 1
+},
+{
+"n": 7,
+"sezione": "A",
+"riferimento": "NCdS art. 36 c. 2",
+"testo": "Quali sono i Comuni che possono eventualmente essere obbligati dalla Regione a dotarsi di un Piano Urbano del Traffico?",
+"risposte": [
+"Quelli con popolazione superiore a 10.000 abitanti",
+"Quelli con popolazione superiore a 30.000 abitanti",
+"Quelli che registrano particolare affluenza turistica, pendolarismo o problemi di circolazione"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 1
+},
+{
+"n": 8,
+"sezione": "A",
+"riferimento": "NCdS art. 36 c. 3",
+"testo": "Quale piano per la circolazione stradale deve essere adottato dalla Provincia?",
+"risposte": [
+"Il Piano Urbano del Traffico del Comune capoluogo",
+"Il Piano del Traffico per la Viabilità extraurbana",
+"I Piani Urbani del Traffico di tutti i Comuni tenuti a dotarsene"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 1
+},
+{
+"n": 9,
+"sezione": "A",
+"riferimento": "NCdS art. 36 c. 4",
+"testo": "Il Piano Urbano del Traffico può prevedere l'introduzione di sistemi tecnologici informatizzati per la regolamentazione e il controllo del traffico?",
+"risposte": [
+"No, non si possono introdurre strumenti coercitivi",
+"Sì",
+"Solo se non rilevano dati caratteristici dei veicoli"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 1
+},
+{
+"n": 10,
+"sezione": "A",
+"riferimento": "NCdS art. 36 c. 5",
+"testo": "Ogni quanto tempo deve essere verificato e adeguato il Piano Urbano del Traffico?",
+"risposte": [
+"Annualmente",
+"Ogni cinque anni",
+"Ogni due anni"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 1
+},
+{
+"n": 11,
+"sezione": "A",
+"riferimento": "NCdS art. 36 c. 6",
+"testo": "Quale autorità emana le direttive per la redazione dei Piani Urbani del Traffico?",
+"risposte": [
+"Il Ministero delle Infrastrutture e dei Trasporti di concerto con il Ministero dell'ambiente e del territorio",
+"Il Ministero dell'Ambiente",
+"Il Ministero dei Lavori Pubblici, di concerto con il Ministro dell'Ambiente e il Ministro delle Aree Urbane"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 1
+},
+{
+"n": 12,
+"sezione": "A",
+"riferimento": "NCdS art. 36 c.10",
+"testo": "Quali provvedimenti sono previsti a carico degli Enti che non provvedono ad adottare i Piani Urbani del Traffico dove previsti?",
+"risposte": [
+"Nessuna sanzione",
+"Sanzione pecuniaria",
+"Il Ministero dei Lavori Pubblici li invita a provvedere e, se inadempienti, realizza d'ufficio il Piano"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 1
+},
+{
+"n": 13,
+"sezione": "A",
+"riferimento": "NCdS art. 40 c. 9",
+"testo": "I veicoli adibiti a servizi pubblici non di linea possono oltrepassare le strisce longitudinali continue che indicano il margine della carreggiata?",
+"risposte": [
+"No, solo i veicoli in servizio di pubblico interesse (carabinieri, ambulanze, polizia, etc.), ed i veicoli che devono effettuare una sosta di emergenza",
+"Sì, sempre",
+"Sì, ma solo quando sono in servizio"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 1
+},
+{
+"n": 14,
+"sezione": "A",
+"riferimento": "NCdS art. 54 c. 1",
+"testo": "Che cosa distingue un autoveicolo per trasporti specifici di persone da un'autovettura?",
+"risposte": [
+"La destinazione al trasporto di persone in determinate condizioni, con presenza permanente di speciali attrezzature",
+"La targa",
+"La colorazione della carrozzeria"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 1
+},
+{
+"n": 15,
+"sezione": "A",
+"riferimento": "NCdS art. 54 c. 1",
+"testo": "Quanti posti possono avere al massimo le autovetture?",
+"risposte": [
+"Nove compreso il conducente",
+"Sette più il conducente",
+"Nove più il conducente"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 1
+},
+{
+"n": 16,
+"sezione": "A",
+"riferimento": "NCdS art. 59 c. 1",
+"testo": "Come vengono considerati dal Codice della Strada i veicoli elettrici leggeri da città, i veicoli ibridi o multimodali, i microveicoli elettrici o elettroveicoli ultraleggeri?",
+"risposte": [
+"Motoveicoli",
+"Autovetture",
+"Veicoli con caratteristiche atipiche"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 2
+},
+{
+"n": 17,
+"sezione": "A",
+"riferimento": "NCdS art. 59 c. 2",
+"testo": "Quale organo stabilisce le categorie cui assimilare i veicoli elettrici leggeri da città, i veicoli ibridi o multimodali, i microveicoli elettrici o elettroveicoli ultraleggeri, ai fini della circolazione e della guida?",
+"risposte": [
+"Il Direttore dell'Ufficio Periferico del Dipartimento dei Trasporti Terrestri ex MCTC",
+"Il Ministero delle Infrastrutture e dei Trasporti",
+"Il Ministero delle Aree Urbane"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 2
+},
+{
+"n": 18,
+"sezione": "A",
+"riferimento": "NCdS art. 60 c. 1",
+"testo": "A quale categoria di veicoli sono considerati appartenenti i veicoli d'epoca o quelli di interesse storico o collezionistico?",
+"risposte": [
+"A quella corrispondente alle caratteristiche tecniche previste dal Codice della Strada",
+"A quella dei veicoli con caratteristiche atipiche",
+"A quella dei veicoli cancellati dal PRA"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 2
+},
+{
+"n": 19,
+"sezione": "A",
+"riferimento": "NCdS art. 60 c. 2",
+"testo": "Presso quale registro sono iscritti i veicoli d'epoca?",
+"risposte": [
+"Nessun registro",
+"Pubblico Registro Automobilistico",
+"Elenco presso il Centro Storico del Dipartimento dei Trasporti Terrestri ex Direzione Generale MCTC"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 2
+},
+{
+"n": 20,
+"sezione": "A",
+"riferimento": "NCdS art. 60 c. 3",
+"testo": "Che cosa serve per far circolare i veicoli d'epoca?",
+"risposte": [
+"Nessuna autorizzazione",
+"Una specifica autorizzazione per ogni uscita rilasciata dall'Ufficio Periferico del Dipartimento dei Trasporti Terrestri - ex MCTC",
+"L'iscrizione all'Elenco presso il Centro Storico del Dipartimento dei Trasporti Terrestri - ex Direzione Generale MCTC"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 2
+},
+{
+"n": 21,
+"sezione": "A",
+"riferimento": "NCdS art. 60 c. 4",
+"testo": "Presso quale registro sono iscritti i veicoli d'interesse storico e collezionistico?",
+"risposte": [
+"Presso un registro particolare",
+"Presso il PRA",
+"Devono essere iscritti ad uno dei seguenti registri: ASI, Storico Lancia, Italiano FIAT, Italiano Alfa Romeo, Storico FMI"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 2
+},
+{
+"n": 22,
+"sezione": "A",
+"riferimento": "NCdS art. 60 c. 6",
+"testo": "Quale sanzione si applica a chi circola con autoveicoli d'epoca senza l'autorizzazione prevista dal Codice della Strada?",
+"risposte": [
+"Sequestro del veicolo",
+"Sanzione amministrativa",
+"Multa"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 2
+},
+{
+"n": 23,
+"sezione": "A",
+"riferimento": "NCdS art. 60 c. 6",
+"testo": "Quale sanzione si applica a chi circola con autoveicoli di interesse storico e collezionistico sprovvisti dei requisiti previsti dal regolamento?",
+"risposte": [
+"Sanzione amministrativa",
+"Sequestro del veicolo",
+"Multa"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 2
+},
+{
+"n": 24,
+"sezione": "A",
+"riferimento": "NCdS art. 72 c. 6",
+"testo": "Quale autorità stabilisce i dispositivi supplementari di cui devono e possono essere dotati i veicoli a motore, in relazione alla loro particolare destinazione o uso?",
+"risposte": [
+"Il Ministero delle Infrastrutture e dei Trasporti, sentito quello dell'Interno",
+"Il Ministero dell'Interno",
+"Il Ministero dell'Ambiente"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 2
+},
+{
+"n": 25,
+"sezione": "A",
+"riferimento": "NCdS art. 72 c. 7",
+"testo": "Quale autorità stabilisce norme specifiche sui dispositivi di equipaggiamento dei veicoli a motore destinati al trasporto di invalidi?",
+"risposte": [
+"Il Ministero delle Infrastrutture e dei Trasporti",
+"Il Ministero della Salute",
+"Il Ministero dell'Ambiente"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 2
+},
+{
+"n": 26,
+"sezione": "A",
+"riferimento": "NCdS art. 72 c. 13",
+"testo": "Quale sanzione si applica a chi circola con un veicolo tenuto, in base alla sua destinazione o uso, ad essere equipaggiato con dispositivi speciali, che ne sia privo o ne utilizzi di tipo non omologato?",
+"risposte": [
+"Nessuna",
+"Sanzione amministrativa",
+"Sequestro del veicolo"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 2
+},
+{
+"n": 27,
+"sezione": "A",
+"riferimento": "NCdS art. 75 c. 4",
+"testo": "I veicoli a motore, da adibire a servizio di noleggio con conducente o servizio di piazza, devono essere sottoposti all'accertamento dei requisiti di idoneità alla circolazione?",
+"risposte": [
+"No, se sono di tipo già omologato",
+"Sì, anche se sono di tipo già omologato",
+"No, in nessun caso"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 2
+},
+{
+"n": 28,
+"sezione": "A",
+"riferimento": "NCdS art. 80 c. 4",
+"testo": "Con quale frequenza i veicoli destinati a taxi e a servizio di noleggio con conducente devono essere sottoposti a revisione ai fini del controllo della sicurezza per la circolazione, della silenziosità e dell'inquinamento atmosferico?",
+"risposte": [
+"Ogni cinque anni",
+"Ogni due anni",
+"Ogni anno"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 3
+},
+{
+"n": 29,
+"sezione": "A",
+"riferimento": "NCdS art. 80 c.14",
+"testo": "Quale sanzione si applica a chi circola con un veicolo che non sia stato presentato alla prescritta revisione?",
+"risposte": [
+"Multa",
+"Sanzione amministrativa e il ritiro della carta di circolazione",
+"Sanzione amministrativa e annotazione sulla carta di circolazione"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 3
+},
+{
+"n": 30,
+"sezione": "A",
+"riferimento": "NCdS art. 82 c. 1",
+"testo": "Che cosa si intende per \"destinazione\" di un veicolo?",
+"risposte": [
+"L'utilizzazione in base alle caratteristiche tecniche",
+"L'utilizzazione economica",
+"Il termine del suo viaggio"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 3
+},
+{
+"n": 31,
+"sezione": "A",
+"riferimento": "NCdS art. 82 c. 2",
+"testo": "Che cosa si intende per \"uso\" di un veicolo?",
+"risposte": [
+"La sua utilizzazione in base alle caratteristiche tecniche",
+"La sua utilizzazione economica",
+"Il chilometraggio medio annuo"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 3
+},
+{
+"n": 32,
+"sezione": "A",
+"riferimento": "NCdS art. 82 c. 3",
+"testo": "Quali sono i tipi di uso di un veicolo definiti dal Codice della Strada?",
+"risposte": [
+"Uso pubblico e uso privato",
+"Uso di linea e uso non di linea",
+"Uso proprio e uso di terzi"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 3
+},
+{
+"n": 33,
+"sezione": "A",
+"riferimento": "NCdS art. 82 c. 4",
+"testo": "Come viene definito l'uso di terzi per un veicolo?",
+"risposte": [
+"Uso a vantaggio di persona diversa dall'intestatario della carta di circolazione, a pagamento",
+"Uso da parte di persona diversa dal proprietario",
+"Uso in base a prestito gratuito"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 3
+},
+{
+"n": 34,
+"sezione": "A",
+"riferimento": "NCdS art. 82 c. 4",
+"testo": "Come viene definito l'uso proprio per un veicolo?",
+"risposte": [
+"Uso da parte del proprietario del veicolo",
+"Uso diverso da quello di terzi",
+"Uso in base a prestito gratuito"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 3
+},
+{
+"n": 35,
+"sezione": "A",
+"riferimento": "NCdS art. 82 c. 4",
+"testo": "Perché l'uso di terzi viene considerato in funzione dell'intestatario della carta di circolazione del veicolo, e non direttamente del proprietario?",
+"risposte": [
+"È lo stesso modo di definire la medesima persona",
+"L'intestatario della carta di circolazione non necessariamente è il proprietario",
+"Il proprietario può adibire il veicolo solo ad uso proprio"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 3
+},
+{
+"n": 36,
+"sezione": "A",
+"riferimento": "NCdS art. 82 c. 5",
+"testo": "Come viene definito l'uso di un veicolo adibito a servizio di piazza o taxi?",
+"risposte": [
+"Uso privato",
+"Uso di terzi",
+"Uso pubblico"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 3
+},
+{
+"n": 37,
+"sezione": "A",
+"riferimento": "NCdS art. 82 c. 5",
+"testo": "Dove sono definiti gli usi di un veicolo che rientrano nella categoria \"uso di terzi\"?",
+"risposte": [
+"Nel Codice Civile",
+"Dalle consuetudini",
+"Nel Codice della Strada"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 3
+},
+{
+"n": 38,
+"sezione": "A",
+"riferimento": "NCdS art. 82 c. 6",
+"testo": "Come viene definito l'uso di un veicolo adibito a servizio di noleggio con conducente?",
+"risposte": [
+"Uso privato",
+"Uso di terzi",
+"Uso pubblico"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 3
+},
+{
+"n": 39,
+"sezione": "A",
+"riferimento": "NCdS art. 82 c. 8 e c. 10",
+"testo": "Quale sanzione si applica a chi adibisce un veicolo a una destinazione o a un uso diversi da quelli indicati nella carta di circolazione?",
+"risposte": [
+"Sanzione amministrativa più sospensione della carta di circolazione da uno a sei mesi",
+"Sanzione amministrativa",
+"Ammenda"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 3
+},
+{
+"n": 40,
+"sezione": "A",
+"riferimento": "NCdS art. 82 c. 8 e c. 10",
+"testo": "Quale sanzione si applica al conducente di taxi dotato di licenza che impiega in servizio un veicolo non destinato a tale uso?",
+"risposte": [
+"Sanzione amministrativa pecuniaria e la sospensione da 1 a 6 mesi della carta di circolazione",
+"Sanzione amministrativa pecuniaria, ritiro della carta di circolazione e confisca del veicolo",
+"Sanzioni previste dai regolamenti comunali di esercizio"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 3
+},
+{
+"n": 41,
+"sezione": "A",
+"riferimento": "NCdS art. 84 c. 1",
+"testo": "Come viene definita la locazione di un veicolo senza conducente?",
+"risposte": [
+"L'obbligo da parte del locatore di metterlo a disposizione del locatario a pagamento",
+"Il prestito gratuito di una autovettura adibita ad uso privato",
+"Un contratto di leasing"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 3
+},
+{
+"n": 42,
+"sezione": "A",
+"riferimento": "NCdS art. 84 c. 4",
+"testo": "Qual è il numero massimo di posti dei veicoli destinati al trasporto di persone che possono essere usati per la locazione senza conducente?",
+"risposte": [
+"Nove posti escluso quello del conducente",
+"Nove posti compreso quello del conducente",
+"Otto posti compreso quello del conducente"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 3
+},
+{
+"n": 43,
+"sezione": "A",
+"riferimento": "NCdS art. 84 c. 7 e c. 8",
+"testo": "Quale sanzione si applica a chi adibisce a locazione senza conducente un autoveicolo non destinato questo uso?",
+"risposte": [
+"Sanzione amministrativa e sospensione della carta di circolazione",
+"Ammenda",
+"Confisca dell'autoveicolo"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 3
+},
+{
+"n": 44,
+"sezione": "A",
+"riferimento": "NCdS art. 85 c. 1",
+"testo": "A quale normativa si fa rinvio, nel Codice della Strada, per la disciplina del servizio di noleggio con conducente per trasporto di persone?",
+"risposte": [
+"Alla disciplina contenuta nel Codice e nel Regolamento stessi",
+"Alle leggi specifiche che regolano la materia",
+"Ai regolamenti comunali"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 4
+},
+{
+"n": 45,
+"sezione": "A",
+"riferimento": "NCdS art. 85 c. 2",
+"testo": "Gli autoveicoli e i motoveicoli per trasporto promiscuo o per trasporti specifici di persone possono essere destinati ad effettuare servizio di noleggio con conducente per trasporto di persone?",
+"risposte": [
+"Sì",
+"No",
+"Solo nei casi disciplinati da apposite leggi regionali"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 4
+},
+{
+"n": 46,
+"sezione": "A",
+"riferimento": "NCdS art. 85 c. 3",
+"testo": "Qual è il titolo necessario per il rilascio della carta di circolazione di un veicolo destinato ad effettuare servizio di noleggio con conducente per trasporto di persone?",
+"risposte": [
+"Nessun titolo",
+"Autorizzazione regionale",
+"Licenza comunale d'esercizio"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 4
+},
+{
+"n": 47,
+"sezione": "A",
+"riferimento": "NCdS art. 85 c. 4",
+"testo": "Quale sanzione si applica a chi adibisce a servizio di noleggio con conducente per trasporto di persone un veicolo (esclusi gli autobus) non destinato a tale uso?",
+"risposte": [
+"Ammenda",
+"Sanzione amministrativa e sospensione della carta di circolazione da due a otto mesi",
+"Sanzioni previste dai regolamenti comunali di esercizio"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 4
+},
+{
+"n": 48,
+"sezione": "A",
+"riferimento": "NCdS art. 85 c. 4",
+"testo": "Quale sanzione si applica a chi, pur essendo munito di autorizzazione, guida un'autovettura adibita al servizio di noleggio con conducente senza ottemperare alle norme in vigore, ovvero alle condizioni di cui all'autorizzazione?",
+"risposte": [
+"Ammenda",
+"Sanzione amministrativa e sospensione della carta di circolazione da due a otto mesi",
+"Sanzione prevista dai regolamenti comunali di esercizio"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 4
+},
+{
+"n": 49,
+"sezione": "A",
+"riferimento": "NCdS art. 86 c. 1",
+"testo": "A quale normativa fa rinvio il Codice della Strada per la disciplina del servizio di piazza con autovetture con conducente o taxi?",
+"risposte": [
+"Alle norme seguenti del Codice della Strada e relativo regolamento",
+"Alle leggi specifiche che disciplinano il settore (l. 21/92)",
+"Ai regolamenti comunali d'esercizio"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 4
+},
+{
+"n": 50,
+"sezione": "A",
+"riferimento": "NCdS art. 86 c. 1",
+"testo": "Il servizio di piazza per trasporto di persone può essere svolto solamente con autovetture immatricolate ad uso taxi?",
+"risposte": [
+"No, possono utilizzarsi anche autovetture immatricolate per noleggio con conducente, se autorizzate",
+"Sì",
+"No, può essere svolto anche con minibus"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 4
+},
+{
+"n": 51,
+"sezione": "A",
+"riferimento": "NCdS art. 86 c. 2",
+"testo": "Quale sanzione si applica al conducente di un taxi privo della licenza comunale?",
+"risposte": [
+"Sanzione amministrativa",
+"Sanzione amministrativa pecuniaria, confisca del veicolo e sospensione della patente",
+"Sanzioni previste dai regolamenti comunali d'esercizio"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 4
+},
+{
+"n": 52,
+"sezione": "A",
+"riferimento": "NCdS art. 86 c. 3",
+"testo": "Quale sanzione si applica al conducente di un taxi, munito di licenza comunale, che non ottemperi alle norme o alle condizioni stabilite nella licenza?",
+"risposte": [
+"Sanzione amministrativa pecuniaria",
+"Sanzione amministrativa pecuniaria, ritiro della carta di circolazione e confisca del veicolo",
+"Sanzioni previste dai regolamenti comunali d'esercizio"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 4
+},
+{
+"n": 53,
+"sezione": "A",
+"riferimento": "NCdS art. 86 integr.",
+"testo": "È possibile utilizzare un'autovettura adibita a servizio taxi per uso proprio?",
+"risposte": [
+"No, mai",
+"Sì, con specifico nulla osta del Sindaco",
+"Sì, fuori servizio"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 4
+},
+{
+"n": 54,
+"sezione": "A",
+"riferimento": "NCdS art. 87 c. 1",
+"testo": "Che cosa distingue il servizio di linea per trasporto di persone dai servizi non di linea, taxi o noleggio con conducente?",
+"risposte": [
+"L'effettuazione di corse con destinazione predeterminata su itinerari autorizzati",
+"L'offerta indifferenziata",
+"La tariffa prestabilita"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 4
+},
+{
+"n": 55,
+"sezione": "A",
+"riferimento": "NCdS art. 87 c. 6 e c. 7",
+"testo": "Quale sanzione si applica a chi utilizza in servizio di linea un veicolo non adibito a tale uso?",
+"risposte": [
+"Ammenda",
+"Sanzione amministrativa e la sospensione della carta di circolazione da due a otto mesi",
+"Sanzione amministrativa"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 4
+},
+{
+"n": 56,
+"sezione": "A",
+"riferimento": "NCdS art. 90 c. 2",
+"testo": "Esiste una specifica sanzione per chi svolge trasporto di cose per conto terzi in servizio di piazza con veicoli non adibiti a tale uso?",
+"risposte": [
+"No",
+"Si, una sanzione amministrativa pecuniaria",
+"Sì, una sanzione amministrativa pecuniaria più il ritiro della carta di circolazione"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 4
+},
+{
+"n": 57,
+"sezione": "A",
+"riferimento": "NCdS art. 91 c. 1",
+"testo": "In caso di acquisto in leasing di un veicolo a motore da adibire a servizi pubblici non di linea, a nome di chi esso viene immatricolato?",
+"risposte": [
+"Del locatore",
+"Del locatario",
+"Del locatore, ma si trascrive sulla carta di circolazione il nome del locatario"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 5
+},
+{
+"n": 58,
+"sezione": "A",
+"riferimento": "NCdS art. 91 c. 1",
+"testo": "In caso di acquisto in leasing di un veicolo a motore da adibire a servizi pubblici non di linea, per quale uso viene immatricolato il veicolo?",
+"risposte": [
+"Quello indicato dal locatario sulla base del titolo amministrativo (licenza o autorizzazione)",
+"Ad uso noleggio senza conducente",
+"Per locazione finanziaria senza conducente"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 5
+},
+{
+"n": 59,
+"sezione": "A",
+"riferimento": "NCdS art. 91 c. 3",
+"testo": "In caso di acquisto rateale (vendita con patto di riservato dominio) di un veicolo da adibire a servizi pubblici non di linea, a nome di chi esso viene immatricolato?",
+"risposte": [
+"A nome dell'acquirente",
+"A nome del venditore",
+"A nome dell'acquirente, ma con trascrizione sulla carta di circolazione del nome del venditore"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 5
+},
+{
+"n": 60,
+"sezione": "A",
+"riferimento": "NCdS art. 93 c. 2",
+"testo": "Quali sono i titoli della disponibilità giuridica di un veicolo a motore, che ne consentono l'immatricolazione e il rilascio della relativa carta di circolazione a nome del richiedente?",
+"risposte": [
+"Proprietà",
+"Possesso",
+"Proprietà, con indicazione anche di usufruttuari, acquirenti in leasing e venditori a rate"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 5
+},
+{
+"n": 61,
+"sezione": "A",
+"riferimento": "NCdS art. 93 c. 3",
+"testo": "Il rilascio della carta di circolazione per un veicolo a motore da adibire uso di terzi - servizi pubblici non di linea richiede particolari formalità?",
+"risposte": [
+"No",
+"Sì, il sostenimento di un esame presso l'Ufficio Periferico del Dipartimento dei Trasporti Terrestri ex MCTC",
+"Sì, la dimostrazione dell'esistenza del titolo amministrativo comunale"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 5
+},
+{
+"n": 62,
+"sezione": "A",
+"riferimento": "NCdS art. 94 c. 1",
+"testo": "Entro quale termine va richiesta la trascrizione al PRA del trasferimento di proprietà di un autoveicolo?",
+"risposte": [
+"30 giorni",
+"60 giorni",
+"90 giorni"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 5
+},
+{
+"n": 63,
+"sezione": "A",
+"riferimento": "NCdS art. 94 c. 3",
+"testo": "Quale sanzione si applica a chi non richiede la trascrizione al PRA del trasferimento di proprietà di un autoveicolo?",
+"risposte": [
+"Fermo amministrativo del veicolo",
+"Confisca del veicolo",
+"Sanzione amministrativa"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 5
+},
+{
+"n": 64,
+"sezione": "A",
+"riferimento": "NCdS art.115 c. 1",
+"testo": "Qual è l'età minima per poter guidare motocarrozzette o autovetture adibite a servizio di piazza (taxi) o a noleggio con conducente?",
+"risposte": [
+"18 anni",
+"21 anni",
+"25 anni"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 5
+},
+{
+"n": 65,
+"sezione": "A",
+"riferimento": "NCdS art.116 c. 10",
+"testo": "I mutilati e i minorati fisici in possesso delle patenti speciali delle categorie A, B, C e D possono guidare veicoli adibiti a servizi di piazza o di noleggio con conducente?",
+"risposte": [
+"No",
+"Sì, con relativo CAP normale",
+"Sì, con relativo CAP speciale"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 5
+},
+{
+"n": 66,
+"sezione": "A",
+"riferimento": "NCdS art.116 c. 8",
+"testo": "Che cosa è necessario per condurre autovetture in servizio di noleggio con conducente e taxi?",
+"risposte": [
+"È sufficiente la patente B o superiore",
+"Esclusivamente la patente B e relativo CAP KB",
+"La patente B o superiore e relativo CAP KB o superiore"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 5
+},
+{
+"n": 67,
+"sezione": "A",
+"riferimento": "NCdS art.116 c. 10",
+"testo": "I certificati di abilitazione professionale CAP possono essere rilasciati anche a mutilati e minorati fisici?",
+"risposte": [
+"No",
+"Solo a quelli riconosciuti idonei dall'apposita commissione medica locale",
+"Sì"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 5
+},
+{
+"n": 68,
+"sezione": "A",
+"riferimento": "NCdS art.116 c.14",
+"testo": "Quale sanzione si applica a chi affida la guida di un veicolo a chi non abbia conseguito la patente o il certificato di idoneità professionale prescritti?",
+"risposte": [
+"Ammenda",
+"Sanzione amministrativa",
+"Arresto sino a tre mesi"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 5
+},
+{
+"n": 69,
+"sezione": "A",
+"riferimento": "NCdS art.116 c.15",
+"testo": "Quale sanzione si applica a chi guida un veicolo senza aver conseguito il certificato di idoneità professionale prescritto?",
+"risposte": [
+"Ammenda",
+"Sanzione amministrativa e il fermo amministrativo del veicolo",
+"Arresto sino a tre mesi"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 5
+},
+{
+"n": 70,
+"sezione": "A",
+"riferimento": "NCdS art. 126 bis c. 4",
+"testo": "Quanti punti è consentito riacquistare, attraverso la frequenza ai corsi di aggiornamento, in base alle norme sulla patente a punti, per titolari di certificato di abilitazione professionale?",
+"risposte": [
+"Tanti quanti necessari a riottenere la patente di guida",
+"6 punti",
+"9 punti"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 6
+},
+{
+"n": 71,
+"sezione": "A",
+"riferimento": "NCdS art. 126 bis c. 4",
+"testo": "Quanti punti è consentito riacquistare, attraverso la frequenza ai corsi di aggiornamento, in base alle norme sulla patente a punti?",
+"risposte": [
+"6 punti per tutti",
+"6 punti, aumentati a 9 per i titolari di CAP",
+"9 punti per tutti"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 6
+},
+{
+"n": 72,
+"sezione": "A",
+"riferimento": "NCdS art. 126 bis c. 6",
+"testo": "Cosa comporta la perdita totale del punteggio della patente di guida?",
+"risposte": [
+"Il titolare deve sottoporsi a esame di idoneità tecnica per la revisione della patente di guida",
+"Il titolare deve iscriversi subito a un corso di aggiornamento",
+"La patente viene sospesa per 30 giorni"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 6
+},
+{
+"n": 73,
+"sezione": "A",
+"riferimento": "NCdS art. 126 bis c. 6",
+"testo": "Entro quanto tempo dalla notifica del provvedimento, per la perdita totale del punteggio della patente, il titolare deve provvedere secondo quanto disposto dal codice della strada?",
+"risposte": [
+"9 giorni",
+"30 giorni, pena la sospensione a tempo indeterminato della patente",
+"60 giorni, pena il ritiro della patente"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 6
+},
+{
+"n": 74,
+"sezione": "A",
+"riferimento": "NCdS art. 157 c. 7 bis",
+"testo": "Quale sanzione si applica a chi lascia il veicolo in sosta con il motore acceso?",
+"risposte": [
+"Sanzione amministrativa pecuniaria",
+"Nessuna sanzione",
+"Sanzione amministrativa pecuniaria e la decurtazione di due punti dalla patente"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 6
+},
+{
+"n": 75,
+"sezione": "A",
+"riferimento": "NCdS art.158 c. 1",
+"testo": "È consentita la fermata di altri veicoli per la sola salita o discesa di persone, od altre esigenze di brevissima durata, restando il conducente presente e pronto a ripartire, nelle apposite piazzole destinate al servizio taxi?",
+"risposte": [
+"Sì, sempre",
+"No",
+"Si, solo se esiste una specifica indicazione con cartello"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 6
+},
+{
+"n": 76,
+"sezione": "A",
+"riferimento": "NCdS art.158 c. 2",
+"testo": "È consentita la sosta di altri veicoli nelle apposite piazzole destinate al servizio taxi?",
+"risposte": [
+"Sì, sempre",
+"No, e nel caso si applicano una sanzione pecuniaria",
+"Solo se esiste una specifica indicazione con cartello"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 6
+},
+{
+"n": 77,
+"sezione": "A",
+"riferimento": "NCdS art.159 c. 1",
+"testo": "È possibile far rimuovere un veicolo in sosta nelle apposite piazzole destinate al servizio taxi?",
+"risposte": [
+"Sì, sempre",
+"No",
+"Solo se esiste una specifica indicazione con cartello"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 6
+},
+{
+"n": 78,
+"sezione": "A",
+"riferimento": "NCdS art.169 c. 5",
+"testo": "A quali condizioni è consentito trasportare ragazzi in soprannumero nelle autovetture?",
+"risposte": [
+"Non è consentito in alcun caso",
+"Se non limitino la libertà di movimento del guidatore",
+"Se siano al massimo due, di età inferiore a 10 anni sui sedili posteriori e accompagnati da un passeggero di almeno 16 anni"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 6
+},
+{
+"n": 79,
+"sezione": "A",
+"riferimento": "NCdS art.169 c. 6",
+"testo": "A quali condizioni è consentito trasportare animali domestici nelle autovetture?",
+"risposte": [
+"Non è consentito in alcun caso",
+"Al massimo uno",
+"Senza limiti, purché siano custoditi in apposita gabbia o contenitore o nel vano posteriore al posto di guida, con divisorio"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 6
+},
+{
+"n": 80,
+"sezione": "A",
+"riferimento": "NCdS art.169 c. 9",
+"testo": "Quale sanzione si applica in caso di trasporto di passeggeri in sovrannumero su autovetture?",
+"risposte": [
+"Ammenda",
+"Sanzione amministrativa",
+"Ritiro della carta di circolazione"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 6
+},
+{
+"n": 81,
+"sezione": "A",
+"riferimento": "NCdS art.172 c. 8",
+"testo": "I conducenti di autovetture per il trasporto di persone in servizio pubblico da piazza ovvero adibiti al servizio di noleggio con conducente sono esentati dall'obbligo di indossare le cinture di sicurezza?",
+"risposte": [
+"No",
+"Sì",
+"Solo durante il servizio nei centri abitati"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 6
+},
+{
+"n": 82,
+"sezione": "A",
+"riferimento": "NCdS art.172 c. 4",
+"testo": "I passeggeri di autovetture adibite a servizio di taxi o noleggio con conducente, di statura inferiore a 1,5 m., devono essere trattenuti da sistemi di sicurezza adeguati alla loro statura e peso?",
+"risposte": [
+"No, a condizione che non occupino un sedile anteriore e siano accompagnati da almeno un passeggero di età non inferiore ad anni 16",
+"Sì",
+"Sì, tranne che nei centri abitati o da/per stazioni e aeroporti, se adeguatamente accompagnati e sui sedili posteriori"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 6
+},
+{
+"n": 83,
+"sezione": "A",
+"riferimento": "NCdS art.173 c. 2",
+"testo": "I conducenti di veicoli adibiti a servizio di taxi o noleggio con conducente sono autorizzati a fare uso di apparecchi radiotelefonici ovvero di cuffie sonore?",
+"risposte": [
+"No",
+"Sì",
+"Sì, solo nei centri abitati o non durante la marcia"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 7
+},
+{
+"n": 84,
+"sezione": "A",
+"riferimento": "NCdS art.180 c. 3",
+"testo": "Quale obbligo specifico ha il conducente di veicoli addetti a uso di terzi rispetto a quello di veicoli addetti ad uso proprio?",
+"risposte": [
+"Avere con sé il certificato di idoneità tecnica",
+"Avere con sé la carta di circolazione",
+"Avere con sé la licenza o autorizzazione comunale che lo abilita al servizio"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 7
+},
+{
+"n": 85,
+"sezione": "A",
+"riferimento": "NCdS art.180 c. 3",
+"testo": "Quale sanzione si applica al conducente di veicoli adibiti a servizi pubblici non di linea che circola senza avere con sé la licenza o autorizzazione comunale regolarmente rilasciata?",
+"risposte": [
+"Nessuna",
+"Sanzione amministrativa",
+"Sospensione della licenza o autorizzazione per sette giorni"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 7
+},
+{
+"n": 86,
+"sezione": "A",
+"riferimento": "NCdS art.186 c. 6",
+"testo": "Qual è il tasso alcoolemico, misurato con l'etilometro, che non deve essere superato alla guida di un veicolo?",
+"risposte": [
+"Dipende dal veicolo e dal tipo di trasporto, di persone e di cose",
+"0,5 grammi per litro di sangue",
+"1,6 grammi per litro di sangue, pari a 1 litro di birra bevuto a stomaco pieno"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 7
+},
+{
+"n": 87,
+"sezione": "A",
+"riferimento": "NCdS art.193 c. 2",
+"testo": "Quale sanzione si applica in caso di violazione all'obbligo dell'assicurazione di responsabilità civile per veicoli a motore?",
+"risposte": [
+"Ammenda",
+"Ritiro della carta di circolazione",
+"Sanzione amministrativa e sanzioni accessorie"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 7
+},
+{
+"n": 88,
+"sezione": "A",
+"riferimento": "RNCdS art. 57 c. 2",
+"testo": "È ammessa la pubblicità non luminosa sui veicoli addetti a servizi pubblici non di linea?",
+"risposte": [
+"Solo sui taxi",
+"Solo sulle autovetture e a particolari condizioni",
+"Sì"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 7
+},
+{
+"n": 89,
+"sezione": "A",
+"riferimento": "RNCdS art. 57 c. 3",
+"testo": "Come non può essere realizzata la pubblicità non luminosa per conto di terzi sui taxi?",
+"risposte": [
+"Con un pannello sul tetto perpendicolare alla direzione di marcia",
+"Con un pannello sul tetto parallelo alla direzione di marcia",
+"Con un pannello sul lunotto posteriore"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 7
+},
+{
+"n": 90,
+"sezione": "A",
+"riferimento": "RNCdS art. 57 c. 3",
+"testo": "È ammessa la pubblicità non luminosa a pagamento per conto di terzi sulle autovetture adibite a servizio taxi e noleggio con conducente?",
+"risposte": [
+"Sì",
+"Solo sui taxi",
+"Solo sulle auto da noleggio"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 7
+},
+{
+"n": 91,
+"sezione": "A",
+"riferimento": "RNCdS art. 57 c. 3",
+"testo": "È ammessa la pubblicità non luminosa su tutti i veicoli adibiti a servizi pubblici non di linea, realizzata attraverso l'applicazione su tutte le superfici non vetrate di pellicole autoadesive?",
+"risposte": [
+"Sì, senza limite",
+"Si, solo sui taxi",
+"No"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 7
+},
+{
+"n": 92,
+"sezione": "A",
+"riferimento": "RNCdS art.215 c. 2",
+"testo": "Che età minima deve avere un'autovettura per essere classificata di interesse storico o collezionistico?",
+"risposte": [
+"Vent'anni",
+"Trent'anni",
+"Cinquant'anni"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 7
+},
+{
+"n": 93,
+"sezione": "A",
+"riferimento": "RNCdS art.310 c. 2",
+"testo": "Il certificato di abilitazione professionale KC abilita anche a condurre i veicoli per i quali è necessario il certificato KA o KB?",
+"risposte": [
+"Sì",
+"No",
+"Solo per spostamenti a vuoto"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 7
+},
+{
+"n": 94,
+"sezione": "A",
+"riferimento": "RNCdS art.310 c. 2",
+"testo": "Il certificato di abilitazione professionale KB abilita anche a condurre i veicoli per i quali è necessario il certificato KA?",
+"risposte": [
+"Sì",
+"No",
+"Solo per spostamenti a vuoto"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 7
+},
+{
+"n": 95,
+"sezione": "A",
+"riferimento": "RNCdS art.310 c. 2",
+"testo": "I certificati di abilitazione professionale KD abilita anche a condurre i veicoli per i quali è necessario il certificato KB?",
+"risposte": [
+"Sì",
+"No",
+"Solo per spostamenti a vuoto"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 7
+},
+{
+"n": 96,
+"sezione": "A",
+"riferimento": "",
+"testo": "Di norma nei taxi ed ncc è consentito il trasporto di animali domestici?",
+"risposte": [
+"Non più di uno",
+"Anche in numero superiore ad uno in apposita gabbia o in vano posteriore protetto",
+"A discrezione del conducente"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 7
+},
+{
+"n": 97,
+"sezione": "A",
+"riferimento": "",
+"testo": "il conducente di un autoveicolo in servizio di taxi o autonoleggio può tenere a bordo il proprio animale?",
+"risposte": [
+"Non più di uno",
+"No",
+"Si, ma nel vano posteriore"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 7
+},
+{
+"n": 98,
+"sezione": "A",
+"riferimento": "",
+"testo": "I bambini di statura inferiore a 150 cm.:",
+"risposte": [
+"devono obbligatoriamente essere trasportati su appositi seggiolini",
+"devono essere trasportati in numero superiore ad uno",
+"possono essere trasportati senza dispositivi particolari purché nel sedile posteriore e accompagnati da un passeggero con età superiore ad anni 16"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 8
+},
+{
+"n": 99,
+"sezione": "B",
+"riferimento": "dpr 616/77 art. 79",
+"testo": "A quale ente sono state trasferite dallo Stato le proprie competenze in materia di trasporti pubblici?",
+"risposte": [
+"Alla Regione, in quanto di competenza per l'assetto e l'utilizzazione del territorio",
+"Al Comune, in quanto di competenza per la disciplina delle relative attività commerciali",
+"Alla Provincia, in quanto di competenza per la tutela dell'utenza"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 8
+},
+{
+"n": 100,
+"sezione": "B",
+"riferimento": "dpr 616/77 art. 85",
+"testo": "Quali competenze ha assunto la Regione relativamente ai servizi pubblici non di linea?",
+"risposte": [
+"Approvazione dei regolamenti comunali relativi ai noleggi e ai servizi da piazza",
+"Predisposizione di criteri per la redazione di regolamenti comunali dei servizi di noleggio e piazza",
+"Supervisione dell'esercizio dei trasporti pubblici non di linea"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 8
+},
+{
+"n": 101,
+"sezione": "B",
+"riferimento": "l 21/92 art. 1 c.1",
+"testo": "Come sono definiti gli autoservizi pubblici non di linea?",
+"risposte": [
+"Servizi con funzione complementare e integrativa a quelli di linea con qualsiasi mezzo effettuati",
+"Servizi svolti senza obbligo di aderire alla richiesta di trasporto",
+"Servizi ad offerta non indifferenziata"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 8
+},
+{
+"n": 102,
+"sezione": "B",
+"riferimento": "l 21/92 art. 1 c.1",
+"testo": "Che cosa distingue gli autoservizi pubblici non di linea da quelli di linea?",
+"risposte": [
+"L'offerta riservata a particolari categorie di utenti",
+"Le tariffe contrattabili liberamente",
+"La non continuità e periodicità e lo svolgimento su itinerari e con orari non predeterminati"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 8
+},
+{
+"n": 103,
+"sezione": "B",
+"riferimento": "l 21/92 art. 1 c.2",
+"testo": "Quali sono gli autoservizi pubblici non di linea?",
+"risposte": [
+"Taxi, noleggio senza conducente, noleggio con conducente",
+"Servizio da piazza e servizio da rimessa, svolti con qualsiasi tipo di auto o motoveicolo",
+"Taxi e noleggio con conducente con autovettura, motocarrozzetta e veicolo a trazione animale"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 8
+},
+{
+"n": 104,
+"sezione": "B",
+"riferimento": "l 21/92 art. 2 c.1",
+"testo": "Chi determina le tariffe del servizio di taxi?",
+"risposte": [
+"La libera contrattazione tra il cliente e il vettore, entro limiti minimi e massimi comunali",
+"I Comuni che rilasciano le licenze",
+"La Camera di Commercio"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 8
+},
+{
+"n": 105,
+"sezione": "B",
+"riferimento": "l 21/92 art. 2 c.1",
+"testo": "Dove deve avvenire il prelevamento dell'utente o l'inizio del servizio di taxi?",
+"risposte": [
+"Esclusivamente entro l'area comunale",
+"Entro l'area comunale o comprensoriale",
+"Entro l'area provinciale"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 8
+},
+{
+"n": 106,
+"sezione": "B",
+"riferimento": "l 21/92 art. 2 c.1",
+"testo": "Dove può avvenire lo stazionamento dei veicoli adibiti a servizio di taxi, durante il servizio stesso?",
+"risposte": [
+"Esclusivamente su suolo pubblico, in aree specificamente individuate",
+"Esclusivamente su piazze",
+"Indifferentemente su suolo pubblico o presso apposite rimesse private"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 8
+},
+{
+"n": 107,
+"sezione": "B",
+"riferimento": "l 21/92 art. 2 c.1",
+"testo": "Qual è lo scopo del servizio taxi?",
+"risposte": [
+"Soddisfa esigenze solo di trasporto individuale",
+"Soddisfa esigenze di trasporto individuale o di piccoli gruppi",
+"Soddisfa esigenze di trasporto di qualsiasi genere, anche con contratto di noleggio"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 8
+},
+{
+"n": 108,
+"sezione": "B",
+"riferimento": "l 21/92 art. 2 c.2",
+"testo": "Dov'è obbligatoria la prestazione del servizio di taxi?",
+"risposte": [
+"Per qualsiasi destinazione, anche esterna al limite dell'area in cui è consentito acquisire utenza",
+"Entro l'area provinciale",
+"Entro l'area comunale o comprensoriale"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 8
+},
+{
+"n": 109,
+"sezione": "B",
+"riferimento": "l 21/92 art. 3",
+"testo": "A chi è rivolto il servizio di noleggio con conducente?",
+"risposte": [
+"Ad un'utenza indifferenziata",
+"All'utenza specifica che si deve rivolgere al vettore",
+"All'utenza specifica che prenota presso le apposite aree pubbliche di stazionamento"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 8
+},
+{
+"n": 110,
+"sezione": "B",
+"riferimento": "l 21/92 art. 3",
+"testo": "Come possono essere effettuate le prestazioni di noleggio di veicoli con conducente?",
+"risposte": [
+"A tempo e/o a viaggio",
+"Solo a tempo",
+"Solo a viaggio"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 8
+},
+{
+"n": 111,
+"sezione": "B",
+"riferimento": "l 21/92 art. 3",
+"testo": "Dove avviene lo stazionamento dei mezzi addetti al servizio di noleggio con conducente?",
+"risposte": [
+"Presso apposite autorimesse pubbliche",
+"Su suolo pubblico in aree specificamente contrassegnate",
+"Su suolo privato, in apposite rimesse o parcheggi privati"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 8
+},
+{
+"n": 112,
+"sezione": "B",
+"riferimento": "l 21/92 art. 4 c.2",
+"testo": "Con quale obiettivo le Regioni delegano agli enti locali l'esercizio delle funzioni amministrative in materia di autoservizi pubblici non di linea?",
+"risposte": [
+"Per la semplificazione delle procedure",
+"Per il decentramento amministrativo",
+"Per garantire la visione integrata del trasporto non di linea con gli altri modi di trasporto"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 8
+},
+{
+"n": 113,
+"sezione": "B",
+"riferimento": "l 21/92 art. 4 c.3",
+"testo": "A quale fine deve essere ricercata l'uniformazione delle regolamentazioni comunali all'interno delle aree comprensoriali?",
+"risposte": [
+"Per evitare concorrenze indebite tra taxisti e noleggiatori di comuni limitrofi",
+"Per ottenere una maggiore razionalità ed efficienza del servizio pubblico non di linea",
+"Per limitare il numero delle licenze e delle autorizzazioni al minimo possibile"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 8
+},
+{
+"n": 114,
+"sezione": "B",
+"riferimento": "l 21/92 art. 4 c.3",
+"testo": "I Comuni e le Province sono titolari di funzioni proprie in materia di regolamentazione del trasporto pubblico non di linea?",
+"risposte": [
+"Sì",
+"No, sono funzioni delegate dalla Regione e devono sottostare al rispetto delle norme regionali",
+"Sì, ma devono coordinarsi tra loro per evitare disomogeneità normative"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 9
+},
+{
+"n": 115,
+"sezione": "B",
+"riferimento": "l 21/92 art. 4 c.5",
+"testo": "Gli autoservizi pubblici non di linea sono disciplinati solo da regolamenti di esercizio predisposti dai Comuni?",
+"risposte": [
+"No, possono essere emanate anche norme speciali dalla Regione o ente delegato per comprensorio",
+"Sì",
+"No, sono regolati anche dalle disposizioni delle Camere di Commercio"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 9
+},
+{
+"n": 116,
+"sezione": "B",
+"riferimento": "l 21/92 art. 6 c.1",
+"testo": "Presso quale ente è istituito il ruolo dei conducenti di veicoli adibiti ad autoservizi pubblici non di linea?",
+"risposte": [
+"La Camera di Commercio competente per territorio",
+"La Camera di Commercio di ciascuna Provincia",
+"La Provincia"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 9
+},
+{
+"n": 117,
+"sezione": "B",
+"riferimento": "l 21/92 art. 6 c.2",
+"testo": "Qual è l'unico requisito indispensabile, per legge statale, per ottenere l'iscrizione al ruolo dei conducenti di veicoli adibiti ad autoservizi pubblici non di linea?",
+"risposte": [
+"La sola patente",
+"La licenza o l'autorizzazione",
+"Il certificato di abilitazione professionale"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 9
+},
+{
+"n": 118,
+"sezione": "B",
+"riferimento": "l 21/92 art. 6 c.5",
+"testo": "A che cosa serve l'iscrizione al ruolo dei conducenti di veicoli adibiti ad autoservizi pubblici non di linea?",
+"risposte": [
+"A garantire la serietà e la professionalità",
+"Ad ottenere le licenze e le autorizzazioni necessarie all'esercizio dei servizi",
+"Ad evitare controlli e verifiche da parte dei Comuni"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 9
+},
+{
+"n": 119,
+"sezione": "B",
+"riferimento": "l 21/92 art. 6 c.7",
+"testo": "Quale categoria di conducenti di veicoli adibiti ad autoservizi pubblici non di linea viene iscritta di diritto all'apposito ruolo, alla data di sua istituzione?",
+"risposte": [
+"I titolari di licenza o autorizzazione",
+"Solo i titolari di licenza o autorizzazione e i loro familiari",
+"Chi abbia svolto almeno una volta il servizio a qualsiasi titolo"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 9
+},
+{
+"n": 120,
+"sezione": "B",
+"riferimento": "l 21/92 art. 7",
+"testo": "È possibile rientrare in possesso di licenze o autorizzazioni per autoservizi pubblici non di linea conferite a organismi cooperativi?",
+"risposte": [
+"No",
+"Sì, in caso di recesso, decadenza o esclusione",
+"Sì, in qualsiasi caso"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 9
+},
+{
+"n": 121,
+"sezione": "B",
+"riferimento": "l 21/92 art. 7",
+"testo": "Le persone giuridiche possono essere titolari di licenza o autorizzazione per autoservizi pubblici non di linea?",
+"risposte": [
+"Sì, ma possono essere solo società cooperative tra taxisti e noleggiatori",
+"No, i titolari possono essere solo persone fisiche iscritte a ruolo",
+"Sì, possono essere anche società di capitali"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 9
+},
+{
+"n": 122,
+"sezione": "B",
+"riferimento": "l 21/92 art. 7",
+"testo": "Possono essere conferite licenze o autorizzazioni per autoservizi pubblici non di linea a organismi associativi?",
+"risposte": [
+"Sì, ma solo a società cooperative tra taxisti e noleggiatori",
+"No",
+"Sì, purché costituiti tra titolari di licenze o autorizzazioni"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 9
+},
+{
+"n": 123,
+"sezione": "B",
+"riferimento": "l 21/92 art. 7",
+"testo": "Quali tipi di cooperative possono costituire i titolari di licenze o autorizzazioni per autoservizi pubblici non di linea?",
+"risposte": [
+"Cooperative sociali, per l'inserimento lavorativo di persone svantaggiate",
+"Cooperative di produzione e lavoro o di servizi",
+"Cooperative tra lavoratori autonomi"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 9
+},
+{
+"n": 124,
+"sezione": "B",
+"riferimento": "l 21/92 art. 8 c.1",
+"testo": "A chi può essere rilasciata la licenza o l'autorizzazione ad autoservizi pubblici non di linea?",
+"risposte": [
+"A persone fisiche",
+"A persone fisiche o a cooperative",
+"A qualsiasi impresa, individuale o societaria"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 9
+},
+{
+"n": 125,
+"sezione": "B",
+"riferimento": "l 21/92 art. 8 c.1",
+"testo": "Come viene rilasciata la licenza o l'autorizzazione ad autoservizi pubblici non di linea?",
+"risposte": [
+"Su richiesta",
+"A seguito di denuncia di inizio del servizio",
+"Tramite concorso pubblico"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 9
+},
+{
+"n": 126,
+"sezione": "B",
+"riferimento": "l 21/92 art. 8 c.2",
+"testo": "A quanti veicoli addetti ad autoservizi pubblici non di linea può fare riferimento una singola licenza o autorizzazione?",
+"risposte": [
+"Ad un solo taxi, a più veicoli per noleggio con conducente",
+"Ad un solo taxi o veicolo per noleggio con conducente",
+"A più taxi o veicoli per noleggio con conducente"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 9
+},
+{
+"n": 127,
+"sezione": "B",
+"riferimento": "l 21/92 art. 8 c.2",
+"testo": "È possibile cumulare licenza di taxi e autorizzazione al noleggio in capo al medesimo soggetto?",
+"risposte": [
+"Solo se non è una persona fisica",
+"No",
+"Solo se esercitate col medesimo veicolo"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 9
+},
+{
+"n": 128,
+"sezione": "B",
+"riferimento": "l 21/92 art. 8 c.2",
+"testo": "È possibile cumulare più licenze di taxi in capo al medesimo soggetto?",
+"risposte": [
+"No, perché l'esercizio deve essere personale",
+"Sì, se esso è associato a una cooperativa",
+"Sì, se esso è titolare di impresa artigiana con sufficiente numero di dipendenti"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 9
+},
+{
+"n": 129,
+"sezione": "B",
+"riferimento": "l 21/92 art. 8 c.3",
+"testo": "Per quali autoservizi pubblici non di linea è necessario disporre di una rimessa propria?",
+"risposte": [
+"Sia per il taxi che per il noleggio con conducente",
+"Solo per il taxi",
+"Solo per il noleggio con conducente"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 10
+},
+{
+"n": 130,
+"sezione": "B",
+"riferimento": "l 21/92 art. 8 c.4",
+"testo": "Al fine di ottenere una licenza o autorizzazione per autoservizi pubblici non di linea, è utile avere esercitato attività di conducente come dipendente o sostituto per un certo periodo?",
+"risposte": [
+"Sì, costituisce titolo preferenziale se il servizio è stato prestato per almeno sei mesi",
+"Sì, costituisce titolo preferenziale proporzionale al numero di anni di effettivo esercizio",
+"No"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 10
+},
+{
+"n": 131,
+"sezione": "B",
+"riferimento": "l 21/92 art. 9 c.1",
+"testo": "In quale dei seguenti casi le licenze e le autorizzazioni possono essere trasferite a richiesta dal titolare?",
+"risposte": [
+"Se l'ha ottenuta da almeno tre anni",
+"Se ha raggiunto 40 anni",
+"Se è divenuto inabile o inidoneo al servizio in via permanente"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 10
+},
+{
+"n": 132,
+"sezione": "B",
+"riferimento": "l 21/92 art. 9 c.1",
+"testo": "In quale dei seguenti casi le licenze e autorizzazioni possono essere trasferite a richiesta dal titolare?",
+"risposte": [
+"Se l'ha ottenuta da almeno cinque anni",
+"Se ha raggiunto cinquantacinque anni",
+"Se è divenuto inabile o inidoneo al servizio in via provvisoria"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 10
+},
+{
+"n": 133,
+"sezione": "B",
+"riferimento": "l 21/92 art. 9 c.1",
+"testo": "In quale dei seguenti casi le licenze e autorizzazioni possono essere trasferite a richiesta dal titolare?",
+"risposte": [
+"Se l'ha ottenuta da almeno tre anni",
+"Se ha raggiunto i 60 anni",
+"Se egli è divenuto inabile o inidoneo al servizio in via provvisoria"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 10
+},
+{
+"n": 134,
+"sezione": "B",
+"riferimento": "l 21/92 art. 9 c.1",
+"testo": "Le licenze e autorizzazioni possono essere trasferite dal titolare, a richiesta, ad altra persona da esso designata?",
+"risposte": [
+"Solo se la persona possiede i requisiti necessari",
+"Solo se la persona possiede i requisiti necessari e in presenza di particolari situazioni",
+"Solo in caso di cessione d'azienda"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 10
+},
+{
+"n": 135,
+"sezione": "B",
+"riferimento": "l 21/92 art. 9 c.2",
+"testo": "Quali tra gli eredi del titolare di licenza o autorizzazione deceduto ha diritto al trasferimento del titolo amministrativo?",
+"risposte": [
+"Qualsiasi erede in linea diretta o indiretta",
+"Qualsiasi erede appartenente al nucleo familiare",
+"I soli figli maggiorenni"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 10
+},
+{
+"n": 136,
+"sezione": "B",
+"riferimento": "l 21/92 art. 9 c.3",
+"testo": "In caso di trasferimento della licenza o dell'autorizzazione da parte di un titolare, quanto tempo deve trascorrere prima che egli possa riottenerne altra?",
+"risposte": [
+"3 anni",
+"Non può più riottenerne altra",
+"5 anni"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 10
+},
+{
+"n": 137,
+"sezione": "B",
+"riferimento": "l 21/92 art.10 c.1",
+"testo": "I titolari di licenza taxi possono farsi sostituire alla guida del taxi?",
+"risposte": [
+"Sì, sia temporaneamente che definitivamente",
+"Solo temporaneamente e per motivi specifici",
+"Solo per incarichi sindacali"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 10
+},
+{
+"n": 138,
+"sezione": "B",
+"riferimento": "l 21/92 art.10 c.3",
+"testo": "Come può essere regolato il rapporto tra un taxista e il suo sostituto?",
+"risposte": [
+"Da un contratto di lavoro a tempo determinato, o da un contratto di gestione al massimo di sei mesi",
+"Da un contratto di prestazione d'opera",
+"Informalmente"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 10
+},
+{
+"n": 139,
+"sezione": "B",
+"riferimento": "l 21/92 art.10 c.4",
+"testo": "I titolari di licenza o autorizzazione per autoservizi pubblici non di linea possono avvalersi nella guida di collaboratori familiari?",
+"risposte": [
+"Sì, purché iscritti al ruolo dei conducenti",
+"Sì, senza particolari obblighi",
+"No, solo di sostituti o dipendenti"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 10
+},
+{
+"n": 140,
+"sezione": "B",
+"riferimento": "l 21/92 art.11 c.1",
+"testo": "I veicoli adibiti a servizio di taxi possono circolare e sostare liberamente?",
+"risposte": [
+"Sì",
+"Secondo quanto stabilito dai regolamenti comunali e dal codice della strada",
+"Esclusivamente secondo quanto stabilito dal codice della strada"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 10
+},
+{
+"n": 141,
+"sezione": "B",
+"riferimento": "l 21/92 art.11 c.2",
+"testo": "Nel servizio taxi, da dove deve avvenire la partenza del veicolo per il prelevamento dell'utente o per l'inizio del servizio?",
+"risposte": [
+"Sempre e soltanto dal territorio del Comune che ha rilasciato la licenza",
+"Può avvenire anche dal territorio di altri comuni appartenenti al comprensorio, se consentito",
+"Non esistono obblighi"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 10
+},
+{
+"n": 142,
+"sezione": "B",
+"riferimento": "l 21/92 art.11 c.2",
+"testo": "Nel servizio taxi, è necessario l'assenso del conducente per destinazioni esterne al territorio comunale o comprensoriale?",
+"risposte": [
+"Solo in servizio notturno",
+"Sì, sempre",
+"No, il servizio è obbligatorio se l'utente è già salito a bordo"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 10
+},
+{
+"n": 143,
+"sezione": "B",
+"riferimento": "l 21/92 art.11 c.3",
+"testo": "Nel servizio di noleggio con conducente con autovettura è possibile sostare in posteggio di stazionamento su suolo pubblico?",
+"risposte": [
+"No, è sempre obbligatorio sostare presso la propria rimessa",
+"Sì, si può liberamente circolare e sostare come i taxi",
+"Sì, se nel comune non viene esercitato il servizio taxi"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 10
+},
+{
+"n": 144,
+"sezione": "B",
+"riferimento": "l 21/92 art.11 c.3",
+"testo": "Nel servizio di noleggio con conducente con autovettura è possibile usare le corsie preferenziali per taxi ed autobus e altre facilitazioni previste per i servizi pubblici?",
+"risposte": [
+"No",
+"Sì",
+"Solo se espressamente indicato in appositi cartelli"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 11
+},
+{
+"n": 145,
+"sezione": "B",
+"riferimento": "l 21/92 art.11 c.5",
+"testo": "In quale caso i veicoli da noleggio con conducente possono essere autorizzati allo stazionamento su suolo pubblico dal Comune, se ivi non è esercito il servizio di taxi?",
+"risposte": [
+"Se stazionano su aree pubbliche destinate al servizio taxi",
+"Se stazionano su aree pubbliche in cui sia consentita la sosta",
+"In nessun caso"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 11
+},
+{
+"n": 146,
+"sezione": "B",
+"riferimento": "l 21/92 art.11 c.6",
+"testo": "Che facoltà hanno i Comuni per agevolare l'integrazione tra i servizi di noleggio con conducente e i servizi di trasporto pubblico di linea ferroviari, navali e aerei?",
+"risposte": [
+"Consentire il libero esercizio del noleggio con conducente presso le stazioni",
+"Nessuna, perché tale integrazione è prerogativa del servizio di taxi",
+"Riservare appositi spazi di sosta presso le stazioni, qualificati come rimessa a tutti gli effetti in deroga al divieto di sosta su spazi pubblici"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 11
+},
+{
+"n": 147,
+"sezione": "B",
+"riferimento": "l 21/92 art.12 c.1",
+"testo": "Che cosa caratterizza le autovetture adibite al servizio di taxi rispetto a quelle adibite al servizio di noleggio con conducente?",
+"risposte": [
+"L'obbligo di essere munite di tassametro omologato",
+"L'obbligo di essere attrezzate con dispositivi antinquinamento",
+"L'obbligo di avere quattro porte"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 11
+},
+{
+"n": 148,
+"sezione": "B",
+"riferimento": "l 21/92 art.12 c.2",
+"testo": "È sempre sufficiente il tassametro omologato per indicare la tariffa da pagare nel servizio di taxi?",
+"risposte": [
+"No, se esistono eventuali supplementi devono essere indicati in apposito avviso sul cruscotto",
+"Sì",
+"No, è necessario fare un preventivo al momento della partenza"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 11
+},
+{
+"n": 149,
+"sezione": "B",
+"riferimento": "l 21/92 art.12 c.3",
+"testo": "Per le autovetture immatricolate per servizio taxi è sempre necessario esporre sul tetto il contrassegno luminoso con la scritta \"taxi\"?",
+"risposte": [
+"No, possono esserne esentate nei comuni di minore dimensione",
+"No, è facoltativo a discrezione del conducente",
+"Sì, è sempre obbligatorio"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 11
+},
+{
+"n": 150,
+"sezione": "B",
+"riferimento": "l 21/92 art.12 c.4",
+"testo": "Come vengono contraddistinte le autovetture adibite al servizi di taxi?",
+"risposte": [
+"Da un numero d'ordine assegnato dal Comune",
+"Da un nome in codice seguito da un numero",
+"Da un simbolo diverso per ciascuna vettura"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 11
+},
+{
+"n": 151,
+"sezione": "B",
+"riferimento": "l 21/92 art.12 c.4",
+"testo": "Le autovetture adibite al servizio taxi devono esporre la scritta \"servizio pubblico\"?",
+"risposte": [
+"No, è sufficiente il contrassegno luminoso",
+"Sì, in apposita targa con scritta in nero",
+"Sì, deve essere dipinta sulla fiancata destra"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 11
+},
+{
+"n": 152,
+"sezione": "B",
+"riferimento": "l 21/92 art.12 c.5",
+"testo": "Quale contrassegno particolare devono esporre le autovetture adibite al servizio di noleggio con conducente?",
+"risposte": [
+"Un contrassegno luminoso, posto sul tetto, con la scritta NCC",
+"Un contrassegno con la scritta \"noleggio\" all'interno del parabrezza e del lunotto",
+"La scritta \"noleggio\" dipinta sulla fiancata destra"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 11
+},
+{
+"n": 153,
+"sezione": "B",
+"riferimento": "l 21/92 art.12 c.5",
+"testo": "Quale targa particolare devono esporre le autovetture adibite al servizio di noleggio con conducente?",
+"risposte": [
+"Una posteriore, inamovibile, con dicitura \"NCC\", numero progressivo e stemma comunale",
+"Una anteriore, con dicitura \"NCC\"",
+"Nessuna targa oltre a quella di immatricolazione"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 11
+},
+{
+"n": 154,
+"sezione": "B",
+"riferimento": "l 21/92 art.12 c.6",
+"testo": "Da quale data di prima immatricolazione le autovetture adibite al servizio taxi devono essere dello specifico colore uniforme?",
+"risposte": [
+"Dal 01.01.1997",
+"Dal 01.01.1993",
+"Dal 01.01.2000"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 11
+},
+{
+"n": 155,
+"sezione": "B",
+"riferimento": "l 21/92 art.12 c.7",
+"testo": "Da quale data di prima immatricolazione le autovetture adibite al servizio taxi o noleggio con conducente devono essere dotate degli specifici dispositivi antinquinamento?",
+"risposte": [
+"Dal 01.01.1992",
+"Dal 01.01.1997",
+"Dal 01.01.2000"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 11
+},
+{
+"n": 156,
+"sezione": "B",
+"riferimento": "l 21/92 art.13 c.1",
+"testo": "A favore di chi deve essere effettuato il servizio di taxi?",
+"risposte": [
+"Del trasportato",
+"Di chiunque intenda far prelevare e trasportare altre persone",
+"Del trasportato anche con prenotazione per servizi periodici o continuativi"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 11
+},
+{
+"n": 157,
+"sezione": "B",
+"riferimento": "l 21/92 art.13 c.2",
+"testo": "Come si determina la tariffa del servizio taxi?",
+"risposte": [
+"A tempo",
+"A distanza",
+"A base multipla (tempo e distanza) in servizio urbano, a distanza in servizio extraurbano"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 11
+},
+{
+"n": 158,
+"sezione": "B",
+"riferimento": "l 21/92 art.13 c.3",
+"testo": "Il servizio di noleggio con conducente è soggetto a tariffa predeterminata?",
+"risposte": [
+"Sì, con tariffa unica chilometrica obbligatoria",
+"No, il corrispettivo è contrattabile senza limiti",
+"Sì, con tariffe chilometriche minime e massime entro cui si può contrattare il corrispettivo"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 12
+},
+{
+"n": 159,
+"sezione": "B",
+"riferimento": "",
+"testo": "Per poter esercitare l'attività di taxi o ncc che requisito devi avere?",
+"risposte": [
+"Aver superato l'esame",
+"Essere iscritto al ruolo dei conducenti",
+"Aver svolto l'attività per più di cinque anni"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 12
+},
+{
+"n": 160,
+"sezione": "B",
+"riferimento": "l 21/92 art.14 c.2",
+"testo": "Chi stabilisce i criteri per l'adeguamento dei servizi di taxi e noleggio con conducente per i portatori di handicap?",
+"risposte": [
+"La Regione",
+"La Provincia",
+"Il Comune"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 12
+},
+{
+"n": 161,
+"sezione": "B",
+"riferimento": "l 21/92 art.14 c.3",
+"testo": "In quali Comuni può essere consentito svolgere il servizi di taxi con autovetture immatricolate per servizio di noleggio con conducente?",
+"risposte": [
+"Quelli in cui il Comune ha liberamente regolamentato in tal modo",
+"Quelli di minore dimensione, individuati dalla Camera di Commercio su parere dell'Ufficio Periferico del Dipartimento dei Trasporti Terrestri ex MCTC",
+"Nessun Comune"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 12
+},
+{
+"n": 162,
+"sezione": "B",
+"riferimento": "l 21/92 art.14 c.3",
+"testo": "In quali comuni può esservi esonero dal dotare le autovetture addette al servizio taxi dell'apposito tassametro omologato?",
+"risposte": [
+"Quelli in cui il Comune ha liberamente regolamentato in tal modo",
+"Quelli di minore dimensione, individuati dalla Camera di Commercio su parere dell'Ufficio Periferico del Dipartimento dei Trasporti Terrestri ex MCTC",
+"Nessun Comune"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 12
+},
+{
+"n": 163,
+"sezione": "B",
+"riferimento": "dm 19.11.92 art. 1",
+"testo": "Di quale colore devono essere le autovetture adibite al servizio di taxi, immatricolate dal 01.01.93?",
+"risposte": [
+"Bianco",
+"Giallo",
+"Quello determinato dal regolamento comunale"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 12
+},
+{
+"n": 164,
+"sezione": "B",
+"riferimento": "dm 19.11.92 art. 1",
+"testo": "L'obbligo del colore uniforme per le autovetture adibite al servizio di taxi si estende a tutta la carrozzeria?",
+"risposte": [
+"Sì",
+"No, è sufficiente che siano di tale colore le porte e i cofani",
+"No, possono esserne esclusi eventuali fregi accessori originali (ad esempio fasce laterali paraurti)"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 12
+},
+{
+"n": 165,
+"sezione": "B",
+"riferimento": "dm 19.11.92 art. 1",
+"testo": "Quali delle seguenti autovetture in servizio di trasporto pubblico non di linea non sono obbligate all'adozione del colore uniforme?",
+"risposte": [
+"Immatricolate per servizio di taxi sulla base di licenza comunale",
+"Immatricolate per servizio di noleggio con conducente e autorizzate a effettuare servizio taxi",
+"Immatricolate per servizio di noleggio con conducente autorizzate alla sosta su aree pubbliche"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 12
+},
+{
+"n": 166,
+"sezione": "B",
+"riferimento": "dm 19.11.92 art. 2",
+"testo": "Le autovetture addette al servizio taxi possono recare fasce colorate sulle fiancate?",
+"risposte": [
+"No",
+"Solo una fascia colorata alta al massimo 6 cm, sotto il bordo inferiore del vano dei finestrini",
+"Sì, purché sia dello stesso colore per ciascuna cooperativa di appartenenza"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 12
+},
+{
+"n": 167,
+"sezione": "B",
+"riferimento": "dm 19.11.92 art. 2",
+"testo": "Le autovetture addette al servizio taxi possono recare scritte e stemmi identificativi dell'azienda esercente e del Comune di appartenenza, posti sulle fiancate?",
+"risposte": [
+"No, solo nella parte posteriore",
+"Sì, purché previsto dal regolamento comunale",
+"Sì, sono sempre ammessi"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 12
+},
+{
+"n": 168,
+"sezione": "B",
+"riferimento": "dm 19.11.92 art. 2",
+"testo": "Qual è la dimensione massima di scritte e stemmi identificativi dell'azienda esercente il servizio taxi e il comune di appartenenza, ammesse sulle fiancate dell'autovettura?",
+"risposte": [
+"Non possono essere ammesse",
+"Quelle indicate dal regolamento Comunale",
+"875 cmq"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 12
+},
+{
+"n": 169,
+"sezione": "B",
+"riferimento": "dm 572/92 art. 1",
+"testo": "Per soddisfare agli obblighi di dotare le autovetture adibite a servizio taxi e noleggio con conducente di dispositivi antinquinamento, sono ammessi anche i retrofit?",
+"risposte": [
+"No",
+"Sì, purché omologati",
+"Solo su autovetture immatricolate precedentemente all'approvazione del regolamento ministeriale"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 12
+},
+{
+"n": 170,
+"sezione": "B",
+"riferimento": "dm 20.04.93 art. 3",
+"testo": "Le tariffe minime e massime per il noleggio con conducente con autovettura tengono conto anche di tempi di sosta, pedaggi autostradali, tasse di transito, aria condizionata o altre prestazioni?",
+"risposte": [
+"no, tali costi sono esclusi e conteggiati a parte dal singolo noleggiatore",
+"sì, e non possono essere sommati all'importo contrattato oltre il limite massimo",
+"sì, per una percentuale media, superata la quale possono essere sommati all'importo contrattato"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 12
+},
+{
+"n": 171,
+"sezione": "B",
+"riferimento": "",
+"testo": "Fra gli obblighi del tassista vi è?",
+"risposte": [
+"Quello di effettuare il percorso più conveniente per l'utente",
+"Caricare più utenti alla stessa fermata e accompagnarli in destinazioni diverse",
+"Avere a disposizione un sostituto alla guida"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 12
+},
+{
+"n": 172,
+"sezione": "B",
+"riferimento": "",
+"testo": "Il titolare della licenza di taxi ha diritto alle ferie?",
+"risposte": [
+"Sì, ma secondo turni definiti dal Comune",
+"Sì, per trenta giorni lavorativi annualmente",
+"Sì, previa comunicazione al Comune"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 13
+},
+{
+"n": 173,
+"sezione": "B",
+"riferimento": "norme varie",
+"testo": "Qual è l'autorità competente per la disciplina generale dell'attività degli enti pubblici in materia di autoservizi pubblici non di linea?",
+"risposte": [
+"La Provincia",
+"Il Ministero delle Infrastrutture e dei Trasporti",
+"La Regione"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 13
+},
+{
+"n": 174,
+"sezione": "B",
+"riferimento": "norme varie",
+"testo": "Che cosa distingue i servizi di trasporto pubblici non di linea da quelli di linea?",
+"risposte": [
+"La mancanza di tariffe approvate e obbligatorie",
+"L'effettuazione subordinata alla effettiva domanda di trasporto",
+"La possibilità di sospendere il servizio senza alcuna autorizzazione"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 13
+},
+{
+"n": 175,
+"sezione": "B",
+"riferimento": "norme varie",
+"testo": "I servizi di trasporto pubblico non di linea possono presentarsi in forme concorrenziali al trasporto pubblico di linea?",
+"risposte": [
+"Sì, non esistono divieti",
+"No, la loro funzione è definita dalla legge come integrativa e complementare ai servizi di linea",
+"No, ma solo a condizione che l'esercente dei servizi di linea non faccia opposizione"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 13
+},
+{
+"n": 176,
+"sezione": "B",
+"riferimento": "norme varie",
+"testo": "Il servizio di noleggio di autobus con conducente è disciplinato dalla l.21/92 analogamente a quello di autovettura?",
+"risposte": [
+"Sì",
+"No",
+"Solo se il servizio viene svolto con minibus"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 13
+},
+{
+"n": 177,
+"sezione": "B",
+"riferimento": "norme varie",
+"testo": "Quale dei seguenti non è definibile servizio pubblico non di linea ai sensi della l. 21/92",
+"risposte": [
+"Il noleggio di autovetture con conducente",
+"Il noleggio di motocarrozzette con conducente",
+"La locazione di autovetture senza conducente"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 13
+},
+{
+"n": 178,
+"sezione": "B",
+"riferimento": "norme varie",
+"testo": "Il servizio taxi ha il solo scopo di soddisfare le richieste di trasporto individuali?",
+"risposte": [
+"Sì, se il trasporto viene richiesto da più persone si tratta di noleggio",
+"No, il trasporto può essere richiesto anche da piccoli gruppi",
+"Sì, è vietato imbarcare persone con la diversa destinazione"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 13
+},
+{
+"n": 179,
+"sezione": "B",
+"riferimento": "norme varie",
+"testo": "Il servizio taxi ha obblighi particolari relativi al prelevamento dell'utente o all'inizio del servizio?",
+"risposte": [
+"Sì, essi devono avvenire con partenza dal territorio del Comune che ha rilasciato la licenza",
+"No",
+"Sì, essi devono avvenire unicamente entro il territorio del Comune che ha rilasciato la licenza"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 13
+},
+{
+"n": 180,
+"sezione": "C",
+"riferimento": "norme varie",
+"testo": "La prestazione del servizio taxi ha obblighi particolari in relazione al territorio interessato dallo spostamento?",
+"risposte": [
+"No",
+"Sì, il trasporto non può essere rifiutato all'interno del Comune che ha rilasciato la licenza",
+"Sì, il trasporto non può essere rifiutato in nessun caso"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 13
+},
+{
+"n": 181,
+"sezione": "C",
+"riferimento": "norme varie",
+"testo": "Da chi può essere svolto il servizio taxi?",
+"risposte": [
+"Dagli iscritti al registro dei mestieri girovaghi art. 121 TULPS",
+"Dai titolari di licenza di esercizio di autorimessa art. 86 TULPS",
+"Dai titolari di licenza specifica per l'esercizio di servizio pubblico non di linea"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 13
+},
+{
+"n": 182,
+"sezione": "C",
+"riferimento": "norme varie",
+"testo": "Sono previste deroghe all'obbligo di partenza dal territorio comunale, per gli esercenti il servizio di taxi?",
+"risposte": [
+"No",
+"Sì, se il servizio viene svolto da e per porti, stazioni ferroviarie e aeroporti",
+"Sì, solo per il servizio aeroporto e solo per il Comune capoluogo di provincia"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 13
+},
+{
+"n": 183,
+"sezione": "C",
+"riferimento": "norme varie",
+"testo": "Dove può essere prelevato l'utente che ha prenotato un servizio di noleggio con conducente?",
+"risposte": [
+"Solo presso la rimessa o sede del vettore",
+"In qualsiasi punto, purché interno al territorio comunale",
+"In qualsiasi punto esterno alla sede o rimessa, purché la prenotazione sia disponibile nel veicolo"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 13
+},
+{
+"n": 184,
+"sezione": "C",
+"riferimento": "norme varie",
+"testo": "Da chi può essere svolto il servizio di autonoleggio con conducente?",
+"risposte": [
+"Dagli iscritti al registro dei mestieri girovaghi art. 121 TULPS",
+"Dai titolari di licenza di esercizio di autorimessa art. 86 TULPS",
+"Dai titolari di autorizzazione specifica per l'esercizio di servizio pubblico non di linea o da suo dipendente"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 13
+},
+{
+"n": 185,
+"sezione": "C",
+"riferimento": "norme varie",
+"testo": "Quale autorità può prevedere, caso per caso e per particolari esigenze, speciali prescrizioni relative al tipo e alle caratteristiche dei veicoli adibiti a servizi di taxi o noleggio con conducente?",
+"risposte": [
+"La Provincia",
+"L'Ufficio Periferico del Dipartimento dei Trasporti Terrestri ex MCTC",
+"Il Comune"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 13
+},
+{
+"n": 186,
+"sezione": "C",
+"riferimento": "norme varie",
+"testo": "La sostituzione alla guida di un titolare di licenza o autorizzazione all'esercizio di servizi pubblici non di linea deve essere autorizzata da qualche Ente, o è sufficiente una semplice comunicazione a sostituzione avvenuta?",
+"risposte": [
+"Deve essere autorizzata dal Comune che ha rilasciato la licenza o l'autorizzazione",
+"È sufficiente una comunicazione all'Ufficio Periferico del Dipartimento dei Trasporti Terrestri ex MCTC",
+"È sufficiente tenere a bordo del veicolo copia del contratto di assunzione a tempo determinato"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 13
+},
+{
+"n": 187,
+"sezione": "C",
+"riferimento": "norme varie",
+"testo": "Qual è l'autorità che consente il rinnovo e il trasferimento di titolarità delle licenze taxi e delle autorizzazioni per il servizio di noleggio con conducente?",
+"risposte": [
+"La Regione",
+"La Provincia",
+"Il Comune"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 14
+},
+{
+"n": 188,
+"sezione": "C",
+"riferimento": "norme varie",
+"testo": "Qual è l'autorità che emana i regolamenti per i servizi pubblici non di linea?",
+"risposte": [
+"La Regione",
+"La Provincia",
+"Il Comune"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 14
+},
+{
+"n": 189,
+"sezione": "C",
+"riferimento": "norme varie",
+"testo": "Qual è l'autorità che rilascia le autorizzazioni per il servizio di noleggio con conducente?",
+"risposte": [
+"La Regione",
+"La Provincia",
+"Il Comune"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 14
+},
+{
+"n": 190,
+"sezione": "C",
+"riferimento": "norme varie",
+"testo": "Qual è l'autorità che rilascia le licenze per il servizio taxi?",
+"risposte": [
+"La Regione",
+"La Provincia",
+"Il Comune"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 14
+},
+{
+"n": 191,
+"sezione": "C",
+"riferimento": "",
+"testo": "Quale ente determina le tariffe per il servizio ncc?",
+"risposte": [
+"Il Comune",
+"La Camera di Commercio Industria Agricoltura e Artigianato",
+"Nessun ente"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 14
+},
+{
+"n": 192,
+"sezione": "C",
+"riferimento": "norme varie",
+"testo": "Quale ente determina le tariffe per il servizio taxi?",
+"risposte": [
+"Il Comune",
+"La Camera di Commercio Industria Artigianato e Agricoltura",
+"La Provincia"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 14
+},
+{
+"n": 193,
+"sezione": "C",
+"riferimento": "norme varie",
+"testo": "A quali enti vanno annualmente trasmesse le tariffe dei servizi di taxi e noleggio con conducente?",
+"risposte": [
+"Alla Regione e all'Ufficio Periferico del Dipartimento dei Trasporti Terrestri -ex MCTC",
+"Al Comune e alla Prefettura",
+"Alla Provincia e alla Camera di Commercio"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 14
+},
+{
+"n": 194,
+"sezione": "C",
+"riferimento": "norme varie",
+"testo": "Nei comuni dove non esiste servizio di taxi, i veicoli adibiti al servizio di noleggio con conducente possono sostare su aree pubbliche?",
+"risposte": [
+"Sì, purché siano dipinti di bianco come i taxi",
+"No, in nessun caso",
+"Solo se autorizzati dal Comune e su aree ben determinate"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 14
+},
+{
+"n": 195,
+"sezione": "C",
+"riferimento": "norme varie",
+"testo": "I veicoli in servizio di noleggio con conducente che possono sostare nelle aree appositamente determinate presso porti, aeroporti e stazioni ferroviarie, devono essere esclusivamente quelli autorizzati dal Comune in cui esse ricadono?",
+"risposte": [
+"Sì",
+"No, possono sostare e acquisire liberamente qualsiasi servizio tutti gli autorizzati al noleggio",
+"Possono essere svolti solo servizi prenotati"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 14
+},
+{
+"n": 196,
+"sezione": "C",
+"riferimento": "norme varie",
+"testo": "La sosta dei veicoli in servizio di noleggio con conducente presso stazioni, porti e aeroporti, ove è consentita dal Comune, è possibile che avvenga nelle stesse aree destinate al posteggio dei taxi?",
+"risposte": [
+"Sì",
+"No, le aree devono essere ben distinte da quelle dei taxi",
+"No, le aree devono essere distanziate di almeno 300 metri"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 14
+},
+{
+"n": 197,
+"sezione": "C",
+"riferimento": "norme varie",
+"testo": "Nei Comuni dove esiste il servizio di taxi, i veicoli adibiti al servizio di noleggio con conducente possono sostare su aree pubbliche?",
+"risposte": [
+"Sì, purché siano dipinti di bianco come i taxi",
+"No, in nessun caso",
+"Solo in aree determinate, presso le stazioni, i porti e gli aeroporti, in attesa di propri clienti muniti di prenotazione effettuata presso la rimessa"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 14
+},
+{
+"n": 198,
+"sezione": "C",
+"riferimento": "norme varie",
+"testo": "Con quale atto pubblico il Comune individua le aree da destinare allo stazionamento dei veicoli per i servizi pubblici non di linea?",
+"risposte": [
+"Regolamento di esercizio",
+"Ordinanze del Sindaco",
+"Determinazione del responsabile dell'ufficio comunale per il commercio"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 14
+},
+{
+"n": 199,
+"sezione": "C",
+"riferimento": "norme varie",
+"testo": "Quale autorità determina i criteri per il calcolo annuale delle tariffe per il servizio taxi?",
+"risposte": [
+"Il Comune",
+"Il Ministero delle Infrastrutture e dei Trasporti",
+"La Provincia"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 14
+},
+{
+"n": 200,
+"sezione": "C",
+"riferimento": "norme varie",
+"testo": "Quale autorità determina le modalità per la turnazione per l'esercizio del servizio taxi?",
+"risposte": [
+"Il Comune",
+"Nessuna, la turnazione viene concordata direttamente tra gli operatori",
+"La Regione"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 14
+},
+{
+"n": 201,
+"sezione": "C",
+"riferimento": "norme varie",
+"testo": "A che cosa serve l'iscrizione al ruolo provinciale dei conducenti dei veicoli adibiti a servizi pubblici non di linea?",
+"risposte": [
+"Solo ad ottenere le licenze e le autorizzazioni",
+"Ad ottenere le licenze e le autorizzazioni e a svolgere l'attività di conducente dei rispettivi mezzi",
+"Solo a condurre i mezzi in servizio pubblico non di linea"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 14
+},
+{
+"n": 202,
+"sezione": "C",
+"riferimento": "norme varie",
+"testo": "L'iscrizione al ruolo provinciale dei conducenti dei veicoli adibiti a servizi pubblici non di linea è necessaria per i dipendenti di imprese autorizzate a svolgere servizi di noleggio con conducente?",
+"risposte": [
+"Solo per i dipendenti di ruolo",
+"Solo per i dipendenti a tempo indeterminato",
+"Si, anche per i dipendenti a tempo determinato in sostituzione temporanea di altri dipendenti"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 15
+},
+{
+"n": 203,
+"sezione": "C",
+"riferimento": "norme varie",
+"testo": "Quale organo comunale provvede a dare un parere sulle tariffe dei servizi di taxi e noleggio con conducente?",
+"risposte": [
+"La Giunta Regionale",
+"La Commissione Consultiva",
+"La Commissione Tariffe"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 15
+},
+{
+"n": 204,
+"sezione": "C",
+"riferimento": "norme varie",
+"testo": "I titolari di licenze o autorizzazioni per servizi pubblici non di linea possono costituire forme associative tra di loro e con altri soggetti?",
+"risposte": [
+"Possono associarsi in cooperative, consorzi di imprese artigiane ed altro, ma solo tra titolari di licenza",
+"Possono associarsi liberamente con chiunque in tutte le forme previste dal codice civile",
+"No, le società possono svolgere i servizi pubblici solo se sono direttamente titolari"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 15
+},
+{
+"n": 205,
+"sezione": "C",
+"riferimento": "norme varie",
+"testo": "Nelle cooperative di trasporto - servizio taxi - costituite come cooperative di produzione e lavoro che obblighi hanno i soci titolari di licenza?",
+"risposte": [
+"Il conferimento della licenza",
+"Il conferimento della licenza e dell'autovettura",
+"Il conferimento dell'autovettura"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 15
+},
+{
+"n": 206,
+"sezione": "C",
+"riferimento": "norme varie",
+"testo": "Nelle cooperative di trasporto - servizio taxi - costituite come cooperative di produzione e lavoro possono essere associati anche sostituti alla guida?",
+"risposte": [
+"Sì",
+"Solo entro il limite percentuale determinato dal Comune con regolamento",
+"No"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 15
+},
+{
+"n": 207,
+"sezione": "C",
+"riferimento": "norme varie",
+"testo": "Per esercitare il servizio di noleggio con conducente è possibile essere titolare di una impresa di trasporto?",
+"risposte": [
+"No, è necessario essere soci di una cooperativa di produzione e lavoro",
+"Sì, purché sia una impresa artigiana",
+"Sì, senza alcun vincolo oltre all'obbligo di non svolgere altre attività"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 15
+},
+{
+"n": 208,
+"sezione": "C",
+"riferimento": "norme varie",
+"testo": "Per esercitare il servizio di taxi è necessario essere titolare di una impresa di trasporto?",
+"risposte": [
+"No, è possibile anche essere soci di una cooperativa di produzione e lavoro",
+"Sì, purché sia una impresa artigiana",
+"No, basta essere iscritti al registro dei mestieri girovaghi"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 15
+},
+{
+"n": 209,
+"sezione": "C",
+"riferimento": "norme varie",
+"testo": "Per esercitare il servizio di taxi è possibile essere titolare di una impresa di trasporto?",
+"risposte": [
+"No, è necessario essere soci di una cooperativa di produzione e lavoro",
+"Sì, purché sia una impresa artigiana",
+"Sì, senza alcun vincolo"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 15
+},
+{
+"n": 210,
+"sezione": "C",
+"riferimento": "dlgs 422/97 art. 14 comma 4",
+"testo": "È possibile impiegare in servizio di linea anche autovetture immatricolate per servizio di terzi - taxi o noleggio?",
+"risposte": [
+"No, mai",
+"Sì, sempre",
+"Sì, nei casi previsti dalla Regione per i servizi in territori a domanda debole"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 15
+},
+{
+"n": 211,
+"sezione": "C",
+"riferimento": "dlgs 422/97 art. 14",
+"testo": "È possibile per i Comuni e le Province differenziare i servizi di linea impiegando autovetture ad uso di terzi, non dotate di specifiche licenze o autorizzazioni per i servizi non di linea?",
+"risposte": [
+"Sì, nel rispetto dei criteri tecnici e delle modalità di utilizzo disposti dal Ministero delle Infrastrutture e dei Trasporti",
+"No, è possibile solo impiegare taxi e vetture da noleggio regolarmente dotate di licenza o autorizzazione",
+"Sì, solo se i veicoli sono di proprietà di titolari di licenza taxi o autorizzazione al noleggio con conducente"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 15
+},
+{
+"n": 212,
+"sezione": "C",
+"riferimento": "dlgs 422/97 art. 14",
+"testo": "È possibile svolgere servizio di taxi presso gli aeroporti, per i titolari di licenze rilasciate da altri comuni, oltre a quelli nel cui territorio ricade l'aeroporto?",
+"risposte": [
+"No, a meno di un accordo tra i comuni interessati",
+"Sì, solo per i titolari di licenza rilasciata dal Comune capoluogo di Regione",
+"Sì, per i titolari di licenza rilasciata dai Comuni capoluogo di Regione e di Provincia"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 15
+},
+{
+"n": 213,
+"sezione": "C",
+"riferimento": "dlgs 422/97 art. 14",
+"testo": "Nel caso di servizio taxi svolto presso gli aeroporti, è possibile per i Comuni capoluogo di Regione o Provincia accordarsi per l'organizzazione del servizio?",
+"risposte": [
+"No, l'organizzazione è riservata al solo Comune in cui ricade l'aeroporto",
+"Sì, se non si raggiunge un' intesa interviene direttamente il Presidente della Regione",
+"Sì, ma se non si accordano il servizio può essere svolto solo dai titolari di licenza del Comune competente per territorio"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 15
+},
+{
+"n": 214,
+"sezione": "D",
+"riferimento": "CC art. 230 bis",
+"testo": "Quale è il presupposto perché un familiare, lavorando nella famiglia o nell'impresa familiare, sia effettivamente considerato partecipante all'impresa familiare?",
+"risposte": [
+"che sia assunto come dipendente",
+"che presti la propria attività in modo continuativo",
+"che abiti assieme al titolare dell'impresa"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 15
+},
+{
+"n": 215,
+"sezione": "D",
+"riferimento": "CC art. 1678",
+"testo": "Cosa distingue la prestazione del noleggio con conducente da quella del trasporto?",
+"risposte": [
+"Le prestazioni sono identiche",
+"Con il noleggio si è obbligati solo a mettere a disposizione un veicolo con il conducente",
+"Con il trasporto si è obbligati ad utilizzare il veicolo scelto dal trasportato"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 16
+},
+{
+"n": 216,
+"sezione": "D",
+"riferimento": "CC art. 1678",
+"testo": "In che cosa consiste un contratto di trasporto?",
+"risposte": [
+"Nell'obbligo di guidare un veicolo per il tempo richiesto dal cliente",
+"Nell'obbligo di mettere a disposizione di terzi un veicolo determinato con un conducente",
+"Nell'obbligo da parte del trasportatore di trasferire persone e cose da un luogo all'altro"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 16
+},
+{
+"n": 217,
+"sezione": "D",
+"riferimento": "CC art. 1678",
+"testo": "In termini di rischio imprenditoriale e quindi di responsabilità, cosa differenzia il contratto di noleggio da quello di trasporto?",
+"risposte": [
+"Nel primo chi mette a disposizione il veicolo assume il solo rischio tecnico del buon funzionamento",
+"Nel primo chi mette a disposizione il veicolo assume anche il rischio economico del risultato",
+"Niente"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 16
+},
+{
+"n": 218,
+"sezione": "D",
+"riferimento": "CC art. 1678",
+"testo": "Nella pratica, il contratto stipulato da un autonoleggiatore con conducente è un contratto di noleggio o di trasporto?",
+"risposte": [
+"È un vero contratto di noleggio",
+"Solitamente prevale la natura del contratto di trasporto, pur restando anche di noleggio",
+"È un vero contratto di trasporto"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 16
+},
+{
+"n": 219,
+"sezione": "D",
+"riferimento": "CC art. 1681",
+"testo": "A che cosa si estende la responsabilità del vettore in un contratto di trasporto, se esso è avvenuto con ritardo o non è stato effettuato, per motivi imputabili al trasportatore stesso?",
+"risposte": [
+"Anche a mancati guadagni causati dal mancato adempimento contrattuale",
+"Solo ad eventuali perdite",
+"Solo al prezzo già pagato per il trasporto, che deve essere rimborsato"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 16
+},
+{
+"n": 220,
+"sezione": "D",
+"riferimento": "CC art. 1681",
+"testo": "Quale responsabilità ha il vettore in caso di danno nei confronti delle persone trasportate causato da incidente?",
+"risposte": [
+"Totale, in ogni caso",
+"Totale, a meno che non provi di aver adottato tutte le misure per evitare il danno",
+"Totale, a meno che non abbia inserito nel contratto di trasporto specifiche clausole di esonero"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 16
+},
+{
+"n": 221,
+"sezione": "D",
+"riferimento": "l 443/85 art. 2",
+"testo": "Che cosa caratterizza specificamente l'imprenditore artigiano?",
+"risposte": [
+"L'esercizio personale e professionale in qualità di titolare e lo svolgimento diretto del lavoro",
+"L'essere titolare di una qualsiasi impresa che non superi un determinato numero di dipendenti",
+"L'esenzione dall'obbligo di rispetto di norme particolari di professionalità disposte dalle leggi"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 16
+},
+{
+"n": 222,
+"sezione": "D",
+"riferimento": "l 443/85 art. 3 c.1",
+"testo": "Che cosa caratterizza specificamente una impresa artigiana?",
+"risposte": [
+"Avere un numero di dipendenti non superiore ai limiti predeterminati dalla legge",
+"Svolgere solamente alcune attività, individuate dalla legge",
+"Essere esercitata da un imprenditore definito \"artigiano\" dal Codice Civile"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 16
+},
+{
+"n": 223,
+"sezione": "D",
+"riferimento": "l 443/85 art. 3 c.2",
+"testo": "Esistono vincoli particolari per la qualificazione come impresa artigiana di una società di persone o cooperativa, la cui costituzione è consentita dalla legge?",
+"risposte": [
+"Nessuno",
+"Che uno di due soci (o la metà più uno) prevalentemente vi lavori e il lavoro prevalga sul capitale",
+"Che il lavoro manuale abbia funzione prevalente sul capitale"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 16
+},
+{
+"n": 224,
+"sezione": "D",
+"riferimento": "l 443/85 art. 3 c.2",
+"testo": "Quali forme sono consentite per l'impresa artigiana costituita come impresa societaria?",
+"risposte": [
+"Tutte le forme previste dal codice civile ad esclusione delle SPA e SAPA",
+"Solo le società in nome collettivo",
+"Sono escluse le società in accomandita semplice e società a responsabilità limitata"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 16
+},
+{
+"n": 225,
+"sezione": "D",
+"riferimento": "l 443/85 art. 3 c.3",
+"testo": "Di quante imprese artigiane può essere titolare un imprenditore artigiano?",
+"risposte": [
+"Non esiste limite",
+"Due",
+"Una"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 16
+},
+{
+"n": 226,
+"sezione": "D",
+"riferimento": "l 443/85 art. 3 c.3",
+"testo": "Esistono obblighi particolari per la sede di svolgimento dell'attività di un'impresa artigiana?",
+"risposte": [
+"Nessuno, l'attività può svolgersi anche in forma ambulante o presso l'abitazione dell'imprenditore",
+"Deve possedere una sede autonoma e distinta",
+"Deve svolgersi solo presso il domicilio dell'imprenditore"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 16
+},
+{
+"n": 227,
+"sezione": "D",
+"riferimento": "l 443/85 art. 4 c.1",
+"testo": "L'imprenditore artigiano può avvalersi di prestazione d'opera di personale dipendente?",
+"risposte": [
+"Sì, entro limiti numerici determinati",
+"No, non può avere dipendenti",
+"Solo se diretto personalmente da lui stesso o dai soci, entro limiti numerici determinati"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 16
+},
+{
+"n": 228,
+"sezione": "D",
+"riferimento": "l 443/85 art. 4 c.1",
+"testo": "Qual è il limite numerico massimo di dipendenti per un'impresa artigiana di trasporto?",
+"risposte": [
+"Quattro",
+"Otto",
+"Venti"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 16
+},
+{
+"n": 229,
+"sezione": "D",
+"riferimento": "l 443/85 art. 4 c.2",
+"testo": "Nella valutazione del numero di dipendenti dell'impresa artigiana per la verifica del rispetto dei limiti massimi imposti per legge, sono previste particolari categorie eccedenti?",
+"risposte": [
+"No, va considerato qualsiasi dipendente",
+"Sì, non vengono conteggiati ad esempio i portatori di handicap",
+"Sì, non vengono conteggiati i collaboratori di impresa familiare"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 16
+},
+{
+"n": 230,
+"sezione": "D",
+"riferimento": "l 443/85 art. 5 c.1",
+"testo": "Esistono obblighi particolari per le imprese artigiane in relazione all'iscrizione ai registri delle imprese?",
+"risposte": [
+"No, sono considerate come tutte le altre imprese",
+"Sì, sono esentate da qualsiasi iscrizione",
+"Si, devono iscriversi all'albo provinciale delle imprese artigiane"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 17
+},
+{
+"n": 231,
+"sezione": "D",
+"riferimento": "l 443/85 art. 5 c.3",
+"testo": "Per quanti anni al massimo è possibile mantenere la qualificazione di impresa artigiana nel caso di invalidità, morte, interdizione o inabilitazione dell'imprenditore artigiano?",
+"risposte": [
+"2 anni",
+"5 anni",
+"fino al raggiungimento della maggiore età dei figli minorenni"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 17
+},
+{
+"n": 232,
+"sezione": "D",
+"riferimento": "l 443/85 art. 6",
+"testo": "In che forma le imprese artigiane possono sviluppare collaborazioni imprenditoriali tra loro e con altre imprese?",
+"risposte": [
+"In nessuna forma",
+"In forma di consorzi e società consortili anche cooperative, ma solo tra loro",
+"In forma di consorzi e società consortili anche cooperative, anche con altri ma entro certi limiti"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 17
+},
+{
+"n": 233,
+"sezione": "D",
+"riferimento": "d.lgs. 81/2015 art.19 c. 4",
+"testo": "perché un rapporto di lavoro si intenda a tutti gli effetti stipulato per un tempo determinato, in caso di sostituzione alla guida di un taxi, è sufficiente che il termine sia comunicato verbalmente al lavoratore?",
+"risposte": [
+"No. L'apposizione del termine ha effetto solo se risulta direttamente o indirettamente da atto scritto consegnato al lavoratore entro 5gg. dall'inizio della prestazione lavorativa",
+"Sì",
+"No. Il contratto a termine ha effetto solo se comunicato sia verbalmente che in forma scritta al lavoratore"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 17
+},
+{
+"n": 234,
+"sezione": "D",
+"riferimento": "d.lgs. 81/2015 art.21 c. 1",
+"testo": "Il contratto di lavoro a tempo determinato per la sostituzione di un tassista può essere prorogato senza effetti sul rapporto di lavoro?",
+"risposte": [
+"No, non può essere prorogato",
+"Sì, può essere prorogato senza limiti di nessun genere",
+"Sì, solo se la durata iniziale del contratto a termine è inferiore a 24 mesi. Sempre entro l'arco temporale di 24 mesi sono ammesse fino a 4 proroghe"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 17
+},
+{
+"n": 235,
+"sezione": "D",
+"riferimento": "d.lgs. 81/2015 art.25 c. 1",
+"testo": "al sostituto tassista a tempo determinato, spetta altro trattamento, oltre alla retribuzione ordinaria per le giornate lavorate?",
+"risposte": [
+"Spetta un trattamento aggiuntivo",
+"Secondo il principio di non discriminazione spetta lo stesso trattamento economico e normativo in atto nell'impresa per i lavoratori con contratto a tempo indeterminato inquadrati nello stesso livello contrattuale",
+"Spettano delle maggiorazioni a seconda della durata del contratto"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 17
+},
+{
+"n": 236,
+"sezione": "D",
+"riferimento": "",
+"testo": "in base all'attuale normativa, i veicoli ad uso pubblico (uso di terzi), usufruiscono della tassa di proprietà del veicolo agevolata?",
+"risposte": [
+"I veicoli ad uso pubblico non usufruiscono di una tassa di proprietà agevolata",
+"I veicoli ad uso pubblico sono esentati dal pagamento della tassa di proprietà del veicolo",
+"I veicoli ad uso pubblico usufruiscono di una tassa di proprietà agevolata"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 17
+},
+{
+"n": 237,
+"sezione": "D",
+"riferimento": "L. 15/01/1992 n. 21",
+"testo": "In quale termine di tempo l'interruzione del servizio taxi comporta la decadenza della licenza?",
+"risposte": [
+"Interruzione del servizio taxi per un periodo di tempo superiore ad un anno",
+"Interruzione del servizio taxi superiore a tre anni",
+"Interruzione del servizio taxi per un periodo superiore a due mesi senza giustificato motivo"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 17
+},
+{
+"n": 238,
+"sezione": "D",
+"riferimento": "",
+"testo": "Che sanzione complessiva si applica per mancato pagamento della tassa di proprietà?",
+"risposte": [
+"La tassa non pagata più una maggiorazione e gli interesssi legali calcolati sui giorni di ritardato pagamento",
+"Dal doppio al triplo della tassa non pagata",
+"La tassa non pagata più 516,00 €"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 17
+},
+{
+"n": 239,
+"sezione": "D",
+"riferimento": "",
+"testo": "Chi risponde del mancato pagamento della tassa di proprietà del veicolo?",
+"risposte": [
+"Il proprietario",
+"Il conducente",
+"Il proprietario e il conducente un obbligo solidale"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 17
+},
+{
+"n": 240,
+"sezione": "D",
+"riferimento": "L. 15/01/1992 n.21",
+"testo": "Come viene sanzionata la mancata apposizione della targa con dicitura servizio pubblico prevista per le autovetture adibite al servizio taxi?",
+"risposte": [
+"Con la sospensione della licenza",
+"Con la revoca della licenza",
+"Con il pagamento di una sanzione per mancato rispetto delle norme di riconoscibilità del mezzo"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 17
+},
+{
+"n": 241,
+"sezione": "D",
+"riferimento": "",
+"testo": "Con quale modalità viene rilasciato il certificato di proprietà del veicolo dal PRA?",
+"risposte": [
+"In formato digitale",
+"Sempre e solo in formato cartaceo",
+"Sia in formato cartaceo che digitale"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 17
+},
+{
+"n": 242,
+"sezione": "D",
+"riferimento": "",
+"testo": "Se una qualsiasi pubblica amministrazione viene per qualsiasi motivo a conoscenza del fatto che un'impresa qualificata come artigiana in realtà non rispetta qualcuno dei vincoli e limiti specifici imposti dalla legge è tenuta ad intervenire?",
+"risposte": [
+"Si, deve segnalare il fatto al Comune che valuta e decide",
+"Si, deve segnalare il fatto alla Commissione Provinciale Artigianato, che valuta e decide",
+"Si, ad esempio può negare il rilascio di licenze o autorizzazioni ai servizi pubblici non di linea"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 18
+},
+{
+"n": 243,
+"sezione": "D",
+"riferimento": "",
+"testo": "Che riduzione si applica alla tassa automobilistica dovuta per le autovetture in servizio pubblico non di linea?",
+"risposte": [
+"Non c'è nessuna riduzione",
+"Il 50% della tassa ad uso privato",
+"Il 75% della tassa ad uso privato per le autovetture in servizio di piazza"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 18
+},
+{
+"n": 244,
+"sezione": "D",
+"riferimento": "",
+"testo": "I conducenti di taxi durante l'effettuazione della corsa hanno il divieto di:",
+"risposte": [
+"Mangiare e fumare",
+"Mangiare e fumare se non autorizzati dall'utente",
+"Dialogare con l'utente"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 18
+},
+{
+"n": 245,
+"sezione": "D",
+"riferimento": "dpr 633/72 art 10.14",
+"testo": "In quali casi il servizio di noleggio con conducente è considerato trasporto pubblico urbano e a tale effetto è esente da IVA?",
+"risposte": [
+"In nessun caso",
+"Per i soli trasporti interni al territorio comunale",
+"Per i soli trasporti interni al territorio comunale o tra comuni distanti tra loro al massimo 50 km"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 18
+},
+{
+"n": 246,
+"sezione": "D",
+"riferimento": "dpr 633/72 art 10.14",
+"testo": "In quali casi il servizio taxi è considerato trasporto pubblico urbano e a tale effetto è esente da IVA?",
+"risposte": [
+"In qualsiasi caso",
+"Per i soli trasporti interni al territorio comunale",
+"Per i soli trasporti interni al territorio comunale o tra Comuni distanti tra loro al massimo 50 km"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 18
+},
+{
+"n": 247,
+"sezione": "D",
+"riferimento": "dpr 633/72 tab A 127",
+"testo": "Quale aliquota IVA si applica ai servizi di noleggio con conducente?",
+"risposte": [
+"10",
+"20",
+"Sono esenti"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 18
+},
+{
+"n": 248,
+"sezione": "D",
+"riferimento": "dl 90/90 art.3 c. 6",
+"testo": "Esistono casi particolari di esclusione dall'esenzione da IVA di prestazioni di servizi di trasporto pubblico non di linea che normalmente sono definite esenti?",
+"risposte": [
+"Quando il trasporto avviene per un contratto stipulato con un soggetto diverso dal viaggiatore",
+"No",
+"Quando il trasporto avviene per un contratto di noleggio a tempo"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 18
+},
+{
+"n": 249,
+"sezione": "D",
+"riferimento": "dl 90/90 art.3 c. 6",
+"testo": "L'esenzione da IVA per i servizi urbani svolti con veicoli da piazza è valida solo se il trasporto è pagato direttamente dal viaggiatore?",
+"risposte": [
+"No, vale anche se il contratto di trasporto è stato stipulato da un terzo",
+"Sì",
+"Il trasporto urbano con veicoli da piazza non è esente da IVA"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 18
+},
+{
+"n": 250,
+"sezione": "D",
+"riferimento": "dl 331/93 art. 20",
+"testo": "Quale tipo di agevolazione fiscale spetta ad alcune categorie di esercenti di trasporti pubblici non di linea con veicoli a motore?",
+"risposte": [
+"L'esenzione dall'IVA",
+"L'esenzione dal pagamento delle accise sui carburanti",
+"L'applicazione di aliquote ridotte per il pagamento delle accise sui carburanti"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 18
+},
+{
+"n": 251,
+"sezione": "D",
+"riferimento": "dm 29.03.94 art. 1",
+"testo": "A quali tipi di servizio pubblico non di linea svolto con autovettura non spetta l'agevolazione sulle accise sui carburanti?",
+"risposte": [
+"Al servizio di noleggio con conducente da rimessa",
+"Al servizio di piazza svolto con autovetture immatricolate per noleggio con conducente",
+"Al servizio di noleggio con conducente con autorizzazione allo stazionamento su aree pubbliche"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 18
+},
+{
+"n": 252,
+"sezione": "D",
+"riferimento": "dlgs 504/95 tab.A.12",
+"testo": "I crediti e i buoni d'imposta derivanti dalle agevolazioni sulle accise dei carburanti concorrono alla formazione del reddito imponibile?",
+"risposte": [
+"Sì, sempre",
+"Mai",
+"Solo oltre un determinato scaglione di reddito"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 18
+},
+{
+"n": 253,
+"sezione": "D",
+"riferimento": "dlgs 504/95 tab.A.12",
+"testo": "Come viene determinata l'agevolazione da applicarsi alle autovetture da noleggio da piazza relativamente alle accise sui carburanti?",
+"risposte": [
+"Sulla base dell'effettivo consumo rilevato e dichiarato",
+"Entro limiti di consumo giornaliero commisurati alla dimensione demografica del Comune in cui opera",
+"Entro un limite massimo commisurato alla quantità di chilometri media annua per un'autovettura"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 18
+},
+{
+"n": 254,
+"sezione": "D",
+"riferimento": "dlgs 504/95 tab.A12",
+"testo": "In caso di alimentazione promiscua a benzina e a GPL o gas metano, come si calcolano le agevolazioni sulle accise sui carburanti?",
+"risposte": [
+"Presumendo il consumo di GPL o gas metano pari al 70% del totale forfetario prefissato dalla legge",
+"Non si applicano le agevolazioni",
+"In base alla dichiarazione rilasciata dal richiedente sull'effettivo consumo"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 18
+},
+{
+"n": 255,
+"sezione": "D",
+"riferimento": "dlgs504/95 tab.A12",
+"testo": "L'agevolazione applicata alle autovetture da noleggio da piazza relativamente alle accise sui carburanti vale solo per le autovetture azionate esclusivamente a benzina?",
+"risposte": [
+"No, vale per qualsiasi carburante, liquido o gassoso",
+"Sì",
+"No, vale solo se le autovetture sono state trasformate con alimentazione a GPL"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 19
+},
+{
+"n": 256,
+"sezione": "D",
+"riferimento": "dlgs 504/95 tab.A.12",
+"testo": "Quale tipo di agevolazione si applica alle autovetture da noleggio da piazza relativamente alle accise sui carburanti?",
+"risposte": [
+"40% dell'aliquota normale su qualsiasi carburante, liquido o gassoso",
+"30% dell'aliquota normale sul gasolio",
+"100% dell'aliquota su gas di petrolio liquefatti GPL"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 19
+},
+{
+"n": 257,
+"sezione": "D",
+"riferimento": "dpr 696/96 art. 2",
+"testo": "A quale delle seguenti attività si applica l'esenzione dall'obbligo generalizzato di emissione di ricevuta o scontrino fiscale per le prestazioni di trasporto effettuate?",
+"risposte": [
+"Servizio di noleggio con autovettura",
+"Servizio di taxi e noleggio con conducente con autovettura",
+"Trasporto con veicoli a trazione animale e servizio di taxi"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 19
+},
+{
+"n": 258,
+"sezione": "D",
+"riferimento": "dpr 696/96 art. 2",
+"testo": "L'esercente servizi di noleggio con conducente è obbligato a emettere fattura o a rilasciare ricevuta a fini fiscali per il servizio effettuato?",
+"risposte": [
+"Sì, sempre",
+"No, mai",
+"Solo se richiesto dal cliente"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 19
+},
+{
+"n": 259,
+"sezione": "D",
+"riferimento": "dpr 696/96 art. 2",
+"testo": "L'esercente servizi taxi è obbligato a emettere fattura per il servizio effettuato?",
+"risposte": [
+"Sì, se richiesto dal cliente",
+"No, ma deve rilasciare ricevuta a fini non fiscali se richiesta dal cliente",
+"No, mai"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 19
+},
+{
+"n": 260,
+"sezione": "E",
+"riferimento": "toponomastica",
+"testo": "Dove si trova il Comando della Sezione Polizia Stradale di Sassari?",
+"risposte": [
+"In Via Giovanni Palatucci",
+"in Viale Italia",
+"In Via Cavour"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 19
+},
+{
+"n": 261,
+"sezione": "E",
+"riferimento": "toponomastica",
+"testo": "Dove si trova il Comando Provinciale dei Carabinieri di Sassari?",
+"risposte": [
+"In Via Rockefeller",
+"In Via Palatucci",
+"In Viale Umberto I"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 19
+},
+{
+"n": 262,
+"sezione": "E",
+"riferimento": "toponomastica",
+"testo": "Dove si trova il Comando dei Vigili Urbani del Comune di Sassari?",
+"risposte": [
+"In Viale Adua",
+"In loc. Baldinca",
+"In Via Carlo Felice"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 19
+},
+{
+"n": 263,
+"sezione": "E",
+"riferimento": "toponomastica",
+"testo": "Dove si trova il Comando Provinciale dei Vigili del Fuoco di Sassari?",
+"risposte": [
+"In Viale Dante",
+"In Loc. Predda Niedda",
+"In Piazza Conte di Moriana"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 19
+},
+{
+"n": 264,
+"sezione": "E",
+"riferimento": "toponomastica",
+"testo": "Dove si trova la Chiesa di San Nicola a Sassari?",
+"risposte": [
+"In Piazza S. Caterina",
+"In Piazza Duomo",
+"In Piazza S. Maria"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 19
+},
+{
+"n": 265,
+"sezione": "E",
+"riferimento": "toponomastica",
+"testo": "Dove si trova la Camera di Commercio Industria Artigianato e Agricoltura di Sassari?",
+"risposte": [
+"In Viale Italia",
+"In Piazza d'Italia",
+"In Via Roma"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 19
+},
+{
+"n": 266,
+"sezione": "E",
+"riferimento": "toponomastica",
+"testo": "Dove si trova il Comando Provinciale della Guardia di Finanza di Sassari?",
+"risposte": [
+"In Via Milano",
+"In Via Gavino Pinna",
+"In Via Rockefeller"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 19
+},
+{
+"n": 267,
+"sezione": "E",
+"riferimento": "toponomastica",
+"testo": "Dove si trova la sede della Prefettura di Sassari?",
+"risposte": [
+"In Piazza d'Armi",
+"In Piazza d'Italia",
+"In Piazza Marconi"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 19
+},
+{
+"n": 268,
+"sezione": "E",
+"riferimento": "toponomastica",
+"testo": "Dove si trova la sede della Questura di Sassari?",
+"risposte": [
+"In Via Roma",
+"In Via G. Palatucci",
+"In Corso Margherita di Savoia"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 19
+},
+{
+"n": 269,
+"sezione": "E",
+"riferimento": "toponomastica",
+"testo": "Dove si trova l'Ospedale Civile \"SS. Annunziata\" di Sassari?",
+"risposte": [
+"In Viale Italia",
+"In Viale S. Pietro",
+"In loc. Serra Secca"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 19
+},
+{
+"n": 270,
+"sezione": "E",
+"riferimento": "toponomastica",
+"testo": "Dove si trova la sede del Dipartimento dei Trasporti Terrestri (Motorizzazione Civile) di Sassari?",
+"risposte": [
+"In loc. Li Bombi",
+"In loc. Li Punti",
+"In loc. Li Gadduffi"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 19
+},
+{
+"n": 271,
+"sezione": "E",
+"riferimento": "toponomastica",
+"testo": "Dove si trova la sede del Tribunale di Sassari?",
+"risposte": [
+"in Piazza d'Italia",
+"In Via Roma",
+"In Viale Umberto I"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 19
+},
+{
+"n": 272,
+"sezione": "E",
+"riferimento": "toponomastica",
+"testo": "Dove si trova l’hotel Grazia Deledda a Sassari?",
+"risposte": [
+"In Corso V. Emanuele",
+"In Via Cavour",
+"In Viale Dante"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 19
+},
+{
+"n": 273,
+"sezione": "E",
+"riferimento": "toponomastica",
+"testo": "Dove si trova a Sassari il Museo Nazionale \"G.A. Sanna\"?",
+"risposte": [
+"Viale Italia",
+"Via Roma",
+"Piazza Fiume"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 19
+},
+{
+"n": 274,
+"sezione": "E",
+"riferimento": "toponomastica",
+"testo": "Dove si trova il Teatro Civico di Sassari?",
+"risposte": [
+"In Via Politeama",
+"In Viale Trento",
+"In Corso V. Emanuele"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 19
+},
+{
+"n": 275,
+"sezione": "E",
+"riferimento": "toponomastica",
+"testo": "Dove si Trova il Teatro G. Verdi di Sassari?",
+"risposte": [
+"In Corso V. Emanuele",
+"In via Politeama",
+"In Viale Umberto I"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 20
+},
+{
+"n": 276,
+"sezione": "E",
+"riferimento": "toponomastica",
+"testo": "Dove si trovano le Grotte di Nettuno in Alghero?",
+"risposte": [
+"In loc. Porto Conte",
+"In loc. Capo Caccia",
+"In loc. Tramariglio"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 20
+},
+{
+"n": 277,
+"sezione": "E",
+"riferimento": "toponomastica",
+"testo": "Dove si trova l'Hotel Rocca Ruja?",
+"risposte": [
+"Castelsardo",
+"Stintino",
+"Alghero"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 20
+},
+{
+"n": 278,
+"sezione": "E",
+"riferimento": "toponomastica",
+"testo": "Dove si trova l'Hotel Carlos V di Alghero?",
+"risposte": [
+"Lungomare Valencia",
+"Piazza Civica",
+"Loc. Le Bombarde"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 20
+},
+{
+"n": 279,
+"sezione": "E",
+"riferimento": "toponomastica",
+"testo": "In che Comune si trova il Castello dei Doria?",
+"risposte": [
+"Alghero",
+"Bosa",
+"Castelsardo"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 20
+},
+{
+"n": 280,
+"sezione": "E",
+"riferimento": "toponomastica",
+"testo": "In che Comune si trova il territorio della Costa Smeralda?",
+"risposte": [
+"Olbia",
+"Arzachena",
+"Golfo Aranci"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 20
+},
+{
+"n": 281,
+"sezione": "E",
+"riferimento": "toponomastica",
+"testo": "Dove trovo l'Hotel Pitrizza?",
+"risposte": [
+"Vicino a Porto Cervo",
+"Vicino a Porto Conte",
+"Vicino a Porto Rotondo"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 20
+},
+{
+"n": 282,
+"sezione": "E",
+"riferimento": "toponomastica",
+"testo": "Dove trovo il Cervo Conference Center?",
+"risposte": [
+"A Porto Cervo",
+"A Cala di Volpe",
+"Presso il Pevero Golf Club"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 20
+},
+{
+"n": 283,
+"sezione": "E",
+"riferimento": "toponomastica",
+"testo": "Dove trovo lo Yacht Club Costa Smeralda?",
+"risposte": [
+"A Romazzino",
+"A Porto Cervo Marina",
+"A Porto Rotondo"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 20
+},
+{
+"n": 284,
+"sezione": "E",
+"riferimento": "toponomastica",
+"testo": "Dove si trova la tomba dei giganti di Li Lolghi?",
+"risposte": [
+"In loc. Pozzo Sacro - Olbia",
+"Vicino ad Arzachena",
+"In Comune di S. Teresa di Gallura"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 20
+},
+{
+"n": 285,
+"sezione": "E",
+"riferimento": "toponomastica",
+"testo": "Dove si trova la cosiddetta \"Roccia dell'Orso\"?",
+"risposte": [
+"Sulle alture di Palau",
+"A Caprera",
+"A La Maddalena"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 20
+},
+{
+"n": 286,
+"sezione": "E",
+"riferimento": "toponomastica",
+"testo": "Dove si trova il Commissariato di P.S. di Olbia?",
+"risposte": [
+"Via del Castagno",
+"Loc. Bandinu",
+"Loc. Oruneddu"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 20
+},
+{
+"n": 287,
+"sezione": "E",
+"riferimento": "toponomastica",
+"testo": "Dove si trova il Comando territoriale dei Carabinieri di Olbia?",
+"risposte": [
+"Loc. Aeroporto",
+"Via Roma - Olbia",
+"Via Briosco - Olbia"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 20
+},
+{
+"n": 288,
+"sezione": "E",
+"riferimento": "toponomastica",
+"testo": "Dove si trova la sezione distaccata in Olbia del Tribunale di Tempio Pausania?",
+"risposte": [
+"Via Nanni",
+"Via Loiri",
+"Viale Aldo Moro"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 20
+},
+{
+"n": 289,
+"sezione": "E",
+"riferimento": "toponomastica",
+"testo": "Dove si trova il distaccamento di Olbia- Terra del Comando provinciale dei VV. F. di Sassari?",
+"risposte": [
+"Loc. Aeroporto",
+"Loc. Basa",
+"Loc. Poltu Quatu"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 20
+},
+{
+"n": 290,
+"sezione": "E",
+"riferimento": "toponomastica",
+"testo": "Dove si trova Punta Balistreri?",
+"risposte": [
+"A Monte Moro",
+"A Monte Limbara",
+"A Monte Pinu"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 20
+},
+{
+"n": 291,
+"sezione": "E",
+"riferimento": "toponomastica",
+"testo": "Dove sono le Sorgenti di Fundu di Monti",
+"risposte": [
+"Alle falde del Monte Limbara",
+"A Monti di Deu",
+"A Monti di Mola"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 20
+},
+{
+"n": 292,
+"sezione": "E",
+"riferimento": "toponomastica",
+"testo": "Dove si trova la Conservatoria dei Registri Immobiliari?",
+"risposte": [
+"Via Roma",
+"Via Taramelli",
+"Piazzale Giovanni Falcone"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 20
+},
+{
+"n": 293,
+"sezione": "E",
+"riferimento": "toponomastica",
+"testo": "Dove si trova l'Agenzia delle Entrate di Sassari?",
+"risposte": [
+"Piazzale Giovanni Falcone",
+"Via Baldedda",
+"Via Alghero"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 20
+},
+{
+"n": 294,
+"sezione": "E",
+"riferimento": "toponomastica",
+"testo": "Da quali strade in sequenza è composta la cosiddetta \"Sassari-Olbia\" (partenza Sassari)?",
+"risposte": [
+"S.S. 131-729-597",
+"S.S. 597-199-131-729",
+"S.S. 199-131-597-729"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 20
+},
+{
+"n": 295,
+"sezione": "E",
+"riferimento": "toponomastica",
+"testo": "Sei ad Arzachena, da dove è possibile prendere il traghetto per la Corsica?",
+"risposte": [
+"Palau",
+"La Maddalena",
+"Santa Teresa di Gallura"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 20
+},
+{
+"n": 296,
+"sezione": "E",
+"riferimento": "toponomastica",
+"testo": "Quale documento di riconoscimento serve al tuo cliente italiano per l'imbarco verso la Corsica?",
+"risposte": [
+"Patente",
+"Passaporto",
+"Carta d'identità valida per l'espatrio"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 20
+},
+{
+"n": 297,
+"sezione": "E",
+"riferimento": "toponomastica",
+"testo": "Dove si raggiunge il Pronto Soccorso dell'Ospedale di Olbia?",
+"risposte": [
+"In Via Bazzoni Sircana",
+"In Via Roma",
+"In Viale Aldo Moro"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 20
+},
+{
+"n": 298,
+"sezione": "E",
+"riferimento": "toponomastica",
+"testo": "Dove si raggiunge il Pronto Soccorso dell'Ospedale di Tempio Pausania?",
+"risposte": [
+"In Viale Italia",
+"In Via G. Deledda",
+"In Via Cavour"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 20
+},
+{
+"n": 299,
+"sezione": "E",
+"riferimento": "toponomastica",
+"testo": "Dove si trova la Stazione Marittima di Olbia?",
+"risposte": [
+"Molo Brin",
+"In Viale Isola Bianca",
+"In Via Isola di Mezzo"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 20
+},
+{
+"n": 300,
+"sezione": "E",
+"riferimento": "toponomastica",
+"testo": "Qual è il tempo di percorrenza dall'Emiciclo Garibaldi e il Comando dei Vigili Urbani di Sassari?",
+"risposte": [
+"Circa 8 minuti",
+"20 minuti",
+"30 minuti"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 20
+},
+{
+"n": 301,
+"sezione": "E",
+"riferimento": "toponomastica",
+"testo": "Dove si trova l'ufficio della Camera di Commercio a Olbia?",
+"risposte": [
+"Via Acquedotto,10",
+"Via Capoverde, angolo Via Seychelles",
+"Viale Mameli 74"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 21
+},
+{
+"n": 302,
+"sezione": "E",
+"riferimento": "toponomastica",
+"testo": "Qual è la distanza tra la Stazione Ferroviaria di Sassari e P.zza d'Italia?",
+"risposte": [
+"Km. 5",
+"Km. 10",
+"Km. 1,6"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 21
+},
+{
+"n": 303,
+"sezione": "E",
+"riferimento": "",
+"testo": "Dove si trova l'ospedale Mater Olbia?",
+"risposte": [
+"S.S. 125",
+"Via Roma",
+"Via Vittorio Veneto"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 21
+},
+{
+"n": 304,
+"sezione": "F",
+"riferimento": "primo soccorso",
+"testo": "Come è opportuno comportarsi in casi di incidente con feriti che non si riescono ad estrarre facilmente dall'abitacolo dei veicoli coinvolti?",
+"risposte": [
+"Si deve avvertire immediatamente l'autorità (112) o chiamare il soccorso medico, senza insistere nei tentativi di estrazione, salvo casi di pericolo",
+"Si deve assolutamente estrarre il ferito dall'autovettura, senza preoccuparsi di produrre ulteriori lesioni",
+"Si deve praticare la respirazione artificiale"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 21
+},
+{
+"n": 305,
+"sezione": "F",
+"riferimento": "primo soccorso",
+"testo": "Cosa bisogna fare per evitare il pericolo di incendio dei veicoli coinvolti in un incidente stradale, particolarmente se non si dispone di estintori sufficienti?",
+"risposte": [
+"Allontanare subito tutti gli altri veicoli non coinvolti, per evitare che l'eventuale incendio si propaghi",
+"Gettare qualsiasi liquido sui motori, possibilmente freddo",
+"Spegnere i motori dei veicoli coinvolti, e cercare di spegnere eventuali incendi con panni o sabbia"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 21
+},
+{
+"n": 306,
+"sezione": "F",
+"riferimento": "primo soccorso",
+"testo": "Il soccorso in caso di incidente stradale è un dovere imposto dal codice penale o solo un comportamento civile e opportuno?",
+"risposte": [
+"È un comportamento opportuno ma non obbligatorio",
+"È un comportamento inopportuno, perché conviene che intervenga un medico",
+"È un dovere imposto sia dal codice penale, sia dal codice della strada"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 21
+},
+{
+"n": 307,
+"sezione": "F",
+"riferimento": "primo soccorso",
+"testo": "In caso di incidente con veicoli in mezzo alla strada, come ci si deve comportare in relazione al traffico?",
+"risposte": [
+"Si deve sbarrare la strada, anche con ostacoli di fortuna, bloccando il traffico finché non arriva l'ambulanza o la polizia",
+"Si deve proteggere il luogo dell'incidente, lasciando libera una corsia per il transito dei veicoli",
+"Si devono immediatamente spostare i feriti e i veicoli coinvolti, per liberare la carreggiata"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 21
+},
+{
+"n": 308,
+"sezione": "F",
+"riferimento": "primo soccorso",
+"testo": "In quali casi conviene spostare una persona infortunata in un incidente stradale?",
+"risposte": [
+"In qualsiasi caso",
+"Solo se le situazioni ambientali presentano un pericolo immediato di vita o se è altrimenti impossibile prestarle un adeguato soccorso",
+"Solo se lo chiede il ferito stesso"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 21
+},
+{
+"n": 309,
+"sezione": "F",
+"riferimento": "primo soccorso",
+"testo": "L'assunzione di alcool influenza la guida rendendo il conducente:",
+"risposte": [
+"Meno vigile e reattivo, poiché ritarda i riflessi",
+"Più vigile e reattivo, poiché contrasta gli effetti della stanchezza",
+"Più sicuro e deciso, se praticata nei limiti della tolleranza individuale all'alcool"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 21
+},
+{
+"n": 310,
+"sezione": "F",
+"riferimento": "primo soccorso",
+"testo": "Le manifestazioni dello stato di shock sono:",
+"risposte": [
+"Sudore freddo alla fronte e stato di agitazione",
+"Colorito roseo, polso regolare, ma in stato di agitazione",
+"Parole e frasi senza senso, con polso regolare"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 21
+},
+{
+"n": 311,
+"sezione": "F",
+"riferimento": "primo soccorso",
+"testo": "Qual è il fine degli interventi di primo soccorso?",
+"risposte": [
+"Segnalare a un medico la necessità di un intervento",
+"Attuare misure di sopravvivenza dell'infortunato, nell'attesa che intervenga il soccorso medico tempestivamente avvertito, proteggendo la vittima",
+"Tentare di rimettere l'infortunato nelle condizioni di riprendere il viaggio"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 21
+},
+{
+"n": 312,
+"sezione": "F",
+"riferimento": "primo soccorso",
+"testo": "Qual è il primo comportamento da tenere con una persona coinvolta in un incidente stradale, rimasta ferita?",
+"risposte": [
+"Porre il ferito in posizione di sicurezza, coprirlo, tranquillizzarlo e rimanergli il più possibile vicino senza abbandonarlo",
+"Tentare di risollevare il ferito, eventualmente sostenendolo e aiutandolo a camminare",
+"Chiedere al ferito informazioni sul suo stato, su quali dolori provi, e tentare di fargli muovere gli arti per individuare eventuali fratture"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 21
+},
+{
+"n": 313,
+"sezione": "F",
+"riferimento": "primo soccorso",
+"testo": "Se a seguito di incidente stradale si è sviluppato un incendio e la vittima ha gli abiti in fiamme, si deve:",
+"risposte": [
+"Spegnere le fiamme soffocandole con altri indumenti od una coperta",
+"Estinguere le fiamme con un estintore",
+"Aspettare che le fiamme si estinguano e poi ricoprire le ustioni con polveri o pomate idonee"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 21
+},
+{
+"n": 314,
+"sezione": "F",
+"riferimento": "primo soccorso",
+"testo": "Se a seguito di incidente stradale si è sviluppato un incendio e la vittima presenta segni di ustioni si devono:",
+"risposte": [
+"Togliere i vestiti dalla zona ustionata se aderenti",
+"Pulire o disinfettare le zone ustionate",
+"Non staccare i brandelli di tessuto poiché potrebbero essere aderenti alla pelle"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 21
+},
+{
+"n": 315,
+"sezione": "F",
+"riferimento": "Primo soccorso",
+"testo": "Cosa non si deve fare in caso di incidente stradale?",
+"risposte": [
+"Impedire ai presenti di fumare in prossimità del veicolo",
+"Estrarre un ferito dall’auto",
+"Controllare se il ferito sia cosciente"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 21
+},
+{
+"n": 316,
+"sezione": "F",
+"riferimento": "Primo soccorso",
+"testo": "Come bisogna intervenire in caso di sospetta frattura della colonna vertebrale?",
+"risposte": [
+"Sollevare e trasportare immediamente il ferito in ospedale",
+"Mantenergli fermi piedi e testa",
+"Far sedere il ferito e applicare ghiaccio"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 21
+},
+{
+"n": 317,
+"sezione": "F",
+"riferimento": "Primo soccorso",
+"testo": "In caso di svenimento del trasportato qual’ è il primo soccorso da prestare?",
+"risposte": [
+"Controllare la frequenza del respiro e del polso",
+"Massaggiare il torace",
+"Tenere il ferito al caldo"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 21
+},
+{
+"n": 318,
+"sezione": "F",
+"riferimento": "Primo soccorso",
+"testo": "In caso in cui il trasportato presenti dolori al centro del torace e agli arti superiori cosa occorre fare?",
+"risposte": [
+"Stimolare il movimento della persona",
+"Metterlo in posizione seduta con testa e spalle appoggiate e ginocchia piegate",
+"Farla alzare e aiutarla a camminare"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 22
+},
+{
+"n": 319,
+"sezione": "F",
+"riferimento": "Primo soccorso",
+"testo": "Nel caso in cui il trasportato accusi un “colpo di calore” cosa occorre effettuare?",
+"risposte": [
+"Dargli da bere acqua fresca",
+"Dargli da bere acqua ghiacciata",
+"Praticargli un massaggio agli arti"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 22
+},
+{
+"n": 320,
+"sezione": "F",
+"riferimento": "Primo soccorso",
+"testo": "Qual è la condotta da tenere in caso di incidente stradale?",
+"risposte": [
+"Allontanarsi dal veicolo incidentato",
+"Tenere acceso il motore e le luci per segnalare la presenza del veicolo",
+"Chiedere a qualcuno di regolare il traffico e prestare attenzione al pericolo d’ incendio"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 22
+},
+{
+"n": 321,
+"sezione": "G",
+"riferimento": "Lingue straniere Inglese",
+"testo": "Buongiorno!",
+"risposte": [
+"Good morning",
+"Good evening",
+"Good afternoon"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 22
+},
+{
+"n": 322,
+"sezione": "G",
+"riferimento": "Lingue straniere Inglese",
+"testo": "Dove deve recarsi?",
+"risposte": [
+"Where would you like to go?",
+"Where you want to go?",
+"Where to go?"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 22
+},
+{
+"n": 323,
+"sezione": "G",
+"riferimento": "Lingue straniere Inglese",
+"testo": "C'è qualche hotel con piscina o centro fitness?",
+"risposte": [
+"Is there any hotel with a swimming pool or a fitness centre?",
+"There is any hotel with a swimming pool or a feetness centre?",
+"Is there some hotel with a swimming pool or a feetness centre?"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 22
+},
+{
+"n": 324,
+"sezione": "G",
+"riferimento": "Lingue straniere Inglese",
+"testo": "Quanto costa la corsa da Olbia a Sassari?",
+"risposte": [
+"How many would it cost from Olbia to Sassari?",
+"Does it cost from Olbia to Sassari?",
+"How much does it cost from Olbia to Sassari?"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 22
+},
+{
+"n": 325,
+"sezione": "G",
+"riferimento": "Lingue straniere Inglese",
+"testo": "Dovrei recarmi all'Aeroporto di Alghero",
+"risposte": [
+"I should go at the Alghero Airport",
+"I should go to the Alghero Airport",
+"I'd like to go in the Alghero Airport"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 22
+},
+{
+"n": 326,
+"sezione": "G",
+"riferimento": "Lingue straniere Inglese",
+"testo": "Quanto tempo si trattiene nella nostra isola?",
+"risposte": [
+"How long are you going to keep yourself in our island?",
+"How long will you stay in our island?",
+"How long do you stay in our island?"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 22
+},
+{
+"n": 327,
+"sezione": "G",
+"riferimento": "Lingue straniere Inglese",
+"testo": "Grazie ed Arrivederci!",
+"risposte": [
+"Thank you and Gudbye!",
+"Thank you and Goodbye!",
+"Tank you and Goodbye!"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 22
+},
+{
+"n": 328,
+"sezione": "G",
+"riferimento": "Lingue straniere Inglese",
+"testo": "Dove posso acquistare quotidiani internazionali?",
+"risposte": [
+"Where do I buy international newspapers?",
+"Where should buy international newspapers?",
+"Where can I buy international newspapers?"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 22
+},
+{
+"n": 329,
+"sezione": "G",
+"riferimento": "Lingue straniere Inglese",
+"testo": "Dove deve recarsi?",
+"risposte": [
+"Where would you like to go?",
+"Where you want to be?",
+"Where to go?"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 22
+},
+{
+"n": 330,
+"sezione": "G",
+"riferimento": "Lingue straniere Inglese",
+"testo": "Da quale aeroporto posso partire per Francoforte?",
+"risposte": [
+"From which airport I go to Frankfurt?",
+"From which airport can I go to Frankfurt?",
+"From which airport must I go to Frankfurt?"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 22
+},
+{
+"n": 331,
+"sezione": "G",
+"riferimento": "Lingue straniere Inglese",
+"testo": "La corsa costa 26,00 euro.",
+"risposte": [
+"The ticket cost 26.00 euros.",
+"The run costs 26 euro",
+"The ride costs 26.00 euro."
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 22
+},
+{
+"n": 332,
+"sezione": "G",
+"riferimento": "Lingue straniere Inglese",
+"testo": "Devo recarmi con urgenza al Porto di Porto Torres.",
+"risposte": [
+"I have to go urgently to the port of Porto Torres.",
+"I have go urgently to the port of Porto Torres.",
+"I have to go urgently to port of Porto Torres."
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 22
+},
+{
+"n": 333,
+"sezione": "G",
+"riferimento": "Lingue straniere Inglese",
+"testo": "Che ristorante mi consiglia in città?",
+"risposte": [
+"Can you recommed a good restaurant?",
+"Would you recommend a restaurant in town?",
+"What kind of restaurant do you recommend?"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 22
+},
+{
+"n": 334,
+"sezione": "G",
+"riferimento": "Lingue straniere Inglese",
+"testo": "È stato altre volte in Sardegna",
+"risposte": [
+"Has you been other times in Sardinia?",
+"It's been other times in Sardinia?",
+"Have you been other times in Sardinia?"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 22
+},
+{
+"n": 335,
+"sezione": "G",
+"riferimento": "Lingue straniere Inglese",
+"testo": "Mi può indicare i monumenti più belli di questa città",
+"risposte": [
+"Can you show me the most important monuments in town?",
+"I can show you the most beautiful monuments in this city",
+"I can show him most beautiful monuments in this city"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 22
+},
+{
+"n": 336,
+"sezione": "G",
+"riferimento": "Lingue straniere Inglese",
+"testo": "Presto! Sto male. Può portarmi al Pronto Soccorso",
+"risposte": [
+"Quick please. I feel sick. Can you take me to the ER?",
+"Soon! I am bad. Can you take me to the ER?",
+"Quick! I can take you to the ER."
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 22
+},
+{
+"n": 337,
+"sezione": "G",
+"riferimento": "Lingue straniere Inglese",
+"testo": "Quanto le devo per questa corsa?",
+"risposte": [
+"How much do I owe you?",
+"How much are this race?",
+"How many must I pay?"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 22
+},
+{
+"n": 338,
+"sezione": "G",
+"riferimento": "Lingue straniere Inglese",
+"testo": "Ha necessità di altre informazioni?",
+"risposte": [
+"Do you need more information?",
+"Do you need information?",
+"Do you want informations?"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 22
+},
+{
+"n": 339,
+"sezione": "G",
+"riferimento": "Lingue straniere Inglese",
+"testo": "Buonasera e grazie",
+"risposte": [
+"Good morning and thank you",
+"Good afternoon and thank you",
+"Good evening and thank you"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 22
+},
+{
+"n": 340,
+"sezione": "G",
+"riferimento": "Lingue straniere Inglese",
+"testo": "Devo recarmi con urgenza in questura.",
+"risposte": [
+"I hve to go urgently to the police station",
+"I have go urgently to the police station",
+"I have to go urgenly to the police station"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 22
+},
+{
+"n": 341,
+"sezione": "G",
+"riferimento": "Lingue straniere Francese",
+"testo": "Buongiorno!",
+"risposte": [
+"Bonjour!",
+"Bonour!",
+"Bojour!"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 23
+},
+{
+"n": 342,
+"sezione": "G",
+"riferimento": "Lingue straniere Francese",
+"testo": "Dove deve recarsi?",
+"risposte": [
+"Où allez-vous?",
+"O aller?",
+"Où aler?"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 23
+},
+{
+"n": 343,
+"sezione": "G",
+"riferimento": "Lingue straniere Francese",
+"testo": "Da che paese arriva?",
+"risposte": [
+"De quel pays vient-il?",
+"De quel pay vient-il?",
+"De pays vient-il?"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 23
+},
+{
+"n": 344,
+"sezione": "G",
+"riferimento": "Lingue straniere Francese",
+"testo": "Quanto costa la corsa da Olbia a Sassari?",
+"risposte": [
+"Quel est trajet de Sassari à Olbia?",
+"Quel est le traet de Sassari à Olbia?",
+"Quel est le coute par passage de Sassari jusqu'au Olbia?"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 23
+},
+{
+"n": 345,
+"sezione": "G",
+"riferimento": "Lingue straniere Francese",
+"testo": "Dovrei recarmi all'Aeroporto di Alghero",
+"risposte": [
+"Dois-je alle à l'aéroport d'Alghero",
+"Dois-je aller l'aéroport d'Alghero",
+"je dois aller à l'aéroport de Alghero"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 23
+},
+{
+"n": 346,
+"sezione": "G",
+"riferimento": "Lingue straniere Francese",
+"testo": "Si trattiene nella nostra Isola?",
+"risposte": [
+"Allez vous raster dans notre île?",
+"Il reste notre île?",
+"Il reste dans note île?"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 23
+},
+{
+"n": 347,
+"sezione": "G",
+"riferimento": "Lingue straniere Francese",
+"testo": "Grazie ed Arrivederci!",
+"risposte": [
+"Merci et evoir!",
+"Merci et au revoir!",
+"Merci au revoir!"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 23
+},
+{
+"n": 348,
+"sezione": "G",
+"riferimento": "Lingue straniere Francese",
+"testo": "C'è un Hotel qua vicino?",
+"risposte": [
+"Y at-il hôtel près d'ici?",
+"Y at-il un hôtel prè d'ici?",
+"est-ce qu'il hôtel près d'ici?"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 23
+},
+{
+"n": 349,
+"sezione": "G",
+"riferimento": "Lingue straniere Francese",
+"testo": "Torno subito! Mi può aspettare?",
+"risposte": [
+"je reniens tout de suite. Pouvez-vous m'attendre?",
+"Soyez de retour! Je peu attendre?",
+"Soyez de retour! peux attendre?"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 23
+},
+{
+"n": 350,
+"sezione": "G",
+"riferimento": "Lingue straniere Francese",
+"testo": "Da quale aeroporto posso partire per Francoforte?",
+"risposte": [
+"De aéroport je peux aller à Francfort?",
+"De quel aéroport puis-je partir pour Francfort?",
+"De quel aéroport peux aller à Francfort?"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 23
+},
+{
+"n": 351,
+"sezione": "G",
+"riferimento": "Lingue straniere Francese",
+"testo": "La corsa costa 26,00 euro.",
+"risposte": [
+"Le bille coûte 26,00 euros.",
+"Le billet coûte 26,00 euros.",
+"Le bilet coûte 26,00 euros."
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 23
+},
+{
+"n": 352,
+"sezione": "G",
+"riferimento": "Lingue straniere Francese",
+"testo": "Devo recarmi con urgenza al Porto di Porto Torres.",
+"risposte": [
+"Je dois y aller de toute urgence pour le port de Porto Torres.",
+"Je y aller de toute urgence pour le port de Porto Torres.",
+"Je dois y aller de urgence pour le port de Porto Torres."
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 23
+},
+{
+"n": 353,
+"sezione": "G",
+"riferimento": "Lingue straniere Francese",
+"testo": "Che ristorante mi consiglia in città?",
+"risposte": [
+"Qu'est-ce restaurant vous recommandons de la ville?",
+"Pouvez-vous m'indiquer un bon restaurant dans la ville?",
+"Qu'est-ce restaurant ne recommandons de la ville?"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 23
+},
+{
+"n": 354,
+"sezione": "G",
+"riferimento": "Lingue straniere Francese",
+"testo": "È stato altre volte in Sardegna?",
+"risposte": [
+"Cela a été d'autres en Sardaigne",
+"Cela été d'autres fois en Sardaigne",
+"Combien de fois il a été en Sardaigne"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 23
+},
+{
+"n": 355,
+"sezione": "G",
+"riferimento": "Lingue straniere Francese",
+"testo": "Mi può indicare i monumenti più belli di questa città?",
+"risposte": [
+"Pouvez-vous me montrer les plus beaux monuments de cette ville",
+"Je peux montrer plus beaux monuments de cette ville",
+"Je peux montrer les plus monuments de cette ville"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 23
+},
+{
+"n": 356,
+"sezione": "G",
+"riferimento": "Lingue straniere Francese",
+"testo": "Presto! Stò male può portarmi al Pronto Soccorso?",
+"risposte": [
+"Bientôt! Je suis le ne peut me prendre à l'urgence",
+"Vite! Je me sens mal. Pouvez-vous me transporter à l'hopital",
+"Bientôt! Je suis le mal ne me prendre à l'urgence"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 23
+},
+{
+"n": 357,
+"sezione": "G",
+"riferimento": "Lingue straniere Francese",
+"testo": "Quanto le devo per questa corsa?",
+"risposte": [
+"Combien est-ce pour cete course?",
+"Combien est-ce pou cette course?",
+"Combien cette course coute-t-il?"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 23
+},
+{
+"n": 358,
+"sezione": "G",
+"riferimento": "Lingue straniere Francese",
+"testo": "Ha necessità di altre informazioni?",
+"risposte": [
+"Vous avez besoin de plus d'informations?",
+"Il faut plu d'informations?",
+"Il faut plus d'information?"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 23
+},
+{
+"n": 359,
+"sezione": "G",
+"riferimento": "Lingue straniere Francese",
+"testo": "Buonasera e grazie",
+"risposte": [
+"Bonsoi et merci",
+"Bonsoir et merci",
+"Bonsoir merci"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 23
+},
+{
+"n": 360,
+"sezione": "G",
+"riferimento": "Lingue straniere Francese",
+"testo": "E stato bene nella nostra città?",
+"risposte": [
+"Il était dans notre ville?",
+"Il était bon dans ville?",
+"Etes-vous bien dans notre ville?"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 23
+},
+{
+"n": 361,
+"sezione": "G",
+"riferimento": "Lingue straniere Spagnolo",
+"testo": "Buongiorno!",
+"risposte": [
+"Hola",
+"Hoa",
+"Hla"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 23
+},
+{
+"n": 362,
+"sezione": "G",
+"riferimento": "Lingue straniere Spagnolo",
+"testo": "Dove deve recarsi?",
+"risposte": [
+"A dóde ir?",
+"A dònde va?",
+"A dónde?"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 23
+},
+{
+"n": 363,
+"sezione": "G",
+"riferimento": "Lingue straniere Spagnolo",
+"testo": "Da che paese arriva?",
+"risposte": [
+"De país vienes?",
+"De que país viene?",
+"De que vienes?"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 23
+},
+{
+"n": 364,
+"sezione": "G",
+"riferimento": "Lingue straniere Spagnolo",
+"testo": "Quanto costa la corsa da Olbia a Sassari?",
+"risposte": [
+"Cuánto cuesta el de Sassari a Olbia?",
+"Cuánto cuesta el viaje Sassari a Olbia?",
+"Cuánto cuesta el viaje de Sassari a Olbia?"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 23
+},
+{
+"n": 365,
+"sezione": "G",
+"riferimento": "Lingue straniere Spagnolo",
+"testo": "Dovrei recarmi all'Aeroporto di Alghero",
+"risposte": [
+"Debo ir a aeropuerto de Alghero",
+"Debo ir aeropuerto de Alghero",
+"Tendria que ir al aeropuerto de Alghero"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 24
+},
+{
+"n": 366,
+"sezione": "G",
+"riferimento": "Lingue straniere Spagnolo",
+"testo": "Si trattiene nella nostra Isola?",
+"risposte": [
+"Se queda en nuestra isla?",
+"Se queda nuestra isla?",
+"Se queda en nustra isla?"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 24
+},
+{
+"n": 367,
+"sezione": "G",
+"riferimento": "Lingue straniere Spagnolo",
+"testo": "Grazie ed Arrivederci!",
+"risposte": [
+"Gracia y adiós!",
+"Gracias y adiós!",
+"Gracias adiós!"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 24
+},
+{
+"n": 368,
+"sezione": "G",
+"riferimento": "Lingue straniere Spagnolo",
+"testo": "C'è un Hotel qua vicino?",
+"risposte": [
+"Hay un hotel cerca de aquí?",
+"Hay un hotel cerca aquí?",
+"Hay un hotel cerca de?"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 24
+},
+{
+"n": 369,
+"sezione": "G",
+"riferimento": "Lingue straniere Spagnolo",
+"testo": "Torno subito! Mi può aspettare?",
+"risposte": [
+"Vuelvo en seguida! No esperar?",
+"Vuelvo seguida! No puedo esperar?",
+"Vuelvo en seguida! Puede esperarme?"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 24
+},
+{
+"n": 370,
+"sezione": "G",
+"riferimento": "Lingue straniere Spagnolo",
+"testo": "Da quale aeroporto posso partire per Francoforte?",
+"risposte": [
+"Desde el aeropuerto se puede ir a Frankfurt?",
+"Desde que aeropuerto puedo salir hacia Frankfurt?",
+"Desde que el aeropuerto se ir a Frankfurt?"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 24
+},
+{
+"n": 371,
+"sezione": "G",
+"riferimento": "Lingue straniere Spagnolo",
+"testo": "La corsa costa 26,00 euro.",
+"risposte": [
+"El bilete cuesta 26,00 euros.",
+"El billete cuesta 26,00 euros.",
+"El billet cuesta 26,00 euros."
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 24
+},
+{
+"n": 372,
+"sezione": "G",
+"riferimento": "Lingue straniere Spagnolo",
+"testo": "Devo recarmi con urgenza al Porto di Porto Torres.",
+"risposte": [
+"Tengo que ir con urgencia al puerto de Porto Torres.",
+"Tengo que ir urgencia al puerto de Porto Torres.",
+"Tengo que ir con urgencia al de Porto Torres."
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 24
+},
+{
+"n": 373,
+"sezione": "G",
+"riferimento": "Lingue straniere Spagnolo",
+"testo": "Che ristorante mi consiglia in città?",
+"risposte": [
+"Qué restaurante recomiendan en la ciudad?",
+"Qué restaurante me recomienda en la ciudad?",
+"Qué restaurante me recomiendan en ciudad?"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 24
+},
+{
+"n": 374,
+"sezione": "G",
+"riferimento": "Lingue straniere Spagnolo",
+"testo": "È stato altre volte in Sardegna?",
+"risposte": [
+"Es 's sido otras veces Cerdeña",
+"Es 's sido otra veces en Cerdeña",
+"ha estado otras veces en Cerdeña"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 24
+},
+{
+"n": 375,
+"sezione": "G",
+"riferimento": "Lingue straniere Spagnolo",
+"testo": "Mi può indicare i monumenti più belli di questa città?",
+"risposte": [
+"Puedo mostrar los monumentos bellos de esta ciudad",
+"Me Puede indicar los monumentos más bellos de esta ciudad",
+"Puedo mostrar monumentos más bellos de esta ciudad"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 24
+},
+{
+"n": 376,
+"sezione": "G",
+"riferimento": "Lingue straniere Spagnolo",
+"testo": "Presto! Sto male può portarmi al Pronto Soccorso?",
+"risposte": [
+"Deprisa! Estoy mal y necesito que me ileven al servicio de emergencias",
+"Pronto! Estoy puede llevarme a la sala de emergencias",
+"Pronto! Estoy mal puede llevarme sala de emergencias"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 24
+},
+{
+"n": 377,
+"sezione": "G",
+"riferimento": "Lingue straniere Spagnolo",
+"testo": "Quanto le devo per questa corsa?",
+"risposte": [
+"Cuánto cuesta para carrera?",
+"Cuánto cuesta este viaje?",
+"Cuánto cuesta esta carrera?"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 24
+},
+{
+"n": 378,
+"sezione": "G",
+"riferimento": "Lingue straniere Spagnolo",
+"testo": "da che Paese arriva?",
+"risposte": [
+"De país vienes?",
+"De que país viene?",
+"De que vienes?"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 24
+},
+{
+"n": 379,
+"sezione": "G",
+"riferimento": "Lingue straniere Spagnolo",
+"testo": "Buonasera e grazie",
+"risposte": [
+"Buenas noches y muchas gracias",
+"Buenas noches y gracias",
+"Buenas noches y muchas"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 24
+},
+{
+"n": 380,
+"sezione": "G",
+"riferimento": "Lingue straniere Spagnolo",
+"testo": "E stato bene nella nostra città?",
+"risposte": [
+"Era bueno nuestra ciudad?",
+"ha estatdo bien en nuestra ciudad?",
+"Era bueno en ciudad?"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 24
+},
+{
+"n": 381,
+"sezione": "G",
+"riferimento": "Lingue straniere Tedesco",
+"testo": "Buongiorno!",
+"risposte": [
+"Hallo!",
+"Guten Tag",
+"Hall!"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 24
+},
+{
+"n": 382,
+"sezione": "G",
+"riferimento": "Lingue straniere Tedesco",
+"testo": "Dove deve recarsi?",
+"risposte": [
+"Wohin mochten Sie fahren?",
+"Wohi reisen?",
+"Wohin reise?"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 24
+},
+{
+"n": 383,
+"sezione": "G",
+"riferimento": "Lingue straniere Tedesco",
+"testo": "Da che Paese arriva?",
+"risposte": [
+"Aus welche Land kommen?",
+"Aus welchem Land kommen?",
+"Aus welchem Land kommen Sie?"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 24
+},
+{
+"n": 384,
+"sezione": "G",
+"riferimento": "Lingue straniere Tedesco",
+"testo": "Quanto costa la corsa da Olbia a Sassari?",
+"risposte": [
+"Wie viel kostet Fahrt von Sassari nach Olbia?",
+"Wie viel kostet die Fahrt Sassari nach Olbia?",
+"Wieviel kostet die Fahrt von Olbia nact Sassari?"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 24
+},
+{
+"n": 385,
+"sezione": "G",
+"riferimento": "Lingue straniere Tedesco",
+"testo": "Dovrei recarmi all'Aeroporto di Alghero",
+"risposte": [
+"Ich mochte zum Flufhafen Alghero fahren",
+"Sollte ich Alghero Flughafen gehen",
+"Sollte nach Alghero Flughafen gehen"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 24
+},
+{
+"n": 386,
+"sezione": "G",
+"riferimento": "Lingue straniere Tedesco",
+"testo": "La corsa costa 26 €",
+"risposte": [
+"Da Ticket kostet 26,00 €.",
+"Die Fahrt kostet 26,00 €",
+"Das Ticket kostt 26,00 €."
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 24
+},
+{
+"n": 387,
+"sezione": "G",
+"riferimento": "Lingue straniere Tedesco",
+"testo": "Grazie ed Arrivederci!",
+"risposte": [
+"Vielen Dank Auf Wiedersehen!",
+"Vielen Dank und Wiedersehen!",
+"Vielen Dank und Auf Wiedersehen!"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 24
+},
+{
+"n": 388,
+"sezione": "G",
+"riferimento": "Lingue straniere Tedesco",
+"testo": "C'è un Hotel con piscina o centro fitness?",
+"risposte": [
+"Gibt es ein Hotel mit schwimmbad oder fitnesscenter in der nahe?",
+"wissen sie hotel schwimmen oder fit?",
+"Gibt es ein Hotel in der Nähe?"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 24
+},
+{
+"n": 389,
+"sezione": "G",
+"riferimento": "Lingue straniere Tedesco",
+"testo": "Torno subito! Mi può aspettare?",
+"risposte": [
+"Bin gleich da! Ich kann warten?",
+"Ich bin gleich wieder da! Konnen Sie auf mich warten?",
+"Ein fitnesscenterv gibt es ohne schwimmen?"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 25
+},
+{
+"n": 390,
+"sezione": "G",
+"riferimento": "Lingue straniere Tedesco",
+"testo": "Da quale aeroporto posso partire per Francoforte?",
+"risposte": [
+"Von welchem Flughafen kann ich nach Frankfurt fliegen?",
+"Von welchem Flughafen ich nach Frankfurt gehen?",
+"Von Flughafen kann ich nach Frankfurt gehen?"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 25
+},
+{
+"n": 391,
+"sezione": "G",
+"riferimento": "Lingue straniere Tedesco",
+"testo": "La corsa costa 30,00 euro.",
+"risposte": [
+"Da Ticket kostet 30,00 €.",
+"Die Fahrt kostet 30,00 €",
+"Das Ticket kostt 30,00 €."
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 25
+},
+{
+"n": 392,
+"sezione": "G",
+"riferimento": "Lingue straniere Tedesco",
+"testo": "Devo recarmi con urgenza al Porto di Porto Torres.",
+"risposte": [
+"Ich dringend gehen Sie zum Hafen von Porto Torres.",
+"Ich muss dringend gehen zum Hafen von Porto Torres.",
+"Ich muss dringend zum Hafen von Porto Torres?"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 25
+},
+{
+"n": 393,
+"sezione": "G",
+"riferimento": "Lingue straniere Tedesco",
+"testo": "Che ristorante mi consiglia in città?",
+"risposte": [
+"Können Sie mir in der Stadt ein Restaurant empfehelen?",
+"In welchem Restaurant Sie Stadt empfehlen?",
+"In Restaurant Sie in der Stadt empfehlen?"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 25
+},
+{
+"n": 394,
+"sezione": "G",
+"riferimento": "Lingue straniere Tedesco",
+"testo": "Combien de fois il a été en Sardaigne",
+"risposte": [
+"Es ist zu anderen Zeiten in Sardinien",
+"Sind Sie schon ofters in Sardinien gewesen?",
+"Es ist schon anderen Zeiten in Sardinien"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 25
+},
+{
+"n": 395,
+"sezione": "G",
+"riferimento": "Lingue straniere Tedesco",
+"testo": "Mi può indicare i monumenti più belli di questa città?",
+"risposte": [
+"Ich kann zeigen schönsten Denkmäler in dieser Stadt",
+"Ich kann zeigen die schönsten Denkmäler in Stadt",
+"Könnten Sie mir die r schonsten Denkmahler der Stadt zeigen?"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 25
+},
+{
+"n": 396,
+"sezione": "G",
+"riferimento": "Lingue straniere Tedesco",
+"testo": "Presto! Sto male può portarmi al Pronto Soccorso?",
+"risposte": [
+"Ich bin krank, Konnen sie mich schnellstens zur Notaufnahme farenhren?",
+"Soon! Ich bin Böse kann mich in die Notaufnahme zu nehmen",
+"Soon! Ich bin das Böse kann in die Notaufnahme zu nehmen"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 25
+},
+{
+"n": 397,
+"sezione": "G",
+"riferimento": "Lingue straniere Tedesco",
+"testo": "Quanto le devo per questa corsa?",
+"risposte": [
+"Wie viel ist für dieses Rennen?",
+"Wie viel kostet die Fahrt?",
+"Wie viel ist es für Rennen?"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 25
+},
+{
+"n": 398,
+"sezione": "G",
+"riferimento": "Lingue straniere Tedesco",
+"testo": "Ha necessità di altre informazioni?",
+"risposte": [
+"Er bauche mehr Informationen?",
+"Er brauche Informationen?",
+"Brauchen Sie mehr Informationen?"
+],
+"esatta": 2,
+"file": "taxi_sassari.pdf",
+"pagina": 25
+},
+{
+"n": 399,
+"sezione": "G",
+"riferimento": "Lingue straniere Tedesco",
+"testo": "Buonasera e grazie!",
+"risposte": [
+"Guten Abend und vielen Dank!",
+"Guten Abend vielen Dank!",
+"Guten Abend und Dank!"
+],
+"esatta": 0,
+"file": "taxi_sassari.pdf",
+"pagina": 25
+},
+{
+"n": 400,
+"sezione": "G",
+"riferimento": "Lingue straniere Tedesco",
+"testo": "È stato bene nella nostra città?",
+"risposte": [
+"Es gut, in unserer Stadt?",
+"Hat es hier Ihnen in unserer Stadt gefallen?",
+"Es war gut, in Stadt?"
+],
+"esatta": 1,
+"file": "taxi_sassari.pdf",
+"pagina": 25
+}
+]
+}

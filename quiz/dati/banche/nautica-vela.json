@@ -1,0 +1,3727 @@
+{
+"_nota": "Scritto da raccolta/estrai.py dal PDF ufficiale (vedi dati/fonti.json). Non modificare a mano.",
+"id": "nautica-vela",
+"domande": [
+{
+"n": 1,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-1",
+"testo": "Lo scafo di un'unità navale a vela è la parte immersa della deriva.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 247,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 2,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-2",
+"testo": "Lo scafo di un'unità a vela è la struttura galleggiante e portante della stessa.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 247,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 3,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-3",
+"testo": "La presenza del bulbo zavorrato in un'unità navale a vela ha la funzione di fornire alla stessa una maggiore stabilità per contrastare le azioni esterne (vento).",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 247,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 4,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-4",
+"testo": "La presenza del bulbo zavorrato in un'unità navale a vela ha la funzione di offrire alla stessa una maggior penetrazione alla prua, tale da farle raggiungere velocità più elevate.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 247,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 5,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-5",
+"testo": "La vela si orienta in relazione al flusso del vento.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 247,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 6,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-6",
+"testo": "Per andatura si intende la direzione verso cui la stessa procede rispetto alla direzione di provenienza del vento.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 247,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 7,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-7",
+"testo": "Per andatura si intende la velocità riaggiunta dall'unità navale a vela rispetto alla direzione di provenienza del vento",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 247,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 8,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-8",
+"testo": "Quando l'unità a vela si muove a favore di vento, il vento apparente equivale alla differenza tra il vento reale e quello di velocità dell'unità navale stessa.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 248,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 9,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-9",
+"testo": "Quando l'unità a vela si muove a favore di vento, il vento apparente, corrisponde alla somma tra il vento reale e quello di velocità dell'unità navale",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 248,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 10,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-10",
+"testo": "Quando l'unità a vela si muove controvento, il vento apparente corrisponde alla somma tra il vento reale e quello di velocità dell'unità navale.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 248,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 11,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-11",
+"testo": "Quando l'unità a vela si muove controvento, il vento apparente è pari al vento di velocità dell'unità navale stessa.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 248,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 12,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-12",
+"testo": "Durante la navigazione di una unità a vela, il vento apparente è sempre orientato più a proravia rispetto al vento reale.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 248,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 13,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-13",
+"testo": "Durante la navigazione di una unità a vela, il vento apparente, è sempre orientato ortogonalmente rispetto al vento reale.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 248,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 14,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-14",
+"testo": "Durante la navigazione a vela, il vento apparente ha un'intensità tanto maggiore quanto più l'unità navale procede verso la direzione da cui proviene il vento.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 248,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 15,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-15",
+"testo": "Durante la navigazione di una navale a vela, il vento apparente ha un'intensità tanto maggiore quanto più l'unità navale si discosta dalla direzione da cui proviene il vento.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 248,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 16,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-16",
+"testo": "Per andatura di \"bolina\" si intende quando una unità a vela procede con una direzione di rotta che forma un angolo di circa 135° rispetto alla direzione del vento reale.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 249,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 17,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-17",
+"testo": "Per andatura al \"traverso\" si intende quando una unità a vela procede con una direzione di rotta che forma un angolo di 45° rispetto alla direzione del vento reale.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 249,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 18,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-18",
+"testo": "Per andatura di lasco si intende quando una unità a vela procede con una direzione di rotta che forma un angolo di circa 45° rispetto alla direzione del vento reale.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 249,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 19,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-19",
+"testo": "Per andatura di poppa si intende quando una unità a vela procede con una direzione di rotta che forma un angolo di 90° rispetto alla direzione del vento reale.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 249,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 20,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-20",
+"testo": "Procedendo di bolina, la velocita avvertita dell'unità a vela sembra elevata perché l'intensità del vento percepita risulta superiore rispetto a quella reale.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 249,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 21,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-21",
+"testo": "Procedendo di bolina, la velocita avvertita dell'unità a vela sembra elevata perché l'intensità del vento percepita risulta inferiore rispetto a quella reale.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 249,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 22,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-22",
+"testo": "Procedendo di poppa, la velocita avvertita dell'unità a vela sembra minore perché l'intensità del vento percepita risulta inferiore rispetto a quella reale.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 249,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 23,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-23",
+"testo": "Procedendo di poppa, la velocita avvertita dell'unità navale a vela sembra minore perché l'intensità del vento percepita risulta superiore rispetto a quella reale.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 249,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 24,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-24",
+"testo": "Per \"settore di bordeggio\", o \"angolo morto\", si intende quel settore controvento entro il quale una unità a vela non può indirizzare la sua prua per mancanza di portanza delle vele.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 250,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 25,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-25",
+"testo": "Per \"settore di bordeggio\", o \"angolo morto\", si intende quel settore entro il quale una unità a vela può navigare al fine di aumentare la velocità per raggiungere una determinata destinazione.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 250,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 26,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-26",
+"testo": "Un temporaneo aumento dell'intensità del vento reale (raffica) comporta una favorevole variazione della direzione del vento apparente per assumere un migliore angolo di bolina.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 250,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 27,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-27",
+"testo": "Una temporanea attenuazione dell'intensità del vento reale comporta una favorevole variazione della direzione del vento apparente per assumere un migliore angolo di bolina.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 250,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 28,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-28",
+"testo": "L'angolo di incidenza risulta essere l'angolo formato tra la direzione del vento apparente e quella verso cui è orientata la vela.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 250,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 29,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-29",
+"testo": "Il centro velico risulta essere il punto di applicazione della forza del vento apparente sulle vele e sull'opera morta.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 250,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 30,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-30",
+"testo": "Il centro di deriva risulta essere il centro geometrico della superficie di deriva posto sotto la chiglia dell'unità a vela.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 250,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 31,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-31",
+"testo": "Il centro velico e il centro di deriva si influenzano tra loro generando effetti che sono individuabili e prevedibili per ogni unità a vela.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 250,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 32,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-32",
+"testo": "In condizioni di timone al centro, quando il centro velico è allineato con il centro di deriva, l'unità a vela si definisce \"neutra\" (né poggiera né orziera).",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 251,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 33,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-33",
+"testo": "In condizioni di timone al centro, quando il centro velico è allineato con il centro di deriva, l'unità a vela si avvicina alla direzione del vento (orziera).",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 251,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 34,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-34",
+"testo": "La posizione del centro velico nelle unità a vela dipende dalla superficie e dalla forma delle vele, dalla reciproca influenza tra le vele bordate e dalla messa a punto dell'attrezzatura.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 251,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 35,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-35",
+"testo": "Per \"planata\" si intende lo stato in cui viene a trovarsi l'unità a vela navigando in condizioni di equilibrio dinamico sulla cresta dell'onda generato dal suo medesimo avanzamento.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 251,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 36,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-36",
+"testo": "La \"messa a segno\" delle vele è generata dal vento apparente durante la navigazione.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 251,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 37,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-37",
+"testo": "La pressione esercitata dal vento sulle vele dipende dall'angolo di incidenza.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 251,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 38,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-38",
+"testo": "La pressione esercitata dal vento sulle vele dipende esclusivamente dal valore della prora assunta dall'unità.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 251,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 39,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-39",
+"testo": "La forza di scarroccio risulta perpendicolare all'asse longitudinale dell'unità a vela.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 251,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 40,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-40",
+"testo": "La forza di propulsione risulta perpendicolare all'asse longitudinale dell'unità a vela.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 252,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 41,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-41",
+"testo": "l'albero di un'unità a vela inclinato verso poppa rende la stessa tendenzialmente orziera.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 252,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 42,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-42",
+"testo": "L'albero di un'unità a vela inclinato verso prua rende la stessa tendenzialmente poggiera.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 252,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 43,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-43",
+"testo": "La funzione delle stecche poste sulla randa è quella di conservare inalterata la forma della vela in qualsiasi condizione meteomarina.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 252,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 44,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-44",
+"testo": "La funzione delle stecche poste sulla randa è quella di garantire l'ottimale indicazione della direzione del vento sulla vela?",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 252,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 45,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-45",
+"testo": "Con riguardo alla teoria della vela, il multiscafo ha una maggiore stabilità.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 252,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 46,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-46",
+"testo": "Il bulbo zavorrato di un'unità a vela fornisce maggiore stabilità per contrastare l'azione esterna del vento.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 252,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 47,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-47",
+"testo": "La stabilità di un'imbarcazione a vela è assicurata dal bulbo zavorrato.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 252,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 48,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-48",
+"testo": "La vela tende, per sua natura, ad assumere una posizione neutra di 45° rispetto al flusso del vento e a ricevere una spinta in tale direzione.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 253,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 50,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-50",
+"testo": "Si chiama \"bolina\" l'andatura in cui l'unità a vela procede con una direzione di rotta che forma un angolo di circa 45° rispetto alla direzione del vento reale.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 253,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 51,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-51",
+"testo": "Si chiama \"lasco\" l'andatura in cui l'unità a vela procede con una direzione di rotta che forma un angolo di circa 135° rispetto alla direzione del vento reale.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 253,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 52,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-52",
+"testo": "Si chiama \"traverso\" l'andatura in cui l'unità a vela procede con una direzione di rotta che forma un angolo di 90° rispetto alla direzione del vento reale.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 253,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 53,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-53",
+"testo": "Si chiama \"lasco\" l'andatura in cui l'unità a vela procede con una direzione di rotta che forma un angolo di circa 90° rispetto alla direzione del vento reale.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 253,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 54,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-54",
+"testo": "Si chiama \"poppa\" o \"fil di ruota\" l'andatura in cui l'unità a vela procede con una direzione di rotta che forma un angolo di 180° rispetto alla direzione del vento reale.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 253,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 55,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-55",
+"testo": "Procedendo di bolina, a bordo il vento percepito risulta d'intensità superiore a quella reale.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 253,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 56,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-56",
+"testo": "Procedendo di poppa la velocita avvertita dell'unità a vela sembra elevata perché l'intensità del vento percepita risulta superiore rispetto a quella reale.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 254,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 57,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-57",
+"testo": "Il settore di bordeggio è la zona dello scafo di un'unità navale a vela che concorre a fornire la spinta velica e quindi ad incrementare la velocità della stessa in funzione della direzione del vento.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 254,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 58,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-58",
+"testo": "Si intende per lato sottovento, la superficie sopravvento della vela che è sottoposta a una depressione.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 254,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 59,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-59",
+"testo": "Il centro velico è il punto di applicazione della risultante delle forze dovute all'azione del vento sulle vele.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 254,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 60,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-60",
+"testo": "E' il centro velico il punto di applicazione delle forza idrodinamica sullo scafo dovuta allo scarroccio.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 254,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 61,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-61",
+"testo": "Il centro di deriva è il centro dello scafo a vela di piccole dimensioni.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 254,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 62,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-62",
+"testo": "Il centro di deriva è il punto di applicazione della resistenza laterale che si oppone alle forze idrodinamiche esercitate sull'opera viva.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 254,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 63,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-63",
+"testo": "Il centro velico e il centro di deriva servono per determinare il punto nave a vela.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 254,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 64,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-64",
+"testo": "In condizioni di timone neutro (al centro), quando il centro velico è collocato a proravia del centro di deriva, l'unità navale a vela si allontanata dalla direzione del vento (è poggiera).",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 255,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 65,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-65",
+"testo": "In condizioni di timone neutro (al centro), quando il centro velico è allineato con il centro di deriva, l'unità navale a vela si definisce equilibrata (né poggiera né orziera).",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 255,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 66,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-66",
+"testo": "La posizione del centro velico per le unità navali a vela dipende dalla forma della vela, dalla reciproca influenza tra le vele bordate e dalla messa a punto dell'attrezzatura.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 255,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 67,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-67",
+"testo": "La posizione del centro di deriva delle unità a vela dipende dalla forma delle vele.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 255,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 68,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-68",
+"testo": "Si intende per sopravento, il lato dell'unità ubicato al di sotto del punto di applicazione del vento apparente.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 255,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 69,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-69",
+"testo": "Si intende per sottovento, il lato dell'unità opposto rispetto a quello su cui batte il vento.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 255,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 70,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-70",
+"testo": "La dizione di \"mure a dritta/mure a sinistra\" indica la parte prodiera dello scafo sulla quale si infrangono le onde.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 255,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 71,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-71",
+"testo": "Per grasso della vela si intende la parte della vela più prossima alla tensione della drizza.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 255,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 72,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-72",
+"testo": "Il piano velico è l'organizzazione delle vele di un'unità come da progetto ed è essenzialmente caratterizzato dal numero di alberi e dal tipo di vele a disposizione.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 256,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 73,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-73",
+"testo": "Per portanza si intende il peso complessivo di tutte le attrezzature veliche imbarcate su un'unità a vela.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 256,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 74,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-74",
+"testo": "Lo svergolamento della vela dipende dalla velocità del vento reale che aumenta in funzione dell'altezza da cui spira rispetto alla superficie del mare.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 256,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 75,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-75",
+"testo": "Per \"straorza\" si intende l'improvviso cambio di prua verso la direzione di provenienza del vento, causato da una raffica o da un'onda particolarmente intensa.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 256,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 76,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-76",
+"testo": "Per \"strapoggia\" si intende l'improvviso allontanarsi della prua dalla direzione del vento tale anche da causare una strambata.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 256,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 77,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-77",
+"testo": "Per \"raffica\" si intende una particolare tipologia di venti, di rilevante intensità, che spirano prevalentemente da levante o da ponente.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 256,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 78,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-78",
+"testo": "Per \"scarroccio\" si intende la traslazione laterale dell'unità a vela per effetto del vento esercitato sullo scafo durante la navigazione.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 256,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 79,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-79",
+"testo": "Un'unità a vela scuffia quando si ribalta, immergendo l'albero anche fino a 180° rispetto alla posizione iniziale.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 256,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 80,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-80",
+"testo": "Si intende per \"smagrire\" la vela il variare della superficie portante della stessa riducendone la sua concavità.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 257,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 81,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-81",
+"testo": "Si dice \"stringere il vento\" il condurre l'unità a vela lascando quanto più possibile le vele, allontanando la prua dalla direzione dalla quale proviene il vento.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 257,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 82,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-82",
+"testo": "Si dice \"poggiare\" il condurre l'unità a vela lascando quanto più possibile le vele, allontanando la prua dalla direzione dalla quale proviene il vento.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 257,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 83,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-83",
+"testo": "La forza di propulsione risulta parallela all'asse longitudinale dell'unità navale a vela.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 257,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 84,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-84",
+"testo": "La forza di scarroccio e la forza di propulsione hanno origine dalla forza risultante generata dal vento sulla superificie velica.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 257,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 85,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-85",
+"testo": "Si intende per \"corda\" della vela la linea idealmente tracciata per unire le due estremità del profilo della vela.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 257,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 86,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-86",
+"testo": "La concavità della vela assolve alla funzione di diminuire la resistenza all'avanzamento dell'unità.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 257,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 87,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-87",
+"testo": "Lo spostamento del peso dell'equipaggio a bordo durante la navigazione a vela può servire a contrastare l'azione sbandante generata dal vento sulla superficie velica.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 257,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 88,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-88",
+"testo": "Per contrastare la tendenza poggera dell'unità a vela è utile spostare i pesi verso prua.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 258,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 89,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-89",
+"testo": "Per contrastare la tendenza orziera dell'unità a vela è utile spostare i pesi verso l'albero.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 258,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 90,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-90",
+"testo": "E' meglio evitare un'impostazione troppo poggera di un'unità perché tale impostazione limita notevolmente l'azione del timone.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 258,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 91,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-91",
+"testo": "Un'unità in navigazione a vela con andatura di bolina, se eccessivamente sbandata sottovento, subisce un aumento della velocità e una miglior performance delle vele bordate.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 258,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 92,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-92",
+"testo": "E' meglio preferire un'impostazione leggermente orziera di un'unità a vela perché tale impostazione favorisce le prestazioni e la sicurezza a bordo.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 258,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 93,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-93",
+"testo": "L'inclinazione verso la prua dell'albero di un'unità a vela rende la stessa tendenzialmente poggera.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 258,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 94,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-94",
+"testo": "L'inclinazione verso la poppa dell'albero di un'unità a vela rende la stessa tendenzialmente poggera.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 258,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 96,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-96",
+"testo": "L'angolo di incidenza è quello formato tra la direzione del vento apparente e quella verso cui è orientata la vela, in pratica l'angolo con cui il profilo fende l'aria.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 259,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 97,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-97",
+"testo": "La spinta della randa è principalmente orziera, quella del genoa o del fiocco tendenzialmente poggiera.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 259,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 98,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-98",
+"testo": "Al crescere del vento si cazzano cunningham (o la drizza randa), il tesabase, la drizza genova.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 259,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 99,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-99",
+"testo": "Al crescere del vento è utile spostare verso prua il carrello del genoa.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 259,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 100,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-1",
+"testo": "Negli armamenti frazionati, le sartie volanti servono a sostenere l'albero, controbilanciando lo sforzo trasmesso dalle vele allo strallo.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 259,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 101,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-2",
+"testo": "Negli armamenti frazionati con crocette acquartierate verso poppa e paterazzo, le sartie volanti possono dare supporto all'albero ma non sono strutturali.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 259,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 102,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-3",
+"testo": "Si intende per unità attrezzata con armo frazionato quella in cui lo strallo non è \"incappellato\" in testa d'albero.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 259,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 103,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-4",
+"testo": "Si intende per unità attrezzata con armo frazionato quella il cui scafo è suddiviso in almeno tre compartimenti.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 259,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 104,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-5",
+"testo": "Le crocette garantiscono un'adeguato punto di forza e ritenuta delle scotte sul piano di coperta.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 260,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 105,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-6",
+"testo": "Le crocette servono a tensionare le sartie che sorreggono l'albero lateralmente.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 260,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 106,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-7",
+"testo": "La regolazione delle sartie si attua attraverso l'utilizzo del carrello della scotta.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 260,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 107,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-8",
+"testo": "L'avvolgifiocco è una particolare galloccia dove viene avvolta la scotta sottovento del fiocco.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 260,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 108,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-9",
+"testo": "La balumina è il lato più corto della randa, che si introduce all'interno della canaletta del boma.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 260,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 109,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-10",
+"testo": "La ralinga della randa è il cavo cucito nel lato di inferitura per essere introdotto all'interno della canaletta dell'albero.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 260,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 110,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-11",
+"testo": "Per \"base\" della randa si intende il lato libero della vela dove sono ricavate le tasche per poter introdurre le stecche.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 260,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 111,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-12",
+"testo": "Per \"angolo di scotta\" della randa si intende quello compreso tra la base e la balumina, dove è agganciato il tesabase.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 260,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 112,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-13",
+"testo": "Per \"angolo di penna\" della randa si intende l'angolo compreso tra la base e la ralinga ove è agganciata la trozza del boma.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 261,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 113,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-14",
+"testo": "Per \"angolo di mura\" della randa si intende l'angolo compreso tra la balumina e la ralinga, posto all'estremità superiore della vela, ove è agganciata la drizza.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 261,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 114,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-15",
+"testo": "Il fiocco consente all'unità a vela di navigare esclusivamente con angoli compresi tra i 40° e i 70° rispetto alla direzione da cui spira il vento.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 261,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 115,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-16",
+"testo": "La randa rappresenta la vela principale di un'unità a vela, ubicata a poppavia dell'albero, e di forma triangolare.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 261,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 116,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-17",
+"testo": "Il genoa o genova rappresenta una particolare tipologia di vela prodiera avente una superficie ridotta utilizzata in caso di condizioni meteo marine avverse.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 261,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 117,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-18",
+"testo": "Il genoa o genova è la vela prodiera avente una superficie che non si sovrappone a quella della randa.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 261,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 118,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-19",
+"testo": "Il genoa (o genova) oltrepassa l'albero verso poppa fino a una lunghezza generalmente pari al 50% della distanza fra l'albero e il punto di mura.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 261,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 119,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-20",
+"testo": "Il fiocco è la vela prodiera avente una superficie che non si sovrappone a quella della randa.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 261,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 120,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-21",
+"testo": "Lo spinnaker rappresenta la vela principale, utilizzata in particolar modo nelle andature di bolina al fine di dare maggiore potenza e superficie velica.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 262,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 121,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-22",
+"testo": "Il gennaker è una vela asimmetrica adatta alle andature comprese tra il traverso e il lasco (60°- 120° dal vento).",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 262,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 122,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-23",
+"testo": "Il code 0 è una vela asimmetrica adatta alle andature con poco vento comprese tra la bolina larga e il traverso.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 262,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 123,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-24",
+"testo": "Il code 0 è una vela inferita.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 262,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 124,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-25",
+"testo": "Lo sloop è l'armo caratterizzato dalla presenza di un solo albero e la possibilità di issare una sola vela di prua alla volta.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 262,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 125,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-26",
+"testo": "Il cutter è l'armo caratterizzato dalla presenza di un solo albero, armato con due fiocchi contemporaneamente.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 262,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 126,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-27",
+"testo": "Il ketch è quell'armo caratterizzato dalla presenza dell'albero di mezzana a proravia dell'asse del timone.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 262,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 127,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-28",
+"testo": "Tra le manovre fisse vi sono drizze e scotte.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 262,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 128,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-29",
+"testo": "Tra le manovre correnti vi sono stralli e sartie.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 263,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 129,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-30",
+"testo": "Il paranco di scotta assolve la funzione di demoltiplicare lo sforzo.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 263,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 132,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-33",
+"testo": "Il cunningham assolve la funzione di porre in tensione la parte prodiera bassa della randa, mediante un paranco verticale.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 263,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 133,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-34",
+"testo": "Il tangone è il pennone sul quale è fissata la base della randa.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 263,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 134,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-35",
+"testo": "Il winch è un particolare meccanismo costituito da due bozzelli utilizzato per moltiplicare lo sforzo di trazione esercitato sulle cime.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 263,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 135,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-36",
+"testo": "Le scotte devono essere avvolte intorno al tamburo del winch sempre in senso orario, ponendo particolare attenzione per evitare la sovrapposizione dei \"colli\".",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 263,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 136,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-37",
+"testo": "La ferramenta di bordo è costituita dall'insieme di elementi come strozzascotte, winch, arridatori e galloccie.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 264,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 137,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-38",
+"testo": "Il polipropilene è utilizzato solo per sagole galleggianti utilizzate per il salvataggio.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 264,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 138,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-39",
+"testo": "I grilli assumono la funzione di ridurre o sforzo di trazione sui cavi.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 264,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 139,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-40",
+"testo": "Il carrello di randa (o trasto) è il congegno sul quale vengono date volta e bloccate le scotte della randa.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 264,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 140,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-41",
+"testo": "La galloccia è il dispositivo con cui si fissano le draglie.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 264,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 141,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-42",
+"testo": "La landa è il cavallotto o la piastra collocata in coperta utilizzata per fissare le sartie e gli stralli.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 264,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 142,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-43",
+"testo": "Il golfare è il carrello del boma dove si innesta la randa.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 264,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 143,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-44",
+"testo": "La varea del tangone è l'anello di attacco del mantiglio.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 264,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 144,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-45",
+"testo": "La trozza è lo snodo che unisce il boma all'albero.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 265,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 145,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-46",
+"testo": "La resistenza alla trazione rappresenta una qualità importante nelle fibre del tessuto di una vela, determinandone la stabilità trasversale.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 265,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 146,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-47",
+"testo": "Il dacron non è un materiale correntemente diffuso per la realizzazione di vele da crociera.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 265,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 147,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-48",
+"testo": "L'esposizione molto prolungata delle vele ai raggi solari ne determina il decadimento delle sue caratteristiche meccaniche di resistenza.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 265,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 148,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-49",
+"testo": "Il set di vele standard di un catamarano è formato da randa, fiocco e gennaker.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 265,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 149,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-50",
+"testo": "Il set di vele base di uno scafo armato a sloop è formato da randa e genoa (o genova).",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 265,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 150,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-51",
+"testo": "I garrocci sono gli specifici moschettoni che consentono di fissare il lato prodiero del genoa e del fiocco allo strallo di prua.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 265,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 151,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-52",
+"testo": "La funzione del paterazzo è di regolare il vang.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 265,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 152,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-53",
+"testo": "Cazzando il paterazzo si determina un rilevante smagrimento della parte centrale della randa.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 266,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 153,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-54",
+"testo": "La gassa d'amante è un nodo che tende a sciogliersi facilmente.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 266,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 154,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-55",
+"testo": "La gassa d'amante si usa per accorciare una cima.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 266,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 155,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-56",
+"testo": "E' opportuno utilizzare il nodo piano per unire due cavi aventi diverso diametro.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 266,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 156,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-57",
+"testo": "La funzione di un nodo savoia è impedire che l'estremità di un cavo si sfili da un passacavo.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 266,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 157,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-58",
+"testo": "Il nodo parlato è utile per fissare i parabordi alle draglie.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 266,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 158,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-59",
+"testo": "Il nodo margherita si usa per accorciare una cima.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 266,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 159,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-60",
+"testo": "Per lazy jack si intende una particolare drizza utilizzata per issare le vele in condizioni di emergenza.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 266,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 160,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-61",
+"testo": "Per lazy jack si intende il sistema di sagole che aiuta a raccogliere la randa in fase di ammainata.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 267,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 161,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-62",
+"testo": "Il feeder è il dispositivo utilizzato al fine di facilitare l'introduzione dell'inferitura del fiocco o del genoa all'interno della canaletta dello strallo cavo.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 267,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 162,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-63",
+"testo": "Il tesabase è il dispositivo finalizzato a mantenere tesata la base del fiocco.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 267,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 163,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-64",
+"testo": "Le manovre necessarie all'uso dello spinnaker sono scotta, spring, vang, borosa e meolo del tangone.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 267,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 164,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-65",
+"testo": "Per braccio si intende il cavo utilizzato per manovrare e, quindi, regolare la mura dello spinnaker.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 267,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 165,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-66",
+"testo": "Il matafione è un fiocco di rispetto utilizzato in condizioni meteo marine avverse.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 267,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 166,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-67",
+"testo": "Per impiombatura si intende l'intreccio dei trefoli delle estremità di cavi tessili o in acciaio, al fine di unirli tra di loro o per realizzare un anello fisso a cui agganciare le ferramenta o le manovre.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 267,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 167,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-68",
+"testo": "Per borosa si intende la parte terminale superiore dello strallo cavo che lo collega all'albero.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 267,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 168,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-69",
+"testo": "Le sartie, sono i cavi generalmente in acciaio (ma anche in fibre tessili particolarmente tenaci), che sostengono l'albero.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 268,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 169,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-70",
+"testo": "Il tornichetto è un congegno utilizzato per unire due cime di diverso materiale.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 268,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 170,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-71",
+"testo": "Il vang è un sistema di ritenuta del boma di tipo regolabile che assolve a due funzioni principali: regola la flessione longitudinale dell'albero e influenza la superficie portante della vela.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 268,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 171,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-72",
+"testo": "All'interno dell'albero si possono far passare le manovre fisse come sartie e stralli.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 268,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 172,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-73",
+"testo": "L'avvolgiranda è un'attrezzatura che permette di riporre la randa in un gavone una volta terminata la navigazione.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 268,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 173,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-74",
+"testo": "La regolazione dell'albero viene effettuata con l'unità all'ormeggio agendo su ogni singola manovra corrente in stretta aderenza a quanto indicato dal costruttore.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 268,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 174,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-75",
+"testo": "Le manovre correnti sono quelle che servono a manovrare le vele, come le scotte, drizze, wang, tesa base ecc.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 268,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 175,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-76",
+"testo": "Un winch self-tailing è un verricello elettronico comandato dalla timoneria per il quale non è necessario l'uso della maniglia.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 268,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 176,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-77",
+"testo": "Stralli e sartie sono manovre fisse.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 269,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 177,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-78",
+"testo": "Girando la maniglia in senso orario il winch sostiene una migliore trazione e potenza.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 269,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 178,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-79",
+"testo": "Il motivo per cui il grillo della penna di randa è del tipo con perno di blocco è per consentire di sganciare la vela evitando che lo stesso cada in mare.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 269,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 179,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-80",
+"testo": "La calza è una sorta di tubo di tela con il quale si raccoglie lo spinnaker o il gennaker prima di ammainarlo.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 269,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 180,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-81",
+"testo": "Con il fiocco autovirante è necessario cazzare la scotta in virata.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 269,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 181,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-82",
+"testo": "Con il fiocco autovirante la scotta è generalmente rinviata a una puleggia sull'albero.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 269,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 182,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-83",
+"testo": "Con il genoa avvolgibile ridotto oltre il 30% della superficie si ha una sensibile riduzione di efficienza del profilo.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 269,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 183,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-84",
+"testo": "L'avvolgifiocco e il moderno sistema che consente di ridurre la vela di prua senza ammainarla.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 269,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 184,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-85",
+"testo": "Lo stopper è la manovra con cui si fissa il boma in posizione di riposo.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 270,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 185,
+"sezione": "Attrezzatura delle unita' a vela",
+"voce": "ATTREZZATURA DELLE UNITA' A VELA",
+"progressivo": "2.2.1-86",
+"testo": "Lo stopper è il sistema di bloccaggio che consente di strozzare una drizza.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 270,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 186,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-1",
+"testo": "Per \"sventare\" si intende la manovra tesa a condurre l'unità navale con la prua al vento o a mollare le scotte, in modo che le vele non siano portanti",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 270,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 187,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-2",
+"testo": "Per \"sventare\" si intende la manovra tesa a condurre l'unità navale con la poppa al vento.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 270,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 188,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-3",
+"testo": "Con timone a barra per poggiare è necessario porre la barra del timone sopravento ossia dalla parte opposta rispetto alla randa.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 270,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 189,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-4",
+"testo": "Con timone a barra per poggiare è necessario porre la barra del timone sottovento ossia dallo stesso lato della randa.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 270,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 190,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-5",
+"testo": "Quando due unità navali a vela navigano di bolina con rotte convergenti, quella con le mure a sinistra poggierà per lasciare la rotta libera a quella con le mure a dritta, passandole di poppa.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 270,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 191,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-6",
+"testo": "Quando due unità navali a vela navigano di bolina con rotte convergenti, quella più lenta lascierà la rotta libera a quella più veloce, passandole di poppa.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 270,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 192,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-7",
+"testo": "Quando due unità navali a vela navigano di bolina entrambe con le stesse mure, quella sopravento orzerà per lasciare la rotta libera a quella sottovento.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 271,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 193,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-8",
+"testo": "Dopo aver tesato la drizza della randa, la base della stessa può essere cazzata, poco o molto, a seconda che si vogliano assumere rispettivamente andature larghe o di bolina.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 271,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 194,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-9",
+"testo": "L'abbattuta è la manovra mediante la quale l'unità a vela cambia mure attraversando con la poppa la direzione da cui proviene il vento.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 271,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 195,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-10",
+"testo": "La virata è la manovra per evitare un ostacolo.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 271,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 196,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-11",
+"testo": "La virata è la manovra usata per raggiungere una meta navigando con il vento in fil di ruota.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 271,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 197,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-12",
+"testo": "L'abbattuta si esegue quando la barca è alla massima velocità e naviga con andatura al traverso o di bolina.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 271,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 198,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-13",
+"testo": "Per armare la randa: si collega la borosa all'angolo di mura, si tesa la base e si chiude lo stopper della scotta.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 271,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 199,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-14",
+"testo": "Il punto di mura è posizionato sulla varea del boma.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 271,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 200,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-15",
+"testo": "Si arma la randa cazzando il meolo, inserendo la tavoletta all'interno dell'apposita tasca posta sulla parte più alta dell'albero.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 272,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 201,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-16",
+"testo": "Dopo aver lascato la drizza della randa, la base della stessa può essere lascata, poco o molto, a seconda che si vogliano assumere andature in bolina o bolina larga.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 272,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 202,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-17",
+"testo": "Genoa (o genova) e fiocco si armano allo stesso modo perché hanno, in generale, lo stesso punto di mura nonché risultano inferiti al medesimo strallo.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 272,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 203,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-18",
+"testo": "La prima operazione necessaria per issare il fiocco o il genoa (o genova) munito di garocci è fissare l'occhiello di bugna nell'apposito attacco ubicato alla base dello strallo.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 272,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 204,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-19",
+"testo": "I garrocci di cui è munito il fiocco vanno incocciati allo strallo partendo dal punto di penna e proseguendo verso il punto di scotta.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 272,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 205,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-20",
+"testo": "Il dispositivo solitamente utilizzato per agganciare la drizza alla penna è un moschettone impiombato alla drizza stessa.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 272,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 206,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-21",
+"testo": "Il nodo utilizzato solitamente per fissare le due scotte alla bugna del fiocco, una per lato, è il parlato doppio.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 272,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 207,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-22",
+"testo": "La barca viene condotta con la prua al vento al fine di consentire che il fiocco non si gonfi mentre viene issato.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 272,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 208,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-23",
+"testo": "Lo strallo cavo offre il vantaggio di abbassare il centro velico del fiocco.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 273,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 209,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-24",
+"testo": "La doppia canaletta di uno strallo cavo serve per facilitare la sostituzione di una vela di prua.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 273,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 210,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-25",
+"testo": "Issare la tormentina è la manovra che può essere adottata al fine di ridurre la velocità risalendo il vento",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 273,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 211,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-26",
+"testo": "La manovra che può essere adottata al fine di ridurre la velocità nelle andature portanti è far fileggiare la randa.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 273,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 212,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-27",
+"testo": "La manovra denominata \"mettersi in panna\" serve per aumentare la velocità.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 273,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 213,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-28",
+"testo": "La manovra denominata \"mettersi in panna\" consiste nel porre a collo la vela di prua lasciando la randa bordata per la bolina larga nonché ponendo il timone all'orza.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 273,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 214,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-29",
+"testo": "La manovra denominata \"mettersi alla cappa\" consiste in una particolare tecnica che consente di navigare a velocità ridotta utilizzando l'ancora galleggiante filata di poppa.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 273,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 215,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-30",
+"testo": "Per \"mano o presa di terzaroli\" si intende la manovra per abbassare il tangone e smagrire lo spinnaker, passando dall'andatura in fil di ruota al traverso.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 273,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 216,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-31",
+"testo": "La \"presa di terzaroli\" consiste nell'ammainare completamente la randa ed issare al suo posto la randa di rispetto denominata matafione.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 274,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 217,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-32",
+"testo": "Per \"mettere a segno\" le vele si intende l'avvolgerle correttamente dopo l'utilizzo in navigazione per il loro successivo pronto impiego.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 274,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 218,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-33",
+"testo": "Il vantaggio della planata è l'aumento del dislocamento dell'unità.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 274,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 219,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-34",
+"testo": "Quando la barca si dispone con la prua al vento le vele smagriscono disponendosi trasversalmente all'asse longitudinale dell'unità e orientandosi nella direzione di provenienza del vento apparente.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 274,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 220,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-35",
+"testo": "La manovra denominata \"strallare\" consiste nel ruotare il tangone verso la parte prodiera dell'unità navale conducendone l'estremità libera in prossimità dello strallo.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 274,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 221,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-36",
+"testo": "La manovra denominata \"quadrare\" consiste nel ruotare il tangone verso la parte prodiera dell'unità navale conducendone l'estremità libera in prossimità dello strallo.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 274,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 222,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-37",
+"testo": "Per poggiare si intende variare la prua dell'unità, allontanando la prua della stessa rispetto alla direzione di provenienza del vento.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 274,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 223,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-38",
+"testo": "Per orzare si intende variare la rotta dell'unità navale assumendo un nuovo valore di rotta opposto a quello della direzione di provenienza del vento.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 274,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 224,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-39",
+"testo": "Per sventare si intende la manovra tesa a condurre l'unità navale con la poppa al vento.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 275,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 225,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-40",
+"testo": "La virata e l'abbattuta sono le manovre fondamentali per cambiare mure.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 275,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 226,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-41",
+"testo": "La virata è la manovra mediante la quale l'unità a vela si appresta ad ammainare lo spinnaker.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 275,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 227,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-42",
+"testo": "Per poggiare è necessario porre la barra al centro",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 275,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 228,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-43",
+"testo": "Quando due unità a vela navigano di bolina con rotte convergenti, quella più lenta lascerà la rotta libera a quella più veloce, passandole di poppa.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 275,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 229,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-44",
+"testo": "Se due unità a vela navigano entrambe con stesse mura, ha la precedenza quella che si trova sottovento.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 275,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 230,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-45",
+"testo": "Se due unità a vela navigano di bolina con rotte convergenti, quella con mure a sinistra ha la precedenza.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 275,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 231,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-46",
+"testo": "Se due unità navigano a vela con mure diverse (una a sinistra e l'altra a dritta), ha la precedenza chi prende il vento a sinistra.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 275,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 232,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-47",
+"testo": "Se due unità navigano a vela con mure diverse (una a sinistra e l'altra a dritta), ha la precedenza chi prende il vento a dritta.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 276,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 233,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-48",
+"testo": "Se due unità navigano a vela su rotte opposte, quella che ha il vento sulla sinistra deve lasciare libera la rotta all'altra.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 276,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 234,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-49",
+"testo": "Se un'unità con il vento sulla sinistra vede un'altra unità a vela sopravento e non può stabilire con sicurezza se questa abbia il vento sulla sinistra o sulla dritta, deve manovrare in modo da lasciare libera la rotta.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 276,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 235,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-50",
+"testo": "Navigando di bolina stretta, si può ridurre temporaneamente la velocità stingendo il vento oltre l'angolo di bordeggio.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 276,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 236,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-51",
+"testo": "Poggiando da bolina stretta a bolina larga la barca accelera.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 276,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 237,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-52",
+"testo": "Per ridurre lo sbandamento, si smagriscono le vele, cazzando il cunnincham e il tesabase della randa, la drizza del genoa e si arretra il punto di scotta del genoa (o genova).",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 276,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 238,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-53",
+"testo": "Per aumentare la potenza con vento debole si smagriscono le vele, cazzando il cunnincham e il tesabase della randa, la drizza del genoa e si arretra il punto di scotta del genoa (o genova).",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 276,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 239,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-54",
+"testo": "La \"messa a segno\" delle vele si ottiene quando le vele sono completamente poste a riva.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 276,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 240,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-55",
+"testo": "Per ridurre lo sbandamento sotto raffica si muove il carrello (trasto) della randa sottovento o, in assenza del carrello, si lasca la scotta.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 277,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 241,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-56",
+"testo": "Per assecondare una rapida poggiata per evitare un ostacolo devo lascare solo il fiocco.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 277,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 242,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-57",
+"testo": "La ritenuta del boma è quella manovra che si può utilizzare per evitare la strambata nelle andature di granlasco e giardinetto.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 277,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 243,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-58",
+"testo": "In caso di aumento del vento, riducendo la randa si diminuisce la tendenza orziera dell'unità.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 277,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 244,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-59",
+"testo": "Quando si comincia a pensare se sia il caso di ridurre la vela a causa dell'eccessivo sbandamento è probabilmente il momento di farlo.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 277,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 245,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-60",
+"testo": "E' certamente opportuno ridurre la vela se la barca ha stabilmente la falchetta in acqua.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 277,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 246,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-61",
+"testo": "La strambata è il rischio più grande che si corre navigando al gran lasco o in poppa (giardinetto).",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 277,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 247,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-62",
+"testo": "Strambata e abbattuta sono la stessa cosa.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 277,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 248,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-63",
+"testo": "La strambata è l'abbattuta involontaria e incontrollata.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 278,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
+"n": 249,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-64",
+"testo": "Salvo le ordinanze locali, di norma è possibile entrare in un porto navigando a vela.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 278,
+"capitolo": "VELA",
+"esatta": 1
+},
+{
+"n": 250,
+"sezione": "Manovre delle unita' a vela",
+"voce": "MANOVRE DELLE UNITA' A VELA",
+"progressivo": "2.3.1-65",
+"testo": "Lascare la randa agevola la poggiata.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 278,
+"capitolo": "VELA",
+"esatta": 0
+}
+],
+"escluse": [
+{
+"capitolo": "VELA",
+"n": 49,
+"testo": "Per andatura si intende la direzione verso cui procede un'unità a vela rispetto alla direzione di provenienza del vento.",
+"pagina": 253,
+"motivo": "nel PDF 0 risposte segnate V"
+},
+{
+"capitolo": "VELA",
+"n": 95,
+"testo": "Lascare la drizza e la base della randa aumenta la concavità della vela (grasso) e le fa assumere una configurazione adatta all'andatura in fil di ruota.",
+"pagina": 258,
+"motivo": "rimanda a una figura (le immagini non si riproducono)"
+},
+{
+"capitolo": "VELA",
+"n": 130,
+"testo": "Quello rappresentato in figura è un paranco con un rapporto 6:1",
+"pagina": 263,
+"motivo": "rimanda a una figura (le immagini non si riproducono)"
+},
+{
+"capitolo": "VELA",
+"n": 131,
+"testo": "Quello rappresentato in figura è un paranco doppio con il rapporto più favorevole, il cosiddetto \"fino\" di 8:1.",
+"pagina": 263,
+"motivo": "rimanda a una figura (le immagini non si riproducono)"
+}
+],
+"totale_pdf": 250
+}

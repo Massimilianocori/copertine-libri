@@ -1,0 +1,23 @@
+{
+  "_nota": "Link di affiliazione di Quiz Ufficiali (li legge genera.py). Domini ammessi in studio-business/strumenti/monetizzazione.json. Mai inventare URL o ID. Nessuna funzione a pagamento nel sito.",
+  "amazon": {
+    "attivo": true,
+    "tag": "guideesami-21",
+    "nome": "Amazon.it (Programma di Affiliazione Amazon EU, stesso tag di EsamiDiStato ed EsameB1)",
+    "compenso": "5 % sui libri",
+    "ricerche": {
+      "ruolo-conducenti": "ruolo conducenti taxi ncc quiz",
+      "tartufi": "",
+      "patentino-fitosanitario": "",
+      "patente-nautica": "quiz patente nautica"
+    },
+    "nota_verifica": "12/11/2026: amazon.it risponde 503 alle richieste dal server (non aggirato). Link solo dove la ricerca della rete (fronti-2026-11-12-quiz-ufficiali.md, sez. 4) ha trovato un suggerimento dell'autocompletamento libri di Amazon: «ruolo conducenti quiz» sì; tartufi e patentino fitosanitario zero suggerimenti, quindi nessun link (nessun manuale d'esame verificato). Patente nautica (aggiunta il 12/11/2026): suggerimento «quiz patente nautica» nell'autocompletamento libri di Amazon e manuali di quiz in commercio citati nella stessa ricerca (sez. 4: 22,80-30,50 €).",
+    "regole": "Ricerca nel reparto Libri (i=stripbooks) con tag=guideesami-21, rel=\"sponsored noopener\", target=\"_blank\". Nessun prezzo, nessuna recensione scritta a mano. Accanto al link la frase «In qualità di Affiliato Amazon, ricevo un guadagno dagli acquisti idonei.»"
+  },
+  "easy_quizzz": {
+    "attivo": false,
+    "url": "",
+    "compenso": "20 % del prezzo di vendita (letto il 12/11/2026 su easy-quizzz.com/it/affiliato/)",
+    "nota": "Spento: nel repository non c'è ancora un link di affiliazione Easy-Quizzz (serve l'iscrizione di Massimiliano). È un concorrente: va usato solo dove non abbiamo il simulatore completo. Per accenderlo servono il link tracciato, il suo dominio in monetizzazione.json e un riquadro in genera.py."
+  }
+}

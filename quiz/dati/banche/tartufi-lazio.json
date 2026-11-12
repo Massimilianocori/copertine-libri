@@ -1,0 +1,3585 @@
+{
+"_nota": "Scritto da raccolta/estrai.py dal PDF ufficiale (vedi dati/fonti.json). Non modificare a mano.",
+"id": "tartufi-lazio",
+"domande": [
+{
+"n": 1,
+"sezione": "Conoscenza delle specie",
+"testo": "In caso di dubbio o contestazione sull’identificazione della specie di appartenenza",
+"risposte": [
+"si ricorre all’esame microscopico delle spore",
+"si ricorre all’esame microscopico del peridio",
+"si ricorre all’esame visivo della gleba e del peridio"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 1
+},
+{
+"n": 2,
+"sezione": "Conoscenza delle specie",
+"testo": "Quali dei seguenti elementi consentono di riconoscere la specie di appartenenza del tartufo senza ricorrere all’esame microscopico delle spore?",
+"risposte": [
+"la profondità di crescita",
+"il colore del peridio e della gleba",
+"il colore delle vene sterili"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 1
+},
+{
+"n": 3,
+"sezione": "Conoscenza delle specie",
+"testo": "Quali dei seguenti elementi consentono di riconoscere la specie di appartenenza del tartufo senza ricorrere all’esame microscopico delle spore?",
+"risposte": [
+"il periodo di raccolta",
+"il profumo e la rugosità del peridio",
+"il colore delle vene sterili"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 1
+},
+{
+"n": 4,
+"sezione": "Conoscenza delle specie",
+"testo": "Quali dei seguenti elementi consentono di riconoscere la specie di appartenenza del tartufo senza ricorrere all’esame microscopico delle spore?",
+"risposte": [
+"lo spessore delle ife",
+"la lunghezza del picciolo",
+"il colore e la grandezza delle vene fertili"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 1
+},
+{
+"n": 5,
+"sezione": "Conoscenza delle specie",
+"testo": "Quali sono le caratteristiche distintive del tartufo nero d’inverno?",
+"risposte": [
+"carpoforo di grandi dimensioni, forma globosa regolare, peridio nero con verruche molto grandi e sporgenti",
+"carpoforo di piccole dimensioni, forma globosa irregolare, peridio nero con piccole verruche depresse",
+"carpoforo grande, quasi sferico e peridio liscio"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 1
+},
+{
+"n": 6,
+"sezione": "Conoscenza delle specie",
+"testo": "Quali sono le caratteristiche distintive del tartufo bianchetto?",
+"risposte": [
+"carpoforo di piccole dimensioni, forma tondeggiante regolare, peridio biancastro con verruche grandi e gleba nero-violacea",
+"carpoforo molto grande di forma globosa, con peridio scuro e verrucoso, profumo che ricorda il gas metano",
+"carpoforo di piccole dimensioni, peridio biancastro liscio, gleba chiara o rosso-bruna con venature bianche, aroma forte e agliaceo"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 1
+},
+{
+"n": 7,
+"sezione": "Conoscenza delle specie",
+"testo": "Quali sono le caratteristiche distintive del tartufo bianchetto?",
+"risposte": [
+"carpoforo identico al tartufo bianco pregiato ma molto meno profumato",
+"carpoforo di colore bianco notevolmente verrucoso",
+"Carpoforo di piccole dimensioni da 1 a 5 cm"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 1
+},
+{
+"n": 8,
+"sezione": "Conoscenza delle specie",
+"testo": "Quali sono le caratteristiche distintive del tartufo scorzone?",
+"risposte": [
+"peridio nero con verruche grandi piramidali, gleba nocciola con venature biancastre",
+"carpoforo di dimensione minima di 10 cm, forma sferica molto regolare",
+"carpoforo molto grande, con peridio scuro e quasi liscio, in sezione assume forma reniforme"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 2
+},
+{
+"n": 9,
+"sezione": "Conoscenza delle specie",
+"testo": "Quali sono le caratteristiche distintive del tartufo scorzone?",
+"risposte": [
+"verruche piramidali molto evidenti",
+"gleba color vinaccia",
+"verruche globulari appena pronunciate"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 2
+},
+{
+"n": 10,
+"sezione": "Conoscenza delle specie",
+"testo": "Quali sono le caratteristiche distintive del tartufo scorzone?",
+"risposte": [
+"carpoforo di dimensioni medie superiori ai 10 cm",
+"carpoforo di forma triangolare",
+"carpoforo di dimensioni medie fra i 2-10 cm"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 2
+},
+{
+"n": 11,
+"sezione": "Conoscenza delle specie",
+"testo": "Quali sono le caratteristiche distintive del tartufo nero liscio?",
+"risposte": [
+"carpoforo di dimensioni piccolissime, di forma rotonda regolare, peridio di colore nero rugginoso",
+"carpoforo grande di forma globosa irregolare, peridio con verruche depresse, sapore piccante",
+"carpoforo del diametro medio di 10 cm, gleba grigio verdastra, aroma forte e penetrante"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 2
+},
+{
+"n": 12,
+"sezione": "Conoscenza delle specie",
+"testo": "Quali sono le caratteristiche distintive del tartufo nero ordinario?",
+"risposte": [
+"carpoforo di piccolissime dimensioni, forma globosa regolare, aroma che ricorda il gas butano",
+"carpoforo molto grande, di forma tondeggiante regolare, con peridio rossastro e poco verrucoso, aroma gradevole",
+"carpoforo di diametro massimo di 6 cm, in sezione presenta aspetto reniforme, verruche depresse e profonde, aroma di acido fenico"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 2
+},
+{
+"n": 13,
+"sezione": "Conoscenza delle specie",
+"testo": "Quali sono le caratteristiche distintive del tartufo nero ordinario?",
+"risposte": [
+"profumo di gas metano",
+"profumo di acido fenico",
+"profumo di cloro"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 2
+},
+{
+"n": 14,
+"sezione": "Conoscenza delle specie",
+"testo": "Quali sono le caratteristiche distintive del tartufo bianco pregiato?",
+"risposte": [
+"carpoforo di piccole dimensioni, di forma irregolarmente globosa, con peridio giallo verdastro e verruche molto evidenti, profumo agliaceo",
+"carpoforo di notevole dimensioni, rotondeggiante, quasi sferico, peridio giallo-verdastro, liscio, gleba chiara ocracea, aroma che ricorda il gas metano",
+"carpoforo di grandi dimensioni, molto irregolare, talvolta provvisto di lobi, peridio biancastro liscio, gleba rosso-bruna, aroma che ricorda il gas metano"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 2
+},
+{
+"n": 15,
+"sezione": "Conoscenza delle specie",
+"testo": "Quali sono le caratteristiche distintive del tartufo bianco pregiato?",
+"risposte": [
+"profumo di acido fenico",
+"profumo di cloro",
+"profumo di gas metano"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 2
+},
+{
+"n": 16,
+"sezione": "Conoscenza delle specie",
+"testo": "Quali sono le caratteristiche distintive del tartufo bianco pregiato?",
+"risposte": [
+"gleba di colore marrone scuro",
+"gleba di colore ocra chiaro",
+"gleba di colore giallo verdastro"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 2
+},
+{
+"n": 17,
+"sezione": "Conoscenza delle specie",
+"testo": "Quali sono le caratteristiche distintive del tartufo bianco pregiato?",
+"risposte": [
+"carpoforo di grandi dimensioni, intorno ai 10 cm",
+"carpoforo di piccole dimensioni, intorno ai 5 cm",
+"carpoforo di forma molto irregolare"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 2
+},
+{
+"n": 18,
+"sezione": "Conoscenza delle specie",
+"testo": "Quali sono le caratteristiche distintive del tartufo uncinato?",
+"risposte": [
+"carpoforo di dimensione tra i 2-3 cm di diametro, forma molto irregolare e deformata, peridio giallo scuro con verruche piccole e depresse, gleba di colore nocciola",
+"carpoforo molto grande, di forma tondeggiante, con peridio liscio e poco verrucoso, gleba di colore grigio chiaro, aroma deciso e agliaceo",
+"carpoforo di dimensione tra i 6-10 cm di diametro, forma rotondeggiante un po’ irregolare, peridio nero con verruche piramidali e gleba bruno scura, sapore che ricorda quello delle nocciole"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 2
+},
+{
+"n": 19,
+"sezione": "Conoscenza delle specie",
+"testo": "Quali sono le caratteristiche distintive del tartufo nero pregiato?",
+"risposte": [
+"carpoforo di diametro massimo di 4 cm, tondeggiante poco regolare, con un incavo profondo che in sezione conferisce l’aspetto reniforme, peridio nero con verruche depresse e poco profonde, gleba grigio-bruna, aroma fortissimo di acido fenico",
+"carpoforo di dimensioni da una grossa noce ad una grossa patata, forma rotondeggiante, peridio di colore nero e aspetto verrucoso, gleba nero-violacea, profumo aromatico e gradevole",
+"carpoforo di dimensione superiore ai 10 cm di diametro, forma irregolarmente lobata, peridio nero con verruche piramidali e gleba rossastra, aroma gradevole e intenso, sapore che ricorda quello delle nocciole"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 3
+},
+{
+"n": 20,
+"sezione": "Conoscenza delle specie",
+"testo": "Quali sono le caratteristiche distintive del tartufo nero pregiato?",
+"risposte": [
+"carpoforo reniforme caratterizzato da una profonda insenatura",
+"carpoforo di grosse dimensioni e forma tondeggiante",
+"carpoforo caratterizzato da gleba chiara e peridio quasi liscio"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 3
+},
+{
+"n": 21,
+"sezione": "Conoscenza delle specie",
+"testo": "Quali sono le caratteristiche distintive del tartufo nero pregiato?",
+"risposte": [
+"gleba di colore nero violacea",
+"gleba di colore ocra chiaro",
+"gleba di colore nocciola"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 3
+},
+{
+"n": 22,
+"sezione": "Conoscenza delle specie",
+"testo": "Quali sono le caratteristiche distintive del tartufo moscato?",
+"risposte": [
+"di piccole dimensioni, peridio biancastro e gleba nero-violacea, aroma che ricorda l’acido fenico",
+"carpoforo di diametro compreso fra 5 e 10 cm, gleba nero-violacea, profumo delicato e gradevole",
+"carpoforo di dimensione ridotta, da 1 a 4-5 cm di diametro, peridio nero con verruche depresse, aroma dal sapore piccante"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 3
+},
+{
+"n": 23,
+"sezione": "Conoscenza delle specie",
+"testo": "Quali caratteristiche distinguono il tartufo scorzone dal tartufo nero uncinato?",
+"risposte": [
+"il tartufo nero uncinato può essere a maturazione molto più piccolo dello scorzone",
+"il tartufo scorzone può essere a maturazione molto più piccolo del tartufo nero uncinato",
+"il tartufo scorzone ha la gleba molto più scura del tartufo uncinato"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 3
+},
+{
+"n": 24,
+"sezione": "Conoscenza delle specie",
+"testo": "Quali caratteristiche distinguono il tartufo nero invernale dal tartufo nero pregiato?",
+"risposte": [
+"non esistono differenze macroscopiche apprezzabili",
+"il tartufo nero pregiato ha il carpoforo rotondeggiante più regolare del tartufo nero invernale",
+"il tartufo nero pregiato ha un profumo molto più forte e penetrante del tartufo nero invernale"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 3
+},
+{
+"n": 25,
+"sezione": "Conoscenza delle specie",
+"testo": "Quali caratteristiche distinguono il tartufo nero invernale dal tartufo nero pregiato?",
+"risposte": [
+"il tartufo nero pregiato presenta verruche con depressione centrale meno marcata del tartufo nero invernale",
+"il tartufo nero pregiato ha il carpoforo più irregolare del tartufo nero invernale",
+"il tartufo nero pregiato ha un profumo molto più forte e penetrante del tartufo nero invernale"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 3
+},
+{
+"n": 26,
+"sezione": "Conoscenza delle specie",
+"testo": "Quali caratteristiche distinguono il tartufo bianco pregiato dal tartufo bianchetto?",
+"risposte": [
+"il tartufo bianchetto raggiunge dimensioni minori e non matura all'inizio dell'autunno",
+"il tartufo bianco pregiato profuma di aglio e non di metano e si raccoglie in primavera",
+"il tartufo bianco pregiato ha il peridio molto più verrucoso non profuma di aglio ma di metano e matura all'inizio dell'autunno"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 3
+},
+{
+"n": 27,
+"sezione": "Conoscenza delle specie",
+"testo": "Quali caratteristiche distinguono il tartufo bianco pregiato dal tartufo bianchetto?",
+"risposte": [
+"il tartufo bianchetto raggiunge dimensioni superiori a quelle del tartufo bianco pregiato, non matura all'inizio dell'autunno",
+"il tartufo bianco pregiato presenta gleba più scura, tendente al rosso bruno, profuma di aglio e non di metano e non si raccoglie a fine inverno",
+"il tartufo bianco pregiato presenta gleba più chiara, non profuma di aglio ma di metano e non si raccoglie a fine inverno"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 3
+},
+{
+"n": 28,
+"sezione": "Conoscenza delle specie",
+"testo": "Quali caratteristiche distinguono il tartufo nero liscio dal tartufo bianco pregiato?",
+"risposte": [
+"il tartufo nero liscio ha aroma leggermente agliaceo, il tartufo bianco pregiato ha aroma che ricorda il gas metano",
+"non esistono differenze macroscopiche apprezzabili",
+"il tartufo nero liscio ha aroma che ricorda il gas metano, il tartufo bianco pregiato ha aroma leggermente agliaceo"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 3
+},
+{
+"n": 29,
+"sezione": "Conoscenza delle specie",
+"testo": "Quali caratteristiche distinguono il tartufo uncinato dal tartufo moscato?",
+"risposte": [
+"non esistono differenze macroscopiche apprezzabili",
+"il tartufo uncinato presenta verruche piramidali più evidenti del tartufo moscato",
+"il tartufo uncinato presenta verruche a forma di uncino"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 3
+},
+{
+"n": 30,
+"sezione": "Conoscenza delle specie",
+"testo": "Quali caratteristiche distinguono il tartufo nero liscio dal tartufo nero ordinario?",
+"risposte": [
+"il tartufo nero ordinario è privo di verruche e conclude il calendario di raccolta più tardi del tartufo nero liscio",
+"il tartufo nero ordinario è privo di verruche e conclude il calendario di raccolta più presto del tartufo nero liscio",
+"il tartufo nero liscio presenta verruche più piccole e conclude il calendario di raccolta più presto del tartufo nero ordinario"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 3
+},
+{
+"n": 31,
+"sezione": "Conoscenza delle specie",
+"testo": "Quali caratteristiche distinguono il tartufo scorzone dal tartufo nero pregiato?",
+"risposte": [
+"il tartufo scorzone e il tartufo nero pregiato hanno periodi di raccolta che non si sovrappongono mai",
+"il tartufo scorzone e il tartufo nero pregiato presentano entrambi peridio nero ma il primo presenta verruche piramidali più grossolane",
+"il tartufo scorzone e il tartufo nero pregiato presentano entrambi peridio nero ma il primo presenta verruche più piccole e poligonali"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 4
+},
+{
+"n": 32,
+"sezione": "Conoscenza delle specie",
+"testo": "È possibile rinvenire il tartufo nero d'inverno maturo durante il periodo di raccolta del tartufo scorzone?",
+"risposte": [
+"si ma non può essere raccolto",
+"si e può essere raccolto",
+"no"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 4
+},
+{
+"n": 33,
+"sezione": "Conoscenza delle specie",
+"testo": "È possibile rinvenire il tartufo moscato maturo durante il periodo di raccolta del tartufo nero pregiato?",
+"risposte": [
+"si ma non può essere raccolto",
+"si e può essere raccolto",
+"no"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 4
+},
+{
+"n": 34,
+"sezione": "Conoscenza delle specie",
+"testo": "È possibile rinvenire il tartufo marzuolo maturo durante il periodo di raccolta del tartufo bianco pregiato?",
+"risposte": [
+"si ma non può essere raccolto",
+"si e può essere raccolto",
+"no"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 4
+},
+{
+"n": 35,
+"sezione": "Conoscenza delle specie",
+"testo": "È possibile rinvenire il tartufo uncinato maturo durante il periodo di raccolta del tartufo bianco pregiato?",
+"risposte": [
+"si ma non può essere raccolto",
+"si e può essere raccolto",
+"no"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 4
+},
+{
+"n": 36,
+"sezione": "Conoscenza delle specie",
+"testo": "È possibile rinvenire il tartufo bianco pregiato maturo durante il periodo di raccolta del tartufo nero ordinario?",
+"risposte": [
+"si ma il calendario di raccolta del tartufo bianco pregiato si apre più tardi e si chiude prima",
+"si ma non può essere raccolto",
+"no"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 4
+},
+{
+"n": 37,
+"sezione": "Conoscenza delle specie",
+"testo": "È possibile rinvenire il tartufo nero pregiato maturo durante il periodo di raccolta del tartufo bianco pregiato?",
+"risposte": [
+"si ma il calendario di raccolta del tartufo nero pregiato si apre più tardi",
+"si ma non può essere raccolto",
+"no"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 4
+},
+{
+"n": 38,
+"sezione": "Conoscenza delle specie",
+"testo": "È possibile rinvenire il tartufo marzuolo maturo durante il periodo di raccolta del tartufo bianco pregiato?",
+"risposte": [
+"si, in annate particolari",
+"si perché maturano contemporaneamente",
+"no, è impossibile"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 4
+},
+{
+"n": 39,
+"sezione": "Conoscenza delle specie",
+"testo": "Quale delle seguenti coppie di tartufi si raccolgono contemporaneamente?",
+"risposte": [
+"tartufo bianchetto e tartufo scorzone",
+"tartufo nero pregiato e tartufo uncinato",
+"tartufo nero pregiato e tartufo moscato"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 4
+},
+{
+"n": 40,
+"sezione": "Conoscenza delle specie",
+"testo": "Quale delle seguenti coppie di tartufi si raccolgono contemporaneamente?",
+"risposte": [
+"tartufo bianchetto e tartufo scorzone",
+"tartufo bianco pregiato e tartufo uncinato",
+"tartufo bianco pregiato e tartufo moscato"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 4
+},
+{
+"n": 41,
+"sezione": "Conoscenza delle specie",
+"testo": "Quali tartufi hanno un periodo di raccolta parzialmente sovrapposto?",
+"risposte": [
+"la maggior parte delle specie di tartufo",
+"tutte le specie di tartufo",
+"nessuna specie di tartufo"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 4
+},
+{
+"n": 42,
+"sezione": "Conoscenza delle specie",
+"testo": "Quali tartufi hanno un periodo di raccolta parzialmente sovrapposto?",
+"risposte": [
+"il tartufo nero d’inverno e il tartufo bianchetto",
+"il tartufo scorzone e il tartufo bianchetto",
+"nessuna specie di tartufo"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 4
+},
+{
+"n": 43,
+"sezione": "Conoscenza delle specie",
+"testo": "Quali tartufi hanno un periodo di raccolta parzialmente sovrapposto?",
+"risposte": [
+"il tartufo bianco pregiato e il tartufo nero pregiato",
+"il tartufo scorzone e il tartufo bianchetto",
+"tutte le specie hanno periodi di raccolta parzialmente sovrapposti"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 4
+},
+{
+"n": 44,
+"sezione": "Conoscenza delle specie",
+"testo": "Quali tartufi hanno un periodo di raccolta parzialmente sovrapposto?",
+"risposte": [
+"il tartufo bianco pregiato e il tartufo nero pregiato",
+"il tartufo scorzone e il tartufo bianchetto",
+"nessuna specie di tartufo"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 5
+},
+{
+"n": 45,
+"sezione": "Conoscenza delle specie",
+"testo": "Quale dei seguenti tartufi matura più precocemente rispetto all’anno solare?",
+"risposte": [
+"tartufo nero pregiato",
+"tartufo bianco pregiato",
+"tartufo bianchetto"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 5
+},
+{
+"n": 46,
+"sezione": "Conoscenza delle specie",
+"testo": "Quale dei seguenti tartufi matura più precocemente rispetto all’anno solare?",
+"risposte": [
+"tartufo nero pregiato",
+"tartufo scorzone",
+"tartufo nero d’inverno"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 5
+},
+{
+"n": 47,
+"sezione": "Conoscenza delle specie",
+"testo": "Quale dei seguenti tartufi matura più tardivamente rispetto all’anno solare?",
+"risposte": [
+"tartufo nero pregiato",
+"tartufo bianco pregiato",
+"tartufo bianchetto"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 5
+},
+{
+"n": 48,
+"sezione": "Conoscenza delle specie",
+"testo": "Quale dei seguenti tartufi matura più tardivamente rispetto all’anno solare?",
+"risposte": [
+"tartufo nero pregiato",
+"tartufo scorzone",
+"tartufo nero d’inverno"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 5
+},
+{
+"n": 49,
+"sezione": "Conoscenza delle specie",
+"testo": "Quali tartufi producono il cosiddetto pianello?",
+"risposte": [
+"bianchetto",
+"nero pregiato",
+"moscato"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 5
+},
+{
+"n": 50,
+"sezione": "Conoscenza delle specie",
+"testo": "Quali tartufi producono il cosiddetto pianello?",
+"risposte": [
+"bianchetto",
+"nero pregiato",
+"bianco pregiato"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 5
+},
+{
+"n": 51,
+"sezione": "Conoscenza delle specie",
+"testo": "Quali tartufi producono il cosiddetto pianello?",
+"risposte": [
+"moscato",
+"bianco pregiato",
+"nero pregiato"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 5
+},
+{
+"n": 52,
+"sezione": "Conoscenza delle specie",
+"testo": "Quale tartufo predilige versanti soleggiati e pendici caratterizzate da notevole insolazione?",
+"risposte": [
+"nero pregiato",
+"bianco pregiato",
+"nessuno"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 5
+},
+{
+"n": 53,
+"sezione": "Conoscenza delle specie",
+"testo": "Il tartufo nero pregiato predilige",
+"risposte": [
+"aree fluviali",
+"pendici fortemente ombreggiate",
+"versanti soleggiati"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 5
+},
+{
+"n": 54,
+"sezione": "Conoscenza delle specie",
+"testo": "Il tartufo nero pregiato predilige",
+"risposte": [
+"terreni molto profondi",
+"terreni ricchi di scheletro",
+"pianori molto umidi"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 5
+},
+{
+"n": 55,
+"sezione": "Conoscenza delle specie",
+"testo": "Quale tartufo predilige un terreno molto argilloso e profondo?",
+"risposte": [
+"bianco pregiato",
+"nero pregiato",
+"scorzone"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 5
+},
+{
+"n": 56,
+"sezione": "Conoscenza delle specie",
+"testo": "Quale tartufo predilige aree molto ombreggiate e umide?",
+"risposte": [
+"scorzone",
+"bianco pregiato",
+"nero pregiato"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 5
+},
+{
+"n": 57,
+"sezione": "Conoscenza delle specie",
+"testo": "Il tartufo bianco pregiato predilige",
+"risposte": [
+"terreni ricchi di scheletro",
+"fondivalle ombreggiati",
+"ambienti molto soleggiati"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 6
+},
+{
+"n": 58,
+"sezione": "Conoscenza delle specie",
+"testo": "Il tartufo bianco pregiato predilige",
+"risposte": [
+"aree prossimali ai corsi d’acqua",
+"terreni ricchi di scheletro",
+"climi scarsamente piovosi"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 6
+},
+{
+"n": 59,
+"sezione": "Conoscenza delle specie",
+"testo": "Quale tartufo contrae simbiosi preferenzialmente con il pioppo e con il salice?",
+"risposte": [
+"uncinato",
+"bianco pregiato",
+"nero pregiato"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 6
+},
+{
+"n": 60,
+"sezione": "Conoscenza delle specie",
+"testo": "Il tartufo bianco pregiato contrae simbiosi preferenzialmente con",
+"risposte": [
+"pioppo",
+"sughera",
+"leccio"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 6
+},
+{
+"n": 61,
+"sezione": "Conoscenza delle specie",
+"testo": "Il tartufo bianco pregiato contrae simbiosi preferenzialmente con",
+"risposte": [
+"leccio",
+"salice",
+"sughera"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 6
+},
+{
+"n": 62,
+"sezione": "Conoscenza delle specie",
+"testo": "Quale tartufo contrae simbiosi preferenzialmente con il leccio?",
+"risposte": [
+"nessuno",
+"bianco pregiato",
+"nero pregiato"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 6
+},
+{
+"n": 63,
+"sezione": "Conoscenza delle specie",
+"testo": "Il tartufo nero pregiato contrae simbiosi preferenzialmente con",
+"risposte": [
+"pioppo",
+"salice",
+"leccio"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 6
+},
+{
+"n": 64,
+"sezione": "Conoscenza delle specie",
+"testo": "Il tartufo nero pregiato contrae simbiosi preferenzialmente con",
+"risposte": [
+"pioppo",
+"cerro",
+"salice"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 6
+},
+{
+"n": 65,
+"sezione": "Biologia del tartufo",
+"testo": "Cos’è il tartufo?",
+"risposte": [
+"un fungo ipogeo che si sviluppa sotto terra",
+"un fungo epigeo che si sviluppa sotto terra",
+"un bulbo che si sviluppa sotto terra"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 7
+},
+{
+"n": 66,
+"sezione": "Biologia del tartufo",
+"testo": "Cos’è il tartufo?",
+"risposte": [
+"un tubero della stessa famiglia delle patate",
+"un fungo ipogeo che si sviluppa sotto terra",
+"un bulbo che si sviluppa sotto terra"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 7
+},
+{
+"n": 67,
+"sezione": "Biologia del tartufo",
+"testo": "Cos’è il tartufo?",
+"risposte": [
+"un fungo ascomicete",
+"un bulbo della famiglia della Tuberacee",
+"un tubero della famiglia delle Tuberacee"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 7
+},
+{
+"n": 68,
+"sezione": "Biologia del tartufo",
+"testo": "Cos’è il tartufo?",
+"risposte": [
+"un saprofita appartenente alla famiglia dei funghi epigei",
+"un parassita appartenente alla famiglia delle Tuberacee",
+"un simbionte appartenente alla famiglia delle Tuberacee"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 7
+},
+{
+"n": 69,
+"sezione": "Biologia del tartufo",
+"testo": "Cos’è il tartufo?",
+"risposte": [
+"un fungo saprofita che si alimenta di sostanza organica in decomposizione",
+"un fungo simbionte che vive in un rapporto di reciproco vantaggio ed utilità con le piante superiori",
+"un fungo parassita che attacca le piante superiori nutrendosi dei loro succhi cellulari"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 7
+},
+{
+"n": 70,
+"sezione": "Biologia del tartufo",
+"testo": "Cos’è il tartufo?",
+"risposte": [
+"un fungo simbionte che si nutre di succhi cellulari che sottrae alle piante superiori",
+"un fungo simbionte che si nutre di sostanza organica in decomposizione",
+"un fungo simbionte che vive in un rapporto di reciproco vantaggio ed utilità con le piante superiori"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 7
+},
+{
+"n": 71,
+"sezione": "Biologia del tartufo",
+"testo": "Cos’è il tartufo?",
+"risposte": [
+"unicamente un carpoforo ipogeo che vive autonomamente",
+"unicamente un micelio sotterraneo che vive in simbiosi con le piante superiori",
+"un carpoforo maturo che vive autonomamente e un micelio fungino che vive in simbiosi con le piante superiori a seconda dello stadio del ciclo biologico"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 7
+},
+{
+"n": 72,
+"sezione": "Biologia del tartufo",
+"testo": "A quale profondità si sviluppa il carpoforo del tartufo?",
+"risposte": [
+"fino a 20 centimetri",
+"fina a 80 centimetri",
+"minimo 20 centimetri"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 7
+},
+{
+"n": 73,
+"sezione": "Biologia del tartufo",
+"testo": "A quale profondità si sviluppa il carpoforo del tartufo?",
+"risposte": [
+"dal livello del terreno fino a 80 centimetri",
+"da minimo 15 a 80 centimetri",
+"dal livello del terreno fino a massimo 30 centimetri"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 7
+},
+{
+"n": 74,
+"sezione": "Biologia del tartufo",
+"testo": "In cosa consiste la simbiosi fra tartufo e pianta superiore?",
+"risposte": [
+"la pianta superiore, per mezzo della fotosintesi clorofilliana, cede al tartufo gli zuccheri elaborati. Il tartufo, per mezzo delle ife fungine migliora, a livello radicale, la capacità di assorbimento di acqua e sali minerali da parte della pianta",
+"il tartufo, per mezzo della clorofilla migliora, a livello radicale, la capacità di assorbimento di acqua e sali minerali da parte della pianta. La pianta superiore, per mezzo della fotosintesi clorofilliana, cede al tartufo gli zuccheri elaborati",
+"il tartufo, per mezzo della micorriza, elabora zuccheri che cede alla pianta. La pianta favorisce l’assorbimento di acqua e sali minerali da parte del tartufo"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 7
+},
+{
+"n": 75,
+"sezione": "Biologia del tartufo",
+"testo": "In cosa consiste la simbiosi fra tartufo e pianta superiore?",
+"risposte": [
+"il tartufo, per mezzo della micorriza, elabora zuccheri che cede alla pianta. La pianta favorisce l’assorbimento di acqua e sali minerali da parte del tartufo",
+"la pianta superiore, per mezzo del micelio, cede al tartufo gli zuccheri elaborati. Il tartufo, per mezzo della fotosintesi clorofilliana, migliora la capacità di assorbimento di acqua e sali minerali da parte della pianta",
+"il tartufo, per mezzo delle ife fungine migliora, a livello radicale la capacità di assorbimento di acqua e sali minerali da parte della pianta. La pianta superiore, per mezzo della fotosintesi clorofilliana, cede al tartufo gli zuccheri elaborati"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 7
+},
+{
+"n": 76,
+"sezione": "Biologia del tartufo",
+"testo": "Perché il tartufo ha bisogno di vivere in simbiosi con una pianta superiore?",
+"risposte": [
+"perché è un organismo eterotrofo, privo di clorofilla",
+"perché è sprovvisto di apparato radicale",
+"perché fiorisce sottoterra"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 8
+},
+{
+"n": 77,
+"sezione": "Biologia del tartufo",
+"testo": "Perché il tartufo ha bisogno di vivere in simbiosi con una pianta superiore?",
+"risposte": [
+"perché necessita di un forte ombreggiamento",
+"perché è un organismo eterotrofo, privo di clorofilla",
+"perché è sprovvisto di apparato radicale"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 8
+},
+{
+"n": 78,
+"sezione": "Biologia del tartufo",
+"testo": "Il tartufo è un organismo che vive autonomamente?",
+"risposte": [
+"si",
+"dipende dallo stadio di sviluppo: acquisisce autonomia durante la maturazione del carpoforo",
+"dipende dallo stadio di sviluppo: acquisisce autonomia durante la micorrizazione"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 8
+},
+{
+"n": 79,
+"sezione": "Biologia del tartufo",
+"testo": "Il tartufo è un organismo che vive autonomamente?",
+"risposte": [
+"no, mai",
+"solo quando la pianta simbionte soccombe",
+"si, prima che avvenga la micorrizzazione"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 8
+},
+{
+"n": 80,
+"sezione": "Biologia del tartufo",
+"testo": "Il tartufo è un organismo che vive autonomamente?",
+"risposte": [
+"il ciclo biologico si divide in due fasi: la prima, detta simbiotica e la seconda, detta saprofitica, in cui il tartufo conduce vita autonoma",
+"il ciclo biologico si divide in tre fasi: la prima, detta simbiotica, la seconda, detta parassitica e la terza, detta saprofitica, in cui il tartufo conduce vita autonoma",
+"solo quando la pianta superiore simbionte, deperente, ha ceduto tutte le sostanze nutritive al tartufo"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 8
+},
+{
+"n": 81,
+"sezione": "Biologia del tartufo",
+"testo": "Il tartufo è un organismo che vive autonomamente?",
+"risposte": [
+"il ciclo biologico si divide in due fasi: la prima, detta saprofitica e la seconda, detta simbiotica, in cui il tartufo conduce vita autonoma",
+"il ciclo biologico si divide in due fasi: la prima, detta simbiotica e la seconda, detta saprofitica, in cui il tartufo conduce vita autonoma",
+"il ciclo biologico si divide in due fasi: la prima, detta parassitica, in cui il tartufo ha bisogno dell’associazione con la pianta superiore e la seconda, detta simbiotica, in cui il tartufo conduce vita autonoma"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 8
+},
+{
+"n": 82,
+"sezione": "Biologia del tartufo",
+"testo": "Quali sono i caratteri più evidenti che identificano le specie di tartufo?",
+"risposte": [
+"le ife, il profumo e la gleba",
+"il profumo, la gleba e il peridio",
+"le spore la gleba e il peridio"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 8
+},
+{
+"n": 83,
+"sezione": "Biologia del tartufo",
+"testo": "Quali sono i caratteri più evidenti che identificano le specie di tartufo?",
+"risposte": [
+"la gleba, e il peridio",
+"le ife e la gleba",
+"le spore e il micelio"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 8
+},
+{
+"n": 84,
+"sezione": "Biologia del tartufo",
+"testo": "Quali sono i caratteri più evidenti che identificano le specie di tartufo?",
+"risposte": [
+"le ife e la micorriza",
+"la gleba e il profumo",
+"le spore e la gleba"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 8
+},
+{
+"n": 85,
+"sezione": "Biologia del tartufo",
+"testo": "Cos’è la gleba?",
+"risposte": [
+"la porzione interna del tartufo al di sotto del peridio",
+"lo strato esterno che riveste il carpoforo",
+"la porzione interna più o meno verrucosa del carpoforo"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 8
+},
+{
+"n": 86,
+"sezione": "Biologia del tartufo",
+"testo": "Cos’è la gleba?",
+"risposte": [
+"una struttura del carpoforo con tipica superficie verrucosa",
+"la porzione del tartufo racchiusa nel peridio",
+"il rivestimento esterno del carpoforo deputato alla fotosintesi clorofilliana"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 8
+},
+{
+"n": 87,
+"sezione": "Biologia del tartufo",
+"testo": "Cos’è il peridio?",
+"risposte": [
+"l’organo interno del fungo deputato alla riproduzione sessuata",
+"il rivestimento esterno del carpoforo deputato alla riproduzione sessuata",
+"il rivestimento esterno del carpoforo che racchiude la gleba"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 8
+},
+{
+"n": 88,
+"sezione": "Biologia del tartufo",
+"testo": "Cos’è il peridio?",
+"risposte": [
+"lo scheletro interno che sostiene il carpoforo",
+"il rivestimento esterno del carpoforo responsabile della disseminazione delle spore",
+"la struttura più esterna del carpoforo"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 9
+},
+{
+"n": 89,
+"sezione": "Biologia del tartufo",
+"testo": "Cosa sono le vene fertili?",
+"risposte": [
+"le strutture di colore scuro che formano la gleba",
+"le strutture che formano la gleba, di colore chiaro",
+"le strutture che formano la gleba con funzione di sostegno"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 9
+},
+{
+"n": 90,
+"sezione": "Biologia del tartufo",
+"testo": "Cosa sono le vene fertili?",
+"risposte": [
+"le strutture aerifere della gleba in cui si raccolgono le spore",
+"le strutture che formano la gleba in cui si formano gli aschi",
+"le strutture che formano la gleba con funzione di assorbimento di acqua"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 9
+},
+{
+"n": 91,
+"sezione": "Biologia del tartufo",
+"testo": "Cosa sono le vene sterili?",
+"risposte": [
+"le strutture aerifere della gleba",
+"le strutture che formano la gleba in cui si formano gli aschi",
+"le strutture che formano la gleba con funzione di sostegno"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 9
+},
+{
+"n": 92,
+"sezione": "Biologia del tartufo",
+"testo": "Cosa sono le vene sterili?",
+"risposte": [
+"le strutture che formano la gleba, di colore scuro",
+"le strutture che formano la gleba, di colore chiaro",
+"le strutture che formano la gleba in cui si formano gli aschi"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 9
+},
+{
+"n": 93,
+"sezione": "Biologia del tartufo",
+"testo": "Il colore della gleba dipende?",
+"risposte": [
+"dal calibro delle ife",
+"dalle pareti del peridio",
+"dallo spessore delle vene fertili e delle vene sterili"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 9
+},
+{
+"n": 94,
+"sezione": "Biologia del tartufo",
+"testo": "Il colore della gleba dipende?",
+"risposte": [
+"dallo stadio di maturazione del carpoforo",
+"dalla vigoria della pianta superiore simbionte",
+"dallo spessore del peridio"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 9
+},
+{
+"n": 95,
+"sezione": "Biologia del tartufo",
+"testo": "Il colore della gleba dipende?",
+"risposte": [
+"dall’umidità del terreno",
+"dalla vigoria della pianta superiore simbionte",
+"dalla specie"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 9
+},
+{
+"n": 96,
+"sezione": "Biologia del tartufo",
+"testo": "Cosa sono le spore del tartufo?",
+"risposte": [
+"le strutture responsabili del profumo",
+"le strutture responsabili della riproduzione sessuata",
+"i tessuti responsabili della riproduzione vegetativa"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 9
+},
+{
+"n": 97,
+"sezione": "Biologia del tartufo",
+"testo": "Cosa sono le spore del tartufo?",
+"risposte": [
+"le strutture del fungo che si uniscono in simbiosi con le piante superiori",
+"le strutture del fungo che costituiscono il micelio",
+"le strutture responsabili della riproduzione sessuata"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 9
+},
+{
+"n": 98,
+"sezione": "Biologia del tartufo",
+"testo": "Cosa sono le spore del tartufo?",
+"risposte": [
+"gli organi di riserva del fungo",
+"gli organi di assorbimento del micelio",
+"le strutture responsabili della riproduzione sessuata"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 9
+},
+{
+"n": 99,
+"sezione": "Biologia del tartufo",
+"testo": "Quale dei seguenti elementi non è deputato alla riproduzione sessuata?",
+"risposte": [
+"le ife",
+"le spore",
+"gli aschi"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 9
+},
+{
+"n": 100,
+"sezione": "Biologia del tartufo",
+"testo": "Cos’è la micorriza?",
+"risposte": [
+"un intreccio costituito dagli apici radicali della pianta superiore e le ife fungine del tartufo",
+"l’insieme delle escrescenze che formano la scorza del carpoforo",
+"l’intreccio fra le vene fertili e le vene sterili del tartufo"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 9
+},
+{
+"n": 101,
+"sezione": "Biologia del tartufo",
+"testo": "Cos’è la micorriza?",
+"risposte": [
+"la struttura più colorata del tartufo",
+"la struttura più profumata del tartufo",
+"l’associazione fra apici radicali della pianta superiore e ife fungine del tartufo"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 10
+},
+{
+"n": 102,
+"sezione": "Biologia del tartufo",
+"testo": "Cos’è la micorriza?",
+"risposte": [
+"l’associazione fra miceli fungini appartenenti a tartufi di sesso opposto",
+"l’associazione fra gli apici radicali della pianta simbionte e le verruche del peridio",
+"l’associazione fra gli apici radicali della pianta simbionte e il corpo vegetativo del tartufo"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 10
+},
+{
+"n": 103,
+"sezione": "Biologia del tartufo",
+"testo": "Cos’è la micorriza?",
+"risposte": [
+"l’associazione fra miceli fungini appartenenti a tartufi di sesso opposto",
+"l’associazione fra apici radicali della pianta superiore e ife fungine del tartufo",
+"l’essudato radicale di cui si nutre il tartufo"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 10
+},
+{
+"n": 104,
+"sezione": "Biologia del tartufo",
+"testo": "Quale, dei seguenti, è un organo riproduttivo?",
+"risposte": [
+"la spora",
+"la micorriza",
+"il peridio"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 10
+},
+{
+"n": 105,
+"sezione": "Biologia del tartufo",
+"testo": "Quale, dei seguenti, è un organo riproduttivo?",
+"risposte": [
+"l’asco",
+"la micorriza",
+"il peridio"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 10
+},
+{
+"n": 106,
+"sezione": "Biologia del tartufo",
+"testo": "Cos'è il ciclo biologico del tartufo?",
+"risposte": [
+"è una singola sequenza di fasi successive interrotta dagli animali selvatici",
+"è una sequenza di fasi successive distinte che si ripete ciclicamente",
+"è una sequenza alternata in cui le spore fuoriescono dal carpoforo e, ingrossandosi, formano nuovi carpofori"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 10
+},
+{
+"n": 107,
+"sezione": "Biologia del tartufo",
+"testo": "Come si svolge il ciclo biologico del tartufo?",
+"risposte": [
+"germinazione delle spore, micorrizazione degli apici radicali, fruttificazione, maturazione dei carpofori e disseminazione delle spore",
+"disseminazione del micelio, micorrizazione del bulbo, fruttificazione, maturazione dei carpofori",
+"fruttificazione, allungamento del peridio, maturazione dei carpofori e disseminazione delle spore"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 10
+},
+{
+"n": 108,
+"sezione": "Biologia del tartufo",
+"testo": "Come si svolge il ciclo biologico del tartufo?",
+"risposte": [
+"micorrizazione, germinazione delle spore, disseminazione delle spore, fruttificazione, maturazione dei carpofori",
+"disseminazione delle spore, germinazione delle spore, micorrizazione, fruttificazione, maturazione dei carpofori",
+"micorrizazione degli apici radicali, fruttificazione, maturazione dei carpofori e disseminazione delle spore, fusione di due spore"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 10
+},
+{
+"n": 109,
+"sezione": "Biologia del tartufo",
+"testo": "Come si svolge il ciclo biologico del tartufo?",
+"risposte": [
+"rottura degli apici radicali, penetrazione delle spore, accrescimento delle spore, fruttificazione, maturazione, disseminazione delle spore",
+"sporificazione degli apici radicali, disseminazione delle spore, ingrossamento delle spore, disseminazione delle spore",
+"germinazione delle spore, micorrizazione degli apici radicali, fruttificazione, maturazione dei carpofori e disseminazione delle spore"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 10
+},
+{
+"n": 110,
+"sezione": "Biologia del tartufo",
+"testo": "Quale dei seguenti processi non appartiene al ciclo biologico del tartufo?",
+"risposte": [
+"fotosintesi clorofilliana",
+"germinazione",
+"fruttificazione"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 10
+},
+{
+"n": 111,
+"sezione": "Biologia del tartufo",
+"testo": "Quale dei seguenti processi non appartiene al ciclo biologico del tartufo?",
+"risposte": [
+"disseminazione",
+"fruttificazione",
+"fotosintesi clorofilliana"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 10
+},
+{
+"n": 112,
+"sezione": "Biologia del tartufo",
+"testo": "Quale dei seguenti processi appartiene al ciclo biologico del tartufo?",
+"risposte": [
+"micorrizazione",
+"radicazione",
+"germogliamento"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 10
+},
+{
+"n": 113,
+"sezione": "Biologia del tartufo",
+"testo": "Quale dei seguenti processi appartiene al ciclo biologico del tartufo?",
+"risposte": [
+"fotosintesi clorofilliana",
+"fruttificazione",
+"germogliamento"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 11
+},
+{
+"n": 114,
+"sezione": "Biologia del tartufo",
+"testo": "Quale dei seguenti processi non appartiene al ciclo biologico del tartufo?",
+"risposte": [
+"radicazione",
+"fruttificazione",
+"micorrizazione"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 11
+},
+{
+"n": 115,
+"sezione": "Biologia del tartufo",
+"testo": "Quale delle seguenti fasi del ciclo biologico del tartufo segue la micorrizazione?",
+"risposte": [
+"disseminazione",
+"fruttificazione",
+"germinazione"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 11
+},
+{
+"n": 116,
+"sezione": "Biologia del tartufo",
+"testo": "Quale delle seguenti fasi del ciclo biologico del tartufo precede la germinazione delle spore?",
+"risposte": [
+"disseminazione",
+"fruttificazione",
+"micorrizazione"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 11
+},
+{
+"n": 117,
+"sezione": "Biologia del tartufo",
+"testo": "Quale struttura del tartufo è soggetta a germinazione?",
+"risposte": [
+"spore",
+"carpoforo",
+"gleba"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 11
+},
+{
+"n": 118,
+"sezione": "Biologia del tartufo",
+"testo": "Quale struttura del tartufo va soggetta a germinazione?",
+"risposte": [
+"spore",
+"micorriza",
+"peridio"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 11
+},
+{
+"n": 119,
+"sezione": "Biologia del tartufo",
+"testo": "Quale struttura del tartufo va soggetta a micorrizazione?",
+"risposte": [
+"spore",
+"micelio",
+"sporangio"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 11
+},
+{
+"n": 120,
+"sezione": "Biologia del tartufo",
+"testo": "La fruttificazione è una fase del ciclo biologico",
+"risposte": [
+"che dipende esclusivamente dalle condizioni pedoclimatiche",
+"che dipende esclusivamente dalle condizioni vegetative della pianta superiore simbionte",
+"che dipende sia dalle condizioni vegetative della pianta superiore simbionte che dalle condizioni pedoclimatiche"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 11
+},
+{
+"n": 121,
+"sezione": "Biologia del tartufo",
+"testo": "La maturazione del carpoforo è una fase del ciclo biologico",
+"risposte": [
+"che non dipende dalle condizioni pedoclimatiche",
+"che dipende dalle condizioni vegetative della pianta superiore simbionte",
+"che dipende dalle condizioni pedoclimatiche"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 11
+},
+{
+"n": 122,
+"sezione": "Biologia del tartufo",
+"testo": "La micorrizazione è una fase del ciclo biologico",
+"risposte": [
+"che dipende esclusivamente dalle condizioni pedoclimatiche",
+"che dipende dalla profondità di aratura del terreno",
+"che dipende dalla natura genetica della pianta superiore simbionte e dalle condizioni pedoclimatiche"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 11
+},
+{
+"n": 123,
+"sezione": "Biologia del tartufo",
+"testo": "La disseminazione è una fase del ciclo biologico",
+"risposte": [
+"che dipende dal numero di cani utilizzati nella raccolta del tartufo",
+"che dipende dalla piovosità media mensile",
+"che dipende dagli animali selvatici"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 11
+},
+{
+"n": 124,
+"sezione": "Biologia del tartufo",
+"testo": "La disseminazione è una fase del ciclo biologico",
+"risposte": [
+"che dipende dalla profondità di aratura del terreno",
+"che dipende dagli animali selvatici",
+"che dipende dalla natura genetica della pianta superiore simbionte"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 11
+},
+{
+"n": 125,
+"sezione": "Biologia del tartufo",
+"testo": "Quali fattori sono responsabili dello sviluppo dei tartufi?",
+"risposte": [
+"i diserbanti e le concimazioni",
+"la temperatura e la piovosità",
+"il divieto di pascolo"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 11
+},
+{
+"n": 126,
+"sezione": "Biologia del tartufo",
+"testo": "Quali fattori influiscono maggiormente sulla forma del tartufo?",
+"risposte": [
+"la compattezza del terreno",
+"le condizioni di salute della pianta simbionte",
+"le dimensioni degli aschi"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 12
+},
+{
+"n": 127,
+"sezione": "Biologia del tartufo",
+"testo": "Quali fattori condizionano favorevolmente la diffusione del tartufo?",
+"risposte": [
+"la presenza di animali selvatici",
+"la razza del cane utilizzato per la ricerca",
+"le lavorazioni meccaniche del terreno"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 12
+},
+{
+"n": 128,
+"sezione": "Biologia del tartufo",
+"testo": "Quali fattori condizionano negativamente lo sviluppo del tartufo?",
+"risposte": [
+"i trattamenti fitosanitari",
+"le lavorazioni andanti del terreno",
+"i divieti temporanei"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 12
+},
+{
+"n": 129,
+"sezione": "Biologia del tartufo",
+"testo": "Quali fattori condizionano negativamente lo sviluppo del tartufo?",
+"risposte": [
+"la presenza di insetti predatori",
+"il terreno alcalino con pH superiore a 7,0",
+"l’apertura di buche in soprannumero"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 12
+},
+{
+"n": 130,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Quale è la legge regionale che disciplina la raccolta dei tartufi nella Regione Lazio?",
+"risposte": [
+"numero 88 del 1982",
+"numero 82 del 1988",
+"numero 88 del 1998"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 13
+},
+{
+"n": 131,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Il tartufo è un fungo ipogeo che nella Regione Lazio può essere raccolto:",
+"risposte": [
+"nei giorni infrasettimanali prestabiliti dalla legge regionale",
+"sempre ad eccezione di alcune specie",
+"in determinati periodi, stabiliti dalla legge regionale, a seconda della specie"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 13
+},
+{
+"n": 132,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Perché la Legge n.82/88 stabilisce un calendario di raccolta con periodi distinti per specie?",
+"risposte": [
+"perché al di fuori del periodo di raccolta rispettivo la specie non è rinvenibile ed è inutile cercarla",
+"perché non è possibile vendere i tartufi freschi al di fuori del periodo di raccolta",
+"perché i tartufi maturati prima dell’apertura della raccolta e quelli maturati subito dopo la chiusura assicurano la riproduzione della tartufaia"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 13
+},
+{
+"n": 133,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Nella Regione Lazio, il tartufo nero d’inverno può essere raccolto e commercializzato:",
+"risposte": [
+"dal 1° ottobre al 15 marzo",
+"dal 1° gennaio al 15 marzo",
+"dal 30 settembre al 31 dicembre"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 13
+},
+{
+"n": 134,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Nella Regione Lazio, il tartufo nero d’inverno può essere:",
+"risposte": [
+"raccolto dal 1° gennaio e commercializzato fino al 15 marzo",
+"raccolto sempre e commercializzato fino al 15 marzo",
+"raccolto dal 15 gennaio e commercializzato sempre"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 13
+},
+{
+"n": 135,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Nella Regione Lazio, il tartufo bianchetto può essere raccolto e commercializzato:",
+"risposte": [
+"dal 15 gennaio al 30 aprile",
+"dal 1° gennaio al 15 marzo",
+"dal 1° ottobre al 31 dicembre"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 13
+},
+{
+"n": 136,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Nella Regione Lazio, il tartufo bianchetto può essere:",
+"risposte": [
+"raccolto dal 30 gennaio e commercializzato sempre",
+"raccolto sempre e commercializzato fino al 30 aprile",
+"raccolto dal 15 gennaio e commercializzato fino al 30 aprile"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 13
+},
+{
+"n": 137,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Nella Regione Lazio, il tartufo scorzone può essere raccolto e commercializzato:",
+"risposte": [
+"dal 1° gennaio al 30 novembre",
+"dal 15 maggio al 1° ottobre",
+"dal 1° maggio al 30 novembre"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 13
+},
+{
+"n": 138,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Nella Regione Lazio, il tartufo scorzone può essere:",
+"risposte": [
+"raccolto dal 15 maggio e commercializzato sempre",
+"raccolto sempre e commercializzato fino al 30 novembre",
+"raccolto dal 1° maggio e commercializzato fino al 30 novembre"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 13
+},
+{
+"n": 139,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Nella Regione Lazio, il tartufo nero liscio può essere raccolto e commercializzato:",
+"risposte": [
+"dal 1° ottobre al 31 dicembre",
+"dal 1° settembre al 31 dicembre",
+"dal 1° settembre al 15 marzo"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 13
+},
+{
+"n": 140,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Nella Regione Lazio, il tartufo nero liscio può essere:",
+"risposte": [
+"raccolto dal 1° settembre e commercializzato fino al 31 dicembre",
+"raccolto dal 1° settembre e commercializzato sempre",
+"raccolto sempre e commercializzato fino al 31 dicembre"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 13
+},
+{
+"n": 141,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Nella Regione Lazio, il tartufo nero ordinario può essere raccolto e commercializzato:",
+"risposte": [
+"dal 1° settembre al 31 gennaio",
+"dal 1° settembre al 31 dicembre",
+"dal 1° ottobre al 15 marzo"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 14
+},
+{
+"n": 142,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Nella Regione Lazio, il tartufo nero ordinario può essere:",
+"risposte": [
+"raccolto dal 1° settembre e commercializzato fino al 31 dicembre",
+"raccolto dal 1° settembre e commercializzato fino al 31 gennaio",
+"raccolto sempre e commercializzato fino al 31 gennaio"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 14
+},
+{
+"n": 143,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Nella Regione Lazio, il tartufo bianco può essere raccolto e commercializzato:",
+"risposte": [
+"dal 1° settembre al 31 dicembre",
+"dal 1° ottobre al 31 gennaio",
+"dal 1° ottobre al 31 dicembre"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 14
+},
+{
+"n": 144,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Nella Regione Lazio, il tartufo bianco può essere:",
+"risposte": [
+"raccolto dal 1° ottobre e commercializzato fino al 31 dicembre",
+"raccolto dal 1° ottobre e commercializzato sempre",
+"raccolto sempre e commercializzato fino al 31 dicembre"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 14
+},
+{
+"n": 145,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Nella Regione Lazio, il tartufo uncinato può essere raccolto e commercializzato:",
+"risposte": [
+"dal 1° ottobre al 31 gennaio",
+"dal 1° ottobre al 31 dicembre",
+"dal 1° settembre al 31 gennaio"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 14
+},
+{
+"n": 146,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Nella Regione Lazio, il tartufo uncinato può essere:",
+"risposte": [
+"raccolto dal 1° ottobre e commercializzato fino al 31 dicembre",
+"raccolto dal 1° ottobre e commercializzato fino al 15 marzo",
+"raccolto sempre e commercializzato fino al 31 dicembre"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 14
+},
+{
+"n": 147,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Nella Regione Lazio, il tartufo nero pregiato può essere raccolto e commercializzato:",
+"risposte": [
+"dal 1° settembre al 31 gennaio",
+"dal 1° ottobre al 31 gennaio",
+"dal 15 novembre al 15 marzo"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 14
+},
+{
+"n": 148,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Nella Regione Lazio, il tartufo nero pregiato può essere:",
+"risposte": [
+"raccolto dal 15 novembre e commercializzato sempre",
+"raccolto dal 15 novembre e commercializzato fino al 15 marzo",
+"raccolto dal 15 novembre e commercializzato fino al 30 marzo"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 14
+},
+{
+"n": 149,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Nella Regione Lazio, il tartufo moscato può essere raccolto e commercializzato:",
+"risposte": [
+"dal 1° settembre al 15 marzo",
+"dal 1° ottobre al 31 gennaio",
+"dal 15 novembre al 15 marzo"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 14
+},
+{
+"n": 150,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Nella Regione Lazio, il tartufo moscato può essere:",
+"risposte": [
+"raccolto dal 15 novembre e commercializzato sempre",
+"raccolto dal 30 novembre e commercializzato fino al 15 marzo",
+"raccolto dal 15 novembre e commercializzato fino al 15 marzo"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 14
+},
+{
+"n": 151,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Quale delle seguenti specie di tartufo non è commercializzabile nella Regione Lazio?",
+"risposte": [
+"Tuber aestivum var. uncinatum Chatin",
+"Tuber macrosporum Vitt.",
+"Tuber excavatum Vitt."
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 14
+},
+{
+"n": 152,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Quale delle seguenti specie di tartufo non è commercializzabile nella Regione Lazio?",
+"risposte": [
+"Tuber macrosporum Vitt.",
+"Tuber puberulum Berk. & Broome",
+"Tuber aestivum var. uncinatum Chatin"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 14
+},
+{
+"n": 153,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Quale delle seguenti specie di tartufo non è commercializzabile nella Regione Lazio?",
+"risposte": [
+"Tuber oligospermum Vitt.",
+"Tuber macrosporum Vitt.",
+"Tuber mesentericum Vitt."
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 14
+},
+{
+"n": 154,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Quale delle seguenti specie di tartufo non è commercializzabile nella Regione Lazio?",
+"risposte": [
+"Tuber brumale Vitt.",
+"Tuber rufum Pico",
+"Tuber mesentericum Vitt."
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 15
+},
+{
+"n": 155,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Quale delle seguenti specie di tartufo è commercializzabile nella Regione Lazio?",
+"risposte": [
+"Tuber brumale Vitt.",
+"Tuber rufum Pico",
+"Tuber oligospermum Vitt."
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 15
+},
+{
+"n": 156,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Da che ora può essere iniziata la raccolta del tartufo nella Regione Lazio?",
+"risposte": [
+"da un’ora dopo l’alba",
+"da un’ora prima dell’alba",
+"da un’ora dopo il tramonto"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 15
+},
+{
+"n": 157,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "A che ora deve essere interrotta la raccolta del tartufo nella Regione Lazio?",
+"risposte": [
+"da un’ora prima dell’alba",
+"da un’ora dopo l’alba",
+"da un’ora dopo il tramonto"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 15
+},
+{
+"n": 158,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "A che ora deve essere interrotta la raccolta del tartufo nella Regione Lazio?",
+"risposte": [
+"da un’ora prima del tramonto",
+"da un’ora dopo il tramonto",
+"finché il cane non è troppo stanco"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 15
+},
+{
+"n": 159,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Dove è vietata la raccolta del tartufo ai sensi della L.R. n. 82/88?",
+"risposte": [
+"in qualunque bosco non recintato",
+"in qualunque terreno coltivato",
+"nei boschi naturali"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 15
+},
+{
+"n": 160,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Dove è vietata la raccolta del tartufo ai sensi della L.R. n. 82/88?",
+"risposte": [
+"in qualunque bosco non recintato",
+"in qualunque terreno non coltivato",
+"nei boschi soggetti a divieto temporaneo"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 15
+},
+{
+"n": 161,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Dove la raccolta del tartufo può essere riservata ai sensi della L.R. n. 82/88?",
+"risposte": [
+"nelle tartufaie recintate a norma di legge",
+"nelle tartufaie controllate tabellate a norma di legge",
+"in qualunque bosco sottoposto a rimboschimento"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 15
+},
+{
+"n": 162,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Dove la raccolta del tartufo può essere riservata ai sensi della L.R. n. 82/88?",
+"risposte": [
+"nelle tartufaie controllate dalla Comunità Montana",
+"solo nelle tartufaie coltivate riconosciute dalla Regione Lazio",
+"nelle tartufaie controllate e nelle tartufaie coltivate riconosciute dalla Regione Lazio"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 15
+},
+{
+"n": 163,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "E’ consentita la ricerca e la raccolta dei tartufi nelle tartufaie controllate o coltivate da parte di qualunque possessore del tesserino di abilitazione alla raccolta?",
+"risposte": [
+"no",
+"si, se autorizzati dal Corpo Forestale dello Stato",
+"si, se autorizzati dalla Regione Lazio"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 15
+},
+{
+"n": 164,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Cosa deve fare il proprietario di una tartufaia per riservarsi la raccolta?",
+"risposte": [
+"recintare la tartufaia ed apporre apposite tabelle con l’indicazione “vietato raccogliere i tartufi”",
+"richiedere ed ottenere il riconoscimento di tartufaia controllata o coltivata alla Regione Lazio",
+"versare la quota di concessione annuale alla Provincia territorialmente competente"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 15
+},
+{
+"n": 165,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "E’ consentita la ricerca e la raccolta dei tartufi nelle tartufaie controllate o coltivate riconosciute ai sensi della LR. n.82/88?",
+"risposte": [
+"si, se si è conduttori della tartufaia",
+"si, se autorizzati dal Corpo Forestale dello Stato",
+"si, se si è autorizzati dalla Comunità Montana"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 15
+},
+{
+"n": 166,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "E’ consentita la ricerca e la raccolta dei tartufi nelle tartufaie private?",
+"risposte": [
+"si, se si è proprietari di tartufaia riconosciuta dal Corpo Forestale dello Stato",
+"si, se autorizzati dal proprietario di una tartufaia controllata o coltivata riconosciuta dalla Regione Lazio",
+"si, anche se non si è conduttori della tartufaia ma si è autorizzati dalla Regione Lazio"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 15
+},
+{
+"n": 167,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Le tabelle di delimitazione di una tartufaia controllata o coltivata recano la seguente dicitura:",
+"risposte": [
+"tartufaia privata",
+"raccolta di tartufi riservata",
+"divieto di raccolta dei tartufi"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 16
+},
+{
+"n": 168,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "La raccolta del tartufo può essere effettuata:",
+"risposte": [
+"con l’ausilio di minimo due cani addestrati oltre, eventualmente, ad un cucciolo di età inferiore a dodici mesi",
+"con l’ausilio di minimo un cane addestrato oltre, eventualmente, ad un cucciolo di età inferiore a dodici mesi",
+"con l’ausilio di minimo un cane addestrato oltre, eventualmente, a due cuccioli di età inferiore a dodici mesi"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 16
+},
+{
+"n": 169,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Quali attrezzi possono essere utilizzati per l’estrazione dei tartufi?",
+"risposte": [
+"un attrezzo di dimensioni non superiori alla vanga",
+"uno zappetto di dimensioni non superiori al maleppeggio",
+"uno zappetto di dimensioni non superiori alla vanga"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 16
+},
+{
+"n": 170,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Quali attrezzi possono essere utilizzati per l’estrazione dei tartufi nei terreni pietrosi?",
+"risposte": [
+"un attrezzo di dimensioni superiori allo zappetto",
+"uno zappetto di dimensioni non superiori al maleppeggio",
+"un maleppeggio di dimensioni non superiori al piccone"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 16
+},
+{
+"n": 171,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Quali attrezzi possono essere utilizzati per l’estrazione dei tartufi?",
+"risposte": [
+"un piccone di dimensioni non superiori alla zappa",
+"un attrezzo di dimensioni non superiori al piccone",
+"la vanghella"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 16
+},
+{
+"n": 172,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Quali attrezzi possono essere utilizzati per l’estrazione dei tartufi?",
+"risposte": [
+"la vanghella a meno che la pietrosità del terreno non renda necessario uno zappetto di dimensioni non superiori al maleppeggio",
+"o la vanghella o uno zappetto di dimensioni non superiori al maleppeggio",
+"uno zappetto di dimensioni non superiori al maleppeggio a meno che la pietrosità del terreno non renda necessaria la vanghella"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 16
+},
+{
+"n": 173,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Perché occorre richiudere la buca di estrazione del tartufo",
+"risposte": [
+"per evitare il disseccamento delle ife del micelio fungino limitrofo",
+"per agevolare la disseminazione delle spore",
+"per evitare l’individuazione della tartufaia da parte di altri raccoglitori"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 16
+},
+{
+"n": 174,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "È consentita l’estrazione del tartufo",
+"risposte": [
+"sempre, purché il carpoforo sia maturo",
+"sempre, purché all’interno del calendario di raccolta",
+"purché all’interno del calendario di raccolta e il carpoforo non sia immaturo"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 16
+},
+{
+"n": 175,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "È consentita l’estrazione del tartufo",
+"risposte": [
+"purché all’interno del calendario di raccolta e il carpoforo non sia avariato",
+"sempre, purché all’interno del calendario di raccolta",
+"sempre"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 16
+},
+{
+"n": 176,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "È consentita l’estrazione del tartufo",
+"risposte": [
+"sempre, con la sola eccezione dei carpofori avariati",
+"purché i carpofori non siano né avariati né immaturi",
+"sempre, con la sola eccezione dei carpofori immaturi"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 16
+},
+{
+"n": 177,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "È consentita l’estrazione del tartufo",
+"risposte": [
+"sempre, purché il carpoforo non sia immaturo",
+"sempre, purché all’interno del calendario di raccolta",
+"purché all’interno del calendario di raccolta e il carpoforo sia maturo"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 16
+},
+{
+"n": 178,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "È consentita l’estrazione del tartufo",
+"risposte": [
+"sempre, purché durante le ore diurne",
+"sempre, purché all’interno del calendario di raccolta",
+"purché durante le ore diurne e all'interno del calendario di raccolta"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 16
+},
+{
+"n": 179,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "È consentita l’estrazione del tartufo",
+"risposte": [
+"sempre, purché il carpoforo non sia immaturo",
+"sempre, purché durante le ore diurne",
+"purché il carpoforo non sia immaturo e durante le ore diurne"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 16
+},
+{
+"n": 180,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "È possibile raccogliere un carpoforo avariato?",
+"risposte": [
+"si perché a norma di legge non può essere venduto",
+"no, mai",
+"solo se all’interno del calendario di raccolta"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 17
+},
+{
+"n": 181,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "È possibile raccogliere un carpoforo immaturo?",
+"risposte": [
+"no perché è impossibile che l’olfatto del cane lo percepisca",
+"no, mai",
+"solo se all’interno del calendario di raccolta"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 17
+},
+{
+"n": 182,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Come ci si comporta di fronte ad un tartufo avariato?",
+"risposte": [
+"sebbene di minore qualità, non richiede accorgimenti diversi rispetto ad un altro tartufo maturo",
+"può essere raccolto purché non lo si destini alla vendita",
+"ci si astiene dal raccoglierlo perché, non avendo impiego commerciale, se ne conserva il potenziale riproduttivo delle spore"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 17
+},
+{
+"n": 183,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "È consentita l’estrazione del tartufo",
+"risposte": [
+"sempre, purché all’interno del calendario di raccolta",
+"purché all’interno del calendario di raccolta e il carpoforo non sia avariato",
+"sempre, con la sola eccezione dei carpofori immaturi"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 17
+},
+{
+"n": 184,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "È consentita l’estrazione del tartufo",
+"risposte": [
+"purché all’interno del calendario di raccolta e il carpoforo sia maturo",
+"sempre, purché all’interno del calendario di raccolta",
+"sempre, con la sola eccezione dei carpofori immaturi"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 17
+},
+{
+"n": 185,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "La buca di estrazione del tartufo",
+"risposte": [
+"deve essere accuratamente ricoperta dopo che il cane ha riportato il tartufo",
+"deve essere accuratamente eseguita dopo che il cane ha segnalato l’ubicazione del tartufo",
+"non deve essere ricoperta se il tartufo è avariato"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 17
+},
+{
+"n": 186,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "La buca creata con lo scavo deve essere accuratamente ricoperta",
+"risposte": [
+"solo quando il tartufo non è maturo",
+"quando lo scavo è eseguito dal cane",
+"sempre"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 17
+},
+{
+"n": 187,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Perché occorre impedire che il cane esegua lo scavo?",
+"risposte": [
+"per evitare che possa portare alla luce tartufi immaturi",
+"perché il carpoforo potrebbe essere deteriorato rendendone vietata la vendita",
+"perché il carpoforo potrebbe essere deteriorato rendendolo incommestibile"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 17
+},
+{
+"n": 188,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Perché occorre impedire che il cane esegua lo scavo?",
+"risposte": [
+"perché lo scavo selvaggio eseguito dal cane causa danni al micelio fungino",
+"perché il carpoforo potrebbe essere deteriorato rendendone vietata la vendita",
+"perché il cane, distraendosi, potrebbe perdere il tartufo prima di riportarlo al raccoglitore"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 17
+},
+{
+"n": 189,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Perché occorre impedire che il cane esegua lo scavo?",
+"risposte": [
+"perché il cane potrebbe portare alla luce tartufi per i quali non è corrente il periodo di raccolta",
+"perché il cane, distraendosi, potrebbe perdere il tartufo prima di riportarlo al raccoglitore",
+"perché il carpoforo potrebbe essere deteriorato rendendone vietata la vendita"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 17
+},
+{
+"n": 190,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Perché occorre impedire che il cane esegua lo scavo?",
+"risposte": [
+"perché il cane perderebbe anzitempo lo stimolo alla ricerca",
+"perché il cane, distraendosi, potrebbe perdere il tartufo prima di riportarlo al raccoglitore",
+"perché il cane non è capace di valutare il grado di maturazione del carpoforo"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 17
+},
+{
+"n": 191,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Perché occorre impedire che il cane esegua lo scavo?",
+"risposte": [
+"perché sarebbe compromessa la possibilità di richiudere la buca da parte del raccoglitore",
+"perché il carpoforo potrebbe essere deteriorato rendendone vietata la vendita",
+"perché il cane perderebbe anzitempo lo stimolo alla ricerca"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 17
+},
+{
+"n": 192,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Perché occorre impedire che il cane esegua lo scavo?",
+"risposte": [
+"perché il carpoforo potrebbe essere deteriorato rendendone vietata la vendita",
+"perché lo scavo selvaggio eseguito dal cane causa danni al micelio fungino",
+"perché il cane, distraendosi, potrebbe perdere il tartufo prima di riportarlo al raccoglitore"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 17
+},
+{
+"n": 193,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Perché occorre impedire che il cane esegua lo scavo?",
+"risposte": [
+"perché il carpoforo potrebbe essere deteriorato rendendone vietata la vendita",
+"perché il cane perderebbe anzitempo lo stimolo alla ricerca",
+"perché lo scavo selvaggio eseguito dal cane causa danni al micelio fungino"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 18
+},
+{
+"n": 194,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Perché occorre impedire che il cane esegua lo scavo?",
+"risposte": [
+"perché il cane perderebbe anzitempo lo stimolo alla ricerca",
+"perché il cane, distraendosi, potrebbe perdere il tartufo prima di riportarlo al raccoglitore",
+"perché sarebbe compromessa la possibilità di richiudere la buca da parte del raccoglitore"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 18
+},
+{
+"n": 195,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Qual è il limite quantitativo massimo di tartufi di cui è consentita la raccolta?",
+"risposte": [
+"massimo 2 Kg giornalieri per ogni cane al seguito",
+"massimo 2Kg giornalieri per ogni raccoglitore",
+"massimo 2 Kg in ogni tartufaia per ogni raccoglitore"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 18
+},
+{
+"n": 196,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Il conduttore della tartufaia controllata o coltivata ha l’obbligo di conseguire il tesserino di idoneità alla raccolta per raccogliere i tartufi nel proprio fondo?",
+"risposte": [
+"si",
+"no",
+"solo se conduttore di tartufaia controllata"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 18
+},
+{
+"n": 197,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Il conduttore della tartufaia controllata o coltivata deve rispettare il limite massimo giornaliero di raccolta nel proprio fondo?",
+"risposte": [
+"si",
+"no",
+"solo se al di fuori del calendario di raccolta"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 18
+},
+{
+"n": 198,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Il conduttore della tartufaia controllata o coltivata deve rispettare il limite massimo giornaliero di raccolta nel proprio fondo?",
+"risposte": [
+"solo se conduttore di tartufaia controllata",
+"si",
+"no"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 18
+},
+{
+"n": 199,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Il calendario di raccolta può essere modificato",
+"risposte": [
+"dai presidenti delle Comunità Montane o dai sindaci dei Comuni per motivate usanze locali",
+"dal Presidente della Giunta regionale con propria ordinanza",
+"dal Direttore della Direzione Regionale Agricoltura con propria determinazione dirigenziale"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 18
+},
+{
+"n": 200,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "In quale ambito territoriale è valido il tesserino rilasciato dalla Regione Lazio?",
+"risposte": [
+"tutto il territorio nazionale",
+"solo il territorio regionale",
+"tutto il territorio nazionale purché venga compensata la differenza fra le tasse di concessione regionali"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 18
+},
+{
+"n": 201,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Cosa sono i divieti temporanei?",
+"risposte": [
+"sono divieti che il conduttore di una tartufaia controllata o coltivata dispone sul proprio fondo",
+"sono divieti che la Regione Lazio dispone nei rimboschimenti",
+"sono divieti che dispongono le Comunità montane o, in mancanza di queste, i Sindaci dei Comuni"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 18
+},
+{
+"n": 202,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Cosa sono i divieti temporanei?",
+"risposte": [
+"sono divieti che dispone la Comunità Montane o, in mancanza di questa, la Regione Lazio",
+"sono divieti che dispongono le Comunità montane o, in mancanza di queste, i Sindaci dei Comuni",
+"sono divieti che dispongono i Sindaci dei Comuni o, in mancanza di questi, le Comunità Montane"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 18
+},
+{
+"n": 203,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Cosa sono i divieti temporanei?",
+"risposte": [
+"sono divieti che hanno una durata massima di 15 anni",
+"sono divieti che non hanno una durata fissa prestabilita",
+"sono divieti che hanno una durata inferiore ai 12 mesi"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 18
+},
+{
+"n": 204,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Cosa sono i divieti temporanei?",
+"risposte": [
+"sono divieti che vengono imposti quando si determinano condizioni che possono compromettere la capacità di riproduzione del tartufo",
+"sono i divieti vigenti al di fuori del calendario di raccolta",
+"sono i divieti di commercializzare il tartufo fresco al di fuori del calendario di raccolta"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 18
+},
+{
+"n": 205,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Come è possibile riconoscere un’area sottoposta a divieto temporaneo?",
+"risposte": [
+"l’area è delimitata da tabelle recanti la scritta “Divieto di raccolta dei tartufi”",
+"l’area è delimitata da tabelle recanti la scritta “Raccolta riservata di tartufi”",
+"l’area è delimitata da tabelle recanti la scritta “Vietato raccogliere i tartufi”"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 18
+},
+{
+"n": 206,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Come è possibile riconoscere un’area sottoposta a divieto temporaneo?",
+"risposte": [
+"l’area è delimitata da tabelle recanti la scritta “Demanio regionale, raccolta tartufi vietata”",
+"l’area è delimitata da tabelle recanti la scritta “Divieto di raccolta dei tartufi”",
+"l’area è delimitata da tabelle recanti la scritta “Vietato raccogliere i tartufi”"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 19
+},
+{
+"n": 207,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Quali delle seguenti circostanze possono determinare un divieto temporaneo?",
+"risposte": [
+"tartufaia di demanio regionale",
+"tartufaia controllata",
+"condizioni climatiche avverse"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 19
+},
+{
+"n": 208,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Quali delle seguenti circostanze possono determinare un divieto temporaneo?",
+"risposte": [
+"tartufaia coltivata",
+"tartufaia controllata",
+"tartufaia percorsa dal fuoco"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 19
+},
+{
+"n": 209,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Quali delle seguenti circostanze possono determinare un divieto temporaneo?",
+"risposte": [
+"tartufaia coltivata",
+"tartufaia di demanio regionale",
+"tartufaia alluvionata"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 19
+},
+{
+"n": 210,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "La raccolta dei tartufi è autorizzata sul demanio regionale?",
+"risposte": [
+"si",
+"no",
+"solo ai soci di associazioni che ottengono l’autorizzazione dalla Giunta Regionale"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 19
+},
+{
+"n": 211,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "La raccolta dei tartufi è autorizzata sul demanio regionale?",
+"risposte": [
+"si",
+"solo a soggetti in disagiate condizioni economiche",
+"solo se autorizzati dalla Comunità Montana"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 19
+},
+{
+"n": 212,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "La raccolta dei tartufi è autorizzata sul demanio regionale?",
+"risposte": [
+"si",
+"solo a soggetti in disagiate condizioni economiche muniti del tesserino di abilitazione alla raccolta",
+"si, a qualunque soggetto in disagiate condizioni economiche"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 19
+},
+{
+"n": 213,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Quali indicazioni devono identificare i tartufi freschi esposti al pubblico per la vendita?",
+"risposte": [
+"il nome comune, il nome scientifico in latino di ciascuna specie e varietà e la zona geografica di raccolta",
+"il nome comune di ciascuna specie, il nome scientifico in latino della famiglia botanica e il nome del venditore",
+"il nome comune, il nome scientifico in latino di ciascuna specie e varietà e la partita IVA del venditore"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 19
+},
+{
+"n": 214,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "E’ possibile vendere tartufi freschi non interi?",
+"risposte": [
+"no",
+"si, a condizione che le porzioni non siano inferiori a 0,5 cm di diametro",
+"si, a condizione che siano separati dai tartufi interi"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 19
+},
+{
+"n": 215,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "E’ possibile vendere tartufi freschi non interi?",
+"risposte": [
+"si",
+"si, purché se ne dichiari la percentuale in etichetta",
+"no"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 19
+},
+{
+"n": 216,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Quale delle seguenti indicazioni deve essere apposta sul cartellino per la vendita dei tartufi freschi?",
+"risposte": [
+"zona geografica di raccolta",
+"nome del venditore",
+"codice fiscale del venditore"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 19
+},
+{
+"n": 217,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Quale delle seguenti indicazioni deve essere apposta sul cartellino per la vendita dei tartufi freschi?",
+"risposte": [
+"codice fiscale del venditore",
+"nome del venditore",
+"nome scientifico di ciascuna specie"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 19
+},
+{
+"n": 218,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "E’ possibile commercializzare il tartufo fresco?",
+"risposte": [
+"solo se titolari di Partita IVA",
+"si, sempre",
+"purché all’interno del calendario di raccolta della specie venduta"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 19
+},
+{
+"n": 219,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "E’ possibile commercializzare il tartufo fresco?",
+"risposte": [
+"solo se titolari di Partita IVA",
+"si",
+"no"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 20
+},
+{
+"n": 220,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "La lavorazione del tartufo per la conservazione e la successiva vendita può essere effettuata",
+"risposte": [
+"dalle ditte iscritte alla CCIAA, nel settore delle industrie produttrici di conserve alimentari",
+"dai raccoglitori muniti di tesserino e all’interno del calendario di raccolta",
+"dalle ditte iscritte alla CCIAA, nel settore della salvaguardia ambientale"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 20
+},
+{
+"n": 221,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "La lavorazione del tartufo per la conservazione e la successiva vendita può essere effettuata",
+"risposte": [
+"dai raccoglitori muniti di tesserino e all’interno del calendario di raccolta",
+"purché conduttore di tartufaia controllata o coltivata riconosciuta della Regione Lazio",
+"dalle ditte iscritte alla CCIAA, nel settore delle industrie produttrici di conserve alimentari"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 20
+},
+{
+"n": 222,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "La lavorazione del tartufo per la conservazione e la successiva vendita può essere effettuata",
+"risposte": [
+"dai raccoglitori muniti di tesserino di abilitazione alla raccolta e all’interno del calendario di raccolta",
+"da cooperative di conservazione e commercializzazione del tartufo",
+"purché conduttore di tartufaia controllata o coltivata riconosciuta della Regione Lazio"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 20
+},
+{
+"n": 223,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "La lavorazione del tartufo per la conservazione e la successiva vendita può essere effettuata",
+"risposte": [
+"dai raccoglitori muniti di tesserino di abilitazione alla raccolta e all’interno del calendario di raccolta",
+"da consorzi per la tutela del tartufo",
+"purché conduttore di tartufaia controllata o coltivata riconosciuta della Regione Lazio"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 20
+},
+{
+"n": 224,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Quale delle seguenti indicazioni deve recare obbligatoriamente l’etichetta delle confezioni di tartufo conservato?",
+"risposte": [
+"il nome della ditta che li ha confezionati",
+"il diametro dei carpofori",
+"l’autorizzazione alla vendita della Regione Lazio"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 20
+},
+{
+"n": 225,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Quale delle seguenti indicazioni deve recare obbligatoriamente l’etichetta delle confezioni di tartufo conservato?",
+"risposte": [
+"la località ove ha sede lo stabilimento di lavorazione",
+"l’autorizzazione alla vendita del Corpo Forestale dello Stato",
+"il diametro dei carpofori"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 20
+},
+{
+"n": 226,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Quale delle seguenti indicazioni deve recare obbligatoriamente l’etichetta delle confezioni di tartufo conservato?",
+"risposte": [
+"la località ove ha sede il raccoglitore",
+"l’autorizzazione alla vendita del Corpo Forestale dello Stato",
+"il nome del tartufo in italiano e in latino"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 20
+},
+{
+"n": 227,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "I tartufi possono essere confezionati",
+"risposte": [
+"con aggiunta di varie sostanze purché non nocive per la salute",
+"solo con aggiunta di acqua, sale e olio",
+"solo con aggiunta di sale e acqua"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 20
+},
+{
+"n": 228,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "I tartufi possono essere confezionati",
+"risposte": [
+"con aggiunta di qualunque sostanza purché indicata sull’etichetta",
+"con aggiunta di acqua e/o sale",
+"privi di terra, sabbia o altre impurità e senza aggiunta di alcuna sostanza"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 20
+},
+{
+"n": 229,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "È vietata la raccolta dei tartufi nei periodi di divieto?",
+"risposte": [
+"si",
+"no",
+"solo se non si è conduttori di una tartufaia controllata o coltivata"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 20
+},
+{
+"n": 230,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "In assenza del tesserino di idoneità alla raccolta, è vietata la raccolta nelle tartufaie controllate o coltivate?",
+"risposte": [
+"no, in ogni caso",
+"no se si è conduttori della tartufaia riconosciuta dalla Regione Lazio",
+"si, in ogni caso"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 20
+},
+{
+"n": 231,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "È vietata la raccolta dei tartufi con l’ausilio di",
+"risposte": [
+"un solo cane in addestramento di età inferiore ai 12 mesi",
+"un solo cane addestrato",
+"due soli cani addestrati"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 20
+},
+{
+"n": 232,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "È vietata la raccolta dei tartufi con l’ausilio di due cani addestrati?",
+"risposte": [
+"si",
+"si, in assenza di almeno un cucciolo in addestramento",
+"no"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 21
+},
+{
+"n": 233,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "È consentita la raccolta dei tartufi con l’ausilio di un cucciolo di età inferiore a 12 mesi?",
+"risposte": [
+"si",
+"si, in presenza di almeno un cane addestrato",
+"no"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 21
+},
+{
+"n": 234,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "È consentita la raccolta dei tartufi con l’ausilio di un cucciolo di età inferiore a 12 mesi?",
+"risposte": [
+"si, in presenza di almeno un cane di età superiore a 12 mesi",
+"si, in presenza di almeno un cane addestrato",
+"si, in presenza di almeno due cani addestrati"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 21
+},
+{
+"n": 235,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "È vietata la raccolta dei tartufi con l’ausilio di un cucciolo di età inferiore a 12 mesi?",
+"risposte": [
+"si",
+"si, in assenza di almeno un cane addestrato",
+"no"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 21
+},
+{
+"n": 236,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "È vietata la raccolta dei tartufi con l’ausilio di",
+"risposte": [
+"due soli cani addestrati più uno in addestramento di età inferiore ai 12 mesi",
+"due soli cani addestrati",
+"due soli cani di età superiore a 12 mesi più uno di età inferiore ai 12 mesi"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 21
+},
+{
+"n": 237,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "È vietata la raccolta dei tartufi con l’ausilio di",
+"risposte": [
+"due cani addestrati più uno in addestramento di età inferiore ai 12 mesi",
+"due soli cani in addestramento di età inferiore ai 12 mesi più uno addestrato",
+"un solo cane addestrato"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 21
+},
+{
+"n": 238,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "È vietata la raccolta dei tartufi con l’ausilio di",
+"risposte": [
+"due soli cani addestrati più uno in addestramento di età inferiore ai 12 mesi",
+"un maiale più almeno un cane addestrato",
+"un solo cane addestrato"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 21
+},
+{
+"n": 239,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "È consentita la raccolta dei tartufi con l’ausilio di",
+"risposte": [
+"tre cani di cui almeno due addestrati e uno in addestramento di età inferiore a 12 mesi",
+"due cani addestrati più uno in addestramento",
+"due cani di età superiore a 12 mesi"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 21
+},
+{
+"n": 240,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "È consentita la raccolta dei tartufi con l’ausilio di",
+"risposte": [
+"tre cani di cui almeno due addestrati e uno in addestramento di età inferiore a 12 mesi",
+"tre cani di cui almeno due adulti e uno in addestramento",
+"tre cani di cui almeno due addestrati e uno in addestramento"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 21
+},
+{
+"n": 241,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "È consentita la raccolta dei tartufi con l’ausilio di",
+"risposte": [
+"tre cani di cui massimo uno non addestrato di età inferiore a 12 mesi",
+"tre cani di cui almeno uno non addestrato di età inferiore a 12 mesi",
+"tre cani di cui almeno due di età superiore a 12 mesi"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 21
+},
+{
+"n": 242,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "È vietata la raccolta dei tartufi senza l’ausilio di",
+"risposte": [
+"dispositivo GPS",
+"zappa",
+"vanghella"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 21
+},
+{
+"n": 243,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Di quali dei seguenti tartufi è consentita la raccolta e la commercializzazione?",
+"risposte": [
+"Tuber mesentericum Vitt.",
+"Tuber excavatum Vitt.",
+"Tuber oligospermum Vitt."
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 21
+},
+{
+"n": 244,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Il Tuber oligospermum Vitt. Può essere",
+"risposte": [
+"raccolto e commercializzato purché all’interno del periodo di raccolta",
+"raccolto ma non commercializzato",
+"né raccolto né commercializzato"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 21
+},
+{
+"n": 245,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Il Tuber excavatum Vitt. Può essere",
+"risposte": [
+"né raccolto né commercializzato",
+"raccolto ma non commercializzato",
+"raccolto e commercializzato purché all’interno del periodo di raccolta"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 22
+},
+{
+"n": 246,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "La raccolta dei tartufi è vietata",
+"risposte": [
+"da un’ora prima dell’alba a un’ora dopo il tramonto",
+"da un’ora dopo il tramonto a un’ora prima dell’alba",
+"da un’ora dopo l’alba a un’ora dopo il tramonto"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 22
+},
+{
+"n": 247,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "La raccolta dei tartufi è vietata",
+"risposte": [
+"nelle ore notturne",
+"nelle ore diurne",
+"mezz’ora prima dell’alba"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 22
+},
+{
+"n": 248,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "La raccolta dei tartufi è vietata",
+"risposte": [
+"un’ora dopo il tramonto e un’ora prima dell’alba",
+"da un’ora dopo il tramonto a un’ora prima dell’alba",
+"da un’ora dopo l’alba a un’ora dopo il tramonto"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 22
+},
+{
+"n": 249,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "La raccolta dei tartufi è consentita",
+"risposte": [
+"un’ora prima dell’alba e un’ora dopo il tramonto",
+"da un’ora prima dell’alba a un’ora dopo il tramonto",
+"da un’ora dopo l’alba a un’ora dopo il tramonto"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 22
+},
+{
+"n": 250,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Al di fuori del periodo di raccolta, la raccolta dei tartufi è vietata",
+"risposte": [
+"sempre",
+"solo se il carpoforo è immaturo o avariato",
+"nelle ore notturne"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 22
+},
+{
+"n": 251,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Al di fuori del periodo di raccolta, la raccolta dei tartufi è consentita",
+"risposte": [
+"mai",
+"solo se il carpoforo è immaturo o avariato",
+"nelle ore diurne"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 22
+},
+{
+"n": 252,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "La raccolta dei tartufi è consentita",
+"risposte": [
+"nelle ore notturne",
+"nelle ore diurne",
+"due ore prima dell’alba"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 22
+},
+{
+"n": 253,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "La raccolta dei tartufi è consentita",
+"risposte": [
+"nelle ore notturne",
+"mezz’ora prima dell’alba",
+"due ore dopo il tramonto"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 22
+},
+{
+"n": 254,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "La raccolta dei tartufi è vietata",
+"risposte": [
+"nelle ore notturne",
+"mezz’ora prima del tramonto",
+"mezz’ora dopo il tramonto"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 22
+},
+{
+"n": 255,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "La raccolta dei tartufi è vietata se il carpoforo è immaturo o avariato?",
+"risposte": [
+"dipende dal periodo di raccolta",
+"si, sempre",
+"solo se le condizioni della tartufaia sono compromesse da fattori climatici avversi"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 22
+},
+{
+"n": 256,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "La raccolta dei tartufi è consentita se il carpoforo è immaturo o avariato?",
+"risposte": [
+"dipende dal periodo di raccolta",
+"no, mai",
+"solo se le condizioni della tartufaia sono compromesse da fattori climatici avversi"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 22
+},
+{
+"n": 257,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Quale dei seguenti è un divieto sanzionato dalla legge regionale?",
+"risposte": [
+"la ricerca al di fuori del periodo di raccolta",
+"la raccolta in qualunque area rimboschita",
+"la ricerca e/o la raccolta dei tartufi nelle tartufaie controllate o coltivate da parte di raccoglitori non aventi diritto"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 22
+},
+{
+"n": 258,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "La ricerca e/o la raccolta dei tartufi nelle tartufaie controllate o coltivate, riconosciute dall Regione Lazio, è vietata",
+"risposte": [
+"ai conduttori delle tartufaie",
+"ai lavoratori dipendenti regolarmente assunti per la coltivazione del fondo da parte dei conduttori delle tartufaie",
+"ai raccoglitori non autorizzati muniti di tesserino di abilitazione alla raccolta"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 23
+},
+{
+"n": 259,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "La ricerca e/o la raccolta dei tartufi nelle tartufaie controllate o coltivate è autorizzata",
+"risposte": [
+"ai proprietari delle tartufaie riconosciute dalla Regione Lazio",
+"ai proprietari che a qualsiasi titolo conducono una tartufaia",
+"ai membri del Consiglio Comunale competente per territorio"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 23
+},
+{
+"n": 260,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Nelle aree rimboschite la raccolta dei tartufi è vietata",
+"risposte": [
+"sempre",
+"dopo 15 anni dal rimboschimento",
+"prima di 15 anni dal rimboschimento"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 23
+},
+{
+"n": 261,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Nelle aree rimboschite la raccolta dei tartufi è autorizzata",
+"risposte": [
+"mai",
+"dopo 20 anni dal rimboschimento",
+"dopo 10 anni dal rimboschimento"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 23
+},
+{
+"n": 262,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Quale dei seguenti è un divieto sanzionato dalla legge regionale",
+"risposte": [
+"divieto alternante",
+"divieto temporaneo",
+"divieto differito"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 23
+},
+{
+"n": 263,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "È vietata la raccolta dei tartufi",
+"risposte": [
+"senza l’autorizzazione della Comunità Montana",
+"nel demanio regionale, salvo espressa autorizzazione della Giunta Regionale",
+"nelle aree di bonifica agraria"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 23
+},
+{
+"n": 264,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Quale dei seguenti è un divieto sanzionato dalla legge regionale?",
+"risposte": [
+"lo scavo a profondità superiori a 30 centimetri",
+"lo scavo con terreno alla massima ritenzione idrica",
+"la lavorazione andante del terreno"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 23
+},
+{
+"n": 265,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "È vietata",
+"risposte": [
+"l'apertura di buche in soprannumero",
+"la non pulitura delle buche aperte",
+"la riempitura con la terra estratta durante la raccolta"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 23
+},
+{
+"n": 266,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "È vietato il commercio dei tartufi freschi fuori del periodo di raccolta?",
+"risposte": [
+"no se la raccolta rispetta il calendario della specie venduta",
+"si",
+"solo se il venditore non è munito di iscrizione alla CCIAA"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 23
+},
+{
+"n": 267,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Quale dei seguenti è un divieto sanzionato dalla legge regionale?",
+"risposte": [
+"la vendita al pubblico di tartufi freschi senza l’indicazione della specie di appartenenza",
+"la vendita al pubblico di tartufi freschi senza l’indicazione degli estremi fiscali del venditore",
+"la vendita al pubblico di tartufi spezzati o tritati"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 23
+},
+{
+"n": 268,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Quale dei seguenti è un divieto sanzionato dalla legge regionale?",
+"risposte": [
+"la vendita dei tartufi conservati con l’aggiunta di vino o liquore",
+"la vendita dei tartufi conservati senza l’indicazione della sede dello stabilimento di lavorazione",
+"la vendita al pubblico dei tartufi conservati con l’aggiunta di acqua"
+],
+"esatta": 1,
+"file": "tart_lazio_2015.pdf",
+"pagina": 23
+},
+{
+"n": 269,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Quali conseguenze comporta la violazione della legge regionale?",
+"risposte": [
+"solo una sanzione amministrativa commisurata alla violazione",
+"una sanzione amministrativa commisurata alla violazione e comunque la revoca definitiva del tesserino di idoneità",
+"una sanzione amministrativa commisurata alla violazione e comunque la confisca del prodotto"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 23
+},
+{
+"n": 270,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Quali conseguenze comporta la violazione della legge regionale?",
+"risposte": [
+"solo una sanzione amministrativa commisurata alla violazione",
+"solo la confisca del prodotto",
+"una sanzione amministrativa commisurata alla violazione e la confisca del prodotto"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 23
+},
+{
+"n": 271,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "A chi è affidata la vigilanza sull’applicazione della legge regionale?",
+"risposte": [
+"anche alle guardie provinciali venatorie",
+"solo agli agenti del Corpo Forestale dello Stato",
+"agli abitanti di terre di uso civico"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 24
+},
+{
+"n": 272,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "A chi è affidata la vigilanza sull’applicazione della legge regionale?",
+"risposte": [
+"solo agli organi di polizia e agli agenti del Corpo Forestale dello Stato",
+"ai soci di cooperative che hanno per fine istituzionale la protezione della natura",
+"anche alle guardie giurate designate da appositi enti di salvaguardia ambientale"
+],
+"esatta": 2,
+"file": "tart_lazio_2015.pdf",
+"pagina": 24
+},
+{
+"n": 273,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Gli agenti del Corpo Forestale dello Stato hanno compiti di vigilanza sull’applicazione della Legge regionale?",
+"risposte": [
+"si",
+"si, in via esclusiva",
+"no"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 24
+},
+{
+"n": 274,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Le guardie giurate designate da appositi enti di salvaguardia ambientale hanno compiti di vigilanza sull’applicazione della Legge regionale?",
+"risposte": [
+"si",
+"si, in via esclusiva",
+"no"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 24
+},
+{
+"n": 275,
+"sezione": "Normativa su ricerca, raccolta e commercio",
+"testo": "Le guardie venatorie provinciali hanno compiti di vigilanza sull’applicazione della Legge regionale?",
+"risposte": [
+"si",
+"si, in via esclusiva",
+"no"
+],
+"esatta": 0,
+"file": "tart_lazio_2015.pdf",
+"pagina": 24
+}
+],
+"confronto_guida_2021": {
+"domande": 275,
+"differenze": 0
+}
+}

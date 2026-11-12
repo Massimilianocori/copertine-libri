@@ -1,0 +1,3636 @@
+{
+"_nota": "Scritto da raccolta/estrai.py dal PDF ufficiale (vedi dati/fonti.json). Non modificare a mano.",
+"id": "fitosanitario-sicilia-consulenti",
+"domande": [
+{
+"n": 1,
+"sezione": "Capitolo 1: LA NORMATIVA PER L’ABILITAZIONE ALL’ACQUISTO E UTILIZZO DEI PRODOTTI FITOSANITARI e Nozioni legislative e amministrative regolamentate dalla Direttiva Comunitaria 2009/128/CE, dal Regolamento Comunitario 1107/2009 e dal D. LGS. 150/2012",
+"testo": "Cosa si intende per utilizzatore professionale?",
+"risposte": [
+"Colui che utilizza i prodotti fitosanitari nell’ambito di un’attività professionale sia nel settore agricolo che in altri settori",
+"Solo l’Imprenditore a titolo principale che utilizza i prodotti fitosanitari tossici",
+"Solo il contoterzista che utilizza i prodotti fitosanitari tossici"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 1
+},
+{
+"n": 2,
+"sezione": "Capitolo 1: LA NORMATIVA PER L’ABILITAZIONE ALL’ACQUISTO E UTILIZZO DEI PRODOTTI FITOSANITARI e Nozioni legislative e amministrative regolamentate dalla Direttiva Comunitaria 2009/128/CE, dal Regolamento Comunitario 1107/2009 e dal D. LGS. 150/2012",
+"testo": "Quale attività svolge il consulente?",
+"risposte": [
+"Autorizza l’immissione in commercio dei prodotti fitosanitari",
+"Svolge attività di assistenza tecnica nell’ambito della difesa fitosanitaria integrata e biologica in applicazione del PAN",
+"Vende prodotti fitosanitari per utilizzatori professionali"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 1
+},
+{
+"n": 3,
+"sezione": "Capitolo 1: LA NORMATIVA PER L’ABILITAZIONE ALL’ACQUISTO E UTILIZZO DEI PRODOTTI FITOSANITARI e Nozioni legislative e amministrative regolamentate dalla Direttiva Comunitaria 2009/128/CE, dal Regolamento Comunitario 1107/2009 e dal D. LGS. 150/2012",
+"testo": "Chiunque può vendere i prodotti fitosanitari per utilizzatori professionali?",
+"risposte": [
+"Sì",
+"No, solo chi ha compiuto 18 anni",
+"Solo chi è in possesso di un diploma o laurea in discipline agrarie, forestali, biologiche, ambientali, chimiche, mediche e veterinarie ed è in possesso del certificato di abilitazione"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 1
+},
+{
+"n": 4,
+"sezione": "Capitolo 1: LA NORMATIVA PER L’ABILITAZIONE ALL’ACQUISTO E UTILIZZO DEI PRODOTTI FITOSANITARI e Nozioni legislative e amministrative regolamentate dalla Direttiva Comunitaria 2009/128/CE, dal Regolamento Comunitario 1107/2009 e dal D. LGS. 150/2012",
+"testo": "Dove possono essere acquistati i prodotti fitosanitari per utilizzatori professionali?",
+"risposte": [
+"Non esistono vincoli o autorizzazioni particolari per la loro vendita",
+"Esclusivamente da rivenditori autorizzati",
+"Da chiunque purché gli antiparassitari siano in confezioni sigillate"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 1
+},
+{
+"n": 5,
+"sezione": "Capitolo 1: LA NORMATIVA PER L’ABILITAZIONE ALL’ACQUISTO E UTILIZZO DEI PRODOTTI FITOSANITARI e Nozioni legislative e amministrative regolamentate dalla Direttiva Comunitaria 2009/128/CE, dal Regolamento Comunitario 1107/2009 e dal D. LGS. 150/2012",
+"testo": "Il contoterzista è considerato…",
+"risposte": [
+"Un utilizzatore professionale",
+"Un venditore",
+"Un consulente"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 2
+},
+{
+"n": 6,
+"sezione": "Capitolo 1: LA NORMATIVA PER L’ABILITAZIONE ALL’ACQUISTO E UTILIZZO DEI PRODOTTI FITOSANITARI e Nozioni legislative e amministrative regolamentate dalla Direttiva Comunitaria 2009/128/CE, dal Regolamento Comunitario 1107/2009 e dal D. LGS. 150/2012",
+"testo": "E' necessario sostenere un corso di preparazione all'esame previsto per il primo rilascio e per il rinnovo dell'autorizzazione all'acquisto dei prodotti fitosanitari per utilizzatori professionali (detto patentino)?",
+"risposte": [
+"Sì (ad eccezione di alcune categorie tecniche)",
+"No",
+"Sì, solo se non si è maggiorenni"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 2
+},
+{
+"n": 7,
+"sezione": "Capitolo 1: LA NORMATIVA PER L’ABILITAZIONE ALL’ACQUISTO E UTILIZZO DEI PRODOTTI FITOSANITARI e Nozioni legislative e amministrative regolamentate dalla Direttiva Comunitaria 2009/128/CE, dal Regolamento Comunitario 1107/2009 e dal D. LGS. 150/2012",
+"testo": "Chi può richiedere il certificato di abilitazione alla vendita dei prodotti fitosanitari?",
+"risposte": [
+"Solo chi è in possesso di un diploma o laurea in discipline agrarie, forestali, biologiche, ambientali, chimiche, mediche e veterinarie",
+"Tutti i cittadini maggiorenni con cittadinanza italiana",
+"Solo chi vende prodotti fitosanitari destinati ad utilizzatori non professionali"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 2
+},
+{
+"n": 8,
+"sezione": "Capitolo 1: LA NORMATIVA PER L’ABILITAZIONE ALL’ACQUISTO E UTILIZZO DEI PRODOTTI FITOSANITARI e Nozioni legislative e amministrative regolamentate dalla Direttiva Comunitaria 2009/128/CE, dal Regolamento Comunitario 1107/2009 e dal D. LGS. 150/2012",
+"testo": "L’autorizzazione all’acquisto dei prodotti fitosanitari (detto patentino) per utilizzatori professionali viene rilasciata:",
+"risposte": [
+"Dalle organizzazioni di categoria degli agricoltori a seguito di un corso di formazione",
+"Dagli Uffici del Servizio Fitosanitario regionale competenti per territorio",
+"Dalla A.S.P. dopo aver effettuato una visita medica e i relativi accertamenti"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 2
+},
+{
+"n": 9,
+"sezione": "Capitolo 1: LA NORMATIVA PER L’ABILITAZIONE ALL’ACQUISTO E UTILIZZO DEI PRODOTTI FITOSANITARI e Nozioni legislative e amministrative regolamentate dalla Direttiva Comunitaria 2009/128/CE, dal Regolamento Comunitario 1107/2009 e dal D. LGS. 150/2012",
+"testo": "Il patentino può essere lasciato in deposito presso il rivenditore?",
+"risposte": [
+"No, in quanto il patentino è un documento personale necessario al trasporto, alla detenzione oltreché all’acquisto dei prodotti fitosanitari per utilizzatori professionali",
+"Si, se gli acquisti vengono eseguiti sempre nella medesima rivendita",
+"Si, fino a quando il patentino non è scaduto"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 2
+},
+{
+"n": 10,
+"sezione": "Capitolo 1: LA NORMATIVA PER L’ABILITAZIONE ALL’ACQUISTO E UTILIZZO DEI PRODOTTI FITOSANITARI e Nozioni legislative e amministrative regolamentate dalla Direttiva Comunitaria 2009/128/CE, dal Regolamento Comunitario 1107/2009 e dal D. LGS. 150/2012",
+"testo": "Ogni quanti anni deve essere rinnovato il certificato di abilitazione all’attività di consulente?",
+"risposte": [
+"10 anni",
+"5 anni",
+"3 anni"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 2
+},
+{
+"n": 11,
+"sezione": "Capitolo 1: LA NORMATIVA PER L’ABILITAZIONE ALL’ACQUISTO E UTILIZZO DEI PRODOTTI FITOSANITARI e Nozioni legislative e amministrative regolamentate dalla Direttiva Comunitaria 2009/128/CE, dal Regolamento Comunitario 1107/2009 e dal D. LGS. 150/2012",
+"testo": "A cosa serve il certificato di abilitazione all’acquisto e all’impiego dei prodotti fitosanitari per utilizzatori professionali (detto patentino)?",
+"risposte": [
+"Per acquistare e impiegare tutti i prodotti fitosanitari destinati a utilizzatori professionali",
+"Per guidare trattrici dotate di cabine pressurizzate",
+"Per acquistare e impiegare prodotti fitosanitari etichettati con il simbolo di pericolo T+ e l’indicazione di pericolo “Molto Tossico”"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 2
+},
+{
+"n": 12,
+"sezione": "Capitolo 1: LA NORMATIVA PER L’ABILITAZIONE ALL’ACQUISTO E UTILIZZO DEI PRODOTTI FITOSANITARI e Nozioni legislative e amministrative regolamentate dalla Direttiva Comunitaria 2009/128/CE, dal Regolamento Comunitario 1107/2009 e dal D. LGS. 150/2012",
+"testo": "Il Regolamento 1107/2009, relativo all’immissione sul mercato dei prodotti, contiene:",
+"risposte": [
+"Le nuove procedure di valutazione e autorizzazione delle sostanze attive e dei relativi prodotti fitosanitari",
+"Le procedure per l’immissione sul mercato dei prodotti fitosanitari e le sanzioni relative",
+"Le procedure per l’immissione sul mercato dei prodotti fitosanitari che devono essere applicate da tutti gli Stati Membri"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 3
+},
+{
+"n": 13,
+"sezione": "Capitolo 1: LA NORMATIVA PER L’ABILITAZIONE ALL’ACQUISTO E UTILIZZO DEI PRODOTTI FITOSANITARI e Nozioni legislative e amministrative regolamentate dalla Direttiva Comunitaria 2009/128/CE, dal Regolamento Comunitario 1107/2009 e dal D. LGS. 150/2012",
+"testo": "La direttiva CE/128/2009 riguarda:",
+"risposte": [
+"L’istituzione di un quadro per l’azione comunitaria ai fini dell’utilizzo sostenibile dei prodotti fitosanitari",
+"L’immissione in commercio dei prodotti fitosanitari",
+"I residui massimi ammessi dei prodotti fitosanitari sulle derrate destinate al consumo umano e animale"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 3
+},
+{
+"n": 14,
+"sezione": "Capitolo 1: LA NORMATIVA PER L’ABILITAZIONE ALL’ACQUISTO E UTILIZZO DEI PRODOTTI FITOSANITARI e Nozioni legislative e amministrative regolamentate dalla Direttiva Comunitaria 2009/128/CE, dal Regolamento Comunitario 1107/2009 e dal D. LGS. 150/2012",
+"testo": "I prodotti fitosanitari per utilizzatori non professionali impiegabili su piante edibili coltivate in ambito domestico (Decreto 22 gennaio 2018, n. 33)",
+"risposte": [
+"Possono essere acquistati esclusivamente da coloro che possiedono il patentino",
+"Sono acquistabili dagli utilizzatori non professionali ma solo presso i rivenditori autorizzati",
+"Possono essere acquistati ovunque e solo dagli utilizzatori non professionali"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 3
+},
+{
+"n": 15,
+"sezione": "Capitolo 1: LA NORMATIVA PER L’ABILITAZIONE ALL’ACQUISTO E UTILIZZO DEI PRODOTTI FITOSANITARI e Nozioni legislative e amministrative regolamentate dalla Direttiva Comunitaria 2009/128/CE, dal Regolamento Comunitario 1107/2009 e dal D. LGS. 150/2012",
+"testo": "La direttiva CE/128/2009, per quanto riguarda la difesa delle colture, prevede che:",
+"risposte": [
+"A partire dall’1 gennaio 2020 tutte le aziende dovranno applicare l’agricoltura biologica",
+"A partire dall’1 gennaio 2016 tutte le aziende dovranno applicare i disciplinari regionali di difesa integrata",
+"A partire dall’1 gennaio 2014 tutte le aziende devono applicare i principi e criteri della difesa integrata"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 3
+},
+{
+"n": 16,
+"sezione": "Capitolo 1: LA NORMATIVA PER L’ABILITAZIONE ALL’ACQUISTO E UTILIZZO DEI PRODOTTI FITOSANITARI e Nozioni legislative e amministrative regolamentate dalla Direttiva Comunitaria 2009/128/CE, dal Regolamento Comunitario 1107/2009 e dal D. LGS. 150/2012",
+"testo": "Quali sono le attività regolamentate da PAN?",
+"risposte": [
+"Il finanziamento con fondi comunitari delle attività agricole",
+"L'uso sostenibile dei prodotti fitosanitari",
+"L'autorizzazione all'impiego di organismi geneticamente modificati"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 3
+},
+{
+"n": 17,
+"sezione": "Capitolo 1: LA NORMATIVA PER L’ABILITAZIONE ALL’ACQUISTO E UTILIZZO DEI PRODOTTI FITOSANITARI e Nozioni legislative e amministrative regolamentate dalla Direttiva Comunitaria 2009/128/CE, dal Regolamento Comunitario 1107/2009 e dal D. LGS. 150/2012",
+"testo": "Fra le altre azioni cosa prevede il D. lgs 150/2012?",
+"risposte": [
+"L'adozione della difesa integrata obbligatoria",
+"Il divieto di realizzare trattamenti fitosanitari",
+"L'obbligo di adottare strategie di lotta guidata"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 3
+},
+{
+"n": 18,
+"sezione": "Capitolo 1: LA NORMATIVA PER L’ABILITAZIONE ALL’ACQUISTO E UTILIZZO DEI PRODOTTI FITOSANITARI e Nozioni legislative e amministrative regolamentate dalla Direttiva Comunitaria 2009/128/CE, dal Regolamento Comunitario 1107/2009 e dal D. LGS. 150/2012",
+"testo": "Cosa prevedono le Linee Guida di indirizzo pubblicate nella Gazzetta Ufficiale della Repubblica Italiana n. 71 del 26 marzo 2015, come allegato del PAN?",
+"risposte": [
+"Misure per la mitigazione dei rischi associati alla deriva, al ruscellamento e alla lisciviazione dei prodotti fitosanitari, nonché alla loro limitazione/ sostituzione/eliminazione ai fini della tutela dell’ambiente acquatico e dell’acqua potabile",
+"Misure per impedire lo sviluppo delle alghe infestanti nei corsi d’acqua",
+"Misure per verificare il contenuto chimico e batterico delle acque potabili"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 4
+},
+{
+"n": 19,
+"sezione": "Capitolo 1: LA NORMATIVA PER L’ABILITAZIONE ALL’ACQUISTO E UTILIZZO DEI PRODOTTI FITOSANITARI e Nozioni legislative e amministrative regolamentate dalla Direttiva Comunitaria 2009/128/CE, dal Regolamento Comunitario 1107/2009 e dal D. LGS. 150/2012",
+"testo": "Il PAN prevede l’obbligo di controllo funzionale delle macchine irroratrici?",
+"risposte": [
+"Sì, per tutte le aziende che utilizzano in modo professionale i mezzi irroranti",
+"No, è legalmente prevista solo la forma di adesione “volontaria” al servizio di controllo delle attrezzature",
+"Solo per le aziende che aderiscono ad alcune misure del PSR (Piano di sviluppo rurale) o che rientrano nel contesto applicativo dell’OCM ortofrutta"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 4
+},
+{
+"n": 20,
+"sezione": "Capitolo 1: LA NORMATIVA PER L’ABILITAZIONE ALL’ACQUISTO E UTILIZZO DEI PRODOTTI FITOSANITARI e Nozioni legislative e amministrative regolamentate dalla Direttiva Comunitaria 2009/128/CE, dal Regolamento Comunitario 1107/2009 e dal D. LGS. 150/2012",
+"testo": "In merito alle macchine irroratrici, il PAN prevede:",
+"risposte": [
+"Che tutti i mezzi abbiano effettuato una adeguata manutenzione",
+"Che le attrezzature irroranti di nuova fabbricazione siano progettate e costruite secondo criteri che rispettino la salute dell’uomo e l’ambiente",
+"Controlli funzionali periodici delle attrezzature, regolazione o taratura e manutenzione dei mezzi meccanici operanti in agricoltura"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 4
+},
+{
+"n": 21,
+"sezione": "Capitolo 1: LA NORMATIVA PER L’ABILITAZIONE ALL’ACQUISTO E UTILIZZO DEI PRODOTTI FITOSANITARI e Nozioni legislative e amministrative regolamentate dalla Direttiva Comunitaria 2009/128/CE, dal Regolamento Comunitario 1107/2009 e dal D. LGS. 150/2012",
+"testo": "E’ prevista la sospensione per un anno dell’abilitazione del consulente quando….",
+"risposte": [
+"C’è reiterazione nel fornire informazioni non corrette sull’impiego dei prodotti fitosanitari sull’applicazione delle tecniche di difesa integrata e biologica",
+"Si consiglia l’utilizzo di prodotti fitosanitari non autorizzati, illegali o revocati",
+"Si forniscono informazioni non corrette sull’impiego dei prodotti fitosanitari e/o sull’applicazione delle tecniche di difesa integrata e biologica"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 4
+},
+{
+"n": 22,
+"sezione": "Capitolo 1: LA NORMATIVA PER L’ABILITAZIONE ALL’ACQUISTO E UTILIZZO DEI PRODOTTI FITOSANITARI e Nozioni legislative e amministrative regolamentate dalla Direttiva Comunitaria 2009/128/CE, dal Regolamento Comunitario 1107/2009 e dal D. LGS. 150/2012",
+"testo": "In caso di trattamenti fitosanitari in aree agricole adiacenti ad aree frequentate dalla popolazione o gruppi vulnerabili è necessario:",
+"risposte": [
+"Controllare prima del trattamento che le persone presenti nelle predette aree siano state avvertite",
+"Procedere con il trattamento avendo l'accortezza di interromperlo nel caso in cui si avvicinino delle persone",
+"Non utilizzare a distanze inferiori a 30 metri dalle predette aree prodotti fitosanitari recanti in etichetta determinate frasi di rischio; nel caso in cui vengano adottate misure di contenimento della deriva, tenuto conto delle prescrizioni riportate in etichetta e fatte salve le indicazioni più restrittive delle autorità locali competenti, tali distanze possono essere ridotte fino a una distanza minima di 10 metri"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 4
+},
+{
+"n": 23,
+"sezione": "Capitolo 1: LA NORMATIVA PER L’ABILITAZIONE ALL’ACQUISTO E UTILIZZO DEI PRODOTTI FITOSANITARI e Nozioni legislative e amministrative regolamentate dalla Direttiva Comunitaria 2009/128/CE, dal Regolamento Comunitario 1107/2009 e dal D. LGS. 150/2012",
+"testo": "Nel caso di utilizzo di un prodotto fitosanitario da parte di un conto terzista in ambito extra agricolo è necessario",
+"risposte": [
+"Annotare il trattamento sul registro dei trattamenti",
+"Non è necessario annotare il trattamento sul registro essendo in ambito extra agricolo",
+"Annotare il trattamento solo nel caso in cui siano utilizzati prodotti pericolosi per l’ambiente"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 4
+},
+{
+"n": 24,
+"sezione": "Capitolo 1: LA NORMATIVA PER L’ABILITAZIONE ALL’ACQUISTO E UTILIZZO DEI PRODOTTI FITOSANITARI e Nozioni legislative e amministrative regolamentate dalla Direttiva Comunitaria 2009/128/CE, dal Regolamento Comunitario 1107/2009 e dal D. LGS. 150/2012",
+"testo": "Cosa norma il regolamento Reach?",
+"risposte": [
+"La registrazione, la valutazione, l’autorizzazione e la restrizione delle sostanze chimiche",
+"I controlli in materia di classificazione, etichettatura ed imballaggio dei prodotti fitosanitari",
+"La verifica degli obblighi di pre-registrazione e registrazione delle sostanze attive in quanto tali o in quanto contenute nei prodotti fitosanitari"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 5
+},
+{
+"n": 25,
+"sezione": "Capitolo 1: LA NORMATIVA PER L’ABILITAZIONE ALL’ACQUISTO E UTILIZZO DEI PRODOTTI FITOSANITARI e Nozioni legislative e amministrative regolamentate dalla Direttiva Comunitaria 2009/128/CE, dal Regolamento Comunitario 1107/2009 e dal D. LGS. 150/2012",
+"testo": "I Limiti Massimi dei Residui – LMR – sui prodotti destinati all’alimentazione sono fissati:",
+"risposte": [
+"dal Ministero della Agricoltura con appositi decreti",
+"da Regolamenti dell’Unione Europea",
+"da Decisioni della Commissione Europea"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 5
+},
+{
+"n": 26,
+"sezione": "Capitolo 1: LA NORMATIVA PER L’ABILITAZIONE ALL’ACQUISTO E UTILIZZO DEI PRODOTTI FITOSANITARI e Nozioni legislative e amministrative regolamentate dalla Direttiva Comunitaria 2009/128/CE, dal Regolamento Comunitario 1107/2009 e dal D. LGS. 150/2012",
+"testo": "Cosa stabiliscono i Decreti di lotta obbligatoria?",
+"risposte": [
+"l’eliminazione di specie erbacee invasive, resistenti e non controllabili con i diserbanti.",
+"Gli interventi diretti a punire la contraffazione ed il traffico illegale dei prodotti fitosanitari",
+"Gli interventi mirati a limitare la diffusione di avversità delle piante particolarmente pericolose o non ancora introdotte sul nostro territorio."
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 5
+},
+{
+"n": 27,
+"sezione": "Capitolo 2: AVVERSITA’ DELLE PIANTE",
+"testo": "Che cosa sono gli afidi?",
+"risposte": [
+"Acari",
+"Insetti che danneggiano le nuove foglie",
+"Roditori"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 5
+},
+{
+"n": 28,
+"sezione": "Capitolo 2: AVVERSITA’ DELLE PIANTE",
+"testo": "I ragnetti rossi hanno dimensioni di:",
+"risposte": [
+"Alcuni decimetri",
+"Sono microscopici",
+"Alcuni decimi di millimetro"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 5
+},
+{
+"n": 29,
+"sezione": "Capitolo 2: AVVERSITA’ DELLE PIANTE",
+"testo": "Gli insetti e gli acari presenti sulle colture sono tutti dannosi?",
+"risposte": [
+"No",
+"Sì",
+"No, se sono adulti"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 5
+},
+{
+"n": 30,
+"sezione": "Capitolo 2: AVVERSITA’ DELLE PIANTE",
+"testo": "Le avversità fungine, in generale sono favorite dalle seguenti condizioni ambientali:",
+"risposte": [
+"Caldo asciutto",
+"Vento eccessivo",
+"Prolungata umidità e bagnatura fogliare"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 5
+},
+{
+"n": 31,
+"sezione": "Capitolo 2: AVVERSITA’ DELLE PIANTE",
+"testo": "I virus delle piante coltivate possono essere controllati attraverso:",
+"risposte": [
+"Prodotti fitosanitari ad attività viricida, ma solo se registrati sulla coltura e per il parassita interessato",
+"Sia con mezzi preventivi che con prodotti specifici",
+"Esclusivamente con metodi preventivi"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 6
+},
+{
+"n": 32,
+"sezione": "Capitolo 2: AVVERSITA’ DELLE PIANTE",
+"testo": "Quale di questi organismi nocivi è sottoposto a Decreto di lotta obbligatoria?",
+"risposte": [
+"Citrus Tristeza Virus",
+"Cocciniglia rossa degli agrumi",
+"Tignoletta della vite"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 6
+},
+{
+"n": 33,
+"sezione": "Capitolo 2: AVVERSITA’ DELLE PIANTE",
+"testo": "Il punteruolo rosso della palma:",
+"risposte": [
+"E’ un insetto che colpisce le palme ed altre piante arboree",
+"E’ un batterio",
+"E’ un insetto che colpisce solo le palme"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 6
+},
+{
+"n": 34,
+"sezione": "Capitolo 2: AVVERSITA’ DELLE PIANTE",
+"testo": "Il Cinipide del castagno:",
+"risposte": [
+"Causa la comparsa di galle",
+"Non può essere combattuto con nessun organismo antagonista",
+"Non è presente nel territorio siciliano"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 6
+},
+{
+"n": 35,
+"sezione": "Capitolo 2: AVVERSITA’ DELLE PIANTE",
+"testo": "Il Torymus sinensis:",
+"risposte": [
+"E’ l’insetto antagonista naturale del Cinipide del castagno",
+"E’ l’insetto antagonista naturale della Processionaria del pino",
+"E’ un organismo nocivo per le specie arboree forestali"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 6
+},
+{
+"n": 36,
+"sezione": "Capitolo 2: AVVERSITA’ DELLE PIANTE",
+"testo": "Le cocciniglie sono insetti che provocano danno per effetto di:",
+"risposte": [
+"Erosioni",
+"Punture di suzione della linfa",
+"Gallerie (mine)"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 6
+},
+{
+"n": 37,
+"sezione": "Capitolo 2: AVVERSITA’ DELLE PIANTE",
+"testo": "I nematodi galligeni sono nematodi:",
+"risposte": [
+"Fogliari",
+"Che vivono liberi nel terreno",
+"Endoparassiti radicicoli"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 6
+},
+{
+"n": 38,
+"sezione": "Capitolo 2: AVVERSITA’ DELLE PIANTE",
+"testo": "Come si manifesta la “stanchezza” del terreno?",
+"risposte": [
+"Con la diminuzione progressiva e costante della produzione e l’aumento delle malattie parassitarie in genere",
+"Con l’aumento di tutte le erbe infestanti",
+"Con l’accresciuta richiesta di acqua da parte della coltura"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 6
+},
+{
+"n": 39,
+"sezione": "Capitolo 2: AVVERSITA’ DELLE PIANTE",
+"testo": "A cosa è dovuta la “stanchezza” dei terreni?",
+"risposte": [
+"Alle troppe lavorazioni meccaniche e scarsa letamazione",
+"All’uso continuo di geodisinfestanti e fertilizzanti chimici",
+"Al continuo ripetersi della stessa coltura sullo stesso terreno"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 6
+},
+{
+"n": 40,
+"sezione": "Capitolo 2: AVVERSITA’ DELLE PIANTE",
+"testo": "Cosa può provocare la pratica della monocoltura con impiego di prodotti fitosanitari?",
+"risposte": [
+"L’accumulo nel terreno di residui chimici ed il selezionarsi di erbe resistenti",
+"La riduzione di malattie delle piante con l’aumento della produzione agricola",
+"Il miglioramento della struttura del terreno e della sua fertilità"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 7
+},
+{
+"n": 41,
+"sezione": "Capitolo 2: AVVERSITA’ DELLE PIANTE",
+"testo": "Una fisiopatia è un danno alle piante che può derivare da:",
+"risposte": [
+"Agenti infettivi e insetti",
+"Condizioni ambientali non favorevoli",
+"Patogeni delle piante"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 7
+},
+{
+"n": 42,
+"sezione": "Capitolo 2: AVVERSITA’ DELLE PIANTE",
+"testo": "Le manifestazioni provocate dai batteri sulle piante sono spesso rappresentate da:",
+"risposte": [
+"Maculature, gocce di essudato e marciumi molli",
+"Presenza di muffe in genere di colore bianco-grigiastro",
+"Presenza di decolorazioni, anulature e striature con colorazioni anomale"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 7
+},
+{
+"n": 43,
+"sezione": "Capitolo 2: AVVERSITA’ DELLE PIANTE",
+"testo": "La flavescenza dorata della vite viene trasmessa da:",
+"risposte": [
+"Dalle cimici",
+"Da cicaline che si nutrono della linfa delle piante di vite",
+"Da afidi vettori"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 7
+},
+{
+"n": 44,
+"sezione": "Capitolo 2: AVVERSITA’ DELLE PIANTE",
+"testo": "Per controllare i fitoplasmi che causano la flavescenza dorata della vite o la moria del pero occorre:",
+"risposte": [
+"Effettuare specifici interventi con fungicidi",
+"Intervenire contro gli insetti vettori, se e quando presenti",
+"Effettuare il diserbo chimico meccanico"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 7
+},
+{
+"n": 45,
+"sezione": "Capitolo 2: AVVERSITA’ DELLE PIANTE",
+"testo": "Gli acari parassiti delle piante:",
+"risposte": [
+"Causano prevalentemente decolorazioni, bronzature fogliari e rugginosità sui frutti",
+"Causano decolorazioni ed erosioni fogliari, oltre all’accartocciamento delle foglie",
+"Arrecano danni principalmente in quanto sono in grado di propagare altre pericolose malattie, come le virosi"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 7
+},
+{
+"n": 46,
+"sezione": "Capitolo 2: AVVERSITA’ DELLE PIANTE",
+"testo": "Gli attacchi di acari Tetranichidi sono favoriti da:",
+"risposte": [
+"Condizioni climatiche caldo umide e piogge frequenti",
+"Concimazioni azotate e irrigazioni eccessive",
+"Temperature elevate e situazioni di stress idrico"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 7
+},
+{
+"n": 47,
+"sezione": "Capitolo 2: AVVERSITA’ DELLE PIANTE",
+"testo": "Per il controllo della cocciniglia rossa forte degli agrumi nelle Norme tecniche di Difesa Integrata è consigliato:",
+"risposte": [
+"Olio minerale",
+"Ossicloruro di rame",
+"Carbendazim"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 7
+},
+{
+"n": 48,
+"sezione": "Capitolo 2: AVVERSITA’ DELLE PIANTE",
+"testo": "Per il controllo del Punteruolo rosso delle palme in ambiente urbano è autorizzata",
+"risposte": [
+"Endoterapia con Abamectina",
+"Irrorazione aerea con Abamectina",
+"Irrorazione fogliare con Ossicloruro di Rame"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 7
+},
+{
+"n": 49,
+"sezione": "Capitolo 2: AVVERSITA’ DELLE PIANTE",
+"testo": "In quale stadio di sviluppo la mosca dell’olivo è più dannosa?",
+"risposte": [
+"Allo stadio di adulto",
+"Allo stadio di uovo e di pupa",
+"Allo stadio di larva"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 8
+},
+{
+"n": 50,
+"sezione": "Capitolo 2: AVVERSITA’ DELLE PIANTE",
+"testo": "Per il controllo dei nematodi dannosi alle colture è possibile:",
+"risposte": [
+"Effettuare rotazioni sufficientemente lunghe",
+"Lavorare profondamente il terreno in modo da interrare completamente i resti della coltura precedente",
+"Applicare la tecnica della solarizzazione mantenendo la copertura del terreno con film trasparente per almeno 1 settimana"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 8
+},
+{
+"n": 51,
+"sezione": "Capitolo 3: METODI E STRATEGIE DI DIFESA FITOSANITARIA SOSTENIBILE",
+"testo": "Cosa si intende per lotta biologica?",
+"risposte": [
+"La totale abolizione dell'impiego di prodotti fitosanitari molto tossici, tossici e nocivi",
+"L’uso di antagonisti naturali per il contenimento degli organismi nocivi alle colture",
+"L’impiego di prodotti fitosanitari selettivi che non eliminano gli insetti utili"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 8
+},
+{
+"n": 52,
+"sezione": "Capitolo 3: METODI E STRATEGIE DI DIFESA FITOSANITARIA SOSTENIBILE",
+"testo": "Che cosa si intende per agricoltura biologica?",
+"risposte": [
+"Una tecnica agricola in cui non si esegue mai nessun tipo di trattamento contro le avversità delle piante",
+"Una tecnica agricola in cui, per la difesa delle colture, si impiegano solo prodotti irri- tanti o non classificati",
+"Un sistema di produzione compatibile con l'ambiente che per la difesa delle colture si basa sull'abolizione delle sostanze chimiche di sintesi e sull’uso di metodi naturali di coltivazione"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 8
+},
+{
+"n": 53,
+"sezione": "Capitolo 3: METODI E STRATEGIE DI DIFESA FITOSANITARIA SOSTENIBILE",
+"testo": "Cosa si intende per difesa integrata?",
+"risposte": [
+"L'utilizzo integrato di prodotti anticrittogamici selettivi",
+"La difesa delle colture che impiega mezzi chimici, biologici, agronomici, fisici, bio- tecnologici e genetici",
+"La difesa delle colture che impiega sostanze chimiche non prodotte per sintesi"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 8
+},
+{
+"n": 54,
+"sezione": "Capitolo 3: METODI E STRATEGIE DI DIFESA FITOSANITARIA SOSTENIBILE",
+"testo": "Dove è previsto che la difesa integrata deve essere obbligatoriamente adottata da tutti gli utilizzatori professionali di prodotti fitosanitari?",
+"risposte": [
+"Nella Costituzione;",
+"Nel decreto 22 gennaio 2014, “Piano di azione nazionale per l’uso sostenibile dei prodotti fitosanitari”",
+"Nei manuali sull’impiego corretto dei prodotti fitosanitari"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 8
+},
+{
+"n": 55,
+"sezione": "Capitolo 3: METODI E STRATEGIE DI DIFESA FITOSANITARIA SOSTENIBILE",
+"testo": "Che cosa sono gli insetti predatori?",
+"risposte": [
+"Sono insetti che si nutrono di insetti o acari dannosi alle piante",
+"Sono insetti dannosi che vanno eliminati dalle colture agrarie",
+"E’ l’insieme degli insetti utili e dannosi che si possono trovare sulle colture agrarie"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 8
+},
+{
+"n": 56,
+"sezione": "Capitolo 3: METODI E STRATEGIE DI DIFESA FITOSANITARIA SOSTENIBILE",
+"testo": "La difesa integrata delle colture prevede:",
+"risposte": [
+"L’integrazione di soluzioni appropriate per limitare l’uso dei prodotti fitosanitari",
+"L’eliminazione dei prodotti classificati pericolosi per la salute umana",
+"I trattamenti vengono effettuati solo sulla base delle indicazioni dei servizi di assistenza tecnica"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 9
+},
+{
+"n": 57,
+"sezione": "Capitolo 3: METODI E STRATEGIE DI DIFESA FITOSANITARIA SOSTENIBILE",
+"testo": "Il rispetto dei principi e criteri della difesa integrata:",
+"risposte": [
+"Diventa obbligatorio per tutte le aziende a partire dal 2016",
+"E' diventato obbligatorio per tutte le aziende dal 1 gennaio 2014",
+"E’ obbligatorio solo per le aziende che ricevono contributi dalla Unione Europea"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 9
+},
+{
+"n": 58,
+"sezione": "Capitolo 3: METODI E STRATEGIE DI DIFESA FITOSANITARIA SOSTENIBILE",
+"testo": "Il livello volontario della difesa integrata, comporta:",
+"risposte": [
+"Il rispetto di specifici disciplinari (Norme Tecniche) che prevedono limitazioni nell’impiego dei prodotti fitosanitari più restrittive",
+"La riduzione del numero di interventi effettuati e dei prodotti fitosanitari utilizzati pari al 30% in meno rispetto ai prodotti fitosanitari utilizzati negli anni precedenti",
+"L’obbligo della rotazione colturale, dei monitoraggi delle avversità e della tenuta delle registrazioni dei prodotti fitosanitari utilizzati"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 9
+},
+{
+"n": 59,
+"sezione": "Capitolo 3: METODI E STRATEGIE DI DIFESA FITOSANITARIA SOSTENIBILE",
+"testo": "Le tecniche e i mezzi dell’agricoltura biologica sono utilizzati:",
+"risposte": [
+"Solo in agricoltura biologica, in quanto bisogna rispettare lo specifico Regolamento",
+"Nell’agricoltura biologica, nel biodinamico e in tutti i sistemi che non ricorrono all’uso del mezzo chimico",
+"In tutte le situazioni dove è possibile e conveniente, compresa la difesa integrata in agricoltura e in ambito urbano"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 9
+},
+{
+"n": 60,
+"sezione": "Capitolo 3: METODI E STRATEGIE DI DIFESA FITOSANITARIA SOSTENIBILE",
+"testo": "La decisione di effettuare un trattamento con prodotti fitosanitari, viene presa dall’utilizzatore professionale sulla base:",
+"risposte": [
+"Delle indicazioni scritte od orali di un rivenditore",
+"Delle indicazioni dei proprietari degli appezzamenti confinanti",
+"Del livello di infestazione delle sue colture, tenuto conto dei rilievi effettuati e delle condizioni climatiche"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 9
+},
+{
+"n": 61,
+"sezione": "Capitolo 3: METODI E STRATEGIE DI DIFESA FITOSANITARIA SOSTENIBILE",
+"testo": "Per limitare il rischio di comparsa di resistenza di un’avversità ad una determinata sostanza attiva",
+"risposte": [
+"E’ necessario attenersi alle indicazioni di etichetta dei prodotti fitosanitari",
+"E’ utile cambiare frequentemente i prodotti fitosanitari utilizzati",
+"Occorre alternare prodotti fitosanitari che agiscono con meccanismi diversi sull’avversità e ricorrere preferibilmente a misure alternative ai mezzi chimici"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 9
+},
+{
+"n": 62,
+"sezione": "Capitolo 3: METODI E STRATEGIE DI DIFESA FITOSANITARIA SOSTENIBILE",
+"testo": "Quale organizzazione internazionale si occupa specificatamente di resistenza degli insetticidi?",
+"risposte": [
+"IRAC",
+"OILB",
+"EPPO"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 10
+},
+{
+"n": 63,
+"sezione": "Capitolo 3: METODI E STRATEGIE DI DIFESA FITOSANITARIA SOSTENIBILE",
+"testo": "Qual è l’epoca di intervento legata all’attività di un prodotto fungicida di copertura?",
+"risposte": [
+"Preventiva: impedisce lo sviluppo dell’infezione",
+"Curativa: consente di combattere la malattia durante l’incubazione",
+"Eradicante: blocca lo sviluppo di infezioni già manifeste"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 10
+},
+{
+"n": 64,
+"sezione": "Capitolo 3: METODI E STRATEGIE DI DIFESA FITOSANITARIA SOSTENIBILE",
+"testo": "Quando è il momento adatto per effettuare il primo trattamento contro la peronospora della vite?",
+"risposte": [
+"Quando la vite “piange”: si tratta del periodo in cui la pianta risulta più suscettibile all’infezione peronosporica",
+"Quando sulla pagina superiore delle foglie sono visibili le “macchie d’olio”: segni evidenti dell’avvenuta infezione peronosporica",
+"Con germogli di 10 cm di lunghezza, dopo una pioggia di almeno 10 mm e con una temperatura minima di almeno 10 °C"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 10
+},
+{
+"n": 65,
+"sezione": "Capitolo 3: METODI E STRATEGIE DI DIFESA FITOSANITARIA SOSTENIBILE",
+"testo": "Cos’è la regola dei “tre dieci”?",
+"risposte": [
+"Un metodo per stimare l’inizio dell’infezione peronosporica ed il momento per effettuare il relativo trattamento",
+"Un sistema di calcolo delle superfici coltivate a vigneto",
+"La percentuale tra i diversi prodotti fitosanitari utilizzati nella difesa del vigneto"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 10
+},
+{
+"n": 66,
+"sezione": "Capitolo 3: METODI E STRATEGIE DI DIFESA FITOSANITARIA SOSTENIBILE",
+"testo": "Il Bacillus thuringiensis utilizzato in agricoltura è:",
+"risposte": [
+"un attrattivo sessuale degli insetti",
+"regolatore di sviluppo e sterilizzante dei fitofagi",
+"E’ un prodotto fitosanitario con azione bio-insetticida"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 10
+},
+{
+"n": 67,
+"sezione": "Capitolo 3: METODI E STRATEGIE DI DIFESA FITOSANITARIA SOSTENIBILE",
+"testo": "Per la difesa integrata della “tignoletta della vite”",
+"risposte": [
+"Utilizzare sulla prima generazione clorpirifos",
+"Utilizzare la regola dei “tre dieci”",
+"Utilizzare prodotti a base di Bacillus thuringiensis: il primo trattamento va effettuato a circa una settimana dall’inizio dei voli e ripetuto in funzione dell’andamento dell’infestazione e del prodotto utilizzato."
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 10
+},
+{
+"n": 68,
+"sezione": "Capitolo 3: METODI E STRATEGIE DI DIFESA FITOSANITARIA SOSTENIBILE",
+"testo": "Per la difesa integrata nei confronti della cocciniglia rossa forte è necessario:",
+"risposte": [
+"Effettuare il monitoraggio con trappole cromo attrattive",
+"Collocare trappole al feromone e effettuare periodici lanci di Aphytis melinus",
+"Utilizzare il clorpirifos alla comparsa dei primi esemplari di cocciniglia"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 10
+},
+{
+"n": 69,
+"sezione": "Capitolo 3: METODI E STRATEGIE DI DIFESA FITOSANITARIA SOSTENIBILE",
+"testo": "Per la difesa integrata contro gli aleirodi in serra",
+"risposte": [
+"Impiegare idonee reti “escludi insetto” opportunamente fissate alle aperture almeno fino all’allegagione del quarto grappolo fiorale, per ostacolare l’ingresso degli insetti e prevenire le infezioni di TYLCD",
+"Utilizzare il methyl parathion sulla prima generazione",
+"Utilizzare a cadenza quindicinale l’Imidacloprid"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 10
+},
+{
+"n": 70,
+"sezione": "Capitolo 3: METODI E STRATEGIE DI DIFESA FITOSANITARIA SOSTENIBILE",
+"testo": "E’ consigliabile fare un trattamento insetticida preventivo?",
+"risposte": [
+"Si, in quanto si impedisce l’eventuale diffusione dell’infestazione",
+"No, perché non è presente il bersaglio cui è diretto il trattamento",
+"No, perché rappresenta un onere troppo elevato per l’agricoltore"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 11
+},
+{
+"n": 71,
+"sezione": "Capitolo 3: METODI E STRATEGIE DI DIFESA FITOSANITARIA SOSTENIBILE",
+"testo": "L’uso dei feromoni nella difesa delle colture può determinare:",
+"risposte": [
+"la morte degli insetti dannosi",
+"il disorientamento sessuale degli insetti",
+"la mutazione genetica dei fitofagi"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 11
+},
+{
+"n": 72,
+"sezione": "Capitolo 3: METODI E STRATEGIE DI DIFESA FITOSANITARIA SOSTENIBILE",
+"testo": "Quando si raggiunge la soglia economica di intervento?",
+"risposte": [
+"Nel momento in cui, in base alle condizioni meteorologiche ed alla percentuale di infestazione, risulta conveniente effettuare il trattamento",
+"Nel momento in cui la presunta perdita di prodotto agricolo supera il costo del trattamento",
+"Nel momento in cui arriva l’epoca prevista per iniziare i trattamenti su una determinata coltura, contro uno specifico parassita"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 11
+},
+{
+"n": 73,
+"sezione": "Capitolo 3: METODI E STRATEGIE DI DIFESA FITOSANITARIA SOSTENIBILE",
+"testo": "Come avviene la valutazione della soglia di intervento?",
+"risposte": [
+"Valutando la scadenza del precedente intervento fitosanitario in base alle caratteristiche del prodotto utilizzato",
+"Attraverso monitoraggi e campionamenti di campo effettuati con procedura standard e ripetibile",
+"Dividendo il numero di piante presenti nel campo coltivato per il numero di trattamenti fatti in un anno"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 11
+},
+{
+"n": 74,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Secondo la normativa come vengono chiamati i preparati destinati a proteggere i vegetali e ad eliminare le piante indesiderate?",
+"risposte": [
+"Fitofarmaci",
+"Prodotti fitosanitari",
+"Pesticidi"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 11
+},
+{
+"n": 75,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Che cosa sono i PRODOTTI FITOSANITARI?",
+"risposte": [
+"Le sostanze attive ed i preparati contenenti una o più sostanze attive, che si impiegano per il controllo degli organismi nocivi delle piante e delle derrate alimentari, il controllo delle piante infestanti delle coltivazioni o che favoriscono o regolano le produzioni vegetali",
+"Gli insetticidi e fungicidi utilizzati per la difesa delle piante e delle derrate alimentari",
+"I prodotti per la difesa delle piante ed il diserbo classificati come molto tossici, tossici nocivi"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 11
+},
+{
+"n": 76,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "I corroboranti sono:",
+"risposte": [
+"sono sostanze di origine naturale, diverse dai fertilizzanti, che migliorano la resistenza delle piante nei confronti degli organismi nocivi e le proteggono da danni non provocati da parassiti",
+"sono sostanze che sostituiscono i coformulanti quando questi non sono già presenti nel prodotto fitosanitario",
+"sono sostanze di origine naturale che vengono distribuite al terreno e che aumentano l’assorbimento dei fertilizzanti"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 12
+},
+{
+"n": 77,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Che cosa si intende per sostanza attiva?",
+"risposte": [
+"Il residuo massimo consentito sugli alimenti",
+"La sostanza contenuta in un prodotto fitosanitario che agisce contro l'avversità da combattere sull’organismo bersaglio",
+"Un prodotto che può essere acquistato solamente da chi possiede il patentino"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 12
+},
+{
+"n": 78,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Perché è importante conoscere l'attività della sostanza attiva?",
+"risposte": [
+"Perché specifica se il prodotto è nocivo agli insetti ed acari utili",
+"Perché indirizza l'agricoltore nella scelta del prodotto in relazione all'avversità da combattere ci permette di capire se è utile",
+"Perché indica la quantità minima necessaria per combattere i parassiti"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 12
+},
+{
+"n": 79,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Che cosa sono i coadiuvanti?",
+"risposte": [
+"Sostanze che riducono l'efficacia di un prodotto fitosanitarie",
+"Sostanze che completano o rafforzano l'azione di una sostanza attiva",
+"Sostanze che prolungano il tempo di sicurezza"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 12
+},
+{
+"n": 80,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Che cosa sono i coformulanti?",
+"risposte": [
+"Sostanze che hanno lo scopo di aumentare l'efficacia delle sostanze attive",
+"Sostanze che servono a ridurre la DL 50",
+"Sostanze che servono a ridurre la concentrazione della sostanza attiva"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 12
+},
+{
+"n": 81,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Quale è la modalità di azione dei prodotti insetticidi e acaricidi?",
+"risposte": [
+"Stimolazione delle difese naturali della pianta",
+"Limitazione dell’accoppiamento tra maschi e femmine",
+"Ingestione, contatto e asfissia"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 12
+},
+{
+"n": 82,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "A che cosa serve un prodotto fitosanitario con azione insetticida?",
+"risposte": [
+"A combattere gli insetti parassiti degli animali",
+"A combattere le malattie crittogamiche",
+"A controllare le popolazioni di insetti dannosi alle colture"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 12
+},
+{
+"n": 83,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "A che cosa serve un prodotto fitosanitario acaricida?",
+"risposte": [
+"A combattere le malattie fungine delle piante agrarie",
+"A controllare la diffusione dannosa di acari fitofagi",
+"Ad impedire lo sviluppo di erbe infestanti"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 12
+},
+{
+"n": 84,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "A che cosa serve un diserbante?",
+"risposte": [
+"A controllare lo sviluppo delle erbe infestanti in determinate aree",
+"Ad eliminare le piante infestate da organismi nocivi",
+"Al solo diserbo di fossi, canali e giardini"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 13
+},
+{
+"n": 85,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "A cosa serve un prodotto fitosanitario fungicida?",
+"risposte": [
+"A controllare le malattie fungine che colpiscono le piante",
+"A favorire l'allegagione dei frutti",
+"A distruggere le foglie attaccate dal marciume"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 13
+},
+{
+"n": 86,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Cosa sono i prodotti fitosanitari fitoregolatori?",
+"risposte": [
+"Prodotti per combattere le malattie crittogamiche",
+"Prodotti impiegati per la concia delle sementi",
+"Sostanze che promuovono o inibiscono determinati processi fisiologici delle piante"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 13
+},
+{
+"n": 87,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Cos’è un formulato “flowable”?",
+"risposte": [
+"E’ una sospensione fluida molto stabile in cui è dispersa una sostanza attiva solida",
+"E’ una formulazione polverulenta idonea per trattamenti ad alti volumi",
+"E’ una sospensione in cui la sostanza attiva dispersa è allo stato liquido"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 13
+},
+{
+"n": 88,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Cos’è una sospensione microincapsulata?",
+"risposte": [
+"E’ quella in cui la sostanza attiva risulta racchiusa in piccoli sacchetti predosati",
+"E’ quella in cui la sostanza attiva, allo stato solido, è suddivisa in tante piccolissime capsule",
+"E’ quella in cui la sostanza attiva, dispersa allo stato liquido, è circondata da una membrana porosa"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 13
+},
+{
+"n": 89,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Cosa sono i trattamenti a secco?",
+"risposte": [
+"I diserbi eseguiti su terreno libero",
+"I trattamenti che non hanno bisogno di acqua come mezzo disperdente",
+"I trattamenti eseguiti con la pompa a spalla"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 13
+},
+{
+"n": 90,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Quali vantaggi offrono le nuove formulazioni dei prodotti fitosanitari (es. granuli idrodisperdibili, fluido microincapsulato, ecc...)?",
+"risposte": [
+"Nessuno, la loro efficacia non cambia",
+"Economici, in quanto diminuisce la quantità di prodotto che viene distribuita sulla coltura",
+"Minore pericolosità per l'operatore e maggiore facilità nella preparazione della miscela"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 13
+},
+{
+"n": 91,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Le formulazioni in granuli possono essere maneggiate a mani nude?",
+"risposte": [
+"Sì",
+"No mai",
+"Solamente se c'è l'acqua per lavarsi"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 14
+},
+{
+"n": 92,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Qual è la caratteristica di un prodotto fungicida sistemico?",
+"risposte": [
+"La capacità di agire sistematicamente contro tutte le avversità presenti sulla pianta",
+"Di non essere tossico per l'operatore che effettua il trattamento",
+"La capacità di penetrare all'interno della pianta e quindi combattere i patogeni non raggiungibili con prodotti che agiscono solo in superficie"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 14
+},
+{
+"n": 93,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Il Fosetyl di alluminio è un fungicida",
+"risposte": [
+"Ad azione sistemica ascendente e discendente",
+"Di copertura fogliare",
+"Granulare a lento rilascio"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 14
+},
+{
+"n": 94,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Fra le modalità d'azione degli insetticidi quale è la più selettiva?",
+"risposte": [
+"Per contatto",
+"Per ingestione",
+"Per asfissia"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 14
+},
+{
+"n": 95,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "La Deltametrina è una sostanza attiva appartenente alla famiglia dei:",
+"risposte": [
+"Neonicotinoidi",
+"Esteri fosforici",
+"Piretroidi"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 14
+},
+{
+"n": 96,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "La sostanza attiva Imidacloprid appartiene alla famiglia dei:",
+"risposte": [
+"Benzimidazolici",
+"Neonicotinoidi",
+"Clororganici"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 14
+},
+{
+"n": 97,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Quali tipi di erbicidi possono influire negativamente sulla coltura che segue quella trattata?",
+"risposte": [
+"Disseccanti",
+"Antigerminanti residuali",
+"Ad assorbimento fogliare"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 14
+},
+{
+"n": 98,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Il Glyphosate è una sostanza attiva erbicida con funzione:",
+"risposte": [
+"Antigerminante residuale",
+"Sistemico non residuale assorbito dalle foglie",
+"Dissecante ad applicazione radicale"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 14
+},
+{
+"n": 99,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "L'uso ripetuto degli stessi erbicidi può dar luogo:",
+"risposte": [
+"Alla presenza di piante rinate della coltura precedente",
+"A malerbe resistenti agli erbicidi impiegati, che si diffondono con il tempo",
+"A malerbe che soffocano la coltura"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 15
+},
+{
+"n": 100,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Cosa significa il parametro della Dose Letale 50 (DL50)?",
+"risposte": [
+"Il 50% del prodotto può essere letale per via ingestiva, cutanea e inalatoria",
+"La dose che uccide il 50% degli animali da esperimento sottoposti al trattamento",
+"La dose da diluire al 50% per avere un'azione tossica per gli animali da esperimento per via ingestiva in maniera superiore a quella inalatoria."
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 15
+},
+{
+"n": 101,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Il tempo di carenza è indicato in etichetta?",
+"risposte": [
+"Sì sempre ove necessario",
+"A discrezione della ditta produttrice del formulato",
+"No, mai"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 15
+},
+{
+"n": 102,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Cosa si intende per tempo di carenza o intervallo di sicurezza?",
+"risposte": [
+"L'intervallo espresso in giorni che deve intercorrere tra un trattamento e l'altro",
+"L'intervallo di tempo espresso in giorni che deve intercorrere tra l'ultimo trattamento e la raccolta o la messa in commercio di derrate alimentari immagazzinate",
+"L'intervallo di tempo espresso in giorni dopo il quale diventa accessibile il terreno trattato"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 15
+},
+{
+"n": 103,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Se si rende necessario eseguire un trattamento in prossimità della raccolta, quale tipo di prodotto occorre impiegare?",
+"risposte": [
+"Un prodotto fitosanitario che non venga assorbito per via cutanea per evitare rischi a carico della salute di chi esegue la raccolta",
+"Un prodotto fitosanitario che possieda un tempo di carenza inferiore a quello fra il trattamento e la presumibile data di raccolta",
+"Qualsiasi prodotto fitosanitario purché il prodotto raccolto venga lavato accuratamente prima della vendita"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 15
+},
+{
+"n": 104,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "L'intervallo di sicurezza di un prodotto fitosanitario varia se viene diminuita la concentrazione di impiego?",
+"risposte": [
+"Diminuisce riducendo la quantità di acqua impiegata",
+"Diminuisce proporzionalmente alle concentrazioni",
+"Non varia"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 15
+},
+{
+"n": 105,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "II lavaggio e la conservazione dei prodotti ortofrutticoli successivi al trattamento, modificano l'intervallo di sicurezza (o tempo di carenza) di un prodotto fitosanitario applicato in campo?",
+"risposte": [
+"L’intervallo di sicurezza scompare",
+"L’intervallo di sicurezza rimane inalterato",
+"L’intervallo di sicurezza viene ridotto"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 15
+},
+{
+"n": 106,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Nel caso di vegetali destinati alla trasformazione industriale o surgelati, si deve o no tenere conto dell'intervallo di sicurezza?",
+"risposte": [
+"No, se i prodotti vengono lavati con acqua calda",
+"Sì, sempre",
+"No"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 16
+},
+{
+"n": 107,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Che cosa si intende per residuo massimo ammesso o limite di tolleranza di un prodotto fitosanitario?",
+"risposte": [
+"La percentuale di sostanza attiva presente nel prodotto commerciale",
+"La quantità massima di sostanza attiva che può essere presente sui prodotti destinati all'alimentazione al momento della raccolta",
+"La quantità di prodotto fitosanitario che rimane nella botte al termine del trattamento"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 16
+},
+{
+"n": 108,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Dovendo fare un trattamento su coltura ortiva a raccolta scalare....",
+"risposte": [
+"Bisogna sempre rispettare i tempi di carenza",
+"Non bisogna rispettare i tempi di carenza in quanto la raccolta è scalare",
+"Bisogna rispettare i tempi di carenza soltanto per l'ultima raccolta"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 16
+},
+{
+"n": 109,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Se si effettuano trattamenti della frutta in post-raccolta, prima di immetterla sul mercato è necessario…",
+"risposte": [
+"Pulirla in maniera che non restino tracce evidenti del trattamento",
+"Rispettare assolutamente i tempi di carenza dei prodotti fitosanitari usati in magazzino",
+"Lavarla se si utilizza prima del giorno di scadenza del periodo di sicurezza"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 16
+},
+{
+"n": 110,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Che cosa è il tempo di rientro per l'operatore agricolo?",
+"risposte": [
+"L'intervallo di tempo tra il trattamento eseguito con un prodotto sistemico ed il suo assorbimento all'interno della pianta",
+"L'intervallo di tempo tra il trattamento e il rientro nell'area trattata per svolgere attività lavorative senza mezzi protettivi",
+"L'intervallo di tempo tra il momento in cui si esegue il trattamento e il rientro in azienda"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 16
+},
+{
+"n": 111,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Che cosa si intende per selettività di un insetticida?",
+"risposte": [
+"La capacità di agire sugli insetti nocivi pur essendo di bassa tossicità per l'uomo",
+"La capacità di eliminare tutti gli insetti presenti nella coltura",
+"La capacità di eliminare gli insetti nocivi, ma di rispettare il più possibile gli insetti utili"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 17
+},
+{
+"n": 112,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Cosa si intende per prodotto fitosanitario fitotossico?",
+"risposte": [
+"Che è mortale per l'uomo",
+"Che provoca danni alle colture agrarie",
+"Che è dannoso ad animali"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 17
+},
+{
+"n": 113,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Quali fenomeni si possono manifestare impiegando un erbicida a dose più alta di quella consigliata?",
+"risposte": [
+"Aumento della produzione perché si eliminano tutte le infestanti",
+"Eventuale fitotossicità per la coltura e inquinamento",
+"Nessuno, se dato in preemergenza"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 17
+},
+{
+"n": 114,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Quando un prodotto fitosanitario svolge un’azione citotropica-translaminare?",
+"risposte": [
+"Quando è capace di penetrare nelle foglie e di traslocare a livello sistemico nel resto della pianta",
+"Quando è capace di penetrare nelle foglie e di raggiungere la parte opposta a quella direttamente interessata dal trattamento",
+"Quando ha una traslocazione esclusivamente basipeta"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 17
+},
+{
+"n": 115,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Che cosa è la persistenza d'azione di un prodotto fitosanitario?",
+"risposte": [
+"La capacità di non essere asportato dalla pioggia",
+"La capacità di essere attivo nel tempo contro il parassita",
+"La capacità di agire anche durante il riposo vegetativo di una pianta"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 17
+},
+{
+"n": 116,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "In presenza di resistenza ad un insetticida, che cos’è opportuno fare?",
+"risposte": [
+"Aumentare il dosaggio del prodotto in questione e ripetere l’intervento frequentemente",
+"Utilizzare prodotti tossici o molto tossici per eliminare gli insetti dannosi resistenti all’insetticida in questione",
+"Alternare prodotti fitosanitari con diverso meccanismo d’azione"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 17
+},
+{
+"n": 117,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "E' possibile miscelare prodotti fitosanitari diversi?",
+"risposte": [
+"No, mai",
+"Sì, previa consultazione delle indicazioni di compatibilità in etichetta",
+"Sì, sempre"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 17
+},
+{
+"n": 118,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Prima di miscelare due prodotti fitosanitari per un trattamento, cosa bisogna fare?",
+"risposte": [
+"Preparare una dose doppia di acqua, perché i prodotti sono due",
+"Preparare due soluzioni distinte e poi unirle per vedere che cosa succede",
+"Leggere attentamente la \"compatibilità” sulle due etichette e/o effettuare test preliminari su piccole superfici"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 17
+},
+{
+"n": 119,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Quando l'operatore agricolo miscela due o più prodotti fitosanitari con intervalli di sicurezza diversi, dopo quanti giorni può effettuare la raccolta?",
+"risposte": [
+"Dopo il numero di giorni indicato sul prodotto con il tempo di carenza più lungo",
+"Dopo il numero di giorni indicato per il prodotto più tossico",
+"Non prima di trenta giorni"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 18
+},
+{
+"n": 120,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Cosa significa il parametro della Concentrazione Letale 50 (CL50)?",
+"risposte": [
+"Sono la dose di aria satura di PF che viene somministrata a 50 animali da esperimento su un totale di 100, mentre ai rimanenti 50 animali viene somministrata dell’acqua satura di PF concentrato",
+"La concentrazione in aria o acqua del prodotto che agisce allo stato di gas o di vapore e che uccide il 50% degli animali da laboratorio sottoposti al trattamento",
+"Il 50% del prodotto può essere letale"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 18
+},
+{
+"n": 121,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Come sono visualizzate le indicazioni di pericolo della nuova classificazione di tossicità?",
+"risposte": [
+"Con simbolo dentro un triangolo arancione",
+"Con un simbolo dentro un quadrato bianco",
+"Con un simbolo dentro un rombo bianco e cornice rossa definito “pittogramma”"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 18
+},
+{
+"n": 122,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "I prodotti fitosanitari possono essere prodotti e immessi in commercio liberamente o sono soggetti ad autorizzazione?",
+"risposte": [
+"Sono di libera produzione e vendita",
+"Sono soggetti ad autorizzazione dell'Unità Sanitaria Locale",
+"Sono soggetti ad autorizzazione del Ministero della Salute e sull’etichetta viene riportato il n. di registrazione"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 18
+},
+{
+"n": 123,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "E' possibile impiegare prodotti fitosanitari per scopi diversi da quelli indicati in etichetta?",
+"risposte": [
+"No, i prodotti fitosanitari vanno usati solamente per le colture sulle quali sono autorizzati e per il parassita e campo di impiego indicati",
+"Sì, solamente su consiglio del venditore o del tecnico che fornisce l'assistenza",
+"Sì, solo se realmente necessario"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 18
+},
+{
+"n": 124,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Un prodotto fitosanitario può essere impiegato su qualsiasi coltura?",
+"risposte": [
+"Sì",
+"No, solo per le colture e con le modalità indicate in etichetta",
+"No, solamente in base all'esperienza del venditore del prodotto o del tecnico che fornisce l'assistenza"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 18
+},
+{
+"n": 125,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Un prodotto aficida, può essere impiegato su qualsiasi coltura per la lotta contro gli afidi?",
+"risposte": [
+"Sì, in quanto è un prodotto specifico",
+"No, solo per le colture indicate in etichetta",
+"No, solamente in base all'esperienza"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 19
+},
+{
+"n": 126,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Gli operatori agricoli possono usare prodotti non registrati o revocati?",
+"risposte": [
+"Sì, purché eseguano le indicazioni di un tecnico",
+"No, mai",
+"Sì, solamente se poco tossici e in epoche lontane dalla raccolta"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 19
+},
+{
+"n": 127,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "E' corretto impiegare prodotti fitosanitari a dosi più alte di quelle massime indicate in etichetta?",
+"risposte": [
+"No, mai",
+"Sì",
+"Solamente se miscelati"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 19
+},
+{
+"n": 128,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "I prodotti fitosanitari possono essere impiegati per trattamenti di aree non agricole?",
+"risposte": [
+"Sì, sempre purché si rispetti il tempo di carenza",
+"No",
+"Solo quando è specificatamente indicato in etichetta"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 19
+},
+{
+"n": 129,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "E' permesso prelevare acqua dai fossi o dai canali direttamente con mezzi irroranti?",
+"risposte": [
+"Sì",
+"Sì, purché si lavi prima dell'uso il tubo aspirante",
+"Sì, ma solo con mezzi aspiranti separati ed autonomi dall'attrezzatura irrorante"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 19
+},
+{
+"n": 130,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "La fuoriuscita della miscela dall'attrezzatura è da evitare?",
+"risposte": [
+"No, purché il prodotto così perduto non inquini i corsi d'acqua circostanti",
+"Sì, sempre",
+"No, se si tratta di prodotti poco tossici"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 19
+},
+{
+"n": 131,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Per evitare danni alle api, è sufficiente allontanare gli alveari dal frutteto da trattare?",
+"risposte": [
+"Si, ma di almeno 500 metri dall'area interessata al trattamento",
+"No, bisogna anche evitare di trattare nei periodi di fioritura e sfalciare le erbe sottostanti se in fioritura",
+"Sì, se non sono in periodo riproduttivo"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 19
+},
+{
+"n": 132,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Sono consentiti i trattamenti insetticidi, acaricidi o con altri prodotti tossici per le api durante il periodo della fioritura?",
+"risposte": [
+"Sì, su tutte le colture",
+"Sì, con esclusione dei frutteti",
+"No, in nessun caso per non danneggiare gli insetti impollinatori"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 19
+},
+{
+"n": 133,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Esiste un divieto legale d'impiego dei prodotti fitosanitari in aree di rispetto intorno a pozzi o sorgenti di acque destinate al consumo umano?",
+"risposte": [
+"Si, entro un raggio di 200 metri",
+"No",
+"Si, entro un raggio di 50 metri, salvo deroghe specifiche"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 20
+},
+{
+"n": 134,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Quali precauzioni è d'obbligo adottare trattando in prossimità di strade, corsi d'acqua e colture confinanti?",
+"risposte": [
+"Nessuna precauzione se il prodotto fitosanitario non è molto tossico, tossico o nocivo",
+"Tutte le misure di mitigazione del rischio di dispersione di prodotti fitosanitari nell’ambiente",
+"Nessuna precauzione in assenza di vento va tenuta una distanza di sicurezza"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 20
+},
+{
+"n": 135,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Quali sono i prodotti fitosanitari destinati ad utilizzatori non professionali?",
+"risposte": [
+"Sono tutti i prodotti fitosanitari classificati come non pericolosi",
+"Sono i prodotti impiegabili su piante ornamentali e da fiore, in appartamento, balcone e giardino domestico (PfnPO) e quelli utilizzabili su piante edibili coltivate in forma amatoriale, il cui raccolto sia destinato al consumo familiare (PFnPE)",
+"Sono tutti i coformulanti in quanto non risultano tossici per l’uomo"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 20
+},
+{
+"n": 136,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "In caso si riscontri una minore efficacia del trattamento, cosa è opportuno fare?",
+"risposte": [
+"Aumentare la dose del prodotto impiegato",
+"Sostituire il prodotto impiegato con uno più tossico",
+"Consultare un tecnico specializzato ed eventualmente sostituire il prodotto con un altro, registrato per la coltura e la malattia da combattere"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 20
+},
+{
+"n": 137,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Questo simbolo (pittogramma) si può trovare su contenitori di gas. In quale delle seguenti situazioni questo prodotto può essere pericoloso?",
+"risposte": [
+"Se viene a contatto con l'acqua",
+"Se è esposto al calore",
+"Se è vuoto"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 20
+},
+{
+"n": 138,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Cosa significa questo simbolo (pittogramma)?",
+"risposte": [
+"Rischio di esplosione",
+"Tiro al bersaglio",
+"Grave pericolo per la salute"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 20
+},
+{
+"n": 139,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Questo simbolo (pittogramma) rappresenta vari pericoli per la salute. Quale di quelli riportati qui di seguito è corretto?",
+"risposte": [
+"Può causare una reazione allergica cutanea",
+"Non usare quando siete alla guida o manovrate una macchina",
+"Ingresso vietato, proprietà privata"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 21
+},
+{
+"n": 140,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Questo simbolo (pittogramma) si può trovare sui prodotti fitosanitari. Cosa dovreste fare in caso di contatto accidentale con gli occhi?",
+"risposte": [
+"Sciacquare accuratamente",
+"Fuggire",
+"Raffreddare il bruciore all'occhio"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 21
+},
+{
+"n": 141,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Cosa significa questo simbolo (pittogramma)?",
+"risposte": [
+"Siccità",
+"Pesca vietata",
+"Pericoloso per l'ambiente"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 21
+},
+{
+"n": 142,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Cosa dovreste fare con un prodotto che presenta questo simbolo (pittogramma)?",
+"risposte": [
+"Berlo",
+"Non usarlo",
+"Manipolare con cautela, può essere letale"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 21
+},
+{
+"n": 143,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Cosa significa questo simbolo (pittogramma)?",
+"risposte": [
+"Rischio di radiazioni UV",
+"Può provocare o alimentare un incendio",
+"Oggetto infiammabile"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 21
+},
+{
+"n": 144,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Qual è la differenza tra questi due simboli (pittogramma)?",
+"risposte": [
+"Sono gli stessi, quello a destra è una versione anteriore",
+"Sinistra: infiammabile; Destra: comburente potrebbe far divampare una fiamma già accesa o far sviluppare un incendio.",
+"Sinistra: cespuglio in fiamme; Destra: cerchio di fuoco"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 21
+},
+{
+"n": 145,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Quali sono i rischi nell'utilizzare prodotti illegali?",
+"risposte": [
+"Solo rischi legati a frode fiscale per l'agricoltore",
+"Rischi per i consumatori, per l'agricoltore e per le aziende produttrici di prodotti fitosanitari",
+"Rischio economico per le aziende produttrici di PRODOTTI FITOSANITARI"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 22
+},
+{
+"n": 146,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "Come comportarsi all'atto dell'acquisto di prodotti fitosanitari?",
+"risposte": [
+"Controllare la corretta etichettatura dei prodotti fitosanitari",
+"E’ sufficiente acquistare confezioni integre",
+"Rivolgersi unicamente a rivenditori autorizzati e controllare la corretta etichettatura dei prodotti fitosanitari"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 22
+},
+{
+"n": 147,
+"sezione": "Capitolo 4: I PRODOTTI FITOSANITARI",
+"testo": "In caso di dubbi circa la provenienza e l'autenticità di prodotti fitosanitari, cosa fare?",
+"risposte": [
+"Abbandonare in un cassonetto della spazzatura i prodotti appena acquistati per non correre rischi",
+"Avvisare le autorità competenti, quali il Comando Carabinieri Politiche Agricole",
+"Smaltire correttamente le confezioni sospette"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 22
+},
+{
+"n": 148,
+"sezione": "Capitolo 5: NORME PER ACQUISTO, TRASPORTO, MANIPOLAZIONE, STOCCAGGIO, TRATTAMENTODI IMBALLAGGI E RIMANENZE DEI PRODOTTI FITOSANITARI",
+"testo": "L’indicazione riportata in una etichetta di un prodotto fitosanitario di una dose di 3 litri per ettaro equivale a:",
+"risposte": [
+"1,5 litri per 100 litri di acqua",
+"1,5 litri per 1.000 metri quadrati di terreno",
+"1,5 litri per 5.000 metri quadrati di terreno"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 22
+},
+{
+"n": 149,
+"sezione": "Capitolo 5: NORME PER ACQUISTO, TRASPORTO, MANIPOLAZIONE, STOCCAGGIO, TRATTAMENTODI IMBALLAGGI E RIMANENZE DEI PRODOTTI FITOSANITARI",
+"testo": "Quali tipi di norme riguardano l’acquisto e l’uso dei prodotti fitosanitari?",
+"risposte": [
+"Normative nazionali",
+"Normative comunitarie",
+"Normative comunitarie e nazionali"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 22
+},
+{
+"n": 150,
+"sezione": "Capitolo 5: NORME PER ACQUISTO, TRASPORTO, MANIPOLAZIONE, STOCCAGGIO, TRATTAMENTODI IMBALLAGGI E RIMANENZE DEI PRODOTTI FITOSANITARI",
+"testo": "Come devono essere conservati i prodotti fitosanitari dall’utilizzatore professionale?",
+"risposte": [
+"Entro locali, recinti o armadi areati non di legno, chiusi a chiave, su cui deve essere apposto un cartello con un teschio e la scritta “veleno”",
+"In un luogo appartato dell’abitazione",
+"E’ sufficiente che siano tenuti separati da sostanze alimentari o mangimi"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 23
+},
+{
+"n": 151,
+"sezione": "Capitolo 5: NORME PER ACQUISTO, TRASPORTO, MANIPOLAZIONE, STOCCAGGIO, TRATTAMENTODI IMBALLAGGI E RIMANENZE DEI PRODOTTI FITOSANITARI",
+"testo": "Nel locale adibito a deposito di prodotti fitosanitari possono essere conservati:",
+"risposte": [
+"Esclusivamente i prodotti fitosanitari le cui confezioni sono integre",
+"Tutti i prodotti fitosanitari, anche parzialmente usati, i contenitori vuoti, gli strumenti per dosare i prodotti e i DPI (dispositivi di protezione individuale)",
+"Oltre ai prodotti fitosanitari anche i prodotti scaduti"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 23
+},
+{
+"n": 152,
+"sezione": "Capitolo 5: NORME PER ACQUISTO, TRASPORTO, MANIPOLAZIONE, STOCCAGGIO, TRATTAMENTODI IMBALLAGGI E RIMANENZE DEI PRODOTTI FITOSANITARI",
+"testo": "I prodotti fitosanitari vanno conservati:",
+"risposte": [
+"Nei loro contenitori originali, con le etichette integre e leggibili",
+"Per i prodotti aperti, è necessario che sia leggibile almeno il nome del prodotto. Deve inoltre essere disponibile all’interno del deposito la scheda di sicurezza",
+"Per i prodotti aperti, è necessario che sia leggibile almeno il nome del prodotto ed il numero di registrazione"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 23
+},
+{
+"n": 153,
+"sezione": "Capitolo 5: NORME PER ACQUISTO, TRASPORTO, MANIPOLAZIONE, STOCCAGGIO, TRATTAMENTODI IMBALLAGGI E RIMANENZE DEI PRODOTTI FITOSANITARI",
+"testo": "Quando si effettuano trattamenti, è opportuno:",
+"risposte": [
+"Preparare una quantità di miscela irrorante effettivamente necessaria per il trattamento",
+"Scaricare la soluzione avanzata sul terreno evitando così che finisca nel più vicino fossato",
+"Distribuire la soluzione rimasta in un’altra coltura vicina"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 23
+},
+{
+"n": 154,
+"sezione": "Capitolo 5: NORME PER ACQUISTO, TRASPORTO, MANIPOLAZIONE, STOCCAGGIO, TRATTAMENTODI IMBALLAGGI E RIMANENZE DEI PRODOTTI FITOSANITARI",
+"testo": "Come è opportuno segnalare una superficie trattata con prodotti fitosanitari?",
+"risposte": [
+"Recintando adeguatamente tutti i campi trattati",
+"Appendendo agli alberi i contenitori dei prodotti fitosanitari utilizzati",
+"Applicando idonei cartelli in prossimità dei possibili punti di accesso agli appezzamenti da parte di estranei"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 23
+},
+{
+"n": 155,
+"sezione": "Capitolo 5: NORME PER ACQUISTO, TRASPORTO, MANIPOLAZIONE, STOCCAGGIO, TRATTAMENTODI IMBALLAGGI E RIMANENZE DEI PRODOTTI FITOSANITARI",
+"testo": "In caso di giornata ventosa è corretto eseguire il trattamento?",
+"risposte": [
+"Sì, se questo è veramente necessario, purché si utilizzi la maschera protettiva",
+"No, per il rischio che la nube tossica colpisca l’operatore e si sposti lontano dalla coltura trattata e inquini altre aree",
+"Sì, purché si riduca la pressione di esercizio e la velocità di avanzamento"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 23
+},
+{
+"n": 156,
+"sezione": "Capitolo 5: NORME PER ACQUISTO, TRASPORTO, MANIPOLAZIONE, STOCCAGGIO, TRATTAMENTODI IMBALLAGGI E RIMANENZE DEI PRODOTTI FITOSANITARI",
+"testo": "Dove devono essere detenuti i prodotti fitosanitari dall’utilizzatore professionale?",
+"risposte": [
+"In un locale qualsiasi purché riparato dalla pioggia",
+"In un locale refrigerato",
+"In locali idonei e non adibiti al deposito di generi alimentari e mangimi"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 23
+},
+{
+"n": 157,
+"sezione": "Capitolo 5: NORME PER ACQUISTO, TRASPORTO, MANIPOLAZIONE, STOCCAGGIO, TRATTAMENTODI IMBALLAGGI E RIMANENZE DEI PRODOTTI FITOSANITARI",
+"testo": "Come si deve comportare l’operatore al termine del trattamento con prodotti fitosanitari?",
+"risposte": [
+"Lavarsi le mani",
+"Nessuna precauzione perché al termine del trattamento non si corre più alcun pericolo",
+"Spogliarsi e lavarsi abbondantemente e accuratamente con acqua e sapone. Gli indumenti vanno lavati separatamente"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 24
+},
+{
+"n": 158,
+"sezione": "Capitolo 5: NORME PER ACQUISTO, TRASPORTO, MANIPOLAZIONE, STOCCAGGIO, TRATTAMENTODI IMBALLAGGI E RIMANENZE DEI PRODOTTI FITOSANITARI",
+"testo": "La preparazione della miscela va effettuata:",
+"risposte": [
+"Con modalità tali da non causare rischi di dispersione nell’ambiente, anche in caso di versamenti (perdite) accidentali",
+"Esclusivamente sopra un’apposita area attrezzata costituita da battuto di cemento, munito di tombino collegato a vasca di raccolta reflui",
+"Lontano almeno 100 metri da corpi idrici superficiali, quali canali, fiumi e laghi"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 24
+},
+{
+"n": 159,
+"sezione": "Capitolo 5: NORME PER ACQUISTO, TRASPORTO, MANIPOLAZIONE, STOCCAGGIO, TRATTAMENTODI IMBALLAGGI E RIMANENZE DEI PRODOTTI FITOSANITARI",
+"testo": "Quando si deve preparare una soluzione per il trattamento con un prodotto fitosanitario in polvere, è preferibile...",
+"risposte": [
+"Riempire la cisterna con l’acqua necessaria e poi immettervi la polvere",
+"Riempire la cisterna con la metà dell’acqua necessaria, sciogliere a parte con poca acqua la polvere, immettere il tutto nella cisterna e dopo portare a volume agitando",
+"Immettere nella cisterna la polvere e poi, agitando, tutta l’acqua necessaria"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 24
+},
+{
+"n": 160,
+"sezione": "Capitolo 5: NORME PER ACQUISTO, TRASPORTO, MANIPOLAZIONE, STOCCAGGIO, TRATTAMENTODI IMBALLAGGI E RIMANENZE DEI PRODOTTI FITOSANITARI",
+"testo": "È obbligatorio registrare i trattamenti con prodotti fitosanitari per utilizzatori professionali?",
+"risposte": [
+"Sì, ma solo quando si utilizzano prodotti molto tossici, tossici o nocivi",
+"Sì, sempre tranne se si tratta in orti familiari e non si vende il prodotto agricolo",
+"No, è obbligatorio solo nel caso in cui il trattamento abbia procurato fastidio a qualcuno"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 24
+},
+{
+"n": 161,
+"sezione": "Capitolo 5: NORME PER ACQUISTO, TRASPORTO, MANIPOLAZIONE, STOCCAGGIO, TRATTAMENTODI IMBALLAGGI E RIMANENZE DEI PRODOTTI FITOSANITARI",
+"testo": "Nel registro dei trattamenti, o quaderno di campagna, vanno annotati i trattamenti effettuati con…",
+"risposte": [
+"tutti i prodotti fitosanitari e relativi coadiuvanti indipendentemente dalla classe tossicologica di appartenenza",
+"i prodotti fitosanitari classificati come molto tossici, tossici e nocivi e quelli pericolosi",
+"diserbanti, insetticidi, acaricidi, nematocidi e fungicidi"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 24
+},
+{
+"n": 162,
+"sezione": "Capitolo 5: NORME PER ACQUISTO, TRASPORTO, MANIPOLAZIONE, STOCCAGGIO, TRATTAMENTODI IMBALLAGGI E RIMANENZE DEI PRODOTTI FITOSANITARI",
+"testo": "Quali informazioni essenziali devono essere riportate sul registro dei trattamenti o quaderno di campagna dopo aver effettuato un trattamento?",
+"risposte": [
+"Data del trattamento, prodotto impiegato e coltura trattata e nominativo dell’eventuale contoterzista",
+"Data del trattamento, sostanza attiva utilizzata ed appezzamento interessato",
+"Data del trattamento, formulato e sostanza attiva utilizzati, nome di chi ha effettuato il trattamento"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 24
+},
+{
+"n": 163,
+"sezione": "Capitolo 5: NORME PER ACQUISTO, TRASPORTO, MANIPOLAZIONE, STOCCAGGIO, TRATTAMENTODI IMBALLAGGI E RIMANENZE DEI PRODOTTI FITOSANITARI",
+"testo": "Da chi deve essere compilato il registro dei trattamenti?",
+"risposte": [
+"Dal commercialista",
+"Dall’utilizzatore professionale o, in alternativa, da un suo delegato",
+"Da chi ha venduto il prodotto utilizzato per il trattamento"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 25
+},
+{
+"n": 164,
+"sezione": "Capitolo 5: NORME PER ACQUISTO, TRASPORTO, MANIPOLAZIONE, STOCCAGGIO, TRATTAMENTODI IMBALLAGGI E RIMANENZE DEI PRODOTTI FITOSANITARI",
+"testo": "Il registro dei trattamenti deve esser compilato solo per i trattamenti effettuati nelle aziende agricole?",
+"risposte": [
+"Sì, indipendentemente dalla coltura trattata",
+"No, anche per i trattamenti effettuati negli orti e giardini familiari",
+"No, anche per la difesa delle derrate alimentari e per gli impieghi extra-agricoli (verde pubblico, diserbo canali, sedi ferroviarie, ecc.)"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 25
+},
+{
+"n": 165,
+"sezione": "Capitolo 5: NORME PER ACQUISTO, TRASPORTO, MANIPOLAZIONE, STOCCAGGIO, TRATTAMENTODI IMBALLAGGI E RIMANENZE DEI PRODOTTI FITOSANITARI",
+"testo": "Cosa occorre fare dell’acqua di lavaggio dei contenitori vuoti di prodotti fitosanitari?",
+"risposte": [
+"Deve essere scaricata per terra, avendo cura di non bagnarsi con eventuali schizzi",
+"Deve essere versata nella miscela preparata per effettuare il trattamento",
+"E’ possibile scaricarla in fognatura"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 25
+},
+{
+"n": 166,
+"sezione": "Capitolo 5: NORME PER ACQUISTO, TRASPORTO, MANIPOLAZIONE, STOCCAGGIO, TRATTAMENTODI IMBALLAGGI E RIMANENZE DEI PRODOTTI FITOSANITARI",
+"testo": "I prodotti fitosanitari non più utilizzabili come devono essere smaltiti?",
+"risposte": [
+"Sotterrati in luoghi isolati lontano da abitazioni e non utilizzati per le coltivazioni agrarie",
+"Conferendoli a trasportatori iscritti all'Albo Gestori Ambientali",
+"Riversandoli nel corso d'acqua più vicino, solo se l’acqua non è destinata al consumo umano"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 25
+},
+{
+"n": 167,
+"sezione": "Capitolo 5: NORME PER ACQUISTO, TRASPORTO, MANIPOLAZIONE, STOCCAGGIO, TRATTAMENTODI IMBALLAGGI E RIMANENZE DEI PRODOTTI FITOSANITARI",
+"testo": "I contenitori vuoti possono essere conservati:",
+"risposte": [
+"In un apposito locale chiuso a chiave",
+"In contenitori idonei destinati esclusivamente a tale uso e ben identificabili, all’interno del deposito di prodotti fitosanitari",
+"Esclusivamente all’interno del deposito adibito alla conservazione dei prodotti fitosanitari"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 25
+},
+{
+"n": 168,
+"sezione": "Capitolo 5: NORME PER ACQUISTO, TRASPORTO, MANIPOLAZIONE, STOCCAGGIO, TRATTAMENTODI IMBALLAGGI E RIMANENZE DEI PRODOTTI FITOSANITARI",
+"testo": "Come vengono classificati i rifiuti derivanti dall’esercizio delle attività agricole?",
+"risposte": [
+"Solidi urbani",
+"Solidi agricoli",
+"Speciali"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 25
+},
+{
+"n": 169,
+"sezione": "Capitolo 5: NORME PER ACQUISTO, TRASPORTO, MANIPOLAZIONE, STOCCAGGIO, TRATTAMENTODI IMBALLAGGI E RIMANENZE DEI PRODOTTI FITOSANITARI",
+"testo": "Quali sono le due categorie in cui si suddividono i rifiuti speciali?",
+"risposte": [
+"Autorizzati e non autorizzati",
+"Pericolosi e non pericolosi",
+"Smaltibili e non smaltibili"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 25
+},
+{
+"n": 170,
+"sezione": "Capitolo 5: NORME PER ACQUISTO, TRASPORTO, MANIPOLAZIONE, STOCCAGGIO, TRATTAMENTODI IMBALLAGGI E RIMANENZE DEI PRODOTTI FITOSANITARI",
+"testo": "I contenitori vuoti di prodotti fitosanitari vengono classificati come…",
+"risposte": [
+"rifiuti speciali",
+"rifiuti speciali pericolosi",
+"rifiuti speciali non pericolosi"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 26
+},
+{
+"n": 171,
+"sezione": "Capitolo 5: NORME PER ACQUISTO, TRASPORTO, MANIPOLAZIONE, STOCCAGGIO, TRATTAMENTODI IMBALLAGGI E RIMANENZE DEI PRODOTTI FITOSANITARI",
+"testo": "Per quanto tempo è possibile stoccare in azienda i rifiuti speciali pericolosi?",
+"risposte": [
+"Fino al raggiungimento di 10 metri cubi, e comunque massimo per un anno",
+"Fino al raggiungimento di 20 metri cubi, e comunque massimo per un anno",
+"Per massimo 3 mesi"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 26
+},
+{
+"n": 172,
+"sezione": "Capitolo 5: NORME PER ACQUISTO, TRASPORTO, MANIPOLAZIONE, STOCCAGGIO, TRATTAMENTODI IMBALLAGGI E RIMANENZE DEI PRODOTTI FITOSANITARI",
+"testo": "La miscela fitoiatrica residua al termine del trattamento:",
+"risposte": [
+"Deve rimanere nell’irroratrice, in modo da poter essere riutilizzata la volta successiva",
+"Deve essere buttata in un fossato di scolo",
+"Può essere, previa diluizione, distribuita sulla stessa coltura, nel rispetto delle indicazioni di etichetta"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 26
+},
+{
+"n": 173,
+"sezione": "Capitolo 5: NORME PER ACQUISTO, TRASPORTO, MANIPOLAZIONE, STOCCAGGIO, TRATTAMENTODI IMBALLAGGI E RIMANENZE DEI PRODOTTI FITOSANITARI",
+"testo": "A cosa serve la scheda di sicurezza di un prodotto fitosanitario?",
+"risposte": [
+"Serve per scegliere le necessarie misure di prevenzione e protezione per l’uomo e l’ambiente",
+"Serve per la salvaguardia della salute dell’uomo e dell’ambiente quando si impiegano prodotti molto tossici, tossici e nocivi",
+"Serve per adottare, alla fine del trattamento, un corretto smaltimento della miscela fitoiatrica residua e dei contenitori dei prodotti fitosanitari"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 26
+},
+{
+"n": 174,
+"sezione": "Capitolo 5: NORME PER ACQUISTO, TRASPORTO, MANIPOLAZIONE, STOCCAGGIO, TRATTAMENTODI IMBALLAGGI E RIMANENZE DEI PRODOTTI FITOSANITARI",
+"testo": "Per trasportare i prodotti fitosanitari dal punto vendita al centro aziendale è meglio utilizzare…",
+"risposte": [
+"un rimorchio agricolo",
+"un furgone con il piano di carico separato dalla cabina di guida",
+"un’automobile con portabagagli"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 26
+},
+{
+"n": 175,
+"sezione": "Capitolo 5: NORME PER ACQUISTO, TRASPORTO, MANIPOLAZIONE, STOCCAGGIO, TRATTAMENTODI IMBALLAGGI E RIMANENZE DEI PRODOTTI FITOSANITARI",
+"testo": "Il formulario di trasporto dei rifiuti deve essere redatto…",
+"risposte": [
+"in due esemplari, uno per il produttore ed uno per il trasportatore",
+"in tre esemplari, uno per il produttore, uno per il trasportatore ed uno per lo smaltitore",
+"in quattro esemplari, uno per il produttore, due per il trasportatore ed uno per lo smaltitore"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 26
+},
+{
+"n": 176,
+"sezione": "Capitolo 5: NORME PER ACQUISTO, TRASPORTO, MANIPOLAZIONE, STOCCAGGIO, TRATTAMENTODI IMBALLAGGI E RIMANENZE DEI PRODOTTI FITOSANITARI",
+"testo": "Quale deve essere il comportamento nel caso in cui si manifestino cospicue perdite di prodotto fitosanitario al momento del loro trasporto dal rivenditore all’azienda agricola?",
+"risposte": [
+"Lavare la strada e convogliare il residuo nei fossi",
+"Raccogliere personalmente il materiale disperso e riporlo in adeguato contenitore",
+"Adoperarsi per evitare ulteriori danni e informare la pubblica autorità competente"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 26
+},
+{
+"n": 177,
+"sezione": "Capitolo 6: MACCHINE PER LA DISTRIBUZIONE DEI PRODOTTI FITOSANITARI, CONTROLLI, REGOLAZIONE E TARATURE",
+"testo": "La direttiva macchine (direttiva n. 127/09) prevede:",
+"risposte": [
+"Che tutti i mezzi siano opportunamente tarati",
+"Che le attrezzature irroranti di nuova fabbricazione siano progettate e costruite secondo criteri che salvaguardino la salute dell’uomo e proteggano l’ambiente da fenomeni di inquinamento",
+"Nessuna ricaduta pratica sulle irroratrici, che al contrario interessa altre tipologie di mezzi meccanici operanti in agricoltura"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 27
+},
+{
+"n": 178,
+"sezione": "Capitolo 6: MACCHINE PER LA DISTRIBUZIONE DEI PRODOTTI FITOSANITARI, CONTROLLI, REGOLAZIONE E TARATURE",
+"testo": "In seguito all’attuazione della direttiva CE n. 128/09, l’obbligo di controllo funzionale delle irroratrici riguarda:",
+"risposte": [
+"Tutte le aziende che utilizzano in modo professionale i mezzi irroranti",
+"Nessuno, è legalmente prevista solo la forma di adesione “volontaria” al servizio di controllo delle attrezzature",
+"Solo le aziende che aderiscono ad alcune misure del Programma di Sviluppo Rurale o che rientrano nel contesto applicativo dell’OCM ortofrutta e delle leggi regionali"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 27
+},
+{
+"n": 179,
+"sezione": "Capitolo 6: MACCHINE PER LA DISTRIBUZIONE DEI PRODOTTI FITOSANITARI, CONTROLLI, REGOLAZIONE E TARATURE",
+"testo": "Il controllo funzionale, la regolazione e la manutenzione delle macchine irroratrici sono necessarie per:",
+"risposte": [
+"Fare meno trattamenti poiché aumenta notevolmente l’efficienza dell’attrezzatura",
+"Ridurre i tempi necessari per i trattamenti poiché si utilizzano minori quantità d’acqua",
+"Ridurre gli effetti negativi sulla salute e l’ambiente e migliorare l’efficacia dei trattamenti"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 27
+},
+{
+"n": 180,
+"sezione": "Capitolo 6: MACCHINE PER LA DISTRIBUZIONE DEI PRODOTTI FITOSANITARI, CONTROLLI, REGOLAZIONE E TARATURE",
+"testo": "Il contoterzista deve provvedere al controllo funzionale della propria irroratrice ogni…",
+"risposte": [
+"3 anni",
+"2 anni",
+"5 anni"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 27
+},
+{
+"n": 181,
+"sezione": "Capitolo 6: MACCHINE PER LA DISTRIBUZIONE DEI PRODOTTI FITOSANITARI, CONTROLLI, REGOLAZIONE E TARATURE",
+"testo": "È necessaria la manutenzione ordinaria alle macchine utilizzate per i trattamenti?",
+"risposte": [
+"No, visto che le nuove attrezzature sono garantite dal costruttore",
+"Sì, con un lavaggio manuale per evitare di intasare tubi e raccordi",
+"Sì, controllando ugelli, raccordi e tubi, rubinetti e manometri, verificandone lo stato di usura e il calo degli standard di efficacia"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 27
+},
+{
+"n": 182,
+"sezione": "Capitolo 6: MACCHINE PER LA DISTRIBUZIONE DEI PRODOTTI FITOSANITARI, CONTROLLI, REGOLAZIONE E TARATURE",
+"testo": "Nel periodo intercorrente tra un controllo funzionale ed il successivo, quali interventi occorre garantire sulla macchina irroratrice?",
+"risposte": [
+"Occorre procedere con le consuete manutenzioni ordinarie secondo i tempi stabiliti per ciascuna componente meccanica",
+"Non occorre effettuare alcun intervento poiché il controllo garantisce la piena efficienza dell’irroratrice fino al controllo successivo",
+"E’ sufficiente effettuare la regolazione periodica se non eseguita dal Centro autorizzato"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 27
+},
+{
+"n": 183,
+"sezione": "Capitolo 6: MACCHINE PER LA DISTRIBUZIONE DEI PRODOTTI FITOSANITARI, CONTROLLI, REGOLAZIONE E TARATURE",
+"testo": "Cosa si propone il controllo funzionale delle macchine irroratrici?",
+"risposte": [
+"L’accertamento del rispetto delle norme di sicurezza delle singole componenti meccaniche",
+"L’accertamento dell’efficienza delle singole componenti meccaniche della parte irroratrice",
+"Il calcolo dei parametri operativi e del volume di miscela distribuito per ettaro"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 28
+},
+{
+"n": 184,
+"sezione": "Capitolo 6: MACCHINE PER LA DISTRIBUZIONE DEI PRODOTTI FITOSANITARI, CONTROLLI, REGOLAZIONE E TARATURE",
+"testo": "Quale scopo assolve il rapporto di prova rilasciato all’agricoltore a conclusione del controllo?",
+"risposte": [
+"Permette di conoscere la natura degli interventi praticati sull’irroratrice",
+"Consente di usufruire della deroga di un anno sui tempi stabiliti per il successivo controllo",
+"Costituisce la documentazione necessaria per l’eventuale cessione dell’irroratrice"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 28
+},
+{
+"n": 185,
+"sezione": "Capitolo 6: MACCHINE PER LA DISTRIBUZIONE DEI PRODOTTI FITOSANITARI, CONTROLLI, REGOLAZIONE E TARATURE",
+"testo": "L’attestato di funzionalità dell’irroratrice viene:",
+"risposte": [
+"Rilasciato al proprietario della macchina nel caso di superamento del controllo",
+"Inviato all’ufficio competente per l’inserimento dei dati del controllo nell’anagrafica delle aziende",
+"Rilasciato al proprietario/utilizzatore della macchina a condizione che lo stesso provveda a effettuare entro un mese le riparazioni prescritte"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 28
+},
+{
+"n": 186,
+"sezione": "Capitolo 6: MACCHINE PER LA DISTRIBUZIONE DEI PRODOTTI FITOSANITARI, CONTROLLI, REGOLAZIONE E TARATURE",
+"testo": "Che differenza c’è tra l’attestato di funzionalità ed il rapporto di prova?",
+"risposte": [
+"Il primo attesta che la macchina ha superato il controllo, il secondo riporta i dettagli del controllo con la descrizione di eventuali riparazioni e regolazioni effettuate",
+"Il primo attesta l’esecuzione del controllo, il secondo il superamento del controllo",
+"Nessuna"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 28
+},
+{
+"n": 187,
+"sezione": "Capitolo 6: MACCHINE PER LA DISTRIBUZIONE DEI PRODOTTI FITOSANITARI, CONTROLLI, REGOLAZIONE E TARATURE",
+"testo": "È consigliabile che il proprietario/utilizzatore del mezzo sia presente durante l’effettuazione delle operazioni di verifica?",
+"risposte": [
+"No, perché potrebbe essere di ostacolo alle operazioni",
+"Sì, perché assistendo può comprendere meglio il funzionamento e lo stato di funzionalità dell’irroratrice e dei suoi componenti",
+"Sì, perché è l’unico autorizzato ad azionare i comandi dell’irroratrice"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 28
+},
+{
+"n": 188,
+"sezione": "Capitolo 6: MACCHINE PER LA DISTRIBUZIONE DEI PRODOTTI FITOSANITARI, CONTROLLI, REGOLAZIONE E TARATURE",
+"testo": "In quale stato deve trovarsi l’irroratrice che viene portata al controllo funzionale?",
+"risposte": [
+"Come si trova appena terminato un trattamento, per verificare le reali condizioni d’impiego",
+"Pulita e ben lavata sia esternamente che dentro il serbatoio",
+"Lavata soltanto dentro il serbatoio e con una sufficiente quantità di acqua pulita"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 28
+},
+{
+"n": 189,
+"sezione": "Capitolo 6: MACCHINE PER LA DISTRIBUZIONE DEI PRODOTTI FITOSANITARI, CONTROLLI, REGOLAZIONE E TARATURE",
+"testo": "Ai fini della lavabilità interna del serbatoio quale è il materiale più problematico?",
+"risposte": [
+"Acciaio inox",
+"Vetroresina",
+"Polietilene"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 28
+},
+{
+"n": 190,
+"sezione": "Capitolo 6: MACCHINE PER LA DISTRIBUZIONE DEI PRODOTTI FITOSANITARI, CONTROLLI, REGOLAZIONE E TARATURE",
+"testo": "Il controllo funzionale non può essere effettuato se manca:",
+"risposte": [
+"Protezione del giunto cardanico",
+"Dispositivo per sostenere l’albero cardanico quando non viene utilizzato",
+"Numero di serie o targhetta identificativa"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 28
+},
+{
+"n": 191,
+"sezione": "Capitolo 6: MACCHINE PER LA DISTRIBUZIONE DEI PRODOTTI FITOSANITARI, CONTROLLI, REGOLAZIONE E TARATURE",
+"testo": "La scelta della pressione di esercizio dell’irroratrice incide principalmente su:",
+"risposte": [
+"Il livello di polverizzazione della miscela",
+"La portata erogata dall’irroratrice",
+"La velocità di avanzamento"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 29
+},
+{
+"n": 192,
+"sezione": "Capitolo 6: MACCHINE PER LA DISTRIBUZIONE DEI PRODOTTI FITOSANITARI, CONTROLLI, REGOLAZIONE E TARATURE",
+"testo": "Per diluire il prodotto concentrato è meglio utilizzare…",
+"risposte": [
+"sempre lo stesso recipiente (es. secchio)",
+"un recipiente diverso per ciascun tipo di prodotto",
+"un dispositivo pre-miscelatore"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 29
+},
+{
+"n": 193,
+"sezione": "Capitolo 6: MACCHINE PER LA DISTRIBUZIONE DEI PRODOTTI FITOSANITARI, CONTROLLI, REGOLAZIONE E TARATURE",
+"testo": "Nelle macchine irroratrici ad alto volume la quantità di prodotto da irrorare per ettaro, rispetto a quelle a basso volume, è...",
+"risposte": [
+"maggiore",
+"minore",
+"circa uguale"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 29
+},
+{
+"n": 194,
+"sezione": "Capitolo 6: MACCHINE PER LA DISTRIBUZIONE DEI PRODOTTI FITOSANITARI, CONTROLLI, REGOLAZIONE E TARATURE",
+"testo": "A cosa serve la valvola di non ritorno montata sul dispositivo di riempimento del serbatoio?",
+"risposte": [
+"A derivare acqua per la pulizia dell’irroratrice",
+"A facilitare l’immissione di liquidi nel corpo idrico utilizzato per il rifornimento",
+"A impedire l’inquinamento del corpo d’acqua utilizzato per il rifornimento"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 29
+},
+{
+"n": 195,
+"sezione": "Capitolo 6: MACCHINE PER LA DISTRIBUZIONE DEI PRODOTTI FITOSANITARI, CONTROLLI, REGOLAZIONE E TARATURE",
+"testo": "Il cattivo funzionamento del sistema di filtrazione della macchina irroratrice può causare:",
+"risposte": [
+"L’intasamento degli ugelli",
+"La contaminazione della soluzione fitoiatrica",
+"L’inquinamento dell’ambiente"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 29
+},
+{
+"n": 196,
+"sezione": "Capitolo 6: MACCHINE PER LA DISTRIBUZIONE DEI PRODOTTI FITOSANITARI, CONTROLLI, REGOLAZIONE E TARATURE",
+"testo": "Prima di effettuare il trasferimento dell’irroratrice dal centro aziendale al campo da trattare è di fondamentale importanza verificare…",
+"risposte": [
+"la perfetta chiusura del serbatoio e di tutte le valvole dell’irroratrice",
+"la corretta erogazione degli ugelli",
+"la presenza dei pittogrammi sul serbatoio della macchina irroratrice"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 29
+},
+{
+"n": 197,
+"sezione": "Capitolo 6: MACCHINE PER LA DISTRIBUZIONE DEI PRODOTTI FITOSANITARI, CONTROLLI, REGOLAZIONE E TARATURE",
+"testo": "Un ugello antideriva rispetto ad un ugello tradizionale si differenzia, a parità di pressione, per:",
+"risposte": [
+"Le gocce più grandi e uniformi",
+"Le gocce più piccole e concentrate",
+"La portata maggiore"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 29
+},
+{
+"n": 198,
+"sezione": "Capitolo 6: MACCHINE PER LA DISTRIBUZIONE DEI PRODOTTI FITOSANITARI, CONTROLLI, REGOLAZIONE E TARATURE",
+"testo": "L’agitazione continua della miscela nel serbatoio può essere ottenuta:",
+"risposte": [
+"Con le sole sollecitazioni durante il movimento del sistema trattore-irroratrice",
+"Con sistemi idraulici e/o meccanici e/o idromeccanici e/o pneumatici",
+"Soltanto con sistemi meccanici posti all’interno del serbatoio"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 29
+},
+{
+"n": 199,
+"sezione": "Capitolo 6: MACCHINE PER LA DISTRIBUZIONE DEI PRODOTTI FITOSANITARI, CONTROLLI, REGOLAZIONE E TARATURE",
+"testo": "Com’è giusto che sia il serbatoio della macchina irroratrice?",
+"risposte": [
+"Con pareti interne lisce, con spigoli e con agitatore",
+"Con pareti interne lisce, senza spigoli e con agitatore",
+"Con pareti interne ruvide, senza spigoli e con agitatore"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 29
+},
+{
+"n": 200,
+"sezione": "Capitolo 6: MACCHINE PER LA DISTRIBUZIONE DEI PRODOTTI FITOSANITARI, CONTROLLI, REGOLAZIONE E TARATURE",
+"testo": "Quale è la pressione di esercizio consigliabile per una pompa a membrana?",
+"risposte": [
+"Tra 40 e 50 bar",
+"Fino a 30 bar",
+"Fino a 20 bar"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 30
+},
+{
+"n": 201,
+"sezione": "Capitolo 6: MACCHINE PER LA DISTRIBUZIONE DEI PRODOTTI FITOSANITARI, CONTROLLI, REGOLAZIONE E TARATURE",
+"testo": "La pressione di esercizio da impiegare negli atomizzatori può arrivare fino a:",
+"risposte": [
+"10 bar",
+"15 bar",
+"25 bar"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 30
+},
+{
+"n": 202,
+"sezione": "Capitolo 6: MACCHINE PER LA DISTRIBUZIONE DEI PRODOTTI FITOSANITARI, CONTROLLI, REGOLAZIONE E TARATURE",
+"testo": "La posizione del manometro sull’irroratrice deve:",
+"risposte": [
+"Garantire facilità di lettura da parte dell’operatore durante l’esecuzione del trattamento",
+"Essere in prossimità degli ugelli per misurare correttamente la pressione",
+"Essere ad un’altezza da terra tale da non risentire della pressione atmosferica"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 30
+},
+{
+"n": 203,
+"sezione": "Capitolo 6: MACCHINE PER LA DISTRIBUZIONE DEI PRODOTTI FITOSANITARI, CONTROLLI, REGOLAZIONE E TARATURE",
+"testo": "Qual è il metodo più sicuro per pulire gli ugelli intasati?",
+"risposte": [
+"Utilizzare oggetti metallici appuntiti",
+"Soffiare direttamente negli ugelli",
+"Utilizzare spazzolini o aria compressa"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 30
+},
+{
+"n": 205,
+"sezione": "Capitolo 6: MACCHINE PER LA DISTRIBUZIONE DEI PRODOTTI FITOSANITARI, CONTROLLI, REGOLAZIONE E TARATURE",
+"testo": "Nelle macchine irroratrici a polverizzazione meccanica se si aumenta la pressione di esercizio le gocce ottenute sono:",
+"risposte": [
+"Più grosse",
+"Più piccole",
+"Uguali, cambia solo l’angolo di spruzzo"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 30
+},
+{
+"n": 206,
+"sezione": "Capitolo 6: MACCHINE PER LA DISTRIBUZIONE DEI PRODOTTI FITOSANITARI, CONTROLLI, REGOLAZIONE E TARATURE",
+"testo": "In tutti i tipi di macchine irroratrici, l’aumento della pressione di esercizio:",
+"risposte": [
+"Migliora la distribuzione del prodotto sulla vegetazione e quindi l’efficacia del trattamento",
+"Crea gocce più grandi e meno soggette all’effetto deriva",
+"Crea gocce più piccole e più soggette all’effetto deriva"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 30
+},
+{
+"n": 207,
+"sezione": "Capitolo 6: MACCHINE PER LA DISTRIBUZIONE DEI PRODOTTI FITOSANITARI, CONTROLLI, REGOLAZIONE E TARATURE",
+"testo": "Cosa si intende per “gocciolamento”?",
+"risposte": [
+"Il trattamento effettuato ad alto volume, quindi con gocce di prodotto troppo grosse",
+"L’eccesso di prodotto che non viene trattenuto dalle superfici trattate e pertanto cade al suolo",
+"L’irregolarità di distribuzione del prodotto a causa della mancanta taratura della macchina"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 30
+},
+{
+"n": 208,
+"sezione": "Capitolo 6: MACCHINE PER LA DISTRIBUZIONE DEI PRODOTTI FITOSANITARI, CONTROLLI, REGOLAZIONE E TARATURE",
+"testo": "Cosa è la “deriva” nei trattamenti antiparassitari?",
+"risposte": [
+"La quantità di miscela che si sposta al di fuori dell’area trattata",
+"La parte di miscela che non viene intercettata dalla vegetazione e va fuori bersaglio",
+"Il trattamento che, in condizioni di vento va su orti, abitazioni o giardini di privati"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 31
+},
+{
+"n": 209,
+"sezione": "Capitolo 6: MACCHINE PER LA DISTRIBUZIONE DEI PRODOTTI FITOSANITARI, CONTROLLI, REGOLAZIONE E TARATURE",
+"testo": "Quali sono gli effetti indesiderati causati dalla “deriva”?",
+"risposte": [
+"La cattiva distribuzione del prodotto sulla coltura",
+"Rischi per le colture limitrofe, i corsi d’acqua e le aree sensibili",
+"La necessità di usare una dose superiore a quella indicata in etichetta"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 31
+},
+{
+"n": 210,
+"sezione": "Capitolo 6: MACCHINE PER LA DISTRIBUZIONE DEI PRODOTTI FITOSANITARI, CONTROLLI, REGOLAZIONE E TARATURE",
+"testo": "In quale tipo di trattamenti il rischio di deriva è maggiore?:",
+"risposte": [
+"Nei trattamenti su colture arboree utilizzando alte pressioni di esercizio",
+"Nei trattamenti su colture erbacee disposte in filari",
+"Nei trattamenti su suolo nudo in condizioni siccitose"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 31
+},
+{
+"n": 211,
+"sezione": "Capitolo 6: MACCHINE PER LA DISTRIBUZIONE DEI PRODOTTI FITOSANITARI, CONTROLLI, REGOLAZIONE E TARATURE",
+"testo": "Il rischio di “deriva” è maggiore quando si verifica:",
+"risposte": [
+"Umidità dell’aria elevata",
+"Bassa temperatura ed elevata umidità dell’aria",
+"Temperatura dell’aria elevata"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 31
+},
+{
+"n": 212,
+"sezione": "Capitolo 7: PERICOLI E RISCHI ASSOCIATI ALL’USO DEI P.F.",
+"testo": "Non rispettando le norme precauzionali per l'uso dei prodotti fitosanitari a quale rischio si sottopone l'operatore?",
+"risposte": [
+"Solo intossicazione acuta",
+"Intossicazione acuta, cronica ed allo sviluppo di malattie allergiche",
+"Solo intossicazione cronica ed allo sviluppo di malattie allergiche"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 31
+},
+{
+"n": 213,
+"sezione": "Capitolo 7: PERICOLI E RISCHI ASSOCIATI ALL’USO DEI P.F.",
+"testo": "Attraverso quali vie può avvenire una intossicazione acuta?",
+"risposte": [
+"Solamente per ingestione",
+"Solamente per contatto",
+"Per contatto, per ingestione e attraverso l'apparato respiratorio"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 31
+},
+{
+"n": 214,
+"sezione": "Capitolo 7: PERICOLI E RISCHI ASSOCIATI ALL’USO DEI P.F.",
+"testo": "All'insorgere di un malessere che si ritiene collegato con l'impiego dei prodotti fitosanitari, co- me è opportuno comportarsi?",
+"risposte": [
+"Bere del latte e distendersi per qualche ora",
+"Provocare il vomito e mettersi a riposo",
+"Rivolgersi al pronto soccorso mostrando le etichette dei prodotti utilizzati o le schede dati di sicurezza del prodotto utilizzato"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 31
+},
+{
+"n": 215,
+"sezione": "Capitolo 7: PERICOLI E RISCHI ASSOCIATI ALL’USO DEI P.F.",
+"testo": "Nel caso di intossicazione acuta da prodotti fitosanitari, quali provvedimenti immediati occorre adottare?",
+"risposte": [
+"Lavare l'intossicato con acqua e somministrare una bevanda calda",
+"Mettere a letto il soggetto e chiamare il medico curante",
+"Trasportare il soggetto lontano dalla fonte di contaminazione, spogliarlo e lavarlo con acqua; non somministrare alcuna bevanda e portare il soggetto in ospedale con- segnando l'etichetta del prodotto che ha causato l'intossicazione"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 31
+},
+{
+"n": 216,
+"sezione": "Capitolo 7: PERICOLI E RISCHI ASSOCIATI ALL’USO DEI P.F.",
+"testo": "Quali provvedimenti adottare se durante i trattamenti con prodotti fitosanitari compaiono chiazze cutanee (arrossamenti della pelle e bolle)?",
+"risposte": [
+"Il soggetto si deve allontanare dalla fonte di contaminazione, lavare accuratamente con acqua le superfici cutanee interessate e rivolgersi al medico",
+"Il soggetto si deve allontanare dalla fonte di contaminazione, cospargere immediatamente le superfici cutanee interessate con una pomata medicata e rivolgersi al medico",
+"Il soggetto si deve allontanare dalla fonte di contaminazione, disinfettare con alcol le superfici cutanee interessate e rivolgersi al medico"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 32
+},
+{
+"n": 217,
+"sezione": "Capitolo 7: PERICOLI E RISCHI ASSOCIATI ALL’USO DEI P.F.",
+"testo": "Cosa si deve fare nel caso che il prodotto vada a contatto con gli occhi?",
+"risposte": [
+"Sciacquarli con acqua per 10 - 15 minuti e recarsi al pronto soccorso",
+"Mettere il collirio",
+"Tenere gli occhi chiusi"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 32
+},
+{
+"n": 218,
+"sezione": "Capitolo 7: PERICOLI E RISCHI ASSOCIATI ALL’USO DEI P.F.",
+"testo": "Quali rischi può comportare l'ingestione di alcolici durante i trattamenti con prodotti fitosanitari?",
+"risposte": [
+"Nessun rischio",
+"Interazione tossica con l'alcool etilico",
+"Disturbi gastroenterici"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 32
+},
+{
+"n": 219,
+"sezione": "Capitolo 7: PERICOLI E RISCHI ASSOCIATI ALL’USO DEI P.F.",
+"testo": "Cosa avviene nel passaggio tra un anello e l’altro della catena alimentare?",
+"risposte": [
+"Il passaggio di aria ed acqua",
+"L’aumento di concentrazione di residui di elementi persistenti da un anello della catena a quello successivo",
+"Il passaggio di energia attraverso le sostanze nutritive"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 32
+},
+{
+"n": 220,
+"sezione": "Capitolo 7: PERICOLI E RISCHI ASSOCIATI ALL’USO DEI P.F.",
+"testo": "Quando viene prescritto l'impiego di mezzi di protezione individuali, questi devono essere indossati...",
+"risposte": [
+"Solamente se si esegue il trattamento in una giornata ventosa",
+"Solamente se non procura disagi personali nell'effettuazione del trattamento",
+"Sempre, nelle fasi di manipolazione e durante il trattamento"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 32
+},
+{
+"n": 221,
+"sezione": "Capitolo 7: PERICOLI E RISCHI ASSOCIATI ALL’USO DEI P.F.",
+"testo": "Come deve essere la tuta protettiva degli addetti ai trattamenti?",
+"risposte": [
+"Di fattura comune",
+"Di qualsiasi tipo, purché pulita",
+"Possedere la marcatura e la dichiarazione di conformità CE e la nota informativa scritta che indichi che è in grado di proteggere in caso di contatto con prodotti fitosanitari"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 32
+},
+{
+"n": 222,
+"sezione": "Capitolo 7: PERICOLI E RISCHI ASSOCIATI ALL’USO DEI P.F.",
+"testo": "Quale manutenzione richiede la maschera che viene usata durante il trattamento?",
+"risposte": [
+"Lavarla dopo l'uso, separando il filtro che va sostituito frequentemente, seguendo le indicazioni del costruttore",
+"Revisionarla almeno una volta all'anno presso il rivenditore autorizzato",
+"Lavarla con acqua e sapone dopo l'uso"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 32
+},
+{
+"n": 223,
+"sezione": "Capitolo 7: PERICOLI E RISCHI ASSOCIATI ALL’USO DEI P.F.",
+"testo": "Per proteggere le mani durante l'impiego dei prodotti fitosanitari è opportuno utilizzare guanti:",
+"risposte": [
+"In pelle",
+"In tessuto",
+"In materiale impermeabile marcati CE specifici per la manipolazione di prodotti fitosanitari"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 33
+},
+{
+"n": 224,
+"sezione": "Capitolo 7: PERICOLI E RISCHI ASSOCIATI ALL’USO DEI P.F.",
+"testo": "Nel togliersi i guanti dopo le lavorazioni con prodotti fitosanitari è opportuno:",
+"risposte": [
+"Sfilarseli uno alla volta aiutandosi con la mano restata libera",
+"Sfilarseli rapidamente uno alla volta rovesciandoli",
+"Sfilarseli contemporaneamente a poco a poco aiutandosi ogni volta con la mano più protetta"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 33
+},
+{
+"n": 226,
+"sezione": "Capitolo 7: PERICOLI E RISCHI ASSOCIATI ALL’USO DEI P.F.",
+"testo": "Come si conservano la maschera ed il filtro?",
+"risposte": [
+"Appesi, in luogo fresco e riparato",
+"Lontano dalla portata dei bambini",
+"Puliti, ed al riparo dalla polvere e dall'umidità"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 33
+},
+{
+"n": 227,
+"sezione": "Capitolo 7: PERICOLI E RISCHI ASSOCIATI ALL’USO DEI P.F.",
+"testo": "A quale categoria appartengono i guanti da indossare quando si aprono le confezioni dei prodotti fitosanitari?",
+"risposte": [
+"1a categoria",
+"2a categoria",
+"3a categoria"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 33
+},
+{
+"n": 228,
+"sezione": "Capitolo 7: PERICOLI E RISCHI ASSOCIATI ALL’USO DEI P.F.",
+"testo": "Al termine dei trattamenti cosa occorre fare prima di mangiare, bere, fumare o compiere atti fisiologici?",
+"risposte": [
+"Non occorre adottare alcuna precauzione",
+"Riposare per alcune ore e non affaticare l'organismo",
+"Togliersi gli indumenti protettivi e lavarsi accuratamente"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 33
+},
+{
+"n": 229,
+"sezione": "Capitolo 7: PERICOLI E RISCHI ASSOCIATI ALL’USO DEI P.F.",
+"testo": "Soffiare dentro gli ugelli di distribuzione otturati, è corretto?",
+"risposte": [
+"No, in nessun caso, per il grave rischio di intossicazione",
+"Sì, ma solo se non si usano prodotti molto tossici, tossici e nocivi",
+"Sì, in quanto è l'unico metodo veloce per eliminare l'otturazione"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 33
+},
+{
+"n": 230,
+"sezione": "Capitolo 7: PERICOLI E RISCHI ASSOCIATI ALL’USO DEI P.F.",
+"testo": "Nei trattamenti con PF qual è il tipo di filtro che devono avere le cabine pressurizzate?",
+"risposte": [
+"Non è necessario il filtro quando il PF non è pericoloso",
+"Un filtro in grado di trattenere polveri, vapori e nebbie",
+"Un filtro idoneo solo per polveri di PF molto tossici, tossici e nocivi"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 34
+},
+{
+"n": 231,
+"sezione": "Capitolo 7: PERICOLI E RISCHI ASSOCIATI ALL’USO DEI P.F.",
+"testo": "Dove è opportuno miscelare i prodotti fitosanitari?",
+"risposte": [
+"Su un tavolo sotto una tettoia nelle vicinanze dell'abitazione",
+"Nell’area attrezzata o nel luogo più prossimo alla coltura che si intende trattare ed in ogni caso lontano da abitazioni, pozzi e corsi d’acqua superficiali",
+"In un locale con porta munita di serratura, separato dall'abitazione"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 34
+},
+{
+"n": 232,
+"sezione": "Capitolo 7: PERICOLI E RISCHI ASSOCIATI ALL’USO DEI P.F.",
+"testo": "Se si deve preparare una soluzione con prodotti fitosanitari in polvere",
+"risposte": [
+"E’ meglio in un locale chiuso, così non si inquina l'ambiente",
+"All'aperto, in assenza di vento, cercando di non alzare polvere e di non disperderli",
+"In un locale chiuso ma lontano dall'abitazione"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 34
+},
+{
+"n": 233,
+"sezione": "Capitolo 7: PERICOLI E RISCHI ASSOCIATI ALL’USO DEI P.F.",
+"testo": "Dove si concentrano, prevalentemente, i residui dei prodotti fitosanitari?",
+"risposte": [
+"Nell’aria",
+"Nelle falde acquifere",
+"Lungo le catene alimentari"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 34
+},
+{
+"n": 234,
+"sezione": "Capitolo 7: PERICOLI E RISCHI ASSOCIATI ALL’USO DEI P.F.",
+"testo": "E' opportuno che una donna in gestazione o in allattamento collabori ai trattamenti fitosanitari?",
+"risposte": [
+"Si",
+"Si, se è provvista dei mezzi personali di protezione",
+"No, in nessun caso"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 34
+},
+{
+"n": 235,
+"sezione": "Capitolo 7: PERICOLI E RISCHI ASSOCIATI ALL’USO DEI P.F.",
+"testo": "Chi è responsabile di eventuali danni di intossicazione che potrebbero verificarsi in seguito all'uso scorretto dei prodotti fitosanitari?",
+"risposte": [
+"Il titolare del patentino che ha acquistato il prodotto fitosanitario e chi ha effettuato il trattamento",
+"Chi ha venduto il prodotto",
+"Solo chi ha effettuato il trattamento"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 34
+},
+{
+"n": 236,
+"sezione": "Capitolo 7: PERICOLI E RISCHI ASSOCIATI ALL’USO DEI P.F.",
+"testo": "L’addestramento per l’impiego dei DPI (Dispositivi di Protezione Individuale) per le vie respiratorie negli ambienti di lavoro deve essere compiuto da:",
+"risposte": [
+"un tecnico competente",
+"un ispettore del lavoro",
+"dal responsabile della sicurezza"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 35
+},
+{
+"n": 237,
+"sezione": "Capitolo 7: PERICOLI E RISCHI ASSOCIATI ALL’USO DEI P.F.",
+"testo": "Qual è il tipo di DPI (Dispositivi di Protezione Individuale) per la protezione delle vie respiratorie più idoneo per un operatore agricolo che ha barba o basette lunghe?",
+"risposte": [
+"Semimaschera o quarto di maschera",
+"Casco elettroventilato",
+"Facciale filtrante"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 35
+},
+{
+"n": 238,
+"sezione": "Capitolo 7: PERICOLI E RISCHI ASSOCIATI ALL’USO DEI P.F.",
+"testo": "Quando si verifica un’intossicazione acuta?",
+"risposte": [
+"Quando l’organismo è esposto, in tempi brevi, a quantità elevate di sostanze pericolose per la salute",
+"Quando l’organismo è esposto a quantità relativamente piccole di prodotti fitosanitari",
+"Quando l’organismo è esposto a prodotti fitosanitari classificati solo molto tossici e tossici"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 35
+},
+{
+"n": 239,
+"sezione": "Capitolo 7: PERICOLI E RISCHI ASSOCIATI ALL’USO DEI P.F.",
+"testo": "Quando si può verificare un’intossicazione cronica?",
+"risposte": [
+"Solo se l’organismo è esposto, in tempi brevi, a quantità elevate di sostanze pericolose per la salute",
+"Quando l’organismo è esposto per lungo tempo a quantità relativamente piccole di prodotti fitosanitari",
+"Solo quando l’organismo è esposto a prodotti fitosanitari solo classificati molto tossici e tossici"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 35
+},
+{
+"n": 240,
+"sezione": "Capitolo 7: PERICOLI E RISCHI ASSOCIATI ALL’USO DEI P.F.",
+"testo": "In quante classi europee (EN) di protezione si suddividono i filtri antipolvere?",
+"risposte": [
+"2",
+"3",
+"6"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 35
+},
+{
+"n": 241,
+"sezione": "Capitolo 7: PERICOLI E RISCHI ASSOCIATI ALL’USO DEI P.F.",
+"testo": "Come sono etichettati e contrassegnati i prodotti fitosanitari che provocano danni agli organi?",
+"risposte": [
+"Con un teschio nero su ossa incrociate inserite in un quadrato rettangolare di colore giallo-arancio e la scritta “Irritante”",
+"Con la sola scritta “Nocivo”, senza nessun contrassegno e disegno particolare",
+"Con un pittogramma a forma di losanga con fondo bianco e bordo rosso contenente il simbolo della Persona danneggiata di colore nero con avvertenza sottostante di “Pericolo”"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 35
+},
+{
+"n": 242,
+"sezione": "Capitolo 7: PERICOLI E RISCHI ASSOCIATI ALL’USO DEI P.F.",
+"testo": "Come sono etichettati e contrassegnati i prodotti fitosanitari nocivi se ingeriti?",
+"risposte": [
+"Con un teschio nero su ossa incrociate inserite in un quadrato rettangolare di colore giallo-arancio e la scritta “Irritante”",
+"Con un pittogramma a forma di losanga con fondo bianco e bordo rosso contenente il simbolo del Punto esclamativo di colore nero con avvertenza sottostante di “attenzione”",
+"Con la sola scritta “Nocivo”, senza disegni particolari, ma il colore è sempre giallo- arancio"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 35
+},
+{
+"n": 243,
+"sezione": "Capitolo 7: PERICOLI E RISCHI ASSOCIATI ALL’USO DEI P.F.",
+"testo": "Come sono etichettati e contrassegnati i prodotti irritanti per via cutanea?",
+"risposte": [
+"Con una “I” maiuscola, inserita su di un quadrato di color arancio",
+"Con il simbolo di pericolo “Xi”, con croce di S. Andrea nera in campo giallo arancione e l’indicazione di pericolo “Irritante”",
+"Con un pittogramma a forma di losanga con fondo bianco e bordo rosso contenente il simbolo del “Punto esclamativo” di colore nero con avvertenza sottostante di “Attenzione”"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 36
+},
+{
+"n": 244,
+"sezione": "Capitolo 7: PERICOLI E RISCHI ASSOCIATI ALL’USO DEI P.F.",
+"testo": "Se un operatore deve proteggere le vie respiratorie dall’inalazione di vapori di un prodotto fitosanitario, deve far uso di un filtro “antigas” (efficace contro i vapori organici)....",
+"risposte": [
+"contrassegnato dalla lettera K",
+"contrassegnato dalla lettera G",
+"contrassegnato dalla lettera A"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 36
+},
+{
+"n": 245,
+"sezione": "Capitolo 7: PERICOLI E RISCHI ASSOCIATI ALL’USO DEI P.F.",
+"testo": "Un prodotto fitosanitario non classificato pericoloso può contenere sostanze pericolose per la salute?",
+"risposte": [
+"Sì, può contenere sostanze pericolose per la salute",
+"No, perchè non è classificato pericoloso",
+"No, perchè non è obbligatorio ottenere la scheda di sicurezza"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 36
+},
+{
+"n": 246,
+"sezione": "Capitolo 7: PERICOLI E RISCHI ASSOCIATI ALL’USO DEI P.F.",
+"testo": "Ottenere dal rivenditore la Scheda Dati di Sicurezza dei prodotti fitosanitari è obbligatorio?",
+"risposte": [
+"Sempre, ma solo per confezioni con contenuto superiore a 1 litro",
+"Sempre",
+"No, non è obbligatorio ottenere la scheda dati di sicurezza per i prodotti fitosanitari non classificati pericolosi"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 36
+},
+{
+"n": 247,
+"sezione": "Capitolo 7: PERICOLI E RISCHI ASSOCIATI ALL’USO DEI P.F.",
+"testo": "A cosa serve la Scheda Dati di Sicurezza di un prodotto fitosanitario per un utilizzatore professionale?",
+"risposte": [
+"Serve per conoscere e valutare i rischi connessi all’uso dei Prodotti Fitosanitari e adottare le misure per ridurli al minimo",
+"Serve per conoscere le caratteristiche dei prodotti fitosanitari",
+"Serve per compilare il Registro dei trattamenti"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 36
+},
+{
+"n": 248,
+"sezione": "Capitolo 7: PERICOLI E RISCHI ASSOCIATI ALL’USO DEI P.F.",
+"testo": "Chi è responsabile di eventuali danni agronomici e ambientali o di intossicazione verso terzi che potrebbero verificarsi in seguito all'uso scorretto dei prodotti fitosanitari per utilizzatori professionali?",
+"risposte": [
+"Chiunque abbia effettuato il trattamento in possesso dei necessari requisiti professionali ed il titolare del certificato di abilitazione che ha acquistato il prodotto fitosanitario",
+"Il distributore e la ditta autorizzata alla produzione",
+"Chiunque abbia effettuato il trattamento in possesso dei necessari requisiti professionali e il distributore titolare del certificato di abilitazione alla vendita"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 37
+},
+{
+"n": 249,
+"sezione": "Capitolo 7: PERICOLI E RISCHI ASSOCIATI ALL’USO DEI P.F.",
+"testo": "Chi è responsabile di eventuali danni agronomici e ambientali o di intossicazione verso terzi che potrebbero verificarsi a seguito dell'uso scorretto dei prodotti fitosanitari per utilizzatori non professionali?",
+"risposte": [
+"Il distributore titolare del certificato di abilitazione alla vendita e la ditta autorizzata alla produzione dei prodotti fitosanitari non professionali",
+"L’utilizzatore dei prodotti fitosanitari",
+"Il titolare del certificato di abilitazione che ha acquistato il prodotto fitosanitario"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 37
+},
+{
+"n": 250,
+"sezione": "Capitolo 7: PERICOLI E RISCHI ASSOCIATI ALL’USO DEI P.F.",
+"testo": "Le misure preventive e protettive più idonee per l’impiego dei prodotti fitosanitari:",
+"risposte": [
+"Sono quelle che vengono adottate nelle aziende agricole dopo un’attenta analisi degli aspetti tossicologici e tecnico-applicativi dei prodotti fitosanitari",
+"Sono quelle conseguenti alla valutazione del rischio chimico della propria azienda",
+"Sono quelle conseguenti alla scelta dei dispositivi di protezione individuale migliori presenti in commercio e che forniscono la massima protezione della salute ed il massimo comfort"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 37
+},
+{
+"n": 251,
+"sezione": "Capitolo 7: PERICOLI E RISCHI ASSOCIATI ALL’USO DEI P.F.",
+"testo": "Come devono essere conservati i DPI (Dispositivi di Protezione Individuale)?",
+"risposte": [
+"Appesi in un luogo fresco e riparato",
+"Lontano dalla portata dei bambini",
+"In luoghi asciutti e puliti"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 37
+},
+{
+"n": 252,
+"sezione": "Capitolo 7: PERICOLI E RISCHI ASSOCIATI ALL’USO DEI P.F.",
+"testo": "A cosa serve la Scheda Dati di Sicurezza di un prodotto fitosanitario per un datore di lavoro?",
+"risposte": [
+"Serve solo quando si impiegano prodotti molto pericolosi",
+"Serve prevalentemente per valutare il rischio da agenti chimici pericolosi e per scegliere le necessarie misure di prevenzione e protezione per l’uomo e l’ambiente",
+"Serve per adottare un corretto smaltimento dei contenitori"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 37
+},
+{
+"n": 253,
+"sezione": "Capitolo 7: PERICOLI E RISCHI ASSOCIATI ALL’USO DEI P.F.",
+"testo": "Quando viene prescritto l’impiego dei DPI, questi devono essere indossati:",
+"risposte": [
+"Solamente se si esegue il trattamento in una giornata ventosa",
+"Solamente se non procura disagi personali nell’effettuazione del trattamento",
+"Sempre"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 37
+},
+{
+"n": 254,
+"sezione": "Capitolo 7: PERICOLI E RISCHI ASSOCIATI ALL’USO DEI P.F.",
+"testo": "Chi è abilitato ad effettuare le visite mediche nelle aziende agricole?",
+"risposte": [
+"Il medico USL scelto mediante il sistema delle prenotazioni specialistiche",
+"Il medico USL scelto dal responsabile della sicurezza o dai lavoratori",
+"Il medico competente nominato dal datore di lavoro o dall’imprenditore agricolo"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 37
+},
+{
+"n": 255,
+"sezione": "Capitolo 7: PERICOLI E RISCHI ASSOCIATI ALL’USO DEI P.F.",
+"testo": "La conservazione in magazzino dei prodotti ortofrutticoli raccolti, modifica l’intervallo di sicurezza (o tempo di carenza) di un prodotto fitosanitario applicato in campo?",
+"risposte": [
+"Scompare il periodo di sicurezza",
+"Rimane inalterato il periodo di sicurezza, la raccolta deve sempre essere effettuata al termine del tempo di carenza",
+"Il periodo di sicurezza viene ridotto"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 38
+},
+{
+"n": 256,
+"sezione": "Capitolo 7: PERICOLI E RISCHI ASSOCIATI ALL’USO DEI P.F.",
+"testo": "Quando in etichetta non è indicato il tempo di rientro per l’operatore agricolo quanto tempo è consigliabile aspettare prima di entrare nelle aree trattate senza DPI (Dispositivo di Protezione Individuale)?",
+"risposte": [
+"Almeno 48 ore",
+"1 ora",
+"Non è necessario aspettare e rispettare alcuna misura protettiva in quanto in etichetta non è previsto nulla"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 38
+},
+{
+"n": 257,
+"sezione": "Capitolo 7: PERICOLI E RISCHI ASSOCIATI ALL’USO DEI P.F.",
+"testo": "Un DPI (Dispositivo di Protezione Individuale) per la protezione del corpo o delle mani rispetta i requisiti essenziali di salute e di sicurezza quando:",
+"risposte": [
+"Possiede la marcatura CE, la nota informativa scritta che indichi che è in grado di proteggere ad esempio in caso di contatto con prodotti fitosanitari e l’addestramento all’impiego è effettuato da un formatore qualificato",
+"Possiede la marcatura CE e l’addestramento all’impiego è effettuato da un formatore qualificato",
+"Possiede la marcatura, la dichiarazione di conformità CE e la nota informativa scritta che indica che è in grado di proteggere in caso di contatto con prodotti fitosanitari5 - DIFESA E PRODUZIONE INTEGRATA"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 38
+},
+{
+"n": 258,
+"sezione": "Capitolo 8: RISCHI E PRECAUZIONI PER L’AMBIENTE",
+"testo": "L’impiego dei prodotti fitosanitari può comportare rischi per l’ambiente",
+"risposte": [
+"No, se il prodotto non è molto tossico",
+"Si, possono essere contaminati il suolo, l’aria, le acque superficiali e sotterranee",
+"No, se in azienda non vi sono corpi idrici superficiali o pozzi"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 38
+},
+{
+"n": 259,
+"sezione": "Capitolo 8: RISCHI E PRECAUZIONI PER L’AMBIENTE",
+"testo": "Quali sono le modalità attraverso le quali i prodotti fitosanitari si disperdono nell’ambiente?",
+"risposte": [
+"Deriva, volatilità, ruscellamento e lisciviazione",
+"Contatto, asfissia e ingestione",
+"Solo con la bruciatura dei contenitori vuoti non bonificati"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 38
+},
+{
+"n": 260,
+"sezione": "Capitolo 8: RISCHI E PRECAUZIONI PER L’AMBIENTE",
+"testo": "Cosa si intende per organismi non bersaglio",
+"risposte": [
+"Tutti gli insetti che non muoiono a seguito di un trattamento insetticida",
+"Sono tutti gli organismi raggiunti dai prodotti con attività sistemica",
+"Tutti quegli organismi viventi diversi da quelli verso i quali il trattamento con prodotti fitosanitari è diretto"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 38
+},
+{
+"n": 261,
+"sezione": "Capitolo 8: RISCHI E PRECAUZIONI PER L’AMBIENTE",
+"testo": "La pericolosità dei prodotti fitosanitari per gli organismi non bersaglio dipende dalla classe tossicologica?",
+"risposte": [
+"Si, i prodotti pericolosi per gli organismi non bersaglio sono quelli classificati come Nocivi, Tossici e Molto tossici",
+"No, dipende esclusivamente dalla dose utilizzata",
+"No è indipendente dalla loro classe tossicologica. La classe tossicologica tiene conto solo degli effetti sull’uomo"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 39
+},
+{
+"n": 262,
+"sezione": "Capitolo 8: RISCHI E PRECAUZIONI PER L’AMBIENTE",
+"testo": "Per tutelare gli organismi non bersaglio (es. api) è necessario:",
+"risposte": [
+"Rispettare scrupolosamente eventuali vincoli applicativi riportati in etichetta",
+"Utilizzare i prodotti insetticidi alla dose più bassa riportata in etichetta durante la fioritura",
+"Dare la preferenza ai prodotti di copertura ed evitare l’uso dei prodotti sistemici"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 39
+},
+{
+"n": 263,
+"sezione": "Capitolo 8: RISCHI E PRECAUZIONI PER L’AMBIENTE",
+"testo": "La fauna domestica e selvatica rientra tra gli organismi non bersaglio?",
+"risposte": [
+"Si tutta la fauna rientra tra gli organismi non bersaglio",
+"No, vi rientra solo la fauna domestica",
+"Non tutta, ma solo le specie protette o in via di estinzione"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 39
+},
+{
+"n": 264,
+"sezione": "Capitolo 8: RISCHI E PRECAUZIONI PER L’AMBIENTE",
+"testo": "In cosa consiste la tracciabilità di un alimento?",
+"risposte": [
+"Nella possibilità di inserire un codice identificativo sulle confezioni dei prodotti alimentari",
+"Nel registrare il percorso effettuato dai prodotti alimentari dal produttore al consumatore",
+"Nel seguire le tracce dell’alimento"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 39
+},
+{
+"n": 265,
+"sezione": "Capitolo 8: RISCHI E PRECAUZIONI PER L’AMBIENTE",
+"testo": "Le frasi di precauzione per la protezione dell’ambiente riportate in etichetta vanno rispettate obbligatoriamente",
+"risposte": [
+"Si devono essere sempre scrupolosamente e obbligatoriamente rispettate;",
+"No, sono consigli utili per mitigare i danni ambientali ma il loro rispetto è facoltativo;",
+"Vanno obbligatoriamente rispettate solo nelle aree naturali protette e nella Rete Natura 2000"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 39
+},
+{
+"n": 266,
+"sezione": "Capitolo 8: RISCHI E PRECAUZIONI PER L’AMBIENTE",
+"testo": "Se nell’etichetta di un prodotto fitosanitario è prevista una fascia di rispetto di 30 metri dai corpi idrici occorre:",
+"risposte": [
+"Assicurarsi che non vi sia un pozzo con acqua potabile nel raggio di 30 metri rispetto al punto di preparazione della miscela",
+"Rispettarla scrupolosamente come misura di mitigazione del rischio, lasciando una fascia non trattata di almeno 30 metri fra la coltura e il corpo idrico",
+"Eseguire il trattamento solo in assenza di vento o con vento in direzione opposta al corpo idrici"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 39
+},
+{
+"n": 267,
+"sezione": "Capitolo 8: RISCHI E PRECAUZIONI PER L’AMBIENTE",
+"testo": "Quale è la funzione principale delle aree naturali protette?",
+"risposte": [
+"L’allevamento della selvaggina",
+"Mantenere l’equilibrio ambientale di un luogo e preservare la biodiversità",
+"Evitare con adeguate recinzioni la fuga degli animali presenti"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 40
+},
+{
+"n": 268,
+"sezione": "Capitolo 8: RISCHI E PRECAUZIONI PER L’AMBIENTE",
+"testo": "Le riserve naturali fanno parte delle aree naturali protette?",
+"risposte": [
+"Si, ne fanno parte",
+"No, ne fanno parte solo i parchi nazionali e regionali",
+"No, ma possono farne parte se si dimostra che vi sono specie animali e vegetali a rischio di estinzione"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 40
+},
+{
+"n": 269,
+"sezione": "Capitolo 8: RISCHI E PRECAUZIONI PER L’AMBIENTE",
+"testo": "Quali sono i Siti che formano la Rete Natura 2000?",
+"risposte": [
+"Le Zone Speciali di Conservazione (ZSC), ora ancora SIC, e le Zone di Protezione Speciale (ZPS)",
+"Le Zone Speciali di Conservazione (ZSC), ora ancora SIC",
+"Le zone umide e i parchi regionali e nazionali"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 40
+},
+{
+"n": 270,
+"sezione": "Capitolo 8: RISCHI E PRECAUZIONI PER L’AMBIENTE",
+"testo": "Nelle aree definite come “specifiche” dal decreto 150/2012 e dal PAN è sempre vietato l’uso dei prodotti fitosanitari”?",
+"risposte": [
+"Si, nelle aree specifiche il loro uso è sempre vietato",
+"No, nelle aree specifiche il loro uso non è mai vietato",
+"Nelle aree specifiche il loro uso, in determinati casi, può essere vietato o ridotto al minimo"
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 40
+},
+{
+"n": 271,
+"sezione": "Capitolo 8: RISCHI E PRECAUZIONI PER L’AMBIENTE",
+"testo": "E’ consentito abbandonare o disperdere i contenitori vuoti dei prodotti fitosanitari?",
+"risposte": [
+"No, in nessun caso.",
+"Si, ma solo in attesa di coprirli con la terra",
+"Si, purché lontano da sorgenti o corsi d’acqua"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 40
+},
+{
+"n": 272,
+"sezione": "Capitolo 8: RISCHI E PRECAUZIONI PER L’AMBIENTE",
+"testo": "I contenitori usati del prodotti fitosanitari possono essere lasciati nei cassonetti dei rifiuti urbani?",
+"risposte": [
+"Si.",
+"No.",
+"Solo nei comuni dove è consentito."
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 40
+},
+{
+"n": 273,
+"sezione": "Capitolo 8: RISCHI E PRECAUZIONI PER L’AMBIENTE",
+"testo": "I contenitori vuoti dei prodotti fitosanitari quali rischi possono procurare?",
+"risposte": [
+"Nessuno",
+"Inquinamento delle acque e del suolo e intossicazioni per chi ne viene a contatto",
+"Solo degrado paesaggistico."
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 41
+},
+{
+"n": 274,
+"sezione": "Capitolo 8: RISCHI E PRECAUZIONI PER L’AMBIENTE",
+"testo": "Gli imballaggi dei prodotti fitosanitari possono essere utilizzati per altri scopi",
+"risposte": [
+"Sì, solo quelli dei prodotti meno pericolosi",
+"No, mai",
+"Sì purché non siano adibiti a contenere sostanze alimentari"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 41
+},
+{
+"n": 275,
+"sezione": "Capitolo 8: RISCHI E PRECAUZIONI PER L’AMBIENTE",
+"testo": "Le fasce tampone vegetate sono:",
+"risposte": [
+"Le distanze stabilite nelle etichette dei prodotti fitosanitari, rispetto ai corpi idrici superficiali",
+"Le fasce tampone inerbite, con o senza siepi, realizzate con le misure agro ambientali del PSR, ai fini della tutela della biodiversità",
+"le fasce di terreno con vegetazione erbacea, costituite lungo corpi idrici al fine di limitare il fenomeno del “ruscellamento”."
+],
+"esatta": 2,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 41
+},
+{
+"n": 276,
+"sezione": "Capitolo 8: RISCHI E PRECAUZIONI PER L’AMBIENTE",
+"testo": "Il rischio di inquinamento delle acque di falda è maggiore",
+"risposte": [
+"Nel caso di impiego di erbicidi residuali",
+"Nel caso di impiego di erbicidi di contatto",
+"Quando l’erbicida viene interrato e seguono piogge abbondanti"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 41
+},
+{
+"n": 277,
+"sezione": "Capitolo 8: RISCHI E PRECAUZIONI PER L’AMBIENTE",
+"testo": "Il prelievo di acqua per il riempimento dell’irroratrice può avvenire",
+"risposte": [
+"Esclusivamente da apposito serbatoio fisso o mobile",
+"Anche da corpi idrici superficiali, purché siano utilizzati dispositivi idonei ad evitare la contaminazione della fonte idrica",
+"Solo con acqua della rete idrica, in quanto le acque dei canali possono contenere sostanze o impurità che inattivano il PRODOTTI FITOSANITARI"
+],
+"esatta": 1,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 41
+},
+{
+"n": 278,
+"sezione": "Capitolo 8: RISCHI E PRECAUZIONI PER L’AMBIENTE",
+"testo": "Per limitare il rischio di inquinamento puntiforme da prodotti fitosanitari durante la distribuzione della miscela fitoiatrica è molto importante…",
+"risposte": [
+"interrompere l’erogazione della miscela durante le svolte in capezzagna",
+"effettuare le svolte nel minor tempo possibile senza interrompere l’erogazione del liquido",
+"non variare mai la velocità di avanzamento durante le svolte"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 41
+},
+{
+"n": 279,
+"sezione": "Capitolo 8: RISCHI E PRECAUZIONI PER L’AMBIENTE",
+"testo": "Per ridurre i rischi di inquinamento puntiforme da prodotti fitosanitari è prioritario…",
+"risposte": [
+"rendere minimi i quantitativi di reflui del trattamento",
+"disporre di elevati quantitativi d’acqua pulita per diluire i reflui",
+"utilizzare prodotti fitosanitari poco tossici"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 41
+},
+{
+"n": 280,
+"sezione": "Capitolo 8: RISCHI E PRECAUZIONI PER L’AMBIENTE",
+"testo": "Il lavaggio esterno della macchina irroratrice alla fine del trattamento può essere effettuato",
+"risposte": [
+"In un’area del campo possibilmente ogni volta diversa, e comunque non in prossimità di un corpo idrico",
+"Vicino ad un corso di un fiume utilizzandone l’acqua per il lavaggio",
+"Raccogliendo l’acqua e utilizzandola per l’irrigazione"
+],
+"esatta": 0,
+"file": "fito_sicilia_cons.pdf",
+"pagina": 42
+}
+],
+"escluse": [
+{
+"n": 204,
+"testo": "Quando l’altezza di lavoro della barra irroratrice è molto vicina al suolo si hanno:",
+"segno_nel_testo": "c",
+"tabella_finale": "b",
+"pagina": 30
+},
+{
+"n": 225,
+"testo": "Con quali colori è contrassegnato un filtro combinato per polveri e vapori organici?",
+"segno_nel_testo": "b",
+"tabella_finale": "c",
+"pagina": 33
+}
+]
+}

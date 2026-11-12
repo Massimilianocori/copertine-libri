@@ -1,0 +1,896 @@
+{
+ "_nota": "Scritto da raccolta/fonti.py. File grezzi in raccolta/_grezzi/ (fuori da git): l'impronta SHA-256 dice quale versione è stata letta.",
+ "file": {
+  "nautica_allegato_a": {
+   "url": "https://www.mit.gov.it/nfsmitgov/files/media/normativa/2022-05/ALLEGATO%20A%20QUIZ%20PATENTI%20NAUTICHE%20DD%20131%20DEL%2031%20MAGGIO%202022.pdf",
+   "chi": "Ministero delle infrastrutture e dei trasporti, Direzione generale per la vigilanza sulle autorità di sistema portuale, il trasporto marittimo e per vie d'acqua interne",
+   "titolo": "Allegato A al decreto direttoriale 131 del 31/05/2022: elenco unico nazionale dei quesiti per le patenti nautiche (quiz base e quiz vela)",
+   "data": "2022-05-31",
+   "file": "mit/allegato_a_dd131_2022.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 5840994,
+   "sha256": "ce34c2587600f4865f87a947583da2859e8f2c7e4f69fe81e185f7869e339f02",
+   "pagine": 338,
+   "frasi": {
+    "La seconda fase consiste nella risoluzione di un questionario articolato su venti domande con tre risposte ciascuna": true,
+    "La prova è superata se si commette un numero massimo di quattro errori": true,
+    "Per lo svolgimento della prova è concesso un tempo massimo di trenta minuti": true,
+    "Il quiz vela è costituito da cinque quesiti a risposta singola inerenti le competenze di navigazione a vela": true,
+    "La prova è superata se il candidato fornisce almeno quattro risposte esatte nel tempo massimo di quindici minuti": true,
+    "Le risposte omesse o rettificate equivalgono a una risposta errata": true,
+    "PRIMA FASE ENTRO 12 MIGLIA DALLA COSTA - QUIZ SU ELEMENTI DI CARTEGGIO": true,
+    "PRIMA FASE SENZA LIMITI DALLA COSTA – PROVA DI CARTEGGIO NAUTICO": true
+   }
+  },
+  "nautica_dd131": {
+   "url": "https://www.mit.gov.it/nfsmitgov/files/media/normativa/2022-05/M_TRA.VPTM_.REG_Decreti%28R%29.0000131.31-05-2022.pdf",
+   "chi": "Ministero delle infrastrutture e della mobilità sostenibili",
+   "titolo": "Decreto direttoriale 131 del 31/05/2022 (sostituisce l'allegato A dei quesiti per le patenti nautiche)",
+   "data": "2022-05-31",
+   "file": "mit/dd131_2022.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 229551,
+   "sha256": "989bed2d35ad98c058374fd35ecda0f02ed4d850d4bf978976f5130584341434",
+   "pagine": 2,
+   "frasi": {
+    "L’allegato “A” al decreto direttoriale n.106 del 12 maggio 2022 è sostituito dall’Allegato “A” al presente decreto": true
+   }
+  },
+  "pag_mit_nautica": {
+   "url": "https://www.mit.gov.it/temi/patenti-mezzi-abilitazioni/patenti-nautiche/normativa",
+   "chi": "Ministero delle infrastrutture e dei trasporti",
+   "titolo": "Patenti nautiche: normativa (pagina del Ministero)",
+   "data": null,
+   "file": "mit/pag_mit_normativa.html",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 129313,
+   "sha256": "2e55b122da84c94f46737978fca28fef1107350133d7294239b89a95bfe817d1",
+   "frasi": {
+    "Decreto Dirigenziale numero 131 del 31/05/2022 Questo Decreto provvede a correggere alcuni errori materiali": true
+   }
+  },
+  "tart_lazio_2015": {
+   "url": "https://www.regione.lazio.it/sites/default/files/documentazione/AGC_DD_G10268_27_08_2015_Allegato1.pdf",
+   "chi": "Regione Lazio, Direzione Agricoltura e Sviluppo rurale, Caccia e Pesca",
+   "titolo": "Quesiti oggetto della prova d'esame per il conseguimento del tesserino di idoneità alla ricerca e raccolta dei tartufi (allegato alla determinazione G10268 del 27/08/2015)",
+   "data": "2015-08-27",
+   "file": "tart_lazio_2015.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 123049,
+   "sha256": "7c5cf858ccb933e1ff9201aa35f4c87d8bc704e2a8a1ebd4f34e0325b36033b4",
+   "pagine": 24,
+   "frasi": {
+    "QUESITI OGGETTO DELLA PROVA D’ESAME PER IL CONSEGUIMENTO": true
+   }
+  },
+  "tart_lazio_dd": {
+   "url": "https://www.regione.lazio.it/sites/default/files/documentazione/AGC_DD_G10268_27_08_2015.pdf",
+   "chi": "Regione Lazio",
+   "titolo": "Determinazione G10268 del 27/08/2015 (approvazione dei quesiti d'esame per il tesserino dei tartufi)",
+   "data": "2015-08-27",
+   "file": "tart_lazio_dd.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 198113,
+   "sha256": "179df63bd0f4fde8d651bce845a2b766c576d5460f84bfac77e085baa071c2e9",
+   "pagine": 3,
+   "frasi": {
+    "costituito da numero 275 quesiti a risposta multipla": true,
+    "di cui n. 64 riguardanti il riconoscimento delle specie dei tartufi": true,
+    "n. 65 riguardanti gli elementi fondamentali di biologia, n 146 riguardanti gli aspetti normativi": true
+   }
+  },
+  "tart_lazio_guida": {
+   "url": "https://regione.lazio.it/sites/default/files/2021-10/AGC-Guida-Preparazione-Esame-Abilitazione-Ricerca-e-Raccolta-Tartufi.pdf",
+   "chi": "Regione Lazio",
+   "titolo": "Guida alla preparazione dell'esame di abilitazione alla ricerca e raccolta dei tartufi (2021)",
+   "data": "2021-10-01",
+   "file": "tart_lazio_guida.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 3389749,
+   "sha256": "91bc56a896b28cca90526055177e72ee10c9aa0d55d432b7cf158d0aa25f80ad",
+   "pagine": 61,
+   "frasi": {
+    "Determinazione Dirigenziale n.10268 del 27/08/2015": true
+   }
+  },
+  "pag_lazio_tartufi": {
+   "url": "https://www.regione.lazio.it/cittadini/agricoltura/tartufi",
+   "chi": "Regione Lazio",
+   "titolo": "Tartufi (pagina della Regione Lazio)",
+   "data": null,
+   "file": "pag_lazio_tartufi.html",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 200748,
+   "sha256": "bb72b541b6c9bfca5b4b1dd30854d8504ec2965450bcfc75e5aca390110ddbe7",
+   "frasi": {
+    "somministrazione di un questionario di 25 domande estratte a sorte": true,
+    "Il candidato che commette 9 o più errori non consegue il tesserino di idoneità e deve ripetere l’esame": true,
+    "abbiano compiuto il quattordicesimo anno di età": true
+   }
+  },
+  "tart_er": {
+   "url": "https://agricoltura.regione.emilia-romagna.it/tartufi/pubblicazioni/quiz-esercitazioni/@@download/publicationFile/Tartufi%20-%20Esempi%20di%20quiz.pdf",
+   "chi": "Regione Emilia-Romagna",
+   "titolo": "Tartufi – Esempi di quiz",
+   "data": null,
+   "file": "tart_er.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 395844,
+   "sha256": "61f461fa4e3af398f0775348fc80558c57b3a7bc12cf4161636826532a7c1cd6",
+   "pagine": 52,
+   "frasi": {
+    "ESAMI PER IL RILASCIO DEL TESSERINO PER LA RACCOLTA DEI TARTUFI": true
+   }
+  },
+  "tart_toscana_dd5332": {
+   "url": "https://www.regione.toscana.it/documents/10180/13325619/Decreto_n.5332_del_27-04-2017.pdf/fce1f481-cb1c-4bbf-bb35-9667cac0ea10",
+   "chi": "Regione Toscana",
+   "titolo": "Decreto 5332 del 27/04/2017: elenco domande per i questionari d'esame del tartufo (allegati A e B non più scaricabili)",
+   "data": "2017-04-27",
+   "file": "tart_toscana_dd5332.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 562702,
+   "sha256": "53c1d01f6d13d80de69c64c3fa1cd9032e40ddbde6e09e1c40e72927c96f14c9",
+   "pagine": 5,
+   "frasi": {
+    "di approvare l’elenco delle risposte corrette di esame Allegato B": true
+   }
+  },
+  "tart_campania": {
+   "url": "https://funghietartufi.regione.campania.it/docfunghietartufi/doc/dispensa_TARTUFI_CE.pdf",
+   "chi": "Provincia di Caserta (pubblicata dalla Regione Campania)",
+   "titolo": "Guida per l'esame di abilitazione alla raccolta dei tartufi (aprile 2008)",
+   "data": "2008-04-01",
+   "file": "tart_campania.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 258482,
+   "sha256": "3baf21192a84b4d55dc02acf8820dae90e6b890a116b44749619f21801f60636",
+   "pagine": 40,
+   "frasi": {
+    "GUIDA PER L’ESAME DI ABILITAZIONE": true
+   }
+  },
+  "fito_vda": {
+   "url": "https://gestionewww.regione.vda.it/allegato.aspx?pk=58816",
+   "chi": "Regione Autonoma Valle d'Aosta, Struttura produzioni vegetali e servizi fitosanitari",
+   "titolo": "Quesiti adottati dalla Regione Autonoma Valle d'Aosta per il certificato di abilitazione all'acquisto e utilizzo di prodotti fitosanitari",
+   "data": null,
+   "file": "fito_vda.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 465387,
+   "sha256": "55e6f32d5afe138d3e9f3725994388d0d0380728a4857e738e779f00fbe63e6d",
+   "pagine": 31,
+   "frasi": {
+    "Le risposte corrette sono evidenziate in giallo": true,
+    "(d.lgs. 150/2012 – DM 22 gennaio 2014 – DGR 1930/2915)": true
+   }
+  },
+  "fito_vda_dgr": {
+   "url": "https://gestionewww.regione.vda.it/allegato.aspx?pk=72153",
+   "chi": "Regione Autonoma Valle d'Aosta",
+   "titolo": "Deliberazione della Giunta regionale 1930 del 23/12/2015 (sistema di formazione e rilascio delle abilitazioni)",
+   "data": "2015-12-23",
+   "file": "fito_vda_dgr.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 218963,
+   "sha256": "7dd107334f354fd55ce6847361cf9f60f7af7c92fcfa58357d211cfa09c5bef5",
+   "pagine": 21,
+   "frasi": {
+    "L’esame si svolge attraverso la somministrazione di un test costituito da una serie di domande a risposta multipla": true,
+    "la commissione potrà completare la valutazione attraverso un colloquio orale": true
+   }
+  },
+  "fito_sicilia_util": {
+   "url": "https://www.regione.sicilia.it/system/files/2021-10/Utilizzatori%20-%20Elenco%20domande%20e%20risposte_2.pdf",
+   "chi": "Regione Siciliana, Servizio fitosanitario regionale",
+   "titolo": "Elenco domande di esame per il certificato di abilitazione all'acquisto e all'utilizzo dei prodotti fitosanitari",
+   "data": null,
+   "file": "fito_sicilia_util.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 943799,
+   "sha256": "93caf516a9befae4da5aaf2e1f264e255b0a8c293ca99a347fc047be4221df59",
+   "pagine": 26,
+   "frasi": {
+    "la Commissione d’esame ne individuerà n. 25 quale oggetto della prova di valutazione": true,
+    "hanno a disposizione 60 minuti per rispondere": true,
+    "Il test verrà superato qualora non si effettui un numero di errori superiore a 5": true,
+    "Le domande senza risposta vengono considerate errori": true
+   }
+  },
+  "fito_sicilia_cons": {
+   "url": "https://regione.sicilia.it/system/files/2021-10/Consulenti-Elenco%20domande%20e%20risposte_0.pdf",
+   "chi": "Regione Siciliana, Servizio fitosanitario regionale",
+   "titolo": "Elenco domande di esame per il certificato di abilitazione per l'attività di consulente",
+   "data": null,
+   "file": "fito_sicilia_cons.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 546104,
+   "sha256": "89dae1d7312c349287c76a7ccc584be575c71f4045d1acfcb04e2e7f40ad43db",
+   "pagine": 44,
+   "frasi": {
+    "la Commissione d’esame ne individuerà n. 30 quale oggetto della prova di valutazione": true,
+    "hanno a disposizione 90 minuti per rispondere": true,
+    "Il test verrà superato qualora non si effettui un numero di errori superiore a 5": true,
+    "Le risposte esatte sono contrassegnate da un asterisco": true
+   }
+  },
+  "fito_oristano": {
+   "url": "https://asl5oristano.it/wp-content/uploads/2024/09/All.-1-Elenco-domande-e-soluzioni.pdf",
+   "chi": "Regione Autonoma della Sardegna (pubblicato da ASL 5 Oristano)",
+   "titolo": "Elenco delle domande d'esame per il certificato di abilitazione alla vendita di prodotti fitosanitari (allegato 1 alla determinazione 582 del 15/06/2017)",
+   "data": "2017-06-15",
+   "file": "fito_oristano.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 445075,
+   "sha256": "cb8780a265038ea983ec93e7664d7382f05c94afc584e8174373bbad9d1facfb",
+   "pagine": 47,
+   "frasi": {
+    "Allegato 1 alla Determinazione n. 582 del 15 giugno 2017": true
+   }
+  },
+  "taxi_sassari": {
+   "url": "https://www.ss.camcom.it/sites/default/files/wp2/wpdm/Domande_Ruolo_Conducenti_SS%20-%2004_04_2022-1.pdf",
+   "chi": "Camera di Commercio di Sassari",
+   "titolo": "Banca dati quiz d'esame del Ruolo dei conducenti (aggiornata al 04/04/2022)",
+   "data": "2022-04-04",
+   "file": "taxi_sassari.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 139792,
+   "sha256": "946e84b5c0d6d63fd83e401d340a7136b53434f925d44974c8defbfc683b40cf",
+   "pagine": 25,
+   "frasi": {
+    "Aggiornati al 04/04/2022": true
+   }
+  },
+  "pag_sassari": {
+   "url": "https://www.ss.camcom.it/print/pdf/node/2774",
+   "chi": "Camera di Commercio di Sassari",
+   "titolo": "Ruolo conducenti: esame e iscrizione (pagina della Camera di Commercio di Sassari)",
+   "data": null,
+   "file": "pag_sassari.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 29666,
+   "sha256": "b39214157111097922f2e02beb4cc50643ee3f37778581ebefd9ca0639bd4cff",
+   "pagine": 6,
+   "frasi": {
+    "Verranno estratte, per ciascun candidato, n. 40 domande riguardanti le materie d’esame": true,
+    "L’esame si intenderà superato se il candidato risponderà correttamente al 70% delle domande proposte nel tempo massimo di un’ora e venti minuti": true
+   }
+  },
+  "taxi_caor": {
+   "url": "https://www.caor.camcom.it/sites/default/files/contenuto_redazione/bando/allegati/2025-01-29/banca%20dati%20quiz%20aggiornata%20al%2029%20gennaio%202025.pdf",
+   "chi": "Camera di Commercio di Cagliari-Oristano",
+   "titolo": "Banca dati quiz del Ruolo dei conducenti (aggiornata al 29 gennaio 2025)",
+   "data": "2025-01-29",
+   "file": "taxi_caor.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 996611,
+   "sha256": "3daee0608ea992163c06a1fb03b96867af13f3ab67bf458b45fdfc6035b36139",
+   "pagine": 62,
+   "frasi": {
+    "CODICE DELLA STRADA": true,
+    "TOPONOMASTICA ORISTANO": true
+   }
+  },
+  "pag_caor": {
+   "url": "https://www.caor.camcom.it/print/pdf/node/3463",
+   "chi": "Camera di Commercio di Cagliari-Oristano",
+   "titolo": "Ruolo conducenti (pagina della Camera di Commercio di Cagliari-Oristano)",
+   "data": null,
+   "file": "pag_caor.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 40088,
+   "sha256": "29a890a354a1744797d53118bbb2cfd4903e23426c4cc1df349451ca664156bd",
+   "pagine": 10,
+   "frasi": {
+    "La prova d’esame consiste in un test a risposta multipla; l’esame si intende superato se il candidato risponde correttamente al 70% delle domande proposte": true,
+    "Banca dati quiz (aggiornata a gennaio 2025)": true
+   }
+  },
+  "dgr_sardegna": {
+   "url": "http://www.regione.sardegna.it/documenti/1_274_20120503105707.pdf",
+   "chi": "Regione Autonoma della Sardegna",
+   "titolo": "Allegato alla deliberazione della Giunta regionale 12/30 del 20/03/2012 (ruolo dei conducenti, esame di idoneità)",
+   "data": "2012-03-20",
+   "file": "dgr_sardegna.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 66337,
+   "sha256": "fc76e2c71bcff4b7dacc93dea6d7883bdbe3049a180155b0822f421252ae77a0",
+   "pagine": 9,
+   "frasi": {
+    "L'esame di idoneità consiste in una prova scritta, effettuata su quesiti a risposta multipla": true,
+    "conoscenza di base di una lingua straniera a scelta del candidato tra inglese, francese, spagnolo e tedesco": true,
+    "La prova d'esame si intende positivamente superata se il candidato ha risposto positivamente ad almeno il 70% dei quesiti formulati": true
+   }
+  },
+  "paen_regolamento": {
+   "url": "https://www.paen.camcom.gov.it/sites/default/files/NUOVO%20REGOLAMENTO%20ESAMI%20CONDUCENTI%20AGGIORNATO.pdf",
+   "chi": "Camera di Commercio di Palermo ed Enna",
+   "titolo": "Regolamento sulle modalità di svolgimento dell'esame di idoneità per il Ruolo dei conducenti (in vigore dal 25/03/2026)",
+   "data": "2026-03-25",
+   "file": "paen_regolamento.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 665782,
+   "sha256": "c2397fc9f040b99ad389b1c02d7d395bdf1706f5c4cf9edbfdc1df07c703a0e4",
+   "pagine": 9,
+   "frasi": {
+    "copia della scheda contente i 20 quiz": true,
+    "La prova ha durata pari a venti minuti": true,
+    "almeno 18/20 (margine massimo di due errori)": true,
+    "In vigore dal 25/03/2026": true
+   }
+  },
+  "paen_01": {
+   "url": "https://www.paen.camcom.gov.it/sites/default/files/Allegati_Sito/Elenchi_Albi_Ruoli/Esami_NCC-TAXI/2021_01/2021_01-31-03-2021%20ore%2011.00-QUIZ%20CORRETTO.pdf",
+   "chi": "Camera di Commercio di Palermo ed Enna",
+   "titolo": "Questionario corretto della seduta d'esame del Ruolo dei conducenti",
+   "data": null,
+   "file": "paen/q01.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 64510,
+   "sha256": "ea6324aa7e63ea4ccc96c1042e229277c63e02420501b27c0f67739402e37dad",
+   "pagine": 3,
+   "frasi": {
+    "Questionario CORRETTO": true
+   }
+  },
+  "paen_02": {
+   "url": "https://www.paen.camcom.gov.it/sites/default/files/Allegati_Sito/Elenchi_Albi_Ruoli/Esami_NCC-TAXI/2021_01/2021_01-31-03-2021%20ore%2016.00-QUIZ%20CORRETTO.pdf",
+   "chi": "Camera di Commercio di Palermo ed Enna",
+   "titolo": "Questionario corretto della seduta d'esame del Ruolo dei conducenti",
+   "data": null,
+   "file": "paen/q02.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 64550,
+   "sha256": "446e34be49222a8544e9599ec43e7a5bdaa25eec78a2a24d4d214aa8b5061c7a",
+   "pagine": 3,
+   "frasi": {
+    "Questionario CORRETTO": true
+   }
+  },
+  "paen_03": {
+   "url": "https://www.paen.camcom.gov.it/sites/default/files/Allegati_Sito/Elenchi_Albi_Ruoli/Esami_NCC-TAXI/2021_02/2021_02-15-11-2021%20ore%2011.00-QUIZ%20CORRETTO.pdf",
+   "chi": "Camera di Commercio di Palermo ed Enna",
+   "titolo": "Questionario corretto della seduta d'esame del Ruolo dei conducenti",
+   "data": null,
+   "file": "paen/q03.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 64968,
+   "sha256": "3674afe7a73b76a6fc23d82ca2f6f8968d8bd48af1664ab7cda04d21f96cb4b5",
+   "pagine": 3,
+   "frasi": {
+    "Questionario CORRETTO": true
+   }
+  },
+  "paen_04": {
+   "url": "https://www.paen.camcom.gov.it/sites/default/files/Allegati_Sito/Elenchi_Albi_Ruoli/Esami_NCC-TAXI/2022_01/2022_01-11-04-2022%20ore%2010.30-QUIZ%20CORRETTO.pdf",
+   "chi": "Camera di Commercio di Palermo ed Enna",
+   "titolo": "Questionario corretto della seduta d'esame del Ruolo dei conducenti",
+   "data": null,
+   "file": "paen/q04.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 65636,
+   "sha256": "1075eea2239b8a600e7fb38f69940bd13abb9a16f2bc9dea1e3b6b81794fd2b2",
+   "pagine": 4,
+   "frasi": {
+    "Questionario CORRETTO": true
+   }
+  },
+  "paen_05": {
+   "url": "https://www.paen.camcom.gov.it/sites/default/files/Allegati_Sito/Elenchi_Albi_Ruoli/Esami_NCC-TAXI/2022_02/2022_02-04-07-2022%20ore%2011.00-QUIZ%20CORRETTO.pdf",
+   "chi": "Camera di Commercio di Palermo ed Enna",
+   "titolo": "Questionario corretto della seduta d'esame del Ruolo dei conducenti",
+   "data": null,
+   "file": "paen/q05.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 72286,
+   "sha256": "1973f10b933bff8126d0fc0c68cbeee3e1dce3a154c69534b61a7d6004f541d6",
+   "pagine": 3,
+   "frasi": {
+    "Questionario CORRETTO": true
+   }
+  },
+  "paen_06": {
+   "url": "https://www.paen.camcom.gov.it/sites/default/files/Allegati_Sito/Elenchi_Albi_Ruoli/Esami_NCC-TAXI/2022_03/2022_03-19-09-2022%20ore%2010%2C30-QUIZ%20CORRETTO.pdf",
+   "chi": "Camera di Commercio di Palermo ed Enna",
+   "titolo": "Questionario corretto della seduta d'esame del Ruolo dei conducenti",
+   "data": null,
+   "file": "paen/q06.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 73875,
+   "sha256": "d13258c3ee62300603cebf2714f29c1f3ccb563a876c23c7864ce92e79bf93d7",
+   "pagine": 3,
+   "frasi": {
+    "Questionario CORRETTO": true
+   }
+  },
+  "paen_07": {
+   "url": "https://www.paen.camcom.gov.it/sites/default/files/Allegati_Sito/Elenchi_Albi_Ruoli/Esami_NCC-TAXI/2022_04/2022_04-28-11-2022%20ore%2010%2C30-QUIZ%20CORRETTO.pdf",
+   "chi": "Camera di Commercio di Palermo ed Enna",
+   "titolo": "Questionario corretto della seduta d'esame del Ruolo dei conducenti",
+   "data": null,
+   "file": "paen/q07.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 72849,
+   "sha256": "f217c5c8f41733c2abf54f6921e03a0a6ea2654b156b212f214093a2a5ddd408",
+   "pagine": 3,
+   "frasi": {
+    "Questionario CORRETTO": true
+   }
+  },
+  "paen_08": {
+   "url": "https://www.paen.camcom.gov.it/sites/default/files/Allegati_Sito/Elenchi_Albi_Ruoli/Esami_NCC-TAXI/2023_01/23-01-2023-QUIZ%20CORRETTO.pdf",
+   "chi": "Camera di Commercio di Palermo ed Enna",
+   "titolo": "Questionario corretto della seduta d'esame del Ruolo dei conducenti",
+   "data": null,
+   "file": "paen/q08.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 65278,
+   "sha256": "003a4814d1b4cea1bac5db22de0f9c73ab47e6bccf3b4e62ab8006fc3c861f1c",
+   "pagine": 3,
+   "frasi": {
+    "Questionario CORRETTO": true
+   }
+  },
+  "paen_09": {
+   "url": "https://www.paen.camcom.gov.it/sites/default/files/Allegati_Sito/Elenchi_Albi_Ruoli/Esami_NCC-TAXI/2023_02/15-03-2023-QUIZ%20CORRETTO.pdf",
+   "chi": "Camera di Commercio di Palermo ed Enna",
+   "titolo": "Questionario corretto della seduta d'esame del Ruolo dei conducenti",
+   "data": null,
+   "file": "paen/q09.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 65510,
+   "sha256": "3375233836eab08a51ee7d4b56502c76d3118ccf51c1d034622a3e684b706887",
+   "pagine": 3,
+   "frasi": {
+    "Questionario CORRETTO": true
+   }
+  },
+  "paen_10": {
+   "url": "https://www.paen.camcom.gov.it/sites/default/files/Allegati_Sito/Elenchi_Albi_Ruoli/Esami_NCC-TAXI/2023_03/12-04-2023-QUIZ%20CORRETTO.pdf",
+   "chi": "Camera di Commercio di Palermo ed Enna",
+   "titolo": "Questionario corretto della seduta d'esame del Ruolo dei conducenti",
+   "data": null,
+   "file": "paen/q10.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 67480,
+   "sha256": "3f107a6510b33bc4aad4b13f4d3773355102d3b8f48ed459862235cb660d16bc",
+   "pagine": 3,
+   "frasi": {
+    "Questionario CORRETTO": true
+   }
+  },
+  "paen_11": {
+   "url": "https://www.paen.camcom.gov.it/sites/default/files/Allegati_Sito/Elenchi_Albi_Ruoli/Esami_NCC-TAXI/2023_04/24-05-2023-QUIZ%20CORRETTO.pdf",
+   "chi": "Camera di Commercio di Palermo ed Enna",
+   "titolo": "Questionario corretto della seduta d'esame del Ruolo dei conducenti",
+   "data": null,
+   "file": "paen/q11.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 84375,
+   "sha256": "8b8d7c6fb3ff5706c496d276bd34f45cc76b18227614fffc93994901a0a9883d",
+   "pagine": 4,
+   "frasi": {
+    "Questionario CORRETTO": true
+   }
+  },
+  "paen_12": {
+   "url": "https://www.paen.camcom.gov.it/sites/default/files/Allegati_Sito/Elenchi_Albi_Ruoli/Esami_NCC-TAXI/2023_05/19-07-2023-QUIZ%20CORRETTO.pdf",
+   "chi": "Camera di Commercio di Palermo ed Enna",
+   "titolo": "Questionario corretto della seduta d'esame del Ruolo dei conducenti",
+   "data": null,
+   "file": "paen/q12.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 68259,
+   "sha256": "dc4d196e0f15b025033bed9f8e6d05d82c3fd6a9b6543fcb265b9265b0e88a2d",
+   "pagine": 4,
+   "frasi": {
+    "Questionario CORRETTO": true
+   }
+  },
+  "paen_13": {
+   "url": "https://www.paen.camcom.gov.it/sites/default/files/Allegati_Sito/Elenchi_Albi_Ruoli/Esami_NCC-TAXI/2023_06/11-10-2023-QUIZ%20CORRETTO.pdf",
+   "chi": "Camera di Commercio di Palermo ed Enna",
+   "titolo": "Questionario corretto della seduta d'esame del Ruolo dei conducenti",
+   "data": null,
+   "file": "paen/q13.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 90302,
+   "sha256": "c03293f63de433eded7d74e5c7ff95c34e1889232b95a758ef3a09d981ed9c04",
+   "pagine": 4,
+   "frasi": {
+    "Questionario CORRETTO": true
+   }
+  },
+  "paen_14": {
+   "url": "https://www.paen.camcom.gov.it/sites/default/files/Allegati_Sito/Elenchi_Albi_Ruoli/Esami_NCC-TAXI/2023_07/22-11-2023-QUIZ%20CORRETTO.pdf",
+   "chi": "Camera di Commercio di Palermo ed Enna",
+   "titolo": "Questionario corretto della seduta d'esame del Ruolo dei conducenti",
+   "data": null,
+   "file": "paen/q14.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 68379,
+   "sha256": "890aaff2e1d2297487fa0d9dd0827640ce2178be053b666a57a351628db30b49",
+   "pagine": 4,
+   "frasi": {
+    "Questionario CORRETTO": true
+   }
+  },
+  "paen_15": {
+   "url": "https://www.paen.camcom.gov.it/sites/default/files/Allegati_Sito/Elenchi_Albi_Ruoli/Esami_NCC-TAXI/2023_08/20-12-2023-QUIZ%20CORRETTO.pdf",
+   "chi": "Camera di Commercio di Palermo ed Enna",
+   "titolo": "Questionario corretto della seduta d'esame del Ruolo dei conducenti",
+   "data": null,
+   "file": "paen/q15.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 70102,
+   "sha256": "b82b5448fa1dda24b9daae09cc5c7d3b57a187a81842fe350c44ce4ea0a36eb1",
+   "pagine": 4,
+   "frasi": {
+    "Questionario CORRETTO": true
+   }
+  },
+  "paen_16": {
+   "url": "https://www.paen.camcom.gov.it/sites/default/files/Allegati_Sito/Elenchi_Albi_Ruoli/Esami_NCC-TAXI/2024_01/21-02-2024-QUIZ%20CORRETTO.pdf",
+   "chi": "Camera di Commercio di Palermo ed Enna",
+   "titolo": "Questionario corretto della seduta d'esame del Ruolo dei conducenti",
+   "data": null,
+   "file": "paen/q16.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 70585,
+   "sha256": "d0434737981b6830ee1a96db3fd9d8f45f295d39c2eb3d84d6bb9bb31575fe0c",
+   "pagine": 4,
+   "frasi": {
+    "Questionario CORRETTO": true
+   }
+  },
+  "paen_17": {
+   "url": "https://www.paen.camcom.gov.it/sites/default/files/Allegati_Sito/Elenchi_Albi_Ruoli/Esami_NCC-TAXI/2024_01/28-02-2024-QUIZ%20CORRETTO.pdf",
+   "chi": "Camera di Commercio di Palermo ed Enna",
+   "titolo": "Questionario corretto della seduta d'esame del Ruolo dei conducenti",
+   "data": null,
+   "file": "paen/q17.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 91500,
+   "sha256": "00d3f2a4803e85f6f42c7959e7792f2b994a0ac67560a7995e3d1fa9bcbb4ace",
+   "pagine": 4,
+   "frasi": {
+    "Questionario CORRETTO": true
+   }
+  },
+  "paen_18": {
+   "url": "https://www.paen.camcom.gov.it/sites/default/files/Allegati_Sito/Elenchi_Albi_Ruoli/Esami_NCC-TAXI/2024_02/03-04-2024-QUIZ%20CORRETTO.pdf",
+   "chi": "Camera di Commercio di Palermo ed Enna",
+   "titolo": "Questionario corretto della seduta d'esame del Ruolo dei conducenti",
+   "data": null,
+   "file": "paen/q18.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 71857,
+   "sha256": "bc936431afbf2384272c2c0fe026733c690cb64e3cd89341d7362095999897e1",
+   "pagine": 4,
+   "frasi": {
+    "Questionario CORRETTO": true
+   }
+  },
+  "paen_19": {
+   "url": "https://www.paen.camcom.gov.it/sites/default/files/Allegati_Sito/Elenchi_Albi_Ruoli/Esami_NCC-TAXI/2024_03/08-05-2024-QUIZ%20CORRETTO.pdf",
+   "chi": "Camera di Commercio di Palermo ed Enna",
+   "titolo": "Questionario corretto della seduta d'esame del Ruolo dei conducenti",
+   "data": null,
+   "file": "paen/q19.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 71066,
+   "sha256": "fa9f3e4e57a416f9f5ad10862d30a0fa5e5f2d8a65c5b5e267cb6c3f7434bb71",
+   "pagine": 4,
+   "frasi": {
+    "Questionario CORRETTO": true
+   }
+  },
+  "paen_20": {
+   "url": "https://www.paen.camcom.gov.it/sites/default/files/Allegati_Sito/Elenchi_Albi_Ruoli/Esami_NCC-TAXI/2024_04/19-06-2024-QUIZ%20CORRETTO.pdf",
+   "chi": "Camera di Commercio di Palermo ed Enna",
+   "titolo": "Questionario corretto della seduta d'esame del Ruolo dei conducenti",
+   "data": null,
+   "file": "paen/q20.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 70584,
+   "sha256": "f407df11f1f5fc732f4437f1111cf99f989715b89100314538fea5717d3ae206",
+   "pagine": 4,
+   "frasi": {
+    "Questionario CORRETTO": true
+   }
+  },
+  "paen_21": {
+   "url": "https://www.paen.camcom.gov.it/sites/default/files/Allegati_Sito/Elenchi_Albi_Ruoli/Esami_NCC-TAXI/2024_05/10-07-2024-QUIZ%20CORRETTO.pdf",
+   "chi": "Camera di Commercio di Palermo ed Enna",
+   "titolo": "Questionario corretto della seduta d'esame del Ruolo dei conducenti",
+   "data": null,
+   "file": "paen/q21.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 71362,
+   "sha256": "41b6e5bb9a05f6585fccb1c099bef29939185909448c801da3e8022161c8b1f8",
+   "pagine": 4,
+   "frasi": {
+    "Questionario CORRETTO": true
+   }
+  },
+  "paen_22": {
+   "url": "https://www.paen.camcom.gov.it/sites/default/files/Allegati_Sito/Elenchi_Albi_Ruoli/Esami_NCC-TAXI/2024_06/11-09-2024-QUIZ%20CORRETTO.pdf",
+   "chi": "Camera di Commercio di Palermo ed Enna",
+   "titolo": "Questionario corretto della seduta d'esame del Ruolo dei conducenti",
+   "data": null,
+   "file": "paen/q22.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 69487,
+   "sha256": "9386fb797a28f488907c5b263863552fe0b0a95cf21bd5fe14d1ed5ec92e1880",
+   "pagine": 3,
+   "frasi": {
+    "Questionario CORRETTO": true
+   }
+  },
+  "paen_23": {
+   "url": "https://www.paen.camcom.gov.it/sites/default/files/Allegati_Sito/Elenchi_Albi_Ruoli/Esami_NCC-TAXI/2024_07/23-10-2024-QUIZ%20CORRETTO.pdf",
+   "chi": "Camera di Commercio di Palermo ed Enna",
+   "titolo": "Questionario corretto della seduta d'esame del Ruolo dei conducenti",
+   "data": null,
+   "file": "paen/q23.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 68409,
+   "sha256": "8e0de394a30ecf8b1e99eef581486aeaafe6bc87a9ce570d6a3224596f3044ff",
+   "pagine": 3,
+   "frasi": {
+    "Questionario CORRETTO": true
+   }
+  },
+  "paen_24": {
+   "url": "https://www.paen.camcom.gov.it/sites/default/files/Allegati_Sito/Elenchi_Albi_Ruoli/Esami_NCC-TAXI/2025_01/09-01-2025-QUIZ%20CORRETTO.pdf",
+   "chi": "Camera di Commercio di Palermo ed Enna",
+   "titolo": "Questionario corretto della seduta d'esame del Ruolo dei conducenti",
+   "data": null,
+   "file": "paen/q24.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 83744,
+   "sha256": "35b4fb1243ffa3e42795d51219449f8b47ce3028306cf02e7cd69dee38a64d1b",
+   "pagine": 3,
+   "frasi": {
+    "Questionario CORRETTO": true
+   }
+  },
+  "paen_25": {
+   "url": "https://www.paen.camcom.gov.it/sites/default/files/Allegati_Sito/Elenchi_Albi_Ruoli/Esami_NCC-TAXI/2025_02/19-02-2025-QUIZ%20CORRETTO.pdf",
+   "chi": "Camera di Commercio di Palermo ed Enna",
+   "titolo": "Questionario corretto della seduta d'esame del Ruolo dei conducenti",
+   "data": null,
+   "file": "paen/q25.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 60836,
+   "sha256": "5ddf5a4c8999f7e03cfb7cf4efd7d9958fe292040fd1fbcdc9b9aea2f660fc8b",
+   "pagine": 3,
+   "frasi": {
+    "Questionario CORRETTO": true
+   }
+  },
+  "paen_26": {
+   "url": "https://www.paen.camcom.gov.it/sites/default/files/Allegati_Sito/Elenchi_Albi_Ruoli/Esami_NCC-TAXI/2025_03/19-02-2025-QUIZ%20CORRETTO.pdf",
+   "chi": "Camera di Commercio di Palermo ed Enna",
+   "titolo": "Questionario corretto della seduta d'esame del Ruolo dei conducenti",
+   "data": null,
+   "file": "paen/q26.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 82917,
+   "sha256": "76be9c88bdd9e30fcef9b4d2ceabebfd37442e321816d84f235fd7378a6a1315",
+   "pagine": 3,
+   "frasi": {
+    "Questionario CORRETTO": true
+   }
+  },
+  "paen_27": {
+   "url": "https://www.paen.camcom.gov.it/sites/default/files/Allegati_Sito/Elenchi_Albi_Ruoli/Esami_NCC-TAXI/2025_04/07-04-2025-QUIZ%20CORRETTO.pdf",
+   "chi": "Camera di Commercio di Palermo ed Enna",
+   "titolo": "Questionario corretto della seduta d'esame del Ruolo dei conducenti",
+   "data": null,
+   "file": "paen/q27.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 83470,
+   "sha256": "2becc32fb3a3a8a3d2c1c767e7aea6a782bd3bdc1b25d66dd22296b1ac51b978",
+   "pagine": 3,
+   "frasi": {
+    "Questionario CORRETTO": true
+   }
+  },
+  "paen_28": {
+   "url": "https://www.paen.camcom.gov.it/sites/default/files/Allegati_Sito/Elenchi_Albi_Ruoli/Esami_NCC-TAXI/2025_05/06-05-2025-QUIZ%20CORRETTO.pdf",
+   "chi": "Camera di Commercio di Palermo ed Enna",
+   "titolo": "Questionario corretto della seduta d'esame del Ruolo dei conducenti",
+   "data": null,
+   "file": "paen/q28.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 82933,
+   "sha256": "cf90ed202e3fd86e859334959e0d6030317dea0b16518b5495e3ef67c420899b",
+   "pagine": 3,
+   "frasi": {
+    "Questionario CORRETTO": true
+   }
+  },
+  "paen_29": {
+   "url": "https://www.paen.camcom.gov.it/sites/default/files/Allegati_Sito/Elenchi_Albi_Ruoli/Esami_NCC-TAXI/2025_06/19-05-2025-QUIZ%20CORRETTO.pdf",
+   "chi": "Camera di Commercio di Palermo ed Enna",
+   "titolo": "Questionario corretto della seduta d'esame del Ruolo dei conducenti",
+   "data": null,
+   "file": "paen/q29.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 84559,
+   "sha256": "f1e914c1d34587969da4d96073bc080d0ce61e8754684c8675aff33ebabc270b",
+   "pagine": 3,
+   "frasi": {
+    "Questionario CORRETTO": true
+   }
+  },
+  "paen_30": {
+   "url": "https://www.paen.camcom.gov.it/sites/default/files/Allegati_Sito/Elenchi_Albi_Ruoli/Esami_NCC-TAXI/2025_07/25-06-2025-QUIZ%20CORRETTO.pdf",
+   "chi": "Camera di Commercio di Palermo ed Enna",
+   "titolo": "Questionario corretto della seduta d'esame del Ruolo dei conducenti",
+   "data": null,
+   "file": "paen/q30.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 60666,
+   "sha256": "30a661c882c6276933acda2b5cc790568c885638441f5d4fe80703fdded9a218",
+   "pagine": 3,
+   "frasi": {
+    "Questionario CORRETTO": true
+   }
+  },
+  "paen_31": {
+   "url": "https://www.paen.camcom.gov.it/sites/default/files/Allegati_Sito/Elenchi_Albi_Ruoli/Esami_NCC-TAXI/2025_08/22-07-2025-QUIZ%20CORRETTO.pdf",
+   "chi": "Camera di Commercio di Palermo ed Enna",
+   "titolo": "Questionario corretto della seduta d'esame del Ruolo dei conducenti",
+   "data": null,
+   "file": "paen/q31.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 129229,
+   "sha256": "2ff472a7eca5e78e9c3b5ba8a73767ebfb9371d7baecb69e1344508a7b696137",
+   "pagine": 3,
+   "frasi": {
+    "Questionario CORRETTO": true
+   }
+  },
+  "paen_32": {
+   "url": "https://www.paen.camcom.gov.it/sites/default/files/Allegati_Sito/Elenchi_Albi_Ruoli/Esami_NCC-TAXI/2025_09/02-09-2025-QUIZ%20CORRETTO.pdf",
+   "chi": "Camera di Commercio di Palermo ed Enna",
+   "titolo": "Questionario corretto della seduta d'esame del Ruolo dei conducenti",
+   "data": null,
+   "file": "paen/q32.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 60015,
+   "sha256": "032d57ed69f0f7bbd997948fbb2ac2c91a1f9e5a4aecfa5b04edfb1400640529",
+   "pagine": 3,
+   "frasi": {
+    "Questionario CORRETTO": true
+   }
+  },
+  "paen_33": {
+   "url": "https://www.paen.camcom.gov.it/sites/default/files/Allegati_Sito/Elenchi_Albi_Ruoli/Esami_NCC-TAXI/2025_10/14-10-2025-QUIZ%20CORRETTO.pdf",
+   "chi": "Camera di Commercio di Palermo ed Enna",
+   "titolo": "Questionario corretto della seduta d'esame del Ruolo dei conducenti",
+   "data": null,
+   "file": "paen/q33.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 83581,
+   "sha256": "75ae3dce4f7648ddc99799e853f37f0e34c25bf915b72e261bff3747e1443a1c",
+   "pagine": 3,
+   "frasi": {
+    "Questionario CORRETTO": true
+   }
+  },
+  "paen_34": {
+   "url": "https://www.paen.camcom.gov.it/sites/default/files/Allegati_Sito/Elenchi_Albi_Ruoli/Esami_NCC-TAXI/2025_11/02-12-2025-QUIZ%20CORRETTO.pdf",
+   "chi": "Camera di Commercio di Palermo ed Enna",
+   "titolo": "Questionario corretto della seduta d'esame del Ruolo dei conducenti",
+   "data": null,
+   "file": "paen/q34.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 82976,
+   "sha256": "2a849f8f3a5dafb3a32d874083b0da60af54d6275656eefcc8e3c7c423fef95e",
+   "pagine": 3,
+   "frasi": {
+    "Questionario CORRETTO": true
+   }
+  },
+  "paen_35": {
+   "url": "https://www.paen.camcom.gov.it/sites/default/files/QUIZ%20CORRETTI.pdf",
+   "chi": "Camera di Commercio di Palermo ed Enna",
+   "titolo": "Questionario corretto della seduta d'esame del Ruolo dei conducenti",
+   "data": null,
+   "file": "paen/q35.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 60779,
+   "sha256": "53659324303dbac5db8c362a4c24f8862ad05aabd0bec86d1c0473035ef247ea",
+   "pagine": 3,
+   "frasi": {
+    "Questionario CORRETTO": true
+   }
+  },
+  "pag_paen": {
+   "url": "https://www.paen.camcom.gov.it/it/elenchi-albi-e-ruoli/ruoli/ruolo-dei-conducenti-di-veicoli-adibiti-ad-autoservizi-pubblici-non-di-linea",
+   "chi": "Camera di Commercio di Palermo ed Enna",
+   "titolo": "Ruolo dei conducenti di veicoli adibiti ad autoservizi pubblici non di linea (pagina della Camera di Commercio)",
+   "data": null,
+   "file": "pag_paen.html",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 196008,
+   "sha256": "2a871a6b47d0ce105df15756d3ebea42f8c3b3a41e664646f6134087edf62d46",
+   "frasi": {
+    "Regolamento Esami in vigore dal 25/03/2026": true
+   }
+  }
+ },
+ "non_raggiunte": {
+  "taxi_roma": {
+   "url": "https://static.cittametropolitanaroma.it/uploads/Elenco-quiz-aggiornato-con-relativo-correttore-26.6.2024.pdf",
+   "chi": "Città metropolitana di Roma Capitale",
+   "titolo": "Elenco quiz aggiornato con relativo correttore (26/06/2024)"
+  },
+  "fito_umbria": {
+   "url": "https://www.regione.umbria.it/documents/18/26424422/DOMANDE+2026-combined.pdf/a969a1b1-c5c4-41e9-89ee-0ffc189b8281",
+   "chi": "Regione Umbria",
+   "titolo": "Domande d'esame per il patentino fitosanitario (2026)"
+  }
+ }
+}

@@ -1,0 +1,7829 @@
+{
+"_nota": "Scritto da raccolta/estrai.py dal PDF ufficiale (vedi dati/fonti.json). Non modificare a mano.",
+"id": "taxi-ncc-palermo-enna",
+"domande": [
+{
+"sezione": "",
+"testo": "IL CARNEVALE PIU' IMPORTANTE DI SICILIA SI TROVA A:",
+"risposte": [
+"TERMINI IMERESE",
+"SCIACCA",
+"ACIREALE"
+],
+"esatta": 2,
+"file": "paen/q01.pdf",
+"pagina": 1,
+"seduta": "31/03/2021",
+"n_seduta": 1,
+"n": 1
+},
+{
+"sezione": "",
+"testo": "IN QUALE COMUNE SI TROVA IL SITO NATURALISTICO \" LA SCALA DEI TURCHI \"",
+"risposte": [
+"LICATA",
+"SCIACCA",
+"REALMONTE"
+],
+"esatta": 2,
+"file": "paen/q01.pdf",
+"pagina": 1,
+"seduta": "31/03/2021",
+"n_seduta": 2,
+"altre_sedute": [
+"15/11/2021",
+"19/09/2022"
+],
+"n": 2
+},
+{
+"sezione": "",
+"testo": "IN QUALE ZONA SI TROVA L'OUTLET \"SICILIA FASHION VILLAGE\"",
+"risposte": [
+"NELL'AREA INDUSTRIALE DI BRANCACCIO",
+"AGIRA - DITTAINO (EN)",
+"NELL'AREA INDUSTRIALE DI CATANIA"
+],
+"esatta": 1,
+"file": "paen/q01.pdf",
+"pagina": 1,
+"seduta": "31/03/2021",
+"n_seduta": 3,
+"n": 3
+},
+{
+"sezione": "",
+"testo": "LA NOTA LOCALITA' TURISTICA DI SAN VITO LO CAPO SI TROVA A:",
+"risposte": [
+"TRAPANI",
+"MESSINA",
+"CATANIA"
+],
+"esatta": 0,
+"file": "paen/q01.pdf",
+"pagina": 1,
+"seduta": "31/03/2021",
+"n_seduta": 4,
+"n": 4
+},
+{
+"sezione": "",
+"testo": "IN QUALE PIAZZA DI PALERMO SI TROVA L'ALBERO SECOLARE",
+"risposte": [
+"PIAZZA MARINA",
+"PIAZZA GIULIO CESARE",
+"PIAZZA SAN DOMENICO"
+],
+"esatta": 0,
+"file": "paen/q01.pdf",
+"pagina": 1,
+"seduta": "31/03/2021",
+"n_seduta": 5,
+"altre_sedute": [
+"31/03/2021",
+"11/10/2023",
+"08/05/2024",
+"07/04/2025",
+"19/05/2025",
+"22/05/2026"
+],
+"n": 5
+},
+{
+"sezione": "",
+"testo": "IN QUALE VIA HA SEDE LA GUARDIA COSTIERA DI PALERMO?",
+"risposte": [
+"VIA NOTARBARTOLO",
+"VIALE CRISTOFORO COLOMBO",
+"VIA F. CRISPI"
+],
+"esatta": 2,
+"file": "paen/q01.pdf",
+"pagina": 1,
+"seduta": "31/03/2021",
+"n_seduta": 6,
+"n": 6
+},
+{
+"sezione": "",
+"testo": "L'AEROPORTO DI PALERMO (FALCONEBORSELLINO GIA' PUNTA RAISI) SI TROVA NEL TERRITORIO DI:",
+"risposte": [
+"PALERMO",
+"CINISI",
+"TERRASINI"
+],
+"esatta": 1,
+"file": "paen/q01.pdf",
+"pagina": 1,
+"seduta": "31/03/2021",
+"n_seduta": 7,
+"altre_sedute": [
+"15/11/2021",
+"12/04/2023"
+],
+"n": 7
+},
+{
+"sezione": "",
+"testo": "GLI AMMORTIZZATORI SCARICHI PROVOCANO",
+"risposte": [
+"LA POSSIBILE ROTTURA DELLE MOLLE DELLE SOSPENSIONI",
+"UN MINOR CORICAMENTO LATERALE DEL VEICOLO IN CURVA",
+"UN ANOMALO FUNZIONAMENTO DEL DIFFERENZIALE"
+],
+"esatta": 0,
+"file": "paen/q01.pdf",
+"pagina": 2,
+"seduta": "31/03/2021",
+"n_seduta": 8,
+"n": 8
+},
+{
+"sezione": "",
+"testo": "I conducenti di veicoli a motore sono obbligati ad azionare la segnalazione luminosa di pericolo (lampeggio simultaneo di tutti gli indicatori luminosi di direzione):",
+"risposte": [
+"Quando si verificano improvvisi rallentamenti o incolonnamenti",
+"Di notte, in caso di sosta sulle corsie di emergenza delle autostrade",
+"Quando si sosta in seconda fila"
+],
+"esatta": 0,
+"file": "paen/q01.pdf",
+"pagina": 2,
+"seduta": "31/03/2021",
+"n_seduta": 9,
+"altre_sedute": [
+"31/03/2021",
+"23/01/2023"
+],
+"n": 9
+},
+{
+"sezione": "",
+"testo": "I pneumatici dei veicoli con battistrada eccessivamente usurato:",
+"risposte": [
+"Aumentano l’aderenza",
+"Sono pericolosi soltanto in caso di pioggia",
+"Aumentano la possibilità di perdita di aderenza in caso di pioggia (aquaplaning"
+],
+"esatta": 2,
+"file": "paen/q01.pdf",
+"pagina": 2,
+"seduta": "31/03/2021",
+"n_seduta": 10,
+"altre_sedute": [
+"21/02/2024"
+],
+"n": 10
+},
+{
+"sezione": "",
+"testo": "Il Carico deve essere sistemato sul veicolo in modo da:",
+"risposte": [
+"Non impedire la libertà di movimenti nella guida",
+"Non superare la sporgenza dello stesso dalla parte anteriore del veicolo di più dei tre decimi",
+"Non superare di oltre il 10% la portata utile indicata sul documento di circolazione"
+],
+"esatta": 0,
+"file": "paen/q01.pdf",
+"pagina": 2,
+"seduta": "31/03/2021",
+"n_seduta": 11,
+"altre_sedute": [
+"22/11/2023",
+"10/07/2024"
+],
+"n": 11
+},
+{
+"sezione": "",
+"testo": "PER MANTENERE I FRENI EFFICIENTI E' NECESSARIO SOTTOPORRE A PERIODICI CONTROLLI",
+"risposte": [
+"LA COMPOSIZIONE DEL LIQUIDO IDRAULICO DEI FRENI",
+"LA CONSISTENZA DELLA POLVERE DEI FERODI",
+"LA CORSA DEL PEDALE"
+],
+"esatta": 2,
+"file": "paen/q01.pdf",
+"pagina": 2,
+"seduta": "31/03/2021",
+"n_seduta": 12,
+"n": 12
+},
+{
+"sezione": "",
+"testo": "QUAL'E' IL LIMITE DI VELOCITA' NEI CENTRI ABITATI?",
+"risposte": [
+"50 KM/H",
+"30 KM/H",
+"40 KM/H"
+],
+"esatta": 0,
+"file": "paen/q01.pdf",
+"pagina": 2,
+"seduta": "31/03/2021",
+"n_seduta": 13,
+"n": 13
+},
+{
+"sezione": "",
+"testo": "Quale sanzione si applica a chi non richiede la trascrizione al PRA del trasferimento di proprietà di un autoveicolo?",
+"risposte": [
+"un'ammenda",
+"la confisca dell'autoveicolo",
+"una sanzione amministrativa"
+],
+"esatta": 2,
+"file": "paen/q01.pdf",
+"pagina": 2,
+"seduta": "31/03/2021",
+"n_seduta": 14,
+"altre_sedute": [
+"12/04/2023",
+"11/10/2023",
+"22/11/2023"
+],
+"n": 14
+},
+{
+"sezione": "",
+"testo": "Che sanzione subisce chi guida veicoli adibiti a servizi non di linea che circola senza avere con sé licenza o autorizzazione comunale regolarmente rilasciata?",
+"risposte": [
+"nessuna sanzione",
+"una sanzione amministrativa",
+"la sospensione della licenza o autorizzazione per sette giorni"
+],
+"esatta": 1,
+"file": "paen/q01.pdf",
+"pagina": 3,
+"seduta": "31/03/2021",
+"n_seduta": 15,
+"altre_sedute": [
+"19/07/2023"
+],
+"n": 15
+},
+{
+"sezione": "",
+"testo": "Cosa differenzia il contratto di noleggio rispetto al contratto di trasporto di cose?",
+"risposte": [
+"il trasporto è disciplinato dal Codice Civile, per il noleggio si fa riferimento al Decreto Ministeriale del 20/04/1993",
+"il trasporto è servizio pubblico, il noleggio no",
+"il trasporto è obbligatorio, il noleggio no"
+],
+"esatta": 0,
+"file": "paen/q01.pdf",
+"pagina": 3,
+"seduta": "31/03/2021",
+"n_seduta": 16,
+"n": 16
+},
+{
+"sezione": "",
+"testo": "In cosa consiste un contratto di trasporto?",
+"risposte": [
+"nell'obbligo da una parte del trasportatore di trasferire persone e cose da un luogo all'altro",
+"nell'obbligo di mettere a disposizione di terzi un veicolo determinato con un conducente",
+"nell'obbligo di guidare un veicolo per il tempo richiesto dal cliente"
+],
+"esatta": 0,
+"file": "paen/q01.pdf",
+"pagina": 3,
+"seduta": "31/03/2021",
+"n_seduta": 17,
+"altre_sedute": [
+"03/04/2024"
+],
+"n": 17
+},
+{
+"sezione": "",
+"testo": "Le licenze e autorizzazioni possono essere trasferite dal titolare, a richiesta, ad altra persona da esso designata?",
+"risposte": [
+"solo se la persona possiede i requisiti necessari",
+"solo se la persona designata possiede i requisiti necessari e in presenza di particolari situazioni di chi intende trasferire (età, anzianità di esercizio, salute)",
+"solo in caso di cessione d'azienda, in qualsiasi momento"
+],
+"esatta": 1,
+"file": "paen/q01.pdf",
+"pagina": 3,
+"seduta": "31/03/2021",
+"n_seduta": 18,
+"n": 18
+},
+{
+"sezione": "",
+"testo": "Quale aliquota IVA si applica ai servizi di noleggio con conducente?",
+"risposte": [
+"0.10",
+"0,20",
+"sono esenti"
+],
+"esatta": 0,
+"file": "paen/q01.pdf",
+"pagina": 3,
+"seduta": "31/03/2021",
+"n_seduta": 19,
+"altre_sedute": [
+"23/01/2023",
+"19/07/2023",
+"11/10/2023",
+"22/11/2023",
+"21/02/2024",
+"11/09/2024"
+],
+"n": 19
+},
+{
+"sezione": "",
+"testo": "Quale è l'autorità che approva in via definitiva i regolamenti comunali per l'esercizio dei servizi pubblici non di linea?",
+"risposte": [
+"la Regione",
+"la Provincia",
+"il Comune"
+],
+"esatta": 2,
+"file": "paen/q01.pdf",
+"pagina": 3,
+"seduta": "31/03/2021",
+"n_seduta": 20,
+"altre_sedute": [
+"22/11/2023",
+"21/02/2024",
+"10/07/2024"
+],
+"n": 20
+},
+{
+"sezione": "",
+"testo": "LA \"VALLE DEI TEMPLI\" SI TROVA:",
+"risposte": [
+"AD AGRIGENTO",
+"A TRAPANI",
+"A SIRACUSA"
+],
+"esatta": 0,
+"file": "paen/q02.pdf",
+"pagina": 1,
+"seduta": "31/03/2021",
+"n_seduta": 1,
+"n": 21
+},
+{
+"sezione": "",
+"testo": "LA NOTA LOCALITA' SCIISTICA DI PIANO BATTAGLIA SI TROVA:",
+"risposte": [
+"SUI MONTI NEBRODI",
+"SUI MONTI PELORITANI",
+"SULLE MADONIE"
+],
+"esatta": 2,
+"file": "paen/q02.pdf",
+"pagina": 1,
+"seduta": "31/03/2021",
+"n_seduta": 2,
+"n": 22
+},
+{
+"sezione": "",
+"testo": "PIAZZA ARMERINA FA PARTE DEL TERRITORIO DI:",
+"risposte": [
+"CALTANISSETTA",
+"ENNA",
+"CATANIA"
+],
+"esatta": 1,
+"file": "paen/q02.pdf",
+"pagina": 1,
+"seduta": "31/03/2021",
+"n_seduta": 3,
+"n": 23
+},
+{
+"sezione": "",
+"testo": "PER QUALE MONUMENTO ANTICO E' CONOSCIUTA TAORMINA",
+"risposte": [
+"IL COLOSSEO",
+"IL TEATRO GRECO",
+"LE TERME ANTICHE"
+],
+"esatta": 1,
+"file": "paen/q02.pdf",
+"pagina": 1,
+"seduta": "31/03/2021",
+"n_seduta": 4,
+"altre_sedute": [
+"11/04/2022"
+],
+"n": 24
+},
+{
+"sezione": "",
+"testo": "IN QUALE VIA A PALERMO SI TROVA L'ISTITUTO MEDITERRANEO TRAPIANTI (ISMETT)",
+"risposte": [
+"VIA E. BASILE",
+"CORSO TUKORY",
+"VIA E. TRICOMI"
+],
+"esatta": 2,
+"file": "paen/q02.pdf",
+"pagina": 1,
+"seduta": "31/03/2021",
+"n_seduta": 5,
+"n": 25
+},
+{
+"sezione": "",
+"testo": "DOV'E' SITUATA LA PREFETTURA DI PALERMO",
+"risposte": [
+"PIAZZA EUROPA",
+"VIA CAVOUR",
+"PIAZZA GIULIO CESARE"
+],
+"esatta": 1,
+"file": "paen/q02.pdf",
+"pagina": 1,
+"seduta": "31/03/2021",
+"n_seduta": 6,
+"n": 26
+},
+{
+"sezione": "",
+"testo": "Che età minima deve avere un'autovettura per essere classificata di interesse storico o collezionistico?",
+"risposte": [
+"vent'anni",
+"trent'anni",
+"cinquant'anni"
+],
+"esatta": 0,
+"file": "paen/q02.pdf",
+"pagina": 1,
+"seduta": "31/03/2021",
+"n_seduta": 8,
+"altre_sedute": [
+"12/04/2023",
+"08/05/2024"
+],
+"n": 27
+},
+{
+"sezione": "",
+"testo": "CHI GUIDA UN VEICOLO, ANCHE SE AD ELEVATE PRESTAZIONI, DEVE COMUNQUE",
+"risposte": [
+"GUARDARE NELLO SPECCHIETTO RETROVISORE PRIMA DI SEGNALARE L'INTENZIONE DI CAMBIARE CORSIA",
+"SORPASSARE IN OGNI CONDIZIONE DI TRAFFICO,PURCHE' NON CI SIA IL SEGNALE DI DIVIETO",
+"TENERE IN FUNZIONE GLI ANABBAGLIANTI ANCHE DI GIORNO"
+],
+"esatta": 0,
+"file": "paen/q02.pdf",
+"pagina": 2,
+"seduta": "31/03/2021",
+"n_seduta": 9,
+"altre_sedute": [
+"28/02/2024"
+],
+"n": 28
+},
+{
+"sezione": "",
+"testo": "Il certificato di abilitazione professionale KB abilita anche a condurre i veicoli per i quali è necessario il certificato KA?",
+"risposte": [
+"si",
+"no",
+"solo per spostamenti a vuoto"
+],
+"esatta": 0,
+"file": "paen/q02.pdf",
+"pagina": 2,
+"seduta": "31/03/2021",
+"n_seduta": 11,
+"altre_sedute": [
+"23/01/2023",
+"11/10/2023"
+],
+"n": 29
+},
+{
+"sezione": "",
+"testo": "IL SISTEMA FRENANTE ANTIBLOCCAGGIO RUOTE (ABS)",
+"risposte": [
+"E' UN SISTEMA CHE VIENE UTILIZZATO PER LA SOSTITUZIONE DELLE RUOTE",
+"E' UN OLIO SPECIALE PER L'IMPIANTO FRENANTE DELL'AUTOVEICOLO",
+"INTERVIENE IN CASO DI FRENATURA AL LIMITE DI ADERENZA"
+],
+"esatta": 2,
+"file": "paen/q02.pdf",
+"pagina": 2,
+"seduta": "31/03/2021",
+"n_seduta": 12,
+"altre_sedute": [
+"04/07/2022",
+"03/04/2024"
+],
+"n": 30
+},
+{
+"sezione": "",
+"testo": "La squilibratura dei freni può dipendere da:",
+"risposte": [
+"Ferodo consumato eccessivamente",
+"Eccessivo gioco del pedale freno",
+"Eccessiva pressione sul pedale freno"
+],
+"esatta": 0,
+"file": "paen/q02.pdf",
+"pagina": 2,
+"seduta": "31/03/2021",
+"n_seduta": 13,
+"n": 31
+},
+{
+"sezione": "",
+"testo": "L'inquinamento atmosferico prodotto dai veicoli a motore può essere ridotto:",
+"risposte": [
+"Disponendo i bagagli ben fissati sul tetto dell'autovettura",
+"Limitando i consumi di carburante",
+"Utilizzando costantemente il motore a regime massimo di rotazione"
+],
+"esatta": 1,
+"file": "paen/q02.pdf",
+"pagina": 2,
+"seduta": "31/03/2021",
+"n_seduta": 14,
+"n": 32
+},
+{
+"sezione": "",
+"testo": "Chi può prevedere, per particolari casi o esigenze, speciali prescrizioni per tipo e caratteristiche dei veicoli adibiti a servizi di taxi o noleggio con conducente?",
+"risposte": [
+"la Provincia",
+"l'Ufficio Periferico del Dipartimento dei Trasporti Terrestri – ex MCTC",
+"il Comune"
+],
+"esatta": 2,
+"file": "paen/q02.pdf",
+"pagina": 3,
+"seduta": "31/03/2021",
+"n_seduta": 15,
+"altre_sedute": [
+"04/07/2022"
+],
+"n": 33
+},
+{
+"sezione": "",
+"testo": "Come vengono contraddistinte le autovetture adibite ai servizi di taxi?",
+"risposte": [
+"da un numero d'ordine assegnato dal Comune",
+"da un nome in codice seguito da un numero",
+"da un simbolo diverso per ciascuna vettura"
+],
+"esatta": 0,
+"file": "paen/q02.pdf",
+"pagina": 3,
+"seduta": "31/03/2021",
+"n_seduta": 16,
+"n": 34
+},
+{
+"sezione": "",
+"testo": "Di quale colore devono essere le autovetture adibite al servizio di taxi, immatricolate dal 01.01.1993?",
+"risposte": [
+"bianco",
+"giallo",
+"quello determinato dal regolamento comunale"
+],
+"esatta": 0,
+"file": "paen/q02.pdf",
+"pagina": 3,
+"seduta": "31/03/2021",
+"n_seduta": 17,
+"altre_sedute": [
+"22/11/2023",
+"20/12/2023"
+],
+"n": 35
+},
+{
+"sezione": "",
+"testo": "La sostituzione alla guida di un titolare di licenza o autorizzazione all'esercizio di servizi pubblici non di linea deve essere autorizzata da qualche Ente?",
+"risposte": [
+"si, deve essere autorizzata dal Comune che ha rilasciato la licenza o l'autorizzazione",
+"no, è sufficiente una comunicazione all'Ufficio Periferico del Dipartimento dei Trasporti Terrestri – ex MCTC",
+"no, è sufficiente tenere a bordo del veicolo copia del contratto di assunzione a tempo determinato"
+],
+"esatta": 0,
+"file": "paen/q02.pdf",
+"pagina": 3,
+"seduta": "31/03/2021",
+"n_seduta": 18,
+"altre_sedute": [
+"19/06/2024"
+],
+"n": 36
+},
+{
+"sezione": "",
+"testo": "Quale dei seguenti non è definibile servizio pubblico non di linea ai sensi delle norme in vigore.",
+"risposte": [
+"il noleggio di autovetture con conducente",
+"il noleggio di motocarrozzette con conducente",
+"la locazione di autovetture senza conducente"
+],
+"esatta": 2,
+"file": "paen/q02.pdf",
+"pagina": 3,
+"seduta": "31/03/2021",
+"n_seduta": 19,
+"n": 37
+},
+{
+"sezione": "",
+"testo": "Quale targa particolare devono esporre le autovetture adibite al servizio di noleggio con conducente?",
+"risposte": [
+"una posteriore, inamovibile, con dicitura “NCC”, numero progressivo e stemma comunale",
+"una anteriore, con dicitura “NCC”",
+"nessuna targa oltre a quella di immatricolazione"
+],
+"esatta": 0,
+"file": "paen/q02.pdf",
+"pagina": 3,
+"seduta": "31/03/2021",
+"n_seduta": 20,
+"n": 38
+},
+{
+"sezione": "",
+"testo": "LA CITTA' DI MONREALE E' NOTA PER:",
+"risposte": [
+"LA LUNGA SPIAGGIA",
+"IL DUOMO",
+"LE CURE TERMALI"
+],
+"esatta": 1,
+"file": "paen/q03.pdf",
+"pagina": 1,
+"seduta": "15/11/2021",
+"n_seduta": 2,
+"n": 39
+},
+{
+"sezione": "",
+"testo": "L'AEROPORTO DI BIRGI E' IN PROVINCIA DI:",
+"risposte": [
+"PALERMO",
+"AGRIGENTO",
+"TRAPANI"
+],
+"esatta": 2,
+"file": "paen/q03.pdf",
+"pagina": 1,
+"seduta": "15/11/2021",
+"n_seduta": 3,
+"n": 40
+},
+{
+"sezione": "",
+"testo": "LE ISOLE PELAGIE FANNO CAPO:",
+"risposte": [
+"AGRIGENTO",
+"SIRACUSA",
+"TRAPANI"
+],
+"esatta": 0,
+"file": "paen/q03.pdf",
+"pagina": 1,
+"seduta": "15/11/2021",
+"n_seduta": 4,
+"altre_sedute": [
+"28/11/2022"
+],
+"n": 41
+},
+{
+"sezione": "",
+"testo": "IL PRESIDENTE DELLA REGIONE SICILIANA SI TROVA:",
+"risposte": [
+"PALAZZO D'ORLEANS",
+"PALAZZO STERI O CHIARAMONTE",
+"PALAZZO BUTERA"
+],
+"esatta": 0,
+"file": "paen/q03.pdf",
+"pagina": 1,
+"seduta": "15/11/2021",
+"n_seduta": 5,
+"n": 42
+},
+{
+"sezione": "",
+"testo": "QUALE DI QUESTI PALAZZI STORICI DI PALERMO SI TROVA IN PIAZZA DEL PARLAMENTO",
+"risposte": [
+"PALAZZO DEI NORMANNI",
+"PALAZZO PRETORIO",
+"PALAZZO MIRTO"
+],
+"esatta": 0,
+"file": "paen/q03.pdf",
+"pagina": 1,
+"seduta": "15/11/2021",
+"n_seduta": 7,
+"altre_sedute": [
+"28/11/2022",
+"02/09/2025"
+],
+"n": 43
+},
+{
+"sezione": "",
+"testo": "ALLORCHE' CI ACCINGIAMO A SCENDERE DALL'AUTOVEICOLO DOBBIAMO TRA L'ALTRO",
+"risposte": [
+"PRIMA DI LASCIARE IL VEICOLO IN SOSTA,ASSICURARSI DI AVER SPENTO IL MOTORE",
+"SPEGNERE IN OGNI CASO LE LUCI",
+"PORRE IL CAMBIO IN POSIZIONE DI FOLLE"
+],
+"esatta": 0,
+"file": "paen/q03.pdf",
+"pagina": 2,
+"seduta": "15/11/2021",
+"n_seduta": 8,
+"altre_sedute": [
+"19/06/2024"
+],
+"n": 44
+},
+{
+"sezione": "",
+"testo": "I DISPOSITIVI DI SEGNALAZIONE ACUSTICA (CLACSON,TROMBE)",
+"risposte": [
+"POSSONO USARSI IN UN CENTRO ABITATO IN PROSSIMITA' DI UN OSPEDALE",
+"DEBBONO USARSI SEMPRE CON LA MASSIMA MODERAZIONE",
+"NON SI POSSONO USARE DI NOTTE"
+],
+"esatta": 1,
+"file": "paen/q03.pdf",
+"pagina": 2,
+"seduta": "15/11/2021",
+"n_seduta": 9,
+"n": 45
+},
+{
+"sezione": "",
+"testo": "IN CASO DI INCIDENTE STRADALE, IL CONDUCENTE",
+"risposte": [
+"SE VI SONO FERITI DEVE IN OGNI CASO CHIAMARE IL PRONTO SOCCORSO",
+"DEVE EVITARE CHE VENGANO MODIFICATE LE TRACCE, SE OCCORRE RICOSTRUIRE LA DINAMICA DELL'INCIDENTE",
+"BASTA CHE SI RICORDI DELL'ESATTA POSIZIONE DEI VEICOLI DOPO LO SCONTRO"
+],
+"esatta": 1,
+"file": "paen/q03.pdf",
+"pagina": 2,
+"seduta": "15/11/2021",
+"n_seduta": 10,
+"n": 46
+},
+{
+"sezione": "",
+"testo": "LE FRECCE DIREZIONALI SEGNATE SULLA CARREGGIATA",
+"risposte": [
+"SONO TRACCIATE NELLE CORSIE PRIMA DI UN INCROCIO",
+"COMPRENDONO LA SOLA FRECCIA DIRITTA QUANDO E' POSSIBILE SVOLTARE ANCHE A DESTRA E SINISTRA",
+"SONO DI COLORE GIALLO ALTERNATO CON IL NERO LUNGO I TRATTI DOVE E' VIETATA LA SOSTA"
+],
+"esatta": 0,
+"file": "paen/q03.pdf",
+"pagina": 2,
+"seduta": "15/11/2021",
+"n_seduta": 11,
+"n": 47
+},
+{
+"sezione": "",
+"testo": "Per ridurre l'inquinamento dell'aria provocato dalla circolazione dei veicoli azionati da motore a scoppio l'automobilista deve:",
+"risposte": [
+"Curare la perfetta regolazione degli organi di accensione",
+"Provvedere alla frequente revisione degli organi di sospensione",
+"Ridurre il tempo di accensione del motore, marciando a velocità elevata nei limiti consentiti"
+],
+"esatta": 0,
+"file": "paen/q03.pdf",
+"pagina": 2,
+"seduta": "15/11/2021",
+"n_seduta": 12,
+"n": 48
+},
+{
+"sezione": "",
+"testo": "SE LO STERZO VIBRA FORTEMENTE",
+"risposte": [
+"PUO' DIPENDERE DALLA ECCESSIVA PRESSIONE DEI PNEUMATICI",
+"PUO' DIPENDERE DALLE RUOTE DI DIMENSIONI NON REGOLAMENTARI",
+"PUO' DIPENDERE DALLE RUOTE DIRETTRICI NON EQUILIBRATE"
+],
+"esatta": 2,
+"file": "paen/q03.pdf",
+"pagina": 2,
+"seduta": "15/11/2021",
+"n_seduta": 13,
+"altre_sedute": [
+"20/12/2023"
+],
+"n": 49
+},
+{
+"sezione": "",
+"testo": "SI DEBBONO USARE GLI INDICATORI DI DIREZIONE",
+"risposte": [
+"MAI, QUANDO SI MARCIA SU STRADA A SENSO UNICO",
+"SOLO SE PER SVOLTARE BISOGNA ATTRAVERSARE LA CARREGGIATA",
+"SE SI VIAGGIA SU STRADA SUDDIVISA IN CORSIE,PRIMA DI OGNI CAMBIO DI CORSIA"
+],
+"esatta": 2,
+"file": "paen/q03.pdf",
+"pagina": 2,
+"seduta": "15/11/2021",
+"n_seduta": 14,
+"altre_sedute": [
+"10/07/2024",
+"11/09/2024"
+],
+"n": 50
+},
+{
+"sezione": "",
+"testo": "Come deve essere organizzato il parcheggio per autoveicoli adibiti al trasporto di portatori di handicap, con posti disposti parallelamente al senso di marcia?",
+"risposte": [
+"posti disposti parallelamente al senso di marcia? i posti non possono essere disposti paralleli al senso di marcia",
+"deve essere consentito il passaggio di una sedia a rotelle tra due veicoli",
+"basta che sia segnalato"
+],
+"esatta": 1,
+"file": "paen/q03.pdf",
+"pagina": 2,
+"seduta": "15/11/2021",
+"n_seduta": 15,
+"altre_sedute": [
+"08/05/2024"
+],
+"n": 51
+},
+{
+"sezione": "",
+"testo": "Il servizio di autonoleggio con conducente ha obblighi particolari in relazione all'inizio del servizio?",
+"risposte": [
+"no",
+"si, l'inizio del servizio deve avvenire con partenza dalla rimessa posta nel territorio del Comune che ha rilasciato l'autorizzazione",
+"si, l'inizio del servizio deve avvenire con partenza all'interno del territorio comunale"
+],
+"esatta": 1,
+"file": "paen/q03.pdf",
+"pagina": 3,
+"seduta": "15/11/2021",
+"n_seduta": 16,
+"altre_sedute": [
+"15/03/2023"
+],
+"n": 52
+},
+{
+"sezione": "",
+"testo": "L'esercente di servizi di taxi è obbligato a emettere fattura per il servizio effettuato?",
+"risposte": [
+"si, sempre se richiesto dal cliente",
+"no, ma deve rilasciare ricevuta ai fini non fiscali se richiesto",
+"no, mai"
+],
+"esatta": 1,
+"file": "paen/q03.pdf",
+"pagina": 3,
+"seduta": "15/11/2021",
+"n_seduta": 17,
+"altre_sedute": [
+"10/07/2024"
+],
+"n": 53
+},
+{
+"sezione": "",
+"testo": "Per le autovetture immatricolate per servizio taxi è sempre necessario esporre sul tetto il contrassegno luminoso con la scritta “taxi”?",
+"risposte": [
+"no, possono esserne esentate nei comuni di minore dimensione",
+"no, è facoltà a discrezione del conducente",
+"si, è sempre obbligatorio"
+],
+"esatta": 2,
+"file": "paen/q03.pdf",
+"pagina": 3,
+"seduta": "15/11/2021",
+"n_seduta": 18,
+"n": 54
+},
+{
+"sezione": "",
+"testo": "Quale contrassegno particolare devono esporre le autovetture adibite al servizio di noleggio con conducente?",
+"risposte": [
+"un contrassegno luminoso, posto sul tetto, con la scritta NCC",
+"un contrassegno con la scritta “noleggio” all'interno del parabrezza e del lunotto",
+"la scritta “noleggio” dipinta sulla fiancata"
+],
+"esatta": 1,
+"file": "paen/q03.pdf",
+"pagina": 3,
+"seduta": "15/11/2021",
+"n_seduta": 19,
+"altre_sedute": [
+"21/02/2024"
+],
+"n": 55
+},
+{
+"sezione": "",
+"testo": "Quali tra gli eredi del titolare di licenza o autorizzazione deceduto ha il diritto al trasferimento del titolo amministrativo?",
+"risposte": [
+"qualsiasi erede in linea diretta o indiretta",
+"qualsiasi erede appartenente al nucleo familiare",
+"ai soli figli maggiorenni"
+],
+"esatta": 1,
+"file": "paen/q03.pdf",
+"pagina": 3,
+"seduta": "15/11/2021",
+"n_seduta": 20,
+"altre_sedute": [
+"23/01/2023"
+],
+"n": 56
+},
+{
+"sezione": "",
+"testo": "LA FAMOSA VILLA ROMANA DEL CASALE SI TROVA:",
+"risposte": [
+"A SIRACUSA",
+"A CALTAGIRONE",
+"A PIAZZA ARMERINA"
+],
+"esatta": 2,
+"file": "paen/q04.pdf",
+"pagina": 1,
+"seduta": "11/04/2022",
+"n_seduta": 1,
+"n": 57
+},
+{
+"sezione": "",
+"testo": "QUALE DI QUESTI HOTELS SI TROVA A CEFALU'",
+"risposte": [
+"SARACEN CLUB SANDS",
+"CITTA' DEL MARE",
+"COSTA VERDE"
+],
+"esatta": 2,
+"file": "paen/q04.pdf",
+"pagina": 1,
+"seduta": "11/04/2022",
+"n_seduta": 2,
+"n": 58
+},
+{
+"sezione": "",
+"testo": "QUANTI COMUNI HA LA PROVINCIA DI PALERMO",
+"risposte": [
+"N.82 COMUNI",
+"N.58 COMUNI",
+"N.43 COMUNI"
+],
+"esatta": 0,
+"file": "paen/q04.pdf",
+"pagina": 1,
+"seduta": "11/04/2022",
+"n_seduta": 3,
+"n": 59
+},
+{
+"sezione": "",
+"testo": "DOVE HA SEDE LA POLIZIA MUNICIPALE DEL COMUNE DI PALERMO?",
+"risposte": [
+"VIA DOGALI",
+"VIA GARIBALDI",
+"VIA SICILIA"
+],
+"esatta": 0,
+"file": "paen/q04.pdf",
+"pagina": 1,
+"seduta": "11/04/2022",
+"n_seduta": 5,
+"altre_sedute": [
+"23/01/2023"
+],
+"n": 60
+},
+{
+"sezione": "",
+"testo": "QUALE DI QUESTI HOTELS DI PALERMO E' A CINQUE STELLE",
+"risposte": [
+"ASTORIA PALACE HOTEL",
+"HOTEL EUROPA",
+"VILLA IGIEA HILTON"
+],
+"esatta": 2,
+"file": "paen/q04.pdf",
+"pagina": 1,
+"seduta": "11/04/2022",
+"n_seduta": 6,
+"n": 61
+},
+{
+"sezione": "",
+"testo": "QUALI DI QUESTI IMPORTANTI TEATRI SI TROVA A PALERMO:",
+"risposte": [
+"IL POLITEAMA GARIBALDI",
+"IL TEATRO ALLA SCALA",
+"IL SAN CARLO"
+],
+"esatta": 0,
+"file": "paen/q04.pdf",
+"pagina": 1,
+"seduta": "11/04/2022",
+"n_seduta": 7,
+"altre_sedute": [
+"03/04/2024"
+],
+"n": 62
+},
+{
+"sezione": "",
+"testo": "CHI GUIDA AUTOVEICOLI O MOTOCICLI DEVE ESIBIRE, A RICHIESTA DEGLI AGENTI, I SEGUENTI DOCUMENTI OVE PRESCRITTI:",
+"risposte": [
+"LIBRETTO D'USO E MANUTENZIONE DEL VEICOLO",
+"CONTRATTO DI LOCAZIONE CON FACOLTA' DI COMPERA (LEASING)",
+"PATENTE DI GUIDA"
+],
+"esatta": 2,
+"file": "paen/q04.pdf",
+"pagina": 2,
+"seduta": "11/04/2022",
+"n_seduta": 8,
+"n": 63
+},
+{
+"sezione": "",
+"testo": "Cosa distingue un autoveicolo per trasporti speciali di persone da un'autovettura?",
+"risposte": [
+"destinazione al trasporto di persone in determinate condizioni con presenza permanente di speciali attrezzature",
+"targa",
+"colorazione della carrozzeria"
+],
+"esatta": 0,
+"file": "paen/q04.pdf",
+"pagina": 2,
+"seduta": "11/04/2022",
+"n_seduta": 9,
+"altre_sedute": [
+"22/11/2023"
+],
+"n": 64
+},
+{
+"sezione": "",
+"testo": "E' consentita la breve fermata di altri veicoli per salita o discesa di persone, con il conducente presente e pronto a ripartire, nelle piazzole destinate ai taxi?",
+"risposte": [
+"si, sempre",
+"no",
+"solo se esiste una specifica indicazione con cartello"
+],
+"esatta": 1,
+"file": "paen/q04.pdf",
+"pagina": 2,
+"seduta": "11/04/2022",
+"n_seduta": 10,
+"n": 65
+},
+{
+"sezione": "",
+"testo": "Le frecce direzionali segnate sulla carreggiata:",
+"risposte": [
+"Possono essere integrate da iscrizioni sulla pavimentazione che indicano la località raggiungibile",
+"Comprendono la freccia di destra per indicare l'approssimarsi di una corsia per la sosta di emergenza",
+"Sono di colore giallo alternato con il nero lungo i tratti dove è vietata la sosta"
+],
+"esatta": 0,
+"file": "paen/q04.pdf",
+"pagina": 2,
+"seduta": "11/04/2022",
+"n_seduta": 11,
+"n": 66
+},
+{
+"sezione": "",
+"testo": "Lo spazio necessario alla manovra di sorpasso:",
+"risposte": [
+"Aumenta se aumenta la velocità del veicolo sorpassato",
+"Non interessa ai fini della sicurezza stradale",
+"Non dipende dalla lunghezza dei veicoli sorpassante e sorpassato"
+],
+"esatta": 0,
+"file": "paen/q04.pdf",
+"pagina": 2,
+"seduta": "11/04/2022",
+"n_seduta": 12,
+"altre_sedute": [
+"04/07/2022"
+],
+"n": 67
+},
+{
+"sezione": "",
+"testo": "Quale autorità stabilisce i dispositivi supplementari di cui devono e possono essere dotati i veicoli a motore, in relazione alla loro particolare destinazione o uso?",
+"risposte": [
+"Il Ministero delle Infrastrutture e dei Trasporti, sentito quello dell'Interno",
+"il Ministero dell'Interno",
+"Il Ministero dell'Ambiente"
+],
+"esatta": 0,
+"file": "paen/q04.pdf",
+"pagina": 2,
+"seduta": "11/04/2022",
+"n_seduta": 13,
+"n": 68
+},
+{
+"sezione": "",
+"testo": "Un veicolo utilizzato da portatori di handicap nei centri abitati può circolare liberamente nelle corsie preferenziali, se munito dell'apposito contrassegno?",
+"risposte": [
+"si",
+"solo su quelle riservate ai mezzi di trasporto collettivo",
+"solo su quelle riservate ai mezzi di trasporto collettivo e ai taxi"
+],
+"esatta": 2,
+"file": "paen/q04.pdf",
+"pagina": 2,
+"seduta": "11/04/2022",
+"n_seduta": 14,
+"altre_sedute": [
+"10/07/2024"
+],
+"n": 69
+},
+{
+"sezione": "",
+"testo": "A quale delle seguenti attività si applica l'esenzione dall'obbligo generalizzato di emissioni di ricevuta o scontrino fiscale per le prestazioni di trasporto effettuate?",
+"risposte": [
+"il trasporto con veicoli a trazione animale e servizio di taxi",
+"servizio di taxi e noleggio con conducente con autovettura",
+"servizio di noleggio con autovettura"
+],
+"esatta": 0,
+"file": "paen/q04.pdf",
+"pagina": 3,
+"seduta": "11/04/2022",
+"n_seduta": 15,
+"altre_sedute": [
+"15/03/2023",
+"03/04/2024"
+],
+"n": 70
+},
+{
+"sezione": "",
+"testo": "Come viene definito l'uso di un veicolo adibito a servizio di piazza o taxi?",
+"risposte": [
+"uso privato",
+"uso di terzi",
+"uso pubblico"
+],
+"esatta": 1,
+"file": "paen/q04.pdf",
+"pagina": 3,
+"seduta": "11/04/2022",
+"n_seduta": 16,
+"n": 71
+},
+{
+"sezione": "",
+"testo": "Cosa caratterizza le autovetture adibite al servizio di taxi rispetto a quelle adibite al servizio di noleggio con conducente?",
+"risposte": [
+"l'obbligo di essere munite di tassametro omologato",
+"l'obbligo di essere attrezzate con dispositivi antinquinamento",
+"l'obbligo di avere quattro porte"
+],
+"esatta": 0,
+"file": "paen/q04.pdf",
+"pagina": 3,
+"seduta": "11/04/2022",
+"n_seduta": 17,
+"altre_sedute": [
+"11/10/2023",
+"08/05/2024"
+],
+"n": 72
+},
+{
+"sezione": "",
+"testo": "Quale autorità determina i criteri per il calcolo annuale delle tariffe per il servizio taxi?",
+"risposte": [
+"il Comune",
+"il Ministero delle Infrastrutture e dei Trasporti",
+"la Provincia"
+],
+"esatta": 0,
+"file": "paen/q04.pdf",
+"pagina": 3,
+"seduta": "11/04/2022",
+"n_seduta": 18,
+"n": 73
+},
+{
+"sezione": "",
+"testo": "Quale è il minimo di garanzia per l'assicurazione obbligatoria della responsabilità civile per autovetture in servizio di taxi?",
+"risposte": [
+"12.000.000,00 euro",
+"1.549.370,70 euro",
+"2.582.284,50 euro"
+],
+"esatta": 0,
+"file": "paen/q04.pdf",
+"pagina": 3,
+"seduta": "11/04/2022",
+"n_seduta": 19,
+"altre_sedute": [
+"19/09/2022",
+"19/07/2023",
+"03/04/2024"
+],
+"n": 74
+},
+{
+"sezione": "",
+"testo": "Quando i tassisti hanno l'obbligo dell'uso della cintura di sicurezza?",
+"risposte": [
+"mai",
+"solo in servizio nei centri abitati",
+"sempre"
+],
+"esatta": 2,
+"file": "paen/q04.pdf",
+"pagina": 3,
+"seduta": "11/04/2022",
+"n_seduta": 20,
+"n": 75
+},
+{
+"sezione": "",
+"testo": "DOVE SI TROVANO LE TRIBUNE DELLA CORSA AUTOMOBLISTICA \"TARGA FLORIO\"",
+"risposte": [
+"A CASTELBUONO",
+"A TRABIA",
+"A CERDA"
+],
+"esatta": 2,
+"file": "paen/q05.pdf",
+"pagina": 1,
+"seduta": "04/07/2022",
+"n_seduta": 1,
+"n": 76
+},
+{
+"sezione": "",
+"testo": "IN QUALE COMUNE E' UBICATO IL SITO ARCHEOLOGICO DI MORGANTINA?",
+"risposte": [
+"TERMINI IMERESE",
+"AIDONE",
+"ASSORO"
+],
+"esatta": 1,
+"file": "paen/q05.pdf",
+"pagina": 1,
+"seduta": "04/07/2022",
+"n_seduta": 2,
+"n": 77
+},
+{
+"sezione": "",
+"testo": "IN QUALE COMUNE SI TROVA LA PISTA AUTOMOBILISTICA ED IL LAGO DI PERGUSA?",
+"risposte": [
+"CALTANISSETTA",
+"ENNA",
+"NICOSIA"
+],
+"esatta": 1,
+"file": "paen/q05.pdf",
+"pagina": 1,
+"seduta": "04/07/2022",
+"n_seduta": 3,
+"n": 78
+},
+{
+"sezione": "",
+"testo": "QUANTI AEROPORTI CI SONO IN SICILIA?",
+"risposte": [
+"DUE",
+"SETTE",
+"QUATTRO"
+],
+"esatta": 2,
+"file": "paen/q05.pdf",
+"pagina": 1,
+"seduta": "04/07/2022",
+"n_seduta": 4,
+"altre_sedute": [
+"19/09/2022"
+],
+"n": 79
+},
+{
+"sezione": "",
+"testo": "IN QUALE ZONA E' UBICATO L'HOTEL DELLE PALME A PALERMO?",
+"risposte": [
+"VIA CATANIA",
+"VIA NAPOLI",
+"VIA ROMA"
+],
+"esatta": 2,
+"file": "paen/q05.pdf",
+"pagina": 1,
+"seduta": "04/07/2022",
+"n_seduta": 5,
+"altre_sedute": [
+"15/03/2023"
+],
+"n": 80
+},
+{
+"sezione": "",
+"testo": "LA SEDE DEI VIGILI DEL FUOCO DI PALERMO SI TROVA IN:",
+"risposte": [
+"VIA IV NOVEMBRE",
+"VIA ALESSANDRO SCARLATTI",
+"VIA ROMA"
+],
+"esatta": 1,
+"file": "paen/q05.pdf",
+"pagina": 1,
+"seduta": "04/07/2022",
+"n_seduta": 6,
+"altre_sedute": [
+"28/02/2024"
+],
+"n": 81
+},
+{
+"sezione": "",
+"testo": "DOVE SI TROVA IL SANTUARIO DI SANTA ROSALIA:",
+"risposte": [
+"MONTE CATALFANO",
+"MONTE PELLEGRINO",
+"MONTE CUCCO"
+],
+"esatta": 1,
+"file": "paen/q05.pdf",
+"pagina": 1,
+"seduta": "04/07/2022",
+"n_seduta": 7,
+"n": 82
+},
+{
+"sezione": "",
+"testo": "AL FINE DI EVITARE IL PRODURSI DI INCIDENTI STRADALI,IL CONDUCENTE CONTROLLERA' SPESSO",
+"risposte": [
+"IL FUNZIONAMENTO DEL TERGICRISTALLO",
+"IL LIVELLO DEL LIQUIDO CONTENUTO NELLA BATTERIA",
+"LA PRESSIONE DI GONFIAGGIO DELLA RUOTA DI SCORTA"
+],
+"esatta": 0,
+"file": "paen/q05.pdf",
+"pagina": 1,
+"seduta": "04/07/2022",
+"n_seduta": 8,
+"n": 83
+},
+{
+"sezione": "",
+"testo": "Cosa distingue la prestazione del noleggio e del Taxi,da quella del trasporto?",
+"risposte": [
+"con il noleggio ci si obbliga solo a mettere a disposizione un veicolo con il conducente",
+"nessuna",
+"con il trasporto ci si obbliga a utilizzare il veicolo scelto dal trasportato"
+],
+"esatta": 0,
+"file": "paen/q05.pdf",
+"pagina": 2,
+"seduta": "04/07/2022",
+"n_seduta": 9,
+"n": 84
+},
+{
+"sezione": "",
+"testo": "E' possibile far rimuovere un veicolo in sosta nelle apposite piazzole destinate al servizio taxi?",
+"risposte": [
+"si, sempre",
+"no",
+"solo se esiste una specifica indicazione con cartello"
+],
+"esatta": 0,
+"file": "paen/q05.pdf",
+"pagina": 2,
+"seduta": "04/07/2022",
+"n_seduta": 10,
+"n": 85
+},
+{
+"sezione": "",
+"testo": "In caso in cui il trasportato presenti dolori al centro del torace e agli arti superiori cosa occorre fare?",
+"risposte": [
+"Stimolare il movimento della persona",
+"Metterlo in posizione seduta con testa e spalle appoggiate e ginocchia piegate",
+"Farla alzare e aiutarla a camminare"
+],
+"esatta": 1,
+"file": "paen/q05.pdf",
+"pagina": 2,
+"seduta": "04/07/2022",
+"n_seduta": 12,
+"n": 86
+},
+{
+"sezione": "",
+"testo": "SE LO STERZO SI PRESENTA PIU' DURO DEL NORMALE,PUO' DIPENDERE",
+"risposte": [
+"DA CATTIVA REGISTRAZIONE DEI FRENI",
+"DA SOVRACCARICO DELL'ASSE POSTERIORE",
+"DAI PNEUMATICI ANTERIORI SGONFI"
+],
+"esatta": 2,
+"file": "paen/q05.pdf",
+"pagina": 2,
+"seduta": "04/07/2022",
+"n_seduta": 14,
+"n": 87
+},
+{
+"sezione": "",
+"testo": "A chi può essere rilasciata la licenza o l'autorizzazione ad autoservizi pubblici non di linea?",
+"risposte": [
+"a persone singole",
+"a persone singole o a cooperative",
+"a qualsiasi impresa, individuale o societaria"
+],
+"esatta": 0,
+"file": "paen/q05.pdf",
+"pagina": 2,
+"seduta": "04/07/2022",
+"n_seduta": 15,
+"altre_sedute": [
+"19/07/2023"
+],
+"n": 88
+},
+{
+"sezione": "",
+"testo": "Come può essere regolato il rapporto tra un tassista e il suo sostituto?",
+"risposte": [
+"da un contratto di lavoro a tempo determinato o da un contratto di gestione al massimo di sei mesi",
+"da un contratto di prestazione d'opera",
+"anche informalmente"
+],
+"esatta": 0,
+"file": "paen/q05.pdf",
+"pagina": 3,
+"seduta": "04/07/2022",
+"n_seduta": 17,
+"altre_sedute": [
+"15/03/2023"
+],
+"n": 89
+},
+{
+"sezione": "",
+"testo": "Con quale atto pubblico il Comune individua le aree da destinare allo stazionamento dei veicoli per i servizi pubblici non di linea?",
+"risposte": [
+"col regolamento di esercizio",
+"con ordinanze del Sindaco",
+"con decreto del responsabile dell'ufficio comunale per il commercio"
+],
+"esatta": 1,
+"file": "paen/q05.pdf",
+"pagina": 3,
+"seduta": "04/07/2022",
+"n_seduta": 18,
+"altre_sedute": [
+"24/05/2023",
+"20/12/2023"
+],
+"n": 90
+},
+{
+"sezione": "",
+"testo": "Ogni quanto tempo deve essere verificato e adeguato il Piano Urbano del Traffico?",
+"risposte": [
+"annualmente",
+"ogni cinque anni",
+"ogni due anni"
+],
+"esatta": 2,
+"file": "paen/q05.pdf",
+"pagina": 3,
+"seduta": "04/07/2022",
+"n_seduta": 19,
+"n": 91
+},
+{
+"sezione": "",
+"testo": "Possono Comuni e Province differenziare i servizi di linea con autovetture ad uso terzi, non dotate di specifiche licenze o autorizzazioni per i servizi non di linea?",
+"risposte": [
+"si, nel rispetto dei criteri tecnici e delle modalità di utilizzo disposti dal Ministero delle Infrastrutture e dei Trasporti",
+"no, è possibile solo impiegare taxi e vetture da noleggio regolarmente dotate di licenze o autorizzazioni",
+"si, solo se i veicoli sono di proprietà di titolari di licenza taxi o autorizzazioni al noleggio con conducente"
+],
+"esatta": 0,
+"file": "paen/q05.pdf",
+"pagina": 3,
+"seduta": "04/07/2022",
+"n_seduta": 20,
+"altre_sedute": [
+"20/12/2023"
+],
+"n": 92
+},
+{
+"sezione": "",
+"testo": "DOVE SI TROVA L'AREA MARINA PROTETTA \" ISOLE CICLOPI \"",
+"risposte": [
+"SIRACUSA",
+"SCOPELLO (PA)",
+"ACI TREZZA (CT)"
+],
+"esatta": 2,
+"file": "paen/q06.pdf",
+"pagina": 1,
+"seduta": "19/09/2022",
+"n_seduta": 1,
+"n": 93
+},
+{
+"sezione": "",
+"testo": "QUALE DI QUESTI SANTUARI SI TROVA IN PROVINCIA DI PALERMO:",
+"risposte": [
+"SANTUARIO DI GIBILMANNA",
+"SANTUARIO DI LORETO",
+"SANTUARIO DEL REDENTORE"
+],
+"esatta": 0,
+"file": "paen/q06.pdf",
+"pagina": 1,
+"seduta": "19/09/2022",
+"n_seduta": 3,
+"n": 94
+},
+{
+"sezione": "",
+"testo": "DOVE SI PUO' GUSTARE GASTRONOMIA PALERMITANA",
+"risposte": [
+"BAR DEL CORSO",
+"FOCACCERIA SAN FRANCESCO",
+"PIZZERIA TRINACRIA"
+],
+"esatta": 1,
+"file": "paen/q06.pdf",
+"pagina": 1,
+"seduta": "19/09/2022",
+"n_seduta": 5,
+"n": 95
+},
+{
+"sezione": "",
+"testo": "I GIARDINI DELLA CONCA D'ORO SI TROVANO A:",
+"risposte": [
+"TRAPANI",
+"CALTANISSETTA",
+"PALERMO"
+],
+"esatta": 2,
+"file": "paen/q06.pdf",
+"pagina": 1,
+"seduta": "19/09/2022",
+"n_seduta": 6,
+"altre_sedute": [
+"15/03/2023"
+],
+"n": 96
+},
+{
+"sezione": "",
+"testo": "DOVE SI TROVA LA STAZIONE CENTRALE DI PALERMO:",
+"risposte": [
+"VIA EMERICO AMARI",
+"VIA ROMA",
+"PIAZZA GIULIO CESARE"
+],
+"esatta": 2,
+"file": "paen/q06.pdf",
+"pagina": 1,
+"seduta": "19/09/2022",
+"n_seduta": 7,
+"altre_sedute": [
+"23/01/2023"
+],
+"n": 97
+},
+{
+"sezione": "",
+"testo": "Chi risponde del mancato pagamento della tassa di proprietà del veicolo?",
+"risposte": [
+"il proprietario",
+"il conducente",
+"il proprietario e il conducente, con obbligo solidale"
+],
+"esatta": 2,
+"file": "paen/q06.pdf",
+"pagina": 1,
+"seduta": "19/09/2022",
+"n_seduta": 8,
+"altre_sedute": [
+"23/01/2023"
+],
+"n": 98
+},
+{
+"sezione": "",
+"testo": "Cosa significa “Primo Soccorso” in caso di incidente stradale con feriti?",
+"risposte": [
+"Cercare di ricostruire la dinamica dell'incidente",
+"Rimuovere i veicoli incidentati",
+"Proteggere gli infortunati da ulteriori rischi"
+],
+"esatta": 2,
+"file": "paen/q06.pdf",
+"pagina": 2,
+"seduta": "19/09/2022",
+"n_seduta": 9,
+"altre_sedute": [
+"11/10/2023",
+"11/09/2024"
+],
+"n": 99
+},
+{
+"sezione": "",
+"testo": "I veicoli in servizio di n.c.c. che possono sostare nelle aree indicate presso stazioni ferroviarie sono solo quelli autorizzati dal Comune in cui esse ricadono?",
+"risposte": [
+"si",
+"no, possono sostare e acquisire liberamente qualsiasi servizio tutti gli autorizzati al noleggio",
+"no, ma possono essere svolti solo servizi prenotati e diretti nel Comune che ha rilasciato l'autorizzazione"
+],
+"esatta": 2,
+"file": "paen/q06.pdf",
+"pagina": 2,
+"seduta": "19/09/2022",
+"n_seduta": 10,
+"altre_sedute": [
+"22/11/2023"
+],
+"n": 100
+},
+{
+"sezione": "",
+"testo": "IL C.A.P.(CERTIFICATIO DI ABILITAZIONE PROFESSIONALE) DI TIPO \"B\" ABILITA",
+"risposte": [
+"ALLA CONDUZIONE DI AUTOVETTURE ADIBITE AL SERVIZIO DI PIAZZA E DI NOLEGGIO DA RIMESSA",
+"ALLA CONDUZIONE DI AUTOVETTURE ADIBITE AL SERVIZIO DI AUTOAMBULANZA",
+"ALLA CONDUZIONE DI MINIBUS"
+],
+"esatta": 0,
+"file": "paen/q06.pdf",
+"pagina": 2,
+"seduta": "19/09/2022",
+"n_seduta": 11,
+"altre_sedute": [
+"11/10/2023"
+],
+"n": 101
+},
+{
+"sezione": "",
+"testo": "La fermata del veicolo non è consentita:",
+"risposte": [
+"Nelle strade extraurbane, salvo casi di necessità",
+"Alle fermate degli autobus, tranne che nelle ore notturne in cui il servizio è sospeso",
+"In corrispondenza e in prossimità dei segnali stradali, in modo da occultarne la vista"
+],
+"esatta": 2,
+"file": "paen/q06.pdf",
+"pagina": 2,
+"seduta": "19/09/2022",
+"n_seduta": 12,
+"n": 102
+},
+{
+"sezione": "",
+"testo": "Nella fase di rientro dal sorpasso il conducente, deve:",
+"risposte": [
+"Suonare, di giorno, per segnalare la manovra al veicolo sorpassato",
+"Distanziarsi di almeno 100 metri dal veicolo sorpassato",
+"Evitare manovre che impongono ai conducenti sorpassati di rallentare o di fermarsi"
+],
+"esatta": 2,
+"file": "paen/q06.pdf",
+"pagina": 2,
+"seduta": "19/09/2022",
+"n_seduta": 13,
+"n": 103
+},
+{
+"sezione": "",
+"testo": "Per destinarle a n.c.c., le ambulanze di trasporto e soccorso stradale sono definite autovetture e sottoposte a norme speciali su servizi pubblici non di linea?",
+"risposte": [
+"si, a tutti gli effetti",
+"no, sono definite autoveicoli adibiti al trasporto specifico di persone e sottostanno alle sole norme vigenti.",
+"solo se vengono svolti servizi all'interno dei centri abitati"
+],
+"esatta": 1,
+"file": "paen/q06.pdf",
+"pagina": 2,
+"seduta": "19/09/2022",
+"n_seduta": 14,
+"altre_sedute": [
+"19/07/2023"
+],
+"n": 104
+},
+{
+"sezione": "",
+"testo": "Che sanzione è prevista per scritte pubblicitarie luminose poste su veicoli adibiti a servizi pubblici non di linea ma difformi da quanto eventualmente possibile?",
+"risposte": [
+"una sanzione amministrativa",
+"una multa",
+"il sequestro del veicolo"
+],
+"esatta": 0,
+"file": "paen/q06.pdf",
+"pagina": 2,
+"seduta": "19/09/2022",
+"n_seduta": 15,
+"altre_sedute": [
+"24/05/2023",
+"03/04/2024"
+],
+"n": 105
+},
+{
+"sezione": "",
+"testo": "E' ammessa la pubblicità non luminosa a pagamento per conto di terzi sulle autovetture adibite a servizio taxi e noleggio con conducente?",
+"risposte": [
+"si",
+"solo sui taxi",
+"solo sulle auto da noleggio"
+],
+"esatta": 0,
+"file": "paen/q06.pdf",
+"pagina": 3,
+"seduta": "19/09/2022",
+"n_seduta": 16,
+"altre_sedute": [
+"24/05/2023"
+],
+"n": 106
+},
+{
+"sezione": "",
+"testo": "E' possibile cumulare licenza di taxi e autorizzazione al noleggio in capo al medesimo soggetto?",
+"risposte": [
+"solo se non è una persona fisica",
+"Si",
+"solo se esercitate coi medesimi veicoli"
+],
+"esatta": 1,
+"file": "paen/q06.pdf",
+"pagina": 3,
+"seduta": "19/09/2022",
+"n_seduta": 17,
+"n": 107
+},
+{
+"sezione": "",
+"testo": "Nel servizio di noleggio con conducente con autovettura si possono usare corsie preferenziali per taxi e autobus e altre facilitazioni previste per i servizi pubblici?",
+"risposte": [
+"no",
+"si",
+"solo se espressamente indicato in appositi cartelli"
+],
+"esatta": 1,
+"file": "paen/q06.pdf",
+"pagina": 3,
+"seduta": "19/09/2022",
+"n_seduta": 18,
+"altre_sedute": [
+"23/01/2023"
+],
+"n": 108
+},
+{
+"sezione": "",
+"testo": "Nel servizio taxi, è necessario l'assenso del conducente per destinazioni esterne al territorio comunale o comprensoriale?",
+"risposte": [
+"solo in servizio notturno",
+"si, sempre",
+"no, il servizio è obbligatorio se l'utente è già salito a bordo"
+],
+"esatta": 1,
+"file": "paen/q06.pdf",
+"pagina": 3,
+"seduta": "19/09/2022",
+"n_seduta": 19,
+"altre_sedute": [
+"19/06/2024"
+],
+"n": 109
+},
+{
+"sezione": "",
+"testo": "LA CITTA' DI BAGHERIA PERCHE' E' CONOSCIUTA",
+"risposte": [
+"PER LA CUCINA TRADIZIONALE",
+"PER LE VILLE SETTECENTESCHE",
+"PER LA POSIZIONE PIANEGGIANTE"
+],
+"esatta": 1,
+"file": "paen/q07.pdf",
+"pagina": 1,
+"seduta": "28/11/2022",
+"n_seduta": 1,
+"altre_sedute": [
+"23/01/2023"
+],
+"n": 110
+},
+{
+"sezione": "",
+"testo": "LA FAMOSA SPIAGGIA DEI CONIGLI SI TROVA:",
+"risposte": [
+"NELL'ISOLA DI PANTELLERIA",
+"NELL'ISOLA DI USTICA",
+"NELL'ISOLA DI LAMPEDUSA"
+],
+"esatta": 2,
+"file": "paen/q07.pdf",
+"pagina": 1,
+"seduta": "28/11/2022",
+"n_seduta": 2,
+"altre_sedute": [
+"12/04/2023"
+],
+"n": 111
+},
+{
+"sezione": "",
+"testo": "LA RISERVA DELLO ZINGARO SI TROVA NEL TERRITORIO DI:",
+"risposte": [
+"AGRIGENTO",
+"PALERMO",
+"TRAPANI"
+],
+"esatta": 2,
+"file": "paen/q07.pdf",
+"pagina": 1,
+"seduta": "28/11/2022",
+"n_seduta": 3,
+"n": 112
+},
+{
+"sezione": "",
+"testo": "IL LIDO DI MONDELLO SI TROVA:",
+"risposte": [
+"A CEFALU'",
+"A PALERMO",
+"A TERRASINI"
+],
+"esatta": 1,
+"file": "paen/q07.pdf",
+"pagina": 1,
+"seduta": "28/11/2022",
+"n_seduta": 5,
+"n": 113
+},
+{
+"sezione": "",
+"testo": "IN QUALE CITTA' SI TROVA IL MUSEO ETNOGRAFICO PITRE':",
+"risposte": [
+"AGRIGENTO",
+"PALERMO",
+"RAGUSA"
+],
+"esatta": 1,
+"file": "paen/q07.pdf",
+"pagina": 1,
+"seduta": "28/11/2022",
+"n_seduta": 6,
+"n": 114
+},
+{
+"sezione": "",
+"testo": "CHI GUIDA UN VEICOLO, ANCHE SE AD ELEVATE PRESTAZIONI, DEVE:",
+"risposte": [
+"TENERE NEI CENTRI ABITATI IN FUNZIONE GLI ANABBAGLIANTI ANCHE DI GIORNO",
+"EVITARE DI COSTITUIRE PERICOLO PER GLI ALTRI UTENTI DELLA STRADA",
+"SORPASSARE IN OGNI CONDIZIONE DI TRAFFICO,PURCHE' NON CI SIA IL SEGNALE DI DIVIETO"
+],
+"esatta": 1,
+"file": "paen/q07.pdf",
+"pagina": 1,
+"seduta": "28/11/2022",
+"n_seduta": 8,
+"altre_sedute": [
+"19/06/2024"
+],
+"n": 115
+},
+{
+"sezione": "",
+"testo": "Chi stabilisce le categorie cui assimilare i veicoli atipici, ai fini della circolazione e della guida?",
+"risposte": [
+"Il Direttore dell'Ufficio Periferico del Dipartimento dei Trasporti – ex MCTC",
+"Il Ministero dei Trasporti e delle Infrastrutture",
+"Il Ministero dell'Ambiente"
+],
+"esatta": 1,
+"file": "paen/q07.pdf",
+"pagina": 2,
+"seduta": "28/11/2022",
+"n_seduta": 9,
+"altre_sedute": [
+"03/04/2024"
+],
+"n": 116
+},
+{
+"sezione": "",
+"testo": "CON FRENI SQUILIBRATI, PUO' AVVENIRE IN FRENATA",
+"risposte": [
+"LA STARATURA DEL SERVOFRENO",
+"CHE SIA COMPROMESSA LA STABILITA' DEL VEICOLO",
+"LO SPOSTAMENTO DEL CARICO ALL'INDIETRO"
+],
+"esatta": 1,
+"file": "paen/q07.pdf",
+"pagina": 2,
+"seduta": "28/11/2022",
+"n_seduta": 10,
+"n": 117
+},
+{
+"sezione": "",
+"testo": "Cos'è una corsia riservata?",
+"risposte": [
+"una corsia di marcia destinata alla circolazione esclusiva di una o più categorie di veicol",
+"una parte della carreggiata in cui non è possibile circolare",
+"una corsia destinata al solo accesso ai frontisti"
+],
+"esatta": 0,
+"file": "paen/q07.pdf",
+"pagina": 2,
+"seduta": "28/11/2022",
+"n_seduta": 11,
+"altre_sedute": [
+"15/03/2023"
+],
+"n": 118
+},
+{
+"sezione": "",
+"testo": "Entro quale termine va richiesta la trascrizione al PRA del trasferimento di proprietà di un autoveicolo?",
+"risposte": [
+"un mese",
+"sessanta giorni",
+"tre mesi"
+],
+"esatta": 1,
+"file": "paen/q07.pdf",
+"pagina": 2,
+"seduta": "28/11/2022",
+"n_seduta": 12,
+"n": 119
+},
+{
+"sezione": "",
+"testo": "In caso di avverse condizioni del tempo, prima di partire, bisogna:",
+"risposte": [
+"Accendere il riscaldamento in modo da evitare l’appannamento dei vetri",
+"Aumentare la pressione dei pneumatici delle ruote motrici",
+"Aumentare la pressione dei pneumatici delle ruote anteriori"
+],
+"esatta": 0,
+"file": "paen/q07.pdf",
+"pagina": 2,
+"seduta": "28/11/2022",
+"n_seduta": 13,
+"n": 120
+},
+{
+"sezione": "",
+"testo": "NELLA ASSICURAZIONE PER RESPONSABILITA' CIVILE AUTO (R.C.A.), IL CONTRATTO CON LA FORMULA \"BONUS MALUS\"",
+"risposte": [
+"VIENE ANNULLATO IN CASO DI INCIDENTE CON DANNI ALLE PERSONE",
+"COMPORTA L'OBBLIGO PER IL CONTRAENTE DI RISARCIRE UNA PARTE DEL DANNO PROVOCATO",
+"PREVEDE UNA VARIAZIONE DELLA CLASSE DI MERITO"
+],
+"esatta": 2,
+"file": "paen/q07.pdf",
+"pagina": 2,
+"seduta": "28/11/2022",
+"n_seduta": 14,
+"altre_sedute": [
+"03/04/2024",
+"25/06/2025"
+],
+"n": 121
+},
+{
+"sezione": "",
+"testo": "A cosa serve l'iscrizione al ruolo dei conducenti di veicoli adibiti ad autoservizi pubblici non di linea?",
+"risposte": [
+"a garantire la serietà e la professionalità",
+"ad acquisire un requisito necessario per ottenere le licenze e le autorizzazioni necessarie all'esercizio dei servizi",
+"ad evitare controlli e verifiche da parte dei Comuni"
+],
+"esatta": 1,
+"file": "paen/q07.pdf",
+"pagina": 2,
+"seduta": "28/11/2022",
+"n_seduta": 15,
+"altre_sedute": [
+"20/12/2023",
+"21/02/2024",
+"11/09/2024"
+],
+"n": 122
+},
+{
+"sezione": "",
+"testo": "Come si determina la tariffa del servizio taxi?",
+"risposte": [
+"a tempo",
+"a distanza",
+"a base multipla (tempo e distanzin servizio urbano, a distanza in servizio extraurbano"
+],
+"esatta": 2,
+"file": "paen/q07.pdf",
+"pagina": 2,
+"seduta": "28/11/2022",
+"n_seduta": 16,
+"altre_sedute": [
+"11/10/2023"
+],
+"n": 123
+},
+{
+"sezione": "",
+"testo": "Cosa determina la differenza tra la tariffa minima e la massima applicabile in caso di servizio di noleggio con conducente con autovettura?",
+"risposte": [
+"l'applicazione del coefficiente di struttura sulle spese per percorrenza, guida e disponibilità auto",
+"una percentuale del 10% di sconto minimo o maggiorazione massima sulla tariffa media",
+"la percentuale scelta dal noleggiatore tra sconto minimo e maggiorazione massima sulla tariffa media"
+],
+"esatta": 0,
+"file": "paen/q07.pdf",
+"pagina": 3,
+"seduta": "28/11/2022",
+"n_seduta": 17,
+"n": 124
+},
+{
+"sezione": "",
+"testo": "E' possibile rientrare in possesso di licenze o autorizzazioni per autoservizi pubblici non di linea conferite a organismi cooperativi?",
+"risposte": [
+"no",
+"si, in caso di recesso, decadenza o esclusione",
+"si, in qualsiasi caso"
+],
+"esatta": 1,
+"file": "paen/q07.pdf",
+"pagina": 3,
+"seduta": "28/11/2022",
+"n_seduta": 18,
+"n": 125
+},
+{
+"sezione": "",
+"testo": "L'obbligo del colore uniforme per le autovetture adibite al servizio di taxi si estende a tutta la carrozzeria?",
+"risposte": [
+"si",
+"no, è sufficiente che siano di tale colore le porte e i cofani",
+"no, possono esserne esclusi eventuali fregi accessori originali (ad esempio fasce laterali paraurti)"
+],
+"esatta": 2,
+"file": "paen/q07.pdf",
+"pagina": 3,
+"seduta": "28/11/2022",
+"n_seduta": 19,
+"altre_sedute": [
+"10/07/2024"
+],
+"n": 126
+},
+{
+"sezione": "",
+"testo": "Quale è l'autorità che determina i requisiti per l'iscrizione al ruolo dei conducenti di veicoli in servizio pubblico non di linea?",
+"risposte": [
+"la Regione",
+"la Provincia",
+"l'Ufficio Periferico del Dipartimento dei Trasporti Terrestri – ex MCTC"
+],
+"esatta": 0,
+"file": "paen/q07.pdf",
+"pagina": 3,
+"seduta": "28/11/2022",
+"n_seduta": 20,
+"altre_sedute": [
+"15/03/2023"
+],
+"n": 127
+},
+{
+"sezione": "",
+"testo": "L'ISOLA DI VULCANO SI TROVA NEL TERRITORIO DI:",
+"risposte": [
+"CATANIA",
+"PALERMO",
+"MESSINA"
+],
+"esatta": 2,
+"file": "paen/q08.pdf",
+"pagina": 1,
+"seduta": "23/01/2023",
+"n_seduta": 2,
+"n": 128
+},
+{
+"sezione": "",
+"testo": "QUANTI METRI SEPARA LA SICILIA DALLA CALABRIA",
+"risposte": [
+"10.500 metri",
+"3.200 metri",
+"1.300 metri"
+],
+"esatta": 1,
+"file": "paen/q08.pdf",
+"pagina": 1,
+"seduta": "23/01/2023",
+"n_seduta": 3,
+"n": 129
+},
+{
+"sezione": "",
+"testo": "IL SANTUARIO DI TINDARI FA PARTE DEL TERRITORIO DI:",
+"risposte": [
+"MESSINA",
+"CATANIA",
+"AGRIGENTO"
+],
+"esatta": 0,
+"file": "paen/q08.pdf",
+"pagina": 1,
+"seduta": "23/01/2023",
+"n_seduta": 4,
+"n": 130
+},
+{
+"sezione": "",
+"testo": "IL TRIBUNALE DI PALERMO SI TROVA IN:",
+"risposte": [
+"PIAZZA VITTORIO EMANUELE ORLANDO",
+"PIAZZA DELLA LIBERTA",
+"PIAZZA TREDICI VITTIME"
+],
+"esatta": 0,
+"file": "paen/q08.pdf",
+"pagina": 1,
+"seduta": "23/01/2023",
+"n_seduta": 6,
+"n": 131
+},
+{
+"sezione": "",
+"testo": "Cos'è una zona a traffico limitato?",
+"risposte": [
+"un'area in cui accesso e circolazione veicolare sono limitati ad ore prestabilite o a particolari categorie di utenti o di veicoli",
+"una parte di una piazza destinata prevalentemente al parcheggio",
+"una parte della strada riservata a mezzi pubblici e di emergenza"
+],
+"esatta": 0,
+"file": "paen/q08.pdf",
+"pagina": 2,
+"seduta": "23/01/2023",
+"n_seduta": 9,
+"altre_sedute": [
+"19/07/2023",
+"11/09/2024"
+],
+"n": 132
+},
+{
+"sezione": "",
+"testo": "IL LIMITE MASSIMO DI VELOCITA' SU STRADE EXTRAURBANE PRINCIPALI E' DI",
+"risposte": [
+"120 Km/h PER LE AUTOVETTURE",
+"80 Km/h PER AUTOVETTURA CHE TRAINA CARAVAN",
+"110 Km/h PER LE AUTOVETTURE CON CARRELLO-APPENDICE"
+],
+"esatta": 2,
+"file": "paen/q08.pdf",
+"pagina": 2,
+"seduta": "23/01/2023",
+"n_seduta": 12,
+"n": 133
+},
+{
+"sezione": "",
+"testo": "Può ritenersi utile ai fini della sicurezza:",
+"risposte": [
+"Approssimarsi agli incroci rallentando prudentemente",
+"Gonfiare i pneumatici ad una pressione di poco inferiore a quella suggerita dalla casa costruttrice",
+"Fare un uso moderato del clacson nei centri abitati"
+],
+"esatta": 0,
+"file": "paen/q08.pdf",
+"pagina": 2,
+"seduta": "23/01/2023",
+"n_seduta": 13,
+"altre_sedute": [
+"28/02/2024"
+],
+"n": 134
+},
+{
+"sezione": "",
+"testo": "UN PARCHEGGIO AUTORIZZATO",
+"risposte": [
+"NON CONSENTE DI PARCHEGGIARE NELLE IMMEDIATE VICINANZE",
+"E' DELIMITATO DA STRISCE GIALLE QUALORA SIA RISERVATO AI TAXI",
+"E' DELIMITATO DA STRISCE VERDI QUALORA SIA CUSTODITO GIORNO E NOTTE"
+],
+"esatta": 1,
+"file": "paen/q08.pdf",
+"pagina": 2,
+"seduta": "23/01/2023",
+"n_seduta": 14,
+"altre_sedute": [
+"07/04/2025"
+],
+"n": 135
+},
+{
+"sezione": "",
+"testo": "Il Comune può sottoporre a particolare verifica un veicolo da adibire a servizio taxi o noleggio con conducente, prima che sia immesso in servizio?",
+"risposte": [
+"no, deve solo accertare l'avvenuto rilascio della specifica carta di circolazione",
+"no, può solo segnalare all'Ufficio Periferico del DDT – ex MCTC – le sue necessità all'atto del rilascio della carta di circolazione",
+"si, anzi deve verificarne la rispondenza ad eventuali prescrizioni specifiche"
+],
+"esatta": 2,
+"file": "paen/q08.pdf",
+"pagina": 2,
+"seduta": "23/01/2023",
+"n_seduta": 15,
+"altre_sedute": [
+"20/12/2023",
+"03/04/2024"
+],
+"n": 136
+},
+{
+"sezione": "",
+"testo": "Quale autorità stabilisce i limiti massimi delle licenze e delle autorizzazioni che possono essere assentite da ogni Comune?",
+"risposte": [
+"la Camera di Commercio",
+"la Provincia",
+"la Regione"
+],
+"esatta": 2,
+"file": "paen/q08.pdf",
+"pagina": 3,
+"seduta": "23/01/2023",
+"n_seduta": 18,
+"n": 137
+},
+{
+"sezione": "",
+"testo": "Quale ente determina le tariffe per il servizio taxi?",
+"risposte": [
+"il Comune",
+"la Camera di Commercio",
+"la Provincia"
+],
+"esatta": 0,
+"file": "paen/q08.pdf",
+"pagina": 3,
+"seduta": "23/01/2023",
+"n_seduta": 19,
+"n": 138
+},
+{
+"sezione": "",
+"testo": "DOVE SI TROVA LA LOCALITA' BALNEARE DI SAN LEONE?",
+"risposte": [
+"PALERMO",
+"TRAPANI",
+"AGRIGENTO"
+],
+"esatta": 2,
+"file": "paen/q09.pdf",
+"pagina": 1,
+"seduta": "15/03/2023",
+"n_seduta": 1,
+"n": 139
+},
+{
+"sezione": "",
+"testo": "QUALE FRA QUESTE STAZIONI IDROTERMALI NON SI TROVA IN SICILIA:",
+"risposte": [
+"SALSOMAGGIORE TERME",
+"CASTROREALE TERME",
+"TERME DI SCIACCA"
+],
+"esatta": 0,
+"file": "paen/q09.pdf",
+"pagina": 1,
+"seduta": "15/03/2023",
+"n_seduta": 2,
+"n": 140
+},
+{
+"sezione": "",
+"testo": "A quale normativa si fa rinvio, nel Codice della Strada, per la disciplina del servizio di noleggio con conducente per trasporto di persone?",
+"risposte": [
+"alla disciplina contenuta nel Codice e nel Regolamento stessi",
+"alle leggi specifiche che regolano la materia",
+"ai regolamenti comunali"
+],
+"esatta": 1,
+"file": "paen/q09.pdf",
+"pagina": 1,
+"seduta": "15/03/2023",
+"n_seduta": 5,
+"n": 141
+},
+{
+"sezione": "",
+"testo": "A seguito di un incidente stradale con feriti, cosa bisogna fare in attesa dell'arrivo dei soccorsi?",
+"risposte": [
+"Cercare di ricostruire la dinamica dell'incidente",
+"Rimuovere i veicoli incidentati",
+"Proteggere il luogo dell'incidente e prestare prima assistenza ai feriti"
+],
+"esatta": 2,
+"file": "paen/q09.pdf",
+"pagina": 1,
+"seduta": "15/03/2023",
+"n_seduta": 6,
+"altre_sedute": [
+"12/04/2023"
+],
+"n": 142
+},
+{
+"sezione": "",
+"testo": "I conducenti di autovetture per il trasporto di persone in servizio pubblico di taxi o n.c.c. sono esentati dall'obbligo di indossare le cinture di sicurezza?",
+"risposte": [
+"no",
+"si",
+"solo durante il servizio nei centri abitati"
+],
+"esatta": 0,
+"file": "paen/q09.pdf",
+"pagina": 1,
+"seduta": "15/03/2023",
+"n_seduta": 8,
+"altre_sedute": [
+"24/05/2023",
+"21/02/2024",
+"11/09/2024"
+],
+"n": 143
+},
+{
+"sezione": "",
+"testo": "IN CASO DI NECESSITA' QUANTO TEMPO SI PUO' SOSTARE NELLA CORSIA DI EMERGENZA IN AUTOSTRADA?",
+"risposte": [
+"UN'ORA",
+"TRE ORE",
+"CINQUE ORE"
+],
+"esatta": 1,
+"file": "paen/q09.pdf",
+"pagina": 2,
+"seduta": "15/03/2023",
+"n_seduta": 9,
+"altre_sedute": [
+"24/05/2023",
+"03/04/2024"
+],
+"n": 144
+},
+{
+"sezione": "",
+"testo": "La responsabilità penale connessa al sinistro stradale è esclusa:",
+"risposte": [
+"Ogni qualvolta ci sia stato il risarcimento del danno",
+"Quando vi siano danni alle sole cose",
+"In ogni caso in cui sia stato prestato soccorso"
+],
+"esatta": 1,
+"file": "paen/q09.pdf",
+"pagina": 2,
+"seduta": "15/03/2023",
+"n_seduta": 10,
+"n": 145
+},
+{
+"sezione": "",
+"testo": "LA SQUILIBRATURA DEI FRENI PUO' DIPENDERE DA",
+"risposte": [
+"ECCESSIVO GIOCO DELLA FRIZIONE",
+"LUNGHE,ECCESSIVE E RIPETUTE FRENATE",
+"ECCESSIVO GIOCO DEL PEDALE DEL FRENO"
+],
+"esatta": 1,
+"file": "paen/q09.pdf",
+"pagina": 2,
+"seduta": "15/03/2023",
+"n_seduta": 11,
+"n": 146
+},
+{
+"sezione": "",
+"testo": "SONO ESENTATI DALL'OBBLIGO DI INDOSSARE LE CINTURE DI SICUREZZA",
+"risposte": [
+"ISTRUTTORI DI GUIDA NELLO SVOLGIMENTO DELLA LORO ATTIVITA'",
+"I CONDUCENTI CHE SI ESERCITANO ALLA GUIDA",
+"MILITARI DELLE FORZE ARMATE"
+],
+"esatta": 0,
+"file": "paen/q09.pdf",
+"pagina": 2,
+"seduta": "15/03/2023",
+"n_seduta": 12,
+"altre_sedute": [
+"11/09/2024",
+"19/05/2025"
+],
+"n": 147
+},
+{
+"sezione": "",
+"testo": "Che sanzione subisce chi, pur avendo l'autorizzazione, guida una vettura adibita al servizio di n.c.c. senza osservare le norme o le condizioni dell'autorizzazione?",
+"risposte": [
+"un'ammenda",
+"una sanzione amministrativa e sospensione della carta di circolazione da due a otto mesi",
+"le sanzioni previste dai regolamenti comunali di esercizio"
+],
+"esatta": 1,
+"file": "paen/q09.pdf",
+"pagina": 2,
+"seduta": "15/03/2023",
+"n_seduta": 14,
+"n": 148
+},
+{
+"sezione": "",
+"testo": "titolari di licenza o autorizzazione per autoservizi pubblici non di linea possono avvalersi di collaboratori familiari?",
+"risposte": [
+"si, purché iscritti a ruolo",
+"si, senza particolari obblighi",
+"no, solo da sostituti o dipendenti"
+],
+"esatta": 0,
+"file": "paen/q09.pdf",
+"pagina": 3,
+"seduta": "15/03/2023",
+"n_seduta": 16,
+"n": 149
+},
+{
+"sezione": "",
+"testo": "Per quali autoservizi pubblici non di linea è necessario disporre di una rimessa propria?",
+"risposte": [
+"sia per il taxi che per il noleggio con conducente",
+"solo per taxi",
+"solo per noleggio con conducente"
+],
+"esatta": 2,
+"file": "paen/q09.pdf",
+"pagina": 3,
+"seduta": "15/03/2023",
+"n_seduta": 18,
+"altre_sedute": [
+"12/04/2023"
+],
+"n": 150
+},
+{
+"sezione": "",
+"testo": "Quale organo determina i criteri per la definizione delle tariffe minime e massime per i servizi di noleggio con conducente?",
+"risposte": [
+"il Ministero delle Infrastrutture e dei Trasporti",
+"la Regione",
+"la Camera di Commercio"
+],
+"esatta": 0,
+"file": "paen/q09.pdf",
+"pagina": 3,
+"seduta": "15/03/2023",
+"n_seduta": 20,
+"n": 151
+},
+{
+"sezione": "",
+"testo": "PER QUALE MOTIVO E' CONOSCIUTA L'ISOLA DI USTICA:",
+"risposte": [
+"PER LA BELLEZZA DELLE SUE COSTE",
+"PER LA RISERVA MARINA",
+"PER LA SABBIA DELLE SUE SPIAGGE"
+],
+"esatta": 1,
+"file": "paen/q10.pdf",
+"pagina": 1,
+"seduta": "12/04/2023",
+"n_seduta": 2,
+"n": 152
+},
+{
+"sezione": "",
+"testo": "IN QUALE VIALE SI TROVA LO STADIO COMUNALE DI CALCIO DI PALERMO?",
+"risposte": [
+"VIALE DELLE PROVINCE",
+"VIALE EUROPA",
+"VIALE DEL FANTE"
+],
+"esatta": 2,
+"file": "paen/q10.pdf",
+"pagina": 1,
+"seduta": "12/04/2023",
+"n_seduta": 3,
+"n": 153
+},
+{
+"sezione": "",
+"testo": "A seguito di un incidente stradale con feriti, se un infortunato è svenuto cosa è opportuno fare?",
+"risposte": [
+"Controllare le sue funzioni vitali, battito cardiaco e respirazione",
+"Farlo rinvenire dandogli da bere",
+"Farlo sedere dove possibile"
+],
+"esatta": 0,
+"file": "paen/q10.pdf",
+"pagina": 1,
+"seduta": "12/04/2023",
+"n_seduta": 6,
+"altre_sedute": [
+"11/10/2023"
+],
+"n": 154
+},
+{
+"sezione": "",
+"testo": "E' possibile impiegare in servizio di linea anche autovetture immatricolate per servizio di terzi – taxi o noleggio?",
+"risposte": [
+"no, mai",
+"si, sempre",
+"si, nei casi previsti dalla Regione per i servizi in territori a domanda debole"
+],
+"esatta": 2,
+"file": "paen/q10.pdf",
+"pagina": 2,
+"seduta": "12/04/2023",
+"n_seduta": 8,
+"n": 155
+},
+{
+"sezione": "",
+"testo": "IN CASO DI FORTI PIOGGE IL CONDUCENTE DEVE",
+"risposte": [
+"AUMENTARE LA VELOCITA' DI MARCIA,NEL RISPETTO DEI LIMITI DI LEGGE",
+"AUMENTARE LA DISTANZA DI SICUREZZA DAL VEICOLO CHE LO PRECEDE",
+"PERCORRERE LE FORTI DISCESE CON IL CAMBIO IN FOLLE E USARE RIPETUTAMENTE IL FRENO"
+],
+"esatta": 1,
+"file": "paen/q10.pdf",
+"pagina": 2,
+"seduta": "12/04/2023",
+"n_seduta": 9,
+"altre_sedute": [
+"06/05/2025"
+],
+"n": 156
+},
+{
+"sezione": "",
+"testo": "Lo spessore minimo del battistrada degli autoveicoli:",
+"risposte": [
+"Deve essere pari ad almeno 1 mm per tutta la larghezza del battistrada",
+"È lasciato alla prudente valutazione del conducente",
+"Deve essere pari ad almeno 1,6 mm per tutta la larghezza del battistrada"
+],
+"esatta": 2,
+"file": "paen/q10.pdf",
+"pagina": 2,
+"seduta": "12/04/2023",
+"n_seduta": 10,
+"altre_sedute": [
+"22/11/2023"
+],
+"n": 157
+},
+{
+"sezione": "",
+"testo": "Nelle aree pedonali urbane possono transitare:",
+"risposte": [
+"Tutti i veicoli sprovvisti di motore",
+"Di norma, nessun veicolo, salvo eventuali deroghe espressamente indicate",
+"Le autovetture da piazza"
+],
+"esatta": 1,
+"file": "paen/q10.pdf",
+"pagina": 2,
+"seduta": "12/04/2023",
+"n_seduta": 11,
+"n": 158
+},
+{
+"sezione": "",
+"testo": "Per garantire la sicurezza della circolazione ed evitare incidenti è necessario, fra l’altro:",
+"risposte": [
+"Controllare il livello del liquido nella vaschetta del circuito frenante",
+"Controllare periodicamente lo stato di efficienza dell’impianto di alimentazione del carburante",
+"Controllare che la spia dell’olio dei freni sia costantemente accesa durante la marcia"
+],
+"esatta": 0,
+"file": "paen/q10.pdf",
+"pagina": 2,
+"seduta": "12/04/2023",
+"n_seduta": 12,
+"altre_sedute": [
+"28/02/2024"
+],
+"n": 159
+},
+{
+"sezione": "",
+"testo": "A quale fine deve essere ricercata l'uniformazione delle regolamentazioni comunali all'interno delle aree comprensoriali?",
+"risposte": [
+"per evitare concorrenza indebite tra tassisti e noleggiatori di comuni limitrofi",
+"per ottenere una maggiore razionalità ed efficienza del servizio pubblico non di linea",
+"per limitare il numero delle licenze e delle autorizzazioni al minimo possibile"
+],
+"esatta": 1,
+"file": "paen/q10.pdf",
+"pagina": 2,
+"seduta": "12/04/2023",
+"n_seduta": 14,
+"altre_sedute": [
+"24/05/2023"
+],
+"n": 160
+},
+{
+"sezione": "",
+"testo": "Chi può adottare norme speciali per assicurare il coordinamento e l'uniformità dei servizi pubblici non di linea, entro le zone ad intensa conurbazione?",
+"risposte": [
+"la Regione",
+"la Provincia",
+"I Comuni interessati"
+],
+"esatta": 2,
+"file": "paen/q10.pdf",
+"pagina": 3,
+"seduta": "12/04/2023",
+"n_seduta": 15,
+"n": 161
+},
+{
+"sezione": "",
+"testo": "I Comuni e le Province sono titolari di funzioni proprie in materia di regolamentazione del trasporto pubblico non di linea?",
+"risposte": [
+"si",
+"no, sono funzioni delegate dalla Regione e devono sottostare al rispetto delle norme regionali",
+"si, ma devono coordinare tra loro per evitare disomogeneità normative"
+],
+"esatta": 1,
+"file": "paen/q10.pdf",
+"pagina": 3,
+"seduta": "12/04/2023",
+"n_seduta": 16,
+"n": 162
+},
+{
+"sezione": "",
+"testo": "In quale dei seguenti casi le licenze e autorizzazioni possono essere trasferite a richiesta dal titolare?",
+"risposte": [
+"se egli l'ha ottenuta da almeno tre anni",
+"se egli ha raggiunto cinquantacinque anni",
+"se egli è divenuto inabile o inidoneo al servizio in via permanente"
+],
+"esatta": 2,
+"file": "paen/q10.pdf",
+"pagina": 3,
+"seduta": "12/04/2023",
+"n_seduta": 17,
+"n": 163
+},
+{
+"sezione": "",
+"testo": "La sosta dei veicoli in servizio di n.c.c. presso stazioni ferroviarie, se consentita dal Comune, è possibile nelle stesse aree destinate al posteggio dei taxi?",
+"risposte": [
+"si",
+"no, le aree devono essere ben distinte da quelle dei taxi",
+"no, le aree devono essere distanziate di almeno 300 metri"
+],
+"esatta": 1,
+"file": "paen/q10.pdf",
+"pagina": 3,
+"seduta": "12/04/2023",
+"n_seduta": 18,
+"altre_sedute": [
+"24/05/2023",
+"11/10/2023"
+],
+"n": 164
+},
+{
+"sezione": "",
+"testo": "Nel servizio taxi, da dove deve avvenire la partenza del veicolo per il prelevamento dell'utente o per l'inizio del servizio?",
+"risposte": [
+"sempre e soltanto dal territorio del Comune che ha rilasciato la licenza",
+"può avvenire anche nel territorio di altri comuni appartenenti al comprensorio, se consentito",
+"non esistono obblighi in proposito"
+],
+"esatta": 0,
+"file": "paen/q10.pdf",
+"pagina": 3,
+"seduta": "12/04/2023",
+"n_seduta": 19,
+"altre_sedute": [
+"11/09/2024"
+],
+"n": 165
+},
+{
+"sezione": "",
+"testo": "Quale organo comunale provvede a dare un parere sulle tariffe dei servizi di taxi?",
+"risposte": [
+"la Giunta",
+"la Commissione Consultiva",
+"la Commissione Tariffe"
+],
+"esatta": 1,
+"file": "paen/q10.pdf",
+"pagina": 3,
+"seduta": "12/04/2023",
+"n_seduta": 21,
+"altre_sedute": [
+"21/02/2024"
+],
+"n": 166
+},
+{
+"sezione": "",
+"testo": "DOVE SI TROVA LA STAZIONE MARITTIMA DI PALERMO",
+"risposte": [
+"VIA GIULIO CESARE",
+"VIA MESSINA MARINE",
+"VIA CRISPI"
+],
+"esatta": 2,
+"file": "paen/q11.pdf",
+"pagina": 1,
+"seduta": "24/05/2023",
+"n_seduta": 1,
+"altre_sedute": [
+"21/02/2024"
+],
+"n": 167
+},
+{
+"sezione": "",
+"testo": "Cosa fa l'Ufficio Periferico del DTT, ex MCTC, se non può rilasciare subito la carta di circolazione di una vettura da adibire a uso terzi per servizi non di linea?",
+"risposte": [
+"trattiene il veicolo sino al rilascio della carta di circolazione",
+"rilascia una carta provvisoria di circolazione valida al massimo 90 giorni",
+"immatricolazione e rilascio della carta di circolazione devono essere contemporanei"
+],
+"esatta": 1,
+"file": "paen/q11.pdf",
+"pagina": 1,
+"seduta": "24/05/2023",
+"n_seduta": 2,
+"n": 168
+},
+{
+"sezione": "",
+"testo": "Cosa non si deve fare in caso di incidente stradale?",
+"risposte": [
+"Impedire ai presenti di fumare in prossimità del veicolo",
+"Estrarre un ferito dall’auto",
+"Controllare se il ferito sia cosciente"
+],
+"esatta": 1,
+"file": "paen/q11.pdf",
+"pagina": 1,
+"seduta": "24/05/2023",
+"n_seduta": 3,
+"n": 169
+},
+{
+"sezione": "",
+"testo": "E' PERICOLOSO AI FINI DELLA SICUREZZA",
+"risposte": [
+"NON RISPETTARE LA DISTANZA DI SICUREZZA",
+"GUIDARE CON LA LUCE DELLA TARGA SPENTA",
+"SOSTARE DI NOTTE FUORI DELLA CARREGGIATA"
+],
+"esatta": 0,
+"file": "paen/q11.pdf",
+"pagina": 1,
+"seduta": "24/05/2023",
+"n_seduta": 4,
+"altre_sedute": [
+"22/11/2023"
+],
+"n": 170
+},
+{
+"sezione": "",
+"testo": "IN CASO DI INCIDENTE, SI DEVE SEGNALARE IL PERICOLO AI VEICOLI CHE SOPRAGGIUNGONO",
+"risposte": [
+"MAI,SE L'INCIDENTE E' AVVENUTO IN UN CENTRO ABITATO ILLUMINATO",
+"SOLAMENTE SE IL TRAFFICO E' BLOCCATO A CAUSA DELL'INCIDENTE",
+"COMUNQUE,ANCHE CON SEGNALI MANUALI INTESI AD IMPEDIRE IL TRANSITO SULLA ZONA PERICOLOSA"
+],
+"esatta": 2,
+"file": "paen/q11.pdf",
+"pagina": 1,
+"seduta": "24/05/2023",
+"n_seduta": 6,
+"altre_sedute": [
+"19/06/2024"
+],
+"n": 171
+},
+{
+"sezione": "",
+"testo": "L'assunzione di alcool influenza la guida e come rende il conducente?",
+"risposte": [
+"Meno vigile e reattivo, poiché ritarda i riflessi",
+"Più vigile e reattivo, poiché contrasta gli effetti della stanchezza",
+"Più sicuro e deciso, se praticata nei limiti della tolleranza individuale all'alcool"
+],
+"esatta": 0,
+"file": "paen/q11.pdf",
+"pagina": 2,
+"seduta": "24/05/2023",
+"n_seduta": 8,
+"altre_sedute": [
+"20/12/2023",
+"19/06/2024"
+],
+"n": 172
+},
+{
+"sezione": "",
+"testo": "Le manifestazioni dello stato di shock sono:",
+"risposte": [
+"Sudore freddo alla fronte e stato di agitazione",
+"Colorito roseo, polso regolare, ma in stato di agitazione",
+"Parole e frasi senza senso, con polso regolare"
+],
+"esatta": 0,
+"file": "paen/q11.pdf",
+"pagina": 2,
+"seduta": "24/05/2023",
+"n_seduta": 9,
+"altre_sedute": [
+"28/02/2024"
+],
+"n": 173
+},
+{
+"sezione": "",
+"testo": "NELLA FASE DI RIENTRO DAL SORPASSO IL CONDUCENTE DEVE",
+"risposte": [
+"SUONARE, DI GIORNO, PER SEGNALARE LA MANOVRA AL VEICOLO SORPASSATO",
+"SEGNALARE ACUSTICAMENTE LA MANOVRA AL VEICOLO SORPASSATO",
+"RIPORTARSI SULLA DESTRA APPENA POSSIBILE,EVITANDO DI STRINGERE LA STRADA AL VEICOLO SORPASSATO"
+],
+"esatta": 2,
+"file": "paen/q11.pdf",
+"pagina": 2,
+"seduta": "24/05/2023",
+"n_seduta": 10,
+"n": 174
+},
+{
+"sezione": "",
+"testo": "SE LA STRADA E' BAGNATA O GHIACCIATA",
+"risposte": [
+"E' CONSIGLIABILE EFFETTUARE FRENATE A FONDO PER FERMARE IL VEICOLO NEL MINOR SPAZIO POSSIBILE",
+"IL CONDUCENTE DEL VEICOLO DEVE PERCORRERE LA DISCESA CON IL CAMBIO IN POSIZIONE DI FOLLE",
+"IL CONDUCENTE DEL VEICOLO DEVE PROCEDERE CON CAUTELA"
+],
+"esatta": 2,
+"file": "paen/q11.pdf",
+"pagina": 2,
+"seduta": "24/05/2023",
+"n_seduta": 11,
+"altre_sedute": [
+"25/06/2025"
+],
+"n": 175
+},
+{
+"sezione": "",
+"testo": "Chi determina le tariffe del servizio di taxi?",
+"risposte": [
+"la libera contrattazione tra il cliente e il vettore, entro limiti minimi e massimi comunali",
+"i Comuni che rilasciano le licenze",
+"la Camera di Commercio"
+],
+"esatta": 1,
+"file": "paen/q11.pdf",
+"pagina": 2,
+"seduta": "24/05/2023",
+"n_seduta": 14,
+"altre_sedute": [
+"08/05/2024"
+],
+"n": 176
+},
+{
+"sezione": "",
+"testo": "Con quale obiettivo le Regioni delegano agli enti locali l'esercizio delle funzioni amministrative in materia di autoservizi pubblici non di linea?",
+"risposte": [
+"per la semplificazione delle procedure",
+"per il decentramento amministrativo",
+"per garantire la visione integrata del trasporto non di linea con gli altri modi di trasporto"
+],
+"esatta": 2,
+"file": "paen/q11.pdf",
+"pagina": 3,
+"seduta": "24/05/2023",
+"n_seduta": 16,
+"altre_sedute": [
+"21/02/2024"
+],
+"n": 177
+},
+{
+"sezione": "",
+"testo": "E' ammessa la pubblicità non luminosa sui veicoli adibiti a servizi non di linea, mediante l'applicazione su tutte le superfici non vetrate di pellicole autoadesive?",
+"risposte": [
+"si, senza limite",
+"si, solo sui taxi",
+"no"
+],
+"esatta": 1,
+"file": "paen/q11.pdf",
+"pagina": 3,
+"seduta": "24/05/2023",
+"n_seduta": 18,
+"altre_sedute": [
+"11/10/2023",
+"22/11/2023",
+"19/06/2024"
+],
+"n": 178
+},
+{
+"sezione": "",
+"testo": "L'esenzione da IVA per i servizi urbani svolti con veicoli da piazza è valida solo se il trasporto è pagato direttamente dal viaggiatore?",
+"risposte": [
+"no, vale anche se il contratto di trasporto è stato stipulato da un terzo",
+"si",
+"il trasporto urbano con veicoli da piazza non è esente da IVA -----------------------------------------------------------------------------------------------------------------------"
+],
+"esatta": 0,
+"file": "paen/q11.pdf",
+"pagina": 3,
+"seduta": "24/05/2023",
+"n_seduta": 20,
+"n": 179
+},
+{
+"sezione": "",
+"testo": "Quali delle seguenti autovetture in servizio di trasporto pubblico non di linea non sono obbligate all'adozione del colore uniforme?",
+"risposte": [
+"linea non sono obbligate all'adozione del colore uniforme? immatricolate per servizio di taxi sulla base di licenza comunale",
+"immatricolate per servizio di noleggio con conducente e autorizzate a effettuare servizio di taxi",
+"immatricolate per servizio di noleggio con conducente."
+],
+"esatta": 2,
+"file": "paen/q11.pdf",
+"pagina": 3,
+"seduta": "24/05/2023",
+"n_seduta": 21,
+"altre_sedute": [
+"03/04/2024"
+],
+"n": 180
+},
+{
+"sezione": "",
+"testo": "DOVE SI TROVA L'OSPEDALE CERVELLO DI PALERMO?",
+"risposte": [
+"VIALE STRASBURGO",
+"PIAZZA CRISTOFORO COLOMBO",
+"VIA TRABUCCO"
+],
+"esatta": 2,
+"file": "paen/q12.pdf",
+"pagina": 1,
+"seduta": "19/07/2023",
+"n_seduta": 1,
+"n": 181
+},
+{
+"sezione": "",
+"testo": "Cosa significa “Primo Soccorso” in caso di incidente stradale con feriti?",
+"risposte": [
+"Liberare almeno una corsia per i veicoli in transito",
+"Proteggere il luogo dell'incidente e prestare prima assistenza ai feriti",
+"Andare personalmente ad avvertire i soccorsi"
+],
+"esatta": 1,
+"file": "paen/q12.pdf",
+"pagina": 1,
+"seduta": "19/07/2023",
+"n_seduta": 2,
+"n": 182
+},
+{
+"sezione": "",
+"testo": "IN PRESENZA DI CORTEI:",
+"risposte": [
+"OCCORRE ATTENDERE LA FINE DEL LORO PASSAGGIO",
+"SI DEVE SUONARE PER RICHIAMARE L'ATTENZIONE E QUINDI ATTRAVERSALI CON PRUDENZA",
+"SI DEVE RALLENTARE E CON PRUDENZA FARSI STRADA TRA DI ESSI"
+],
+"esatta": 0,
+"file": "paen/q12.pdf",
+"pagina": 1,
+"seduta": "19/07/2023",
+"n_seduta": 4,
+"n": 183
+},
+{
+"sezione": "",
+"testo": "In presenza di tratti di strada ghiacciati è opportuno:",
+"risposte": [
+"Aumentare di circa tre o quattro volte la distanza di sicurezza",
+"Non usare le catene, ma solo gomme chiodate almeno sulle ruote motrici",
+"Frenare rapidamente in caso di slittamento"
+],
+"esatta": 0,
+"file": "paen/q12.pdf",
+"pagina": 1,
+"seduta": "19/07/2023",
+"n_seduta": 5,
+"altre_sedute": [
+"10/07/2024"
+],
+"n": 184
+},
+{
+"sezione": "",
+"testo": "La sospensione della patente è disposta:",
+"risposte": [
+"Quando il titolare non sia più in possesso dei requisiti morali richiesti",
+"Quando il titolare guidi con la patente la cui validità sia scaduta",
+"In caso di guida in stato di ebbrezza"
+],
+"esatta": 2,
+"file": "paen/q12.pdf",
+"pagina": 1,
+"seduta": "19/07/2023",
+"n_seduta": 6,
+"n": 185
+},
+{
+"sezione": "",
+"testo": "LE CINTURE DI SICUREZZA",
+"risposte": [
+"SONO DI UTILITA' TRASCURABILE NELLA CIRCOLAZIONE URBANA",
+"POSSONO NON ESSERE UTILIZZATE IN PRESENZA DI AIRBAG",
+"LIMITANO I DANNI AL CONDUCENTE E AI PASSEGGERI IN CASO DI INCIDENTE"
+],
+"esatta": 2,
+"file": "paen/q12.pdf",
+"pagina": 1,
+"seduta": "19/07/2023",
+"n_seduta": 7,
+"n": 186
+},
+{
+"sezione": "",
+"testo": "Per adattarsi alle condizioni contrarie del tempo e prevenire incidenti stradali occorre:",
+"risposte": [
+"Tenere i lampeggianti di sinistra accesi per segnalare la propria presenza",
+"Aumentare la distanza di sicurezza dal veicolo che precede",
+"Accendere i proiettori fendinebbia solo di notte"
+],
+"esatta": 1,
+"file": "paen/q12.pdf",
+"pagina": 2,
+"seduta": "19/07/2023",
+"n_seduta": 8,
+"n": 187
+},
+{
+"sezione": "",
+"testo": "PER NON COSTITUIRE PERICOLO O INTRALCIO PER LA CIRCOLAZIONE, E' NECESSARIO",
+"risposte": [
+"LIMITARSI AD OSSERVARE SOLO I LIMITI MASSIMI DI VELOCITA'",
+"UNIRE ALL'APPLICAZIONE DELLE FONDAMENTALI NORME SULLA CIRCOLAZIONE UN FORTE SENSO CIVICO",
+"ANDARE SEMPRE AD UNA VELOCITA' PARTICOLARMENTE MODERATA"
+],
+"esatta": 1,
+"file": "paen/q12.pdf",
+"pagina": 2,
+"seduta": "19/07/2023",
+"n_seduta": 10,
+"altre_sedute": [
+"02/12/2025"
+],
+"n": 188
+},
+{
+"sezione": "",
+"testo": "Quanti posti possono avere al massimo le autovetture?",
+"risposte": [
+"nove compreso il conducente",
+"sette più il conducente",
+"nove più il conducente"
+],
+"esatta": 0,
+"file": "paen/q12.pdf",
+"pagina": 2,
+"seduta": "19/07/2023",
+"n_seduta": 11,
+"n": 189
+},
+{
+"sezione": "",
+"testo": "Dove può essere prelevato l'utente che ha prenotato un servizio di noleggio con conducente?",
+"risposte": [
+"solo presso la rimessa o sede del vettore",
+"in qualsiasi punto, purché interno al territorio comunale",
+"in qualsiasi punto esterno alla sede o rimessa, purché la prenotazione sia disponibile nel veicolo"
+],
+"esatta": 2,
+"file": "paen/q12.pdf",
+"pagina": 3,
+"seduta": "19/07/2023",
+"n_seduta": 14,
+"n": 190
+},
+{
+"sezione": "",
+"testo": "Dove vengono effettuate le prenotazioni di trasporto nel servizio di noleggio con conducente con autovettura?",
+"risposte": [
+"presso la sede del vettore",
+"presso la rimessa",
+"presso appositi spazi pubblici"
+],
+"esatta": 1,
+"file": "paen/q12.pdf",
+"pagina": 3,
+"seduta": "19/07/2023",
+"n_seduta": 15,
+"n": 191
+},
+{
+"sezione": "",
+"testo": "E' ammessa la pubblicità non luminosa sui veicoli addetti a servizi pubblici non di linea?",
+"risposte": [
+"solo sui taxi",
+"solo sulle autovetture adibite al noleggio con conducente",
+"si, solo a determinate condizioni"
+],
+"esatta": 2,
+"file": "paen/q12.pdf",
+"pagina": 3,
+"seduta": "19/07/2023",
+"n_seduta": 16,
+"altre_sedute": [
+"22/11/2023"
+],
+"n": 192
+},
+{
+"sezione": "",
+"testo": "La prevista rimessa per autoservizio pubblico non di linea deve necessariamente essere situata nel territorio del Comune che rilascia il titolo amministrativo?",
+"risposte": [
+"no, è sufficiente che nel territorio comunale sia presente una sede del titolare",
+"si",
+"no, può però essere situata al massimo in un comune limitrofo"
+],
+"esatta": 1,
+"file": "paen/q12.pdf",
+"pagina": 3,
+"seduta": "19/07/2023",
+"n_seduta": 17,
+"altre_sedute": [
+"28/02/2024"
+],
+"n": 193
+},
+{
+"sezione": "",
+"testo": "Per esercitare il servizio di taxi è necessario essere titolare di un'impresa di trasporto?",
+"risposte": [
+"no",
+"si, purché sia una impresa artigiana",
+"no, basta essere iscritti al registro dei mestieri girovaghi"
+],
+"esatta": 0,
+"file": "paen/q12.pdf",
+"pagina": 3,
+"seduta": "19/07/2023",
+"n_seduta": 18,
+"altre_sedute": [
+"19/06/2024",
+"10/07/2024"
+],
+"n": 194
+},
+{
+"sezione": "",
+"testo": "Possono essere conferite licenze o autorizzazioni per autoservizi pubblici non di linea a organismi associativi?",
+"risposte": [
+"si, ma solo a società cooperative tra tassisti e noleggiatori",
+"no",
+"si, purché costituiti tra titolari di licenza o autorizzazioni"
+],
+"esatta": 2,
+"file": "paen/q12.pdf",
+"pagina": 3,
+"seduta": "19/07/2023",
+"n_seduta": 19,
+"altre_sedute": [
+"20/12/2023",
+"19/06/2024"
+],
+"n": 195
+},
+{
+"sezione": "",
+"testo": "Agli imbocchi o sbocchi delle gallerie stradali è opportuno:",
+"risposte": [
+"Frenare bruscamente",
+"Non sorpassare, neanche nelle carreggiate a senso unico",
+"All'uscita, tenere il volante con particolare attenzione per fronteggiare colpi di vento laterale"
+],
+"esatta": 2,
+"file": "paen/q13.pdf",
+"pagina": 1,
+"seduta": "11/10/2023",
+"n_seduta": 3,
+"altre_sedute": [
+"03/04/2024"
+],
+"n": 196
+},
+{
+"sezione": "",
+"testo": "Il conducente del veicolo da sorpassare ha l’obbligo di:",
+"risposte": [
+"Facilitare la manovra di sorpasso",
+"Azionare i lampeggianti di emergenza per segnalare che la strada è sgombra",
+"Azionare l’indicatore di direzione destro"
+],
+"esatta": 0,
+"file": "paen/q13.pdf",
+"pagina": 2,
+"seduta": "11/10/2023",
+"n_seduta": 7,
+"n": 197
+},
+{
+"sezione": "",
+"testo": "La respirazione artificiale:",
+"risposte": [
+"si pratica alzando le braccia dell’infortunato e soffiando sulla bocca",
+"va praticata anche quando l’infortunato respira lentamente",
+"va praticata con il sistema bocca a bocca, o bocca a naso"
+],
+"esatta": 2,
+"file": "paen/q13.pdf",
+"pagina": 2,
+"seduta": "11/10/2023",
+"n_seduta": 8,
+"n": 198
+},
+{
+"sezione": "",
+"testo": "Le tariffe minime e massime per il n.c.c. con autovetture tengono conto anche dei tempi di sosta, pedaggi autostradali, tasse di transito, aria condizionata, ecc.?",
+"risposte": [
+"no, tali costi sono esclusi e conteggiati a parte dal singolo noleggiatore",
+"si, e non possono essere sommati all'importo contrattato oltre il limite massimo",
+"si, per una percentuale media, superata la quale possono essere sommati all'importo contrattato"
+],
+"esatta": 0,
+"file": "paen/q13.pdf",
+"pagina": 2,
+"seduta": "11/10/2023",
+"n_seduta": 9,
+"n": 199
+},
+{
+"sezione": "",
+"testo": "Per ridurre l’inquinamento provocato dai veicoli con motore diesel bisogna:",
+"risposte": [
+"Sostituire periodicamente il filtro dell’aria",
+"Utilizzare il motore al massimo numero di giri consentito",
+"Sostituire periodicamente il filtro dell’olio"
+],
+"esatta": 0,
+"file": "paen/q13.pdf",
+"pagina": 2,
+"seduta": "11/10/2023",
+"n_seduta": 10,
+"n": 200
+},
+{
+"sezione": "",
+"testo": "E' possibile utilizzare per uso proprio un'autovettura adibita a servizio di taxi?",
+"risposte": [
+"no, mai",
+"si, con specifico nulla osta del Sindaco",
+"si, fuori servizio"
+],
+"esatta": 2,
+"file": "paen/q13.pdf",
+"pagina": 3,
+"seduta": "11/10/2023",
+"n_seduta": 15,
+"n": 201
+},
+{
+"sezione": "",
+"testo": "Esistono casi particolari di esclusione dall'esenzione da IVA di prestazioni di servizi di trasporto pubblico non di linea che di norma sono esenti?",
+"risposte": [
+"quando il trasporto avviene per un contratto stipulato con un soggetto diverso dal viaggiatore",
+"No",
+"quando il trasporto avviene per un contratto di noleggio a tempo"
+],
+"esatta": 1,
+"file": "paen/q13.pdf",
+"pagina": 3,
+"seduta": "11/10/2023",
+"n_seduta": 16,
+"altre_sedute": [
+"20/12/2023",
+"03/04/2024",
+"10/07/2024"
+],
+"n": 202
+},
+{
+"sezione": "",
+"testo": "In quali comuni può esservi esonero dal dotare le autovetture addette al servizio taxi dell'apposito tassametro omologato?",
+"risposte": [
+"quelli in cui il Comune ha liberamente regolamentato in tal modo",
+"quelli di minore dimensione, individuati dalla Camera di Commercio su parere dell'Ufficio Periferico del Dipartimento dei Trasporti Terrestri – ex MCTC",
+"nessun Comune"
+],
+"esatta": 1,
+"file": "paen/q13.pdf",
+"pagina": 3,
+"seduta": "11/10/2023",
+"n_seduta": 17,
+"n": 203
+},
+{
+"sezione": "",
+"testo": "Quale è l'unico requisito indispensabile, per legge statale, per ottenere l'iscrizione al ruolo dei conducenti di veicoli adibiti ad autoservizi pubblici non di linea?",
+"risposte": [
+"la sola patente",
+"la licenza o l'autorizzazione",
+"il certificato di abilitazione professionale"
+],
+"esatta": 2,
+"file": "paen/q13.pdf",
+"pagina": 4,
+"seduta": "11/10/2023",
+"n_seduta": 20,
+"altre_sedute": [
+"03/04/2024"
+],
+"n": 204
+},
+{
+"sezione": "",
+"testo": "Quale Ente applica le sanzioni per l'inosservanza dell'obbligatorietà della prestazione del servizio di taxi?",
+"risposte": [
+"la Regione",
+"la Provincia",
+"il Comune"
+],
+"esatta": 2,
+"file": "paen/q13.pdf",
+"pagina": 4,
+"seduta": "11/10/2023",
+"n_seduta": 21,
+"n": 205
+},
+{
+"sezione": "",
+"testo": "L'ASSEMBLEA DEL PARLAMENTO SICILIANO SI TROVA:",
+"risposte": [
+"NEL PALAZZO REALE O DEI NORMANNI",
+"PALAZZO PRETORIO O DELLE AQUILE",
+"PALAZZO COMITINI"
+],
+"esatta": 0,
+"file": "paen/q14.pdf",
+"pagina": 1,
+"seduta": "22/11/2023",
+"n_seduta": 1,
+"n": 206
+},
+{
+"sezione": "",
+"testo": "I conducenti di veicoli adibiti a servizio di taxi o noleggio con conducente sono autorizzati a fare uso di apparecchi radiotelefonici ovvero cuffie sonore?",
+"risposte": [
+"no",
+"si, sempre",
+"si, solo nei centri abitati o non durante la marcia"
+],
+"esatta": 0,
+"file": "paen/q14.pdf",
+"pagina": 1,
+"seduta": "22/11/2023",
+"n_seduta": 4,
+"n": 207
+},
+{
+"sezione": "",
+"testo": "In caso di incidente con veicoli in mezzo alla strada, come ci si deve comportare in relazione al traffico?",
+"risposte": [
+"Si deve sbarrare la strada, anche con ostacoli di fortuna, bloccando il traffico finché non arriva l'ambulanza o la polizia",
+"Si deve proteggere il luogo dell'incidente, lasciando libera una corsia per il transito dei veicoli",
+"Si devono immediatamente spostare i feriti e i veicoli coinvolti, per liberare la carreggiata"
+],
+"esatta": 1,
+"file": "paen/q14.pdf",
+"pagina": 2,
+"seduta": "22/11/2023",
+"n_seduta": 7,
+"altre_sedute": [
+"19/06/2024"
+],
+"n": 208
+},
+{
+"sezione": "",
+"testo": "La revisione della patente di guida può essere disposta:",
+"risposte": [
+"Dall’autorità giudiziaria",
+"Qualora sorgano dubbi sul persistere dei requisiti fisici e psichici prescritti",
+"Per difetto dei requisiti fisici e psichici prescritti"
+],
+"esatta": 1,
+"file": "paen/q14.pdf",
+"pagina": 2,
+"seduta": "22/11/2023",
+"n_seduta": 8,
+"n": 209
+},
+{
+"sezione": "",
+"testo": "L'iscrizione al ruolo dei conducenti dei veicoli adibiti a servizi pubblici non di linea è necessaria per i dipendenti di ditte autorizzate a svolgere servizi di n.c.c.?",
+"risposte": [
+"solo per i dipendenti di ruolo",
+"solo per i dipendenti a tempo indeterminato",
+"anche per i dipendenti a tempo determinato in sostituzione temporanea di altri dipendenti"
+],
+"esatta": 2,
+"file": "paen/q14.pdf",
+"pagina": 2,
+"seduta": "22/11/2023",
+"n_seduta": 9,
+"n": 210
+},
+{
+"sezione": "",
+"testo": "Se alla domanda per avere una licenza o autorizzazione non viene emesso un formale atto di diniego, l'ente pubblico può intervenire successivamente?",
+"risposte": [
+"no, la licenza o l'autorizzazione si intendono acquisite definitivamente",
+"si, l'atto viene dichiarato nullo e l'esercente può essere sanzionato per esercizio abusivo",
+"si, l'atto può essere annullato per illegittimità per ragioni di pubblico interesse"
+],
+"esatta": 2,
+"file": "paen/q14.pdf",
+"pagina": 2,
+"seduta": "22/11/2023",
+"n_seduta": 12,
+"n": 211
+},
+{
+"sezione": "",
+"testo": "Dove deve avvenire il prelevamento dell'utente o l'inizio del servizio di taxi?",
+"risposte": [
+"esclusivamente entro l'area comunale",
+"entro l'area comunale o comprensoriale",
+"entro l'area provinciale"
+],
+"esatta": 1,
+"file": "paen/q14.pdf",
+"pagina": 3,
+"seduta": "22/11/2023",
+"n_seduta": 14,
+"n": 212
+},
+{
+"sezione": "",
+"testo": "Dove può avvenire lo stazionamento dei veicoli adibiti a servizio di taxi, durante il servizio stesso?",
+"risposte": [
+"esclusivamente su suolo pubblico, in aree specificatamente individuate",
+"esclusivamente su piazze",
+"indifferentemente su suolo pubblico o presso apposite rimesse private"
+],
+"esatta": 0,
+"file": "paen/q14.pdf",
+"pagina": 3,
+"seduta": "22/11/2023",
+"n_seduta": 15,
+"altre_sedute": [
+"19/06/2024"
+],
+"n": 213
+},
+{
+"sezione": "",
+"testo": "E' prevista la partecipazione delle associazioni degli utenti alle commissioni consultive per gli autoservizi pubblici non di linea?",
+"risposte": [
+"solo se ammesso dai Comuni e dalle Regioni",
+"sempre, per obbligo di legge",
+"no"
+],
+"esatta": 1,
+"file": "paen/q14.pdf",
+"pagina": 3,
+"seduta": "22/11/2023",
+"n_seduta": 18,
+"altre_sedute": [
+"08/05/2024",
+"10/07/2024"
+],
+"n": 214
+},
+{
+"sezione": "",
+"testo": "Quale è l'autorità che rilascia le autorizzazioni per il servizio di noleggio con conducente?",
+"risposte": [
+"la Regione",
+"la Provincia",
+"il Comune"
+],
+"esatta": 2,
+"file": "paen/q14.pdf",
+"pagina": 4,
+"seduta": "22/11/2023",
+"n_seduta": 21,
+"altre_sedute": [
+"28/02/2024"
+],
+"n": 215
+},
+{
+"sezione": "",
+"testo": "LA CAPPELLA PALATINA SI TROVA A:",
+"risposte": [
+"PALAZZO MIRTO",
+"PALAZZO BUTERA",
+"PALAZZO REALE O DEI NORMANNI"
+],
+"esatta": 2,
+"file": "paen/q15.pdf",
+"pagina": 1,
+"seduta": "20/12/2023",
+"n_seduta": 1,
+"n": 216
+},
+{
+"sezione": "",
+"testo": "IL CONDUCENTE DI UN VEICOLO DA SORPASSARE HA L'OBBLIGO DI",
+"risposte": [
+"FACILITARE LA MANOVRA DI SORPASSO",
+"ACCELERARE PER PERMETTERE AL VEICOLO SORPASSANTE DI PRENDERE LA SCIA PER AUMENTARE LA VELOCITA'",
+"ACCELERARE PER PERMETTERE AL VEICOLO SORPASSANTE DI PRENDERE LA SCIA PER AUMENTARE LA VELOCITA'"
+],
+"esatta": 0,
+"file": "paen/q15.pdf",
+"pagina": 1,
+"seduta": "20/12/2023",
+"n_seduta": 2,
+"n": 217
+},
+{
+"sezione": "",
+"testo": "La Carta di Qualificazione del Conducente (ex CAP KD) abilita anche a condurre i veicoli per i quali è necessario il certificato KB?",
+"risposte": [
+"si",
+"no",
+"solo per spostamenti a vuoto"
+],
+"esatta": 0,
+"file": "paen/q15.pdf",
+"pagina": 1,
+"seduta": "20/12/2023",
+"n_seduta": 3,
+"n": 218
+},
+{
+"sezione": "",
+"testo": "L'ASSUNZIONE DI ALCOOL INFLUENZA LA GUIDA IN QUANTO",
+"risposte": [
+"LA RENDE PIU' ALLEGRA E MENO NOIOSA",
+"LA RENDE PIU' SICURA PERCHE' CONTRASTA GLI EFFETTI DELLA STANCHEZZA",
+"LA RENDE MENO SICURA PERCHE' RENDE MENO RAPIDI I RIFLESSI"
+],
+"esatta": 2,
+"file": "paen/q15.pdf",
+"pagina": 1,
+"seduta": "20/12/2023",
+"n_seduta": 5,
+"n": 219
+},
+{
+"sezione": "",
+"testo": "Le autovetture, da adibire a servizio di n.c.c. o taxi, devono essere individualmente soggetti a verifica dei requisiti di idoneità alla circolazione?",
+"risposte": [
+"no, se sono di tipo già omologato",
+"si, anche se sono di tipo già omologato",
+"no, in nessun caso"
+],
+"esatta": 1,
+"file": "paen/q15.pdf",
+"pagina": 1,
+"seduta": "20/12/2023",
+"n_seduta": 6,
+"n": 220
+},
+{
+"sezione": "",
+"testo": "Nel rispetto dei limiti di velocità, il conducente di un veicolo è tenuto a regolare la velocità in funzione:",
+"risposte": [
+"Dalla potenza del motore",
+"Della visibilità",
+"Dell'urgenza del trasporto"
+],
+"esatta": 1,
+"file": "paen/q15.pdf",
+"pagina": 2,
+"seduta": "20/12/2023",
+"n_seduta": 7,
+"n": 221
+},
+{
+"sezione": "",
+"testo": "PER ASSICURARE STABILITA' AL VEICOLO IN CURVA E' OPPORTUNO",
+"risposte": [
+"EVITARE DI STERZARE BRUSCAMENTE",
+"AUMENTARE LA VELOCITA' NELLA PARTE INIZIALE DELLA CURVA",
+"USARE SEMPRE LA QUARTA MARCIA"
+],
+"esatta": 0,
+"file": "paen/q15.pdf",
+"pagina": 2,
+"seduta": "20/12/2023",
+"n_seduta": 8,
+"altre_sedute": [
+"21/02/2024",
+"08/05/2024",
+"19/06/2024"
+],
+"n": 222
+},
+{
+"sezione": "",
+"testo": "SU STRADE COPERTE DI NEVE OCCORRE",
+"risposte": [
+"STERZARE BRUSCAMENTE PER EVITARE VEICOLI FERMI",
+"MODERARE LA VELOCITA'",
+"ALLA PARTENZA,ACCELERARE AL MASSIMO"
+],
+"esatta": 1,
+"file": "paen/q15.pdf",
+"pagina": 2,
+"seduta": "20/12/2023",
+"n_seduta": 10,
+"n": 223
+},
+{
+"sezione": "",
+"testo": "SULLA STABILITA' DEL VEICOLO IN MARCIA INFLUISCONO POSITIVAMENTE",
+"risposte": [
+"UNA ELEVATA PRESSIONE DI GONFIAGGIO DEI PNEUMATICI",
+"LA PRESENZA DI CAMBIO SINCRONIZZATO",
+"L'ASSENZA DI ECCESSIVI GIOCHI SUGLI ORGANI DI STERZO"
+],
+"esatta": 2,
+"file": "paen/q15.pdf",
+"pagina": 2,
+"seduta": "20/12/2023",
+"n_seduta": 11,
+"altre_sedute": [
+"11/09/2024",
+"25/06/2025"
+],
+"n": 224
+},
+{
+"sezione": "",
+"testo": "Dove avviene lo stazionamento dei mezzi addetti al servizio di noleggio con conducente?",
+"risposte": [
+"presso apposite autorimesse pubbliche",
+"su suolo pubblico in aree specificatamente contrassegnate",
+"su suolo privato, in apposite rimesse"
+],
+"esatta": 2,
+"file": "paen/q15.pdf",
+"pagina": 3,
+"seduta": "20/12/2023",
+"n_seduta": 15,
+"n": 225
+},
+{
+"sezione": "",
+"testo": "Il servizio di noleggio con conducente è soggetto a tariffa predeterminata?",
+"risposte": [
+"si, con tariffa unica chilometrica obbligatoria",
+"no, il corrispettivo è contrattabile senza limiti",
+"si, con tariffe chilometriche minime e massime entro cui si può contrattare il corrispettivo"
+],
+"esatta": 2,
+"file": "paen/q15.pdf",
+"pagina": 3,
+"seduta": "20/12/2023",
+"n_seduta": 18,
+"altre_sedute": [
+"28/02/2024"
+],
+"n": 226
+},
+{
+"sezione": "",
+"testo": "Per il rilascio di una licenza o autorizzazione per autoservizi pubblici non di linea, è utile avere esercitato attività di conducente come dipendente o sostituto?",
+"risposte": [
+"si, costituisce titolo preferenziale se il servizio è stato prestato per almeno sei mesi",
+"si, costituisce titolo preferenziale proporzionale al numero di anni di effettivo esercizio",
+"no"
+],
+"esatta": 0,
+"file": "paen/q15.pdf",
+"pagina": 3,
+"seduta": "20/12/2023",
+"n_seduta": 19,
+"altre_sedute": [
+"28/02/2024"
+],
+"n": 227
+},
+{
+"sezione": "",
+"testo": "Cosa si intende per “uso” di un veicolo?",
+"risposte": [
+"la sua utilizzazione in base alle caratteristiche tecniche",
+"la sua destinazione economica",
+"il chilometraggio medio annuo"
+],
+"esatta": 1,
+"file": "paen/q16.pdf",
+"pagina": 1,
+"seduta": "21/02/2024",
+"n_seduta": 2,
+"n": 228
+},
+{
+"sezione": "",
+"testo": "Da chi può essere svolto il servizio taxi?",
+"risposte": [
+"dagli iscritti al registro dei mestieri girovaghi art. 121 TULPS",
+"dai titolari di licenza di esercizio di autorimessa art. 86 TULPS",
+"dai titolari di licenza specifica per l'esercizio di servizio pubblico non di linea"
+],
+"esatta": 2,
+"file": "paen/q16.pdf",
+"pagina": 1,
+"seduta": "21/02/2024",
+"n_seduta": 3,
+"n": 229
+},
+{
+"sezione": "",
+"testo": "E’ vietato il sorpasso:",
+"risposte": [
+"Nelle strade a senso unico",
+"Quando non si dispone di uno spazio libero sufficiente",
+"Nelle ore notturne"
+],
+"esatta": 1,
+"file": "paen/q16.pdf",
+"pagina": 1,
+"seduta": "21/02/2024",
+"n_seduta": 4,
+"n": 230
+},
+{
+"sezione": "",
+"testo": "Gli autoveicoli per trasporto promiscuo o per trasporti specifici di persone possono essere destinati al servizio di noleggio con conducente per trasporto di persone?",
+"risposte": [
+"si",
+"no",
+"si, solo nei casi disciplinati da apposite leggi regionali"
+],
+"esatta": 0,
+"file": "paen/q16.pdf",
+"pagina": 1,
+"seduta": "21/02/2024",
+"n_seduta": 5,
+"n": 231
+},
+{
+"sezione": "",
+"testo": "IL SEGNALE TRIANGOLARE MOBILE DI PERICOLO E' POSTO FUORI DEI CENTRI ABITATI",
+"risposte": [
+"SEMPRE SULLA CORSIA DI SORPASSO NELLE CARREGGIATE A DUE CORSIE PER OGNI SENSO DI MARCIA",
+"SULLA CORSIA OCCUPATA DAL VEICOLO FERMO",
+"SUL RETRO DEI VEICOLI CHE DEBBONO MARCIARE A VELOCITA' MOLTO RIDOTTA PER LAVORI SULLA STRADA"
+],
+"esatta": 1,
+"file": "paen/q16.pdf",
+"pagina": 2,
+"seduta": "21/02/2024",
+"n_seduta": 8,
+"n": 232
+},
+{
+"sezione": "",
+"testo": "Nei Comuni dove non esiste servizio di taxi, i veicoli adibiti al servizio di noleggio con conducente possono sostare su aree pubbliche?",
+"risposte": [
+"si, purché siano dipinti di bianco come i taxi",
+"no, in nessun caso",
+"solo se autorizzati dal Comune e su aree ben determinate"
+],
+"esatta": 2,
+"file": "paen/q16.pdf",
+"pagina": 2,
+"seduta": "21/02/2024",
+"n_seduta": 9,
+"n": 233
+},
+{
+"sezione": "",
+"testo": "Quali sono le manifestazioni dello stato di shock?",
+"risposte": [
+"Sudore freddo alla fronte e stato di agitazione",
+"Colorito roseo, polso regolare, ma in stato di agitazione",
+"Parole e frasi senza senso, con polso regolare"
+],
+"esatta": 0,
+"file": "paen/q16.pdf",
+"pagina": 2,
+"seduta": "21/02/2024",
+"n_seduta": 11,
+"n": 234
+},
+{
+"sezione": "",
+"testo": "Alla guida di un autoveicolo adibito a servizio di taxi o noleggio con conducente l'uso della cintura di sicurezza e' obbligatorio:",
+"risposte": [
+"mai",
+"sempre",
+"solo fuori dai centri abitati"
+],
+"esatta": 1,
+"file": "paen/q16.pdf",
+"pagina": 2,
+"seduta": "21/02/2024",
+"n_seduta": 13,
+"n": 235
+},
+{
+"sezione": "",
+"testo": "Che dimensione massima di scritte e stemmi dell'azienda esercente il servizio di taxi e il Comune di appartenenza è ammessa sulle fiancate della vettura?",
+"risposte": [
+"non possono essere ammesse",
+"quelle identificate dal regolamento comunale",
+"875 cmq"
+],
+"esatta": 2,
+"file": "paen/q16.pdf",
+"pagina": 3,
+"seduta": "21/02/2024",
+"n_seduta": 14,
+"altre_sedute": [
+"10/07/2024"
+],
+"n": 236
+},
+{
+"sezione": "",
+"testo": "E' consentita la sosta di altri veicoli nelle apposite piazzole destinate al servizio taxi?",
+"risposte": [
+"si, sempre",
+"no, e nel caso si applicano una sanzione pecuniaria e la decurtazione di due punti dalla patente",
+"solo se esiste una specifica indicazione con cartello"
+],
+"esatta": 1,
+"file": "paen/q16.pdf",
+"pagina": 3,
+"seduta": "21/02/2024",
+"n_seduta": 16,
+"altre_sedute": [
+"08/05/2024"
+],
+"n": 237
+},
+{
+"sezione": "",
+"testo": "L'esercente dei servizi di noleggio con conducente è obbligato a emettere fattura o a rilasciare ricevuta a fini fiscali per il servizio effettuato?",
+"risposte": [
+"si, sempre",
+"no, mai",
+"solo se richiesto dal cliente"
+],
+"esatta": 0,
+"file": "paen/q16.pdf",
+"pagina": 3,
+"seduta": "21/02/2024",
+"n_seduta": 17,
+"n": 238
+},
+{
+"sezione": "",
+"testo": "AGLI IMBOCCHI O SBOCCHI DELLE GALLERIE STRADALI E' OPPORTUNO",
+"risposte": [
+"NON SORPASSARE,NEANCHE NELLE CARREGGIATE A SENSO UNICO",
+"RALLENTARE L'ANDATURA CON SUFFICIENTE ANTICIPO",
+"FRENARE BRUSCAMENTE"
+],
+"esatta": 1,
+"file": "paen/q17.pdf",
+"pagina": 1,
+"seduta": "28/02/2024",
+"n_seduta": 2,
+"n": 239
+},
+{
+"sezione": "",
+"testo": "E’ pregiudizievole ai fini della sicurezza:",
+"risposte": [
+"Sostare di notte fuori della carreggiata",
+"Guidare con la luce della targa spenta",
+"Omettere di usare il segnale di veicolo fermo in caso di sosta in curva per guasto del veicolo"
+],
+"esatta": 2,
+"file": "paen/q17.pdf",
+"pagina": 1,
+"seduta": "28/02/2024",
+"n_seduta": 5,
+"altre_sedute": [
+"19/06/2024"
+],
+"n": 240
+},
+{
+"sezione": "",
+"testo": "IN PROSSIMITA' O IN CORRISPONDENZA DEGLI INCROCI E' VIETATO",
+"risposte": [
+"USARE I FARI ANABBAGLIANTI",
+"PROCEDERE A ZIG-ZAG ANCHE SE LE CORSIE DIREZIONALI SONO DELIMITATE DA STRISCE DISCONTINUE",
+"SEMPRE SUPERARE LA VELOCITA' DI 60 CHILOMETRI ORARI"
+],
+"esatta": 1,
+"file": "paen/q17.pdf",
+"pagina": 1,
+"seduta": "28/02/2024",
+"n_seduta": 6,
+"n": 241
+},
+{
+"sezione": "",
+"testo": "Su un'autostrada:",
+"risposte": [
+"Si può dare passaggi agli autostoppisti, solo sulle rampe",
+"È consentita la libera circolazione dei cani solo sulle aree di servizio",
+"Avvicinandosi alle porte delle stazioni i conducenti sono tenuti a mantenere la fila prescelta"
+],
+"esatta": 2,
+"file": "paen/q17.pdf",
+"pagina": 2,
+"seduta": "28/02/2024",
+"n_seduta": 10,
+"n": 242
+},
+{
+"sezione": "",
+"testo": "Viaggiando con pneumatici dello stesso asse gonfiati a pressioni diverse:",
+"risposte": [
+"Il veicolo \"tira\" dalla parte del pneumatico a minor pressione",
+"Il veicolo \"tira\" dalla parte del pneumatico più gonfio",
+"Si affatica l'albero di trasmissione"
+],
+"esatta": 0,
+"file": "paen/q17.pdf",
+"pagina": 2,
+"seduta": "28/02/2024",
+"n_seduta": 11,
+"n": 243
+},
+{
+"sezione": "",
+"testo": "A favore di chi deve essere effettuato il servizio di taxi?",
+"risposte": [
+"del trasportato",
+"di chiunque intenda far prelevare e trasportare altre persone",
+"del trasportato anche con prenotazione per servizi periodici o continuativi"
+],
+"esatta": 0,
+"file": "paen/q17.pdf",
+"pagina": 2,
+"seduta": "28/02/2024",
+"n_seduta": 12,
+"n": 244
+},
+{
+"sezione": "",
+"testo": "A quanti veicoli addetti ad autoservizi pubblici non di linea può fare riferimento una singola licenza o autorizzazione?",
+"risposte": [
+"a un solo taxi, a più veicoli per noleggio con conducente",
+"a un solo taxi o veicolo per noleggio con conducente",
+"a più taxi o veicoli per noleggio con conducente"
+],
+"esatta": 1,
+"file": "paen/q17.pdf",
+"pagina": 2,
+"seduta": "28/02/2024",
+"n_seduta": 13,
+"n": 245
+},
+{
+"sezione": "",
+"testo": "Come sono definiti gli autoservizi pubblici non di linea?",
+"risposte": [
+"servizi con funzione complementare e integrativa a quelli di linea con qualsiasi mezzo effettuati",
+"servizi svolti senza obbligo di aderire alla richiesta di trasporto",
+"servizi ad offerta indifferenziata"
+],
+"esatta": 0,
+"file": "paen/q17.pdf",
+"pagina": 3,
+"seduta": "28/02/2024",
+"n_seduta": 14,
+"n": 246
+},
+{
+"sezione": "",
+"testo": "Il contratto di lavoro a tempo determinato per la sostituzione di un tassista può essere prorogato senza effetti particolari sul rapporto di lavoro?",
+"risposte": [
+"si",
+"in alcuni casi specifici",
+"no"
+],
+"esatta": 0,
+"file": "paen/q17.pdf",
+"pagina": 3,
+"seduta": "28/02/2024",
+"n_seduta": 15,
+"n": 247
+},
+{
+"sezione": "",
+"testo": "Le persone giuridiche possono essere titolari di licenza o autorizzazione per autoservizi pubblici non di linea?",
+"risposte": [
+"si, ma possono essere solo società cooperative tra tassisti e noleggiatori",
+"no, i titolari possono essere solo persone fisiche iscritte a ruolo",
+"si, possono essere anche società di capitali"
+],
+"esatta": 1,
+"file": "paen/q17.pdf",
+"pagina": 3,
+"seduta": "28/02/2024",
+"n_seduta": 18,
+"n": 248
+},
+{
+"sezione": "",
+"testo": "Quale è l'autorità che rilascia le licenze per il servizio taxi? Domanda valida",
+"risposte": [
+"la Regione",
+"la Provincia",
+"il Comune"
+],
+"esatta": 2,
+"file": "paen/q17.pdf",
+"pagina": 4,
+"seduta": "28/02/2024",
+"n_seduta": 21,
+"n": 249
+},
+{
+"sezione": "",
+"testo": "IL CONDUCENTE CHE ACCUSA SEGNI DI STANCHEZZA DEVE",
+"risposte": [
+"SPEGNERE LE LUCI DEL CRUSCOTTO",
+"ACCOSTARSI IL PIU' POSSIBILE AL VEICOLO CHE LO PRECEDE NELLA MARCIA",
+"RAGGIUNGERE LA PIU' VICINA PIAZZOLA DI SOSTA E RIPOSARE"
+],
+"esatta": 2,
+"file": "paen/q18.pdf",
+"pagina": 1,
+"seduta": "03/04/2024",
+"n_seduta": 4,
+"n": 250
+},
+{
+"sezione": "",
+"testo": "IN UNA CARREGGIATA A DOPPIO SENSO DI CIRCOLAZIONE,LA STRISCIA LUNGO L'ASSE",
+"risposte": [
+"SEPARA I SENSI DI MARCIA",
+"PUO' ESSERE DOPPIA,CON DUE STRISCE DISCONTINUE AFFIANCATE",
+"DIVIDE LA STRADA IN DUE CARREGGIATE"
+],
+"esatta": 0,
+"file": "paen/q18.pdf",
+"pagina": 2,
+"seduta": "03/04/2024",
+"n_seduta": 7,
+"n": 251
+},
+{
+"sezione": "",
+"testo": "LA PATENTE DI GUIDA DELLA CATEGORIA \" B \" E' CONFERMATA",
+"risposte": [
+"DAL PREFETTO",
+"DALLA MOTORIZZAZIONE CIVILE",
+"SENZA ALCUNA FORMALITA' DAL MEDICO DI FAMIGLIA"
+],
+"esatta": 1,
+"file": "paen/q18.pdf",
+"pagina": 2,
+"seduta": "03/04/2024",
+"n_seduta": 8,
+"n": 252
+},
+{
+"sezione": "",
+"testo": "LA SOLA LUCE ROSSA NEL GRUPPO SEMAFORICO VEICOLARE",
+"risposte": [
+"E' QUELLA POSTA PIU' IN ALTO O A SINISTRA",
+"OBBLIGA AD AFFRETTARSI PER SGOMBRARE RAPIDAMENTE L'INCROCIO",
+"PERMETTE L'ATTRAVERSAMENTO PURCHE' L'AREA DELL'INCROCIO SIA SGOMBRA"
+],
+"esatta": 0,
+"file": "paen/q18.pdf",
+"pagina": 2,
+"seduta": "03/04/2024",
+"n_seduta": 9,
+"altre_sedute": [
+"06/05/2025"
+],
+"n": 253
+},
+{
+"sezione": "",
+"testo": "Presso quale registro sono iscritti i veicoli d'interesse storico e collezionistico?",
+"risposte": [
+"solo presso un registro particolare",
+"solo presso al PRA",
+"devono essere iscritti a uno dei seguenti registri: ASI, Storico Lancia, Italiano FIAT, Italiano Alfa Romeo, Storico FMI"
+],
+"esatta": 2,
+"file": "paen/q18.pdf",
+"pagina": 2,
+"seduta": "03/04/2024",
+"n_seduta": 11,
+"n": 254
+},
+{
+"sezione": "",
+"testo": "E' possibile cumulare più licenze di taxi in capo al medesimo soggetto?",
+"risposte": [
+"no, perché l'esercizio deve essere personale",
+"si, se esso è associato a una cooperativa",
+"si, se esso è titolare di impresa artigiana con sufficiente numero di dipendenti"
+],
+"esatta": 0,
+"file": "paen/q18.pdf",
+"pagina": 3,
+"seduta": "03/04/2024",
+"n_seduta": 14,
+"n": 255
+},
+{
+"sezione": "",
+"testo": "Quale autorità determina le modalità di turnazione per l'esercizio del servizio taxi?",
+"risposte": [
+"il Comune",
+"nessuna, la turnazione viene concordata direttamente tra gli operatori",
+"la Regione"
+],
+"esatta": 0,
+"file": "paen/q18.pdf",
+"pagina": 3,
+"seduta": "03/04/2024",
+"n_seduta": 18,
+"n": 256
+},
+{
+"sezione": "",
+"testo": "Da quale data di prima immatricolazione le autovetture adibite al servizio taxi devono essere dello specifico colore uniforme?",
+"risposte": [
+"dal 01.01.1997",
+"dal 01.01.1993",
+"dal 01.01.2000"
+],
+"esatta": 1,
+"file": "paen/q19.pdf",
+"pagina": 1,
+"seduta": "08/05/2024",
+"n_seduta": 3,
+"n": 257
+},
+{
+"sezione": "",
+"testo": "Viaggiando con pneumatici dello stesso asse gonfiati a pressioni diverse:",
+"risposte": [
+"Il veicolo \"tira\" dalla parte del pneumatico più gonfio",
+"Si compromette la tenuta di strada del veicolo",
+"Si affatica l'albero della trasmissione"
+],
+"esatta": 1,
+"file": "paen/q19.pdf",
+"pagina": 1,
+"seduta": "08/05/2024",
+"n_seduta": 4,
+"n": 258
+},
+{
+"sezione": "",
+"testo": "Il sorpasso può essere effettuato a destra:",
+"risposte": [
+"Quando avviene nei confronti dei motocicli e ci sia spazio sufficiente",
+"Quando si percorre una strada extraurbana a senso unico",
+"Quando il veicolo che precede abbia segnalato con l’indicatore di direzione che intende svoltare a sinistra"
+],
+"esatta": 2,
+"file": "paen/q19.pdf",
+"pagina": 1,
+"seduta": "08/05/2024",
+"n_seduta": 5,
+"n": 259
+},
+{
+"sezione": "",
+"testo": "In prossimità o in corrispondenza degli incroci è vietato:",
+"risposte": [
+"Rallentare",
+"Sempre superare la velocità di 60 km/h",
+"Effettuare inversione di marcia"
+],
+"esatta": 2,
+"file": "paen/q19.pdf",
+"pagina": 1,
+"seduta": "08/05/2024",
+"n_seduta": 6,
+"n": 260
+},
+{
+"sezione": "",
+"testo": "LA PATENTE E' SOSPESA IN CONSEGUENZA DELLA DUPLICE VIOLAZIONE, NEL CORSO DI UN BIENNIO",
+"risposte": [
+"QUANDO SI FACCIA USO DEI PROIETTORI A LUCE ABBAGLIANTE NELL'INCROCIO CON ALTRI VEICOLI",
+"QUANDO NON SI FACCIA USO DEI DISPOSITIVI LUMINOSI PRESCRITTI, OVE MANCHI L'ILLUMINAZIONE PUBBLICA",
+"QUANDO NON SI RISPETTA L'OBBLIGO DI DARE PRECEDENZA"
+],
+"esatta": 2,
+"file": "paen/q19.pdf",
+"pagina": 2,
+"seduta": "08/05/2024",
+"n_seduta": 7,
+"altre_sedute": [
+"06/05/2025"
+],
+"n": 261
+},
+{
+"sezione": "",
+"testo": "L'INQUINAMENTO ATMOSFERICO PRODOTTO DAI VEICOLI A MOTORE PUO' ESSERE RIDOTTO",
+"risposte": [
+"DISPONENDO I BAGAGLI BEN FISSATI SUL TETTO DELL'AUTOVETTURA",
+"LIMITANDO I CONSUMI DI CARBURANTE",
+"CIRCOLANDO COSTANTEMENTE CON MARCE BASSE"
+],
+"esatta": 1,
+"file": "paen/q19.pdf",
+"pagina": 2,
+"seduta": "08/05/2024",
+"n_seduta": 8,
+"n": 262
+},
+{
+"sezione": "",
+"testo": "NELLE AUTOSTRADE E' VIETATO",
+"risposte": [
+"USARE PROIETTORI A LUCE ABBAGLIANTE",
+"CONCEDERE PASSAGGI A PERSONE INVALIDE",
+"TRAINARE VEICOLI CHE NON SIANO CLASSIFICATI RIMORCHI"
+],
+"esatta": 2,
+"file": "paen/q19.pdf",
+"pagina": 2,
+"seduta": "08/05/2024",
+"n_seduta": 9,
+"n": 263
+},
+{
+"sezione": "",
+"testo": "Ogni quanto i veicoli destinati a taxi e n.c.c. devono andare a revisione per i controlli di sicurezza per la circolazione, di silenziosità e di inquinamento?",
+"risposte": [
+"ogni cinque anni",
+"ogni due anni",
+"ogni anno"
+],
+"esatta": 2,
+"file": "paen/q19.pdf",
+"pagina": 2,
+"seduta": "08/05/2024",
+"n_seduta": 10,
+"n": 264
+},
+{
+"sezione": "",
+"testo": "A quale categoria di veicoli appartengono i veicoli d'epoca o quelli di interesse storico o collezionistico?",
+"risposte": [
+"a quella corrispondente alle caratteristiche tecniche previste dal Codice della Strada",
+"a quella dei veicoli con caratteristiche atipiche",
+"a quella dei veicoli cancellati dal PRA"
+],
+"esatta": 1,
+"file": "paen/q19.pdf",
+"pagina": 2,
+"seduta": "08/05/2024",
+"n_seduta": 12,
+"n": 265
+},
+{
+"sezione": "",
+"testo": "Come viene definito l'uso di in veicolo adibito a servizio di noleggio con conducente?",
+"risposte": [
+"uso privato",
+"uso di terzi",
+"uso pubblico"
+],
+"esatta": 1,
+"file": "paen/q19.pdf",
+"pagina": 3,
+"seduta": "08/05/2024",
+"n_seduta": 15,
+"altre_sedute": [
+"19/06/2024"
+],
+"n": 266
+},
+{
+"sezione": "",
+"testo": "Quali competenze ha assunto la Regione relativamente ai servizi pubblici non di linea?",
+"risposte": [
+"approvazione dei regolamenti comunali relativi ai noleggi e ai servizi di piazza",
+"predisposizione di criteri per la redazione di regolamenti comunali dei servizi di noleggio e piazza",
+"supervisione dell'esercizio dei trasporti pubblici non di linea"
+],
+"esatta": 2,
+"file": "paen/q19.pdf",
+"pagina": 3,
+"seduta": "08/05/2024",
+"n_seduta": 17,
+"n": 267
+},
+{
+"sezione": "",
+"testo": "Gli autoservizi pubblici non di linea sono disciplinati solo da regolamenti di esercizio predisposti dai Comuni?",
+"risposte": [
+"no, possono essere emanate anche norme speciali dalla Regione o ente delegato per comprensorio",
+"si",
+"no, sono regolati anche dalle disposizioni delle Camere di Commercio"
+],
+"esatta": 0,
+"file": "paen/q19.pdf",
+"pagina": 4,
+"seduta": "08/05/2024",
+"n_seduta": 20,
+"n": 268
+},
+{
+"sezione": "",
+"testo": "Il servizio taxi ha obblighi particolari relativi al prelevamento dell'utente o all'inizio del servizio?",
+"risposte": [
+"si, essi devono avvenire con partenza dal territorio del Comune che ha rilasciato la licenza",
+"no",
+"si, essi devono avvenire unicamente entro il territorio del Comune che ha rilasciato la licenza"
+],
+"esatta": 0,
+"file": "paen/q19.pdf",
+"pagina": 4,
+"seduta": "08/05/2024",
+"n_seduta": 21,
+"altre_sedute": [
+"11/09/2024"
+],
+"n": 269
+},
+{
+"sezione": "",
+"testo": "IN QUALE VIA SI TROVA L'I.N.P.S. DI PALERMO SEDE?",
+"risposte": [
+"VIA TRIESTE",
+"VIA LAURANA",
+"VIA DIAZ"
+],
+"esatta": 1,
+"file": "paen/q20.pdf",
+"pagina": 1,
+"seduta": "19/06/2024",
+"n_seduta": 1,
+"n": 270
+},
+{
+"sezione": "",
+"testo": "Cosa si intende per “destinazione” di un veicolo?",
+"risposte": [
+"la sua utilizzazione in base alle caratteristiche tecniche",
+"la sua destinazione economica",
+"il termine del suo viaggio"
+],
+"esatta": 0,
+"file": "paen/q20.pdf",
+"pagina": 1,
+"seduta": "19/06/2024",
+"n_seduta": 4,
+"n": 271
+},
+{
+"sezione": "",
+"testo": "DURANTE LA MARCIA, L'USO DEI PROIETTORI A LUCE ABBAGLIANTE",
+"risposte": [
+"E' VIETATO,DI NORMA, NEI CENTRI ABITATI",
+"E' CONSENTITO NELLE GALLERIE URBANE A SENSO UNICO",
+"E' CONSENTITO IN CITTA' IN CASO DI NEBBIA FITTA"
+],
+"esatta": 0,
+"file": "paen/q20.pdf",
+"pagina": 1,
+"seduta": "19/06/2024",
+"n_seduta": 5,
+"n": 272
+},
+{
+"sezione": "",
+"testo": "LA DISTANZA DI SICUREZZA",
+"risposte": [
+"DEVE ESSERE DI ALMENO 20 METRI DALLA MACCHINA SGOMBRANEVE IN AZIONE CHE CI PRECEDE",
+"DEVE ESSERE UGUALE ALLO SPAZIO DI FRENATURA DEL VEICOLO",
+"DEVE ESSERE UGUALE ALLO SPAZIO DI FRENATURA AUMENTATO DI 20 METRI"
+],
+"esatta": 0,
+"file": "paen/q20.pdf",
+"pagina": 2,
+"seduta": "19/06/2024",
+"n_seduta": 9,
+"n": 273
+},
+{
+"sezione": "",
+"testo": "I servizi di trasporto pubblico non di linea possono presentarsi in forme concorrenziali al trasporto pubblico di linea?",
+"risposte": [
+"si, non esistono divieti",
+"no, la loro funzione è definita dalla legge come integrativa e complementare ai servizi di linea",
+"si, ma solo a condizione che l'esercente dei servizi di linea non faccia opposizione"
+],
+"esatta": 1,
+"file": "paen/q20.pdf",
+"pagina": 3,
+"seduta": "19/06/2024",
+"n_seduta": 15,
+"n": 274
+},
+{
+"sezione": "",
+"testo": "La prevista rimessa per autoservizio pubblico non di linea deve necessariamente essere situata nel territorio del Comune che rilascia il titolo amministrativo?",
+"risposte": [
+"no, è sufficiente che nel territorio comunale sia presente una sede del titolare",
+"no, è sufficiente che 1 o più rimesse siano situate sull'intero territorio regionale",
+"no, può però essere situata al massimo in un comune limitrofo"
+],
+"esatta": 1,
+"file": "paen/q20.pdf",
+"pagina": 3,
+"seduta": "19/06/2024",
+"n_seduta": 16,
+"n": 275
+},
+{
+"sezione": "",
+"testo": "Quale è l'autorità che consente il rinnovo e il trasferimento di titolarità delle licenze taxi e delle autorizzazioni per il servizio di noleggio con conducente?",
+"risposte": [
+"la Regione",
+"la Provincia",
+"il Comune"
+],
+"esatta": 2,
+"file": "paen/q20.pdf",
+"pagina": 4,
+"seduta": "19/06/2024",
+"n_seduta": 21,
+"n": 276
+},
+{
+"sezione": "",
+"testo": "QUALE DI QUESTI HOTELS DI PALERMO E' A TRE STELLE",
+"risposte": [
+"CENTRALE PALACE HOTEL",
+"HOTEL EUROPA",
+"GRAND HOTEL WAGNER"
+],
+"esatta": 1,
+"file": "paen/q21.pdf",
+"pagina": 1,
+"seduta": "10/07/2024",
+"n_seduta": 1,
+"n": 277
+},
+{
+"sezione": "",
+"testo": "Da che data di prima immatricolazione le vetture adibite a servizio taxi o noleggio con conducente devono essere dotate di specifici dispositivi antinquinamento?",
+"risposte": [
+"dal 01.01.1992",
+"dal 01.01.1997",
+"dal 01.01.2000"
+],
+"esatta": 0,
+"file": "paen/q21.pdf",
+"pagina": 1,
+"seduta": "10/07/2024",
+"n_seduta": 3,
+"n": 278
+},
+{
+"sezione": "",
+"testo": "I pneumatici dei veicoli con battistrada eccessivamente usurato:",
+"risposte": [
+"Influiscono negativamente sulla frenatura",
+"Non aumentano la probabilità d'incidenti stradali",
+"Influiscono sulla stabilità del veicolo solo in curva"
+],
+"esatta": 0,
+"file": "paen/q21.pdf",
+"pagina": 1,
+"seduta": "10/07/2024",
+"n_seduta": 4,
+"n": 279
+},
+{
+"sezione": "",
+"testo": "Il rilascio della carta di circolazione per un veicolo a motore da adibire ad uso terzi per servizi pubblici non di linea richiede particolari formalità?",
+"risposte": [
+"no",
+"si, il sostenimento di un esame presso l'Ufficio Periferico del Dipartimento dei Trasporti Terrestri – ex MCTC",
+"si, la dimostrazione dell'esistenza del titolo amministrativo comunale"
+],
+"esatta": 2,
+"file": "paen/q21.pdf",
+"pagina": 1,
+"seduta": "10/07/2024",
+"n_seduta": 6,
+"n": 280
+},
+{
+"sezione": "",
+"testo": "LA DOPPIA STRISCIA LONGITUDINALE CONTINUA",
+"risposte": [
+"INDICA CHE LA CIRCOLAZIONE PUO' AVVENIRE PER FILE PARALLELE",
+"NON PUO' ESSERE SUPERATA",
+"E' DI COLORE AZZURRO NEI PARCHEGGI CUSTODITI"
+],
+"esatta": 1,
+"file": "paen/q21.pdf",
+"pagina": 2,
+"seduta": "10/07/2024",
+"n_seduta": 8,
+"n": 281
+},
+{
+"sezione": "",
+"testo": "L'USO DEGLI INDICATORI DI DIREZIONE E' OBBLIGATORIO",
+"risposte": [
+"SOLO QUANDO SI EFFETTUA LA MANOVRA DI SVOLTA A SINISTRA",
+"QUANDO CI SI ARRESTA AL SEMAFORO",
+"PER SEGNALARE L'INTENZIONE DI EFFETTUARE UNA MANOVRA DI SORPASSO"
+],
+"esatta": 2,
+"file": "paen/q21.pdf",
+"pagina": 2,
+"seduta": "10/07/2024",
+"n_seduta": 10,
+"n": 282
+},
+{
+"sezione": "",
+"testo": "Perché l'uso di terzi viene definito in funzione dell'intestatario della carta di circolazione del veicolo e non direttamente del proprietario?",
+"risposte": [
+"perché è lo stesso modo di definire la medesima persona",
+"perché l'intestatario della carta di circolazione non necessariamente è il proprietario",
+"perché il proprietario può adibire il veicolo solo ad uso proprio"
+],
+"esatta": 1,
+"file": "paen/q21.pdf",
+"pagina": 2,
+"seduta": "10/07/2024",
+"n_seduta": 11,
+"n": 283
+},
+{
+"sezione": "",
+"testo": "E' possibile installare su veicoli adibiti a servizi pubblici non di linea scritte o insegne pubblicitarie luminose?",
+"risposte": [
+"si nei Taxi",
+"no",
+"si, solo nei casi previsti dal regolamento comunale di esercizio"
+],
+"esatta": 0,
+"file": "paen/q21.pdf",
+"pagina": 3,
+"seduta": "10/07/2024",
+"n_seduta": 13,
+"n": 284
+},
+{
+"sezione": "",
+"testo": "In caso di acquisto in leasing di un veicolo a motore da adibire a servizi pubblici non di linea, a nome di chi esso viene immatricolato?",
+"risposte": [
+"del locatore",
+"del locatario",
+"del locatore, ma si trascrive sulla carta di circolazione il nome del locatario"
+],
+"esatta": 2,
+"file": "paen/q21.pdf",
+"pagina": 3,
+"seduta": "10/07/2024",
+"n_seduta": 16,
+"n": 285
+},
+{
+"sezione": "",
+"testo": "In caso di acquisto in leasing di un veicolo a motore da adibire a servizi pubblici non di linea, per quale uso viene immatricolato il veicolo?",
+"risposte": [
+"quello indicato dal locatario sulla base del titolo amministrativo (licenza o autorizzazione",
+"ad uso noleggio senza conducente",
+"per locazione finanziaria senza conducente"
+],
+"esatta": 0,
+"file": "paen/q21.pdf",
+"pagina": 3,
+"seduta": "10/07/2024",
+"n_seduta": 17,
+"n": 286
+},
+{
+"sezione": "",
+"testo": "L'UNIVERSITA' DEGLI STUDI DI PALERMO HA SEDE IN:",
+"risposte": [
+"VIALE DELLE OLIMPIADI",
+"VIALE DELLE SCIENZE",
+"VIALE REGIONE SICILIANA"
+],
+"esatta": 1,
+"file": "paen/q22.pdf",
+"pagina": 1,
+"seduta": "11/09/2024",
+"n_seduta": 1,
+"n": 287
+},
+{
+"sezione": "",
+"testo": "Dopo il pagamento della tassa di proprietà del veicolo e di successivo cambio da uso terzi ad uso proprio, resta valido il pagamento fatto o bisogna integrarlo?",
+"risposte": [
+"occorre versare la differenza tra la tassa agevolata e la tassa intera",
+"resta valido il pagamento già fatto",
+"si paga una sanzione pecuniaria"
+],
+"esatta": 0,
+"file": "paen/q22.pdf",
+"pagina": 1,
+"seduta": "11/09/2024",
+"n_seduta": 6,
+"n": 288
+},
+{
+"sezione": "",
+"testo": "Il soccorso in caso di incidente stradale è un dovere imposto dal codice penale o solo un comportamento civile e opportuno?",
+"risposte": [
+"E' un comportamento opportuno ma non obbligatorio",
+"E' un comportamento inopportuno, perché conviene che intervenga un medico",
+"E' un dovere imposto sia dal codice penale, sia dal codice della strada"
+],
+"esatta": 2,
+"file": "paen/q22.pdf",
+"pagina": 2,
+"seduta": "11/09/2024",
+"n_seduta": 8,
+"n": 289
+},
+{
+"sezione": "",
+"testo": "In caso di forti piogge il conducente deve:",
+"risposte": [
+"Usare pneumatici a pressione inferiore a quella normalmente suggerita",
+"Aumentare la velocità di marcia, nel rispetto dei limiti di legge",
+"Evitare di azionare il freno in modo improvviso e non dosato"
+],
+"esatta": 2,
+"file": "paen/q22.pdf",
+"pagina": 2,
+"seduta": "11/09/2024",
+"n_seduta": 9,
+"n": 290
+},
+{
+"sezione": "",
+"testo": "Per ridurre i consumi di carburante:",
+"risposte": [
+"Si deve usare un olio più fluido",
+"Si deve marciare ad un numero elevato di giri motore",
+"È opportuno tenere i finestrini chiusi"
+],
+"esatta": 2,
+"file": "paen/q22.pdf",
+"pagina": 2,
+"seduta": "11/09/2024",
+"n_seduta": 11,
+"n": 291
+},
+{
+"sezione": "",
+"testo": "A chi è rivolto il servizio di noleggio con conducente?",
+"risposte": [
+"ad una utenza indifferenziata",
+"all'utenza specifica che si deve rivolgere presso la sede del vettore o mediante mezzi tecnologici",
+"all'utenza specifica che prenota presso le apposite aree pubbliche di stazionamento"
+],
+"esatta": 1,
+"file": "paen/q22.pdf",
+"pagina": 2,
+"seduta": "11/09/2024",
+"n_seduta": 12,
+"n": 292
+},
+{
+"sezione": "",
+"testo": "A cosa serve l'iscrizione al ruolo dei conducenti dei veicoli adibiti a servizi pubblici non di linea?",
+"risposte": [
+"a ottenere le licenze e le autorizzazioni",
+"a svolgere l'attività di conducente dei rispettivi mezzi ed a ottenere le licenze e le autorizzazioni",
+"a condurre i mezzi in servizio pubblico non di linea"
+],
+"esatta": 1,
+"file": "paen/q22.pdf",
+"pagina": 2,
+"seduta": "11/09/2024",
+"n_seduta": 13,
+"n": 293
+},
+{
+"sezione": "",
+"testo": "A cosa si estende la responsabilità del vettore nel contratto di trasporto, se avviene con ritardo o non viene effettuato per motivi imputabili al trasportatore stesso?",
+"risposte": [
+"solo ad eventuali perdite",
+"anche a mancati guadagni causati dal mancato adempimento contrattuale",
+"solo al prezzo già pagato per il trasporto, che deve essere rimborsato"
+],
+"esatta": 1,
+"file": "paen/q22.pdf",
+"pagina": 2,
+"seduta": "11/09/2024",
+"n_seduta": 15,
+"n": 294
+},
+{
+"sezione": "",
+"testo": "In quali casi il servizio di taxi è considerato trasporto pubblico urbano e a tale effetto è esente da IVA?",
+"risposte": [
+"in qualsiasi caso",
+"per i soli trasportati interni al territorio comunale",
+"per i soli trasportati interni al territorio comunale o tra comuni distanti tra loro al massimo 50 Km"
+],
+"esatta": 2,
+"file": "paen/q22.pdf",
+"pagina": 3,
+"seduta": "11/09/2024",
+"n_seduta": 17,
+"n": 295
+},
+{
+"sezione": "",
+"testo": "In quali dei seguenti casi le licenze e autorizzazioni possono essere trasferite a richiesta dal titolare?",
+"risposte": [
+"se egli l'ha ottenuta da almeno cinque anni",
+"se egli ha raggiunto cinquantacinque anni",
+"se egli è divenuto inabile o inidoneo al servizio in via provvisoria"
+],
+"esatta": 0,
+"file": "paen/q22.pdf",
+"pagina": 3,
+"seduta": "11/09/2024",
+"n_seduta": 18,
+"n": 296
+},
+{
+"sezione": "",
+"testo": "Presso quale ente è istituito il ruolo dei conducenti di veicoli adibiti ad autoservizi pubblici non di linea?",
+"risposte": [
+"la Camera di Commercio del capoluogo di Regione",
+"la Camera di Commercio di ciascuna Provincia",
+"la Provincia"
+],
+"esatta": 1,
+"file": "paen/q22.pdf",
+"pagina": 3,
+"seduta": "11/09/2024",
+"n_seduta": 20,
+"n": 297
+},
+{
+"sezione": "",
+"testo": "DOV'E' UBICATA LA CURIA ARCIVESCOVILE DELLA DIOCESI DI PALERMO",
+"risposte": [
+"VIA M. BONELLO",
+"VIA PAOLO BORSELLINO",
+"VIA A. DE GASPERI"
+],
+"esatta": 0,
+"file": "paen/q23.pdf",
+"pagina": 1,
+"seduta": "23/10/2024",
+"n_seduta": 1,
+"n": 298
+},
+{
+"sezione": "",
+"testo": "Come conviene intervenire con una persona coinvolta in un incidente stradale, in stato di shock",
+"risposte": [
+"Stenderlo supino",
+"Praticare in ogni caso la respirazione artificiale, anche se la persona è cosciente?",
+"Bagnargli il volto con acqua fredda"
+],
+"esatta": 0,
+"file": "paen/q23.pdf",
+"pagina": 1,
+"seduta": "23/10/2024",
+"n_seduta": 2,
+"n": 299
+},
+{
+"sezione": "",
+"testo": "I conducenti di veicoli a motore sono obbligati ad azionare la segnalazione luminosa di pericolo (lampeggio simultaneo di tutti gli indicatori luminosi di direzione)",
+"risposte": [
+"Quando si verificano improvvisi rallentamenti o incolonnamenti",
+"Di notte, in caso di sosta sulle corsie di emergenza delle autostrade",
+"Quando si sosta in seconda fila"
+],
+"esatta": 0,
+"file": "paen/q23.pdf",
+"pagina": 1,
+"seduta": "23/10/2024",
+"n_seduta": 3,
+"n": 300
+},
+{
+"sezione": "",
+"testo": "IN CASO DI INCIDENTE IL SOCCORRITORE DEVE",
+"risposte": [
+"ALLONTANARSI DAL LUOGO DELL'INCIDENTE",
+"IDENTIFICARE L'INFORTUNATO",
+"VALUTARE LA SITUAZIONE AL FINE DI PROTEGGERE LA VITTIMA DA ULTERIORI PERICOLI"
+],
+"esatta": 2,
+"file": "paen/q23.pdf",
+"pagina": 1,
+"seduta": "23/10/2024",
+"n_seduta": 4,
+"altre_sedute": [
+"02/12/2025"
+],
+"n": 301
+},
+{
+"sezione": "",
+"testo": "La corsia di accelerazione",
+"risposte": [
+"È destinata ai veicoli veloci",
+"È riservata all’effettuazione dei sorpassi",
+"Serve per l’immissione in autostrada"
+],
+"esatta": 2,
+"file": "paen/q23.pdf",
+"pagina": 1,
+"seduta": "23/10/2024",
+"n_seduta": 5,
+"n": 302
+},
+{
+"sezione": "",
+"testo": "Una frenatura poco efficiente o squilibrata, può essere causata",
+"risposte": [
+"Dall'eccessivo riscaldamento delle guarnizioni frenanti",
+"Dal tipo di anticongelante usato",
+"Dal consumo eccessivo dei denti del freno a mano"
+],
+"esatta": 0,
+"file": "paen/q23.pdf",
+"pagina": 1,
+"seduta": "23/10/2024",
+"n_seduta": 6,
+"n": 303
+},
+{
+"sezione": "",
+"testo": "Mutilati o minorati fisici in possesso di patenti speciali di categorie A, B, C e D possono guidare veicoli adibiti a servizi di piazza o di noleggio con conducente",
+"risposte": [
+"no",
+"si, con relativo CAP normale",
+"si, con relativo CAP speciale"
+],
+"esatta": 0,
+"file": "paen/q23.pdf",
+"pagina": 1,
+"seduta": "23/10/2024",
+"n_seduta": 7,
+"altre_sedute": [
+"09/01/2025"
+],
+"n": 304
+},
+{
+"sezione": "",
+"testo": "Per ridurre i consumi di carburante",
+"risposte": [
+"Si deve usare un olio più fluido",
+"Si deve marciare ad un numero elevato di giri motore",
+"È opportuno tenere i finestrini chiusi"
+],
+"esatta": 2,
+"file": "paen/q23.pdf",
+"pagina": 2,
+"seduta": "23/10/2024",
+"n_seduta": 8,
+"n": 305
+},
+{
+"sezione": "",
+"testo": "PUO' RITENERSI UTILE AI FINI DELLA SICUREZZA",
+"risposte": [
+"NON EFFETTUARE LUNGHI VIAGGI SENZA SOSTE INTERMEDIE",
+"PERCORRERE TRATTI DI STRADA IN DISCESA CON IL CAMBIO IN FOLLE",
+"MARCIARE SEMPRE PER FILE PARALLELE NELLE STRADE A DUE CORSIE PER OGNI SENSO DI MARCIA"
+],
+"esatta": 0,
+"file": "paen/q23.pdf",
+"pagina": 2,
+"seduta": "23/10/2024",
+"n_seduta": 9,
+"n": 306
+},
+{
+"sezione": "",
+"testo": "Quale autorità stabilisce i dispositivi supplementari di cui devono e possono essere dotati i veicoli a motore, in relazione alla loro particolare destinazione o uso",
+"risposte": [
+"Il Ministero delle Infrastrutture e dei Trasporti, sentito quello dell'Interno",
+"il Ministero dell'Interno",
+"Il Ministero dell'Ambiente"
+],
+"esatta": 0,
+"file": "paen/q23.pdf",
+"pagina": 2,
+"seduta": "23/10/2024",
+"n_seduta": 10,
+"n": 307
+},
+{
+"sezione": "",
+"testo": "Quale sanzione si applica a chi circola con un veicolo per il quale non sia stata rilasciata la carta provvisoria di circolazione",
+"risposte": [
+"una sanzione amministrativa e fermo amministrativo del veicolo",
+"l'arresto",
+"una multa da € 516,00 a € 1.549,00"
+],
+"esatta": 0,
+"file": "paen/q23.pdf",
+"pagina": 2,
+"seduta": "23/10/2024",
+"n_seduta": 11,
+"n": 308
+},
+{
+"sezione": "",
+"testo": "A quale Ente sono state trasferite dallo Stato le proprie competenze in materia di trasporto pubblico",
+"risposte": [
+"alla Regione, in quanto di competenza per l'assetto e l'utilizzazione del territorio",
+"al Comune, in quanto di competenza per la disciplina delle relative attività commerciali",
+"alla Provincia, in quanto di competenza per la tutela dell'utenza"
+],
+"esatta": 0,
+"file": "paen/q23.pdf",
+"pagina": 2,
+"seduta": "23/10/2024",
+"n_seduta": 12,
+"altre_sedute": [
+"22/05/2026"
+],
+"n": 309
+},
+{
+"sezione": "",
+"testo": "Con quale atto pubblico il Comune individua le aree da destinare allo stazionamento dei veicoli per i servizi pubblici non di linea",
+"risposte": [
+"col regolamento di esercizio",
+"con ordinanze del Sindaco",
+"con decreto del responsabile dell'ufficio comunale per il commercio"
+],
+"esatta": 1,
+"file": "paen/q23.pdf",
+"pagina": 2,
+"seduta": "23/10/2024",
+"n_seduta": 13,
+"altre_sedute": [
+"22/05/2026"
+],
+"n": 310
+},
+{
+"sezione": "",
+"testo": "Dove è obbligatoria la prestazione del servizio di taxi",
+"risposte": [
+"per qualsiasi destinazione, anche esterna al limite dell'area in cui è consentito acquisire utenza",
+"entro l'area provinciale",
+"entro l'area comunale o comprensoriale"
+],
+"esatta": 2,
+"file": "paen/q23.pdf",
+"pagina": 2,
+"seduta": "23/10/2024",
+"n_seduta": 14,
+"n": 311
+},
+{
+"sezione": "",
+"testo": "Dove può essere prelevato l'utente che ha prenotato un servizio di noleggio con conducente",
+"risposte": [
+"solo presso la rimessa o sede del vettore",
+"in qualsiasi punto, purché interno al territorio comunale",
+"in qualsiasi punto esterno alla sede o rimessa, purché la prenotazione sia disponibile nel veicolo"
+],
+"esatta": 2,
+"file": "paen/q23.pdf",
+"pagina": 2,
+"seduta": "23/10/2024",
+"n_seduta": 15,
+"n": 312
+},
+{
+"sezione": "",
+"testo": "E' ammessa la pubblicità non luminosa sui veicoli adibiti a servizi non di linea, mediante l'applicazione su tutte le superfici non vetrate di pellicole autoadesive",
+"risposte": [
+"si, senza limite",
+"si, solo sui taxi",
+"no"
+],
+"esatta": 1,
+"file": "paen/q23.pdf",
+"pagina": 3,
+"seduta": "23/10/2024",
+"n_seduta": 16,
+"altre_sedute": [
+"19/02/2025",
+"02/09/2025"
+],
+"n": 313
+},
+{
+"sezione": "",
+"testo": "In che caso i veicoli da NCC possono essere autorizzati allo stazionamento su suolo pubblico dal Comune, se qui non è esercito il servizio di taxi",
+"risposte": [
+"se stazionano su aree pubbliche destinate al servizio taxi",
+"se stazionano su aree pubbliche in cui sia consentita la sosta",
+"in nessun caso"
+],
+"esatta": 0,
+"file": "paen/q23.pdf",
+"pagina": 3,
+"seduta": "23/10/2024",
+"n_seduta": 17,
+"n": 314
+},
+{
+"sezione": "",
+"testo": "In quali comuni può essere consentito svolgere il servizio di taxi con autovetture immatricolate per servizio di noleggio con conducente",
+"risposte": [
+"quelli in cui il Comune ha liberamente regolamentato in tal modo",
+"quelli di minore dimensione, individuati dalla Camera di Commercio su parere dell'Ufficio Periferico del Dipartimento dei Trasporti Terrestri – ex MCTC",
+"nessun Comune"
+],
+"esatta": 0,
+"file": "paen/q23.pdf",
+"pagina": 3,
+"seduta": "23/10/2024",
+"n_seduta": 18,
+"altre_sedute": [
+"22/05/2026"
+],
+"n": 315
+},
+{
+"sezione": "",
+"testo": "Le vetture addette al servizio taxi possono avere scritte e stemmi identificativi dell'azienda esercente e del Comune di appartenenza, posti sulle fiancate",
+"risposte": [
+"no, solo nella parte posteriore",
+"si, purché previsto dal regolamento comunale",
+"si, sono sempre ammessi"
+],
+"esatta": 2,
+"file": "paen/q23.pdf",
+"pagina": 3,
+"seduta": "23/10/2024",
+"n_seduta": 19,
+"n": 316
+},
+{
+"sezione": "",
+"testo": "Per le autovetture immatricolate per servizio taxi è sempre necessario esporre sul tetto il contrassegno luminoso con la scritta “taxi”",
+"risposte": [
+"no, possono esserne esentate nei comuni di minore dimensione",
+"no, è facoltà a discrezione del conducente",
+"si, è sempre obbligatorio"
+],
+"esatta": 2,
+"file": "paen/q23.pdf",
+"pagina": 3,
+"seduta": "23/10/2024",
+"n_seduta": 20,
+"altre_sedute": [
+"05/03/2025",
+"19/05/2025",
+"25/06/2025"
+],
+"n": 317
+},
+{
+"sezione": "",
+"testo": "Quale è l'autorità che determina i requisiti per l'iscrizione al ruolo dei conducenti di veicoli in servizio pubblico non di linea",
+"risposte": [
+"la Regione",
+"la Provincia",
+"l'Ufficio Periferico del Dipartimento dei Trasporti Terrestri – ex MCTC"
+],
+"esatta": 0,
+"file": "paen/q23.pdf",
+"pagina": 3,
+"seduta": "23/10/2024",
+"n_seduta": 21,
+"altre_sedute": [
+"02/12/2025"
+],
+"n": 318
+},
+{
+"sezione": "",
+"testo": "I GIARDINI DELLA CONCA D'ORO SI TROVANO A",
+"risposte": [
+"TRAPANI",
+"CALTANISSETTA",
+"PALERMO"
+],
+"esatta": 2,
+"file": "paen/q24.pdf",
+"pagina": 1,
+"seduta": "09/01/2025",
+"n_seduta": 1,
+"n": 319
+},
+{
+"sezione": "",
+"testo": "Allorché ci accingiamo a scendere dall’autoveicolo dobbiamo",
+"risposte": [
+"Assicurarci, anche mediante lo specchietto retrovisore, che non sopraggiungano altri veicoli",
+"Verificare, nella sosta davanti ad un passo carrabile, che rimanga spazio sufficiente per l’accesso",
+"Lasciare sempre accese, di notte, le luci accese"
+],
+"esatta": 0,
+"file": "paen/q24.pdf",
+"pagina": 1,
+"seduta": "09/01/2025",
+"n_seduta": 2,
+"altre_sedute": [
+"19/02/2025"
+],
+"n": 320
+},
+{
+"sezione": "",
+"testo": "Cosa distingue la prestazione del noleggio e del Taxi, da quella del trasporto",
+"risposte": [
+"con il noleggio ci si obbliga solo a mettere a disposizione un veicolo con il conducente",
+"nessuna",
+"con il trasporto ci si obbliga a utilizzare il veicolo scelto dal trasportato"
+],
+"esatta": 0,
+"file": "paen/q24.pdf",
+"pagina": 1,
+"seduta": "09/01/2025",
+"n_seduta": 3,
+"altre_sedute": [
+"02/12/2025"
+],
+"n": 321
+},
+{
+"sezione": "",
+"testo": "Dove sono definiti gli usi di un veicolo che rientrano nella categoria “uso di terzi”",
+"risposte": [
+"nel Codice Civile",
+"sono definiti dalla consuetudine",
+"nel Codice della Strada"
+],
+"esatta": 2,
+"file": "paen/q24.pdf",
+"pagina": 1,
+"seduta": "09/01/2025",
+"n_seduta": 4,
+"n": 322
+},
+{
+"sezione": "",
+"testo": "Durante la marcia, l’uso dei proiettori a luce anabbagliante",
+"risposte": [
+"È vietato nei centri abitati",
+"È sempre consentito in sostituzione dei proiettori a luce abbagliante",
+"È obbligatorio su strade extraurbane non illuminate, quando si incrociano altri veicoli"
+],
+"esatta": 2,
+"file": "paen/q24.pdf",
+"pagina": 1,
+"seduta": "09/01/2025",
+"n_seduta": 5,
+"n": 323
+},
+{
+"sezione": "",
+"testo": "La fermata del veicolo per la semplice salita e discesa dei passeggeri è sempre vietata",
+"risposte": [
+"Dopo un segnale di “DIVIETO DI SOSTA”",
+"Se i passeggeri che scendono sono più di uno",
+"Sugli attraversamenti pedonali"
+],
+"esatta": 2,
+"file": "paen/q24.pdf",
+"pagina": 1,
+"seduta": "09/01/2025",
+"n_seduta": 6,
+"altre_sedute": [
+"19/05/2025"
+],
+"n": 324
+},
+{
+"sezione": "",
+"testo": "La sosta di autoveicoli in doppia fila",
+"risposte": [
+"Provoca un restringimento delle carreggiata",
+"È vietata solo quando crea intralcio alla circolazione",
+"È consentita solo per pochi secondi"
+],
+"esatta": 0,
+"file": "paen/q24.pdf",
+"pagina": 2,
+"seduta": "09/01/2025",
+"n_seduta": 7,
+"n": 325
+},
+{
+"sezione": "",
+"testo": "Le frecce di rientro",
+"risposte": [
+"Sono poste al termine di un tratto di strada ove è consentito il sorpasso",
+"Possono essere integrate da iscrizioni sulla pavimentazione che indicano la località raggiungibile",
+"Consentono di scegliere la corsia di preselezione"
+],
+"esatta": 0,
+"file": "paen/q24.pdf",
+"pagina": 2,
+"seduta": "09/01/2025",
+"n_seduta": 8,
+"n": 326
+},
+{
+"sezione": "",
+"testo": "Nei Comuni dove esiste il servizio di taxi, i veicoli adibiti al servizio di noleggio con conducente possono sostare su aree pubbliche",
+"risposte": [
+"si, purché siano dipinti di bianco come i taxi",
+"no, in nessun caso",
+"si, solo in aree determinate, presso le stazioni ferroviarie, in attesa di propri clienti muniti di prenotazione effettuata presso la rimessa"
+],
+"esatta": 2,
+"file": "paen/q24.pdf",
+"pagina": 2,
+"seduta": "09/01/2025",
+"n_seduta": 10,
+"altre_sedute": [
+"19/02/2025"
+],
+"n": 327
+},
+{
+"sezione": "",
+"testo": "Per ridurre l'inquinamento dell'aria provocato dalla circolazione dei veicoli azionati da motore a scoppio l'automobilista deve",
+"risposte": [
+"Curare la perfetta regolazione degli organi di accensione",
+"Provvedere alla frequente revisione degli organi di sospensione",
+"Ridurre il tempo di accensione del motore, marciando a velocità elevata nei limiti consentiti"
+],
+"esatta": 0,
+"file": "paen/q24.pdf",
+"pagina": 2,
+"seduta": "09/01/2025",
+"n_seduta": 11,
+"n": 328
+},
+{
+"sezione": "",
+"testo": "Chi può prevedere, per particolari casi o esigenze, speciali prescrizioni per tipo e caratteristiche dei veicoli adibiti a servizi di taxi o noleggio con conducente",
+"risposte": [
+"la Provincia",
+"l'Ufficio Periferico del Dipartimento dei Trasporti Terrestri – ex MCTC",
+"il Comune"
+],
+"esatta": 2,
+"file": "paen/q24.pdf",
+"pagina": 2,
+"seduta": "09/01/2025",
+"n_seduta": 12,
+"altre_sedute": [
+"07/04/2025",
+"22/07/2025"
+],
+"n": 329
+},
+{
+"sezione": "",
+"testo": "Come viene definito l'uso di un veicolo adibito a servizio di piazza o taxi",
+"risposte": [
+"uso privato",
+"uso di terzi",
+"uso pubblico"
+],
+"esatta": 1,
+"file": "paen/q24.pdf",
+"pagina": 2,
+"seduta": "09/01/2025",
+"n_seduta": 13,
+"altre_sedute": [
+"05/03/2025",
+"06/05/2025"
+],
+"n": 330
+},
+{
+"sezione": "",
+"testo": "E' ammessa la pubblicità non luminosa a pagamento per conto di terzi sulle autovetture adibite a servizio taxi e noleggio con conducente",
+"risposte": [
+"si",
+"solo sui taxi",
+"solo sulle auto da noleggio"
+],
+"esatta": 0,
+"file": "paen/q24.pdf",
+"pagina": 2,
+"seduta": "09/01/2025",
+"n_seduta": 14,
+"altre_sedute": [
+"19/02/2025",
+"14/10/2025",
+"02/12/2025"
+],
+"n": 331
+},
+{
+"sezione": "",
+"testo": "Quando i tassisti hanno l'obbligo dell'uso della cintura di sicurezza",
+"risposte": [
+"mai",
+"solo in servizio nei centri abitati",
+"sempre"
+],
+"esatta": 2,
+"file": "paen/q24.pdf",
+"pagina": 3,
+"seduta": "09/01/2025",
+"n_seduta": 15,
+"altre_sedute": [
+"25/06/2025"
+],
+"n": 332
+},
+{
+"sezione": "",
+"testo": "E' possibile cumulare più licenze di taxi in capo al medesimo soggetto",
+"risposte": [
+"no, perché l'esercizio deve essere personale",
+"si, se esso è associato a una cooperativa",
+"si, se esso è titolare di impresa artigiana con sufficiente numero di dipendenti"
+],
+"esatta": 0,
+"file": "paen/q24.pdf",
+"pagina": 3,
+"seduta": "09/01/2025",
+"n_seduta": 16,
+"altre_sedute": [
+"05/03/2025",
+"02/12/2025"
+],
+"n": 333
+},
+{
+"sezione": "",
+"testo": "E' sempre sufficiente il tassametro omologato per indicare la tariffa da pagare nel servizio di taxi",
+"risposte": [
+"no, se esistono eventuali supplementi questi devono essere indicati in apposito avviso sul cruscotto",
+"si",
+"no, è necessario fare un preventivo al momento della partenza"
+],
+"esatta": 0,
+"file": "paen/q24.pdf",
+"pagina": 3,
+"seduta": "09/01/2025",
+"n_seduta": 17,
+"altre_sedute": [
+"02/09/2025"
+],
+"n": 334
+},
+{
+"sezione": "",
+"testo": "I Comuni e le Province sono titolari di funzioni proprie in materia di regolamentazione del trasporto pubblico non di linea",
+"risposte": [
+"si",
+"no, sono funzioni delegate dalla Regione e devono sottostare al rispetto delle norme regionali",
+"si, ma devono coordinare tra loro per evitare disomogeneità normative"
+],
+"esatta": 1,
+"file": "paen/q24.pdf",
+"pagina": 3,
+"seduta": "09/01/2025",
+"n_seduta": 18,
+"altre_sedute": [
+"06/05/2025",
+"19/05/2025"
+],
+"n": 335
+},
+{
+"sezione": "",
+"testo": "Il servizio di linea per trasporto di persone può essere effettuato con autovetture",
+"risposte": [
+"si",
+"no",
+"solo se attrezzate con dispositivi particolari"
+],
+"esatta": 0,
+"file": "paen/q24.pdf",
+"pagina": 3,
+"seduta": "09/01/2025",
+"n_seduta": 19,
+"n": 336
+},
+{
+"sezione": "",
+"testo": "Le persone giuridiche possono essere titolari di licenza o autorizzazione per autoservizi pubblici non di linea",
+"risposte": [
+"si, ma possono essere solo società cooperative tra tassisti e noleggiatori",
+"no, i titolari possono essere solo persone fisiche iscritte a ruolo",
+"si, possono essere anche società di capitali"
+],
+"esatta": 1,
+"file": "paen/q24.pdf",
+"pagina": 3,
+"seduta": "09/01/2025",
+"n_seduta": 20,
+"altre_sedute": [
+"22/07/2025"
+],
+"n": 337
+},
+{
+"sezione": "",
+"testo": "Quale ente determina le tariffe per il servizio taxi",
+"risposte": [
+"il Comune",
+"la Camera di Commercio",
+"la Provincia"
+],
+"esatta": 0,
+"file": "paen/q24.pdf",
+"pagina": 3,
+"seduta": "09/01/2025",
+"n_seduta": 21,
+"altre_sedute": [
+"02/09/2025"
+],
+"n": 338
+},
+{
+"sezione": "",
+"testo": "DOVE SI TROVA LA STAZIONE MARITTIMA DI PALERMO",
+"risposte": [
+"VIA GIULIO CESARE",
+"VIA MESSINA MARINE",
+"VIA F.SCO CRISPI"
+],
+"esatta": 2,
+"file": "paen/q25.pdf",
+"pagina": 1,
+"seduta": "19/02/2025",
+"n_seduta": 1,
+"n": 339
+},
+{
+"sezione": "",
+"testo": "SI DEVE CHIAMARE LA POLIZIA A SEGUITO DI INCIDENTE STRADALE",
+"risposte": [
+"IN CASO DI INVESTIMENTO DI PERSONA CON LESIONI",
+"QUANDO NON SI E' SICURI DI ESSERE DALLA PARTE DELLA RAGIONE",
+"QUANDO NON CI SIANO ALTRI TESTIMONI"
+],
+"esatta": 0,
+"file": "paen/q25.pdf",
+"pagina": 1,
+"seduta": "19/02/2025",
+"n_seduta": 3,
+"n": 340
+},
+{
+"sezione": "",
+"testo": "I DISPOSITIVI DI SEGNALAZIONE ACUSTICA",
+"risposte": [
+"DEBBONO USARSI SEMPRE SULLE AUTOAMBULANZE",
+"DEBBONO USARSI NEI CENTRI ABITATI,IN PROSSIMITA' DEGLI ATTRAVERSAMENTI PEDONALI",
+"NON SI POSSONO USARE NEI CENTRI ABITATI,SALVO CASI DI PERICOLO IMMEDIATO"
+],
+"esatta": 2,
+"file": "paen/q25.pdf",
+"pagina": 1,
+"seduta": "19/02/2025",
+"n_seduta": 4,
+"n": 341
+},
+{
+"sezione": "",
+"testo": "Il segnale mobile triangolare di veicolo fermo",
+"risposte": [
+"Consente la sosta regolare in curva fuori dai centri abitati",
+"Va utilizzato in caso di emergenza anche nei centri urbani, ma solo di notte",
+"Va usato fuori dai centri abitati, di notte, in caso di emergenza, qualora sia difettosa l’efficienza delle luci di posizione posteriori"
+],
+"esatta": 2,
+"file": "paen/q25.pdf",
+"pagina": 1,
+"seduta": "19/02/2025",
+"n_seduta": 5,
+"n": 342
+},
+{
+"sezione": "",
+"testo": "Il triangolo mobile di pericolo deve essere obbligatoriamente usato per segnalare il veicolo che debba restare fermo",
+"risposte": [
+"In caso di forte pioggia",
+"Per chiedere soccorso agli automobilisti in transito",
+"Solo su carreggiate extraurbane"
+],
+"esatta": 2,
+"file": "paen/q25.pdf",
+"pagina": 1,
+"seduta": "19/02/2025",
+"n_seduta": 6,
+"n": 343
+},
+{
+"sezione": "",
+"testo": "In caso di incidente con veicoli in mezzo alla strada, come ci si deve comportare in relazione al traffico",
+"risposte": [
+"Si deve sbarrare la strada, anche con ostacoli di fortuna, bloccando il traffico finché non arriva l'ambulanza o la polizia",
+"Si deve proteggere il luogo dell'incidente, lasciando libera una corsia per il transito dei veicoli",
+"Si devono immediatamente spostare i feriti e i veicoli coinvolti, per liberare la carreggiata"
+],
+"esatta": 1,
+"file": "paen/q25.pdf",
+"pagina": 2,
+"seduta": "19/02/2025",
+"n_seduta": 7,
+"n": 344
+},
+{
+"sezione": "",
+"testo": "A quanti veicoli addetti ad autoservizi pubblici non di linea può fare riferimento una singola licenza o autorizzazione",
+"risposte": [
+"a un solo taxi, a più veicoli per noleggio con conducente",
+"a un solo taxi o veicolo per noleggio con conducente",
+"a più taxi o veicoli per noleggio con conducente"
+],
+"esatta": 1,
+"file": "paen/q25.pdf",
+"pagina": 2,
+"seduta": "19/02/2025",
+"n_seduta": 9,
+"altre_sedute": [
+"06/05/2025"
+],
+"n": 345
+},
+{
+"sezione": "",
+"testo": "Cosa differenzia il contratto di noleggio rispetto al contratto di trasporto di cose",
+"risposte": [
+"il trasporto è disciplinato dal Codice Civile, per il noleggio si fa riferimento al Decreto Ministeriale del 20/04/1993",
+"il trasporto è servizio pubblico, il noleggio no",
+"il trasporto è obbligatorio, il noleggio no"
+],
+"esatta": 0,
+"file": "paen/q25.pdf",
+"pagina": 2,
+"seduta": "19/02/2025",
+"n_seduta": 10,
+"n": 346
+},
+{
+"sezione": "",
+"testo": "Dove può avvenire lo stazionamento dei veicoli adibiti a servizio di taxi, durante il servizio stesso",
+"risposte": [
+"esclusivamente su suolo pubblico, in aree specificatamente individuate",
+"esclusivamente su piazze",
+"indifferentemente su suolo pubblico o presso apposite rimesse private"
+],
+"esatta": 0,
+"file": "paen/q25.pdf",
+"pagina": 2,
+"seduta": "19/02/2025",
+"n_seduta": 11,
+"altre_sedute": [
+"05/03/2025",
+"22/07/2025"
+],
+"n": 347
+},
+{
+"sezione": "",
+"testo": "E' ammessa la pubblicità non luminosa sui veicoli addetti a servizi pubblici non di linea",
+"risposte": [
+"solo sui taxi",
+"solo sulle autovetture adibite al noleggio con conducente",
+"si, solo a determinate condizioni"
+],
+"esatta": 2,
+"file": "paen/q25.pdf",
+"pagina": 2,
+"seduta": "19/02/2025",
+"n_seduta": 13,
+"altre_sedute": [
+"22/07/2025"
+],
+"n": 348
+},
+{
+"sezione": "",
+"testo": "E' possibile rientrare in possesso di licenze o autorizzazioni per autoservizi pubblici non di linea conferite a organismi cooperativi",
+"risposte": [
+"no",
+"si, in caso di recesso, decadenza o esclusione",
+"si, in qualsiasi caso"
+],
+"esatta": 1,
+"file": "paen/q25.pdf",
+"pagina": 3,
+"seduta": "19/02/2025",
+"n_seduta": 15,
+"altre_sedute": [
+"25/06/2025",
+"22/05/2026"
+],
+"n": 349
+},
+{
+"sezione": "",
+"testo": "Il servizio di noleggio con conducente è soggetto a tariffa predeterminata",
+"risposte": [
+"si, con tariffa unica chilometrica obbligatoria",
+"no, il corrispettivo è contrattabile senza limiti",
+"si, con tariffe chilometriche minime e massime entro cui si può contrattare il corrispettivo"
+],
+"esatta": 2,
+"file": "paen/q25.pdf",
+"pagina": 3,
+"seduta": "19/02/2025",
+"n_seduta": 16,
+"altre_sedute": [
+"06/05/2025"
+],
+"n": 350
+},
+{
+"sezione": "",
+"testo": "Il servizio taxi ha il solo scopo di soddisfare le richieste di trasporto individuali",
+"risposte": [
+"si, se il trasporto viene richiesto da più persone si tratta di noleggio",
+"no, il trasporto può essere richiesto anche da piccoli gruppi",
+"si, è vietato imbarcare persone con la diversa destinazione"
+],
+"esatta": 1,
+"file": "paen/q25.pdf",
+"pagina": 3,
+"seduta": "19/02/2025",
+"n_seduta": 17,
+"n": 351
+},
+{
+"sezione": "",
+"testo": "In quali comuni può esservi esonero dal dotare le autovetture addette al servizio taxi dell'apposito tassametro omologato",
+"risposte": [
+"quelli in cui il Comune ha liberamente regolamentato in tal modo",
+"quelli di minore dimensione, individuati dalla Camera di Commercio su parere dell'Ufficio Periferico del Dipartimento dei Trasporti Terrestri – ex MCTC",
+"nessun Comune"
+],
+"esatta": 1,
+"file": "paen/q25.pdf",
+"pagina": 3,
+"seduta": "19/02/2025",
+"n_seduta": 18,
+"n": 352
+},
+{
+"sezione": "",
+"testo": "Possono essere conferite licenze o autorizzazioni per autoservizi pubblici non di linea a organismi associativi",
+"risposte": [
+"si, ma solo a società cooperative tra tassisti e noleggiatori",
+"no",
+"si, purché costituiti tra titolari di licenza o autorizzazioni"
+],
+"esatta": 2,
+"file": "paen/q25.pdf",
+"pagina": 3,
+"seduta": "19/02/2025",
+"n_seduta": 19,
+"altre_sedute": [
+"22/05/2026"
+],
+"n": 353
+},
+{
+"sezione": "",
+"testo": "Presso quale ente è istituito il ruolo dei conducenti di veicoli adibiti ad autoservizi pubblici non di linea",
+"risposte": [
+"la Camera di Commercio del capoluogo di Regione",
+"la Camera di Commercio di ciascuna Provincia",
+"la Provincia"
+],
+"esatta": 1,
+"file": "paen/q25.pdf",
+"pagina": 3,
+"seduta": "19/02/2025",
+"n_seduta": 20,
+"altre_sedute": [
+"06/05/2025"
+],
+"n": 354
+},
+{
+"sezione": "",
+"testo": "Quale contrassegno particolare devono esporre le autovetture adibite al servizio di noleggio con conducente",
+"risposte": [
+"un contrassegno luminoso, posto sul tetto, con la scritta NCC",
+"un contrassegno con la scritta “noleggio” all'interno del parabrezza e del lunotto",
+"la scritta “noleggio” dipinta sulla fiancata"
+],
+"esatta": 1,
+"file": "paen/q25.pdf",
+"pagina": 3,
+"seduta": "19/02/2025",
+"n_seduta": 21,
+"altre_sedute": [
+"05/03/2025",
+"14/10/2025"
+],
+"n": 355
+},
+{
+"sezione": "",
+"testo": "L'ASSEMBLEA DEL PARLAMENTO SICILIANO SI TROVA",
+"risposte": [
+"NEL PALAZZO REALE O DEI NORMANNI",
+"PALAZZO PRETORIO O DELLE AQUILE",
+"PALAZZO COMITINI"
+],
+"esatta": 0,
+"file": "paen/q26.pdf",
+"pagina": 1,
+"seduta": "05/03/2025",
+"n_seduta": 1,
+"n": 356
+},
+{
+"sezione": "",
+"testo": "Cosa non si deve fare in caso di incidente stradale",
+"risposte": [
+"mpedire ai presenti di fumare in prossimità del veicolo",
+"Estrarre un ferito dall’auto",
+"Controllare se il ferito sia cosciente"
+],
+"esatta": 1,
+"file": "paen/q26.pdf",
+"pagina": 1,
+"seduta": "05/03/2025",
+"n_seduta": 2,
+"n": 357
+},
+{
+"sezione": "",
+"testo": "E' obbligatorio ridurre la velocità e all'occorrenza anche fermarsi",
+"risposte": [
+"Quando riesca poco facile l'incrocio con altri veicol",
+"Nelle forti salite",
+"Da mezz'ora prima del tramonto a mezz'ora dopo il sorgere del sole"
+],
+"esatta": 0,
+"file": "paen/q26.pdf",
+"pagina": 1,
+"seduta": "05/03/2025",
+"n_seduta": 3,
+"n": 358
+},
+{
+"sezione": "",
+"testo": "E' possibile far rimuovere un veicolo in sosta nelle apposite piazzole destinate al servizio taxi",
+"risposte": [
+"si, sempre",
+"no",
+"solo se esiste una specifica indicazione con cartello"
+],
+"esatta": 0,
+"file": "paen/q26.pdf",
+"pagina": 1,
+"seduta": "05/03/2025",
+"n_seduta": 4,
+"altre_sedute": [
+"19/05/2025"
+],
+"n": 359
+},
+{
+"sezione": "",
+"testo": "Il sorpasso può essere effettuato a destra",
+"risposte": [
+"Quando avviene nei confronti dei motocicli e ci sia spazio sufficiente",
+"Quando si percorre una strada extraurbana a senso unico",
+"Quando il veicolo che precede abbia segnalato con l’indicatore di direzione che intende svoltare a sinistra"
+],
+"esatta": 2,
+"file": "paen/q26.pdf",
+"pagina": 1,
+"seduta": "05/03/2025",
+"n_seduta": 5,
+"altre_sedute": [
+"06/05/2025"
+],
+"n": 360
+},
+{
+"sezione": "",
+"testo": "La respirazione artificiale",
+"risposte": [
+"si pratica alzando le braccia dell’infortunato e soffiando sulla bocca",
+"va praticata anche quando l’infortunato respira lentamente",
+"va praticata con il sistema bocca a bocca, o bocca a naso"
+],
+"esatta": 2,
+"file": "paen/q26.pdf",
+"pagina": 1,
+"seduta": "05/03/2025",
+"n_seduta": 6,
+"n": 361
+},
+{
+"sezione": "",
+"testo": "LA SOSPENSIONE DELLA PATENTE E' DISPOSTA",
+"risposte": [
+"QUALORA SORGANO DUBBI SULLA PERSISTENZA DELLA IDONEITA' ALLA GUIDA",
+"QUANDO IL TITOLARE, SOTTOPOSTO AD ESAME DI REVISIONE, NON RISULTI PIU' IDONEO",
+"QUANDO SI CIRCOLA CONTROMANO IN CURVA"
+],
+"esatta": 2,
+"file": "paen/q26.pdf",
+"pagina": 1,
+"seduta": "05/03/2025",
+"n_seduta": 7,
+"n": 362
+},
+{
+"sezione": "",
+"testo": "Quale è il tasso alcolemico che non deve essere superato dai conducenti che esercitano l'attività professionale di trasporto di persone",
+"risposte": [
+"dipende dal tipo di veicolo e dal tipo di trasporto, di persone e di cose",
+"0 (zero) grammi per litro di sangue",
+"1,6 grammi per litro di sangue, pari a 1 litro di birra bevuto a stomaco pieno"
+],
+"esatta": 1,
+"file": "paen/q26.pdf",
+"pagina": 2,
+"seduta": "05/03/2025",
+"n_seduta": 8,
+"n": 363
+},
+{
+"sezione": "",
+"testo": "Come possono essere effettuate le prestazioni di noleggio di veicoli con conducente",
+"risposte": [
+"a tempo e/o a viaggio",
+"solo a tempo",
+"solo a viaggio"
+],
+"esatta": 0,
+"file": "paen/q26.pdf",
+"pagina": 2,
+"seduta": "05/03/2025",
+"n_seduta": 9,
+"n": 364
+},
+{
+"sezione": "",
+"testo": "Come si determina la tariffa del servizio taxi",
+"risposte": [
+"a tempo",
+"a distanza",
+"a base multipla (tempo e distanzin servizio urbano, a distanza in servizio extraurbano"
+],
+"esatta": 2,
+"file": "paen/q26.pdf",
+"pagina": 2,
+"seduta": "05/03/2025",
+"n_seduta": 10,
+"altre_sedute": [
+"02/12/2025"
+],
+"n": 365
+},
+{
+"sezione": "",
+"testo": "E' consentita la sosta di altri veicoli nelle apposite piazzole destinate al servizio taxi",
+"risposte": [
+"si, sempre",
+"no, e nel caso si applicano una sanzione pecuniaria e la decurtazione di due punti dalla patente",
+"solo se esiste una specifica indicazione con cartello"
+],
+"esatta": 1,
+"file": "paen/q26.pdf",
+"pagina": 2,
+"seduta": "05/03/2025",
+"n_seduta": 13,
+"altre_sedute": [
+"06/05/2025"
+],
+"n": 366
+},
+{
+"sezione": "",
+"testo": "In caso di acquisto in leasing di un veicolo a motore da adibire a servizi pubblici non di linea, per quale uso viene immatricolato il veicolo",
+"risposte": [
+"quello indicato dal locatario sulla base del titolo amministrativo (licenza o autorizzazione",
+"ad uso noleggio senza conducente",
+"per locazione finanziaria senza conducente"
+],
+"esatta": 0,
+"file": "paen/q26.pdf",
+"pagina": 2,
+"seduta": "05/03/2025",
+"n_seduta": 15,
+"altre_sedute": [
+"19/05/2025",
+"22/07/2025"
+],
+"n": 367
+},
+{
+"sezione": "",
+"testo": "L'obbligo del colore uniforme per le autovetture adibite al servizio di taxi si estende a tutta la carrozzeria",
+"risposte": [
+"si",
+"no, è sufficiente che siano di tale colore le porte e i cofani",
+"no, possono esserne esclusi eventuali fregi accessori originali (ad esempio fasce laterali paraurti)"
+],
+"esatta": 2,
+"file": "paen/q26.pdf",
+"pagina": 3,
+"seduta": "05/03/2025",
+"n_seduta": 16,
+"altre_sedute": [
+"06/05/2025"
+],
+"n": 368
+},
+{
+"sezione": "",
+"testo": "Possono Comuni e Province differenziare i servizi di linea con autovetture ad uso terzi, non dotate di specifiche licenze o autorizzazioni per i servizi non di linea",
+"risposte": [
+"si, nel rispetto dei criteri tecnici e delle modalità di utilizzo disposti dal Ministero delle Infrastrutture e dei Trasporti",
+"no, è possibile solo impiegare taxi e vetture da noleggio regolarmente dotate di licenze o autorizzazioni",
+"si, solo se i veicoli sono di proprietà di titolari di licenza taxi o autorizzazioni al noleggio con conducente"
+],
+"esatta": 0,
+"file": "paen/q26.pdf",
+"pagina": 3,
+"seduta": "05/03/2025",
+"n_seduta": 18,
+"n": 369
+},
+{
+"sezione": "",
+"testo": "Quale è l'autorità che emana i regolamenti per i servizi pubblici non di linea",
+"risposte": [
+"la Regione",
+"la Provincia",
+"il Comune"
+],
+"esatta": 2,
+"file": "paen/q26.pdf",
+"pagina": 3,
+"seduta": "05/03/2025",
+"n_seduta": 20,
+"n": 370
+},
+{
+"sezione": "",
+"testo": "Quale è l'autorità competente per la disciplina generale dell'attività degli enti pubblici in materia di autoservizi pubblici non di linea",
+"risposte": [
+"la Provincia",
+"il Ministero delle Infrastrutture e dei Trasport",
+"la Regione"
+],
+"esatta": 2,
+"file": "paen/q26.pdf",
+"pagina": 3,
+"seduta": "05/03/2025",
+"n_seduta": 21,
+"altre_sedute": [
+"02/12/2025"
+],
+"n": 371
+},
+{
+"sezione": "",
+"testo": "I pneumatici con lesioni sui fianchi che interessano le tele",
+"risposte": [
+"Debbono essere ricostruiti",
+"Possono aver subito un urto contro uno spigolo vivo",
+"Possono essere usati a bassa velocità"
+],
+"esatta": 1,
+"file": "paen/q27.pdf",
+"pagina": 1,
+"seduta": "07/04/2025",
+"n_seduta": 2,
+"n": 372
+},
+{
+"sezione": "",
+"testo": "IN CASO DI INCIDENTE, SI DEVE SEGNALARE IL PERICOLO AI VEICOLI CHE SOPRAGGIUNGONO",
+"risposte": [
+"MAI, SE L'INCIDENTE E' AVVENUTO IN UN CENTRO ABITATO ILLUMINATO",
+"SOLAMENTE SE IL TRAFFICO E' BLOCCATO A CAUSA DELL'INCIDENTE",
+"COMUNQUE, ANCHE CON SEGNALI MANUALI INTESI AD IMPEDIRE IL TRANSITO SULLA ZONA PERICOLOSA"
+],
+"esatta": 2,
+"file": "paen/q27.pdf",
+"pagina": 1,
+"seduta": "07/04/2025",
+"n_seduta": 3,
+"n": 373
+},
+{
+"sezione": "",
+"testo": "PER MANTENERE I FRENI EFFICIENTI E' NECESSARIO SOTTOPORRE A PERIODICI CONTROLLI",
+"risposte": [
+"LA COMPOSIZIONE DEL LIQUIDO IDRAULICO DEI FRENI",
+"LA CONSISTENZA DEI FERODI",
+"LA CORSA DEL PEDALE"
+],
+"esatta": 1,
+"file": "paen/q27.pdf",
+"pagina": 1,
+"seduta": "07/04/2025",
+"n_seduta": 5,
+"n": 374
+},
+{
+"sezione": "",
+"testo": "UNO PNEUMATICO TROPPO GONFIO DOVE SI CONSUMA",
+"risposte": [
+"NELLA PARTE ESTERNA SINISTRA",
+"NELLA PARTE ESTERNA DESTRA",
+"NELLA PARTE CENTRALE"
+],
+"esatta": 2,
+"file": "paen/q27.pdf",
+"pagina": 1,
+"seduta": "07/04/2025",
+"n_seduta": 6,
+"altre_sedute": [
+"06/05/2025"
+],
+"n": 375
+},
+{
+"sezione": "",
+"testo": "Quale sanzione si applica a chi non richiede la trascrizione al PRA del trasferimento di proprietà di un autoveicolo",
+"risposte": [
+"un'ammenda",
+"la confisca dell'autoveicolo",
+"una sanzione amministrativa"
+],
+"esatta": 2,
+"file": "paen/q27.pdf",
+"pagina": 1,
+"seduta": "07/04/2025",
+"n_seduta": 7,
+"altre_sedute": [
+"22/05/2026"
+],
+"n": 376
+},
+{
+"sezione": "",
+"testo": "Quale sanzione si applica a chi utilizza in servizio di linea un veicolo non adibito a tale uso",
+"risposte": [
+"un'ammenda",
+"la sanzione amministrativa e la sospensione della carta di circolazione da due a otto mesi",
+"una sanzione amministrativa"
+],
+"esatta": 1,
+"file": "paen/q27.pdf",
+"pagina": 2,
+"seduta": "07/04/2025",
+"n_seduta": 8,
+"n": 377
+},
+{
+"sezione": "",
+"testo": "A chi può essere rilasciata la licenza taxi",
+"risposte": [
+"a persone singole",
+"a persone singole o a cooperative",
+"a qualsiasi impresa, individuale o societaria"
+],
+"esatta": 0,
+"file": "paen/q27.pdf",
+"pagina": 2,
+"seduta": "07/04/2025",
+"n_seduta": 9,
+"n": 378
+},
+{
+"sezione": "",
+"testo": "Come deve essere organizzato il parcheggio per autoveicoli adibiti al trasporto di portatori di handicap, con posti disposti parallelamente al senso di marcia",
+"risposte": [
+"i posti non possono essere disposti paralleli al senso di marcia",
+"deve essere consentito il passaggio di una sedia a rotelle tra due veicoli",
+"basta che sia segnalato"
+],
+"esatta": 1,
+"file": "paen/q27.pdf",
+"pagina": 2,
+"seduta": "07/04/2025",
+"n_seduta": 11,
+"n": 379
+},
+{
+"sezione": "",
+"testo": "Cosa caratterizza le autovetture adibite al servizio di taxi rispetto a quelle adibite al servizio di noleggio con conducente",
+"risposte": [
+"l'obbligo di essere munite di tassametro omologato",
+"l'obbligo di essere attrezzate con dispositivi antinquinamento",
+"l'obbligo di avere quattro porte"
+],
+"esatta": 0,
+"file": "paen/q27.pdf",
+"pagina": 2,
+"seduta": "07/04/2025",
+"n_seduta": 12,
+"n": 380
+},
+{
+"sezione": "",
+"testo": "titolari di licenza o autorizzazione per autoservizi pubblici non di linea possono avvalersi di collaboratori familiari",
+"risposte": [
+"si, purché iscritti a ruolo",
+"si, senza particolari obblighi",
+"no, solo da sostituti o dipendenti"
+],
+"esatta": 0,
+"file": "paen/q27.pdf",
+"pagina": 2,
+"seduta": "07/04/2025",
+"n_seduta": 13,
+"n": 381
+},
+{
+"sezione": "",
+"testo": "Il servizio taxi ha obblighi particolari relativi al prelevamento dell'utente o all'inizio del servizio",
+"risposte": [
+"si, essi devono avvenire con partenza dal territorio del Comune che ha rilasciato la licenza",
+"no",
+"si, essi devono avvenire unicamente entro il territorio del Comune che ha rilasciato la licenza"
+],
+"esatta": 0,
+"file": "paen/q27.pdf",
+"pagina": 2,
+"seduta": "07/04/2025",
+"n_seduta": 14,
+"altre_sedute": [
+"02/12/2025"
+],
+"n": 382
+},
+{
+"sezione": "",
+"testo": "La prevista rimessa per autoservizio pubblico non di linea deve necessariamente essere situata nel territorio del Comune che rilascia il titolo amministrativo",
+"risposte": [
+"no, è sufficiente che nel territorio comunale sia presente una sede del titolare",
+"no, è sufficiente che 1 o più rimesse siano situate sull'intero territorio regionale",
+"no, può però essere situata al massimo in un comune limitrofo"
+],
+"esatta": 1,
+"file": "paen/q27.pdf",
+"pagina": 2,
+"seduta": "07/04/2025",
+"n_seduta": 15,
+"altre_sedute": [
+"22/07/2025"
+],
+"n": 383
+},
+{
+"sezione": "",
+"testo": "Le autovetture addette al servizio taxi possono recare fasce colorate sulle fiancate",
+"risposte": [
+"no",
+"solo una fascia colorata alta al massimo 6 cm, sotto il bordo inferiore del vano dei finestrini",
+"si, purché sia dello stesso colore per ciascuna cooperativa di appartenenza"
+],
+"esatta": 1,
+"file": "paen/q27.pdf",
+"pagina": 3,
+"seduta": "07/04/2025",
+"n_seduta": 16,
+"altre_sedute": [
+"22/05/2026"
+],
+"n": 384
+},
+{
+"sezione": "",
+"testo": "L'esenzione da IVA per i servizi urbani svolti con veicoli da piazza è valida solo se il trasporto è pagato direttamente dal viaggiatore",
+"risposte": [
+"no, vale anche se il contratto di trasporto è stato stipulato da un terzo",
+"si",
+"il trasporto urbano con veicoli da piazza non è esente da IVA"
+],
+"esatta": 0,
+"file": "paen/q27.pdf",
+"pagina": 3,
+"seduta": "07/04/2025",
+"n_seduta": 17,
+"altre_sedute": [
+"22/07/2025",
+"02/09/2025",
+"14/10/2025"
+],
+"n": 385
+},
+{
+"sezione": "",
+"testo": "Quale è il presupposto perché un congiunto, lavorando in famiglia o impresa familiare, sia effettivamente considerato partecipante all'impresa familiare",
+"risposte": [
+"che sia assunto come dipendente",
+"che presti la propria attività in modo continuativo",
+"che abiti assieme al titolare dell'impresa"
+],
+"esatta": 1,
+"file": "paen/q27.pdf",
+"pagina": 3,
+"seduta": "07/04/2025",
+"n_seduta": 18,
+"altre_sedute": [
+"14/10/2025"
+],
+"n": 386
+},
+{
+"sezione": "",
+"testo": "Quale è l'età minima per poter guidare autovetture adibite a servizio di piazza o di noleggio con conducente",
+"risposte": [
+"diciotto anni",
+"ventuno anni",
+"venticinque anni"
+],
+"esatta": 1,
+"file": "paen/q27.pdf",
+"pagina": 3,
+"seduta": "07/04/2025",
+"n_seduta": 19,
+"n": 387
+},
+{
+"sezione": "",
+"testo": "Quale è l'unico requisito indispensabile, per legge statale, per ottenere l'iscrizione al ruolo dei conducenti di veicoli adibiti ad autoservizi pubblici non di linea",
+"risposte": [
+"la sola patente",
+"la licenza o l'autorizzazione",
+"il certificato di abilitazione professionale"
+],
+"esatta": 2,
+"file": "paen/q27.pdf",
+"pagina": 3,
+"seduta": "07/04/2025",
+"n_seduta": 20,
+"altre_sedute": [
+"02/12/2025"
+],
+"n": 388
+},
+{
+"sezione": "",
+"testo": "Quale responsabilità ha il vettore in caso di danno nei confronti delle persone trasportate causato da incidente",
+"risposte": [
+"totale, in ogni caso",
+"totale, a meno che non provi di aver adottato tutte le misure per evitare il danno",
+"totale, a meno che non abbia inserito nel contratto di trasporto specifiche clausole di esonero"
+],
+"esatta": 1,
+"file": "paen/q27.pdf",
+"pagina": 3,
+"seduta": "07/04/2025",
+"n_seduta": 21,
+"n": 389
+},
+{
+"sezione": "",
+"testo": "QUALE DI QUESTE FIERE SI SVOLGEVA A PALERMO",
+"risposte": [
+"FIERA DEL MEDITERRANEO",
+"FIERA FRANCA O CAMPIONARIA",
+"FIERA DEL LEVANTE"
+],
+"esatta": 0,
+"file": "paen/q28.pdf",
+"pagina": 1,
+"seduta": "06/05/2025",
+"n_seduta": 1,
+"n": 390
+},
+{
+"sezione": "",
+"testo": "Una frenatura poco efficiente o squilibrata, può essere causata",
+"risposte": [
+"Dalla rottura di una tubazione negli impianti a doppio circuito frenante",
+"Dal tipo di anticongelante usato",
+"Dall'insufficiente lubrificazione dei dischi"
+],
+"esatta": 0,
+"file": "paen/q28.pdf",
+"pagina": 1,
+"seduta": "06/05/2025",
+"n_seduta": 6,
+"n": 391
+},
+{
+"sezione": "",
+"testo": "Presso quale registro sono iscritti i veicoli d'epoca",
+"risposte": [
+"a nessun registro",
+"al Pubblico Registro Automobilistico",
+"all'Elenco presso il Centro Storico del Dipartimento dei Trasporti Terrestri – ex Direzione Generale MCTC"
+],
+"esatta": 2,
+"file": "paen/q28.pdf",
+"pagina": 2,
+"seduta": "06/05/2025",
+"n_seduta": 7,
+"n": 392
+},
+{
+"sezione": "",
+"testo": "A cosa serve l'iscrizione al ruolo dei conducenti dei veicoli adibiti a servizi pubblici non di linea",
+"risposte": [
+"a ottenere le licenze e le autorizzazioni",
+"a svolgere l'attività di conducente dei rispettivi mezzi ed a ottenere le licenze e le autorizzazioni",
+"a condurre i mezzi in servizio pubblico non di linea"
+],
+"esatta": 1,
+"file": "paen/q28.pdf",
+"pagina": 2,
+"seduta": "06/05/2025",
+"n_seduta": 9,
+"n": 393
+},
+{
+"sezione": "",
+"testo": "Come può essere regolato il rapporto tra un tassista e il suo sostituto",
+"risposte": [
+"da un contratto di lavoro a tempo determinato o da un contratto di gestione al massimo di sei mesi",
+"da un contratto di prestazione d'opera",
+"anche informalmente"
+],
+"esatta": 0,
+"file": "paen/q28.pdf",
+"pagina": 2,
+"seduta": "06/05/2025",
+"n_seduta": 11,
+"altre_sedute": [
+"25/06/2025"
+],
+"n": 394
+},
+{
+"sezione": "",
+"testo": "Dove vengono effettuate le prenotazioni di trasporto nel servizio di noleggio con conducente con autovettura",
+"risposte": [
+"presso la sede del vettore",
+"presso la rimessa o tramite mezzi tecnologici",
+"presso appositi spazi pubblici"
+],
+"esatta": 1,
+"file": "paen/q28.pdf",
+"pagina": 2,
+"seduta": "06/05/2025",
+"n_seduta": 13,
+"n": 395
+},
+{
+"sezione": "",
+"testo": "I titolari di licenze o autorizzazioni per servizi pubblici non di linea possono costituire forme associative tra di loro e con altri soggetti",
+"risposte": [
+"possono associarsi in cooperative, consorzi di imprese artigiane ed altro, ma solo tra titolari",
+"possono associarsi liberamente con chiunque in tutte le forme previste dal codice civile",
+"no, le società possono svolgere i servizi pubblici solo se sono direttamente titolari"
+],
+"esatta": 0,
+"file": "paen/q28.pdf",
+"pagina": 3,
+"seduta": "06/05/2025",
+"n_seduta": 16,
+"altre_sedute": [
+"02/09/2025"
+],
+"n": 396
+},
+{
+"sezione": "",
+"testo": "Nel servizio taxi, da dove deve avvenire la partenza del veicolo per il prelevamento dell'utente o per l'inizio del servizio",
+"risposte": [
+"sempre e soltanto dal territorio del Comune che ha rilasciato la licenza",
+"può avvenire anche nel territorio di altri comuni appartenenti al comprensorio, se consentito",
+"non esistono obblighi in proposito"
+],
+"esatta": 0,
+"file": "paen/q28.pdf",
+"pagina": 3,
+"seduta": "06/05/2025",
+"n_seduta": 19,
+"altre_sedute": [
+"02/09/2025",
+"22/05/2026"
+],
+"n": 397
+},
+{
+"sezione": "",
+"testo": "Quale è l'autorità che rilascia le autorizzazioni per il servizio di noleggio con conducente",
+"risposte": [
+"la Regione",
+"la Provincia",
+"il Comune"
+],
+"esatta": 2,
+"file": "paen/q28.pdf",
+"pagina": 3,
+"seduta": "06/05/2025",
+"n_seduta": 21,
+"n": 398
+},
+{
+"sezione": "",
+"testo": "Da chi può essere svolto il servizio di autonoleggio con conducente",
+"risposte": [
+"dagli iscritti al registro dei mestieri girovaghi art. 121 TULPS",
+"dai titolari di licenza di esercizio di autorimessa art. 86 TULPS",
+"dai titolari di autorizzazione specifica per l'esercizio di servizio pubblico non di linea"
+],
+"esatta": 2,
+"file": "paen/q29.pdf",
+"pagina": 1,
+"seduta": "19/05/2025",
+"n_seduta": 3,
+"n": 399
+},
+{
+"sezione": "",
+"testo": "I pneumatici dei veicoli con battistrada eccessivamente usurato",
+"risposte": [
+"Aumentano l’aderenza",
+"Sono pericolosi soltanto in caso di pioggia",
+"Aumentano la possibilità di perdita di aderenza in caso di pioggia (aquaplaning"
+],
+"esatta": 2,
+"file": "paen/q29.pdf",
+"pagina": 1,
+"seduta": "19/05/2025",
+"n_seduta": 5,
+"n": 400
+},
+{
+"sezione": "",
+"testo": "I veicoli adibiti a servizi pubblici non di linea possono oltrepassare le strisce longitudinali continue che indicano il margine della carreggiata",
+"risposte": [
+"no, lo possono fare solo i veicoli in servizio di pubblico interesse (carabinieri, polizia, ecc.) ed i veicoli che devono effettuare una sosta di emergenza",
+"sì, sempre",
+"sì, ma solo quando sono in servizio"
+],
+"esatta": 0,
+"file": "paen/q29.pdf",
+"pagina": 1,
+"seduta": "19/05/2025",
+"n_seduta": 6,
+"n": 401
+},
+{
+"sezione": "",
+"testo": "Quale sanzione si applica a chi affida la guida di un veicolo a chi non abbia conseguito la patente o il certificato di idoneità professionale prescritti",
+"risposte": [
+"un'ammenda",
+"una sanzione amministrativa e sospensione della carta di circolazione",
+"l'arresto sino a tre mesi"
+],
+"esatta": 1,
+"file": "paen/q29.pdf",
+"pagina": 2,
+"seduta": "19/05/2025",
+"n_seduta": 8,
+"n": 402
+},
+{
+"sezione": "",
+"testo": "Che sanzione subisce chi pur avendo l'autorizzazione guida una vettura adibita al servizio di NCC senza osservare le norme o le condizioni dell'autorizzazione",
+"risposte": [
+"un'ammenda",
+"una sanzione amministrativa e sospensione della carta di circolazione da due a otto mesi",
+"le sanzioni previste dai regolamenti comunali di esercizio"
+],
+"esatta": 1,
+"file": "paen/q29.pdf",
+"pagina": 2,
+"seduta": "19/05/2025",
+"n_seduta": 9,
+"n": 403
+},
+{
+"sezione": "",
+"testo": "Chi determina le tariffe del servizio di taxi",
+"risposte": [
+"la libera contrattazione tra il cliente e il vettore, entro limiti minimi e massimi comunali",
+"i Comuni che rilasciano le licenze",
+"la Camera di Commercio"
+],
+"esatta": 1,
+"file": "paen/q29.pdf",
+"pagina": 2,
+"seduta": "19/05/2025",
+"n_seduta": 10,
+"n": 404
+},
+{
+"sezione": "",
+"testo": "Chi può adottare norme speciali per assicurare il coordinamento e l'uniformità dei servizi pubblici non di linea, entro le zone ad intensa agglomerazione urbana",
+"risposte": [
+"la Regione",
+"la Provincia",
+"I Comuni interessati"
+],
+"esatta": 2,
+"file": "paen/q29.pdf",
+"pagina": 2,
+"seduta": "19/05/2025",
+"n_seduta": 11,
+"n": 405
+},
+{
+"sezione": "",
+"testo": "Quali delle seguenti autovetture in servizio di trasporto pubblico non di linea non sono obbligate all'adozione del colore uniforme",
+"risposte": [
+"linea non sono obbligate all'adozione del colore uniforme? immatricolate per servizio di taxi sulla base di licenza comunale",
+"immatricolate per servizio di noleggio con conducente e autorizzate a effettuare servizio di taxi",
+"immatricolate per servizio di noleggio con conducente."
+],
+"esatta": 2,
+"file": "paen/q29.pdf",
+"pagina": 2,
+"seduta": "19/05/2025",
+"n_seduta": 12,
+"n": 406
+},
+{
+"sezione": "",
+"testo": "Gli autoservizi pubblici non di linea sono disciplinati solo da regolamenti di esercizio predisposti dai Comuni",
+"risposte": [
+"no, possono essere emanate anche norme speciali dalla Regione o ente delegato per comprensorio",
+"si",
+"no, sono regolati anche dalle disposizioni delle Camere di Commercio"
+],
+"esatta": 0,
+"file": "paen/q29.pdf",
+"pagina": 2,
+"seduta": "19/05/2025",
+"n_seduta": 13,
+"n": 407
+},
+{
+"sezione": "",
+"testo": "titolari di licenza taxi possono farsi sostituire alla guida del taxi",
+"risposte": [
+"si, sia temporaneamente che definitivamente",
+"solo temporaneamente e per specifici motivi",
+"solo per incarichi sindacali"
+],
+"esatta": 1,
+"file": "paen/q29.pdf",
+"pagina": 3,
+"seduta": "19/05/2025",
+"n_seduta": 15,
+"n": 408
+},
+{
+"sezione": "",
+"testo": "In caso di acquisto rateale (vendita con patto di riservato dominio) di un veicolo da adibire a servizi pubblici non di linea, a nome di chi esso viene immatricolato",
+"risposte": [
+"a nome dell'acquirente",
+"a nome del venditore",
+"a nome dell'acquirente, ma con trascrizione sulla carta di circolazione del nome del venditore"
+],
+"esatta": 2,
+"file": "paen/q29.pdf",
+"pagina": 3,
+"seduta": "19/05/2025",
+"n_seduta": 17,
+"n": 409
+},
+{
+"sezione": "",
+"testo": "Nel servizio di noleggio con conducente con autovettura si possono usare corsie preferenziali per taxi e autobus e altre facilitazioni previste per i servizi pubblici",
+"risposte": [
+"no",
+"si",
+"solo se espressamente indicato in appositi cartelli"
+],
+"esatta": 1,
+"file": "paen/q29.pdf",
+"pagina": 3,
+"seduta": "19/05/2025",
+"n_seduta": 18,
+"altre_sedute": [
+"25/06/2025"
+],
+"n": 410
+},
+{
+"sezione": "",
+"testo": "Perché un contratto di lavoro sia realmente stipulato per un tempo determinato, in caso di sostituzione alla guida di taxi, è sufficiente che sia specificato il termine",
+"risposte": [
+"si",
+"no, devono essere precisati anche il nome del tassista sostituito e la causa della sostituzione",
+"no, deve essere specificata la targa del veicolo"
+],
+"esatta": 1,
+"file": "paen/q29.pdf",
+"pagina": 3,
+"seduta": "19/05/2025",
+"n_seduta": 20,
+"altre_sedute": [
+"25/06/2025"
+],
+"n": 411
+},
+{
+"sezione": "",
+"testo": "Quale è l'autorità che approva in via definitiva i regolamenti comunali per l'esercizio dei servizi pubblici non di linea",
+"risposte": [
+"la Regione",
+"la Provincia",
+"il Comune"
+],
+"esatta": 2,
+"file": "paen/q29.pdf",
+"pagina": 3,
+"seduta": "19/05/2025",
+"n_seduta": 21,
+"n": 412
+},
+{
+"sezione": "",
+"testo": "LA CAPPELLA PALATINA SI TROVA A",
+"risposte": [
+"PALAZZO MIRTO",
+"PALAZZO BUTERA",
+"PALAZZO REALE O DEI NORMANNI"
+],
+"esatta": 2,
+"file": "paen/q30.pdf",
+"pagina": 1,
+"seduta": "25/06/2025",
+"n_seduta": 1,
+"n": 413
+},
+{
+"sezione": "",
+"testo": "Soccorrere un infortunato",
+"risposte": [
+"È un dovere sancito dalla Costituzione Italiana",
+"È un dovere imposto dal Codice Penale",
+"È obbligatorio solo se si ritiene di poter agire in modo competente"
+],
+"esatta": 1,
+"file": "paen/q30.pdf",
+"pagina": 1,
+"seduta": "25/06/2025",
+"n_seduta": 2,
+"n": 414
+},
+{
+"sezione": "",
+"testo": "Sono previste deroghe per la circolazione dei veicoli utilizzati da portatori di handicap nei centri abitati, in caso di sospensione della circolazione",
+"risposte": [
+"solo per ambulanze",
+"sì, per qualsiasi veicolo autorizzato, purché esponga uno specifico contrassegno",
+"no, non sono possibili deroghe"
+],
+"esatta": 1,
+"file": "paen/q30.pdf",
+"pagina": 1,
+"seduta": "25/06/2025",
+"n_seduta": 3,
+"n": 415
+},
+{
+"sezione": "",
+"testo": "L'INDIVIDUAZIONE DEI TESTIMONI, IN CASO DI INCIDENTE STRADALE",
+"risposte": [
+"NON OCCORRE SE SI PENSA DI AVERE RAGIONE",
+"E' OPPORTUNA SOLAMENTE IN CASO DI INCIDENTI CON FERITI",
+"E' UTILE ANCHE SE SI TRATTA DI PASSEGGERI TRASPORTATI"
+],
+"esatta": 2,
+"file": "paen/q30.pdf",
+"pagina": 1,
+"seduta": "25/06/2025",
+"n_seduta": 5,
+"n": 416
+},
+{
+"sezione": "",
+"testo": "UNA ZONA A TRAFFICO LIMITATO PUO' ESSERE",
+"risposte": [
+"UN'AREA SEMPRE E COMUNQUE ESCLUSA AL TRAFFICO DEI VEICOLI A MOTORE",
+"UN'AREA NELLA QUALE LA CIRCOLAZIONE E' LIMITATA AI VEICOLI AUTORIZZATI",
+"UN'AREA NELLA QUALE E' CONSENTITO SOLO IL TRANSITO DI CICLOMOTORI E BICICLETTE"
+],
+"esatta": 1,
+"file": "paen/q30.pdf",
+"pagina": 1,
+"seduta": "25/06/2025",
+"n_seduta": 6,
+"n": 417
+},
+{
+"sezione": "",
+"testo": "A chi è rivolto il servizio di noleggio con conducente",
+"risposte": [
+"ad una utenza indifferenziata",
+"all'utenza specifica che si deve rivolgere presso la sede del vettore o mediante mezzi tecnologici",
+"all'utenza specifica che prenota presso le apposite aree pubbliche di stazionamento"
+],
+"esatta": 1,
+"file": "paen/q30.pdf",
+"pagina": 2,
+"seduta": "25/06/2025",
+"n_seduta": 9,
+"n": 418
+},
+{
+"sezione": "",
+"testo": "A quale fine deve essere ricercata l'uniformazione delle regolamentazioni comunali all'interno delle aree comprensoriali",
+"risposte": [
+"per evitare concorrenza indebite tra tassisti e noleggiatori di comuni limitrofi",
+"per ottenere una maggiore razionalità ed efficienza del servizio pubblico non di linea",
+"per limitare il numero delle licenze e delle autorizzazioni al minimo possibile"
+],
+"esatta": 1,
+"file": "paen/q30.pdf",
+"pagina": 2,
+"seduta": "25/06/2025",
+"n_seduta": 10,
+"n": 419
+},
+{
+"sezione": "",
+"testo": "Di quale colore devono essere le autovetture adibite al servizio di taxi, immatricolate dal 01.01.1993",
+"risposte": [
+"bianco",
+"giallo",
+"quello determinato dal regolamento comunale"
+],
+"esatta": 0,
+"file": "paen/q30.pdf",
+"pagina": 2,
+"seduta": "25/06/2025",
+"n_seduta": 12,
+"n": 420
+},
+{
+"sezione": "",
+"testo": "In cosa consiste un contratto di trasporto",
+"risposte": [
+"nell'obbligo da una parte del trasportatore di trasferire persone e cose da un luogo all'altro",
+"nell'obbligo di mettere a disposizione di terzi un veicolo determinato con un conducente",
+"nell'obbligo di guidare un veicolo per il tempo richiesto dal cliente"
+],
+"esatta": 0,
+"file": "paen/q30.pdf",
+"pagina": 3,
+"seduta": "25/06/2025",
+"n_seduta": 15,
+"n": 421
+},
+{
+"sezione": "",
+"testo": "Quale dei seguenti non è definibile servizio pubblico non di linea ai sensi delle norme in vigore",
+"risposte": [
+"il noleggio di autovetture con conducente",
+"il noleggio di motocarrozzette con conducente",
+"la locazione di autovetture senza conducente"
+],
+"esatta": 2,
+"file": "paen/q30.pdf",
+"pagina": 3,
+"seduta": "25/06/2025",
+"n_seduta": 19,
+"n": 422
+},
+{
+"sezione": "",
+"testo": "Quale è l'autorità che rilascia le licenze per il servizio taxi",
+"risposte": [
+"la Regione",
+"la Provincia",
+"il Comune"
+],
+"esatta": 2,
+"file": "paen/q30.pdf",
+"pagina": 3,
+"seduta": "25/06/2025",
+"n_seduta": 20,
+"n": 423
+},
+{
+"sezione": "",
+"testo": "Quali tra gli eredi del titolare di licenza o autorizzazione deceduto ha il diritto al trasferimento del titolo amministrativo",
+"risposte": [
+"qualsiasi erede in linea diretta o indiretta",
+"qualsiasi erede appartenente al nucleo familiare",
+"ai soli figli maggiorenni"
+],
+"esatta": 1,
+"file": "paen/q30.pdf",
+"pagina": 3,
+"seduta": "25/06/2025",
+"n_seduta": 21,
+"altre_sedute": [
+"14/10/2025",
+"22/05/2026"
+],
+"n": 424
+},
+{
+"sezione": "",
+"testo": "L'UNIVERSITA' DEGLI STUDI DI PALERMO HA SEDE IN",
+"risposte": [
+"VIALE DELLE OLIMPIADI",
+"VIALE DELLE SCIENZE",
+"VIALE REGIONE SICILIANA"
+],
+"esatta": 1,
+"file": "paen/q31.pdf",
+"pagina": 1,
+"seduta": "22/07/2025",
+"n_seduta": 1,
+"n": 425
+},
+{
+"sezione": "",
+"testo": "ALL'USCITA DELLE GALLERIE STRADALI E' OPPORTUNO",
+"risposte": [
+"NON SORPASSARE, NEANCHE NELLE CARREGGIATE A SENSO UNICO",
+"RALLENTARE L'ANDATURA CON SUFFICIENTE ANTICIPO",
+"FRENARE BRUSCAMENTE"
+],
+"esatta": 1,
+"file": "paen/q31.pdf",
+"pagina": 1,
+"seduta": "22/07/2025",
+"n_seduta": 2,
+"n": 426
+},
+{
+"sezione": "",
+"testo": "Da quale data di prima immatricolazione le autovetture adibite al servizio taxi devono essere dello specifico colore uniforme",
+"risposte": [
+"dal 01.01.1997",
+"dal 01.01.1993",
+"dal 01.01.2000"
+],
+"esatta": 1,
+"file": "paen/q31.pdf",
+"pagina": 1,
+"seduta": "22/07/2025",
+"n_seduta": 3,
+"n": 427
+},
+{
+"sezione": "",
+"testo": "Giungendo in prossimità di un incrocio, si deve",
+"risposte": [
+"Procedere in ogni caso molto lentamente",
+"Prestare attenzione solo ai veicoli provenienti da destra",
+"Non impegnare l’incrocio se non si ha la possibilità di proseguire e sgombrare l’area di manovra"
+],
+"esatta": 2,
+"file": "paen/q31.pdf",
+"pagina": 1,
+"seduta": "22/07/2025",
+"n_seduta": 4,
+"n": 428
+},
+{
+"sezione": "",
+"testo": "Su tutte le strade (e loro pertinenze) è vietato",
+"risposte": [
+"Gettare dai veicoli in movimento qualsiasi cosa",
+"Usare l'avvisatore acustico (clacson)",
+"Il transito di veicoli eccezionali"
+],
+"esatta": 0,
+"file": "paen/q31.pdf",
+"pagina": 1,
+"seduta": "22/07/2025",
+"n_seduta": 5,
+"n": 429
+},
+{
+"sezione": "",
+"testo": "La responsabilità penale connessa al sinistro stradale sorge",
+"risposte": [
+"Qualora il conducente provochi lesioni, di qualsiasi entità",
+"In ogni caso sia violato il Codice della Strada",
+"Qualora il conducente provochi lesioni e sia punibile a querela dalla persona offesa"
+],
+"esatta": 2,
+"file": "paen/q31.pdf",
+"pagina": 1,
+"seduta": "22/07/2025",
+"n_seduta": 6,
+"n": 430
+},
+{
+"sezione": "",
+"testo": "Per adattarsi alle condizioni contrarie del tempo e prevenire incidenti stradali occorre",
+"risposte": [
+"Tenere i lampeggianti di sinistra accesi per segnalare la propria presenza",
+"Aumentare la distanza di sicurezza dal veicolo che precede",
+"Accendere i proiettori fendinebbia solo di notte"
+],
+"esatta": 1,
+"file": "paen/q31.pdf",
+"pagina": 1,
+"seduta": "22/07/2025",
+"n_seduta": 7,
+"n": 431
+},
+{
+"sezione": "",
+"testo": "Quale sanzione si applica a chi adibisce a servizio di noleggio con conducente per trasporto di persone un veicolo (esclusi gli autobus) non destinato a tale uso",
+"risposte": [
+"un'ammenda",
+"una sanzione amministrativa e sospensione della carta di circolazione da due a otto mesi",
+"le sanzioni previste dai regolamenti comunali di esercizio"
+],
+"esatta": 1,
+"file": "paen/q31.pdf",
+"pagina": 2,
+"seduta": "22/07/2025",
+"n_seduta": 8,
+"n": 432
+},
+{
+"sezione": "",
+"testo": "A quale categoria di veicoli appartengono i veicoli d'epoca o quelli di interesse storico o collezionistico",
+"risposte": [
+"a quella corrispondente alle caratteristiche tecniche previste dal Codice della Strada",
+"a quella dei veicoli con caratteristiche atipiche",
+"a quella dei veicoli cancellati dal PRA"
+],
+"esatta": 1,
+"file": "paen/q31.pdf",
+"pagina": 2,
+"seduta": "22/07/2025",
+"n_seduta": 9,
+"altre_sedute": [
+"14/10/2025",
+"02/12/2025"
+],
+"n": 433
+},
+{
+"sezione": "",
+"testo": "Con quale obiettivo le Regioni delegano agli enti locali l'esercizio delle funzioni amministrative in materia di autoservizi pubblici non di linea",
+"risposte": [
+"per la semplificazione delle procedure",
+"per il decentramento amministrativo",
+"per garantire la visione integrata del trasporto non di linea con gli altri modi di trasporto"
+],
+"esatta": 2,
+"file": "paen/q31.pdf",
+"pagina": 2,
+"seduta": "22/07/2025",
+"n_seduta": 11,
+"n": 434
+},
+{
+"sezione": "",
+"testo": "Il Comune può sottoporre a particolare verifica un veicolo da adibire a servizio taxi o noleggio con conducente, prima che sia immesso in servizio",
+"risposte": [
+"no, deve solo accertare l'avvenuto rilascio della specifica carta di circolazione",
+"no, può solo segnalare all'Ufficio Periferico del DDT – ex MCTC – le sue necessità all'atto del rilascio della carta di circolazione",
+"si, anzi deve verificarne la rispondenza ad eventuali prescrizioni specifiche"
+],
+"esatta": 2,
+"file": "paen/q31.pdf",
+"pagina": 2,
+"seduta": "22/07/2025",
+"n_seduta": 14,
+"n": 435
+},
+{
+"sezione": "",
+"testo": "Per esercitare il servizio di taxi è necessario essere titolare di un'impresa di trasporto",
+"risposte": [
+"no",
+"si, purché sia una impresa artigiana",
+"no, basta essere iscritti al registro dei mestieri girovaghi"
+],
+"esatta": 0,
+"file": "paen/q31.pdf",
+"pagina": 3,
+"seduta": "22/07/2025",
+"n_seduta": 19,
+"altre_sedute": [
+"22/05/2026"
+],
+"n": 436
+},
+{
+"sezione": "",
+"testo": "Quale autorità stabilisce i limiti massimi delle licenze e delle autorizzazioni che possono essere assentite da ogni Comune",
+"risposte": [
+"la Camera di Commercio",
+"la Provincia",
+"la Regione"
+],
+"esatta": 2,
+"file": "paen/q31.pdf",
+"pagina": 3,
+"seduta": "22/07/2025",
+"n_seduta": 20,
+"altre_sedute": [
+"22/05/2026"
+],
+"n": 437
+},
+{
+"sezione": "",
+"testo": "Quale è il minimo di garanzia per l'assicurazione obbligatoria della responsabilità civile per autovetture in servizio di taxi",
+"risposte": [
+"12.000.000,00 euro",
+"1.549.370,70 euro",
+"2.582.284,50 euro"
+],
+"esatta": 0,
+"file": "paen/q31.pdf",
+"pagina": 3,
+"seduta": "22/07/2025",
+"n_seduta": 21,
+"n": 438
+},
+{
+"sezione": "",
+"testo": "Cosa serve per far circolare i veicoli d'epoca",
+"risposte": [
+"nessuna autorizzazione particolare",
+"una specifica autorizzazione per ogni uscita rilasciata dall'Ufficio Periferico del Dipartimento dei Trasporti Terrestri – ex MCTC",
+"l'iscrizione all'Elenco presso il Centro Storico del Dipartimento dei Trasporti Terrestri – ex Direzione Generale MCTC"
+],
+"esatta": 1,
+"file": "paen/q32.pdf",
+"pagina": 1,
+"seduta": "02/09/2025",
+"n_seduta": 2,
+"n": 439
+},
+{
+"sezione": "",
+"testo": "I conducenti di autovetture per il trasporto di persone in servizio pubblico di taxi o NCC sono esentati dall'obbligo di indossare le cinture di sicurezza",
+"risposte": [
+"no",
+"si",
+"solo durante il servizio nei centri abitati"
+],
+"esatta": 0,
+"file": "paen/q32.pdf",
+"pagina": 1,
+"seduta": "02/09/2025",
+"n_seduta": 3,
+"n": 440
+},
+{
+"sezione": "",
+"testo": "I pneumatici con lesioni sui fianchi che interessano le tele",
+"risposte": [
+"Debbono essere ricostruiti",
+"Costituiscono pericolo solo se utilizzati ad alta pressione",
+"Si devono sostituire"
+],
+"esatta": 2,
+"file": "paen/q32.pdf",
+"pagina": 1,
+"seduta": "02/09/2025",
+"n_seduta": 4,
+"n": 441
+},
+{
+"sezione": "",
+"testo": "I pneumatici dei veicoli con battistrada eccessivamente usurato",
+"risposte": [
+"Influiscono negativamente sulla frenatura",
+"Non aumentano la probabilità d'incidenti stradali",
+"Influiscono sulla stabilità del veicolo solo in curva"
+],
+"esatta": 0,
+"file": "paen/q32.pdf",
+"pagina": 1,
+"seduta": "02/09/2025",
+"n_seduta": 5,
+"n": 442
+},
+{
+"sezione": "",
+"testo": "Su un'autostrada",
+"risposte": [
+"Si può dare passaggi agli autostoppisti, solo sulle rampe",
+"È consentita la libera circolazione dei cani solo sulle aree di servizio",
+"Avvicinandosi alle porte delle stazioni i conducenti sono tenuti a mantenere la fila prescelta"
+],
+"esatta": 2,
+"file": "paen/q32.pdf",
+"pagina": 1,
+"seduta": "02/09/2025",
+"n_seduta": 6,
+"n": 443
+},
+{
+"sezione": "",
+"testo": "La fermata del veicolo non è consentita",
+"risposte": [
+"Alle fermate degli autobus, tranne che nelle ore notturne in cui il servizio è sospeso",
+"In corrispondenza degli incroci",
+"Nelle strade extraurbane tranne casi di necessità"
+],
+"esatta": 1,
+"file": "paen/q32.pdf",
+"pagina": 2,
+"seduta": "02/09/2025",
+"n_seduta": 7,
+"n": 444
+},
+{
+"sezione": "",
+"testo": "Quanti posti possono avere al massimo le autovetture",
+"risposte": [
+"nove compreso il conducente",
+"sette più il conducente",
+"nove più il conducente"
+],
+"esatta": 0,
+"file": "paen/q32.pdf",
+"pagina": 2,
+"seduta": "02/09/2025",
+"n_seduta": 8,
+"n": 445
+},
+{
+"sezione": "",
+"testo": "A cosa si estende la responsabilità del vettore nel contratto di trasporto, se avviene con ritardo o non viene effettuato per motivi imputabili al trasportatore stesso",
+"risposte": [
+"solo ad eventuali perdite",
+"anche a mancati guadagni causati dal mancato adempimento contrattuale",
+"solo al prezzo già pagato per il trasporto, che deve essere rimborsato"
+],
+"esatta": 1,
+"file": "paen/q32.pdf",
+"pagina": 2,
+"seduta": "02/09/2025",
+"n_seduta": 9,
+"n": 446
+},
+{
+"sezione": "",
+"testo": "A quale delle seguenti attività si applica l'esenzione dall'obbligo generalizzato di emissioni di ricevuta o scontrino fiscale per le prestazioni di trasporto effettuate",
+"risposte": [
+"il trasporto con veicoli a trazione animale e servizio di taxi",
+"servizio di taxi e noleggio con conducente con autovettura",
+"servizio di noleggio con autovettura"
+],
+"esatta": 0,
+"file": "paen/q32.pdf",
+"pagina": 2,
+"seduta": "02/09/2025",
+"n_seduta": 10,
+"altre_sedute": [
+"02/12/2025"
+],
+"n": 447
+},
+{
+"sezione": "",
+"testo": "Alla guida di un autoveicolo adibito a servizio di taxi o noleggio con conducente l'uso della cintura di sicurezza e' obbligatorio",
+"risposte": [
+"mai",
+"sempre",
+"solo fuori dai centri abitati"
+],
+"esatta": 1,
+"file": "paen/q32.pdf",
+"pagina": 2,
+"seduta": "02/09/2025",
+"n_seduta": 11,
+"n": 448
+},
+{
+"sezione": "",
+"testo": "Che dimensione massima di scritte e stemmi dell'azienda esercente il servizio di taxi e il Comune di appartenenza è ammessa sulle fiancate della vettura",
+"risposte": [
+"non possono essere ammesse",
+"quelle identificate dal regolamento comunale",
+"875 cmq"
+],
+"esatta": 2,
+"file": "paen/q32.pdf",
+"pagina": 2,
+"seduta": "02/09/2025",
+"n_seduta": 12,
+"altre_sedute": [
+"02/12/2025"
+],
+"n": 449
+},
+{
+"sezione": "",
+"testo": "Quale targa particolare devono esporre le autovetture adibite al servizio di noleggio con conducente",
+"risposte": [
+"una posteriore, inamovibile, con dicitura “NCC”, numero progressivo e stemma comunale",
+"una anteriore, con dicitura “NCC”",
+"nessuna targa oltre a quella di immatricolazione"
+],
+"esatta": 0,
+"file": "paen/q32.pdf",
+"pagina": 2,
+"seduta": "02/09/2025",
+"n_seduta": 13,
+"altre_sedute": [
+"14/10/2025"
+],
+"n": 450
+},
+{
+"sezione": "",
+"testo": "Come viene definito l'uso di un veicolo adibito a servizio di noleggio con conducente",
+"risposte": [
+"uso privato",
+"uso di terzi",
+"uso pubblico"
+],
+"esatta": 1,
+"file": "paen/q32.pdf",
+"pagina": 2,
+"seduta": "02/09/2025",
+"n_seduta": 14,
+"altre_sedute": [
+"14/10/2025"
+],
+"n": 451
+},
+{
+"sezione": "",
+"testo": "Come viene rilasciata la licenza o l'autorizzazione ad autoservizi pubblici non di linea",
+"risposte": [
+"a richiesta",
+"a seguito di denuncia di inizio del servizio",
+"tramite concorso pubblico"
+],
+"esatta": 2,
+"file": "paen/q32.pdf",
+"pagina": 3,
+"seduta": "02/09/2025",
+"n_seduta": 15,
+"n": 452
+},
+{
+"sezione": "",
+"testo": "DOVE SI TROVA LA PREFETTURA DI PALERMO",
+"risposte": [
+"PIAZZA EUROPA",
+"VIA CAVOUR",
+"PIAZZA GIULIO CESARE"
+],
+"esatta": 1,
+"file": "paen/q33.pdf",
+"pagina": 1,
+"seduta": "14/10/2025",
+"n_seduta": 1,
+"n": 453
+},
+{
+"sezione": "",
+"testo": "IN QUALE CASO SI DEVE IN PARTICOLARE MODERARE LA VELOCITA'",
+"risposte": [
+"IN PROSSIMITA' DELLE SCUOLE",
+"FUORI DAI CENTRI ABITATI",
+"QUANDO IL VEICOLO CHE SEGUE E' DI CILINDRATA SUPERIORE"
+],
+"esatta": 0,
+"file": "paen/q33.pdf",
+"pagina": 1,
+"seduta": "14/10/2025",
+"n_seduta": 2,
+"n": 454
+},
+{
+"sezione": "",
+"testo": "Cosa comporta la perdita totale del punteggio della patente di guida",
+"risposte": [
+"il titolare deve sottoporsi a esame di idoneità tecnica per la revisione della patente di guida",
+"il titolare deve iscriversi subito a un corso di aggiornamento",
+"la patente viene sospesa per 30 giorni"
+],
+"esatta": 0,
+"file": "paen/q33.pdf",
+"pagina": 1,
+"seduta": "14/10/2025",
+"n_seduta": 3,
+"n": 455
+},
+{
+"sezione": "",
+"testo": "I pneumatici dei veicoli con battistrada con intagli profondi meno di 1.6 mm",
+"risposte": [
+"Devono essere sostituiti",
+"Non aumentano la probabilità d'incidenti stradali",
+"Possono ancora essere utilizzati fino ad usura con intagli di almeno 0.6 mm di profondità"
+],
+"esatta": 0,
+"file": "paen/q33.pdf",
+"pagina": 1,
+"seduta": "14/10/2025",
+"n_seduta": 4,
+"n": 456
+},
+{
+"sezione": "",
+"testo": "IN CASO DI NECESSITA' QUANTO TEMPO SI PUO' SOSTARE NELLA CORSIA DI EMERGENZA IN AUTOSTRADA",
+"risposte": [
+"UN'ORA",
+"TRE ORE",
+"CINQUE ORE"
+],
+"esatta": 1,
+"file": "paen/q33.pdf",
+"pagina": 1,
+"seduta": "14/10/2025",
+"n_seduta": 5,
+"n": 457
+},
+{
+"sezione": "",
+"testo": "Lo spazio necessario alla manovra di sorpasso",
+"risposte": [
+"Aumenta se aumenta la velocità del veicolo sorpassato",
+"Non interessa ai fini della sicurezza stradale",
+"Non dipende dalla lunghezza dei veicoli sorpassante e sorpassato"
+],
+"esatta": 0,
+"file": "paen/q33.pdf",
+"pagina": 1,
+"seduta": "14/10/2025",
+"n_seduta": 6,
+"n": 458
+},
+{
+"sezione": "",
+"testo": "Per ridurre l’inquinamento provocato dai veicoli con motore diesel bisogna",
+"risposte": [
+"Sostituire periodicamente il filtro dell’aria",
+"Utilizzare il motore al massimo numero di giri consentito",
+"Sostituire periodicamente il filtro dell’olio"
+],
+"esatta": 0,
+"file": "paen/q33.pdf",
+"pagina": 1,
+"seduta": "14/10/2025",
+"n_seduta": 7,
+"n": 459
+},
+{
+"sezione": "",
+"testo": "Presso quale registro sono iscritti i veicoli d'interesse storico e collezionistico",
+"risposte": [
+"solo presso un registro particolare",
+"solo presso al PRA",
+"devono essere iscritti a uno dei seguenti registri: ASI, Storico Lancia, Italiano FIAT, Italiano Alfa Romeo, Storico FMI"
+],
+"esatta": 2,
+"file": "paen/q33.pdf",
+"pagina": 2,
+"seduta": "14/10/2025",
+"n_seduta": 8,
+"n": 460
+},
+{
+"sezione": "",
+"testo": "Che sanzione è prevista per scritte pubblicitarie luminose poste su veicoli adibiti a servizi pubblici non di linea ma difformi da quanto eventualmente possibile",
+"risposte": [
+"una sanzione amministrativa",
+"una multa",
+"il sequestro del veicolo"
+],
+"esatta": 0,
+"file": "paen/q33.pdf",
+"pagina": 2,
+"seduta": "14/10/2025",
+"n_seduta": 10,
+"n": 461
+},
+{
+"sezione": "",
+"testo": "In quale dei seguenti casi le licenze e autorizzazioni possono essere trasferite a richiesta dal titolare",
+"risposte": [
+"se egli l'ha ottenuta da almeno tre anni",
+"se egli ha raggiunto cinquantacinque anni",
+"se egli è divenuto inabile o inidoneo al servizio in via permanente"
+],
+"esatta": 2,
+"file": "paen/q33.pdf",
+"pagina": 2,
+"seduta": "14/10/2025",
+"n_seduta": 14,
+"n": 462
+},
+{
+"sezione": "",
+"testo": "Nel servizio taxi, è necessario l'assenso del conducente per destinazioni esterne al territorio comunale o comprensoriale",
+"risposte": [
+"solo in servizio notturno",
+"si, sempre",
+"no, il servizio è obbligatorio se l'utente è già salito a bordo"
+],
+"esatta": 1,
+"file": "paen/q33.pdf",
+"pagina": 3,
+"seduta": "14/10/2025",
+"n_seduta": 16,
+"n": 463
+},
+{
+"sezione": "",
+"testo": "Per il rilascio di una licenza o autorizzazione per autoservizi pubblici non di linea, è utile avere esercitato attività di conducente come dipendente o sostituto",
+"risposte": [
+"si, costituisce titolo preferenziale se il servizio è stato prestato per almeno sei mesi",
+"si, costituisce titolo preferenziale proporzionale al numero di anni di effettivo esercizio",
+"no"
+],
+"esatta": 0,
+"file": "paen/q33.pdf",
+"pagina": 3,
+"seduta": "14/10/2025",
+"n_seduta": 17,
+"n": 464
+},
+{
+"sezione": "",
+"testo": "Quale autorità determina i criteri per il calcolo annuale delle tariffe per il servizio taxi",
+"risposte": [
+"il Comune",
+"il Ministero delle Infrastrutture e dei Trasporti",
+"la Provincia"
+],
+"esatta": 0,
+"file": "paen/q33.pdf",
+"pagina": 3,
+"seduta": "14/10/2025",
+"n_seduta": 18,
+"n": 465
+},
+{
+"sezione": "",
+"testo": "L'AEROPORTO DI PALERMO \"FALCONE-BORSELLINO\" (GIA' PUNTA RAISI) SI TROVA NEL TERRITORIO DI",
+"risposte": [
+"PALERMO",
+"CINISI",
+"TERRASINI"
+],
+"esatta": 1,
+"file": "paen/q34.pdf",
+"pagina": 1,
+"seduta": "02/12/2025",
+"n_seduta": 1,
+"n": 466
+},
+{
+"sezione": "",
+"testo": "A seguito di un incidente stradale con feriti, cosa bisogna fare in attesa dell'arrivo dei soccorsi",
+"risposte": [
+"Cercare di ricostruire la dinamica dell'incidente",
+"Rimuovere i veicoli incidentati",
+"Proteggere il luogo dell'incidente e prestare prima assistenza ai feriti"
+],
+"esatta": 2,
+"file": "paen/q34.pdf",
+"pagina": 1,
+"seduta": "02/12/2025",
+"n_seduta": 2,
+"n": 467
+},
+{
+"sezione": "",
+"testo": "IN UNA CARREGGIATA A DOPPIO SENSO DI CIRCOLAZIONE, LA STRISCIA LUNGO L'ASSE",
+"risposte": [
+"SEPARA I SENSI DI MARCIA",
+"PUO' ESSERE DOPPIA, CON DUE STRISCE DISCONTINUE AFFIANCATE",
+"DIVIDE LA STRADA IN DUE CARREGGIATE"
+],
+"esatta": 0,
+"file": "paen/q34.pdf",
+"pagina": 1,
+"seduta": "02/12/2025",
+"n_seduta": 5,
+"n": 468
+},
+{
+"sezione": "",
+"testo": "La distanza di sicurezza nel caso di strada innevata in presenza della macchina sgombraneve",
+"risposte": [
+"Deve essere uguale allo spazio di frenatura aumentato di 20 metri",
+"Deve essere almeno uguale allo spazio percorso durante il tempo di reazione del conducente",
+"Deve essere uguale allo spazio di arresto del veicolo"
+],
+"esatta": 1,
+"file": "paen/q34.pdf",
+"pagina": 1,
+"seduta": "02/12/2025",
+"n_seduta": 6,
+"n": 469
+},
+{
+"sezione": "",
+"testo": "Ogni quanto i veicoli destinati a taxi e NCC devono andare a revisione per i controlli di sicurezza per la circolazione, di silenziosità e di inquinamento",
+"risposte": [
+"ogni cinque anni",
+"ogni due anni",
+"ogni anno"
+],
+"esatta": 2,
+"file": "paen/q34.pdf",
+"pagina": 2,
+"seduta": "02/12/2025",
+"n_seduta": 7,
+"n": 470
+},
+{
+"sezione": "",
+"testo": "In caso di acquisto in leasing di un veicolo a motore da adibire a servizi pubblici non di linea, a nome di chi esso viene immatricolato",
+"risposte": [
+"del locatore",
+"del locatario",
+"del locatore, ma si trascrive sulla carta di circolazione il nome del locatario"
+],
+"esatta": 2,
+"file": "paen/q34.pdf",
+"pagina": 3,
+"seduta": "02/12/2025",
+"n_seduta": 16,
+"n": 471
+},
+{
+"sezione": "",
+"testo": "Ogni quanto tempo deve essere verificato e adeguato il Piano Urbano del Traffico",
+"risposte": [
+"annualmente",
+"ogni cinque anni",
+"ogni due anni"
+],
+"esatta": 2,
+"file": "paen/q34.pdf",
+"pagina": 3,
+"seduta": "02/12/2025",
+"n_seduta": 17,
+"n": 472
+},
+{
+"sezione": "",
+"testo": "Quale Ente applica le sanzioni per l'inosservanza dell'obbligatorietà della prestazione del servizio di taxi",
+"risposte": [
+"la Regione",
+"la Provincia",
+"il Comune"
+],
+"esatta": 2,
+"file": "paen/q34.pdf",
+"pagina": 3,
+"seduta": "02/12/2025",
+"n_seduta": 21,
+"n": 473
+},
+{
+"sezione": "",
+"testo": "Allorché, circolando di notte su strada extraurbana, veniamo abbagliati dai fari dell’autoveicolo che viene in senso opposto, occorre",
+"risposte": [
+"Procedere con prudenza, usando le luci anabbaglianti",
+"Procedere a nostra volta con i fari abbaglianti, onde vedere bene la strada",
+"Segnalare il pericolo azionando l’accensione simultanea di tutti gli indicatori di direzione"
+],
+"esatta": 0,
+"file": "paen/q35.pdf",
+"pagina": 1,
+"seduta": "22/05/2026",
+"n_seduta": 2,
+"n": 474
+},
+{
+"sezione": "",
+"testo": "Il Carico deve essere sistemato sul veicolo in modo da",
+"risposte": [
+"Non impedire la libertà di movimenti nella guida",
+"Non superare la sporgenza dello stesso dalla parte anteriore del veicolo di più dei tre decimi",
+"Non superare di oltre il 10% la portata utile indicata sul documento di circolazione"
+],
+"esatta": 0,
+"file": "paen/q35.pdf",
+"pagina": 1,
+"seduta": "22/05/2026",
+"n_seduta": 3,
+"n": 475
+},
+{
+"sezione": "",
+"testo": "Il soccorso in caso di incidente stradale è un dovere imposto dal codice penale o solo un comportamento civile e opportuno",
+"risposte": [
+"E' un comportamento opportuno ma non obbligatorio",
+"E' un comportamento inopportuno, perché conviene che intervenga un medico",
+"E' un dovere imposto sia dal codice penale, sia dal codice della strada"
+],
+"esatta": 2,
+"file": "paen/q35.pdf",
+"pagina": 1,
+"seduta": "22/05/2026",
+"n_seduta": 4,
+"n": 476
+},
+{
+"sezione": "",
+"testo": "LA GUIDA IN STATO DI EBBREZZA",
+"risposte": [
+"E' CONSENTITA SE SI CIRCOLA A VELOCITA' MODERATA",
+"E' CONSENTITA IN ASSENZA DI PASSEGGERI A BORDO",
+"COSTITUISCE UN REATO"
+],
+"esatta": 2,
+"file": "paen/q35.pdf",
+"pagina": 1,
+"seduta": "22/05/2026",
+"n_seduta": 5,
+"n": 477
+},
+{
+"sezione": "",
+"testo": "QUAL'E' IL LIMITE DI VELOCITA' NEI CENTRI ABITATI",
+"risposte": [
+"50 KM/H",
+"30 KM/H",
+"40 KM/H"
+],
+"esatta": 0,
+"file": "paen/q35.pdf",
+"pagina": 1,
+"seduta": "22/05/2026",
+"n_seduta": 6,
+"n": 478
+},
+{
+"sezione": "",
+"testo": "Quale sanzione si applica a chi circola con autoveicoli di interesse storico e collezionistico sprovvisti dei requisiti previsti dal regolamento",
+"risposte": [
+"il sequestro del veicolo",
+"una sanzione amministrativa",
+"una multa"
+],
+"esatta": 1,
+"file": "paen/q35.pdf",
+"pagina": 2,
+"seduta": "22/05/2026",
+"n_seduta": 7,
+"n": 479
+},
+{
+"sezione": "",
+"testo": "Dove deve avvenire il prelevamento dell'utente o l'inizio del servizio di taxi",
+"risposte": [
+"esclusivamente entro l'area comunale",
+"entro l'area comunale o comprensoriale",
+"entro l'area provinciale"
+],
+"esatta": 1,
+"file": "paen/q35.pdf",
+"pagina": 2,
+"seduta": "22/05/2026",
+"n_seduta": 11,
+"n": 480
+},
+{
+"sezione": "",
+"testo": "Nelle cooperative di trasporto – servizio taxi – costituite come cooperative di produzione e lavoro possono essere associati anche sostituti alla guida",
+"risposte": [
+"si",
+"solo entro il limite percentuale determinato dal Comune con regolamento",
+"no"
+],
+"esatta": 0,
+"file": "paen/q35.pdf",
+"pagina": 3,
+"seduta": "22/05/2026",
+"n_seduta": 16,
+"n": 481
+},
+{
+"sezione": "",
+"testo": "Per quali autoservizi pubblici non di linea è necessario disporre di una rimessa propria",
+"risposte": [
+"sia per il taxi che per il noleggio con conducente",
+"solo per taxi",
+"solo per noleggio con conducente"
+],
+"esatta": 2,
+"file": "paen/q35.pdf",
+"pagina": 3,
+"seduta": "22/05/2026",
+"n_seduta": 18,
+"n": 482
+}
+],
+"scartate": {
+"nulle": 1,
+"doppie": 243
+}
+}

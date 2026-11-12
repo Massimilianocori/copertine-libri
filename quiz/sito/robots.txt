@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://quiz-ufficiali.netlify.app/sitemap.xml

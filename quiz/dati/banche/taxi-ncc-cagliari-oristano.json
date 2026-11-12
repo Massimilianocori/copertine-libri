@@ -1,0 +1,6670 @@
+{
+"_nota": "Scritto da raccolta/estrai.py dal PDF ufficiale (vedi dati/fonti.json). Non modificare a mano.",
+"id": "taxi-ncc-cagliari-oristano",
+"domande": [
+{
+"n": 1,
+"sezione": "Codice della strada",
+"testo": "Quale sanzione si applica a chi lascia il veicolo in sosta con il motore acceso?",
+"risposte": [
+"una sanzione amministrativa pecuniaria",
+"nessuna sanzione",
+"una sanzione amministrativa pecuniaria e la decurtazione di due punti dalla patente"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 1,
+"n_sezione": 1
+},
+{
+"n": 2,
+"sezione": "Codice della strada",
+"testo": "Cosa comporta la perdita totale del punteggio della patente di guida?",
+"risposte": [
+"il titolare deve sottoporsi a esame di idoneità tecnica per la revisione della patente di guida",
+"il titolare deve iscriversi subito a un corso di aggiornamento",
+"la patente viene sospesa per 30 giorni"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 1,
+"n_sezione": 2
+},
+{
+"n": 3,
+"sezione": "Codice della strada",
+"testo": "Quanti punti è consentito riacquistare, attraverso la frequenza ai corsi di aggiornamento, in base alle norme sulla patente a punti?",
+"risposte": [
+"6 punti per tutti",
+"6 punti, aumentati a 9 per i titolari di CAP/CQC",
+"9 punti per tutti"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 1,
+"n_sezione": 3
+},
+{
+"n": 4,
+"sezione": "Codice della strada",
+"testo": "Quanti punti è consentito riacquistare, attraverso la frequenza ai corsi di aggiornamento, in base alle norme sulla patente a punti, per i titolari di CAP/CQC?",
+"risposte": [
+"tanti quanti necessari a riottenere la patente di guida",
+"6 punti",
+"9 punti"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 1,
+"n_sezione": 4
+},
+{
+"n": 5,
+"sezione": "Codice della strada",
+"testo": "Quale sanzione si applica a chi guida un veicolo senza aver conseguito il certificato di idoneità professionale prescritto?",
+"risposte": [
+"una ammenda",
+"una sanzione amministrativa e il fermo amministrativo del veicolo",
+"l'arresto sino a tre mesi"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 1,
+"n_sezione": 5
+},
+{
+"n": 6,
+"sezione": "Codice della strada",
+"testo": "Entro quanto tempo dalla notifica della perdita totale del punteggio sulla patente, il titolare deve presentare istanza per la revisione patente?",
+"risposte": [
+"9 giorni",
+"30 giorni, pena la sospensione a tempo indeterminato della patente",
+"60 giorni, pena il ritiro della patente"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 1,
+"n_sezione": 6
+},
+{
+"n": 7,
+"sezione": "Codice della strada",
+"testo": "Quale sanzione si applica a chi affida la guida di un veicolo a chi non abbia conseguito la patente o il certificato di idoneità professionale prescritti?",
+"risposte": [
+"una ammenda",
+"una sanzione amministrativa",
+"l'arresto sino a tre mesi"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 1,
+"n_sezione": 7
+},
+{
+"n": 8,
+"sezione": "Codice della strada",
+"testo": "Quali sanzioni si applicano a chi lascia un automezzo in sosta vietata, ostacolando la regolare circolazione viaria, nelle aree aeroportuali o portuali?",
+"risposte": [
+"le stesse che si applicano nel caso delle strade ordinarie",
+"il sequestro dell'automezzo",
+"le stesse che si applicano nel caso delle strade ordinarie, più il sequestro conservativo"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 1,
+"n_sezione": 8
+},
+{
+"n": 9,
+"sezione": "Codice della strada",
+"testo": "I conducenti di veicoli adibiti a servizio di taxi o noleggio con conducente sono autorizzati a fare uso di apparecchi radiotelefonici ovvero di cuffie sonore?",
+"risposte": [
+"no",
+"sì, sempre",
+"sì, solo nei centri abitati o non durante la marcia"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 2,
+"n_sezione": 9
+},
+{
+"n": 10,
+"sezione": "Codice della strada",
+"testo": "Quale obbligo specifico ha il conducente di veicoli addetti a uso di terzi rispetto a quello di veicoli addetti ad uso proprio?",
+"risposte": [
+"avere con sé il certificato di idoneità tecnica",
+"avere con sé la carta di circolazione",
+"avere con sé la licenza o autorizzazione comunale che lo abilità al servizio"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 2,
+"n_sezione": 10
+},
+{
+"n": 11,
+"sezione": "Codice della strada",
+"testo": "A quali condizioni è consentito trasportare animali domestici nelle autovetture?",
+"risposte": [
+"non è consentito in alcun caso",
+"al massimo uno",
+"senza limiti, purché siano custoditi in apposita gabbia o contenitore o nel vano posteriore al posto di guida, con divisorio"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 2,
+"n_sezione": 11
+},
+{
+"n": 12,
+"sezione": "Codice della strada",
+"testo": "È sempre obbligatorio, per il conducente di veicoli adibiti a servizio pubblico di trasporto di persone, avere con sé la carta di circolazione in originale?",
+"risposte": [
+"sì, sempre",
+"no, basta avere una fotocopia autenticata dal proprietario con sottoscrizione del medesimo",
+"no, basta avere una fotocopia in carta semplice"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 2,
+"n_sezione": 12
+},
+{
+"n": 13,
+"sezione": "Codice della strada",
+"testo": "I bambini di statura non superiore a 1,50 m, quando viaggiano negli autoveicoli adibiti al servizio di trasporto pubblico non di linea, devono essere assicurati al sedile con un sistema di ritenuta?",
+"risposte": [
+"no",
+"sì",
+"no, a condizione che non occupino un sedile anteriore e siano accompagnati da almeno un passeggero di età non inferiore ad anni sedici"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 2,
+"n_sezione": 13
+},
+{
+"n": 14,
+"sezione": "Codice della strada",
+"testo": "Qual è il tasso alcoolemico, misurato con l'etilometro, che non deve essere superato alla guida di un veicolo da parte dei conducenti che esercitano l'attività di trasporto di persone?",
+"risposte": [
+"0 grammi per litro di sangue",
+"0,5 grammi per litro di sangue",
+"1,5 grammi per litro di sangue, pari a 1 litro di birra bevuto a stomaco pieno"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 2,
+"n_sezione": 14
+},
+{
+"n": 15,
+"sezione": "Codice della strada",
+"testo": "Ai fini della destinazione a noleggio con conducente, le autoambulanze di trasporto e di soccorso sono definite autovetture e come tali sottoposte alle norme speciali statali e locali sugli autoservizi pubblici non di linea?",
+"risposte": [
+"sì, a tutti gli effetti",
+"no, sono definite autoveicoli adibiti al trasporto specifico di persone e sottostanno alle sole norme dell'art. 85 CdS",
+"solo se vengono svolti servizi all'interno dei centri abitati"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 2,
+"n_sezione": 15
+},
+{
+"n": 16,
+"sezione": "Codice della strada",
+"testo": "Il certificato di abilitazione professionale KB abilita anche a condurre i veicoli per i quali è necessario il certificato KA?",
+"risposte": [
+"sì",
+"no",
+"solo per spostamenti a vuoto"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 3,
+"n_sezione": 16
+},
+{
+"n": 17,
+"sezione": "Codice della strada",
+"testo": "Cos'è una corsia riservata?",
+"risposte": [
+"una corsia di marcia destinata alla circolazione esclusiva di una o alcune categorie di veicoli",
+"una parte della carreggiata in cui non è possibile circolare",
+"una corsia destinata al solo accesso dei frontisti"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 3,
+"n_sezione": 17
+},
+{
+"n": 18,
+"sezione": "Codice della strada",
+"testo": "Cos'è una zona a traffico limitato?",
+"risposte": [
+"un'area in cui accesso e circolazione veicolare sono limitati ad ore prestabilite o a particolari categorie di utenti o di veicoli",
+"una parte di una piazza destinata prevalentemente al parcheggio",
+"una parte della strada riservata a mezzi pubblici e di Emergenza"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 3,
+"n_sezione": 18
+},
+{
+"n": 19,
+"sezione": "Codice della strada",
+"testo": "I veicoli adibiti a servizi pubblici non di linea possono oltrepassare le strisce longitudinali continue che indicano il margine della carreggiata?",
+"risposte": [
+"no, solo i veicoli in servizio di pubblico interesse (carabinieri, ambulanze, polizia, etc.) ed i veicoli che devono effettuare una sosta di emergenza",
+"sì, sempre",
+"sì, ma solo quando sono in servizio"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 3,
+"n_sezione": 19
+},
+{
+"n": 20,
+"sezione": "Codice della strada",
+"testo": "In quali categorie internazionali sono classificate le autovetture?",
+"risposte": [
+"M1-M2-M3",
+"M1",
+"M1-M2"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 3,
+"n_sezione": 20
+},
+{
+"n": 21,
+"sezione": "Codice della strada",
+"testo": "È possibile installare su veicoli adibiti a servizi pubblici non di linea scritte o insegne pubblicitarie luminose?",
+"risposte": [
+"sì",
+"no",
+"solo nei casi previsti dal regolamento comunale di esercizio"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 3,
+"n_sezione": 21
+},
+{
+"n": 22,
+"sezione": "Codice della strada",
+"testo": "È possibile installare su veicoli adibiti a servizi pubblici non di linea scritte o insegne pubblicitarie rifrangenti?",
+"risposte": [
+"sì",
+"no",
+"sì, solo nei casi previsti dal regolamento di esecuzione del codice della strada"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 3,
+"n_sezione": 22
+},
+{
+"n": 23,
+"sezione": "Codice della strada",
+"testo": "Quale è la sanzione per chi installa su veicoli adibiti a servizi pubblici non di linea scritte o insegne pubblicitarie luminose o rifrangenti in difformità di quanto eventualmente previsto o possibile?",
+"risposte": [
+"una sanzione amministrativa",
+"una multa",
+"il sequestro del veicolo"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 3,
+"n_sezione": 23
+},
+{
+"n": 24,
+"sezione": "Codice della strada",
+"testo": "Quante ruote hanno i motoveicoli classificati motocarrozzette?",
+"risposte": [
+"due",
+"tre",
+"quattro"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 4,
+"n_sezione": 24
+},
+{
+"n": 25,
+"sezione": "Codice della strada",
+"testo": "Quanti posti possono avere al massimo le motocarrozzette?",
+"risposte": [
+"quattro più il guidatore",
+"quattro compreso il guidatore",
+"tre compreso il guidatore"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 4,
+"n_sezione": 25
+},
+{
+"n": 26,
+"sezione": "Codice della strada",
+"testo": "Quale è la larghezza massima per una motocarrozzetta?",
+"risposte": [
+"1,6 m",
+"1,4 m",
+"2,0 m"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 4,
+"n_sezione": 26
+},
+{
+"n": 27,
+"sezione": "Codice della strada",
+"testo": "Quale è la lunghezza massima per una motocarrozzetta?",
+"risposte": [
+"3,5 m",
+"4,0 m",
+"4,5 m"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 4,
+"n_sezione": 27
+},
+{
+"n": 28,
+"sezione": "Codice della strada",
+"testo": "Quale è l'altezza massima per una motocarrozzetta?",
+"risposte": [
+"1,5 m",
+"2,0 m",
+"2,5 m"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 4,
+"n_sezione": 28
+},
+{
+"n": 29,
+"sezione": "Codice della strada",
+"testo": "Come vengono considerati dal Codice della Strada i veicoli elettrici leggeri da città, i veicoli ibridi o multimodali, i microveicoli elettrici o elettroveicoli ultraleggeri?",
+"risposte": [
+"motoveicoli",
+"autovetture",
+"veicoli con caratteristiche atipiche"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 4,
+"n_sezione": 29
+},
+{
+"n": 30,
+"sezione": "Codice della strada",
+"testo": "Quale organo stabilisce le categorie cui assimilare i veicoli elettrici leggeri da città, i veicoli ibridi o multimodali, i microveicoli elettrici o elettroveicoli ultraleggeri, ai fini della circolazione e della guida?",
+"risposte": [
+"il Direttore dell'Ufficio Periferico del Dipartimento dei Trasporti Terrestri e Trasporto Intermodale- ex MCTC",
+"il Ministero dei Trasporti e delle Infrastrutture",
+"il Ministero dell'Ambiente, Tutela del Territorio e del Mare"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 4,
+"n_sezione": 30
+},
+{
+"n": 31,
+"sezione": "Codice della strada",
+"testo": "A quale categoria di veicoli sono considerati appartenenti i veicoli d'epoca o quelli di interesse storico o collezionistico?",
+"risposte": [
+"a quella corrispondente alle caratteristiche tecniche previste dal Codice della Strada",
+"a quella dei veicoli con caratteristiche atipiche",
+"a quella dei veicoli cancellati dal PRA"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 4,
+"n_sezione": 31
+},
+{
+"n": 32,
+"sezione": "Codice della strada",
+"testo": "Presso quale registro sono iscritti i veicoli d'epoca?",
+"risposte": [
+"a nessun registro",
+"al Pubblico Registro Automobilistico",
+"all'Elenco presso il Centro Storico del Dipartimento dei Trasporti Terrestri - ex Direzione Generale MCTC"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 4,
+"n_sezione": 32
+},
+{
+"n": 33,
+"sezione": "Codice della strada",
+"testo": "Cosa serve per far circolare i veicoli d'epoca?",
+"risposte": [
+"nessuna autorizzazione particolare",
+"una specifica autorizzazione per ogni uscita rilasciata dall'Ufficio Periferico del Dipartimento dei Trasporti Terrestri - ex MCTC",
+"l'iscrizione all'Elenco presso il Centro Storico del Dipartimento dei Trasporti Terrestri - ex Direzione Generale MCTC"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 5,
+"n_sezione": 33
+},
+{
+"n": 34,
+"sezione": "Codice della strada",
+"testo": "Presso quale registro sono iscritti i veicoli d'interesse storico e collezionistico?",
+"risposte": [
+"solo presso un registro particolare",
+"solo presso al PRA",
+"devono essere iscritti a uno dei seguenti registri: ASI, Storico Lancia, Italiano FIAT, Italiano Alfa Romeo, Storico FMI"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 5,
+"n_sezione": 34
+},
+{
+"n": 35,
+"sezione": "Codice della strada",
+"testo": "Quale autorità stabilisce norme specifiche sui dispositivi di equipaggiamento dei veicoli a motore destinati al trasporto di invalidi?",
+"risposte": [
+"il Ministero delle Infrastrutture e dei Trasporti",
+"il Ministero della Salute",
+"il Ministero dell'Ambiente"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 5,
+"n_sezione": 35
+},
+{
+"n": 36,
+"sezione": "Codice della strada",
+"testo": "I veicoli a motore, da adibire a servizio di noleggio con conducente o servizio di piazza, devono essere individualmente sottoposti all'accertamento dei requisiti di idoneità alla circolazione?",
+"risposte": [
+"no, se sono di tipo già omologato",
+"sì, anche se sono di tipo già omologato",
+"no, in nessun caso"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 5,
+"n_sezione": 36
+},
+{
+"n": 37,
+"sezione": "Codice della strada",
+"testo": "Quale sanzione si applica a chi circoli con un veicolo che non sia stato presentato alla prescritta revisione?",
+"risposte": [
+"una multa",
+"una sanzione amministrativa e il ritiro della carta di circolazione",
+"una sanzione amministrativa e la sospensione della carta di circolazione"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 5,
+"n_sezione": 37
+},
+{
+"n": 38,
+"sezione": "Codice della strada",
+"testo": "Come viene definita la locazione di un veicolo senza conducente?",
+"risposte": [
+"l'obbligo da parte del locatore di metterlo a disposizione del locatario a pagamento",
+"il prestito gratuito di una autovettura adibita ad uso privato",
+"un contratto di leasing"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 5,
+"n_sezione": 38
+},
+{
+"n": 39,
+"sezione": "Codice della strada",
+"testo": "Cosa si intende per \"uso\" di un veicolo?",
+"risposte": [
+"la sua utilizzazione in base alle caratteristiche tecniche",
+"la sua destinazione economica",
+"il chilometraggio medio annuo"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 5,
+"n_sezione": 39
+},
+{
+"n": 40,
+"sezione": "Codice della strada",
+"testo": "Perché l'uso di terzi viene considerato in funzione dell'intestatario della carta di circolazione dei veicolo, e non direttamente del proprietario?",
+"risposte": [
+"è lo stesso modo di definire la medesima persona",
+"l'intestatario della carta di circolazione non necessariamente è il proprietario",
+"il proprietario può adibire il veicolo solo ad uso proprio"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 5,
+"n_sezione": 40
+},
+{
+"n": 41,
+"sezione": "Codice della strada",
+"testo": "Come viene definito l'uso di terzi per un veicolo?",
+"risposte": [
+"uso a vantaggio di persona diversa dall'intestatario della carta di circolazione, a pagamento",
+"uso da parte di persona diversa dal proprietario",
+"uso in base a prestito gratuito"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 6,
+"n_sezione": 41
+},
+{
+"n": 42,
+"sezione": "Codice della strada",
+"testo": "Come viene definito l'uso proprio per un veicolo?",
+"risposte": [
+"uso da parte del proprietario del veicolo",
+"uso diverso da quello di terzi",
+"uso in base a prestito gratuito"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 6,
+"n_sezione": 42
+},
+{
+"n": 43,
+"sezione": "Codice della strada",
+"testo": "Come viene definito l'uso di un veicolo adibito a servizio di piazza o taxi?",
+"risposte": [
+"uso privato",
+"uso di terzi",
+"uso pubblico"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 6,
+"n_sezione": 43
+},
+{
+"n": 44,
+"sezione": "Codice della strada",
+"testo": "Come viene definito l'uso di un veicolo adibito a servizio di noleggio con conducente?",
+"risposte": [
+"uso privato",
+"uso di terzi",
+"uso pubblico"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 6,
+"n_sezione": 44
+},
+{
+"n": 45,
+"sezione": "Codice della strada",
+"testo": "In caso di acquisto in leasing di un veicolo a motore da adibire a servizi pubblici non di linea, a nome di chi esso viene immatricolato?",
+"risposte": [
+"del locatore",
+"del locatario",
+"del locatore, ma si trascrive sulla carta di circolazione il nome del locatario"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 6,
+"n_sezione": 45
+},
+{
+"n": 46,
+"sezione": "Codice della strada",
+"testo": "A quale normativa fa rinvio il Codice della Strada per la disciplina del servizio di piazza con autovetture con conducente o taxi?",
+"risposte": [
+"alle norme seguenti del Codice della Strada e relativo regolamento",
+"alle leggi specifiche che disciplinano il settore (l. 21/92)",
+"ai regolamenti comunali d'esercizio"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 6,
+"n_sezione": 46
+},
+{
+"n": 47,
+"sezione": "Codice della strada",
+"testo": "In caso di acquisto in leasing di un veicolo a motore da adibire a servizi pubblici non di linea, per quale uso viene immatricolato il veicolo?",
+"risposte": [
+"quello indicato dal locatario sulla base del titolo amministrativo (licenza o autorizzazione)",
+"ad uso noleggio senza conducente",
+"per locazione finanziaria senza conducente"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 6,
+"n_sezione": 47
+},
+{
+"n": 48,
+"sezione": "Codice della strada",
+"testo": "In caso di acquisto rateale (vendita con patto di riservato dominio) di un veicolo da adibire a servizi pubblici non di linea, a nome di chi esso viene immatricolato?",
+"risposte": [
+"a nome dell'acquirente",
+"a nome del venditore",
+"a nome dell'acquirente, ma con trascrizione sulla carta di circolazione del nome del venditore"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 6,
+"n_sezione": 48
+},
+{
+"n": 49,
+"sezione": "Codice della strada",
+"testo": "Quali sono i titoli della disponibilità giuridica di un veicolo a motore, che ne consentono l'immatricolazione e il rilascio della relativa carta di circolazione a nome del richiedente?",
+"risposte": [
+"proprietà",
+"possesso",
+"proprietà, con indicazione anche di usufruttuari, acquirenti in leasing e venditori a rate"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 7,
+"n_sezione": 49
+},
+{
+"n": 50,
+"sezione": "Codice della strada",
+"testo": "Il rilascio della carta di circolazione per un veicolo a motore da adibire uso di terzi - servizi pubblici non di linea richiede particolari formalità?",
+"risposte": [
+"no",
+"sì, il sostenimento di un esame presso l'Ufficio Periferico del Dipartimento dei Trasporti Terrestri - ex MCTC",
+"sì, la dimostrazione dell'esistenza del titolo amministrativo Comunale"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 7,
+"n_sezione": 50
+},
+{
+"n": 51,
+"sezione": "Codice della strada",
+"testo": "Cosa distingue il servizio di linea per trasporto di persone dai servizi non di linea, taxi o noleggio con conducente?",
+"risposte": [
+"l'effettuazione di corse con destinazione predeterminata su itinerari autorizzati",
+"l'offerta indifferenziata",
+"la tariffa prestabilita"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 7,
+"n_sezione": 51
+},
+{
+"n": 52,
+"sezione": "Codice della strada",
+"testo": "Esiste una normativa specifica per il servizio di piazza per il trasporto di cose per conto di terzi?",
+"risposte": [
+"sì, la legge n. 298/74 sul trasporto merci (art. 42-43)",
+"no, esso può essere svolto con un qualsiasi veicolo",
+"sì, esso può essere svolto con normali veicoli taxi adattati"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 7,
+"n_sezione": 52
+},
+{
+"n": 53,
+"sezione": "Lingua inglese",
+"testo": "È stato altre volte in Sardegna?",
+"risposte": [
+"It 's been other tims in Sardinia?",
+"It 's been oter times in Sardinia?",
+"Have you been in Sardinia before?"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 8,
+"n_sezione": 1
+},
+{
+"n": 54,
+"sezione": "Lingua inglese",
+"testo": "C’è un hotel con piscina o centro fitness?",
+"risposte": [
+"Is there any hotel with a swimming pool or a fitness centre?",
+"There is a hotel whit a swimming pool or a fitness centre?",
+"Is there a hotel whit a swimming pool or a fitness centre?"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 8,
+"n_sezione": 2
+},
+{
+"n": 55,
+"sezione": "Lingua inglese",
+"testo": "Quanto costa la corsa da Cagliari a Carbonia?",
+"risposte": [
+"How much is the ride Carbonia to Cagliari?",
+"How muc is the ride from Cagliari to Carbonia?",
+"How much is the ride from Cagliari to Carbonia?"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 8,
+"n_sezione": 3
+},
+{
+"n": 56,
+"sezione": "Lingua inglese",
+"testo": "Quanto tempo si trattiene in città?",
+"risposte": [
+"How long are you going to keep yourself in our city?",
+"How long are you going to stay in our city?",
+"How long do you stay in our city?"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 8,
+"n_sezione": 4
+},
+{
+"n": 57,
+"sezione": "Lingua inglese",
+"testo": "Dovrei recarmi all'Aeroporto di Alghero",
+"risposte": [
+"Shoul I go to Alghero Airport",
+"I have to go to the Alghero Airport",
+"Should I to Alghero Alghero"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 8,
+"n_sezione": 5
+},
+{
+"n": 58,
+"sezione": "Lingua inglese",
+"testo": "Dove posso acquistare quotidiani internazionali?",
+"risposte": [
+"Where do I buy interational newspapers?",
+"Where should buy I interational newspapers?",
+"Where can I buy interational newspapers?"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 8,
+"n_sezione": 6
+},
+{
+"n": 59,
+"sezione": "Lingua inglese",
+"testo": "Dove deve recarsi?",
+"risposte": [
+"Whee to go?",
+"Where should you go?",
+"Were te go?"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 8,
+"n_sezione": 7
+},
+{
+"n": 60,
+"sezione": "Lingua inglese",
+"testo": "Torno subito. Mi può aspettare? Devo comprare dei francobolli per spedire delle cartoline",
+"risposte": [
+"Be right bac! I can wait? Buy stamps to send some postcards.",
+"Be right bac! I can wait? Have to buy stamps to send some postcards.",
+"I’ll be back soon. Could you wait for me? I have to buy some stamps to send some postcards."
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 8,
+"n_sezione": 8
+},
+{
+"n": 61,
+"sezione": "Lingua inglese",
+"testo": "Da che paese arriva?",
+"risposte": [
+"Where do you come from?",
+"Where country do you come from?",
+"From what country come from?"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 8,
+"n_sezione": 9
+},
+{
+"n": 62,
+"sezione": "Lingua inglese",
+"testo": "Presto! Stò male può portarmi al Pronto Soccorso",
+"risposte": [
+"Soon! I feel sick take me to the ER",
+"Quick! I feel bad. Please could you bring me urgently to the ER",
+"Soon! I feel bad. Please urgently to the ER"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 9,
+"n_sezione": 10
+},
+{
+"n": 63,
+"sezione": "Lingua inglese",
+"testo": "La corsa costa 26,00 euro",
+"risposte": [
+"The ticket cots 26.00 euros.",
+"The fare is 26 euro",
+"The tiket costs 26.00 euros."
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 9,
+"n_sezione": 11
+},
+{
+"n": 64,
+"sezione": "Lingua inglese",
+"testo": "È stato bene nella nostra città?",
+"risposte": [
+"It good in our city?",
+"It was good our city?",
+"Did you enjoy your staying in our city?"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 9,
+"n_sezione": 12
+},
+{
+"n": 65,
+"sezione": "Lingua inglese",
+"testo": "Che ristorante mi consiglia in città?",
+"risposte": [
+"What restaurant you recommend in town?",
+"Wat restaurant do you recommend in town?",
+"What restaurant do you recommend in town?"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 9,
+"n_sezione": 13
+},
+{
+"n": 66,
+"sezione": "Lingua inglese",
+"testo": "Mi può indicare i monumenti più belli di questa città?",
+"risposte": [
+"Can you show me the most important monuments in this town?",
+"I can show most beautiful monuments in this city",
+"I can the most beautiful monuments in this city"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 9,
+"n_sezione": 14
+},
+{
+"n": 67,
+"sezione": "Lingua inglese",
+"testo": "Quanto le devo per questa corsa?",
+"risposte": [
+"How much is it this race?",
+"How much it for this race?",
+"How much is the fare?"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 9,
+"n_sezione": 15
+},
+{
+"n": 68,
+"sezione": "Lingua inglese",
+"testo": "Arrivederci! Spero che torni presto nella nostra città.",
+"risposte": [
+"Godbye! I hope you will be back son to our city.",
+"Goodbye! Hope I you will be back soon to our city.",
+"Goodbye! I hope you will be back soon to our city."
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 9,
+"n_sezione": 16
+},
+{
+"n": 69,
+"sezione": "Lingua inglese",
+"testo": "Può accompagnarmi all'Ufficio Postale?",
+"risposte": [
+"Can you take me to the post office?",
+"Take you me to the post office?",
+"Can you take me to the post offis?"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 9,
+"n_sezione": 17
+},
+{
+"n": 70,
+"sezione": "Lingua inglese",
+"testo": "Da quale aeroporto posso partire per Francoforte?",
+"risposte": [
+"From which airport I go to Frankfurt?",
+"From which airport can I leave for Frankfurt?",
+"From wich airport can I go to Frankfurt?"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 9,
+"n_sezione": 18
+},
+{
+"n": 71,
+"sezione": "Lingua inglese",
+"testo": "Si trattiene nella nostra Isola?",
+"risposte": [
+"His stay in our Island?",
+"HÈs stays our Island?",
+"How long are you staying in our island?"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 9,
+"n_sezione": 19
+},
+{
+"n": 72,
+"sezione": "Lingua inglese",
+"testo": "Devo recarmi con urgenza al Porto di Cagliari.",
+"risposte": [
+"I have to go immediately to the port of Cagliari.",
+"I have go urgently to the port of Cagliari.",
+"I have to go urgently to port of Cagliari."
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 10,
+"n_sezione": 20
+},
+{
+"n": 73,
+"sezione": "Lingua inglese",
+"testo": "Buongiorno. Posso aiutarla a caricare i bagagli?",
+"risposte": [
+"Good morning. Can I help you load your luggage?",
+"Good morning. Can help you load your luggage?",
+"Good morning. Can I help her load your luggage?"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 10,
+"n_sezione": 21
+},
+{
+"n": 74,
+"sezione": "Lingua inglese",
+"testo": "Vorrebbe visitare il centro storico?",
+"risposte": [
+"Would like to visit the Historic downtown?",
+"Would you like to visit the Historic downtown?",
+"Would you like visiting the Historic downtown?"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 10,
+"n_sezione": 22
+},
+{
+"n": 75,
+"sezione": "Lingua inglese",
+"testo": "È la prima volta che arrivo in Sardegna. Cosa c'è di interessante da visitare?",
+"risposte": [
+"It’s the first time I come to Sardinia. What is boring to visit?",
+"It’s the first time I come to Sardinia. What is interesting to visit?",
+"It’s the first time I come to Sardinia. What isn’t interesting to visit?"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 10,
+"n_sezione": 23
+},
+{
+"n": 76,
+"sezione": "Lingua inglese",
+"testo": "Quanto tempo vuole dedicare alla visita?",
+"risposte": [
+"How much time do you want to dedicate to your visit?",
+"How much time want to dedicate to your visit?",
+"How much time wanna to dedicate to your visit?"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 10,
+"n_sezione": 24
+},
+{
+"n": 77,
+"sezione": "Lingua inglese",
+"testo": "Ho una mezza giornata libera, giovedì sera, prima della partenza.",
+"risposte": [
+"I have a half day off, Friday evening, before my departure.",
+"I have a half day off, Tuesday evening, before my departure.",
+"I have a half day off, Thursday evening, before my departure."
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 10,
+"n_sezione": 25
+},
+{
+"n": 78,
+"sezione": "Lingua inglese",
+"testo": "A che ora parte l'aereo? Vuole che l'accompagni all'aeroporto?",
+"risposte": [
+"What time does your flight leave? Do you want me to take you to the airport?",
+"What time do your flight leave? Do you want me to take you to the airport?",
+"What time does your flight leave? Want me to take you to the airport?"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 10,
+"n_sezione": 26
+},
+{
+"n": 79,
+"sezione": "Lingua inglese",
+"testo": "Benvenuto in Sardegna. Desidera fare un tour dei nuraghi?",
+"risposte": [
+"Welcome to Sardinia. Would you want to take a tour of the Nuraghi?",
+"Welcome to Sardinia. Would you like to take a tour of the Nuraghi?",
+"Welcome to England. Would you like to take a tour of the Nuraghi?"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 10,
+"n_sezione": 27
+},
+{
+"n": 80,
+"sezione": "Lingua inglese",
+"testo": "No grazie: Vorrei visitare le rovine di Nora. Quanto costa il tour?",
+"risposte": [
+"No thanks. I like visiting the ruins in Nora. How much is the tour?",
+"No thanks. I would like to visit the ruins in Nora. How much are the tour?",
+"No thanks. I would like to visit the ruins in Nora. How much is the tour?"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 10,
+"n_sezione": 28
+},
+{
+"n": 81,
+"sezione": "Lingua inglese",
+"testo": "Se siete in quattro basta il mio taxi.",
+"risposte": [
+"If you are four people my taxi is big enough.",
+"If you are four people the taxi is big enough.",
+"If you are four people mine taxi is big enough."
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 11,
+"n_sezione": 29
+},
+{
+"n": 82,
+"sezione": "Lingua inglese",
+"testo": "Purtroppo siamo in otto. Serviranno due taxi.",
+"risposte": [
+"Unfortunately we are eight. We need two taxis.",
+"Unfortunately we are eighty. We need two taxis.",
+"Fortunately we are eight. We need two taxis."
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 11,
+"n_sezione": 30
+},
+{
+"n": 83,
+"sezione": "Lingua inglese",
+"testo": "Alla vostra destra potete ammirare i famosi fenicotteri rosa.",
+"risposte": [
+"At your left you can admire the famous pink Flamingos.",
+"At your right you can admire the famous pink Flamingos.",
+"At your right you can admire the famous brown Flamingos."
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 11,
+"n_sezione": 31
+},
+{
+"n": 84,
+"sezione": "Lingua inglese",
+"testo": "I fenicotteri stazionano tutto l'anno o migrano stagionalmente?",
+"risposte": [
+"Do Flamingos stands here throughout the year or do they migrate seasonally?",
+"Does Flamingos stand here throughout the year or do they migrate seasonally?",
+"Do Flamingos stand here throughout the year or do they migrate seasonally?"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 11,
+"n_sezione": 32
+},
+{
+"n": 85,
+"sezione": "Lingua inglese",
+"testo": "No. I fenicotteri stazionano tutto l'anno.",
+"risposte": [
+"No. Flamingos stands here throughout the year.",
+"No. Flamingos stand here throughout the year.",
+"No. Flamingos stand here throughin the year."
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 11,
+"n_sezione": 33
+},
+{
+"n": 86,
+"sezione": "Lingua inglese",
+"testo": "Buongiorno. Avete un veicolo accessibile per i disabili motori?",
+"risposte": [
+"Good morning. Do you have any wheelchair inaccessible vehicles?",
+"Good morning. Does you have any wheelchair accessible vehicles?",
+"Good morning. Do you have any wheelchair accessible vehicles?"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 11,
+"n_sezione": 34
+},
+{
+"n": 87,
+"sezione": "Lingua inglese",
+"testo": "Mi può accompagnare urgentemente alla stazione dei treni?",
+"risposte": [
+"Can you please take me immediately to the railway station?",
+"Can you please give me immediately to the railway station?",
+"Can you please kick me immediately to the railway station?"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 11,
+"n_sezione": 35
+},
+{
+"n": 88,
+"sezione": "Lingua inglese",
+"testo": "Ho una prenotazione per l'Hotel “Tanka Village”. È lei il mio autista?",
+"risposte": [
+"I have a reservation for “Tanka Village” hotel. Are you my driver?",
+"I have a reservation for “Tanka Village” hotel. Is you my driver?",
+"I have an reservation for “Tanka Village” hotel. Are you my driver?"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 11,
+"n_sezione": 36
+},
+{
+"n": 89,
+"sezione": "Lingua inglese",
+"testo": "Prima di partire abbiamo il tempo per bere un caffé al bar?",
+"risposte": [
+"Do you have time for a coffee before leaving?",
+"Do we have time for a coffee before leaving?",
+"Does we have time for a coffee before leaving?"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 11,
+"n_sezione": 37
+},
+{
+"n": 90,
+"sezione": "Lingua inglese",
+"testo": "Ho perso la mia valigia. Mi sa indicare l'ufficio “bagagli smarriti”?",
+"risposte": [
+"I lost my luggage. Can he tell me where the lost and found office is?",
+"I lost my luggage. Can she tell me where the lost and found office is?",
+"I lost my luggage. Can you tell me where the lost and found office is?"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 12,
+"n_sezione": 38
+},
+{
+"n": 91,
+"sezione": "Lingua inglese",
+"testo": "Il mio bambino sta male. Mi può accompagnare subito il clinica pediatrica?",
+"risposte": [
+"My child is sick. Can you take me immediately to the pediatric clinic?",
+"My child is sick. Can they take me immediately to the pediatric clinic?",
+"My child is sick. Can he take me immediately to the pediatric clinic?"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 12,
+"n_sezione": 39
+},
+{
+"n": 92,
+"sezione": "Lingua inglese",
+"testo": "Devo recarmi a visitare il tophet fenicio di Sant'Antioco.",
+"risposte": [
+"I need to go to visit the Phoenician tophet in Sant’Antioco.",
+"I have to go to visit the Phoenician tophet in Sant’Antioco.",
+"I must go to visit the Phoenician tophet in Sant’Antioco."
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 12,
+"n_sezione": 40
+},
+{
+"n": 93,
+"sezione": "Lingua inglese",
+"testo": "Quanto dista il Parco di Molentargius dal mio albergo?",
+"risposte": [
+"How long does it take to the park of Molentargius from my hotel?",
+"How far is the park of Molentargius from my hotel?",
+"How far is the park of Molentargius from the hotel?"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 12,
+"n_sezione": 41
+},
+{
+"n": 94,
+"sezione": "Lingua inglese",
+"testo": "Dov'é la stazione di bike-sharing più vicina?",
+"risposte": [
+"Where is the nearest bike-sharing station?",
+"Where is the nearest bike-sharing stop?",
+"Where is the more near bike-sharing station?"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 12,
+"n_sezione": 42
+},
+{
+"n": 95,
+"sezione": "Lingua inglese",
+"testo": "Mi può suggerire una trattoria con cucina tipica sarda?",
+"risposte": [
+"Can you tell me a traditional Sardinian cusine restaurant?",
+"Can you suggest me a traditional Sardinian cuisine restaurant?",
+"Can he suggest me a traditional Sardinian cuisine restaurant?"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 12,
+"n_sezione": 43
+},
+{
+"n": 96,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "Come viene rilasciata la licenza o l’autorizzazione ad autoservizi pubblici non di linea:",
+"risposte": [
+"a richiesta",
+"tramite concorso pubblico",
+"a seguito di denuncia di inizio del servizio"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 13,
+"n_sezione": 1
+},
+{
+"n": 97,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "I veicoli adibiti a servizio di taxi possono circolare e sostare liberamente?",
+"risposte": [
+"sì",
+"secondo quanto stabilito dai regolamenti comunali e dal codice della strada",
+"esclusivamente secondo quanto stabilito dal codice della strada"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 13,
+"n_sezione": 2
+},
+{
+"n": 98,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "I titolari di licenza taxi possono farsi sostituire alla guida del taxi? &#61524;",
+"risposte": [
+"solo temporaneamente, e per motivi specifici",
+"solo per incarichi sindacali",
+"si, sia temporaneamente, che definitivamente"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 13,
+"n_sezione": 3
+},
+{
+"n": 99,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "Il servizio taxi ha obblighi particolari relativi al prelevamento dell'utente o all'inizio del servizio?",
+"risposte": [
+"sì, essi devono avvenire con partenza dal territorio del Comune che ha rilasciato la licenza",
+"no",
+"sì, essi devono avvenire unicamente entro il territorio del Comune che ha rilasciato la licenza"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 13,
+"n_sezione": 4
+},
+{
+"n": 100,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "Che cosa distingue gli autoservizi pubblici non di linea da quelli di linea?",
+"risposte": [
+"l'offerta riservata a particolari categorie di utenti",
+"le tariffe contrattabili liberamente",
+"la non continuità e periodicità e lo svolgimento su itinerari e con orari non predeterminati"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 13,
+"n_sezione": 5
+},
+{
+"n": 101,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "Come può essere regolato il rapporto tra un taxista e il suo sostituto",
+"risposte": [
+"da un contratto di prestazione d’opera",
+"da un contratto di lavoro a tempo determinato, o da un contratto di gestione al massimo di 6 mesi",
+"anche informalmente"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 13,
+"n_sezione": 6
+},
+{
+"n": 102,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "In quale caso i veicoli da noleggio con conducente possono essere autorizzati allo stazionamento su suolo pubblico dal Comune, se ivi non è esercito il servizio di taxi?",
+"risposte": [
+"se stazionano su aree pubbliche destinate al servizio taxi",
+"se stazionano su aree pubbliche in cui sia consentita la sosta",
+"in nessun caso"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 13,
+"n_sezione": 7
+},
+{
+"n": 103,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "Quali competenze ha assunto la Regione relativamente ai servizi pubblici non di linea?",
+"risposte": [
+"approvazione dei regolamenti comunali relativi ai noleggi e ai servizi da piazza",
+"predisposizione di criteri per la redazione di regolamenti comunali dei servizi di noleggio e piazza",
+"supervisione dell'esercizio dei trasporti pubblici non di linea"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 13,
+"n_sezione": 8
+},
+{
+"n": 104,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "Chi stabilisce le norme per l’adeguamento dei servizi di taxi e noleggio con conducente per il trasporto dei soggetti disabili?",
+"risposte": [
+"la Provincia",
+"il Comune",
+"la Regione"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 14,
+"n_sezione": 9
+},
+{
+"n": 105,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "Le autovetture adibite al servizio taxi devono esporre la scritta \"servizio pubblico\"?",
+"risposte": [
+"no, è sufficiente il contrassegno luminoso",
+"sì, in apposita targa con scritta in nero",
+"sì, deve essere dipinta sulla fiancata destra"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 14,
+"n_sezione": 10
+},
+{
+"n": 106,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "I titolari di licenza o autorizzazione per autoservizi pubblici non di linea possono avvalersi nella guida di collaboratori familiari?",
+"risposte": [
+"sì, purché iscritti al ruolo dei conducenti",
+"sì, senza particolari obblighi",
+"no, solo di sostituti o dipendenti"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 14,
+"n_sezione": 11
+},
+{
+"n": 107,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "In quali Comuni può esservi l’esonero dal dotare le autovetture addette al servizio tai, dell’apposito tassametro omologato:",
+"risposte": [
+"quelli in cui il Comune ha liberamente regolamentato in tal modo",
+"quelli di minore dimensione, individuati dalla Camera di Commercio su parere dell’Ufficio Periferico del Dipartimento dei Trasporti Terrestri, ex MCTC",
+"nessun comune"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 14,
+"n_sezione": 12
+},
+{
+"n": 108,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "In caso di trasferimento della licenza o dell'autorizzazione da parte di un titolare, quanto tempo deve trascorrere prima che egli possa riottenerne altra?",
+"risposte": [
+"tre anni",
+"non può più riottenere altra",
+"cinque anni"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 14,
+"n_sezione": 13
+},
+{
+"n": 109,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "A quale ente sono state trasferite dallo Stato le proprie competenze in materia di trasporti pubblici?",
+"risposte": [
+"alla Regione, in quanto di competenza per l'assetto e l'utilizzazione del territorio",
+"al Comune, in quanto di competenza per la disciplina delle relative attività commerciali &#61603;",
+"alla Provincia, in quanto di competenza per la tutela dell'utenza"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 14,
+"n_sezione": 14
+},
+{
+"n": 110,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "Le tariffe minime e massime per il noleggio con conducente con autovettura tengono conto anche di tempi di sosta, pedaggi autostradali, tasse di transito, aria condizionata o altre prestazioni?",
+"risposte": [
+"si per una percentuale media, superata la quale possono essere sommati all’importo contrattato",
+"no, tali costi sono esclusi, e conteggiati a parte dal singolo noleggiatore",
+"si, e non possono essere sommati all’importo contrattato oltre il limite massimo"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 14,
+"n_sezione": 15
+},
+{
+"n": 111,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "Quali tra gli eredi del titolare di licenza o autorizzazione deceduto ha diritto al trasferimento del titolo amministrativo?",
+"risposte": [
+"qualsiasi erede in linea diretta o indiretta",
+"qualsiasi erede appartenente al nucleo familiare",
+"i soli figli maggiorenni"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 15,
+"n_sezione": 16
+},
+{
+"n": 112,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "Che cosa determina la differenza tra la tariffa minima e la massima applicabile in caso di servizio di noleggio con conducente con autovettura?",
+"risposte": [
+"l’applicazione del coefficiente di struttura sulle spese per percorrenza, guida e disponibilità auto",
+"una percentuale del 10% di sconto minimo o maggiorazione massima sulla tariffa media",
+"la percentuale scelta dal noleggiatore tra sconto minimo e maggiorazione massima sulla tariffa media"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 15,
+"n_sezione": 17
+},
+{
+"n": 113,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "In quale dei seguenti casi le licenze e autorizzazioni possono essere trasferite a richiesta dal titolare?",
+"risposte": [
+"se egli l'ha ottenuta da almeno cinque anni",
+"se egli ha raggiunto cinquantacinque anni",
+"se egli è divenuto inabile o inidoneo al servizio in via provvisoria"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 15,
+"n_sezione": 18
+},
+{
+"n": 114,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "Che facoltà hanno i Comuni per agevolare l’integrazione tra i servizi di noleggio con conducente e i servizi di trasporto pubblico di linea ferroviari, navali o aerei?",
+"risposte": [
+"nessuna, perché tale integrazione è prerogativa del servizio taxi",
+"riservare appositi spazi di sosta presso le stazioni, qualificati come rimessa a tutti gli effetti in deroga al divieto di sosta su spazi pubblici",
+"consentire il libero esercizio del noleggio con conducente presso le stazioni"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 15,
+"n_sezione": 19
+},
+{
+"n": 115,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "Quali delle seguenti autovetture in servizio di trasporto pubblico non di linea non sono obbligate all'adozione del colore uniforme?",
+"risposte": [
+"immatricolate per servizio di taxi sulla base di licenza comunale",
+"immatricolate per servizio di noleggio con conducente e autorizzate a effettuare servizio taxi",
+"immatricolate per servizio di noleggio con conducente autorizzate alla sosta su aree Pubbliche"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 15,
+"n_sezione": 20
+},
+{
+"n": 116,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "A favore di chi deve essere effettuato il servizio di taxi?",
+"risposte": [
+"del trasportato",
+"di chiunque intenda far prelevare e trasportare altre persone",
+"del trasportato anche con prenotazione per servizi periodici o continuativi"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 15,
+"n_sezione": 21
+},
+{
+"n": 117,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "L’esercizio degli autoservizi pubblici non di linea è disciplinato solo a mezzo di specifici regolamenti predisposti dai Comuni?",
+"risposte": [
+"si",
+"no, sono regolati anche dalle disposizioni delle Camere di Commercio",
+"no, possono essere emanate anche norme speciali dalla Regione"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 15,
+"n_sezione": 22
+},
+{
+"n": 118,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "Chi determina le tariffe del servizio di taxi?",
+"risposte": [
+"la libera contrattazione tra il cliente e il vettore, entro limiti minimi e massimi comunali",
+"i Comuni che rilasciano le licenze",
+"la Camera di Commercio"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 16,
+"n_sezione": 23
+},
+{
+"n": 119,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "Al fine di ottenere una licenza o autorizzazione per autoservizi pubblici non di linea, è utile aver esercitato attività di conducente come dipendente o sostituto per un certo periodo?",
+"risposte": [
+"si costituisce titolo preferenziale, proporzionale al numero di anni di effettivo esercizio",
+"si costituisce titolo preferenziale se il servizio è stato prestato per almeno sei mesi",
+"no"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 16,
+"n_sezione": 24
+},
+{
+"n": 120,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "Le autovetture addette al servizio taxi possono recare scritte e stemmi identificativi dell'azienda esercente e del comune di appartenenza, posti sulle fiancate?",
+"risposte": [
+"no, solo nella parte posteriore",
+"sì, purché previsto dal regolamento comunale",
+"sì, sono sempre ammessi"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 16,
+"n_sezione": 25
+},
+{
+"n": 121,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "A che cosa serve l'iscrizione al ruolo dei conducenti di veicoli adibiti ad autoservizi pubblici non di linea?",
+"risposte": [
+"a garantire la serietà e la professionalità",
+"ad ottenere le licenze e le autorizzazioni necessarie all'esercizio dei servizi",
+"ad evitare controlli e verifiche da parte dei Comuni"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 16,
+"n_sezione": 26
+},
+{
+"n": 122,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "Dov'è obbligatoria la prestazione del servizio di taxi?",
+"risposte": [
+"per qualsiasi destinazione, anche esterna al limite dell'area in cui è consentito acquisire utenza",
+"entro l'area provinciale",
+"entro l'area comunale o comprensoriale"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 16,
+"n_sezione": 27
+},
+{
+"n": 123,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "Le licenze e autorizzazioni possono essere trasferite dal titolare, a richiesta, ad altra persona da esso designata?",
+"risposte": [
+"solo se la persona possiede i requisiti necessari",
+"solo se la persona possiede i requisiti necessari e in presenza di particolari situazioni",
+"solo in caso di cessione d'azienda"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 16,
+"n_sezione": 28
+},
+{
+"n": 124,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "Nel servizio di noleggio con conducente con autovettura è possibile sostare in posteggio di stazionamento su suolo pubblico?",
+"risposte": [
+"no, è sempre obbligatorio sostare presso la propria rimessa",
+"sì, si può liberamente circolare e sostare come i taxi",
+"sì, se nel Comune non viene esercito il servizio taxi, e, in ogni caso, se previsto da Regolamento comunale"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 16,
+"n_sezione": 29
+},
+{
+"n": 125,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "È possibile cumulare più licenze di taxi in capo al medesimo soggetto?",
+"risposte": [
+"no, perché l'esercizio deve essere personale",
+"sì, se esso è associato a una cooperativa",
+"sì, se esso è associato a una cooperativa"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 16,
+"n_sezione": 30
+},
+{
+"n": 126,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "Per le autovetture in servizio taxi è sempre necessario esporre sul tetto il contrassegno luminoso con la scritta \"taxi\"?",
+"risposte": [
+"no, possono esserne esentate nei comuni di minore dimensione",
+"no, è facoltativo a discrezione del conducente",
+"sì, è sempre obbligatorio"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 17,
+"n_sezione": 31
+},
+{
+"n": 127,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "A quanti veicoli addetti ad autoservizi pubblici non di linea può fare riferimento una singola licenza o autorizzazione?",
+"risposte": [
+"a un solo taxi, a più veicoli per noleggio con conducente",
+"a un solo taxi o veicolo per noleggio con conducente",
+"a più taxi o veicoli per noleggio con conducente"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 17,
+"n_sezione": 32
+},
+{
+"n": 128,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "Come possono essere effettuate le prestazioni di noleggio di veicoli con conducente?",
+"risposte": [
+"a tempo e/o a viaggio",
+"solo a tempo",
+"solo a viaggio"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 17,
+"n_sezione": 33
+},
+{
+"n": 129,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "Dove avviene lo stazionamento dei mezzi addetti al servizio di noleggio con conducente?",
+"risposte": [
+"presso apposite autorimesse pubbliche",
+"su suolo pubblico in aree specificamente contrassegnate",
+"su suolo privato, in apposite rimesse"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 17,
+"n_sezione": 34
+},
+{
+"n": 130,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "A chi è rivolto il servizio di noleggio con conducente?",
+"risposte": [
+"ad una utenza indifferenziata",
+"all'utenza specifica che si deve rivolgere presso la sede del vettore",
+"all'utenza specifica che prenota presso le apposite aree pubbliche di stazionamento"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 17,
+"n_sezione": 35
+},
+{
+"n": 131,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "Chi stabilisce i criteri per l'adeguamento dei servizi di taxi e noleggio con conducente per il trasporto dei soggetti disabili?",
+"risposte": [
+"la Regione",
+"la Provincia",
+"il Comune"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 17,
+"n_sezione": 36
+},
+{
+"n": 132,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "Quali tipi di cooperative possono costituire i titolari di licenze o autorizzazioni per autoservizi pubblici non di linea?",
+"risposte": [
+"cooperative sociali, per l'inserimento lavorativo di persone svantaggiate",
+"cooperative di produzione e lavoro o di servizi",
+"cooperative tra lavoratori autonomi"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 17,
+"n_sezione": 37
+},
+{
+"n": 133,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "Quale dei seguenti non è definibile servizio pubblico non di linea ai sensi della l. 21/92",
+"risposte": [
+"il noleggio di autovetture con conducente",
+"il noleggio di motocarrozzette con conducente",
+"la locazione di autovetture senza conducente"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 17,
+"n_sezione": 38
+},
+{
+"n": 134,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "Nel servizio di noleggio con conducente con autovettura è possibile usare le corsie preferenziali per taxi ed autobus e altre facilitazioni previste per i servizi pubblici?",
+"risposte": [
+"no",
+"sì",
+"solo se espressamente indicato in appositi cartelli"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 18,
+"n_sezione": 39
+},
+{
+"n": 135,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "Come si determina la tariffa del servizio taxi?",
+"risposte": [
+"a tempo",
+"a distanza",
+"a base multipla (tempo e distanza) in servizio urbano, a distanza in servizio Extraurbano"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 18,
+"n_sezione": 40
+},
+{
+"n": 136,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "I servizi di trasporto pubblico non di linea possono presentarsi in forme concorrenziali al trasporto pubblico di linea?",
+"risposte": [
+"sì, non esistono divieti",
+"no, la loro funzione è definita dalla legge come integrativa e complementare ai servizi di linea",
+"no, ma solo a condizione che l'esercente dei servizi di linea non faccia opposizione"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 18,
+"n_sezione": 41
+},
+{
+"n": 137,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "Il servizio taxi ha il solo scopo di soddisfare le richieste di trasporto individuali?",
+"risposte": [
+"sì, se il trasporto viene richiesto da più persone si tratta di noleggio",
+"no, il trasporto può essere richiesto anche da piccoli gruppi",
+"sì, è vietato imbarcare persone con la diversa destinazione"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 18,
+"n_sezione": 42
+},
+{
+"n": 138,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "Come vengono contraddistinte le autovetture adibite al servizi di taxi?",
+"risposte": [
+"da un numero d'ordine assegnato dal Comune",
+"da un nome in codice seguito da un numero",
+"da un simbolo diverso per ciascuna vettura"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 18,
+"n_sezione": 43
+},
+{
+"n": 139,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "Qual è l'autorità competente per la disciplina generale dell'attività degli enti pubblici in materia di autoservizi pubblici non di linea?",
+"risposte": [
+"la Provincia",
+"il Ministero delle Infrastrutture e dei Trasporti",
+"la Regione"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 18,
+"n_sezione": 44
+},
+{
+"n": 140,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "Presso quale ente è istituito il ruolo dei conducenti di veicoli adibiti ad autoservizi pubblici non di linea?",
+"risposte": [
+"la Camera di Commercio competente per territorio",
+"la Camera di Commercio di ciascuna Provincia",
+"la Provincia"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 18,
+"n_sezione": 45
+},
+{
+"n": 141,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "Per quali autoservizi pubblici non di linea è necessario disporre di una rimessa propria?",
+"risposte": [
+"sia per il taxi che per il noleggio con conducente",
+"solo per il taxi",
+"solo per il noleggio con conducente"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 18,
+"n_sezione": 46
+},
+{
+"n": 142,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "Quale contrassegno particolare devono esporre le autovetture adibite al servizio di noleggio con conducente?",
+"risposte": [
+"un contrassegno luminoso, posto sul tetto, con la scritta NCC",
+"un contrassegno con la scritta \"noleggio\" all'interno del parabrezza e del lunotto",
+"la scritta \"noleggio\" dipinta sulla fiancata destra"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 18,
+"n_sezione": 47
+},
+{
+"n": 143,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "Il servizio di noleggio di autobus con conducente è disciplinato dalla l.21/92 analogamente a quello di autovettura?",
+"risposte": [
+"sì",
+"no",
+"solo se il servizio viene svolto con minibus"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 19,
+"n_sezione": 48
+},
+{
+"n": 144,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "Quale targa particolare devono esporre le autovetture adibite al servizio di noleggio con conducente?",
+"risposte": [
+"una posteriore, inamovibile, con dicitura \"NCC\", numero progressivo e stemma comunale",
+"una anteriore, con dicitura \"NCC\"",
+"nessuna targa oltre a quella di immatricolazione"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 19,
+"n_sezione": 49
+},
+{
+"n": 145,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "A quale fine deve essere ricercata l'uniformazione delle regolamentazioni comunali all'interno delle aree comprensoriali?",
+"risposte": [
+"per evitare concorrenze indebite tra taxisti e noleggiatori di comuni limitrofi",
+"per ottenere una maggiore razionalità ed efficienza del servizio pubblico non di linea",
+"per limitare il numero delle licenze e delle autorizzazioni al minimo possibile"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 19,
+"n_sezione": 50
+},
+{
+"n": 146,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "Come sono definiti gli autoservizi pubblici non di linea?",
+"risposte": [
+"servizi con funzione complementare e integrativa a quelli di linea con qualsiasi mezzo effettuati",
+"servizi svolti senza obbligo di aderire alla richiesta di trasporto",
+"servizi ad offerta non indifferenziata"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 19,
+"n_sezione": 51
+},
+{
+"n": 147,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "In quale dei seguenti casi le licenze e autorizzazioni possono essere trasferite a richiesta dal titolare?",
+"risposte": [
+"se egli l'ha ottenuta da almeno tre anni",
+"se egli ha raggiunto sessanta anni",
+"se egli è divenuto inabile o inidoneo al servizio in via provvisoria"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 19,
+"n_sezione": 52
+},
+{
+"n": 148,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "Quali sono gli autoservizi pubblici non di linea?",
+"risposte": [
+"taxi, noleggio senza conducente, noleggio con conducente",
+"servizio da piazza e servizio da rimessa, svolti con qualsiasi tipo di auto o motoveicolo",
+"taxi e noleggio con conducente con autovettura, motocarrozzetta, natante e veicolo a trazione animale"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 19,
+"n_sezione": 53
+},
+{
+"n": 149,
+"sezione": "Riferimenti normativi nazionali",
+"testo": "L'obbligo del colore uniforme per le autovetture adibite al servizio di taxi si estende a tutta la carrozzeria?",
+"risposte": [
+"sì",
+"no, è sufficiente che siano di tale colore le porte e i cofani",
+"no, possono recare una fascia mono o policroma, posta immediatamente al di sotto del bordo inferiore del vano dei finestrini laterali, con un’altezza massima di 6 cm"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 19,
+"n_sezione": 54
+},
+{
+"n": 150,
+"sezione": "Geografia",
+"testo": "La Sardegna è, per grandezza:",
+"risposte": [
+"la seconda isola del Mediterraneo mentre la prima è la Sicilia",
+"la prima isola del Mediterraneo mentre la seconda è la Sicilia",
+"la terza isola del Mediterraneo dopo Sicilia e Corsica"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 21,
+"n_sezione": 1
+},
+{
+"n": 151,
+"sezione": "Geografia",
+"testo": "La superficie della Sardegna, isole minori comprese, è:",
+"risposte": [
+"24.000 km2 circa",
+"15.000 km2 circa",
+"32.000 km2 circa"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 21,
+"n_sezione": 2
+},
+{
+"n": 152,
+"sezione": "Geografia",
+"testo": "In base agli ultimi rilevamenti ufficiali, la popolazione della Sardegna risulta pari a:",
+"risposte": [
+"1.300.000 abitanti circa",
+"985.000 abitanti circa",
+"1.600.000 abitanti circa"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 21,
+"n_sezione": 3
+},
+{
+"n": 153,
+"sezione": "Geografia",
+"testo": "Le coste della Sardegna sono bagnate:",
+"risposte": [
+"dal mar Tirreno a est e a sud, dal mar di Sardegna a ovest",
+"dal mar Adriatico a est e dal mar Tirreno a ovest",
+"dal mar Ionio a est e dal mar Tirreno a est e a sud"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 21,
+"n_sezione": 4
+},
+{
+"n": 154,
+"sezione": "Geografia",
+"testo": "La Sardegna è separata dalla Corsica tramite:",
+"risposte": [
+"le bocche di Bonifacio",
+"lo stretto dei Dardanelli",
+"lo stretto di Messina"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 21,
+"n_sezione": 5
+},
+{
+"n": 155,
+"sezione": "Geografia",
+"testo": "Qual è la vetta più alta della Sardegna che raggiunge i 1834 m.?",
+"risposte": [
+"il Limbara",
+"Punta La Marmora",
+"Punta Palai"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 21,
+"n_sezione": 6
+},
+{
+"n": 156,
+"sezione": "Geografia",
+"testo": "Quale dei seguenti monti appartiene al massiccio del Gennargentu:",
+"risposte": [
+"il Limbara",
+"Is Caravius",
+"Punta La Marmora"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 21,
+"n_sezione": 7
+},
+{
+"n": 157,
+"sezione": "Geografia",
+"testo": "Isole minori comprese, la Sardegna ha uno sviluppo costiero di:",
+"risposte": [
+"1.890 km circa",
+"1.370 km circa",
+"1.650 km circa"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 21,
+"n_sezione": 8
+},
+{
+"n": 158,
+"sezione": "Geografia",
+"testo": "Quale dei seguenti golfi si affaccia sul versante meridionale della Sardegna?",
+"risposte": [
+"il golfo dell'Asinara",
+"il golfo degli Angeli",
+"il golfo Aranci"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 21,
+"n_sezione": 9
+},
+{
+"n": 159,
+"sezione": "Geografia",
+"testo": "Quale dei seguenti golfi si affaccia sul versante orientale della Sardegna?",
+"risposte": [
+"il golfo degli Angeli",
+"il golfo di Orosei",
+"il golfo di Oristano"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 22,
+"n_sezione": 10
+},
+{
+"n": 160,
+"sezione": "Geografia",
+"testo": "Quale dei seguenti golfi si affaccia sul versante occidentale della Sardegna?",
+"risposte": [
+"il golfo dell'Asinara",
+"il golfo di Alghero",
+"il golfo Aranci"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 22,
+"n_sezione": 11
+},
+{
+"n": 161,
+"sezione": "Geografia",
+"testo": "Quale delle seguenti vette si erge nell’areale del Sarrabus, rappresentandone la cima più elevata?",
+"risposte": [
+"Punta Palai",
+"Punta Serpeddì",
+"Monte Ferru"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 22,
+"n_sezione": 12
+},
+{
+"n": 162,
+"sezione": "Geografia",
+"testo": "Oltre a Gesturi, quali sono gli altri comuni su cui si estende l’omonima giara?",
+"risposte": [
+"Tuili, Setzu e Genoni",
+"Arbus, Guspini e Villacidro",
+"Capoterra, Elmas e Assemini"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 22,
+"n_sezione": 13
+},
+{
+"n": 163,
+"sezione": "Geografia",
+"testo": "Quale dei seguenti comuni non si trova nell’area del Sulcis iglesiente:",
+"risposte": [
+"San Basilio",
+"Santadi",
+"Tratalias"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 22,
+"n_sezione": 14
+},
+{
+"n": 164,
+"sezione": "Geografia",
+"testo": "In quale area si trova Su Nuraxi di Barumini?",
+"risposte": [
+"nel Sulcis",
+"nella Marmilla",
+"nel Gerrei"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 22,
+"n_sezione": 15
+},
+{
+"n": 165,
+"sezione": "Geografia",
+"testo": "Quale dei seguenti è il fiume più lungo della Sardegna?",
+"risposte": [
+"il Tirso",
+"il Flumendosa",
+"il Coghinas"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 22,
+"n_sezione": 16
+},
+{
+"n": 166,
+"sezione": "Geografia",
+"testo": "Quale dei seguenti laghi ha le sue sorgenti sul Monte Fumai ad Orgosolo?",
+"risposte": [
+"il lago Cedrino",
+"il lago Omodeo",
+"il lago Baraz"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 22,
+"n_sezione": 17
+},
+{
+"n": 167,
+"sezione": "Geografia",
+"testo": "Quale tra le seguenti rappresenta la pianura più estesa della Sardegna?",
+"risposte": [
+"la pianura del Campidano",
+"la pianura di Palmas e di Bosa",
+"la pianura di Tortolì"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 22,
+"n_sezione": 18
+},
+{
+"n": 168,
+"sezione": "Geografia",
+"testo": "Quale tra le seguenti rappresenta la prima, per grandezza, fra le isole minori della Sardegna?",
+"risposte": [
+"La Maddalena",
+"San Pietro",
+"Sant’Antioco"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 22,
+"n_sezione": 19
+},
+{
+"n": 169,
+"sezione": "Geografia",
+"testo": "Quale distanza separa Cagliari da Sassari considerando di percorrere utilmente il tragitto più breve?",
+"risposte": [
+"215 km circa",
+"180 km circa",
+"260 km circa"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 23,
+"n_sezione": 20
+},
+{
+"n": 170,
+"sezione": "Geografia",
+"testo": "Quale distanza separa Cagliari da Alghero considerando di percorrere utilmente il tragitto più breve?",
+"risposte": [
+"205 km circa",
+"250 km circa",
+"180 km circa"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 23,
+"n_sezione": 21
+},
+{
+"n": 171,
+"sezione": "Geografia",
+"testo": "Quale distanza separa Cagliari da Arbatax considerando di percorrere utilmente il tragitto più breve?",
+"risposte": [
+"100 km circa",
+"140 km circa",
+"190 km circa"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 23,
+"n_sezione": 22
+},
+{
+"n": 172,
+"sezione": "Geografia",
+"testo": "Quale distanza separa Cagliari da Iglesias considerando di percorrere utilmente il tragitto più breve?",
+"risposte": [
+"30 km circa",
+"60 km circa",
+"90 km circa"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 23,
+"n_sezione": 23
+},
+{
+"n": 173,
+"sezione": "Geografia",
+"testo": "Quale distanza separa Cagliari da Nuoro considerando di percorrere utilmente il tragitto più breve?",
+"risposte": [
+"180 km circa",
+"150 km circa",
+"210 km circa"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 23,
+"n_sezione": 24
+},
+{
+"n": 174,
+"sezione": "Geografia",
+"testo": "Quale distanza separa Cagliari da Olbia considerando di percorrere utilmente il tragitto più breve?",
+"risposte": [
+"310 km circa",
+"270 km circa",
+"220 km circa"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 23,
+"n_sezione": 25
+},
+{
+"n": 175,
+"sezione": "Geografia",
+"testo": "Quale distanza separa Cagliari da Oristano considerando di percorrere utilmente il tragitto più breve?",
+"risposte": [
+"65 km circa",
+"95 km circa",
+"75 km circa"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 23,
+"n_sezione": 26
+},
+{
+"n": 176,
+"sezione": "Geografia",
+"testo": "Quale distanza separa Cagliari da Porto Torres considerando di percorrere utilmente il tragitto più breve?",
+"risposte": [
+"205 km circa",
+"235 km circa",
+"190 km circa"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 23,
+"n_sezione": 27
+},
+{
+"n": 177,
+"sezione": "Geografia",
+"testo": "Quale distanza separa Alghero da Sassari considerando di percorrere utilmente il tragitto più breve?",
+"risposte": [
+"20 km circa",
+"35 km circa",
+"60 km circa"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 24,
+"n_sezione": 28
+},
+{
+"n": 178,
+"sezione": "Geografia",
+"testo": "Quale distanza separa Alghero da Arbatax considerando di percorrere utilmente il tragitto più breve?",
+"risposte": [
+"210 km circa",
+"180 km circa",
+"260 km circa"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 24,
+"n_sezione": 29
+},
+{
+"n": 179,
+"sezione": "Geografia",
+"testo": "Quale distanza separa Alghero da Nuoro considerando di percorrere utilmente il tragitto più breve?",
+"risposte": [
+"180 km circa",
+"150 km circa",
+"120 km circa"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 24,
+"n_sezione": 30
+},
+{
+"n": 180,
+"sezione": "Geografia",
+"testo": "Quale distanza separa Sassari da Nuoro considerando di percorrere utilmente il tragitto più breve?",
+"risposte": [
+"120 km circa",
+"170 km circa",
+"90 km circa"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 24,
+"n_sezione": 31
+},
+{
+"n": 181,
+"sezione": "Geografia",
+"testo": "Quale distanza separa Sassari da Oristano considerando di percorrere utilmente il tragitto più breve?",
+"risposte": [
+"100 km circa",
+"140 km circa",
+"120 km circa"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 24,
+"n_sezione": 32
+},
+{
+"n": 182,
+"sezione": "Geografia",
+"testo": "Quale distanza separa Sassari da Arbatax considerando di percorrere utilmente il tragitto più breve?",
+"risposte": [
+"125 km circa",
+"195 km circa",
+"165 km circa"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 24,
+"n_sezione": 33
+},
+{
+"n": 183,
+"sezione": "Geografia",
+"testo": "Quale distanza separa Cagliari da Guspini considerando di percorrere utilmente il tragitto più breve?",
+"risposte": [
+"50 km circa",
+"70 km circa",
+"110 km circa"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 24,
+"n_sezione": 34
+},
+{
+"n": 184,
+"sezione": "Geografia",
+"testo": "Quale distanza separa Cagliari da Villasimius considerando di percorrere utilmente il tragitto più breve?",
+"risposte": [
+"90 km circa",
+"110 km circa",
+"60 km circa"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 24,
+"n_sezione": 35
+},
+{
+"n": 185,
+"sezione": "Geografia",
+"testo": "Quale distanza separa Cagliari da Pula considerando di percorrere utilmente il tragitto più breve?",
+"risposte": [
+"60 km circa",
+"35 km circa",
+"20 km circa"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 24,
+"n_sezione": 36
+},
+{
+"n": 186,
+"sezione": "Geografia",
+"testo": "Quale distanza separa Cagliari da Sanluri considerando di percorrere utilmente il tragitto più breve?",
+"risposte": [
+"60 km circa",
+"90 km circa",
+"45 km circa"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 25,
+"n_sezione": 37
+},
+{
+"n": 187,
+"sezione": "Geografia",
+"testo": "Quale distanza separa Cagliari da Domus De Maria considerando di percorrere utilmente il tragitto più breve?",
+"risposte": [
+"75 km circa",
+"55 km circa",
+"95 km circa"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 25,
+"n_sezione": 38
+},
+{
+"n": 188,
+"sezione": "Lingua francese",
+"testo": "Da che paese arriva?",
+"risposte": [
+"De quel pays venez-vous?",
+"De quel pay vient-il?",
+"De pays vient-il?"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 26,
+"n_sezione": 1
+},
+{
+"n": 189,
+"sezione": "Lingua francese",
+"testo": "Dove deve recarsi?",
+"risposte": [
+"Où aller?",
+"Où allez-vous?",
+"Où aler?"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 26,
+"n_sezione": 2
+},
+{
+"n": 190,
+"sezione": "Lingua francese",
+"testo": "C’è un hotel con piscina o centro fitness?",
+"risposte": [
+"Est-ce qu’il y a un hôtel avec piscine ou un centre fitness?",
+"Il y a une piscine hôtel ou un centre fitness?",
+"Est-ce que il y a un piscine ou un centre fitness?"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 26,
+"n_sezione": 3
+},
+{
+"n": 191,
+"sezione": "Lingua francese",
+"testo": "Può accompagnarmi all'Ufficio Postale?",
+"risposte": [
+"Est-ce que vous pouvez m’accompagner à la poste?",
+"Vous pouvez m’accompagner à la poste?",
+"Vous pouvez m’accompagner a la poste?"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 26,
+"n_sezione": 4
+},
+{
+"n": 192,
+"sezione": "Lingua francese",
+"testo": "Devo recarmi con urgenza al Porto di Cagliari.",
+"risposte": [
+"Je dois aller de toute urgence au port de Cagliari.",
+"Je y aller de toute urgence pour le port de Cagliari.",
+"Je dois y aller de urgence pour le port de Cagliari."
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 26,
+"n_sezione": 5
+},
+{
+"n": 193,
+"sezione": "Lingua francese",
+"testo": "È stato altre volte in Sardegna?",
+"risposte": [
+"Cela a été d'autres en Sardaigne?",
+"Cela été d'autres fois en Sardaigne?",
+"Combien de fois avez-vous été en Sardaigne?"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 26,
+"n_sezione": 6
+},
+{
+"n": 194,
+"sezione": "Lingua francese",
+"testo": "Mi può indicare i monumenti più belli di questa città?",
+"risposte": [
+"Pouvez-vous me montrer les monuments les plus beaux de cette ville?",
+"Je peux montrer plus beaux monuments de cette ville",
+"Je peux montrer les plus monuments de cette ville"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 26,
+"n_sezione": 7
+},
+{
+"n": 195,
+"sezione": "Lingua francese",
+"testo": "Torno subito. Mi può aspettare? Devo comprare dei francobolli per spedire delle cartoline.",
+"risposte": [
+"Je reviens tout de suite. Pouviez-vous m’attendre? Je dois acheter des timbres pour envoyer des cartes postales.",
+"Je reviens tout de suite. Vous pouvez m’attendre? Je dois acheter des timbres pour envoyer des cartes postales.",
+"Je reviens tout de suite. Pouvez-vous m’attendre? Je dois acheter des timbres pour envoyer des cartes postales."
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 26,
+"n_sezione": 8
+},
+{
+"n": 196,
+"sezione": "Lingua francese",
+"testo": "Quanto tempo si trattiene in città?",
+"risposte": [
+"Combien de temp restez-vous en ville?",
+"Combien de temps restez-vous en ville?",
+"Combien de temps vous restez en ville?"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 26,
+"n_sezione": 9
+},
+{
+"n": 197,
+"sezione": "Lingua francese",
+"testo": "Si trattiene nella nostra Isola?",
+"risposte": [
+"Allez-vous rester sur nôtre île?",
+"Il reste notre île?",
+"Il reste dans note île?"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 27,
+"n_sezione": 10
+},
+{
+"n": 198,
+"sezione": "Lingua francese",
+"testo": "La corsa costa 26,00 euro.",
+"risposte": [
+"Le bille coûte 26,00 euros.",
+"Le bilet coûte 26,00 euros.",
+"Le billet coûte 26,00 Euros."
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 27,
+"n_sezione": 11
+},
+{
+"n": 199,
+"sezione": "Lingua francese",
+"testo": "Quanto costa la corsa da Cagliari a Carbonia?",
+"risposte": [
+"Quel est trajet de Carbonia à Cagliari?",
+"Quel est le traet de Carbonia à Cagliari?",
+"Quel est le coût pour aller de Cagliari à Carbonia?"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 27,
+"n_sezione": 12
+},
+{
+"n": 200,
+"sezione": "Lingua francese",
+"testo": "Dove posso acquistare quotidiani internazionali?",
+"risposte": [
+"Où est-ce que peux je acheter des journaux internationaux?",
+"Ou est-ce que je peux acheter des journaux internationaux?",
+"Où puis-je acheter des journaux internationaux?"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 27,
+"n_sezione": 13
+},
+{
+"n": 201,
+"sezione": "Lingua francese",
+"testo": "Arrivederci! Spero che torni presto nella nostra città.",
+"risposte": [
+"Au revoir! J’espère que vous reviendrez bientot dans notre ville",
+"Au revoir! J’espère que vous reviendrez bien tôt dans notre ville",
+"Au revoir! J’espère que vous reviendrez bientôt dans notre ville"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 27,
+"n_sezione": 14
+},
+{
+"n": 202,
+"sezione": "Lingua francese",
+"testo": "È stato bene nella nostra città?",
+"risposte": [
+"Il était dans notre ville?",
+"Il était bon dans ville?",
+"Etes-vous bien dans notre ville?"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 27,
+"n_sezione": 15
+},
+{
+"n": 203,
+"sezione": "Lingua francese",
+"testo": "Dovrei recarmi all'Aeroporto di Alghero",
+"risposte": [
+"Dois-je alle à l'aéroport d'Alghero",
+"Dois-je aller l'aéroport d'Alghero",
+"Je dois aller à l’aéroport de Alghero"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 27,
+"n_sezione": 16
+},
+{
+"n": 204,
+"sezione": "Lingua francese",
+"testo": "Che ristorante mi consiglia in città?",
+"risposte": [
+"Qu'est-ce restaurant vous recommandons de la ville?",
+"Pouvez–vous m’indiquer un bon restaurant en ville?",
+"Qu'est-ce restaurant ne recommandons de la ville?"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 27,
+"n_sezione": 17
+},
+{
+"n": 205,
+"sezione": "Lingua francese",
+"testo": "Da quale aeroporto posso partire per Francoforte?",
+"risposte": [
+"De aéroport je peux aller à Francfort?",
+"De quel aéroport puis-je partir pour aller à Francfort?",
+"De quel aéroport peux aller à Francfort?"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 27,
+"n_sezione": 18
+},
+{
+"n": 206,
+"sezione": "Lingua francese",
+"testo": "Presto! Stò male può portarmi al Pronto Soccorso",
+"risposte": [
+"Bientôt! Je suis le ne peut me prendre à l'urgence",
+"Vite! Je me sens mal. Pouvez-vous m’amener à un hôpital?",
+"Bientôt! Je suis le mal ne me prendre à l'urgence"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 27,
+"n_sezione": 19
+},
+{
+"n": 207,
+"sezione": "Lingua francese",
+"testo": "Quanto le devo per questa corsa?",
+"risposte": [
+"Combien est-ce pour cete course?",
+"Combien est-ce pou cette course?",
+"Combien dois-je vous payer?"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 28,
+"n_sezione": 20
+},
+{
+"n": 208,
+"sezione": "Lingua francese",
+"testo": "Buongiorno. Posso aiutarla a caricare i bagagli?",
+"risposte": [
+"Bonjour. Est-ce que je peux vous aider pour charger vos bagages?",
+"Bonjour. Je peux vous aider pour charger vos bagages?",
+"Bonjour. Peux je vous aider pour charger vos bagages?"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 28,
+"n_sezione": 21
+},
+{
+"n": 209,
+"sezione": "Lingua francese",
+"testo": "Vorrebbe visitare il centro storico?",
+"risposte": [
+"Voulez-vous visiter le centre historique?",
+"Voulez-vous visité le centre historique?",
+"Vous voulez visiter le centre historique?"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 28,
+"n_sezione": 22
+},
+{
+"n": 210,
+"sezione": "Lingua francese",
+"testo": "È la prima volta che arrivo in Sardegna. Cosa c'è di interessante da visitare?",
+"risposte": [
+"C’est la première fois que je vient en Sardaigne. Qu’y a-t-il à visiter?",
+"C’est la première fois que je viens en Sardaigne. Qu’est-ce qu’il y a à visiter?",
+"Est la première fois que je viens en Sardaigne. Qu’y a-t-il à visiter?"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 28,
+"n_sezione": 23
+},
+{
+"n": 211,
+"sezione": "Lingua francese",
+"testo": "Quanto tempo vuole dedicare alla visita?",
+"risposte": [
+"Combien temps voulez vous consacrer à votre visite?",
+"Combien de temps voulez-vous consacrer à votre visite?",
+"Combien de temps vous voulez consacrer à votre visite?"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 28,
+"n_sezione": 24
+},
+{
+"n": 212,
+"sezione": "Lingua francese",
+"testo": "Ho una mezza giornata libera, giovedì sera, prima della partenza.",
+"risposte": [
+"J’ai une demi journée de libre, le jeudi après midi, avant ma départ",
+"J’ait une demi journée de libre, le jeudi après midi, avant mon départ",
+"J’ai une demi-journée libre, le jeudi après-midi, avant mon départ"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 28,
+"n_sezione": 25
+},
+{
+"n": 213,
+"sezione": "Lingua francese",
+"testo": "A che ora parte l'aereo? Vuole che l'accompagni all'aeroporto?",
+"risposte": [
+"A quelle heure l’avion part? Est-ce que vous souhaitez que je vous amène à l’aéroport?",
+"A quelle heure l’avion part-il? Est que vous souhaitez que je vous amène à l’aéroport?",
+"A quelle heure est-ce que l’avion part? Est-ce que vous souhaitez que je vous amène à l’aéroport?"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 28,
+"n_sezione": 26
+},
+{
+"n": 214,
+"sezione": "Lingua francese",
+"testo": "Benvenuto in Sardegna. Desidera fare un tour dei nuraghi?",
+"risposte": [
+"Monsieur, vous êtez le bienvenu en Sardaigne. Voulez-vous faire un tour des nuraghi?",
+"Bienvenue en Sardaigne. Vous voulez faire un tour des nuraghi?",
+"Bienvenue en Sardaigne. Voulez-vous fair un tour des nuraghi?"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 28,
+"n_sezione": 27
+},
+{
+"n": 215,
+"sezione": "Lingua francese",
+"testo": "No grazie: Vorrei visitare le rovine di Nora. Quanto costa il tour?",
+"risposte": [
+"Non, merci. Je voudrais visiter les fouilles archéologiques de Nora. Combien coûte le tour?",
+"Non, merci. Je voudrai visiter les fouilles archéologiques de Nora. Combien coute le tour?",
+"Non, merci. Je voudrait visiter les fouilles archéologiques de Nora. Combien coute le tour?"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 29,
+"n_sezione": 28
+},
+{
+"n": 216,
+"sezione": "Lingua francese",
+"testo": "Se siete in quattro basta il mio taxi.",
+"risposte": [
+"Si vous êtes quatre, il vous suffit mon taxi.",
+"Si vous êtes quatre, mon taxi suffit.",
+"Si vous etes quatre, mon taxi suffit."
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 29,
+"n_sezione": 29
+},
+{
+"n": 217,
+"sezione": "Lingua francese",
+"testo": "Purtroppo siamo in otto. Serviranno due taxi.",
+"risposte": [
+"Malheureusement nous sommes huits. Nous aurons besoin de deuxs taxi",
+"Malheureusement nous somme huit. Nous aurons besoin de deux taxi",
+"Malheureusement nous sommes huit. Nous aurons besoin de deux taxis"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 29,
+"n_sezione": 30
+},
+{
+"n": 218,
+"sezione": "Lingua francese",
+"testo": "Alla vostra destra potete ammirare i famosi fenicotteri rosa.",
+"risposte": [
+"A votre droite, vous pouvez admirer les fameux flamants roses.",
+"A votre droit vous pouvez admirer les fameux flamants roses.",
+"A votre droit vous pouvez admirer les fameux flamants roses."
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 29,
+"n_sezione": 31
+},
+{
+"n": 219,
+"sezione": "Lingua francese",
+"testo": "I fenicotteri stazionano tutto l'anno o migrano stagionalmente?",
+"risposte": [
+"Les flamants restent en Sardaigne toute l’année ou migrent-ils?",
+"Les flamants restent-ils en Sardaigne toute l’année ou migrent-ils?",
+"Les flamants restent-ils en Sardaigne tout l’année ou migrent-ils?"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 29,
+"n_sezione": 32
+},
+{
+"n": 220,
+"sezione": "Lingua francese",
+"testo": "No. I fenicotteri stazionano tutto l'anno.",
+"risposte": [
+"Non, les flamants roses restent tout l’année.",
+"Non, les flamants roses restent tout l’anné.",
+"Non, les flamants roses restent toute l’année."
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 29,
+"n_sezione": 33
+},
+{
+"n": 221,
+"sezione": "Lingua francese",
+"testo": "Buongiorno. Avete un veicolo accessibile per i disabili motori?",
+"risposte": [
+"Bonjour, avez-vous un véhicule pour les handicapés moteurs?",
+"Bonjour, avez-vous un vehicule pour les personnes handicapées moteur?",
+"Bonjour, avez-vous un vehicule pour les personnes handicapés moteur?"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 29,
+"n_sezione": 34
+},
+{
+"n": 222,
+"sezione": "Lingua francese",
+"testo": "Mi può accompagnare urgentemente alla stazione dei treni?",
+"risposte": [
+"Pouvez-vous m’amener à la gare ferroviaire toute de suite?",
+"Pouvez vous m’amener à la gare ferroviaire tout de suite?",
+"Pouvez vous m’amener a la gare ferroviaire toute de suite?"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 29,
+"n_sezione": 35
+},
+{
+"n": 223,
+"sezione": "Lingua francese",
+"testo": "Ho una prenotazione per l'Hotel “Tanka Village”. È lei il mio autista?",
+"risposte": [
+"J’ai une reservation pour l’Hotel T.V. C’est vous mon chauffeur?",
+"J’ai une reservation pour l’Hotel T.V. Vous etes mon chauffeur?",
+"J’ai une réservation pour l’Hotel T.V. Etes-vous mon chauffeur?"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 30,
+"n_sezione": 36
+},
+{
+"n": 224,
+"sezione": "Lingua francese",
+"testo": "Prima di partire abbiamo il tempo per bere un caffé al bar?",
+"risposte": [
+"Avant le départ, est-ce que nous avons le temps de boire un café au bar?",
+"Avant le départ nous avons le temps de boire un café au bar?",
+"Avant le depart est-ce que nous avons le temps de boire un café au bar?"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 30,
+"n_sezione": 37
+},
+{
+"n": 225,
+"sezione": "Lingua francese",
+"testo": "Ho perso la mia valigia. Mi sa indicare l'ufficio “bagagli smarriti”?",
+"risposte": [
+"J’ai perdu ma valise. Est ce que vous pouvez m’indiquer le Bureau du service bagages?",
+"J’ai perdue ma valise. Est ce que vous pouvez m’indiquer le bureau du Service bagages?",
+"J’ai perdue ma valise. Vous pouvez m’indiquer le service des bagages perdus?"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 30,
+"n_sezione": 38
+},
+{
+"n": 226,
+"sezione": "Lingua francese",
+"testo": "Il mio bambino sta male. Mi può accompagnare subito alla clinica pediatrica?",
+"risposte": [
+"Mon enfant est malade. Est-ce que vous pouvez m’accompagner toute de suite à la clinique pédiatrique?",
+"Mon enfant est malade. Pouvez- vous m’accompagner tout de suite à la clinique pédiatrique?",
+"Mon enfant est malade. Est-ce que vous pouvez m’accompagner tout de suite à la clinique pédiatrique?"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 30,
+"n_sezione": 39
+},
+{
+"n": 227,
+"sezione": "Lingua francese",
+"testo": "Devo recarmi a visitare il tophet fenicio di Sant'Antioco.",
+"risposte": [
+"Je dois me rendre à visiter le tophet phénicien de Sant'Antioco.",
+"Est-ce que on peut visiter le tophet phénicien de Sant'Antioco?",
+"Avez vous jamais visité le tophet phénicien de Sant'Antioco?"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 30,
+"n_sezione": 40
+},
+{
+"n": 228,
+"sezione": "Lingua francese",
+"testo": "Quanto dista il Parco di Molentargius dal mio albergo?",
+"risposte": [
+"Est-ce que on peut aller à pied de mon hôtel jusqu'au Parc de Molentargius?",
+"Combien faut-il de temps pour arriver de mon hôtel jusqu'au Parc de Molentargius?",
+"Le Parc de Molentargius est-il à quelle distance de mon hôtel?"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 30,
+"n_sezione": 41
+},
+{
+"n": 229,
+"sezione": "Lingua francese",
+"testo": "Dov'é la stazione di bike-sharing più vicina?",
+"risposte": [
+"Peut-on louer en vélo pas loin d'ici?",
+"Où est la station de vélos en libre service la plus proche?",
+"Où est la prochaine station de bike sharing?"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 30,
+"n_sezione": 42
+},
+{
+"n": 230,
+"sezione": "Lingua francese",
+"testo": "Mi può suggerire una trattoria con cucina tipica sarda?",
+"risposte": [
+"Connaissez vous un bon restaurant de cuisine sarde typique?",
+"Pouvez-vous me conseiller un restaurant offrant de la cuisine sarde typique?",
+"Quels sont les restaurants offrant plats typiques de la cuisine sarde?"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 30,
+"n_sezione": 43
+},
+{
+"n": 231,
+"sezione": "Lingua spagnola",
+"testo": "C’è un hotel con piscina o centro fitness?",
+"risposte": [
+"¿Hay algún hotel con piscina o gimnasio?",
+"Hay ningún hotel con una piscina o un gimnasio?",
+"¿Está un hotel con una piscina o un gimnasio?"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 31,
+"n_sezione": 1
+},
+{
+"n": 232,
+"sezione": "Lingua spagnola",
+"testo": "Dove deve recarsi?",
+"risposte": [
+"¿A dóde ir?",
+"¿A dónde va?",
+"¿A dónde?"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 31,
+"n_sezione": 2
+},
+{
+"n": 233,
+"sezione": "Lingua spagnola",
+"testo": "È stato altre volte in Sardegna",
+"risposte": [
+"Es 's sido otras veces Cerdeña",
+"Es 's sido otra veces en Cerdeña",
+"Ha estado otras veces en Cerdeña"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 31,
+"n_sezione": 3
+},
+{
+"n": 234,
+"sezione": "Lingua spagnola",
+"testo": "Devo recarmi con urgenza al Porto di Cagliari",
+"risposte": [
+"Tengo que ir con urgencia al puerto de Cagliari",
+"Tengo que ir urgencia al puerto de Cagliari",
+"Tengo que ir con urgencia al de Cagliari"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 31,
+"n_sezione": 4
+},
+{
+"n": 235,
+"sezione": "Lingua spagnola",
+"testo": "Quanto tempo si trattiene in città?",
+"risposte": [
+"¿Cuánto va a chedarse en nuestra ciudad?",
+"¿Cuánto va a quedarse en nuestra ciudad?",
+"Cuanto va a quedarse en nuestra ciudad?"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 31,
+"n_sezione": 5
+},
+{
+"n": 236,
+"sezione": "Lingua spagnola",
+"testo": "Può accompagnarmi all'Ufficio postale?",
+"risposte": [
+"¿Puede llevarme a la oficina de correos?",
+"¿Puede levarme a la officina de correos?",
+"¿Puede llevarme a la oficina de correo?"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 31,
+"n_sezione": 6
+},
+{
+"n": 237,
+"sezione": "Lingua spagnola",
+"testo": "Si trattiene nella nostra Isola?",
+"risposte": [
+"¿Se queda en nuestra isla?",
+"¿Se queda nuestra isla?",
+"¿Se queda en nustra isla?"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 31,
+"n_sezione": 7
+},
+{
+"n": 238,
+"sezione": "Lingua spagnola",
+"testo": "Quanto costa la corsa da Cagliari a Carbonia?",
+"risposte": [
+"¿Cuánto cuesta el de Carbonia a Cagliari?",
+"¿Cuánto cuesta el viaje Carbonia a Cagliari?",
+"¿Cuánto cuesta el viaje de Carbonia a Cagliari?"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 31,
+"n_sezione": 8
+},
+{
+"n": 239,
+"sezione": "Lingua spagnola",
+"testo": "Quanto le devo per questa corsa?",
+"risposte": [
+"¿Cuánto cuesta para carrera?",
+"¿Cuánto cuesta para esta carrera?",
+"¿Cuánto cuesta este viaje?"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 31,
+"n_sezione": 9
+},
+{
+"n": 240,
+"sezione": "Lingua spagnola",
+"testo": "Torno subito. Mi può aspettare? Devo comprare dei francobolli per spedire delle cartoline.",
+"risposte": [
+"Vuelvo enseguida. ¿Puede esperarme? Tengo che comprar sellos para algunas targetas postales.",
+"Vuelvo enseguida. Puede esperarme? Tiengo que comprar sellos para algunas tarjetas postales.",
+"Vuelvo enseguida. ¿Puede esperarme? Tengo que comprar sellos para algunas tarjetas postales."
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 31,
+"n_sezione": 10
+},
+{
+"n": 241,
+"sezione": "Lingua spagnola",
+"testo": "Che ristorante mi consiglia in città?",
+"risposte": [
+"¿Qué restaurante recomiendan en la ciudad?",
+"¿Qué restaurante me recomienda en la ciudad?",
+"¿Qué restaurante me recomiendan en ciudad?"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 32,
+"n_sezione": 11
+},
+{
+"n": 242,
+"sezione": "Lingua spagnola",
+"testo": "Da quale aeroporto posso partire per Francoforte?",
+"risposte": [
+"¿Desde el aeropuerto se puede ir a Frankfurt?",
+"¿Desde qué aeropuerto puedo partir hacia Frankfurt?",
+"¿Desde que el aeropuerto se ir a Frankfurt?"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 32,
+"n_sezione": 12
+},
+{
+"n": 243,
+"sezione": "Lingua spagnola",
+"testo": "Arrivederci! Spero che torni presto nella nostra città.",
+"risposte": [
+"Hasta luego. Espero que vuelve pronto en nuestra ciudad.",
+"¡Hasta luego! Espero che vuelva pronto en nuestra ciudad.",
+"¡Hasta luego! Espero que vuelva pronto a nuestra ciudad."
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 32,
+"n_sezione": 13
+},
+{
+"n": 244,
+"sezione": "Lingua spagnola",
+"testo": "Da che paese arriva?",
+"risposte": [
+"¿De país vienes?",
+"¿De qué país viene?",
+"¿De que vienes?"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 32,
+"n_sezione": 14
+},
+{
+"n": 245,
+"sezione": "Lingua spagnola",
+"testo": "Mi può indicare i monumenti più belli di questa città?",
+"risposte": [
+"¿Puedo mostrar los monumentos bellos de esta ciudad?",
+"¿Me puede indicar los monumentos más bellos de esta ciudad?",
+"¿Puedo mostrar monumentos más bellos de esta ciudad?"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 32,
+"n_sezione": 15
+},
+{
+"n": 246,
+"sezione": "Lingua spagnola",
+"testo": "È stato bene nella nostra città?",
+"risposte": [
+"¿He estado bueno nuestra ciudad?",
+"¿Se ha encontrado bien en nuestra ciudad?",
+"¿Era bueno en ciudad?"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 32,
+"n_sezione": 16
+},
+{
+"n": 247,
+"sezione": "Lingua spagnola",
+"testo": "Presto! Sto male può portarmi al Pronto Soccorso",
+"risposte": [
+"¡Deprisa! Estoy mal y necesito que me lleven a Urgencias",
+"¡Deprisa! Estoy mal puede llevarme a la Sala de Emergencias",
+"¡Deprisa! Estoy mal puede llevarme Servicio de Emergencias"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 32,
+"n_sezione": 17
+},
+{
+"n": 248,
+"sezione": "Lingua spagnola",
+"testo": "La corsa costa 26,00 euro",
+"risposte": [
+"El billete costa 26,00 euros.",
+"El viaje cuesta 26,00 euros",
+"El billet cuesta 26,00 euros."
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 32,
+"n_sezione": 18
+},
+{
+"n": 249,
+"sezione": "Lingua spagnola",
+"testo": "Dove posso acquistare quotidiani internazionali?",
+"risposte": [
+"¿Donde puedo comprar jornales internacionales?",
+"¿Donde puedo comprar periódicos internacionales?",
+"¿Dónde puedo comprar periódicos internacionales?"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 32,
+"n_sezione": 19
+},
+{
+"n": 250,
+"sezione": "Lingua spagnola",
+"testo": "Dovrei recarmi all'Aeroporto di Alghero",
+"risposte": [
+"Debo ir a aeropuerto de Alghero",
+"Debo ir aeropuerto de Alghero",
+"Debo ir al aeropuerto de Alghero"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 33,
+"n_sezione": 20
+},
+{
+"n": 251,
+"sezione": "Lingua spagnola",
+"testo": "Buongiorno. Posso aiutarla a caricare i bagagli?",
+"risposte": [
+"Buenos días ¿Puedo ayudarle a cargar su equipaje?",
+"Buenos días. ¿Puedo ayudarla a cargar su equipaje?",
+"Buenos días. ¿Puedo ayudarla cargar su bagaje?"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 33,
+"n_sezione": 21
+},
+{
+"n": 252,
+"sezione": "Lingua spagnola",
+"testo": "Vorrebbe visitare il centro storico?",
+"risposte": [
+"¿Le gustaría visitar el centro histórico?",
+"¿gustaría visitar el centro histórico?",
+"¿Le gustara visitar el centro histórico?"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 33,
+"n_sezione": 22
+},
+{
+"n": 253,
+"sezione": "Lingua spagnola",
+"testo": "È la prima volta che arrivo in Sardegna. Cosa c'è di interessante da visitare?",
+"risposte": [
+"Es la primera vece que vengo a Cerdeña. ¿Qué hay interesante que visitar?",
+"Es la primera vez que voy a Cerdeña. ¿Qué hay que visitar?",
+"Es la primera vez que vengo a Cerdeña. ¿Qué hay que ver?"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 33,
+"n_sezione": 23
+},
+{
+"n": 254,
+"sezione": "Lingua spagnola",
+"testo": "Quanto tempo vuole dedicare alla visita?",
+"risposte": [
+"¿Cuánto tiempo quiere dedicar a su jornada?",
+"¿Cuánto tiempo quiere dedicar a su visita?",
+"¿Cuánto quiere dedicar a su visita?"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 33,
+"n_sezione": 24
+},
+{
+"n": 255,
+"sezione": "Lingua spagnola",
+"testo": "Ho una mezza giornata libera, giovedì sera, prima della partenza.",
+"risposte": [
+"Tengo algunas horas libres, el Viernes por la tarde, antes de salir.",
+"Tengo algunas horas libres, el jueves por la tarde, antes de salir.",
+"Tengo algunas horas libres, el Martes por la tarde, antes de salir."
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 33,
+"n_sezione": 25
+},
+{
+"n": 256,
+"sezione": "Lingua spagnola",
+"testo": "A che ora parte l'aereo? Vuole che l'accompagni all'aeroporto?",
+"risposte": [
+"¿A qué hora sale el aereo? ¿Quiere que le acompañe al aeropuerto?",
+"¿A qué hora sube el avión? ¿Quiere que le acompañe al aeropuerto?",
+"¿A qué hora sale el avión? ¿Quiere que le acompañe al aeropuerto?"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 33,
+"n_sezione": 26
+},
+{
+"n": 257,
+"sezione": "Lingua spagnola",
+"testo": "Benvenuto in Sardegna. Desidera fare un tour dei nuraghi?",
+"risposte": [
+"Bienvenido a Cerdeña. Le gustaría hacer un tour de los Nuragas?",
+"Bienvendo a Cerdeña. Le gustaría hagar un tour de los Nuragues?",
+"Bienvendo a España. Le gustaría hacer un tour de los Nuragas?"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 33,
+"n_sezione": 27
+},
+{
+"n": 258,
+"sezione": "Lingua spagnola",
+"testo": "No grazie: Vorrei visitare le rovine di Nora. Quanto costa il tour?",
+"risposte": [
+"No gracias. Me gustaría visitar las ruinas de Nora. ¿Cuánto cuestan las entradas?",
+"No gracias. Me gustaría visitar las ruinas de Nora. ¿Quánto cuestan las entradas?",
+"No gracias. Me gustaría visitar las ruinas a Nora. ¿Cuánto cuestan las entradas?"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 33,
+"n_sezione": 28
+},
+{
+"n": 259,
+"sezione": "Lingua spagnola",
+"testo": "Se siete in quattro basta il mio taxi",
+"risposte": [
+"Si sólo sois cuatros personas cabeis en un taxi.",
+"Si sólo sois cuatros personajes cabeis en mí taxi",
+"Si sólo sois cuatros personas cabeis en mí taxi."
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 34,
+"n_sezione": 29
+},
+{
+"n": 260,
+"sezione": "Lingua spagnola",
+"testo": "Purtroppo siamo in otto. Serviranno due taxi",
+"risposte": [
+"Desafortunadamente somos ochenta. Necesitamos dos taxis.",
+"Desafortunadamente somos ocho. Necesitamos dos taxis.",
+"Desafortunadamente somos ocho. Necesitamos dos barcos."
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 34,
+"n_sezione": 30
+},
+{
+"n": 261,
+"sezione": "Lingua spagnola",
+"testo": "Alla vostra destra potete ammirare i famosi fenicotteri rosa.",
+"risposte": [
+"A vuestra derecha podeis admirar los famosos Flamingos rosas.",
+"A la vuestra izquierda podeis admirar los famosos Flamingos rosa.",
+"A la vuestra derecha podeis admirar los famosos Flamingos rosa."
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 34,
+"n_sezione": 31
+},
+{
+"n": 262,
+"sezione": "Lingua spagnola",
+"testo": "I fenicotteri stazionano tutto l'anno o migrano stagionalmente?",
+"risposte": [
+"¿Les Flamingos estacionan aquí a lo largo del año u emigran estacionalmente?",
+"¿Los Flamingos estacionan allí a lo largo del año u emigran estacionalmente?",
+"¿Los Flamingos estacionan aquí a lo largo del año o emigran estacionalmente?"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 34,
+"n_sezione": 32
+},
+{
+"n": 263,
+"sezione": "Lingua spagnola",
+"testo": "No. I fenicotteri stazionano tutto l'anno.",
+"risposte": [
+"No. Los Flamingos estacionan aquí a lo largo del año.",
+"No. Los Flamingos estacionan aquí a lo largo de los años.",
+"No. Les Flamingos estacionan aquí a lo largo del año."
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 34,
+"n_sezione": 33
+},
+{
+"n": 264,
+"sezione": "Lingua spagnola",
+"testo": "Buongiorno. Avete un veicolo accessibile per i disabili motori?",
+"risposte": [
+"Buenos días. ¿Tengais algún vehículo accessible a usuarios de sillas de ruedas?",
+"Buenos días. ¿Tienen algún vehículo accessible a usuarios con sillas de ruedas?",
+"Buenas tardes. ¿Teneis algún vehículo accessible a usuarios de sillas de ruedas?"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 34,
+"n_sezione": 34
+},
+{
+"n": 265,
+"sezione": "Lingua spagnola",
+"testo": "Mi può accompagnare urgentemente alla stazione dei treni?",
+"risposte": [
+"Puede acompañarme con urgencia a la estación de autobuses?",
+"Puede acompañarme con urgencia a la estación de coches?",
+"Puede acompañarme con urgencia a la estación de trenes?"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 34,
+"n_sezione": 35
+},
+{
+"n": 266,
+"sezione": "Lingua spagnola",
+"testo": "Ho una prenotazione per l'Hotel “Tanka Village”. È lei il mio autista?",
+"risposte": [
+"Tengo una reserva en el Hotel \"Tanka Village.\" ¿Es usted mí chófer?",
+"Tiengo una reserva en Hotel \"Tanka Village.\" ¿Es usted mí conductor?",
+"Tengo una reserva en Hotel \"Tanka Village.\" ¿Es él mí conductor?"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 34,
+"n_sezione": 36
+},
+{
+"n": 267,
+"sezione": "Lingua spagnola",
+"testo": "Prima di partire abbiamo il tempo per bere un caffé al bar?",
+"risposte": [
+"¿Tenemos tiempo para tomar un café antes de salir?",
+"¿Tenemos tempo por un café antes de subir?",
+"¿Tenemos tiempo para un café antes de salir?"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 35,
+"n_sezione": 37
+},
+{
+"n": 268,
+"sezione": "Lingua spagnola",
+"testo": "Ho perso la mia valigia. Mi sa indicare l'ufficio “bagagli smarriti”?",
+"risposte": [
+"He perdido mi maleta. ¿Puede decirme dónde esté la oficina de objetos perdidos?",
+"Ha perdido mi maleta. ¿Puede decirme dónde está la oficina de objetos perdidos?",
+"He perdido mi maleta. ¿Puede decirme dónde está la oficina de objetos perdidos?"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 35,
+"n_sezione": 38
+},
+{
+"n": 269,
+"sezione": "Lingua spagnola",
+"testo": "Il mio bambino sta male. Mi può accompagnare subito il clinica pediatrica?",
+"risposte": [
+"Mi niño está enfermo. ¿Puede acompañarme ahora mismo a la clínica pediátrica?",
+"Mi niño está infermo. ¿Puede acompañarme ahora mismo a la clínica pediátrica?",
+"Mi niño esté enfermo. ¿Puede acompañarme ahora mismo a la clínica pediátrica?"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 35,
+"n_sezione": 39
+},
+{
+"n": 270,
+"sezione": "Lingua spagnola",
+"testo": "Devo recarmi a visitare il tophet fenicio di Sant'Antioco.",
+"risposte": [
+"Tengo que ir a visitar el tophet en Sant’Antioco.",
+"Tiengo que ir a visitar el tophet en Sant’Antioco.",
+"Tengo que visitar el tophet en Sant’Antioco."
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 35,
+"n_sezione": 40
+},
+{
+"n": 271,
+"sezione": "Lingua spagnola",
+"testo": "Quanto dista il Parco di Molentargius dal mio albergo?",
+"risposte": [
+"¿A qué distancia se encuentra el Parque Molentargius de mi hotel?",
+"¿Dónde está el parque de Molentargius?",
+"¿Dónde encuentro el Parque de Molentargius?"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 35,
+"n_sezione": 41
+},
+{
+"n": 272,
+"sezione": "Lingua spagnola",
+"testo": "Dov'é la stazione di bike-sharing più vicina?",
+"risposte": [
+"¿Dónde está la estación de bicicletas compartidas más cercana?",
+"¿Dónde hay la estación de bike-sharing más cercana?",
+"¿Dónde está la estación de bike-sharing mas cercana?"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 35,
+"n_sezione": 42
+},
+{
+"n": 273,
+"sezione": "Lingua spagnola",
+"testo": "Mi può suggerire una trattoria con cucina tipica sarda?",
+"risposte": [
+"¿Podría sugerirme un restaurante de cocina típica de Cerdeña?",
+"¿Podría sugerirme una restaurante de cocina típica de Cerdeña?",
+"¿Podría decirme una restaurante de cocina típica de Cerdeña?"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 35,
+"n_sezione": 43
+},
+{
+"n": 274,
+"sezione": "Lingua tedesca",
+"testo": "Che ristorante mi consiglia in città?",
+"risposte": [
+"Könnten Sie mir ein Restaurant in der Stadt empfhelen?",
+"In welchem Restaurant Sie Stadt empfehlen?",
+"In Restaurant Sie in der Stadt empfehlen?"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 36,
+"n_sezione": 1
+},
+{
+"n": 275,
+"sezione": "Lingua tedesca",
+"testo": "È stato altre volte in Sardegna",
+"risposte": [
+"Es ist zu anderen Zeiten in Sardinien",
+"Sind Sie schon (mal) auf Sardinien gewesen?",
+"Es ist schon anderen Zeiten in Sardinien"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 36,
+"n_sezione": 2
+},
+{
+"n": 276,
+"sezione": "Lingua tedesca",
+"testo": "Presto! Stò male può portarmi al Pronto Soccorso",
+"risposte": [
+"Schnell! Ich fühle mich schlecht. Ich muss in die Notaufnahme fahren",
+"Soon! Ich bin Böse kann mich in die Notaufnahme zu nehmen",
+"Soon! Ich bin das Böse kann in die Notaufnahme zu nehmen"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 36,
+"n_sezione": 3
+},
+{
+"n": 277,
+"sezione": "Lingua tedesca",
+"testo": "Arrivederci! Spero che torni presto nella nostra città.",
+"risposte": [
+"Bis bald! Kommen Sie schnell in Stadt.",
+"Adieu! Hoffentlich sind Sie in Stadt früh.",
+"Auf Wiedersehen! Ich hoffe, Sie kommen bald wieder in unsere Stadt."
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 36,
+"n_sezione": 4
+},
+{
+"n": 278,
+"sezione": "Lingua tedesca",
+"testo": "Quanto tempo si trattiene in città?",
+"risposte": [
+"Wann sind Sie in Stadt?",
+"In der Stadt sind Sie lange?",
+"Wie lange bleiben Sie in der Stadt?"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 36,
+"n_sezione": 5
+},
+{
+"n": 279,
+"sezione": "Lingua tedesca",
+"testo": "Può accompagnarmi all'ufficio postale?",
+"risposte": [
+"Können Sie mich zur Post begleiten?",
+"Können Sie mich zum Brifekasten fahren?",
+"Sie fahren Postamt?"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 36,
+"n_sezione": 6
+},
+{
+"n": 280,
+"sezione": "Lingua tedesca",
+"testo": "Dove posso acquistare quotidiani internazionali?",
+"risposte": [
+"Internationalpresse wo ich kaufen?",
+"Wo kann ich ausländische Zeitungen kaufen?",
+"Wo kann ich Auslandszeitung?"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 36,
+"n_sezione": 7
+},
+{
+"n": 281,
+"sezione": "Lingua tedesca",
+"testo": "Torno subito. Mi può aspettare? Devo comprare francobolli per spedire delle cartoline.",
+"risposte": [
+"Gleich zurück. Warten Sie? Ich Briefe kaufen.",
+"Ich bin gleich wieder da. Können Sie auf mich warten? Ich muss Briefmarken für Postkarten kaufen.",
+"Zurück bin ich sofort. Können Sie auf mich warten? Kaufe Postkarten."
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 36,
+"n_sezione": 8
+},
+{
+"n": 282,
+"sezione": "Lingua tedesca",
+"testo": "Quanto le devo per questa corsa?",
+"risposte": [
+"Wie viel ist für dieses Rennen?",
+"Wie viel kostet die Fahrt?",
+"Wie viel ist es für Rennen?"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 36,
+"n_sezione": 9
+},
+{
+"n": 283,
+"sezione": "Lingua tedesca",
+"testo": "Si trattiene nella nostra Isola?",
+"risposte": [
+"Er bleibt unserem Island?",
+"Wie lange bleiben Sie auf unserer Insel?",
+"Er bleibt in Island?"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 37,
+"n_sezione": 10
+},
+{
+"n": 284,
+"sezione": "Lingua tedesca",
+"testo": "È stato bene nella nostra città?",
+"risposte": [
+"Es gut, in unserer Stadt?",
+"Hat es Ihnen unsere Stadt gut gefallen?",
+"Es war gut, in Stadt?"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 37,
+"n_sezione": 11
+},
+{
+"n": 285,
+"sezione": "Lingua tedesca",
+"testo": "La corsa costa 26,00 euro.",
+"risposte": [
+"Da Ticket kostet 26,00 €.",
+"Die Fahrt kostet € 26,00",
+"Das Ticket kostt 26,00 €."
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 37,
+"n_sezione": 12
+},
+{
+"n": 286,
+"sezione": "Lingua tedesca",
+"testo": "C'è un hotel con piscina o centro fitness?",
+"risposte": [
+"Gibt es ein Hotel mit Schwimmbad oder Fitnesscenter?",
+"Wissen Sie Hotel schwimmen oder fit?",
+"Ein Fitnesscenter gibt es ohne schwimmen?"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 37,
+"n_sezione": 13
+},
+{
+"n": 287,
+"sezione": "Lingua tedesca",
+"testo": "Dove deve recarsi?",
+"risposte": [
+"Wohin fahren Sie?",
+"Wohi reisen?",
+"Wohin reise?"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 37,
+"n_sezione": 14
+},
+{
+"n": 288,
+"sezione": "Lingua tedesca",
+"testo": "Quanto costa la corsa da Cagliari a Carbonia?",
+"risposte": [
+"Wie viel kostet Fahrt von Carbonia nach Cagliari?",
+"Wie viel kostet die Fahrt Carbonia nach Cagliari?",
+"Was kostet es von Carbonia (bis) nach Cagliari?"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 37,
+"n_sezione": 15
+},
+{
+"n": 289,
+"sezione": "Lingua tedesca",
+"testo": "Da quale aeroporto posso partire per Francoforte?",
+"risposte": [
+"Von welchem Flughafen kann ich nach Frankfurt fliegen?",
+"Von welchem Flughafen ich nach Frankfurt gehen?",
+"Von Flughafen kann ich nach Frankfurt gehen?"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 37,
+"n_sezione": 16
+},
+{
+"n": 290,
+"sezione": "Lingua tedesca",
+"testo": "Dovrei recarmi all'Aeroporto di Alghero",
+"risposte": [
+"Ich sollte zum Flughafen Alghero fahren",
+"Sollte ich Alghero Flughafen gehen",
+"Sollte nach Alghero Flughafen gehen"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 37,
+"n_sezione": 17
+},
+{
+"n": 291,
+"sezione": "Lingua tedesca",
+"testo": "Devo recarmi con urgenza al Porto di Cagliari.",
+"risposte": [
+"Ich dringend gehen Sie zum Hafen von Cagliari.",
+"Ich muss dringend gehen zum Hafen von Cagliari.",
+"Ich muss dringend zum Cagliari Hafen fahren"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 37,
+"n_sezione": 18
+},
+{
+"n": 292,
+"sezione": "Lingua tedesca",
+"testo": "Da che paese arriva?",
+"risposte": [
+"Aus welche Land kommen?",
+"Aus welchem Land kommen?",
+"Aus welchem Land kommen Sie?"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 37,
+"n_sezione": 19
+},
+{
+"n": 293,
+"sezione": "Lingua tedesca",
+"testo": "Mi può indicare i monumenti più belli di questa città",
+"risposte": [
+"Ich kann zeigen schönsten Denkmäler in dieser Stadt",
+"Ich kann zeigen die schönsten Denkmäler in Stadt",
+"Könnten Sie mir die schönsten Denkmäler der Stadt zeigen?"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 38,
+"n_sezione": 20
+},
+{
+"n": 294,
+"sezione": "Lingua tedesca",
+"testo": "Buongiorno. Posso aiutarla a caricare i bagagli?",
+"risposte": [
+"Guten Tag. Kann ich Ihnen beim Laden des Gepäcks helfen?",
+"Guten Tag. Haben Sie ein leichtes Gepäck?",
+"Guten Tag. Brauchen Sie einen Koffer?"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 38,
+"n_sezione": 21
+},
+{
+"n": 295,
+"sezione": "Lingua tedesca",
+"testo": "Vorrebbe visitare il centro storico?",
+"risposte": [
+"Was möchten Sie besichtigen?",
+"Wissen Sie wo die Altstadt ist?",
+"Möchten Sie die Altstadt besichtigen?"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 38,
+"n_sezione": 22
+},
+{
+"n": 296,
+"sezione": "Lingua tedesca",
+"testo": "È la prima volta che arrivo in Sardegna. Cosa c'è di interessante da visitare?",
+"risposte": [
+"Cagliari ist die erste Etappe meiner Reise auf Sardinien. Was gibt es Sehenswürdiges?",
+"Ich bin zum ersten Mal in Sardinien. Was gibt es Sehenswürdiges?",
+"Ich bin zum ersten Mal in Sardinien. Können Sie mir etwas empfehlen?"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 38,
+"n_sezione": 23
+},
+{
+"n": 297,
+"sezione": "Lingua tedesca",
+"testo": "Quanto tempo vuole dedicare alla visita?",
+"risposte": [
+"Hat die Besichtigung zu lange gedauert?",
+"Wie lange soll die Besichtigung dauern?",
+"Wie lange bleiben Sie?"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 38,
+"n_sezione": 24
+},
+{
+"n": 298,
+"sezione": "Lingua tedesca",
+"testo": "Ho una mezza giornata libera, giovedì sera, prima della partenza.",
+"risposte": [
+"Bevor ich abfahre, am Donnerstagabend, möchte ich mir einen Halbtag frei nehmen.",
+"Bevor ich abfahre, am Donnerstagabend, will ich einen Halbtag frei planen.",
+"Vor meiner Abfahrt, am Donnerstagabend, habe ich einen Halbtag frei."
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 38,
+"n_sezione": 25
+},
+{
+"n": 299,
+"sezione": "Lingua tedesca",
+"testo": "A che ora parte l'aereo? Vuole che l'accompagni all'aeroporto?",
+"risposte": [
+"Um wieviel Uhr ist Ihr Flug? Wer begleitet Sie zum Flughafen?",
+"Ist Ihr Flug pünktlich? Soll ich Sie zum Flughafen begleiten?",
+"Um wieviel Uhr fährt das Flugzeug? Möchten Sie, dass ich Sie zum Flughafen begleite?"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 38,
+"n_sezione": 26
+},
+{
+"n": 300,
+"sezione": "Lingua tedesca",
+"testo": "Benvenuto in Sardegna. Desidera fare un tour dei nuraghi?",
+"risposte": [
+"Willkommen auf Sardinien. Haben Sie schon mal die Nuraghen gesehen?",
+"Willkommen auf Sardinien. Möchten Sie eine Nuraghentour machen?",
+"Sardinien begrüsst Sie. Ist Ihnen eine Nuraghentour schon empfohlen worden?"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 38,
+"n_sezione": 27
+},
+{
+"n": 301,
+"sezione": "Lingua tedesca",
+"testo": "No grazie. Vorrei visitare le rovine di Nora. Quanto costa il tour?",
+"risposte": [
+"Nein, danke. Ich möchte die Ruinen von Nora besichtigen. Was kostet die Tour?",
+"Nein, danke. Ich möchte Nora ruinieren. Was kostet die Tour?",
+"Nein, danke. Ich möchte die Ruinen von Nora besichtigen. Wie lange dauert die Tour?"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 39,
+"n_sezione": 28
+},
+{
+"n": 302,
+"sezione": "Lingua tedesca",
+"testo": "Se siete in quattro basta il mio taxi.",
+"risposte": [
+"Sie brauchen vier Taxis.",
+"Vier von Ihnen fahren mit meinem Taxi.",
+"Wenn Sie zu viert sind, reicht es mein Taxi."
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 39,
+"n_sezione": 29
+},
+{
+"n": 303,
+"sezione": "Lingua tedesca",
+"testo": "Purtroppo siamo in otto. Serviranno due taxi.",
+"risposte": [
+"Wir sind acht und möchten zwei Taxis fahren.",
+"Leider sind wir zu acht. Wir werden zwei Taxis brauchen.",
+"Leider sind wir zu acht. Es genügen zwei Taxis."
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 39,
+"n_sezione": 30
+},
+{
+"n": 304,
+"sezione": "Lingua tedesca",
+"testo": "Alla vostra destra potete ammirare i famosi fenicotteri rosa.",
+"risposte": [
+"Rechts von Ihnen können Sie die berühmten Rosaflamingos bewundern.",
+"Die berühmten Rosaflamingos bewundern rechts.",
+"Rosaflamingos sind rechts berühmt."
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 39,
+"n_sezione": 31
+},
+{
+"n": 305,
+"sezione": "Lingua tedesca",
+"testo": "I fenicotteri stazionano tutto l'anno o migrano stagionalmente?",
+"risposte": [
+"Stationieren Flamingos das ganze Jahr oder sind sie saisonmäßig?",
+"Bleiben Flamingos jahrelang oder saisonweise?",
+"Sind Flamingos Stand- oder Zugvögel?"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 39,
+"n_sezione": 32
+},
+{
+"n": 306,
+"sezione": "Lingua tedesca",
+"testo": "No. I fenicotteri stazionano tutto l'anno.",
+"risposte": [
+"Nein. Flamingos stationieren das ganze Jahr.",
+"Nein. Flamingos sind Standvögel.",
+"Nein. Flamingos bleiben langjährig."
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 39,
+"n_sezione": 33
+},
+{
+"n": 307,
+"sezione": "Lingua tedesca",
+"testo": "Buongiorno. Avete un veicolo accessibile per i disabili motori?",
+"risposte": [
+"Guten Tag. Haben Sie ein behindertes Motorfahrzeug?",
+"Guten Tag. Haben Sie ein Fahrzeug für Motorbehinderte?",
+"Guten Tag. Haben Sie ein für Körperbehinderte zugängliches Fahrzeug?"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 39,
+"n_sezione": 34
+},
+{
+"n": 308,
+"sezione": "Lingua tedesca",
+"testo": "Mi può accompagnare urgentemente alla stazione dei treni?",
+"risposte": [
+"Können Sie mich dringend zum Training Station begleiten?",
+"Können Sie mich dringend zum Bahnhof begleiten?",
+"Können Sie mich dringend zur Eisenbahn fahren?"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 39,
+"n_sezione": 35
+},
+{
+"n": 309,
+"sezione": "Lingua tedesca",
+"testo": "Ho una prenotazione per l'Hotel “Tanka Village”. È lei il mio autista?",
+"risposte": [
+"Ich habe eine Buchung beim Hotel “Tanka Village”. Sind Sie mein Fahrer?",
+"Ich habe eine Buchung beim Hotel “Tanka Village”. Wie lange fährt man bis dahin?",
+"Das Hotel “Tanka Village” hat einen Transfer für mich gebucht. Sind Sie mein Fahrer?"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 39,
+"n_sezione": 36
+},
+{
+"n": 310,
+"sezione": "Lingua tedesca",
+"testo": "Prima di partire abbiamo il tempo per bere un caffè al bar?",
+"risposte": [
+"Haben wir Zeit für einen Kaffee, bevor wir fahren?",
+"Vor der Abfahrt ist Zeit für Café trinken?",
+"Vor der Abreise haben wir Zeit, um eine Tasse Café in der Bar zu trinken?"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 40,
+"n_sezione": 37
+},
+{
+"n": 311,
+"sezione": "Lingua tedesca",
+"testo": "Ho perso la mia valigia. Mi sa indicare l'ufficio “bagagli smarriti”?",
+"risposte": [
+"Ich habe meinen Koffer vergessen. Wo ist das Büro “Verlorene Gepäcke”?",
+"Ich habe mein Gepäck verloren. Wissen Sie, wo ich es zurück haben kann?",
+"Ich habe meinen Koffer verloren. Können Sie mir das Büro “Gepäckermittlung” zeigen"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 40,
+"n_sezione": 38
+},
+{
+"n": 312,
+"sezione": "Lingua tedesca",
+"testo": "Il mio bambino sta male. Mi può accompagnare subito in clinica pediatrica?",
+"risposte": [
+"Mein Kind steht schlecht. Können Sie mich sofort in die Kinderklinik begleiten?",
+"Mein Kind fühlt sich schlecht. Kýnnen Sie mich sofort in die Kinderklinik begleiten?",
+"Mein Kind leidet. Können Sie mich sofort zum Kindergarten begleiten?"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 40,
+"n_sezione": 39
+},
+{
+"n": 313,
+"sezione": "Lingua tedesca",
+"testo": "Devo recarmi a visitare il tophet fenicio di Sant'Antioco",
+"risposte": [
+"Ich muß mich nach Sant'Antioco begeben, um das phönizische Tophet zu besichtigen.",
+"Kann man das phönizische Tophet von Sant'Antioco besichtigen?",
+"Haben Sie mal das phönizische Tophet von Sant'Antioco gesehen?"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 40,
+"n_sezione": 40
+},
+{
+"n": 314,
+"sezione": "Lingua tedesca",
+"testo": "Quanto dista il Parco di Molentargius dal mio albergo?",
+"risposte": [
+"Wie distanziert ist der Naturpark Molentargius von meinem Hotel?",
+"Bleibt der Naturpark Molentargius auf Distanz von meinem Hotel?",
+"Wie weit ist der Naturpark Molentargius von meinem Hotel entfernt?"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 40,
+"n_sezione": 41
+},
+{
+"n": 315,
+"sezione": "Lingua tedesca",
+"testo": "Dov'é la stazione di bike-sharing più vicina?",
+"risposte": [
+"Ist eine Bike-Sharing-Station ganz in der Nähe?",
+"Wo ist die nächste Bike-Sharing-Station?",
+"Wo kann ich eine Bike-Sharing-Station finden?"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 40,
+"n_sezione": 42
+},
+{
+"n": 316,
+"sezione": "Lingua tedesca",
+"testo": "Mi può suggerire una trattoria con cucina tipica sarda?",
+"risposte": [
+"Welche Gaststätten haben typisch sardische Spezialitäten?",
+"Können Sie mir eine Gaststätte mit typisch sardischer Küche empfehlen?",
+"Können Sie mir eine typisch sardische Gaststätte suggerieren"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 40,
+"n_sezione": 43
+},
+{
+"n": 317,
+"sezione": "Normativa fiscale",
+"testo": "Esistono vincoli particolari per la qualificazione come impresa artigiana di una società di persone o cooperativa, la cui costituzione è consentita dalla legge?",
+"risposte": [
+"nessuno",
+"che uno dei due soci (o la metà più uno) prevalentemente vi lavori, e il lavoro prevalga sul capitale",
+"che il lavoro manuale abbia funzione prevalente sul capitale"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 41,
+"n_sezione": 1
+},
+{
+"n": 318,
+"sezione": "Normativa fiscale",
+"testo": "Perché un contratto di lavoro si intenda a tutti gli effetti stipulato per un tempo determinato, in caso di sostituzione alla guida di taxi, è sufficiente che sia specificato il termine?",
+"risposte": [
+"sì",
+"no, devono essere precisati anche il nome del taxista sostituito e la causa della sostituzione",
+"no, deve essere specificata la targa del veicolo"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 41,
+"n_sezione": 2
+},
+{
+"n": 319,
+"sezione": "Normativa fiscale",
+"testo": "Quali forme sono consentite per l’impresa artigiana costituita come impresa societaria?",
+"risposte": [
+"tutte le forme previste dal codice civile",
+"solo le società in nome collettivo",
+"sono consentite le società in accomandita semplice, in nome collettivo e a responsabilità limitata"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 41,
+"n_sezione": 3
+},
+{
+"n": 320,
+"sezione": "Normativa fiscale",
+"testo": "Che cosa caratterizza specificamente l'imprenditore artigiano?",
+"risposte": [
+"l'esercizio personale e professionale in qualità di titolare e lo svolgimento diretto del lavoro",
+"l'essere titolare di una qualsiasi impresa che non superi un determinato numero di dipendenti",
+"l'esenzione dall'obbligo di rispetto di norme particolari di professionalità disposte dalle leggi"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 41,
+"n_sezione": 4
+},
+{
+"n": 321,
+"sezione": "Normativa fiscale",
+"testo": "Di quante imprese artigiane può essere titolare un imprenditore artigiano?",
+"risposte": [
+"una",
+"due",
+"non esiste limite"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 41,
+"n_sezione": 5
+},
+{
+"n": 322,
+"sezione": "Normativa fiscale",
+"testo": "Per quanti anni al massimo è possibile mantenere la qualificazione di impresa artigiana nel caso di invalidità, morte, interdizione o inabilitazione dell'imprenditore artigiano?",
+"risposte": [
+"due anni",
+"cinque anni",
+"per un periodo massimo di cinque anni o fino al raggiungimento della maggiore età dei figli minorenni"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 41,
+"n_sezione": 6
+},
+{
+"n": 323,
+"sezione": "Normativa fiscale",
+"testo": "Quale è il limite numerico massimo di dipendenti per un’impresa di trasporto?",
+"risposte": [
+"quattro",
+"otto",
+"venti"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 41,
+"n_sezione": 7
+},
+{
+"n": 324,
+"sezione": "Normativa fiscale",
+"testo": "Quale tipo di agevolazione fiscale spetta ad alcune categorie di esercenti di trasporti pubblici non di linea con veicoli a motore?",
+"risposte": [
+"l'esenzione dall'IVA",
+"l'esenzione dal pagamento delle accise sui carburanti",
+"l'applicazione di aliquote ridotte per il pagamento delle accise sui carburanti"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 42,
+"n_sezione": 8
+},
+{
+"n": 325,
+"sezione": "Normativa fiscale",
+"testo": "Quale è il presupposto perché un familiare, lavorando nella famiglia o nell'impresa familiare, sia effettivamente considerato partecipante all'impresa familiare?",
+"risposte": [
+"che sia assunto come dipendente",
+"che presti la propria attività in modo continuativo",
+"che abiti assieme al titolare dell'impresa"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 42,
+"n_sezione": 9
+},
+{
+"n": 326,
+"sezione": "Normativa fiscale",
+"testo": "Nella valutazione del numero di dipendenti di una impresa artigiana, per la verifica del rispetto dei limiti massimi imposti per legge, sono previste particolari categorie eccedenti?",
+"risposte": [
+"no va considerato qualsiasi dipendente",
+"si, non vengono conteggiati, ad esempio, i portatori di handicap",
+"si, non vengono conteggiati i collaboratori familiari"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 42,
+"n_sezione": 10
+},
+{
+"n": 327,
+"sezione": "Normativa fiscale",
+"testo": "Quale obbligo specifico esiste per la circolazione dei veicoli in relazione alla responsabilità civile verso terzi?",
+"risposte": [
+"l'assicurazione per danni a terzi, esclusi i trasportati",
+"l'assicurazione per danni a terzi, compresi tutti i trasportati a qualsiasi titolo",
+"l'assicurazione per danni a terzi, compresi i trasportati che non sono esclusi da norme specifiche"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 42,
+"n_sezione": 11
+},
+{
+"n": 328,
+"sezione": "Normativa fiscale",
+"testo": "In che forma le imprese artigiane possono sviluppare collaborazioni imprenditoriali tra loro e con altre imprese?",
+"risposte": [
+"in forma di consorzi e società consortili anche cooperative, ma solo tra loro",
+"in nessuna forma",
+"in forma di consorzi e società consortili anche cooperative, anche con altri ma entro certi limiti"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 42,
+"n_sezione": 12
+},
+{
+"n": 329,
+"sezione": "Normativa fiscale",
+"testo": "Cosa distingue la prestazione del noleggio da quella del trasporto?",
+"risposte": [
+"con il noleggio ci si obbliga solo a mettere a disposizione un veicolo con il conducente",
+"nessuna",
+"con il trasporto ci si obbliga a utilizzare il veicolo scelto dal trasportato"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 42,
+"n_sezione": 13
+},
+{
+"n": 330,
+"sezione": "Normativa fiscale",
+"testo": "A quale delle seguenti attività si applica l'esenzione dall'obbligo generalizzato di emissione di ricevuta o scontrino fiscale per le prestazioni di trasporto effettuate?",
+"risposte": [
+"trasporto con veicoli a trazione animale e servizio di taxi",
+"servizio di taxi e noleggio con conducente con autovettura",
+"servizio di noleggio con autovettura"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 42,
+"n_sezione": 14
+},
+{
+"n": 331,
+"sezione": "Normativa fiscale",
+"testo": "L'esercente servizi di noleggio con conducente è obbligato a emettere fattura o a rilasciare ricevuta a fini fiscali per il servizio effettuato?",
+"risposte": [
+"sì, sempre",
+"no, mai",
+"solo se richiesto dal cliente"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 43,
+"n_sezione": 15
+},
+{
+"n": 332,
+"sezione": "Normativa fiscale",
+"testo": "Quale è il numero minimo di soci per costituire una piccola cooperativa:",
+"risposte": [
+"tre",
+"cinque",
+"nove"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 43,
+"n_sezione": 16
+},
+{
+"n": 333,
+"sezione": "Normativa fiscale",
+"testo": "Quale categoria di veicoli a motore in servizio di trasporto pubblico non di linea usufruisce dell’agevolazione relativa alle accise sui carburanti",
+"risposte": [
+"autovetture adibite a taxi o noleggio con conducente",
+"autovetture adibite a taxi",
+"autovetture adibite a servizi privati"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 43,
+"n_sezione": 17
+},
+{
+"n": 334,
+"sezione": "Normativa fiscale",
+"testo": "L'esercente servizi taxi è obbligato a emettere fattura per il servizio effettuato?",
+"risposte": [
+"sì, sempre se richiesto dal cliente",
+"no, ma deve rilasciare ricevuta a fini non fiscali se richiesto dal cliente",
+"no, mai"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 43,
+"n_sezione": 18
+},
+{
+"n": 335,
+"sezione": "Normativa fiscale",
+"testo": "Nella pratica, il contratto stipulato da un autonoleggiatore con conducente è un contratto di noleggio o di trasporto?",
+"risposte": [
+"solitamente prevale la natura del contratto di trasporto, pur restando anche di noleggio",
+"è un vero contratto di noleggio",
+"è un vero contratto di trasporto"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 43,
+"n_sezione": 19
+},
+{
+"n": 336,
+"sezione": "Normativa fiscale",
+"testo": "In che cosa consiste un contratto di trasporto?",
+"risposte": [
+"nell'obbligo di mettere a disposizione di terzi un veicolo determinato con un conducente",
+"nell'obbligo di guidare un veicolo per il tempo richiesto dal cliente",
+"nell'obbligo da parte del trasportatore di trasferire persone e cose da un luogo all'altro"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 43,
+"n_sezione": 20
+},
+{
+"n": 337,
+"sezione": "Normativa fiscale",
+"testo": "Che cosa caratterizza specificamente una impresa artigiana?",
+"risposte": [
+"avere un numero di dipendenti non superiore ai limiti predeterminati dalla legge",
+"svolgere solamente alcune attività, individuate dalla legge",
+"essere esercitata da un imprenditore definito \"artigiano\" dal Codice Civile"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 43,
+"n_sezione": 21
+},
+{
+"n": 338,
+"sezione": "Normativa fiscale",
+"testo": "Chi risponde del mancato pagamento della tassa di proprietà:",
+"risposte": [
+"il proprietario",
+"il conducente",
+"il proprietario e il conducente, con obbligo solidale"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 43,
+"n_sezione": 22
+},
+{
+"n": 339,
+"sezione": "Normativa fiscale",
+"testo": "L'esenzione da IVA per i servizi urbani svolti con veicoli da piazza è valida solo se il trasporto è pagato direttamente dal viaggiatore?",
+"risposte": [
+"no, vale anche se il contratto di trasporto è stato stipulato da un terzo",
+"sì",
+"il trasporto urbano con veicoli da piazza non è esente da IVA"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 44,
+"n_sezione": 23
+},
+{
+"n": 340,
+"sezione": "Normativa fiscale",
+"testo": "Le spese di manutenzione ordinaria degli autoveicoli in leasing, utilizzati per il servizio taxi o NCC:",
+"risposte": [
+"non sono mai deducibili trattandosi di beni di terzi",
+"sono deducibili per l'intero importo nell'esercizio di sostenimento",
+"sono deducibili per un quarto, nell'esercizio di sostenimento"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 44,
+"n_sezione": 24
+},
+{
+"n": 341,
+"sezione": "Normativa fiscale",
+"testo": "Che riduzione si applica alla tassa automobilistica dovuta per le autovetture in servizio pubblico non di linea?",
+"risposte": [
+"il 50% della tassa ad uso privato",
+"il 75% della tassa ad uso privato per le autovetture in servizio di piazza",
+"il 75% della tassa ad uso privato per le autovetture in servizio di piazza, il 50% per quelle in servizio di noleggio con conducente"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 44,
+"n_sezione": 25
+},
+{
+"n": 342,
+"sezione": "Normativa fiscale",
+"testo": "Per quanto tempo vanno conservate le ricevute di pagamento delle tasse automobilistiche?",
+"risposte": [
+"per l’anno di pagamento e per i cinque anni successivi",
+"per i 3 anni successivi all’anno in cui è sorto l’obbligo di pagamento",
+"solo per l’anno di pagamento"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 44,
+"n_sezione": 26
+},
+{
+"n": 343,
+"sezione": "Normativa fiscale",
+"testo": "Quale aliquota IVA si applica ai servizi di noleggio con conducente?",
+"risposte": [
+"10",
+"22",
+"sono esenti"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 44,
+"n_sezione": 27
+},
+{
+"n": 344,
+"sezione": "Normativa fiscale",
+"testo": "In quali casi il servizio taxi è considerato trasporto pubblico urbano e a tale effetto è esente da IVA?",
+"risposte": [
+"in qualsiasi caso",
+"per i soli trasporti interni al territorio comunale",
+"per i soli trasporti interni al territorio comunale o tra comuni distanti tra loro al massimo 50 km"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 44,
+"n_sezione": 28
+},
+{
+"n": 345,
+"sezione": "Normativa fiscale",
+"testo": "Quale responsabilità ha il vettore in caso di danno nei confronti delle persone trasportate causato da incidente?",
+"risposte": [
+"totale, in ogni caso",
+"totale, a meno che non provi di aver adottato tutte le misure per evitare il danno",
+"totale, a meno che non abbia inserito nel contratto di trasporto specifiche clausole di esonero"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 44,
+"n_sezione": 29
+},
+{
+"n": 346,
+"sezione": "Normativa fiscale",
+"testo": "Esistono obblighi particolari per le imprese artigiane in relazione all'iscrizione ai registri delle imprese?",
+"risposte": [
+"no, sono considerate come tutte le altre imprese",
+"sì, sono esentate da qualsiasi iscrizione",
+"no, devono iscriversi all'albo provinciale delle imprese artigiane"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 44,
+"n_sezione": 30
+},
+{
+"n": 347,
+"sezione": "Normativa fiscale",
+"testo": "In che cosa consiste un contratto di trasporto?",
+"risposte": [
+"nell'obbligo da parte del trasportatore di trasferire persone e cose da un luogo all'altro",
+"nell'obbligo di mettere a disposizione di terzi un veicolo determinato con un conducente",
+"nell'obbligo di guidare un veicolo per il tempo richiesto dal cliente"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 45,
+"n_sezione": 31
+},
+{
+"n": 348,
+"sezione": "Normativa fiscale",
+"testo": "I crediti e i buoni d'imposta derivanti dalle agevolazioni sulle accise dei carburanti concorrono alla formazione del reddito imponibile?",
+"risposte": [
+"sì, sempre",
+"mai",
+"solo oltre un determinato scaglione di reddito"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 45,
+"n_sezione": 32
+},
+{
+"n": 349,
+"sezione": "Normativa fiscale",
+"testo": "A che cosa si estende la responsabilità del vettore in un contratto di trasporto, se esso è avvenuto con ritardo o non è stato effettuato, per motivi imputabili al trasportatore stesso?",
+"risposte": [
+"solo ad eventuali perdite",
+"anche a mancati guadagni causati dal mancato adempimento contrattuale",
+"solo al prezzo già pagato per il trasporto, che deve essere rimborsato"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 45,
+"n_sezione": 33
+},
+{
+"n": 350,
+"sezione": "Normativa fiscale",
+"testo": "Il prezzo della corsa del servizio taxi:",
+"risposte": [
+"è definito in funzione del solo chilometraggio",
+"è definito in funzione esclusivamente del tempo di espletamento del singolo servizio",
+"è definito in funzione sia del chilometraggio che del tempo di espletamento del singolo servizio"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 45,
+"n_sezione": 34
+},
+{
+"n": 351,
+"sezione": "Normativa fiscale",
+"testo": "La responsabilità contrattuale del vettore copre:",
+"risposte": [
+"I danni fisici causati al viaggiatore soltanto durante il percorso",
+"I danni fisici causati al viaggiatore durante il percorso compresa la salita e discesa dal mezzo",
+"copre anche i danni causati per colpa del viaggiatore"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 45,
+"n_sezione": 35
+},
+{
+"n": 352,
+"sezione": "Normativa fiscale",
+"testo": "Guidare un TAXI senza la prescritta licenza comunale comporta:",
+"risposte": [
+"Soltanto una sanzione pecuniaria",
+"Soltanto il sequestro del veicolo",
+"Una sanzione pecuniaria, la sospensione della patente da 4 a 12 mesi ed il sequestro del veicolo per confisca"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 45,
+"n_sezione": 36
+},
+{
+"n": 353,
+"sezione": "Primo soccorso",
+"testo": "In caso in cui il trasportato presenti dolori al centro del torace e agli arti superiori cosa occorre fare?",
+"risposte": [
+"Stimolare il movimento della persona",
+"Metterlo in posizione seduta con testa e spalle appoggiate e ginocchia piegate",
+"Farla alzare e aiutarla a camminare"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 46,
+"n_sezione": 1
+},
+{
+"n": 354,
+"sezione": "Primo soccorso",
+"testo": "Se si ha il sospetto che la vittima di un incidente stradale abbia riportato una frattura delle ossa del cranio si deve:",
+"risposte": [
+"palpare con accortezza la testa del soggetto per individuare eventuali fratture",
+"immobilizzare la testa con steccature o un collare",
+"se non respira, praticare la respirazione artificiale, dopo avere liberato le vie respiratorie"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 46,
+"n_sezione": 2
+},
+{
+"n": 355,
+"sezione": "Primo soccorso",
+"testo": "Qualora l’infortunato presenti uno stato di shock, si deve:",
+"risposte": [
+"far sedere il soggetto con la testa reclinata all’indietro, per favorire la respirazione",
+"porre il soggetto con gli arti distesi",
+"stendere il soggetto supino, coprirlo con una coperta e tenere sollevati gli arti anteriori"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 46,
+"n_sezione": 3
+},
+{
+"n": 356,
+"sezione": "Primo soccorso",
+"testo": "In caso di emorragia da un arto si deve:",
+"risposte": [
+"far camminare il ferito, per evitare lo shock",
+"in caso di emorragia venosa, sollevare l’arto in modo che la ferita si trovi più in alto del cuore",
+"impedire assolutamente che il soggetto beva acqua"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 46,
+"n_sezione": 4
+},
+{
+"n": 357,
+"sezione": "Primo soccorso",
+"testo": "Le manifestazioni dello stato di shock sono:",
+"risposte": [
+"Sudore freddo alla fronte e stato di agitazione",
+"Colorito roseo, polso regolare, ma in stato di agitazione",
+"Parole e frasi senza senso, con polso regolare"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 46,
+"n_sezione": 5
+},
+{
+"n": 358,
+"sezione": "Primo soccorso",
+"testo": "Qual è il fine degli interventi di primo soccorso?",
+"risposte": [
+"Segnalare a un medico la necessità di un intervento",
+"Attuare misure di sopravvivenza dell'infortunato, nell'attesa che intervenga il soccorso medico tempestivamente avvertito, proteggendo la vittima",
+"Tentare di rimettere l'infortunato nelle condizioni di riprendere il viaggio"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 46,
+"n_sezione": 6
+},
+{
+"n": 359,
+"sezione": "Primo soccorso",
+"testo": "Cosa non si deve fare in caso di incidente stradale?",
+"risposte": [
+"Impedire ai presenti di fumare in prossimità del veicolo",
+"Estrarre un ferito dall’auto",
+"Controllare se il ferito sia cosciente"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 46,
+"n_sezione": 7
+},
+{
+"n": 360,
+"sezione": "Primo soccorso",
+"testo": "Nel caso in cui il trasportato accusi un “colpo di calore” cosa occorre effettuare?",
+"risposte": [
+"Dargli da bere acqua fresca",
+"Dargli da bere acqua ghiacciata",
+"Praticargli un massaggio agli arti"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 46,
+"n_sezione": 8
+},
+{
+"n": 361,
+"sezione": "Primo soccorso",
+"testo": "Se il soggetto presenta una ferita sanguinante, si deve:",
+"risposte": [
+"porre il ferito in posizione supina o seduto",
+"estrarre subito eventuali corpi estranei",
+"coprire la ferita con materiale possibilmente sterile"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 47,
+"n_sezione": 9
+},
+{
+"n": 362,
+"sezione": "Primo soccorso",
+"testo": "Se a seguito di incidente stradale si è sviluppato un incendio e la vittima presenta segni di ustioni si devono:",
+"risposte": [
+"Togliere i vestiti dalla zona ustionata se aderenti",
+"Pulire o disinfettare le zone ustionate",
+"Non staccare i brandelli di tessuto poiché potrebbero essere aderenti alla pelle"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 47,
+"n_sezione": 10
+},
+{
+"n": 363,
+"sezione": "Primo soccorso",
+"testo": "Se a seguito di incidente stradale si è sviluppato un incendio e la vittima ha gli abiti in fiamme, si deve:",
+"risposte": [
+"Spegnere le fiamme soffocandole con altri indumenti od una coperta",
+"Estinguere le fiamme con un estintore",
+"Aspettare che le fiamme si estinguano e poi ricoprire le ustioni con polveri o pomate idonee"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 47,
+"n_sezione": 11
+},
+{
+"n": 364,
+"sezione": "Primo soccorso",
+"testo": "In caso di svenimento del trasportato qual’ è il primo soccorso da prestare?",
+"risposte": [
+"Controllare la frequenza del respiro e del polso",
+"Massaggiare il torace",
+"Tenere il ferito al caldo"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 47,
+"n_sezione": 12
+},
+{
+"n": 365,
+"sezione": "Primo soccorso",
+"testo": "L'assunzione di alcool influenza la guida rendendo il conducente:",
+"risposte": [
+"Meno vigile e reattivo, poiché ritarda i riflessi",
+"Più vigile e reattivo, poiché contrasta gli effetti della stanchezza",
+"Più sicuro e deciso, se praticata nei limiti della tolleranza individuale all'alcool"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 47,
+"n_sezione": 13
+},
+{
+"n": 366,
+"sezione": "Primo soccorso",
+"testo": "Come bisogna intervenire in caso di sospetta frattura della colonna vertebrale",
+"risposte": [
+"Sollevare e trasportare immediatamente il ferito in ospedale",
+"Mantenergli fermi piedi e testa",
+"Far sedere il ferito e applicare ghiaccio"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 47,
+"n_sezione": 14
+},
+{
+"n": 367,
+"sezione": "Primo soccorso",
+"testo": "Cosa bisogna fare per evitare il pericolo di incendio dei veicoli coinvolti in un incidente stradale, particolarmente se non si dispone di estintori sufficienti?",
+"risposte": [
+"Allontanare subito tutti gli altri veicoli non coinvolti, per evitare che l'eventuale incendio si propaghi",
+"Gettare qualsiasi liquido sui motori, possibilmente freddo",
+"Spegnere i motori dei veicoli coinvolti, e cercare di spegnere eventuali incendi con panni o sabbia"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 47,
+"n_sezione": 15
+},
+{
+"n": 368,
+"sezione": "Primo soccorso",
+"testo": "Il soccorso in caso di incidente stradale è un dovere imposto dal codice penale o solo un comportamento civile e opportuno?",
+"risposte": [
+"È un comportamento opportuno ma non obbligatorio",
+"È un comportamento inopportuno, perché conviene che intervenga un medico",
+"È un dovere imposto sia dal codice penale, sia dal codice della strada"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 47,
+"n_sezione": 16
+},
+{
+"n": 369,
+"sezione": "Primo soccorso",
+"testo": "La respirazione artificiale:",
+"risposte": [
+"si pratica alzando le braccia dell’infortunato e soffiando sulla bocca",
+"va praticata anche quando l’infortunato respira lentamente",
+"va praticata con il sistema bocca a bocca, o bocca a naso"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 48,
+"n_sezione": 17
+},
+{
+"n": 370,
+"sezione": "Primo soccorso",
+"testo": "Il massaggio cardiaco esterno si effettua:",
+"risposte": [
+"sullo sterno due dita traverse a metà tra terzo medio e terzo superiore dello sterno",
+"sullo sterno due dita traverse al di sopra del punto di incontro tra coste e sterno",
+"sullo sterno due dita traverse al di sopra del punto di incontro tra clavicola e sterno"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 48,
+"n_sezione": 18
+},
+{
+"n": 371,
+"sezione": "Primo soccorso",
+"testo": "Un infortunato in stato di coscienza e con sospetta lesione vertebrale in assenza di pericolo ambientale",
+"risposte": [
+"Si rimuove",
+"Non si rimuove",
+"Si rimuove per praticare la rianimazione cardiaca"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 48,
+"n_sezione": 19
+},
+{
+"n": 372,
+"sezione": "Primo soccorso",
+"testo": "Per cercare di fermare una forte emorragia si usa:",
+"risposte": [
+"Un tampone e si preme con forza",
+"Un laccio emostatico per almeno trenta minuti",
+"Non bisogna cercare di fermarlo"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 48,
+"n_sezione": 20
+},
+{
+"n": 373,
+"sezione": "Primo soccorso",
+"testo": "Nel colpo di calore la temperatura corporea:",
+"risposte": [
+"Diminuisce per l’eccessiva sudorazione",
+"Rimane costante per l’efficacia dei meccanismi di termo dispersione",
+"Aumenta per il blocco della sudorazione"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 48,
+"n_sezione": 21
+},
+{
+"n": 374,
+"sezione": "Riferimenti regionali e locali",
+"testo": "La sostituzione alla guida di un titolare di licenza o autorizzazione all'esercizio di servizi pubblici non di linea deve essere autorizzata da qualche Ente, o è sufficiente una semplice comunicazione a sostituzione avvenuta?",
+"risposte": [
+"deve essere autorizzata dal Comune che ha rilasciato la licenza o l'autorizzazione",
+"è sufficiente una comunicazione all'Ufficio Periferico del Dipartimento dei Trasporti Terrestri ex MCTC",
+"è sufficiente tenere a bordo del veicolo copia del contratto di assunzione a tempo determinato"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 49,
+"n_sezione": 1
+},
+{
+"n": 375,
+"sezione": "Riferimenti regionali e locali",
+"testo": "Nei comuni dove non esiste servizio di taxi, i veicoli adibiti al servizio di noleggio con conducente possono sostare su aree pubbliche?",
+"risposte": [
+"sì, purché siano dipinti di bianco come i taxi",
+"no, in nessun caso",
+"solo se autorizzati dal Comune e su aree ben determinate"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 49,
+"n_sezione": 2
+},
+{
+"n": 376,
+"sezione": "Riferimenti regionali e locali",
+"testo": "Quale organo comunale provvede a dare un parere sulle tariffe dei servizi di taxi e noleggio con conducente?",
+"risposte": [
+"la Giunta",
+"la Commissione Consultiva",
+"la Commissione Tariffe"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 49,
+"n_sezione": 3
+},
+{
+"n": 377,
+"sezione": "Riferimenti regionali e locali",
+"testo": "La sosta dei veicoli in servizio di noleggio con conducente presso stazioni, porti e aeroporti, ove è consentita dal Comune, è possibile che avvenga nelle stesse aree destinate al posteggio dei taxi?",
+"risposte": [
+"sì",
+"no, le aree devono essere ben distinte da quelle dei taxi",
+"no, le aree devono essere distanziate di almeno 300 metri"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 49,
+"n_sezione": 4
+},
+{
+"n": 378,
+"sezione": "Riferimenti regionali e locali",
+"testo": "Per esercitare il servizio di taxi è possibile essere titolare di una impresa di trasporto?",
+"risposte": [
+"no, è necessario essere soci di una cooperativa di produzione e lavoro",
+"sì, purché sia una impresa artigiana",
+"sì, senza alcun vincolo"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 49,
+"n_sezione": 5
+},
+{
+"n": 379,
+"sezione": "Riferimenti regionali e locali",
+"testo": "Quale ente determina le tariffe per il servizio taxi?",
+"risposte": [
+"il Comune",
+"la Camera di Commercio",
+"la Provincia"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 49,
+"n_sezione": 6
+},
+{
+"n": 380,
+"sezione": "Riferimenti regionali e locali",
+"testo": "Quale autorità può prevedere, caso per caso e per particolari esigenze, speciali prescrizioni relative al tipo e alle caratteristiche dei veicoli adibiti a servizi di taxi o noleggio con conducente?",
+"risposte": [
+"la Provincia",
+"l'Ufficio Periferico del Dipartimento dei Trasporti Terrestri ex MCTC",
+"il Comune"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 49,
+"n_sezione": 7
+},
+{
+"n": 381,
+"sezione": "Riferimenti regionali e locali",
+"testo": "Da chi può essere svolto il servizio di autonoleggio con conducente?",
+"risposte": [
+"dagli iscritti al registro dei mestieri girovaghi art. 121 TULPS",
+"dai titolari di licenza di esercizio di autorimessa art. 86 TULPS",
+"dai titolari di autorizzazione specifica per l'esercizio di servizio pubblico non di linea"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 49,
+"n_sezione": 8
+},
+{
+"n": 382,
+"sezione": "Riferimenti regionali e locali",
+"testo": "Dove può essere prelevato l'utente che ha prenotato un servizio di noleggio con conducente?",
+"risposte": [
+"solo presso la rimessa o sede del vettore",
+"in qualsiasi punto, purché interno al territorio comunale",
+"in qualsiasi punto esterno alla sede o rimessa, purché la prenotazione sia disponibile nel veicolo"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 50,
+"n_sezione": 9
+},
+{
+"n": 383,
+"sezione": "Riferimenti regionali e locali",
+"testo": "Qual è l'autorità che rilascia le autorizzazioni per il servizio di noleggio con conducente?",
+"risposte": [
+"la Regione",
+"la Provincia",
+"il Comune"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 50,
+"n_sezione": 10
+},
+{
+"n": 384,
+"sezione": "Riferimenti regionali e locali",
+"testo": "Per esercitare il servizio di taxi è necessario essere titolare di una impresa di trasporto?",
+"risposte": [
+"no, è possibile anche essere soci di una cooperativa di produzione e lavoro",
+"sì, purché sia una impresa artigiana",
+"no, basta essere iscritti al registro dei mestieri girovaghi"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 50,
+"n_sezione": 11
+},
+{
+"n": 385,
+"sezione": "Riferimenti regionali e locali",
+"testo": "Nelle cooperative di trasporto -servizio taxi - costituite come cooperative di produzione e lavoro che obblighi hanno i soci titolari di licenza?",
+"risposte": [
+"il conferimento della licenza",
+"il conferimento della licenza e dell'autovettura",
+"il conferimento dell'autovettura"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 50,
+"n_sezione": 12
+},
+{
+"n": 386,
+"sezione": "Riferimenti regionali e locali",
+"testo": "Qual è l'autorità che rilascia le licenze per il servizio taxi?",
+"risposte": [
+"la Regione",
+"la Provincia",
+"il Comune"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 50,
+"n_sezione": 13
+},
+{
+"n": 387,
+"sezione": "Riferimenti regionali e locali",
+"testo": "I titolari di licenze o autorizzazioni per servizi pubblici non di linea possono costituire forme associative tra di loro e con altri soggetti?",
+"risposte": [
+"possono associarsi in cooperative, consorzi di imprese artigiane ed altro, ma solo tra titolari",
+"possono associarsi liberamente con chiunque in tutte le forme previste dal codice civile",
+"no, le società possono svolgere i servizi pubblici solo se sono direttamente titolari"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 50,
+"n_sezione": 14
+},
+{
+"n": 388,
+"sezione": "Riferimenti regionali e locali",
+"testo": "A che cosa serve l'iscrizione al ruolo provinciale dei conducenti dei veicoli adibiti a servizi pubblici non di linea?",
+"risposte": [
+"solo ad ottenere le licenze e le autorizzazioni",
+"ad ottenere le licenze e le autorizzazioni e a svolgere l'attività di conducente dei rispettivi mezzi",
+"solo a condurre i mezzi in servizio pubblico non di linea"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 50,
+"n_sezione": 15
+},
+{
+"n": 389,
+"sezione": "Riferimenti regionali e locali",
+"testo": "Quale autorità determina le modalità per la turnazione per l'esercizio del servizio taxi?",
+"risposte": [
+"il Comune",
+"nessuna, la turnazione viene concordata direttamente tra gli operatori",
+"a Regione"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 51,
+"n_sezione": 16
+},
+{
+"n": 390,
+"sezione": "Riferimenti regionali e locali",
+"testo": "Nei comuni dove esiste il servizio di taxi, i veicoli adibiti al servizio di noleggio con conducente possono sostare su aree pubbliche?",
+"risposte": [
+"sì, purché siano dipinti di bianco come i taxi",
+"no, in nessun caso",
+"se regolamentato dal Comune, solo in aree determinate, presso le stazioni, i porti e gli aeroporti, in attesa di clienti muniti di prenotazione precedentemente effettuata presso la rimessa"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 51,
+"n_sezione": 17
+},
+{
+"n": 391,
+"sezione": "Riferimenti regionali e locali",
+"testo": "Quale autorità determina i criteri per il calcolo annuale delle tariffe per il servizio taxi?",
+"risposte": [
+"il Comune",
+"il Ministero delle Infrastrutture e dei Trasporti",
+"la Provincia"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 51,
+"n_sezione": 18
+},
+{
+"n": 392,
+"sezione": "Riferimenti regionali e locali",
+"testo": "Qual è l'autorità che consente il rinnovo e il trasferimento di titolarità delle licenze taxi e delle autorizzazioni per il servizio di noleggio con conducente?",
+"risposte": [
+"la Regione",
+"la Provincia",
+"il Comune"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 51,
+"n_sezione": 19
+},
+{
+"n": 393,
+"sezione": "Riferimenti regionali e locali",
+"testo": "L'iscrizione al ruolo provinciale dei conducenti dei veicoli adibiti a servizi pubblici non di linea è necessaria per i dipendenti di imprese autorizzate a svolgere servizi di noleggio con conducente?",
+"risposte": [
+"solo per i dipendenti di ruolo",
+"solo per i dipendenti a tempo indeterminato",
+"anche per i dipendenti a tempo determinato in sostituzione temporanea di altri dipendenti"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 51,
+"n_sezione": 20
+},
+{
+"n": 394,
+"sezione": "Riferimenti regionali e locali",
+"testo": "Da chi può essere svolto il servizio taxi?",
+"risposte": [
+"dagli iscritti al registro dei mestieri girovaghi art. 121 TULPS",
+"dai titolari di licenza di esercizio di autorimessa art. 86 TULPS",
+"dai titolari di licenza specifica per l'esercizio di servizio pubblico non di linea"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 51,
+"n_sezione": 21
+},
+{
+"n": 395,
+"sezione": "Riferimenti regionali e locali",
+"testo": "Qual è l'autorità che emana i regolamenti per i servizi pubblici non di linea?",
+"risposte": [
+"la Regione",
+"la Provincia",
+"il Comune"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 51,
+"n_sezione": 22
+},
+{
+"n": 396,
+"sezione": "Riferimenti regionali e locali",
+"testo": "La prestazione del servizio taxi ha obblighi particolari in relazione al territorio interessato dallo spostamento?",
+"risposte": [
+"no",
+"sì, il trasporto non può essere rifiutato all'interno del Comune che ha rilasciato la licenza",
+"sì, il trasporto non può essere rifiutato in nessun caso"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 51,
+"n_sezione": 23
+},
+{
+"n": 397,
+"sezione": "Toponomastica Cagliari",
+"testo": "Su quale delle seguenti vie si affaccia il Teatro lirico di Cagliari?",
+"risposte": [
+"via Sant'Alenixedda",
+"via Carloforte",
+"via Cavour"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 52,
+"n_sezione": 1
+},
+{
+"n": 398,
+"sezione": "Toponomastica Cagliari",
+"testo": "Da quale delle seguenti piazze si ottiene l’accesso al Museo Archeologico Nazionale di Cagliari?",
+"risposte": [
+"piazza Deffenu",
+"piazza Arsenale",
+"piazza Galileo"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 52,
+"n_sezione": 2
+},
+{
+"n": 399,
+"sezione": "Toponomastica Cagliari",
+"testo": "Su quale delle le seguenti piazze si affaccia la Cattedrale di Cagliari (chiesa di Santa Maria Assunta e di Santa Cecilia)?",
+"risposte": [
+"piazza del Carmine",
+"piazza Palazzo",
+"piazza Galileo"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 52,
+"n_sezione": 3
+},
+{
+"n": 400,
+"sezione": "Toponomastica Cagliari",
+"testo": "Da quale delle seguenti piazze si accede alla scalinata del Bastione di San Remy?",
+"risposte": [
+"piazza Matteotti",
+"piazza Costituzione",
+"piazza Marghinotti"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 52,
+"n_sezione": 4
+},
+{
+"n": 401,
+"sezione": "Toponomastica Cagliari",
+"testo": "Su quale delle seguenti piazze svetta l’edificio denominato “Torre di San Pancrazio”?",
+"risposte": [
+"piazza del Carmine",
+"piazza Indipendenza",
+"piazza Marghinotti"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 52,
+"n_sezione": 5
+},
+{
+"n": 402,
+"sezione": "Toponomastica Cagliari",
+"testo": "Quali, tra le vie di seguito indicate, circondano l’Anfiteatro Romano di Cagliari?",
+"risposte": [
+"viale Sant’Ignazio da Laconi – via Frà Nicolò da Gesturi – via Anfiteatro",
+"viale San Vincenzo – viale San Saturnino – viale Regina Elena",
+"via San Rocco – via San Mauro – via San Giovanni"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 52,
+"n_sezione": 6
+},
+{
+"n": 403,
+"sezione": "Toponomastica Cagliari",
+"testo": "A quale quartiere storico di Cagliari appartiene la Basilica di Santa Croce, delimitata dalla piazza/via omonima e dalla via Corte d’Appello?",
+"risposte": [
+"Castello",
+"Villanova",
+"Marina"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 52,
+"n_sezione": 7
+},
+{
+"n": 404,
+"sezione": "Toponomastica Cagliari",
+"testo": "Qual è la chiesa più antica di Cagliari dedicata al patrono della città?",
+"risposte": [
+"chiesa di Sant’Agostino",
+"basilica di San Saturnino",
+"chiesa di Sant’Antonio"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 52,
+"n_sezione": 8
+},
+{
+"n": 405,
+"sezione": "Toponomastica Cagliari",
+"testo": "A quale quartiere storico di Cagliari appartiene la Basilica di San Saturnino dedicata al patrono della città?",
+"risposte": [
+"Castello",
+"Villanova",
+"Marina"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 52,
+"n_sezione": 9
+},
+{
+"n": 406,
+"sezione": "Toponomastica Cagliari",
+"testo": "Su quale delle seguenti vie si affaccia la Chiesa di Sant’Agostino?",
+"risposte": [
+"via Baylle",
+"via Roma",
+"viale Frà Ignazio"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 53,
+"n_sezione": 10
+},
+{
+"n": 407,
+"sezione": "Toponomastica Cagliari",
+"testo": "A quale quartiere storico di Cagliari appartiene la Chiesa di Sant’Agostino, affacciata sulla via Baylle?",
+"risposte": [
+"Castello",
+"Villanova",
+"Marina"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 53,
+"n_sezione": 11
+},
+{
+"n": 408,
+"sezione": "Toponomastica Cagliari",
+"testo": "A quale quartiere storico di Cagliari appartiene la Chiesa di Sant’Antonio di Padova (detta anche Chiesa dei Cappuccini), affacciata lungo il viale Fra Ignazio?",
+"risposte": [
+"Stampace",
+"Villanova",
+"Marina"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 53,
+"n_sezione": 12
+},
+{
+"n": 409,
+"sezione": "Toponomastica Cagliari",
+"testo": "A quale quartiere storico di Cagliari appartiene la Chiesa di Sant'Antonio Abate, affacciata sulla via Manno?",
+"risposte": [
+"Stampace",
+"Villanova",
+"Marina"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 53,
+"n_sezione": 13
+},
+{
+"n": 410,
+"sezione": "Toponomastica Cagliari",
+"testo": "A quale quartiere storico di Cagliari appartiene la Chiesa di San Giovanni Battista, affacciata lungo la via San Giovanni?",
+"risposte": [
+"Stampace",
+"Villanova",
+"Marina"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 53,
+"n_sezione": 14
+},
+{
+"n": 411,
+"sezione": "Toponomastica Cagliari",
+"testo": "A quale quartiere storico di Cagliari appartiene la Chiesa di Santa Chiara, situata presso la Salita Santa Chiara, poco lontano dalla Piazza Yenne?",
+"risposte": [
+"Stampace",
+"Villanova",
+"Marina"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 53,
+"n_sezione": 15
+},
+{
+"n": 412,
+"sezione": "Toponomastica Cagliari",
+"testo": "A quale quartiere storico di Cagliari appartiene la Chiesa del Crocifisso, affacciata sulla piazza san Giacomo?",
+"risposte": [
+"Stampace",
+"Castello",
+"Villanova"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 53,
+"n_sezione": 16
+},
+{
+"n": 413,
+"sezione": "Toponomastica Cagliari",
+"testo": "A quale quartiere storico di Cagliari appartiene la Chiesa di Sant’Efisio, che si trova salendo la stretta via omonima?",
+"risposte": [
+"Stampace",
+"Castello",
+"Villanova"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 53,
+"n_sezione": 17
+},
+{
+"n": 414,
+"sezione": "Toponomastica Cagliari",
+"testo": "A quale quartiere storico di Cagliari appartiene la Chiesa del Santo Sepolcro, che si affaccia sull’omonima piazza?",
+"risposte": [
+"Marina",
+"Castello",
+"Villanova"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 54,
+"n_sezione": 18
+},
+{
+"n": 415,
+"sezione": "Toponomastica Cagliari",
+"testo": "A quale quartiere storico di Cagliari appartiene la Chiesa di San Michele, situata tra la via Azuni e la via Ospedale?",
+"risposte": [
+"Stampace",
+"Castello",
+"Villanova"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 54,
+"n_sezione": 19
+},
+{
+"n": 416,
+"sezione": "Toponomastica Cagliari",
+"testo": "Quale dei seguenti tragitti, con partenza dalla Stazione ferroviaria in direzione del Teatro lirico di Cagliari, nasconde una deviazione non necessaria?",
+"risposte": [
+"via Roma - viale A. Diaz - via Del Cimitero - via Dante Alighieri - via E. Pais - via E. Costa - via Sant’Alenixedda;",
+"via Roma - viale A. Diaz - via Del Cimitero - via Dante Alighieri - via Pessina – via Amat L. Cardinale – via E. Boi – via A. Scano – via Pergolesi – via F. Petrarca – via E. Lai – via E. Costa – via Sant’Aleniscedda;",
+"via Roma - viale A. Diaz – via della Stazione Vecchia – viale Bonaria - viale Regina Margherita – viale Regina Elena – viale San Vincenzo - via La Vega – via Marche – via O. Bacaredda – via Sant’Alenixedda;"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 54,
+"n_sezione": 20
+},
+{
+"n": 417,
+"sezione": "Toponomastica Cagliari",
+"testo": "Quale dei seguenti tragitti, con partenza dalla Stazione ferroviaria di Cagliari, ha come destinazione il Castello di San Michele?",
+"risposte": [
+"via Roma - viale A. Diaz - via Del Cimitero - via Dante Alighieri - via E. Pais - via E. Costa - via Sant’Alenixedda",
+"via Roma - viale Trieste – via Pola – viale Merello – via Is Mirrionis – via Cadello – via Piovella – via Serbariu – via Bacu Abis – via G. Cinquini – via Sirai",
+"via Roma – largo C. Felice – via Santa Margherita – via San Giorgio - via Ospedale – via G. Porcell – via Fiume – viale Buoncammino – via Belvedere"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 54,
+"n_sezione": 21
+},
+{
+"n": 418,
+"sezione": "Toponomastica Cagliari",
+"testo": "Quale dei seguenti tragitti, con partenza dalla Stazione ferroviaria di Cagliari, ha come destinazione i Giardini pubblici della città?",
+"risposte": [
+"via Roma – largo C. Felice – via Santa Margherita – via San Giorgio - via Ospedale – via G. Porcell – via Fiume – viale Buoncammino – via U. Badas – largo G. Dessì",
+"via Roma - viale Trieste – via Pola – viale Merello – via Is Mirrionis – via Cadello – via Piovella – via Serbariu – via Bacu Abis – via G. Cinquini – via Sirai",
+"via Roma - viale A. Diaz – viale Regina Margherita – viale Regina Elena – via La Vega – via Marche – via O. Bacaredda – via Sant’Alenixedda"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 54,
+"n_sezione": 22
+},
+{
+"n": 419,
+"sezione": "Toponomastica Cagliari",
+"testo": "Quale dei seguenti tragitti, con partenza dalla Stazione ferroviaria di Cagliari, ha come destinazione il monumento denominato la Grotta della Vipera?",
+"risposte": [
+"via Roma – viale Trieste – viale Sant’Avendrace",
+"via Roma – largo C. Felice – via Santa Margherita",
+"via Roma - viale Trieste – via Pola – viale Merello"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 54,
+"n_sezione": 23
+},
+{
+"n": 420,
+"sezione": "Toponomastica Cagliari",
+"testo": "Quale dei seguenti tragitti, con partenza dalla Stazione ferroviaria di Cagliari, ha come destinazione lÃ¢€â„¢edificio denominato Lazzaretto di SantÃ¢€â„¢Elia, ubicato nellÃ¢€â„¢omonimo quartiere?",
+"risposte": [
+"via Roma â€“ Lungo mare New York 11 Settembre â€“ viale C. Colombo â€“ viale S. Ferrara â€“ via Santâ€™Elia â€“ via dei Navigatori",
+"via Roma â€“ Lungo mare New York 11 Settembre â€“ viale C. Colombo â€“ viale S. Ferrara â€“ via Santâ€™Elia â€“ via dei Musicisti",
+"via Roma â€“ Lungo mare New York 11 Settembre â€“ viale C. Colombo â€“ viale S. Ferrara â€“ via Santâ€™Elia â€“ via D. Livingstone"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 55,
+"n_sezione": 24
+},
+{
+"n": 421,
+"sezione": "Toponomastica Cagliari",
+"testo": "Quale dei seguenti tragitti, con partenza dalla Stazione ferroviaria di Cagliari, ha come destinazione il Parco delle Rimembranze?",
+"risposte": [
+"via Roma – viale A. Diaz – via della Stazione Vecchia – viale Bonaria – via Barone Rossi – via Gallura – via Lanusei – via Eleonora D’Arborea – via Iglesias – piazza A. Gramsci – via S. Sonnino – via San Lucifero",
+"via Roma – Lungo mare New York 11 Settembre – viale C. Colombo – viale S. Ferrara – via Sant’Elia – via D. Livingstone",
+"via Roma - viale A. Diaz – viale Regina Margherita – viale Regina Elena – via La Vega – via Marche – via O. Bacaredda – via Sant’Alenixedda"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 55,
+"n_sezione": 25
+},
+{
+"n": 422,
+"sezione": "Toponomastica Cagliari",
+"testo": "Quale dei seguenti tragitti, con partenza dalla Stazione ferroviaria di Cagliari, ha come destinazione la porta di accesso al quartiere Castello, denominata Porta Cristina?",
+"risposte": [
+"via Roma – largo C. Felice – via Santa Margherita – via San Giorgio - via Ospedale – via G. Porcell – viale Buoncammino",
+"via Roma – viale A. Diaz – via della Stazione Vecchia – viale Bonaria – via Barone Rossi – via Gallura – via Lanusei – via Eleonora D’Arborea – via Iglesias – piazza A. Gramsci – via S. Sonnino – via San Lucifero",
+"via Roma - viale Trieste – via Pola – viale Merello – via Is Mirrionis – via Cadello – via Piovella – via Serbariu – via Bacu Abis – via G. Cinquini – via Sirai"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 55,
+"n_sezione": 26
+},
+{
+"n": 423,
+"sezione": "Toponomastica Cagliari",
+"testo": "Quale dei seguenti tragitti, con partenza dalla Stazione ferroviaria di Cagliari, ha come destinazione l’Orto Botanico, appartenente all’Università di Cagliari?",
+"risposte": [
+"via Roma – viale A. Diaz – via della Stazione Vecchia – viale Bonaria – via Barone Rossi – via Gallura – via Lanusei – via Eleonora D’Arborea – via Iglesias – piazza A. Gramsci – via S. Sonnino – via San Lucifero",
+"via Roma – Lungo mare New York 11 Settembre – viale C. Colombo – viale S. Ferrara – via Sant’Elia – via dei Musicisti",
+"via Roma - viale Trieste – via Pola – corso V. Emanuele – via Don Bosco – via Sant’Ignazio da Laconi"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 55,
+"n_sezione": 27
+},
+{
+"n": 424,
+"sezione": "Toponomastica Cagliari",
+"testo": "Da quale delle seguenti vie si accede all’importante centro espositivo della città di Cagliari denominato “ExMà”?",
+"risposte": [
+"via San Lucifero",
+"via S. Sonnino",
+"via Dante Alighieri"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 55,
+"n_sezione": 28
+},
+{
+"n": 425,
+"sezione": "Toponomastica Cagliari",
+"testo": "Su quale delle seguenti vie si affaccia il Palazzo del Consiglio della Regione Sardegna?",
+"risposte": [
+"via Mameli",
+"via Roma",
+"via Dante Alighieri"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 56,
+"n_sezione": 29
+},
+{
+"n": 426,
+"sezione": "Toponomastica Cagliari",
+"testo": "Su quali delle seguenti vie si affaccia il Palazzo Enel di Cagliari?",
+"risposte": [
+"viale A. Diaz – via Roma",
+"via Dante Alighieri – via S. Sonnino",
+"via Mameli – largo C. Felice"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 56,
+"n_sezione": 30
+},
+{
+"n": 427,
+"sezione": "Toponomastica Cagliari",
+"testo": "Su quale piazza si erge il Palazzo di Giustizia di Cagliari?",
+"risposte": [
+"piazza Carlo Alberto",
+"piazza del Carmine",
+"piazza della Repubblica"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 56,
+"n_sezione": 31
+},
+{
+"n": 428,
+"sezione": "Toponomastica Cagliari",
+"testo": "Su quale delle seguenti vie si affaccia il Palazzo della Legione dei Carabinieri di Cagliari?",
+"risposte": [
+"via Roma",
+"via S. Sonnino",
+"viale Trieste"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 56,
+"n_sezione": 32
+},
+{
+"n": 429,
+"sezione": "Toponomastica Cagliari",
+"testo": "Antistante a quale piazza si erge il Palazzo delle Poste e Telegrafi di Cagliari?",
+"risposte": [
+"piazza del Carmine",
+"piazza Castello",
+"piazza Yenne"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 56,
+"n_sezione": 33
+},
+{
+"n": 430,
+"sezione": "Toponomastica Cagliari",
+"testo": "Antistante a quale piazza si erge il Palazzo Reale (detto anche Regio o Viceregio) di Cagliari?",
+"risposte": [
+"piazza del Carmine",
+"piazza Deffenu",
+"piazza Palazzo"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 56,
+"n_sezione": 34
+},
+{
+"n": 431,
+"sezione": "Toponomastica Cagliari",
+"testo": "Come è denominato lo storico palazzo di Cagliari, sede di un’importante attività commerciale, ubicato tra la via Roma e il Largo C. Felice?",
+"risposte": [
+"palazzo Rinascente",
+"palazzo Scala di Ferro",
+"palazzo Boyl"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 56,
+"n_sezione": 35
+},
+{
+"n": 432,
+"sezione": "Toponomastica Cagliari",
+"testo": "Su quale delle seguenti vie si affaccia lo storico palazzo di Cagliari denominato “Scala di Ferro”?",
+"risposte": [
+"viale Trieste",
+"viale Regina Margherita",
+"viale Sant’Avendrace"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 56,
+"n_sezione": 36
+},
+{
+"n": 433,
+"sezione": "Toponomastica Cagliari",
+"testo": "Quale dei seguenti edifici, sede istituzionale della Presidenza della Regione Sardegna, ha l’ingresso principale nella via Oslavia?",
+"risposte": [
+"villa Devoto",
+"villa Pollini",
+"villa Cossu-Murru"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 56,
+"n_sezione": 37
+},
+{
+"n": 434,
+"sezione": "Toponomastica Cagliari",
+"testo": "Quale delle seguenti vie di Cagliari interseca il Corso Vittorio Emanuele?",
+"risposte": [
+"via Santa Restituta",
+"via Baylle",
+"via Sassari"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 57,
+"n_sezione": 38
+},
+{
+"n": 435,
+"sezione": "Toponomastica Cagliari",
+"testo": "Quale delle seguenti vie di Cagliari interseca il Largo C. Felice?",
+"risposte": [
+"via Dei Mille",
+"via F. Crispi",
+"via Cavour"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 57,
+"n_sezione": 39
+},
+{
+"n": 436,
+"sezione": "Toponomastica Cagliari",
+"testo": "Quale delle seguenti vie di Cagliari interseca la via Dante Alighieri?",
+"risposte": [
+"via G. Donizetti",
+"via G. Carducci",
+"via S. Satta"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 57,
+"n_sezione": 40
+},
+{
+"n": 437,
+"sezione": "Toponomastica Oristano",
+"testo": "La stazione passeggeri dell'ARST di Oristano si trova in?",
+"risposte": [
+"Via Tharros",
+"Via Cagliari",
+"Via Solferino"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 58,
+"n_sezione": 1
+},
+{
+"n": 438,
+"sezione": "Toponomastica Oristano",
+"testo": "Dove si trova il Comando Provinciale dei Carabinieri di Oristano:",
+"risposte": [
+"Via Tharros",
+"Via Ghilarza",
+"Via Felice Loffredo"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 58,
+"n_sezione": 2
+},
+{
+"n": 439,
+"sezione": "Toponomastica Oristano",
+"testo": "Dove si trova il Comando di Polizia Municipale di Oristano:",
+"risposte": [
+"Via Carmine",
+"Piazza Tharros",
+"Via Michele Pira"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 58,
+"n_sezione": 3
+},
+{
+"n": 440,
+"sezione": "Toponomastica Oristano",
+"testo": "La stazione ferroviaria di Oristano si trova in?",
+"risposte": [
+"Piazza Ungheria",
+"Piazza Romania",
+"Piazza Italia"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 58,
+"n_sezione": 4
+},
+{
+"n": 441,
+"sezione": "Toponomastica Oristano",
+"testo": "Dove si trova il Centro Servizi Amministrativi di Oristano (Provveditorato agli Studi):",
+"risposte": [
+"Via Lepanto",
+"Via Segni",
+"Via Canalis"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 58,
+"n_sezione": 5
+},
+{
+"n": 442,
+"sezione": "Toponomastica Oristano",
+"testo": "La torre di San Cristoforo si trova a?",
+"risposte": [
+"Piazza Eleonora",
+"Piazza Roma",
+"Torregrande"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 58,
+"n_sezione": 6
+},
+{
+"n": 443,
+"sezione": "Toponomastica Oristano",
+"testo": "San Quirico è una frazione del Comune di?",
+"risposte": [
+"Oristano",
+"Palmas Arborea",
+"Simaxis"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 58,
+"n_sezione": 7
+},
+{
+"n": 444,
+"sezione": "Toponomastica Oristano",
+"testo": "Dove si trova la sede di Oristano della Camera di Commercio di Cagliari-Oristano:",
+"risposte": [
+"Via Roma",
+"Via Mazzini",
+"Via Carducci"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 58,
+"n_sezione": 8
+},
+{
+"n": 445,
+"sezione": "Toponomastica Oristano",
+"testo": "In quale località del Comune di Oristano si trova l'aeroporto?",
+"risposte": [
+"Fenosu",
+"Pardu Nou",
+"Brabau"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 58,
+"n_sezione": 9
+},
+{
+"n": 446,
+"sezione": "Toponomastica Oristano",
+"testo": "Dove si trova il Comando Provinciale della Guardia di Finanza di Oristano:",
+"risposte": [
+"Via De Castro",
+"Via Zara",
+"Via Bosa"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 59,
+"n_sezione": 10
+},
+{
+"n": 447,
+"sezione": "Toponomastica Oristano",
+"testo": "Il quale quartiere si trova il palazzetto dello sport di Oristano?",
+"risposte": [
+"Sa Rodia",
+"San Nicola",
+"Torangius"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 59,
+"n_sezione": 11
+},
+{
+"n": 448,
+"sezione": "Toponomastica Oristano",
+"testo": "Il ponte di Brabau collega il territorio di?",
+"risposte": [
+"Oristano – Santa Giusta",
+"Oristano - Cabras",
+"Oristano – Palmas Arborea"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 59,
+"n_sezione": 12
+},
+{
+"n": 449,
+"sezione": "Toponomastica Oristano",
+"testo": "Dove si trova la sede della Prefettura di Oristano:",
+"risposte": [
+"Via B. D’Arborea",
+"Via Ciusa",
+"Via Cogoni"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 59,
+"n_sezione": 13
+},
+{
+"n": 450,
+"sezione": "Toponomastica Oristano",
+"testo": "Il Teatro San Martino in quale via di Oristano si trova?",
+"risposte": [
+"Via Ciutadella de Menorca",
+"Via San Martino",
+"Vico Iosto"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 59,
+"n_sezione": 14
+},
+{
+"n": 451,
+"sezione": "Toponomastica Oristano",
+"testo": "Nel territorio di quale Comune si trova il porto industriale di Oristano?",
+"risposte": [
+"Cabras",
+"Oristano",
+"Santa Giusta"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 59,
+"n_sezione": 15
+},
+{
+"n": 452,
+"sezione": "Toponomastica Oristano",
+"testo": "Dove si trova la sede della Questura di Oristano:",
+"risposte": [
+"Via B. D’Arborea",
+"Piazza Eleonora",
+"Via Loffredo"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 59,
+"n_sezione": 16
+},
+{
+"n": 453,
+"sezione": "Toponomastica Oristano",
+"testo": "Il nuovo carcere di Oristano si trova nella frazione di?",
+"risposte": [
+"Donigala Fenugheddu",
+"Massama",
+"Nuraxinieddu"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 59,
+"n_sezione": 17
+},
+{
+"n": 454,
+"sezione": "Toponomastica Oristano",
+"testo": "Dove si trovano gli uffici ASL di Oristano:",
+"risposte": [
+"Via Carducci",
+"Via Rockfeller",
+"Via Curreli"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 59,
+"n_sezione": 18
+},
+{
+"n": 455,
+"sezione": "Toponomastica Oristano",
+"testo": "Le rovine di Tharros si trovano nel Comune di?",
+"risposte": [
+"Oristano",
+"Cabras",
+"San Vero Milis"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 59,
+"n_sezione": 19
+},
+{
+"n": 456,
+"sezione": "Toponomastica Oristano",
+"testo": "Dove si trovano gli ambulatori Asl di Oristano:",
+"risposte": [
+"Via Ghilarza",
+"Via Michele Pira",
+"Via Garibaldi"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 60,
+"n_sezione": 20
+},
+{
+"n": 457,
+"sezione": "Toponomastica Oristano",
+"testo": "Il nuraghe Losa si trova nel Comune di?",
+"risposte": [
+"Abbasanta",
+"Ghilarza",
+"Norbello"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 60,
+"n_sezione": 21
+},
+{
+"n": 458,
+"sezione": "Toponomastica Oristano",
+"testo": "La località balneare S'Archittu si trova nel Comune di?",
+"risposte": [
+"Narbolia",
+"Seneghe",
+"Cuglieri"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 60,
+"n_sezione": 22
+},
+{
+"n": 459,
+"sezione": "Toponomastica Oristano",
+"testo": "Quali dei seguenti territori non fa parte della provincia di Oristano?",
+"risposte": [
+"Guilcer",
+"Marmilla",
+"Goceano"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 60,
+"n_sezione": 23
+},
+{
+"n": 460,
+"sezione": "Toponomastica Oristano",
+"testo": "Dove si trova la sede del Dipartimento dei Trasporti (Motorizzazione Civile):",
+"risposte": [
+"Via Loffredo",
+"Via Verdi",
+"Via del Porto"
+],
+"esatta": 2,
+"file": "taxi_caor.pdf",
+"pagina": 60,
+"n_sezione": 24
+},
+{
+"n": 461,
+"sezione": "Toponomastica Oristano",
+"testo": "La sede centrale delle Poste Italiane di Oristano si trova in via?",
+"risposte": [
+"Via San Francesco D’Assisi",
+"Via Mariano IV D’Arborea",
+"Galleria Omodeo"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 60,
+"n_sezione": 25
+},
+{
+"n": 462,
+"sezione": "Toponomastica Oristano",
+"testo": "Lo stadio Comunale Tharros di Oristano in quale via si affaccia?",
+"risposte": [
+"Via Limbara",
+"Via Dorando Petri",
+"Viale Severino Ibba"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 60,
+"n_sezione": 26
+},
+{
+"n": 463,
+"sezione": "Toponomastica Oristano",
+"testo": "La frazione di Marceddì si trova nel Comune di?",
+"risposte": [
+"Arborea",
+"Terralba",
+"Santa Giusta"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 60,
+"n_sezione": 27
+},
+{
+"n": 464,
+"sezione": "Toponomastica Oristano",
+"testo": "Nel territorio di quale Comune sono stati ritrovati \"i Giganti di Monte Prama\"?",
+"risposte": [
+"Oristano",
+"Cabras",
+"Nurachi"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 60,
+"n_sezione": 28
+},
+{
+"n": 465,
+"sezione": "Toponomastica Oristano",
+"testo": "Dove sono le principali soste dei taxi a Oristano:",
+"risposte": [
+"Piazza Roma",
+"Piazza Mannu",
+"Piazza Tharros"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 60,
+"n_sezione": 29
+},
+{
+"n": 466,
+"sezione": "Toponomastica Oristano",
+"testo": "Quale dei seguenti fiumi bagna il territorio della Provincia di Oristano:",
+"risposte": [
+"Tirso",
+"Coghinas",
+"Cixerri"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 61,
+"n_sezione": 30
+},
+{
+"n": 467,
+"sezione": "Toponomastica Oristano",
+"testo": "Quali tra i seguenti hotels si trovano nel centro storico:",
+"risposte": [
+"Mariano IV Palace hotel",
+"Il Duomo",
+"Mistral hotel"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 61,
+"n_sezione": 31
+},
+{
+"n": 468,
+"sezione": "Toponomastica Oristano",
+"testo": "Dove si trova la sede dell’Amministrazione Provinciale di Oristano:",
+"risposte": [
+"Via Mattei",
+"Via Giotto",
+"Via Liguria"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 61,
+"n_sezione": 32
+},
+{
+"n": 469,
+"sezione": "Toponomastica Oristano",
+"testo": "Quale dei seguenti Comuni non si trova in provincia di Oristano:",
+"risposte": [
+"Orroli",
+"Samugheo",
+"Solarussa"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 61,
+"n_sezione": 33
+},
+{
+"n": 470,
+"sezione": "Toponomastica Oristano",
+"testo": "Quanti sono i Comuni in Provincia di Oristano:",
+"risposte": [
+"87",
+"100",
+"57"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 61,
+"n_sezione": 34
+},
+{
+"n": 471,
+"sezione": "Toponomastica Oristano",
+"testo": "Dove si trova il teatro Garau:",
+"risposte": [
+"Via Garibaldi",
+"Via Parpaglia",
+"Via Mazzini"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 61,
+"n_sezione": 35
+},
+{
+"n": 472,
+"sezione": "Toponomastica Oristano",
+"testo": "Dove si trova Palazzo Campus-Colonna:",
+"risposte": [
+"Corso Umberto/Via Dritta",
+"Piazza Eleonora D'Arborea",
+"Via Curreli"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 61,
+"n_sezione": 36
+},
+{
+"n": 473,
+"sezione": "Toponomastica Oristano",
+"testo": "Dove si trova il Comando della Polizia Stradale di Oristano?",
+"risposte": [
+"Via Rossini",
+"Via B. D'Arborea",
+"Via Canepa"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 61,
+"n_sezione": 37
+},
+{
+"n": 474,
+"sezione": "Toponomastica Oristano",
+"testo": "Quale tra le seguenti chiese si trova in area rurale del Comune di Oristano?",
+"risposte": [
+"San Giovanni dei Fiori",
+"Santa Chiara",
+"San Giuseppe"
+],
+"esatta": 0,
+"file": "taxi_caor.pdf",
+"pagina": 61,
+"n_sezione": 38
+},
+{
+"n": 475,
+"sezione": "Toponomastica Oristano",
+"testo": "Il Villaggio di San Salvatore si trova nel Comune di:",
+"risposte": [
+"Oristano",
+"Cabras",
+"Riola Sardo"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 61,
+"n_sezione": 39
+},
+{
+"n": 476,
+"sezione": "Toponomastica Oristano",
+"testo": "In quale delle seguenti frazioni del Comune di Oristano si trova la via Stella Maris?",
+"risposte": [
+"San Quirico",
+"Torregrande",
+"Silì"
+],
+"esatta": 1,
+"file": "taxi_caor.pdf",
+"pagina": 62,
+"n_sezione": 40
+}
+]
+}
