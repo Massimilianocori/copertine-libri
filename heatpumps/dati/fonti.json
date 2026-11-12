@@ -1,0 +1,244 @@
+{
+ "definizioni": {
+  "bus_xlsx": {
+   "url": "https://assets.publishing.service.gov.uk/media/6ae1c68f088f42d99bbe77cc/Boiler_Upgrade_Scheme_BUS_Statistics_September_2026.xlsx",
+   "pagina": "https://www.gov.uk/government/statistics/boiler-upgrade-scheme-statistics-september-2026",
+   "titolo": "Boiler Upgrade Scheme statistics (Excel workbook)",
+   "chi": "Department for Energy Security and Net Zero (DESNZ), data from Ofgem",
+   "file": "bus.xlsx",
+   "titolo_allegato": "Boiler Upgrade Scheme Statistics: September 2026 (Excel)",
+   "uscita": "Boiler Upgrade Scheme statistics: September 2026",
+   "tipo": "xlsx",
+   "licenza": "Open Government Licence v3.0"
+  },
+  "solare_la_xlsx": {
+   "url": "https://assets.publishing.service.gov.uk/media/6aba6ebafe72ed1e2b02f151/Renewable_electricity_by_local_authority_2014_2025.xlsx",
+   "pagina": "https://www.gov.uk/government/statistics/regional-renewable-statistics",
+   "titolo": "Renewable electricity by local authority (Excel workbook)",
+   "chi": "DESNZ, Energy Trends",
+   "file": "solare_la.xlsx",
+   "titolo_allegato": "Renewable electricity by local authority, 2014 to 2025",
+   "uscita": "Regional Renewable Statistics",
+   "tipo": "xlsx",
+   "licenza": "Open Government Licence v3.0"
+  },
+  "solare_costi_xlsx": {
+   "url": "https://assets.publishing.service.gov.uk/media/6a1709e4050971fbebf3bb3b/Solar_Costs_2025-26__TIC_.xlsx",
+   "pagina": "https://www.gov.uk/government/statistics/solar-pv-cost-data",
+   "titolo": "Solar PV cost data, Total Installed Capacity basis (Excel workbook)",
+   "chi": "DESNZ, data from the Microgeneration Certification Scheme (MCS)",
+   "file": "solare_costi_tic.xlsx",
+   "titolo_allegato": "Solar PV cost data: TIC basis (Excel)",
+   "uscita": "Solar photovoltaic (PV) cost data",
+   "tipo": "xlsx",
+   "licenza": "Open Government Licence v3.0"
+  },
+  "solare_et63_xlsx": {
+   "url": "https://assets.publishing.service.gov.uk/media/6ae0cc0c16428df537606259/ET_6.3_SOLAR_PV_OCT_26.xlsx",
+   "pagina": "https://www.gov.uk/government/statistics/energy-trends-section-6-renewables",
+   "titolo": "Solar photovoltaics deployment, Energy Trends table 6.3 (Excel workbook)",
+   "chi": "DESNZ, Energy Trends",
+   "file": "solare_et63.xlsx",
+   "titolo_allegato": "Solar photovoltaics deployment (Excel) (ET 6.3 - monthly)",
+   "uscita": "Energy Trends: UK renewables",
+   "tipo": "xlsx",
+   "licenza": "Open Government Licence v3.0"
+  },
+  "gov_apply": {
+   "url": "https://www.gov.uk/apply-boiler-upgrade-scheme",
+   "titolo": "Apply for the Boiler Upgrade Scheme",
+   "chi": "GOV.UK",
+   "tipo": "pagina",
+   "cerca": [
+    "This scheme is open to people in England and Wales.",
+    "The Boiler Replacement Scheme in Northern Ireland is now closed.",
+    "If you live in Scotland",
+    "New build properties which the developer is still building are not eligible.",
+    "you or the original owner built it yourself or you paid a builder to build it",
+    "If you move into a finished new build with a fossil fuel boiler, you may be able to get a grant for a heat pump under the scheme.",
+    "your property is off the gas grid",
+    "your property is in a rural location",
+    "You can get one grant per property.",
+    "£7,500 towards an air source heat pump (sometimes called an air-to-water heat pump)",
+    "£7,500 towards a ground source heat pump (including water source heat pumps and those on shared ground loops)",
+    "£5,000 towards a biomass boiler",
+    "£2,500 towards an air-to-air heat pump",
+    "Until March 2027, you can get an additional £1,500 towards an air source heat pump or ground source heat pump if both:",
+    "your property is heated by oil or LPG",
+    "you do not have a mains gas connection at the property",
+    "You cannot get a grant for a hybrid heat pump system",
+    "45kWth for individual systems",
+    "You cannot get a grant to replace a low carbon heating system.",
+    "own the property you're applying for (including if it's a business, a second home, or a property you rent out to tenants)",
+    "be replacing fossil fuel heating systems - such as oil, gas, electric or LPG (liquefied petroleum gas)",
+    "You're still eligible if you've already had funding to make your property more energy efficient, for example by insulating it.",
+    "Your installer must commission and install the heat pump within 120 days of applying for the grant",
+    "most new build properties",
+    "social housing",
+    "a property that's already been given government funding or support for a heat pump or biomass boiler",
+    "it's never been owned by a business or organisation",
+    "Contact suitable MCS certified installers to get quotes for the work.",
+    "The installer will apply on your behalf on the Ofgem website.",
+    "The value of the grant will be taken off the amount you pay for installation."
+   ]
+  },
+  "ofgem_bus": {
+   "url": "https://www.ofgem.gov.uk/environmental-and-social-schemes/boiler-upgrade-scheme-bus",
+   "titolo": "Boiler Upgrade Scheme (BUS): about the scheme",
+   "chi": "Ofgem",
+   "tipo": "pagina",
+   "cerca": [
+    "This scheme is open in England and Wales.",
+    "£9,000 off the cost and installation of air-to-water or ground source heat pumps in eligible off-gas grid properties. This is available until 31 March 2027.",
+    "£7,500 off the cost and installation of air-to-water heat pumps, ground source heat pumps and water source heat pumps",
+    "£5,000 off the cost and installation of biomass boilers",
+    "£2,500 off the cost and installation of air-to-air heat pumps for residential properties only",
+    "The scheme is installer-led."
+   ]
+  },
+  "ofgem_owners": {
+   "url": "https://www.ofgem.gov.uk/environmental-and-social-schemes/boiler-upgrade-scheme-bus/property-owners",
+   "titolo": "Boiler Upgrade Scheme: property owners",
+   "chi": "Ofgem",
+   "tipo": "pagina",
+   "cerca": [
+    "(available from 21 July 2026 until 31 March 2027)",
+    "From 1 April 2022 to 31 March 2027, there is 0% VAT on the installation of energy-saving materials including heat pumps and biomass boilers.",
+    "The value of the grant for your chosen technology should be provided to you as an upfront discount on the quote provided to you by your installer.",
+    "As with all home improvements we recommend that you obtain quotes from multiple installers.",
+    "If we do not receive your confirmations of the above within 14 calendar days, we may reject the application.",
+    "your installer has three months from the moment the application is approved to complete the installation",
+    "(six months for ground source heat pumps)",
+    "The scheme is open to residential and non-residential properties in England and Wales.",
+    "non-residential buildings (where installing an air-to-air heat pump)",
+    "Hybrid heat pump systems, for example a combination of a fossil fuel boiler and an air source heat pump, are not eligible.",
+    "replace an existing fossil fuel or electric heating system",
+    "not replace an existing low-carbon heating system",
+    "can only be installed in rural properties",
+    "provided at lower than market value to people that could not have afforded it otherwise (including arrangements like shared ownership)",
+    "If your property has an Energy Performance Certificate (EPC), this will include a 'changes you could make' section",
+    "can only be installed in properties with no connection to the gas grid"
+   ]
+  },
+  "mcs_find": {
+   "url": "https://mcscertified.com/find-an-installer/",
+   "titolo": "Find an MCS certified installer",
+   "chi": "Microgeneration Certification Scheme (MCS)",
+   "tipo": "pagina",
+   "cerca": []
+  }
+ },
+ "fonti": {
+  "bus_xlsx": {
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "sha256": "0311344a6f2266656ee157086dd7560e6fe770e6944580ce0e5d980711b5771c",
+   "byte": 1143204,
+   "pubblicato": "2026-10-29T09:30:16+00:00"
+  },
+  "solare_la_xlsx": {
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "sha256": "ac5cc6731685c2b24a479f22d019a10577053dc2d65ae12a792f44d5b36ae50e",
+   "byte": 3446115,
+   "pubblicato": "2026-09-29T09:30:05+01:00"
+  },
+  "solare_costi_xlsx": {
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "sha256": "1ce7ec3a9671fac704d313f07ee127de1fd0776e312ded7257d219131a45a1ca",
+   "byte": 86279,
+   "pubblicato": "2026-05-28T09:30:12+01:00"
+  },
+  "solare_et63_xlsx": {
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "sha256": "6fd2739dda6fbe44c205835c74794f371dcb64190c8b31b9e8944bb4fc943167",
+   "byte": 883330,
+   "pubblicato": "2026-11-12T09:30:14+00:00"
+  },
+  "gov_apply": {
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "aggiornata": "2023-01-13T10:11:11+00:00",
+   "sha256": "418ed88643b88140f37cc40d493c8c96f2e5336c2e2ec2d12fcf68ab85c3e4bf",
+   "trovate": {
+    "This scheme is open to people in England and Wales.": true,
+    "The Boiler Replacement Scheme in Northern Ireland is now closed.": true,
+    "If you live in Scotland": true,
+    "New build properties which the developer is still building are not eligible.": true,
+    "you or the original owner built it yourself or you paid a builder to build it": true,
+    "If you move into a finished new build with a fossil fuel boiler, you may be able to get a grant for a heat pump under the scheme.": true,
+    "your property is off the gas grid": true,
+    "your property is in a rural location": true,
+    "You can get one grant per property.": true,
+    "£7,500 towards an air source heat pump (sometimes called an air-to-water heat pump)": true,
+    "£7,500 towards a ground source heat pump (including water source heat pumps and those on shared ground loops)": true,
+    "£5,000 towards a biomass boiler": true,
+    "£2,500 towards an air-to-air heat pump": true,
+    "Until March 2027, you can get an additional £1,500 towards an air source heat pump or ground source heat pump if both:": true,
+    "your property is heated by oil or LPG": true,
+    "you do not have a mains gas connection at the property": true,
+    "You cannot get a grant for a hybrid heat pump system": true,
+    "45kWth for individual systems": true,
+    "You cannot get a grant to replace a low carbon heating system.": true,
+    "own the property you're applying for (including if it's a business, a second home, or a property you rent out to tenants)": true,
+    "be replacing fossil fuel heating systems - such as oil, gas, electric or LPG (liquefied petroleum gas)": true,
+    "You're still eligible if you've already had funding to make your property more energy efficient, for example by insulating it.": true,
+    "Your installer must commission and install the heat pump within 120 days of applying for the grant": true,
+    "most new build properties": true,
+    "social housing": true,
+    "a property that's already been given government funding or support for a heat pump or biomass boiler": true,
+    "it's never been owned by a business or organisation": true,
+    "Contact suitable MCS certified installers to get quotes for the work.": true,
+    "The installer will apply on your behalf on the Ofgem website.": true,
+    "The value of the grant will be taken off the amount you pay for installation.": true
+   }
+  },
+  "ofgem_bus": {
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "aggiornata": null,
+   "sha256": "bc661849700746bf873c7b03d13a0b25118e15dedda5c23df2ea6ea659cfd713",
+   "trovate": {
+    "This scheme is open in England and Wales.": true,
+    "£9,000 off the cost and installation of air-to-water or ground source heat pumps in eligible off-gas grid properties. This is available until 31 March 2027.": true,
+    "£7,500 off the cost and installation of air-to-water heat pumps, ground source heat pumps and water source heat pumps": true,
+    "£5,000 off the cost and installation of biomass boilers": true,
+    "£2,500 off the cost and installation of air-to-air heat pumps for residential properties only": true,
+    "The scheme is installer-led.": true
+   }
+  },
+  "ofgem_owners": {
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "aggiornata": null,
+   "sha256": "b34c0f7236a0ea72ac71de0f249651d63c8070eeca43d9292e7441130726eaa6",
+   "trovate": {
+    "(available from 21 July 2026 until 31 March 2027)": true,
+    "From 1 April 2022 to 31 March 2027, there is 0% VAT on the installation of energy-saving materials including heat pumps and biomass boilers.": true,
+    "The value of the grant for your chosen technology should be provided to you as an upfront discount on the quote provided to you by your installer.": true,
+    "As with all home improvements we recommend that you obtain quotes from multiple installers.": true,
+    "If we do not receive your confirmations of the above within 14 calendar days, we may reject the application.": true,
+    "your installer has three months from the moment the application is approved to complete the installation": true,
+    "(six months for ground source heat pumps)": true,
+    "The scheme is open to residential and non-residential properties in England and Wales.": true,
+    "non-residential buildings (where installing an air-to-air heat pump)": true,
+    "Hybrid heat pump systems, for example a combination of a fossil fuel boiler and an air source heat pump, are not eligible.": true,
+    "replace an existing fossil fuel or electric heating system": true,
+    "not replace an existing low-carbon heating system": true,
+    "can only be installed in rural properties": true,
+    "provided at lower than market value to people that could not have afforded it otherwise (including arrangements like shared ownership)": true,
+    "If your property has an Energy Performance Certificate (EPC), this will include a 'changes you could make' section": true,
+    "can only be installed in properties with no connection to the gas grid": true
+   }
+  },
+  "mcs_find": {
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "aggiornata": null,
+   "sha256": "24174ed63d8f0ab571cce722af3fc29097da91fe7833e9f63b8a038bbcaa4d0e",
+   "trovate": {}
+  }
+ }
+}

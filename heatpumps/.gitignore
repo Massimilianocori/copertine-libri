@@ -1,0 +1,5 @@
+# File ufficiali scaricati (xlsx DESNZ, 0,1-3,4 MB): si riscaricano con raccolta/fonti.py. Impronte SHA-256 in dati/fonti.json.
+raccolta/_grezzi/
+# Screenshot delle prove nel browser
+cache/
+__pycache__/

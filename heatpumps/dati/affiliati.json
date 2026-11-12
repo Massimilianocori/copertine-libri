@@ -1,0 +1,23 @@
+{
+ "_nota": "Riquadro 'get a quote' preparato ma SPENTO. Per accenderlo: Massimiliano fa domanda al programma dentro Awin; quando è accettato, mettere attivo: true e l'url del link tracciato (awin1.com/cread.php?..., dominio già ammesso in monetizzazione.json), rigenerare e lanciare verifica.py. Il testo parla solo di preventivi e installatori: nessuna parola sui pagamenti a rate o sui prestiti (vincolo legale, verifica-2026-11-11-warm-homes-uk.md).",
+ "glowgreen": {
+  "nome": "Glow Green",
+  "rete": "Awin",
+  "programma_awin": "73922",
+  "commissione_letta": "250 GBP per pompa di calore, 300 GBP per impianto solare, 50 GBP per batteria (scheda pubblica Awin, letta l'11-12/11/2026)",
+  "attivo": false,
+  "url": "",
+  "pagine": ["home", "cost", "eligibility", "regione", "contea", "council", "solar", "solar_regione"],
+  "testo": "get quotes for a heat pump or solar panels from an installer"
+ },
+ "boxt": {
+  "nome": "BOXT",
+  "rete": "Awin",
+  "programma_awin": "13574",
+  "commissione_letta": "35 GBP a vendita completata (scheda pubblica Awin)",
+  "attivo": false,
+  "url": "",
+  "pagine": ["home", "cost", "regione", "contea", "council"],
+  "testo": "get a fixed online quote for a heat pump installation"
+ }
+}
