@@ -1,3 +1,5 @@
+> **Dal 12/11/2026 sera (Massimiliano):** la concorrenza non scarta più un'idea. La prova "nessuno fa meglio" diventa la stima della quota che possiamo prendere (3-15 % con concorrenti forti) × la domanda. Il limite "senza vuoto dimostrato voto massimo 5" NON vale più: il voto dipende dagli euro attesi con quella quota.
+
 # Brief comune per i ricercatori (aggiornato il 7/11/2026)
 
 Repository: /home/user/copertine-libri, branch ccr-b7fd6b9e-n096cr. Lavori per Massimiliano Cori (fotografo, partita IVA forfettaria). Obiettivo unico: fatturato. Massimiliano può metterci ore sue (scritte in numero) e il suo mestiere di fotografo.
