@@ -1,0 +1,90 @@
+{
+ "_nota": "Tracce audio del libro «Esame B1 Cittadinanza Italiana» (Guide EsameB1), pagina /audio-libro/ (noindex, fuori sitemap, senza AdSense). File in esameb1/audio-libro/traccia-NN.mp3, copiati da genera.py in sito/audio-libro/. Titoli dalle intestazioni dei testi del libro, senza «(da leggere ad alta voce)». Durata in secondi misurata sui file. Voce sintetica: vedi NOTE.md.",
+ "tracce": [
+  {
+   "numero": 1,
+   "titolo": "Ascolto 1. Un messaggio dallo studio medico",
+   "durata_s": 34
+  },
+  {
+   "numero": 2,
+   "titolo": "Ascolto 2. Un annuncio alla stazione",
+   "durata_s": 34
+  },
+  {
+   "numero": 3,
+   "titolo": "Ascolto 3. All'ufficio anagrafe",
+   "durata_s": 57
+  },
+  {
+   "numero": 4,
+   "titolo": "Ascolto 4. Quattro brevi messaggi",
+   "durata_s": 57
+  },
+  {
+   "numero": 5,
+   "titolo": "Simulazione 1 (CILS) · Ascolto, prova 1",
+   "durata_s": 196
+  },
+  {
+   "numero": 6,
+   "titolo": "Simulazione 1 (CILS) · Ascolto, prova 2",
+   "durata_s": 139
+  },
+  {
+   "numero": 7,
+   "titolo": "Simulazione 2 (CELI) · Ascolto, prova 1",
+   "durata_s": 65
+  },
+  {
+   "numero": 8,
+   "titolo": "Simulazione 2 (CELI) · Ascolto, prova 2",
+   "durata_s": 42
+  },
+  {
+   "numero": 9,
+   "titolo": "Simulazione 2 (CELI) · Ascolto, prova 3",
+   "durata_s": 66
+  },
+  {
+   "numero": 10,
+   "titolo": "Simulazione 2 (CELI) · Ascolto, prova 4",
+   "durata_s": 67
+  },
+  {
+   "numero": 11,
+   "titolo": "Simulazione 3 (PLIDA) · Ascoltare, prova 1",
+   "durata_s": 141
+  },
+  {
+   "numero": 12,
+   "titolo": "Simulazione 3 (PLIDA) · Ascoltare, prova 2",
+   "durata_s": 103
+  },
+  {
+   "numero": 13,
+   "titolo": "Simulazione 3 (PLIDA) · Ascoltare, prova 3",
+   "durata_s": 102
+  },
+  {
+   "numero": 14,
+   "titolo": "Simulazione 3 (PLIDA) · Ascoltare, prova 4",
+   "durata_s": 142
+  },
+  {
+   "numero": 15,
+   "titolo": "Simulazione 4 (CERT.IT) · Ascolto, prova 1",
+   "durata_s": 68
+  },
+  {
+   "numero": 16,
+   "titolo": "Simulazione 4 (CERT.IT) · Ascolto, prova 2",
+   "durata_s": 124
+  },
+  {
+   "numero": 17,
+   "titolo": "Simulazione 4 (CERT.IT) · Ascolto, prova 3",
+   "durata_s": 97
+  }
+ ]
+}

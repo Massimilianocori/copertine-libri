@@ -24,6 +24,91 @@
   status = 301
   force = true
 
+# Pagine di comuni unite alla pagina del capoluogo (12/11/2026, CITTA_UNITE in genera.py): il vecchio indirizzo resta valido.
+[[redirects]]
+  from = "/citta/alba/*"
+  to = "/citta/cuneo/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/citta/alba"
+  to = "/citta/cuneo/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/citta/borgomanero/*"
+  to = "/citta/novara/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/citta/borgomanero"
+  to = "/citta/novara/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/citta/civitanova-marche/*"
+  to = "/citta/macerata/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/citta/civitanova-marche"
+  to = "/citta/macerata/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/citta/gavardo/*"
+  to = "/citta/brescia/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/citta/gavardo"
+  to = "/citta/brescia/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/citta/rovereto/*"
+  to = "/citta/trento/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/citta/rovereto"
+  to = "/citta/trento/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/citta/schio/*"
+  to = "/citta/vicenza/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/citta/schio"
+  to = "/citta/vicenza/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/citta/voghera/*"
+  to = "/citta/pavia/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/citta/voghera"
+  to = "/citta/pavia/"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/*"
   [headers.values]
@@ -31,3 +116,107 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     X-Frame-Options = "DENY"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Tracce audio del libro (12/11/2026): cache lunga, fuori dai risultati di ricerca. Se una traccia cambia, cambiarle nome.
+[[headers]]
+  for = "/audio-libro/traccia-01.mp3"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+    X-Robots-Tag = "noindex"
+
+[[headers]]
+  for = "/audio-libro/traccia-02.mp3"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+    X-Robots-Tag = "noindex"
+
+[[headers]]
+  for = "/audio-libro/traccia-03.mp3"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+    X-Robots-Tag = "noindex"
+
+[[headers]]
+  for = "/audio-libro/traccia-04.mp3"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+    X-Robots-Tag = "noindex"
+
+[[headers]]
+  for = "/audio-libro/traccia-05.mp3"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+    X-Robots-Tag = "noindex"
+
+[[headers]]
+  for = "/audio-libro/traccia-06.mp3"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+    X-Robots-Tag = "noindex"
+
+[[headers]]
+  for = "/audio-libro/traccia-07.mp3"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+    X-Robots-Tag = "noindex"
+
+[[headers]]
+  for = "/audio-libro/traccia-08.mp3"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+    X-Robots-Tag = "noindex"
+
+[[headers]]
+  for = "/audio-libro/traccia-09.mp3"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+    X-Robots-Tag = "noindex"
+
+[[headers]]
+  for = "/audio-libro/traccia-10.mp3"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+    X-Robots-Tag = "noindex"
+
+[[headers]]
+  for = "/audio-libro/traccia-11.mp3"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+    X-Robots-Tag = "noindex"
+
+[[headers]]
+  for = "/audio-libro/traccia-12.mp3"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+    X-Robots-Tag = "noindex"
+
+[[headers]]
+  for = "/audio-libro/traccia-13.mp3"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+    X-Robots-Tag = "noindex"
+
+[[headers]]
+  for = "/audio-libro/traccia-14.mp3"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+    X-Robots-Tag = "noindex"
+
+[[headers]]
+  for = "/audio-libro/traccia-15.mp3"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+    X-Robots-Tag = "noindex"
+
+[[headers]]
+  for = "/audio-libro/traccia-16.mp3"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+    X-Robots-Tag = "noindex"
+
+[[headers]]
+  for = "/audio-libro/traccia-17.mp3"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+    X-Robots-Tag = "noindex"
+

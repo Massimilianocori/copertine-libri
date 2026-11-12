@@ -5,10 +5,6 @@
  "max_sedi": 2,
  "min_visite": 3,
  "citta": {
-  "alba": {
-   "sedi_pagina": 1,
-   "visite_28_giorni": 0
-  },
   "arezzo": {
    "sedi_pagina": 2,
    "visite_28_giorni": 0
@@ -17,20 +13,8 @@
    "sedi_pagina": 1,
    "visite_28_giorni": 0
   },
-  "borgomanero": {
-   "sedi_pagina": 1,
-   "visite_28_giorni": 0
-  },
-  "civitanova-marche": {
-   "sedi_pagina": 1,
-   "visite_28_giorni": 1
-  },
   "ferrara": {
    "sedi_pagina": 2,
-   "visite_28_giorni": 0
-  },
-  "gavardo": {
-   "sedi_pagina": 1,
    "visite_28_giorni": 0
   },
   "lodi": {
@@ -41,22 +25,11 @@
    "sedi_pagina": 2,
    "visite_28_giorni": 2
   },
-  "rovereto": {
-   "sedi_pagina": 1,
-   "visite_28_giorni": 0
-  },
   "rovigo": {
-   "sedi_pagina": 2,
-   "visite_28_giorni": 0
-  },
-  "schio": {
-   "sedi_pagina": 1,
-   "visite_28_giorni": 0
-  },
-  "voghera": {
    "sedi_pagina": 2,
    "visite_28_giorni": 0
   }
  },
- "_comuni_non_capoluogo": "Controllo del 8/11/2026 dopo la correzione (pagine dei comuni limitate alle sedi del comune): quota dei gruppi di 6 parole della pagina presenti anche nella pagina del capoluogo. Sopra 0,70 e meno di 3 visite → noindex; sopra 0,70 con 3 visite o più → resta in indice con canonical su sé stessa. Esito: busto-arsizio 0,78 (4 visite), crema 0,84 (9), treviglio 0,72 (5) restano in indice; rovereto 0,84, voghera 0,86, borgomanero 0,71 erano già qui; alba 0,69, arzignano 0,64, gavardo 0,65, schio 0,65, civitanova-marche 0,67. Riferimento: due città qualsiasi con gli stessi enti si sovrappongono già per 0,60-0,78 (testo nazionale comune)."
+ "_comuni_non_capoluogo": "Controllo del 8/11/2026 dopo la correzione (pagine dei comuni limitate alle sedi del comune): quota dei gruppi di 6 parole della pagina presenti anche nella pagina del capoluogo. Sopra 0,70 e meno di 3 visite → noindex; sopra 0,70 con 3 visite o più → resta in indice con canonical su sé stessa. Esito: busto-arsizio 0,78 (4 visite), crema 0,84 (9), treviglio 0,72 (5) restano in indice; rovereto 0,84, voghera 0,86, borgomanero 0,71 erano già qui; alba 0,69, arzignano 0,64, gavardo 0,65, schio 0,65, civitanova-marche 0,67. Riferimento: due città qualsiasi con gli stessi enti si sovrappongono già per 0,60-0,78 (testo nazionale comune).",
+ "_unite_il_2026-11-12": "Le 7 pagine di comuni non capoluogo che erano qui (Alba, Borgomanero, Civitanova Marche, Gavardo, Rovereto, Schio, Voghera: 0-1 visite in 28 giorni, 15/10-11/11/2026) non si generano più: rinvio 301 alla pagina del capoluogo, che elenca già la stessa sede (CITTA_UNITE in genera.py). Restano qui i 6 capoluoghi con al massimo 2 sedi."
 }

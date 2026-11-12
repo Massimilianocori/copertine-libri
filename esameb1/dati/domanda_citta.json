@@ -1,0 +1,1217 @@
+{
+ "_nota": "Domanda Google per i comuni con almeno una sede in dati/sedi.json e senza pagina città (12/11/2026). Suggerimenti di ricerca suggestqueries.google.com, client=firefox, hl=it, gl=it. «forti» = suggerimenti che contengono il nome del comune (come parola intera) e esame/esami/b1/cittadinanza/test; «deboli» = nome del comune con solo cils/celi/plida/cert (spesso cognomi, aziende, ciglia finte). Regola (come il 30/10/2026): pagina nuova solo con almeno un suggerimento forte E più di max_sedi sedi della pagina (dati/noindex.json): con 1-2 sedi la pagina finirebbe fuori indice come le 13 di noindex.json. Dei suggerimenti deboli si salva solo il numero (molti sono nomi di persone o di aziende).",
+ "data": "2026-11-12",
+ "query_tutti": [
+  "esame b1 cittadinanza {c}",
+  "cils {c}",
+  "esame italiano b1 {c}",
+  "plida {c}",
+  "esame b1 {c}",
+  "celi {c}",
+  "b1 cittadinanza {c}",
+  "esame b1 italiano per cittadinanza {c}",
+  "esame b1 italiano {c}",
+  "cpia {c} esame b1"
+ ],
+ "query_solo_capoluoghi_e_2_sedi": [
+  "{c} esame b1",
+  "{c} b1 cittadinanza",
+  "esame cittadinanza {c}",
+  "test italiano {c}"
+ ],
+ "richieste": 2160,
+ "controllo": "stesse query su città con pagina: «esame b1 cittadinanza ferrara» 3 suggerimenti, «… lecco» 4, «esame italiano b1 bologna» 4",
+ "colonne": [
+  "provincia",
+  "sedi_nel_comune",
+  "suggerimenti_forti",
+  "suggerimenti_deboli"
+ ],
+ "comuni": {
+  "Alatri": [
+   "Frosinone",
+   3,
+   0,
+   0
+  ],
+  "Carrara": [
+   "Massa-Carrara",
+   3,
+   0,
+   1
+  ],
+  "Vasto": [
+   "Chieti",
+   2,
+   0,
+   1
+  ],
+  "Avezzano": [
+   "L'Aquila",
+   2,
+   0,
+   5
+  ],
+  "Rende": [
+   "Cosenza",
+   2,
+   0,
+   0
+  ],
+  "Crotone": [
+   "Crotone",
+   2,
+   0,
+   2
+  ],
+  "Benevento": [
+   "Benevento",
+   2,
+   0,
+   3
+  ],
+  "Anagni": [
+   "Frosinone",
+   2,
+   0,
+   0
+  ],
+  "Albano Laziale": [
+   "Roma",
+   2,
+   0,
+   0
+  ],
+  "Colleferro": [
+   "Roma",
+   2,
+   0,
+   0
+  ],
+  "Imperia": [
+   "Imperia",
+   2,
+   0,
+   1
+  ],
+  "Darfo Boario Terme": [
+   "Brescia",
+   2,
+   0,
+   0
+  ],
+  "Casalmaggiore": [
+   "Cremona",
+   2,
+   0,
+   0
+  ],
+  "Cinisello Balsamo": [
+   "Milano",
+   2,
+   0,
+   0
+  ],
+  "Legnano": [
+   "Milano",
+   2,
+   0,
+   0
+  ],
+  "Mortara": [
+   "Pavia",
+   2,
+   0,
+   0
+  ],
+  "Fermo": [
+   "Fermo",
+   2,
+   1,
+   0
+  ],
+  "Recanati": [
+   "Macerata",
+   2,
+   0,
+   0
+  ],
+  "Casale Monferrato": [
+   "Alessandria",
+   2,
+   0,
+   0
+  ],
+  "Biella": [
+   "Biella",
+   2,
+   0,
+   1
+  ],
+  "Bra": [
+   "Cuneo",
+   2,
+   0,
+   2
+  ],
+  "Moncalieri": [
+   "Torino",
+   2,
+   0,
+   0
+  ],
+  "Putignano": [
+   "Bari",
+   2,
+   0,
+   0
+  ],
+  "Sammichele di Bari": [
+   "Bari",
+   2,
+   0,
+   0
+  ],
+  "Caltanissetta": [
+   "Caltanissetta",
+   2,
+   0,
+   1
+  ],
+  "Caltagirone": [
+   "Catania",
+   2,
+   0,
+   0
+  ],
+  "Cefalù": [
+   "Palermo",
+   2,
+   0,
+   0
+  ],
+  "Alcamo": [
+   "Trapani",
+   2,
+   0,
+   0
+  ],
+  "Fiesole": [
+   "Firenze",
+   2,
+   0,
+   0
+  ],
+  "Piombino": [
+   "Livorno",
+   2,
+   0,
+   0
+  ],
+  "Assisi": [
+   "Perugia",
+   2,
+   0,
+   0
+  ],
+  "Cepagatti": [
+   "Pescara",
+   1,
+   0,
+   0
+  ],
+  "Nereto": [
+   "Teramo",
+   1,
+   0,
+   0
+  ],
+  "Teramo": [
+   "Teramo",
+   1,
+   0,
+   3
+  ],
+  "Matera": [
+   "Matera",
+   1,
+   0,
+   0
+  ],
+  "Avigliano": [
+   "Potenza",
+   1,
+   0,
+   0
+  ],
+  "Lavello": [
+   "Potenza",
+   1,
+   0,
+   0
+  ],
+  "Pietragalla": [
+   "Potenza",
+   1,
+   0,
+   0
+  ],
+  "Rionero in Vulture": [
+   "Potenza",
+   1,
+   0,
+   0
+  ],
+  "Lamezia Terme": [
+   "Catanzaro",
+   1,
+   0,
+   3
+  ],
+  "Amantea": [
+   "Cosenza",
+   1,
+   0,
+   0
+  ],
+  "Corigliano-Rossano": [
+   "Cosenza",
+   1,
+   0,
+   0
+  ],
+  "Rosarno": [
+   "Reggio Calabria",
+   1,
+   0,
+   0
+  ],
+  "Tropea": [
+   "Vibo Valentia",
+   1,
+   0,
+   0
+  ],
+  "Gesualdo": [
+   "Avellino",
+   1,
+   0,
+   0
+  ],
+  "Rotondi": [
+   "Avellino",
+   1,
+   0,
+   0
+  ],
+  "Aversa": [
+   "Caserta",
+   1,
+   0,
+   0
+  ],
+  "San Felice a Cancello": [
+   "Caserta",
+   1,
+   0,
+   0
+  ],
+  "Sparanise": [
+   "Caserta",
+   1,
+   0,
+   0
+  ],
+  "Casavatore": [
+   "Napoli",
+   1,
+   0,
+   0
+  ],
+  "Cicciano": [
+   "Napoli",
+   1,
+   0,
+   0
+  ],
+  "Giugliano in Campania": [
+   "Napoli",
+   1,
+   0,
+   0
+  ],
+  "Gragnano": [
+   "Napoli",
+   1,
+   0,
+   0
+  ],
+  "Ischia": [
+   "Napoli",
+   1,
+   0,
+   0
+  ],
+  "Mariglianella": [
+   "Napoli",
+   1,
+   0,
+   0
+  ],
+  "Nola": [
+   "Napoli",
+   1,
+   0,
+   1
+  ],
+  "Palma Campania": [
+   "Napoli",
+   1,
+   0,
+   0
+  ],
+  "Procida": [
+   "Napoli",
+   1,
+   0,
+   0
+  ],
+  "Sorrento": [
+   "Napoli",
+   1,
+   0,
+   0
+  ],
+  "Villaricca": [
+   "Napoli",
+   1,
+   0,
+   0
+  ],
+  "Angri": [
+   "Salerno",
+   1,
+   0,
+   0
+  ],
+  "Battipaglia": [
+   "Salerno",
+   1,
+   0,
+   0
+  ],
+  "Eboli": [
+   "Salerno",
+   1,
+   0,
+   0
+  ],
+  "Fisciano": [
+   "Salerno",
+   1,
+   0,
+   0
+  ],
+  "Vallo della Lucania": [
+   "Salerno",
+   1,
+   0,
+   0
+  ],
+  "Bagno di Romagna": [
+   "Forlì-Cesena",
+   1,
+   0,
+   0
+  ],
+  "Bertinoro": [
+   "Forlì-Cesena",
+   1,
+   0,
+   0
+  ],
+  "San Secondo Parmense": [
+   "Parma",
+   1,
+   0,
+   0
+  ],
+  "Faenza": [
+   "Ravenna",
+   1,
+   0,
+   1
+  ],
+  "Correggio": [
+   "Reggio nell'Emilia",
+   1,
+   0,
+   0
+  ],
+  "Gorizia": [
+   "Gorizia",
+   1,
+   0,
+   0
+  ],
+  "Monfalcone": [
+   "Gorizia",
+   1,
+   0,
+   0
+  ],
+  "Tolmezzo": [
+   "Udine",
+   1,
+   0,
+   0
+  ],
+  "Latina": [
+   "Latina",
+   1,
+   0,
+   3
+  ],
+  "Terracina": [
+   "Latina",
+   1,
+   0,
+   0
+  ],
+  "Fonte Nuova": [
+   "Roma",
+   1,
+   0,
+   0
+  ],
+  "Grottaferrata": [
+   "Roma",
+   1,
+   0,
+   0
+  ],
+  "Mentana": [
+   "Roma",
+   1,
+   0,
+   0
+  ],
+  "Monterotondo": [
+   "Roma",
+   1,
+   0,
+   0
+  ],
+  "Pomezia": [
+   "Roma",
+   1,
+   0,
+   0
+  ],
+  "Velletri": [
+   "Roma",
+   1,
+   0,
+   0
+  ],
+  "Capranica": [
+   "Viterbo",
+   1,
+   0,
+   0
+  ],
+  "Montefiascone": [
+   "Viterbo",
+   1,
+   0,
+   0
+  ],
+  "Vasanello": [
+   "Viterbo",
+   1,
+   0,
+   0
+  ],
+  "Cogorno": [
+   "Genova",
+   1,
+   0,
+   0
+  ],
+  "Sarzana": [
+   "La Spezia",
+   1,
+   0,
+   0
+  ],
+  "Albano Sant'Alessandro": [
+   "Bergamo",
+   1,
+   0,
+   0
+  ],
+  "Albino": [
+   "Bergamo",
+   1,
+   0,
+   2
+  ],
+  "Cantù": [
+   "Como",
+   1,
+   0,
+   0
+  ],
+  "Olgiate Comasco": [
+   "Como",
+   1,
+   0,
+   0
+  ],
+  "Merate": [
+   "Lecco",
+   1,
+   0,
+   0
+  ],
+  "Pioltello": [
+   "Milano",
+   1,
+   0,
+   0
+  ],
+  "Rho": [
+   "Milano",
+   1,
+   0,
+   0
+  ],
+  "Rozzano": [
+   "Milano",
+   1,
+   0,
+   0
+  ],
+  "San Giuliano Milanese": [
+   "Milano",
+   1,
+   0,
+   0
+  ],
+  "Sesto San Giovanni": [
+   "Milano",
+   1,
+   0,
+   0
+  ],
+  "Arcore": [
+   "Monza e della Brianza",
+   1,
+   0,
+   0
+  ],
+  "Desio": [
+   "Monza e della Brianza",
+   1,
+   0,
+   1
+  ],
+  "Limbiate": [
+   "Monza e della Brianza",
+   1,
+   0,
+   0
+  ],
+  "Vigevano": [
+   "Pavia",
+   1,
+   0,
+   1
+  ],
+  "Morbegno": [
+   "Sondrio",
+   1,
+   0,
+   0
+  ],
+  "Sondrio": [
+   "Sondrio",
+   1,
+   0,
+   0
+  ],
+  "Saronno": [
+   "Varese",
+   1,
+   0,
+   1
+  ],
+  "Fabriano": [
+   "Ancona",
+   1,
+   0,
+   0
+  ],
+  "Jesi": [
+   "Ancona",
+   1,
+   0,
+   0
+  ],
+  "Senigallia": [
+   "Ancona",
+   1,
+   0,
+   1
+  ],
+  "San Benedetto del Tronto": [
+   "Ascoli Piceno",
+   1,
+   0,
+   0
+  ],
+  "Sarnano": [
+   "Macerata",
+   1,
+   0,
+   0
+  ],
+  "Fano": [
+   "Pesaro e Urbino",
+   1,
+   0,
+   0
+  ],
+  "Urbania": [
+   "Pesaro e Urbino",
+   1,
+   0,
+   0
+  ],
+  "Urbino": [
+   "Pesaro e Urbino",
+   1,
+   0,
+   1
+  ],
+  "Ripalimosani": [
+   "Campobasso",
+   1,
+   0,
+   0
+  ],
+  "Novi Ligure": [
+   "Alessandria",
+   1,
+   0,
+   0
+  ],
+  "Cortemilia": [
+   "Cuneo",
+   1,
+   0,
+   0
+  ],
+  "Grugliasco": [
+   "Torino",
+   1,
+   0,
+   0
+  ],
+  "Ivrea": [
+   "Torino",
+   1,
+   0,
+   0
+  ],
+  "Pinerolo": [
+   "Torino",
+   1,
+   0,
+   0
+  ],
+  "Rivoli": [
+   "Torino",
+   1,
+   0,
+   1
+  ],
+  "San Francesco al Campo": [
+   "Torino",
+   1,
+   0,
+   0
+  ],
+  "Alberobello": [
+   "Bari",
+   1,
+   0,
+   0
+  ],
+  "Corato": [
+   "Bari",
+   1,
+   0,
+   0
+  ],
+  "Ceglie Messapica": [
+   "Brindisi",
+   1,
+   0,
+   0
+  ],
+  "Fasano": [
+   "Brindisi",
+   1,
+   0,
+   0
+  ],
+  "Latiano": [
+   "Brindisi",
+   1,
+   0,
+   0
+  ],
+  "Carmiano": [
+   "Lecce",
+   1,
+   0,
+   0
+  ],
+  "Casarano": [
+   "Lecce",
+   1,
+   0,
+   0
+  ],
+  "Galatina": [
+   "Lecce",
+   1,
+   0,
+   0
+  ],
+  "Maglie": [
+   "Lecce",
+   1,
+   0,
+   0
+  ],
+  "Nardò": [
+   "Lecce",
+   1,
+   0,
+   0
+  ],
+  "Ugento": [
+   "Lecce",
+   1,
+   0,
+   0
+  ],
+  "Martina Franca": [
+   "Taranto",
+   1,
+   0,
+   0
+  ],
+  "Decimomannu": [
+   "Cagliari",
+   1,
+   0,
+   0
+  ],
+  "Oristano": [
+   "Oristano",
+   1,
+   0,
+   0
+  ],
+  "Alghero": [
+   "Sassari",
+   1,
+   0,
+   1
+  ],
+  "Serramanna": [
+   "Sud Sardegna",
+   1,
+   0,
+   0
+  ],
+  "Agrigento": [
+   "Agrigento",
+   1,
+   0,
+   0
+  ],
+  "Santa Margherita di Belice": [
+   "Agrigento",
+   1,
+   0,
+   0
+  ],
+  "Bronte": [
+   "Catania",
+   1,
+   0,
+   0
+  ],
+  "Giarre": [
+   "Catania",
+   1,
+   0,
+   0
+  ],
+  "Vizzini": [
+   "Catania",
+   1,
+   0,
+   0
+  ],
+  "Milazzo": [
+   "Messina",
+   1,
+   0,
+   3
+  ],
+  "San Pier Niceto": [
+   "Messina",
+   1,
+   0,
+   0
+  ],
+  "Taormina": [
+   "Messina",
+   1,
+   0,
+   2
+  ],
+  "Chiaramonte Gulfi": [
+   "Ragusa",
+   1,
+   0,
+   0
+  ],
+  "Ispica": [
+   "Ragusa",
+   1,
+   0,
+   0
+  ],
+  "Modica": [
+   "Ragusa",
+   1,
+   0,
+   1
+  ],
+  "Noto": [
+   "Siracusa",
+   1,
+   0,
+   0
+  ],
+  "Rosolini": [
+   "Siracusa",
+   1,
+   0,
+   0
+  ],
+  "Marsala": [
+   "Trapani",
+   1,
+   0,
+   0
+  ],
+  "Bibbiena": [
+   "Arezzo",
+   1,
+   0,
+   0
+  ],
+  "Bagno a Ripoli": [
+   "Firenze",
+   1,
+   0,
+   0
+  ],
+  "Campi Bisenzio": [
+   "Firenze",
+   1,
+   0,
+   0
+  ],
+  "Empoli": [
+   "Firenze",
+   1,
+   0,
+   0
+  ],
+  "Pontassieve": [
+   "Firenze",
+   1,
+   0,
+   0
+  ],
+  "Arcidosso": [
+   "Grosseto",
+   1,
+   0,
+   0
+  ],
+  "Follonica": [
+   "Grosseto",
+   1,
+   0,
+   0
+  ],
+  "Cecina": [
+   "Livorno",
+   1,
+   0,
+   0
+  ],
+  "Portoferraio": [
+   "Livorno",
+   1,
+   0,
+   0
+  ],
+  "Rosignano Marittimo": [
+   "Livorno",
+   1,
+   0,
+   0
+  ],
+  "Altopascio": [
+   "Lucca",
+   1,
+   0,
+   0
+  ],
+  "Barga": [
+   "Lucca",
+   1,
+   0,
+   0
+  ],
+  "Capannori": [
+   "Lucca",
+   1,
+   0,
+   0
+  ],
+  "Castelnuovo di Garfagnana": [
+   "Lucca",
+   1,
+   0,
+   0
+  ],
+  "Viareggio": [
+   "Lucca",
+   1,
+   0,
+   0
+  ],
+  "Cascina": [
+   "Pisa",
+   1,
+   0,
+   0
+  ],
+  "Pontedera": [
+   "Pisa",
+   1,
+   0,
+   0
+  ],
+  "Santa Croce sull'Arno": [
+   "Pisa",
+   1,
+   0,
+   0
+  ],
+  "Montecatini-Terme": [
+   "Pistoia",
+   1,
+   0,
+   0
+  ],
+  "Pistoia": [
+   "Pistoia",
+   1,
+   0,
+   0
+  ],
+  "Montepulciano": [
+   "Siena",
+   1,
+   0,
+   0
+  ],
+  "Poggibonsi": [
+   "Siena",
+   1,
+   0,
+   0
+  ],
+  "Torrita di Siena": [
+   "Siena",
+   1,
+   0,
+   0
+  ],
+  "Merano": [
+   "Bolzano/Bozen",
+   1,
+   0,
+   0
+  ],
+  "Città di Castello": [
+   "Perugia",
+   1,
+   0,
+   0
+  ],
+  "Todi": [
+   "Perugia",
+   1,
+   0,
+   0
+  ],
+  "Aosta": [
+   "Valle d'Aosta/Vallée d'Aoste",
+   1,
+   0,
+   4
+  ],
+  "Pollein": [
+   "Valle d'Aosta/Vallée d'Aoste",
+   1,
+   0,
+   0
+  ],
+  "Feltre": [
+   "Belluno",
+   1,
+   0,
+   0
+  ],
+  "Ponte nelle Alpi": [
+   "Belluno",
+   1,
+   0,
+   0
+  ],
+  "Abano Terme": [
+   "Padova",
+   1,
+   0,
+   0
+  ],
+  "Camposampiero": [
+   "Padova",
+   1,
+   0,
+   0
+  ],
+  "Cittadella": [
+   "Padova",
+   1,
+   0,
+   1
+  ],
+  "Monselice": [
+   "Padova",
+   1,
+   0,
+   0
+  ],
+  "Montegrotto Terme": [
+   "Padova",
+   1,
+   0,
+   0
+  ],
+  "Noventa Padovana": [
+   "Padova",
+   1,
+   0,
+   0
+  ],
+  "Conegliano": [
+   "Treviso",
+   1,
+   0,
+   0
+  ],
+  "Montebelluna": [
+   "Treviso",
+   1,
+   0,
+   2
+  ],
+  "Oderzo": [
+   "Treviso",
+   1,
+   0,
+   1
+  ],
+  "Portogruaro": [
+   "Venezia",
+   1,
+   0,
+   1
+  ],
+  "Spinea": [
+   "Venezia",
+   1,
+   0,
+   0
+  ],
+  "Legnago": [
+   "Verona",
+   1,
+   0,
+   0
+  ],
+  "San Bonifacio": [
+   "Verona",
+   1,
+   0,
+   1
+  ],
+  "Bassano del Grappa": [
+   "Vicenza",
+   1,
+   0,
+   0
+  ],
+  "Marostica": [
+   "Vicenza",
+   1,
+   0,
+   10
+  ],
+  "Noventa Vicentina": [
+   "Vicenza",
+   1,
+   0,
+   0
+  ],
+  "Thiene": [
+   "Vicenza",
+   1,
+   0,
+   1
+  ]
+ },
+ "suggerimenti": {
+  "Fermo": [
+   "esame lingua italiana per cittadinanza fermo"
+  ]
+ },
+ "esito": {
+  "pagine_nuove": [],
+  "motivo": "nessun comune con domanda forte e più di 2 sedi; l'unico suggerimento forte è Fermo (2 sedi: 1 CILS, 1 CELI)"
+ }
+}

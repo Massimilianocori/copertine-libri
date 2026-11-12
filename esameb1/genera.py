@@ -15,6 +15,7 @@ from datetime import date
 from decimal import Decimal
 from html import escape, unescape
 from pathlib import Path
+from urllib.parse import quote_plus
 
 RADICE = Path(__file__).resolve().parent
 DATI = RADICE / "dati"
@@ -144,7 +145,13 @@ NORMATTIVA_91 = "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1992
 enti = json.loads((DATI / "enti.json").read_text())
 sessioni = json.loads((DATI / "sessioni.json").read_text())
 sedi = json.loads((DATI / "sedi.json").read_text())
-citta = json.loads((DATI / "citta.json").read_text())
+# Pagine di comuni non capoluogo unite alla pagina del capoluogo (12/11/2026, revisione AdSense «contenuti di scarso valore»):
+# erano già fuori indice (dati/noindex.json: una sola sede, o due a Voghera, e 0-1 visite in 28 giorni), con la stessa sede già
+# elencata nella pagina del capoluogo. La voce resta in dati/citta.json; qui la pagina non si genera più (main() rifà sito/ da zero)
+# e netlify.toml rinvia (301) alla pagina del capoluogo. Per riaprire una pagina: togliere la riga e rigenerare.
+CITTA_UNITE = {"alba": "cuneo", "borgomanero": "novara", "civitanova-marche": "macerata", "gavardo": "brescia",
+               "rovereto": "trento", "schio": "vicenza", "voghera": "pavia"}
+citta = [c for c in json.loads((DATI / "citta.json").read_text()) if c["slug"] not in CITTA_UNITE]
 esempi = json.loads((DATI / "esempi.json").read_text())  # prove d'esempio ufficiali: solo link e descrizione, con data di verifica
 esoneri = json.loads((DATI / "esoneri.json").read_text(encoding="utf-8"))  # chi è esonerato dal B1 (cittadinanza) e dal test A2 (permesso UE), con fonti
 RICONG = json.loads((DATI / "ricongiungimento.json").read_text(encoding="utf-8"))  # reddito per il ricongiungimento (assegno sociale dell'anno, da aggiornare ogni gennaio)
@@ -929,7 +936,8 @@ def modulo(citta_scelta=""):
 def riquadro_libro():
     """Riquadro «Libro in arrivo: avvisami» (11/11/2026): stesso modulo Netlify `avvisami` del sito, con il campo nascosto
     fonte=libro (il modulo delle date ha fonte=date) per distinguere le iscrizioni. Solo email e consenso, niente città.
-    Nessun prezzo e nessuna data: il libro non è ancora uscito. Su home, /esempi/ e /come-funziona/, dopo il contenuto principale."""
+    Nessun prezzo e nessuna data: il libro non è ancora uscito. Dal 12/11/2026 solo su /esempi/ e /esempi/simulazione/ (tolto da home e
+    /come-funziona/: per la revisione AdSense niente annunci di cose non ancora pronte nelle pagine più viste)."""
     return f"""<section class="card libro" id="libro">
 <div class="modulo-testa"><span class="bolla">{ic("libro")}</span><div>
 <h2>Libro «Esame B1 cittadinanza» in arrivo: avvisami</h2>
@@ -963,6 +971,9 @@ def scheda_sede(s, con_citta=False):
     if s.get("sito"):
         url = s["sito"] if s["sito"].startswith("http") else "https://" + s["sito"]
         contatti.append(f'<a href="{escape(url)}" rel="noopener nofollow">{ic("web")}sito</a>')
+    if s["indirizzo"]:  # 12/11/2026: ricerca dell'indirizzo ufficiale su una mappa (nessun dato nuovo: solo l'indirizzo scritto dall'ente)
+        dove = quote_plus(", ".join(x for x in [s["indirizzo"], " ".join(y for y in [s.get("cap", ""), s["citta"]] if y)] if x))
+        contatti.append(f'<a href="https://www.google.com/maps/search/?api=1&amp;query={dove}" rel="noopener nofollow">{ic("pin")}mappa</a>')
     return f"""<li class="s-{s['ente'].replace('.', '')}"><div class="nome">{eb(s['ente'])}<span>{escape(s['nome'])}</span></div>
 {f'<div class="det">{ic("pin")}<span>{"<br>".join(righe)}</span></div>' if righe else ""}
 {f'<div class="contatti">{"".join(contatti)}</div>' if contatti else ""}
@@ -1098,6 +1109,18 @@ VICINE = {
     "verona": ["vicenza", "mantova", "brescia", "trento", "rovereto", "padova", "rovigo", "arzignano"],
     "napoli": ["caserta", "salerno", "avellino"],
     "roma": ["viterbo", "frosinone", "l-aquila"],
+    # 12/11/2026: altre città tra le più viste (GoatCounter 15/10-11/11/2026) dove la regola di riserva (città della regione
+    # con più sedi) dava città lontane (Como → Brescia) o troppo poche (Genova: solo La Spezia e Savona).
+    "genova": ["savona", "la-spezia", "alessandria", "pavia", "piacenza", "parma"],
+    "bologna": ["modena", "ferrara", "ravenna", "firenze", "prato", "forli"],
+    "brescia": ["bergamo", "cremona", "mantova", "verona", "trento", "gavardo"],
+    "parma": ["reggio-emilia", "piacenza", "cremona", "mantova", "modena", "massa"],
+    "modena": ["bologna", "reggio-emilia", "mantova", "ferrara", "parma"],
+    "reggio-emilia": ["parma", "modena", "mantova", "massa", "lucca", "bologna"],
+    "como": ["varese", "lecco", "monza", "milano", "busto-arsizio"],
+    "lecco": ["como", "monza", "bergamo", "milano", "treviglio"],
+    "monza": ["milano", "lecco", "como", "bergamo", "treviglio"],
+    "bergamo": ["brescia", "lecco", "monza", "milano", "treviglio", "crema"],
 }
 
 
@@ -1170,7 +1193,8 @@ def link_guide(rel, salta=None, dopo_b1=True):
 # Città più cercate (blocco in home): Search Console e GoatCounter fino al 27/10/2026 (Milano 22 visite in una settimana, Verona 12,
 # Napoli 9, Roma 8; ricerche "esame b1 italiano per cittadinanza verona/modena/milano", "cpia parma"; prima Prato, Bologna, Torino, Genova).
 # Da rivedere con i numeri nuovi: i nomi che non hanno più una pagina vengono saltati.
-CITTA_CERCATE = ["milano", "verona", "napoli", "roma", "modena", "parma", "torino", "bologna", "firenze", "prato", "genova", "brescia"]
+# Le 12 pagine città più viste in 28 giorni (GoatCounter 15/10-11/11/2026, somma dei due host; prima: elenco del 30/10, con Firenze e Prato).
+CITTA_CERCATE = ["milano", "torino", "verona", "bologna", "roma", "brescia", "parma", "genova", "napoli", "bari", "modena", "como"]
 
 
 def citta_cercate():
@@ -1270,7 +1294,7 @@ dei 4 enti principali: le date sono uguali in tutta Italia, ci si iscrive presso
 <p class="small">Per chiedere la cittadinanza italiana per residenza o matrimonio serve un certificato di italiano di livello B1.
 Qui trovi in un solo posto le date, le scadenze e le sedi dei 4 enti principali: CILS, CELI, PLIDA e CERT.IT.</p>
 </section>
-{riquadro_libro()}"""
+"""
     p = prossime[0]  # main() si ferma se non ci sono sessioni future
     titolo = titolo_pagina(f"Esame B1 cittadinanza {anni(prossime)}: prossima data {giorno_mese(p['data'])}",
                            f"Esame B1 cittadinanza: prossima data {giorno_mese(p['data'])}")
@@ -1287,7 +1311,7 @@ def per_ente(c, qui, in_citta, prossime):
     """Una scheda per ente con sedi in provincia: prossimo esame e prima scadenza nazionale ancora aperta.
     Il JS (data-slot / data-fino) nasconde le voci passate anche tra un aggiornamento e l'altro."""
     schede = []
-    for e in ENTE:
+    for e in enti_per_data(list(ENTE), prossime):
         n_c = sum(1 for s in in_citta if s["ente"] == e)
         n_q = sum(1 for s in qui if s["ente"] == e)
         lista = [s for s in prossime if s["ente"] == e]
@@ -1304,8 +1328,8 @@ Controlliamo il calendario ogni settimana: <a href="#avvisami">avvisami quando e
         esami = "".join(
             f'<div data-fino="{s["data"]}"{"" if i == 0 else " hidden"}><div class="pe-data">{data_breve(s["data"])}'
             f'<span class="conta {classe_conta(s["data"], "esame")}" data-conta="{s["data"]}" data-modo="esame">{testo_conta(s["data"], "esame")}</span></div>'
-            f'<p class="pe-cosa">{escape(", ".join(s["esami"]))}</p></div>' for i, s in enumerate(lista[:6]))
-        con_scad = [s for s in lista if s.get("scadenza") and d(s["scadenza"]) >= OGGI][:6]
+            f'<p class="pe-cosa">{escape(", ".join(s["esami"]))}</p></div>' for i, s in enumerate(lista[:3]))
+        con_scad = [s for s in lista if s.get("scadenza") and d(s["scadenza"]) >= OGGI][:3]
         if any(s.get("scadenza") for s in lista):
             righe, primo = [], True
             for s in con_scad:
@@ -1316,7 +1340,9 @@ Controlliamo il calendario ogni settimana: <a href="#avvisami">avvisami quando e
                              f'<p class="pe-cosa">per l\'esame {del_(s["data"])}{data_breve(s["data"])}</p></div>')
             iscr = "".join(righe) + (f'<p class="pe-cosa" data-riserva{"" if primo else " hidden"}>Nessun termine nazionale aperto: chiedi alla sede.</p>')
         else:
-            iscr = f'<p class="pe-cosa" style="margin:0">La scadenza la decide ogni centro {escape(e)}: chiedila alla sede.</p>'
+            # nota della prossima sessione dal calendario (CERT.IT: da quando si aprono le iscrizioni; dal 12/11/2026, prima era
+            # nell'elenco delle date tolto dalle pagine città)
+            iscr = f'<p class="pe-cosa" style="margin:0">{escape(lista[0]["nota_scadenza"])}</p>'
         schede.append(f"""<article class="pe pe-{e.replace('.', '')}">
 <div class="pe-testa">{eb(e)}<a href="#sedi-{SLUG_ENTE[e]}">{ic("pin")}{dove}</a></div>
 <div data-slot><div class="pe-et">{ic("cal")}Prossimo esame</div>{esami}</div>
@@ -1325,20 +1351,57 @@ Controlliamo il calendario ogni settimana: <a href="#avvisami">avvisami quando e
     return f'<div class="perente">{"".join(schede)}</div>'
 
 
-def sezione_dopo_b1(c):
-    """Pagina città → la sua Prefettura (il «passo successivo» dopo l'esame): pagina locale se c'è, altrimenti la riga dell'indice."""
+def sezione_dopo_b1(c, breve=False):
+    """Pagina città → la sua Prefettura (il «passo successivo» dopo l'esame). Dal 12/11/2026 (revisione AdSense, «contenuti di scarso
+    valore») le pagine dei capoluoghi mostrano i dati propri della provincia già raccolti in dati/prefetture.json e
+    dati/prefetture_locali.json: contatti dell'ufficio cittadinanza scritti dalla Prefettura, moduli pubblicati sulla sua pagina,
+    data dell'ultimo aggiornamento e data di lettura. breve=True (comuni non capoluogo): solo i link, i dati sono nella pagina del capoluogo."""
     sl = pref_di(c["provincia"])
     if not sl:
         return ""
-    nome = PREF[sl]["nome"]
+    r = PREF[sl]
+    nome = r["nome"]
     if ha_pagina_pref(sl):
-        pref = f'<a href="../../cittadinanza/{pref_url(sl)}/">{ic("edificio")}<span>Prefettura {di_(nome)}<small>contatti e cosa scrive sulla cittadinanza</small></span></a>'
+        pref = f'<a href="../../cittadinanza/{pref_url(sl)}/">{ic("edificio")}<span>Prefettura {di_(nome)}<small>cosa scrive sulla cittadinanza</small></span></a>'
     else:
-        pref = f'<a href="../../cittadinanza/#{pref_url(sl)}">{ic("edificio")}<span>Prefettura {di_(nome)}<small>contatti dell\'ufficio cittadinanza</small></span></a>'
-    return f"""<section>
+        pref = f'<a href="../../cittadinanza/#{pref_url(sl)}">{ic("edificio")}<span>Prefettura {di_(nome)}<small>nell\'elenco delle 106 Prefetture</small></span></a>'
+    link = (f'<div class="griglia link3">{pref}<a href="../../reddito-minimo-cittadinanza/">{ic("euro")}<span>Reddito minimo per la cittadinanza<small>soglie ufficiali e calcolatore</small></span></a>'
+            f'<a href="../../cittadinanza/#come">{ic("lista")}<span>Come si presenta la domanda<small>online, {CITT["contributo_eur"]} €, documenti</small></span></a></div>')
+    intro = (f'<p>Con il certificato B1 la domanda di cittadinanza si manda online; poi la segue la <strong>Prefettura {di_(nome)}</strong>. '
+             'Prima controlla il reddito minimo.</p>')
+    if breve or r["stato"] != 200:
+        return f"""<section>
 <h2 id="domanda-cittadinanza">{ic("edificio")}Dopo il B1: la domanda di cittadinanza</h2>
-<p>Con il certificato B1 la domanda si manda online; poi la segue la <strong>Prefettura {di_(nome)}</strong>. Prima controlla il reddito minimo.</p>
-<div class="griglia link3">{pref}<a href="../../reddito-minimo-cittadinanza/">{ic("euro")}<span>Reddito minimo per la cittadinanza<small>soglie ufficiali e calcolatore</small></span></a><a href="../../cittadinanza/#come">{ic("lista")}<span>Come si presenta la domanda<small>online, 250 €, documenti</small></span></a></div>
+{intro}
+{link}
+</section>"""
+    loc = PREF_LOC["prefetture"].get(sl, {})
+    agg = data_it(r.get("ultimo_aggiornamento", ""))
+    letto = data_breve(r["letto_il"])
+    contatti = contatti_pref(sl)
+    in_breve = (f'<p><strong>In breve, secondo la Prefettura:</strong> {loc["lead"]}</p>' if ha_pagina_pref(sl) and loc.get("lead") else "")
+    if contatti:
+        blocco_c = (f'<h3>Ufficio cittadinanza della Prefettura {di_(nome)}: contatti</h3><ul class="uff">{contatti}</ul>'
+                    + (f'<p class="small">{loc["nota_contatti"]}</p>' if loc.get("nota_contatti") else ""))
+    else:
+        blocco_c = (f'<p>La pagina «Cittadinanza» della Prefettura {di_(nome)} non scrive contatti propri dell\'ufficio cittadinanza: '
+                    f'usa la <a href="{escape(r["url"])}" rel="noopener">pagina ufficiale</a>.</p>')
+    # con una pagina nostra della Prefettura i moduli stanno lì (niente elenco doppio); senza, i primi 5 stanno qui
+    file_ok = [] if ha_pagina_pref(sl) else [a for a in r.get("allegati", []) if a["titolo"].strip() and a.get("stato") == 200]
+    allegati = "".join(f'<li>{ic("doc")}<a href="{escape(a["url"])}" rel="noopener">{escape(nome_file(a["titolo"]))}</a></li>' for a in file_ok[:5])
+    if allegati:
+        altri = len(file_ok) - 5
+        blocco_c += (f'<h3>Moduli e documenti pubblicati dalla Prefettura {di_(nome)}</h3><ul class="uff">{allegati}</ul>'
+                     + (f'<p class="small">Sulla pagina ufficiale ce ne sono altri {altri}.</p>' if altri > 1 else ""))
+    fonte = (f'<div class="fonte">{ic("doc")}<span>Fonte: <a href="{escape(r["url"])}" rel="noopener">Prefettura {di_(nome)}, pagina «Cittadinanza»</a>'
+             f'{f" (aggiornata il {agg})" if agg else ""} · letta il {letto}</span></div>')
+    return f"""<section>
+<h2 id="domanda-cittadinanza">{ic("edificio")}Dopo il B1: la domanda di cittadinanza e la Prefettura {di_(nome)}</h2>
+{intro}
+{in_breve}
+{blocco_c}
+{fonte}
+{link}
 </section>"""
 
 NOINDEX = json.loads((DATI / "noindex.json").read_text(encoding="utf-8"))  # pagine città fuori indice (9/11/2026), con la regola
@@ -1433,20 +1496,18 @@ def passi_citta(c, enti_qui, mie, cap, n_altre):
     for e in enti_qui:
         t = RISULTATI["enti"][e]["tabella"]
         tempi.append(f'{e}: {t["tempi"]}' if t["tempi"] else (f'{e}: online, nel tuo account (l\'ente non indica i tempi)' if t["login"] else f'{e}: chiedi alla sede'))
-    domanda_txt = (f'Con il certificato mandi la domanda online (SPID o CIE, contributo di {CITT["contributo_eur"]} €); la segue la '
+    domanda_txt = (f' Con il certificato mandi la domanda di cittadinanza online; la segue la '
                    f'<a href="#domanda-cittadinanza">Prefettura {di_(nome_pref)}</a>.' if nome_pref else
-                   f'Con il certificato mandi la domanda online (SPID o CIE, contributo di {CITT["contributo_eur"]} €).')
+                   ' Con il certificato mandi la domanda di cittadinanza online.')
+    # 12/11/2026: 4 passi invece di 6 (data e iscrizione insieme; risultato e domanda insieme): meno testo uguale in tutte le città,
+    # i dettagli stanno nelle sezioni sotto (date ente per ente, Prefettura) e nelle guide.
     voci = [
         ("Scegli l'ente e la sede", scegli),
-        ("Guarda la data e la scadenza",
-         'Le date d\'esame sono uguali in tutta Italia: le trovi <a href="#date">nell\'elenco qui sotto</a>, con il termine nazionale per iscriversi. '
-         'La sede può chiudere le iscrizioni prima di quel termine.'),
-        ("Contatta la sede e iscriviti",
-         f'Chiedi prezzo, documenti e ultimo giorno per iscriverti. {frase_costi(enti_qui)} '
-         f'<a href="../../costo/">Costi con le fonti</a>.'),
+        ("Guarda la scadenza e iscriviti alla sede",
+         'Le date d\'esame sono uguali in tutta Italia: le trovi <a href="#date">in alto, ente per ente</a>. La sede può chiudere le iscrizioni '
+         f'prima del termine nazionale: chiedi prezzo, documenti e ultimo giorno (<a href="#domande">quanto costa {a_(c)}</a>).'),
         ("Il giorno dell'esame", cosa_portare + ' <a href="../../come-funziona/#durata">Quanto dura ogni prova</a>.'),
-        ("Il risultato", f'{"; ".join(tempi)}. <a href="#risultati">Dove vederlo</a>.'),
-        ("La domanda di cittadinanza", domanda_txt),
+        ("Dopo l'esame", f'Il risultato: {"; ".join(tempi)}. <a href="../../risultati/">Dove vederlo</a>.{domanda_txt}'),
     ]
     righe = "".join(f"<li><span><strong>{t}.</strong> {x}</span></li>" for t, x in voci)
     return f"""<section>
@@ -1456,16 +1517,13 @@ def passi_citta(c, enti_qui, mie, cap, n_altre):
 
 
 def faq_citta(c, enti_qui, mancano, regione, cap):
-    """Domande frequenti della pagina città: (domanda, risposta, nel JSON-LD). La domanda sulle date è uguale in tutte le città:
-    resta visibile ma fuori dal FAQPage, per non ripetere lo stesso dato strutturato in 94 pagine."""
+    """Domande frequenti della pagina città: (domanda, risposta, nel JSON-LD). Dal 12/11/2026 non c'è più la domanda «Le date
+    d'esame a X sono diverse dal resto d'Italia?»: era uguale in tutte le città e la risposta è già nell'introduzione e nei passi."""
     capoluogo = c.get("capoluogo", True) or cap is None
     dove = f"in provincia {di_(nome_provincia(c))}" if capoluogo else a_(c)
     faq = [(f"Quanto costa l'esame B1 {a_(c)}?",
             f'{frase_costi(enti_qui)} Prima di pagare chiedi alla sede il prezzo finale, '
-            f'con eventuali spese. <a href="../../costo/">Tutti i costi, con le fonti</a>.', True),
-           (f"Le date d'esame {a_(c)} sono diverse dal resto d'Italia?",
-            "No. Ogni ente fissa le date per tutte le sue sedi, quindi sono le stesse in tutta Italia. "
-            "Cambia la scadenza per iscriversi: ogni sede può chiudere le iscrizioni prima del termine nazionale.", False)]
+            f'con eventuali spese. <a href="../../costo/">Tutti i costi, con le fonti</a>.', True)]
     if mancano:
         if capoluogo:
             altrove = "Le sedi delle altre province, divise per regione, sono nelle pagine " + elenco_e(
@@ -1479,10 +1537,23 @@ def faq_citta(c, enti_qui, mancano, regione, cap):
     if sl:
         nome = PREF[sl]["nome"]
         link = f"../../cittadinanza/{pref_url(sl)}/" if ha_pagina_pref(sl) else f"../../cittadinanza/#{pref_url(sl)}"
+        # 12/11/2026: la risposta porta i contatti scritti dalla Prefettura (dati/prefetture.json, prefetture_locali.json), non solo il link
+        voci_c = {"pec": "PEC", "email": "email", "telefono": "telefono", "indirizzo": "sede"}
+        cc = [f"{voci_c[tp]} {escape(v)}" for tp, v, _ in contatti_di(sl) if tp in voci_c][:3] if PREF[sl]["stato"] == 200 else []
+        suoi = f" Sulla sua pagina l'ufficio cittadinanza scrive: {'; '.join(cc)}." if cc else ""
         faq.append((f"Dopo l'esame, dove presento la domanda di cittadinanza {a_(c)}?",
                     f"La domanda si manda online sul portale del Ministero dell'Interno, con SPID o CIE, e si paga un contributo di {CITT['contributo_eur']} €. "
-                    f'La pratica la segue la Prefettura {di_(nome)}: <a href="{link}">contatti e cosa scrive la Prefettura</a>.', True))
+                    f'La pratica la segue la Prefettura {di_(nome)}.{suoi} <a href="{link}">{"Cosa scrive la Prefettura" if ha_pagina_pref(sl) else "Tutte le Prefetture"}</a>.', True))
     return faq
+
+
+def enti_per_data(enti_qui, prossime):
+    """Gli enti in ordine di prossima sessione (a parità, nell'ordine solito CILS, CELI, PLIDA, CERT.IT; senza date in fondo).
+    Pagine città dal 12/11/2026: schede «ente per ente» e blocchi delle sedi in quest'ordine."""
+    ordine = list(ENTE)
+    def prima(e):
+        return next((s["data"] for s in prossime if s["ente"] == e), "9999-12-31")
+    return sorted(enti_qui, key=lambda e: (prima(e), ordine.index(e)))
 
 
 def pagina_citta(c, prossime):
@@ -1499,7 +1570,7 @@ def pagina_citta(c, prossime):
     solo_comune = not capoluogo and cap is not None
     locale = in_citta if solo_comune else qui
     blocchi = []
-    for e in ENTE:
+    for e in enti_per_data(list(ENTE), prossime):
         lista = [s for s in in_citta if s["ente"] == e]
         tutte = (f'<p class="small"><a href="../../ente/{SLUG_ENTE[e]}/#{slug(regione)}">Tutte le sedi {e} in {escape(regione)}</a></p>'
                  if regione else "")
@@ -1543,62 +1614,55 @@ def pagina_citta(c, prossime):
     vicine_griglia = "".join(
         f'<a href="../{x["slug"]}/">{ic("pin")}<span>{escape(x["nome"])}<small>{n_sedi(sedi_di(x))}</small></span></a>' for x in citta_vicine(c))
     vicine_titolo = "Sedi nelle città vicine" if c["slug"] in VICINE else f"Sedi in altre città: {escape(regione)}"
-    # Elenco delle date (9/11/2026): le prossime 6 sessioni degli enti con sedi in provincia; tutte le altre sono nel calendario
-    # completo della home (le date sono nazionali: ripeterle tutte in 94 pagine città non aggiunge nulla).
+    # Date (12/11/2026): le schede «ente per ente» (prossimi esami e termini degli enti con sedi qui) bastano; l'elenco completo
+    # delle sessioni, uguale in tutte le 94 città, è solo nel calendario della home (prima c'era anche qui: testo ripetuto).
     enti_prov = [e for e in ENTE if any(s["ente"] == e for s in locale)]
     locali = [s for s in prossime if s["ente"] in enti_prov]
-    in_alto = risposta(locali, "", quante=4, link_date="../../#date")
-    titolo_date = (f"Le prossime date (valide anche {a_(c)})" if len(enti_prov) == len(ENTE)
-                   else f"Le prossime date {elenco_e(enti_prov)} (valide anche {a_(c)})")
-    altri = [e for e in ENTE if e not in enti_prov]
-    nota_date = (f'<p class="small">{"Qui ci sono le prossime " + str(min(6, len(locali))) + " sessioni" if len(locali) > 6 else "Qui ci sono tutte le sessioni in programma"}'
-                 f'{(" degli enti con sedi " + (a_(c) if solo_comune else "in provincia " + di_prov)) if altri else ""}. '
+    # 12/11/2026 (revisione AdSense): in alto ci sono direttamente le schede «ente per ente» degli enti con sedi qui; la scheda unica
+    # «Prossimo esame / Iscrizioni ancora aperte» ripeteva le stesse date (circa 200 parole uguali in ogni città) e resta solo in home.
+    fonti_date = []
+    for e in enti_per_data(enti_prov, prossime):
+        s = next((x for x in locali if x["ente"] == e), None)
+        if s:
+            fonti_date.append(f'<a href="{escape(s["fonte"])}" rel="noopener">{e}</a>')
+    controllo = max((s["verificato_il"] for s in locali), default=None)
+    nota_date = (f'<p class="small">{ic("doc")} Fonti: calendari ufficiali {elenco_e(fonti_date)}'
+                 f'{", controllati il " + data_breve(controllo) if controllo else ""}. '
                  f'<a href="../../#date">Calendario completo: tutte le {len(prossime)} sessioni di CILS, CELI, PLIDA e CERT.IT</a>.</p>')
-    locali = locali[:6]
     faq = faq_citta(c, enti_prov, mancano, regione, cap)
     corpo = f"""<section class="hero">
 {briciole(("EsameB1", "../../"), ("Città", "../../#citta"), (c["nome"], None))}
 <h1>Esame B1 per la cittadinanza {a_(c)}: date e sedi {anni(prossime)}</h1>
 <p class="lead">{dove} dove puoi fare l'esame di italiano B1 per la cittadinanza ({conteggio}).{in_piu}
 Le date d'esame sono le stesse in tutta Italia; la scadenza per iscriversi può cambiare da sede a sede.</p>
-{in_alto}
-<div class="azioni"><a class="btn" href="#avvisami">{ic("campana")}Avvisami per {escape(c['nome'])}</a><a class="btn btn-2" href="#sedi">{ic("pin")}Vedi {'la sede' if len(mie) == 1 else f'le {len(mie)} sedi'}</a></div>
-</section>
-{avviso("Contatta la sede prima di iscriverti: ti dice costo, documenti e ultimo giorno per iscriverti.")}
-{passi_citta(c, enti_prov, locale, cap, len(in_prov))}
-<section>
+<div id="date">
 <h2 id="per-ente">{ic("cal")}Prossime date {a_(c)}, ente per ente</h2>
 {per_ente(c, locale, in_citta, prossime)}
-</section>
-<div class="due">
-<section>
-<h2 id="date">{ic("lista")}{titolo_date}</h2>
-{lista_sessioni(locali, con_filtri=len(enti_prov) > 1)}
 {nota_date}
-</section>
-<aside>
-{modulo(c['nome'])}
-</aside>
 </div>
+<div class="azioni"><a class="btn" href="#sedi">{ic("pin")}Vedi {'la sede' if len(mie) == 1 else f'le {len(mie)} sedi'}</a><a class="btn btn-2" href="#avvisami">{ic("campana")}Avvisami per {escape(c['nome'])}</a></div>
+</section>
 <section>
 <h2 id="sedi">{ic("edificio")}Sedi d'esame {a_(c)}</h2>
 {"".join(blocchi) or "<p>Nessuna sede trovata nelle fonti ufficiali.</p>"}
 {nota_mancano}
-{f'<h3 id="vicine">{ic("pin")}{vicine_titolo}</h3><div class="griglia">{vicine_griglia}</div>' if vicine_griglia else ""}
 </section>
+<div class="due">
+{passi_citta(c, enti_prov, locale, cap, len(in_prov))}
+<aside>
+{modulo(c['nome'])}
+</aside>
+</div>
+{sezione_dopo_b1(c, breve=solo_comune)}
+{f'<section><h2 id="vicine">{ic("pin")}{vicine_titolo}</h2><div class="griglia">{vicine_griglia}</div></section>' if vicine_griglia else ""}
 {riquadro_preparati("../../")}
-<section>
-<h2>{ic("info")}Prima di iscriverti</h2>
-{link_guide("../../", salta="risultati/")}
-</section>
-<section>
-<h2 id="risultati">{ic("ok")}Dopo l'esame: i risultati</h2>
-<div class="griglia link3">{"".join(f'<a href="../../risultati/{SLUG_RISULTATI[e]}/">{ic("ok")}<span>Risultati {e}<small>{escape(RISULTATI["enti"][e]["titolo"])}</small></span></a>' for e in enti_qui)}<a href="../../risultati/">{ic("lista")}<span>Tutti gli enti a confronto<small>tempi, punteggio, se non superi</small></span></a></div>
-</section>
-{sezione_dopo_b1(c)}
 <section>
 <h2 id="domande">{ic("info")}Domande frequenti su {escape(c["nome"])}</h2>
 {"".join(domanda(q, a) for q, a, _ in faq)}
+</section>
+<section>
+<h2 id="guide">{ic("info")}Prima e dopo l'esame: le guide</h2>
+{link_guide("../../", dopo_b1=False)}
 </section>
 <section><h2>{ic("pin")}Altre città</h2>{vicine_html}<div class="altre">{altre}</div></section>"""
     # Titolo con la prossima data degli enti che hanno sedi qui: si aggiorna da solo a ogni rigenerazione (dati/sessioni.json).
@@ -1790,7 +1854,6 @@ per CERT.IT l'orale si fa in presenza. A Roma Tre lo scritto del CERT.IT B1 si f
 <a href="../risultati/">Quando arrivano i risultati</a>.</p>
 <h2 id="domande">{ic("info")}Domande frequenti</h2>
 {"".join(domanda(q, a) for q, a in faq)}
-{riquadro_libro()}
 {modulo()}"""
     pagina("come-funziona/index.html", titolo_pagina("Esame B1 cittadinanza: come funziona, quanto dura, cosa portare"),
            descrizione_pagina(f"Le 4 prove dell'esame B1 per la cittadinanza (ascolto, lettura, scrittura, orale di 10-15 minuti), i {len(enti)} enti "
@@ -4140,7 +4203,8 @@ def contatti_di(sl):
         return [(c["tipo"], c["valore"], c.get("nota", "")) for c in loc["contatti"]]
     rub = PREF[sl].get("rubrica", {})
     out = [(t, rub[k], "") for k, t in (("Ricevimento", "ricevimento"), ("Orari", "orari"), ("Telefoni", "telefono"), ("Telefono", "telefono"),
-                                         ("Ubicazione", "indirizzo")) if rub.get(k)]
+                                         ("Ubicazione", "indirizzo"))
+           if rub.get(k) and rub[k].strip().lower() not in ("orario", "orari")]  # «Ricevimento: Orario» è solo un'etichetta della pagina
     return out + [("pec" if "pec" in m.split("@")[1] else "email", m, "") for m in caselle_proprie(sl)]
 
 
@@ -4427,6 +4491,64 @@ def testo_pubblicita():
             "<p>Nessun ente, scuola o sede paga per comparire nel sito o per avere più spazio.</p>")
 
 
+# Audio del libro (12/11/2026): le 17 tracce delle prove di ascolto del libro «Esame B1 Cittadinanza Italiana» (Guide EsameB1).
+# Il libro stampa l'indirizzo esameb1.eu/audio-libro. File sorgente in esameb1/audio-libro/ (main() li copia in sito/audio-libro/),
+# titoli e durate in dati/audio_libro.json. Pagina per chi ha il libro: noindex, fuori sitemap, senza AdSense, fuori dal menu.
+AUDIO_LIBRO = json.loads((DATI / "audio_libro.json").read_text(encoding="utf-8"))
+CARTELLA_AUDIO = RADICE / "audio-libro"
+
+
+def file_audio(n):
+    return f"traccia-{n:02d}.mp3"
+
+
+def durata(s):
+    return f"{s // 60}:{s % 60:02d}"
+
+
+def pagina_audio_libro():
+    tracce = AUDIO_LIBRO["tracce"]
+    mancano = [file_audio(t["numero"]) for t in tracce if not (CARTELLA_AUDIO / file_audio(t["numero"])).exists()]
+    if mancano or [t["numero"] for t in tracce] != list(range(1, len(tracce) + 1)):
+        raise SystemExit(f"audio-libro: tracce mancanti o fuori ordine: {mancano}")
+    righe = []
+    for t in tracce:
+        f = file_audio(t["numero"])
+        byte = (CARTELLA_AUDIO / f).stat().st_size
+        righe.append(
+            f'<li id="traccia-{t["numero"]:02d}"><span class="fi">{ic("cuffie")}</span>'
+            f'<div><span class="nome">Traccia {t["numero"]:02d}</span><span class="cosa">{escape(t["titolo"])}</span>'
+            f'<audio controls preload="none" src="../audio-libro/{f}" style="display:block;width:100%;max-width:520px;margin-top:8px">'
+            f'<a href="../audio-libro/{f}">Ascolta la traccia {t["numero"]:02d}</a></audio></div>'
+            f'<div class="meta"><strong>MP3</strong><span>{durata(t["durata_s"])} min · {peso(byte)}</span>'
+            f'<a href="../audio-libro/{f}" download aria-label="Scarica la traccia {t["numero"]:02d} in MP3">Scarica</a></div></li>')
+    totale = sum(t["durata_s"] for t in tracce)
+    mb = sum((CARTELLA_AUDIO / file_audio(t["numero"])).stat().st_size for t in tracce)
+    corpo = f"""<section class="hero">
+{briciole(("EsameB1", "../"), ("Audio del libro", None))}
+<h1>Audio del libro «Esame B1 Cittadinanza Italiana»</h1>
+<p class="lead">Qui trovi le <strong>{len(tracce)} tracce audio</strong> delle prove di ascolto del libro «Esame B1 Cittadinanza Italiana» (Guide EsameB1).
+Sono gratuite: puoi ascoltarle da questa pagina o scaricarle in MP3.</p>
+</section>
+{avviso("<strong>Le voci sono sintetiche</strong>: le tracce sono lette da una voce generata al computer, non da persone. L'italiano è chiaro, "
+        "ma l'intonazione può essere meno naturale di quella delle prove d'esame registrate.")}
+<h2 id="come">{ic("info")}Come usarle</h2>
+<ul class="passi-lista">
+<li><span>Ogni esercizio del libro indica il numero della traccia. Il libro chiede di ascoltare ogni traccia <strong>due volte</strong>: la prima per capire il senso generale, la seconda per controllare le risposte.</span></li>
+<li><span>Nelle tracce con più dialoghi, testi, messaggi o notizie, la voce dice il numero prima di ognuno e tra l'uno e l'altro c'è una pausa per rispondere.</span></li>
+<li><span>I testi scritti delle tracce e le soluzioni sono nel libro.</span></li>
+</ul>
+<h2 id="tracce">{ic("cuffie")}Le {len(tracce)} tracce</h2>
+<p class="small" style="margin:0">{len(tracce)} file MP3, circa {round(totale / 60)} minuti e {peso(mb)} in tutto.</p>
+<ul class="file-lista">{"".join(righe)}</ul>
+<h2 id="altro">{ic("doc")}Per esercitarti ancora</h2>
+<p>Le prove d'esempio pubblicate dagli enti (CILS, CELI, PLIDA, CERT.IT), con audio e soluzioni, sono nella pagina <a href="../esempi/">Prove d'esempio</a>.
+Le date e le sedi dell'esame sono nel <a href="../#date">calendario</a>.</p>"""
+    pagina("audio-libro/index.html", titolo_pagina("Audio del libro «Esame B1 Cittadinanza Italiana»"),
+           descrizione_pagina("Le 17 tracce audio delle prove di ascolto del libro «Esame B1 Cittadinanza Italiana»: da ascoltare o scaricare in MP3, "
+                              "gratis. Voce sintetica."), corpo, indicizza=False)
+
+
 def chi_siamo():
     corpo = f"""<section class="hero">
 {briciole(("EsameB1", "../"), ("Chi siamo", None))}
@@ -4577,14 +4699,19 @@ def extra(urls):
   status = 301
   force = true
 
-[[headers]]
+# Pagine di comuni unite alla pagina del capoluogo (12/11/2026, CITTA_UNITE in genera.py): il vecchio indirizzo resta valido.
+""" + "".join(f'[[redirects]]\n  from = "/citta/{v}/*"\n  to = "/citta/{n}/"\n  status = 301\n  force = true\n\n'
+              f'[[redirects]]\n  from = "/citta/{v}"\n  to = "/citta/{n}/"\n  status = 301\n  force = true\n\n' for v, n in sorted(CITTA_UNITE.items())) + """[[headers]]
   for = "/*"
   [headers.values]
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     X-Frame-Options = "DENY"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
-""")
+
+# Tracce audio del libro (12/11/2026): cache lunga, fuori dai risultati di ricerca. Se una traccia cambia, cambiarle nome.
+""" + "".join(f'[[headers]]\n  for = "/audio-libro/{file_audio(t["numero"])}"\n  [headers.values]\n'
+              f'    Cache-Control = "public, max-age=31536000"\n    X-Robots-Tag = "noindex"\n\n' for t in AUDIO_LIBRO["tracce"]))
     pagina("404.html", "Pagina non trovata | EsameB1", "Pagina non trovata.",
            '<section class="hero"><span class="occhiello">Errore 404</span><h1>Pagina non trovata</h1><p class="lead">Torna al <a href="/">calendario delle date</a>.</p>'
            f'<div class="azioni"><a class="btn" href="/">{ic("cal")}Vedi tutte le date</a><a class="btn btn-2" href="/#citta">{ic("pin")}Sedi per città</a></div></section>',
@@ -4640,6 +4767,9 @@ def main():
     SITO.mkdir()
     shutil.copy(RADICE / "assets" / "og.png", SITO / "og.png")
     shutil.copytree(RADICE / "assets" / "fonts", SITO / "fonts")  # Figtree (SIL OFL), servito dal sito stesso
+    (SITO / "audio-libro").mkdir()  # tracce del libro (12/11/2026): solo gli MP3, non lo script che li genera
+    for t in AUDIO_LIBRO["tracce"]:
+        shutil.copy(CARTELLA_AUDIO / file_audio(t["numero"]), SITO / "audio-libro" / file_audio(t["numero"]))
     for nome, contenuto in conserva.items():
         (SITO / nome).write_bytes(contenuto)
     home(prossime)
@@ -4695,6 +4825,7 @@ def main():
     urls.append("come-lavoriamo/")
     privacy()
     urls.append("privacy.html")
+    pagina_audio_libro()  # noindex: non va in sitemap
     urls += EN.genera(sys.modules[__name__], prossime)  # sezione inglese /en/ (genera_en.py)
     urls += LG.genera(sys.modules[__name__], prossime)  # sezioni /uk/ e /ro/ (genera_lingue.py, pagine in genera_lingue_pagine.py)
     extra(urls)
