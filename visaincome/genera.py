@@ -919,6 +919,20 @@ def piede_en(rel):
 </div></footer>"""
 
 
+# Titoli e descrizioni delle 210 pagine aggiunte l'11/11/2026 (rifiniture della revisione): titolo ≤ 65 e descrizione ≤ 160 caratteri.
+# Si sceglie la prima variante che ci sta, dalla più completa alla più breve: nessun taglio a metà parola (se nessuna ci sta, genera.py si
+# ferma). Le pagine: i 4 livelli SELT, le 7 pagine per Stato e i 35 council con 2 suggerimenti (CER_NUOVI_11_11) delle cerimonie
+# australiane, hub e coppie delle 10 nazionalità nuove di "Who moved where" (NAZ_TR_11_11). verifica.py ricontrolla i limiti su queste pagine.
+LIM_TIT_NUOVE, LIM_DESCR_NUOVE = 65, 160
+
+
+def entro(varianti, limite):
+    for v in varianti:
+        if len(v) <= limite:
+            return v
+    raise ValueError(f"nessuna variante entro {limite} caratteri: {varianti[-1]!r} ({len(varianti[-1])})")
+
+
 def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, calcolatore=False, jsonld_extra=None, assoluto=False, testata="", ordina=False, script="", css_extra="",
            lingua="en", alternati=None):
     file = percorso if percorso.endswith(".html") else (percorso + "index.html")
@@ -3845,6 +3859,7 @@ NAZ_TR = {
     "KE": ("kenyans", "Kenyans", "Kenyan citizens", "Kenya", "KENYA", "Kenyans"),
     "VN": ("vietnamese", "Vietnamese citizens", "Vietnamese citizens", "Vietnam", "VIETNAM", "Vietnamese people"),
 }
+NAZ_TR_11_11 = ("BD", "MA", "TR", "CO", "EG", "NP", "LK", "GH", "KE", "VN")   # nazionalità aggiunte l'11/11/2026 (titoli ≤ 65, descrizioni ≤ 160)
 # nomi Eurostat -> nomi usati per bandiere e pagine Schengen (file della Commissione)
 _GEO_SITO = {"Czechia": "Czech Republic"}
 
@@ -4041,10 +4056,17 @@ def faq_html(domande):
     return "".join(f'<h3>{escape(q)}</h3><p>{a}</p>' for q, a in domande)
 
 
-def titolo_tr(X, dove, anno):
+def titolo_tr(X, dove, anno, c=None):
     varianti = [f"How many {X} moved to {dove} in {anno}? Official figures", f"How many {X} moved to {dove} in {anno}? Official data",
                 f"How many {X} moved to {dove} in {anno}?"]
+    if c in NAZ_TR_11_11:   # pagine dell'11/11/2026: titolo ≤ 65
+        return entro(varianti + [f"{X} moving to {dove}: {anno} figures"], LIM_TIT_NUOVE)
     return next((v for v in varianti if len(v) <= 70), varianti[-1])
+
+
+def descr_tr(c, varianti):
+    """Descrizione di una pagina "Who moved where": la prima variante per le pagine di prima, la prima ≤ 160 per le 10 nazionalità dell'11/11/2026."""
+    return entro(varianti, LIM_DESCR_NUOVE) if c in NAZ_TR_11_11 else varianti[0]
 
 
 def link_sito_dest(d, rel):
@@ -4103,10 +4125,14 @@ def nome_motivo(n):
     return "other reasons" if n == "Other" else n.lower()
 
 
-def motivi_frase(r):
+def motivi_frase(r, quanti=None, cifre=True):
+    """quanti/cifre (descrizioni brevi dell'11/11/2026): solo i primi motivi, solo le quote."""
     voci = sorted([(r[i], nome) for i, nome in MOTIVI_TR if r[i] is not None], key=lambda x: -x[0])
     if not voci or not r[0]:
         return ""
+    if quanti:
+        voci = [x for x in voci if x[0] / r[0] >= 0.001][:quanti]   # niente "0.0%" nelle descrizioni brevi
+        return ("Main reason: " if quanti == 1 else "Main reasons: ") + ", ".join(f"{nome_motivo(n)} {v / r[0] * 100:.1f}%" for v, n in voci) + "."
     return "By reason: " + ", ".join(f"{nome_motivo(n)} {intero(v)} ({v / r[0] * 100:.1f}%)" for v, n in voci) + "."
 
 
@@ -4223,9 +4249,11 @@ def pagina_tr_eu(c, d):
 {f'<h2>Where else {escape(X)} moved in {Y1}</h2><div class="griglia">{"".join(scheda_coppia(c, x, "../../") for x in altre)}</div>' if altre else ''}
 {f'<h2>Who else moved to {escape(nf)} in {Y1}</h2><div class="griglia">{"".join(scheda_coppia(x, d, "../../", chi=True) for x in stesse)}</div>' if stesse else ''}
 <p><a href="../">How many {escape(X)} moved to Europe in {Y1}</a> · <a href="../../">Who moved where: all nationalities</a> · <a href="{rel}">Visa income calculator</a></p>"""
-    titolo = titolo_tr(X, nf, Y1)
-    descr = (f"{intero(t1)} {cit} got a first residence permit in {nf} in {Y1} ({variazione(t1, t0)} on {Y0}). "
-             + motivi_frase(r1) + f" Eurostat data updated {data_lunga(F_ES['aggiornato_il'])}.")
+    titolo = titolo_tr(X, nf, Y1, c)
+    base = f"{intero(t1)} {cit} got a first residence permit in {nf} in {Y1} ({variazione(t1, t0)} on {Y0})."
+    descr = descr_tr(c, [f"{base} {motivi_frase(r1)} Eurostat data updated {data_lunga(F_ES['aggiornato_il'])}.", f"{base} {motivi_frase(r1)} Eurostat data.",
+                         f"{base} {motivi_frase(r1, 3)} Eurostat data.", f"{base} {motivi_frase(r1, 2)} Eurostat data.",
+                         f"{base} {motivi_frase(r1, 1)} Eurostat data.", f"{base} Eurostat data."])
     ld = ld_dataset(f"First residence permits issued by {nt} to {cit}, {anni[0]}-{Y1}", f"Eurostat first residence permits by reason for {cit} in {nt}.",
                     percorso, [F_ES["pagina"]], f"{anni[0]}/{Y1}", "https://creativecommons.org/licenses/by/4.0/")
     pagina(percorso, titolo, descr, corpo, jsonld_extra=[ld_faq(domande), ld],
@@ -4278,8 +4306,10 @@ def pagina_tr_ca(c, d="canada"):
 <p><a href="../">How many {escape(X)} moved abroad in {Y1}</a> · <a href="../../">Who moved where: all nationalities</a> · <a href="{rel}">Visa income calculator</a></p>"""
     ld = ld_dataset(f"New permanent residents of Canada, citizens of {NAZ_TR[c][3]}, {ANNI_TR[0]}-{Y1}", "IRCC monthly permanent residents by country of citizenship, summed by year.",
                     percorso, [F_PR["url"]], f"{ANNI_TR[0]}/{F_PR['ultimo_mese']}", F_PR["licenza_url"])
-    pagina(percorso, titolo_tr(X, "Canada", Y1),
-           f"{intero(t1)} {cit} became permanent residents of Canada in {Y1} ({variazione(t1, t0)} on {Y0}), IRCC data to {mese_testo(F_PR['ultimo_mese'])}. Year by year since {ANNI_TR[0]}.",
+    base = f"{intero(t1)} {cit} became permanent residents of Canada in {Y1} ({variazione(t1, t0)} on {Y0})"
+    pagina(percorso, titolo_tr(X, "Canada", Y1, c),
+           descr_tr(c, [f"{base}, IRCC data to {mese_testo(F_PR['ultimo_mese'])}. Year by year since {ANNI_TR[0]}.", f"{base}. IRCC data, year by year since {ANNI_TR[0]}.",
+                        f"{base} (IRCC)."]),
            corpo, jsonld_extra=[ld_faq(domande), ld], briciole=[("Who moved where", SEZ_TR), (X, f"{SEZ_TR}{slug}/"), ("Canada", percorso)])
 
 
@@ -4337,8 +4367,10 @@ def pagina_tr_uk(c, d="uk"):
 <p><a href="../">How many {escape(X)} moved abroad in {Y1}</a> · <a href="../../">Who moved where: all nationalities</a> · <a href="{rel}">Visa income calculator</a></p>"""
     ld = ld_dataset(f"UK work, study and family visas granted to {cit}, {ANNI_TR[0]}-{Y1}", "Home Office entry clearance visas granted by nationality and year of decision.",
                     percorso, [F_UKV["url"]], f"{ANNI_TR[0]}/{F_UKV['ultimo_trimestre'].replace(' ', '-')}", F_UKV["licenza_url"])
-    pagina(percorso, titolo_tr(X, "the UK", Y1),
-           f"The UK granted {intero(t1)} work, study and family visas to {cit} in {Y1} ({variazione(t1, t0)} on {Y0}): {per_tipo}. Home Office data, year by year since {ANNI_TR[0]}.",
+    base = f"The UK granted {intero(t1)} work, study and family visas to {cit} in {Y1} ({variazione(t1, t0)} on {Y0})"
+    pagina(percorso, titolo_tr(X, "the UK", Y1, c),
+           descr_tr(c, [f"{base}: {per_tipo}. Home Office data, year by year since {ANNI_TR[0]}.", f"{base}: {per_tipo}. Home Office data.",
+                        f"{base}. Home Office data, by visa type since {ANNI_TR[0]}.", f"{base}. Home Office data."]),
            corpo, jsonld_extra=[ld_faq(domande), ld], briciole=[("Who moved where", SEZ_TR), (X, f"{SEZ_TR}{slug}/"), ("United Kingdom", percorso)])
 
 
@@ -4489,11 +4521,14 @@ def pagina_tr_ie(c):
 {f'<h2>Other nationalities in Ireland: PPS numbers in {PPS_PIENO}</h2><div class="griglia">{griglia}</div>' if griglia else ''}
 <p><a href="../">How many {escape(X)} moved abroad</a> · <a href="../../">Who moved where: all nationalities</a> · <a href="{rel}">Visa income calculator</a></p>"""
     anno_t = PPS_YTD or PPS_PIENO
-    titolo = titolo_breve([f"How many {X} moved to Ireland in {anno_t}? PPS numbers by month",
-                           f"How many {X} moved to Ireland in {anno_t}? Monthly PPS data", f"{X} moving to Ireland {anno_t}: PPS numbers by month",
-                           f"{X} moving to Ireland {anno_t}: PPS numbers"])
-    descr = (f"{intero(n_ytd if PPS_YTD else n1)} PPS numbers allocated to {cit} in Ireland ({per}); {intero(n1)} in {PPS_PIENO}. Month by month since {PPS_MESI[0][:4]}, "
-             f"year by year since {PPS['anni'][0]}. Department of Social Protection data.")
+    var_t = [f"How many {X} moved to Ireland in {anno_t}? PPS numbers by month",
+             f"How many {X} moved to Ireland in {anno_t}? Monthly PPS data", f"{X} moving to Ireland {anno_t}: PPS numbers by month",
+             f"{X} moving to Ireland {anno_t}: PPS numbers"]
+    titolo = entro(var_t, LIM_TIT_NUOVE) if c in NAZ_TR_11_11 else titolo_breve(var_t)
+    base = f"{intero(n_ytd if PPS_YTD else n1)} PPS numbers allocated to {cit} in Ireland ({per}); {intero(n1)} in {PPS_PIENO}."
+    descr = descr_tr(c, [f"{base} Month by month since {PPS_MESI[0][:4]}, year by year since {PPS['anni'][0]}. Department of Social Protection data.",
+                         f"{base} By month since {PPS_MESI[0][:4]}, by year since {PPS['anni'][0]} (Department of Social Protection).",
+                         f"{base} Department of Social Protection data."])
     ld = ld_dataset(f"PPS numbers allocated to {cit} in Ireland, {PPS['anni'][0]}-{PPS_ULTIMO}", "Department of Social Protection PPSN registrations by nationality, by month and year.",
                     percorso, [F_PPS["mensile"]["url"], F_PPS["annuale"]["url"]], f"{PPS['anni'][0]}/{PPS_ULTIMO}", F_PPS["scheda"]["licenza_url"])
     pagina(percorso, titolo, descr, corpo, jsonld_extra=[ld_faq(domande), ld],
@@ -4569,6 +4604,7 @@ def pagina_tr_naz(c):
         frase_fuori.append(f"the UK granted {cit} {intero(sum(uk['anni'][Y1]))} work, study and family visas (Home Office)")
     _t3 = [f"{NOMI_GEO[g]} ({intero(riga_eu(c, g, Y1)[0])})" for g in top[:3]]
     t3 = ", ".join(_t3[:-1]) + " and " + _t3[-1] if len(_t3) > 1 else "".join(_t3)
+    t1_paese = _t3[0] if _t3 else ""
     pesanti = [NOMI_GEO[g] for g in GEO_UE if NOMI_GEO[g] in rotture and (riga_eu(c, g, Y1)[0] or 0) >= 0.1 * t1]
     rottura_ue = (f" Part of the change may come from {', '.join(pesanti)}, where Eurostat marks a break in the time series in {Y1}." if pesanti else "")
     domande = [
@@ -4632,9 +4668,12 @@ def pagina_tr_naz(c):
 <div class="griglia">{"".join(f'<a href="../{NAZ_TR[x][0]}/"><span class="ic">{ico("passport")}</span><span>{escape(NAZ_TR[x][1])}<small>{intero(riga_eu(x, "EU27_2020", Y1)[0])} first permits in the EU in {Y1}</small></span></a>' for x in NAZ_TR if x != c)}</div>
 <p><a href="../">Who moved where: all nationalities</a> · <a href="{rel}{SEZ}">Visa refusal rates</a> · <a href="{rel}">Visa income calculator</a></p>"""
     titolo = next(v for v in (f"How many {X} moved to Europe in {Y1}? Official EU figures", f"How many {X} moved to Europe in {Y1}? EU figures",
-                              f"How many {X} moved to Europe in {Y1}?") if len(v) <= 70)
-    descr = (f"{intero(t1)} {cit} got a first residence permit in the EU in {Y1} ({variazione(t1, t0)} on {Y0}). Most went to {t3}. "
-             f"Every EU country by reason, plus Canada and the UK. Eurostat data.")
+                              f"How many {X} moved to Europe in {Y1}?") if len(v) <= (LIM_TIT_NUOVE if c in NAZ_TR_11_11 else 70))
+    base = f"{intero(t1)} {cit} got a first residence permit in the EU in {Y1} ({variazione(t1, t0)} on {Y0})."
+    descr = descr_tr(c, [f"{base} Most went to {t3}. Every EU country by reason, plus Canada and the UK. Eurostat data.",
+                         f"{base} Most went to {t3}. Every EU country, plus Canada and the UK.", f"{base} Most went to {t3}. Eurostat data.",
+                         f"{base} Most went to {t1_paese}. Every EU country, plus Canada and the UK.", f"{base} Most went to {t1_paese}. Eurostat data.",
+                         f"{base} Eurostat data, every EU country."])
     ld = ld_dataset(f"First residence permits issued to {cit} in the EU and EFTA, {anni[0]}-{Y1}", f"Eurostat first residence permits for {cit} by country and reason.",
                     percorso, [F_ES["pagina"]], f"{anni[0]}/{Y1}", "https://creativecommons.org/licenses/by/4.0/")
     pagina(percorso, titolo, descr, corpo, ordina=True, jsonld_extra=[ld_faq(domande), ld], briciole=[("Who moved where", SEZ_TR), (X, percorso)])
@@ -4931,6 +4970,23 @@ AVVISO_SELT = ('<p class="avviso"><strong>Not immigration or legal advice.</stro
                'levels written in the GOV.UK guidance on the dates shown. Some people do not need a test (for example nationals of some English-speaking '
                'countries, people over 65, or people with a degree taught in English). Check the guidance for your own route on GOV.UK, and the provider\'s '
                'website for dates and fees, before you book.</p>')
+# pagine per livello (rifiniture dell'11/11/2026): l'età come nelle regole ("aged 65 or over", Appendix FM E-ECP.4.2 ed E-LTRP.4.2;
+# "at least 65 years of age", Appendix KoLL 3.1); le altre pagine della sezione restano come prima
+AVVISO_SELT_LIV = AVVISO_SELT.replace("people over 65", "people aged 65 or over")
+KOLL = F_SELT["koll"]   # Immigration Rules Appendix KoLL (raccolta/selt.py: frasi di 2.2(c) e 3.1 controllate a ogni lancio)
+FM_R = F_SELT["fm"]     # Immigration Rules Appendix FM (E-ILRP.1.6, E-ECP.4.2, E-LTRP.4.2)
+
+
+def fonte_koll():
+    return (f'Immigration Rules, <a href="{KOLL["url"]}" rel="noopener">Appendix KoLL</a>, paragraph 2.2(c), and '
+            f'<a href="{FM_R["url"]}" rel="noopener">Appendix FM</a>, paragraph E-ILRP.1.6 (GOV.UK, read on {data_lunga(KOLL["letto_il"])})')
+
+
+def voto_min(m):
+    """Voto minimo come nell'elenco ufficiale, con i separatori resi uniformi: nel file del Home Office la riga LanguageCert ESOL B2 ha
+    "Reading: 33/50: Writing: 33/50" (due punti al posto del punto e virgola tra due abilità)."""
+    m = re.sub(r"\s+", " ", m).strip()
+    return re.sub(r"(?<=\S): (?=(?:Listening|Speaking|Reading|Writing):)", "; ", m)
 
 
 def righe_livelli(rel):
@@ -4979,7 +5035,7 @@ def tabella_test():
                            ("B2", "2-facet", f"Settlement from {data_lunga(DATA_B2)} (speaking and listening)")):
         uk = test_per_livello("uk", liv, tipo)
         es = test_per_livello("estero", liv, tipo)
-        fmt = lambda xs: "<br>".join(f"{escape(n)} <span class=\"small\">({escape(nome_forn_test(f))}; minimum grade: {escape(m)})</span>" for f, n, m in xs) or "<em>None on the list</em>"  # noqa: E731
+        fmt = lambda xs: "<br>".join(f"{escape(n)} <span class=\"small\">({escape(nome_forn_test(f))}; minimum grade: {escape(voto_min(m))})</span>" for f, n, m in xs) or "<em>None on the list</em>"  # noqa: E731
         righe.append(f'<tr><td><strong>{liv}</strong> · {"speaking and listening" if tipo == "2-facet" else "four skills"}<br><span class="small">{escape(uso)}</span></td>'
                      f'<td>{fmt(uk)}</td><td>{fmt(es)}</td></tr>')
     return (f'<div class="tab compatta"><table id="t-test"><thead><tr><th scope="col">Level and use</th><th scope="col">Approved tests taken in the UK</th>'
@@ -5009,24 +5065,36 @@ def sezione_b2(rel, breve=False):
 <p class="fonte">Source: {fonte_hc()}.</p>"""
 
 
-def box_italki(rel):
+def box_italki(rel, L=None):
     """Riquadro «Prepare for the speaking test» (italki, voce _italki_selt di dati/affiliati.json): dopo le informazioni ufficiali.
-    Vuoto se il link non è attivo. Nessun prezzo, nessuna promessa sul risultato del test o sul visto."""
+    Vuoto se il link non è attivo. Nessun prezzo, nessuna promessa sul risultato del test o sul visto.
+    L (pagine per livello, rifiniture dell'11/11/2026): frase del livello; al B2 i test approvati valutano tutte e 4 le abilità."""
     if not URL_ITALKI:
         return ""
+    titolo, frase = "Prepare for the speaking test", ("For partner, parent, settlement and citizenship applications the SELT tests speaking and listening only. "
+                                                     "Speaking English often with a teacher, even online, is one way to prepare.")
+    if L and L["tipo"] == "4-facet":
+        titolo = f"Prepare for the {L['liv']} test"
+        frase = (f"Settlement asks for {L['liv']} in speaking and listening, but every approved {L['liv']} test on the Home Office lists also assesses reading and "
+                 f"writing, so you will be tested on all four skills. Practising with a teacher, even online, is one way to prepare.")
+    elif L:
+        frase = (f"The approved {L['liv']} tests for this application assess speaking and listening only. Speaking English often with a teacher, even online, "
+                 f"is one way to prepare.")
     return (f'<section class="card aff-r" aria-labelledby="aff-i-h"><div class="aff-r-t"><span class="ic">{ico("user")}</span>'
-            f'<h2 id="aff-i-h">Prepare for the speaking test</h2><span class="aff-tag">Affiliate</span></div>'
-            f'<p>For partner, parent, settlement and citizenship applications the SELT tests speaking and listening only. Speaking English often with a teacher, '
-            f'even online, is one way to prepare. On italki you choose an English teacher and pay per lesson.</p>'
+            f'<h2 id="aff-i-h">{escape(titolo)}</h2><span class="aff-tag">Affiliate</span></div>'
+            f'<p>{escape(frase)} On italki you choose an English teacher and pay per lesson.</p>'
             f'<p class="aff-r-cta"><a class="btn" href="{escape(URL_ITALKI)}" rel="sponsored noopener" target="_blank">Find an English teacher on italki{ico("arrow")}'
             f'<span class="sr"> (opens in a new tab)</span></a></p>'
             f'<p class="small">{MON.RIGA_EN} A teacher cannot book your test or change your result: you book the test only on the provider\'s website, and lessons '
             f'do not change the decision on your visa.</p></section>')
 
 
-def come_prenotare(estero=False):
-    forn = ["IELTS SELT Consortium", "LanguageCert", "Pearson", "PSI"] if estero else ["IELTS SELT Consortium", "LanguageCert", "Pearson", "Trinity College London"]
+def come_prenotare(estero=False, forn=None):
+    """forn (pagine per livello, rifiniture dell'11/11/2026): i fornitori dei test del livello negli elenchi ufficiali, nel Regno Unito e fuori."""
+    forn = forn or (["IELTS SELT Consortium", "LanguageCert", "Pearson", "PSI"] if estero else ["IELTS SELT Consortium", "LanguageCert", "Pearson", "Trinity College London"])
     link = elenco_e(f'<a href="{escape(FORN[f]["url"])}" rel="noopener">{escape(NOMI_FORN[f])}</a>' for f in forn)
+    if "Trinity College London" in forn and "PSI" in forn:   # GOV.UK: Trinity solo nel Regno Unito, PSI solo fuori
+        link += " (Trinity College London only in the UK, PSI Services only outside the UK)"
     return (f'<ul class="testo"><li>Book on the provider\'s own website: {link}. GOV.UK says to check the provider\'s website for dates and to make sure the centre is open: '
             f'"Do not contact the test centre directly."</li>'
             f'<li>Book the SELT version of the test (for example IELTS for UKVI or IELTS Life Skills, not ordinary IELTS). The approved names are: '
@@ -5284,20 +5352,22 @@ def _livelli_selt():
     solo_b2_4 = nessun_b2_due_abilita()
     return {
         "a1-english-test-spouse-visa": dict(
-            liv="A1", tipo="2-facet", breve="A1", nome="A1 English test for a UK spouse visa",
+            liv="A1", tipo="2-facet", breve="A1", nome="A1 English test for a UK spouse visa", uso_breve="a first UK spouse, partner or parent visa",
             uso="a first UK partner (spouse) or parent visa", fonte=fonte_liv("partner_primo", "Family visas: knowledge of English"),
             frase_liv=LIV["partner_primo"]["frase"], dove="estero"),
         "a2-english-test-spouse-visa-extension": dict(
-            liv="A2", tipo="2-facet", breve="A2", nome="A2 English test for a UK spouse visa extension",
+            liv="A2", tipo="2-facet", breve="A2", nome="A2 English test for a UK spouse visa extension", uso_breve="a UK spouse or partner visa extension",
             uso="extending a UK partner (spouse) or parent visa after 2.5 years", fonte=fonte_liv("partner_proroga", "Family visas: knowledge of English"),
             frase_liv="If you passed " + LIV["partner_proroga"]["frase"], dove="uk"),
         "b1-english-test-citizenship": dict(
             liv="B1", tipo="2-facet", breve="B1", nome="B1 English test for UK citizenship and ILR",
+            uso_breve=f"British citizenship and ILR applied for before {data_lunga(DATA_B2)}",
             uso=f"British citizenship, and settlement (indefinite leave to remain) applications made before {data_lunga(DATA_B2)}",
             fonte=fonte_liv("cittadinanza_residenza", "Prove your knowledge of English for citizenship and settling"),
             frase_liv=LIV["cittadinanza_residenza"]["frase"], dove="uk"),
         "b2-english-test-ilr": dict(
             liv="B2", tipo="4-facet" if solo_b2_4 else "2-facet", breve="B2", nome=f"B2 English test for ILR from {data_lunga(DATA_B2)}",
+            uso_breve=f"ILR applied for on or after {data_lunga(DATA_B2)}",
             uso=f"settlement (indefinite leave to remain) applications made on or after {data_lunga(DATA_B2)} on the routes listed in HC 1691",
             fonte=fonte_hc(), frase_liv="These changes will come into force on 26 March 2027.", dove="uk"),
     }
@@ -5314,12 +5384,19 @@ def tabella_test_livello(L):
     righe = []
     for dove, nome_dove in (("uk", "In the UK"), ("estero", "Outside the UK")):
         for f, n, m in test_per_livello(dove, L["liv"], L["tipo"]):
-            righe.append(f'<tr><td>{nome_dove}</td><td>{escape(nome_forn_test(f))}</td><td>{escape(n)}</td><td>{escape(m)}</td></tr>')
+            v = escape(voto_min(m))
+            righe.append(f'<tr><td>{nome_dove}</td><td>{escape(nome_forn_test(f))}</td><td>{escape(n)} <span class="voto-m">Minimum grade: {v}</span></td><td>{v}</td></tr>')
     return (f'<div class="tab compatta"><table id="t-test-liv"><thead><tr><th scope="col">Where you take it</th><th scope="col">Provider</th>'
             f'<th scope="col">Approved test (name to book)</th><th scope="col">Minimum grade</th></tr></thead><tbody>{"".join(righe)}</tbody></table></div>'
             f'<p class="fonte">Source: Home Office, <a href="{F_SELT["test_uk"]["url"]}" rel="noopener">List of approved secure English language tests taken in the UK</a> and '
             f'<a href="{F_SELT["test_estero"]["url"]}" rel="noopener">taken outside the UK</a> (ODS, downloaded on {data_lunga(F_SELT["test_uk"]["scaricato_il"])}), '
             f'Open Government Licence v3.0. Centres are on the Home Office lists of approved test centres (list dated {data_lunga(DATA_ELENCO)}).</p>'), len(righe)
+
+
+# sotto i 480 px la colonna "Minimum grade" (fuori dallo schermo) si nasconde e il voto va sotto il nome del test (rifiniture dell'11/11/2026)
+CSS_LIV_SELT = (".voto-m{display:none}@media (max-width:480px){#t-test-liv th:nth-child(4),#t-test-liv td:nth-child(4){display:none}"
+                "#t-test-liv .voto-m{display:block;margin-top:4px;font-size:.84rem;line-height:1.35;color:var(--ink-3)}"
+                ".tab.compatta #t-test-liv td:first-child,.tab.compatta #t-test-liv th:first-child{min-width:80px}}")
 
 
 def tabella_luoghi_livello(L, rel_sez):
@@ -5401,7 +5478,7 @@ def pagina_selt_livello(k):
              f"An approved SELT at B1 in speaking and listening, or another way of proving B1 or above. GOV.UK says: \"{LIV['cittadinanza_residenza']['frase']}\". "
              f"In the UK the approved B1 speaking and listening tests are {nomi_uk}."),
             ("Do I need an English test for British citizenship?",
-             "Not always. Some people do not need a test, for example nationals of some English-speaking countries, people over 65, or people with a degree taught in English. "
+             "Not always. Some people do not need a test, for example nationals of some English-speaking countries, people aged 65 or over, or people with a degree taught in English. "
              "Check the GOV.UK guide Prove your knowledge of English for citizenship and settling for your own case."),
             ("Is the B1 level for citizenship changing in 2027?",
              f"Citizenship is not one of the routes listed in HC 1691. Settlement on those routes needs B2 in speaking and listening for applications made on or after {data_lunga(DATA_B2)}."),
@@ -5414,8 +5491,10 @@ def pagina_selt_livello(k):
              f"For settlement applications made on or after {data_lunga(DATA_B2)} on the routes listed in HC 1691. The explanatory memorandum says: "
              f"\"These changes will come into force on 26 March 2027.\" Applications made before that date still need B1."),
             ("Does the B2 requirement apply to ILR after a spouse visa?",
-             f"Settlement Family Life is one of the routes listed in the explanatory memorandum to HC 1691, so B2 in speaking and listening applies to those settlement "
-             f"applications made on or after {data_lunga(DATA_B2)}."),
+             f"Yes, for applications made on or after {data_lunga(DATA_B2)}, unless an exemption applies. On the 5-year partner route, Appendix FM (paragraph E-ILRP.1.6) "
+             f"says the applicant must show English \"in accordance with the requirements of Appendix KoLL\", and Appendix KoLL paragraph 2.2(c)(ii) asks, where the date "
+             f"of application is on or after 26 March 2027, for an approved test \"in speaking and listening, at a minimum level B2\". Applications made before that "
+             f"date need B1 (paragraph 2.2(c)(i)). Immigration Rules on GOV.UK, read on {data_lunga(KOLL['letto_il'])}."),
             ("Which B2 test can I take for ILR?",
              (f"On the approved lists we read on {data_lunga(F_SELT['test_uk']['scaricato_il'])} there is no B2 test of speaking and listening only. The approved B2 tests "
               f"taken in the UK, which also assess reading and writing, are {nomi_uk}." if L["tipo"] == "4-facet" else
@@ -5425,9 +5504,12 @@ def pagina_selt_livello(k):
         ]
     prossimo = {
         "A1": f'<p>When you extend after 2.5 years you need A2: <a href="../a2-english-test-spouse-visa-extension/">A2 English test for a spouse visa extension</a>. '
-              f'For settlement after 5 years: <a href="../b1-english-test-citizenship/">B1 before {data_lunga(DATA_B2)}</a>, <a href="../b2-english-test-ilr/">B2 on or after it</a> on the routes listed in HC 1691.</p>',
-        "A2": f'<p>For settlement after 5 years: <a href="../b1-english-test-citizenship/">B1 before {data_lunga(DATA_B2)}</a>, <a href="../b2-english-test-ilr/">B2 on or after it</a> '
-              f'on the routes listed in HC 1691, which include Settlement Family Life.</p>',
+              f'For settlement after 5 years on the partner route, Appendix FM (paragraph E-ILRP.1.6) applies the English rules of Appendix KoLL: '
+              f'<a href="../b1-english-test-citizenship/">B1 for applications made before {data_lunga(DATA_B2)}</a>, <a href="../b2-english-test-ilr/">B2 on or after it</a> '
+              f'(Appendix KoLL, paragraph 2.2(c)(ii)).</p><p class="fonte">Source: {fonte_koll()}.</p>',
+        "A2": f'<p>For settlement after 5 years on the partner route, Appendix FM (paragraph E-ILRP.1.6) applies the English rules of Appendix KoLL: '
+              f'<a href="../b1-english-test-citizenship/">B1 for applications made before {data_lunga(DATA_B2)}</a>, <a href="../b2-english-test-ilr/">B2 on or after it</a> '
+              f'(Appendix KoLL, paragraph 2.2(c)(ii)).</p><p class="fonte">Source: {fonte_koll()}.</p>',
         "B1": f'<p>Applying for settlement on or after {data_lunga(DATA_B2)}? On the routes listed in HC 1691 you need B2: <a href="../b2-english-test-ilr/">B2 English test for ILR</a>.</p>',
         "B2": f'<p>Applying before {data_lunga(DATA_B2)}, or for citizenship? B1 is enough: <a href="../b1-english-test-citizenship/">B1 English test for citizenship and ILR</a>.</p>',
     }[L["liv"]]
@@ -5440,7 +5522,7 @@ def pagina_selt_livello(k):
 <div class="kpi"><div><b>{L["liv"]}</b><span>minimum level (CEFR)</span></div><div><b>{intero(len(CENTRI_UK))}</b><span>approved centres in the UK</span></div><div><b>{intero(len(CENTRI_EST))}</b><span>approved centres outside the UK</span></div><div><b>2 years</b><span>a result is valid for a new application (GOV.UK)</span></div></div>
 {fonte_selt_p(entrambi=True)}
 </div></section>
-{AVVISO_SELT}
+{AVVISO_SELT_LIV}
 {AD}
 <h2>The approved {L["liv"]} tests</h2>
 <p>Book exactly one of these names. Ordinary versions of the same exams (for example IELTS General or Academic without "for UKVI", or a non-SELT LanguageCert exam) are not on the Home Office list.</p>
@@ -5451,8 +5533,8 @@ def pagina_selt_livello(k):
 {prossimo}
 {tabella_luoghi_livello(L, "../")}
 <h2 id="how-to-book">How to book</h2>
-{come_prenotare(estero=L["dove"] == "estero")}
-{box_italki(rel)}
+{come_prenotare(forn=fornitori_di([("PSI" if f.startswith("PSI") else f,) for f, _, _ in uk + es]))}
+{box_italki(rel, L)}
 <h2>Which level for which visa</h2>
 {tabella_livelli(rel)}
 <h2>Questions people ask</h2>
@@ -5461,11 +5543,16 @@ def pagina_selt_livello(k):
 <p>{link_livelli_selt("../", k)}</p>
 {link_luoghi_selt("../")}
 <p><a href="../">UK visa English tests: all centres and levels</a> · <a href="{rel}uk-spouse-visa/">UK spouse visa income requirement</a> · <a href="{rel}{SEZ}uk/family-visas/">UK family visa refusal rates</a></p>"""
-    titolo = (titolo_breve([f"{L['nome']}: the approved tests", L["nome"]]) if L["liv"] == "B2" else
-              titolo_breve([f"{L['nome']}: approved tests ({ANNO_SELT})", f"{L['nome']} ({ANNO_SELT})", L["nome"]]))
-    descr = (f"The {n_test} Home Office approved {L['liv']} English tests ({abil}) for {L['uso']}, where to take them "
-             f"({intero(len(CENTRI_UK))} UK centres, {intero(len(CENTRI_EST))} abroad) and how to book. Lists of {data_lunga(DATA_ELENCO)}.")
-    pagina(percorso, titolo, descr, corpo, ordina=True, jsonld_extra=[ld_faq(domande)],
+    # pagine dell'11/11/2026: titolo ≤ 65, descrizione ≤ 160
+    titolo = (entro([f"{L['nome']}: the approved tests", L["nome"]], LIM_TIT_NUOVE) if L["liv"] == "B2" else
+              entro([f"{L['nome']}: approved tests ({ANNO_SELT})", f"{L['nome']} ({ANNO_SELT})", L["nome"]], LIM_TIT_NUOVE))
+    abil_b = "speaking and listening" if L["tipo"] == "2-facet" else "all four skills"
+    descr = entro([f"The {n_test} Home Office approved {L['liv']} English tests ({abil_b}) for {L['uso_breve']}: names to book, minimum grades, where to take them. "
+                   f"Lists of {data_lunga(DATA_ELENCO)}.",
+                   f"The {n_test} Home Office approved {L['liv']} English tests ({abil_b}) for {L['uso_breve']}: names, grades, centres. Lists of {data_lunga(DATA_ELENCO)}.",
+                   f"The {n_test} approved {L['liv']} English tests for {L['uso_breve']}: names, grades, centres. Home Office lists of {data_lunga(DATA_ELENCO)}."],
+                  LIM_DESCR_NUOVE)
+    pagina(percorso, titolo, descr, corpo, ordina=True, css_extra=CSS_LIV_SELT, jsonld_extra=[ld_faq(domande)],
            briciole=[("UK visa English tests", SEZ_SELT), (L["nome"], percorso)])
 
 
@@ -9677,6 +9764,14 @@ for _r in RIGHE_CER:
 SLUG_CER = {r[0]: slug_testo(BREVE_CER[r[0]]) + (f"-{r[1].lower()}" if len(_brevi[BREVE_CER[r[0]]]) > 1 else "") for r in RIGHE_CER}
 PAG_CER = [r for r in sorted(RIGHE_CER, key=lambda r: (-(r[2] or 0), r[0])) if len(DOM_CER.get(r[0], [])) >= SOGLIA_DOMANDA_CER and r[2]]
 PAG_CER_NOMI = {r[0] for r in PAG_CER}
+# council con pagina dall'11/11/2026 (soglia scesa da 3 a 2 suggerimenti): titoli ≤ 65, descrizioni ≤ 160 (rifiniture della revisione)
+CER_NUOVI_11_11 = frozenset([
+    "City of Ryde", "City of Bayswater", "City of Onkaparinga", "Shire of Serpentine Jarrahdale", "Town of Victoria Park", "City of Vincent",
+    "Mornington Peninsula Shire Council", "Blue Mountains City Council", "City of Karratha", "City of Wagga Wagga", "Latrobe City Council", "City of Subiaco",
+    "Shire of Mundaring", "Shellharbour City Council", "Hawkesbury City Council", "Mount Barker District Council", "Wollondilly Shire Council", "City of Bunbury",
+    "Somerset Regional Council", "City of Holdfast Bay", "City of Nedlands", "Port Stephens Council", "Wingecarribee Shire Council", "Armidale Regional Council",
+    "Swan Hill Rural City Council", "Rockhampton Regional Council", "Town of Claremont", "Ballina Shire Council", "Bass Coast Shire Council", "Shire of Northam",
+    "City of Busselton", "Adelaide Hills Council", "Lismore City Council", "Town of Port Hedland", "Gympie Regional Council"])
 
 
 def mese_cer(iso, breve=False):
@@ -10024,10 +10119,22 @@ def pagina_cer_council(r):
 <h2>Questions people ask</h2>
 <div class="testo">{faq_html([(q, escape(a)) for q, a in domande])}</div>
 {link_cer_pagine("../", r[0], r[1])}"""
-    titolo = titolo_breve([f"{breve} citizenship ceremony wait time: {intero(r[2])} waiting ({mese_cer(AL_CER, True)})",
-                           f"{breve} citizenship ceremony wait time ({mese_cer(AL_CER, True)})", f"{breve} citizenship ceremony wait time"])
+    var_t = [f"{breve} citizenship ceremony wait time: {intero(r[2])} waiting ({mese_cer(AL_CER, True)})",
+             f"{breve} citizenship ceremony wait time ({mese_cer(AL_CER, True)})", f"{breve} citizenship ceremony wait time"]
     descr = (f"{intero(r[2])} approved applicants waiting for a citizenship ceremony with {pieno} on {data_lunga(AL_CER)}: {r[3]}% had waited under 3 months since approval, "
              f"{r[5]}% over 6 months (Home Affairs). How ceremony dates and invitations work.")
+    if r[0] in CER_NUOVI_11_11:   # pagine dell'11/11/2026: titolo ≤ 65, descrizione ≤ 160
+        titolo = entro(var_t, LIM_TIT_NUOVE)
+        quote = f"{r[3]}% had waited under 3 months since approval, {r[5]}% over 6 months (Home Affairs)."
+        quote_b = f"{r[3]}% under 3 months since approval, {r[5]}% over 6 months (Home Affairs)."
+        descr = entro([f"{intero(r[2])} people approved for citizenship were waiting for a ceremony with {pieno} on {data_lunga(AL_CER)}: {quote}",
+                       f"{intero(r[2])} people approved for citizenship were waiting for a ceremony with {pieno} on {data_lunga(AL_CER)}: {quote_b}",
+                       f"{intero(r[2])} people approved for citizenship were waiting for a ceremony with {breve} on {data_lunga(AL_CER)}: {quote_b}",
+                       f"{breve}: {intero(r[2])} people approved for citizenship waiting for a ceremony on {data_lunga(AL_CER)}; {quote_b}",
+                       f"{breve}: {intero(r[2])} people approved for citizenship waiting for a ceremony on {data_lunga(AL_CER)}; {r[3]}% under 3 months, "
+                       f"{r[5]}% over 6 months (Home Affairs)."], LIM_DESCR_NUOVE)
+    else:
+        titolo = titolo_breve(var_t)
     pagina(percorso, titolo, descr, corpo, ordina=True, css_extra=CSS_CER, jsonld_extra=ld,
            briciole=[("Citizenship ceremony wait times", SEZ_CER), (breve, percorso)])
 
@@ -10155,10 +10262,18 @@ def pagina_cer_stato(s):
 {link_cer_pagine("../", None, s)}
 <p><strong>Other states and territories:</strong> {link_stati_cer("../", s)}</p>
 <p class="small"><a href="../">All {len(RIGHE_CER)} councils in Australia</a></p>"""
-    titolo = titolo_breve([f"{stato} citizenship ceremony wait times by council ({mese_cer(AL_CER, True)})",
-                           f"{s} citizenship ceremony wait times by council ({mese_cer(AL_CER, True)})", f"{s} citizenship ceremony wait times"])
-    descr = (f"{intero(tot)} approved applicants waiting for a citizenship ceremony in {stato} on {data_lunga(AL_CER)}, council by council: {pc_cer(m3)} had waited "
-             f"under 3 months since approval, {pc_cer(m6)} over 6 months (Home Affairs). How ceremony dates work.")
+    # pagine dell'11/11/2026: titolo ≤ 65, descrizione ≤ 160
+    titolo = entro([f"{stato} citizenship ceremony wait times by council ({mese_cer(AL_CER, True)})",
+                    f"{stato} citizenship ceremony wait times ({mese_cer(AL_CER, True)})",
+                    f"{s} citizenship ceremony wait times by council ({mese_cer(AL_CER, True)})", f"{s} citizenship ceremony wait times"], LIM_TIT_NUOVE)
+    descr = entro([f"{intero(tot)} people approved for citizenship were waiting for a ceremony in {stato} on {data_lunga(AL_CER)}: {pc_cer(m3)} under 3 months, "
+                   f"{pc_cer(m6)} over 6 months. Every council (Home Affairs).",
+                   f"{intero(tot)} people approved for citizenship were waiting for a ceremony in {stato} on {data_lunga(AL_CER)}: {pc_cer(m3)} under 3 months, "
+                   f"{pc_cer(m6)} over 6 months (Home Affairs).",
+                   f"{intero(tot)} people approved for citizenship were waiting for a ceremony in {stato} on {int(AL_CER[8:])} {mese_cer(AL_CER, True)}: "
+                   f"{pc_cer(m3)} under 3 months, {pc_cer(m6)} over 6 months (Home Affairs).",
+                   f"{stato}: {intero(tot)} people approved for citizenship waiting for a ceremony on {data_lunga(AL_CER)}; {pc_cer(m3)} under 3 months, "
+                   f"{pc_cer(m6)} over 6 months."], LIM_DESCR_NUOVE)
     pagina(percorso, titolo, descr, corpo, ordina=True, css_extra=CSS_CER, jsonld_extra=ld,
            briciole=[("Citizenship ceremony wait times", SEZ_CER), (stato, percorso)])
 

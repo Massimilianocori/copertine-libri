@@ -72,6 +72,30 @@
 "where the date of application is on or after 26 March 2027, that the applicant has passed an English language test in speaking and listening, at a minimum level B2",
 "Where the date of application is on or after 26 March 2027, the applicant must, unless an exemption applies, show English language ability on the Common European Framework of Reference for Languages in speaking and listening to at least level B2."
 ]
+},
+"koll": {
+"titolo": "Immigration Rules Appendix KoLL",
+"url": "https://www.gov.uk/guidance/immigration-rules/immigration-rules-appendix-koll",
+"aggiornata": "2026-03-26",
+"letto_il": "2026-11-11",
+"http": 200,
+"frasi": {
+"b1": "(i) where the date of application is before 26 March 2027, that the applicant has passed an English language test in speaking and listening, at a minimum level B1",
+"b2": "(ii) where the date of application is on or after 26 March 2027, that the applicant has passed an English language test in speaking and listening, at a minimum level B2",
+"eta": "the applicant is at least 65 years of age at the date of his or her application"
+}
+},
+"fm": {
+"titolo": "Immigration Rules Appendix FM: family members",
+"url": "https://www.gov.uk/guidance/immigration-rules/immigration-rules-appendix-fm-family-members",
+"aggiornata": "2026-10-08",
+"letto_il": "2026-11-11",
+"http": 200,
+"frasi": {
+"ilr_partner": "E-ILRP.1.6. The applicant must have demonstrated sufficient knowledge of the English language and sufficient knowledge about life in the United Kingdom in accordance with the requirements of Appendix KoLL of these Rules.",
+"eta_primo": "E-ECP.4.2. The applicant is exempt from the English language requirement if at the date of application- (a) the applicant is aged 65 or over;",
+"eta_proroga": "E-LTRP.4.2. The applicant is exempt from the English language requirement in paragraph E-LTRP.4.1. or E-LTRP.4.1A. if at the date of application- (a) the applicant is aged 65 or over;"
+}
 }
 },
 "fornitori": {

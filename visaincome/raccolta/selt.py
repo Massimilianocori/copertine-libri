@@ -15,6 +15,9 @@ Fonti (vedi NOTE.md, sezione "UK visa English tests"), tutte su GOV.UK (Open Gov
    le frasi su cui si basano le pagine ci siano ancora: se una manca, si ferma (la regola può essere cambiata: rileggere a mano).
 3. Il cambio da B1 a B2 per la residenza (settlement) dal 26 marzo 2027: Statement of Changes HC 1691 (5 marzo 2026), nota
    esplicativa par. 5.60-5.62, e il testo delle regole (Appendix KOLL e Settlement Family Life). Stesso controllo delle frasi.
+4. Dall'11/11/2026 (rifiniture) le Immigration Rules su GOV.UK: Appendix KoLL (par. 2.2(c)(i)-(ii): B1 prima del 26/3/2027, B2 dal 26/3/2027;
+   par. 3.1: esenzione a 65 anni) e Appendix FM (E-ILRP.1.6: la residenza del partner dopo 5 anni segue Appendix KoLL; E-ECP.4.2 ed
+   E-LTRP.4.2: "aged 65 or over"). Stesso controllo delle frasi.
 
 Domanda (--domanda): autocompletamento di Google (client=firefox, hl=en, gl=uk) per ogni città britannica con almeno un centro
 e per ogni Paese dell'elenco estero, più le ricerche generali con gl=uk, in, pk, ng (salvate per le note). Un luogo "ha domanda"
@@ -129,6 +132,20 @@ FRASI_HC_TESTO = [
     "where the date of application is on or after 26 March 2027, that the applicant has passed an English language test in speaking and listening, at a minimum level B2",
     "Where the date of application is on or after 26 March 2027, the applicant must, unless an exemption applies, show English language ability on the Common European Framework of Reference for Languages in speaking and listening to at least level B2.",
 ]
+# Immigration Rules (11/11/2026, rifiniture della revisione): per il percorso del partner a 5 anni (Appendix FM, E-ILRP.1.6) la residenza segue Appendix KoLL,
+# che dal 26/3/2027 chiede il B2 (par. 2.2(c)(ii)); esenzioni per età: "aged 65 or over" (Appendix FM) e "at least 65 years of age" (KoLL 3.1)
+KOLL = "https://www.gov.uk/guidance/immigration-rules/immigration-rules-appendix-koll"
+FM = "https://www.gov.uk/guidance/immigration-rules/immigration-rules-appendix-fm-family-members"
+FRASI_KOLL = {
+    "b1": "(i) where the date of application is before 26 March 2027, that the applicant has passed an English language test in speaking and listening, at a minimum level B1",
+    "b2": "(ii) where the date of application is on or after 26 March 2027, that the applicant has passed an English language test in speaking and listening, at a minimum level B2",
+    "eta": "the applicant is at least 65 years of age at the date of his or her application",
+}
+FRASI_FM = {
+    "ilr_partner": "E-ILRP.1.6. The applicant must have demonstrated sufficient knowledge of the English language and sufficient knowledge about life in the United Kingdom in accordance with the requirements of Appendix KoLL of these Rules.",
+    "eta_primo": "E-ECP.4.2. The applicant is exempt from the English language requirement if at the date of application- (a) the applicant is aged 65 or over;",
+    "eta_proroga": "E-LTRP.4.2. The applicant is exempt from the English language requirement in paragraph E-LTRP.4.1. or E-LTRP.4.1A. if at the date of application- (a) the applicant is aged 65 or over;",
+}
 # Nomi scritti in modi diversi nel file dei centri esteri -> nome unico (si registrano nel JSON)
 PAESI_NORMALI = {"GHANA": "Ghana", "Sri lanka": "Sri Lanka", "morocco": "Morocco", "Guayaquil": "Ecuador",
                  "Cyprus": "Cyprus (South)"}  # "Cyprus": un solo centro, a Limassol (nel sud, come le altre righe di Limassol)
@@ -351,6 +368,16 @@ def main():
             errori.append(f"HC 1691, testo: frase non trovata: {f[:80]}…")
     fonti["hc1691"] = {"titolo": hc["title"], "url": HC, "memorandum": HC_MEMO, "testo": HC_TESTO, "pubblicato": hc["first_published_at"][:10],
                        "letto_il": oggi, "http": mm["http"], "in_vigore": "2027-03-26", "frasi_memorandum": FRASI_HC_MEMO, "frasi_testo": FRASI_HC_TESTO}
+    # 5b. Immigration Rules: Appendix KoLL e Appendix FM (11/11/2026)
+    for chiave, url, frasi in (("koll", KOLL, FRASI_KOLL), ("fm", FM, FRASI_FM)):
+        bb, mm = scarica(url.replace("https://www.gov.uk/", "https://www.gov.uk/api/content/"))
+        d = json.loads(bb)
+        corpo_r = testo(d["details"]["body"])
+        for k, f in frasi.items():
+            if f not in corpo_r:
+                errori.append(f"{d['title']}: frase {k} non trovata: {f[:80]}…")
+        fonti[chiave] = {"titolo": d["title"], "url": url, "aggiornata": d.get("public_updated_at", "")[:10], "letto_il": oggi, "http": mm["http"],
+                         "frasi": frasi}
     # 6. domanda
     citta_uk = sorted({x[2] for x in centri["uk"]})
     paesi = sorted({x[2] for x in centri["estero"]})

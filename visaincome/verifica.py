@@ -95,7 +95,9 @@ Uso (dalla radice del repository, dopo python3 visaincome/genera.py):
     indipendente (IPREM, SMI, RMMG di programmi.json, percentuali e tasse dei frammenti, cambi EUR/USD BCE × valuta/USD della fonte del Paese);
     ogni tassa = numero scritto nel frammento ufficiale; data del listino in pagina; ogni <q> = frammento ufficiale; link esterni solo verso
     le fonti del JSON; nessun link sponsorizzato; FAQ da ricerche vere dell'autocompletamento; link da home, How it works, menu es/pt;
-    piè di pagina comune invariato. Online: 8 frammenti a caso riletti sulle fonti.
+    piè di pagina comune invariato. Online: 8 frammenti a caso riletti sulle fonti. Dall'11/11/2026, se una fonte risponde non-200 o con una
+    pagina di blocco o anti-robot (es. il "Voight-Kampff Browser Test" di exteriores.gob.es) il frammento non si ricontrolla: AVVISO con la data
+    dell'ultima lettura buona (elencato in fondo, non è un errore); resta un errore solo HTTP 200 con la fonte vera e il frammento assente.
 29. Infermieri formati all'estero (/nurses-abroad/) e UK Ancestry visa (/uk-ancestry-visa/) (5/11/2026, dati/infermieri.json e dati/ancestry.json):
     impronte dei JSON, fonti lette (HTTP 200), file del Home Office = quello di dati/rifiuti.json; valori del JSON = file grezzi NMC e JQ06 riletti
     con un lettore proprio; pagine attese (indice, 12 Paesi ricalcolati con la soglia di 1.000 sul registro, UK, Irlanda, lista rossa, costi, Ancestry)
@@ -127,6 +129,13 @@ Uso (dalla radice del repository, dopo python3 visaincome/genera.py):
     link con ref=wzxn7mck, utm_campaign vic-, rel="sponsored noopener", riga di trasparenza, nessuna promessa sul visto, countryResidence e intent solo
     sulla pagina Schengen, solo nelle pagine previste; mai HelloSafe e SafetyWing nella stessa pagina; nessun HelloSafe né link alla sezione nelle
     pagine dell'esperimento /visa-refusal-rates/<paese>/; online: 6 frammenti a caso riletti.
+33. Pagine aggiunte l'11/11/2026 (rifiniture della revisione): 7 cerimonie per Stato, 35 council con 2 suggerimenti (CER_NUOVI_11_11),
+    4 test di inglese per livello, hub e coppie delle 10 nazionalità nuove di Who moved where (NAZ_TR_11_11): 210 pagine in sitemap, titolo
+    ≤ 65 e meta description ≤ 160 caratteri, nessun taglio (niente "…", descrizione chiusa dal punto), tutti diversi.
+Il controllo 16 comprende dall'11/11/2026, sulle 4 pagine per livello: voto minimo = elenco ufficiale con i separatori uniformi e ripetuto
+sotto il nome del test (visibile solo sotto i 480 px, dove la colonna si nasconde), avviso con "aged 65 or over", tutti i fornitori dei test
+del livello in "How to book", frase del livello nel riquadro italki, Appendix FM E-ILRP.1.6 e Appendix KoLL 2.2(c)(ii) per il partner
+(frasi lette da raccolta/selt.py) e le citazioni della FAQ del B2 uguali alle frasi lette.
 Il controllo 8 comprende dal 28/10/2026 anche i visti UK di famiglia e del partner (coniuge).
 Monetizzazione (30/10/2026, controllo comune di studio-business/strumenti/monetizzazione.py): i link di affiliazione sono
 ammessi solo verso i domini di monetizzazione.json, con rel="sponsored noopener" e la riga di trasparenza nella pagina;
@@ -152,6 +161,32 @@ import genera as G  # noqa: E402
 
 SITO = G.SITO
 P = {p["slug"]: p for p in G.PROG}
+
+# ---------------------------------------------------------------- avvisi sulle fonti rilette online (11/11/2026, come beforeyoufly/verifica.py)
+# Quando una fonte riletta online (controllo 28) risponde con un codice diverso da 200, o con una pagina di blocco o anti-robot, il blocco
+# non si aggira: il frammento non si ricontrolla e si stampa un AVVISO (contato ed elencato in fondo, non è un errore) con la data
+# dell'ultima lettura buona scritta nei dati. Resta un ERRORE solo il caso HTTP 200 con la fonte vera e il frammento assente.
+AVVISI = []
+_RE_BLOCCO = re.compile(r"accesso negato|access denied|access to this page has been denied|just a moment|attention required|"
+                        r"quick security check|are you a robot|verify you are (a )?human|request (was )?(blocked|rejected)|captcha|"
+                        r"voight-kampff|browser test|\b40[13] forbidden\b|^forbidden$|acceso denegado|acc[eè]s refus[ée]", re.I)
+
+
+def avviso(punto, testo):
+    AVVISI.append((str(punto), testo))
+
+
+def pagina_di_blocco(raw, formato=None):
+    """True se la risposta è una pagina di blocco o anti-robot: si guarda solo il <title> (un testo normale può nominare i controlli);
+    per una fonte PDF anche una risposta che non è un PDF."""
+    if isinstance(raw, bytes):
+        if raw[:5] == b"%PDF-":
+            return False
+        if formato == "pdf":
+            return True
+        raw = raw.decode("utf-8", errors="replace")
+    m = re.search(r"<title[^>]*>(.*?)</title>", raw[:200000], re.I | re.S)
+    return bool(m and _RE_BLOCCO.search(re.sub(r"\s+", " ", m.group(1)).strip()))
 # Cambi BCE del 9 ottobre 2026 (1 EUR = ...), quelli usati negli esempi di TEST.md
 T = {"USD": 1.1206, "GBP": 0.84763, "CAD": 1.5942, "AUD": 1.6052, "PHP": 70.397, "INR": 108.3965, "SEK": 11.1675,
      "DKK": 7.4751, "JPY": 177.34}
@@ -1149,13 +1184,52 @@ def controlla_selt():
             liv, tipo = luogo
             att = [(w, r) for w in ("uk", "estero") for r in D["test"][w] if r[0] == liv and r[1] == tipo]
             tab = re.search(r'<table[^>]*id="t-test-liv".*?<tbody>(.*?)</tbody>', main, re.S)
-            rr = [_celle(x) for x in re.findall(r"<tr>.*?</tr>", tab.group(1), re.S)] if tab else []
+            tr_ = re.findall(r"<tr>.*?</tr>", tab.group(1), re.S) if tab else []
+            # rifiniture dell'11/11/2026: voto anche sotto il nome del test (visibile solo sotto i 480 px), uguale alla colonna "Minimum grade"
+            sotto = [html.unescape(m.group(1)) if (m := re.search(r'<span class="voto-m">Minimum grade: (.*?)</span>', x)) else None for x in tr_]
+            rr = [_celle(re.sub(r' ?<span class="voto-m">.*?</span>', "", x)) for x in tr_]
             if len(rr) != len(att) or not att:
                 errori.append(f"SELT: {len(rr)} test nella tabella di {percorso}, attesi {len(att)}")
-            for (w, r), c in zip(att, rr):
-                if c[0] != ("In the UK" if w == "uk" else "Outside the UK") or c[3] != re.sub(r"\s+", " ", r[4]).strip() or c[2] != G.nome_test(r[2]):
-                    errori.append(f"SELT: riga {c} di {percorso} diversa dall'elenco ufficiale ({r[2]})")
+            for (w, r), c, v in zip(att, rr, sotto):
+                if c[0] != ("In the UK" if w == "uk" else "Outside the UK") or c[3] != _voto16(r[4]) or c[2] != G.nome_test(r[2]) or v != c[3]:
+                    errori.append(f"SELT: riga {c} di {percorso} diversa dall'elenco ufficiale ({r[2]}) o voto sotto il nome diverso ({v!r})")
                     break
+            if ".voto-m{display:none}" not in t or "@media (max-width:480px){#t-test-liv th:nth-child(4),#t-test-liv td:nth-child(4){display:none}" not in t:
+                errori.append(f"SELT: {percorso} senza lo stile che sotto i 480 px porta il voto sotto il nome del test")
+            # avviso con l'età come nelle regole; prenotazione con tutti i fornitori dei test del livello; riquadro italki con la frase del livello
+            avv = re.search(r'<p class="avviso">(.*?)</p>', main, re.S)
+            if not avv or "people aged 65 or over" not in avv.group(1):
+                errori.append(f"SELT: avviso di {percorso} senza \"aged 65 or over\"")
+            book = main.split('id="how-to-book"', 1)[1].split("</ul>", 1)[0] if 'id="how-to-book"' in main else ""
+            nomi_f = {"IELTS SELT Consortium": "IELTS SELT Consortium", "LanguageCert": "LanguageCert", "Pearson": "Pearson (PTE)",
+                      "Trinity College London": "Trinity College London"}
+            for r in {r[3] for _, r in att}:
+                nf = "PSI Services (Skills for English)" if r.startswith("PSI") else nomi_f.get(r, r)
+                if f">{html.escape(nf)}</a>" not in book:
+                    errori.append(f"SELT: {percorso}: fornitore {nf} dei test del livello assente da How to book")
+            box = re.search(r'<section class="card aff-r".*?</section>', main, re.S)
+            if box and tipo == "4-facet" and "also assesses reading and writing" not in box.group(0):
+                errori.append(f"SELT: riquadro italki di {percorso} senza la frase del livello (i test {liv} valutano 4 abilità)")
+            if box and tipo == "2-facet" and f"The approved {liv} tests for this application assess speaking and listening only" not in box.group(0):
+                errori.append(f"SELT: riquadro italki di {percorso} senza la frase del livello")
+            # percorso del partner a 5 anni: Appendix FM E-ILRP.1.6 -> Appendix KoLL 2.2(c)(ii) (frasi lette da raccolta/selt.py)
+            K, F_ = D["fonti"].get("koll", {}), D["fonti"].get("fm", {})
+            koll_ok = K.get("http") == 200 and F_.get("http") == 200 and "at a minimum level B2" in K.get("frasi", {}).get("b2", "") \
+                and "in accordance with the requirements of Appendix KoLL" in F_.get("frasi", {}).get("ilr_partner", "")
+            vis_l = html.unescape(re.sub(r"<[^>]+>", "", main))
+            if liv in ("A1", "A2", "B2"):
+                if not koll_ok:
+                    errori.append(f"SELT: {percorso} cita Appendix KoLL e Appendix FM ma le frasi non sono lette in dati/selt.json")
+                if "Appendix KoLL, paragraph 2.2(c)(ii)" not in vis_l and "Appendix KoLL paragraph 2.2(c)(ii)" not in vis_l or "E-ILRP.1.6" not in vis_l:
+                    errori.append(f"SELT: {percorso} senza Appendix KoLL 2.2(c)(ii) / Appendix FM E-ILRP.1.6 per il percorso del partner")
+                if "Settlement Family Life" in vis_l.split("What comes next", 1)[1].split("Where to take it", 1)[0]:
+                    errori.append(f"SELT: {percorso}: \"What comes next\" rimanda ancora a Settlement Family Life per il partner")
+            if liv == "B2":
+                for x in ('"in accordance with the requirements of Appendix KoLL"', '"in speaking and listening, at a minimum level B2"'):
+                    if html.unescape(x) not in vis_l:
+                        errori.append(f"SELT: FAQ del B2 per il coniuge senza la frase {x}")
+                    elif x.strip('"') not in K.get("frasi", {}).get("b2", "") + F_.get("frasi", {}).get("ilr_partner", ""):
+                        errori.append(f"SELT: citazione {x} non uguale alle frasi lette")
             n_uk = sum(1 for w, _ in att if w == "uk")
             if (f"{len(att)} approved {liv} tests" not in html.unescape(re.sub(r"<[^>]+>", "", prima)) and f"approves {len(att)} tests at this level" not in html.unescape(re.sub(r"<[^>]+>", "", prima))) \
                     or f"{n_uk} taken in the UK and {len(att) - n_uk}" not in prima:
@@ -1194,6 +1268,12 @@ def controlla_selt():
             errori.append(f"SELT: {f} non rimanda alla sezione")
     return errori, n
 
+
+
+def _voto16(m):
+    """Voto minimo dell'elenco ufficiale con i separatori uniformi (11/11/2026: "Reading: 33/50: Writing" -> "Reading: 33/50; Writing")."""
+    m = re.sub(r"\s+", " ", m).strip()
+    return re.sub(r"(\d|Pass)(?:: |; )(Listening|Speaking|Reading|Writing):", r"\1; \2:", m)
 
 
 # ---------------------------------------------------------------- 17. Irlanda: PPS assegnati per nazionalità (30/10/2026)
@@ -3776,11 +3856,22 @@ def controlla_vl(online=True):
             fo = L[k]["fonte"]
             if fo not in testi:
                 st, b = RV.scarica(F[fo]["url"])
-                testi[fo] = RV.testo_di(b, F[fo]["formato"]) if st == 200 else ""
-            ok = RV.norm(L[k]["frammento"]) in testi[fo]
+                if st != 200:
+                    testi[fo] = (None, f"HTTP {st}" if st else "nessuna risposta")
+                elif pagina_di_blocco(b, F[fo]["formato"]):
+                    testi[fo] = (None, "HTTP 200 con una pagina di blocco o anti-robot")
+                else:
+                    testi[fo] = (RV.testo_di(b, F[fo]["formato"]), None)
+            testo_fo, motivo = testi[fo]
+            if testo_fo is None:   # blocco o errore della fonte: avviso, non errore (11/11/2026)
+                riletti.append(f"{fo} {k}: non riletto ({motivo})")
+                avviso(28, f"VL: frammento {k} non riletto: {fo} ({F[fo]['url'][:90]}) risponde {motivo}; il blocco non si aggira, "
+                           f"restano i dati dell'ultima lettura buona del {F[fo].get('letto_il', '?')}")
+                continue
+            ok = RV.norm(L[k]["frammento"]) in testo_fo
             riletti.append(f"{fo} {k}: {'presente' if ok else 'ASSENTE'}")
-            if not ok:
-                errori.append(f"VL: frammento {k} non più in {fo}")
+            if not ok:   # HTTP 200, fonte vera, frammento assente: errore
+                errori.append(f"VL: frammento {k} non più in {fo} (HTTP 200; ultima lettura buona del {F[fo].get('letto_il', '?')})")
     return errori, len(pagine), riletti
 
 
@@ -4895,6 +4986,51 @@ def controlla_ass(online=True):
     return errori, len(trovate), note
 
 
+# ---------------------------------------------------------------- 33. Titoli e descrizioni delle 210 pagine dell'11/11/2026
+STATI_CER_33 = ("new-south-wales", "victoria", "queensland", "western-australia", "south-australia", "tasmania", "northern-territory")
+LIVELLI_SELT_33 = ("a1-english-test-spouse-visa", "a2-english-test-spouse-visa-extension", "b1-english-test-citizenship", "b2-english-test-ilr")
+
+
+def controlla_meta_nuove():
+    """33 (rifiniture della revisione dell'11/11/2026): le pagine aggiunte l'11/11/2026 nelle sezioni cerimonie australiane (7 per Stato e
+    i 35 council con 2 suggerimenti), UK visa English tests (4 per livello) e Who moved where (hub e coppie delle 10 nazionalità nuove):
+    210 pagine, tutte in sitemap; <title> ≤ 65 e meta description ≤ 160 caratteri (dopo l'unescape), nessuna parola tagliata (niente "…",
+    descrizione chiusa da un punto, titolo senza spazio o segno finale), titoli e descrizioni diversi tra le pagine."""
+    errori = []
+    sitemap = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    pagine = [f"uk-english-test/{k}/" for k in LIVELLI_SELT_33]
+    pagine += [f"australian-citizenship-ceremony-wait-times/{k}/" for k in STATI_CER_33]
+    pagine += [f"australian-citizenship-ceremony-wait-times/{G.SLUG_CER[c]}/" for c in sorted(G.CER_NUOVI_11_11)]
+    for c in G.NAZ_TR_11_11:
+        cart = SITO / "moved-to" / G.NAZ_TR[c][0]
+        pagine += sorted(f"{f.parent.relative_to(SITO).as_posix()}/" for f in cart.rglob("index.html"))
+    if len(pagine) != 210 or len(set(pagine)) != 210:
+        errori.append(f"33: {len(set(pagine))} pagine dell'11/11/2026 invece di 210")
+    visti_t, visti_d = {}, {}
+    for pp in pagine:
+        f = SITO / pp / "index.html"
+        if not f.exists():
+            errori.append(f"33: {pp} mancante")
+            continue
+        if f"<loc>{G.URL_SITO}/{pp}</loc>" not in sitemap:
+            errori.append(f"33: {pp} non in sitemap")
+        t = f.read_text(encoding="utf-8")
+        tit = html.unescape(re.search(r"<title>(.*?)</title>", t, re.S).group(1))
+        d = html.unescape(re.search(r'<meta name="description" content="(.*?)">', t, re.S).group(1))
+        if len(tit) > 65:
+            errori.append(f"33: titolo oltre 65 caratteri ({len(tit)}) in {pp}: {tit!r}")
+        if len(d) > 160:
+            errori.append(f"33: descrizione oltre 160 caratteri ({len(d)}) in {pp}: {d!r}")
+        if "…" in tit + d or "..." in tit + d or not d.endswith(".") or tit != tit.strip() or re.search(r"[\s,;:(–-]$", tit):
+            errori.append(f"33: titolo o descrizione tagliati in {pp}: {tit!r} / {d!r}")
+        if len(d) < 70:
+            errori.append(f"33: descrizione troppo corta ({len(d)}) in {pp}")
+        if tit in visti_t or d in visti_d:
+            errori.append(f"33: titolo o descrizione uguali a quelli di {visti_t.get(tit) or visti_d.get(d)} in {pp}")
+        visti_t[tit], visti_d[d] = pp, pp
+    return errori, len(pagine)
+
+
 def main():
     errori = controlla_esempi()
     print(f"1. Esempi a mano: {len(ESEMPI)} importi e {len(ESITI)} confronti con il reddito, {len(errori)} errori")
@@ -4996,12 +5132,23 @@ def main():
           f"pagine ammesse), nessun riquadro doppio, pagine A/B intatte: {len(e32)} errori")
     for x in r32:
         print("    ·", x)
-    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28 + e29 + e30 + e31 + e32
+    e33, n33 = controlla_meta_nuove()
+    print(f"33. Pagine dell'11/11/2026 (cerimonie per Stato e council nuovi, test di inglese per livello, Who moved where delle 10 nazionalità nuove): "
+          f"{n33} pagine in sitemap, titoli ≤ 65 e descrizioni ≤ 160 caratteri senza tagli, tutti diversi: {len(e33)} errori")
+    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28 + e29 + e30 + e31 + e32 + e33
+    if AVVISI:  # fonti che rispondono non-200 o con una pagina anti-robot (controllo 28): non sono errori
+        per_punto = {}
+        for k, _ in AVVISI:
+            per_punto[k] = per_punto.get(k, 0) + 1
+        print(f"AVVISI: {len(AVVISI)} (" + ", ".join(f"punto {k}: {n}" for k, n in sorted(per_punto.items(), key=lambda x: int(x[0]))) +
+              "); riletture online saltate, tutti gli altri controlli fatti:")
+        for k, a in AVVISI:
+            print(f" ~ [{k}] {a}")
     for e in tutti:
         print(" -", e)
     if tutti:
         sys.exit(1)
-    print("TUTTO OK")
+    print("TUTTO OK" + (f" (con {len(AVVISI)} avvisi)" if AVVISI else ""))
 
 
 if __name__ == "__main__":
