@@ -5,6 +5,13 @@
   # Impostazioni del sito su Netlify: Base directory = paytax/sito, Build command vuoto, Publish directory = "."
   ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- ."
 
+# Dominio proprio dal 13/11/2026: il vecchio indirizzo payroll-tax-by-state.netlify.app porta al nuovo, pagina per pagina.
+[[redirects]]
+  from = "https://payroll-tax-by-state.netlify.app/*"
+  to = "https://payrolltaxbystate.com/:splat"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/*"
   [headers.values]

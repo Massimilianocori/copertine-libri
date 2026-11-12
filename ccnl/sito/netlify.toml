@@ -5,6 +5,13 @@
   # Impostazioni del sito su Netlify: Base directory = ccnl/sito, Build command vuoto, Publish directory = "."
   ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- ."
 
+# Dominio proprio dal 13/11/2026: il vecchio indirizzo paga-ccnl.netlify.app porta al nuovo, pagina per pagina.
+[[redirects]]
+  from = "https://paga-ccnl.netlify.app/*"
+  to = "https://pagaccnl.com/:splat"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/*"
   [headers.values]

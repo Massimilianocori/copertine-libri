@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://paga-ccnl.netlify.app/sitemap.xml
+Sitemap: https://pagaccnl.com/sitemap.xml
