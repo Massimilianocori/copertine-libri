@@ -27,7 +27,7 @@ GREZZI = RADICE / "raccolta" / "_grezzi"
 sys.path.append(str(RADICE.parent / "studio-business" / "strumenti"))
 import monetizzazione as MON  # noqa: E402
 
-URL_SITO = "https://farmaci-equivalenti.netlify.app"
+URL_SITO = "https://farmaco-equivalente.netlify.app"
 FRASE_FISSA = "chiedi al medico o al farmacista"
 ERR, AVV = [], []
 
@@ -272,7 +272,7 @@ def controlla_cifre(tot):
 
 # ---------------------------------------------------------------- 4. pagine e SEO
 DOMINI_ESTERNI = ("aifa.gov.it", "normattiva.it", "creativecommons.org", "garanteprivacy.it", "policies.google.com", "adssettings.google.com",
-                  "goatcounter.com", "gc.zgo.at", "farmaci-equivalenti.netlify.app")
+                  "goatcounter.com", "gc.zgo.at", "farmaco-equivalente.netlify.app")
 
 
 def controlla_pagine():

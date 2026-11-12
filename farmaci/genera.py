@@ -34,7 +34,7 @@ import monetizzazione as MON  # noqa: E402
 import nomi  # noqa: E402
 import stile  # noqa: E402
 
-URL_SITO = "https://farmaci-equivalenti.netlify.app"  # unico punto da cambiare se il nome del sito su Netlify è diverso
+URL_SITO = "https://farmaco-equivalente.netlify.app"  # unico punto da cambiare se il nome del sito su Netlify è diverso
 NOME = "Farmaco Equivalente"
 GOOGLE_VERIFICA = "btXTQU_vAoe1K9f3q-43GisAXTiyKQCYcShozNhrAgI"  # Search Console (stesso account degli altri siti)
 GOATCOUNTER_URL = "https://rete-siti.goatcounter.com/count"  # contatore condiviso della rete, senza cookie

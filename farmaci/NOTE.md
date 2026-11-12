@@ -5,7 +5,7 @@ pubblico, prezzo di riferimento, differenza a carico e stato di carenza di ogni 
 filtrabile; guida «farmaco che non si trova» con le indicazioni AIFA.
 Nato dall'approfondimento 1 del radar del 12/11/2026 (`studio-business/intelaiatura/fronti-2026-11-12-radar-settori-diversi.md`)
 dopo il via libera di Massimiliano sul tema farmaci (paragrafo in testa a `studio-business/REGOLE-FISSE.md`).
-Indirizzo di lavoro `https://farmaci-equivalenti.netlify.app` (costante `URL_SITO` in `genera.py` e in `verifica.py`, da cambiare
+Indirizzo di lavoro `https://farmaco-equivalente.netlify.app` (costante `URL_SITO` in `genera.py` e in `verifica.py`, da cambiare
 insieme). **Il sito Netlify non esiste ancora**: i passi sono in fondo.
 
 Nome: «Farmaco Equivalente» è un termine descrittivo (la confezione degli equivalenti porta la scritta «Medicinale Equivalente»):
@@ -113,7 +113,7 @@ che non sono nella lista di trasparenza.
    Base directory `farmaci/sito`, Build command vuoto, Publish directory `.` (il file `farmaci/sito/netlify.toml` lo conferma);
    nome del sito `farmaci-equivalenti` (se diverso, cambiare `URL_SITO` in `farmaci/genera.py` e `farmaci/verifica.py` e rigenerare).
 2. Netlify → Forms: lasciare acceso il rilevamento dei moduli (modulo `segnalazioni`) e impostare la notifica email.
-3. Search Console: proprietà `https://farmaci-equivalenti.netlify.app/` (meta di verifica già nelle pagine), inviare `sitemap.xml`.
+3. Search Console: proprietà `https://farmaco-equivalente.netlify.app/` (meta di verifica già nelle pagine), inviare `sitemap.xml`.
 4. Dopo la pubblicazione: aggiungere l'host a `SITI` in `studio-business/strumenti/indexnow.py` (cartella `farmaci`) e lanciare l'invio.
 
 ## Revisione indipendente (12/11/2026)
