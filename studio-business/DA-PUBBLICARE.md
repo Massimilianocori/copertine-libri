@@ -53,6 +53,8 @@ Pubblicato il 1/11/2026 alle 00:15 circa: Visa Income (cerimonie australiane, es
 
 | Quando | Cosa |
 |---|---|
+| quando Massimiliano collega Farmaco Equivalente (farmaci-equivalenti, base farmaci/sito; revisione Fable 8,5/10, 228 pagine indicizzabili) | IndexNow (host in indexnow.py), Search Console + sitemap, notifiche del modulo segnalazioni |
+| ogni lunedì e giovedì, da quando è online | Farmaco Equivalente: riscaricare l'elenco carenti AIFA (cambia due volte a settimana) e, una volta al mese, la lista di trasparenza; `farmaci/genera.py` + `farmaci/verifica.py`, commit, push (vedi farmaci/NOTE.md) |
 | Paga CCNL online dal 12/11/2026 (paga-ccnl.netlify.app, collegato da Massimiliano; IndexNow 63 URL fatto) | Search Console fatto il 12/11 (proprietà già verificata, sitemap inviata; richiesta di indicizzazione della home rimandata per quota finita); resta: notifiche del modulo `segnalazioni` |
 | ogni mese (dal 12/12/2026) | Paga CCNL: rileggere il JSON CNEL (H501, H011, C011, K511, I100) e le pagine del Ministero; nuovi accordi → estrazione, genera, verifica |
 | 45 giorni dopo la messa online di Paga CCNL | se le pagine livello hanno impressioni: allargare ai 10 contratti e copiare dal modello spagnolo (convenioscolectivos.org) numero e data dell'atto in cima, scelta della categoria, pagina per anno, costo per il datore, calcolo degli arretrati dopo un rinnovo, avviso di cambio, scarico del file (fronti-2026-11-12-paghe-altri-mercati.md) |
