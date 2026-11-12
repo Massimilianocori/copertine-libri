@@ -4,7 +4,7 @@ Sezioni già revisionate, con i sorgenti salvati, che aspettano la pubblicazione
 
 **Nota per la routine serale del 6/11/2026:** i 2 ricercatori di stasera (Spagna CCSE/DELE e fronte mai toccato) sono già partiti alle 18; **stasera nessun ricercatore in più**: fai solo la PARTE A e, quando i due finiscono, i verificatori per le idee che passano l'asticella.
 
-**6/11/2026 sera:** Massimiliano ha aggiunto ApprovedCondos su Awin (spazio promozionale) e su Amazon US, e ha chiesto l'iscrizione a **EcoFlow USA** su Awin. Quando arriva l'email di approvazione EcoFlow: accendere il riquadro `kit_solari` di `fhacondos/dati/affiliati.json` con il link awin1 (awinmid dalla pagina del programma, awinaffid 3145171).
+**6/11/2026 sera:** Massimiliano ha aggiunto ApprovedCondos su Awin (spazio promozionale) e su Amazon US, e ha chiesto l'iscrizione a **EcoFlow USA** su Awin. **12/11/2026: EcoFlow USA ha rifiutato.** Il riquadro `kit_solari` di `fhacondos/dati/affiliati.json` resta spento; la sezione solare continua con Amazon US. Riprovare quando ApprovedCondos avrà più visite.
 
 **Budget al 10/11/2026 pomeriggio: 90 % usato** (Massimiliano; ricarica mercoledì 11/11 alle 21:00). Massimiliano: usare il residuo per trovare nuove opportunità → 2 ricercatori partiti il 10/11 pomeriggio (rete-prima, esami di guida). **Sera del 10/11: nessun ricercatore in più** (solo PARTE A). **Mercoledì 11/11 mezzogiorno: nessun agente** (solo lavori senza agenti). Da mercoledì 21:00 ritmo pieno: sito payroll tax Australia e 3 ricercatori sulle idee grandi.
 
