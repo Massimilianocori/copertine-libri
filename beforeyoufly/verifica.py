@@ -185,6 +185,24 @@ Uso (dalla radice del repository, dopo python3 beforeyoufly/genera.py):
     ricalcolati qui dall'elenco (Vodafone primo se l'elenco comprende il Paese e assente se no; Roamable; Pocket solo se l'elenco lo
     comprende); frase «list of destinations includes X (checked on <data>)» solo se X è nell'elenco e con la data della lettura; indici e
     EES/ETIAS con Roamable per primo e il testo generico; rel="sponsored noopener" su ogni link eSIM.
+    Dal 12/11/2026 il riquadro è ammesso anche nelle pagine per Paese di Starlink e Google Fi, solo dove Vodafone o Pocket elencano il
+    Paese (fornitori e ordine ricalcolati qui come per le destinazioni).
+32. Starlink in ogni Paese, Bolt e Google Fi (12/11/2026): fonti scritte qui (file della mappa Starlink, bolt.eu/en/cities/, pagina
+    International Coverage & Rates di Google Fi), HTTP 200 e data valida; ogni codice ISO con uno stato Starlink nel file; una pagina Starlink
+    solo per i Paesi con ricerche vere (revisione del 12/11/2026: dati/servizi_domanda.json più dati/starlink_paesi_domanda.json; gli altri
+    sono righe senza link della tabella), Bolt e Google Fi solo per le coppie con ricerche vere (Google Fi senza Stati Uniti e Porto Rico); prima frase ricalcolata qui (Starlink
+    per stato e nota; Bolt con il numero e l'elenco delle città della lista; Google Fi con la frase su Canada e Messico); frase fissa su Roam
+    una volta sola e nessuna frase su dove funziona Roam; domande FAQ attese (Roam solo dove è cercato, data di arrivo solo per "Coming soon" con la nota; "Does X work in")
+    e JSON-LD schema.org; titoli <= 65 e descrizioni <= 160 unici in tutto il sito; link dall'indice, dalla pagina del servizio e dalle
+    pagine degli altri servizi dello stesso Paese; riquadro eSIM dopo la risposta, le citazioni e la sezione sul viaggio, mai su Bolt.
+    Avvisi (non errori) se mancano dati/starlink_domanda.json o le copie salvate di Bolt e Google Fi.
+33. Pagine fuori indice e pagine senza pubblicità (12/11/2026, revisione AdSense; regole e motivi in dati/noindex.json): ogni pagina che
+    rientra in una regola ha <meta name="robots" content="noindex">, nessun canonical, non è nella sitemap e non ha codice AdSense (ha il
+    segno di monetizzazione.py); ogni altra pagina (tranne la 404) ha canonical, è nella sitemap, non ha noindex e ha lo script AdSense,
+    tranne le pagine di servizio elencate in "senza_pubblicita" (404, contatti, privacy: in indice, senza AdSense); il numero di pagine di
+    ogni regola è quello scritto nel file ("pagine"), ogni percorso di "tranne" e "solo" esiste; le pagine fuori indice restano linkate
+    dalla loro pagina indice; in "Available in?" restano in indice Starlink, le pagine indice dei servizi e le pagine con visite; nessuna
+    sezione che porta visite (liquidi, biglietti, India, mezzi pubblici, bagaglio a mano, passaporti in inglese, driving abroad) è fuori indice.
 AVVISI (10/11/2026): le copie delle fonti in raccolta/.cache/ non sono nel repository. Il ricalcolo dalla copia (frasi, impronte, tabelle,
 seconda lettura dei PDF) dei punti 13, 17, 18, 20-29 si salta con un avviso (stampato, contato, elencato in fondo, non è un errore) se la
 copia manca, se è una pagina di blocco o anti-robot (titolo), o se è più recente dell'ultima lettura buona dei dati (la raccolta ha
@@ -419,6 +437,12 @@ def leggi(rel):
     return (SITO / rel).read_text(encoding="utf-8")
 
 
+def _percorso(f):
+    """Percorso della pagina come lo usa genera.pagina(): "liquids/barcelona/" per liquids/barcelona/index.html, "privacy.html"."""
+    r = str(f.relative_to(SITO)).replace("\\", "/")
+    return r[:-len("index.html")] if r.endswith("index.html") else r
+
+
 def controlla_fonti():
     errori = []
     chk = "checked on " + G.data_lunga(G.PASS["controllato_il"])
@@ -472,7 +496,8 @@ def controlla_struttura():
         t = f.read_text(encoding="utf-8")
         if f'<meta name="google-site-verification" content="{G.GOOGLE_VERIFICA}">' not in t:
             errori.append(f"meta Google mancante in {f.relative_to(SITO)}")
-        if f.name != "404.html" and f'<link rel="canonical" href="{G.URL_SITO}/' not in t:
+        # pagine fuori indice (dati/noindex.json): senza canonical, le controlla il punto 33
+        if f.name != "404.html" and not G.fuori_indice(_percorso(f)) and f'<link rel="canonical" href="{G.URL_SITO}/' not in t:
             errori.append(f"canonical mancante in {f.relative_to(SITO)}")
         # ammessi solo il contatore GoatCounter e lo script AdSense (quello lo controlla il punto 19, monetizzazione.py)
         if re.search(r'<script[^>]+src="(?!https://gc\.zgo\.at/count\.js"|https://pagead2\.googlesyndication\.com/pagead/js/adsbygoogle\.js\?client=ca-pub-\d{16}")', t):
@@ -484,7 +509,7 @@ def controlla_struttura():
     if 'rel="canonical"' in nf or 'content="noindex"' not in nf:
         errori.append("404: deve essere noindex e senza canonical")
     sm = leggi("sitemap.xml")
-    n_pagine = sum(1 for f in SITO.rglob("*.html") if f.name != "404.html" and not f.name.startswith("google"))
+    n_pagine = sum(1 for f in SITO.rglob("*.html") if f.name != "404.html" and not f.name.startswith("google") and not G.fuori_indice(_percorso(f)))
     if sm.count("<url>") != n_pagine or "404.html" in sm:
         errori.append("sitemap: numero di URL sbagliato o 404 presente")
     if f"Sitemap: {G.URL_SITO}/sitemap.xml" not in (SITO / "robots.txt").read_text():
@@ -1632,7 +1657,9 @@ def controlla_italiani():
         conti["vis"] += bool(p["visto"].get("esito"))
         t = leggi(v["url_pag"] + "index.html")
         for atteso in ('<html lang="it">', escape(p["url"]), f"scheda aggiornata {G.con_art('il', G.data_it(p['aggiornata']))}", "non è della Farnesina",
-                       "controlla la scheda ufficiale prima di partire", G.GOATCOUNTER_URL, f'<link rel="canonical" href="{G.URL_SITO}/{v["url_pag"]}">',
+                       "controlla la scheda ufficiale prima di partire", G.GOATCOUNTER_URL,
+                       # sezione fuori indice dal 12/11/2026 (dati/noindex.json): noindex al posto del canonical
+                       ('<meta name="robots" content="noindex">' if G.fuori_indice(v["url_pag"]) else f'<link rel="canonical" href="{G.URL_SITO}/{v["url_pag"]}">'),
                        'id="documento"', 'id="validita"', 'id="visto"'):
             if atteso not in t:
                 errori.append(f"{iso}: nella pagina manca «{atteso[:50]}»")
@@ -2049,6 +2076,17 @@ VIETATE_SRV = re.compile(r"\b(" + "|".join(w[::-1] for w in _AI_CONTRARIO) + r")
 AGGIRARE = re.compile(r"\bVPN\b|\bproxy\b|smart ?DNS|get around|bypass|circumvent|change your (?:region|location)|unblock", re.I)
 
 
+# 12/11/2026 (revisione): Starlink ha una pagina per le coppie di dati/servizi_domanda.json più i Paesi con una ricerca vera chiesta Paese
+# per Paese (dati/starlink_paesi_domanda.json), non per ogni Paese della mappa
+SRV_DOMANDA_PAESE_V = {"starlink": "starlink_paesi_domanda.json"}
+
+
+def _domanda_paese_v(sl):
+    f = SITO.parent / "dati" / SRV_DOMANDA_PAESE_V[sl]
+    return json.loads(f.read_text(encoding="utf-8")) if f.exists() else {"paesi": {}}
+SRV_SENZA_PAGINA_V = {"google-fi": {"US", "PR"}}  # 12/11/2026: lista delle destinazioni fuori dagli Stati Uniti, che non li nomina
+
+
 def _attesa_breve(slug, voce, invio=False):
     """Etichetta attesa, scritta qui di nuovo (controllo indipendente da genera.breve_srv). invio = Wise, Paese nella lista "send to"."""
     if voce is None:
@@ -2135,8 +2173,11 @@ def controlla_servizi():
             conti["righe"] += 1
         if f"<loc>{G.URL_SITO}/{G.SRV_BASE}/{sl}/</loc><lastmod>{S['letto_il']}</lastmod>" not in sm:
             errori.append(f"servizi {sl}: pagina del servizio non in sitemap o lastmod diverso dalla lettura")
-        # pagine servizio × Paese: esistono esattamente per le coppie con ricerche vere
-        attese = {c for c in dom.get(sl, {}) if c in iso}
+        # pagine servizio × Paese: esistono esattamente per le coppie con ricerche vere; dal 12/11/2026 Starlink per ogni Paese con uno stato nel
+        # file della mappa e Google Fi senza Stati Uniti e Porto Rico (scritti qui a mano: SRV_PAGINE_TUTTE, SRV_SENZA_PAGINA_V)
+        attese = {c for c in dom.get(sl, {}) if c in iso} - SRV_SENZA_PAGINA_V.get(sl, set())
+        if sl in SRV_DOMANDA_PAESE_V:
+            attese |= set(_domanda_paese_v(sl)["paesi"]) & set(S["paesi"]) & iso
         cartella = SITO / G.SRV_BASE / sl
         trovate = {p.parent.name for p in cartella.glob("*/index.html")}
         if trovate != {G.slug_srv(c) for c in attese}:
@@ -2187,7 +2228,7 @@ def controlla_servizi():
                 conti["citazioni"] += 1
                 if escape(D["frasi"][k]["frase"]) not in t:
                     errori.append(f"{rel}: citazione {k} mancante")
-            if f"<loc>{G.URL_SITO}/{rel}</loc><lastmod>{S['letto_il']}</lastmod>" not in sm:
+            if not G.fuori_indice(rel) and f"<loc>{G.URL_SITO}/{rel}</loc><lastmod>{S['letto_il']}</lastmod>" not in sm:
                 errori.append(f"{rel}: non in sitemap o lastmod diverso dalla lettura")
             # FAQ: JSON-LD = testo visibile, prima risposta = prima frase della pagina
             ld = [json.loads(x) for x in re.findall(r'<script type="application/ld\+json">(.*?)</script>', t)]
@@ -4428,7 +4469,7 @@ def controlla_animali():
         if len(tit) > G.LIMITE_TITOLO_PET or str(G.ANNO) not in tit:
             errori.append(f"{rel}: titolo oltre {G.LIMITE_TITOLO_PET} caratteri o senza l'anno: {tit}")
         lm = re.search(re.escape(f"<loc>{G.URL_SITO}/{rel}</loc><lastmod>") + r"(\d{4}-\d{2}-\d{2})</lastmod>", sm)
-        if not lm or lm.group(1) not in {F["letto_il"] for F in G.PET["fonti"].values()}:
+        if not G.fuori_indice(rel) and (not lm or lm.group(1) not in {F["letto_il"] for F in G.PET["fonti"].values()}):
             errori.append(f"{rel}: non in sitemap o lastmod diverso da una data di lettura delle fonti")
         m = re.search(r'<p class="lead" id="answer">(.*?)</p>', t, re.S)
         lead = unescape(re.sub(r"<[^>]+>", "", m.group(1))) if m else ""
@@ -5490,6 +5531,8 @@ ESIM_ALTRI = {"esim_vodafone": ({"awinmid": "123870", "awinaffid": "3145171"}, "
 ESIM_MINIMO_PAESI = 100
 # cartelle dove il riquadro generico «Before you go» (eSIM) è ammesso: viaggi all'estero
 ESIM_CARTELLE = ("passport-validity/", "canadian-passport/", "australian-passport/", "ees-etias/")
+# dal 12/11/2026 anche le pagine per Paese di Starlink e Google Fi (sezione "What to use instead"), solo se Vodafone o Pocket elencano il Paese
+ESIM_SRV = re.compile(r"available-in/(starlink|google-fi)/[a-z0-9-]+/index\.html")
 _RE_ASIN = re.compile(r"(/dp/|/gp/product|/gp/aw/d/|/exec/obidos|/o/ASIN|\bB0[A-Z0-9]{8}\b|[?&](asin|ASIN)=)")
 
 
@@ -5605,8 +5648,8 @@ def controlla_amazon_esim():
             errori.append(f"privacy.html: manca la frase «{AMAZON_FRASE}»")
     # eSIM (riquadro generico «Before you go»): solo nelle pagine dei viaggi all'estero, e in tutte quelle che hanno il riquadro
     for rel in sorted(pagine_esim):
-        if not rel.startswith(ESIM_CARTELLE):
-            errori.append(f"{rel}: link eSIM fuori dalle pagine dei viaggi all'estero (passaporti, EES/ETIAS)")
+        if not rel.startswith(ESIM_CARTELLE) and not ESIM_SRV.fullmatch(rel):
+            errori.append(f"{rel}: link eSIM fuori dalle pagine dei viaggi all'estero (passaporti, EES/ETIAS, Starlink e Google Fi per Paese)")
     if esim:
         for rel in ("passport-validity/index.html", "passport-validity/spain/index.html", "canadian-passport/index.html",
                     "australian-passport/index.html", "ees-etias/index.html"):
@@ -5621,7 +5664,7 @@ def controlla_amazon_esim():
         testi = dict(righe)
         if len(voci) != len(set(voci)):
             errori.append(f"{rel}: un fornitore eSIM ripetuto nel riquadro")
-        destinazione = rel.count("/") == 2 and not rel.startswith("ees-etias/")
+        destinazione = (rel.count("/") == 2 and not rel.startswith("ees-etias/")) or bool(ESIM_SRV.fullmatch(rel))
         for k, (_, forn) in ESIM_ALTRI.items():
             if k not in testi:
                 continue
@@ -5656,6 +5699,24 @@ def controlla_amazon_esim():
     for k in G.ESTERI:
         for v in G.VOCI[k]:
             dest.append((v["url_pag"] + "index.html", v["p"].get("iso") or G.iso_destinazione(v["nome"], v["p"].get("url", ""))))
+    # pagine Starlink e Google Fi per Paese (12/11/2026): riquadro solo se Vodafone o Pocket elencano il Paese, poi stesso ordine
+    srv_iso = {}
+    for S in G.SERVIZI_SRV:
+        if S["slug"] in ("starlink", "google-fi"):
+            for f in (SITO / G.SRV_BASE / S["slug"]).glob("*/index.html"):
+                cc = [k for k, pp in G.PAESI_ISO.items() if G.slug_srv(k) == f.parent.name]
+                srv_iso[str(f.relative_to(SITO))] = cc[0] if len(cc) == 1 else None
+    c["esim_srv"] = 0
+    for rel, iso in srv_iso.items():
+        if iso is None:
+            errori.append(f"{rel}: Paese della pagina non riconosciuto")
+            continue
+        coperto = any(iso in el[k] for k in el if k in accese)
+        attese = [k for k in ("esim", "esim_vodafone", "esim_pocket") if k in accese and (k == "esim" or iso in el[k])] if coperto else []
+        trovate = [k for k, _ in righe_esim.get(rel, [])]
+        c["esim_srv"] += bool(trovate)
+        if trovate != attese:
+            errori.append(f"{rel}: fornitori eSIM {trovate} invece di {attese} (ricalcolati da dati/esim.json, Paese {iso})")
     c["esim_senza_iso"] = 0
     for rel, iso in dest:
         if iso:
@@ -5667,6 +5728,268 @@ def controlla_amazon_esim():
         if trovate != attese:
             errori.append(f"{rel}: fornitori eSIM {trovate} invece di {attese} (ricalcolati da dati/esim.json, Paese {iso})")
     c["esim_pagine"] = len(pagine_esim)
+    return errori, c
+
+
+# ---------------------------------------------------------------- 32. Starlink in ogni Paese, Bolt e Google Fi (12/11/2026)
+# Scritti qui di nuovo, indipendenti da genera.py: prima frase di Starlink per stato, frasi fisse su Roam, città di Bolt, Canada e Messico
+# di Google Fi; fonti ammesse; conteggi; titoli e descrizioni unici; link in entrata; JSON-LD; posizione del riquadro eSIM.
+FONTI_NUOVE_SRV = {"starlink": "https://api.starlink.com/public-files/availability.json", "bolt": "https://bolt.eu/en/cities/",
+                   "google-fi": "https://fi.google.com/about/international-rates"}
+ROAM_V = ("Starlink's map data gives one status per country and does not say which Starlink plans, such as Roam, are offered in {P}, "
+          "so we cannot confirm it from the official data.")
+# frasi che direbbero dove funziona Roam (nessuna fonte leggibile lo dice): mai nelle pagine
+ROAM_PROMESSA = re.compile(r"\bRoam (?:works|is available|is offered|is supported|is not available|does not work)\b", re.I)
+
+
+def _starlink_attesa(P, voce, d):
+    st = voce["stato"]
+    if st == "si":
+        return f"Yes. Starlink's official availability map shows {P} as “Available” (Starlink map data, checked on {d})."
+    if st == "in_arrivo":
+        n = f", with the note “{voce['nota']}”" if voce.get("nota") else ""
+        return f"Not yet. Starlink's official availability map shows {P} as “Coming soon”{n} (Starlink map data, checked on {d})."
+    if st == "per_regione":
+        return (f"It depends on the region. Starlink's official availability map gives no single status for {P}: it shows each region separately "
+                f"(Starlink map data, checked on {d}).")
+    return (f"No. Starlink's official availability map shows no Starlink service for {P}: it is not marked “Available” or “Coming soon” "
+            f"(Starlink map data, checked on {d}).")
+
+
+def controlla_noindex():
+    """Punto 33: pagine fuori indice (dati/noindex.json) e pagine senza pubblicità: meta, canonical, sitemap, AdSense, conteggi."""
+    errori, c = [], {"fuori": 0, "indice": 0, "senza_ads": 0, "regole": 0}
+    N = json.loads((SITO.parent / "dati" / "noindex.json").read_text(encoding="utf-8"))
+    sm = leggi("sitemap.xml")
+    in_sitemap = set(re.findall(r"<loc>" + re.escape(G.URL_SITO) + r"/(.*?)</loc>", sm))
+    senza_ads = set(N["senza_pubblicita"])
+    segno = G.MON.SEGNO_SENZA_ADSENSE
+    # regole scritte bene: prefissi ammessi (mai una sezione che porta visite), percorsi esistenti
+    VIETATI = ("liquids/", "ticket-release-dates/", "india-e-visa-fee/", "public-transport-rules/", "cabin-bags/", "passport-validity/",
+               "canadian-passport/", "australian-passport/", "driving-abroad/", f"{G.SRV_BASE}/starlink/", f"{G.SRV_BASE}/apple-pay/",
+               f"{G.SRV_BASE}/youtube-premium/")
+    per_regola = {}
+    for i, r in enumerate(N["fuori_indice"]):
+        c["regole"] += 1
+        pre = r["prefisso"]
+        if not pre.endswith("/") or pre.startswith(VIETATI) or (pre == f"{G.SRV_BASE}/" ) or not r.get("motivo") or not isinstance(r.get("pagine"), int):
+            errori.append(f"noindex.json, regola {pre}: prefisso non ammesso (sezione con visite o intera sezione Available in) o senza motivo o conteggio")
+        for x in r.get("tranne", []) + r.get("solo", []):
+            if not x.startswith(pre) or not (SITO / x / "index.html").exists():
+                errori.append(f"noindex.json, regola {pre}: {x} non esiste o non è sotto il prefisso")
+        per_regola[i] = 0
+    pagine = {}
+    for f in SITO.rglob("*.html"):
+        if f.name.startswith("google"):
+            continue
+        pagine[_percorso(f)] = f.read_text(encoding="utf-8")
+    for rel, t in pagine.items():
+        testa = t[:t.find("</head>")]
+        noindex = '<meta name="robots" content="noindex">' in testa
+        canon = '<link rel="canonical"' in testa
+        ads = "adsbygoogle" in t or "googlesyndication.com" in t
+        if rel == "404.html":
+            if ads or segno not in testa:
+                errori.append("404: non deve avere codice AdSense (pagina di errore)")
+            continue
+        if G.fuori_indice(rel):
+            c["fuori"] += 1
+            for i, r in enumerate(N["fuori_indice"]):
+                pre = r["prefisso"]
+                if rel not in r.get("tranne", []) and ("solo" not in r or rel in r["solo"]) and \
+                        ((rel.startswith(pre) and rel != pre) or (rel == pre and r.get("anche_indice"))):
+                    per_regola[i] += 1
+                    break
+            if not noindex or canon or rel in in_sitemap or ads or segno not in testa:
+                errori.append(f"{rel}: pagina fuori indice con canonical, in sitemap, con AdSense o senza noindex")
+            # resta linkata dalla pagina indice della sua sezione (o dalla home per l'indice italiano)
+            su = rel.rstrip("/").rsplit("/", 1)[0] + "/" if "/" in rel.rstrip("/") else ""
+            madre = pagine.get(su) or ""
+            if rel.rstrip("/").rsplit("/", 1)[-1] + "/" not in madre and rel != f"{G.IT_BASE}/":
+                errori.append(f"{rel}: pagina fuori indice senza link dalla pagina indice {su}")
+        else:
+            c["indice"] += 1
+            if noindex or not canon or rel not in in_sitemap:
+                errori.append(f"{rel}: pagina in indice senza canonical, fuori dalla sitemap o con noindex")
+            if rel in senza_ads:
+                c["senza_ads"] += 1
+                if ads or segno not in testa:
+                    errori.append(f"{rel}: pagina di servizio che non deve avere AdSense")
+            elif G.MON.adsense_attivo(G.SITO_ID) and (not ads or segno in testa):
+                errori.append(f"{rel}: pagina in indice senza lo script AdSense")
+    for i, r in enumerate(N["fuori_indice"]):
+        if per_regola[i] != r["pagine"]:
+            errori.append(f"noindex.json, regola {r['prefisso']}: {per_regola[i]} pagine fuori indice invece delle {r['pagine']} scritte nel file")
+    if len(in_sitemap) != c["indice"]:
+        errori.append(f"sitemap: {len(in_sitemap)} URL invece di {c['indice']} pagine in indice")
+    # Available in?: indice, pagine dei servizi e tutte le pagine Starlink restano in indice
+    for S in G.SERVIZI_SRV:
+        if G.fuori_indice(G.url_srv(S)):
+            errori.append(f"{G.url_srv(S)}: la pagina del servizio non deve essere fuori indice")
+    if G.fuori_indice(f"{G.SRV_BASE}/") or G.fuori_indice(""):
+        errori.append("home o indice Available in fuori indice")
+    return errori, c
+
+
+def controlla_nuovi_srv():
+    from html import unescape
+    errori = []
+    c = {"starlink": 0, "starlink_senza_pagina": 0, "bolt": 0, "google-fi": 0, "faq_roam": 0, "faq_data": 0, "citta": 0, "titoli": 0, "link_entrata": 0, "esim": 0}
+    D = json.loads((SITO.parent / "dati" / "servizi.json").read_text(encoding="utf-8"))
+    per = {S["slug"]: S for S in D["servizi"]}
+    iso = {p["iso2"] for p in json.loads((SITO.parent / "dati" / "paesi_iso.json").read_text(encoding="utf-8"))["paesi"]}
+    f_sd = SITO.parent / "dati" / "starlink_domanda.json"
+    roam_cercato = set()
+    if f_sd.exists():
+        sd = json.loads(f_sd.read_text(encoding="utf-8"))
+        roam_cercato = set(sd.get("roam", {}))
+        if not sd.get("roam") or not sd.get("data"):
+            errori.append("dati/starlink_domanda.json: nessuna ricerca vera su Roam o sulla data di arrivo (le FAQ non hanno una domanda vera)")
+    else:
+        avviso(32, "dati/starlink_domanda.json assente: forme delle FAQ Starlink non ricontrollate (python3 -I beforeyoufly/raccolta/servizi.py --domanda-starlink)")
+    for sl in ("bolt", "google_fi"):
+        if not (RS.CACHE / f"{sl}.html").exists():
+            avviso(32, f"copia salvata di {sl} assente: città e lista non ricalcolate dalla pagina (python3 -I beforeyoufly/raccolta/servizi.py --solo=bolt,google-fi)")
+    indice = leggi(f"{G.SRV_BASE}/index.html")
+    titoli, descr = {}, {}
+    for f in SITO.rglob("*.html"):
+        t = f.read_text(encoding="utf-8")
+        m1, m2 = re.search(r"<title>(.*?)</title>", t), re.search(r'<meta name="description" content="(.*?)">', t)
+        if m1 and 'name="robots" content="noindex' not in t:
+            titoli.setdefault(unescape(m1.group(1)), []).append(str(f.relative_to(SITO)))
+            if m2:
+                descr.setdefault(unescape(m2.group(1)), []).append(str(f.relative_to(SITO)))
+    for sl, url in FONTI_NUOVE_SRV.items():
+        S = per.get(sl)
+        if not S:
+            errori.append(f"servizi {sl}: manca in dati/servizi.json")
+            continue
+        if S["url_fonte"] != url or S.get("http") != 200 or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", S["letto_il"]) or S["letto_il"] > G.OGGI.isoformat():
+            errori.append(f"servizi {sl}: fonte diversa da {url}, lettura non 200 o data non valida")
+        d = G.data_lunga(S["letto_il"])
+        pag_s = leggi(f"{G.SRV_BASE}/{sl}/index.html")
+        dom = json.loads((SITO.parent / "dati" / "servizi_domanda.json").read_text(encoding="utf-8"))["servizi"].get(sl, {})
+        attese = (set(dom) & iso) - SRV_SENZA_PAGINA_V.get(sl, set())
+        if len(attese) < 10:
+            errori.append(f"{sl}: solo {len(attese)} coppie con ricerche vere")
+        if sl == "starlink":
+            if len(set(S["paesi"]) & iso) != len(iso):
+                errori.append(f"starlink: {len(set(S['paesi']) & iso)} Paesi con uno stato invece di {len(iso)} (codici ISO senza voce nel file)")
+            # revisione del 12/11/2026: pagine solo per i Paesi con una ricerca vera sulla disponibilità (chiesta Paese per Paese), più le
+            # 41 coppie di prima; ogni ricerca registrata deve nominare Starlink e avere il sottotipo di una ricerca vera (lo dice la raccolta)
+            dp = _domanda_paese_v(sl)
+            if not dp["paesi"]:
+                errori.append("dati/starlink_paesi_domanda.json assente o vuoto: non si sa quali Paesi hanno una pagina Starlink")
+            if len(dp.get("richieste_perse", [])) > 10:
+                errori.append("dati/starlink_paesi_domanda.json: troppe richieste perse, campione da rifare")
+            for k, qq in dp["paesi"].items():
+                if k not in iso or not qq or any("starlink" not in q for q in qq):
+                    errori.append(f"dati/starlink_paesi_domanda.json: voce {k} senza una ricerca vera che nomina Starlink")
+            attese |= set(dp["paesi"]) & set(S["paesi"]) & iso
+            c["starlink_senza_pagina"] = len(iso - attese)
+            for k in sorted(iso - attese):  # i Paesi senza pagina restano righe della tabella del servizio, senza link
+                if f'id="{k.lower()}"' not in pag_s or f'href="../../{G.SRV_BASE}/{sl}/{G.slug_srv(k)}/"' in pag_s:
+                    errori.append(f"starlink: {k} senza pagina deve restare una riga senza link nella tabella del servizio")
+        cartella = SITO / G.SRV_BASE / sl
+        trovate = {x.parent.name for x in cartella.glob("*/index.html")}
+        if trovate != {G.slug_srv(k) for k in attese}:
+            errori.append(f"{sl}: pagine diverse da quelle attese ({len(trovate)} invece di {len(attese)})")
+        for k in sorted(attese):
+            rel = f"{G.SRV_BASE}/{sl}/{G.slug_srv(k)}/"
+            if not (SITO / rel / "index.html").exists():
+                continue
+            c[sl] += 1
+            t = leggi(rel + "index.html")
+            tv = unescape(t)
+            voce = S["paesi"].get(k)
+            P = G.frase_srv(k)
+            m = re.search(r'<p class="lead" id="answer">(.*?)</p>', t)
+            r = unescape(m.group(1)) if m else ""
+            # risposta = dati
+            if sl == "starlink":
+                if r != _starlink_attesa(P, voce, d):
+                    errori.append(f"{rel}: prima frase diversa da quella ricalcolata dal file della mappa: {r[:90]}")
+            elif sl == "bolt":
+                if voce:
+                    n = len(voce["citta"])
+                    if not r.startswith(f"Yes. {G.frase_srv(k, True)} is on the list of countries on Bolt's official cities page (Bolt, checked on {d}).") \
+                            or f"it names {n} {'place' if n == 1 else 'places'} in {P}" not in r:
+                        errori.append(f"{rel}: prima frase senza il sì o senza il numero di posti della lista ({n})")
+                    cc = voce["citta"]
+                    el = cc[0] if n == 1 else ", ".join(cc[:-1]) + " and " + cc[-1]
+                    if f"lists {n} {'place' if n == 1 else 'places'} in {P}: {el}." not in tv:
+                        errori.append(f"{rel}: elenco delle città diverso dalla lista di Bolt")
+                    c["citta"] += n
+                elif not r.startswith("No, not according to the official list."):
+                    errori.append(f"{rel}: Paese assente dalla lista di Bolt senza il «No» atteso")
+            else:
+                if voce:
+                    if not r.startswith(f"Yes. {G.frase_srv(k, True)} is on Google Fi's list of destinations covered on its Flexible and Unlimited Premium plans (Google Fi, checked on {d}).") \
+                            or ((k in ("CA", "MX")) != ("Unlimited Standard, Unlimited Premium, and Flexible plans all include data, calls and texts within Canada and Mexico." in r)):
+                        errori.append(f"{rel}: prima frase di Google Fi diversa dai dati (sì, piani, Canada e Messico)")
+                elif not r.startswith("No, not according to the official list."):
+                    errori.append(f"{rel}: Paese assente dalla lista di Google Fi senza il «No» atteso")
+                if "Google Fi says you first activate and use it in the US" not in tv:
+                    errori.append(f"{rel}: manca la frase su chi riguarda la lista di Google Fi")
+            # fonte nella pagina
+            if escape(S["pagina"]) not in t or f"checked on {d}" not in t:
+                errori.append(f"{rel}: fonte o data della lettura mancanti")
+            # Roam: frase fissa, nessuna promessa
+            if sl == "starlink":
+                corpo = unescape(t[t.find("<main"):])  # senza il JSON-LD: sezione sul viaggio + risposta FAQ
+                # revisione del 12/11/2026: una volta sola (nella FAQ dove Roam è cercato davvero, altrimenti nella sezione sul viaggio)
+                if corpo.count(ROAM_V.format(P=P)) != 1:
+                    errori.append(f"{rel}: la frase fissa su Roam deve comparire una volta sola (FAQ se la domanda è cercata, altrimenti sezione sul viaggio)")
+                if "What to use instead" in tv or ("data-affiliati" in t and (f"Visiting {P}? Mobile data on your phone" not in tv
+                                                                               or "This part is for visitors, not for internet at home" not in tv)):
+                    errori.append(f"{rel}: riquadro eSIM senza il titolo e la frase per chi è in viaggio")
+                if ROAM_PROMESSA.search(tv):
+                    errori.append(f"{rel}: frase su dove funziona Roam, che nessuna fonte leggibile dice")
+            # FAQ: JSON-LD valido e uguale al testo visibile (punto 17), domande attese
+            ld = [json.loads(x) for x in re.findall(r'<script type="application/ld\+json">(.*?)</script>', t)]
+            faq = [x for x in ld if x.get("@type") == "FAQPage"]
+            dom_q = [x["name"] for x in faq[0]["mainEntity"]] if len(faq) == 1 else []
+            att_q = [f"Is {S['nome']} available in {P}?"]
+            if sl == "starlink":
+                if k in roam_cercato:
+                    att_q.append(f"Does Starlink Roam work in {P}?")
+                    c["faq_roam"] += 1
+                if voce["stato"] == "in_arrivo":
+                    att_q.append(f"When will Starlink be available in {P}?")
+                    c["faq_data"] += 1
+                    ans = [x["acceptedAnswer"]["text"] for x in faq[0]["mainEntity"] if x["name"] == att_q[-1]] if faq else []
+                    if not ans or not ans[0].startswith("Starlink's official map gives no exact date.") or \
+                            (voce.get("nota") and f"“{voce['nota']}”" not in ans[0]):
+                        errori.append(f"{rel}: risposta sulla data di arrivo senza la nota della mappa")
+            else:
+                att_q.append(f"Does {S['nome']} work in {P}?")
+            # dal 12/11/2026 (notte) senza la domanda "Where does this answer ... come from?" (doppione della riga "Source:")
+            if any("come from?" in q for q in dom_q):
+                errori.append(f"{rel}: la domanda sulla fonte non deve più esserci (doppione della riga Source)")
+            if dom_q != att_q:
+                errori.append(f"{rel}: domande FAQ {dom_q} invece di {att_q}")
+            if not all(isinstance(x, dict) and x.get("@context") == "https://schema.org" for x in ld):
+                errori.append(f"{rel}: JSON-LD senza @context schema.org")
+            # titolo e descrizione: limiti e unici in tutto il sito
+            tit = unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+            des = unescape(re.search(r'<meta name="description" content="(.*?)">', t).group(1))
+            c["titoli"] += 1
+            if len(tit) > 65 or len(des) > 160 or (not G.fuori_indice(rel) and (len(titoli.get(tit, [])) != 1 or len(descr.get(des, [])) != 1)):
+                errori.append(f"{rel}: titolo > 65 o descrizione > 160 o non unici nel sito: {tit}")
+            # link in entrata: indice, pagina del servizio, tabella "Other services" delle altre pagine dello stesso Paese
+            if f'href="../{rel}"' not in indice or f'href="../../{rel}"' not in pag_s:
+                errori.append(f"{rel}: nessun link dall'indice o dalla pagina del servizio")
+            for S2 in D["servizi"]:
+                r2 = SITO / G.SRV_BASE / S2["slug"] / G.slug_srv(k) / "index.html"
+                if S2["slug"] != sl and r2.exists():
+                    c["link_entrata"] += 1
+                    if f'href="../../../{rel}"' not in r2.read_text(encoding="utf-8"):
+                        errori.append(f"{r2.relative_to(SITO)}: nessun link a {rel}")
+            # riquadro eSIM: dopo la risposta, le citazioni e la sezione sul viaggio, prima della tabella degli altri servizi
+            if "data-affiliati" in t:
+                c["esim"] += 1
+                if sl == "bolt" or not (t.find('id="answer"') < t.find("What the official source says") < t.find('id="instead"') < t.find("data-affiliati") < t.find("<h2>Other services in")):
+                    errori.append(f"{rel}: riquadro eSIM nel posto sbagliato (o in una pagina Bolt)")
     return errori, c
 
 
@@ -5721,7 +6044,7 @@ def main():
     print(f"16. File chiave IndexNow {G.CHIAVE_INDEXNOW}.txt in sito/ (contenuto giusto, fuori dalla sitemap): {len(e16)} errori")
     e17, c17 = controlla_servizi()
     print(f"17. Available in?: {c17['servizi']} servizi, {c17['righe']} righe di tabella uguali ai dati, {c17['pagine']} pagine servizio × Paese "
-          f"(solo coppie con ricerche vere), {c17['faq']} risposte FAQ, {c17['citazioni']} citazioni; liste ricalcolate dalla cache: {c17['cache']}; "
+          f"(coppie con ricerche vere; Starlink: anche i Paesi con ricerche vere chieste Paese per Paese), {c17['faq']} risposte FAQ, {c17['citazioni']} citazioni; liste ricalcolate dalla cache: {c17['cache']}; "
           f"sitemap con lastmod della lettura, nessun nome di assistente né consiglio per aggirare: {len(e17)} errori")
     e18, c18 = controlla_patenti()
     print(f"18. Driving abroad: {c18['paesi']} Paesi, {c18['voci']} voci Paese × patente ({c18['manuali']} fatti scritti a mano), ricalcolo dai grezzi: {c18['cache']}; "
@@ -5804,10 +6127,20 @@ def main():
           f"frase di Amazon nelle pagine e nella privacy; eSIM (Awin) in {c31['esim_pagine']} pagine di viaggi all'estero, link Roamable "
           f"{c31['esim_link']['esim']}, Vodafone {c31['esim_link']['esim_vodafone']}, Pocket {c31['esim_link']['esim_pocket']}; Roamable primo, Vodafone presente "
           f"(elenco con la destinazione) in {c31['esim_ordine']} pagine, ordine e presenza ricalcolati da dati/esim.json, {c31.get('esim_senza_iso', 0)} "
-          f"destinazioni senza codice ISO (testo generico): {len(e31)} errori")
+          f"destinazioni senza codice ISO (testo generico), {c31['esim_srv']} pagine Starlink e Google Fi per Paese (solo dove Vodafone o Pocket elencano il Paese): {len(e31)} errori")
+    e32, c32 = controlla_nuovi_srv()
+    print(f"32. Starlink per Paese, Bolt e Google Fi: pagine Starlink {c32['starlink']} (Paesi con ricerche vere; {c32['starlink_senza_pagina']} Paesi solo riga della tabella), Bolt {c32['bolt']}, Google Fi {c32['google-fi']}; prima frase "
+          f"ricalcolata dai dati (Starlink per stato e nota, Bolt con {c32['citta']} città della lista, Google Fi con Canada e Messico), fonti ammesse, frase fissa "
+          f"su Roam e nessuna promessa, FAQ attese ({c32['faq_roam']} su Roam, {c32['faq_data']} sulla data di arrivo; JSON-LD), {c32['titoli']} titoli <= 65 e "
+          f"descrizioni <= 160 unici nel sito, link dall'indice, dalla pagina del servizio e da {c32['link_entrata']} pagine di altri servizi, riquadro eSIM "
+          f"in {c32['esim']} pagine nel posto giusto: {len(e32)} errori")
+    e33, c33 = controlla_noindex()
+    print(f"33. Fuori indice e senza pubblicità (dati/noindex.json, {c33['regole']} regole): {c33['fuori']} pagine fuori indice (noindex, senza canonical, "
+          f"fuori dalla sitemap, senza AdSense, linkate dal loro indice), {c33['indice']} pagine in indice = URL della sitemap, di cui "
+          f"{c33['senza_ads']} pagine di servizio senza AdSense (più la 404): {len(e33)} errori")
     e19, i19 = G.MON.controlla_sito(G.SITO_ID, SITO)  # controllo comune di monetizzazione (monetizzazione.py)
     print("19. " + G.MON.riepilogo(G.SITO_ID, i19, e19))
-    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28 + e29 + e30 + e31
+    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28 + e29 + e30 + e31 + e32 + e33
     if AVVISI:  # ricalcoli dalle copie salvati saltati (copia mancante, pagina di blocco, raccolta che non ha aggiornato il JSON): non sono errori
         per_punto = {}
         for k, _ in AVVISI:

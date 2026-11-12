@@ -1,6 +1,6 @@
 {
  "_nota": "Liste ufficiali dei Paesi dei servizi digitali, lette da raccolta/servizi.py. stato: si = nella lista con il servizio; no = la fonte nomina il Paese ma senza il servizio (motivo in 'nota'); in_arrivo = Starlink 'Coming soon'; per_regione = Starlink a livello di regione ('exclude'). Paesi assenti = non nominati dalla fonte (mai 'vietato'). Codici ISO 3166-1 alfa-2 (dati/paesi_iso.json).",
- "letto_il": "2026-11-10",
+ "letto_il": "2026-11-12",
  "letture": {
   "starlink": {
    "url": "https://api.starlink.com/public-files/availability.json",
@@ -91,6 +91,20 @@
    "url_finale": "https://stripe.com/global",
    "http": 200,
    "byte": 510895,
+   "data_fonte": null
+  },
+  "bolt": {
+   "url": "https://bolt.eu/en/cities/",
+   "url_finale": "https://bolt.eu/en/cities/",
+   "http": 200,
+   "byte": 3199318,
+   "data_fonte": null
+  },
+  "google_fi": {
+   "url": "https://fi.google.com/about/international-rates",
+   "url_finale": "https://fi.google.com/about/international-rates",
+   "http": 200,
+   "byte": 2295349,
    "data_fonte": null
   },
   "google_wallet_paesi": {
@@ -254,6 +268,46 @@
    "fonte": "stripe",
    "url": "https://stripe.com/global",
    "frase": "Once Stripe is supported in your country/region, you’ll be able to sell to customers anywhere in the world."
+  },
+  "bolt_lista": {
+   "fonte": "bolt",
+   "url": "https://bolt.eu/en/cities/",
+   "frase": "Bolt is available in 850+ cities."
+  },
+  "google_fi_lista": {
+   "fonte": "google_fi",
+   "url": "https://fi.google.com/about/international-rates",
+   "frase": "Traveling to one of these places? You're covered on Flexible and Unlimited Premium."
+  },
+  "google_fi_ca_mx": {
+   "fonte": "google_fi",
+   "url": "https://fi.google.com/about/international-rates",
+   "frase": "Unlimited Standard, Unlimited Premium, and Flexible plans all include data, calls and texts within Canada and Mexico."
+  },
+  "google_fi_attiva": {
+   "fonte": "google_fi",
+   "url": "https://fi.google.com/about/international-rates",
+   "frase": "You can use your phone for calls, texts, and data outside the US after you activate your Google Fi Wireless account and use Fi in the US (territories not included)."
+  },
+  "google_fi_estero": {
+   "fonte": "google_fi",
+   "url": "https://fi.google.com/about/international-rates",
+   "frase": "You cannot activate Fi for the first time while abroad."
+  },
+  "google_fi_90": {
+   "fonte": "google_fi",
+   "url": "https://fi.google.com/about/international-rates",
+   "frase": "If the majority of your usage occurs outside of the United States over a consecutive 90-day period, we will suspend your international data."
+  },
+  "google_fi_essentials": {
+   "fonte": "google_fi",
+   "url": "https://fi.google.com/about/international-rates",
+   "frase": "On Unlimited Essentials, data, calls and texts are not supported outside of the US."
+  },
+  "google_fi_sim": {
+   "fonte": "google_fi",
+   "url": "https://fi.google.com/about/international-rates",
+   "frase": "If you're traveling to a country that isn't included, you will need to get a local SIM card for that country for cellular coverage."
   }
  },
  "servizi": [
@@ -266,7 +320,7 @@
    "titolo_fonte": "Starlink availability map",
    "cosa": "Starlink internet service",
    "url_fonte": "https://api.starlink.com/public-files/availability.json",
-   "letto_il": "2026-11-10",
+   "letto_il": "2026-11-12",
    "cambiato_il": "2026-10-28",
    "data_fonte": null,
    "http": 200,
@@ -10095,6 +10149,2554 @@
      ],
      "nota": "Extended network"
     }
+   }
+  },
+  {
+   "slug": "bolt",
+   "nome": "Bolt",
+   "fornitore": "Bolt",
+   "fonte": "bolt",
+   "pagina": "https://bolt.eu/en/cities/",
+   "titolo_fonte": "Bolt cities: Use Bolt in cities around the world",
+   "cosa": "Bolt in the cities on its list",
+   "url_fonte": "https://bolt.eu/en/cities/",
+   "letto_il": "2026-11-12",
+   "cambiato_il": "2026-11-12",
+   "data_fonte": null,
+   "http": 200,
+   "impronta": "6404caf9358fd72811b626d26e3986f944b3ca8d0c19a071947415a3a6074e91",
+   "conteggi": {
+    "si": 50,
+    "no": 0,
+    "in_arrivo": 0,
+    "per_regione": 0
+   },
+   "paesi": {
+    "AE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "United Arab Emirates"
+     ],
+     "citta": [
+      "Abu Dhabi",
+      "Dubai"
+     ]
+    },
+    "AT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Austria"
+     ],
+     "citta": [
+      "Eisenstadt",
+      "Graz",
+      "Innsbruck",
+      "Linz",
+      "Neusiedl am See",
+      "Parndorf",
+      "Podersdorf am See",
+      "Rust",
+      "Salzburg",
+      "Vienna"
+     ]
+    },
+    "AZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Azerbaijan"
+     ],
+     "citta": [
+      "Aghdash",
+      "Aghjabadi",
+      "Aghstafa",
+      "Aghsu",
+      "Astara",
+      "Baku",
+      "Barda",
+      "Beylagan",
+      "Fuzuli",
+      "Gadabay",
+      "Ganja",
+      "Goychay",
+      "Imishli",
+      "Jalilabad",
+      "Khacmaz",
+      "Khankendi",
+      "Kurdamir",
+      "Lankaran",
+      "Masalli",
+      "Mingachevir",
+      "Nakhchivan",
+      "Neftchala",
+      "Qabala",
+      "Qakh",
+      "Qazakh",
+      "Quba",
+      "Qusar",
+      "Saatli",
+      "Sabirabad",
+      "Salyan",
+      "Shaki",
+      "Shamakhi",
+      "Shamkir",
+      "Shirvan",
+      "Shusha",
+      "Sumgayit",
+      "Tartar",
+      "Tovuz",
+      "Yevlakh",
+      "Zaqatala"
+     ]
+    },
+    "BE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Belgium"
+     ],
+     "citta": [
+      "Antwerpen",
+      "Brugge",
+      "Brussels",
+      "Charleroi",
+      "Dinant",
+      "Ghent",
+      "Kortrijk",
+      "Leuven",
+      "Namur",
+      "Ypres"
+     ]
+    },
+    "BG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Bulgaria"
+     ],
+     "citta": [
+      "Sofia"
+     ]
+    },
+    "CH": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Switzerland"
+     ],
+     "citta": [
+      "Aargau",
+      "Basel",
+      "Solothurn",
+      "Winterthur",
+      "Zurich"
+     ]
+    },
+    "CY": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Cyprus"
+     ],
+     "citta": [
+      "Ayia Napa",
+      "Famagusta",
+      "Larnaca",
+      "Limassol",
+      "Nicosia",
+      "Paphos"
+     ]
+    },
+    "CZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Czechia"
+     ],
+     "citta": [
+      "Beroun",
+      "Boskovice",
+      "Brandýs nad Labem",
+      "Breclav",
+      "Brno",
+      "Celakovice",
+      "České Budějovice",
+      "Cheb",
+      "Chomutov",
+      "Děčín",
+      "Frýdek-Místek",
+      "Havířov",
+      "Hodonin",
+      "Hradec Králové",
+      "Jablonec nad Nisou",
+      "Jihlava",
+      "Karlovy Vary",
+      "Karviná",
+      "Kladno",
+      "Kolín",
+      "Kralupy nad Vltavou",
+      "Kutna Hora",
+      "Liberec",
+      "Litomerice",
+      "Litvinov",
+      "Melnik",
+      "Mladá Boleslav",
+      "Most",
+      "Neratovice",
+      "Nový Jičín",
+      "Olomouc",
+      "Opava",
+      "Ostrava",
+      "Pardubice",
+      "Písek",
+      "Plzeň",
+      "Podebrady",
+      "Prague",
+      "Přerov",
+      "Příbram",
+      "Prostějov",
+      "Slany",
+      "Strakonice",
+      "Tábor",
+      "Teplice",
+      "Třebíč",
+      "Uherské Hradiště",
+      "Ústí nad Labem",
+      "Zlín",
+      "Znojmo"
+     ]
+    },
+    "DE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Germany"
+     ],
+     "citta": [
+      "Aachen",
+      "Augsburg",
+      "Bayreuth",
+      "Berlin",
+      "Bernburg",
+      "Bielefeld",
+      "Bochum",
+      "Bonn",
+      "Bottrop",
+      "Braunschweig",
+      "Bremen",
+      "Brühl",
+      "Celle",
+      "Cologne",
+      "Darmstadt",
+      "Dortmund",
+      "Duisburg",
+      "Düsseldorf",
+      "Erfurt",
+      "Erlangen",
+      "Essen",
+      "Frankfurt am Main",
+      "Fürth",
+      "Gelsenkirchen",
+      "Gifhorn",
+      "Göttingen",
+      "Halle",
+      "Hamburg",
+      "Hannover",
+      "Heidelberg",
+      "Herford",
+      "Hilden",
+      "Hildesheim",
+      "Karlsruhe",
+      "Kassel",
+      "Kiel",
+      "Laatzen",
+      "Leipzig",
+      "Lübeck",
+      "Ludwigshafen",
+      "Mainz",
+      "Mannheim",
+      "Merseburg",
+      "Mönchengladbach",
+      "Mühlheim a.M.",
+      "Munich",
+      "Münster",
+      "Neuss",
+      "Nuremberg",
+      "Oldenburg",
+      "Paderborn",
+      "Peine",
+      "Potsdam",
+      "Reutlingen",
+      "Salzgitter",
+      "Schwabach",
+      "Solingen",
+      "Staßfurt",
+      "Stein",
+      "Stuttgart",
+      "Tübingen",
+      "Wiesbaden",
+      "Wolfsburg",
+      "Wuppertal"
+     ]
+    },
+    "DK": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Denmark"
+     ],
+     "citta": [
+      "Aarhus",
+      "Copenhagen"
+     ]
+    },
+    "EE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Estonia"
+     ],
+     "citta": [
+      "Haapsalu",
+      "Jõhvi",
+      "Keila",
+      "Kohtla-Järve",
+      "Kuressaare",
+      "Narva",
+      "Narva-Jõesuu",
+      "Paide",
+      "Pärnu",
+      "Rakvere",
+      "Sillamäe",
+      "Tallinn",
+      "Tartu",
+      "Türi",
+      "Valga",
+      "Viljandi",
+      "Võru"
+     ]
+    },
+    "ES": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Spain"
+     ],
+     "citta": [
+      "A Coruña",
+      "Alicante",
+      "Barcelona",
+      "Bilbao",
+      "Madrid",
+      "Málaga",
+      "Murcia",
+      "Oviedo",
+      "Pamplona",
+      "Seville",
+      "Toledo",
+      "Valencia",
+      "Zaragoza"
+     ]
+    },
+    "FI": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Finland"
+     ],
+     "citta": [
+      "Espoo",
+      "Hämeenlinna",
+      "Helsinki",
+      "Järvenpää",
+      "Jyväskylä",
+      "Kerava",
+      "Kirkkonummi",
+      "Klaukkala",
+      "Kuopio",
+      "Lahti",
+      "Lappeenranta",
+      "Nurmijärvi",
+      "Oulu",
+      "Pori",
+      "Rovaniemi",
+      "Sipoo",
+      "Tampere",
+      "Turku",
+      "Tuusula",
+      "Vaasa",
+      "Vantaa"
+     ]
+    },
+    "FR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "France"
+     ],
+     "citta": [
+      "Amiens",
+      "Angers",
+      "Annecy",
+      "Arras",
+      "Avignon",
+      "Bayonne",
+      "Besançon",
+      "Béziers",
+      "Biarritz",
+      "Bordeaux",
+      "Brest",
+      "Caen",
+      "Calais",
+      "Cannes",
+      "Carcassonne",
+      "Chambéry",
+      "Cherbourg-en-Cotentin",
+      "Cholet",
+      "Clermont-Ferrand",
+      "Colmar",
+      "Dijon",
+      "Douaï",
+      "Dunkerque",
+      "Grenoble",
+      "La Roche-sur-Yon",
+      "La Rochelle",
+      "Le Havre",
+      "Le Mans",
+      "Lens",
+      "Lille",
+      "Limoges",
+      "Lorient",
+      "Lyon",
+      "Marseille",
+      "Metz",
+      "Montauban",
+      "Montpellier",
+      "Mulhouse",
+      "Nancy",
+      "Nantes",
+      "Narbonne",
+      "Nice",
+      "Nimes",
+      "Orléans",
+      "Paris",
+      "Pau",
+      "Perpignan",
+      "Poitiers",
+      "Reims",
+      "Rennes",
+      "Rouen",
+      "Saint-Étienne",
+      "Saint-Malo",
+      "Saint-Nazaire",
+      "Saint-Quentin",
+      "Strasbourg",
+      "Toulon",
+      "Toulouse",
+      "Tours",
+      "Troyes",
+      "Valence",
+      "Valenciennes",
+      "Vannes"
+     ]
+    },
+    "GB": {
+     "stato": "si",
+     "nomi_fonte": [
+      "United Kingdom"
+     ],
+     "citta": [
+      "Bath",
+      "Birmingham",
+      "Bristol",
+      "Cambridge",
+      "Cardiff",
+      "Derby",
+      "Edinburgh",
+      "Greater Manchester",
+      "Havant",
+      "Leicester",
+      "Liverpool",
+      "London",
+      "Milton Keynes",
+      "Newcastle-Upon-Tyne",
+      "Newport",
+      "Nottingham",
+      "Peterborough",
+      "Portsmouth",
+      "Royal Borough of Windsor and Maidenhead",
+      "Sheffield",
+      "Southampton",
+      "Wolverhampton"
+     ]
+    },
+    "GE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Georgia"
+     ],
+     "citta": [
+      "Bakuriani",
+      "Batumi",
+      "Gori",
+      "Gudauri/Stepantsminda",
+      "Kutaisi",
+      "Poti",
+      "Rustavi",
+      "Tbilisi",
+      "Telavi",
+      "Zugdidi"
+     ]
+    },
+    "GH": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Ghana"
+     ],
+     "citta": [
+      "Accra",
+      "Cape Coast",
+      "Ho",
+      "Koforidua",
+      "Kumasi",
+      "Sunyani",
+      "Takoradi",
+      "Tamale"
+     ]
+    },
+    "GR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Greece"
+     ],
+     "citta": [
+      "Athens",
+      "Crete",
+      "Mykonos"
+     ]
+    },
+    "HR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Croatia"
+     ],
+     "citta": [
+      "Dubrovnik",
+      "Karlovac",
+      "Osijek",
+      "Pula",
+      "Rijeka",
+      "Šibenik",
+      "Split",
+      "Zadar",
+      "Zagreb"
+     ]
+    },
+    "HU": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Hungary"
+     ],
+     "citta": [
+      "Budapest",
+      "Debrecen",
+      "Eger",
+      "Kecskemét",
+      "Miskolc",
+      "Nyíregyháza",
+      "Pécs",
+      "Siófok",
+      "Sopron",
+      "Szeged",
+      "Szombathely",
+      "Veszprem"
+     ]
+    },
+    "IE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Ireland"
+     ],
+     "citta": [
+      "Ardee",
+      "Bray",
+      "Carlow",
+      "Cavan",
+      "Clare",
+      "Collon",
+      "Cork",
+      "Donegal",
+      "Dublin",
+      "Dún Laoghaire",
+      "Dundalk",
+      "Dunleer",
+      "Galway",
+      "Kerry",
+      "Kilkenny",
+      "Laois",
+      "Leitrim",
+      "Limerick",
+      "Longford",
+      "Mayo",
+      "Monaghan",
+      "Offaly",
+      "Portlaoise",
+      "Roscommon",
+      "Sligo",
+      "Tipperary",
+      "Waterford",
+      "Westmeath",
+      "Wexford",
+      "Wicklow"
+     ]
+    },
+    "IT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Italy"
+     ],
+     "citta": [
+      "Milan"
+     ]
+    },
+    "KE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Kenya"
+     ],
+     "citta": [
+      "Diani",
+      "Eldoret",
+      "Embu",
+      "Kakamega",
+      "Karatina",
+      "Kilifi",
+      "Kisumu",
+      "Kitale",
+      "Malindi",
+      "Meru",
+      "Mombasa",
+      "Nairobi",
+      "Naivasha",
+      "Nakuru",
+      "Nanyuki",
+      "Nyeri",
+      "Thika"
+     ]
+    },
+    "KZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Kazakhstan"
+     ],
+     "citta": [
+      "Almaty"
+     ]
+    },
+    "LT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Lithuania"
+     ],
+     "citta": [
+      "Alytus",
+      "Birzai",
+      "Druskininkai",
+      "Gargzdai",
+      "Garliava",
+      "Jonava",
+      "Kaunas",
+      "Kazlų Rūda",
+      "Kedainiai",
+      "Klaipėda",
+      "Kretinga",
+      "Kursenai",
+      "Marijampolė",
+      "Mažeikiai",
+      "Nida",
+      "Palanga",
+      "Panevėžys",
+      "Radviliskis",
+      "Rokiskis",
+      "Šiauliai",
+      "Šilutė",
+      "Tauragė",
+      "Telšiai",
+      "Trakai",
+      "Ukmergė",
+      "Utena",
+      "Vilkaviskis",
+      "Vilnius",
+      "Visaginas"
+     ]
+    },
+    "LV": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Latvia"
+     ],
+     "citta": [
+      "Ādaži",
+      "Cēsis",
+      "Daugavpils",
+      "Jēkabpils",
+      "Jelgava",
+      "Jūrmala",
+      "Lielvārde",
+      "Liepāja",
+      "Ogre",
+      "Rēzekne",
+      "Rīga",
+      "Salaspils",
+      "Saulkrasti",
+      "Sigulda",
+      "Tukums",
+      "Valmiera",
+      "Ventspils"
+     ]
+    },
+    "MA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Morocco"
+     ],
+     "citta": [
+      "Marrakesh"
+     ]
+    },
+    "MD": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Moldova"
+     ],
+     "citta": [
+      "Chisinau"
+     ]
+    },
+    "MT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Malta"
+     ],
+     "citta": [
+      "Gozo",
+      "Malta",
+      "Valletta"
+     ]
+    },
+    "MX": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Mexico"
+     ],
+     "citta": [
+      "Aguascalientes",
+      "Durango",
+      "Gomez Palacio",
+      "Guadalajara",
+      "Los Mochis",
+      "Mazatlan"
+     ]
+    },
+    "MY": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Malaysia"
+     ],
+     "citta": [
+      "Kuala Lumpur"
+     ]
+    },
+    "NG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Nigeria"
+     ],
+     "citta": [
+      "Aba",
+      "Abakaliki",
+      "Abeokuta",
+      "Abuja",
+      "Ado Ekiti",
+      "Akure",
+      "Asaba",
+      "Awka",
+      "Bauchi",
+      "Benin City",
+      "Calabar",
+      "Enugu",
+      "Ibadan",
+      "Ilorin",
+      "Jos",
+      "Kaduna",
+      "Kano",
+      "Lafia",
+      "Lagos",
+      "Lokoja",
+      "Makurdi",
+      "Nnewi",
+      "Nsukka",
+      "Ondo",
+      "Onitsha",
+      "Osogbo",
+      "Owerri",
+      "Port Harcourt",
+      "Umuahia",
+      "Uyo",
+      "Warri",
+      "Yenagoa",
+      "Zaria"
+     ]
+    },
+    "NL": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Netherlands"
+     ],
+     "citta": [
+      "Alkmaar",
+      "Amsterdam",
+      "Arnhem",
+      "Breda",
+      "Den Bosch",
+      "Ede-Wageningen",
+      "Eindhoven",
+      "Enschede",
+      "Groningen",
+      "Hengelo",
+      "Nijmegen",
+      "Rotterdam",
+      "The Hague",
+      "Tilburg",
+      "Utrecht"
+     ]
+    },
+    "NO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Norway"
+     ],
+     "citta": [
+      "Ålesund",
+      "Arendal",
+      "Bergen",
+      "Drammen",
+      "Kristiansand",
+      "Lillestrøm",
+      "Moss",
+      "Oslo",
+      "Stavanger",
+      "Trondheim"
+     ]
+    },
+    "NZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "New Zealand"
+     ],
+     "citta": [
+      "Auckland",
+      "Hamilton"
+     ]
+    },
+    "PL": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Poland"
+     ],
+     "citta": [
+      "Aglomeracja Slaska",
+      "Augustów",
+      "Belchatow",
+      "Biała Podlaska",
+      "Białystok",
+      "Bielsko-Biała",
+      "Bydgoszcz",
+      "Chelm",
+      "Ciechanów",
+      "Częstochowa",
+      "Debica",
+      "Elbląg",
+      "Ełk",
+      "Gdansk",
+      "Gdynia",
+      "Giżycko",
+      "Glogow",
+      "Gniezno",
+      "Gorzów Wielkopolski",
+      "grudziadz",
+      "Inowroclaw",
+      "Jastrzebie Zdroj",
+      "Jelenia Gora",
+      "Kalisz",
+      "Karpacz",
+      "Katowice",
+      "Kędzierzyn-Koźle",
+      "Ketrzyn",
+      "Kielce",
+      "Kolo",
+      "Kolobrzeg",
+      "Konin",
+      "Koszalin",
+      "Kraków",
+      "Krasnik",
+      "Krosno",
+      "Legnica",
+      "Leszno",
+      "Łódź",
+      "Łomża",
+      "Lubin",
+      "Lublin",
+      "Mielec",
+      "Mikolajki",
+      "Mlawa",
+      "Mrągowo",
+      "Nowy Sacz",
+      "Nowy Targ",
+      "Nysa",
+      "Olawa",
+      "Olsztyn",
+      "Opole",
+      "Ostroda",
+      "Ostrołęka",
+      "Ostrów Wielkopolski",
+      "Ostrowiec Swietokrzyski",
+      "Pila",
+      "Piotrkow Trybunalski",
+      "Płock",
+      "Polkowice",
+      "Poznań",
+      "Przemysl",
+      "Puławy",
+      "Radom",
+      "Rzeszów",
+      "Sandomierz",
+      "Sanok",
+      "Siedlce",
+      "Skarżysko Kamienna",
+      "Slupsk",
+      "Sochaczew",
+      "Sopot",
+      "Stalowa Wola",
+      "Starachowice",
+      "Stargard",
+      "Starogard Gdanski",
+      "Suwałki",
+      "Swidnica",
+      "Świdnik",
+      "Swinoujscie",
+      "Szczecin",
+      "Szczecinek",
+      "Szklarska Poreba",
+      "Tarnobrzeg",
+      "Tarnów",
+      "Toruń",
+      "Turek",
+      "Walbrzych",
+      "Warsaw",
+      "Włocławek",
+      "Wrocław",
+      "Wrzesnia",
+      "Zakopane",
+      "Zamosc",
+      "Zielona Góra"
+     ]
+    },
+    "PT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Portugal"
+     ],
+     "citta": [
+      "Algarve",
+      "Aveiro",
+      "Beja",
+      "Braga",
+      "Bragança",
+      "Caldas da Rainha",
+      "Castelo Branco",
+      "Coimbra",
+      "Covilhã",
+      "Ericeira",
+      "Esmoriz",
+      "Espinho",
+      "Évora",
+      "Faro",
+      "Figueira da Foz",
+      "Guarda",
+      "Guimarães",
+      "Leiria",
+      "Lisbon",
+      "Madeira",
+      "Mafra",
+      "Ponta Delgada",
+      "Portalegre",
+      "Porto",
+      "Póvoa de Varzim",
+      "Santa Maria da Feira",
+      "Santarém",
+      "São João da Madeira",
+      "São Miguel",
+      "Setubal",
+      "Torres Vedras",
+      "Viana do Castelo",
+      "Vila Nova de Famalicão",
+      "Vila Real",
+      "Viseu"
+     ]
+    },
+    "PY": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Paraguay"
+     ],
+     "citta": [
+      "Asunción",
+      "Caaguazú",
+      "Ciudad del Este",
+      "Concepción",
+      "Coronel Oviedo",
+      "Encarnación",
+      "Villarrica"
+     ]
+    },
+    "RO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Romania"
+     ],
+     "citta": [
+      "Alba Iulia",
+      "Arad",
+      "Bacău",
+      "Baia Mare",
+      "Bârlad",
+      "Bistrița",
+      "Botosani",
+      "Brăila",
+      "Brașov",
+      "Bucharest",
+      "Buzău",
+      "Călărași",
+      "Cluj-Napoca",
+      "Constanța",
+      "Craiova",
+      "Deva&Hunedoara",
+      "Drobeta-Turnu Severin",
+      "Focșani",
+      "Galați",
+      "Giurgiu",
+      "Iași",
+      "Lugoj",
+      "Mediaş",
+      "Oradea",
+      "Piatra Neamț",
+      "Pitești",
+      "Ploiești",
+      "Râmnicu Vâlcea",
+      "Reșița",
+      "Roman",
+      "Satu Mare",
+      "Sfântu Gheorghe",
+      "Sibiu",
+      "Slatina",
+      "Slobozia",
+      "Suceava",
+      "Târgoviște",
+      "Târgu Jiu",
+      "Târgu Mureș",
+      "Timisoara",
+      "Tulcea",
+      "Turda",
+      "Valea Prahovei",
+      "Vaslui",
+      "Zalău"
+     ]
+    },
+    "SA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Saudi Arabia"
+     ],
+     "citta": [
+      "Al Bahah Province",
+      "Al-Jawf Province",
+      "Al-Qassim Province",
+      "Aseer Province",
+      "Eastern Province",
+      "Hail Province",
+      "Jazan Province",
+      "Jeddah",
+      "Medina Province",
+      "Najran Province",
+      "Northern Province",
+      "Riyadh Province",
+      "Southern Province",
+      "Tabuk Province"
+     ]
+    },
+    "SE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Sweden"
+     ],
+     "citta": [
+      "Borås",
+      "Enköping",
+      "Eskilstuna",
+      "Gothenburg",
+      "Helsingborg",
+      "Kristianstad",
+      "Linköping",
+      "Lund",
+      "Malmö",
+      "Norrköping",
+      "Örebro",
+      "Södertälje",
+      "Stockholm",
+      "Trelleborg",
+      "Uppsala",
+      "Västerås"
+     ]
+    },
+    "SI": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Slovenia"
+     ],
+     "citta": [
+      "Koper",
+      "Ljubljana",
+      "Maribor"
+     ]
+    },
+    "SK": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Slovakia"
+     ],
+     "citta": [
+      "Banska Bystrica",
+      "Bardejov",
+      "Bratislava",
+      "Dunajská Streda",
+      "Kosice",
+      "Levice",
+      "Liptovský Mikuláš",
+      "Martin",
+      "Michalovce",
+      "Nitra",
+      "Nové Zámky",
+      "Piešťany",
+      "Poprad",
+      "Považská Bystrica",
+      "Považská Bystrica",
+      "Prešov",
+      "Prievidza",
+      "Spišská Nová Ves",
+      "Trenčín",
+      "Trnava",
+      "Žilina",
+      "Zvolen"
+     ]
+    },
+    "TH": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Thailand"
+     ],
+     "citta": [
+      "Bangkok",
+      "Buriram",
+      "Chiang Mai",
+      "Chiang Rai",
+      "Khon Kaen",
+      "Krabi",
+      "Maha Sarakham",
+      "Nakhon Ratchasima",
+      "Nakhon Si Thammarat",
+      "Phitsanulok",
+      "Phuket",
+      "Surat Thani",
+      "Udon Thani"
+     ]
+    },
+    "TW": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Taiwan"
+     ],
+     "citta": [
+      "Keelung",
+      "Taipei",
+      "Taoyuan"
+     ]
+    },
+    "TZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Tanzania"
+     ],
+     "citta": [
+      "Arusha",
+      "Dar es Salaam",
+      "Dodoma",
+      "Kahama",
+      "Mbeya",
+      "Morogoro",
+      "Moshi",
+      "Mwanza",
+      "Tanga",
+      "Zanzibar"
+     ]
+    },
+    "UA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Ukraine"
+     ],
+     "citta": [
+      "Bila Tserkva",
+      "Boryspil",
+      "Brovary",
+      "Bucha",
+      "Cherkasy",
+      "Chernihiv",
+      "Chernivtsi",
+      "Dnipro",
+      "Drohobych",
+      "Irpin",
+      "Ivano-Frankivsk",
+      "Kamianets-Podilskyi",
+      "Kamianske",
+      "Kharkiv",
+      "Khmelnytskyi",
+      "Kolomyia",
+      "Kovel",
+      "Kremenchuk",
+      "Kropyvnytskyi",
+      "Kryvyi Rih",
+      "Kyiv",
+      "Lutsk",
+      "Lviv",
+      "Mukachevo",
+      "Mykolaiv",
+      "Odesa",
+      "Oleksandriia",
+      "Pavlohrad",
+      "Poltava",
+      "Rivne",
+      "Samar",
+      "Stryi",
+      "Sumy",
+      "Ternopil",
+      "Truskavets",
+      "Uzhhorod",
+      "Vinnytsia",
+      "Vyshhorod",
+      "Vyshneve",
+      "Zaporizhia",
+      "Zbarazh",
+      "Zdolbuniv",
+      "Zhytomyr"
+     ]
+    },
+    "UG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Uganda"
+     ],
+     "citta": [
+      "Gulu",
+      "Kampala",
+      "Mbarara"
+     ]
+    },
+    "ZA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "South Africa"
+     ],
+     "citta": [
+      "Cape Town",
+      "Durban",
+      "East London",
+      "Emalahleni",
+      "Ermelo",
+      "Garden Route",
+      "Grahamstown",
+      "Johannesburg",
+      "Kimberley",
+      "Mbombela",
+      "Mthatha",
+      "Phuthaditjhaba",
+      "Pietermaritzburg",
+      "Polokwane",
+      "Port Elizabeth",
+      "Potchefstroom",
+      "Pretoria",
+      "Queenstown",
+      "Rustenburg",
+      "Thohoyandou",
+      "Upington",
+      "Welkom",
+      "Worcester"
+     ]
+    },
+    "ZW": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Zimbabwe"
+     ],
+     "citta": [
+      "Harare"
+     ]
+    }
+   }
+  },
+  {
+   "slug": "google-fi",
+   "nome": "Google Fi",
+   "fornitore": "Google Fi",
+   "fonte": "google_fi",
+   "pagina": "https://fi.google.com/about/international-rates",
+   "titolo_fonte": "Google Fi Wireless: International Coverage & Rates",
+   "cosa": "using a Google Fi plan while travelling abroad",
+   "url_fonte": "https://fi.google.com/about/international-rates",
+   "letto_il": "2026-11-12",
+   "cambiato_il": "2026-11-12",
+   "data_fonte": null,
+   "http": 200,
+   "impronta": "6f5e8cac826eba9fd11b13e18bd09868669c0e42f306fa6a3e2ba8e38c4c324f",
+   "conteggi": {
+    "si": 202,
+    "no": 0,
+    "in_arrivo": 0,
+    "per_regione": 0
+   },
+   "paesi": {
+    "AD": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Andorra"
+     ]
+    },
+    "AE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "United Arab Emirates"
+     ]
+    },
+    "AF": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Afghanistan"
+     ]
+    },
+    "AG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Antigua & Barbuda"
+     ]
+    },
+    "AI": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Anguilla"
+     ]
+    },
+    "AL": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Albania"
+     ]
+    },
+    "AM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Armenia"
+     ]
+    },
+    "AO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Angola"
+     ]
+    },
+    "AR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Argentina"
+     ]
+    },
+    "AS": {
+     "stato": "si",
+     "nomi_fonte": [
+      "American Samoa"
+     ]
+    },
+    "AT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Austria"
+     ]
+    },
+    "AU": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Australia"
+     ]
+    },
+    "AW": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Aruba"
+     ]
+    },
+    "AX": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Aland Islands"
+     ]
+    },
+    "AZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Azerbaijan"
+     ]
+    },
+    "BA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Bosnia & Herzegovina"
+     ]
+    },
+    "BB": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Barbados"
+     ]
+    },
+    "BD": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Bangladesh"
+     ]
+    },
+    "BE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Belgium"
+     ]
+    },
+    "BF": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Burkina Faso"
+     ]
+    },
+    "BG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Bulgaria"
+     ]
+    },
+    "BH": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Bahrain"
+     ]
+    },
+    "BI": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Burundi"
+     ]
+    },
+    "BJ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Benin"
+     ]
+    },
+    "BL": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Guadeloupe (including St. Barthelemy & St. Martin)",
+      "St. Barthelemy"
+     ]
+    },
+    "BM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Bermuda"
+     ]
+    },
+    "BN": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Brunei"
+     ]
+    },
+    "BO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Bolivia"
+     ]
+    },
+    "BQ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Bonaire",
+      "Saba",
+      "St. Eustatius",
+      "St. Saba"
+     ]
+    },
+    "BR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Brazil"
+     ]
+    },
+    "BS": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Bahamas"
+     ]
+    },
+    "BW": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Botswana"
+     ]
+    },
+    "BY": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Belarus"
+     ]
+    },
+    "BZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Belize"
+     ]
+    },
+    "CA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Canada"
+     ]
+    },
+    "CD": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Democratic Republic of the Congo"
+     ]
+    },
+    "CF": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Central African Republic"
+     ]
+    },
+    "CG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Republic of the Congo"
+     ]
+    },
+    "CH": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Switzerland"
+     ]
+    },
+    "CI": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Cote D'ivoire"
+     ]
+    },
+    "CL": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Chile"
+     ]
+    },
+    "CM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Cameroon"
+     ]
+    },
+    "CN": {
+     "stato": "si",
+     "nomi_fonte": [
+      "China"
+     ]
+    },
+    "CO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Colombia"
+     ]
+    },
+    "CR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Costa Rica"
+     ]
+    },
+    "CV": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Cape Verde"
+     ]
+    },
+    "CW": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Curacao"
+     ]
+    },
+    "CX": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Christmas Island"
+     ]
+    },
+    "CY": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Cyprus"
+     ]
+    },
+    "CZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Czech Republic"
+     ]
+    },
+    "DE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Germany"
+     ]
+    },
+    "DK": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Denmark"
+     ]
+    },
+    "DM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Dominica"
+     ]
+    },
+    "DO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Dominican Republic"
+     ]
+    },
+    "DZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Algeria"
+     ]
+    },
+    "EC": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Ecuador"
+     ]
+    },
+    "EE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Estonia"
+     ]
+    },
+    "EG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Egypt"
+     ]
+    },
+    "EH": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Western Sahara"
+     ]
+    },
+    "ES": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Spain"
+     ]
+    },
+    "FI": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Finland"
+     ]
+    },
+    "FJ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Fiji"
+     ]
+    },
+    "FO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Faroe Islands"
+     ]
+    },
+    "FR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "France"
+     ]
+    },
+    "GA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Gabon"
+     ]
+    },
+    "GB": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Northern Ireland",
+      "Scotland",
+      "United Kingdom",
+      "Wales"
+     ]
+    },
+    "GD": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Grenada"
+     ]
+    },
+    "GE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Georgia"
+     ]
+    },
+    "GF": {
+     "stato": "si",
+     "nomi_fonte": [
+      "French Guiana"
+     ]
+    },
+    "GG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Alderney",
+      "Guernsey",
+      "Herm",
+      "Sark Island"
+     ]
+    },
+    "GH": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Ghana"
+     ]
+    },
+    "GI": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Gibraltar"
+     ]
+    },
+    "GL": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Greenland"
+     ]
+    },
+    "GM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Gambia"
+     ]
+    },
+    "GN": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Guinea"
+     ]
+    },
+    "GP": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Guadeloupe (including St. Barthelemy & St. Martin)",
+      "Marie Galante"
+     ]
+    },
+    "GR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Greece"
+     ]
+    },
+    "GT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Guatemala"
+     ]
+    },
+    "GU": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Guam"
+     ]
+    },
+    "GW": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Guinea-Bissau"
+     ]
+    },
+    "GY": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Guyana"
+     ]
+    },
+    "HK": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Hong Kong"
+     ]
+    },
+    "HN": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Honduras"
+     ]
+    },
+    "HR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Croatia"
+     ]
+    },
+    "HT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Haiti"
+     ]
+    },
+    "HU": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Hungary"
+     ]
+    },
+    "ID": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Indonesia"
+     ]
+    },
+    "IE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Ireland"
+     ]
+    },
+    "IL": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Israel"
+     ]
+    },
+    "IM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Isle Of Man"
+     ]
+    },
+    "IN": {
+     "stato": "si",
+     "nomi_fonte": [
+      "India"
+     ]
+    },
+    "IQ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Iraq"
+     ]
+    },
+    "IS": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Iceland"
+     ]
+    },
+    "IT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Italy"
+     ]
+    },
+    "JE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Jersey"
+     ]
+    },
+    "JM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Jamaica"
+     ]
+    },
+    "JO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Jordan"
+     ]
+    },
+    "JP": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Japan"
+     ]
+    },
+    "KE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Kenya"
+     ]
+    },
+    "KG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Kyrgyzstan"
+     ]
+    },
+    "KH": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Cambodia"
+     ]
+    },
+    "KN": {
+     "stato": "si",
+     "nomi_fonte": [
+      "St. Kitts & Nevis"
+     ]
+    },
+    "KR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "South Korea"
+     ]
+    },
+    "KY": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Cayman Islands"
+     ]
+    },
+    "KZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Kazakhstan"
+     ]
+    },
+    "LA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Laos"
+     ]
+    },
+    "LC": {
+     "stato": "si",
+     "nomi_fonte": [
+      "St. Lucia"
+     ]
+    },
+    "LI": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Liechtenstein"
+     ]
+    },
+    "LK": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Sri Lanka"
+     ]
+    },
+    "LR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Liberia"
+     ]
+    },
+    "LT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Lithuania"
+     ]
+    },
+    "LU": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Luxembourg"
+     ]
+    },
+    "LV": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Latvia"
+     ]
+    },
+    "MA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Morocco"
+     ]
+    },
+    "MC": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Monaco"
+     ]
+    },
+    "MD": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Moldova"
+     ]
+    },
+    "ME": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Montenegro"
+     ]
+    },
+    "MF": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Guadeloupe (including St. Barthelemy & St. Martin)"
+     ]
+    },
+    "MG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Madagascar"
+     ]
+    },
+    "MK": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Macedonia"
+     ]
+    },
+    "ML": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Mali"
+     ]
+    },
+    "MM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Myanmar"
+     ]
+    },
+    "MN": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Mongolia"
+     ]
+    },
+    "MO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Macau"
+     ]
+    },
+    "MP": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Northern Mariana Islands (Saipan)",
+      "Rota",
+      "Tinian"
+     ]
+    },
+    "MQ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Martinique"
+     ]
+    },
+    "MR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Mauritania"
+     ]
+    },
+    "MS": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Montserrat"
+     ]
+    },
+    "MT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Malta"
+     ]
+    },
+    "MU": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Mauritius"
+     ]
+    },
+    "MV": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Maldives"
+     ]
+    },
+    "MW": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Malawi"
+     ]
+    },
+    "MX": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Mexico"
+     ]
+    },
+    "MY": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Malaysia"
+     ]
+    },
+    "MZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Mozambique"
+     ]
+    },
+    "NE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Niger"
+     ]
+    },
+    "NG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Nigeria"
+     ]
+    },
+    "NI": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Nicaragua"
+     ]
+    },
+    "NL": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Netherlands"
+     ]
+    },
+    "NO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Norway"
+     ]
+    },
+    "NP": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Nepal"
+     ]
+    },
+    "NR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Nauru"
+     ]
+    },
+    "NZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "New Zealand"
+     ]
+    },
+    "OM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Oman"
+     ]
+    },
+    "PA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Panama"
+     ]
+    },
+    "PE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Peru"
+     ]
+    },
+    "PF": {
+     "stato": "si",
+     "nomi_fonte": [
+      "French Polynesia"
+     ]
+    },
+    "PG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Papua New Guinea"
+     ]
+    },
+    "PH": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Philippines"
+     ]
+    },
+    "PK": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Pakistan"
+     ]
+    },
+    "PL": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Poland"
+     ]
+    },
+    "PS": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Palestine (Gaza Strip & West Bank)"
+     ]
+    },
+    "PT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Portugal"
+     ]
+    },
+    "PY": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Paraguay"
+     ]
+    },
+    "QA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Qatar"
+     ]
+    },
+    "RE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Réunion"
+     ]
+    },
+    "RO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Romania"
+     ]
+    },
+    "RS": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Serbia"
+     ]
+    },
+    "RU": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Russia"
+     ]
+    },
+    "RW": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Rwanda"
+     ]
+    },
+    "SA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Saudi Arabia"
+     ]
+    },
+    "SC": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Seychelles"
+     ]
+    },
+    "SE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Sweden"
+     ]
+    },
+    "SG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Singapore"
+     ]
+    },
+    "SI": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Slovenia"
+     ]
+    },
+    "SJ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Svalbard"
+     ]
+    },
+    "SK": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Slovakia"
+     ]
+    },
+    "SL": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Sierra Leone"
+     ]
+    },
+    "SM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "San Marino"
+     ]
+    },
+    "SN": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Senegal"
+     ]
+    },
+    "SR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Suriname"
+     ]
+    },
+    "SS": {
+     "stato": "si",
+     "nomi_fonte": [
+      "South Sudan"
+     ]
+    },
+    "SV": {
+     "stato": "si",
+     "nomi_fonte": [
+      "El Salvador"
+     ]
+    },
+    "SX": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Sint Maarten",
+      "St. Maarten (Dutch side)"
+     ]
+    },
+    "TC": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Turks & Caicos Islands"
+     ]
+    },
+    "TD": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Chad"
+     ]
+    },
+    "TG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Togo"
+     ]
+    },
+    "TH": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Thailand"
+     ]
+    },
+    "TJ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Tajikistan"
+     ]
+    },
+    "TN": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Tunisia"
+     ]
+    },
+    "TO": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Tonga"
+     ]
+    },
+    "TR": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Turkey"
+     ]
+    },
+    "TT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Trinidad & Tobago"
+     ]
+    },
+    "TW": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Taiwan"
+     ]
+    },
+    "TZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Tanzania"
+     ]
+    },
+    "UA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Ukraine"
+     ]
+    },
+    "UG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Uganda"
+     ]
+    },
+    "UY": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Uruguay"
+     ]
+    },
+    "UZ": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Uzbekistan"
+     ]
+    },
+    "VA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Vatican City"
+     ]
+    },
+    "VC": {
+     "stato": "si",
+     "nomi_fonte": [
+      "St. Vincent & Grenadines"
+     ]
+    },
+    "VE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Venezuela"
+     ]
+    },
+    "VG": {
+     "stato": "si",
+     "nomi_fonte": [
+      "British Virgin Islands"
+     ]
+    },
+    "VI": {
+     "stato": "si",
+     "nomi_fonte": [
+      "US Virgin Islands"
+     ]
+    },
+    "VN": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Vietnam"
+     ]
+    },
+    "VU": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Vanuatu"
+     ]
+    },
+    "WS": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Samoa"
+     ]
+    },
+    "XK": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Kosovo"
+     ]
+    },
+    "YE": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Yemen"
+     ]
+    },
+    "YT": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Mayotte"
+     ]
+    },
+    "ZA": {
+     "stato": "si",
+     "nomi_fonte": [
+      "South Africa"
+     ]
+    },
+    "ZM": {
+     "stato": "si",
+     "nomi_fonte": [
+      "Zambia"
+     ]
+    }
+   },
+   "extra": {
+    "regioni": [
+     "Azores",
+     "Canary Islands",
+     "Easter Island",
+     "Madeira"
+    ]
    }
   }
  ]

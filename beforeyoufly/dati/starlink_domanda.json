@@ -1,0 +1,506 @@
+{
+ "_nota": "Campione dell'autocompletamento di Google (client=firefox, hl=en) per scegliere le domande delle FAQ delle pagine Starlink. 'paese': ricerche 'starlink <Paese>' (gl=us) per i Paesi di dati/servizi_domanda.json; 'roam' e 'data': domande su Roam e sulla data di arrivo che nominano un Paese. Riscritto da raccolta/servizi.py --domanda-starlink.",
+ "letto_il": "2026-11-12",
+ "parole": {
+  "price": 57,
+  "packages": 23,
+  "contact": 17,
+  "plans": 11,
+  "launch": 4,
+  "coverage": 4,
+  "customer": 4,
+  "cost": 3,
+  "roam": 1,
+  "available": 1
+ },
+ "paese": {
+  "AE": [
+   "starlink united arab emirates"
+  ],
+  "AF": [
+   "starlink afghanistan price",
+   "starlink afghanistan",
+   "starlink afghanistan reddit",
+   "starlink afghanistan price per month"
+  ],
+  "AO": [
+   "starlink angola availability",
+   "starlink angola news",
+   "starlink angola english",
+   "starlink angola price",
+   "starlink angola preço",
+   "starlink angola 2026",
+   "starlink angola 2025"
+  ],
+  "AU": [
+   "starlink australia plans",
+   "starlink australia price",
+   "starlink australia login",
+   "starlink australia contact",
+   "starlink australia review",
+   "starlink australia contact number",
+   "starlink australia phone number",
+   "starlink australia mobile",
+   "starlink australia bunnings",
+   "starlink australia for travel"
+  ],
+  "BD": [
+   "starlink bangladesh price",
+   "starlink bangladesh package",
+   "starlink bangladesh package details",
+   "starlink bangladesh monthly package",
+   "starlink bangladesh price per month",
+   "starlink bangladesh package price",
+   "starlink bangladesh helpline number",
+   "starlink bangladesh office",
+   "starlink bangladesh office contact number",
+   "starlink bangladesh plans"
+  ],
+  "BW": [
+   "starlink botswana price",
+   "starlink botswana packages",
+   "starlink botswana price per month",
+   "starlink botswana packages and prices",
+   "starlink botswana contacts",
+   "starlink botswana sefalana",
+   "starlink botswana login",
+   "starlink botswana packages pdf",
+   "starlink botswana app download"
+  ],
+  "CA": [
+   "starlink canada plans",
+   "starlink canada price",
+   "starlink canada contract",
+   "starlink canada cancelled",
+   "starlink canada phone number",
+   "starlink canada login",
+   "starlink canada news",
+   "starlink canada ban",
+   "starlink canada elon musk",
+   "starlink canada costco"
+  ],
+  "CN": [
+   "starlink china availability",
+   "starlink china version",
+   "starlink china price",
+   "starlink china me hai kya",
+   "starlink china competitor",
+   "starlink china mein hai",
+   "starlink china regulatory issues",
+   "starlink china",
+   "starlink china laser",
+   "starlink china competitor qianfan launch"
+  ],
+  "CU": [
+   "starlink cuba 2026",
+   "starlink cuba revolico",
+   "starlink cuba gratis",
+   "starlink cuba price",
+   "starlink cuba 2025",
+   "starlink cuba reddit",
+   "starlink cuba elon musk",
+   "starlink cuba free",
+   "starlink cuba",
+   "starlink cuba restricciones"
+  ],
+  "DE": [
+   "starlink germany price",
+   "starlink germany reviews",
+   "starlink germany price per month",
+   "starlink germany reddit",
+   "starlink germany gmbh",
+   "starlink germany speed",
+   "starlink germany gmbh reviews",
+   "starlink germany",
+   "starlink germany plans",
+   "starlink germany buy"
+  ],
+  "DO": [
+   "starlink dominican republic price",
+   "starlink dominican republic packages",
+   "starlink dominican republic s.r.l",
+   "starlink dominican republic",
+   "starlink dominican republic telefono",
+   "starlink dominican republic speed",
+   "starlink dominican republic phone number",
+   "starlink dominican republic plans",
+   "starlink dominican republic contact",
+   "starlink dominican republic precio"
+  ],
+  "FK": [
+   "starlink falkland islands",
+   "starlink falkland islands license",
+   "starlink falkland islands price",
+   "starlink falkland islands packages"
+  ],
+  "GA": [
+   "starlink gabon price",
+   "starlink gabon"
+  ],
+  "GB": [
+   "starlink united kingdom"
+  ],
+  "IN": [
+   "starlink india news",
+   "starlink india price",
+   "starlink india launch date",
+   "starlink india approval",
+   "starlink india plans",
+   "starlink india launch",
+   "starlink india issue",
+   "starlink india musk",
+   "starlink india controversy",
+   "starlink india reddit"
+  ],
+  "IR": [
+   "starlink iran news",
+   "starlink iran free",
+   "starlink iran price",
+   "starlink iran reddit",
+   "starlink iran free internet",
+   "starlink iran israel",
+   "starlink iran",
+   "starlink iran musk",
+   "starlink iran coverage",
+   "starlink iran elon musk"
+  ],
+  "JM": [
+   "starlink jamaica price",
+   "starlink jamaica website",
+   "starlink jamaica availability",
+   "starlink jamaica price per month",
+   "starlink jamaica packages",
+   "starlink jamaica contact number",
+   "starlink jamaica plans",
+   "starlink jamaica capacity",
+   "starlink jamaica office location",
+   "starlink jamaica kingston"
+  ],
+  "KH": [
+   "starlink cambodia price",
+   "starlink cambodia",
+   "starlink cambodia 2025"
+  ],
+  "LB": [
+   "starlink lebanon availability",
+   "starlink lebanon price",
+   "starlink lebanon reddit",
+   "starlink lebanon residential",
+   "starlink lebanon news",
+   "starlink lebanon speed",
+   "starlink lebanon packages",
+   "starlink lebanon price per month",
+   "starlink lebanon phone number"
+  ],
+  "LS": [
+   "starlink lesotho prices",
+   "starlink lesotho packages",
+   "starlink lesotho prices per month",
+   "starlink lesotho contact number",
+   "starlink lesotho office",
+   "starlink lesotho speed",
+   "starlink lesotho",
+   "starlink lesotho contact",
+   "starlink lesotho vacancies",
+   "starlink lesotho address"
+  ],
+  "MW": [
+   "starlink malawi price",
+   "starlink malawi packages",
+   "starlink malawi price per month",
+   "starlink malawi office location",
+   "starlink malawi",
+   "starlink malawi office",
+   "starlink malawi contact number",
+   "starlink malawi blantyre",
+   "starlink malawi login",
+   "starlink malawi contact details"
+  ],
+  "MX": [
+   "starlink mexico plans",
+   "starlink mexico price",
+   "starlink mexico cost",
+   "starlink mexico precios",
+   "starlink mexico planes",
+   "starlink mexico roam",
+   "starlink mexico plans price",
+   "starlink mexico city",
+   "starlink mexico paquetes",
+   "starlink mexico login"
+  ],
+  "MZ": [
+   "starlink mozambique prices",
+   "starlink mozambique price per month",
+   "starlink mozambique contact number",
+   "starlink mozambique packages",
+   "starlink mozambique packages and prices",
+   "starlink mozambique office",
+   "starlink mozambique",
+   "starlink mozambique contact",
+   "starlink mozambique login",
+   "starlink mozambique roaming"
+  ],
+  "NA": [
+   "starlink namibia packages",
+   "starlink namibia price",
+   "starlink namibia news",
+   "starlink namibia",
+   "starlink namibia license rejection",
+   "starlink namibia licence appeal",
+   "starlink namibia licence reconsideration",
+   "starlink namibia license regulations",
+   "starlink namibia license denial",
+   "starlink namibia 2025"
+  ],
+  "NG": [
+   "starlink nigeria price",
+   "starlink nigeria website",
+   "starlink nigeria cost",
+   "starlink nigeria office",
+   "starlink nigeria subscription",
+   "starlink nigeria customer service",
+   "starlink nigeria contact number",
+   "starlink nigeria customer care number",
+   "starlink nigeria contact",
+   "starlink nigeria plans"
+  ],
+  "NP": [
+   "starlink nepal price",
+   "starlink nepal flood",
+   "starlink nepal price per month",
+   "starlink nepal",
+   "starlink nepal news",
+   "starlink nepal pvt ltd"
+  ],
+  "PH": [
+   "starlink philippines price",
+   "starlink philippines plan",
+   "starlink philippines price 2026",
+   "starlink philippines where to buy",
+   "starlink philippines price per month",
+   "starlink philippines review",
+   "starlink philippines website",
+   "starlink philippines speed",
+   "starlink philippines reddit",
+   "starlink philippines english"
+  ],
+  "PK": [
+   "starlink pakistan price per month",
+   "starlink pakistan price",
+   "starlink pakistan packages",
+   "starlink pakistan packages price",
+   "starlink pakistan contact number",
+   "starlink pakistan reddit",
+   "starlink pakistan 2026",
+   "starlink pakistan coverage",
+   "starlink pakistan available",
+   "starlink pakistan launch date"
+  ],
+  "RU": [
+   "starlink russia ukraine",
+   "starlink russia news",
+   "starlink russia ukraine war",
+   "starlink russia trump",
+   "starlink russia shutdown",
+   "starlink russia war",
+   "starlink russia",
+   "starlink russia reddit",
+   "starlink russia connection",
+   "starlink russia cut off"
+  ],
+  "SA": [
+   "starlink saudi arabia price",
+   "starlink saudi arabia packages",
+   "starlink saudi arabia availability",
+   "starlink saudi arabia jobs",
+   "starlink saudi arabia price per month",
+   "starlink saudi arabia tracking",
+   "starlink saudi arabia packages price",
+   "starlink saudi arabia internet",
+   "starlink saudi arabia company",
+   "starlink saudi arabia riyadh"
+  ],
+  "SG": [
+   "starlink singapore airlines",
+   "starlink singapore price",
+   "starlink singapore office",
+   "starlink singapore price per month",
+   "starlink singapore",
+   "starlink singapore jobs",
+   "starlink singapore career",
+   "starlink singapore reddit",
+   "starlink singapore air",
+   "starlink singapore review"
+  ],
+  "SY": [
+   "starlink syria price",
+   "starlink syria news",
+   "starlink syria reddit",
+   "starlink syria",
+   "starlink syria speed",
+   "starlink syria ip",
+   "starlink syria telegram"
+  ],
+  "TH": [
+   "starlink thailand price",
+   "starlink thailand price per month",
+   "starlink thailand english",
+   "starlink thailand packages",
+   "starlink thailand",
+   "starlink thailand reddit",
+   "starlink thailand buy",
+   "starlink thailand cost",
+   "starlink thailand 2026",
+   "starlink thailand english price"
+  ],
+  "TR": [
+   "starlink turkey coverage",
+   "starlink turkey price",
+   "starlink turkey",
+   "starlink turkey buy",
+   "starlink turkey coverage map",
+   "starlink turkey fiyat",
+   "starlink turkey map",
+   "starlink turkey 2026"
+  ],
+  "TW": [
+   "starlink taiwan",
+   "starlink taiwan price",
+   "starlink taiwan reddit"
+  ],
+  "UG": [
+   "starlink uganda price",
+   "starlink uganda packages",
+   "starlink uganda offices",
+   "starlink uganda packages prices",
+   "starlink uganda jobs",
+   "starlink uganda contacts",
+   "starlink uganda contact number",
+   "starlink uganda airtel",
+   "starlink uganda data packages",
+   "starlink uganda location"
+  ],
+  "US": [
+   "starlink united states customer service",
+   "starlink united states",
+   "starlink united states phone number",
+   "starlink united states customer service phone number",
+   "starlink united states plans"
+  ],
+  "VG": [
+   "starlink british virgin islands"
+  ],
+  "VN": [
+   "starlink vietnam price",
+   "starlink vietnam satellite internet",
+   "starlink vietnam availability",
+   "starlink vietnam giá",
+   "starlink vietnam tuyển dụng",
+   "starlink vietnam english",
+   "starlink vietnam website",
+   "starlink vietnam job",
+   "starlink vietnam airlines",
+   "starlink vietnam ceo"
+  ],
+  "ZA": [
+   "starlink south africa price",
+   "starlink south africa packages",
+   "starlink south africa packages and prices",
+   "starlink south africa news",
+   "starlink south africa price per month",
+   "starlink south africa latest news",
+   "starlink south africa contact details",
+   "starlink south africa speed",
+   "starlink south africa ownership requirements",
+   "starlink south africa latest"
+  ],
+  "ZW": [
+   "starlink zimbabwe price",
+   "starlink zimbabwe packages",
+   "starlink zimbabwe price per month",
+   "starlink zimbabwe contact details",
+   "starlink zimbabwe website",
+   "starlink zimbabwe login",
+   "starlink zimbabwe mini kit",
+   "starlink zimbabwe distributor harare",
+   "starlink zimbabwe mini kit price",
+   "starlink zimbabwe distributor"
+  ]
+ },
+ "roam": {
+  "CA": [
+   "does starlink roam work in canada",
+   "starlink roam in canada",
+   "can i use starlink roam in canada"
+  ],
+  "CN": [
+   "does starlink roam work in china"
+  ],
+  "IN": [
+   "does starlink roam work in india",
+   "starlink roam in india"
+  ],
+  "MX": [
+   "does starlink roam work in mexico",
+   "starlink roam in mexico",
+   "can i use starlink roam in mexico"
+  ],
+  "NG": [
+   "does starlink roam work in nigeria",
+   "starlink roam in nigeria"
+  ],
+  "PK": [
+   "does starlink roam work in pakistan"
+  ],
+  "ZA": [
+   "does starlink roam work in south africa",
+   "starlink roam in south africa"
+  ]
+ },
+ "data": {
+  "AE": [
+   "when will starlink launch in uae"
+  ],
+  "BD": [
+   "starlink launch date in bangladesh"
+  ],
+  "CA": [
+   "when will starlink be available in canada"
+  ],
+  "EG": [
+   "when will starlink be available in egypt"
+  ],
+  "IN": [
+   "when will starlink launch in india",
+   "when will starlink be available in india",
+   "starlink launch date in india"
+  ],
+  "LB": [
+   "when will starlink be available in lebanon"
+  ],
+  "MA": [
+   "when will starlink be available in morocco"
+  ],
+  "PK": [
+   "when will starlink launch in pakistan",
+   "when will starlink be available in pakistan",
+   "starlink launch date in pakistan"
+  ],
+  "RS": [
+   "when will starlink be available in serbia"
+  ],
+  "SA": [
+   "when will starlink be available in saudi arabia"
+  ],
+  "TH": [
+   "when will starlink be available in thailand"
+  ],
+  "US": [
+   "starlink launch date in usa"
+  ],
+  "ZA": [
+   "when will starlink launch in south africa",
+   "when will starlink be available in south africa"
+  ]
+ }
+}

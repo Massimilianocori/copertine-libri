@@ -3,6 +3,12 @@
 Uso (dalla radice del repository):
     python3 -I beforeyoufly/raccolta/servizi.py             legge le fonti, scrive dati/servizi.json (e dati/servizi_cambi.json se una lista cambia)
     python3 -I beforeyoufly/raccolta/servizi.py --domanda   rilegge anche l'autocompletamento di Google e riscrive dati/servizi_domanda.json
+    python3 -I beforeyoufly/raccolta/servizi.py --solo=starlink,bolt,google-fi   rilegge solo le fonti di questi servizi; gli altri restano
+                                                            come nell'ultima lettura (voci, frasi e letture copiate da dati/servizi.json)
+    python3 -I beforeyoufly/raccolta/servizi.py --domanda-starlink   campione dell'autocompletamento "starlink <Paese>" e delle domande
+                                                            su Roam e sulla data di arrivo (dati/starlink_domanda.json: forme delle FAQ)
+    python3 -I beforeyoufly/raccolta/servizi.py --domanda-starlink-paesi   chiede Paese per Paese se la disponibilità di Starlink è cercata
+                                                            (dati/starlink_paesi_domanda.json: quali Paesi hanno una pagina Starlink)
 
 Regole (decise il 28/10/2026):
   - Solo servizi con una lista dei Paesi pubblicata dal fornitore stesso e leggibile con una richiesta HTTP normale (niente browser, niente
@@ -13,6 +19,10 @@ Regole (decise il 28/10/2026):
     Stripe (pagina "Global availability"). Scartati il 7/11: Revolut (403, controllo anti-bot), Disney+ (pagina solo JavaScript), Prime Video
     (Amazon 503/403 ai robot), PayPal (solo il selettore dei siti nazionali), Netflix (elenca solo dove NON è disponibile), Samsung Wallet,
     Payoneer, Crunchyroll (nessuna lista trovata), Tidal (controllo anti-bot); assistenti di intelligenza artificiale per regola.
+    Dal 12/11/2026 anche Bolt (pagina "Bolt cities": Paesi con le città elencate) e Google Fi (pagina "International Coverage & Rates":
+    destinazioni coperte con i piani Flexible e Unlimited Premium). Scartati il 12/11: Revolut e PayPal (403), Disney+ (pagina di aiuto
+    solo JavaScript), Netflix (elenca solo dove NON è disponibile), Airbnb (nessuna lista), Prime Video (nessuna lista trovata); Starlink
+    Roam: nessuna fonte leggibile (le pagine di starlink.com, mappa e articoli di aiuto compresi, sono solo JavaScript).
   - Si salva SOLO cosa dice la fonte: "si" = il Paese è nella lista con il servizio; "no" = la fonte nomina il Paese ma dice che il servizio non
     c'è (es. YouTube "Russia - temporarily unavailable", Apple elenca il Paese senza Apple Music, Starlink senza servizio sulla mappa);
     "in_arrivo" = Starlink "Coming soon"; "per_regione" = Starlink colora il Paese regione per regione (stato "exclude"). Un Paese che la fonte non nomina NON compare: le pagine dicono "not on the list", mai "vietato".
@@ -61,7 +71,13 @@ FONTI = {
     "wise_invio": {"url": "https://wise.com/help/articles/2571942/what-countriesregions-can-i-send-to", "tipo": "html"},
     "uber": {"url": "https://www.uber.com/global/en/cities/", "tipo": "html"},
     "stripe": {"url": "https://stripe.com/global", "tipo": "html"},
+    # dal 12/11/2026
+    "bolt": {"url": "https://bolt.eu/en/cities/", "tipo": "html"},
+    "google_fi": {"url": "https://fi.google.com/about/international-rates", "tipo": "html"},
 }
+# Fonti di ogni servizio (per --solo): la fonte della lista più quelle delle frasi citate nelle pagine
+FONTI_SERVIZIO = {"spotify": ["spotify", "spotify_estero"], "google-wallet": ["google_wallet", "google_pay"],
+                  "wise": ["wise", "wise_dove", "wise_invio"]}
 
 # Servizi pubblicati: slug (URL), nome, fonte della lista, pagina da mostrare ai lettori, frase che definisce la lista.
 SERVIZI = [
@@ -96,6 +112,13 @@ SERVIZI = [
     {"slug": "stripe", "nome": "Stripe", "fornitore": "Stripe", "fonte": "stripe",
      "pagina": "https://stripe.com/global", "titolo_fonte": "Stripe global availability",
      "cosa": "opening a Stripe account for a business"},
+    # dal 12/11/2026 (domanda dell'autocompletamento del 7/11 e del 12/11; liste leggibili con una richiesta HTTP normale)
+    {"slug": "bolt", "nome": "Bolt", "fornitore": "Bolt", "fonte": "bolt",
+     "pagina": "https://bolt.eu/en/cities/", "titolo_fonte": "Bolt cities: Use Bolt in cities around the world",
+     "cosa": "Bolt in the cities on its list"},
+    {"slug": "google-fi", "nome": "Google Fi", "fornitore": "Google Fi", "fonte": "google_fi",
+     "pagina": "https://fi.google.com/about/international-rates", "titolo_fonte": "Google Fi Wireless: International Coverage & Rates",
+     "cosa": "using a Google Fi plan while travelling abroad"},
 ]
 
 # Testo che deve esserci perché la pagina letta sia quella giusta (altrimenti si riprova)
@@ -104,7 +127,8 @@ SEGNI = {"apple_media": "Availability of Apple Media Services", "apple_pay": "Co
          "spotify_estero": "Can’t play abroad", "google_wallet": "Supported countries for Google Wallet & tap to pay",
          "google_pay": "Countries or regions where you can make payments with Google", "wise": "Where do I need to live to hold money with Wise?",
          "wise_dove": "Where can I use Wise?", "wise_invio": "What countries/regions can I send to?", "uber": "Use Uber in cities around the world",
-         "stripe": "Stripe is currently supported in the following countries/regions"}
+         "stripe": "Stripe is currently supported in the following countries/regions", "bolt": "Bolt is available in",
+         "google_fi": "Traveling to one of these places?"}
 
 # Frasi citate nelle pagine del sito: devono stare nella fonte parola per parola (testo normalizzato). chiave -> (fonte, frase)
 FRASI = {
@@ -140,6 +164,15 @@ FRASI = {
     "uber_lista": ("uber", "Get to your destination in more than 15,000 cities."),
     "stripe_lista": ("stripe", "Stripe is currently supported in the following countries/regions, with more to come."),
     "stripe_vendere": ("stripe", "Once Stripe is supported in your country/region, you’ll be able to sell to customers anywhere in the world."),
+    # dal 12/11/2026
+    "bolt_lista": ("bolt", "Bolt is available in 850+ cities."),
+    "google_fi_lista": ("google_fi", "Traveling to one of these places? You're covered on Flexible and Unlimited Premium."),
+    "google_fi_ca_mx": ("google_fi", "Unlimited Standard, Unlimited Premium, and Flexible plans all include data, calls and texts within Canada and Mexico."),
+    "google_fi_attiva": ("google_fi", "You can use your phone for calls, texts, and data outside the US after you activate your Google Fi Wireless account and use Fi in the US (territories not included)."),
+    "google_fi_estero": ("google_fi", "You cannot activate Fi for the first time while abroad."),
+    "google_fi_90": ("google_fi", "If the majority of your usage occurs outside of the United States over a consecutive 90-day period, we will suspend your international data."),
+    "google_fi_essentials": ("google_fi", "On Unlimited Essentials, data, calls and texts are not supported outside of the US."),
+    "google_fi_sim": ("google_fi", "If you're traveling to a country that isn't included, you will need to get a local SIM card for that country for cellular coverage."),
 }
 
 # Starlink: significato degli stati del file, letto il 28/10/2026 nel codice della mappa ufficiale (starlink.com/map, file page-*.js):
@@ -156,12 +189,18 @@ TOOLTIP_STARLINK = {"pending_regulatory": "Pending regulatory approval", "unknow
 
 # Nomi della fonte che non sono un Paese ISO: parti di un Paese già elencato (si registrano come "regioni") o gruppi di territori.
 REGIONI = {"azores": "PT", "madeira": "PT", "balearic islands": "ES", "canary islands": "ES", "ceuta": "ES", "melilla": "ES",
-           "netherlands antilles": None}
+           "netherlands antilles": None, "easter island": "CL"}
 # Nomi che valgono per un codice ISO che copre più territori (la fonte li elenca uno per uno)
 PARTI = {"ascension": "SH", "tristan da cunha": "SH", "saint helena": "SH", "bonaire": "BQ", "saba": "BQ", "sint eustatius": "BQ",
          "svalbard": "SJ", "puerto rico": "PR",
          # Google Pay (7/11/2026): il Paese "e territori d'oltremare" vale per il Paese stesso (i territori non sono nominati uno per uno)
-         "united kingdom and outlying territories": "GB", "united states and outlying territories": "US"}
+         "united kingdom and outlying territories": "GB", "united states and outlying territories": "US",
+         # Google Fi (12/11/2026): isole e parti elencate una per una
+         "alderney": "GG", "herm": "GG", "sark island": "GG", "marie galante": "GP", "rota": "MP", "tinian": "MP",
+         "northern mariana islands saipan": "MP", "st eustatius": "BQ", "st saba": "BQ", "st maarten dutch side": "SX",
+         "palestine gaza strip west bank": "PS"}
+# Google Fi (12/11/2026): una voce che nomina più territori (codici ISO di ognuno)
+PIU_CODICI = {"guadeloupe including st barthelemy st martin": ["GP", "BL", "MF"]}
 
 
 def chiave(s):
@@ -301,7 +340,7 @@ def lista_spotify(html_):
     return [pulito(x) for x in re.findall(r"<li>(.*?)</li>", html_[i:j], re.S)]
 
 
-CAMPI_IN_PIU = ("app", "tocco", "sito")  # Google Wallet: le tre righe della tabella di ogni Paese (dal 7/11/2026)
+CAMPI_IN_PIU = ("app", "tocco", "sito", "citta")  # Google Wallet: le tre righe della tabella di ogni Paese (dal 7/11/2026); Bolt: città (12/11)
 LISTE_IN_PIU = ("online", "invio")  # in "extra": Paesi della lista Google Pay online, Paesi verso cui Wise invia (dal 7/11/2026)
 
 
@@ -407,6 +446,38 @@ def lista_stripe(html_):
     return out
 
 
+def lista_bolt(html_):
+    """Pagina "Bolt cities": [(codice della bandiera, nome del Paese, [città])]. Si legge solo il blocco per schermi larghi (dalla prima
+    bandiera al blocco per telefono "sm:rt-r-display-none", che ripete gli stessi Paesi con un altro codice)."""
+    i = html_.find('aria-label="Flag for country code:')
+    j = html_.find("sm:rt-r-display-none", i)
+    if i < 0 or j < 0:
+        raise ValueError("Bolt: lista dei Paesi non trovata")
+    blocco = html_[i - 200:j]
+    pz = list(re.finditer(r'aria-label="Flag for country code: ([a-z]{2})"[^>]*></span><h3[^>]*>([^<]*)</h3>', blocco))
+    out = []
+    for k, m in enumerate(pz):
+        seg = blocco[m.end():pz[k + 1].start() if k + 1 < len(pz) else len(blocco)]
+        citta = [pulito(x) for x in re.findall(r'href="/en/cities/[a-z0-9-]+/"[^>]*>.*?<div class="rt-Text[^"]*">([^<]*)</div>', seg, re.S)]
+        out.append((m.group(1).upper(), pulito(m.group(2)), citta))
+    if len(out) < 30 or sum(len(c) for _, _, c in out) < 500 or any(not c for _, _, c in out):
+        raise ValueError(f"Bolt: forma della pagina cambiata ({len(out)} Paesi, {sum(len(c) for _, _, c in out)} città)")
+    return out
+
+
+def lista_google_fi(html_):
+    """Pagina "International Coverage & Rates": nomi delle destinazioni (una sezione per lettera, id international-enrichment-x)."""
+    nomi = []
+    for m in re.finditer(r'<section[^>]*id="international-enrichment-[a-z]"[^>]*>(.*?)</section>', html_, re.S):
+        # ogni scheda (card-body) ha un elenco di <p>, o un solo nome senza <p> (es. "Wales", "Yemen")
+        for x in re.findall(r"card-body[^>]*>.*?data-component-name=\"rich_text\">(.*?)</div>", m.group(1), re.S):
+            pp = re.findall(r"<p ssk='[^']*'>(.*?)</p>", x, re.S)
+            nomi += [pulito(y) for y in pp] if pp else [pulito(x)]
+    if len(nomi) < 150 or len(nomi) != len(set(nomi)):
+        raise ValueError(f"Google Fi: lista delle destinazioni cambiata ({len(nomi)} voci)")
+    return nomi
+
+
 def impronta(paesi, extra=None):
     s = json.dumps({k: firma(v) for k, v in sorted(paesi.items())}, ensure_ascii=False, sort_keys=True)
     piu = {k: sorted(extra[k]) for k in LISTE_IN_PIU if extra and k in extra}
@@ -485,6 +556,24 @@ def costruisci(slug, grezzi):
     elif slug == "uber":
         for nome in lista_uber(grezzi["uber"]):
             aggiungi(paesi, regioni, nome, "si")
+    elif slug == "bolt":
+        # "si" = il Paese è sulla pagina "Bolt cities" (con le città che elenca: campo "citta"); codice della bandiera controllato con il nome
+        for cod, nome, citta in lista_bolt(grezzi["bolt"]):
+            if iso_di(nome) != cod:
+                raise ValueError(f"Bolt: {nome} ha la bandiera {cod}")
+            if cod in paesi:
+                raise ValueError(f"Bolt: {nome} ripetuto")
+            aggiungi(paesi, regioni, nome, "si")
+            paesi[cod]["citta"] = citta
+    elif slug == "google-fi":
+        # "si" = la destinazione è nella lista "Traveling to one of these places? You're covered on Flexible and Unlimited Premium."
+        for nome in lista_google_fi(grezzi["google_fi"]):
+            for c in PIU_CODICI.get(chiave(nome), [None]):
+                if c is None:
+                    aggiungi(paesi, regioni, nome, "si")
+                else:
+                    v = paesi.setdefault(c, {"stato": "si", "nomi_fonte": []})
+                    v["nomi_fonte"].append(nome)
     elif slug == "stripe":
         for nome, cod, nota in lista_stripe(grezzi["stripe"]):
             if cod and iso_di(nome) != cod:
@@ -528,7 +617,8 @@ def domanda(solo=None):
     """Autocompletamento di Google (client=firefox, hl=en): quali coppie servizio × Paese la gente cerca davvero."""
     famiglie = {"starlink": ["starlink"], "apple-pay": ["apple pay"], "apple-music": ["apple music"], "apple-tv": ["apple tv", "apple tv+"],
                 "youtube-premium": ["youtube premium", "youtube music"], "spotify": ["spotify", "spotify premium"],
-                "google-wallet": ["google wallet", "google pay"], "wise": ["wise"], "uber": ["uber"], "stripe": ["stripe"]}
+                "google-wallet": ["google wallet", "google pay"], "wise": ["wise"], "uber": ["uber"], "stripe": ["stripe"],
+                "bolt": ["bolt"], "google-fi": ["google fi"]}
     if solo:  # --domanda=slug1,slug2: rilegge solo questi servizi e lascia com'erano le coppie degli altri (le loro pagine restano)
         famiglie = {s: famiglie[s] for s in solo}
     modelli = ["is {} available in", "{} available in", "is {} in", "{} not available in", "does {} work in", "can i use {} in", "is {} available in the"]
@@ -572,15 +662,150 @@ def domanda(solo=None):
     print("domanda:", {s: len(v) for s, v in out.items()})
 
 
-def main():
+def domanda_starlink():
+    """Campione dell'autocompletamento (12/11/2026) per le FAQ delle pagine Starlink: "starlink <Paese>" per i Paesi già cercati e le
+    domande su Roam e sulla data di arrivo. Le FAQ usano solo forme che compaiono qui; scrive dati/starlink_domanda.json."""
+    dom = json.loads((DATI / "servizi_domanda.json").read_text(encoding="utf-8"))["servizi"].get("starlink", {})
+    nomi = {p["iso2"]: p["nome"] for p in ISO}
+    out = {"paese": {}, "roam": {}, "data": {}}
+    def chiedi(q, gl):
+        url = "https://suggestqueries.google.com/complete/search?client=firefox&gl=%s&hl=en&q=%s" % (gl, urllib.parse.quote(q + " "))
+        try:
+            return json.loads(leggi(url)[2])[1]
+        except Exception as e:  # una richiesta persa non ferma la raccolta
+            print(f"  autocompletamento {gl} {q!r}: {e}")
+            return []
+        finally:
+            time.sleep(0.3)
+    for c in sorted(dom):
+        q = "starlink " + nomi[c].lower()
+        sugg = [x for x in chiedi(q, "us") if x.startswith(q)]
+        if sugg:
+            out["paese"][c] = sugg
+    for gruppo, modelli in (("roam", ["does starlink roam work in", "starlink roam in", "can i use starlink roam in"]),
+                            ("data", ["when will starlink launch in", "when will starlink be available in", "starlink launch date in"])):
+        for m in modelli:
+            for gl in ["us", "gb", "in", "pk", "ng", "ph", "ca", "au", "za"]:
+                for x in chiedi(m, gl):
+                    if not x.startswith(m + " "):
+                        continue
+                    r = " ".join(w for w in chiave(x[len(m):]).split() if not re.fullmatch(r"20\d\d|now|reddit|yet|today", w))
+                    c = PER_CHIAVE.get(r)
+                    if c and x not in out[gruppo].setdefault(c, []):
+                        out[gruppo][c].append(x)
+    # parole delle ricerche "starlink <Paese> ..." (quante volte compaiono: prezzo, data di arrivo, copertura...)
+    parole = {}
+    for v in out["paese"].values():
+        for x in v:
+            for w in ("price", "cost", "launch", "plans", "packages", "coverage", "roam", "legal", "available", "contact", "customer"):
+                if re.search(rf"\b{w}\b", x):
+                    parole[w] = parole.get(w, 0) + 1
+    doc = {"_nota": "Campione dell'autocompletamento di Google (client=firefox, hl=en) per scegliere le domande delle FAQ delle pagine Starlink. "
+                    "'paese': ricerche 'starlink <Paese>' (gl=us) per i Paesi di dati/servizi_domanda.json; 'roam' e 'data': domande su Roam e sulla "
+                    "data di arrivo che nominano un Paese. Riscritto da raccolta/servizi.py --domanda-starlink.",
+           "letto_il": date.today().isoformat(), "parole": dict(sorted(parole.items(), key=lambda x: -x[1])),
+           "paese": dict(sorted(out["paese"].items())), "roam": dict(sorted(out["roam"].items())), "data": dict(sorted(out["data"].items()))}
+    (DATI / "starlink_domanda.json").write_text(json.dumps(doc, ensure_ascii=False, indent=1), encoding="utf-8")
+    print("domanda Starlink:", {k: len(doc[k]) for k in ("paese", "roam", "data")}, doc["parole"])
+
+
+# Revisione del 12/11/2026: quali Paesi hanno una pagina Starlink. Una pagina servizio × Paese esiste solo per le coppie cercate (regola del
+# 28/10/2026); le domande generiche di --domanda mostrano solo i 10 Paesi più cercati per ogni modello, quindi qui si chiede Paese per Paese.
+PAROLE_DOMANDA = {"is", "does", "do", "can", "i", "you", "we", "use", "using", "will", "when", "be", "it", "there", "available", "availability",
+                  "work", "works", "working", "in", "the", "to", "legal", "illegal", "banned", "allowed", "launch", "launched", "coming",
+                  "coverage", "have", "has", "get", "roam", "now", "yet", "why", "not", "no", "where", "internet", "service"}
+INTENTO_DOMANDA = {"available", "availability", "work", "works", "working", "in", "use", "using", "legal", "illegal", "banned", "allowed",
+                   "launch", "launched", "coming", "coverage", "have", "has", "get", "roam", "there"}
+# nomi alternativi che non indicano un solo Paese (o che la gente usa per altro): non si chiedono
+ALIAS_AMBIGUI = {"holland", "america", "britain", "england", "scotland", "wales", "northern ireland", "korea", "congo", "dubai", "abu dhabi",
+                 "macedonia", "saint martin", "st. martin"}
+
+
+def domanda_starlink_paesi():
+    """Per ogni Paese di dati/paesi_iso.json chiede all'autocompletamento di Google (client=firefox, gl=us, hl=en) "is starlink available in
+    <Paese>" e "starlink in <Paese>" (anche con i nomi alternativi, se il nome principale dà meno di 2 ricerche). Conta solo le ricerche vere:
+    le proposte con un sottotipo diverso da 160 (completamento automatico della coda, con il campo "mp"), 299 (ripetizione della frase scritta)
+    e 650 (ricerche collegate, di solito su altri Paesi); devono nominare Starlink e il Paese e, tolti quelli, avere solo parole di una
+    domanda sulla disponibilità (PAROLE_DOMANDA, con almeno una di INTENTO_DOMANDA: così "new jersey" non vale per Jersey, "south sudan" non
+    vale per il Sudan e "starlink <Paese> price" non conta). Il significato dei sottotipi non è documentato da Google: è letto dalle risposte
+    (12/11/2026: Bouvet Island solo 160 e 299; Albania, Tuvalu, Andorra 512 o 22/30). Scrive dati/starlink_paesi_domanda.json; non rilegge
+    le fonti."""
+    def chiedi(q):
+        url = "https://suggestqueries.google.com/complete/search?client=firefox&gl=us&hl=en&q=" + urllib.parse.quote(q)
+        for tentativo in range(3):
+            try:
+                d = json.loads(leggi(url)[2])
+                sub = (d[3] if len(d) > 3 else {}).get("google:suggestsubtypes", [])
+                return [(x, sub[i] if i < len(sub) else None) for i, x in enumerate(d[1])]
+            except Exception as e:  # una richiesta persa si riprova; alla terza si conta come nessuna ricerca
+                err = e
+                time.sleep(2 + 3 * tentativo)
+            finally:
+                time.sleep(0.25)
+        print(f"  autocompletamento {q!r}: {err}")
+        persi.append(q)
+        return []
+
+    def vere(proposte, nome):
+        out = []
+        for x, sub in proposte:
+            if not sub or any(k in sub for k in (160, 299, 650)):
+                continue
+            m = re.search(r"(?<![a-z])" + re.escape(nome) + r"(?![a-z])", x)
+            if not m or "starlink" not in x:
+                continue
+            resto = re.sub(r"[^a-z ]", " ", (x[:m.start()] + " " + x[m.end():]).replace("starlink", " ")).split()
+            if all(w in PAROLE_DOMANDA for w in resto) and any(w in INTENTO_DOMANDA for w in resto) and x not in out:
+                out.append(x)
+        return out
+
+    persi, paesi, sottotipi = [], {}, {}
+    for p in ISO:
+        nomi = [p["nome"].lower()] + [a.lower() for a in p.get("alias", []) if len(a) >= 4 and a.lower() not in ALIAS_AMBIGUI]
+        trovate = []
+        for k, n in enumerate(nomi):
+            if k and len(trovate) >= 2:
+                break
+            for q in ("is starlink available in " + n, "starlink in " + n):
+                proposte = chiedi(q)
+                for _, sub in proposte:
+                    for s in sub or []:
+                        sottotipi[str(s)] = sottotipi.get(str(s), 0) + 1
+                trovate += [x for x in vere(proposte, n) if x not in trovate]
+        if trovate:
+            paesi[p["iso2"]] = trovate
+    if persi and len(persi) > 10:
+        raise SystemExit(f"domanda Starlink per Paese: {len(persi)} richieste perse, file non scritto")
+    doc = {"_nota": "Ricerche vere sulla disponibilità di Starlink che nominano il Paese, chieste Paese per Paese all'autocompletamento di Google "
+                    "(client=firefox, gl=us, hl=en; modelli 'is starlink available in <Paese>' e 'starlink in <Paese>', anche con i nomi alternativi). "
+                    "Valgono solo le proposte con sottotipo diverso da 160, 299 e 650 e con sole parole di una domanda sulla disponibilità. Un Paese "
+                    "senza voce qui (e fuori da dati/servizi_domanda.json) non ha una pagina Starlink: resta una riga della tabella. Riscritto da "
+                    "raccolta/servizi.py --domanda-starlink-paesi.",
+           "letto_il": date.today().isoformat(), "richieste_perse": persi, "sottotipi_visti": dict(sorted(sottotipi.items())),
+           "paesi": dict(sorted(paesi.items()))}
+    (DATI / "starlink_paesi_domanda.json").write_text(json.dumps(doc, ensure_ascii=False, indent=1), encoding="utf-8")
+    print(f"domanda Starlink per Paese: {len(paesi)} Paesi con ricerche vere su {len(ISO)}; richieste perse: {len(persi)}")
+
+
+def main(solo=None):
     oggi = date.today().isoformat()
     CACHE.mkdir(parents=True, exist_ok=True)
     f_dati = DATI / "servizi.json"
     prima = json.loads(f_dati.read_text(encoding="utf-8")) if f_dati.exists() else {"servizi": []}
     prima_per = {s["slug"]: s for s in prima["servizi"]}
     grezzi, letture, problemi = {}, {}, []
+    da_leggere = None
+    if solo:  # --solo=slug,slug: si leggono solo le fonti di questi servizi; gli altri restano come nell'ultima lettura buona
+        ignoti = set(solo) - {S["slug"] for S in SERVIZI}
+        if ignoti:
+            sys.exit(f"--solo: servizi sconosciuti {sorted(ignoti)}")
+        da_leggere = {f for S in SERVIZI if S["slug"] in solo for f in FONTI_SERVIZIO.get(S["slug"], [S["fonte"]])}
     for k, F in FONTI.items():
         if F.get("derivata"):
+            continue
+        if da_leggere is not None and k not in da_leggere:
+            if k in prima.get("letture", {}):
+                letture[k] = prima["letture"][k]
             continue
         # Spotify a volte risponde 200 con una pagina d'errore ("This page got tripped up"): si riprova finché c'è il segno atteso
         segno = SEGNI.get(k)
@@ -613,15 +838,25 @@ def main():
         grezzi["google_wallet_paesi"] = json.dumps(pp, ensure_ascii=False, indent=0, sort_keys=True)
         (CACHE / "google_wallet_paesi.json").write_text(grezzi["google_wallet_paesi"], encoding="utf-8")
         letture["google_wallet_paesi"] = {"url": FONTI["google_wallet_paesi"]["url"], "pagine": len(pp), "data_fonte": None}
+    elif da_leggere is not None and "google_wallet_paesi" in prima.get("letture", {}):
+        letture["google_wallet_paesi"] = prima["letture"]["google_wallet_paesi"]
     frasi = {}
     for k, (fonte, frase) in FRASI.items():
         if fonte not in grezzi:
+            if da_leggere is not None and k in prima.get("frasi", {}):
+                frasi[k] = prima["frasi"][k]  # fonte non riletta (--solo): frase della lettura precedente
             continue
         if frase not in testo(grezzi[fonte]):
             problemi.append(f"frase {k} non trovata in {fonte}: {frase!r}")
         frasi[k] = {"fonte": fonte, "url": FONTI[fonte]["url"], "frase": frase}
     servizi, cambi = [], []
     for S in SERVIZI:
+        if solo and S["slug"] not in solo:
+            if S["slug"] in prima_per:
+                servizi.append(prima_per[S["slug"]])  # non riletto: voce dell'ultima lettura buona, invariata
+            else:
+                problemi.append(f"{S['slug']}: mai letto (aggiungerlo a --solo)")
+            continue
         if S["fonte"] not in grezzi:
             problemi.append(f"{S['slug']}: fonte non letta")
             continue
@@ -672,9 +907,17 @@ def main():
 
 
 if __name__ == "__main__":
+    solo = None
     for a in sys.argv[1:]:
         if a == "--domanda":
             domanda()
         elif a.startswith("--domanda="):
             domanda(a.split("=", 1)[1].split(","))
-    main()
+        elif a == "--domanda-starlink":
+            domanda_starlink()
+        elif a == "--domanda-starlink-paesi":  # solo questo campione: le fonti non si rileggono
+            domanda_starlink_paesi()
+            sys.exit(0)
+        elif a.startswith("--solo="):
+            solo = a.split("=", 1)[1].split(",")
+    main(solo)

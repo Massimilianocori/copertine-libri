@@ -1,0 +1,1508 @@
+{
+ "_nota": "Ricerche vere sulla disponibilità di Starlink che nominano il Paese, chieste Paese per Paese all'autocompletamento di Google (client=firefox, gl=us, hl=en; modelli 'is starlink available in <Paese>' e 'starlink in <Paese>', anche con i nomi alternativi). Valgono solo le proposte con sottotipo diverso da 160, 299 e 650 e con sole parole di una domanda sulla disponibilità. Un Paese senza voce qui (e fuori da dati/servizi_domanda.json) non ha una pagina Starlink: resta una riga della tabella. Riscritto da raccolta/servizi.py --domanda-starlink-paesi.",
+ "letto_il": "2026-11-12",
+ "richieste_perse": [],
+ "sottotipi_visti": {
+  "10": 32,
+  "131": 1,
+  "22": 1950,
+  "30": 1950,
+  "390": 1086,
+  "433": 1,
+  "455": 3,
+  "512": 1555,
+  "650": 1086,
+  "948": 19
+ },
+ "paesi": {
+  "AD": [
+   "is starlink available in andorra",
+   "starlink in andorra",
+   "does starlink work in andorra"
+  ],
+  "AE": [
+   "is starlink available in united arab emirates"
+  ],
+  "AF": [
+   "is starlink available in afghanistan",
+   "is starlink internet available in afghanistan",
+   "is starlink in afghanistan",
+   "starlink in afghanistan",
+   "starlink internet in afghanistan",
+   "starlink work in afghanistan",
+   "starlink available in afghanistan"
+  ],
+  "AG": [
+   "is starlink available in antigua and barbuda"
+  ],
+  "AI": [
+   "is starlink available in anguilla",
+   "starlink in anguilla"
+  ],
+  "AL": [
+   "is starlink available in albania",
+   "is starlink in albania",
+   "starlink in albania",
+   "is there starlink in albania",
+   "does starlink work in albania"
+  ],
+  "AM": [
+   "is starlink available in armenia",
+   "starlink in armenia",
+   "starlink internet in armenia",
+   "is there starlink in armenia",
+   "does starlink work in armenia"
+  ],
+  "AO": [
+   "is starlink available in angola",
+   "is starlink in angola",
+   "starlink in angola",
+   "starlink available in angola",
+   "starlink works in angola",
+   "starlink coverage in angola",
+   "is there starlink in angola",
+   "does starlink work in angola",
+   "can you use starlink in angola"
+  ],
+  "AQ": [
+   "is starlink available in antarctica",
+   "is starlink in antarctica",
+   "starlink in antarctica",
+   "starlink work in antarctica",
+   "starlink banned in antarctica",
+   "no starlink in antarctica",
+   "starlink coverage in antarctica",
+   "starlink illegal in antarctica",
+   "using starlink in antarctica"
+  ],
+  "AR": [
+   "is starlink available in argentina",
+   "starlink in argentina",
+   "starlink available in argentina"
+  ],
+  "AS": [
+   "is starlink available in american samoa",
+   "starlink in american samoa",
+   "does starlink work in american samoa"
+  ],
+  "AT": [
+   "is starlink available in austria",
+   "starlink in austria"
+  ],
+  "AU": [
+   "is starlink available in australia",
+   "is starlink internet available in australia",
+   "starlink in australia",
+   "starlink internet in australia",
+   "starlink available in australia"
+  ],
+  "AW": [
+   "is starlink available in aruba",
+   "starlink in aruba",
+   "starlink aruba availability",
+   "does starlink work in aruba"
+  ],
+  "AZ": [
+   "is starlink available in azerbaijan",
+   "starlink in azerbaijan",
+   "is there starlink in azerbaijan",
+   "does starlink work in azerbaijan"
+  ],
+  "BA": [
+   "is starlink available in bosnia and herzegovina",
+   "starlink in bosnia and herzegovina",
+   "does starlink work in bosnia and herzegovina",
+   "can i use starlink in bosnia and herzegovina"
+  ],
+  "BB": [
+   "is starlink available in barbados",
+   "is starlink in barbados",
+   "starlink in barbados",
+   "starlink internet in barbados",
+   "does starlink work in barbados"
+  ],
+  "BD": [
+   "is starlink available in bangladesh",
+   "is starlink internet available in bangladesh",
+   "is starlink in bangladesh",
+   "starlink in bangladesh"
+  ],
+  "BE": [
+   "is starlink available in belgium",
+   "is starlink in belgium",
+   "starlink in belgium",
+   "starlink internet in belgium"
+  ],
+  "BF": [
+   "is starlink available in burkina faso",
+   "is starlink banned in burkina faso",
+   "is starlink allowed in burkina faso",
+   "is starlink in burkina faso",
+   "starlink in burkina faso"
+  ],
+  "BG": [
+   "is starlink available in bulgaria",
+   "starlink in bulgaria"
+  ],
+  "BH": [
+   "is starlink available in bahrain",
+   "is starlink in bahrain",
+   "starlink in bahrain",
+   "starlink available in bahrain",
+   "starlink internet in bahrain"
+  ],
+  "BI": [
+   "is starlink available in burundi",
+   "is starlink in burundi",
+   "starlink in burundi",
+   "starlink internet in burundi",
+   "does starlink work in burundi"
+  ],
+  "BJ": [
+   "is starlink available in benin",
+   "starlink in benin"
+  ],
+  "BM": [
+   "is starlink available in bermuda",
+   "is starlink in bermuda",
+   "starlink in bermuda",
+   "does starlink work in bermuda",
+   "can you get starlink in bermuda"
+  ],
+  "BN": [
+   "is starlink available in brunei",
+   "starlink in brunei",
+   "can i use starlink in brunei"
+  ],
+  "BO": [
+   "is starlink available in bolivia",
+   "why is starlink not available in bolivia",
+   "starlink in bolivia",
+   "why no starlink in bolivia",
+   "is there starlink in bolivia",
+   "does starlink work in bolivia"
+  ],
+  "BR": [
+   "is starlink available in brazil",
+   "starlink in brazil",
+   "starlink available in brazil",
+   "starlink work.in.brazil",
+   "starlink internet in brazil",
+   "starlink banned in brazil",
+   "starlink coverage in brazil"
+  ],
+  "BS": [
+   "is starlink available in bahamas",
+   "starlink in bahamas",
+   "starlink roam in bahamas",
+   "starlink available in bahamas"
+  ],
+  "BT": [
+   "is starlink available in bhutan",
+   "is starlink in bhutan",
+   "starlink in bhutan",
+   "starlink internet in bhutan",
+   "starlink available in bhutan"
+  ],
+  "BW": [
+   "is starlink available in botswana",
+   "is starlink roam available in botswana",
+   "starlink in botswana",
+   "starlink internet in botswana"
+  ],
+  "BY": [
+   "is starlink available in belarus",
+   "starlink in belarus",
+   "does starlink work in belarus",
+   "will starlink work in belarus"
+  ],
+  "BZ": [
+   "is starlink available in belize",
+   "why is starlink not available in belize",
+   "is starlink in belize",
+   "starlink in belize",
+   "starlink internet in belize",
+   "starlink available in belize",
+   "starlink work in belize",
+   "using starlink in belize"
+  ],
+  "CA": [
+   "is starlink available in canada",
+   "is starlink internet available in canada",
+   "is starlink roam available in canada",
+   "starlink in canada"
+  ],
+  "CD": [
+   "is starlink available in dr congo",
+   "starlink in dr congo"
+  ],
+  "CF": [
+   "is starlink available in central african republic",
+   "starlink in central african republic",
+   "starlink central african republic launch",
+   "does starlink work in central african republic"
+  ],
+  "CH": [
+   "is starlink available in switzerland",
+   "is starlink in switzerland",
+   "starlink in switzerland",
+   "starlink available in switzerland",
+   "is there starlink in switzerland",
+   "does starlink work in switzerland",
+   "can i use starlink in switzerland"
+  ],
+  "CI": [
+   "is starlink available in cote d'ivoire",
+   "is starlink available in ivory coast",
+   "starlink in ivory coast",
+   "starlink internet in ivory coast",
+   "starlink ivory coast launch",
+   "does starlink work in ivory coast"
+  ],
+  "CK": [
+   "is starlink available in the cook islands",
+   "starlink in cook islands",
+   "does starlink work in the cook islands"
+  ],
+  "CL": [
+   "is starlink available in chile",
+   "is starlink in chile",
+   "starlink in chile",
+   "starlink coverage in chile"
+  ],
+  "CM": [
+   "is starlink available in cameroon",
+   "is starlink now available in cameroon",
+   "starlink in cameroon",
+   "starlink internet in cameroon",
+   "starlink available in cameroon",
+   "starlink banned in cameroon",
+   "starlink work in cameroon",
+   "using starlink in cameroon"
+  ],
+  "CN": [
+   "is starlink available in china",
+   "is starlink internet available in china",
+   "is starlink not available in china",
+   "starlink in china",
+   "starlink banned in china",
+   "starlink available in china",
+   "starlink works in china",
+   "use starlink in china",
+   "starlink internet in china"
+  ],
+  "CO": [
+   "is starlink available in colombia",
+   "starlink in colombia",
+   "starlink work in colombia",
+   "starlink coverage in colombia",
+   "starlink internet in colombia"
+  ],
+  "CR": [
+   "is starlink available in costa rica",
+   "is starlink in costa rica",
+   "starlink in costa rica",
+   "starlink work in costa rica",
+   "starlink coverage in costa rica",
+   "starlink available in costa rica",
+   "starlink service in costa rica"
+  ],
+  "CU": [
+   "is starlink available in cuba",
+   "is starlink in cuba",
+   "starlink in cuba",
+   "starlink works in cuba",
+   "starlink available in cuba",
+   "using starlink in cuba",
+   "starlink allowed in cuba"
+  ],
+  "CV": [
+   "is starlink available in cape verde",
+   "starlink in cape verde",
+   "does starlink work in cape verde"
+  ],
+  "CW": [
+   "is starlink available in curacao",
+   "starlink in curacao",
+   "can i use starlink in curacao"
+  ],
+  "CY": [
+   "is starlink available in cyprus",
+   "is starlink in cyprus",
+   "starlink in cyprus",
+   "starlink internet in cyprus",
+   "starlink coverage cyprus"
+  ],
+  "CZ": [
+   "is starlink available in czech republic",
+   "starlink in czech republic",
+   "does starlink work in czech republic"
+  ],
+  "DE": [
+   "is starlink available in germany",
+   "is starlink in germany",
+   "starlink in germany",
+   "starlink internet in germany",
+   "starlink available in germany"
+  ],
+  "DJ": [
+   "is starlink available in djibouti",
+   "starlink in djibouti",
+   "using starlink in djibouti",
+   "starlink work in djibouti",
+   "does starlink work in djibouti",
+   "can you use starlink in djibouti",
+   "is starlink legal in djibouti",
+   "is starlink banned in djibouti"
+  ],
+  "DK": [
+   "is starlink available in denmark",
+   "starlink in denmark",
+   "is there starlink in denmark",
+   "does starlink work in denmark"
+  ],
+  "DM": [
+   "is starlink available in dominica",
+   "starlink in dominica"
+  ],
+  "DO": [
+   "is starlink available in dominican republic",
+   "starlink in dominican republic",
+   "starlink internet in dominican republic",
+   "starlink work in dominican republic"
+  ],
+  "DZ": [
+   "is starlink available in algeria",
+   "starlink in algeria",
+   "starlink internet in algeria",
+   "starlink works in algeria",
+   "starlink available in algeria",
+   "does starlink work in algeria",
+   "is starlink banned in algeria",
+   "can i get starlink in algeria",
+   "is starlink legal in algeria"
+  ],
+  "EC": [
+   "is starlink available in ecuador",
+   "starlink in ecuador",
+   "starlink works in ecuador",
+   "can you get starlink in ecuador"
+  ],
+  "EE": [
+   "is starlink available in estonia",
+   "is starlink in estonia",
+   "starlink in estonia"
+  ],
+  "EG": [
+   "is starlink available in egypt",
+   "does starlink available in egypt",
+   "is starlink internet available in egypt",
+   "why is starlink not available in egypt",
+   "starlink in egypt",
+   "starlink internet in egypt",
+   "starlink available in egypt",
+   "starlink works in egypt",
+   "starlink banned in egypt",
+   "starlink allowed in egypt",
+   "starlink coverage in egypt",
+   "using starlink in egypt"
+  ],
+  "ER": [
+   "is starlink available in eritrea",
+   "starlink in eritrea",
+   "starlink internet in eritrea",
+   "starlink work in eritrea",
+   "is there starlink in eritrea",
+   "does starlink work in eritrea",
+   "can starlink work in eritrea",
+   "will starlink work in eritrea"
+  ],
+  "ES": [
+   "is starlink available in spain",
+   "is starlink in spain",
+   "starlink in spain",
+   "starlink internet in spain",
+   "starlink work in spain"
+  ],
+  "ET": [
+   "is starlink available in ethiopia",
+   "is starlink internet available in ethiopia",
+   "starlink in ethiopia",
+   "starlink work in ethiopia",
+   "starlink internet in ethiopia",
+   "starlink available in ethiopia",
+   "starlink allowed in ethiopia",
+   "starlink internet work in ethiopia"
+  ],
+  "FI": [
+   "is starlink available in finland",
+   "is starlink in finland",
+   "starlink in finland",
+   "is there starlink in finland",
+   "does starlink work in finland"
+  ],
+  "FJ": [
+   "is starlink available in fiji",
+   "starlink in fiji",
+   "starlink internet in fiji"
+  ],
+  "FK": [
+   "is starlink available in the falkland islands",
+   "starlink in falkland islands"
+  ],
+  "FM": [
+   "is starlink available in micronesia",
+   "starlink in micronesia",
+   "does starlink work in micronesia"
+  ],
+  "FR": [
+   "is starlink available in france",
+   "starlink in france",
+   "starlink available in france",
+   "starlink roam in france",
+   "using starlink in france"
+  ],
+  "GA": [
+   "is starlink available in gabon",
+   "starlink in gabon"
+  ],
+  "GB": [
+   "is starlink available in united kingdom"
+  ],
+  "GD": [
+   "is starlink available in grenada",
+   "is starlink in grenada",
+   "starlink in grenada",
+   "does starlink work in grenada",
+   "can starlink work in grenada"
+  ],
+  "GE": [
+   "is starlink available in georgia",
+   "is starlink in georgia",
+   "starlink in georgia",
+   "starlink internet in georgia"
+  ],
+  "GG": [
+   "starlink in guernsey"
+  ],
+  "GH": [
+   "is starlink available in ghana",
+   "is starlink internet available in ghana",
+   "is starlink in ghana",
+   "is starlink in ghana now",
+   "starlink in ghana",
+   "starlink internet in ghana"
+  ],
+  "GI": [
+   "is starlink available in gibraltar",
+   "starlink in gibraltar"
+  ],
+  "GL": [
+   "is starlink available in greenland",
+   "why is starlink not available in greenland",
+   "is starlink in greenland",
+   "starlink in greenland",
+   "using starlink in greenland",
+   "why no starlink in greenland",
+   "does starlink work in greenland",
+   "can you use starlink in greenland",
+   "is starlink banned in greenland",
+   "will starlink work in greenland",
+   "is starlink legal in greenland",
+   "can you get starlink in greenland"
+  ],
+  "GM": [
+   "is starlink available in gambia",
+   "is starlink in gambia",
+   "starlink in gambia",
+   "starlink internet in gambia",
+   "does starlink work in gambia",
+   "can i use starlink in gambia"
+  ],
+  "GN": [
+   "is starlink available in guinea",
+   "is starlink in guinea",
+   "starlink in guinea",
+   "starlink available in guinea",
+   "is there starlink in guinea"
+  ],
+  "GQ": [
+   "is starlink available in equatorial guinea",
+   "starlink in equatorial guinea"
+  ],
+  "GR": [
+   "is starlink available in greece",
+   "is starlink in greece",
+   "starlink in greece",
+   "starlink internet in greece",
+   "starlink available in greece",
+   "starlink work in greece"
+  ],
+  "GT": [
+   "is starlink available in guatemala",
+   "starlink in guatemala",
+   "does starlink work in guatemala",
+   "starlink internet in guatemala"
+  ],
+  "GU": [
+   "is starlink available in guam",
+   "starlink in guam",
+   "starlink available in guam",
+   "starlink work in guam"
+  ],
+  "GY": [
+   "is starlink available in guyana",
+   "starlink in guyana",
+   "starlink internet in guyana",
+   "starlink service in guyana",
+   "starlink available in guyana"
+  ],
+  "HK": [
+   "is starlink available in hong kong",
+   "is starlink banned in hong kong",
+   "is starlink allowed in hong kong",
+   "is starlink legal in hong kong",
+   "is starlink working in hong kong",
+   "starlink in hong kong",
+   "starlink available in hong kong",
+   "starlink work in hong kong",
+   "use starlink in hong kong",
+   "is there starlink in hong kong"
+  ],
+  "HN": [
+   "is starlink available in honduras",
+   "is starlink in honduras",
+   "starlink in honduras",
+   "starlink work in honduras",
+   "is there starlink in honduras",
+   "does starlink work in honduras",
+   "starlink internet in honduras"
+  ],
+  "HR": [
+   "is starlink available in croatia",
+   "starlink in croatia",
+   "starlink internet in croatia",
+   "is there starlink in croatia"
+  ],
+  "HT": [
+   "is starlink available in haiti",
+   "starlink in haiti",
+   "starlink internet in haiti",
+   "starlink service in haiti"
+  ],
+  "HU": [
+   "is starlink available in hungary",
+   "starlink in hungary",
+   "is there starlink in hungary",
+   "does starlink work in hungary",
+   "starlink internet in hungary"
+  ],
+  "ID": [
+   "is starlink available in indonesia",
+   "starlink in indonesia",
+   "starlink available in indonesia",
+   "starlink banned in indonesia",
+   "starlink work in indonesia"
+  ],
+  "IE": [
+   "is starlink available in ireland",
+   "is starlink internet available in ireland",
+   "is starlink in ireland",
+   "starlink in ireland",
+   "starlink coverage in ireland"
+  ],
+  "IL": [
+   "is starlink available in israel",
+   "is starlink in israel",
+   "starlink in israel",
+   "starlink available in israel",
+   "starlink works in israel",
+   "starlink roam in israel",
+   "starlink internet in israel",
+   "starlink service in israel"
+  ],
+  "IM": [
+   "starlink in isle of man"
+  ],
+  "IN": [
+   "is starlink available in india",
+   "is starlink available in india now",
+   "does starlink available in india",
+   "is starlink internet available in india",
+   "starlink in india",
+   "starlink in india available"
+  ],
+  "IQ": [
+   "is starlink available in iraq",
+   "starlink in iraq",
+   "starlink internet in iraq",
+   "starlink available in iraq",
+   "starlink work in iraq"
+  ],
+  "IR": [
+   "is starlink available in iran",
+   "is starlink internet available in iran",
+   "why is starlink not available in iran",
+   "is starlink in iran",
+   "is starlink in iran now",
+   "starlink in iran",
+   "starlink in iran now"
+  ],
+  "IS": [
+   "is starlink available in iceland",
+   "is starlink in iceland",
+   "starlink in iceland",
+   "starlink coverage in iceland",
+   "does starlink work in iceland",
+   "can i use starlink in iceland",
+   "will starlink work in iceland"
+  ],
+  "IT": [
+   "is starlink available in italy",
+   "is starlink internet available in italy",
+   "is starlink in italy",
+   "starlink in italy",
+   "starlink internet in italy",
+   "starlink work in italy",
+   "starlink available in italy",
+   "starlink coverage in italy"
+  ],
+  "JE": [
+   "starlink in jersey"
+  ],
+  "JM": [
+   "is starlink available in jamaica now",
+   "is starlink available in jamaica",
+   "is starlink service available in jamaica",
+   "starlink in jamaica",
+   "starlink internet in jamaica",
+   "starlink availability in jamaica"
+  ],
+  "JO": [
+   "is starlink available in jordan",
+   "is starlink in jordan",
+   "starlink in jordan",
+   "starlink internet in jordan",
+   "starlink available in jordan"
+  ],
+  "JP": [
+   "is starlink available in japan",
+   "starlink in japan",
+   "starlink work in japan",
+   "starlink available in japan",
+   "starlink internet in japan"
+  ],
+  "KE": [
+   "is starlink available in kenya",
+   "is starlink internet available in kenya",
+   "is starlink in kenya",
+   "starlink in kenya",
+   "starlink internet in kenya"
+  ],
+  "KG": [
+   "is starlink available in kyrgyzstan",
+   "starlink in kyrgyzstan",
+   "is there starlink in kyrgyzstan",
+   "does starlink work in kyrgyzstan"
+  ],
+  "KH": [
+   "is starlink available in cambodia",
+   "is starlink in cambodia",
+   "starlink in cambodia",
+   "starlink available in cambodia",
+   "starlink internet in cambodia",
+   "starlink work in cambodia",
+   "is there starlink in cambodia",
+   "starlink can use in cambodia",
+   "does starlink work in cambodia",
+   "can you get starlink in.cambodia"
+  ],
+  "KI": [
+   "is starlink available in kiribati",
+   "starlink in kiribati",
+   "does starlink work in kiribati"
+  ],
+  "KN": [
+   "is starlink available in st kitts and nevis",
+   "starlink in st kitts and nevis"
+  ],
+  "KP": [
+   "is starlink available in north korea",
+   "is starlink in north korea",
+   "starlink in north korea",
+   "is there starlink in north korea",
+   "does starlink work in north korea"
+  ],
+  "KR": [
+   "is starlink available in south korea",
+   "is starlink in south korea",
+   "is starlink allowed in south korea",
+   "is starlink banned in south korea",
+   "is starlink legal in south korea",
+   "starlink in south korea",
+   "starlink works in south korea",
+   "starlink available in south korea",
+   "can i use starlink in south korea"
+  ],
+  "KW": [
+   "is starlink available in kuwait",
+   "is starlink in kuwait",
+   "starlink in kuwait",
+   "starlink internet in kuwait",
+   "starlink available in kuwait",
+   "starlink work in kuwait",
+   "starlink service in kuwait"
+  ],
+  "KY": [
+   "is starlink available in cayman islands",
+   "starlink in cayman islands",
+   "does starlink work in cayman islands"
+  ],
+  "KZ": [
+   "is starlink available in kazakhstan",
+   "is starlink in kazakhstan",
+   "starlink in kazakhstan",
+   "does starlink work in kazakhstan",
+   "can i use starlink in kazakhstan",
+   "is starlink allowed in kazakhstan"
+  ],
+  "LA": [
+   "is starlink available in laos",
+   "is starlink in laos",
+   "starlink in laos",
+   "is there starlink in laos",
+   "does starlink work in laos",
+   "can i use starlink in laos",
+   "can you use starlink in laos",
+   "is starlink legal in laos",
+   "is starlink allowed in laos"
+  ],
+  "LB": [
+   "is starlink available in lebanon",
+   "is starlink internet available in lebanon",
+   "is starlink in lebanon",
+   "starlink in lebanon",
+   "starlink available in lebanon",
+   "starlink internet in lebanon",
+   "starlink works in lebanon",
+   "starlink service in lebanon"
+  ],
+  "LC": [
+   "is starlink available in saint lucia",
+   "is starlink available in st lucia",
+   "starlink in st lucia",
+   "will starlink work in st lucia",
+   "when will starlink be available in st lucia"
+  ],
+  "LK": [
+   "is starlink available in sri lanka",
+   "is starlink in sri lanka",
+   "is starlink allowed in sri lanka",
+   "is starlink banned in sri lanka",
+   "starlink in sri lanka",
+   "starlink internet in sri lanka"
+  ],
+  "LR": [
+   "is starlink available in liberia",
+   "starlink in liberia",
+   "starlink internet in liberia"
+  ],
+  "LS": [
+   "is starlink available in lesotho",
+   "is starlink in lesotho",
+   "starlink in lesotho",
+   "starlink internet in lesotho",
+   "starlink launch in lesotho"
+  ],
+  "LT": [
+   "is starlink available in lithuania",
+   "starlink in lithuania",
+   "does starlink work in lithuania"
+  ],
+  "LU": [
+   "is starlink available in luxembourg",
+   "starlink in luxembourg"
+  ],
+  "LV": [
+   "is starlink available in latvia",
+   "is starlink in latvia",
+   "starlink in latvia",
+   "starlink internet in latvia",
+   "does starlink work in latvia"
+  ],
+  "LY": [
+   "is starlink available in libya",
+   "is starlink in libya",
+   "starlink in libya",
+   "starlink internet in libya",
+   "is there starlink in libya",
+   "does starlink work in libya"
+  ],
+  "MA": [
+   "is starlink available in morocco",
+   "starlink in morocco",
+   "starlink work in morocco",
+   "starlink available in morocco",
+   "starlink internet in morocco",
+   "using starlink in morocco",
+   "starlink coverage in morocco"
+  ],
+  "MC": [
+   "is starlink available in monaco",
+   "starlink in monaco",
+   "does starlink work in monaco"
+  ],
+  "MD": [
+   "is starlink available in moldova",
+   "starlink in moldova",
+   "does starlink work in moldova"
+  ],
+  "ME": [
+   "is starlink available in montenegro",
+   "is starlink in montenegro",
+   "starlink in montenegro",
+   "is there starlink in montenegro",
+   "does starlink work in montenegro",
+   "is starlink working in montenegro"
+  ],
+  "MG": [
+   "is starlink available in madagascar",
+   "starlink in madagascar",
+   "is there starlink in madagascar"
+  ],
+  "MH": [
+   "is starlink available in marshall islands",
+   "starlink in marshall islands",
+   "does starlink work in marshall islands"
+  ],
+  "MK": [
+   "is starlink available in north macedonia",
+   "starlink in north macedonia"
+  ],
+  "ML": [
+   "is starlink available in mali",
+   "is starlink in mali",
+   "starlink in mali",
+   "is there starlink in mali"
+  ],
+  "MM": [
+   "is starlink available in myanmar",
+   "is starlink in myanmar",
+   "starlink in myanmar",
+   "starlink internet in myanmar",
+   "starlink available in myanmar",
+   "starlink service in myanmar"
+  ],
+  "MN": [
+   "is starlink available in mongolia",
+   "is starlink in mongolia",
+   "starlink in mongolia"
+  ],
+  "MO": [
+   "starlink in macau"
+  ],
+  "MR": [
+   "is starlink available in mauritania",
+   "is starlink in mauritania",
+   "starlink in mauritania",
+   "does starlink work in mauritania"
+  ],
+  "MT": [
+   "is starlink available in malta",
+   "starlink in malta",
+   "does starlink work in malta"
+  ],
+  "MU": [
+   "is starlink available in mauritius",
+   "is starlink in mauritius",
+   "starlink in mauritius",
+   "starlink available in mauritius",
+   "starlink internet in mauritius",
+   "does starlink work in mauritius",
+   "can you get starlink in mauritius",
+   "is starlink legal in mauritius"
+  ],
+  "MV": [
+   "is starlink available in maldives",
+   "starlink in maldives",
+   "starlink internet in maldives"
+  ],
+  "MW": [
+   "is starlink available in malawi",
+   "is starlink in malawi",
+   "starlink in malawi",
+   "starlink internet in malawi"
+  ],
+  "MX": [
+   "is starlink available in mexico",
+   "is starlink internet available in mexico",
+   "starlink in mexico",
+   "starlink work in mexico"
+  ],
+  "MY": [
+   "is starlink available in malaysia",
+   "is starlink internet available in malaysia",
+   "starlink in malaysia",
+   "starlink available in malaysia",
+   "starlink internet in malaysia"
+  ],
+  "MZ": [
+   "is starlink available in mozambique",
+   "is starlink in mozambique",
+   "starlink in mozambique"
+  ],
+  "NA": [
+   "is starlink available in namibia",
+   "is starlink in namibia",
+   "starlink in namibia",
+   "starlink available in namibia",
+   "starlink banned in namibia",
+   "starlink work in namibia",
+   "using starlink in namibia",
+   "starlink internet in namibia"
+  ],
+  "NC": [
+   "is starlink available in new caledonia",
+   "starlink in new caledonia",
+   "does starlink work in new caledonia"
+  ],
+  "NE": [
+   "is starlink available in niger"
+  ],
+  "NG": [
+   "is starlink available in nigeria",
+   "is starlink available in nigeria now",
+   "is starlink roam available in nigeria",
+   "is starlink internet available in nigeria",
+   "starlink in nigeria"
+  ],
+  "NI": [
+   "is starlink available in nicaragua",
+   "why is starlink not available in nicaragua",
+   "starlink in nicaragua",
+   "starlink available in nicaragua",
+   "starlink work in nicaragua",
+   "using starlink in nicaragua",
+   "is there starlink in nicaragua",
+   "does starlink work in nicaragua",
+   "can i use starlink in nicaragua",
+   "is starlink legal in nicaragua"
+  ],
+  "NL": [
+   "is starlink available in netherlands",
+   "starlink in netherlands"
+  ],
+  "NO": [
+   "is starlink available in norway",
+   "is starlink in norway",
+   "starlink in norway",
+   "starlink coverage in norway",
+   "starlink internet in norway",
+   "is there starlink in norway"
+  ],
+  "NP": [
+   "is starlink available in nepal",
+   "is starlink internet available in nepal",
+   "is starlink in nepal",
+   "starlink in nepal",
+   "starlink internet in nepal",
+   "starlink available in nepal",
+   "starlink work in nepal",
+   "starlink service in nepal"
+  ],
+  "NR": [
+   "starlink in nauru"
+  ],
+  "NU": [
+   "is starlink available in niue",
+   "starlink in niue",
+   "does starlink work in niue"
+  ],
+  "NZ": [
+   "is starlink available in new zealand",
+   "is starlink in new zealand",
+   "is starlink legal in new zealand",
+   "starlink in new zealand",
+   "starlink internet in new zealand",
+   "starlink available in new zealand",
+   "starlink coverage in new zealand"
+  ],
+  "OM": [
+   "is starlink available in oman",
+   "is starlink roam available in oman",
+   "starlink in oman",
+   "starlink available in oman",
+   "starlink internet in oman",
+   "starlink service in oman",
+   "starlink working in oman",
+   "starlink roam in oman"
+  ],
+  "PA": [
+   "is starlink available in panama",
+   "is starlink in panama",
+   "starlink in panama",
+   "starlink service in panama",
+   "starlink available in panama"
+  ],
+  "PE": [
+   "is starlink available in peru",
+   "starlink in peru",
+   "starlink work in peru",
+   "starlink coverage in peru",
+   "starlink internet in peru"
+  ],
+  "PF": [
+   "is starlink available in french polynesia",
+   "starlink in french polynesia",
+   "starlink coverage french polynesia",
+   "does starlink work in french polynesia"
+  ],
+  "PG": [
+   "is starlink available in papua new guinea",
+   "is starlink legal in papua new guinea",
+   "is starlink allowed in papua new guinea",
+   "is starlink banned in papua new guinea",
+   "does starlink work in papua new guinea",
+   "starlink in papua new guinea"
+  ],
+  "PH": [
+   "is starlink available in philippines",
+   "does starlink available in philippines",
+   "is starlink internet available in philippines",
+   "is starlink roam available in philippines",
+   "starlink in philippines",
+   "starlink internet in philippines",
+   "starlink available in philippines"
+  ],
+  "PK": [
+   "is starlink available in pakistan",
+   "is starlink internet available in pakistan",
+   "is starlink service available in pakistan",
+   "why is starlink not available in pakistan",
+   "is starlink in pakistan",
+   "starlink in pakistan",
+   "starlink in pakistan available",
+   "starlink internet in pakistan"
+  ],
+  "PL": [
+   "is starlink available in poland",
+   "starlink in poland"
+  ],
+  "PR": [
+   "is starlink available in puerto rico",
+   "is starlink in puerto rico",
+   "starlink in puerto rico",
+   "starlink internet in puerto rico",
+   "starlink service in puerto rico",
+   "starlink works in puerto rico",
+   "starlink available in puerto rico",
+   "starlink coverage in puerto rico"
+  ],
+  "PS": [
+   "is starlink available in palestine",
+   "is starlink in palestine",
+   "starlink in palestine",
+   "is there starlink in palestine",
+   "does starlink work in palestine"
+  ],
+  "PT": [
+   "is starlink available in portugal",
+   "starlink in portugal",
+   "starlink available in portugal"
+  ],
+  "PW": [
+   "is starlink available in palau",
+   "starlink in palau",
+   "does starlink work in palau",
+   "can starlink work in palau"
+  ],
+  "PY": [
+   "is starlink available in paraguay",
+   "starlink in paraguay"
+  ],
+  "QA": [
+   "is starlink available in qatar",
+   "is starlink internet available in qatar",
+   "is starlink in qatar",
+   "starlink in qatar",
+   "starlink internet in qatar"
+  ],
+  "RO": [
+   "is starlink available in romania",
+   "is starlink in romania",
+   "starlink in romania",
+   "is there starlink in romania"
+  ],
+  "RS": [
+   "is starlink available in serbia",
+   "why is starlink not available in serbia",
+   "is starlink in serbia",
+   "starlink in serbia",
+   "starlink available in serbia",
+   "starlink internet in serbia",
+   "is there starlink in serbia"
+  ],
+  "RU": [
+   "is starlink available in russia",
+   "is starlink internet available in russia",
+   "starlink in russia",
+   "starlink works in russia",
+   "starlink banned in russia",
+   "starlink internet in russia"
+  ],
+  "RW": [
+   "is starlink available in rwanda",
+   "is starlink in rwanda",
+   "starlink in rwanda",
+   "starlink internet in rwanda"
+  ],
+  "SA": [
+   "is starlink available in saudi arabia",
+   "is starlink internet available in saudi arabia",
+   "is starlink allowed in saudi arabia",
+   "is starlink working in saudi arabia",
+   "is starlink banned in saudi arabia",
+   "is starlink legal in saudi arabia",
+   "starlink in saudi arabia",
+   "starlink internet in saudi arabia",
+   "starlink available in saudi arabia",
+   "starlink work in saudi arabia",
+   "starlink service in saudi arabia",
+   "starlink allowed in saudi arabia"
+  ],
+  "SB": [
+   "is starlink available in solomon islands",
+   "starlink in solomon islands",
+   "does starlink work in solomon islands"
+  ],
+  "SC": [
+   "is starlink available in seychelles",
+   "is starlink in seychelles",
+   "starlink in seychelles",
+   "is there starlink in seychelles",
+   "does starlink work in seychelles"
+  ],
+  "SD": [
+   "is starlink available in sudan",
+   "starlink in sudan",
+   "starlink internet in sudan",
+   "is there starlink in sudan",
+   "does starlink work in sudan"
+  ],
+  "SE": [
+   "is starlink available in sweden",
+   "is starlink in sweden",
+   "starlink in sweden",
+   "starlink sweden coverage",
+   "is there starlink in sweden",
+   "does starlink work in sweden",
+   "can i use starlink in sweden"
+  ],
+  "SG": [
+   "is starlink available in singapore",
+   "why is starlink not available in singapore",
+   "is starlink in singapore",
+   "starlink in singapore",
+   "starlink available in singapore",
+   "using starlink in singapore",
+   "starlink internet in singapore",
+   "starlink allowed in singapore",
+   "starlink works in singapore"
+  ],
+  "SI": [
+   "is starlink available in slovenia",
+   "starlink in slovenia"
+  ],
+  "SK": [
+   "is starlink available in slovakia",
+   "is starlink in slovakia",
+   "starlink in slovakia",
+   "does starlink work in slovakia"
+  ],
+  "SL": [
+   "is starlink available in sierra leone",
+   "is starlink in sierra leone",
+   "starlink in sierra leone",
+   "starlink internet in sierra leone"
+  ],
+  "SN": [
+   "is starlink available in senegal",
+   "starlink in senegal",
+   "starlink available in senegal",
+   "does starlink work in senegal",
+   "starlink internet in senegal"
+  ],
+  "SO": [
+   "is starlink available in somalia",
+   "is starlink in somalia",
+   "starlink in somalia",
+   "starlink internet in somalia",
+   "starlink available in somalia",
+   "starlink work in somalia"
+  ],
+  "SR": [
+   "is starlink available in suriname",
+   "why is starlink not available in suriname",
+   "is starlink in suriname",
+   "starlink in suriname",
+   "starlink internet in suriname",
+   "does starlink work in suriname",
+   "why no starlink in suriname"
+  ],
+  "SS": [
+   "is starlink available in south sudan",
+   "starlink in south sudan",
+   "starlink internet in south sudan"
+  ],
+  "ST": [
+   "is starlink available in sao tome and principe"
+  ],
+  "SV": [
+   "is starlink available in el salvador",
+   "starlink in el salvador",
+   "starlink works in el salvador",
+   "starlink available in el salvador"
+  ],
+  "SY": [
+   "is starlink available in syria",
+   "is starlink internet available in syria",
+   "is starlink in syria",
+   "starlink in syria",
+   "starlink internet in syria",
+   "starlink available in syria",
+   "starlink work in syria",
+   "starlink service in syria",
+   "starlink coverage syria"
+  ],
+  "SZ": [
+   "is starlink available in eswatini",
+   "starlink in eswatini",
+   "starlink internet in eswatini",
+   "is there starlink in eswatini",
+   "does starlink work in eswatini"
+  ],
+  "TC": [
+   "is starlink available in turks and caicos",
+   "does starlink work in turks and caicos",
+   "can i use starlink in turks and caicos"
+  ],
+  "TD": [
+   "is starlink available in chad",
+   "starlink in chad",
+   "starlink chad availability",
+   "does starlink work in chad"
+  ],
+  "TG": [
+   "is starlink available in togo",
+   "starlink in togo",
+   "starlink internet in togo",
+   "is there starlink in togo",
+   "does starlink work in togo"
+  ],
+  "TH": [
+   "is starlink available in thailand",
+   "is starlink internet available in thailand",
+   "why is starlink not available in thailand",
+   "starlink in thailand",
+   "starlink available in thailand",
+   "starlink work in thailand",
+   "using starlink in thailand",
+   "starlink banned in thailand"
+  ],
+  "TJ": [
+   "is starlink available in tajikistan",
+   "is starlink in tajikistan",
+   "starlink in tajikistan",
+   "starlink available in tajikistan",
+   "starlink tajikistan launch",
+   "starlink now available in tajikistan",
+   "does starlink work in tajikistan",
+   "is starlink legal in tajikistan",
+   "can i use starlink in tajikistan"
+  ],
+  "TL": [
+   "starlink in east timor"
+  ],
+  "TM": [
+   "is starlink available in turkmenistan",
+   "starlink in turkmenistan",
+   "does starlink work in turkmenistan",
+   "can i use starlink in turkmenistan"
+  ],
+  "TN": [
+   "is starlink available in tunisia",
+   "is starlink in tunisia",
+   "starlink in tunisia",
+   "starlink work in tunisia",
+   "is there starlink in tunisia",
+   "can i use starlink in tunisia",
+   "is starlink legal in tunisia"
+  ],
+  "TO": [
+   "is starlink available in tonga",
+   "is starlink in tonga",
+   "starlink in tonga",
+   "starlink internet in tonga",
+   "starlink available in tonga",
+   "starlink work in tonga",
+   "does starlink work in tonga"
+  ],
+  "TR": [
+   "is starlink available in turkey",
+   "is starlink internet available in turkey",
+   "is starlink in turkey",
+   "starlink in turkey",
+   "starlink available in turkey",
+   "starlink works in turkey",
+   "starlink internet in turkey",
+   "starlink banned in turkey",
+   "starlink allowed in turkey",
+   "starlink roam in turkey"
+  ],
+  "TT": [
+   "is starlink available in trinidad and tobago",
+   "is starlink in trinidad and tobago",
+   "starlink in trinidad and tobago",
+   "does starlink work in trinidad and tobago"
+  ],
+  "TV": [
+   "is starlink available in tuvalu",
+   "starlink in tuvalu"
+  ],
+  "TW": [
+   "is starlink available in taiwan",
+   "why is starlink not available in taiwan",
+   "is starlink in taiwan",
+   "starlink in taiwan",
+   "starlink available in taiwan",
+   "starlink work in taiwan",
+   "starlink use in taiwan",
+   "starlink allowed in taiwan",
+   "starlink coverage in taiwan"
+  ],
+  "TZ": [
+   "is starlink available in tanzania",
+   "is starlink internet available in tanzania",
+   "is starlink in tanzania",
+   "starlink in tanzania",
+   "starlink internet in tanzania",
+   "starlink available in tanzania",
+   "starlink work in tanzania",
+   "using starlink in tanzania",
+   "starlink coverage in tanzania"
+  ],
+  "UA": [
+   "is starlink available in ukraine",
+   "is starlink in ukraine",
+   "starlink in ukraine",
+   "starlink in ukraine working",
+   "starlink use in ukraine"
+  ],
+  "UG": [
+   "is starlink available in uganda",
+   "is starlink internet available in uganda",
+   "is starlink now available in uganda",
+   "is starlink in uganda",
+   "starlink in uganda",
+   "starlink internet in uganda"
+  ],
+  "US": [
+   "is starlink available in united states",
+   "starlink in united states"
+  ],
+  "UY": [
+   "is starlink available in uruguay",
+   "is starlink in uruguay",
+   "starlink in uruguay",
+   "does starlink work in uruguay"
+  ],
+  "UZ": [
+   "is starlink available in uzbekistan",
+   "starlink in uzbekistan",
+   "is there starlink in uzbekistan",
+   "does starlink work in uzbekistan",
+   "is starlink legal in uzbekistan"
+  ],
+  "VC": [
+   "is starlink available in st vincent and the grenadines",
+   "starlink in st vincent and the grenadines"
+  ],
+  "VE": [
+   "is starlink available in venezuela",
+   "is starlink in venezuela",
+   "starlink in venezuela",
+   "starlink available in venezuela",
+   "starlink works in venezuela",
+   "starlink service in venezuela"
+  ],
+  "VG": [
+   "is starlink available in the british virgin islands",
+   "does starlink work in the british virgin islands"
+  ],
+  "VI": [
+   "is starlink available in the us virgin islands",
+   "does starlink work in the us virgin islands"
+  ],
+  "VN": [
+   "is starlink available in vietnam",
+   "is starlink in vietnam",
+   "starlink in vietnam",
+   "starlink available in vietnam",
+   "starlink work in vietnam",
+   "starlink service in vietnam",
+   "starlink coverage in vietnam",
+   "starlink banned in vietnam",
+   "using starlink in vietnam"
+  ],
+  "VU": [
+   "is starlink available in vanuatu",
+   "starlink in vanuatu",
+   "does starlink.work in vanuatu"
+  ],
+  "WS": [
+   "is starlink available in samoa",
+   "is starlink in samoa",
+   "starlink in samoa",
+   "does starlink work in samoa"
+  ],
+  "XK": [
+   "is starlink available in kosovo",
+   "is starlink in kosovo",
+   "starlink in kosovo",
+   "does starlink work in kosovo"
+  ],
+  "YE": [
+   "is starlink available in yemen",
+   "is starlink in yemen",
+   "starlink in yemen",
+   "starlink internet in yemen",
+   "starlink work in yemen",
+   "starlink available in yemen"
+  ],
+  "ZA": [
+   "is starlink available in south africa",
+   "is starlink available in south africa yet",
+   "is starlink available in south africa now",
+   "is starlink internet available in south africa",
+   "why is starlink not available in south africa",
+   "is starlink in south africa",
+   "is starlink legal in south africa",
+   "starlink in south africa",
+   "starlink in south africa yet",
+   "starlink available in south africa"
+  ],
+  "ZM": [
+   "is starlink available in zambia",
+   "is starlink in zambia",
+   "starlink in zambia",
+   "starlink internet in zambia"
+  ],
+  "ZW": [
+   "is starlink available in zimbabwe",
+   "is starlink in zimbabwe",
+   "why is starlink roam not available in zimbabwe",
+   "starlink in zimbabwe",
+   "starlink internet in zimbabwe"
+  ]
+ }
+}

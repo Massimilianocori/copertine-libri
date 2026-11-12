@@ -1,10 +1,12 @@
 {
  "_nota": "Ricerche vere (autocompletamento di Google, client=firefox, hl=en) che nominano un Paese: una pagina servizio × Paese esiste solo per queste coppie. Riscritto da raccolta/servizi.py --domanda (--domanda=slug,slug rilegge solo quei servizi).",
- "letto_il": "2026-11-07",
+ "letto_il": "2026-11-12",
  "letto_il_servizi": {
   "apple-music": "2026-10-28",
   "apple-pay": "2026-10-28",
   "apple-tv": "2026-10-28",
+  "bolt": "2026-11-12",
+  "google-fi": "2026-11-12",
   "google-wallet": "2026-11-07",
   "spotify": "2026-10-28",
   "starlink": "2026-10-28",
@@ -68,6 +70,12 @@
   ],
   "stripe": [
    "stripe"
+  ],
+  "bolt": [
+   "bolt"
+  ],
+  "google-fi": [
+   "google fi"
   ]
  },
  "servizi": {
@@ -1580,6 +1588,211 @@
     "stripe not available in south africa",
     "does stripe work in south africa",
     "can i use stripe in south africa"
+   ]
+  },
+  "bolt": {
+   "AE": [
+    "is bolt available in abu dhabi",
+    "is bolt available in dubai",
+    "bolt available in dubai",
+    "is bolt in dubai",
+    "does bolt work in abu dhabi",
+    "does bolt work in dubai",
+    "does bolt work in uae"
+   ],
+   "AU": [
+    "is bolt available in australia",
+    "is bolt in australia",
+    "does bolt work in australia"
+   ],
+   "CA": [
+    "is bolt available in canada",
+    "is bolt in canada",
+    "does bolt work in canada"
+   ],
+   "DE": [
+    "is bolt available in germany",
+    "does bolt work in germany"
+   ],
+   "ES": [
+    "is bolt available in spain",
+    "bolt available in spain",
+    "is bolt in spain",
+    "does bolt work in spain",
+    "can i use bolt in spain"
+   ],
+   "FR": [
+    "is bolt in france"
+   ],
+   "GB": [
+    "is bolt available in the uk",
+    "is bolt available in uk",
+    "bolt available in uk",
+    "is bolt in the uk",
+    "is bolt in uk",
+    "bolt not available in uk",
+    "does bolt work in the uk"
+   ],
+   "GR": [
+    "is bolt available in greece",
+    "does bolt work in greece"
+   ],
+   "IE": [
+    "is bolt in ireland"
+   ],
+   "IN": [
+    "is bolt available in india",
+    "bolt available in india",
+    "is bolt in india",
+    "does bolt work in india"
+   ],
+   "IT": [
+    "is bolt available in italy",
+    "bolt available in italy",
+    "is bolt in italy",
+    "bolt not available in italy",
+    "does bolt work in italy",
+    "can i use bolt in italy"
+   ],
+   "MY": [
+    "is bolt available in malaysia",
+    "bolt available in malaysia",
+    "does bolt work in malaysia",
+    "can i use bolt in malaysia"
+   ],
+   "NG": [
+    "is bolt available in nigeria",
+    "is bolt in nigeria"
+   ],
+   "NL": [
+    "is bolt available in the netherlands"
+   ],
+   "PH": [
+    "is bolt available in philippines",
+    "is bolt available in the philippines"
+   ],
+   "PK": [
+    "does bolt work in pakistan"
+   ],
+   "PT": [
+    "is bolt available in portugal",
+    "is bolt in portugal"
+   ],
+   "SG": [
+    "bolt available in singapore",
+    "does bolt work in singapore"
+   ],
+   "TH": [
+    "is bolt available in thailand",
+    "bolt available in thailand",
+    "can i use bolt in thailand"
+   ],
+   "TN": [
+    "bolt not available in tunisia"
+   ],
+   "TR": [
+    "does bolt work in turkey"
+   ],
+   "US": [
+    "is bolt available in the us",
+    "is bolt available in usa",
+    "bolt available in usa",
+    "is bolt in usa",
+    "is bolt in the united states",
+    "does bolt work in usa",
+    "does bolt work in the us"
+   ],
+   "VN": [
+    "is bolt available in vietnam",
+    "bolt available in vietnam",
+    "does bolt work in vietnam"
+   ],
+   "ZA": [
+    "is bolt in south africa",
+    "does bolt work in south africa"
+   ],
+   "ZW": [
+    "is bolt in zimbabwe",
+    "does bolt work in zimbabwe"
+   ]
+  },
+  "google-fi": {
+   "AE": [
+    "does google fi work in uae"
+   ],
+   "AU": [
+    "is google fi available in australia",
+    "is google fi in australia",
+    "does google fi work in australia"
+   ],
+   "CA": [
+    "is google fi available in canada",
+    "google fi available in canada",
+    "is google fi in canada",
+    "does google fi work in canada",
+    "can i use google fi in canada"
+   ],
+   "CN": [
+    "does google fi work in china",
+    "can i use google fi in china"
+   ],
+   "DE": [
+    "is google fi available in germany",
+    "is google fi in germany",
+    "does google fi work in germany"
+   ],
+   "GB": [
+    "is google fi available in the uk",
+    "google fi available in uk",
+    "is google fi in the uk"
+   ],
+   "IN": [
+    "is google fi available in india",
+    "google fi available in india",
+    "is google fi in india",
+    "does google fi work in india",
+    "can i use google fi in india"
+   ],
+   "JP": [
+    "is google fi available in japan",
+    "is google fi in japan",
+    "does google fi work in japan",
+    "can i use google fi in japan"
+   ],
+   "KR": [
+    "does google fi work in south korea"
+   ],
+   "MX": [
+    "is google fi available in mexico",
+    "is google fi in mexico",
+    "does google fi work in mexico",
+    "can i use google fi in mexico"
+   ],
+   "NG": [
+    "does google fi work in nigeria"
+   ],
+   "NL": [
+    "is google fi available in the netherlands"
+   ],
+   "PH": [
+    "does google fi work in the philippines",
+    "can i use google fi in the philippines",
+    "is google fi available in the philippines"
+   ],
+   "PR": [
+    "does google fi work in puerto rico"
+   ],
+   "TH": [
+    "does google fi work in thailand"
+   ],
+   "TW": [
+    "does google fi work in taiwan"
+   ],
+   "VN": [
+    "does google fi work in vietnam"
+   ],
+   "ZA": [
+    "does google fi work in south africa"
    ]
   }
  }

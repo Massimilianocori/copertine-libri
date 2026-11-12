@@ -1,0 +1,87 @@
+{
+ "_nota": "Pagine tenute online e linkate ma FUORI INDICE: <meta name=\"robots\" content=\"noindex\">, senza canonical, fuori dalla sitemap e senza lo script AdSense (decisione del 12/11/2026, revisione AdSense di before-you-fly.com dopo «Low value content» su esameb1.netlify.app). Due gruppi. 1) \"fuori_indice\": pagine a modello senza visite. Regola: sezione fatta di pagine a modello, online da almeno 14 giorni, con meno di una pagina visitata ogni 20 (GoatCounter, 28 giorni, somma dei due host) oppure pagine quasi uguali tra loro perché la fonte non dà dati per Paese; le pagine della sezione che hanno avuto visite restano in indice (\"tranne\"). Ogni regola vale per i percorsi che iniziano con \"prefisso\"; \"anche_indice\": true comprende la pagina del prefisso stesso; con \"solo\" la regola vale soltanto per i percorsi elencati. 2) \"senza_pubblicita\": pagine di servizio (errore, modulo, privacy) che restano in indice ma senza AdSense: le norme AdSense non vogliono annunci su pagine senza contenuto editoriale. Per rimettere in indice una pagina: aggiungerla a \"tranne\" (o togliere la regola) e rigenerare. Rimisurare ogni 4 settimane con la stessa regola (scratchpad: misura.py).",
+ "misurato_il": "2026-11-12",
+ "periodo_visite": "2026-10-15 / 2026-11-11",
+ "fuori_indice": [
+  {
+   "prefisso": "it/documenti/",
+   "anche_indice": true,
+   "tranne": [],
+   "pagine": 219,
+   "online_dal": "2026-10-19",
+   "visite_28_giorni": 5,
+   "pagine_con_visite": 4,
+   "motivo": "Sezione in italiano dentro un sito in inglese: 219 pagine (12 % del sito), 5 visite in 24 giorni su 4 pagine. È la quarta copia dello schema «documenti per destinazione» (dopo passaporto britannico, canadese e australiano)."
+  },
+  {
+   "prefisso": "available-in/spotify/",
+   "anche_indice": false,
+   "tranne": [],
+   "pagine": 27,
+   "online_dal": "2026-10-28",
+   "visite_28_giorni": 0,
+   "pagine_con_visite": 0,
+   "motivo": "Pagine servizio × Paese con il solo sì/no della lista: 0 visite in 15 giorni. La pagina del servizio (tabella completa, 2 visite) resta in indice."
+  },
+  {
+   "prefisso": "available-in/apple-music/",
+   "anche_indice": false,
+   "tranne": [],
+   "pagine": 14,
+   "online_dal": "2026-10-28",
+   "visite_28_giorni": 0,
+   "pagine_con_visite": 0,
+   "motivo": "Pagine servizio × Paese con il solo sì/no della lista: 0 visite in 15 giorni. La pagina del servizio resta in indice."
+  },
+  {
+   "prefisso": "available-in/apple-tv/",
+   "anche_indice": false,
+   "tranne": [
+    "available-in/apple-tv/china/",
+    "available-in/apple-tv/mexico/",
+    "available-in/apple-tv/spain/"
+   ],
+   "pagine": 21,
+   "online_dal": "2026-10-28",
+   "visite_28_giorni": 0,
+   "pagine_con_visite": 0,
+   "motivo": "Pagine servizio × Paese con il solo sì/no della lista: 3 pagine visitate su 24 in 15 giorni (Cina 3, Messico 1, Spagna 1), che restano in indice; le altre 21 hanno 0 visite."
+  },
+  {
+   "prefisso": "available-in/google-fi/",
+   "anche_indice": false,
+   "tranne": [],
+   "pagine": 17,
+   "online_dal": "2026-11-13",
+   "visite_28_giorni": null,
+   "pagine_con_visite": null,
+   "motivo": "Pagine nuove del 12/11/2026: 15 su 17 sono uguali tranne il nome del Paese (la fonte dà solo una lista, nessun dato per Paese): testo di modello 88 %, il più alto del sito. Non si aggiungono all'indice durante la revisione AdSense; la pagina del servizio (lista completa e regole) resta in indice."
+  },
+  {
+   "prefisso": "pets/",
+   "anche_indice": false,
+   "tranne": [],
+   "solo": [
+    "pets/uk-to-austria/",
+    "pets/uk-to-belgium/",
+    "pets/uk-to-bulgaria/",
+    "pets/uk-to-croatia/",
+    "pets/uk-to-czechia/",
+    "pets/uk-to-denmark/",
+    "pets/uk-to-lithuania/",
+    "pets/uk-to-poland/",
+    "pets/uk-to-sweden/"
+   ],
+   "pagine": 9,
+   "online_dal": "2026-11-01",
+   "visite_28_giorni": 0,
+   "pagine_con_visite": 0,
+   "motivo": "Pagine «Pets: UK to <Paese>» quasi uguali tra loro: la regola è la stessa per tutta l'UE e queste 9 hanno meno di 50 parole proprie su circa 1.400 (misura del 12/11/2026) e 0 visite in 11 giorni. Restano in indice le pagine con regole proprie del Paese (Francia, Irlanda, Norvegia, Spagna, Paesi Bassi, Germania, Finlandia, Malta, Grecia, Italia, Portogallo) e le 3 con poche parole proprie ma visitate (Cipro, Ungheria, Romania)."
+  }
+ ],
+ "senza_pubblicita": [
+  "404.html",
+  "contact/",
+  "privacy.html"
+ ]
+}

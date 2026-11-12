@@ -67,6 +67,25 @@ sys.path.append(str(RADICE.parent / "studio-business" / "strumenti"))
 import monetizzazione as MON  # noqa: E402
 SITO_ID = "beforeyoufly"  # nome del sito in monetizzazione.json ("adsense_siti")
 ADSENSE_HEAD = MON.script_adsense(SITO_ID)  # "" con AdSense spento; altrimenti a capo + script ufficiale, subito dopo il meta di verifica Google
+# Pagine fuori indice e pagine senza pubblicità (12/11/2026, revisione AdSense): regole e motivi in dati/noindex.json. Una pagina fuori
+# indice resta online e linkata, ma ha <meta name="robots" content="noindex">, niente canonical, non è nella sitemap e non ha lo script
+# AdSense (al suo posto il segno di monetizzazione.py: «pagina volutamente senza pubblicità»). Le pagine di servizio (404, modulo di
+# contatto, privacy) restano come sono ma senza AdSense. verifica.py, punto 33.
+ADSENSE_HEAD_NO = MON.script_adsense(SITO_ID, con_pubblicita=False)
+_f_noindex = RADICE / "dati" / "noindex.json"
+NOINDEX = json.loads(_f_noindex.read_text(encoding="utf-8")) if _f_noindex.exists() else {"fuori_indice": [], "senza_pubblicita": []}
+FUORI_INDICE = []  # percorsi generati fuori indice (riempito da pagina())
+
+
+def fuori_indice(percorso):
+    """True se il percorso (es. "it/documenti/giappone/") rientra in una regola di dati/noindex.json."""
+    for r in NOINDEX["fuori_indice"]:
+        pre = r["prefisso"]
+        if percorso in r.get("tranne", []) or ("solo" in r and percorso not in r["solo"]):
+            continue
+        if (percorso.startswith(pre) and percorso != pre) or (percorso == pre and r.get("anche_indice")):
+            return True
+    return False
 
 
 def ci_sono_affiliati():
@@ -585,6 +604,12 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
     profondita = file.count("/")
     rel = "/" if assoluto else ("../" * profondita or "./")  # 404: link assoluti, Netlify la serve a qualsiasi profondità
     url_pag = URL_SITO + "/" + percorso
+    adsense = ADSENSE_HEAD
+    if indicizza and fuori_indice(percorso):  # dati/noindex.json
+        indicizza = False
+        FUORI_INDICE.append(percorso)
+    if not indicizza or percorso in NOINDEX["senza_pubblicita"]:
+        adsense = ADSENSE_HEAD_NO
     if indicizza:
         URLS.append(percorso)
     ld = [{"@context": "https://schema.org", "@type": "WebSite", "name": NOME, "url": URL_SITO + "/"}] if percorso == "" else []
@@ -631,7 +656,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="google-site-verification" content="{GOOGLE_VERIFICA}">
-<meta name="google-site-verification" content="{GOOGLE_VERIFICA_DOMINIO}">{ADSENSE_HEAD}
+<meta name="google-site-verification" content="{GOOGLE_VERIFICA_DOMINIO}">{adsense}
 <title>{escape(titolo)}</title>
 <meta name="description" content="{escape(descrizione)}">
 {canonico}
@@ -3201,6 +3226,12 @@ _f_srv = DATI / "servizi.json"
 SRV = json.loads(_f_srv.read_text(encoding="utf-8")) if _f_srv.exists() else None
 _f_dom = DATI / "servizi_domanda.json"
 SRV_DOMANDA = json.loads(_f_dom.read_text(encoding="utf-8")) if _f_dom.exists() else {"servizi": {}}
+# Revisione del 12/11/2026: ricerche vere su Starlink chieste Paese per Paese (raccolta/servizi.py --domanda-starlink-paesi) e domande vere
+# su Roam e sulla data di arrivo (--domanda-starlink)
+_f_sp = DATI / "starlink_paesi_domanda.json"
+STARLINK_PAESI_DOMANDA = json.loads(_f_sp.read_text(encoding="utf-8"))["paesi"] if _f_sp.exists() else {}
+_f_sd = DATI / "starlink_domanda.json"
+STARLINK_ROAM_CERCATO = set(json.loads(_f_sd.read_text(encoding="utf-8")).get("roam", {})) if _f_sd.exists() else set()
 PAESI_ISO = {p["iso2"]: p for p in json.loads((DATI / "paesi_iso.json").read_text(encoding="utf-8"))["paesi"]} if (DATI / "paesi_iso.json").exists() else {}
 SERVIZI_SRV = SRV["servizi"] if SRV else []
 SRV_PER = {S["slug"]: S for S in SERVIZI_SRV}
@@ -3218,7 +3249,25 @@ SRV_TESTI = {
     "wise": {"fonte": "Wise Help Centre", "lista": "Wise's list of countries and territories where you can hold money in your Wise account if you live there"},
     "uber": {"fonte": "Uber", "lista": "the list of countries on Uber's official cities page"},
     "stripe": {"fonte": "Stripe", "lista": "Stripe's list of countries and regions where Stripe is currently supported"},
+    # dal 12/11/2026
+    "bolt": {"fonte": "Bolt", "lista": "the list of countries on Bolt's official cities page"},
+    "google-fi": {"fonte": "Google Fi", "lista": "Google Fi's list of destinations covered on its Flexible and Unlimited Premium plans"},
 }
+# Dal 12/11/2026 Starlink ha più pagine Paese delle sole coppie trovate con le domande generiche. Revisione dello stesso giorno: NON una
+# pagina per ogni Paese della mappa (pagine quasi uguali per isole disabitate: contenuto di scarso valore), ma una pagina per ogni Paese con
+# una ricerca vera sulla disponibilità chiesta Paese per Paese (dati/starlink_paesi_domanda.json) più le 41 coppie di dati/servizi_domanda.json;
+# gli altri Paesi restano righe della tabella del servizio e dell'indice, senza pagina. Google Fi senza la pagina degli Stati Uniti e di
+# Porto Rico (la lista è delle destinazioni fuori dagli Stati Uniti e non li nomina: un "No" sarebbe fuorviante).
+SRV_DOMANDA_PER_PAESE = {"starlink": STARLINK_PAESI_DOMANDA}
+SRV_SENZA_PAGINA = {"google-fi": {"US", "PR"}}
+# Bolt (12/11/2026): la pagina elenca città, come Uber; frase fissa con il numero di posti elencati
+BOLT_CITTA = ("Bolt's page lists cities, not whole countries: it names {n} in {P}; check your city on the official page.")
+GFI_CHI = ("This list is about taking a Google Fi plan abroad, not about signing up in another country: Google Fi says you first activate "
+           "and use it in the US.")
+GFI_FUORI_USA = "This is Google Fi's list of destinations outside the United States: it does not name the United States itself or Puerto Rico."
+# Starlink Roam (12/11/2026): nessuna fonte ufficiale leggibile dice dove funziona il piano Roam (starlink.com è solo JavaScript); frase fissa
+STARLINK_ROAM = ("Starlink's map data gives one status per country and does not say which Starlink plans, such as Roam, are offered in {P}, "
+                 "so we cannot confirm it from the official data.")
 # Google Wallet (dal 7/11/2026): la riga "Tap to pay" della pagina di ogni Paese (spunta verde o croce rossa), detta con parole fisse
 # Revisione del 7/11/2026: frasi fisse per Uber (la pagina elenca città) e Stripe (etichette non spiegate, lista per le aziende)
 UBER_CITTA = ("Uber's page lists cities, not whole countries: {P} is here because at least one city there is on the page; "
@@ -3339,6 +3388,11 @@ def risposta_srv(S, c):
             nota += f" {STRIPE_ETICHETTE}."
         if S["slug"] == "uber":
             nota = " " + UBER_CITTA.format(P=P)
+        if S["slug"] == "bolt":
+            n = len(v.get("citta", []))
+            nota = " " + BOLT_CITTA.format(n=f"{n} place" if n == 1 else f"{n} places", P=P)
+        if S["slug"] == "google-fi" and c in ("CA", "MX"):
+            nota = f" Google Fi also says: “{SRV['frasi']['google_fi_ca_mx']['frase']}”"
         return f"Yes. {Pm} is on {T['lista']} ({T['fonte']}, checked on {d}).{nota}"
     if st == "no":
         if S["slug"] == "google-wallet":
@@ -3362,6 +3416,8 @@ def significato_srv(S, c):
            if S["slug"] == "apple-pay" else "")
     if S["slug"] == "stripe" and not S.get("_chi"):
         return STRIPE_CHI + " " + significato_srv({**S, "_chi": True}, c)
+    if S["slug"] == "google-fi" and not S.get("_chi"):
+        return GFI_CHI + " " + significato_srv({**S, "_chi": True}, c)
     if solo_invio_wise(S, c):
         return "This list is only about holding money in your account; Wise does not give reasons."
     if st == "assente" and S["slug"] == "wise":
@@ -3378,7 +3434,7 @@ def significato_srv(S, c):
                 + (f" ({n} regions in the data file)" if n else "") + ", so check your exact address on the official map.")
     if S["slug"] == "apple-pay":
         return pay.strip()
-    if S["slug"] in ("google-wallet", "wise", "uber", "stripe"):
+    if S["slug"] in ("google-wallet", "wise", "uber", "stripe", "bolt", "google-fi"):
         return "Lists change: check the official page before you rely on the service."
     return "Lists change: check the official page before you pay for a subscription."
 
@@ -3389,7 +3445,7 @@ def titoli_srv(S, c):
              "Not listed": "Not Listed", "By region": "Depends on the Region", "Not supported": "Not Supported",
              "Yes, no tap to pay": "Yes, No Tap to Pay", "Not for holding money": "Not for Holding Money"}.get(b, b.title() if b != "Yes" else b)
     return [f"Is {n} Available in {P}? {b_tit} ({ANNO})", f"Is {n} Available in {P}? ({ANNO})", f"{n} in {P}: {b_tit} ({ANNO})",
-            f"{n} in {P} ({ANNO})"]
+            f"{n} in {P} ({ANNO})", f"{n} in {nome_srv(c)} ({ANNO})"]  # l'ultima senza "the" (12/11/2026: South Georgia and the South Sandwich Islands)
 
 
 def descrizioni_srv(S, c):
@@ -3398,9 +3454,22 @@ def descrizioni_srv(S, c):
     return [r, corto, f"Is {S['nome']} available in {frase_srv(c)}? {breve_srv(S, c)}, from the official list."]
 
 
+_PAGINE_SRV = {}
+
+
+def cercate_srv(S):
+    """Coppie servizio × Paese trovate nell'autocompletamento (dati/servizi_domanda.json), senza i Paesi esclusi."""
+    return sorted((c for c in SRV_DOMANDA["servizi"].get(S["slug"], {}) if c in PAESI_ISO and c not in SRV_SENZA_PAGINA.get(S["slug"], ())),
+                  key=lambda c: slug_srv(c))
+
+
 def pagine_srv(S):
-    """Paesi con una pagina servizio × Paese: solo le coppie trovate nell'autocompletamento (dati/servizi_domanda.json)."""
-    return sorted((c for c in SRV_DOMANDA["servizi"].get(S["slug"], {}) if c in PAESI_ISO), key=lambda c: slug_srv(c))
+    """Paesi con una pagina servizio × Paese: le coppie trovate nell'autocompletamento; per Starlink (dal 12/11/2026) anche i Paesi con una
+    ricerca vera chiesta Paese per Paese (dati/starlink_paesi_domanda.json), se hanno uno stato nel file della mappa."""
+    if S["slug"] not in _PAGINE_SRV:
+        piu = {c for c in SRV_DOMANDA_PER_PAESE.get(S["slug"], {}) if c in PAESI_ISO and c in S["paesi"]}
+        _PAGINE_SRV[S["slug"]] = sorted(set(cercate_srv(S)) | piu, key=lambda c: slug_srv(c))
+    return _PAGINE_SRV[S["slug"]]
 
 
 def url_srv(S, c=None):
@@ -3440,6 +3509,9 @@ CIT_SRV = {
     "wise": (["wise_lista", "wise_nuovi"], ["wise_ovunque"]),  # per i Paesi "Not supported" anche wise_no, wise_no_invio, wise_no_cosa
     "uber": (["uber_lista"], []),
     "stripe": (["stripe_lista"], ["stripe_vendere"]),
+    # dal 12/11/2026
+    "bolt": (["bolt_lista"], []),
+    "google-fi": (["google_fi_lista"], ["google_fi_attiva", "google_fi_estero", "google_fi_90", "google_fi_essentials"]),
 }
 
 
@@ -3469,6 +3541,11 @@ def piu_srv(S, c):
         if c in ("IN", "SG"):
             x += f'<p>For sending money, Google says:</p>{cit_srv(["google_pay_invio"])}'
         return x
+    if S["slug"] == "bolt" and stato_srv(S, c)[0] == "si":
+        cc = S["paesi"][c]["citta"]
+        elenco = cc[0] if len(cc) == 1 else ", ".join(cc[:-1]) + " and " + cc[-1]
+        return (f'<h3>Places on Bolt\'s list in {escape(P)}</h3><p>Bolt\'s cities page lists {len(cc)} {"place" if len(cc) == 1 else "places"} '
+                f'in {escape(P)}: {escape(elenco)}.</p><p>The list does not say which Bolt services run in each place: check the city on Bolt\'s website.</p>')
     if S["slug"] == "wise" and invio_wise(c):
         return (f'<h3>Sending money to {escape(P)}</h3><p>{escape(Pm)} is on Wise\'s list of countries and regions you can send money to. '
                 f'Wise introduces that list with these words:</p>{cit_srv(["wise_invio_lista"])}')
@@ -3507,6 +3584,25 @@ def faq_srv(S, c):
     if S["slug"] == "google-wallet":
         extra = f" Google also says: “{SRV['frasi']['google_pay_invio']['frase']}”" if c in ("IN", "SG") else ""
         out.append((f"Is Google Pay available in {P}?", f"{online_gp(c)} {tocco_gp(c)}{extra}"))
+    if S["slug"] == "starlink":
+        st, v = stato_srv(S, c)
+        d = data_controllo_srv(S)
+        cosa = {"si": "shows “Available”", "in_arrivo": "shows “Coming soon”", "no": "shows no Starlink service",
+                "per_regione": "shows each region separately"}.get(st, "has no entry")
+        # domande vere: "does starlink roam work in canada", "when will starlink be available in pakistan" (dati/starlink_domanda.json).
+        # Revisione del 12/11/2026: la domanda su Roam solo nei Paesi dove è cercata davvero (negli altri la frase fissa sta una volta sola,
+        # nella sezione sul viaggio): una risposta "non si può confermare" ripetuta in ogni pagina non aiuta nessuno.
+        if c in STARLINK_ROAM_CERCATO:
+            out.append((f"Does Starlink Roam work in {P}?",
+                        f"{STARLINK_ROAM.format(P=P)} For {P} the map {cosa} ({SRV_TESTI['starlink']['fonte']}, checked on {d}). "
+                        "Check the plan and your exact location with Starlink before you travel."))
+        if st == "in_arrivo":
+            nota = f" with the note “{v['nota']}”" if v.get("nota") else ""
+            out.append((f"When will Starlink be available in {P}?",
+                        f"Starlink's official map gives no exact date. It shows {P} as “Coming soon”{nota} ({SRV_TESTI['starlink']['fonte']}, checked on {d})."))
+    if S["slug"] in ("bolt", "google-fi"):
+        # domande vere: "does bolt work in italy", "does google fi work in japan" (dati/servizi_domanda.json)
+        out.append((f"Does {S['nome']} work in {P}?", lavora_srv(S, c)))
     if S["slug"] == "wise":
         st, _ = stato_srv(S, c)
         if invio_wise(c):
@@ -3515,10 +3611,30 @@ def faq_srv(S, c):
         elif st == "no":
             out.append((f"Can I send money to {P} with Wise?", f"No. Wise says you can't “{SRV['frasi']['wise_no_invio']['frase']}” where it does not "
                                                             f"offer its services, and {P} is one of those places."))
-    out.append((f"Where does this answer about {S['nome']} in {P} come from?",
-                f"From {S['titolo_fonte']} ({S['pagina']}), read on {data_controllo_srv(S)}. We copy the list as published and only match "
-                "country names to ISO country codes."))
+    # Revisione del 12/11/2026 (notte): tolta la domanda "Where does this answer about ... come from?", uguale in ogni pagina e doppione
+    # della riga "Source:" sotto la risposta (testo di modello senza informazione in più).
     return out
+
+
+def lavora_srv(S, c):
+    """Risposta alla FAQ "Does Bolt / Google Fi work in X?" (12/11/2026): frasi fisse con i fatti della lista."""
+    P, Pm = frase_srv(c), frase_srv(c, True)
+    st, v = stato_srv(S, c)
+    T, d = SRV_TESTI[S["slug"]], data_controllo_srv(S)
+    if S["slug"] == "bolt":
+        if st == "si":
+            cc = v["citta"]
+            return (f"In the places on its list, yes: Bolt's cities page lists {len(cc)} {'place' if len(cc) == 1 else 'places'} in {P} "
+                    f"({T['fonte']}, checked on {d}). Check your city on the official page.")
+        return f"Not according to Bolt's official cities page: {P} is not on its list of countries ({T['fonte']}, checked on {d})."
+    if st == "si":
+        x = (f"On the Flexible and Unlimited Premium plans, yes: {P} is on Google Fi's list of covered destinations ({T['fonte']}, checked on {d}). "
+             f"Google Fi also says: “{SRV['frasi']['google_fi_essentials']['frase']}”")
+        if c in ("CA", "MX"):
+            x += f" and “{SRV['frasi']['google_fi_ca_mx']['frase']}”"
+        return x
+    return (f"Not according to Google Fi's list: {P} is not among the destinations it covers ({T['fonte']}, checked on {d}). "
+            f"Google Fi says: “{SRV['frasi']['google_fi_sim']['frase']}”")
 
 
 def html_faq_srv(S, c):
@@ -3527,6 +3643,35 @@ def html_faq_srv(S, c):
     ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
         {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]}
     return f'<section class="faq"><h2>Questions</h2>{h}</section>', [ld]
+
+
+def esim_srv(S, c):
+    """Riquadro eSIM (box_affiliati, le stesse voci e le stesse regole delle pagine destinazione) nelle pagine Starlink e Google Fi
+    (12/11/2026), dopo la risposta, le citazioni ufficiali e la sezione sul viaggio: solo se l'elenco letto di Vodafone o di Pocket
+    (dati/esim.json) comprende il Paese; Roamable (senza elenco) primo con il testo generico. verifica.py, punti 31 e 32."""
+    if S["slug"] not in ("starlink", "google-fi"):
+        return ""
+    elenchi = [esim_elenco(k) for k in ("esim_vodafone", "esim_pocket") if (AFFILIATI.get(k) or {}).get("url")]
+    box = box_affiliati(c) if any(el and c in el for el in elenchi) else ""
+    if not box:
+        return ""
+    st, P = stato_srv(S, c)[0], frase_srv(c)
+    if S["slug"] == "starlink":
+        # Revisione del 12/11/2026: molte ricerche ("starlink pakistan price") sono di chi vive nel Paese. Titolo e testo dicono che il
+        # riquadro è per chi è in viaggio e che una eSIM non sostituisce internet di casa (prima: "What to use instead in X").
+        tit = f"Visiting {P}? Mobile data on your phone"
+        intro = (f"<p>This part is for visitors, not for internet at home: if you only need internet on your phone during a trip to {escape(P)}, "
+                 "a travel eSIM is a mobile data plan that you set up before you land, without a dish or a Starlink plan. It does not replace a "
+                 "home internet connection.</p>")
+    elif st == "si":
+        tit = f"If your Google Fi plan does not cover {P}"
+        intro = ("<p>If your Google Fi plan has no international data (Google Fi says this of Unlimited Essentials, quoted above), a travel eSIM "
+                 "is a mobile data plan for your phone that you set up before you land.</p>")
+    else:
+        tit = f"Travelling to {P} without Google Fi coverage"
+        intro = (f"<p>Google Fi says:</p>{cit_srv(['google_fi_sim'])}<p>A travel eSIM is a mobile data plan for your phone that you set up before "
+                 "you land.</p>")
+    return f'<h2 id="instead">{escape(tit)}</h2>{intro}{box}'
 
 
 def pagina_srv_paese(S, c):
@@ -3538,18 +3683,26 @@ def pagina_srv_paese(S, c):
     sotto = (f'<p>{escape(S["fornitore"].split(" (")[0])} writes the name as “{escape(" / ".join(nomi_fonte))}”.</p>' if nomi_fonte else "")
     c_lista, c_viaggio = CIT_SRV[S["slug"]]
     if S["slug"] == "starlink":
-        cosa_dice = (f'<p>On the official map, “Available” means, in Starlink\'s words: “{STARLINK_LEGENDA["si"]}” “Coming soon” means: '
-                     f'“{STARLINK_LEGENDA["in_arrivo"]}” Places with neither status are shown without any service. A few countries have no '
-                     'status of their own: the map colours each of their regions separately (“By region” in our tables).</p>')
+        # Revisione del 12/11/2026: solo la parte della legenda che riguarda lo stato di questo Paese (prima: tutta la legenda, uguale in
+        # ogni pagina); la legenda intera resta nella pagina del servizio.
+        L_si = f'“Available” means, in Starlink\'s words: “{STARLINK_LEGENDA["si"]}”'
+        L_arr = f'“Coming soon” means, in Starlink\'s words: “{STARLINK_LEGENDA["in_arrivo"]}”'
+        cosa_dice = {"si": f"<p>On the official map, {L_si}</p>",
+                     "in_arrivo": f"<p>On the official map, {L_arr}</p>",
+                     "per_regione": (f"<p>A few countries have no status of their own on the official map: it colours each of their regions separately "
+                                     f"(“By region” in our tables), and {escape(P)} is one of them. For a region, {L_si} {L_arr}</p>")
+                     }.get(st, f"<p>On the official map, {L_si} {L_arr} {escape(frase_srv(c, True))} has neither status: the map shows it without any service.</p>")
     else:
         cosa_dice = f'<p>The official page introduces its list with these words:</p>{cit_srv(c_lista)}'
     se_no = st != "si"
     tit_viaggio = (f"If {n} is not available in {P}" if se_no else
-                   {"stripe": f"Using Stripe from {P}", "uber": f"Using Uber in {P}"}.get(S["slug"], f"Travelling or moving to {P} with {n}"))
+                   {"stripe": f"Using Stripe from {P}", "uber": f"Using Uber in {P}", "bolt": f"Using Bolt in {P}",
+                    "google-fi": f"Using Google Fi in {P}"}.get(S["slug"], f"Travelling or moving to {P} with {n}"))
     if solo_invio_wise(S, c):
         tit_viaggio = f"Using Wise from {P}"
     if S["slug"] == "starlink":
-        viaggio = ("<p>Check your exact address on Starlink's official map before you buy equipment or travel with it: the status can change and can "
+        viaggio = (("" if c in STARLINK_ROAM_CERCATO else f"<p>{escape(STARLINK_ROAM.format(P=P))}</p>") +  # dove c'è la FAQ, lì
+                   "<p>Check your exact address on Starlink's official map before you buy equipment or travel with it: the status can change and can "
                    "differ within a country.</p>")
     elif S["slug"] == "apple-pay":
         viaggio = f'<p>What Apple says about paying abroad and about Apple Cash:</p>{cit_srv(c_viaggio)}'
@@ -3560,6 +3713,9 @@ def pagina_srv_paese(S, c):
                         f'<p>About those places, Wise says you can\'t:</p>{cit_srv(["wise_no_invio", "wise_no_cosa"])}')
     else:
         viaggio = ""
+    # Revisione del 12/11/2026 (notte): dove la fonte non dice nulla sull'uso all'estero (Uber, Bolt) la sezione aveva solo la frase generica
+    # sotto un titolo ("Using Uber in X"): ora la frase resta, senza un titolo che promette un contenuto che non c'è.
+    con_titolo_viaggio = bool(viaggio)
     viaggio += ("<p>Lists change, often without notice. Check the official page before you rely on the service or pay for anything, and follow the "
                 "provider's terms and the law of the country you are in.</p>")
     altri = "".join(f'<tr data-voce><td data-l="Service"><a href="{link_srv(S2, c, rel)}">{escape(S2["nome"])}</a></td>'
@@ -3583,8 +3739,9 @@ def pagina_srv_paese(S, c):
 {piu_srv(S, c)}
 <p><a href="{rel}{url_srv(S)}">All countries for {escape(n)}</a> (table with every country and region on the official list).</p>
 {AD}
-<h2>{escape(tit_viaggio)}</h2>
+{f"<h2>{escape(tit_viaggio)}</h2>" if con_titolo_viaggio else ""}
 {viaggio}
+{esim_srv(S, c)}
 <h2>Other services in {escape(P)}</h2>
 <div class="tab tab-b"><table><caption class="sr">Official availability of {len(SERVIZI_SRV)} services in {escape(P)}</caption><thead><tr><th>Service</th><th>In {escape(nome_srv(c))}</th><th>Checked</th></tr></thead><tbody>{altri}</tbody></table></div>
 {f'<h2>Before you travel to {escape(P)}</h2><ul>' + "".join(f"<li>{x}</li>" for x in ingresso) + "</ul>" if ingresso else ""}
@@ -3609,6 +3766,10 @@ def extra_servizio_srv(S):
                 f'“Extended network”; {escape(STRIPE_ETICHETTE)}.</p>')
     if S["slug"] == "wise":
         return ('<p class="lead">“Not for holding money” means the country is not on this list but is on Wise\'s list of countries you can send money to.</p>')
+    if S["slug"] == "bolt":
+        return f'<p class="lead">{escape(BOLT_CITTA.replace("it names {n} in {P}", "a country is here because at least one place there is on the page"))}</p>'
+    if S["slug"] == "google-fi":
+        return f'<p class="lead">{escape(GFI_FUORI_USA)} {escape(GFI_CHI)}</p>'
     return ""
 
 
@@ -3673,12 +3834,14 @@ def pagina_srv_servizio(S):
         if S["slug"] == "wise":
             spiega += (f'<p>“Not supported” means the country is on Wise\'s other list, of the places where it does not offer its services:</p>{cit_srv(["wise_no", "wise_no_cosa"])}'
                        f'<p>Wise also says:</p>{cit_srv(["wise_ovunque"])}')
-    griglia = "".join(f'<a href="{rel}{url_srv(S, c)}">{escape(nome_srv(c))}<small>{escape(breve_srv(S, c))}</small></a>' for c in pagine)
+    # griglia: le pagine più cercate (per Starlink, che dal 12/11/2026 ha una pagina per ogni Paese, solo quelle; le altre dalla tabella)
+    griglia = "".join(f'<a href="{rel}{url_srv(S, c)}">{escape(nome_srv(c))}<small>{escape(breve_srv(S, c))}</small></a>' for c in cercate_srv(S) if c in pagine)
     corpo = f"""<section class="hero">{h1_diviso(f"Where is {n} available? Official list of countries ({ANNO})")}
 <p class="lead" id="answer">{escape(prima)}</p>{extra_servizio_srv(S)}</section>
 <ul class="stat"><li><strong>{len(con)}</strong>{"“Available”" if S["slug"] == "starlink" else "on the list"}</li>{f'<li><strong>{len(arr)}</strong>“Coming soon”</li>' if S["slug"] == "starlink" else ""}{f'<li><strong>{sum(1 for c in con if S["paesi"][c].get("tocco"))}</strong>with tap to pay</li>' if S["slug"] == "google-wallet" else ""}<li><strong>{d}</strong>last checked</li></ul>
 {fonte_srv(S)}
-<h2>Is {escape(n)} available in my country?</h2>
+<h2>{"Most searched countries" if S["slug"] in SRV_DOMANDA_PER_PAESE else f"Is {escape(n)} available in my country?"}</h2>
+{f'<p>These are the countries people search for most. The table below has every country and territory in the official data; {len(pagine)} of them (the linked names) have their own page.</p>' if S["slug"] in SRV_DOMANDA_PER_PAESE else ""}
 <div class="griglia g-srv">{griglia}</div>
 {AD}
 <h2>All countries and regions</h2>
@@ -3718,7 +3881,7 @@ def indice_srv():
 <div class="griglia">{"".join(popolari)}</div>
 {AD}
 <h2>Every country, every service</h2>
-<p>“Yes” means the country is on the provider's list; for Starlink, “Coming soon”, “No service shown” and “By region” describe the provider's map. For Google Wallet, “Yes, no tap to pay” means the app is listed but tap to pay is not; for Wise, “Not supported” means Wise lists the country among the places where it does not offer its services, and “Not for holding money” means you can send money there but the country is not on Wise's list for holding money. Uber's page lists cities, not whole countries; Stripe's list is for businesses opening an account. Click an answer for the details and the source.</p>
+<p>“Yes” means the country is on the provider's list; for Starlink, “Coming soon”, “No service shown” and “By region” describe the provider's map. For Google Wallet, “Yes, no tap to pay” means the app is listed but tap to pay is not; for Wise, “Not supported” means Wise lists the country among the places where it does not offer its services, and “Not for holding money” means you can send money there but the country is not on Wise's list for holding money. Uber's and Bolt's pages list cities, not whole countries; Stripe's list is for businesses opening an account; Google Fi's list is of the destinations its Flexible and Unlimited Premium plans cover abroad. Click an answer for the details and the source.</p>
 <div class="cerca-box">{ico("search")}<input class="cerca" type="search" placeholder="Type a country, e.g. Nigeria" data-filtro-multi aria-label="Search countries"></div>
 <div class="tab tab-b tab-srv"><table><caption class="sr">Official availability of {len(SERVIZI_SRV)} services in {len(PAESI_ISO)} countries and territories, checked on {d}</caption><thead><tr><th>Country or region</th>{"".join(f"<th>{escape(S['nome'])}</th>" for S in SERVIZI_SRV)}</tr></thead><tbody>{righe}</tbody></table></div>
 <h2>How we check</h2>
@@ -3754,7 +3917,7 @@ def about_srv(rel):
     return f"""<h2 id="available-in">Apps and services by country</h2>
 <p>Sources: the providers' own lists of countries, read with a normal web request (no browser) and copied as published:</p>
 <ul>{righe}</ul>
-<p>Rules: a country is “Yes” only if the provider's list names it; “Not on the list” means the list does not name it, which is not the same as a ban. For Starlink we show the statuses of the official availability map (“Available”, “Coming soon” with the note the map gives, no service shown, or “By region” when the map colours a country region by region), as the map's own legend explains them. For Google Wallet we also show the tap to pay line of Google's page for each country, and Google Pay's separate list for paying online; for Wise, the countries where you can hold money if you live there, the places where Wise does not offer its services (“Not supported”) and the countries you can send money to. Names are matched to ISO 3166-1 country codes; regions inside a country are not shown separately. We give no advice on getting around restrictions. A page for a single service and country exists only where people search for it. The lists are facts published by each provider; the trademarks belong to their owners, and Before You Fly is not affiliated with any of them.</p>"""
+<p>Rules: a country is “Yes” only if the provider's list names it; “Not on the list” means the list does not name it, which is not the same as a ban. For Starlink we show the statuses of the official availability map (“Available”, “Coming soon” with the note the map gives, no service shown, or “By region” when the map colours a country region by region), as the map's own legend explains them. For Google Wallet we also show the tap to pay line of Google's page for each country, and Google Pay's separate list for paying online; for Wise, the countries where you can hold money if you live there, the places where Wise does not offer its services (“Not supported”) and the countries you can send money to; for Bolt, the places its cities page lists in each country; for Google Fi, the destinations outside the United States that its Flexible and Unlimited Premium plans cover. Starlink's map data does not say which plans (such as Roam) are offered in each country, and we do not guess it. Names are matched to ISO 3166-1 country codes; regions inside a country are not shown separately. We give no advice on getting around restrictions. A page for a single service and country exists only where people search for it; every other country is a row in the service's table. The lists are facts published by each provider; the trademarks belong to their owners, and Before You Fly is not affiliated with any of them.</p>"""
 
 
 # ---------------------------------------------------------------- "Can I drive in [country] with my UK / Canadian / Australian licence?" (dal 28/10/2026)
@@ -8915,11 +9078,14 @@ def home():
                            for s in popolari if s in mappa)
     stato_etias = "not in operation" if any("currently not in operation" in f["frase"] for f in frasi_ees("etias")) else "see the official page"
     ultimo = data_lunga(max(PASS["controllato_il"], AER["controllato_il"], EES["controllato_il"], BAG.get("controllato_il", "")))
+    # 12/11/2026 (notte): la sezione in italiano è fuori indice (dati/noindex.json); il suo riquadro esce dalla testata della home
+    # (testo italiano in cima a un sito in inglese) e resta come una riga in fondo, per chi la cerca.
+    it_home = (f'<p class="small" lang="it">Per chi ha la cittadinanza italiana: <a href="{IT_BASE}/" hreflang="it">documenti per viaggiare '
+               f"all'estero</a> (passaporto, carta d'identità e visto per {len(VOCI_IT)} Paesi, dalle schede di Viaggiare Sicuri).</p>") if VOCI_IT else ""
     testata = f"""<div class="band"><div class="wrap band-in">
 <section class="hero">{h1_diviso(f"Before You Fly: passport validity, airport liquids rules, cabin bag sizes and EU entry checks ({ANNO})")}
 <p class="scope"><span class="pill">{ico("passport")}British passport checker</span><span>Passport rules from the UK government (FCDO), for British citizens.{"".join(f' {ESTERI[k]["agg"]} passport: <a href="{ESTERI[k]["base"]}/" style="color:var(--sign)">{len(VOCI[k])} destinations</a>.' for k in ESTERI if VOCI[k])}</span></p>
-<p class="sub">Five checks before you fly, answered from official sources only.</p>
-{f'<p class="scope" lang="it"><span class="pill">{ico("passport")}Cittadinanza italiana</span><span><a href="{IT_BASE}/" hreflang="it" style="color:var(--sign)">Documenti per viaggiare all\'estero</a>: passaporto, carta d\'identità e visto per {len(VOCI_IT)} Paesi, dalle schede della Farnesina (Viaggiare Sicuri).</span></p>' if VOCI_IT else ""}
+<p class="sub">Six checks before you fly, answered from official sources only.</p>
 <p class="trust"><span>{ico("shield")}Official sources · last checked {ultimo}</span><span>{ico("lock")}Your dates stay in your browser</span></p></section>
 <ul class="tiles">
 <li><a href="passport-validity/"><span class="sq">{ico("passport")}</span><h2>Passport validity</h2><small>FCDO passport validity and visa rules for British passports, {len(PAESI)} destinations, a date checker for {auto} of them. Last checked: {data_lunga(PASS['controllato_il'])}.</small></a></li>
@@ -8956,6 +9122,7 @@ def home():
 {home_bb()}
 {home_in()}
 {home_sc()}
+{it_home}
 {dati_json('tutti-dati', [dati_client(P) for P in PAESI])}"""
     pagina("", f"Before You Fly {ANNO}: Passport, Visas, Liquids, Cabin Bags, EES",
            f"Passport and visa rules (FCDO) for {len(PAESI)} destinations, liquid limits at {len(AER['aeroporti'])} airports, cabin bag sizes of {len(COMPAGNIE)} airlines, EES/ETIAS. Official sources.",
@@ -9581,6 +9748,8 @@ def main():
     privacy()
     extra()
     auto = sum(1 for P in PAESI if P["regola"])
+    print(f"Fuori indice e senza AdSense (dati/noindex.json): {len(FUORI_INDICE)} pagine; senza AdSense ma in indice: "
+          f"{', '.join(x for x in NOINDEX['senza_pubblicita'] if x != '404.html')}")
     print(f"Sito generato in {SITO}: {len(URLS)} pagine indicizzabili + 404; {len(PAESI)} paesi ({auto} con controllo automatico), "
           f"{len(AER['aeroporti'])} aeroporti + {len(AER['nazionali'])} regole nazionali, pagina EES/ETIAS; "
           f"bagaglio a mano: {len(COMPAGNIE)} compagnie, {len(MISURE_COMUNI)} misure, strumento, pagina UE; "
