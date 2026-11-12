@@ -29,7 +29,7 @@ sys.path.append(str(RADICE.parent / "studio-business" / "strumenti"))
 import monetizzazione as MON  # noqa: E402
 import stile  # noqa: E402
 
-URL_SITO = "https://paga-ccnl.netlify.app"  # unico punto da cambiare se il nome del sito su Netlify è diverso
+URL_SITO = "https://pagaccnl.com"  # unico punto da cambiare se il nome del sito su Netlify è diverso
 NOME = "Paga CCNL"
 GOOGLE_VERIFICA = "btXTQU_vAoe1K9f3q-43GisAXTiyKQCYcShozNhrAgI"  # Search Console (stesso account degli altri siti)
 GOATCOUNTER_URL = "https://rete-siti.goatcounter.com/count"  # contatore condiviso della rete, senza cookie
@@ -1194,7 +1194,7 @@ def chi_siamo():
 def privacy():
     cookie = MON.privacy_cookie("it", SITO_ID) or ('<h2>Cookie e contatore visite</h2><p>Per contare le visite usiamo GoatCounter, che non usa cookie. '
                                                   'Il sito non usa cookie di profilazione e non mostra pubblicità.</p>')
-    corpo = ('<div class="card pull testo"><p>Questa pagina spiega quali dati tratta Paga CCNL (paga-ccnl.netlify.app). In breve: pochissimi.</p></div>'
+    corpo = ('<div class="card pull testo"><p>Questa pagina spiega quali dati tratta Paga CCNL (pagaccnl.com). In breve: pochissimi.</p></div>'
              '<div class="testo"><h2>Chi tratta i dati</h2><p>Titolare del trattamento è Massimiliano Cori (Italia), che gestisce Paga CCNL come progetto indipendente. '
              'Puoi scriverci con il modulo <a href="/come-lavoriamo/#segnala">«Segnala un errore»</a>, anche per le richieste sui tuoi dati.</p>'
              '<h2>Il calcolo in pagina</h2><p>Il calcolo per ore settimanali avviene nel tuo browser: le ore che scrivi non vengono inviate né salvate. '
@@ -1234,6 +1234,13 @@ def extra():
   # Pubblica solo se è cambiato qualcosa in ccnl/sito (ogni pubblicazione consuma crediti Netlify).
   # Impostazioni del sito su Netlify: Base directory = ccnl/sito, Build command vuoto, Publish directory = "."
   ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- ."
+
+# Dominio proprio dal 13/11/2026: il vecchio indirizzo paga-ccnl.netlify.app porta al nuovo, pagina per pagina.
+[[redirects]]
+  from = "https://paga-ccnl.netlify.app/*"
+  to = "https://pagaccnl.com/:splat"
+  status = 301
+  force = true
 
 [[headers]]
   for = "/*"

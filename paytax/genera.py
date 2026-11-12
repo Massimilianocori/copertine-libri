@@ -28,7 +28,7 @@ import monetizzazione as MON  # noqa: E402
 import motore  # noqa: E402
 import stile  # noqa: E402
 
-URL_SITO = "https://payroll-tax-by-state.netlify.app"  # unico punto da cambiare se il nome del sito su Netlify è diverso
+URL_SITO = "https://payrolltaxbystate.com"  # unico punto da cambiare se il nome del sito su Netlify è diverso
 NOME = "Payroll Tax by State"
 GOOGLE_VERIFICA = "btXTQU_vAoe1K9f3q-43GisAXTiyKQCYcShozNhrAgI"  # Search Console (stesso account degli altri siti)
 GOATCOUNTER_URL = "https://rete-siti.goatcounter.com/count"  # contatore condiviso della rete, senza cookie
@@ -1332,6 +1332,13 @@ def extra():
   # Pubblica solo se è cambiato qualcosa in paytax/sito (ogni pubblicazione consuma crediti Netlify).
   # Impostazioni del sito su Netlify: Base directory = paytax/sito, Build command vuoto, Publish directory = "."
   ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- ."
+
+# Dominio proprio dal 13/11/2026: il vecchio indirizzo payroll-tax-by-state.netlify.app porta al nuovo, pagina per pagina.
+[[redirects]]
+  from = "https://payroll-tax-by-state.netlify.app/*"
+  to = "https://payrolltaxbystate.com/:splat"
+  status = 301
+  force = true
 
 [[headers]]
   for = "/*"

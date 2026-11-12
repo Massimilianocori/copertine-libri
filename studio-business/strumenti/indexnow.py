@@ -36,8 +36,8 @@ SITI = [  # host -> cartella nel repository (sito/sitemap.xml)
     ("fha-approved-condos-list.netlify.app", "fhacondos"),
     ("cruise-health-scores.netlify.app", "cruisescores"),
     ("balcony-solar-europe.netlify.app", "solarebalcone"),
-    ("payroll-tax-by-state.netlify.app", "paytax"),
-    ("paga-ccnl.netlify.app", "ccnl"),  # online dal 12/11/2026
+    ("payrolltaxbystate.com", "paytax"),  # dominio dal 13/11/2026
+    ("pagaccnl.com", "ccnl"),  # online dal 12/11/2026, dominio dal 13/11/2026
 ]
 # Siti non ancora collegati a Netlify: saltati nell'invio di tutti i siti (la chiave non è online e IndexNow risponderebbe 403).
 # Si inviano solo con --solo; togliere l'host da qui il giorno in cui il sito è online.

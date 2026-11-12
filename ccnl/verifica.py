@@ -359,7 +359,7 @@ def controlla_pagine():
             if not c:
                 errore(f"{rel}: canonical assente")
             else:
-                atteso = "https://paga-ccnl.netlify.app/" + rel.replace("index.html", "")
+                atteso = "https://pagaccnl.com/" + rel.replace("index.html", "")
                 if c.group(1) != atteso:
                     errore(f"{rel}: canonical {c.group(1)} invece di {atteso}")
                 canon.add(c.group(1))
@@ -408,7 +408,7 @@ def controlla_pagine():
     print(f"Pagine: {len(pagine)} file HTML, {len(canon)} indicizzabili, titoli e descrizioni unici")
     # file accessori
     rb = (SITO / "robots.txt").read_text(encoding="utf-8")
-    if "Sitemap: https://paga-ccnl.netlify.app/sitemap.xml" not in rb:
+    if "Sitemap: https://pagaccnl.com/sitemap.xml" not in rb:
         errore("robots.txt senza sitemap")
     chiave = "b5a26a844a465f58552debee2c8a0114"
     if (SITO / f"{chiave}.txt").read_text(encoding="utf-8") != chiave:
