@@ -65,6 +65,8 @@ Pubblicato il 1/11/2026 alle 00:15 circa: Visa Income (cerimonie australiane, es
 | 30/11/2026 e 28/12/2026 | Visa Income, esperimento citazioni: `python3 visaincome/raccolta/esperimento_citazioni.py misura` (prima lettura e verdetto) |
 | dopo il 30/11/2026 | Visa Income, Study in Italy: riscrivere le frasi sulla scadenza del visto del 30/11/2026 |
 
+**Volumi veri del 12/11 sera (volumi-2026-11-12.md): quasi tutte le stime scendono.** Nuovo ordine per €/ora: 1) UK pompe di calore + solare (~70 €/ora con Glow Green, 16 senza), 2) codice LEI piccolo (~51), 3) Before You Fly biglietti +20 (24, si fa subito), 4) prove piccole: sposarsi in Italia, patente nautica nel motore dei quiz. Tolte dalla riserva: multe USA e anziani USA (domanda 14-15 volte sotto l'ipotesi). Taratura: EsameB1 fa ~2,2 volte le sue due frasi principali; Payroll Tax ricalcolato a ~700 €/anno centrali (non 3.100).
+
 ## Coda di costruzione (dalla ricerca del 4/11/2026)
 
 | Sito | Sezione | Voto | Quando | Fonte (file di ricerca) |
@@ -126,8 +128,6 @@ Pubblicato il 1/11/2026 alle 00:15 circa: Visa Income (cerimonie australiane, es
 | Contratti di lavoro: minimi, paga oraria, preavviso per contratto × livello (IT) | 1.600 (ottimista 7.500) | 30-40 + 2/mese | ~45 | dati solo nei PDF dei rinnovi (nessun file strutturato CNEL): prima trovare una fonte leggibile | fronti-2026-11-12-radar-settori-diversi.md |
 | Prezzi agricoli per prodotto × borsa merci (nocciole, olive, uva) | 700 | 30-45 | ~18 | BMTI/AGER 403, listini in PDF, nessun pagatore | fronti-2026-11-12-radar-settori-diversi.md |
 | Codice LEI: strumento "controlla il tuo LEI" (API GLEIF, CC0, dal browser) + costi di rinnovo per Paese (emittente ufficiale sempre in tabella), versione piccola IT/EN: Italia, UK, Germania, Irlanda | 650 (ottimista 7.000) | ~15 + 1/mese | ~43 | **verifica 12/11: GO-small, voto 5** (gli emittenti ufficiali hanno 73-89 % del mercato e per 1 anno costano meno). Prima di costruire: iscrizione di Massimiliano a LEI Worldwide (20 %) con condizioni scritte (cookie, rinnovi, forfettario); mai logo o "ufficiale" (clausola GLEIF IV(c)) | verifica-2026-11-12-lei.md |
-| USA: agevolazioni sulla tassa sulla casa per anziani, Stato × contea (mercato grande) | 1.700 a 18 mesi, **4.800 a 36** (ottimista 19.000) | 190-250 | ~20 a 36 mesi | prima misurare la domanda vera (strumento volumi) e leggere i risultati Google; solo pubblicità | fronti-2026-11-12-mercati-grandi.md |
-| USA: multa per eccesso di velocità, tribunale per tribunale | 1.400 a 18, **3.900 a 36** (ottimista 16.000) | 160-240 | ~16 | prima provare 30 tribunali (letti 2 su 5) e misurare la domanda | fronti-2026-11-12-mercati-grandi.md |
 | USA: costo del divorzio per contea + affiliazione OnlineDivorce (fino a 100 $ a vendita, FlexOffers) | 1.300 a 18, **3.600 a 36** (ottimista 24.000) | 125-165 + 15 min Massimiliano | ~22 | misurare la domanda per contea; iscrizione FlexOffers | fronti-2026-11-12-mercati-grandi.md |
 
 Le idee della riserva entrano nella coda di costruzione nell'ordine della colonna €/ora, appena il loro ostacolo è tolto; i turni di costruzione le prendono quando la coda principale è vuota o in attesa.
