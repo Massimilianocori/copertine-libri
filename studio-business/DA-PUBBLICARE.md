@@ -51,7 +51,7 @@ Pubblicato il 1/11/2026 alle 00:15 circa: Visa Income (cerimonie australiane, es
 
 | Quando | Cosa |
 |---|---|
-| quando Massimiliano collega Paga CCNL su Netlify (paga-ccnl, base ccnl/sito) | Search Console + sitemap, host in indexnow.py, IndexNow; notifiche del modulo `segnalazioni` |
+| Paga CCNL online dal 12/11/2026 (paga-ccnl.netlify.app, collegato da Massimiliano; IndexNow 63 URL fatto) | Search Console: proprietà con prefisso URL e meta tag (Massimiliano manda il codice → in `ccnl/genera.py`, pubblicazione del giorno dopo → "Verifica" → sitemap); notifiche del modulo `segnalazioni` |
 | ogni mese (dal 12/12/2026) | Paga CCNL: rileggere il JSON CNEL (H501, H011, C011, K511, I100) e le pagine del Ministero; nuovi accordi → estrazione, genera, verifica |
 | 45 giorni dopo la messa online di Paga CCNL | se le pagine livello hanno impressioni: allargare ai 10 contratti e copiare dal modello spagnolo (convenioscolectivos.org) numero e data dell'atto in cima, scelta della categoria, pagina per anno, costo per il datore, calcolo degli arretrati dopo un rinnovo, avviso di cambio, scarico del file (fronti-2026-11-12-paghe-altri-mercati.md) |
 | gennaio 2027 | Paga CCNL: caricare la tabella ministeriale 2027 del lavoro domestico; decidere la logistica non viaggiante dal 1/1/2027 (somma delle due componenti verificate o cifra vecchia con nota) |
