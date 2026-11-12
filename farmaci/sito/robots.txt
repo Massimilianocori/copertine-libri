@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://farmaci-equivalenti.netlify.app/sitemap.xml
+Sitemap: https://farmaco-equivalente.netlify.app/sitemap.xml
