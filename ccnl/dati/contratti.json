@@ -1,0 +1,7119 @@
+{
+ "generato_il": "2026-11-12",
+ "contratti": {
+  "domestico": {
+   "livelli": [
+    {
+     "id": "a",
+     "tranche": [
+      {
+       "dal": "2026-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo mensile (convivente, tabella A)",
+         "908.10"
+        ]
+       ],
+       "indennita_funzione": null,
+       "tabelle": {
+        "A_mensile": "908.10",
+        "C_oraria": "6.51"
+       },
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "A_mensile": "908.10",
+        "C_oraria": "6.51"
+       },
+       "fonte_b": {
+        "A_mensile": "908.10",
+        "C_oraria": "6.51"
+       }
+      }
+     ]
+    },
+    {
+     "id": "as",
+     "tranche": [
+      {
+       "dal": "2026-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo mensile (convivente, tabella A)",
+         "958.55"
+        ]
+       ],
+       "indennita_funzione": null,
+       "tabelle": {
+        "A_mensile": "958.55",
+        "C_oraria": "6.76"
+       },
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "A_mensile": "958.55",
+        "C_oraria": "6.76"
+       },
+       "fonte_b": {
+        "A_mensile": "958.55",
+        "C_oraria": "6.76"
+       }
+      }
+     ]
+    },
+    {
+     "id": "b",
+     "tranche": [
+      {
+       "dal": "2026-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo mensile (convivente, tabella A)",
+         "983.16"
+        ]
+       ],
+       "indennita_funzione": null,
+       "tabelle": {
+        "A_mensile": "983.16",
+        "B_mensile": "702.25",
+        "C_oraria": "7.01",
+        "L_mensile": "30.27"
+       },
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "A_mensile": "983.16",
+        "B_mensile": "702.25",
+        "C_oraria": "7.01",
+        "L_mensile": "30.27"
+       },
+       "fonte_b": {
+        "A_mensile": "983.16",
+        "B_mensile": "702.25",
+        "C_oraria": "7.01",
+        "L_mensile": "30.27"
+       }
+      }
+     ]
+    },
+    {
+     "id": "bs",
+     "tranche": [
+      {
+       "dal": "2026-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo mensile (convivente, tabella A)",
+         "1053.39"
+        ]
+       ],
+       "indennita_funzione": null,
+       "tabelle": {
+        "A_mensile": "1053.39",
+        "B_mensile": "737.39",
+        "C_oraria": "7.45",
+        "D_autosuff": "1211.38",
+        "F_pranzo": "2.33",
+        "F_cena": "2.33",
+        "F_alloggio": "2.00",
+        "F_totale": "6.66",
+        "H_mensile": "138.54",
+        "H_mensile_tab_b": "97.06",
+        "H_oraria": "0.84",
+        "L_mensile": "30.27"
+       },
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "A_mensile": "1053.39",
+        "B_mensile": "737.39",
+        "C_oraria": "7.45",
+        "D_autosuff": "1211.38",
+        "F_pranzo": "2.33",
+        "F_cena": "2.33",
+        "F_alloggio": "2.00",
+        "F_totale": "6.66",
+        "H_mensile": "138.54",
+        "H_mensile_tab_b": "97.06",
+        "H_oraria": "0.84",
+        "L_mensile": "30.27"
+       },
+       "fonte_b": {
+        "A_mensile": "1053.39",
+        "B_mensile": "737.39",
+        "C_oraria": "7.45",
+        "D_autosuff": "1211.38",
+        "F_pranzo": "2.33",
+        "F_cena": "2.33",
+        "F_alloggio": "2.00",
+        "F_totale": "6.66",
+        "H_mensile": "138.54",
+        "H_mensile_tab_b": "97.06",
+        "H_oraria": "0.84",
+        "L_mensile": "30.27"
+       }
+      }
+     ]
+    },
+    {
+     "id": "c",
+     "tranche": [
+      {
+       "dal": "2026-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo mensile (convivente, tabella A)",
+         "1123.63"
+        ]
+       ],
+       "indennita_funzione": null,
+       "tabelle": {
+        "A_mensile": "1123.63",
+        "B_mensile": "814.60",
+        "C_oraria": "7.86"
+       },
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "A_mensile": "1123.63",
+        "B_mensile": "814.60",
+        "C_oraria": "7.86"
+       },
+       "fonte_b": {
+        "A_mensile": "1123.63",
+        "B_mensile": "814.60",
+        "C_oraria": "7.86"
+       }
+      }
+     ]
+    },
+    {
+     "id": "cs",
+     "tranche": [
+      {
+       "dal": "2026-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo mensile (convivente, tabella A)",
+         "1193.84"
+        ]
+       ],
+       "indennita_funzione": null,
+       "tabelle": {
+        "A_mensile": "1193.84",
+        "C_oraria": "8.30",
+        "D_non_autosuff": "1372.91",
+        "G_oraria": "8.91",
+        "I_mensile": "119.66",
+        "I_oraria": "0.70",
+        "L_mensile": "30.27"
+       },
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "A_mensile": "1193.84",
+        "C_oraria": "8.30",
+        "D_non_autosuff": "1372.91",
+        "G_oraria": "8.91",
+        "I_mensile": "119.66",
+        "I_oraria": "0.70",
+        "L_mensile": "30.27"
+       },
+       "fonte_b": {
+        "A_mensile": "1193.84",
+        "C_oraria": "8.30",
+        "D_non_autosuff": "1372.91",
+        "G_oraria": "8.91",
+        "I_mensile": "119.66",
+        "I_oraria": "0.70",
+        "L_mensile": "30.27"
+       }
+      }
+     ]
+    },
+    {
+     "id": "d",
+     "tranche": [
+      {
+       "dal": "2026-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo mensile (convivente, tabella A)",
+         "1404.51"
+        ]
+       ],
+       "indennita_funzione": "207.69",
+       "tabelle": {
+        "A_mensile": "1404.51",
+        "A_indennita": "207.69",
+        "C_oraria": "9.57"
+       },
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "A_mensile": "1404.51",
+        "A_indennita": "207.69",
+        "C_oraria": "9.57"
+       },
+       "fonte_b": {
+        "A_mensile": "1404.51",
+        "A_indennita": "207.69",
+        "C_oraria": "9.57"
+       }
+      }
+     ]
+    },
+    {
+     "id": "ds",
+     "tranche": [
+      {
+       "dal": "2026-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo mensile (convivente, tabella A)",
+         "1474.73"
+        ]
+       ],
+       "indennita_funzione": "207.69",
+       "tabelle": {
+        "A_mensile": "1474.73",
+        "A_indennita": "207.69",
+        "C_oraria": "9.97",
+        "D_non_autosuff": "1695.99",
+        "G_oraria": "10.75",
+        "I_mensile": "119.66",
+        "I_oraria": "0.70"
+       },
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "A_mensile": "1474.73",
+        "A_indennita": "207.69",
+        "C_oraria": "9.97",
+        "D_non_autosuff": "1695.99",
+        "G_oraria": "10.75",
+        "I_mensile": "119.66",
+        "I_oraria": "0.70"
+       },
+       "fonte_b": {
+        "A_mensile": "1474.73",
+        "A_indennita": "207.69",
+        "C_oraria": "9.97",
+        "D_non_autosuff": "1695.99",
+        "G_oraria": "10.75",
+        "I_mensile": "119.66",
+        "I_oraria": "0.70"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "terziario": {
+   "livelli": [
+    {
+     "id": "q",
+     "tranche": [
+      {
+       "dal": "2025-11-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Paga base",
+         "2183.09"
+        ],
+        [
+         "Altri elementi",
+         "260.76"
+        ],
+        [
+         "Contingenza + EDR",
+         "540.37"
+        ]
+       ],
+       "totale": "2984.22",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "paga_base": "2183.09",
+        "altri_elementi": "260.76",
+        "contingenza_edr": "540.37",
+        "totale": "2984.22",
+        "pagina": 363
+       },
+       "fonte_b": {
+        "paga_base": "2183.09",
+        "contingenza": "540.37",
+        "altri_elementi": "260.76",
+        "terzo_elemento": "2.07",
+        "totale": "2986.29"
+       },
+       "terzo_elemento": "2.07"
+      },
+      {
+       "dal": "2026-11-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Paga base",
+         "2243.85"
+        ],
+        [
+         "Altri elementi",
+         "260.76"
+        ],
+        [
+         "Contingenza + EDR",
+         "540.37"
+        ]
+       ],
+       "totale": "3044.98",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "paga_base": "2243.85",
+        "altri_elementi": "260.76",
+        "contingenza_edr": "540.37",
+        "totale": "3044.98",
+        "pagina": 363
+       },
+       "fonte_b": {
+        "paga_base": "2243.85",
+        "contingenza": "540.37",
+        "altri_elementi": "260.76",
+        "terzo_elemento": "2.07",
+        "totale": "3047.05"
+       },
+       "terzo_elemento": "2.07"
+      },
+      {
+       "dal": "2027-02-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Paga base",
+         "2313.29"
+        ],
+        [
+         "Altri elementi",
+         "260.76"
+        ],
+        [
+         "Contingenza + EDR",
+         "540.37"
+        ]
+       ],
+       "totale": "3114.42",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "paga_base": "2313.29",
+        "altri_elementi": "260.76",
+        "contingenza_edr": "540.37",
+        "totale": "3114.42",
+        "pagina": 364
+       },
+       "fonte_b": {
+        "paga_base": "2313.29",
+        "contingenza": "540.37",
+        "altri_elementi": "260.76",
+        "terzo_elemento": "2.07",
+        "totale": "3116.49"
+       },
+       "terzo_elemento": "2.07"
+      }
+     ]
+    },
+    {
+     "id": "i",
+     "tranche": [
+      {
+       "dal": "2025-11-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Paga base",
+         "1966.54"
+        ],
+        [
+         "Contingenza + EDR",
+         "537.52"
+        ]
+       ],
+       "totale": "2504.06",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "paga_base": "1966.54",
+        "altri_elementi": "0.00",
+        "contingenza_edr": "537.52",
+        "totale": "2504.06",
+        "pagina": 363
+       },
+       "fonte_b": {
+        "paga_base": "1966.54",
+        "contingenza": "537.52",
+        "altri_elementi": "0.00",
+        "terzo_elemento": "2.07",
+        "totale": "2506.13"
+       },
+       "terzo_elemento": "2.07"
+      },
+      {
+       "dal": "2026-11-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Paga base",
+         "2021.28"
+        ],
+        [
+         "Contingenza + EDR",
+         "537.52"
+        ]
+       ],
+       "totale": "2558.80",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "paga_base": "2021.28",
+        "altri_elementi": "0.00",
+        "contingenza_edr": "537.52",
+        "totale": "2558.80",
+        "pagina": 363
+       },
+       "fonte_b": {
+        "paga_base": "2021.28",
+        "contingenza": "537.52",
+        "altri_elementi": "0.00",
+        "terzo_elemento": "2.07",
+        "totale": "2560.87"
+       },
+       "terzo_elemento": "2.07"
+      },
+      {
+       "dal": "2027-02-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Paga base",
+         "2083.84"
+        ],
+        [
+         "Contingenza + EDR",
+         "537.52"
+        ]
+       ],
+       "totale": "2621.36",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "paga_base": "2083.84",
+        "altri_elementi": "0.00",
+        "contingenza_edr": "537.52",
+        "totale": "2621.36",
+        "pagina": 364
+       },
+       "fonte_b": {
+        "paga_base": "2083.84",
+        "contingenza": "537.52",
+        "altri_elementi": "0.00",
+        "terzo_elemento": "2.07",
+        "totale": "2623.43"
+       },
+       "terzo_elemento": "2.07"
+      }
+     ]
+    },
+    {
+     "id": "ii",
+     "tranche": [
+      {
+       "dal": "2025-11-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Paga base",
+         "1701.04"
+        ],
+        [
+         "Contingenza + EDR",
+         "532.54"
+        ]
+       ],
+       "totale": "2233.58",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "paga_base": "1701.04",
+        "altri_elementi": "0.00",
+        "contingenza_edr": "532.54",
+        "totale": "2233.58",
+        "pagina": 363
+       },
+       "fonte_b": {
+        "paga_base": "1701.04",
+        "contingenza": "532.54",
+        "altri_elementi": "0.00",
+        "terzo_elemento": "2.07",
+        "totale": "2235.65"
+       },
+       "terzo_elemento": "2.07"
+      },
+      {
+       "dal": "2026-11-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Paga base",
+         "1748.39"
+        ],
+        [
+         "Contingenza + EDR",
+         "532.54"
+        ]
+       ],
+       "totale": "2280.93",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "paga_base": "1748.39",
+        "altri_elementi": "0.00",
+        "contingenza_edr": "532.54",
+        "totale": "2280.93",
+        "pagina": 363
+       },
+       "fonte_b": {
+        "paga_base": "1748.39",
+        "contingenza": "532.54",
+        "altri_elementi": "0.00",
+        "terzo_elemento": "2.07",
+        "totale": "2283.00"
+       },
+       "terzo_elemento": "2.07"
+      },
+      {
+       "dal": "2027-02-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Paga base",
+         "1802.50"
+        ],
+        [
+         "Contingenza + EDR",
+         "532.54"
+        ]
+       ],
+       "totale": "2335.04",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "paga_base": "1802.50",
+        "altri_elementi": "0.00",
+        "contingenza_edr": "532.54",
+        "totale": "2335.04",
+        "pagina": 364
+       },
+       "fonte_b": {
+        "paga_base": "1802.50",
+        "contingenza": "532.54",
+        "altri_elementi": "0.00",
+        "terzo_elemento": "2.07",
+        "totale": "2337.11"
+       },
+       "terzo_elemento": "2.07"
+      }
+     ]
+    },
+    {
+     "id": "iii",
+     "tranche": [
+      {
+       "dal": "2025-11-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Paga base",
+         "1453.94"
+        ],
+        [
+         "Contingenza + EDR",
+         "527.90"
+        ]
+       ],
+       "totale": "1981.84",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "paga_base": "1453.94",
+        "altri_elementi": "0.00",
+        "contingenza_edr": "527.90",
+        "totale": "1981.84",
+        "pagina": 363
+       },
+       "fonte_b": {
+        "paga_base": "1453.94",
+        "contingenza": "527.90",
+        "altri_elementi": "0.00",
+        "terzo_elemento": "2.07",
+        "totale": "1983.91"
+       },
+       "terzo_elemento": "2.07"
+      },
+      {
+       "dal": "2026-11-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Paga base",
+         "1494.41"
+        ],
+        [
+         "Contingenza + EDR",
+         "527.90"
+        ]
+       ],
+       "totale": "2022.31",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "paga_base": "1494.41",
+        "altri_elementi": "0.00",
+        "contingenza_edr": "527.90",
+        "totale": "2022.31",
+        "pagina": 363
+       },
+       "fonte_b": {
+        "paga_base": "1494.41",
+        "contingenza": "527.90",
+        "altri_elementi": "0.00",
+        "terzo_elemento": "2.07",
+        "totale": "2024.38"
+       },
+       "terzo_elemento": "2.07"
+      },
+      {
+       "dal": "2027-02-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Paga base",
+         "1540.66"
+        ],
+        [
+         "Contingenza + EDR",
+         "527.90"
+        ]
+       ],
+       "totale": "2068.56",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "paga_base": "1540.66",
+        "altri_elementi": "0.00",
+        "contingenza_edr": "527.90",
+        "totale": "2068.56",
+        "pagina": 364
+       },
+       "fonte_b": {
+        "paga_base": "1540.66",
+        "contingenza": "527.90",
+        "altri_elementi": "0.00",
+        "terzo_elemento": "2.07",
+        "totale": "2070.63"
+       },
+       "terzo_elemento": "2.07"
+      }
+     ]
+    },
+    {
+     "id": "iv",
+     "tranche": [
+      {
+       "dal": "2025-11-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Paga base",
+         "1257.46"
+        ],
+        [
+         "Contingenza + EDR",
+         "524.22"
+        ]
+       ],
+       "totale": "1781.68",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "paga_base": "1257.46",
+        "altri_elementi": "0.00",
+        "contingenza_edr": "524.22",
+        "totale": "1781.68",
+        "pagina": 363
+       },
+       "fonte_b": {
+        "paga_base": "1257.46",
+        "contingenza": "524.22",
+        "altri_elementi": "0.00",
+        "terzo_elemento": "2.07",
+        "totale": "1783.75"
+       },
+       "terzo_elemento": "2.07"
+      },
+      {
+       "dal": "2026-11-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Paga base",
+         "1292.46"
+        ],
+        [
+         "Contingenza + EDR",
+         "524.22"
+        ]
+       ],
+       "totale": "1816.68",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "paga_base": "1292.46",
+        "altri_elementi": "0.00",
+        "contingenza_edr": "524.22",
+        "totale": "1816.68",
+        "pagina": 363
+       },
+       "fonte_b": {
+        "paga_base": "1292.46",
+        "contingenza": "524.22",
+        "altri_elementi": "0.00",
+        "terzo_elemento": "2.07",
+        "totale": "1818.75"
+       },
+       "terzo_elemento": "2.07"
+      },
+      {
+       "dal": "2027-02-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Paga base",
+         "1332.46"
+        ],
+        [
+         "Contingenza + EDR",
+         "524.22"
+        ]
+       ],
+       "totale": "1856.68",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "paga_base": "1332.46",
+        "altri_elementi": "0.00",
+        "contingenza_edr": "524.22",
+        "totale": "1856.68",
+        "pagina": 364
+       },
+       "fonte_b": {
+        "paga_base": "1332.46",
+        "contingenza": "524.22",
+        "altri_elementi": "0.00",
+        "terzo_elemento": "2.07",
+        "totale": "1858.75"
+       },
+       "terzo_elemento": "2.07"
+      }
+     ]
+    },
+    {
+     "id": "v",
+     "tranche": [
+      {
+       "dal": "2025-11-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Paga base",
+         "1136.07"
+        ],
+        [
+         "Contingenza + EDR",
+         "521.94"
+        ]
+       ],
+       "totale": "1658.01",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "paga_base": "1136.07",
+        "altri_elementi": "0.00",
+        "contingenza_edr": "521.94",
+        "totale": "1658.01",
+        "pagina": 363
+       },
+       "fonte_b": {
+        "paga_base": "1136.07",
+        "contingenza": "521.94",
+        "altri_elementi": "0.00",
+        "terzo_elemento": "2.07",
+        "totale": "1660.08"
+       },
+       "terzo_elemento": "2.07"
+      },
+      {
+       "dal": "2026-11-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Paga base",
+         "1167.69"
+        ],
+        [
+         "Contingenza + EDR",
+         "521.94"
+        ]
+       ],
+       "totale": "1689.63",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "paga_base": "1167.69",
+        "altri_elementi": "0.00",
+        "contingenza_edr": "521.94",
+        "totale": "1689.63",
+        "pagina": 363
+       },
+       "fonte_b": {
+        "paga_base": "1167.69",
+        "contingenza": "521.94",
+        "altri_elementi": "0.00",
+        "terzo_elemento": "2.07",
+        "totale": "1691.70"
+       },
+       "terzo_elemento": "2.07"
+      },
+      {
+       "dal": "2027-02-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Paga base",
+         "1203.83"
+        ],
+        [
+         "Contingenza + EDR",
+         "521.94"
+        ]
+       ],
+       "totale": "1725.77",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "paga_base": "1203.83",
+        "altri_elementi": "0.00",
+        "contingenza_edr": "521.94",
+        "totale": "1725.77",
+        "pagina": 364
+       },
+       "fonte_b": {
+        "paga_base": "1203.83",
+        "contingenza": "521.94",
+        "altri_elementi": "0.00",
+        "terzo_elemento": "2.07",
+        "totale": "1727.84"
+       },
+       "terzo_elemento": "2.07"
+      }
+     ]
+    },
+    {
+     "id": "vi",
+     "tranche": [
+      {
+       "dal": "2025-11-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Paga base",
+         "1019.94"
+        ],
+        [
+         "Contingenza + EDR",
+         "519.76"
+        ]
+       ],
+       "totale": "1539.70",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "paga_base": "1019.94",
+        "altri_elementi": "0.00",
+        "contingenza_edr": "519.76",
+        "totale": "1539.70",
+        "pagina": 363
+       },
+       "fonte_b": {
+        "paga_base": "1019.94",
+        "contingenza": "519.76",
+        "altri_elementi": "0.00",
+        "terzo_elemento": "2.07",
+        "totale": "1541.77"
+       },
+       "terzo_elemento": "2.07"
+      },
+      {
+       "dal": "2026-11-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Paga base",
+         "1048.33"
+        ],
+        [
+         "Contingenza + EDR",
+         "519.76"
+        ]
+       ],
+       "totale": "1568.09",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "paga_base": "1048.33",
+        "altri_elementi": "0.00",
+        "contingenza_edr": "519.76",
+        "totale": "1568.09",
+        "pagina": 363
+       },
+       "fonte_b": {
+        "paga_base": "1048.33",
+        "contingenza": "519.76",
+        "altri_elementi": "0.00",
+        "terzo_elemento": "2.07",
+        "totale": "1570.16"
+       },
+       "terzo_elemento": "2.07"
+      },
+      {
+       "dal": "2027-02-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Paga base",
+         "1080.77"
+        ],
+        [
+         "Contingenza + EDR",
+         "519.76"
+        ]
+       ],
+       "totale": "1600.53",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "paga_base": "1080.77",
+        "altri_elementi": "0.00",
+        "contingenza_edr": "519.76",
+        "totale": "1600.53",
+        "pagina": 364
+       },
+       "fonte_b": {
+        "paga_base": "1080.77",
+        "contingenza": "519.76",
+        "altri_elementi": "0.00",
+        "terzo_elemento": "2.07",
+        "totale": "1602.60"
+       },
+       "terzo_elemento": "2.07"
+      }
+     ]
+    },
+    {
+     "id": "vii",
+     "tranche": [
+      {
+       "dal": "2025-11-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Paga base",
+         "873.22"
+        ],
+        [
+         "Altri elementi",
+         "5.16"
+        ],
+        [
+         "Contingenza + EDR",
+         "517.51"
+        ]
+       ],
+       "totale": "1395.89",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "paga_base": "873.22",
+        "altri_elementi": "5.16",
+        "contingenza_edr": "517.51",
+        "totale": "1395.89",
+        "pagina": 363
+       },
+       "fonte_b": {
+        "paga_base": "873.22",
+        "altri_elementi": "5.16",
+        "contingenza": "517.51",
+        "terzo_elemento": "2.07",
+        "totale": "1397.96"
+       },
+       "terzo_elemento": "2.07"
+      },
+      {
+       "dal": "2026-11-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Paga base",
+         "897.53"
+        ],
+        [
+         "Altri elementi",
+         "5.16"
+        ],
+        [
+         "Contingenza + EDR",
+         "517.51"
+        ]
+       ],
+       "totale": "1420.20",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "paga_base": "897.53",
+        "altri_elementi": "5.16",
+        "contingenza_edr": "517.51",
+        "totale": "1420.20",
+        "pagina": 363
+       },
+       "fonte_b": {
+        "paga_base": "897.53",
+        "altri_elementi": "5.16",
+        "contingenza": "517.51",
+        "terzo_elemento": "2.07",
+        "totale": "1422.27"
+       },
+       "terzo_elemento": "2.07"
+      },
+      {
+       "dal": "2027-02-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Paga base",
+         "925.31"
+        ],
+        [
+         "Altri elementi",
+         "5.16"
+        ],
+        [
+         "Contingenza + EDR",
+         "517.51"
+        ]
+       ],
+       "totale": "1447.98",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "paga_base": "925.31",
+        "altri_elementi": "5.16",
+        "contingenza_edr": "517.51",
+        "totale": "1447.98",
+        "pagina": 364
+       },
+       "fonte_b": {
+        "paga_base": "925.31",
+        "altri_elementi": "5.16",
+        "contingenza": "517.51",
+        "terzo_elemento": "2.07",
+        "totale": "1450.05"
+       },
+       "terzo_elemento": "2.07"
+      }
+     ]
+    }
+   ]
+  },
+  "metalmeccanici": {
+   "livelli": [
+    {
+     "id": "d1",
+     "tranche": [
+      {
+       "dal": "2026-06-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo tabellare",
+         "1784.94"
+        ]
+       ],
+       "totale": "1784.94",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "annuo": "21419.28",
+        "mensile": "1784.94",
+        "annuo_divisibile_per_12": true,
+        "tabelle": [
+         "min_dd94_operai",
+         "min_dd94_impiegati"
+        ]
+       },
+       "fonte_b": {
+        "minimo": "1784.94"
+       }
+      },
+      {
+       "dal": "2027-06-01",
+       "pubblicabile": false,
+       "motivi": [
+        "cifra scritta solo nell'accordo del 22/11/2025 (nessuna seconda fonte ufficiale): non pubblicata"
+       ],
+       "fonte_b": {
+        "minimo": "1833.02"
+       }
+      },
+      {
+       "dal": "2028-06-01",
+       "pubblicabile": false,
+       "motivi": [
+        "cifra scritta solo nell'accordo del 22/11/2025 (nessuna seconda fonte ufficiale): non pubblicata"
+       ],
+       "fonte_b": {
+        "minimo": "1885.37"
+       }
+      }
+     ]
+    },
+    {
+     "id": "d2",
+     "tranche": [
+      {
+       "dal": "2026-06-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo tabellare",
+         "1979.37"
+        ]
+       ],
+       "totale": "1979.37",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "annuo": "23752.44",
+        "mensile": "1979.37",
+        "annuo_divisibile_per_12": true,
+        "tabelle": [
+         "min_dd94_operai",
+         "min_dd94_impiegati"
+        ]
+       },
+       "fonte_b": {
+        "minimo": "1979.37"
+       }
+      },
+      {
+       "dal": "2027-06-01",
+       "pubblicabile": false,
+       "motivi": [
+        "cifra scritta solo nell'accordo del 22/11/2025 (nessuna seconda fonte ufficiale): non pubblicata"
+       ],
+       "fonte_b": {
+        "minimo": "2032.70"
+       }
+      },
+      {
+       "dal": "2028-06-01",
+       "pubblicabile": false,
+       "motivi": [
+        "cifra scritta solo nell'accordo del 22/11/2025 (nessuna seconda fonte ufficiale): non pubblicata"
+       ],
+       "fonte_b": {
+        "minimo": "2090.76"
+       }
+      }
+     ]
+    },
+    {
+     "id": "c1",
+     "tranche": [
+      {
+       "dal": "2026-06-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo tabellare",
+         "2022.12"
+        ]
+       ],
+       "totale": "2022.12",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "annuo": "24265.44",
+        "mensile": "2022.12",
+        "annuo_divisibile_per_12": true,
+        "tabelle": [
+         "min_dd94_operai",
+         "min_dd94_impiegati"
+        ]
+       },
+       "fonte_b": {
+        "minimo": "2022.12"
+       }
+      },
+      {
+       "dal": "2027-06-01",
+       "pubblicabile": false,
+       "motivi": [
+        "cifra scritta solo nell'accordo del 22/11/2025 (nessuna seconda fonte ufficiale): non pubblicata"
+       ],
+       "fonte_b": {
+        "minimo": "2076.59"
+       }
+      },
+      {
+       "dal": "2028-06-01",
+       "pubblicabile": false,
+       "motivi": [
+        "cifra scritta solo nell'accordo del 22/11/2025 (nessuna seconda fonte ufficiale): non pubblicata"
+       ],
+       "fonte_b": {
+        "minimo": "2135.89"
+       }
+      }
+     ]
+    },
+    {
+     "id": "c2",
+     "tranche": [
+      {
+       "dal": "2026-06-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo tabellare",
+         "2064.88"
+        ]
+       ],
+       "totale": "2064.88",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "annuo": "24778.56",
+        "mensile": "2064.88",
+        "annuo_divisibile_per_12": true,
+        "tabelle": [
+         "min_dd94_operai",
+         "min_dd94_impiegati"
+        ]
+       },
+       "fonte_b": {
+        "minimo": "2064.88"
+       }
+      },
+      {
+       "dal": "2027-06-01",
+       "pubblicabile": false,
+       "motivi": [
+        "cifra scritta solo nell'accordo del 22/11/2025 (nessuna seconda fonte ufficiale): non pubblicata"
+       ],
+       "fonte_b": {
+        "minimo": "2120.52"
+       }
+      },
+      {
+       "dal": "2028-06-01",
+       "pubblicabile": false,
+       "motivi": [
+        "cifra scritta solo nell'accordo del 22/11/2025 (nessuna seconda fonte ufficiale): non pubblicata"
+       ],
+       "fonte_b": {
+        "minimo": "2181.09"
+       }
+      }
+     ]
+    },
+    {
+     "id": "c3",
+     "tranche": [
+      {
+       "dal": "2026-06-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo tabellare",
+         "2211.43"
+        ]
+       ],
+       "totale": "2211.43",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "annuo": "26537.16",
+        "mensile": "2211.43",
+        "annuo_divisibile_per_12": true,
+        "tabelle": [
+         "min_dd94_operai",
+         "min_dd94_impiegati"
+        ]
+       },
+       "fonte_b": {
+        "minimo": "2211.43"
+       }
+      },
+      {
+       "dal": "2027-06-01",
+       "pubblicabile": false,
+       "motivi": [
+        "cifra scritta solo nell'accordo del 22/11/2025 (nessuna seconda fonte ufficiale): non pubblicata"
+       ],
+       "fonte_b": {
+        "minimo": "2271.01"
+       }
+      },
+      {
+       "dal": "2028-06-01",
+       "pubblicabile": false,
+       "motivi": [
+        "cifra scritta solo nell'accordo del 22/11/2025 (nessuna seconda fonte ufficiale): non pubblicata"
+       ],
+       "fonte_b": {
+        "minimo": "2335.88"
+       }
+      }
+     ]
+    },
+    {
+     "id": "b1",
+     "tranche": [
+      {
+       "dal": "2026-06-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo tabellare",
+         "2370.33"
+        ]
+       ],
+       "totale": "2370.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "annuo": "28443.96",
+        "mensile": "2370.33",
+        "annuo_divisibile_per_12": true,
+        "tabelle": [
+         "min_dd94_operai",
+         "min_dd94_impiegati"
+        ]
+       },
+       "fonte_b": {
+        "minimo": "2370.33"
+       }
+      },
+      {
+       "dal": "2027-06-01",
+       "pubblicabile": false,
+       "motivi": [
+        "cifra scritta solo nell'accordo del 22/11/2025 (nessuna seconda fonte ufficiale): non pubblicata"
+       ],
+       "fonte_b": {
+        "minimo": "2434.19"
+       }
+      },
+      {
+       "dal": "2028-06-01",
+       "pubblicabile": false,
+       "motivi": [
+        "cifra scritta solo nell'accordo del 22/11/2025 (nessuna seconda fonte ufficiale): non pubblicata"
+       ],
+       "fonte_b": {
+        "minimo": "2503.72"
+       }
+      }
+     ]
+    },
+    {
+     "id": "b2",
+     "tranche": [
+      {
+       "dal": "2026-06-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo tabellare",
+         "2542.98"
+        ]
+       ],
+       "totale": "2542.98",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "annuo": "30515.76",
+        "mensile": "2542.98",
+        "annuo_divisibile_per_12": true,
+        "tabelle": [
+         "min_dd94_impiegati"
+        ]
+       },
+       "fonte_b": {
+        "minimo": "2542.98"
+       }
+      },
+      {
+       "dal": "2027-06-01",
+       "pubblicabile": false,
+       "motivi": [
+        "cifra scritta solo nell'accordo del 22/11/2025 (nessuna seconda fonte ufficiale): non pubblicata"
+       ],
+       "fonte_b": {
+        "minimo": "2611.49"
+       }
+      },
+      {
+       "dal": "2028-06-01",
+       "pubblicabile": false,
+       "motivi": [
+        "cifra scritta solo nell'accordo del 22/11/2025 (nessuna seconda fonte ufficiale): non pubblicata"
+       ],
+       "fonte_b": {
+        "minimo": "2686.08"
+       }
+      }
+     ]
+    },
+    {
+     "id": "b3",
+     "tranche": [
+      {
+       "dal": "2026-06-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo tabellare",
+         "2838.99"
+        ]
+       ],
+       "totale": "2838.99",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "annuo": "34067.88",
+        "mensile": "2838.99",
+        "annuo_divisibile_per_12": true,
+        "tabelle": [
+         "min_dd94_impiegati"
+        ]
+       },
+       "fonte_b": {
+        "minimo": "2838.99"
+       }
+      },
+      {
+       "dal": "2027-06-01",
+       "pubblicabile": false,
+       "motivi": [
+        "cifra scritta solo nell'accordo del 22/11/2025 (nessuna seconda fonte ufficiale): non pubblicata"
+       ],
+       "fonte_b": {
+        "minimo": "2915.48"
+       }
+      },
+      {
+       "dal": "2028-06-01",
+       "pubblicabile": false,
+       "motivi": [
+        "cifra scritta solo nell'accordo del 22/11/2025 (nessuna seconda fonte ufficiale): non pubblicata"
+       ],
+       "fonte_b": {
+        "minimo": "2998.76"
+       }
+      }
+     ]
+    },
+    {
+     "id": "a1",
+     "tranche": [
+      {
+       "dal": "2026-06-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo tabellare",
+         "2907.01"
+        ]
+       ],
+       "totale": "2907.01",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "annuo": "34884.12",
+        "mensile": "2907.01",
+        "annuo_divisibile_per_12": true,
+        "tabelle": [
+         "min_dd94_impiegati"
+        ]
+       },
+       "fonte_b": {
+        "minimo": "2907.01"
+       }
+      },
+      {
+       "dal": "2027-06-01",
+       "pubblicabile": false,
+       "motivi": [
+        "cifra scritta solo nell'accordo del 22/11/2025 (nessuna seconda fonte ufficiale): non pubblicata"
+       ],
+       "fonte_b": {
+        "minimo": "2985.33"
+       }
+      },
+      {
+       "dal": "2028-06-01",
+       "pubblicabile": false,
+       "motivi": [
+        "cifra scritta solo nell'accordo del 22/11/2025 (nessuna seconda fonte ufficiale): non pubblicata"
+       ],
+       "fonte_b": {
+        "minimo": "3070.61"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  "multiservizi": {
+   "livelli": [
+    {
+     "id": "1",
+     "tranche": [
+      {
+       "dal": "2025-07-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "751.57"
+        ],
+        [
+         "Indennità di contingenza",
+         "512.71"
+        ]
+       ],
+       "totale": "1264.28",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "751.57",
+        "contingenza": "512.71",
+        "annuo_tabellare": "9018.84",
+        "annuo_contingenza": "6152.52",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "operai"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "45.87",
+        "tabellare": "751.57",
+        "contingenza": "512.71",
+        "base": "1264.28",
+        "edr": "10.33",
+        "pagina": 1
+       }
+      },
+      {
+       "dal": "2026-05-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "783.68"
+        ],
+        [
+         "Indennità di contingenza",
+         "512.71"
+        ]
+       ],
+       "totale": "1296.39",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "783.68",
+        "contingenza": "512.71",
+        "annuo_tabellare": "9404.16",
+        "annuo_contingenza": "6152.52",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "operai"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "32.11",
+        "tabellare": "783.68",
+        "contingenza": "512.71",
+        "base": "1296.39",
+        "edr": "10.33",
+        "pagina": 2
+       },
+       "aumento_ok": true
+      },
+      {
+       "dal": "2026-10-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "815.79"
+        ],
+        [
+         "Indennità di contingenza",
+         "512.71"
+        ]
+       ],
+       "totale": "1328.50",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "815.79",
+        "contingenza": "512.71",
+        "annuo_tabellare": "9789.48",
+        "annuo_contingenza": "6152.52",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "operai"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "32.11",
+        "tabellare": "815.79",
+        "contingenza": "512.71",
+        "base": "1328.50",
+        "edr": "10.33",
+        "pagina": 2
+       },
+       "aumento_ok": true
+      },
+      {
+       "dal": "2027-05-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "843.31"
+        ],
+        [
+         "Indennità di contingenza",
+         "512.71"
+        ]
+       ],
+       "totale": "1356.02",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "843.31",
+        "contingenza": "512.71",
+        "annuo_tabellare": "10119.72",
+        "annuo_contingenza": "6152.52",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "operai"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "27.52",
+        "tabellare": "843.31",
+        "contingenza": "512.71",
+        "base": "1356.02",
+        "edr": "10.33",
+        "pagina": 2
+       },
+       "aumento_ok": true
+      },
+      {
+       "dal": "2027-12-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "861.66"
+        ],
+        [
+         "Indennità di contingenza",
+         "512.71"
+        ]
+       ],
+       "totale": "1374.37",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "861.66",
+        "contingenza": "512.71",
+        "annuo_tabellare": "10339.92",
+        "annuo_contingenza": "6152.52",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "operai"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "18.35",
+        "tabellare": "861.66",
+        "contingenza": "512.71",
+        "base": "1374.37",
+        "edr": "10.33",
+        "pagina": 3
+       },
+       "aumento_ok": true
+      },
+      {
+       "dal": "2028-07-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "884.60"
+        ],
+        [
+         "Indennità di contingenza",
+         "512.71"
+        ]
+       ],
+       "totale": "1397.31",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "884.60",
+        "contingenza": "512.71",
+        "annuo_tabellare": "10615.20",
+        "annuo_contingenza": "6152.52",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "operai"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "22.94",
+        "tabellare": "884.60",
+        "contingenza": "512.71",
+        "base": "1397.31",
+        "edr": "10.33",
+        "pagina": 3
+       },
+       "aumento_ok": true
+      },
+      {
+       "dal": "2028-10-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "902.95"
+        ],
+        [
+         "Indennità di contingenza",
+         "512.71"
+        ]
+       ],
+       "totale": "1415.66",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "902.95",
+        "contingenza": "512.71",
+        "annuo_tabellare": "10835.40",
+        "annuo_contingenza": "6152.52",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "operai"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "18.35",
+        "tabellare": "902.95",
+        "contingenza": "512.71",
+        "base": "1415.66",
+        "edr": "10.33",
+        "pagina": 3
+       },
+       "aumento_ok": true
+      },
+      {
+       "dal": "2029-03-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "912.12"
+        ],
+        [
+         "Indennità di contingenza",
+         "512.71"
+        ]
+       ],
+       "totale": "1424.83",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "912.12",
+        "contingenza": "512.71",
+        "annuo_tabellare": "10945.44",
+        "annuo_contingenza": "6152.52",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "operai"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "9.17",
+        "tabellare": "912.12",
+        "contingenza": "512.71",
+        "base": "1424.83",
+        "edr": "10.33",
+        "pagina": 4
+       },
+       "aumento_ok": true
+      }
+     ]
+    },
+    {
+     "id": "2",
+     "tranche": [
+      {
+       "dal": "2025-07-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "819.21"
+        ],
+        [
+         "Indennità di contingenza",
+         "513.96"
+        ]
+       ],
+       "totale": "1333.17",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "819.21",
+        "contingenza": "513.96",
+        "annuo_tabellare": "9830.52",
+        "annuo_contingenza": "6167.52",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "operai",
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "50.00",
+        "tabellare": "819.21",
+        "contingenza": "513.96",
+        "base": "1333.17",
+        "edr": "10.33",
+        "pagina": 1
+       }
+      },
+      {
+       "dal": "2026-05-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "854.21"
+        ],
+        [
+         "Indennità di contingenza",
+         "513.96"
+        ]
+       ],
+       "totale": "1368.17",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "854.21",
+        "contingenza": "513.96",
+        "annuo_tabellare": "10250.52",
+        "annuo_contingenza": "6167.52",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "operai",
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "35.00",
+        "tabellare": "854.21",
+        "contingenza": "513.96",
+        "base": "1368.17",
+        "edr": "10.33",
+        "pagina": 2
+       },
+       "aumento_ok": true
+      },
+      {
+       "dal": "2026-10-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "889.21"
+        ],
+        [
+         "Indennità di contingenza",
+         "513.96"
+        ]
+       ],
+       "totale": "1403.17",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "889.21",
+        "contingenza": "513.96",
+        "annuo_tabellare": "10670.52",
+        "annuo_contingenza": "6167.52",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "operai",
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "35.00",
+        "tabellare": "889.21",
+        "contingenza": "513.96",
+        "base": "1403.17",
+        "edr": "10.33",
+        "pagina": 2
+       },
+       "aumento_ok": true
+      },
+      {
+       "dal": "2027-05-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "919.21"
+        ],
+        [
+         "Indennità di contingenza",
+         "513.96"
+        ]
+       ],
+       "totale": "1433.17",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "919.21",
+        "contingenza": "513.96",
+        "annuo_tabellare": "11030.52",
+        "annuo_contingenza": "6167.52",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "operai",
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "30.00",
+        "tabellare": "919.21",
+        "contingenza": "513.96",
+        "base": "1433.17",
+        "edr": "10.33",
+        "pagina": 2
+       },
+       "aumento_ok": true
+      },
+      {
+       "dal": "2027-12-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "939.21"
+        ],
+        [
+         "Indennità di contingenza",
+         "513.96"
+        ]
+       ],
+       "totale": "1453.17",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "939.21",
+        "contingenza": "513.96",
+        "annuo_tabellare": "11270.52",
+        "annuo_contingenza": "6167.52",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "operai",
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "20.00",
+        "tabellare": "939.21",
+        "contingenza": "513.96",
+        "base": "1453.17",
+        "edr": "10.33",
+        "pagina": 3
+       },
+       "aumento_ok": true
+      },
+      {
+       "dal": "2028-07-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "964.21"
+        ],
+        [
+         "Indennità di contingenza",
+         "513.96"
+        ]
+       ],
+       "totale": "1478.17",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "964.21",
+        "contingenza": "513.96",
+        "annuo_tabellare": "11570.52",
+        "annuo_contingenza": "6167.52",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "operai",
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "25.00",
+        "tabellare": "964.21",
+        "contingenza": "513.96",
+        "base": "1478.17",
+        "edr": "10.33",
+        "pagina": 3
+       },
+       "aumento_ok": true
+      },
+      {
+       "dal": "2028-10-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "984.21"
+        ],
+        [
+         "Indennità di contingenza",
+         "513.96"
+        ]
+       ],
+       "totale": "1498.17",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "984.21",
+        "contingenza": "513.96",
+        "annuo_tabellare": "11810.52",
+        "annuo_contingenza": "6167.52",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "operai",
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "20.00",
+        "tabellare": "984.21",
+        "contingenza": "513.96",
+        "base": "1498.17",
+        "edr": "10.33",
+        "pagina": 3
+       },
+       "aumento_ok": true
+      },
+      {
+       "dal": "2029-03-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "994.21"
+        ],
+        [
+         "Indennità di contingenza",
+         "513.96"
+        ]
+       ],
+       "totale": "1508.17",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "994.21",
+        "contingenza": "513.96",
+        "annuo_tabellare": "11930.52",
+        "annuo_contingenza": "6167.52",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "operai",
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "10.00",
+        "tabellare": "994.21",
+        "contingenza": "513.96",
+        "base": "1508.17",
+        "edr": "10.33",
+        "pagina": 4
+       },
+       "aumento_ok": true
+      }
+     ]
+    },
+    {
+     "id": "3",
+     "tranche": [
+      {
+       "dal": "2025-07-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "886.85"
+        ],
+        [
+         "Indennità di contingenza",
+         "515.42"
+        ]
+       ],
+       "totale": "1402.27",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "886.85",
+        "contingenza": "515.42",
+        "annuo_tabellare": "10642.20",
+        "annuo_contingenza": "6185.04",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "operai",
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "54.13",
+        "tabellare": "886.85",
+        "contingenza": "515.42",
+        "base": "1402.27",
+        "edr": "10.33",
+        "pagina": 1
+       }
+      },
+      {
+       "dal": "2026-05-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "924.74"
+        ],
+        [
+         "Indennità di contingenza",
+         "515.42"
+        ]
+       ],
+       "totale": "1440.16",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "924.74",
+        "contingenza": "515.42",
+        "annuo_tabellare": "11096.88",
+        "annuo_contingenza": "6185.04",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "operai",
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "37.89",
+        "tabellare": "924.74",
+        "contingenza": "515.42",
+        "base": "1440.16",
+        "edr": "10.33",
+        "pagina": 2
+       },
+       "aumento_ok": true
+      },
+      {
+       "dal": "2026-10-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "962.63"
+        ],
+        [
+         "Indennità di contingenza",
+         "515.42"
+        ]
+       ],
+       "totale": "1478.05",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "962.63",
+        "contingenza": "515.42",
+        "annuo_tabellare": "11551.56",
+        "annuo_contingenza": "6185.04",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "operai",
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "37.89",
+        "tabellare": "962.63",
+        "contingenza": "515.42",
+        "base": "1478.05",
+        "edr": "10.33",
+        "pagina": 2
+       },
+       "aumento_ok": true
+      },
+      {
+       "dal": "2027-05-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "995.11"
+        ],
+        [
+         "Indennità di contingenza",
+         "515.42"
+        ]
+       ],
+       "totale": "1510.53",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "995.11",
+        "contingenza": "515.42",
+        "annuo_tabellare": "11941.32",
+        "annuo_contingenza": "6185.04",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "operai",
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "32.48",
+        "tabellare": "995.11",
+        "contingenza": "515.42",
+        "base": "1510.53",
+        "edr": "10.33",
+        "pagina": 2
+       },
+       "aumento_ok": true
+      },
+      {
+       "dal": "2027-12-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "1016.76"
+        ],
+        [
+         "Indennità di contingenza",
+         "515.42"
+        ]
+       ],
+       "totale": "1532.18",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "1016.76",
+        "contingenza": "515.42",
+        "annuo_tabellare": "12201.12",
+        "annuo_contingenza": "6185.04",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "operai",
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "21.65",
+        "tabellare": "1016.76",
+        "contingenza": "515.42",
+        "base": "1532.18",
+        "edr": "10.33",
+        "pagina": 3
+       },
+       "aumento_ok": true
+      },
+      {
+       "dal": "2028-07-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "1043.82"
+        ],
+        [
+         "Indennità di contingenza",
+         "515.42"
+        ]
+       ],
+       "totale": "1559.24",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "1043.82",
+        "contingenza": "515.42",
+        "annuo_tabellare": "12525.84",
+        "annuo_contingenza": "6185.04",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "operai",
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "27.06",
+        "tabellare": "1043.82",
+        "contingenza": "515.42",
+        "base": "1559.24",
+        "edr": "10.33",
+        "pagina": 3
+       },
+       "aumento_ok": true
+      },
+      {
+       "dal": "2028-10-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "1065.47"
+        ],
+        [
+         "Indennità di contingenza",
+         "515.42"
+        ]
+       ],
+       "totale": "1580.89",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "1065.47",
+        "contingenza": "515.42",
+        "annuo_tabellare": "12785.64",
+        "annuo_contingenza": "6185.04",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "operai",
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "21.65",
+        "tabellare": "1065.47",
+        "contingenza": "515.42",
+        "base": "1580.89",
+        "edr": "10.33",
+        "pagina": 3
+       },
+       "aumento_ok": true
+      },
+      {
+       "dal": "2029-03-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "1076.30"
+        ],
+        [
+         "Indennità di contingenza",
+         "515.42"
+        ]
+       ],
+       "totale": "1591.72",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "1076.30",
+        "contingenza": "515.42",
+        "annuo_tabellare": "12915.60",
+        "annuo_contingenza": "6185.04",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "operai",
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "10.83",
+        "tabellare": "1076.30",
+        "contingenza": "515.42",
+        "base": "1591.72",
+        "edr": "10.33",
+        "pagina": 4
+       },
+       "aumento_ok": true
+      }
+     ]
+    },
+    {
+     "id": "4",
+     "tranche": [
+      {
+       "dal": "2025-07-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "962.00"
+        ],
+        [
+         "Indennità di contingenza",
+         "517.50"
+        ]
+       ],
+       "totale": "1479.50",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "962.00",
+        "contingenza": "517.50",
+        "annuo_tabellare": "11544.00",
+        "annuo_contingenza": "6210.00",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "operai",
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "58.72",
+        "tabellare": "962.00",
+        "contingenza": "517.50",
+        "base": "1479.50",
+        "edr": "10.33",
+        "pagina": 1
+       }
+      },
+      {
+       "dal": "2026-05-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "1003.10"
+        ],
+        [
+         "Indennità di contingenza",
+         "517.50"
+        ]
+       ],
+       "totale": "1520.60",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "1003.10",
+        "contingenza": "517.50",
+        "annuo_tabellare": "12037.20",
+        "annuo_contingenza": "6210.00",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "operai",
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "41.10",
+        "tabellare": "1003.10",
+        "contingenza": "517.50",
+        "base": "1520.60",
+        "edr": "10.33",
+        "pagina": 2
+       },
+       "aumento_ok": true
+      },
+      {
+       "dal": "2026-10-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "1044.20"
+        ],
+        [
+         "Indennità di contingenza",
+         "517.50"
+        ]
+       ],
+       "totale": "1561.70",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "1044.20",
+        "contingenza": "517.50",
+        "annuo_tabellare": "12530.40",
+        "annuo_contingenza": "6210.00",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "operai",
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "41.10",
+        "tabellare": "1044.20",
+        "contingenza": "517.50",
+        "base": "1561.70",
+        "edr": "10.33",
+        "pagina": 2
+       },
+       "aumento_ok": true
+      },
+      {
+       "dal": "2027-05-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "1079.43"
+        ],
+        [
+         "Indennità di contingenza",
+         "517.50"
+        ]
+       ],
+       "totale": "1596.93",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "1079.43",
+        "contingenza": "517.50",
+        "annuo_tabellare": "12953.16",
+        "annuo_contingenza": "6210.00",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "operai",
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "35.23",
+        "tabellare": "1079.43",
+        "contingenza": "517.50",
+        "base": "1596.93",
+        "edr": "10.33",
+        "pagina": 2
+       },
+       "aumento_ok": true
+      },
+      {
+       "dal": "2027-12-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "1102.92"
+        ],
+        [
+         "Indennità di contingenza",
+         "517.50"
+        ]
+       ],
+       "totale": "1620.42",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "1102.92",
+        "contingenza": "517.50",
+        "annuo_tabellare": "13235.04",
+        "annuo_contingenza": "6210.00",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "operai",
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "23.49",
+        "tabellare": "1102.92",
+        "contingenza": "517.50",
+        "base": "1620.42",
+        "edr": "10.33",
+        "pagina": 3
+       },
+       "aumento_ok": true
+      },
+      {
+       "dal": "2028-07-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "1132.28"
+        ],
+        [
+         "Indennità di contingenza",
+         "517.50"
+        ]
+       ],
+       "totale": "1649.78",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "1132.28",
+        "contingenza": "517.50",
+        "annuo_tabellare": "13587.36",
+        "annuo_contingenza": "6210.00",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "operai",
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "29.36",
+        "tabellare": "1132.28",
+        "contingenza": "517.50",
+        "base": "1649.78",
+        "edr": "10.33",
+        "pagina": 3
+       },
+       "aumento_ok": true
+      },
+      {
+       "dal": "2028-10-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "1155.77"
+        ],
+        [
+         "Indennità di contingenza",
+         "517.50"
+        ]
+       ],
+       "totale": "1673.27",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "1155.77",
+        "contingenza": "517.50",
+        "annuo_tabellare": "13869.24",
+        "annuo_contingenza": "6210.00",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "operai",
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "23.49",
+        "tabellare": "1155.77",
+        "contingenza": "517.50",
+        "base": "1673.27",
+        "edr": "10.33",
+        "pagina": 3
+       },
+       "aumento_ok": true
+      },
+      {
+       "dal": "2029-03-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "1167.51"
+        ],
+        [
+         "Indennità di contingenza",
+         "517.50"
+        ]
+       ],
+       "totale": "1685.01",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "1167.51",
+        "contingenza": "517.50",
+        "annuo_tabellare": "14010.12",
+        "annuo_contingenza": "6210.00",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "operai",
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "11.74",
+        "tabellare": "1167.51",
+        "contingenza": "517.50",
+        "base": "1685.01",
+        "edr": "10.33",
+        "pagina": 4
+       },
+       "aumento_ok": true
+      }
+     ]
+    },
+    {
+     "id": "5",
+     "tranche": [
+      {
+       "dal": "2025-07-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "1052.18"
+        ],
+        [
+         "Indennità di contingenza",
+         "518.53"
+        ]
+       ],
+       "totale": "1570.71",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "1052.18",
+        "contingenza": "518.53",
+        "annuo_tabellare": "12626.16",
+        "annuo_contingenza": "6222.36",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "operai",
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "64.22",
+        "tabellare": "1052.18",
+        "contingenza": "518.53",
+        "base": "1570.71",
+        "edr": "10.33",
+        "pagina": 1
+       }
+      },
+      {
+       "dal": "2026-05-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "1097.13"
+        ],
+        [
+         "Indennità di contingenza",
+         "518.53"
+        ]
+       ],
+       "totale": "1615.66",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "1097.13",
+        "contingenza": "518.53",
+        "annuo_tabellare": "13165.56",
+        "annuo_contingenza": "6222.36",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "operai",
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "44.95",
+        "tabellare": "1097.13",
+        "contingenza": "518.53",
+        "base": "1615.66",
+        "edr": "10.33",
+        "pagina": 2
+       },
+       "aumento_ok": true
+      },
+      {
+       "dal": "2026-10-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "1142.08"
+        ],
+        [
+         "Indennità di contingenza",
+         "518.53"
+        ]
+       ],
+       "totale": "1660.61",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "1142.08",
+        "contingenza": "518.53",
+        "annuo_tabellare": "13704.96",
+        "annuo_contingenza": "6222.36",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "operai",
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "44.95",
+        "tabellare": "1142.08",
+        "contingenza": "518.53",
+        "base": "1660.61",
+        "edr": "10.33",
+        "pagina": 2
+       },
+       "aumento_ok": true
+      },
+      {
+       "dal": "2027-05-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "1180.61"
+        ],
+        [
+         "Indennità di contingenza",
+         "518.53"
+        ]
+       ],
+       "totale": "1699.14",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "1180.61",
+        "contingenza": "518.53",
+        "annuo_tabellare": "14167.32",
+        "annuo_contingenza": "6222.36",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "operai",
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "38.53",
+        "tabellare": "1180.61",
+        "contingenza": "518.53",
+        "base": "1699.14",
+        "edr": "10.33",
+        "pagina": 2
+       },
+       "aumento_ok": true
+      },
+      {
+       "dal": "2027-12-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "1206.30"
+        ],
+        [
+         "Indennità di contingenza",
+         "518.53"
+        ]
+       ],
+       "totale": "1724.83",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "1206.30",
+        "contingenza": "518.53",
+        "annuo_tabellare": "14475.60",
+        "annuo_contingenza": "6222.36",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "operai",
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "25.69",
+        "tabellare": "1206.30",
+        "contingenza": "518.53",
+        "base": "1724.83",
+        "edr": "10.33",
+        "pagina": 3
+       },
+       "aumento_ok": true
+      },
+      {
+       "dal": "2028-07-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "1238.41"
+        ],
+        [
+         "Indennità di contingenza",
+         "518.53"
+        ]
+       ],
+       "totale": "1756.94",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "1238.41",
+        "contingenza": "518.53",
+        "annuo_tabellare": "14860.92",
+        "annuo_contingenza": "6222.36",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "operai",
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "32.11",
+        "tabellare": "1238.41",
+        "contingenza": "518.53",
+        "base": "1756.94",
+        "edr": "10.33",
+        "pagina": 3
+       },
+       "aumento_ok": true
+      },
+      {
+       "dal": "2028-10-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "1264.10"
+        ],
+        [
+         "Indennità di contingenza",
+         "518.53"
+        ]
+       ],
+       "totale": "1782.63",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "1264.10",
+        "contingenza": "518.53",
+        "annuo_tabellare": "15169.20",
+        "annuo_contingenza": "6222.36",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "operai",
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "25.69",
+        "tabellare": "1264.10",
+        "contingenza": "518.53",
+        "base": "1782.63",
+        "edr": "10.33",
+        "pagina": 3
+       },
+       "aumento_ok": true
+      },
+      {
+       "dal": "2029-03-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "1276.94"
+        ],
+        [
+         "Indennità di contingenza",
+         "518.53"
+        ]
+       ],
+       "totale": "1795.47",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "1276.94",
+        "contingenza": "518.53",
+        "annuo_tabellare": "15323.28",
+        "annuo_contingenza": "6222.36",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "operai",
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "12.84",
+        "tabellare": "1276.94",
+        "contingenza": "518.53",
+        "base": "1795.47",
+        "edr": "10.33",
+        "pagina": 4
+       },
+       "aumento_ok": true
+      }
+     ]
+    },
+    {
+     "id": "6",
+     "tranche": [
+      {
+       "dal": "2025-07-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "1307.72"
+        ],
+        [
+         "Indennità di contingenza",
+         "524.77"
+        ]
+       ],
+       "totale": "1832.49",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "1307.72",
+        "contingenza": "524.77",
+        "annuo_tabellare": "15692.64",
+        "annuo_contingenza": "6297.24",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "operai",
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "79.82",
+        "tabellare": "1307.72",
+        "contingenza": "524.77",
+        "base": "1832.49",
+        "edr": "10.33",
+        "pagina": 1
+       }
+      },
+      {
+       "dal": "2026-05-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "1363.59"
+        ],
+        [
+         "Indennità di contingenza",
+         "524.77"
+        ]
+       ],
+       "totale": "1888.36",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "1363.59",
+        "contingenza": "524.77",
+        "annuo_tabellare": "16363.08",
+        "annuo_contingenza": "6297.24",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "operai",
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "55.87",
+        "tabellare": "1363.59",
+        "contingenza": "524.77",
+        "base": "1888.36",
+        "edr": "10.33",
+        "pagina": 2
+       },
+       "aumento_ok": true
+      },
+      {
+       "dal": "2026-10-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "1419.46"
+        ],
+        [
+         "Indennità di contingenza",
+         "524.77"
+        ]
+       ],
+       "totale": "1944.23",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "1419.46",
+        "contingenza": "524.77",
+        "annuo_tabellare": "17033.52",
+        "annuo_contingenza": "6297.24",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "operai",
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "55.87",
+        "tabellare": "1419.46",
+        "contingenza": "524.77",
+        "base": "1944.23",
+        "edr": "10.33",
+        "pagina": 2
+       },
+       "aumento_ok": true
+      },
+      {
+       "dal": "2027-05-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "1467.35"
+        ],
+        [
+         "Indennità di contingenza",
+         "524.77"
+        ]
+       ],
+       "totale": "1992.12",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "1467.35",
+        "contingenza": "524.77",
+        "annuo_tabellare": "17608.20",
+        "annuo_contingenza": "6297.24",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "operai",
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "47.89",
+        "tabellare": "1467.35",
+        "contingenza": "524.77",
+        "base": "1992.12",
+        "edr": "10.33",
+        "pagina": 2
+       },
+       "aumento_ok": true
+      },
+      {
+       "dal": "2027-12-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "1499.28"
+        ],
+        [
+         "Indennità di contingenza",
+         "524.77"
+        ]
+       ],
+       "totale": "2024.05",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "1499.28",
+        "contingenza": "524.77",
+        "annuo_tabellare": "17991.36",
+        "annuo_contingenza": "6297.24",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "operai",
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "31.93",
+        "tabellare": "1499.28",
+        "contingenza": "524.77",
+        "base": "2024.05",
+        "edr": "10.33",
+        "pagina": 3
+       },
+       "aumento_ok": true
+      },
+      {
+       "dal": "2028-07-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "1539.19"
+        ],
+        [
+         "Indennità di contingenza",
+         "524.77"
+        ]
+       ],
+       "totale": "2063.96",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "1539.19",
+        "contingenza": "524.77",
+        "annuo_tabellare": "18470.28",
+        "annuo_contingenza": "6297.24",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "operai",
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "39.91",
+        "tabellare": "1539.19",
+        "contingenza": "524.77",
+        "base": "2063.96",
+        "edr": "10.33",
+        "pagina": 3
+       },
+       "aumento_ok": true
+      },
+      {
+       "dal": "2028-10-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "1571.12"
+        ],
+        [
+         "Indennità di contingenza",
+         "524.77"
+        ]
+       ],
+       "totale": "2095.89",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "1571.12",
+        "contingenza": "524.77",
+        "annuo_tabellare": "18853.44",
+        "annuo_contingenza": "6297.24",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "operai",
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "31.93",
+        "tabellare": "1571.12",
+        "contingenza": "524.77",
+        "base": "2095.89",
+        "edr": "10.33",
+        "pagina": 3
+       },
+       "aumento_ok": true
+      },
+      {
+       "dal": "2029-03-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "1587.08"
+        ],
+        [
+         "Indennità di contingenza",
+         "524.77"
+        ]
+       ],
+       "totale": "2111.85",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "1587.08",
+        "contingenza": "524.77",
+        "annuo_tabellare": "19044.96",
+        "annuo_contingenza": "6297.24",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "operai",
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "15.96",
+        "tabellare": "1587.08",
+        "contingenza": "524.77",
+        "base": "2111.85",
+        "edr": "10.33",
+        "pagina": 4
+       },
+       "aumento_ok": true
+      }
+     ]
+    },
+    {
+     "id": "7",
+     "tranche": [
+      {
+       "dal": "2025-07-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "1510.64"
+        ],
+        [
+         "Indennità di contingenza",
+         "532.06"
+        ]
+       ],
+       "totale": "2042.70",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "1510.64",
+        "contingenza": "532.06",
+        "annuo_tabellare": "18127.68",
+        "annuo_contingenza": "6384.72",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "92.20",
+        "tabellare": "1510.64",
+        "contingenza": "532.06",
+        "base": "2042.70",
+        "edr": "10.33",
+        "pagina": 1
+       }
+      },
+      {
+       "dal": "2026-05-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "1575.18"
+        ],
+        [
+         "Indennità di contingenza",
+         "532.06"
+        ]
+       ],
+       "totale": "2107.24",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "1575.18",
+        "contingenza": "532.06",
+        "annuo_tabellare": "18902.16",
+        "annuo_contingenza": "6384.72",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "64.54",
+        "tabellare": "1575.18",
+        "contingenza": "532.06",
+        "base": "2107.24",
+        "edr": "10.33",
+        "pagina": 2
+       },
+       "aumento_ok": true
+      },
+      {
+       "dal": "2026-10-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "1639.72"
+        ],
+        [
+         "Indennità di contingenza",
+         "532.06"
+        ]
+       ],
+       "totale": "2171.78",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "1639.72",
+        "contingenza": "532.06",
+        "annuo_tabellare": "19676.64",
+        "annuo_contingenza": "6384.72",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "64.54",
+        "tabellare": "1639.72",
+        "contingenza": "532.06",
+        "base": "2171.78",
+        "edr": "10.33",
+        "pagina": 2
+       },
+       "aumento_ok": true
+      },
+      {
+       "dal": "2027-05-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "1695.04"
+        ],
+        [
+         "Indennità di contingenza",
+         "532.06"
+        ]
+       ],
+       "totale": "2227.10",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "1695.04",
+        "contingenza": "532.06",
+        "annuo_tabellare": "20340.48",
+        "annuo_contingenza": "6384.72",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "55.32",
+        "tabellare": "1695.04",
+        "contingenza": "532.06",
+        "base": "2227.10",
+        "edr": "10.33",
+        "pagina": 2
+       },
+       "aumento_ok": true
+      },
+      {
+       "dal": "2027-12-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "1731.92"
+        ],
+        [
+         "Indennità di contingenza",
+         "532.06"
+        ]
+       ],
+       "totale": "2263.98",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "1731.92",
+        "contingenza": "532.06",
+        "annuo_tabellare": "20783.04",
+        "annuo_contingenza": "6384.72",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "36.88",
+        "tabellare": "1731.92",
+        "contingenza": "532.06",
+        "base": "2263.98",
+        "edr": "10.33",
+        "pagina": 3
+       },
+       "aumento_ok": true
+      },
+      {
+       "dal": "2028-07-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "1778.02"
+        ],
+        [
+         "Indennità di contingenza",
+         "532.06"
+        ]
+       ],
+       "totale": "2310.08",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "1778.02",
+        "contingenza": "532.06",
+        "annuo_tabellare": "21336.24",
+        "annuo_contingenza": "6384.72",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "46.10",
+        "tabellare": "1778.02",
+        "contingenza": "532.06",
+        "base": "2310.08",
+        "edr": "10.33",
+        "pagina": 3
+       },
+       "aumento_ok": true
+      },
+      {
+       "dal": "2028-10-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "1814.90"
+        ],
+        [
+         "Indennità di contingenza",
+         "532.06"
+        ]
+       ],
+       "totale": "2346.96",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "1814.90",
+        "contingenza": "532.06",
+        "annuo_tabellare": "21778.80",
+        "annuo_contingenza": "6384.72",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "36.88",
+        "tabellare": "1814.90",
+        "contingenza": "532.06",
+        "base": "2346.96",
+        "edr": "10.33",
+        "pagina": 3
+       },
+       "aumento_ok": true
+      },
+      {
+       "dal": "2029-03-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "1833.34"
+        ],
+        [
+         "Indennità di contingenza",
+         "532.06"
+        ]
+       ],
+       "totale": "2365.40",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "1833.34",
+        "contingenza": "532.06",
+        "annuo_tabellare": "22000.08",
+        "annuo_contingenza": "6384.72",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "18.44",
+        "tabellare": "1833.34",
+        "contingenza": "532.06",
+        "base": "2365.40",
+        "edr": "10.33",
+        "pagina": 4
+       },
+       "aumento_ok": true
+      }
+     ]
+    },
+    {
+     "id": "q",
+     "tranche": [
+      {
+       "dal": "2025-07-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "1653.44"
+        ],
+        [
+         "Indennità di contingenza",
+         "532.06"
+        ]
+       ],
+       "totale": "2185.50",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "1653.44",
+        "contingenza": "532.06",
+        "annuo_tabellare": "19841.28",
+        "annuo_contingenza": "6384.72",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "100.92",
+        "tabellare": "1653.44",
+        "contingenza": "532.06",
+        "base": "2185.50",
+        "edr": "10.33",
+        "pagina": 1
+       }
+      },
+      {
+       "dal": "2026-05-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "1724.08"
+        ],
+        [
+         "Indennità di contingenza",
+         "532.06"
+        ]
+       ],
+       "totale": "2256.14",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "1724.08",
+        "contingenza": "532.06",
+        "annuo_tabellare": "20688.96",
+        "annuo_contingenza": "6384.72",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "70.64",
+        "tabellare": "1724.08",
+        "contingenza": "532.06",
+        "base": "2256.14",
+        "edr": "10.33",
+        "pagina": 2
+       },
+       "aumento_ok": true
+      },
+      {
+       "dal": "2026-10-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "1794.72"
+        ],
+        [
+         "Indennità di contingenza",
+         "532.06"
+        ]
+       ],
+       "totale": "2326.78",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "1794.72",
+        "contingenza": "532.06",
+        "annuo_tabellare": "21536.64",
+        "annuo_contingenza": "6384.72",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "70.64",
+        "tabellare": "1794.72",
+        "contingenza": "532.06",
+        "base": "2326.78",
+        "edr": "10.33",
+        "pagina": 2
+       },
+       "aumento_ok": true
+      },
+      {
+       "dal": "2027-05-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "1855.27"
+        ],
+        [
+         "Indennità di contingenza",
+         "532.06"
+        ]
+       ],
+       "totale": "2387.33",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "1855.27",
+        "contingenza": "532.06",
+        "annuo_tabellare": "22263.24",
+        "annuo_contingenza": "6384.72",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "60.55",
+        "tabellare": "1855.27",
+        "contingenza": "532.06",
+        "base": "2387.33",
+        "edr": "10.33",
+        "pagina": 2
+       },
+       "aumento_ok": true
+      },
+      {
+       "dal": "2027-12-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "1895.64"
+        ],
+        [
+         "Indennità di contingenza",
+         "532.06"
+        ]
+       ],
+       "totale": "2427.70",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "1895.64",
+        "contingenza": "532.06",
+        "annuo_tabellare": "22747.68",
+        "annuo_contingenza": "6384.72",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "40.37",
+        "tabellare": "1895.64",
+        "contingenza": "532.06",
+        "base": "2427.70",
+        "edr": "10.33",
+        "pagina": 3
+       },
+       "aumento_ok": true
+      },
+      {
+       "dal": "2028-07-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "1946.10"
+        ],
+        [
+         "Indennità di contingenza",
+         "532.06"
+        ]
+       ],
+       "totale": "2478.16",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "1946.10",
+        "contingenza": "532.06",
+        "annuo_tabellare": "23353.20",
+        "annuo_contingenza": "6384.72",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "50.46",
+        "tabellare": "1946.10",
+        "contingenza": "532.06",
+        "base": "2478.16",
+        "edr": "10.33",
+        "pagina": 3
+       },
+       "aumento_ok": true
+      },
+      {
+       "dal": "2028-10-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "1986.47"
+        ],
+        [
+         "Indennità di contingenza",
+         "532.06"
+        ]
+       ],
+       "totale": "2518.53",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "1986.47",
+        "contingenza": "532.06",
+        "annuo_tabellare": "23837.64",
+        "annuo_contingenza": "6384.72",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "40.37",
+        "tabellare": "1986.47",
+        "contingenza": "532.06",
+        "base": "2518.53",
+        "edr": "10.33",
+        "pagina": 3
+       },
+       "aumento_ok": true
+      },
+      {
+       "dal": "2029-03-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Retribuzione tabellare",
+         "2006.65"
+        ],
+        [
+         "Indennità di contingenza",
+         "532.06"
+        ]
+       ],
+       "totale": "2538.71",
+       "edr": "10.33",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "tabellare": "2006.65",
+        "contingenza": "532.06",
+        "annuo_tabellare": "24079.80",
+        "annuo_contingenza": "6384.72",
+        "divisibile_per_12": true,
+        "tabelle": [
+         "impiegati"
+        ]
+       },
+       "fonte_b": {
+        "aumento": "20.18",
+        "tabellare": "2006.65",
+        "contingenza": "532.06",
+        "base": "2538.71",
+        "edr": "10.33",
+        "pagina": 4
+       },
+       "aumento_ok": true
+      }
+     ]
+    }
+   ]
+  },
+  "logistica": {
+   "livelli": [
+    {
+     "id": "q",
+     "tranche": [
+      {
+       "dal": "2025-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "2477.10"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "46.67"
+        ]
+       ],
+       "totale": "2523.77",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "2477.10",
+        "epa": "46.67",
+        "totale": "2523.77",
+        "parametro": "169"
+       },
+       "fonte_b": {
+        "minimo": "2477.10",
+        "epa": "46.67",
+        "annuo_base": "29725.20",
+        "annuo_epa": "560.04",
+        "divisibile_per_12": true,
+        "tabella": "Personale non viaggiante - IMPIEGATI"
+       }
+      },
+      {
+       "dal": "2026-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "2528.31"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "46.67"
+        ]
+       ],
+       "totale": "2574.98",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "2528.31",
+        "epa": "46.67",
+        "totale": "2574.98",
+        "parametro": "169"
+       },
+       "fonte_b": {
+        "minimo": "2528.31",
+        "epa": "46.67",
+        "annuo_base": "30339.72",
+        "annuo_epa": "560.04",
+        "divisibile_per_12": true,
+        "tabella": "Personale non viaggiante - IMPIEGATI"
+       }
+      },
+      {
+       "dal": "2027-01-01",
+       "pubblicabile": false,
+       "motivi": [
+        "la somma delle parti non torna con il totale stampato"
+       ],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "2528.31"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "93.34"
+        ]
+       ],
+       "totale": "2634.46",
+       "somma_ok": false,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "2528.31",
+        "epa": "93.34",
+        "totale": "2634.46",
+        "parametro": "169"
+       },
+       "fonte_b": {
+        "minimo": "2528.31",
+        "epa": "93.34",
+        "annuo_base": "30339.72",
+        "annuo_epa": "1120.08",
+        "divisibile_per_12": true,
+        "tabella": "Personale non viaggiante - IMPIEGATI"
+       }
+      },
+      {
+       "dal": "2027-06-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "2541.12"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "140.00"
+        ]
+       ],
+       "totale": "2681.12",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "2541.12",
+        "epa": "140.00",
+        "totale": "2681.12",
+        "parametro": "169"
+       },
+       "fonte_b": {
+        "minimo": "2541.12",
+        "epa": "140.00",
+        "annuo_base": "30493.44",
+        "annuo_epa": "1680.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale non viaggiante - IMPIEGATI"
+       }
+      }
+     ]
+    },
+    {
+     "id": "1",
+     "tranche": [
+      {
+       "dal": "2025-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "2326.61"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "36.67"
+        ]
+       ],
+       "totale": "2363.28",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "2326.61",
+        "epa": "36.67",
+        "totale": "2363.28",
+        "parametro": "159"
+       },
+       "fonte_b": {
+        "minimo": "2326.61",
+        "epa": "36.67",
+        "annuo_base": "27919.32",
+        "annuo_epa": "440.04",
+        "divisibile_per_12": true,
+        "tabella": "Personale non viaggiante - IMPIEGATI"
+       }
+      },
+      {
+       "dal": "2026-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "2374.79"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "36.67"
+        ]
+       ],
+       "totale": "2411.46",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "2374.79",
+        "epa": "36.67",
+        "totale": "2411.46",
+        "parametro": "159"
+       },
+       "fonte_b": {
+        "minimo": "2374.79",
+        "epa": "36.67",
+        "annuo_base": "28497.48",
+        "annuo_epa": "440.04",
+        "divisibile_per_12": true,
+        "tabella": "Personale non viaggiante - IMPIEGATI"
+       }
+      },
+      {
+       "dal": "2027-01-01",
+       "pubblicabile": false,
+       "motivi": [
+        "la somma delle parti non torna con il totale stampato"
+       ],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "2374.79"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "73.34"
+        ]
+       ],
+       "totale": "2460.18",
+       "somma_ok": false,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "2374.79",
+        "epa": "73.34",
+        "totale": "2460.18",
+        "parametro": "159"
+       },
+       "fonte_b": {
+        "minimo": "2374.79",
+        "epa": "73.34",
+        "annuo_base": "28497.48",
+        "annuo_epa": "880.08",
+        "divisibile_per_12": true,
+        "tabella": "Personale non viaggiante - IMPIEGATI"
+       }
+      },
+      {
+       "dal": "2027-06-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "2386.84"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "110.00"
+        ]
+       ],
+       "totale": "2496.84",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "2386.84",
+        "epa": "110.00",
+        "totale": "2496.84",
+        "parametro": "159"
+       },
+       "fonte_b": {
+        "minimo": "2386.84",
+        "epa": "110.00",
+        "annuo_base": "28642.08",
+        "annuo_epa": "1320.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale non viaggiante - IMPIEGATI"
+       }
+      }
+     ]
+    },
+    {
+     "id": "2",
+     "tranche": [
+      {
+       "dal": "2025-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "2137.31"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "36.67"
+        ]
+       ],
+       "totale": "2173.98",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "2137.31",
+        "epa": "36.67",
+        "totale": "2173.98",
+        "parametro": "146"
+       },
+       "fonte_b": {
+        "minimo": "2137.31",
+        "epa": "36.67",
+        "annuo_base": "25647.72",
+        "annuo_epa": "440.04",
+        "divisibile_per_12": true,
+        "tabella": "Personale non viaggiante - IMPIEGATI"
+       }
+      },
+      {
+       "dal": "2026-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "2181.55"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "36.67"
+        ]
+       ],
+       "totale": "2218.22",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "2181.55",
+        "epa": "36.67",
+        "totale": "2218.22",
+        "parametro": "146"
+       },
+       "fonte_b": {
+        "minimo": "2181.55",
+        "epa": "36.67",
+        "annuo_base": "26178.60",
+        "annuo_epa": "440.04",
+        "divisibile_per_12": true,
+        "tabella": "Personale non viaggiante - IMPIEGATI"
+       }
+      },
+      {
+       "dal": "2027-01-01",
+       "pubblicabile": false,
+       "motivi": [
+        "la somma delle parti non torna con il totale stampato"
+       ],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "2181.55"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "73.34"
+        ]
+       ],
+       "totale": "2265.95",
+       "somma_ok": false,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "2181.55",
+        "epa": "73.34",
+        "totale": "2265.95",
+        "parametro": "146"
+       },
+       "fonte_b": {
+        "minimo": "2181.55",
+        "epa": "73.34",
+        "annuo_base": "26178.60",
+        "annuo_epa": "880.08",
+        "divisibile_per_12": true,
+        "tabella": "Personale non viaggiante - IMPIEGATI"
+       }
+      },
+      {
+       "dal": "2027-06-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "2192.61"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "110.00"
+        ]
+       ],
+       "totale": "2302.61",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "2192.61",
+        "epa": "110.00",
+        "totale": "2302.61",
+        "parametro": "146"
+       },
+       "fonte_b": {
+        "minimo": "2192.61",
+        "epa": "110.00",
+        "annuo_base": "26311.32",
+        "annuo_epa": "1320.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale non viaggiante - IMPIEGATI"
+       }
+      }
+     ]
+    },
+    {
+     "id": "3s",
+     "tranche": [
+      {
+       "dal": "2025-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1930.37"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "30.00"
+        ]
+       ],
+       "totale": "1960.37",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1930.37",
+        "epa": "30.00",
+        "totale": "1960.37",
+        "parametro": "132"
+       },
+       "fonte_b": {
+        "minimo": "1930.37",
+        "epa": "30.00",
+        "annuo_base": "23164.44",
+        "annuo_epa": "360.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale non viaggiante - IMPIEGATI"
+       }
+      },
+      {
+       "dal": "2026-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1970.37"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "30.00"
+        ]
+       ],
+       "totale": "2000.37",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1970.37",
+        "epa": "30.00",
+        "totale": "2000.37",
+        "parametro": "132"
+       },
+       "fonte_b": {
+        "minimo": "1970.37",
+        "epa": "30.00",
+        "annuo_base": "23644.44",
+        "annuo_epa": "360.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale non viaggiante - IMPIEGATI"
+       }
+      },
+      {
+       "dal": "2027-01-01",
+       "pubblicabile": false,
+       "motivi": [
+        "la somma delle parti non torna con il totale stampato"
+       ],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1970.37"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "60.00"
+        ]
+       ],
+       "totale": "2040.37",
+       "somma_ok": false,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1970.37",
+        "epa": "60.00",
+        "totale": "2040.37",
+        "parametro": "132"
+       },
+       "fonte_b": {
+        "minimo": "1970.37",
+        "epa": "60.00",
+        "annuo_base": "23644.44",
+        "annuo_epa": "720.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale non viaggiante - IMPIEGATI"
+       }
+      },
+      {
+       "dal": "2027-06-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1980.37"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "90.00"
+        ]
+       ],
+       "totale": "2070.37",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1980.37",
+        "epa": "90.00",
+        "totale": "2070.37",
+        "parametro": "132"
+       },
+       "fonte_b": {
+        "minimo": "1980.37",
+        "epa": "90.00",
+        "annuo_base": "23764.44",
+        "annuo_epa": "1080.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale non viaggiante - IMPIEGATI"
+       }
+      }
+     ]
+    },
+    {
+     "id": "3",
+     "tranche": [
+      {
+       "dal": "2025-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1878.05"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "30.00"
+        ]
+       ],
+       "totale": "1908.05",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1878.05",
+        "epa": "30.00",
+        "totale": "1908.05",
+        "parametro": "128"
+       },
+       "fonte_b": {
+        "minimo": "1878.05",
+        "epa": "30.00",
+        "annuo_base": "22536.60",
+        "annuo_epa": "360.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale non viaggiante - IMPIEGATI"
+       }
+      },
+      {
+       "dal": "2026-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1916.84"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "30.00"
+        ]
+       ],
+       "totale": "1946.84",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1916.84",
+        "epa": "30.00",
+        "totale": "1946.84",
+        "parametro": "128"
+       },
+       "fonte_b": {
+        "minimo": "1916.84",
+        "epa": "30.00",
+        "annuo_base": "23002.08",
+        "annuo_epa": "360.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale non viaggiante - IMPIEGATI"
+       }
+      },
+      {
+       "dal": "2027-01-01",
+       "pubblicabile": false,
+       "motivi": [
+        "la somma delle parti non torna con il totale stampato"
+       ],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1916.84"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "60.00"
+        ]
+       ],
+       "totale": "1986.54",
+       "somma_ok": false,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1916.84",
+        "epa": "60.00",
+        "totale": "1986.54",
+        "parametro": "128"
+       },
+       "fonte_b": {
+        "minimo": "1916.84",
+        "epa": "60.00",
+        "annuo_base": "23002.08",
+        "annuo_epa": "720.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale non viaggiante - IMPIEGATI"
+       }
+      },
+      {
+       "dal": "2027-06-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1926.54"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "90.00"
+        ]
+       ],
+       "totale": "2016.54",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1926.54",
+        "epa": "90.00",
+        "totale": "2016.54",
+        "parametro": "128"
+       },
+       "fonte_b": {
+        "minimo": "1926.54",
+        "epa": "90.00",
+        "annuo_base": "23118.48",
+        "annuo_epa": "1080.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale non viaggiante - IMPIEGATI"
+       }
+      }
+     ]
+    },
+    {
+     "id": "4",
+     "tranche": [
+      {
+       "dal": "2025-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1786.59"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "26.67"
+        ]
+       ],
+       "totale": "1813.26",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1786.59",
+        "epa": "26.67",
+        "totale": "1813.26",
+        "parametro": "122"
+       },
+       "fonte_b": {
+        "minimo": "1786.59",
+        "epa": "26.67",
+        "annuo_base": "21439.08",
+        "annuo_epa": "320.04",
+        "divisibile_per_12": true,
+        "tabella": "Personale non viaggiante - IMPIEGATI"
+       }
+      },
+      {
+       "dal": "2026-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1823.56"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "26.67"
+        ]
+       ],
+       "totale": "1850.23",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1823.56",
+        "epa": "26.67",
+        "totale": "1850.23",
+        "parametro": "122"
+       },
+       "fonte_b": {
+        "minimo": "1823.56",
+        "epa": "26.67",
+        "annuo_base": "21882.72",
+        "annuo_epa": "320.04",
+        "divisibile_per_12": true,
+        "tabella": "Personale non viaggiante - IMPIEGATI"
+       }
+      },
+      {
+       "dal": "2027-01-01",
+       "pubblicabile": false,
+       "motivi": [
+        "la somma delle parti non torna con il totale stampato"
+       ],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1823.56"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "53.34"
+        ]
+       ],
+       "totale": "1886.14",
+       "somma_ok": false,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1823.56",
+        "epa": "53.34",
+        "totale": "1886.14",
+        "parametro": "122"
+       },
+       "fonte_b": {
+        "minimo": "1823.56",
+        "epa": "53.34",
+        "annuo_base": "21882.72",
+        "annuo_epa": "640.08",
+        "divisibile_per_12": true,
+        "tabella": "Personale non viaggiante - IMPIEGATI"
+       }
+      },
+      {
+       "dal": "2027-06-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1832.80"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "80.00"
+        ]
+       ],
+       "totale": "1912.80",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1832.80",
+        "epa": "80.00",
+        "totale": "1912.80",
+        "parametro": "122"
+       },
+       "fonte_b": {
+        "minimo": "1832.80",
+        "epa": "80.00",
+        "annuo_base": "21993.60",
+        "annuo_epa": "960.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale non viaggiante - IMPIEGATI"
+       }
+      }
+     ]
+    },
+    {
+     "id": "4j",
+     "tranche": [
+      {
+       "dal": "2025-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1740.19"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "26.67"
+        ]
+       ],
+       "totale": "1766.86",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1740.19",
+        "epa": "26.67",
+        "totale": "1766.86",
+        "parametro": "119"
+       },
+       "fonte_b": {
+        "minimo": "1740.19",
+        "epa": "26.67",
+        "annuo_base": "20882.28",
+        "annuo_epa": "320.04",
+        "divisibile_per_12": true,
+        "tabella": "Personale non viaggiante - IMPIEGATI"
+       }
+      },
+      {
+       "dal": "2026-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1776.25"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "26.67"
+        ]
+       ],
+       "totale": "1802.92",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1776.25",
+        "epa": "26.67",
+        "totale": "1802.92",
+        "parametro": "119"
+       },
+       "fonte_b": {
+        "minimo": "1776.25",
+        "epa": "26.67",
+        "annuo_base": "21315.00",
+        "annuo_epa": "320.04",
+        "divisibile_per_12": true,
+        "tabella": "Personale non viaggiante - IMPIEGATI"
+       }
+      },
+      {
+       "dal": "2027-01-01",
+       "pubblicabile": false,
+       "motivi": [
+        "la somma delle parti non torna con il totale stampato"
+       ],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1776.25"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "53.34"
+        ]
+       ],
+       "totale": "1838.61",
+       "somma_ok": false,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1776.25",
+        "epa": "53.34",
+        "totale": "1838.61",
+        "parametro": "119"
+       },
+       "fonte_b": {
+        "minimo": "1776.25",
+        "epa": "53.34",
+        "annuo_base": "21315.00",
+        "annuo_epa": "640.08",
+        "divisibile_per_12": true,
+        "tabella": "Personale non viaggiante - IMPIEGATI"
+       }
+      },
+      {
+       "dal": "2027-06-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1785.27"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "80.00"
+        ]
+       ],
+       "totale": "1865.27",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1785.27",
+        "epa": "80.00",
+        "totale": "1865.27",
+        "parametro": "119"
+       },
+       "fonte_b": {
+        "minimo": "1785.27",
+        "epa": "80.00",
+        "annuo_base": "21423.24",
+        "annuo_epa": "960.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale non viaggiante - IMPIEGATI"
+       }
+      }
+     ]
+    },
+    {
+     "id": "5",
+     "tranche": [
+      {
+       "dal": "2025-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1703.16"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "23.33"
+        ]
+       ],
+       "totale": "1726.49",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1703.16",
+        "epa": "23.33",
+        "totale": "1726.49",
+        "parametro": "116"
+       },
+       "fonte_b": {
+        "minimo": "1703.16",
+        "epa": "23.33",
+        "annuo_base": "20437.92",
+        "annuo_epa": "279.96",
+        "divisibile_per_12": true,
+        "tabella": "Personale non viaggiante - IMPIEGATI"
+       }
+      },
+      {
+       "dal": "2026-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1738.31"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "23.33"
+        ]
+       ],
+       "totale": "1761.64",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1738.31",
+        "epa": "23.33",
+        "totale": "1761.64",
+        "parametro": "116"
+       },
+       "fonte_b": {
+        "minimo": "1738.31",
+        "epa": "23.33",
+        "annuo_base": "20859.72",
+        "annuo_epa": "279.96",
+        "divisibile_per_12": true,
+        "tabella": "Personale non viaggiante - IMPIEGATI"
+       }
+      },
+      {
+       "dal": "2027-01-01",
+       "pubblicabile": false,
+       "motivi": [
+        "la somma delle parti non torna con il totale stampato"
+       ],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1738.31"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "46.66"
+        ]
+       ],
+       "totale": "1793.76",
+       "somma_ok": false,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1738.31",
+        "epa": "46.66",
+        "totale": "1793.76",
+        "parametro": "116"
+       },
+       "fonte_b": {
+        "minimo": "1738.31",
+        "epa": "46.66",
+        "annuo_base": "20859.72",
+        "annuo_epa": "559.92",
+        "divisibile_per_12": true,
+        "tabella": "Personale non viaggiante - IMPIEGATI"
+       }
+      },
+      {
+       "dal": "2027-06-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1747.10"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "70.00"
+        ]
+       ],
+       "totale": "1817.10",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1747.10",
+        "epa": "70.00",
+        "totale": "1817.10",
+        "parametro": "116"
+       },
+       "fonte_b": {
+        "minimo": "1747.10",
+        "epa": "70.00",
+        "annuo_base": "20965.20",
+        "annuo_epa": "840.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale non viaggiante - IMPIEGATI"
+       }
+      }
+     ]
+    },
+    {
+     "id": "6",
+     "tranche": [
+      {
+       "dal": "2025-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1592.38"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "23.33"
+        ]
+       ],
+       "totale": "1615.71",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1592.38",
+        "epa": "23.33",
+        "totale": "1615.71",
+        "parametro": "109"
+       },
+       "fonte_b": {
+        "minimo": "1592.38",
+        "epa": "23.33",
+        "annuo_base": "19108.56",
+        "annuo_epa": "279.96",
+        "divisibile_per_12": true,
+        "tabella": "Personale non viaggiante - OPERAI"
+       }
+      },
+      {
+       "dal": "2026-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1625.41"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "23.33"
+        ]
+       ],
+       "totale": "1648.74",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1625.41",
+        "epa": "23.33",
+        "totale": "1648.74",
+        "parametro": "109"
+       },
+       "fonte_b": {
+        "minimo": "1625.41",
+        "epa": "23.33",
+        "annuo_base": "19504.92",
+        "annuo_epa": "279.96",
+        "divisibile_per_12": true,
+        "tabella": "Personale non viaggiante - OPERAI"
+       }
+      },
+      {
+       "dal": "2027-01-01",
+       "pubblicabile": false,
+       "motivi": [
+        "la somma delle parti non torna con il totale stampato"
+       ],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1625.41"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "46.66"
+        ]
+       ],
+       "totale": "1680.33",
+       "somma_ok": false,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1625.41",
+        "epa": "46.66",
+        "totale": "1680.33",
+        "parametro": "109"
+       },
+       "fonte_b": {
+        "minimo": "1625.41",
+        "epa": "46.66",
+        "annuo_base": "19504.92",
+        "annuo_epa": "559.92",
+        "divisibile_per_12": true,
+        "tabella": "Personale non viaggiante - OPERAI"
+       }
+      },
+      {
+       "dal": "2027-06-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1633.67"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "70.00"
+        ]
+       ],
+       "totale": "1703.67",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1633.67",
+        "epa": "70.00",
+        "totale": "1703.67",
+        "parametro": "109"
+       },
+       "fonte_b": {
+        "minimo": "1633.67",
+        "epa": "70.00",
+        "annuo_base": "19604.04",
+        "annuo_epa": "840.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale non viaggiante - OPERAI"
+       }
+      }
+     ]
+    },
+    {
+     "id": "c3",
+     "tranche": [
+      {
+       "dal": "2025-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1931.46"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "50.00"
+        ]
+       ],
+       "totale": "1981.46",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1931.46",
+        "epa": "50.00",
+        "totale": "1981.46",
+        "parametro": "133,5"
+       },
+       "fonte_b": {
+        "minimo": "1931.46",
+        "epa": "50.00",
+        "annuo_base": "23177.52",
+        "annuo_epa": "600.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante senza discontinuità"
+       }
+      },
+      {
+       "dal": "2026-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1971.61"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "50.00"
+        ]
+       ],
+       "totale": "2021.61",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1971.61",
+        "epa": "50.00",
+        "totale": "2021.61",
+        "parametro": "133,5"
+       },
+       "fonte_b": {
+        "minimo": "1971.61",
+        "epa": "50.00",
+        "annuo_base": "23659.32",
+        "annuo_epa": "600.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante senza discontinuità"
+       }
+      },
+      {
+       "dal": "2027-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1971.61"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "100.00"
+        ]
+       ],
+       "totale": "2071.61",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1971.61",
+        "epa": "100.00",
+        "totale": "2071.61",
+        "parametro": "133,5"
+       },
+       "fonte_b": {
+        "minimo": "1971.61",
+        "epa": "100.00",
+        "annuo_base": "23659.32",
+        "annuo_epa": "1200.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante senza discontinuità"
+       }
+      },
+      {
+       "dal": "2027-06-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1981.65"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "150.00"
+        ]
+       ],
+       "totale": "2131.65",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1981.65",
+        "epa": "150.00",
+        "totale": "2131.65",
+        "parametro": "133,5"
+       },
+       "fonte_b": {
+        "minimo": "1981.65",
+        "epa": "150.00",
+        "annuo_base": "23779.80",
+        "annuo_epa": "1800.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante senza discontinuità"
+       }
+      }
+     ]
+    },
+    {
+     "id": "b3",
+     "tranche": [
+      {
+       "dal": "2025-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1930.37"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "40.00"
+        ]
+       ],
+       "totale": "1970.37",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1930.37",
+        "epa": "40.00",
+        "totale": "1970.37",
+        "parametro": "133,0"
+       },
+       "fonte_b": {
+        "minimo": "1930.37",
+        "epa": "40.00",
+        "annuo_base": "23164.44",
+        "annuo_epa": "480.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante senza discontinuità"
+       }
+      },
+      {
+       "dal": "2026-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1970.37"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "40.00"
+        ]
+       ],
+       "totale": "2010.37",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1970.37",
+        "epa": "40.00",
+        "totale": "2010.37",
+        "parametro": "133,0"
+       },
+       "fonte_b": {
+        "minimo": "1970.37",
+        "epa": "40.00",
+        "annuo_base": "23644.44",
+        "annuo_epa": "480.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante senza discontinuità"
+       }
+      },
+      {
+       "dal": "2027-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1970.37"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "80.00"
+        ]
+       ],
+       "totale": "2050.37",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1970.37",
+        "epa": "80.00",
+        "totale": "2050.37",
+        "parametro": "133,0"
+       },
+       "fonte_b": {
+        "minimo": "1970.37",
+        "epa": "80.00",
+        "annuo_base": "23644.44",
+        "annuo_epa": "960.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante senza discontinuità"
+       }
+      },
+      {
+       "dal": "2027-06-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1980.37"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "120.00"
+        ]
+       ],
+       "totale": "2100.37",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1980.37",
+        "epa": "120.00",
+        "totale": "2100.37",
+        "parametro": "133,0"
+       },
+       "fonte_b": {
+        "minimo": "1980.37",
+        "epa": "120.00",
+        "annuo_base": "23764.44",
+        "annuo_epa": "1440.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante senza discontinuità"
+       }
+      }
+     ]
+    },
+    {
+     "id": "a3",
+     "tranche": [
+      {
+       "dal": "2025-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1929.29"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "33.33"
+        ]
+       ],
+       "totale": "1962.62",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1929.29",
+        "epa": "33.33",
+        "totale": "1962.62",
+        "parametro": "132,5"
+       },
+       "fonte_b": {
+        "minimo": "1929.29",
+        "epa": "33.33",
+        "annuo_base": "23151.48",
+        "annuo_epa": "399.96",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante senza discontinuità"
+       }
+      },
+      {
+       "dal": "2026-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1969.14"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "33.33"
+        ]
+       ],
+       "totale": "2002.47",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1969.14",
+        "epa": "33.33",
+        "totale": "2002.47",
+        "parametro": "132,5"
+       },
+       "fonte_b": {
+        "minimo": "1969.14",
+        "epa": "33.33",
+        "annuo_base": "23629.68",
+        "annuo_epa": "399.96",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante senza discontinuità"
+       }
+      },
+      {
+       "dal": "2027-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1969.14"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "66.66"
+        ]
+       ],
+       "totale": "2035.80",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1969.14",
+        "epa": "66.66",
+        "totale": "2035.80",
+        "parametro": "132,5"
+       },
+       "fonte_b": {
+        "minimo": "1969.14",
+        "epa": "66.66",
+        "annuo_base": "23629.68",
+        "annuo_epa": "799.92",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante senza discontinuità"
+       }
+      },
+      {
+       "dal": "2027-06-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1979.11"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "100.00"
+        ]
+       ],
+       "totale": "2079.11",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1979.11",
+        "epa": "100.00",
+        "totale": "2079.11",
+        "parametro": "132,5"
+       },
+       "fonte_b": {
+        "minimo": "1979.11",
+        "epa": "100.00",
+        "annuo_base": "23749.32",
+        "annuo_epa": "1200.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante senza discontinuità"
+       }
+      }
+     ]
+    },
+    {
+     "id": "f2",
+     "tranche": [
+      {
+       "dal": "2025-01-01",
+       "pubblicabile": false,
+       "motivi": [
+        "la somma delle parti non torna con il totale stampato"
+       ],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1879.14"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "30.00"
+        ]
+       ],
+       "totale": "1909.20",
+       "somma_ok": false,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1879.14",
+        "epa": "30.00",
+        "totale": "1909.20",
+        "parametro": "129,5"
+       },
+       "fonte_b": {
+        "minimo": "1879.14",
+        "epa": "30.00",
+        "annuo_base": "22549.68",
+        "annuo_epa": "360.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante senza discontinuità"
+       }
+      },
+      {
+       "dal": "2026-01-01",
+       "pubblicabile": false,
+       "motivi": [
+        "la somma delle parti non torna con il totale stampato"
+       ],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1918.09"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "30.00"
+        ]
+       ],
+       "totale": "1948.15",
+       "somma_ok": false,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1918.09",
+        "epa": "30.00",
+        "totale": "1948.15",
+        "parametro": "129,5"
+       },
+       "fonte_b": {
+        "minimo": "1918.09",
+        "epa": "30.00",
+        "annuo_base": "23017.08",
+        "annuo_epa": "360.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante senza discontinuità"
+       }
+      },
+      {
+       "dal": "2027-01-01",
+       "pubblicabile": false,
+       "motivi": [
+        "la somma delle parti non torna con il totale stampato"
+       ],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1918.09"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "60.00"
+        ]
+       ],
+       "totale": "1978.15",
+       "somma_ok": false,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1918.09",
+        "epa": "60.00",
+        "totale": "1978.15",
+        "parametro": "129,5"
+       },
+       "fonte_b": {
+        "minimo": "1918.09",
+        "epa": "60.00",
+        "annuo_base": "23017.08",
+        "annuo_epa": "720.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante senza discontinuità"
+       }
+      },
+      {
+       "dal": "2027-06-01",
+       "pubblicabile": false,
+       "motivi": [
+        "la somma delle parti non torna con il totale stampato"
+       ],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1927.83"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "90.00"
+        ]
+       ],
+       "totale": "2017.89",
+       "somma_ok": false,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1927.83",
+        "epa": "90.00",
+        "totale": "2017.89",
+        "parametro": "129,5"
+       },
+       "fonte_b": {
+        "minimo": "1927.83",
+        "epa": "90.00",
+        "annuo_base": "23133.96",
+        "annuo_epa": "1080.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante senza discontinuità"
+       }
+      }
+     ]
+    },
+    {
+     "id": "e2",
+     "tranche": [
+      {
+       "dal": "2025-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1878.11"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "30.00"
+        ]
+       ],
+       "totale": "1908.11",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1878.11",
+        "epa": "30.00",
+        "totale": "1908.11",
+        "parametro": "129,0"
+       },
+       "fonte_b": {
+        "minimo": "1878.11",
+        "epa": "30.00",
+        "annuo_base": "22537.32",
+        "annuo_epa": "360.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante senza discontinuità"
+       }
+      },
+      {
+       "dal": "2026-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1916.91"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "30.00"
+        ]
+       ],
+       "totale": "1946.91",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1916.91",
+        "epa": "30.00",
+        "totale": "1946.91",
+        "parametro": "129,0"
+       },
+       "fonte_b": {
+        "minimo": "1916.91",
+        "epa": "30.00",
+        "annuo_base": "23002.92",
+        "annuo_epa": "360.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante senza discontinuità"
+       }
+      },
+      {
+       "dal": "2027-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1916.91"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "60.00"
+        ]
+       ],
+       "totale": "1976.91",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1916.91",
+        "epa": "60.00",
+        "totale": "1976.91",
+        "parametro": "129,0"
+       },
+       "fonte_b": {
+        "minimo": "1916.91",
+        "epa": "60.00",
+        "annuo_base": "23002.92",
+        "annuo_epa": "720.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante senza discontinuità"
+       }
+      },
+      {
+       "dal": "2027-06-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1926.61"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "90.00"
+        ]
+       ],
+       "totale": "2016.61",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1926.61",
+        "epa": "90.00",
+        "totale": "2016.61",
+        "parametro": "129,0"
+       },
+       "fonte_b": {
+        "minimo": "1926.61",
+        "epa": "90.00",
+        "annuo_base": "23119.32",
+        "annuo_epa": "1080.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante senza discontinuità"
+       }
+      }
+     ]
+    },
+    {
+     "id": "d2",
+     "tranche": [
+      {
+       "dal": "2025-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1877.03"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "30.00"
+        ]
+       ],
+       "totale": "1907.03",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1877.03",
+        "epa": "30.00",
+        "totale": "1907.03",
+        "parametro": "128,5"
+       },
+       "fonte_b": {
+        "minimo": "1877.03",
+        "epa": "30.00",
+        "annuo_base": "22524.36",
+        "annuo_epa": "360.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante senza discontinuità"
+       }
+      },
+      {
+       "dal": "2026-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1915.68"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "30.00"
+        ]
+       ],
+       "totale": "1945.68",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1915.68",
+        "epa": "30.00",
+        "totale": "1945.68",
+        "parametro": "128,5"
+       },
+       "fonte_b": {
+        "minimo": "1915.68",
+        "epa": "30.00",
+        "annuo_base": "22988.16",
+        "annuo_epa": "360.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante senza discontinuità"
+       }
+      },
+      {
+       "dal": "2027-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1915.68"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "60.00"
+        ]
+       ],
+       "totale": "1975.68",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1915.68",
+        "epa": "60.00",
+        "totale": "1975.68",
+        "parametro": "128,5"
+       },
+       "fonte_b": {
+        "minimo": "1915.68",
+        "epa": "60.00",
+        "annuo_base": "22988.16",
+        "annuo_epa": "720.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante senza discontinuità"
+       }
+      },
+      {
+       "dal": "2027-06-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1925.34"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "90.00"
+        ]
+       ],
+       "totale": "2015.34",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1925.34",
+        "epa": "90.00",
+        "totale": "2015.34",
+        "parametro": "128,5"
+       },
+       "fonte_b": {
+        "minimo": "1925.34",
+        "epa": "90.00",
+        "annuo_base": "23104.08",
+        "annuo_epa": "1080.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante senza discontinuità"
+       }
+      }
+     ]
+    },
+    {
+     "id": "h1",
+     "tranche": [
+      {
+       "dal": "2025-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1819.42"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "28.33"
+        ]
+       ],
+       "totale": "1847.75",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1819.42",
+        "epa": "28.33",
+        "totale": "1847.75",
+        "parametro": "124,5"
+       },
+       "fonte_b": {
+        "minimo": "1819.42",
+        "epa": "28.33",
+        "annuo_base": "21833.04",
+        "annuo_epa": "339.96",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante DRIVER non discontinuo (39h) e discontinuo (44h, 43h da giugno 2025) "
+       }
+      },
+      {
+       "dal": "2026-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1856.87"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "28.33"
+        ]
+       ],
+       "totale": "1885.20",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1856.87",
+        "epa": "28.33",
+        "totale": "1885.20",
+        "parametro": "124,5"
+       },
+       "fonte_b": {
+        "minimo": "1856.87",
+        "epa": "28.33",
+        "annuo_base": "22282.44",
+        "annuo_epa": "339.96",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante DRIVER non discontinuo (39h) e discontinuo (42h) (ex art.11 quinquies"
+       }
+      },
+      {
+       "dal": "2027-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1856.87"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "56.66"
+        ]
+       ],
+       "totale": "1913.53",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1856.87",
+        "epa": "56.66",
+        "totale": "1913.53",
+        "parametro": "124,5"
+       },
+       "fonte_b": {
+        "minimo": "1856.87",
+        "epa": "56.66",
+        "annuo_base": "22282.44",
+        "annuo_epa": "679.92",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante DRIVER non discontinuo (39h) e discontinuo (42h) (ex art.11 quinquies"
+       }
+      },
+      {
+       "dal": "2027-06-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1866.23"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "85.00"
+        ]
+       ],
+       "totale": "1951.23",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1866.23",
+        "epa": "85.00",
+        "totale": "1951.23",
+        "parametro": "124,5"
+       },
+       "fonte_b": {
+        "minimo": "1866.23",
+        "epa": "85.00",
+        "annuo_base": "22394.76",
+        "annuo_epa": "1020.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante DRIVER non discontinuo (39h) e discontinuo (42h) (ex art.11 quinquies"
+       }
+      }
+     ]
+    },
+    {
+     "id": "g1",
+     "tranche": [
+      {
+       "dal": "2025-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1812.11"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "26.67"
+        ]
+       ],
+       "totale": "1838.78",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1812.11",
+        "epa": "26.67",
+        "totale": "1838.78",
+        "parametro": "124,0"
+       },
+       "fonte_b": {
+        "minimo": "1812.11",
+        "epa": "26.67",
+        "annuo_base": "21745.32",
+        "annuo_epa": "320.04",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante DRIVER non discontinuo (39h) e discontinuo (44h, 43h da giugno 2025) "
+       }
+      },
+      {
+       "dal": "2026-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1849.41"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "26.67"
+        ]
+       ],
+       "totale": "1876.08",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1849.41",
+        "epa": "26.67",
+        "totale": "1876.08",
+        "parametro": "124,0"
+       },
+       "fonte_b": {
+        "minimo": "1849.41",
+        "epa": "26.67",
+        "annuo_base": "22192.92",
+        "annuo_epa": "320.04",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante DRIVER non discontinuo (39h) e discontinuo (42h) (ex art.11 quinquies"
+       }
+      },
+      {
+       "dal": "2027-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1849.41"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "53.34"
+        ]
+       ],
+       "totale": "1902.75",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1849.41",
+        "epa": "53.34",
+        "totale": "1902.75",
+        "parametro": "124,0"
+       },
+       "fonte_b": {
+        "minimo": "1849.41",
+        "epa": "53.34",
+        "annuo_base": "22192.92",
+        "annuo_epa": "640.08",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante DRIVER non discontinuo (39h) e discontinuo (42h) (ex art.11 quinquies"
+       }
+      },
+      {
+       "dal": "2027-06-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1858.72"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "80.00"
+        ]
+       ],
+       "totale": "1938.72",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1858.72",
+        "epa": "80.00",
+        "totale": "1938.72",
+        "parametro": "124,0"
+       },
+       "fonte_b": {
+        "minimo": "1858.72",
+        "epa": "80.00",
+        "annuo_base": "22304.64",
+        "annuo_epa": "960.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante DRIVER non discontinuo (39h) e discontinuo (42h) (ex art.11 quinquies"
+       }
+      }
+     ]
+    },
+    {
+     "id": "i_p110",
+     "tranche": [
+      {
+       "dal": "2025-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1596.56"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "10.00"
+        ]
+       ],
+       "totale": "1606.56",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1596.56",
+        "epa": "10.00",
+        "totale": "1606.56",
+        "parametro": "110"
+       },
+       "fonte_b": {
+        "minimo": "1596.56",
+        "epa": "10.00",
+        "annuo_base": "19158.72",
+        "annuo_epa": "120.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante DRIVER non discontinuo (39h) e discontinuo (44h, 43h da giugno 2025) "
+       }
+      },
+      {
+       "dal": "2026-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1629.65"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "10.00"
+        ]
+       ],
+       "totale": "1639.65",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1629.65",
+        "epa": "10.00",
+        "totale": "1639.65",
+        "parametro": "110"
+       },
+       "fonte_b": {
+        "minimo": "1629.65",
+        "epa": "10.00",
+        "annuo_base": "19555.80",
+        "annuo_epa": "120.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante DRIVER non discontinuo (39h) e discontinuo (42h) (ex art.11 quinquies"
+       }
+      },
+      {
+       "dal": "2027-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1629.65"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "20.00"
+        ]
+       ],
+       "totale": "1649.65",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1629.65",
+        "epa": "20.00",
+        "totale": "1649.65",
+        "parametro": "110"
+       },
+       "fonte_b": {
+        "minimo": "1629.65",
+        "epa": "20.00",
+        "annuo_base": "19555.80",
+        "annuo_epa": "240.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante DRIVER non discontinuo (39h) e discontinuo (42h) (ex art.11 quinquies"
+       }
+      },
+      {
+       "dal": "2027-06-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1637.91"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "30.00"
+        ]
+       ],
+       "totale": "1667.91",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1637.91",
+        "epa": "30.00",
+        "totale": "1667.91",
+        "parametro": "110"
+       },
+       "fonte_b": {
+        "minimo": "1637.91",
+        "epa": "30.00",
+        "annuo_base": "19654.92",
+        "annuo_epa": "360.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante DRIVER non discontinuo (39h) e discontinuo (42h) (ex art.11 quinquies"
+       }
+      }
+     ]
+    },
+    {
+     "id": "i_p116",
+     "tranche": [
+      {
+       "dal": "2025-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1683.63"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "10.00"
+        ]
+       ],
+       "totale": "1693.63",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1683.63",
+        "epa": "10.00",
+        "totale": "1693.63",
+        "parametro": "116"
+       },
+       "fonte_b": {
+        "minimo": "1683.63",
+        "epa": "10.00",
+        "annuo_base": "20203.56",
+        "annuo_epa": "120.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante DRIVER non discontinuo (39h) e discontinuo (44h, 43h da giugno 2025) "
+       }
+      },
+      {
+       "dal": "2026-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1718.52"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "10.00"
+        ]
+       ],
+       "totale": "1728.52",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1718.52",
+        "epa": "10.00",
+        "totale": "1728.52",
+        "parametro": "116"
+       },
+       "fonte_b": {
+        "minimo": "1718.52",
+        "epa": "10.00",
+        "annuo_base": "20622.24",
+        "annuo_epa": "120.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante DRIVER non discontinuo (39h) e discontinuo (42h) (ex art.11 quinquies"
+       }
+      },
+      {
+       "dal": "2027-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1718.52"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "20.00"
+        ]
+       ],
+       "totale": "1738.52",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1718.52",
+        "epa": "20.00",
+        "totale": "1738.52",
+        "parametro": "116"
+       },
+       "fonte_b": {
+        "minimo": "1718.52",
+        "epa": "20.00",
+        "annuo_base": "20622.24",
+        "annuo_epa": "240.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante DRIVER non discontinuo (39h) e discontinuo (42h) (ex art.11 quinquies"
+       }
+      },
+      {
+       "dal": "2027-06-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1727.24"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "30.00"
+        ]
+       ],
+       "totale": "1757.24",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1727.24",
+        "epa": "30.00",
+        "totale": "1757.24",
+        "parametro": "116"
+       },
+       "fonte_b": {
+        "minimo": "1727.24",
+        "epa": "30.00",
+        "annuo_base": "20726.88",
+        "annuo_epa": "360.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante DRIVER non discontinuo (39h) e discontinuo (42h) (ex art.11 quinquies"
+       }
+      }
+     ]
+    },
+    {
+     "id": "l_p110",
+     "tranche": [
+      {
+       "dal": "2025-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1596.56"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "16.67"
+        ]
+       ],
+       "totale": "1613.23",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1596.56",
+        "epa": "16.67",
+        "totale": "1613.23",
+        "parametro": "110"
+       },
+       "fonte_b": {
+        "minimo": "1596.56",
+        "epa": "16.67",
+        "annuo_base": "19158.72",
+        "annuo_epa": "200.04",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante DRIVER non discontinuo (39h) e discontinuo (44h, 43h da giugno 2025) "
+       }
+      },
+      {
+       "dal": "2026-01-01",
+       "pubblicabile": false,
+       "motivi": [
+        "la seconda fonte riporta importi diversi"
+       ],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1629.65"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "16.67"
+        ]
+       ],
+       "totale": "1646.32",
+       "somma_ok": true,
+       "seconda_fonte_ok": false,
+       "fonte_a": {
+        "minimo": "1629.65",
+        "epa": "16.67",
+        "totale": "1646.32",
+        "parametro": "110"
+       },
+       "fonte_b": {
+        "minimo": "1629.65",
+        "epa": "10.00",
+        "annuo_base": "19555.80",
+        "annuo_epa": "120.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante DRIVER non discontinuo (39h) e discontinuo (42h) (ex art.11 quinquies"
+       }
+      },
+      {
+       "dal": "2027-01-01",
+       "pubblicabile": false,
+       "motivi": [
+        "la seconda fonte riporta importi diversi"
+       ],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1629.65"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "33.34"
+        ]
+       ],
+       "totale": "1662.99",
+       "somma_ok": true,
+       "seconda_fonte_ok": false,
+       "fonte_a": {
+        "minimo": "1629.65",
+        "epa": "33.34",
+        "totale": "1662.99",
+        "parametro": "110"
+       },
+       "fonte_b": {
+        "minimo": "1629.65",
+        "epa": "20.00",
+        "annuo_base": "19555.80",
+        "annuo_epa": "240.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante DRIVER non discontinuo (39h) e discontinuo (42h) (ex art.11 quinquies"
+       }
+      },
+      {
+       "dal": "2027-06-01",
+       "pubblicabile": false,
+       "motivi": [
+        "la seconda fonte riporta importi diversi"
+       ],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1637.91"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "50.00"
+        ]
+       ],
+       "totale": "1687.91",
+       "somma_ok": true,
+       "seconda_fonte_ok": false,
+       "fonte_a": {
+        "minimo": "1637.91",
+        "epa": "50.00",
+        "totale": "1687.91",
+        "parametro": "110"
+       },
+       "fonte_b": {
+        "minimo": "1637.91",
+        "epa": "30.00",
+        "annuo_base": "19654.92",
+        "annuo_epa": "360.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante DRIVER non discontinuo (39h) e discontinuo (42h) (ex art.11 quinquies"
+       }
+      }
+     ]
+    },
+    {
+     "id": "l_p116",
+     "tranche": [
+      {
+       "dal": "2025-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1683.63"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "16.67"
+        ]
+       ],
+       "totale": "1700.30",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1683.63",
+        "epa": "16.67",
+        "totale": "1700.30",
+        "parametro": "116"
+       },
+       "fonte_b": {
+        "minimo": "1683.63",
+        "epa": "16.67",
+        "annuo_base": "20203.56",
+        "annuo_epa": "200.04",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante DRIVER non discontinuo (39h) e discontinuo (44h, 43h da giugno 2025) "
+       }
+      },
+      {
+       "dal": "2026-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1718.52"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "16.67"
+        ]
+       ],
+       "totale": "1735.19",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1718.52",
+        "epa": "16.67",
+        "totale": "1735.19",
+        "parametro": "116"
+       },
+       "fonte_b": {
+        "minimo": "1718.52",
+        "epa": "16.67",
+        "annuo_base": "20622.24",
+        "annuo_epa": "200.04",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante DRIVER non discontinuo (39h) e discontinuo (42h) (ex art.11 quinquies"
+       }
+      },
+      {
+       "dal": "2027-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1718.52"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "33.34"
+        ]
+       ],
+       "totale": "1751.86",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1718.52",
+        "epa": "33.34",
+        "totale": "1751.86",
+        "parametro": "116"
+       },
+       "fonte_b": {
+        "minimo": "1718.52",
+        "epa": "33.34",
+        "annuo_base": "20622.24",
+        "annuo_epa": "400.08",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante DRIVER non discontinuo (39h) e discontinuo (42h) (ex art.11 quinquies"
+       }
+      },
+      {
+       "dal": "2027-06-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1727.23"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "50.00"
+        ]
+       ],
+       "totale": "1777.23",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1727.23",
+        "epa": "50.00",
+        "totale": "1777.23",
+        "parametro": "116"
+       },
+       "fonte_b": {
+        "minimo": "1727.23",
+        "epa": "50.00",
+        "annuo_base": "20726.76",
+        "annuo_epa": "600.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante DRIVER non discontinuo (39h) e discontinuo (42h) (ex art.11 quinquies"
+       }
+      }
+     ]
+    },
+    {
+     "id": "l_p119",
+     "tranche": [
+      {
+       "dal": "2025-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1727.19"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "16.67"
+        ]
+       ],
+       "totale": "1743.86",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1727.19",
+        "epa": "16.67",
+        "totale": "1743.86",
+        "parametro": "119"
+       },
+       "fonte_b": {
+        "minimo": "1727.19",
+        "epa": "16.67",
+        "annuo_base": "20726.28",
+        "annuo_epa": "200.04",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante DRIVER non discontinuo (39h) e discontinuo (44h, 43h da giugno 2025) "
+       }
+      },
+      {
+       "dal": "2026-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1762.98"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "16.67"
+        ]
+       ],
+       "totale": "1779.65",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1762.98",
+        "epa": "16.67",
+        "totale": "1779.65",
+        "parametro": "119"
+       },
+       "fonte_b": {
+        "minimo": "1762.98",
+        "epa": "16.67",
+        "annuo_base": "21155.76",
+        "annuo_epa": "200.04",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante DRIVER non discontinuo (39h) e discontinuo (42h) (ex art.11 quinquies"
+       }
+      },
+      {
+       "dal": "2027-01-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1762.98"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "33.34"
+        ]
+       ],
+       "totale": "1796.32",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1762.98",
+        "epa": "33.34",
+        "totale": "1796.32",
+        "parametro": "119"
+       },
+       "fonte_b": {
+        "minimo": "1762.98",
+        "epa": "33.34",
+        "annuo_base": "21155.76",
+        "annuo_epa": "400.08",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante DRIVER non discontinuo (39h) e discontinuo (42h) (ex art.11 quinquies"
+       }
+      },
+      {
+       "dal": "2027-06-01",
+       "pubblicabile": true,
+       "motivi": [],
+       "parti": [
+        [
+         "Minimo contrattuale",
+         "1771.92"
+        ],
+        [
+         "EPA (elemento professionale d'area)",
+         "50.00"
+        ]
+       ],
+       "totale": "1821.92",
+       "somma_ok": true,
+       "seconda_fonte_ok": true,
+       "fonte_a": {
+        "minimo": "1771.92",
+        "epa": "50.00",
+        "totale": "1821.92",
+        "parametro": "119"
+       },
+       "fonte_b": {
+        "minimo": "1771.92",
+        "epa": "50.00",
+        "annuo_base": "21263.04",
+        "annuo_epa": "600.00",
+        "divisibile_per_12": true,
+        "tabella": "Personale viaggiante DRIVER non discontinuo (39h) e discontinuo (42h) (ex art.11 quinquies"
+       }
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

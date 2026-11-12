@@ -1,0 +1,846 @@
+{
+ "_nota": "Scritto a mano dai testi ufficiali. Ogni regola (divisore, mensilità, orario) ha la fonte e la frase esatta: verifica.py controlla che la frase sia nel testo della fonte (dati/fonti.json, campo cerca). Le citazioni delle declaratorie sono controllate allo stesso modo sul testo estratto. Le cifre NON stanno qui: vengono da raccolta/estrai.py (dati/contratti.json).",
+ "controllato_il": "2026-11-12",
+ "contratti": {
+  "domestico": {
+   "slug": "lavoro-domestico",
+   "nome": "Lavoro domestico (colf, badanti, baby sitter)",
+   "nome_breve": "Lavoro domestico",
+   "nome_titolo": "Colf e badanti",
+   "codice_cnel": "H501",
+   "firmatari": "FIDALDO (Nuova Collaborazione, Assindatcolf, ADLD, ADLC) e DOMINA per i datori di lavoro; Filcams CGIL, Fisascat CISL, UILTuCS e Federcolf per i lavoratori",
+   "testo": {
+    "fonte": "cnel_245143",
+    "stipula": "2025-10-28",
+    "decorrenza": "2025-11-01",
+    "scadenza": "2028-10-31"
+   },
+   "fonte_a": "min_domestico_2026",
+   "fonte_b": "cnel_245798",
+   "nota_fonti": "La tabella dei minimi del 2026 è firmata dalle parti presso il Ministero del Lavoro l'11 febbraio 2026 (aggiornamento ISTAT dell'1,00% più il primo aumento del contratto). Usiamo due copie indipendenti: quella pubblicata dal Ministero e quella depositata al CNEL con il verbale.",
+   "divisore_orario": null,
+   "divisore_giornaliero": {
+    "valore": 26,
+    "dove": "Chiarimenti a verbale, punto 1",
+    "fonte": "cnel_245143",
+    "frase": "Il calcolo della retribuzione giornaliera si ottiene determinando 1/26 della retribuzione mensile"
+   },
+   "mensilita": {
+    "valore": 13,
+    "dove": "art. 39",
+    "fonte": "cnel_245143",
+    "frase": "spetta al lavoratore una mensilità aggiuntiva, pari alla retribuzione globale di fatto"
+   },
+   "ore": {
+    "valore": 40,
+    "dove": "art. 14, comma 1",
+    "fonte": "cnel_245143",
+    "frase": "8 ore giornaliere, non consecutive, per un totale di 40 ore settimanali",
+    "testo": "40 ore settimanali per chi non convive (al massimo 8 al giorno); 54 ore settimanali per chi convive (al massimo 10 al giorno)",
+    "frase_2": "10 ore giornaliere, non consecutive, per un totale di 54 ore settimanali"
+   },
+   "aumenti_futuri": {
+    "fonte": "cnel_245143",
+    "dove": "art. 55",
+    "testo": "Per il livello BS convivente il contratto fissa altri aumenti di 30,00 euro dal 1° gennaio 2027, 15,00 euro dal 1° gennaio 2028 e 15,00 euro dal 1° settembre 2028, più l'adeguamento ISTAT di ogni gennaio (art. 38). Per gli altri livelli l'aumento è «riproporzionato»: gli importi esatti arrivano con la tabella ufficiale di ogni anno.",
+    "frasi": [
+     "1° gennaio 2027 € 30,00",
+     "1° gennaio 2028 € 15,00",
+     "1° settembre 2028 € 15,00"
+    ]
+   },
+   "livelli": [
+    {
+     "id": "a",
+     "chiave": "A",
+     "nome": "Livello A",
+     "slug": "livello-a",
+     "declaratoria": {
+      "fonte": "cnel_245143",
+      "dove": "art. 9",
+      "testo": "non addetti all'assistenza di persone che svolgono con competenza le proprie mansioni, relative ai profili lavorativi indicati, a livello esecutivo e sotto il diretto controllo del datore di lavoro",
+      "profili": [
+       "Addetto alle pulizie",
+       "Addetto alla lavanderia",
+       "Aiuto di cucina",
+       "Stalliere",
+       "Assistente ad animali domestici",
+       "Operaio comune"
+      ]
+     }
+    },
+    {
+     "id": "as",
+     "chiave": "AS",
+     "nome": "Livello A Super (AS)",
+     "slug": "livello-as",
+     "declaratoria": {
+      "fonte": "cnel_245143",
+      "dove": "art. 9",
+      "testo": "Addetto alla compagnia. Svolge esclusivamente mansioni di mera compagnia a persone adulte autosufficienti",
+      "profili": [
+       "Addetto alla compagnia"
+      ]
+     }
+    },
+    {
+     "id": "b",
+     "chiave": "B",
+     "nome": "Livello B",
+     "slug": "livello-b",
+     "declaratoria": {
+      "fonte": "cnel_245143",
+      "dove": "art. 9",
+      "testo": "Appartengono a questo livello gli assistenti familiari che svolgono con specifica competenza le proprie mansioni, ancorché a livello esecutivo",
+      "profili": [
+       "Collaboratore familiare generico polifunzionale",
+       "Custode di abitazione privata",
+       "Addetto alla stireria",
+       "Cameriere",
+       "Giardiniere",
+       "Operaio qualificato",
+       "Autista"
+      ]
+     }
+    },
+    {
+     "id": "bs",
+     "chiave": "BS",
+     "nome": "Livello B Super (BS)",
+     "slug": "livello-bs",
+     "declaratoria": {
+      "fonte": "cnel_245143",
+      "dove": "art. 9",
+      "testo": "Assistente familiare che assiste persone autosufficienti",
+      "profili": [
+       "Assistente familiare di persone autosufficienti",
+       "Baby sitter (assistente familiare che assiste bambini)"
+      ]
+     }
+    },
+    {
+     "id": "c",
+     "chiave": "C",
+     "nome": "Livello C",
+     "slug": "livello-c",
+     "declaratoria": {
+      "fonte": "cnel_245143",
+      "dove": "art. 9",
+      "testo": "in possesso di specifiche conoscenze di base, sia teoriche che tecniche, relative allo svolgimento dei compiti assegnati, operano con totale autonomia e responsabilità",
+      "profili": [
+       "Cuoco"
+      ]
+     }
+    },
+    {
+     "id": "cs",
+     "chiave": "CS",
+     "nome": "Livello C Super (CS)",
+     "slug": "livello-cs",
+     "declaratoria": {
+      "fonte": "cnel_245143",
+      "dove": "art. 9",
+      "testo": "Assistente familiare che assiste persone non autosufficienti (non formato)",
+      "profili": [
+       "Badante di persone non autosufficienti, senza formazione specifica"
+      ]
+     }
+    },
+    {
+     "id": "d",
+     "chiave": "D",
+     "nome": "Livello D",
+     "slug": "livello-d",
+     "declaratoria": {
+      "fonte": "cnel_245143",
+      "dove": "art. 9",
+      "testo": "ricoprono specifiche posizioni di lavoro caratterizzate da responsabilità, autonomia decisionale e/o coordinamento",
+      "profili": [
+       "Amministratore dei beni di famiglia",
+       "Maggiordomo",
+       "Governante",
+       "Capo cuoco",
+       "Capo giardiniere",
+       "Istitutore"
+      ]
+     }
+    },
+    {
+     "id": "ds",
+     "chiave": "DS",
+     "nome": "Livello D Super (DS)",
+     "slug": "livello-ds",
+     "declaratoria": {
+      "fonte": "cnel_245143",
+      "dove": "art. 9",
+      "testo": "Assistente familiare che assiste persone non autosufficienti (formato)",
+      "profili": [
+       "Badante formata di persone non autosufficienti",
+       "Direttore di casa",
+       "Assistente familiare educatore formato"
+      ]
+     }
+    }
+   ]
+  },
+  "terziario": {
+   "slug": "terziario-commercio",
+   "nome": "Terziario, distribuzione e servizi (Confcommercio)",
+   "nome_breve": "Commercio e terziario",
+   "nome_titolo": "CCNL commercio",
+   "codice_cnel": "H011",
+   "firmatari": "Confcommercio per le imprese; Filcams CGIL, Fisascat CISL e UILTuCS per i lavoratori",
+   "testo": {
+    "fonte": "cnel_246574",
+    "stipula": "2026-02-03",
+    "decorrenza": "2023-04-01",
+    "scadenza": "2027-03-31"
+   },
+   "fonte_a": "cnel_246574",
+   "fonte_b": "filcams_minimi",
+   "nota_fonti": "Le tabelle del testo unico (pagine 363 e 364) hanno le cifre in un carattere tipografico che non si estrae come testo: le leggiamo con la lettura ottica e le confrontiamo, livello per livello, con le tabelle dei minimi pubblicate da Filcams CGIL, uno dei sindacati firmatari. Le tabelle del Ministero per questo settore si fermano al 2010 e non si usano.",
+   "divisore_orario": {
+    "valore": 168,
+    "dove": "art. 215",
+    "fonte": "cnel_246574",
+    "frase": "a) 168, per il personale la cui durata normale di lavoro è di 40 ore settimanali",
+    "altri": "182 per 42 ore settimanali, 195 per 45 ore settimanali"
+   },
+   "divisore_giornaliero": {
+    "valore": 26,
+    "dove": "art. 214",
+    "fonte": "cnel_246574",
+    "frase": "dividendo l'importo mensile per il divisore convenzionale 26"
+   },
+   "mensilita": {
+    "valore": 14,
+    "dove": "artt. 224 e 225",
+    "fonte": "cnel_246574",
+    "frase": "Art. 225 - Quattordicesima Mensilità"
+   },
+   "ore": {
+    "valore": 40,
+    "dove": "art. 133",
+    "fonte": "cnel_246574",
+    "frase": "è ﬁssata in 40 ore set-",
+    "testo": "40 ore settimanali"
+   },
+   "terzo_elemento": {
+    "valore": "2.07",
+    "dove": "art. 219",
+    "fonte": "cnel_246574",
+    "testo": "Nelle province dove non c'è un terzo elemento provinciale il contratto aggiunge 2,07 euro al mese (terzo elemento nazionale, art. 219). Non è compreso nel minimo qui sotto."
+   },
+   "livelli": [
+    {
+     "id": "q",
+     "chiave": "q",
+     "nome": "Quadro",
+     "slug": "quadro",
+     "declaratoria": {
+      "fonte": "cnel_246574",
+      "dove": "art. 125",
+      "testo": "i prestatori di lavoro subordinato, esclusi i dirigenti, che svolgano con carattere conti- nuativo funzioni direttive loro attribuite di rilevante importanza"
+     }
+    },
+    {
+     "id": "i",
+     "chiave": "i",
+     "nome": "1° livello",
+     "slug": "1-livello",
+     "declaratoria": {
+      "fonte": "cnel_246574",
+      "dove": "art. 115",
+      "testo": "A questo livello appartengono i lavoratori con funzioni ad alto contenuto professionale anche con responsabilità di direzione ese- cutiva",
+      "profili": [
+       "Capo di servizio e di ufficio tecnico, amministrativo, commerciale, marketing, legale",
+       "Gestore o gerente di negozio, filiale o supermercato"
+      ]
+     }
+    },
+    {
+     "id": "ii",
+     "chiave": "ii",
+     "nome": "2° livello",
+     "slug": "2-livello",
+     "declaratoria": {
+      "fonte": "cnel_246574",
+      "dove": "art. 115",
+      "testo": "Appartengono a questo livello i lavoratori di concetto che svolgono compiti operativamente autonomi e/o con funzioni di coordina- mento e controllo",
+      "profili": [
+       "Ispettore"
+      ]
+     }
+    },
+    {
+     "id": "iii",
+     "chiave": "iii",
+     "nome": "3° livello",
+     "slug": "3-livello",
+     "declaratoria": {
+      "fonte": "cnel_246574",
+      "dove": "art. 115",
+      "testo": "A questo livello appartengono i lavoratori che svolgono mansioni di concetto o prevalentemente tali che comportino particolari co- noscenze tecniche ed adeguata esperienza",
+      "profili": [
+       "Disegnatore tecnico"
+      ]
+     }
+    },
+    {
+     "id": "iv",
+     "chiave": "iv",
+     "nome": "4° livello",
+     "slug": "4-livello",
+     "declaratoria": {
+      "fonte": "cnel_246574",
+      "dove": "art. 115",
+      "testo": "Al quarto livello appartengono i lavoratori che eseguono compiti operativi anche di vendita e relative operazioni complementari",
+      "profili": [
+       "Contabile d'ordine, addetto all'amministrazione",
+       "Cassiere comune",
+       "Traduttore (sole traduzioni scritte)"
+      ]
+     }
+    },
+    {
+     "id": "v",
+     "chiave": "v",
+     "nome": "5° livello",
+     "slug": "5-livello",
+     "declaratoria": {
+      "fonte": "cnel_246574",
+      "dove": "art. 115",
+      "testo": "A questo livello appartengono i lavoratori che eseguono lavori qua- liﬁcati per la cui esecuzione sono richieste normali conoscenze e adeguate capacità tecnico pratiche",
+      "profili": [
+       "Fatturista",
+       "Preparatore di commissioni"
+      ]
+     }
+    },
+    {
+     "id": "vi",
+     "chiave": "vi",
+     "nome": "6° livello",
+     "slug": "6-livello",
+     "declaratoria": {
+      "fonte": "cnel_246574",
+      "dove": "art. 115",
+      "testo": "A questo livello appartengono i lavoratori che compiono lavori che richiedono il possesso di semplici conoscenze pratiche",
+      "profili": [
+       "Usciere",
+       "Imballatore",
+       "Impaccatore"
+      ]
+     }
+    },
+    {
+     "id": "vii",
+     "chiave": "vii",
+     "nome": "7° livello",
+     "slug": "7-livello",
+     "declaratoria": {
+      "fonte": "cnel_246574",
+      "dove": "art. 115",
+      "testo": "A questo livello appartengono i lavoratori che svolgono mansioni di pulizia o equivalenti",
+      "profili": [
+       "Addetto alle pulizie anche con mezzi meccanici",
+       "Garzone"
+      ]
+     }
+    }
+   ],
+   "extra_tabella": [
+    {
+     "id": "ov1",
+     "chiave": "ov1",
+     "nome": "Operatori di vendita, 1ª categoria"
+    },
+    {
+     "id": "ov2",
+     "chiave": "ov2",
+     "nome": "Operatori di vendita, 2ª categoria"
+    }
+   ]
+  },
+  "metalmeccanici": {
+   "slug": "metalmeccanici-industria",
+   "nome": "Industria metalmeccanica e installazione di impianti",
+   "nome_breve": "Metalmeccanici industria",
+   "nome_titolo": "CCNL metalmeccanici",
+   "codice_cnel": "C011",
+   "firmatari": "Federmeccanica e Assistal per le imprese; FIM CISL, FIOM CGIL e UILM UIL per i lavoratori",
+   "testo": {
+    "fonte": "cnel_157071",
+    "stipula": "2021-02-05",
+    "rinnovo": "2025-11-22",
+    "decorrenza": "2025-11-22",
+    "scadenza": "2028-06-30"
+   },
+   "fonte_a": "min_dd94_impiegati",
+   "fonte_b": "fm_accordo_2025",
+   "nota_fonti": "I minimi in vigore dal 1° giugno 2026 vengono dalle tabelle del Ministero (decreto n. 94 del 26 ottobre 2026, retribuzione tabellare annua divisa per 12) e sono confrontati con la tabella dell'accordo di rinnovo del 22 novembre 2025, pubblicato da Federmeccanica. Il rinnovo non è ancora nell'archivio corrente del CNEL. Divisore orario e tredicesima vengono dal testo del CCNL del 5 febbraio 2021, che il rinnovo conferma.",
+   "divisore_orario": {
+    "valore": 173,
+    "dove": "Sezione quarta, Titolo IV, art. 3 e art. 5 del CCNL 5 febbraio 2021",
+    "fonte": "cnel_157071",
+    "frase": "La retribuzione oraria viene determinata sulla base del divisore 173."
+   },
+   "divisore_giornaliero": null,
+   "nota_giornaliera": "Il contratto non fissa un divisore giornaliero generale: la quota di 1/26 compare solo per le festività che cadono di domenica. Per questo non indichiamo una paga giornaliera.",
+   "mensilita": {
+    "valore": 13,
+    "dove": "Sezione quarta, Titolo IV, art. 7 del CCNL 5 febbraio 2021",
+    "fonte": "cnel_157071",
+    "frase": "Art. 7. – Tredicesima mensilità."
+   },
+   "ore": {
+    "valore": 40,
+    "dove": "Sezione quarta, Titolo III, art. 5 del CCNL 5 febbraio 2021",
+    "fonte": "cnel_157071",
+    "frase": "confermata in 40 ore settimanali",
+    "testo": "40 ore settimanali"
+   },
+   "aumenti_futuri": {
+    "fonte": "fm_accordo_2025",
+    "dove": "Tabelle dei minimi contrattuali",
+    "testo": "L'accordo del 22 novembre 2025 fissa nuovi minimi dal 1° giugno 2027 e dal 1° giugno 2028; se l'inflazione (IPCA al netto degli energetici importati) risulta più alta, i minimi salgono di più. Pubblichiamo quelle cifre quando il Ministero le conferma con il suo decreto.",
+    "frasi": [
+     "nei mesi di giugno rispettivamente del 2026, 2027 e 2028"
+    ]
+   },
+   "livelli": [
+    {
+     "id": "d1",
+     "chiave": "d1",
+     "nome": "Livello D1",
+     "slug": "livello-d1",
+     "declaratoria": {
+      "fonte": "cnel_157071",
+      "dove": "Sezione quarta, Titolo II (CCNL 5 febbraio 2021)",
+      "testo": "i lavoratori che svolgono attività produttive, amministrative o di servizio ele- mentari relative a un limitato numero di posizioni di lavoro"
+     }
+    },
+    {
+     "id": "d2",
+     "chiave": "d2",
+     "nome": "Livello D2",
+     "slug": "livello-d2",
+     "declaratoria": {
+      "fonte": "cnel_157071",
+      "dove": "Sezione quarta, Titolo II (CCNL 5 febbraio 2021)",
+      "testo": "i lavoratori che con limitata autonomia svolgono attività produttive, tecniche, amministrative o di servizio ordinarie"
+     }
+    },
+    {
+     "id": "c1",
+     "chiave": "c1",
+     "nome": "Livello C1",
+     "slug": "livello-c1",
+     "declaratoria": {
+      "fonte": "cnel_157071",
+      "dove": "Sezione quarta, Titolo II (CCNL 5 febbraio 2021)",
+      "testo": "che svolgono le attività di un'area di lavoro determinata di uno specifico ambito operativo funzionale con polivalenza, riconosciuta autonomia"
+     }
+    },
+    {
+     "id": "c2",
+     "chiave": "c2",
+     "nome": "Livello C2",
+     "slug": "livello-c2",
+     "declaratoria": {
+      "fonte": "cnel_157071",
+      "dove": "Sezione quarta, Titolo II (CCNL 5 febbraio 2021)",
+      "testo": "i lavoratori che apportano, con normale autonomia nella scelta esecutiva dei procedimenti, il contributo individuale"
+     }
+    },
+    {
+     "id": "c3",
+     "chiave": "c3",
+     "nome": "Livello C3",
+     "slug": "livello-c3",
+     "declaratoria": {
+      "fonte": "cnel_157071",
+      "dove": "Sezione quarta, Titolo II (CCNL 5 febbraio 2021)",
+      "testo": "i lavoratori che hanno responsabilità sullo svolgimento ed i risultati di speci- fiche attività produttive, tecniche, amministrative o di servizio"
+     }
+    },
+    {
+     "id": "b1",
+     "chiave": "b1",
+     "nome": "Livello B1",
+     "slug": "livello-b1",
+     "declaratoria": {
+      "fonte": "cnel_157071",
+      "dove": "Sezione quarta, Titolo II (CCNL 5 febbraio 2021)",
+      "testo": "con ampia autonomia operativa e responsabilità dei risultati svolgono attività pro- duttive, tecniche, amministrative o di servizio di elevato livello tecnico"
+     }
+    },
+    {
+     "id": "b2",
+     "chiave": "b2",
+     "nome": "Livello B2",
+     "slug": "livello-b2",
+     "declaratoria": {
+      "fonte": "cnel_157071",
+      "dove": "Sezione quarta, Titolo II (CCNL 5 febbraio 2021)",
+      "testo": "i lavoratori direttivi dotati di competenze specialistiche rilevanti per l'effi- cienza e la continuità tecnico produttiva dell'azienda"
+     }
+    },
+    {
+     "id": "b3",
+     "chiave": "b3",
+     "nome": "Livello B3",
+     "slug": "livello-b3",
+     "declaratoria": {
+      "fonte": "cnel_157071",
+      "dove": "Sezione quarta, Titolo II (CCNL 5 febbraio 2021)",
+      "testo": "presidiano competenze distintive ed, in funzione dei contesti azien- dali, assicurano attività di gestione e supervisione"
+     }
+    },
+    {
+     "id": "a1",
+     "chiave": "a1",
+     "nome": "Livello A1",
+     "slug": "livello-a1",
+     "declaratoria": {
+      "fonte": "cnel_157071",
+      "dove": "Sezione quarta, Titolo II (CCNL 5 febbraio 2021)",
+      "testo": "i lavoratori con qualifica di quadro che, oltre alle caratteristiche indicate nella declaratoria del livello precedente"
+     }
+    }
+   ]
+  },
+  "multiservizi": {
+   "slug": "multiservizi-pulizie",
+   "nome": "Servizi di pulizia e servizi integrati/multiservizi",
+   "nome_breve": "Pulizia e multiservizi",
+   "nome_titolo": "CCNL multiservizi",
+   "codice_cnel": "K511",
+   "firmatari": "Legacoop Produzione e Servizi, Confcooperative Lavoro e Servizi, AGCI Servizi, Unionservizi Confapi per le imprese; Filcams CGIL, Fisascat CISL e Uiltrasporti UIL per i lavoratori",
+   "testo": {
+    "fonte": "cnel_105782",
+    "stipula": "2011-05-31",
+    "rinnovo": "2025-06-13",
+    "decorrenza": "2025-06-01",
+    "scadenza": "2028-12-31"
+   },
+   "fonte_a": "min_dd25_operai",
+   "fonte_b": "cnel_234752",
+   "nota_fonti": "Le cifre vengono dalle tabelle del Ministero (decreto n. 25 del 30 marzo 2026, pagine nazionali, annuo diviso per 12) e dalle tabelle dell'accordo del 6 agosto 2025 depositato al CNEL, che è una scansione letta con la lettura ottica. Divisori, mensilità e orario vengono dal testo del CCNL del 31 maggio 2011, l'ultimo testo completo leggibile al CNEL: i rinnovi del 2021 e del 2025 depositati sono scansioni. Anche il Ministero calcola la paga oraria dividendo per 173 (la sua retribuzione mensile comprende però anche l'anzianità o gli scatti, che qui non contiamo).",
+   "divisore_orario": {
+    "valore": 173,
+    "dove": "art. 19 del CCNL 31 maggio 2011",
+    "fonte": "cnel_105782",
+    "frase": "Ai fini della determinazione della retribuzione oraria, il divisore mensile è 173."
+   },
+   "divisore_giornaliero": {
+    "valore": 22,
+    "valore_alt": 26,
+    "dove": "art. 19 del CCNL 31 maggio 2011",
+    "fonte": "cnel_105782",
+    "frase": "dividendo la retribuzione mensile per 22 nel caso di prestazione su 5 giorni settimanali e per 26 nel caso di prestazione su 6 giorni",
+    "frase_alt": "dividendo la retribuzione mensile per 22 nel caso di prestazione su 5 giorni settimanali e per 26 nel caso di prestazione su 6 giorni",
+    "nota": "Divisore 22 con orario su 5 giorni a settimana, 26 con orario su 6 giorni"
+   },
+   "mensilita": {
+    "valore": 14,
+    "dove": "artt. 20 e 21 del CCNL 31 maggio 2011",
+    "fonte": "cnel_105782",
+    "frase": "Articolo 21 - QUATTORDICESIMA MENSILITA'"
+   },
+   "ore": {
+    "valore": 40,
+    "dove": "art. 30 del CCNL 31 maggio 2011",
+    "fonte": "cnel_105782",
+    "frase": "La durata dell'orario contrattuale di lavoro è di 40 ore settimanali",
+    "testo": "40 ore settimanali"
+   },
+   "livelli": [
+    {
+     "id": "1",
+     "chiave": "1",
+     "nome": "1° livello",
+     "slug": "1-livello"
+    },
+    {
+     "id": "2",
+     "chiave": "2",
+     "nome": "2° livello",
+     "slug": "2-livello"
+    },
+    {
+     "id": "3",
+     "chiave": "3",
+     "nome": "3° livello",
+     "slug": "3-livello"
+    },
+    {
+     "id": "4",
+     "chiave": "4",
+     "nome": "4° livello",
+     "slug": "4-livello"
+    },
+    {
+     "id": "5",
+     "chiave": "5",
+     "nome": "5° livello",
+     "slug": "5-livello"
+    },
+    {
+     "id": "6",
+     "chiave": "6",
+     "nome": "6° livello",
+     "slug": "6-livello"
+    },
+    {
+     "id": "7",
+     "chiave": "7",
+     "nome": "7° livello",
+     "slug": "7-livello"
+    },
+    {
+     "id": "q",
+     "chiave": "q",
+     "nome": "Quadro",
+     "slug": "quadro"
+    }
+   ]
+  },
+  "logistica": {
+   "slug": "logistica-trasporto-merci",
+   "nome": "Logistica, trasporto merci e spedizione",
+   "nome_breve": "Logistica e trasporto merci",
+   "nome_titolo": "CCNL logistica",
+   "codice_cnel": "I100",
+   "firmatari": "Assotir, Conftrasporto, AITI e le altre associazioni firmatarie per le imprese; Filt CGIL, Fit CISL e Uiltrasporti per i lavoratori",
+   "testo": {
+    "fonte": "cnel_223634",
+    "stipula": "2025-09-25",
+    "decorrenza": "2024-12-06",
+    "scadenza": "2027-12-31"
+   },
+   "fonte_a": "cnel_223634",
+   "fonte_b": "min_dd135",
+   "nota_fonti": "Le cifre vengono dalla tabella dei minimi e dell'elemento professionale d'area (EPA) del testo depositato al CNEL e sono confrontate con le tabelle del Ministero (decreto n. 135 del 19 dicembre 2025, annuo diviso per 12).",
+   "divisore_orario": {
+    "valore": 168,
+    "dove": "art. 61, comma 3",
+    "fonte": "cnel_223634",
+    "frase": "giornaliera si ottiene dividendo la retribuzione mensile per 26. La retribuzione oraria si ottiene dividendo la retribuzione mensile per 168."
+   },
+   "divisore_giornaliero": {
+    "valore": 22,
+    "valore_alt": 26,
+    "dove": "art. 61, comma 3",
+    "fonte": "cnel_223634",
+    "frase": "La retribuzione giornaliera del personale si ottiene dividendo la retribuzione mensile per 22.",
+    "frase_alt": "giornaliera si ottiene dividendo la retribuzione mensile per 26. La retribuzione oraria si ottiene dividendo la retribuzione mensile per 168.",
+    "nota": "Divisore 22; per il personale non viaggiante con orario su 6 giorni il divisore è 26"
+   },
+   "mensilita": {
+    "valore": 14,
+    "dove": "artt. 18 e 19",
+    "fonte": "cnel_223634",
+    "frase": "Art. 19 - Quattordicesima mensilità"
+   },
+   "ore": {
+    "valore": 39,
+    "dove": "art. 9 per il personale non viaggiante e art. 11 per i conducenti",
+    "fonte": "cnel_223634",
+    "frase": "La durata dell'orario di lavoro è di norma 39 ore settimanali",
+    "testo": "39 ore settimanali"
+   },
+   "livelli": [
+    {
+     "id": "q",
+     "chiave": "q",
+     "nome": "Quadro",
+     "slug": "quadro",
+     "gruppo": "non_viaggiante",
+     "chiave_b": "q",
+     "gruppo_nome": "Personale non viaggiante"
+    },
+    {
+     "id": "1",
+     "chiave": "1",
+     "nome": "1° livello",
+     "slug": "1-livello",
+     "gruppo": "non_viaggiante",
+     "gruppo_nome": "Personale non viaggiante"
+    },
+    {
+     "id": "2",
+     "chiave": "2",
+     "nome": "2° livello",
+     "slug": "2-livello",
+     "gruppo": "non_viaggiante",
+     "gruppo_nome": "Personale non viaggiante"
+    },
+    {
+     "id": "3s",
+     "chiave": "3s",
+     "nome": "3° livello Super",
+     "slug": "3-livello-super",
+     "gruppo": "non_viaggiante",
+     "gruppo_nome": "Personale non viaggiante"
+    },
+    {
+     "id": "3",
+     "chiave": "3",
+     "nome": "3° livello",
+     "slug": "3-livello",
+     "gruppo": "non_viaggiante",
+     "gruppo_nome": "Personale non viaggiante"
+    },
+    {
+     "id": "4",
+     "chiave": "4",
+     "nome": "4° livello",
+     "slug": "4-livello",
+     "gruppo": "non_viaggiante",
+     "gruppo_nome": "Personale non viaggiante"
+    },
+    {
+     "id": "4j",
+     "chiave": "4j",
+     "nome": "4° livello Junior",
+     "slug": "4-livello-junior",
+     "gruppo": "non_viaggiante",
+     "gruppo_nome": "Personale non viaggiante"
+    },
+    {
+     "id": "5",
+     "chiave": "5",
+     "nome": "5° livello",
+     "slug": "5-livello",
+     "gruppo": "non_viaggiante",
+     "gruppo_nome": "Personale non viaggiante"
+    },
+    {
+     "id": "6",
+     "chiave": "6",
+     "nome": "6° livello",
+     "slug": "6-livello",
+     "gruppo": "non_viaggiante",
+     "gruppo_nome": "Personale non viaggiante"
+    },
+    {
+     "id": "c3",
+     "chiave": "c3",
+     "nome": "Livello C3 (viaggiante)",
+     "slug": "livello-c3",
+     "gruppo": "viaggiante",
+     "gruppo_nome": "Personale viaggiante"
+    },
+    {
+     "id": "b3",
+     "chiave": "b3",
+     "nome": "Livello B3 (viaggiante)",
+     "slug": "livello-b3",
+     "gruppo": "viaggiante",
+     "gruppo_nome": "Personale viaggiante"
+    },
+    {
+     "id": "a3",
+     "chiave": "a3",
+     "nome": "Livello A3 (viaggiante)",
+     "slug": "livello-a3",
+     "gruppo": "viaggiante",
+     "gruppo_nome": "Personale viaggiante"
+    },
+    {
+     "id": "f2",
+     "chiave": "f2",
+     "nome": "Livello F2 (viaggiante)",
+     "slug": "livello-f2",
+     "gruppo": "viaggiante",
+     "gruppo_nome": "Personale viaggiante"
+    },
+    {
+     "id": "e2",
+     "chiave": "e2",
+     "nome": "Livello E2 (viaggiante)",
+     "slug": "livello-e2",
+     "gruppo": "viaggiante",
+     "gruppo_nome": "Personale viaggiante"
+    },
+    {
+     "id": "d2",
+     "chiave": "d2",
+     "nome": "Livello D2 (viaggiante)",
+     "slug": "livello-d2",
+     "gruppo": "viaggiante",
+     "gruppo_nome": "Personale viaggiante"
+    },
+    {
+     "id": "h1",
+     "chiave": "h1",
+     "nome": "Livello H1 (driver e rider)",
+     "slug": "livello-h1",
+     "gruppo": "viaggiante",
+     "gruppo_b": "driver_rider",
+     "gruppo_nome": "Driver e rider"
+    },
+    {
+     "id": "g1",
+     "chiave": "g1",
+     "nome": "Livello G1 (driver e rider)",
+     "slug": "livello-g1",
+     "gruppo": "viaggiante",
+     "gruppo_b": "driver_rider",
+     "gruppo_nome": "Driver e rider"
+    },
+    {
+     "id": "i_p110",
+     "chiave": "i_p110",
+     "nome": "Livello I, primi 6 mesi (parametro 110)",
+     "slug": "livello-i-primi-6-mesi",
+     "gruppo": "viaggiante",
+     "gruppo_b": "driver_rider",
+     "chiave_b": "i (0-6 mesi)",
+     "gruppo_nome": "Driver e rider"
+    },
+    {
+     "id": "i_p116",
+     "chiave": "i_p116",
+     "nome": "Livello I (parametro 116)",
+     "slug": "livello-i",
+     "gruppo": "viaggiante",
+     "gruppo_b": "driver_rider",
+     "chiave_b": "i",
+     "gruppo_nome": "Driver e rider"
+    },
+    {
+     "id": "l_p110",
+     "chiave": "l_p110",
+     "nome": "Livello L, primi 6 mesi (parametro 110)",
+     "slug": "livello-l-primi-6-mesi",
+     "gruppo": "viaggiante",
+     "gruppo_b": "driver_rider",
+     "chiave_b": "l (0-6 mesi)",
+     "gruppo_nome": "Driver e rider"
+    },
+    {
+     "id": "l_p116",
+     "chiave": "l_p116",
+     "nome": "Livello L, da 7 a 15 mesi (parametro 116)",
+     "slug": "livello-l-7-15-mesi",
+     "gruppo": "viaggiante",
+     "gruppo_b": "driver_rider",
+     "chiave_b": "l (7-15 mesi)",
+     "gruppo_nome": "Driver e rider"
+    },
+    {
+     "id": "l_p119",
+     "chiave": "l_p119",
+     "nome": "Livello L (parametro 119)",
+     "slug": "livello-l",
+     "gruppo": "viaggiante",
+     "gruppo_b": "driver_rider",
+     "chiave_b": "l",
+     "gruppo_nome": "Driver e rider"
+    }
+   ]
+  }
+ }
+}

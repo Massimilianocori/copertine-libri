@@ -1,0 +1,325 @@
+{
+ "_nota": "Correzioni della lettura ottica dell'accordo integrativo multiservizi del 6/8/2025 (CNEL 234752, scansione). Ogni valore è stato letto sull'immagine della pagina indicata. estrai.py le applica; poi la somma (tabellare + contingenza = base), il confronto con le tabelle del Ministero e il controllo degli aumenti tra una data e l'altra le ricontrollano tutte.",
+ "correzioni": [
+  {
+   "fonte": "cnel_234752",
+   "pagina": 1,
+   "data": "2025-07-01",
+   "livello": "q",
+   "campo": "tabellare",
+   "letto_ocr": "1.053,44",
+   "valore": "1653.44",
+   "motivo": "letto sull'immagine della pagina"
+  },
+  {
+   "fonte": "cnel_234752",
+   "pagina": 1,
+   "data": "2025-07-01",
+   "livello": "1",
+   "campo": "aumento",
+   "letto_ocr": "riga spezzata su due righe",
+   "valore": "45.87",
+   "motivo": "letto sull'immagine della pagina"
+  },
+  {
+   "fonte": "cnel_234752",
+   "pagina": 1,
+   "data": "2025-07-01",
+   "livello": "1",
+   "campo": "tabellare",
+   "letto_ocr": "riga spezzata su due righe",
+   "valore": "751.57",
+   "motivo": "letto sull'immagine della pagina"
+  },
+  {
+   "fonte": "cnel_234752",
+   "pagina": 1,
+   "data": "2025-07-01",
+   "livello": "1",
+   "campo": "contingenza",
+   "letto_ocr": "riga spezzata su due righe",
+   "valore": "512.71",
+   "motivo": "letto sull'immagine della pagina"
+  },
+  {
+   "fonte": "cnel_234752",
+   "pagina": 1,
+   "data": "2025-07-01",
+   "livello": "1",
+   "campo": "base",
+   "letto_ocr": "riga spezzata su due righe",
+   "valore": "1264.28",
+   "motivo": "letto sull'immagine della pagina"
+  },
+  {
+   "fonte": "cnel_234752",
+   "pagina": 1,
+   "data": "2025-07-01",
+   "livello": "1",
+   "campo": "edr",
+   "letto_ocr": "riga spezzata su due righe",
+   "valore": "10.33",
+   "motivo": "letto sull'immagine della pagina"
+  },
+  {
+   "fonte": "cnel_234752",
+   "pagina": 2,
+   "data": "2026-05-01",
+   "livello": "5",
+   "campo": "aumento",
+   "letto_ocr": "colonne spostate (\"e 1.097,13)",
+   "valore": "44.95",
+   "motivo": "letto sull'immagine della pagina"
+  },
+  {
+   "fonte": "cnel_234752",
+   "pagina": 2,
+   "data": "2026-05-01",
+   "livello": "5",
+   "campo": "tabellare",
+   "letto_ocr": "colonne spostate (\"e 1.097,13)",
+   "valore": "1097.13",
+   "motivo": "letto sull'immagine della pagina"
+  },
+  {
+   "fonte": "cnel_234752",
+   "pagina": 2,
+   "data": "2026-05-01",
+   "livello": "5",
+   "campo": "contingenza",
+   "letto_ocr": "colonne spostate (\"e 1.097,13)",
+   "valore": "518.53",
+   "motivo": "letto sull'immagine della pagina"
+  },
+  {
+   "fonte": "cnel_234752",
+   "pagina": 2,
+   "data": "2026-05-01",
+   "livello": "5",
+   "campo": "base",
+   "letto_ocr": "colonne spostate (\"e 1.097,13)",
+   "valore": "1615.66",
+   "motivo": "letto sull'immagine della pagina"
+  },
+  {
+   "fonte": "cnel_234752",
+   "pagina": 2,
+   "data": "2026-05-01",
+   "livello": "5",
+   "campo": "edr",
+   "letto_ocr": "colonne spostate (\"e 1.097,13)",
+   "valore": "10.33",
+   "motivo": "letto sull'immagine della pagina"
+  },
+  {
+   "fonte": "cnel_234752",
+   "pagina": 2,
+   "data": "2026-05-01",
+   "livello": "3",
+   "campo": "aumento",
+   "letto_ocr": "27,89",
+   "valore": "37.89",
+   "motivo": "letto sull'immagine della pagina"
+  },
+  {
+   "fonte": "cnel_234752",
+   "pagina": 2,
+   "data": "2026-05-01",
+   "livello": "2",
+   "campo": "contingenza",
+   "letto_ocr": "513,90",
+   "valore": "513.96",
+   "motivo": "letto sull'immagine della pagina"
+  },
+  {
+   "fonte": "cnel_234752",
+   "pagina": 2,
+   "data": "2026-10-01",
+   "livello": "q",
+   "campo": "base",
+   "letto_ocr": "2.326,75",
+   "valore": "2326.78",
+   "motivo": "letto sull'immagine della pagina"
+  },
+  {
+   "fonte": "cnel_234752",
+   "pagina": 2,
+   "data": "2027-05-01",
+   "livello": "6",
+   "campo": "aumento",
+   "letto_ocr": "47,59",
+   "valore": "47.89",
+   "motivo": "letto sull'immagine della pagina"
+  },
+  {
+   "fonte": "cnel_234752",
+   "pagina": 2,
+   "data": "2027-05-01",
+   "livello": "6",
+   "campo": "tabellare",
+   "letto_ocr": "1.407,35",
+   "valore": "1467.35",
+   "motivo": "letto sull'immagine della pagina"
+  },
+  {
+   "fonte": "cnel_234752",
+   "pagina": 2,
+   "data": "2027-05-01",
+   "livello": "5",
+   "campo": "contingenza",
+   "letto_ocr": "513,53",
+   "valore": "518.53",
+   "motivo": "letto sull'immagine della pagina"
+  },
+  {
+   "fonte": "cnel_234752",
+   "pagina": 2,
+   "data": "2027-05-01",
+   "livello": "1",
+   "campo": "aumento",
+   "letto_ocr": "277,52",
+   "valore": "27.52",
+   "motivo": "letto sull'immagine della pagina"
+  },
+  {
+   "fonte": "cnel_234752",
+   "pagina": 2,
+   "data": "2027-05-01",
+   "livello": "1",
+   "campo": "contingenza",
+   "letto_ocr": "512,71 10,33 (unite)",
+   "valore": "512.71",
+   "motivo": "letto sull'immagine della pagina"
+  },
+  {
+   "fonte": "cnel_234752",
+   "pagina": 2,
+   "data": "2027-05-01",
+   "livello": "1",
+   "campo": "base",
+   "letto_ocr": "assente (coperta dalla firma)",
+   "valore": "1356.02",
+   "motivo": "letto sull'immagine della pagina"
+  },
+  {
+   "fonte": "cnel_234752",
+   "pagina": 2,
+   "data": "2027-05-01",
+   "livello": "1",
+   "campo": "edr",
+   "letto_ocr": "512,71 10,33 (unite)",
+   "valore": "10.33",
+   "motivo": "letto sull'immagine della pagina"
+  },
+  {
+   "fonte": "cnel_234752",
+   "pagina": 3,
+   "data": "2027-12-01",
+   "livello": "q",
+   "campo": "contingenza",
+   "letto_ocr": "537,06",
+   "valore": "532.06",
+   "motivo": "letto sull'immagine della pagina"
+  },
+  {
+   "fonte": "cnel_234752",
+   "pagina": 3,
+   "data": "2027-12-01",
+   "livello": "7",
+   "campo": "aumento",
+   "letto_ocr": "36,58",
+   "valore": "36.88",
+   "motivo": "letto sull'immagine della pagina"
+  },
+  {
+   "fonte": "cnel_234752",
+   "pagina": 3,
+   "data": "2027-12-01",
+   "livello": "6",
+   "campo": "contingenza",
+   "letto_ocr": "524,7",
+   "valore": "524.77",
+   "motivo": "letto sull'immagine della pagina"
+  },
+  {
+   "fonte": "cnel_234752",
+   "pagina": 3,
+   "data": "2027-12-01",
+   "livello": "5",
+   "campo": "base",
+   "letto_ocr": "1./24,83",
+   "valore": "1724.83",
+   "motivo": "letto sull'immagine della pagina"
+  },
+  {
+   "fonte": "cnel_234752",
+   "pagina": 3,
+   "data": "2027-12-01",
+   "livello": "4",
+   "campo": "tabellare",
+   "letto_ocr": "1,102,92",
+   "valore": "1102.92",
+   "motivo": "letto sull'immagine della pagina"
+  },
+  {
+   "fonte": "cnel_234752",
+   "pagina": 3,
+   "data": "2027-12-01",
+   "livello": "3",
+   "campo": "aumento",
+   "letto_ocr": "21,653",
+   "valore": "21.65",
+   "motivo": "letto sull'immagine della pagina"
+  },
+  {
+   "fonte": "cnel_234752",
+   "pagina": 3,
+   "data": "2028-10-01",
+   "livello": "6",
+   "campo": "contingenza",
+   "letto_ocr": "524,7?",
+   "valore": "524.77",
+   "motivo": "letto sull'immagine della pagina"
+  },
+  {
+   "fonte": "cnel_234752",
+   "pagina": 3,
+   "data": "2028-10-01",
+   "livello": "1",
+   "campo": "contingenza",
+   "letto_ocr": "512,71 1.415,66 (unite)",
+   "valore": "512.71",
+   "motivo": "letto sull'immagine della pagina"
+  },
+  {
+   "fonte": "cnel_234752",
+   "pagina": 3,
+   "data": "2028-10-01",
+   "livello": "1",
+   "campo": "base",
+   "letto_ocr": "1.415,66 /|",
+   "valore": "1415.66",
+   "motivo": "letto sull'immagine della pagina"
+  },
+  {
+   "fonte": "cnel_234752",
+   "pagina": 3,
+   "data": "2028-10-01",
+   "livello": "1",
+   "campo": "edr",
+   "letto_ocr": "assente",
+   "valore": "10.33",
+   "motivo": "letto sull'immagine della pagina"
+  },
+  {
+   "fonte": "cnel_234752",
+   "pagina": 4,
+   "data": "2029-03-01",
+   "livello": "7",
+   "campo": "aumento",
+   "letto_ocr": "13,44",
+   "valore": "18.44",
+   "motivo": "letto sull'immagine della pagina"
+  }
+ ]
+}

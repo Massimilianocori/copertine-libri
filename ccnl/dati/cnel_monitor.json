@@ -1,0 +1,301 @@
+{
+ "fonte": "https://az-apim-cne-sa-0002-lgc-we.azure-api.net/ricerca-api/ricerca/pubblica/open-data?type=ARCHIVIO_CORRENTE",
+ "letto_il": "2026-11-12",
+ "http": 200,
+ "sha256": "646f882fd1b2692aa99cc4867182502123af8f8e23a3a0cb104bcc363e84cab3",
+ "accordi_totali": 2330,
+ "ultimo_deposito_archivio": "2026-11-06",
+ "codici": {
+  "H501": {
+   "nome": "Lavoro domestico",
+   "accordi": 2,
+   "ultimi": [
+    {
+     "id": 245143,
+     "stipula": "2025-10-28",
+     "decorrenza": "2025-11-01",
+     "scadenza": "2028-10-31",
+     "inserito": "2026-07-06",
+     "tipo": "Testo definitivo",
+     "titolo": "CCNL sulla disciplina del rapporto di lavoro domestico"
+    },
+    {
+     "id": 245798,
+     "stipula": "2026-02-11",
+     "decorrenza": "2026-01-01",
+     "scadenza": "2026-12-31",
+     "inserito": "2026-07-29",
+     "tipo": "Accordo economico",
+     "titolo": "Verbale di accordo per l'aggiornamento dei minimi retributivi CCNL lavoro domestico"
+    }
+   ]
+  },
+  "H011": {
+   "nome": "Terziario Confcommercio",
+   "accordi": 2,
+   "ultimi": [
+    {
+     "id": 242377,
+     "stipula": "2026-02-03",
+     "decorrenza": "2023-04-01",
+     "scadenza": "2027-03-31",
+     "inserito": "2026-04-15",
+     "tipo": "Testo definitivo",
+     "titolo": "CCNL per i dipendenti da aziende del Terziario, della Distribuzione e dei Servizi"
+    },
+    {
+     "id": 246574,
+     "stipula": "2026-02-03",
+     "decorrenza": "2023-04-01",
+     "scadenza": "2027-03-31",
+     "inserito": "2026-10-05",
+     "tipo": "Testo definitivo",
+     "titolo": "Testo Unico del Contratto Collettivo di Lavoro per i Dipendenti da Aziende del Terziario della Distribuzione e dei Servizi del 3 febbraio 2026"
+    }
+   ]
+  },
+  "C011": {
+   "nome": "Metalmeccanici industria",
+   "accordi": 8,
+   "ultimi": [
+    {
+     "id": 170209,
+     "stipula": "2022-06-08",
+     "decorrenza": "2022-06-01",
+     "scadenza": null,
+     "inserito": "2023-09-04",
+     "tipo": "Accordo economico",
+     "titolo": "Verbale di incontro per l'adeguamento dei minimi tabellari"
+    },
+    {
+     "id": 168795,
+     "stipula": "2023-06-16",
+     "decorrenza": "2023-06-01",
+     "scadenza": null,
+     "inserito": "2023-07-03",
+     "tipo": "Accordo economico",
+     "titolo": "Verbale di incontro per l'adeguamento dei minimi tabellari"
+    },
+    {
+     "id": 196364,
+     "stipula": "2024-06-11",
+     "decorrenza": "2024-06-01",
+     "scadenza": null,
+     "inserito": "2024-10-25",
+     "tipo": "Accordo economico",
+     "titolo": "Verbale di incontro per l'adeguamento dei minimi tabellari"
+    }
+   ]
+  },
+  "K511": {
+   "nome": "Pulizia e multiservizi",
+   "accordi": 4,
+   "ultimi": [
+    {
+     "id": 139292,
+     "stipula": "2021-06-08",
+     "decorrenza": "2021-06-08",
+     "scadenza": "2024-12-31",
+     "inserito": "2021-10-27",
+     "tipo": "Accordo di rinnovo",
+     "titolo": "Ipotesi di accordo per il rinnovo del CCNL per il personale dipendente da imprese esercenti servizi di pulizia e servizi integrati/multiservizi"
+    },
+    {
+     "id": 234754,
+     "stipula": "2025-06-13",
+     "decorrenza": "2025-06-01",
+     "scadenza": "2028-12-31",
+     "inserito": "2026-01-08",
+     "tipo": "Accordo di rinnovo",
+     "titolo": "Ipotesi di accordo per il rinnovo del CCNL servizi di pulizia e servizi integrati/multiservizi"
+    },
+    {
+     "id": 234752,
+     "stipula": "2025-08-06",
+     "decorrenza": null,
+     "scadenza": null,
+     "inserito": "2026-01-08",
+     "tipo": "Accordo economico",
+     "titolo": "Accordo integrativo all'accordo di rinnovo del CCNL servizi di pulizia, servizi integrati/multiservizi del 13 giugno 2025"
+    }
+   ]
+  },
+  "I100": {
+   "nome": "Logistica, trasporto merci e spedizione",
+   "accordi": 1,
+   "ultimi": [
+    {
+     "id": 223634,
+     "stipula": "2025-09-25",
+     "decorrenza": "2024-12-06",
+     "scadenza": "2027-12-31",
+     "inserito": "2025-10-09",
+     "tipo": "Testo definitivo",
+     "titolo": "CCNL logistica, trasporto merci e spedizione"
+    }
+   ]
+  },
+  "H052": {
+   "nome": "Turismo",
+   "accordi": 19,
+   "ultimi": [
+    {
+     "id": 129220,
+     "stipula": "2020-06-09",
+     "decorrenza": null,
+     "scadenza": null,
+     "inserito": "2021-01-12",
+     "tipo": "Verbale Integrativo",
+     "titolo": "Accordo intervento straordinario bilateralità turismo"
+    },
+    {
+     "id": 128931,
+     "stipula": "2020-07-14",
+     "decorrenza": null,
+     "scadenza": null,
+     "inserito": "2021-01-08",
+     "tipo": "Verbale Integrativo",
+     "titolo": "Avviso comune per il sostegno dei lavoratori e delle imprese del turismo danneggiati dall'emergenza epidemiologica da Covid-19"
+    },
+    {
+     "id": 194291,
+     "stipula": "2024-07-05",
+     "decorrenza": "2024-07-01",
+     "scadenza": "2027-12-31",
+     "inserito": "2024-08-07",
+     "tipo": "Accordo di rinnovo",
+     "titolo": "Ipotesi di accordo per il rinnovo del CCNL per i dipendenti da aziende del settore TURISMO"
+    }
+   ]
+  },
+  "H05Y": {
+   "nome": "Pubblici esercizi",
+   "accordi": 8,
+   "ultimi": [
+    {
+     "id": 128936,
+     "stipula": "2020-07-14",
+     "decorrenza": null,
+     "scadenza": null,
+     "inserito": "2021-01-08",
+     "tipo": "Verbale Integrativo",
+     "titolo": "Avviso comune per il sostegno dei lavoratori e delle imprese del turismo danneggiati dall'emergenza epidemiologica da Covid-19"
+    },
+    {
+     "id": 192253,
+     "stipula": "2024-06-05",
+     "decorrenza": "2024-06-01",
+     "scadenza": "2027-12-31",
+     "inserito": "2024-07-03",
+     "tipo": "Accordo di rinnovo",
+     "titolo": "Ipotesi di accordo di rinnovo del CCNL per i dipendenti da aziende dei settori Pubblici Esercizi, Ristorazione Collettiva e Commerciale e Turismo"
+    },
+    {
+     "id": 190878,
+     "stipula": "2024-06-12",
+     "decorrenza": "2024-06-01",
+     "scadenza": "2027-12-31",
+     "inserito": "2024-06-14",
+     "tipo": "Accordo di rinnovo",
+     "titolo": "Ipotesi di accordo di rinnovo del CCNL per i dipendenti da aziende dei settori Pubblici Esercizi, Ristorazione Collettiva e Commerciale e Turismo"
+    }
+   ]
+  },
+  "F012": {
+   "nome": "Edilizia",
+   "accordi": 4,
+   "ultimi": [
+    {
+     "id": 92946,
+     "stipula": "2018-07-18",
+     "decorrenza": "2018-07-01",
+     "scadenza": "2020-09-30",
+     "inserito": "2018-09-04",
+     "tipo": "Accordo di rinnovo",
+     "titolo": "Verbale di Accordo per il rinnovo del CCNL 1° luglio 2014 per i lavoratori dipendenti delle imprese edili ed affini e delle Cooperative"
+    },
+    {
+     "id": 148259,
+     "stipula": "2022-03-03",
+     "decorrenza": "2022-03-01",
+     "scadenza": "2024-06-30",
+     "inserito": "2022-03-07",
+     "tipo": "Accordo di rinnovo",
+     "titolo": "Verbale di Accordo per il rinnovo del CCNL 18 luglio 2018 per i lavoratori dipendenti delle imprese edili ed affini e delle Cooperative"
+    },
+    {
+     "id": 212523,
+     "stipula": "2025-02-21",
+     "decorrenza": "2025-02-01",
+     "scadenza": "2028-06-30",
+     "inserito": "2025-03-10",
+     "tipo": "Accordo di rinnovo",
+     "titolo": "Verbale di Accordo per il rinnovo del CCNL 3 marzo 2022 per i lavoratori dipendenti delle imprese edili ed affini e delle Cooperative"
+    }
+   ]
+  },
+  "H442": {
+   "nome": "Studi professionali",
+   "accordi": 1,
+   "ultimi": [
+    {
+     "id": 195625,
+     "stipula": "2024-02-16",
+     "decorrenza": "2024-02-16",
+     "scadenza": "2027-02-15",
+     "inserito": "2024-10-02",
+     "tipo": "Testo definitivo",
+     "titolo": "CCNL per i dipendenti degli studi e delle attività professionali"
+    }
+   ]
+  },
+  "T011": {
+   "nome": "Sanità privata",
+   "accordi": 1,
+   "ultimi": [
+    {
+     "id": 123609,
+     "stipula": "2020-10-08",
+     "decorrenza": "2016-01-01",
+     "scadenza": "2018-12-31",
+     "inserito": "2020-10-16",
+     "tipo": "Testo definitivo",
+     "titolo": "CCNL per il personale non medico dipendente degli IRCCS e delle strutture sanitarie ospedaliere iscritte ad Aiop e Aris"
+    }
+   ]
+  },
+  "T151": {
+   "nome": "Cooperative sociali",
+   "accordi": 6,
+   "ultimi": [
+    {
+     "id": 106273,
+     "stipula": "2019-05-21",
+     "decorrenza": null,
+     "scadenza": null,
+     "inserito": "2019-06-20",
+     "tipo": "Verbale Integrativo",
+     "titolo": "Verbale di incontro per sciogliere la riserva posta in data 28 marzo 2019 sull'Accordo di rinnovo del CCNL per le lavoratrici e i lavoratori delle cooperative del settore socio-sanitario assistenziale-educativo e di inserimento lavorativo"
+    },
+    {
+     "id": 179967,
+     "stipula": "2024-01-24",
+     "decorrenza": "2023-01-01",
+     "scadenza": "2025-12-31",
+     "inserito": "2024-02-06",
+     "tipo": "Accordo di rinnovo",
+     "titolo": "Verbale di accordo per il rinnovo del CCNL Cooperative Sociali"
+    },
+    {
+     "id": 183378,
+     "stipula": "2024-03-05",
+     "decorrenza": null,
+     "scadenza": null,
+     "inserito": "2024-03-25",
+     "tipo": "Verbale Integrativo",
+     "titolo": "Verbale di accordo per lo scioglimento della riserva sull'accordo di rinnovo del 26 gennaio 2024 del CCNL per le lavoratrici e i lavoratori delle cooperative del settore socio-sanitario, assistenziale-educativo e di inserimento lavorativo e tabelle di costo del lavoro aggiornate"
+    }
+   ]
+  }
+ }
+}

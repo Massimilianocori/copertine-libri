@@ -1,0 +1,525 @@
+{
+ "definizioni": {
+  "min_domestico_2026": {
+   "titolo": "Lavoro domestico: tabella dei minimi retributivi, decorrenza 1° gennaio 2026",
+   "chi": "Ministero del Lavoro e delle politiche sociali",
+   "cerca": [
+    "DECORRENZA 1° GENNAIO 2026",
+    "Variazione indice ISTAT"
+   ]
+  },
+  "cnel_245798": {
+   "titolo": "Verbale dell'11 febbraio 2026 e tabella dei minimi del lavoro domestico (deposito CNEL 245798)",
+   "chi": "CNEL, archivio dei contratti",
+   "cerca": [
+    "DECORRENZA 1° GENNAIO 2026"
+   ],
+   "cnel": 245798
+  },
+  "cnel_245143": {
+   "titolo": "CCNL sulla disciplina del rapporto di lavoro domestico del 28 ottobre 2025 (deposito CNEL 245143)",
+   "chi": "CNEL, archivio dei contratti",
+   "cerca": [
+    "10 ore giornaliere, non consecutive, per un totale di 54 ore settimanali",
+    "8 ore giornaliere, non consecutive, per un totale di 40 ore settimanali",
+    "Il calcolo della retribuzione giornaliera si ottiene determinando 1/26 della retribuzione mensile",
+    "spetta al lavoratore una mensilità aggiuntiva, pari alla retribuzione globale di fatto",
+    "1° gennaio 2027 € 30,00",
+    "1° gennaio 2028 € 15,00",
+    "1° settembre 2028 € 15,00",
+    "Il presente contratto decorre dal 1° novembre 2025 e scadrà il 31 ottobre 2028"
+   ],
+   "cnel": 245143
+  },
+  "cnel_246574": {
+   "titolo": "Testo unico del CCNL Terziario, distribuzione e servizi del 3 febbraio 2026 (deposito CNEL 246574)",
+   "chi": "CNEL, archivio dei contratti",
+   "cerca": [
+    "a) 168, per il personale la cui durata normale di lavoro è di 40 ore settimanali",
+    "dividendo l'importo mensile per il divisore convenzionale 26",
+    "Art. 224 - Tredicesima mensilità",
+    "Art. 225 - Quattordicesima Mensilità",
+    "Art. 215 - Quota oraria",
+    "Art. 214 - Quota giornaliera",
+    "è ﬁssata in 40 ore set-",
+    "Paga base dal 1/11/2026",
+    "Paga base dal 1/2/2027"
+   ],
+   "ocr": [
+    361,
+    363,
+    364
+   ],
+   "cnel": 246574
+  },
+  "filcams_minimi": {
+   "titolo": "Terziario Confcommercio: minimi dal 1/04/2023 al 1/02/2027",
+   "chi": "Filcams CGIL (sindacato firmatario)",
+   "cerca": [
+    "TERZIARIO - MINIMI DAL 1/11/2026",
+    "TERZIARIO - MINIMI DAL 1/02/2027"
+   ]
+  },
+  "filcams_rinnovo2024": {
+   "titolo": "Accordo di rinnovo del CCNL Terziario del 22 marzo 2024 (testo)",
+   "chi": "Filcams CGIL (sindacato firmatario)",
+   "cerca": [
+    "Inizio validità: 1 aprile 2023 - Scadenza normativa: 31 marzo 2027"
+   ]
+  },
+  "min_dd94": {
+   "titolo": "Decreto direttoriale n. 94 del 26 ottobre 2026: costo del lavoro dell'industria metalmeccanica",
+   "chi": "Ministero del Lavoro e delle politiche sociali",
+   "cerca": [
+    "accordo per il rinnovo del CCNL per l'industria metalmeccanica e della installazione di impianti del 22 novembre 2025",
+    "verbale d'incontro tra Federmeccanica, Assistal, FIM-CISL, FIOM CGIL e UILM-UIL del 16 giugno 2026"
+   ]
+  },
+  "min_dd94_operai": {
+   "titolo": "Tabelle operai allegate al decreto n. 94 del 26 ottobre 2026 (giugno 2026)",
+   "chi": "Ministero del Lavoro e delle politiche sociali",
+   "cerca": [
+    "GIUGNO 2026",
+    "Retribuzione tabellare"
+   ]
+  },
+  "min_dd94_impiegati": {
+   "titolo": "Tabelle impiegati allegate al decreto n. 94 del 26 ottobre 2026 (giugno 2026)",
+   "chi": "Ministero del Lavoro e delle politiche sociali",
+   "cerca": [
+    "GIUGNO 2026",
+    "Retribuzione tabellare"
+   ]
+  },
+  "fm_accordo_2025": {
+   "titolo": "Ipotesi di accordo del 22 novembre 2025 per il rinnovo del CCNL metalmeccanici",
+   "chi": "Federmeccanica",
+   "cerca": [
+    "TABELLE DEI MINIMI CONTRATTUALI",
+    "nei mesi di giugno rispettivamente del 2026, 2027 e 2028"
+   ],
+   "ocr": [
+    2
+   ]
+  },
+  "cnel_157071": {
+   "titolo": "CCNL 5 febbraio 2021 dell'industria metalmeccanica e della installazione di impianti (deposito CNEL 157071)",
+   "chi": "CNEL, archivio dei contratti",
+   "cerca": [
+    "si de- termina dividendo per 173 i minimi tabellari della classificazione unica",
+    "La retribuzione oraria viene determinata sulla base del divisore 173.",
+    "Art. 7. – Tredicesima mensilità.",
+    "confermata in 40 ore settimanali"
+   ],
+   "cnel": 157071
+  },
+  "min_dd25": {
+   "titolo": "Decreto direttoriale n. 25 del 30 marzo 2026: costo del lavoro di pulizia e multiservizi",
+   "chi": "Ministero del Lavoro e delle politiche sociali",
+   "cerca": [
+    "13 giugno 2025"
+   ]
+  },
+  "min_dd25_operai": {
+   "titolo": "Tabelle operai 2025-2029 allegate al decreto n. 25 del 30 marzo 2026",
+   "chi": "Ministero del Lavoro e delle politiche sociali",
+   "cerca": [
+    "OTTOBRE 2026",
+    "MARZO 2029"
+   ]
+  },
+  "min_dd25_impiegati": {
+   "titolo": "Tabelle impiegati 2025-2029 allegate al decreto n. 25 del 30 marzo 2026",
+   "chi": "Ministero del Lavoro e delle politiche sociali",
+   "cerca": [
+    "OTTOBRE 2026",
+    "MARZO 2029"
+   ]
+  },
+  "cnel_234752": {
+   "titolo": "Accordo integrativo del 6 agosto 2025 al rinnovo del CCNL pulizia e multiservizi, con le tabelle (deposito CNEL 234752)",
+   "chi": "CNEL, archivio dei contratti",
+   "cerca": [
+    "è pari a complessivi 215,00 euro lordi per il periodo di vigenza"
+   ],
+   "ocr": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "cnel": 234752
+  },
+  "cnel_234754": {
+   "titolo": "Ipotesi di accordo del 13 giugno 2025 per il rinnovo del CCNL pulizia e multiservizi (deposito CNEL 234754)",
+   "chi": "CNEL, archivio dei contratti",
+   "cerca": [
+    "sarà valido fino al 31 dicembre 2028"
+   ],
+   "ocr": [
+    2,
+    13
+   ],
+   "cnel": 234754
+  },
+  "cnel_105782": {
+   "titolo": "CCNL 31 maggio 2011 per le imprese di pulizia e servizi integrati/multiservizi (deposito CNEL 105782)",
+   "chi": "CNEL, archivio dei contratti",
+   "cerca": [
+    "Ai fini della determinazione della retribuzione oraria, il divisore mensile è 173.",
+    "dividendo la retribuzione mensile per 22 nel caso di prestazione su 5 giorni settimanali e per 26 nel caso di prestazione su 6 giorni",
+    "Articolo 20 - TREDICESIMA MENSILITA'",
+    "Articolo 21 - QUATTORDICESIMA MENSILITA'",
+    "La durata dell'orario contrattuale di lavoro è di 40 ore settimanali"
+   ],
+   "cnel": 105782
+  },
+  "cnel_223634": {
+   "titolo": "CCNL logistica, trasporto merci e spedizione, testo del 25 settembre 2025 (deposito CNEL 223634)",
+   "chi": "CNEL, archivio dei contratti",
+   "cerca": [
+    "La retribuzione giornaliera del personale si ottiene dividendo la retribuzione mensile per 22.",
+    "giornaliera si ottiene dividendo la retribuzione mensile per 26. La retribuzione oraria si ottiene dividendo la retribuzione mensile per 168.",
+    "Art. 18 - Tredicesima mensilità",
+    "Art. 19 - Quattordicesima mensilità",
+    "La durata dell'orario di lavoro è di norma 39 ore settimanali",
+    "L'orario di lavoro ordinario settimanale dei conducenti è di 39 ore.",
+    "MINIMI CONTRATTUALI MENSILI ED ELEMENTO PROFESSIONALE D'AREA (EPA)"
+   ],
+   "cnel": 223634
+  },
+  "min_dd135": {
+   "titolo": "Decreto direttoriale n. 135 del 19 dicembre 2025 e tabelle: costo del lavoro di logistica, trasporto merci e spedizione",
+   "chi": "Ministero del Lavoro e delle politiche sociali",
+   "cerca": [
+    "Gennaio 2025, Gennaio 2026, Gennaio 2027 e Giugno 2027"
+   ]
+  }
+ },
+ "fonti": {
+  "min_domestico_2026": {
+   "url": "https://www.lavoro.gov.it/temi-e-priorita-rapporti-di-lavoro-e-relazioni-industriali/focus/tabella-lavoro-domestico-2026",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 759287,
+   "sha256": "c986d5942940883dec0858242d501eba7192ea6a3fe0abf103757d436170ae91",
+   "pagine": 1,
+   "caratteri_testo": 5059,
+   "ocr_pagine": [],
+   "trovate": {
+    "DECORRENZA 1° GENNAIO 2026": true,
+    "Variazione indice ISTAT": true
+   }
+  },
+  "cnel_245798": {
+   "url": "https://azstcnesa0002prodwe001.blob.core.windows.net/archivio-contratti/archivio%2F2026%2F1785330643970%2FVerbale%2011%20febbraio%202026%20e%20tabella%20rivalutazione%20minimo%20salariale%20lavoro%20domestico.pdf",
+   "nome_file": "Verbale 11 febbraio 2026 e tabella rivalutazione minimo salariale lavoro domestico.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 1101606,
+   "sha256": "3a928a66fd0c31c674c1ab9597a449b94ae38c0c88fe0822ccceb12dc6a37ef1",
+   "pagine": 2,
+   "caratteri_testo": 5059,
+   "ocr_pagine": [],
+   "trovate": {
+    "DECORRENZA 1° GENNAIO 2026": true
+   }
+  },
+  "cnel_245143": {
+   "url": "https://azstcnesa0002prodwe001.blob.core.windows.net/archivio-contratti/archivio%2F2026%2F1783334397682%2FCCNL%20sulla%20disciplina%20del%20rapporto%20di%20lavoro%20domestico%2028ott25_tab.pdf",
+   "nome_file": "CCNL sulla disciplina del rapporto di lavoro domestico 28ott25_tab.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 1011512,
+   "sha256": "8c59b50bfaf8ba79951aa642f958102af2cf4741493794c69f759f6a6bf88d13",
+   "pagine": 49,
+   "caratteri_testo": 118822,
+   "ocr_pagine": [],
+   "trovate": {
+    "10 ore giornaliere, non consecutive, per un totale di 54 ore settimanali": true,
+    "8 ore giornaliere, non consecutive, per un totale di 40 ore settimanali": true,
+    "Il calcolo della retribuzione giornaliera si ottiene determinando 1/26 della retribuzione mensile": true,
+    "spetta al lavoratore una mensilità aggiuntiva, pari alla retribuzione globale di fatto": true,
+    "1° gennaio 2027 € 30,00": true,
+    "1° gennaio 2028 € 15,00": true,
+    "1° settembre 2028 € 15,00": true,
+    "Il presente contratto decorre dal 1° novembre 2025 e scadrà il 31 ottobre 2028": true
+   }
+  },
+  "cnel_246574": {
+   "url": "https://azstcnesa0002prodwe001.blob.core.windows.net/archivio-contratti/archivio%2F2026%2F1791210017491%2FTesto%20Unico%20di%20stesura%20del%20CCNL%20TDS_Confcommercio_3_febbraio_2026%20%281%29.pdf",
+   "nome_file": "Testo Unico di stesura del CCNL TDS_Confcommercio_3_febbraio_2026 (1).pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 3489751,
+   "sha256": "fe08f93d704e606da4f8ac3f25f3434dbabc0fee8212fece3d163441f781e77b",
+   "pagine": 644,
+   "caratteri_testo": 1317891,
+   "ocr_pagine": [
+    361,
+    363,
+    364
+   ],
+   "trovate": {
+    "a) 168, per il personale la cui durata normale di lavoro è di 40 ore settimanali": true,
+    "dividendo l'importo mensile per il divisore convenzionale 26": true,
+    "Art. 224 - Tredicesima mensilità": true,
+    "Art. 225 - Quattordicesima Mensilità": true,
+    "Art. 215 - Quota oraria": true,
+    "Art. 214 - Quota giornaliera": true,
+    "è ﬁssata in 40 ore set-": true,
+    "Paga base dal 1/11/2026": true,
+    "Paga base dal 1/2/2027": true
+   }
+  },
+  "filcams_minimi": {
+   "url": "https://www.filcams.cgil.it/article/confcommercio_terziario/43d4ef3a-29a5-4ba3-9c2d-514d057c4bb9",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 264820,
+   "sha256": "5acece90ffcf29c62f935abd1538eeb79cec6a5b33c48a133d86f910057a17db",
+   "trovate": {
+    "TERZIARIO - MINIMI DAL 1/11/2026": true,
+    "TERZIARIO - MINIMI DAL 1/02/2027": true
+   }
+  },
+  "filcams_rinnovo2024": {
+   "url": "https://www.filcams.cgil.it/GetMedia.aspx?id=fcbfb8411f16416da6954603be58d9f5&s=0",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 628460,
+   "sha256": "d8b4813d33f2023f2469ee98ddefc6c7c921bb2966caa1a7cbb598d5a0cb0cd0",
+   "pagine": 70,
+   "caratteri_testo": 197190,
+   "ocr_pagine": [],
+   "trovate": {
+    "Inizio validità: 1 aprile 2023 - Scadenza normativa: 31 marzo 2027": true
+   }
+  },
+  "min_dd94": {
+   "url": "https://www.lavoro.gov.it/temi-e-priorita-rapporti-di-lavoro-e-relazioni-industriali/focus/decreto-direttoriale-94-del-26102026",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 372295,
+   "sha256": "788bb31ba336d6523cb4ab7b312135be272aba3ba725e77fbc31efda45fc6130",
+   "pagine": 3,
+   "caratteri_testo": 10555,
+   "ocr_pagine": [],
+   "trovate": {
+    "accordo per il rinnovo del CCNL per l'industria metalmeccanica e della installazione di impianti del 22 novembre 2025": true,
+    "verbale d'incontro tra Federmeccanica, Assistal, FIM-CISL, FIOM CGIL e UILM-UIL del 16 giugno 2026": true
+   }
+  },
+  "min_dd94_operai": {
+   "url": "https://www.lavoro.gov.it/temi-e-priorita-rapporti-di-lavoro-e-relazioni-industriali/focus/tabelle-operai-all-dd-94-del-26102026",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 257484,
+   "sha256": "371b9d3d84f45b97c62874818c8e96b97413fd41fab85487ffeabc7bb5e6eff4",
+   "pagine": 1,
+   "caratteri_testo": 6119,
+   "ocr_pagine": [],
+   "trovate": {
+    "GIUGNO 2026": true,
+    "Retribuzione tabellare": true
+   }
+  },
+  "min_dd94_impiegati": {
+   "url": "https://www.lavoro.gov.it/temi-e-priorita-rapporti-di-lavoro-e-relazioni-industriali/focus/tabelle-impiegati-all-dd-94-del-26102026",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 262906,
+   "sha256": "4fc6ef9789a1708128cfddfcfa9860d9321a81997a3ba1fd425d50eeb33eae6b",
+   "pagine": 1,
+   "caratteri_testo": 6824,
+   "ocr_pagine": [],
+   "trovate": {
+    "GIUGNO 2026": true,
+    "Retribuzione tabellare": true
+   }
+  },
+  "fm_accordo_2025": {
+   "url": "https://www.federmeccanica.it/images/ipotesi_di_accordo_22_novembre_2025_1.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 2369625,
+   "sha256": "deed1534f303f85caba8b3f86fec3f623f0e7b9385dd428f5177ae5b15f54f53",
+   "pagine": 51,
+   "caratteri_testo": 2873,
+   "ocr_pagine": [
+    2
+   ],
+   "trovate": {
+    "TABELLE DEI MINIMI CONTRATTUALI": true,
+    "nei mesi di giugno rispettivamente del 2026, 2027 e 2028": true
+   }
+  },
+  "cnel_157071": {
+   "url": "https://azstcnesa0002prodwe001.blob.core.windows.net/archivio-contratti/archivio%2F2021%2F%2F19906.pdf",
+   "nome_file": "19906.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 2344444,
+   "sha256": "620e18590c0ebe3a4cdc36c367a4005b9775eae60b359914e8b6f286a2479147",
+   "pagine": 288,
+   "caratteri_testo": 928820,
+   "ocr_pagine": [],
+   "trovate": {
+    "si de- termina dividendo per 173 i minimi tabellari della classificazione unica": true,
+    "La retribuzione oraria viene determinata sulla base del divisore 173.": true,
+    "Art. 7. – Tredicesima mensilità.": true,
+    "confermata in 40 ore settimanali": true
+   }
+  },
+  "min_dd25": {
+   "url": "https://www.lavoro.gov.it/temi-e-priorita-rapporti-di-lavoro-e-relazioni-industriali/focus/decreto-direttoriale-n.-25-del-30",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 285121,
+   "sha256": "d19281efd6c6f3cf5cf9992095b867b2fda0982fd062e9f506188b63bf96ccc2",
+   "pagine": 3,
+   "caratteri_testo": 10310,
+   "ocr_pagine": [],
+   "trovate": {
+    "13 giugno 2025": true
+   }
+  },
+  "min_dd25_operai": {
+   "url": "https://www.lavoro.gov.it/temi-e-priorita-rapporti-di-lavoro-e-relazioni-industriali/focus/tabelle-operai-2025-2029",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 4627205,
+   "sha256": "b201fcb9a8faa158eb1d76745d5c85aeb3e78df4f42c85dd4af9eecd9bd3d0ca",
+   "pagine": 248,
+   "caratteri_testo": 1823397,
+   "ocr_pagine": [],
+   "trovate": {
+    "OTTOBRE 2026": true,
+    "MARZO 2029": true
+   }
+  },
+  "min_dd25_impiegati": {
+   "url": "https://www.lavoro.gov.it/temi-e-priorita-rapporti-di-lavoro-e-relazioni-industriali/focus/tabelle-impiegati-2025-2029",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 4595269,
+   "sha256": "a124e6f5e9ff9a9cb34b40d33c33d8ad15747a0677166273dc73a846b9351c0e",
+   "pagine": 248,
+   "caratteri_testo": 1755519,
+   "ocr_pagine": [],
+   "trovate": {
+    "OTTOBRE 2026": true,
+    "MARZO 2029": true
+   }
+  },
+  "cnel_234752": {
+   "url": "https://azstcnesa0002prodwe001.blob.core.windows.net/archivio-contratti/archivio%2F2025%2F81998ca2-e5ea-4f3b-ba0e-9c0464b723d7%2F20904.pdf",
+   "nome_file": "20904.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 442476,
+   "sha256": "8f40d0cf7097274493e8baba4949ccc3aa6e4aff1756caf6eb84fa5a3d1c4e61",
+   "pagine": 5,
+   "caratteri_testo": 0,
+   "ocr_pagine": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "trovate": {
+    "è pari a complessivi 215,00 euro lordi per il periodo di vigenza": true
+   }
+  },
+  "cnel_234754": {
+   "url": "https://azstcnesa0002prodwe001.blob.core.windows.net/archivio-contratti/archivio%2F2025%2F35fb7a8b-fbde-4446-9dba-b20cf304e3c6%2F20903.pdf",
+   "nome_file": "20903.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 622123,
+   "sha256": "c48ac1d26759f53553270b626d7acddcb35621707554d8a7e7306f48bf29976d",
+   "pagine": 14,
+   "caratteri_testo": 0,
+   "ocr_pagine": [
+    2,
+    13
+   ],
+   "trovate": {
+    "sarà valido fino al 31 dicembre 2028": true
+   }
+  },
+  "cnel_105782": {
+   "url": "https://azstcnesa0002prodwe001.blob.core.windows.net/archivio-contratti/archivio%2F2011%2F%2F18857.pdf",
+   "nome_file": "18857.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 756131,
+   "sha256": "e4be4aff27e6bd44f3d9bda9aa4ffceb42e2f80ba9af639cec99cdc42676e8f7",
+   "pagine": 92,
+   "caratteri_testo": 236027,
+   "ocr_pagine": [],
+   "trovate": {
+    "Ai fini della determinazione della retribuzione oraria, il divisore mensile è 173.": true,
+    "dividendo la retribuzione mensile per 22 nel caso di prestazione su 5 giorni settimanali e per 26 nel caso di prestazione su 6 giorni": true,
+    "Articolo 20 - TREDICESIMA MENSILITA'": true,
+    "Articolo 21 - QUATTORDICESIMA MENSILITA'": true,
+    "La durata dell'orario contrattuale di lavoro è di 40 ore settimanali": true
+   }
+  },
+  "cnel_223634": {
+   "url": "https://azstcnesa0002prodwe001.blob.core.windows.net/archivio-contratti/archivio%2F2025%2F720660c8-a432-4c32-8a2b-ee2ad03f02d8%2F20822.pdf",
+   "nome_file": "20822.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 4585164,
+   "sha256": "605e895b721adb4b01b1149f2242b86924eb8ac4f8efd54b8a34d86f55e21bb1",
+   "pagine": 137,
+   "caratteri_testo": 575662,
+   "ocr_pagine": [],
+   "trovate": {
+    "La retribuzione giornaliera del personale si ottiene dividendo la retribuzione mensile per 22.": true,
+    "giornaliera si ottiene dividendo la retribuzione mensile per 26. La retribuzione oraria si ottiene dividendo la retribuzione mensile per 168.": true,
+    "Art. 18 - Tredicesima mensilità": true,
+    "Art. 19 - Quattordicesima mensilità": true,
+    "La durata dell'orario di lavoro è di norma 39 ore settimanali": true,
+    "L'orario di lavoro ordinario settimanale dei conducenti è di 39 ore.": true,
+    "MINIMI CONTRATTUALI MENSILI ED ELEMENTO PROFESSIONALE D'AREA (EPA)": true
+   }
+  },
+  "min_dd135": {
+   "url": "https://www.lavoro.gov.it/temi-e-priorita-rapporti-di-lavoro-e-relazioni-industriali/focus/decreto-direttoriale-135-del-19",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 1557662,
+   "sha256": "91858281e9567597b56506c663222e985f2387b607e7e257e5cf23dc60b3b9b5",
+   "pagine": 27,
+   "caratteri_testo": 158253,
+   "ocr_pagine": [],
+   "trovate": {
+    "Gennaio 2025, Gennaio 2026, Gennaio 2027 e Giugno 2027": true
+   }
+  }
+ },
+ "pagine": {
+  "pagina_metalm": {
+   "url": "https://www.lavoro.gov.it/temi-e-priorita/rapporti-di-lavoro-e-relazioni-industriali/focus-on/Analisi-economiche-costo-lavoro/Pagine/Settore-metalmeccanico-industria",
+   "http": 200,
+   "letto_il": "2026-11-12"
+  },
+  "pagina_pulizia": {
+   "url": "https://www.lavoro.gov.it/temi-e-priorita/rapporti-di-lavoro-e-relazioni-industriali/focus-on/Analisi-economiche-costo-lavoro/Pagine/Settore-pulizia-e-multiservizi",
+   "http": 200,
+   "letto_il": "2026-11-12"
+  },
+  "pagina_logistica": {
+   "url": "https://www.lavoro.gov.it/temi-e-priorita/rapporti-di-lavoro-e-relazioni-industriali/focus/settore-della-logistica-trasporto-merci-spedizione",
+   "http": 200,
+   "letto_il": "2026-11-12"
+  },
+  "cnel_archivio": {
+   "url": "https://www.cnel.it/Archivio-Contratti",
+   "http": 200,
+   "letto_il": "2026-11-12"
+  }
+ }
+}
