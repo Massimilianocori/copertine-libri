@@ -9,6 +9,7 @@ Le cifre si ricalcolano qui senza usare genera.py: si rileggono dati/estratti.js
 somma e confronto con la seconda fonte, poi si ricalcolano paga oraria, giornaliera, annuo e part time e si cercano nelle pagine.
 """
 import json
+import os
 import re
 import subprocess
 import sys
@@ -26,7 +27,7 @@ sys.path.append(str(RADICE.parent / "studio-business" / "strumenti"))
 import monetizzazione as MON  # noqa: E402
 
 ERR, AVV = [], []
-OGGI = date.today()
+OGGI = date.fromisoformat(os.environ["CCNL_OGGI"]) if os.environ.get("CCNL_OGGI") else date.today()  # come in genera.py: prova di una data futura
 
 
 def errore(m):
@@ -190,9 +191,32 @@ def atteso_livello(cid, L):
     return out
 
 
-def corrente(lista):
+def voci_confermate(cid, L, dt):
+    """Riga non pubblicabile le cui voci sono però uguali nelle due fonti (logistica: minimo ed EPA = annuo del Ministero diviso 12, divisione esatta)."""
+    if cid == "metalmeccanici":
+        return dt > "2026-06-01"  # cifre scritte solo nell'accordo: la pagina resta sull'ultimo minimo confermato dal Ministero
+    if cid != "logistica":
+        return False
+    a = EST["logistica"]["A"][L["gruppo"]].get(dt, {}).get(L["chiave"])
+    b = EST["logistica"]["B"][L.get("gruppo_b", L["gruppo"])].get(dt, {}).get(L.get("chiave_b", L["chiave"]))
+    return bool(a and b) and arr(D(b["annuo_base"]) / 12) == D(a["minimo"]) and arr(D(b["annuo_epa"]) / 12) == D(a["epa"]) and \
+        arr(D(b["annuo_base"]) / 12) * 12 == D(b["annuo_base"]) and arr(D(b["annuo_epa"]) / 12) * 12 == D(b["annuo_epa"])
+
+
+def corrente(lista, cid, L):
+    """(riga mostrata, righe sospese): stessa regola di genera.stato_livello, rifatta qui dagli estratti.
+    Se la riga in vigore non è pubblicabile ma le sue voci sono confermate, la pagina resta sull'ultima riga verificata e lo dichiara."""
     pas = [x for x in lista if x[0] <= OGGI.isoformat()]
-    return pas[-1] if pas else None
+    sosp = []
+    while len(pas) > 1 and not pas[-1][1] and voci_confermate(cid, L, pas[-1][0]):
+        sosp.insert(0, pas.pop())
+    cur = pas[-1] if pas else None
+    if not (cur and cur[1]):
+        sosp = []
+    return cur, sosp
+
+
+AVVISI_SOSPESE = []
 
 
 def controlla_cifre():
@@ -213,16 +237,30 @@ def controlla_cifre():
                 if ok and cid != "domestico" and D(t["totale"]) != tot:
                     errore(f"{cid}/{L['id']} {dt}: totale {t['totale']} diverso dal ricalcolo {tot}")
             # pagina del livello
-            cur = corrente(att)
+            cur, sosp = corrente(att, cid, L)
             pagina = SITO / m["slug"] / L["slug"] / "index.html"
             if cur and cur[1]:
                 if not pagina.exists():
                     errore(f"{cid}/{L['id']}: cifra pubblicabile ma pagina assente")
                     continue
                 controlla_pagina_livello(cid, m, L, att, cur, pagina)
+                vis_ = visibile(leggi_html(pagina))
+                if sosp:
+                    AVVISI_SOSPESE.append(f"{cid}/{L['id']}")
+                    if "Cifra da aggiornare" not in vis_ or "Ultimo minimo verificato" not in vis_:
+                        errore(f"{cid}/{L['id']}: la riga in vigore dal {sosp[-1][0]} è sospesa ma la pagina non lo dichiara")
+                    if "(in vigore)" in vis_ or "Minimo in vigore dal" in vis_ or "FAQPage" in leggi_html(pagina):
+                        errore(f"{cid}/{L['id']}: pagina con riga sospesa che presenta ancora la cifra come in vigore (testo o FAQ)")
+                    if cid == "logistica" and euro(sosp[-1][2]) not in vis_:
+                        errore(f"{cid}/{L['id']}: la nota non riporta il totale stampato della riga sospesa")
+                elif "Cifra da aggiornare" in vis_ or "Ultimo minimo verificato" in vis_:
+                    errore(f"{cid}/{L['id']}: nota di cifra sospesa senza motivo")
             elif pagina.exists():
                 errore(f"{cid}/{L['id']}: pagina pubblicata con una cifra che non passa i controlli")
     print(f"Cifre: {n_ok} righe pubblicabili su {n_tot} ricalcolate da zero")
+    if AVVISI_SOSPESE:
+        avviso(f"{len(AVVISI_SOSPESE)} pagine mostrano l'ultimo minimo verificato con la nota «Cifra da aggiornare» (riga in vigore non pubblicabile): "
+               + ", ".join(AVVISI_SOSPESE))
     # correzioni della lettura ottica: ognuna con pagina, valore letto e valore corretto
     for x in carica("correzioni_ocr.json")["correzioni"]:
         if not (x.get("letto_ocr") and x.get("valore") and x.get("motivo")):
@@ -277,8 +315,8 @@ def controlla_pagina_livello(cid, m, L, att, cur, pagina):
         for (d2, ok, t2, _) in att:
             if d2 > OGGI.isoformat() and ok and euro(t2) not in vis:
                 errore(f"{pagina}: manca il minimo futuro {euro(t2)} dal {d2}")
-            if d2 > OGGI.isoformat() and not ok and euro(t2) in vis and cid == "metalmeccanici":
-                errore(f"{pagina}: pubblicato un minimo futuro non verificato ({euro(t2)})")
+            if not ok and euro(t2) in vis and cid == "metalmeccanici":
+                errore(f"{pagina}: pubblicato un minimo non verificato ({euro(t2)})")
     for x in attese:
         if x not in vis:
             errore(f"{pagina.relative_to(SITO)}: cifra attesa assente «{x}»")
@@ -407,8 +445,12 @@ def controlla_faq():
 def controlla_date():
     if (OGGI - CONTROLLO).days > 45:
         avviso(f"controllato_il {CONTROLLO}: più di 45 giorni, rifare il giro mensile (NOTE.md)")
-    if OGGI >= date(2027, 1, 1):
-        errore("lavoro domestico: dal 1° gennaio 2027 serve la tabella nuova")
+    anno_dom = max(date.fromisoformat(t["dal"]).year for L in RIS["domestico"]["livelli"] for t in L["tranche"])
+    if OGGI.year > anno_dom:
+        avviso(f"lavoro domestico: manca la tabella del {OGGI.year}; le pagine devono dichiararlo")
+        for p in [SITO / "index.html", SITO / "colf-badanti" / "index.html"] + sorted((SITO / C["domestico"]["slug"]).rglob("index.html")):
+            if f"Tabella {anno_dom}." not in visibile(leggi_html(p)) or "in vigore dal 1° gennaio" in visibile(leggi_html(p)):
+                errore(f"{p.relative_to(SITO)}: la tabella del lavoro domestico è dell'anno prima ma la pagina non lo dichiara")
     for cid in RIS:
         for L in RIS[cid]["livelli"]:
             for t in L["tranche"]:
@@ -420,6 +462,7 @@ def controlla_date():
 
 # ---------------------------------------------------------------- 7. testi: niente nomi di modelli, niente dati personali
 VIETATE = re.compile(r"\b(claude|anthropic|openai|chatgpt|gpt-?\d|gemini|llama|mistral|copilot|opus|sonnet|haiku)\b", re.I)
+TITOLARE = "Titolare del trattamento è Massimiliano Cori (Italia)"
 PERSONALI = re.compile(r"massimiliano|\bcori\b|@gmail|@outlook|@libero", re.I)
 
 
@@ -432,6 +475,11 @@ def controlla_testi():
             continue
         if VIETATE.search(t):
             errore(f"{p.relative_to(RADICE)}: nome di un modello o servizio di IA ({VIETATE.search(t).group(0)})")
+        if p.name == "genera.py" or p.relative_to(RADICE).as_posix() == "sito/privacy/index.html":
+            # convenzione della rete: la privacy nomina il titolare del trattamento, una volta sola e solo lì
+            if t.count(TITOLARE) != 1:
+                errore(f"{p.relative_to(RADICE)}: la frase sul titolare del trattamento deve comparire una volta")
+            t = t.replace(TITOLARE, "")
         if PERSONALI.search(t) and p.name != "NOTE.md":
             errore(f"{p.relative_to(RADICE)}: possibile dato personale ({PERSONALI.search(t).group(0)})")
     note = RADICE / "NOTE.md"

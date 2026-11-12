@@ -560,49 +560,120 @@
      "id": "1",
      "chiave": "1",
      "nome": "1° livello",
-     "slug": "1-livello"
+     "slug": "1-livello",
+     "declaratoria": {
+      "fonte": "cnel_105782",
+      "dove": "art. 10 del CCNL 31 maggio 2011",
+      "testo": "i lavoratori che svolgono attività semplici, a contenuto manuale, anche con attrezzature per le quali non occorrono conoscenze professionali",
+      "profili": [
+       "Guardiano",
+       "Manovale non addetto a comuni servizi di pulizia"
+      ],
+      "nota": "Lo stesso articolo assegna a questo livello anche i lavoratori del 2° livello di prima assunzione nel settore, per i primi nove mesi di effettivo servizio."
+     }
     },
     {
      "id": "2",
      "chiave": "2",
      "nome": "2° livello",
-     "slug": "2-livello"
+     "slug": "2-livello",
+     "declaratoria": {
+      "fonte": "cnel_105782",
+      "dove": "art. 10 del CCNL 31 maggio 2011",
+      "testo": "i lavoratori che, con un breve periodo di pratica/addestramento, sono adibiti ad operazioni per la cui esecuzione si richiede il possesso di (semplici) conoscenze pratiche",
+      "profili": [
+       "Pulitori addetti al lavaggio con sistemi automatici o normali, addetti ai lavori di pulizia anche con l'uso di lucidatrici ed aspiratori, nonché ai lavori di pulizia dei vetri",
+       "Addetti al riassetto e rigoverno di locali, foresterie e assimilabili",
+       "Addetti alla rotazione trasporto sacchi"
+      ],
+      "nota": "Le cifre di questa pagina sono quelle del parametro 109. Le tabelle del Ministero riportano anche un 2° livello con parametro 115, che non pubblichiamo perché l'accordo non ne stampa il minimo."
+     }
     },
     {
      "id": "3",
      "chiave": "3",
      "nome": "3° livello",
-     "slug": "3-livello"
+     "slug": "3-livello",
+     "declaratoria": {
+      "fonte": "cnel_105782",
+      "dove": "art. 10 del CCNL 31 maggio 2011",
+      "testo": "i lavoratori qualificati, adibiti ad operazioni di media complessità (amministrative, commerciali, tecniche) per la cui esecuzione sono richieste normali conoscenze ed adeguate capacità tecnico-pratiche",
+      "profili": [
+       "Addetti al risanamento ambientale",
+       "Addetti al trattamento/pulitura delle facciate",
+       "Operai qualificati addetti alle operazioni di sterilizzazione"
+      ]
+     }
     },
     {
      "id": "4",
      "chiave": "4",
      "nome": "4° livello",
-     "slug": "4-livello"
+     "slug": "4-livello",
+     "declaratoria": {
+      "fonte": "cnel_105782",
+      "dove": "art. 10 del CCNL 31 maggio 2011",
+      "testo": "i lavoratori che, in possesso di qualificate conoscenze di tipo specialistico, esplicano attività tecnico - operative di adeguata complessità",
+      "profili": [
+       "Laminatori, levigatori, vetrificatori di pavimenti in legno, lucidatori a piombo",
+       "Capisquadra o capigruppo che, pur lavorando essi stessi manualmente, coordinano e sorvegliano l'attività dei lavoratori componenti la squadra",
+       "Addetti alle bonifiche ambientali dei siti e/o serbatoi e cisterne"
+      ]
+     }
     },
     {
      "id": "5",
      "chiave": "5",
      "nome": "5° livello",
-     "slug": "5-livello"
+     "slug": "5-livello",
+     "declaratoria": {
+      "fonte": "cnel_105782",
+      "dove": "art. 10 del CCNL 31 maggio 2011",
+      "testo": "i lavoratori che svolgono mansioni di concetto o prevalentemente tali, in condizioni di autonomia esecutiva nei limiti delle procedure valide nel campo di attività in cui operano",
+      "profili": [
+       "Tecnico responsabile di conduzione di impianti",
+       "Manutentore polivalente"
+      ]
+     }
     },
     {
      "id": "6",
      "chiave": "6",
      "nome": "6° livello",
-     "slug": "6-livello"
+     "slug": "6-livello",
+     "declaratoria": {
+      "fonte": "cnel_105782",
+      "dove": "art. 10 del CCNL 31 maggio 2011",
+      "testo": "i lavoratori che svolgono funzioni di concetto inerenti attività complesse, che comportano elevata e consolidata preparazione, adeguata capacità professionale e gestionale nonché adeguata esperienza",
+      "profili": [
+       "Impiegato di concetto tecnico/amministrativo",
+       "Specialista di controllo qualità, sicurezza ed ambiente",
+       "Contabile"
+      ]
+     }
     },
     {
      "id": "7",
      "chiave": "7",
      "nome": "7° livello",
-     "slug": "7-livello"
+     "slug": "7-livello",
+     "declaratoria": {
+      "fonte": "cnel_105782",
+      "dove": "art. 10 del CCNL 31 maggio 2011",
+      "testo": "i lavoratori che svolgono funzioni direttive che richiedono una specifica preparazione e capacità professionale con la necessaria autonomia e discrezionalità di poteri e iniziativa"
+     }
     },
     {
      "id": "q",
      "chiave": "q",
      "nome": "Quadro",
-     "slug": "quadro"
+     "slug": "quadro",
+     "declaratoria": {
+      "fonte": "cnel_105782",
+      "dove": "art. 10 del CCNL 31 maggio 2011",
+      "testo": "il personale con mansioni direttive che oltre alle caratteristiche indicate nella declaratoria di cui al VII livello ed a possedere esperienza acquisita a seguito di prolungato esercizio delle funzioni",
+      "nota": "Per i quadri lo stesso articolo prevede un'indennità di funzione di 25,82 euro mensili lordi, che non è compresa nel minimo di questa pagina."
+     }
     }
    ]
   },
@@ -658,7 +729,13 @@
      "slug": "quadro",
      "gruppo": "non_viaggiante",
      "chiave_b": "q",
-     "gruppo_nome": "Personale non viaggiante"
+     "gruppo_nome": "Personale non viaggiante",
+     "declaratoria": {
+      "fonte": "cnel_223634",
+      "dove": "art. 6",
+      "testo": "i lavoratori che, pur non appartenendo alla categoria dei dirigenti, esplicano con carattere di continuità attività direttive di rilevante importanza per l'Azienda",
+      "nota": "Ai quadri è riconosciuta un'indennità di funzione pari a 51,65 euro mensili lorde, che non è compresa nel minimo di questa pagina."
+     }
     },
     {
      "id": "1",
@@ -666,7 +743,17 @@
      "nome": "1° livello",
      "slug": "1-livello",
      "gruppo": "non_viaggiante",
-     "gruppo_nome": "Personale non viaggiante"
+     "gruppo_nome": "Personale non viaggiante",
+     "declaratoria": {
+      "fonte": "cnel_223634",
+      "dove": "art. 6",
+      "testo": "gli impiegati sia tecnici che amministrativi, interni od esterni, che hanno funzioni direttive non rientranti in quelle previste per i quadri",
+      "profili": [
+       "Responsabili di filiale, agenzia, docks, silos e sito",
+       "Capo contabile o contabile incaricato di compilare il bilancio di gestione dell'azienda",
+       "Impiegati muniti di patente di spedizioniere doganale"
+      ]
+     }
     },
     {
      "id": "2",
@@ -674,7 +761,18 @@
      "nome": "2° livello",
      "slug": "2-livello",
      "gruppo": "non_viaggiante",
-     "gruppo_nome": "Personale non viaggiante"
+     "gruppo_nome": "Personale non viaggiante",
+     "declaratoria": {
+      "fonte": "cnel_223634",
+      "dove": "art. 6",
+      "testo": "i lavoratori con mansioni di concetto, che con specifica collaborazione svolgono attività amministrativa o tecnica caratterizzata da autonomia operativa e decisionale",
+      "profili": [
+       "Altri capi reparto o capi ufficio, anche distaccati",
+       "Spedizioniere coadiutore",
+       "Cassieri con responsabilità e oneri per errore",
+       "Magazzinieri con responsabilità del carico e dello scarico"
+      ]
+     }
     },
     {
      "id": "3s",
@@ -682,7 +780,16 @@
      "nome": "3° livello Super",
      "slug": "3-livello-super",
      "gruppo": "non_viaggiante",
-     "gruppo_nome": "Personale non viaggiante"
+     "gruppo_nome": "Personale non viaggiante",
+     "declaratoria": {
+      "fonte": "cnel_223634",
+      "dove": "art. 6",
+      "testo": "i lavoratori con mansioni di concetto o con cognizioni tecnico- pratiche inerenti alla impiantistica, alla tecnologia del lavoro ed alla utilizzazione delle macchine",
+      "profili": [
+       "Gruisti addetti alle gru su automezzi semoventi di portata maggiore di 20 tonnellate",
+       "Conduzione di macchine operatrici particolarmente complesse"
+      ]
+     }
     },
     {
      "id": "3",
@@ -690,7 +797,17 @@
      "nome": "3° livello",
      "slug": "3-livello",
      "gruppo": "non_viaggiante",
-     "gruppo_nome": "Personale non viaggiante"
+     "gruppo_nome": "Personale non viaggiante",
+     "declaratoria": {
+      "fonte": "cnel_223634",
+      "dove": "art. 6",
+      "testo": "lavoratori che svolgono attività richiedenti preparazione risultante da diplomi di istituti o centri professionali oppure acquisita attraverso conoscenza diretta mediante una corrispondente esperienza di lavoro",
+      "profili": [
+       "Conducenti di motobarche",
+       "Capisquadra normalmente addetti a traslochi di mobilio ed ai trasporti eccezionali",
+       "Addetti a gru semoventi con portata inferiore a 20 tonnellate e a gru a ponte cabinate"
+      ]
+     }
     },
     {
      "id": "4",
@@ -698,7 +815,17 @@
      "nome": "4° livello",
      "slug": "4-livello",
      "gruppo": "non_viaggiante",
-     "gruppo_nome": "Personale non viaggiante"
+     "gruppo_nome": "Personale non viaggiante",
+     "declaratoria": {
+      "fonte": "cnel_223634",
+      "dove": "art. 6",
+      "testo": "i lavoratori che svolgono attività per abilitarsi alle quali occorrono periodi di tirocinio o corsi di addestramento per compiere lavori ed operazioni delicate e complesse",
+      "profili": [
+       "Operai con mansioni multiple di magazzino e/o terminal (carico; scarico; spunta documenti, prelievo e approntamento delle merci)",
+       "Gruisti, conduttori di gru a pulsantiera e analoghe attrezzature per la movimentazione e stivaggio delle merci",
+       "Facchino specializzato"
+      ]
+     }
     },
     {
      "id": "4j",
@@ -706,7 +833,13 @@
      "nome": "4° livello Junior",
      "slug": "4-livello-junior",
      "gruppo": "non_viaggiante",
-     "gruppo_nome": "Personale non viaggiante"
+     "gruppo_nome": "Personale non viaggiante",
+     "declaratoria": {
+      "fonte": "cnel_223634",
+      "dove": "art. 6",
+      "testo": "i lavoratori adibiti a lavori che richiedono specifiche conoscenze tecniche e capacità pratiche",
+      "nota": "Il contratto vi comprende gli addetti alla movimentazione merci che usano attrezzature e mezzi di sollevamento complessi per i quali non serve la patente di guida prevista per le aree pubbliche, esclusi i conducenti dei carrelli elevatori dei livelli superiori."
+     }
     },
     {
      "id": "5",
@@ -714,7 +847,17 @@
      "nome": "5° livello",
      "slug": "5-livello",
      "gruppo": "non_viaggiante",
-     "gruppo_nome": "Personale non viaggiante"
+     "gruppo_nome": "Personale non viaggiante",
+     "declaratoria": {
+      "fonte": "cnel_223634",
+      "dove": "art. 6",
+      "testo": "i lavoratori che svolgono lavori qualificati per la cui esecuzione sono richieste adeguate conoscenze professionali",
+      "profili": [
+       "Addetto rizzaggio/derizzaggio",
+       "Facchino qualificato",
+       "Attività di carico e scarico merci con utilizzo anche di transpallets manuali ed elettrici, conducenti di carrelli elettrici"
+      ]
+     }
     },
     {
      "id": "6",
@@ -722,7 +865,17 @@
      "nome": "6° livello",
      "slug": "6-livello",
      "gruppo": "non_viaggiante",
-     "gruppo_nome": "Personale non viaggiante"
+     "gruppo_nome": "Personale non viaggiante",
+     "declaratoria": {
+      "fonte": "cnel_223634",
+      "dove": "art. 6",
+      "testo": "i lavoratori che svolgono attività produttive che richiedono limitate conoscenze professionali",
+      "profili": [
+       "Attività manuali di scarico e carico merci – facchino comune, addetto magazzino comune",
+       "Addetto recupero di contenitori ed attrezzature di imballaggio",
+       "Guardiani e/o personale di custodia alla porta"
+      ]
+     }
     },
     {
      "id": "c3",
@@ -730,7 +883,17 @@
      "nome": "Livello C3 (viaggiante)",
      "slug": "livello-c3",
      "gruppo": "viaggiante",
-     "gruppo_nome": "Personale viaggiante"
+     "gruppo_nome": "Personale viaggiante",
+     "declaratoria": {
+      "fonte": "cnel_223634",
+      "dove": "art. 6",
+      "testo": "Conducenti in possesso di patente C – E che conducono veicoli per i quali è previsto il possesso delle rispettive abilitazioni e dotati di apparato cronotachigrafo",
+      "profili": [
+       "Servizi di trasporto merci in ambito nazionale e internazionale soggetti a specifiche normative e abilitazioni professionali (ATP, ADR, HACCP, trasporto animali vivi, etc.)",
+       "Trasporti per i quali è necessario operare con specifiche attrezzature (es. bisarche"
+      ],
+      "nota": "Qualifica 3, lettera C, parametro 133,5."
+     }
     },
     {
      "id": "b3",
@@ -738,7 +901,16 @@
      "nome": "Livello B3 (viaggiante)",
      "slug": "livello-b3",
      "gruppo": "viaggiante",
-     "gruppo_nome": "Personale viaggiante"
+     "gruppo_nome": "Personale viaggiante",
+     "declaratoria": {
+      "fonte": "cnel_223634",
+      "dove": "art. 6",
+      "testo": "Conducenti in possesso di patente C – E che conducono veicoli per i quali è previsto il possesso delle rispettive abilitazioni e dotati di apparato cronotachigrafo",
+      "profili": [
+       "Servizi di trasporto in ambito nazionale e internazionale (non sottoposti a particolari abilitazioni, es. container, casse mobili, groupage, centinati, etc.)"
+      ],
+      "nota": "Qualifica 3, lettera B, parametro 133."
+     }
     },
     {
      "id": "a3",
@@ -746,7 +918,17 @@
      "nome": "Livello A3 (viaggiante)",
      "slug": "livello-a3",
      "gruppo": "viaggiante",
-     "gruppo_nome": "Personale viaggiante"
+     "gruppo_nome": "Personale viaggiante",
+     "declaratoria": {
+      "fonte": "cnel_223634",
+      "dove": "art. 6",
+      "testo": "Conducenti in possesso di patente C – E che conducono veicoli per i quali è previsto il possesso delle rispettive abilitazioni e dotati di apparato cronotachigrafo",
+      "profili": [
+       "Servizi di trasporto effettuati all'interno di aree produttive, logistiche, portuali, terminalistiche, interportuali e cave",
+       "Servizi di trasporto ripetitivi, che hanno origine dalla stessa area"
+      ],
+      "nota": "Qualifica 3, lettera A, parametro 132,5."
+     }
     },
     {
      "id": "f2",
@@ -762,7 +944,16 @@
      "nome": "Livello E2 (viaggiante)",
      "slug": "livello-e2",
      "gruppo": "viaggiante",
-     "gruppo_nome": "Personale viaggiante"
+     "gruppo_nome": "Personale viaggiante",
+     "declaratoria": {
+      "fonte": "cnel_223634",
+      "dove": "art. 6",
+      "testo": "Conducenti che utilizzano autocarri isolati per i quali è previsto il possesso della patente C dotati di apparato cronotachigrafo",
+      "profili": [
+       "Operazioni di trasporto merci in ambito nazionale e internazionale (non sottoposte a particolari abilitazioni, es. container, casse mobili, groupage, centinati, etc.)"
+      ],
+      "nota": "Qualifica 2, lettera E, parametro 129."
+     }
     },
     {
      "id": "d2",
@@ -770,7 +961,17 @@
      "nome": "Livello D2 (viaggiante)",
      "slug": "livello-d2",
      "gruppo": "viaggiante",
-     "gruppo_nome": "Personale viaggiante"
+     "gruppo_nome": "Personale viaggiante",
+     "declaratoria": {
+      "fonte": "cnel_223634",
+      "dove": "art. 6",
+      "testo": "Conducenti che utilizzano autocarri isolati per i quali è previsto il possesso della patente C dotati di apparato cronotachigrafo",
+      "profili": [
+       "Servizi di trasporto effettuati all'interno di aree produttive, logistiche, portuali, terminalistiche, interportuali e cave",
+       "Servizi di trasporto effettuati con veicoli dotati di apparati di sollevamento e gru di portata inferiore alle 20 tonnellate"
+      ],
+      "nota": "Qualifica 2, lettera D, parametro 128,5."
+     }
     },
     {
      "id": "h1",
@@ -779,7 +980,17 @@
      "slug": "livello-h1",
      "gruppo": "viaggiante",
      "gruppo_b": "driver_rider",
-     "gruppo_nome": "Driver e rider"
+     "gruppo_nome": "Driver e rider",
+     "declaratoria": {
+      "fonte": "cnel_223634",
+      "dove": "art. 6",
+      "testo": "Conducenti che utilizzano veicoli per i quali è previsto il possesso della patente B non dotati di apparato cronotachigrafo, adibiti in attività di logistica distributiva e di corriere espresso",
+      "profili": [
+       "Conducenti in possesso di particolari abilitazioni, ad es. conducenti che trasportano materiali radioattivi e/o esplosivi",
+       "Personale in possesso di attestato di abilitazione all'esercizio del servizio di scorta tecnica"
+      ],
+      "nota": "Qualifica 1, lettera H, parametro 124,5."
+     }
     },
     {
      "id": "g1",
@@ -788,7 +999,16 @@
      "slug": "livello-g1",
      "gruppo": "viaggiante",
      "gruppo_b": "driver_rider",
-     "gruppo_nome": "Driver e rider"
+     "gruppo_nome": "Driver e rider",
+     "declaratoria": {
+      "fonte": "cnel_223634",
+      "dove": "art. 6",
+      "testo": "Conducenti che utilizzano veicoli per i quali è previsto il possesso della patente B non dotati di apparato cronotachigrafo, adibiti in attività di logistica distributiva e di corriere espresso",
+      "profili": [
+       "Conducenti adibiti in attività di logistica distributiva e di corriere espresso che svolgono attività di guida e operazioni accessorie ai trasporti"
+      ],
+      "nota": "Qualifica 1, lettera G, parametro 124."
+     }
     },
     {
      "id": "i_p110",
@@ -798,7 +1018,13 @@
      "gruppo": "viaggiante",
      "gruppo_b": "driver_rider",
      "chiave_b": "i (0-6 mesi)",
-     "gruppo_nome": "Driver e rider"
+     "gruppo_nome": "Driver e rider",
+     "declaratoria": {
+      "fonte": "cnel_223634",
+      "dove": "art. 6",
+      "testo": "Lavoratori adibiti ad attività di logistica distributiva, comprese le operazioni accessorie ai trasporti, attraverso l'utilizzo di cicli, ciclomotori e motocicli",
+      "nota": "Lettera I: personale viaggiante che utilizza cicli. Si parte dal parametro 110 e, trascorsi 6 mesi, si passa al parametro 116. Questa pagina riguarda i primi 6 mesi (parametro 110)."
+     }
     },
     {
      "id": "i_p116",
@@ -808,7 +1034,13 @@
      "gruppo": "viaggiante",
      "gruppo_b": "driver_rider",
      "chiave_b": "i",
-     "gruppo_nome": "Driver e rider"
+     "gruppo_nome": "Driver e rider",
+     "declaratoria": {
+      "fonte": "cnel_223634",
+      "dove": "art. 6",
+      "testo": "Lavoratori adibiti ad attività di logistica distributiva, comprese le operazioni accessorie ai trasporti, attraverso l'utilizzo di cicli, ciclomotori e motocicli",
+      "nota": "Lettera I: personale viaggiante che utilizza cicli. Si parte dal parametro 110 e, trascorsi 6 mesi, si passa al parametro 116. Questa pagina riguarda il periodo dopo i primi 6 mesi (parametro 116)."
+     }
     },
     {
      "id": "l_p110",
@@ -818,7 +1050,13 @@
      "gruppo": "viaggiante",
      "gruppo_b": "driver_rider",
      "chiave_b": "l (0-6 mesi)",
-     "gruppo_nome": "Driver e rider"
+     "gruppo_nome": "Driver e rider",
+     "declaratoria": {
+      "fonte": "cnel_223634",
+      "dove": "art. 6",
+      "testo": "Lavoratori adibiti ad attività di logistica distributiva, comprese le operazioni accessorie ai trasporti, attraverso l'utilizzo di cicli, ciclomotori e motocicli",
+      "nota": "Lettera L: personale viaggiante che utilizza ciclomotori e motocicli. Si parte dal parametro 110; trascorsi 6 mesi si passa al parametro 116 e, dopo altri 9 mesi, al parametro 119."
+     }
     },
     {
      "id": "l_p116",
@@ -828,7 +1066,13 @@
      "gruppo": "viaggiante",
      "gruppo_b": "driver_rider",
      "chiave_b": "l (7-15 mesi)",
-     "gruppo_nome": "Driver e rider"
+     "gruppo_nome": "Driver e rider",
+     "declaratoria": {
+      "fonte": "cnel_223634",
+      "dove": "art. 6",
+      "testo": "Lavoratori adibiti ad attività di logistica distributiva, comprese le operazioni accessorie ai trasporti, attraverso l'utilizzo di cicli, ciclomotori e motocicli",
+      "nota": "Lettera L: personale viaggiante che utilizza ciclomotori e motocicli. Si parte dal parametro 110; trascorsi 6 mesi si passa al parametro 116 e, dopo altri 9 mesi, al parametro 119. Questa pagina riguarda il periodo dal settimo al quindicesimo mese (parametro 116)."
+     }
     },
     {
      "id": "l_p119",
@@ -838,9 +1082,20 @@
      "gruppo": "viaggiante",
      "gruppo_b": "driver_rider",
      "chiave_b": "l",
-     "gruppo_nome": "Driver e rider"
+     "gruppo_nome": "Driver e rider",
+     "declaratoria": {
+      "fonte": "cnel_223634",
+      "dove": "art. 6",
+      "testo": "Lavoratori adibiti ad attività di logistica distributiva, comprese le operazioni accessorie ai trasporti, attraverso l'utilizzo di cicli, ciclomotori e motocicli",
+      "nota": "Lettera L: personale viaggiante che utilizza ciclomotori e motocicli. Si parte dal parametro 110; trascorsi 6 mesi si passa al parametro 116 e, dopo altri 9 mesi, al parametro 119. Questa pagina riguarda il periodo dopo i primi 15 mesi (parametro 119)."
+     }
     }
-   ]
+   ],
+   "edr": {
+    "fonte": "cnel_223634",
+    "testo": "Nel minimo di questa pagina non c'è l'EDR dell'accordo del 18 maggio 2021: il contratto lo paga a parte per 13 mensilità (10,00 euro al mese al 3° livello Super, riparametrato per gli altri livelli) e stabilisce che non incide su nessun istituto contrattuale.",
+    "frase": "L'EDR, così come sopra riparametrato, sarà erogato da gennaio 2022 per 13 mensilità e non avrà incidenza su"
+   }
   }
  }
 }

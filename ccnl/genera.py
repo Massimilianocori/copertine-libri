@@ -12,6 +12,7 @@ fonte uguale al centesimo. Tutti gli importi sono lordi e minimi. Niente netto, 
 """
 import hashlib
 import json
+import os
 import re
 import shutil
 import sys
@@ -53,7 +54,8 @@ PAGINE_UFF = _F["pagine"]
 FAQ = carica("faq.json")["faq"]
 DOMANDA = carica("domanda.json")
 CONTROLLO = date.fromisoformat(META["controllato_il"])
-OGGI = date.today()
+# CCNL_OGGI=2027-01-02 python3 ccnl/genera.py: prova di una data futura (solo per i controlli, non per pubblicare)
+OGGI = date.fromisoformat(os.environ["CCNL_OGGI"]) if os.environ.get("CCNL_OGGI") else date.today()
 ORDINE = ["terziario", "metalmeccanici", "multiservizi", "logistica", "domestico"]
 
 MESI = ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre"]
@@ -117,18 +119,29 @@ def tranche_livello(cid, lid):
 
 
 def stato_livello(cid, L):
-    """(tranche in vigore oggi, tranche passate pubblicabili, tranche future, tranche escluse)."""
+    """(tranche mostrata, tranche passate pubblicabili, tranche future, tranche sospese).
+
+    Di norma la tranche mostrata è quella in vigore oggi. Se la tranche in vigore non è pubblicabile perché il totale
+    stampato non è la somma delle voci (voci uguali nelle due fonti) o perché la cifra è scritta in una fonte sola
+    (metalmeccanici di giugno 2027 e 2028 prima del decreto), la pagina non sparisce e il sito non si ferma: resta
+    l'ultima tranche verificata e quella scartata finisce tra le «sospese», che la pagina dichiara con una nota in alto.
+    Se invece la seconda fonte riporta un importo diverso (seconda_fonte_ok falso), il livello resta senza pagina come prima."""
     tr = tranche_livello(cid, L["id"])
     passate = [t for t in tr if t["dal"] <= OGGI.isoformat()]
-    cur = passate[-1] if passate else None
     future = [t for t in tr if t["dal"] > OGGI.isoformat()]
-    return cur, [t for t in passate[:-1] if t["pubblicabile"]], future
+    sospese = []
+    while len(passate) > 1 and not passate[-1]["pubblicabile"] and passate[-1].get("seconda_fonte_ok") is not False:
+        sospese.insert(0, passate.pop())
+    cur = passate[-1] if passate else None
+    if not (cur and cur["pubblicabile"]):
+        sospese = []
+    return cur, [t for t in passate[:-1] if t["pubblicabile"]], future, sospese
 
 
 def livelli_pubblicati(cid):
     out = []
     for L in C[cid]["livelli"]:
-        cur, _, _ = stato_livello(cid, L)
+        cur = stato_livello(cid, L)[0]
         if cur and cur["pubblicabile"]:
             out.append(L)
     return out
@@ -143,8 +156,8 @@ def totale(t):
 def valori(cid, L):
     """Tutte le cifre di una pagina livello, calcolate qui una volta sola (verifica.py le ricalcola)."""
     m = C[cid]
-    cur, storico, future = stato_livello(cid, L)
-    v = {"cur": cur, "storico": storico, "future": future, "dal": cur["dal"]}
+    cur, storico, future, sospese = stato_livello(cid, L)
+    v = {"cur": cur, "storico": storico, "future": future, "dal": cur["dal"], "sospese": sospese}
     if cid == "domestico":
         tab = cur["tabelle"]
         v["oraria"] = D(tab["C_oraria"])
@@ -153,6 +166,7 @@ def valori(cid, L):
         v["mensile"] = v["conv"]
         v["conv_tot"] = v["conv"] + (v["ind"] or 0)
         v["annuo_conv"] = v["conv_tot"] * 13
+        v["conv_txt"] = euro(v["conv"]) + (f" + {euro(v['ind'])}" if v["ind"] else "")
         v["tab"] = tab
         v["ore_norm"] = 40
         v["p"] = {o: orario52(v["oraria"], o) for o in (10, 20, 25, 30, 40)}
@@ -191,6 +205,8 @@ def segnaposto(testo):
             return data_lunga(v["dal"])
         if re.fullmatch(r"p\d+", campo):
             return euro(v["p"][int(campo[1:])])
+        if campo.startswith("prossimo_") and not v.get("prossima"):
+            raise LookupError(f"{cid}/{lid}: nessun aumento futuro verificato")
         if campo == "prossimo_mensile":
             return euro(totale(v["prossima"]))
         if campo == "prossimo_dal":
@@ -206,6 +222,22 @@ def segnaposto(testo):
 
 
 # ---------------------------------------------------------------- fonti numerate
+def url_fonte(fid):
+    """Indirizzo da dare al lettore. I file dell'archivio del CNEL non hanno un link diretto che si apre (l'indirizzo del file
+    risponde 403 senza la firma temporanea che il sito del CNEL aggiunge): si rimanda alla pagina dell'archivio, dove il
+    documento si trova sotto il codice del contratto (scritto accanto al link)."""
+    if FONTI_DEF[fid].get("cnel"):
+        return PAGINE_UFF["cnel_archivio"]["url"]
+    return FONTI[fid]["url"]
+
+
+def nota_cnel(fid):
+    if not FONTI_DEF[fid].get("cnel"):
+        return ""
+    cod = next((m["codice_cnel"] for m in C.values() if f'"{fid}"' in json.dumps(m)), None)
+    return (' <span class="small">Il file si scarica dall\'archivio dei contratti del CNEL' + (f', alla voce del contratto con codice {cod}' if cod else "") + '.</span>')
+
+
 class Rimandi:
     def __init__(self):
         self.ordine = []
@@ -230,7 +262,7 @@ class Rimandi:
         voci = []
         for n, i in enumerate(self.ordine, 1):
             f, es = FONTI_DEF[i], FONTI[i]
-            voci.append(f'<li id="f{n}"><a href="{h(es["url"])}" rel="noopener">{h(f["titolo"])}</a> · {h(f["chi"])}. '
+            voci.append(f'<li id="f{n}"><a href="{h(url_fonte(i))}" rel="noopener">{h(f["titolo"])}</a> · {h(f["chi"])}.{nota_cnel(i)} '
                         f'<span class="small">Letto il {data_lunga(es["letto_il"])}.</span></li>')
         return (f'<section class="fonti-box" aria-labelledby="fonti-h"><h2 id="fonti-h">{ico("doc")}Fonti</h2><ol>{"".join(voci)}</ol>'
                 f'<p class="small">Controllato il {data_lunga(CONTROLLO)}. Come leggiamo e confrontiamo le fonti: <a href="/come-lavoriamo/">come lavoriamo</a>.</p></section>')
@@ -373,9 +405,16 @@ def faq_blocco(pid, rim, titolo="Domande frequenti"):
         return "", None
     blocchi, ld = [], []
     for x in voci:
-        a = segnaposto(x["a"])
+        try:
+            a = segnaposto(x["a"])
+        except LookupError as e:
+            # la risposta cita un aumento futuro che non c'è più (data passata): la domanda si salta finché non si riscrive in faq.json
+            print(f"AVVISO: FAQ saltata «{x['q'][:50]}» ({e})", file=sys.stderr)
+            continue
         blocchi.append(f'<div class="faq"><h3>{h(x["q"])}</h3><p>{h(a)}{rim.ref(x["fonti"])}</p></div>')
         ld.append({"@type": "Question", "name": x["q"], "acceptedAnswer": {"@type": "Answer", "text": a}})
+    if not blocchi:
+        return "", None
     html_ = f'<h2 id="faq">{h(titolo)}</h2><p class="small">Domande che le persone cercano davvero su Google, con la risposta presa dalle fonti.</p>' + "".join(blocchi)
     return html_, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": ld}
 
@@ -414,6 +453,40 @@ def nota(testo, tipo="info", icona="info"):
     return f'<div class="nota {tipo}">{ico(icona)}<p>{testo}</p></div>'
 
 
+def voci_txt(t):
+    return ", ".join(f"{n.split(' (')[0] if n.split(' (')[0].isupper() else n.split(' (')[0].lower()} {euro(x)}" for n, x in t["parti"])
+
+
+def nota_sospesa(cid, v):
+    """Nota in alto quando la tranche in vigore non è pubblicabile e la pagina mostra l'ultima verificata."""
+    if not v.get("sospese"):
+        return ""
+    t = v["sospese"][-1]
+    if not (t.get("parti") and t.get("seconda_fonte_ok")):
+        return nota(f'<strong>Cifra da aggiornare.</strong> Dal {data_lunga(t["dal"])} il contratto prevede un minimo più alto, ma la cifra nuova è scritta in una sola '
+                    f'fonte: la pubblichiamo quando una seconda fonte ufficiale la conferma. Qui sotto resta l\'ultimo minimo verificato, del {data_lunga(v["dal"])}: '
+                    'quello in vigore oggi è più alto.', "", "alert")
+    somma = sum(D(x) for _, x in t["parti"])
+    return nota(f'<strong>Cifra da aggiornare.</strong> Dal {data_lunga(t["dal"])} il contratto prevede: {h(voci_txt(t))} (voci uguali nel contratto e nelle '
+                f'tabelle del Ministero). Il totale stampato nel contratto, {euro(t["totale"])}, non è però la somma di queste voci ({euro(somma)}): per la nostra regola '
+                f'non lo pubblichiamo come minimo. Qui sotto resta l\'ultimo minimo verificato, del {data_lunga(v["dal"])}: quello in vigore oggi è più alto.', "", "alert")
+
+
+def domestico_vecchio():
+    """True quando la tabella del lavoro domestico caricata è di un anno precedente (la nuova esce a gennaio)."""
+    L0 = C["domestico"]["livelli"][0]
+    return OGGI.year > date.fromisoformat(stato_livello("domestico", L0)[0]["dal"]).year
+
+
+def nota_domestico():
+    if not domestico_vecchio():
+        return ""
+    anno = date.fromisoformat(stato_livello("domestico", C["domestico"]["livelli"][0])[0]["dal"]).year
+    return nota(f'<strong>Tabella {anno}.</strong> La tabella ufficiale del {OGGI.year} non è ancora in queste pagine: la carichiamo quando il Ministero del Lavoro '
+                f'la pubblica e la copia depositata al CNEL la conferma. Dal 1° gennaio {OGGI.year} i minimi sono più alti di quelli qui sotto '
+                f'(aumento del contratto più adeguamento ISTAT).', "", "alert")
+
+
 def nome_corto(L):
     return re.sub(r"\s*\(.*?\)", "", L["nome"]).replace(", ", " ")
 
@@ -436,8 +509,9 @@ def titolo_livello(cid, L):
 def descr_livello(cid, L, v):
     m = C[cid]
     if cid == "domestico":
-        cands = [f"{L['nome']} del lavoro domestico nel 2026: {euro(v['oraria'])} l'ora non convivente, {euro(v['conv'])} al mese convivente. Calcolo per ore e fonti ufficiali.",
-                 f"{L['nome']} colf e badanti 2026: {euro(v['oraria'])} l'ora, {euro(v['conv'])} al mese da convivente. Calcolo per ore e fonti."]
+        cv = (f"{euro(v['conv_tot'])} al mese convivente con l'indennità di funzione" if v["ind"] else f"{euro(v['conv'])} al mese convivente")
+        cands = [f"{L['nome']} del lavoro domestico nel 2026: {euro(v['oraria'])} l'ora non convivente, {cv}. Calcolo per ore e fonti ufficiali.",
+                 f"{L['nome']} colf e badanti 2026: {euro(v['oraria'])} l'ora, {cv}. Calcolo per ore e fonti."]
     else:
         cands = [f"{L['nome']} del CCNL {m['nome_breve'].lower()}: minimo {euro(v['mensile'])} dal {data_lunga(v['dal'])}, {euro(v['oraria'])} l'ora (divisore {m['divisore_orario']['valore']}), part time e aumenti.",
                  f"{nome_corto(L)} CCNL {m['nome_breve'].lower()}: {euro(v['mensile'])} al mese dal {data_lunga(v['dal'])}, {euro(v['oraria'])} l'ora, part time e aumenti.",
@@ -474,12 +548,12 @@ def pagina_livello(cid, L):
                 f'<div class="cifra"><b>{m["ore"]["valore"]} ore</b><span>orario settimanale del contratto</span></div>')
              + f'<div class="cifra"><b>{euro(v["annuo"])}</b><span>minimo lordo annuo ({mens} mensilità)</span></div>'
              f'<p class="asof">{ico("check")} Stessa cifra in due fonti ufficiali{rim.ref([fa, fb])}. Controllato il {data_lunga(CONTROLLO)}.</p></div>')
-    corpo = cifre
+    corpo = cifre + nota_sospesa(cid, v)
     # voci
     righe = [(h(n), euro(x)) for n, x in cur["parti"]]
     corpo += f'<h2 id="voci">Le voci del minimo mensile</h2>'
     corpo += (f'<p>Il minimo del {h(L["nome"])} {h(articolo_contratto(cid))} è la somma delle voci stampate nella tabella del contratto. '
-              f'In vigore dal {data_lunga(v["dal"])}.{rim.ref(fa)}</p>')
+              f'{"Ultima tabella verificata, dal" if v["sospese"] else "In vigore dal"} {data_lunga(v["dal"])}.{rim.ref(fa)}</p>')
     t = tabella(["Voce", "Importo mensile"], righe + [("<strong>Totale</strong>", f"<strong>{euro(v['mensile'])}</strong>")])
     corpo += t + verifica_frase(cid, L, cur, rim)
     if cid == "terziario":
@@ -487,6 +561,8 @@ def pagina_livello(cid, L):
     if cid == "multiservizi" and cur.get("edr"):
         corpo += (f'<p class="small">Le tabelle dell\'accordo stampano a parte anche l\'E.D.R. di {euro(cur["edr"])} al mese (elemento distinto della retribuzione), '
                   f'che qui non è sommato al minimo.{rim.ref(fb)}</p>')
+    if cid == "logistica":
+        corpo += (f'<p class="small">{h(m["edr"]["testo"])}{rim.ref(m["edr"]["fonte"])}</p>')
     if cid == "metalmeccanici":
         corpo += ('<p class="small">Nel minimo tabellare è già compresa l\'ex indennità di contingenza (art. 5). Non sono compresi gli scatti biennali, '
                   f'l\'elemento perequativo e i 250 euro l\'anno di strumenti di welfare previsti dal rinnovo.{rim.ref(["cnel_157071", "fm_accordo_2025"])}</p>')
@@ -517,7 +593,7 @@ def pagina_livello(cid, L):
     corpo += '<h2 id="annuo">Minimo lordo annuo</h2>'
     corpo += (f'<div class="formula">{euro(v["mensile"])} × {mens} = <strong>{euro(v["annuo"])}</strong>'
               f'<small>{mens} mensilità: {h(m["mensilita"]["dove"])}{rim.ref(m["mensilita"]["fonte"])}</small></div>')
-    corpo += (f'<p>È il minimo annuo a tempo pieno con la tabella in vigore oggi. Se nell\'anno arriva un aumento, il totale dell\'anno sarà più alto.</p>')
+    corpo += (f'<p>È il minimo annuo a tempo pieno con la tabella {"qui sopra" if v["sospese"] else "in vigore oggi"}. Se nell\'anno arriva un aumento, il totale dell\'anno sarà più alto.</p>')
     # aumenti futuri e storico
     corpo += aumenti_html(cid, L, v, rim)
     # vicini
@@ -541,18 +617,21 @@ def pagina_livello(cid, L):
         corpo += f'<p>Il contratto ({h(dec["dove"])}) descrive così il livello: «{h(pulisci_citazione(dec["testo"]))}…»{rim.ref(dec["fonte"])}</p>'
         if dec.get("profili"):
             corpo += f'<p>Profili indicati come esempio: {h("; ".join(dec["profili"]))}.</p>'
+        if dec.get("nota"):
+            corpo += f'<p>{h(dec["nota"])}{rim.ref(dec["fonte"])}</p>'
         corpo += '<p class="small">Il livello si decide in base alle mansioni svolte davvero, non al titolo scritto nel contratto individuale.</p>'
     # cosa non comprende
     corpo += ('<h2 id="non-compreso">Cosa non c\'è in queste cifre</h2><div class="testo"><ul>'
               '<li>scatti di anzianità, superminimi e aumenti di merito;</li><li>straordinari, maggiorazioni, indennità di turno o di trasferta;</li>'
               '<li>premi e importi dei contratti aziendali o territoriali;</li><li>contributi e tasse: sono cifre lorde, il netto in busta paga è più basso.</li></ul></div>')
-    faq_html, faq_ld = faq_blocco(f"{cid}/{L['id']}", rim)
+    # con una tranche sospesa le risposte pronte (testo e JSON-LD) direbbero una cifra superata: non si pubblicano
+    faq_html, faq_ld = ("", None) if v["sospese"] else faq_blocco(f"{cid}/{L['id']}", rim)
     corpo += faq_html
     corpo += f'<h2 id="altri">Gli altri livelli del contratto</h2>' + lista_livelli(cid, L)
     corpo += documento_ufficiale(cid, rim)
     corpo += rim.elenco()
     titolo = titolo_livello(cid, L)
-    sub = (f'Minimo in vigore dal <strong>{data_lunga(v["dal"])}</strong>: {euro(v["mensile"])} lordi al mese, {euro(v["oraria"])} l\'ora. '
+    sub = (f'{"Ultimo minimo verificato, dal" if v["sospese"] else "Minimo in vigore dal"} <strong>{data_lunga(v["dal"])}</strong>: {euro(v["mensile"])} lordi al mese, {euro(v["oraria"])} l\'ora. '
            f'{h(m["nome"])}, codice CNEL {m["codice_cnel"]}.')
     testata = banda(m["nome_breve"], titolo.split(":")[0], sub)
     ld = [x for x in [faq_ld] if x]
@@ -605,8 +684,13 @@ def aumenti_html(cid, L, v, rim):
     for t in escl:
         if cid == "metalmeccanici":
             continue
-        out += nota(f'Dal {data_lunga(t["dal"])} cambia di nuovo il minimo, ma la riga del contratto non passa i nostri controlli '
-                    f'({h("; ".join(t["motivi"]))}): la pubblichiamo quando una fonte ufficiale la chiarisce.', "", "alert")
+        if t.get("seconda_fonte_ok") and t.get("parti"):
+            out += nota(f'Dal {data_lunga(t["dal"])} il contratto prevede: {h(voci_txt(t))} (voci uguali nel contratto e nelle tabelle del Ministero). '
+                        f'Il totale stampato nel contratto, {euro(t["totale"])}, non è però la somma di queste voci '
+                        f'({euro(sum(D(x) for _, x in t["parti"]))}): per questo non lo mettiamo nella tabella qui sopra.', "", "alert")
+        else:
+            out += nota(f'Dal {data_lunga(t["dal"])} il contratto prevede un altro importo, ma la riga non passa i nostri controlli '
+                        f'({h("; ".join(t["motivi"]))}): la pubblichiamo quando una fonte ufficiale la chiarisce.', "", "alert")
     if m.get("aumenti_futuri"):
         out += f'<p>{h(m["aumenti_futuri"]["testo"])}{rim.ref(m["aumenti_futuri"]["fonte"])}</p>'
     if not pub and not m.get("aumenti_futuri"):
@@ -614,7 +698,7 @@ def aumenti_html(cid, L, v, rim):
     out += f'<p class="small">Il contratto scade il {data_lunga(m["testo"]["scadenza"])}; gli aumenti dopo quella data dipendono dal rinnovo.</p>'
     if v["storico"]:
         righe = [(data_lunga(t["dal"]), euro(totale(t)), euro(div(totale(t), m["divisore_orario"]["valore"]))) for t in v["storico"]] + \
-                [(data_lunga(v["dal"]) + " (in vigore)", euro(v["mensile"]), euro(v["oraria"]))]
+                [(data_lunga(v["dal"]) + (" (ultimo verificato)" if v["sospese"] else " (in vigore)"), euro(v["mensile"]), euro(v["oraria"]))]
         out += f'<h3>I minimi precedenti</h3>' + tabella(["Dal", "Minimo al mese", "Paga oraria"], righe)
     return out
 
@@ -630,7 +714,7 @@ def documento_ufficiale(cid, rim):
     fonti = [m["testo"]["fonte"], m["fonte_a"], m["fonte_b"]]
     voci = []
     for f in dict.fromkeys(fonti):
-        voci.append(f'<li><a href="{h(FONTI[f]["url"])}" rel="noopener">{h(FONTI_DEF[f]["titolo"])}</a> ({h(FONTI_DEF[f]["chi"])})</li>')
+        voci.append(f'<li><a href="{h(url_fonte(f))}" rel="noopener">{h(FONTI_DEF[f]["titolo"])}</a> ({h(FONTI_DEF[f]["chi"])}){nota_cnel(f)}</li>')
     return f'<h2 id="documenti">I documenti ufficiali</h2><div class="testo"><ul>{"".join(voci)}</ul></div>'
 
 
@@ -648,14 +732,14 @@ def pagina_domestico(L):
              + (f'<div class="cifra"><b>{euro(ind)}</b><span>indennità di funzione al mese (livelli D e DS)</span></div>' if ind else
                 f'<div class="cifra"><b>{euro(v["p"][20])}</b><span>al mese a 20 ore settimanali, chi non convive</span></div>')
              + f'<div class="cifra"><b>{euro(v["annuo_conv"])}</b><span>minimo annuo da convivente (13 mensilità)</span></div>'
-             f'<p class="asof">{ico("check")} Tabella in vigore dal {data_lunga(v["dal"])}, uguale nelle due copie ufficiali{rim.ref([fa, fb])}. Controllato il {data_lunga(CONTROLLO)}.</p></div>')
-    corpo = cifre
+             f'<p class="asof">{ico("check")} Tabella {"con decorrenza" if domestico_vecchio() else "in vigore dal"} {data_lunga(v["dal"])}, uguale nelle due copie ufficiali{rim.ref([fa, fb])}. Controllato il {data_lunga(CONTROLLO)}.</p></div>')
+    corpo = cifre + nota_domestico()
     corpo += '<h2 id="tabelle">Le cifre del 2026 per questo livello</h2>'
     corpo += f'<p>Tutte le voci della tabella ufficiale per il {h(L["nome"][0].lower() + L["nome"][1:])}, decorrenza {data_lunga(v["dal"])} (aggiornamento ISTAT dell\'1,00% e prima rata di aumento del contratto).{rim.ref(fa)}</p>'
     righe = [("Convivente: minimo mensile (tabella A, art. 14 c. 1 lett. a)", euro(tab["A_mensile"]))]
     if ind:
         righe.append(("Convivente: indennità di funzione mensile (tabella A, art. 34)", euro(ind)))
-        righe.append(("Convivente: minimo più indennità", euro(v["conv_tot"])))
+        righe.append(("Convivente: minimo più indennità (somma nostra delle due voci stampate)", euro(v["conv_tot"])))
     if tab.get("B_mensile"):
         righe.append(("Convivente fino a 30 ore settimanali: mensile (tabella B, art. 14 c. 2)", euro(tab["B_mensile"])))
     righe.append(("Non convivente: paga oraria (tabella C, art. 14 c. 1 lett. b)", euro(tab["C_oraria"])))
@@ -711,7 +795,7 @@ def pagina_domestico(L):
             continue
         vx = valori(cid, x)
         nome = h(x["nome"]) if qui else f'<a href="/{pagina_url(cid, x)}">{h(x["nome"])}</a>'
-        rr.append((nome, euro(vx["oraria"]), euro(vx["conv"])))
+        rr.append((nome, euro(vx["oraria"]), vx["conv_txt"]))
         cl.append("qui" if qui else "")
     corpo += '<h2 id="vicini">Confronto con i livelli vicini</h2>' + tabella(["Livello", "Paga oraria (non convivente)", "Mensile (convivente)"], rr, classi=cl)
     corpo += ('<h2 id="non-compreso">Cosa non c\'è in queste cifre</h2><div class="testo"><ul><li>contributi INPS e Cassa Colf, che si pagano a parte ogni trimestre;</li>'
@@ -722,8 +806,9 @@ def pagina_domestico(L):
     corpo += '<h2 id="altri">Gli altri livelli</h2>' + lista_livelli(cid, L)
     corpo += documento_ufficiale(cid, rim) + rim.elenco()
     titolo = titolo_livello(cid, L)
-    sub = (f'Tabella ufficiale in vigore dal <strong>{data_lunga(v["dal"])}</strong>: {euro(v["oraria"])} l\'ora per chi non convive, '
-           f'{euro(v["conv"])} al mese per chi convive. CCNL lavoro domestico, codice CNEL {m["codice_cnel"]}.')
+    sub = (f'Tabella ufficiale {"con decorrenza" if domestico_vecchio() else "in vigore dal"} <strong>{data_lunga(v["dal"])}</strong>: {euro(v["oraria"])} l\'ora per chi non convive, '
+           + (f'{euro(v["conv_tot"])} al mese per chi convive ({euro(v["conv"])} più {euro(ind)} di indennità di funzione).' if ind else f'{euro(v["conv"])} al mese per chi convive.')
+           + f' CCNL lavoro domestico, codice CNEL {m["codice_cnel"]}.')
     testata = banda("Colf e badanti", titolo.split(":")[0], sub)
     pagina(pagina_url(cid, L), titolo, descr_livello(cid, L, v), corpo, testata,
            briciole=[("Home", ""), (m["nome_breve"], pagina_url(cid)), (L["nome"], pagina_url(cid, L))], jsonld=[x for x in [faq_ld] if x])
@@ -741,12 +826,15 @@ def pagina_contratto(cid):
         corpo += (f'<div class="card cifre pull"><div class="cifra main"><b>{euro(vs[0]["oraria"])} – {euro(vs[-1]["oraria"])}</b><span>paga oraria, chi non convive</span></div>'
                   f'<div class="cifra"><b>{euro(vs[0]["conv"])} – {euro(vs[-1]["conv"])}</b><span>minimo mensile, chi convive</span></div>'
                   f'<div class="cifra"><b>13</b><span>mensilità (art. 39)</span></div><div class="cifra"><b>54 / 40 ore</b><span>orario massimo settimanale, convivente / non</span></div>'
-                  f'<p class="asof">{ico("check")} Tabella in vigore dal {data_lunga(vs[0]["dal"])}, uguale nelle due copie ufficiali{rim.ref([fa, fb])}.</p></div>')
+                  f'<p class="asof">{ico("check")} Tabella {"con decorrenza" if domestico_vecchio() else "in vigore dal"} {data_lunga(vs[0]["dal"])}, uguale nelle due copie ufficiali{rim.ref([fa, fb])}.</p></div>')
+        corpo += nota_domestico()
         righe = [(f'<a href="/{pagina_url(cid, L)}">{h(L["nome"])}</a>', euro(v["oraria"]), euro(v["conv"]) + (f" + {euro(v['ind'])}" if v["ind"] else ""),
                   euro(v["p"][20])) for L, v in zip(pub, vs)]
         corpo += '<h2 id="tabella">Minimi 2026 per livello</h2>'
         corpo += f'<p>{h(m["nota_fonti"])}{rim.ref([fa, fb])}</p>'
         corpo += tabella(["Livello", "Paga oraria (non convivente)", "Mensile (convivente)", "A 20 ore settimanali"], righe)
+        corpo += ('<p class="small">Per i livelli D e DS la tabella stampa a parte l\'indennità di funzione, che fa parte della retribuzione minima '
+                  f'(art. 34, comma 2): le due cifre vanno sommate.{rim.ref("cnel_245143")}</p>')
         corpo += '<p>Chi assume trova orari, vitto e alloggio, notturno e tredicesima nella <a href="/colf-badanti/">guida per le famiglie</a>.</p>'
     else:
         vs = [valori(cid, L) for L in pub]
@@ -757,13 +845,22 @@ def pagina_contratto(cid):
                   f'<p class="asof">{ico("check")} Ogni cifra è uguale in due fonti ufficiali{rim.ref([fa, fb])}. Controllato il {data_lunga(CONTROLLO)}.</p></div>')
         corpo += '<h2 id="tabella">Minimi in vigore oggi, livello per livello</h2>'
         corpo += f'<p>{h(m["nota_fonti"])}{rim.ref([fa, fb, m["testo"]["fonte"]])}</p>'
+        sosp = [(L, v) for L, v in zip(pub, vs) if v["sospese"]]
+        if sosp:
+            t0 = sosp[0][1]["sospese"][-1]
+            corpo += nota(f'<strong>Cifre da aggiornare.</strong> Per {len(sosp)} livelli ({h(sosp[0][0].get("gruppo_nome") or "vedi la tabella").lower()}) la riga del '
+                          f'{data_lunga(t0["dal"])} non passa i controlli: le voci sono uguali nel contratto e nelle tabelle del Ministero, ma il totale stampato '
+                          'nel contratto non è la loro somma. Nella tabella resta l\'ultimo minimo verificato, segnato con un asterisco; il minimo in vigore oggi '
+                          'è più alto. Le voci sono nella pagina di ogni livello.', "", "alert")
         gruppi = list(dict.fromkeys(L.get("gruppo_nome", "") for L in pub))
         for g in gruppi:
-            righe = [(f'<a href="/{pagina_url(cid, L)}">{h(L["nome"])}</a>', euro(v["mensile"]), euro(v["oraria"]), data_lunga(v["dal"]))
+            righe = [(f'<a href="/{pagina_url(cid, L)}">{h(L["nome"])}</a>', euro(v["mensile"]), euro(v["oraria"]), data_lunga(v["dal"]) + (" *" if v["sospese"] else ""))
                      for L, v in zip(pub, vs) if L.get("gruppo_nome", "") == g]
             if g:
                 corpo += f"<h3>{h(g)}</h3>"
             corpo += tabella(["Livello", "Minimo al mese", "Paga oraria", "In vigore dal"], righe)
+        if cid == "logistica":
+            corpo += f'<p class="small">{h(m["edr"]["testo"])}{rim.ref(m["edr"]["fonte"])}</p>'
         if m.get("extra_tabella"):
             rr = []
             for x in m["extra_tabella"]:
@@ -805,7 +902,7 @@ def pagina_contratto(cid):
              "multiservizi": "Minimi del CCNL pulizia e multiservizi dal 1° ottobre 2026 e tutte le rate fino al 2029, paga oraria con divisore 173, 14 mensilità.",
              "logistica": "Minimi ed EPA del CCNL logistica, trasporto merci e spedizione dal 1° gennaio 2026, aumenti del 2027 e paga oraria con divisore 168.",
              "domestico": "Tabella 2026 del lavoro domestico: paga oraria per colf e badanti non conviventi e minimo mensile per conviventi, livello per livello."}[cid]
-    sub = {"domestico": "Tabella ufficiale in vigore dal 1° gennaio 2026, livello per livello, per chi convive e per chi lavora a ore."}.get(
+    sub = {"domestico": f"Tabella ufficiale {'con decorrenza' if domestico_vecchio() else 'in vigore dal'} 1° gennaio 2026, livello per livello, per chi convive e per chi lavora a ore."}.get(
         cid, f"{h(m['nome'])}: minimo mensile, paga oraria e aumenti già firmati per ogni livello. Codice CNEL {m['codice_cnel']}.")
     testata = banda(f"CCNL · codice CNEL {m['codice_cnel']}", titolo.split(":")[0], sub)
     pagina(pagina_url(cid), titolo, descr, corpo, testata, briciole=[("Home", ""), (m["nome_breve"], pagina_url(cid))], jsonld=[x for x in [faq_ld] if x])
@@ -839,7 +936,7 @@ def calendario(cid, pub, rim):
     for L in pub:
         v = valori(cid, L)
         per = {t["dal"]: t for t in v["future"]}
-        righe.append([f'<a href="/{pagina_url(cid, L)}">{h(L["nome"])}</a>', euro(v["mensile"])] +
+        righe.append([f'<a href="/{pagina_url(cid, L)}">{h(L["nome"])}</a>', euro(v["mensile"]) + (" *" if v["sospese"] else "")] +
                      [euro(totale(per[d_])) if d_ in per and per[d_]["pubblicabile"] else "—" for d_ in date_f])
     out = '<h2 id="calendario">Calendario degli aumenti già firmati</h2>'
     out += f'<p>Minimo mensile di ogni livello alle date già scritte nel contratto. Il trattino indica una cifra che non pubblichiamo (vedi sotto).{rim.ref([m["fonte_a"], m["fonte_b"]])}</p>'
@@ -872,10 +969,11 @@ def colf_badanti():
              f'<div class="cifra"><b>{euro(vs["cs"]["conv"])}</b><span>al mese per una badante convivente CS</span></div>'
              f'<div class="cifra"><b>{euro(A["BS"]["F_totale"])}</b><span>al giorno per vitto e alloggio non dati</span></div>'
              f'<div class="cifra"><b>13</b><span>mensilità: c\'è la tredicesima</span></div>'
-             f'<p class="asof">{ico("check")} Tabella ufficiale in vigore dal 1° gennaio 2026{rim.ref([fa, fb])}.</p></div>')
+             f'<p class="asof">{ico("check")} Tabella ufficiale {"con decorrenza" if domestico_vecchio() else "in vigore dal"} 1° gennaio 2026{rim.ref([fa, fb])}.</p></div>')
+    corpo += nota_domestico()
     corpo += '<h2 id="livello">1. Scegliere il livello giusto</h2>'
     corpo += f'<p>Il livello dipende da cosa fa la persona, non da quante ore lavora. Il contratto (art. 9) indica questi profili.{rim.ref("cnel_245143")}</p>'
-    righe = [(f'<a href="/{pagina_url("domestico", L)}">{h(L["nome"])}</a>', h("; ".join(L["declaratoria"]["profili"][:3])), euro(vs[L["id"]]["oraria"]), euro(vs[L["id"]]["conv"]))
+    righe = [(f'<a href="/{pagina_url("domestico", L)}">{h(L["nome"])}</a>', h("; ".join(L["declaratoria"]["profili"][:3])), euro(vs[L["id"]]["oraria"]), vs[L["id"]]["conv_txt"])
              for L in pub]
     corpo += tabella(["Livello", "Esempi di profili", "All'ora (non convivente)", "Al mese (convivente)"], righe, num=[2, 3])
     corpo += '<h2 id="orario">2. Convivente o a ore: cosa cambia</h2><div class="testo"><ul>'
@@ -950,6 +1048,7 @@ def home():
     rim = Rimandi()
     blocchi = ""
     n = 0
+    da_agg = False
     for cid in ORDINE:
         m = C[cid]
         righe = ""
@@ -957,11 +1056,13 @@ def home():
             v = valori(cid, L)
             n += 1
             if cid == "domestico":
-                cifra, ora = euro(v["conv"]) + ' <span class="small">convivente</span>', euro(v["oraria"])
+                cifra, ora = v["conv_txt"] + ' <span class="small">convivente</span>', euro(v["oraria"])
             else:
                 cifra, ora = euro(v["mensile"]), euro(v["oraria"])
+            if v.get("sospese"):
+                da_agg = True
             righe += (f'<tr data-riga="{h(SINONIMI[cid] + " " + chiavi_livello(L))}"><td><a href="/{pagina_url(cid, L)}">{h(L["nome"])}</a></td>'
-                      f'<td class="n">{cifra}</td><td class="n">{ora}</td><td class="n nascondi-m">{data_lunga(v["dal"])}</td></tr>')
+                      f'<td class="n">{cifra}</td><td class="n">{ora}</td><td class="n nascondi-m">{data_lunga(v["dal"])}{" *" if v.get("sospese") else ""}</td></tr>')
         div_ = f'divisore {m["divisore_orario"]["valore"]}' if m.get("divisore_orario") else "paga oraria da tabella"
         blocchi += (f'<section data-blocco><div class="contratto-h"><h2 id="{cid}"><a href="/{pagina_url(cid)}">{h(m["nome_breve"])}</a></h2>'
                     f'<span class="small">CNEL {m["codice_cnel"]} · {div_}</span></div>'
@@ -974,6 +1075,10 @@ def home():
                     extra=cerca)
     corpo = (f'<div class="card pull"><p style="margin:0">Scrivi il tuo contratto e il livello per filtrare la tabella. Ogni livello ha una pagina con le voci del minimo, '
              f'la formula della paga oraria con l\'articolo del contratto, il calcolo per 20, 24, 30 ore e gli aumenti già firmati.</p></div>')
+    if da_agg:
+        corpo += nota('<strong>Cifre da aggiornare.</strong> Le righe con l\'asterisco mostrano l\'ultimo minimo verificato: la tabella più recente del contratto '
+                      'non passa i nostri controlli e il minimo in vigore oggi è più alto. I dettagli sono nella pagina del livello.', "", "alert")
+    corpo += nota_domestico()
     corpo += blocchi + '<p class="vuoto-ricerca" data-vuoto hidden>Nessun livello trovato. Prova con il nome del contratto (commercio, metalmeccanici, multiservizi, logistica, colf).</p>'
     corpo += AD
     corpo += '<h2 id="come">Come leggiamo le cifre</h2><div class="testo">'
@@ -1047,15 +1152,19 @@ def come_lavoriamo():
     rr = []
     for fid, f in FONTI_DEF.items():
         es = FONTI[fid]
-        rr.append((f'<a href="{h(es["url"])}" rel="noopener">{h(f["titolo"])}</a>', h(f["chi"]), str(es.get("pagine") or "pagina web"),
+        rr.append((f'<a href="{h(url_fonte(fid))}" rel="noopener">{h(f["titolo"])}</a>', h(f["chi"]), str(es.get("pagine") or "pagina web"),
                    data_lunga(es["letto_il"]), f'<code>{es["sha256"][:12]}</code>'))
     corpo += tabella(["Documento", "Chi lo pubblica", "Pagine", "Letto il", "Impronta"], rr, num=[2],
                      caption="L'impronta (SHA-256, prime 12 cifre) identifica il file letto: se il documento cambia, cambia l'impronta e lo ricontrolliamo.")
+    corpo += ('<p class="small">I documenti dell\'archivio del CNEL non hanno un indirizzo diretto che resta valido: il link porta alla pagina dell\'archivio dei contratti, '
+              'dove il file si trova sotto il codice del contratto (H501, H011, C011, K511, I100).</p>')
     corpo += '<h2 id="aggiornamenti">Ogni quanto aggiorniamo</h2><div class="testo"><ul>'
     corpo += ('<li><strong>Ogni mese</strong> rileggiamo il file aperto dell\'archivio del CNEL e guardiamo se per uno dei contratti seguiti è stato depositato un accordo nuovo; '
               'rileggiamo anche le pagine di settore del Ministero del Lavoro.</li>'
               '<li><strong>A gennaio</strong> arriva la nuova tabella del lavoro domestico; <strong>a giugno</strong> l\'adeguamento dei metalmeccanici e poi il decreto del Ministero.</li>'
-              '<li>Gli aumenti già firmati sono caricati con la loro data: la pagina mostra il nuovo minimo dal giorno in cui entra in vigore, alla prima pubblicazione utile.</li></ul></div>')
+              '<li>Gli aumenti già firmati sono caricati con la loro data: la pagina mostra il nuovo minimo dal giorno in cui entra in vigore, alla prima pubblicazione utile.</li>'
+              '<li>Se una tabella nuova entra in vigore ma non passa i controlli, la pagina non mostra una cifra non verificata: resta l\'ultimo minimo verificato, '
+              'con una nota in alto che dice da quando è superato e quali voci risultano dalle fonti.</li></ul></div>')
     corpo += ('<h2 id="segnala">Segnala un errore</h2><p>Hai trovato una cifra che non coincide con il documento ufficiale? Scrivici la pagina e, se puoi, il link alla fonte. '
               'Controlliamo sulla fonte ufficiale, non sulla segnalazione da sola. L\'email è facoltativa.</p>' + MODULO)
     corpo += rim.elenco()
@@ -1086,15 +1195,18 @@ def privacy():
     cookie = MON.privacy_cookie("it", SITO_ID) or ('<h2>Cookie e contatore visite</h2><p>Per contare le visite usiamo GoatCounter, che non usa cookie. '
                                                   'Il sito non usa cookie di profilazione e non mostra pubblicità.</p>')
     corpo = ('<div class="card pull testo"><p>Questa pagina spiega quali dati tratta Paga CCNL (paga-ccnl.netlify.app). In breve: pochissimi.</p></div>'
-             '<div class="testo"><h2>Il calcolo in pagina</h2><p>Il calcolo per ore settimanali avviene nel tuo browser: le ore che scrivi non vengono inviate né salvate. '
+             '<div class="testo"><h2>Chi tratta i dati</h2><p>Titolare del trattamento è Massimiliano Cori (Italia), che gestisce Paga CCNL come progetto indipendente. '
+             'Puoi scriverci con il modulo <a href="/come-lavoriamo/#segnala">«Segnala un errore»</a>, anche per le richieste sui tuoi dati.</p>'
+             '<h2>Il calcolo in pagina</h2><p>Il calcolo per ore settimanali avviene nel tuo browser: le ore che scrivi non vengono inviate né salvate. '
              'Il sito ricorda nel browser solo la scelta del tema chiaro o scuro (memoria locale).</p>'
              f'{cookie}'
-             '<h2>Hosting</h2><p>Il sito è ospitato da Netlify, che tratta dati tecnici (come l\'indirizzo IP) per consegnare le pagine e proteggere il servizio.</p>'
+             '<h2>Hosting</h2><p>Il sito è ospitato da Netlify, Inc., che tratta dati tecnici (come l\'indirizzo IP) per consegnare le pagine e proteggere il servizio. '
+             'Netlify può trattare i dati fuori dall\'UE con le garanzie previste dal GDPR (clausole contrattuali standard). Non vendiamo né cediamo i tuoi dati.</p>'
              '<h2 id="segnalazioni">Modulo «Segnala un errore»</h2><p>Se usi il modulo riceviamo la pagina che indichi, il messaggio, il link alla fonte e, solo se la scrivi, '
              'la tua email. Il modulo è gestito da Netlify Forms per nostro conto. Usiamo questi dati solo per controllare la segnalazione e, se hai lasciato l\'email, '
-             'risponderti; li cancelliamo quando la segnalazione è chiusa. La base giuridica è il consenso dato con la casella del modulo; puoi chiedere la '
-             'cancellazione con un\'altra segnalazione. Non ci sono account né newsletter.</p>'
-             '<h2>I tuoi diritti</h2><p>Puoi chiedere accesso, correzione e cancellazione dei dati (artt. 15-22 GDPR) e fare reclamo al Garante per la protezione dei dati '
+             'risponderti; li cancelliamo quando la segnalazione è chiusa. La base giuridica è il consenso dato con la casella del modulo (art. 6.1.a GDPR), che puoi ritirare quando vuoi: '
+             'per chiedere la cancellazione basta un\'altra segnalazione. Non ci sono account né newsletter.</p>'
+             '<h2>I tuoi diritti</h2><p>Puoi chiedere accesso, correzione, cancellazione, limitazione, portabilità e opposizione (artt. 15-22 GDPR) e fare reclamo al Garante per la protezione dei dati '
              'personali (<a href="https://www.garanteprivacy.it" rel="noopener">garanteprivacy.it</a>).</p>'
              f'<h2>Modifiche</h2><p>Aggiorniamo questa pagina quando il sito cambia. Ultimo aggiornamento: {data_lunga(CONTROLLO)}.</p></div>')
     breve = MON.privacy_breve("it", SITO_ID) or "Cosa raccogliamo (pochissimo) e come funziona il contatore delle visite."
@@ -1157,19 +1269,22 @@ def controlli():
         manca = [c for c, ok in es.get("trovate", {}).items() if not ok]
         if manca:
             err.append(f"fonte {fid}: frasi non trovate {manca}")
+    avvisi = []
     for cid in C:
         for L in C[cid]["livelli"]:
-            cur, _, _ = stato_livello(cid, L)
+            cur, _, _, sospese = stato_livello(cid, L)
             if cur is None:
                 err.append(f"{cid}/{L['id']}: nessuna tabella in vigore")
-    # una data di aumento esclusa che diventa "in vigore" blocca la pagina: va aggiornata a mano (NOTE.md)
-    for cid in C:
-        for L in C[cid]["livelli"]:
-            cur, _, _ = stato_livello(cid, L)
-            if cur and not cur["pubblicabile"] and cur["dal"] > CONTROLLO.isoformat():
-                err.append(f"{cid}/{L['id']}: dal {cur['dal']} la tabella in vigore non passa i controlli ({'; '.join(cur['motivi'])}): aggiornare le fonti")
-    if OGGI >= date(2027, 1, 1):
-        err.append("lavoro domestico: dal 1° gennaio 2027 serve la nuova tabella del Ministero (NOTE.md)")
+            # una data di aumento esclusa che entra in vigore non ferma più il sito: la pagina resta sull'ultima cifra verificata
+            # con una nota in alto (se le voci sono confermate dalle due fonti) oppure sparisce (se la seconda fonte non coincide)
+            if sospese:
+                avvisi.append(f"{cid}/{L['id']}: dal {sospese[-1]['dal']} la tabella in vigore non passa i controlli; la pagina mostra l'ultimo minimo verificato ({cur['dal']}) con la nota")
+            elif cur and not cur["pubblicabile"] and cur["dal"] > CONTROLLO.isoformat():
+                avvisi.append(f"{cid}/{L['id']}: dal {cur['dal']} la tabella in vigore non passa i controlli ({'; '.join(cur['motivi'])}): pagina non pubblicata")
+    if domestico_vecchio():
+        avvisi.append(f"lavoro domestico: manca la tabella del {OGGI.year}; le pagine mostrano quella dell'anno prima con la nota (NOTE.md)")
+    if avvisi:
+        print("AVVISI (il sito si genera lo stesso):\n" + "\n".join(sorted(set(avvisi))), file=sys.stderr)
     if err:
         raise SystemExit("ERRORI NEI DATI:\n" + "\n".join(err))
 
