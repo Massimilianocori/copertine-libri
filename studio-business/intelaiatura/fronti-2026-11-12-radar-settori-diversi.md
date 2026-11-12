@@ -172,3 +172,119 @@ Cosa insegna il radar:
 Nessuna da costruire oggi. L'unica domanda per Massimiliano: il tema farmaci resta escluso (regola del 9/10) o si può aprire per una prova da 14-18 ore con soli dati ufficiali e nessun consiglio? È l'idea con i dati migliori di tutto il radar e con l'unico vuoto dimostrato per intero, ma rende poco.
 
 Non riaperti perché già in ESPLORATE.md: carburanti, richiami, dazi, eclissi, razze vietate, caccia e pesca USA, VeriFactu.
+
+---
+
+## Verifica dati CCNL (12/11/2026)
+
+**Verdetto: prova dei dati SÌ, con un limite scritto. Voto nuovo 6,5 (era 5,5). Stima a 18 mesi 300 / 2.000 / 9.000 €/anno (era 250 / 1.600 / 7.500). Non passa l'asticella dei siti nuovi (7 e 5.000 €), ma entra in coda come prova da 14-16 ore su 5 contratti.**
+
+Il blocco del mattino ("nessun file ufficiale strutturato") era sbagliato a metà: i file ci sono, in due fonti ufficiali che si completano. Nessuna delle due basta da sola.
+
+### 1. Le fonti trovate e provate
+
+| Fonte | Indirizzo | Formato | Regole d'uso | Qualità della lettura |
+|---|---|---|---|---|
+| **CNEL, archivio in formato aperto** | pagina `cnel.it/archivio-contratti/contratti-open-data`; dati su `az-apim-cne-sa-0002-lgc-we.azure-api.net/ricerca-api/ricerca/pubblica/open-data?type=ARCHIVIO_CORRENTE` | JSON, 3,8 MB: 2.330 accordi di 1.174 contratti, con codice del contratto, date di stipula, decorrenza, scadenza e deposito (ultimo deposito: 6/11/2026) | Licenza Italian Open Data License 2.0 (basta citare la fonte). robots.txt di cnel.it: tutto permesso | Ottima per l'elenco e per accorgersi dei rinnovi. Non contiene le cifre |
+| **CNEL, testo di ogni accordo** | stesso servizio, `/accordi/scarica/accordi/{idAccordo}` | JSON con il PDF dentro | Stesso servizio pubblico usato dalla maschera di ricerca del sito | Scaricati 9 accordi su 9. **Solo 3 hanno testo leggibile; 6 sono scansioni** (serve la lettura ottica) |
+| **Ministero del Lavoro, tabelle del costo del lavoro** | `lavoro.gov.it/.../Analisi-economiche-costo-lavoro/Pagine/default.aspx`, una pagina per settore | PDF nati da foglio di calcolo, con testo | robots.txt: accesso permesso a tutti, con segnale "ricerca sì, addestramento no, uso come riferimento". Sono atti ufficiali (decreti direttoriali) | **Ottima**: una colonna per livello, una tabella per ogni data di aumento |
+| **Ministero del Lavoro, lavoro domestico** | depositata anche al CNEL (accordo 245798) | PDF di 2 pagine con testo | come sopra | Ottima |
+| Parti firmatarie | federmeccanica.it (robots: permesso, pausa di 3 secondi), filcams.cgil.it (permesso) | PDF | confcommercio.it e fim-cisl.it rispondono 403 al robots.txt: **non insistito** | Non servono per i primi 5 contratti |
+
+Settori con tabella ministeriale (letti nell'elenco della pagina): metalmeccanico industria, terziario, pulizia e multiservizi, edili, cooperative del socio-sanitario, turismo alberghi, ristorazione collettiva, vigilanza, call center. **Senza tabella ministeriale:** studi professionali, sanità privata, pubblici esercizi, logistica (ma il suo testo al CNEL è leggibile).
+
+### 2. Prova di estrazione su 5 contratti (righe vere)
+
+**Lavoro domestico** — tabella del Ministero, decorrenza 1/1/2026 (variazione ISTAT 1,00 %), estrazione diretta del testo, nessun errore:
+
+| Livello | Convivente, al mese | Non convivente, all'ora |
+|---|---|---|
+| A | 908,10 | 6,51 |
+| B | 983,16 | 7,01 |
+| BS | 1.053,39 | 7,45 |
+| CS | 1.193,84 | 8,30 |
+| DS | 1.474,73 (+ 207,69 di indennità) | 9,97 |
+
+**Logistica, trasporto merci e spedizione** — testo unico depositato il 25/9/2025, 137 pagine, estrazione diretta. Personale viaggiante, minimo + elemento d'area = totale:
+
+| Livello | dall'1/1/2027 | dall'1/6/2027 |
+|---|---|---|
+| C3 | 1.971,61 + 100,00 = 2.071,61 | 1.981,65 + 150,00 = 2.131,65 |
+| B3 | 1.970,37 + 80,00 = 2.050,37 | 1.980,37 + 120,00 = 2.100,37 |
+| F2 | 1.918,09 + 60,00 = 1.978,15 | 1.927,83 + 90,00 = 2.017,89 |
+
+Divisore letto nel testo: art. 61, "la retribuzione giornaliera si ottiene dividendo la retribuzione mensile per 26, la retribuzione oraria dividendo per 168". Nota: sulla riga F2 la somma stampata non torna di 6 centesimi (1.918,09 + 60,00 = 1.978,09): è così nel testo ufficiale, e il controllo delle somme lo trova da solo.
+
+**Terziario Confcommercio** — testo unico del 3/2/2026, 644 pagine. **Qui l'estrazione diretta fallisce**: il testo c'è, ma le cifre delle tabelle escono come simboli (carattere tipografico con codifica propria). Con la lettura ottica della sola pagina 363 le cifre escono giuste e le somme tornano:
+
+| Livello | Paga base dall'1/11/2026 | Contingenza + EDR | Totale |
+|---|---|---|---|
+| I | 2.021,28 | 537,52 | 2.558,80 |
+| III | 1.494,41 | 527,90 | 2.022,31 |
+| IV | 1.292,46 | 524,22 | 1.816,68 |
+| V | 1.167,69 | 521,94 | 1.689,63 |
+
+Nella stessa pagina ci sono le tabelle dall'1/4/2023 all'1/2/2027 (6 date). Divisore letto: art. 215, "168 per 40 ore settimanali, 182 per 42 ore, 195 per 45 ore"; quota giornaliera art. 90, divisore 26. Quindi il IV livello dall'1/11/2026 vale 1.816,68 ÷ 168 = **10,81 € l'ora**. La lettura ottica ha però sbagliato le etichette dei livelli ("NC", "om" al posto dei numeri romani): l'ordine delle righe va fissato a mano.
+
+**Metalmeccanici industria** — **nell'archivio corrente del CNEL l'ultimo accordo è dell'11/6/2024**: il rinnovo successivo non c'è, e quel verbale è una scansione. La tabella del Ministero (decreto direttoriale n. 94 del 26/10/2026, giugno 2026) invece si legge alla perfezione: retribuzione tabellare annua D1 21.419,28 e C3 26.537,16, cioè **1.784,94 e 2.211,43 al mese**. Sono le stesse cifre di dipendenti.it: il dato "~1.579 €" di stipendionettocalcolatore.it è quindi sbagliato, e la tabella del Ministero è il modo di dimostrarlo.
+
+**Multiservizi e pulizie** — il rinnovo del 13/6/2025 al CNEL è una scansione e contiene solo l'aumento del 2° livello (215 € in 8 rate), non la tabella per livello. La tabella del Ministero (decreto n. 25 del 30/3/2026, 248 pagine con testo) ha tutti i livelli per tutte le 8 date: luglio 2025, maggio e ottobre 2026, maggio e dicembre 2027, luglio e ottobre 2028, marzo 2029. Ottobre 2026, operai, al mese (annuo ÷ 12): 2° livello 889,21 + 513,96 di contingenza = 1.403,17; 3° livello 962,63 + 515,42 = 1.478,05.
+
+**Risultato:** 5 contratti su 5 portati a cifre verificabili. Estrazione diretta buona in 4 documenti su 7 provati; lettura ottica necessaria per il terziario e per ogni scansione (programma libero, installato e provato oggi). Non provati oggi: turismo, pubblici esercizi, edilizia, studi professionali, cooperative sociali (tutti e cinque scansioni al CNEL, da 24 a 97 pagine) e sanità privata (al CNEL c'è solo il testo dell'8/10/2020).
+
+### 3. Ogni quanto cambiano e quanto lavoro serve
+
+Gli aumenti già firmati stanno tutti nella stessa tabella: si caricano una volta con la data, e la pagina cambia da sola quel giorno. Il lavoro a mano serve solo quando esce un accordo nuovo.
+
+| Contratto | Prossime date già scritte | Evento che chiede lavoro |
+|---|---|---|
+| Terziario | 1/2/2027 | scadenza 31/3/2027, poi rinnovo |
+| Metalmeccanici | ogni 1° giugno | verbale di adeguamento ogni giugno + decreto del Ministero |
+| Multiservizi | 1/5/2027, 1/12/2027, 1/7/2028, 1/10/2028, 1/3/2029 | nessuno fino al 2029, salvo conguagli |
+| Logistica | 1/1/2027, 1/6/2027 | scadenza 31/12/2027 |
+| Lavoro domestico | ogni 1° gennaio | tabella nuova del Ministero a gennaio-febbraio |
+| Studi professionali | non lette | scadenza 15/2/2027 |
+| Cooperative sociali | non lette | scaduto il 31/12/2025, rinnovo atteso |
+| Turismo, pubblici esercizi | non lette (accordi di giugno-luglio 2024, validi fino al 31/12/2027) | — |
+| Edilizia | non lette (accordo del 21/2/2025, valido fino al 30/6/2028) | — |
+
+Stima: 8-12 eventi l'anno su 10 contratti, circa 1 ora l'uno con il doppio controllo, quindi **1 ora al mese**. Il controllo si automatizza: una volta al mese si rilegge il file aperto del CNEL e si guarda se è comparso un deposito nuovo per i codici seguiti (H011, C011, H052, H05Y, K511, H501, I100, F012, H442, T011, T151), più le pagine di settore del Ministero.
+
+### 4. Concorrenti: altri due letti
+
+- **ilccnl.it** (di una casa di programmi per le paghe): è la banca dati più completa vista. Ha una pagina "tabelle retributive" per contratto con il codice CNEL e tutte le date (per i metalmeccanici: in vigore 1/6/2026, future 1/6/2027 e 1/6/2028, archivio fino al 2006) e l'elenco dei livelli, apprendisti compresi. Ma le cifre non stanno nell'HTML (le carica il programma della pagina), "paga oraria" compare 0 volte, e nella mappa del sito (1.089 indirizzi) non c'è nessuna pagina per singolo livello. È una banca dati per addetti, non una risposta alla domanda "quanto prende un IV livello a 30 ore".
+- **contrattocommercio.it**: il testo del contratto del commercio, un articolo per pagina, con pubblicità attiva. Ha gli articoli sulla quota oraria e giornaliera come testo, ma con la numerazione vecchia (art. 88 e 89; nel testo unico del 2026 sono il 90, il 91 e il 215). Nessuna pagina per livello nell'elenco letto.
+- Non letti: laleggepertutti.it (la ricerca interna non ha restituito titoli leggibili), ipsoa.it (a pagamento). La ricerca dei risultati di Google tramite un motore alternativo è stata rifiutata dal server: non insistito.
+
+**Cosa manca a tutti e cinque:** la pagina per singolo livello con la paga oraria calcolata con il divisore del contratto; le varianti che la gente cerca davvero ("ccnl commercio 4 livello 30 ore stipendio netto", "part time 20 ore", "ral annuale", "preavviso dimissioni": tutti suggerimenti letti oggi); la fonte accanto alla cifra. **Cosa non manca:** la tabella mensile dei contratti grandi (dipendenti.it, ilccnl.it). Il vuoto resta dimostrato a metà.
+
+**Domanda in più trovata oggi:** "paga oraria colf" 10 suggerimenti (2026, non convivente, livello B, livello CS), "stipendio badante convivente" 10 (40 ore, 54 ore, netto). Qui chi cerca è la famiglia che assume, non il dipendente.
+
+### 5. Chi paga
+
+- Pubblicità: resta l'unica entrata certa. Nessuna cifra misurata nostra su pagine italiane di lavoro; si tiene l'ipotesi di 4 € ogni 1.000 pagine.
+- Programmi di affiliazione per paghe e personale: letti Jet HR (pagina "partnership": programmi per commercialisti e consulenti, nessuna cifra scritta) e Factorial (pagina "diventa partner": nessuna cifra scritta). Personio ha risposto 429: non insistito. Sulle pagine iniziali di due servizi per colf e badanti non c'è nessun collegamento a un programma di affiliazione. **Nessun programma con una cifra scritta in Italia.** La prova del pagatore resta debole.
+
+### 6. Struttura proposta (se si costruisce)
+
+1. **Pagina per contratto × livello** (prova: circa 60 pagine su 5 contratti). In alto la cifra di oggi con la data di decorrenza e le sue parti (paga base, contingenza, altri elementi); poi paga oraria e giornaliera con la formula e l'articolo ("1.816,68 ÷ 168, art. 215"); gli aumenti già firmati con le date; mensilità e lordo annuo; un calcolo in pagina per ore settimanali (20, 24, 30, 40); la differenza con il livello sopra e sotto; il collegamento al documento ufficiale.
+2. **Pagina per contratto**: tutti i livelli in una tabella, calendario degli aumenti, scadenza.
+3. **Lavoro domestico a parte**: livello × convivente o a ore, con vitto e alloggio, dal punto di vista della famiglia.
+4. Preavviso, prova e scatti solo dove il testo si legge senza lettura ottica (terziario, logistica, domestico); altrove si aggiunge dopo.
+5. Netto: solo come stima dichiarata, con le ipotesi scritte. È la parte più rischiosa: si parte senza.
+
+**Regola di qualità obbligatoria:** ogni cifra entra solo se passa due controlli: la somma delle parti torna con il totale stampato, e una seconda fonte dice lo stesso (Ministero contro testo del contratto, oppure contro dipendenti.it). Le righe che non passano restano fuori. Da rileggere sul testo prima di costruire: il divisore dei metalmeccanici e dei multiservizi (oggi non letto perché i testi sono scansioni; **non scriverlo a memoria**).
+
+### 7. Ore e stima
+
+- **Prova su 5 contratti** (domestico, terziario, metalmeccanici, multiservizi, logistica): 14-16 ore di agenti, più revisore indipendente sui numeri. Massimiliano: 1 passaggio per mettere online il sito nuovo (nessun sito esistente è adatto a ospitarlo).
+- **Tutti e 10**: 28-34 ore (i 5 mancanti chiedono lettura ottica di 24-97 pagine l'uno e controllo riga per riga).
+- Mantenimento: 1 ora al mese.
+
+Stima a 18 mesi, visite al mese 5.000 / 28.000 / 110.000, 1,5 pagine, 4 € ogni 1.000 pagine: **300 / 2.000 / 9.000 €/anno**. L'aumento sulla stima del mattino viene dal lavoro domestico e dalle varianti a ore, non da un pagatore migliore. Resa della prova: 2.000 € ÷ 15 ore = circa 130 € l'anno per ora di lavoro.
+
+### 8. Le 4 prove, aggiornate
+
+domanda **sì** · dati **sì** (due fonti ufficiali, cifre riscontrate; 5 contratti su 10 chiedono lettura ottica) · pagatore **debole** (solo pubblicità) · vuoto **a metà** (ilccnl.it e dipendenti.it hanno già le tabelle; manca la pagina per livello con l'ora e le varianti).
+
+**Decisione proposta:** in coda di costruzione come prova da 14-16 ore sui 5 contratti con le fonti pulite, dietro alle idee che rendono di più per ora. Si allarga agli altri contratti solo se dopo 45 giorni Search Console mostra impressioni sulle pagine per livello. Tema con soldi e leggi: serve il verificatore indipendente prima di costruire.
