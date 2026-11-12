@@ -6,8 +6,8 @@
 "ba34a4d4a33de940ba94"
 ],
 "about/": [
-"2026-11-08",
-"c5893695f9e0f621e790"
+"2026-11-12",
+"5597311a120cbad776e6"
 ],
 "australian-citizenship-ceremony-wait-times/": [
 "2026-11-11",
@@ -714,8 +714,8 @@
 "70998703b853c097f377"
 ],
 "contact/": [
-"2026-11-08",
-"dca01768f46976c3f90e"
+"2026-11-12",
+"63a9314a5d92fd8be3d9"
 ],
 "country/austria/": [
 "2026-11-11",
@@ -746,8 +746,8 @@
 "3792b6be34c29aef9bda"
 ],
 "country/italy/": [
-"2026-11-11",
-"ba523a9e025a74c7682e"
+"2026-11-12",
+"26dc6176c9bb14c2f542"
 ],
 "country/netherlands/": [
 "2026-11-11",
@@ -965,21 +965,9 @@
 "2026-11-08",
 "fc284e418e8961289f7a"
 ],
-"h1b-wage-level/aerospace-engineers/los-angeles-ca/": [
-"2026-11-08",
-"832bba4c9290117f4e02"
-],
-"h1b-wage-level/aerospace-engineers/seattle-wa/": [
-"2026-11-08",
-"fc42480fd52872a99737"
-],
 "h1b-wage-level/architects/": [
 "2026-11-08",
 "90ac92871da9c19b2963"
-],
-"h1b-wage-level/architects/new-york-ny/": [
-"2026-11-08",
-"99f741009cb6f4b375d0"
 ],
 "h1b-wage-level/biomedical-engineers/": [
 "2026-11-08",
@@ -993,93 +981,17 @@
 "2026-11-08",
 "10e4ee706ca733a5b7e1"
 ],
-"h1b-wage-level/civil-engineers/boston-ma/": [
-"2026-11-08",
-"f5bf042be3d848a83ed6"
-],
-"h1b-wage-level/civil-engineers/chicago-il/": [
-"2026-11-08",
-"8b749b75bfd5b6a9c4bb"
-],
-"h1b-wage-level/civil-engineers/dallas-tx/": [
-"2026-11-08",
-"66b5d9774eec5c4d84a3"
-],
-"h1b-wage-level/civil-engineers/denver-co/": [
-"2026-11-08",
-"9d67972e8fa9866184ee"
-],
-"h1b-wage-level/civil-engineers/houston-tx/": [
-"2026-11-08",
-"24d9f72cd6d63e66369a"
-],
-"h1b-wage-level/civil-engineers/los-angeles-ca/": [
-"2026-11-08",
-"542de4a6368aac0ee9da"
-],
-"h1b-wage-level/civil-engineers/new-york-ny/": [
-"2026-11-08",
-"a5bd83af7b977f01c404"
-],
-"h1b-wage-level/civil-engineers/san-francisco-ca/": [
-"2026-11-08",
-"d4b8282e5c2cd602a881"
-],
-"h1b-wage-level/civil-engineers/seattle-wa/": [
-"2026-11-08",
-"5510411d79006d13da60"
-],
-"h1b-wage-level/civil-engineers/washington-dc/": [
-"2026-11-08",
-"cf144177d09d72bcdac8"
-],
 "h1b-wage-level/computer-hardware-engineers/": [
 "2026-11-08",
 "a2eb478e186720abb978"
-],
-"h1b-wage-level/computer-hardware-engineers/san-jose-ca/": [
-"2026-11-08",
-"749b7f9024c57ccc96f2"
 ],
 "h1b-wage-level/computer-network-architects/": [
 "2026-11-08",
 "bfc12e641eb3e60ff669"
 ],
-"h1b-wage-level/computer-network-architects/atlanta-ga/": [
-"2026-11-08",
-"6575cbfd214a50b04ac1"
-],
-"h1b-wage-level/computer-network-architects/boston-ma/": [
-"2026-11-08",
-"095a0d68af17b0cf11fe"
-],
-"h1b-wage-level/computer-network-architects/chicago-il/": [
-"2026-11-08",
-"46639571f76445fdaba3"
-],
-"h1b-wage-level/computer-network-architects/dallas-tx/": [
-"2026-11-08",
-"63b3e14753b00f7d61e0"
-],
-"h1b-wage-level/computer-network-architects/denver-co/": [
-"2026-11-08",
-"fe3fb3c8b472fae30b1b"
-],
-"h1b-wage-level/computer-network-architects/new-york-ny/": [
-"2026-11-08",
-"01647b29583ec68c1dab"
-],
-"h1b-wage-level/computer-network-architects/washington-dc/": [
-"2026-11-08",
-"11445428f5856d0f538a"
-],
 "h1b-wage-level/computer-programmers/": [
 "2026-11-08",
 "4102b8765c23d3718f4a"
-],
-"h1b-wage-level/computer-programmers/new-york-ny/": [
-"2026-11-08",
-"7e28c486fc60a30814c7"
 ],
 "h1b-wage-level/computer-research-scientists/": [
 "2026-11-08",
@@ -1088,46 +1000,6 @@
 "h1b-wage-level/computer-systems-analysts/": [
 "2026-11-08",
 "1ad59cd4520fa1b69e6d"
-],
-"h1b-wage-level/computer-systems-analysts/boston-ma/": [
-"2026-11-08",
-"0247668381e937f2181c"
-],
-"h1b-wage-level/computer-systems-analysts/chicago-il/": [
-"2026-11-08",
-"da51daff4379428162e4"
-],
-"h1b-wage-level/computer-systems-analysts/dallas-tx/": [
-"2026-11-08",
-"170a125fad8caf3466d7"
-],
-"h1b-wage-level/computer-systems-analysts/los-angeles-ca/": [
-"2026-11-08",
-"facbd0385159ebb4d0be"
-],
-"h1b-wage-level/computer-systems-analysts/miami-fl/": [
-"2026-11-08",
-"57b0eb5222fd3caa42ed"
-],
-"h1b-wage-level/computer-systems-analysts/new-york-ny/": [
-"2026-11-08",
-"5221a906bf25287721a1"
-],
-"h1b-wage-level/computer-systems-analysts/phoenix-az/": [
-"2026-11-08",
-"33b726957f8acea3c7d1"
-],
-"h1b-wage-level/computer-systems-analysts/san-francisco-ca/": [
-"2026-11-08",
-"9f4d88e528d27488b2b0"
-],
-"h1b-wage-level/computer-systems-analysts/seattle-wa/": [
-"2026-11-08",
-"dfe33dc05e739691863a"
-],
-"h1b-wage-level/computer-systems-analysts/washington-dc/": [
-"2026-11-08",
-"c21f12beeac466d99853"
 ],
 "h1b-wage-level/data-scientists/": [
 "2026-11-08",
@@ -1181,65 +1053,17 @@
 "2026-11-08",
 "b337f76116cd5a7eaa3f"
 ],
-"h1b-wage-level/database-architects/new-york-ny/": [
-"2026-11-08",
-"8a246505aaba9f5c8d25"
-],
 "h1b-wage-level/electrical-engineers/": [
 "2026-11-08",
 "33b8e7ed308f83fca133"
-],
-"h1b-wage-level/electrical-engineers/dallas-tx/": [
-"2026-11-08",
-"2d98e56b5e8ee51f9fc5"
-],
-"h1b-wage-level/electrical-engineers/detroit-mi/": [
-"2026-11-08",
-"2452b32910cf1925cf91"
-],
-"h1b-wage-level/electrical-engineers/houston-tx/": [
-"2026-11-08",
-"d361fdf84a112ef8264b"
-],
-"h1b-wage-level/electrical-engineers/los-angeles-ca/": [
-"2026-11-08",
-"0b0bdea350f168f8074c"
-],
-"h1b-wage-level/electrical-engineers/new-york-ny/": [
-"2026-11-08",
-"ba9cb15bd45ff7e05b60"
 ],
 "h1b-wage-level/electronics-engineers/": [
 "2026-11-08",
 "2a8bed2a3606a7b3ec3d"
 ],
-"h1b-wage-level/electronics-engineers/boston-ma/": [
-"2026-11-08",
-"1af79d3a50cb05554cc6"
-],
-"h1b-wage-level/electronics-engineers/san-jose-ca/": [
-"2026-11-08",
-"f951e661f8041299748d"
-],
 "h1b-wage-level/engineers-all-other/": [
 "2026-11-08",
 "b1a8459184333d3634c8"
-],
-"h1b-wage-level/engineers-all-other/detroit-mi/": [
-"2026-11-08",
-"809c941fe3c401040278"
-],
-"h1b-wage-level/engineers-all-other/los-angeles-ca/": [
-"2026-11-08",
-"d0f11ad9421a0fc25dae"
-],
-"h1b-wage-level/engineers-all-other/new-york-ny/": [
-"2026-11-08",
-"49615f3311cd72a13d3c"
-],
-"h1b-wage-level/engineers-all-other/washington-dc/": [
-"2026-11-08",
-"4b4301354ebbff64edcc"
 ],
 "h1b-wage-level/environmental-engineers/": [
 "2026-11-08",
@@ -1253,65 +1077,9 @@
 "2026-11-08",
 "4a0e3f8a8f24afb2f6a4"
 ],
-"h1b-wage-level/industrial-engineers/boston-ma/": [
-"2026-11-08",
-"16c04d08660b6ad6a375"
-],
-"h1b-wage-level/industrial-engineers/chicago-il/": [
-"2026-11-08",
-"7ee7862a81aea584f052"
-],
-"h1b-wage-level/industrial-engineers/dallas-tx/": [
-"2026-11-08",
-"2b4d5a9fa5bb262120bb"
-],
-"h1b-wage-level/industrial-engineers/detroit-mi/": [
-"2026-11-08",
-"7842af2d883a206cf989"
-],
-"h1b-wage-level/industrial-engineers/houston-tx/": [
-"2026-11-08",
-"83cc43de1f0a896f1b32"
-],
-"h1b-wage-level/industrial-engineers/los-angeles-ca/": [
-"2026-11-08",
-"547118b951475eb6b821"
-],
-"h1b-wage-level/industrial-engineers/minneapolis-mn/": [
-"2026-11-08",
-"30beb3ed8d71548730d9"
-],
-"h1b-wage-level/industrial-engineers/new-york-ny/": [
-"2026-11-08",
-"4bafcc769979653b057d"
-],
-"h1b-wage-level/industrial-engineers/philadelphia-pa/": [
-"2026-11-08",
-"a115c829d8d22c40ac09"
-],
-"h1b-wage-level/industrial-engineers/phoenix-az/": [
-"2026-11-08",
-"44984ece8be8c19d8f5c"
-],
 "h1b-wage-level/information-security-analysts/": [
 "2026-11-08",
 "3e40502e47c7baca06c6"
-],
-"h1b-wage-level/information-security-analysts/boston-ma/": [
-"2026-11-08",
-"43a25423e26ff7d0784d"
-],
-"h1b-wage-level/information-security-analysts/dallas-tx/": [
-"2026-11-08",
-"612ef1ab1a57e85ccecd"
-],
-"h1b-wage-level/information-security-analysts/new-york-ny/": [
-"2026-11-08",
-"10f27806ef895e3dd40c"
-],
-"h1b-wage-level/information-security-analysts/washington-dc/": [
-"2026-11-08",
-"16985e962a443de5db2e"
 ],
 "h1b-wage-level/lottery-odds/": [
 "2026-11-08",
@@ -1325,46 +1093,6 @@
 "2026-11-08",
 "be89af825ab2fbd685be"
 ],
-"h1b-wage-level/mechanical-engineers/boston-ma/": [
-"2026-11-08",
-"253f37bf50af2fe7dd07"
-],
-"h1b-wage-level/mechanical-engineers/chicago-il/": [
-"2026-11-08",
-"c00b90cdc025f42877b2"
-],
-"h1b-wage-level/mechanical-engineers/dallas-tx/": [
-"2026-11-08",
-"7c860935a1b5497094ab"
-],
-"h1b-wage-level/mechanical-engineers/detroit-mi/": [
-"2026-11-08",
-"c33f6bb00e7e8fb86bb5"
-],
-"h1b-wage-level/mechanical-engineers/houston-tx/": [
-"2026-11-08",
-"332c66f3f551f0415395"
-],
-"h1b-wage-level/mechanical-engineers/los-angeles-ca/": [
-"2026-11-08",
-"29b696e08edd4317968a"
-],
-"h1b-wage-level/mechanical-engineers/new-york-ny/": [
-"2026-11-08",
-"eae60e52799ca9a505c3"
-],
-"h1b-wage-level/mechanical-engineers/san-francisco-ca/": [
-"2026-11-08",
-"16e509669b13211079d0"
-],
-"h1b-wage-level/mechanical-engineers/san-jose-ca/": [
-"2026-11-08",
-"2982cae6442da5932c2a"
-],
-"h1b-wage-level/mechanical-engineers/washington-dc/": [
-"2026-11-08",
-"bf5bab713a0be48684a8"
-],
 "h1b-wage-level/mining-and-geological-engineers/": [
 "2026-11-08",
 "b1c4b80da0a422a83bec"
@@ -1372,46 +1100,6 @@
 "h1b-wage-level/network-and-systems-administrators/": [
 "2026-11-08",
 "edb31de8ed140fafac2e"
-],
-"h1b-wage-level/network-and-systems-administrators/atlanta-ga/": [
-"2026-11-08",
-"7e20f960f077e11552d8"
-],
-"h1b-wage-level/network-and-systems-administrators/boston-ma/": [
-"2026-11-08",
-"0b5f9d80a64f443c5b66"
-],
-"h1b-wage-level/network-and-systems-administrators/chicago-il/": [
-"2026-11-08",
-"7e6f5fddeb58a9af1a49"
-],
-"h1b-wage-level/network-and-systems-administrators/dallas-tx/": [
-"2026-11-08",
-"74cf76e4038f620bdcc9"
-],
-"h1b-wage-level/network-and-systems-administrators/houston-tx/": [
-"2026-11-08",
-"fcfd9d5a4cc0bd43757b"
-],
-"h1b-wage-level/network-and-systems-administrators/los-angeles-ca/": [
-"2026-11-08",
-"2846839e2a8f2b8a9fea"
-],
-"h1b-wage-level/network-and-systems-administrators/miami-fl/": [
-"2026-11-08",
-"9de7ee8998a4d91343d1"
-],
-"h1b-wage-level/network-and-systems-administrators/new-york-ny/": [
-"2026-11-08",
-"95ec3573a887a72a2724"
-],
-"h1b-wage-level/network-and-systems-administrators/seattle-wa/": [
-"2026-11-08",
-"16e4bd944ce0089f9ffb"
-],
-"h1b-wage-level/network-and-systems-administrators/washington-dc/": [
-"2026-11-08",
-"1e879b767344effd29b5"
 ],
 "h1b-wage-level/nuclear-engineers/": [
 "2026-11-08",
@@ -1421,57 +1109,9 @@
 "2026-11-08",
 "c3ec4fef6d5a83e5be2a"
 ],
-"h1b-wage-level/operations-research-analysts/new-york-ny/": [
-"2026-11-08",
-"6ea1a41af77b95369a93"
-],
-"h1b-wage-level/operations-research-analysts/washington-dc/": [
-"2026-11-08",
-"0d46a8d2032b7b016ce9"
-],
 "h1b-wage-level/other-computer-occupations/": [
 "2026-11-08",
 "f4ec8e0408ec37f454eb"
-],
-"h1b-wage-level/other-computer-occupations/atlanta-ga/": [
-"2026-11-08",
-"38758ecb656f8a39abff"
-],
-"h1b-wage-level/other-computer-occupations/austin-tx/": [
-"2026-11-08",
-"825f80e1f9ccde94bc41"
-],
-"h1b-wage-level/other-computer-occupations/baltimore-md/": [
-"2026-11-08",
-"0ea13d743b68015ce923"
-],
-"h1b-wage-level/other-computer-occupations/dallas-tx/": [
-"2026-11-08",
-"1807e451716f01b340b3"
-],
-"h1b-wage-level/other-computer-occupations/houston-tx/": [
-"2026-11-08",
-"96ae70582e4b124b8e7f"
-],
-"h1b-wage-level/other-computer-occupations/los-angeles-ca/": [
-"2026-11-08",
-"e8e0c65469adc77f3684"
-],
-"h1b-wage-level/other-computer-occupations/new-york-ny/": [
-"2026-11-08",
-"50172312c7fdd835f4e7"
-],
-"h1b-wage-level/other-computer-occupations/san-francisco-ca/": [
-"2026-11-08",
-"aec6d485e9bfefa5d7f9"
-],
-"h1b-wage-level/other-computer-occupations/san-jose-ca/": [
-"2026-11-08",
-"ad5b6dba7db3df050d4b"
-],
-"h1b-wage-level/other-computer-occupations/seattle-wa/": [
-"2026-11-08",
-"acb53b350272b2adcbe7"
 ],
 "h1b-wage-level/petroleum-engineers/": [
 "2026-11-08",
@@ -1525,46 +1165,6 @@
 "2026-11-08",
 "8c60c22543d2ac2f87ea"
 ],
-"h1b-wage-level/software-qa-analysts-and-testers/atlanta-ga/": [
-"2026-11-08",
-"cf26cc171e9e159cbbe3"
-],
-"h1b-wage-level/software-qa-analysts-and-testers/boston-ma/": [
-"2026-11-08",
-"2c5a0626fc139bf64ced"
-],
-"h1b-wage-level/software-qa-analysts-and-testers/chicago-il/": [
-"2026-11-08",
-"17371dd1c454025b60b4"
-],
-"h1b-wage-level/software-qa-analysts-and-testers/dallas-tx/": [
-"2026-11-08",
-"8d7b87c8258b8db3bd10"
-],
-"h1b-wage-level/software-qa-analysts-and-testers/los-angeles-ca/": [
-"2026-11-08",
-"d2c4c031f5d30e8b74c6"
-],
-"h1b-wage-level/software-qa-analysts-and-testers/new-york-ny/": [
-"2026-11-08",
-"9d25b636822f13e6d814"
-],
-"h1b-wage-level/software-qa-analysts-and-testers/san-francisco-ca/": [
-"2026-11-08",
-"e424c3bcb236338db035"
-],
-"h1b-wage-level/software-qa-analysts-and-testers/san-jose-ca/": [
-"2026-11-08",
-"990ea6120158b11c3e79"
-],
-"h1b-wage-level/software-qa-analysts-and-testers/seattle-wa/": [
-"2026-11-08",
-"903e68b72c2c3d5cbef9"
-],
-"h1b-wage-level/software-qa-analysts-and-testers/washington-dc/": [
-"2026-11-08",
-"3d52495e2433c8ed6ee4"
-],
 "h1b-wage-level/statisticians/": [
 "2026-11-08",
 "a5d2acc0adf6afc896cc"
@@ -1572,22 +1172,6 @@
 "h1b-wage-level/web-and-interface-designers/": [
 "2026-11-08",
 "d235bf8dbc12f221f208"
-],
-"h1b-wage-level/web-and-interface-designers/los-angeles-ca/": [
-"2026-11-08",
-"70cfd0268e1db3efedcb"
-],
-"h1b-wage-level/web-and-interface-designers/new-york-ny/": [
-"2026-11-08",
-"6c3ddb0cf817bfbe923e"
-],
-"h1b-wage-level/web-and-interface-designers/san-francisco-ca/": [
-"2026-11-08",
-"441cd116390b91ff9688"
-],
-"h1b-wage-level/web-and-interface-designers/seattle-wa/": [
-"2026-11-08",
-"ece04d43a925ff121281"
 ],
 "h1b-wage-level/web-developers/": [
 "2026-11-08",
@@ -1606,16 +1190,16 @@
 "ce8ac62bf19456821b67"
 ],
 "italy-7-percent-flat-tax/": [
-"2026-11-08",
-"c76f65a7ab891fdde370"
+"2026-11-12",
+"46828d7e87ff8f3fe0a2"
 ],
 "italy-7-percent-flat-tax/regions/": [
-"2026-11-08",
-"984670fd47efe34e0b41"
+"2026-11-12",
+"24188910bc3a2ec8edbe"
 ],
 "italy-digital-nomad-visa/": [
-"2026-11-08",
-"728c2c97fc0e5a357b87"
+"2026-11-12",
+"ffa227f586d03af51968"
 ],
 "mexico-residency/": [
 "2026-11-08",
@@ -1677,93 +1261,13 @@
 "2026-11-11",
 "323d7e8f2b7cc5af897e"
 ],
-"moved-to/americans/austria/": [
-"2026-11-11",
-"a4fea7a3dded89e1c292"
-],
-"moved-to/americans/belgium/": [
-"2026-11-11",
-"f528f5ffa54b360fb12b"
-],
-"moved-to/americans/canada/": [
-"2026-11-11",
-"0949aebd50e92c8e6161"
-],
-"moved-to/americans/czechia/": [
-"2026-11-11",
-"4d8120b49984f1bddee9"
-],
-"moved-to/americans/denmark/": [
-"2026-11-11",
-"46f7a28632de35d26029"
-],
-"moved-to/americans/finland/": [
-"2026-11-11",
-"4aa0d405784bb076f615"
-],
 "moved-to/americans/france/": [
 "2026-11-11",
 "6480bb794bae567ad7b3"
 ],
-"moved-to/americans/germany/": [
-"2026-11-11",
-"a2f685f812b9348b8e6c"
-],
-"moved-to/americans/greece/": [
-"2026-11-11",
-"cea089da1209e00f2a7b"
-],
-"moved-to/americans/hungary/": [
-"2026-11-11",
-"e7acfcea707897e8ccb4"
-],
-"moved-to/americans/ireland/": [
-"2026-11-11",
-"2bd4350d53cedc281d2d"
-],
-"moved-to/americans/italy/": [
-"2026-11-11",
-"63215c19df6a8e804f60"
-],
-"moved-to/americans/malta/": [
-"2026-11-11",
-"295e0dea165c81149c3c"
-],
-"moved-to/americans/netherlands/": [
-"2026-11-11",
-"61f11be344f3e2cbdae6"
-],
-"moved-to/americans/norway/": [
-"2026-11-11",
-"30e5d5bdcfddbd10a84d"
-],
-"moved-to/americans/poland/": [
-"2026-11-11",
-"24edc97a0770af6ec442"
-],
-"moved-to/americans/portugal/": [
-"2026-11-11",
-"d569a4705f06a82f06ee"
-],
-"moved-to/americans/romania/": [
-"2026-11-11",
-"ad95c542725ddfb238e5"
-],
-"moved-to/americans/slovakia/": [
-"2026-11-11",
-"54e046ae293c37bb3ed5"
-],
 "moved-to/americans/spain/": [
 "2026-11-11",
 "57e7c94df4c2d909af73"
-],
-"moved-to/americans/sweden/": [
-"2026-11-11",
-"d50608968b43407bf408"
-],
-"moved-to/americans/switzerland/": [
-"2026-11-11",
-"dafae62ed171efc3b228"
 ],
 "moved-to/americans/uk/": [
 "2026-11-11",
@@ -1773,37 +1277,13 @@
 "2026-11-11",
 "0ef3f42f1decdea9b8b6"
 ],
-"moved-to/australians/canada/": [
-"2026-11-11",
-"798b5787e9849af5f3b4"
-],
-"moved-to/australians/denmark/": [
-"2026-11-11",
-"731a5eaa983e65ab05c9"
-],
 "moved-to/australians/france/": [
 "2026-11-11",
 "cfcb8980d5a534ce5586"
 ],
-"moved-to/australians/germany/": [
-"2026-11-11",
-"5372f4958da723e7dd6c"
-],
-"moved-to/australians/ireland/": [
-"2026-11-11",
-"c3568437bbc0a383a0b0"
-],
 "moved-to/australians/netherlands/": [
 "2026-11-11",
 "6050689faddd06ad7d76"
-],
-"moved-to/australians/spain/": [
-"2026-11-11",
-"1ecb91809f84876aa49f"
-],
-"moved-to/australians/sweden/": [
-"2026-11-11",
-"8e26bc0900311885d2ee"
 ],
 "moved-to/australians/switzerland/": [
 "2026-11-11",
@@ -1817,81 +1297,13 @@
 "2026-11-11",
 "c90996ae904eb4b97197"
 ],
-"moved-to/bangladeshis/austria/": [
-"2026-11-11",
-"6084f31c9e4de78adf16"
-],
-"moved-to/bangladeshis/canada/": [
-"2026-11-11",
-"7449d93e2afc261017f1"
-],
-"moved-to/bangladeshis/croatia/": [
-"2026-11-11",
-"e67dc3e7dd252d0b90a3"
-],
-"moved-to/bangladeshis/cyprus/": [
-"2026-11-11",
-"3166430188e4cc35b15f"
-],
-"moved-to/bangladeshis/denmark/": [
-"2026-11-11",
-"719fa403a0a437315cb3"
-],
-"moved-to/bangladeshis/finland/": [
-"2026-11-11",
-"822f274ca8bd2f7e8460"
-],
-"moved-to/bangladeshis/france/": [
-"2026-11-11",
-"9474251f84bdaf508ecf"
-],
-"moved-to/bangladeshis/germany/": [
-"2026-11-11",
-"ec9cccff520f9bf1632d"
-],
-"moved-to/bangladeshis/hungary/": [
-"2026-11-11",
-"dc876d7953b50ca14321"
-],
-"moved-to/bangladeshis/ireland/": [
-"2026-11-11",
-"9014716d8471f7ae0226"
-],
 "moved-to/bangladeshis/italy/": [
 "2026-11-11",
 "ff578c91ac9878a0bf3c"
 ],
-"moved-to/bangladeshis/lithuania/": [
-"2026-11-11",
-"7b21dbcefccd54260dc8"
-],
-"moved-to/bangladeshis/malta/": [
-"2026-11-11",
-"8fb561a8ab3655e79791"
-],
-"moved-to/bangladeshis/netherlands/": [
-"2026-11-11",
-"5bef9351522fd987e94c"
-],
-"moved-to/bangladeshis/poland/": [
-"2026-11-11",
-"fb911b7fffde0d716ace"
-],
 "moved-to/bangladeshis/portugal/": [
 "2026-11-11",
 "d4a0347258746b759a9e"
-],
-"moved-to/bangladeshis/romania/": [
-"2026-11-11",
-"5b8dab6ca66218be91f5"
-],
-"moved-to/bangladeshis/spain/": [
-"2026-11-11",
-"ff557f8c7fb76e87bb97"
-],
-"moved-to/bangladeshis/sweden/": [
-"2026-11-11",
-"55d200c438ef42645aae"
 ],
 "moved-to/bangladeshis/uk/": [
 "2026-11-11",
@@ -1901,49 +1313,9 @@
 "2026-11-11",
 "70b3d12a889adc209897"
 ],
-"moved-to/brazilians/austria/": [
-"2026-11-11",
-"61540bc1e4b3cc979abb"
-],
-"moved-to/brazilians/belgium/": [
-"2026-11-11",
-"92352036fdda6c2bb360"
-],
-"moved-to/brazilians/canada/": [
-"2026-11-11",
-"332a5e64bbd22651bd10"
-],
-"moved-to/brazilians/denmark/": [
-"2026-11-11",
-"44f9d186544e995805ff"
-],
-"moved-to/brazilians/france/": [
-"2026-11-11",
-"97ea8a341ba0f036da4a"
-],
-"moved-to/brazilians/germany/": [
-"2026-11-11",
-"ec1da579d9d36e90eafb"
-],
 "moved-to/brazilians/ireland/": [
 "2026-11-11",
 "8d7d66b3cc9f044aa1cf"
-],
-"moved-to/brazilians/italy/": [
-"2026-11-11",
-"34d611e25c7c5814bd27"
-],
-"moved-to/brazilians/malta/": [
-"2026-11-11",
-"80e697f93163789d67d3"
-],
-"moved-to/brazilians/netherlands/": [
-"2026-11-11",
-"0964c1bf8ac7ecd9ba37"
-],
-"moved-to/brazilians/poland/": [
-"2026-11-11",
-"15ab7c624f956a8bf13e"
 ],
 "moved-to/brazilians/portugal/": [
 "2026-11-11",
@@ -1953,49 +1325,13 @@
 "2026-11-11",
 "1feed4dac2f0f71ef796"
 ],
-"moved-to/brazilians/sweden/": [
-"2026-11-11",
-"a5269a8b3b65174dc218"
-],
-"moved-to/brazilians/switzerland/": [
-"2026-11-11",
-"b98c1ad58a8638ff7c61"
-],
-"moved-to/brazilians/uk/": [
-"2026-11-11",
-"a4d4f4f473d8141ae2c8"
-],
 "moved-to/british/": [
 "2026-11-11",
 "ede2036f286871d86273"
 ],
-"moved-to/british/belgium/": [
-"2026-11-11",
-"ba9ed724b50db92c5c3b"
-],
-"moved-to/british/bulgaria/": [
-"2026-11-11",
-"c11de3aaf092b0fabf78"
-],
 "moved-to/british/canada/": [
 "2026-11-11",
 "90e67a4f98fcb103500e"
-],
-"moved-to/british/cyprus/": [
-"2026-11-11",
-"662eb64687d9d114b55d"
-],
-"moved-to/british/czechia/": [
-"2026-11-11",
-"64ea184dad258ce983ee"
-],
-"moved-to/british/denmark/": [
-"2026-11-11",
-"143aaf6b2498c4821e40"
-],
-"moved-to/british/finland/": [
-"2026-11-11",
-"b968287e6677bc5d6c1e"
 ],
 "moved-to/british/france/": [
 "2026-11-11",
@@ -2005,65 +1341,13 @@
 "2026-11-11",
 "8b34331a514ec848cf07"
 ],
-"moved-to/british/greece/": [
-"2026-11-11",
-"7d37174ea16ee931f471"
-],
-"moved-to/british/hungary/": [
-"2026-11-11",
-"c01a1ea8d5b0b4bf4c1b"
-],
-"moved-to/british/ireland/": [
-"2026-11-11",
-"0dc8fa8ee10776409214"
-],
-"moved-to/british/italy/": [
-"2026-11-11",
-"720be5e4f3dca43182b7"
-],
-"moved-to/british/malta/": [
-"2026-11-11",
-"2bfcbc04bd59e699c40d"
-],
-"moved-to/british/netherlands/": [
-"2026-11-11",
-"97ae7606bc652c1ebceb"
-],
-"moved-to/british/norway/": [
-"2026-11-11",
-"8ea60234f74cd1ed2898"
-],
-"moved-to/british/poland/": [
-"2026-11-11",
-"cc23e59419a8baf3cb9f"
-],
-"moved-to/british/portugal/": [
-"2026-11-11",
-"f4ee307d7f3a5acc99e3"
-],
 "moved-to/british/spain/": [
 "2026-11-11",
 "a8ab6ecccfee8f90d7d8"
 ],
-"moved-to/british/sweden/": [
-"2026-11-11",
-"0f7ea2f87a4518520690"
-],
-"moved-to/british/switzerland/": [
-"2026-11-11",
-"302a8eebccc156c8f7dc"
-],
 "moved-to/canadians/": [
 "2026-11-11",
 "1b69191a96a20a3ed051"
-],
-"moved-to/canadians/belgium/": [
-"2026-11-11",
-"5a15a9af720b44e94a3b"
-],
-"moved-to/canadians/denmark/": [
-"2026-11-11",
-"232625c4ee64898217d8"
 ],
 "moved-to/canadians/france/": [
 "2026-11-11",
@@ -2073,34 +1357,6 @@
 "2026-11-11",
 "a46bbd685e5bf75d73e6"
 ],
-"moved-to/canadians/ireland/": [
-"2026-11-11",
-"1d10f4960da504b32abd"
-],
-"moved-to/canadians/italy/": [
-"2026-11-11",
-"46f2109a64742d9f9a2e"
-],
-"moved-to/canadians/netherlands/": [
-"2026-11-11",
-"bed5cfe5e49b952326ca"
-],
-"moved-to/canadians/portugal/": [
-"2026-11-11",
-"287d9889045a83ef78e3"
-],
-"moved-to/canadians/spain/": [
-"2026-11-11",
-"c44497f1e7e75103dbf7"
-],
-"moved-to/canadians/sweden/": [
-"2026-11-11",
-"0288fc9f1c48a7319490"
-],
-"moved-to/canadians/switzerland/": [
-"2026-11-11",
-"40804e6138b6788fa4f2"
-],
 "moved-to/canadians/uk/": [
 "2026-11-11",
 "321f529f5fd365c8e92b"
@@ -2109,97 +1365,13 @@
 "2026-11-11",
 "d33c55b0ef92c1031509"
 ],
-"moved-to/chinese/austria/": [
-"2026-11-11",
-"c041c7ee5ca721631550"
-],
-"moved-to/chinese/belgium/": [
-"2026-11-11",
-"348d48b36bc833a6f9d5"
-],
 "moved-to/chinese/canada/": [
 "2026-11-11",
 "22fac13046cd37e5baef"
 ],
-"moved-to/chinese/croatia/": [
-"2026-11-11",
-"3b442795500ec23a9068"
-],
-"moved-to/chinese/czechia/": [
-"2026-11-11",
-"9360bf2f264690c23ee0"
-],
-"moved-to/chinese/denmark/": [
-"2026-11-11",
-"aed6caa60ca9e1274719"
-],
-"moved-to/chinese/finland/": [
-"2026-11-11",
-"7a3de1545ff7c994828b"
-],
-"moved-to/chinese/france/": [
-"2026-11-11",
-"d77f1a808d292a808098"
-],
-"moved-to/chinese/germany/": [
-"2026-11-11",
-"2270271c0d4de21a0da7"
-],
-"moved-to/chinese/greece/": [
-"2026-11-11",
-"a9f7f9036a610703cb7e"
-],
-"moved-to/chinese/hungary/": [
-"2026-11-11",
-"1d133a2ff44adb852e21"
-],
-"moved-to/chinese/ireland/": [
-"2026-11-11",
-"2c95e3ec7cf8c5011ade"
-],
-"moved-to/chinese/italy/": [
-"2026-11-11",
-"5e4db5f59773e84d44ff"
-],
-"moved-to/chinese/malta/": [
-"2026-11-11",
-"1f23bbfac7f79ab64b6e"
-],
-"moved-to/chinese/netherlands/": [
-"2026-11-11",
-"63f828308bb3eaeafec5"
-],
-"moved-to/chinese/norway/": [
-"2026-11-11",
-"7e839d26555b82be11a5"
-],
-"moved-to/chinese/poland/": [
-"2026-11-11",
-"d0c124ad7f1354ffa2e7"
-],
-"moved-to/chinese/portugal/": [
-"2026-11-11",
-"8c60834d10237c67728f"
-],
-"moved-to/chinese/romania/": [
-"2026-11-11",
-"63ae997f76bd3aea1d5c"
-],
-"moved-to/chinese/slovenia/": [
-"2026-11-11",
-"5eb78546b5a87edf3d69"
-],
 "moved-to/chinese/spain/": [
 "2026-11-11",
 "865e915f394d884508cc"
-],
-"moved-to/chinese/sweden/": [
-"2026-11-11",
-"c287154a535054132960"
-],
-"moved-to/chinese/switzerland/": [
-"2026-11-11",
-"1296c428ae2a10fe82e2"
 ],
 "moved-to/chinese/uk/": [
 "2026-11-11",
@@ -2209,41 +1381,9 @@
 "2026-11-11",
 "fdbcebc9e606da450977"
 ],
-"moved-to/colombians/austria/": [
-"2026-11-11",
-"77be34602561ad112d76"
-],
-"moved-to/colombians/belgium/": [
-"2026-11-11",
-"3f736c177814f1997c66"
-],
 "moved-to/colombians/canada/": [
 "2026-11-11",
 "8004ad808b4a2298346c"
-],
-"moved-to/colombians/france/": [
-"2026-11-11",
-"bb7aa7010053f0bfdec5"
-],
-"moved-to/colombians/germany/": [
-"2026-11-11",
-"a535436f02c0ab5ea22d"
-],
-"moved-to/colombians/italy/": [
-"2026-11-11",
-"644d9ea56f7d218ffd43"
-],
-"moved-to/colombians/malta/": [
-"2026-11-11",
-"219620d906fbf10245f8"
-],
-"moved-to/colombians/netherlands/": [
-"2026-11-11",
-"3398d9921240062df16c"
-],
-"moved-to/colombians/poland/": [
-"2026-11-11",
-"db62d9fc93f51f4adb36"
 ],
 "moved-to/colombians/portugal/": [
 "2026-11-11",
@@ -2253,81 +1393,17 @@
 "2026-11-11",
 "ce19cb63179e211e5b82"
 ],
-"moved-to/colombians/switzerland/": [
-"2026-11-11",
-"a2c1ceb3b7f1eb595620"
-],
-"moved-to/colombians/uk/": [
-"2026-11-11",
-"cc82aa491636cf7f8196"
-],
 "moved-to/egyptians/": [
 "2026-11-11",
 "6eacd0000b280a16069f"
-],
-"moved-to/egyptians/austria/": [
-"2026-11-11",
-"510fdc5f77230de00b6a"
-],
-"moved-to/egyptians/canada/": [
-"2026-11-11",
-"75ac9a2b9e2c4464379f"
-],
-"moved-to/egyptians/croatia/": [
-"2026-11-11",
-"8c3801879406e4b26b39"
-],
-"moved-to/egyptians/cyprus/": [
-"2026-11-11",
-"d85e3e05143d0d0010a9"
-],
-"moved-to/egyptians/france/": [
-"2026-11-11",
-"6f6e0e0982df54ec6a44"
 ],
 "moved-to/egyptians/germany/": [
 "2026-11-11",
 "2a66be9985222f16246c"
 ],
-"moved-to/egyptians/greece/": [
-"2026-11-11",
-"fdafd038aca77b92826b"
-],
-"moved-to/egyptians/hungary/": [
-"2026-11-11",
-"2a52829495617f3555d7"
-],
-"moved-to/egyptians/ireland/": [
-"2026-11-11",
-"9a5d6f03cf064a6bfdc6"
-],
 "moved-to/egyptians/italy/": [
 "2026-11-11",
 "625c5536d199021bb48e"
-],
-"moved-to/egyptians/netherlands/": [
-"2026-11-11",
-"072bea4f7f87c5f9742f"
-],
-"moved-to/egyptians/poland/": [
-"2026-11-11",
-"60284a316bc5b28a7c2a"
-],
-"moved-to/egyptians/portugal/": [
-"2026-11-11",
-"002cd1f840721a1427a8"
-],
-"moved-to/egyptians/romania/": [
-"2026-11-11",
-"c5026b8fa8d9506ccb34"
-],
-"moved-to/egyptians/spain/": [
-"2026-11-11",
-"f46fe9033731c52931cf"
-],
-"moved-to/egyptians/sweden/": [
-"2026-11-11",
-"f986569b988ddeb0e25f"
 ],
 "moved-to/egyptians/uk/": [
 "2026-11-11",
@@ -2337,109 +1413,13 @@
 "2026-11-11",
 "c3612a630d6f15b601f8"
 ],
-"moved-to/filipinos/austria/": [
-"2026-11-11",
-"564be57f33c3da16c3b6"
-],
-"moved-to/filipinos/belgium/": [
-"2026-11-11",
-"89cd442c8dca0aa684e9"
-],
 "moved-to/filipinos/canada/": [
 "2026-11-11",
 "4c9f130c6f4bfddb27cf"
 ],
-"moved-to/filipinos/croatia/": [
-"2026-11-11",
-"2e12b39728b15e2d33d1"
-],
-"moved-to/filipinos/cyprus/": [
-"2026-11-11",
-"ed8961773e2a742bfe13"
-],
-"moved-to/filipinos/czechia/": [
-"2026-11-11",
-"72bbb8099005f0d42ccf"
-],
-"moved-to/filipinos/denmark/": [
-"2026-11-11",
-"601a38b37fe94d824fdd"
-],
-"moved-to/filipinos/finland/": [
-"2026-11-11",
-"294a98243b8ca79cbd7f"
-],
-"moved-to/filipinos/france/": [
-"2026-11-11",
-"6dd24cb928878b66e461"
-],
-"moved-to/filipinos/germany/": [
-"2026-11-11",
-"28ab11714425b68f5554"
-],
-"moved-to/filipinos/greece/": [
-"2026-11-11",
-"4fbe28db57a2f8ca651e"
-],
 "moved-to/filipinos/hungary/": [
 "2026-11-11",
 "cb3209ebcc7fc578289f"
-],
-"moved-to/filipinos/ireland/": [
-"2026-11-11",
-"27d39290f83b5327afd1"
-],
-"moved-to/filipinos/italy/": [
-"2026-11-11",
-"5edd790a64a285693378"
-],
-"moved-to/filipinos/lithuania/": [
-"2026-11-11",
-"1db5627f15310573f4e1"
-],
-"moved-to/filipinos/malta/": [
-"2026-11-11",
-"5d52ea1cf28b6fd43dcf"
-],
-"moved-to/filipinos/netherlands/": [
-"2026-11-11",
-"88ef8ab4a66d7bc08e93"
-],
-"moved-to/filipinos/norway/": [
-"2026-11-11",
-"c497651c36b4053b462e"
-],
-"moved-to/filipinos/poland/": [
-"2026-11-11",
-"4bcba548503fdb8180d1"
-],
-"moved-to/filipinos/portugal/": [
-"2026-11-11",
-"9cbc7f0952f7ea5bac11"
-],
-"moved-to/filipinos/romania/": [
-"2026-11-11",
-"f7e4578ad87d6405f136"
-],
-"moved-to/filipinos/slovakia/": [
-"2026-11-11",
-"2659464889224a798b30"
-],
-"moved-to/filipinos/slovenia/": [
-"2026-11-11",
-"ccefbe79d8c376716405"
-],
-"moved-to/filipinos/spain/": [
-"2026-11-11",
-"b6550d513d42b83da556"
-],
-"moved-to/filipinos/sweden/": [
-"2026-11-11",
-"c2ec8c7d53529c41e8af"
-],
-"moved-to/filipinos/switzerland/": [
-"2026-11-11",
-"2810c2e3a09ee7b9e448"
 ],
 "moved-to/filipinos/uk/": [
 "2026-11-11",
@@ -2449,18 +1429,6 @@
 "2026-11-11",
 "5d9fb86529e8aa116ae5"
 ],
-"moved-to/ghanaians/belgium/": [
-"2026-11-11",
-"066a96540aac1544b6b3"
-],
-"moved-to/ghanaians/canada/": [
-"2026-11-11",
-"f2d683864b0d763f9109"
-],
-"moved-to/ghanaians/france/": [
-"2026-11-11",
-"ddb181f90d12ae72fbad"
-],
 "moved-to/ghanaians/germany/": [
 "2026-11-11",
 "b14132b607c10a055947"
@@ -2468,14 +1436,6 @@
 "moved-to/ghanaians/italy/": [
 "2026-11-11",
 "3f203a51403ac815109e"
-],
-"moved-to/ghanaians/netherlands/": [
-"2026-11-11",
-"a4b55212b276fc122e8a"
-],
-"moved-to/ghanaians/spain/": [
-"2026-11-11",
-"6603953fa0f892f438ed"
 ],
 "moved-to/ghanaians/uk/": [
 "2026-11-11",
@@ -2485,57 +1445,13 @@
 "2026-11-11",
 "b09a01d89776d6c152e8"
 ],
-"moved-to/indians/austria/": [
-"2026-11-11",
-"a8060c35451226612fff"
-],
-"moved-to/indians/belgium/": [
-"2026-11-11",
-"da9f97a29b336ce06166"
-],
-"moved-to/indians/bulgaria/": [
-"2026-11-11",
-"e9fee42c9640227d3d06"
-],
 "moved-to/indians/canada/": [
 "2026-11-11",
 "537330a077ec10ab7b28"
 ],
-"moved-to/indians/croatia/": [
-"2026-11-11",
-"e27b49e7a8adf0ee943b"
-],
-"moved-to/indians/cyprus/": [
-"2026-11-11",
-"70975480f5001a6840e0"
-],
-"moved-to/indians/czechia/": [
-"2026-11-11",
-"7d24f32cfc70017eb0d6"
-],
-"moved-to/indians/denmark/": [
-"2026-11-11",
-"f9c27c8348ca407d2e05"
-],
-"moved-to/indians/finland/": [
-"2026-11-11",
-"3ccd3a361b832aa0bd87"
-],
-"moved-to/indians/france/": [
-"2026-11-11",
-"7268b074a26cd5a165dc"
-],
 "moved-to/indians/germany/": [
 "2026-11-11",
 "88aad0ef58f8b4c00bf7"
-],
-"moved-to/indians/greece/": [
-"2026-11-11",
-"32fcd14e244a0812405e"
-],
-"moved-to/indians/hungary/": [
-"2026-11-11",
-"29eaa343f5138bc37736"
 ],
 "moved-to/indians/ireland/": [
 "2026-11-11",
@@ -2544,62 +1460,6 @@
 "moved-to/indians/italy/": [
 "2026-11-11",
 "24564f53ae0f88474d82"
-],
-"moved-to/indians/latvia/": [
-"2026-11-11",
-"905925f95dbab7a8becb"
-],
-"moved-to/indians/lithuania/": [
-"2026-11-11",
-"710cafbd9becea53009f"
-],
-"moved-to/indians/luxembourg/": [
-"2026-11-11",
-"0222741b7540ec6c26c0"
-],
-"moved-to/indians/malta/": [
-"2026-11-11",
-"bc9981c42486ccf7289f"
-],
-"moved-to/indians/netherlands/": [
-"2026-11-11",
-"7a95dff17067a41f3faa"
-],
-"moved-to/indians/norway/": [
-"2026-11-11",
-"ddd99036876d72238d75"
-],
-"moved-to/indians/poland/": [
-"2026-11-11",
-"3a6ac1317d18d6ac24ed"
-],
-"moved-to/indians/portugal/": [
-"2026-11-11",
-"8430ea09cd423db05080"
-],
-"moved-to/indians/romania/": [
-"2026-11-11",
-"300b32f0cb3ffa404a75"
-],
-"moved-to/indians/slovakia/": [
-"2026-11-11",
-"e90c38be508416b6fc76"
-],
-"moved-to/indians/slovenia/": [
-"2026-11-11",
-"b631d35fa3d17ca64ce9"
-],
-"moved-to/indians/spain/": [
-"2026-11-11",
-"0366249315ec7a97b196"
-],
-"moved-to/indians/sweden/": [
-"2026-11-11",
-"b4e9898921ab2f5dcc31"
-],
-"moved-to/indians/switzerland/": [
-"2026-11-11",
-"3109a37268cdf171b6b0"
 ],
 "moved-to/indians/uk/": [
 "2026-11-11",
@@ -2617,10 +1477,6 @@
 "2026-11-11",
 "4ae908cbce6ecf88e177"
 ],
-"moved-to/kenyans/hungary/": [
-"2026-11-11",
-"22ff7d98c4a6c3311bce"
-],
 "moved-to/kenyans/uk/": [
 "2026-11-11",
 "1d7638d6c4625703691e"
@@ -2629,117 +1485,21 @@
 "2026-11-11",
 "cfaa89255ff769c746a0"
 ],
-"moved-to/moroccans/belgium/": [
-"2026-11-11",
-"02c15415e770191b3445"
-],
-"moved-to/moroccans/canada/": [
-"2026-11-11",
-"2cf59c8f19ab641163e2"
-],
 "moved-to/moroccans/france/": [
 "2026-11-11",
 "4105a5369e18386e5aac"
-],
-"moved-to/moroccans/germany/": [
-"2026-11-11",
-"db9b85dae1ba80dc7aa2"
 ],
 "moved-to/moroccans/italy/": [
 "2026-11-11",
 "057d9b083c2ced513431"
 ],
-"moved-to/moroccans/lithuania/": [
-"2026-11-11",
-"d3bf6e7950fc6fc861ae"
-],
-"moved-to/moroccans/netherlands/": [
-"2026-11-11",
-"facf99724f16fecc2333"
-],
-"moved-to/moroccans/poland/": [
-"2026-11-11",
-"59ef6fb314e99f19cfdd"
-],
-"moved-to/moroccans/portugal/": [
-"2026-11-11",
-"3367f2c8b63be06855ab"
-],
-"moved-to/moroccans/romania/": [
-"2026-11-11",
-"16c2950360776536bc2d"
-],
 "moved-to/moroccans/spain/": [
 "2026-11-11",
 "234fdb4d7a81c3af6fd1"
 ],
-"moved-to/moroccans/sweden/": [
-"2026-11-11",
-"0cfaa71848c68f3adbdf"
-],
-"moved-to/moroccans/switzerland/": [
-"2026-11-11",
-"17c198b3062573467c9a"
-],
-"moved-to/moroccans/uk/": [
-"2026-11-11",
-"5c3cbd09908262e3b6ee"
-],
 "moved-to/nepalis/": [
 "2026-11-11",
 "9d4b37b7c426be9c89c3"
-],
-"moved-to/nepalis/belgium/": [
-"2026-11-11",
-"f183541a464eaba415af"
-],
-"moved-to/nepalis/bulgaria/": [
-"2026-11-11",
-"90c4233e9ee0d1608f64"
-],
-"moved-to/nepalis/canada/": [
-"2026-11-11",
-"d70b146728be731474ed"
-],
-"moved-to/nepalis/croatia/": [
-"2026-11-11",
-"91e11bf075b7afd046e3"
-],
-"moved-to/nepalis/cyprus/": [
-"2026-11-11",
-"754c8f445fb3902f2598"
-],
-"moved-to/nepalis/denmark/": [
-"2026-11-11",
-"9e078afe0c7a70d13ae3"
-],
-"moved-to/nepalis/finland/": [
-"2026-11-11",
-"e300b5ed435c88f4839a"
-],
-"moved-to/nepalis/france/": [
-"2026-11-11",
-"b92ea5edcd2692e721d9"
-],
-"moved-to/nepalis/germany/": [
-"2026-11-11",
-"07860ce0b71fca790dfa"
-],
-"moved-to/nepalis/greece/": [
-"2026-11-11",
-"c134a540657269d273a8"
-],
-"moved-to/nepalis/italy/": [
-"2026-11-11",
-"90e58aa4f9f0b05e3581"
-],
-"moved-to/nepalis/malta/": [
-"2026-11-11",
-"1239502436fc95adb39b"
-],
-"moved-to/nepalis/poland/": [
-"2026-11-11",
-"ce7892f97fa9219eb00e"
 ],
 "moved-to/nepalis/portugal/": [
 "2026-11-11",
@@ -2748,22 +1508,6 @@
 "moved-to/nepalis/romania/": [
 "2026-11-11",
 "60cb0ccb2a2a110f21b3"
-],
-"moved-to/nepalis/slovakia/": [
-"2026-11-11",
-"c2d305e4b6fdd9e4558c"
-],
-"moved-to/nepalis/slovenia/": [
-"2026-11-11",
-"18c7242bc975415562e2"
-],
-"moved-to/nepalis/spain/": [
-"2026-11-11",
-"4dae6fc1f89485b393a0"
-],
-"moved-to/nepalis/sweden/": [
-"2026-11-11",
-"a1eba2a0543b41c18e5c"
 ],
 "moved-to/nepalis/uk/": [
 "2026-11-11",
@@ -2785,61 +1529,17 @@
 "2026-11-11",
 "1fdfd0012b580e6f7ccc"
 ],
-"moved-to/nigerians/austria/": [
-"2026-11-11",
-"62ca9f198ec7581eab07"
-],
 "moved-to/nigerians/canada/": [
 "2026-11-11",
 "14032492519cf217c2b1"
-],
-"moved-to/nigerians/finland/": [
-"2026-11-11",
-"70ad6f59e0c29694278c"
-],
-"moved-to/nigerians/france/": [
-"2026-11-11",
-"5f5b20f8310ee2e369c8"
 ],
 "moved-to/nigerians/germany/": [
 "2026-11-11",
 "e2b5bb8a46e26a3ddc3e"
 ],
-"moved-to/nigerians/hungary/": [
-"2026-11-11",
-"42b9e211751b4763175a"
-],
-"moved-to/nigerians/ireland/": [
-"2026-11-11",
-"200123522e4e5538979e"
-],
-"moved-to/nigerians/italy/": [
-"2026-11-11",
-"11ee444810cabb20e45e"
-],
-"moved-to/nigerians/malta/": [
-"2026-11-11",
-"fd3ce3d160e8483d1741"
-],
-"moved-to/nigerians/netherlands/": [
-"2026-11-11",
-"2c12e8715c4378569e09"
-],
-"moved-to/nigerians/poland/": [
-"2026-11-11",
-"cf03be10a8941b6c919a"
-],
 "moved-to/nigerians/portugal/": [
 "2026-11-11",
 "80b9b430883a92228576"
-],
-"moved-to/nigerians/spain/": [
-"2026-11-11",
-"492d2c87da97cc327dac"
-],
-"moved-to/nigerians/sweden/": [
-"2026-11-11",
-"aa5fa2238a8a5c5844ee"
 ],
 "moved-to/nigerians/uk/": [
 "2026-11-11",
@@ -2849,85 +1549,17 @@
 "2026-11-11",
 "d676db195cf41fc8eab2"
 ],
-"moved-to/pakistanis/austria/": [
-"2026-11-11",
-"d98acc557cb4e298235e"
-],
-"moved-to/pakistanis/belgium/": [
-"2026-11-11",
-"a75d35b224c6c9db72e1"
-],
-"moved-to/pakistanis/canada/": [
-"2026-11-11",
-"651598c30daf1d592190"
-],
-"moved-to/pakistanis/cyprus/": [
-"2026-11-11",
-"c5de98cf117126f42cba"
-],
-"moved-to/pakistanis/denmark/": [
-"2026-11-11",
-"fa01fc9459da5521a576"
-],
-"moved-to/pakistanis/finland/": [
-"2026-11-11",
-"95908d3e4b3b2dccba6d"
-],
-"moved-to/pakistanis/france/": [
-"2026-11-11",
-"a98e692a0aa5f8476add"
-],
 "moved-to/pakistanis/germany/": [
 "2026-11-11",
 "f3d335798b898994543f"
-],
-"moved-to/pakistanis/greece/": [
-"2026-11-11",
-"2d7dae93d87a8c2cffec"
-],
-"moved-to/pakistanis/hungary/": [
-"2026-11-11",
-"210d8e9728929fa78e0a"
-],
-"moved-to/pakistanis/ireland/": [
-"2026-11-11",
-"93aa2536e3a513965433"
 ],
 "moved-to/pakistanis/italy/": [
 "2026-11-11",
 "04c7db3b3f9559aea523"
 ],
-"moved-to/pakistanis/lithuania/": [
-"2026-11-11",
-"7171da25f161108027ae"
-],
-"moved-to/pakistanis/malta/": [
-"2026-11-11",
-"6bfd5c169f46dc435390"
-],
-"moved-to/pakistanis/netherlands/": [
-"2026-11-11",
-"66bf4995f30ca69e28de"
-],
-"moved-to/pakistanis/norway/": [
-"2026-11-11",
-"e845aae4eefb011b05c5"
-],
-"moved-to/pakistanis/poland/": [
-"2026-11-11",
-"ddfeb889972460217ce6"
-],
 "moved-to/pakistanis/portugal/": [
 "2026-11-11",
 "e343d6ae195ce646f46c"
-],
-"moved-to/pakistanis/romania/": [
-"2026-11-11",
-"9e5113238e03ee9681f8"
-],
-"moved-to/pakistanis/spain/": [
-"2026-11-11",
-"5d1c3f7f1c3406079675"
 ],
 "moved-to/pakistanis/sweden/": [
 "2026-11-11",
@@ -2941,14 +1573,6 @@
 "2026-11-11",
 "ca3dc1d941a331647272"
 ],
-"moved-to/south-africans/canada/": [
-"2026-11-11",
-"2804def139b7199a7b7a"
-],
-"moved-to/south-africans/germany/": [
-"2026-11-11",
-"8868dc06c12493ba5783"
-],
 "moved-to/south-africans/ireland/": [
 "2026-11-11",
 "3479e14d6c5d09002f1c"
@@ -2956,10 +1580,6 @@
 "moved-to/south-africans/netherlands/": [
 "2026-11-11",
 "cc63fa61a320e9ff3f6b"
-],
-"moved-to/south-africans/portugal/": [
-"2026-11-11",
-"8d07a220c1fb8f1a6c46"
 ],
 "moved-to/south-africans/uk/": [
 "2026-11-11",
@@ -2969,49 +1589,13 @@
 "2026-11-11",
 "39b1c090d7d0f980af75"
 ],
-"moved-to/sri-lankans/canada/": [
-"2026-11-11",
-"2e237f6841dc01c833d4"
-],
-"moved-to/sri-lankans/cyprus/": [
-"2026-11-11",
-"c891893f7564ea38c6ef"
-],
-"moved-to/sri-lankans/denmark/": [
-"2026-11-11",
-"b254b41a2ec461a701c7"
-],
-"moved-to/sri-lankans/finland/": [
-"2026-11-11",
-"9a1e99a2c91a0c50a602"
-],
-"moved-to/sri-lankans/france/": [
-"2026-11-11",
-"d8fa535cf17df7806646"
-],
-"moved-to/sri-lankans/germany/": [
-"2026-11-11",
-"0964d955d061c4fe409c"
-],
-"moved-to/sri-lankans/ireland/": [
-"2026-11-11",
-"69877aa56b529b45dd05"
-],
 "moved-to/sri-lankans/italy/": [
 "2026-11-11",
 "b588074616d66a23f506"
 ],
-"moved-to/sri-lankans/poland/": [
-"2026-11-11",
-"4e97fbb934704a1c7dbc"
-],
 "moved-to/sri-lankans/romania/": [
 "2026-11-11",
 "f7eda8288204dbb6159a"
-],
-"moved-to/sri-lankans/sweden/": [
-"2026-11-11",
-"0062c3186c4193d837a3"
 ],
 "moved-to/sri-lankans/uk/": [
 "2026-11-11",
@@ -3021,38 +1605,6 @@
 "2026-11-11",
 "181be7b90e8a83da749a"
 ],
-"moved-to/turkish/austria/": [
-"2026-11-11",
-"1e8b44b9722055f8b55b"
-],
-"moved-to/turkish/belgium/": [
-"2026-11-11",
-"659683d353efca2344b6"
-],
-"moved-to/turkish/bulgaria/": [
-"2026-11-11",
-"34c56393af2dfda541b4"
-],
-"moved-to/turkish/canada/": [
-"2026-11-11",
-"a6ff796360ae641d08bc"
-],
-"moved-to/turkish/croatia/": [
-"2026-11-11",
-"3154d5209a52ea7b9b46"
-],
-"moved-to/turkish/czechia/": [
-"2026-11-11",
-"9e6a9450287cf436033e"
-],
-"moved-to/turkish/denmark/": [
-"2026-11-11",
-"79acaac880cdfeac6a0b"
-],
-"moved-to/turkish/finland/": [
-"2026-11-11",
-"a89e4bbed210e214548b"
-],
 "moved-to/turkish/france/": [
 "2026-11-11",
 "ef7cc8596cf9707365c7"
@@ -3060,66 +1612,6 @@
 "moved-to/turkish/germany/": [
 "2026-11-11",
 "632d67cf8c3b176b4948"
-],
-"moved-to/turkish/greece/": [
-"2026-11-11",
-"f1b1a50e02de7414538d"
-],
-"moved-to/turkish/hungary/": [
-"2026-11-11",
-"8e94b28accc147d5a0cc"
-],
-"moved-to/turkish/ireland/": [
-"2026-11-11",
-"77b357083ce96fb01b35"
-],
-"moved-to/turkish/italy/": [
-"2026-11-11",
-"84cefcd94aa23afdc441"
-],
-"moved-to/turkish/lithuania/": [
-"2026-11-11",
-"52a784e146417bf89e75"
-],
-"moved-to/turkish/malta/": [
-"2026-11-11",
-"a73ec41eaaf39db9a454"
-],
-"moved-to/turkish/netherlands/": [
-"2026-11-11",
-"5c61c68f75ef6a78d1f3"
-],
-"moved-to/turkish/norway/": [
-"2026-11-11",
-"0998e94a8f5dbbfa342a"
-],
-"moved-to/turkish/poland/": [
-"2026-11-11",
-"f56d91f7c544160aff60"
-],
-"moved-to/turkish/portugal/": [
-"2026-11-11",
-"80d3691803efac7064eb"
-],
-"moved-to/turkish/romania/": [
-"2026-11-11",
-"f002769df9a52edbdeb2"
-],
-"moved-to/turkish/slovenia/": [
-"2026-11-11",
-"1a915e132441546a6612"
-],
-"moved-to/turkish/spain/": [
-"2026-11-11",
-"f4e1ca1f7bde95c7838a"
-],
-"moved-to/turkish/sweden/": [
-"2026-11-11",
-"5b5268f8e7ec45850c9d"
-],
-"moved-to/turkish/switzerland/": [
-"2026-11-11",
-"0cd3e21e195382f53c98"
 ],
 "moved-to/turkish/uk/": [
 "2026-11-11",
@@ -3129,85 +1621,17 @@
 "2026-11-11",
 "0bb3709ccf98eb4b1af8"
 ],
-"moved-to/vietnamese/belgium/": [
-"2026-11-11",
-"751e1516060507b4bc31"
-],
-"moved-to/vietnamese/bulgaria/": [
-"2026-11-11",
-"f14171ba0cc579460642"
-],
 "moved-to/vietnamese/canada/": [
 "2026-11-11",
 "f385e7427f5f109227aa"
-],
-"moved-to/vietnamese/cyprus/": [
-"2026-11-11",
-"9dcc13f2a8563820eb0e"
-],
-"moved-to/vietnamese/czechia/": [
-"2026-11-11",
-"2807c09b639ecedfb6dc"
-],
-"moved-to/vietnamese/denmark/": [
-"2026-11-11",
-"634a00564eb5f4153d3b"
-],
-"moved-to/vietnamese/finland/": [
-"2026-11-11",
-"d295610bda62b9fca0fd"
-],
-"moved-to/vietnamese/france/": [
-"2026-11-11",
-"2a02960d73f21abfbc60"
 ],
 "moved-to/vietnamese/germany/": [
 "2026-11-11",
 "b087779cf14dc9b2dfa5"
 ],
-"moved-to/vietnamese/greece/": [
-"2026-11-11",
-"39e1d43c5d2f493ce75d"
-],
 "moved-to/vietnamese/hungary/": [
 "2026-11-11",
 "ae09a27a9ba5d91eca91"
-],
-"moved-to/vietnamese/italy/": [
-"2026-11-11",
-"64fdba733e9d4f3a7025"
-],
-"moved-to/vietnamese/netherlands/": [
-"2026-11-11",
-"dddf6720bc6d3a401e1f"
-],
-"moved-to/vietnamese/norway/": [
-"2026-11-11",
-"4a286f23be9eaefda364"
-],
-"moved-to/vietnamese/poland/": [
-"2026-11-11",
-"7fb29340237187d85b38"
-],
-"moved-to/vietnamese/romania/": [
-"2026-11-11",
-"c98b404a9e2db9182165"
-],
-"moved-to/vietnamese/slovakia/": [
-"2026-11-11",
-"93bb400f07e481aae611"
-],
-"moved-to/vietnamese/spain/": [
-"2026-11-11",
-"7f0154e6faae00b4e2c9"
-],
-"moved-to/vietnamese/sweden/": [
-"2026-11-11",
-"ff609393e351db70637c"
-],
-"moved-to/vietnamese/uk/": [
-"2026-11-11",
-"08eb4cda59d652323976"
 ],
 "netherlands-eu-blue-card/": [
 "2026-11-08",
@@ -3294,8 +1718,8 @@
 "2fe5776eebc1ef244f2d"
 ],
 "privacy.html": [
-"2026-11-08",
-"3ddaa73f813814216ea6"
+"2026-11-12",
+"29c26993f9f85425424a"
 ],
 "pt/": [
 "2026-10-31",
@@ -3389,30 +1813,6 @@
 "2026-11-08",
 "4c7158ff829e8652bee7"
 ],
-"schengen-visa-from-dubai/belgium/": [
-"2026-11-08",
-"d15563e343ad1435dd2f"
-],
-"schengen-visa-from-dubai/bulgaria/": [
-"2026-11-08",
-"56cb838772ac68d58376"
-],
-"schengen-visa-from-dubai/croatia/": [
-"2026-11-08",
-"6015f9bef6c6982a7537"
-],
-"schengen-visa-from-dubai/czech-republic/": [
-"2026-11-08",
-"cb8e69bf829e77db6894"
-],
-"schengen-visa-from-dubai/denmark/": [
-"2026-11-08",
-"460018f3d995e24d1c47"
-],
-"schengen-visa-from-dubai/finland/": [
-"2026-11-08",
-"17cdef1400f9b364b8fc"
-],
 "schengen-visa-from-dubai/france/": [
 "2026-11-08",
 "5d805ddc11b5c3612d72"
@@ -3425,57 +1825,17 @@
 "2026-11-08",
 "0a34fe9468737f3405da"
 ],
-"schengen-visa-from-dubai/hungary/": [
-"2026-11-08",
-"496909a235b9211ebb17"
-],
 "schengen-visa-from-dubai/italy/": [
 "2026-11-08",
 "6594900130a0a28291ac"
-],
-"schengen-visa-from-dubai/luxembourg/": [
-"2026-11-08",
-"6c14ad57da4faaa745b7"
-],
-"schengen-visa-from-dubai/malta/": [
-"2026-11-08",
-"076ba57214c7577cb8d3"
 ],
 "schengen-visa-from-dubai/netherlands/": [
 "2026-11-08",
 "38b134d00c34b33c5d94"
 ],
-"schengen-visa-from-dubai/norway/": [
-"2026-11-08",
-"f52779f4af297ffea15e"
-],
-"schengen-visa-from-dubai/poland/": [
-"2026-11-08",
-"27a6f1f0463fb80b02e8"
-],
-"schengen-visa-from-dubai/portugal/": [
-"2026-11-08",
-"7dc3e851a39ba51b9206"
-],
-"schengen-visa-from-dubai/romania/": [
-"2026-11-08",
-"7bce9c0351f5a394e66b"
-],
-"schengen-visa-from-dubai/slovakia/": [
-"2026-11-08",
-"5ccc2ffb41e69f16d5b1"
-],
-"schengen-visa-from-dubai/slovenia/": [
-"2026-11-08",
-"f558e2527dac3fb33e4f"
-],
 "schengen-visa-from-dubai/spain/": [
 "2026-11-08",
 "851afb8a65e750b84de4"
-],
-"schengen-visa-from-dubai/sweden/": [
-"2026-11-08",
-"b7b8e5666f39426ec466"
 ],
 "schengen-visa-from-dubai/switzerland/": [
 "2026-11-08",
@@ -3485,37 +1845,13 @@
 "2026-11-08",
 "c5ccbb98423482111126"
 ],
-"schengen-visa-from-uk/austria/": [
-"2026-11-08",
-"78ab1228bccf1bf5c169"
-],
 "schengen-visa-from-uk/belgium/": [
 "2026-11-08",
 "de0fd44ac4cf7e40d5da"
 ],
-"schengen-visa-from-uk/bulgaria/": [
-"2026-11-08",
-"f4cc25977fd2d2c77a29"
-],
-"schengen-visa-from-uk/croatia/": [
-"2026-11-08",
-"f0a7bcccf178919c7a0f"
-],
-"schengen-visa-from-uk/czech-republic/": [
-"2026-11-08",
-"d97e816b30c2e610beef"
-],
 "schengen-visa-from-uk/denmark/": [
 "2026-11-08",
 "b026e6da643e0246f2f2"
-],
-"schengen-visa-from-uk/estonia/": [
-"2026-11-08",
-"29e9d497bc0f71d40ee2"
-],
-"schengen-visa-from-uk/finland/": [
-"2026-11-08",
-"b197e5360f6946d8f3d1"
 ],
 "schengen-visa-from-uk/france/": [
 "2026-11-08",
@@ -3529,61 +1865,21 @@
 "2026-11-08",
 "02a7978aff2716a98fcd"
 ],
-"schengen-visa-from-uk/hungary/": [
-"2026-11-08",
-"0a5e3e7f197feb02ae1a"
-],
-"schengen-visa-from-uk/iceland/": [
-"2026-11-08",
-"d75b442e38b689a3d39e"
-],
 "schengen-visa-from-uk/italy/": [
 "2026-11-08",
 "86d95b6568ac9ddb1cf2"
-],
-"schengen-visa-from-uk/latvia/": [
-"2026-11-08",
-"ee00350a0e67f9813c07"
-],
-"schengen-visa-from-uk/lithuania/": [
-"2026-11-08",
-"a1f956839be32d9b7347"
-],
-"schengen-visa-from-uk/luxembourg/": [
-"2026-11-08",
-"48b71142cc7cf0669ffe"
-],
-"schengen-visa-from-uk/malta/": [
-"2026-11-08",
-"695ee225883fafe99345"
 ],
 "schengen-visa-from-uk/netherlands/": [
 "2026-11-08",
 "2571ab30b68fcde9f9c2"
 ],
-"schengen-visa-from-uk/norway/": [
-"2026-11-08",
-"ca50a68f1e515b9c021c"
-],
-"schengen-visa-from-uk/poland/": [
-"2026-11-08",
-"12c3cdc79a9b1af81904"
-],
 "schengen-visa-from-uk/portugal/": [
 "2026-11-08",
 "81783c1725e2f1c22fb1"
 ],
-"schengen-visa-from-uk/romania/": [
-"2026-11-08",
-"76e0c204d93f09689180"
-],
 "schengen-visa-from-uk/spain/": [
 "2026-11-08",
 "2675bbc158848a5eaf6b"
-],
-"schengen-visa-from-uk/switzerland/": [
-"2026-11-08",
-"52e7e3d319462dd78aec"
 ],
 "schengen-visa-insurance/": [
 "2026-11-08",
@@ -3598,64 +1894,64 @@
 "bb74347fb043528308f4"
 ],
 "study-in-italy/": [
-"2026-11-08",
-"364a1445aaa24497f858"
+"2026-11-12",
+"cb77bb03f982bc836853"
 ],
 "study-in-italy/adisu-campania/": [
-"2026-11-08",
-"5a1433fa72ee69ed342d"
+"2026-11-12",
+"fe4748db8587c0f908ee"
 ],
 "study-in-italy/disco-lazio/": [
-"2026-11-08",
-"b552a79635bbd77d70a6"
+"2026-11-12",
+"6e55f02fbd8064785d4b"
 ],
 "study-in-italy/dsu-scholarship-deadlines/": [
-"2026-11-08",
-"f9eb057519d7e0a72d22"
+"2026-11-12",
+"a617df217c0f84f1cd73"
 ],
 "study-in-italy/dsu-toscana/": [
-"2026-11-08",
-"b51154bd4afb81aa0ebe"
+"2026-11-12",
+"5564f3f79ce52a21749d"
 ],
 "study-in-italy/er-go/": [
-"2026-11-08",
-"497516972399d0691f08"
+"2026-11-12",
+"4cd7c6a229c96734f462"
 ],
 "study-in-italy/ersu-catania/": [
-"2026-11-08",
-"c60555b57fa310e1d55c"
+"2026-11-12",
+"17be16c1ae854abb66ed"
 ],
 "study-in-italy/ersu-palermo/": [
-"2026-11-08",
-"2d10b4eff1a39bf03ab6"
+"2026-11-12",
+"ae37907186ba8a7fd11b"
 ],
 "study-in-italy/health-insurance/": [
-"2026-11-08",
-"5b3095e4454bea2456ef"
+"2026-11-12",
+"397f7a15b8d6f4d85ccd"
 ],
 "study-in-italy/isee-parificato/": [
-"2026-11-08",
-"38f75824ec805a4eeb83"
+"2026-11-12",
+"446c3f997c2c05f18d4d"
 ],
 "study-in-italy/particularly-poor-countries/": [
-"2026-11-08",
-"25c2d85aeb610503d86c"
+"2026-11-12",
+"afefbebb20f23beaed43"
 ],
 "study-in-italy/politecnico-di-milano/": [
-"2026-11-08",
-"1da2ed39c770030ba712"
+"2026-11-12",
+"b6895bd409dc7f2e5738"
 ],
 "study-in-italy/student-visa-funds/": [
-"2026-11-08",
-"373670b8ea860ef845d9"
+"2026-11-12",
+"c9beb00d1bacfff3836b"
 ],
 "study-in-italy/university-of-milan/": [
-"2026-11-08",
-"3dcfd3cc12806094453d"
+"2026-11-12",
+"22e494caa7a47a43fa58"
 ],
 "study-in-italy/university-of-padua/": [
-"2026-11-08",
-"138ecf5a065ddd3a9289"
+"2026-11-12",
+"21f9fb7e0fde26df4976"
 ],
 "sweden-eu-blue-card/": [
 "2026-11-08",
@@ -3757,141 +2053,17 @@
 "2026-11-08",
 "18cdb36f2d7d0370f4a3"
 ],
-"top-university-visas/countries/argentina/": [
-"2026-11-08",
-"a1cb2795faebbdb1879c"
-],
-"top-university-visas/countries/australia/": [
-"2026-11-08",
-"3ad53499e938674dd4bf"
-],
-"top-university-visas/countries/austria/": [
-"2026-11-08",
-"0a9228770456a46e1bac"
-],
-"top-university-visas/countries/belgium/": [
-"2026-11-08",
-"2891cc74bc31af7e89cc"
-],
-"top-university-visas/countries/brazil/": [
-"2026-11-08",
-"9d2b7aa784e9f3a131ce"
-],
-"top-university-visas/countries/canada/": [
-"2026-11-08",
-"60661a770cf52442a6b3"
-],
-"top-university-visas/countries/chile/": [
-"2026-11-08",
-"4f07dc71b9a2fb4aaa07"
-],
-"top-university-visas/countries/china/": [
-"2026-11-08",
-"78a2c9d91f0ffdd42b4f"
-],
-"top-university-visas/countries/denmark/": [
-"2026-11-08",
-"1e9e95c1ed31dd0e74c6"
-],
-"top-university-visas/countries/finland/": [
-"2026-11-08",
-"e3b762f4b2f4466b1a74"
-],
-"top-university-visas/countries/france/": [
-"2026-11-08",
-"bc919d311e9edef1f40c"
-],
-"top-university-visas/countries/germany/": [
-"2026-11-08",
-"9e2d62cf018e2a476157"
-],
-"top-university-visas/countries/hong-kong/": [
-"2026-11-08",
-"d52a167e024b9ff19d73"
-],
 "top-university-visas/countries/india/": [
 "2026-11-08",
 "6a0a5b59ab3748483408"
-],
-"top-university-visas/countries/ireland/": [
-"2026-11-08",
-"d2d27a26e011c7a70829"
-],
-"top-university-visas/countries/israel/": [
-"2026-11-08",
-"bbd7518434d5ed427eae"
-],
-"top-university-visas/countries/italy/": [
-"2026-11-08",
-"ecf1136dcb83999a1ca7"
-],
-"top-university-visas/countries/japan/": [
-"2026-11-08",
-"81be556e57dee26bdd6e"
-],
-"top-university-visas/countries/malaysia/": [
-"2026-11-08",
-"7ec44fe3eb93a593d3f3"
-],
-"top-university-visas/countries/mexico/": [
-"2026-11-08",
-"831e7ca1fb60b38c7f5a"
-],
-"top-university-visas/countries/netherlands/": [
-"2026-11-08",
-"f73ae4bb3a2ddfed9d81"
-],
-"top-university-visas/countries/new-zealand/": [
-"2026-11-08",
-"305d664355076f9d41f2"
 ],
 "top-university-visas/countries/nigeria/": [
 "2026-11-08",
 "58fa1b0d4cbc197d1b54"
 ],
-"top-university-visas/countries/norway/": [
-"2026-11-08",
-"e42d36c64eec8d4c9064"
-],
-"top-university-visas/countries/russia/": [
-"2026-11-08",
-"d56d582e36e442853e9e"
-],
-"top-university-visas/countries/saudi-arabia/": [
-"2026-11-08",
-"f356293f4e11e90735c6"
-],
-"top-university-visas/countries/singapore/": [
-"2026-11-08",
-"8f95072e9cf4b8549295"
-],
-"top-university-visas/countries/south-korea/": [
-"2026-11-08",
-"26d5afb35103f37e9b57"
-],
-"top-university-visas/countries/spain/": [
-"2026-11-08",
-"d96b2bd7f9d0c3cc7d13"
-],
 "top-university-visas/countries/sweden/": [
 "2026-11-08",
 "63a6246c3710bf91d1f9"
-],
-"top-university-visas/countries/switzerland/": [
-"2026-11-08",
-"1e9caeecd09e757ff542"
-],
-"top-university-visas/countries/taiwan/": [
-"2026-11-08",
-"600414f6d3aa48cca570"
-],
-"top-university-visas/countries/united-kingdom/": [
-"2026-11-08",
-"a0fa1405caf66528c020"
-],
-"top-university-visas/countries/united-states/": [
-"2026-11-08",
-"20ba61d4439bac8e2c1d"
 ],
 "top-university-visas/hpi-2021/": [
 "2026-11-08",
@@ -3925,161 +2097,9 @@
 "2026-11-08",
 "d42f663069ddebb7ef45"
 ],
-"top-university-visas/universities/aarhus-university/": [
-"2026-11-08",
-"055e1aac9b8eff753121"
-],
-"top-university-visas/universities/boston-university/": [
-"2026-11-08",
-"e45c3d6a209bdcafd1cb"
-],
-"top-university-visas/universities/city-university-of-hong-kong/": [
-"2026-11-08",
-"8563c42d7b56724079bb"
-],
-"top-university-visas/universities/erasmus-university-rotterdam/": [
-"2026-11-08",
-"c91ba8ae632c077923fc"
-],
-"top-university-visas/universities/georgia-institute-of-technology/": [
-"2026-11-08",
-"fc19c54aa55f2e0c3998"
-],
-"top-university-visas/universities/ghent-university/": [
-"2026-11-08",
-"795ca3908dbe895beacb"
-],
-"top-university-visas/universities/harbin-institute-of-technology/": [
-"2026-11-08",
-"538ff8b62f7d27b53592"
-],
-"top-university-visas/universities/imperial-college-london/": [
-"2026-11-08",
-"4b0028d043fb0c076611"
-],
-"top-university-visas/universities/kaist/": [
-"2026-11-08",
-"b3f95edce36293b8e2dc"
-],
-"top-university-visas/universities/king-s-college-london/": [
-"2026-11-08",
-"1bbe6cb1fff16bb4579e"
-],
-"top-university-visas/universities/kth-royal-institute-of-technology/": [
-"2026-11-08",
-"583015381f5783045d02"
-],
-"top-university-visas/universities/leiden-university/": [
-"2026-11-08",
-"997e1338bd63ace4dbe3"
-],
-"top-university-visas/universities/london-school-of-economics-and-political-science/": [
-"2026-11-08",
-"c536846ec5ee746dd981"
-],
-"top-university-visas/universities/lund-university/": [
-"2026-11-08",
-"8f76edcd03f993dd6191"
-],
-"top-university-visas/universities/mcmaster-university/": [
-"2026-11-08",
-"48a099e2ba762eaa980c"
-],
-"top-university-visas/universities/nanjing-university/": [
-"2026-11-08",
-"bf9e397a37cb440bce29"
-],
-"top-university-visas/universities/ohio-state-university/": [
-"2026-11-08",
-"c56bac12915884b4e251"
-],
-"top-university-visas/universities/pennsylvania-state-university/": [
-"2026-11-08",
-"6811a0e08d5958acade1"
-],
-"top-university-visas/universities/purdue-university-west-lafayette/": [
-"2026-11-08",
-"d16777871231c29c7159"
-],
-"top-university-visas/universities/rwth-aachen-university/": [
-"2026-11-08",
-"a37cb169df8593746ff4"
-],
-"top-university-visas/universities/university-college-london/": [
-"2026-11-08",
-"32bd84209a04e33dc89a"
-],
-"top-university-visas/universities/university-of-birmingham/": [
-"2026-11-08",
-"bced8dc8fbbd17e0ef47"
-],
-"top-university-visas/universities/university-of-bonn/": [
-"2026-11-08",
-"9bfa5f41752434a895e2"
-],
-"top-university-visas/universities/university-of-bristol/": [
-"2026-11-08",
-"9401a635913e3f56fb3f"
-],
-"top-university-visas/universities/university-of-california-davis/": [
-"2026-11-08",
-"6add5ba065d2c219fa24"
-],
-"top-university-visas/universities/university-of-cambridge/": [
-"2026-11-08",
-"89f14d2099f3c29b5585"
-],
-"top-university-visas/universities/university-of-copenhagen/": [
-"2026-11-08",
-"2369505f21d300fe9ece"
-],
-"top-university-visas/universities/university-of-edinburgh/": [
-"2026-11-08",
-"22543d4ddf1f3a54096b"
-],
-"top-university-visas/universities/university-of-glasgow/": [
-"2026-11-08",
-"5eb601474e0eb3a664e2"
-],
-"top-university-visas/universities/university-of-manchester/": [
-"2026-11-08",
-"1893449b7dda086c501d"
-],
-"top-university-visas/universities/university-of-maryland-college-park/": [
-"2026-11-08",
-"d26c3e2538bf4c05643d"
-],
-"top-university-visas/universities/university-of-minnesota/": [
-"2026-11-08",
-"bca2859768a71baa10ee"
-],
-"top-university-visas/universities/university-of-oxford/": [
-"2026-11-08",
-"f56dbf41637cb9fe87cd"
-],
-"top-university-visas/universities/university-of-western-australia/": [
-"2026-11-08",
-"7fd3a41211f3edba0d30"
-],
-"top-university-visas/universities/university-of-zurich/": [
-"2026-11-08",
-"23866824dd6eae9f4b7f"
-],
-"top-university-visas/universities/uppsala-university/": [
-"2026-11-08",
-"ac4fe0015cb74211f9eb"
-],
 "top-university-visas/universities/utrecht-university/": [
 "2026-11-08",
 "c85b206a7af337b55908"
-],
-"top-university-visas/universities/vanderbilt-university/": [
-"2026-11-08",
-"a2985a3243fbcee9ceeb"
-],
-"top-university-visas/universities/yonsei-university/": [
-"2026-11-08",
-"57b6052fef32308b6bfa"
 ],
 "uk-ancestry-visa/": [
 "2026-11-08",

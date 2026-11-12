@@ -132,6 +132,17 @@ Uso (dalla radice del repository, dopo python3 visaincome/genera.py):
 33. Pagine aggiunte l'11/11/2026 (rifiniture della revisione): 7 cerimonie per Stato, 35 council con 2 suggerimenti (CER_NUOVI_11_11),
     4 test di inglese per livello, hub e coppie delle 10 nazionalità nuove di Who moved where (NAZ_TR_11_11): 210 pagine in sitemap, titolo
     ≤ 65 e meta description ≤ 160 caratteri, nessun taglio (niente "…", descrizione chiusa dal punto), tutti diversi.
+34. Pagine fuori indice (12/11/2026, richiesta AdSense; regola in genera.py, visite in dati/noindex.json): elenco ricalcolato qui dai dati
+    (visite misurate, prime 3 destinazioni per nazionalità, occupazioni H-1B delle ricerche salvate, India e Nigeria, Stati nominati nei
+    suggerimenti generali) e uguale a quello di genera.py; ogni pagina fuori indice ha "noindex, follow", nessun canonical, nessuno script
+    AdSense (c'è il segno di monetizzazione.py), non è in sitemap ed è linkata da almeno una pagina in indice; ogni altra pagina (tranne la
+    404) è in sitemap con il suo canonical e senza noindex; AdSense manca solo sotto le 400 parole; nessuna pagina dell'esperimento A/B,
+    nessun indice, hub o pagina con visite è fuori indice; About dice chi gestisce il sito e come si paga, Contact spiega cosa scrivere.
+35. Riquadro AnchorLess «Get your codice fiscale from abroad» (12/11/2026, interruttore _anchorless in dati/affiliati.json): pagine
+    ricalcolate (programma e pagina Paese dell'Italia, Study in Italy, flat tax del 7%, nessuna fuori indice) = genera.pagine_al();
+    riquadro solo lì, una volta, link = dati (anchorless.io, ?via=massimiliano), rel="sponsored noopener", etichetta Affiliate, riga di
+    trasparenza, vie ufficiali con il link all'Agenzia delle Entrate e la data, codice MASSIMILIANO come «5% off», niente prezzi né promesse,
+    privacy coerente; con l'interruttore spento nessuna traccia; online: frammenti dell'Agenzia e di AnchorLess riletti.
 Il controllo 16 comprende dall'11/11/2026, sulle 4 pagine per livello: voto minimo = elenco ufficiale con i separatori uniformi e ripetuto
 sotto il nome del test (visibile solo sotto i 480 px, dove la colonna si nasconde), avviso con "aged 65 or over", tutti i fornitori dei test
 del livello in "How to book", frase del livello nel riquadro italki, Appendix FM E-ILRP.1.6 e Appendix KoLL 2.2(c)(ii) per il partner
@@ -829,7 +840,7 @@ def controlla_trasferimenti():
     for f in pagine:
         rel = f.parent.relative_to(SITO).as_posix() + "/"
         t = f.read_text(encoding="utf-8")
-        if f"<loc>{G.URL_SITO}/{rel}</loc>" not in mappa:
+        if f"<loc>{G.URL_SITO}/{rel}</loc>" not in mappa and not G.fuori_indice(rel):   # pagine fuori indice: controllo 34
             errori.append(f"Trasferimenti: {rel} non in sitemap")
         titolo = re.search(r"<title>(.*?)</title>", t).group(1)
         anno_t = ult[:4] if rel.endswith("/ireland/") else y1   # pagine Irlanda: anno dei PPS
@@ -1338,7 +1349,7 @@ def controlla_ppsn():
         percorso = f"moved-to/{s}/ireland/"
         t = f.read_text(encoding="utf-8")
         main = t.split('<main id="main">', 1)[1].split("</main>", 1)[0]
-        if f"<loc>{G.URL_SITO}/{percorso}</loc>" not in sitemap:
+        if f"<loc>{G.URL_SITO}/{percorso}</loc>" not in sitemap and not G.fuori_indice(percorso):   # pagine fuori indice: controllo 34
             errori.append(f"PPS: {percorso} non in sitemap")
         titolo = html.unescape(re.search(r"<title>(.*?)</title>", t).group(1))
         if len(titolo) > 70 or (ytd or pieno) not in titolo:
@@ -1935,13 +1946,13 @@ def _pagine_sezione(sez, attese, errori, nome, affiliati=False):
         percorso = f"{sez}{s + '/' if s else ''}"
         t = f.read_text(encoding="utf-8")
         main = t.split('<main id="main">', 1)[1].split("</main>", 1)[0]
-        if f"<loc>{G.URL_SITO}/{percorso}</loc>" not in sitemap:
+        if f"<loc>{G.URL_SITO}/{percorso}</loc>" not in sitemap and not G.fuori_indice(percorso):   # pagine fuori indice: controllo 34
             errori.append(f"{nome}: {percorso} non in sitemap")
         titolo = html.unescape(re.search(r"<title>(.*?)</title>", t).group(1))
         if len(titolo) > 70:
             errori.append(f"{nome}: titolo oltre 70 caratteri in {percorso} ({len(titolo)})")
         for x in ("FAQPage", "BreadcrumbList", "Not legal or immigration advice.", 'rel="canonical"'):
-            if x not in t:
+            if x not in t and not (x == 'rel="canonical"' and G.fuori_indice(percorso)):
                 errori.append(f"{nome}: manca {x!r} in {percorso}")
         if not affiliati and re.search(r'rel="[^"]*sponsored', main):
             errori.append(f"{nome}: link sponsorizzato in {percorso} (nessuna affiliazione prevista in questa sezione)")
@@ -2406,6 +2417,8 @@ def controlla_it(online=True):
     P = _pagine_sezione("study-in-italy/", attese, errori, "Italia", affiliati=True)
     tutto = ""
     for s_, (t, main, testo, lead, percorso) in P.items():
+        main = togli_al(main)  # il riquadro AnchorLess (codice fiscale) si controlla al punto 35
+        testo = html.unescape(re.sub(r"<[^>]+>", " ", main))
         tutto += main
         prima = re.split(r"(?<=[a-z0-9)%])\.\s+(?=[A-Z])", lead)[0]
         if letto not in prima:
@@ -2600,7 +2613,7 @@ def controlla_f7(online=True):
             continue
         percorso = sez + (s_ + "/" if s_ else "")
         t = f.read_text(encoding="utf-8")
-        main = t.split('<main id="main">', 1)[1].split("</main>", 1)[0]
+        main = togli_al(t.split('<main id="main">', 1)[1].split("</main>", 1)[0])  # riquadro AnchorLess: controllo 35
         testo = html.unescape(re.sub(r"<[^>]+>", " ", main))
         testo = re.sub(r"\s+", " ", testo)
         P[s_] = (t, main, testo)
@@ -4338,13 +4351,13 @@ def controlla_tu():
         percorso = f"{sez}{s + '/' if s else ''}"
         t = (SITO / percorso / "index.html").read_text(encoding="utf-8")
         main = t.split('<main id="main">', 1)[1].split("</main>", 1)[0]
-        if f"<loc>{G.URL_SITO}/{percorso}</loc>" not in sitemap:
+        if f"<loc>{G.URL_SITO}/{percorso}</loc>" not in sitemap and not G.fuori_indice(percorso):   # pagine fuori indice: controllo 34
             errori.append(f"30: {percorso} non in sitemap")
         titolo = html.unescape(re.search(r"<title>(.*?)</title>", t).group(1))
         if len(titolo) > 70 or not re.search(r"\b20\d\d\b", titolo):
             errori.append(f"30: titolo oltre 70 caratteri o senza anno in {percorso} ({titolo!r})")
         for x in ("FAQPage", "BreadcrumbList", f'<link rel="canonical" href="{G.URL_SITO}/{percorso}">', "Not immigration or legal advice.</strong>"):
-            if x not in t:
+            if x not in t and not ("canonical" in x and G.fuori_indice(percorso)):
                 errori.append(f"30: manca {x!r} in {percorso}")
         if re.search(r'rel="[^"]*sponsored', main) or "Affiliate" in main or "wise.com" in main:
             errori.append(f"30: link di affiliazione in {percorso} (nessun riquadro previsto: Wise non ha un link attivo)")
@@ -4638,13 +4651,13 @@ def controlla_h1b(online=True):
         t = (SITO / percorso / "index.html").read_text(encoding="utf-8")
         main = t.split('<main id="main">', 1)[1].split("</main>", 1)[0]
         pagine[s_] = (t, main)
-        if f"<loc>{G.URL_SITO}/{percorso}</loc>" not in sitemap:
+        if f"<loc>{G.URL_SITO}/{percorso}</loc>" not in sitemap and not G.fuori_indice(percorso):   # pagine fuori indice: controllo 34
             errori.append(f"31: {percorso} non in sitemap")
         titolo = html.unescape(re.search(r"<title>(.*?)</title>", t).group(1))
         if len(titolo) > 70 or not re.search(r"\b20\d\d\b", titolo):
             errori.append(f"31: titolo oltre 70 caratteri o senza anno in {percorso} ({titolo!r})")
         for x in ("FAQPage", "BreadcrumbList", f'<link rel="canonical" href="{G.URL_SITO}/{percorso}">', "Not legal or immigration advice.</strong>", "ask an immigration lawyer"):
-            if x not in t:
+            if x not in t and not ("canonical" in x and G.fuori_indice(percorso)):
                 errori.append(f"31: manca {x!r} in {percorso}")
         if re.search(r'rel="[^"]*sponsored', main) or "Affiliate" in main:
             errori.append(f"31: link di affiliazione in {percorso}")
@@ -5012,7 +5025,7 @@ def controlla_meta_nuove():
         if not f.exists():
             errori.append(f"33: {pp} mancante")
             continue
-        if f"<loc>{G.URL_SITO}/{pp}</loc>" not in sitemap:
+        if f"<loc>{G.URL_SITO}/{pp}</loc>" not in sitemap and not G.fuori_indice(pp):   # pagine fuori indice: controllo 34
             errori.append(f"33: {pp} non in sitemap")
         t = f.read_text(encoding="utf-8")
         tit = html.unescape(re.search(r"<title>(.*?)</title>", t, re.S).group(1))
@@ -5029,6 +5042,243 @@ def controlla_meta_nuove():
             errori.append(f"33: titolo o descrizione uguali a quelli di {visti_t.get(tit) or visti_d.get(d)} in {pp}")
         visti_t[tit], visti_d[d] = pp, pp
     return errori, len(pagine)
+
+
+_RE_BOX_AL = re.compile(r'\n?<section class="card aff-r" aria-labelledby="aff-al-h">.*?</section>', re.S)
+
+
+def togli_al(main):
+    """Il <main> senza il riquadro AnchorLess: i controlli delle sezioni (22 Study in Italy, 23 flat tax) restano quelli di prima,
+    il riquadro si controlla al punto 35."""
+    return _RE_BOX_AL.sub("", main)
+
+
+def _norm_al(s):
+    s = html.unescape(re.sub(r"<[^>]+>", " ", s)).replace("’", "'").replace(" ", " ")
+    return re.sub(r"\s+", " ", s)
+
+
+def controlla_al(online=True):
+    """35 (12/11/2026): riquadro AnchorLess «Get your codice fiscale from abroad» (interruttore _anchorless in dati/affiliati.json).
+    Pagine attese ricalcolate qui (programma e pagina Paese dell'Italia, tutte le pagine di Study in Italy, le 2 della flat tax del 7%,
+    nessuna fuori indice) e uguali a genera.pagine_al(); con l'interruttore acceso il riquadro c'è solo lì, una volta, con un solo link
+    a anchorless.io = URL dei dati (https, host anchorless.io, ?via=massimiliano e nient'altro), rel="sponsored noopener", etichetta
+    Affiliate, riga di trasparenza, vie ufficiali con il link all'Agenzia delle Entrate e la data, codice MASSIMILIANO descritto come
+    «5% off», nessun prezzo né promessa; la parola AnchorLess altrove solo nella privacy; mai in pagine fuori indice, dell'esperimento A/B
+    o es/pt; dominio in monetizzazione.json. Con l'interruttore spento nessuna traccia di AnchorLess nel sito (e box_al() vuoto).
+    Online: frammenti dell'Agenzia delle Entrate e della pagina AnchorLess riletti. Ritorna (errori, pagine con il riquadro, riletti)."""
+    import urllib.parse as up
+    errori, riletti = [], []
+    A = json.loads((G.DATI / "affiliati.json").read_text(encoding="utf-8"))
+    al = A.get("_anchorless", {})
+    url = al.get("url", "")
+    acceso = bool(al.get("attivo"))
+    if acceso != G.AL_ATTIVO:
+        errori.append("35: interruttore _anchorless e genera.AL_ATTIVO non coincidono (url non valido?)")
+    u = up.urlsplit(url)
+    if url and (u.scheme != "https" or u.netloc != "anchorless.io" or up.parse_qs(u.query) != {"via": ["massimiliano"]} or u.fragment):
+        errori.append(f"35: link AnchorLess dei dati non valido (atteso https://anchorless.io/<pagina>?via=massimiliano): {url}")
+    if al.get("codice_sconto") != "MASSIMILIANO" or al.get("sconto_cliente") != "5 %":
+        errori.append("35: codice sconto o sconto dei dati diversi da MASSIMILIANO / 5 %")
+    if not G.MON.dominio_ammesso(url or "https://anchorless.io/"):
+        errori.append("35: anchorless.io non è tra i domini ammessi di monetizzazione.json")
+    # pagine attese, ricalcolate qui
+    attese = {f"{p['slug']}/" for p in G.PROG if p["paese_slug"] == "italy"} | {"country/italy/"}
+    attese |= {f.parent.relative_to(SITO).as_posix() + "/" for f in (SITO / "study-in-italy").rglob("index.html")}
+    attese |= {"italy-7-percent-flat-tax/", "italy-7-percent-flat-tax/regions/"}
+    attese = {p for p in attese if not G.fuori_indice(p)}
+    if attese != set(G.pagine_al()):
+        errori.append(f"35: pagine del riquadro diverse da genera.pagine_al(): {sorted(attese ^ set(G.pagine_al()))}")
+    if len(attese) != 19:
+        errori.append(f"35: attese 19 pagine con il riquadro (1 programma, 1 Paese, 15 Study in Italy, 2 flat tax), trovate {len(attese)}")
+    sitemap = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    vietate = ("guarantee", "will be approved", "you will get", "100%", "official partner", "approved by", "best ", "cheapest", "fastest")
+    con_box = set()
+    for f in SITO.rglob("*.html"):
+        rel_p = str(f.parent.relative_to(SITO)) + "/" if f.name == "index.html" else str(f.relative_to(SITO))
+        rel_p = "" if rel_p == "./" else rel_p
+        t = f.read_text(encoding="utf-8")
+        basso = t.lower()
+        if "anchorless" not in basso:
+            continue
+        if not acceso:
+            errori.append(f"35: AnchorLess spento ma {rel_p} lo nomina")
+            continue
+        if rel_p == "privacy.html":
+            if "anchorless.io" in basso:
+                errori.append("35: la privacy non deve linkare anchorless.io")
+            continue
+        if rel_p not in attese:
+            errori.append(f"35: AnchorLess in una pagina non prevista: {rel_p}")
+            continue
+        con_box.add(rel_p)
+        main = t.split('<main id="main">', 1)[1].split("</main>", 1)[0]
+        box = _RE_BOX_AL.findall(main)
+        if len(box) != 1 or "anchorless" in _RE_BOX_AL.sub("", main).lower() or "anchorless" in (t.split('<main id="main">', 1)[0] + t.split("</main>", 1)[1]).lower():
+            errori.append(f"35: {rel_p}: AnchorLess fuori dal riquadro, o riquadro assente o doppio")
+            continue
+        b = box[0]
+        link = re.findall(r'<a [^>]*href="(https?://(?:[\w-]+\.)?anchorless\.io[^"]*)"[^>]*>', b)
+        tag = re.findall(r'<a [^>]*href="https?://(?:[\w-]+\.)?anchorless\.io[^"]*"[^>]*>', b)
+        if len(link) != 1 or html.unescape(link[0]) != url:
+            errori.append(f"35: {rel_p}: link AnchorLess assente, doppio o diverso dai dati ({link})")
+        elif 'rel="sponsored noopener"' not in tag[0] or 'target="_blank"' not in tag[0]:
+            errori.append(f"35: {rel_p}: link AnchorLess senza rel=\"sponsored noopener\" o target")
+        tb = _norm_al(b)
+        for x in (G.MON.RIGA_EN, "Affiliate", "AnchorLess is a paid service", "With the code MASSIMILIANO you get 5% off.",
+                  "ask the Italian consulate in your country", "police headquarters (Questura)", "by appointment, in person",
+                  f"read on {G.data_lunga(G.F_AL['letto_il'])}", "you need a valid passport and a valid Italian visa",
+                  "does not change the decision on your visa or permit", "does not make you an Italian tax resident"):
+            if x not in tb:
+                errori.append(f"35: {rel_p}: manca {x!r} nel riquadro")
+        if f'<a href="{html.escape(G.F_AL["url"])}" rel="noopener">' not in b:
+            errori.append(f"35: {rel_p}: manca il link alla pagina dell'Agenzia delle Entrate")
+        if re.findall(r"\d+\s?%", tb) != ["5%"] or re.search(r"[€$£]|\b(EUR|USD)\b|\d+\s?(euro|dollars?)\b", tb):
+            errori.append(f"35: {rel_p}: prezzo o percentuale non prevista nel riquadro")
+        for x in vietate:
+            if x in tb.lower():
+                errori.append(f"35: {rel_p}: parola vietata nel riquadro ({x!r})")
+        if G.fuori_indice(rel_p) or 'name="robots" content="noindex' in t or f"<loc>{G.URL_SITO}/{rel_p}</loc>" not in sitemap:
+            errori.append(f"35: {rel_p}: riquadro in una pagina fuori indice o fuori sitemap")
+        if main.find('id="aff-al-h"') < main.find("<h2"):
+            errori.append(f"35: {rel_p}: riquadro prima delle informazioni della pagina")
+    if acceso and con_box != attese:
+        errori.append(f"35: riquadro mancante in {sorted(attese - con_box)}")
+    priv = (SITO / "privacy.html").read_text(encoding="utf-8")
+    if acceso != ("Affiliate links to AnchorLess" in priv):
+        errori.append("35: paragrafo AnchorLess della privacy non coerente con l'interruttore")
+    # interruttore spento: il riquadro sparisce; pagina non prevista: vuoto
+    vecchio = G.AL_ATTIVO
+    try:
+        G.AL_ATTIVO = False
+        if any(G.box_al(p) for p in attese):
+            errori.append("35: con l'interruttore spento box_al() non è vuoto")
+    finally:
+        G.AL_ATTIVO = vecchio
+    for p in ("", "spain-digital-nomad-visa/", "visa-refusal-rates/schengen/italy/", "schengen-visa-from-uk/italy/", "es/visados/visa-de-estudiante-italia-para-peruanos/"):
+        if G.box_al(p):
+            errori.append(f"35: box_al() non vuoto per una pagina non prevista ({p})")
+    # online: frammenti delle due fonti
+    if online and acceso:
+        for nome, u_, fr in (("Agenzia delle Entrate", G.F_AL["url"], G.F_AL["frammenti"]),
+                             ("AnchorLess", url.split("?")[0], al.get("frammenti_anchorless", []))):
+            try:
+                raw = urllib.request.urlopen(urllib.request.Request(u_, headers={"User-Agent": "Mozilla/5.0"}), timeout=60).read().decode("utf-8", "replace")
+            except Exception as e:  # noqa: BLE001
+                avviso(35, f"{nome}: {u_} non letto ({e}); ultima lettura buona {al.get('letto_il')}")
+                continue
+            if pagina_di_blocco(raw):
+                avviso(35, f"{nome}: pagina di blocco su {u_}; ultima lettura buona {al.get('letto_il')}")
+                continue
+            tr = _norm_al(re.sub(r"<(script|style)\b.*?</\1>", " ", raw, flags=re.S | re.I))
+            for x in fr:
+                if _norm_al(x) not in tr:
+                    errori.append(f"35: {nome}: frammento non più presente ({x[:60]}…)")
+                else:
+                    riletti.append(x)
+    return errori, len(con_box), len(riletti)
+
+
+def controlla_fuori_indice():
+    """34 (12/11/2026): pagine "in scala" fuori dall'indice e AdSense solo dove c'è contenuto. Ritorna (errori, n fuori indice, n in sitemap,
+    conteggio per sezione, n pagine in indice senza AdSense)."""
+    errori = []
+    N = json.loads((G.DATI / "noindex.json").read_text(encoding="utf-8"))
+    sitemap = set(re.findall(r"<loc>(.*?)</loc>", (SITO / "sitemap.xml").read_text(encoding="utf-8")))
+    SEZ = {"moved-to": r"^moved-to/[^/]+/[^/]+/$", "h1b": r"^h1b-wage-level/[^/]+/[^/]+/$",
+           "top-university": r"^top-university-visas/(universities|countries)/[^/]+/$", "schengen-residenti": r"^schengen-visa-from-(uk|dubai)/[^/]+/$"}
+    # elenco delle pagine che restano in indice, ricalcolato dai dati
+    tieni = {p for p, n in N["visite"].items() if n >= 1}
+    for p in tieni:
+        if not (SITO / p / "index.html").exists() or not any(re.match(r, p) for r in SEZ.values()):
+            errori.append(f"34: noindex.json: {p} non è una pagina delle sezioni in scala")
+    for c, v in G.NAZ_TR.items():   # prime 3 destinazioni per numero dell'ultimo anno
+        val = sorted(((G.val_tr(c, d, G.Y1) or 0, d) for d in G.COPPIE_TR[c]), reverse=True)
+        terzo = val[min(2, len(val) - 1)][0]
+        prime = [d for n, d in val if n >= terzo]
+        if len(prime) > 3:
+            errori.append(f"34: {c}: pari merito tra le prime 3 destinazioni ({prime})")
+        tieni |= {f"moved-to/{v[0]}/{d}/" for d in prime[:3]}
+    occ = {s: n for s, n in ((s, G.nome_occ_h1(s)) for s in G.OCC_H1) if n in ("Software Developers", "Data Scientists")}
+    if len(occ) != 2:
+        errori.append(f"34: occupazioni H-1B delle ricerche salvate non trovate ({occ})")
+    dom_h1 = " | ".join(x for v in G.H1["domanda"]["query"].values() for x in v)
+    for parola in ("software engineer", "data scientist"):
+        if parola not in dom_h1:
+            errori.append(f"34: {parola!r} non è più nelle ricerche salvate di h1b.json")
+    tieni |= {f"h1b-wage-level/{G.SLUG_OCC_H1[s]}/{G.SLUG_AREA_H1[a]}/" for s in occ for a in G.COPPIE_H1[s]}
+    tieni |= {"top-university-visas/countries/india/", "top-university-visas/countries/nigeria/"}
+    for P, R in G.RES.items():
+        gl = R["gl"] + "|"
+        sugg = [x for k, v in G.SR["domanda"]["query"].items() if k.startswith(gl) and k[len(gl):].split(" ")[0] in ("schengen", "easiest") for x in v]
+        tieni |= {f'{R["sez"]}{G.SLUG_STATO[st]}/' for st in G.SR_PAG[P] if any(re.search(rf"\b{re.escape(st.lower())}\b", x) for x in sugg)}
+    # pagine
+    pagine = {}
+    for f in SITO.rglob("*.html"):
+        r = f.relative_to(SITO).as_posix()
+        pagine[r[:-len("index.html")] if r.endswith("index.html") else r] = f.read_text(encoding="utf-8")
+    controllo_ab = {f"visa-refusal-rates/{k}/" for k in json.loads((G.DATI / "esperimento_citazioni.json").read_text(encoding="utf-8"))["pagine"]}
+    fuori, per_sez, senza_ads, linkate = set(), {k: [0, 0] for k in SEZ}, [], set()
+    for p, t in pagine.items():
+        sez = next((k for k, r in SEZ.items() if re.match(r, p)), None)
+        atteso_fuori = bool(sez) and p not in tieni
+        if atteso_fuori != G.fuori_indice(p):
+            errori.append(f"34: {p}: genera.py la mette {'fuori' if G.fuori_indice(p) else 'in'} indice, il ricalcolo no")
+        if sez:
+            per_sez[sez][1 if atteso_fuori else 0] += 1
+        url = f"{G.URL_SITO}/{p}"
+        ads = t.count("pagead2.googlesyndication.com/pagead/js/adsbygoogle.js")
+        segno = G.MON.SEGNO_SENZA_ADSENSE in t
+        main = t.split('<main id="main">', 1)[1].split("</main>", 1)[0]
+        if atteso_fuori:
+            fuori.add(p)
+            if '<meta name="robots" content="noindex, follow">' not in t or 'rel="canonical"' in t or url in sitemap or ads or not segno:
+                errori.append(f"34: {p} fuori indice ma con canonical, sitemap, AdSense o senza 'noindex, follow'")
+            if p in controllo_ab or N["visite"].get(p):
+                errori.append(f"34: {p} fuori indice ma è dell'esperimento A/B o ha visite")
+        elif p != "404.html":
+            if 'content="noindex' in t or f'<link rel="canonical" href="{url}">' not in t or url not in sitemap:
+                errori.append(f"34: {p} in indice ma con noindex, senza canonical o fuori dalla sitemap")
+            if ads + segno != 1:
+                errori.append(f"34: {p}: script AdSense {ads} volte, segno 'senza AdSense' {segno}")
+            parole = len(html.unescape(re.sub(r"<[^>]+>", " ", re.sub(r"<(script|style|svg)\b.*?</\1>", " ", main, flags=re.S))).split())
+            if segno:
+                senza_ads.append(p)
+                if parole >= G.MIN_PAROLE_ADSENSE + 60:   # il conteggio di qui comprende le briciole di pane
+                    errori.append(f"34: {p} in indice senza AdSense ma con {parole} parole")
+            elif parole < G.MIN_PAROLE_ADSENSE:
+                errori.append(f"34: {p} con AdSense ma solo {parole} parole")
+        else:
+            if ads or 'content="noindex"' not in t:
+                errori.append("34: la 404 deve essere noindex e senza AdSense")
+        if not atteso_fuori and p != "404.html":   # link verso le pagine fuori indice dalle pagine in indice
+            base = p if p.endswith("/") or p == "" else p.rsplit("/", 1)[0] + "/" if "/" in p else ""
+            for h in re.findall(r'href="([^"#?]+)', t):
+                if h.startswith(("http", "mailto:", "data:", "/")):
+                    continue
+                parti = [x for x in base.split("/") if x]
+                for x in h.split("/"):
+                    if x == "..":
+                        parti = parti[:-1]
+                    elif x and x != ".":
+                        parti.append(x)
+                linkate.add("/".join(parti) + "/")
+    for p in sorted(fuori - linkate):
+        errori.append(f"34: {p} fuori indice e senza link da una pagina in indice")
+    if len(sitemap) != len(pagine) - len(fuori) - 1:
+        errori.append(f"34: sitemap con {len(sitemap)} URL, attesi {len(pagine) - len(fuori) - 1} (pagine meno fuori indice meno la 404)")
+    if any(tot[0] == 0 for tot in per_sez.values()) or len(fuori) > 0.5 * len(pagine):
+        errori.append(f"34: sezioni in scala svuotate o più di metà del sito fuori indice ({per_sez}, {len(fuori)} su {len(pagine)})")
+    ab, co = pagine["about/"], pagine["contact/"]
+    for x in ("<h2>Who runs it</h2>", "run from Italy by one person", "<h2>How the site is paid for</h2>", "partners never decide what we publish", "privacy.html", "how-it-works/"):
+        if x not in ab:
+            errori.append(f"34: About senza {x!r}")
+    if ("Google AdSense" in ab) != G.MON.adsense_attivo(G.SITO_ID) or ('marked "Affiliate"' in ab) != G.ci_sono_affiliati():
+        errori.append("34: About: la frase su pubblicità e link di affiliazione non corrisponde a ciò che è acceso")
+    for x in ("<h2>What helps us most</h2>", "<h2>What we cannot do</h2>", "we take no applications or payments", "privacy.html", 'data-netlify="true"'):
+        if x not in co:
+            errori.append(f"34: Contact senza {x!r}")
+    return errori, len(fuori), len(sitemap), per_sez, len(senza_ads)
 
 
 def main():
@@ -5134,8 +5384,16 @@ def main():
         print("    ·", x)
     e33, n33 = controlla_meta_nuove()
     print(f"33. Pagine dell'11/11/2026 (cerimonie per Stato e council nuovi, test di inglese per livello, Who moved where delle 10 nazionalità nuove): "
-          f"{n33} pagine in sitemap, titoli ≤ 65 e descrizioni ≤ 160 caratteri senza tagli, tutti diversi: {len(e33)} errori")
-    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28 + e29 + e30 + e31 + e32 + e33
+          f"{n33} pagine (in sitemap quelle in indice, controllo 34), titoli ≤ 65 e descrizioni ≤ 160 caratteri senza tagli, tutti diversi: {len(e33)} errori")
+    e34, n34, s34, sez34, a34 = controlla_fuori_indice()
+    print(f"34. Pagine fuori indice (noindex, follow; senza canonical, sitemap e AdSense; linkate da pagine in indice): {n34} ("
+          + ", ".join(f"{k} {v[1]} fuori e {v[0]} in indice" for k, v in sez34.items()) + f"); sitemap {s34} URL; "
+          f"in indice senza AdSense per poco testo: {a34}; About e Contact: {len(e34)} errori")
+    e35, n35, r35 = controlla_al(online="--offline" not in sys.argv)
+    print(f"35. Riquadro AnchorLess (codice fiscale, interruttore {'acceso' if G.AL_ATTIVO else 'spento'}): {n35} pagine (attese = programma e Paese Italia, "
+          f"Study in Italy, flat tax 7%, nessuna fuori indice), link ?via=massimiliano, rel, trasparenza, vie ufficiali, codice 5%, niente prezzi né promesse, "
+          f"privacy; frammenti riletti online: {r35}: {len(e35)} errori")
+    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28 + e29 + e30 + e31 + e32 + e33 + e34 + e35
     if AVVISI:  # fonti che rispondono non-200 o con una pagina anti-robot (controllo 28): non sono errori
         per_punto = {}
         for k, _ in AVVISI:

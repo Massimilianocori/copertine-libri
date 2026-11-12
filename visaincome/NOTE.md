@@ -60,6 +60,7 @@ per il confronto "sopra/sotto la soglia").
 | `dati/h1b.json` | sezione H-1B: fonti (HTTP, SHA-256 dello zip e di ogni file usato, Last-Modified), frasi con frammento, documenti del Federal Register, 530 aree con le contee, 299 occupazioni (titolo, istruzione dell'Appendix A), valori nazionali BLS, posti per area dei gruppi 15 e 17, domanda, impronta (generato) |
 | `dati/h1b_salari.json` | estratto di `ALC_Export.csv` (29 MB, non nel repository): 299 occupazioni × 530 aree, [Level1-4, Average, GeoLvl] in centesimi + etichette (Annual/High/No Leveled Wage); 5,5 MB; SHA-256 registrato in `h1b.json` (generato) |
 | `raccolta/esperimento_citazioni.py` + `dati/esperimento_citazioni.json` | dal 31/10/2026: esperimento A/B sulle pagine Paese dei rifiuti (`assegna` fatto una volta, `misura`, `impronte`); il JSON tiene coppie, gruppi, linea di base e impronte delle pagine di controllo (scritto dallo script, non a mano) |
+| `dati/noindex.json` | dal 12/11/2026: visite GoatCounter (28 giorni, somma dei due host) delle pagine delle 4 sezioni "in scala"; con la regola `fuori_indice()` di `genera.py` decide quali pagine restano in indice (controllo 34 di `verifica.py`); scritto a mano dalla misura, non da uno script del repository |
 | `raccolta/assicurazione.py` | dal 7/11/2026: rilegge 17 fonti ufficiali sull'assicurazione sanitaria dei visti (consolato di Spagna a Buenos Aires: nomadi, non lucrativo, studio; BOE RD 1155/2024 artt. 35, 61, 64; registro DGSFP; MNE portoghese; G.U. 79/2024 e consolato d'Italia a Boston; MUP croato; OIF ungherese; Service-Portal Berlin; BOI thailandese (pagina LTR e checklist PDF dei documenti); GOV.UK IHS; Codice dei visti art. 15; pagina della Commissione) e controlla 46 frammenti (`LETTURE`): se ne manca uno non scrive il JSON; `--domanda` rifà l'autocompletamento (gl=us, in, gb) |
 | `dati/assicurazione.json` | sezione "Health insurance for visas" e pagina "Schengen visa insurance": fonti (HTTP, SHA-256 del file e del testo, data), letture con frammento e valore, domanda, impronta (generato) |
 
@@ -1130,3 +1131,93 @@ Nessuna pagina nuova (1283 URL in sitemap); cambiate 203 pagine: le 4 per livell
 - `verifica.py` online: TUTTO OK con 4 avvisi (punto 28: exteriores.gob.es risponde 403 a Messico PDF, Buenos Aires pagina e PDF, Lima PDF; dati dell'ultima lettura buona del 4/11/2026). 33: 210 pagine, 0 errori; 25: 36/36 identiche.
 - `monetizzazione.py verifica visaincome`: 0 errori.
 
+## 12/11/2026 (sera) — Revisione indipendente per AdSense: 495 pagine "in scala" fuori indice, AdSense solo dove c'è contenuto — NON PUBBLICATO (pubblicazione prevista il 13/11)
+
+**Fatto di partenza**: AdSense ha rifiutato il sito fratello `esameb1.netlify.app` per «contenuti di scarso valore» (pagine città fatte con un modello) e segna il vecchio host `visa-income-checker.netlify.app` come "Needs attention" (navigazione: ora rinvia con 301 al dominio nuovo, è atteso). `visaincomechecker.com` è in revisione ("Getting ready"). Obiettivo: più probabilità di approvazione senza perdere visite.
+
+### Misura (prima delle modifiche; 1.284 pagine, 1.283 in sitemap, script AdSense su tutte, 404 compresa)
+Visite: GoatCounter `stats/hits` 15/10–11/11/2026 (`exclude_paths` con gli id separati da virgola; con il parametro ripetuto l'API tiene solo l'ultimo), somma di `/visaincomechecker.com` e `/visa-income-checker.netlify.app`: **642 visite su 300 percorsi**. Parole = testo dentro `<main>`; "uniche" = sequenze di 6 parole che non compaiono in nessun'altra pagina del sito (mediana); "modello" = quota mediana delle sequenze della pagina presenti in almeno metà delle pagine della stessa sezione.
+
+| Sezione | Pagine | Parole | Uniche | Modello | Visite | Pagine con visite |
+|---|---|---|---|---|---|---|
+| Who moved where, nazionalità × Paese | 362 | 908 | 216 | 40 % | 23 | 12 |
+| Cerimonie australiane, council | 166 | 949 | 94 | 63 % | 73 | 46 |
+| H-1B, occupazione × area | 124 | 974 | 175 | 63 % | 2 | 2 |
+| SELT, città e Paesi | 80 | 1.604 | 164 | 78 % | 80 | 35 |
+| Visti rifiutati, pagine Paese e riepiloghi | 79 | 2.565 | 847 | 53 % | 195 | 45 |
+| Visti rifiutati, easiest Schengen | 45 | 1.372 | 386 | 58 % | 39 | 19 |
+| Top university, università | 39 | 720 | 76 | 69 % | 1 | 1 |
+| H-1B, pagine per occupazione | 35 | 1.202 | 630 | 39 % | 1 | 1 |
+| Top university, Paesi | 34 | 532 | 83 | 70 % | 1 | 1 |
+| es visados | 30 | 810 | 83 | 14 % | 5 | 3 |
+| Visti rifiutati, Stati Schengen | 28 | 1.114 | 509 | 50 % | 30 | 15 |
+| Schengen from the UK (Stati) | 25 | 1.327 | 151 | 72 % | 1 | 1 |
+| Schengen from Dubai (Stati) | 24 | 1.393 | 144 | 74 % | 0 | 0 |
+| Who moved where, hub per nazionalità | 22 | 1.630 | 546 | 54 % | 19 | 4 |
+| Thailand DTV | 22 | 939 | 199 | 61 % | 4 | 4 |
+| Nurses abroad | 16 | 1.408 | 333 | 65 % | 2 | 2 |
+| Study in Italy | 14 | 1.212 | 311 | 59 % | 24 | 9 |
+| `/country/` | 13 | 377 | 105 | 52 % | 1 | 1 |
+| Mexico residency | 12 | 978 | 237 | 71 % | 0 | 0 |
+| Cerimonie per Stato (7), livelli SELT (4): nate l'11/11 | 11 | 1.827 / 2.298 | 551 / 396 | 40 / 74 % | 0 | 0 |
+| Home, About, How it works, Contact, privacy | 5 | — | — | — | 67 | 4 |
+
+Quattro sezioni sono "in scala" (stesso modello, centinaia di pagine) e quasi senza lettori: **608 pagine, 28 visite in 4 settimane su 17 pagine**. Le altre sezioni grandi (council, SELT, visti rifiutati) hanno lettori veri da Google e dagli assistenti.
+
+### Cosa è cambiato (1.283 → **788 URL in sitemap**; 508 file di `sito/` diversi, nessuna pagina tolta, nessun 301)
+1. **495 pagine fuori indice** (`fuori_indice()` in `genera.py`, sopra `main()`; visite in `dati/noindex.json`): `<meta name="robots" content="noindex, follow">`, nessun canonical, fuori dalla sitemap, **niente script AdSense** (al suo posto `MON.SEGNO_SENZA_ADSENSE`, come su EsameB1). Restano online, aggiornate e linkate come prima (nessun link tolto, nessuna pagina orfana). Per sezione:
+   - Who moved where, coppie: 290 fuori, **72 in indice** (le 12 con visite + le prime 3 destinazioni di ogni nazionalità, `PRIME_DEST_TR`);
+   - H-1B, occupazione × area: 104 fuori, **20 in indice** (Software Developers e Data Scientists, le due occupazioni delle ricerche salvate: `OCC_DOMANDA_H1`; comprendono le 2 con visite);
+   - Top university, università e Paesi: 69 fuori, **4 in indice** (India e Nigeria, nate dalla domanda; Sweden e Utrecht University, 1 visita);
+   - Schengen from the UK / from Dubai, Stati: 32 fuori, **17 in indice** (8 + 8 Stati nominati nei suggerimenti delle ricerche generali, es. "schengen visa from uk to france"; Belgium dal Regno Unito, 1 visita).
+   Indici, hub per nazionalità, pagine per occupazione, liste HPI/TTPS/J-Find e i due hub Schengen restano tutti in indice.
+2. **AdSense solo dove c'è contenuto** (`pagina()`: `MIN_PAROLE_ADSENSE = 400`, `parole_principali()`): senza script la 404 (prima lo aveva), Contact, 8 pagine `/country/` sotto le 400 parole (Austria, Croatia, Denmark, France, Hungary, Portugal, Spain, Sweden) e `/visa-health-insurance/germany-eu-blue-card/`; restano in indice. Script AdSense su 778 pagine (prima 1.284).
+3. **About**: sezioni nuove "Who runs it" (una persona, dall'Italia, progetto indipendente; il nome resta solo nell'informativa privacy), "What you find here", "How the site is paid for" (pubblicità AdSense e link "Affiliate": la frase segue ciò che è acceso in `monetizzazione.json`). **Contact**: sotto il modulo "What helps us most", "What we cannot do", "Who you are writing to". Nessun fatto nuovo: solo ciò che è già scritto in privacy e How it works.
+4. Nessun segnaposto trovato nel sito (cercati "coming soon", "TODO", "lorem", "N/A").
+
+### Cosa NON è stato toccato, e perché
+- **Pagine dei visti rifiutati** (esperimento A/B fino al 28/12): identiche byte per byte, 36/36 di controllo (controllo 25); nessuna impronta rinnovata.
+- **Council delle cerimonie (166)** e **SELT città/Paesi (80)**: sono le sezioni che crescono su Google (73 e 80 visite, 46 e 35 pagine lette), ogni pagina è nata da suggerimenti veri e risponde con il dato del council o del centro. Tenute in indice con AdSense. Sono il rischio residuo per AdSense (modello 63 % e 78 %): se la richiesta viene rifiutata, il passo successivo è mettere fuori indice i council senza visite dopo 28 giorni.
+- Sezioni piccole con poche visite (Mexico 12, DTV 22, Nurses 16, assicurazione 9, es/pt 62): poche pagine, fonti lette a mano; lasciate.
+- Piè di pagina, menu, `monetizzazione.py`: invariati. Tutte le 776 pagine non elencate sopra sono identiche byte per byte a prima (confronto con la copia fatta prima delle modifiche).
+
+### Per riaprire (dopo l'approvazione o se una pagina prende visite)
+Togliere la riga della sezione da `SEZIONI_IN_SCALA`, oppure aggiungere il percorso a `visite` in `dati/noindex.json` (si rifà la misura GoatCounter su 28 giorni), poi `genera.py` e `verifica.py`. La pagina torna in sitemap con il canonical e lo script AdSense.
+
+### Controlli (12/11/2026)
+- `genera.py`: 788 pagine indicizzabili. `verifica.py --offline`: **TUTTO OK** (3: 1.284 pagine, 0 link rotti; 13: 788 URL con lastmod; 25: 36/36 identiche). Controlli 12, 17, 24, 30, 31 e 33: sitemap e canonical chiesti solo alle pagine in indice. **Controllo 34 nuovo**: elenco ricalcolato dai dati e uguale a quello di `genera.py`; ogni pagina fuori indice con "noindex, follow", senza canonical, sitemap e AdSense, e linkata da una pagina in indice; ogni altra in sitemap con il suo canonical; AdSense assente solo sotto le 400 parole; nessuna pagina dell'A/B o con visite fuori indice; About e Contact. Prova al contrario: 6 errori su 6 segnalati (noindex tolto, AdSense su pagina fuori indice, noindex su pagina in indice, pagina fuori indice in sitemap, titolo di About cambiato, AdSense su Contact).
+- `monetizzazione.py verifica visaincome`: 0 errori (544 link di affiliazione in 329 pagine).
+- Controllo a parte nello scratchpad: 85.895 link interni, 0 rotti, 0 ancore rotte; canonical = URL in tutte le 788 pagine in indice; nessuna pagina noindex in sitemap; un h1 per pagina; nessun titolo o descrizione doppi tra le pagine in indice; nessuna pagina senza link da pagine in indice.
+- Playwright 375 e 1280 px (richieste non-file bloccate) su About, Contact, `/moved-to/vietnamese/finland/`, `/h1b-wage-level/civil-engineers/houston-tx/`, `/country/croatia/`, Utrecht University, `/schengen-visa-from-uk/malta/`, 404: nessuno scorrimento orizzontale, nessun errore JS, robots e script AdSense come attesi.
+
+### Da fare dopo
+- Pubblicare il 13/11. Non chiedere di nuovo la revisione AdSense prima che Google abbia riletto le pagine (le pagine fuori indice escono dalla sitemap subito, dall'indice in giorni o settimane).
+- Tra 28 giorni: rifare la misura GoatCounter e aggiornare `noindex.json`; guardare in Search Console le pagine "Escluse dal tag noindex" e le impressioni delle 72 + 20 + 4 + 17 rimaste.
+
+
+## 12/11/2026 — Riquadro AnchorLess (codice fiscale) nelle pagine di chi si trasferisce in Italia — NON PUBBLICATO (esce con la pubblicazione del 13/11)
+
+**Fatto di partenza**: Massimiliano è stato approvato da AnchorLess (anchorless.io). Programma «Affiliate 5% - AnchorMove»: 5 % su tutti i pagamenti del cliente nei primi 5 mesi; link = qualsiasi pagina di anchorless.io + `?via=massimiliano`; il codice **MASSIMILIANO** dà al cliente il 5 % di sconto su tutti i pagamenti (condizioni comunicate da Massimiliano). Il fronte era già in `studio-business/intelaiatura/fronti-2026-11-11-casa-italia-stranieri.md` (iscrizione allora in attesa).
+
+### Cosa vende davvero per l'Italia (letto il 12/11/2026 con curl, HTTP 200)
+- `anchorless.io/italy`, `/affiliate` («Italy: The codice fiscale, Italy's tax code, applied for from abroad») e `/product/it/codice-fiscale-italy`: **per l'Italia c'è un solo servizio, la Codice Fiscale Assistance**. Nessun servizio per la residenza elettiva, il visto per nomadi digitali o la residenza in Italia (le guide Italia sono solo «residence permits», «EU Blue Card», «moving within the EU»; AnchorMove è una piattaforma gratuita di checklist). Il riquadro quindi parla solo del codice fiscale.
+- Dalla pagina del prodotto (FAQ): richiesta 100 % online da fuori Italia, certificato PDF dell'Agenzia delle Entrate per email; cittadini non UE: passaporto valido **e visto italiano valido**; nessun indirizzo in Italia; consegna standard/express/instant; «AnchorLess is not a bank, accountant, tax advisor, investment advisor, or law firm, nor ... a government». Prezzo letto (149 €, listino 199 €) **non** scritto nelle pagine (regola: niente prezzi che invecchiano).
+- Vie ufficiali, Agenzia delle Entrate, «Tax identification number for foreign citizens» (pagina inglese, letta il 12/11/2026): dall'estero al consolato italiano del Paese di residenza; in Italia la Questura lo assegna con il permesso di soggiorno; negli uffici dell'Agenzia solo su appuntamento e di persona. Il riquadro le dice **prima** del servizio a pagamento (regola del 10/10/2026: il lettore deve sapere che esiste la via ufficiale).
+
+### Cosa è cambiato
+- `dati/affiliati.json`, voce nuova **`_anchorless`**: interruttore `attivo` (come `_hellosafe`), `url` = `https://anchorless.io/product/it/codice-fiscale-italy?via=massimiliano` (la pagina del solo servizio italiano; risponde 200 con il parametro), `codice_sconto` MASSIMILIANO, `sconto_cliente` 5 %, fonte ufficiale con 3 frammenti, 3 frammenti della pagina AnchorLess, note e regole. Per spegnere: `"attivo": false` e `genera.py` (provato: 0 pagine con «anchorless», sito uguale a prima tranne il lastmod delle 20 pagine nel registro).
+- `studio-business/strumenti/monetizzazione.json`: `anchorless.io` aggiunto a `domini_affiliazione` e spiegato in `_domini_affiliazione_reti` (nessun altro sito della rete linka anchorless.io).
+- `genera.py`: `AL_ATTIVO`, `pagine_al()` e `box_al(percorso)` subito dopo `box_affiliati()`; il riquadro si aggiunge in coda a un blocco esistente (nessuna riga vuota nelle altre pagine: i programmi e le pagine Paese non italiani restano identici byte per byte). `ci_sono_affiliati()` conta anche AnchorLess. Privacy: paragrafo «Affiliate links to AnchorLess …».
+- **19 pagine con il riquadro** (tutte in indice, nessuna in `fuori_indice()`): `italy-digital-nomad-visa/` (dopo le fonti, prima di «Other visas»), `country/italy/` (dopo le schede), le 15 di **Study in Italy** (indice, 5 pagine per tema, 9 enti DSU; dopo le FAQ o la griglia degli enti, prima dei link di sezione), le 2 della **flat tax del 7 %** (indice, dopo la frase sul visto di residenza elettiva; regioni, dopo le fonti). Non c'è una pagina «elective residence» nel sito. Lasciate fuori di proposito: pagine es/pt sul visto di studio in Italia (lingua diversa dal riquadro), `/visa-refusal-rates/schengen/italy/` (esperimento A/B), `/schengen-visa-from-uk|dubai/italy/` (visto turistico), `/moved-to/…/italy/` e `/top-university-visas/countries/italy/` (non è chi si trasferisce; la seconda è anche fuori indice).
+- Testo del riquadro (titolo «Get your codice fiscale from abroad», etichetta Affiliate): cos'è il codice fiscale e le vie ufficiali con link all'Agenzia e data; «AnchorLess is a paid service that applies for it for you online, from abroad, and sends you the certificate by email»; per i non UE serve un visto italiano valido, quindi si usa dopo il visto; nessun indirizzo in Italia; «With the code **MASSIMILIANO** you get 5% off.»; pulsante «Get your codice fiscale with AnchorLess» (`rel="sponsored noopener"`, nuova scheda); riga di trasparenza + «AnchorLess says it is not a law firm or a government office. The codice fiscale does not change the decision on your visa or permit, and it does not make you an Italian tax resident.»
+
+### Controlli (12/11/2026)
+- `genera.py`: 788 pagine indicizzabili (invariato). Diverse da prima: le 19 pagine, `privacy.html`, la sitemap (lastmod 2026-11-12 per quelle 20).
+- `verifica.py --offline`: **TUTTO OK**. Controlli 22 (Study in Italy) e 23 (flat tax) guardano le pagine senza il riquadro AnchorLess (`togli_al()`), così le loro regole restano quelle di prima (SafetyWing solo nella pagina dell'assicurazione, nessun altro link sponsorizzato). **Controllo 35 nuovo**: pagine attese ricalcolate = `pagine_al()` = 19; riquadro solo lì e una volta, link = dati (https, anchorless.io, solo `via=massimiliano`), `rel="sponsored noopener"`, Affiliate, riga di trasparenza, vie ufficiali con link e data, «With the code MASSIMILIANO you get 5% off.», nessun prezzo o altra percentuale, nessuna promessa, pagina in sitemap e senza noindex; AnchorLess altrove solo nella privacy (senza link); interruttore = `AL_ATTIVO`; con l'interruttore spento `box_al()` vuoto e nessuna traccia nel sito; online: 3 frammenti dell'Agenzia e 3 di AnchorLess riletti (6/6 il 12/11/2026). Prova al contrario: 5 errori su 5 segnalati (rel senza sponsored, riquadro in una pagina spagnola, `via` sbagliato, prezzo nel riquadro, riga di trasparenza tolta). Interruttore spento: TUTTO OK, 0 pagine con «anchorless».
+- `monetizzazione.py verifica visaincome`: 0 errori (563 link di affiliazione in 348 pagine; prima 544 in 329).
+- Playwright 375 e 1280 px (richieste non-file bloccate) su `italy-digital-nomad-visa/` e `study-in-italy/er-go/`: riquadro presente, link e rel giusti, nessuno scorrimento orizzontale, nessun errore JS.
+
+### Da fare dopo
+- Pubblica insieme alle modifiche AdSense del 13/11 (nessun commit fatto qui).
+- Nel pannello Rewardful di AnchorLess guardare i clic dopo 2-4 settimane; se arrivano vendite, valutare le pagine es/pt del visto di studio per l'Italia (AnchorLess ha /es/ e /pt/) con un riquadro tradotto.
+- Rileggere ogni 3 mesi la pagina del prodotto (frammenti nel controllo 35 online): se AnchorLess aggiunge servizi per l'Italia (residenza, visti), aggiornare il testo e la pagina di destinazione.

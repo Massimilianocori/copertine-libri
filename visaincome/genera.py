@@ -18,7 +18,7 @@ import shutil
 import sys
 from collections import defaultdict
 from datetime import date, timedelta
-from html import escape
+from html import escape, unescape
 from pathlib import Path
 
 RADICE = Path(__file__).resolve().parent
@@ -64,7 +64,7 @@ ADSENSE_HEAD = MON.script_adsense(SITO_ID)  # "" con AdSense spento; altrimenti 
 def ci_sono_affiliati():
     """True se il sito pubblica almeno un link di affiliazione (voce con "url" in dati/affiliati.json e il link SafetyWing delle pagine dei rifiuti):
     accende la sezione privacy sui link di affiliazione. Domini ammessi in monetizzazione.json, controlli in verifica.py."""
-    return any(isinstance(v, dict) and v.get("url") for k, v in AFFILIATI.items() if not k.startswith("_")) or bool(URL_SAFETYWING) or HS_ATTIVO
+    return any(isinstance(v, dict) and v.get("url") for k, v in AFFILIATI.items() if not k.startswith("_")) or bool(URL_SAFETYWING) or HS_ATTIVO or AL_ATTIVO
 
 
 def riquadro_trasparenza(corpo, lingua="en"):
@@ -933,12 +933,27 @@ def entro(varianti, limite):
     raise ValueError(f"nessuna variante entro {limite} caratteri: {varianti[-1]!r} ({len(varianti[-1])})")
 
 
+MIN_PAROLE_ADSENSE = 400   # sotto queste parole di contenuto principale (testata + corpo) la pagina non ha lo script AdSense (12/11/2026)
+
+
+def parole_principali(html):
+    """Parole del contenuto principale: senza script, stili, icone e marcatori."""
+    t = re.sub(r"<(script|style|svg)\b.*?</\1>", " ", html, flags=re.S | re.I)
+    return len(unescape(re.sub(r"<[^>]+>", " ", t)).split())
+
+
 def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, calcolatore=False, jsonld_extra=None, assoluto=False, testata="", ordina=False, script="", css_extra="",
            lingua="en", alternati=None):
     file = percorso if percorso.endswith(".html") else (percorso + "index.html")
     profondita = file.count("/")
     rel = "/" if assoluto else ("../" * profondita or "./")  # 404: link assoluti, Netlify la serve a qualsiasi profondità
     url_pag = URL_SITO + "/" + percorso
+    # 12/11/2026 (sera, richiesta AdSense): le pagine "in scala" senza visite restano online e linkate ma fuori dall'indice (fuori_indice,
+    # più sotto): noindex, follow, nessun canonical, fuori dalla sitemap e senza AdSense. Niente AdSense nemmeno sulle pagine con poco testo.
+    in_scala = indicizza and fuori_indice(percorso)
+    if in_scala:
+        indicizza = False
+    adsense = ADSENSE_HEAD if indicizza and parole_principali(testata + corpo) >= MIN_PAROLE_ADSENSE else MON.script_adsense(SITO_ID, False)
     if indicizza:
         URLS.append(percorso)
     ld = [{"@context": "https://schema.org", "@type": "WebSite", "name": NOME, "url": URL_SITO + "/"}] if percorso == "" else []
@@ -954,7 +969,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
     if jsonld_extra:
         ld += jsonld_extra if isinstance(jsonld_extra, list) else [jsonld_extra]
     ld_html = "".join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>' for x in ld)
-    robots = "" if indicizza else '<meta name="robots" content="noindex">'
+    robots = "" if indicizza else ('<meta name="robots" content="noindex, follow">' if in_scala else '<meta name="robots" content="noindex">')
     canonico = f'<link rel="canonical" href="{url_pag}">' if indicizza else ""
     js = f"<script>{MOTORE_JS}{APP_JS}</script>" if calcolatore else f"<script>{FORM_JS}</script>"
     if ordina:
@@ -976,7 +991,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="google-site-verification" content="{GOOGLE_VERIFICA}">
-<meta name="google-site-verification" content="{GOOGLE_VERIFICA_DOMINIO}">{ADSENSE_HEAD}
+<meta name="google-site-verification" content="{GOOGLE_VERIFICA_DOMINIO}">{adsense}
 <title>{escape(titolo)}</title>
 <meta name="description" content="{escape(descrizione)}">
 {canonico}{alt_html}
@@ -1146,6 +1161,47 @@ def box_affiliati():
             f'<p class="small" style="margin:0">{MON.RIGA_EN}</p></section>')  # riga di trasparenza comune (monetizzazione.py)
 
 
+# ---------------------------------------------------------------- riquadro AnchorLess (12/11/2026)
+# Interruttore _anchorless in dati/affiliati.json ("attivo"). Per l'Italia AnchorLess vende un solo servizio (letto il 12/11/2026 su
+# anchorless.io/italy, /affiliate e /product/it/codice-fiscale-italy): la richiesta del codice fiscale da fuori Italia. Il riquadro dice
+# prima le vie ufficiali (Agenzia delle Entrate, pagina letta lo stesso giorno), poi AnchorLess come servizio a pagamento; nessun prezzo,
+# nessuna promessa su visto, permesso o residenza fiscale. Solo nelle pagine di chi si trasferisce in Italia (PAGINE_AL) e mai in una
+# pagina fuori indice (fuori_indice). Controllo 35 di verifica.py.
+_AL = AFFILIATI.get("_anchorless", {})
+URL_AL = _AL.get("url", "")
+AL_ATTIVO = bool(_AL.get("attivo")) and URL_AL.startswith("https://anchorless.io/") and "via=massimiliano" in URL_AL
+F_AL = _AL.get("fonte_ufficiale", {})
+TITOLO_AL = "Get your codice fiscale from abroad"
+
+
+def pagine_al():
+    """Percorsi con il riquadro AnchorLess: il programma e la pagina Paese dell'Italia, Study in Italy, flat tax del 7%; nessuna fuori indice."""
+    pp = [f"{P['slug']}/" for P in PROG if P["paese_slug"] == "italy"] + ["country/italy/"]
+    pp += [SEZ_IT] + [f"{SEZ_IT}{s}/" for s in ("student-visa-funds", "isee-parificato", "dsu-scholarship-deadlines", "particularly-poor-countries",
+                                              "health-insurance")] + [f"{SEZ_IT}{E['id']}/" for E in ENTI_IT]
+    pp += [SEZ_F7, f"{SEZ_F7}regions/"]
+    return [p for p in pp if not fuori_indice(p)]
+
+
+def box_al(percorso):
+    """Riquadro AnchorLess (codice fiscale): '' con l'interruttore spento o fuori da pagine_al()."""
+    if not AL_ATTIVO or percorso not in pagine_al():
+        return ""
+    return (f'\n<section class="card aff-r" aria-labelledby="aff-al-h"><div class="aff-r-t"><span class="ic">{ico("passport")}</span>'
+            f'<h2 id="aff-al-h">{TITOLO_AL}</h2><span class="aff-tag">Affiliate</span></div>'
+            f'<p>The codice fiscale is Italy\'s 16-character tax code, the number that identifies you with Italian public offices. The Agenzia delle Entrate says '
+            f'that if you live abroad you can ask the Italian consulate in your country for it; in Italy, the police headquarters (Questura) assigns it when you '
+            f'apply for a residence permit, and the Agency\'s offices issue it by appointment, in person (<a href="{escape(F_AL["url"])}" rel="noopener">'
+            f'{escape(F_AL["editore"])}</a>, read on {data_lunga(F_AL["letto_il"])}).</p>'
+            f'<p>AnchorLess is a paid service that applies for it for you online, from abroad, and sends you the certificate by email. Its page says that if '
+            f'you are not an EU citizen you need a valid passport and a valid Italian visa, so you can use it once your visa is issued, and that you do not need '
+            f'an Italian address. With the code <strong>{escape(_AL["codice_sconto"])}</strong> you get 5% off.</p>'
+            f'<p class="aff-r-cta"><a class="btn" href="{escape(URL_AL)}" rel="sponsored noopener" target="_blank">Get your codice fiscale with AnchorLess{ico("arrow")}'
+            f'<span class="sr"> (opens in a new tab)</span></a></p>'
+            f'<p class="small">{MON.RIGA_EN} AnchorLess says it is not a law firm or a government office. The codice fiscale does not change the decision on '
+            f'your visa or permit, and it does not make you an Italian tax resident.</p></section>')
+
+
 # ---------------------------------------------------------------- pagine
 def live_mese(o, a):
     """Importo mensile (per mensilità) convertito, coerente con convertiImporti del JS."""
@@ -1267,7 +1323,7 @@ def pagina_programma(P):
 <h2>Official sources</h2>
 {fonti_html(fonti_prog(P))}
 <p class="small">Spotted a change in the official amount? <a href="{rel}contact/?ref={P['slug']}">Tell us</a>.</p>
-{box_affiliati()}
+{box_affiliati()}{box_al(P['slug'] + '/')}
 {link_sorelle}
 {link_simili}
 <p><a href="{rel}country/{P['paese_slug']}/">All visa income requirements in {escape(P['paese'])}</a> · <a href="{rel}digital-nomad-visa-income-requirements/">Digital nomad visa income requirements {ANNO}</a> · <a href="{rel}work-visa-salary-thresholds/">Work visa salary thresholds {ANNO}</a></p>
@@ -1300,7 +1356,7 @@ def pagina_paese(slug):
 {modulo_calcolatore(rel=rel, paese=nome)}
 {AVVISO}
 {AD}
-<div class="griglia" style="margin-top:20px">{''.join(scheda(p, rel) for p in pp)}</div>
+<div class="griglia" style="margin-top:20px">{''.join(scheda(p, rel) for p in pp)}</div>{box_al('country/' + slug + '/')}
 <p><a href="{rel}">All countries</a> · <a href="{rel}digital-nomad-visa-income-requirements/">Digital nomad visas compared</a></p>
 {link_rifiuti(nome, rel)}
 {link_studio_it({"paese": nome}, rel)}{link_flat7_it({"paese": nome}, rel)}
@@ -1549,8 +1605,18 @@ def pagina_come_funziona():
 def about():
     rel = "../"
     elenco = "".join(f'<h3><a href="{rel}{P["slug"]}/">{escape(nome_prog(P))}</a></h3>{fonti_html(fonti_prog(P))}' for P in PROG)
+    # 12/11/2026: chi gestisce il sito e come si paga (solo ciò che è già scritto nell'informativa privacy; la pubblicità e i link di
+    # affiliazione compaiono nella frase solo se sono accesi)
+    paga = (["advertising served by Google AdSense"] if MON.adsense_attivo(SITO_ID) else []) + (['affiliate links, always marked "Affiliate"'] if ci_sono_affiliati() else [])
+    PAGATO_DA = (f"The site is free to use. It is paid for by {' and by '.join(paga)}." if paga else "The site is free to use and shows no advertising.")
     corpo = f"""<section class="hero"><h1>About {NOME}</h1></section><div class="testo">
 <p>{NOME} is an independent project that turns official visa income rules into a simple calculator, for the main applicant and each family member, in your currency. We are not affiliated with any government, consulate, immigration authority, law firm or visa agency.</p>
+<h2>Who runs it</h2>
+<p>{NOME} is run from Italy by one person, as an independent project: the person responsible is named in the <a href="{rel}privacy.html">privacy notice</a>. There is no company, agency or law firm behind it, and we do not sell visa services or handle applications. You can reach us through the <a href="{rel}contact/?ref=about">contact form</a>.</p>
+<h2>What you find here</h2>
+<p>The <a href="{rel}">calculator</a> covers {len(PROG)} visas and permits in {len(PAESI)} countries. The other sections publish official figures that are hard to find in one place: <a href="{rel}visa-refusal-rates/">visa refusal rates</a>, <a href="{rel}{SEZ_TR}">how many people of each nationality moved to each country</a>, <a href="{rel}uk-english-test/">UK visa English tests</a>, <a href="{rel}{SEZ_CER}">Australian citizenship ceremony wait times</a> and more. <a href="{rel}how-it-works/">How it works</a> explains, section by section, which official files we read, how each number is calculated and when we read the sources again.</p>
+<h2>How the site is paid for</h2>
+<p>{PAGATO_DA} Neither changes the figures: they come from the official sources listed below, and partners never decide what we publish. Details are in the <a href="{rel}privacy.html">privacy notice</a>.</p>
 <h2>Rules we follow</h2>
 <ul><li>Every amount comes from an official source (law, official gazette, ministry, consulate, immigration authority or statistics office). The link and the date we checked it are printed under the figure.</li>
 <li>No blogs, agencies or other visa sites are used as sources. If we cannot read the official rule, the visa is not published.</li>
@@ -1577,7 +1643,17 @@ def contatti():
 <label>Message<textarea name="message" rows="6" required maxlength="4000"></textarea></label>
 <label class="check"><input type="checkbox" name="consent" value="yes" required><span>I have read the <a href="{rel}privacy.html">privacy notice</a>.</span></label>
 <button class="btn" type="submit">Send</button><p class="errore" data-errore hidden>Sorry, it did not work. Please try again.</p></form>
-<div class="ok" data-ok hidden><strong>Thank you.</strong> We will check the official source and reply by email.</div></section>"""
+<div class="ok" data-ok hidden><strong>Thank you.</strong> We will check the official source and reply by email.</div></section>
+<div class="testo">
+<h2>What helps us most</h2>
+<ul><li><strong>The page</strong> where you saw the figure, and the figure you think is wrong or out of date.</li>
+<li><strong>The official source</strong> that shows the new amount: a law, an official gazette, a ministry, consulate or immigration authority page. We change a figure only after reading it there ourselves; blogs, agencies and forums are not enough.</li>
+<li><strong>A visa or a country to add</strong>: tell us which one and, if you know it, where the official rule is published.</li></ul>
+<h2>What we cannot do</h2>
+<p>We cannot assess your documents, say whether your application will be approved or follow a case for you. {NOME} is an independent information site: we are not a government office, a consulate, a law firm or a visa agency, and we take no applications or payments. For your own case, ask the consulate or the immigration authority that decides it, or a registered immigration adviser or lawyer.</p>
+<h2>Who you are writing to</h2>
+<p>The site is run from Italy by one person as an independent project (see <a href="{rel}about/">About</a>). Your message is used only to answer you and to correct the site, as explained in the <a href="{rel}privacy.html">privacy notice</a>. How each figure is calculated and where it comes from is in <a href="{rel}how-it-works/">How it works</a>.</p>
+</div>"""
     pagina("contact/", f"Contact | {NOME}", f"Contact {NOME}: report a change in an official visa income requirement or ask for a visa.", corpo,
            briciole=[("Contact", "contact/")])
 
@@ -1601,6 +1677,11 @@ def privacy():
     if cookie and URL_ITALKI:
         cookie += ("\n<p>Affiliate links to italki (online English teachers) appear in the box marked “Affiliate” on the UK visa English test pages. "
                    "Lessons do not change your test result or the decision on your visa.</p>")
+    if cookie and AL_ATTIVO:
+        cookie += ("\n<p>Affiliate links to AnchorLess (a paid service that applies for the Italian codice fiscale for you from abroad) appear in the box marked "
+                   "“Affiliate” on the Italy digital nomad visa, Study in Italy and Italy 7% flat tax pages: our site sets no cookie for them, but if you click one "
+                   "you go to AnchorLess's website, which uses its own cookies under its own privacy policy and tells AnchorLess that you came from us. "
+                   "Using the service does not change the decision on your visa or permit.</p>")
     cookie = cookie or f"""<h2>Cookies, visit counter{' and affiliate links' if URL_SAFETYWING else ''}</h2><p>This site does not use profiling cookies. To count visits we use <a href="https://www.goatcounter.com/" rel="noopener">GoatCounter</a>, a privacy-friendly counter: it sets no cookies and stores nothing in your browser, builds no profiles and does not store your IP address, your full browser signature or any identifier. It keeps only aggregate numbers (page, hour or day, browser, country, screen width) on servers in the European Union and shares nothing with third parties; see <a href="https://www.goatcounter.com/help/privacy" rel="noopener">GoatCounter's privacy policy</a>.{FRASE_SW} If we add advertising in the future, we will update this notice and ask for your consent where required before any advertising cookies are used.</p>"""
     corpo = f"""<section class="hero"><h1>Privacy notice</h1><p class="small">Last updated: October 2026</p></section><div class="testo">
 <h2>Who is responsible</h2><p>The data controller is Massimiliano Cori (Italy), who runs {NOME} as an independent project. You can contact us through the <a href="contact/">contact form</a>.</p>
@@ -8362,7 +8443,7 @@ def pagina_it_indice():
 <h2>Questions people ask</h2>
 <div class="testo">{faq_html(domande)}</div>
 <h2>Agency pages</h2>
-{griglia_enti_it("")}
+{griglia_enti_it("")}{box_al(percorso)}
 <h2>More on studying in Italy</h2>
 {link_tema_it("", "")}
 <p><a href="{rel}italy-digital-nomad-visa/">Italy digital nomad visa income</a> · <a href="{rel}{SEZ_GRAD}">UK Graduate visa</a> · <a href="{rel}{SEZ_OPT}">US OPT</a> · <a href="{rel}{SEZ}">Schengen visa refusal rates</a></p>"""
@@ -8417,7 +8498,7 @@ def pagina_it_mezzi():
 <p>When you apply for the permit you must show health cover for medical care and hospital stays: a consular declaration under a health agreement between Italy and your country, or a policy with no limits on urgent hospital care for the whole stay. Once you hold a study permit, the law also lets you register voluntarily with the National Health Service (SSN), for at least {eur(LIT["ssn_minimo"])} a year. <a href="../health-insurance/">The options in detail</a>.</p>
 {fonte_it_p(("circolare", "ssn"))}
 <h2>Questions people ask</h2>
-<div class="testo">{faq_html(domande)}</div>
+<div class="testo">{faq_html(domande)}</div>{box_al(percorso)}
 {link_tema_it("../", "student-visa-funds/")}"""
     titolo = f"Italy student visa bank balance 2026/27: {eur(LIT['mezzi'])} a year"
     descr = (f"Italian student visa 2026/27: {eur(LIT['mezzi'])} a year of funds (MUR procedures), in USD, INR, PKR, BDT, NGN and more; visa deadline "
@@ -8488,7 +8569,7 @@ def pagina_it_isee():
 {fonte_it_p(("ergo", "disco", "unimi"))}
 <p class="small">Students from countries on the <a href="../particularly-poor-countries/">particularly poor list</a> bring a certificate from the Italian embassy instead of the income documents. ER.GO and DSU Toscana warn that they have authorised no paid agents or intermediaries; at DiSCo the CAFs with an agreement assist students for free.</p>
 <h2>Questions people ask</h2>
-<div class="testo">{faq_html(domande)}</div>
+<div class="testo">{faq_html(domande)}</div>{box_al(percorso)}
 {link_tema_it("../", "isee-parificato/")}"""
     titolo = "ISEE parificato 2026/27: formula, documents and calculator"
     descr = (f"How the ISEE parificato is calculated for international students in Italy: income + 20% of assets, buildings at {eur(500)}/m², equivalence scale; "
@@ -8544,7 +8625,7 @@ def pagina_it_scadenze():
 <h2>Questions people ask</h2>
 <div class="testo">{faq_html(domande)}</div>
 <h2>Agency pages</h2>
-{griglia_enti_it("../")}
+{griglia_enti_it("../")}{box_al(percorso)}
 {link_tema_it("../", "dsu-scholarship-deadlines/")}"""
     titolo = "DSU scholarship Italy 2026/27: deadlines and amounts by region"
     descr = (f"DSU scholarship deadlines 2026/27 in Italy, agency by agency ({scad_testo(prima, True)} to {scad_testo(ultima, True)}), document deadlines still open "
@@ -8585,7 +8666,7 @@ def pagina_it_poveri():
 {fonte_it_p(("ergo", "dsut", "disco", "polimi", "palermo", "catania", "adisurc"))}
 <p class="small">The Ministry draws up the list every year with the Foreign Ministry, starting from the OECD list of countries that receive development aid. If your family lives in a country that is not on it, you need the <a href="../isee-parificato/">ISEE parificato</a>. ER.GO also accepts the certificate from students coming from areas affected by conflict or humanitarian crises not on the list.</p>
 <h2>Questions people ask</h2>
-<div class="testo">{faq_html(domande)}</div>
+<div class="testo">{faq_html(domande)}</div>{box_al(percorso)}
 {link_tema_it("../", "particularly-poor-countries/")}"""
     titolo = "Particularly poor countries 2026/27: list for Italian scholarships"
     descr = (f"The {len(POVERI_IT)} particularly poor countries of MUR Ministerial Decree 176/2026 (Bangladesh, Nepal, Ethiopia and more): what DSU scholarship calls ask "
@@ -8625,7 +8706,7 @@ def pagina_it_salute():
 {fonte_it_p(("circolare", "ssn"))}
 {box_assicurazione_it(rel)}
 <h2>Questions people ask</h2>
-<div class="testo">{faq_html(domande)}</div>
+<div class="testo">{faq_html(domande)}</div>{box_al(percorso)}
 {link_tema_it("../", "health-insurance/")}"""
     titolo = f"Italy student visa health insurance: SSN {eur(LIT['ssn_minimo'])} or a policy"
     descr = (f"Health cover for the Italian study permit: the three forms in the 2026/27 MUR procedures (consular declaration or a policy with no limits on urgent "
@@ -8709,7 +8790,7 @@ def pagina_it_ente(E):
 <h2>Questions people ask</h2>
 <div class="testo">{faq_html(domande)}</div>
 <h2>{"Other calls in " + escape(E["regione"]) if altri_regione else "Other agencies"}</h2>
-{griglia_enti_it("../", E["id"])}
+{griglia_enti_it("../", E["id"])}{box_al(percorso)}
 {link_tema_it("../")}"""
     t = f"{E['nome']} scholarship 2026/27: ISEE limit, amount and deadline"
     if len(t) > 70:
@@ -9110,7 +9191,7 @@ def pagina_f7_indice():
 <div class="testo">{faq_html(domande)}</div>
 <h2>Sources</h2>
 {fonti_elenco_f7()}
-<p class="small">To live in Italy as a pensioner from outside the EU you also need the right visa and residence permit (usually the elective residence visa). We do not show an income amount for that visa because the official rules set no fixed figure.</p>
+<p class="small">To live in Italy as a pensioner from outside the EU you also need the right visa and residence permit (usually the elective residence visa). We do not show an income amount for that visa because the official rules set no fixed figure.</p>{box_al(percorso)}
 <h2>More on Italy</h2>
 {link_f7("../")}"""
     titolo = "Italy 7% flat tax for foreign pensioners: rules and town check"
@@ -9182,7 +9263,7 @@ def pagina_f7_regioni():
 <div class="testo">{faq_html(domande)}</div>
 <p><a href="../">Italy 7% flat tax: who can use it, which population year counts, what changes in 2027</a></p>
 <h2>Sources</h2>
-{fonti_elenco_f7()}
+{fonti_elenco_f7()}{box_al(percorso)}
 <h2>More on Italy</h2>
 {link_f7("../../")}"""
     titolo = "Italy 7% tax regions and earthquake towns: 2026 population check"
@@ -15643,6 +15724,57 @@ def controlli_ass():
     if URL_SW_SALUTE and not URL_SW_SALUTE.startswith("https://safetywing.com/"):
         errori.append("assicurazione: link SafetyWing non valido (_safetywing_salute)")
     return errori
+
+
+# ---------------------------------------------------------------- Pagine "in scala" fuori dall'indice (12/11/2026, sera)
+# Motivo: AdSense ha rifiutato il sito fratello EsameB1 per «contenuti di scarso valore» (pagine città fatte con un modello) e
+# visaincomechecker.com è in revisione. Le quattro sezioni fatte di molte pagine con lo stesso modello e quasi senza visite in 28 giorni
+# (dati/noindex.json: GoatCounter 15/10-11/11/2026, somma dei due host) restano online, linkate e aggiornate, ma fuori dall'indice:
+# <meta name="robots" content="noindex, follow">, nessun canonical, fuori dalla sitemap, niente AdSense (lo fa pagina()).
+# Restano in indice, con AdSense, solo:
+#   - le pagine con almeno una visita nel periodo (noindex.json → "visite");
+#   - Who moved where, nazionalità × Paese: le prime 3 destinazioni di ogni nazionalità (i numeri più grandi);
+#   - H-1B, occupazione × area: le occupazioni nominate nelle ricerche salvate ("software engineer", "data scientist");
+#   - Top university visas: India e Nigeria (pagine nate dalla domanda, PAESI_ZERO_TU);
+#   - Schengen visa from the UK / from Dubai: gli Stati nominati nei suggerimenti delle ricerche generali ("schengen visa from uk to france").
+# Indici, hub per nazionalità, pagine per occupazione e liste restano tutti in indice. Per riaprire una sezione dopo l'approvazione:
+# togliere la sua riga da SEZIONI_IN_SCALA (o aggiungere pagine a "visite") e rigenerare; verifica.py (controllo 34) ricalcola l'elenco.
+NOINDEX = json.loads((DATI / "noindex.json").read_text(encoding="utf-8"))
+SEZIONI_IN_SCALA = {
+    "moved-to": re.compile(r"^moved-to/[^/]+/[^/]+/$"),
+    "h1b": re.compile(r"^h1b-wage-level/[^/]+/[^/]+/$"),
+    "top-university": re.compile(r"^top-university-visas/(universities|countries)/[^/]+/$"),
+    "schengen-residenti": re.compile(r"^schengen-visa-from-(uk|dubai)/[^/]+/$"),
+}
+PRIME_DEST_TR = 3                       # destinazioni per nazionalità che restano in indice
+OCC_DOMANDA_H1 = ("15-1252", "15-2051")  # Software Developers ("software engineer" nelle ricerche salvate) e Data Scientists
+_TIENI = None
+
+
+def stati_domanda_sr(P):
+    """Stati nominati nei suggerimenti delle ricerche generali del Paese di residenza (non quelle fatte con il nome dello Stato)."""
+    q = SR["domanda"]["query"]
+    gl = RES[P]["gl"] + "|"
+    sugg = [x for k, v in q.items() if k.startswith(gl) and k[len(gl):].startswith(("schengen", "easiest")) for x in v]
+    return [s for s in SR_PAG[P] if any(re.search(r"\b" + re.escape(s.lower()) + r"\b", x) for x in sugg)]
+
+
+def in_indice_scala():
+    """Percorsi delle sezioni in scala che restano in indice (visite misurate + regole scritte sopra)."""
+    global _TIENI
+    if _TIENI is None:
+        t = {p for p, n in NOINDEX["visite"].items() if n >= NOINDEX["soglia_visite"]}
+        t |= {f"{SEZ_TR}{NAZ_TR[c][0]}/{d}/" for c in NAZ_TR for d in COPPIE_TR[c][:PRIME_DEST_TR]}
+        t |= {perc_coppia_h1(s, a) for s in OCC_DOMANDA_H1 for a in COPPIE_H1.get(s, [])}
+        t |= {perc_paese_tu(p) for p in PAESI_ZERO_TU}
+        t |= {f'{RES[P]["sez"]}{slug_testo(s)}/' for P in RES for s in stati_domanda_sr(P)}
+        _TIENI = t
+    return _TIENI
+
+
+def fuori_indice(percorso):
+    """True se la pagina è di una sezione in scala e non è tra quelle che restano in indice."""
+    return any(r.match(percorso) for r in SEZIONI_IN_SCALA.values()) and percorso not in in_indice_scala()
 
 
 def main():

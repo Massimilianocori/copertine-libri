@@ -88,5 +88,35 @@
     "nota": "Usato SOLO nelle pagine per nomadi della sezione Health insurance for visas (Portogallo D8 e Thailandia DTV; box_sw_ass in genera.py), al posto di HelloSafe: mai due riquadri assicurativi nella stessa pagina. Stesso referenceID 26614957 del link attivo (_safetywing_schengen), campagna visa-health-insurance per contare i clic a parte (7/11/2026).",
     "attivo_dal": "2026-11-07",
     "regole": "rel=\"sponsored noopener\", etichetta Affiliate, riga di trasparenza; riporta la FAQ SafetyWing (nessuna garanzia di accettazione). Per spegnerlo: url vuoto e rigenerare."
+  },
+  "_anchorless": {
+    "attivo": true,
+    "nome": "AnchorLess",
+    "url": "https://anchorless.io/product/it/codice-fiscale-italy?via=massimiliano",
+    "via": "massimiliano",
+    "codice_sconto": "MASSIMILIANO",
+    "sconto_cliente": "5 %",
+    "programma": "Affiliate 5% - AnchorMove: 5 % su tutti i pagamenti del cliente nei primi 5 mesi; il codice MASSIMILIANO dà al cliente il 5 % di sconto su tutti i pagamenti (condizioni del programma comunicate da Massimiliano il 12/11/2026, approvazione AnchorLess). Link: qualsiasi pagina di anchorless.io + ?via=massimiliano.",
+    "attivo_dal": "2026-11-12",
+    "letto_il": "2026-11-12",
+    "servizi_italia_letti": "Letto il 12/11/2026 su anchorless.io/italy, /affiliate («Italy: The codice fiscale, Italy's tax code, applied for from abroad») e /product/it/codice-fiscale-italy: per l'Italia l'unico servizio in vendita è la Codice Fiscale Assistance (nessun servizio per visto di residenza elettiva, visto per nomadi digitali o residenza in Italia). Dalla pagina del prodotto: richiesta online da fuori Italia, certificato PDF dell'Agenzia delle Entrate per email, cittadini non UE: passaporto valido + visto italiano valido; nessun indirizzo in Italia; «not a bank, accountant, tax advisor, investment advisor, or law firm, nor ... a government». Prezzo letto (149 €, listino 199 €) NON scritto nelle pagine.",
+    "fonte_ufficiale": {
+      "url": "https://www.agenziaentrate.gov.it/portale/web/english/nse/individuals/tax-identification-number-for-foreign-citizens",
+      "titolo": "Tax identification number for foreign citizens",
+      "editore": "Agenzia delle Entrate",
+      "letto_il": "2026-11-12",
+      "frammenti": [
+        "Non-resident individuals who need to obtain the tax identification number can apply for it to the Italian consular authorities in the Country of residence.",
+        "Police headquarters assign the tax identification number to foreign nationals who require either the issuance or the renewal of a residence permit.",
+        "must book an in-person appointment at the office"
+      ]
+    },
+    "frammenti_anchorless": [
+      "If you are not an EU citizen, you need a valid Italian visa.",
+      "You don't need an Italian address.",
+      "AnchorLess is not a bank, accountant, tax advisor, investment advisor, or law firm"
+    ],
+    "nota": "INTERRUTTORE del riquadro AnchorLess «Get your codice fiscale from abroad» (box_al in genera.py, 12/11/2026): con 'attivo': false le pagine escono senza riquadro e senza alcun link ad anchorless.io (verifica.py, controllo 35). Solo nelle pagine di chi si trasferisce in Italia e sono in indice: programma italy-digital-nomad-visa, country/italy, le 16 pagine di Study in Italy, le 2 della flat tax del 7 % (PAGINE_AL in genera.py). MAI nelle pagine fuori indice (fuori_indice), nelle pagine dell'esperimento /visa-refusal-rates/ né nelle sezioni es/pt.",
+    "regole": "rel=\"sponsored noopener\", etichetta Affiliate, riga di trasparenza; prima le vie ufficiali (consolato, Questura, uffici dell'Agenzia), poi AnchorLess come servizio a pagamento; nessun prezzo, nessuna promessa su visto, permesso o residenza fiscale; il codice sconto descritto solo come «5% off». Per spegnere: 'attivo': false e rigenerare."
   }
 }

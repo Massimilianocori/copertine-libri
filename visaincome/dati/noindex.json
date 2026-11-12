@@ -1,0 +1,37 @@
+{
+ "_nota": "Pagine 'in scala' tenute fuori dall'indice di Google (12/11/2026, revisione per la richiesta AdSense di visaincomechecker.com). Le pagine restano online e linkate: hanno <meta name=\"robots\" content=\"noindex, follow\">, nessun canonical, non sono in sitemap e non hanno lo script AdSense. La regola sta in genera.py (fuori_indice): qui ci sono solo le visite misurate, cioè le pagine che restano in indice perché qualcuno le ha lette. Per rifare la misura: GoatCounter stats/hits con exclude_paths, somma di /visaincomechecker.com e /visa-income-checker.netlify.app; poi aggiornare 'visite' e le date qui sotto e rigenerare.",
+ "misurato_il": "2026-11-12",
+ "periodo": {
+  "dal": "2026-10-15",
+  "al": "2026-11-11",
+  "fonte": "GoatCounter rete-siti, stats/hits (somma dei due host)"
+ },
+ "sezioni": [
+  "moved-to/<nazionalità>/<Paese>/",
+  "h1b-wage-level/<occupazione>/<area>/",
+  "top-university-visas/universities/<università>/",
+  "top-university-visas/countries/<Paese>/",
+  "schengen-visa-from-uk/<Stato>/",
+  "schengen-visa-from-dubai/<Stato>/"
+ ],
+ "soglia_visite": 1,
+ "visite": {
+  "h1b-wage-level/data-scientists/chicago-il/": 1,
+  "h1b-wage-level/data-scientists/seattle-wa/": 1,
+  "moved-to/australians/switzerland/": 3,
+  "moved-to/british/canada/": 1,
+  "moved-to/british/france/": 1,
+  "moved-to/indians/canada/": 2,
+  "moved-to/indians/germany/": 1,
+  "moved-to/indians/ireland/": 5,
+  "moved-to/indians/italy/": 2,
+  "moved-to/nigerians/portugal/": 1,
+  "moved-to/pakistanis/germany/": 4,
+  "moved-to/pakistanis/italy/": 1,
+  "moved-to/pakistanis/portugal/": 1,
+  "moved-to/pakistanis/sweden/": 1,
+  "schengen-visa-from-uk/belgium/": 1,
+  "top-university-visas/countries/sweden/": 1,
+  "top-university-visas/universities/utrecht-university/": 1
+ }
+}
