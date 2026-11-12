@@ -7,6 +7,8 @@
 
 **VIA LIBERA PERMANENTE (Massimiliano, 12/11/2026): "quando trovi l'opportunità mi devi solo informare, tanto io dico sì a tutto quello che porta guadagno" e "l'espansione totale dobbiamo fare, anche in altre cose".** Ogni opportunità che passa le 4 prove (o la verifica indipendente, per i siti nuovi) si costruisce subito senza chiedere: a Massimiliano si scrive solo per informarlo, in breve. Restano da chiedere solo: spese di denaro, azioni che può fare solo lui (account, firme, domini), e i vincoli di sicurezza di sempre.
 
+**Regola "medicina esclusa" del 9/10 TOLTA (Massimiliano, 12/11/2026: "la regola è che si costruisce qualsiasi cosa che porta guadagno").** Sanità e farmaci sono ammessi con questi vincoli: solo dati ufficiali con la fonte accanto, nessun consiglio medico né diagnosi, frase fissa "chiedi al medico o al farmacista", nessuna pubblicità di farmaci con ricetta (legge 145/2018 e norme sulla pubblicità sanitaria), revisore indipendente su ogni cifra.
+
 **Lezione del 10/11/2026 (tre verifiche, tre ridimensionamenti):** le stime dei ricercatori sono state troppo ottimiste (furti di dati 4.600 → 2.100, libri di testo 3.800 → 1.900, filtri 4.500 → 400) perché non leggevano i concorrenti. Da ora ogni ricercatore, PRIMA di stimare, legge le pagine dei 3 concorrenti più probabili per 5 esempi concreti e scrive cosa manca a loro; senza un vuoto dimostrato il voto massimo è 5. E prima di costruire un sito nuovo servono le 4 prove (domanda, dati leggibili, pagatore attivo, nessuno che fa già meglio), con verificatore indipendente (Massimiliano: "non voglio che crei cose che portano a nulla").
 
 Da controllare PRIMA di proporre un business, non dopo.
