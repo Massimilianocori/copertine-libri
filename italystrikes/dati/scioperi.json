@@ -910,7 +910,7 @@
   "note": "REVOCATO (CGSSE)",
   "stato": "revocato",
   "visto_prima": "2026-11-03",
-  "visto_ultimo": "2026-11-11",
+  "visto_ultimo": "2026-11-12",
   "modifiche": [
    {
     "il": "2026-11-11",
@@ -964,10 +964,23 @@
   "proclamazione": "2026-10-14",
   "ricezione": "14/10/2026",
   "note": "",
-  "stato": "in programma",
+  "stato": "revocato",
   "visto_prima": "2026-10-14",
   "visto_ultimo": "2026-10-23",
-  "modifiche": []
+  "modifiche": [
+   {
+    "il": "2026-11-12",
+    "campi": {
+     "stato": [
+      "in programma",
+      "revocato"
+     ]
+    },
+    "fonte": "cgsse",
+    "url": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/382078"
+   }
+  ],
+  "revoca_cgsse": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/382078"
  },
  "cgsse-382962": {
   "id": "cgsse-382962",
@@ -985,7 +998,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-11-06",
-  "visto_ultimo": "2026-11-11",
+  "visto_ultimo": "2026-11-12",
   "modifiche": [],
   "fonte": "cgsse",
   "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/382962",
@@ -1046,7 +1059,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-11-06",
-  "visto_ultimo": "2026-11-11",
+  "visto_ultimo": "2026-11-12",
   "modifiche": [
    {
     "il": "2026-11-11",
@@ -1079,7 +1092,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-11-07",
-  "visto_ultimo": "2026-11-11",
+  "visto_ultimo": "2026-11-12",
   "modifiche": [],
   "fonte": "cgsse",
   "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/383015",
@@ -1102,7 +1115,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-11-10",
-  "visto_ultimo": "2026-11-11",
+  "visto_ultimo": "2026-11-12",
   "modifiche": [],
   "fonte": "cgsse",
   "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/383057",
@@ -1157,7 +1170,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-29",
-  "visto_ultimo": "2026-11-11",
+  "visto_ultimo": "2026-11-12",
   "modifiche": [
    {
     "il": "2026-11-05",
@@ -1228,7 +1241,7 @@
   "note": "REVOCATO (CGSSE)",
   "stato": "revocato",
   "visto_prima": "2026-11-03",
-  "visto_ultimo": "2026-11-11",
+  "visto_ultimo": "2026-11-12",
   "modifiche": [
    {
     "il": "2026-11-10",
@@ -1294,7 +1307,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-11-04",
-  "visto_ultimo": "2026-11-11",
+  "visto_ultimo": "2026-11-12",
   "modifiche": [],
   "fonte": "cgsse",
   "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/382773",
