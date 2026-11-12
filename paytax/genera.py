@@ -30,7 +30,8 @@ import stile  # noqa: E402
 
 URL_SITO = "https://payrolltaxbystate.com"  # unico punto da cambiare se il nome del sito su Netlify è diverso
 NOME = "Payroll Tax by State"
-GOOGLE_VERIFICA = "btXTQU_vAoe1K9f3q-43GisAXTiyKQCYcShozNhrAgI"  # Search Console (stesso account degli altri siti)
+GOOGLE_VERIFICA = "btXTQU_vAoe1K9f3q-43GisAXTiyKQCYcShozNhrAgI"
+GOOGLE_VERIFICA_2 = "fCopHfbOO5n6WfdF7-ZnrX4BCGXMGDkT_Qfsb4lKR4o"  # Search Console, tag della proprietà nuova (12/11/2026 sera): non rimuoverlo  # Search Console (stesso account degli altri siti)
 GOATCOUNTER_URL = "https://rete-siti.goatcounter.com/count"  # contatore condiviso della rete, senza cookie
 SCRIPT_CONTATORE = ('<script>window.goatcounter={path:function(p){return location.host+p}}</script>'
                     f'<script data-goatcounter="{GOATCOUNTER_URL}" async src="https://gc.zgo.at/count.js"></script>')
@@ -221,7 +222,8 @@ def pagina(percorso, titolo, descrizione, corpo, testata="", briciole=None, json
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="google-site-verification" content="{GOOGLE_VERIFICA}">{ADSENSE_HEAD}
+<meta name="google-site-verification" content="{GOOGLE_VERIFICA}">
+<meta name="google-site-verification" content="{GOOGLE_VERIFICA_2}">{ADSENSE_HEAD}
 <title>{h(titolo)}</title>
 <meta name="description" content="{h(descrizione)}">
 {f'<link rel="canonical" href="{url_pag}">' if indicizza else '<meta name="robots" content="noindex">'}
