@@ -1,0 +1,27 @@
+{
+ "_nota": "Volumi medi mensili di ricerca su Google in Italia (Google Ads, letti con api.seodata.dev) e costo per clic. Misure del 12/11/2026 riportate in studio-business/intelaiatura/fronti-2026-11-12-volumi-prima.md (famiglia 1). Il 12/11/2026 sera la quota dello strumento era esaurita (risposta 429, con e senza chiave): gli altri mestieri restano da misurare. Una pagina «codice ATECO per mestiere» si pubblica solo per i mestieri con almeno un volume qui.",
+ "misurato_il": "2026-11-12",
+ "fonte": "studio-business/intelaiatura/fronti-2026-11-12-volumi-prima.md",
+ "frasi": {
+  "codice ateco": {"volume": 40500, "cpc_eur": 2.77},
+  "codici ateco 2025": {"volume": 18100, "cpc_eur": 1.80},
+  "ateco 2025": {"volume": 9900, "cpc_eur": 1.30},
+  "nuovi codici ateco 2025": {"volume": 8100, "cpc_eur": 0.10},
+  "codici istat ateco": {"volume": 2900, "cpc_eur": 2.58},
+  "codici ateco 2025 elenco": {"volume": 1600, "cpc_eur": 1.47},
+  "coefficiente di redditività": {"volume": 1900, "cpc_eur": null},
+  "coefficiente di redditività per codice ateco": {"volume": 480, "cpc_eur": null},
+  "coefficiente di redditività forfettario": {"volume": 590, "cpc_eur": null},
+  "codice ateco parrucchiere": {"volume": 1300, "cpc_eur": 0},
+  "codice ateco ristorante": {"volume": 720, "cpc_eur": 0},
+  "codice ateco ristorazione": {"volume": 590, "cpc_eur": 0},
+  "codice ateco 56.10.11": {"volume": 590, "cpc_eur": 0},
+  "codice ateco pizzeria": {"volume": 390, "cpc_eur": 0},
+  "codice ateco e-commerce": {"volume": 480, "cpc_eur": null},
+  "codice ateco vendita online": {"volume": 390, "cpc_eur": null}
+ },
+ "da_misurare": ["codice ateco estetista", "codice ateco idraulico", "codice ateco elettricista", "codice ateco fotografo", "codice ateco b&b",
+  "codice ateco affittacamere", "codice ateco affitti brevi", "codice ateco consulente", "codice ateco bar", "codice ateco muratore",
+  "codice ateco giardiniere", "codice ateco ncc", "codice ateco influencer", "codice ateco personal trainer", "codice ateco psicologo",
+  "codice ateco agente di commercio", "codice ateco avvocato", "codice ateco architetto", "codice ateco geometra", "codice ateco fisioterapista"]
+}

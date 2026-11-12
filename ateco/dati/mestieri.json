@@ -1,0 +1,42 @@
+{
+ "_nota": "Pagine «codice ATECO per mestiere». Si pubblica una pagina solo se almeno una frase in «frasi» ha un volume in dati/volumi.json (regola del 12/11/2026). «codici»: i codici ATECO 2025 che la pagina indica, con le note ISTAT che lo giustificano (genera.py le cita parola per parola e verifica.py le ritrova nel file ISTAT). «vecchi»: codici ATECO 2022 di partenza mostrati con la tavola di raccordo. «vicini»: codici da non confondere. Nessun consiglio: la scelta del codice si verifica con il commercialista o la Camera di commercio.",
+ "mestieri": [
+  {
+   "slug": "codice-ateco-parrucchiere",
+   "nome": "parrucchiere e barbiere",
+   "titolo": "Codice ATECO parrucchiere e barbiere 2025: 96.21.00",
+   "h1": "Codice ATECO per parrucchiere e barbiere",
+   "descrizione": "Il codice ATECO 2025 di parrucchieri e barbieri è 96.21.00: cosa include secondo ISTAT, il vecchio 96.02.01 e il coefficiente del forfettario.",
+   "frasi": ["codice ateco parrucchiere"],
+   "codici": ["96.21.00"],
+   "vecchi": ["96.02.01"],
+   "vicini": ["96.22.01", "96.22.09", "96.23.99"],
+   "intro": "Per ISTAT parrucchieri e barbieri hanno un codice ATECO 2025 proprio, lo stesso per uomo e donna: 96.21.00 «Servizi di parrucchieri e barbieri». Sostituisce il codice ATECO 2022 96.02.01 con una corrispondenza uno a uno."
+  },
+  {
+   "slug": "codice-ateco-ristorante",
+   "nome": "ristorante e pizzeria",
+   "titolo": "Codice ATECO ristorante e pizzeria 2025: 56.11.11 e 56.11.12",
+   "h1": "Codice ATECO per ristorante e pizzeria",
+   "descrizione": "Ristoranti e pizzerie con servizio al tavolo: 56.11.11; senza servizio al tavolo o da asporto: 56.11.12. Note ISTAT, vecchio 56.10.11 e forfettario.",
+   "frasi": ["codice ateco ristorante", "codice ateco ristorazione", "codice ateco 56.10.11", "codice ateco pizzeria"],
+   "codici": ["56.11.11", "56.11.12"],
+   "vecchi": ["56.10.11", "56.10.20", "56.10.30"],
+   "vicini": ["56.11.21", "56.11.22", "56.11.23", "56.11.24", "56.12.01", "56.21.01", "56.22.01", "56.30.01"],
+   "intro": "In ATECO 2025 la ristorazione «fissa» sta nella classe 56.11 «Attività di ristoranti». Per ristoranti e pizzerie la scelta è tra due sottocategorie: con servizio al tavolo (56.11.11) e senza servizio al tavolo o da asporto (56.11.12). Gelaterie e pasticcerie hanno codici a parte (56.11.21-56.11.24)."
+  },
+  {
+   "slug": "codice-ateco-e-commerce",
+   "nome": "e-commerce e vendita online",
+   "titolo": "Codice ATECO e-commerce 2025: si sceglie dal prodotto venduto",
+   "h1": "Codice ATECO per e-commerce e vendita online",
+   "descrizione": "Con ATECO 2025 il vecchio 47.91.10 (vendita via internet) non c'è più: il codice dipende da cosa vendi. Le 96 corrispondenze ISTAT e i marketplace.",
+   "frasi": ["codice ateco e-commerce", "codice ateco vendita online"],
+   "codici": [],
+   "vecchi": ["47.91.10"],
+   "vicini": ["47.91.10", "47.91.20", "47.92.39"],
+   "tipo": "ecommerce",
+   "intro": "Fino al 31 marzo 2025 la vendita online aveva un codice ATECO 2022 proprio: 47.91.10 «Commercio al dettaglio di qualsiasi tipo di prodotto effettuato via internet». In ATECO 2025 non c'è più un codice per la vendita via internet in sé: ISTAT classifica il commercio al dettaglio in base ai beni venduti, non al canale. Il numero 47.91.10 c'è ancora, ma oggi indica un'altra attività: l'intermediazione (marketplace) di articoli di seconda mano."
+  }
+ ]
+}

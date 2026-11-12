@@ -1,0 +1,5 @@
+{
+ "_nota": "Riquadro «Strumenti per la partita IVA» (spento). Compare solo per le voci con url non vuoto e solo nelle pagine «cosa cambia», coefficienti e mestieri. Inserire gli URL tracciati che arrivano dopo l'iscrizione al programma (la fa il titolare dei siti) e aggiungere il dominio dei link in studio-business/strumenti/monetizzazione.json (domini_affiliazione). Mai inventare URL o cifre: nessuna commissione è stata letta al 12/11/2026.",
+ "fiscozen": {"url": "", "nome": "Fiscozen", "titolo": "Aprire e gestire la partita IVA forfettaria", "testo": "Servizio online con commercialista dedicato per la partita IVA."},
+ "qonto": {"url": "", "nome": "Qonto", "titolo": "Conto per la partita IVA", "testo": "Conto aziendale online per professionisti e imprese."}
+}
