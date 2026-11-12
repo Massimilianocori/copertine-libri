@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Громадянство Італії та іспит B1: посібники українською | EsameB1</title>
-<meta name="description" content="Іспит B1 для громадянства Італії: найближча дата 11 листопада 2026 (CELI), вартість, дохід, заява, carta di soggiorno, тимчасовий захист.">
+<meta name="description" content="Іспит B1 для громадянства Італії: найближча дата 18 листопада 2026 (PLIDA), вартість, дохід, заява, carta di soggiorno, тимчасовий захист.">
 <link rel="canonical" href="https://esameb1.eu/uk/">
 <link rel="alternate" hreflang="it" href="https://esameb1.eu/">
 <link rel="alternate" hreflang="en" href="https://esameb1.eu/en/">
@@ -12,7 +12,7 @@
 <link rel="alternate" hreflang="ro" href="https://esameb1.eu/ro/">
 <link rel="alternate" hreflang="x-default" href="https://esameb1.eu/">
 <meta property="og:title" content="Громадянство Італії та іспит B1: посібники українською | EsameB1">
-<meta property="og:description" content="Іспит B1 для громадянства Італії: найближча дата 11 листопада 2026 (CELI), вартість, дохід, заява, carta di soggiorno, тимчасовий захист.">
+<meta property="og:description" content="Іспит B1 для громадянства Італії: найближча дата 18 листопада 2026 (PLIDA), вартість, дохід, заява, carta di soggiorno, тимчасовий захист.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="uk_UA">
 <meta property="og:image" content="https://esameb1.eu/og.png">
@@ -368,6 +368,29 @@ main a[href^="mailto:"]{overflow-wrap:anywhere;word-break:break-word}
 @media (max-width:640px){.prep{grid-template-columns:1fr;gap:10px}.prep .bolla{width:40px;height:40px}}
 .piede .dati{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.07);padding:6px 12px;border-radius:999px;font-weight:600;color:#E8F0ED}
 @media (max-width:760px){.piede-griglia{grid-template-columns:1fr}}
+/* cronometro della simulazione e contaparole (11/11/2026) */
+.crono,.contaparole{max-width:760px}
+.crono .chips{margin:0 0 6px}
+.crono-fase{font-weight:750;font-size:1.05rem;margin:12px 0 2px}
+.crono-tempo{font-size:clamp(2.8rem,12vw,4rem);font-weight:800;line-height:1.05;font-variant-numeric:tabular-nums;letter-spacing:-.02em;color:var(--brand-ink)}
+.crono-nota{color:var(--ink-2);margin:6px 0 0;max-width:62ch}
+.crono .azioni{margin-top:16px}
+.crono-stato{margin:10px 0 0;font-weight:650;color:var(--rosso)}
+.crono-stato:empty{display:none}
+.crono-fasi{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:6px;counter-reset:f}
+.crono-fasi li{display:flex;justify-content:space-between;gap:12px;border:1px solid var(--line);border-radius:10px;padding:8px 12px;background:var(--surface);overflow-wrap:anywhere}
+.crono-fasi li.ora{border-color:var(--brand);box-shadow:inset 4px 0 0 var(--brand);font-weight:650}
+.crono-fasi li.fatta{color:var(--ink-3)}
+.crono-fasi li.fatta span:first-child{text-decoration:line-through;text-decoration-thickness:1px}
+.crono-fasi li span:last-child{font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--ink-2)}
+.contaparole label{display:grid;gap:6px;font-weight:650;margin:0 0 12px}
+.contaparole textarea{font:inherit;font-size:1rem;line-height:1.5;padding:12px;min-height:200px;border:1.5px solid var(--line-2);border-radius:10px;background:var(--bg);color:var(--ink);width:100%;min-width:0;resize:vertical}
+.contaparole textarea:focus{border-color:var(--brand)}
+.cp-riga{margin:0;display:flex;align-items:baseline;gap:8px}
+.cp-numero{font-size:2.2rem;font-weight:800;font-variant-numeric:tabular-nums;color:var(--ink)}
+.conta-esito{font-weight:650;margin:4px 0 8px}
+.conta-esito.si{color:var(--brand-ink)}.conta-esito.no{color:var(--rosso)}
+.es-guide{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin:14px 0 0}
 @font-face{font-family:"Figtree";src:url("/fonts/figtree-latin-ext.woff2") format("woff2");font-weight:300 900;font-style:normal;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+20A0-20AB,U+20AD-20C0}
 @font-face{font-family:"Figtree";src:url("/fonts/onest-cyrillic.woff2") format("woff2");font-weight:300 900;font-style:normal;font-display:swap;unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
 nav.menu details.lingue{position:relative;background:none;border:0;margin:0;border-radius:999px}
@@ -399,129 +422,129 @@ nav.menu details.lingue li a[aria-current]{color:var(--brand-ink);background:var
 <section class="hero">
 <span class="occhiello"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-scudo"/></svg>CILS · CELI · PLIDA · CERT.IT · українською</span>
 <h1>Громадянство Італії та іспит B1: посібники українською</h1>
-<p class="lead">За офіційними календарями CILS, CELI, PLIDA і CERT.IT (перевірено 4 листопада 2026), найближчий іспит B1 в Італії — 11 листопада 2026 (CELI). Ці посібники українською пояснюють іспит, дохід для громадянства, заяву, carta di soggiorno і тимчасовий захист — на основі тих самих офіційних даних, що й наші сторінки італійською.</p>
+<p class="lead">За офіційними календарями CILS, CELI, PLIDA і CERT.IT (перевірено 4 листопада 2026), найближчий іспит B1 в Італії — 18 листопада 2026 (PLIDA). Ці посібники українською пояснюють іспит, дохід для громадянства, заяву, carta di soggiorno і тимчасовий захист — на основі тих самих офіційних даних, що й наші сторінки італійською.</p>
 <div class="risposta">
-<div class="slot" data-slot><div class="r-et"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-cal"/></svg>Найближчий іспит</div><div data-fino="2026-11-11">
-<div class="r-data">11 листопада <small>2026</small></div>
-<div class="r-cosa"><span class="eb eb-CELI">CELI</span><span>CELI 2 (B1)</span></div>
-<p style="margin:12px 0 0"><span class="conta vicino" data-conta="2026-11-11" data-modo="esame">сьогодні</span></p>
-</div><div data-fino="2026-11-18" hidden>
+<div class="slot" data-slot><div class="r-et"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-cal"/></svg>Найближчий іспит</div><div data-fino="2026-11-18">
 <div class="r-data">18 листопада <small>2026</small></div>
 <div class="r-cosa"><span class="eb eb-PLIDA">PLIDA</span><span>PLIDA B1</span></div>
-<p style="margin:12px 0 0"><span class="conta vicino" data-conta="2026-11-18" data-modo="esame">через 7 днів</span></p>
+<p style="margin:12px 0 0"><span class="conta vicino" data-conta="2026-11-18" data-modo="esame">через 6 днів</span></p>
 </div><div data-fino="2026-12-03" hidden>
 <div class="r-data">3 грудня <small>2026</small></div>
 <div class="r-cosa"><span class="eb eb-CILS">CILS</span><span>CILS B1 Cittadinanza, CILS B1 standard</span></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2026-12-03" data-modo="esame">через 22 дні</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2026-12-03" data-modo="esame">через 21 день</span></p>
 </div><div data-fino="2027-02-11" hidden>
 <div class="r-data">11 лютого <small>2027</small></div>
 <div class="r-cosa"><span class="eb eb-CERTIT">CERT.IT</span><span>CERT.IT B1 (сесія A2/B1)</span></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-02-11" data-modo="esame">через 92 дні</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-02-11" data-modo="esame">через 91 день</span></p>
 </div><div data-fino="2027-02-17" hidden>
 <div class="r-data">17 лютого <small>2027</small></div>
 <div class="r-cosa"><span class="eb eb-CELI">CELI</span><span>CELI 2 i cittadinanza (B1)</span></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-02-17" data-modo="esame">через 98 днів</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-02-17" data-modo="esame">через 97 днів</span></p>
 </div><div data-fino="2027-02-18" hidden>
 <div class="r-data">18 лютого <small>2027</small></div>
 <div class="r-cosa"><span class="eb eb-CILS">CILS</span><span>CILS B1 Cittadinanza</span></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-02-18" data-modo="esame">через 99 днів</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-02-18" data-modo="esame">через 98 днів</span></p>
 </div><div data-fino="2027-03-09" hidden>
 <div class="r-data">9 березня <small>2027</small></div>
 <div class="r-cosa"><span class="eb eb-CELI">CELI</span><span>CELI 2 (B1)</span></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-03-09" data-modo="esame">через 118 днів</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-03-09" data-modo="esame">через 117 днів</span></p>
 </div><div data-fino="2027-04-08" hidden>
 <div class="r-data">8 квітня <small>2027</small></div>
 <div class="r-cosa"><span class="eb eb-CILS">CILS</span><span>CILS B1 Cittadinanza</span></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-04-08" data-modo="esame">через 148 днів</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-04-08" data-modo="esame">через 147 днів</span></p>
 </div><div data-fino="2027-05-20" hidden>
 <div class="r-data">20 травня <small>2027</small></div>
 <div class="r-cosa"><span class="eb eb-CELI">CELI</span><span>CELI 2 i cittadinanza (B1)</span></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-05-20" data-modo="esame">через 190 днів</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-05-20" data-modo="esame">через 189 днів</span></p>
 </div><div data-fino="2027-05-20" hidden>
 <div class="r-data">20 травня <small>2027</small></div>
 <div class="r-cosa"><span class="eb eb-CERTIT">CERT.IT</span><span>CERT.IT B1 (сесія A2/B1)</span></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-05-20" data-modo="esame">через 190 днів</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-05-20" data-modo="esame">через 189 днів</span></p>
 </div><div data-fino="2027-06-10" hidden>
 <div class="r-data">10 червня <small>2027</small></div>
 <div class="r-cosa"><span class="eb eb-CILS">CILS</span><span>CILS B1 Cittadinanza, CILS B1 standard</span></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-06-10" data-modo="esame">через 211 днів</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-06-10" data-modo="esame">через 210 днів</span></p>
 </div><div data-fino="2027-06-11" hidden>
 <div class="r-data">11 червня <small>2027</small></div>
 <div class="r-cosa"><span class="eb eb-CELI">CELI</span><span>CELI 2 (B1)</span></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-06-11" data-modo="esame">через 212 днів</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-06-11" data-modo="esame">через 211 днів</span></p>
+</div><div data-fino="2027-07-22" hidden>
+<div class="r-data">22 липня <small>2027</small></div>
+<div class="r-cosa"><span class="eb eb-CILS">CILS</span><span>CILS B1 Cittadinanza</span></div>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-07-22" data-modo="esame">через 252 дні</span></p>
 </div></div>
 <div class="slot" data-slot><div class="r-et"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg>Реєстрація ще відкрита</div><div data-fino="2027-01-18">
 <div class="r-data"><small>до</small> 18 січня 2027</div>
 <div class="r-cosa">для іспиту <span class="eb eb-CILS">CILS</span> <strong>18 лютого</strong></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-01-18" data-modo="scad">ще 68 днів</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-01-18" data-modo="scad">ще 67 днів</span></p>
 <p class="r-nota">Це національний термін: центр може закрити реєстрацію раніше. Завжди перепитайте.</p>
 </div><div data-fino="2027-01-22" hidden>
 <div class="r-data"><small>до</small> 22 січня 2027</div>
 <div class="r-cosa">для іспиту <span class="eb eb-CELI">CELI</span> <strong>17 лютого</strong></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-01-22" data-modo="scad">ще 72 дні</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-01-22" data-modo="scad">ще 71 день</span></p>
 <p class="r-nota">Це національний термін: центр може закрити реєстрацію раніше. Завжди перепитайте.</p>
 </div><div data-fino="2027-02-09" hidden>
 <div class="r-data"><small>до</small> 9 лютого 2027</div>
 <div class="r-cosa">для іспиту <span class="eb eb-CELI">CELI</span> <strong>9 березня</strong></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-02-09" data-modo="scad">ще 90 днів</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-02-09" data-modo="scad">ще 89 днів</span></p>
 <p class="r-nota">Це національний термін: центр може закрити реєстрацію раніше. Завжди перепитайте.</p>
 </div><div data-fino="2027-03-08" hidden>
 <div class="r-data"><small>до</small> 8 березня 2027</div>
 <div class="r-cosa">для іспиту <span class="eb eb-CILS">CILS</span> <strong>8 квітня</strong></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-03-08" data-modo="scad">ще 117 днів</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-03-08" data-modo="scad">ще 116 днів</span></p>
 <p class="r-nota">Це національний термін: центр може закрити реєстрацію раніше. Завжди перепитайте.</p>
 </div><div data-fino="2027-04-20" hidden>
 <div class="r-data"><small>до</small> 20 квітня 2027</div>
 <div class="r-cosa">для іспиту <span class="eb eb-CELI">CELI</span> <strong>20 травня</strong></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-04-20" data-modo="scad">ще 160 днів</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-04-20" data-modo="scad">ще 159 днів</span></p>
 <p class="r-nota">Це національний термін: центр може закрити реєстрацію раніше. Завжди перепитайте.</p>
 </div><div data-fino="2027-05-01" hidden>
 <div class="r-data"><small>до</small> 1 травня 2027</div>
 <div class="r-cosa">для іспиту <span class="eb eb-CILS">CILS</span> <strong>10 червня</strong></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-05-01" data-modo="scad">ще 171 день</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-05-01" data-modo="scad">ще 170 днів</span></p>
 <p class="r-nota">Це національний термін: центр може закрити реєстрацію раніше. Завжди перепитайте.</p>
 </div><div data-fino="2027-05-11" hidden>
 <div class="r-data"><small>до</small> 11 травня 2027</div>
 <div class="r-cosa">для іспиту <span class="eb eb-CELI">CELI</span> <strong>11 червня</strong></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-05-11" data-modo="scad">ще 181 день</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-05-11" data-modo="scad">ще 180 днів</span></p>
 <p class="r-nota">Це національний термін: центр може закрити реєстрацію раніше. Завжди перепитайте.</p>
 </div><div data-fino="2027-06-22" hidden>
 <div class="r-data"><small>до</small> 22 червня 2027</div>
 <div class="r-cosa">для іспиту <span class="eb eb-CILS">CILS</span> <strong>22 липня</strong></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-06-22" data-modo="scad">ще 223 дні</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-06-22" data-modo="scad">ще 222 дні</span></p>
 <p class="r-nota">Це національний термін: центр може закрити реєстрацію раніше. Завжди перепитайте.</p>
 </div><div data-fino="2027-08-17" hidden>
 <div class="r-data"><small>до</small> 17 серпня 2027</div>
 <div class="r-cosa">для іспиту <span class="eb eb-CELI">CELI</span> <strong>15 вересня</strong></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-08-17" data-modo="scad">ще 279 днів</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-08-17" data-modo="scad">ще 278 днів</span></p>
 <p class="r-nota">Це національний термін: центр може закрити реєстрацію раніше. Завжди перепитайте.</p>
 </div><div data-fino="2027-09-21" hidden>
 <div class="r-data"><small>до</small> 21 вересня 2027</div>
 <div class="r-cosa">для іспиту <span class="eb eb-CILS">CILS</span> <strong>21 жовтня</strong></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-09-21" data-modo="scad">ще 314 днів</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-09-21" data-modo="scad">ще 313 днів</span></p>
 <p class="r-nota">Це національний термін: центр може закрити реєстрацію раніше. Завжди перепитайте.</p>
 </div><div data-fino="2027-10-16" hidden>
 <div class="r-data"><small>до</small> 16 жовтня 2027</div>
 <div class="r-cosa">для іспиту <span class="eb eb-CELI">CELI</span> <strong>16 листопада</strong></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-10-16" data-modo="scad">ще 339 днів</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-10-16" data-modo="scad">ще 338 днів</span></p>
 <p class="r-nota">Це національний термін: центр може закрити реєстрацію раніше. Завжди перепитайте.</p>
 </div><div data-fino="2027-10-23" hidden>
 <div class="r-data"><small>до</small> 23 жовтня 2027</div>
 <div class="r-cosa">для іспиту <span class="eb eb-CILS">CILS</span> <strong>2 грудня</strong></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-10-23" data-modo="scad">ще 346 днів</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-10-23" data-modo="scad">ще 345 днів</span></p>
 <p class="r-nota">Це національний термін: центр може закрити реєстрацію раніше. Завжди перепитайте.</p>
 </div><p data-riserva class="r-nota" hidden>Зараз немає відкритого національного терміну: для PLIDA і CERT.IT термін встановлює кожен центр. Запитайте в центрі.</p></div>
 <div class="r-piede"><a href="daty-ispytu-b1/">Усі дати <svg class="i" aria-hidden="true" focusable="false"><use href="#i-freccia"/></svg></a><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-info"/></svg>Дати іспитів однакові по всій Італії.</span></div>
 </div>
 <div class="azioni"><a class="btn" href="daty-ispytu-b1/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-cal"/></svg>Усі дати іспитів</a><a class="btn btn-2" href="#guides"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-lista"/></svg>Посібники українською</a></div>
-<ul class="cifre"><li><svg class="i" aria-hidden="true" focusable="false"><use href="#i-edificio"/></svg><span><strong>643</strong> екзаменаційні центри в Італії</span></li><li><svg class="i" aria-hidden="true" focusable="false"><use href="#i-cal"/></svg><span><strong>18</strong> запланованих сесій</span></li><li><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>дані з офіційних джерел</span></li></ul>
+<ul class="cifre"><li><svg class="i" aria-hidden="true" focusable="false"><use href="#i-edificio"/></svg><span><strong>643</strong> екзаменаційні центри в Італії</span></li><li><svg class="i" aria-hidden="true" focusable="false"><use href="#i-cal"/></svg><span><strong>17</strong> запланованих сесій</span></li><li><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>дані з офіційних джерел</span></li></ul>
 </section>
 <div class="avviso"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-attenzione"/></svg><div>Ця сторінка коротко викладає офіційні джерела українською; це не юридична консультація. <strong>Рішення у вашій справі ухвалює Префектура (громадянство) або Квестура (дозволи на проживання).</strong> Щодо вашої ситуації звертайтеся туди або до патронату (patronato — безкоштовна служба консультацій).</div></div>
 <div class="due">
 <section id="dates">
 <h2><svg class="i" aria-hidden="true" focusable="false"><use href="#i-cal"/></svg>Найближча дата для кожної установи</h2>
-<div class="tab-wrap rc-tab"><table class="conf"><thead><tr><th scope="col">Установа</th><th scope="col">Найближчий іспит</th><th scope="col">Національний термін</th></tr></thead><tbody><tr><td><span class="eb eb-CILS">CILS</span><br><span class="small">Університет для іноземців Сієни</span></td><td data-l="Найближчий іспит"><time datetime="2026-12-03">3 грудня 2026</time><br><span class="small">CILS B1 Cittadinanza</span></td><td data-l="Реєстрація до">до 18 січня 2027<br><span class="small">для іспиту 18 лютого</span></td></tr><tr><td><span class="eb eb-CELI">CELI</span><br><span class="small">Університет для іноземців Перуджі</span></td><td data-l="Найближчий іспит"><time datetime="2026-11-11">11 листопада 2026</time><br><span class="small">CELI 2 (B1)</span></td><td data-l="Реєстрація до">до 22 січня 2027<br><span class="small">для іспиту 17 лютого</span></td></tr><tr><td><span class="eb eb-PLIDA">PLIDA</span><br><span class="small">Товариство Данте Аліґ’єрі (Società Dante Alighieri)</span></td><td data-l="Найближчий іспит"><time datetime="2026-11-18">18 листопада 2026</time><br><span class="small">PLIDA B1</span></td><td data-l="Реєстрація до">встановлює кожен центр</td></tr><tr><td><span class="eb eb-CERTIT">CERT.IT</span><br><span class="small">Університет Рим Тре (Roma Tre)</span></td><td data-l="Найближчий іспит"><time datetime="2027-02-11">11 лютого 2027</time><br><span class="small">CERT.IT B1 (сесія A2/B1)</span></td><td data-l="Реєстрація до">встановлює кожен центр</td></tr></tbody></table></div>
-<p class="small">Кожен центр може встановити термін, раніший за національний. <strong>Перед реєстрацією завжди уточнюйте в центрі.</strong> <a href="daty-ispytu-b1/">Усі 18 дат</a>.</p>
+<div class="tab-wrap rc-tab"><table class="conf"><thead><tr><th scope="col">Установа</th><th scope="col">Найближчий іспит</th><th scope="col">Національний термін</th></tr></thead><tbody><tr><td><span class="eb eb-CILS">CILS</span><br><span class="small">Університет для іноземців Сієни</span></td><td data-l="Найближчий іспит"><time datetime="2026-12-03">3 грудня 2026</time><br><span class="small">CILS B1 Cittadinanza</span></td><td data-l="Реєстрація до">до 18 січня 2027<br><span class="small">для іспиту 18 лютого</span></td></tr><tr><td><span class="eb eb-CELI">CELI</span><br><span class="small">Університет для іноземців Перуджі</span></td><td data-l="Найближчий іспит"><time datetime="2027-02-17">17 лютого 2027</time><br><span class="small">CELI 2 i cittadinanza (B1)</span></td><td data-l="Реєстрація до">до 22 січня 2027<br><span class="small">для іспиту 17 лютого</span></td></tr><tr><td><span class="eb eb-PLIDA">PLIDA</span><br><span class="small">Товариство Данте Аліґ’єрі (Società Dante Alighieri)</span></td><td data-l="Найближчий іспит"><time datetime="2026-11-18">18 листопада 2026</time><br><span class="small">PLIDA B1</span></td><td data-l="Реєстрація до">встановлює кожен центр</td></tr><tr><td><span class="eb eb-CERTIT">CERT.IT</span><br><span class="small">Університет Рим Тре (Roma Tre)</span></td><td data-l="Найближчий іспит"><time datetime="2027-02-11">11 лютого 2027</time><br><span class="small">CERT.IT B1 (сесія A2/B1)</span></td><td data-l="Реєстрація до">встановлює кожен центр</td></tr></tbody></table></div>
+<p class="small">Кожен центр може встановити термін, раніший за національний. <strong>Перед реєстрацією завжди уточнюйте в центрі.</strong> <a href="daty-ispytu-b1/">Усі 17 дат</a>.</p>
 </section>
 <aside><section class="card" id="avvisami">
 <div class="modulo-testa"><span class="bolla"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-campana"/></svg></span><div>

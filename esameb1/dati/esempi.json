@@ -1,6 +1,6 @@
 {
   "verificato_il": "2026-10-31",
-  "nota": "Prove d'esempio ufficiali B1 dei 4 enti. Solo link e descrizione: i file restano sui siti degli enti. Ogni file controllato con curl il 26/10/2026 (stato, tipo, dimensione in byte). 'data' = ultima modifica del file sul server dell'ente (Last-Modified) o data scritta nel file, se indicato. Se 'link_diretti' è false (CERT.IT, per le note legali di Roma Tre sul deep linking) i file non hanno 'url': la pagina mostra solo la descrizione e il bottone alla pagina ufficiale; 'numero' = quanti file uguali (byte di ciascuno). Dal 31/10/2026 ogni ente ha anche 'prove' (struttura dell'esame per la pagina /esempi/<ente>/), 'come_usare', 'faq' e 'citazioni' (frasi lette nelle fonti, controllate da raccolta/esempi.py).",
+  "nota": "Prove d'esempio ufficiali B1 dei 4 enti. Solo link e descrizione: i file restano sui siti degli enti. Ogni file controllato con curl il 26/10/2026 (stato, tipo, dimensione in byte). 'data' = ultima modifica del file sul server dell'ente (Last-Modified) o data scritta nel file, se indicato. Se 'link_diretti' è false (CERT.IT, per le note legali di Roma Tre sul deep linking) i file non hanno 'url': la pagina mostra solo la descrizione e il bottone alla pagina ufficiale; 'numero' = quanti file uguali (byte di ciascuno). Dal 31/10/2026 ogni ente ha anche 'prove' (struttura dell'esame per la pagina /esempi/<ente>/), 'come_usare', 'faq' e 'citazioni' (frasi lette nelle fonti, controllate da raccolta/esempi.py). Dall'11/11/2026 ogni ente ha anche 'scrittura' (pagina /esempi/prova-scritta/) e 'simulazione' (fasi e minuti del cronometro di /esempi/simulazione/); CILS 'esercitazioni' (corso online ufficiale a pagamento), PLIDA 'corso_online'. Le frasi nuove sono in 'citazioni'.",
   "enti": [
     {
       "sigla": "CILS",
@@ -223,6 +223,10 @@
         [
           "Se non supero una parte del CILS B1 Cittadinanza, rifaccio solo quella?",
           "No. Per il B1 Cittadinanza la pagina ufficiale dice che non è consentita la «capitalizzazione»: se non superi un'abilità rifai tutto l'esame in una sessione successiva. La capitalizzazione (18 mesi) vale per gli altri esami CILS."
+        ],
+        [
+          "Ci sono le prove CILS B1 Cittadinanza delle sessioni passate, per esempio di aprile 2024?",
+          "Sulla pagina ufficiale «Prove Liv. B1 c» c'è un solo esempio completo: il prototipo del quaderno con audio, trascrizione, chiavi e traccia della scrittura; la traccia dell'orale è della sessione di maggio 2019, come scritto nel file. Prove di altre sessioni con la data non ci sono tra i file gratuiti che abbiamo controllato. Altri 3 esempi del B1 Cittadinanza sono nelle esercitazioni online con tutor dell'Università per Stranieri di Siena, a pagamento (60 €)."
         ]
       ],
       "citazioni": [
@@ -277,8 +281,195 @@
         {
           "url": "https://cils.unistrasi.it/1/117/83/La_valutazione.htm",
           "testo": "raggiungere la soglia di sufficienza in ognuna delle abilità"
+        },
+        {
+          "url": "https://cils.unistrasi.it/public/articoli/382/PS_B1_Cittadinanza.pdf",
+          "testo": "Scegli uno dei seguenti argomenti. Devi scrivere da 80 a 120 parole."
+        },
+        {
+          "url": "https://cils.unistrasi.it/public/articoli/382/PS_B1_Cittadinanza.pdf",
+          "testo": "Scrivi un messaggio al proprietario del tuo appartamento"
+        },
+        {
+          "url": "https://cils.unistrasi.it/public/articoli/382/PS_B1_Cittadinanza.pdf",
+          "testo": "Scrivi una mail al dirigente scolastico"
+        },
+        {
+          "url": "https://cils.unistrasi.it/public/articoli/382/B1%20Cittadinanza_Sillabo.pdf",
+          "testo": "E-mail per chiedere informazioni o risolvere problemi relativi all'ottenimento di beni e servizi"
+        },
+        {
+          "url": "https://cils.unistrasi.it/public/articoli/382/B1%20Cittadinanza_Sillabo.pdf",
+          "testo": "La produzione orale e scritta è comunicativamente efficace, anche se contiene errori"
+        },
+        {
+          "url": "https://cils.unistrasi.it/public/articoli/382/Criteri%20di%20valutazione%20B1%20cittadinanza_nuovi.pdf",
+          "testo": "adeguatezza stilistica: fino a punti 1"
+        },
+        {
+          "url": "https://cils.unistrasi.it/public/articoli/382/Criteri%20di%20valutazione%20B1%20cittadinanza_nuovi.pdf",
+          "testo": "adeguatezza e ricchezza lessicale: fino a punti 3"
+        },
+        {
+          "url": "https://cils.unistrasi.it/public/articoli/382/Criteri%20di%20valutazione%20B1%20cittadinanza_nuovi.pdf",
+          "testo": "ortografia e punteggiatura: fino a punti 1"
+        },
+        {
+          "url": "https://cils.unistrasi.it/public/articoli/382/Criteri%20di%20valutazione%20B1%20cittadinanza_nuovi.pdf",
+          "testo": "punti 0.5: per ogni risposta esatta"
+        },
+        {
+          "url": "https://cils.unistrasi.it/public/articoli/382/Criteri%20di%20valutazione%20B1%20cittadinanza_nuovi.pdf",
+          "testo": "punti 1: per ogni risposta esatta"
+        },
+        {
+          "url": "https://cils.unistrasi.it/public/articoli/382/Criteri%20di%20valutazione%20B1%20cittadinanza_nuovi.pdf",
+          "testo": "efficacia comunicativa: fino a punti 4"
+        },
+        {
+          "url": "https://cils.unistrasi.it/public/articoli/382/Criteri%20di%20valutazione%20B1%20cittadinanza_nuovi.pdf",
+          "testo": "pronuncia e intonazione: fino a punti 1"
+        },
+        {
+          "url": "https://cils.unistrasi.it/1/196/379/Esercitazioni_online_CILS.htm",
+          "testo": "3 esempi degli esami A1, A2, B1, B1 C, B2, C1, C2"
+        },
+        {
+          "url": "https://cils.unistrasi.it/1/196/379/Esercitazioni_online_CILS.htm",
+          "testo": "Il costo delle esercitazioni online è di 60 euro"
+        },
+        {
+          "url": "https://cils.unistrasi.it/1/196/379/Esercitazioni_online_CILS.htm",
+          "testo": "la correzione, i suggerimenti e le indicazioni fornite da tutor di madrelingua italiana"
+        },
+        {
+          "url": "https://cils.unistrasi.it/1/196/379/Esercitazioni_online_CILS.htm",
+          "testo": "le Esercitazioni non sono valutate o riconosciute ai fini dell'ottenimento della certificazione CILS"
+        },
+        {
+          "url": "https://cils.unistrasi.it/1/196/379/Esercitazioni_online_CILS.htm",
+          "testo": "9 al 27 novembre 2026"
+        },
+        {
+          "url": "https://cils.unistrasi.it/1/196/379/Esercitazioni_online_CILS.htm",
+          "testo": "svolgono interamente sulla piattaforma e-learning di Ateneo"
+        },
+        {
+          "url": "https://cils.unistrasi.it/1/100/52/Come_prepararsi_agli_esami_CILS.htm",
+          "testo": "Abbiamo messo a tua disposizione un'intera sessione d'esame"
         }
-      ]
+      ],
+      "scrittura": {
+        "tempo_min": 40,
+        "tempo": "40 minuti",
+        "punti": "12 punti (come ogni altra abilità)",
+        "compiti": [
+          {
+            "id": "cils-email",
+            "nome": "Email",
+            "min": 80,
+            "max": 120,
+            "cosa": "Un'email per chiedere informazioni o risolvere un problema con un servizio, oppure per chiedere o dare semplici informazioni. Nell'esempio ufficiale scegli una traccia tra due."
+          }
+        ],
+        "criteri": [
+          [
+            "Efficacia comunicativa",
+            "fino a 3 punti"
+          ],
+          [
+            "Adeguatezza stilistica",
+            "fino a 1 punto"
+          ],
+          [
+            "Correttezza morfosintattica (grammatica)",
+            "fino a 4 punti"
+          ],
+          [
+            "Adeguatezza e ricchezza lessicale",
+            "fino a 3 punti"
+          ],
+          [
+            "Ortografia e punteggiatura",
+            "fino a 1 punto"
+          ]
+        ],
+        "tracce": [
+          "Hai problemi con i vicini e vuoi cambiare casa: scrivi al proprietario dell'appartamento, spiega perché vuoi trasferirti e chiedi se devi pagare l'affitto dei prossimi mesi.",
+          "Sei il rappresentante dei genitori: scrivi al dirigente scolastico perché la mensa di tuo figlio negli ultimi mesi ha proposto un menù poco ricco e vario, e chiedi di risolvere il problema."
+        ],
+        "regole": [
+          "Si scrive solo con la penna nera.",
+          "Il sillabo dice che al livello B1 la produzione scritta è «comunicativamente efficace, anche se contiene errori»: conta farsi capire, non scrivere senza errori."
+        ],
+        "fonti": [
+          {
+            "nome": "traccia della produzione scritta CILS B1 Cittadinanza (PDF)",
+            "url": "https://cils.unistrasi.it/public/articoli/382/PS_B1_Cittadinanza.pdf"
+          },
+          {
+            "nome": "criteri di valutazione B1 Cittadinanza (PDF)",
+            "url": "https://cils.unistrasi.it/public/articoli/382/Criteri%20di%20valutazione%20B1%20cittadinanza_nuovi.pdf"
+          },
+          {
+            "nome": "sillabo CILS B1 Cittadinanza (PDF)",
+            "url": "https://cils.unistrasi.it/public/articoli/382/B1%20Cittadinanza_Sillabo.pdf"
+          },
+          {
+            "nome": "CILS, come si svolgono gli esami",
+            "url": "https://cils.unistrasi.it/1/94/28/Come_si_svolgono_gli_esami_CILS.htm"
+          }
+        ],
+        "verificato_il": "2026-11-11"
+      },
+      "simulazione": {
+        "fasi": [
+          {
+            "nome": "Ascolto",
+            "min": 30,
+            "nota": "Fai partire il file audio e non fermarlo: le pause per rispondere sono già dentro.",
+            "circa": true
+          },
+          {
+            "nome": "Lettura e grammatica",
+            "min": 40,
+            "nota": "Due prove: vero/falso e un testo da completare."
+          },
+          {
+            "nome": "Scrittura",
+            "min": 40,
+            "nota": "Un'email di 80-120 parole su una delle due tracce."
+          },
+          {
+            "nome": "Orale",
+            "min": 10,
+            "nota": "Circa 1 minuto di presentazione, poi 2-3 minuti di dialogo. All'esame di solito è nel pomeriggio.",
+            "circa": true
+          }
+        ],
+        "ordine": "L'ordine è quello dell'esame: si comincia con l'ascolto, poi lettura, poi scrittura; l'orale di solito nel pomeriggio.",
+        "fonti": [
+          {
+            "nome": "sillabo CILS B1 Cittadinanza (PDF)",
+            "url": "https://cils.unistrasi.it/public/articoli/382/B1%20Cittadinanza_Sillabo.pdf"
+          },
+          {
+            "nome": "CILS, come si svolgono gli esami",
+            "url": "https://cils.unistrasi.it/1/94/28/Come_si_svolgono_gli_esami_CILS.htm"
+          }
+        ],
+        "verificato_il": "2026-11-11",
+        "prove_complete": 1
+      },
+      "esercitazioni": {
+        "nome": "Esercitazioni online CILS con tutor",
+        "url": "https://cils.unistrasi.it/1/196/379/Esercitazioni_online_CILS.htm",
+        "costo_eur": 60,
+        "cosa": "Sulla piattaforma e-learning dell'Università per Stranieri di Siena: 3 esempi d'esame del livello B1 C (il B1 Cittadinanza) da svolgere, i quaderni da scaricare, la correzione e i consigli di tutor di madrelingua italiana.",
+        "nota": "Le esercitazioni non sono valutate e non valgono per ottenere il certificato CILS.",
+        "ultime": "Ultimo turno pubblicato: esercitazioni dal 9 al 27 novembre 2026 (iscrizioni dal 21 settembre al 23 ottobre 2026), prima della sessione del 3 dicembre 2026.",
+        "verificato_il": "2026-11-11"
+      }
     },
     {
       "sigla": "CELI",
@@ -505,7 +696,82 @@
           "url": "https://cvcl.unistrapg.it/MC-API/Risorse/StreamRisorsa.ashx?guid=b682a9a2-1380-4d6c-9d54-496cbd0f4c18",
           "testo": "pagando il 70% della tassa complessiva"
         }
-      ]
+      ],
+      "scrittura": {
+        "tempo_min": 120,
+        "tempo": "dentro le 2 ore di lettura e scrittura",
+        "punti": "47 punti, portati a 40 (il 25% del voto)",
+        "compiti": [
+          {
+            "id": "celi-blog",
+            "nome": "4 risposte a un blog, ognuna",
+            "min": 8,
+            "max": 15,
+            "cosa": "Rispondi a 4 domande su un blog: da 8 a 15 parole per ogni risposta."
+          },
+          {
+            "id": "celi-email",
+            "nome": "Email formale",
+            "min": 40,
+            "max": 50,
+            "cosa": "Un'email formale di 40-50 parole."
+          },
+          {
+            "id": "celi-messaggio",
+            "nome": "Messaggio informale",
+            "min": 80,
+            "max": 90,
+            "cosa": "Un messaggio informale di 80-90 parole."
+          }
+        ],
+        "criteri": [],
+        "nota_criteri": "La parte scritta dell'esame (lettura, scrittura e ascolto: 120 punti in tutto) si supera con almeno 72 punti; i criteri ufficiali per la scrittura sono nel PDF «criteri di valutazione CELI 2 i».",
+        "tracce": [],
+        "regole": [
+          "Usa una penna nera o blu.",
+          "Lettura e scrittura sono nello stesso fascicolo e hanno 2 ore in tutto: lascia tempo per le tre prove di scrittura."
+        ],
+        "fonti": [
+          {
+            "nome": "descrizione dell'esame CELI 2 i (PDF)",
+            "url": "https://www.unistrapg.it/sites/default/files/docs/certificazioni/celi-i-b1-descrizione-esame.pdf"
+          },
+          {
+            "nome": "criteri di valutazione CELI 2 i (PDF)",
+            "url": "https://www.unistrapg.it/sites/default/files/docs/certificazioni/celi-i-b1-criteri-valutazione.pdf"
+          }
+        ],
+        "verificato_il": "2026-10-31"
+      },
+      "simulazione": {
+        "fasi": [
+          {
+            "nome": "Lettura e scrittura (primo fascicolo)",
+            "min": 120,
+            "nota": "4 prove di lettura e 3 di scrittura nello stesso tempo."
+          },
+          {
+            "nome": "Ascolto (secondo fascicolo)",
+            "min": 20,
+            "nota": "4 prove di ascolto."
+          },
+          {
+            "nome": "Orale",
+            "min": 12,
+            "nota": "10-12 minuti, 5 compiti, anche domande di educazione civica.",
+            "tempo": "10-12 min"
+          }
+        ],
+        "ordine": "L'esame ha due fascicoli: nel primo lettura e scrittura, nel secondo l'ascolto. Durata totale dichiarata dall'ente: 2 ore e 30 minuti.",
+        "fonti": [
+          {
+            "nome": "descrizione dell'esame CELI 2 i (PDF)",
+            "url": "https://www.unistrapg.it/sites/default/files/docs/certificazioni/celi-i-b1-descrizione-esame.pdf"
+          }
+        ],
+        "verificato_il": "2026-10-31",
+        "prove_complete": 2
+      }
     },
     {
       "sigla": "PLIDA",
@@ -718,8 +984,180 @@
         {
           "url": "https://cms.plida.dante.global/wp-content/uploads/2026/10/Quaderno-delle-specifiche-PLIDA-B1.pdf",
           "testo": "penna a inchiostro non cancellabile blu o nero"
+        },
+        {
+          "url": "https://cms.plida.dante.global/wp-content/uploads/2026/10/Quaderno-delle-specifiche-PLIDA-B1.pdf",
+          "testo": "il numero di parole di una o di entrambe le parti è inferiore a quanto richiesto nelle istruzioni"
+        },
+        {
+          "url": "https://cms.plida.dante.global/wp-content/uploads/2026/10/Quaderno-delle-specifiche-PLIDA-B1.pdf",
+          "testo": "il conteggio comprenderà anche gli articoli, le preposizioni o le congiunzioni formati da una sola lettera"
+        },
+        {
+          "url": "https://cms.plida.dante.global/wp-content/uploads/2026/10/Quaderno-delle-specifiche-PLIDA-B1.pdf",
+          "testo": "vengono esaminate e valutate presso la Sede centrale della Società Dante Alighieri"
+        },
+        {
+          "url": "https://cms.plida.dante.global/wp-content/uploads/2026/10/Quaderno-delle-specifiche-PLIDA-B1.pdf",
+          "testo": "Non è consentito l'uso di fogli di brutta copia"
+        },
+        {
+          "url": "https://cms.plida.dante.global/wp-content/uploads/2026/10/Quaderno-delle-specifiche-PLIDA-B1.pdf",
+          "testo": "una delle due parti non viene svolta"
+        },
+        {
+          "url": "https://cms.plida.dante.global/wp-content/uploads/2026/10/Quaderno-delle-specifiche-PLIDA-B1.pdf",
+          "testo": "porzioni di testo provenienti da internet o da altre fonti rintracciabili"
+        },
+        {
+          "url": "https://cms.plida.dante.global/wp-content/uploads/2026/10/Quaderno-delle-specifiche-PLIDA-B1.pdf",
+          "testo": "Contenuto e svolgimento del compito"
+        },
+        {
+          "url": "https://cms.plida.dante.global/wp-content/uploads/2026/10/Quaderno-delle-specifiche-PLIDA-B1.pdf",
+          "testo": "Coerenza e coesione"
+        },
+        {
+          "url": "https://cms.plida.dante.global/wp-content/uploads/2026/10/Quaderno-delle-specifiche-PLIDA-B1.pdf",
+          "testo": "Grammatica, ortografia e punteggiatura"
+        },
+        {
+          "url": "https://cms.plida.dante.global/wp-content/uploads/2026/10/Quaderno-delle-specifiche-PLIDA-B1.pdf",
+          "testo": "Decidi di scrivere una recensione su un sito di viaggi"
+        },
+        {
+          "url": "https://cms.plida.dante.global/wp-content/uploads/2026/10/Quaderno-delle-specifiche-PLIDA-B1.pdf",
+          "testo": "scrivendo un post su un gioco che facevi quando eri piccolo"
+        },
+        {
+          "url": "https://cms.plida.dante.global/wp-content/uploads/2026/10/Quaderno-delle-specifiche-PLIDA-B1.pdf",
+          "testo": "Solo la seconda e la terza parte della prova vengono valutate"
+        },
+        {
+          "url": "https://cms.plida.dante.global/wp-content/uploads/2022/11/PLIDA-B1-Prova-Scrivere-Commentata.pdf",
+          "testo": "Il punteggio (da 1 a 10) assegnato per ciascun parametro"
+        },
+        {
+          "url": "https://plida.dante.global/it/preparati-allesame/",
+          "testo": "con COPEC, il corso online in autoapprendimento"
         }
-      ]
+      ],
+      "scrittura": {
+        "tempo_min": 60,
+        "tempo": "60 minuti per le due parti",
+        "punti": "30 punti, servono almeno 18",
+        "compiti": [
+          {
+            "id": "plida-1",
+            "nome": "Prima parte",
+            "min": 110,
+            "max": 150,
+            "cosa": "Un testo guidato da una scaletta (informare, consigliare, dare la tua opinione). Nell'esempio ufficiale: la recensione di un albergo su un sito di viaggi."
+          },
+          {
+            "id": "plida-2",
+            "nome": "Seconda parte",
+            "min": 70,
+            "max": 100,
+            "cosa": "Un testo narrativo guidato da una scaletta. Nell'esempio ufficiale: un post su un blog su un gioco che facevi da piccolo."
+          }
+        ],
+        "criteri": [
+          [
+            "Contenuto e svolgimento del compito",
+            "da 1 a 10"
+          ],
+          [
+            "Coerenza e coesione",
+            "da 1 a 10"
+          ],
+          [
+            "Lessico",
+            "da 1 a 10"
+          ],
+          [
+            "Grammatica, ortografia e punteggiatura",
+            "da 1 a 10"
+          ]
+        ],
+        "nota_criteri": "Ogni parametro ha un punteggio da 1 a 10 (prova di scrittura commentata); alla fine la prova riceve un punteggio da una valutazione complessiva. Le prove scritte si correggono alla sede centrale della Società Dante Alighieri.",
+        "tracce": [
+          "Prima parte: durante una vacanza in Italia sei stato in un albergo e ne sei contento. Scrivi una recensione: descrivi l'albergo, racconta quando ci sei stato e con chi, parla della cosa che ti è piaciuta di più.",
+          "Seconda parte: su un blog si parla dei giochi di quando eri piccolo. Scrivi un post: descrivi il gioco, spiega le regole, racconta con chi lo facevi."
+        ],
+        "annullata": [
+          "hai scritto meno parole del minimo in una o in tutte e due le parti;",
+          "non hai fatto una delle due parti;",
+          "hai scritto su fogli diversi da quelli del fascicolo d'esame;",
+          "ci sono tracce, anche minime, di matita, bianchetto o penna cancellabile;",
+          "ci sono pezzi di testo presi da internet o da altre fonti;",
+          "la prova è uguale, in parte o del tutto, a quella di un altro candidato dello stesso centro."
+        ],
+        "regole": [
+          "Nel conteggio delle parole contano anche articoli, preposizioni e congiunzioni di una sola lettera (per esempio «e», «a», «o»).",
+          "Non ci sono fogli di brutta copia: gli appunti si prendono solo sul fascicolo, sempre con una penna non cancellabile blu o nera."
+        ],
+        "fonti": [
+          {
+            "nome": "Quaderno delle specifiche PLIDA B1 (PDF)",
+            "url": "https://cms.plida.dante.global/wp-content/uploads/2026/10/Quaderno-delle-specifiche-PLIDA-B1.pdf"
+          },
+          {
+            "nome": "criteri di valutazione Scrivere PLIDA B1 (PDF)",
+            "url": "https://cms.plida.dante.global/wp-content/uploads/2022/11/PLIDA-B1-Criteri-valutazione-prove-Scrivere.pdf"
+          },
+          {
+            "nome": "prova di scrittura commentata PLIDA B1 (PDF)",
+            "url": "https://cms.plida.dante.global/wp-content/uploads/2022/11/PLIDA-B1-Prova-Scrivere-Commentata.pdf"
+          }
+        ],
+        "verificato_il": "2026-11-11"
+      },
+      "simulazione": {
+        "fasi": [
+          {
+            "nome": "Ascoltare",
+            "min": 40,
+            "nota": "4 parti, 20 domande.",
+            "circa": true
+          },
+          {
+            "nome": "Leggere",
+            "min": 40,
+            "nota": "4 parti, 18 domande."
+          },
+          {
+            "nome": "Scrivere",
+            "min": 60,
+            "nota": "Due testi: 110-150 e 70-100 parole."
+          },
+          {
+            "nome": "Copia le risposte sul foglio delle risposte",
+            "min": 10,
+            "nota": "Il Quaderno dà 10 minuti «alla fine della prova» per trascrivere le risposte; non dice in quale momento esatto."
+          },
+          {
+            "nome": "Parlare",
+            "min": 15,
+            "nota": "Presentazione di circa 2 minuti (non valutata), poi interazione e monologo.",
+            "circa": true
+          }
+        ],
+        "ordine": "Ascolto, lettura, scrittura e orale sono nell'ordine in cui li elenca il Quaderno delle specifiche; i 10 minuti per copiare le risposte sono «alla fine della prova», ma il Quaderno non dice in quale momento esatto: chiedi al centro, che decide anche l'orario del giorno d'esame.",
+        "fonti": [
+          {
+            "nome": "Quaderno delle specifiche PLIDA B1 (PDF)",
+            "url": "https://cms.plida.dante.global/wp-content/uploads/2026/10/Quaderno-delle-specifiche-PLIDA-B1.pdf"
+          }
+        ],
+        "verificato_il": "2026-11-11",
+        "prove_complete": 1
+      },
+      "corso_online": {
+        "nome": "COPEC",
+        "testo": "Sulla pagina «Preparati all'esame» la Società Dante Alighieri propone COPEC, «il corso online in autoapprendimento» per il PLIDA B1.",
+        "url": "https://plida.dante.global/it/preparati-allesame/"
+      }
     },
     {
       "sigla": "CERT.IT",
@@ -886,8 +1324,77 @@
         {
           "url": "https://certificazioneitaliano.uniroma3.it/il-sistema-di-certificazione/livello-b1-livello-soglia/",
           "testo": "Ascolterai il testo due volte"
+        },
+        {
+          "url": "https://certificazioneitaliano.uniroma3.it/il-sistema-di-certificazione/livello-b1-livello-soglia/",
+          "testo": "Fai la tua proposta di ristrutturazione al gruppo scrivendo un messaggio tra le 50 e le 80 parole"
+        },
+        {
+          "url": "https://certificazioneitaliano.uniroma3.it/il-sistema-di-certificazione/livello-b1-livello-soglia/",
+          "testo": "Decidi di scrivere una lettera di reclamo all'azienda che ti ha venduto il prodotto. Devi scrivere da 50 a 80 parole"
+        },
+        {
+          "url": "https://certificazioneitaliano.uniroma3.it/il-sistema-di-certificazione/livello-b1-livello-soglia/",
+          "testo": "Breve testo argomentativo"
         }
-      ]
+      ],
+      "scrittura": {
+        "tempo_min": 90,
+        "tempo": "dentro i 90 minuti di ascolto, lettura e scrittura",
+        "punti": "20 punti su 70 dello scritto",
+        "compiti": [
+          {
+            "id": "certit-1",
+            "nome": "Primo testo",
+            "min": 50,
+            "max": 80,
+            "cosa": "Un breve testo argomentativo guidato. Nell'esempio della pagina B1: un messaggio nel gruppo WhatsApp del condominio con la tua proposta per rifare l'ingresso del palazzo."
+          },
+          {
+            "id": "certit-2",
+            "nome": "Secondo testo",
+            "min": 50,
+            "max": 80,
+            "cosa": "Un altro breve testo guidato. Nell'esempio: una lettera di reclamo per un cellulare comprato su Internet, arrivato in ritardo e che non funziona."
+          }
+        ],
+        "criteri": [],
+        "nota_criteri": "La pagina B1 non pubblica una griglia per la scrittura: dice solo che vale 20 punti e che l'esame si supera con il 60% del punteggio totale di ascolto, lettura e scrittura (e il 60% nell'orale).",
+        "tracce": [],
+        "regole": [
+          "A Roma Tre lo scritto del B1 si fa al computer; nei centri convenzionati chiedi alla sede."
+        ],
+        "fonti": [
+          {
+            "nome": "CERT.IT, livello B1",
+            "url": "https://certificazioneitaliano.uniroma3.it/il-sistema-di-certificazione/livello-b1-livello-soglia/"
+          }
+        ],
+        "verificato_il": "2026-11-11"
+      },
+      "simulazione": {
+        "fasi": [
+          {
+            "nome": "Ascolto, lettura e scrittura",
+            "min": 90,
+            "nota": "Tre sezioni in 90 minuti in tutto: dividi tu il tempo."
+          },
+          {
+            "nome": "Orale",
+            "min": 10,
+            "nota": "Intervista, simulazione di ruolo e monologo."
+          }
+        ],
+        "ordine": "Le sezioni di ascolto, lettura e produzione scritta durano in tutto 90 minuti; l'orale 10 minuti.",
+        "fonti": [
+          {
+            "nome": "CERT.IT, livello B1",
+            "url": "https://certificazioneitaliano.uniroma3.it/il-sistema-di-certificazione/livello-b1-livello-soglia/"
+          }
+        ],
+        "verificato_il": "2026-11-11",
+        "prove_complete": 1
+      }
     }
   ],
   "uso": [

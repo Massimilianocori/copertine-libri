@@ -362,6 +362,29 @@ main a[href^="mailto:"]{overflow-wrap:anywhere;word-break:break-word}
 @media (max-width:640px){.prep{grid-template-columns:1fr;gap:10px}.prep .bolla{width:40px;height:40px}}
 .piede .dati{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.07);padding:6px 12px;border-radius:999px;font-weight:600;color:#E8F0ED}
 @media (max-width:760px){.piede-griglia{grid-template-columns:1fr}}
+/* cronometro della simulazione e contaparole (11/11/2026) */
+.crono,.contaparole{max-width:760px}
+.crono .chips{margin:0 0 6px}
+.crono-fase{font-weight:750;font-size:1.05rem;margin:12px 0 2px}
+.crono-tempo{font-size:clamp(2.8rem,12vw,4rem);font-weight:800;line-height:1.05;font-variant-numeric:tabular-nums;letter-spacing:-.02em;color:var(--brand-ink)}
+.crono-nota{color:var(--ink-2);margin:6px 0 0;max-width:62ch}
+.crono .azioni{margin-top:16px}
+.crono-stato{margin:10px 0 0;font-weight:650;color:var(--rosso)}
+.crono-stato:empty{display:none}
+.crono-fasi{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:6px;counter-reset:f}
+.crono-fasi li{display:flex;justify-content:space-between;gap:12px;border:1px solid var(--line);border-radius:10px;padding:8px 12px;background:var(--surface);overflow-wrap:anywhere}
+.crono-fasi li.ora{border-color:var(--brand);box-shadow:inset 4px 0 0 var(--brand);font-weight:650}
+.crono-fasi li.fatta{color:var(--ink-3)}
+.crono-fasi li.fatta span:first-child{text-decoration:line-through;text-decoration-thickness:1px}
+.crono-fasi li span:last-child{font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--ink-2)}
+.contaparole label{display:grid;gap:6px;font-weight:650;margin:0 0 12px}
+.contaparole textarea{font:inherit;font-size:1rem;line-height:1.5;padding:12px;min-height:200px;border:1.5px solid var(--line-2);border-radius:10px;background:var(--bg);color:var(--ink);width:100%;min-width:0;resize:vertical}
+.contaparole textarea:focus{border-color:var(--brand)}
+.cp-riga{margin:0;display:flex;align-items:baseline;gap:8px}
+.cp-numero{font-size:2.2rem;font-weight:800;font-variant-numeric:tabular-nums;color:var(--ink)}
+.conta-esito{font-weight:650;margin:4px 0 8px}
+.conta-esito.si{color:var(--brand-ink)}.conta-esito.no{color:var(--rosso)}
+.es-guide{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin:14px 0 0}
 @font-face{font-family:"Figtree";src:url("/fonts/figtree-latin-ext.woff2") format("woff2");font-weight:300 900;font-style:normal;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+20A0-20AB,U+20AD-20C0}
 @font-face{font-family:"Figtree";src:url("/fonts/onest-cyrillic.woff2") format("woff2");font-weight:300 900;font-style:normal;font-display:swap;unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
 nav.menu details.lingue{position:relative;background:none;border:0;margin:0;border-radius:999px}
@@ -423,7 +446,7 @@ nav.menu details.lingue li a[aria-current]{color:var(--brand-ink);background:var
 </section>
 <section>
 <h2 id="esame"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-cal"/></svg>Prima della domanda: l'esame B1</h2>
-<p>In provincia di Ravenna ci sono <strong>5 sedi</strong> dove fare l'esame B1 per la cittadinanza: <a href="../../citta/ravenna/">esame B1 a Ravenna</a>. Prossimo esame: mercoledì 11 novembre 2026 (CELI).</p>
+<p>In provincia di Ravenna ci sono <strong>5 sedi</strong> dove fare l'esame B1 per la cittadinanza: <a href="../../citta/ravenna/">esame B1 a Ravenna</a>. Prossimo esame: mercoledì 18 novembre 2026 (PLIDA).</p>
 </section>
 <section><h2><svg class="i" aria-hidden="true" focusable="false"><use href="#i-info"/></svg>Domande frequenti</h2><details><summary>Qual è la PEC dell&#x27;ufficio cittadinanza della Prefettura di Ravenna?<svg class="i" aria-hidden="true" focusable="false"><use href="#i-giu"/></svg></summary>
 <p>comunicazione.cittadinanza.prefra@pec.interno.it (richieste all&#x27;ufficio, con K10 e numero nell&#x27;oggetto); protocollo.prefra@pec.interno.it (PEC del protocollo, nella scheda dell&#x27;ufficio) (pagina «Cittadinanza» della Prefettura di Ravenna, letta il 31 ottobre 2026). Scrivi sempre il numero K10 della pratica nell&#x27;oggetto.</p></details><details><summary>Qual è il telefono dell&#x27;ufficio cittadinanza della Prefettura di Ravenna?<svg class="i" aria-hidden="true" focusable="false"><use href="#i-giu"/></svg></summary>

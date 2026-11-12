@@ -93,7 +93,7 @@ def url_affiliato(voce):
     return url
 
 
-def riquadro_preparati(rel, gratis=None):
+def riquadro_preparati(rel, gratis=None, scritto=False):
     """Riquadro «Preparati alla prova orale» (dal 30/10/2026): insegnante di italiano su italki (voce "italki" di dati/affiliati.json),
     accanto sempre un link gratuito alle prove d'esame ufficiali e, sotto, un link discreto ai libri su Amazon.it (voce "amazon",
     una ricerca con tag=guideesami-21) con la frase obbligatoria di Amazon. Vuoto se nessuna delle due voci ha "url".
@@ -111,8 +111,8 @@ def riquadro_preparati(rel, gratis=None):
     return f"""<section class="card prep" id="preparati" aria-labelledby="preparati-titolo">
 <span class="bolla">{ic("voce")}</span>
 <div>
-<h2 id="preparati-titolo">Preparati alla prova orale</h2>
-<p>La prova orale è la parte che preoccupa molte persone. Per prepararti aiuta parlare spesso con un insegnante madrelingua, anche online.{italki_txt}</p>
+<h2 id="preparati-titolo">{"Fatti correggere i testi" if scritto else "Preparati alla prova orale"}</h2>
+<p>{"Per la scrittura aiuta far correggere i tuoi testi da un insegnante madrelingua, anche online: ti dice gli errori che ripeti." if scritto else "La prova orale è la parte che preoccupa molte persone. Per prepararti aiuta parlare spesso con un insegnante madrelingua, anche online."}{italki_txt}</p>
 <div class="azioni">{italki_btn}<a class="btn btn-2" href="{gratis}">{ic("libro")}Prove d'esame ufficiali gratuite</a></div>{libri}
 {MON.nota_trasparenza("it")}
 </div>
@@ -571,6 +571,29 @@ main a[href^="mailto:"]{overflow-wrap:anywhere;word-break:break-word}
 @media (max-width:640px){.prep{grid-template-columns:1fr;gap:10px}.prep .bolla{width:40px;height:40px}}
 .piede .dati{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.07);padding:6px 12px;border-radius:999px;font-weight:600;color:#E8F0ED}
 @media (max-width:760px){.piede-griglia{grid-template-columns:1fr}}
+/* cronometro della simulazione e contaparole (11/11/2026) */
+.crono,.contaparole{max-width:760px}
+.crono .chips{margin:0 0 6px}
+.crono-fase{font-weight:750;font-size:1.05rem;margin:12px 0 2px}
+.crono-tempo{font-size:clamp(2.8rem,12vw,4rem);font-weight:800;line-height:1.05;font-variant-numeric:tabular-nums;letter-spacing:-.02em;color:var(--brand-ink)}
+.crono-nota{color:var(--ink-2);margin:6px 0 0;max-width:62ch}
+.crono .azioni{margin-top:16px}
+.crono-stato{margin:10px 0 0;font-weight:650;color:var(--rosso)}
+.crono-stato:empty{display:none}
+.crono-fasi{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:6px;counter-reset:f}
+.crono-fasi li{display:flex;justify-content:space-between;gap:12px;border:1px solid var(--line);border-radius:10px;padding:8px 12px;background:var(--surface);overflow-wrap:anywhere}
+.crono-fasi li.ora{border-color:var(--brand);box-shadow:inset 4px 0 0 var(--brand);font-weight:650}
+.crono-fasi li.fatta{color:var(--ink-3)}
+.crono-fasi li.fatta span:first-child{text-decoration:line-through;text-decoration-thickness:1px}
+.crono-fasi li span:last-child{font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--ink-2)}
+.contaparole label{display:grid;gap:6px;font-weight:650;margin:0 0 12px}
+.contaparole textarea{font:inherit;font-size:1rem;line-height:1.5;padding:12px;min-height:200px;border:1.5px solid var(--line-2);border-radius:10px;background:var(--bg);color:var(--ink);width:100%;min-width:0;resize:vertical}
+.contaparole textarea:focus{border-color:var(--brand)}
+.cp-riga{margin:0;display:flex;align-items:baseline;gap:8px}
+.cp-numero{font-size:2.2rem;font-weight:800;font-variant-numeric:tabular-nums;color:var(--ink)}
+.conta-esito{font-weight:650;margin:4px 0 8px}
+.conta-esito.si{color:var(--brand-ink)}.conta-esito.no{color:var(--rosso)}
+.es-guide{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin:14px 0 0}
 """
 CSS += LG.CSS_FONT + LG.CSS_MENU  # font per cirillico e ă/ș/ț (solo se la pagina li contiene) e menu delle lingue (31/10/2026)
 
@@ -1625,6 +1648,8 @@ def pagina_ente(e, prossime):
     citta_link = "".join(f'<a href="../../citta/{c["slug"]}/">{escape(c["nome"])} ({n})</a>' for c, n in citta_ente if n)
     fatti = "".join(scheda_fatto(e, k, bottone=("Vedi il tuo risultato" if k == "risultati" else "Apri la prova" if k == "esempi" else None))
                     for k in VOCI_FATTI if k in e.get("fatti", {}) or k in ("costo", "risultati"))
+    faq = faq_ente(e, date_ente, sue, regioni)  # 11/11/2026: domande frequenti con FAQPage (stesso testo visibile)
+    faq_html = "".join(domanda(escape(q), escape(a)) for q, a in faq)
     corpo = f"""<section class="hero">
 {briciole(("EsameB1", "../../"), (sigla, None))}
 <span class="occhiello">{ic("scudo")}{escape(e['ente'])}</span>
@@ -1651,9 +1676,22 @@ def pagina_ente(e, prossime):
 <p><a href="../../risultati/{SLUG_RISULTATI[sigla]}/">{ic("ok")} Risultati {escape(sigla)}: dove vederli, quando escono, punteggio e cosa fare se non superi</a></p>
 </section>
 <section>
+<h2 id="iscrizione">{ic("lista")}Come ti iscrivi al {escape(sigla)} B1, passo per passo</h2>
+<ol class="passi">{passi_iscrizione(e, date_ente, "../../")}</ol>
+</section>
+<section>
+<h2 id="prepararsi">{ic("libro")}Come prepararti</h2>
+<div class="griglia link3"><a href="../../esempi/{SLUG_ENTE[sigla]}/">{ic("libro")}<span>Prova d'esempio {escape(sigla)}<small>PDF e audio ufficiali, gratis</small></span></a><a href="../../esempi/simulazione/">{ic("orologio")}<span>Simulazione con il cronometro<small>le prove con i tempi veri</small></span></a><a href="../../esempi/prova-scritta/">{ic("matita")}<span>La prova scritta<small>tracce, parole, criteri</small></span></a><a href="../../esenzioni-e-domande/">{ic("voce")}<span>L'orale<small>com'è e quanto dura</small></span></a></div>
+</section>
+{riquadro_preparati("../../", gratis=f"../../esempi/{SLUG_ENTE[sigla]}/")}
+<section>
 <h2 id="sedi">{ic("edificio")}Sedi {escape(sigla)} in Italia ({len(sue)})</h2>
 {f'<p class="small" style="margin:0 0 8px">Nelle città con una pagina dedicata (con le date e il modulo Avvisami):</p><div class="altre" style="margin-bottom:18px">{citta_link}</div>' if citta_link else ""}
 {blocchi}
+</section>
+<section>
+<h2 id="domande">{ic("info")}Domande frequenti sul {escape(sigla)} B1</h2>
+{faq_html}
 </section>"""
     periodo = f" {anni(date_ente)}" if date_ente else ""
     corto = nome_r.split(" (")[0]  # "CERT.IT B1 cittadinanza (Roma Tre)" → "CERT.IT B1 cittadinanza"
@@ -1677,7 +1715,9 @@ def pagina_ente(e, prossime):
         f"{prossimo} Date, costo e {len(sue)} sedi {sigla} per regione.",
         f"{prossimo} Date{periodo}, scadenze, {costo_d}, risultati e {len(sue)} sedi {sigla} per regione.",
         f"{prossimo} Date, scadenze, costo, risultati e {len(sue)} sedi {sigla} per regione.")
-    pagina(f"ente/{SLUG_ENTE[sigla]}/index.html", titolo, descr, corpo, jsonld_sessioni(date_ente) if date_ente else None)
+    jsonld = jsonld_sessioni(date_ente) if date_ente else {"@context": "https://schema.org", "@graph": []}
+    jsonld["@graph"].append(faq_jsonld([(escape(q), escape(a)) for q, a in faq]))
+    pagina(f"ente/{SLUG_ENTE[sigla]}/index.html", titolo, descr, corpo, jsonld)
 
 
 def come_funziona():
@@ -2327,9 +2367,9 @@ def pagina_esempi(prossime):
          "Ogni ente li pubblica gratis sul suo sito: CILS (Università per Stranieri di Siena) alla pagina «Prove Liv. B1 c», CELI (Università per Stranieri di Perugia) alla pagina «Esami CELI immigrati», "
          "PLIDA (Società Dante Alighieri) alla pagina «Preparati all'esame», CERT.IT (Università Roma Tre) in fondo alla pagina «Livello B1». Si scaricano senza registrazione (controllato il " + v + ")."),
         ("C'è una simulazione dell'esame B1 per la cittadinanza?",
-         "Gli enti pubblicano prove d'esempio complete, con audio e soluzioni: stampale e falle con i tempi veri, è la simulazione più vicina all'esame. "
-         "Nelle pagine ufficiali che abbiamo controllato il " + v + " non c'è un test interattivo online. "
-         "Il CERT.IT B1 a Roma Tre si fa al computer (nei centri convenzionati chiedi alla sede), ma sempre in sede."),
+         "Gli enti pubblicano prove d'esempio complete, con audio e soluzioni: stampale e falle con i tempi veri (nella nostra pagina «Simulazione» c'è un cronometro con i minuti di ogni esame). "
+         "Nelle pagine ufficiali che abbiamo controllato non c'è un test interattivo online gratuito. A pagamento, l'Università per Stranieri di Siena organizza esercitazioni online CILS "
+         f"con tutor ({ES['CILS']['esercitazioni']['costo_eur']} €). Il CERT.IT B1 a Roma Tre si fa al computer (nei centri convenzionati chiedi alla sede), ma sempre in sede."),
         ("L'esame B1 per la cittadinanza è difficile?",
          "Dipende da quanto sei preparato. Il livello B1 chiede di capire i punti principali di testi chiari sulla vita di tutti i giorni e di farsi capire: il sillabo CILS parla di "
          "una produzione «comunicativamente efficace, anche se contiene errori». Per superarlo servono il 60% dei punti nello scritto e nell'orale del CERT.IT, almeno 18 su 30 in ogni abilità "
@@ -2359,6 +2399,7 @@ Scegli l'ente: per ognuno trovi i link ai file ufficiali (per CERT.IT la pagina 
 <p>Tutti e quattro gli esami hanno ascolto, lettura, scrittura e orale. Cambiano i tempi, il modo di contare i punti e cosa succede se non superi una parte.</p>
 {tab_breve}
 <p><a href="confronto/">{ic("lista")} I 4 esami a confronto, prova per prova: tipo di domande, parole da scrivere, orale</a></p>
+<div class="griglia link3"><a href="simulazione/">{ic("orologio")}<span>Simulazione con il cronometro<small>le prove ufficiali con i tempi veri</small></span></a><a href="prova-scritta/">{ic("matita")}<span>La prova scritta<small>tracce, parole, criteri e contaparole</small></span></a></div>
 <div class="fonte">{ic("doc")}<span>Fonti: i documenti ufficiali citati in ogni pagina ente · durata da sillabi e descrizioni (somma dei tempi delle prove, se l'ente non dà il totale) · punteggi letti il {data_breve(RISULTATI["verificato_il"])}</span></div>
 </section>
 <div class="due">
@@ -2395,6 +2436,21 @@ Scegli l'ente: per ognuno trovi i link ai file ufficiali (per CERT.IT la pagina 
            titolo_pagina("Esempi esame B1 cittadinanza: prove ufficiali PDF e audio, 4 enti"),
            descrizione_pagina("Prove d'esempio ufficiali e gratuite dell'esame B1 per la cittadinanza (CILS, CELI 2 i, PLIDA, CERT.IT) con PDF, audio e "
                               "soluzioni. Durata e punteggio."), corpo, jsonld)
+
+
+def esercitazioni_html(e):
+    """Esercitazioni online ufficiali a pagamento (oggi solo CILS, dati/esempi.json → esercitazioni)."""
+    x = e.get("esercitazioni")
+    if not x:
+        return ""
+    v = il(x["verificato_il"]) + data_breve(x["verificato_il"])
+    return f"""
+<section>
+<h2 id="esercitazioni">{ic("scudo")}Esercitazioni online ufficiali, con tutor</h2>
+<p>{escape(x["cosa"])} Costo: <strong>{x["costo_eur"]} €</strong>. {escape(x["nota"])}</p>
+<p class="small">{escape(x["ultime"])} Le date del prossimo turno non erano ancora pubblicate {v}.</p>
+<div class="fonte">{ic("doc")}<span>Fonte: <a href="{escape(x["url"])}" rel="noopener">Università per Stranieri di Siena, esercitazioni online CILS</a> · letta {v}</span></div>
+</section>"""
 
 
 def pagina_esempi_ente(e, prossime):
@@ -2456,7 +2512,8 @@ def pagina_esempi_ente(e, prossime):
 <section>
 <h2 id="come-usare">{ic("matita")}Come usare questo esempio</h2>
 <ol class="passi">{passi}</ol>
-</section>
+<p><a href="../simulazione/">{ic("orologio")} Fai la simulazione con il cronometro</a> · <a href="../prova-scritta/#{sl}">{ic("matita")} La prova scritta {escape(s)}: tracce, criteri e contaparole</a></p>
+</section>{esercitazioni_html(e)}
 <div class="due">
 <section>
 <h2 id="date">{ic("cal")}Prossime date {escape(s)} (livello B1)</h2>
@@ -2591,6 +2648,469 @@ Il <a href="{escape(vade["url"])}" rel="noopener">Vademecum del Ministero dell'I
            titolo_pagina("CILS, CELI, PLIDA o CERT.IT? Differenze dell'esame B1"),
            descrizione_pagina("CILS, CELI, PLIDA e CERT.IT a confronto: durata dell'esame B1 per la cittadinanza, prove, orale, punteggio per superare, "
                               "recupero e costo, con le fonti."), corpo, jsonld)
+
+
+# ---------------------------------------------------------------- simulazione con cronometro e prova scritta (11/11/2026)
+# Motivo: GoatCounter 28/10-3/11 → 4/11-10/11 (somma dei due host): sezione /esempi/ da 35 a 88 visite, 37 delle quali da chatgpt.com.
+# Suggerimenti Google (it/it, 11/11/2026): «esame b1 cittadinanza simulazione», «simulazione esame cils b1 cittadinanza», «cils b1 cittadinanza
+# simulazione pdf», «plida b1 simulazione», «celi 2 simulazione»; «esame b1 cittadinanza prova scritta», «cils b1 cittadinanza produzione
+# scritta (esempi)», «plida b1 prova scritta / scrivere / produzione scritta», «celi 2 prova scritta». Dati in dati/esempi.json
+# («simulazione», «scrittura», «esercitazioni», «corso_online»), frasi controllate da raccolta/esempi.py.
+JS_CRONO = """
+(function(){
+  var box=document.getElementById('crono');if(!box)return;
+  var dati=JSON.parse(box.getAttribute('data-fasi')),T=JSON.parse(box.getAttribute('data-testi'));
+  var bott=box.querySelectorAll('[data-ente]'),lista=box.querySelector('.crono-fasi'),
+      tempo=box.querySelector('.crono-tempo'),fase=box.querySelector('.crono-fase'),nota=box.querySelector('.crono-nota'),
+      stato=box.querySelector('.crono-stato'),bAvvia=box.querySelector('[data-azione=avvia]'),bAvanti=box.querySelector('[data-azione=avanti]'),
+      bAzzera=box.querySelector('[data-azione=azzera]');
+  var ente=bott[0].getAttribute('data-ente'),i=0,resto=0,fine=0,timer=null,finito=false;
+  function fasi(){return dati[ente];}
+  function fmt(s){s=Math.max(0,Math.ceil(s));var m=Math.floor(s/60),r=s%60;return (m<10?'0':'')+m+':'+(r<10?'0':'')+r;}
+  function disegna(){
+    var f=fasi();
+    lista.innerHTML='';
+    f.forEach(function(x,k){var li=document.createElement('li');if(k<i||finito)li.className='fatta';else if(k===i)li.className='ora';
+      var a=document.createElement('span');a.textContent=x.n;var b=document.createElement('span');b.textContent=x.t;li.appendChild(a);li.appendChild(b);lista.appendChild(li);});
+    if(finito){fase.textContent=T.finito;nota.textContent=T.correggi;tempo.textContent='00:00';}
+    else{fase.textContent=T.fase.replace('{i}',i+1).replace('{n}',f.length)+': '+f[i].n;nota.textContent=f[i].x;tempo.textContent=fmt(resto);}
+    bAvvia.textContent=timer?T.pausa:(resto<f[Math.min(i,f.length-1)].m*60&&!finito&&resto>0?T.riprendi:T.avvia);
+    bAvvia.disabled=finito;bAvanti.disabled=finito;
+  }
+  function ferma(){if(timer){clearInterval(timer);timer=null;}}
+  function tick(){resto=(fine-Date.now())/1000;if(resto<=0){resto=0;ferma();stato.textContent=T.scaduto;try{if(navigator.vibrate)navigator.vibrate(400);}catch(e){}}
+    tempo.textContent=fmt(resto);if(!timer)disegna();}
+  function azzera(){ferma();i=0;finito=false;resto=fasi()[0].m*60;stato.textContent='';disegna();}
+  bAvvia.addEventListener('click',function(){
+    if(timer){ferma();resto=(fine-Date.now())/1000;disegna();return;}
+    if(resto<=0)return;fine=Date.now()+resto*1000;timer=setInterval(tick,250);stato.textContent='';disegna();});
+  bAvanti.addEventListener('click',function(){var corre=!!timer;ferma();stato.textContent='';
+    if(i>=fasi().length-1){finito=true;resto=0;disegna();return;}
+    i++;resto=fasi()[i].m*60;if(corre){fine=Date.now()+resto*1000;timer=setInterval(tick,250);}disegna();});
+  bAzzera.addEventListener('click',azzera);
+  bott.forEach(function(b){b.addEventListener('click',function(){
+    bott.forEach(function(x){x.setAttribute('aria-pressed','false');});b.setAttribute('aria-pressed','true');ente=b.getAttribute('data-ente');azzera();});});
+  azzera();
+})();
+"""
+
+JS_PAROLE = """
+(function(){
+  var box=document.getElementById('contaparole');if(!box)return;
+  var C=JSON.parse(box.getAttribute('data-compiti')),T=JSON.parse(box.getAttribute('data-testi'));
+  var sel=box.querySelector('select'),area=box.querySelector('textarea'),num=box.querySelector('.cp-numero'),esito=box.querySelector('.conta-esito');
+  function conta(t){var p=t.trim().split(/\\s+/);return p.filter(function(w){return /[0-9A-Za-z\\u00C0-\\u024F]/.test(w);}).length;}
+  function aggiorna(){
+    var c=C[sel.value],n=conta(area.value);
+    num.textContent=n;esito.className='conta-esito';
+    if(!n){esito.textContent=T.vuoto.replace('{min}',c.min).replace('{max}',c.max);return;}
+    if(n<c.min){esito.textContent=(c.min-n===1&&T.sotto1?T.sotto1:T.sotto.replace('{n}',c.min-n))+(c.annulla?' '+T.annulla:'');esito.classList.add('no');}
+    else if(n>c.max){esito.textContent=(n-c.max===1&&T.sopra1?T.sopra1:T.sopra.replace('{n}',n-c.max));esito.classList.add('no');}
+    else{esito.textContent=T.ok.replace('{min}',c.min).replace('{max}',c.max);esito.classList.add('si');}
+  }
+  sel.addEventListener('change',aggiorna);area.addEventListener('input',aggiorna);aggiorna();
+})();
+"""
+
+ORDINE_ENTI = ["CILS", "CELI", "PLIDA", "CERT.IT"]
+
+
+def il_data(iso):
+    """«il 31 ottobre 2026», «l'11 novembre 2026»."""
+    return il(iso) + data_breve(iso)
+
+
+def etichetta_fase(f):
+    """«30 min circa», «10-12 min», «2 ore»: il tempo della fase come lo scrive l'ente."""
+    if f.get("tempo"):
+        return f["tempo"]
+    m = f["min"]
+    base = f"{m // 60} ore" if m >= 120 and m % 60 == 0 else f"{m} min"
+    return base + (" circa" if f.get("circa") else "")
+
+
+def dati_crono():
+    """Fasi del cronometro per il JS: {sigla: [{n: nome, m: minuti, t: etichetta, x: nota}]}."""
+    return {s: [{"n": f["nome"], "m": f["min"], "t": etichetta_fase(f), "x": f["nota"]} for f in ES[s]["simulazione"]["fasi"]] for s in ORDINE_ENTI}
+
+
+def crono_html(testi, etichetta_gruppo, noscript, fasi=None):
+    """Cronometro della simulazione (stato iniziale scritto nell'HTML: il primo ente, la prima fase). fasi: versione tradotta (genera_en)."""
+    fasi = fasi or dati_crono()
+    primo = fasi[ORDINE_ENTI[0]]
+    bott = "".join(f'<button type="button" data-ente="{escape(s)}" aria-pressed="{"true" if k == 0 else "false"}">{escape(s)}</button>'
+                   for k, s in enumerate(ORDINE_ENTI))
+    righe = "".join(f'<li class="{"ora" if k == 0 else ""}"><span>{escape(f["n"])}</span><span>{escape(f["t"])}</span></li>' for k, f in enumerate(primo))
+    return f"""<div class="card crono" id="crono" data-fasi="{escape(json.dumps(fasi, ensure_ascii=False))}" data-testi="{escape(json.dumps(testi, ensure_ascii=False))}">
+<div class="chips" role="group" aria-label="{escape(etichetta_gruppo)}">{bott}</div>
+<p class="crono-fase">{escape(testi["fase"].replace("{i}", "1").replace("{n}", str(len(primo))))}: {escape(primo[0]["n"])}</p>
+<div class="crono-tempo" role="timer">{primo[0]["m"]:02d}:00</div>
+<p class="crono-nota">{escape(primo[0]["x"])}</p>
+<div class="azioni"><button class="btn" type="button" data-azione="avvia">{ic("orologio")}{escape(testi["avvia"])}</button><button class="btn btn-2" type="button" data-azione="avanti">{escape(testi["avanti"])}</button><button class="btn btn-2" type="button" data-azione="azzera">{escape(testi["ricomincia"])}</button></div>
+<p class="crono-stato small" aria-live="polite"></p>
+<ol class="crono-fasi">{righe}</ol>
+<noscript><p class="small">{escape(noscript)}</p></noscript>
+</div>"""
+
+
+TESTI_CRONO = {"avvia": "Avvia", "pausa": "Pausa", "riprendi": "Riprendi", "avanti": "Fase successiva", "ricomincia": "Ricomincia",
+               "fase": "Fase {i} di {n}", "scaduto": "Tempo finito: passa alla fase successiva.",
+               "finito": "Simulazione finita", "correggi": "Ora correggi ascolto e lettura con le chiavi ufficiali, scrittura e orale con i criteri di valutazione."}
+
+
+def date_prossime_enti(prossime, rel):
+    """Tabella breve: prossima data B1 e scadenza di ogni ente (dal calendario)."""
+    righe = []
+    for s in ORDINE_ENTI:
+        p = prossima_di(prossime, [s])
+        if p:
+            if not p.get("scadenza"):
+                sc = "la fissa il centro" if s == "PLIDA" else "chiedi alla sede"
+            else:
+                sc = data_breve(p["scadenza"]) + ("" if d(p["scadenza"]) >= OGGI else " (termine passato)")
+            righe.append(f'<tr><td>{eb(s)}<a href="{rel}ente/{SLUG_ENTE[s]}/">{escape(NOME_RICERCA[s])}</a></td><td data-l="Prossimo esame">{escape(data_breve(p["data"]))}</td>'
+                         f'<td data-l="Iscrizioni entro">{escape(sc)}</td></tr>')
+        else:
+            righe.append(f'<tr><td>{eb(s)}<a href="{rel}ente/{SLUG_ENTE[s]}/">{escape(NOME_RICERCA[s])}</a></td><td data-l="Prossimo esame">nessuna data nuova pubblicata</td><td data-l="Iscrizioni entro">-</td></tr>')
+    return ('<div class="tab-wrap ris-tab"><table class="conf"><thead><tr><th scope="col">Esame</th><th scope="col">Prossimo esame</th><th scope="col">Iscrizioni entro</th></tr></thead>'
+            f'<tbody>{"".join(righe)}</tbody></table></div><p class="small">Le scadenze sono quelle nazionali dell\'ente: le sedi possono chiudere prima. <a href="{rel}#date">Tutte le date</a>.</p>')
+
+
+def pagina_simulazione(prossime):
+    """/esempi/simulazione/: la prova d'esempio ufficiale con i tempi veri (cronometro), come correggersi, simulazioni ufficiali a pagamento."""
+    v = il_data(max(ES[s]["simulazione"]["verificato_il"] for s in ORDINE_ENTI))
+    durate = {s: ENTE[s]["fatti"]["durata"]["prove"]["totale"].split(" (")[0] for s in ORDINE_ENTI}
+    es_c = ES["CILS"]["esercitazioni"]
+    copec = ES["PLIDA"]["corso_online"]
+    righe = []
+    for s in ORDINE_ENTI:
+        e = ES[s]
+        n = e["simulazione"]["prove_complete"]
+        fasi = " → ".join(f'{escape(f["nome"])} <span class="small">({escape(etichetta_fase(f))})</span>' for f in e["simulazione"]["fasi"])
+        righe.append(f'<tr><td>{eb(s)}<strong>{escape(e["esame"])}</strong><br><a class="ris-guida" href="../{SLUG_ENTE[s]}/">Prova d\'esempio {escape(s)} {ic("freccia")}</a></td>'
+                     f'<td data-l="Prove complete gratis">{n} ({escape(e["materiali"]["audio"])})</td>'
+                     f'<td data-l="Le prove, in ordine">{fasi}</td>'
+                     f'<td data-l="In tutto">{escape(durate[s])}{" più 10 min per copiare le risposte" if s == "PLIDA" else ""}</td></tr>')
+    tab = ('<div class="tab-wrap ris-tab"><table class="conf"><thead><tr><th scope="col">Esame</th><th scope="col">Prove complete gratis</th>'
+           f'<th scope="col">Le prove, in ordine</th><th scope="col">In tutto</th></tr></thead><tbody>{"".join(righe)}</tbody></table></div>')
+    fonti_fasi = " · ".join(f'{escape(s)}: {link_fonti(ES[s]["simulazione"]["fonti"])}' for s in ORDINE_ENTI)
+    ordini = "".join(f'<li><span>{eb(s)} {escape(ES[s]["simulazione"]["ordine"])}</span></li>' for s in ORDINE_ENTI)
+    T = {s: RISULTATI["enti"][s]["tabella"] for s in ORDINE_ENTI}
+    correggi = [
+        ("CILS", "Ascolto e lettura con le «Chiavi»: nelle prove a scelta multipla ogni risposta giusta vale 1 punto, nel vero/falso 0,5. Ogni abilità vale 12 punti. "
+                 "Scrittura e orale con i criteri di valutazione: per la scrittura efficacia comunicativa (fino a 3), adeguatezza stilistica (1), grammatica (4), lessico (3), ortografia e punteggiatura (1). "
+                 "Il numero minimo di punti per la sufficienza non è scritto nelle pagine ufficiali che abbiamo letto.",
+         [{"nome": "criteri di valutazione B1 Cittadinanza (PDF)", "url": ES["CILS"]["fonti_prova"][1]["url"]}]),
+        ("CELI", f"Le chiavi e la trascrizione sono dentro i due zip ufficiali. Per superare: {T['CELI']['superare'].replace('CELI 2 i: ', '')}.",
+         [ES["CELI"]["fonti_prova"][1]]),
+        ("PLIDA", f"Le soluzioni sono nello zip; il valore di ogni risposta è scritto all'inizio di ogni parte. Per superare: {T['PLIDA']['superare']}. "
+                  "Per la scrittura c'è anche una prova commentata dagli esperti PLIDA, parametro per parametro.",
+         [ES["PLIDA"]["fonti_prova"][0], {"nome": "prova di scrittura commentata (PDF)", "url": ES["PLIDA"]["scrittura"]["fonti"][2]["url"]}]),
+        ("CERT.IT", f"Le chiavi sono nello zip della pagina ufficiale. Punti: ascolto 20, lettura 30, scrittura 20, orale 30. Per superare: {T['CERT.IT']['superare']}.",
+         [ES["CERT.IT"]["fonti_prova"][0]]),
+    ]
+    correggi_html = "".join(f'<li><div><strong>{eb(s)} {escape(ES[s]["esame"])}</strong><p>{escape(x)}</p><div class="fonte">{ic("doc")}<span>Fonte: {link_fonti(f)}</span></div></div></li>'
+                            for s, x, f in correggi)
+    consigli = [
+        ("Stampa tutto prima di cominciare", "Quaderno o fascicolo, foglio delle risposte e, per CILS e PLIDA, la traccia della scrittura. Tieni il telefono lontano: all'esame non si usa, e nemmeno dizionari o appunti (PLIDA, CELI)."),
+        ("Usa la penna giusta", "CILS: solo penna nera. CELI: nera o blu. PLIDA: penna non cancellabile blu o nera, anche per gli appunti, niente matita né bianchetto."),
+        ("Non fermare l'audio", "Nel CILS le pause per rispondere sono già nel file audio e ogni testo si ascolta due volte; anche nel CERT.IT ogni testo si ascolta due volte."),
+        ("Fai l'orale ad alta voce, cronometrato", "Registrati con il telefono: presentati (circa 1 minuto nel CILS, circa 2 nel PLIDA) e poi rispondi alle domande della traccia ufficiale."),
+    ]
+    consigli_html = "".join(f'<li><div><strong>{escape(t)}</strong><p>{escape(x)}</p></div></li>' for t, x in consigli)
+    fonti_consigli = link_fonti([{"nome": "CILS, come si svolgono gli esami", "url": "https://cils.unistrasi.it/1/94/28/Come_si_svolgono_gli_esami_CILS.htm"},
+                                 ES["PLIDA"]["fonti_prova"][0], {"nome": "regolamento degli esami CELI", "url": ENTE["CELI"]["fatti"]["documenti"]["fonti"][0]["url"]},
+                                 ES["CILS"]["fonti_prova"][0], ES["CERT.IT"]["fonti_prova"][0]])
+    faq = [
+        ("Esiste una simulazione online ufficiale dell'esame B1 per la cittadinanza?",
+         f"Gratis no: gli enti pubblicano prove d'esempio da stampare, con audio e soluzioni. A pagamento, l'Università per Stranieri di Siena organizza le «{es_c['nome']}»: "
+         f"{es_c['costo_eur']} €, con 3 esempi del CILS B1 Cittadinanza (livello B1 C) e la correzione di un tutor; non valgono per il certificato. "
+         "Per il PLIDA B1 la Società Dante Alighieri propone COPEC, un corso online in autoapprendimento."),
+        ("Quanto dura una simulazione completa?",
+         f"Quanto l'esame vero: CILS B1 Cittadinanza {durate['CILS']}, CELI 2 i {durate['CELI']}, PLIDA B1 {durate['PLIDA']}, CERT.IT B1 {durate['CERT.IT']}. "
+         "Se non hai tutto quel tempo, fai lo scritto in un giorno e l'orale in un altro, ma ogni prova con i suoi minuti."),
+        ("Dove trovo la simulazione dell'esame B1 in PDF?",
+         "Sono le prove d'esempio ufficiali: CILS alla pagina «Prove Liv. B1 c», CELI alla pagina «Esami CELI immigrati», PLIDA nella sezione «Scarica i materiali» di «Preparati all'esame», "
+         "CERT.IT in fondo alla pagina «Livello B1». Nelle nostre pagine «Prove d'esempio» trovi i link ente per ente."),
+        ("Come capisco se sono pronto per l'esame?",
+         "Correggi la simulazione con le chiavi e i criteri ufficiali e guarda le soglie: PLIDA almeno 18 su 30 in ogni abilità; CERT.IT il 60% nello scritto e il 60% nell'orale; "
+         "CELI 2 i almeno 72 su 120 nello scritto, 11 nell'orale e 92 su 160 in tutto; CILS la sufficienza in ogni abilità (12 punti al massimo ciascuna, soglia in punti non pubblicata)."),
+        ("Posso fare la simulazione al computer?",
+         "I file ufficiali sono PDF da stampare e audio MP3. A Roma Tre lo scritto del CERT.IT B1 si fa al computer; per gli altri esami le risposte si scrivono sul foglio delle risposte. "
+         "Il cronometro di questa pagina funziona sul telefono e sul computer."),
+    ]
+    jsonld, faq_html = faq_html_e_jsonld(faq)
+    corpo = f"""<section class="hero">
+{briciole(("EsameB1", "../../"), ("Prove d'esempio", "../"), ("Simulazione", None))}
+<span class="occhiello">{ic("orologio")}Fonti ufficiali · controllato {v}</span>
+<h1>Simulazione dell'esame B1 per la cittadinanza, con i tempi veri</h1>
+<p class="lead">Secondo i documenti ufficiali dei 4 enti, controllati {v}, l'esame dura {escape(durate["CILS"])} (CILS B1 Cittadinanza), {escape(durate["CELI"])} (CELI 2 i), {escape(durate["PLIDA"])} (PLIDA B1) e {escape(durate["CERT.IT"])} (CERT.IT B1).
+Per una simulazione ti servono la prova d'esempio ufficiale del tuo ente e questi tempi: scegli l'esame e avvia il cronometro, prova dopo prova.</p>
+<div class="azioni"><a class="btn" href="#cronometro">{ic("orologio")}Vai al cronometro</a><a class="btn btn-2" href="../">{ic("libro")}Prove d'esempio ufficiali</a></div>
+</section>
+<section>
+<h2 id="cronometro">{ic("orologio")}Il cronometro della simulazione</h2>
+<p>Prima scarica e stampa la prova d'esempio del tuo ente. Poi scegli l'esame: le prove sono nell'ordine e con i minuti scritti dall'ente. Il cronometro non salva niente e non manda dati.</p>
+{crono_html(TESTI_CRONO, "Scegli l'esame", "Il cronometro funziona con JavaScript attivo: senza, usa i tempi della tabella qui sotto.")}
+</section>
+<section>
+<h2 id="cosa-serve">{ic("lista")}Cosa ti serve, ente per ente</h2>
+{tab}
+<ul class="cifre" style="flex-direction:column;align-items:flex-start;gap:8px">{ordini}</ul>
+<div class="fonte">{ic("doc")}<span>Fonti: {fonti_fasi} · controllato {v}</span></div>
+</section>
+<div class="due">
+<section>
+<h2 id="correggere">{ic("ok")}Come correggere la simulazione</h2>
+<ol class="passi">{correggi_html}</ol>
+</section>
+<aside>{modulo()}</aside>
+</div>
+<section>
+<h2 id="consigli">{ic("matita")}Fai la simulazione come all'esame</h2>
+<ol class="passi">{consigli_html}</ol>
+<div class="fonte">{ic("doc")}<span>Fonti: {fonti_consigli}</span></div>
+</section>
+<section>
+<h2 id="ufficiali">{ic("scudo")}Simulazioni ufficiali con correzione (a pagamento)</h2>
+<div class="fatti">
+<div class="fatto"><div class="f-et">{eb("CILS")}<span>{escape(es_c["nome"])}</span></div><p><strong>{es_c["costo_eur"]} €</strong>. {escape(es_c["cosa"])} {escape(es_c["nota"])}</p>
+<p class="small">{escape(es_c["ultime"])} Le date del prossimo turno non erano ancora pubblicate {il_data(es_c["verificato_il"])}.</p>
+<div class="fonte">{ic("doc")}<span>Fonte: <a href="{escape(es_c["url"])}" rel="noopener">Università per Stranieri di Siena, esercitazioni online CILS</a> · letta {il_data(es_c["verificato_il"])}</span></div></div>
+<div class="fatto"><div class="f-et">{eb("PLIDA")}<span>{escape(copec["nome"])}</span></div><p>{escape(copec["testo"])} Il prezzo non è scritto su quella pagina.</p>
+<div class="fonte">{ic("doc")}<span>Fonte: <a href="{escape(copec["url"])}" rel="noopener">PLIDA, Preparati all'esame</a> · letta {il_data(es_c["verificato_il"])}</span></div></div>
+</div>
+<p>Per CELI e CERT.IT chiedi al centro d'esame se organizza simulazioni o corsi di preparazione.</p>
+</section>
+{riquadro_preparati("../../", gratis="../")}
+<section>
+<h2 id="date">{ic("cal")}Le prossime date</h2>
+{date_prossime_enti(prossime, "../../")}
+</section>
+<section>
+<h2 id="domande">{ic("info")}Domande frequenti</h2>
+{faq_html}
+</section>
+<section>
+<h2>{ic("libro")}Prepara le singole prove</h2>
+<div class="altre"><a href="../prova-scritta/">La prova scritta: tracce, parole, criteri</a><a href="../confronto/">I 4 esami a confronto</a>{"".join(f'<a href="../{SLUG_ENTE[s]}/">Esempio {escape(s)}</a>' for s in ORDINE_ENTI)}</div>
+<h2>{ic("info")}Altre domande</h2>
+{link_guide("../../", salta="esempi/", dopo_b1=False)}
+</section>
+{riquadro_libro()}
+<script>{JS_CRONO}</script>"""
+    pagina("esempi/simulazione/index.html",
+           titolo_pagina("Simulazione esame B1 cittadinanza: prove ufficiali e cronometro"),
+           descrizione_pagina("Simulazione dell'esame B1 cittadinanza con le prove ufficiali CILS, CELI, PLIDA e CERT.IT: cronometro con i tempi veri e "
+                              "come correggerti."), corpo, jsonld)
+
+
+TESTI_PAROLE = {"vuoto": "Scrivi o incolla il tuo testo: qui servono da {min} a {max} parole.",
+                "sotto": "Mancano {n} parole per arrivare al minimo.", "sotto1": "Manca 1 parola per arrivare al minimo.", "annulla": "Nel PLIDA, sotto il minimo la prova viene annullata.",
+                "sopra": "Hai {n} parole oltre il massimo: accorcia il testo.", "sopra1": "Hai 1 parola oltre il massimo: accorcia il testo.", "ok": "Sei dentro i limiti: da {min} a {max} parole."}
+
+
+def compiti_scrittura():
+    """Compiti di scrittura per il contaparole: {id: {nome, min, max, annulla}}."""
+    out = {}
+    for s in ORDINE_ENTI:
+        for c in ES[s]["scrittura"]["compiti"]:
+            out[c["id"]] = {"nome": f'{s}: {c["nome"]}', "min": c["min"], "max": c["max"], "annulla": s == "PLIDA"}
+    return out
+
+
+def contaparole_html(testi, etichette):
+    """Contaparole (il conteggio separa le parole con gli spazi: «l'albergo» conta 1: conteggio prudente)."""
+    compiti = compiti_scrittura()
+    opzioni = "".join(f'<option value="{escape(k)}">{escape(c["nome"])} ({c["min"]}-{c["max"]} {etichette["parole"]})</option>' for k, c in compiti.items())
+    primo = next(iter(compiti.values()))
+    return f"""<div class="card contaparole form" id="contaparole" data-compiti="{escape(json.dumps(compiti, ensure_ascii=False))}" data-testi="{escape(json.dumps(testi, ensure_ascii=False))}">
+<label>{escape(etichette["compito"])}<select>{opzioni}</select></label>
+<label>{escape(etichette["testo"])}<textarea rows="9" spellcheck="false" autocomplete="off"></textarea></label>
+<p class="cp-riga"><span class="cp-numero" aria-live="polite">0</span> <span>{escape(etichette["parole"])}</span></p>
+<p class="conta-esito" aria-live="polite">{escape(testi["vuoto"].replace("{min}", str(primo["min"])).replace("{max}", str(primo["max"])))}</p>
+<p class="small">{escape(etichette["nota"])}</p>
+</div>"""
+
+
+def pagina_prova_scritta(prossime):
+    """/esempi/prova-scritta/: la produzione scritta dei 4 esami (compiti, parole, tempo, punti, criteri, tracce degli esempi ufficiali) e il contaparole."""
+    v = il_data(max(ES[s]["scrittura"]["verificato_il"] for s in ORDINE_ENTI))
+    righe = []
+    for s in ORDINE_ENTI:
+        w = ES[s]["scrittura"]
+        cosa = "<br>".join(f'{escape(c["nome"])}: <strong>{c["min"]}-{c["max"]} parole</strong>' for c in w["compiti"])
+        righe.append(f'<tr><td>{eb(s)}<strong>{escape(ES[s]["esame"])}</strong></td><td data-l="Cosa scrivi">{cosa}</td>'
+                     f'<td data-l="Tempo">{escape(w["tempo"])}</td><td data-l="Punti">{escape(w["punti"])}</td></tr>')
+    tab = ('<div class="tab-wrap ris-tab"><table class="conf"><thead><tr><th scope="col">Esame</th><th scope="col">Cosa scrivi</th>'
+           f'<th scope="col">Tempo</th><th scope="col">Punti</th></tr></thead><tbody>{"".join(righe)}</tbody></table></div>')
+    schede = []
+    for s in ORDINE_ENTI:
+        w = ES[s]["scrittura"]
+        compiti = "".join(f'<li><span><strong>{escape(c["nome"])} ({c["min"]}-{c["max"]} parole).</strong> {escape(c["cosa"])}</span></li>' for c in w["compiti"])
+        criteri = ("<h3>Come si valuta</h3><ul class=\"uff\">" + "".join(f'<li>{ic("ok")}<span>{escape(n)}: <b>{escape(p)}</b></span></li>' for n, p in w["criteri"]) + "</ul>"
+                   if w["criteri"] else "<h3>Come si valuta</h3>")
+        criteri += f'<p class="small">{escape(w["nota_criteri"])}</p>' if w.get("nota_criteri") else ""
+        tracce = ("<h3>Le tracce dell'esempio ufficiale</h3>" + "".join(f'<p class="citaz">{escape(t)}</p>' for t in w["tracce"])) if w["tracce"] else ""
+        annullata = (f'<div class="avviso">{ic("attenzione")}<div><strong>Quando la prova scritta PLIDA viene annullata.</strong> Secondo il Quaderno delle specifiche, se: '
+                     + " ".join(escape(x) for x in w["annullata"]) + "</div></div>") if w.get("annullata") else ""
+        regole = "".join(f'<li>{ic("info")}<span>{escape(x)}</span></li>' for x in w["regole"])
+        schede.append(f"""<section class="card es-card es-{s.replace(".", "")}" id="{SLUG_ENTE[s]}">
+<h2>{eb(s)} {escape(ES[s]["esame"])}: la prova scritta</h2>
+<p>{escape(w["tempo"][0].upper() + w["tempo"][1:])} · {escape(w["punti"])}</p>
+<ul class="cifre" style="flex-direction:column;align-items:flex-start;gap:8px">{compiti}</ul>
+{tracce}
+{criteri}
+{annullata}
+<ul class="uff">{regole}</ul>
+<div class="fonte">{ic("doc")}<span>{"Fonte" if len(w["fonti"]) == 1 else "Fonti"}: {link_fonti(w["fonti"])} · controllato {il_data(w["verificato_il"])}</span></div>
+<p><a href="../{SLUG_ENTE[s]}/">{ic("libro")} Prova d'esempio {escape(s)}: tutti i file ufficiali</a></p>
+</section>""")
+    faq = [
+        ("Quante parole bisogna scrivere nella prova scritta del B1 per la cittadinanza?",
+         "Dipende dall'ente. CILS B1 Cittadinanza: un'email di 80-120 parole. CELI 2 i: 4 risposte brevi di 8-15 parole, un'email formale di 40-50 parole e un messaggio informale di 80-90. "
+         "PLIDA B1: due testi, di 110-150 e di 70-100 parole. CERT.IT B1: due testi di 50-80 parole."),
+        ("Cosa succede se scrivo meno parole del minimo?",
+         "Nel PLIDA la prova scritta viene annullata se una delle due parti ha meno parole del minimo: lo scrive il Quaderno delle specifiche, e nel conteggio entrano anche le parole di una sola lettera. "
+         "Per CILS, CELI e CERT.IT nei documenti che abbiamo letto non c'è una regola scritta su cosa succede: resta comunque dentro i limiti indicati nella traccia."),
+        ("Come viene valutata la scrittura del CILS B1 Cittadinanza?",
+         "Con 12 punti al massimo: efficacia comunicativa fino a 3, adeguatezza stilistica fino a 1, correttezza morfosintattica fino a 4, adeguatezza e ricchezza lessicale fino a 3, "
+         "ortografia e punteggiatura fino a 1 (criteri di valutazione ufficiali)."),
+        ("Che tipo di testo devo scrivere?",
+         "Testi della vita di tutti i giorni. Nel CILS un'email per chiedere informazioni o risolvere un problema (nell'esempio: al proprietario di casa o al dirigente scolastico); "
+         "nel PLIDA una recensione o un post guidati da una scaletta; nel CERT.IT un messaggio nel gruppo WhatsApp del condominio o una lettera di reclamo; nel CELI 2 i risposte a un blog, un'email formale e un messaggio informale."),
+        ("Posso usare il dizionario nella prova scritta?",
+         "No nel PLIDA: non si può usare nessun materiale di aiuto (appunti, dizionari, libri). Al CELI telefono, dizionario e libri si consegnano all'ingresso. Per CILS e CERT.IT chiedi alla sede le regole del giorno d'esame."),
+    ]
+    jsonld, faq_html = faq_html_e_jsonld(faq)
+    etichette = {"compito": "Quale prova stai scrivendo?", "testo": "Il tuo testo", "parole": "parole",
+                 "nota": "Le parole si contano separandole con gli spazi: «l'albergo» conta come 1 parola. È un conteggio prudente: l'ente non spiega come conta le parole con l'apostrofo, i numeri e le date. Il testo resta sul tuo telefono o computer: non lo salviamo e non lo mandiamo da nessuna parte."}
+    corpo = f"""<section class="hero">
+{briciole(("EsameB1", "../../"), ("Prove d'esempio", "../"), ("Prova scritta", None))}
+<span class="occhiello">{ic("matita")}Fonti ufficiali · controllato {v}</span>
+<h1>La prova scritta dell'esame B1 per la cittadinanza: cosa scrivere, quante parole, come si valuta</h1>
+<p class="lead">Secondo i documenti ufficiali dei 4 enti, controllati {v}, nella prova scritta del B1 per la cittadinanza scrivi testi brevi della vita di tutti i giorni:
+un'email di 80-120 parole nel CILS B1 Cittadinanza, tre testi brevi nel CELI 2 i, due testi di 110-150 e 70-100 parole nel PLIDA B1, due testi di 50-80 parole nel CERT.IT B1.</p>
+<div class="azioni"><a class="btn" href="#contaparole-sez">{ic("matita")}Conta le parole del tuo testo</a><a class="btn btn-2" href="../simulazione/">{ic("orologio")}Simulazione con il cronometro</a></div>
+</section>
+<section>
+<h2 id="in-breve">{ic("lista")}La prova scritta dei 4 esami, in breve</h2>
+{tab}
+</section>
+<section>
+<h2 id="contaparole-sez">{ic("matita")}Contaparole: sei dentro i limiti?</h2>
+<p>Scegli la prova, scrivi o incolla il tuo testo: vedi subito quante parole hai e quante ne mancano.</p>
+{contaparole_html(TESTI_PAROLE, etichette)}
+</section>
+{"".join(schede)}
+<div class="due">
+<section>
+<h2 id="esercitarti">{ic("ok")}Come esercitarti</h2>
+<ol class="passi">
+<li><div><strong>Scrivi con il tempo dell'esame</strong><p>40 minuti per l'email del CILS, 60 per le due parti del PLIDA. Nel CELI e nel CERT.IT il tempo è insieme ad altre prove: dividilo prima di cominciare.</p></div></li>
+<li><div><strong>Segui tutti i punti della traccia</strong><p>Le tracce dicono cosa scrivere (per esempio: spiega perché, chiedi se, racconta con chi). Nei criteri PLIDA il primo parametro è proprio «contenuto e svolgimento del compito».</p></div></li>
+<li><div><strong>Conta le parole e rileggi</strong><p>Usa il contaparole qui sopra, poi rileggi con i criteri del tuo ente: grammatica, lessico, ortografia e punteggiatura.</p></div></li>
+<li><div><strong>Fatti correggere</strong><p>Il sillabo CILS dice che al livello B1 la produzione scritta è «comunicativamente efficace, anche se contiene errori»: un insegnante ti aiuta a capire quali errori contano davvero.</p></div></li>
+</ol>
+</section>
+<aside>{modulo()}</aside>
+</div>
+{riquadro_preparati("../../", gratis="../", scritto=True)}
+<section>
+<h2 id="date">{ic("cal")}Le prossime date</h2>
+{date_prossime_enti(prossime, "../../")}
+</section>
+<section>
+<h2 id="domande">{ic("info")}Domande frequenti</h2>
+{faq_html}
+</section>
+<section>
+<h2>{ic("libro")}Prepara le altre prove</h2>
+<div class="altre"><a href="../simulazione/">Simulazione con il cronometro</a><a href="../confronto/">I 4 esami a confronto</a><a href="../../esenzioni-e-domande/">L'orale</a>{"".join(f'<a href="../{SLUG_ENTE[s]}/">Esempio {escape(s)}</a>' for s in ORDINE_ENTI)}</div>
+<h2>{ic("info")}Altre domande</h2>
+{link_guide("../../", salta="esempi/", dopo_b1=False)}
+</section>
+<script>{JS_PAROLE}</script>"""
+    pagina("esempi/prova-scritta/index.html",
+           titolo_pagina("Prova scritta esame B1 cittadinanza: tracce, parole e criteri"),
+           descrizione_pagina("Prova scritta dell'esame B1 cittadinanza: cosa scrivere nel CILS, CELI, PLIDA e CERT.IT, quante parole, tempo, criteri "
+                              "e contaparole."), corpo, jsonld)
+
+
+# ---------------------------------------------------------------- pagine ente: come ti iscrivi e domande frequenti (11/11/2026)
+# GoatCounter: /ente/cils/ da 9 a 29 visite in una settimana (25 da Google). Suggerimenti Google (it/it, 11/11/2026): «iscrizione cils b1
+# cittadinanza (milano)», «cils b1 cittadinanza dove farlo», «cils b1 cittadinanza costo / durata / sedi / quando / certificato».
+def passi_iscrizione(e, date_ente, rel):
+    """I passi dall'iscrizione al risultato, ognuno con la sua fonte: passi propri dell'ente (enti.json → iscrizione_passi) + dati comuni."""
+    s = e["sigla"]
+    fatti = e["fatti"]
+    ip = e.get("iscrizione_passi", {})
+    pagine_uff = [{"nome": f"calendario ufficiale {s}", "url": e["pagina_date"]}, {"nome": f"elenco ufficiale delle sedi {s}", "url": e["pagina_sedi"]}]
+    passi = []
+    propri = ip.get("passi", [])
+    if not any(p["t"].startswith("Scegli l'esame") for p in propri):
+        fonte_scelta = pagine_uff[:1] + ([{"nome": ES[s]["pagina"]["nome"].split(", ")[0], "url": ES[s]["pagina"]["url"]}] if s == "CELI" else [])
+        passi.append(("Scegli l'esame giusto", escape(e["cittadinanza"]), fonte_scelta))
+    if propri:
+        passi += [(p["t"], escape(p["x"]), p["fonti"]) for p in propri]
+    else:
+        passi.append(("Trova il centro e iscriviti", escape(f'{e["iscrizione"]} {fatti["costo"]["testo"]}'), fatti["costo"]["fonti"]))
+    p = next((x for x in date_ente if x.get("scadenza") and d(x["scadenza"]) >= OGGI), None)
+    if p:
+        passi.append(("Iscriviti prima della scadenza",
+                      f'Prossima scadenza: <strong>{escape(data_breve(p["scadenza"]))}</strong> per l\'esame {del_(p["data"])}{escape(data_breve(p["data"]))}: '
+                      f'{escape(", ".join(p["esami"]))}. {escape(p.get("nota_scadenza") or "Le sedi possono chiudere prima.")}',
+                      [{"nome": f"calendario ufficiale {s}", "url": p["fonte"]}]))
+    elif date_ente:
+        passi.append(("Chiedi la scadenza al centro", "Il calendario ufficiale non indica una scadenza nazionale delle iscrizioni: chiedila al centro quando lo contatti.",
+                      [{"nome": f"calendario ufficiale {s}", "url": date_ente[0]["fonte"]}]))
+    giorno = ip.get("giorno")
+    if giorno:
+        passi.append((giorno["t"], escape(giorno["x"]), giorno["fonti"]))
+    elif "documenti" in fatti:
+        t_doc = "I documenti per iscriverti" if fatti["documenti"]["testo"].startswith("Per iscriverti") else "Il giorno dell'esame"
+        passi.append((t_doc, escape(fatti["documenti"]["testo"]), fatti["documenti"]["fonti"]))
+    t = RISULTATI["enti"][s]["tabella"]
+    tempi = t["tempi"] or "l'ente non li scrive nelle pagine che abbiamo letto"
+    passi.append(("Dopo l'esame: il risultato", f'{escape(t["dove"])}. Tempi: {escape(tempi)}. <a href="{rel}risultati/{SLUG_RISULTATI[s]}/">Risultati {escape(s)}: la guida</a>.',
+                  [RISULTATI["enti"][s]["fonti"][k] for k in RISULTATI["enti"][s]["voci"]["dove"]["fonti"]]))
+    return "".join(f'<li><div><strong>{escape(tt)}</strong><p>{x}</p><div class="fonte">{ic("doc")}<span>{"Fonte" if len(f) == 1 else "Fonti"}: {link_fonti(f)}</span></div></div></li>'
+                   for tt, x, f in passi)
+
+
+def faq_ente(e, date_ente, sue, regioni):
+    """Domande frequenti della pagina ente: risposte prese dagli stessi dati della pagina (date, costo, durata, iscrizione, risultati, recupero, sedi)."""
+    s = e["sigla"]
+    nome = NOME_RICERCA[s].split(" (")[0]
+    fatti = e["fatti"]
+    p = prossima_di(date_ente)
+    if p:
+        r_data = f'{il(p["data"])}{data_breve(p["data"])}: {", ".join(p["esami"])}.'
+        r_data = r_data[0].upper() + r_data[1:]
+        pc = next((x for x in date_ente if x["tipo"] == "cittadinanza"), None)  # es. CELI: prima il CELI 2, poi il CELI 2 i cittadinanza
+        if pc and pc is not p:
+            r_data += f' Il prossimo {pc["esami"][0]} è {il(pc["data"])}{data_breve(pc["data"])}.'
+            p = pc
+        if p.get("scadenza") and d(p["scadenza"]) >= OGGI:
+            r_data += f' Iscrizioni entro {il(p["scadenza"])}{data_breve(p["scadenza"])}. {p.get("nota_scadenza") or "Le sedi possono chiudere prima."}'
+        elif not p.get("scadenza"):
+            r_data += " Il calendario ufficiale non indica una scadenza nazionale delle iscrizioni: chiedila al centro."
+        else:
+            r_data += " Il termine nazionale delle iscrizioni è passato: chiedi alla sede se accetta ancora iscrizioni, oppure guarda le date successive."
+    else:
+        r_data = "Al momento l'ente non ha pubblicato nuove date. Controlliamo il calendario ufficiale ogni settimana."
+    vt = RISULTATI["enti"][s]["voci"].get("tempi", {}).get("testo")
+    faq = [
+        (f"Quando è il prossimo esame {nome}?", r_data),
+        (f"Quanto costa il {s} B1?", fatti["costo"]["testo"]),
+        (f"Quanto dura l'esame {s} B1?", fatti["durata"]["testo"]),
+        (f"Come ci si iscrive al {s} B1?", e["iscrizione"] + (" " + e["iscrizione_passi"]["passi"][0]["x"] if s == "PLIDA" else "")),
+        (f"Quando escono i risultati {s}?", vt or "L'ente non scrive i tempi nelle pagine che abbiamo letto: chiedi alla sede dove hai fatto l'esame."),
+        ("Se non supero una parte, devo rifare tutto l'esame?", RISULTATI["enti"][s]["voci"]["non_superato"]["testo"]),
+        (f"Quante sedi {s} ci sono in Italia?",
+         f"{len(sue)} sedi in {len(regioni)} regioni, secondo l'elenco ufficiale dell'ente (controllato {il_data(max(x['verificato_il'] for x in sue))}). Più in basso le trovi regione per regione."),
+    ]
+    return faq
 
 
 def pagina_esonero():
@@ -4151,6 +4671,10 @@ def main():
         urls.append(f"esempi/{SLUG_ENTE[e['sigla']]}/")
     pagina_confronto(prossime)
     urls.append("esempi/confronto/")
+    pagina_simulazione(prossime)  # 11/11/2026
+    urls.append("esempi/simulazione/")
+    pagina_prova_scritta(prossime)  # 11/11/2026
+    urls.append("esempi/prova-scritta/")
     pagina_esonero()
     urls.append("esonero-test-italiano/")
     pagina_ricongiungimento()

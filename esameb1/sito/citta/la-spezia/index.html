@@ -362,6 +362,29 @@ main a[href^="mailto:"]{overflow-wrap:anywhere;word-break:break-word}
 @media (max-width:640px){.prep{grid-template-columns:1fr;gap:10px}.prep .bolla{width:40px;height:40px}}
 .piede .dati{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.07);padding:6px 12px;border-radius:999px;font-weight:600;color:#E8F0ED}
 @media (max-width:760px){.piede-griglia{grid-template-columns:1fr}}
+/* cronometro della simulazione e contaparole (11/11/2026) */
+.crono,.contaparole{max-width:760px}
+.crono .chips{margin:0 0 6px}
+.crono-fase{font-weight:750;font-size:1.05rem;margin:12px 0 2px}
+.crono-tempo{font-size:clamp(2.8rem,12vw,4rem);font-weight:800;line-height:1.05;font-variant-numeric:tabular-nums;letter-spacing:-.02em;color:var(--brand-ink)}
+.crono-nota{color:var(--ink-2);margin:6px 0 0;max-width:62ch}
+.crono .azioni{margin-top:16px}
+.crono-stato{margin:10px 0 0;font-weight:650;color:var(--rosso)}
+.crono-stato:empty{display:none}
+.crono-fasi{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:6px;counter-reset:f}
+.crono-fasi li{display:flex;justify-content:space-between;gap:12px;border:1px solid var(--line);border-radius:10px;padding:8px 12px;background:var(--surface);overflow-wrap:anywhere}
+.crono-fasi li.ora{border-color:var(--brand);box-shadow:inset 4px 0 0 var(--brand);font-weight:650}
+.crono-fasi li.fatta{color:var(--ink-3)}
+.crono-fasi li.fatta span:first-child{text-decoration:line-through;text-decoration-thickness:1px}
+.crono-fasi li span:last-child{font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--ink-2)}
+.contaparole label{display:grid;gap:6px;font-weight:650;margin:0 0 12px}
+.contaparole textarea{font:inherit;font-size:1rem;line-height:1.5;padding:12px;min-height:200px;border:1.5px solid var(--line-2);border-radius:10px;background:var(--bg);color:var(--ink);width:100%;min-width:0;resize:vertical}
+.contaparole textarea:focus{border-color:var(--brand)}
+.cp-riga{margin:0;display:flex;align-items:baseline;gap:8px}
+.cp-numero{font-size:2.2rem;font-weight:800;font-variant-numeric:tabular-nums;color:var(--ink)}
+.conta-esito{font-weight:650;margin:4px 0 8px}
+.conta-esito.si{color:var(--brand-ink)}.conta-esito.no{color:var(--rosso)}
+.es-guide{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin:14px 0 0}
 @font-face{font-family:"Figtree";src:url("/fonts/figtree-latin-ext.woff2") format("woff2");font-weight:300 900;font-style:normal;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+20A0-20AB,U+20AD-20C0}
 @font-face{font-family:"Figtree";src:url("/fonts/onest-cyrillic.woff2") format("woff2");font-weight:300 900;font-style:normal;font-display:swap;unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
 nav.menu details.lingue{position:relative;background:none;border:0;margin:0;border-radius:999px}
@@ -399,39 +422,39 @@ Le date d'esame sono le stesse in tutta Italia; la scadenza per iscriversi può 
 <div class="slot" data-slot><div class="r-et"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-cal"/></svg>Prossimo esame</div><div data-fino="2026-11-18">
 <div class="r-data">18 novembre <small>2026</small></div>
 <div class="r-cosa"><span class="eb eb-PLIDA">PLIDA</span><span>PLIDA B1</span></div>
-<p style="margin:12px 0 0"><span class="conta vicino" data-conta="2026-11-18" data-modo="esame">tra 7 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta vicino" data-conta="2026-11-18" data-modo="esame">tra 6 giorni</span></p>
 </div><div data-fino="2026-12-03" hidden>
 <div class="r-data">3 dicembre <small>2026</small></div>
 <div class="r-cosa"><span class="eb eb-CILS">CILS</span><span>CILS B1 Cittadinanza, CILS B1 standard</span></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2026-12-03" data-modo="esame">tra 22 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2026-12-03" data-modo="esame">tra 21 giorni</span></p>
 </div><div data-fino="2027-02-18" hidden>
 <div class="r-data">18 febbraio <small>2027</small></div>
 <div class="r-cosa"><span class="eb eb-CILS">CILS</span><span>CILS B1 Cittadinanza</span></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-02-18" data-modo="esame">tra 99 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-02-18" data-modo="esame">tra 98 giorni</span></p>
 </div><div data-fino="2027-04-08" hidden>
 <div class="r-data">8 aprile <small>2027</small></div>
 <div class="r-cosa"><span class="eb eb-CILS">CILS</span><span>CILS B1 Cittadinanza</span></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-04-08" data-modo="esame">tra 148 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-04-08" data-modo="esame">tra 147 giorni</span></p>
 </div></div>
 <div class="slot" data-slot><div class="r-et"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg>Iscrizioni ancora aperte</div><div data-fino="2027-01-18">
 <div class="r-data"><small>entro il</small> 18 gennaio 2027</div>
 <div class="r-cosa">per l'esame <span class="eb eb-CILS">CILS</span> del <strong>18 febbraio</strong></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-01-18" data-modo="scad">mancano 68 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-01-18" data-modo="scad">mancano 67 giorni</span></p>
 <p class="r-nota">È il termine nazionale: la sede può chiudere prima. Chiedi sempre conferma.</p>
 </div><div data-fino="2027-03-08" hidden>
 <div class="r-data"><small>entro l'</small>8 marzo 2027</div>
 <div class="r-cosa">per l'esame <span class="eb eb-CILS">CILS</span> del <strong>8 aprile</strong></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-03-08" data-modo="scad">mancano 117 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-03-08" data-modo="scad">mancano 116 giorni</span></p>
 <p class="r-nota">È il termine nazionale: la sede può chiudere prima. Chiedi sempre conferma.</p>
 </div><div data-fino="2027-05-01" hidden>
 <div class="r-data"><small>entro il</small> 1 maggio 2027</div>
 <div class="r-cosa">per l'esame <span class="eb eb-CILS">CILS</span> del <strong>10 giugno</strong></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-05-01" data-modo="scad">mancano 171 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-05-01" data-modo="scad">mancano 170 giorni</span></p>
 <p class="r-nota">È il termine nazionale: la sede può chiudere prima. Chiedi sempre conferma.</p>
 </div><div data-fino="2027-06-22" hidden>
 <div class="r-data"><small>entro il</small> 22 giugno 2027</div>
 <div class="r-cosa">per l'esame <span class="eb eb-CILS">CILS</span> del <strong>22 luglio</strong></div>
-<p style="margin:12px 0 0"><span class="conta " data-conta="2027-06-22" data-modo="scad">mancano 223 giorni</span></p>
+<p style="margin:12px 0 0"><span class="conta " data-conta="2027-06-22" data-modo="scad">mancano 222 giorni</span></p>
 <p class="r-nota">È il termine nazionale: la sede può chiudere prima. Chiedi sempre conferma.</p>
 </div><p data-riserva class="r-nota" hidden>In questo momento non ci sono termini nazionali aperti: per PLIDA e CERT.IT la scadenza la decide ogni centro. Chiedi alla sede.</p></div>
 <div class="r-piede"><a href="../../#date">Tutte le date <svg class="i" aria-hidden="true" focusable="false"><use href="#i-freccia"/></svg></a><span><svg class="i" aria-hidden="true" focusable="false"><use href="#i-info"/></svg>Le date d'esame sono le stesse in tutta Italia.</span></div>
@@ -447,11 +470,11 @@ Le date d'esame sono le stesse in tutta Italia; la scadenza per iscriversi può 
 <h2 id="per-ente"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-cal"/></svg>Prossime date a La Spezia, ente per ente</h2>
 <div class="perente"><article class="pe pe-CILS">
 <div class="pe-testa"><span class="eb eb-CILS">CILS</span><a href="#sedi-cils"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg>2 sedi a La Spezia</a></div>
-<div data-slot><div class="pe-et"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-cal"/></svg>Prossimo esame</div><div data-fino="2026-12-03"><div class="pe-data">3 dicembre 2026<span class="conta " data-conta="2026-12-03" data-modo="esame">tra 22 giorni</span></div><p class="pe-cosa">CILS B1 Cittadinanza, CILS B1 standard</p></div><div data-fino="2027-02-18" hidden><div class="pe-data">18 febbraio 2027<span class="conta " data-conta="2027-02-18" data-modo="esame">tra 99 giorni</span></div><p class="pe-cosa">CILS B1 Cittadinanza</p></div><div data-fino="2027-04-08" hidden><div class="pe-data">8 aprile 2027<span class="conta " data-conta="2027-04-08" data-modo="esame">tra 148 giorni</span></div><p class="pe-cosa">CILS B1 Cittadinanza</p></div><div data-fino="2027-06-10" hidden><div class="pe-data">10 giugno 2027<span class="conta " data-conta="2027-06-10" data-modo="esame">tra 211 giorni</span></div><p class="pe-cosa">CILS B1 Cittadinanza, CILS B1 standard</p></div><div data-fino="2027-07-22" hidden><div class="pe-data">22 luglio 2027<span class="conta " data-conta="2027-07-22" data-modo="esame">tra 253 giorni</span></div><p class="pe-cosa">CILS B1 Cittadinanza</p></div><div data-fino="2027-10-21" hidden><div class="pe-data">21 ottobre 2027<span class="conta " data-conta="2027-10-21" data-modo="esame">tra 344 giorni</span></div><p class="pe-cosa">CILS B1 Cittadinanza</p></div></div>
-<div data-slot><div class="pe-et"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg>Iscrizioni (termine nazionale)</div><div data-fino="2027-01-18"><div class="pe-data">entro il 18 gennaio 2027<span class="conta " data-conta="2027-01-18" data-modo="scad">mancano 68 giorni</span></div><p class="pe-cosa">per l'esame del 18 febbraio 2027</p></div><div data-fino="2027-03-08" hidden><div class="pe-data">entro l'8 marzo 2027<span class="conta " data-conta="2027-03-08" data-modo="scad">mancano 117 giorni</span></div><p class="pe-cosa">per l'esame dell'8 aprile 2027</p></div><div data-fino="2027-05-01" hidden><div class="pe-data">entro il 1 maggio 2027<span class="conta " data-conta="2027-05-01" data-modo="scad">mancano 171 giorni</span></div><p class="pe-cosa">per l'esame del 10 giugno 2027</p></div><div data-fino="2027-06-22" hidden><div class="pe-data">entro il 22 giugno 2027<span class="conta " data-conta="2027-06-22" data-modo="scad">mancano 223 giorni</span></div><p class="pe-cosa">per l'esame del 22 luglio 2027</p></div><div data-fino="2027-09-21" hidden><div class="pe-data">entro il 21 settembre 2027<span class="conta " data-conta="2027-09-21" data-modo="scad">mancano 314 giorni</span></div><p class="pe-cosa">per l'esame del 21 ottobre 2027</p></div><div data-fino="2027-10-23" hidden><div class="pe-data">entro il 23 ottobre 2027<span class="conta " data-conta="2027-10-23" data-modo="scad">mancano 346 giorni</span></div><p class="pe-cosa">per l'esame del 2 dicembre 2027</p></div><p class="pe-cosa" data-riserva hidden>Nessun termine nazionale aperto: chiedi alla sede.</p></div>
+<div data-slot><div class="pe-et"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-cal"/></svg>Prossimo esame</div><div data-fino="2026-12-03"><div class="pe-data">3 dicembre 2026<span class="conta " data-conta="2026-12-03" data-modo="esame">tra 21 giorni</span></div><p class="pe-cosa">CILS B1 Cittadinanza, CILS B1 standard</p></div><div data-fino="2027-02-18" hidden><div class="pe-data">18 febbraio 2027<span class="conta " data-conta="2027-02-18" data-modo="esame">tra 98 giorni</span></div><p class="pe-cosa">CILS B1 Cittadinanza</p></div><div data-fino="2027-04-08" hidden><div class="pe-data">8 aprile 2027<span class="conta " data-conta="2027-04-08" data-modo="esame">tra 147 giorni</span></div><p class="pe-cosa">CILS B1 Cittadinanza</p></div><div data-fino="2027-06-10" hidden><div class="pe-data">10 giugno 2027<span class="conta " data-conta="2027-06-10" data-modo="esame">tra 210 giorni</span></div><p class="pe-cosa">CILS B1 Cittadinanza, CILS B1 standard</p></div><div data-fino="2027-07-22" hidden><div class="pe-data">22 luglio 2027<span class="conta " data-conta="2027-07-22" data-modo="esame">tra 252 giorni</span></div><p class="pe-cosa">CILS B1 Cittadinanza</p></div><div data-fino="2027-10-21" hidden><div class="pe-data">21 ottobre 2027<span class="conta " data-conta="2027-10-21" data-modo="esame">tra 343 giorni</span></div><p class="pe-cosa">CILS B1 Cittadinanza</p></div></div>
+<div data-slot><div class="pe-et"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg>Iscrizioni (termine nazionale)</div><div data-fino="2027-01-18"><div class="pe-data">entro il 18 gennaio 2027<span class="conta " data-conta="2027-01-18" data-modo="scad">mancano 67 giorni</span></div><p class="pe-cosa">per l'esame del 18 febbraio 2027</p></div><div data-fino="2027-03-08" hidden><div class="pe-data">entro l'8 marzo 2027<span class="conta " data-conta="2027-03-08" data-modo="scad">mancano 116 giorni</span></div><p class="pe-cosa">per l'esame dell'8 aprile 2027</p></div><div data-fino="2027-05-01" hidden><div class="pe-data">entro il 1 maggio 2027<span class="conta " data-conta="2027-05-01" data-modo="scad">mancano 170 giorni</span></div><p class="pe-cosa">per l'esame del 10 giugno 2027</p></div><div data-fino="2027-06-22" hidden><div class="pe-data">entro il 22 giugno 2027<span class="conta " data-conta="2027-06-22" data-modo="scad">mancano 222 giorni</span></div><p class="pe-cosa">per l'esame del 22 luglio 2027</p></div><div data-fino="2027-09-21" hidden><div class="pe-data">entro il 21 settembre 2027<span class="conta " data-conta="2027-09-21" data-modo="scad">mancano 313 giorni</span></div><p class="pe-cosa">per l'esame del 21 ottobre 2027</p></div><div data-fino="2027-10-23" hidden><div class="pe-data">entro il 23 ottobre 2027<span class="conta " data-conta="2027-10-23" data-modo="scad">mancano 345 giorni</span></div><p class="pe-cosa">per l'esame del 2 dicembre 2027</p></div><p class="pe-cosa" data-riserva hidden>Nessun termine nazionale aperto: chiedi alla sede.</p></div>
 </article><article class="pe pe-PLIDA">
 <div class="pe-testa"><span class="eb eb-PLIDA">PLIDA</span><a href="#sedi-plida"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg>1 sede a La Spezia</a></div>
-<div data-slot><div class="pe-et"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-cal"/></svg>Prossimo esame</div><div data-fino="2026-11-18"><div class="pe-data">18 novembre 2026<span class="conta vicino" data-conta="2026-11-18" data-modo="esame">tra 7 giorni</span></div><p class="pe-cosa">PLIDA B1</p></div></div>
+<div data-slot><div class="pe-et"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-cal"/></svg>Prossimo esame</div><div data-fino="2026-11-18"><div class="pe-data">18 novembre 2026<span class="conta vicino" data-conta="2026-11-18" data-modo="esame">tra 6 giorni</span></div><p class="pe-cosa">PLIDA B1</p></div></div>
 <div data-slot><div class="pe-et"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-orologio"/></svg>Iscrizioni (termine nazionale)</div><p class="pe-cosa" style="margin:0">La scadenza la decide ogni centro PLIDA: chiedila alla sede.</p></div>
 </article></div>
 </section>
@@ -506,7 +529,7 @@ Le date d'esame sono le stesse in tutta Italia; la scadenza per iscriversi può 
 <div class="fonte"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-doc"/></svg><span>Fonte: <a href="https://cils.unistrasi.it/public/articoli/428/LETTERA%20date%20MAE_2027_pdf.pdf" rel="noopener">calendario ufficiale CILS</a> · controllato il 9 ottobre 2026</span></div>
 </div>
 </article></div><button class="btn btn-2 mostra" type="button" hidden>Mostra tutte le date</button></div>
-<p class="small">Qui ci sono le prossime 6 sessioni degli enti con sedi in provincia della Spezia. <a href="../../#date">Calendario completo: tutte le 18 sessioni di CILS, CELI, PLIDA e CERT.IT</a>.</p>
+<p class="small">Qui ci sono le prossime 6 sessioni degli enti con sedi in provincia della Spezia. <a href="../../#date">Calendario completo: tutte le 17 sessioni di CILS, CELI, PLIDA e CERT.IT</a>.</p>
 </section>
 <aside>
 <section class="card" id="avvisami">

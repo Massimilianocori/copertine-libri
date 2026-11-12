@@ -131,7 +131,60 @@
   },
   "prezzo_eur": 100,
   "prezzo_esame": "CILS B1 Cittadinanza",
-  "prezzo_url": "https://cils.unistrasi.it/1/89/382/Prove_Liv._B1_c.htm"
+  "prezzo_url": "https://cils.unistrasi.it/1/89/382/Prove_Liv._B1_c.htm",
+  "iscrizione_passi": {
+   "verificato_il": "2026-11-11",
+   "passi": [
+    {
+     "t": "Scegli l'esame giusto: il B1 Cittadinanza",
+     "x": "Per la domanda di cittadinanza l'Università per Stranieri di Siena indica il livello «B1 C», cioè il CILS B1 Cittadinanza.",
+     "fonti": [
+      {
+       "nome": "CILS, iscrizione nella sede di Siena",
+       "url": "https://cils.unistrasi.it/1/88/176/Iscrizione_nella_sede_Siena.htm"
+      }
+     ]
+    },
+    {
+     "t": "Trova la sede e contattala",
+     "x": "Ci si iscrive presso la sede d'esame scelta, in Italia o all'estero: contatti la sede e segui le istruzioni che ti dà (costi, documenti, scadenza).",
+     "fonti": [
+      {
+       "nome": "CILS, iscrizione agli esami",
+       "url": "https://cils.unistrasi.it/1/88/71/Iscrizione_agli_esami_CILS.htm"
+      }
+     ]
+    },
+    {
+     "t": "Hai bisogno di aiuto all'esame? Dillo alla sede quando ti iscrivi",
+     "x": "Chi ha esigenze specifiche (per esempio difficoltà alle braccia o alle mani, o problemi di udito) deve dare i documenti medici alla sede: è la sede che li manda al Centro CILS, durante le iscrizioni o subito dopo. Le richieste mandate dai singoli candidati non vengono considerate.",
+     "fonti": [
+      {
+       "nome": "CILS, iscrizione agli esami",
+       "url": "https://cils.unistrasi.it/1/88/71/Iscrizione_agli_esami_CILS.htm"
+      }
+     ]
+    }
+   ],
+   "citazioni": [
+    {
+     "url": "https://cils.unistrasi.it/1/88/176/Iscrizione_nella_sede_Siena.htm",
+     "testo": "per richiedere la cittadinanza italiana il livello da scegliere è il livello B1 C"
+    },
+    {
+     "url": "https://cils.unistrasi.it/1/88/71/Iscrizione_agli_esami_CILS.htm",
+     "testo": "devi rivolgerti, in Italia e all'estero, alla sede d'esame"
+    },
+    {
+     "url": "https://cils.unistrasi.it/1/88/71/Iscrizione_agli_esami_CILS.htm",
+     "testo": "dovranno inviare la documentazione medico-sanitaria dei candidati"
+    },
+    {
+     "url": "https://cils.unistrasi.it/1/88/71/Iscrizione_agli_esami_CILS.htm",
+     "testo": "non verranno prese in considerazione le richieste e le documentazioni inviate dai singoli candidati"
+    }
+   ]
+  }
  },
  {
   "sigla": "CELI",
@@ -367,6 +420,63 @@
      }
     ],
     "verificato_il": "2026-10-12"
+   }
+  },
+  "iscrizione_passi": {
+   "verificato_il": "2026-11-11",
+   "passi": [
+    {
+     "t": "Apri un account sul sito PLIDA",
+     "x": "Prima di iscriverti a un esame PLIDA devi aprire un account su dante.global.",
+     "fonti": [
+      {
+       "nome": "PLIDA, Preparati all'esame",
+       "url": "https://plida.dante.global/it/preparati-allesame/"
+      }
+     ]
+    },
+    {
+     "t": "Trova il centro PLIDA e contattalo",
+     "x": "Sulla mappa del sito PLIDA cerchi il centro più vicino e lo contatti: il centro ti dà tutte le informazioni, il prezzo e la scadenza.",
+     "fonti": [
+      {
+       "nome": "PLIDA, Preparati all'esame",
+       "url": "https://plida.dante.global/it/preparati-allesame/"
+      }
+     ]
+    }
+   ],
+   "citazioni": [
+    {
+     "url": "https://plida.dante.global/it/preparati-allesame/",
+     "testo": "Prima di iscriverti a un esame PLIDA devi aprire un account sul nostro sito"
+    },
+    {
+     "url": "https://plida.dante.global/it/preparati-allesame/",
+     "testo": "Cerca sulla mappa il Centro d'esame PLIDA più vicino a te e contattalo"
+    },
+    {
+     "url": "https://cms.plida.dante.global/wp-content/uploads/2026/10/Quaderno-delle-specifiche-PLIDA-B1.pdf",
+     "testo": "penna a inchiostro non cancellabile blu o nero"
+    },
+    {
+     "url": "https://cms.plida.dante.global/wp-content/uploads/2026/10/Quaderno-delle-specifiche-PLIDA-B1.pdf",
+     "testo": "Gli apparecchi elettronici devono restare spenti per tutta la durata dell'esame"
+    },
+    {
+     "url": "https://cms.plida.dante.global/wp-content/uploads/2026/10/Quaderno-delle-specifiche-PLIDA-B1.pdf",
+     "testo": "Non è possibile usare alcun tipo di materiale didattico o personale di ausilio alle prove (appunti, dizionari, libri, ecc.)"
+    }
+   ],
+   "giorno": {
+    "t": "Il giorno dell'esame",
+    "x": "Usa una penna non cancellabile blu o nera, anche per gli appunti: matita, penna cancellabile e bianchetto non sono ammessi. Telefono e altri apparecchi spenti; niente dizionari, libri o appunti tuoi.",
+    "fonti": [
+     {
+      "nome": "Quaderno delle specifiche PLIDA B1 (PDF)",
+      "url": "https://cms.plida.dante.global/wp-content/uploads/2026/10/Quaderno-delle-specifiche-PLIDA-B1.pdf"
+     }
+    ]
    }
   }
  },

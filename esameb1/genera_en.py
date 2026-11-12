@@ -31,6 +31,7 @@ COPPIE = [
     ("en/plida/", "ente/plida/index.html", ["risultati/plida/index.html", "esempi/plida/index.html"]),
     ("en/cert-it/", "ente/certit/index.html", ["risultati/cert-it/index.html", "esempi/certit/index.html"]),
     ("en/sample-papers/", "esempi/index.html", ["esempi/cils/index.html", "esempi/celi/index.html", "esempi/plida/index.html", "esempi/certit/index.html", "come-funziona/index.html"]),
+    ("en/b1-practice-test/", "esempi/simulazione/index.html", ["esempi/index.html"]),  # 11/11/2026
     ("en/language-test-exemptions/", "esonero-test-italiano/index.html", []),
     ("en/income-requirement-italian-citizenship/", "reddito-minimo-cittadinanza/index.html", []),
     ("en/apply-italian-citizenship-by-residence/", "cittadinanza/index.html", ["reddito-minimo-cittadinanza/index.html"]),
@@ -348,6 +349,7 @@ GUIDE = [  # (percorso relativo a /en/, icona, titolo, sottotitolo)
     ("b1-exam-cost/", "euro", "How much the exam costs", "official prices, body by body"),
     ("b1-exam-results/", "ok", "Exam results", "when and where you see them"),
     ("sample-papers/", "libro", "Free sample papers", "official PDF and audio"),
+    ("b1-practice-test/", "orologio", "Practice test with a timer", "official papers, real exam times"),
     ("language-test-exemptions/", "scudo", "Exemptions from the language test", "B1 for citizenship, A2 for the carta"),
     ("income-requirement-italian-citizenship/", "euro", "Income requirement", "citizenship and carta di soggiorno, calculator"),
     ("apply-italian-citizenship-by-residence/", "edificio", "How to apply for citizenship", "ALI portal, fee, legal time limit"),
@@ -919,7 +921,7 @@ File names are in Italian, as on the official sites; the papers themselves are t
 <section>
 <h2>{G.ic("lista")}How to practise</h2>
 <ul>
-<li>Do the sample paper with a timer, using the times in the <a href="../italian-b1-exam-for-citizenship/#duration">duration table</a>.</li>
+<li>Do the sample paper with a timer, using the times in the <a href="../italian-b1-exam-for-citizenship/#duration">duration table</a>, or use our <a href="../b1-practice-test/">practice test timer</a>.</li>
 <li>Listen to each audio file only as many times as the exam allows (the instructions are in the paper).</li>
 <li>Check your answers with the official answer key, where there is one.</li>
 <li>Practise the speaking test aloud: introduce yourself and talk about everyday topics.</li>
@@ -935,6 +937,144 @@ File names are in Italian, as on the official sites; the papers themselves are t
     titolo = G.titolo_pagina("Italian B1 citizenship exam: free official sample papers")
     descr = G.descrizione_pagina("Free official sample papers for the Italian B1 citizenship exam: CILS, CELI, PLIDA and CERT.IT, with PDF, audio and answer keys, in English.")
     pagina_en(G, "en/sample-papers/", titolo, descr, corpo, it="esempi/index.html")
+
+
+# Simulazione (11/11/2026): /en/b1-practice-test/ ↔ /esempi/simulazione/. Ricerche Google (hl=en, gl=it, 11/11/2026): «b1 italian citizenship test
+# practice», «italian b1 exam practice (test)», «cils b1 cittadinanza practice test», «italian citizenship language test practice».
+# Nomi e note delle fasi in inglese: la chiave è (ente, nome italiano in dati/esempi.json → simulazione); se un nome cambia la generazione si ferma.
+FASI_EN = {
+    ("CILS", "Ascolto"): ("Listening", "Start the audio file and do not stop it: the pauses for answering are already in it."),
+    ("CILS", "Lettura e grammatica"): ("Reading and grammar", "Two tasks: true/false and a text to complete."),
+    ("CILS", "Scrittura"): ("Writing", "An email of 80-120 words on one of the two topics."),
+    ("CILS", "Orale"): ("Speaking", "About 1 minute introducing yourself, then 2-3 minutes of conversation. At the exam it is usually in the afternoon."),
+    ("CELI", "Lettura e scrittura (primo fascicolo)"): ("Reading and writing (first booklet)", "4 reading tasks and 3 writing tasks in the same time."),
+    ("CELI", "Ascolto (secondo fascicolo)"): ("Listening (second booklet)", "4 listening tasks."),
+    ("CELI", "Orale"): ("Speaking", "10-12 minutes, 5 tasks, including questions on civic education."),
+    ("PLIDA", "Ascoltare"): ("Listening", "4 parts, 20 questions."),
+    ("PLIDA", "Leggere"): ("Reading", "4 parts, 18 questions."),
+    ("PLIDA", "Scrivere"): ("Writing", "Two texts: 110-150 and 70-100 words."),
+    ("PLIDA", "Copia le risposte sul foglio delle risposte"): ("Copy your answers onto the answer sheet", "The specification booklet gives 10 minutes, at the end of the test, to copy the answers."),
+    ("PLIDA", "Parlare"): ("Speaking", "About 2 minutes introducing yourself (not marked), then interaction and monologue."),
+    ("CERT.IT", "Ascolto, lettura e scrittura"): ("Listening, reading and writing", "Three sections in 90 minutes in total: you divide the time."),
+    ("CERT.IT", "Orale"): ("Speaking", "Interview, role play and monologue."),
+}
+TESTI_CRONO_EN = {"avvia": "Start", "pausa": "Pause", "riprendi": "Resume", "avanti": "Next section", "ricomincia": "Restart",
+                  "fase": "Section {i} of {n}", "scaduto": "Time is up: go to the next section.",
+                  "finito": "Practice test finished", "correggi": "Now mark listening and reading with the official answer keys, writing and speaking with the marking criteria."}
+
+
+def etichetta_en(t):
+    """«30 min circa» → «about 30 min», «2 ore» → «2 hours», «10-12 min» resta."""
+    m = re.match(r"^(\d+(?:-\d+)?) min( circa)?$", t)
+    if m:
+        return f"{'about ' if m.group(2) else ''}{m.group(1)} min"
+    m = re.match(r"^(\d+) ore$", t)
+    if m:
+        return f"{m.group(1)} hours"
+    raise SystemExit(f"genera_en: tempo della simulazione non riconosciuto «{t}»")
+
+
+def fasi_en(G):
+    out = {}
+    for s, fasi in G.dati_crono().items():
+        out[s] = []
+        for f in fasi:
+            if (s, f["n"]) not in FASI_EN:
+                raise SystemExit(f"genera_en: fase della simulazione senza traduzione: {s} «{f['n']}» (aggiornare FASI_EN)")
+            n, x = FASI_EN[(s, f["n"])]
+            out[s].append({"n": n, "m": f["m"], "t": etichetta_en(f["t"]), "x": x})
+    return out
+
+
+def pagina_simulazione(G, prossime):
+    ES = {e["sigla"]: e for e in G.esempi["enti"]}
+    ordine = G.ORDINE_ENTI
+    v = max(ES[s]["simulazione"]["verificato_il"] for s in ordine)
+    dur = {s: totale_en(G.ENTE[s]["fatti"]["durata"]["prove"]["totale"]).split(" (")[0] for s in ordine}
+    fasi = fasi_en(G)
+    es_c = ES["CILS"]["esercitazioni"]
+    righe = []
+    for s in ordine:
+        n = ES[s]["simulazione"]["prove_complete"]
+        seq = " → ".join(f'{escape(f["n"])} <span class="small">({escape(f["t"])})</span>' for f in fasi[s])
+        righe.append(f'<tr><td>{G.eb(s)}<strong>{escape(ES[s]["esame"])}</strong><br><a class="ris-guida" href="../sample-papers/#{G.SLUG_ENTE[s]}">{s} sample paper {G.ic("freccia")}</a></td>'
+                     f'<td data-l="Free full sample papers">{n}</td><td data-l="Sections, in order">{seq}</td><td data-l="In total">{escape(dur[s])}{" plus 10 min to copy the answers" if s == "PLIDA" else ""}</td></tr>')
+    tab = ('<div class="tab-wrap ris-tab"><table class="conf"><thead><tr><th scope="col">Exam</th><th scope="col">Free full sample papers</th>'
+           f'<th scope="col">Sections, in order</th><th scope="col">In total</th></tr></thead><tbody>{"".join(righe)}</tbody></table></div>')
+    fonti = " · ".join(f'{s}: ' + " · ".join(a(x["url"], glossa_fonte(x["nome"])) for x in ES[s]["simulazione"]["fonti"]) for s in ordine)
+    mark = [
+        ("CILS", "Listening and reading with the answer key («Chiavi»): in multiple-choice tasks each correct answer is worth 1 point, in true/false tasks 0.5. Each skill is worth 12 points. "
+                 "Writing and speaking with the marking criteria: for writing, communicative effectiveness (up to 3), style (1), grammar (4), vocabulary (3), spelling and punctuation (1). "
+                 "The minimum number of points for a pass is not written on the official pages we read."),
+        ("CELI", "The answer keys and transcripts are inside the two official zip files. To pass: written part (reading, writing, listening) at least 72/120, speaking at least 11, at least 92/160 in total."),
+        ("PLIDA", "The answers are in the zip file; the value of each answer is written at the start of each part. To pass: at least 18/30 in each of the 4 skills. "
+                  "For writing there is also a test commented by PLIDA's experts, criterion by criterion."),
+        ("CERT.IT", "The answer keys are in the zip file on the official page. Points: listening 20, reading 30, writing 20, speaking 30. To pass: 60% in the written part (listening, reading, writing) and 60% in speaking."),
+    ]
+    mark_html = "".join(f'<li><div><strong>{G.eb(s)} {escape(ES[s]["esame"])}</strong><p>{escape(x)}</p></div></li>' for s, x in mark)
+    faq = [
+        ("Is there an official online practice test for the Italian B1 citizenship exam?",
+         f"Not for free: the exam bodies publish sample papers to print, with audio and answer keys. For a fee, the University for Foreigners of Siena runs tutored online CILS practice "
+         f"(€{es_c['costo_eur']}), with 3 sample papers of the CILS B1 Cittadinanza (level «B1 C») and corrections by a tutor; it does not count towards the certificate. "
+         "For PLIDA B1, the Società Dante Alighieri offers COPEC, a self-study online course."),
+        ("How long does a full practice test take?",
+         f"As long as the real exam: CILS B1 Cittadinanza {dur['CILS']}, CELI 2 i {dur['CELI']}, PLIDA B1 {dur['PLIDA']}, CERT.IT B1 {dur['CERT.IT']}. "
+         "If you do not have that much time, do the written part one day and speaking another day, but each section with its own minutes."),
+        ("How do I know if I am ready?",
+         "Mark your practice test with the official keys and criteria and compare with the pass marks: PLIDA at least 18 out of 30 in each skill; CERT.IT 60% in the written part and 60% in speaking; "
+         "CELI 2 i at least 72 out of 120 in the written part, 11 in speaking and 92 out of 160 in total; CILS a pass in each skill (12 points maximum each, pass mark in points not published)."),
+    ]
+    faq_html, jsonld = faq_blocco(G, faq)
+    corpo = f"""<section class="hero">
+{briciole(G, ("EsameB1 in English", "../"), ("Sample papers", "../sample-papers/"), ("Practice test", None))}
+<h1>Italian B1 citizenship exam practice test: official papers and a timer</h1>
+<p class="lead">According to the official documents of the four exam bodies (checked on {data_en(v)}), the exam lasts {escape(dur["CILS"])} (CILS B1 Cittadinanza), {escape(dur["CELI"])} (CELI 2 i), {escape(dur["PLIDA"])} (PLIDA B1) and {escape(dur["CERT.IT"])} (CERT.IT B1).
+For a practice test you need your body's official sample paper and these times: choose the exam and start the timer, section by section.</p>
+<div class="azioni"><a class="btn" href="#timer">{G.ic("orologio")}Go to the timer</a><a class="btn btn-2" href="../sample-papers/">{G.ic("libro")}Free official sample papers</a></div>
+</section>
+{nota_esame(G)}
+<section>
+<h2 id="timer">{G.ic("orologio")}The practice test timer</h2>
+<p>First download and print your body's sample paper. Then choose the exam: the sections are in the order and with the minutes written by the body. The timer saves nothing and sends no data.</p>
+{G.crono_html(TESTI_CRONO_EN, "Choose the exam", "The timer needs JavaScript: without it, use the times in the table below.", fasi=fasi)}
+</section>
+<section>
+<h2 id="what-you-need">{G.ic("lista")}What you need, body by body</h2>
+{tab}
+<div class="fonte">{G.ic("doc")}<span>Sources: {fonti} · checked on {data_en(v)}</span></div>
+</section>
+<section>
+<h2 id="marking">{G.ic("ok")}How to mark your practice test</h2>
+<ol class="passi">{mark_html}</ol>
+</section>
+<section>
+<h2 id="official">{G.ic("scudo")}Official tutored practice (for a fee)</h2>
+<p>{G.eb("CILS")} <strong>Online CILS practice with a tutor, €{es_c["costo_eur"]}.</strong> On the e-learning platform of the University for Foreigners of Siena: 3 sample exams of level B1 C (the B1 Cittadinanza), the booklets to download, corrections and advice from native-speaker tutors.
+The practice is not marked and does not count towards the CILS certificate. Last published round: 9 to 27 November 2026 (registration 21 September to 23 October 2026), before the session of 3 December 2026; the next round was not yet published on {data_en(es_c["verificato_il"])}.</p>
+{fonte(G, a(es_c["url"], "University for Foreigners of Siena, online CILS practice (in Italian)"), es_c["verificato_il"])}
+<p>{G.eb("PLIDA")} On its «Preparati all'esame» page the Società Dante Alighieri offers COPEC, a self-study online course for PLIDA B1; the price is not written on that page.</p>
+<p>For CELI and CERT.IT, ask the exam centre whether it runs practice tests or preparation courses.</p>
+</section>
+{riquadro_preparati(G, "../")}
+<div class="due">
+<section><h2 id="faq">{G.ic("info")}Frequently asked questions</h2>{faq_html}</section>
+<aside>{modulo(G, "../")}</aside>
+</div>
+<section><h2>{G.ic("info")}More guides</h2>{griglia_guide(G, "../", salta="b1-practice-test/")}</section>
+{in_italiano(G, "../../esempi/simulazione/", "Simulazione dell'esame B1 con il cronometro")}
+<script>{G.JS_CRONO}</script>"""
+    titolo = G.titolo_pagina("Italian B1 citizenship practice test: official papers, timer")
+    descr = G.descrizione_pagina("Practice test for the Italian B1 citizenship exam: official CILS, CELI, PLIDA and CERT.IT papers with a timer using the real times, and how to mark it.")
+    pagina_en(G, "en/b1-practice-test/", titolo, descr, corpo, it="esempi/simulazione/index.html", jsonld=jsonld)
+
+
+def glossa_fonte(nome):
+    """Nome di una fonte italiana con la traduzione tra parentesi, per le pagine inglesi."""
+    return {"sillabo CILS B1 Cittadinanza (PDF)": "CILS B1 Cittadinanza syllabus (PDF, in Italian)",
+            "CILS, come si svolgono gli esami": "CILS, how the exams work (in Italian)",
+            "descrizione dell'esame CELI 2 i (PDF)": "CELI 2 i exam description (PDF, in Italian)",
+            "Quaderno delle specifiche PLIDA B1 (PDF)": "PLIDA B1 specification booklet (PDF, in Italian)",
+            "CERT.IT, livello B1": "CERT.IT, level B1 (in Italian)"}.get(nome, nome)
 
 
 def cit(G, fonte_k, regola):
@@ -1507,6 +1647,7 @@ def genera(G, prossime):
     for e in G.enti:
         pagina_ente(G, e, prossime)
     pagina_esempi(G)
+    pagina_simulazione(G, prossime)
     pagina_esoneri(G)
     pagina_redditi(G)
     pagina_domanda(G)

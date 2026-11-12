@@ -15,6 +15,8 @@ Cosa controlla:
    note legali di Roma Tre sul deep linking).
 4. Ogni "citazione" (frase copiata dalla fonte ufficiale su cui si basa un dato della pagina) è ancora presente nel
    testo della fonte: HTML ripulito dai tag, PDF letti con pdftotext. Spazi, a capo e virgolette tipografiche non contano.
+   Dall'11/11/2026 anche le fonti di 'scrittura', 'simulazione', 'esercitazioni', 'corso_online' (esempi.json) e i passi
+   «Come ti iscrivi» delle pagine ente (enti.json → iscrizione_passi, con le loro citazioni).
 
 I file scaricati restano in una cartella temporanea che si cancella alla fine. Nessuna dipendenza esterna oltre a
 pdftotext (poppler-utils). Nessun dato personale.
@@ -124,6 +126,17 @@ def main(salva=False):
             for chiave in risultati["enti"][e["sigla"]]["voci"][k]["fonti"]:
                 f = risultati["enti"][e["sigla"]]["fonti"][chiave]
                 link[f["url"]] = f'{e["sigla"]}: {f["nome"]}'
+        for k in ("scrittura", "simulazione"):  # pagine /esempi/prova-scritta/ e /esempi/simulazione/ (11/11/2026)
+            for x in e.get(k, {}).get("fonti", []):
+                link[x["url"]] = f'{e["sigla"]}: {x["nome"]}'
+        for k in ("esercitazioni", "corso_online"):
+            if e.get(k):
+                link[e[k]["url"]] = f'{e["sigla"]}: {e[k].get("nome", k)}'
+    enti = json.loads((DATI / "enti.json").read_text(encoding="utf-8"))  # passi «Come ti iscrivi» delle pagine ente (11/11/2026)
+    for en in enti:
+        for passo in en.get("iscrizione_passi", {}).get("passi", []):
+            for x in passo["fonti"]:
+                link[x["url"]] = f'{en["sigla"]}: {x["nome"]}'
     for u in esempi.get("uso", []):
         link[u["url"]] = f'condizioni d\'uso {u["ente"]}'
     for k, f in esoneri["fonti"].items():
@@ -174,6 +187,7 @@ def main(salva=False):
     # 4. frasi citate
     with tempfile.TemporaryDirectory() as cartella:
         frasi = [(e["sigla"], c["url"], c["testo"]) for e in esempi["enti"] for c in e.get("citazioni", [])]
+        frasi += [(f'{en["sigla"]} iscrizione', c["url"], c["testo"]) for en in enti for c in en.get("iscrizione_passi", {}).get("citazioni", [])]
         dm = esoneri["fonti"]["dm2021"]
         for c in esoneri["citazioni"]:
             f = esoneri["fonti"][c["fonte"]]
