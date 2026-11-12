@@ -1,0 +1,16 @@
+{
+ "nome": "Harri-Reinert-Volkshochschule Spandau",
+ "citta": "berlin",
+ "url_partenza": "https://www.berlin.de/vhs/volkshochschulen/spandau/",
+ "pagine": [
+  {
+   "url": "https://www.berlin.de/vhs/volkshochschulen/spandau/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 83446
+  }
+ ],
+ "pdf": [],
+ "date": [],
+ "esito": "pagina del test senza date future"
+}

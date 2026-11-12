@@ -1,0 +1,40 @@
+{
+ "nome": "Verein für Integration- und Bildung e.V. - Sprachakademie Hannover",
+ "citta": "hannover",
+ "url_partenza": "https://www.sprachakademie.org/",
+ "pagine": [
+  {
+   "url": "https://www.sprachakademie.org/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 121238
+  },
+  {
+   "url": "https://www.sprachakademie.org/leben-in-deutschland/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 99878
+  },
+  {
+   "url": "https://www.sprachakademie.org/dtz-telc-sprachpruefung/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 99709
+  },
+  {
+   "url": "https://www.sprachakademie.org/programm/kw/bereich/kursdetails/kurs/2026-354-E/kursname/Allgemeiner%20Integrationskurs%20-%20DTZ/kategorie-id/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 101126,
+   "n_date": 1
+  }
+ ],
+ "pdf": [],
+ "date": [
+  {
+   "data": "2027-01-30",
+   "pagina": "https://www.sprachakademie.org/programm/kw/bereich/kursdetails/kurs/2026-354-E/kursname/Allgemeiner%20Integrationskurs%20-%20DTZ/kategorie-id/"
+  }
+ ],
+ "esito": "date future in HTML"
+}

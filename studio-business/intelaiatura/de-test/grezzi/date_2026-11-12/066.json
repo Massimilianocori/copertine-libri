@@ -1,0 +1,16 @@
+{
+ "nome": "Büro für Aus- und Weiterbildung Schweitzer&Cajic GbR",
+ "citta": "mannheim",
+ "url_partenza": "https://www.bfaw.de/",
+ "pagine": [
+  {
+   "url": "https://www.bfaw.de/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 22691
+  }
+ ],
+ "pdf": [],
+ "date": [],
+ "esito": "pagina del test senza date future"
+}

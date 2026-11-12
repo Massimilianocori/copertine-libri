@@ -1,0 +1,54 @@
+{
+ "nome": "Volkshochschule Hannover",
+ "citta": "hannover",
+ "url_partenza": "https://www.vhs-hannover.de/",
+ "pagine": [
+  {
+   "url": "https://www.vhs-hannover.de/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 158965
+  },
+  {
+   "url": "https://www.vhs-hannover.de/vhs-programm/deutsch-integration/einbuergerungstest",
+   "stato": 200,
+   "chiave": true,
+   "byte": 199630,
+   "n_date": 1
+  },
+  {
+   "url": "https://www.vhs-hannover.de/vhs-programm/deutsch-integration/einbuergerungstest/kategorie/3061?clearallkatfilter=true",
+   "stato": 200,
+   "chiave": true,
+   "byte": 199993,
+   "n_date": 1
+  },
+  {
+   "url": "https://www.vhs-hannover.de/vhs-programm/deutsch-integration/einbuergerungstest/kurs/Einbuergerungstest/271PP71139",
+   "stato": 200,
+   "chiave": true,
+   "byte": 83283,
+   "n_date": 2
+  },
+  {
+   "url": "https://www.vhs-hannover.de/vhs-programm/deutsch-integration/einbuergerungstest/dozent/1",
+   "stato": 200,
+   "chiave": true,
+   "byte": 74142
+  },
+  {
+   "url": "https://www.vhs-hannover.de/vhs-programm/deutsch-integration/einbuergerungstest/kurs/Sprachcaf-goes-Landesmuseum/262ZQ71101",
+   "stato": 200,
+   "chiave": true,
+   "byte": 82379
+  }
+ ],
+ "pdf": [],
+ "date": [
+  {
+   "data": "2027-01-29",
+   "pagina": "https://www.vhs-hannover.de/vhs-programm/deutsch-integration/einbuergerungstest/kurs/Einbuergerungstest/271PP71139"
+  }
+ ],
+ "esito": "date future in HTML"
+}

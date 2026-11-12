@@ -1,0 +1,8167 @@
+{
+"data_lettura": "2026-11-12",
+"risultati_per_parola": {
+"Einbürgerungstest": 635,
+"Leben in Deutschland": 2353,
+"Deutsch-Test für Zuwanderer": 1067,
+"DTZ": 1149,
+"telc Deutsch B1": 677
+},
+"nota": "per le tre parole con più di 800 risultati sono state lette le prime 40 pagine (800 eventi)",
+"eventi": [
+{
+"tipo": "B1",
+"vhs": "kvhs Hildburghausen",
+"luogo": "",
+"data": "2026-11-20",
+"prezzo": "225.00",
+"posti": "Warteliste",
+"pagina": "http://vhs-hbn.de/Veranstaltung/cmx69f9e785a14f2.html"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Aachen",
+"luogo": "Aachen",
+"data": "2026-11-20",
+"prezzo": "170.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-aachen.de/index.php?id=107&kathaupt=11&knr=262-14911"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Andernach",
+"luogo": "Andernach",
+"data": "2026-11-21",
+"prezzo": "130.00",
+"posti": "Warteliste",
+"pagina": "http://vhs-andernach.de/Veranstaltung/cmx6aec917c2e5cd.html"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Augsburg",
+"luogo": "Augsburg",
+"data": "2026-11-21",
+"prezzo": "175.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-augsburg.de/programm/482-C-ZH51432"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Augsburg",
+"luogo": "Augsburg",
+"data": "2026-11-21",
+"prezzo": "175.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-augsburg.de/programm/482-C-ZH51433"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Augsburg",
+"luogo": "Augsburg",
+"data": "2026-12-11",
+"prezzo": "175.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-augsburg.de/programm/482-C-ZH51438"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Augsburg",
+"luogo": "Augsburg",
+"data": "2026-12-11",
+"prezzo": "175.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-augsburg.de/programm/482-C-ZH51439"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Augsburg",
+"luogo": "Augsburg",
+"data": "2027-01-16",
+"prezzo": "175.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-augsburg.de/programm/482-C-ZH51442"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Augsburg",
+"luogo": "Augsburg",
+"data": "2027-01-16",
+"prezzo": "175.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-augsburg.de/programm/482-C-ZH51443"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Backnang",
+"luogo": "Backnang",
+"data": "2027-02-20",
+"prezzo": "190.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-backnang.de/programm/kw/bereich/kursdetails/kurs/26W40565"
+},
+{
+"tipo": "B1",
+"vhs": "kvhs Ahrweiler",
+"luogo": "Bad Breisig",
+"data": "2026-12-12",
+"prezzo": "170.00",
+"posti": "freie Plätze",
+"pagina": "http://kvhs-ahrweiler.de/Veranstaltung/cmx68d1541573508.html"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Bad Homburg",
+"luogo": "Bad Homburg",
+"data": "2026-12-05",
+"prezzo": "190.00",
+"posti": "Warteliste",
+"pagina": "http://www.vhs-hochtaunus.de"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Bad Homburg",
+"luogo": "Bad Homburg",
+"data": "2026-12-10",
+"prezzo": "190.00",
+"posti": "freie Plätze",
+"pagina": "http://www.vhs-hochtaunus.de"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Bad Homburg",
+"luogo": "Bad Homburg",
+"data": "2027-01-14",
+"prezzo": "190.00",
+"posti": "freie Plätze",
+"pagina": "http://www.vhs-hochtaunus.de"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Rhön-Grabfeld, Münnerstadt",
+"luogo": "Bad Königshofen",
+"data": "2026-12-18",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "http://die-vhs.de/Veranstaltung/cmx6a684d3cdad25.html"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Bayreuth",
+"luogo": "Bayreuth",
+"data": "2026-11-20",
+"prezzo": "180.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-bayreuth.de/programm/nr/I9002/bereich/details/"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Bayreuth",
+"luogo": "Bayreuth",
+"data": "2026-12-18",
+"prezzo": "180.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-bayreuth.de/programm/nr/I9004/bereich/details/"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Bayreuth",
+"luogo": "Bayreuth",
+"data": "2027-01-22",
+"prezzo": "195.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-bayreuth.de/programm/nr/I9007/bereich/details/"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Bayreuth",
+"luogo": "Bayreuth",
+"data": "2027-01-22",
+"prezzo": "180.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-bayreuth.de/programm/nr/I9006/bereich/details/"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Beckum-Wadersloh",
+"luogo": "Beckum",
+"data": "2026-11-20",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-beckum-wadersloh.de/index.php?id=9&kathaupt=11&knr=262-4151"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Beckum-Wadersloh",
+"luogo": "Beckum",
+"data": "2026-12-04",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-beckum-wadersloh.de/index.php?id=9&kathaupt=11&knr=262-4152"
+},
+{
+"tipo": "B1",
+"vhs": "kvhs Mainz-Bingen",
+"luogo": "Bingen",
+"data": "2026-11-28",
+"prezzo": "195.00",
+"posti": "freie Plätze",
+"pagina": "https://www.kvhs-mainz-bingen.de/index.php?id=142&kathaupt=11&knr=262-01-724"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Bingen (Rhein)",
+"luogo": "Bingen am Rhein",
+"data": "2026-11-28",
+"prezzo": "195.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-bingen.de/index.php?id=92&kathaupt=11&knr=E82034"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Bingen (Rhein)",
+"luogo": "Bingen am Rhein",
+"data": "2026-12-04",
+"prezzo": "195.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-bingen.de/index.php?id=92&kathaupt=11&knr=E82025A"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Bingen (Rhein)",
+"luogo": "Bingen am Rhein",
+"data": "2026-12-18",
+"prezzo": "195.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-bingen.de/index.php?id=92&kathaupt=11&knr=E82025B"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Bingen (Rhein)",
+"luogo": "Bingen am Rhein",
+"data": "2027-01-30",
+"prezzo": "195.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-bingen.de/index.php?id=92&kathaupt=11&knr=F82031"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Bingen (Rhein)",
+"luogo": "Bingen am Rhein",
+"data": "2027-03-20",
+"prezzo": "195.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-bingen.de/index.php?id=92&kathaupt=11&knr=F82033"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Bingen (Rhein)",
+"luogo": "Bingen am Rhein",
+"data": "2027-05-22",
+"prezzo": "195.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-bingen.de/index.php?id=92&kathaupt=11&knr=F82035"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Bingen (Rhein)",
+"luogo": "Bingen am Rhein",
+"data": "2027-07-31",
+"prezzo": "195.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-bingen.de/index.php?id=92&kathaupt=11&knr=F82037"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Oberhavel",
+"luogo": "Birkenwerder",
+"data": "2027-03-11",
+"prezzo": "148.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.oberhavel.de/kurssuche/kurs/Q41010"
+},
+{
+"tipo": "B1",
+"vhs": "kvhs Wesermarsch",
+"luogo": "Brake",
+"data": "2026-12-05",
+"prezzo": "170.00",
+"posti": "freie Plätze",
+"pagina": "https://www.kvhs-wesermarsch.de/kurssuche/kurs/26H7102BR"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Bremen",
+"luogo": "Bremen",
+"data": "2026-11-21",
+"prezzo": "195.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-bremen.de/veranstaltungen/kurs/262M39-260"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Bremen",
+"luogo": "Bremen",
+"data": "2026-12-05",
+"prezzo": "195.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-bremen.de/veranstaltungen/kurs/262M39-220"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Bremen",
+"luogo": "Bremen",
+"data": "2026-12-19",
+"prezzo": "195.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-bremen.de/veranstaltungen/kurs/262M39-270"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Bremen",
+"luogo": "Bremen",
+"data": "2027-01-16",
+"prezzo": "195.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-bremen.de/veranstaltungen/kurs/262M39-230"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Bremen",
+"luogo": "Bremen",
+"data": "2027-01-16",
+"prezzo": "195.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-bremen.de/veranstaltungen/kurs/262M39-280"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Bremerhaven",
+"luogo": "Bremerhaven",
+"data": "2026-11-20",
+"prezzo": "180.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-bremerhaven.de/programm/kw/bereich/kursdetails/kurs/26H52613"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Bremerhaven",
+"luogo": "Bremerhaven",
+"data": "2026-12-11",
+"prezzo": "180.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-bremerhaven.de/programm/kw/bereich/kursdetails/kurs/26H52614"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Bremerhaven",
+"luogo": "Bremerhaven",
+"data": "2027-02-05",
+"prezzo": "180.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-bremerhaven.de/programm/kw/bereich/kursdetails/kurs/26H52615"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Buchen",
+"luogo": "Buchen",
+"data": "2026-11-21",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-buchen.de/programm/kw/bereich/kursdetails/kurs/26-2-D101/#inhalt"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Buchen",
+"luogo": "Buchen",
+"data": "2026-12-19",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-buchen.de/programm/kw/bereich/kursdetails/kurs/26-2-D102/#inhalt"
+},
+{
+"tipo": "B1",
+"vhs": "kvhs Harburg",
+"luogo": "Buchholz",
+"data": "2026-11-14",
+"prezzo": "170.00",
+"posti": "Warteliste",
+"pagina": "https://www.kvhs-harburg.de/kurse/kurs/262D534BU"
+},
+{
+"tipo": "B1",
+"vhs": "kvhs Harburg",
+"luogo": "Buchholz",
+"data": "2026-12-12",
+"prezzo": "170.00",
+"posti": "freie Plätze",
+"pagina": "https://www.kvhs-harburg.de/kurse/kurs/262D535BU"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Cloppenburg",
+"luogo": "Cloppenburg",
+"data": "2027-01-16",
+"prezzo": "207.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-cloppenburg.de/programm/kw/bereich/kursdetails/kurs/AG4212/"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Cloppenburg",
+"luogo": "Cloppenburg",
+"data": "2027-03-13",
+"prezzo": "207.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-cloppenburg.de/programm/kw/bereich/kursdetails/kurs/AG4213/"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Cloppenburg",
+"luogo": "Cloppenburg",
+"data": "2027-05-22",
+"prezzo": "207.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-cloppenburg.de/programm/kw/bereich/kursdetails/kurs/AG4214/"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Coesfeld",
+"luogo": "Coesfeld",
+"data": "2026-12-04",
+"prezzo": "160.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.coesfeld.de/kurse/unser-kursangebot"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Crailsheim",
+"luogo": "Crailsheim",
+"data": "2026-11-28",
+"prezzo": "185.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-crailsheim.de/programm/kurs/A40491BPR"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Crailsheim",
+"luogo": "Crailsheim",
+"data": "2026-12-05",
+"prezzo": "185.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-crailsheim.de/programm/kurs/A40499DTZ"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Crailsheim",
+"luogo": "Crailsheim",
+"data": "2026-12-19",
+"prezzo": "0.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-crailsheim.de/programm/kurs/Z40416DTZ"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Crailsheim",
+"luogo": "Crailsheim",
+"data": "2027-01-16",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-crailsheim.de/programm/kurs/Z40406DTZ"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Crailsheim",
+"luogo": "Crailsheim",
+"data": "2027-02-06",
+"prezzo": "185.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-crailsheim.de/programm/kurs/A40491CPR"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Crailsheim",
+"luogo": "Crailsheim",
+"data": "2027-02-27",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-crailsheim.de/programm/kurs/Z40426DTZ"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Crailsheim",
+"luogo": "Crailsheim",
+"data": "2027-03-06",
+"prezzo": "185.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-crailsheim.de/programm/kurs/B40491APR"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Dortmund",
+"luogo": "Dortmund",
+"data": "2026-12-10",
+"prezzo": "175.00",
+"posti": "Warteliste",
+"pagina": "https://vhs.dortmund.de/kurssuche/kurs/26-17117"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Dortmund",
+"luogo": "Dortmund",
+"data": "2027-01-21",
+"prezzo": "175.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.dortmund.de/kurssuche/kurs/27-17101"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Dortmund",
+"luogo": "Dortmund",
+"data": "2027-02-11",
+"prezzo": "175.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.dortmund.de/kurssuche/kurs/27-17102"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Dortmund",
+"luogo": "Dortmund",
+"data": "2027-02-25",
+"prezzo": "175.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.dortmund.de/kurssuche/kurs/27-17103"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Dortmund",
+"luogo": "Dortmund",
+"data": "2027-03-11",
+"prezzo": "175.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.dortmund.de/kurssuche/kurs/27-17104"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Dortmund",
+"luogo": "Dortmund",
+"data": "2027-04-08",
+"prezzo": "165.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.dortmund.de/kurssuche/kurs/27-17002"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Dortmund",
+"luogo": "Dortmund",
+"data": "2027-04-15",
+"prezzo": "175.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.dortmund.de/kurssuche/kurs/27-17105"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Dortmund",
+"luogo": "Dortmund",
+"data": "2027-05-13",
+"prezzo": "175.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.dortmund.de/kurssuche/kurs/27-17106"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Dortmund",
+"luogo": "Dortmund",
+"data": "2027-06-03",
+"prezzo": "175.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.dortmund.de/kurssuche/kurs/27-17107"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Dortmund",
+"luogo": "Dortmund",
+"data": "2027-06-17",
+"prezzo": "175.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.dortmund.de/kurssuche/kurs/27-17108"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Dülmen / Haltern am See / Havixbeck",
+"luogo": "Dülmen",
+"data": "2027-02-06",
+"prezzo": "160.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-duelmen.de/kurse-und-veranstaltungen/kurssuche?&kathaupt=11&knr=26275502"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Dülmen / Haltern am See / Havixbeck",
+"luogo": "Dülmen",
+"data": "2027-04-24",
+"prezzo": "160.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-duelmen.de/kurse-und-veranstaltungen/kurssuche?&kathaupt=11&knr=26275503"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Dülmen / Haltern am See / Havixbeck",
+"luogo": "Dülmen",
+"data": "2027-06-26",
+"prezzo": "160.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-duelmen.de/kurse-und-veranstaltungen/kurssuche?&kathaupt=11&knr=26275504"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Rur-Eifel",
+"luogo": "Düren",
+"data": "2027-02-12",
+"prezzo": "160.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-rur-eifel.de/programm/kurs/Y5203P-4/"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Rur-Eifel",
+"luogo": "Düren",
+"data": "2027-05-21",
+"prezzo": "160.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-rur-eifel.de/programm/kurs/Y5203P-6/"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Rur-Eifel",
+"luogo": "Düren",
+"data": "2027-07-10",
+"prezzo": "160.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-rur-eifel.de/programm/kurs/Y5203P-7/"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Düsseldorf",
+"luogo": "Düsseldorf",
+"data": "2026-12-14",
+"prezzo": "170.00",
+"posti": "Warteliste",
+"pagina": "https://vhs.duesseldorf.de/programm/index.php?id=9&kathaupt=26%3B&suchesetzen=false%3B&kfs_stichwort_schlagwort=I413930-P"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Elmshorn und Barmstedt",
+"luogo": "Elmshorn",
+"data": "2027-01-23",
+"prezzo": "170.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-elmshorn.de/index.php?id=92&kathaupt=11&knr=262-3024"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Wetterau",
+"luogo": "Friedberg",
+"data": "2026-11-21",
+"prezzo": "0.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-wetterau.de/kurse/kurs/EPG40458N1"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Wetterau",
+"luogo": "Friedberg",
+"data": "2026-11-21",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-wetterau.de/kurse/kurs/EPG40458N3"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Wetterau",
+"luogo": "Friedberg",
+"data": "2026-11-21",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-wetterau.de/kurse/kurs/EPG40458N2"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Wetterau",
+"luogo": "Friedberg",
+"data": "2026-12-05",
+"prezzo": "0.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-wetterau.de/kurse/kurs/EPG40458O1"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Wetterau",
+"luogo": "Friedberg",
+"data": "2026-12-05",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-wetterau.de/kurse/kurs/EPG40458O3"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Wetterau",
+"luogo": "Friedberg",
+"data": "2026-12-05",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-wetterau.de/kurse/kurs/EPG40458O5"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Wetterau",
+"luogo": "Friedberg",
+"data": "2026-12-05",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-wetterau.de/kurse/kurs/EPG40458O6"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Wetterau",
+"luogo": "Friedberg",
+"data": "2026-12-05",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-wetterau.de/kurse/kurs/EPG40458O4"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Wetterau",
+"luogo": "Friedberg",
+"data": "2026-12-05",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-wetterau.de/kurse/kurs/EPG40458O2"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Wetterau",
+"luogo": "Friedberg",
+"data": "2026-12-19",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-wetterau.de/kurse/kurs/EPG40458P1"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Wetterau",
+"luogo": "Friedberg",
+"data": "2026-12-19",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-wetterau.de/kurse/kurs/EPG40458P3"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Wetterau",
+"luogo": "Friedberg",
+"data": "2026-12-19",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-wetterau.de/kurse/kurs/EPG40458P5"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Wetterau",
+"luogo": "Friedberg",
+"data": "2026-12-19",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-wetterau.de/kurse/kurs/EPG40458P4"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Wetterau",
+"luogo": "Friedberg",
+"data": "2026-12-19",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-wetterau.de/kurse/kurs/EPG40458P6"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Wetterau",
+"luogo": "Friedberg",
+"data": "2026-12-19",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-wetterau.de/kurse/kurs/EPG40458P2"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Cloppenburg",
+"luogo": "Friesoythe",
+"data": "2026-11-21",
+"prezzo": "207.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-cloppenburg.de/programm/kw/bereich/kursdetails/kurs/AG7414/"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Cloppenburg",
+"luogo": "Friesoythe",
+"data": "2027-01-30",
+"prezzo": "330.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-cloppenburg.de/programm/kw/bereich/kursdetails/kurs/AG7415/"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Cloppenburg",
+"luogo": "Friesoythe",
+"data": "2027-06-19",
+"prezzo": "207.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-cloppenburg.de/programm/kw/bereich/kursdetails/kurs/AG7416/"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Fürth",
+"luogo": "Fürth",
+"data": "2026-11-13",
+"prezzo": "175.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-fuerth.de/p/477-C-262-63103"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Fürth",
+"luogo": "Fürth",
+"data": "2026-12-11",
+"prezzo": "175.00",
+"posti": "wenige freie Plätze",
+"pagina": "https://www.vhs-fuerth.de/p/477-C-262-63105"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Fürth",
+"luogo": "Fürth",
+"data": "2027-01-29",
+"prezzo": "175.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-fuerth.de/p/477-C-262-63107"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Landkreis Goslar",
+"luogo": "Goslar",
+"data": "2026-12-05",
+"prezzo": "170.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-goslar.de/kurssuche/kurs/AE44Y45-1"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Landkreis Goslar",
+"luogo": "Goslar",
+"data": "2026-12-05",
+"prezzo": "170.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-goslar.de/kurssuche/kurs/AE44Y45"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Landkreis Goslar",
+"luogo": "Goslar",
+"data": "2027-02-27",
+"prezzo": "170.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-goslar.de/kurssuche/kurs/AF44Y46"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Landkreis Goslar",
+"luogo": "Goslar",
+"data": "2027-02-27",
+"prezzo": "170.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-goslar.de/kurssuche/kurs/AF44Y46-1"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Landkreis Goslar",
+"luogo": "Goslar",
+"data": "2027-04-17",
+"prezzo": "170.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-goslar.de/kurssuche/kurs/AF44Y47"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Landkreis Goslar",
+"luogo": "Goslar",
+"data": "2027-06-26",
+"prezzo": "170.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-goslar.de/kurssuche/kurs/AF44Y48"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Landkreis Goslar",
+"luogo": "Goslar",
+"data": "2027-06-26",
+"prezzo": "170.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-goslar.de/kurssuche/kurs/AF44Y48-1"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Vorpommern-Greifswald",
+"luogo": "Greifswald",
+"data": "2026-11-14",
+"prezzo": "200.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-vg.de/index.php?id=9&kathaupt=11&knr=262G404907"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Vorpommern-Greifswald",
+"luogo": "Greifswald",
+"data": "2026-11-28",
+"prezzo": "200.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-vg.de/index.php?id=9&kathaupt=11&knr=262G404910"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Oberberg",
+"luogo": "Gummersbach",
+"data": "2026-11-20",
+"prezzo": "125.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-oberberg.de/index.php?id=22&kathaupt=11&knr=B2613187"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Oberberg",
+"luogo": "Gummersbach",
+"data": "2026-12-18",
+"prezzo": "125.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-oberberg.de/index.php?id=22&kathaupt=11&knr=B2613188"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Hagen",
+"luogo": "Hagen",
+"data": "2026-11-28",
+"prezzo": "160.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-hagen.de/kurse/kurs/262-8845/"
+},
+{
+"tipo": "B1",
+"vhs": "kvhs Börde",
+"luogo": "Haldensleben",
+"data": "2026-11-13",
+"prezzo": "165.00",
+"posti": "wenige freie Plätze",
+"pagina": "https://kvhs.landkreis-boerde.de/kurssuche/kurs/N262404453"
+},
+{
+"tipo": "B1",
+"vhs": "kvhs Börde",
+"luogo": "Haldensleben",
+"data": "2026-12-11",
+"prezzo": "0.00",
+"posti": "wenige freie Plätze",
+"pagina": "https://kvhs.landkreis-boerde.de/kurssuche/kurs/N262404454"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Hamm",
+"luogo": "Hamm (Mitte)",
+"data": "2027-01-23",
+"prezzo": "175.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhshamm.de/kurssuche/kurs/2714170"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Hamm",
+"luogo": "Hamm (Mitte)",
+"data": "2027-02-20",
+"prezzo": "175.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhshamm.de/kurssuche/kurs/2714171"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Hamm",
+"luogo": "Hamm (Mitte)",
+"data": "2027-04-10",
+"prezzo": "175.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhshamm.de/kurssuche/kurs/2714172"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Hamm",
+"luogo": "Hamm (Mitte)",
+"data": "2027-05-15",
+"prezzo": "175.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhshamm.de/kurssuche/kurs/2714173"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Hamm",
+"luogo": "Hamm (Mitte)",
+"data": "2027-06-12",
+"prezzo": "175.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhshamm.de/kurssuche/kurs/2714174"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Hamm",
+"luogo": "Hamm (Mitte)",
+"data": "2027-07-10",
+"prezzo": "175.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhshamm.de/kurssuche/kurs/2724170"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Heidelberg",
+"luogo": "Heidelberg",
+"data": "2026-11-13",
+"prezzo": "185.00",
+"posti": "wenige freie Plätze",
+"pagina": "https://www.vhs-hd.de/kurs/30552518"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Heidelberg",
+"luogo": "Heidelberg",
+"data": "2026-12-11",
+"prezzo": "185.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-hd.de/kurs/30552543"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Heidelberg",
+"luogo": "Heidelberg",
+"data": "2027-01-15",
+"prezzo": "185.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-hd.de/kurs/31632335"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Heidelberg",
+"luogo": "Heidelberg",
+"data": "2027-02-05",
+"prezzo": "185.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-hd.de/kurs/31632410"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Heidelberg",
+"luogo": "Heidelberg",
+"data": "2027-03-19",
+"prezzo": "185.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-hd.de/kurs/31632480"
+},
+{
+"tipo": "B1",
+"vhs": "kvhs Heinsberg",
+"luogo": "Heinsberg",
+"data": "2026-12-12",
+"prezzo": "150.00",
+"posti": "Warteliste",
+"pagina": "http://www.vhs-kreis-heinsberg.de"
+},
+{
+"tipo": "B1",
+"vhs": "kvhs Heinsberg",
+"luogo": "Heinsberg",
+"data": "2027-03-20",
+"prezzo": "150.00",
+"posti": "freie Plätze",
+"pagina": "http://www.vhs-kreis-heinsberg.de"
+},
+{
+"tipo": "B1",
+"vhs": "kvhs Heinsberg",
+"luogo": "Heinsberg",
+"data": "2027-05-22",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "http://www.vhs-kreis-heinsberg.de"
+},
+{
+"tipo": "B1",
+"vhs": "kvhs Heinsberg",
+"luogo": "Heinsberg",
+"data": "2027-07-10",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "http://www.vhs-kreis-heinsberg.de"
+},
+{
+"tipo": "B1",
+"vhs": "vhs im Kreis Herford",
+"luogo": "Herford",
+"data": "2026-11-14",
+"prezzo": "189.00",
+"posti": "Warteliste",
+"pagina": "https://vhsimkreisherford.de/kurse/kurs/kurstitel/nr/26-32309/bereich/details/kat/42/#inhalt"
+},
+{
+"tipo": "B1",
+"vhs": "vhs im Kreis Herford",
+"luogo": "Herford",
+"data": "2026-12-04",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "https://vhsimkreisherford.de/kurse/kurs/kurstitel/nr/26-32629/bereich/details/kat/42/#inhalt"
+},
+{
+"tipo": "B1",
+"vhs": "vhs im Kreis Herford",
+"luogo": "Herford",
+"data": "2026-12-05",
+"prezzo": "0.00",
+"posti": "Warteliste",
+"pagina": "https://vhsimkreisherford.de/kurse/kurs/kurstitel/nr/26-32628/bereich/details/kat/42/#inhalt"
+},
+{
+"tipo": "B1",
+"vhs": "vhs im Kreis Herford",
+"luogo": "Herford",
+"data": "2026-12-12",
+"prezzo": "189.00",
+"posti": "Warteliste",
+"pagina": "https://vhsimkreisherford.de/kurse/kurs/kurstitel/nr/26-32310/bereich/details/kat/42/#inhalt"
+},
+{
+"tipo": "B1",
+"vhs": "vhs im Kreis Herford",
+"luogo": "Herford",
+"data": "2027-01-16",
+"prezzo": "0.00",
+"posti": "Warteliste",
+"pagina": "https://vhsimkreisherford.de/kurse/kurs/kurstitel/nr/27-32602/bereich/details/kat/42/#inhalt"
+},
+{
+"tipo": "B1",
+"vhs": "vhs im Kreis Herford",
+"luogo": "Herford",
+"data": "2027-01-23",
+"prezzo": "189.00",
+"posti": "freie Plätze",
+"pagina": "https://vhsimkreisherford.de/kurse/kurs/kurstitel/nr/27-32300/bereich/details/kat/42/#inhalt"
+},
+{
+"tipo": "B1",
+"vhs": "vhs im Kreis Herford",
+"luogo": "Herford",
+"data": "2027-01-29",
+"prezzo": "0.00",
+"posti": "Warteliste",
+"pagina": "https://vhsimkreisherford.de/kurse/kurs/kurstitel/nr/27-32609/bereich/details/kat/42/#inhalt"
+},
+{
+"tipo": "B1",
+"vhs": "vhs im Kreis Herford",
+"luogo": "Herford",
+"data": "2027-01-30",
+"prezzo": "0.00",
+"posti": "Warteliste",
+"pagina": "https://vhsimkreisherford.de/kurse/kurs/kurstitel/nr/27-32605/bereich/details/kat/42/#inhalt"
+},
+{
+"tipo": "B1",
+"vhs": "vhs im Kreis Herford",
+"luogo": "Herford",
+"data": "2027-01-30",
+"prezzo": "0.00",
+"posti": "Warteliste",
+"pagina": "https://vhsimkreisherford.de/kurse/kurs/kurstitel/nr/27-32604/bereich/details/kat/42/#inhalt"
+},
+{
+"tipo": "B1",
+"vhs": "vhs im Kreis Herford",
+"luogo": "Herford",
+"data": "2027-02-12",
+"prezzo": "0.00",
+"posti": "Warteliste",
+"pagina": "https://vhsimkreisherford.de/kurse/kurs/kurstitel/nr/27-32612/bereich/details/kat/42/#inhalt"
+},
+{
+"tipo": "B1",
+"vhs": "vhs im Kreis Herford",
+"luogo": "Herford",
+"data": "2027-02-13",
+"prezzo": "0.00",
+"posti": "Warteliste",
+"pagina": "https://vhsimkreisherford.de/kurse/kurs/kurstitel/nr/27-32611/bereich/details/kat/42/#inhalt"
+},
+{
+"tipo": "B1",
+"vhs": "vhs im Kreis Herford",
+"luogo": "Herford",
+"data": "2027-02-13",
+"prezzo": "0.00",
+"posti": "Warteliste",
+"pagina": "https://vhsimkreisherford.de/kurse/kurs/kurstitel/nr/27-32606/bereich/details/kat/42/#inhalt"
+},
+{
+"tipo": "B1",
+"vhs": "vhs im Kreis Herford",
+"luogo": "Herford",
+"data": "2027-02-20",
+"prezzo": "189.00",
+"posti": "freie Plätze",
+"pagina": "https://vhsimkreisherford.de/kurse/kurs/kurstitel/nr/27-32301/bereich/details/kat/42/#inhalt"
+},
+{
+"tipo": "B1",
+"vhs": "vhs im Kreis Herford",
+"luogo": "Herford",
+"data": "2027-03-12",
+"prezzo": "0.00",
+"posti": "Warteliste",
+"pagina": "https://vhsimkreisherford.de/kurse/kurs/kurstitel/nr/27-32613/bereich/details/kat/42/#inhalt"
+},
+{
+"tipo": "B1",
+"vhs": "vhs im Kreis Herford",
+"luogo": "Herford",
+"data": "2027-03-13",
+"prezzo": "0.00",
+"posti": "Warteliste",
+"pagina": "https://vhsimkreisherford.de/kurse/kurs/kurstitel/nr/27-32610/bereich/details/kat/42/#inhalt"
+},
+{
+"tipo": "B1",
+"vhs": "vhs im Kreis Herford",
+"luogo": "Herford",
+"data": "2027-03-13",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "https://vhsimkreisherford.de/kurse/kurs/kurstitel/nr/27-32600/bereich/details/kat/42/#inhalt"
+},
+{
+"tipo": "B1",
+"vhs": "vhs im Kreis Herford",
+"luogo": "Herford",
+"data": "2027-03-20",
+"prezzo": "189.00",
+"posti": "freie Plätze",
+"pagina": "https://vhsimkreisherford.de/kurse/kurs/kurstitel/nr/27-32302/bereich/details/kat/42/#inhalt"
+},
+{
+"tipo": "B1",
+"vhs": "vhs im Kreis Herford",
+"luogo": "Herford",
+"data": "2027-04-10",
+"prezzo": "0.00",
+"posti": "Warteliste",
+"pagina": "https://vhsimkreisherford.de/kurse/kurs/kurstitel/nr/27-32614/bereich/details/kat/42/#inhalt"
+},
+{
+"tipo": "B1",
+"vhs": "vhs im Kreis Herford",
+"luogo": "Herford",
+"data": "2027-04-17",
+"prezzo": "189.00",
+"posti": "freie Plätze",
+"pagina": "https://vhsimkreisherford.de/kurse/kurs/kurstitel/nr/27-32303/bereich/details/kat/42/#inhalt"
+},
+{
+"tipo": "B1",
+"vhs": "vhs im Kreis Herford",
+"luogo": "Herford",
+"data": "2027-04-24",
+"prezzo": "0.00",
+"posti": "Warteliste",
+"pagina": "https://vhsimkreisherford.de/kurse/kurs/kurstitel/nr/27-32603/bereich/details/kat/42/#inhalt"
+},
+{
+"tipo": "B1",
+"vhs": "vhs im Kreis Herford",
+"luogo": "Herford",
+"data": "2027-04-24",
+"prezzo": "0.00",
+"posti": "Warteliste",
+"pagina": "https://vhsimkreisherford.de/kurse/kurs/kurstitel/nr/27-32607/bereich/details/kat/42/#inhalt"
+},
+{
+"tipo": "B1",
+"vhs": "vhs im Kreis Herford",
+"luogo": "Herford",
+"data": "2027-05-08",
+"prezzo": "0.00",
+"posti": "Warteliste",
+"pagina": "https://vhsimkreisherford.de/kurse/kurs/kurstitel/nr/27-32608/bereich/details/kat/42/#inhalt"
+},
+{
+"tipo": "B1",
+"vhs": "vhs im Kreis Herford",
+"luogo": "Herford",
+"data": "2027-06-19",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "https://vhsimkreisherford.de/kurse/kurs/kurstitel/nr/27-32601/bereich/details/kat/42/#inhalt"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Hilden-Haan",
+"luogo": "Hilden",
+"data": "2026-12-18",
+"prezzo": "150.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-hilden-haan.de/suche/kw/bereich/kursdetails/kurs/F41541"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Hilden-Haan",
+"luogo": "Hilden",
+"data": "2026-12-19",
+"prezzo": "150.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-hilden-haan.de/suche/kw/bereich/kursdetails/kurs/F41542"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Main-Taunus-Kreis",
+"luogo": "Hofheim",
+"data": "2027-01-22",
+"prezzo": "200.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-mtk.de/kurssuche/kurs/Z1404701"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Husum",
+"luogo": "Husum",
+"data": "2027-04-24",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs-husum.de/kurssuche/kurs/271H40P-03"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Husum",
+"luogo": "Husum",
+"data": "2027-06-26",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs-husum.de/kurssuche/kurs/271H40P-04"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Höxter-Marienmünster",
+"luogo": "Höxter",
+"data": "2026-11-20",
+"prezzo": "150.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-hoexter.de/kurssuche/kurs/262-4103"
+},
+{
+"tipo": "B1",
+"vhs": "kvhs Mainz-Bingen",
+"luogo": "Ingelheim",
+"data": "2026-12-12",
+"prezzo": "195.00",
+"posti": "freie Plätze",
+"pagina": "https://www.kvhs-mainz-bingen.de/index.php?id=142&kathaupt=11&knr=262-01-722"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Bingen (Rhein)",
+"luogo": "Ingelheim",
+"data": "2026-12-12",
+"prezzo": "195.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-bingen.de/index.php?id=92&kathaupt=11&knr=E82035K"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Iserlohn",
+"luogo": "Iserlohn",
+"data": "2026-11-27",
+"prezzo": "180.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-iserlohn.de/kurse/index.php?id=18&kathaupt=11&knr=262_40408"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Iserlohn",
+"luogo": "Iserlohn",
+"data": "2027-06-25",
+"prezzo": "180.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-iserlohn.de/kurse/index.php?id=18&kathaupt=11&knr=271_40408"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Kaarst-Korschenbroich",
+"luogo": "Kaarst",
+"data": "2026-11-21",
+"prezzo": "150.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-kk.de/programm/kurs/262-30420"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Kamen-Bönen",
+"luogo": "Kamen",
+"data": "2026-12-04",
+"prezzo": "175.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-kamen-boenen.de/programm.html?kathaupt=11&knr=262-4301"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Kempten",
+"luogo": "Kempten (Allgäu)",
+"data": "2026-11-13",
+"prezzo": "175.00",
+"posti": "Warteliste",
+"pagina": "http://vhs-kempten.de/Veranstaltung/cmx6a294ba2df386.html"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Kempten",
+"luogo": "Kempten (Allgäu)",
+"data": "2026-11-21",
+"prezzo": "175.00",
+"posti": "Warteliste",
+"pagina": "http://vhs-kempten.de/Veranstaltung/cmx6a293a0a91d85.html"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Kempten",
+"luogo": "Kempten (Allgäu)",
+"data": "2026-12-05",
+"prezzo": "175.00",
+"posti": "wenige freie Plätze",
+"pagina": "http://vhs-kempten.de/Veranstaltung/cmx6a293b472ae1d.html"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Kempten",
+"luogo": "Kempten (Allgäu)",
+"data": "2026-12-11",
+"prezzo": "175.00",
+"posti": "Warteliste",
+"pagina": "http://vhs-kempten.de/Veranstaltung/cmx6a294c5de68e0.html"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Kempten",
+"luogo": "Kempten (Allgäu)",
+"data": "2027-01-22",
+"prezzo": "175.00",
+"posti": "Warteliste",
+"pagina": "http://vhs-kempten.de/Veranstaltung/cmx6a294cb23ea02.html"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Hunsrück",
+"luogo": "Kirchberg",
+"data": "2026-12-04",
+"prezzo": "0.00",
+"posti": "Warteliste",
+"pagina": "http://vhs-hunsrueck.de/Veranstaltung/cmx6a96877b56397.html"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Kitzingen & Ochsenfurt",
+"luogo": "Kitzingen",
+"data": "2027-01-23",
+"prezzo": "0.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-kitzingen.de/kurssuche/kurs/26H49811KT"
+},
+{
+"tipo": "B1",
+"vhs": "kvhs Waldeck-Frankenberg",
+"luogo": "Korbach",
+"data": "2026-12-09",
+"prezzo": "190.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-waldeck-frankenberg.de/kurssuche/kurs/62-4049921"
+},
+{
+"tipo": "B1",
+"vhs": "Kölner VHS",
+"luogo": "Köln",
+"data": "2026-12-12",
+"prezzo": "160.00",
+"posti": "wenige freie Plätze",
+"pagina": "https://www.koelner-vhs.de/kurssuche/kurs/26Z429233"
+},
+{
+"tipo": "B1",
+"vhs": "Kölner VHS",
+"luogo": "Köln",
+"data": "2027-03-20",
+"prezzo": "160.00",
+"posti": "freie Plätze",
+"pagina": "https://www.koelner-vhs.de/kurssuche/kurs/27Z429231"
+},
+{
+"tipo": "B1",
+"vhs": "Kölner VHS",
+"luogo": "Köln",
+"data": "2027-07-10",
+"prezzo": "160.00",
+"posti": "freie Plätze",
+"pagina": "https://www.koelner-vhs.de/kurssuche/kurs/27Z429232"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Langenhagen",
+"luogo": "Langenhagen",
+"data": "2026-11-27",
+"prezzo": "170.00",
+"posti": "Warteliste",
+"pagina": "http://www.vhs-langenhagen.de/kurse/kurs/Y404.B1.P2"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Unteres Pegnitztal",
+"luogo": "Lauf",
+"data": "2026-11-21",
+"prezzo": "180.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-unteres-pegnitztal.de/index.php?id=9&kathaupt=11&knr=262-41704"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Unteres Pegnitztal",
+"luogo": "Lauf",
+"data": "2027-01-30",
+"prezzo": "180.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-unteres-pegnitztal.de/index.php?id=9&kathaupt=11&knr=262-41705"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Husum",
+"luogo": "Leck",
+"data": "2027-03-13",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs-husum.de/kurssuche/kurs/271H40P-1L"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Lingen",
+"luogo": "Lingen",
+"data": "2026-11-21",
+"prezzo": "150.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-lingen.de/programm/kurssuche/kurs/2026H71200"
+},
+{
+"tipo": "B1",
+"vhs": "kvhs Bergstraße",
+"luogo": "Lorsch",
+"data": "2026-12-12",
+"prezzo": "165.00",
+"posti": "freie Plätze",
+"pagina": "https://www.kvhs-bergstrasse.de/programm/kw/bereich/kursdetails/kurs/262-40420/"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Teltow-Fläming",
+"luogo": "Luckenwalde",
+"data": "2026-11-14",
+"prezzo": "168.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.teltow-flaeming.de/kurssuche/kurs/MH40431"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Teltow-Fläming",
+"luogo": "Luckenwalde",
+"data": "2026-12-05",
+"prezzo": "168.00",
+"posti": "Warteliste",
+"pagina": "https://vhs.teltow-flaeming.de/kurssuche/kurs/MH40432"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Löhne",
+"luogo": "Löhne",
+"data": "2026-12-05",
+"prezzo": "170.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs-loehne.de/index.php?id=92&kathaupt=11&knr=262-49315"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Schmalkalden-Meiningen",
+"luogo": "Meiningen",
+"data": "2026-11-20",
+"prezzo": "0.00",
+"posti": "wenige freie Plätze",
+"pagina": "https://www.vhs-sm.de/index.php?id=87&kathaupt=11&knr=26H-S791DM"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Rhön-Grabfeld, Münnerstadt",
+"luogo": "Mellrichstadt",
+"data": "2026-12-04",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "http://die-vhs.de/Veranstaltung/cmx6ac8df412f04e.html"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Menden-Hemer-Balve",
+"luogo": "Menden",
+"data": "2026-11-14",
+"prezzo": "175.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-mhb.de/kurssuche/kurs/262-4114"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Menden-Hemer-Balve",
+"luogo": "Menden",
+"data": "2027-01-23",
+"prezzo": "175.00",
+"posti": "wenige freie Plätze",
+"pagina": "https://www.vhs-mhb.de/kurssuche/kurs/262-4116"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Menden-Hemer-Balve",
+"luogo": "Menden",
+"data": "2027-03-06",
+"prezzo": "180.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-mhb.de/kurssuche/kurs/271-4114"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Menden-Hemer-Balve",
+"luogo": "Menden",
+"data": "2027-04-24",
+"prezzo": "180.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-mhb.de/kurssuche/kurs/271-4115"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Menden-Hemer-Balve",
+"luogo": "Menden",
+"data": "2027-06-19",
+"prezzo": "180.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-mhb.de/kurssuche/kurs/271-4116"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Menden-Hemer-Balve",
+"luogo": "Menden",
+"data": "2027-09-18",
+"prezzo": "180.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-mhb.de/kurssuche/kurs/272-4117"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Menden-Hemer-Balve",
+"luogo": "Menden",
+"data": "2027-11-20",
+"prezzo": "180.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-mhb.de/kurssuche/kurs/272-4118"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Meppen",
+"luogo": "Meppen",
+"data": "2026-12-10",
+"prezzo": "170.00",
+"posti": "wenige freie Plätze",
+"pagina": "https://www.vhs-meppen.de/kurssuche/kurs/26271-0615"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Meppen",
+"luogo": "Meppen",
+"data": "2027-01-12",
+"prezzo": "170.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-meppen.de/kurssuche/kurs/26271-0616"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Meppen",
+"luogo": "Meppen",
+"data": "2027-01-21",
+"prezzo": "170.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-meppen.de/kurssuche/kurs/26271-0609"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Meppen",
+"luogo": "Meppen",
+"data": "2027-02-04",
+"prezzo": "170.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-meppen.de/kurssuche/kurs/27171-061"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Meppen",
+"luogo": "Meppen",
+"data": "2027-02-25",
+"prezzo": "170.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-meppen.de/kurssuche/kurs/27171-0610"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Meppen",
+"luogo": "Meppen",
+"data": "2027-03-02",
+"prezzo": "170.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-meppen.de/kurssuche/kurs/27171-0611"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Meppen",
+"luogo": "Meppen",
+"data": "2027-04-08",
+"prezzo": "170.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-meppen.de/kurssuche/kurs/27171-0612"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Meppen",
+"luogo": "Meppen",
+"data": "2027-05-20",
+"prezzo": "170.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-meppen.de/kurssuche/kurs/27171-0614"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Meppen",
+"luogo": "Meppen",
+"data": "2027-06-17",
+"prezzo": "170.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-meppen.de/kurssuche/kurs/27171-0615"
+},
+{
+"tipo": "B1",
+"vhs": "kvhs Saalekreis",
+"luogo": "Merseburg",
+"data": "2026-11-21",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "https://kvhs-saalekreis.de/programm/kurs-programm/nr/F4S901/bereich/details/"
+},
+{
+"tipo": "B1",
+"vhs": "kvhs Saalekreis",
+"luogo": "Merseburg",
+"data": "2026-11-28",
+"prezzo": "180.00",
+"posti": "freie Plätze",
+"pagina": "https://kvhs-saalekreis.de/programm/kurs-programm/nr/F4S902/bereich/details/"
+},
+{
+"tipo": "B1",
+"vhs": "kvhs Saalekreis",
+"luogo": "Merseburg",
+"data": "2026-12-05",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "https://kvhs-saalekreis.de/programm/kurs-programm/nr/F4S903/bereich/details/"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Minden / Bad Oeynhausen",
+"luogo": "Minden",
+"data": "2026-11-21",
+"prezzo": "150.00",
+"posti": "wenige freie Plätze",
+"pagina": "https://www.vhs-minden.de/kurssuche/kurs/262M54003"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Minden / Bad Oeynhausen",
+"luogo": "Minden",
+"data": "2026-11-28",
+"prezzo": "180.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-minden.de/kurssuche/kurs/262M54007"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Minden / Bad Oeynhausen",
+"luogo": "Minden",
+"data": "2026-12-05",
+"prezzo": "150.00",
+"posti": "wenige freie Plätze",
+"pagina": "https://www.vhs-minden.de/kurssuche/kurs/262M54004"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Minden / Bad Oeynhausen",
+"luogo": "Minden",
+"data": "2027-02-13",
+"prezzo": "150.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-minden.de/kurssuche/kurs/262M54005"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Minden / Bad Oeynhausen",
+"luogo": "Minden",
+"data": "2027-02-27",
+"prezzo": "150.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-minden.de/kurssuche/kurs/262M54006"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Moers",
+"luogo": "Moers",
+"data": "2026-12-11",
+"prezzo": "175.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-moers.de/programm/kw/bereich/kursdetails/kurs/I40483P/"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Moers",
+"luogo": "Moers",
+"data": "2027-02-12",
+"prezzo": "175.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-moers.de/programm/kw/bereich/kursdetails/kurs/I40485P/"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Mülheim an der Ruhr",
+"luogo": "Mülheim an der Ruhr",
+"data": "2026-12-15",
+"prezzo": "150.00",
+"posti": "wenige freie Plätze",
+"pagina": "https://vhs-buchung.muelheim-ruhr.de/webbasys/index.php?kathaupt=11&knr=262-1014"
+},
+{
+"tipo": "B1",
+"vhs": "kvhs Rhein-Lahn-Kreis",
+"luogo": "Nastätten",
+"data": "2026-11-28",
+"prezzo": "140.00",
+"posti": "wenige freie Plätze",
+"pagina": "http://kvhs-rhein-lahn.de/Veranstaltung/cmx6a31217059534.html"
+},
+{
+"tipo": "B1",
+"vhs": "kvhs Rhein-Lahn-Kreis",
+"luogo": "Nastätten",
+"data": "2026-11-28",
+"prezzo": "140.00",
+"posti": "Warteliste",
+"pagina": "http://kvhs-rhein-lahn.de/Veranstaltung/cmx6a312008f4223.html"
+},
+{
+"tipo": "B1",
+"vhs": "kvhs Rhein-Lahn-Kreis",
+"luogo": "Nastätten",
+"data": "2026-11-28",
+"prezzo": "165.00",
+"posti": "freie Plätze",
+"pagina": "http://kvhs-rhein-lahn.de/Veranstaltung/cmx6a311d23dfd44.html"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Mecklenburgische Seenplatte",
+"luogo": "Neubrandenburg",
+"data": "2026-11-14",
+"prezzo": "180.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-mse.de/index.php?id=147&kathaupt=11&knr=262N4P03"
+},
+{
+"tipo": "B1",
+"vhs": "kvhs Neuwied",
+"luogo": "Neuwied",
+"data": "2026-11-14",
+"prezzo": "154.50",
+"posti": "Warteliste",
+"pagina": "http://kvhs-neuwied.de/Veranstaltung/cmx69c299698d885.html"
+},
+{
+"tipo": "B1",
+"vhs": "kvhs Neuwied",
+"luogo": "Neuwied",
+"data": "2026-12-12",
+"prezzo": "154.50",
+"posti": "Warteliste",
+"pagina": "http://kvhs-neuwied.de/Veranstaltung/cmx69c2997c4e290.html"
+},
+{
+"tipo": "B1",
+"vhs": "kvhs Neuwied",
+"luogo": "Neuwied",
+"data": "2027-01-23",
+"prezzo": "154.50",
+"posti": "Warteliste",
+"pagina": "http://kvhs-neuwied.de/Veranstaltung/cmx69c299971dc41.html"
+},
+{
+"tipo": "B1",
+"vhs": "kvhs Neuwied",
+"luogo": "Neuwied",
+"data": "2027-02-13",
+"prezzo": "154.50",
+"posti": "freie Plätze",
+"pagina": "http://kvhs-neuwied.de/Veranstaltung/cmx6ad0a185dbafa.html"
+},
+{
+"tipo": "B1",
+"vhs": "kvhs Neuwied",
+"luogo": "Neuwied",
+"data": "2027-03-13",
+"prezzo": "154.50",
+"posti": "wenige freie Plätze",
+"pagina": "http://kvhs-neuwied.de/Veranstaltung/cmx6ad0ba43d193a.html"
+},
+{
+"tipo": "B1",
+"vhs": "kvhs Neuwied",
+"luogo": "Neuwied",
+"data": "2027-06-19",
+"prezzo": "154.50",
+"posti": "freie Plätze",
+"pagina": "http://kvhs-neuwied.de/Veranstaltung/cmx6ad0caad66a59.html"
+},
+{
+"tipo": "B1",
+"vhs": "kvhs Neuwied",
+"luogo": "Neuwied",
+"data": "2027-07-24",
+"prezzo": "154.50",
+"posti": null,
+"pagina": "http://kvhs-neuwied.de/Veranstaltung/cmx6ad0cbf7ad5d1.html"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Oelde-Ennigerloh",
+"luogo": "Oelde",
+"data": "2027-07-10",
+"prezzo": "185.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs-oelde-ennigerloh.de/programm/kw/bereich/kursdetails/kurs/127-49315"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Oldenburg",
+"luogo": "Oldenburg",
+"data": "2026-11-14",
+"prezzo": "180.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-ol.de/programm/628-C-26BO58709P"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Oldenburg",
+"luogo": "Oldenburg",
+"data": "2026-12-12",
+"prezzo": "180.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-ol.de/programm/628-C-26BO58703P"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Oldenburg",
+"luogo": "Oldenburg",
+"data": "2027-01-15",
+"prezzo": "180.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-ol.de/programm/628-C-26BO58706P"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Paderborn",
+"luogo": "Paderborn",
+"data": "2026-12-04",
+"prezzo": "0.00",
+"posti": "Warteliste",
+"pagina": "https://vhskurse.paderborn.de/webbasys/index.php?kathaupt=11&knr=61-4147SZG"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Vorpommern-Greifswald",
+"luogo": "Pasewalk",
+"data": "2027-04-24",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-vg.de/index.php?id=9&kathaupt=11&knr=271P40400"
+},
+{
+"tipo": "B1",
+"vhs": "kvhs Uckermark",
+"luogo": "Prenzlau",
+"data": "2026-12-05",
+"prezzo": "148.00",
+"posti": "Warteliste",
+"pagina": "https://www.kvhs-uckermark.de/programm/gesamtuebersicht/nr/26TELCB127/bereich/details/"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Reckenberg-Ems",
+"luogo": "Rheda-Wiedenbrück",
+"data": "2026-12-05",
+"prezzo": "185.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-re.de/programm/kurs/26B4CR102"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Reckenberg-Ems",
+"luogo": "Rheda-Wiedenbrück",
+"data": "2027-01-16",
+"prezzo": "185.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-re.de/programm/kurs/26B4CR104"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Alpen-Rheinberg-Sonsbeck-Xanten",
+"luogo": "Rheinberg",
+"data": "2027-02-13",
+"prezzo": "150.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-rheinberg.de/kurssuche/kurs/F501788#inhalt"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Alpen-Rheinberg-Sonsbeck-Xanten",
+"luogo": "Rheinberg",
+"data": "2027-05-08",
+"prezzo": "150.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-rheinberg.de/kurssuche/kurs/F501186#inhalt"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Alpen-Rheinberg-Sonsbeck-Xanten",
+"luogo": "Rheinberg",
+"data": "2027-07-03",
+"prezzo": "150.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-rheinberg.de/kurssuche/kurs/F501790#inhalt"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Rheine",
+"luogo": "Rheine",
+"data": "2026-11-20",
+"prezzo": "150.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-rheine.de/programm/nr/2610050113/bereich/details/"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Rheine",
+"luogo": "Rheine",
+"data": "2026-11-28",
+"prezzo": "150.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-rheine.de/programm/nr/2610050117/bereich/details/"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Verl / Harsewinkel / Schloß Holte-Stukenbrock",
+"luogo": "Schloß Holte-Stukenbrock",
+"data": "2027-01-30",
+"prezzo": "185.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-vhs.de/programm/kw/bereich/kursdetails/kurs/26-40717H"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Schrobenhausen",
+"luogo": "Schrobenhausen",
+"data": "2026-12-05",
+"prezzo": "175.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-sob.de/programm/kurs/262-I-550#inhalt"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Schrobenhausen",
+"luogo": "Schrobenhausen",
+"data": "2027-04-17",
+"prezzo": "175.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-sob.de/programm/kurs/271-I-500#inhalt"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Schrobenhausen",
+"luogo": "Schrobenhausen",
+"data": "2027-05-15",
+"prezzo": "175.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-sob.de/programm/kurs/271-I-550#inhalt"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Schrobenhausen",
+"luogo": "Schrobenhausen",
+"data": "2027-07-31",
+"prezzo": "175.00",
+"posti": "wenige freie Plätze",
+"pagina": "https://www.vhs-sob.de/programm/kurs/262-I-555#inhalt"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Schrobenhausen",
+"luogo": "Schrobenhausen",
+"data": "2028-01-08",
+"prezzo": "175.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-sob.de/programm/kurs/271-I-555#inhalt"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Schwäbisch Hall",
+"luogo": "Schwäbisch Hall",
+"data": "2027-01-15",
+"prezzo": "178.00",
+"posti": "Warteliste",
+"pagina": "https://vhs-sha.de/hilfe/kurssuche/?kathaupt=11&knr=6271097-3"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Sinsheim",
+"luogo": "Sinsheim",
+"data": "2026-12-05",
+"prezzo": "0.00",
+"posti": "wenige freie Plätze",
+"pagina": "https://www.vhs-sinsheim.de/programm/?kathaupt=11&knr=262404678P"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Sinsheim",
+"luogo": "Sinsheim",
+"data": "2026-12-19",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-sinsheim.de/programm/?kathaupt=11&knr=262404688P"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Heidekreis",
+"luogo": "Soltau",
+"data": "2027-01-29",
+"prezzo": "185.00",
+"posti": "freie Plätze",
+"pagina": "http://www.vhs-heidekreis.de/index.php?id=35&kathaupt=12&knr:27A40411"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Heidekreis",
+"luogo": "Soltau",
+"data": "2027-05-28",
+"prezzo": "185.00",
+"posti": "freie Plätze",
+"pagina": "http://www.vhs-heidekreis.de/index.php?id=35&kathaupt=12&knr:27A40413"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Landkreis Tirschenreuth",
+"luogo": "Tirschenreuth",
+"data": "2026-11-14",
+"prezzo": "180.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.kreis-tir.de/index.php?id=147&kathaupt=11&knr=26-S6702"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Landkreis Tirschenreuth",
+"luogo": "Tirschenreuth",
+"data": "2027-03-06",
+"prezzo": "180.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.kreis-tir.de/index.php?id=147&kathaupt=11&knr=26-S6703"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Landkreis Tirschenreuth",
+"luogo": "Tirschenreuth",
+"data": "2027-07-24",
+"prezzo": "180.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.kreis-tir.de/index.php?id=147&kathaupt=11&knr=26-S6704"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Trier",
+"luogo": "Trier",
+"data": "2026-11-14",
+"prezzo": "144.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs-trier.de/erweiterte-kurssuche/kurs/262-404248/"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Trier",
+"luogo": "Trier",
+"data": "2027-01-30",
+"prezzo": "114.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs-trier.de/erweiterte-kurssuche/kurs/262-404251/"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Troisdorf und Niederkassel",
+"luogo": "Troisdorf",
+"data": "2026-11-14",
+"prezzo": "170.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-tdf-ndk.de/index.php?id=4&kathaupt=11&knr=262-7TEL2"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Troisdorf und Niederkassel",
+"luogo": "Troisdorf",
+"data": "2026-12-05",
+"prezzo": "170.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-tdf-ndk.de/index.php?id=4&kathaupt=11&knr=262-7TEL3"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Tübingen",
+"luogo": "Tübingen",
+"data": "2026-11-21",
+"prezzo": "150.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-tuebingen.de/kurse/kurs/262-478306"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Tübingen",
+"luogo": "Tübingen",
+"data": "2026-12-05",
+"prezzo": "150.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-tuebingen.de/kurse/kurs/262-478307"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Tübingen",
+"luogo": "Tübingen",
+"data": "2027-01-23",
+"prezzo": "185.00",
+"posti": "wenige freie Plätze",
+"pagina": "https://www.vhs-tuebingen.de/kurse/kurs/262-478005"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Tübingen",
+"luogo": "Tübingen",
+"data": "2027-01-30",
+"prezzo": "180.00",
+"posti": "wenige freie Plätze",
+"pagina": "https://www.vhs-tuebingen.de/kurse/kurs/262-478309"
+},
+{
+"tipo": "B1",
+"vhs": "vh Ulm",
+"luogo": "Ulm",
+"data": "2026-12-11",
+"prezzo": "180.00",
+"posti": "wenige freie Plätze",
+"pagina": "https://www.vh-ulm.de/vh-programm/kurs-finder/detail/kurs/26H1110514"
+},
+{
+"tipo": "B1",
+"vhs": "vh Ulm",
+"luogo": "Ulm",
+"data": "2027-02-19",
+"prezzo": "180.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vh-ulm.de/vh-programm/kurs-finder/detail/kurs/26H1110515"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Unna Fröndenberg Holzwickede",
+"luogo": "Unna",
+"data": "2027-01-15",
+"prezzo": "150.00",
+"posti": "wenige freie Plätze",
+"pagina": "https://vhs-zib.de/kurssuche/kurs/262-3009"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Unna Fröndenberg Holzwickede",
+"luogo": "Unna",
+"data": "2027-01-22",
+"prezzo": "150.00",
+"posti": "Warteliste",
+"pagina": "https://vhs-zib.de/kurssuche/kurs/262-3008"
+},
+{
+"tipo": "B1",
+"vhs": "vhs im Norden des Landkreises München",
+"luogo": "Unterschleißheim",
+"data": "2026-11-13",
+"prezzo": "180.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-nord.de/programm/kurs/E4801-2"
+},
+{
+"tipo": "B1",
+"vhs": "vhs im Norden des Landkreises München",
+"luogo": "Unterschleißheim",
+"data": "2026-12-11",
+"prezzo": "180.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-nord.de/programm/kurs/E4801-3"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Verl / Harsewinkel / Schloß Holte-Stukenbrock",
+"luogo": "Verl",
+"data": "2026-12-05",
+"prezzo": "185.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-vhs.de/programm/kw/bereich/kursdetails/kurs/26-40487H"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Verl / Harsewinkel / Schloß Holte-Stukenbrock",
+"luogo": "Verl",
+"data": "2026-12-19",
+"prezzo": "185.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-vhs.de/programm/kw/bereich/kursdetails/kurs/26-40447H"
+},
+{
+"tipo": "B1",
+"vhs": "kvhs Viersen",
+"luogo": "Viersen",
+"data": "2026-12-04",
+"prezzo": "150.00",
+"posti": "freie Plätze",
+"pagina": "https://www.kreis-viersen-vhs.de/index.php?id=3&kathaupt=11&knr=E494152"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Heidekreis",
+"luogo": "Walsrode",
+"data": "2027-03-12",
+"prezzo": "185.00",
+"posti": "freie Plätze",
+"pagina": "http://www.vhs-heidekreis.de/index.php?id=35&kathaupt=12&knr:27A40412"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Wedel",
+"luogo": "Wedel",
+"data": "2026-12-05",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "https://www.wedel.de/kultur-bildung/bildungseinrichtungen/volkshochschule/kursprogramm.html?kathaupt=11&knr=262-9002"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Weingarten",
+"luogo": "Weingarten",
+"data": "2026-12-12",
+"prezzo": "185.00",
+"posti": "Warteliste",
+"pagina": "http://vhs-weingarten.de/Veranstaltung/cmx69ca19c05e5b8.html"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Lennetal",
+"luogo": "Werdohl",
+"data": "2026-11-21",
+"prezzo": "0.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-lennetal.de/programm/kw/bereich/kursdetails/kurs/26H40495-P"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Lennetal",
+"luogo": "Werdohl",
+"data": "2026-12-05",
+"prezzo": "0.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-lennetal.de/programm/kw/bereich/kursdetails/kurs/26H40496-P"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Lennetal",
+"luogo": "Werdohl",
+"data": "2027-01-16",
+"prezzo": "0.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-lennetal.de/programm/kw/bereich/kursdetails/kurs/27F40487-P"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Lennetal",
+"luogo": "Werdohl",
+"data": "2027-06-19",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-lennetal.de/programm/kw/bereich/kursdetails/kurs/27F40497-P"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Lennetal",
+"luogo": "Werdohl",
+"data": "2027-11-20",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-lennetal.de/programm/kw/bereich/kursdetails/kurs/27H40498-P"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Wildeshausen",
+"luogo": "Wildeshausen",
+"data": "2026-11-20",
+"prezzo": "150.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-wildeshausen.de/kw/bereich/kursdetails/kurs/26B43010P/"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Wilhelmshaven",
+"luogo": "Wilhelmshaven",
+"data": "2027-01-14",
+"prezzo": "170.00",
+"posti": "wenige freie Plätze",
+"pagina": "https://www.vhs-whv.de/index.php?id=87&kathaupt=11&knr=2624003"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Witten / Wetter / Herdecke",
+"luogo": "Witten",
+"data": "2026-11-21",
+"prezzo": "180.00",
+"posti": "wenige freie Plätze",
+"pagina": "https://www.vhs-wwh.de/programm/kurs/R51063"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Wolfsburg",
+"luogo": "Wolfsburg",
+"data": "2027-02-27",
+"prezzo": "170.00",
+"posti": "freie Plätze",
+"pagina": "https://www.bildungshaus-wolfsburg.de//programm/kw/bereich/kursdetails/kurs/271404701/"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Wolfsburg",
+"luogo": "Wolfsburg",
+"data": "2027-06-19",
+"prezzo": "170.00",
+"posti": "freie Plätze",
+"pagina": "https://www.bildungshaus-wolfsburg.de//programm/kw/bereich/kursdetails/kurs/271404703/"
+},
+{
+"tipo": "B1",
+"vhs": "vhs Würzburg",
+"luogo": "Würzburg",
+"data": "2027-01-30",
+"prezzo": "180.00",
+"posti": "Warteliste",
+"pagina": "https://vhs-wuerzburg.info/p/489-C-18616645"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Aalen",
+"luogo": "Aalen",
+"data": "2026-12-08",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-aalen.de/kurssuche/kurs/262-49224"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Aalen",
+"luogo": "Aalen",
+"data": "2027-01-26",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-aalen.de/kurssuche/kurs/271-49220"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Aalen",
+"luogo": "Aalen",
+"data": "2027-02-23",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-aalen.de/kurssuche/kurs/271-49221"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Ahaus (aktuelles forum Volkshochschule)",
+"luogo": "Ahaus",
+"data": "2026-12-09",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-aktuellesforum.de/kurssuche/kurs/262-4283#inhalt"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Altenburger Land",
+"luogo": "Altenburg",
+"data": "2027-01-15",
+"prezzo": "8.00",
+"posti": "freie Plätze",
+"pagina": "http://www.vhs-altenburgerland.de/programm/gesamtuebersicht/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Altenburger Land",
+"luogo": "Altenburg",
+"data": "2027-01-15",
+"prezzo": "8.00",
+"posti": "freie Plätze",
+"pagina": "http://www.vhs-altenburgerland.de/programm/gesamtuebersicht/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Alt-Neuötting",
+"luogo": "Altötting",
+"data": "2026-11-25",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-altoetting.de/kurssuche/kurs/T3190C"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Alt-Neuötting",
+"luogo": "Altötting",
+"data": "2026-12-16",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-altoetting.de/kurssuche/kurs/T3190D"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Alt-Neuötting",
+"luogo": "Altötting",
+"data": "2027-02-03",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-altoetting.de/kurssuche/kurs/T3190E"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Andernach",
+"luogo": "Andernach",
+"data": "2026-12-09",
+"prezzo": "25.00",
+"posti": "wenige freie Plätze",
+"pagina": "http://vhs-andernach.de/Veranstaltung/cmx6aed8502f4050.html"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Ansbach (Stadt)",
+"luogo": "Ansbach",
+"data": "2026-11-23",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-ansbach.de/kurssuche/kurs/263-101905"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Landkreis Ansbach",
+"luogo": "Ansbach",
+"data": "2026-12-15",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "http://vhs-lkr-ansbach.de/Veranstaltung/cmx6a4cbb2f5c4bb.html"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Ansbach (Stadt)",
+"luogo": "Ansbach",
+"data": "2027-01-25",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-ansbach.de/kurssuche/kurs/271-101900"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Landkreis Ansbach",
+"luogo": "Ansbach",
+"data": "2027-02-09",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "http://vhs-lkr-ansbach.de/Veranstaltung/cmx6adae87563076.html"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Ansbach (Stadt)",
+"luogo": "Ansbach",
+"data": "2027-03-15",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-ansbach.de/kurssuche/kurs/271-101901"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Landkreis Ansbach",
+"luogo": "Ansbach",
+"data": "2027-04-14",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://vhs-lkr-ansbach.de/Veranstaltung/cmx6adaf93096e44.html"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Landkreis Ansbach",
+"luogo": "Ansbach",
+"data": "2027-06-09",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://vhs-lkr-ansbach.de/Veranstaltung/cmx6adaf961cca5f.html"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Landkreis Ansbach",
+"luogo": "Ansbach",
+"data": "2027-10-15",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://vhs-lkr-ansbach.de/Veranstaltung/cmx6adaf98c6821d.html"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Landkreis Ansbach",
+"luogo": "Ansbach",
+"data": "2027-12-07",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://vhs-lkr-ansbach.de/Veranstaltung/cmx6adaf9be2ae8d.html"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Arnsberg / Sundern",
+"luogo": "Arnsberg",
+"data": "2026-11-17",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-arnsberg-sundern.de/programm/kurs/AF404-922"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Augsburg",
+"luogo": "Augsburg",
+"data": "2026-11-25",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-augsburg.de/programm/482-C-ZH51386"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Augsburg",
+"luogo": "Augsburg",
+"data": "2026-11-25",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-augsburg.de/programm/482-C-ZH51385"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Augsburg",
+"luogo": "Augsburg",
+"data": "2026-11-25",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-augsburg.de/programm/482-C-ZH51384"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Augsburg",
+"luogo": "Augsburg",
+"data": "2026-12-02",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-augsburg.de/programm/482-C-ZH51387"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Augsburg",
+"luogo": "Augsburg",
+"data": "2026-12-02",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-augsburg.de/programm/482-C-ZH51388"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Augsburg",
+"luogo": "Augsburg",
+"data": "2026-12-02",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-augsburg.de/programm/482-C-ZH51389"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Augsburg",
+"luogo": "Augsburg",
+"data": "2026-12-10",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-augsburg.de/programm/482-C-ZH51392"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Augsburg",
+"luogo": "Augsburg",
+"data": "2026-12-10",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-augsburg.de/programm/482-C-ZH51390"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Augsburg",
+"luogo": "Augsburg",
+"data": "2026-12-10",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-augsburg.de/programm/482-C-ZH51391"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Augsburg",
+"luogo": "Augsburg",
+"data": "2027-01-20",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-augsburg.de/programm/482-C-ZH51393"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Augsburg",
+"luogo": "Augsburg",
+"data": "2027-01-20",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-augsburg.de/programm/482-C-ZH51394"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Augsburg",
+"luogo": "Augsburg",
+"data": "2027-01-20",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-augsburg.de/programm/482-C-ZH51395"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Augsburg",
+"luogo": "Augsburg",
+"data": "2027-02-17",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-augsburg.de/programm/482-C-ZH51397"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Augsburg",
+"luogo": "Augsburg",
+"data": "2027-02-17",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-augsburg.de/programm/482-C-ZH51399"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Augsburg",
+"luogo": "Augsburg",
+"data": "2027-02-17",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-augsburg.de/programm/482-C-ZH51398"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Backnang",
+"luogo": "Backnang",
+"data": "2026-12-09",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-backnang.de/programm/kw/bereich/kursdetails/kurs/26W40301"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Backnang",
+"luogo": "Backnang",
+"data": "2027-01-13",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-backnang.de/programm/kw/bereich/kursdetails/kurs/26W40302"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Backnang",
+"luogo": "Backnang",
+"data": "2027-02-17",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-backnang.de/programm/kw/bereich/kursdetails/kurs/26W40303"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Rhein-Lahn-Kreis",
+"luogo": "Bad Ems",
+"data": "2027-02-18",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "http://kvhs-rhein-lahn.de/Veranstaltung/cmx6aa3b7f7e281c.html"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Rhein-Lahn-Kreis",
+"luogo": "Bad Ems",
+"data": "2027-05-13",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://kvhs-rhein-lahn.de/Veranstaltung/cmx6aa3b9db8ee7a.html"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Bad Homburg",
+"luogo": "Bad Homburg",
+"data": "2026-12-17",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "http://www.vhs-hochtaunus.de"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Bad Homburg",
+"luogo": "Bad Homburg",
+"data": "2026-12-17",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "http://www.vhs-hochtaunus.de"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Bad Homburg",
+"luogo": "Bad Homburg",
+"data": "2027-01-27",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "http://www.vhs-hochtaunus.de"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Bad Homburg",
+"luogo": "Bad Homburg",
+"data": "2027-01-28",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "http://www.vhs-hochtaunus.de"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Bad Homburg",
+"luogo": "Bad Homburg",
+"data": "2027-01-28",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "http://www.vhs-hochtaunus.de"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Minden / Bad Oeynhausen",
+"luogo": "Bad Oeynhausen",
+"data": "2026-11-27",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-minden.de/kurssuche/kurs/262B54602"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Bad Segeberg",
+"luogo": "Bad Segeberg",
+"data": "2027-03-06",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhssegeberg.de/kursangebote/kw/bereich/kursdetails/kurs/27F4519/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Bad Segeberg",
+"luogo": "Bad Segeberg",
+"data": "2027-07-03",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhssegeberg.de/kursangebote/kw/bereich/kursdetails/kurs/27F4520/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Beckum-Wadersloh",
+"luogo": "Beckum",
+"data": "2026-11-25",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-beckum-wadersloh.de/index.php?id=9&kathaupt=11&knr=262-4183"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Beckum-Wadersloh",
+"luogo": "Beckum",
+"data": "2026-12-16",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-beckum-wadersloh.de/index.php?id=9&kathaupt=11&knr=262-4184"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Beckum-Wadersloh",
+"luogo": "Beckum",
+"data": "2027-01-20",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-beckum-wadersloh.de/index.php?id=9&kathaupt=11&knr=271-4185"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Beckum-Wadersloh",
+"luogo": "Beckum",
+"data": "2027-02-17",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-beckum-wadersloh.de/index.php?id=9&kathaupt=11&knr=271-4186"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Beckum-Wadersloh",
+"luogo": "Beckum",
+"data": "2027-03-17",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-beckum-wadersloh.de/index.php?id=9&kathaupt=11&knr=271-4187"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Beckum-Wadersloh",
+"luogo": "Beckum",
+"data": "2027-04-14",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-beckum-wadersloh.de/index.php?id=9&kathaupt=11&knr=271-4188"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Beckum-Wadersloh",
+"luogo": "Beckum",
+"data": "2027-05-12",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-beckum-wadersloh.de/index.php?id=9&kathaupt=11&knr=271-4189"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Beckum-Wadersloh",
+"luogo": "Beckum",
+"data": "2027-06-09",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-beckum-wadersloh.de/index.php?id=9&kathaupt=11&knr=271-4190"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Beckum-Wadersloh",
+"luogo": "Beckum",
+"data": "2027-07-07",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-beckum-wadersloh.de/index.php?id=9&kathaupt=11&knr=271-4191"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Bergkamen",
+"luogo": "Bergkamen",
+"data": "2026-12-16",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "http://www.vhs.bergkamen.de"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Bielefeld",
+"luogo": "Bielefeld",
+"data": "2027-01-15",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-bielefeld.de/index.php?id=9&kathaupt=11&knr=2626698P8"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Bingen (Rhein)",
+"luogo": "Bingen",
+"data": "2026-11-28",
+"prezzo": "25.00",
+"posti": "wenige freie Plätze",
+"pagina": "https://www.vhs-bingen.de/index.php?id=92&kathaupt=11&knr=E83024"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Bingen (Rhein)",
+"luogo": "Bingen",
+"data": "2026-12-19",
+"prezzo": "25.00",
+"posti": "wenige freie Plätze",
+"pagina": "https://www.vhs-bingen.de/index.php?id=92&kathaupt=11&knr=E83025"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Bingen (Rhein)",
+"luogo": "Bingen",
+"data": "2027-01-30",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-bingen.de/index.php?id=92&kathaupt=11&knr=F83021"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Bingen (Rhein)",
+"luogo": "Bingen",
+"data": "2027-02-27",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-bingen.de/index.php?id=92&kathaupt=11&knr=F83022"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Bingen (Rhein)",
+"luogo": "Bingen",
+"data": "2027-03-20",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-bingen.de/index.php?id=92&kathaupt=11&knr=F83023"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Bingen (Rhein)",
+"luogo": "Bingen",
+"data": "2027-04-24",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-bingen.de/index.php?id=92&kathaupt=11&knr=F83024"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Bingen (Rhein)",
+"luogo": "Bingen",
+"data": "2027-05-22",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-bingen.de/index.php?id=92&kathaupt=11&knr=F83025"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Bingen (Rhein)",
+"luogo": "Bingen",
+"data": "2027-06-19",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-bingen.de/index.php?id=92&kathaupt=11&knr=F83026"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Bingen (Rhein)",
+"luogo": "Bingen",
+"data": "2027-07-31",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-bingen.de/index.php?id=92&kathaupt=11&knr=F83027"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Birkenfeld",
+"luogo": "Birkenfeld",
+"data": "2027-02-18",
+"prezzo": "25.00",
+"posti": "wenige freie Plätze",
+"pagina": "http://vhs-birkenfeld.de/Veranstaltung/cmx6a8c23956cb4c.html"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Birkenfeld",
+"luogo": "Birkenfeld",
+"data": "2027-06-03",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://vhs-birkenfeld.de/Veranstaltung/cmx6a8c252f0c600.html"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Birkenfeld",
+"luogo": "Birkenfeld",
+"data": "2027-09-23",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://vhs-birkenfeld.de/Veranstaltung/cmx6a8c256452464.html"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Birkenfeld",
+"luogo": "Birkenfeld",
+"data": "2027-12-02",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://vhs-birkenfeld.de/Veranstaltung/cmx6a8c25bf5fbef.html"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Oberhavel",
+"luogo": "Birkenwerder",
+"data": "2027-03-10",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.oberhavel.de/kurssuche/kurs/Q41091"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Oberhavel",
+"luogo": "Birkenwerder",
+"data": "2027-03-10",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.oberhavel.de/kurssuche/kurs/Q41090"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Oberhavel",
+"luogo": "Birkenwerder",
+"data": "2027-06-16",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.oberhavel.de/kurssuche/kurs/Q41092"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Oberhavel",
+"luogo": "Birkenwerder",
+"data": "2027-06-16",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.oberhavel.de/kurssuche/kurs/Q41093"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Bocholt-Rhede-Isselburg",
+"luogo": "Bocholt",
+"data": "2026-11-19",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.bocholt.de/kurssuche/kurs/BW18192ET"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Bocholt-Rhede-Isselburg",
+"luogo": "Bocholt",
+"data": "2026-11-19",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.bocholt.de/kurssuche/kurs/BW18193ET"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Straubing-Bogen",
+"luogo": "Bogen",
+"data": "2026-11-30",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-straubing-bogen.de/kurssuche/kurs/262-S09OA"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Borken",
+"luogo": "Borken",
+"data": "2026-11-21",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "http://vhs.borken.de/kurs.details?kid=21740568"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Bornheim / Alfter",
+"luogo": "Bornheim",
+"data": "2026-11-30",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-bornheim-alfter.de/programm/kurssuche/kurs/BC70003"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Bornheim / Alfter",
+"luogo": "Bornheim",
+"data": "2027-02-01",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-bornheim-alfter.de/programm/kurssuche/kurs/BC70005"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Wesermarsch",
+"luogo": "Brake",
+"data": "2027-01-13",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.kvhs-wesermarsch.de/kurssuche/kurs/26H7112BR"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Braunschweig",
+"luogo": "Braunschweig",
+"data": "2026-11-19",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-braunschweig.de/kurssuche/kurs/CDDE11"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Braunschweig",
+"luogo": "Braunschweig",
+"data": "2026-11-19",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-braunschweig.de/kurssuche/kurs/CDDE11A"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Braunschweig",
+"luogo": "Braunschweig",
+"data": "2026-11-19",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-braunschweig.de/kurssuche/kurs/CDDE11B"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Braunschweig",
+"luogo": "Braunschweig",
+"data": "2026-12-10",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-braunschweig.de/kurssuche/kurs/CDDE12B"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Braunschweig",
+"luogo": "Braunschweig",
+"data": "2026-12-10",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-braunschweig.de/kurssuche/kurs/CDDE12A"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Braunschweig",
+"luogo": "Braunschweig",
+"data": "2026-12-10",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-braunschweig.de/kurssuche/kurs/CDDE12"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Braunschweig",
+"luogo": "Braunschweig",
+"data": "2027-01-14",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-braunschweig.de/kurssuche/kurs/CEDE01A"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Braunschweig",
+"luogo": "Braunschweig",
+"data": "2027-01-14",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-braunschweig.de/kurssuche/kurs/CEDE01B"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Braunschweig",
+"luogo": "Braunschweig",
+"data": "2027-01-14",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-braunschweig.de/kurssuche/kurs/CEDE01"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Braunschweig",
+"luogo": "Braunschweig",
+"data": "2027-01-14",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-braunschweig.de/kurssuche/kurs/CEDE01C"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Braunschweig",
+"luogo": "Braunschweig",
+"data": "2027-02-11",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-braunschweig.de/kurssuche/kurs/CEDE02C"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Braunschweig",
+"luogo": "Braunschweig",
+"data": "2027-02-11",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-braunschweig.de/kurssuche/kurs/CEDE02A"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Braunschweig",
+"luogo": "Braunschweig",
+"data": "2027-02-11",
+"prezzo": "25.00",
+"posti": "wenige freie Plätze",
+"pagina": "https://www.vhs-braunschweig.de/kurssuche/kurs/CEDE02B"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Braunschweig",
+"luogo": "Braunschweig",
+"data": "2027-02-11",
+"prezzo": "25.00",
+"posti": "wenige freie Plätze",
+"pagina": "https://www.vhs-braunschweig.de/kurssuche/kurs/CEDE02"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Braunschweig",
+"luogo": "Braunschweig",
+"data": "2027-03-11",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-braunschweig.de/kurssuche/kurs/CEDE03"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Braunschweig",
+"luogo": "Braunschweig",
+"data": "2027-03-11",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-braunschweig.de/kurssuche/kurs/CEDE03C"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Braunschweig",
+"luogo": "Braunschweig",
+"data": "2027-03-11",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-braunschweig.de/kurssuche/kurs/CEDE03B"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Braunschweig",
+"luogo": "Braunschweig",
+"data": "2027-03-11",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-braunschweig.de/kurssuche/kurs/CEDE03A"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Bremerhaven",
+"luogo": "Bremerhaven",
+"data": "2026-12-17",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-bremerhaven.de/programm/kw/bereich/kursdetails/kurs/26H52673"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Bremerhaven",
+"luogo": "Bremerhaven",
+"data": "2026-12-17",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-bremerhaven.de/programm/kw/bereich/kursdetails/kurs/26H52674"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Buchloe",
+"luogo": "Buchloe",
+"data": "2026-11-21",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "http://vhs-buchloe.de/Veranstaltung/cmx69c2693f569c7.html"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Buchloe",
+"luogo": "Buchloe",
+"data": "2027-02-06",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "http://vhs-buchloe.de/Veranstaltung/cmx69c2693fd3a78.html"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Buxtehude",
+"luogo": "Buxtehude",
+"data": "2026-11-18",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-buxtehude.de/index.php?id=9&kathaupt=11&knr=26H71940"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Cloppenburg",
+"luogo": "Cloppenburg",
+"data": "2027-01-15",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-cloppenburg.de/programm/kw/bereich/kursdetails/kurs/AG4205/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Cloppenburg",
+"luogo": "Cloppenburg",
+"data": "2027-03-05",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-cloppenburg.de/programm/kw/bereich/kursdetails/kurs/AG4206/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Cloppenburg",
+"luogo": "Cloppenburg",
+"data": "2027-06-04",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-cloppenburg.de/programm/kw/bereich/kursdetails/kurs/AG4207/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Coesfeld",
+"luogo": "Coesfeld",
+"data": "2026-11-27",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.coesfeld.de/kurse/unser-kursangebot"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Crailsheim",
+"luogo": "Crailsheim",
+"data": "2026-11-13",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-crailsheim.de/programm/kurs/A404890A"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Crailsheim",
+"luogo": "Crailsheim",
+"data": "2026-11-13",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-crailsheim.de/programm/kurs/A404890C"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Crailsheim",
+"luogo": "Crailsheim",
+"data": "2027-02-05",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-crailsheim.de/programm/kurs/A404890B"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Crailsheim",
+"luogo": "Crailsheim",
+"data": "2027-02-05",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-crailsheim.de/programm/kurs/A404890D"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Dingolfing",
+"luogo": "Dingolfing",
+"data": "2026-12-17",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://vhs-dingolfing.cmxorganize.de/Veranstaltung/cmx69baad87e58ad.html"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Dingolfing",
+"luogo": "Dingolfing",
+"data": "2027-01-28",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://vhs-dingolfing.cmxorganize.de/Veranstaltung/cmx6a43cc3fa312a.html"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Dingolfing",
+"luogo": "Dingolfing",
+"data": "2027-03-04",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://vhs-dingolfing.cmxorganize.de/Veranstaltung/cmx6ad0cfa35c663.html"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Dingolfing",
+"luogo": "Dingolfing",
+"data": "2027-04-15",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://vhs-dingolfing.cmxorganize.de/Veranstaltung/cmx6ad0cfa3aae96.html"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Dingolfing",
+"luogo": "Dingolfing",
+"data": "2027-06-10",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://vhs-dingolfing.cmxorganize.de/Veranstaltung/cmx6ad0cfa405300.html"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Dingolfing",
+"luogo": "Dingolfing",
+"data": "2027-07-29",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://vhs-dingolfing.cmxorganize.de/Veranstaltung/cmx6adb309cc5b6c.html"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Donauwörth",
+"luogo": "Donauwörth",
+"data": "2026-11-20",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "http://www.vhs-don.de/kurs/5016589"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Donauwörth",
+"luogo": "Donauwörth",
+"data": "2026-12-18",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "http://www.vhs-don.de/kurs/5016607"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Donauwörth",
+"luogo": "Donauwörth",
+"data": "2027-01-29",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "http://www.vhs-don.de/kurs/5161616"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Dortmund",
+"luogo": "Dortmund",
+"data": "2026-12-11",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.dortmund.de/kurssuche/kurs/26-17748"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Dortmund",
+"luogo": "Dortmund",
+"data": "2026-12-11",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.dortmund.de/kurssuche/kurs/26-17747"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Dortmund",
+"luogo": "Dortmund",
+"data": "2026-12-11",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.dortmund.de/kurssuche/kurs/26-17745"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Dortmund",
+"luogo": "Dortmund",
+"data": "2026-12-11",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.dortmund.de/kurssuche/kurs/26-17746"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Dülmen / Haltern am See / Havixbeck",
+"luogo": "Dülmen",
+"data": "2026-12-10",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-duelmen.de/kurse-und-veranstaltungen/kurssuche?&kathaupt=11&knr=26275202"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Dülmen / Haltern am See / Havixbeck",
+"luogo": "Dülmen",
+"data": "2027-03-04",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-duelmen.de/kurse-und-veranstaltungen/kurssuche?&kathaupt=11&knr=26275203"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Dülmen / Haltern am See / Havixbeck",
+"luogo": "Dülmen",
+"data": "2027-05-13",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-duelmen.de/kurse-und-veranstaltungen/kurssuche?&kathaupt=11&knr=26275204"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Dülmen / Haltern am See / Havixbeck",
+"luogo": "Dülmen",
+"data": "2027-07-01",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-duelmen.de/kurse-und-veranstaltungen/kurssuche?&kathaupt=11&knr=26275205"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Eching",
+"luogo": "Eching",
+"data": "2026-12-04",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-eching.de/programm/kurssuche/kurs/27-4104"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Eching",
+"luogo": "Eching",
+"data": "2026-12-04",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-eching.de/programm/kurssuche/kurs/27-4103"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Eching",
+"luogo": "Eching",
+"data": "2027-02-19",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-eching.de/programm/kurssuche/kurs/27-4105"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Eching",
+"luogo": "Eching",
+"data": "2027-02-19",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-eching.de/programm/kurssuche/kurs/27-4106"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Eching",
+"luogo": "Eching",
+"data": "2027-05-07",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-eching.de/programm/kurssuche/kurs/27-4108"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Eching",
+"luogo": "Eching",
+"data": "2027-05-07",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-eching.de/programm/kurssuche/kurs/27-4107"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Eching",
+"luogo": "Eching",
+"data": "2027-07-16",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-eching.de/programm/kurssuche/kurs/27-4109"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Eching",
+"luogo": "Eching",
+"data": "2027-07-16",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-eching.de/programm/kurssuche/kurs/27-4110"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Emsdetten-Greven-Saerbeck",
+"luogo": "Emsdetten",
+"data": "2026-11-30",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-egs.de/kurssuche"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Odenwaldkreis",
+"luogo": "Erbach",
+"data": "2026-11-19",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs-odenwald.de/programm/nr/262-404E13/bereich/details/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Odenwaldkreis",
+"luogo": "Erbach",
+"data": "2026-12-17",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs-odenwald.de/programm/nr/262-404E14/bereich/details/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Erftstadt",
+"luogo": "Erftstadt",
+"data": "2027-06-15",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-erftstadt.de"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Erlangen",
+"luogo": "Erlangen",
+"data": "2027-01-14",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-erlangen.de/p/480-C-26W602057"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Erlangen",
+"luogo": "Erlangen",
+"data": "2027-01-14",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-erlangen.de/p/480-C-26W602056"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Erlangen",
+"luogo": "Erlangen",
+"data": "2027-01-15",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-erlangen.de/p/480-C-26W602058"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Erlangen",
+"luogo": "Erlangen",
+"data": "2027-01-15",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-erlangen.de/p/480-C-26W602059"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Erlangen",
+"luogo": "Erlangen",
+"data": "2027-02-18",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-erlangen.de/p/480-C-26W602060"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Erlangen",
+"luogo": "Erlangen",
+"data": "2027-02-18",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-erlangen.de/p/480-C-26W602061"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Erlangen",
+"luogo": "Erlangen",
+"data": "2027-02-19",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-erlangen.de/p/480-C-26W602063"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Erlangen",
+"luogo": "Erlangen",
+"data": "2027-02-19",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-erlangen.de/p/480-C-26W602062"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Eschweiler",
+"luogo": "Eschweiler",
+"data": "2026-12-10",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "http://www.vhs-eschweiler.de/kurssuche/kurs/262-41303P"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Eschweiler",
+"luogo": "Eschweiler",
+"data": "2026-12-10",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "http://www.vhs-eschweiler.de/kurssuche/kurs/262-41304P"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Essen",
+"luogo": "Essen",
+"data": "2027-02-04",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-essen.de/kuferweb/webbasys/index.php?kathaupt=11&knr=262.1A326N"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Essen",
+"luogo": "Essen",
+"data": "2027-02-04",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-essen.de/kuferweb/webbasys/index.php?kathaupt=11&knr=262.1A324N"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Frankfurt am Main",
+"luogo": "Frankfurt",
+"data": "2026-11-16",
+"prezzo": "458.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.frankfurt.de/de/portal#/search/detail/189228"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Frankfurt am Main",
+"luogo": "Frankfurt",
+"data": "2026-12-07",
+"prezzo": "458.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.frankfurt.de/de/portal#/search/detail/182766"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Frankfurt am Main",
+"luogo": "Frankfurt",
+"data": "2026-12-07",
+"prezzo": "458.00",
+"posti": "wenige freie Plätze",
+"pagina": "https://vhs.frankfurt.de/de/portal#/search/detail/184084"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Frankfurt am Main",
+"luogo": "Frankfurt",
+"data": "2026-12-14",
+"prezzo": "458.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.frankfurt.de/de/portal#/search/detail/185958"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Frankfurt am Main",
+"luogo": "Frankfurt",
+"data": "2026-12-16",
+"prezzo": "458.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.frankfurt.de/de/portal#/search/detail/178905"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Frankfurt am Main",
+"luogo": "Frankfurt",
+"data": "2027-01-11",
+"prezzo": "458.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.frankfurt.de/de/portal#/search/detail/183102"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Frankfurt am Main",
+"luogo": "Frankfurt",
+"data": "2027-01-25",
+"prezzo": "458.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.frankfurt.de/de/portal#/search/detail/185475"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Frankfurt am Main",
+"luogo": "Frankfurt",
+"data": "2027-02-01",
+"prezzo": "458.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.frankfurt.de/de/portal#/search/detail/172875"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Frankfurt am Main",
+"luogo": "Frankfurt",
+"data": "2027-02-02",
+"prezzo": "458.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.frankfurt.de/de/portal#/search/detail/172888"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Frankfurt am Main",
+"luogo": "Frankfurt",
+"data": "2027-02-08",
+"prezzo": "458.00",
+"posti": "Warteliste",
+"pagina": "https://vhs.frankfurt.de/de/portal#/search/detail/182680"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Frankfurt am Main",
+"luogo": "Frankfurt",
+"data": "2027-02-22",
+"prezzo": "458.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.frankfurt.de/de/portal#/search/detail/178430"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Frankfurt am Main",
+"luogo": "Frankfurt",
+"data": "2027-02-22",
+"prezzo": "458.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.frankfurt.de/de/portal#/search/detail/182659"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Frankfurt am Main",
+"luogo": "Frankfurt",
+"data": "2027-02-25",
+"prezzo": "458.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.frankfurt.de/de/portal#/search/detail/183524"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Frankfurt am Main",
+"luogo": "Frankfurt",
+"data": "2027-03-01",
+"prezzo": "458.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.frankfurt.de/de/portal#/search/detail/184086"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Frankfurt am Main",
+"luogo": "Frankfurt",
+"data": "2027-03-08",
+"prezzo": "458.00",
+"posti": "Warteliste",
+"pagina": "https://vhs.frankfurt.de/de/portal#/search/detail/182688"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Frankfurt am Main",
+"luogo": "Frankfurt",
+"data": "2027-03-08",
+"prezzo": "458.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.frankfurt.de/de/portal#/search/detail/179387"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Frankfurt am Main",
+"luogo": "Frankfurt",
+"data": "2027-03-15",
+"prezzo": "458.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.frankfurt.de/de/portal#/search/detail/185447"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Frankfurt am Main",
+"luogo": "Frankfurt",
+"data": "2027-04-01",
+"prezzo": "458.00",
+"posti": "wenige freie Plätze",
+"pagina": "https://vhs.frankfurt.de/de/portal#/search/detail/184379"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Frankfurt am Main",
+"luogo": "Frankfurt",
+"data": "2027-04-12",
+"prezzo": "458.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.frankfurt.de/de/portal#/search/detail/185974"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Frankfurt am Main",
+"luogo": "Frankfurt",
+"data": "2027-04-12",
+"prezzo": "458.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.frankfurt.de/de/portal#/search/detail/183216"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Frankfurt am Main",
+"luogo": "Frankfurt",
+"data": "2027-04-23",
+"prezzo": "458.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.frankfurt.de/de/portal#/search/detail/185360"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Frankfurt am Main",
+"luogo": "Frankfurt",
+"data": "2027-04-26",
+"prezzo": "458.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.frankfurt.de/de/portal#/search/detail/185937"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Frankfurt am Main",
+"luogo": "Frankfurt",
+"data": "2027-04-26",
+"prezzo": "458.00",
+"posti": "Warteliste",
+"pagina": "https://vhs.frankfurt.de/de/portal#/search/detail/182715"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Frankfurt am Main",
+"luogo": "Frankfurt",
+"data": "2027-05-03",
+"prezzo": "458.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.frankfurt.de/de/portal#/search/detail/189977"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Frankfurt am Main",
+"luogo": "Frankfurt",
+"data": "2027-05-12",
+"prezzo": "458.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.frankfurt.de/de/portal#/search/detail/185321"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Frankfurt am Main",
+"luogo": "Frankfurt",
+"data": "2027-05-26",
+"prezzo": "458.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.frankfurt.de/de/portal#/search/detail/186053"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Frankfurt am Main",
+"luogo": "Frankfurt",
+"data": "2027-06-01",
+"prezzo": "458.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.frankfurt.de/de/portal#/search/detail/182259"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Frankfurt am Main",
+"luogo": "Frankfurt",
+"data": "2027-06-07",
+"prezzo": "458.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.frankfurt.de/de/portal#/search/detail/182513"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Frankfurt am Main",
+"luogo": "Frankfurt",
+"data": "2027-06-28",
+"prezzo": "458.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.frankfurt.de/de/portal#/search/detail/186038"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Frankfurt am Main",
+"luogo": "Frankfurt",
+"data": "2027-06-28",
+"prezzo": "458.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.frankfurt.de/de/portal#/search/detail/186075"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Frankfurt am Main",
+"luogo": "Frankfurt",
+"data": "2027-07-26",
+"prezzo": "458.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.frankfurt.de/de/portal#/search/detail/186046"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Frankfurt am Main",
+"luogo": "Frankfurt",
+"data": "2027-08-09",
+"prezzo": "458.00",
+"posti": "wenige freie Plätze",
+"pagina": "https://vhs.frankfurt.de/de/portal#/search/detail/184061"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Frankfurt am Main",
+"luogo": "Frankfurt",
+"data": "2027-08-23",
+"prezzo": "458.00",
+"posti": "Warteliste",
+"pagina": "https://vhs.frankfurt.de/de/portal#/search/detail/185346"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Frankfurt am Main",
+"luogo": "Frankfurt",
+"data": "2027-08-30",
+"prezzo": "458.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.frankfurt.de/de/portal#/search/detail/185183"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Wetterau",
+"luogo": "Friedberg",
+"data": "2026-12-10",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-wetterau.de/kurse/kurs/EPG40403P1"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Wetterau",
+"luogo": "Friedberg",
+"data": "2027-01-28",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-wetterau.de/kurse/kurs/FPG40403A1"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Friedrichshafen",
+"luogo": "Friedrichshafen",
+"data": "2027-01-15",
+"prezzo": "35.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-fn.de/programm/nr/NB2599EBT/bereich/details/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Cloppenburg",
+"luogo": "Friesoythe",
+"data": "2027-01-22",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-cloppenburg.de/programm/kw/bereich/kursdetails/kurs/AG7411/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Cloppenburg",
+"luogo": "Friesoythe",
+"data": "2027-05-28",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-cloppenburg.de/programm/kw/bereich/kursdetails/kurs/AG7412/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Stadt Land Bruck",
+"luogo": "Fürstenfeldbruck",
+"data": "2027-01-14",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "http://vhs-stadtlandbruck.de/Veranstaltung/cmx6aa8f6225ba21.html"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Stadt Land Bruck",
+"luogo": "Fürstenfeldbruck",
+"data": "2027-02-04",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "http://vhs-stadtlandbruck.de/Veranstaltung/cmx6abf61f60cca9.html"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Stadt Land Bruck",
+"luogo": "Fürstenfeldbruck",
+"data": "2027-03-18",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "http://vhs-stadtlandbruck.de/Veranstaltung/cmx6abf640ddea22.html"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Stadt Land Bruck",
+"luogo": "Fürstenfeldbruck",
+"data": "2027-04-15",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://vhs-stadtlandbruck.de/Veranstaltung/cmx6abf6740dea2d.html"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Fürth",
+"luogo": "Fürth",
+"data": "2026-12-04",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-fuerth.de/p/477-C-262-63005"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Fürth",
+"luogo": "Fürth",
+"data": "2027-02-05",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-fuerth.de/p/477-C-262-63007"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Goch",
+"luogo": "Goch",
+"data": "2026-11-20",
+"prezzo": "25.00",
+"posti": "wenige freie Plätze",
+"pagina": "https://www.vhs-goch.de/kurssuche/kurs/262-4992G"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Goch",
+"luogo": "Goch",
+"data": "2026-12-18",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-goch.de/kurssuche/kurs/262-4993G"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Landkreis Goslar",
+"luogo": "Goslar",
+"data": "2026-11-28",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-goslar.de/kurssuche/kurs/AE10G15"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Landkreis Goslar",
+"luogo": "Goslar",
+"data": "2027-02-20",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-goslar.de/kurssuche/kurs/AF10G16"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Landkreis Goslar",
+"luogo": "Goslar",
+"data": "2027-04-24",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-goslar.de/kurssuche/kurs/AF10G17"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Freyung-Grafenau",
+"luogo": "Grafenau",
+"data": "2026-11-25",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-freyung-grafenau.de/page_/VhsConnectSearch/courseJump?courseId=262404G03"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Freyung-Grafenau",
+"luogo": "Grafenau",
+"data": "2027-01-20",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-freyung-grafenau.de/page_/VhsConnectSearch/courseJump?courseId=262404G04"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Freyung-Grafenau",
+"luogo": "Grafenau",
+"data": "2027-02-24",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-freyung-grafenau.de/page_/VhsConnectSearch/courseJump?courseId=262404G05"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Vorpommern-Greifswald",
+"luogo": "Greifswald",
+"data": "2026-11-26",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-vg.de/index.php?id=9&kathaupt=11&knr=262G10203"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Oberberg",
+"luogo": "Gummersbach",
+"data": "2026-12-04",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-oberberg.de/index.php?id=22&kathaupt=11&knr=B2613197"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Gütersloh",
+"luogo": "Gütersloh",
+"data": "2026-11-14",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-gt.de/index.php?id=127&kathaupt=11&knr=I41963"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Gütersloh",
+"luogo": "Gütersloh",
+"data": "2026-12-19",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-gt.de/index.php?id=127&kathaupt=11&knr=I41964"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Gütersloh",
+"luogo": "Gütersloh",
+"data": "2026-12-19",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-gt.de/index.php?id=127&kathaupt=11&knr=I41965"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Gütersloh",
+"luogo": "Gütersloh",
+"data": "2027-01-23",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-gt.de/index.php?id=127&kathaupt=11&knr=I41970"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Gütersloh",
+"luogo": "Gütersloh",
+"data": "2027-03-06",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-gt.de/index.php?id=127&kathaupt=11&knr=I41971"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Gütersloh",
+"luogo": "Gütersloh",
+"data": "2027-04-24",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-gt.de/index.php?id=127&kathaupt=11&knr=I41972"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Gütersloh",
+"luogo": "Gütersloh",
+"data": "2027-06-12",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-gt.de/index.php?id=127&kathaupt=11&knr=I41973"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Gütersloh",
+"luogo": "Gütersloh",
+"data": "2027-07-10",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-gt.de/index.php?id=127&kathaupt=11&knr=I41974"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Börde",
+"luogo": "Haldensleben",
+"data": "2026-12-03",
+"prezzo": "25.00",
+"posti": "wenige freie Plätze",
+"pagina": "https://kvhs.landkreis-boerde.de/kurssuche/kurs/N262100003"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Hamm",
+"luogo": "Hamm (Mitte)",
+"data": "2027-01-22",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhshamm.de/kurssuche/kurs/2714151"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Hamm",
+"luogo": "Hamm (Mitte)",
+"data": "2027-01-22",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhshamm.de/kurssuche/kurs/2714150"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Hamm",
+"luogo": "Hamm (Mitte)",
+"data": "2027-02-19",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhshamm.de/kurssuche/kurs/2714152"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Hamm",
+"luogo": "Hamm (Mitte)",
+"data": "2027-02-19",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhshamm.de/kurssuche/kurs/2714153"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Hamm",
+"luogo": "Hamm (Mitte)",
+"data": "2027-03-12",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhshamm.de/kurssuche/kurs/2714155"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Hamm",
+"luogo": "Hamm (Mitte)",
+"data": "2027-03-12",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhshamm.de/kurssuche/kurs/2714154"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Hamm",
+"luogo": "Hamm (Mitte)",
+"data": "2027-04-09",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhshamm.de/kurssuche/kurs/2714157"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Hamm",
+"luogo": "Hamm (Mitte)",
+"data": "2027-04-09",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhshamm.de/kurssuche/kurs/2714156"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Hamm",
+"luogo": "Hamm (Mitte)",
+"data": "2027-05-14",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhshamm.de/kurssuche/kurs/2714158"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Hamm",
+"luogo": "Hamm (Mitte)",
+"data": "2027-05-14",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhshamm.de/kurssuche/kurs/2714159"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Hamm",
+"luogo": "Hamm (Mitte)",
+"data": "2027-06-11",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhshamm.de/kurssuche/kurs/2714161"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Hamm",
+"luogo": "Hamm (Mitte)",
+"data": "2027-06-11",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhshamm.de/kurssuche/kurs/2714160"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Hamm",
+"luogo": "Hamm (Mitte)",
+"data": "2027-07-09",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhshamm.de/kurssuche/kurs/2724151"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Hamm",
+"luogo": "Hamm (Mitte)",
+"data": "2027-07-09",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhshamm.de/kurssuche/kurs/2724150"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Hanau",
+"luogo": "Hanau",
+"data": "2027-02-05",
+"prezzo": "25.00",
+"posti": "wenige freie Plätze",
+"pagina": "https://www.vhs-hanau.de/programm/617-C-7247758"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Hanau",
+"luogo": "Hanau",
+"data": "2027-02-05",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-hanau.de/programm/617-C-7247782"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Hanau",
+"luogo": "Hanau",
+"data": "2027-02-05",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-hanau.de/programm/617-C-7247770"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Hannover",
+"luogo": "Hannover",
+"data": "2027-01-29",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-hannover.de/kurssuche?kathaupt=11&knr=271PP71139"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Heidenheim",
+"luogo": "Heidenheim",
+"data": "2027-04-16",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs-heidenheim.de/index.php?id=40&kathaupt=11&knr=BF404-601"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Velbert / Heiligenhaus",
+"luogo": "Heiligenhaus",
+"data": "2026-11-14",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-vh.de/programm/nr/262-1402/bereich/details/"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Heinsberg",
+"luogo": "Heinsberg",
+"data": "2026-12-15",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "http://www.vhs-kreis-heinsberg.de"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Heinsberg",
+"luogo": "Heinsberg",
+"data": "2026-12-15",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "http://www.vhs-kreis-heinsberg.de"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Heinsberg",
+"luogo": "Heinsberg",
+"data": "2026-12-15",
+"prezzo": "25.00",
+"posti": "wenige freie Plätze",
+"pagina": "http://www.vhs-kreis-heinsberg.de"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Heinsberg",
+"luogo": "Heinsberg",
+"data": "2027-03-16",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "http://www.vhs-kreis-heinsberg.de"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Heinsberg",
+"luogo": "Heinsberg",
+"data": "2027-03-16",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "http://www.vhs-kreis-heinsberg.de"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Heinsberg",
+"luogo": "Heinsberg",
+"data": "2027-06-15",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "http://www.vhs-kreis-heinsberg.de"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Heinsberg",
+"luogo": "Heinsberg",
+"data": "2027-06-15",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "http://www.vhs-kreis-heinsberg.de"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs im Kreis Herford",
+"luogo": "Herford",
+"data": "2026-11-26",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://vhsimkreisherford.de/kurse/kurs/kurstitel/nr/26-32021/bereich/details/kat/42/#inhalt"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs im Kreis Herford",
+"luogo": "Herford",
+"data": "2026-12-10",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://vhsimkreisherford.de/kurse/kurs/kurstitel/nr/26-32022/bereich/details/kat/42/#inhalt"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs im Kreis Herford",
+"luogo": "Herford",
+"data": "2027-01-21",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhsimkreisherford.de/kurse/kurs/kurstitel/nr/27-32000/bereich/details/kat/42/#inhalt"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs im Kreis Herford",
+"luogo": "Herford",
+"data": "2027-02-18",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhsimkreisherford.de/kurse/kurs/kurstitel/nr/27-32001/bereich/details/kat/42/#inhalt"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs im Kreis Herford",
+"luogo": "Herford",
+"data": "2027-03-18",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhsimkreisherford.de/kurse/kurs/kurstitel/nr/27-32002/bereich/details/kat/42/#inhalt"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Herne",
+"luogo": "Herne",
+"data": "2027-01-16",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-herne.de/kurssuche/kurs/26B5291"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Hilden-Haan",
+"luogo": "Hilden",
+"data": "2026-12-11",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-hilden-haan.de/suche/kw/bereich/kursdetails/kurs/F41537"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Hildesheim",
+"luogo": "Hildesheim",
+"data": "2026-12-09",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-hildesheim.de/programm/kurs/C45183M"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Hildesheim",
+"luogo": "Hildesheim",
+"data": "2027-01-27",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-hildesheim.de/programm/kurs/C45184M"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Main-Taunus-Kreis",
+"luogo": "Hofheim",
+"data": "2027-01-12",
+"prezzo": "25.00",
+"posti": "wenige freie Plätze",
+"pagina": "https://www.vhs-mtk.de/kurssuche/kurs/Z1404504"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Husum",
+"luogo": "Husum",
+"data": "2027-02-25",
+"prezzo": "30.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs-husum.de/kurssuche/kurs/271H4EBT02"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Husum",
+"luogo": "Husum",
+"data": "2027-03-18",
+"prezzo": "30.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs-husum.de/kurssuche/kurs/271H4EBT03"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Husum",
+"luogo": "Husum",
+"data": "2027-04-29",
+"prezzo": "30.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs-husum.de/kurssuche/kurs/271H4EBT04"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Husum",
+"luogo": "Husum",
+"data": "2027-05-27",
+"prezzo": "30.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs-husum.de/kurssuche/kurs/271H4EBT05"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Husum",
+"luogo": "Husum",
+"data": "2027-06-24",
+"prezzo": "30.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs-husum.de/kurssuche/kurs/271H4EBT06"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Ibbenbüren",
+"luogo": "Ibbenbüren",
+"data": "2026-12-17",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-ibbenbueren.de/programm/nr/26215005/bereich/details/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Ibbenbüren",
+"luogo": "Ibbenbüren",
+"data": "2026-12-17",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-ibbenbueren.de/programm/nr/26215006/bereich/details/"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Mainz-Bingen",
+"luogo": "Ingelheim",
+"data": "2026-11-17",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.kvhs-mainz-bingen.de/index.php?id=142&kathaupt=11&knr=262-01-711"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Iserlohn",
+"luogo": "Iserlohn",
+"data": "2026-12-03",
+"prezzo": "30.00",
+"posti": "wenige freie Plätze",
+"pagina": "https://www.vhs-iserlohn.de/kurse/index.php?id=18&kathaupt=11&knr=262_40406"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Iserlohn",
+"luogo": "Iserlohn",
+"data": "2027-02-11",
+"prezzo": "30.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-iserlohn.de/kurse/index.php?id=18&kathaupt=11&knr=271_40405"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Iserlohn",
+"luogo": "Iserlohn",
+"data": "2027-05-13",
+"prezzo": "30.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-iserlohn.de/kurse/index.php?id=18&kathaupt=11&knr=271_40406"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Iserlohn",
+"luogo": "Iserlohn",
+"data": "2027-07-15",
+"prezzo": "30.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-iserlohn.de/kurse/index.php?id=18&kathaupt=11&knr=271_40407"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Jülicher Land",
+"luogo": "Jülich",
+"data": "2026-12-10",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-juelicher-land.de/kurssuche/kurs/U02-201"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Jülicher Land",
+"luogo": "Jülich",
+"data": "2027-01-21",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-juelicher-land.de/kurssuche/kurs/U02-202"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Kaarst-Korschenbroich",
+"luogo": "Kaarst",
+"data": "2026-12-11",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-kk.de/programm/kurs/262-30503"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Kamen-Bönen",
+"luogo": "Kamen",
+"data": "2026-11-20",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-kamen-boenen.de/programm.html?kathaupt=11&knr=262-4321B"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Kamen-Bönen",
+"luogo": "Kamen",
+"data": "2027-01-29",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-kamen-boenen.de/programm.html?kathaupt=11&knr=262-4321C"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Moers",
+"luogo": "Kamp-Lintfort",
+"data": "2026-12-12",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-moers.de/programm/kw/bereich/kursdetails/kurs/I10244L/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Region Kassel",
+"luogo": "Kassel",
+"data": "2026-11-24",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs-region-kassel.de/index.php?id=35&kathaupt=11&knr=262-14843"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Region Kassel",
+"luogo": "Kassel",
+"data": "2026-11-24",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs-region-kassel.de/index.php?id=35&kathaupt=11&knr=262-14843A"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Region Kassel",
+"luogo": "Kassel",
+"data": "2026-12-15",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs-region-kassel.de/index.php?id=35&kathaupt=11&knr=262-14844"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Region Kassel",
+"luogo": "Kassel",
+"data": "2026-12-15",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs-region-kassel.de/index.php?id=35&kathaupt=11&knr=262-14844A"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Region Kassel",
+"luogo": "Kassel",
+"data": "2027-01-26",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs-region-kassel.de/index.php?id=35&kathaupt=11&knr=271-14840"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Region Kassel",
+"luogo": "Kassel",
+"data": "2027-01-26",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs-region-kassel.de/index.php?id=35&kathaupt=11&knr=271-14840A"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Kaufbeuren",
+"luogo": "Kaufbeuren",
+"data": "2027-01-30",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "http://vhs-kaufbeuren.de/Veranstaltung/cmx69c0f099509e7.html"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Hunsrück",
+"luogo": "Kirchberg",
+"data": "2026-11-26",
+"prezzo": "25.00",
+"posti": "wenige freie Plätze",
+"pagina": "http://vhs-hunsrueck.de/Veranstaltung/cmx6a1d73d2a316b.html"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Hunsrück",
+"luogo": "Kirchberg",
+"data": "2026-12-17",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "http://vhs-hunsrueck.de/Veranstaltung/cmx6a1d751ea3a58.html"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Hunsrück",
+"luogo": "Kirchberg",
+"data": "2027-01-21",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "http://vhs-hunsrueck.de/Veranstaltung/cmx6ae99211b1f5b.html"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Hunsrück",
+"luogo": "Kirchberg",
+"data": "2027-02-18",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://vhs-hunsrueck.de/Veranstaltung/cmx6ae992be1b9ea.html"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Hunsrück",
+"luogo": "Kirchberg",
+"data": "2027-03-18",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://vhs-hunsrueck.de/Veranstaltung/cmx6ae9930c676d7.html"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Hunsrück",
+"luogo": "Kirchberg",
+"data": "2027-04-22",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://vhs-hunsrueck.de/Veranstaltung/cmx6ae993b6ed431.html"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Hunsrück",
+"luogo": "Kirchberg",
+"data": "2027-05-20",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://vhs-hunsrueck.de/Veranstaltung/cmx6ae99427e28a3.html"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Hunsrück",
+"luogo": "Kirchberg",
+"data": "2027-06-24",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://vhs-hunsrueck.de/Veranstaltung/cmx6ae99460e5271.html"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Kirchheim unter Teck",
+"luogo": "Kirchheim",
+"data": "2026-11-18",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhskirchheim.de/programm/gesamtuebersicht/kurs/262-PE3/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Kirchheim unter Teck",
+"luogo": "Kirchheim",
+"data": "2026-12-02",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhskirchheim.de/programm/gesamtuebersicht/kurs/262-PE4/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Kirchheim unter Teck",
+"luogo": "Kirchheim",
+"data": "2026-12-16",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhskirchheim.de/programm/gesamtuebersicht/kurs/262-PE5/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Kirchheim unter Teck",
+"luogo": "Kirchheim",
+"data": "2027-01-20",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhskirchheim.de/programm/gesamtuebersicht/kurs/262-PE6/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Kirchheim unter Teck",
+"luogo": "Kirchheim",
+"data": "2027-02-10",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhskirchheim.de/programm/gesamtuebersicht/kurs/262-PE7/"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Kusel",
+"luogo": "Kusel",
+"data": "2026-12-10",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://kvhs-kusel.de/Veranstaltung/cmx68ed05aa4bfcd.html"
+},
+{
+"tipo": "EBT",
+"vhs": "Kölner VHS",
+"luogo": "Köln",
+"data": "2027-01-29",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.koelner-vhs.de/kurssuche/kurs/99Z409EIN"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Lippe-West",
+"luogo": "Lage",
+"data": "2026-11-20",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-lw.de/index.php?id=9&kathaupt=11&knr=G6983LA"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Lippe-West",
+"luogo": "Lage",
+"data": "2026-12-18",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-lw.de/index.php?id=9&kathaupt=11&knr=G6984LA"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Lahr",
+"luogo": "Lahr/Schwarzwald",
+"data": "2027-01-18",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "http://vhskurse.lahr.de/index.php?kathaupt=11&knr=D4040006-2"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Langenfeld",
+"luogo": "Langenfeld",
+"data": "2026-11-24",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-langenfeld.de/index.php?id=147&kathaupt=11&knr=262-3130ET"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Unteres Pegnitztal",
+"luogo": "Lauf",
+"data": "2027-02-05",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-unteres-pegnitztal.de/index.php?id=9&kathaupt=11&knr=262-41702"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Husum",
+"luogo": "Leck",
+"data": "2027-03-11",
+"prezzo": "30.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs-husum.de/kurssuche/kurs/271H4EBT1L"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Leer",
+"luogo": "Leer",
+"data": "2026-11-14",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-leer.de/programm/kw/bereich/kursdetails/kurs/2622941608/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Leer",
+"luogo": "Leer",
+"data": "2026-12-12",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-leer.de/programm/kw/bereich/kursdetails/kurs/2622941609/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Leer",
+"luogo": "Leer",
+"data": "2027-02-05",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-leer.de/programm/kw/bereich/kursdetails/kurs/2622941502/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Landkreis Gießen",
+"luogo": "Lich",
+"data": "2027-03-11",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-kreis-giessen.de/bildungsangebote/kw/bereich/kursdetails/kurs/KP0541888/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Landkreis Gießen",
+"luogo": "Lich",
+"data": "2027-03-11",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-kreis-giessen.de/bildungsangebote/kw/bereich/kursdetails/kurs/KP0541886/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Landkreis Gießen",
+"luogo": "Lich",
+"data": "2027-03-11",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-kreis-giessen.de/bildungsangebote/kw/bereich/kursdetails/kurs/KP0541887/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Landkreis Gießen",
+"luogo": "Lich",
+"data": "2027-06-17",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-kreis-giessen.de/bildungsangebote/kw/bereich/kursdetails/kurs/KP0541890/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Landkreis Gießen",
+"luogo": "Lich",
+"data": "2027-06-17",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-kreis-giessen.de/bildungsangebote/kw/bereich/kursdetails/kurs/KP0541891/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Landkreis Gießen",
+"luogo": "Lich",
+"data": "2027-06-17",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-kreis-giessen.de/bildungsangebote/kw/bereich/kursdetails/kurs/KP0541892/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Landkreis Gießen",
+"luogo": "Lich",
+"data": "2027-10-28",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-kreis-giessen.de/bildungsangebote/kw/bereich/kursdetails/kurs/LP0541886/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Landkreis Gießen",
+"luogo": "Lich",
+"data": "2027-10-28",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-kreis-giessen.de/bildungsangebote/kw/bereich/kursdetails/kurs/LP0541887/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Landkreis Gießen",
+"luogo": "Lich",
+"data": "2027-10-28",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-kreis-giessen.de/bildungsangebote/kw/bereich/kursdetails/kurs/LP0541888/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Landkreis Gießen",
+"luogo": "Lich",
+"data": "2027-12-09",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-kreis-giessen.de/bildungsangebote/kw/bereich/kursdetails/kurs/LP0541892/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Landkreis Gießen",
+"luogo": "Lich",
+"data": "2027-12-09",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-kreis-giessen.de/bildungsangebote/kw/bereich/kursdetails/kurs/LP0541891/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Landkreis Gießen",
+"luogo": "Lich",
+"data": "2027-12-09",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-kreis-giessen.de/bildungsangebote/kw/bereich/kursdetails/kurs/LP0541890/"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Bergstraße",
+"luogo": "Lorsch",
+"data": "2026-12-18",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.kvhs-bergstrasse.de/programm/kw/bereich/kursdetails/kurs/262-40431/"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Bergstraße",
+"luogo": "Lorsch",
+"data": "2026-12-18",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.kvhs-bergstrasse.de/programm/kw/bereich/kursdetails/kurs/262-40432/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Rhein-Pfalz-Kreis",
+"luogo": "Ludwigshafen",
+"data": "2027-01-18",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-rpk.de/kurssuche/kurs/L102404Z14"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Rhein-Pfalz-Kreis",
+"luogo": "Ludwigshafen",
+"data": "2027-01-18",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-rpk.de/kurssuche/kurs/L102404Z13"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Rhein-Pfalz-Kreis",
+"luogo": "Ludwigshafen",
+"data": "2027-03-22",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-rpk.de/kurssuche/kurs/L102404Z16"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Rhein-Pfalz-Kreis",
+"luogo": "Ludwigshafen",
+"data": "2027-03-22",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-rpk.de/kurssuche/kurs/L102404Z15"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Rhein-Pfalz-Kreis",
+"luogo": "Ludwigshafen",
+"data": "2027-05-24",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-rpk.de/kurssuche/kurs/L102404Z17"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Rhein-Pfalz-Kreis",
+"luogo": "Ludwigshafen",
+"data": "2027-05-24",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-rpk.de/kurssuche/kurs/L102404Z18"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Rhein-Pfalz-Kreis",
+"luogo": "Ludwigshafen",
+"data": "2027-07-12",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-rpk.de/kurssuche/kurs/L102404Z20"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Rhein-Pfalz-Kreis",
+"luogo": "Ludwigshafen",
+"data": "2027-07-12",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-rpk.de/kurssuche/kurs/L102404Z19"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Rhein-Pfalz-Kreis",
+"luogo": "Ludwigshafen",
+"data": "2027-09-27",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-rpk.de/kurssuche/kurs/L102404Z22"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Rhein-Pfalz-Kreis",
+"luogo": "Ludwigshafen",
+"data": "2027-09-27",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-rpk.de/kurssuche/kurs/L102404Z21"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Rhein-Pfalz-Kreis",
+"luogo": "Ludwigshafen",
+"data": "2027-11-29",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-rpk.de/kurssuche/kurs/L102404Z23"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Rhein-Pfalz-Kreis",
+"luogo": "Ludwigshafen",
+"data": "2027-11-29",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-rpk.de/kurssuche/kurs/L102404Z24"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Rhein-Pfalz-Kreis",
+"luogo": "Ludwigshafen",
+"data": "2028-01-24",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-rpk.de/kurssuche/kurs/M102404Z25"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Rhein-Pfalz-Kreis",
+"luogo": "Ludwigshafen",
+"data": "2028-01-24",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-rpk.de/kurssuche/kurs/M102404Z26"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Rhein-Pfalz-Kreis",
+"luogo": "Ludwigshafen",
+"data": "2028-03-20",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-rpk.de/kurssuche/kurs/M102404Z28"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Rhein-Pfalz-Kreis",
+"luogo": "Ludwigshafen",
+"data": "2028-03-20",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-rpk.de/kurssuche/kurs/M102404Z27"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Rhein-Pfalz-Kreis",
+"luogo": "Ludwigshafen",
+"data": "2028-05-29",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-rpk.de/kurssuche/kurs/M102404Z30"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Rhein-Pfalz-Kreis",
+"luogo": "Ludwigshafen",
+"data": "2028-05-29",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-rpk.de/kurssuche/kurs/M102404Z29"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Rhein-Pfalz-Kreis",
+"luogo": "Ludwigshafen",
+"data": "2028-07-17",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-rpk.de/kurssuche/kurs/M102404Z32"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Rhein-Pfalz-Kreis",
+"luogo": "Ludwigshafen",
+"data": "2028-07-17",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-rpk.de/kurssuche/kurs/M102404Z31"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Rhein-Pfalz-Kreis",
+"luogo": "Ludwigshafen",
+"data": "2028-09-25",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-rpk.de/kurssuche/kurs/M102404Z33"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Rhein-Pfalz-Kreis",
+"luogo": "Ludwigshafen",
+"data": "2028-09-25",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-rpk.de/kurssuche/kurs/M102404Z34"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Rhein-Pfalz-Kreis",
+"luogo": "Ludwigshafen",
+"data": "2028-11-27",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-rpk.de/kurssuche/kurs/M102404Z36"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Rhein-Pfalz-Kreis",
+"luogo": "Ludwigshafen",
+"data": "2028-11-27",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-rpk.de/kurssuche/kurs/M102404Z35"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Ludwigslust-Parchim",
+"luogo": "Ludwigslust",
+"data": "2026-11-26",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.kreis-lup.de/index.php?id=147&kathaupt=11&knr=26-459-06"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Ludwigslust-Parchim",
+"luogo": "Ludwigslust",
+"data": "2026-12-10",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.kreis-lup.de/index.php?id=147&kathaupt=11&knr=26-459-07"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Löhne",
+"luogo": "Löhne",
+"data": "2026-11-20",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs-loehne.de/index.php?id=92&kathaupt=11&knr=262-49333"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Uelzen / Lüchow-Dannenberg",
+"luogo": "Lüchow",
+"data": "2026-12-02",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.allesbildung.de/kurssuche/kurs/A4041112"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Uelzen / Lüchow-Dannenberg",
+"luogo": "Lüchow",
+"data": "2027-01-27",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.allesbildung.de/kurssuche/kurs/A4041113"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Mainz",
+"luogo": "Mainz",
+"data": "2026-11-20",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-mainz.de/kurssuche/kw/bereich/kursdetails/kurs/XI59027/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Mainz",
+"luogo": "Mainz",
+"data": "2026-11-20",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-mainz.de/kurssuche/kw/bereich/kursdetails/kurs/XI59028/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Mainz",
+"luogo": "Mainz",
+"data": "2026-11-20",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-mainz.de/kurssuche/kw/bereich/kursdetails/kurs/XI59026/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Marburg",
+"luogo": "Marburg",
+"data": "2026-11-13",
+"prezzo": "25.00",
+"posti": "wenige freie Plätze",
+"pagina": "https://www.vhs-marburg.de/kurssuche/kurs/262-40496C"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Marburg",
+"luogo": "Marburg",
+"data": "2026-11-27",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-marburg.de/kurssuche/kurs/262-40496D"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Marburg",
+"luogo": "Marburg",
+"data": "2026-12-11",
+"prezzo": "25.00",
+"posti": "wenige freie Plätze",
+"pagina": "https://www.vhs-marburg.de/kurssuche/kurs/262-40496E"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Schmalkalden-Meiningen",
+"luogo": "Meiningen",
+"data": "2026-12-04",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-sm.de/index.php?id=87&kathaupt=11&knr=26H-S974ME"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Rhön-Grabfeld, Münnerstadt",
+"luogo": "Mellrichstadt",
+"data": "2026-12-01",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "http://die-vhs.de/Veranstaltung/cmx68f79257b86a4.html"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Rhön-Grabfeld, Münnerstadt",
+"luogo": "Mellrichstadt",
+"data": "2027-01-05",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "http://die-vhs.de/Veranstaltung/cmx6a798f0a1768b.html"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Rhön-Grabfeld, Münnerstadt",
+"luogo": "Mellrichstadt",
+"data": "2027-02-02",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://die-vhs.de/Veranstaltung/cmx6a798fb7e86bb.html"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Rhön-Grabfeld, Münnerstadt",
+"luogo": "Mellrichstadt",
+"data": "2027-03-02",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://die-vhs.de/Veranstaltung/cmx6a79902589d5a.html"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Rhön-Grabfeld, Münnerstadt",
+"luogo": "Mellrichstadt",
+"data": "2027-04-06",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://die-vhs.de/Veranstaltung/cmx6a79905b097e7.html"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Rhön-Grabfeld, Münnerstadt",
+"luogo": "Mellrichstadt",
+"data": "2027-05-04",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://die-vhs.de/Veranstaltung/cmx6a79909c81048.html"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Rhön-Grabfeld, Münnerstadt",
+"luogo": "Mellrichstadt",
+"data": "2027-06-01",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://die-vhs.de/Veranstaltung/cmx6a7991042ad73.html"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Rhön-Grabfeld, Münnerstadt",
+"luogo": "Mellrichstadt",
+"data": "2027-07-06",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://die-vhs.de/Veranstaltung/cmx6a799138a8092.html"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Rhön-Grabfeld, Münnerstadt",
+"luogo": "Mellrichstadt",
+"data": "2027-08-03",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://die-vhs.de/Veranstaltung/cmx6a7991939c774.html"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Rhön-Grabfeld, Münnerstadt",
+"luogo": "Mellrichstadt",
+"data": "2027-09-07",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://die-vhs.de/Veranstaltung/cmx6a7991cd21104.html"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Rhön-Grabfeld, Münnerstadt",
+"luogo": "Mellrichstadt",
+"data": "2027-10-05",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://die-vhs.de/Veranstaltung/cmx6a7992099f70a.html"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Rhön-Grabfeld, Münnerstadt",
+"luogo": "Mellrichstadt",
+"data": "2027-11-02",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://die-vhs.de/Veranstaltung/cmx6a79925c638c1.html"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Rhön-Grabfeld, Münnerstadt",
+"luogo": "Mellrichstadt",
+"data": "2027-12-07",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://die-vhs.de/Veranstaltung/cmx6a79928b2dd19.html"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Memmingen",
+"luogo": "Memmingen",
+"data": "2027-01-25",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-memmingen.de/programm/642-C-262MM4196Z"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Memmingen",
+"luogo": "Memmingen",
+"data": "2027-02-15",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-memmingen.de/programm/642-C-262MM4198Z"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Menden-Hemer-Balve",
+"luogo": "Menden",
+"data": "2026-11-19",
+"prezzo": "25.00",
+"posti": "wenige freie Plätze",
+"pagina": "https://www.vhs-mhb.de/kurssuche/kurs/262-4158"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Menden-Hemer-Balve",
+"luogo": "Menden",
+"data": "2026-12-17",
+"prezzo": "25.00",
+"posti": "wenige freie Plätze",
+"pagina": "https://www.vhs-mhb.de/kurssuche/kurs/262-4159"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Menden-Hemer-Balve",
+"luogo": "Menden",
+"data": "2027-01-21",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-mhb.de/kurssuche/kurs/262-4160"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Menden-Hemer-Balve",
+"luogo": "Menden",
+"data": "2027-03-04",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-mhb.de/kurssuche/kurs/271-4150"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Menden-Hemer-Balve",
+"luogo": "Menden",
+"data": "2027-04-22",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-mhb.de/kurssuche/kurs/271-4151"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Menden-Hemer-Balve",
+"luogo": "Menden",
+"data": "2027-06-17",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-mhb.de/kurssuche/kurs/271-4152"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Menden-Hemer-Balve",
+"luogo": "Menden",
+"data": "2027-09-16",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-mhb.de/kurssuche/kurs/272-4153"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Menden-Hemer-Balve",
+"luogo": "Menden",
+"data": "2027-11-18",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-mhb.de/kurssuche/kurs/272-4154"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Meppen",
+"luogo": "Meppen",
+"data": "2026-11-18",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-meppen.de/kurssuche/kurs/26271-0665"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Meppen",
+"luogo": "Meppen",
+"data": "2026-12-02",
+"prezzo": "25.00",
+"posti": "wenige freie Plätze",
+"pagina": "https://www.vhs-meppen.de/kurssuche/kurs/26271-0666"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Meppen",
+"luogo": "Meppen",
+"data": "2027-01-18",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-meppen.de/kurssuche/kurs/26271-0668"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Meppen",
+"luogo": "Meppen",
+"data": "2027-01-20",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-meppen.de/kurssuche/kurs/26271-0667"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Meppen",
+"luogo": "Meppen",
+"data": "2027-02-08",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-meppen.de/kurssuche/kurs/27171-0660"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Meppen",
+"luogo": "Meppen",
+"data": "2027-03-08",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-meppen.de/kurssuche/kurs/27171-0661"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Meppen",
+"luogo": "Meppen",
+"data": "2027-04-12",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-meppen.de/kurssuche/kurs/27171-0662"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Meppen",
+"luogo": "Meppen",
+"data": "2027-05-24",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-meppen.de/kurssuche/kurs/27171-0663"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Saalekreis",
+"luogo": "Merseburg",
+"data": "2026-12-10",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://kvhs-saalekreis.de/programm/kurs-programm/nr/F4S803/bereich/details/"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Hochsauerland",
+"luogo": "Meschede",
+"data": "2026-12-08",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-hsk.de/kurssuche/kurs/262-404163/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Minden / Bad Oeynhausen",
+"luogo": "Minden",
+"data": "2026-11-27",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-minden.de/kurssuche/kurs/262M54603"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Minden / Bad Oeynhausen",
+"luogo": "Minden",
+"data": "2027-01-15",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-minden.de/kurssuche/kurs/262M54604"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Minden / Bad Oeynhausen",
+"luogo": "Minden",
+"data": "2027-02-19",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-minden.de/kurssuche/kurs/262M54605"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Moers",
+"luogo": "Moers",
+"data": "2026-11-14",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-moers.de/programm/kw/bereich/kursdetails/kurs/I10243/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Moers",
+"luogo": "Moers",
+"data": "2027-01-16",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-moers.de/programm/kw/bereich/kursdetails/kurs/I10245/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Mönchengladbach",
+"luogo": "Mönchengladbach",
+"data": "2026-11-27",
+"prezzo": "25.00",
+"posti": "wenige freie Plätze",
+"pagina": "http://vhs-mg.de/programm/kw/bereich/kursdetails/kurs/262I0014"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Mönchengladbach",
+"luogo": "Mönchengladbach",
+"data": "2026-11-27",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "http://vhs-mg.de/programm/kw/bereich/kursdetails/kurs/262I0013"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Mönchengladbach",
+"luogo": "Mönchengladbach",
+"data": "2026-11-27",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "http://vhs-mg.de/programm/kw/bereich/kursdetails/kurs/262I0011"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Mönchengladbach",
+"luogo": "Mönchengladbach",
+"data": "2026-11-27",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "http://vhs-mg.de/programm/kw/bereich/kursdetails/kurs/262I0012"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Mühldorf am Inn",
+"luogo": "Mühldorf a. Inn",
+"data": "2026-12-11",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-muehldorf.de/kurssuche/kurs/E36901"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Mühldorf am Inn",
+"luogo": "Mühldorf a. Inn",
+"data": "2027-03-19",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-muehldorf.de/kurssuche/kurs/F36900"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Mülheim an der Ruhr",
+"luogo": "Mülheim an der Ruhr",
+"data": "2026-11-14",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://vhs-buchung.muelheim-ruhr.de/webbasys/index.php?kathaupt=11&knr=262-1021"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Mülheim an der Ruhr",
+"luogo": "Mülheim an der Ruhr",
+"data": "2026-11-14",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://vhs-buchung.muelheim-ruhr.de/webbasys/index.php?kathaupt=11&knr=262-1020"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Mülheim an der Ruhr",
+"luogo": "Mülheim an der Ruhr",
+"data": "2026-11-14",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://vhs-buchung.muelheim-ruhr.de/webbasys/index.php?kathaupt=11&knr=262-1019"
+},
+{
+"tipo": "EBT",
+"vhs": "Münchner vhs",
+"luogo": "München",
+"data": "2026-12-11",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.mvhs.de/suche?tx_itemkgconnect_search[sword]=X674120"
+},
+{
+"tipo": "EBT",
+"vhs": "Münchner vhs",
+"luogo": "München",
+"data": "2027-01-22",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.mvhs.de/suche?tx_itemkgconnect_search[sword]=X674130"
+},
+{
+"tipo": "EBT",
+"vhs": "Münchner vhs",
+"luogo": "München",
+"data": "2027-02-25",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.mvhs.de/suche?tx_itemkgconnect_search[sword]=X674140"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Münster",
+"luogo": "Münster",
+"data": "2026-12-18",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://kurse.vhs-muenster.de/p/558-C-10749655"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Münster",
+"luogo": "Münster",
+"data": "2026-12-18",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://kurse.vhs-muenster.de/p/558-C-10749680"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Rhein-Sieg",
+"luogo": "Neunkirchen-Seelscheid",
+"data": "2026-11-27",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-rhein-sieg.de/kuferweb/webbasys/index.php?kathaupt=11&knr=262-49921A"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Rhein-Sieg",
+"luogo": "Neunkirchen-Seelscheid",
+"data": "2026-11-27",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-rhein-sieg.de/kuferweb/webbasys/index.php?kathaupt=11&knr=262-49921B"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Mecklenburgische Seenplatte",
+"luogo": "Neustrelitz",
+"data": "2026-12-09",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-mse.de/index.php?id=147&kathaupt=11&knr=262M10202"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Neuwied",
+"luogo": "Neuwied",
+"data": "2026-11-20",
+"prezzo": "25.00",
+"posti": "wenige freie Plätze",
+"pagina": "http://kvhs-neuwied.de/Veranstaltung/cmx68bab574b9026.html"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Neuwied",
+"luogo": "Neuwied",
+"data": "2026-11-30",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "http://kvhs-neuwied.de/Veranstaltung/cmx68bab5968d16d.html"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Neuwied",
+"luogo": "Neuwied",
+"data": "2026-12-18",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "http://kvhs-neuwied.de/Veranstaltung/cmx68bab5b8db0b0.html"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Neuwied",
+"luogo": "Neuwied",
+"data": "2027-01-04",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "http://kvhs-neuwied.de/Veranstaltung/cmx6ae9dc0e8da87.html"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Neuwied",
+"luogo": "Neuwied",
+"data": "2027-01-22",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://kvhs-neuwied.de/Veranstaltung/cmx6ae9de9312c43.html"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Neuwied",
+"luogo": "Neuwied",
+"data": "2027-02-01",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://kvhs-neuwied.de/Veranstaltung/cmx6ae9e0e98d130.html"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Neuwied",
+"luogo": "Neuwied",
+"data": "2027-02-15",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://kvhs-neuwied.de/Veranstaltung/cmx6ae9e14623dd8.html"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Neuwied",
+"luogo": "Neuwied",
+"data": "2027-02-26",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://kvhs-neuwied.de/Veranstaltung/cmx6ae9e170cf5d9.html"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Neuwied",
+"luogo": "Neuwied",
+"data": "2027-03-08",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://kvhs-neuwied.de/Veranstaltung/cmx6ae9e194b61a0.html"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Neuwied",
+"luogo": "Neuwied",
+"data": "2027-03-19",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://kvhs-neuwied.de/Veranstaltung/cmx6ae9e1c897daa.html"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Neuwied",
+"luogo": "Neuwied",
+"data": "2027-04-05",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://kvhs-neuwied.de/Veranstaltung/cmx6ae9e1f5a3ebe.html"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Neuwied",
+"luogo": "Neuwied",
+"data": "2027-04-16",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://kvhs-neuwied.de/Veranstaltung/cmx6ae9e21f4c0d2.html"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Neuwied",
+"luogo": "Neuwied",
+"data": "2027-04-26",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://kvhs-neuwied.de/Veranstaltung/cmx6ae9e290ee852.html"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Neuwied",
+"luogo": "Neuwied",
+"data": "2027-05-14",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://kvhs-neuwied.de/Veranstaltung/cmx6ae9e2c0061b4.html"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Neuwied",
+"luogo": "Neuwied",
+"data": "2027-05-24",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://kvhs-neuwied.de/Veranstaltung/cmx6ae9e2dd3629a.html"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Neuwied",
+"luogo": "Neuwied",
+"data": "2027-06-04",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://kvhs-neuwied.de/Veranstaltung/cmx6ae9e2ff94322.html"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Neuwied",
+"luogo": "Neuwied",
+"data": "2027-06-14",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://kvhs-neuwied.de/Veranstaltung/cmx6ae9e32bc1a6f.html"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Neuwied",
+"luogo": "Neuwied",
+"data": "2027-06-25",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://kvhs-neuwied.de/Veranstaltung/cmx6ae9e350f003c.html"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Neuwied",
+"luogo": "Neuwied",
+"data": "2027-07-12",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://kvhs-neuwied.de/Veranstaltung/cmx6ae9e3731e212.html"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Neuwied",
+"luogo": "Neuwied",
+"data": "2027-07-23",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://kvhs-neuwied.de/Veranstaltung/cmx6ae9e3949ae4f.html"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Neuwied",
+"luogo": "Neuwied",
+"data": "2027-08-02",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://kvhs-neuwied.de/Veranstaltung/cmx6ae9e3c0a84d2.html"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Neuwied",
+"luogo": "Neuwied",
+"data": "2027-08-16",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://kvhs-neuwied.de/Veranstaltung/cmx6ae9e3e04fc68.html"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Neuwied",
+"luogo": "Neuwied",
+"data": "2027-09-13",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://kvhs-neuwied.de/Veranstaltung/cmx6ae9e423bf108.html"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Neuwied",
+"luogo": "Neuwied",
+"data": "2027-09-24",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://kvhs-neuwied.de/Veranstaltung/cmx6ae9e440de86c.html"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Neuwied",
+"luogo": "Neuwied",
+"data": "2027-10-04",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://kvhs-neuwied.de/Veranstaltung/cmx6ae9e4606432d.html"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Neuwied",
+"luogo": "Neuwied",
+"data": "2027-10-18",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://kvhs-neuwied.de/Veranstaltung/cmx6ae9e47f01f02.html"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Neuwied",
+"luogo": "Neuwied",
+"data": "2027-10-29",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://kvhs-neuwied.de/Veranstaltung/cmx6ae9e4a1aadd1.html"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Neuwied",
+"luogo": "Neuwied",
+"data": "2027-11-08",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://kvhs-neuwied.de/Veranstaltung/cmx6ae9e4c16f9c5.html"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Neuwied",
+"luogo": "Neuwied",
+"data": "2027-11-19",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://kvhs-neuwied.de/Veranstaltung/cmx6ae9e4dfd88ef.html"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Neuwied",
+"luogo": "Neuwied",
+"data": "2027-11-29",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://kvhs-neuwied.de/Veranstaltung/cmx6ae9e4fe6c6e2.html"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Neuwied",
+"luogo": "Neuwied",
+"data": "2027-12-06",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://kvhs-neuwied.de/Veranstaltung/cmx6ae9e5231605c.html"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Neuwied",
+"luogo": "Neuwied",
+"data": "2027-12-17",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://kvhs-neuwied.de/Veranstaltung/cmx6ae9e53f8f9db.html"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Northeim",
+"luogo": "Northeim",
+"data": "2026-11-23",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.kvhs-northeim.de/programm/gesamtuebersicht/nr/P4053P2K/bereich/details/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Oberhausen",
+"luogo": "Oberhausen",
+"data": "2027-01-29",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-oberhausen.de/kurssuche/kurs/CB9105L"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Oberhausen",
+"luogo": "Oberhausen",
+"data": "2027-02-19",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-oberhausen.de/kurssuche/kurs/CB9106L"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Oberhausen",
+"luogo": "Oberhausen",
+"data": "2027-03-26",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-oberhausen.de/kurssuche/kurs/CB9107L"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Oberhausen",
+"luogo": "Oberhausen",
+"data": "2027-04-30",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-oberhausen.de/kurssuche/kurs/CB9108L"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Oberhausen",
+"luogo": "Oberhausen",
+"data": "2027-05-28",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-oberhausen.de/kurssuche/kurs/CB9109L"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Oberhausen",
+"luogo": "Oberhausen",
+"data": "2027-06-25",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-oberhausen.de/kurssuche/kurs/CB9110L"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Oberhausen",
+"luogo": "Oberhausen",
+"data": "2027-07-30",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-oberhausen.de/kurssuche/kurs/CB9111L"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Oberschleißheim",
+"luogo": "Oberschleißheim",
+"data": "2026-11-24",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhsosh.de/programm/nr/262M21910/bereich/details/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Oberschleißheim",
+"luogo": "Oberschleißheim",
+"data": "2026-12-15",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhsosh.de/programm/nr/262M21930/bereich/details/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Oberschleißheim",
+"luogo": "Oberschleißheim",
+"data": "2027-01-25",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhsosh.de/programm/nr/262M21950/bereich/details/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Oelde-Ennigerloh",
+"luogo": "Oelde",
+"data": "2026-11-26",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://vhs-oelde-ennigerloh.de/programm/kw/bereich/kursdetails/kurs/226-49641"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Oelde-Ennigerloh",
+"luogo": "Oelde",
+"data": "2027-01-28",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs-oelde-ennigerloh.de/programm/kw/bereich/kursdetails/kurs/127-49640"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Oelde-Ennigerloh",
+"luogo": "Oelde",
+"data": "2027-02-25",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs-oelde-ennigerloh.de/programm/kw/bereich/kursdetails/kurs/127-49641"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Oelde-Ennigerloh",
+"luogo": "Oelde",
+"data": "2027-04-22",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs-oelde-ennigerloh.de/programm/kw/bereich/kursdetails/kurs/127-49642"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Oelde-Ennigerloh",
+"luogo": "Oelde",
+"data": "2027-06-24",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs-oelde-ennigerloh.de/programm/kw/bereich/kursdetails/kurs/127-49643"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Oldenburg",
+"luogo": "Oldenburg",
+"data": "2026-12-15",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-ol.de/programm/628-C-26BO58794P"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Börde",
+"luogo": "Oschersleben (Bode)",
+"data": "2026-12-08",
+"prezzo": "25.00",
+"posti": "wenige freie Plätze",
+"pagina": "https://kvhs.landkreis-boerde.de/kurssuche/kurs/S262100003"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Osterholz-Scharmbeck / Hambergen / Schwanewede",
+"luogo": "Osterholz-Scharmbeck",
+"data": "2026-11-27",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-ohz.de"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Osterholz-Scharmbeck / Hambergen / Schwanewede",
+"luogo": "Osterholz-Scharmbeck",
+"data": "2026-12-18",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-ohz.de"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs SüdOst im Landkreis München",
+"luogo": "Ottobrunn",
+"data": "2026-12-17",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-suedost.de/kurs/262-47093"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs SüdOst im Landkreis München",
+"luogo": "Ottobrunn",
+"data": "2026-12-17",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-suedost.de/kurs/262-47092"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Vorpommern-Greifswald",
+"luogo": "Pasewalk",
+"data": "2026-11-18",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-vg.de/index.php?id=9&kathaupt=11&knr=262P10204"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Vorpommern-Greifswald",
+"luogo": "Pasewalk",
+"data": "2026-12-16",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-vg.de/index.php?id=9&kathaupt=11&knr=262P10205"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Vorpommern-Greifswald",
+"luogo": "Pasewalk",
+"data": "2027-01-27",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-vg.de/index.php?id=9&kathaupt=11&knr=271P10201"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Vorpommern-Greifswald",
+"luogo": "Pasewalk",
+"data": "2027-02-24",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-vg.de/index.php?id=9&kathaupt=11&knr=271P10202"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Vorpommern-Greifswald",
+"luogo": "Pasewalk",
+"data": "2027-03-24",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-vg.de/index.php?id=9&kathaupt=11&knr=271P10203"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Vorpommern-Greifswald",
+"luogo": "Pasewalk",
+"data": "2027-05-26",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-vg.de/index.php?id=9&kathaupt=11&knr=271P10205"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Vorpommern-Greifswald",
+"luogo": "Pasewalk",
+"data": "2027-06-30",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-vg.de/index.php?id=9&kathaupt=11&knr=271P10206"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Vorpommern-Greifswald",
+"luogo": "Pasewalk",
+"data": "2027-09-15",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-vg.de/index.php?id=9&kathaupt=11&knr=272P10201"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Vorpommern-Greifswald",
+"luogo": "Pasewalk",
+"data": "2027-10-27",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-vg.de/index.php?id=9&kathaupt=11&knr=272P10202"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Vorpommern-Greifswald",
+"luogo": "Pasewalk",
+"data": "2027-11-24",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-vg.de/index.php?id=9&kathaupt=11&knr=272P10203"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Vorpommern-Greifswald",
+"luogo": "Pasewalk",
+"data": "2027-12-15",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-vg.de/index.php?id=9&kathaupt=11&knr=272P10204"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Prignitz",
+"luogo": "Perleberg",
+"data": "2026-12-03",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://kvhs.landkreis-prignitz.de/kurssuche/kurs/26B1201P4"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Prignitz",
+"luogo": "Perleberg",
+"data": "2027-01-26",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://kvhs.landkreis-prignitz.de/kurssuche/kurs/27A1201P1"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Prignitz",
+"luogo": "Perleberg",
+"data": "2027-02-25",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://kvhs.landkreis-prignitz.de/kurssuche/kurs/27A1201P2"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Prignitz",
+"luogo": "Perleberg",
+"data": "2027-03-16",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://kvhs.landkreis-prignitz.de/kurssuche/kurs/27A1201P3"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Prignitz",
+"luogo": "Perleberg",
+"data": "2027-04-29",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://kvhs.landkreis-prignitz.de/kurssuche/kurs/27A1201P4"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Prignitz",
+"luogo": "Perleberg",
+"data": "2027-05-25",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://kvhs.landkreis-prignitz.de/kurssuche/kurs/27A1201P5"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Prignitz",
+"luogo": "Perleberg",
+"data": "2027-06-29",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://kvhs.landkreis-prignitz.de/kurssuche/kurs/27A1201P6"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Arberland",
+"luogo": "Regen",
+"data": "2026-12-10",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-arberland.de/p/463-C-7908090"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Arberland",
+"luogo": "Regen",
+"data": "2027-02-23",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-arberland.de/p/463-C-7908106"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Arberland",
+"luogo": "Regen",
+"data": "2027-04-15",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-arberland.de/p/463-C-8045225"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Arberland",
+"luogo": "Regen",
+"data": "2027-06-10",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-arberland.de/p/463-C-8045237"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Arberland",
+"luogo": "Regen",
+"data": "2027-07-27",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-arberland.de/p/463-C-8045249"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Arberland",
+"luogo": "Regen",
+"data": "2027-10-07",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-arberland.de/p/463-C-8045261"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Arberland",
+"luogo": "Regen",
+"data": "2027-12-09",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-arberland.de/p/463-C-8045273"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Arberland",
+"luogo": "Regen",
+"data": "2028-02-08",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-arberland.de/p/463-C-8045285"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Regensburg",
+"luogo": "Regensburg",
+"data": "2026-12-15",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-regensburg.de/programm/kurs/N31606"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Regensburg",
+"luogo": "Regensburg",
+"data": "2026-12-15",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-regensburg.de/programm/kurs/N31611"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Regensburg",
+"luogo": "Regensburg",
+"data": "2026-12-15",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-regensburg.de/programm/kurs/N31610"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Regensburg",
+"luogo": "Regensburg",
+"data": "2026-12-15",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-regensburg.de/programm/kurs/N31607"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Regensburg",
+"luogo": "Regensburg",
+"data": "2026-12-15",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-regensburg.de/programm/kurs/N31608"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Regensburg",
+"luogo": "Regensburg",
+"data": "2026-12-15",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-regensburg.de/programm/kurs/N31609"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Regensburg",
+"luogo": "Regensburg",
+"data": "2027-02-16",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-regensburg.de/programm/kurs/N31617"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Regensburg",
+"luogo": "Regensburg",
+"data": "2027-02-16",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-regensburg.de/programm/kurs/N31616"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Regensburg",
+"luogo": "Regensburg",
+"data": "2027-02-16",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-regensburg.de/programm/kurs/N31612"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Regensburg",
+"luogo": "Regensburg",
+"data": "2027-02-16",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-regensburg.de/programm/kurs/N31613"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Regensburg",
+"luogo": "Regensburg",
+"data": "2027-02-16",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-regensburg.de/programm/kurs/N31614"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Regensburg",
+"luogo": "Regensburg",
+"data": "2027-02-16",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-regensburg.de/programm/kurs/N31615"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Remscheid",
+"luogo": "Remscheid",
+"data": "2026-12-14",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs.remscheid.de/index.php?id=92&kathaupt=11&knr=262-81704E"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Remscheid",
+"luogo": "Remscheid",
+"data": "2027-01-18",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs.remscheid.de/index.php?id=92&kathaupt=11&knr=262-81705E"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Alpen-Rheinberg-Sonsbeck-Xanten",
+"luogo": "Rheinberg",
+"data": "2027-03-18",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-rheinberg.de/kurssuche/kurs/F107010#inhalt"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Rheine",
+"luogo": "Rheine",
+"data": "2026-12-07",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-rheine.de/programm/nr/2639000105/bereich/details/"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Salzwedel",
+"luogo": "Salzwedel",
+"data": "2026-12-14",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-salzwedel.de/index.php?id=9&kathaupt=11&knr=ZX1499-263"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Schrobenhausen",
+"luogo": "Schrobenhausen",
+"data": "2027-01-23",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-sob.de/programm/kurs/262-I-660#inhalt"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Schrobenhausen",
+"luogo": "Schrobenhausen",
+"data": "2027-01-23",
+"prezzo": "0.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-sob.de/programm/kurs/262-I-600#inhalt"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Schrobenhausen",
+"luogo": "Schrobenhausen",
+"data": "2027-07-03",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-sob.de/programm/kurs/271-I-600#inhalt"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Schwedt/Oder",
+"luogo": "Schwedt/Oder",
+"data": "2026-12-01",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-schwedt.de/index.php?id=147&kathaupt=11&knr=262712002"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Schwedt/Oder",
+"luogo": "Schwedt/Oder",
+"data": "2027-03-02",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-schwedt.de/index.php?id=147&kathaupt=11&knr=262712003"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Schwedt/Oder",
+"luogo": "Schwedt/Oder",
+"data": "2027-06-01",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-schwedt.de/index.php?id=147&kathaupt=11&knr=262712004"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Schwerin",
+"luogo": "Schwerin",
+"data": "2026-12-09",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-schwerin.de/kurssuche/nr/26H-19003/bereich/details/"
+},
+{
+"tipo": "EBT",
+"vhs": "Schwäbisch Gmünder vhs",
+"luogo": "Schwäbisch Gmünd",
+"data": "2026-11-28",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.gmuender-vhs.de/programm/kurssuche/kurs/A404131PZ#inhalt"
+},
+{
+"tipo": "EBT",
+"vhs": "Schwäbisch Gmünder vhs",
+"luogo": "Schwäbisch Gmünd",
+"data": "2026-11-28",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.gmuender-vhs.de/programm/kurssuche/kurs/A404131P#inhalt"
+},
+{
+"tipo": "EBT",
+"vhs": "Schwäbisch Gmünder vhs",
+"luogo": "Schwäbisch Gmünd",
+"data": "2027-02-20",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.gmuender-vhs.de/programm/kurssuche/kurs/A404132P#inhalt"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Harburg",
+"luogo": "Seevetal-Maschen",
+"data": "2026-11-25",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.kvhs-harburg.de/kurse/kurs/262D896MA1"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Harburg",
+"luogo": "Seevetal-Maschen",
+"data": "2026-11-25",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.kvhs-harburg.de/kurse/kurs/262D896MA2"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Harburg",
+"luogo": "Seevetal-Maschen",
+"data": "2026-11-25",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.kvhs-harburg.de/kurse/kurs/262D896MA3"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Harburg",
+"luogo": "Seevetal-Maschen",
+"data": "2026-12-09",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.kvhs-harburg.de/kurse/kurs/262D897MA3"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Harburg",
+"luogo": "Seevetal-Maschen",
+"data": "2026-12-09",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.kvhs-harburg.de/kurse/kurs/262D897MA2"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Harburg",
+"luogo": "Seevetal-Maschen",
+"data": "2026-12-09",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.kvhs-harburg.de/kurse/kurs/262D897MA1"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Rhein-Sieg",
+"luogo": "Siegburg",
+"data": "2026-12-03",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-rhein-sieg.de/kuferweb/webbasys/index.php?kathaupt=11&knr=262-49933A"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Rhein-Sieg",
+"luogo": "Siegburg",
+"data": "2027-01-07",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-rhein-sieg.de/kuferweb/webbasys/index.php?kathaupt=11&knr=262-49934A"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Rhein-Sieg",
+"luogo": "Siegburg",
+"data": "2027-01-29",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-rhein-sieg.de/kuferweb/webbasys/index.php?kathaupt=11&knr=262-49922B"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Rhein-Sieg",
+"luogo": "Siegburg",
+"data": "2027-01-29",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-rhein-sieg.de/kuferweb/webbasys/index.php?kathaupt=11&knr=262-49922A"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Rhein-Sieg",
+"luogo": "Siegburg",
+"data": "2027-02-11",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-rhein-sieg.de/kuferweb/webbasys/index.php?kathaupt=11&knr=262-49935A"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Landkreis Konstanz",
+"luogo": "Singen (Hohentwiel)",
+"data": "2027-01-25",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-landkreis-konstanz.de/programm/kurs/271-841829"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Landkreis Konstanz",
+"luogo": "Singen (Hohentwiel)",
+"data": "2027-01-25",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-landkreis-konstanz.de/programm/kurs/271-841828"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Soest",
+"luogo": "Soest",
+"data": "2026-12-10",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.soest.de/programm/nr/26H45128/bereich/details/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Heidekreis",
+"luogo": "Soltau",
+"data": "2026-12-01",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "http://www.vhs-heidekreis.de/index.php?id=35&kathaupt=12&knr:26B10304"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Heidekreis",
+"luogo": "Soltau",
+"data": "2027-04-20",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "http://www.vhs-heidekreis.de/index.php?id=35&kathaupt=12&knr:27A10303"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Heidekreis",
+"luogo": "Soltau",
+"data": "2027-06-15",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "http://www.vhs-heidekreis.de/index.php?id=35&kathaupt=12&knr:27A10304"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Speyer",
+"luogo": "Speyer",
+"data": "2026-11-19",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-speyer.de/kurs/519-C-4859502"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Speyer",
+"luogo": "Speyer",
+"data": "2026-12-03",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-speyer.de/kurs/519-C-4938036"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Straubing",
+"luogo": "Straubing",
+"data": "2026-12-17",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-straubing.de/kurse/563-C-26-404171"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Stuttgart",
+"luogo": "Stuttgart",
+"data": "2026-12-05",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://vhs-stuttgart.de/programm/kurssuche/kurs/262-63195X"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Stuttgart",
+"luogo": "Stuttgart",
+"data": "2026-12-05",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs-stuttgart.de/programm/kurssuche/kurs/262-63196X"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Stuttgart",
+"luogo": "Stuttgart",
+"data": "2026-12-05",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs-stuttgart.de/programm/kurssuche/kurs/262-63199X"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Stuttgart",
+"luogo": "Stuttgart",
+"data": "2026-12-05",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs-stuttgart.de/programm/kurssuche/kurs/262-63198X"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Stuttgart",
+"luogo": "Stuttgart",
+"data": "2026-12-05",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs-stuttgart.de/programm/kurssuche/kurs/262-63197X"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Stuttgart",
+"luogo": "Stuttgart",
+"data": "2027-01-16",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs-stuttgart.de/programm/kurssuche/kurs/262-63200X"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Stuttgart",
+"luogo": "Stuttgart",
+"data": "2027-01-16",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs-stuttgart.de/programm/kurssuche/kurs/262-63201X"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Stuttgart",
+"luogo": "Stuttgart",
+"data": "2027-01-16",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs-stuttgart.de/programm/kurssuche/kurs/262-63202X"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Stuttgart",
+"luogo": "Stuttgart",
+"data": "2027-01-16",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs-stuttgart.de/programm/kurssuche/kurs/262-63204X"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Stuttgart",
+"luogo": "Stuttgart",
+"data": "2027-01-16",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs-stuttgart.de/programm/kurssuche/kurs/262-63203X"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Warendorf",
+"luogo": "Telgte",
+"data": "2026-12-10",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "http://www.vhs-warendorf.de/kurs/3321542"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Warendorf",
+"luogo": "Telgte",
+"data": "2027-02-11",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "http://www.vhs-warendorf.de/kurs/3369247"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Warendorf",
+"luogo": "Telgte",
+"data": "2027-04-15",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "http://www.vhs-warendorf.de/kurs/3369262"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Warendorf",
+"luogo": "Telgte",
+"data": "2027-06-17",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "http://www.vhs-warendorf.de/kurs/3369277"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Landkreis Tirschenreuth",
+"luogo": "Tirschenreuth",
+"data": "2026-12-17",
+"prezzo": "30.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.kreis-tir.de/index.php?id=147&kathaupt=11&knr=26-S6101"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Landkreis Tirschenreuth",
+"luogo": "Tirschenreuth",
+"data": "2027-03-18",
+"prezzo": "30.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.kreis-tir.de/index.php?id=147&kathaupt=11&knr=26-S6102"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Landkreis Tirschenreuth",
+"luogo": "Tirschenreuth",
+"data": "2027-07-12",
+"prezzo": "30.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs.kreis-tir.de/index.php?id=147&kathaupt=11&knr=26-S6103"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Trier",
+"luogo": "Trier",
+"data": "2026-12-05",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs-trier.de/erweiterte-kurssuche/kurs/262-40443/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Trier",
+"luogo": "Trier",
+"data": "2026-12-05",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs-trier.de/erweiterte-kurssuche/kurs/262-40444/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Trier",
+"luogo": "Trier",
+"data": "2027-02-13",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs-trier.de/erweiterte-kurssuche/kurs/262-40447/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Trier",
+"luogo": "Trier",
+"data": "2027-02-13",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs-trier.de/erweiterte-kurssuche/kurs/262-40446/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Troisdorf und Niederkassel",
+"luogo": "Troisdorf",
+"data": "2026-11-19",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-tdf-ndk.de/index.php?id=4&kathaupt=11&knr=262-7EBT2"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Troisdorf und Niederkassel",
+"luogo": "Troisdorf",
+"data": "2026-12-10",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-tdf-ndk.de/index.php?id=4&kathaupt=11&knr=262-7EBT3"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Tübingen",
+"luogo": "Tübingen",
+"data": "2026-11-28",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-tuebingen.de/kurse/kurs/262-479510"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Tübingen",
+"luogo": "Tübingen",
+"data": "2026-11-28",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-tuebingen.de/kurse/kurs/262-479511"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Tübingen",
+"luogo": "Tübingen",
+"data": "2026-11-28",
+"prezzo": "25.00",
+"posti": "wenige freie Plätze",
+"pagina": "https://www.vhs-tuebingen.de/kurse/kurs/262-479513"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Tübingen",
+"luogo": "Tübingen",
+"data": "2026-11-28",
+"prezzo": "25.00",
+"posti": "wenige freie Plätze",
+"pagina": "https://www.vhs-tuebingen.de/kurse/kurs/262-479512"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Tübingen",
+"luogo": "Tübingen",
+"data": "2026-11-28",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-tuebingen.de/kurse/kurs/262-479514"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Uelzen / Lüchow-Dannenberg",
+"luogo": "Uelzen",
+"data": "2026-12-02",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.allesbildung.de/kurssuche/kurs/A4040117"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Uelzen / Lüchow-Dannenberg",
+"luogo": "Uelzen",
+"data": "2026-12-02",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.allesbildung.de/kurssuche/kurs/A4040116"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Uelzen / Lüchow-Dannenberg",
+"luogo": "Uelzen",
+"data": "2027-01-27",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.allesbildung.de/kurssuche/kurs/A4040118"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Uelzen / Lüchow-Dannenberg",
+"luogo": "Uelzen",
+"data": "2027-01-27",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.allesbildung.de/kurssuche/kurs/A4040119"
+},
+{
+"tipo": "EBT",
+"vhs": "vh Ulm",
+"luogo": "Ulm",
+"data": "2027-02-18",
+"prezzo": "30.00",
+"posti": "Warteliste",
+"pagina": "https://www.vh-ulm.de/vh-programm/kurs-finder/detail/kurs/26H1110507"
+},
+{
+"tipo": "EBT",
+"vhs": "vh Ulm",
+"luogo": "Ulm",
+"data": "2027-02-18",
+"prezzo": "30.00",
+"posti": "Warteliste",
+"pagina": "https://www.vh-ulm.de/vh-programm/kurs-finder/detail/kurs/26H1110508"
+},
+{
+"tipo": "EBT",
+"vhs": "vh Ulm",
+"luogo": "Ulm",
+"data": "2027-02-18",
+"prezzo": "30.00",
+"posti": "Warteliste",
+"pagina": "https://www.vh-ulm.de/vh-programm/kurs-finder/detail/kurs/26H1110509"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Unna Fröndenberg Holzwickede",
+"luogo": "Unna",
+"data": "2026-11-14",
+"prezzo": "25.00",
+"posti": "wenige freie Plätze",
+"pagina": "https://vhs-zib.de/kurssuche/kurs/262-3703"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Unna Fröndenberg Holzwickede",
+"luogo": "Unna",
+"data": "2026-12-12",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://vhs-zib.de/kurssuche/kurs/262-3704"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Unna Fröndenberg Holzwickede",
+"luogo": "Unna",
+"data": "2027-01-23",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs-zib.de/kurssuche/kurs/262-3705"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs im Norden des Landkreises München",
+"luogo": "Unterschleißheim",
+"data": "2026-11-20",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-nord.de/programm/kurs/E4800-4"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs im Norden des Landkreises München",
+"luogo": "Unterschleißheim",
+"data": "2026-11-20",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-nord.de/programm/kurs/E4800-5"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs im Norden des Landkreises München",
+"luogo": "Unterschleißheim",
+"data": "2026-12-04",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-nord.de/programm/kurs/E4800-6"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Vechta",
+"luogo": "Vechta",
+"data": "2027-01-28",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.kvhs-vechta.de/kurssuche/kurs/27F-7000"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Velbert / Heiligenhaus",
+"luogo": "Velbert",
+"data": "2026-12-12",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-vh.de/programm/nr/262-1403/bereich/details/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Velbert / Heiligenhaus",
+"luogo": "Velbert",
+"data": "2027-01-30",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-vh.de/programm/nr/262-1404/bereich/details/"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Viersen",
+"luogo": "Viersen",
+"data": "2026-12-11",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.kreis-viersen-vhs.de/index.php?id=3&kathaupt=11&knr=E495851"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Waldkraiburg",
+"luogo": "Waldkraiburg",
+"data": "2027-01-22",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "http://vhs-waldkraiburg.de/Veranstaltung/cmx69ccdf2327d8b.html"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Waldkraiburg",
+"luogo": "Waldkraiburg",
+"data": "2027-04-16",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://vhs-waldkraiburg.de/Veranstaltung/cmx6ac8b8ebb8224.html"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Waldkraiburg",
+"luogo": "Waldkraiburg",
+"data": "2027-07-16",
+"prezzo": "25.00",
+"posti": null,
+"pagina": "http://vhs-waldkraiburg.de/Veranstaltung/cmx6ac8b8ec7e8c3.html"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Heidekreis",
+"luogo": "Walsrode",
+"data": "2027-02-16",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "http://www.vhs-heidekreis.de/index.php?id=35&kathaupt=12&knr:27A10302"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Heidekreis",
+"luogo": "Walsrode",
+"data": "2027-02-16",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "http://www.vhs-heidekreis.de/index.php?id=35&kathaupt=12&knr:27A10301"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Warendorf",
+"luogo": "Warendorf",
+"data": "2026-11-23",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "http://www.vhs-warendorf.de/kurs/3329527"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Warendorf",
+"luogo": "Warendorf",
+"data": "2027-01-18",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "http://www.vhs-warendorf.de/kurs/3369193"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Warendorf",
+"luogo": "Warendorf",
+"data": "2027-03-15",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "http://www.vhs-warendorf.de/kurs/3369211"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Warendorf",
+"luogo": "Warendorf",
+"data": "2027-05-24",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "http://www.vhs-warendorf.de/kurs/3369229"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Lennetal",
+"luogo": "Werdohl",
+"data": "2027-02-25",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-lennetal.de/programm/kw/bereich/kursdetails/kurs/27F40069"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Lennetal",
+"luogo": "Werdohl",
+"data": "2027-04-15",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-lennetal.de/programm/kw/bereich/kursdetails/kurs/27F40070"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Lennetal",
+"luogo": "Werdohl",
+"data": "2027-06-24",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-lennetal.de/programm/kw/bereich/kursdetails/kurs/27F40071"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Werl / Wickede (Ruhr) / Ense",
+"luogo": "Werl",
+"data": "2026-11-26",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "http://www.vhs-werl.de/index.php?id=26&kathaupt=12&knr=26H3195"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Wesel / Hamminkeln / Schermbeck",
+"luogo": "Wesel",
+"data": "2026-11-13",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-wesel.de/programm/politik/bereich/kategorien/khn/Kursbereiche/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Wesel / Hamminkeln / Schermbeck",
+"luogo": "Wesel",
+"data": "2026-12-11",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-wesel.de/programm/politik/bereich/kategorien/khn/Kursbereiche/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Wildeshausen",
+"luogo": "Wildeshausen",
+"data": "2026-11-24",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-wildeshausen.de/kw/bereich/kursdetails/kurs/26B43013/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Wilhelmshaven",
+"luogo": "Wilhelmshaven",
+"data": "2026-11-24",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-whv.de/index.php?id=87&kathaupt=11&knr=2624042"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Wilhelmshaven",
+"luogo": "Wilhelmshaven",
+"data": "2026-12-15",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-whv.de/index.php?id=87&kathaupt=11&knr=2624043"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Wilhelmshaven",
+"luogo": "Wilhelmshaven",
+"data": "2027-01-26",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-whv.de/index.php?id=87&kathaupt=11&knr=2624044"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Schwarzachtal",
+"luogo": "Winkelhaid",
+"data": "2026-12-09",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "http://www.vhs-schwarzachtal.de/index.php?id=9&kathaupt=11&knr=26-41-0017"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Witten / Wetter / Herdecke",
+"luogo": "Witten",
+"data": "2026-11-27",
+"prezzo": "50.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-wwh.de/programm/kurs/R51008"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Wolfenbüttel",
+"luogo": "Wolfenbüttel",
+"data": "2026-12-11",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.bildungszentrum-wolfenbuettel.de/kurssuche/kurs/E2606A"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Wolfsburg",
+"luogo": "Wolfsburg",
+"data": "2027-01-08",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.bildungshaus-wolfsburg.de//programm/kw/bereich/kursdetails/kurs/262404729/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Wolfsburg",
+"luogo": "Wolfsburg",
+"data": "2027-01-08",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.bildungshaus-wolfsburg.de//programm/kw/bereich/kursdetails/kurs/262404728/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Wolfsburg",
+"luogo": "Wolfsburg",
+"data": "2027-02-05",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.bildungshaus-wolfsburg.de//programm/kw/bereich/kursdetails/kurs/271404720/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Wolfsburg",
+"luogo": "Wolfsburg",
+"data": "2027-02-05",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.bildungshaus-wolfsburg.de//programm/kw/bereich/kursdetails/kurs/271404721/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Wolfsburg",
+"luogo": "Wolfsburg",
+"data": "2027-03-05",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.bildungshaus-wolfsburg.de//programm/kw/bereich/kursdetails/kurs/271404722/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Wolfsburg",
+"luogo": "Wolfsburg",
+"data": "2027-03-05",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.bildungshaus-wolfsburg.de//programm/kw/bereich/kursdetails/kurs/271404723/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Wolfsburg",
+"luogo": "Wolfsburg",
+"data": "2027-04-02",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.bildungshaus-wolfsburg.de//programm/kw/bereich/kursdetails/kurs/271404725/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Wolfsburg",
+"luogo": "Wolfsburg",
+"data": "2027-04-02",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.bildungshaus-wolfsburg.de//programm/kw/bereich/kursdetails/kurs/271404724/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Wolfsburg",
+"luogo": "Wolfsburg",
+"data": "2027-05-14",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.bildungshaus-wolfsburg.de//programm/kw/bereich/kursdetails/kurs/271404727/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Wolfsburg",
+"luogo": "Wolfsburg",
+"data": "2027-05-14",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.bildungshaus-wolfsburg.de//programm/kw/bereich/kursdetails/kurs/271404726/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Wolfsburg",
+"luogo": "Wolfsburg",
+"data": "2027-06-11",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.bildungshaus-wolfsburg.de//programm/kw/bereich/kursdetails/kurs/271404728/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Wolfsburg",
+"luogo": "Wolfsburg",
+"data": "2027-06-11",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.bildungshaus-wolfsburg.de//programm/kw/bereich/kursdetails/kurs/271404729/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Wolfsburg",
+"luogo": "Wolfsburg",
+"data": "2027-07-02",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.bildungshaus-wolfsburg.de//programm/kw/bereich/kursdetails/kurs/271404731/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Wolfsburg",
+"luogo": "Wolfsburg",
+"data": "2027-07-02",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.bildungshaus-wolfsburg.de//programm/kw/bereich/kursdetails/kurs/271404730/"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Vorpommern-Greifswald",
+"luogo": "Wolgast",
+"data": "2027-02-23",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-vg.de/index.php?id=9&kathaupt=11&knr=271A10201"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Vorpommern-Greifswald",
+"luogo": "Wolgast",
+"data": "2027-04-20",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-vg.de/index.php?id=9&kathaupt=11&knr=271A10202"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Vorpommern-Greifswald",
+"luogo": "Wolgast",
+"data": "2027-06-22",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-vg.de/index.php?id=9&kathaupt=11&knr=271A10203"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Vorpommern-Greifswald",
+"luogo": "Wolgast",
+"data": "2027-09-21",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-vg.de/index.php?id=9&kathaupt=11&knr=272A10201"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Vorpommern-Greifswald",
+"luogo": "Wolgast",
+"data": "2027-11-23",
+"prezzo": "0.00",
+"posti": "freie Plätze",
+"pagina": "https://www.vhs-vg.de/index.php?id=9&kathaupt=11&knr=272A10202"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Worms",
+"luogo": "Worms",
+"data": "2026-11-19",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://www.vhs-worms.de/kurse/kurs/B02.282"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Würzburg",
+"luogo": "Würzburg",
+"data": "2026-11-26",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://vhs-wuerzburg.info/p/489-C-18648736"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Würzburg",
+"luogo": "Würzburg",
+"data": "2026-11-26",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://vhs-wuerzburg.info/p/489-C-18648761"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Würzburg",
+"luogo": "Würzburg",
+"data": "2027-01-14",
+"prezzo": "25.00",
+"posti": "Warteliste",
+"pagina": "https://vhs-wuerzburg.info/p/489-C-18729879"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Würzburg",
+"luogo": "Würzburg",
+"data": "2027-01-28",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs-wuerzburg.info/p/489-C-18779583"
+},
+{
+"tipo": "EBT",
+"vhs": "vhs Würzburg",
+"luogo": "Würzburg",
+"data": "2027-01-28",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://vhs-wuerzburg.info/p/489-C-18779495"
+},
+{
+"tipo": "EBT",
+"vhs": "kvhs Anhalt-Bitterfeld",
+"luogo": "Zerbst/Anhalt",
+"data": "2027-01-01",
+"prezzo": "25.00",
+"posti": "freie Plätze",
+"pagina": "https://www.kvhs-abi.de/kurssuche/kurs/DZ4.04.995"
+}
+]
+}

@@ -1,0 +1,146 @@
+{
+ "nome": "ASG-Bildungsforum",
+ "citta": "düsseldorf",
+ "url_partenza": "https://www.asg-bildungsforum.de/",
+ "pagine": [
+  {
+   "url": "https://www.asg-bildungsforum.de/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 82960
+  },
+  {
+   "url": "https://www.asg-bildungsforum.de/kurse/sprachkurse",
+   "stato": 200,
+   "chiave": false,
+   "byte": 95591
+  },
+  {
+   "url": "https://www.asg-bildungsforum.de/kurse/sprachkurse/deutschkurse-daz-integration",
+   "stato": 200,
+   "chiave": true,
+   "byte": 95042
+  },
+  {
+   "url": "https://www.asg-bildungsforum.de/kurse/sprachkurse/deutschkurse-daz-integration/einbuergerungstests/kategorie/Einbuergerungstests/1408",
+   "stato": 200,
+   "chiave": true,
+   "byte": 66991,
+   "n_date": 3
+  },
+  {
+   "url": "https://www.asg-bildungsforum.de/kurse/sprachkurse/deutschkurse-daz-integration/einbuergerungstests",
+   "stato": 200,
+   "chiave": true,
+   "byte": 65903,
+   "n_date": 3
+  },
+  {
+   "url": "https://www.asg-bildungsforum.de/kurse/sprachkurse/deutschkurse-daz-integration/einbuergerungstests/kategorie/1408?clearallkatfilter=true",
+   "stato": 200,
+   "chiave": true,
+   "byte": 67286,
+   "n_date": 3
+  },
+  {
+   "url": "https://www.asg-bildungsforum.de/kurse/sprachkurse/deutschkurse-daz-integration/einbuergerungstests/kurs/Deutsch-als-Fremdsprache-Einbuergerungstest/2601818010",
+   "stato": 200,
+   "chiave": true,
+   "byte": 45245
+  },
+  {
+   "url": "https://www.asg-bildungsforum.de/kurse/sprachkurse/deutschkurse-daz-integration/einbuergerungstests/kurs/Deutsch-als-Fremdsprache-Einbuergerungstest/2601818011",
+   "stato": 200,
+   "chiave": true,
+   "byte": 45241
+  },
+  {
+   "url": "https://www.asg-bildungsforum.de/kurse/sprachkurse/deutschkurse-daz-integration/einbuergerungstests/kurs/Deutsch-als-Fremdsprache-Einbuergerungstest/2701818001",
+   "stato": 200,
+   "chiave": true,
+   "byte": 45412
+  },
+  {
+   "url": "https://www.asg-bildungsforum.de/kurse/sprachkurse/englischkurse",
+   "stato": 200,
+   "chiave": false,
+   "byte": 80920
+  },
+  {
+   "url": "https://www.asg-bildungsforum.de/kurse/sprachkurse/franzoesischkurse",
+   "stato": 200,
+   "chiave": false,
+   "byte": 79647
+  },
+  {
+   "url": "https://www.asg-bildungsforum.de/kurse/sprachkurse/spanischkurse",
+   "stato": 200,
+   "chiave": false,
+   "byte": 79808
+  },
+  {
+   "url": "https://www.asg-bildungsforum.de/kurse/sprachkurse/italienischkurse",
+   "stato": 200,
+   "chiave": false,
+   "byte": 79570
+  },
+  {
+   "url": "https://www.asg-bildungsforum.de/kurse/sprachkurse/niederlaendisch",
+   "stato": 200,
+   "chiave": false,
+   "byte": 79461
+  },
+  {
+   "url": "https://www.asg-bildungsforum.de/kurse/sprachkurse/weitere-sprachen",
+   "stato": 200,
+   "chiave": false,
+   "byte": 85568
+  },
+  {
+   "url": "https://www.asg-bildungsforum.de/kurse/sprachkurse/sprachkurse-fuer-kinder-jugendliche",
+   "stato": 200,
+   "chiave": false,
+   "byte": 73028
+  },
+  {
+   "url": "https://www.asg-bildungsforum.de/kurse/sprachkurse/deutschkurse-daz-integration/kategorie/Deutschkurse+DaZ+Integration/1402",
+   "stato": 200,
+   "chiave": true,
+   "byte": 97055
+  },
+  {
+   "url": "https://www.asg-bildungsforum.de/kurse/sprachkurse/englischkurse/kategorie/Englischkurse/1410",
+   "stato": 200,
+   "chiave": false,
+   "byte": 81647
+  },
+  {
+   "url": "https://www.asg-bildungsforum.de/kurse/sprachkurse/franzoesischkurse/kategorie/Franzoesischkurse/1416",
+   "stato": 200,
+   "chiave": false,
+   "byte": 80540
+  },
+  {
+   "url": "https://www.asg-bildungsforum.de/kurse/sprachkurse/spanischkurse/kategorie/Spanischkurse/1421",
+   "stato": 200,
+   "chiave": false,
+   "byte": 80661
+  }
+ ],
+ "pdf": [],
+ "date": [
+  {
+   "data": "2026-11-26",
+   "pagina": "https://www.asg-bildungsforum.de/kurse/sprachkurse/deutschkurse-daz-integration/einbuergerungstests/kategorie/1408?clearallkatfilter=true"
+  },
+  {
+   "data": "2026-12-10",
+   "pagina": "https://www.asg-bildungsforum.de/kurse/sprachkurse/deutschkurse-daz-integration/einbuergerungstests/kategorie/1408?clearallkatfilter=true"
+  },
+  {
+   "data": "2027-01-21",
+   "pagina": "https://www.asg-bildungsforum.de/kurse/sprachkurse/deutschkurse-daz-integration/einbuergerungstests/kategorie/1408?clearallkatfilter=true"
+  }
+ ],
+ "esito": "date future in HTML"
+}

@@ -15,6 +15,7 @@ Scrive grezzi/date/<n>.json per sede e grezzi/date_risultati.json.
 Uso: python3 -I cerca_date.py [indice_iniziale indice_finale]
 """
 import concurrent.futures as cf
+import os
 import datetime as dt
 import html
 import json
@@ -28,10 +29,11 @@ import urllib.robotparser
 import requests
 
 QUI = pathlib.Path(__file__).resolve().parent
-OUT = QUI / "grezzi" / "date"
+SUFF = os.environ.get("DE_TEST_SUFFISSO", "")  # es. "_2026-11-12" per una nuova passata senza toccare la prima
+OUT = QUI / "grezzi" / ("date" + SUFF)
 OUT.mkdir(parents=True, exist_ok=True)
 UA = "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
-OGGI = dt.date(2026, 10, 30)
+OGGI = dt.date.fromisoformat(os.environ.get("DE_TEST_OGGI", "2026-10-30"))
 FINE = dt.date(2027, 12, 31)
 MAX_PAGINE = 20
 
@@ -220,7 +222,7 @@ def main():
             (OUT / f"{i:03d}.json").write_text(json.dumps(r, ensure_ascii=False, indent=1))
             print(f"{i:03d} {r['citta']:<11} {r['nome'][:45]:<45} {r['esito']} ({len(r.get('date', []))} date)", flush=True)
     tutti = [json.loads(p.read_text()) for p in sorted(OUT.glob("*.json"))]
-    (QUI / "grezzi" / "date_risultati.json").write_text(json.dumps(tutti, ensure_ascii=False, indent=1))
+    (QUI / "grezzi" / f"date_risultati{SUFF}.json").write_text(json.dumps(tutti, ensure_ascii=False, indent=1))
 
 
 if __name__ == "__main__":

@@ -1,0 +1,40 @@
+{
+ "nome": "VHS Augsburg e.V.",
+ "citta": "augsburg",
+ "url_partenza": "https://www.vhs-augsburg.de/",
+ "pagine": [
+  {
+   "url": "https://www.vhs-augsburg.de/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 230760
+  },
+  {
+   "url": "https://www.vhs-augsburg.de/aktuelles/angst-hat-viele-gesichter",
+   "stato": 200,
+   "chiave": false,
+   "byte": 84497
+  },
+  {
+   "url": "https://www.vhs-augsburg.de/programm/sprachen?themenwelt=sprachen&thema=deutsch-integration-482-CAT-KAT200",
+   "stato": 200,
+   "chiave": false,
+   "byte": 216364
+  },
+  {
+   "url": "https://www.vhs-augsburg.de/pruefungen",
+   "stato": 200,
+   "chiave": true,
+   "byte": 76764
+  },
+  {
+   "url": "https://www.vhs-augsburg.de/pruefungen/einbuergerung",
+   "stato": 200,
+   "chiave": true,
+   "byte": 78592
+  }
+ ],
+ "pdf": [],
+ "date": [],
+ "esito": "pagina del test senza date future"
+}

@@ -1,0 +1,20 @@
+{
+ "nome": "VHS Berlin-Charlottenburg City West",
+ "citta": "berlin",
+ "url_partenza": "https://www.berlin.de/vhs/volkshochschulen/charlottenburg-wilmersdorf/",
+ "pagine": [
+  {
+   "url": "https://www.berlin.de/vhs/volkshochschulen/charlottenburg-wilmersdorf/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 100912
+  },
+  {
+   "url": "https://www.berlin.de/vhs/volkshochschulen/charlottenburg-wilmersdorf/service/anmeldung-zum-einbuergerungstest-an-der-volkshochschule-city-west-1493982.php",
+   "stato": 429
+  }
+ ],
+ "pdf": [],
+ "date": [],
+ "esito": "pagina del test senza date future"
+}

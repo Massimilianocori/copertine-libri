@@ -151,3 +151,13 @@ In sintesi: date e link sono possibili quasi ovunque. La licenza però non è il
 | `grezzi/pagine_scaricate.json` | Elenco delle pagine BAMF e Berlino lette. L'HTML è stato cancellato perché conteneva i contatti del personale |
 
 Nessun file contiene il testo intorno alle date: può contenere nomi di docenti o di impiegati.
+
+---
+
+## Aggiornamento del 12/11/2026 (test rifatto)
+
+Stessi script e stesse 85 sedi, con la data di oggi (`DE_TEST_OGGI=2026-11-12 DE_TEST_SUFFISSO=_2026-11-12`). I file del 30/10 non sono stati toccati; quelli nuovi hanno il suffisso `_2026-11-12`.
+
+- Sedi con date future dell'Einbürgerungstest: **32** (erano 31). Con Einbürgerungstest o DTZ: **33 su 85, il 38,8 %** (erano 32). Entra la VHS Chemnitz, esce la VHS Wiesbaden. 25 sedi hanno già date del 2027; 28 hanno date e tariffa.
+- Fonte nuova: il catalogo nazionale delle VHS (`leggi_api_vhs.py`, `grezzi/api_vhs_2026-11-12.json`): 630 date future del test da 156 VHS, 276 esami B1 da 93 VHS, con prezzo e stato dei posti. Nelle 20 città aggiunge 5 sedi (VHS Frankfurt, Essen, Regensburg, Augsburg e, per la B1, Düsseldorf): **38 su 85, il 44,7 %**. Nessun esame nel catalogo per Hamburg, Berlin, Leipzig, Nürnberg, Mannheim, Karlsruhe, Wiesbaden, Erfurt, Chemnitz. Condizioni di riuso non scritte.
+- **Soglia del 60 % non raggiunta.** In più oggi esiste un concorrente diretto (einbuergerungstest-termine.de). Verdetto e numeri completi in `../verifica-2026-11-12-einbuergerungstest.md`: NO, voto 4,5.

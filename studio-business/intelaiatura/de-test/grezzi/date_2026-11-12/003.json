@@ -1,0 +1,76 @@
+{
+ "nome": "Diakonisches Werk Hamburg, Landesverband der Inneren Mission e.V.",
+ "citta": "hamburg",
+ "url_partenza": "https://www.diakonie-hamburg.de/",
+ "pagine": [
+  {
+   "url": "https://www.diakonie-hamburg.de/de/start/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 186293
+  },
+  {
+   "url": "https://www.diakonie-hamburg.de/de/fachthemen/migration-integration/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 200844
+  },
+  {
+   "url": "https://www.diakonie-hamburg.de/de/fachthemen/migration-integration/flucht-asyl/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 188972
+  },
+  {
+   "url": "https://www.diakonie-hamburg.de/de/fachthemen/migration-integration/menschen-ohne-papiere/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 192626
+  },
+  {
+   "url": "https://www.diakonie-hamburg.de/de/fachthemen/migration-integration/integration/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 192787
+  },
+  {
+   "url": "https://www.diakonie-hamburg.de/de/adressen/HAMBURG.CARE.CONNECT/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 142883
+  },
+  {
+   "url": "https://www.diakonie-hamburg.de/de/fachthemen/migration-integration/erfolgreich-nach-deutschland/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 194330
+  },
+  {
+   "url": "https://www.diakonie-hamburg.de/de/fachthemen/migration-integration/migration-armut-eu/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 197222
+  },
+  {
+   "url": "https://www.diakonie-hamburg.de/de/adressen/Abschiebemonitoring/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 142442
+  },
+  {
+   "url": "https://www.diakonie-hamburg.de/de/fachthemen/migration-integration/fortbildungen/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 202505
+  },
+  {
+   "url": "https://www.diakonie-hamburg.de/de/presse/pressemitteilungen/Aus-fuer-zwoelf-Integrationszentren-Sechs-erfahrene-freie-Traeger-verlieren-zum-Jahresende-Foerderung-der-Sozialbehoerde/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 144059
+  }
+ ],
+ "pdf": [],
+ "date": [],
+ "esito": "pagina del test senza date future"
+}

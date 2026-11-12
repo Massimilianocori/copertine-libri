@@ -1,0 +1,28 @@
+{
+ "nome": "Lern-Planet GmbH",
+ "citta": "wiesbaden",
+ "url_partenza": "https://www.lern-planet.de/",
+ "pagine": [
+  {
+   "url": "https://lern-planet.de/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 108520
+  },
+  {
+   "url": "https://lern-planet.de/kurse/tests/dtz-deutsch-test-fuer-zuwanderer",
+   "stato": 200,
+   "chiave": true,
+   "byte": 95769
+  },
+  {
+   "url": "https://lern-planet.de/kurse/tests/einbuergerungstest",
+   "stato": 200,
+   "chiave": true,
+   "byte": 93799
+  }
+ ],
+ "pdf": [],
+ "date": [],
+ "esito": "pagina del test senza date future"
+}

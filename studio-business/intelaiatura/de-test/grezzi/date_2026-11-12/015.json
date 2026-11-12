@@ -1,0 +1,16 @@
+{
+ "nome": "VHS Berlin-Reinickendorf",
+ "citta": "berlin",
+ "url_partenza": "https://www.berlin.de/vhs/volkshochschulen/reinickendorf/",
+ "pagine": [
+  {
+   "url": "https://www.berlin.de/vhs/volkshochschulen/reinickendorf/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 93160
+  }
+ ],
+ "pdf": [],
+ "date": [],
+ "esito": "pagina del test senza date future"
+}

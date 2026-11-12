@@ -1,0 +1,40 @@
+{
+ "nome": "VHS Chemnitz",
+ "citta": "chemnitz",
+ "url_partenza": "https://www.vhs-chemnitz.de/",
+ "pagine": [
+  {
+   "url": "https://www.vhs-chemnitz.de/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 169011
+  },
+  {
+   "url": "https://www.vhs-chemnitz.de/p/deutsch/einbuergerung",
+   "stato": 200,
+   "chiave": true,
+   "byte": 154151,
+   "n_date": 2
+  },
+  {
+   "url": "https://www.vhs-chemnitz.de/kurs/deutsch/einbuergerung/einbuergerungstest/W264DS08",
+   "stato": 200,
+   "chiave": true,
+   "byte": 141767
+  },
+  {
+   "url": "https://www.vhs-chemnitz.de/kurs/deutsch/einbuergerung/einbuergerungstest/W264DS09",
+   "stato": 200,
+   "chiave": true,
+   "byte": 141744
+  }
+ ],
+ "pdf": [],
+ "date": [
+  {
+   "data": "2027-02-09",
+   "pagina": "https://www.vhs-chemnitz.de/p/deutsch/einbuergerung"
+  }
+ ],
+ "esito": "date future in HTML"
+}

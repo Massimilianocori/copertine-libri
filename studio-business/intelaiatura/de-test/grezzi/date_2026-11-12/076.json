@@ -1,0 +1,157 @@
+{
+ "nome": "VHS Dortmund",
+ "citta": "dortmund",
+ "url_partenza": "https://www.vhs.dortmund.de/",
+ "pagine": [
+  {
+   "url": "https://vhs.dortmund.de",
+   "stato": 200,
+   "chiave": true,
+   "byte": 70464
+  },
+  {
+   "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen",
+   "stato": 200,
+   "chiave": true,
+   "byte": 82167,
+   "n_date": 9
+  },
+  {
+   "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/kategorie/0",
+   "stato": 200,
+   "chiave": true,
+   "byte": 190395
+  },
+  {
+   "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/raum/595",
+   "stato": 200,
+   "chiave": true,
+   "byte": 50111
+  },
+  {
+   "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/kategorie/115?clearallkatfilter=true",
+   "stato": 200,
+   "chiave": true,
+   "byte": 108136,
+   "n_date": 8
+  },
+  {
+   "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/bereich/217",
+   "stato": 200,
+   "chiave": true,
+   "byte": 81245
+  },
+  {
+   "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/raum/Albert-Schweitzer-Schule-Oer--Erkenschwick/840",
+   "stato": 200,
+   "chiave": true,
+   "byte": 50121
+  },
+  {
+   "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/raum/Bergmuehlenschule-Essen/885",
+   "stato": 200,
+   "chiave": true,
+   "byte": 50072
+  },
+  {
+   "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/raum/Grundschule-Gudrun-Pausewang-Recklinghausen/884",
+   "stato": 200,
+   "chiave": true,
+   "byte": 50124
+  },
+  {
+   "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/raum/Pestalozzi-Schule-Marl/785",
+   "stato": 200,
+   "chiave": true,
+   "byte": 50061
+  },
+  {
+   "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/raum/Pestalozzischule-Duisbur/883",
+   "stato": 200,
+   "chiave": true,
+   "byte": 50067
+  },
+  {
+   "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/raum/Schule-am-Volkspar/729",
+   "stato": 200,
+   "chiave": true,
+   "byte": 50049
+  },
+  {
+   "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/raum/Schule-am-Volkspark/730",
+   "stato": 200,
+   "chiave": true,
+   "byte": 50052
+  },
+  {
+   "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/raum/Aegypten/887",
+   "stato": 200,
+   "chiave": true,
+   "byte": 50025
+  },
+  {
+   "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/raum/Albert-Schweitzer-Realschule/856",
+   "stato": 200,
+   "chiave": true,
+   "byte": 50079
+  },
+  {
+   "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/raum/Albert-Schweitzer-Schule-Bottrop/874",
+   "stato": 200,
+   "chiave": true,
+   "byte": 50091
+  },
+  {
+   "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/raum/Albrecht-Duerer-Gymnasium/857",
+   "stato": 200,
+   "chiave": true,
+   "byte": 50076
+  },
+  {
+   "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/raum/Albrecht-Brinkmann-Grundschule/411",
+   "stato": 200,
+   "chiave": true,
+   "byte": 50151
+  },
+  {
+   "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/raum/Amtmann-Kreyenfeld-Schule/739",
+   "stato": 200,
+   "chiave": true,
+   "byte": 50068
+  },
+  {
+   "url": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/raum/Anne-Frank-Gesamtschule/96",
+   "stato": 200,
+   "chiave": true,
+   "byte": 50129
+  }
+ ],
+ "pdf": [],
+ "date": [
+  {
+   "data": "2026-11-30",
+   "pagina": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen"
+  },
+  {
+   "data": "2026-12-01",
+   "pagina": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen"
+  },
+  {
+   "data": "2026-12-11",
+   "pagina": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen/kategorie/115?clearallkatfilter=true"
+  },
+  {
+   "data": "2026-12-17",
+   "pagina": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen"
+  },
+  {
+   "data": "2027-01-04",
+   "pagina": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen"
+  },
+  {
+   "data": "2027-01-28",
+   "pagina": "https://vhs.dortmund.de/einbuergerungstest-und-telc-zertifikatspruefungen"
+  }
+ ],
+ "esito": "date future in HTML"
+}

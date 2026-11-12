@@ -1,0 +1,16 @@
+{
+ "nome": "VHS Berlin-Neukölln Otto Suhr",
+ "citta": "berlin",
+ "url_partenza": "https://www.berlin.de/vhs/volkshochschulen/neukoelln/",
+ "pagine": [
+  {
+   "url": "https://www.berlin.de/vhs/volkshochschulen/neukoelln/",
+   "stato": 200,
+   "chiave": true,
+   "byte": 90167
+  }
+ ],
+ "pdf": [],
+ "date": [],
+ "esito": "pagina del test senza date future"
+}

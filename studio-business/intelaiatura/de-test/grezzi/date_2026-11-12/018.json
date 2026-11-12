@@ -1,0 +1,14 @@
+{
+ "nome": "VHS Berlin Treptow-Köpenick",
+ "citta": "berlin",
+ "url_partenza": "https://www.berlin.de/vhs/volkshochschulen/treptow-koepenick/",
+ "pagine": [
+  {
+   "url": "https://www.berlin.de/vhs/volkshochschulen/treptow-koepenick/",
+   "stato": 429
+  }
+ ],
+ "pdf": [],
+ "date": [],
+ "esito": "bloccato (429)"
+}

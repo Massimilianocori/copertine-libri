@@ -21,6 +21,7 @@ Uso: python3 -I estrai_date.py <cartella_temporanea>
 import datetime as dt
 import html
 import json
+import os
 import pathlib
 import re
 import sys
@@ -33,7 +34,9 @@ import requests
 QUI = pathlib.Path(__file__).resolve().parent
 UA = "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0"
 UA_BERLINO = "PruefstellenTest/0.1 (einmalige Machbarkeitspruefung; robots.txt respektiert)"
-OGGI, FINE = dt.date(2026, 10, 30), dt.date(2027, 12, 31)
+OGGI, FINE = dt.date.fromisoformat(os.environ.get("DE_TEST_OGGI", "2026-10-30")), dt.date(2027, 12, 31)
+SUFF = os.environ.get("DE_TEST_SUFFISSO", "")  # es. "_2026-11-12": legge anche grezzi/date<SUFF> e scrive estratte<SUFF>.json
+RE_TARIFFA = re.compile(r"(?<![\d.,])(\d{2,3})(?:[,.](\d\d|-))?\s?(?:€|euro\b|eur\b)|(?:€|eur)\s?(\d{2,3})(?:[,.](\d\d|-))?", re.I)
 
 PAGINE_A_MANO = {  # (città, inizio del nome) -> pagine con le date, trovate seguendo i link a mano
     ("berlin", "VHS Berlin-Tempelhof"): ["https://www.berlin.de/vhs-tempelhof-schoeneberg/"],
@@ -228,7 +231,7 @@ class Lettore:
 def pagine_trovate(i):
     """Pagine con date o parole chiave trovate dal crawler (due passate)."""
     urls = []
-    for cartella in ("date", "date_passata1"):
+    for cartella in (["date" + SUFF] if SUFF else []) + ["date", "date_passata1"]:
         f = QUI / "grezzi" / cartella / f"{i:03d}.json"
         if not f.exists():
             continue
@@ -246,7 +249,7 @@ def pagine_trovate(i):
             out.append(u)
     # prima le pagine con parole del test nell'indirizzo
     out.sort(key=lambda u: 0 if re.search(r"einb|lid|leben|dtz|zuwander|pruef|prüf", u, re.I) else 1)
-    return out[:8]
+    return out[:10 if SUFF else 8]
 
 
 def main():
@@ -262,7 +265,7 @@ def main():
                 pagine += us
         if s["citta"] != "berlin":
             pagine += [u for u in pagine_trovate(i) if u not in pagine]
-        date, formati, esiti = [], set(), []
+        date, formati, esiti, tariffe = [], set(), [], set()
         for u in pagine:
             if u not in cache:
                 cache[u] = lett.prendi(u)
@@ -275,6 +278,12 @@ def main():
             if "berlitz" in u:
                 citta_berlitz = {"köln": "Köln", "düsseldorf": "Düsseldorf", "hannover": "Hannover"}.get(s["citta"])
             d, ctrl = estrai(u, titolo, t, citta_berlitz)
+            # tariffe: importi in euro a meno di 200 caratteri da una parola del test (solo l'importo, niente testo)
+            for mt in RE_TARIFFA.finditer(t):
+                if RE_EBT.search(t[max(0, mt.start() - 200): mt.end() + 200]) or RE_DTZ.search(t[max(0, mt.start() - 200): mt.end() + 200]):
+                    v = int(mt.group(1) or mt.group(3))
+                    if 20 <= v <= 400:
+                        tariffe.add(v)
             if d:
                 formati.add(formato(u, decodifica(corpo)))
                 date += d
@@ -291,13 +300,16 @@ def main():
             "leggibile_ebt": any(t == "EBT" for _, t in esami),
             "leggibile_qualsiasi": bool(esami),
             "stati_http": esiti,
+            "tariffe_euro_vicino_al_test": sorted(tariffe),
         })
         print(f"{i:03d} {s['citta']:<11} {s['nome'][:42]:<42} esami={len(esami):>2} "
               f"EBT={'sì' if any(t == 'EBT' for _, t in esami) else 'no'} {','.join(sorted(formati))}", flush=True)
-    (QUI / "grezzi" / "estratte.json").write_text(json.dumps(risultati, ensure_ascii=False, indent=1))
+    (QUI / "grezzi" / f"estratte{SUFF}.json").write_text(json.dumps(risultati, ensure_ascii=False, indent=1))
     (tmp / "controlli.json").write_text(json.dumps(tutti_controlli, ensure_ascii=False, indent=1))
     n_ebt = sum(r["leggibile_ebt"] for r in risultati)
     n_any = sum(r["leggibile_qualsiasi"] for r in risultati)
+    print("con tariffa leggibile:", sum(bool(r["tariffe_euro_vicino_al_test"]) for r in risultati),
+          "| con date e tariffa:", sum(bool(r["tariffe_euro_vicino_al_test"]) and r["leggibile_qualsiasi"] for r in risultati))
     print(f"\nSEDI {len(risultati)} | con date future del Einbürgerungstest: {n_ebt} | con date future di EBT o DTZ: {n_any}")
     from collections import Counter
     c = Counter(f for r in risultati if r["leggibile_qualsiasi"] for f in r["formati"])

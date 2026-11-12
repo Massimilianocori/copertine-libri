@@ -1,0 +1,52 @@
+{
+ "nome": "Bildungszentrum Nürnberg",
+ "citta": "nürnberg",
+ "url_partenza": "https://www.bz.nuernberg.de/",
+ "pagine": [
+  {
+   "url": "https://bz.nuernberg.de/",
+   "stato": 200,
+   "chiave": false,
+   "byte": 118132
+  },
+  {
+   "url": "https://bz.nuernberg.de/programm/ding",
+   "stato": 200,
+   "chiave": false,
+   "byte": 85561
+  },
+  {
+   "url": "https://bz.nuernberg.de/programm/ding/integrationskurse-bamf",
+   "stato": 200,
+   "chiave": true,
+   "byte": 202989
+  },
+  {
+   "url": "https://bz.nuernberg.de/programm/ding/berufssprachkurse-bamf",
+   "stato": 200,
+   "chiave": true,
+   "byte": 96751
+  },
+  {
+   "url": "https://bz.nuernberg.de/programm/ding/auskunft-beratung-deutsch-und-integration",
+   "stato": 200,
+   "chiave": false,
+   "byte": 73483
+  },
+  {
+   "url": "https://bz.nuernberg.de/programm/ding/einstufung-und-beratung",
+   "stato": 200,
+   "chiave": false,
+   "byte": 82749
+  },
+  {
+   "url": "https://bz.nuernberg.de/programm/ding/einstufung-und-beratung/beratung-und-anmeldung-fuer-integrationskurse/beratung-und-anmeldung-fuer-integrationskurse-99010-20262",
+   "stato": 200,
+   "chiave": false,
+   "byte": 74057
+  }
+ ],
+ "pdf": [],
+ "date": [],
+ "esito": "pagina del test senza date future"
+}
