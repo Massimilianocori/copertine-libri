@@ -110,7 +110,7 @@ table.dati caption{caption-side:bottom;text-align:left;padding:8px 12px;font-siz
 .fonti-box{margin-top:40px;padding:18px 20px;background:var(--card);border:1px solid var(--line);border-radius:var(--r)}
 .fonti-box h2{margin:0 0 10px;font-size:1.2rem;display:flex;align-items:center;gap:9px}
 .fonti-box ol{margin:0;padding-left:22px;font-size:.92rem}.fonti-box li{margin-bottom:8px}
-.ref{font-size:.72em;line-height:0;margin-left:1px}.ref a{text-decoration:none;font-weight:700}
+.ref{font-size:max(.72em,11px);line-height:0;margin-left:1px}.ref a{text-decoration:none;font-weight:700}
 .disclaimer{margin:34px 0 0;padding:14px 16px;border-radius:var(--r-s);background:var(--mute);font-size:.88rem;color:var(--ink-2)}
 .ad-slot{min-height:0;margin:26px 0}
 .aff-box{margin:28px 0;padding:18px 20px;border:1px solid var(--line);border-left:4px solid var(--warm);border-radius:var(--r);background:var(--card);box-shadow:var(--sh-1)}

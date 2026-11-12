@@ -8,7 +8,7 @@ Nato da `studio-business/intelaiatura/fronti-2026-11-11-impianti-uk.md` (idea 1)
 Indirizzo previsto: `https://heat-pump-grants-uk.netlify.app` (nome libero il 12/11/2026: curl → 404; costante `URL_SITO` in
 `genera.py` e in `verifica.py`). **Il sito Netlify non esiste ancora** (passi in fondo).
 
-## Pagine (313 indicizzabili + 56 noindex + 404)
+## Pagine (225 indicizzabili + 144 noindex + 404)
 
 | Pagina | Contenuto |
 |---|---|
@@ -18,12 +18,13 @@ Indirizzo previsto: `https://heat-pump-grants-uk.netlify.app` (nome libero il 12
 | `/heat-pump-grants/` | tabella filtrabile dei 318 council, 10 regioni, 21 contee |
 | `/heat-pump-grants/<regione>/` (10) | contributi pagati, per 10.000 famiglie (DESNZ), per anno finanziario, domande per mese (12 mesi), impianto sostituito nel 2025/26, tabella dei council, solare della regione |
 | `/heat-pump-grants/<contea>/` (21) | come i council, con la tabella dei distretti |
-| `/heat-pump-grants/<council>/` (318: 262 indicizzate, 56 noindex) | contributi pagati maggio 2022 - settembre 2026, per anno 2022/23-2025/26, 2026/27 finora (nostro calcolo), per 1.000 famiglie, posizione nella regione, confronto con regione e Inghilterra+Galles, council vicini, costo NAZIONALE dopo il contributo (riquadro "these costs are national, not local"), regole, solare del council (impianti e MW a fine 2025, 2020, per 1.000 famiglie, costo per kW della regione) |
+| `/heat-pump-grants/<council>/` (318: 174 indicizzate, 144 noindex) | contributi pagati maggio 2022 - settembre 2026, per anno 2022/23-2025/26, 2026/27 finora (nostro calcolo), per 1.000 famiglie, posizione nella regione, confronto con regione e Inghilterra+Galles, council vicini, costo NAZIONALE dopo il contributo (riquadro "these costs are national, not local"), regole, solare del council (impianti e MW a fine 2025, 2020, per 1.000 famiglie, costo per kW della regione) |
 | `/solar-panels/` e `/solar-panels/<regione>/` (12, Scozia e Irlanda del Nord comprese) | impianti e MW a settembre 2026, aggiunti in 12 mesi, costo medio per kW 2025/26 per fascia, impianti nuovi per mese, tabella dei council (fine 2025); 2 FAQ nell'hub |
 | `/about/`, `/how-we-check/` (con modulo `corrections`), `/privacy/`, `404.html` | |
 
 **Regola anti-pagine sottili (lezione AdSense):** una pagina council è indicizzata (canonical + sitemap + AdSense) solo con almeno
-100 contributi pagati **e** tutti e quattro gli anni pubblicati da DESNZ (non oscurati). Le altre 56 hanno `noindex`, nessuna
+200 contributi pagati **e** tutti e quattro gli anni pubblicati da DESNZ (non oscurati): 174 council, l'82% dei contributi pagati
+(soglia alzata da 100 a 200 nella revisione del 12/11, vedi in fondo). Le altre 144 hanno `noindex`, nessuna
 pubblicità (`MON.SEGNO_SENZA_ADSENSE`), restano raggiungibili dalle tabelle. Contee, regioni e pagine solari regionali sono sempre
 indicizzate (dati veri per luogo). Nessuna pagina per collegio elettorale (575 possibili con Q1.3 e ET 6.3 tabella 3: espansione futura).
 
@@ -122,7 +123,37 @@ Anche: `python3 studio-business/strumenti/monetizzazione.py verifica heatpumps` 
 ## Limiti e dubbi per il revisore
 
 - Costo solo nazionale: la domanda più cercata ("heat pump cost <regione>") non ha una risposta ufficiale aperta; lo diciamo.
-- Le pagine council hanno testo a modello con numeri propri: soglia di indicizzazione 100 scelta da noi (262 su 318).
+- Le pagine council hanno testo a modello con numeri propri: soglia di indicizzazione 200 (174 su 318), vedi revisione.
 - Volumi: l'API dei volumi ha risposto 429 (limite del conto) alle 2 richieste di oggi; usati i volumi misurati il 12/11 nel file citato.
 - Il costo del solare usa la base TIC ("official statistics in development"); la base DNC dà cifre per kW più alte.
 - Dati solari per council 2025 sottostimati (nota 12 DESNZ); capacità per council comprende i parchi solari.
+
+## Revisione indipendente del 12/11/2026 (prima della pubblicazione)
+
+- **Cifre:** i 4 xlsx riscaricati da GOV.UK (stesse impronte SHA-256) e riletti con un programma scritto da zero: 757 cifre
+  confrontate su home, costo, 5 regioni, 5 contee, 19 council (4 noindex), hub solare e 4 regioni solari. Nessuna cifra sbagliata;
+  4 valori con la seconda cifra decimale a 5 (per esempio 148,95 MW) uscivano arrotondati in giù (148.9): ora `n()` e `gbp()`
+  arrotondano a metà verso l'alto (149.0), e così `verifica.py`.
+- **Soglia di indicizzazione 200** (era 100): con 262 pagine council su 313 il sito era per l'84% un solo modello. Misura sulle
+  pagine area indicizzate, prima: 1.056 parole nel corpo, 54% identiche su tutte, 32% in righe proprie, 54 numeri propri. Dopo:
+  991 parole, 38% identiche, 47% in righe proprie, 77 numeri propri. Fatto così: tabella dei costi nazionali sostituita da un
+  solo paragrafo (resta sulle pagine regione, costo e home), regole in un paragrafo con rimando, e un paragrafo nuovo con dati
+  solo di quell'area (posizione per numero e per famiglia in regione e su 318, quota di famiglie contro quota di contributi, anno
+  più alto, caldaie a biomassa). Pari merito scritti "joint". **Quando abbassarla:** dopo l'approvazione AdSense e quando Search
+  Console mostra indicizzate almeno 150 delle 174, riportare `SOGLIA_INDICE` a 100 in `genera.py` e in `verifica.py` (+88 pagine).
+- **Base dei prezzi corretti per l'inflazione:** il titolo del foglio Q1.1B dice ancora "2026 Q2 prices", ma la nota 28 dice
+  "prices as at the latest quarter" e nei dati il valore reale dell'ultimo trimestre è uguale al nominale (12.826): la base è
+  luglio-settembre 2026. La pagina lo scrive così e `genera.py` lo ricava dai dati (se un giorno non coincidono scrive
+  "latest-quarter prices"). `costi_reali_base` in `bus.json` (dal titolo) non è usato.
+- **Barnsley e Sheffield:** il file BUS usa i codici nuovi (E08000038, E08000039), il file solare quelli vecchi (E08000016,
+  E08000019); abbinamento per nome ricontrollato, cifre giuste.
+- **Solare per council:** l'avviso sui 31.900 impianti 2025 non assegnati c'è sulle pagine council e sotto le tabelle regionali.
+- **Regole:** rilette oggi su GOV.UK (API dei contenuti) e Ofgem: importi, date (28/4/2026, 21/7/2026-31/3/2027), esclusioni e IVA
+  coincidono. Due risposte ammorbidite: "Can I get a grant" ora parte da "GOV.UK says you are eligible if" e chiude con il controllo
+  di installatore e Ofgem; la risposta sull'IVA non dice più "Not until" (l'aliquota zero non vale per tutti gli edifici).
+- **Legale:** nessuna parola su prestiti o rate in pagine, FAQ, JSON-LD, attributi, `affiliati.json`. Quando si accende il riquadro,
+  il link tracciato deve portare alla pagina dei preventivi del partner, non a una pagina sui pagamenti.
+- **Attribuzione:** OS e Royal Mail ora anche nel piè di ogni pagina (prima solo in /how-we-check/). Data di uscita di ET 6.3 nelle
+  fonti presa dalla copertina del file (29/10/2026), non dalla pagina che lo raccoglie (12/11/2026).
+- Rimandi alle fonti [1] portati a 11 px minimi su telefono.
+

@@ -6,6 +6,7 @@ Indipendenza: le cifre attese si ricalcolano qui leggendo direttamente gli xlsx 
 proprio, non con estrai.py né con dati/*.json), poi si cercano nelle pagine generate. L'impronta SHA-256 di ogni xlsx deve
 essere quella scritta in dati/fonti.json.
 """
+from decimal import Decimal, ROUND_HALF_UP
 import hashlib
 import json
 import re
@@ -38,22 +39,30 @@ def leggi(p):
     return p.read_text(encoding="utf-8")
 
 
+SOGLIA_INDICE = 200  # come in genera.py, riscritta qui apposta: il controllo non importa nulla dal generatore
+
+
 def testo(html_):
     t = re.sub(r"<(script|style)\b.*?</\1>", " ", html_, flags=re.S | re.I)
     t = re.sub(r"<!--.*?-->", " ", t, flags=re.S)
     return re.sub(r"\s+", " ", unescape(re.sub(r"<[^>]+>", " ", t)))
 
 
+def _arr(x, dec=0):
+    # arrotondamento aritmetico sul valore come è scritto nel file (148.95 -> 149.0)
+    return Decimal(repr(x)).quantize(Decimal(1).scaleb(-dec), rounding=ROUND_HALF_UP)
+
+
 def f0(x):
-    return f"{x:,.0f}"
+    return f"{_arr(x):,}"
 
 
 def f1(x):
-    return f"{x:,.1f}"
+    return f"{_arr(x, 1):,}"
 
 
 def gbp(x):
-    return f"£{x:,.0f}"
+    return f"£{_arr(x):,}"
 
 
 PAGINE = {str(p.relative_to(SITO)): leggi(p) for p in sorted(SITO.rglob("*.html"))}
@@ -234,9 +243,9 @@ def controlla_cifre(X):
             controllate += 1
             if v not in t:
                 errore(f"{p} ({c}): cifra attesa «{v}» non trovata")
-        # indicizzazione: soglia 100 e anni tutti pubblicati (contee sempre)
+        # indicizzazione: soglia 200 e anni tutti pubblicati (contee sempre)
         indice = "noindex" not in PAGINE[p]
-        dovrebbe = c.startswith("E10") or (cum >= 100 and all(num(v) for v in anni))
+        dovrebbe = c.startswith("E10") or (cum >= SOGLIA_INDICE and all(num(v) for v in anni))
         if indice != dovrebbe:
             errore(f"{p}: indicizzazione {indice} ma la regola dice {dovrebbe}")
     # regioni

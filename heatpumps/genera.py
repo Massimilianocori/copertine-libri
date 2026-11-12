@@ -10,6 +10,7 @@ Contenuto: Boiler Upgrade Scheme (contributi pagati per regione e per council, c
 GOV.UK e Ofgem) e solare (impianti e potenza per regione e per council, costo per kW per regione) dai file DESNZ (OGL v3.0).
 Regola legale: nessuna parola su prestiti o pagamenti a rate (verifica.py le rifiuta). Nessun dato personale.
 """
+from decimal import Decimal, ROUND_HALF_UP
 import hashlib
 import json
 import re
@@ -36,7 +37,7 @@ SCRIPT_CONTATORE = ('<script>window.goatcounter={path:function(p){return locatio
                     f'<script data-goatcounter="{GOATCOUNTER_URL}" async src="https://gc.zgo.at/count.js"></script>')
 CHIAVE_INDEXNOW = "b5a26a844a465f58552debee2c8a0114"  # = CHIAVE in studio-business/strumenti/indexnow.py
 SITO_ID = "heatpumps"  # nome del sito in monetizzazione.json
-SOGLIA_INDICE = 100  # pagina council indicizzata solo con almeno 100 contributi pagati e tutti gli anni pubblicati (non oscurati)
+SOGLIA_INDICE = 200  # pagina council indicizzata solo con almeno 200 contributi pagati e tutti gli anni pubblicati (non oscurati)
 OGL = "Contains public sector information licensed under the Open Government Licence v3.0."
 
 
@@ -51,6 +52,8 @@ FONTI = _F["definizioni"]
 ESITI = _F["fonti"]
 FAQ = carica("faq.json")["faq"]
 AFF = carica("affiliati.json")
+# data di uscita scritta nella copertina di ogni file (la pagina GOV.UK che li raccoglie può avere una data più recente)
+USCITA_FILE = {"bus_xlsx": B["pubblicato"], "solare_la_xlsx": S["la_pubblicato"], "solare_et63_xlsx": S["et63_pubblicato"], "solare_costi_xlsx": S["costi_pubblicato"]}
 CONTROLLO = date.fromisoformat(max(v["letto_il"] for v in ESITI.values()))
 
 MESI = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
@@ -67,12 +70,17 @@ def data_lunga(d):
     return f"{d.day} {MESI[d.month - 1]} {d.year}"
 
 
+def arrotonda(x, dec=0):
+    """Arrotondamento aritmetico (metà verso l'alto) sul valore come è scritto nel file: 148.95 -> 149.0, non 148.9."""
+    return Decimal(repr(x)).quantize(Decimal(1).scaleb(-dec), rounding=ROUND_HALF_UP)
+
+
 def n(x, dec=0):
-    return f"{x:,.{dec}f}"
+    return f"{arrotonda(x, dec):,}"
 
 
 def gbp(x):
-    return f"£{x:,.0f}"
+    return f"£{arrotonda(x):,}"
 
 
 def pct(x, dec=0):
@@ -222,6 +230,17 @@ for a in COUNCIL + CONTEE:
 _slugs = [a["slug"] for a in COUNCIL + CONTEE] + [SLUG_REG[r] for r in REG_EW]
 assert len(_slugs) == len(set(_slugs)), "slug doppi"
 
+def classifica(lista, chiave, campo):
+    """Posizione con i pari merito: chi ha lo stesso valore ha la stessa posizione (1 + quanti hanno di più); campo+'_pari' dice se è condivisa."""
+    for a in lista:
+        a[campo] = 1 + sum(1 for b in lista if b[chiave] > a[chiave])
+        a[campo + "_pari"] = sum(1 for b in lista if b[chiave] == a[chiave]) > 1
+
+
+def posto(a, campo):
+    return ("joint " if a.get(campo + "_pari") else "") + ordinale(a[campo])
+
+
 FAM_REG = {r: sum(a["famiglie"] for a in COUNCIL if a["regione"] == r and a["famiglie"]) for r in REG_EW}
 FAM_EW = sum(FAM_REG.values())
 CUM = B["cumulato_regioni_pompe"]
@@ -229,13 +248,14 @@ TASSO_REG = {r: CUM[r] / FAM_REG[r] * 1000 for r in REG_EW}
 TASSO_EW = CUM["K04000001"] / FAM_EW * 1000
 for r in REG_EW:
     lista = sorted([a for a in COUNCIL if a["regione"] == r], key=lambda a: -a["cumulato"])
-    for k, a in enumerate(lista, 1):
-        a["rango"], a["n_reg"] = k, len(lista)
-    con_tasso = sorted([a for a in lista if a["tasso"] is not None], key=lambda a: -a["tasso"])
-    for k, a in enumerate(con_tasso, 1):
-        a["rango_tasso"] = k
-    for c in CONTEE:
-        pass
+    for a in lista:
+        a["n_reg"] = len(lista)
+    classifica(lista, "cumulato", "rango")
+    classifica([a for a in lista if a["tasso"] is not None], "tasso", "rango_tasso")
+# posizione fra tutti i council di Inghilterra e Galles (per numero e per 1.000 famiglie)
+classifica(COUNCIL, "cumulato", "rango_ew")
+classifica([a for a in COUNCIL if a["tasso"] is not None], "tasso", "rango_tasso_ew")
+N_TASSO_EW = sum(1 for a in COUNCIL if a["tasso"] is not None)
 
 COSTI_SOL = S["costi_regioni"]
 ANNO_SOL = sorted(next(iter(COSTI_SOL.values())).keys())[-1]  # "2025/26"
@@ -277,7 +297,7 @@ class Rimandi:
         for k, i in enumerate(self.ordine, 1):
             f, es = FONTI[i], ESITI.get(i, {})
             if f["tipo"] == "xlsx":
-                stato = (f"{h(f['uscita'])}, published {data_lunga(es['pubblicato'])}; file downloaded and checked on {data_lunga(es['letto_il'])}. "
+                stato = (f"{h(f['uscita'])}, published {data_lunga(USCITA_FILE.get(i) or es['pubblicato'])}; file downloaded and checked on {data_lunga(es['letto_il'])}. "
                          "Open Government Licence v3.0.")
                 link = f'<a href="{h(f["pagina"])}" rel="noopener">{h(f["titolo"])}</a>'
             else:
@@ -285,7 +305,7 @@ class Rimandi:
                 link = f'<a href="{h(f["url"])}" rel="noopener">{h(f["titolo"])}</a>'
             voci.append(f'<li id="f{k}">{link} · {h(f["chi"])}. <span class="small">{stato}</span></li>')
         return (f'<section class="fonti-box" aria-labelledby="fonti-h"><h2 id="fonti-h">{ico("doc")}Sources</h2>'
-                f'<ol>{"".join(voci)}</ol><p class="small">{OGL} Figures are re-checked against these files before every update; see '
+                f'<ol>{"".join(voci)}</ol><p class="small">Figures are re-checked against these files before every update; see '
                 f'<a href="/how-we-check/">how we check</a>.</p></section>')
 
 
@@ -404,7 +424,8 @@ they cost after the grant, and how much solar is installed in each region and co
 </div><div>
 <h2>Guides</h2><ul>{guide_piede}</ul>
 </div></div>
-<p class="f-base">{OGL} The Boiler Upgrade Scheme is run by <a href="https://www.ofgem.gov.uk/environmental-and-social-schemes/boiler-upgrade-scheme-bus" rel="noopener">Ofgem</a>
+<p class="f-base">{OGL} Figures by council and region contain OS data © Crown copyright and database right 2026 and
+Royal Mail data © Royal Mail copyright and database right 2026. The Boiler Upgrade Scheme is run by <a href="https://www.ofgem.gov.uk/environmental-and-social-schemes/boiler-upgrade-scheme-bus" rel="noopener">Ofgem</a>
 for the Department for Energy Security and Net Zero. This site is not affiliated with either.</p>
 </div></footer>
 <script src="/assets/{JS_FILE}" defer></script>
@@ -572,6 +593,33 @@ def frase_trend(a):
     return f"That is {'up' if d > 0 else 'down'} {pct(abs(d))} on {ANNI[-2]} ({n(y1)})."
 
 
+def frase_posizione(a):
+    """Frasi con dati propri dell'area: posizione per numero e per famiglia, quota di famiglie e di contributi, anno più alto, biomassa."""
+    reg, nome = a["regione"], a["nome"]
+    frasi = []
+    if a["tipo"] == "council" and a.get("tasso") is not None and a.get("rango_tasso"):
+        n_tasso_reg = sum(1 for d in COUNCIL if d["regione"] == reg and d["tasso"] is not None)
+        frasi.append(f'By number of grants paid, {h(nome)} is {posto(a, "rango")} of the {a["n_reg"]} councils in {h(NEL_REG[reg])} and {posto(a, "rango_ew")} '
+                     f'of the {len(COUNCIL)} in England and Wales. Measured against the number of households it is {posto(a, "rango_tasso")} of {n_tasso_reg} in the region '
+                     f'and {posto(a, "rango_tasso_ew")} of {N_TASSO_EW} nationally.')
+    if a.get("famiglie") and FAM_REG.get(reg):
+        qf, qc = a["famiglie"] / FAM_REG[reg], a["cumulato"] / CUM[reg]
+        frasi.append(f'The area has {pct(qf, 1)} of the households in {h(NEL_REG[reg])} and {pct(qc, 1)} of its heat pump grants.')
+    pubbl = [(y, a["anni"][y]) for y in ANNI if pubblicato(a["anni"][y])]
+    if len(pubbl) == len(ANNI) and max(v for _, v in pubbl) > 0:
+        ymax, vmax = max(pubbl, key=lambda t: t[1])
+        if ymax != ANNI[-1]:
+            frasi.append(f'The busiest full year so far was {ymax}, with {n(vmax)} grants paid.')
+        elif sum(v for _, v in pubbl):
+            frasi.append(f'{ANNI[-1]} was the busiest full year so far: {pct(vmax / sum(v for _, v in pubbl))} of the grants paid in the first four years.')
+    bio = a.get("biomassa")
+    if pubblicato(bio) and bio > 0:
+        frasi.append(f'DESNZ also counts {n(bio)} biomass boiler{"s" if bio != 1 else ""} with a grant paid here, on top of the heat pumps.')
+    if not frasi:
+        return ""
+    return f'<div class="testo"><p>{" ".join(frasi)} Ranks and shares are our calculation from the same official tables.</p></div>'
+
+
 def righe_anni(a):
     righe = [(y, val_anno(a["anni"][y]), f"{y} ({anno_lungo(y)}): {n(a['anni'][y]) if pubblicato(a['anni'][y]) else val_anno(a['anni'][y])} grants paid") for y in ANNI]
     if a.get("ytd") is not None:
@@ -608,12 +656,13 @@ def pagina_area(a):
     nome_h = nome + (f" ({a['gallese']})" if a.get("gallese") else "")
     tot = a["cumulato"]
     y = a["anni"][ANNI[-1]]
-    voci = [(n(tot), f"heat pumps with a grant paid, May 2022 to {PERIODO}", True),
-            (n(y) if pubblicato(y) else "n/p", f"paid in {ANNI[-1]} ({anno_lungo(ANNI[-1])})", False)]
+    voci = [(n(tot), f"heat pumps with a grant paid, May 2022 to {PERIODO}", True)]
+    if pubblicato(y):
+        voci.append((n(y), f"paid in {ANNI[-1]} ({anno_lungo(ANNI[-1])})", False))
     if a.get("tasso") is not None:
         voci.append((n(a["tasso"], 1), f"per 1,000 households ({NOME_REG[reg]}: {n(TASSO_REG[reg], 1)})", False))
     if a["tipo"] == "council":
-        voci.append((ordinale(a["rango"]), f"of {a['n_reg']} councils in {NEL_REG[reg]} by grants paid", False))
+        voci.append((posto(a, "rango"), f"of {a['n_reg']} councils in {NEL_REG[reg]} by grants paid", False))
     else:
         voci.append((n(len(a["distretti"])), "district councils in the county", False))
     corpo = f"<!-- area: {a['codice']} -->" + cifre(voci, asof_bus())
@@ -624,11 +673,12 @@ def pagina_area(a):
         f'{pct(quota_reg, 1)} of all those paid in {h(NEL_REG[reg])} and {pct(tot / CUM["K04000001"], 2)} of England and Wales.[[bus_xlsx]] '
         + (f'In the {ANNI[-1]} financial year {n(y)} were paid. {frase_trend(a)} ' if pubblicato(y) else "")
         + (f'From April to {PERIODO} another <strong>{n(a["ytd"])}</strong> were paid (our calculation: the total to date minus the four full years).' if a.get("ytd") is not None else
-           'DESNZ does not publish one or more yearly figures for this area because the numbers are small (it hides counts of 1 to 4 to protect privacy).')
+           'DESNZ does not publish one or more yearly figures for this area: it hides counts of 1 to 4 to protect privacy, and sometimes a second figure so that the hidden one cannot be worked out.')
         + "</p></div>")
     corpo += barre(righe_anni(a), "Grants paid by financial year", "Heat pumps; financial years run April to March")
     corpo += ('<p class="small">A grant counts here when Ofgem has paid it, after the installation is finished; DESNZ counts it by the property\'s postcode. '
               'Heat pumps installed without the grant are not included.</p>')
+    corpo += frase_posizione(a)
     corpo += AD
     # confronto
     righe = []
@@ -663,12 +713,16 @@ def pagina_area(a):
                   f'<th scope="col" class="n">In {ANNI[-1]}</th><th scope="col" class="n">Per 1,000 households</th></tr></thead><tbody>{tr}</tbody></table></div>')
     corpo += f'<p><a href="/heat-pump-grants/{SLUG_REG[reg]}/">All councils in {h(NEL_REG[reg])}</a> · <a href="/heat-pump-grants/">every council in England and Wales</a></p>'
     # costo
-    corpo += f'<h2 id="cost">What a heat pump costs after the grant</h2>' + nota_costo_nazionale(nome)
-    corpo += rim.t(f'<div class="testo"><p>For air source heat pumps with a grant paid in {TRIM_L}, the median installed cost was <strong>{gbp(MED)}</strong>. '
-                   f'Taking off the £7,500 grant leaves about <strong>{gbp(MED - GRANT)}</strong> for a typical installation.[[bus_xlsx]]</p></div>')
-    corpo += tabella_costo(rim)
-    corpo += '<p><a href="/heat-pump-cost/">Costs by heat pump size and over time</a></p>'
-    corpo += f'<h2 id="rules">Who can get the grant in {h(nome)}</h2>' + regole_brevi(rim)
+    corpo += f'<h2 id="cost">What a heat pump costs after the grant</h2>' + rim.t(
+        f'<div class="testo"><p>DESNZ publishes installation costs only for England and Wales as a whole, not for {h(nome)}. Nationally, the median air source heat pump '
+        f'with a grant paid in {TRIM_L} cost <strong>{gbp(MED)}</strong> including the grant, so about <strong>{gbp(MED - GRANT)}</strong> after the £7,500 grant; '
+        f'half of all installations cost between {gbp(LQ)} and {gbp(UQ)} before the grant.[[bus_xlsx]] Prices in {h(nome)} can be higher or lower: only a quote from '
+        f'an MCS certified installer tells you yours. <a href="/heat-pump-cost/">Costs by heat pump size and over time</a>.</p></div>')
+    corpo += f'<h2 id="rules">Who can get the grant in {h(nome)}</h2>' + rim.t(
+        '<div class="testo"><p>The rules are the same across England and Wales. The scheme takes £7,500 off an air source or ground source heat pump, or £9,000 until '
+        '31 March 2027 where the property is heated by oil or LPG and has no mains gas connection, for owners replacing fossil fuel or electric heating; an MCS '
+        'certified installer applies for you, and Ofgem checks each application.[[gov_apply,ofgem_bus]] '
+        '<a href="/eligibility/">All the rules, with the official wording</a>.</p></div>')
     corpo += box_preventivo("contea" if a["tipo"] == "contea" else "council")
     corpo += solare_area(a, nome, rim, reg)
     corpo += rim.elenco()
@@ -830,7 +884,7 @@ def home():
     per_t = sorted(REG_EW, key=lambda r: -TASSO_REG[r])
     corpo += rim.t(f'<h2 id="areas">Grants paid in your area</h2><div class="testo"><p>{h(cap(NEL_REG[per_n[0]]))} ({n(CUM[per_n[0]])}) and {h(NEL_REG[per_n[1]])} '
                    f'({n(CUM[per_n[1]])}) have had the most heat pump grants paid; per household, {h(NEL_REG[per_t[0]])} leads with {n(TASSO_REG[per_t[0]], 1)} per 1,000 '
-                   f'households and {h(NEL_REG[per_t[-1]])} has the fewest ({n(TASSO_REG[per_t[-1]], 1)}). Each region page lists every council, with year-by-year figures.[[bus_xlsx]]</p></div>')
+                   f'households and {h(NEL_REG[per_t[-1]])} has the fewest ({n(TASSO_REG[per_t[-1]], 1)}); the rates are our calculation with the DESNZ household estimates. Each region page lists every council, with year-by-year figures.[[bus_xlsx,solare_la_xlsx]]</p></div>')
     corpo += griglia_regioni()
     top = sorted([a for a in COUNCIL if a["indicizza"]], key=lambda a: -a["cumulato"])[:12]
     corpo += ('<h3>Councils with the most heat pump grants paid</h3><ul class="pillole">' +
@@ -933,15 +987,20 @@ def costo():
     tr = "".join(f'<tr><td>{h(trimestre_lungo(t))}</td><td class="n">{gbp(lqs[t])}</td><td class="n">{gbp(med[t])}</td><td class="n">{gbp(uqs[t])}</td>'
                  f'<td class="n">{gbp(reali[t]) if pubblicato(reali.get(t)) else "–"}</td></tr>' for t in reversed(B["trimestri"]))
     primo = B["trimestri"][1]
+    # base dei prezzi: la nota 28 di DESNZ dice "prices as at the latest quarter"; lo si vede dai dati (nell'ultimo trimestre reale = nominale).
+    # Il titolo del foglio Q1.1B può portare ancora il trimestre precedente: non lo usiamo.
+    base_ok = pubblicato(reali.get(TRIM)) and abs(reali[TRIM] - med[TRIM]) < 0.5
+    base_txt = f"{TRIM_L} prices" if base_ok else "latest-quarter prices"
     _m14 = re.search(r"After adjusting for inflation, the median cost of an AWHP in (20\d\d Q\d) is (\d+)% lower than the same period in the first year of the scheme \((20\d\d Q\d); £([\d,]+)\)", " ".join(B["commento"]))
     corpo += rim.t(f'<h2 id="trend">Air source heat pump costs since 2022</h2><div class="testo"><p>In cash terms the median has stayed between '
                    f'{gbp(min(med.values()))} and {gbp(max(med.values()))} a quarter since the scheme began. After inflation it has fallen: DESNZ says the median in '
-                   f'{_m14.group(1)} was {_m14.group(2)}% lower than in {_m14.group(3)}, when it was £{_m14.group(4)} in today\'s prices.[[bus_xlsx]] DESNZ notes that the '
+                   f'{_m14.group(1)} was {_m14.group(2)}% lower than in {_m14.group(3)}, when it was £{_m14.group(4)} in {base_txt}.[[bus_xlsx]] DESNZ notes that the '
                    f'mix of heat pump sizes also moves the median.</p></div>')
     corpo += barre([(t[:7], med[t], f"{trimestre_lungo(t)}: median {gbp(med[t])}") for t in B["trimestri"][-12:]], "Median installed cost by quarter (£)", "Air source, cash terms")
     corpo += (f'<div class="tab"><table class="dati"><thead><tr><th scope="col">Quarter</th><th scope="col" class="n">Lower quartile</th><th scope="col" class="n">Median</th>'
               f'<th scope="col" class="n">Upper quartile</th><th scope="col" class="n">Median, adjusted for inflation</th></tr></thead><tbody>{tr}</tbody>'
-              f'<caption>Air source (air-to-water) heat pumps with a grant paid, England and Wales.{rim.ref("bus_xlsx")}</caption></table></div>')
+              f'<caption>Air source (air-to-water) heat pumps with a grant paid, England and Wales. The last column is the DESNZ median adjusted with the Consumer Prices Index '
+              f'to {base_txt}, which is why it equals the cash figure in the latest quarter.{rim.ref("bus_xlsx")}</caption></table></div>')
     # fasce
     fa = FASCE["Air-to-Water Heat Pumps"]
     tr = "".join(f'<tr{" class=qui" if b == "All" else ""}><td>{"All sizes" if b == "All" else h(b)}</td><td class="n">{n(fa[b][ANNO_F]["numero"]) if pubblicato(fa[b][ANNO_F]["numero"]) else "–"}</td>'
