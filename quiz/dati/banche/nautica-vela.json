@@ -1398,6 +1398,21 @@
 "esatta": 1
 },
 {
+"n": 95,
+"sezione": "Teoria della vela",
+"voce": "TEORIA DELLA VELA",
+"progressivo": "2.1.1-95",
+"testo": "Lascare la drizza e la base della randa aumenta la concavità della vela (grasso) e le fa assumere una configurazione adatta all'andatura in fil di ruota.",
+"risposte": [
+"VERO",
+"FALSO"
+],
+"file": "mit/allegato_a_dd131_2022.pdf",
+"pagina": 258,
+"capitolo": "VELA",
+"esatta": 0
+},
+{
 "n": 96,
 "sezione": "Teoria della vela",
 "voce": "TEORIA DELLA VELA",
@@ -3700,13 +3715,6 @@
 "testo": "Per andatura si intende la direzione verso cui procede un'unità a vela rispetto alla direzione di provenienza del vento.",
 "pagina": 253,
 "motivo": "nel PDF 0 risposte segnate V"
-},
-{
-"capitolo": "VELA",
-"n": 95,
-"testo": "Lascare la drizza e la base della randa aumenta la concavità della vela (grasso) e le fa assumere una configurazione adatta all'andatura in fil di ruota.",
-"pagina": 258,
-"motivo": "rimanda a una figura (le immagini non si riproducono)"
 },
 {
 "capitolo": "VELA",

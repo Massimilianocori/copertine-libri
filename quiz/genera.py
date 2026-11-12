@@ -112,12 +112,22 @@ BANCHE = [
          ("La prova di teoria comincia con il carteggio: entro 12 miglia un quiz su elementi di carteggio (5 quesiti, almeno 4 esatti, 20 minuti); senza limiti una prova di carteggio nautico (4 quesiti, almeno 3 esatti, 60 minuti). Chi non la supera non passa al quiz base.", "nautica_allegato_a"),
          ("Il quiz base ha 20 domande con tre risposte ciascuna, in 30 minuti.", "nautica_allegato_a"),
          ("È superato con 4 errori al massimo: con il quinto errore il candidato non è idoneo. Le risposte omesse o corrette a mano contano come errori.", "nautica_allegato_a"),
+         ("Le 20 domande sono distribuite per tema: 1 di teoria dello scafo, 1 di motori, 3 di sicurezza, 4 di manovre e condotta, 2 di COLREG e segnalamento marittimo, "
+          "2 di meteorologia, 4 di navigazione cartografica ed elettronica, 3 di normativa diportistica e ambientale. Il simulatore estrae le domande con la stessa distribuzione.", "nautica_dm323"),
+         ("Chi chiede la patente senza limiti dalla costa e ha già l'abilitazione entro le 12 miglia non rifà il quiz base.", "nautica_dm323"),
+         (f"L'elenco è ancora quello del 2022: nella pagina «Patenti nautiche: normativa» del Ministero, letta il {data_lunga(FJ['file']['pag_mit_nautica']['letto_il'])}, dopo il decreto 131 del "
+          "31 maggio 2022 nessun decreto sostituisce l'elenco dei quesiti per le patenti di categoria A, B e C. Il decreto 62 del 18 aprile 2025 approva un elenco "
+          "separato per la patente D1, che in questo sito non c'è.", "pag_mit_nautica"),
      ],
+     "quote": {"Teoria dello scafo": 1, "Motori": 1, "Sicurezza della navigazione": 3, "Manovra e condotta": 4, "Colreg e segnalamento marittimo": 2,
+               "Meteorologia": 2, "Navigazione cartografica ed elettronica": 4, "Normativa diportistica e ambientale": 3},
+     "regola_sim": "20 domande estratte per tema come all'esame (1 scafo, 1 motori, 3 sicurezza, 4 manovre, 2 COLREG, 2 meteorologia, 4 navigazione, 3 normativa), superato con 4 errori al massimo, 30 minuti",
      "origine": ("Allegato A al decreto direttoriale 131 del 31 maggio 2022, l'elenco unico nazionale dei quesiti per le patenti nautiche pubblicato dal "
                  "Ministero (sostituisce l'allegato del decreto 106/2022). Ogni risposta ha accanto la colonna V/F: la risposta esatta è quella segnata V. "
                  "Il quiz base del PDF ha 1.472 domande."),
-     "nota": ("Le prove di carteggio si fanno sulle carte nautiche dell'Istituto Idrografico della Marina e le domande con figura rimandano a disegni: "
-              "non riproduciamo né carte né figure, quindi qui ci sono solo le domande di testo. All'esame possono uscire anche le domande con figura."),
+     "nota": ("All'esame ci sono anche domande con una figura, che in questo sito non ci sono: nell'elenco ufficiale del quiz base sono {figure} su {totale_pdf}. "
+              "Non riproduciamo le figure del Ministero né le carte nautiche dell'Istituto Idrografico della Marina (servono per le prove di carteggio), "
+              "quindi qui trovi solo le domande di testo: le domande con figura studiale nel PDF del Ministero, alla fonte 1."),
      "altre_fonti": ["nautica_dd131", "pag_mit_nautica"]},
     {"id": "nautica-vela", "modulo": "patente-nautica", "slug": "quiz-vela", "luogo": "Quiz vela", "fonte": "nautica_allegato_a",
      "ente": "Ministero delle infrastrutture e dei trasporti", "ente_di": "del Ministero delle infrastrutture e dei trasporti",
@@ -132,23 +142,32 @@ BANCHE = [
      ],
      "origine": ("Allegato A al decreto direttoriale 131 del 31 maggio 2022, sezione «Quiz vela»: 250 affermazioni con le risposte VERO e FALSO e la "
                  "colonna V/F che indica quella esatta."),
-     "nota": None, "altre_fonti": ["nautica_dd131"]},
+     "nota": ("All'esame possono uscire anche le domande con una figura, che in questo sito non ci sono: nell'elenco ufficiale del quiz vela sono {figure} su {totale_pdf}. "
+              "Guardale nel PDF del Ministero, alla fonte 1."),
+     "altre_fonti": ["nautica_dd131"]},
     {"id": "tartufi-lazio", "modulo": "tartufi", "slug": "lazio", "luogo": "Lazio", "fonte": "tart_lazio_2015",
      "ente": "Regione Lazio", "ente_di": "della Regione Lazio", "esame": "esame per il tesserino di idoneità alla ricerca e raccolta dei tartufi",
      "titolo": "Quiz tesserino tartufi Lazio: le {n} domande ufficiali",
      "descr": "Le {n} domande ufficiali della Regione Lazio per il tesserino dei tartufi, con la risposta esatta e un simulatore da 25 domande come all'esame.",
-     "n": 25, "max_errori": 8, "soglia": None, "minuti": None, "fonti_regole": ["pag_lazio_tartufi", "tart_lazio_dd"],
+     "n": 25, "max_errori": 8, "orale_da": 6, "soglia": None, "minuti": None, "fonti_regole": ["pag_lazio_tartufi", "tart_lazio_dd"],
+     "quote": {"Conoscenza delle specie": 5, "Biologia del tartufo": 5, "Normativa su ricerca, raccolta e commercio": 15},
+     "regola_sim": "25 domande estratte come nell'autotest della Regione (5 sulle specie, 5 di biologia, 15 di normativa): idoneo fino a 5 errori, orale da 6 a 8 errori, non idoneo da 9 errori",
+     "regola_breve": "8 errori al massimo (da 6 a 8: orale)",
      "regole": [
          ("Per il tesserino servono 14 anni compiuti e il superamento di un esame scritto.", "pag_lazio_tartufi"),
          ("La prova è un questionario di 25 domande estratte a sorte.", "pag_lazio_tartufi"),
-         ("Con 9 errori o più l'esame non è superato e va ripetuto: il simulatore considera superata la prova con 8 errori al massimo.", "pag_lazio_tartufi"),
+         ("Con 9 errori o più il candidato non ottiene il tesserino e deve ripetere l'esame.", "pag_lazio_tartufi"),
+         ("Nell'autotest pubblicato dalla Regione (file Excel salvato il 18 marzo 2022) le 25 domande sono 5 sul riconoscimento delle specie, 5 di biologia e 15 di normativa, "
+          "e l'esito è «idoneo» fino a 5 errori, «rimandato all'orale» da 6 a 8 errori, «non idoneo» da 9 errori. Il simulatore usa la stessa distribuzione e gli stessi tre esiti.", "tart_lazio_autotest"),
          ("L'elenco ufficiale ha 275 quesiti: 64 sul riconoscimento delle specie, 65 sulla biologia, 146 sulla normativa di ricerca, raccolta e commercio.", "tart_lazio_dd"),
      ],
      "origine": ("Elenco «Quesiti oggetto della prova d'esame» approvato con la determinazione G10268 del 27 agosto 2015. La risposta esatta è "
                  "evidenziata in giallo nel PDF. Lo stesso elenco, con le stesse risposte evidenziate, è nella guida all'esame pubblicata dalla "
-                 "Regione nel 2021: lo abbiamo confrontato domanda per domanda e coincide."),
-     "nota": ("La determinazione del 2015 prevedeva 20 quesiti; la pagina attuale della Regione parla di 25 domande: il simulatore segue la pagina attuale."),
-     "altre_fonti": ["tart_lazio_guida"]},
+                 "Regione nel 2021: lo abbiamo confrontato domanda per domanda e coincide. Anche l'autotest Excel della Regione contiene i 275 quesiti con "
+                 "la risposta esatta: l'abbiamo confrontato con la nostra chiave e le 275 risposte coincidono."),
+     "nota": ("La determinazione del 2015 parlava di una scheda da 20 quesiti; la pagina attuale della Regione e il suo autotest parlano di 25 domande: "
+              "il simulatore segue la pagina attuale. Per l'orale e per la data della tua sessione fa fede la convocazione dell'Area decentrata agricoltura."),
+     "altre_fonti": ["tart_lazio_guida", "tart_lazio_autotest"]},
     {"id": "fitosanitario-valle-d-aosta", "modulo": "patentino-fitosanitario", "slug": "valle-d-aosta", "luogo": "Valle d'Aosta", "fonte": "fito_vda",
      "ente": "Regione Autonoma Valle d'Aosta", "ente_di": "della Regione Valle d'Aosta", "esame": "esame per il certificato di abilitazione all'acquisto e all'utilizzo dei prodotti fitosanitari",
      "titolo": "Quiz patentino fitosanitario Valle d'Aosta: {n} domande",
@@ -173,11 +192,16 @@ BANCHE = [
          ("La commissione sceglie 25 domande dall'elenco.", "fito_sicilia_util"),
          ("Si hanno 60 minuti per rispondere.", "fito_sicilia_util"),
          ("Il test è superato con 5 errori al massimo; le domande senza risposta contano come errori.", "fito_sicilia_util"),
+         (f"L'elenco è quello che il Servizio fitosanitario regionale pubblica oggi nella pagina «Misura formazione» (ultimo aggiornamento della pagina: 22 ottobre 2021; "
+          f"letta il {data_lunga(FJ['file']['pag_sicilia_fito']['letto_il'])}).", "pag_sicilia_fito"),
      ],
+     "data_doc": "file del 2016",
      "origine": ("«Elenco domande di esame per il rilascio del certificato di abilitazione all'acquisto e all'utilizzo dei prodotti fitosanitari» "
                  "del Servizio fitosanitario regionale. La risposta esatta è segnata con ✓ accanto alla lettera; in fondo al PDF c'è anche una tabella "
                  "delle risposte esatte, che abbiamo confrontato con i segni."),
-     "nota": None},
+     "nota": ("Il documento non porta una data: il file è dell'agosto 2016 (data interna del PDF) e alcune domande usano parole di allora, come «patentino» e "
+              "«molto tossico, tossico o nocivo». Le risposte sono quelle dell'elenco ufficiale; prima dell'esame chiedi al Servizio fitosanitario "
+              "regionale se la tua commissione usa ancora questo elenco.")},
     {"id": "fitosanitario-sicilia-consulenti", "modulo": "patentino-fitosanitario", "slug": "sicilia-consulenti", "luogo": "Sicilia (consulenti)",
      "fonte": "fito_sicilia_cons", "ente": "Regione Siciliana, Servizio fitosanitario regionale", "ente_di": "della Regione Siciliana",
      "esame": "esame per il certificato di abilitazione all'attività di consulente sui prodotti fitosanitari",
@@ -188,15 +212,22 @@ BANCHE = [
          ("La commissione sceglie 30 domande dall'elenco.", "fito_sicilia_cons"),
          ("Si hanno 90 minuti per rispondere.", "fito_sicilia_cons"),
          ("Il test è superato con 5 errori al massimo; le domande senza risposta contano come errori.", "fito_sicilia_cons"),
+         (f"L'elenco è quello che il Servizio fitosanitario regionale pubblica oggi nella pagina «Misura formazione» (ultimo aggiornamento della pagina: 22 ottobre 2021; "
+          f"letta il {data_lunga(FJ['file']['pag_sicilia_fito']['letto_il'])}).", "pag_sicilia_fito"),
      ],
+     "data_doc": "file del 2021",
      "origine": ("«Elenco domande di esame per il rilascio del certificato di abilitazione per l'attività di consulente» del Servizio fitosanitario "
                  "regionale. Il documento dice: «Le risposte esatte sono contrassegnate da un asterisco»; in fondo c'è anche una tabella delle risposte "
                  "esatte, che abbiamo confrontato con gli asterischi."),
-     "nota": None},
+     "nota": "Il documento non porta una data: il file pubblicato dalla Regione è del maggio 2021 (data interna del PDF)."},
     {"id": "taxi-ncc-palermo-enna", "modulo": "ruolo-conducenti", "slug": "palermo-enna", "luogo": "Palermo ed Enna", "fonte": "paen_35",
      "ente": "Camera di Commercio di Palermo ed Enna", "ente_di": "della Camera di Commercio di Palermo ed Enna", "esame": "esame di idoneità per il ruolo dei conducenti di taxi e NCC",
-     "titolo": "Quiz ruolo conducenti Palermo ed Enna: {n} domande corrette",
-     "descr": "Le {n} domande delle schede d'esame corrette della Camera di Commercio di Palermo ed Enna (2021-2026), con simulazione da 20 domande in 20 minuti.",
+     "titolo": "Quiz ruolo conducenti Palermo-Enna: {n} domande uscite agli esami",
+     "descr": "Le {n} domande uscite agli esami 2021-2026 per il ruolo conducenti taxi e NCC di Palermo ed Enna, dalle schede corrette della Camera di Commercio.",
+     "sub": "Le domande uscite alle sedute d'esame dal 2021 al 2026, dalle schede corrette pubblicate dalla Camera di Commercio di Palermo ed Enna, con la risposta "
+            "esatta segnata dalla commissione. Non è la banca dati completa della Camera, che non è pubblicata.",
+     "unita": "domande uscite agli esami 2021-2026", "data_doc": "sedute dal 31/03/2021 al 22/05/2026",
+     "cifra_n": "domande uscite agli esami 2021-2026, con la risposta segnata dalla commissione",
      "n": 20, "max_errori": 2, "soglia": None, "minuti": 20, "fonti_regole": ["paen_regolamento"],
      "regole": [
          ("La commissione estrae 20 domande a risposta multipla dalla banca dati dei quesiti (programma ARCA di InfoCamere).", "paen_regolamento"),
@@ -207,7 +238,8 @@ BANCHE = [
                  "pubblicate dal marzo 2021 al maggio 2026: {lette} domande, di cui {doppie} ripetute in più sedute (contate una volta sola, con la stessa "
                  "risposta in ogni scheda) e {nulle} segnata «Domanda nulla» dalla commissione (tolta). Non è l'intera banca dati della Camera, che non è pubblicata: "
                  "sono le domande uscite davvero agli esami."),
-     "nota": None},
+     "nota": ("Non è la banca dati completa: sono le domande uscite alle sedute d'esame dal 31 marzo 2021 al 22 maggio 2026. All'esame la commissione estrae le 20 "
+              "domande dall'intera banca dati, quindi possono uscire domande che qui non ci sono. Il simulatore estrae 20 domande fra quelle già uscite.")},
     {"id": "taxi-ncc-sassari", "modulo": "ruolo-conducenti", "slug": "sassari", "luogo": "Sassari", "fonte": "taxi_sassari",
      "ente": "Camera di Commercio di Sassari", "ente_di": "della Camera di Commercio di Sassari", "esame": "esame di idoneità per il ruolo dei conducenti di taxi e NCC",
      "titolo": "Quiz ruolo conducenti taxi NCC Sassari: {n} domande ufficiali",
@@ -239,6 +271,12 @@ for _b in BANCHE:
     _b["path"] = f"{_b['modulo']}/{_b['slug']}/"
     _b["dati"] = carica(f"banche/{_b['id']}.json")
     _b["D"] = _b["dati"]["domande"]
+    if _b["id"].startswith("nautica-"):
+        _b["nota"] = _b["nota"].format(figure=sum(1 for e in _b["dati"]["escluse"] if "figura" in e["motivo"]), totale_pdf=num(_b["dati"]["totale_pdf"]))
+
+
+def errori_txt(n):
+    return f"{n} errore al massimo" if n == 1 else f"{n} errori al massimo"
 
 CAPTION_ARGOMENTI = {
     "tartufi-lazio": "Il PDF titola solo la prima parte: gli argomenti seguono la determinazione G10268 (64, 65 e 146 quesiti, in quest'ordine).",
@@ -302,8 +340,9 @@ class Rimandi:
             voci.append(f'<li id="f{n}"><a href="{h(f["url"])}" rel="noopener">{h(f["titolo"])}</a> · {h(f["chi"])}.{dt} '
                         f'<span class="small">Letto il {data_lunga(f["letto_il"])}; impronta SHA-256 {f["sha256"][:12]}.</span></li>')
         return (f'<section class="fonti-box" aria-labelledby="fonti-h"><h2 id="fonti-h">{ico("doc")}Fonti</h2><ol>{"".join(voci)}</ol>'
-                '<p class="small">Domande e risposte sono riprodotte dai documenti ufficiali degli enti (atti della pubblica amministrazione, art. 5 '
-                'della legge 633/1941); impaginazione, conteggi e simulatore sono nostri. Come lavoriamo: <a href="/come-lavoriamo/">metodo e controlli</a>.</p></section>')
+                '<p class="small">Domande e risposte sono riprodotte dai documenti pubblicati dagli enti sui loro siti, indicati qui sopra con ente, data e link '
+                '(per i testi degli atti ufficiali delle amministrazioni pubbliche vale l\'art. 5 della legge 633/1941); impaginazione, conteggi e simulatore sono nostri. '
+                'Come lavoriamo: <a href="/come-lavoriamo/">metodo e controlli</a>.</p></section>')
 
 
 # ---------------------------------------------------------------- risorse
@@ -567,19 +606,23 @@ def quiz_html(b, nomi):
     sc = scelte(b, nomi)
     regola = ""
     if b["max_errori"] is not None:
-        regola = f"{b['n']} domande a caso, superato con {b['max_errori']} errori al massimo"
+        regola = f"{b['n']} domande a caso, superato con {errori_txt(b['max_errori'])}"
     elif b["soglia"]:
         regola = f"{b['n']} domande a caso, superato con almeno il {b['soglia']}% di risposte esatte"
     else:
         regola = f"{b['n']} domande a caso, solo il punteggio"
     if b["minuti"]:
         regola += f", {b['minuti']} minuti"
+    regola = b.get("regola_sim", regola)
+    quote = [[nomi.index(ETICHETTE.get(k, k)), v] for k, v in b.get("quote", {}).items()]
+    if quote and sum(v for _, v in quote) != b["n"]:
+        raise SystemExit(f"{b['id']}: le quote per argomento non sommano a {b['n']}")
     sel_sc = "".join(f'<label>{h(g["etichetta"])}<select data-scelta="{gi}">' + "".join(f'<option value="{oi}">{h(o[0])}</option>' for oi, o in enumerate(g["opzioni"]))
                      + "</select></label>" for gi, g in enumerate(sc))
     opz_sez = "".join(f'<option value="{i}">{h(s)} ({sum(1 for d in b["D"] if sezione_vista(b, d) == s)})</option>' for i, s in enumerate(nomi))
     sc_json = json.dumps([{"etichetta": g["etichetta"], "opzioni": [[o[0], o[1]] for o in g["opzioni"]]} for g in sc], ensure_ascii=False)
     return f"""<section class="card quiz" id="simulatore" data-quiz data-n="{b['n']}" data-max-errori="{'' if b['max_errori'] is None else b['max_errori']}"
-data-soglia="{b['soglia'] or ''}" data-minuti="{b['minuti'] or ''}" data-scelte="{h(sc_json)}">
+data-soglia="{b['soglia'] or ''}" data-minuti="{b['minuti'] or ''}" data-scelte="{h(sc_json)}" data-quote="{h(json.dumps(quote))}" data-orale="{b.get('orale_da') or ''}">
 <div class="quiz-h"><h2>{ico("play")}Simulatore</h2><span class="pill">gratis, nel browser</span></div>
 <p class="quiz-nojs" data-nojs>Il simulatore funziona con JavaScript attivo. Qui sotto trovi comunque tutte le domande con la risposta ufficiale.</p>
 <div class="quiz-avvio" data-avvio hidden>
@@ -606,18 +649,20 @@ def pagina_banca(b):
     D, nomi = b["D"], sezioni(b)
     f = FONTI_DEF[b["fonte"]]
     n = len(D)
-    regola_breve = (f"{b['max_errori']} errori al massimo" if b["max_errori"] is not None else
+    regola_breve = b.get("regola_breve") or (errori_txt(b["max_errori"]) if b["max_errori"] is not None else
                     f"almeno il {b['soglia']}% giuste" if b["soglia"] else "soglia non scritta")
     testata = banda(f"{MODULI[b['modulo']]['breve']} · {b['luogo']}", b["titolo"].format(n=num(n)),
+                    h(b["sub"]) if b.get("sub") else
                     f"Le domande ufficiali {h(b['ente_di'])} per l'{h(b['esame'])}, con la risposta esatta indicata dall'ente e la pagina del PDF. "
                     "Nessuna spiegazione aggiunta: solo il testo ufficiale.", icona=MODULI[b["modulo"]]["icona"])
-    data_doc = data_lunga(f["data"]) if f.get("data") else "senza data"
+    data_doc = b.get("data_doc") or (data_lunga(f["data"]) if f.get("data") else "senza data")
+    fonte_riga = f"Fonte: {b['ente']}, " + (f"documento del {data_lunga(f['data'])}" if f.get("data") else data_doc if b.get("data_doc") else "documento senza data") + "."
     cifre = (f'<div class="card cifre pull">'
-             f'<div class="cifra main"><b>{num(n)}</b><span>domande nel sito, tutte con la risposta ufficiale</span></div>'
+             f'<div class="cifra main"><b>{num(n)}</b><span>{h(b.get("cifra_n", "domande nel sito, tutte con la risposta ufficiale"))}</span></div>'
              f'<div class="cifra"><b>{b["n"]}</b><span>domande {"all&#39;esame" if b["max_errori"] is not None or b["soglia"] else "nell&#39;esercitazione"}</span></div>'
              f'<div class="cifra"><b>{h(regola_breve)}</b><span>per superare la prova{rim.ref(b["fonti_regole"][0])}</span></div>'
              f'<div class="cifra"><b>{h(data_doc)}</b><span>data del documento{rim.ref(b["fonte"])}</span></div>'
-             f'<p class="asof">{ico("check")} PDF ufficiale letto il {data_lunga(f["letto_il"])}; ogni domanda è stata ricontrollata sul PDF '
+             f'<p class="asof">{ico("check")} {h(fonte_riga)} PDF ufficiale letto il {data_lunga(f["letto_il"])}; ogni domanda è stata ricontrollata sul PDF '
              f'(impronta SHA-256 {f["sha256"][:12]}).</p></div>')
     corpo = cifre + quiz_html(b, nomi)
     corpo += '<h2 id="esame">Com\'è l\'esame</h2><div class="testo"><ul>'
@@ -663,7 +708,7 @@ def pagina_banca(b):
     altre = [x for x in BANCHE if x["modulo"] == b["modulo"] and x is not b]
     if altre:
         corpo += (f'<h2>Altre banche: {h(MODULI[b["modulo"]]["nome"].lower())}</h2><ul class="griglia">'
-                  + "".join(f'<li><a href="/{x["path"]}"><b>{h(x["luogo"])}</b><span><em>{num(len(x["D"]))}</em> domande · {h(x["ente"])}</span></a></li>' for x in altre)
+                  + "".join(f'<li><a href="/{x["path"]}"><b>{h(x["luogo"])}</b><span><em>{num(len(x["D"]))}</em> {h(x.get("unita", "domande"))} · {h(x["ente"])}</span></a></li>' for x in altre)
                   + "</ul>")
     corpo += rim.elenco()
     ld = [{"@context": "https://schema.org", "@type": "Quiz", "name": b["titolo"].format(n=num(n)), "inLanguage": "it", "educationalLevel": "esame di abilitazione",
@@ -685,14 +730,14 @@ def pagina_modulo(m):
         corpo = '<div class="card pull testo"><p style="margin:0"><strong>Come usare queste pagine.</strong> Scegli la tua Regione o provincia: ogni pagina ha tutte le domande del documento ufficiale con la risposta esatta, le regole della prova scritte dall\'ente e un simulatore che estrae le domande come all\'esame. Le banche cambiano da un ente all\'altro: studia quella dell\'ente che ti esamina.</p></div>'
     corpo += f'<h2 id="banche">Le banche con la risposta ufficiale ({len(vive)})</h2><ul class="griglia">'
     for b in vive:
-        corpo += (f'<li><a href="/{b["path"]}"><b>{h(b["luogo"])}</b><span><em>{num(len(b["D"]))}</em> domande · {h(b["ente"])}</span>'
+        corpo += (f'<li><a href="/{b["path"]}"><b>{h(b["luogo"])}</b><span><em>{num(len(b["D"]))}</em> {h(b.get("unita", "domande"))} · {h(b["ente"])}</span>'
                   f'<span>{h(b["regole"][0][0])}</span></a></li>')
     corpo += "</ul>"
     corpo += '<h2 id="esami">Le regole d\'esame, ente per ente</h2>'
     righe = []
     for b in vive:
         if b["max_errori"] is not None:
-            reg = f"{b['n']} domande, {b['max_errori']} errori al massimo"
+            reg = f"{b['n']} domande, {b.get('regola_breve') or errori_txt(b['max_errori'])}"
         elif b["soglia"]:
             reg = (f"{b['n']} domande, " if b["id"] != "taxi-ncc-cagliari-oristano" else "numero di domande non scritto, ") + f"almeno il {b['soglia']}% giuste"
         else:
@@ -701,6 +746,29 @@ def pagina_modulo(m):
         righe.append([f'<a href="/{b["path"]}">{h(b["luogo"])}</a>', h(reg) + rim.ref(b["fonti_regole"][0]), h(tempo), num(len(b["D"]))])
     corpo += tabella(["Banca", "Prova scritta", "Tempo", "Domande nel sito"], righe, num_=[3],
                      caption="Regole lette nei documenti degli enti (fonti in fondo alla pagina).")
+    if m == "patente-nautica":
+        base = next(b for b in vive if b["id"] == "nautica-base")
+        corpo += ('<h2 id="prove">Quali prove scritte per quale patente</h2><p>Il decreto ministeriale 323 del 2021 stabilisce le prove scritte in base '
+                  f'all\'abilitazione richiesta.{rim.ref("nautica_dm323")} Si comincia sempre dal carteggio; chi non lo supera non passa al quiz base.</p>')
+        corpo += tabella(["Abilitazione richiesta", "Prove scritte, nell'ordine"], [
+            ["Entro 12 miglia dalla costa, solo motore", "1. quiz su elementi di carteggio nautico; 2. quiz base"],
+            ["Entro 12 miglia dalla costa, vela, motore e propulsione mista", "1. quiz su elementi di carteggio nautico; 2. quiz base; 3. quiz vela"],
+            ["Senza limiti dalla costa, solo motore", "1. prova di carteggio nautico; 2. quiz base (solo per chi non ha già l'abilitazione entro le 12 miglia)"],
+            ["Senza limiti dalla costa, vela, motore e propulsione mista", "1. prova di carteggio nautico; 2. quiz base (solo per chi non ha già l'abilitazione entro le 12 miglia); 3. quiz vela"],
+        ], caption="Articolo sugli esami per le patenti di categoria A e C del decreto ministeriale 323/2021.")
+        corpo += (f'<h2 id="temi">Le 20 domande del quiz base, tema per tema</h2><p>L\'allegato C dello stesso decreto dice quante domande escono per ogni tema.'
+                  f'{rim.ref("nautica_dm323")} Il nostro simulatore del quiz base estrae le domande con questa distribuzione.</p>')
+        nomi_b = sezioni(base)
+        corpo += tabella(["Tema", "Domande all'esame", "Domande di testo nel sito"],
+                         [[h(ETICHETTE.get(k, k)), str(v), num(sum(1 for d in base["D"] if sezione_vista(base, d) == ETICHETTE.get(k, k)))] for k, v in base["quote"].items()]
+                         + [["Totale", str(sum(base["quote"].values())), num(len(base["D"]))]], num_=[1, 2],
+                         caption="Distribuzione dell'allegato C al decreto ministeriale 323/2021; nel sito mancano le domande con figura.")
+        del nomi_b
+        corpo += (f'<h2 id="in-vigore">L\'elenco del 2022 è ancora quello in uso?</h2><div class="testo"><p>Sì, per quello che pubblica il Ministero. Il decreto 131 del '
+                  f'31 maggio 2022 ha sostituito l\'allegato A con l\'elenco dei quesiti{rim.ref("nautica_dd131")}, e nella pagina «Patenti nautiche: normativa», letta il '
+                  f'{data_lunga(FONTI_DEF["pag_mit_nautica"]["letto_il"])}, non c\'è nessun decreto successivo che lo cambia per le patenti di categoria A, B e C'
+                  f'{rim.ref("pag_mit_nautica")}. I decreti più recenti riguardano altro: il decreto 62 del 18 aprile 2025 approva un elenco separato per la patente D1 '
+                  '(non è in questo sito). Ricontrolliamo la pagina del Ministero a ogni aggiornamento.</p></div>')
     corpo += AD
     no = NON_ONLINE.get(m, [])
     if no:
@@ -737,7 +805,7 @@ def home():
         bb = [b for b in BANCHE if b["modulo"] == m]
         corpo += f'<h2 id="{m}">{ico(M["icona"])} <a href="/{m}/">{h(M["nome"])}</a></h2><ul class="griglia">'
         for b in bb:
-            corpo += (f'<li><a href="/{b["path"]}"><b>{h(b["luogo"])}</b><span><em>{num(len(b["D"]))}</em> domande · {h(b["ente"])}</span></a></li>')
+            corpo += (f'<li><a href="/{b["path"]}"><b>{h(b["luogo"])}</b><span><em>{num(len(b["D"]))}</em> {h(b.get("unita", "domande"))} · {h(b["ente"])}</span></a></li>')
         corpo += "</ul>"
     corpo += AD
     corpo += ('<h2 id="come">Come funziona</h2><div class="testo"><ol>'
@@ -747,7 +815,10 @@ def home():
               'numero di domande, risposte e chiave. Accanto a ogni domanda c\'è la pagina del PDF.</li>'
               '<li><strong>Simuli l\'esame con le regole dell\'ente.</strong> Il simulatore estrae a caso il numero di domande della prova e conta gli errori come '
               'scritto nei documenti (per esempio 20 domande in 30 minuti e 4 errori al massimo per il quiz base della patente nautica).</li></ol>'
-              '<p>Non scriviamo spiegazioni nostre: mostriamo la risposta ufficiale e basta. Il sito è gratuito; si sostiene con la pubblicità.</p></div>')
+              '<p>Non scriviamo spiegazioni nostre: mostriamo la risposta ufficiale e basta. Il sito è gratuito; si sostiene con la pubblicità.</p>'
+              '<p><strong>Che cosa non trovi qui.</strong> Le domande con figura della patente nautica e le prove di carteggio (non riproduciamo figure e carte); '
+              'le banche che gli enti pubblicano senza la risposta esatta; per Palermo ed Enna la banca dati completa, che la Camera non pubblica: ci sono le domande '
+              'uscite alle sedute d\'esame dal 2021 al 2026. Ogni pagina dice che cosa manca e perché.</p></div>')
     corpo += rim.elenco()
     ld = [{"@context": "https://schema.org", "@type": "WebSite", "name": NOME, "url": URL_SITO + "/", "inLanguage": "it"}]
     pagina("", "Quiz Ufficiali: domande d'esame vere con la risposta dell'ente",
@@ -789,11 +860,15 @@ def come_lavoriamo():
         rr.append([f'<a href="/{b["path"]}">{h(b["luogo"])}</a>', doc, num(len(b["D"])), impr])
     corpo += tabella(["Banca", "Documento", "Domande", "Impronta"], rr, num_=[2],
                      caption="L'impronta SHA-256 (prime 12 cifre) identifica il file letto: se l'ente pubblica un file nuovo, cambia e rifacciamo i controlli.")
-    corpo += ('<h2 id="riuso">Perché possiamo pubblicarle</h2><div class="testo"><p>Le banche d\'esame approvate o pubblicate da Ministero, Regioni e Camere di Commercio '
-              'sono atti della pubblica amministrazione: l\'articolo 5 della legge sul diritto d\'autore (legge 633/1941) esclude dalla tutela «i testi degli atti '
-              'ufficiali dello Stato e delle amministrazioni pubbliche». Non riproduciamo immagini, carte o dispense di autori privati; i documenti di formazione '
-              'non firmati come atti dell\'ente non li usiamo. Per la patente nautica non riproduciamo le figure dell\'elenco né le carte nautiche dell\'Istituto '
-              'Idrografico della Marina.</p></div>')
+    corpo += ('<h2 id="riuso">Perché possiamo pubblicarle</h2><div class="testo"><p>L\'articolo 5 della legge sul diritto d\'autore (legge 633/1941) esclude dalla '
+              'tutela «i testi degli atti ufficiali dello Stato e delle amministrazioni pubbliche». L\'elenco dei quesiti della patente nautica è l\'allegato di un '
+              'decreto del Ministero; i quesiti del Lazio sono l\'allegato di una determinazione regionale; quelli della Valle d\'Aosta sono «adottati dalla Regione»; '
+              'gli elenchi della Sicilia sono pubblicati dal Servizio fitosanitario regionale.</p>'
+              '<p>Le banche dati e le schede d\'esame corrette delle Camere di Commercio (Palermo ed Enna, Sassari, Cagliari-Oristano) sono documenti che le Camere '
+              'pubblicano sul proprio sito per chi prepara l\'esame: le riportiamo indicando sempre la fonte («Camera di Commercio di…»), la data del documento e il '
+              'link al file originale. Se un ente ritiene che un suo documento non debba stare qui, lo togliamo: basta scriverci dal modulo in fondo a questa pagina.</p>'
+              '<p>Non riproduciamo immagini, carte o dispense di autori privati; i documenti di formazione non firmati come atti dell\'ente non li usiamo. Per la patente '
+              'nautica non riproduciamo le figure dell\'elenco né le carte nautiche dell\'Istituto Idrografico della Marina.</p></div>')
     corpo += '<h2 id="metodo">Come leggiamo i PDF</h2><div class="testo"><ol>'
     corpo += ('<li><strong>La chiave è quella dell\'ente.</strong> Patente nautica: la colonna V/F accanto a ogni risposta nell\'elenco del Ministero; le domande con '
               'figura e quelle con la colonna V/F illeggibile o con due V restano fuori. Lazio e Valle d\'Aosta: la risposta esatta è evidenziata in giallo nel PDF, e il programma legge '

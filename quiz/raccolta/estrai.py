@@ -352,7 +352,8 @@ def caor(nome="taxi_caor.pdf"):
 
 
 # ---------------------------------------------------------------- Patente nautica: elenco unico nazionale MIT (tabella con V/F per risposta)
-FIGURA = re.compile(r"figur|disegn|immagin|illustra|frecci|fotograf|rappresentat[oaie]\s+(in|nella|nel)", re.I)
+# \b davanti a «figur»: «configurazione» non è un rimando a una figura (quiz vela n. 95, escluso per errore fino al 12/11/2026)
+FIGURA = re.compile(r"\bfigur|raffigur|disegn|immagin|illustra|frecci|fotograf|rappresentat[oaie]\s+(in|nella|nel)", re.I)
 
 
 def nautica(nome="mit/allegato_a_dd131_2022.pdf"):

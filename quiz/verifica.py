@@ -244,7 +244,7 @@ def controlla_nautica():
     return len(BANCHE["nautica-base"]["domande"]), len(BANCHE["nautica-vela"]["domande"])
 
 
-FIGURA_V = re.compile(r"figura|disegno|immagine|freccia", re.I)
+FIGURA_V = re.compile(r"\bfigura|raffigura|disegno|immagine|freccia", re.I)
 
 
 def controlla_sassari():

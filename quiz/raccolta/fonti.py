@@ -58,7 +58,18 @@ FONTI = {
     "pag_mit_nautica": {
         "url": MIT + "/temi/patenti-mezzi-abilitazioni/patenti-nautiche/normativa", "nome": "mit/pag_mit_normativa.html",
         "chi": "Ministero delle infrastrutture e dei trasporti", "titolo": "Patenti nautiche: normativa (pagina del Ministero)", "data": None,
-        "frasi": ["Decreto Dirigenziale numero 131 del 31/05/2022 Questo Decreto provvede a correggere alcuni errori materiali"]},
+        "frasi": ["Decreto Dirigenziale numero 131 del 31/05/2022 Questo Decreto provvede a correggere alcuni errori materiali",
+                  "Decreto Dirigenziale numero 62 del 18/04/2025 Approvazione dell'elenco unico nazionale dei quesiti per lo svolgimento delle prove teoriche scritte per il conseguimento della patente nautica di categoria D, tipo D1"]},
+    "nautica_dm323": {
+        "url": MIT + "/nfsmitgov/files/media/normativa/2022-05/Decreto%20Ministeriale%20numero%20323%20del%2010%20agosto%202021.pdf",
+        "nome": "mit/dm323_2021.pdf", "chi": "Ministero delle infrastrutture e della mobilità sostenibili",
+        "titolo": "Decreto ministeriale 323 del 10/08/2021: programmi di esame per le patenti nautiche di categoria A, B e C e modalità di svolgimento delle prove",
+        "data": "2021-08-10",
+        "frasi": ["Il Quiz base è costituito da venti quesiti a risposta multipla",
+                  "La prova è superata se il candidato fornisce almeno sedici risposte esatte nel tempo massimo di trenta minuti",
+                  "Distribuzione dei quesiti secondo i temi previsti dal programma di esame",
+                  "Navigazione cartografica ed elettronica 4", "Normativa diportistica e ambientale 3", "Manovre e condotta 4",
+                  "Quiz base (solo in assenza di abilitazione"]},
     # ---------------------------------------------------------------- tartufi
     "tart_lazio_2015": {
         "url": "https://www.regione.lazio.it/sites/default/files/documentazione/AGC_DD_G10268_27_08_2015_Allegato1.pdf",
@@ -78,6 +89,13 @@ FONTI = {
         "nome": "tart_lazio_guida.pdf", "chi": "Regione Lazio",
         "titolo": "Guida alla preparazione dell'esame di abilitazione alla ricerca e raccolta dei tartufi (2021)", "data": "2021-10-01",
         "frasi": ["Determinazione Dirigenziale n.10268 del 27/08/2015"]},
+    # File Excel protetto: il testo delle celle non si legge dai byte (qui si controlla solo il nome del foglio). Regola d'esito letta il 12/11/2026
+    # aprendo il file con LibreOffice (foglio «Questionario», cella X6): 25 risposte, fino a 5 errori «IDONEO», da 6 a 8 «RIMANDATO ALL'ORALE»,
+    # da 9 «NON IDONEO»; estrazione: 5 quesiti sulle specie, 5 di biologia, 15 di normativa; foglio nascosto «quiz» con la chiave dei 275 quesiti.
+    "tart_lazio_autotest": {
+        "url": "https://www.regione.lazio.it/sites/default/files/2022-03/Autotest-agc-18-03-22.xls", "nome": "tart_lazio_autotest.xls", "chi": "Regione Lazio",
+        "titolo": "Autotest valutazione tartufi (file Excel di autovalutazione pubblicato dalla Regione, salvato il 18/03/2022)", "data": "2022-03-18",
+        "frasi": ["Quesiti D.D. n. G10268-2015"]},
     "pag_lazio_tartufi": {
         "url": "https://www.regione.lazio.it/cittadini/agricoltura/tartufi", "nome": "pag_lazio_tartufi.html", "chi": "Regione Lazio",
         "titolo": "Tartufi (pagina della Regione Lazio)", "data": None,
@@ -126,6 +144,11 @@ FONTI = {
                   "hanno a disposizione 90 minuti per rispondere",
                   "Il test verrà superato qualora non si effettui un numero di errori superiore a 5",
                   "Le risposte esatte sono contrassegnate da un asterisco"]},
+    "pag_sicilia_fito": {
+        "url": "https://www.regione.sicilia.it/istituzioni/regione/strutture-regionali/assessorato-agricoltura-sviluppo-rurale-pesca-mediterranea/dipartimento-agricoltura/servizi/servizio-fitosanitario-regionale/misura-formazione",
+        "nome": "pag_sicilia_fito.html", "chi": "Regione Siciliana, Servizio fitosanitario regionale",
+        "titolo": "Misura formazione (pagina del Servizio fitosanitario regionale che pubblica gli elenchi delle domande d'esame)", "data": None,
+        "frasi": ["Utilizzatori - Elenco domande e risposte", "Consulenti-Elenco domande e risposte", "Ultimo aggiornamento 22/10/2021"]},
     "fito_oristano": {
         "url": "https://asl5oristano.it/wp-content/uploads/2024/09/All.-1-Elenco-domande-e-soluzioni.pdf",
         "nome": "fito_oristano.pdf", "chi": "Regione Autonoma della Sardegna (pubblicato da ASL 5 Oristano)",

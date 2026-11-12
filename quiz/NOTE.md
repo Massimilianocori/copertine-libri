@@ -34,9 +34,9 @@ e gli «Esempi di quiz» dell'Emilia-Romagna (nessuna chiave in ogni caso).
 ## Banche online (12/11/2026)
 | Pagina | Documento (ente, data) | Domande | Chiave | Simulatore |
 |---|---|---|---|---|
-| `/patente-nautica/quiz-base/` | Ministero delle infrastrutture e dei trasporti, allegato A al decreto direttoriale 131 del 31/05/2022 (elenco unico nazionale; sostituisce l'allegato del DD 106/2022), quiz base: 1.472 nel PDF | 1.350 (122 fuori: 118 con figura, 3 con la colonna V/F illeggibile, 1 con due V) | colonna V/F accanto a ogni risposta | 20 domande, 30 min, max 4 errori (regole scritte nell'allegato) |
-| `/patente-nautica/quiz-vela/` | stesso allegato, quiz vela: 250 affermazioni VERO/FALSO | 246 (3 con figura, 1 senza V) | colonna V/F | 5 domande, 15 min, almeno 4 esatte |
-| `/tartufi/lazio/` | Regione Lazio, allegato alla determinazione G10268 del 27/08/2015 (275 quesiti); identico, chiave compresa, nella guida regionale 2021 | 275 | evidenziato in giallo | 25 domande, max 8 errori (pagina regionale attuale) |
+| `/patente-nautica/quiz-base/` | Ministero delle infrastrutture e dei trasporti, allegato A al decreto direttoriale 131 del 31/05/2022 (elenco unico nazionale; sostituisce l'allegato del DD 106/2022), quiz base: 1.472 nel PDF | 1.350 (122 fuori: 118 con figura, 3 con la colonna V/F illeggibile, 1 con due V) | colonna V/F accanto a ogni risposta | 20 domande per tema (allegato C del DM 323/2021: 1-1-3-4-2-2-4-3), 30 min, max 4 errori |
+| `/patente-nautica/quiz-vela/` | stesso allegato, quiz vela: 250 affermazioni VERO/FALSO | 247 (2 con figura, 1 senza V) | colonna V/F | 5 domande, 15 min, almeno 4 esatte |
+| `/tartufi/lazio/` | Regione Lazio, allegato alla determinazione G10268 del 27/08/2015 (275 quesiti); identico, chiave compresa, nella guida regionale 2021 | 275 | evidenziato in giallo | 25 domande (5 specie, 5 biologia, 15 normativa come nell'autotest regionale); idoneo fino a 5 errori, orale da 6 a 8, non idoneo da 9 |
 | `/patentino-fitosanitario/valle-d-aosta/` | Regione Valle d'Aosta, quesiti adottati (DGR 1930/2015), file del 2022 | 174 | giallo («Le risposte corrette sono evidenziate in giallo») | esercitazione da 20, solo punteggio (numero e soglia non scritti nella DGR) |
 | `/patentino-fitosanitario/sicilia-utilizzatori/` | Regione Siciliana, elenco domande utilizzatori (file 2016) | 199 (+1 esclusa) | ✓ e tabella finale | 25 domande, 60 min, max 5 errori |
 | `/patentino-fitosanitario/sicilia-consulenti/` | Regione Siciliana, elenco domande consulenti (file 2021) | 278 (+2 escluse) | asterisco e tabella finale | 30 domande, 90 min, max 5 errori |
@@ -44,7 +44,7 @@ e gli «Esempi di quiz» dell'Emilia-Romagna (nessuna chiave in ogni caso).
 | `/ruolo-conducenti/sassari/` | CCIAA Sassari, banca dati quiz aggiornata al 04/04/2022 | 400 | colonna «Esatta» | 40 domande, 80 min, 70 %; lingua straniera a scelta (DGR Sardegna 12/30 del 2012) |
 | `/ruolo-conducenti/cagliari-oristano/` | CCIAA Cagliari-Oristano, banca dati quiz aggiornata al 29/01/2025 | 476 | [*] | esercitazione da 30 con soglia 70 % (numero di domande non scritto); scelta di lingua e città |
 
-Totale 3.880 domande. Pagine: home, 4 moduli, 9 banche, come lavoriamo, chi siamo, privacy (17 indicizzate) + 404.
+Totale 3.881 domande. Pagine: home, 4 moduli, 9 banche, come lavoriamo, chi siamo, privacy (17 indicizzate) + 404.
 
 **Escluse dal simulatore, con il motivo scritto nel sito:** domande dove le due chiavi ufficiali dello stesso PDF non coincidono
 (Sicilia utilizzatori n. 199: ✓ su a, tabella c; consulenti n. 204: asterisco sulla terza risposta, che nel PDF ha di nuovo la lettera «b.»,
@@ -88,7 +88,7 @@ esatta, se i numeri non sono consecutivi o se la tabella siciliana non torna (ol
    righe «a)» contate = domande (275 / 174); Sicilia tabella finale riletta = chiave di ogni domanda, segni ✓/* contati = domande + escluse;
    Palermo e Cagliari `[*]` contati (Palermo: 726 = 482 + 243 doppie + 1 nulla) e risposta esatta ritrovata sulla riga `[*]` del suo file;
    Sassari colonna «Esatta» letta per posizione delle parole (400/400 uguali); patente nautica lettere V/F lette per posizione sotto le
-   intestazioni «V/F» di ogni pagina (1.472 + 250 righe numerate trovate; 1.350 + 246 chiavi uguali al JSON; nessuna domanda con «figura»,
+   intestazioni «V/F» di ogni pagina (1.472 + 250 righe numerate trovate; 1.350 + 247 chiavi uguali al JSON; nessuna domanda con «figura»,
    «disegno», «immagine», «freccia»); 50 domande a caso per banca con testo e risposte ritrovati
    nella pagina indicata del PDF.
 3. Pagine: titoli ≤ 65 e descrizioni ≤ 160 uniche, un h1, canonical = URL, sitemap = canonical, noindex (solo 404) senza canonical né
@@ -151,3 +151,27 @@ libri di Amazon e manuali in commercio (ricerca del 12/11, sez. 4); tartufi e fi
    secondo i conteggi della determinazione (controllato a campione sulle domande 64/65 e 129/130).
 6. Sassari: le categorie A-G non hanno un nome nel PDF; il sito mostra «Categoria A…» e la G divisa per lingua dalla colonna riferimento.
 7. Riuso: le schede corrette camerali e le banche dati ARCA sono documenti della commissione d'esame; trattate come atti della PA (art. 5).
+
+## Revisione indipendente (12/11/2026)
+Fonti riscaricate con curl (57 file: impronte uguali, tranne le tre pagine HTML dinamiche) e banche rilette con un lettore diverso da quello del
+costruttore (poppler: `pdftotext -tsv`/`-layout`, `pdftoppm` per il giallo letto dai pixel, `pdftohtml -xml` per la posizione delle immagini):
+**3.880 domande su 3.880 con la stessa chiave e lo stesso testo** (tutte, non a campione; con la n. 95 del quiz vela aggiunta dopo, 3.881); conteggi delle chiavi uguali (1.472 + 250 righe MIT, 726 [*] Palermo,
+476 Cagliari, 400 Sassari, 275 Lazio, 174 VdA, tabelle finali siciliane 200 e 280). Terza conferma per il Lazio: il foglio nascosto «quiz»
+dell'autotest Excel della Regione ha le stesse 275 risposte.
+Correzioni fatte:
+- **Quiz vela n. 95** era escluso per errore («configurazione» conteneva «figura»): regola corretta in `estrai.py` e `verifica.py` (`\bfigur`), ora 247 domande.
+  Le righe MIT con un'immagine vera sono 118 (base) + 2 (vela); a pagina 160 ci sono 9 linee sottili che non sono figure.
+- **Patente nautica**: aggiunta la distribuzione per tema del quiz base (allegato C del DM 323/2021, fonte `nautica_dm323`) e il simulatore la segue;
+  tabella «quali prove per quale patente»; frase «l'elenco del 2022 è ancora in uso» con la data di lettura della pagina del Ministero (dopo il DD 131/2022
+  solo D1, ufficiali di navigazione, Laguna di Venezia: nessun elenco nuovo per A, B, C); nota sulle domande con figura con i numeri.
+- **Lazio**: letto l'autotest Excel linkato dalla pagina regionale (`tart_lazio_autotest`, file protetto: aperto con LibreOffice). 25 domande = 5 + 5 + 15;
+  esito «idoneo» fino a 5 errori, «rimandato all'orale» da 6 a 8, «non idoneo» da 9. Prima il simulatore diceva «Superato» fino a 8 errori: ora ha i tre esiti.
+- **Sicilia**: letta la pagina «Misura formazione» del Servizio fitosanitario (`pag_sicilia_fito`, ultimo aggiornamento 22/10/2021): pubblica ancora i due
+  elenchi. Date interne dei PDF: agosto 2016 (utilizzatori), maggio 2021 (consulenti); nota sulla pagina degli utilizzatori.
+- **Palermo ed Enna**: titolo, sottotitolo, cifre e griglie dicono «domande uscite agli esami 2021-2026», con la nota «non è la banca dati completa».
+- **Riuso**: riga «Fonte: ente, data» in testa a ogni banca; il testo sul diritto d'autore distingue gli atti (decreto, determinazione, elenchi regionali)
+  dai documenti camerali, riportati con fonte, data e link, con l'impegno a toglierli su richiesta dell'ente.
+- «1 errori al massimo» → «1 errore al massimo».
+Dubbi rimasti: numero di domande a Cagliari-Oristano e in Valle d'Aosta non pubblicato (esercitazioni, dichiarate); le schede di Palermo dal 2023 hanno 21
+domande mentre il regolamento dice 20; i documenti camerali non sono «atti ufficiali» in senso stretto (tenuti con fonte e data); la home ha
+ora più di 400 parole (paragrafo «Che cosa non trovi qui») e quindi AdSense.

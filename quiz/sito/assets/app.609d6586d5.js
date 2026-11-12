@@ -14,11 +14,14 @@ var elQ=Q.querySelector('[data-q]'),elO=Q.querySelector('[data-opz]'),elF=Q.quer
 var nojs=Q.querySelector('[data-nojs]');if(nojs)nojs.hidden=true;avvio.hidden=false;
 var N=parseInt(Q.getAttribute('data-n'),10),MAXERR=Q.getAttribute('data-max-errori'),SOGLIA=Q.getAttribute('data-soglia'),MIN=Q.getAttribute('data-minuti');
 var scelte=JSON.parse(Q.getAttribute('data-scelte')||'[]');
+var QUOTE=JSON.parse(Q.getAttribute('data-quote')||'[]'),ORALE=Q.getAttribute('data-orale');
 var serie=[],i=0,risp=[],modo='',timer=null,scade=0;
 function mescola(a){a=a.slice();for(var k=a.length-1;k>0;k--){var j=Math.floor(Math.random()*(k+1));var x=a[k];a[k]=a[j];a[j]=x;}return a;}
 function escluse(){var ex={};scelte.forEach(function(g,gi){var sel=Q.querySelector('[data-scelta="'+gi+'"]');var v=sel?parseInt(sel.value,10):0;g.opzioni.forEach(function(o,oi){if(oi!==v&&o[1])o[1].forEach(function(s){ex[s]=1;});});});return ex;}
 function inizia(m){modo=m;var ex=escluse();var pool=tutte.filter(function(d){return !ex[d.s];});
   if(m==='ripasso'){var s=parseInt(Q.querySelector('[data-sezione]').value,10);serie=pool.filter(function(d){return d.s===s;});if(!serie.length)serie=tutte.filter(function(d){return d.s===s;});}
+  else if(QUOTE.length){serie=[];QUOTE.forEach(function(q){serie=serie.concat(mescola(pool.filter(function(d){return d.s===q[0];})).slice(0,q[1]));});
+    if(serie.length<Math.min(N,pool.length)){serie=mescola(pool).slice(0,Math.min(N,pool.length));}}
   else{serie=mescola(pool).slice(0,Math.min(N,pool.length));}
   i=0;risp=[];avvio.hidden=true;fine.hidden=true;gioco.hidden=false;
   if(timer){clearInterval(timer);timer=null;}elT.textContent='';
@@ -38,12 +41,15 @@ function termina(scaduto){if(timer){clearInterval(timer);timer=null;}gioco.hidde
   var giuste=0,errate=[];serie.forEach(function(d,k){if(risp[k]===d.e)giuste++;else errate.push([d,risp[k]]);});var err=serie.length-giuste;
   fine.innerHTML='';var v=document.createElement('p');v.className='voto';v.textContent=giuste+' giuste su '+serie.length;fine.appendChild(v);
   var esito=document.createElement('p');var superato=null;
-  if(modo==='esame'){if(MAXERR!==null&&MAXERR!==''){superato=err<=parseInt(MAXERR,10);esito.textContent=(superato?'Superato':'Non superato')+': '+err+(err===1?' errore':' errori')+', il massimo ammesso è '+MAXERR+'.';}
+  var orale=false;
+  if(modo==='esame'){if(MAXERR!==null&&MAXERR!==''){superato=err<=parseInt(MAXERR,10);esito.textContent=(superato?'Superato':'Non superato')+': '+err+(err===1?' errore':' errori')+', il massimo ammesso è '+MAXERR+'.';
+      if(ORALE&&superato&&err>=parseInt(ORALE,10)){orale=true;esito.textContent='Rimandato all\'orale: '+err+' errori. Nell\'autotest dell\'ente l\'esito è «idoneo» fino a '+(parseInt(ORALE,10)-1)+' errori, «rimandato all\'orale» da '+ORALE+' a '+MAXERR+', «non idoneo» oltre.';}
+      else if(ORALE&&superato){esito.textContent='Superato (idoneo): '+err+(err===1?' errore':' errori')+'. Da '+ORALE+' a '+MAXERR+' errori si va all\'orale; oltre, non idoneo.';}}
     else if(SOGLIA){var serve=Math.ceil(serie.length*parseFloat(SOGLIA)/100);superato=giuste>=serve;esito.textContent=(superato?'Superato':'Non superato')+': servono almeno '+serve+' risposte giuste ('+SOGLIA+'%).';}
     else{esito.textContent='Esercitazione: la soglia per superare la prova non è scritta nei documenti dell\'ente.';}}
   else{esito.textContent='Ripasso di un argomento: '+err+(err===1?' errore.':' errori.');}
   if(scaduto){esito.textContent='Tempo scaduto: le domande senza risposta contano come errori. '+esito.textContent;}
-  if(superato!==null)v.className='voto '+(superato?'ok':'ko');fine.appendChild(esito);
+  if(superato!==null&&!orale)v.className='voto '+(superato?'ok':'ko');fine.appendChild(esito);
   if(errate.length){var h=document.createElement('h3');h.textContent='Le risposte ufficiali alle domande sbagliate';fine.appendChild(h);var ol=document.createElement('ol');
     errate.forEach(function(x){var d=x[0],li=document.createElement('li');var a=document.createElement('a');a.href='#'+d.id;a.textContent='n. '+d.n;li.appendChild(a);
       li.appendChild(document.createTextNode(' '+d.t+' '));var r=document.createElement('strong');r.textContent='Risposta ufficiale: '+LET[d.e]+') '+d.r[d.e]+'.';li.appendChild(r);

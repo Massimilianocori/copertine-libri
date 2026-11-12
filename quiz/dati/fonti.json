@@ -49,7 +49,29 @@
    "byte": 129313,
    "sha256": "2e55b122da84c94f46737978fca28fef1107350133d7294239b89a95bfe817d1",
    "frasi": {
-    "Decreto Dirigenziale numero 131 del 31/05/2022 Questo Decreto provvede a correggere alcuni errori materiali": true
+    "Decreto Dirigenziale numero 131 del 31/05/2022 Questo Decreto provvede a correggere alcuni errori materiali": true,
+    "Decreto Dirigenziale numero 62 del 18/04/2025 Approvazione dell'elenco unico nazionale dei quesiti per lo svolgimento delle prove teoriche scritte per il conseguimento della patente nautica di categoria D, tipo D1": true
+   }
+  },
+  "nautica_dm323": {
+   "url": "https://www.mit.gov.it/nfsmitgov/files/media/normativa/2022-05/Decreto%20Ministeriale%20numero%20323%20del%2010%20agosto%202021.pdf",
+   "chi": "Ministero delle infrastrutture e della mobilità sostenibili",
+   "titolo": "Decreto ministeriale 323 del 10/08/2021: programmi di esame per le patenti nautiche di categoria A, B e C e modalità di svolgimento delle prove",
+   "data": "2021-08-10",
+   "file": "mit/dm323_2021.pdf",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 395628,
+   "sha256": "cf20908e52bcd541a34ed724a660216fa6916e7c9b032a0cda2f57dc10eb027c",
+   "pagine": 14,
+   "frasi": {
+    "Il Quiz base è costituito da venti quesiti a risposta multipla": true,
+    "La prova è superata se il candidato fornisce almeno sedici risposte esatte nel tempo massimo di trenta minuti": true,
+    "Distribuzione dei quesiti secondo i temi previsti dal programma di esame": true,
+    "Navigazione cartografica ed elettronica 4": true,
+    "Normativa diportistica e ambientale 3": true,
+    "Manovre e condotta 4": true,
+    "Quiz base (solo in assenza di abilitazione": true
    }
   },
   "tart_lazio_2015": {
@@ -97,6 +119,20 @@
    "pagine": 61,
    "frasi": {
     "Determinazione Dirigenziale n.10268 del 27/08/2015": true
+   }
+  },
+  "tart_lazio_autotest": {
+   "url": "https://www.regione.lazio.it/sites/default/files/2022-03/Autotest-agc-18-03-22.xls",
+   "chi": "Regione Lazio",
+   "titolo": "Autotest valutazione tartufi (file Excel di autovalutazione pubblicato dalla Regione, salvato il 18/03/2022)",
+   "data": "2022-03-18",
+   "file": "tart_lazio_autotest.xls",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 446976,
+   "sha256": "2bca4d692bfdc3af708b69b996ec35e1e842c6ca4846de1d1c13eef0aa48dc51",
+   "frasi": {
+    "Quesiti D.D. n. G10268-2015": true
    }
   },
   "pag_lazio_tartufi": {
@@ -226,6 +262,22 @@
     "hanno a disposizione 90 minuti per rispondere": true,
     "Il test verrà superato qualora non si effettui un numero di errori superiore a 5": true,
     "Le risposte esatte sono contrassegnate da un asterisco": true
+   }
+  },
+  "pag_sicilia_fito": {
+   "url": "https://www.regione.sicilia.it/istituzioni/regione/strutture-regionali/assessorato-agricoltura-sviluppo-rurale-pesca-mediterranea/dipartimento-agricoltura/servizi/servizio-fitosanitario-regionale/misura-formazione",
+   "chi": "Regione Siciliana, Servizio fitosanitario regionale",
+   "titolo": "Misura formazione (pagina del Servizio fitosanitario regionale che pubblica gli elenchi delle domande d'esame)",
+   "data": null,
+   "file": "pag_sicilia_fito.html",
+   "http": 200,
+   "letto_il": "2026-11-12",
+   "byte": 235668,
+   "sha256": "cab1813250007413e4ccf630e64a8a311300cec386e5481571809630518dee13",
+   "frasi": {
+    "Utilizzatori - Elenco domande e risposte": true,
+    "Consulenti-Elenco domande e risposte": true,
+    "Ultimo aggiornamento 22/10/2021": true
    }
   },
   "fito_oristano": {
