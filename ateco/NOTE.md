@@ -23,6 +23,7 @@ codiceateco.it (al singolare).
 | Nota informativa congiunta Istat – sistema camerale – Agenzia delle entrate, 11/12/2024 (PDF) | date, riclassificazione d'ufficio, ComUnica, modelli AA9/12, AA7/10, AA5/6, ANR/3, visura transitoria | pagina «cosa cambia», FAQ |
 | Agenzia delle entrate, risoluzione n. 24/E dell'8/4/2025 (PDF) | in vigore 1/1/2025, attiva dal 1/4/2025, nessun obbligo di variazione, Cassetto fiscale | idem |
 | Normattiva: L. 190/2014 allegato 4 (testo vigente); D.Lgs. 81/2025 art. 1 (vigente al 1/1/2026); D.Lgs. 117/2026 (testo unico imposte sui redditi) art. 235, allegato D, art. 377 | 9 gruppi e coefficienti; regola «coefficiente secondo ATECO 2007 fino ai nuovi coefficienti»; TU in vigore dal 1/1/2027 con la stessa tabella | coefficienti |
+| Agenzia delle entrate, istruzioni al modello Redditi Persone fisiche 2026, fascicolo 3, quadro LM (PDF, aggiornamento 13/5/2026) | rigo LM21 con il codice ATECO 2025; coefficiente «individuato sulla base del codice … secondo la classificazione ATECO 2007» | conferma dell'Agenzia della regola del forfettario (pagina coefficienti). **L'indirizzo cambia ogni anno**: se `fonti.py --rete` dà 404, cercare il fascicolo 3 dell'anno |
 | Pagine Istat: «ATECO 2025 e aggiornamenti» (aggiornata il 15/7/2026), comunicato stampa, «Note legali» (licenza) | frasi controllate | date, licenza |
 
 Date chiave verificate: ATECO 2025 in vigore dal **1° gennaio 2025**, adottata operativamente dal **1° aprile 2025** (pagina Istat, nota
@@ -35,7 +36,7 @@ all'art. 235 comma 6: il sito cita tutte e due le norme con le date.
 operativa, aggiornamento 2026), licenza CC BY 4.0. I testi Istat sono riportati senza modifiche; impaginazione, collegamenti, conteggi e
 abbinamento ai coefficienti del forfettario sono nostri.» Unica modifica tecnica ai testi: «_x000D_» (a capo di Excel scritto come testo) → a capo.
 
-## Pagine (771 file HTML: 524 indicizzabili, 247 noindex compresa la 404)
+## Pagine (771 file HTML: 447 indicizzabili, 324 noindex compresa la 404)
 | Pagina | Contenuto |
 |---|---|
 | `/` | ricerca (indice JSON di 3.257 codici 2025, codici 2022 dalla classe in giù, guide), numeri, guide, 22 sezioni, come si legge un codice, 4 FAQ |
@@ -52,10 +53,10 @@ abbinamento ai coefficienti del forfettario sono nostri.» Unica modifica tecnic
 titolo della classe o categoria sopra; quasi tutte hanno 1-3 note. Una pagina per classe tiene insieme le sottocategorie (con ancora propria,
 raggiungibile dalla ricerca e dalla tabella 2022). Quando la classe ha una sola sottocategoria, il titolo della pagina usa il codice a sei cifre
 («Codice ATECO 96.21.00: …»).
-**Indicizzazione delle pagine di codice:** indicizzata solo con almeno 120 gruppi di 5 parole propri (che non compaiono in nessun'altra pagina di
-codice) e meno del 60% del testo in comune con la pagina più simile (`MIN_PAROLE_PROPRIE`, `MAX_SOVRAPPOSIZIONE` in `genera.py`; misure per pagina in
-`dati/indicizzazione.json`; `verifica.py` le ricalcola sulle pagine scritte con confronto completo). Oggi: classi 430 sì / 221 no, divisioni 69 / 18,
-sezioni 15 / 7. Le noindex restano nel sito, fuori dalla sitemap e senza pubblicità. Esempio: la classe 96.21 (parrucchieri) è noindex (81 gruppi
+**Indicizzazione delle pagine di codice:** indicizzata solo con almeno 150 gruppi di 5 parole propri (che non compaiono in nessun'altra pagina di
+codice) e meno del 55% del testo in comune con la pagina più simile (`MIN_PAROLE_PROPRIE`, `MAX_SOVRAPPOSIZIONE` in `genera.py`; misure per pagina in
+`dati/indicizzazione.json`; `verifica.py` le ricalcola sulle pagine scritte con confronto completo). Oggi: classi 362 sì / 289 no, divisioni 64 / 23,
+sezioni 11 / 11 (prima della revisione, con 120 e 60%: 430, 69, 15). Le noindex restano nel sito, fuori dalla sitemap e senza pubblicità. Esempio: la classe 96.21 (parrucchieri) è noindex (84 gruppi
 propri), ma la pagina mestiere del parrucchiere è indicizzata.
 **Forfettario:** per ogni sottocategoria 2025 si prendono i codici ATECO 2022 collegati al sesto livello e si guarda in quale dei 9 gruppi
 dell'allegato 4 cadono (i codici della legge sono ATECO 2007; l'aggiornamento 2022 non cambia divisioni, gruppi e classi). Se cadono in gruppi
@@ -71,7 +72,7 @@ avvocato, architetto, geometra, fisioterapista) hanno suggerimenti veri in `dati
 vicini, intro) e le FAQ in `dati/faq.json`, poi genera e verifica.
 
 ## Controlli (`python3 ateco/verifica.py --browser`, 12/11/2026: 0 errori, 0 avvisi)
-1. Fonti: impronte dei 6 file e 8 pagine = `fonti.json`, HTTP 200, 44 frasi ritrovate nei testi salvati (PDF con pdftotext).
+1. Fonti: impronte dei 7 file e 8 pagine = `fonti.json`, HTTP 200, 47 frasi ritrovate nei testi salvati (PDF con pdftotext).
 2. Dati riletti dagli xlsx con un lettore proprio: 3.257 codici, titoli IT/EN/DE, padri e livelli, forma dei codici, nessun ramo senza
    sottocategorie; 9.512 note, 6.745 righe di raccordo, 3.157 righe della tabella operativa uguali a `ateco.json`; tabella dei coefficienti riletta
    dal testo di legge salvato e 2.776 codici 2022 riassegnati ai gruppi (0 differenze).
@@ -81,7 +82,7 @@ vicini, intro) e le FAQ in `dati/faq.json`, poi genera e verifica.
    pubblicità, id unici, link interni e ancore, link esterni solo verso domini previsti, GoatCounter, robots, IndexNow, netlify.toml con `ignore`, og.png.
 5. FAQ: 26 domande, ognuna da una ricerca salvata (1.211 suggerimenti, hl=it gl=it); JSON-LD = testo visibile; ogni «codice «titolo»» citato
    ha il titolo ufficiale (controllato anche da `genera.py`).
-6. Indicizzazione: ricalcolata (massimo 59% in comune, almeno 124 gruppi propri tra le indicizzate).
+6. Indicizzazione: ricalcolata (massimo 55% in comune, almeno 154 gruppi propri tra le indicizzate).
 7. Testi: nessun nome di modelli di IA, nessun dato personale (titolare solo in privacy), nessuna frase di consiglio; frase fissa «verifica con il
    commercialista o la Camera di commercio» e attribuzione CC BY in ogni pagina.
 8. Monetizzazione: `python3 studio-business/strumenti/monetizzazione.py verifica ateco`.
@@ -110,7 +111,7 @@ sparisce fermano `genera.py`: riscriverle in `dati/faq.json`).
 
 ## Monetizzazione
 AdSense acceso come gli altri siti: `ateco` in `SITI` di `studio-business/strumenti/monetizzazione.py` e in `adsense_siti` e `_siti_della_rete`
-di `monetizzazione.json`; `ads.txt` scritto da `genera.py`; script solo nelle pagine indicizzate con almeno 400 parole (oggi 488 delle 524
+di `monetizzazione.json`; `ads.txt` scritto da `genera.py`; script solo nelle pagine indicizzate con almeno 400 parole (oggi 439 delle 447
 indicizzabili, il resto ha il segno «niente pubblicità»). Riquadro affiliati per la partita IVA (Fiscozen, Qonto) **spento**: `dati/affiliati.json`
 ha gli URL vuoti; compare su «cosa cambia», coefficienti e mestieri quando ci sono URL tracciati veri (aggiungere anche il dominio in
 `monetizzazione.json`). Nessuna commissione letta.
@@ -134,3 +135,20 @@ Console, non si costruiscono NAICS/SIC nello stesso motore.
 - Titoli di sezione mostrati con l'iniziale maiuscola (Istat li scrive in maiuscolo).
 - Tre sole pagine mestiere per mancanza di volumi misurati (quota dello strumento esaurita il 12/11/2026).
 - La tabella operativa porta il vecchio 47.91.10 al codice di gruppo 47.1: la pagina e-commerce lo spiega come codice per riclassificazioni massive.
+
+## Revisione indipendente (12/11/2026)
+Rifatti da zero, con file riscaricati e un lettore diverso (openpyxl): tutte le 651 pagine di classe (2.861 titoli IT/EN/DE, 8.657 note parola per
+parola, 1.953 antenati, 2.748 vecchi codici con il «contenuto in comune», 1.290 coefficienti ricalcolati dalla tabella di legge): 0 differenze nei
+dati. Date 1/1/2025 e 1/4/2025 rilette in nota congiunta, risoluzione 24/E e pagina Istat. Cambiato:
+- **Riga del forfettario** di ogni sottocategoria: ora dice sempre che è una derivazione nostra, da quali vecchi codici (tutti elencati, senza «e altri»)
+  e «per la legge conta il codice ATECO 2007 della tua attività, verifica con il commercialista». Nel riquadro in alto «forfettario, dai vecchi codici».
+- **Fonte dell'Agenzia delle entrate** per la regola ATECO 2007 (istruzioni Redditi PF 2026, quadro LM) aggiunta a `fonti.py` e alla pagina coefficienti.
+- **FAQ** del coefficiente di parrucchiere ed e-commerce: «se il codice ATECO 2007 dell'attività è …» e «per il tuo caso verifica con il commercialista».
+- **Soglia di indicizzazione** da 120/60% a 150/55% (lente AdSense «scarso valore»: le 90 pagine tra 120 e 160 gruppi propri avevano 380 parole di
+  mediana). Da rivedere dopo l'approvazione AdSense: riportare a 120/60% rende indicizzabili circa 80 pagine in più.
+- Titoli inglese e tedesco anche per le categorie a 5 cifre; «1 codice ATECO 2022 collegato» al singolare; classi con due gruppi di legge alla stessa
+  percentuale mostrano la percentuale e non «dipende»; rimandi alle fonti ad almeno 11 px.
+**Risposte ai dubbi:** un solo coefficiente quando tutti i vecchi codici sono nello stesso gruppo va bene, se la riga dice da dove viene (ora lo dice).
+Classi molto cercate ma noindex perché le note Istat sono corte (96.21 parrucchieri, 86.21 medici, 86.23 dentisti, 86.93 psicologi, 86.95
+fisioterapisti, 74.30 traduttori): non gonfiarle; la strada è la pagina mestiere (come per il parrucchiere), appena ci sono i volumi misurati.
+Note senza distinzione di provenienza, sezioni con l'iniziale maiuscola e spiegazione del 47.91.10 → 47.1: vanno bene così.

@@ -69,6 +69,14 @@ FILE = {
                                   "I contribuenti possono verificare i codici ATECO, prevalente e secondari, collegati alla propria posizione fiscale e registrati in Anagrafe Tributaria",
                                   "sono tenuti a utilizzare i nuovi codici negli atti e nelle dichiarazioni da presentare all’Agenzia delle entrate",
                                   "non comporta l’obbligo di presentare la dichiarazione di variazione dei dati"]},
+    # Istruzioni dell'Agenzia al quadro LM: conferma della regola «coefficiente secondo ATECO 2007». L'indirizzo cambia ogni anno
+    # (e a ogni aggiornamento delle istruzioni): se risponde 404, cercare il fascicolo 3 del modello Redditi PF dell'anno sul sito dell'Agenzia.
+    "istruzioni_lm": {"url": "https://www.agenziaentrate.gov.it/portale/documents/d/guest/pf3_istruzioni_2026_agg-13-05-2026",
+                      "nome": "istruzioni_lm.pdf", "titolo": "Modello Redditi Persone fisiche 2026, fascicolo 3, istruzioni per la compilazione (quadro LM, regime forfetario; aggiornamento del 13 maggio 2026)",
+                      "chi": "Agenzia delle entrate", "pagina": None,
+                      "cerca": ["Nel rigo LM21, colonna 4, (codice ATECO 2025) va indicato il codice dell’attività svolta in vigore dal 2025",
+                                "all’approvazione dei nuovi coefficienti di redditività elaborati sulla base della classificazione delle attività economiche ATECO 2025",
+                                "individuato sulla base del codice corrispondente all’attività esercitata secondo la classificazione ATECO 2007. (art. 1, decreto legislativo 12 giugno 2025, n. 81)"]},
 }
 
 # Pagine web: frasi controllate. "atto" + "voce": testo di un articolo o allegato su Normattiva (si apre prima l'atto,

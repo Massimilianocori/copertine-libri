@@ -39,7 +39,7 @@ import monetizzazione as MON  # noqa: E402
 
 URL_SITO = "https://codici-ateco.netlify.app"
 FRASE_FISSA = "verifica con il commercialista o la Camera di commercio"
-MIN_PAROLE_PROPRIE, MAX_SOVRAPPOSIZIONE = 120, 0.60
+MIN_PAROLE_PROPRIE, MAX_SOVRAPPOSIZIONE = 150, 0.55
 ERR, AVV = [], []
 
 

@@ -1,187 +1,187 @@
 {
 "_nota": "Scritto da genera.py: perché ogni pagina di codice è indicizzata o no (verifica.py ricalcola le misure dalle pagine).",
 "regola": {
-"min_parole_proprie": 120,
-"max_sovrapposizione": 0.6
+"min_parole_proprie": 150,
+"max_sovrapposizione": 0.55
 },
 "pagine": {
 "01-11/": {
-"proprie": 247,
-"sovrapposizione": 0.408,
+"proprie": 261,
+"sovrapposizione": 0.419,
 "piu_simile": "01-19/",
 "indicizzata": true
 },
 "01-12/": {
-"proprie": 42,
-"sovrapposizione": 0.77,
+"proprie": 46,
+"sovrapposizione": 0.779,
 "piu_simile": "01-15/",
 "indicizzata": false
 },
 "01-13/": {
-"proprie": 580,
-"sovrapposizione": 0.308,
+"proprie": 620,
+"sovrapposizione": 0.312,
 "piu_simile": "01-19/",
 "indicizzata": true
 },
 "01-14/": {
-"proprie": 42,
-"sovrapposizione": 0.76,
+"proprie": 46,
+"sovrapposizione": 0.771,
 "piu_simile": "01-15/",
 "indicizzata": false
 },
 "01-15/": {
-"proprie": 63,
-"sovrapposizione": 0.649,
+"proprie": 67,
+"sovrapposizione": 0.669,
 "piu_simile": "01-12/",
 "indicizzata": false
 },
 "01-16/": {
-"proprie": 90,
-"sovrapposizione": 0.626,
-"piu_simile": "01-11/",
+"proprie": 94,
+"sovrapposizione": 0.633,
+"piu_simile": "01-12/",
 "indicizzata": false
 },
 "01-19/": {
-"proprie": 268,
-"sovrapposizione": 0.482,
+"proprie": 286,
+"sovrapposizione": 0.483,
 "piu_simile": "01-13/",
 "indicizzata": true
 },
 "01-21/": {
-"proprie": 98,
-"sovrapposizione": 0.632,
+"proprie": 102,
+"sovrapposizione": 0.65,
 "piu_simile": "01-26/",
 "indicizzata": false
 },
 "01-22/": {
-"proprie": 73,
-"sovrapposizione": 0.734,
+"proprie": 77,
+"sovrapposizione": 0.745,
 "piu_simile": "01-21/",
 "indicizzata": false
 },
 "01-23/": {
-"proprie": 57,
-"sovrapposizione": 0.777,
+"proprie": 61,
+"sovrapposizione": 0.785,
 "piu_simile": "01-24/",
 "indicizzata": false
 },
 "01-24/": {
-"proprie": 73,
-"sovrapposizione": 0.715,
+"proprie": 77,
+"sovrapposizione": 0.728,
 "piu_simile": "01-25/",
 "indicizzata": false
 },
 "01-25/": {
-"proprie": 117,
-"sovrapposizione": 0.644,
+"proprie": 121,
+"sovrapposizione": 0.661,
 "piu_simile": "01-26/",
 "indicizzata": false
 },
 "01-26/": {
-"proprie": 92,
-"sovrapposizione": 0.651,
+"proprie": 97,
+"sovrapposizione": 0.667,
 "piu_simile": "01-25/",
 "indicizzata": false
 },
 "01-27/": {
-"proprie": 64,
-"sovrapposizione": 0.739,
+"proprie": 69,
+"sovrapposizione": 0.751,
 "piu_simile": "01-24/",
 "indicizzata": false
 },
 "01-28/": {
-"proprie": 173,
-"sovrapposizione": 0.483,
+"proprie": 176,
+"sovrapposizione": 0.508,
 "piu_simile": "01-25/",
 "indicizzata": true
 },
 "01-29/": {
-"proprie": 95,
-"sovrapposizione": 0.639,
+"proprie": 99,
+"sovrapposizione": 0.657,
 "piu_simile": "01-25/",
 "indicizzata": false
 },
 "01-30/": {
-"proprie": 147,
-"sovrapposizione": 0.431,
+"proprie": 151,
+"sovrapposizione": 0.465,
 "piu_simile": "02-10/",
 "indicizzata": true
 },
 "01-41/": {
-"proprie": 95,
-"sovrapposizione": 0.557,
+"proprie": 101,
+"sovrapposizione": 0.576,
 "piu_simile": "01-48/",
 "indicizzata": false
 },
 "01-42/": {
-"proprie": 67,
-"sovrapposizione": 0.662,
+"proprie": 70,
+"sovrapposizione": 0.667,
 "piu_simile": "01-41/",
 "indicizzata": false
 },
 "01-43/": {
-"proprie": 64,
-"sovrapposizione": 0.715,
+"proprie": 68,
+"sovrapposizione": 0.728,
 "piu_simile": "01-44/",
 "indicizzata": false
 },
 "01-44/": {
-"proprie": 48,
-"sovrapposizione": 0.811,
+"proprie": 52,
+"sovrapposizione": 0.815,
 "piu_simile": "01-43/",
 "indicizzata": false
 },
 "01-45/": {
-"proprie": 80,
-"sovrapposizione": 0.627,
+"proprie": 84,
+"sovrapposizione": 0.647,
 "piu_simile": "01-44/",
 "indicizzata": false
 },
 "01-46/": {
-"proprie": 46,
-"sovrapposizione": 0.77,
+"proprie": 50,
+"sovrapposizione": 0.781,
 "piu_simile": "01-45/",
 "indicizzata": false
 },
 "01-47/": {
-"proprie": 112,
-"sovrapposizione": 0.592,
+"proprie": 121,
+"sovrapposizione": 0.602,
 "piu_simile": "01-48/",
 "indicizzata": false
 },
 "01-48/": {
-"proprie": 414,
-"sovrapposizione": 0.283,
+"proprie": 448,
+"sovrapposizione": 0.29,
 "piu_simile": "01-41/",
 "indicizzata": true
 },
 "01-50/": {
-"proprie": 145,
-"sovrapposizione": 0.435,
+"proprie": 149,
+"sovrapposizione": 0.48,
 "piu_simile": "01-30/",
-"indicizzata": true
+"indicizzata": false
 },
 "01-61/": {
-"proprie": 320,
-"sovrapposizione": 0.296,
+"proprie": 326,
+"sovrapposizione": 0.32,
 "piu_simile": "01-62/",
 "indicizzata": true
 },
 "01-62/": {
-"proprie": 252,
-"sovrapposizione": 0.326,
+"proprie": 263,
+"sovrapposizione": 0.348,
 "piu_simile": "01-61/",
 "indicizzata": true
 },
 "01-63/": {
-"proprie": 480,
-"sovrapposizione": 0.207,
-"piu_simile": "01-61/",
+"proprie": 495,
+"sovrapposizione": 0.228,
+"piu_simile": "01-13/",
 "indicizzata": true
 },
 "01-70/": {
-"proprie": 180,
-"sovrapposizione": 0.35,
+"proprie": 185,
+"sovrapposizione": 0.379,
 "piu_simile": "01-48/",
 "indicizzata": true
 },
@@ -192,26 +192,26 @@
 "indicizzata": true
 },
 "02-10/": {
-"proprie": 118,
-"sovrapposizione": 0.462,
+"proprie": 122,
+"sovrapposizione": 0.494,
 "piu_simile": "02-20/",
 "indicizzata": false
 },
 "02-20/": {
-"proprie": 130,
-"sovrapposizione": 0.524,
+"proprie": 134,
+"sovrapposizione": 0.553,
 "piu_simile": "02-10/",
-"indicizzata": true
+"indicizzata": false
 },
 "02-30/": {
-"proprie": 183,
-"sovrapposizione": 0.394,
+"proprie": 187,
+"sovrapposizione": 0.431,
 "piu_simile": "02-10/",
 "indicizzata": true
 },
 "02-40/": {
-"proprie": 161,
-"sovrapposizione": 0.362,
+"proprie": 165,
+"sovrapposizione": 0.401,
 "piu_simile": "02-10/",
 "indicizzata": true
 },
@@ -222,32 +222,32 @@
 "indicizzata": true
 },
 "03-11/": {
-"proprie": 111,
-"sovrapposizione": 0.494,
+"proprie": 115,
+"sovrapposizione": 0.521,
 "piu_simile": "03-12/",
 "indicizzata": false
 },
 "03-12/": {
-"proprie": 91,
-"sovrapposizione": 0.62,
+"proprie": 95,
+"sovrapposizione": 0.642,
 "piu_simile": "03-11/",
 "indicizzata": false
 },
 "03-21/": {
-"proprie": 188,
-"sovrapposizione": 0.522,
+"proprie": 199,
+"sovrapposizione": 0.535,
 "piu_simile": "03-22/",
 "indicizzata": true
 },
 "03-22/": {
-"proprie": 182,
-"sovrapposizione": 0.526,
+"proprie": 192,
+"sovrapposizione": 0.538,
 "piu_simile": "03-21/",
 "indicizzata": true
 },
 "03-30/": {
-"proprie": 190,
-"sovrapposizione": 0.402,
+"proprie": 206,
+"sovrapposizione": 0.407,
 "piu_simile": "03-11/",
 "indicizzata": true
 },
@@ -258,14 +258,14 @@
 "indicizzata": true
 },
 "05-10/": {
-"proprie": 97,
-"sovrapposizione": 0.6,
+"proprie": 101,
+"sovrapposizione": 0.624,
 "piu_simile": "05-20/",
 "indicizzata": false
 },
 "05-20/": {
-"proprie": 71,
-"sovrapposizione": 0.667,
+"proprie": 75,
+"sovrapposizione": 0.686,
 "piu_simile": "05-10/",
 "indicizzata": false
 },
@@ -276,16 +276,16 @@
 "indicizzata": false
 },
 "06-10/": {
-"proprie": 110,
-"sovrapposizione": 0.623,
+"proprie": 114,
+"sovrapposizione": 0.642,
 "piu_simile": "06-20/",
 "indicizzata": false
 },
 "06-20/": {
-"proprie": 147,
-"sovrapposizione": 0.547,
+"proprie": 151,
+"sovrapposizione": 0.569,
 "piu_simile": "06-10/",
-"indicizzata": true
+"indicizzata": false
 },
 "06/": {
 "proprie": 172,
@@ -294,20 +294,20 @@
 "indicizzata": true
 },
 "07-10/": {
-"proprie": 54,
-"sovrapposizione": 0.652,
+"proprie": 58,
+"sovrapposizione": 0.681,
 "piu_simile": "07-29/",
 "indicizzata": false
 },
 "07-21/": {
-"proprie": 79,
-"sovrapposizione": 0.544,
+"proprie": 83,
+"sovrapposizione": 0.577,
 "piu_simile": "07-29/",
 "indicizzata": false
 },
 "07-29/": {
-"proprie": 95,
-"sovrapposizione": 0.564,
+"proprie": 99,
+"sovrapposizione": 0.595,
 "piu_simile": "07-21/",
 "indicizzata": false
 },
@@ -315,41 +315,41 @@
 "proprie": 121,
 "sovrapposizione": 0.447,
 "piu_simile": "05/",
-"indicizzata": true
+"indicizzata": false
 },
 "08-11/": {
-"proprie": 148,
-"sovrapposizione": 0.414,
+"proprie": 152,
+"sovrapposizione": 0.451,
 "piu_simile": "08-12/",
 "indicizzata": true
 },
 "08-12/": {
-"proprie": 96,
-"sovrapposizione": 0.576,
+"proprie": 100,
+"sovrapposizione": 0.607,
 "piu_simile": "08-11/",
 "indicizzata": false
 },
 "08-91/": {
-"proprie": 138,
-"sovrapposizione": 0.494,
+"proprie": 142,
+"sovrapposizione": 0.526,
 "piu_simile": "08-92/",
-"indicizzata": true
+"indicizzata": false
 },
 "08-92/": {
-"proprie": 65,
-"sovrapposizione": 0.563,
+"proprie": 69,
+"sovrapposizione": 0.592,
 "piu_simile": "08-91/",
 "indicizzata": false
 },
 "08-93/": {
-"proprie": 204,
-"sovrapposizione": 0.357,
-"piu_simile": "08-99/",
+"proprie": 215,
+"sovrapposizione": 0.383,
+"piu_simile": "08-92/",
 "indicizzata": true
 },
 "08-99/": {
-"proprie": 194,
-"sovrapposizione": 0.402,
+"proprie": 203,
+"sovrapposizione": 0.413,
 "piu_simile": "08-93/",
 "indicizzata": true
 },
@@ -360,14 +360,14 @@
 "indicizzata": true
 },
 "09-10/": {
-"proprie": 225,
-"sovrapposizione": 0.296,
+"proprie": 230,
+"sovrapposizione": 0.327,
 "piu_simile": "06-20/",
 "indicizzata": true
 },
 "09-90/": {
-"proprie": 236,
-"sovrapposizione": 0.332,
+"proprie": 244,
+"sovrapposizione": 0.349,
 "piu_simile": "09-10/",
 "indicizzata": true
 },
@@ -378,212 +378,212 @@
 "indicizzata": true
 },
 "10-11/": {
-"proprie": 173,
-"sovrapposizione": 0.481,
+"proprie": 177,
+"sovrapposizione": 0.506,
 "piu_simile": "10-12/",
 "indicizzata": true
 },
 "10-12/": {
-"proprie": 87,
-"sovrapposizione": 0.698,
+"proprie": 91,
+"sovrapposizione": 0.712,
 "piu_simile": "10-11/",
 "indicizzata": false
 },
 "10-13/": {
-"proprie": 100,
-"sovrapposizione": 0.591,
+"proprie": 104,
+"sovrapposizione": 0.615,
 "piu_simile": "10-11/",
 "indicizzata": false
 },
 "10-20/": {
-"proprie": 287,
-"sovrapposizione": 0.27,
+"proprie": 296,
+"sovrapposizione": 0.292,
 "piu_simile": "10-89/",
 "indicizzata": true
 },
 "10-31/": {
-"proprie": 84,
-"sovrapposizione": 0.619,
+"proprie": 88,
+"sovrapposizione": 0.644,
 "piu_simile": "10-39/",
 "indicizzata": false
 },
 "10-32/": {
-"proprie": 80,
-"sovrapposizione": 0.636,
+"proprie": 84,
+"sovrapposizione": 0.657,
 "piu_simile": "10-39/",
 "indicizzata": false
 },
 "10-39/": {
-"proprie": 175,
-"sovrapposizione": 0.457,
+"proprie": 179,
+"sovrapposizione": 0.485,
 "piu_simile": "10-32/",
 "indicizzata": true
 },
 "10-41/": {
-"proprie": 311,
-"sovrapposizione": 0.259,
+"proprie": 322,
+"sovrapposizione": 0.281,
 "piu_simile": "10-42/",
 "indicizzata": true
 },
 "10-42/": {
-"proprie": 71,
-"sovrapposizione": 0.613,
+"proprie": 75,
+"sovrapposizione": 0.628,
 "piu_simile": "10-41/",
 "indicizzata": false
 },
 "10-51/": {
-"proprie": 271,
-"sovrapposizione": 0.259,
+"proprie": 280,
+"sovrapposizione": 0.284,
 "piu_simile": "10-52/",
 "indicizzata": true
 },
 "10-52/": {
-"proprie": 99,
-"sovrapposizione": 0.498,
+"proprie": 103,
+"sovrapposizione": 0.536,
 "piu_simile": "10-32/",
 "indicizzata": false
 },
 "10-61/": {
-"proprie": 323,
-"sovrapposizione": 0.324,
+"proprie": 351,
+"sovrapposizione": 0.337,
 "piu_simile": "10-62/",
 "indicizzata": true
 },
 "10-62/": {
-"proprie": 141,
-"sovrapposizione": 0.505,
+"proprie": 146,
+"sovrapposizione": 0.535,
 "piu_simile": "10-72/",
-"indicizzata": true
+"indicizzata": false
 },
 "10-71/": {
-"proprie": 212,
-"sovrapposizione": 0.455,
+"proprie": 219,
+"sovrapposizione": 0.48,
 "piu_simile": "10-73/",
 "indicizzata": true
 },
 "10-72/": {
-"proprie": 129,
-"sovrapposizione": 0.561,
+"proprie": 134,
+"sovrapposizione": 0.585,
 "piu_simile": "10-71/",
-"indicizzata": true
+"indicizzata": false
 },
 "10-73/": {
-"proprie": 187,
-"sovrapposizione": 0.488,
+"proprie": 193,
+"sovrapposizione": 0.511,
 "piu_simile": "10-71/",
 "indicizzata": true
 },
 "10-81/": {
-"proprie": 98,
-"sovrapposizione": 0.598,
+"proprie": 103,
+"sovrapposizione": 0.62,
 "piu_simile": "10-82/",
 "indicizzata": false
 },
 "10-82/": {
-"proprie": 127,
-"sovrapposizione": 0.559,
+"proprie": 132,
+"sovrapposizione": 0.584,
 "piu_simile": "10-81/",
-"indicizzata": true
+"indicizzata": false
 },
 "10-83/": {
-"proprie": 212,
-"sovrapposizione": 0.394,
+"proprie": 227,
+"sovrapposizione": 0.411,
 "piu_simile": "10-89/",
 "indicizzata": true
 },
 "10-84/": {
-"proprie": 126,
-"sovrapposizione": 0.519,
+"proprie": 131,
+"sovrapposizione": 0.546,
 "piu_simile": "10-81/",
-"indicizzata": true
+"indicizzata": false
 },
 "10-85/": {
-"proprie": 465,
-"sovrapposizione": 0.31,
+"proprie": 495,
+"sovrapposizione": 0.32,
 "piu_simile": "10-89/",
 "indicizzata": true
 },
 "10-86/": {
-"proprie": 159,
-"sovrapposizione": 0.48,
+"proprie": 162,
+"sovrapposizione": 0.508,
 "piu_simile": "10-82/",
 "indicizzata": true
 },
 "10-89/": {
-"proprie": 358,
-"sovrapposizione": 0.329,
+"proprie": 361,
+"sovrapposizione": 0.346,
 "piu_simile": "10-85/",
 "indicizzata": true
 },
 "10-91/": {
-"proprie": 99,
-"sovrapposizione": 0.681,
+"proprie": 103,
+"sovrapposizione": 0.698,
 "piu_simile": "10-92/",
 "indicizzata": false
 },
 "10-92/": {
-"proprie": 65,
-"sovrapposizione": 0.747,
+"proprie": 69,
+"sovrapposizione": 0.758,
 "piu_simile": "10-91/",
 "indicizzata": false
 },
 "10/": {
 "proprie": 547,
 "sovrapposizione": 0.14,
-"piu_simile": "10-85/",
+"piu_simile": "11/",
 "indicizzata": true
 },
 "11-01/": {
-"proprie": 90,
-"sovrapposizione": 0.673,
+"proprie": 94,
+"sovrapposizione": 0.678,
 "piu_simile": "11-02/",
 "indicizzata": false
 },
 "11-02/": {
-"proprie": 204,
-"sovrapposizione": 0.506,
+"proprie": 213,
+"sovrapposizione": 0.515,
 "piu_simile": "11-03/",
 "indicizzata": true
 },
 "11-03/": {
-"proprie": 115,
-"sovrapposizione": 0.636,
+"proprie": 119,
+"sovrapposizione": 0.643,
 "piu_simile": "11-02/",
 "indicizzata": false
 },
 "11-04/": {
-"proprie": 65,
-"sovrapposizione": 0.777,
+"proprie": 69,
+"sovrapposizione": 0.784,
 "piu_simile": "11-03/",
 "indicizzata": false
 },
 "11-05/": {
-"proprie": 69,
-"sovrapposizione": 0.75,
+"proprie": 74,
+"sovrapposizione": 0.76,
 "piu_simile": "11-04/",
 "indicizzata": false
 },
 "11-06/": {
-"proprie": 49,
-"sovrapposizione": 0.722,
+"proprie": 54,
+"sovrapposizione": 0.737,
 "piu_simile": "11-03/",
 "indicizzata": false
 },
 "11-07/": {
-"proprie": 264,
-"sovrapposizione": 0.349,
+"proprie": 279,
+"sovrapposizione": 0.364,
 "piu_simile": "11-02/",
 "indicizzata": true
 },
 "11/": {
 "proprie": 107,
-"sovrapposizione": 0.452,
+"sovrapposizione": 0.449,
 "piu_simile": "11-07/",
 "indicizzata": false
 },
 "12-00/": {
-"proprie": 111,
-"sovrapposizione": 0.435,
+"proprie": 116,
+"sovrapposizione": 0.476,
 "piu_simile": "01-15/",
 "indicizzata": false
 },
@@ -594,62 +594,62 @@
 "indicizzata": false
 },
 "13-10/": {
-"proprie": 224,
-"sovrapposizione": 0.344,
+"proprie": 228,
+"sovrapposizione": 0.378,
 "piu_simile": "20-60/",
 "indicizzata": true
 },
 "13-20/": {
-"proprie": 180,
-"sovrapposizione": 0.388,
+"proprie": 184,
+"sovrapposizione": 0.404,
 "piu_simile": "13-96/",
 "indicizzata": true
 },
 "13-30/": {
-"proprie": 165,
-"sovrapposizione": 0.452,
-"piu_simile": "18-12/",
+"proprie": 170,
+"sovrapposizione": 0.453,
+"piu_simile": "22-12/",
 "indicizzata": true
 },
 "13-91/": {
-"proprie": 81,
-"sovrapposizione": 0.587,
+"proprie": 85,
+"sovrapposizione": 0.609,
 "piu_simile": "13-93/",
 "indicizzata": false
 },
 "13-92/": {
-"proprie": 270,
-"sovrapposizione": 0.369,
-"piu_simile": "13-95/",
+"proprie": 276,
+"sovrapposizione": 0.39,
+"piu_simile": "13-96/",
 "indicizzata": true
 },
 "13-93/": {
-"proprie": 91,
-"sovrapposizione": 0.608,
+"proprie": 95,
+"sovrapposizione": 0.629,
 "piu_simile": "13-91/",
 "indicizzata": false
 },
 "13-94/": {
-"proprie": 103,
-"sovrapposizione": 0.593,
+"proprie": 107,
+"sovrapposizione": 0.617,
 "piu_simile": "13-93/",
 "indicizzata": false
 },
 "13-95/": {
-"proprie": 147,
-"sovrapposizione": 0.475,
+"proprie": 151,
+"sovrapposizione": 0.492,
 "piu_simile": "13-92/",
 "indicizzata": true
 },
 "13-96/": {
-"proprie": 407,
-"sovrapposizione": 0.251,
+"proprie": 419,
+"sovrapposizione": 0.27,
 "piu_simile": "13-92/",
 "indicizzata": true
 },
 "13-99/": {
-"proprie": 195,
-"sovrapposizione": 0.44,
+"proprie": 202,
+"sovrapposizione": 0.466,
 "piu_simile": "13-92/",
 "indicizzata": true
 },
@@ -660,38 +660,38 @@
 "indicizzata": true
 },
 "14-10/": {
-"proprie": 280,
-"sovrapposizione": 0.427,
+"proprie": 288,
+"sovrapposizione": 0.455,
 "piu_simile": "14-21/",
 "indicizzata": true
 },
 "14-21/": {
-"proprie": 217,
-"sovrapposizione": 0.439,
+"proprie": 223,
+"sovrapposizione": 0.465,
 "piu_simile": "14-10/",
 "indicizzata": true
 },
 "14-22/": {
-"proprie": 106,
-"sovrapposizione": 0.573,
+"proprie": 110,
+"sovrapposizione": 0.596,
 "piu_simile": "14-21/",
 "indicizzata": false
 },
 "14-23/": {
-"proprie": 88,
-"sovrapposizione": 0.599,
+"proprie": 92,
+"sovrapposizione": 0.604,
 "piu_simile": "14-24/",
 "indicizzata": false
 },
 "14-24/": {
-"proprie": 187,
-"sovrapposizione": 0.388,
+"proprie": 194,
+"sovrapposizione": 0.412,
 "piu_simile": "14-29/",
 "indicizzata": true
 },
 "14-29/": {
-"proprie": 175,
-"sovrapposizione": 0.401,
+"proprie": 183,
+"sovrapposizione": 0.427,
 "piu_simile": "14-22/",
 "indicizzata": true
 },
@@ -702,21 +702,21 @@
 "indicizzata": true
 },
 "15-11/": {
-"proprie": 121,
-"sovrapposizione": 0.511,
+"proprie": 125,
+"sovrapposizione": 0.52,
 "piu_simile": "15-12/",
-"indicizzata": true
+"indicizzata": false
 },
 "15-12/": {
-"proprie": 214,
-"sovrapposizione": 0.338,
+"proprie": 221,
+"sovrapposizione": 0.353,
 "piu_simile": "15-11/",
 "indicizzata": true
 },
 "15-20/": {
-"proprie": 274,
-"sovrapposizione": 0.24,
-"piu_simile": "15-12/",
+"proprie": 289,
+"sovrapposizione": 0.268,
+"piu_simile": "14-10/",
 "indicizzata": true
 },
 "15/": {
@@ -727,61 +727,61 @@
 },
 "16-11/": {
 "proprie": 134,
-"sovrapposizione": 0.508,
+"sovrapposizione": 0.545,
 "piu_simile": "16-12/",
-"indicizzata": true
+"indicizzata": false
 },
 "16-12/": {
 "proprie": 115,
-"sovrapposizione": 0.565,
+"sovrapposizione": 0.601,
 "piu_simile": "16-11/",
 "indicizzata": false
 },
 "16-21/": {
-"proprie": 160,
-"sovrapposizione": 0.571,
+"proprie": 164,
+"sovrapposizione": 0.589,
 "piu_simile": "16-22/",
-"indicizzata": true
+"indicizzata": false
 },
 "16-22/": {
-"proprie": 67,
-"sovrapposizione": 0.717,
-"piu_simile": "16-25/",
+"proprie": 71,
+"sovrapposizione": 0.726,
+"piu_simile": "16-21/",
 "indicizzata": false
 },
 "16-23/": {
-"proprie": 262,
-"sovrapposizione": 0.399,
+"proprie": 274,
+"sovrapposizione": 0.408,
 "piu_simile": "16-27/",
 "indicizzata": true
 },
 "16-24/": {
-"proprie": 93,
-"sovrapposizione": 0.679,
+"proprie": 97,
+"sovrapposizione": 0.69,
 "piu_simile": "16-25/",
 "indicizzata": false
 },
 "16-25/": {
-"proprie": 69,
-"sovrapposizione": 0.683,
+"proprie": 72,
+"sovrapposizione": 0.694,
 "piu_simile": "16-22/",
 "indicizzata": false
 },
 "16-26/": {
-"proprie": 113,
-"sovrapposizione": 0.617,
+"proprie": 115,
+"sovrapposizione": 0.631,
 "piu_simile": "16-25/",
 "indicizzata": false
 },
 "16-27/": {
-"proprie": 157,
-"sovrapposizione": 0.519,
+"proprie": 182,
+"sovrapposizione": 0.506,
 "piu_simile": "16-23/",
 "indicizzata": true
 },
 "16-28/": {
-"proprie": 420,
-"sovrapposizione": 0.298,
+"proprie": 436,
+"sovrapposizione": 0.314,
 "piu_simile": "16-27/",
 "indicizzata": true
 },
@@ -792,46 +792,46 @@
 "indicizzata": true
 },
 "17-11/": {
-"proprie": 83,
-"sovrapposizione": 0.612,
+"proprie": 87,
+"sovrapposizione": 0.642,
 "piu_simile": "17-12/",
 "indicizzata": false
 },
 "17-12/": {
-"proprie": 177,
-"sovrapposizione": 0.47,
+"proprie": 181,
+"sovrapposizione": 0.499,
 "piu_simile": "17-25/",
 "indicizzata": true
 },
 "17-21/": {
-"proprie": 121,
-"sovrapposizione": 0.622,
+"proprie": 125,
+"sovrapposizione": 0.64,
 "piu_simile": "17-25/",
 "indicizzata": false
 },
 "17-22/": {
-"proprie": 118,
-"sovrapposizione": 0.577,
+"proprie": 122,
+"sovrapposizione": 0.598,
 "piu_simile": "17-24/",
 "indicizzata": false
 },
 "17-23/": {
-"proprie": 231,
-"sovrapposizione": 0.413,
+"proprie": 243,
+"sovrapposizione": 0.425,
 "piu_simile": "17-25/",
 "indicizzata": true
 },
 "17-24/": {
-"proprie": 75,
-"sovrapposizione": 0.683,
+"proprie": 79,
+"sovrapposizione": 0.699,
 "piu_simile": "17-22/",
 "indicizzata": false
 },
 "17-25/": {
-"proprie": 129,
-"sovrapposizione": 0.516,
+"proprie": 133,
+"sovrapposizione": 0.538,
 "piu_simile": "17-21/",
-"indicizzata": true
+"indicizzata": false
 },
 "17/": {
 "proprie": 240,
@@ -840,32 +840,32 @@
 "indicizzata": true
 },
 "18-11/": {
-"proprie": 69,
-"sovrapposizione": 0.611,
-"piu_simile": "18-12/",
+"proprie": 73,
+"sovrapposizione": 0.637,
+"piu_simile": "18-13/",
 "indicizzata": false
 },
 "18-12/": {
-"proprie": 414,
-"sovrapposizione": 0.228,
-"piu_simile": "13-30/",
+"proprie": 412,
+"sovrapposizione": 0.252,
+"piu_simile": "82-10/",
 "indicizzata": true
 },
 "18-13/": {
-"proprie": 216,
-"sovrapposizione": 0.427,
+"proprie": 220,
+"sovrapposizione": 0.461,
 "piu_simile": "18-11/",
 "indicizzata": true
 },
 "18-14/": {
-"proprie": 143,
-"sovrapposizione": 0.495,
+"proprie": 147,
+"sovrapposizione": 0.531,
 "piu_simile": "18-13/",
-"indicizzata": true
+"indicizzata": false
 },
 "18-20/": {
-"proprie": 167,
-"sovrapposizione": 0.37,
+"proprie": 171,
+"sovrapposizione": 0.403,
 "piu_simile": "59-11/",
 "indicizzata": true
 },
@@ -876,14 +876,14 @@
 "indicizzata": true
 },
 "19-10/": {
-"proprie": 124,
-"sovrapposizione": 0.422,
-"piu_simile": "20-13/",
-"indicizzata": true
+"proprie": 133,
+"sovrapposizione": 0.431,
+"piu_simile": "29-10/",
+"indicizzata": false
 },
 "19-20/": {
-"proprie": 489,
-"sovrapposizione": 0.161,
+"proprie": 507,
+"sovrapposizione": 0.179,
 "piu_simile": "19-10/",
 "indicizzata": true
 },
@@ -894,88 +894,88 @@
 "indicizzata": true
 },
 "20-11/": {
-"proprie": 117,
-"sovrapposizione": 0.524,
+"proprie": 121,
+"sovrapposizione": 0.53,
 "piu_simile": "20-14/",
 "indicizzata": false
 },
 "20-12/": {
-"proprie": 107,
-"sovrapposizione": 0.61,
+"proprie": 111,
+"sovrapposizione": 0.631,
 "piu_simile": "20-17/",
 "indicizzata": false
 },
 "20-13/": {
-"proprie": 209,
-"sovrapposizione": 0.48,
+"proprie": 216,
+"sovrapposizione": 0.5,
 "piu_simile": "20-14/",
 "indicizzata": true
 },
 "20-14/": {
-"proprie": 299,
-"sovrapposizione": 0.33,
+"proprie": 310,
+"sovrapposizione": 0.348,
 "piu_simile": "20-16/",
 "indicizzata": true
 },
 "20-15/": {
-"proprie": 175,
-"sovrapposizione": 0.471,
+"proprie": 179,
+"sovrapposizione": 0.497,
 "piu_simile": "20-17/",
 "indicizzata": true
 },
 "20-16/": {
-"proprie": 212,
-"sovrapposizione": 0.467,
+"proprie": 218,
+"sovrapposizione": 0.485,
 "piu_simile": "20-14/",
 "indicizzata": true
 },
 "20-17/": {
-"proprie": 67,
-"sovrapposizione": 0.686,
+"proprie": 71,
+"sovrapposizione": 0.702,
 "piu_simile": "20-15/",
 "indicizzata": false
 },
 "20-20/": {
-"proprie": 108,
-"sovrapposizione": 0.528,
+"proprie": 112,
+"sovrapposizione": 0.562,
 "piu_simile": "20-15/",
 "indicizzata": false
 },
 "20-30/": {
-"proprie": 161,
-"sovrapposizione": 0.452,
+"proprie": 165,
+"sovrapposizione": 0.488,
 "piu_simile": "20-12/",
 "indicizzata": true
 },
 "20-41/": {
-"proprie": 258,
-"sovrapposizione": 0.34,
+"proprie": 265,
+"sovrapposizione": 0.363,
 "piu_simile": "20-42/",
 "indicizzata": true
 },
 "20-42/": {
-"proprie": 139,
-"sovrapposizione": 0.452,
+"proprie": 143,
+"sovrapposizione": 0.478,
 "piu_simile": "20-41/",
-"indicizzata": true
+"indicizzata": false
 },
 "20-51/": {
-"proprie": 127,
-"sovrapposizione": 0.448,
+"proprie": 133,
+"sovrapposizione": 0.476,
 "piu_simile": "20-14/",
-"indicizzata": true
+"indicizzata": false
 },
 "20-59/": {
-"proprie": 681,
-"sovrapposizione": 0.159,
+"proprie": 735,
+"sovrapposizione": 0.173,
 "piu_simile": "20-51/",
 "indicizzata": true
 },
 "20-60/": {
-"proprie": 124,
-"sovrapposizione": 0.477,
+"proprie": 129,
+"sovrapposizione": 0.51,
 "piu_simile": "13-10/",
-"indicizzata": true
+"indicizzata": false
 },
 "20/": {
 "proprie": 238,
@@ -984,14 +984,14 @@
 "indicizzata": true
 },
 "21-10/": {
-"proprie": 124,
-"sovrapposizione": 0.457,
+"proprie": 128,
+"sovrapposizione": 0.484,
 "piu_simile": "21-20/",
-"indicizzata": true
+"indicizzata": false
 },
 "21-20/": {
-"proprie": 292,
-"sovrapposizione": 0.252,
+"proprie": 304,
+"sovrapposizione": 0.275,
 "piu_simile": "21-10/",
 "indicizzata": true
 },
@@ -1002,50 +1002,50 @@
 "indicizzata": false
 },
 "22-11/": {
-"proprie": 188,
-"sovrapposizione": 0.389,
+"proprie": 195,
+"sovrapposizione": 0.408,
 "piu_simile": "22-12/",
 "indicizzata": true
 },
 "22-12/": {
-"proprie": 350,
-"sovrapposizione": 0.253,
+"proprie": 356,
+"sovrapposizione": 0.273,
 "piu_simile": "22-21/",
 "indicizzata": true
 },
 "22-21/": {
-"proprie": 163,
-"sovrapposizione": 0.49,
-"piu_simile": "22-23/",
+"proprie": 166,
+"sovrapposizione": 0.511,
+"piu_simile": "22-26/",
 "indicizzata": true
 },
 "22-22/": {
-"proprie": 49,
-"sovrapposizione": 0.649,
+"proprie": 53,
+"sovrapposizione": 0.658,
 "piu_simile": "22-26/",
 "indicizzata": false
 },
 "22-23/": {
-"proprie": 84,
-"sovrapposizione": 0.649,
+"proprie": 87,
+"sovrapposizione": 0.658,
 "piu_simile": "22-21/",
 "indicizzata": false
 },
 "22-24/": {
-"proprie": 217,
-"sovrapposizione": 0.385,
+"proprie": 228,
+"sovrapposizione": 0.399,
 "piu_simile": "22-25/",
 "indicizzata": true
 },
 "22-25/": {
-"proprie": 214,
-"sovrapposizione": 0.436,
+"proprie": 230,
+"sovrapposizione": 0.45,
 "piu_simile": "22-21/",
 "indicizzata": true
 },
 "22-26/": {
-"proprie": 330,
-"sovrapposizione": 0.305,
+"proprie": 351,
+"sovrapposizione": 0.318,
 "piu_simile": "22-21/",
 "indicizzata": true
 },
@@ -1056,146 +1056,146 @@
 "indicizzata": true
 },
 "23-11/": {
-"proprie": 95,
-"sovrapposizione": 0.619,
+"proprie": 99,
+"sovrapposizione": 0.642,
 "piu_simile": "23-12/",
 "indicizzata": false
 },
 "23-12/": {
-"proprie": 94,
-"sovrapposizione": 0.547,
+"proprie": 95,
+"sovrapposizione": 0.574,
 "piu_simile": "23-11/",
 "indicizzata": false
 },
 "23-13/": {
-"proprie": 89,
-"sovrapposizione": 0.609,
+"proprie": 93,
+"sovrapposizione": 0.634,
 "piu_simile": "23-11/",
 "indicizzata": false
 },
 "23-14/": {
-"proprie": 97,
-"sovrapposizione": 0.507,
+"proprie": 101,
+"sovrapposizione": 0.536,
 "piu_simile": "23-12/",
 "indicizzata": false
 },
 "23-15/": {
-"proprie": 289,
-"sovrapposizione": 0.313,
+"proprie": 301,
+"sovrapposizione": 0.33,
 "piu_simile": "23-12/",
 "indicizzata": true
 },
 "23-20/": {
-"proprie": 155,
-"sovrapposizione": 0.456,
+"proprie": 159,
+"sovrapposizione": 0.493,
 "piu_simile": "23-32/",
 "indicizzata": true
 },
 "23-31/": {
-"proprie": 81,
-"sovrapposizione": 0.639,
+"proprie": 85,
+"sovrapposizione": 0.662,
 "piu_simile": "23-32/",
 "indicizzata": false
 },
 "23-32/": {
-"proprie": 108,
-"sovrapposizione": 0.571,
+"proprie": 112,
+"sovrapposizione": 0.599,
 "piu_simile": "23-31/",
 "indicizzata": false
 },
 "23-41/": {
-"proprie": 80,
-"sovrapposizione": 0.647,
+"proprie": 84,
+"sovrapposizione": 0.669,
 "piu_simile": "23-43/",
 "indicizzata": false
 },
 "23-42/": {
-"proprie": 65,
-"sovrapposizione": 0.628,
+"proprie": 69,
+"sovrapposizione": 0.648,
 "piu_simile": "23-43/",
 "indicizzata": false
 },
 "23-43/": {
-"proprie": 66,
-"sovrapposizione": 0.696,
+"proprie": 70,
+"sovrapposizione": 0.712,
 "piu_simile": "23-42/",
 "indicizzata": false
 },
 "23-44/": {
-"proprie": 80,
-"sovrapposizione": 0.607,
+"proprie": 84,
+"sovrapposizione": 0.629,
 "piu_simile": "23-43/",
 "indicizzata": false
 },
 "23-45/": {
-"proprie": 73,
-"sovrapposizione": 0.651,
+"proprie": 78,
+"sovrapposizione": 0.672,
 "piu_simile": "23-43/",
 "indicizzata": false
 },
 "23-51/": {
-"proprie": 90,
-"sovrapposizione": 0.486,
+"proprie": 94,
+"sovrapposizione": 0.525,
 "piu_simile": "23-63/",
 "indicizzata": false
 },
 "23-52/": {
-"proprie": 130,
-"sovrapposizione": 0.43,
+"proprie": 139,
+"sovrapposizione": 0.461,
 "piu_simile": "23-66/",
-"indicizzata": true
+"indicizzata": false
 },
 "23-61/": {
-"proprie": 344,
-"sovrapposizione": 0.358,
+"proprie": 353,
+"sovrapposizione": 0.375,
 "piu_simile": "23-66/",
 "indicizzata": true
 },
 "23-62/": {
-"proprie": 59,
-"sovrapposizione": 0.663,
+"proprie": 63,
+"sovrapposizione": 0.683,
 "piu_simile": "23-63/",
 "indicizzata": false
 },
 "23-63/": {
-"proprie": 73,
-"sovrapposizione": 0.688,
+"proprie": 77,
+"sovrapposizione": 0.684,
 "piu_simile": "23-64/",
 "indicizzata": false
 },
 "23-64/": {
-"proprie": 79,
-"sovrapposizione": 0.616,
+"proprie": 86,
+"sovrapposizione": 0.628,
 "piu_simile": "23-66/",
 "indicizzata": false
 },
 "23-65/": {
-"proprie": 214,
-"sovrapposizione": 0.448,
+"proprie": 223,
+"sovrapposizione": 0.469,
 "piu_simile": "23-61/",
 "indicizzata": true
 },
 "23-66/": {
-"proprie": 221,
-"sovrapposizione": 0.387,
+"proprie": 235,
+"sovrapposizione": 0.401,
 "piu_simile": "23-64/",
 "indicizzata": true
 },
 "23-70/": {
-"proprie": 242,
-"sovrapposizione": 0.3,
+"proprie": 254,
+"sovrapposizione": 0.331,
 "piu_simile": "23-15/",
 "indicizzata": true
 },
 "23-91/": {
-"proprie": 114,
-"sovrapposizione": 0.495,
-"piu_simile": "23-99/",
+"proprie": 118,
+"sovrapposizione": 0.513,
+"piu_simile": "23-43/",
 "indicizzata": false
 },
 "23-99/": {
-"proprie": 197,
-"sovrapposizione": 0.35,
+"proprie": 202,
+"sovrapposizione": 0.376,
 "piu_simile": "23-64/",
 "indicizzata": true
 },
@@ -1206,98 +1206,98 @@
 "indicizzata": true
 },
 "24-10/": {
-"proprie": 285,
-"sovrapposizione": 0.314,
+"proprie": 289,
+"sovrapposizione": 0.348,
 "piu_simile": "24-32/",
 "indicizzata": true
 },
 "24-20/": {
-"proprie": 395,
-"sovrapposizione": 0.218,
+"proprie": 402,
+"sovrapposizione": 0.246,
 "piu_simile": "24-52/",
 "indicizzata": true
 },
 "24-31/": {
-"proprie": 73,
-"sovrapposizione": 0.674,
+"proprie": 77,
+"sovrapposizione": 0.693,
 "piu_simile": "24-34/",
 "indicizzata": false
 },
 "24-32/": {
-"proprie": 56,
-"sovrapposizione": 0.593,
-"piu_simile": "24-34/",
+"proprie": 60,
+"sovrapposizione": 0.622,
+"piu_simile": "24-31/",
 "indicizzata": false
 },
 "24-33/": {
-"proprie": 269,
-"sovrapposizione": 0.324,
+"proprie": 289,
+"sovrapposizione": 0.341,
 "piu_simile": "24-34/",
 "indicizzata": true
 },
 "24-34/": {
-"proprie": 67,
-"sovrapposizione": 0.642,
+"proprie": 71,
+"sovrapposizione": 0.664,
 "piu_simile": "24-31/",
 "indicizzata": false
 },
 "24-41/": {
-"proprie": 152,
-"sovrapposizione": 0.508,
-"piu_simile": "24-45/",
+"proprie": 156,
+"sovrapposizione": 0.534,
+"piu_simile": "24-42/",
 "indicizzata": true
 },
 "24-42/": {
-"proprie": 111,
-"sovrapposizione": 0.634,
+"proprie": 115,
+"sovrapposizione": 0.652,
 "piu_simile": "24-44/",
 "indicizzata": false
 },
 "24-43/": {
-"proprie": 85,
-"sovrapposizione": 0.68,
+"proprie": 89,
+"sovrapposizione": 0.696,
 "piu_simile": "24-44/",
 "indicizzata": false
 },
 "24-44/": {
-"proprie": 111,
-"sovrapposizione": 0.631,
+"proprie": 115,
+"sovrapposizione": 0.649,
 "piu_simile": "24-42/",
 "indicizzata": false
 },
 "24-45/": {
-"proprie": 89,
-"sovrapposizione": 0.638,
+"proprie": 93,
+"sovrapposizione": 0.656,
 "piu_simile": "24-44/",
 "indicizzata": false
 },
 "24-46/": {
-"proprie": 104,
-"sovrapposizione": 0.583,
+"proprie": 108,
+"sovrapposizione": 0.608,
 "piu_simile": "24-45/",
 "indicizzata": false
 },
 "24-51/": {
-"proprie": 167,
-"sovrapposizione": 0.517,
+"proprie": 171,
+"sovrapposizione": 0.545,
 "piu_simile": "24-53/",
 "indicizzata": true
 },
 "24-52/": {
-"proprie": 116,
-"sovrapposizione": 0.513,
+"proprie": 120,
+"sovrapposizione": 0.543,
 "piu_simile": "24-53/",
 "indicizzata": false
 },
 "24-53/": {
-"proprie": 199,
-"sovrapposizione": 0.51,
+"proprie": 204,
+"sovrapposizione": 0.536,
 "piu_simile": "24-54/",
 "indicizzata": true
 },
 "24-54/": {
-"proprie": 203,
-"sovrapposizione": 0.454,
+"proprie": 207,
+"sovrapposizione": 0.478,
 "piu_simile": "24-53/",
 "indicizzata": true
 },
@@ -1308,104 +1308,104 @@
 "indicizzata": true
 },
 "25-11/": {
-"proprie": 176,
-"sovrapposizione": 0.362,
+"proprie": 180,
+"sovrapposizione": 0.393,
 "piu_simile": "25-92/",
 "indicizzata": true
 },
 "25-12/": {
-"proprie": 207,
-"sovrapposizione": 0.39,
+"proprie": 214,
+"sovrapposizione": 0.425,
 "piu_simile": "25-99/",
 "indicizzata": true
 },
 "25-21/": {
-"proprie": 213,
-"sovrapposizione": 0.323,
+"proprie": 220,
+"sovrapposizione": 0.353,
 "piu_simile": "28-21/",
 "indicizzata": true
 },
 "25-22/": {
-"proprie": 88,
-"sovrapposizione": 0.54,
+"proprie": 92,
+"sovrapposizione": 0.567,
 "piu_simile": "25-91/",
 "indicizzata": false
 },
 "25-30/": {
-"proprie": 258,
-"sovrapposizione": 0.28,
-"piu_simile": "25-21/",
+"proprie": 262,
+"sovrapposizione": 0.312,
+"piu_simile": "32-30/",
 "indicizzata": true
 },
 "25-40/": {
-"proprie": 119,
-"sovrapposizione": 0.473,
+"proprie": 123,
+"sovrapposizione": 0.517,
 "piu_simile": "25-62/",
 "indicizzata": false
 },
 "25-51/": {
 "proprie": 114,
-"sovrapposizione": 0.534,
+"sovrapposizione": 0.574,
 "piu_simile": "25-52/",
 "indicizzata": false
 },
 "25-52/": {
 "proprie": 89,
-"sovrapposizione": 0.657,
+"sovrapposizione": 0.692,
 "piu_simile": "25-51/",
 "indicizzata": false
 },
 "25-53/": {
-"proprie": 115,
-"sovrapposizione": 0.494,
+"proprie": 122,
+"sovrapposizione": 0.504,
 "piu_simile": "25-51/",
 "indicizzata": false
 },
 "25-61/": {
-"proprie": 96,
-"sovrapposizione": 0.48,
-"piu_simile": "25-63/",
+"proprie": 100,
+"sovrapposizione": 0.508,
+"piu_simile": "25-62/",
 "indicizzata": false
 },
 "25-62/": {
-"proprie": 79,
-"sovrapposizione": 0.581,
+"proprie": 84,
+"sovrapposizione": 0.61,
 "piu_simile": "25-61/",
 "indicizzata": false
 },
 "25-63/": {
-"proprie": 252,
-"sovrapposizione": 0.293,
+"proprie": 277,
+"sovrapposizione": 0.306,
 "piu_simile": "25-61/",
 "indicizzata": true
 },
 "25-91/": {
-"proprie": 66,
-"sovrapposizione": 0.765,
+"proprie": 70,
+"sovrapposizione": 0.773,
 "piu_simile": "25-92/",
 "indicizzata": false
 },
 "25-92/": {
-"proprie": 98,
-"sovrapposizione": 0.697,
+"proprie": 102,
+"sovrapposizione": 0.71,
 "piu_simile": "25-91/",
 "indicizzata": false
 },
 "25-93/": {
-"proprie": 246,
-"sovrapposizione": 0.351,
+"proprie": 259,
+"sovrapposizione": 0.377,
 "piu_simile": "25-99/",
 "indicizzata": true
 },
 "25-94/": {
-"proprie": 72,
-"sovrapposizione": 0.682,
+"proprie": 76,
+"sovrapposizione": 0.7,
 "piu_simile": "25-91/",
 "indicizzata": false
 },
 "25-99/": {
-"proprie": 571,
-"sovrapposizione": 0.183,
+"proprie": 598,
+"sovrapposizione": 0.205,
 "piu_simile": "32-99/",
 "indicizzata": true
 },
@@ -1416,56 +1416,56 @@
 "indicizzata": true
 },
 "26-11/": {
-"proprie": 305,
-"sovrapposizione": 0.314,
+"proprie": 315,
+"sovrapposizione": 0.332,
 "piu_simile": "27-11/",
 "indicizzata": true
 },
 "26-12/": {
-"proprie": 115,
-"sovrapposizione": 0.501,
+"proprie": 119,
+"sovrapposizione": 0.514,
 "piu_simile": "26-11/",
 "indicizzata": false
 },
 "26-20/": {
-"proprie": 391,
-"sovrapposizione": 0.278,
+"proprie": 396,
+"sovrapposizione": 0.304,
 "piu_simile": "26-40/",
 "indicizzata": true
 },
 "26-30/": {
-"proprie": 316,
-"sovrapposizione": 0.294,
+"proprie": 328,
+"sovrapposizione": 0.314,
 "piu_simile": "26-40/",
 "indicizzata": true
 },
 "26-40/": {
-"proprie": 375,
-"sovrapposizione": 0.268,
+"proprie": 390,
+"sovrapposizione": 0.289,
 "piu_simile": "26-20/",
 "indicizzata": true
 },
 "26-51/": {
-"proprie": 725,
-"sovrapposizione": 0.151,
+"proprie": 742,
+"sovrapposizione": 0.172,
 "piu_simile": "26-30/",
 "indicizzata": true
 },
 "26-52/": {
-"proprie": 198,
-"sovrapposizione": 0.354,
+"proprie": 202,
+"sovrapposizione": 0.381,
 "piu_simile": "26-51/",
 "indicizzata": true
 },
 "26-60/": {
-"proprie": 348,
-"sovrapposizione": 0.286,
+"proprie": 362,
+"sovrapposizione": 0.308,
 "piu_simile": "32-50/",
 "indicizzata": true
 },
 "26-70/": {
-"proprie": 429,
-"sovrapposizione": 0.215,
+"proprie": 461,
+"sovrapposizione": 0.234,
 "piu_simile": "26-51/",
 "indicizzata": true
 },
@@ -1476,62 +1476,62 @@
 "indicizzata": true
 },
 "27-11/": {
-"proprie": 224,
-"sovrapposizione": 0.369,
+"proprie": 231,
+"sovrapposizione": 0.388,
 "piu_simile": "26-11/",
 "indicizzata": true
 },
 "27-12/": {
-"proprie": 122,
-"sovrapposizione": 0.471,
+"proprie": 126,
+"sovrapposizione": 0.482,
 "piu_simile": "27-11/",
-"indicizzata": true
+"indicizzata": false
 },
 "27-20/": {
-"proprie": 159,
-"sovrapposizione": 0.412,
+"proprie": 163,
+"sovrapposizione": 0.453,
 "piu_simile": "27-52/",
 "indicizzata": true
 },
 "27-31/": {
-"proprie": 88,
-"sovrapposizione": 0.569,
+"proprie": 96,
+"sovrapposizione": 0.588,
 "piu_simile": "27-33/",
 "indicizzata": false
 },
 "27-32/": {
-"proprie": 83,
-"sovrapposizione": 0.486,
+"proprie": 87,
+"sovrapposizione": 0.499,
 "piu_simile": "27-31/",
 "indicizzata": false
 },
 "27-33/": {
-"proprie": 195,
-"sovrapposizione": 0.4,
+"proprie": 203,
+"sovrapposizione": 0.426,
 "piu_simile": "27-31/",
 "indicizzata": true
 },
 "27-40/": {
-"proprie": 382,
-"sovrapposizione": 0.269,
+"proprie": 398,
+"sovrapposizione": 0.293,
 "piu_simile": "27-90/",
 "indicizzata": true
 },
 "27-51/": {
-"proprie": 261,
-"sovrapposizione": 0.317,
+"proprie": 265,
+"sovrapposizione": 0.348,
 "piu_simile": "27-52/",
 "indicizzata": true
 },
 "27-52/": {
-"proprie": 79,
-"sovrapposizione": 0.65,
+"proprie": 83,
+"sovrapposizione": 0.673,
 "piu_simile": "27-51/",
 "indicizzata": false
 },
 "27-90/": {
-"proprie": 623,
-"sovrapposizione": 0.166,
+"proprie": 646,
+"sovrapposizione": 0.183,
 "piu_simile": "27-40/",
 "indicizzata": true
 },
@@ -1542,134 +1542,134 @@
 "indicizzata": true
 },
 "28-11/": {
-"proprie": 349,
-"sovrapposizione": 0.247,
+"proprie": 359,
+"sovrapposizione": 0.269,
 "piu_simile": "28-15/",
 "indicizzata": true
 },
 "28-12/": {
-"proprie": 109,
-"sovrapposizione": 0.568,
+"proprie": 113,
+"sovrapposizione": 0.59,
 "piu_simile": "28-14/",
 "indicizzata": false
 },
 "28-13/": {
-"proprie": 126,
-"sovrapposizione": 0.589,
+"proprie": 130,
+"sovrapposizione": 0.611,
 "piu_simile": "28-12/",
-"indicizzata": true
+"indicizzata": false
 },
 "28-14/": {
-"proprie": 91,
-"sovrapposizione": 0.621,
+"proprie": 95,
+"sovrapposizione": 0.641,
 "piu_simile": "28-12/",
 "indicizzata": false
 },
 "28-15/": {
-"proprie": 196,
-"sovrapposizione": 0.424,
-"piu_simile": "28-12/",
+"proprie": 204,
+"sovrapposizione": 0.438,
+"piu_simile": "28-11/",
 "indicizzata": true
 },
 "28-21/": {
-"proprie": 276,
-"sovrapposizione": 0.371,
+"proprie": 287,
+"sovrapposizione": 0.389,
 "piu_simile": "28-25/",
 "indicizzata": true
 },
 "28-22/": {
-"proprie": 369,
-"sovrapposizione": 0.282,
+"proprie": 387,
+"sovrapposizione": 0.302,
 "piu_simile": "28-21/",
 "indicizzata": true
 },
 "28-23/": {
-"proprie": 203,
-"sovrapposizione": 0.441,
+"proprie": 207,
+"sovrapposizione": 0.465,
 "piu_simile": "28-24/",
 "indicizzata": true
 },
 "28-24/": {
-"proprie": 101,
-"sovrapposizione": 0.563,
+"proprie": 105,
+"sovrapposizione": 0.584,
 "piu_simile": "28-23/",
 "indicizzata": false
 },
 "28-25/": {
-"proprie": 147,
-"sovrapposizione": 0.557,
+"proprie": 149,
+"sovrapposizione": 0.582,
 "piu_simile": "28-21/",
-"indicizzata": true
+"indicizzata": false
 },
 "28-29/": {
-"proprie": 666,
-"sovrapposizione": 0.203,
+"proprie": 696,
+"sovrapposizione": 0.215,
 "piu_simile": "28-21/",
 "indicizzata": true
 },
 "28-30/": {
-"proprie": 461,
-"sovrapposizione": 0.242,
+"proprie": 469,
+"sovrapposizione": 0.267,
 "piu_simile": "28-29/",
 "indicizzata": true
 },
 "28-41/": {
-"proprie": 309,
-"sovrapposizione": 0.342,
+"proprie": 315,
+"sovrapposizione": 0.36,
 "piu_simile": "28-42/",
 "indicizzata": true
 },
 "28-42/": {
-"proprie": 169,
-"sovrapposizione": 0.419,
+"proprie": 172,
+"sovrapposizione": 0.437,
 "piu_simile": "28-41/",
 "indicizzata": true
 },
 "28-91/": {
-"proprie": 105,
-"sovrapposizione": 0.619,
+"proprie": 109,
+"sovrapposizione": 0.627,
 "piu_simile": "28-99/",
 "indicizzata": false
 },
 "28-92/": {
-"proprie": 257,
-"sovrapposizione": 0.398,
+"proprie": 263,
+"sovrapposizione": 0.417,
 "piu_simile": "28-93/",
 "indicizzata": true
 },
 "28-93/": {
-"proprie": 384,
-"sovrapposizione": 0.307,
+"proprie": 390,
+"sovrapposizione": 0.326,
 "piu_simile": "28-92/",
 "indicizzata": true
 },
 "28-94/": {
-"proprie": 367,
-"sovrapposizione": 0.347,
+"proprie": 380,
+"sovrapposizione": 0.363,
 "piu_simile": "28-99/",
 "indicizzata": true
 },
 "28-95/": {
-"proprie": 79,
-"sovrapposizione": 0.696,
+"proprie": 83,
+"sovrapposizione": 0.711,
 "piu_simile": "28-91/",
 "indicizzata": false
 },
 "28-96/": {
 "proprie": 81,
-"sovrapposizione": 0.652,
+"sovrapposizione": 0.674,
 "piu_simile": "28-97/",
 "indicizzata": false
 },
 "28-97/": {
-"proprie": 178,
-"sovrapposizione": 0.532,
+"proprie": 183,
+"sovrapposizione": 0.556,
 "piu_simile": "28-99/",
-"indicizzata": true
+"indicizzata": false
 },
 "28-99/": {
-"proprie": 539,
-"sovrapposizione": 0.25,
+"proprie": 558,
+"sovrapposizione": 0.261,
 "piu_simile": "28-94/",
 "indicizzata": true
 },
@@ -1680,26 +1680,26 @@
 "indicizzata": true
 },
 "29-10/": {
-"proprie": 258,
-"sovrapposizione": 0.296,
+"proprie": 263,
+"sovrapposizione": 0.317,
 "piu_simile": "29-32/",
 "indicizzata": true
 },
 "29-20/": {
-"proprie": 188,
-"sovrapposizione": 0.343,
+"proprie": 193,
+"sovrapposizione": 0.364,
 "piu_simile": "29-10/",
 "indicizzata": true
 },
 "29-31/": {
-"proprie": 177,
-"sovrapposizione": 0.442,
+"proprie": 181,
+"sovrapposizione": 0.46,
 "piu_simile": "29-32/",
 "indicizzata": true
 },
 "29-32/": {
-"proprie": 186,
-"sovrapposizione": 0.396,
+"proprie": 202,
+"sovrapposizione": 0.409,
 "piu_simile": "29-31/",
 "indicizzata": true
 },
@@ -1711,73 +1711,73 @@
 },
 "30-11/": {
 "proprie": 264,
-"sovrapposizione": 0.416,
+"sovrapposizione": 0.446,
 "piu_simile": "30-13/",
 "indicizzata": true
 },
 "30-12/": {
-"proprie": 155,
-"sovrapposizione": 0.489,
+"proprie": 159,
+"sovrapposizione": 0.498,
 "piu_simile": "30-11/",
 "indicizzata": true
 },
 "30-13/": {
 "proprie": 155,
-"sovrapposizione": 0.564,
+"sovrapposizione": 0.593,
 "piu_simile": "30-11/",
-"indicizzata": true
+"indicizzata": false
 },
 "30-20/": {
-"proprie": 290,
-"sovrapposizione": 0.303,
+"proprie": 297,
+"sovrapposizione": 0.333,
 "piu_simile": "30-11/",
 "indicizzata": true
 },
 "30-31/": {
-"proprie": 237,
-"sovrapposizione": 0.376,
+"proprie": 239,
+"sovrapposizione": 0.407,
 "piu_simile": "30-32/",
 "indicizzata": true
 },
 "30-32/": {
-"proprie": 175,
-"sovrapposizione": 0.438,
+"proprie": 180,
+"sovrapposizione": 0.468,
 "piu_simile": "30-31/",
 "indicizzata": true
 },
 "30-40/": {
-"proprie": 180,
-"sovrapposizione": 0.374,
+"proprie": 184,
+"sovrapposizione": 0.391,
 "piu_simile": "30-32/",
 "indicizzata": true
 },
 "30-91/": {
-"proprie": 208,
-"sovrapposizione": 0.489,
+"proprie": 230,
+"sovrapposizione": 0.496,
 "piu_simile": "30-92/",
 "indicizzata": true
 },
 "30-92/": {
-"proprie": 351,
-"sovrapposizione": 0.393,
+"proprie": 369,
+"sovrapposizione": 0.41,
 "piu_simile": "30-91/",
 "indicizzata": true
 },
 "30-99/": {
-"proprie": 91,
-"sovrapposizione": 0.434,
+"proprie": 95,
+"sovrapposizione": 0.462,
 "piu_simile": "30-92/",
 "indicizzata": false
 },
 "30/": {
-"proprie": 189,
+"proprie": 188,
 "sovrapposizione": 0.323,
 "piu_simile": "23/",
 "indicizzata": true
 },
 "31-00/": {
-"proprie": 1193,
-"sovrapposizione": 0.112,
+"proprie": 1267,
+"sovrapposizione": 0.123,
 "piu_simile": "25-99/",
 "indicizzata": true
 },
@@ -1788,56 +1788,56 @@
 "indicizzata": true
 },
 "32-11/": {
-"proprie": 58,
-"sovrapposizione": 0.633,
+"proprie": 62,
+"sovrapposizione": 0.647,
 "piu_simile": "32-12/",
 "indicizzata": false
 },
 "32-12/": {
-"proprie": 301,
-"sovrapposizione": 0.34,
+"proprie": 308,
+"sovrapposizione": 0.356,
 "piu_simile": "32-13/",
 "indicizzata": true
 },
 "32-13/": {
-"proprie": 147,
-"sovrapposizione": 0.504,
+"proprie": 154,
+"sovrapposizione": 0.516,
 "piu_simile": "32-12/",
 "indicizzata": true
 },
 "32-20/": {
-"proprie": 195,
-"sovrapposizione": 0.342,
+"proprie": 199,
+"sovrapposizione": 0.382,
 "piu_simile": "18-20/",
 "indicizzata": true
 },
 "32-30/": {
-"proprie": 349,
-"sovrapposizione": 0.235,
+"proprie": 356,
+"sovrapposizione": 0.259,
 "piu_simile": "32-99/",
 "indicizzata": true
 },
 "32-40/": {
-"proprie": 347,
-"sovrapposizione": 0.207,
+"proprie": 356,
+"sovrapposizione": 0.239,
 "piu_simile": "32-12/",
 "indicizzata": true
 },
 "32-50/": {
-"proprie": 867,
-"sovrapposizione": 0.145,
+"proprie": 908,
+"sovrapposizione": 0.164,
 "piu_simile": "32-99/",
 "indicizzata": true
 },
 "32-91/": {
-"proprie": 131,
-"sovrapposizione": 0.435,
+"proprie": 135,
+"sovrapposizione": 0.476,
 "piu_simile": "32-20/",
-"indicizzata": true
+"indicizzata": false
 },
 "32-99/": {
-"proprie": 711,
-"sovrapposizione": 0.166,
+"proprie": 748,
+"sovrapposizione": 0.186,
 "piu_simile": "32-50/",
 "indicizzata": true
 },
@@ -1848,63 +1848,63 @@
 "indicizzata": true
 },
 "33-11/": {
-"proprie": 479,
-"sovrapposizione": 0.296,
+"proprie": 508,
+"sovrapposizione": 0.309,
 "piu_simile": "33-12/",
 "indicizzata": true
 },
 "33-12/": {
-"proprie": 887,
-"sovrapposizione": 0.167,
+"proprie": 945,
+"sovrapposizione": 0.175,
 "piu_simile": "33-18/",
 "indicizzata": true
 },
 "33-13/": {
-"proprie": 373,
-"sovrapposizione": 0.365,
+"proprie": 391,
+"sovrapposizione": 0.373,
 "piu_simile": "33-14/",
 "indicizzata": true
 },
 "33-14/": {
-"proprie": 146,
-"sovrapposizione": 0.531,
-"piu_simile": "33-13/",
+"proprie": 150,
+"sovrapposizione": 0.546,
+"piu_simile": "33-19/",
 "indicizzata": true
 },
 "33-15/": {
 "proprie": 108,
-"sovrapposizione": 0.606,
+"sovrapposizione": 0.631,
 "piu_simile": "33-18/",
 "indicizzata": false
 },
 "33-16/": {
-"proprie": 67,
-"sovrapposizione": 0.679,
+"proprie": 70,
+"sovrapposizione": 0.677,
 "piu_simile": "33-15/",
 "indicizzata": false
 },
 "33-17/": {
-"proprie": 122,
-"sovrapposizione": 0.598,
+"proprie": 128,
+"sovrapposizione": 0.612,
 "piu_simile": "33-15/",
-"indicizzata": true
+"indicizzata": false
 },
 "33-18/": {
-"proprie": 184,
-"sovrapposizione": 0.495,
+"proprie": 192,
+"sovrapposizione": 0.511,
 "piu_simile": "33-15/",
 "indicizzata": true
 },
 "33-19/": {
-"proprie": 249,
-"sovrapposizione": 0.429,
+"proprie": 268,
+"sovrapposizione": 0.44,
 "piu_simile": "33-14/",
 "indicizzata": true
 },
 "33-20/": {
-"proprie": 743,
-"sovrapposizione": 0.139,
-"piu_simile": "43-21/",
+"proprie": 784,
+"sovrapposizione": 0.158,
+"piu_simile": "33-11/",
 "indicizzata": true
 },
 "33/": {
@@ -1915,73 +1915,73 @@
 },
 "35-11/": {
 "proprie": 64,
-"sovrapposizione": 0.794,
+"sovrapposizione": 0.812,
 "piu_simile": "35-12/",
 "indicizzata": false
 },
 "35-12/": {
 "proprie": 75,
-"sovrapposizione": 0.766,
+"sovrapposizione": 0.786,
 "piu_simile": "35-11/",
 "indicizzata": false
 },
 "35-13/": {
-"proprie": 48,
-"sovrapposizione": 0.785,
+"proprie": 52,
+"sovrapposizione": 0.794,
 "piu_simile": "35-14/",
 "indicizzata": false
 },
 "35-14/": {
-"proprie": 77,
-"sovrapposizione": 0.688,
+"proprie": 81,
+"sovrapposizione": 0.706,
 "piu_simile": "35-13/",
 "indicizzata": false
 },
 "35-15/": {
-"proprie": 80,
-"sovrapposizione": 0.602,
+"proprie": 84,
+"sovrapposizione": 0.624,
 "piu_simile": "35-16/",
 "indicizzata": false
 },
 "35-16/": {
 "proprie": 113,
-"sovrapposizione": 0.64,
+"sovrapposizione": 0.67,
 "piu_simile": "35-12/",
 "indicizzata": false
 },
 "35-21/": {
-"proprie": 179,
-"sovrapposizione": 0.352,
+"proprie": 183,
+"sovrapposizione": 0.382,
 "piu_simile": "35-22/",
 "indicizzata": true
 },
 "35-22/": {
-"proprie": 63,
-"sovrapposizione": 0.613,
+"proprie": 67,
+"sovrapposizione": 0.637,
 "piu_simile": "35-21/",
 "indicizzata": false
 },
 "35-23/": {
-"proprie": 67,
-"sovrapposizione": 0.578,
+"proprie": 71,
+"sovrapposizione": 0.597,
 "piu_simile": "35-24/",
 "indicizzata": false
 },
 "35-24/": {
 "proprie": 72,
-"sovrapposizione": 0.6,
+"sovrapposizione": 0.618,
 "piu_simile": "35-23/",
 "indicizzata": false
 },
 "35-30/": {
-"proprie": 108,
-"sovrapposizione": 0.514,
+"proprie": 112,
+"sovrapposizione": 0.545,
 "piu_simile": "35-22/",
 "indicizzata": false
 },
 "35-40/": {
 "proprie": 197,
-"sovrapposizione": 0.417,
+"sovrapposizione": 0.443,
 "piu_simile": "55-40/",
 "indicizzata": true
 },
@@ -1992,8 +1992,8 @@
 "indicizzata": true
 },
 "36-00/": {
-"proprie": 157,
-"sovrapposizione": 0.351,
+"proprie": 162,
+"sovrapposizione": 0.389,
 "piu_simile": "37-00/",
 "indicizzata": true
 },
@@ -2004,8 +2004,8 @@
 "indicizzata": false
 },
 "37-00/": {
-"proprie": 231,
-"sovrapposizione": 0.319,
+"proprie": 236,
+"sovrapposizione": 0.357,
 "piu_simile": "36-00/",
 "indicizzata": true
 },
@@ -2016,50 +2016,50 @@
 "indicizzata": false
 },
 "38-11/": {
-"proprie": 211,
-"sovrapposizione": 0.419,
+"proprie": 217,
+"sovrapposizione": 0.435,
 "piu_simile": "38-12/",
 "indicizzata": true
 },
 "38-12/": {
-"proprie": 158,
-"sovrapposizione": 0.492,
+"proprie": 161,
+"sovrapposizione": 0.507,
 "piu_simile": "38-11/",
 "indicizzata": true
 },
 "38-21/": {
-"proprie": 785,
-"sovrapposizione": 0.171,
+"proprie": 810,
+"sovrapposizione": 0.183,
 "piu_simile": "46-87/",
 "indicizzata": true
 },
 "38-22/": {
 "proprie": 172,
-"sovrapposizione": 0.426,
+"sovrapposizione": 0.47,
 "piu_simile": "38-31/",
 "indicizzata": true
 },
 "38-23/": {
 "proprie": 118,
-"sovrapposizione": 0.573,
+"sovrapposizione": 0.617,
 "piu_simile": "38-22/",
 "indicizzata": false
 },
 "38-31/": {
 "proprie": 79,
-"sovrapposizione": 0.657,
+"sovrapposizione": 0.693,
 "piu_simile": "38-32/",
 "indicizzata": false
 },
 "38-32/": {
 "proprie": 204,
-"sovrapposizione": 0.439,
+"sovrapposizione": 0.478,
 "piu_simile": "38-33/",
 "indicizzata": true
 },
 "38-33/": {
 "proprie": 77,
-"sovrapposizione": 0.677,
+"sovrapposizione": 0.711,
 "piu_simile": "38-32/",
 "indicizzata": false
 },
@@ -2070,8 +2070,8 @@
 "indicizzata": true
 },
 "39-00/": {
-"proprie": 441,
-"sovrapposizione": 0.19,
+"proprie": 455,
+"sovrapposizione": 0.213,
 "piu_simile": "38-32/",
 "indicizzata": true
 },
@@ -2083,7 +2083,7 @@
 },
 "41-00/": {
 "proprie": 208,
-"sovrapposizione": 0.308,
+"sovrapposizione": 0.335,
 "piu_simile": "25-11/",
 "indicizzata": true
 },
@@ -2094,44 +2094,44 @@
 "indicizzata": false
 },
 "42-11/": {
-"proprie": 104,
-"sovrapposizione": 0.535,
+"proprie": 108,
+"sovrapposizione": 0.563,
 "piu_simile": "42-12/",
 "indicizzata": false
 },
 "42-12/": {
-"proprie": 67,
-"sovrapposizione": 0.656,
+"proprie": 71,
+"sovrapposizione": 0.677,
 "piu_simile": "42-11/",
 "indicizzata": false
 },
 "42-13/": {
-"proprie": 62,
-"sovrapposizione": 0.702,
+"proprie": 66,
+"sovrapposizione": 0.719,
 "piu_simile": "42-12/",
 "indicizzata": false
 },
 "42-21/": {
-"proprie": 142,
-"sovrapposizione": 0.497,
+"proprie": 146,
+"sovrapposizione": 0.525,
 "piu_simile": "42-22/",
-"indicizzata": true
+"indicizzata": false
 },
 "42-22/": {
-"proprie": 136,
-"sovrapposizione": 0.445,
+"proprie": 140,
+"sovrapposizione": 0.474,
 "piu_simile": "42-21/",
-"indicizzata": true
+"indicizzata": false
 },
 "42-91/": {
-"proprie": 100,
-"sovrapposizione": 0.517,
+"proprie": 104,
+"sovrapposizione": 0.551,
 "piu_simile": "42-22/",
 "indicizzata": false
 },
 "42-99/": {
-"proprie": 173,
-"sovrapposizione": 0.389,
+"proprie": 181,
+"sovrapposizione": 0.41,
 "piu_simile": "68-12/",
 "indicizzata": true
 },
@@ -2139,113 +2139,113 @@
 "proprie": 144,
 "sovrapposizione": 0.347,
 "piu_simile": "41/",
-"indicizzata": true
+"indicizzata": false
 },
 "43-11/": {
-"proprie": 47,
-"sovrapposizione": 0.711,
+"proprie": 51,
+"sovrapposizione": 0.732,
 "piu_simile": "43-13/",
 "indicizzata": false
 },
 "43-12/": {
-"proprie": 236,
-"sovrapposizione": 0.329,
+"proprie": 246,
+"sovrapposizione": 0.358,
 "piu_simile": "43-13/",
 "indicizzata": true
 },
 "43-13/": {
-"proprie": 70,
-"sovrapposizione": 0.606,
+"proprie": 74,
+"sovrapposizione": 0.632,
 "piu_simile": "43-12/",
 "indicizzata": false
 },
 "43-21/": {
-"proprie": 565,
-"sovrapposizione": 0.223,
+"proprie": 586,
+"sovrapposizione": 0.235,
 "piu_simile": "43-24/",
 "indicizzata": true
 },
 "43-22/": {
-"proprie": 510,
-"sovrapposizione": 0.248,
+"proprie": 537,
+"sovrapposizione": 0.264,
 "piu_simile": "43-21/",
 "indicizzata": true
 },
 "43-23/": {
-"proprie": 155,
-"sovrapposizione": 0.471,
+"proprie": 161,
+"sovrapposizione": 0.496,
 "piu_simile": "43-22/",
 "indicizzata": true
 },
 "43-24/": {
-"proprie": 336,
-"sovrapposizione": 0.352,
+"proprie": 347,
+"sovrapposizione": 0.368,
 "piu_simile": "43-21/",
 "indicizzata": true
 },
 "43-31/": {
-"proprie": 165,
-"sovrapposizione": 0.583,
+"proprie": 176,
+"sovrapposizione": 0.601,
 "piu_simile": "43-32/",
-"indicizzata": true
+"indicizzata": false
 },
 "43-32/": {
-"proprie": 327,
-"sovrapposizione": 0.35,
-"piu_simile": "43-33/",
+"proprie": 335,
+"sovrapposizione": 0.368,
+"piu_simile": "43-31/",
 "indicizzata": true
 },
 "43-33/": {
 "proprie": 178,
-"sovrapposizione": 0.547,
+"sovrapposizione": 0.57,
 "piu_simile": "43-32/",
-"indicizzata": true
+"indicizzata": false
 },
 "43-34/": {
-"proprie": 188,
-"sovrapposizione": 0.514,
+"proprie": 193,
+"sovrapposizione": 0.529,
 "piu_simile": "43-32/",
 "indicizzata": true
 },
 "43-35/": {
-"proprie": 158,
-"sovrapposizione": 0.454,
+"proprie": 162,
+"sovrapposizione": 0.467,
 "piu_simile": "43-32/",
 "indicizzata": true
 },
 "43-41/": {
-"proprie": 156,
-"sovrapposizione": 0.5,
+"proprie": 161,
+"sovrapposizione": 0.529,
 "piu_simile": "43-23/",
 "indicizzata": true
 },
 "43-42/": {
 "proprie": 90,
-"sovrapposizione": 0.505,
+"sovrapposizione": 0.523,
 "piu_simile": "43-50/",
 "indicizzata": false
 },
 "43-50/": {
-"proprie": 184,
-"sovrapposizione": 0.393,
+"proprie": 188,
+"sovrapposizione": 0.414,
 "piu_simile": "43-42/",
 "indicizzata": true
 },
 "43-60/": {
 "proprie": 84,
-"sovrapposizione": 0.754,
+"sovrapposizione": 0.767,
 "piu_simile": "96-40/",
 "indicizzata": false
 },
 "43-91/": {
-"proprie": 76,
-"sovrapposizione": 0.636,
-"piu_simile": "43-99/",
+"proprie": 81,
+"sovrapposizione": 0.653,
+"piu_simile": "43-41/",
 "indicizzata": false
 },
 "43-99/": {
-"proprie": 389,
-"sovrapposizione": 0.237,
+"proprie": 396,
+"sovrapposizione": 0.259,
 "piu_simile": "43-22/",
 "indicizzata": true
 },
@@ -2256,290 +2256,290 @@
 "indicizzata": true
 },
 "46-11/": {
-"proprie": 424,
-"sovrapposizione": 0.455,
+"proprie": 428,
+"sovrapposizione": 0.469,
 "piu_simile": "46-17/",
 "indicizzata": true
 },
 "46-12/": {
-"proprie": 462,
-"sovrapposizione": 0.436,
+"proprie": 461,
+"sovrapposizione": 0.454,
 "piu_simile": "46-15/",
 "indicizzata": true
 },
 "46-13/": {
-"proprie": 327,
-"sovrapposizione": 0.522,
+"proprie": 330,
+"sovrapposizione": 0.535,
 "piu_simile": "46-15/",
 "indicizzata": true
 },
 "46-14/": {
 "proprie": 629,
-"sovrapposizione": 0.354,
+"sovrapposizione": 0.371,
 "piu_simile": "46-18/",
 "indicizzata": true
 },
 "46-15/": {
-"proprie": 504,
-"sovrapposizione": 0.418,
+"proprie": 500,
+"sovrapposizione": 0.437,
 "piu_simile": "46-18/",
 "indicizzata": true
 },
 "46-16/": {
-"proprie": 548,
-"sovrapposizione": 0.406,
+"proprie": 552,
+"sovrapposizione": 0.418,
 "piu_simile": "46-15/",
 "indicizzata": true
 },
 "46-17/": {
-"proprie": 667,
-"sovrapposizione": 0.35,
+"proprie": 670,
+"sovrapposizione": 0.362,
 "piu_simile": "46-16/",
 "indicizzata": true
 },
 "46-18/": {
-"proprie": 2113,
-"sovrapposizione": 0.158,
+"proprie": 2171,
+"sovrapposizione": 0.164,
 "piu_simile": "46-15/",
 "indicizzata": true
 },
 "46-19/": {
 "proprie": 153,
-"sovrapposizione": 0.659,
+"sovrapposizione": 0.675,
 "piu_simile": "46-18/",
 "indicizzata": false
 },
 "46-21/": {
-"proprie": 183,
-"sovrapposizione": 0.367,
-"piu_simile": "46-22/",
+"proprie": 200,
+"sovrapposizione": 0.383,
+"piu_simile": "46-46/",
 "indicizzata": true
 },
 "46-22/": {
-"proprie": 52,
-"sovrapposizione": 0.689,
+"proprie": 56,
+"sovrapposizione": 0.694,
 "piu_simile": "46-21/",
 "indicizzata": false
 },
 "46-23/": {
-"proprie": 46,
-"sovrapposizione": 0.732,
+"proprie": 50,
+"sovrapposizione": 0.747,
 "piu_simile": "46-22/",
 "indicizzata": false
 },
 "46-24/": {
-"proprie": 152,
-"sovrapposizione": 0.421,
-"piu_simile": "46-23/",
+"proprie": 164,
+"sovrapposizione": 0.446,
+"piu_simile": "46-21/",
 "indicizzata": true
 },
 "46-31/": {
-"proprie": 129,
-"sovrapposizione": 0.584,
+"proprie": 136,
+"sovrapposizione": 0.6,
 "piu_simile": "46-32/",
-"indicizzata": true
+"indicizzata": false
 },
 "46-32/": {
-"proprie": 321,
-"sovrapposizione": 0.371,
+"proprie": 350,
+"sovrapposizione": 0.372,
 "piu_simile": "46-38/",
 "indicizzata": true
 },
 "46-33/": {
-"proprie": 145,
-"sovrapposizione": 0.576,
+"proprie": 153,
+"sovrapposizione": 0.581,
 "piu_simile": "46-35/",
-"indicizzata": true
+"indicizzata": false
 },
 "46-34/": {
-"proprie": 166,
-"sovrapposizione": 0.491,
+"proprie": 175,
+"sovrapposizione": 0.511,
 "piu_simile": "46-31/",
 "indicizzata": true
 },
 "46-35/": {
-"proprie": 122,
-"sovrapposizione": 0.551,
+"proprie": 129,
+"sovrapposizione": 0.561,
 "piu_simile": "46-33/",
-"indicizzata": true
+"indicizzata": false
 },
 "46-36/": {
-"proprie": 73,
-"sovrapposizione": 0.651,
+"proprie": 76,
+"sovrapposizione": 0.666,
 "piu_simile": "46-33/",
 "indicizzata": false
 },
 "46-37/": {
-"proprie": 149,
-"sovrapposizione": 0.538,
+"proprie": 163,
+"sovrapposizione": 0.548,
 "piu_simile": "46-34/",
 "indicizzata": true
 },
 "46-38/": {
-"proprie": 156,
-"sovrapposizione": 0.512,
+"proprie": 163,
+"sovrapposizione": 0.521,
 "piu_simile": "46-32/",
 "indicizzata": true
 },
 "46-39/": {
-"proprie": 142,
-"sovrapposizione": 0.59,
+"proprie": 150,
+"sovrapposizione": 0.604,
 "piu_simile": "46-38/",
-"indicizzata": true
+"indicizzata": false
 },
 "46-41/": {
-"proprie": 139,
-"sovrapposizione": 0.527,
+"proprie": 149,
+"sovrapposizione": 0.54,
 "piu_simile": "46-47/",
-"indicizzata": true
+"indicizzata": false
 },
 "46-42/": {
-"proprie": 233,
-"sovrapposizione": 0.508,
+"proprie": 247,
+"sovrapposizione": 0.518,
 "piu_simile": "46-49/",
 "indicizzata": true
 },
 "46-43/": {
-"proprie": 225,
-"sovrapposizione": 0.454,
+"proprie": 234,
+"sovrapposizione": 0.471,
 "piu_simile": "46-46/",
 "indicizzata": true
 },
 "46-44/": {
-"proprie": 191,
-"sovrapposizione": 0.509,
+"proprie": 208,
+"sovrapposizione": 0.52,
 "piu_simile": "46-49/",
 "indicizzata": true
 },
 "46-45/": {
-"proprie": 51,
-"sovrapposizione": 0.768,
+"proprie": 55,
+"sovrapposizione": 0.776,
 "piu_simile": "46-48/",
 "indicizzata": false
 },
 "46-46/": {
-"proprie": 256,
-"sovrapposizione": 0.443,
+"proprie": 279,
+"sovrapposizione": 0.45,
 "piu_simile": "46-43/",
 "indicizzata": true
 },
 "46-47/": {
-"proprie": 190,
-"sovrapposizione": 0.546,
+"proprie": 206,
+"sovrapposizione": 0.552,
 "piu_simile": "46-46/",
-"indicizzata": true
+"indicizzata": false
 },
 "46-48/": {
-"proprie": 65,
-"sovrapposizione": 0.619,
+"proprie": 70,
+"sovrapposizione": 0.633,
 "piu_simile": "46-49/",
 "indicizzata": false
 },
 "46-49/": {
-"proprie": 691,
-"sovrapposizione": 0.231,
+"proprie": 748,
+"sovrapposizione": 0.234,
 "piu_simile": "46-42/",
 "indicizzata": true
 },
 "46-50/": {
-"proprie": 257,
-"sovrapposizione": 0.365,
+"proprie": 276,
+"sovrapposizione": 0.387,
 "piu_simile": "46-64/",
 "indicizzata": true
 },
 "46-61/": {
-"proprie": 80,
-"sovrapposizione": 0.542,
+"proprie": 84,
+"sovrapposizione": 0.57,
 "piu_simile": "46-63/",
 "indicizzata": false
 },
 "46-62/": {
-"proprie": 62,
-"sovrapposizione": 0.71,
+"proprie": 66,
+"sovrapposizione": 0.727,
 "piu_simile": "46-61/",
 "indicizzata": false
 },
 "46-63/": {
-"proprie": 62,
-"sovrapposizione": 0.584,
+"proprie": 66,
+"sovrapposizione": 0.601,
 "piu_simile": "46-64/",
 "indicizzata": false
 },
 "46-64/": {
-"proprie": 959,
-"sovrapposizione": 0.175,
+"proprie": 1014,
+"sovrapposizione": 0.185,
 "piu_simile": "46-49/",
 "indicizzata": true
 },
 "46-71/": {
-"proprie": 137,
-"sovrapposizione": 0.487,
+"proprie": 140,
+"sovrapposizione": 0.507,
 "piu_simile": "47-81/",
-"indicizzata": true
+"indicizzata": false
 },
 "46-72/": {
-"proprie": 58,
-"sovrapposizione": 0.536,
+"proprie": 63,
+"sovrapposizione": 0.557,
 "piu_simile": "46-71/",
 "indicizzata": false
 },
 "46-73/": {
-"proprie": 85,
-"sovrapposizione": 0.57,
+"proprie": 84,
+"sovrapposizione": 0.607,
 "piu_simile": "47-83/",
 "indicizzata": false
 },
 "46-81/": {
-"proprie": 150,
-"sovrapposizione": 0.515,
+"proprie": 154,
+"sovrapposizione": 0.531,
 "piu_simile": "46-85/",
 "indicizzata": true
 },
 "46-82/": {
-"proprie": 288,
-"sovrapposizione": 0.414,
+"proprie": 310,
+"sovrapposizione": 0.421,
 "piu_simile": "46-86/",
 "indicizzata": true
 },
 "46-83/": {
-"proprie": 487,
-"sovrapposizione": 0.261,
-"piu_simile": "46-85/",
+"proprie": 525,
+"sovrapposizione": 0.271,
+"piu_simile": "46-82/",
 "indicizzata": true
 },
 "46-84/": {
-"proprie": 186,
-"sovrapposizione": 0.447,
+"proprie": 195,
+"sovrapposizione": 0.469,
 "piu_simile": "46-87/",
 "indicizzata": true
 },
 "46-85/": {
-"proprie": 206,
-"sovrapposizione": 0.419,
+"proprie": 219,
+"sovrapposizione": 0.438,
 "piu_simile": "46-82/",
 "indicizzata": true
 },
 "46-86/": {
-"proprie": 211,
-"sovrapposizione": 0.441,
+"proprie": 228,
+"sovrapposizione": 0.454,
 "piu_simile": "46-82/",
 "indicizzata": true
 },
 "46-87/": {
-"proprie": 252,
-"sovrapposizione": 0.348,
+"proprie": 261,
+"sovrapposizione": 0.37,
 "piu_simile": "46-82/",
 "indicizzata": true
 },
 "46-89/": {
 "proprie": 103,
-"sovrapposizione": 0.579,
+"sovrapposizione": 0.581,
 "piu_simile": "46-81/",
 "indicizzata": false
 },
 "46-90/": {
-"proprie": 69,
-"sovrapposizione": 0.531,
+"proprie": 75,
+"sovrapposizione": 0.572,
 "piu_simile": "46-22/",
 "indicizzata": false
 },
@@ -2550,285 +2550,285 @@
 "indicizzata": true
 },
 "47-11/": {
-"proprie": 393,
-"sovrapposizione": 0.38,
+"proprie": 416,
+"sovrapposizione": 0.369,
 "piu_simile": "47-12/",
 "indicizzata": true
 },
 "47-12/": {
-"proprie": 764,
-"sovrapposizione": 0.281,
+"proprie": 757,
+"sovrapposizione": 0.296,
 "piu_simile": "47-79/",
 "indicizzata": true
 },
 "47-21/": {
-"proprie": 172,
-"sovrapposizione": 0.615,
+"proprie": 185,
+"sovrapposizione": 0.627,
 "piu_simile": "47-24/",
 "indicizzata": false
 },
 "47-22/": {
-"proprie": 112,
-"sovrapposizione": 0.742,
+"proprie": 123,
+"sovrapposizione": 0.745,
 "piu_simile": "47-23/",
 "indicizzata": false
 },
 "47-23/": {
-"proprie": 107,
-"sovrapposizione": 0.762,
+"proprie": 114,
+"sovrapposizione": 0.769,
 "piu_simile": "47-22/",
 "indicizzata": false
 },
 "47-24/": {
-"proprie": 247,
-"sovrapposizione": 0.576,
+"proprie": 253,
+"sovrapposizione": 0.59,
 "piu_simile": "47-23/",
-"indicizzata": true
+"indicizzata": false
 },
 "47-25/": {
-"proprie": 96,
-"sovrapposizione": 0.732,
+"proprie": 102,
+"sovrapposizione": 0.745,
 "piu_simile": "47-24/",
 "indicizzata": false
 },
 "47-26/": {
-"proprie": 272,
-"sovrapposizione": 0.48,
+"proprie": 279,
+"sovrapposizione": 0.487,
 "piu_simile": "47-27/",
 "indicizzata": true
 },
 "47-27/": {
-"proprie": 393,
-"sovrapposizione": 0.404,
+"proprie": 411,
+"sovrapposizione": 0.423,
 "piu_simile": "47-24/",
 "indicizzata": true
 },
 "47-30/": {
-"proprie": 128,
-"sovrapposizione": 0.385,
+"proprie": 133,
+"sovrapposizione": 0.415,
 "piu_simile": "47-82/",
-"indicizzata": true
+"indicizzata": false
 },
 "47-40/": {
 "proprie": 409,
-"sovrapposizione": 0.336,
+"sovrapposizione": 0.354,
 "piu_simile": "47-55/",
 "indicizzata": true
 },
 "47-51/": {
 "proprie": 180,
-"sovrapposizione": 0.573,
+"sovrapposizione": 0.59,
 "piu_simile": "47-55/",
-"indicizzata": true
+"indicizzata": false
 },
 "47-52/": {
-"proprie": 542,
-"sovrapposizione": 0.371,
+"proprie": 546,
+"sovrapposizione": 0.382,
 "piu_simile": "47-55/",
 "indicizzata": true
 },
 "47-53/": {
-"proprie": 267,
-"sovrapposizione": 0.543,
+"proprie": 275,
+"sovrapposizione": 0.557,
 "piu_simile": "47-52/",
-"indicizzata": true
+"indicizzata": false
 },
 "47-54/": {
 "proprie": 92,
-"sovrapposizione": 0.677,
+"sovrapposizione": 0.693,
 "piu_simile": "47-55/",
 "indicizzata": false
 },
 "47-55/": {
-"proprie": 483,
-"sovrapposizione": 0.368,
+"proprie": 479,
+"sovrapposizione": 0.384,
 "piu_simile": "47-52/",
 "indicizzata": true
 },
 "47-61/": {
 "proprie": 92,
-"sovrapposizione": 0.653,
+"sovrapposizione": 0.669,
 "piu_simile": "47-69/",
 "indicizzata": false
 },
 "47-62/": {
 "proprie": 195,
-"sovrapposizione": 0.54,
+"sovrapposizione": 0.558,
 "piu_simile": "47-61/",
-"indicizzata": true
+"indicizzata": false
 },
 "47-63/": {
-"proprie": 353,
-"sovrapposizione": 0.357,
+"proprie": 363,
+"sovrapposizione": 0.37,
 "piu_simile": "47-78/",
 "indicizzata": true
 },
 "47-64/": {
 "proprie": 123,
-"sovrapposizione": 0.577,
+"sovrapposizione": 0.594,
 "piu_simile": "47-63/",
-"indicizzata": true
+"indicizzata": false
 },
 "47-69/": {
-"proprie": 589,
-"sovrapposizione": 0.319,
+"proprie": 608,
+"sovrapposizione": 0.325,
 "piu_simile": "47-78/",
 "indicizzata": true
 },
 "47-71/": {
 "proprie": 327,
-"sovrapposizione": 0.469,
+"sovrapposizione": 0.484,
 "piu_simile": "47-72/",
 "indicizzata": true
 },
 "47-72/": {
-"proprie": 223,
-"sovrapposizione": 0.57,
+"proprie": 227,
+"sovrapposizione": 0.58,
 "piu_simile": "47-71/",
-"indicizzata": true
+"indicizzata": false
 },
 "47-73/": {
-"proprie": 357,
-"sovrapposizione": 0.446,
+"proprie": 366,
+"sovrapposizione": 0.449,
 "piu_simile": "47-78/",
 "indicizzata": true
 },
 "47-74/": {
-"proprie": 253,
-"sovrapposizione": 0.559,
+"proprie": 255,
+"sovrapposizione": 0.575,
 "piu_simile": "47-78/",
-"indicizzata": true
+"indicizzata": false
 },
 "47-75/": {
 "proprie": 87,
-"sovrapposizione": 0.65,
+"sovrapposizione": 0.665,
 "piu_simile": "47-76/",
 "indicizzata": false
 },
 "47-76/": {
 "proprie": 224,
-"sovrapposizione": 0.556,
+"sovrapposizione": 0.578,
 "piu_simile": "47-78/",
-"indicizzata": true
+"indicizzata": false
 },
 "47-77/": {
 "proprie": 74,
-"sovrapposizione": 0.776,
+"sovrapposizione": 0.788,
 "piu_simile": "47-79/",
 "indicizzata": false
 },
 "47-78/": {
-"proprie": 857,
-"sovrapposizione": 0.262,
+"proprie": 869,
+"sovrapposizione": 0.271,
 "piu_simile": "47-79/",
 "indicizzata": true
 },
 "47-79/": {
-"proprie": 419,
-"sovrapposizione": 0.358,
-"piu_simile": "47-78/",
+"proprie": 426,
+"sovrapposizione": 0.373,
+"piu_simile": "47-12/",
 "indicizzata": true
 },
 "47-81/": {
-"proprie": 139,
-"sovrapposizione": 0.489,
+"proprie": 143,
+"sovrapposizione": 0.513,
 "piu_simile": "46-71/",
-"indicizzata": true
+"indicizzata": false
 },
 "47-82/": {
-"proprie": 62,
-"sovrapposizione": 0.592,
+"proprie": 66,
+"sovrapposizione": 0.605,
 "piu_simile": "47-83/",
 "indicizzata": false
 },
 "47-83/": {
 "proprie": 113,
-"sovrapposizione": 0.501,
+"sovrapposizione": 0.539,
 "piu_simile": "46-73/",
 "indicizzata": false
 },
 "47-91/": {
-"proprie": 208,
-"sovrapposizione": 0.59,
+"proprie": 196,
+"sovrapposizione": 0.604,
 "piu_simile": "47-92/",
-"indicizzata": true
+"indicizzata": false
 },
 "47-92/": {
-"proprie": 973,
-"sovrapposizione": 0.192,
+"proprie": 1071,
+"sovrapposizione": 0.191,
 "piu_simile": "47-91/",
 "indicizzata": true
 },
 "47/": {
-"proprie": 1114,
-"sovrapposizione": 0.151,
+"proprie": 1104,
+"sovrapposizione": 0.165,
 "piu_simile": "47-92/",
 "indicizzata": true
 },
 "49-11/": {
-"proprie": 90,
-"sovrapposizione": 0.587,
+"proprie": 94,
+"sovrapposizione": 0.59,
 "piu_simile": "49-12/",
 "indicizzata": false
 },
 "49-12/": {
-"proprie": 95,
-"sovrapposizione": 0.573,
+"proprie": 104,
+"sovrapposizione": 0.568,
 "piu_simile": "49-11/",
 "indicizzata": false
 },
 "49-20/": {
-"proprie": 94,
-"sovrapposizione": 0.51,
+"proprie": 98,
+"sovrapposizione": 0.544,
 "piu_simile": "49-41/",
 "indicizzata": false
 },
 "49-31/": {
-"proprie": 204,
-"sovrapposizione": 0.517,
+"proprie": 212,
+"sovrapposizione": 0.522,
 "piu_simile": "49-32/",
 "indicizzata": true
 },
 "49-32/": {
-"proprie": 168,
-"sovrapposizione": 0.606,
+"proprie": 171,
+"sovrapposizione": 0.608,
 "piu_simile": "49-31/",
 "indicizzata": false
 },
 "49-33/": {
-"proprie": 180,
-"sovrapposizione": 0.451,
+"proprie": 187,
+"sovrapposizione": 0.465,
 "piu_simile": "49-32/",
 "indicizzata": true
 },
 "49-34/": {
-"proprie": 139,
-"sovrapposizione": 0.457,
+"proprie": 137,
+"sovrapposizione": 0.458,
 "piu_simile": "49-31/",
-"indicizzata": true
+"indicizzata": false
 },
 "49-39/": {
 "proprie": 84,
-"sovrapposizione": 0.573,
+"sovrapposizione": 0.612,
 "piu_simile": "49-32/",
 "indicizzata": false
 },
 "49-41/": {
-"proprie": 273,
-"sovrapposizione": 0.273,
+"proprie": 277,
+"sovrapposizione": 0.303,
 "piu_simile": "49-42/",
 "indicizzata": true
 },
 "49-42/": {
-"proprie": 101,
-"sovrapposizione": 0.575,
+"proprie": 105,
+"sovrapposizione": 0.604,
 "piu_simile": "49-41/",
 "indicizzata": false
 },
 "49-50/": {
-"proprie": 214,
-"sovrapposizione": 0.292,
-"piu_simile": "36-00/",
+"proprie": 222,
+"sovrapposizione": 0.324,
+"piu_simile": "49-33/",
 "indicizzata": true
 },
 "49/": {
@@ -2838,26 +2838,26 @@
 "indicizzata": true
 },
 "50-10/": {
-"proprie": 84,
-"sovrapposizione": 0.7,
+"proprie": 88,
+"sovrapposizione": 0.709,
 "piu_simile": "50-30/",
 "indicizzata": false
 },
 "50-20/": {
-"proprie": 81,
-"sovrapposizione": 0.583,
+"proprie": 85,
+"sovrapposizione": 0.607,
 "piu_simile": "50-40/",
 "indicizzata": false
 },
 "50-30/": {
-"proprie": 85,
-"sovrapposizione": 0.745,
+"proprie": 89,
+"sovrapposizione": 0.752,
 "piu_simile": "50-10/",
 "indicizzata": false
 },
 "50-40/": {
-"proprie": 71,
-"sovrapposizione": 0.647,
+"proprie": 75,
+"sovrapposizione": 0.668,
 "piu_simile": "50-20/",
 "indicizzata": false
 },
@@ -2868,20 +2868,20 @@
 "indicizzata": true
 },
 "51-10/": {
-"proprie": 130,
-"sovrapposizione": 0.411,
+"proprie": 137,
+"sovrapposizione": 0.439,
 "piu_simile": "51-21/",
-"indicizzata": true
+"indicizzata": false
 },
 "51-21/": {
-"proprie": 64,
-"sovrapposizione": 0.652,
+"proprie": 68,
+"sovrapposizione": 0.674,
 "piu_simile": "51-22/",
 "indicizzata": false
 },
 "51-22/": {
-"proprie": 57,
-"sovrapposizione": 0.722,
+"proprie": 61,
+"sovrapposizione": 0.738,
 "piu_simile": "51-21/",
 "indicizzata": false
 },
@@ -2892,56 +2892,56 @@
 "indicizzata": false
 },
 "52-10/": {
-"proprie": 233,
-"sovrapposizione": 0.338,
+"proprie": 234,
+"sovrapposizione": 0.369,
 "piu_simile": "52-21/",
 "indicizzata": true
 },
 "52-21/": {
-"proprie": 398,
-"sovrapposizione": 0.331,
+"proprie": 425,
+"sovrapposizione": 0.339,
 "piu_simile": "52-22/",
 "indicizzata": true
 },
 "52-22/": {
-"proprie": 282,
-"sovrapposizione": 0.382,
+"proprie": 298,
+"sovrapposizione": 0.393,
 "piu_simile": "52-21/",
 "indicizzata": true
 },
 "52-23/": {
-"proprie": 109,
-"sovrapposizione": 0.527,
+"proprie": 113,
+"sovrapposizione": 0.542,
 "piu_simile": "52-22/",
 "indicizzata": false
 },
 "52-24/": {
-"proprie": 319,
-"sovrapposizione": 0.363,
+"proprie": 338,
+"sovrapposizione": 0.377,
 "piu_simile": "52-22/",
 "indicizzata": true
 },
 "52-25/": {
-"proprie": 260,
-"sovrapposizione": 0.436,
+"proprie": 276,
+"sovrapposizione": 0.445,
 "piu_simile": "52-26/",
 "indicizzata": true
 },
 "52-26/": {
-"proprie": 271,
-"sovrapposizione": 0.425,
+"proprie": 280,
+"sovrapposizione": 0.44,
 "piu_simile": "52-25/",
 "indicizzata": true
 },
 "52-31/": {
 "proprie": 164,
-"sovrapposizione": 0.612,
+"sovrapposizione": 0.63,
 "piu_simile": "52-32/",
 "indicizzata": false
 },
 "52-32/": {
-"proprie": 279,
-"sovrapposizione": 0.512,
+"proprie": 275,
+"sovrapposizione": 0.524,
 "piu_simile": "52-31/",
 "indicizzata": true
 },
@@ -2952,20 +2952,20 @@
 "indicizzata": true
 },
 "53-10/": {
-"proprie": 173,
-"sovrapposizione": 0.436,
+"proprie": 178,
+"sovrapposizione": 0.45,
 "piu_simile": "53-20/",
 "indicizzata": true
 },
 "53-20/": {
-"proprie": 189,
-"sovrapposizione": 0.313,
+"proprie": 196,
+"sovrapposizione": 0.329,
 "piu_simile": "53-10/",
 "indicizzata": true
 },
 "53-30/": {
 "proprie": 142,
-"sovrapposizione": 0.613,
+"sovrapposizione": 0.63,
 "piu_simile": "56-40/",
 "indicizzata": false
 },
@@ -2976,74 +2976,74 @@
 "indicizzata": false
 },
 "55-10/": {
-"proprie": 236,
-"sovrapposizione": 0.375,
+"proprie": 243,
+"sovrapposizione": 0.4,
 "piu_simile": "55-20/",
 "indicizzata": true
 },
 "55-20/": {
-"proprie": 516,
-"sovrapposizione": 0.225,
+"proprie": 580,
+"sovrapposizione": 0.229,
 "piu_simile": "55-10/",
 "indicizzata": true
 },
 "55-30/": {
-"proprie": 466,
-"sovrapposizione": 0.244,
+"proprie": 478,
+"sovrapposizione": 0.271,
 "piu_simile": "55-20/",
 "indicizzata": true
 },
 "55-40/": {
 "proprie": 126,
-"sovrapposizione": 0.566,
+"sovrapposizione": 0.607,
 "piu_simile": "52-32/",
-"indicizzata": true
+"indicizzata": false
 },
 "55-90/": {
-"proprie": 215,
-"sovrapposizione": 0.31,
-"piu_simile": "55-10/",
+"proprie": 214,
+"sovrapposizione": 0.336,
+"piu_simile": "68-20/",
 "indicizzata": true
 },
 "55/": {
 "proprie": 181,
-"sovrapposizione": 0.279,
+"sovrapposizione": 0.278,
 "piu_simile": "55-20/",
 "indicizzata": true
 },
 "56-11/": {
-"proprie": 848,
-"sovrapposizione": 0.158,
+"proprie": 891,
+"sovrapposizione": 0.167,
 "piu_simile": "56-12/",
 "indicizzata": true
 },
 "56-12/": {
-"proprie": 307,
-"sovrapposizione": 0.355,
+"proprie": 323,
+"sovrapposizione": 0.376,
 "piu_simile": "56-11/",
 "indicizzata": true
 },
 "56-21/": {
-"proprie": 285,
-"sovrapposizione": 0.356,
+"proprie": 296,
+"sovrapposizione": 0.37,
 "piu_simile": "56-22/",
 "indicizzata": true
 },
 "56-22/": {
-"proprie": 199,
-"sovrapposizione": 0.418,
+"proprie": 213,
+"sovrapposizione": 0.426,
 "piu_simile": "56-21/",
 "indicizzata": true
 },
 "56-30/": {
-"proprie": 402,
-"sovrapposizione": 0.26,
+"proprie": 410,
+"sovrapposizione": 0.282,
 "piu_simile": "56-11/",
 "indicizzata": true
 },
 "56-40/": {
 "proprie": 102,
-"sovrapposizione": 0.659,
+"sovrapposizione": 0.675,
 "piu_simile": "53-30/",
 "indicizzata": false
 },
@@ -3054,40 +3054,40 @@
 "indicizzata": true
 },
 "58-11/": {
-"proprie": 129,
-"sovrapposizione": 0.509,
+"proprie": 133,
+"sovrapposizione": 0.535,
 "piu_simile": "58-12/",
-"indicizzata": true
+"indicizzata": false
 },
 "58-12/": {
-"proprie": 152,
-"sovrapposizione": 0.597,
+"proprie": 156,
+"sovrapposizione": 0.615,
 "piu_simile": "58-13/",
-"indicizzata": true
+"indicizzata": false
 },
 "58-13/": {
-"proprie": 130,
-"sovrapposizione": 0.643,
+"proprie": 134,
+"sovrapposizione": 0.659,
 "piu_simile": "58-12/",
 "indicizzata": false
 },
 "58-19/": {
-"proprie": 239,
-"sovrapposizione": 0.287,
+"proprie": 250,
+"sovrapposizione": 0.304,
 "piu_simile": "58-12/",
 "indicizzata": true
 },
 "58-21/": {
 "proprie": 144,
-"sovrapposizione": 0.576,
+"sovrapposizione": 0.594,
 "piu_simile": "58-29/",
-"indicizzata": true
+"indicizzata": false
 },
 "58-29/": {
 "proprie": 184,
-"sovrapposizione": 0.562,
+"sovrapposizione": 0.58,
 "piu_simile": "58-21/",
-"indicizzata": true
+"indicizzata": false
 },
 "58/": {
 "proprie": 271,
@@ -3096,32 +3096,32 @@
 "indicizzata": true
 },
 "59-11/": {
-"proprie": 199,
-"sovrapposizione": 0.44,
+"proprie": 203,
+"sovrapposizione": 0.458,
 "piu_simile": "59-12/",
 "indicizzata": true
 },
 "59-12/": {
-"proprie": 162,
-"sovrapposizione": 0.562,
+"proprie": 166,
+"sovrapposizione": 0.578,
 "piu_simile": "59-11/",
-"indicizzata": true
+"indicizzata": false
 },
 "59-13/": {
-"proprie": 96,
-"sovrapposizione": 0.624,
+"proprie": 100,
+"sovrapposizione": 0.64,
 "piu_simile": "59-11/",
 "indicizzata": false
 },
 "59-14/": {
-"proprie": 77,
-"sovrapposizione": 0.686,
+"proprie": 81,
+"sovrapposizione": 0.704,
 "piu_simile": "59-12/",
 "indicizzata": false
 },
 "59-20/": {
-"proprie": 337,
-"sovrapposizione": 0.264,
+"proprie": 343,
+"sovrapposizione": 0.283,
 "piu_simile": "59-13/",
 "indicizzata": true
 },
@@ -3132,26 +3132,26 @@
 "indicizzata": true
 },
 "60-10/": {
-"proprie": 201,
-"sovrapposizione": 0.358,
+"proprie": 206,
+"sovrapposizione": 0.388,
 "piu_simile": "60-31/",
 "indicizzata": true
 },
 "60-20/": {
-"proprie": 308,
-"sovrapposizione": 0.263,
-"piu_simile": "58-21/",
+"proprie": 317,
+"sovrapposizione": 0.283,
+"piu_simile": "63-10/",
 "indicizzata": true
 },
 "60-31/": {
-"proprie": 104,
-"sovrapposizione": 0.493,
+"proprie": 108,
+"sovrapposizione": 0.522,
 "piu_simile": "60-10/",
 "indicizzata": false
 },
 "60-39/": {
 "proprie": 251,
-"sovrapposizione": 0.309,
+"sovrapposizione": 0.332,
 "piu_simile": "58-21/",
 "indicizzata": true
 },
@@ -3162,21 +3162,21 @@
 "indicizzata": true
 },
 "61-10/": {
-"proprie": 415,
-"sovrapposizione": 0.237,
+"proprie": 434,
+"sovrapposizione": 0.258,
 "piu_simile": "61-90/",
 "indicizzata": true
 },
 "61-20/": {
-"proprie": 246,
-"sovrapposizione": 0.402,
+"proprie": 241,
+"sovrapposizione": 0.429,
 "piu_simile": "82-40/",
 "indicizzata": true
 },
 "61-90/": {
-"proprie": 302,
-"sovrapposizione": 0.316,
-"piu_simile": "61-20/",
+"proprie": 316,
+"sovrapposizione": 0.329,
+"piu_simile": "61-10/",
 "indicizzata": true
 },
 "61/": {
@@ -3186,20 +3186,20 @@
 "indicizzata": true
 },
 "62-10/": {
-"proprie": 270,
-"sovrapposizione": 0.258,
+"proprie": 274,
+"sovrapposizione": 0.284,
 "piu_simile": "62-20/",
 "indicizzata": true
 },
 "62-20/": {
-"proprie": 266,
-"sovrapposizione": 0.304,
+"proprie": 274,
+"sovrapposizione": 0.331,
 "piu_simile": "62-90/",
 "indicizzata": true
 },
 "62-90/": {
-"proprie": 193,
-"sovrapposizione": 0.385,
+"proprie": 201,
+"sovrapposizione": 0.41,
 "piu_simile": "62-20/",
 "indicizzata": true
 },
@@ -3210,20 +3210,20 @@
 "indicizzata": true
 },
 "63-10/": {
-"proprie": 703,
-"sovrapposizione": 0.145,
+"proprie": 726,
+"sovrapposizione": 0.162,
 "piu_simile": "60-20/",
 "indicizzata": true
 },
 "63-91/": {
-"proprie": 124,
-"sovrapposizione": 0.704,
+"proprie": 128,
+"sovrapposizione": 0.713,
 "piu_simile": "63-92/",
 "indicizzata": false
 },
 "63-92/": {
-"proprie": 63,
-"sovrapposizione": 0.768,
+"proprie": 65,
+"sovrapposizione": 0.773,
 "piu_simile": "63-91/",
 "indicizzata": false
 },
@@ -3234,86 +3234,86 @@
 "indicizzata": true
 },
 "64-11/": {
-"proprie": 147,
-"sovrapposizione": 0.42,
+"proprie": 151,
+"sovrapposizione": 0.44,
 "piu_simile": "66-11/",
 "indicizzata": true
 },
 "64-19/": {
-"proprie": 317,
-"sovrapposizione": 0.328,
+"proprie": 330,
+"sovrapposizione": 0.355,
 "piu_simile": "64-92/",
 "indicizzata": true
 },
 "64-21/": {
-"proprie": 140,
-"sovrapposizione": 0.421,
+"proprie": 144,
+"sovrapposizione": 0.435,
+"piu_simile": "64-32/",
+"indicizzata": false
+},
+"64-22/": {
+"proprie": 187,
+"sovrapposizione": 0.438,
 "piu_simile": "64-32/",
 "indicizzata": true
 },
-"64-22/": {
-"proprie": 184,
-"sovrapposizione": 0.414,
-"piu_simile": "64-21/",
-"indicizzata": true
-},
 "64-31/": {
-"proprie": 159,
-"sovrapposizione": 0.532,
+"proprie": 167,
+"sovrapposizione": 0.548,
 "piu_simile": "64-32/",
 "indicizzata": true
 },
 "64-32/": {
-"proprie": 160,
-"sovrapposizione": 0.507,
+"proprie": 166,
+"sovrapposizione": 0.522,
 "piu_simile": "64-31/",
 "indicizzata": true
 },
 "64-91/": {
-"proprie": 168,
-"sovrapposizione": 0.457,
+"proprie": 172,
+"sovrapposizione": 0.48,
 "piu_simile": "64-92/",
 "indicizzata": true
 },
 "64-92/": {
-"proprie": 356,
-"sovrapposizione": 0.286,
+"proprie": 380,
+"sovrapposizione": 0.299,
 "piu_simile": "64-99/",
 "indicizzata": true
 },
 "64-99/": {
-"proprie": 282,
-"sovrapposizione": 0.309,
+"proprie": 293,
+"sovrapposizione": 0.33,
 "piu_simile": "64-92/",
 "indicizzata": true
 },
 "64/": {
 "proprie": 448,
-"sovrapposizione": 0.191,
+"sovrapposizione": 0.19,
 "piu_simile": "64-32/",
 "indicizzata": true
 },
 "65-11/": {
-"proprie": 119,
-"sovrapposizione": 0.54,
+"proprie": 123,
+"sovrapposizione": 0.573,
 "piu_simile": "65-12/",
 "indicizzata": false
 },
 "65-12/": {
-"proprie": 134,
-"sovrapposizione": 0.459,
+"proprie": 138,
+"sovrapposizione": 0.495,
 "piu_simile": "65-11/",
-"indicizzata": true
+"indicizzata": false
 },
 "65-20/": {
-"proprie": 71,
-"sovrapposizione": 0.654,
+"proprie": 75,
+"sovrapposizione": 0.682,
 "piu_simile": "65-11/",
 "indicizzata": false
 },
 "65-30/": {
-"proprie": 142,
-"sovrapposizione": 0.424,
+"proprie": 154,
+"sovrapposizione": 0.434,
 "piu_simile": "65-12/",
 "indicizzata": true
 },
@@ -3324,44 +3324,44 @@
 "indicizzata": true
 },
 "66-11/": {
-"proprie": 138,
-"sovrapposizione": 0.475,
+"proprie": 142,
+"sovrapposizione": 0.5,
 "piu_simile": "66-19/",
-"indicizzata": true
+"indicizzata": false
 },
 "66-12/": {
-"proprie": 233,
-"sovrapposizione": 0.399,
+"proprie": 237,
+"sovrapposizione": 0.427,
 "piu_simile": "66-19/",
 "indicizzata": true
 },
 "66-19/": {
-"proprie": 494,
-"sovrapposizione": 0.273,
+"proprie": 516,
+"sovrapposizione": 0.288,
 "piu_simile": "66-11/",
 "indicizzata": true
 },
 "66-21/": {
-"proprie": 107,
-"sovrapposizione": 0.522,
+"proprie": 111,
+"sovrapposizione": 0.531,
 "piu_simile": "66-22/",
 "indicizzata": false
 },
 "66-22/": {
-"proprie": 142,
-"sovrapposizione": 0.479,
+"proprie": 156,
+"sovrapposizione": 0.48,
 "piu_simile": "66-21/",
 "indicizzata": true
 },
 "66-29/": {
-"proprie": 192,
-"sovrapposizione": 0.355,
+"proprie": 202,
+"sovrapposizione": 0.374,
 "piu_simile": "66-21/",
 "indicizzata": true
 },
 "66-30/": {
-"proprie": 371,
-"sovrapposizione": 0.287,
+"proprie": 392,
+"sovrapposizione": 0.312,
 "piu_simile": "66-19/",
 "indicizzata": true
 },
@@ -3372,32 +3372,32 @@
 "indicizzata": true
 },
 "68-11/": {
-"proprie": 101,
-"sovrapposizione": 0.468,
+"proprie": 105,
+"sovrapposizione": 0.481,
 "piu_simile": "68-12/",
 "indicizzata": false
 },
 "68-12/": {
-"proprie": 191,
-"sovrapposizione": 0.354,
+"proprie": 200,
+"sovrapposizione": 0.378,
 "piu_simile": "42-99/",
 "indicizzata": true
 },
 "68-20/": {
-"proprie": 568,
-"sovrapposizione": 0.18,
+"proprie": 576,
+"sovrapposizione": 0.194,
 "piu_simile": "68-12/",
 "indicizzata": true
 },
 "68-31/": {
 "proprie": 197,
-"sovrapposizione": 0.525,
+"sovrapposizione": 0.544,
 "piu_simile": "52-31/",
 "indicizzata": true
 },
 "68-32/": {
-"proprie": 242,
-"sovrapposizione": 0.302,
+"proprie": 255,
+"sovrapposizione": 0.301,
 "piu_simile": "68-31/",
 "indicizzata": true
 },
@@ -3408,32 +3408,32 @@
 "indicizzata": false
 },
 "69-10/": {
-"proprie": 317,
-"sovrapposizione": 0.256,
+"proprie": 325,
+"sovrapposizione": 0.283,
 "piu_simile": "74-99/",
 "indicizzata": true
 },
 "69-20/": {
-"proprie": 552,
-"sovrapposizione": 0.195,
+"proprie": 585,
+"sovrapposizione": 0.208,
 "piu_simile": "70-20/",
 "indicizzata": true
 },
 "69/": {
 "proprie": 173,
-"sovrapposizione": 0.363,
+"sovrapposizione": 0.36,
 "piu_simile": "69-10/",
 "indicizzata": true
 },
 "70-10/": {
-"proprie": 167,
-"sovrapposizione": 0.373,
+"proprie": 172,
+"sovrapposizione": 0.4,
 "piu_simile": "70-20/",
 "indicizzata": true
 },
 "70-20/": {
-"proprie": 560,
-"sovrapposizione": 0.185,
+"proprie": 573,
+"sovrapposizione": 0.197,
 "piu_simile": "73-30/",
 "indicizzata": true
 },
@@ -3444,20 +3444,20 @@
 "indicizzata": false
 },
 "71-11/": {
-"proprie": 251,
-"sovrapposizione": 0.34,
+"proprie": 260,
+"sovrapposizione": 0.36,
 "piu_simile": "71-12/",
 "indicizzata": true
 },
 "71-12/": {
-"proprie": 668,
-"sovrapposizione": 0.179,
+"proprie": 685,
+"sovrapposizione": 0.193,
 "piu_simile": "71-11/",
 "indicizzata": true
 },
 "71-20/": {
-"proprie": 670,
-"sovrapposizione": 0.166,
+"proprie": 711,
+"sovrapposizione": 0.179,
 "piu_simile": "71-12/",
 "indicizzata": true
 },
@@ -3465,17 +3465,17 @@
 "proprie": 142,
 "sovrapposizione": 0.42,
 "piu_simile": "74/",
-"indicizzata": true
+"indicizzata": false
 },
 "72-10/": {
-"proprie": 316,
-"sovrapposizione": 0.306,
+"proprie": 327,
+"sovrapposizione": 0.328,
 "piu_simile": "72-20/",
 "indicizzata": true
 },
 "72-20/": {
-"proprie": 322,
-"sovrapposizione": 0.306,
+"proprie": 339,
+"sovrapposizione": 0.327,
 "piu_simile": "72-10/",
 "indicizzata": true
 },
@@ -3486,26 +3486,26 @@
 "indicizzata": true
 },
 "73-11/": {
-"proprie": 583,
-"sovrapposizione": 0.169,
+"proprie": 594,
+"sovrapposizione": 0.185,
 "piu_simile": "70-20/",
 "indicizzata": true
 },
 "73-12/": {
-"proprie": 100,
-"sovrapposizione": 0.525,
+"proprie": 104,
+"sovrapposizione": 0.559,
 "piu_simile": "73-20/",
 "indicizzata": false
 },
 "73-20/": {
-"proprie": 212,
-"sovrapposizione": 0.386,
+"proprie": 216,
+"sovrapposizione": 0.422,
 "piu_simile": "73-12/",
 "indicizzata": true
 },
 "73-30/": {
-"proprie": 435,
-"sovrapposizione": 0.267,
+"proprie": 444,
+"sovrapposizione": 0.278,
 "piu_simile": "70-20/",
 "indicizzata": true
 },
@@ -3516,50 +3516,50 @@
 "indicizzata": true
 },
 "74-11/": {
-"proprie": 235,
-"sovrapposizione": 0.362,
+"proprie": 238,
+"sovrapposizione": 0.393,
 "piu_simile": "74-13/",
 "indicizzata": true
 },
 "74-12/": {
-"proprie": 245,
-"sovrapposizione": 0.375,
+"proprie": 260,
+"sovrapposizione": 0.393,
 "piu_simile": "74-14/",
 "indicizzata": true
 },
 "74-13/": {
 "proprie": 100,
-"sovrapposizione": 0.56,
+"sovrapposizione": 0.587,
 "piu_simile": "74-11/",
 "indicizzata": false
 },
 "74-14/": {
-"proprie": 123,
-"sovrapposizione": 0.508,
+"proprie": 131,
+"sovrapposizione": 0.519,
 "piu_simile": "74-12/",
-"indicizzata": true
+"indicizzata": false
 },
 "74-20/": {
-"proprie": 425,
-"sovrapposizione": 0.227,
+"proprie": 447,
+"sovrapposizione": 0.25,
 "piu_simile": "74-99/",
 "indicizzata": true
 },
 "74-30/": {
-"proprie": 87,
-"sovrapposizione": 0.511,
+"proprie": 91,
+"sovrapposizione": 0.546,
 "piu_simile": "74-13/",
 "indicizzata": false
 },
 "74-91/": {
 "proprie": 179,
-"sovrapposizione": 0.408,
+"sovrapposizione": 0.435,
 "piu_simile": "55-40/",
 "indicizzata": true
 },
 "74-99/": {
-"proprie": 1400,
-"sovrapposizione": 0.094,
+"proprie": 1507,
+"sovrapposizione": 0.1,
 "piu_simile": "70-20/",
 "indicizzata": true
 },
@@ -3570,8 +3570,8 @@
 "indicizzata": true
 },
 "75-00/": {
-"proprie": 178,
-"sovrapposizione": 0.339,
+"proprie": 183,
+"sovrapposizione": 0.367,
 "piu_simile": "71-20/",
 "indicizzata": true
 },
@@ -3582,82 +3582,82 @@
 "indicizzata": false
 },
 "77-11/": {
-"proprie": 176,
-"sovrapposizione": 0.518,
+"proprie": 182,
+"sovrapposizione": 0.542,
 "piu_simile": "77-12/",
 "indicizzata": true
 },
 "77-12/": {
-"proprie": 101,
-"sovrapposizione": 0.629,
+"proprie": 104,
+"sovrapposizione": 0.653,
 "piu_simile": "77-11/",
 "indicizzata": false
 },
 "77-21/": {
-"proprie": 302,
-"sovrapposizione": 0.301,
+"proprie": 316,
+"sovrapposizione": 0.298,
 "piu_simile": "77-52/",
 "indicizzata": true
 },
 "77-22/": {
-"proprie": 331,
-"sovrapposizione": 0.307,
+"proprie": 339,
+"sovrapposizione": 0.327,
 "piu_simile": "77-21/",
 "indicizzata": true
 },
 "77-31/": {
-"proprie": 69,
-"sovrapposizione": 0.705,
+"proprie": 73,
+"sovrapposizione": 0.719,
 "piu_simile": "77-32/",
 "indicizzata": false
 },
 "77-32/": {
-"proprie": 85,
-"sovrapposizione": 0.612,
+"proprie": 89,
+"sovrapposizione": 0.632,
 "piu_simile": "77-31/",
 "indicizzata": false
 },
 "77-33/": {
-"proprie": 99,
-"sovrapposizione": 0.645,
+"proprie": 104,
+"sovrapposizione": 0.663,
 "piu_simile": "77-32/",
 "indicizzata": false
 },
 "77-34/": {
-"proprie": 102,
-"sovrapposizione": 0.61,
+"proprie": 106,
+"sovrapposizione": 0.63,
 "piu_simile": "77-35/",
 "indicizzata": false
 },
 "77-35/": {
-"proprie": 69,
-"sovrapposizione": 0.723,
+"proprie": 74,
+"sovrapposizione": 0.736,
 "piu_simile": "77-34/",
 "indicizzata": false
 },
 "77-39/": {
-"proprie": 549,
-"sovrapposizione": 0.21,
+"proprie": 577,
+"sovrapposizione": 0.22,
 "piu_simile": "77-32/",
 "indicizzata": true
 },
 "77-40/": {
-"proprie": 263,
-"sovrapposizione": 0.294,
-"piu_simile": "77-52/",
+"proprie": 267,
+"sovrapposizione": 0.321,
+"piu_simile": "77-31/",
 "indicizzata": true
 },
 "77-51/": {
 "proprie": 125,
-"sovrapposizione": 0.606,
+"sovrapposizione": 0.625,
 "piu_simile": "77-52/",
 "indicizzata": false
 },
 "77-52/": {
 "proprie": 150,
-"sovrapposizione": 0.557,
+"sovrapposizione": 0.57,
 "piu_simile": "52-31/",
-"indicizzata": true
+"indicizzata": false
 },
 "77/": {
 "proprie": 298,
@@ -3666,14 +3666,14 @@
 "indicizzata": true
 },
 "78-10/": {
-"proprie": 156,
-"sovrapposizione": 0.405,
+"proprie": 161,
+"sovrapposizione": 0.425,
 "piu_simile": "78-20/",
 "indicizzata": true
 },
 "78-20/": {
-"proprie": 247,
-"sovrapposizione": 0.346,
+"proprie": 255,
+"sovrapposizione": 0.365,
 "piu_simile": "78-10/",
 "indicizzata": true
 },
@@ -3681,23 +3681,23 @@
 "proprie": 140,
 "sovrapposizione": 0.418,
 "piu_simile": "79/",
-"indicizzata": true
+"indicizzata": false
 },
 "79-11/": {
 "proprie": 225,
-"sovrapposizione": 0.391,
-"piu_simile": "55-40/",
+"sovrapposizione": 0.411,
+"piu_simile": "52-32/",
 "indicizzata": true
 },
 "79-12/": {
-"proprie": 149,
-"sovrapposizione": 0.503,
+"proprie": 153,
+"sovrapposizione": 0.49,
 "piu_simile": "79-11/",
 "indicizzata": true
 },
 "79-90/": {
-"proprie": 309,
-"sovrapposizione": 0.244,
+"proprie": 323,
+"sovrapposizione": 0.259,
 "piu_simile": "82-30/",
 "indicizzata": true
 },
@@ -3708,14 +3708,14 @@
 "indicizzata": true
 },
 "80-01/": {
-"proprie": 502,
-"sovrapposizione": 0.245,
+"proprie": 530,
+"sovrapposizione": 0.242,
 "piu_simile": "80-09/",
 "indicizzata": true
 },
 "80-09/": {
 "proprie": 285,
-"sovrapposizione": 0.294,
+"sovrapposizione": 0.3,
 "piu_simile": "80-01/",
 "indicizzata": true
 },
@@ -3726,32 +3726,32 @@
 "indicizzata": true
 },
 "81-10/": {
-"proprie": 207,
-"sovrapposizione": 0.298,
+"proprie": 211,
+"sovrapposizione": 0.335,
 "piu_simile": "81-30/",
 "indicizzata": true
 },
 "81-21/": {
-"proprie": 157,
-"sovrapposizione": 0.427,
+"proprie": 161,
+"sovrapposizione": 0.446,
 "piu_simile": "81-22/",
 "indicizzata": true
 },
 "81-22/": {
-"proprie": 333,
-"sovrapposizione": 0.272,
+"proprie": 341,
+"sovrapposizione": 0.305,
 "piu_simile": "82-40/",
 "indicizzata": true
 },
 "81-23/": {
-"proprie": 194,
-"sovrapposizione": 0.416,
+"proprie": 214,
+"sovrapposizione": 0.427,
 "piu_simile": "81-22/",
 "indicizzata": true
 },
 "81-30/": {
-"proprie": 383,
-"sovrapposizione": 0.223,
+"proprie": 387,
+"sovrapposizione": 0.255,
 "piu_simile": "81-10/",
 "indicizzata": true
 },
@@ -3762,45 +3762,45 @@
 "indicizzata": true
 },
 "82-10/": {
-"proprie": 423,
-"sovrapposizione": 0.219,
-"piu_simile": "82-99/",
+"proprie": 421,
+"sovrapposizione": 0.227,
+"piu_simile": "18-12/",
 "indicizzata": true
 },
 "82-20/": {
-"proprie": 190,
-"sovrapposizione": 0.585,
+"proprie": 194,
+"sovrapposizione": 0.594,
 "piu_simile": "82-40/",
-"indicizzata": true
+"indicizzata": false
 },
 "82-30/": {
-"proprie": 445,
-"sovrapposizione": 0.22,
+"proprie": 455,
+"sovrapposizione": 0.239,
 "piu_simile": "96-99/",
 "indicizzata": true
 },
 "82-40/": {
-"proprie": 240,
-"sovrapposizione": 0.351,
+"proprie": 248,
+"sovrapposizione": 0.355,
 "piu_simile": "82-20/",
 "indicizzata": true
 },
 "82-91/": {
-"proprie": 221,
-"sovrapposizione": 0.375,
+"proprie": 228,
+"sovrapposizione": 0.396,
 "piu_simile": "82-40/",
 "indicizzata": true
 },
 "82-92/": {
-"proprie": 218,
-"sovrapposizione": 0.357,
+"proprie": 225,
+"sovrapposizione": 0.384,
 "piu_simile": "82-99/",
 "indicizzata": true
 },
 "82-99/": {
-"proprie": 535,
-"sovrapposizione": 0.183,
-"piu_simile": "82-10/",
+"proprie": 560,
+"sovrapposizione": 0.19,
+"piu_simile": "82-40/",
 "indicizzata": true
 },
 "82/": {
@@ -3810,58 +3810,58 @@
 "indicizzata": true
 },
 "84-11/": {
-"proprie": 324,
-"sovrapposizione": 0.306,
+"proprie": 332,
+"sovrapposizione": 0.33,
 "piu_simile": "84-12/",
 "indicizzata": true
 },
 "84-12/": {
-"proprie": 360,
-"sovrapposizione": 0.317,
+"proprie": 373,
+"sovrapposizione": 0.338,
 "piu_simile": "84-11/",
 "indicizzata": true
 },
 "84-13/": {
-"proprie": 675,
-"sovrapposizione": 0.167,
+"proprie": 708,
+"sovrapposizione": 0.181,
 "piu_simile": "84-12/",
 "indicizzata": true
 },
 "84-21/": {
-"proprie": 114,
-"sovrapposizione": 0.558,
+"proprie": 118,
+"sovrapposizione": 0.585,
 "piu_simile": "84-22/",
 "indicizzata": false
 },
 "84-22/": {
-"proprie": 192,
-"sovrapposizione": 0.399,
+"proprie": 196,
+"sovrapposizione": 0.43,
 "piu_simile": "84-21/",
 "indicizzata": true
 },
 "84-23/": {
-"proprie": 123,
-"sovrapposizione": 0.514,
+"proprie": 127,
+"sovrapposizione": 0.544,
 "piu_simile": "84-22/",
-"indicizzata": true
+"indicizzata": false
 },
 "84-24/": {
-"proprie": 435,
-"sovrapposizione": 0.24,
+"proprie": 444,
+"sovrapposizione": 0.261,
 "piu_simile": "84-22/",
 "indicizzata": true
 },
 "84-25/": {
-"proprie": 161,
-"sovrapposizione": 0.339,
+"proprie": 170,
+"sovrapposizione": 0.367,
 "piu_simile": "84-13/",
 "indicizzata": true
 },
 "84-30/": {
-"proprie": 139,
-"sovrapposizione": 0.409,
+"proprie": 143,
+"sovrapposizione": 0.449,
 "piu_simile": "84-21/",
-"indicizzata": true
+"indicizzata": false
 },
 "84/": {
 "proprie": 155,
@@ -3870,74 +3870,74 @@
 "indicizzata": true
 },
 "85-10/": {
-"proprie": 120,
-"sovrapposizione": 0.483,
+"proprie": 126,
+"sovrapposizione": 0.514,
 "piu_simile": "85-51/",
-"indicizzata": true
+"indicizzata": false
 },
 "85-20/": {
-"proprie": 142,
-"sovrapposizione": 0.413,
+"proprie": 146,
+"sovrapposizione": 0.451,
 "piu_simile": "85-33/",
-"indicizzata": true
+"indicizzata": false
 },
 "85-31/": {
-"proprie": 290,
-"sovrapposizione": 0.331,
+"proprie": 297,
+"sovrapposizione": 0.36,
 "piu_simile": "85-32/",
 "indicizzata": true
 },
 "85-32/": {
-"proprie": 531,
-"sovrapposizione": 0.204,
+"proprie": 553,
+"sovrapposizione": 0.22,
 "piu_simile": "85-33/",
 "indicizzata": true
 },
 "85-33/": {
-"proprie": 136,
-"sovrapposizione": 0.465,
+"proprie": 140,
+"sovrapposizione": 0.488,
 "piu_simile": "85-32/",
-"indicizzata": true
+"indicizzata": false
 },
 "85-40/": {
-"proprie": 588,
-"sovrapposizione": 0.194,
-"piu_simile": "85-52/",
+"proprie": 592,
+"sovrapposizione": 0.214,
+"piu_simile": "85-33/",
 "indicizzata": true
 },
 "85-51/": {
-"proprie": 374,
-"sovrapposizione": 0.314,
+"proprie": 385,
+"sovrapposizione": 0.333,
 "piu_simile": "85-52/",
 "indicizzata": true
 },
 "85-52/": {
-"proprie": 284,
-"sovrapposizione": 0.382,
+"proprie": 304,
+"sovrapposizione": 0.397,
 "piu_simile": "85-51/",
 "indicizzata": true
 },
 "85-53/": {
-"proprie": 72,
-"sovrapposizione": 0.538,
+"proprie": 76,
+"sovrapposizione": 0.558,
 "piu_simile": "85-32/",
 "indicizzata": false
 },
 "85-59/": {
-"proprie": 630,
-"sovrapposizione": 0.217,
+"proprie": 650,
+"sovrapposizione": 0.236,
 "piu_simile": "85-51/",
 "indicizzata": true
 },
 "85-61/": {
 "proprie": 83,
-"sovrapposizione": 0.723,
+"sovrapposizione": 0.738,
 "piu_simile": "96-40/",
 "indicizzata": false
 },
 "85-69/": {
-"proprie": 253,
-"sovrapposizione": 0.288,
+"proprie": 265,
+"sovrapposizione": 0.314,
 "piu_simile": "85-52/",
 "indicizzata": true
 },
@@ -3948,74 +3948,74 @@
 "indicizzata": true
 },
 "86-10/": {
-"proprie": 345,
-"sovrapposizione": 0.274,
-"piu_simile": "86-22/",
+"proprie": 360,
+"sovrapposizione": 0.298,
+"piu_simile": "86-21/",
 "indicizzata": true
 },
 "86-21/": {
-"proprie": 95,
-"sovrapposizione": 0.614,
+"proprie": 101,
+"sovrapposizione": 0.627,
 "piu_simile": "86-22/",
 "indicizzata": false
 },
 "86-22/": {
-"proprie": 510,
-"sovrapposizione": 0.258,
+"proprie": 525,
+"sovrapposizione": 0.271,
 "piu_simile": "86-21/",
 "indicizzata": true
 },
 "86-23/": {
-"proprie": 83,
-"sovrapposizione": 0.47,
-"piu_simile": "86-10/",
+"proprie": 87,
+"sovrapposizione": 0.489,
+"piu_simile": "86-93/",
 "indicizzata": false
 },
 "86-91/": {
-"proprie": 226,
-"sovrapposizione": 0.412,
-"piu_simile": "86-94/",
+"proprie": 239,
+"sovrapposizione": 0.421,
+"piu_simile": "86-96/",
 "indicizzata": true
 },
 "86-92/": {
-"proprie": 156,
-"sovrapposizione": 0.513,
+"proprie": 160,
+"sovrapposizione": 0.537,
 "piu_simile": "86-94/",
 "indicizzata": true
 },
 "86-93/": {
-"proprie": 98,
-"sovrapposizione": 0.624,
+"proprie": 102,
+"sovrapposizione": 0.644,
 "piu_simile": "86-92/",
 "indicizzata": false
 },
 "86-94/": {
-"proprie": 178,
-"sovrapposizione": 0.494,
+"proprie": 185,
+"sovrapposizione": 0.511,
 "piu_simile": "86-96/",
 "indicizzata": true
 },
 "86-95/": {
-"proprie": 139,
-"sovrapposizione": 0.602,
+"proprie": 145,
+"sovrapposizione": 0.619,
 "piu_simile": "86-96/",
 "indicizzata": false
 },
 "86-96/": {
-"proprie": 380,
-"sovrapposizione": 0.361,
+"proprie": 392,
+"sovrapposizione": 0.377,
 "piu_simile": "86-95/",
 "indicizzata": true
 },
 "86-97/": {
 "proprie": 131,
-"sovrapposizione": 0.634,
+"sovrapposizione": 0.649,
 "piu_simile": "87-91/",
 "indicizzata": false
 },
 "86-99/": {
-"proprie": 547,
-"sovrapposizione": 0.247,
+"proprie": 548,
+"sovrapposizione": 0.248,
 "piu_simile": "86-96/",
 "indicizzata": true
 },
@@ -4026,32 +4026,32 @@
 "indicizzata": true
 },
 "87-10/": {
-"proprie": 205,
-"sovrapposizione": 0.437,
+"proprie": 209,
+"sovrapposizione": 0.465,
 "piu_simile": "87-30/",
 "indicizzata": true
 },
 "87-20/": {
-"proprie": 222,
-"sovrapposizione": 0.416,
+"proprie": 226,
+"sovrapposizione": 0.445,
 "piu_simile": "87-10/",
 "indicizzata": true
 },
 "87-30/": {
-"proprie": 163,
-"sovrapposizione": 0.453,
+"proprie": 167,
+"sovrapposizione": 0.481,
 "piu_simile": "87-10/",
 "indicizzata": true
 },
 "87-91/": {
 "proprie": 81,
-"sovrapposizione": 0.759,
+"sovrapposizione": 0.77,
 "piu_simile": "86-97/",
 "indicizzata": false
 },
 "87-99/": {
-"proprie": 201,
-"sovrapposizione": 0.373,
+"proprie": 205,
+"sovrapposizione": 0.401,
 "piu_simile": "87-10/",
 "indicizzata": true
 },
@@ -4062,20 +4062,20 @@
 "indicizzata": true
 },
 "88-10/": {
-"proprie": 222,
+"proprie": 221,
 "sovrapposizione": 0.395,
 "piu_simile": "88-99/",
 "indicizzata": true
 },
 "88-91/": {
-"proprie": 133,
-"sovrapposizione": 0.452,
+"proprie": 136,
+"sovrapposizione": 0.484,
 "piu_simile": "88-99/",
-"indicizzata": true
+"indicizzata": false
 },
 "88-99/": {
-"proprie": 493,
-"sovrapposizione": 0.259,
+"proprie": 499,
+"sovrapposizione": 0.261,
 "piu_simile": "88-10/",
 "indicizzata": true
 },
@@ -4086,38 +4086,38 @@
 "indicizzata": false
 },
 "90-11/": {
-"proprie": 260,
-"sovrapposizione": 0.327,
+"proprie": 271,
+"sovrapposizione": 0.349,
 "piu_simile": "90-39/",
 "indicizzata": true
 },
 "90-12/": {
 "proprie": 152,
-"sovrapposizione": 0.438,
+"sovrapposizione": 0.478,
 "piu_simile": "90-13/",
 "indicizzata": true
 },
 "90-13/": {
 "proprie": 62,
-"sovrapposizione": 0.66,
+"sovrapposizione": 0.695,
 "piu_simile": "90-12/",
 "indicizzata": false
 },
 "90-20/": {
-"proprie": 292,
-"sovrapposizione": 0.3,
+"proprie": 306,
+"sovrapposizione": 0.322,
 "piu_simile": "90-11/",
 "indicizzata": true
 },
 "90-31/": {
-"proprie": 119,
-"sovrapposizione": 0.361,
-"piu_simile": "90-39/",
+"proprie": 123,
+"sovrapposizione": 0.394,
+"piu_simile": "90-12/",
 "indicizzata": false
 },
 "90-39/": {
-"proprie": 320,
-"sovrapposizione": 0.281,
+"proprie": 337,
+"sovrapposizione": 0.303,
 "piu_simile": "93-19/",
 "indicizzata": true
 },
@@ -4129,43 +4129,43 @@
 },
 "91-11/": {
 "proprie": 80,
-"sovrapposizione": 0.615,
+"sovrapposizione": 0.653,
 "piu_simile": "91-12/",
 "indicizzata": false
 },
 "91-12/": {
 "proprie": 233,
-"sovrapposizione": 0.389,
+"sovrapposizione": 0.428,
 "piu_simile": "91-11/",
 "indicizzata": true
 },
 "91-21/": {
-"proprie": 171,
-"sovrapposizione": 0.383,
+"proprie": 175,
+"sovrapposizione": 0.42,
 "piu_simile": "91-22/",
 "indicizzata": true
 },
 "91-22/": {
-"proprie": 99,
-"sovrapposizione": 0.491,
+"proprie": 103,
+"sovrapposizione": 0.526,
 "piu_simile": "91-21/",
 "indicizzata": false
 },
 "91-30/": {
-"proprie": 509,
-"sovrapposizione": 0.21,
+"proprie": 525,
+"sovrapposizione": 0.229,
 "piu_simile": "90-39/",
 "indicizzata": true
 },
 "91-41/": {
 "proprie": 63,
-"sovrapposizione": 0.733,
+"sovrapposizione": 0.762,
 "piu_simile": "91-42/",
 "indicizzata": false
 },
 "91-42/": {
 "proprie": 83,
-"sovrapposizione": 0.578,
+"sovrapposizione": 0.616,
 "piu_simile": "91-41/",
 "indicizzata": false
 },
@@ -4176,8 +4176,8 @@
 "indicizzata": true
 },
 "92-00/": {
-"proprie": 372,
-"sovrapposizione": 0.261,
+"proprie": 387,
+"sovrapposizione": 0.289,
 "piu_simile": "93-29/",
 "indicizzata": true
 },
@@ -4188,81 +4188,81 @@
 "indicizzata": false
 },
 "93-11/": {
-"proprie": 305,
-"sovrapposizione": 0.409,
+"proprie": 315,
+"sovrapposizione": 0.431,
 "piu_simile": "93-19/",
 "indicizzata": true
 },
 "93-12/": {
-"proprie": 282,
-"sovrapposizione": 0.429,
+"proprie": 285,
+"sovrapposizione": 0.454,
 "piu_simile": "93-19/",
 "indicizzata": true
 },
 "93-13/": {
-"proprie": 191,
-"sovrapposizione": 0.406,
+"proprie": 196,
+"sovrapposizione": 0.427,
 "piu_simile": "85-51/",
 "indicizzata": true
 },
 "93-19/": {
-"proprie": 542,
-"sovrapposizione": 0.247,
-"piu_simile": "93-11/",
+"proprie": 566,
+"sovrapposizione": 0.265,
+"piu_simile": "93-29/",
 "indicizzata": true
 },
 "93-21/": {
-"proprie": 153,
-"sovrapposizione": 0.517,
+"proprie": 156,
+"sovrapposizione": 0.536,
 "piu_simile": "93-29/",
 "indicizzata": true
 },
 "93-29/": {
-"proprie": 660,
-"sovrapposizione": 0.201,
+"proprie": 692,
+"sovrapposizione": 0.218,
 "piu_simile": "93-19/",
 "indicizzata": true
 },
 "93/": {
-"proprie": 345,
+"proprie": 343,
 "sovrapposizione": 0.263,
 "piu_simile": "90/",
 "indicizzata": true
 },
 "94-11/": {
-"proprie": 197,
-"sovrapposizione": 0.386,
+"proprie": 201,
+"sovrapposizione": 0.409,
 "piu_simile": "94-12/",
 "indicizzata": true
 },
 "94-12/": {
-"proprie": 274,
-"sovrapposizione": 0.373,
+"proprie": 281,
+"sovrapposizione": 0.392,
 "piu_simile": "94-11/",
 "indicizzata": true
 },
 "94-20/": {
-"proprie": 155,
-"sovrapposizione": 0.446,
+"proprie": 159,
+"sovrapposizione": 0.483,
 "piu_simile": "94-11/",
 "indicizzata": true
 },
 "94-91/": {
-"proprie": 163,
-"sovrapposizione": 0.404,
+"proprie": 167,
+"sovrapposizione": 0.442,
 "piu_simile": "94-92/",
 "indicizzata": true
 },
 "94-92/": {
-"proprie": 107,
-"sovrapposizione": 0.56,
+"proprie": 111,
+"sovrapposizione": 0.593,
 "piu_simile": "94-91/",
 "indicizzata": false
 },
 "94-99/": {
-"proprie": 665,
-"sovrapposizione": 0.139,
-"piu_simile": "94-91/",
+"proprie": 688,
+"sovrapposizione": 0.155,
+"piu_simile": "93-19/",
 "indicizzata": true
 },
 "94/": {
@@ -4272,62 +4272,62 @@
 "indicizzata": true
 },
 "95-10/": {
-"proprie": 411,
-"sovrapposizione": 0.229,
+"proprie": 428,
+"sovrapposizione": 0.254,
 "piu_simile": "95-29/",
 "indicizzata": true
 },
 "95-21/": {
-"proprie": 85,
-"sovrapposizione": 0.643,
+"proprie": 89,
+"sovrapposizione": 0.661,
 "piu_simile": "95-25/",
 "indicizzata": false
 },
 "95-22/": {
-"proprie": 165,
-"sovrapposizione": 0.516,
+"proprie": 175,
+"sovrapposizione": 0.535,
 "piu_simile": "95-24/",
 "indicizzata": true
 },
 "95-23/": {
-"proprie": 68,
-"sovrapposizione": 0.697,
+"proprie": 72,
+"sovrapposizione": 0.712,
 "piu_simile": "95-21/",
 "indicizzata": false
 },
 "95-24/": {
-"proprie": 235,
-"sovrapposizione": 0.412,
+"proprie": 247,
+"sovrapposizione": 0.434,
 "piu_simile": "95-22/",
 "indicizzata": true
 },
 "95-25/": {
-"proprie": 105,
-"sovrapposizione": 0.579,
+"proprie": 109,
+"sovrapposizione": 0.6,
 "piu_simile": "95-21/",
 "indicizzata": false
 },
 "95-29/": {
-"proprie": 624,
-"sovrapposizione": 0.217,
+"proprie": 659,
+"sovrapposizione": 0.233,
 "piu_simile": "95-22/",
 "indicizzata": true
 },
 "95-31/": {
-"proprie": 602,
-"sovrapposizione": 0.194,
+"proprie": 628,
+"sovrapposizione": 0.205,
 "piu_simile": "95-32/",
 "indicizzata": true
 },
 "95-32/": {
-"proprie": 103,
-"sovrapposizione": 0.559,
+"proprie": 107,
+"sovrapposizione": 0.578,
 "piu_simile": "95-31/",
 "indicizzata": false
 },
 "95-40/": {
 "proprie": 79,
-"sovrapposizione": 0.725,
+"sovrapposizione": 0.739,
 "piu_simile": "96-40/",
 "indicizzata": false
 },
@@ -4338,50 +4338,50 @@
 "indicizzata": true
 },
 "96-10/": {
-"proprie": 357,
-"sovrapposizione": 0.247,
+"proprie": 380,
+"sovrapposizione": 0.268,
 "piu_simile": "96-99/",
 "indicizzata": true
 },
 "96-21/": {
-"proprie": 81,
-"sovrapposizione": 0.587,
+"proprie": 84,
+"sovrapposizione": 0.608,
 "piu_simile": "96-22/",
 "indicizzata": false
 },
 "96-22/": {
-"proprie": 187,
-"sovrapposizione": 0.414,
+"proprie": 201,
+"sovrapposizione": 0.435,
 "piu_simile": "96-23/",
 "indicizzata": true
 },
 "96-23/": {
-"proprie": 201,
-"sovrapposizione": 0.378,
+"proprie": 216,
+"sovrapposizione": 0.399,
 "piu_simile": "96-22/",
 "indicizzata": true
 },
 "96-30/": {
-"proprie": 381,
-"sovrapposizione": 0.239,
+"proprie": 392,
+"sovrapposizione": 0.262,
 "piu_simile": "82-99/",
 "indicizzata": true
 },
 "96-40/": {
 "proprie": 105,
-"sovrapposizione": 0.722,
+"sovrapposizione": 0.736,
 "piu_simile": "95-40/",
 "indicizzata": false
 },
 "96-91/": {
-"proprie": 173,
-"sovrapposizione": 0.451,
+"proprie": 182,
+"sovrapposizione": 0.466,
 "piu_simile": "96-99/",
 "indicizzata": true
 },
 "96-99/": {
-"proprie": 860,
-"sovrapposizione": 0.138,
+"proprie": 893,
+"sovrapposizione": 0.15,
 "piu_simile": "96-91/",
 "indicizzata": true
 },
@@ -4392,8 +4392,8 @@
 "indicizzata": true
 },
 "97-00/": {
-"proprie": 260,
-"sovrapposizione": 0.281,
+"proprie": 269,
+"sovrapposizione": 0.307,
 "piu_simile": "98-10/",
 "indicizzata": true
 },
@@ -4401,17 +4401,17 @@
 "proprie": 140,
 "sovrapposizione": 0.461,
 "piu_simile": "98/",
-"indicizzata": true
+"indicizzata": false
 },
 "98-10/": {
-"proprie": 119,
-"sovrapposizione": 0.557,
+"proprie": 123,
+"sovrapposizione": 0.584,
 "piu_simile": "98-20/",
 "indicizzata": false
 },
 "98-20/": {
-"proprie": 88,
-"sovrapposizione": 0.654,
+"proprie": 92,
+"sovrapposizione": 0.675,
 "piu_simile": "98-10/",
 "indicizzata": false
 },
@@ -4422,8 +4422,8 @@
 "indicizzata": false
 },
 "99-00/": {
-"proprie": 155,
-"sovrapposizione": 0.374,
+"proprie": 160,
+"sovrapposizione": 0.417,
 "piu_simile": "94-11/",
 "indicizzata": true
 },
@@ -4437,7 +4437,7 @@
 "proprie": 136,
 "sovrapposizione": 0.2,
 "piu_simile": "sezione-j/",
-"indicizzata": true
+"indicizzata": false
 },
 "sezione-b/": {
 "proprie": 272,
@@ -4455,7 +4455,7 @@
 "proprie": 141,
 "sovrapposizione": 0.239,
 "piu_simile": "35/",
-"indicizzata": true
+"indicizzata": false
 },
 "sezione-e/": {
 "proprie": 288,
@@ -4485,7 +4485,7 @@
 "proprie": 136,
 "sovrapposizione": 0.213,
 "piu_simile": "55/",
-"indicizzata": true
+"indicizzata": false
 },
 "sezione-j/": {
 "proprie": 329,
@@ -4497,7 +4497,7 @@
 "proprie": 138,
 "sovrapposizione": 0.304,
 "piu_simile": "62/",
-"indicizzata": true
+"indicizzata": false
 },
 "sezione-l/": {
 "proprie": 187,

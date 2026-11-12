@@ -43,8 +43,8 @@ SCRIPT_CONTATORE = ('<script>window.goatcounter={path:function(p){return locatio
 CHIAVE_INDEXNOW = "b5a26a844a465f58552debee2c8a0114"  # = CHIAVE in studio-business/strumenti/indexnow.py
 SITO_ID = "ateco"  # nome del sito in monetizzazione.json
 MIN_PAROLE_ADSENSE = 400  # niente pubblicità nelle pagine noindex o con poco testo (lezione AdSense «scarso valore»)
-MIN_PAROLE_PROPRIE = 120  # parole (gruppi di 5) che non compaiono in nessun'altra pagina di codice: sotto, la pagina è noindex
-MAX_SOVRAPPOSIZIONE = 0.60  # quota del testo in comune con la pagina di codice più simile: da qui in su, noindex
+MIN_PAROLE_PROPRIE = 150  # parole (gruppi di 5) che non compaiono in nessun'altra pagina di codice: sotto, la pagina è noindex
+MAX_SOVRAPPOSIZIONE = 0.55  # quota del testo in comune con la pagina di codice più simile: da qui in su, noindex
 FRASE_FISSA = "verifica con il commercialista o la Camera di commercio"
 
 MESI = ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre"]
@@ -503,25 +503,28 @@ def blocco_vecchi(sc, rim):
 
 
 def blocco_coeff(sc, rim):
+    """Riga del forfettario di una sottocategoria: la percentuale è una nostra derivazione dai vecchi codici della tavola di raccordo
+    (la legge chiede il codice ATECO 2007 dell'attività) e la riga lo dice sempre, con i vecchi codici usati."""
     g = gruppi_coeff(sc)
     if not g:
         return (f'<p class="coef"><span>Forfettario:</span> nessun codice ATECO 2022 corrispondente nella tavola Istat, quindi il coefficiente non si '
                 f'ricava da qui{rim.ref("dlgs81_art1")}.</p>')
+    tutti = sorted({r["c22"] for r in vecchi_di(sc)})
     percentuali = sorted({TABCO[str(x)]["coefficiente"] for x in g})
-    if len(g) > 1 and len(percentuali) == 1:
-        nomi = " e ".join(f"«{h(TABCO[str(x)]['gruppo'])}»" for x in g)
-        return (f'<p class="coef"><span>Forfettario:</span> <b>{percentuali[0]}%</b> <span class="mini">gruppi {nomi}, stessa percentuale</span>'
-                f'{rim.ref(["l190_all4", "dlgs81_art1"])}</p>')
-    if len(g) == 1:
-        t = TABCO[str(g[0])]
-        return (f'<p class="coef"><span>Forfettario:</span> <b>{t["coefficiente"]}%</b> <a class="mini" href="/coefficienti-redditivita-forfettario/">'
-                f'{h(t["gruppo"])}</a>{rim.ref(["l190_all4", "dlgs81_art1"])}</p>')
+    da = f'dal vecchio codice {tutti[0]}' if len(tutti) == 1 else f'dai vecchi codici {", ".join(tutti)}'
+    coda = (f' <span class="mini">Derivazione nostra {da}: per la legge conta il codice ATECO 2007 della tua attività, verifica con il '
+            f'commercialista.</span>{rim.ref(["l190_all4", "dlgs81_art1", "raccordo"])}</p>')
+    if len(percentuali) == 1:
+        nomi = " e ".join(f'«<a href="/coefficienti-redditivita-forfettario/">{h(TABCO[str(x)]["gruppo"])}</a>»' for x in g)
+        return (f'<p class="coef"><span>Forfettario, ricavato dai vecchi codici:</span> <b>{percentuali[0]}%</b> <span class="mini">'
+                f'{"gruppo" if len(g) == 1 else "gruppi"} {nomi} della tabella di legge{", stessa percentuale" if len(g) > 1 else ""}.</span>' + coda)
     parti = []
     for x in g:
         cods = sorted({r["c22"] for r in vecchi_di(sc) if GRUPPO22[r["c22"]] == x})
-        parti.append(f'<b>{coeff_txt(x)}</b> se il vecchio codice era {", ".join(cods[:6])}{" e altri" if len(cods) > 6 else ""}')
-    return (f'<p class="coef"><span>Forfettario, secondo il vecchio codice dell\'attività:</span> {"; ".join(parti)}'
-            f'{rim.ref(["l190_all4", "dlgs81_art1"])}</p>')
+        parti.append(f'<b>{coeff_txt(x)}</b> se il vecchio codice era {", ".join(cods)}')
+    return (f'<p class="coef"><span>Forfettario, secondo il vecchio codice dell\'attività:</span> {"; ".join(parti)}.'
+            f' <span class="mini">Derivazione nostra dalla tavola di raccordo: per la legge conta il codice ATECO 2007 della tua attività, verifica con '
+            f'il commercialista quale percentuale si applica.</span>{rim.ref(["l190_all4", "dlgs81_art1", "raccordo"])}</p>')
 
 
 def voce_sottocategoria(sc, rim, hn="h3"):
@@ -549,11 +552,12 @@ def pagina_classe(cl):
     v = C[cl]
     vecchi = sorted({r["c22"] for s in subs for r in vecchi_di(s)})
     gruppi = sorted({g for s in subs for g in gruppi_coeff(s)}, key=int)
-    coeff = (coeff_txt(gruppi[0]) if len(gruppi) == 1 else ("dipende" if gruppi else "—"))
+    perc_cl = sorted({TABCO[str(g)]["coefficiente"] for g in gruppi})
+    coeff = (f"{perc_cl[0]}%" if len(perc_cl) == 1 else ("dipende" if gruppi else "—"))
     cifre = (f'<div class="card pull cifre"><div class="cifra main"><b class="cod">{princ}</b><span>{"sottocategoria" if princ != cl else "classe"} '
              f'ATECO 2025</span></div><div class="cifra"><b>{len(subs)}</b><span>{"sottocategoria" if len(subs) == 1 else "sottocategorie"} da 6 cifre</span></div>'
-             f'<div class="cifra"><b>{len(vecchi)}</b><span>{"codice" if len(vecchi) == 1 else "codici"} ATECO 2022 collegati</span></div>'
-             f'<div class="cifra"><b>{coeff}</b><span>coefficiente del forfettario</span></div>'
+             f'<div class="cifra"><b>{len(vecchi)}</b><span>{"codice ATECO 2022 collegato" if len(vecchi) == 1 else "codici ATECO 2022 collegati"}</span></div>'
+             f'<div class="cifra"><b>{coeff}</b><span>forfettario, dai vecchi codici</span></div>'
              '</div>')
     corpo = cifre
     if len(subs) > 1:
@@ -563,7 +567,7 @@ def pagina_classe(cl):
         for cat in FIGLI[cl]:
             figli = FIGLI[cat]
             if len(figli) > 1 or C[cat]["it"] != C[figli[0]]["it"]:
-                corpo += f'<h2 class="cat-h" id="c-{cat}"><span class="chip-cod">{cat}</span> {h(C[cat]["it"])}</h2><p class="small">Categoria ATECO 2025</p>'
+                corpo += f'<h2 class="cat-h" id="c-{cat}"><span class="chip-cod">{cat}</span> {h(C[cat]["it"])}</h2><p class="small">Categoria ATECO 2025</p>{lingue(cat)}'
             else:
                 corpo += f'<span id="c-{cat}"></span>'  # categoria con lo stesso titolo della sua unica sottocategoria
             if C[cat]["note"]:
@@ -919,7 +923,9 @@ def coefficienti():
     rr = [[f'<b>{t["coefficiente"]}%</b>', h(t["gruppo"]), h(t["codici_ateco_2007"])] for _, t in sorted(TABCO.items(), key=lambda kv: int(kv[0]))]
     corpo = (f'<div class="card pull"><p style="margin:0"><strong>Il coefficiente si sceglie ancora con il codice ATECO 2007</strong>, non con quello 2025: '
              f'«fino alla approvazione dei nuovi coefficienti di redditività elaborati sulla base della classificazione delle attività economiche ATECO 2025».'
-             f'{rim.ref("dlgs81_art1")}</p></div>')
+             f'{rim.ref("dlgs81_art1")} Lo ripetono le istruzioni dell\'Agenzia delle entrate al modello Redditi Persone fisiche 2026 (quadro LM): nel '
+             f'rigo LM21 si indica il codice ATECO 2025 dell\'attività, ma il coefficiente resta quello «individuato sulla base del codice corrispondente '
+             f'all\'attività esercitata secondo la classificazione ATECO 2007».{rim.ref("istruzioni_lm")}</p></div>')
     corpo += (f'<h2 id="tabella">La tabella di legge</h2><p class="small">Allegato 4 della legge 23 dicembre 2014, n. 190 (testo vigente); identico '
               f'all\'allegato D del testo unico delle imposte sui redditi (D.Lgs. 117/2026), che si applica dal 1° gennaio 2027.'
               f'{rim.ref(["l190_all4", "tuir_allD", "tuir_art377"])}</p>'

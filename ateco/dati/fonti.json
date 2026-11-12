@@ -95,6 +95,22 @@
     "sono tenuti a utilizzare i nuovi codici negli atti e nelle dichiarazioni da presentare all’Agenzia delle entrate": true,
     "non comporta l’obbligo di presentare la dichiarazione di variazione dei dati": true
    }
+  },
+  "istruzioni_lm": {
+   "url": "https://www.agenziaentrate.gov.it/portale/documents/d/guest/pf3_istruzioni_2026_agg-13-05-2026",
+   "titolo": "Modello Redditi Persone fisiche 2026, fascicolo 3, istruzioni per la compilazione (quadro LM, regime forfetario; aggiornamento del 13 maggio 2026)",
+   "chi": "Agenzia delle entrate",
+   "pagina": null,
+   "file": "istruzioni_lm.pdf",
+   "http": 200,
+   "byte": 2468208,
+   "sha256": "862d1a80f12e044ea0d682ebd596cc1e20befaa21cf63fa5476c577032215d23",
+   "letto_il": "2026-11-12",
+   "trovate": {
+    "Nel rigo LM21, colonna 4, (codice ATECO 2025) va indicato il codice dell’attività svolta in vigore dal 2025": true,
+    "all’approvazione dei nuovi coefficienti di redditività elaborati sulla base della classificazione delle attività economiche ATECO 2025": true,
+    "individuato sulla base del codice corrispondente all’attività esercitata secondo la classificazione ATECO 2007. (art. 1, decreto legislativo 12 giugno 2025, n. 81)": true
+   }
   }
  },
  "pagine": {

@@ -54,7 +54,7 @@
    "a": "Era 96.02.01 «Servizi dei saloni di barbiere e parrucchiere» (ATECO 2022). La tavola di raccordo Istat lo collega solo a 96.21.00 e il contenuto dei due codici coincide.",
    "fonti": ["raccordo"]},
   {"pagina": "codice-ateco-parrucchiere", "ricerca": "codice ateco barbiere forfettario", "q": "Che coefficiente ha il parrucchiere nel forfettario?",
-   "a": "67%. Il coefficiente si individua ancora con il codice ATECO 2007: il codice 96.02.01 è nella divisione 96, che l'allegato 4 della legge 190/2014 mette nel gruppo «Altre attività economiche».",
+   "a": "67% se il codice ATECO 2007 dell'attività è 96.02.01, quello dei saloni di barbiere e parrucchiere: la divisione 96 è nel gruppo «Altre attività economiche» dell'allegato 4 della legge 190/2014. Fino a nuovi coefficienti per ATECO 2025 conta il codice ATECO 2007: per il tuo caso verifica con il commercialista.",
    "fonti": ["l190_all4", "dlgs81_art1"]},
   {"pagina": "codice-ateco-parrucchiere", "ricerca": "codice ateco parrucchiere estetista", "q": "Parrucchiere ed estetista hanno lo stesso codice ATECO?",
    "a": "No. I trattamenti di bellezza sono nella classe 96.22, per esempio 96.22.01 «Servizi di manicure e pedicure» e 96.22.09 «Altri servizi di cura della bellezza e altri trattamenti di bellezza n.c.a.». Chi svolge più attività ha un codice prevalente e codici secondari: verifica con il commercialista o la Camera di commercio quale indicare.",
@@ -83,7 +83,7 @@
    "a": "Il commercio di beni digitali, lo streaming e il download di contenuti su piattaforme digitali (per esempio e-book e audio) non è commercio al dettaglio: la nota di esclusione della divisione 47 rimanda alla sezione J.",
    "fonti": ["note"]},
   {"pagina": "codice-ateco-e-commerce", "ricerca": "codice ateco ecommerce forfettario", "q": "Che coefficiente ha l'e-commerce nel forfettario?",
-   "a": "40% se il codice ATECO 2007 dell'attività era 47.91.10: la classe 47.9 rientra nel gruppo «Commercio all'ingrosso e al dettaglio» dell'allegato 4 della legge 190/2014. Fino a nuovi coefficienti per ATECO 2025 conta il codice ATECO 2007.",
+   "a": "40% se il codice ATECO 2007 dell'attività era 47.91.10: la classe 47.9 rientra nel gruppo «Commercio all'ingrosso e al dettaglio» dell'allegato 4 della legge 190/2014. Fino a nuovi coefficienti per ATECO 2025 conta il codice ATECO 2007: per il tuo caso verifica con il commercialista.",
    "fonti": ["l190_all4", "dlgs81_art1"]}
  ]
 }
