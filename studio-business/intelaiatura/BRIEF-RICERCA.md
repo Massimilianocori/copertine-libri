@@ -1,3 +1,5 @@
+> **Volumi di ricerca veri (dal 12/11/2026 sera):** usare `https://api.seodata.dev/v1/keyword?q=<frase>&country=<it|us|gb|de|fr|es…>` (volume medio mensile Google Ads, CPC, frasi simili). Chiave del conto gratuito di Massimiliano (500 ricerche al mese): sta SOLO nel file `/root/.config/seodata/key` del contenitore, fuori dal repository; si passa come `-H "Authorization: Bearer $(cat /root/.config/seodata/key)"`. Mai stamparla, mai scriverla in file del repository, nei commit o nei messaggi. Se il file manca (contenitore nuovo), usare le 20 ricerche gratuite al giorno senza chiave e dirlo. Budget: al massimo ~60 ricerche per ricercatore.
+
 > **Dal 12/11/2026 sera (Massimiliano):** la concorrenza non scarta più un'idea. La prova "nessuno fa meglio" diventa la stima della quota che possiamo prendere (3-15 % con concorrenti forti) × la domanda. Il limite "senza vuoto dimostrato voto massimo 5" NON vale più: il voto dipende dagli euro attesi con quella quota.
 
 # Brief comune per i ricercatori (aggiornato il 7/11/2026)
