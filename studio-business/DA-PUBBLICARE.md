@@ -14,6 +14,8 @@ Sezioni già revisionate, con i sorgenti salvati, che aspettano la pubblicazione
 
 | Sito (cartella) | Sezione | Revisione | Note |
 |---|---|---|---|
+| esameb1 | Revisione AdSense "Low value content" del 12/11 (pagine città riordinate con le sedi in alto, dati della Prefettura, meno testo ripetuto, 7 comuni uniti al capoluogo con 301, "Libro in arrivo" solo su /esempi/) + lavoro del costruttore del 12/11 (lista sessioni tolta dalle città, città vicine a mano, dati/domanda_citta.json) | revisione Fable fatta (controlli 0 errori, 32/32 Playwright) | **pubblicare il 13/11** (EsameB1 già pubblicato il 12/11); dopo: controllare che /citta/alba/ rinvii a /citta/cuneo/, IndexNow; a 14-28 giorni se Milano/Torino/Bologna/Verona scendono di oltre il 30 % rimettere la scheda in alto |
+| beforeyoufly | Available in: Starlink 250 Paesi, Bolt 25, Google Fi 17 (costruttore 12/11) | revisione Fable in corso (accuratezza + rischio contenuto sottile) | pubblicare il 13/11 solo con la revisione conclusa e le sue correzioni |
 
 Pubblicato il 31/10/2026 alle 14:20 circa (ora di Roma): Visa Income, Before You Fly, EsameB1 (tutte le sezioni revisionate del giorno). Esperimento citazioni: conteggio dal 1/11/2026.
 
