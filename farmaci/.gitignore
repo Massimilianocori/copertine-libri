@@ -1,0 +1,5 @@
+# File ufficiali AIFA scaricati (CSV e ODS, ~5 MB): si riscaricano con raccolta/fonti.py. Le impronte SHA-256 stanno in dati/fonti.json.
+raccolta/_grezzi/
+# Screenshot delle prove nel browser
+cache/
+__pycache__/
