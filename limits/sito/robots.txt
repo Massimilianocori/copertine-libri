@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://statute-limits-by-state.netlify.app/sitemap.xml

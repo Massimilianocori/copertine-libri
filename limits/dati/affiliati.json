@@ -1,0 +1,5 @@
+{
+ "_nota": "Riquadro 'Legal documents online' preparato e SPENTO. Rocket Lawyer e LegalZoom passano da FlexOffers: Massimiliano non è ancora iscritto (13/11/2026). Per accenderlo: iscrizione a FlexOffers, domanda ai due programmi, poi 'attivo': true, 'url' = link tracciato, aggiungere il dominio dei link tracciati a domini_affiliazione in studio-business/strumenti/monetizzazione.json, rigenerare e lanciare verifica.py. Mai prestiti, consolidamento o 'debt relief'.",
+ "rocketlawyer": {"nome": "Rocket Lawyer", "attivo": false, "url": "", "testo": "legal document templates and e-signatures (subscription)", "pagine": ["cella"], "rete": "FlexOffers", "commissione_letta": "24% delle vendite (scheda FlexOffers modificata 14/8/2026, letta il 13/11/2026 dal ricercatore)"},
+ "legalzoom": {"nome": "LegalZoom", "attivo": false, "url": "", "testo": "legal forms and documents online", "pagine": ["cella"], "rete": "FlexOffers", "commissione_letta": "non letta sulla pagina del programma"}
+}

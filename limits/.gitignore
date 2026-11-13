@@ -1,0 +1,5 @@
+# Testi di legge ufficiali scaricati (HTML, PDF, XML): si riscaricano con raccolta/fonti.py. Impronte SHA-256 in dati/fonti.json.
+raccolta/_grezzi/
+# Screenshot delle prove nel browser
+cache/
+__pycache__/
