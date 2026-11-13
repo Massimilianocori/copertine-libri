@@ -50,6 +50,11 @@ FONTI = {
         "url": "https://www.payrolltax.gov.au/registration", "titolo": "Registration", "chi": "Australian Revenue Offices (payrolltax.gov.au)",
         "cerca": ["you must register with each state and territory where you pay taxable wages",
                   "Employers who voluntarily declare their liabilities may receive significantly lower penalties than those who do not"]},
+    "portal_about": {
+        "url": "https://www.payrolltax.gov.au/", "titolo": "About Payroll Tax Australia", "chi": "Australian Revenue Offices (payrolltax.gov.au)",
+        "cerca": ["Payroll tax is levied on wages paid or payable by an employer to its employees when the total taxable wages of an employer (or group of employers) exceeds a threshold amount",
+                  "Payroll tax is self-assessed and lodged by the employer",
+                  "Payroll tax is administered by revenue offices in each individual state or territory"]},
     # ---------------------------------------------------------------- New South Wales
     "nsw_rates": {
         "url": "https://www.revenue.nsw.gov.au/taxes-duties-levies-royalties/payroll-tax/lodge-and-pay-returns/thresholds-and-rates",

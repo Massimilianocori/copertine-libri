@@ -138,6 +138,7 @@ table.dati th[scope=row]{vertical-align:top;background:var(--card);font-size:.95
 .griglia a{display:flex;flex-direction:column;gap:3px;height:100%;background:var(--card);border:1px solid var(--line);border-radius:var(--r-s);padding:13px 15px;text-decoration:none;color:var(--ink);font-weight:800;box-shadow:var(--sh-1);transition:border-color .15s,transform .15s}
 .griglia a:hover{border-color:var(--accent);transform:translateY(-1px)}.griglia a small{font-weight:600;color:var(--ink-3);font-size:.86rem;line-height:1.4}
 .griglia.stati a b{font-family:var(--serif);font-size:1.25rem;color:var(--accent)}
+.nw{white-space:nowrap}
 sup.ref{font-size:max(11px,.72em);line-height:0;margin-left:2px;white-space:nowrap}sup.ref a{text-decoration:none;font-weight:800}
 .fonti-box{margin-top:46px;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:var(--r-s);padding:16px 20px;font-size:.9rem;color:var(--ink-2)}
 .fonti-box h2{display:flex;align-items:center;gap:8px;font-size:1.12rem;margin:0 0 8px;color:var(--ink)}.fonti-box h2 .ico{color:var(--accent)}

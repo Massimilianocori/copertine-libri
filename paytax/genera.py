@@ -215,7 +215,7 @@ def pagina(percorso, titolo, descrizione, corpo, testata="", briciole=None, json
     guide_piede = "".join(f'<li><a href="/{u}">{h(t)}</a></li>' for u, t in [
         ("calculator/", "Multi-state calculator"), ("interstate-wages/", "Interstate wages"), ("grouping/", "Grouping"),
         ("regional-rates/", "Regional rates"), ("thresholds-history/", "Thresholds history"), ("due-dates/", "Due dates"),
-        ("what-changed-2026-27/", "What changed in 2026-27"), ("payday-super/", "Payday Super"), ("over-the-threshold/", "Over the threshold"),
+        ("what-changed-2026-27/", "What changed in 2026-27"), ("payday-super/", "Payday Super"), ("over-the-threshold/", "Registration"),
         ("about/", "About"), ("how-we-check/", "How we check"), ("privacy/", "Privacy")])
     testo = f"""<!DOCTYPE html>
 <html lang="en-AU">
@@ -287,7 +287,7 @@ the revenue offices and in the payroll tax Acts. It is an independent site, not 
 def banda(eyebrow, titolo, sub, extra="", corta=False, icona="scale"):
     return f"""<section class="band{' corta' if corta else ''}"><div class="wrap band-in">{{bc}}
 <p class="eyebrow">{ico(icona)}{h(eyebrow)}</p>
-<h1>{h(titolo)}</h1>
+<h1>{re.sub(r"(\d{4}-\d{2})", r'<span class="nw">\1</span>', h(titolo))}</h1>
 <p class="sub">{sub}</p>{extra}
 </div></section>"""
 
@@ -519,7 +519,7 @@ GUIDE = [("calculator/", "Multi-state calculator", "All 8 jurisdictions at once,
          ("due-dates/", "Due dates", "Monthly returns and the 21 or 28 July annual return"),
          ("what-changed-2026-27/", "What changed in 2026-27", "New ACT brackets, NT 6.5% rate"),
          ("payday-super/", "Payday Super", "Super due within 7 business days of payday from 1 July 2026"),
-         ("over-the-threshold/", "Over the threshold?", "Registering and what to do next, state by state")]
+         ("over-the-threshold/", "Payroll tax registration", "When to register once you pass the threshold, state by state")]
 
 
 def griglia_guide(escludi=""):
@@ -740,6 +740,33 @@ FAQ_TITOLO = {"nsw": "NSW payroll tax: common questions", "vic": "Victorian payr
               "wa": "WA payroll tax: common questions", "sa": "SA payroll tax: common questions", "tas": "Tasmanian payroll tax: common questions",
               "act": "ACT payroll tax: common questions", "nt": "NT payroll tax: common questions"}
 
+# Nome nel titolo = la forma più cercata in Australia (dati/volumi-2026-11-13.json, api.seodata.dev, 13/11/2026):
+# "payroll tax nsw" 6.600 (New South Wales: nessun dato), "payroll tax victoria" 2.900 > "vic" 1.600, "queensland" 4.400 > "qld" 3.600,
+# "wa" = "western australia" 2.400, "sa" = "south australia" 1.300, "tasmania" 590 > "tas" 170, "act" 1.300, "nt" = "northern territory" 320.
+# Il secondo nome va nella descrizione (e nell'h1 dove le due forme pareggiano).
+NOMI_RICERCA = {"nsw": ("NSW", "New South Wales"), "vic": ("Victoria", "VIC"), "qld": ("Queensland", "QLD"), "wa": ("WA", "Western Australia"),
+                "sa": ("SA", "South Australia"), "tas": ("Tasmania", "TAS"), "act": ("ACT", "Australian Capital Territory"), "nt": ("NT", "Northern Territory")}
+
+# Ricerche misurate (api.seodata.dev, Australia, 13/11/2026) a cui risponde ogni pagina: la prima deve stare tutta nel titolo,
+# le altre in titolo + h1 + descrizione + FAQ della pagina (controllato da verifica.py, con volume > 0 nel file misurato).
+RICERCHE_PAGINA = {
+    "": ["payroll tax", "payroll tax australia", "payroll tax rates", "payroll tax thresholds", "what is payroll tax"],
+    "calculator/": ["payroll tax calculator", "payroll tax calculator australia", "how is payroll tax calculated"],
+    "nsw/": ["payroll tax nsw", "nsw payroll tax threshold", "nsw payroll tax rate", "payroll tax nsw calculator"],
+    "vic/": ["payroll tax victoria", "payroll tax vic", "vic payroll tax threshold", "victoria payroll tax rate"],
+    "qld/": ["payroll tax queensland", "payroll tax qld", "qld payroll tax rate", "qld payroll tax threshold", "payroll tax qld calculator"],
+    "wa/": ["payroll tax wa", "payroll tax western australia", "wa payroll tax threshold", "wa payroll tax rate"],
+    "sa/": ["payroll tax sa", "payroll tax south australia", "sa payroll tax rate", "sa payroll tax threshold"],
+    "tas/": ["payroll tax tasmania", "payroll tax tas"],
+    "act/": ["payroll tax act", "act payroll tax rate", "act payroll tax threshold"],
+    "nt/": ["payroll tax nt", "payroll tax northern territory", "nt payroll tax rate"],
+    "over-the-threshold/": ["payroll tax registration", "register for payroll tax"],
+    "thresholds-history/": ["payroll tax thresholds", "payroll tax threshold vic 2025", "nsw payroll tax threshold 2025"],
+    "due-dates/": ["payroll tax due dates", "nsw payroll tax due dates", "payroll tax annual reconciliation"],
+    "grouping/": ["payroll tax grouping"],
+    "payday-super/": ["payday super", "payday superannuation", "superannuation rate 2026"],
+}
+
 
 def nostro_esempio(salari, giorni=GIORNI_ANNO, rim=None, descr=""):
     res = motore.calcola(P, salari, giorni, GIORNI_ANNO)
@@ -801,13 +828,13 @@ def pagina_stato(s):
     corpo += faq_html
     corpo += '<h2>Other states and territories</h2>' + griglia_stati().replace(f'<li><a href="/{s}/">', f'<li hidden><a href="/{s}/">')
     corpo += rim.elenco()
-    tit = f"{g['breve']} Payroll Tax 2026-27: Threshold, Rate, Calculator"
-    if len(tit) > 60:
-        tit = f"{g['breve']} Payroll Tax 2026-27: Rates and Calculator"
-    desc = f"{g['nome']} payroll tax {ANNO}: {g['soglia_testo']} threshold, {g['aliquota_testo'].split(';')[0]}. Official formula, worked examples, due dates and a calculator."
+    primo, secondo = NOMI_RICERCA[s]
+    tit = f"{primo} Payroll Tax {ANNO}: Threshold, Rate, Calculator"
+    desc = f"{primo} payroll tax ({secondo}) {ANNO}: {g['soglia_testo']} threshold, {g['aliquota_testo'].split(';')[0]}. Official formula, worked examples, due dates and a calculator."
     if len(desc) > 160:
-        desc = f"{g['nome']} payroll tax {ANNO}: {g['soglia_testo']} threshold, rates, official formula, worked examples, due dates and calculator."
-    testata = banda(f"{g['breve']} · {ANNO}", f"{g['nome']} payroll tax {ANNO}", h(T["sub"]), trust(), icona="map")
+        desc = f"{primo} payroll tax ({secondo}) {ANNO}: {g['soglia_testo']} threshold, rates, official formula, examples, due dates and a calculator."
+    nome_h1 = primo if s in ("nsw", "act") else g["nome"]  # NSW e ACT: la sigla è la forma cercata; altrove il nome intero
+    testata = banda(f"{g['breve']} · {ANNO}", f"{nome_h1} payroll tax {ANNO}: threshold, rate and calculator", h(T["sub"]), trust(), icona="map")
     pagina(f"{s}/", tit, desc, corpo, testata, briciole=[("Home", ""), (g["nome"], f"{s}/")], jsonld=[faq_ld] if faq_ld else None)
 
 
@@ -838,12 +865,12 @@ def home():
     corpo += faq_html + rim.elenco()
     sub = (f"Every rate and threshold for 1 July 2026 to 30 June 2027, checked against the revenue offices on {data_lunga(CONTROLLO)}. "
            f"Enter wages for each state to see your share of each threshold and your tax.")
-    testata = banda(f"{ANNO} · all 8 states and territories", "Payroll tax by state: 2026-27 rates, thresholds and calculator", h(sub), trust())
+    testata = banda(f"{ANNO} · all 8 states and territories", "Payroll tax in Australia by state: 2026-27 rates, thresholds and calculator", h(sub), trust())
     ld = [{"@context": "https://schema.org", "@type": "WebSite", "name": NOME, "url": f"{URL_SITO}/", "inLanguage": "en-AU"}]
     if faq_ld:
         ld.append(faq_ld)
-    pagina("", "Payroll Tax by State 2026-27: Rates, Thresholds, Calculator",
-           "Australian payroll tax 2026-27 for NSW, VIC, QLD, WA, SA, TAS, ACT and NT: thresholds, rates and a multi-state calculator that shares each threshold.",
+    pagina("", "Payroll Tax Australia 2026-27: Rates and Thresholds by State",
+           "Payroll tax in Australia for 2026-27: the threshold and rate of NSW, VIC, QLD, WA, SA, TAS, ACT and NT, and a calculator that shares each threshold.",
            corpo, testata, jsonld=ld)
 
 
@@ -869,15 +896,15 @@ def pagina_calcolatore():
     corpo += box_affiliati("calculator-risultato")
     faq_html, faq_ld = faq_blocco("calculator", rim)
     corpo += faq_html + '<h2>Guides</h2>' + griglia_guide("calculator/") + rim.elenco()
-    testata = banda(f"Calculator · {ANNO}", "Multi-state payroll tax calculator 2026-27",
+    testata = banda(f"Calculator · {ANNO}", "Payroll tax calculator 2026-27: all Australian states in one",
                     "Enter the wages you pay in each state and territory. The calculator shares every threshold by your wage share and days, applies each state's formula and shows the working.", trust(), corta=False, icona="calc")
     ld = [{"@context": "https://schema.org", "@type": "WebApplication", "name": "Multi-state payroll tax calculator 2026-27", "url": f"{URL_SITO}/calculator/",
            "applicationCategory": "FinanceApplication", "operatingSystem": "Any", "inLanguage": "en-AU",
            "offers": {"@type": "Offer", "price": "0", "priceCurrency": "AUD"}}]
     if faq_ld:
         ld.append(faq_ld)
-    pagina("calculator/", "Payroll Tax Calculator 2026-27: All Australian States",
-           "Free 2026-27 payroll tax calculator for all 8 Australian states and territories: shares each threshold by state wages and days, with the official formulas.",
+    pagina("calculator/", "Payroll Tax Calculator Australia 2026-27: All 8 States",
+           "Free payroll tax calculator for Australia, 2026-27: all 8 states and territories, each threshold shared by state wages and days, with the official formulas.",
            corpo, testata, briciole=[("Home", ""), ("Calculator", "calculator/")], jsonld=ld)
 
 
@@ -916,7 +943,7 @@ def interstate():
     testata = banda("Interstate wages", "Payroll tax and interstate wages: how the threshold is shared",
                     "If you pay wages in more than one state, each state gives you only a share of its threshold. Here is the rule, every official example, and a four-state worked case.", corta=True, icona="map")
     pagina("interstate-wages/", "Payroll Tax Interstate Wages: Sharing the Threshold",
-           "How Australian payroll tax thresholds are shared when you pay wages in several states: the rule, official examples from NSW, VIC, QLD, WA, SA and TAS, and nexus.",
+           "How Australian payroll tax thresholds are shared when you pay wages in several states: the rule, official examples from NSW, VIC, QLD, WA, SA and TAS, nexus.",
            corpo, testata, briciole=[("Home", ""), ("Interstate wages", "interstate-wages/")], jsonld=[faq_ld] if faq_ld else None)
 
 
@@ -1036,8 +1063,8 @@ def storico_pagina():
     corpo += faq_html + '<h2>Guides</h2>' + griglia_guide("thresholds-history/") + rim.elenco()
     testata = banda("Thresholds history", "Payroll tax thresholds and rates by year, 2021-22 to 2026-27",
                     "How the threshold and rate have changed in every state and territory, with the official source for each figure.", corta=True, icona="trend")
-    pagina("thresholds-history/", "Payroll Tax Thresholds History by State, 2021-2027",
-           "Payroll tax thresholds and rates for every Australian state and territory from 2021-22 to 2026-27, each figure linked to its official source.",
+    pagina("thresholds-history/", "Payroll Tax Thresholds by State and Year, 2021-22 to 2026-27",
+           "Payroll tax thresholds and rates by state from 2021-22 to 2026-27, including the 2025-26 NSW and VIC thresholds, each linked to its official source.",
            corpo, testata, briciole=[("Home", ""), ("Thresholds history", "thresholds-history/")], jsonld=[faq_ld] if faq_ld else None)
 
 
@@ -1167,7 +1194,7 @@ def payday():
     testata = banda("Payday Super · from 1 July 2026", "Payday Super: super due within 7 business days of payday",
                     "What the Payday Superannuation Act 2025 requires of employers from 1 July 2026, read from the Act itself, with a worked example.", corta=True, icona="clock")
     pagina("payday-super/", "Payday Super from 1 July 2026: 7 Business Days Rule",
-           "Payday Super from 1 July 2026: super must reach the fund within 7 business days of each payday. The rules, the 20-day exception, the charge and a worked example.",
+           "Payday Super from 1 July 2026: the 12% superannuation guarantee must reach the fund within 7 business days of payday, with the 20-day exception and the charge.",
            corpo, testata, briciole=[("Home", ""), ("Payday Super", "payday-super/")], jsonld=[faq_ld] if faq_ld else None)
 
 
@@ -1197,11 +1224,11 @@ def oltre_soglia():
     corpo += '<p><a class="btn" href="/calculator/">Estimate your payroll tax</a></p>'
     faq_html, faq_ld = faq_blocco("over-the-threshold", rim)
     corpo += faq_html + '<h2>Guides</h2>' + griglia_guide("over-the-threshold/") + rim.elenco()
-    testata = banda("Over the threshold", "Over the payroll tax threshold? What to do next",
+    testata = banda("Registration", "Payroll tax registration: when you must register, state by state",
                     "Registering in each state, the monthly and weekly thresholds, grouping, and what happens in the annual return.", corta=True, icona="alert")
-    pagina("over-the-threshold/", "Over the Payroll Tax Threshold? Registering, State by State",
-           "Gone over the payroll tax threshold? Register in each state where you pay wages: monthly and weekly thresholds, the 7-day deadlines, grouping and penalties.",
-           corpo, testata, briciole=[("Home", ""), ("Over the threshold", "over-the-threshold/")], jsonld=[faq_ld] if faq_ld else None)
+    pagina("over-the-threshold/", "Payroll Tax Registration: When to Register in Each State",
+           "Register for payroll tax in each state where you pay wages once you pass the threshold: monthly and weekly thresholds, 7-day deadlines, grouping, penalties.",
+           corpo, testata, briciole=[("Home", ""), ("Registration", "over-the-threshold/")], jsonld=[faq_ld] if faq_ld else None)
 
 
 def about():

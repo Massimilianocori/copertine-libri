@@ -45,6 +45,16 @@
     "Employers who voluntarily declare their liabilities may receive significantly lower penalties than those who do not"
    ]
   },
+  "portal_about": {
+   "url": "https://www.payrolltax.gov.au/",
+   "titolo": "About Payroll Tax Australia",
+   "chi": "Australian Revenue Offices (payrolltax.gov.au)",
+   "cerca": [
+    "Payroll tax is levied on wages paid or payable by an employer to its employees when the total taxable wages of an employer (or group of employers) exceeds a threshold amount",
+    "Payroll tax is self-assessed and lodged by the employer",
+    "Payroll tax is administered by revenue offices in each individual state or territory"
+   ]
+  },
   "nsw_rates": {
    "url": "https://www.revenue.nsw.gov.au/taxes-duties-levies-royalties/payroll-tax/lodge-and-pay-returns/thresholds-and-rates",
    "titolo": "Payroll tax thresholds and rates",
@@ -1426,6 +1436,17 @@
    "trovate": {
     "The Home Ownership and Other Legislation Amendment Act 2026 received Royal Assent on 22 October 2026": true,
     "Payroll Tax Act 1971 Confirms that the Commissioner of State Revenue may exclude a set of persons from a group": true
+   }
+  },
+  "portal_about": {
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "sha256": "e3f17438ed8d72b42e64973a126ba0eeab60bc2b7b753300cc158744fc0a5718",
+   "byte": 16124,
+   "trovate": {
+    "Payroll tax is levied on wages paid or payable by an employer to its employees when the total taxable wages of an employer (or group of employers) exceeds a threshold amount": true,
+    "Payroll tax is self-assessed and lodged by the employer": true,
+    "Payroll tax is administered by revenue offices in each individual state or territory": true
    }
   }
  }

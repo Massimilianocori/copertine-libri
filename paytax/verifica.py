@@ -16,7 +16,11 @@ Cosa controlla:
  4. JS = Python: il motore nel file app.*.js pubblicato e motore.py danno gli stessi numeri su 5.000 casi casuali
     (anni parziali, regionali, gruppi grandi, Stati a zero); coerenza (nessuna imposta negativa, soglia ripartita ≤ piena).
  5. Numeri stampati: risultato statico della home e dati del calcolatore uguali al motore; nessun segnaposto.
- 6. FAQ: ogni domanda viene da una ricerca salvata (dati/domanda.json, gl=au); JSON-LD FAQPage = testo visibile.
+ 6. FAQ: ogni domanda viene da una ricerca salvata (dati/domanda.json, gl=au) o da una ricerca con volume misurato in
+    Australia (dati/volumi-2026-11-13.json, volume > 0); JSON-LD FAQPage = testo visibile.
+ 6b. Ricerche misurate (genera.RICERCHE_PAGINA): ogni ricerca ha volume > 0 nel file misurato; la prima di ogni pagina ha
+    tutte le parole nel titolo, le altre in titolo + h1 + descrizione + FAQ della pagina; titoli e descrizioni unici,
+    descrizioni ≤ 160 caratteri; il file misurato non contiene chiavi.
  7. Struttura: canonical, titoli, descrizioni, link interni e ancore, sitemap = pagine con canonical, file accessori,
     contatore GoatCounter in ogni pagina, fonti con data di controllo in ogni pagina di contenuto; parole del contenuto proprio
     (solo <main>, senza calcolatore, fonti, griglie e avviso): almeno 500, almeno 900 per payday-super, regional-rates,
@@ -400,17 +404,33 @@ def controlla_stampati():
 
 
 # ---------------------------------------------------------------- 6. FAQ
+FILE_VOLUMI = RADICE / "dati" / "volumi-2026-11-13.json"
+
+
+def volumi_au():
+    """Ricerche misurate in Australia con volume > 0 (api.seodata.dev, 13/11/2026)."""
+    d = json.loads(FILE_VOLUMI.read_text(encoding="utf-8"))
+    return {k: v["volume"] for k, v in d["au"].items() if (v.get("volume") or 0) > 0}
+
+
 def controlla_faq():
     tutte = set()
     for v in json.loads((RADICE / "dati" / "domanda.json").read_text(encoding="utf-8"))["radici"].values():
         if isinstance(v, list):
             tutte |= set(v)
+    misurate = volumi_au()
     for x in G.FAQ:
-        if x["ricerca"] not in tutte:
-            errore(f"FAQ «{x['q']}»: la ricerca «{x['ricerca']}» non è nell'autocompletamento salvato")
+        if x["ricerca"] not in tutte and x["ricerca"] not in misurate:
+            errore(f"FAQ «{x['q']}»: la ricerca «{x['ricerca']}» non è nell'autocompletamento salvato né tra le ricerche misurate")
         for i in x["fonti"]:
             if i not in G.FONTI:
                 errore(f"FAQ «{x['q']}»: fonte {i} inesistente")
+        # citazioni tra virgolette: parola per parola dentro una frase controllata (e trovata) di una fonte della FAQ
+        esiti = json.loads((RADICE / "dati" / "fonti.json").read_text(encoding="utf-8"))["fonti"]
+        for cit in re.findall(r"“([^”]+)”", x["a"]):
+            if not any(cit in c and esiti.get(i, {}).get("trovate", {}).get(c) for i in x["fonti"] if i in G.FONTI
+                       for c in G.FONTI[i]["cerca"]):
+                errore(f"FAQ «{x['q']}»: citazione non trovata parola per parola nelle frasi controllate delle sue fonti: «{cit}»")
     n = 0
     for f in pagine():
         t = f.read_text(encoding="utf-8")
@@ -427,7 +447,57 @@ def controlla_faq():
                     errore(f"{f.relative_to(SITO)}: risposta JSON-LD diversa dal testo: {q['name']}")
     if n != len(G.FAQ):
         errore(f"FAQ: {n} domande nelle pagine, {len(G.FAQ)} in dati/faq.json")
-    print(f"6. FAQ: {n} domande da ricerche vere (Google gl=au); JSON-LD FAQPage uguale al testo visibile.")
+    da_misura = sum(1 for x in G.FAQ if x["ricerca"] in misurate and x["ricerca"] not in tutte)
+    print(f"6. FAQ: {n} domande da ricerche vere (autocompletamento gl=au; {da_misura} da ricerche misurate in Australia); JSON-LD FAQPage uguale al testo visibile.")
+
+
+# ---------------------------------------------------------------- 6b. ricerche misurate -> titoli, h1, descrizioni
+def parole(t):
+    return set(re.findall(r"[a-z0-9]+", unescape(t).lower()))
+
+
+def controlla_ricerche():
+    grezzo = FILE_VOLUMI.read_text(encoding="utf-8")
+    if re.search("sd_" + "live|Bearer|Authorization", grezzo):  # prefisso della chiave spezzato: il grep di controllo resta vuoto
+        errore(f"{FILE_VOLUMI.name}: contiene una chiave o un'intestazione di autorizzazione")
+    misurate = volumi_au()
+    titoli, descrizioni = {}, {}
+    for f in pagine():
+        t = f.read_text(encoding="utf-8")
+        if '<link rel="canonical"' not in t:
+            continue
+        p = percorso_di(f)
+        tit = unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+        des = unescape(re.search(r'<meta name="description" content="([^"]*)"', t).group(1))
+        titoli.setdefault(tit, []).append(p)
+        descrizioni.setdefault(des, []).append(p)
+        if len(des) > 160:
+            errore(f"/{p}: descrizione di {len(des)} caratteri (massimo 160)")
+    for k, v in list(titoli.items()) + list(descrizioni.items()):
+        if len(v) > 1:
+            errore(f"titolo o descrizione ripetuti in {v}: {k}")
+    n = 0
+    for p, ricerche in G.RICERCHE_PAGINA.items():
+        f = SITO / p / "index.html"
+        if not f.exists():
+            errore(f"RICERCHE_PAGINA: pagina /{p} inesistente")
+            continue
+        t = f.read_text(encoding="utf-8")
+        tit = re.search(r"<title>(.*?)</title>", t).group(1)
+        h1 = re.search(r"<h1[^>]*>(.*?)</h1>", t, re.S).group(1)
+        des = re.search(r'<meta name="description" content="([^"]*)"', t).group(1)
+        pid = p.strip("/") or "home"
+        faq = " ".join(x["q"] + " " + x["a"] for x in G.FAQ if x["pagina"] == pid)
+        insieme = parole(tit) | parole(re.sub(r"<[^>]+>", " ", h1)) | parole(des) | parole(faq)
+        for i, r in enumerate(ricerche):
+            n += 1
+            if r not in misurate:
+                errore(f"/{p}: la ricerca «{r}» non ha volume misurato in {FILE_VOLUMI.name}")
+            manca = parole(r) - (parole(tit) if i == 0 else insieme)
+            if manca:
+                errore(f"/{p}: «{r}» non coperta ({'titolo' if i == 0 else 'titolo, h1, descrizione, FAQ'}): mancano {sorted(manca)}")
+    print(f"6b. Ricerche misurate: {n} ricerche (volume > 0, Australia, {FILE_VOLUMI.name}) coperte da {len(G.RICERCHE_PAGINA)} pagine "
+          f"(la prima nel titolo); titoli e descrizioni unici, descrizioni ≤ 160.")
 
 
 # ---------------------------------------------------------------- 7. struttura
@@ -618,6 +688,7 @@ def main():
     controlla_js_python()
     controlla_stampati()
     controlla_faq()
+    controlla_ricerche()
     controlla_struttura()
     controlla_monetizzazione()
     controlla_parole()

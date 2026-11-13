@@ -1,5 +1,5 @@
 {
- "_nota": "Ogni domanda nasce da una ricerca vera dell'autocompletamento (dati/domanda.json, gl=au); risposte solo dalle fonti indicate.",
+ "_nota": "Ogni domanda nasce da una ricerca vera: autocompletamento (dati/domanda.json, gl=au) oppure ricerca con volume misurato in Australia (dati/volumi-2026-11-13.json, volume > 0); risposte solo dalle fonti indicate.",
  "faq": [
   {
    "pagina": "home",
@@ -45,6 +45,15 @@
    "a": "Yes. Employer superannuation contributions are part of taxable wages for payroll tax, together with salaries, fringe benefits, termination payments, some contractor payments, allowances, bonuses, directors' fees and shares and options (Revenue NSW list; the other states follow harmonised rules).",
    "fonti": [
     "nsw_register"
+   ]
+  },
+  {
+   "pagina": "home",
+   "ricerca": "what is payroll tax",
+   "q": "What is payroll tax?",
+   "a": "In the words of the joint portal of the eight revenue offices: “Payroll tax is levied on wages paid or payable by an employer to its employees when the total taxable wages of an employer (or group of employers) exceeds a threshold amount”. The portal adds that “Payroll tax is self-assessed and lodged by the employer” and that “Payroll tax is administered by revenue offices in each individual state or territory”, which is why each state and territory sets its own threshold and rate.",
+   "fonti": [
+    "portal_about"
    ]
   },
   {
@@ -107,6 +116,15 @@
    ]
   },
   {
+   "pagina": "nsw",
+   "ricerca": "nsw payroll tax rate",
+   "q": "What is the NSW payroll tax rate?",
+   "a": "5.45% for 2026-27 (1 July 2026 to 30 June 2027), charged on NSW taxable wages above your share of the $1,200,000 annual threshold. NSW has used the same $1,200,000 threshold and 5.45% rate every year since 1 July 2022.",
+   "fonti": [
+    "nsw_rates"
+   ]
+  },
+  {
    "pagina": "vic",
    "ricerca": "payroll tax threshold vic 2026",
    "q": "What is the Victorian payroll tax threshold for 2026-27?",
@@ -144,6 +162,17 @@
     "vic_phase",
     "vic_act",
     "vic_rates"
+   ]
+  },
+  {
+   "pagina": "vic",
+   "ricerca": "victoria payroll tax rate",
+   "q": "What is the payroll tax rate in Victoria?",
+   "a": "4.85% for 2026-27, or 1.2125% for regional employers that pay at least 85% of their Victorian taxable wages to regional employees. With Australian wages over $10 million, two surcharges add 0.5% each (1% in total), and over $100 million each adds another 0.5% (2% in total), on Victorian taxable wages above the surcharge thresholds.",
+   "fonti": [
+    "vic_rates",
+    "vic_regional",
+    "vic_surcharges"
    ]
   },
   {
@@ -395,6 +424,23 @@
    ]
   },
   {
+   "pagina": "thresholds-history",
+   "ricerca": "payroll tax threshold vic 2025",
+   "q": "What were the payroll tax thresholds in 2025-26?",
+   "a": "For 2025-26 (1 July 2025 to 30 June 2026): NSW $1,200,000; Victoria $1,000,000; Queensland $1,300,000; Western Australia $1,000,000; South Australia $1,500,000; Tasmania $1,250,000; ACT $2,000,000; Northern Territory $2,500,000. For 2026-27 only the ACT threshold changed, to $1,750,000.",
+   "fonti": [
+    "nsw_rates",
+    "vic_rates",
+    "qld_rates",
+    "wa_calc",
+    "sa_rates",
+    "tas_rates",
+    "act_det2025",
+    "act_det2026",
+    "portal_rates"
+   ]
+  },
+  {
    "pagina": "due-dates",
    "ricerca": "payroll tax annual reconciliation due date 2026",
    "q": "When is the payroll tax annual reconciliation due?",
@@ -440,6 +486,15 @@
    "ricerca": "payday super penalties",
    "q": "What are the penalties under Payday Super?",
    "a": "If contributions arrive late or short you owe the superannuation guarantee charge for that payday. It includes the shortfall, a notional earnings component and an administrative uplift equal to 60% of the shortfall plus the notional earnings (regulations can reduce it), plus a choice loading if you did not follow the employee's choice of fund.",
+   "fonti": [
+    "payday_act"
+   ]
+  },
+  {
+   "pagina": "payday-super",
+   "ricerca": "superannuation rate 2026",
+   "q": "What is the super guarantee rate in 2026-27?",
+   "a": "12%. Under the Payday Super rules that start on 1 July 2026, the charge percentage is 12, so the super guarantee for each payday is 12% of the qualifying earnings you pay the employee that day.",
    "fonti": [
     "payday_act"
    ]

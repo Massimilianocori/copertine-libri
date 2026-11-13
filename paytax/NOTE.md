@@ -3,7 +3,7 @@
 Costruito l'11/11/2026 dal piano della sez. 8 di `studio-business/intelaiatura/verifica-2026-11-09-payroll-tax-australia.md`.
 Sito statico in inglese (en-AU) generato da `genera.py` in `sito/`: payroll tax delle 8 giurisdizioni australiane per l'anno
 fiscale **2026-27** (1/7/2026 – 30/6/2027) e un calcolatore multi-Stato che gira solo nel browser.
-Indirizzo previsto: `https://payroll-tax-by-state.netlify.app` (costante `URL_SITO` in `genera.py`, unico punto da cambiare).
+Indirizzo: `https://payrolltaxbystate.com` (dal 13/11; costante `URL_SITO` in `genera.py`, unico punto da cambiare).
 **Il sito Netlify NON è stato creato e niente è stato pubblicato** (passi in fondo). Nessun commit fatto.
 
 ## Pagine (21 indicizzabili + 404)
@@ -23,8 +23,8 @@ Indirizzo previsto: `https://payroll-tax-by-state.netlify.app` (costante `URL_SI
 | `/over-the-threshold/` | passi, soglie di registrazione per Stato, sanzioni (portale congiunto) |
 | `/about/`, `/how-we-check/`, `/privacy/`, `404.html` | |
 
-FAQ: 48 domande, ognuna nata da un suggerimento vero dell'autocompletamento Google (`gl=au`, `dati/domanda.json`, 66 radici,
-628 suggerimenti, 11/11/2026); JSON-LD FAQPage identico al testo visibile.
+FAQ: 53 domande (48 dell'11/11 + 5 del 13/11), ognuna nata da un suggerimento vero dell'autocompletamento Google (`gl=au`, `dati/domanda.json`, 66 radici,
+628 suggerimenti, 11/11/2026) o da una ricerca con volume misurato in Australia (`dati/volumi-2026-11-13.json`, vedi 13/11); JSON-LD FAQPage identico al testo visibile.
 
 ## Fonti (lette con il nostro server l'11/11/2026, nessun blocco aggirato)
 
@@ -95,7 +95,8 @@ Non modellati (detto nelle pagine): esenzioni, contractor, apprendisti, indennit
 3. Esempi: 28 ufficiali + 2 dalla legge VIC (35 cifre) entro tolleranza (1-3 $ dove l'ufficio arrotonda i passi), anche col JS; tabella SA; limiti ACT; regole NT; soglie mensili NSW; soglie sovrattasse VIC.
 4. JS pubblicato = Python su 5.038 casi (5.000 casuali + 38 limite), nessuna imposta negativa, soglia ripartita ≤ piena, aliquote 0-10 %.
 5. Numeri stampati (home) = motore; parametri nei calcolatori = JSON; nessun segnaposto.
-6. FAQ da ricerche vere; JSON-LD = testo.
+6. FAQ da ricerche vere (autocompletamento o volume misurato > 0); JSON-LD = testo.
+6b. (13/11) Ricerche misurate `RICERCHE_PAGINA` di `genera.py`: volume > 0 in `dati/volumi-2026-11-13.json`, la prima tutta nel titolo, le altre in titolo + h1 + descrizione + FAQ; titoli e descrizioni unici, descrizioni ≤ 160; nessuna chiave nel file misurato.
 7. Canonical, titoli ≤ 65, descrizioni 70-165, un h1, link e ancore, sitemap = canonical, le 21 pagine del piano, robots, netlify.toml, chiave IndexNow, og.png, GoatCounter in ogni pagina (404 compresa), fonti con data e avviso "not tax advice" in ogni pagina di contenuto; modulo `corrections` (honeypot, consenso, email facoltativa) e privacy che lo spiega; spazio pubblicitario sempre dopo il calcolatore; parole del **contenuto proprio** (solo `<main>`, senza calcolatore, fonti, griglie delle guide, avviso): almeno 500 per ogni pagina di contenuto (oggi il minimo è /over-the-threshold/ con 515) e almeno 900 per /payday-super/, /regional-rates/, /what-changed-2026-27/, /how-we-check/.
 8. Monetizzazione: `monetizzazione.controlla_sito` + nessun link affiliato a programmi spenti + prova di resa del riquadro acceso (rel="sponsored noopener", riga di trasparenza).
 9. Nessun dato personale, nessun nome di modello AI (sito, codice, dati, questa nota).
@@ -131,7 +132,7 @@ Ogni mese basta `python3 paytax/verifica.py --rete` (pagine ufficiali cambiate =
 
 1. Netlify: nuovo sito dal repository, Base directory `paytax/sito`, Build command vuoto, Publish directory `.`; nome
    `payroll-tax-by-state` (se diverso, cambiare `URL_SITO` e rigenerare).
-2. Search Console: proprietà `https://payroll-tax-by-state.netlify.app/` (meta di verifica già nelle pagine), inviare la sitemap.
+2. Search Console: proprietà `https://payrolltaxbystate.com/` (meta di verifica già nelle pagine), inviare la sitemap.
 3. Togliere l'host da `NON_ONLINE` in `indexnow.py` e lanciare l'invio.
 
 ## Limiti noti
@@ -145,3 +146,80 @@ Ogni mese basta `python3 paytax/verifica.py --rete` (pagine ufficiali cambiate =
 - ACT non calcolato: il totale dice "total excludes ACT (not calculated)" e rimanda all'ACT Revenue Office.
 - QLD tetto dei 350 mln per lo sconto regionale: QRO parla di salari australiani, l'Act s 10A(4) dei salari imponibili del datore nel periodo;
   il calcolatore applica il tetto ai salari australiani e lo dice (nessuna differenza sotto i 350 mln).
+
+## Domanda misurata e titoli dalle ricerche (13/11/2026, NON pubblicato: revisione indipendente, poi pubblicazione)
+
+**Attenzione al mandato.** La richiesta parlava di domanda **USA** (SUTA, FUTA, withholding per Stato). Il sito è sulla payroll tax
+**australiana** (en-AU, 8 giurisdizioni): titoli e FAQ si sono rifatti sulle ricerche **australiane** (`country=au`); quelle USA sono
+misurate e scritte sotto solo come informazione (nessuna pagina USA costruita).
+
+**Misura.** `api.seodata.dev /v1/keyword` il 13/11/2026: 305 richieste andate a buon fine (193 Australia, 110 USA, 2 di prova; un primo
+giro da Python senza curl è stato respinto con 403 prima di arrivare ai dati ed è stato rifatto con curl). File `dati/volumi-2026-11-13.json`
+(volume, cpc, frasi simili; `errore: 404` = frase non nel database). Chiave mai scritta: il grep del prefisso della chiave su `paytax/` è vuoto, e
+`verifica.py` (6b) lo ricontrolla.
+
+**Ricerche australiane più cercate (al mese).** payroll tax 8.100 · payroll tax nsw 6.600 (cpc 11 $) · payroll tax queensland 4.400 ·
+payroll tax qld 3.600 · payroll tax victoria 2.900 · payroll tax wa = western australia 2.400 · payday super 1.900 (cpc 17 $) = payday
+superannuation 1.900 · payroll tax calculator 1.600 (cpc 15,6 $) · payroll tax thresholds 1.600 (cpc 23 $) · nsw payroll tax threshold 1.600 ·
+payroll tax vic 1.600 · current super rate australia 1.600 · payroll tax sa = south australia 1.300 · payroll tax act 1.300 · what is payroll
+tax 1.300 · nsw / qld payroll tax rate 1.000 · qld payroll tax threshold 880 · payroll tax rates 880 · vic payroll tax threshold 720 ·
+payroll tax tasmania 590 (cpc 29,7 $) · superannuation rate 2026 590 · victoria payroll tax rate 480 · payroll tax due dates 480 ·
+how is payroll tax calculated 390 · payroll tax nt = northern territory 320 · payroll tax registration / register for payroll tax 320 ·
+payroll tax grouping 320 · payroll tax exemptions 320 · payroll tax contractors 320. Nel database ma senza volume o assenti:
+"payroll tax new south wales", "payroll tax interstate wages", "regional payroll tax", "payroll tax changes 2026", "payday super 2026".
+
+**Cosa è cambiato (tutto da `genera.py`; `NOMI_RICERCA` sceglie il nome più cercato per ogni Stato, `RICERCHE_PAGINA` lega pagina e ricerche):**
+
+| Pagina | Titolo prima | Titolo dopo | h1 dopo | Ricerca guida (vol.) |
+|---|---|---|---|---|
+| `/` | Payroll Tax by State 2026-27: Rates, Thresholds, Calculator | Payroll Tax Australia 2026-27: Rates and Thresholds by State | Payroll tax in Australia by state: 2026-27 rates, thresholds and calculator | payroll tax 8.100, payroll tax australia 480, payroll tax rates 880, payroll tax thresholds 1.600 |
+| `/calculator/` | Payroll Tax Calculator 2026-27: All Australian States | Payroll Tax Calculator Australia 2026-27: All 8 States | Payroll tax calculator 2026-27: all Australian states in one | payroll tax calculator 1.600, … australia 320 |
+| `/vic/` | VIC Payroll Tax 2026-27: … | Victoria Payroll Tax 2026-27: Threshold, Rate, Calculator | invariato + ": threshold, rate and calculator" | payroll tax victoria 2.900 > vic 1.600 |
+| `/qld/` | QLD Payroll Tax 2026-27: … | Queensland Payroll Tax 2026-27: Threshold, Rate, Calculator | idem | payroll tax queensland 4.400 > qld 3.600 |
+| `/tas/` | TAS Payroll Tax 2026-27: … | Tasmania Payroll Tax 2026-27: Threshold, Rate, Calculator | idem | payroll tax tasmania 590 > tas 170 |
+| `/nsw/`, `/act/` | titolo invariato | invariato | **NSW** / **ACT** payroll tax 2026-27: threshold, rate and calculator (prima il nome intero, che nessuno cerca) | payroll tax nsw 6.600, payroll tax act 1.300 |
+| `/wa/`, `/sa/`, `/nt/` | invariato (sigla) | invariato | nome intero + ": threshold, rate and calculator" (le due forme pareggiano: sigla nel titolo, nome nell'h1) | 2.400 / 1.300 / 320 per forma |
+| 8 Stati, descrizioni | "{nome} payroll tax 2026-27: …" | "{sigla o nome} payroll tax ({l'altra forma}) 2026-27: …" | | |
+| `/over-the-threshold/` | Over the Payroll Tax Threshold? Registering, State by State | Payroll Tax Registration: When to Register in Each State | Payroll tax registration: when you must register, state by state (briciole, piede e guide: "Registration") | payroll tax registration 320, register for payroll tax 320 |
+| `/thresholds-history/` | Payroll Tax Thresholds History by State, 2021-2027 | Payroll Tax Thresholds by State and Year, 2021-22 to 2026-27 | invariato | payroll tax thresholds 1.600, payroll tax threshold vic 2025 140 |
+| `/payday-super/` | invariato | invariato; descrizione con "12% superannuation guarantee" | invariato | payday super 1.900, superannuation rate 2026 590 |
+| `/interstate-wages/` | | invariato; descrizione 161 → 156 caratteri | | |
+
+URL invariati (nessun rinvio). Negli h1 gli anni "2026-27" non vanno più a capo sul trattino (`<span class="nw">`, `.nw{white-space:nowrap}` in `stile.py`).
+
+**FAQ nuove (5, ognuna da una ricerca misurata, risposte solo con cifre già nei dati e fonti già controllate; JSON-LD = testo):**
+home "What is payroll tax?" (what is payroll tax 1.300; fonte nuova `portal_about` = home di payrolltax.gov.au, 3 frasi, HTTP 200) ·
+NSW "What is the NSW payroll tax rate?" (nsw payroll tax rate 1.000) · VIC "What is the payroll tax rate in Victoria?" (victoria payroll tax
+rate 480) · storico "What were the payroll tax thresholds in 2025-26?" (payroll tax threshold vic 2025 140; dai dati di `storico.json`) ·
+Payday Super "What is the super guarantee rate in 2026-27?" (superannuation rate 2026 590; "charge percentage means 12" del Payday Super Act).
+Fonti: 70 (67 lette con 200, 3 non lette), 184 frasi.
+
+**Domanda non coperta (nessuna pagina nuova costruita oggi):**
+
+| Tema | Volume AU | Fonte ufficiale leggibile (curl, nessun blocco aggirato) | Giudizio |
+|---|---|---|---|
+| Esenzioni (payroll tax exemptions, nsw … exemptions) | 320 + 140 | Revenue NSW exemptions 200; QRO exemptions 200; SRO Vic: indirizzo da trovare (404 su due tentativi) | candidata n. 1: pagina "Payroll tax exemptions by state" solo con l'elenco ufficiale di ogni Stato; serve revisore (molte eccezioni) |
+| Contractor (payroll tax contractors, contractors payroll tax) | 320 + 70 NSW + 50 QLD | Revenue NSW contractors 200; SRO Vic contractors 200; QRO contractor 200; RevenueSA contractors 200; WA: indirizzo da trovare | candidata n. 2, ma tema da consulenza (relevant contracts, medici): solo testo ufficiale citato, niente casi nostri |
+| Aliquota del super (current super rate australia, super rate 2026) | 1.600 + 590 + 590 | ATO 403 (non letta); il 12 % è nel Payday Super Act (letto) | coperta in parte con la FAQ nuova di /payday-super/ |
+| PAYGW / "is payroll tax deductible" | 9.900 / 140 + 70 | ATO 403 | non coperte: fonte non leggibile |
+| GP / medical centres (gp payroll tax victoria 170, patient tax qld 90) | piccole | QRO amnistia già letta (qld_amnesty) | da rivalutare con le esenzioni |
+
+**USA (solo misura, il sito non tratta gli USA):** payroll taxes 18.100 (cpc 32 $) · payroll tax calculator 18.100 · suta 5.400 ·
+employer payroll taxes 4.400 (cpc 33 $) · futa tax rate 3.600 · california payroll tax 2.400 · california withholding 2.400 · state withholding
+tax 1.900 · texas payroll tax 1.300 · florida / new jersey payroll tax 1.000 · payroll tax by state 590 (in Australia 140) · "<state> unemployment
+tax rate" 30-390 · "<state> suta rate 2026" e "<state> new employer rate": non nel database · social security wage base 2026 50.
+Fonti: IRS Pub 15 e Topic 759 200; California EDD 200; SSA 403; Texas TWC 202 vuota (pagina in JS). Un sito o una sezione USA sarebbe un
+progetto a parte (su un dominio diverso: payrolltaxbystate.com è già il dominio di questo sito australiano; pubblico, valuta e fonti diversi): da proporre alla sessione principale, non fatto qui.
+
+**Controlli del 13/11:** `python3 paytax/genera.py` → `python3 paytax/verifica.py` 0 errori, 0 avvisi (nuova sezione 6b: 49 ricerche su 15
+pagine); `python3 studio-business/strumenti/monetizzazione.py verifica paytax` 0 errori; Playwright 375/1280 su `/`, `/qld/`,
+`/over-the-threshold/` con tutte le richieste esterne bloccate: niente scorrimento orizzontale, nessun errore JS, titoli e h1 nuovi.
+
+**Revisione indipendente del 13/11 (prima della pubblicazione).** Rilette oggi con curl (UA normale, nessun blocco aggirato) 14 fonti:
+portale congiunto (home e resources, "Last updated on: 28/10/2026"), Revenue NSW, SRO Victoria (current rates, regional, surcharges), QRO,
+WA Employer Guide, RevenueSA, SRO Tasmania, determinazioni ACT DI2025-161 e DI2026-151, Payroll Tax Act 2009 (NT) in vigore all'1/7/2026,
+Payday Super Act C2025A00057; ACT Revenue Office e NT Treasury rispondono 403 (non aggirato). Soglie e aliquote 2026-27 e 2025-26 degli
+8 Stati, storico NSW dal 2022-23, sovrattasse e tasso regionale VIC, 12 % ("charge percentage means 12"): tutte uguali alle fonti.
+Correzioni: la FAQ "What is payroll tax?" era una parafrasi delle frasi del portale → ora cita parola per parola le 3 frasi
+di `portal_about`, e `verifica.py` (6) controlla che ogni citazione “…” di una FAQ sia dentro una frase controllata e trovata delle sue
+fonti; descrizione di /payday-super/ senza la frase spezzata finale; indirizzo del sito in questa nota allineato a `URL_SITO`.
