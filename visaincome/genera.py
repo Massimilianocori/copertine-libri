@@ -59,12 +59,27 @@ sys.path.append(str(RADICE.parent / "studio-business" / "strumenti"))
 import monetizzazione as MON  # noqa: E402
 SITO_ID = "visaincome"  # nome del sito in monetizzazione.json ("adsense_siti")
 ADSENSE_HEAD = MON.script_adsense(SITO_ID)  # "" con AdSense spento; altrimenti a capo + script ufficiale, subito dopo il meta di verifica Google
+# Grow by Mediavine (13/11/2026): requisito di Journey by Mediavine (1.000 sessioni US/UK/CA/AU in 30 giorni, contate solo da Grow).
+# Tag ufficiale di publishers.grow.me (sito "Visa Income Checker"), copiato così com'è: va nel <head> di OGNI pagina (in indice e
+# noindex, inglese/es/pt, 404), anche dove non c'è AdSense, perché Grow deve contare tutte le sessioni. L'ID del sito è pubblico.
+# Il tag è il primo o il secondo <script> della pagina: getElementsByTagName("script")[0] esiste sempre (al più è il tag stesso).
+# main.js rilegge l'ID dal tag con l'attributo data-grow-initializer: non cambiare il formato. Spegnere: GROW_ATTIVO = False.
+# Controllo 37 di verifica.py; privacy: paragrafo "Grow by Mediavine".
+GROW_ATTIVO = True
+GROW_SITE_ID = "U2l0ZTo2Yjk2NzU3Yi01ODVlLTQ1ZTMtYWYwYi1hMTM2OWJlY2NlNmU="
+GROW_PRIVACY_URL = "https://www.mediavine.com/legal-and-privacy-center/"  # informativa "Ad Management Platform & Grow User" (letta il 13/11/2026)
+GROW_TAG = ('<script data-grow-initializer="">!(function(){window.growMe||((window.growMe=function(e){window.growMe._.push(e);}),(window.growMe._=[]));'
+            'var e=document.createElement("script");(e.type="text/javascript"),(e.src="https://faves.grow.me/main.js"),(e.defer=!0),'
+            'e.setAttribute("data-grow-faves-site-id","' + GROW_SITE_ID + '");var t=document.getElementsByTagName("script")[0];'
+            't.parentNode.insertBefore(e,t);})();</script>')
+GROW_HEAD = ("\n" + GROW_TAG) if GROW_ATTIVO else ""
 
 
 def ci_sono_affiliati():
     """True se il sito pubblica almeno un link di affiliazione (voce con "url" in dati/affiliati.json e il link SafetyWing delle pagine dei rifiuti):
     accende la sezione privacy sui link di affiliazione. Domini ammessi in monetizzazione.json, controlli in verifica.py."""
-    return any(isinstance(v, dict) and v.get("url") for k, v in AFFILIATI.items() if not k.startswith("_")) or bool(URL_SAFETYWING) or HS_ATTIVO or AL_ATTIVO
+    return (any(isinstance(v, dict) and v.get("url") for k, v in AFFILIATI.items() if not k.startswith("_")) or bool(URL_SAFETYWING) or HS_ATTIVO
+            or AL_ATTIVO or WISE_ATTIVO)
 
 
 def riquadro_trasparenza(corpo, lingua="en"):
@@ -144,8 +159,109 @@ def per_slug(slug):
     return next(p for p in PROG if p["slug"] == slug)
 
 
+# 13/11/2026, giro dei titoli (studio-business/intelaiatura/visaincome-crescita-2026-11-13.md, sezione 4): titolo, H1 e descrizione
+# dei 17 calcolatori usano il nome del visto come lo si cerca (volumi misurati, tabella in NOTE.md), l'anno e la cifra ufficiale già in pagina.
+# Segnaposto: {Y} anno; {c} cifra del richiedente principale nel periodo della regola ("€2,400/Month", "€50,700");
+# {r} da minima a massima tra le categorie ("£33,400 to £41,700"; uguale a {c} con una sola categoria); {a} annuale; {a2} annuale della 2ª categoria;
+# {x} riassunto() ("€2,442 a month × 14 (€34,188 a year)"). Vince la prima variante del titolo entro 65 caratteri e della descrizione entro 160.
+SEO_PROG = {
+    "uk-spouse-visa": dict(
+        t=["UK Spouse Visa {Y}: Income Requirement ({a}) and Calculator", "UK Spouse Visa {Y}: {a} Income Requirement"],
+        h="UK spouse visa {Y}: the {a} income requirement and calculator",
+        d=["UK spouse visa {Y} financial requirement: {a} a year for a new application, {a2} for some extensions. Calculator, when savings count, official GOV.UK source.",
+           "UK spouse visa {Y} financial requirement: {a} a year for a new application. Calculator, when savings count, official GOV.UK source."]),
+    "uk-skilled-worker-visa": dict(
+        t=["Skilled Worker Visa Minimum Salary {Y}: {r} (Calculator)", "Skilled Worker Visa Minimum Salary {Y}: {r}"],
+        h="Skilled Worker visa minimum salary {Y}: {a} standard rate, {rmin} reduced rate (calculator)",
+        d=["Skilled Worker visa minimum salary {Y}: {a} a year at the standard rate, from {rmin} at reduced rates, plus the going rate. Calculator and official GOV.UK source.",
+           "Skilled Worker visa minimum salary {Y}: {a} a year standard rate, from {rmin} reduced. Calculator and official GOV.UK source."]),
+    "spain-digital-nomad-visa": dict(
+        t=["Spain Digital Nomad Visa {Y}: Income Requirement ({a}/Year)", "Spain Digital Nomad Visa {Y}: {a} Income Requirement"],
+        h="Spain digital nomad visa {Y}: income requirement of {x}, with calculator"),
+    "spain-non-lucrative-visa": dict(
+        t=["Spain Non-Lucrative Visa {Y} (Retirement Visa): {c}", "Spain Non-Lucrative Visa {Y}: {c} Income Requirement"],
+        h="Spain non-lucrative visa {Y} (retirement visa): income requirement of {x} (calculator)",
+        nd="Spain non-lucrative visa (retirement visa)"),
+    "portugal-d7-visa": dict(
+        t=["Portugal D7 Visa {Y} (Retirement Visa): {c} Income Needed", "Portugal D7 Visa {Y} (Retirement Visa): {c}", "Portugal D7 Visa {Y}: {c} Income Requirement"],
+        h="Portugal D7 visa {Y} (retirement visa): income requirement of {x} (calculator)",
+        nd="Portugal D7 visa (retirement and passive income)"),
+    "portugal-d8-digital-nomad-visa": dict(
+        t=["Portugal Digital Nomad Visa (D8) {Y}: {c} Income Requirement", "Portugal Digital Nomad Visa (D8) {Y}: {c} Income Needed",
+           "Portugal Digital Nomad Visa (D8) {Y}: {c}"],
+        h="Portugal digital nomad visa (D8) {Y}: income requirement of {x} (calculator)",
+        nd="Portugal digital nomad visa (D8)"),
+    "croatia-digital-nomad-visa": dict(
+        t=["Croatia Digital Nomad Visa {Y}: {c} Income Requirement", "Croatia Digital Nomad Visa {Y}: {c} Income Needed", "Croatia Digital Nomad Visa {Y}: {c}"],
+        h="Croatia digital nomad visa {Y} (residence permit): income requirement of {x} (calculator)",
+        nd="Croatia digital nomad visa (residence permit)"),
+    "hungary-white-card": dict(
+        t=["Hungary Digital Nomad Visa (White Card) {Y}: {c} Income", "Hungary White Card {Y} (Digital Nomad Visa): {c}"],
+        h="Hungary digital nomad visa (White Card) {Y}: income requirement of {x} (calculator)",
+        nd="Hungary digital nomad visa (White Card)"),
+    "italy-digital-nomad-visa": dict(
+        t=["Italy Digital Nomad Visa {Y}: Income Requirement ({a}/Year)", "Italy Digital Nomad Visa {Y}: {a} Income Requirement",
+           "Italy Digital Nomad Visa {Y}: {a} a Year"],
+        h="Italy digital nomad visa {Y}: income requirement of {x} (calculator)"),
+    "germany-eu-blue-card": dict(
+        t=["EU Blue Card Germany {Y}: Minimum Salary {r}", "EU Blue Card Germany {Y}: Salary {r}", "EU Blue Card Germany {Y}: Minimum Salary {c}"],
+        h="EU Blue Card Germany {Y}: minimum salary {a}, or {rmin} for shortage occupations, recent graduates and IT specialists (calculator)",
+        nd="EU Blue Card Germany"),
+    "netherlands-eu-blue-card": dict(
+        t=["EU Blue Card Netherlands {Y}: Minimum Salary {r}", "EU Blue Card Netherlands {Y}: Salary {r}", "EU Blue Card Netherlands {Y}: Minimum Salary {c}"],
+        h="EU Blue Card Netherlands {Y}: minimum salary {x}, {rmin} for recent graduates (calculator)",
+        nd="EU Blue Card Netherlands"),
+    "austria-eu-blue-card": dict(
+        t=["EU Blue Card Austria {Y}: Minimum Salary {c} (Calculator)", "EU Blue Card Austria {Y}: Minimum Salary {c}"],
+        h="EU Blue Card Austria {Y}: minimum salary {x} (calculator)", nd="EU Blue Card Austria"),
+    "france-eu-blue-card": dict(
+        t=["EU Blue Card France {Y}: Minimum Salary {c} (Calculator)", "EU Blue Card France {Y}: Minimum Salary {c}"],
+        h="EU Blue Card France {Y} (talent residence card): minimum salary {x} (calculator)", nd="EU Blue Card France (talent residence card)"),
+    "sweden-eu-blue-card": dict(
+        t=["EU Blue Card Sweden {Y}: Minimum Salary {c} (Calculator)", "EU Blue Card Sweden {Y}: Minimum Salary {c}"],
+        h="EU Blue Card Sweden {Y}: minimum salary {x} (calculator)", nd="EU Blue Card Sweden"),
+    "denmark-pay-limit-scheme": dict(
+        t=["Denmark Pay Limit Scheme {Y}: Minimum Salary {c} a Year", "Denmark Pay Limit Scheme {Y}: Minimum Salary {c}"],
+        h="Denmark Pay Limit Scheme {Y}: minimum salary {x} (calculator)"),
+    "netherlands-highly-skilled-migrant": dict(
+        t=["Highly Skilled Migrant Netherlands {Y}: Salary {r}", "Netherlands Highly Skilled Migrant {Y}: Salary {r}",
+           "Highly Skilled Migrant Netherlands {Y}: Salary from {rmin}"],
+        h="Highly skilled migrant Netherlands {Y}: minimum salary {x} at 30 or over, from {rmin} (calculator)",
+        nd="Netherlands highly skilled migrant permit"),
+    "ireland-critical-skills-employment-permit": dict(
+        t=["Critical Skills Employment Permit Ireland {Y}: {r}", "Ireland Critical Skills Permit {Y}: Salary {r}"],
+        h="Ireland Critical Skills Employment Permit {Y}: minimum salary {r} (calculator)",
+        d=["Ireland Critical Skills Employment Permit {Y}: minimum salary {a} for listed occupations, {r} across all categories. Calculator and official source.",
+           "Ireland Critical Skills Employment Permit {Y}: minimum salary {r} by category. Calculator and official source."]),
+}
+
+
+def cifre_prog(P):
+    """Valori per i segnaposto di SEO_PROG, dal motore di calcolo (stessa cifra della pagina)."""
+    oo = [calcola(P, V["id"], 1, 0) for V in P["varianti"]]
+    o = oo[0]
+    val = o["valuta"]
+    per = "/Month" if o["periodo"] == "month" and o["pagamenti"] == 12 else ""
+    chiave = "mensile" if per else "annuale"
+    vv = sorted({x[chiave] for x in oo})
+    c = soldi(o[chiave], val) + per
+    r = soldi(vv[0], val) + (f" to {soldi(vv[-1], val)}" if len(vv) > 1 else "") + per
+    return {"Y": ANNO, "c": c, "r": r, "rmin": soldi(vv[0], val), "a": soldi(o["annuale"], val),
+            "a2": soldi(oo[1]["annuale"], val) if len(oo) > 1 else "", "x": riassunto(P)}
+
+
+def seo_prog(P):
+    """(titolo, h1, descrizione) di un calcolatore."""
+    S, k = SEO_PROG[P["slug"]], cifre_prog(P)
+    nd = S.get("nd") or nome_prog(P)
+    d = S.get("d") or [f"{nd} {{Y}}: minimum {{x}} for the main applicant. Calculator for your family and your currency (USD, GBP, INR), with the official source.",
+                       f"{nd} {{Y}}: minimum {{x}} for the main applicant. Calculator for your family and your currency, with the official source.",
+                       f"{nd} {{Y}}: minimum {{x}} for the main applicant. Family calculator and official source."]
+    return (entro([v.format(**k) for v in S["t"]], LIM_TIT_NUOVE), S["h"].format(**k), entro([v.format(**k) for v in d], LIM_DESCR_NUOVE))
+
+
 def titolo_prog(P):
-    return f"{P['paese']} {P['nome']} income requirement {ANNO}: how much you need (calculator)"
+    return seo_prog(P)[0]
 
 
 def nome_prog(P):
@@ -991,7 +1107,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="google-site-verification" content="{GOOGLE_VERIFICA}">
-<meta name="google-site-verification" content="{GOOGLE_VERIFICA_DOMINIO}">{adsense}
+<meta name="google-site-verification" content="{GOOGLE_VERIFICA_DOMINIO}">{adsense}{GROW_HEAD}
 <title>{escape(titolo)}</title>
 <meta name="description" content="{escape(descrizione)}">
 {canonico}{alt_html}
@@ -1202,6 +1318,49 @@ def box_al(percorso):
             f'your visa or permit, and it does not make you an Italian tax resident.</p></section>')
 
 
+# ---------------------------------------------------------------- riquadro Wise (13/11/2026)
+# Interruttore _wise in dati/affiliati.json ("attivo"). Programma Wise su Partnerize (wise.prf.hn, sottodominio di prf.hn già ammesso in
+# monetizzazione.json), approvato il 13/11/2026; link semplice verificato con curl (302 verso wise.com con l'ID partner). Riquadro neutro
+# «Moving money for your visa?»: nessun prezzo, commissione o tasso nella pagina (si rimanda al sito di Wise), nessuna promessa sul visto,
+# e la frase che non sappiamo se un consolato accetta gli estratti conto Wise. Solo pagine inglesi in indice che parlano di soldi in
+# un'altra valuta (in_wise); mai pagine fuori indice, pagine dell'esperimento /visa-refusal-rates/ o sezioni es/pt. Controllo 36 di verifica.py.
+_WISE = AFFILIATI.get("_wise", {})
+URL_WISE = _WISE.get("url", "")
+WISE_ATTIVO = bool(_WISE.get("attivo")) and URL_WISE.startswith("https://wise.prf.hn/click/camref:") and MON.dominio_ammesso(URL_WISE)
+REL_WISE = "sponsored nofollow noopener"
+TITOLO_WISE = "Moving money for your visa?"
+TEMI_DTV_WISE = ("proof-of-funds", "requirements")  # le due pagine tema della DTV sulla prova dei fondi
+
+
+def in_wise(percorso):
+    """True se la pagina ha il riquadro Wise: calcolatori del reddito, tabella dei nomadi digitali, DTV (indice, proof of funds, requirements),
+    Mexico residency (indice, income requirements, consolati), Who moved where (nazionalità e coppie in indice), Study in Italy (fondi)."""
+    if fuori_indice(percorso):
+        return False
+    return (percorso in {f"{P['slug']}/" for P in PROG}
+            or percorso == "digital-nomad-visa-income-requirements/"
+            or percorso in {SEZ_DTV} | {f"{SEZ_DTV}{s}/" for s in TEMI_DTV_WISE}
+            or percorso in {SEZ_MX, f"{SEZ_MX}income-requirements/"} | {f"{SEZ_MX}{C['id']}/" for C in CONS_MX}
+            or bool(re.fullmatch(rf"{SEZ_TR}[a-z-]+/(?:[a-z-]+/)?", percorso))
+            or percorso == f"{SEZ_IT}student-visa-funds/")
+
+
+def box_wise(percorso):
+    """Riquadro Wise «Moving money for your visa?»: '' con l'interruttore spento o fuori da in_wise()."""
+    if not WISE_ATTIVO or not in_wise(percorso):
+        return ""
+    return (f'\n<section class="card aff-r" aria-labelledby="aff-wise-h"><div class="aff-r-t"><span class="ic">{ico("exchange")}</span>'
+            f'<h2 id="aff-wise-h">{TITOLO_WISE}</h2><span class="aff-tag">Affiliate</span></div>'
+            '<p>Many visas ask you to show income or savings, and moving abroad often means paying fees, rent and deposits in another currency. '
+            'The amounts on this site come from the official rules; the consulate or immigration office decides which bank documents it accepts.</p>'
+            '<p>Wise is a money transfer service with an account that can hold several currencies. Its fees and exchange rates are on its own '
+            'website: check them there and compare them with your bank before you send money.</p>'
+            f'<p class="aff-r-cta"><a class="btn" href="{escape(URL_WISE)}" rel="{REL_WISE}" target="_blank">See Wise\'s fees and exchange rates{ico("arrow")}'
+            f'<span class="sr"> (opens in a new tab)</span></a></p>'
+            f'<p class="small">{MON.RIGA_EN} Official fees and exchange rates are on Wise\'s website. Sending money with Wise does not change the decision '
+            'on your visa, and we have not checked whether a consulate accepts Wise statements as proof of funds.</p></section>')
+
+
 # ---------------------------------------------------------------- pagine
 def live_mese(o, a):
     """Importo mensile (per mensilità) convertito, coerente con convertiImporti del JS."""
@@ -1293,7 +1452,8 @@ def pagina_programma(P):
                    "".join(scheda(p, rel) for p in simili) + "</div>") if simili else ""
     fam_tit = "How much for a family" if V0["famiglia"]["tipo"] != "nessuno" else "Family members"
     note = "".join(f"<li>{escape(n)}</li>" for n in P["note"])
-    corpo = f"""<section class="hero">{h1_diviso(titolo_prog(P))}</section>
+    titolo, h1, descr = seo_prog(P)
+    corpo = f"""<section class="hero">{h1_diviso(h1)}</section>
 <section class="card summary" aria-label="Summary">
 <div class="s-top">{ico(ICONA_CATEGORIA[P['categoria']])}<span>{escape(CATEGORIE[P['categoria']])}</span><span>{escape(P['paese'])}</span></div>
 <div class="s-body">
@@ -1323,15 +1483,13 @@ def pagina_programma(P):
 <h2>Official sources</h2>
 {fonti_html(fonti_prog(P))}
 <p class="small">Spotted a change in the official amount? <a href="{rel}contact/?ref={P['slug']}">Tell us</a>.</p>
-{box_affiliati()}{box_al(P['slug'] + '/')}
+{box_affiliati()}{box_al(P['slug'] + '/')}{box_wise(P['slug'] + '/')}
 {link_sorelle}
 {link_simili}
 <p><a href="{rel}country/{P['paese_slug']}/">All visa income requirements in {escape(P['paese'])}</a> · <a href="{rel}digital-nomad-visa-income-requirements/">Digital nomad visa income requirements {ANNO}</a> · <a href="{rel}work-visa-salary-thresholds/">Work visa salary thresholds {ANNO}</a></p>
 {link_rifiuti(P['paese'], rel)}
 {link_selt(P, rel)}{link_graduate(P, rel)}{link_studio_it(P, rel)}{link_flat7_it(P, rel)}"""
-    descr = (f"{nome_prog(P)} {ANNO}: minimum {riassunto(P)} for the main applicant, with family members and conversion to USD, GBP, INR and more. "
-             f"Official source and check date.")
-    pagina(f"{P['slug']}/", titolo_prog(P), descr, corpo, calcolatore=True,
+    pagina(f"{P['slug']}/", titolo, descr, corpo, calcolatore=True,
            briciole=[(P["paese"], f"country/{P['paese_slug']}/"), (nome_prog(P), f"{P['slug']}/")])
 
 
@@ -1485,8 +1643,8 @@ def pagina_confronto_nomadi():
              '<th class="n">Main applicant in USD</th><th>Source</th></tr></thead>')
     dn = sorted((riga_confronto(P, V, rel) for P in PROG if P["categoria"] == "digital-nomad" for V in P["varianti"]), key=lambda x: x[0])
     pi = sorted((riga_confronto(P, V, rel) for P in PROG if P["categoria"] == "passive-income" for V in P["varianti"]), key=lambda x: x[0])
-    corpo = f"""<section class="hero">{h1_diviso(f"Digital nomad visa income requirements {ANNO}: country by country")}
-<p class="lead">The official minimum monthly income for each digital nomad visa we cover, for a single applicant, a couple and a family of four, calculated from the official rule. Sorted from the lowest to the highest.</p></section>
+    corpo = f"""<section class="hero">{h1_diviso(f"Digital nomad visa countries {ANNO}: the income each one requires")}
+<p class="lead">The official minimum monthly income for each digital nomad visa country we cover, for a single applicant, a couple and a family of four, calculated from the official rule. Sorted from the lowest to the highest.</p></section>
 <div class="tab"><table>{testa}<tbody>{''.join(r[1] for r in dn)}</tbody></table></div>
 <p class="fonte">{cambi_nota()}</p>
 <p class="small">"Couple" and "family of 4" (2 adults, 2 children) add the official amounts for family members. "Not set": the official rule sets no amount for family members (Hungary does not allow family reunification for White Card holders; Italy applies the separate family reunification rules; for Portugal's D8 the Ministry does not say how family means combine with the applicant's amount). "× 14": Spain's amount is quoted per payment, 14 payments a year; the table is sorted by the yearly total.</p>
@@ -1499,9 +1657,10 @@ def pagina_confronto_nomadi():
 <h2>Not covered yet</h2>
 <p>We publish a visa only when we can read the complete rule on an official page or in the official gazette. Not covered on the date we checked, because the official source was not readable or was incomplete: Greece (digital nomad visa, financially independent person), Cyprus, Malta (Nomad Residence Permit), Estonia, Czechia, Romania, Latvia, Iceland, Costa Rica, Brazil, Panama, Colombia and the United Arab Emirates. See <a href="{rel}how-it-works/">How it works</a>.</p>
 <p>{ico("passport")} <strong>Mexico:</strong> the temporary resident visa asks for a net income above {intero(GIORNI_MX["tr"][0])} days of UMA ({mxn(pesos_uma(GIORNI_MX["tr"][0]))} a month in {ANNO}), and each consulate publishes it in its own currency. See <a href="{rel}{SEZ_MX}">Mexico residency: fees and income requirements by consulate</a>.</p>
-<p>{ico("passport")} <strong>Thailand (DTV):</strong> the Destination Thailand Visa asks for savings (usually 500,000 baht in the bank, see <a href="{rel}{SEZ_DTV}proof-of-funds/">DTV proof of funds</a>), not a monthly income, and each Thai embassy sets its own fee and residence rule. See <a href="{rel}{SEZ_DTV}">Thailand DTV visa by embassy: fees and who can apply where</a>, <a href="{rel}{SEZ_DTV}requirements/">DTV requirements</a> and <a href="{rel}{SEZ_DTV}dtv-vs-ltr-elite-retirement/">DTV compared with the LTR and other long-stay visas</a>.</p>"""
-    pagina("digital-nomad-visa-income-requirements/", f"Digital nomad visa income requirements {ANNO}: official amounts by country (table)",
-           f"Digital nomad visa income requirements {ANNO} compared: Spain, Portugal, Croatia, Hungary and Italy, for singles, couples and families of 4, in euros and US dollars, with official sources.",
+<p>{ico("passport")} <strong>Thailand (DTV):</strong> the Destination Thailand Visa asks for savings (usually 500,000 baht in the bank, see <a href="{rel}{SEZ_DTV}proof-of-funds/">DTV proof of funds</a>), not a monthly income, and each Thai embassy sets its own fee and residence rule. See <a href="{rel}{SEZ_DTV}">Thailand DTV visa by embassy: fees and who can apply where</a>, <a href="{rel}{SEZ_DTV}requirements/">DTV requirements</a> and <a href="{rel}{SEZ_DTV}dtv-vs-ltr-elite-retirement/">DTV compared with the LTR and other long-stay visas</a>.</p>{box_wise("digital-nomad-visa-income-requirements/")}"""
+    # 13/11/2026 (giro dei titoli): "digital nomad visa countries" 1.900 us; "...income requirements" non misurabile
+    pagina("digital-nomad-visa-income-requirements/", f"Digital Nomad Visa Countries {ANNO}: Income Required by Country",
+           f"Digital nomad visa countries {ANNO}: the income Spain, Portugal, Croatia, Hungary and Italy require for singles, couples and families of 4, with official sources.",
            corpo, calcolatore=True, briciole=[(f"Digital nomad visa income requirements {ANNO}", "digital-nomad-visa-income-requirements/")])
 
 
@@ -1682,8 +1841,23 @@ def privacy():
                    "“Affiliate” on the Italy digital nomad visa, Study in Italy and Italy 7% flat tax pages: our site sets no cookie for them, but if you click one "
                    "you go to AnchorLess's website, which uses its own cookies under its own privacy policy and tells AnchorLess that you came from us. "
                    "Using the service does not change the decision on your visa or permit.</p>")
+    if cookie and WISE_ATTIVO:
+        cookie += ("\n<p>Affiliate links to Wise (money transfers and multi-currency accounts) appear in the box marked “Affiliate” on the visa income "
+                   "calculators, the digital nomad visa table, the Thailand DTV, Mexico residency, Who moved where and Italian student visa funds pages: "
+                   "our site sets no cookie for them, but if you click one you go to Wise's website (through its affiliate network, Partnerize), which "
+                   "uses its own cookies under its own privacy policy and tells Wise that you came from us. Sending money with Wise does not change the "
+                   "decision on your visa.</p>")
     cookie = cookie or f"""<h2>Cookies, visit counter{' and affiliate links' if URL_SAFETYWING else ''}</h2><p>This site does not use profiling cookies. To count visits we use <a href="https://www.goatcounter.com/" rel="noopener">GoatCounter</a>, a privacy-friendly counter: it sets no cookies and stores nothing in your browser, builds no profiles and does not store your IP address, your full browser signature or any identifier. It keeps only aggregate numbers (page, hour or day, browser, country, screen width) on servers in the European Union and shares nothing with third parties; see <a href="https://www.goatcounter.com/help/privacy" rel="noopener">GoatCounter's privacy policy</a>.{FRASE_SW} If we add advertising in the future, we will update this notice and ask for your consent where required before any advertising cookies are used.</p>"""
-    corpo = f"""<section class="hero"><h1>Privacy notice</h1><p class="small">Last updated: October 2026</p></section><div class="testo">
+    if GROW_ATTIVO:  # Grow by Mediavine (13/11/2026): script in ogni pagina, vedi GROW_TAG; controllo 37 di verifica.py
+        cookie += ("\n<h2>Audience measurement and saved pages (Grow by Mediavine)</h2>"
+                   "<p>Every page of this site loads Grow by Mediavine, a script from Mediavine, Inc. (United States) served from grow.me. We use it to "
+                   "measure our audience (how many visits the site gets and from which countries; Mediavine also uses these figures to decide whether the "
+                   "site can join its advertising program) and to offer a save (bookmark) feature: if you choose to create a free Grow account, you can "
+                   "save pages and find them again later. Like any web request, the script receives your IP address and information about your browser, "
+                   "and it may set cookies or use your browser's storage. Mediavine processes this data, also outside the EU, under its own privacy notice "
+                   f'(“Ad Management Platform &amp; Grow User”), available in <a href="{GROW_PRIVACY_URL}" rel="noopener">Mediavine\'s Legal &amp; Privacy Center</a>. '
+                   "If you create a Grow account, your email address and saved pages are handled by Mediavine, not by us.</p>")
+    corpo = f"""<section class="hero"><h1>Privacy notice</h1><p class="small">Last updated: {'November' if GROW_ATTIVO else 'October'} 2026</p></section><div class="testo">
 <h2>Who is responsible</h2><p>The data controller is Massimiliano Cori (Italy), who runs {NOME} as an independent project. You can contact us through the <a href="contact/">contact form</a>.</p>
 <h2>What we collect</h2><p>Only what you type in the contact form: your email, the visa or country and your message. We also record the page or link you came from, to understand which pages need corrections. The calculator runs in your browser: the household, currency and income you type in it are not sent to us.</p>
 <h2>Exchange rates</h2><p>To show up-to-date conversions, your browser downloads a small file of exchange rates from GitHub (raw.githubusercontent.com), which receives your IP address as for any web request. No other data is sent.</p>
@@ -4138,16 +4312,21 @@ def faq_html(domande):
 
 
 def titolo_tr(X, dove, anno, c=None):
-    varianti = [f"How many {X} moved to {dove} in {anno}? Official figures", f"How many {X} moved to {dove} in {anno}? Official data",
-                f"How many {X} moved to {dove} in {anno}?"]
-    if c in NAZ_TR_11_11:   # pagine dell'11/11/2026: titolo ≤ 65
-        return entro(varianti + [f"{X} moving to {dove}: {anno} figures"], LIM_TIT_NUOVE)
-    return next((v for v in varianti if len(v) <= 70), varianti[-1])
+    # 13/11/2026 (giro dei titoli): si cerca "<nazionalità> in <Paese>" ("indians in canada" 1.900 in, "indian population in canada" 4.400 ca),
+    # non "how many ... moved". "Population" no: la pagina conta i nuovi arrivi, non i residenti. Tutti i titoli ≤ 65.
+    varianti = [f"{X} in {dove}: How Many Moved in {anno} (Official Figures)", f"{X} in {dove}: How Many Moved in {anno} (Official Data)",
+                f"{X} in {dove}: How Many Moved in {anno} (Official)", f"{X} in {dove}: How Many Moved in {anno}", f"{X} in {dove}: Moved in {anno}", f"{X} moving to {dove}: {anno} figures"]
+    return entro(varianti, LIM_TIT_NUOVE)
 
 
-def descr_tr(c, varianti):
-    """Descrizione di una pagina "Who moved where": la prima variante per le pagine di prima, la prima ≤ 160 per le 10 nazionalità dell'11/11/2026."""
-    return entro(varianti, LIM_DESCR_NUOVE) if c in NAZ_TR_11_11 else varianti[0]
+def h1_tr(X, dove, anno):
+    return f"{X} in {dove}: how many moved there in {anno}?"
+
+
+def descr_tr(c, varianti, coppia=True):
+    """Descrizione di una pagina "Who moved where": la prima variante entro 160 caratteri per le coppie (dal 13/11/2026, giro dei titoli) e per le
+    10 nazionalità dell'11/11/2026; gli hub delle nazionalità di prima tengono la prima variante."""
+    return entro(varianti, LIM_DESCR_NUOVE) if coppia or c in NAZ_TR_11_11 else varianti[0]
 
 
 def link_sito_dest(d, rel):
@@ -4303,7 +4482,7 @@ def pagina_tr_eu(c, d):
     kpi.append((intero(lungo) if lungo is not None else "–", "valid for 12 months or more"))
     kpi.append((f"{pos} of {len(rank)}" if pos else "EFTA", f"rank among EU countries for {X}" if pos else "not in the EU total (Iceland, Liechtenstein, Norway, Switzerland)"))
     descr_lungo = (f" {intero(lungo)} of them ({lungo / t1 * 100:.1f}%) were valid for 12 months or more." if lungo is not None and t1 else "")
-    corpo = f"""<section class="hero"><h1>How many {escape(X)} moved to {escape(nf)} in {Y1}?</h1>
+    corpo = f"""<section class="hero"><h1>{escape(h1_tr(X, nf, Y1))}</h1>
 <p class="lead">{risposta} {frase_cambio(t1, t0, Y0)}{frase_rottura}{poco} {motivi_frase(r1)}{descr_lungo}</p></section>
 <section class="card summary" aria-label="Summary">
 <div class="s-top">{ico("globe")}<span>First residence permits</span><span>{escape(cit)} · {Y1}</span></div>
@@ -4322,7 +4501,7 @@ def pagina_tr_eu(c, d):
 <h2>{escape(X)} moving to {escape(nf)}, year by year ({anni[0]}–{Y1})</h2>
 <div class="tab compatta"><table><caption class="sr">First residence permits issued by {escape(nt)} to {escape(cit)}, {anni[0]}–{Y1}</caption><thead><tr><th scope="col">Year</th><th class="n" scope="col">All reasons</th><th class="n" scope="col">Family</th><th class="n" scope="col">Education</th><th class="n" scope="col">Work</th><th class="n" scope="col">Other</th><th class="n" scope="col">Valid 12+ months</th></tr></thead><tbody>{"".join(righe_s)}</tbody></table></div>
 {fonte_es_p("Eurostat revises past years when countries correct their data. ")}
-{f'<p class="small">{nota}{nota_uk}</p>' if nota or nota_uk else ''}
+{f'<p class="small">{nota}{nota_uk}</p>' if nota or nota_uk else ''}{box_wise(percorso)}
 <h2>Questions people ask</h2>
 <div class="testo">{faq_html(domande)}</div>
 <h2>Visas and statistics for {escape(nf)} on this site</h2>
@@ -4364,7 +4543,7 @@ def pagina_tr_ca(c, d="canada"):
          "No. It counts new permanent residents only. People who arrived on a temporary work or study permit are not counted until they become permanent residents, "
          "and many new permanent residents were already living in Canada."),
     ]
-    corpo = f"""<section class="hero"><h1>How many {escape(X)} moved to Canada in {Y1}?</h1>
+    corpo = f"""<section class="hero"><h1>{escape(h1_tr(X, "Canada", Y1))}</h1>
 <p class="lead"><strong>{intero(t1)}</strong> {escape(cit)} became permanent residents of Canada in {Y1}, according to IRCC's monthly figures (file updated on {data_rfc(F_PR["ultima_modifica"])}). {frase_cambio(t1, t0, Y0)}{f' From {testo_ytd.replace("–", " to ")}: {intero(v_ytd)}.' if a_ytd else ''}</p></section>
 <section class="card summary" aria-label="Summary">
 <div class="s-top">{bandiera("Canada")}<span>New permanent residents</span><span>{escape(cit)} · {Y1}</span></div>
@@ -4378,7 +4557,7 @@ def pagina_tr_ca(c, d="canada"):
 <h2>{escape(X)} becoming permanent residents of Canada, year by year</h2>
 <div class="tab compatta"><table><caption class="sr">New permanent residents of Canada, citizens of {escape(NAZ_TR[c][3])}, by year</caption><thead><tr><th scope="col">Year</th><th class="n" scope="col">New permanent residents</th><th class="n" scope="col">Change</th></tr></thead><tbody>{"".join(righe)}</tbody></table></div>
 {fonte_pr_p()}
-<p class="small">IRCC category: "{escape(nome_ircc)}". {f'In {", ".join(dati["mesi_nascosti"])} some months had between 0 and 5 people and are not published ("--" in the file).' if dati["mesi_nascosti"] else ''} This IRCC file does not say why people became permanent residents (work, family, refugee), so there is no breakdown by reason here.</p>
+<p class="small">IRCC category: "{escape(nome_ircc)}". {f'In {", ".join(dati["mesi_nascosti"])} some months had between 0 and 5 people and are not published ("--" in the file).' if dati["mesi_nascosti"] else ''} This IRCC file does not say why people became permanent residents (work, family, refugee), so there is no breakdown by reason here.</p>{box_wise(percorso)}
 <h2>Questions people ask</h2>
 <div class="testo">{faq_html(domande)}</div>
 <h2>Visas and statistics for Canada on this site</h2>
@@ -4422,7 +4601,7 @@ def pagina_tr_uk(c, d="uk"):
         (f"Why do {parola} move to the UK?", f"In {Y1} the most visas granted to {cit} were {ordine[0][1].lower()} visas ({intero(ordine[0][0])}), then {ordine[1][1].lower()} ({intero(ordine[1][0])}) and {ordine[2][1].lower()} ({intero(ordine[2][0])})."),
         (f"Is this the number of {X} living in the UK?", "No. It counts visas granted in one year to people applying from outside the UK, not people already living there."),
     ]
-    corpo = f"""<section class="hero"><h1>How many {escape(X)} moved to the UK in {Y1}?</h1>
+    corpo = f"""<section class="hero"><h1>{escape(h1_tr(X, "the UK", Y1))}</h1>
 <p class="lead">The UK granted <strong>{intero(t1)}</strong> work, study and family visas to {escape(cit)} in {Y1}, according to the Home Office (data published {escape(F_UKV["pubblicato"])}). {frase_cambio(t1, t0, Y0)} By type: {per_tipo}.{f' From {testo_ytd.replace("–", " to ")} (provisional): {intero(sum(vy))}.' if a_ytd else ''}</p></section>
 <section class="card summary" aria-label="Summary">
 <div class="s-top">{bandiera("United Kingdom")}<span>UK visas granted</span><span>{escape(cit)} · {Y1}</span></div>
@@ -4439,7 +4618,7 @@ def pagina_tr_uk(c, d="uk"):
 <p class="small"><strong>Work:</strong> all work routes (Skilled Worker, Health and Care Worker, temporary and seasonal work, Global Business Mobility, talent and business visas) and their dependants. <strong>Study:</strong> sponsored study (Student, Child Student), dependants and short-term study. <strong>Family:</strong> joining a British citizen or a person settled in the UK, and refugee family reunion. Groups as defined by the Home Office.</p>
 <h2>UK visas granted to {escape(cit)}, year by year</h2>
 <div class="tab compatta"><table><caption class="sr">UK work, study and family visas granted to {escape(cit)} by year</caption><thead><tr><th scope="col">Year</th><th class="n" scope="col">Total</th>{"".join(f'<th class="n" scope="col">{g}</th>' for g in gruppi)}</tr></thead><tbody>{righe_s}</tbody></table></div>
-{fonte_ukv_p()}
+{fonte_ukv_p()}{box_wise(percorso)}
 <h2>Questions people ask</h2>
 <div class="testo">{faq_html(domande)}</div>
 <h2>Visas and statistics for the UK on this site</h2>
@@ -4575,7 +4754,7 @@ def pagina_tr_ie(c):
                       f'<small>{intero(pps_anno(x, PPS_PIENO))} PPS numbers in {PPS_PIENO}</small></span></a>' for x in altri)
     kpi = [(intero(n_ytd0) if n_ytd0 is not None else "–", f"{per0}"), (variazione(n_ytd, n_ytd0) if n_ytd0 else "–", "change on the same months"),
            (intero(n1), f"in {PPS_PIENO}, full year"), (f"{n1 / tutti1 * 100:.1f}%", f"of all PPS numbers allocated in {PPS_PIENO}")]
-    corpo = f"""<section class="hero"><h1>How many {escape(X)} moved to Ireland in {PPS_YTD or PPS_PIENO}? PPS numbers by month</h1>
+    corpo = f"""<section class="hero"><h1>{escape(h1_tr(X, "Ireland", PPS_YTD or PPS_PIENO))} PPS numbers by month</h1>
 <p class="lead">{risposta}{confronto} {prudente}</p></section>
 <section class="card summary" aria-label="Summary">
 <div class="s-top">{bandiera("Ireland")}<span>PPS numbers allocated</span><span>{escape(cit)} · {per}</span></div>
@@ -4594,7 +4773,7 @@ def pagina_tr_ie(c):
 {tabella_pps_anni(c, cit)}
 {fonte_pps_p("Yearly figures are from the yearly file; the share is of all PPS numbers allocated in the year, Irish citizens included. ")}
 {f'<p class="small">In 2020 the yearly file lists British citizens under two world regions (European Union and Europe excluding EU); the figure here is the sum of the two rows.</p>' if c == "UK" else ''}
-{sez_eu}
+{sez_eu}{box_wise(percorso)}
 <h2>Questions people ask</h2>
 <div class="testo">{faq_html(domande)}</div>
 <h2>Visas and statistics for Ireland on this site</h2>
@@ -4602,10 +4781,9 @@ def pagina_tr_ie(c):
 {f'<h2>Other nationalities in Ireland: PPS numbers in {PPS_PIENO}</h2><div class="griglia">{griglia}</div>' if griglia else ''}
 <p><a href="../">How many {escape(X)} moved abroad</a> · <a href="../../">Who moved where: all nationalities</a> · <a href="{rel}">Visa income calculator</a></p>"""
     anno_t = PPS_YTD or PPS_PIENO
-    var_t = [f"How many {X} moved to Ireland in {anno_t}? PPS numbers by month",
-             f"How many {X} moved to Ireland in {anno_t}? Monthly PPS data", f"{X} moving to Ireland {anno_t}: PPS numbers by month",
-             f"{X} moving to Ireland {anno_t}: PPS numbers"]
-    titolo = entro(var_t, LIM_TIT_NUOVE) if c in NAZ_TR_11_11 else titolo_breve(var_t)
+    var_t = [f"{X} in Ireland: How Many Moved in {anno_t} (PPS Numbers by Month)", f"{X} in Ireland: How Many Moved in {anno_t} (PPS Numbers)",
+             f"{X} in Ireland: How Many Moved in {anno_t}", f"{X} moving to Ireland {anno_t}: PPS numbers"]
+    titolo = entro(var_t[:2] + [f"{X} in Ireland: How Many Moved in {anno_t} (Official)"] + var_t[2:], LIM_TIT_NUOVE)   # 13/11/2026: "<nazionalità> in Ireland" prima, ≤ 65 per tutte
     base = f"{intero(n_ytd if PPS_YTD else n1)} PPS numbers allocated to {cit} in Ireland ({per}); {intero(n1)} in {PPS_PIENO}."
     descr = descr_tr(c, [f"{base} Month by month since {PPS_MESI[0][:4]}, year by year since {PPS['anni'][0]}. Department of Social Protection data.",
                          f"{base} By month since {PPS_MESI[0][:4]}, by year since {PPS['anni'][0]} (Department of Social Protection).",
@@ -4741,7 +4919,7 @@ def pagina_tr_naz(c):
 <div class="tab compatta"><table><caption class="sr">First residence permits issued to {escape(cit)} in the 27 EU countries by year and reason</caption><thead><tr><th scope="col">Year</th><th class="n" scope="col">All reasons</th><th class="n" scope="col">Family</th><th class="n" scope="col">Education</th><th class="n" scope="col">Work</th><th class="n" scope="col">Other</th><th class="n" scope="col">Valid 12+ months</th></tr></thead><tbody>{righe_s}</tbody></table></div>
 {fonte_es_p("EU-27 = the 27 current EU countries in every year. Eurostat revises past years when countries correct their data. ")}
 {nota_uk}
-{f'<h2>{" and ".join(n for _, n, _, _ in fuori)}</h2><p class="lead">{" and ".join("Canada" if d == "canada" else "the UK" for d, _, _, _ in fuori)} {"publish" if len(fuori) > 1 else "publishes"} different figures, so {"they are" if len(fuori) > 1 else "it is"} not added to the European total: {"; ".join("Canada counts new permanent residents by citizenship" if d == "canada" else "the UK counts work, study and family visas granted" for d, _, _, _ in fuori)}.</p><div class="griglia">{schede_fuori}</div>' if fuori else ''}
+{f'<h2>{" and ".join(n for _, n, _, _ in fuori)}</h2><p class="lead">{" and ".join("Canada" if d == "canada" else "the UK" for d, _, _, _ in fuori)} {"publish" if len(fuori) > 1 else "publishes"} different figures, so {"they are" if len(fuori) > 1 else "it is"} not added to the European total: {"; ".join("Canada counts new permanent residents by citizenship" if d == "canada" else "the UK counts work, study and family visas granted" for d, _, _, _ in fuori)}.</p><div class="griglia">{schede_fuori}</div>' if fuori else ''}{box_wise(percorso)}
 <h2>Questions people ask</h2>
 <div class="testo">{faq_html(domande)}</div>
 {f'<h2>Visa statistics for {escape(paese)}</h2>' + lista_link(link_sito_naz(c, rel)) if link_sito_naz(c, rel) else ''}
@@ -4751,7 +4929,7 @@ def pagina_tr_naz(c):
     titolo = next(v for v in (f"How many {X} moved to Europe in {Y1}? Official EU figures", f"How many {X} moved to Europe in {Y1}? EU figures",
                               f"How many {X} moved to Europe in {Y1}?") if len(v) <= (LIM_TIT_NUOVE if c in NAZ_TR_11_11 else 70))
     base = f"{intero(t1)} {cit} got a first residence permit in the EU in {Y1} ({variazione(t1, t0)} on {Y0})."
-    descr = descr_tr(c, [f"{base} Most went to {t3}. Every EU country by reason, plus Canada and the UK. Eurostat data.",
+    descr = descr_tr(c, coppia=False, varianti=[f"{base} Most went to {t3}. Every EU country by reason, plus Canada and the UK. Eurostat data.",
                          f"{base} Most went to {t3}. Every EU country, plus Canada and the UK.", f"{base} Most went to {t3}. Eurostat data.",
                          f"{base} Most went to {t1_paese}. Every EU country, plus Canada and the UK.", f"{base} Most went to {t1_paese}. Eurostat data.",
                          f"{base} Eurostat data, every EU country."])
@@ -4780,7 +4958,7 @@ def pagina_tr_indice():
     uk_ = riga_eu("UK", "EU27_2020", Y1)[0]
     n_coppie = sum(len(v) for v in COPPIE_TR.values())
     schede = "".join(f'<a href="{NAZ_TR[c][0]}/"><span class="ic">{ico("passport")}</span><span>How many {escape(NAZ_TR[c][1])} moved to Europe<small>{intero(riga_eu(c, "EU27_2020", Y1)[0])} first permits in {Y1}</small></span></a>' for c in NAZ_TR)
-    corpo = f"""<section class="hero"><h1>Who moved where in {Y1}: Europe, Canada and the UK by nationality</h1>
+    corpo = f"""<section class="hero"><h1>Migration to Europe, Canada and the UK in {Y1}: who moved where, by nationality</h1>
 <p class="lead"><strong>{intero(us[0])}</strong> US citizens received a first residence permit in an EU country in {Y1} ({variazione(*us)} on {Y0}), and {intero(uk_)} British citizens did, according to Eurostat (data updated on {data_lunga(F_ES["aggiornato_il"])}). Here are the official figures for {len(NAZ_TR)} nationalities: first residence permits in the EU and EFTA countries (Eurostat), new permanent residents of Canada (IRCC) and UK work, study and family visas (Home Office).</p></section>
 <section class="card summary" aria-label="Summary">
 <div class="s-top">{ico("globe")}<span>Who moved where</span><span>{Y1}</span></div>
@@ -4821,9 +4999,10 @@ def pagina_tr_indice():
     ld = ld_dataset(f"First residence permits, new permanent residents and visas granted by nationality, {ANNI_TR[0]}-{Y1}",
                     f"Eurostat first residence permits (EU and EFTA), IRCC new permanent residents of Canada and Home Office visas granted, for {len(NAZ_TR)} nationalities.",
                     SEZ_TR, [F_ES["pagina"], F_PR["url"], F_UKV["url"]], f"{ANNI_TR[0]}/{Y1}", "https://creativecommons.org/licenses/by/4.0/")
-    pagina(SEZ_TR, f"Who moved where in {Y1}: Europe, Canada and the UK by nationality",
-           f"How many Americans, British people, Indians and 9 more nationalities moved to Europe, Canada and the UK in {Y1}: "
-           f"official first residence permits, new permanent residents and visas granted.", corpo, ordina=True, jsonld_extra=[ld],
+    # 13/11/2026 (giro dei titoli): "who moved where" non si cerca; "migration to europe" 1.300 us, "immigration by nationality" 0
+    pagina(SEZ_TR, f"Migration to Europe, Canada and the UK by Nationality ({Y1})",
+           f"Migration by nationality in {Y1}: how many Americans, British, Indians and {len(NAZ_TR) - 3} more moved to Europe, Canada and the UK. "
+           f"Official permits, residents and visas.", corpo, ordina=True, jsonld_extra=[ld],
            briciole=[("Who moved where", SEZ_TR)])
 
 
@@ -5201,6 +5380,25 @@ def fornitori_di(righe, i=0):
     return [f for f in ordine if any(r[i] == f for r in righe)]
 
 
+def titoli_selt_citta(c, qui):
+    """Varianti del titolo di una città SELT (13/11/2026): "Trinity SELT" quando Trinity ha un centro in città (frase cercata per fornitore)."""
+    n = len(qui)
+    t = sum(1 for r in qui if r[0] == "Trinity College London")
+    k = n - t
+    s, sk = ("s" if n != 1 else ""), ("s" if k != 1 else "")
+    Y = ANNO_SELT
+    fine = [f"B1 English Test in {c}: {n} Approved SELT Centre{s} ({Y})", f"B1 English Test in {c}: {n} SELT Centre{s} ({Y})", f"B1 English Test in {c} ({Y})"]
+    if not t:
+        return fine
+    if not k:
+        return [f"Trinity SELT in {c}: B1 English Test Centre{'s' if t != 1 else ''} ({Y})"] + fine
+    if t > 1:
+        return [f"B1 English Test in {c}: {n} SELT Centres incl. {t} Trinity ({Y})", f"B1 English Test in {c}: {n} Centres incl. {t} Trinity SELT"] + fine
+    return [f"B1 English Test in {c}: Trinity SELT and {k} Other Approved Centre{sk} ({Y})", f"B1 English Test in {c}: Trinity SELT and {k} Other Centre{sk} ({Y})",
+            f"B1 English Test in {c}: Trinity SELT + {k} Other Centre{sk} ({Y})", f"B1 English Test in {c}: Trinity SELT + {k} Other Centre{sk}",
+            f"B1 English Test in {c}: {n} Centres incl. Trinity SELT", f"B1 English Test in {c}: {n} Centres incl. Trinity"] + fine
+
+
 def pagina_selt_citta(c):
     rel = "../../"
     percorso = f"{SEZ_SELT}{SLUG_SELT[c]}/"
@@ -5233,8 +5431,11 @@ def pagina_selt_citta(c):
         vicini = [x for x in ("Croydon", "Stratford", "Uxbridge") if x in CITTA_SELT]
         london = ('<p class="small">The official list puts some Greater London centres under their own town: ' +
                   ", ".join((f'<a href="../{SLUG_SELT[x]}/">{x}</a>' if x in CITTA_PAG else x) + f" ({sum(1 for r in CENTRI_UK if r[2] == x)})" for x in vicini) + ".</p>")
-    corpo = f"""<section class="hero">{h1_diviso(f"SELT test centres in {c}: {centri_n(n)} for UK visas")}
-<p class="lead">There {"are" if n != 1 else "is"} <strong>{centri_n(n)}</strong> for UK visa English tests (SELT) in {escape(c)}, run by {escape(nomi_forn)}, according to the Home Office list of approved test centres dated {data_lunga(DATA_ELENCO)} (GOV.UK, downloaded on {data_lunga(F_SELT["centri_uk"]["scaricato_il"])}). You book the test on the provider's website, not at the centre.</p></section>
+    # 13/11/2026 (giro dei titoli): si cerca il livello e il fornitore ("b1 english test" 12.100 gb, "trinity selt manchester" 2.900), non "selt test <città>" (0).
+    # Ogni fornitore con centri nel Regno Unito ha un test B1 approvato (test_per_livello); quali test offra ogni centro l'elenco non lo dice, e la pagina lo scrive.
+    b1_qui = [t for t in test_per_livello("uk", "B1", "2-facet") if t[0] in forn]
+    corpo = f"""<section class="hero">{h1_diviso(f"B1 English test in {c}: {centri_n(n)} for UK visa English tests (SELT)")}
+<p class="lead">There {"are" if n != 1 else "is"} <strong>{centri_n(n)}</strong> for UK visa English tests (SELT) in {escape(c)}, run by {escape(nomi_forn)}, according to the Home Office list of approved test centres dated {data_lunga(DATA_ELENCO)} (GOV.UK, downloaded on {data_lunga(F_SELT["centri_uk"]["scaricato_il"])}). {"Each of these providers has" if len(forn) != 1 else "This provider has"} an approved B1 test, the level for settlement and citizenship: {escape("; ".join(f"{NOMI_FORN[t[0]]}: {t[1]}" for t in b1_qui))}. You book the test on the provider's website, not at the centre, and the booking page shows which tests each centre offers.</p></section>
 <section class="card summary" aria-label="Summary">
 <div class="s-top">{bandiera("United Kingdom")}<span>{escape(c)}</span><span>list of {data_lunga(DATA_ELENCO)}</span></div>
 <div class="s-body">
@@ -5260,10 +5461,11 @@ def pagina_selt_citta(c):
 <div class="testo">{faq_html(domande)}</div>
 {link_luoghi_selt("../", c)}
 <p><a href="../">UK visa English tests: all centres and levels</a> · <a href="{rel}uk-spouse-visa/">UK spouse visa income requirement</a> · <a href="{rel}{SEZ}uk/family-visas/">UK family visa refusal rates</a></p>"""
-    titolo = titolo_breve([f"SELT test centres in {c}: {centri_n(n)} for UK visas ({ANNO_SELT})",
-                           f"SELT test centres in {c}: {centri_n(n)} ({ANNO_SELT})", f"SELT test centres in {c} ({ANNO_SELT})"])
-    descr = (f"{centri_n(n).capitalize()} for UK visa English tests (SELT) in {c}: {nomi_forn}. Addresses from the Home Office list of "
-             f"{data_lunga(DATA_ELENCO)}, which level you need, and the B2 change from {data_lunga(DATA_B2)}.")
+    titolo = entro(titoli_selt_citta(c, qui), LIM_TIT_NUOVE)
+    descr = entro([f"B1 English test in {c}: {centri_n(n)} for UK visa tests (SELT) from {nomi_forn}, with addresses from the Home Office list of {data_lunga(DATA_ELENCO)} and how to book.",
+                   f"B1 English test in {c}: {centri_n(n)} for UK visa tests (SELT) from {nomi_forn}. Home Office list of {data_lunga(DATA_ELENCO)}, how to book.",
+                   f"B1 English test in {c}: {centri_n(n)} for UK visa tests (SELT). Addresses from the Home Office list of {data_lunga(DATA_ELENCO)} and how to book."],
+                  LIM_DESCR_NUOVE)
     pagina(percorso, titolo, descr, corpo, jsonld_extra=[ld_faq(domande)],
            briciole=[("UK visa English tests", SEZ_SELT), (c, percorso)])
 
@@ -5374,8 +5576,8 @@ def pagina_selt_indice():
     ld = [ld_faq(domande), ld_dataset("Approved UK visa English test (SELT) centres", f"{n_uk} centres in the UK and {n_est} outside the UK approved by the Home Office.",
                                        percorso, [F_SELT["centri_uk"]["url"], F_SELT["centri_estero"]["url"]], ANNO_SELT,
                                        F_SELT["pagina"]["licenza_url"])]
-    corpo = f"""<section class="hero">{h1_diviso("UK visa English tests (SELT): test centres by city and the 2027 B2 change")}
-<p class="lead">To prove your English for a UK visa with a test, you must pass a Secure English Language Test (SELT) at one of the <strong>{intero(n_uk)} approved centres in the UK</strong> or <strong>{intero(n_est)} outside the UK</strong> (Home Office lists dated {data_lunga(DATA_ELENCO)}, GOV.UK page updated {data_lunga(F_SELT["pagina"]["aggiornata"])}). The level depends on the visa: A1 for a first partner visa, A2 to extend it, B1 for settlement and citizenship, and <strong>B2 for settlement applications made on or after {data_lunga(DATA_B2)}</strong> on the routes listed in the Statement of Changes HC 1691.</p></section>
+    corpo = f"""<section class="hero">{h1_diviso("B1, A1, A2 and B2 English tests for UK visas (SELT): test centres by city and the 2027 B2 change")}
+<p class="lead">To prove your English for a UK visa with a test (the A1, A2, B1 or B2 English test), you must pass a Secure English Language Test (SELT) at one of the <strong>{intero(n_uk)} approved centres in the UK</strong> or <strong>{intero(n_est)} outside the UK</strong> (Home Office lists dated {data_lunga(DATA_ELENCO)}, GOV.UK page updated {data_lunga(F_SELT["pagina"]["aggiornata"])}). The level depends on the visa: A1 for a first partner visa, A2 to extend it, B1 for settlement and citizenship, and <strong>B2 for settlement applications made on or after {data_lunga(DATA_B2)}</strong> on the routes listed in the Statement of Changes HC 1691.</p></section>
 <section class="card summary" aria-label="Summary">
 <div class="s-top">{bandiera("United Kingdom")}<span>UK visa English tests</span><span>lists of {data_lunga(DATA_ELENCO)}</span></div>
 <div class="s-body">
@@ -5409,9 +5611,11 @@ def pagina_selt_indice():
 <div class="testo">{faq_html(domande)}</div>
 {link_luoghi_selt("")}
 <p><a href="{rel}uk-spouse-visa/">UK spouse visa income requirement</a> · <a href="{rel}{SEZ}uk/family-visas/">UK spouse and family visa refusal rates</a> · <a href="{rel}uk-skilled-worker-visa/">UK Skilled Worker salary threshold</a></p>"""
-    titolo = "UK visa English test (SELT): levels, test centres and B2 from 2027"
-    descr = (f"Which English test for which UK visa (A1, A2, B1, B2), the {intero(n_uk)} approved SELT centres in the UK and {intero(n_est)} abroad "
-             f"(Home Office lists of {data_lunga(DATA_ELENCO)}), and B2 for settlement from {data_lunga(DATA_B2)}.")
+    # 13/11/2026 (giro dei titoli): "b1 english test" 12.100 gb, A1 e A2 1.300, B2 1.000; "selt" 1.300
+    titolo = "B1 English Test for UK Visas (SELT): A1, A2, B2 and Test Centres"
+    descr = entro([f"B1, A1, A2 or B2 English test for a UK visa: which level you need, the {intero(n_uk)} approved SELT centres in the UK and {intero(n_est)} abroad, and B2 from {data_lunga(DATA_B2)}.",
+                   f"B1, A1, A2 or B2 English test for a UK visa: which level you need, {intero(n_uk)} SELT centres in the UK, {intero(n_est)} abroad, and B2 from {data_lunga(DATA_B2)}."],
+                  LIM_DESCR_NUOVE)
     pagina(percorso, titolo, descr, corpo, ordina=True, jsonld_extra=ld, briciole=[("UK visa English tests", percorso)])
 
 
@@ -5628,7 +5832,11 @@ def pagina_selt_livello(k):
     titolo = (entro([f"{L['nome']}: the approved tests", L["nome"]], LIM_TIT_NUOVE) if L["liv"] == "B2" else
               entro([f"{L['nome']}: approved tests ({ANNO_SELT})", f"{L['nome']} ({ANNO_SELT})", L["nome"]], LIM_TIT_NUOVE))
     abil_b = "speaking and listening" if L["tipo"] == "2-facet" else "all four skills"
-    descr = entro([f"The {n_test} Home Office approved {L['liv']} English tests ({abil_b}) for {L['uso_breve']}: names to book, minimum grades, where to take them. "
+    # 13/11/2026 (giro dei titoli): la pagina B1 risponde a "b1 english test booking" (1.900) e "b1 test booking" (5.400): "how to book" nella descrizione
+    prima_b1 = ([f"How to book the B1 English test for British citizenship and ILR before {data_lunga(DATA_B2)}: the {n_test} approved tests, grades and centres.",
+                 f"How to book the B1 English test for British citizenship and ILR: the {n_test} approved tests, names, grades and centres (lists of {data_lunga(DATA_ELENCO)})."]
+                if k == "b1-english-test-citizenship" else [])
+    descr = entro(prima_b1 + [f"The {n_test} Home Office approved {L['liv']} English tests ({abil_b}) for {L['uso_breve']}: names to book, minimum grades, where to take them. "
                    f"Lists of {data_lunga(DATA_ELENCO)}.",
                    f"The {n_test} Home Office approved {L['liv']} English tests ({abil_b}) for {L['uso_breve']}: names, grades, centres. Lists of {data_lunga(DATA_ELENCO)}.",
                    f"The {n_test} approved {L['liv']} English tests for {L['uso_breve']}: names, grades, centres. Home Office lists of {data_lunga(DATA_ELENCO)}."],
@@ -5898,8 +6106,8 @@ def pagina_dtv_indice():
     ld = [ld_faq(domande), ld_dataset("Thailand DTV visa fees and residence rules by embassy",
                                       f"Fees and residence rules for the Destination Thailand Visa read on the official pages of {len(LET_DTV)} Thai embassies and consulates.",
                                       percorso, [DTV["fonti"]["elenco"]["url"]], LETTO_DTV, "https://creativecommons.org/licenses/by/4.0/")]
-    corpo = f"""<section class="hero">{h1_diviso(f"Thailand DTV visa ({ANNO}): fee, requirements, duration and who can apply, embassy by embassy")}
-<p class="lead">The Destination Thailand Visa (DTV) costs <strong>{costo_dtv(vie["costo"])}</strong> in cash at the embassy in Vientiane, <strong>{costo_dtv(lon["costo"])}</strong> in London and <strong>{costo_dtv(was["costo"])}</strong> in Washington, is valid for 5 years with stays of up to 180 days per entry, and needs savings of about 500,000 baht, according to the official pages of the Thai embassies and consulates we read on {data_lunga(LETTO_DTV)}. Since 31 August 2026 you also need proof of permanent residence in the country where you apply and a criminal record certificate (Thai Ministry of Foreign Affairs).</p></section>
+    corpo = f"""<section class="hero">{h1_diviso(f"DTV visa Thailand ({ANNO}), the visa for remote workers: fee, requirements, duration and who can apply, embassy by embassy")}
+<p class="lead">The Destination Thailand Visa (DTV), which covers remote work among its purposes, costs <strong>{costo_dtv(vie["costo"])}</strong> in cash at the embassy in Vientiane, <strong>{costo_dtv(lon["costo"])}</strong> in London and <strong>{costo_dtv(was["costo"])}</strong> in Washington, is valid for 5 years with stays of up to 180 days per entry, and needs savings of about 500,000 baht, according to the official pages of the Thai embassies and consulates we read on {data_lunga(LETTO_DTV)}. Since 31 August 2026 you also need proof of permanent residence in the country where you apply and a criminal record certificate (Thai Ministry of Foreign Affairs).</p></section>
 <section class="card summary" aria-label="Summary">
 <div class="s-top">{ico("passport")}<span>Thailand DTV visa</span><span>read on {data_lunga(LETTO_DTV)}</span></div>
 <div class="s-body">
@@ -5925,7 +6133,7 @@ def pagina_dtv_indice():
 <li>The DTV is valid for 5 years with multiple entries and stays of up to 180 days per entry, extendable once by up to 180 days at the Immigration Bureau, as the London page and others say.</li>
 <li>Processing can take a month or more (Kuala Lumpur: "approximately 1 month or more"). Fees are not refunded.</li></ul>
 <p class="fonte">Source: <a href="{escape(lon["pagine"][0]["url"])}" rel="noopener">Royal Thai Embassy, London, Destination Thailand Visa</a> (updated {data_lunga(lon["pagine"][0]["modificata"])}) and the pages linked in the table, read on {data_lunga(LETTO_DTV)}.</p>
-{box_assicurazione_dtv(rel)}
+{box_assicurazione_dtv(rel)}{box_wise(percorso)}
 <h2>Questions people ask</h2>
 <div class="testo">{faq_html(domande)}</div>
 <h2>Embassy pages on this site</h2>
@@ -5936,9 +6144,10 @@ def pagina_dtv_indice():
 <div class="tab compatta"><table class="ord" id="t-altre"><thead><tr>{th_ord("Mission", False, "ascending")}{th_ord("Country", False, "ascending")}<th scope="col">Website</th><th scope="col">What we found</th></tr></thead><tbody>{righe_altre}</tbody></table></div>
 <p class="fonte">Source: list of Royal Thai Embassies and Consulates-General, <a href="{DTV["fonti"]["elenco"]["url"]}" rel="noopener">Ministry of Foreign Affairs of Thailand</a>, read on {data_lunga(LETTO_DTV)}.</p>
 <p><a href="{rel}digital-nomad-visa-income-requirements/">Digital nomad visa income requirements in Europe</a> · <a href="{rel}{SEZ}">Visa refusal rates</a> · <a href="{rel}">Visa income calculator</a></p>"""
-    titolo = f"Thailand DTV visa {ANNO}: fee, requirements and rules by embassy"
-    descr = (f"Thailand DTV visa {ANNO} at {len(LET_DTV)} Thai embassies and consulates: fee ({costo_dtv(vie['costo'])} in Vientiane, {costo_dtv(lon['costo'])} in London, "
-             f"{costo_dtv(was['costo'])} in Washington), requirements, 5-year validity and 180-day stays, proof of permanent residence since 31 August 2026. Read on {data_lunga(LETTO_DTV)}.")
+    titolo = f"DTV Visa Thailand {ANNO} (Remote Work): Fee and Rules by Embassy"   # 13/11/2026: "dtv visa thailand" 1.300 us + 1.000 gb
+    descr = entro([f"DTV visa Thailand at {len(LET_DTV)} embassies: fee ({costo_dtv(lon['costo'])} in London, {costo_dtv(was['costo'])} in Washington), requirements, 5 years, 180-day stays. Read {data_lunga(LETTO_DTV)}.",
+                   f"DTV visa Thailand at {len(LET_DTV)} embassies: fee ({costo_dtv(lon['costo'])} in London, {costo_dtv(was['costo'])} in Washington), requirements, 5-year validity, 180-day stays."],
+                  LIM_DESCR_NUOVE)
     pagina(percorso, titolo, descr, corpo, ordina=True, jsonld_extra=ld, briciole=[("Thailand DTV visa by embassy", percorso)])
 
 
@@ -6207,7 +6416,7 @@ def pagina_tema_dtv(slug, titolo, descr, h1, lead, riassunto, corpo, domande, ld
 {riassunto}
 {AVVISO_DTV}
 {AD}
-{corpo}
+{corpo}{box_wise(percorso)}
 <h2>Questions people ask</h2>
 <div class="testo">{faq_html(domande)}</div>
 <h2>More about the Thailand DTV visa</h2>
@@ -6997,7 +7206,7 @@ def pagina_opt_indice():
          f"Not for now. A final rule of {data_lunga(FR_OPT['durata_fissa']['publication_date'])} would cut the 60 days to 30, but a federal court postponed it on {data_lunga(vo('rinvio_regola'))} "
          "and USCIS says it is applying the previous rules. Check with your DSO before relying on the 60 days."),
     ]
-    corpo = f"""<section class="hero">{h1_diviso(f"US OPT and STEM OPT: fees, filing deadlines and unemployment days ({ANNO})")}
+    corpo = f"""<section class="hero">{h1_diviso(f"STEM OPT extension and OPT ({ANNO}): fees, filing deadlines and unemployment days")}
 <p class="lead">Form I-765 for OPT or a STEM OPT extension costs <strong>{usd(vo("tassa_online"))} online or {usd(vo("tassa_carta"))} on paper</strong>, and for post-completion OPT you can file it from {f["prima"]} days before to {f["dopo"]} days after your program end date, according to the USCIS fee schedule and Form I-765 page read on {data_lunga(LETTO_OPT)}. OPT lasts up to {vo("mesi_opt")} months per education level, plus {vo("mesi_stem")} months with the STEM extension, with at most {K_DISOCC["opt"]} days of unemployment ({K_DISOCC["stem"]} with STEM).</p></section>
 <section class="card summary" aria-label="Summary">
 <div class="s-top">{ico("passport")}<span>US OPT and STEM OPT</span><span>read on {data_lunga(LETTO_OPT)}</span></div>
@@ -7028,9 +7237,11 @@ def pagina_opt_indice():
 <h2>OPT pages on this site</h2>
 {link_opt(rel, "")}
 <p><a href="{rel}{SEZ_H1}">After OPT: H-1B wage level and lottery entries</a> · <a href="{rel}{SEZ_GRAD}">Studying in the UK instead? UK Graduate visa: 2 years or 18 months</a> · <a href="{rel}{SEZ}united-states/">Schengen visa refusal rates for applications made in the United States</a></p>"""
-    titolo = f"US OPT and STEM OPT {ANNO}: fees, deadlines and calculator"
-    descr = (f"OPT costs {usd(vo('tassa_online'))} online or {usd(vo('tassa_carta'))} on paper (Form I-765); file from {f['prima']} days before to {f['dopo']} days after your program end date. "
-             f"Calculator for the filing window and the {K_DISOCC['opt']}/{K_DISOCC['stem']} unemployment days, and the status of the $70,000 fee proposal.")
+    titolo = f"STEM OPT Extension and OPT {ANNO}: Deadlines, Fees and Calculator"   # 13/11/2026: "stem opt" 8.100 us, "stem opt extension" 4.400
+    descr = entro([f"STEM OPT extension and OPT: {usd(vo('tassa_online'))} online or {usd(vo('tassa_carta'))} on paper (Form I-765), filing deadlines, and a calculator for the "
+                   f"{K_DISOCC['opt']}/{K_DISOCC['stem']} unemployment days.",
+                   f"STEM OPT extension and OPT: {usd(vo('tassa_online'))} online or {usd(vo('tassa_carta'))} on paper, filing deadlines and unemployment days calculator."],
+                  LIM_DESCR_NUOVE)
     pagina(percorso, titolo, descr, corpo, jsonld_extra=[ld_faq(domande)], briciole=[("US OPT and STEM OPT", percorso)], script=STUDIO_JS)
 
 
@@ -7810,7 +8021,7 @@ def pagina_mx_indice():
     ld = [ld_faq(domande), ld_dataset("Mexico residence visa income and savings requirements by consulate",
                                       f"Income and savings amounts published by {len(CONS_MX)} Mexican consulates for temporary and permanent resident visas, with Mexico's {ANNO} immigration fees.",
                                       percorso, [FMX["lineamientos"]["url"], FMX["anexo4"]["url"], FMX["uma"]["url"]], LETTO_MX, "https://creativecommons.org/licenses/by/4.0/")]
-    corpo = f"""<section class="hero">{h1_diviso(f"Mexico residency {ANNO}: official fees and income requirements by consulate")}
+    corpo = f"""<section class="hero">{h1_diviso(f"Mexico temporary resident visa {ANNO}: income requirement by consulate and official residency fees")}
 <p class="lead">A Mexican temporary resident card for up to one year costs <strong>{mxn(TASSE_MX["1"][1])}</strong> and a permanent resident card <strong>{mxn(TASSE_MX["pr"][1])}</strong> in {ANNO}, according to Annex 4 of Mexico's {ANNO} Miscellaneous Tax Resolution (Diario Oficial, 28 December 2025) read on {data_lunga(LETTO_MX)}. For the visa you first need a net monthly income above {intero(GIORNI_MX["tr"][0])} days of UMA, {mxn(tr_r)} with the {ANNO} UMA of MXN {UMA_MX} (INEGI), which each consulate turns into its own currency: {importo_mx(sd["tr"]["reddito"]["importo"], "USD")} in San Diego, {importo_mx(lon["tr"]["reddito"]["importo"], "GBP")} in London, {importo_mx(van["tr"]["reddito"]["importo"], "CAD")} in Vancouver.</p></section>
 <section class="card summary" aria-label="Summary">
 <div class="s-top">{ico("passport")}<span>Mexico residency</span><span>read on {data_lunga(LETTO_MX)}</span></div>
@@ -7835,16 +8046,18 @@ def pagina_mx_indice():
 {tabella_tasse_mx()}
 {fonte_mx_p(("anexo4", "lfd", "decreto"), f"conversions at ECB reference rates of {data_lunga(CAMBI['data'])}")}
 <p><a href="fees/">All {ANNO} fees, the 50% reduction and examples</a> · <a href="income-requirements/">Income requirements in detail</a></p>
-{box_assicurazione_mx(rel)}
+{box_assicurazione_mx(rel)}{box_wise(percorso)}
 <h2>Questions people ask</h2>
 <div class="testo">{faq_html(domande)}</div>
 <h2>Consulate pages on this site</h2>
 {griglia_cons_mx("")}
 {esclusi_mx()}
 <p><a href="{rel}digital-nomad-visa-income-requirements/">Digital nomad visa income requirements in Europe</a> · <a href="{rel}{SEZ_DTV}">Thailand DTV visa by embassy</a> · <a href="{rel}">Visa income calculator</a></p>"""
-    titolo = f"Mexico residency {ANNO}: fees and income requirements by consulate"
-    descr = (f"Mexico {ANNO}: temporary resident card {mxn(TASSE_MX['1'][1])}, permanent {mxn(TASSE_MX['pr'][1])} (DOF). Income needed: {mxn(tr_r)} a month "
-             f"({intero(GIORNI_MX['tr'][0])} UMA) and what {len(CONS_MX)} consulates ask in USD, CAD and GBP, with a checker.")
+    titolo = f"Mexico Temporary Resident Visa {ANNO}: Income by Consulate and Fees"   # 13/11/2026: 2.400 us contro 590 di "mexico residency requirements"
+    descr = entro([f"Mexico temporary resident visa {ANNO}: income above {mxn(tr_r)} a month ({intero(GIORNI_MX['tr'][0])} UMA), what {len(CONS_MX)} consulates ask in USD, CAD "
+                   f"and GBP, card fees, checker.",
+                   f"Mexico temporary resident visa {ANNO}: income above {mxn(tr_r)} a month, what {len(CONS_MX)} consulates ask in USD, CAD and GBP, card fees, checker."],
+                  LIM_DESCR_NUOVE)
     pagina(percorso, titolo, descr, corpo, ordina=True, jsonld_extra=ld, briciole=[("Mexico residency", percorso)], script=MX_JS)
 
 
@@ -7900,7 +8113,7 @@ def pagina_mx_reddito():
 <p>The guidelines ask for a monthly pension of more than {intero(GIORNI_MX["pr"][0])} days of UMA ({mxn(pr_r)}) over the last six months, or an average balance of {mxn(pr_s)} over the last 12 months.</p>
 {tab_pr}
 <p class="fonte">Source: the official page of each consulate, read on {data_lunga(LETTO_MX)}. Consulates without a permanent-residence figure in this table did not publish one on the pages we read.</p>
-{box_assicurazione_mx(rel)}
+{box_assicurazione_mx(rel)}{box_wise(percorso)}
 <h2>Questions people ask</h2>
 <div class="testo">{faq_html(domande)}</div>
 <h2>More on Mexico residency</h2>
@@ -7960,7 +8173,7 @@ def pagina_mx_tasse():
 <li><strong>Replacement</strong> of a lost or damaged card: {mxn(TASSE_MX["repos"][1])}.</li>
 <li><strong>50% reduction</strong> (new from {ANNO}): temporary and permanent residents who show the INM that they are in Mexico for family unity, for a job offer from a registered employer, or invited by an organisation to take part in unpaid activities pay half.</li></ul>
 {fonte_mx_p(("lfd", "decreto"))}
-{box_assicurazione_mx(rel)}
+{box_assicurazione_mx(rel)}{box_wise(percorso)}
 <h2>Questions people ask</h2>
 <div class="testo">{faq_html(domande)}</div>
 <h2>More on Mexico residency</h2>
@@ -8047,7 +8260,7 @@ def pagina_mx_cons(C):
 <h2>After the visa: the resident card</h2>
 <p>The visa lets you enter Mexico once; within 30 days you apply for the resident card at the National Migration Institute (INM) and pay its fee in pesos: {mxn(TASSE_MX["1"][1])} for up to one year, {mxn(TASSE_MX["4"][1])} for four years, {mxn(TASSE_MX["pr"][1])} for a permanent card ({ANNO}). <a href="../fees/">All fees</a>.</p>
 {fonte_mx_p(("anexo4",))}
-{box_assicurazione_mx(rel)}
+{box_assicurazione_mx(rel)}{box_wise(percorso)}
 <h2>Questions people ask</h2>
 <div class="testo">{faq_html(domande)}</div>
 <h2>{"Other Mexican consulates in " + escape(art(C["paese"])) if stessi else "Other Mexican consulates"}</h2>
@@ -8498,7 +8711,7 @@ def pagina_it_mezzi():
 <p>When you apply for the permit you must show health cover for medical care and hospital stays: a consular declaration under a health agreement between Italy and your country, or a policy with no limits on urgent hospital care for the whole stay. Once you hold a study permit, the law also lets you register voluntarily with the National Health Service (SSN), for at least {eur(LIT["ssn_minimo"])} a year. <a href="../health-insurance/">The options in detail</a>.</p>
 {fonte_it_p(("circolare", "ssn"))}
 <h2>Questions people ask</h2>
-<div class="testo">{faq_html(domande)}</div>{box_al(percorso)}
+<div class="testo">{faq_html(domande)}</div>{box_al(percorso)}{box_wise(percorso)}
 {link_tema_it("../", "student-visa-funds/")}"""
     titolo = f"Italy student visa bank balance 2026/27: {eur(LIT['mezzi'])} a year"
     descr = (f"Italian student visa 2026/27: {eur(LIT['mezzi'])} a year of funds (MUR procedures), in USD, INR, PKR, BDT, NGN and more; visa deadline "
@@ -9600,8 +9813,8 @@ def pagina_sr_hub(P):
     mev_tot = MEV_PAESE[A1][P]
     domande = domande_hub_sr(P, basso, alto, tot)
     nome_in = "the UK" if P == "UNITED KINGDOM" else "the UAE"
-    titolo_h1 = (f"Schengen visa from the UK: which country refuses least ({A1})" if P == "UNITED KINGDOM"
-                 else f"Schengen visa from Dubai and the UAE: which country refuses least ({A1})")
+    titolo_h1 = (f"Schengen visa from the UK: where to apply, the fee and which country refuses least ({A1})" if P == "UNITED KINGDOM"
+                 else f"Schengen visa from Dubai and the UAE: where to apply, the fee and which country refuses least ({A1})")
     forn = [F for F in FORN_SR if F["paese"] == P]
     forn_li = "".join(f'<li><strong>{escape(F["stato"])}</strong> ({escape(F["fornitore"])}): {escape(F["testo"].rstrip("."))} '
                       f'(<a href="{escape(F_SR[F["fonte"]]["url"])}" rel="noopener">official page</a>, read on {data_lunga(F_SR[F["fonte"]]["letto_il"])}).</li>' for F in forn)
@@ -9655,13 +9868,15 @@ def pagina_sr_hub(P):
 <li><a href="{escape(F_SR["riferimento"]["url"])}" rel="noopener">European Commission, reference amounts required for the crossing of the external border</a> (PDF of 8 June 2026), read on {data_lunga(F_SR["riferimento"]["letto_il"])}.</li>
 <li>Exchange rates: European Central Bank reference rates of {data_lunga(CAMBI["data"])}{"; " + f'<a href="{escape(F_SR["cbuae_ago"]["url"])}" rel="noopener">Central Bank of the UAE, August 2026</a> and <a href="{escape(F_SR["cbuae_set"]["url"])}" rel="noopener">September 2026</a> tables (AED {PEG_AED} per US dollar on all {SR["ancoraggio_righe"]["giorni"]} days)' if V == "AED" else ""}.</li></ul>"""
     if P == "UNITED KINGDOM":
-        titolo = f"Schengen visa from the UK: which country refuses least ({A1})"
-        descr = (f"Schengen consulates in the UK did not issue {pct(tasso(tot))} of applications in {A1}: lowest {art(basso[0])} ({pct(tasso(stati[basso[0]]))}), "
-                 f"highest {art(alto[0])} ({pct(tasso(stati[alto[0]]))}). Fee €{TASSA_SR} (≈ {loc_sr(TASSA_SR, V)}), €{COPERTURA_SR:,} insurance, money to show by country.")
+        titolo = f"Schengen Visa from the UK {ANNO}: Where to Apply, Fee, Refusal Rate"   # 13/11/2026: 8.100 + 5.400 gb
+        descr = entro([f"Schengen visa from the UK: where to apply, €{TASSA_SR} fee (≈ {loc_sr(TASSA_SR, V)}), €{COPERTURA_SR:,} insurance. {pct(tasso(tot))} not issued in {A1}, lowest {art(basso[0])} ({pct(tasso(stati[basso[0]]))}).",
+                       f"Schengen visa from the UK: where to apply, €{TASSA_SR} fee, €{COPERTURA_SR:,} insurance. {pct(tasso(tot))} not issued in {A1}, lowest {art(basso[0])} ({pct(tasso(stati[basso[0]]))})."],
+                      LIM_DESCR_NUOVE)
     else:
-        titolo = f"Schengen visa from Dubai (UAE): which country refuses least, {A1}"
-        descr = (f"Schengen consulates in the UAE did not issue {pct(tasso(tot))} of applications in {A1}: lowest {art(basso[0])} ({pct(tasso(stati[basso[0]]))}), "
-                 f"highest {art(alto[0])} ({pct(tasso(stati[alto[0]]))}). Fee €{TASSA_SR} (≈ {loc_sr(TASSA_SR, V)}), €{COPERTURA_SR:,} insurance, money to show by country.")
+        titolo = f"Schengen Visa from Dubai {ANNO}: Where to Apply, Fee, Refusal Rate"   # 13/11/2026: 4.400 + 2.900 + 2.900 ae
+        descr = entro([f"Schengen visa from Dubai: where to apply, €{TASSA_SR} fee (≈ {loc_sr(TASSA_SR, V)}), €{COPERTURA_SR:,} insurance. {pct(tasso(tot))} not issued in {A1}, lowest {art(basso[0])} ({pct(tasso(stati[basso[0]]))}).",
+                       f"Schengen visa from Dubai: where to apply, €{TASSA_SR} fee, €{COPERTURA_SR:,} insurance. {pct(tasso(tot))} not issued in {A1}, lowest {art(basso[0])} ({pct(tasso(stati[basso[0]]))})."],
+                      LIM_DESCR_NUOVE)
     ld = [ld_faq(domande), ld_dataset(f"Schengen visa applications made in the {R['nome']} by Schengen country ({A1})",
                                        f"Applications, visas issued and not issued at Schengen consulates in the {R['nome']}, {A1} and {A0}, from the European Commission.",
                                        R["sez"], [F_UE[A1]["url"], F_UE[A0]["url"]], f"{A0}/{A1}", "https://creativecommons.org/licenses/by/4.0/")]
@@ -14895,7 +15110,7 @@ def pagina_h1_indice():
     ]
     faq = registra_faq_h1(percorso, domande)
     sw = "15-1252"
-    corpo = f"""<section class="hero">{h1_diviso(f"H-1B wage level calculator: Level I to IV and lottery entries ({ANNO_SAL_H1})")}
+    corpo = f"""<section class="hero">{h1_diviso(f"H-1B wage levels {ANNO_SAL_H1}: prevailing wage Level 1 to 4 (I to IV) calculator and lottery entries")}
 <p class="lead">{lead}</p></section>
 <section class="card summary" aria-label="Summary">
 <div class="s-top">{ico("list")}<span>H-1B weighted lottery</span><span>Read on {data_lunga(LETTO_H1)}</span></div>
@@ -14934,9 +15149,8 @@ def pagina_h1_indice():
 <li>{link_bls_h1()} (jobs by area, US mean and median).</li>
 <li>{link_fr_h1("regola")}; {link_fr_h1("proclamazione")}; {link_fr_h1("tassa")}; {link_fr_h1("salari_dol")}.</li></ul>
 <p><a href="lottery-odds/">H-1B lottery odds by wage level</a> · <a href="{rel}{SEZ_OPT}">US OPT and STEM OPT: fees and deadlines</a> · <a href="{rel}work-visa-salary-thresholds/">Work visa salary thresholds</a></p>"""
-    titolo = f"H-1B wage level calculator {ANNO_SAL_H1}: Level I-IV and lottery entries"
-    descr = (f"Check the H-1B wage level (I to IV) for {len(OCC_TUTTE_H1)} occupations in {len(AREE_H1)} US areas and the lottery entries it gives: OFLC wages July 2026–June 2027 "
-             f"and the DHS weighted selection rule.")
+    titolo = f"H-1B Wage Levels {ANNO_SAL_H1}: Prevailing Wage Level 1-4 Calculator"   # 13/11/2026: "h1b wage levels" 1.600 us
+    descr = (f"H-1B wage levels 1 to 4 for {len(OCC_TUTTE_H1)} occupations in {len(AREE_H1)} US areas: OFLC prevailing wages July 2026–June 2027 and the lottery entries each level gives.")
     pagina(percorso, titolo, descr, corpo, jsonld_extra=[ld_faq(faq)], briciole=[("H-1B wage level", percorso)], ordina=True, script=H1B_JS, css_extra=CSS_STUDIO)
 
 
@@ -15660,8 +15874,8 @@ def pagina_ass_schengen():
         ("Can I buy Schengen insurance outside my country of residence?", "Article 15(4) says applicants should in principle take out insurance in their country of residence and, where this is not possible, in any other country."),
         ("Is Schengen visa insurance refundable if my visa is refused?", "The Visa Code does not say: refunds depend on the terms of each policy. Read them before you buy."),
     ]
-    corpo = f"""<section class="hero">{h1_diviso(f"Schengen visa insurance: €{COPERTURA_ASS:,} minimum, all Schengen countries, the whole stay")}
-<p class="lead">To get a Schengen visa you must show travel medical insurance with at least <strong>€{COPERTURA_ASS:,}</strong> of cover, valid in <strong>all Schengen countries</strong> for the <strong>whole stay</strong>, covering urgent medical care, emergency hospital treatment and repatriation for medical reasons or death (Article 15 of the EU Visa Code, read on {data_lunga(LETTO_ASS)}).</p></section>
+    corpo = f"""<section class="hero">{h1_diviso(f"Schengen travel insurance requirements: €{COPERTURA_ASS:,} minimum, all Schengen countries, the whole stay")}
+<p class="lead">To get a Schengen visa you must show Schengen travel insurance (travel medical insurance) with at least <strong>€{COPERTURA_ASS:,}</strong> of cover, valid in <strong>all Schengen countries</strong> for the <strong>whole stay</strong>, covering urgent medical care, emergency hospital treatment and repatriation for medical reasons or death (Article 15 of the EU Visa Code, read on {data_lunga(LETTO_ASS)}).</p></section>
 <section class="card summary" aria-label="Summary">
 <div class="s-top">{ico("shield")}<span>Schengen visa (short stay)</span><span>Visa Code, Article 15</span></div>
 <div class="s-body">
@@ -15688,9 +15902,11 @@ def pagina_ass_schengen():
 <h2>Questions people ask</h2>
 <div class="testo">{faq_html(faq)}</div>
 <p><a href="{rel}{SEZ_ASS}">Health insurance for long-stay visas (Spain, Portugal, Italy, Germany, Thailand and more)</a></p>"""
-    titolo = f"Schengen visa insurance requirements: €{COPERTURA_ASS:,}, whole stay ({ANNO})"
-    descr = (f"Schengen visa insurance: at least €{COPERTURA_ASS:,} of cover, valid in all Schengen countries for the whole stay, urgent care, hospital and repatriation. "
-             "Article 15 of the EU Visa Code, word for word.")
+    titolo = f"Schengen Travel Insurance Requirements {ANNO}: €{COPERTURA_ASS:,}, Whole Stay"   # 13/11/2026: 2.900 gb contro 1.300 di "visa insurance"
+    descr = entro([f"Schengen travel insurance: at least €{COPERTURA_ASS:,} of cover in all Schengen countries for the whole stay, urgent care, hospital, repatriation. "
+                   "Article 15 of the Visa Code.",
+                   f"Schengen travel insurance: at least €{COPERTURA_ASS:,} of cover in all Schengen countries for the whole stay. Article 15 of the Visa Code, word for word."],
+                  LIM_DESCR_NUOVE)
     pagina(percorso, titolo, descr, corpo, jsonld_extra=[ld_faq(faq)], briciole=[("Schengen visa insurance", percorso)])
 
 

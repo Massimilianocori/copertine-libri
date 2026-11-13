@@ -143,6 +143,16 @@ Uso (dalla radice del repository, dopo python3 visaincome/genera.py):
     riquadro solo lì, una volta, link = dati (anchorless.io, ?via=massimiliano), rel="sponsored noopener", etichetta Affiliate, riga di
     trasparenza, vie ufficiali con il link all'Agenzia delle Entrate e la data, codice MASSIMILIANO come «5% off», niente prezzi né promesse,
     privacy coerente; con l'interruttore spento nessuna traccia; online: frammenti dell'Agenzia e di AnchorLess riletti.
+36. Riquadro Wise «Moving money for your visa?» (13/11/2026, interruttore _wise in dati/affiliati.json, Partnerize): pagine ricalcolate
+    (17 calcolatori, tabella dei nomadi, DTV indice + proof of funds + requirements, Mexico residency tranne fees, Who moved where in indice,
+    Study in Italy student-visa-funds) = genera.in_wise(); riquadro solo lì, una volta, link = dati (wise.prf.hn/click/camref:…),
+    rel="sponsored nofollow noopener", Affiliate, riga di trasparenza, rimando a Wise per commissioni e cambi, nessuna cifra né promessa,
+    mai in pagine fuori indice, A/B o es/pt; privacy coerente; con l'interruttore spento nessuna traccia; online: 302 verso wise.com.
+37. Grow by Mediavine (13/11/2026, interruttore GROW_ATTIVO in genera.py; requisito di Journey by Mediavine): genera.GROW_TAG = tag
+    ufficiale copiato qui (TAG_GROW), ID del sito = GROW_ID_ATTESO (base64 di "Site:<uuid>"); in OGNI pagina HTML di sito/ (in indice e
+    noindex, en/es/pt, 404) il tag compare una volta sola, dentro <head>, con l'ID giusto; nessun altro riferimento a grow.me fuori dal tag;
+    la privacy nomina Grow by Mediavine, la funzione di salvataggio e linka l'informativa di Mediavine; con l'interruttore spento nessuna
+    traccia; online: main.js risponde e la configurazione pubblica del sito si chiama "Visa Income Checker" con visaincomechecker.com.
 Il controllo 16 comprende dall'11/11/2026, sulle 4 pagine per livello: voto minimo = elenco ufficiale con i separatori uniformi e ripetuto
 sotto il nome del test (visibile solo sotto i 480 px, dove la colonna si nasconde), avviso con "aged 65 or over", tutti i fornitori dei test
 del livello in "How to book", frase del livello nel riquadro italki, Appendix FM E-ILRP.1.6 e Appendix KoLL 2.2(c)(ii) per il partner
@@ -1461,7 +1471,7 @@ def controlla_dtv(online=True):
         n += 1
         percorso = f"thailand-dtv-visa/{slug + '/' if slug else ''}"
         t = f.read_text(encoding="utf-8")
-        main = t.split('<main id="main">', 1)[1].split("</main>", 1)[0]
+        main = togli_wise(t.split('<main id="main">', 1)[1].split("</main>", 1)[0])  # riquadro Wise: controllo 36
         testo_main = html.unescape(re.sub(r"<[^>]+>", " ", main))
         if f"<loc>{G.URL_SITO}/{percorso}</loc>" not in sitemap:
             errori.append(f"DTV: {percorso} non in sitemap")
@@ -1609,7 +1619,7 @@ def _controlla_dtv_temi(D, aff, sitemap, letto, costo):
             continue
         n += 1
         t = f.read_text(encoding="utf-8")
-        main = t.split('<main id="main">', 1)[1].split("</main>", 1)[0]
+        main = togli_wise(t.split('<main id="main">', 1)[1].split("</main>", 1)[0])  # riquadro Wise: controllo 36
         pagine[slug] = main
         testo_main = html.unescape(re.sub(r"<[^>]+>", " ", main))
         if f"<loc>{G.URL_SITO}/{percorso}</loc>" not in sitemap:
@@ -2210,6 +2220,7 @@ def controlla_mx(online=True):
     attese = ["", "income-requirements", "fees"] + [c["id"] for c in cons]
     P = _pagine_sezione("mexico-residency/", attese, errori, "Messico", affiliati=True)
     for s, (t, main, testo, lead, percorso) in P.items():
+        main = togli_wise(main)  # il riquadro Wise si controlla al punto 36
         prima = re.split(r"(?<=[a-z0-9)])\.\s+(?=[A-Z])", lead)[0]
         if letto not in prima:
             errori.append(f"Messico: data di lettura non nella prima frase in {percorso}")
@@ -2417,7 +2428,7 @@ def controlla_it(online=True):
     P = _pagine_sezione("study-in-italy/", attese, errori, "Italia", affiliati=True)
     tutto = ""
     for s_, (t, main, testo, lead, percorso) in P.items():
-        main = togli_al(main)  # il riquadro AnchorLess (codice fiscale) si controlla al punto 35
+        main = togli_wise(togli_al(main))  # i riquadri AnchorLess (codice fiscale) e Wise si controllano ai punti 35 e 36
         testo = html.unescape(re.sub(r"<[^>]+>", " ", main))
         tutto += main
         prima = re.split(r"(?<=[a-z0-9)%])\.\s+(?=[A-Z])", lead)[0]
@@ -5179,6 +5190,234 @@ def controlla_al(online=True):
     return errori, len(con_box), len(riletti)
 
 
+_RE_BOX_WISE = re.compile(r'\n?<section class="card aff-r" aria-labelledby="aff-wise-h">.*?</section>', re.S)
+
+
+def togli_wise(main):
+    """Il <main> senza il riquadro Wise: i controlli delle sezioni (18 DTV, 21 Messico, 22 Study in Italy) restano quelli di prima,
+    il riquadro si controlla al punto 36."""
+    return _RE_BOX_WISE.sub("", main)
+
+
+def controlla_wise(online=True):
+    """36 (13/11/2026): riquadro Wise «Moving money for your visa?» (interruttore _wise in dati/affiliati.json, Partnerize).
+    Pagine attese ricalcolate qui dai file del sito e dalla sitemap (17 calcolatori, tabella dei nomadi digitali, DTV indice + proof of
+    funds + requirements, Mexico residency tranne fees, Who moved where: pagine delle nazionalità e coppie in indice, Study in Italy
+    student-visa-funds), solo pagine inglesi in sitemap e senza noindex, uguali a genera.in_wise(); con l'interruttore acceso il riquadro
+    c'è solo lì, una volta, con un solo link = URL dei dati (https://wise.prf.hn/click/camref:<camref>, niente altro), rel="sponsored
+    nofollow noopener", target _blank, etichetta Affiliate, riga di trasparenza, rimando a Wise per commissioni e cambi, frase sul
+    visto e sugli estratti conto, nessuna cifra, valuta o percentuale, nessuna promessa; prf.hn mai fuori dal riquadro (né in pagine
+    fuori indice, dell'esperimento A/B o es/pt); privacy coerente; con l'interruttore spento nessuna traccia. Online: il link risponde
+    302 verso wise.com con l'ID partner. Ritorna (errori, pagine con il riquadro, esito online)."""
+    import urllib.parse as up
+    errori, esito = [], "saltato"
+    A = json.loads((G.DATI / "affiliati.json").read_text(encoding="utf-8"))
+    w = A.get("_wise", {})
+    url, camref = w.get("url", ""), w.get("camref", "")
+    acceso = bool(w.get("attivo"))
+    if acceso != G.WISE_ATTIVO:
+        errori.append("36: interruttore _wise e genera.WISE_ATTIVO non coincidono (url non valido?)")
+    u = up.urlsplit(url)
+    if url and (u.scheme != "https" or u.netloc != "wise.prf.hn" or u.path != f"/click/camref:{camref}" or not camref or u.query or u.fragment):
+        errori.append(f"36: link Wise dei dati non valido (atteso https://wise.prf.hn/click/camref:<camref>): {url}")
+    if not G.MON.dominio_ammesso(url or "https://wise.prf.hn/"):
+        errori.append("36: wise.prf.hn non è tra i domini ammessi di monetizzazione.json (prf.hn)")
+    if G.MON.dominio_ammesso("https://wise.com/"):
+        errori.append("36: wise.com è tra i domini di affiliazione: le fonti ufficiali di Wise diventerebbero link affiliati")
+    sitemap = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+
+    def in_sitemap(p):
+        return f"<loc>{G.URL_SITO}/{p}</loc>" in sitemap
+
+    def cartelle(sez, profondita):
+        base = SITO / sez
+        return {f.parent.relative_to(SITO).as_posix() + "/" for f in base.glob("/".join(["*"] * profondita) + "/index.html")}
+
+    attese = {f"{p['slug']}/" for p in G.PROG} | {"digital-nomad-visa-income-requirements/"}
+    attese |= {"thailand-dtv-visa/", "thailand-dtv-visa/proof-of-funds/", "thailand-dtv-visa/requirements/"}
+    attese |= ({"mexico-residency/"} | cartelle("mexico-residency", 1)) - {"mexico-residency/fees/"}
+    attese |= cartelle("moved-to", 1) | cartelle("moved-to", 2)
+    attese |= {"study-in-italy/student-visa-funds/"}
+    attese = {p for p in attese if in_sitemap(p)}
+    if attese != {p for p in attese if G.in_wise(p)} or any(G.in_wise(p) for p in cartelle("moved-to", 2) - attese):
+        errori.append(f"36: pagine del riquadro diverse da genera.in_wise(): {sorted(p for p in attese if not G.in_wise(p))[:5]}")
+    n_tr = len({p for p in attese if p.startswith("moved-to/")})
+    if len(attese) < 100 or n_tr < 80:
+        errori.append(f"36: troppo poche pagine attese per il riquadro ({len(attese)}, Who moved where {n_tr})")
+    vietate = ("guarantee", "will be approved", "you will get", "cheapest", "cheaper", "best ", "fastest", "save money", "no fees", "free",
+               "real exchange rate", "mid-market", "official partner", "recommended by")
+    con_box = set()
+    for f in SITO.rglob("*.html"):
+        rel_p = str(f.parent.relative_to(SITO)) + "/" if f.name == "index.html" else str(f.relative_to(SITO))
+        rel_p = "" if rel_p == "./" else rel_p
+        t = f.read_text(encoding="utf-8")
+        if "prf.hn" not in t and 'id="aff-wise-h"' not in t:
+            continue
+        if not acceso:
+            errori.append(f"36: Wise spento ma {rel_p} ha il link o il riquadro")
+            continue
+        if rel_p not in attese:
+            errori.append(f"36: riquadro o link Wise in una pagina non prevista: {rel_p}")
+            continue
+        con_box.add(rel_p)
+        main = t.split('<main id="main">', 1)[1].split("</main>", 1)[0]
+        box = _RE_BOX_WISE.findall(main)
+        fuori = _RE_BOX_WISE.sub("", main) + t.split('<main id="main">', 1)[0] + t.split("</main>", 1)[1]
+        if len(box) != 1 or "prf.hn" in fuori:
+            errori.append(f"36: {rel_p}: link Wise fuori dal riquadro, o riquadro assente o doppio")
+            continue
+        b = box[0]
+        tag = re.findall(r'<a [^>]*href="https?://[^"]*prf\.hn[^"]*"[^>]*>', b)
+        link = [html.unescape(re.search(r'href="([^"]*)"', x).group(1)) for x in tag]
+        if len(link) != 1 or link[0] != url:
+            errori.append(f"36: {rel_p}: link Wise assente, doppio o diverso dai dati ({link})")
+        elif 'rel="sponsored nofollow noopener"' not in tag[0] or 'target="_blank"' not in tag[0]:
+            errori.append(f"36: {rel_p}: link Wise senza rel=\"sponsored nofollow noopener\" o target")
+        if len(re.findall(r"<a\b", b)) != 1:
+            errori.append(f"36: {rel_p}: altri link nel riquadro Wise")
+        tb = _norm_al(b)
+        for x in (G.MON.RIGA_EN, "Affiliate", G.TITOLO_WISE, "Wise is a money transfer service",
+                  "Its fees and exchange rates are on its own website", "Official fees and exchange rates are on Wise's website.",
+                  "Sending money with Wise does not change the decision on your visa",
+                  "we have not checked whether a consulate accepts Wise statements as proof of funds",
+                  "the consulate or immigration office decides which bank documents it accepts"):
+            if x not in tb:
+                errori.append(f"36: {rel_p}: manca {x!r} nel riquadro")
+        if re.search(r"\d|[€$£%]|\b(EUR|USD|GBP)\b", tb):
+            errori.append(f"36: {rel_p}: cifra, valuta o percentuale nel riquadro (niente prezzi né tassi)")
+        for x in vietate:
+            if x in tb.lower():
+                errori.append(f"36: {rel_p}: parola vietata nel riquadro ({x!r})")
+        if (G.fuori_indice(rel_p) or 'name="robots" content="noindex' in t or not in_sitemap(rel_p) or not t.startswith("<!DOCTYPE html>\n<html lang=\"en\"")):
+            errori.append(f"36: {rel_p}: riquadro in una pagina fuori indice, fuori sitemap o non inglese")
+        if rel_p.startswith(("visa-refusal-rates/", "es/", "pt/")):
+            errori.append(f"36: {rel_p}: riquadro in una sezione vietata (esperimento A/B o es/pt)")
+        if main.find('id="aff-wise-h"') < main.find("<h2"):
+            errori.append(f"36: {rel_p}: riquadro prima delle informazioni della pagina")
+    if acceso and con_box != attese:
+        errori.append(f"36: riquadro mancante in {sorted(attese - con_box)[:5]}")
+    priv = (SITO / "privacy.html").read_text(encoding="utf-8")
+    if acceso != ("Affiliate links to Wise" in priv):
+        errori.append("36: paragrafo Wise della privacy non coerente con l'interruttore")
+    # interruttore spento: box_wise() vuoto; pagine non previste: vuoto
+    vecchio = G.WISE_ATTIVO
+    try:
+        G.WISE_ATTIVO = False
+        if any(G.box_wise(p) for p in attese):
+            errori.append("36: con l'interruttore spento box_wise() non è vuoto")
+    finally:
+        G.WISE_ATTIVO = vecchio
+    fuori_i = sorted(p for p in cartelle("moved-to", 2) if not in_sitemap(p))
+    for p in ["", "moved-to/", "mexico-residency/fees/", "thailand-dtv-visa/fee/", "thailand-dtv-visa/london/", "visa-refusal-rates/india/",
+              "visa-refusal-rates/", "study-in-italy/", "work-visa-salary-thresholds/", "es/visados/visa-de-estudiante-italia-para-peruanos/"] + fuori_i[:3]:
+        if G.box_wise(p):
+            errori.append(f"36: box_wise() non vuoto per una pagina non prevista ({p})")
+    if not fuori_i:
+        errori.append("36: nessuna coppia di Who moved where fuori indice trovata per la prova")
+    # online: il link risponde 302 verso wise.com con l'ID partner (senza seguire il rinvio)
+    if online and acceso:
+        class _NoRedirect(urllib.request.HTTPRedirectHandler):
+            def redirect_request(self, *a, **k):
+                return None
+        try:
+            r = urllib.request.build_opener(_NoRedirect).open(urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"}), timeout=60)
+            codice, dove = r.status, r.headers.get("Location", "")
+        except urllib.error.HTTPError as e:
+            codice, dove = e.code, e.headers.get("Location", "")
+        except Exception as e:  # noqa: BLE001
+            codice, dove = None, ""
+            avviso(36, f"link Wise non letto ({e}); ultima prova buona {w.get('attivo_dal')}")
+        if codice is not None:
+            h = up.urlsplit(dove)
+            if codice not in (301, 302, 303, 307) or not (h.hostname or "").endswith("wise.com") or "partnerID=" not in h.query:
+                errori.append(f"36: il link Wise non rimanda a wise.com con l'ID partner (HTTP {codice}, {h.hostname})")
+            else:
+                esito = f"HTTP {codice} verso {h.hostname}"
+    return errori, len(con_box), esito
+
+
+# 37 (13/11/2026): tag di Grow by Mediavine come dato da publishers.grow.me, copiato qui a mano (non da genera.py) per accorgersi di modifiche.
+GROW_ID_ATTESO = "U2l0ZTo2Yjk2NzU3Yi01ODVlLTQ1ZTMtYWYwYi1hMTM2OWJlY2NlNmU="
+TAG_GROW = ('<script data-grow-initializer="">!(function(){window.growMe||((window.growMe=function(e){window.growMe._.push(e);}),(window.growMe._=[]));'
+            'var e=document.createElement("script");(e.type="text/javascript"),(e.src="https://faves.grow.me/main.js"),(e.defer=!0),'
+            'e.setAttribute("data-grow-faves-site-id","U2l0ZTo2Yjk2NzU3Yi01ODVlLTQ1ZTMtYWYwYi1hMTM2OWJlY2NlNmU=");'
+            'var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t);})();</script>')
+
+
+def controlla_grow(online=True):
+    """37: Grow by Mediavine in ogni pagina. Ritorna (errori, pagine con il tag, conteggi {indice, noindex, en, es, pt}, esito online)."""
+    import base64
+    errori, n, conti, esito = [], 0, {"indice": 0, "noindex": 0, "en": 0, "es": 0, "pt": 0}, "saltato (--offline)"
+    attivo = G.GROW_ATTIVO
+    if G.GROW_SITE_ID != GROW_ID_ATTESO:
+        errori.append(f"37: GROW_SITE_ID di genera.py ({G.GROW_SITE_ID}) diverso da quello del tag ufficiale")
+    if G.GROW_TAG != TAG_GROW:
+        errori.append("37: genera.GROW_TAG non è il tag ufficiale di Grow copiato com'è")
+    try:
+        if not re.fullmatch(r"Site:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}", base64.b64decode(GROW_ID_ATTESO).decode()):
+            errori.append("37: l'ID del sito Grow non è il base64 di 'Site:<uuid>'")
+    except ValueError:
+        errori.append("37: l'ID del sito Grow non è base64")
+    pagine = sorted(SITO.rglob("*.html"))
+    for f in pagine:
+        r = f.relative_to(SITO).as_posix()
+        t = f.read_text(encoding="utf-8")
+        if not attivo:
+            if "grow.me" in t or "data-grow" in t:
+                errori.append(f"37: {r}: traccia di Grow con GROW_ATTIVO spento")
+            continue
+        fine = t.find("</head>")
+        testa = t[:fine] if fine >= 0 else ""
+        if t.count(TAG_GROW) != 1 or testa.count(TAG_GROW) != 1:
+            errori.append(f"37: {r}: tag Grow {t.count(TAG_GROW)} volte ({testa.count(TAG_GROW)} nel <head>), atteso 1 nel <head>")
+            continue
+        resto = t.replace(TAG_GROW, "", 1)
+        # la privacy nomina grow.me nel testo; altrove nessun riferimento, e in nessuna pagina un secondo script o un altro ID
+        if ("grow.me" in resto and r != "privacy.html") or "faves.grow.me" in resto or "data-grow" in resto or GROW_ID_ATTESO in resto:
+            errori.append(f"37: {r}: altri riferimenti a Grow fuori dal tag ufficiale")
+        ids = re.findall(r'data-grow-faves-site-id","([^"]*)"', t)
+        if ids != [GROW_ID_ATTESO]:
+            errori.append(f"37: {r}: ID del sito Grow {ids}")
+        if not testa.lstrip().lower().startswith(("<!doctype html", "<html")) or testa.find("<head>") < 0 or testa.find("<head>") > testa.find(TAG_GROW):
+            errori.append(f"37: {r}: tag Grow fuori dal <head>")
+        n += 1
+        conti["noindex" if 'name="robots" content="noindex' in testa else "indice"] += 1
+        m = re.search(r'<html lang="(\w+)"', t)
+        lingua = m.group(1) if m else "?"
+        conti[lingua] = conti.get(lingua, 0) + 1
+    if attivo and n != len(pagine):
+        errori.append(f"37: tag Grow in {n} pagine su {len(pagine)}")
+    priv = (SITO / "privacy.html").read_text(encoding="utf-8")
+    vis = re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", priv)))
+    if attivo:
+        for x in ("Grow by Mediavine", "Mediavine, Inc.", "bookmark", "save", "measure our audience", "cookies"):
+            if x not in vis:
+                errori.append(f"37: privacy senza «{x}» nel paragrafo su Grow")
+        if f'href="{G.GROW_PRIVACY_URL}"' not in priv or not G.GROW_PRIVACY_URL.startswith("https://www.mediavine.com/"):
+            errori.append(f"37: privacy senza il link all'informativa di Mediavine ({G.GROW_PRIVACY_URL})")
+    elif "Grow" in vis or "Mediavine" in vis:
+        errori.append("37: privacy cita Grow/Mediavine con GROW_ATTIVO spento")
+    if attivo and online:
+        try:
+            req = urllib.request.Request("https://faves.grow.me/main.js", headers={"User-Agent": "Mozilla/5.0 (verifica sito)"})
+            with urllib.request.urlopen(req, timeout=30) as risp:
+                js = risp.read().decode("utf-8", "replace")
+            if "data-grow-faves-site-id" not in js:
+                errori.append("37: faves.grow.me/main.js non legge più data-grow-faves-site-id")
+            req = urllib.request.Request(f"https://api.grow.me/sites/{GROW_ID_ATTESO}/config", headers={"User-Agent": "Mozilla/5.0 (verifica sito)"})
+            with urllib.request.urlopen(req, timeout=30) as risp:
+                cfg = json.loads(risp.read().decode("utf-8"))
+            dom = [d.get("domain") for d in cfg.get("domainObjects") or []]
+            if cfg.get("name") != "Visa Income Checker" or "visaincomechecker.com" not in (cfg.get("domains") or []):
+                errori.append(f"37: configurazione Grow inattesa: {cfg.get('name')!r}, domini {cfg.get('domains')}")
+            verif = {d.get("domain"): d.get("isVerified") for d in cfg.get("domainObjects") or []}
+            esito = f"main.js ok, sito «{cfg.get('name')}» su {', '.join(dom)} (dominio verificato in Grow: {verif.get('visaincomechecker.com')})"
+        except Exception as e:  # rete assente o Grow giù: avviso, non errore
+            AVVISI.append(("37", f"Grow non raggiungibile: {e}"))
+            esito = "non raggiungibile"
+    return errori, n, conti, esito
+
+
 def controlla_fuori_indice():
     """34 (12/11/2026): pagine "in scala" fuori dall'indice e AdSense solo dove c'è contenuto. Ritorna (errori, n fuori indice, n in sitemap,
     conteggio per sezione, n pagine in indice senza AdSense)."""
@@ -5393,7 +5632,14 @@ def main():
     print(f"35. Riquadro AnchorLess (codice fiscale, interruttore {'acceso' if G.AL_ATTIVO else 'spento'}): {n35} pagine (attese = programma e Paese Italia, "
           f"Study in Italy, flat tax 7%, nessuna fuori indice), link ?via=massimiliano, rel, trasparenza, vie ufficiali, codice 5%, niente prezzi né promesse, "
           f"privacy; frammenti riletti online: {r35}: {len(e35)} errori")
-    tutti = errori + e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28 + e29 + e30 + e31 + e32 + e33 + e34 + e35
+    e36, n36, r36 = controlla_wise(online="--offline" not in sys.argv)
+    print(f"36. Riquadro Wise (Partnerize, interruttore {'acceso' if G.WISE_ATTIVO else 'spento'}): {n36} pagine (attese = calcolatori, tabella nomadi, "
+          f"DTV, Mexico residency, Who moved where in indice, Study in Italy fondi; nessuna fuori indice, A/B o es/pt), link = dati, rel sponsored nofollow, "
+          f"trasparenza, nessuna cifra né promessa, privacy; link online: {r36}: {len(e36)} errori")
+    e37, n37, c37, r37 = controlla_grow(online="--offline" not in sys.argv)
+    print(f"37. Grow by Mediavine (interruttore {'acceso' if G.GROW_ATTIVO else 'spento'}): tag ufficiale una volta nel <head> di {n37} pagine HTML "
+          f"({c37['indice']} in indice, {c37['noindex']} noindex; en {c37['en']}, es {c37['es']}, pt {c37['pt']}), ID del sito giusto, privacy; online: {r37}: {len(e37)} errori")
+    tutti = errori +e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28 + e29 + e30 + e31 + e32 + e33 + e34 + e35 + e36 + e37
     if AVVISI:  # fonti che rispondono non-200 o con una pagina anti-robot (controllo 28): non sono errori
         per_punto = {}
         for k, _ in AVVISI:

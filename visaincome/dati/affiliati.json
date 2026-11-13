@@ -118,5 +118,17 @@
     ],
     "nota": "INTERRUTTORE del riquadro AnchorLess «Get your codice fiscale from abroad» (box_al in genera.py, 12/11/2026): con 'attivo': false le pagine escono senza riquadro e senza alcun link ad anchorless.io (verifica.py, controllo 35). Solo nelle pagine di chi si trasferisce in Italia e sono in indice: programma italy-digital-nomad-visa, country/italy, le 16 pagine di Study in Italy, le 2 della flat tax del 7 % (PAGINE_AL in genera.py). MAI nelle pagine fuori indice (fuori_indice), nelle pagine dell'esperimento /visa-refusal-rates/ né nelle sezioni es/pt.",
     "regole": "rel=\"sponsored noopener\", etichetta Affiliate, riga di trasparenza; prima le vie ufficiali (consolato, Questura, uffici dell'Agenzia), poi AnchorLess come servizio a pagamento; nessun prezzo, nessuna promessa su visto, permesso o residenza fiscale; il codice sconto descritto solo come «5% off». Per spegnere: 'attivo': false e rigenerare."
+  },
+  "_wise": {
+    "attivo": true,
+    "nome": "Wise",
+    "url": "https://wise.prf.hn/click/camref:1100l6z2VE",
+    "camref": "1100l6z2VE",
+    "rete": "Partnerize (dominio wise.prf.hn, sottodominio di prf.hn già ammesso in monetizzazione.json)",
+    "programma": "Wise affiliate programme su Partnerize, approvato il 13/11/2026: da 10 £ per ogni nuovo cliente dopo il primo trasferimento tra valute diverse, cookie di 1 anno (condizioni del programma; il compenso vero si legge nel pannello Partnerize).",
+    "attivo_dal": "2026-11-13",
+    "link_verificato": "13/11/2026: il link risponde 302 verso wise.com con l'ID partner (curl). Nessun deep link: il link semplice porta alla home di Wise, che sceglie da sola Paese e lingua.",
+    "nota": "INTERRUTTORE del riquadro Wise «Moving money for your visa?» (box_wise in genera.py, 13/11/2026): con 'attivo': false le pagine escono senza riquadro e senza alcun link a prf.hn (verifica.py, controllo 36). Solo pagine inglesi in indice dove si parla di soldi in un'altra valuta: i 17 calcolatori del reddito, la tabella dei visti per nomadi digitali, Thailand DTV (indice, proof of funds, requirements), Mexico residency (indice, income requirements, pagine dei consolati), Who moved where (pagine delle nazionalità e coppie in indice), Study in Italy (student-visa-funds). MAI nelle pagine fuori indice, nelle pagine dell'esperimento /visa-refusal-rates/ (fino al 28/12/2026) né nelle sezioni es/pt. Le fonti ufficiali verso wise.com restano link normali (wise.com non è un dominio di affiliazione).",
+    "regole": "rel=\"sponsored nofollow noopener\", target _blank, etichetta Affiliate, riga di trasparenza; nessun prezzo, nessuna commissione o tasso di cambio scritti nella pagina (si rimanda al sito di Wise), nessuna promessa sul visto; frase fissa: non abbiamo verificato se un consolato accetta gli estratti conto Wise come prova dei fondi. Per spegnere: 'attivo': false e rigenerare."
   }
 }
