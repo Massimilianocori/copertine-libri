@@ -3,6 +3,8 @@
 
 **OBIETTIVO UNICO (Massimiliano, 10/11/2026): "il tuo goal è portare il guadagno maggiore possibile".** Ogni scelta si misura in euro attesi: 1) far rendere il traffico che c'è già (AdSense, affiliazioni sulle pagine più viste); 2) espandere ciò che cresce; 3) costruire tutto ciò che rende, in ordine di €/anno ÷ ore; 4) ricerca continua di idee più grandi. Tante piccole cose insieme fanno un grande ritorno.
 
+**PIANO OPERATIVO (14/11/2026):** come si lavora ogni giorno, settimana e mese (ritmo, catena dall'idea al verdetto con le soglie, portafoglio dei siti, guadagno, ricerca, routine) è scritto in `studio-business/ORGANIZZAZIONE.md`: ogni sessione e ogni routine lo legge e lo segue.
+
 **NIENTE VENDITA DIRETTA (Massimiliano, 13/11/2026):** "a meno che non mi iscrivo alla camera di commercio non posso vendere direttamente, ma l'iscrizione alla camera di commercio è troppo cara" (per lo stesso motivo ha chiuso Etsy). Quindi: niente simulatori, avvisi o prodotti venduti da noi, niente donazioni. Si guadagna solo con pubblicità (AdSense), affiliazioni e libri dove vende la piattaforma e lui riceve diritti d'autore (Amazon KDP). La leva "vendere" = più libri KDP collegati ai siti (modello EsameB1 + libro B1).
 
 
