@@ -70,4 +70,14 @@ Colonne: idea · mercato · ricerche/mese misurate · costo per clic · €/anno
 | 57 | Workers' comp, massimo settimanale per Stato | US | 2.150 informative su 20 Stati (~28.000) | 4-99 $ | 0 / 30 / 110 | 25 | 1,2 | alto | NO | fronti-2026-11-13-stati-usa-alto-valore |
 | 58 | Small estate affidavit per Stato | US | 19.900 su 20 Stati (~33.000) | 1,3-3,7 $ | 0 / 20 / 90 | 25 | 0,8 | alto | NO | fronti-2026-11-13-stati-usa-alto-valore |
 
+| 59 | HCPCS Level II + modificatori + POS, come sezione del sito ICD | US | ~250.000 (35.620 su 26 codici noti) | 0-14 $ | 55 / 290 / 1.290 | 20 (35 da solo) | 14,5 (8 da solo) | medio-alto | RISERVA (solo dentro ICD) | fronti-2026-11-13-codici-ufficiali-2 |
+| 60 | Lavori militari USA (MOS, rating, AFSC) in Military Pay | US | ~400.000 (118.930 su 30 MOS) | 5,3 $ pesato | 70 / 400 / 1.720 | 30 | 13 | medio | RISERVA (dati per mestiere troppo corti) | fronti-2026-11-13-codici-ufficiali-2 |
+| 61 | ICD-10-CM per categoria + «code for <condizione>» (con HCPCS: 165 / 980 / 4.390, 75 ore, 13 €/ora) | US | ~3 mln (1,6 mln su 127 condizioni) | 1,5-2,2 $ pesato | 110 / 690 / 3.100 | 55 | 12,5 | alto | RISERVA alta (dopo la prova NAICS) | fronti-2026-11-13-codici-ufficiali-2 |
+| 62 | Schedule B (export) come sezione di NAICS | US | ~9.000 | 4-18 $ | 15 / 75 / 230 | 8 | 9 | basso | RISERVA bassa | fronti-2026-11-13-codici-ufficiali-2 |
+| 63 | HTS USA per codice + «hts code for <prodotto>» (senza dazi 301/232/reciproci) | US | ~150.000 (coda 540) | 4-18 $ | 80 / 430 / 1.940 | 45 + 12 l'anno | 9,6 | medio | NO | fronti-2026-11-13-codici-ufficiali-2 |
+| 64 | Codici W-2 (caselle 12 e 14) e 1099-R, sezione di Inflation | US | ~50.000 | ~0 $ | 15 / 65 / 260 | 8 | 8 | alto | RISERVA minima | fronti-2026-11-13-codici-ufficiali-2 |
+| 65 | UK commodity codes (Trade Tariff) | GB | ~70.000 | 2-5 £ | 10 / 55 / 240 | 35 | 1,6 | alto | NO | fronti-2026-11-13-codici-ufficiali-2 |
+| 66 | CN/TARIC UE (DE, ES, FR, IT, NL) | EU | ~110.000 | 0,5-6 € | 10 / 55 / 255 | 40 | 1,4 | alto | NO | fronti-2026-11-13-codici-ufficiali-2 |
+| 67 | SOC/O*NET, ICD-10-PCS, dazi aggiuntivi e notizie sui dazi, NOC, HSN India, NDC, codici IRS di trascrizione | vari | 10.000-135.000 | 0-9 $ | ≤ 0 / 30 / 120 | – | ~1 | alto | NO | fronti-2026-11-13-codici-ufficiali-2 |
+
 (Da completare con le ricerche in corso: mercati esteri, crescita Visa Income, e tutte le prossime.)
