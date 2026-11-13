@@ -10,7 +10,7 @@
    "titolo": "Open Data",
    "chi": "AIFA",
    "http": 200,
-   "letto_il": "2026-11-12",
+   "letto_il": "2026-11-13",
    "trovate": {
     "La licenza di distribuzione dei dati utilizzata da AIFA la CC-BY (attribuzione) nella versione 4.0": true,
     "anche commercialmente, con l'obbligo di citare la fonte": true
@@ -21,7 +21,7 @@
    "titolo": "Liste di trasparenza",
    "chi": "AIFA",
    "http": 200,
-   "letto_il": "2026-11-12",
+   "letto_il": "2026-11-13",
    "trovate": {
     "AIFA rende disponibile mensilmente le liste di trasparenza dei medicinali ai sensi dell’art. 7 del D.L. 18.9.2001, n. 347 (convertito in Legge 16.11.2001, n. 405)": true
    },
@@ -32,23 +32,23 @@
    "titolo": "Farmaci carenti",
    "chi": "AIFA",
    "http": 200,
-   "letto_il": "2026-11-12",
+   "letto_il": "2026-11-13",
    "trovate": {
     "si intende un medicinale temporaneamente non reperibile sul territorio nazionale in quanto il titolare AIC": true,
     "non può assicurarne una fornitura continua, rispetto al bisogno terapeutico del paziente": true,
     "potrebbe trattarsi di una indisponibilità temporanea, ovvero una discontinuità locale nella distribuzione": true,
     "il farmacista può segnalare tale mancanza alla Regione di riferimento": true
    },
-   "data_file": "2026-11-10",
-   "data_equivalenti": "2026-11-10",
-   "data_alternativo": "2026-11-10"
+   "data_file": "2026-11-13",
+   "data_equivalenti": "2026-11-13",
+   "data_alternativo": "2026-11-13"
   },
   "pagina_classi": {
    "url": "https://www.aifa.gov.it/liste-farmaci-a-h",
    "titolo": "Elenchi farmaci di classe A e H",
    "chi": "AIFA",
    "http": 200,
-   "letto_il": "2026-11-12",
+   "letto_il": "2026-11-13",
    "trovate": {},
    "data_file": "2026-06-30"
   },
@@ -57,7 +57,7 @@
    "titolo": "Farmaci equivalenti",
    "chi": "AIFA",
    "http": 200,
-   "letto_il": "2026-11-12",
+   "letto_il": "2026-11-13",
    "trovate": {
     "Il farmaco equivalente è un farmaco che ha principio attivo, forma farmaceutica, via di somministrazione, modalità di rilascio, dosaggio, numero di unità posologiche e dosi unitarie uguali a un farmaco di riferimento (“di marca”) a cui è scaduta la copertura brevettuale": true,
     "Il farmaco equivalente è riconoscibile dalla dicitura “Medicinale Equivalente” sul foglio illustrativo e sulla confezione esterna": true,
@@ -71,7 +71,7 @@
    "titolo": "Cosa fare quando un farmaco è mancante",
    "chi": "AIFA",
    "http": 200,
-   "letto_il": "2026-11-12",
+   "letto_il": "2026-11-13",
    "trovate": {
     "Un medicinale può essere “mancante” a causa di due fenomeni distinti, che richiedono interventi diversi a supporto del paziente da parte del farmacista: carenza e indisponibilità": true,
     "che viene aggiornato almeno due volte alla settimana": true,
@@ -85,7 +85,7 @@
    "titolo": "Decreto-legge 18 settembre 2001, n. 347, art. 7 (testo vigente)",
    "chi": "Normattiva, Istituto Poligrafico e Zecca dello Stato",
    "http": 200,
-   "letto_il": "2026-11-12",
+   "letto_il": "2026-11-13",
    "trovate": {
     "Prezzo di rimborso dei farmaci di uguale composizione": true,
     "sono rimborsati al farmacista dal Servizio sanitario nazionale fino alla concorrenza del prezzo più basso del corrispondente prodotto disponibile nel normale ciclo distributivo regionale": true,
@@ -102,7 +102,7 @@
    "chi": "AIFA",
    "file_locale": "trasparenza.csv",
    "http": 200,
-   "letto_il": "2026-11-12",
+   "letto_il": "2026-11-13",
    "byte": 1759118,
    "sha256": "bf9b4ba87fa5cb28d6ad6f4e5d36d303c1e7a41a50093c10f26d2c9e365decfd",
    "pubblicato_il": "2026-10-15",
@@ -114,10 +114,10 @@
    "chi": "AIFA",
    "file_locale": "carenti.csv",
    "http": 200,
-   "letto_il": "2026-11-12",
-   "byte": 912053,
-   "sha256": "4ded2ec748fd46fd757b44a55ac8c6727333cc7ba5bf25a09e460292d06ce693",
-   "pubblicato_il": "2026-11-10",
+   "letto_il": "2026-11-13",
+   "byte": 902308,
+   "sha256": "c57b3737e41129aa014b8a4b02742cde5b7170d7201138abccc293ba116183e2",
+   "pubblicato_il": "2026-11-13",
    "pagina": "https://www.aifa.gov.it/farmaci-carenti"
   },
   "carenti_equivalenti": {
@@ -126,10 +126,10 @@
    "chi": "AIFA",
    "file_locale": "carenti_equivalenti.ods",
    "http": 200,
-   "letto_il": "2026-11-12",
-   "byte": 144985,
-   "sha256": "d182c0eca4a066e5c288064b3c7ff7eaa2a7f1c48e71dda3867fd41b94639753",
-   "pubblicato_il": "2026-11-10",
+   "letto_il": "2026-11-13",
+   "byte": 146582,
+   "sha256": "900c974c1bc019518b127fd1e8baed06e72a89d63e74729f793e086d1f33a874",
+   "pubblicato_il": "2026-11-13",
    "pagina": "https://www.aifa.gov.it/farmaci-carenti"
   },
   "carenti_alternativo": {
@@ -138,10 +138,10 @@
    "chi": "AIFA",
    "file_locale": "carenti_alternativo.ods",
    "http": 200,
-   "letto_il": "2026-11-12",
-   "byte": 41294,
-   "sha256": "3f6df17e1515a3b0153dcee50f7323888869800d313ba4cb188e7ca934fe2ace",
-   "pubblicato_il": "2026-11-10",
+   "letto_il": "2026-11-13",
+   "byte": 41053,
+   "sha256": "7fcfd333dc8f44c107aa79b1f84bbcea8cc25535084ee509ffb7440832dd3fa0",
+   "pubblicato_il": "2026-11-13",
    "pagina": "https://www.aifa.gov.it/farmaci-carenti"
   },
   "classe_a": {
@@ -150,7 +150,7 @@
    "chi": "AIFA",
    "file_locale": "classe_a.csv",
    "http": 200,
-   "letto_il": "2026-11-12",
+   "letto_il": "2026-11-13",
    "byte": 1520349,
    "sha256": "d167ef333306be7d3e70ed5b7d13f840a35d00ee11fb320f6601981deefd3832",
    "pubblicato_il": "2026-06-30",

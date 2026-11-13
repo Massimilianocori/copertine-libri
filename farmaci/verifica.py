@@ -48,6 +48,15 @@ FJ = carica("fonti.json")
 DOM = carica("domanda.json")
 FAQ = carica("faq.json")["faq"]
 FAQ_P = carica("faq_pagine.json")["faq"]
+# Volumi misurati (raccolta/volumi.py): ultima misura, frasi cercate e «simili» con il loro volume. Riletto qui senza genera.py.
+_VF = max(DATI.glob("volumi-*.json"), default=None)
+VOLUMI = {}
+if _VF:
+    for _k, _v in carica(_VF.name)["frasi"].items():
+        if _v.get("volume") is not None:
+            VOLUMI[_k] = max(VOLUMI.get(_k, 0), _v["volume"])
+        for _s, _x in (_v.get("simili") or {}).items():
+            VOLUMI[_s] = max(VOLUMI.get(_s, 0), _x or 0)
 
 
 def norm(t):
@@ -142,7 +151,8 @@ def controlla_dati():
         if aic in RAW_T:
             errore(f"trasparenza: AIC {aic} doppio")
         RAW_T[aic] = {"farmaco": " ".join(x[col["Farmaco"]].split()), "rif": rif, "prezzo": prezzo, "diff": diff,
-                      "gruppo": x[col["Codice gruppo equivalenza"]].strip()}
+                      "gruppo": x[col["Codice gruppo equivalenza"]].strip(), "pa": " ".join(x[col["Principio attivo"]].split()),
+                      "atc": x[col["ATC"]].strip()}
     g = defaultdict(set)
     for v in RAW_T.values():
         g[v["gruppo"]].add(v["rif"])
@@ -158,7 +168,8 @@ def controlla_dati():
     for x in rc[i + 1:]:
         if len(x) < 13 or not x[1].strip():
             continue
-        RAW_C[a9(x[1])].append({"nome": " ".join(x[0].split()), "inizio": iso(x[5]), "fine": iso(x[6]), "eq": x[7].strip(), "motivo": " ".join(x[8].split())})
+        RAW_C[a9(x[1])].append({"nome": " ".join(x[0].split()), "inizio": iso(x[5]), "fine": iso(x[6]), "eq": x[7].strip(), "motivo": " ".join(x[8].split()),
+                                "pa": " ".join(x[2].split())})
     if h[:3] != ["Nome medicinale", "Codice AIC", "Principio attivo"]:
         errore("carenti: intestazione cambiata")
     # i JSON del sito devono coincidere con la rilettura
@@ -261,6 +272,30 @@ def controlla_cifre(tot):
         vis = visibile(riga)
         if ini and gg(ini) not in vis:
             errore(f"carenze: AIC {a} data di inizio non visibile")
+    # «Stato per principio attivo» (tabella sotto l'elenco): righe, carenze previste e «con equivalente» ricalcolati dal CSV
+    per = defaultdict(list)
+    for cs in RAW_C.values():
+        for c in cs:
+            per[c["pa"].lower()].append(c)
+    sez = re.search(r'<h2 id="per-principio">.*?</table>', html, re.S)
+    righe_s = re.findall(r"<tr>(.*?)</tr>", sez.group(0), re.S)[1:] if sez else []
+    if len(righe_s) != 20:
+        errore(f"carenze: tabella «stato per principio attivo» con {len(righe_s)} righe invece di 20")
+    for rs in righe_s:
+        celle = [visibile(c) for c in re.findall(r"<td[^>]*>(.*?)</td>", rs, re.S)]
+        nome = celle[0].replace("equivalenti e prezzi", "").strip()
+        cs = per.get(nome, [])
+        atteso = [num(len(cs)), num(sum(1 for c in cs if c["inizio"] and c["inizio"] > FJ["file"]["carenti"]["pubblicato_il"])),
+                  num(sum(1 for c in cs if c["eq"].lower().startswith("s")))]
+        if celle[1:4] != atteso:
+            errore(f"carenze: stato di «{nome}» {celle[1:4]} diverso dal CSV {atteso}")
+    tutte = [c for cs in RAW_C.values() for c in cs]
+    car_top = ", ".join(f"{k.lower()} ({num(v)})" for k, v in Counter(c["pa"] for c in tutte).most_common(5))
+    if car_top not in visibile(html):
+        errore(f"carenze: FAQ «quali farmaci sono carenti» senza i principi attivi ricalcolati dal CSV ({car_top})")
+    mot = "; ".join(f"{k.lower()} ({num(v)} righe)" for k, v in Counter(c["motivo"] for c in tutte if c["motivo"]).most_common(3))
+    if mot not in visibile((SITO / "farmaco-mancante" / "index.html").read_text(encoding="utf-8")):
+        errore(f"farmaco-mancante: FAQ «perché mancano» senza i motivi ricalcolati dal CSV ({mot})")
     # numeri generali nella home
     home = visibile((SITO / "index.html").read_text(encoding="utf-8"))
     for k in ("n_conf", "n_gruppi", "n_diff", "n_car", "n_car_t", "n_car_t_eq"):
@@ -382,12 +417,20 @@ def controlla_pagine():
 def controlla_faq():
     sugg_r = {s for v in DOM["radici"].values() for s in v}
     sugg_n = {s for v in DOM["nomi"].values() for s in v}
-    for x in FAQ:
-        if x["ricerca"] not in sugg_r:
-            errore(f"FAQ «{x['q'][:40]}»: ricerca «{x['ricerca']}» non tra i suggerimenti salvati")
-    for x in FAQ_P:
-        if x["ricerca"] not in sugg_n | sugg_r:
-            errore(f"FAQ di {x['pagina']} «{x['q'][:40]}»: ricerca «{x['ricerca']}» non tra i suggerimenti salvati")
+    misurate = {k for k, v in VOLUMI.items() if v > 0}
+    n_mis = 0
+    for x in FAQ + FAQ_P:
+        dove = f"FAQ di {x['pagina']} «{x['q'][:40]}»"
+        if x["ricerca"] in misurate:
+            n_mis += 1
+            if x.get("volume") is not None and x["volume"] != VOLUMI[x["ricerca"]]:
+                errore(f"{dove}: volume {x['volume']} diverso da quello misurato ({VOLUMI[x['ricerca']]})")
+        elif x["ricerca"] not in (sugg_r if x in FAQ else sugg_n | sugg_r):
+            errore(f"{dove}: ricerca «{x['ricerca']}» né tra i suggerimenti salvati né tra le frasi misurate con volume")
+        elif x.get("volume"):
+            errore(f"{dove}: volume dichiarato ma la ricerca non è tra le frasi misurate")
+        if re.search(r"nomi commerciali|principio attivo di", x["q"]) and x["ricerca"] not in misurate:
+            errore(f"{dove}: domanda su nomi commerciali o principio attivo senza una frase misurata")
     n = 0
     for p in pagine_html():
         html = p.read_text(encoding="utf-8")
@@ -404,7 +447,77 @@ def controlla_faq():
                     domande = {x["q"] for x in FAQ} | {x["q"] for x in FAQ_P}
                     if q["name"] not in domande:
                         errore(f"{p.relative_to(SITO)}: FAQ senza ricerca registrata ({q['name'][:40]})")
-    print(f"FAQ: {n} domande nelle pagine, tutte nate da ricerche vere ({len(sugg_r) + len(sugg_n)} suggerimenti salvati il {DOM['letto_il']}); JSON-LD = testo visibile")
+    controlla_faq_aifa()
+    print(f"FAQ: {n} domande nelle pagine, tutte nate da ricerche vere ({len(sugg_r) + len(sugg_n)} suggerimenti salvati il {DOM['letto_il']}; "
+          f"{n_mis} da frasi misurate in {_VF.name if _VF else '-'}); JSON-LD = testo visibile; risposte su nomi e principi attivi ricalcolate dal CSV")
+
+
+def righe_pagina(html):
+    return [a for a in re.findall(r'<tr(?: class="[^"]*")? data-aic="(\d{9})" data-prezzo=', html)]
+
+
+def prima_parola(nome):
+    import unicodedata
+    s = unicodedata.normalize("NFD", nome.upper())
+    s = "".join(c for c in s if unicodedata.category(c) != "Mn")
+    w = re.findall(r"[A-Z0-9]+", s)
+    return w[0] if w else ""
+
+
+def controlla_faq_aifa():
+    """Le risposte «nomi commerciali» e «principio attivo» e le cifre di titoli e descrizioni dei principi attivi: dal CSV AIFA."""
+    pa_di_marchio = defaultdict(set)
+    for v in RAW_T.values():
+        pa_di_marchio[prima_parola(v["farmaco"])].add(v["pa"].lower())
+    for p in pagine_html():
+        rel = str(p.relative_to(SITO))
+        html = p.read_text(encoding="utf-8")
+        aics = righe_pagina(html)
+        if not aics or rel.startswith("carenze/"):
+            continue
+        rr = [RAW_T[a] for a in aics if a in RAW_T]
+        pas = {r["pa"].lower() for r in rr}
+        vis = visibile(html)
+        nomi_ = {r["farmaco"] for r in rr}
+        m = re.search(r"le ([\d.]+) confezioni di (.+?) hanno (\d+) nomi? commercial[ei]: (.+?)\. Ogni nome", vis)
+        if "Quali sono i nomi commerciali di" in vis:
+            if not m:
+                errore(f"{rel}: FAQ nomi commerciali senza la frase attesa")
+            else:
+                if int(m.group(1).replace(".", "")) != len(rr) or int(m.group(3)) != len(nomi_):
+                    errore(f"{rel}: FAQ nomi commerciali {m.group(1)} confezioni/{m.group(3)} nomi, nel CSV {len(rr)}/{len(nomi_)}")
+                elenco = re.sub(r" e altri \d+$", "", m.group(4)).split(", ")
+                if any(x not in nomi_ for x in elenco):
+                    errore(f"{rel}: FAQ nomi commerciali con un nome che non è nella lista AIFA per questo principio attivo")
+        if vis.count("Qual è il principio attivo di") != len(re.findall(r"ha come (?:principio attivo|principi attivi) .+? \(codice ATC", vis)):
+            errore(f"{rel}: FAQ «principio attivo di» senza la frase attesa")
+        for mm in re.finditer(r"([A-Z0-9][A-Z0-9'-]+) ha come (?:principio attivo|principi attivi) (.+?) \(codice ATC ([A-Z0-9, ]+)\): (\d+) confezion[ei] in (\d+) grupp", vis):
+            marca, pa_txt, atc, n, g = mm.groups()
+            rm = [r for r in rr if prima_parola(r["farmaco"]) == marca]
+            if pa_di_marchio[marca] != {pa_txt.lower()} or pas != {pa_txt.lower()}:
+                errore(f"{rel}: «{marca} ha come principio attivo {pa_txt}» non vale per tutte le confezioni {marca} della lista AIFA")
+            if int(n) != len(rm) or int(g) != len({r["gruppo"] for r in rm}) or atc != ", ".join(sorted({r["atc"] for r in rm})):
+                errore(f"{rel}: FAQ principio attivo di {marca}: {n} confezioni/{g} gruppi/ATC {atc} diversi dal CSV")
+        # titolo e descrizione delle pagine dei principi attivi
+        t = unescape(re.search(r"<title>(.*?)</title>", html).group(1))
+        d = unescape(re.search(r'<meta name="description" content="([^"]*)"', html).group(1))
+        for testo in (t, d):
+            for nc in re.findall(r"(\d[\d.]*) confezion[ei]\b(?! di [^;:]*? carent)", testo):
+                if int(nc.replace(".", "")) != len(rr):
+                    errore(f"{rel}: «{nc} confezioni» in titolo o descrizione, nella pagina {len(rr)}")
+            mc = re.search(r"; (\d+) carent[ei] al", testo)
+            ncar = sum(1 for a in aics if a in RAW_C)
+            if mc and int(mc.group(1)) != ncar or "nessuna carente al" in testo and ncar:
+                errore(f"{rel}: carenti nella descrizione diversi dal CSV ({ncar})")
+            mn = re.search(r": (\d+) nomi?\b", testo)
+            if mn and "Nomi commerciali" in testo and int(mn.group(1)) != len(nomi_):
+                errore(f"{rel}: «{mn.group(1)} nomi» nella descrizione, nel CSV {len(nomi_)}")
+            mp = re.search(r"da ([\d.,]+ €) a ([\d.,]+ €)", testo)
+            if mp and (mp.group(1) != euro(min(r["prezzo"] for r in rr)) or mp.group(2) != euro(max(r["prezzo"] for r in rr))):
+                errore(f"{rel}: prezzi «da … a …» nella descrizione diversi dal CSV")
+            mh = re.match(r"([A-Z0-9][A-Z0-9'-]+) ha come (?:principio attivo|principi attivi) (.+?):", testo)
+            if mh and (pa_di_marchio[mh.group(1)] != {mh.group(2).lower()} or pas != {mh.group(2).lower()}):
+                errore(f"{rel}: descrizione «{mh.group(1)} ha come principio attivo …» non vera per la lista AIFA")
 
 
 # ---------------------------------------------------------------- 5b. indicizzazione (regola del revisore, 12/11/2026)
@@ -438,7 +551,27 @@ def controlla_indicizzazione():
         peggio = max(peggio, q)
         if q >= MAX_SOVRAPPOSIZIONE:
             errore(f"{rel}: indicizzata ma {q:.0%} del testo è in comune con {simile}")
+    idx = carica("indicizzazione.json")["pagine"]
+    da_misura = 0
+    parole_tipo = [("nom", "nomi commerciali"), ("principio attivo", "principio attivo"), ("generic", "generic"), ("equivalent", "generic"),
+                   ("prezz", "prezzo"), ("cost", "prezzo"), ("carenz", "carenza"), ("carent", "carenza"), ("non si trova", "carenza"), ("mancant", "carenza")]
+    for slug, v in idx.items():
+        rel = slug + "/index.html"
+        f = v.get("frase_titolo")
+        if not f:
+            continue
+        da_misura += 1
+        if VOLUMI.get(f, 0) <= 0 or VOLUMI.get(f) != v.get("volume_frase_titolo"):
+            errore(f"{rel}: titolo dalla frase «{f}» che non è tra le frasi misurate con quel volume")
+            continue
+        t = unescape(re.search(r"<title>(.*?)</title>", (SITO / rel).read_text(encoding="utf-8")).group(1)).lower()
+        tipo = next((w for k, w in parole_tipo if k in f), None)
+        if not tipo or tipo not in t:
+            errore(f"{rel}: il titolo «{t}» non usa la parola della frase misurata «{f}»")
+        if not any(w in t for w in re.findall(r"[a-z]{4,}", f) if w not in ("nome", "commerciale", "principio", "attivo", "generico", "equivalente", "prezzo")):
+            errore(f"{rel}: il titolo «{t}» non contiene il nome della frase misurata «{f}»")
     n = sum(indic.values())
+    print(f"Titoli: {da_misura} pagine principio attivo con titolo, h1 e descrizione dalla frase più cercata misurata (le altre restano come prima)")
     print(f"Indicizzazione: {n} pagine principio attivo indicizzate su {len(indic)}, tutte con almeno {MIN_CONFEZIONI} confezioni; "
           f"testo in comune con la pagina più simile al massimo {peggio:.0%} (soglia {MAX_SOVRAPPOSIZIONE:.0%})")
 
@@ -448,7 +581,8 @@ VIETATE = re.compile(r"\b(claude|anthropic|openai|chatgpt|gpt-?\d|gemini|llama|m
 TITOLARE = "Titolare del trattamento è Massimiliano Cori (Italia)"
 PERSONALI = re.compile(r"massimiliano|\bcori\b|@gmail|@outlook|@libero", re.I)
 CONSIGLI = re.compile(r"\b(ti consigliamo|consigliamo di|ti suggeriamo|prendi il|assumi|smetti di prendere|dosaggio consigliato|è meglio prendere|"
-                      r"con la marca|la sostituzione la decide|conviene|risparmi\w*|più efficace|migliore|il più economico)\b", re.I)
+                      r"con la marca|la sostituzione la decide|conviene|risparmi\w*|più efficace|migliore|il più economico|dovresti|sostituiscil\w*|"
+                      r"scegli il generico|prendi il generico|meglio il generico|puoi sostituire|al posto di \w+ prendi)\b", re.I)
 
 
 def controlla_testi():
@@ -497,7 +631,7 @@ def controlla_date():
 
 
 # ---------------------------------------------------------------- 8. browser
-PAGINE_BROWSER = ["/", "/carenze/", "/amoxicillina-acido-clavulanico/", "/farmaco-mancante/"]
+PAGINE_BROWSER = ["/", "/carenze/", "/amoxicillina-acido-clavulanico/", "/farmaco-mancante/", "/sertralina/"]
 
 
 def controlla_browser():

@@ -1,0 +1,2701 @@
+{
+ "_nota": "Volumi medi mensili di ricerca su Google in Italia (Google Ads) letti con api.seodata.dev (country=it). volume null = la frase non è nel database dello strumento (risposta 404). «dato_del» = data del dato nello strumento. «simili» = frasi vicine restituite dallo strumento con il loro volume (misurate anch'esse). Usati da genera.py per titoli, FAQ e indicizzazione.",
+ "misurato_il": "2026-11-13",
+ "strumento": "api.seodata.dev, country=it",
+ "ricerche_usate": 391,
+ "frasi": {
+  "farmaci equivalenti": {
+   "volume": 590,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "equivalenti farmaci": 590,
+    "medicinali equivalenti": 390,
+    "medicinale equivalente": 390,
+    "equivalente farmaco": 590,
+    "farmaco equivalente": 480,
+    "farmaco equivalente o generico": 170,
+    "farmaci sostitutivi": 140,
+    "farmaci generici": 480,
+    "medicinale equivalente significato": 390,
+    "cerca farmaco equivalente": 480
+   }
+  },
+  "lista farmaci equivalenti": {
+   "volume": null
+  },
+  "farmaci carenti aifa": {
+   "volume": 1000,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "aifa farmaci carenti": 880,
+    "carenti aifa": 590,
+    "lista farmaci carenti aifa": 140,
+    "elenco farmaci carenti aifa": 260,
+    "aifa: elenco farmaci carenti": 170,
+    "aifa elenco farmaci carenti": 140,
+    "aifa lista farmaci temporaneamente carenti": 210,
+    "aifa farmaci mancanti": 140,
+    "elenco farmaci carenti": 140,
+    "carenze aifa": 590
+   }
+  },
+  "farmaci carenti": {
+   "volume": 210,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-12",
+   "simili": {
+    "elenco farmaci carenti": 140,
+    "carenti aifa": 590,
+    "elenco farmaci carenti aifa": 260,
+    "farmaci carenti aifa": 1000,
+    "aifa farmaci carenti": 880,
+    "aifa: elenco farmaci carenti": 170,
+    "aifa elenco farmaci carenti": 140,
+    "lista farmaci carenti aifa": 140,
+    "aifa lista farmaci temporaneamente carenti": 210,
+    "carenza farmaci aifa": 140
+   }
+  },
+  "elenco farmaci carenti": {
+   "volume": 140,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "elenco farmaci carenti aifa": 260,
+    "aifa: elenco farmaci carenti": 170,
+    "aifa elenco farmaci carenti": 140,
+    "lista farmaci carenti aifa": 140,
+    "farmaci carenti aifa": 1000,
+    "aifa lista farmaci temporaneamente carenti": 210,
+    "farmaci carenti": 210,
+    "carenti aifa": 590,
+    "aifa farmaci carenti": 880,
+    "elenco farmaci carenti aifa 2025": 140
+   }
+  },
+  "lista farmaci carenti": {
+   "volume": null
+  },
+  "farmaci mancanti": {
+   "volume": 480,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {}
+  },
+  "farmaci introvabili": {
+   "volume": 170,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "farmaci introvabili elenco": 210,
+    "farmaci introvabili in italia": 110,
+    "farmaci mancanti nelle farmacie": 480,
+    "farmaco introvabile": 170,
+    "farmaci che non si trovano": 40,
+    "aifa farmaci carenti": 880,
+    "carenze farmaci": 480,
+    "aifa elenco farmaci": 390,
+    "elenco farmaci aifa": 390,
+    "farmaci carenti": 210
+   }
+  },
+  "farmaco equivalente": {
+   "volume": 480,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-12",
+   "simili": {
+    "equivalente farmaco": 590,
+    "equivalenti farmaci": 590,
+    "medicinale equivalente": 390,
+    "farmaco generico": 390,
+    "medicinale equivalente significato": 390,
+    "medicinali equivalenti": 390,
+    "farmaci equivalenti": 590,
+    "farmaco equivalente o generico": 170,
+    "farmaci sostitutivi": 140,
+    "farmaco generico significato": 90
+   }
+  },
+  "farmaci generici": {
+   "volume": 480,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "farmaco generico": 390,
+    "farmaci equivalenti": 590,
+    "equivalente farmaco": 590,
+    "equivalenti farmaci": 590,
+    "cerca farmaco equivalente": 480,
+    "generici": 390,
+    "medicinale equivalente": 390,
+    "medicinali equivalenti": 390,
+    "farmaco equivalente o generico": 170,
+    "farmaci sostitutivi": 140
+   }
+  },
+  "lista farmaci generici": {
+   "volume": null
+  },
+  "lista di trasparenza aifa": {
+   "volume": 1300,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "aifa lista di trasparenza": 1300,
+    "liste di trasparenza aifa": 1300,
+    "lista trasparenza aifa": 1300,
+    "lista di trasparenza": 210,
+    "aifa elenco farmaci": 390,
+    "trova farmaco aifa": 260,
+    "ricerca farmaco aifa": 170,
+    "elenco farmaci mutuabili aifa": 140,
+    "sito aifa farmaci mutuabili": 140,
+    "aifa farmaci mutuabili": 2400
+   }
+  },
+  "prezzo di riferimento farmaci": {
+   "volume": null
+  },
+  "farmaco non si trova in farmacia": {
+   "volume": null
+  },
+  "carenza farmaci": {
+   "volume": 480,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "carenze farmaci": 480,
+    "carenza medicinali": 30,
+    "aifa carenza farmaci": 110,
+    "farmaci carenti": 210,
+    "aifa farmaci mancanti": 140,
+    "farmaci introvabili in italia": 110,
+    "aifa farmaci carenti elenco": 90,
+    "carenza farmaci in italia": 90,
+    "farmaci che non si trovano": 40,
+    "farmaci carenti aifa": 1000
+   }
+  },
+  "differenza farmaco generico e di marca": {
+   "volume": null
+  },
+  "farmaci equivalenti aifa": {
+   "volume": null
+  },
+  "cerca farmaco equivalente": {
+   "volume": 480,
+   "cpc_eur": 0.09,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "farmaci sostitutivi": 140,
+    "elenco farmaci equivalenti": 140,
+    "farmaci equivalenti elenco": 140,
+    "ricerca farmaci equivalenti": 70,
+    "farmaci equivalenti": 590,
+    "farmaci generici": 480,
+    "medicinali equivalenti": 390,
+    "equivalenti farmaci": 590,
+    "farmaco equivalente": 480,
+    "equivalente farmaco": 590
+   }
+  },
+  "farmaco generico": {
+   "volume": 390,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "equivalente farmaco": 590,
+    "farmaco equivalente o generico": 170,
+    "farmaco equivalente": 480,
+    "farmaco generico significato": 90,
+    "equivalenti farmaci": 590,
+    "farmaci generici": 480,
+    "medicinale equivalente": 390,
+    "medicinale equivalente significato": 390,
+    "generico farmaco": 70,
+    "generici": 390
+   }
+  },
+  "farmaci carenti 2026": {
+   "volume": null
+  },
+  "farmaci equivalenti lista aifa": {
+   "volume": null
+  },
+  "farmaci mancanti in farmacia": {
+   "volume": null
+  },
+  "glucobay generico": {
+   "volume": null
+  },
+  "gladio generico": {
+   "volume": null
+  },
+  "zovirax generico": {
+   "volume": 90,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "aciclovir generico": 110,
+    "aciclovir principio attivo": 480,
+    "aciclovir 800 prezzo senza ricetta": 390,
+    "aciclovir compresse 800 mg prezzo": 260,
+    "aciclovir nome commerciale": 260,
+    "aciclovir compresse 400 prezzo": 210,
+    "aciclovir 800 prezzo": 170,
+    "aciclovir ricetta o no": 260,
+    "zovirax compresse 400 mg": 170,
+    "aciclovir 400 mg prezzo": 140
+   }
+  },
+  "myfortic generico": {
+   "volume": null
+  },
+  "dralenos generico": {
+   "volume": null
+  },
+  "vantavo generico": {
+   "volume": null
+  },
+  "fertifol generico": {
+   "volume": null
+  },
+  "ursobil generico": {
+   "volume": null
+  },
+  "faralzin generico": {
+   "volume": null
+  },
+  "zyloric generico": {
+   "volume": 170,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "allopurinolo generico": 170,
+    "zyloric equivalente": 110,
+    "allopurinolo farmaco": 210,
+    "allopurinolo 300 mg": 320,
+    "allopurinolo 100 mg prezzo": 260,
+    "allopurinolo compresse": 110,
+    "allopurinolo 300": 1900,
+    "allopurinolo nome commerciale": 1600,
+    "allopurinolo principio attivo": 720,
+    "allopurinolo 100": 320
+   }
+  },
+  "almogran generico": {
+   "volume": null
+  },
+  "volibris generico": {
+   "volume": null
+  },
+  "solian generico": {
+   "volume": null
+  },
+  "antacal generico": {
+   "volume": null
+  },
+  "velamox generico": {
+   "volume": null
+  },
+  "augmentin generico": {
+   "volume": 1600,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "generico augmentin": 880,
+    "amoxicillina generico": 720,
+    "augmentin equivalente generico": 260,
+    "augmentin generico nome": 110,
+    "augmentin equivalente": 480,
+    "antibiotico generico": 590,
+    "amoxicillina e acido clavulanico generico": 170,
+    "amoxicillina equivalente": 170,
+    "neoduplamox equivalente augmentin": 140,
+    "antibiotico a base di amoxicillina": 110
+   }
+  },
+  "arimidex generico": {
+   "volume": null
+  },
+  "otezla generico": {
+   "volume": null
+  },
+  "aberipra generico": {
+   "volume": null
+  },
+  "tenormin generico": {
+   "volume": null
+  },
+  "sopavi generico": {
+   "volume": null
+  },
+  "trozocina generico": {
+   "volume": null
+  },
+  "clenilexx generico": {
+   "volume": null
+  },
+  "terair generico": {
+   "volume": null
+  },
+  "etason generico": {
+   "volume": null
+  },
+  "casodex generico": {
+   "volume": null
+  },
+  "lumigan generico": {
+   "volume": 90,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "lumigan monodose": 90,
+    "lumigan prezzo con ricetta": 90,
+    "lumigan collirio": 480,
+    "lumigan collirio principio attivo": 140,
+    "lumigan prezzo": 140,
+    "bimatoprost nome commerciale": 110,
+    "lumigan differenza tra 0 1 e 0 3": 110,
+    "lumigan è mutuabile": 90
+   }
+  },
+  "ganfort generico": {
+   "volume": null
+  },
+  "sequacor generico": {
+   "volume": 90,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "sequacor equivalente": 110,
+    "bisoprololo equivalente": 480,
+    "congescor o cardicor": 110,
+    "bisoprololo nome commerciale": 2400,
+    "bisoprololo principio attivo": 1300,
+    "bisoprololo fumarato": 720,
+    "bisoprololo dosaggio minimo": 590,
+    "bisoprololo prezzo": 390,
+    "bisoprololo 2 5 mg prezzo": 320,
+    "congescor equivalente": 320
+   }
+  },
+  "tracleer generico": {
+   "volume": null
+  },
+  "alphagan generico": {
+   "volume": null
+  },
+  "nubriveo generico": {
+   "volume": null
+  },
+  "intesticort generico": {
+   "volume": 110,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "intesticort equivalente": 90,
+    "intesticort non si trova": 90,
+    "intesticort": 1000,
+    "intesticort 3 mg": 90,
+    "intesticort recensioni": 70,
+    "intesticort fa ingrassare": 70,
+    "intesticort quando fa effetto": 70,
+    "budesonide nome commerciale": 1300,
+    "budesonide compresse": 320,
+    "entocir 3 mg": 170
+   }
+  },
+  "duoresp generico": {
+   "volume": null
+  },
+  "busette generico": {
+   "volume": null
+  },
+  "elontril generico": {
+   "volume": null
+  },
+  "ideos generico": {
+   "volume": null
+  },
+  "dovobet generico": {
+   "volume": null
+  },
+  "rocaltrol generico": {
+   "volume": null
+  },
+  "ratacand generico": {
+   "volume": null
+  },
+  "lodicand generico": {
+   "volume": null
+  },
+  "xeloda generico": {
+   "volume": null
+  },
+  "dilatrend generico": {
+   "volume": null
+  },
+  "panacef generico": {
+   "volume": null
+  },
+  "unixime generico": {
+   "volume": null
+  },
+  "starcef generico": {
+   "volume": null
+  },
+  "daytrix generico": {
+   "volume": null
+  },
+  "oraxim generico": {
+   "volume": null
+  },
+  "celebrex generico": {
+   "volume": null
+  },
+  "formistin generico": {
+   "volume": null
+  },
+  "cinacalcet generico": {
+   "volume": null
+  },
+  "ullax generico": {
+   "volume": null
+  },
+  "seropram generico": {
+   "volume": null
+  },
+  "veclam generico": {
+   "volume": null
+  },
+  "plavix generico": {
+   "volume": 320,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "plavix equivalente": 140,
+    "duoplavin generico": 140,
+    "clopidogrel 75 mg generico": 110,
+    "clopidogrel equivalente": 110,
+    "clopidogrel generico": 110,
+    "clopidogrel 75 mg prezzo": 480,
+    "clopidogrel 75 mg: prezzo": 480,
+    "clopidogrel è un anticoagulante": 390,
+    "clopidogrel originale": 140,
+    "clopidogrel aurobindo equivalente": 110
+   }
+  },
+  "leponex generico": {
+   "volume": 20,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "la clozapina fa dormire": 390,
+    "clozapina nome commerciale": 1900,
+    "clozapina nomi commerciali": 1900,
+    "leponex": 1000,
+    "clozapina per dormire": 140,
+    "clozapina torrino": 110,
+    "agranulocitosi clozapina": 90,
+    "leponex principio attivo": 480,
+    "clozapina 100 mg": 390,
+    "clozapina principio attivo": 390
+   }
+  },
+  "xarenel generico": {
+   "volume": null
+  },
+  "pradaxa generico": {
+   "volume": 320,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "pradaxa 150 mg generico": 210,
+    "pradaxa 110 mg generico": 110,
+    "pradaxa equivalente": 110,
+    "dabigatran principio attivo": 260,
+    "dabigatran": 4400,
+    "dabigatran 110 mg": 170,
+    "pradaxa farmaco": 110,
+    "pradaxa principio attivo": 2900,
+    "pradaxa a cosa serve": 1300,
+    "pradaxa 150 prezzo": 140
+   }
+  },
+  "exjade generico": {
+   "volume": null
+  },
+  "aerius generico": {
+   "volume": 90,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "robilas generico": 70,
+    "desloratadina generico": 110,
+    "aerius senza ricetta": 90,
+    "reactine generico": 70,
+    "robilas serve la ricetta": 50,
+    "antistaminici senza ricetta": 4400,
+    "antistaminico senza ricetta": 4400,
+    "antistaminico per prurito senza ricetta": 880,
+    "antistaminici serve ricetta": 320,
+    "antistaminico serve ricetta": 320
+   }
+  },
+  "minirin generico": {
+   "volume": null
+  },
+  "voltaren generico": {
+   "volume": 390,
+   "cpc_eur": 0.11,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "diclofenac generico": 170,
+    "diclofenac generico prezzo": 110,
+    "farmaci con diclofenac": 170,
+    "diclofenac farmaci": 320,
+    "diclofenac prezzo generico": 170,
+    "diclofenac nome commerciale": 1000,
+    "voltaren e dicloreum sono uguali": 260,
+    "diclofenac nomi commerciali": 140,
+    "principio attivo diclofenac": 140,
+    "voltaren equivalente": 70
+   }
+  },
+  "devicius generico": {
+   "volume": null
+  },
+  "dilzene generico": {
+   "volume": null
+  },
+  "tecfidera generico": {
+   "volume": null
+  },
+  "lizidra generico": {
+   "volume": null
+  },
+  "cosopt generico": {
+   "volume": 70,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "cosopt genérico": 10,
+    "cosopt collirio equivalente": 90,
+    "dorzolamide e timololo": 260,
+    "dorzolamide timololo": 170,
+    "dorzolamide/timololo": 170,
+    "cosopt collirio è mutuabile": 140,
+    "dorzolamide nome commerciale": 110,
+    "zitodor collirio a cosa serve": 70,
+    "cosopt principio attivo": 880,
+    "dorzolamide collirio": 320
+   }
+  },
+  "dedralen generico": {
+   "volume": null
+  },
+  "cymbalta generico": {
+   "volume": null
+  },
+  "produxen generico": {
+   "volume": null
+  },
+  "relpax generico": {
+   "volume": null
+  },
+  "enapren generico": {
+   "volume": 140,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "enalapril equivalente": 210,
+    "enalapril 20 mg cosa serve": 110,
+    "enalapril originale": 90,
+    "enalapril a cosa serve": 1300,
+    "enalapril nomi commerciali": 110,
+    "enapren principio attivo": 1600,
+    "enalapril 20 mg": 720,
+    "enalapril nome commerciale": 590,
+    "enalapril 5 mg": 480,
+    "enapren a cosa serve": 480
+   }
+  },
+  "vasoretic generico": {
+   "volume": null
+  },
+  "coripren generico": {
+   "volume": null
+  },
+  "baraclude generico": {
+   "volume": null
+  },
+  "inspra generico": {
+   "volume": null
+  },
+  "amasci generico": {
+   "volume": null
+  },
+  "esopral generico": {
+   "volume": null
+  },
+  "algix generico": {
+   "volume": null
+  },
+  "aromasin generico": {
+   "volume": null
+  },
+  "ezetrol generico": {
+   "volume": null
+  },
+  "ancilleg generico": {
+   "volume": null
+  },
+  "inegy generico": {
+   "volume": null
+  },
+  "famvir generico": {
+   "volume": null
+  },
+  "adenuric generico": {
+   "volume": 90,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "febuxostat nome commerciale": 880,
+    "adenuric": 9900,
+    "adenuric a cosa serve": 1900,
+    "adenuric 80": 1600,
+    "adenuric 80 mg a cosa serve": 880,
+    "adenuric 80 mg prezzo": 480,
+    "febuxostat 80 mg a cosa serve": 390,
+    "adenuric nome commerciale": 210,
+    "unixime e mutuabile": 110,
+    "unixime è mutuabile": 110
+   }
+  },
+  "plendil generico": {
+   "volume": null
+  },
+  "fulcrosupra generico": {
+   "volume": 90,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "fulcrosupra principio attivo": 720,
+    "fulcrosupra a cosa serve": 1600,
+    "fenofibrati nome commerciale": 880,
+    "fenofibrato nome commerciale": 880,
+    "fulcrosupra effetti collaterali": 260,
+    "fulcrosupra e una statina": 140,
+    "fulcrosupra prima o dopo i pasti": 110,
+    "fulcrosupra fa dimagrire": 390,
+    "fulcrosupra fa male": 390,
+    "fulcrosupra 145 mg": 210
+   }
+  },
+  "vellofent generico": {
+   "volume": null
+  },
+  "telfast generico": {
+   "volume": null
+  },
+  "prostide generico": {
+   "volume": null
+  },
+  "gilenya generico": {
+   "volume": null
+  },
+  "almarytm generico": {
+   "volume": null
+  },
+  "aviflucox generico": {
+   "volume": null
+  },
+  "aerflu generico": {
+   "volume": null
+  },
+  "fluspiral generico": {
+   "volume": null
+  },
+  "atimos generico": {
+   "volume": null
+  },
+  "monuril generico": {
+   "volume": 880,
+   "cpc_eur": 0.1,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "monuril equivalente": 260,
+    "equivalente monuril": 210,
+    "monuril principio attivo": 2900,
+    "monuril serve ricetta": 2400,
+    "monuril generico prezzo": 320,
+    "monuril a cosa serve": 12100,
+    "fosfomicina bustine": 4400,
+    "principio attivo monuril": 2900,
+    "monuril: effetti collaterali": 1900,
+    "fosfomicina per cistite": 1600
+   }
+  },
+  "auradol generico": {
+   "volume": 170,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "auradol non si trova": 390,
+    "auradol non si trova in farmacia": 110,
+    "auradol a cosa serve": 320,
+    "auradol compresse": 140,
+    "auradol perché non si trova": 140,
+    "auradol online": 90,
+    "auradol": 2900,
+    "auradol principio attivo": 390,
+    "auradol controindicazioni": 110,
+    "auradol ritirato": 170
+   }
+  },
+  "lasix generico": {
+   "volume": 320,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "generico lasix": 110,
+    "furosemide generico": 90,
+    "lasix equivalente": 170,
+    "lasix generico come si chiama": 110,
+    "furosemide 25 mg generico": 110,
+    "furosemide equivalente": 110,
+    "furosemide 25 mg": 1900,
+    "lasix principio attivo": 2900,
+    "furosemide nome commerciale": 1000,
+    "furosemide nomi commerciali": 1000
+   }
+  },
+  "neurontin generico": {
+   "volume": 90,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "gabapentin nome commerciale": 2400,
+    "gabapentin dosaggi": 320,
+    "gabapentin principio attivo": 2400,
+    "neurontin principio attivo": 590,
+    "gabapentin compresse": 320,
+    "farmaco gabapentin": 170,
+    "gabapentin controindicazioni": 170,
+    "neurontin ansia": 110,
+    "neurontin per ansia": 70,
+    "gabapentin": 33100
+   }
+  },
+  "diamicron generico": {
+   "volume": null
+  },
+  "solosa generico": {
+   "volume": null
+  },
+  "kytril generico": {
+   "volume": null
+  },
+  "brufen generico": {
+   "volume": 480,
+   "cpc_eur": 0.07,
+   "dato_del": "2026-11-13",
+   "simili": {}
+  },
+  "imanivec generico": {
+   "volume": null
+  },
+  "natrilix generico": {
+   "volume": null
+  },
+  "karvea generico": {
+   "volume": null
+  },
+  "coaprovel generico": {
+   "volume": null
+  },
+  "isosorbide mononitrato generico": {
+   "volume": null
+  },
+  "isodifa generico": {
+   "volume": null
+  },
+  "triasporin generico": {
+   "volume": null
+  },
+  "corlentor generico": {
+   "volume": null
+  },
+  "oki generico": {
+   "volume": 480,
+   "cpc_eur": 0.14,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "equivalente oki": 170,
+    "ketoprofene generico": 260,
+    "oki equivalente": 110,
+    "differenza tra ketoprofene e ketoprofene sale di lisina": 170,
+    "ketoprofene sale di lisina equivalente": 70,
+    "ketoprofene farmaci": 590,
+    "ketoprofene farmaco": 590,
+    "oki è mutuabile": 260,
+    "farmaci con ketoprofene": 170,
+    "oki prescrizione": 170
+   }
+  },
+  "lixidol generico": {
+   "volume": null
+  },
+  "lacirex generico": {
+   "volume": null
+  },
+  "ollat generico": {
+   "volume": null
+  },
+  "amaless generico": {
+   "volume": null
+  },
+  "limpidex generico": {
+   "volume": null
+  },
+  "xalatan generico": {
+   "volume": null
+  },
+  "xalacom generico": {
+   "volume": null
+  },
+  "cardiovasc generico": {
+   "volume": null
+  },
+  "femara generico": {
+   "volume": null
+  },
+  "epitiram generico": {
+   "volume": null
+  },
+  "stalevo generico": {
+   "volume": null
+  },
+  "agilev generico": {
+   "volume": null
+  },
+  "eutirox generico": {
+   "volume": null
+  },
+  "zestril generico": {
+   "volume": null
+  },
+  "zestoretic generico": {
+   "volume": null
+  },
+  "losaprex generico": {
+   "volume": null
+  },
+  "neolotan generico": {
+   "volume": null
+  },
+  "rextat generico": {
+   "volume": null
+  },
+  "gadral generico": {
+   "volume": null
+  },
+  "demenco generico": {
+   "volume": null
+  },
+  "pentacol generico": {
+   "volume": null
+  },
+  "keymet generico": {
+   "volume": null
+  },
+  "medrol generico": {
+   "volume": null
+  },
+  "lopresor generico": {
+   "volume": 90,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "lopresor equivalente": 140,
+    "lopresor nome commerciale": 140,
+    "lopresor effetti collaterali": 110,
+    "lopresor: effetti collaterali": 110,
+    "metoprololo farmaco equivalente": 110,
+    "lopresor a cosa serve": 590,
+    "effetti collaterali uso prolungato lopresor": 140,
+    "metoprololo 100 equivalente": 140,
+    "metoprololo farmaco originale": 140,
+    "lopresor principio attivo": 2900
+   }
+  },
+  "metotrexato generico": {
+   "volume": null
+  },
+  "cellcept generico": {
+   "volume": null
+  },
+  "buccolam generico": {
+   "volume": null
+  },
+  "remeron generico": {
+   "volume": 70,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "mirtazapina generico": 110,
+    "mirtazapina equivalente": 140,
+    "mirtazapina nome commerciale": 1900,
+    "mirtazapina gocce": 140,
+    "remeron gocce": 90,
+    "mirtazapina per dormire dose": 390,
+    "remeron": 4400,
+    "remeron principio attivo": 1000,
+    "remeron 30 mg": 390,
+    "nefazodone nome commerciale": 170
+   }
+  },
+  "lukasm generico": {
+   "volume": null
+  },
+  "lobivon generico": {
+   "volume": 110,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "nebivololo generico": 170,
+    "nebivololo nome commerciale": 1600,
+    "nebivololo effetti collaterali": 390,
+    "nebivololo nomi commerciali": 1600,
+    "nebivololo principio attivo": 880,
+    "nebivololo controindicazioni": 210,
+    "lobivon nome commerciale": 170,
+    "nebivololo farmaco originale": 140,
+    "nebivololo a cosa serve": 3600,
+    "nebivololo 5 mg a cosa serve": 880
+   }
+  },
+  "aloneb generico": {
+   "volume": null
+  },
+  "sulidamor generico": {
+   "volume": null
+  },
+  "minitran generico": {
+   "volume": null
+  },
+  "octreotide generico": {
+   "volume": null
+  },
+  "zyprexa generico": {
+   "volume": 90,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "olanzapina generico": 110,
+    "zyprexa principio attivo": 1000,
+    "olanzapina farmaco": 170,
+    "olanzapina 10 mg prezzo": 140,
+    "olanzapina gocce": 140,
+    "olanzapina nome commerciale": 2900,
+    "olanzapina nomi commerciali": 2900,
+    "olanzapina 5 mg": 1000,
+    "olanzapina 2 5 mg": 880,
+    "farpenta principio attivo": 590
+   }
+  },
+  "gaduar generico": {
+   "volume": null
+  },
+  "cardol generico": {
+   "volume": null
+  },
+  "bivis generico": {
+   "volume": null
+  },
+  "plaunazide generico": {
+   "volume": 90,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "plaunazide equivalente": 110,
+    "plaunazide nome commerciale": 90,
+    "plaunazide senza diuretico": 90,
+    "plaunazide 20/25 prezzo": 90,
+    "olprezide generico": 70,
+    "plaunazide ritirato": 210,
+    "plaunazide 20": 90,
+    "plaunazide 20/12 5 prezzo": 90,
+    "plaunazide": 8100,
+    "plaunazide principio attivo": 2400
+   }
+  },
+  "seacor generico": {
+   "volume": null
+  },
+  "mepral generico": {
+   "volume": null
+  },
+  "setofilm generico": {
+   "volume": null
+  },
+  "elatrex generico": {
+   "volume": null
+  },
+  "gastroloc generico": {
+   "volume": null
+  },
+  "coefferalgan generico": {
+   "volume": null
+  },
+  "dropaxin generico": {
+   "volume": null
+  },
+  "procaptan generico": {
+   "volume": null
+  },
+  "coverlam generico": {
+   "volume": 110,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "coverlam 5/5 generico": 140,
+    "coverlam 10/5 generico": 70,
+    "coverlam principio attivo": 1900,
+    "coverlam 10 10 prezzo": 110,
+    "coverlam 5": 90,
+    "coverlam": 6600,
+    "coverlam ritirato dal commercio": 590,
+    "coverlam 5/5": 480,
+    "coverlam 10 5 effetti collaterali": 210,
+    "coverlam 10 5 prezzo": 210
+   }
+  },
+  "prelectal generico": {
+   "volume": null
+  },
+  "tripliam generico": {
+   "volume": 260,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "tripliam 10 2 5 5 generico": 90,
+    "tripliam 10/2 5/5 generico": 90,
+    "tripliam nome commerciale": 90,
+    "differenza tra tripliam e lopridam": 110,
+    "tripliam principio attivo": 2900,
+    "tripliam a cosa serve": 1600,
+    "tripliam 10 2 5 10 effetti collaterali": 880,
+    "tripliam dosaggi": 880,
+    "tripliam 10/2 5/5": 170,
+    "perindopril/indapamide/amlodipina": 140
+   }
+  },
+  "actos generico": {
+   "volume": null
+  },
+  "ibitazina generico": {
+   "volume": null
+  },
+  "brexin generico": {
+   "volume": null
+  },
+  "posaconazolo generico": {
+   "volume": null
+  },
+  "mirapexin generico": {
+   "volume": 90,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "mirapexin a cosa serve": 1300,
+    "mirapexin dosaggio gambe senza riposo": 590,
+    "mirapexin 0 18 a cosa serve": 210,
+    "mirapexin gambe senza riposo": 210,
+    "mirapexin prezzo": 170,
+    "gambe senza riposo terapia mirapexin": 140,
+    "mirapexin 0 18": 110,
+    "mirapexin farmaco": 110,
+    "mirapexin rp dosaggi": 110,
+    "mirapexin dosaggio": 90
+   }
+  },
+  "aplactin generico": {
+   "volume": null
+  },
+  "deltacortene generico": {
+   "volume": 260,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "deltacortene equivalente": 140,
+    "prednisone nomi commerciali": 590,
+    "cortisone 25 mg": 390,
+    "prednisone forte": 210,
+    "deltacortene 25 mg a cosa serve": 6600,
+    "deltacortene 25 mg: a cosa serve": 6600,
+    "prednisone deltacortene": 480,
+    "prednisone 25 mg quanti giorni": 390,
+    "deltacortene 25 mg senza ricetta": 320,
+    "prednisone 25 mg prezzo": 320
+   }
+  },
+  "ecubalin generico": {
+   "volume": null
+  },
+  "propafenone generico": {
+   "volume": null
+  },
+  "seroquel generico": {
+   "volume": 140,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "quetiapina generico": 90,
+    "quetiapina nome commerciale": 1000,
+    "seroquel nome commerciale": 260,
+    "quetiapina": 40500,
+    "quetiapina principio attivo": 1300,
+    "quetiapina gocce": 590,
+    "quetiapina gocce esiste": 260,
+    "principio attivo quetiapina": 110,
+    "quetiapina in gocce": 110,
+    "quetiapina originale": 110
+   }
+  },
+  "pariet generico": {
+   "volume": null
+  },
+  "unipril generico": {
+   "volume": null
+  },
+  "ramandiur generico": {
+   "volume": null
+  },
+  "ramilolo generico": {
+   "volume": null
+  },
+  "uniprildiur generico": {
+   "volume": null
+  },
+  "icomb generico": {
+   "volume": null
+  },
+  "ranexa generico": {
+   "volume": 90,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ranexa farmaco equivalente": 260,
+    "ranolazina generico": 90,
+    "ranexa farmaco": 110,
+    "ranexa nome commerciale": 70,
+    "ranexa è un farmaco salvavita": 480,
+    "ranexa prezzo": 110,
+    "ranexa principio attivo": 1600,
+    "ranolazina a cosa serve": 720,
+    "ranolazina nome commerciale": 480,
+    "ranexa a cosa serve": 2400
+   }
+  },
+  "azilect generico": {
+   "volume": null
+  },
+  "xarelto generico": {
+   "volume": 260,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "xarelto 20 mg generico": 110,
+    "xarelto equivalente": 110,
+    "rivaroxaban generico": 170,
+    "xarelto 20 mg farmaco equivalente": 260,
+    "rivaroxaban generico prezzo": 210,
+    "xarelto 20 mg generico prezzo": 210,
+    "rivaroxaban eg e xarelto differenza": 140,
+    "rivaroxaban 20 mg": 590,
+    "rivaroxaban effetti collaterali": 260,
+    "rivaroxaban eg 20 mg": 140
+   }
+  },
+  "exelon generico": {
+   "volume": null
+  },
+  "maxalt generico": {
+   "volume": 90,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "rizatriptan nome commerciale": 170,
+    "maxalt rpd 10 mg a cosa serve": 70,
+    "rizatriptan benzoato": 50,
+    "rizatriptan": 2400,
+    "maxalt rpd 10 mg opinioni": 110,
+    "quanti maxalt al mese": 70,
+    "rizatriptan 10 mg": 320,
+    "maxalt compresse": 110,
+    "maxalt farmaco": 110,
+    "maxalt rpd come si prende": 110
+   }
+  },
+  "crestor generico": {
+   "volume": 90,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "rosuvastatina generico": 320,
+    "rosuvastatina 5 mg generico": 110,
+    "rosuvastatina farmaco equivalente": 90,
+    "rosuvastatina nomi commerciali": 90,
+    "rosuvastatina nome commerciale": 1600,
+    "rosuvastatina 10 mg generico": 90,
+    "rosuvastatina 20 mg: prezzo": 170,
+    "rosuvastatina/ezetimibe generico": 170,
+    "rosuvastatina farmaco originale": 140,
+    "crestor 40 mg": 110
+   }
+  },
+  "rosuasa generico": {
+   "volume": null
+  },
+  "quiloga generico": {
+   "volume": null
+  },
+  "neupro generico": {
+   "volume": null
+  },
+  "pafinur generico": {
+   "volume": 90,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "pafinur generico prezzo": 70,
+    "rupatadina generico": 70,
+    "rupatadina principio attivo": 90,
+    "rupatadina nome commerciale": 320,
+    "pafinur": 6600,
+    "rupatadina 10 mg": 720,
+    "pafinur compresse": 590,
+    "pafinur 10 mg": 480,
+    "pafinur compresse a cosa serve": 210,
+    "pafinur prezzo con ricetta": 90
+   }
+  },
+  "aliflus generico": {
+   "volume": 140,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "aliflus 25/125 prezzo": 110,
+    "aliflus 25 125 prezzo": 110,
+    "aliflus principio attivo": 480,
+    "aliflus spray": 320,
+    "aliflus a cosa serve": 260,
+    "aliflus prezzo": 260,
+    "aliflus prezzo con ricetta": 70,
+    "aliflus": 3600,
+    "aliflus 25 125": 480,
+    "aliflus 25/125": 480
+   }
+  },
+  "zoloft generico": {
+   "volume": 140,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "sertralina generico": 260,
+    "sertralina 50 mg generico": 110,
+    "zoloft principio attivo": 4400,
+    "sertralina doc": 210,
+    "sertralina 50 mg prezzo generico": 90,
+    "sertralina": 40500,
+    "sertralina nome commerciale": 2400,
+    "sertralina cos'è": 720,
+    "zoloft 50 mg a cosa serve": 320,
+    "antidepressivo zoloft": 260
+   }
+  },
+  "renvela generico": {
+   "volume": null
+  },
+  "rabestrom generico": {
+   "volume": null
+  },
+  "urorec generico": {
+   "volume": 70,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "silodosina farmaco equivalente": 90,
+    "silodosina nome commerciale": 1300,
+    "urorec 8 mg a cosa serve": 1300,
+    "alternativa a urorec": 320,
+    "urisax a cosa serve": 210,
+    "differenza tra tamsulosina e silodosina": 140,
+    "silodosina urorec": 140,
+    "urorec nome commerciale": 140,
+    "urorec e mutuabile": 110,
+    "urorec è mutuabile": 110
+   }
+  },
+  "sivastin generico": {
+   "volume": null
+  },
+  "tesavel generico": {
+   "volume": 210,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "tesavel 100": 110,
+    "tesavel 100 prezzo": 70,
+    "gliptine nomi commerciali": 260,
+    "sitagliptin nomi commerciali": 210,
+    "tesavel principio attivo": 210,
+    "meliglix effetti collaterali": 140,
+    "tesavel 100 mg": 50,
+    "meliglix": 1900,
+    "sitagliptin nome commerciale": 1600,
+    "tesavel": 590
+   }
+  },
+  "janumet generico": {
+   "volume": null
+  },
+  "actonel generico": {
+   "volume": null
+  },
+  "bonviva generico": {
+   "volume": null
+  },
+  "incoves generico": {
+   "volume": null
+  },
+  "imigran generico": {
+   "volume": null
+  },
+  "protopic generico": {
+   "volume": null
+  },
+  "cialis generico": {
+   "volume": 5400,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "generico cialis": 6600,
+    "cialis 5mg generico": 110,
+    "tadalafil 20mg generico": 90,
+    "cialis generico prezzo": 590,
+    "generico del cialis": 210,
+    "cialis generico farmacia": 170,
+    "cialis 5 mg generico": 140,
+    "tadalafil generico prezzo": 90,
+    "tadalafil 5mg generico": 720,
+    "tadalafil generico migliore": 320
+   }
+  },
+  "nolvadex generico": {
+   "volume": null
+  },
+  "omnic generico": {
+   "volume": 140,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "tamsulosina farmaco originale": 170,
+    "tamsulosin generico": 140,
+    "tamsulosina generico": 140,
+    "tamsulosin nome commerciale": 70,
+    "tamsulosina nome commerciale": 1900,
+    "tamsulosin originale": 110,
+    "tamsulosina originale": 110,
+    "omnic generico prezzo": 70,
+    "tamsulosina nomi commerciali": 1900,
+    "tamsulosina farmaco": 260
+   }
+  },
+  "tadomon generico": {
+   "volume": null
+  },
+  "targosid generico": {
+   "volume": null
+  },
+  "micardisplus generico": {
+   "volume": null
+  },
+  "temozolomide generico": {
+   "volume": null
+  },
+  "teraprost generico": {
+   "volume": null
+  },
+  "aubagio generico": {
+   "volume": null
+  },
+  "brilique generico": {
+   "volume": null
+  },
+  "timogel generico": {
+   "volume": null
+  },
+  "topamax generico": {
+   "volume": null
+  },
+  "prontalgin generico": {
+   "volume": null
+  },
+  "travatan generico": {
+   "volume": null
+  },
+  "combisartan generico": {
+   "volume": null
+  },
+  "eucreas generico": {
+   "volume": 90,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "eucreas": 880,
+    "eucreas principio attivo": 390,
+    "vildagliptin metformina": 170,
+    "vildagliptin metformina nome commerciale": 170,
+    "vildagliptin/metformina": 170,
+    "vildagliptin/metformina nome commerciale": 170,
+    "vildagliptin e metformina": 70,
+    "vildagliptin nome commerciale": 320,
+    "metformina generico": 140,
+    "eucreas 50/1000": 90
+   }
+  },
+  "navelbine generico": {
+   "volume": null
+  },
+  "vfend generico": {
+   "volume": null
+  },
+  "zonegran generico": {
+   "volume": null
+  },
+  "acido acetilsalicilico generico": {
+   "volume": 170,
+   "cpc_eur": 0.1,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "generico aspirina": 390,
+    "aspirina generico": 390,
+    "aspirina generica": 390,
+    "cardioaspirina 100 mg generico": 110,
+    "acido acetilsalicilico 100 mg generico": 110,
+    "acido acetilsalicilico 500 mg generico": 110,
+    "aspirina generico prezzo": 110,
+    "cardioaspirina generico": 720,
+    "generico cardioaspirina": 720,
+    "cardioaspirina equivalente": 260
+   }
+  },
+  "cardioaspirin generico": {
+   "volume": null
+  },
+  "difosfonal generico": {
+   "volume": null
+  },
+  "amikacina generico": {
+   "volume": null
+  },
+  "likacin generico": {
+   "volume": null
+  },
+  "amiodarone generico": {
+   "volume": null
+  },
+  "amlodipina valsartan generico": {
+   "volume": null
+  },
+  "atenololo clortalidone generico": {
+   "volume": null
+  },
+  "vasexten generico": {
+   "volume": 70,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "vasexten 10 mg generico": 50,
+    "vasexten equivalente": 210,
+    "barnidipina equivalente": 260,
+    "vasexten farmaco equivalente": 50,
+    "vasexten principio attivo": 1300,
+    "vasexten 10 mg non si trova": 320,
+    "barnidipina 10 mg": 170,
+    "vasexten": 2900,
+    "vasexten 20 mg prezzo": 110,
+    "vasexten non si trova": 90
+   }
+  },
+  "bisoprololo idroclorotiazide generico": {
+   "volume": null
+  },
+  "dostinex generico": {
+   "volume": null
+  },
+  "carbamazepina generico": {
+   "volume": null
+  },
+  "cefotaxima generico": {
+   "volume": null
+  },
+  "cefpodoxima generico": {
+   "volume": null
+  },
+  "ciqorin generico": {
+   "volume": null
+  },
+  "clopidogrel acido acetilsalicilico generico": {
+   "volume": null
+  },
+  "duoplavin generico": {
+   "volume": 140,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "plavix generico": 320,
+    "clopidogrel generico": 110,
+    "plavix equivalente": 140,
+    "clopidogrel 75 mg generico": 110,
+    "clopidogrel equivalente": 110,
+    "duoplavin principio attivo": 1000,
+    "duoplavin 75 100 a cosa serve": 170,
+    "duoplavin prima o dopo i pasti": 170,
+    "duoplavin 75/100 prezzo": 110,
+    "duoplavin equivalente": 90
+   }
+  },
+  "ebastina generico": {
+   "volume": null
+  },
+  "kestine generico": {
+   "volume": null
+  },
+  "fluoxetina generico": {
+   "volume": 110,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "fluoxetina nome commerciale": 2900,
+    "fluoxetina nomi commerciali": 2900,
+    "fluoxetina farmaci": 260,
+    "fluoxetina farmaco": 260,
+    "fluoxetina prozac": 110,
+    "prozac a cosa serve": 1600,
+    "prozac principio attivo": 1000,
+    "prozac farmaco": 880,
+    "fluoxetina principio attivo": 480,
+    "fluoxetina prezzo": 210
+   }
+  },
+  "reminyl generico": {
+   "volume": null
+  },
+  "glucosio generico": {
+   "volume": null
+  },
+  "ipstyl generico": {
+   "volume": null
+  },
+  "levocetirizina generico": {
+   "volume": 40,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "levocetirizina nome commerciale": 720,
+    "levocetirizina dicloridrato": 390,
+    "antistaminico levocetirizina": 260,
+    "levocetirizina antistaminico": 210,
+    "levocetirizina": 6600,
+    "levocetirizina 5 mg": 880,
+    "levocetirizina a cosa serve": 320,
+    "levocetirizina prezzo": 110,
+    "xyzal generico prezzo": 110,
+    "xyzal a cosa serve": 1000
+   }
+  },
+  "xyzal generico": {
+   "volume": null
+  },
+  "lurasidone generico": {
+   "volume": null
+  },
+  "manidipina generico": {
+   "volume": null
+  },
+  "vascoman generico": {
+   "volume": null
+  },
+  "morfina solfato generico": {
+   "volume": null
+  },
+  "naprossene generico": {
+   "volume": null
+  },
+  "synflex generico": {
+   "volume": null
+  },
+  "nifedipina generico": {
+   "volume": 110,
+   "cpc_eur": 0.05,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "nifedipina gocce nome commerciale": 90,
+    "nifedipina nome commerciale": 1000,
+    "adalat gocce": 210,
+    "nifedipina nomi commerciali": 170,
+    "nifedipina principio attivo": 170,
+    "nifedicor equivalente": 140,
+    "nifedicor principio attivo": 170,
+    "nifedicor a cosa serve": 110,
+    "nifedicor gocce a cosa serve": 110,
+    "nifedicor 5 gocce": 90
+   }
+  },
+  "nitisinone generico": {
+   "volume": null
+  },
+  "ossicodone cloridrato generico": {
+   "volume": null
+  },
+  "oxycontin generico": {
+   "volume": null
+  },
+  "paliperidone generico": {
+   "volume": null
+  },
+  "zemplar generico": {
+   "volume": null
+  },
+  "perampanel generico": {
+   "volume": null
+  },
+  "repaglinide generico": {
+   "volume": null
+  },
+  "risperidone generico": {
+   "volume": null
+  },
+  "ropinirolo generico": {
+   "volume": null
+  },
+  "rosuvastatina amlodipina generico": {
+   "volume": null
+  },
+  "sodio cloruro generico": {
+   "volume": null
+  },
+  "telmisartan generico": {
+   "volume": 70,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "telmisartan nome commerciale": 1000,
+    "telmisartan equivalente": 110,
+    "telmisartan 40 mg": 880,
+    "telmisartan principio attivo": 720,
+    "telmisartan nomi commerciali": 210,
+    "micardis 40 mg prezzo": 170,
+    "pritor equivalente": 140,
+    "pritor 80 equivalente": 110,
+    "telmisartan 20 mg prezzo": 90,
+    "telmisartan 40 mg prezzo": 90
+   }
+  },
+  "terbinafina generico": {
+   "volume": null
+  },
+  "lamisil generico": {
+   "volume": null
+  },
+  "ticlopidina generico": {
+   "volume": null
+  },
+  "tiklid generico": {
+   "volume": null
+  },
+  "tolvaptan generico": {
+   "volume": null
+  },
+  "torasemide generico": {
+   "volume": 90,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "diuresix per dimagrire": 320,
+    "torasemide a cosa serve": 210,
+    "diuresix fa dimagrire": 140,
+    "diuresix dopo quanto tempo fa effetto": 110,
+    "diuresix abbassa la pressione": 90,
+    "torasemide hexal": 70,
+    "torasemide hexal 10 mg": 70,
+    "torasemide 5 mg": 20
+   }
+  },
+  "diuremid generico": {
+   "volume": null
+  },
+  "travoprost timololo generico": {
+   "volume": null
+  },
+  "duotrav generico": {
+   "volume": null
+  },
+  "valaciclovir generico": {
+   "volume": null
+  },
+  "talavir generico": {
+   "volume": null
+  },
+  "valsartan generico": {
+   "volume": 110,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "valsartan equivalente": 70,
+    "tareg equivalente": 90,
+    "valsartan nome commerciale": 1600,
+    "valsartan 20 mg": 170,
+    "valsartan 40": 140,
+    "cotareg": 5400,
+    "valsartan principio attivo": 1300,
+    "tareg a cosa serve": 880,
+    "tareg 80 a cosa serve": 480,
+    "tareg nome commerciale": 110
+   }
+  },
+  "champix generico": {
+   "volume": 90,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "champix farmaco": 110,
+    "champix tornato in commercio": 260,
+    "vareniclina prezzo": 170,
+    "champix compresse": 110,
+    "champix pfizer": 70,
+    "pfizer champix": 70,
+    "champix": 1300,
+    "champix per smettere di fumare": 170,
+    "vareniclina nome commerciale": 140,
+    "champix equivalente": 90
+   }
+  },
+  "venlafaxina generico": {
+   "volume": 90,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "antidepressivi venlafaxina": 110,
+    "efexor nome commerciale": 110,
+    "zarelis principio attivo": 1900,
+    "zarelis a cosa serve": 1300,
+    "venlafaxina principio attivo": 720,
+    "zarelis effetti collaterali": 390,
+    "zarelis 75 mg a cosa serve": 210,
+    "zarelis 37 5 a cosa serve": 170,
+    "venlafaxina 37 5 mg prezzo": 90,
+    "venlafaxina 75 mg prezzo": 90
+   }
+  },
+  "verapamil generico": {
+   "volume": null
+  },
+  "vildagliptin generico": {
+   "volume": null
+  },
+  "galvus generico": {
+   "volume": null
+  },
+  "zofenopril idroclorotiazide generico": {
+   "volume": null
+  },
+  "bifrizide generico": {
+   "volume": null
+  },
+  "zolmitriptan generico": {
+   "volume": null
+  },
+  "zomig generico": {
+   "volume": null
+  },
+  "amiodarone nome commerciale": {
+   "volume": 1300,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "cordarone nome commerciale": 210,
+    "amiodarone": 9900,
+    "amiodar a cosa serve": 3600,
+    "amiodarone a cosa serve": 3600,
+    "amiodarone effetti collaterali": 1000,
+    "cordarone effetti collaterali": 1000,
+    "per quanto tempo si può prendere il cordarone": 390,
+    "amiodarone dosaggio": 260,
+    "amiodarone effetti collaterali occhio": 260,
+    "amiodarone effetti collaterali neurologici": 170
+   }
+  },
+  "amlodipina valsartan nome commerciale": {
+   "volume": 140,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "amlodipina/valsartan nome commerciale": 140,
+    "valsartan/amlodipina nome commerciale": 260,
+    "valsartan amlodipina nome commerciale": 260,
+    "valsartan amlodipina": 260,
+    "valsartan/amlodipina": 260,
+    "amlodipina valsartan": 140,
+    "amlodipina/valsartan": 140,
+    "amlodipina/valsartan/idroclorotiazide nome commerciale": 90,
+    "amlodipina valsartan idroclorotiazide nome commerciale": 90,
+    "amlodipina/valsartan idroclorotiazide nome commerciale": 90
+   }
+  },
+  "atenololo clortalidone nome commerciale": {
+   "volume": 110,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "atenololo clortalidone": 320,
+    "tenoretic": 1300,
+    "tenoretic principio attivo": 480,
+    "clortalidone nome commerciale": 320,
+    "tenoretic a cosa serve": 140,
+    "tenoretic 50 12.5 mg": 110,
+    "atenololo nome commerciale": 1600,
+    "clortalidone": 1300,
+    "tenoretic 100/25": 140,
+    "tenoretic 100 25": 110
+   }
+  },
+  "bisoprololo idroclorotiazide nome commerciale": {
+   "volume": null
+  },
+  "carbamazepina nome commerciale": {
+   "volume": 2400,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "tegretol nome commerciale": 140,
+    "farmaci con carbamazepina": 140,
+    "tegretol a cosa serve": 1900,
+    "carbamazepina farmaci": 210,
+    "carbamazepina tegretol": 170,
+    "tegretol principio attivo": 2900,
+    "carbamazepina principio attivo": 170,
+    "carbamazepina senza ricetta": 110,
+    "tegretol cos'è": 70,
+    "carbamazepina": 9900
+   }
+  },
+  "cefpodoxima nome commerciale": {
+   "volume": 480,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "cefpodoxime nome commerciale": 480,
+    "cefpodoxima": 1600,
+    "cefodox": 9900,
+    "cefodox principio attivo": 880,
+    "cefpodoxime": 480,
+    "cefodox 200 ogni quante ore": 320,
+    "cefodox per quanti giorni": 110,
+    "cefodox antibiotico": 1600,
+    "cefodox a cosa serve": 1300,
+    "cefodox 200 mg": 720
+   }
+  },
+  "ebastina nome commerciale": {
+   "volume": 390,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "antistaminico ebastina": 210,
+    "ebastine": 8100,
+    "ebastina cos'è": 140,
+    "kestine antistaminico a cosa serve": 140,
+    "kestine antistaminico: a cosa serve": 140,
+    "ebastina sonnolenza": 110,
+    "ebastina": 8100,
+    "ebastina a cosa serve": 1300,
+    "ebastina: a cosa serve": 1300,
+    "ebastina antistaminico": 880
+   }
+  },
+  "lurasidone nome commerciale": {
+   "volume": 320,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "latuda a cosa serve": 880,
+    "lurasidone effetti collaterali": 110,
+    "latuda farmaco": 720,
+    "latuda principio attivo": 260,
+    "latuda 37 mg": 210,
+    "latuda foglietto illustrativo": 90,
+    "latuda depressione": 390,
+    "latuda effetti collaterali sessuali": 210,
+    "latuda dopo quanto fa effetto": 110,
+    "latuda": 4400
+   }
+  },
+  "manidipina nome commerciale": {
+   "volume": 390,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "manidipina principio attivo": 110,
+    "manidipina": 1000,
+    "iperten principio attivo": 480,
+    "manidipina a cosa serve": 170,
+    "manidipina cloridrato": 140,
+    "vascoman principio attivo": 170,
+    "iperten farmaco": 140,
+    "iperten 20": 110,
+    "vascoman a cosa serve": 70,
+    "iperten": 1600
+   }
+  },
+  "naprossene nome commerciale": {
+   "volume": 1900,
+   "cpc_eur": 0.08,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naprossene sodico nome commerciale": 390,
+    "naprossene nomi commerciali": 1900,
+    "naproxene nome commerciale": 260,
+    "naprossene 500 nome commerciale": 90,
+    "naprossene sodico": 4400,
+    "farmaco con naprossene": 170,
+    "naprossene farmaci": 480,
+    "dopo quanto fa effetto il naprossene": 170,
+    "naprossene": 12100,
+    "naproxene sodico": 720
+   }
+  },
+  "paliperidone nome commerciale": {
+   "volume": 390,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "paliperidone": 2400,
+    "paliperidone effetti collaterali": 390,
+    "paliperidone a cosa serve": 260,
+    "xeplion effetti collaterali": 140,
+    "invega principio attivo": 480,
+    "paliperidone effetti positivi": 170,
+    "paliperidone opinioni": 170,
+    "invega farmaco": 110,
+    "paliperidone 3 mg": 210,
+    "xeplion effetti collaterali a lungo termine": 170
+   }
+  },
+  "perampanel nome commerciale": {
+   "volume": 210,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "perampanel principio attivo": 140,
+    "fycompa principio attivo": 320,
+    "fycompa": 1600,
+    "perampanel": 1000,
+    "fycompa effetti collaterali": 260,
+    "fycompa 2 mg": 90,
+    "fycompa 4 mg": 110,
+    "fycompa piano terapeutico": 90,
+    "fycompa perampanel": 10,
+    "brivaracetam nome commerciale": 210
+   }
+  },
+  "repaglinide nome commerciale": {
+   "volume": 590,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "repaglinide": 2900,
+    "repaglinide a cosa serve": 390,
+    "repaglinide principio attivo": 320,
+    "novonorm principio attivo": 480,
+    "repaglinide fa dimagrire": 170,
+    "novonorm": 1600,
+    "novonorm a cosa serve": 170,
+    "novonorm effetti collaterali": 110,
+    "repaglinide effetti collaterali": 70,
+    "glinidi": 260
+   }
+  },
+  "risperidone nome commerciale": {
+   "volume": 1000,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "risperidone principio attivo": 390,
+    "risperdal nome commerciale": 110,
+    "risperidone": 14800,
+    "risperidone farmaco": 390,
+    "risperdal compresse": 140,
+    "risperdal farmaco": 140,
+    "risperdal torrino": 110,
+    "risperidone effetti collaterali a lungo termine": 90,
+    "clozapina nomi commerciali": 1900,
+    "risperidone effetti collaterali": 1900
+   }
+  },
+  "ropinirolo nome commerciale": {
+   "volume": 590,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ropinirolo": 9900,
+    "ropinirolo effetti collaterali": 880,
+    "ropinirolo farmaco": 260,
+    "requip a cosa serve": 140,
+    "requip principio attivo": 390,
+    "mirapexin nome commerciale": 110,
+    "dopaminergici farmaci": 2900,
+    "requip": 880,
+    "pramipexolo nome commerciale": 590,
+    "farmaci parkinson nomi commerciali": 260
+   }
+  },
+  "rosuvastatina amlodipina nome commerciale": {
+   "volume": null
+  },
+  "terbinafina nome commerciale": {
+   "volume": 320,
+   "cpc_eur": 0.25,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "terbinafina micosi unghie": 110,
+    "terbinafina": 4400,
+    "terbinafina unghie": 390,
+    "terbinafina compresse senza ricetta": 140,
+    "lamisil compresse e mutuabile": 110,
+    "lamisil compresse è mutuabile": 110,
+    "terbinafina compresse": 1300,
+    "terbinafina a cosa serve": 260,
+    "terbinafina compresse prezzo": 140,
+    "lamisil compresse dopo quanto fa effetto": 110
+   }
+  },
+  "ticlopidina nome commerciale": {
+   "volume": 590,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ticlopidina a cosa serve": 1000,
+    "ticlopidina principio attivo": 210,
+    "tiklid principio attivo": 390,
+    "tiklid a cosa serve": 320,
+    "ticlopidina": 4400,
+    "ticlopidine": 320,
+    "ticlopidina effetti collaterali": 210,
+    "ticlopidina dosaggio": 90,
+    "tiklid": 1600,
+    "ticlopidina 250 mg": 140
+   }
+  },
+  "torasemide nome commerciale": {
+   "volume": 590,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "torasemide principio attivo": 480,
+    "torasemide": 2400,
+    "torasemide 10 mg": 210,
+    "torasemide effetti collaterali": 90,
+    "torasemide a cosa serve": 210,
+    "diuresix principio attivo": 880,
+    "diuresix a cosa serve": 390,
+    "diuresix 10 mg": 480,
+    "diuresix compresse": 110,
+    "torasemide 10 mg a cosa serve": 110
+   }
+  },
+  "travoprost timololo nome commerciale": {
+   "volume": null
+  },
+  "valaciclovir nome commerciale": {
+   "volume": 720,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "valaciclovir posologia": 260,
+    "zelitrex principio attivo": 390,
+    "farmaco per herpes zoster nome commerciale": 140,
+    "talavir 1000 prezzo con ricetta": 110,
+    "talavir posologia": 90,
+    "valaciclovir è un antibiotico": 90,
+    "valaciclovir": 5400,
+    "antivirali per herpes": 880,
+    "zelitrex 1000": 590,
+    "valaciclovir effetti collaterali": 320
+   }
+  },
+  "verapamil nome commerciale": {
+   "volume": 1300,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "verapamil": 5400,
+    "verapamil principio attivo": 590,
+    "isoptin 40 mg a cosa serve": 170,
+    "isoptin nome commerciale": 110,
+    "isoptin": 5400,
+    "isoptin principio attivo": 1600,
+    "verapamil dosaggio": 90,
+    "verapamil effetti collaterali": 140,
+    "verapamil 40 mg": 90,
+    "verapamil isoptin": 90
+   }
+  },
+  "zolmitriptan nome commerciale": {
+   "volume": 90,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "zomig effetti collaterali": 90,
+    "zomig principio attivo": 170,
+    "zolmitriptan": 720,
+    "zomig rapimelt": 480,
+    "zomig rapimelt 2 5 mg": 110,
+    "zomig a cosa serve": 90,
+    "zolmitriptan a cosa serve": 70,
+    "zomig": 1300,
+    "triptani nome commerciale": 590,
+    "farmaci emicrania triptani": 210
+   }
+  },
+  "pantoprazolo nome commerciale": {
+   "volume": 480,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "pantoprazolo nomi commerciali": 480,
+    "pantorc cos'è": 590,
+    "pantoprazolo cos'è": 260,
+    "pantoprazolo farmaco originale": 140,
+    "pantoprazolo": 49500,
+    "pantorc 20 mg a cosa serve": 1600,
+    "pantorc principio attivo": 1300,
+    "pantoprazolo principio attivo": 590,
+    "pantorc 20 a cosa serve": 590,
+    "pantoprazolo è un gastroprotettore": 480
+   }
+  },
+  "colecalciferolo nome commerciale": {
+   "volume": 390,
+   "cpc_eur": 0.58,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "colecalciferolo nomi commerciali": 390,
+    "vitamina d nome commerciale": 170,
+    "colecalciferolo": 18100,
+    "farmaci vitamina d": 1600,
+    "vitamina d farmaco": 1600,
+    "vitamina d colecalciferolo": 880,
+    "vitamina d medicinale": 210,
+    "vitamina d nomi commerciali": 170,
+    "farmaco per vitamina d": 140,
+    "colecalciferolo cos'è": 880
+   }
+  },
+  "atorvastatina nome commerciale": {
+   "volume": 880,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "torvast nome commerciale": 110,
+    "totalip nome commerciale": 170,
+    "ezetimibe/atorvastatina nomi commerciali": 390,
+    "ezetimibe e atorvastatina nome commerciale": 140,
+    "atorvastatina ezetimibe nome commerciale": 880,
+    "atorvastatina generico": 320,
+    "atorvastatina originale": 140,
+    "torvast equivalente": 90,
+    "ezetimibe/atorvastatina nome commerciale": 320,
+    "torvast 10 mg a cosa serve": 260
+   }
+  },
+  "lansoprazolo nome commerciale": {
+   "volume": 390,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "lansoprazolo 20 mg": 390,
+    "lansoprazolo": 22200,
+    "lansox a cosa serve": 3600,
+    "lansoprazole": 720,
+    "lansoprazolo nomi commerciali": 390,
+    "lansox 15 mg a cosa serve": 320,
+    "lansoprazolo 15 mg a cosa serve": 110,
+    "lansoprazolo a cosa serve": 5400,
+    "lansoprazolo principio attivo": 480,
+    "lansox 30 mg a cosa serve": 390
+   }
+  },
+  "pregabalin nome commerciale": {
+   "volume": 1300,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "lyrica nome commerciale": 170,
+    "pregabalin è lyrica sono la stessa cosa": 2900,
+    "lyrica farmaci": 5400,
+    "pregabalin farmaco": 260,
+    "lyrica a cosa serve": 22200,
+    "lirica medicinale a cosa serve": 12100,
+    "lyrica farmaco": 5400,
+    "lyrica principio attivo": 3600,
+    "farmaco lyrica": 1300,
+    "farmaco lyrica cosa serve": 880
+   }
+  },
+  "fluconazolo nome commerciale": {
+   "volume": 1300,
+   "cpc_eur": 0.2,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "diflucan effetti collaterali": 720,
+    "diflucan principio attivo": 1300,
+    "fluconazolo farmaco": 140,
+    "fluconazolo è un antibiotico": 1000,
+    "diflucan è un antibiotico": 170,
+    "fluconazolo principio attivo": 170,
+    "fluconazolo farmaci": 140,
+    "diflucan a cosa serve": 4400,
+    "fluconazolo compresse": 1000,
+    "fluconazolo effetti collaterali": 720
+   }
+  },
+  "esomeprazolo nome commerciale": {
+   "volume": 590,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "esomeprazolo nomi commerciali": 590,
+    "esomeprazolo": 18100,
+    "esomeprazole": 1000,
+    "esomeprazolo 40": 480,
+    "esomeprazolo principio attivo": 480,
+    "esomeprazolo 20 mg a cosa serve": 390,
+    "esomeprazolo cosa serve": 260,
+    "esomeprazolo generico": 110,
+    "esomeprazolo 20 mg": 4400,
+    "esomeprazolo 40 mg": 2900
+   }
+  },
+  "amlodipina nome commerciale": {
+   "volume": 2900,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "amlodipina farmaco originale": 110,
+    "amlodipina principio attivo": 1300,
+    "amlodipina farmaco": 110,
+    "amlodipina 5 mg dopo quanto fa effetto": 1000,
+    "amlodipina e un diuretico": 880,
+    "amlodipina effetti collaterali a lungo termine": 590,
+    "norvasc 5 mg effetti collaterali": 390,
+    "amlodipina è un anticoagulante": 140,
+    "farmaco amlodipina": 110,
+    "amlodipina 5 mg nome commerciale": 90
+   }
+  },
+  "omeprazolo nome commerciale": {
+   "volume": 590,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "omeprazolo farmaci": 110,
+    "omeprazolo": 33100,
+    "farmaci omeprazolo": 110,
+    "omeprazole": 1900,
+    "omeprazolo 20 mg a cosa serve": 720,
+    "omeprazolo principio attivo": 390,
+    "omeprazolo farmaco": 210,
+    "omeprazol a cosa serve": 8100,
+    "omeprazolo 20 mg": 8100,
+    "omeprazolo a cosa serve": 8100
+   }
+  },
+  "simvastatina nome commerciale": {
+   "volume": 880,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "simvastatina 20 mg": 1300,
+    "simvastatina principio attivo": 480,
+    "simvastatin 20 mg": 170,
+    "simvastatina farmaco originale": 140,
+    "simvastatina originale": 110,
+    "simvastatina": 8100,
+    "simvastatina effetti collaterali": 1600,
+    "simvastatina 20": 590,
+    "simvastatina 20 mg a cosa serve": 390,
+    "simvastatina generico": 140
+   }
+  },
+  "lacosamide nome commerciale": {
+   "volume": 1300,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "vimpat nome commerciale": 140,
+    "lacosamide nomi commerciali": 210,
+    "lacosamide principio attivo": 390,
+    "vimpat principio attivo": 2400,
+    "lacosamide": 5400,
+    "vimpat effetti collaterali": 320,
+    "vimpat effetti collaterali a lungo termine": 320,
+    "lacosamide effetti collaterali": 170,
+    "lacosamide farmaco": 110,
+    "vimpat fiale": 110
+   }
+  },
+  "ciprofloxacina nome commerciale": {
+   "volume": 1300,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ciprofloxacina nomi commerciali": 1300,
+    "ciprofloxacina farmaci": 140,
+    "ciproxin è un antibiotico": 170,
+    "ciprofloxacina 500 a cosa serve": 8100,
+    "ciprofloxacina a cosa serve": 3600,
+    "ciprofloxacina principio attivo": 3600,
+    "ciprofloxacina 500 effetti collaterali": 720,
+    "effetti collaterali ciproxin 500": 720,
+    "principio attivo ciproxin": 260,
+    "ciprofloxacina 500 mg: a cosa serve": 210
+   }
+  },
+  "ramipril nome commerciale": {
+   "volume": 1300,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "triatec nome commerciale": 260,
+    "triatec generico": 320,
+    "triatec equivalente": 140,
+    "ace inibitore nome commerciale": 260,
+    "ramipril a cosa serve": 9900,
+    "triatec principio attivo": 6600,
+    "ramipril 5 mg a cosa serve": 720,
+    "ramipril triatec": 590,
+    "ramipril farmaco": 390,
+    "triatec farmaco": 390
+   }
+  },
+  "rivaroxaban nome commerciale": {
+   "volume": 2900,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "xarelto nome commerciale": 170,
+    "xarelto principio attivo": 3600,
+    "xarelto rivaroxaban": 210,
+    "xarelto 20 mg": 3600,
+    "rivaroxaban a cosa serve": 1300,
+    "rivaroxaban e xarelto differenza": 390,
+    "anticoagulante xarelto": 210,
+    "xarelto anticoagulante": 210,
+    "rivaroxaban eg e xarelto differenza": 140,
+    "rivaroxaban scheda tecnica": 140
+   }
+  },
+  "cetirizina nome commerciale": {
+   "volume": 1300,
+   "cpc_eur": 0.1,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "cetirizina nomi commerciali": 1300,
+    "zirtec nome commerciale": 90,
+    "zirtec quando prenderlo": 480,
+    "zirtec dosaggio": 390,
+    "reactine o zirtec": 170,
+    "quando prendere zirtec": 140,
+    "zirtec antistaminico per quanto tempo": 140,
+    "zirtec per quanti giorni": 880,
+    "posologia zirtec": 590,
+    "zirtec antistaminico effetti collaterali": 480
+   }
+  },
+  "escitalopram nome commerciale": {
+   "volume": 590,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "cipralex nome commerciale": 170,
+    "lexapro cos'è": 170,
+    "escitalopram principio attivo": 110,
+    "lexapro in italia": 90,
+    "escitaloprám cos'è": 2400,
+    "escitalopram effetti positivi": 320,
+    "escitalopram effetti collaterali": 1000,
+    "cipralex 10 mg a cosa serve": 880,
+    "cipralex cosa serve": 320,
+    "effetti collaterali escitaloprám": 140
+   }
+  },
+  "levetiracetam nome commerciale": {
+   "volume": 1300,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "keppra nome commerciale": 210,
+    "keppra levetiracetam": 320,
+    "levetiracetam keppra": 210,
+    "keppra principio attivo": 4400,
+    "keppra a cosa serve": 1300,
+    "levetiracetam effetti collaterali": 720,
+    "levetiracetam principio attivo": 480,
+    "keppra effetti collaterali anziani": 210,
+    "levetiracetam 500 a cosa serve": 210,
+    "dosaggio keppra": 110
+   }
+  },
+  "montelukast nome commerciale": {
+   "volume": 140,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "singulair effetti collaterali": 260,
+    "singulair è un antistaminico": 260,
+    "montelukast è un antistaminico": 210,
+    "singulair e antistaminico insieme": 90,
+    "singulair per quanto tempo si può prendere": 480,
+    "montelukast effetti collaterali": 260,
+    "montelukast è un cortisone": 210,
+    "montelukast singulair": 110,
+    "singulair montelukast": 110,
+    "montelukast compresse": 90
+   }
+  },
+  "doxazosin nome commerciale": {
+   "volume": null
+  },
+  "mesalazina nome commerciale": {
+   "volume": 880,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "asacol dopo quanto fa effetto": 720,
+    "mesalazina effetti collaterali": 590,
+    "asacol effetti collaterali": 320,
+    "mesalazina principio attivo": 320,
+    "a cosa serve la mesalazina": 210,
+    "asacol 800 effetti collaterali": 210,
+    "mesalazina farmaco": 140,
+    "mesalazina": 14800,
+    "mesalazina a cosa serve": 3600,
+    "mesalazina supposte": 590
+   }
+  },
+  "pramipexolo nome commerciale": {
+   "volume": 590,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "mirapexin nome commerciale": 110,
+    "mirapexin controindicazioni": 390,
+    "pramipexolo principio attivo": 170,
+    "mirapexin farmaco": 110,
+    "mirapexin 0 18 a cosa serve": 210,
+    "mirapexin a cosa serve": 1300,
+    "mirapexin principio attivo": 1300,
+    "mirapexin dopo quanto fa effetto": 480,
+    "mirapexin effetti collaterali": 260,
+    "pramipexolo effetti collaterali": 260
+   }
+  },
+  "olmesartan nome commerciale": {
+   "volume": 1900,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "olmesartan medoxomil nome commerciale": 140,
+    "olmesartan e amlodipina nome commerciale": 170,
+    "olmesartan amlodipina nome commerciale": 390,
+    "olmesartan medoxomil effetti collaterali": 170,
+    "olmesartan originale": 140,
+    "medoxomil principio attivo": 110,
+    "olmesartan medoxomil": 5400,
+    "olmesartan medoxomil 20 mg": 880,
+    "olmesartan/amlodipina nome commerciale": 390,
+    "olmesartan farmaco": 110
+   }
+  },
+  "duloxetina nome commerciale": {
+   "volume": 2900,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "duloxetina nomi commerciali": 2900,
+    "cymbalta nome commerciale": 210,
+    "cymbalta effetti collaterali": 880,
+    "cymbalta effetti collaterali a lungo termine": 1300,
+    "cymbalta 30 mg effetti collaterali": 210,
+    "duloxetina teva a cosa serve": 110,
+    "duloxetina": 22200,
+    "cymbalta a cosa serve": 3600,
+    "duloxetina effetti collaterali": 1900,
+    "duloxetina principio attivo": 880
+   }
+  },
+  "aripiprazolo nome commerciale": {
+   "volume": 1900,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "abilify nome commerciale": 110,
+    "aripiprazolo effetti collaterali": 1900,
+    "aripiprazolo principio attivo": 480,
+    "aripiprazolo cosa serve": 140,
+    "aripiprazolo": 22200,
+    "aripiprazolo a cosa serve": 2900,
+    "aripiprazolo torrino": 140,
+    "abilify aripiprazolo": 110,
+    "abilify principio attivo": 1600,
+    "aripiprazolo effetti positivi": 590
+   }
+  },
+  "candesartan nome commerciale": {
+   "volume": 720,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "candesartan": 4400,
+    "candesartan principio attivo": 720,
+    "candesartan effetti collaterali": 170,
+    "candesartan a cosa serve": 590,
+    "candesartan cilexetil": 210,
+    "candesartan amlodipina nome commerciale": 110,
+    "blopress effetti collaterali": 320,
+    "blopress 8 mg effetti collaterali": 170,
+    "blopress 16 mg effetti collaterali": 110,
+    "blopress principio attivo": 1900
+   }
+  },
+  "metotrexato nome commerciale": {
+   "volume": 260,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "methotrexate nome commerciale": 210,
+    "methotrexate 2 5 mg a cosa serve": 170,
+    "reumaflex compresse": 90,
+    "methotrexate": 9900,
+    "reumaflex è un chemioterapico": 1900,
+    "methotrexate a cosa serve": 1000,
+    "metotrexato a cosa serve": 720,
+    "methotrexate farmaco": 320,
+    "metotrexato cos'è": 320,
+    "metotrexato compresse": 260
+   }
+  },
+  "finasteride nome commerciale": {
+   "volume": 1000,
+   "cpc_eur": 0.56,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "finasteride nomi commerciali": 1000,
+    "finasteride a cosa serve": 1900,
+    "finasteride principio attivo": 880,
+    "finasteride 5 mg effetti collaterali": 260,
+    "finasteride 5 mg a cosa serve": 320,
+    "finasteride compresse": 320,
+    "finasteride propecia": 260,
+    "propecia finasteride": 260,
+    "finasteride farmaco": 170,
+    "finasteride 1 mg": 1600
+   }
+  },
+  "citalopram nome commerciale": {
+   "volume": 2400,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "citalopram compresse": 480,
+    "citalopram cos'è": 260,
+    "citalopram 10 mg": 210,
+    "citalopram 20 mg compresse": 140,
+    "antidepressivi citalopram": 110,
+    "citalopram principio attivo": 1600,
+    "citalopram 40 mg": 210,
+    "cipralex nome commerciale": 170,
+    "citalopram pastiglie": 110,
+    "citalopram compresse 10 mg": 90
+   }
+  },
+  "levofloxacina nome commerciale": {
+   "volume": 2400,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "levofloxacina 750 nome commerciale": 170,
+    "levofloxacina farmaco originale": 90,
+    "levofloxacina antibiotico": 880,
+    "antibiotico levofloxacina": 720,
+    "levoxacin 750": 720,
+    "levofloxacina 750": 720,
+    "levofloxacina 750 mg compresse": 140,
+    "levofloxacina a cosa serve": 3600,
+    "levofloxacina principio attivo": 1300,
+    "levoxacin antibiotico": 590
+   }
+  },
+  "etoricoxib nome commerciale": {
+   "volume": 480,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "etoricoxib principio attivo": 320,
+    "etoricoxib teva 90 mg a cosa serve": 320,
+    "etoricoxib farmaci": 110,
+    "arcoxia principio attivo": 1900,
+    "etoricoxib è cortisone": 1900,
+    "etoricoxib effetti collaterali": 1300,
+    "arcoxia controindicazioni": 320,
+    "arcoxia generico": 140,
+    "etoricoxib farmaco originale": 110,
+    "etoricoxib a cosa serve": 5400
+   }
+  },
+  "atorvastatina generico": {
+   "volume": 320,
+   "cpc_eur": null,
+   "dato_del": "2026-11-13",
+   "a_mano": true,
+   "simili": {
+    "torvast equivalente": 90,
+    "torvast generico": 260,
+    "atorvastatina equivalente": 90,
+    "atorvastatina 10 mg generico": 140,
+    "atorvastatina nome commerciale": 880,
+    "totalip equivalente": 210,
+    "atorvastatina 20 mg generico prezzo": 110,
+    "atorvastatina prezzo senza ricetta": 110,
+    "torvast nome commerciale": 110,
+    "atorvastatina 20 mg originale": 140
+   }
+  },
+  "quetiapina carenza": {
+   "volume": 0,
+   "cpc_eur": null,
+   "dato_del": "2026-11-13",
+   "a_mano": true,
+   "simili": {}
+  }
+ },
+ "_conteggio": "ricerche_usate comprende 5 richieste di prova a mano e fino a 25 risposte perse in un'interruzione della connessione (stima prudente del consumo); «a_mano» = due delle cinque richieste di prova, trascritte dalla risposta (cpc non annotato)"
+}

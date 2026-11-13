@@ -45,6 +45,11 @@ CHIAVE_INDEXNOW = "b5a26a844a465f58552debee2c8a0114"  # = CHIAVE in studio-busin
 SITO_ID = "farmaci"  # nome del sito in monetizzazione.json
 MIN_PAROLE_ADSENSE = 400  # niente pubblicità nelle pagine noindex o con poco testo (lezione AdSense «scarso valore»)
 FRASE_FISSA = "chiedi al medico o al farmacista"
+# Farmaci con ricetta legati a temi «di stile di vita» (disfunzione erettile, caduta dei capelli): niente richiamo commerciale.
+# Titolo, h1, descrizione e domande con il principio attivo in testa, senza «generico» (la parola delle ricerche d'acquisto) e
+# senza pubblicità (norme sulla pubblicità dei farmaci con ricetta e regole AdSense sulla salute sessuale). Revisione del 13/11/2026.
+TEMI_SENSIBILI = {"tadalafil", "sildenafil", "vardenafil", "finasteride"}  # slug delle pagine principio attivo
+TITOLI_SENSIBILI = {"tadalafil": ("Tadalafil: equivalenti di Cialis nella lista AIFA", "cialis")}  # (titolo, nome commerciale citato)
 
 # Ricerche che contano come domanda per una pagina (stessa espressione di raccolta/domanda.py)
 INTERESSE = re.compile(r"generic|equivalent|alternativ|sostitut|prezz|cost[oa]|mutuabil|non si trova|carenz|carent|mancant|introvabil|"
@@ -123,6 +128,11 @@ for c in CA["righe"]:
     CAR[c["aic"]].append(c)
 AIC_T = {r["aic"]: r for r in RIGHE}
 SLUG = {p: nomi.slug(p) for p in PA}
+
+
+def sensibile(pa):
+    return SLUG[pa] in TEMI_SENSIBILI
+
 if len(set(SLUG.values())) != len(SLUG):
     raise SystemExit("due principi attivi con lo stesso indirizzo")
 RISERVATI = {"carenze", "farmaco-mancante", "come-lavoriamo", "chi-siamo", "privacy", "assets"}
@@ -224,7 +234,89 @@ def _domanda(pa):
     return INDICIZZA_CON_SOLO_PREZZO or any(TIPO_EQ.search(x) or TIPO_CAR.search(x) for x in s)
 
 
-DOMANDA = {pa: _domanda(pa) for pa in PA}
+# ---------------------------------------------------------------- volumi misurati (Google Ads, Italia, raccolta/volumi.py)
+# Le frasi misurate (cercate e «simili», con il loro volume mensile) decidono titoli, h1, descrizioni e alcune FAQ, e
+# possono indicizzare una pagina con almeno MIN_VOLUME ricerche al mese su una sua frase (le regole su confezioni e testo
+# in comune restano). Contano solo le frasi a cui la pagina risponde con i dati AIFA: nome commerciale, principio attivo,
+# generico/equivalente, prezzo, carenza. Mai le frasi su usi, effetti o dosi («a cosa serve»...): non sono dati della lista.
+VOL_FILE = max(DATI.glob("volumi-*.json"), default=None)
+VOL = carica(VOL_FILE.name) if VOL_FILE else {"frasi": {}, "misurato_il": None}
+MISURATE = {}
+for _k, _v in VOL["frasi"].items():
+    if _v.get("volume") is not None:
+        MISURATE[_k] = max(MISURATE.get(_k, 0), _v["volume"])
+    for _s, _x in (_v.get("simili") or {}).items():
+        MISURATE[_s] = max(MISURATE.get(_s, 0), _x or 0)
+MIN_VOLUME = 100
+TIPI_MISURA = [("nome_comm", re.compile(r"\bnom[ei] commercial")), ("princ", re.compile(r"\bprincipio attivo\b")),
+               ("generico", re.compile(r"generic|equivalent")), ("prezzo", re.compile(r"prezz|\bcost[oa]\b")),
+               ("carenza", re.compile(r"carenz|carent|introvabil|non si trova|mancant"))]
+FUORI_TEMA = re.compile(r"senza ricetta|serve ricetta|a cosa serve|effett|bugiardino|foglietto|controindicaz|posologia|come si prend|"
+                        r"\bper (cistite|herpes|dolore)|\bdos[ei]\b|originale|miglior", re.I)
+SALI = {"sale", "di", "sodio", "sodico", "calcio", "potassio", "potassico", "magnesio", "cloridrato", "medoxomil", "cilexetil", "idrato",
+        "besilato", "maleato", "mesilato", "fumarato", "succinato", "tartrato", "dicloridrato", "monoidrato", "oxicodone", "e"}
+
+
+def _parole(t):
+    return re.findall(r"[a-z0-9]+", t.lower().replace("/", " "))
+
+
+def parole_pa(pa):
+    """Parole del principio attivo che una ricerca deve contenere (senza parentesi e nomi di sali)."""
+    w = _parole(re.sub(r"\(.*?\)", " ", nomi.pa_ricerca(pa)))
+    return frozenset(x for x in w if x not in SALI) or frozenset(w)
+
+
+PAROLE_PA = {pa: parole_pa(pa) for pa in PA}
+_TUTTE_PAROLE_PA = {w for pa in PA for w in _parole(nomi.pa_ricerca(pa))}
+MARCHI_PA = defaultdict(set)
+for _r in RIGHE:
+    if nomi.di_fantasia(_r["farmaco"], _r["pa"]):
+        MARCHI_PA[nomi.marchio(_r["farmaco"])].add(_r["pa"])
+
+
+def pa_della_frase(f):
+    """{pa: marchio o None}: principi attivi a cui si riferisce una frase misurata (la combinazione più lunga vince)."""
+    w = set(_parole(f))
+    trovati = [pa for pa, pw in PAROLE_PA.items() if pw <= w]
+    trovati = [pa for pa in trovati if not any(PAROLE_PA[pa] < PAROLE_PA[q] for q in trovati)]
+    out = {pa: None for pa in trovati}
+    for m in w:
+        if len(m) >= 4 and m in MARCHI_PA and m not in _TUTTE_PAROLE_PA:
+            for pa in MARCHI_PA[m]:
+                out.setdefault(pa, m)
+    return out
+
+
+MISURE = defaultdict(list)  # pa -> [(volume, frase, tipo, marchio)], dalla più cercata
+for _f, _vol in MISURATE.items():
+    if not _vol or FUORI_TEMA.search(_f):
+        continue
+    _tipo = next((t for t, rx in TIPI_MISURA if rx.search(_f)), None)
+    if not _tipo:
+        continue
+    for _pa, _m in pa_della_frase(_f).items():
+        MISURE[_pa].append((_vol, _f, _tipo, _m))
+for _pa in MISURE:
+    MISURE[_pa].sort(key=lambda x: (-x[0], x[1]))
+# volume della pagina = la frase più cercata tra le sue (mai la somma), contando solo i nomi commerciali che nella lista hanno questo solo
+# principio attivo (es. «triatec» vale per ramipril e per ramipril + idroclorotiazide: non decide l'indicizzazione di nessuna delle due)
+VOLUME_PA = {pa: max((v for v, f, t, m in MISURE.get(pa, []) if m is None or MARCHI_PA[m] == {pa}), default=0) for pa in PA}
+
+
+def misura_tipo(pa, tipo, marchio_unico=False):
+    """La frase più cercata di un tipo per la pagina; con marchio_unico solo frasi su un nome commerciale che nella lista
+    compare con questo solo principio attivo (così «X ha come principio attivo Y» è vero per tutte le confezioni X)."""
+    for v, f, t, m in MISURE.get(pa, []):
+        if t != tipo:
+            continue
+        if marchio_unico and (not m or MARCHI_PA[m] != {pa}):
+            continue
+        return v, f, m
+    return None
+
+
+DOMANDA = {pa: _domanda(pa) or VOLUME_PA[pa] >= MIN_VOLUME for pa in PA}
 INDICIZZA = {pa: DOMANDA[pa] and len(PA[pa]) >= MIN_CONFEZIONI for pa in PA}  # la soglia di sovrapposizione si applica in main()
 SOVRAPPOSIZIONE = {}  # pa -> (quota, pagina più simile), riempito da misura_sovrapposizione()
 _PROVA = None  # se è un dizionario, pagina() non scrive file: raccoglie il testo (serve a misurare la sovrapposizione)
@@ -364,7 +456,7 @@ def menu_html(percorso):
     return out
 
 
-def pagina(percorso, titolo, descrizione, corpo, testata="", briciole=None, jsonld=None, indicizza=True, file=None):
+def pagina(percorso, titolo, descrizione, corpo, testata="", briciole=None, jsonld=None, indicizza=True, file=None, pubblicita=True):
     file = file or (percorso + "index.html" if percorso else "index.html")
     if _PROVA is not None:
         _PROVA[percorso] = testata + corpo + DISCLAIMER
@@ -380,7 +472,7 @@ def pagina(percorso, titolo, descrizione, corpo, testata="", briciole=None, json
         bc = ('<nav class="briciole" aria-label="Percorso">' + " › ".join([f'<a href="/{p}">{h(n)}</a>' for n, p in briciole[:-1]] + [h(briciole[-1][0])]) + "</nav>")
     testata = testata.replace("{bc}", bc)
     ld_html = "".join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>' for x in ld)
-    con_pub = indicizza and parole_principali(testata + corpo) >= MIN_PAROLE_ADSENSE
+    con_pub = indicizza and pubblicita and parole_principali(testata + corpo) >= MIN_PAROLE_ADSENSE
     adsense = MON.script_adsense(SITO_ID, con_pub)
     corpo_tr = corpo + MON.riga_trasparenza(corpo, "it")
     testo = f"""<!DOCTYPE html>
@@ -505,6 +597,8 @@ NUM = {
     "n_car_eq": num(sum(1 for c in CA["righe"] if c["equivalente"].lower().startswith("s"))),
     "n_cessata": num(sum(1 for c in CA["righe"] if c["motivo"] == "Cessata commercializzazione definitiva")),
     "n_car_t": num(len(CAR_IN_T_AIC)), "n_car_t_eq": num(len(CON_EQ_NON_CAR)),
+    "motivi_top": "; ".join(f"{k.lower()} ({num(v)} righe)" for k, v in Counter(c["motivo"] for c in CA["righe"] if c["motivo"]).most_common(3)),
+    "car_top": ", ".join(f"{k.lower()} ({num(v)})" for k, v in Counter(c["pa"] for c in CA["righe"]).most_common(5)),
 }
 
 
@@ -606,10 +700,48 @@ def sezione_gruppo(g, rim):
     return out + "</section>"
 
 
+MAX_FAQ_PA = 7
+
+
+def faq_misurate(pa, rim):
+    """FAQ nate dalle frasi misurate «<principio attivo> nome commerciale» e «<marchio> principio attivo»: risposta solo con la lista AIFA."""
+    voci = []
+    pl = pa.lower()
+    rr = PA[pa]
+    nc = misura_tipo(pa, "nome_comm")
+    if nc:
+        nomi_ = sorted({r["farmaco"] for r in rr}, key=lambda n: (not nomi.di_fantasia(n, pa), n))
+        n = len(nomi_)
+        el = ", ".join(nomi_[:12]) + (f" e altri {n - 12}" if n > 12 else "")
+        a = (f"Nella lista di trasparenza AIFA del {data_lunga(DATA_T)} {'la confezione' if len(rr) == 1 else f'le {num(len(rr))} confezioni'} di {pl} "
+             f"{'ha' if len(rr) == 1 else 'hanno'} {n} nom{'e' if n == 1 else 'i'} commercial{'e' if n == 1 else 'i'}: {el}. "
+             f"Ogni nome è nella tabella del suo gruppo di equivalenza, con prezzo e stato di carenza.")
+        voci.append((f"Quali sono i nomi commerciali di {pl}?", a, rim.ref("trasparenza"), nc[1]))
+    pr_ = misura_tipo(pa, "princ", marchio_unico=True)
+    if pr_:
+        m = pr_[2]
+        rm = righe_marchio(pa, m)
+        g = len({r["gruppo"] for r in rm})
+        atc = ", ".join(sorted({r["atc"] for r in rm}))
+        pp = "principi attivi" if "+" in pa else "principio attivo"
+        a = (f"Nella lista di trasparenza AIFA del {data_lunga(DATA_T)} {m.upper()} ha come {pp} {pl} (codice ATC {atc}): "
+             f"{_conf(len(rm))} in {g} grupp{'o' if g == 1 else 'i'} di equivalenza. Gli altri nomi commerciali degli stessi gruppi "
+             f"sono nelle tabelle di questa pagina, con prezzo e differenza.")
+        voci.append((f"Qual è il principio attivo di {bello(m)}?", a, rim.ref("trasparenza"), pr_[1]))
+    return voci
+
+
 def faq_pa(pa, rim):
-    voci, usate = [], set()
-    prove = PROVE[pa]
+    voci, usate = faq_misurate(pa, rim), set()
     chiave_pa = nomi.pa_ricerca(pa)
+    # suggerimenti dell'autocompletamento + frasi misurate (con volume, prima le più cercate) per il principio attivo e per i suoi marchi
+    prove = {k: list(v) for k, v in PROVE[pa].items()}
+    misurate = defaultdict(list)
+    for v, f, tipo, m in MISURE.get(pa, []):
+        if tipo in ("generico", "prezzo", "carenza") and (m is None or righe_marchio(pa, m)):
+            misurate[m or chiave_pa].append(f)
+    for k, fs in misurate.items():
+        prove[k] = fs + [x for x in prove.get(k, []) if x not in fs]
     for k, sugg in sorted(prove.items(), key=lambda kv: (kv[0] != marchio_principale(pa), kv[0] != chiave_pa, kv[0])):
         is_pa = k == chiave_pa
         rr = PA[pa] if is_pa else righe_marchio(pa, k)
@@ -619,7 +751,7 @@ def faq_pa(pa, rim):
         nome_up = pa if is_pa else k.upper()
         for tipo, rx in (("eq", TIPO_EQ), ("prezzo", TIPO_PREZZO), ("car", TIPO_CAR)):
             s = next((x for x in sugg if rx.search(x.replace(k, " "))), None)
-            if not s or (k, tipo) in usate or len(voci) >= 5:
+            if not s or (k, tipo) in usate or len(voci) >= MAX_FAQ_PA:
                 continue
             usate.add((k, tipo))
             gr = []
@@ -627,7 +759,10 @@ def faq_pa(pa, rim):
                 if r["gruppo"] not in gr:
                     gr.append(r["gruppo"])
             if tipo == "eq":
-                q = f"Qual è l'equivalente di {nome}?" if not is_pa else f"Quali sono gli equivalenti di {pa.lower()}?"
+                if s in MISURATE and "generic" in s and not sensibile(pa):  # la frase misurata dice «generico»: la domanda usa la stessa parola
+                    q = f"Qual è il generico di {nome}?" if not is_pa else f"Quali sono i generici di {pa.lower()}?"
+                else:
+                    q = f"Qual è l'equivalente di {nome}?" if not is_pa else f"Quali sono gli equivalenti di {pa.lower()}?"
                 parti = []
                 for g in gr[:3]:
                     altri = sorted({x["farmaco"] for x in GRUPPI[g] if (is_pa or nomi.marchio(x["farmaco"]) != k or not nomi.di_fantasia(x["farmaco"], x["pa"]))})
@@ -636,8 +771,9 @@ def faq_pa(pa, rim):
                     else:
                         es = ", ".join(altri[:4])
                         n_altri = len(altri)
-                        parti.append(f"per la confezione «{conf_txt(GRUPPI[g][0]['conf_rif']).lower()}» il gruppo ha altri {n_altri} nom{'e' if n_altri == 1 else 'i'} commercial{'e' if n_altri == 1 else 'i'}"
-                                     + (f" (per esempio {es})" if es else "") + f" e il prezzo di riferimento è {euro(GRUPPI[g][0]['rif'])}")
+                        altri_txt = ("un altro nome commerciale" if n_altri == 1 else f"altri {n_altri} nomi commerciali") if n_altri else "solo confezioni con lo stesso nome"
+                        parti.append(f"per la confezione «{conf_txt(GRUPPI[g][0]['conf_rif']).lower()}» il gruppo ha {altri_txt}"
+                                     + ((f" (per esempio {es})" if n_altri > 1 else f" ({es})") if es else "") + f" e il prezzo di riferimento è {euro(GRUPPI[g][0]['rif'])}")
                 resto = (" Gli altri gruppi sono in questa pagina." if len(gr) > 3 else "")
                 if is_pa:
                     a = (f"Nella lista di trasparenza AIFA del {data_lunga(DATA_T)} {pa.lower()} ha {len(gr)} grupp{'o' if len(gr) == 1 else 'i'} di equivalenza. "
@@ -667,8 +803,9 @@ def faq_pa(pa, rim):
                 else:
                     pmin = min(D(x["prezzo"]) for x in rr)
                     pmax = max(D(x["prezzo"]) for x in rr)
-                    a = (f"Nella lista AIFA del {data_lunga(DATA_T)} le {len(rr)} confezioni di {pa.lower()} costano da {euro(pmin)} a {euro(pmax)} "
-                         f"al pubblico, secondo la confezione. Per ogni gruppo la pagina indica il prezzo di riferimento e la differenza a carico.")
+                    a = ((f"Nella lista AIFA del {data_lunga(DATA_T)} la confezione di {pa.lower()} costa {euro(pmin)} al pubblico." if len(rr) == 1 else
+                          f"Nella lista AIFA del {data_lunga(DATA_T)} le {len(rr)} confezioni di {pa.lower()} costano ")
+                         + ("" if len(rr) == 1 else f"tutte {euro(pmin)} al pubblico." if pmin == pmax else f"da {euro(pmin)} a {euro(pmax)} al pubblico, secondo la confezione.") + f" Per ogni gruppo la pagina indica il prezzo di riferimento e la differenza a carico.")
                 ref = rim.ref("trasparenza")
             else:
                 q = f"{nome} è nell'elenco dei farmaci carenti?"
@@ -690,7 +827,12 @@ def faq_pa(pa, rim):
     return voci
 
 
-def titolo_pa(pa):
+def titolo_pa_base(pa):
+    if sensibile(pa):
+        t, m = TITOLI_SENSIBILI.get(SLUG[pa], (f"{pa}: equivalenti, prezzi e carenze nella lista AIFA", None))
+        if m and not righe_marchio(pa, m):
+            raise SystemExit(f"titolo neutro: {m} non è un nome commerciale di {pa}")
+        return t
     m = marchio_principale(pa)
     cands = []
     if m and sum(1 for x in PA if marchio_principale(x) == m) > 1:
@@ -706,10 +848,12 @@ def titolo_pa(pa):
     raise SystemExit(f"titolo troppo lungo: {pa}")
 
 
-def descr_pa(pa, info):
+def descr_pa_base(pa, info):
     m = marchio_principale(pa)
     car = f"; {info['n_car']} carent{'e' if info['n_car'] == 1 else 'i'} al {data_breve(DATA_C)}" if info["n_car"] else "; nessuna carente al " + data_breve(DATA_C)
     pre = f"{bello(m)} ({pa.lower()})" if m else pa
+    if sensibile(pa):
+        pre = pa
     cands = [f"{pre}: {info['n_conf']} confezioni in {info['n_gr']} grupp{'o' if info['n_gr'] == 1 else 'i'} AIFA, prezzo di riferimento e differenza da pagare{car}.",
              f"{pre}: {info['n_conf']} confezioni nella lista AIFA, differenza fino a {euro(info['max_diff'])}{car}.",
              f"{pa}: {info['n_conf']} confezioni nella lista AIFA del {data_breve(DATA_T)}{car}.",
@@ -723,11 +867,152 @@ def descr_pa(pa, info):
     raise SystemExit(f"descrizione fuori misura: {pa}")
 
 
+def _conf(n):
+    return f"{num(n)} confezion{'e' if n == 1 else 'i'}"
+
+
+def _car_desc(info):
+    n = info["n_car"]
+    return f"; {n} carent{'e' if n == 1 else 'i'} al {data_breve(DATA_C)}" if n else "; nessuna carente al " + data_breve(DATA_C)
+
+
+def _voce_titolo(pa):
+    """Prima frase misurata utilizzabile per il titolo: (volume, frase, tipo, marchio) oppure None."""
+    for v, f, tipo, m in MISURE.get(pa, []):
+        if tipo == "princ" and (not m or MARCHI_PA[m] != {pa}):
+            continue  # «X principio attivo» serve solo se X è un nome commerciale di questo solo principio attivo
+        return v, f, tipo, m
+    return None
+
+
+def candidati_titolo(pa, voce):
+    v, f, tipo, m = voce
+    pl = pa.lower()
+    B = bello(m) if m else None
+    unico = bool(m) and MARCHI_PA[m] == {pa}
+    X = B or pa
+    if tipo == "nome_comm":
+        return [f"{pa}: nomi commerciali, generici e prezzi AIFA", f"{pa}: nomi commerciali, generici e prezzi",
+                f"{pa}: nomi commerciali e generici", f"{pa}: nomi commerciali ed equivalenti nella lista AIFA", f"{pa}: nomi commerciali"]
+    if tipo == "princ":
+        return [f"{B}: principio attivo {pl}, generici e prezzi AIFA", f"{B}: principio attivo {pl}, generici e prezzi",
+                f"{B}: principio attivo {pl} e generici", f"{B}: principio attivo e generici AIFA"]
+    if tipo == "generico":
+        if B:
+            return ([f"{B} generico ({pl}): equivalenti, prezzi e carenze", f"{B} generico ({pl}): equivalenti e prezzi",
+                     f"{B} generico: equivalenti di {pl} e prezzi"] + ([f"{B} generico: equivalenti, prezzi e carenze"] if unico else []))
+        return [f"{pa} generico: equivalenti, prezzi e carenze AIFA", f"{pa} generico: equivalenti, prezzi e carenze", f"{pa} generico: equivalenti e prezzi"]
+    if tipo == "prezzo":
+        return ([f"{B} ({pl}): prezzo, generici e carenze"] if B else []) + [f"{X}: prezzo, generici e carenze nella lista AIFA",
+                                                                            f"{X}: prezzo, generici e carenze", f"{X}: prezzo ed equivalenti"]
+    return ([f"{B} ({pl}): carenza AIFA ed equivalenti"] if B else []) + [f"{X}: carenza AIFA, equivalenti e prezzi", f"{X}: carenza ed equivalenti"]
+
+
+def candidati_descr(pa, voce, info):
+    v, f, tipo, m = voce
+    pl, dt, car = pa.lower(), data_breve(DATA_T), _car_desc(info)
+    B = bello(m) if m else None
+    nc = _conf(info["n_conf"])
+    if tipo == "nome_comm":
+        n = info["n_nomi"]
+        return [f"Nomi commerciali di {pl} nella lista AIFA del {dt}: {n} nom{'e' if n == 1 else 'i'}, {nc} con prezzo di riferimento e differenza{car}.",
+                f"Nomi commerciali di {pl} nella lista AIFA del {dt}: {n} nom{'e' if n == 1 else 'i'} e {nc}{car}."]
+    if tipo == "princ":
+        pp = "principi attivi" if "+" in pa else "principio attivo"
+        return [f"{m.upper()} ha come {pp} {pl}: {nc} di {pl} nella lista AIFA del {dt}, con generici e differenza da pagare{car}.",
+                f"{m.upper()} ha come {pp} {pl}: {nc} di {pl} nella lista AIFA del {dt}{car}.",
+                f"{m.upper()} ha come {pp} {pl}: in tutto {nc} nella lista AIFA del {dt}{car}."]
+    if tipo == "generico":
+        if B:
+            return [f"{B} generico: {nc} di {pl} nella lista AIFA del {dt}, con prezzo di riferimento e differenza da pagare{car}.",
+                    f"{B} generico: {nc} di {pl} nella lista AIFA del {dt}{car}."]
+        return [f"{pa} generico: {nc} nella lista AIFA del {dt}, con prezzo di riferimento e differenza da pagare{car}.",
+                f"{pa} generico: {nc} nella lista AIFA del {dt}{car}."]
+    if tipo == "prezzo":
+        X = B or pl
+        return [f"Prezzo di {X} nella lista AIFA del {dt}: {nc} di {pl} da {euro(info['p_min'])} a {euro(info['p_max'])}, con la differenza a carico{car}.",
+                f"Prezzo di {X} nella lista AIFA del {dt}: da {euro(info['p_min'])} a {euro(info['p_max'])}{car}."]
+    X = B or pa
+    nca = info["n_car"]
+    stato = (f"{_conf(nca)} di {pl} carent{'e' if nca == 1 else 'i'}" if nca else f"nessuna confezione di {pl} carente")
+    return [f"{X} non si trova? Elenco AIFA dei carenti del {data_breve(DATA_C)}: {stato}; {nc} nella lista con equivalenti e prezzi.",
+            f"{X} non si trova? Elenco AIFA dei carenti del {data_breve(DATA_C)}: {stato}."]
+
+
+@functools.lru_cache(maxsize=None)
+def testate_pa():
+    """{pa: (titolo, descrizione, frase misurata, volume)}: titolo e descrizione dalla frase più cercata, unici in tutto il sito;
+    se la frase non dà un titolo ≤ 65 o una descrizione 70-160 unici, restano quelli di prima (titolo_pa_base, descr_pa_base)."""
+    out, usati_t, usati_d = {}, set(), set()
+    for pa in sorted(PA, key=lambda p: (-VOLUME_PA[p], SLUG[p])):
+        info = info_pa(pa)
+        voce = _voce_titolo(pa)
+        t = d = None
+        if voce:
+            neutro = (lambda x: "generic" not in x.lower()) if sensibile(pa) else (lambda x: True)
+            if sensibile(pa) and voce[2] not in ("nome_comm", "princ"):
+                voce = None  # frasi «generico», «prezzo», «carenza» di un tema sensibile: titolo neutro di base
+            else:
+                t = next((x for x in candidati_titolo(pa, voce) if len(x) <= 65 and x not in usati_t and neutro(x)), None)
+                d = next((x for x in candidati_descr(pa, voce, info) if 70 <= len(x) <= 160 and x not in usati_d and neutro(x)), None)
+        if not t or not d:
+            t, d, voce = titolo_pa_base(pa), descr_pa_base(pa, info), None
+        usati_t.add(t)
+        usati_d.add(d)
+        out[pa] = (t, d, voce[1] if voce else None, voce[0] if voce else None)
+    return out
+
+
+def titolo_pa(pa):
+    return testate_pa()[pa][0]
+
+
+def descr_pa(pa, info=None):
+    return testate_pa()[pa][1]
+
+
+def h1_pa(pa):
+    """h1 dalla seconda idea più cercata (diversa da quella del titolo), sempre vera con i dati della pagina."""
+    pl = pa.lower()
+    frase_t = testate_pa()[pa][2]
+    voci = MISURE.get(pa, [])
+    tipo_t = next(((t, m) for v, f, t, m in voci if f == frase_t), None)
+    ordine = [x for x in voci if (x[2], x[3]) != tipo_t] + [x for x in voci if (x[2], x[3]) == tipo_t]
+    for v, f, tipo, m in ordine:
+        if m and MARCHI_PA[m] != {pa}:
+            continue  # nome commerciale usato anche con un altro principio attivo: l'h1 non lo mette in testa
+        if sensibile(pa) and (tipo != "nome_comm" or m):
+            continue  # tema sensibile: solo h1 con il principio attivo in testa, senza «generico»
+        if tipo == "nome_comm":
+            return f"{pa}: nomi commerciali ed equivalenti nella lista AIFA"
+        if tipo == "princ" and m and MARCHI_PA[m] == {pa}:
+            return f"{bello(m)}: principio attivo {pl}, equivalenti e prezzo di riferimento"
+        if tipo == "generico":
+            return (f"{bello(m)} generico: gli equivalenti di {pl} nella lista AIFA" if m else
+                    f"{pa} generico: equivalenti, prezzo di riferimento e carenze")
+        if tipo == "prezzo":
+            return f"{bello(m) if m else pa}: prezzo, equivalenti e carenze nella lista AIFA"
+        if tipo == "carenza":
+            return f"{bello(m) if m else pa}: carenza nell'elenco AIFA, equivalenti e prezzi"
+    return f"{pa}: equivalenti, prezzo di riferimento e carenze"
+
+
 def info_pa(pa):
     rr = PA[pa]
     return {"n_conf": len(rr), "n_gr": len(gruppi_pa(pa)), "n_car": sum(1 for r in rr if carente(r["aic"])),
             "max_diff": max(D(r["diff"]) for r in rr), "n_zero": sum(1 for r in rr if D(r["diff"]) == 0),
-            "n_extra": len(carenti_extra(pa))}
+            "n_extra": len(carenti_extra(pa)), "n_nomi": len({r["farmaco"] for r in rr}),
+            "p_min": min(D(r["prezzo"]) for r in rr), "p_max": max(D(r["prezzo"]) for r in rr)}
+
+
+TERMINE_GENERICO = "«Generico» è la parola delle ricerche: il termine di AIFA è «equivalente». "
+
+
+@functools.lru_cache(maxsize=None)
+def usa_generico(pa):
+    """La pagina usa la parola «generico» (titolo, h1, descrizione o domande): allora il testo dice che il termine di AIFA è «equivalente»."""
+    testi = [titolo_pa(pa), h1_pa(pa), descr_pa(pa)] + [v[0] for v in faq_pa(pa, Rimandi())]
+    return any("generic" in t.lower() for t in testi)
 
 
 def pagina_pa(pa):
@@ -740,7 +1025,7 @@ def pagina_pa(pa):
     sub = (f"{num(info['n_conf'])} confezioni in {info['n_gr']} grupp{'o' if info['n_gr'] == 1 else 'i'} di equivalenza della lista di trasparenza AIFA del "
            f"<strong>{data_lunga(DATA_T)}</strong>, con lo stato di carenza dell'elenco AIFA del <strong>{data_lunga(DATA_C)}</strong>.")
     eyebrow = "Principio attivo · ATC " + ", ".join(atc_pa(pa))
-    titolo_h1 = f"{pa}: equivalenti, prezzo di riferimento e carenze"
+    titolo_h1 = h1_pa(pa)
     testata = banda(eyebrow, titolo_h1, sub)
     cifre = (f'<div class="card cifre pull">'
              f'<div class="cifra main"><b>{num(info["n_conf"])}</b><span>confezioni nella lista di trasparenza</span></div>'
@@ -753,7 +1038,7 @@ def pagina_pa(pa):
     marchi = sorted({r["farmaco"] for r in PA[pa] if nomi.di_fantasia(r["farmaco"], r["pa"])})
     corpo += '<div class="testo">'
     corpo += (f'<p>Ogni blocco qui sotto è un gruppo di equivalenza AIFA: stesse caratteristiche della confezione di riferimento (principio attivo, '
-              f'forma, dosaggio, numero di unità). Le confezioni dello stesso gruppo sono considerate sostituibili, salvo diversa decisione di AIFA, '
+              f'forma, dosaggio, numero di unità). {TERMINE_GENERICO if usa_generico(pa) else ""}Le confezioni dello stesso gruppo sono considerate sostituibili, salvo diversa decisione di AIFA, '
               f'e il Servizio sanitario le rimborsa fino al prezzo di riferimento: se si sceglie una confezione con prezzo più alto, la differenza è a '
               f'carico di chi la compra.{rim.ref(["pagina_equivalenti", "legge_art7"])}</p>')
     if m:
@@ -763,16 +1048,16 @@ def pagina_pa(pa):
         gr_s = "gruppo" if n_g == 1 else "gruppi"
         corpo += f'<p>{h(m.upper())} è uno dei nomi commerciali di {h(pa.lower())}: nella lista compare con {len(rm)} {conf_s}, in {n_g} {gr_s}.</p>'
     if marchi:
-        corpo += (f'<p class="small">Nomi commerciali nella lista ({len(marchi)}): {h(", ".join(marchi[:40]))}'
+        corpo += (f'<p class="small">Nomi di fantasia nella lista ({len(marchi)}): {h(", ".join(marchi[:40]))}'
                   + (f" e altri {len(marchi) - 40}" if len(marchi) > 40 else "") + ".</p>")
     corpo += "</div>"
     if len(gr) > 1:
         corpo += ('<h2 id="gruppi">I gruppi di equivalenza</h2><ul class="indice">' + "".join(
             f'<li><a href="#g-{g.lower()}">{h(conf_txt(GRUPPI[g][0]["conf_rif"]))}</a><span class="small">{len(GRUPPI[g])} conf.'
-            + (f', {sum(1 for r in GRUPPI[g] if carente(r["aic"]))} carenti' if any(carente(r["aic"]) for r in GRUPPI[g]) else "") + "</span></li>" for g in gr) + "</ul>")
+            + ((lambda n: f', {n} carent{"e" if n == 1 else "i"}')(sum(1 for r in GRUPPI[g] if carente(r["aic"]))) if any(carente(r["aic"]) for r in GRUPPI[g]) else "") + "</span></li>" for g in gr) + "</ul>")
     for i, g in enumerate(gr):
         corpo += sezione_gruppo(g, rim)
-        if i == 0 and indicizza:
+        if i == 0 and indicizza and not sensibile(pa):
             corpo += AD
     extra = carenti_extra(pa)
     if extra:
@@ -796,7 +1081,7 @@ def pagina_pa(pa):
     ld = [x for x in [fld] if x]
     titolo = titolo_pa(pa)
     pagina(SLUG[pa] + "/", titolo, descr_pa(pa, info), corpo, testata,
-           briciole=[("Home", ""), (pa, SLUG[pa] + "/")], jsonld=ld, indicizza=indicizza)
+           briciole=[("Home", ""), (pa, SLUG[pa] + "/")], jsonld=ld, indicizza=indicizza, pubblicita=not sensibile(pa))
     return voci
 
 
@@ -813,6 +1098,27 @@ def etichetta_sugg(s):
         if s.startswith(pre):
             return et
     return "Altro (vedi AIFA)" if s else "—"
+
+
+def stato_per_principio(rim):
+    """Riepilogo dell'elenco carenti per principio attivo (le 20 voci con più righe), con il link alla pagina se c'è."""
+    per = defaultdict(list)
+    for c in CA["righe"]:
+        per[c["pa"]].append(c)
+    top = sorted(per.items(), key=lambda kv: (-len(kv[1]), kv[0]))[:20]
+    righe = []
+    for p, cs in top:
+        pagine = sorted({SLUG[AIC_T[c["aic"]]["pa"]] for c in cs if c["aic"] in AIC_T})
+        nome = h(p.lower()) + (f'<small><a href="/{pagine[0]}/">equivalenti e prezzi</a></small>' if len(pagine) == 1 else "")
+        prev = sum(1 for c in cs if c["inizio"] and c["inizio"] > CA["pubblicato_il"])
+        eq = sum(1 for c in cs if c["equivalente"].lower().startswith("s"))
+        righe.append([nome, num(len(cs)), num(prev), num(eq)])
+    return ('<h2 id="per-principio">Stato per principio attivo</h2><p>I 20 principi attivi con più righe nell\'elenco AIFA del '
+            f'{data_lunga(DATA_C)}: quante confezioni sono carenti, per quante la carenza è annunciata ma comincia dopo la data dell\'elenco e per quante '
+            f'AIFA indica che esiste un equivalente sul mercato italiano.{rim.ref("carenti")}</p>'
+            + tabella(["Principio attivo (come scritto da AIFA)", "Righe nell'elenco", "Di cui carenza prevista", "Con equivalente secondo AIFA"], righe,
+                      num=[1, 2, 3], resp="resp", etichette=["", "Righe", "Prevista", "Con equivalente"],
+                      caption=f"Elenco AIFA dei farmaci carenti aggiornato al {data_lunga(DATA_C)}. Lo stato di ogni confezione è nell'elenco completo qui sopra."))
 
 
 def carenze():
@@ -837,7 +1143,7 @@ def carenze():
     mot = Counter(c["motivo"] or "non indicato" for c in CA["righe"]).most_common(6)
     sub = (f"L'elenco ufficiale AIFA aggiornato al <strong>{data_lunga(DATA_C)}</strong>: {NUM['n_car']} confezioni, {NUM['n_car_pa']} principi attivi. "
            "Filtra per nome, ordina per data e trova gli equivalenti non carenti.")
-    testata = banda("Elenco AIFA dei farmaci carenti", f"Farmaci carenti: elenco AIFA del {data_lunga(DATA_C)}", sub, icona="alert")
+    testata = banda("Elenco AIFA dei farmaci carenti", f"Farmaci carenti AIFA: elenco aggiornato al {data_lunga(DATA_C)}", sub, icona="alert")
     corpo = (f'<div class="card cifre pull"><div class="cifra main"><b>{NUM["n_car"]}</b><span>confezioni nell\'elenco</span></div>'
              f'<div class="cifra"><b>{NUM["n_car_eq"]}</b><span>con equivalente secondo AIFA</span></div>'
              f'<div class="cifra"><b>{NUM["n_car_t"]}</b><span>anche nella lista di trasparenza</span></div>'
@@ -848,6 +1154,10 @@ def carenze():
               f'Italia. L\'elenco indica la data di inizio, la fine presunta (se il titolare l\'ha comunicata), il motivo e cosa suggerisce AIFA.{rim.ref("pagina_carenti")} '
               'Se la fine presunta è passata, il farmaco resta nell\'elenco finché il titolare non comunica la fine effettiva della carenza.</p>'
               f'<p>Motivi più frequenti: ' + "; ".join(f"{h(k.lower())} {num(v)}" for k, v in mot) + '.</p></div>')
+    corpo += nota(f'<strong>Il tuo farmaco è nell\'elenco?</strong> Scrivi il nome nel filtro qui sotto: per ogni confezione vedi lo stato indicato da AIFA '
+                  f'(«carente dal…» o carenza «prevista»), la fine presunta, il motivo e, se la confezione è nella lista di trasparenza, il link agli equivalenti '
+                  f'non carenti dello stesso gruppo. Questo sito non dice se un farmaco è disponibile in una farmacia: prima di cambiare confezione, '
+                  f'{FRASE_FISSA}.{rim.ref("carenti")}', "", "alert")
     corpo += AD
     corpo += (f'<section data-tabella aria-labelledby="tab-h"><h2 id="tab-h">L\'elenco completo</h2>'
               '<div class="filtri"><label for="filtro" class="hp">Filtra l\'elenco</label><input id="filtro" type="search" data-filtro placeholder="Filtra: nome, principio attivo, motivo…" autocomplete="off">'
@@ -857,6 +1167,7 @@ def carenze():
               '<button type="button" class="btn sec" data-altre-tutte>Mostra tutte</button></p>' +
               '<p class="vuoto-ricerca" data-vuoto hidden>Nessuna confezione con questo filtro. Se il tuo farmaco non c\'è, per AIFA non è una carenza ufficiale: '
               'vedi <a href="/farmaco-mancante/">farmaco che non si trova</a>.</p></section>')
+    corpo += stato_per_principio(rim)
     corpo += ('<h2 id="legenda">Come leggere le colonne</h2><div class="testo"><ul>'
               '<li><strong>Equivalente</strong>: «Sì» se AIFA indica che sul mercato italiano esiste un medicinale equivalente.</li>'
               '<li><strong>Indicazione AIFA</strong>: forma breve della colonna «Suggerimenti/Indicazioni AIFA». «Rivolgersi al medico» = «Per trattamento alternativo si consiglia di rivolgersi allo specialista o al M.M.G»; '
@@ -867,15 +1178,16 @@ def carenze():
     voci = faq_fisse("carenze", rim)
     fh, fld = faq_html(voci)
     corpo += fh + rim.elenco()
-    pagina("carenze/", f"Farmaci carenti: elenco AIFA del {data_breve(DATA_C)}",
-           f"Elenco AIFA dei farmaci carenti del {data_breve(DATA_C)}: {NUM['n_car']} confezioni con inizio, fine presunta, motivo ed equivalenti non carenti.",
+    pagina("carenze/", f"Farmaci carenti AIFA: elenco aggiornato al {data_breve(DATA_C)}",
+           f"Elenco AIFA dei farmaci carenti aggiornato al {data_breve(DATA_C)}: {NUM['n_car']} confezioni con stato, inizio, fine presunta, motivo "
+           f"ed equivalenti non carenti.",
            corpo, testata, briciole=[("Home", ""), ("Farmaci carenti", "carenze/")], jsonld=[x for x in [fld] if x])
 
 
 # ---------------------------------------------------------------- guida: farmaco che non si trova
 def farmaco_mancante():
     rim = Rimandi()
-    testata = banda("Guida con le indicazioni AIFA", "Farmaco che non si trova in farmacia: carenza o indisponibilità",
+    testata = banda("Guida con le indicazioni AIFA", "Farmaci mancanti in farmacia: carenza o indisponibilità",
                     "Cosa dice AIFA quando un medicinale manca: come capire se è una carenza ufficiale e quali passi sono previsti.", icona="alert")
     r_ = rim.ref("pagina_mancante")
     corpo = (f'<div class="card pull testo"><p style="margin:0"><strong>Prima di tutto: controlla se il farmaco è nell\'elenco ufficiale.</strong> '
@@ -914,8 +1226,8 @@ def farmaco_mancante():
     voci = faq_fisse("farmaco-mancante", rim)
     fh, fld = faq_html(voci)
     corpo += fh + rim.elenco()
-    pagina("farmaco-mancante/", "Farmaco che non si trova in farmacia: cosa dice AIFA",
-           "Farmaco che manca in farmacia: come capire se è una carenza ufficiale AIFA o un'indisponibilità locale, e i passi previsti per importazione e fornitura diretta.",
+    pagina("farmaco-mancante/", "Farmaci mancanti in farmacia: cosa dice AIFA",
+           "Farmaci mancanti in farmacia o introvabili: come capire se è una carenza ufficiale AIFA o un'indisponibilità locale e quali passi prevede AIFA.",
            corpo, testata, briciole=[("Home", ""), ("Farmaco che non si trova", "farmaco-mancante/")], jsonld=[x for x in [fld] if x])
 
 
@@ -950,7 +1262,7 @@ def home():
     cerca = (f'<form class="cerca" role="search"><label for="q" class="hp">Cerca un farmaco</label>'
              f'<input id="q" type="search" data-cerca data-indice="/assets/{INDICE_FILE}" placeholder="Nome del farmaco o principio attivo: Augmentin, atorvastatina…" autocomplete="off"></form>'
              '<ul class="risultati" data-risultati hidden aria-live="polite"></ul>')
-    testata = banda("Liste ufficiali AIFA", "Farmaco equivalente: prezzi, differenza da pagare e carenze",
+    testata = banda("Liste ufficiali AIFA", "Farmaci equivalenti: cerca nella lista di trasparenza AIFA",
                     f"Cerca un farmaco: vedi le confezioni dello stesso gruppo, il prezzo di riferimento, la differenza a carico di ogni confezione e se è "
                     f"nell'elenco dei carenti. Lista di trasparenza del <strong>{data_lunga(DATA_T)}</strong>, carenti del <strong>{data_lunga(DATA_C)}</strong>.",
                     extra=cerca)
@@ -1010,8 +1322,9 @@ def home():
     fh, fld = faq_html(voci)
     corpo += fh + rim.elenco()
     ld = [{"@context": "https://schema.org", "@type": "WebSite", "name": NOME, "url": URL_SITO + "/", "inLanguage": "it"}] + ([fld] if fld else [])
-    pagina("", "Farmaco equivalente: prezzi, differenza e carenze AIFA",
-           f"Equivalenti, prezzo di riferimento e differenza da pagare per {NUM['n_conf']} confezioni della lista AIFA, con i farmaci carenti del {data_breve(DATA_C)}.",
+    pagina("", "Farmaci equivalenti: lista di trasparenza AIFA e carenze",
+           f"Cerca un farmaco equivalente nella lista di trasparenza AIFA del {data_breve(DATA_T)}: {NUM['n_conf']} confezioni con prezzo di riferimento, "
+           f"differenza e carenze.",
            corpo, testata.replace("{bc}", ""), jsonld=ld)
 
 
@@ -1059,10 +1372,12 @@ def come_lavoriamo(n_index, n_noindex, n_faq):
               f'cambiati tra le due date).{rim.ref("classe_a")}</li></ol></div>')
     corpo += '<h2 id="pagine">Quali pagine pubblichiamo</h2><div class="testo">'
     corpo += (f'<p>Una pagina per ogni principio attivo della lista ({NUM["n_pa"]}), con un blocco per ogni gruppo di equivalenza. Le cerchiamo nei suggerimenti '
-              f'di ricerca di Google: {n_index} pagine hanno ricerche vere su equivalente, generico, prezzo o carenza (del principio attivo o di un suo nome '
-              f'commerciale), almeno {MIN_CONFEZIONI} confezioni nella lista e abbastanza dati propri da non somigliare troppo a un\'altra pagina: sono '
-              f'indicizzate. Le altre {n_noindex} restano consultabili dalla ricerca del sito ma chiediamo ai motori di non indicizzarle, '
-              f'e non hanno pubblicità. Le {n_faq} domande frequenti delle pagine nascono da quelle ricerche.</p></div>')
+              f'di ricerca di Google e ne misuriamo il volume mensile (dati Google Ads per l\'Italia, misurati il {data_lunga(VOL["misurato_il"]) if VOL.get("misurato_il") else "—"}): '
+              f'{n_index} pagine hanno ricerche vere su equivalente, generico, nome commerciale, principio attivo, prezzo o carenza (del principio attivo o di un '
+              f'suo nome commerciale; nei suggerimenti di Google o con almeno {MIN_VOLUME} ricerche al mese), almeno {MIN_CONFEZIONI} confezioni nella lista e '
+              f'abbastanza dati propri da non somigliare troppo a un\'altra pagina: sono indicizzate. Le altre {n_noindex} restano consultabili dalla ricerca del '
+              f'sito ma chiediamo ai motori di non indicizzarle, e non hanno pubblicità. Le {n_faq} domande frequenti delle pagine nascono da quelle ricerche: '
+              f'non rispondiamo a domande su usi, effetti o dosi dei farmaci, che non sono negli elenchi AIFA.</p></div>')
     corpo += '<h2 id="cosa-non-facciamo">Cosa non facciamo</h2><div class="testo"><ul>'
     corpo += ('<li>Non diamo consigli medici, non facciamo diagnosi e non suggeriamo di cambiare farmaco.</li>'
               '<li>Non vendiamo farmaci e non pubblichiamo pubblicità o link di affiliazione per farmaci con obbligo di ricetta.</li>'
@@ -1220,12 +1535,16 @@ def main():
         v = pagina_pa(p)
         if INDICIZZA[p]:
             faq_tot += len(v)
-        faq_usate += [{"pagina": SLUG[p], "q": q, "ricerca": s, "indicizzata": INDICIZZA[p]} for q, _, _, s in v]
+        faq_usate += [{"pagina": SLUG[p], "q": q, "ricerca": s, "volume": MISURATE.get(s), "indicizzata": INDICIZZA[p]} for q, _, _, s in v]
     n_idx = sum(INDICIZZA.values())
     (DATI / "indicizzazione.json").write_text(json.dumps({
         "_nota": "Scritto da genera.py: perché ogni pagina principio attivo è indicizzata o no (verifica.py ricalcola la sovrapposizione dalle pagine)",
-        "regola": {"min_confezioni": MIN_CONFEZIONI, "max_sovrapposizione": MAX_SOVRAPPOSIZIONE, "con_solo_prezzo": INDICIZZA_CON_SOLO_PREZZO},
-        "pagine": {SLUG[p]: {"indicizzata": INDICIZZA[p], "domanda": DOMANDA[p], "confezioni": len(PA[p]),
+        "regola": {"min_confezioni": MIN_CONFEZIONI, "max_sovrapposizione": MAX_SOVRAPPOSIZIONE, "con_solo_prezzo": INDICIZZA_CON_SOLO_PREZZO,
+                   "min_volume": MIN_VOLUME, "volumi": VOL_FILE.name if VOL_FILE else None},
+        "pagine": {SLUG[p]: {"indicizzata": INDICIZZA[p], "domanda": DOMANDA[p], "autocompletamento": _domanda(p),
+                             "volume_misurato": VOLUME_PA[p], "frase_piu_cercata": MISURE[p][0][1] if MISURE.get(p) else None,
+                             "titolo": titolo_pa(p), "frase_titolo": testate_pa()[p][2], "volume_frase_titolo": testate_pa()[p][3],
+                             "confezioni": len(PA[p]),
                              "sovrapposizione": round(SOVRAPPOSIZIONE[p][0], 3), "piu_simile": SOVRAPPOSIZIONE[p][1]} for p in sorted(PA)}},
         ensure_ascii=False, indent=0) + "\n", encoding="utf-8")
     come_lavoriamo(n_idx, len(PA) - n_idx, faq_tot + sum(1 for x in FAQ))

@@ -1,41 +1,163 @@
 {
- "_nota": "Domande frequenti delle pagine generali. Ogni domanda nasce da una ricerca vera (campo ricerca, deve essere tra i suggerimenti salvati in domanda.json: lo controlla verifica.py). Le risposte usano solo le fonti indicate; i segnaposto {...} li riempie genera.py dai dati AIFA. Le FAQ delle pagine dei principi attivi le costruisce genera.py dalle ricerche salvate per quel nome.",
- "faq": [
-  {"pagina": "home", "ricerca": "farmaco equivalente cosa significa", "q": "Cosa significa farmaco equivalente?",
-   "a": "Per AIFA il farmaco equivalente ha principio attivo, forma farmaceutica, via di somministrazione, modalità di rilascio, dosaggio, numero di unità posologiche e dosi unitarie uguali a un farmaco di riferimento («di marca») a cui è scaduta la copertura brevettuale. Si riconosce dalla dicitura «Medicinale Equivalente» sul foglio illustrativo e sulla confezione esterna.",
-   "fonti": ["pagina_equivalenti"]},
-  {"pagina": "home", "ricerca": "prezzo di riferimento farmaci", "q": "Cos'è il prezzo di riferimento dei farmaci?",
-   "a": "È la cifra fino alla quale il Servizio sanitario nazionale rimborsa i medicinali con la stessa composizione, forma farmaceutica, via di somministrazione, modalità di rilascio, numero di unità e dosi (art. 7 del decreto-legge 347/2001). AIFA la pubblica ogni mese nella lista di trasparenza: in quella del {data_t} ci sono {n_gruppi} gruppi di equivalenza e {n_conf} confezioni.",
-   "fonti": ["legge_art7", "trasparenza"]},
-  {"pagina": "home", "ricerca": "farmaco di marca o generico", "q": "Farmaco di marca o equivalente: chi paga la differenza?",
-   "a": "Se il medico scrive sulla ricetta che il farmaco non è sostituibile, oppure se non accetti la sostituzione proposta dal farmacista, la differenza tra il prezzo più basso e il prezzo del farmaco prescritto è a carico dell'assistito, esclusi i pensionati di guerra titolari di pensioni vitalizie (art. 7, comma 4). Nella lista del {data_t} hanno una differenza maggiore di zero {n_diff} confezioni su {n_conf}.",
-   "fonti": ["legge_art7", "trasparenza"]},
-  {"pagina": "home", "ricerca": "non sostituibile ricetta", "q": "Cosa vuol dire «non sostituibile» sulla ricetta?",
-   "a": "Il medico, prescrivendo un farmaco con un prezzo superiore al minimo, può indicare sulla ricetta che il farmacista non può sostituirlo con un medicinale uguale con un prezzo più basso (art. 7, comma 2). In quel caso la differenza tra il prezzo più basso e il prezzo del farmaco prescritto è a carico dell'assistito (comma 4).",
-   "fonti": ["legge_art7"]},
-  {"pagina": "home", "ricerca": "lista di trasparenza aifa cosa è", "q": "Cos'è la lista di trasparenza AIFA?",
-   "a": "È l'elenco dei medicinali equivalenti con il loro prezzo di riferimento, che AIFA pubblica ogni mese ai sensi dell'art. 7 del decreto-legge 347/2001. I medicinali dello stesso gruppo sono considerati automaticamente sostituibili, salvo che AIFA decida diversamente per motivi tecnico-scientifici. L'ultima lista è del {data_t}.",
-   "fonti": ["pagina_trasparenza", "pagina_equivalenti"]},
-  {"pagina": "home", "ricerca": "il farmaco equivalente è uguale all originale", "q": "Il farmaco equivalente è uguale all'originale?",
-   "a": "AIFA lo definisce come un farmaco con principio attivo, forma farmaceutica, via di somministrazione, modalità di rilascio, dosaggio e numero di unità uguali a quelli del farmaco di riferimento. L'inserimento nella lista di trasparenza avviene dopo valutazioni tecnico-scientifiche che accertano la stessa efficacia terapeutica. Per il tuo caso chiedi al medico o al farmacista.",
-   "fonti": ["pagina_equivalenti"]},
-  {"pagina": "carenze", "ricerca": "cosa significa farmaco carente", "q": "Cosa significa farmaco carente?",
-   "a": "Per AIFA è un medicinale temporaneamente non reperibile sul territorio nazionale perché il titolare dell'autorizzazione (titolare AIC) non può assicurarne una fornitura continua rispetto al bisogno dei pazienti. Se un farmaco manca in farmacia ma non è nell'elenco dei carenti, secondo AIFA può trattarsi di un'indisponibilità temporanea, cioè di un problema locale nella distribuzione.",
-   "fonti": ["pagina_carenti"]},
-  {"pagina": "carenze", "ricerca": "elenco farmaci carenti aifa 2026", "q": "Quanti farmaci ci sono nell'elenco AIFA dei carenti?",
-   "a": "L'elenco AIFA aggiornato al {data_c} ha {n_car} righe ({n_car_aic} codici AIC di confezione) con {n_car_pa} principi attivi diversi. Per {n_car_eq} confezioni AIFA indica che esiste un equivalente; {n_cessata} righe sono cessazioni definitive della commercializzazione.",
-   "fonti": ["carenti"]},
-  {"pagina": "carenze", "ricerca": "farmaci carenti aifa elenco", "q": "Ogni quanto AIFA aggiorna l'elenco dei farmaci carenti?",
-   "a": "Secondo AIFA l'elenco dei medicinali carenti viene aggiornato almeno due volte alla settimana. In questa pagina c'è l'elenco del {data_c}: controlliamo l'elenco nuovo ogni settimana e indichiamo sempre la data.",
-   "fonti": ["pagina_mancante", "carenti"]},
-  {"pagina": "farmaco-mancante", "ricerca": "farmaci mancanti cosa fare", "q": "Cosa fare se un farmaco manca in farmacia?",
-   "a": "AIFA indica prima di tutto di verificare se il medicinale è nell'elenco dei carenti. Se c'è, il paziente va indirizzato secondo le indicazioni della lista: rivolgersi al medico per un trattamento alternativo, oppure l'importazione dall'estero gestita da ASL o farmacie ospedaliere. Se non c'è, il farmacista verifica con almeno tre grossisti e può chiedere la fornitura diretta al titolare del farmaco.",
-   "fonti": ["pagina_mancante"]},
-  {"pagina": "farmaco-mancante", "ricerca": "cosa significa farmaco mancante", "q": "Cosa significa farmaco mancante?",
-   "a": "Per AIFA un medicinale può essere «mancante» per due motivi diversi: la carenza, quando il titolare non riesce a fornirlo in tutta Italia e AIFA lo inserisce nell'elenco dei carenti, e l'indisponibilità, quando il farmaco non è dichiarato carente ma non arriva in una zona per un problema della distribuzione locale.",
-   "fonti": ["pagina_mancante", "pagina_carenti"]},
-  {"pagina": "farmaco-mancante", "ricerca": "come trovare un farmaco che non si trova", "q": "Come trovare un farmaco che non si trova?",
-   "a": "Se il farmaco non è nell'elenco AIFA dei carenti, il farmacista contatta almeno tre grossisti della sua zona. Se l'indisponibilità è confermata, può ordinarlo direttamente al titolare: per legge il titolare deve fornire entro 48 ore, su richiesta delle farmacie, un medicinale che non si trova nella rete di distribuzione regionale (art. 105, comma 4, del decreto legislativo 219/2006).",
-   "fonti": ["pagina_mancante"]}
- ]
+"_nota": "Domande frequenti delle pagine generali. Ogni domanda nasce da una ricerca vera (campo ricerca: tra i suggerimenti salvati in domanda.json oppure tra le frasi misurate con volume in volumi-*.json; campo volume = ricerche mensili misurate, se c'è). Lo controlla verifica.py. Le risposte usano solo le fonti indicate; i segnaposto {...} li riempie genera.py dai dati AIFA. Le FAQ delle pagine dei principi attivi le costruisce genera.py dalle ricerche salvate e misurate per quel nome.",
+"faq": [
+{
+"pagina": "home",
+"ricerca": "farmaco equivalente cosa significa",
+"q": "Cosa significa farmaco equivalente?",
+"a": "Per AIFA il farmaco equivalente ha principio attivo, forma farmaceutica, via di somministrazione, modalità di rilascio, dosaggio, numero di unità posologiche e dosi unitarie uguali a un farmaco di riferimento («di marca») a cui è scaduta la copertura brevettuale. Si riconosce dalla dicitura «Medicinale Equivalente» sul foglio illustrativo e sulla confezione esterna.",
+"fonti": [
+"pagina_equivalenti"
+]
+},
+{
+"pagina": "home",
+"ricerca": "prezzo di riferimento farmaci",
+"q": "Cos'è il prezzo di riferimento dei farmaci?",
+"a": "È la cifra fino alla quale il Servizio sanitario nazionale rimborsa i medicinali con la stessa composizione, forma farmaceutica, via di somministrazione, modalità di rilascio, numero di unità e dosi (art. 7 del decreto-legge 347/2001). AIFA la pubblica ogni mese nella lista di trasparenza: in quella del {data_t} ci sono {n_gruppi} gruppi di equivalenza e {n_conf} confezioni.",
+"fonti": [
+"legge_art7",
+"trasparenza"
+]
+},
+{
+"pagina": "home",
+"ricerca": "farmaco di marca o generico",
+"q": "Farmaco di marca o equivalente: chi paga la differenza?",
+"a": "Se il medico scrive sulla ricetta che il farmaco non è sostituibile, oppure se non accetti la sostituzione proposta dal farmacista, la differenza tra il prezzo più basso e il prezzo del farmaco prescritto è a carico dell'assistito, esclusi i pensionati di guerra titolari di pensioni vitalizie (art. 7, comma 4). Nella lista del {data_t} hanno una differenza maggiore di zero {n_diff} confezioni su {n_conf}.",
+"fonti": [
+"legge_art7",
+"trasparenza"
+]
+},
+{
+"pagina": "home",
+"ricerca": "non sostituibile ricetta",
+"q": "Cosa vuol dire «non sostituibile» sulla ricetta?",
+"a": "Il medico, prescrivendo un farmaco con un prezzo superiore al minimo, può indicare sulla ricetta che il farmacista non può sostituirlo con un medicinale uguale con un prezzo più basso (art. 7, comma 2). In quel caso la differenza tra il prezzo più basso e il prezzo del farmaco prescritto è a carico dell'assistito (comma 4).",
+"fonti": [
+"legge_art7"
+]
+},
+{
+"pagina": "home",
+"ricerca": "lista di trasparenza aifa",
+"q": "Cos'è la lista di trasparenza AIFA?",
+"a": "È l'elenco dei medicinali equivalenti con il loro prezzo di riferimento, che AIFA pubblica ogni mese ai sensi dell'art. 7 del decreto-legge 347/2001. I medicinali dello stesso gruppo sono considerati automaticamente sostituibili, salvo che AIFA decida diversamente per motivi tecnico-scientifici. L'ultima lista è del {data_t}.",
+"fonti": [
+"pagina_trasparenza",
+"pagina_equivalenti"
+],
+"volume": 1300
+},
+{
+"pagina": "home",
+"ricerca": "il farmaco equivalente è uguale all originale",
+"q": "Il farmaco equivalente è uguale all'originale?",
+"a": "AIFA lo definisce come un farmaco con principio attivo, forma farmaceutica, via di somministrazione, modalità di rilascio, dosaggio e numero di unità uguali a quelli del farmaco di riferimento. L'inserimento nella lista di trasparenza avviene dopo valutazioni tecnico-scientifiche che accertano la stessa efficacia terapeutica. Per il tuo caso chiedi al medico o al farmacista.",
+"fonti": [
+"pagina_equivalenti"
+]
+},
+{
+"pagina": "carenze",
+"ricerca": "cosa significa farmaco carente",
+"q": "Cosa significa farmaco carente?",
+"a": "Per AIFA è un medicinale temporaneamente non reperibile sul territorio nazionale perché il titolare dell'autorizzazione (titolare AIC) non può assicurarne una fornitura continua rispetto al bisogno dei pazienti. Se un farmaco manca in farmacia ma non è nell'elenco dei carenti, secondo AIFA può trattarsi di un'indisponibilità temporanea, cioè di un problema locale nella distribuzione.",
+"fonti": [
+"pagina_carenti"
+]
+},
+{
+"pagina": "carenze",
+"ricerca": "elenco farmaci carenti aifa 2026",
+"q": "Quanti farmaci ci sono nell'elenco AIFA dei carenti?",
+"a": "L'elenco AIFA aggiornato al {data_c} ha {n_car} righe ({n_car_aic} codici AIC di confezione) con {n_car_pa} principi attivi diversi. Per {n_car_eq} confezioni AIFA indica che esiste un equivalente; {n_cessata} righe sono cessazioni definitive della commercializzazione.",
+"fonti": [
+"carenti"
+]
+},
+{
+"pagina": "carenze",
+"ricerca": "farmaci carenti aifa elenco",
+"q": "Ogni quanto AIFA aggiorna l'elenco dei farmaci carenti?",
+"a": "Secondo AIFA l'elenco dei medicinali carenti viene aggiornato almeno due volte alla settimana. In questa pagina c'è l'elenco del {data_c}: controlliamo l'elenco nuovo ogni settimana e indichiamo sempre la data.",
+"fonti": [
+"pagina_mancante",
+"carenti"
+]
+},
+{
+"pagina": "farmaco-mancante",
+"ricerca": "farmaci mancanti cosa fare",
+"q": "Cosa fare se un farmaco manca in farmacia?",
+"a": "AIFA indica prima di tutto di verificare se il medicinale è nell'elenco dei carenti. Se c'è, il paziente va indirizzato secondo le indicazioni della lista: rivolgersi al medico per un trattamento alternativo, oppure l'importazione dall'estero gestita da ASL o farmacie ospedaliere. Se non c'è, il farmacista verifica con almeno tre grossisti e può chiedere la fornitura diretta al titolare del farmaco.",
+"fonti": [
+"pagina_mancante"
+]
+},
+{
+"pagina": "farmaco-mancante",
+"ricerca": "cosa significa farmaco mancante",
+"q": "Cosa significa farmaco mancante?",
+"a": "Per AIFA un medicinale può essere «mancante» per due motivi diversi: la carenza, quando il titolare non riesce a fornirlo in tutta Italia e AIFA lo inserisce nell'elenco dei carenti, e l'indisponibilità, quando il farmaco non è dichiarato carente ma non arriva in una zona per un problema della distribuzione locale.",
+"fonti": [
+"pagina_mancante",
+"pagina_carenti"
+]
+},
+{
+"pagina": "farmaco-mancante",
+"ricerca": "come trovare un farmaco che non si trova",
+"q": "Come trovare un farmaco che non si trova?",
+"a": "Se il farmaco non è nell'elenco AIFA dei carenti, il farmacista contatta almeno tre grossisti della sua zona. Se l'indisponibilità è confermata, può ordinarlo direttamente al titolare: per legge il titolare deve fornire entro 48 ore, su richiesta delle farmacie, un medicinale che non si trova nella rete di distribuzione regionale (art. 105, comma 4, del decreto legislativo 219/2006).",
+"fonti": [
+"pagina_mancante"
+]
+},
+{
+"pagina": "home",
+"ricerca": "cerca farmaco equivalente",
+"volume": 480,
+"q": "Come si cerca un farmaco equivalente?",
+"a": "Scrivi il nome del farmaco o del principio attivo nella ricerca in cima alla pagina: si apre la pagina del principio attivo con i gruppi di equivalenza della lista di trasparenza AIFA del {data_t}. Le confezioni dello stesso gruppo sono considerate sostituibili, salvo diversa decisione di AIFA, e per ognuna ci sono prezzo al pubblico, prezzo di riferimento e differenza a carico. Nella lista ci sono {n_conf} confezioni in {n_gruppi} gruppi.",
+"fonti": [
+"trasparenza",
+"pagina_equivalenti"
+]
+},
+{
+"pagina": "carenze",
+"ricerca": "farmaci carenti aifa",
+"volume": 1000,
+"q": "Quali farmaci sono carenti secondo AIFA?",
+"a": "Sono quelli dell'elenco AIFA dei farmaci carenti: nell'elenco aggiornato al {data_c} ci sono {n_car} righe di {n_car_pa} principi attivi. I principi attivi con più righe sono {car_top}. Lo stato di ogni confezione (carente dal…, fine presunta, motivo) è nella tabella di questa pagina.",
+"fonti": [
+"carenti"
+]
+},
+{
+"pagina": "carenze",
+"ricerca": "elenco farmaci carenti aifa",
+"volume": 260,
+"q": "Dove si trova l'elenco AIFA dei farmaci carenti?",
+"a": "AIFA lo pubblica nella pagina «Farmaci carenti» del suo sito come file CSV da scaricare, insieme agli elenchi dei carenti con equivalenti e con trattamento alternativo. In questa pagina c'è lo stesso elenco aggiornato al {data_c}, con un filtro per nome e, per le confezioni della lista di trasparenza, il collegamento agli equivalenti dello stesso gruppo.",
+"fonti": [
+"pagina_carenti",
+"carenti"
+]
+},
+{
+"pagina": "farmaco-mancante",
+"ricerca": "farmaci mancanti nelle farmacie",
+"volume": 480,
+"q": "Perché mancano i farmaci in farmacia?",
+"a": "AIFA distingue due casi: la carenza, quando il titolare dell'autorizzazione non può assicurare una fornitura continua in tutta Italia, e l'indisponibilità temporanea, cioè una discontinuità locale nella distribuzione. Nell'elenco dei carenti aggiornato al {data_c} i motivi indicati più spesso sono: {motivi_top}.",
+"fonti": [
+"pagina_mancante",
+"pagina_carenti",
+"carenti"
+]
+}
+]
 }
