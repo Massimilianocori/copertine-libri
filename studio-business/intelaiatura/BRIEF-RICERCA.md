@@ -24,7 +24,7 @@ Per ogni idea: domanda reale (autocomplete Google nel Paese giusto: suggestqueri
 Vincoli: spese solo con il sì di Massimiliano; niente email a freddo, niente social; nessun dato personale; non aggirare blocchi anti-bot o geo-blocchi; nessun nome di modello AI nei file. NON modificare i siti: solo ricerca.
 
 Consegna: il tuo file in `studio-business/intelaiatura/` (nome indicato nel compito), poi le tue righe in fondo a `studio-business/intelaiatura/ESPLORATE.md`. Commit SOLO dei tuoi file con:
-`git add <tuoi file> && git commit -m "Ricerca <data>: <tema>" -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>" -m "Claude-Session: https://claude.ai/code/session_01BzC8eDnqLFMycBfFEFEcZf"` e `git push -q origin ccr-b7fd6b9e-n096cr || (git pull -q --rebase --autostash origin ccr-b7fd6b9e-n096cr && git push -q origin ccr-b7fd6b9e-n096cr)`. Altri agenti lavorano in parallelo: niente `git add -A` né `git add .`; se ESPLORATE.md è in conflitto, tieni entrambe le parti.
+`git add <tuoi file> && git commit -m "Ricerca <data>: <tema>" -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>" -m "Claude-Session: https://claude.ai/code/session_01BzC8eDnqLFMycBfFEFEcZf"` e `git fetch -q origin ccr-b7fd6b9e-n096cr`, se il remoto è avanti `git merge -q --no-edit origin/ccr-b7fd6b9e-n096cr` (MAI rebase, stash o autostash), poi `timeout 120 git push -q origin HEAD:ccr-b7fd6b9e-n096cr`. Altri agenti lavorano in parallelo: niente `git add -A` né `git add .`; se ESPLORATE.md è in conflitto, tieni entrambe le parti.
 
 Risposta finale (max 15 righe): le idee con voto, ognuna con la fonte esterna da cui è nata, la migliore, quelle che passano l'asticella.
 
