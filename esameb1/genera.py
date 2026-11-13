@@ -48,6 +48,7 @@ sys.path.append(str(RADICE.parent / "studio-business" / "strumenti"))
 import monetizzazione as MON  # noqa: E402
 import genera_en as EN  # noqa: E402  sezione inglese /en/ (dal 31/10/2026)
 import genera_lingue as LG  # noqa: E402  sezioni /uk/ e /ro/ (dal 31/10/2026); hreflang e menu delle lingue per tutto il sito
+import genera_guide as GU  # noqa: E402  test A2, carta di soggiorno, cittadinanza per matrimonio, stato della pratica (13/11/2026)
 SITO_ID = "esameb1"  # nome del sito in monetizzazione.json ("adsense_siti")
 ADSENSE_HEAD = MON.script_adsense(SITO_ID)  # "" con AdSense spento; altrimenti a capo + script ufficiale, subito dopo il meta di verifica Google
 # Qualità per AdSense (9/11/2026): niente script AdSense nelle pagine noindex o con meno di MIN_PAROLE_ADSENSE parole
@@ -792,7 +793,7 @@ def pagina(percorso, titolo, descrizione, corpo, jsonld=None, base=None, indiciz
 <div>
 <a class="logo" href="{home_href}">{MARCHIO}<span class="logo-testo">Esame<b>B1</b></span></a>
 <ul class="piede-link">
-<li><a href="{rel}#date">Date d'esame</a></li><li><a href="{rel}#citta">Sedi per città</a></li><li><a href="{rel}come-funziona/">Come funziona</a></li><li><a href="{rel}costo/">Costo</a></li><li><a href="{rel}risultati/">Risultati</a></li><li><a href="{rel}esenzioni-e-domande/">Orale e domande</a></li><li><a href="{rel}esonero-test-italiano/">Chi è esonerato</a></li><li><a href="{rel}esempi/">Prove d'esempio</a></li><li><a href="{rel}esempi/confronto/">CILS, CELI, PLIDA, CERT.IT a confronto</a></li><li><a href="{rel}cittadinanza/">Domanda di cittadinanza</a></li><li><a href="{rel}reddito-minimo-cittadinanza/">Reddito minimo</a></li><li><a href="{rel}decreto-flussi-click-day/">Decreto flussi: click day</a></li>{enti_link}{LG.link_piede_lingue("it", percorso, radice)}<li><a href="{rel}chi-siamo/">Chi siamo</a></li><li><a href="{rel}come-lavoriamo/">Come lavoriamo</a></li><li><a href="{rel}come-lavoriamo/#segnala">Segnala un errore</a></li><li><a href="{rel}privacy.html">Privacy</a></li>
+<li><a href="{rel}#date">Date d'esame</a></li><li><a href="{rel}#citta">Sedi per città</a></li><li><a href="{rel}come-funziona/">Come funziona</a></li><li><a href="{rel}costo/">Costo</a></li><li><a href="{rel}risultati/">Risultati</a></li><li><a href="{rel}esenzioni-e-domande/">Orale e domande</a></li><li><a href="{rel}esonero-test-italiano/">Chi è esonerato</a></li><li><a href="{rel}esempi/">Prove d'esempio</a></li><li><a href="{rel}esempi/confronto/">CILS, CELI, PLIDA, CERT.IT a confronto</a></li><li><a href="{rel}cittadinanza/">Domanda di cittadinanza</a></li><li><a href="{rel}reddito-minimo-cittadinanza/">Reddito minimo</a></li><li><a href="{rel}cittadinanza-per-matrimonio/">Cittadinanza per matrimonio</a></li><li><a href="{rel}pratica-cittadinanza/">Stato della pratica e giuramento</a></li><li><a href="{rel}carta-di-soggiorno/">Carta di soggiorno</a></li><li><a href="{rel}test-italiano-a2/">Test di italiano A2</a></li><li><a href="{rel}decreto-flussi-click-day/">Decreto flussi: click day</a></li>{enti_link}{LG.link_piede_lingue("it", percorso, radice)}<li><a href="{rel}chi-siamo/">Chi siamo</a></li><li><a href="{rel}come-lavoriamo/">Come lavoriamo</a></li><li><a href="{rel}come-lavoriamo/#segnala">Segnala un errore</a></li><li><a href="{rel}privacy.html">Privacy</a></li>
 </ul>
 </div>
 <div>
@@ -1184,10 +1185,12 @@ def link_guide(rel, salta=None, dopo_b1=True):
             ("esempi/", "libro", "Prove d'esempio", "gratis, ufficiali, ente per ente"),
             ("esempi/confronto/", "lista", "I 4 esami a confronto", "durata, prove, punteggio"),
             ("cittadinanza/", "edificio", "Dopo il B1: la domanda", "prefettura per prefettura"),
-            ("reddito-minimo-cittadinanza/", "euro", "Reddito minimo", "cittadinanza e carta di soggiorno")]
+            ("reddito-minimo-cittadinanza/", "euro", "Reddito minimo", "cittadinanza e carta di soggiorno"),
+            ("cittadinanza-per-matrimonio/", "scudo", "Cittadinanza per matrimonio", "requisiti, B1, domanda"),
+            ("carta-di-soggiorno/", "doc", "Carta di soggiorno", "requisiti, documenti, test A2")]
     return '<div class="griglia link3">' + "".join(
         f'<a href="{rel}{h}">{ic(i)}<span>{t}<small>{sm}</small></span></a>' for h, i, t, sm in voci
-        if h != salta and (dopo_b1 or h not in ("cittadinanza/", "reddito-minimo-cittadinanza/"))) + "</div>"
+        if h != salta and (dopo_b1 or h not in ("cittadinanza/", "reddito-minimo-cittadinanza/", "cittadinanza-per-matrimonio/", "carta-di-soggiorno/"))) + "</div>"
 
 
 # Città più cercate (blocco in home): Search Console e GoatCounter fino al 27/10/2026 (Milano 22 visite in una settimana, Verona 12,
@@ -3327,6 +3330,7 @@ il decreto del 4 giugno 2010 (alcune pagine di Prefetture e del Ministero citano
 <li><span>Se non lo superi puoi rifarlo con una nuova domanda: secondo il Ministero solo dopo 90 giorni dall'esame precedente.</span></li>
 </ol>
 {fonte("dm2021", "minint_test", "lecco")}
+<p><a href="../test-italiano-a2/">Il test A2 passo per passo: prenotazione, prove, risultato</a> · <a href="../carta-di-soggiorno/">requisiti e documenti della carta di soggiorno</a></p>
 <h3 id="a2-esonero">Chi non fa il test A2</h3>
 {a2_non}
 <p class="ris-nota">Con il certificato, il titolo del CPIA o il diploma alleghi alla domanda di permesso una copia autentica; per l'accordo di integrazione o il lavoro dell'art. 27 basta una dichiarazione.
@@ -4079,7 +4083,7 @@ e il reddito va <strong>mantenuto fino al giuramento</strong>: la Prefettura lo 
 Se chiedi la carta anche per i familiari, il reddito deve seguire le regole del ricongiungimento: assegno sociale <strong>+ {euro_c(meta)} per ogni familiare</strong>. Serve anche un alloggio idoneo.</p>
 {fonte("tu9", extra=fonte_inps)}
 {tab_k}
-<p class="small">«Al mese» è solo un aiuto per confrontare: la legge parla di reddito annuo. Quali documenti e quale reddito valgono lo decide la Questura. Per la carta serve anche il test di italiano A2, con alcune esenzioni: <a href="../esonero-test-italiano/">chi è esonerato</a>.</p>
+<p class="small">«Al mese» è solo un aiuto per confrontare: la legge parla di reddito annuo. Quali documenti e quale reddito valgono lo decide la Questura. Per la carta serve anche il test di italiano A2, con alcune esenzioni: <a href="../esonero-test-italiano/">chi è esonerato</a>. <a href="../carta-di-soggiorno/">Requisiti, documenti e costi della carta di soggiorno</a>.</p>
 </section>
 <section>
 <h2 id="ricongiungimento">{ic("pin")}Ricongiungimento familiare</h2>
@@ -4184,7 +4188,7 @@ def come_domanda(rel):
 <li><div><strong>Documenti da allegare</strong>: documento di riconoscimento, atto di nascita e certificato penale del Paese di origine, certificato di italiano almeno <a href="{rel}#date">B1</a> (salvo <a href="{rel}esonero-test-italiano/">esoneri</a>), ricevuta del contributo, estremi della marca da bollo telematica.</div></li>
 <li><div><strong>Contributo di {CITT["contributo_eur"]} €</strong>: si allega la ricevuta del pagamento.</div></li>
 <li><div><strong>Reddito</strong>: servono almeno le <a href="{rel}reddito-minimo-cittadinanza/">soglie del Ministero</a> negli ultimi 3 anni (per residenza).</div></li>
-<li><div><strong>Dopo l'invio</strong>: la pratica ha un numero K10; lo stato si vede online con le stesse credenziali.</div></li>
+<li><div><strong>Dopo l'invio</strong>: la pratica ha un numero K10; lo stato si vede online con le stesse credenziali. <a href="{rel}pratica-cittadinanza/">Stato della pratica, decreto e giuramento</a> · <a href="{rel}cittadinanza-per-matrimonio/">domanda per matrimonio</a>.</div></li>
 </ol>
 {fonte_citt("domanda", "consulta")}"""
 
@@ -4819,6 +4823,7 @@ def main():
         if ha_pagina_pref(sl):
             pagina_prefettura(sl, prossime)
             urls.append(f"cittadinanza/{pref_url(sl)}/")
+    urls += GU.genera(sys.modules[__name__])  # 4 guide del 13/11/2026 (genera_guide.py)
     chi_siamo()
     urls.append("chi-siamo/")
     come_lavoriamo()
@@ -4830,7 +4835,8 @@ def main():
     urls += LG.genera(sys.modules[__name__], prossime)  # sezioni /uk/ e /ro/ (genera_lingue.py, pagine in genera_lingue_pagine.py)
     extra(urls)
     n_en = EN.controlli(sys.modules[__name__])  # cifre /en/ = cifre italiane, link tra le lingue
-    n_l = LG.controlli(sys.modules[__name__])  # cifre /uk/ e /ro/, hreflang reciproci su tutto il sito, calcolatore identico in 4 lingue
+    n_l = LG.controlli(sys.modules[__name__])
+    GU.controlli(sys.modules[__name__])  # cifre delle 4 guide nelle frasi citate, FAQ visibili  # cifre /uk/ e /ro/, hreflang reciproci su tutto il sito, calcolatore identico in 4 lingue
     print(f"Pagine città fuori indice (noindex, fuori sitemap, senza AdSense): {len(fuori_indice)}: {', '.join(fuori_indice)}")
     print(f"Sito generato in {SITO}: {len(urls)} pagine in sitemap ({n_en} in inglese, {n_l['uk']} in ucraino, {n_l['ro']} in rumeno, controllate), "
           f"{len(prossime)} sessioni future, {len(sedi)} sedi.")

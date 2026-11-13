@@ -1,0 +1,513 @@
+{
+  "_nota": "Pagine del 13/11/2026: /test-italiano-a2/, /carta-di-soggiorno/, /cittadinanza-per-matrimonio/, /pratica-cittadinanza/ (stato della pratica, decreto e giuramento). Solo fatti letti nelle fonti ufficiali; le frasi in 'citazioni' le controlla raccolta/guide.py (fonte scaricata, frase presente). Le domande frequenti usano solo ricerche misurate il 13/11/2026 (campo 'ricerca' di ogni FAQ, volumi in studio-business/intelaiatura/esameb1-parole-2026-11-13.md). Decide sempre l'ufficio: Prefettura, Questura o Ministero. Revisione indipendente del 13/11/2026: aggiunte le fonti l91_art9ter, portale_costi (contributo 100 € e bollettino 130,46 €) e catania_matrimonio; il decreto 7/12/2021 sul test A2 è in dati/esoneri.json (fonte dm2021).",
+  "verificato_il": "2026-11-13",
+  "fonti": {
+    "minint_test": {
+      "nome": "Ministero dell'Interno, «Test di conoscenza della lingua italiana»",
+      "url": "https://www.interno.gov.it/it/temi/immigrazione-e-asilo/modalita-dingresso/test-conoscenza-lingua-italiana"
+    },
+    "lecco": {
+      "nome": "Prefettura di Lecco, «Esame conoscenza lingua italiana richiedenti permesso di soggiorno CE» (31/5/2024)",
+      "url": "https://prefettura.interno.gov.it/it/prefetture/lecco/esame-conoscenza-lingua-italiana-richiedenti-permesso-soggiorno"
+    },
+    "portale": {
+      "nome": "Portale Servizi del Ministero dell'Interno",
+      "url": "https://portaleservizi.dlci.interno.it/"
+    },
+    "tu9": {
+      "nome": "Testo unico immigrazione (d.lgs. 286/1998), art. 9, su Normattiva",
+      "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art9!vig="
+    },
+    "dlci_matrimonio": {
+      "nome": "Dipartimento per le libertà civili e l'immigrazione, «Acquisto della cittadinanza italiana per matrimonio con cittadino italiano (art. 5)»",
+      "url": "https://libertaciviliimmigrazione.dlci.interno.gov.it/temi/acquisto-della-cittadinanza-italiana-matrimonio-con-cittadino-italiano-ai-sensi-dellart-5"
+    },
+    "l91_art5": {
+      "nome": "Legge 91/1992, art. 5 (testo in vigore su Normattiva)",
+      "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1992-02-05;91~art5!vig="
+    },
+    "l91_art10": {
+      "nome": "Legge 91/1992, art. 10 (testo in vigore su Normattiva)",
+      "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1992-02-05;91~art10!vig="
+    },
+    "cittadinanza": {
+      "nome": "Ministero dell'Interno, «Cittadinanza»",
+      "url": "https://www.interno.gov.it/it/temi/cittadinanza-e-altri-diritti-civili/cittadinanza"
+    },
+    "domanda": {
+      "nome": "Ministero dell'Interno, «Cittadinanza: invia la tua domanda»",
+      "url": "https://www.interno.gov.it/it/temi/cittadinanza-e-altri-diritti-civili/cittadinanza/cittadinanza-invia-tua-domanda"
+    },
+    "consulta": {
+      "nome": "Ministero dell'Interno, «Cittadinanza: consulta la pratica»",
+      "url": "https://www.interno.gov.it/it/temi/cittadinanza-e-altri-diritti-civili/cittadinanza/cittadinanza-consulta-pratica"
+    },
+    "vademecum": {
+      "nome": "Ministero dell'Interno, Vademecum per la concessione della cittadinanza (circolare n. 20475 del 23 aprile 2025, PDF)",
+      "url": "https://libertaciviliimmigrazione.dlci.interno.gov.it/sites/default/files/2025-06/vademecum_23_aprile_2025.pdf",
+      "pdf": true
+    },
+    "portale_imm": {
+      "nome": "Portale Immigrazione (Ministero dell'Interno e Poste Italiane), «Codice 09 - Permesso di soggiorno UE per soggiornanti di lungo periodo» (aggiornato il 22/7/2024)",
+      "url": "https://www.portaleimmigrazione.it/ITA/permessosoggUELungoPeriodo.html"
+    },
+    "poste": {
+      "nome": "Poste Italiane, «Guida al rilascio e rinnovo del permesso di soggiorno»",
+      "url": "https://www.poste.it/prodotti/guida-rilascio-e-rinnovo-permesso-di-soggiorno.html"
+    },
+    "l91_art9ter": {
+      "nome": "Legge 91/1992, art. 9-ter (testo in vigore su Normattiva)",
+      "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1992-02-05;91~art9ter!vig="
+    },
+    "portale_costi": {
+      "nome": "Portale Immigrazione, «Tabelle Costi»",
+      "url": "https://www.portaleimmigrazione.it/ITA/tabelleCosti.html"
+    },
+    "catania_matrimonio": {
+      "nome": "Prefettura di Catania, «Concessione cittadinanza per matrimonio»",
+      "url": "https://prefettura.interno.gov.it/it/prefetture/catania/concessione-cittadinanza-matrimonio"
+    }
+  },
+  "citazioni": [
+    {
+      "fonte": "minint_test",
+      "testo": "deve inviare alla prefettura della provincia in cui risiede una domanda attraverso la procedura informatica"
+    },
+    {
+      "fonte": "minint_test",
+      "testo": "convoca sempre on line entro 60 giorni l'interessato indicando la data e la sede dell'esame"
+    },
+    {
+      "fonte": "minint_test",
+      "testo": "la prefettura ne da comunicazione in via telematica alla questura della provincia"
+    },
+    {
+      "fonte": "minint_test",
+      "testo": "soltanto dopo 90 giorni dalla data del precedente esame"
+    },
+    {
+      "fonte": "minint_test",
+      "testo": "Sempre sullo stesso sito è possibile consultare il risultato del proprio test"
+    },
+    {
+      "fonte": "minint_test",
+      "testo": "i figli minori di 14 anni"
+    },
+    {
+      "fonte": "lecco",
+      "testo": "che abbia compiuto i 14 anni di età"
+    },
+    {
+      "fonte": "lecco",
+      "testo": "dovrà essere inoltrata prima della richiesta del rilascio del permesso di soggiorno CE per soggiornanti di lungo periodo (carta di soggiorno) oppure contestualmente"
+    },
+    {
+      "fonte": "lecco",
+      "testo": "anche per il tramite dei patronati e le associazioni già abilitati"
+    },
+    {
+      "fonte": "lecco",
+      "testo": "portando con sé la lettera di convocazione, il permesso di soggiorno ed un documento di riconoscimento"
+    },
+    {
+      "fonte": "lecco",
+      "testo": "Lo svolgimento del test avviene presso i Centri per l'istruzione degli adulti"
+    },
+    {
+      "fonte": "lecco",
+      "testo": "Prova di comprensione orale (durata 25 minuti)"
+    },
+    {
+      "fonte": "lecco",
+      "testo": "Prova di comprensione scritta (durata 25 minuti)"
+    },
+    {
+      "fonte": "lecco",
+      "testo": "Prova di interazione scritta (durata 10 minuti)"
+    },
+    {
+      "fonte": "lecco",
+      "testo": "Ascolto di due testi brevi"
+    },
+    {
+      "fonte": "lecco",
+      "testo": "Due testi brevi da leggere"
+    },
+    {
+      "fonte": "lecco",
+      "testo": "Viene indicato un argomento e il candidato deve scrivere un breve testo"
+    },
+    {
+      "fonte": "lecco",
+      "testo": "risposta a scelta multipla"
+    },
+    {
+      "fonte": "lecco",
+      "testo": "almeno l'ottanta per cento del punteggio complessivo"
+    },
+    {
+      "fonte": "lecco",
+      "testo": "venire da soli: figli e accompagnatori non sono ammessi"
+    },
+    {
+      "fonte": "lecco",
+      "testo": "A fronte del superamento del test non viene rilasciato alcun attestato"
+    },
+    {
+      "fonte": "lecco",
+      "testo": "La Questura ha la possibilità di visualizzare l'esito del test tramite web service"
+    },
+    {
+      "fonte": "lecco",
+      "testo": "oppure sul sito del CPIA nella sezione notizie"
+    },
+    {
+      "fonte": "lecco",
+      "testo": "L'unica giustificazione per l'assenza sarranno i motivi di salute"
+    },
+    {
+      "fonte": "lecco",
+      "testo": "Lo straniero ha comunque diritto a mantenere il permesso di soggiorno"
+    },
+    {
+      "fonte": "tu9",
+      "testo": "Lo straniero in possesso, da almeno cinque anni, di un permesso di soggiorno in corso di validità, che dimostra la disponibilità di un reddito non inferiore all'importo annuo dell'assegno sociale"
+    },
+    {
+      "fonte": "tu9",
+      "testo": "è rilasciato entro novanta giorni dalla richiesta, è valido per dieci anni e, previa presentazione della relativa domanda corredata di nuove fotografie, è automaticamente rinnovato alla scadenza"
+    },
+    {
+      "fonte": "tu9",
+      "testo": "Per gli stranieri di età inferiore agli anni diciotto la validità del permesso di soggiorno UE per soggiornanti di lungo periodo è di cinque anni"
+    },
+    {
+      "fonte": "tu9",
+      "testo": "costituisce documento di identificazione personale"
+    },
+    {
+      "fonte": "tu9",
+      "testo": "in caso di assenza dal territorio dell'Unione per un periodo di dodici mesi consecutivi"
+    },
+    {
+      "fonte": "tu9",
+      "testo": "è subordinato al superamento, da parte del richiedente, di un test di conoscenza della lingua italiana"
+    },
+    {
+      "fonte": "tu9",
+      "testo": "La disposizione di cui al comma 2-bis non si applica allo straniero titolare di protezione internazionale"
+    },
+    {
+      "fonte": "dlci_matrimonio",
+      "testo": "risieda legalmente da almeno due anni nel territorio della Repubblica, oppure dopo tre anni dalla data del matrimonio se residente all’estero"
+    },
+    {
+      "fonte": "dlci_matrimonio",
+      "testo": "I termini di cui al comma 1 sono ridotti della metà in presenza di figli nati o adottati dai coniugi"
+    },
+    {
+      "fonte": "dlci_matrimonio",
+      "testo": "Ai prefetti è attribuita la competenza ad adottare provvedimenti in materia di concessione o diniego della cittadinanza nei confronti di cittadini stranieri coniugi di cittadini italiani residenti in Italia"
+    },
+    {
+      "fonte": "dlci_matrimonio",
+      "testo": "del Capo del Dipartimento per le Libertà Civili e l'Immigrazione, qualora il coniuge straniero abbia la residenza all'estero"
+    },
+    {
+      "fonte": "dlci_matrimonio",
+      "testo": "prevede il requisito della conoscenza della lingua italiana per i richiedenti la cittadinanza italiana per matrimonio"
+    },
+    {
+      "fonte": "dlci_matrimonio",
+      "testo": "è di ventiquattro mesi prorogabili fino ad un massimo di trentasei mesi"
+    },
+    {
+      "fonte": "dlci_matrimonio",
+      "testo": "Per le istanze presentate prima della suddetta data il termine di definizione è di quarantotto mesi"
+    },
+    {
+      "fonte": "l91_art5",
+      "testo": "può acquistare la cittadinanza italiana quando, dopo il matrimonio"
+    },
+    {
+      "fonte": "l91_art5",
+      "testo": "non sia intervenuto lo scioglimento, l'annullamento o la cessazione degli effetti civili del matrimonio e non sussista la separazione personale dei coniugi"
+    },
+    {
+      "fonte": "l91_art5",
+      "testo": "la morte del coniuge del richiedente, sopravvenuta in pendenza dei termini"
+    },
+    {
+      "fonte": "l91_art10",
+      "testo": "entro sei mesi dalla notifica del decreto medesimo, giuramento di essere fedele alla Repubblica e di osservare la Costituzione e le leggi dello Stato"
+    },
+    {
+      "fonte": "l91_art10",
+      "testo": "nella parte in cui non prevede che sia esonerata dal giuramento la persona incapace di soddisfare tale adempimento in ragione di grave e accertata condizione di disabilità"
+    },
+    {
+      "fonte": "cittadinanza",
+      "testo": "La 'cittadinanza per matrimonio' è riconosciuta dal prefetto della provincia di residenza del richiedente"
+    },
+    {
+      "fonte": "domanda",
+      "testo": "I richiedenti residenti all'estero accedono al medesimo indirizzo inserendo le proprie credenziali personali di accesso"
+    },
+    {
+      "fonte": "domanda",
+      "testo": "atto di nascita e certificato penale formati dalle autorità del Paese di origine"
+    },
+    {
+      "fonte": "domanda",
+      "testo": "ricevuta del pagamento del contributo di euro 250,00 previsto"
+    },
+    {
+      "fonte": "domanda",
+      "testo": "estremi della marca da bollo telematica"
+    },
+    {
+      "fonte": "consulta",
+      "testo": "cui è possibile accedere con le stesse credenziali ricevute all’atto della compilazione della domanda"
+    },
+    {
+      "fonte": "consulta",
+      "testo": "specificando nell'oggetto il numero identificativo della tua pratica (K10/K10C/….)"
+    },
+    {
+      "fonte": "consulta",
+      "testo": "Il richiedente deve avere a disposizione il numero k10 o k10C della propria domanda ed un documento d'identità"
+    },
+    {
+      "fonte": "consulta",
+      "testo": "A decorrere dal primo luglio 2024 il servizio è attivo nei giorni di lunedì, mercoledì e venerdì dalle ore 9.30 alle ore 17.30"
+    },
+    {
+      "fonte": "vademecum",
+      "testo": "permanere sino all’atto dell’eventuale giuramento"
+    },
+    {
+      "fonte": "vademecum",
+      "testo": "a partire dal novembre 2023 la notifica dei decreti di cittadinanza"
+    },
+    {
+      "fonte": "vademecum",
+      "testo": "avviene tramite Piattaforma Notifiche Digitali di PagoPA (SEND)"
+    },
+    {
+      "fonte": "vademecum",
+      "testo": "la raccomandata indirizzata al richiedente non contiene più la copia cartacea del decreto, ma unicamente l’Avviso di Avvenuta Ricezione"
+    },
+    {
+      "fonte": "vademecum",
+      "testo": "la notifica è comunque perfezionata il 10° giorno successivo al ricevimento della Raccomandata"
+    },
+    {
+      "fonte": "vademecum",
+      "testo": "in caso di mancato scaricamento del decreto nel termine di 120 giorni dalla data della notifica"
+    },
+    {
+      "fonte": "vademecum",
+      "testo": "non abbia prestato il prescritto giuramento entro il termine di 180 giorni dalla data di notifica"
+    },
+    {
+      "fonte": "vademecum",
+      "testo": "decaduto per mancato giuramento"
+    },
+    {
+      "fonte": "vademecum",
+      "testo": "riammissione al giuramento è della Prefettura"
+    },
+    {
+      "fonte": "vademecum",
+      "testo": "corredata da eventuale documentazione comprovante le ragioni della mancata conoscenza della notifica"
+    },
+    {
+      "fonte": "vademecum",
+      "testo": "decorrenti dalla data di trasmissione del decreto di concessione da parte di questa Direzione centrale alle Prefetture"
+    },
+    {
+      "fonte": "portale_imm",
+      "testo": "Presso gli Uffici Postali della Rete Sportello Amico puoi presentare istanze di: Rilascio Rinnovo Conversione Aggiornamento Duplicato"
+    },
+    {
+      "fonte": "portale_imm",
+      "testo": "stanza compilata e sottoscritta dall’interessato (Modulo 1 e 2)"
+    },
+    {
+      "fonte": "portale_imm",
+      "testo": "Fotocopia di tutto il passaporto o di altro documento equipollente"
+    },
+    {
+      "fonte": "portale_imm",
+      "testo": "Fotocopia della dichiarazione dei redditi o del modello CUD, rilasciato dal datore di lavoro, relativi all’anno precedente"
+    },
+    {
+      "fonte": "portale_imm",
+      "testo": "Certificato del casellario giudiziario e certificato delle iscrizioni relative ai procedimenti penali in corso"
+    },
+    {
+      "fonte": "portale_imm",
+      "testo": "Fotocopia certificazione anagrafica attestante lo stato di figlio minore"
+    },
+    {
+      "fonte": "portale_imm",
+      "testo": "Fotocopia del certificato di idoneità alloggiativa"
+    },
+    {
+      "fonte": "portale_imm",
+      "testo": "un motivo che consente un numero indeterminato di rinnovi (famiglia, lavoro subordinato a tempo indeterminato, lavoro autonomo, asilo, motivi religiosi, status apolidia )"
+    },
+    {
+      "fonte": "portale_imm",
+      "testo": "devono provvedere a compilare un proprio modulo 1 (o anche il modulo 2 se in possesso di redditi propri individuali)"
+    },
+    {
+      "fonte": "portale_imm",
+      "testo": "il reddito potrà essere dimostrato con altra obiettiva documentazione (busta paga, contributi INPS)"
+    },
+    {
+      "fonte": "poste",
+      "testo": "16 euro per la marca da bollo"
+    },
+    {
+      "fonte": "poste",
+      "testo": "30,00 euro all'operatore dell'ufficio postale, al momento della presentazione della domanda"
+    },
+    {
+      "fonte": "poste",
+      "testo": "30,46 euro per la produzione di Permesso o Carta di Soggiorno cui va aggiunto l’eventuale contributo ove dovuto"
+    },
+    {
+      "fonte": "poste",
+      "testo": "Utilizzare il kit a banda gialla disponibile in tutti gli Uffici Postali"
+    },
+    {
+      "fonte": "poste",
+      "testo": "Chiedere l’assistenza gratuita e qualificata di alcuni Comuni e Patronati abilitati alla compilazione"
+    },
+    {
+      "fonte": "poste",
+      "testo": "Una lettera di convocazione in Questura"
+    },
+    {
+      "fonte": "poste",
+      "testo": "PERMESSO DI SOGGIORNO UE DI LUNGO PERIODO"
+    },
+    {
+      "fonte": "tu9",
+      "testo": "quando sono inferiori a sei mesi consecutivi e non superano complessivamente dieci mesi nel quinquennio"
+    },
+    {
+      "fonte": "tu9",
+      "testo": "di un alloggio idoneo che rientri nei parametri minimi previsti dalla legge regionale per gli alloggi di edilizia residenziale pubblica"
+    },
+    {
+      "fonte": "tu9",
+      "testo": "e comunque in caso di assenza dal territorio dello Stato per un periodo superiore a sei anni"
+    },
+    {
+      "fonte": "tu9",
+      "testo": "soggiornano per motivi di studio o formazione professionale"
+    },
+    {
+      "fonte": "portale_imm",
+      "testo": "costituisce documento di identificazione personale per non oltre cinque anni dalla data del rilascio o del rinnovo"
+    },
+    {
+      "fonte": "l91_art5",
+      "testo": "sentenza 23 giugno - 26 luglio 2022, n. 195"
+    },
+    {
+      "fonte": "l91_art10",
+      "testo": "sentenza 8 novembre - 7 dicembre 2017, n. 258"
+    },
+    {
+      "fonte": "dlci_matrimonio",
+      "testo": "La legge di conversione 1° dicembre 2018 n. 132"
+    },
+    {
+      "fonte": "dlci_matrimonio",
+      "testo": "Per le domande presentate a partire dal 20 dicembre 2020"
+    },
+    {
+      "fonte": "vademecum",
+      "testo": "il termine dei 90 giorni"
+    },
+    {
+      "fonte": "lecco",
+      "testo": "nullaostalavoro.dlci.interno.it"
+    },
+    {
+      "fonte": "lecco",
+      "testo": "La commissione di valutazione del test è presieduta dal dirigente della scuola"
+    },
+    {
+      "fonte": "l91_art9ter",
+      "testo": "ventiquattro mesi prorogabili fino al massimo di trentasei mesi"
+    },
+    {
+      "fonte": "l91_art9ter",
+      "testo": "trova applicazione per le domande di cittadinanza presentate dalla data di entrata in vigore della legge di conversione"
+    },
+    {
+      "fonte": "portale_costi",
+      "testo": "Contributo per permessi di soggiorno UE di lungo periodo e per i permessi di soggiorno per i dirigenti e i lavoratori specializzati 100.00 €"
+    },
+    {
+      "fonte": "portale_costi",
+      "testo": "Un bollettino da 130.46€"
+    },
+    {
+      "fonte": "portale_costi",
+      "testo": "Produzione del Permesso di Soggiorno 30.46 €"
+    },
+    {
+      "fonte": "portale_costi",
+      "testo": "Kit intestato e presentato dal minore ma firmato dal minore e dal genitore 30.46 € Non previsto"
+    },
+    {
+      "fonte": "catania_matrimonio",
+      "testo": "estratto dell'atto di nascita tradotto e legalizzato"
+    },
+    {
+      "fonte": "catania_matrimonio",
+      "testo": "certificato penale del Paese di origine e di eventuali Paesi terzi di residenza, debitamente tradotto e legalizzato"
+    },
+    {
+      "fonte": "catania_matrimonio",
+      "testo": "titolo di soggiorno o fotocopia del certificato attestante la regolarità del soggiorno"
+    },
+    {
+      "fonte": "catania_matrimonio",
+      "testo": "marca da bollo da euro 16,00"
+    },
+    {
+      "fonte": "catania_matrimonio",
+      "testo": "deve essere effettuato tramite PagoPA direttamente dal portale contestualmente alla presentazione della domanda"
+    },
+    {
+      "fonte": "cittadinanza",
+      "testo": "Legge 23 maggio 2025, n. 74"
+    },
+    {
+      "fonte": "tu9",
+      "testo": "in corso di validità costituisce documento di identificazione personale"
+    },
+    {
+      "fonte": "tu9",
+      "testo": "attesta il riconoscimento permanente del relativo status"
+    },
+    {
+      "fonte": "tu9",
+      "testo": "di un reddito sufficiente secondo i parametri indicati nell'articolo 29, comma 3, lettera b)"
+    },
+    {
+      "fonte": "tu9",
+      "testo": "non è richiesta allo straniero titolare di protezione internazionale ed ai suoi familiari la documentazione relativa all'idoneità dell'alloggio"
+    },
+    {
+      "fonte": "vademecum",
+      "testo": "relativi ad istanze presentate in Italia ai sensi degli"
+    }
+  ]
+}

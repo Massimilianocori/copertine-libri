@@ -48,7 +48,7 @@ PAGINE = {
         ("uk/zvilnennia-vid-ispytu/", "esonero-test-italiano/index.html", "en/language-test-exemptions/", [], []),
         ("uk/dokhid-dlia-hromadianstva/", "reddito-minimo-cittadinanza/index.html", "en/income-requirement-italian-citizenship/", [], []),
         ("uk/hromadianstvo-italii/", "cittadinanza/index.html", "en/apply-italian-citizenship-by-residence/", ["reddito-minimo-cittadinanza/index.html", "cittadinanza/genova/index.html"], ["dlci_residenza"]),
-        ("uk/karta-di-soggiorno/", None, "en/carta-di-soggiorno-requirements/", ["reddito-minimo-cittadinanza/index.html", "esonero-test-italiano/index.html"], []),
+        ("uk/karta-di-soggiorno/", "carta-di-soggiorno/index.html", "en/carta-di-soggiorno-requirements/", ["reddito-minimo-cittadinanza/index.html", "esonero-test-italiano/index.html"], []),
         ("uk/vozziednannia-simi/", "reddito-ricongiungimento-familiare/index.html", "en/family-reunification-income/", [], []),
         ("uk/tymchasovyi-zakhyst/", None, None, [], ["questura_roma", "questura_udine", "questura_arezzo", "questura_milano", "prefettura_spezia", "polizia_verifica", "dlci_residenza", "normattiva_dl201", "im_2028"]),
     ],
@@ -61,7 +61,7 @@ PAGINE = {
         ("ro/scutire-test-italiana/", "esonero-test-italiano/index.html", "en/language-test-exemptions/", [], []),
         ("ro/venit-minim-cetatenie/", "reddito-minimo-cittadinanza/index.html", "en/income-requirement-italian-citizenship/", [], []),
         ("ro/cetatenie-italiana/", "cittadinanza/index.html", "en/apply-italian-citizenship-by-residence/", ["reddito-minimo-cittadinanza/index.html", "esonero-test-italiano/index.html"], ["dlci_residenza"]),
-        ("ro/carta-di-soggiorno/", None, "en/carta-di-soggiorno-requirements/", ["reddito-minimo-cittadinanza/index.html", "esonero-test-italiano/index.html"], []),
+        ("ro/carta-di-soggiorno/", "carta-di-soggiorno/index.html", "en/carta-di-soggiorno-requirements/", ["reddito-minimo-cittadinanza/index.html", "esonero-test-italiano/index.html"], []),
         ("ro/rezidenta-italia-cetateni-ue/", None, None, ["reddito-minimo-cittadinanza/index.html", "esonero-test-italiano/index.html"], ["polizia_ue", "dlci_residenza"]),
     ],
 }

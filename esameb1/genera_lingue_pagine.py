@@ -1290,7 +1290,7 @@ def pagina_carta(G, lg):
 <p>{p_c}</p>
 </section>
 {LG.due_colonne(G, lg, "../", "../../", LG.GUIDE[lg][idx][0])}
-{LG.altre_lingue(G, lg, perc, "../../", [f'<a href="../../reddito-minimo-cittadinanza/#carta-di-soggiorno" hreflang="it" lang="it">Italiano (reddito minimo)</a>', f'<a href="../../esonero-test-italiano/#carta-di-soggiorno" hreflang="it" lang="it">Italiano (test A2)</a>'])}"""
+{LG.altre_lingue(G, lg, perc, "../../", [f'<a href="../../carta-di-soggiorno/" hreflang="it" lang="it">Italiano (carta di soggiorno)</a>', f'<a href="../../reddito-minimo-cittadinanza/#carta-di-soggiorno" hreflang="it" lang="it">Italiano (reddito minimo)</a>', f'<a href="../../esonero-test-italiano/#carta-di-soggiorno" hreflang="it" lang="it">Italiano (test A2)</a>'])}"""
     LG.pagina_l(G, lg, perc, titolo, descr, corpo)
 
 

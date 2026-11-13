@@ -35,7 +35,7 @@ COPPIE = [
     ("en/language-test-exemptions/", "esonero-test-italiano/index.html", []),
     ("en/income-requirement-italian-citizenship/", "reddito-minimo-cittadinanza/index.html", []),
     ("en/apply-italian-citizenship-by-residence/", "cittadinanza/index.html", ["reddito-minimo-cittadinanza/index.html"]),
-    ("en/carta-di-soggiorno-requirements/", None, ["reddito-minimo-cittadinanza/index.html", "esonero-test-italiano/index.html"]),
+    ("en/carta-di-soggiorno-requirements/", "carta-di-soggiorno/index.html", ["reddito-minimo-cittadinanza/index.html", "esonero-test-italiano/index.html"]),  # pagina italiana dal 13/11/2026
     ("en/family-reunification-income/", "reddito-ricongiungimento-familiare/index.html", []),
     ("en/privacy/", "privacy.html", []),
 ]
@@ -1537,13 +1537,14 @@ an income not lower than the social allowance ({eur_c(annuo)} a year in {anno}) 
 <section><h2>{G.ic("info")}More guides</h2>{griglia_guide(G, "../", salta="carta-di-soggiorno-requirements/")}</section>
 <aside>{modulo(G, "../")}</aside>
 </div>
-<p class="small lingua-alt">{G.ic("web")}<span lang="it">In italiano:</span> <a href="../../reddito-minimo-cittadinanza/#carta-di-soggiorno" hreflang="it" lang="it">reddito minimo per la carta di soggiorno</a> ·
+<p class="small lingua-alt">{G.ic("web")}<span lang="it">In italiano:</span> <a href="../../carta-di-soggiorno/" hreflang="it" lang="it">carta di soggiorno: requisiti, documenti, costi</a> ·
+<a href="../../reddito-minimo-cittadinanza/#carta-di-soggiorno" hreflang="it" lang="it">reddito minimo per la carta di soggiorno</a> ·
 <a href="../../esonero-test-italiano/#carta-di-soggiorno" hreflang="it" lang="it">test di italiano A2 e chi è esonerato</a></p>"""
     titolo = G.titolo_pagina(f"Carta di soggiorno requirements {anno}: income and A2 test",
                              "Carta di soggiorno requirements: income and A2 test")
     descr = G.descrizione_pagina(
         f"EU long-term residence permit (carta di soggiorno) in English: {anni_carta} years with a permit, income from {eur_c(annuo)} a year in {anno}, A2 Italian test and exemptions.")
-    pagina_en(G, "en/carta-di-soggiorno-requirements/", titolo, descr, corpo)
+    pagina_en(G, "en/carta-di-soggiorno-requirements/", titolo, descr, corpo, it="carta-di-soggiorno/index.html")
 
 
 def pagina_ricongiungimento(G):
