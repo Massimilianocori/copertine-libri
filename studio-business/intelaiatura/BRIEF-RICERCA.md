@@ -1,4 +1,4 @@
-**13/11/2026 pomeriggio: il modello dei revisori e ricercatori indipendenti ha finito il suo limite settimanale (torna il 18/11 alle 21:00 italiane).** Fino ad allora ricercatori e revisori girano sul modello normale; la regola del revisore indipendente resta (agente separato, che non ha costruito la sezione).
+**14/11/2026 notte: limiti ricaricati (Fable disponibile, 0 % usato; reset settimanale mercoledì 21:00).** Ricercatori e revisori indipendenti tornano su Fable.
 
 **13/11/2026: seodata Unlimited attivo** (pagato da Massimiliano 4,99 $ + IVA; rinnovo già disdetto: attivo fino al 13/12/2026, poi si torna a 500 ricerche al mese): ricerche di volume SENZA limite. Misurare sempre i volumi veri, senza risparmiare chiamate (resta il divieto di stampare o scrivere la chiave).
 
