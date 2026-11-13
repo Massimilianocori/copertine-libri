@@ -1,0 +1,64 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Before You Fly//Ticket release dates//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Paris Catacombs: ticket releases and closures
+X-WR-TIMEZONE:Europe/Paris
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:paris-catacombs-chiusura-chiusure-2026-12-25@before-you-fly.com
+DTSTAMP:20261113T000000Z
+DTSTART;VALUE=DATE:20261225
+DTEND;VALUE=DATE:20261226
+SUMMARY:Paris Catacombs: closed
+DESCRIPTION:Official rule: “Closed on Monday and certain holidays: Januar
+ y 1\, May 1 and December 25. The Catacombs are open on July 14\, August 15
+ \, November 1 and November 11.”\nSource: https://www.catacombes.paris.fr
+ /en/visit/useful-information (checked on 13 November 2026)\nDate calculate
+ d by Before You Fly from the official rule. Rules can change: check the of
+ ficial page before you book.\nOfficial tickets: https://www.billetterie-pa
+ rismusees.paris.fr/\nhttps://before-you-fly.com/ticket-release-dates/paris
+ -catacombs/
+URL:https://before-you-fly.com/ticket-release-dates/paris-catacombs/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:paris-catacombs-chiusura-chiusure-2027-01-01@before-you-fly.com
+DTSTAMP:20261113T000000Z
+DTSTART;VALUE=DATE:20270101
+DTEND;VALUE=DATE:20270102
+SUMMARY:Paris Catacombs: closed
+DESCRIPTION:Official rule: “Closed on Monday and certain holidays: Januar
+ y 1\, May 1 and December 25. The Catacombs are open on July 14\, August 15
+ \, November 1 and November 11.”\nSource: https://www.catacombes.paris.fr
+ /en/visit/useful-information (checked on 13 November 2026)\nDate calculate
+ d by Before You Fly from the official rule. Rules can change: check the of
+ ficial page before you book.\nOfficial tickets: https://www.billetterie-pa
+ rismusees.paris.fr/\nhttps://before-you-fly.com/ticket-release-dates/paris
+ -catacombs/
+URL:https://before-you-fly.com/ticket-release-dates/paris-catacombs/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:paris-catacombs-chiusura-chiusure-2027-05-01@before-you-fly.com
+DTSTAMP:20261113T000000Z
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270502
+SUMMARY:Paris Catacombs: closed
+DESCRIPTION:Official rule: “Closed on Monday and certain holidays: Januar
+ y 1\, May 1 and December 25. The Catacombs are open on July 14\, August 15
+ \, November 1 and November 11.”\nSource: https://www.catacombes.paris.fr
+ /en/visit/useful-information (checked on 13 November 2026)\nDate calculate
+ d by Before You Fly from the official rule. Rules can change: check the of
+ ficial page before you book.\nOfficial tickets: https://www.billetterie-pa
+ rismusees.paris.fr/\nhttps://before-you-fly.com/ticket-release-dates/paris
+ -catacombs/
+URL:https://before-you-fly.com/ticket-release-dates/paris-catacombs/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

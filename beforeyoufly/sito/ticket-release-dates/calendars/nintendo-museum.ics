@@ -9,7 +9,7 @@ REFRESH-INTERVAL;VALUE=DURATION:P1D
 X-PUBLISHED-TTL:P1D
 BEGIN:VEVENT
 UID:nintendo-museum-uscita-sorteggio-2026-12-01@before-you-fly.com
-DTSTAMP:20261112T000000Z
+DTSTAMP:20261113T000000Z
 DTSTART;VALUE=DATE:20261201
 DTEND;VALUE=DATE:20261202
 SUMMARY:Nintendo Museum ticket drawing opens (for March 2027)
@@ -18,17 +18,17 @@ DESCRIPTION:Official rule: “Tickets are sold via a randomly selected draw
  Drawing entry example: People who want to visit on July 15th can enter a d
  rawing between April 1st and April 30th.”\nSource: https://museum.ninten
  do.com/en/guide/visit-flow/index.html\, https://museum-tickets.nintendo.co
- m/en/ (checked on 4 November 2026)\nDate calculated by Before You Fly from
-  the official rule. Rules can change: check the official page before you b
- ook.\nOfficial tickets: https://museum-tickets.nintendo.com/en/\nhttps://b
- efore-you-fly.com/ticket-release-dates/nintendo-museum/
+ m/en/ (checked on 13 November 2026)\nDate calculated by Before You Fly fro
+ m the official rule. Rules can change: check the official page before you 
+ book.\nOfficial tickets: https://museum-tickets.nintendo.com/en/\nhttps://
+ before-you-fly.com/ticket-release-dates/nintendo-museum/
 URL:https://before-you-fly.com/ticket-release-dates/nintendo-museum/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:nintendo-museum-chiusura-chiusure-2026-12-30@before-you-fly.com
-DTSTAMP:20261112T000000Z
+DTSTAMP:20261113T000000Z
 DTSTART;VALUE=DATE:20261230
 DTEND;VALUE=DATE:20261231
 SUMMARY:Nintendo Museum: closed
@@ -36,17 +36,17 @@ DESCRIPTION:Official rule: “Hours of Operation 10:00-20:00 Closed Tuesday
  s and through the New Year's holiday season (Dec. 30 – Jan. 3) *If Tuesd
  ay is a national holiday\, the museum will be open but closed the followin
  g day (Wednesday).”\nSource: https://museum.nintendo.com/en/ (checked on
-  4 November 2026)\nDate calculated by Before You Fly from the official rul
- e. Rules can change: check the official page before you book.\nOfficial ti
- ckets: https://museum-tickets.nintendo.com/en/\nhttps://before-you-fly.com
- /ticket-release-dates/nintendo-museum/
+  13 November 2026)\nDate calculated by Before You Fly from the official ru
+ le. Rules can change: check the official page before you book.\nOfficial t
+ ickets: https://museum-tickets.nintendo.com/en/\nhttps://before-you-fly.co
+ m/ticket-release-dates/nintendo-museum/
 URL:https://before-you-fly.com/ticket-release-dates/nintendo-museum/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:nintendo-museum-chiusura-chiusure-2026-12-31@before-you-fly.com
-DTSTAMP:20261112T000000Z
+DTSTAMP:20261113T000000Z
 DTSTART;VALUE=DATE:20261231
 DTEND;VALUE=DATE:20270101
 SUMMARY:Nintendo Museum: closed
@@ -54,17 +54,17 @@ DESCRIPTION:Official rule: “Hours of Operation 10:00-20:00 Closed Tuesday
  s and through the New Year's holiday season (Dec. 30 – Jan. 3) *If Tuesd
  ay is a national holiday\, the museum will be open but closed the followin
  g day (Wednesday).”\nSource: https://museum.nintendo.com/en/ (checked on
-  4 November 2026)\nDate calculated by Before You Fly from the official rul
- e. Rules can change: check the official page before you book.\nOfficial ti
- ckets: https://museum-tickets.nintendo.com/en/\nhttps://before-you-fly.com
- /ticket-release-dates/nintendo-museum/
+  13 November 2026)\nDate calculated by Before You Fly from the official ru
+ le. Rules can change: check the official page before you book.\nOfficial t
+ ickets: https://museum-tickets.nintendo.com/en/\nhttps://before-you-fly.co
+ m/ticket-release-dates/nintendo-museum/
 URL:https://before-you-fly.com/ticket-release-dates/nintendo-museum/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:nintendo-museum-chiusura-chiusure-2027-01-01@before-you-fly.com
-DTSTAMP:20261112T000000Z
+DTSTAMP:20261113T000000Z
 DTSTART;VALUE=DATE:20270101
 DTEND;VALUE=DATE:20270102
 SUMMARY:Nintendo Museum: closed
@@ -72,17 +72,17 @@ DESCRIPTION:Official rule: “Hours of Operation 10:00-20:00 Closed Tuesday
  s and through the New Year's holiday season (Dec. 30 – Jan. 3) *If Tuesd
  ay is a national holiday\, the museum will be open but closed the followin
  g day (Wednesday).”\nSource: https://museum.nintendo.com/en/ (checked on
-  4 November 2026)\nDate calculated by Before You Fly from the official rul
- e. Rules can change: check the official page before you book.\nOfficial ti
- ckets: https://museum-tickets.nintendo.com/en/\nhttps://before-you-fly.com
- /ticket-release-dates/nintendo-museum/
+  13 November 2026)\nDate calculated by Before You Fly from the official ru
+ le. Rules can change: check the official page before you book.\nOfficial t
+ ickets: https://museum-tickets.nintendo.com/en/\nhttps://before-you-fly.co
+ m/ticket-release-dates/nintendo-museum/
 URL:https://before-you-fly.com/ticket-release-dates/nintendo-museum/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:nintendo-museum-uscita-sorteggio-2027-01-01@before-you-fly.com
-DTSTAMP:20261112T000000Z
+DTSTAMP:20261113T000000Z
 DTSTART;VALUE=DATE:20270101
 DTEND;VALUE=DATE:20270102
 SUMMARY:Nintendo Museum ticket drawing opens (for April 2027)
@@ -91,17 +91,17 @@ DESCRIPTION:Official rule: “Tickets are sold via a randomly selected draw
  Drawing entry example: People who want to visit on July 15th can enter a d
  rawing between April 1st and April 30th.”\nSource: https://museum.ninten
  do.com/en/guide/visit-flow/index.html\, https://museum-tickets.nintendo.co
- m/en/ (checked on 4 November 2026)\nDate calculated by Before You Fly from
-  the official rule. Rules can change: check the official page before you b
- ook.\nOfficial tickets: https://museum-tickets.nintendo.com/en/\nhttps://b
- efore-you-fly.com/ticket-release-dates/nintendo-museum/
+ m/en/ (checked on 13 November 2026)\nDate calculated by Before You Fly fro
+ m the official rule. Rules can change: check the official page before you 
+ book.\nOfficial tickets: https://museum-tickets.nintendo.com/en/\nhttps://
+ before-you-fly.com/ticket-release-dates/nintendo-museum/
 URL:https://before-you-fly.com/ticket-release-dates/nintendo-museum/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:nintendo-museum-chiusura-chiusure-2027-01-02@before-you-fly.com
-DTSTAMP:20261112T000000Z
+DTSTAMP:20261113T000000Z
 DTSTART;VALUE=DATE:20270102
 DTEND;VALUE=DATE:20270103
 SUMMARY:Nintendo Museum: closed
@@ -109,17 +109,17 @@ DESCRIPTION:Official rule: “Hours of Operation 10:00-20:00 Closed Tuesday
  s and through the New Year's holiday season (Dec. 30 – Jan. 3) *If Tuesd
  ay is a national holiday\, the museum will be open but closed the followin
  g day (Wednesday).”\nSource: https://museum.nintendo.com/en/ (checked on
-  4 November 2026)\nDate calculated by Before You Fly from the official rul
- e. Rules can change: check the official page before you book.\nOfficial ti
- ckets: https://museum-tickets.nintendo.com/en/\nhttps://before-you-fly.com
- /ticket-release-dates/nintendo-museum/
+  13 November 2026)\nDate calculated by Before You Fly from the official ru
+ le. Rules can change: check the official page before you book.\nOfficial t
+ ickets: https://museum-tickets.nintendo.com/en/\nhttps://before-you-fly.co
+ m/ticket-release-dates/nintendo-museum/
 URL:https://before-you-fly.com/ticket-release-dates/nintendo-museum/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:nintendo-museum-chiusura-chiusure-2027-01-03@before-you-fly.com
-DTSTAMP:20261112T000000Z
+DTSTAMP:20261113T000000Z
 DTSTART;VALUE=DATE:20270103
 DTEND;VALUE=DATE:20270104
 SUMMARY:Nintendo Museum: closed
@@ -127,17 +127,17 @@ DESCRIPTION:Official rule: “Hours of Operation 10:00-20:00 Closed Tuesday
  s and through the New Year's holiday season (Dec. 30 – Jan. 3) *If Tuesd
  ay is a national holiday\, the museum will be open but closed the followin
  g day (Wednesday).”\nSource: https://museum.nintendo.com/en/ (checked on
-  4 November 2026)\nDate calculated by Before You Fly from the official rul
- e. Rules can change: check the official page before you book.\nOfficial ti
- ckets: https://museum-tickets.nintendo.com/en/\nhttps://before-you-fly.com
- /ticket-release-dates/nintendo-museum/
+  13 November 2026)\nDate calculated by Before You Fly from the official ru
+ le. Rules can change: check the official page before you book.\nOfficial t
+ ickets: https://museum-tickets.nintendo.com/en/\nhttps://before-you-fly.co
+ m/ticket-release-dates/nintendo-museum/
 URL:https://before-you-fly.com/ticket-release-dates/nintendo-museum/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:nintendo-museum-uscita-sorteggio-2027-02-01@before-you-fly.com
-DTSTAMP:20261112T000000Z
+DTSTAMP:20261113T000000Z
 DTSTART;VALUE=DATE:20270201
 DTEND;VALUE=DATE:20270202
 SUMMARY:Nintendo Museum ticket drawing opens (for May 2027)
@@ -146,17 +146,17 @@ DESCRIPTION:Official rule: “Tickets are sold via a randomly selected draw
  Drawing entry example: People who want to visit on July 15th can enter a d
  rawing between April 1st and April 30th.”\nSource: https://museum.ninten
  do.com/en/guide/visit-flow/index.html\, https://museum-tickets.nintendo.co
- m/en/ (checked on 4 November 2026)\nDate calculated by Before You Fly from
-  the official rule. Rules can change: check the official page before you b
- ook.\nOfficial tickets: https://museum-tickets.nintendo.com/en/\nhttps://b
- efore-you-fly.com/ticket-release-dates/nintendo-museum/
+ m/en/ (checked on 13 November 2026)\nDate calculated by Before You Fly fro
+ m the official rule. Rules can change: check the official page before you 
+ book.\nOfficial tickets: https://museum-tickets.nintendo.com/en/\nhttps://
+ before-you-fly.com/ticket-release-dates/nintendo-museum/
 URL:https://before-you-fly.com/ticket-release-dates/nintendo-museum/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:nintendo-museum-uscita-sorteggio-2027-03-01@before-you-fly.com
-DTSTAMP:20261112T000000Z
+DTSTAMP:20261113T000000Z
 DTSTART;VALUE=DATE:20270301
 DTEND;VALUE=DATE:20270302
 SUMMARY:Nintendo Museum ticket drawing opens (for June 2027)
@@ -165,17 +165,17 @@ DESCRIPTION:Official rule: “Tickets are sold via a randomly selected draw
  Drawing entry example: People who want to visit on July 15th can enter a d
  rawing between April 1st and April 30th.”\nSource: https://museum.ninten
  do.com/en/guide/visit-flow/index.html\, https://museum-tickets.nintendo.co
- m/en/ (checked on 4 November 2026)\nDate calculated by Before You Fly from
-  the official rule. Rules can change: check the official page before you b
- ook.\nOfficial tickets: https://museum-tickets.nintendo.com/en/\nhttps://b
- efore-you-fly.com/ticket-release-dates/nintendo-museum/
+ m/en/ (checked on 13 November 2026)\nDate calculated by Before You Fly fro
+ m the official rule. Rules can change: check the official page before you 
+ book.\nOfficial tickets: https://museum-tickets.nintendo.com/en/\nhttps://
+ before-you-fly.com/ticket-release-dates/nintendo-museum/
 URL:https://before-you-fly.com/ticket-release-dates/nintendo-museum/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:nintendo-museum-uscita-sorteggio-2027-04-01@before-you-fly.com
-DTSTAMP:20261112T000000Z
+DTSTAMP:20261113T000000Z
 DTSTART;VALUE=DATE:20270401
 DTEND;VALUE=DATE:20270402
 SUMMARY:Nintendo Museum ticket drawing opens (for July 2027)
@@ -184,17 +184,17 @@ DESCRIPTION:Official rule: “Tickets are sold via a randomly selected draw
  Drawing entry example: People who want to visit on July 15th can enter a d
  rawing between April 1st and April 30th.”\nSource: https://museum.ninten
  do.com/en/guide/visit-flow/index.html\, https://museum-tickets.nintendo.co
- m/en/ (checked on 4 November 2026)\nDate calculated by Before You Fly from
-  the official rule. Rules can change: check the official page before you b
- ook.\nOfficial tickets: https://museum-tickets.nintendo.com/en/\nhttps://b
- efore-you-fly.com/ticket-release-dates/nintendo-museum/
+ m/en/ (checked on 13 November 2026)\nDate calculated by Before You Fly fro
+ m the official rule. Rules can change: check the official page before you 
+ book.\nOfficial tickets: https://museum-tickets.nintendo.com/en/\nhttps://
+ before-you-fly.com/ticket-release-dates/nintendo-museum/
 URL:https://before-you-fly.com/ticket-release-dates/nintendo-museum/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:nintendo-museum-uscita-sorteggio-2027-05-01@before-you-fly.com
-DTSTAMP:20261112T000000Z
+DTSTAMP:20261113T000000Z
 DTSTART;VALUE=DATE:20270501
 DTEND;VALUE=DATE:20270502
 SUMMARY:Nintendo Museum ticket drawing opens (for August 2027)
@@ -203,10 +203,10 @@ DESCRIPTION:Official rule: “Tickets are sold via a randomly selected draw
  Drawing entry example: People who want to visit on July 15th can enter a d
  rawing between April 1st and April 30th.”\nSource: https://museum.ninten
  do.com/en/guide/visit-flow/index.html\, https://museum-tickets.nintendo.co
- m/en/ (checked on 4 November 2026)\nDate calculated by Before You Fly from
-  the official rule. Rules can change: check the official page before you b
- ook.\nOfficial tickets: https://museum-tickets.nintendo.com/en/\nhttps://b
- efore-you-fly.com/ticket-release-dates/nintendo-museum/
+ m/en/ (checked on 13 November 2026)\nDate calculated by Before You Fly fro
+ m the official rule. Rules can change: check the official page before you 
+ book.\nOfficial tickets: https://museum-tickets.nintendo.com/en/\nhttps://
+ before-you-fly.com/ticket-release-dates/nintendo-museum/
 URL:https://before-you-fly.com/ticket-release-dates/nintendo-museum/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED

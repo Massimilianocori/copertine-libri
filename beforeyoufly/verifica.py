@@ -203,6 +203,16 @@ Uso (dalla radice del repository, dopo python3 beforeyoufly/genera.py):
     ogni regola è quello scritto nel file ("pagine"), ogni percorso di "tranne" e "solo" esiste; le pagine fuori indice restano linkate
     dalla loro pagina indice; in "Available in?" restano in indice Starlink, le pagine indice dei servizi e le pagine con visite; nessuna
     sezione che porta visite (liquidi, biglietti, India, mezzi pubblici, bagaglio a mano, passaporti in inglese, driving abroad) è fuori indice.
+34. Wise (13/11/2026, Partnerize, interruttore _wise in dati/affiliati.json): riquadro «Affiliate» solo nella sezione «Available in?» di
+    Wise: pagina del servizio e pagine Paese in indice con "Yes" o "Not for holding money" (ricalcolate da dati/servizi.json); un solo link =
+    dati (wise.prf.hn/click/camref:…), rel="sponsored nofollow noopener", target _blank, riga di trasparenza, rimando a Wise per commissioni e
+    cambi, nessuna cifra né promessa, dopo le citazioni ufficiali; prf.hn mai altrove; fonti wise.com come link normali; spento = nessuna
+    traccia; online (senza --offline): 302 verso wise.com.
+35. Grow by Mediavine (13/11/2026, interruttore GROW_ATTIVO in genera.py; requisito di Journey by Mediavine): ogni pagina HTML del sito
+    (in indice e fuori indice, 404, contatti, privacy, inglese, italiano, tedesco e francese) ha nel <head> esattamente un tag Grow, uguale
+    parola per parola al tag di publishers.grow.me scritto a mano qui, con l'ID del sito giusto, e nessun altro riferimento a Grow; la
+    privacy nomina Grow e Mediavine (misura del pubblico, pagine salvate) e linka la «Advertising Management & Grow Privacy Notice»;
+    spento = nessuna traccia; una Content-Security-Policy (netlify.toml o meta), se c'è, deve ammettere faves.grow.me e api.grow.me.
 AVVISI (10/11/2026): le copie delle fonti in raccolta/.cache/ non sono nel repository. Il ricalcolo dalla copia (frasi, impronte, tabelle,
 seconda lettura dei PDF) dei punti 13, 17, 18, 20-29 si salta con un avviso (stampato, contato, elencato in fondo, non è un errore) se la
 copia manca, se è una pagina di blocco o anti-robot (titolo), o se è più recente dell'ultima lettura buona dei dati (la raccolta ha
@@ -499,7 +509,8 @@ def controlla_struttura():
         # pagine fuori indice (dati/noindex.json): senza canonical, le controlla il punto 33
         if f.name != "404.html" and not G.fuori_indice(_percorso(f)) and f'<link rel="canonical" href="{G.URL_SITO}/' not in t:
             errori.append(f"canonical mancante in {f.relative_to(SITO)}")
-        # ammessi solo il contatore GoatCounter e lo script AdSense (quello lo controlla il punto 19, monetizzazione.py)
+        # ammessi solo il contatore GoatCounter e lo script AdSense (quello lo controlla il punto 19, monetizzazione.py); il tag Grow è
+        # uno script in linea senza src (crea lui faves.grow.me/main.js): lo controlla il punto 35
         if re.search(r'<script[^>]+src="(?!https://gc\.zgo\.at/count\.js"|https://pagead2\.googlesyndication\.com/pagead/js/adsbygoogle\.js\?client=ca-pub-\d{16}")', t):
             errori.append(f"script esterno in {f.relative_to(SITO)}")
     nf = leggi("404.html")
@@ -3199,7 +3210,9 @@ DOMINI_UFFICIALI_BIG = {"cenacolovinciano.org", "cenacolovinciano.vivaticket.it"
                         "sagradafamilia.org",
                         # Giappone e USA (31/10/2026): siti ufficiali e biglietterie che le pagine ufficiali indicano
                         "www.ghibli-museum.jp", "ghibli-park.jp", "l-tike.com", "museum.nintendo.com", "museum-tickets.nintendo.com",
-                        "www.sumo.or.jp", "sumo.pia.jp", "sankan.kunaicho.go.jp", "www.recreation.gov", "www.nps.gov"}
+                        "www.sumo.or.jp", "sumo.pia.jp", "sankan.kunaicho.go.jp", "www.recreation.gov", "www.nps.gov",
+                        # 13/11/2026: lotterie dei parchi USA (BLM) e Catacombe di Parigi con la biglietteria di Paris Musées che il sito ufficiale linka
+                        "www.blm.gov", "www.catacombes.paris.fr", "www.billetterie-parismusees.paris.fr"}
 # Mesi e numeri ordinali in inglese, scritti qui di nuovo (controllo indipendente da genera.py)
 MESI_EN_BIG = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
@@ -3304,6 +3317,22 @@ STAY22_LIQ = {"barcelona": "sagrada-familia", "rome-fiumicino": "vatican-museums
               "milan-malpensa": "last-supper-milan", "granada": "alhambra"}
 
 
+# Attrazioni aggiunte il 13/11/2026 (pagine ufficiali lette con curl, HTTP 200): (tipo, id) -> (ora locale, giorni dell'anno | giorni
+# di anticipo | (giorno del mese, mesi dopo)). Scritte qui a mano di nuovo, per non fidarsi solo dei dati.
+ATTESE_BIG_1311 = {
+    "angels-landing-permits": {"fuso": "America/Denver", "regole": {("annuale", "stagione"): ("08:00", ["01-01", "04-01", "07-01", "10-01"]),
+                                                                     ("anticipo", "vigilia"): ("00:01", 1)}},
+    "half-dome-permits": {"fuso": "America/Los_Angeles", "regole": {("annuale", "apre"): (None, ["03-01"]), ("annuale", "chiude"): (None, ["03-31"])},
+                          "testo": True},
+    "haleakala-sunrise": {"fuso": "Pacific/Honolulu", "regole": {("anticipo", "sessanta"): ("07:00", 60)}, "testo": True},
+    "the-wave-permit-lottery": {"fuso": "America/Phoenix", "regole": {("mensile", "estrae"): (None, (1, 3)), ("mensile", "apre"): (None, (1, 4))},
+                                "testo": True},
+    "mt-whitney-permits": {"fuso": "America/Los_Angeles", "regole": {("annuale", "risultati"): (None, ["03-15"]), ("annuale", "scadenza"): (None, ["04-21"]),
+                                                                    ("annuale", "aperte"): (None, ["04-22"])}, "testo": True},
+    "paris-catacombs": {"fuso": "Europe/Paris", "regole": {}, "chiusure_md": ["01-01", "05-01", "12-25"], "settimana": [0], "testo": True},
+}
+
+
 def _fine_finestra_big(oggi, mesi):
     y, m = oggi.year + (oggi.month - 1 + mesi) // 12, (oggi.month - 1 + mesi) % 12 + 1
     ultimo = (date(y + (m == 12), m % 12 + 1, 1) - timedelta(days=1)).day
@@ -3328,6 +3357,8 @@ def _attesi_big(a, oggi):
             if r["tipo"] == "mensile" and d.day == r["giorno"]:
                 out.add((d.isoformat(), r["ora"], "uscita", r["id"]))
             if r["tipo"] == "date" and d.isoformat() in {x["data"] for x in r["date"]}:
+                out.add((d.isoformat(), r["ora"], "uscita", r["id"]))
+            if r["tipo"] == "annuale" and md in {x["md"] for x in r["date_md"]}:
                 out.add((d.isoformat(), r["ora"], "uscita", r["id"]))
         g = a.get("gratis")
         if g and ((g["tipo"] == "prima_domenica" and prima_dom) or (g["tipo"] == "ultima_domenica" and ultima_dom)):
@@ -3445,6 +3476,9 @@ def controlla_biglietti():
         campi += [(f"testo {t['titolo']}", t["nota"]) for t in a["uscite_testo"]] + [("escluse", x) for x in a["chiusure"].get("escluse_md", {}).values()]
         campi += [(f"orario {o.get('md') or o.get('data')}", o["testo"]) for o in a["orari_speciali"]]
         campi += [(f"date {r['id']}", x["per"]) for r in a["uscite"] if r["tipo"] == "date" for x in r["date"]]
+        campi += [(f"date {r['id']}", x["per"]) for r in a["uscite"] if r["tipo"] == "annuale" for x in r["date_md"]]
+        campi += [(f"nota_ora {r['id']}", r.get("nota_ora", "")) for r in a["uscite"]]
+        campi += [(f"ora_tabella {r['id']}", r.get("ora_tabella", "")) for r in a["uscite"]]
         campi += [(f"etichetta {r['id']}", r.get("etichetta", "")) for r in a["uscite"]] + [("nota chiusure", a["chiusure"].get("nota", ""))]
         campi += [(f"FAQ «{q['q']}»", q["pre"] + " " + q["post"]) for q in a["faq"]]
         for nome, testo in campi:
@@ -3485,18 +3519,27 @@ def controlla_biglietti():
                     x = next((x for x in r["date"] if x["data"] == e["data"]), None)
                     if not x or e.get("per") != x["per"]:
                         errori.append(f"biglietti {s}: uscita {e['data']} non nella tabella ufficiale")
+                if r["tipo"] == "annuale":
+                    x = next((x for x in r["date_md"] if x["md"] == e["data"][5:]), None)
+                    if not x or e.get("per") != x["per"]:
+                        errori.append(f"biglietti {s}: uscita {e['data']} non tra i giorni dell'anno della regola {r['id']}")
         # c2) le regole dicono quello che dice la frase ufficiale: giorno del mese, ora, date della tabella, giorni di anticipo, esempio ufficiale
         for r in a["uscite"]:
             testo_cit = " ".join(G.cit_big(a, i)["x"] for i in r["cit"])
             if r.get("ora") and r["ora"] not in _ore_in_testo_big(testo_cit):
                 errori.append(f"biglietti {s}: l'ora {r['ora']} della regola {r['id']} non è nella frase ufficiale")
-            if r["tipo"] == "mensile" and not re.search(r"\b" + _ordinale_big(r["giorno"]) + r"\b", testo_cit):
+            if r["tipo"] == "mensile" and not re.search(r"\b" + _ordinale_big(r["giorno"]) + r"\b" + (r"|\bfirst of\b" if r["giorno"] == 1 else ""), testo_cit):
                 errori.append(f"biglietti {s}: il giorno {_ordinale_big(r['giorno'])} della regola {r['id']} non è nella frase ufficiale")
             if r["tipo"] == "date":
                 for x in r["date"]:
                     dd = date.fromisoformat(x["data"])
                     if f"{MESI_EN_BIG[dd.month - 1]} {dd.day}, {dd.year}" not in testo_cit:
                         errori.append(f"biglietti {s}: la data {x['data']} non è nella tabella ufficiale citata")
+            if r["tipo"] == "annuale":
+                for x in r["date_md"]:
+                    mm_, gg_ = (int(y) for y in x["md"].split("-"))
+                    if not re.search(r"\b%s %d(?:st|nd|rd|th)?\b" % (MESI_EN_BIG[mm_ - 1], gg_), testo_cit):
+                        errori.append(f"biglietti {s}: il giorno {x['md']} della regola {r['id']} non è nella frase ufficiale")
             if r["tipo"] == "anticipo" and not re.search(r"\b(?:%d days?|day before)\b" % r["giorni"], testo_cit + " " + r["breve"]):
                 errori.append(f"biglietti {s}: i {r['giorni']} giorni di anticipo della regola {r['id']} non sono nella frase ufficiale")
             P = r.get("prova")
@@ -3526,7 +3569,7 @@ def controlla_biglietti():
             errori.append(f"{rel}: titolo oltre {G.LIMITE_TITOLO_BIG} caratteri, senza gli anni o diverso dai dati: {tit}")
         m = re.search(r'<p class="lead" id="answer">(.*?)</p>', t)
         prima = unescape(re.sub(r"<[^>]+>", "", m.group(1))) if m else ""
-        if "data-vecchie=" not in t or ("{next" in a["risposta"] and "data-prox=" not in (m.group(1) if m else "")):
+        if ("data-vecchie=" not in t and ev) or ("{next" in a["risposta"] and "data-prox=" not in (m.group(1) if m else "")):
             errori.append(f"{rel}: mancano le date 'prossime' aggiornate nel browser o l'avviso per le date passate")
         if prima != G.risposta_big(a) or not prima.startswith(f"According to {a['chi']}, checked on {G.data_lunga(G.data_big(a))}, "):
             errori.append(f"{rel}: prima frase diversa da 'According to <fonte>, checked on <data>, <risposta>'")
@@ -3558,7 +3601,7 @@ def controlla_biglietti():
             F = G.BIG["fonti"][f]
             if f'href="{escape(F["pagina"])}"' not in t or f"checked on {G.data_lunga(F['letto_il'])}" not in vis:
                 errori.append(f"{rel}: manca il link o la data della fonte {f}")
-        if f"Official tickets for the {a['nome_lungo']} {a['biglietteria'].get('verbo', 'are sold at')}" not in vis or "resellers may charge more" not in vis \
+        if f"Official tickets for the {a['nome_lungo']} {a['biglietteria'].get('verbo', 'are sold at')}" not in vis or ("resellers may charge more" in vis) != (a.get("viator") is not False) \
                 or f'href="{escape(a["biglietteria"]["url"])}"' not in t:
             errori.append(f"{rel}: manca il riquadro della biglietteria ufficiale con l'avviso sui rivenditori")
         faq_ld = next((x for x in (json.loads(y) for y in re.findall(r'<script type="application/ld\+json">(.*?)</script>', t)) if x.get("@type") == "FAQPage"), None)
@@ -3571,45 +3614,51 @@ def controlla_biglietti():
                 errori.append(f"{rel}: FAQ visibile diversa dal JSON-LD: {qd}")
         # e) .ics: forma, eventi = date calcolate, ora locale = regola
         f_ics = SITO / G.url_ics_big(s)
-        if not f_ics.exists():
+        if ev and not f_ics.exists():
             errori.append(f"{G.url_ics_big(s)}: file mancante")
             continue
-        if f'href="../../{G.url_ics_big(s)}"' not in t or "webcal://" not in t:
+        if ev and (f'href="../../{G.url_ics_big(s)}"' not in t or "webcal://" not in t):
             errori.append(f"{rel}: mancano i link al calendario")
-        with open(f_ics, encoding="utf-8", newline="") as fh:
-            testo_ics = fh.read()
-        aperte = _ics_righe(testo_ics, G.url_ics_big(s), errori)
-        if aperte[:2] != ["BEGIN:VCALENDAR", "VERSION:2.0"] or aperte[-1] != "END:VCALENDAR" or not any(x.startswith("PRODID:") for x in aperte):
-            errori.append(f"{G.url_ics_big(s)}: intestazione o chiusura VCALENDAR non valide")
-        eventi, cur = [], None
-        for x in aperte:
-            if x == "BEGIN:VEVENT":
-                cur = {}
-            elif x == "END:VEVENT":
-                eventi.append(cur)
-                cur = None
-            elif cur is not None:
-                k, _, v = x.partition(":")
-                cur[k] = v
-        if testo_ics.count("BEGIN:VEVENT") != testo_ics.count("END:VEVENT") or len(eventi) != len(ev):
-            errori.append(f"{G.url_ics_big(s)}: {len(eventi)} eventi invece di {len(ev)}")
-        uid = [e.get("UID") for e in eventi]
-        if len(set(uid)) != len(uid) or not all(uid):
-            errori.append(f"{G.url_ics_big(s)}: UID mancanti o duplicati")
-        dal_ics = set()
-        for e in eventi:
-            conti["eventi_ics"] += 1
-            if not all(k in e for k in ("DTSTAMP", "SUMMARY", "DESCRIPTION")) or not ("DTSTART" in e or "DTSTART;VALUE=DATE" in e):
-                errori.append(f"{G.url_ics_big(s)}: evento senza DTSTAMP, DTSTART, SUMMARY o DESCRIPTION: {e.get('UID')}")
-                continue
-            if "DTSTART;VALUE=DATE" in e:
-                dd = e["DTSTART;VALUE=DATE"]
-                dal_ics.add((f"{dd[:4]}-{dd[4:6]}-{dd[6:]}", None))
-            else:
-                u = datetime.strptime(e["DTSTART"], "%Y%m%dT%H%M%SZ").replace(tzinfo=ZoneInfo("UTC")).astimezone(ZoneInfo(a["fuso"]))
-                dal_ics.add((u.date().isoformat(), u.strftime("%H:%M")))
-        if dal_ics != {(e["data"], e["ora"]) for e in ev}:
-            errori.append(f"{G.url_ics_big(s)}: date o ore diverse dalle date calcolate")
+        if not ev and (G.url_ics_big(s) in t or "webcal://" in t or "data-senza-cal" not in t or "<table" in t.split('id="dates"', 1)[-1].split('id="how"', 1)[0]):
+            errori.append(f"{rel}: nessuna data nel calendario, ma la pagina ha link al calendario o una tabella, o non lo dice")
+        # 13/11/2026 (revisione): senza date non si scrive nessun file .ics (un VCALENDAR senza eventi non è valido per la RFC 5545)
+        if not ev and f_ics.exists():
+            errori.append(f"{G.url_ics_big(s)}: calendario senza eventi, il file non deve esistere")
+        if ev:
+            with open(f_ics, encoding="utf-8", newline="") as fh:
+                testo_ics = fh.read()
+            aperte = _ics_righe(testo_ics, G.url_ics_big(s), errori)
+            if aperte[:2] != ["BEGIN:VCALENDAR", "VERSION:2.0"] or aperte[-1] != "END:VCALENDAR" or not any(x.startswith("PRODID:") for x in aperte):
+                errori.append(f"{G.url_ics_big(s)}: intestazione o chiusura VCALENDAR non valide")
+            eventi, cur = [], None
+            for x in aperte:
+                if x == "BEGIN:VEVENT":
+                    cur = {}
+                elif x == "END:VEVENT":
+                    eventi.append(cur)
+                    cur = None
+                elif cur is not None:
+                    k, _, v = x.partition(":")
+                    cur[k] = v
+            if testo_ics.count("BEGIN:VEVENT") != testo_ics.count("END:VEVENT") or len(eventi) != len(ev):
+                errori.append(f"{G.url_ics_big(s)}: {len(eventi)} eventi invece di {len(ev)}")
+            uid = [e.get("UID") for e in eventi]
+            if len(set(uid)) != len(uid) or not all(uid):
+                errori.append(f"{G.url_ics_big(s)}: UID mancanti o duplicati")
+            dal_ics = set()
+            for e in eventi:
+                conti["eventi_ics"] += 1
+                if not all(k in e for k in ("DTSTAMP", "SUMMARY", "DESCRIPTION")) or not ("DTSTART" in e or "DTSTART;VALUE=DATE" in e):
+                    errori.append(f"{G.url_ics_big(s)}: evento senza DTSTAMP, DTSTART, SUMMARY o DESCRIPTION: {e.get('UID')}")
+                    continue
+                if "DTSTART;VALUE=DATE" in e:
+                    dd = e["DTSTART;VALUE=DATE"]
+                    dal_ics.add((f"{dd[:4]}-{dd[4:6]}-{dd[6:]}", None))
+                else:
+                    u = datetime.strptime(e["DTSTART"], "%Y%m%dT%H%M%SZ").replace(tzinfo=ZoneInfo("UTC")).astimezone(ZoneInfo(a["fuso"]))
+                    dal_ics.add((u.date().isoformat(), u.strftime("%H:%M")))
+            if dal_ics != {(e["data"], e["ora"]) for e in ev}:
+                errori.append(f"{G.url_ics_big(s)}: date o ore diverse dalle date calcolate")
         # f) link esterni solo ufficiali; nessun rivenditore nominato
         for h in re.findall(r'href="((?:https?|webcal)://[^"]+)"', t.split('<main id="main">', 1)[-1].split("</main>", 1)[0]):
             conti["link_esterni"] += 1
@@ -3620,6 +3669,26 @@ def controlla_biglietti():
             errori.append(f"{rel}: nome di rivenditore o assistente '{mm.group(0)}'")
         if "not affiliated with any museum or ticket seller" not in vis:
             errori.append(f"{rel}: manca l'avviso di indipendenza")
+    # f2) attrazioni del 13/11/2026: regole scritte qui a mano di nuovo (fuso, tipo, ora, giorni) dalla lettura delle pagine ufficiali
+    for slug, X in ATTESE_BIG_1311.items():
+        a = G.BIG_PER.get(slug)
+        if not a:
+            errori.append(f"biglietti {slug}: attrazione del 13/11/2026 mancante")
+            continue
+        conti["attese_1311"] = conti.get("attese_1311", 0) + 1
+        if a["fuso"] != X["fuso"]:
+            errori.append(f"biglietti {slug}: fuso {a['fuso']} invece di {X['fuso']}")
+        trovate = {(r["tipo"], r["id"]): (r["ora"], sorted(x["md"] for x in r["date_md"]) if r["tipo"] == "annuale" else r.get("giorni") if r["tipo"] == "anticipo"
+                                          else (r.get("giorno"), r.get("mesi_dopo"))) for r in a["uscite"]}
+        if trovate != X["regole"]:
+            errori.append(f"biglietti {slug}: regole diverse da quelle lette il 13/11/2026: {trovate} invece di {X['regole']}")
+        if sorted(a["chiusure"]["md"]) != X.get("chiusure_md", []) or a["chiusure"]["settimana"] != X.get("settimana", []):
+            errori.append(f"biglietti {slug}: chiusure diverse da quelle lette il 13/11/2026")
+        if X.get("testo") and not a["uscite_testo"]:
+            errori.append(f"biglietti {slug}: manca la regola solo citata (senza data calcolata)")
+        for fid in G.fonti_big(a):
+            if not RBIG.file_cache(fid).exists():
+                avviso(22, f"biglietti {slug}: copia salvata della fonte {fid} mancante: citazioni non ricontrollate sul testo salvato")
     # g) indice
     idx = f"{G.BIG_BASE}/index.html"
     if (SITO / idx).exists():
@@ -3643,8 +3712,8 @@ def controlla_biglietti():
             if f'href="{escape(a["biglietteria"]["url"])}"' not in r:
                 errori.append(f"{idx}: riga {sl} senza la biglietteria ufficiale")
         for a in G.BIG_ATT:
-            if f'href="../{G.url_ics_big(a["slug"])}"' not in t:
-                errori.append(f"{idx}: manca il calendario di {a['slug']}")
+            if (f'href="../{G.url_ics_big(a["slug"])}"' in t) != bool(G.eventi_big(a)):
+                errori.append(f"{idx}: calendario di {a['slug']} mancante, o linkato senza date")
         for qd, r_ in G.faq_indice_big():
             conti["faq"] += 1
             if f"<h3>{escape(qd)}</h3><p>{escape(r_)}</p>" not in t:
@@ -3671,13 +3740,19 @@ def controlla_biglietti():
                 errori.append(f"{p}: riquadro Viator presente con VIATOR_TOUR vuoto")
         else:
             errori += [f"{p}: {e}" for e in G.MON.controlla_link_pagina(t, p, "en")[0]]
-            if p != idx and t.find("data-tour") < t.find('id="official-tickets"'):
+            if p != idx and t.find("data-tour") < t.find('id="official-tickets"') and "data-tour" in t:
                 errori.append(f"{p}: riquadro Viator prima della biglietteria ufficiale")
             # link Viator della pagina: quello dell'attrazione (VIATOR_PER_ATTRAZIONE) o il generale; https, viator.com, stesso pid
             slug_p = p[len(G.BIG_BASE) + 1:-len("/index.html")] if p != idx else None
             atteso = G.VIATOR_PER_ATTRAZIONE.get(slug_p, G.VIATOR_TOUR) if slug_p else G.VIATOR_TOUR
             from html import unescape as _unesc
             trovati = {_unesc(u) for u in re.findall(r'href="([^"]*viator\.com[^"]*)"', t)}
+            if slug_p and G.BIG_PER[slug_p].get("viator") is False:  # lotterie di permessi (13/11/2026): nessun riquadro Viator
+                if trovati or "data-tour" in t:
+                    errori.append(f"{p}: riquadro Viator su una pagina di permessi a lotteria (viator: false)")
+                if slug_p in G.VIATOR_PER_ATTRAZIONE:
+                    errori.append(f"{p}: link Viator per attrazione con viator: false")
+                continue
             if trovati != {atteso} or not G.viator_link_valido(atteso):
                 errori.append(f"{p}: link Viator {sorted(trovati)} diverso da quello atteso {atteso} o non valido (https, viator.com, pid)")
     for s_ in G.VIATOR_PER_ATTRAZIONE:
@@ -5756,6 +5831,143 @@ def _starlink_attesa(P, voce, d):
             f"(Starlink map data, checked on {d}).")
 
 
+_RE_BOX_WISE = re.compile(r'<h2 id="wise">[^<]*<span class="aff-tag">Affiliate</span></h2><section class="card noleggio" aria-label="Wise, '
+                          r'affiliate link" data-wise>.*?</section>', re.S)
+
+
+def controlla_wise():
+    """Punto 34 (13/11/2026): riquadro Wise (Partnerize, interruttore _wise in dati/affiliati.json) SOLO nella sezione «Available in?» di Wise.
+    Pagine attese ricalcolate qui da dati/servizi.json e dalle pagine del sito: la pagina del servizio e le pagine Paese dove la lista ufficiale
+    dice "Yes" (Paese nella lista "hold money") o "Not for holding money" (assente da quella lista ma nella lista "send to"), senza le pagine
+    noindex; nessun riquadro per "Not supported" o fuori da entrambe le liste. Con l'interruttore acceso: riquadro una volta, con un solo link
+    = URL dei dati (https://wise.prf.hn/click/camref:<camref>), rel="sponsored nofollow noopener", target _blank, etichetta Affiliate, riga
+    di trasparenza, rimando a Wise per commissioni e cambi, frase giusta per lo stato del Paese, nessuna cifra, valuta o percentuale, nessuna
+    promessa; dopo le citazioni ufficiali; prf.hn mai fuori dal riquadro; le fonti wise.com/help restano link normali (rel="noopener");
+    wise.com non è un dominio di affiliazione. Con l'interruttore spento: nessuna traccia. Online (senza --offline): il link risponde 302
+    verso wise.com con l'ID partner."""
+    from html import unescape
+    errori, c = [], {"pagine": 0, "attese": 0, "online": "saltato"}
+    A = json.loads((SITO.parent / "dati" / "affiliati.json").read_text(encoding="utf-8"))
+    w = A.get("_wise") or {}
+    url, camref, acceso = w.get("url", ""), w.get("camref", ""), bool(w.get("attivo"))
+    if acceso != G.WISE_SRV:
+        errori.append("34: interruttore _wise e genera.WISE_SRV non coincidono (url non valido?)")
+    u = urlparse(url)
+    if url and (u.scheme != "https" or u.netloc != "wise.prf.hn" or u.path != f"/click/camref:{camref}" or not camref or u.query or u.fragment):
+        errori.append(f"34: link Wise dei dati non valido (atteso https://wise.prf.hn/click/camref:<camref>): {url}")
+    if not G.MON.dominio_ammesso(url or "https://wise.prf.hn/"):
+        errori.append("34: wise.prf.hn non è tra i domini ammessi di monetizzazione.json (prf.hn)")
+    if G.MON.dominio_ammesso("https://wise.com/"):
+        errori.append("34: wise.com è tra i domini di affiliazione: le fonti ufficiali di Wise diventerebbero link affiliati")
+    D = json.loads((SITO.parent / "dati" / "servizi.json").read_text(encoding="utf-8"))
+    S = next(x for x in D["servizi"] if x["slug"] == "wise")
+    invio = set(S.get("extra", {}).get("invio", []))
+    base = SITO / G.SRV_BASE / "wise"
+    per_slug = {G.slug_srv(k): k for k in G.PAESI_ISO}
+    attese = {}  # percorso -> stato ("servizio", "si", "invio")
+    for f in [base / "index.html"] + sorted(base.glob("*/index.html")):
+        rel = f.parent.relative_to(SITO).as_posix() + "/"
+        if 'name="robots" content="noindex' in f.read_text(encoding="utf-8"):
+            continue
+        if f.parent == base:
+            attese[rel] = "servizio"
+            continue
+        k = per_slug.get(f.parent.name)
+        voce = S["paesi"].get(k)
+        if voce and voce["stato"] == "si":
+            attese[rel] = "si"
+        elif voce is None and k in invio:
+            attese[rel] = "invio"
+    c["attese"] = len(attese)
+    if len(attese) < 20:
+        errori.append(f"34: troppo poche pagine attese per il riquadro Wise ({len(attese)})")
+    vietate = ("guarantee", "cheapest", "cheaper", "best ", "fastest", "save money", "no fees", "free", "real exchange rate", "mid-market",
+               "official partner", "recommended by")
+    sm = leggi("sitemap.xml")
+    for f in SITO.rglob("*.html"):
+        t = f.read_text(encoding="utf-8")
+        rel = _percorso(f)
+        if "prf.hn" not in t and "data-wise" not in t:
+            continue
+        if not acceso:
+            errori.append(f"34: Wise spento ma {rel} ha il link o il riquadro")
+            continue
+        if rel not in attese:
+            errori.append(f"34: riquadro o link Wise in una pagina non prevista: {rel}")
+            continue
+        c["pagine"] += 1
+        box = _RE_BOX_WISE.findall(t)
+        if len(box) != 1 or "prf.hn" in _RE_BOX_WISE.sub("", t):
+            errori.append(f"34: {rel}: link Wise fuori dal riquadro, o riquadro assente o doppio")
+            continue
+        b = box[0]
+        tag = re.findall(r'<a [^>]*href="[^"]*"[^>]*>', b)
+        if len(tag) != 1 or unescape(re.search(r'href="([^"]*)"', tag[0]).group(1)) != url:
+            errori.append(f"34: {rel}: link Wise assente, doppio o diverso dai dati")
+        elif 'rel="sponsored nofollow noopener"' not in tag[0] or 'target="_blank"' not in tag[0]:
+            errori.append(f"34: {rel}: link Wise senza rel=\"sponsored nofollow noopener\" o target")
+        tb = re.sub(r"\s+", " ", unescape(re.sub(r"<[^>]+>", " ", b))).replace("’", "'")
+        stato = attese[rel]
+        frase = {"servizio": "If your country is on the lists above", "si": "is on Wise's list of countries where you can hold money in your Wise account",
+                 "invio": "is on Wise's list of countries and regions you can send money to"}[stato]
+        for x in (frase, "Affiliate", G.MON.RIGA_EN, "Wise's fees and exchange rates are on its own website",
+                  "Official fees and exchange rates are on Wise's website.", "comes only from Wise's official lists; this link does not change it"):
+            if x not in tb:
+                errori.append(f"34: {rel}: manca {x!r} nel riquadro")
+        if re.search(r"\d|[€$£%]|\b(EUR|USD|GBP)\b", tb):
+            errori.append(f"34: {rel}: cifra, valuta o percentuale nel riquadro (niente prezzi né tassi)")
+        for x in vietate:
+            if x in tb.lower():
+                errori.append(f"34: {rel}: parola vietata nel riquadro ({x!r})")
+        dopo = "What the official source says" if stato != "servizio" else 'class="tab tab-b tab-srv"'
+        if t.find('<h2 id="wise">') < t.find(dopo) or t.find(dopo) < 0:
+            errori.append(f"34: {rel}: riquadro prima delle informazioni ufficiali")
+        if f"<loc>{G.URL_SITO}/{rel}</loc>" not in sm or 'content="noindex' in t:
+            errori.append(f"34: {rel}: riquadro in una pagina fuori indice o fuori sitemap")
+        for a in re.findall(r'<a [^>]*href="https://wise\.com/[^"]*"[^>]*>', t):
+            if 'rel="noopener"' not in a or "sponsored" in a:
+                errori.append(f"34: {rel}: fonte wise.com non come link normale ({a[:80]})")
+    if acceso and c["pagine"] != len(attese):
+        errori.append(f"34: riquadro Wise in {c['pagine']} pagine invece di {len(attese)}")
+    # interruttore spento e pagine non previste: box_wise_srv() vuoto
+    SW = G.SRV_PER["wise"]
+    vecchio = G.WISE_SRV
+    try:
+        G.WISE_SRV = False
+        if G.box_wise_srv(SW) or any(G.box_wise_srv(SW, k) for k in G.pagine_srv(SW)):
+            errori.append("34: con l'interruttore spento box_wise_srv() non è vuoto")
+    finally:
+        G.WISE_SRV = vecchio
+    no = [k for k in G.pagine_srv(SW) if G.stato_srv(SW, k)[0] == "no" or (G.stato_srv(SW, k)[0] == "assente" and k not in invio)]
+    if not no or any(G.box_wise_srv(SW, k) for k in no):
+        errori.append("34: riquadro Wise in un Paese 'Not supported' o fuori da entrambe le liste (o nessun Paese per la prova)")
+    if any(G.box_wise_srv(G.SRV_PER[s], k) for s in ("starlink", "uber") for k in G.pagine_srv(G.SRV_PER[s])[:5]):
+        errori.append("34: box_wise_srv() non vuoto per un altro servizio")
+    # online: 302 verso wise.com con l'ID partner (senza seguire il rinvio)
+    if acceso and "--offline" not in sys.argv:
+        import urllib.error
+        import urllib.request
+
+        class _NoRedirect(urllib.request.HTTPRedirectHandler):
+            def redirect_request(self, *a, **k):
+                return None
+        try:
+            r = urllib.request.build_opener(_NoRedirect).open(urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"}), timeout=60)
+            codice, dove = r.status, r.headers.get("Location", "")
+        except urllib.error.HTTPError as e:
+            codice, dove = e.code, e.headers.get("Location", "")
+        except Exception as e:  # noqa: BLE001
+            codice, dove = None, ""
+            avviso(34, f"link Wise non letto ({e})")
+        if codice is not None:
+            h = urlparse(dove)
+            if codice not in (301, 302, 303, 307) or not (h.hostname or "").endswith("wise.com") or "partnerID=" not in h.query:
+                errori.append(f"34: il link Wise non rimanda a wise.com con l'ID partner (HTTP {codice}, {h.hostname})")
+            else:
+                c["online"] = f"HTTP {codice} verso {h.hostname}"
+    return errori, c
+
+
 def controlla_noindex():
     """Punto 33: pagine fuori indice (dati/noindex.json) e pagine senza pubblicità: meta, canonical, sitemap, AdSense, conteggi."""
     errori, c = [], {"fuori": 0, "indice": 0, "senza_ads": 0, "regole": 0}
@@ -5993,6 +6205,89 @@ def controlla_nuovi_srv():
     return errori, c
 
 
+# ---------------------------------------------------------------- 35. Grow by Mediavine (13/11/2026)
+# Valori scritti a mano, non letti da genera.py: il tag dato da publishers.grow.me (sito «Before You Fly») parola per parola,
+# l'ID del sito e l'informativa di Mediavine. Se cambiano in genera.py senza cambiare qui, è un errore.
+GROW_ID_ATTESO = "U2l0ZTpjYWIzOWI5ZC1jOTk3LTQwMzgtOTBjZi04MGM2ODJjOWU0NDg="  # base64 di «Site:cab39b9d-c997-4038-90cf-80c682c9e448»
+GROW_TAG_ATTESO = ('<script data-grow-initializer="">!(function(){window.growMe||((window.growMe=function(e){window.growMe._.push(e);}),'
+                   '(window.growMe._=[]));var e=document.createElement("script");(e.type="text/javascript"),(e.src="https://faves.grow.me/main.js"),'
+                   '(e.defer=!0),e.setAttribute("data-grow-faves-site-id","U2l0ZTpjYWIzOWI5ZC1jOTk3LTQwMzgtOTBjZi04MGM2ODJjOWU0NDg=");'
+                   'var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t);})();</script>')
+GROW_PRIVACY_ATTESO = "https://vault.pactsafe.io/s/9cf003f8-52ba-4f99-af33-f4edb31f1d1a/privacy.html#template-un-pwvvpr"
+GROW_HOST = ("faves.grow.me", "api.grow.me")  # host chiamati dallo script (visti nel browser il 13/11/2026)
+
+
+def controlla_grow():
+    """35. Con GROW_ATTIVO: ogni pagina HTML del sito (in indice e fuori, 404, tutte le lingue; non i file google*.html di verifica)
+    ha nel <head> esattamente un tag Grow, uguale al tag atteso, con l'ID del sito giusto, e nessun altro script grow.me; la privacy
+    nomina Grow e Mediavine e linka l'informativa. Spento: nessuna traccia di grow.me nelle pagine né la sezione nella privacy.
+    Se il sito imposta una Content-Security-Policy (netlify.toml o meta), deve ammettere gli host di Grow."""
+    import base64
+    errori = []
+    c = {"pagine": 0, "con_tag": 0, "fuori_indice": 0, "lingue": {}}
+    if base64.b64decode(GROW_ID_ATTESO).decode() != "Site:cab39b9d-c997-4038-90cf-80c682c9e448":
+        errori.append("Grow: ID del sito atteso non valido")
+    if G.GROW_ATTIVO:
+        if G.GROW_SITE_ID != GROW_ID_ATTESO:
+            errori.append(f"Grow: GROW_SITE_ID di genera.py ({G.GROW_SITE_ID}) diverso dall'ID atteso")
+        if G.GROW_TAG != GROW_TAG_ATTESO:
+            errori.append("Grow: GROW_TAG di genera.py diverso dal tag ufficiale (deve restare parola per parola)")
+    for f in sorted(SITO.rglob("*.html")):
+        if re.fullmatch(r"google[0-9a-f]+\.html", f.name):
+            continue
+        rel = str(f.relative_to(SITO))
+        t = f.read_text(encoding="utf-8")
+        c["pagine"] += 1
+        lingua = (re.search(r'<html lang="([a-z]+)"', t) or [None, "?"])[1]
+        c["lingue"][lingua] = c["lingue"].get(lingua, 0) + 1
+        if 'content="noindex"' in t:
+            c["fuori_indice"] += 1
+        if re.search(r'http-equiv="content-security-policy"', t, re.I):
+            csp = (re.search(r'http-equiv="content-security-policy"\s+content="([^"]*)"', t, re.I) or [None, ""])[1]
+            if G.GROW_ATTIVO and not all(h in csp for h in GROW_HOST):
+                errori.append(f"{rel}: meta Content-Security-Policy senza gli host di Grow ({', '.join(GROW_HOST)})")
+        testa = t[:t.find("</head>")]
+        if G.GROW_ATTIVO:
+            n_init = t.count("data-grow-initializer")
+            if n_init != 1 or testa.count(GROW_TAG_ATTESO) != 1:
+                errori.append(f"{rel}: tag Grow assente, doppio, fuori dal <head> o diverso dal tag ufficiale ({n_init} data-grow-initializer)")
+            else:
+                c["con_tag"] += 1
+            ids = re.findall(r'data-grow-faves-site-id","([^"]+)"', t)
+            if ids != [GROW_ID_ATTESO]:
+                errori.append(f"{rel}: ID del sito Grow sbagliato o ripetuto: {ids}")
+            # nessun altro script o riferimento a Grow fuori dal tag (la privacy nomina «servers (grow.me)» nel testo)
+            resto = t.replace(GROW_TAG_ATTESO, "", 1)
+            if rel == "privacy.html":
+                resto = resto.replace("servers (grow.me)", "", 1)
+            if "grow.me" in resto or "data-grow-" in resto or "growMe" in resto:
+                errori.append(f"{rel}: altri riferimenti a Grow oltre al tag ufficiale nel <head>")
+        elif "grow.me" in t or "data-grow-" in t:
+            errori.append(f"{rel}: Grow spento (GROW_ATTIVO = False) ma traccia di Grow nella pagina")
+    # privacy
+    p = leggi("privacy.html")
+    vis = G.MON.testo_visibile(p)
+    if G.GROW_ATTIVO:
+        if G.GROW_PRIVACY != GROW_PRIVACY_ATTESO:
+            errori.append("Grow: GROW_PRIVACY di genera.py diverso dall'informativa attesa")
+        for parola in ("Grow", "Mediavine", "measure our audience", "save or bookmark pages"):
+            if parola not in vis:
+                errori.append(f"privacy.html: Grow acceso ma la privacy non dice «{parola}»")
+        if f'href="{GROW_PRIVACY_ATTESO}"' not in p:
+            errori.append("privacy.html: manca il link all'informativa di Grow (Mediavine)")
+    elif "Grow by Mediavine" in vis:
+        errori.append("privacy.html: sezione Grow presente ma Grow è spento")
+    # Content-Security-Policy negli header di Netlify
+    toml = (SITO / "netlify.toml").read_text(encoding="utf-8")
+    m = re.search(r'Content-Security-Policy\s*=\s*"([^"]*)"', toml, re.I)
+    if m and G.GROW_ATTIVO and not all(h in m.group(1) for h in GROW_HOST):
+        errori.append(f"netlify.toml: Content-Security-Policy senza gli host di Grow ({', '.join(GROW_HOST)})")
+    c["csp"] = "netlify.toml" if m else "nessuna"
+    if G.GROW_ATTIVO and c["con_tag"] != c["pagine"]:
+        errori.append(f"Grow: tag in {c['con_tag']} pagine su {c['pagine']}")
+    return errori, c
+
+
 def main():
     e1 = controlla_casi()
     print(f"1. Casi del passaporto calcolati a mano: {len(CASI)}, {len(e1)} errori")
@@ -6138,9 +6433,18 @@ def main():
     print(f"33. Fuori indice e senza pubblicità (dati/noindex.json, {c33['regole']} regole): {c33['fuori']} pagine fuori indice (noindex, senza canonical, "
           f"fuori dalla sitemap, senza AdSense, linkate dal loro indice), {c33['indice']} pagine in indice = URL della sitemap, di cui "
           f"{c33['senza_ads']} pagine di servizio senza AdSense (più la 404): {len(e33)} errori")
+    e34, c34 = controlla_wise()
+    print(f"34. Wise (Partnerize, interruttore {'acceso' if G.WISE_SRV else 'spento'}): riquadro in {c34['pagine']} pagine su {c34['attese']} attese "
+          f"(pagina del servizio + Paesi 'Yes' o 'Not for holding money' in indice), link = dati, rel sponsored nofollow, trasparenza, nessuna cifra né "
+          f"promessa, fonti wise.com come link normali; link online: {c34['online']}: {len(e34)} errori")
+    e35, c35 = controlla_grow()
+    print(f"35. Grow by Mediavine (interruttore {'acceso' if G.GROW_ATTIVO else 'spento'}): tag ufficiale nel <head> di {c35['con_tag']} pagine su "
+          f"{c35['pagine']} (fuori indice: {c35['fuori_indice']}; lingue: {', '.join(f'{k} {v}' for k, v in sorted(c35['lingue'].items()))}), "
+          f"un solo tag e ID del sito {GROW_ID_ATTESO[:12]}… in ogni pagina, privacy con Grow e link all'informativa di Mediavine, "
+          f"Content-Security-Policy: {c35['csp']}: {len(e35)} errori")
     e19, i19 = G.MON.controlla_sito(G.SITO_ID, SITO)  # controllo comune di monetizzazione (monetizzazione.py)
     print("19. " + G.MON.riepilogo(G.SITO_ID, i19, e19))
-    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28 + e29 + e30 + e31 + e32 + e33
+    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28 + e29 + e30 + e31 + e32 + e33 + e34 + e35
     if AVVISI:  # ricalcoli dalle copie salvati saltati (copia mancante, pagina di blocco, raccolta che non ha aggiornato il JSON): non sono errori
         per_punto = {}
         for k, _ in AVVISI:

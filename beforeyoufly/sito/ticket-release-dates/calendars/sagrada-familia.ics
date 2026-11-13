@@ -9,68 +9,68 @@ REFRESH-INTERVAL;VALUE=DURATION:P1D
 X-PUBLISHED-TTL:P1D
 BEGIN:VEVENT
 UID:sagrada-familia-orario-orari-2026-12-25@before-you-fly.com
-DTSTAMP:20261112T000000Z
+DTSTAMP:20261113T000000Z
 DTSTART;VALUE=DATE:20261225
 DTEND;VALUE=DATE:20261226
 SUMMARY:Sagrada Família: open 9:00 am to 2:00 pm
 DESCRIPTION:Official rule: “Special opening hours On 25 and 26 December\,
   1 and 6 January\, opening hours will be from 9:00 am to 2:00 pm.”\nSour
- ce: https://sagradafamilia.org/en/schedules-how-to-get (checked on 4 Novem
- ber 2026)\nDate calculated by Before You Fly from the official rule. Rules
-  can change: check the official page before you book.\nOfficial tickets: h
- ttps://sagradafamilia.org/en/tickets\nhttps://before-you-fly.com/ticket-re
- lease-dates/sagrada-familia/
+ ce: https://sagradafamilia.org/en/schedules-how-to-get (checked on 13 Nove
+ mber 2026)\nDate calculated by Before You Fly from the official rule. Rule
+ s can change: check the official page before you book.\nOfficial tickets: 
+ https://sagradafamilia.org/en/tickets\nhttps://before-you-fly.com/ticket-r
+ elease-dates/sagrada-familia/
 URL:https://before-you-fly.com/ticket-release-dates/sagrada-familia/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:sagrada-familia-orario-orari-2026-12-26@before-you-fly.com
-DTSTAMP:20261112T000000Z
+DTSTAMP:20261113T000000Z
 DTSTART;VALUE=DATE:20261226
 DTEND;VALUE=DATE:20261227
 SUMMARY:Sagrada Família: open 9:00 am to 2:00 pm
 DESCRIPTION:Official rule: “Special opening hours On 25 and 26 December\,
   1 and 6 January\, opening hours will be from 9:00 am to 2:00 pm.”\nSour
- ce: https://sagradafamilia.org/en/schedules-how-to-get (checked on 4 Novem
- ber 2026)\nDate calculated by Before You Fly from the official rule. Rules
-  can change: check the official page before you book.\nOfficial tickets: h
- ttps://sagradafamilia.org/en/tickets\nhttps://before-you-fly.com/ticket-re
- lease-dates/sagrada-familia/
+ ce: https://sagradafamilia.org/en/schedules-how-to-get (checked on 13 Nove
+ mber 2026)\nDate calculated by Before You Fly from the official rule. Rule
+ s can change: check the official page before you book.\nOfficial tickets: 
+ https://sagradafamilia.org/en/tickets\nhttps://before-you-fly.com/ticket-r
+ elease-dates/sagrada-familia/
 URL:https://before-you-fly.com/ticket-release-dates/sagrada-familia/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:sagrada-familia-orario-orari-2027-01-01@before-you-fly.com
-DTSTAMP:20261112T000000Z
+DTSTAMP:20261113T000000Z
 DTSTART;VALUE=DATE:20270101
 DTEND;VALUE=DATE:20270102
 SUMMARY:Sagrada Família: open 9:00 am to 2:00 pm
 DESCRIPTION:Official rule: “Special opening hours On 25 and 26 December\,
   1 and 6 January\, opening hours will be from 9:00 am to 2:00 pm.”\nSour
- ce: https://sagradafamilia.org/en/schedules-how-to-get (checked on 4 Novem
- ber 2026)\nDate calculated by Before You Fly from the official rule. Rules
-  can change: check the official page before you book.\nOfficial tickets: h
- ttps://sagradafamilia.org/en/tickets\nhttps://before-you-fly.com/ticket-re
- lease-dates/sagrada-familia/
+ ce: https://sagradafamilia.org/en/schedules-how-to-get (checked on 13 Nove
+ mber 2026)\nDate calculated by Before You Fly from the official rule. Rule
+ s can change: check the official page before you book.\nOfficial tickets: 
+ https://sagradafamilia.org/en/tickets\nhttps://before-you-fly.com/ticket-r
+ elease-dates/sagrada-familia/
 URL:https://before-you-fly.com/ticket-release-dates/sagrada-familia/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:sagrada-familia-orario-orari-2027-01-06@before-you-fly.com
-DTSTAMP:20261112T000000Z
+DTSTAMP:20261113T000000Z
 DTSTART;VALUE=DATE:20270106
 DTEND;VALUE=DATE:20270107
 SUMMARY:Sagrada Família: open 9:00 am to 2:00 pm
 DESCRIPTION:Official rule: “Special opening hours On 25 and 26 December\,
   1 and 6 January\, opening hours will be from 9:00 am to 2:00 pm.”\nSour
- ce: https://sagradafamilia.org/en/schedules-how-to-get (checked on 4 Novem
- ber 2026)\nDate calculated by Before You Fly from the official rule. Rules
-  can change: check the official page before you book.\nOfficial tickets: h
- ttps://sagradafamilia.org/en/tickets\nhttps://before-you-fly.com/ticket-re
- lease-dates/sagrada-familia/
+ ce: https://sagradafamilia.org/en/schedules-how-to-get (checked on 13 Nove
+ mber 2026)\nDate calculated by Before You Fly from the official rule. Rule
+ s can change: check the official page before you book.\nOfficial tickets: 
+ https://sagradafamilia.org/en/tickets\nhttps://before-you-fly.com/ticket-r
+ elease-dates/sagrada-familia/
 URL:https://before-you-fly.com/ticket-release-dates/sagrada-familia/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED

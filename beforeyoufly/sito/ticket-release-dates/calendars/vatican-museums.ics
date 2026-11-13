@@ -9,7 +9,7 @@ REFRESH-INTERVAL;VALUE=DURATION:P1D
 X-PUBLISHED-TTL:P1D
 BEGIN:VEVENT
 UID:vatican-museums-gratis-ultima_domenica-2026-11-29@before-you-fly.com
-DTSTAMP:20261112T000000Z
+DTSTAMP:20261113T000000Z
 DTSTART;VALUE=DATE:20261129
 DTEND;VALUE=DATE:20261130
 SUMMARY:Vatican Museums: free entry
@@ -21,18 +21,18 @@ DESCRIPTION:Official rule: “Every last Sunday of the month (provided this
  o the Calendar of museum openings/closures).”\nSource: https://www.musei
  vaticani.va/content/museivaticani-mobile/en/info/orari-musei-vaticani.html
  \, https://www.museivaticani.va/content/museivaticani-mobile/en/organizza-
- visita/tariffe-e-biglietti.html (checked on 4 November 2026)\nDate calcula
- ted by Before You Fly from the official rule. Rules can change: check the 
- official page before you book.\nOfficial tickets: https://tickets.museivat
- icani.va/\nhttps://before-you-fly.com/ticket-release-dates/vatican-museums
- /
+ visita/tariffe-e-biglietti.html (checked on 13 November 2026)\nDate calcul
+ ated by Before You Fly from the official rule. Rules can change: check the
+  official page before you book.\nOfficial tickets: https://tickets.museiva
+ ticani.va/\nhttps://before-you-fly.com/ticket-release-dates/vatican-museum
+ s/
 URL:https://before-you-fly.com/ticket-release-dates/vatican-museums/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:vatican-museums-chiusura-chiusure-2026-12-08@before-you-fly.com
-DTSTAMP:20261112T000000Z
+DTSTAMP:20261113T000000Z
 DTSTART;VALUE=DATE:20261208
 DTEND;VALUE=DATE:20261209
 SUMMARY:Vatican Museums: closed
@@ -41,17 +41,17 @@ DESCRIPTION:Official rule: “Closures Sunday (except the last Sunday of ea
   and Paul) 1 and 6 January 11 February 19 March 6 April 1 May 29* June 14 
  and 15 August 1 November 8\, 25 and 26 December”\nSource: https://www.mu
  seivaticani.va/content/museivaticani-mobile/en/info/orari-musei-vaticani.h
- tml (checked on 4 November 2026)\nDate calculated by Before You Fly from t
- he official rule. Rules can change: check the official page before you boo
- k.\nOfficial tickets: https://tickets.museivaticani.va/\nhttps://before-yo
- u-fly.com/ticket-release-dates/vatican-museums/
+ tml (checked on 13 November 2026)\nDate calculated by Before You Fly from 
+ the official rule. Rules can change: check the official page before you bo
+ ok.\nOfficial tickets: https://tickets.museivaticani.va/\nhttps://before-y
+ ou-fly.com/ticket-release-dates/vatican-museums/
 URL:https://before-you-fly.com/ticket-release-dates/vatican-museums/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:vatican-museums-chiusura-chiusure-2026-12-25@before-you-fly.com
-DTSTAMP:20261112T000000Z
+DTSTAMP:20261113T000000Z
 DTSTART;VALUE=DATE:20261225
 DTEND;VALUE=DATE:20261226
 SUMMARY:Vatican Museums: closed
@@ -60,17 +60,17 @@ DESCRIPTION:Official rule: “Closures Sunday (except the last Sunday of ea
   and Paul) 1 and 6 January 11 February 19 March 6 April 1 May 29* June 14 
  and 15 August 1 November 8\, 25 and 26 December”\nSource: https://www.mu
  seivaticani.va/content/museivaticani-mobile/en/info/orari-musei-vaticani.h
- tml (checked on 4 November 2026)\nDate calculated by Before You Fly from t
- he official rule. Rules can change: check the official page before you boo
- k.\nOfficial tickets: https://tickets.museivaticani.va/\nhttps://before-yo
- u-fly.com/ticket-release-dates/vatican-museums/
+ tml (checked on 13 November 2026)\nDate calculated by Before You Fly from 
+ the official rule. Rules can change: check the official page before you bo
+ ok.\nOfficial tickets: https://tickets.museivaticani.va/\nhttps://before-y
+ ou-fly.com/ticket-release-dates/vatican-museums/
 URL:https://before-you-fly.com/ticket-release-dates/vatican-museums/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:vatican-museums-chiusura-chiusure-2026-12-26@before-you-fly.com
-DTSTAMP:20261112T000000Z
+DTSTAMP:20261113T000000Z
 DTSTART;VALUE=DATE:20261226
 DTEND;VALUE=DATE:20261227
 SUMMARY:Vatican Museums: closed
@@ -79,17 +79,17 @@ DESCRIPTION:Official rule: “Closures Sunday (except the last Sunday of ea
   and Paul) 1 and 6 January 11 February 19 March 6 April 1 May 29* June 14 
  and 15 August 1 November 8\, 25 and 26 December”\nSource: https://www.mu
  seivaticani.va/content/museivaticani-mobile/en/info/orari-musei-vaticani.h
- tml (checked on 4 November 2026)\nDate calculated by Before You Fly from t
- he official rule. Rules can change: check the official page before you boo
- k.\nOfficial tickets: https://tickets.museivaticani.va/\nhttps://before-yo
- u-fly.com/ticket-release-dates/vatican-museums/
+ tml (checked on 13 November 2026)\nDate calculated by Before You Fly from 
+ the official rule. Rules can change: check the official page before you bo
+ ok.\nOfficial tickets: https://tickets.museivaticani.va/\nhttps://before-y
+ ou-fly.com/ticket-release-dates/vatican-museums/
 URL:https://before-you-fly.com/ticket-release-dates/vatican-museums/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:vatican-museums-gratis-ultima_domenica-2026-12-27@before-you-fly.com
-DTSTAMP:20261112T000000Z
+DTSTAMP:20261113T000000Z
 DTSTART;VALUE=DATE:20261227
 DTEND;VALUE=DATE:20261228
 SUMMARY:Vatican Museums: free entry
@@ -101,18 +101,18 @@ DESCRIPTION:Official rule: “Every last Sunday of the month (provided this
  o the Calendar of museum openings/closures).”\nSource: https://www.musei
  vaticani.va/content/museivaticani-mobile/en/info/orari-musei-vaticani.html
  \, https://www.museivaticani.va/content/museivaticani-mobile/en/organizza-
- visita/tariffe-e-biglietti.html (checked on 4 November 2026)\nDate calcula
- ted by Before You Fly from the official rule. Rules can change: check the 
- official page before you book.\nOfficial tickets: https://tickets.museivat
- icani.va/\nhttps://before-you-fly.com/ticket-release-dates/vatican-museums
- /
+ visita/tariffe-e-biglietti.html (checked on 13 November 2026)\nDate calcul
+ ated by Before You Fly from the official rule. Rules can change: check the
+  official page before you book.\nOfficial tickets: https://tickets.museiva
+ ticani.va/\nhttps://before-you-fly.com/ticket-release-dates/vatican-museum
+ s/
 URL:https://before-you-fly.com/ticket-release-dates/vatican-museums/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:vatican-museums-chiusura-chiusure-2027-01-01@before-you-fly.com
-DTSTAMP:20261112T000000Z
+DTSTAMP:20261113T000000Z
 DTSTART;VALUE=DATE:20270101
 DTEND;VALUE=DATE:20270102
 SUMMARY:Vatican Museums: closed
@@ -121,17 +121,17 @@ DESCRIPTION:Official rule: “Closures Sunday (except the last Sunday of ea
   and Paul) 1 and 6 January 11 February 19 March 6 April 1 May 29* June 14 
  and 15 August 1 November 8\, 25 and 26 December”\nSource: https://www.mu
  seivaticani.va/content/museivaticani-mobile/en/info/orari-musei-vaticani.h
- tml (checked on 4 November 2026)\nDate calculated by Before You Fly from t
- he official rule. Rules can change: check the official page before you boo
- k.\nOfficial tickets: https://tickets.museivaticani.va/\nhttps://before-yo
- u-fly.com/ticket-release-dates/vatican-museums/
+ tml (checked on 13 November 2026)\nDate calculated by Before You Fly from 
+ the official rule. Rules can change: check the official page before you bo
+ ok.\nOfficial tickets: https://tickets.museivaticani.va/\nhttps://before-y
+ ou-fly.com/ticket-release-dates/vatican-museums/
 URL:https://before-you-fly.com/ticket-release-dates/vatican-museums/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:vatican-museums-chiusura-chiusure-2027-01-06@before-you-fly.com
-DTSTAMP:20261112T000000Z
+DTSTAMP:20261113T000000Z
 DTSTART;VALUE=DATE:20270106
 DTEND;VALUE=DATE:20270107
 SUMMARY:Vatican Museums: closed
@@ -140,17 +140,17 @@ DESCRIPTION:Official rule: “Closures Sunday (except the last Sunday of ea
   and Paul) 1 and 6 January 11 February 19 March 6 April 1 May 29* June 14 
  and 15 August 1 November 8\, 25 and 26 December”\nSource: https://www.mu
  seivaticani.va/content/museivaticani-mobile/en/info/orari-musei-vaticani.h
- tml (checked on 4 November 2026)\nDate calculated by Before You Fly from t
- he official rule. Rules can change: check the official page before you boo
- k.\nOfficial tickets: https://tickets.museivaticani.va/\nhttps://before-yo
- u-fly.com/ticket-release-dates/vatican-museums/
+ tml (checked on 13 November 2026)\nDate calculated by Before You Fly from 
+ the official rule. Rules can change: check the official page before you bo
+ ok.\nOfficial tickets: https://tickets.museivaticani.va/\nhttps://before-y
+ ou-fly.com/ticket-release-dates/vatican-museums/
 URL:https://before-you-fly.com/ticket-release-dates/vatican-museums/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:vatican-museums-gratis-ultima_domenica-2027-01-31@before-you-fly.com
-DTSTAMP:20261112T000000Z
+DTSTAMP:20261113T000000Z
 DTSTART;VALUE=DATE:20270131
 DTEND;VALUE=DATE:20270201
 SUMMARY:Vatican Museums: free entry
@@ -162,18 +162,18 @@ DESCRIPTION:Official rule: “Every last Sunday of the month (provided this
  o the Calendar of museum openings/closures).”\nSource: https://www.musei
  vaticani.va/content/museivaticani-mobile/en/info/orari-musei-vaticani.html
  \, https://www.museivaticani.va/content/museivaticani-mobile/en/organizza-
- visita/tariffe-e-biglietti.html (checked on 4 November 2026)\nDate calcula
- ted by Before You Fly from the official rule. Rules can change: check the 
- official page before you book.\nOfficial tickets: https://tickets.museivat
- icani.va/\nhttps://before-you-fly.com/ticket-release-dates/vatican-museums
- /
+ visita/tariffe-e-biglietti.html (checked on 13 November 2026)\nDate calcul
+ ated by Before You Fly from the official rule. Rules can change: check the
+  official page before you book.\nOfficial tickets: https://tickets.museiva
+ ticani.va/\nhttps://before-you-fly.com/ticket-release-dates/vatican-museum
+ s/
 URL:https://before-you-fly.com/ticket-release-dates/vatican-museums/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:vatican-museums-chiusura-chiusure-2027-02-11@before-you-fly.com
-DTSTAMP:20261112T000000Z
+DTSTAMP:20261113T000000Z
 DTSTART;VALUE=DATE:20270211
 DTEND;VALUE=DATE:20270212
 SUMMARY:Vatican Museums: closed
@@ -182,17 +182,17 @@ DESCRIPTION:Official rule: “Closures Sunday (except the last Sunday of ea
   and Paul) 1 and 6 January 11 February 19 March 6 April 1 May 29* June 14 
  and 15 August 1 November 8\, 25 and 26 December”\nSource: https://www.mu
  seivaticani.va/content/museivaticani-mobile/en/info/orari-musei-vaticani.h
- tml (checked on 4 November 2026)\nDate calculated by Before You Fly from t
- he official rule. Rules can change: check the official page before you boo
- k.\nOfficial tickets: https://tickets.museivaticani.va/\nhttps://before-yo
- u-fly.com/ticket-release-dates/vatican-museums/
+ tml (checked on 13 November 2026)\nDate calculated by Before You Fly from 
+ the official rule. Rules can change: check the official page before you bo
+ ok.\nOfficial tickets: https://tickets.museivaticani.va/\nhttps://before-y
+ ou-fly.com/ticket-release-dates/vatican-museums/
 URL:https://before-you-fly.com/ticket-release-dates/vatican-museums/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:vatican-museums-gratis-ultima_domenica-2027-02-28@before-you-fly.com
-DTSTAMP:20261112T000000Z
+DTSTAMP:20261113T000000Z
 DTSTART;VALUE=DATE:20270228
 DTEND;VALUE=DATE:20270301
 SUMMARY:Vatican Museums: free entry
@@ -204,18 +204,18 @@ DESCRIPTION:Official rule: “Every last Sunday of the month (provided this
  o the Calendar of museum openings/closures).”\nSource: https://www.musei
  vaticani.va/content/museivaticani-mobile/en/info/orari-musei-vaticani.html
  \, https://www.museivaticani.va/content/museivaticani-mobile/en/organizza-
- visita/tariffe-e-biglietti.html (checked on 4 November 2026)\nDate calcula
- ted by Before You Fly from the official rule. Rules can change: check the 
- official page before you book.\nOfficial tickets: https://tickets.museivat
- icani.va/\nhttps://before-you-fly.com/ticket-release-dates/vatican-museums
- /
+ visita/tariffe-e-biglietti.html (checked on 13 November 2026)\nDate calcul
+ ated by Before You Fly from the official rule. Rules can change: check the
+  official page before you book.\nOfficial tickets: https://tickets.museiva
+ ticani.va/\nhttps://before-you-fly.com/ticket-release-dates/vatican-museum
+ s/
 URL:https://before-you-fly.com/ticket-release-dates/vatican-museums/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:vatican-museums-chiusura-chiusure-2027-03-19@before-you-fly.com
-DTSTAMP:20261112T000000Z
+DTSTAMP:20261113T000000Z
 DTSTART;VALUE=DATE:20270319
 DTEND;VALUE=DATE:20270320
 SUMMARY:Vatican Museums: closed
@@ -224,17 +224,17 @@ DESCRIPTION:Official rule: “Closures Sunday (except the last Sunday of ea
   and Paul) 1 and 6 January 11 February 19 March 6 April 1 May 29* June 14 
  and 15 August 1 November 8\, 25 and 26 December”\nSource: https://www.mu
  seivaticani.va/content/museivaticani-mobile/en/info/orari-musei-vaticani.h
- tml (checked on 4 November 2026)\nDate calculated by Before You Fly from t
- he official rule. Rules can change: check the official page before you boo
- k.\nOfficial tickets: https://tickets.museivaticani.va/\nhttps://before-yo
- u-fly.com/ticket-release-dates/vatican-museums/
+ tml (checked on 13 November 2026)\nDate calculated by Before You Fly from 
+ the official rule. Rules can change: check the official page before you bo
+ ok.\nOfficial tickets: https://tickets.museivaticani.va/\nhttps://before-y
+ ou-fly.com/ticket-release-dates/vatican-museums/
 URL:https://before-you-fly.com/ticket-release-dates/vatican-museums/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:vatican-museums-gratis-ultima_domenica-2027-04-25@before-you-fly.com
-DTSTAMP:20261112T000000Z
+DTSTAMP:20261113T000000Z
 DTSTART;VALUE=DATE:20270425
 DTEND;VALUE=DATE:20270426
 SUMMARY:Vatican Museums: free entry
@@ -246,18 +246,18 @@ DESCRIPTION:Official rule: “Every last Sunday of the month (provided this
  o the Calendar of museum openings/closures).”\nSource: https://www.musei
  vaticani.va/content/museivaticani-mobile/en/info/orari-musei-vaticani.html
  \, https://www.museivaticani.va/content/museivaticani-mobile/en/organizza-
- visita/tariffe-e-biglietti.html (checked on 4 November 2026)\nDate calcula
- ted by Before You Fly from the official rule. Rules can change: check the 
- official page before you book.\nOfficial tickets: https://tickets.museivat
- icani.va/\nhttps://before-you-fly.com/ticket-release-dates/vatican-museums
- /
+ visita/tariffe-e-biglietti.html (checked on 13 November 2026)\nDate calcul
+ ated by Before You Fly from the official rule. Rules can change: check the
+  official page before you book.\nOfficial tickets: https://tickets.museiva
+ ticani.va/\nhttps://before-you-fly.com/ticket-release-dates/vatican-museum
+ s/
 URL:https://before-you-fly.com/ticket-release-dates/vatican-museums/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:vatican-museums-chiusura-chiusure-2027-05-01@before-you-fly.com
-DTSTAMP:20261112T000000Z
+DTSTAMP:20261113T000000Z
 DTSTART;VALUE=DATE:20270501
 DTEND;VALUE=DATE:20270502
 SUMMARY:Vatican Museums: closed
@@ -266,10 +266,10 @@ DESCRIPTION:Official rule: “Closures Sunday (except the last Sunday of ea
   and Paul) 1 and 6 January 11 February 19 March 6 April 1 May 29* June 14 
  and 15 August 1 November 8\, 25 and 26 December”\nSource: https://www.mu
  seivaticani.va/content/museivaticani-mobile/en/info/orari-musei-vaticani.h
- tml (checked on 4 November 2026)\nDate calculated by Before You Fly from t
- he official rule. Rules can change: check the official page before you boo
- k.\nOfficial tickets: https://tickets.museivaticani.va/\nhttps://before-yo
- u-fly.com/ticket-release-dates/vatican-museums/
+ tml (checked on 13 November 2026)\nDate calculated by Before You Fly from 
+ the official rule. Rules can change: check the official page before you bo
+ ok.\nOfficial tickets: https://tickets.museivaticani.va/\nhttps://before-y
+ ou-fly.com/ticket-release-dates/vatican-museums/
 URL:https://before-you-fly.com/ticket-release-dates/vatican-museums/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED

@@ -1,0 +1,54 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Before You Fly//Ticket release dates//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Angels Landing permits: ticket releases and closures
+X-WR-TIMEZONE:America/Denver
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:angels-landing-permits-uscita-stagione-2027-01-01@before-you-fly.com
+DTSTAMP:20261113T000000Z
+DTSTART:20270101T150000Z
+DTEND:20270101T153000Z
+SUMMARY:Angels Landing seasonal lottery opens (for hikes from March 1 to Ma
+ y 31)
+DESCRIPTION:Official rule: “The Seasonal Lottery allows you to apply for 
+ a permit months in advance. Hike Dates Lottery Opens 8 am MT Lottery Close
+ s 11:59 pm MT Permits Issued March 1 - May 31 January 1 January 20 January
+  25 June 1 - August 31 April 1 April 20 April 25 September 1 - November 30
+  July 1 July 20 July 25 December 1 - February 28 (Next Year) October 1 Oct
+ ober 20 October 25”\nSource: https://www.nps.gov/zion/planyourvisit/ange
+ ls-landing-hiking-permits.htm (checked on 13 November 2026)\nDate calculat
+ ed by Before You Fly from the official rule. Rules can change: check the o
+ fficial page before you book.\nOfficial tickets: https://www.recreation.go
+ v/\nhttps://before-you-fly.com/ticket-release-dates/angels-landing-permits
+ /
+URL:https://before-you-fly.com/ticket-release-dates/angels-landing-permits/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:angels-landing-permits-uscita-stagione-2027-04-01@before-you-fly.com
+DTSTAMP:20261113T000000Z
+DTSTART:20270401T140000Z
+DTEND:20270401T143000Z
+SUMMARY:Angels Landing seasonal lottery opens (for hikes from June 1 to Aug
+ ust 31)
+DESCRIPTION:Official rule: “The Seasonal Lottery allows you to apply for 
+ a permit months in advance. Hike Dates Lottery Opens 8 am MT Lottery Close
+ s 11:59 pm MT Permits Issued March 1 - May 31 January 1 January 20 January
+  25 June 1 - August 31 April 1 April 20 April 25 September 1 - November 30
+  July 1 July 20 July 25 December 1 - February 28 (Next Year) October 1 Oct
+ ober 20 October 25”\nSource: https://www.nps.gov/zion/planyourvisit/ange
+ ls-landing-hiking-permits.htm (checked on 13 November 2026)\nDate calculat
+ ed by Before You Fly from the official rule. Rules can change: check the o
+ fficial page before you book.\nOfficial tickets: https://www.recreation.go
+ v/\nhttps://before-you-fly.com/ticket-release-dates/angels-landing-permits
+ /
+URL:https://before-you-fly.com/ticket-release-dates/angels-landing-permits/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

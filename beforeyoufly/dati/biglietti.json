@@ -1,6 +1,6 @@
 {
  "_nota": "Uscita dei biglietti, chiusure e giorni gratis delle grandi attrazioni: regole scritte a mano in dati/biglietti_manuali.json (citazioni parola per parola), fonti rilette da raccolta/biglietti.py (HTTP, data di lettura, impronta della zona citata). Le date le calcola genera.py dalle regole. Non modificare a mano: rilanciare lo script.",
- "controllato_il": "2026-11-04",
+ "controllato_il": "2026-11-13",
  "fonti": {
   "af_faq": {
    "url": "https://www.annefrank.org/en/museum/frequently-asked-questions/",
@@ -10,7 +10,7 @@
    "byte": 49406,
    "ente": "Anne Frank House",
    "titolo": "Anne Frank House: Frequently Asked Questions",
-   "letto_il": "2026-11-04",
+   "letto_il": "2026-11-13",
    "cambiato_il": "2026-10-30",
    "impronta": "d53c19964ee27d7a",
    "frasi": 1
@@ -20,12 +20,12 @@
    "pagina": "https://www.annefrank.org/en/museum/tickets/",
    "url_finale": "https://www.annefrank.org/en/museum/tickets/",
    "http": 200,
-   "byte": 52810,
+   "byte": 51651,
    "ente": "Anne Frank House",
    "titolo": "Anne Frank House: Tickets",
-   "letto_il": "2026-11-04",
-   "cambiato_il": "2026-10-30",
-   "impronta": "e416af9a2d7bbd4c",
+   "letto_il": "2026-11-13",
+   "cambiato_il": "2026-11-12",
+   "impronta": "40474587fbd53852",
    "frasi": 5
   },
   "alh_2018": {
@@ -33,10 +33,10 @@
    "pagina": "https://www.alhambra-patronato.es/en/notas-prensa/new-system-for-the-reservation-and-sale-of-tickets-to-the-alhambra",
    "url_finale": "https://www.alhambra-patronato.es/en/notas-prensa/new-system-for-the-reservation-and-sale-of-tickets-to-the-alhambra",
    "http": 200,
-   "byte": 226425,
+   "byte": 103299,
    "ente": "Patronato de la Alhambra y Generalife",
    "titolo": "Alhambra: New system for the reservation and sale of tickets (press release, 8 January 2018)",
-   "letto_il": "2026-11-04",
+   "letto_il": "2026-11-13",
    "cambiato_il": "2026-10-30",
    "impronta": "a866e8f9a6f7c998",
    "frasi": 1
@@ -49,7 +49,7 @@
    "byte": 229040,
    "ente": "Patronato de la Alhambra y Generalife",
    "titolo": "Alhambra: Visit F.A.Q.",
-   "letto_il": "2026-11-04",
+   "letto_il": "2026-11-13",
    "cambiato_il": "2026-10-30",
    "impronta": "c168eaa59503445a",
    "frasi": 1
@@ -62,20 +62,59 @@
    "byte": 218407,
    "ente": "Patronato de la Alhambra y Generalife",
    "titolo": "Alhambra: Opening hours and prices",
-   "letto_il": "2026-11-04",
+   "letto_il": "2026-11-13",
    "cambiato_il": "2026-10-30",
    "impronta": "389f56c39a461372",
    "frasi": 4
+  },
+  "cat_home": {
+   "url": "https://www.catacombes.paris.fr/en",
+   "pagina": "https://www.catacombes.paris.fr/en",
+   "url_finale": "https://www.catacombes.paris.fr/en",
+   "http": 200,
+   "byte": 39707,
+   "ente": "Catacombes de Paris (Paris Musées)",
+   "titolo": "The Paris Catacombs: official website",
+   "letto_il": "2026-11-13",
+   "cambiato_il": "2026-11-12",
+   "impronta": "79833c7331b1c44c",
+   "frasi": 2
+  },
+  "cat_info": {
+   "url": "https://www.catacombes.paris.fr/en/visit/useful-information",
+   "pagina": "https://www.catacombes.paris.fr/en/visit/useful-information",
+   "url_finale": "https://www.catacombes.paris.fr/en/visit/useful-information",
+   "http": 200,
+   "byte": 33948,
+   "ente": "Catacombes de Paris (Paris Musées)",
+   "titolo": "Paris Catacombs: Useful Information",
+   "letto_il": "2026-11-13",
+   "cambiato_il": "2026-11-12",
+   "impronta": "6c00ccc74ba8f5a5",
+   "frasi": 5
+  },
+  "cat_prima": {
+   "url": "https://www.catacombes.paris.fr/en/visit/please-read-your-visit",
+   "pagina": "https://www.catacombes.paris.fr/en/visit/please-read-your-visit",
+   "url_finale": "https://www.catacombes.paris.fr/en/visit/please-read-your-visit",
+   "http": 200,
+   "byte": 32643,
+   "ente": "Catacombes de Paris (Paris Musées)",
+   "titolo": "Paris Catacombs: Please read before your visit",
+   "letto_il": "2026-11-13",
+   "cambiato_il": "2026-11-12",
+   "impronta": "39ab05884dca466b",
+   "frasi": 1
   },
   "cen_info": {
    "url": "https://cenacolovinciano.org/en/info/",
    "pagina": "https://cenacolovinciano.org/en/info/",
    "url_finale": "https://cenacolovinciano.org/en/info/",
    "http": 200,
-   "byte": 140613,
+   "byte": 140566,
    "ente": "Last Supper Museum (Museo del Cenacolo Vinciano)",
    "titolo": "Cenacolo Vinciano: Info (tickets, hours)",
-   "letto_il": "2026-11-04",
+   "letto_il": "2026-11-13",
    "cambiato_il": "2026-10-30",
    "impronta": "1c07d893b410cf35",
    "frasi": 14
@@ -88,7 +127,7 @@
    "byte": 15316,
    "ente": "Ghibli Museum, Mitaka",
    "titolo": "Ghibli Museum: Hours and Directions",
-   "letto_il": "2026-11-04",
+   "letto_il": "2026-11-13",
    "cambiato_il": "2026-10-31",
    "impronta": "94dd83ba381adcc3",
    "frasi": 1
@@ -101,7 +140,7 @@
    "byte": 43732,
    "ente": "Ghibli Museum, Mitaka",
    "titolo": "Ghibli Museum: Tickets",
-   "letto_il": "2026-11-04",
+   "letto_il": "2026-11-13",
    "cambiato_il": "2026-10-31",
    "impronta": "d1185a64ea159213",
    "frasi": 5
@@ -114,9 +153,22 @@
    "byte": 36818,
    "ente": "Ghibli Park",
    "titolo": "Ghibli Park: Tickets (Overseas Purchase)",
-   "letto_il": "2026-11-04",
+   "letto_il": "2026-11-13",
    "cambiato_il": "2026-10-31",
    "impronta": "52b356e1f59d181c",
+   "frasi": 8
+  },
+  "hale_sun": {
+   "url": "https://www.nps.gov/hale/planyourvisit/sunrise.htm",
+   "pagina": "https://www.nps.gov/hale/planyourvisit/sunrise.htm",
+   "url_finale": "https://www.nps.gov/hale/planyourvisit/sunrise.htm",
+   "http": 200,
+   "byte": 53806,
+   "ente": "National Park Service",
+   "titolo": "Haleakalā National Park: Sunrise (NPS)",
+   "letto_il": "2026-11-13",
+   "cambiato_il": "2026-11-13",
+   "impronta": "7ccf3a4deb5ca98c",
    "frasi": 8
   },
   "kun_palazzo": {
@@ -127,7 +179,7 @@
    "byte": 60346,
    "ente": "Imperial Household Agency",
    "titolo": "Imperial Household Agency: The Imperial Palace, Facilities and Visit Guidelines",
-   "letto_il": "2026-11-04",
+   "letto_il": "2026-11-13",
    "cambiato_il": "2026-10-31",
    "impronta": "8ea37d35195ecf46",
    "frasi": 5
@@ -137,10 +189,10 @@
    "pagina": "https://museum-tickets.nintendo.com/en/",
    "url_finale": "https://museum-tickets.nintendo.com/en/",
    "http": 200,
-   "byte": 30026,
+   "byte": 30177,
    "ente": "Nintendo Museum (Nintendo Co., Ltd.)",
    "titolo": "Nintendo Museum Ticketing Website",
-   "letto_il": "2026-11-04",
+   "letto_il": "2026-11-13",
    "cambiato_il": "2026-11-04",
    "impronta": "04b9bc0e1020dfcc",
    "frasi": 4
@@ -150,10 +202,10 @@
    "pagina": "https://museum.nintendo.com/en/guide/visit-flow/index.html",
    "url_finale": "https://museum.nintendo.com/en/guide/visit-flow/index.html",
    "http": 200,
-   "byte": 40875,
+   "byte": 40381,
    "ente": "Nintendo Museum (Nintendo Co., Ltd.)",
    "titolo": "Nintendo Museum: From Ticket Reservation to Arrival at the Museum",
-   "letto_il": "2026-11-04",
+   "letto_il": "2026-11-13",
    "cambiato_il": "2026-10-31",
    "impronta": "98624eaab7cdefed",
    "frasi": 3
@@ -163,10 +215,10 @@
    "pagina": "https://museum.nintendo.com/en/",
    "url_finale": "https://museum.nintendo.com/en/index.html",
    "http": 200,
-   "byte": 48290,
+   "byte": 48591,
    "ente": "Nintendo Museum (Nintendo Co., Ltd.)",
    "titolo": "Nintendo Museum: official website",
-   "letto_il": "2026-11-04",
+   "letto_il": "2026-11-13",
    "cambiato_il": "2026-10-31",
    "impronta": "f19a9bb2d3e6683f",
    "frasi": 1
@@ -179,7 +231,7 @@
    "byte": 131254,
    "ente": "Archaeological Park of Pompeii",
    "titolo": "Pompeii Sites: official website",
-   "letto_il": "2026-11-04",
+   "letto_il": "2026-11-13",
    "cambiato_il": "2026-10-30",
    "impronta": "d69ff40dcf190256",
    "frasi": 1
@@ -189,10 +241,10 @@
    "pagina": "https://pompeiisites.org/en/visiting-info/timetables-and-tickets/",
    "url_finale": "https://pompeiisites.org/en/visiting-info/timetables-and-tickets/",
    "http": 200,
-   "byte": 106328,
+   "byte": 106295,
    "ente": "Archaeological Park of Pompeii",
    "titolo": "Pompeii Sites: Timetables and tickets",
-   "letto_il": "2026-11-04",
+   "letto_il": "2026-11-13",
    "cambiato_il": "2026-10-30",
    "impronta": "38f15a95bb052589",
    "frasi": 6
@@ -202,10 +254,10 @@
    "pagina": "https://sagradafamilia.org/en/faqs",
    "url_finale": "https://sagradafamilia.org/en/faqs",
    "http": 200,
-   "byte": 120802,
+   "byte": 120789,
    "ente": "Basílica de la Sagrada Família",
    "titolo": "Sagrada Família: FAQs",
-   "letto_il": "2026-11-04",
+   "letto_il": "2026-11-13",
    "cambiato_il": "2026-10-30",
    "impronta": "ac53478d07bba869",
    "frasi": 3
@@ -218,7 +270,7 @@
    "byte": 138404,
    "ente": "Basílica de la Sagrada Família",
    "titolo": "Sagrada Família: Opening hours and getting here",
-   "letto_il": "2026-11-04",
+   "letto_il": "2026-11-13",
    "cambiato_il": "2026-10-30",
    "impronta": "82cbcf022cc8e6eb",
    "frasi": 4
@@ -228,10 +280,10 @@
    "pagina": "https://www.sumo.or.jp/EnTicket/year_schedule/",
    "url_finale": "https://www.sumo.or.jp/EnTicket/year_schedule/",
    "http": 200,
-   "byte": 20738,
+   "byte": 20729,
    "ente": "Japan Sumo Association (Nihon Sumo Kyokai)",
    "titolo": "Nihon Sumo Kyokai: Grand Tournament Schedule",
-   "letto_il": "2026-11-04",
+   "letto_il": "2026-11-13",
    "cambiato_il": "2026-10-31",
    "impronta": "e8c8193c94747c29",
    "frasi": 1
@@ -241,10 +293,10 @@
    "pagina": "https://www.sumo.or.jp/En/",
    "url_finale": "https://www.sumo.or.jp/En/",
    "http": 200,
-   "byte": 104631,
+   "byte": 30142,
    "ente": "Japan Sumo Association (Nihon Sumo Kyokai)",
    "titolo": "Nihon Sumo Kyokai: Official Grand Sumo Home Page",
-   "letto_il": "2026-11-04",
+   "letto_il": "2026-11-13",
    "cambiato_il": "2026-10-31",
    "impronta": "c554e24591301e17",
    "frasi": 1
@@ -254,13 +306,13 @@
    "pagina": "https://www.museivaticani.va/content/museivaticani-mobile/en/info/orari-musei-vaticani.html",
    "url_finale": "https://www.museivaticani.va/content/museivaticani-mobile/en/info/orari-musei-vaticani.html",
    "http": 200,
-   "byte": 37175,
+   "byte": 36062,
    "ente": "Vatican Museums",
    "titolo": "Vatican Museums: Days & Hours of closure",
-   "letto_il": "2026-11-04",
-   "cambiato_il": "2026-10-30",
-   "impronta": "9c4de9837b60823d",
-   "frasi": 5
+   "letto_il": "2026-11-13",
+   "cambiato_il": "2026-11-12",
+   "impronta": "538c0a22e7ed8798",
+   "frasi": 4
   },
   "vat_tariffe": {
    "url": "https://www.museivaticani.va/content/museivaticani-mobile/en/organizza-visita/tariffe-e-biglietti.html",
@@ -270,10 +322,49 @@
    "byte": 45922,
    "ente": "Vatican Museums",
    "titolo": "Vatican Museums: Prices and Tickets",
-   "letto_il": "2026-11-04",
+   "letto_il": "2026-11-13",
    "cambiato_il": "2026-10-30",
    "impronta": "d38bd8f1597eb953",
    "frasi": 1
+  },
+  "wave_blm": {
+   "url": "https://www.blm.gov/programs/recreation/permits-and-passes/lotteries-and-permit-systems/arizona/coyote-buttes-north",
+   "pagina": "https://www.blm.gov/programs/recreation/permits-and-passes/lotteries-and-permit-systems/arizona/coyote-buttes-north",
+   "url_finale": "https://www.blm.gov/programs/recreation/permits-and-passes/lotteries-and-permit-systems/arizona/coyote-buttes-north",
+   "http": 200,
+   "byte": 165779,
+   "ente": "Bureau of Land Management",
+   "titolo": "BLM: Coyote Buttes North (The Wave)",
+   "letto_il": "2026-11-13",
+   "cambiato_il": "2026-11-12",
+   "impronta": "40e20162c1e03c78",
+   "frasi": 3
+  },
+  "wave_rec": {
+   "url": "https://www.recreation.gov/camping/poi/274309",
+   "pagina": "https://www.recreation.gov/camping/poi/274309",
+   "url_finale": "https://www.recreation.gov/camping/poi/274309",
+   "http": 200,
+   "byte": 27522,
+   "ente": "Recreation.gov (Bureau of Land Management)",
+   "titolo": "Recreation.gov: Coyote Buttes North Advanced Lottery (The Wave)",
+   "letto_il": "2026-11-13",
+   "cambiato_il": "2026-11-13",
+   "impronta": "b73dc3fe1e6657d6",
+   "frasi": 7
+  },
+  "whit_rec": {
+   "url": "https://www.recreation.gov/permits/445860",
+   "pagina": "https://www.recreation.gov/permits/445860",
+   "url_finale": "https://www.recreation.gov/permits/445860",
+   "http": 200,
+   "byte": 23144,
+   "ente": "Recreation.gov (Inyo National Forest)",
+   "titolo": "Recreation.gov: Inyo National Forest, Mt. Whitney permits",
+   "letto_il": "2026-11-13",
+   "cambiato_il": "2026-11-12",
+   "impronta": "9f571f17bb5f00f7",
+   "frasi": 10
   },
   "wm_ore": {
    "url": "https://www.nps.gov/wamo/planyourvisit/hours.htm",
@@ -283,7 +374,7 @@
    "byte": 35160,
    "ente": "National Park Service",
    "titolo": "Washington Monument: Operating Hours & Seasons (NPS)",
-   "letto_il": "2026-11-04",
+   "letto_il": "2026-11-13",
    "cambiato_il": "2026-10-31",
    "impronta": "c5813c2c109b5696",
    "frasi": 2
@@ -293,13 +384,39 @@
    "pagina": "https://www.recreation.gov/ticket/facility/234635",
    "url_finale": "https://www.recreation.gov/ticket/facility/234635",
    "http": 200,
-   "byte": 32809,
+   "byte": 32808,
    "ente": "Recreation.gov (National Park Service)",
    "titolo": "Recreation.gov: Washington Monument, National Mall and Memorial Parks",
-   "letto_il": "2026-11-04",
+   "letto_il": "2026-11-13",
    "cambiato_il": "2026-10-31",
    "impronta": "db3ed67c0cbc797a",
    "frasi": 8
+  },
+  "yose_hd": {
+   "url": "https://www.nps.gov/yose/planyourvisit/hdpermits.htm",
+   "pagina": "https://www.nps.gov/yose/planyourvisit/hdpermits.htm",
+   "url_finale": "https://www.nps.gov/yose/planyourvisit/hdpermits.htm",
+   "http": 200,
+   "byte": 42599,
+   "ente": "National Park Service",
+   "titolo": "Yosemite National Park: Half Dome Permits (NPS)",
+   "letto_il": "2026-11-13",
+   "cambiato_il": "2026-11-13",
+   "impronta": "aa9b5aad2295139c",
+   "frasi": 11
+  },
+  "zion_al": {
+   "url": "https://www.nps.gov/zion/planyourvisit/angels-landing-hiking-permits.htm",
+   "pagina": "https://www.nps.gov/zion/planyourvisit/angels-landing-hiking-permits.htm",
+   "url_finale": "https://www.nps.gov/zion/planyourvisit/angels-landing-hiking-permits.htm",
+   "http": 200,
+   "byte": 111257,
+   "ente": "National Park Service",
+   "titolo": "Zion National Park: Angels Landing Permits & Hiking (NPS)",
+   "letto_il": "2026-11-13",
+   "cambiato_il": "2026-11-12",
+   "impronta": "59e0c1fb434929d9",
+   "frasi": 12
   }
  },
  "attrazioni": [
@@ -621,15 +738,7 @@
      "vat_chiusure"
     ]
    },
-   "orari_speciali": [
-    {
-     "data": "2026-11-10",
-     "testo": "All sectors closed from 8 am to 9 am",
-     "cit": [
-      "vat_10nov"
-     ]
-    }
-   ],
+   "orari_speciali": [],
    "orari": {
     "breve": "Monday to Saturday, 8 am to 8 pm (last entry 6 pm)",
     "cit": [
@@ -660,12 +769,6 @@
      "f": "vat_orari",
      "tema": "chiusure",
      "x": "Closures Sunday (except the last Sunday of each month, if not in conjunction with the Feast of 29* June, Saints Peter and Paul) 1 and 6 January 11 February 19 March 6 April 1 May 29* June 14 and 15 August 1 November 8, 25 and 26 December"
-    },
-    {
-     "id": "vat_10nov",
-     "f": "vat_orari",
-     "tema": "chiusure",
-     "x": "VATICAN MUSEUMS (all sectors) Period: 10 November Hour of closure: 08.00 a.m. – 09.00 a.m."
     },
     {
      "id": "vat_gratis",
@@ -780,7 +883,7 @@
    "chiusure": {
     "md": [],
     "date": [
-     "2026-09-21"
+     "2027-10-11"
     ],
     "settimana": [],
     "breve": "",
@@ -789,13 +892,6 @@
     ]
    },
    "orari_speciali": [
-    {
-     "data": "2026-11-07",
-     "testo": "Open 9:00 to 18:30",
-     "cit": [
-      "af_eccezioni"
-     ]
-    },
     {
      "md": "12-25",
      "testo": "Open 9:00 to 17:00",
@@ -827,6 +923,20 @@
     {
      "md": "05-04",
      "testo": "Open 9:00 to 17:00",
+     "cit": [
+      "af_eccezioni"
+     ]
+    },
+    {
+     "data": "2027-10-10",
+     "testo": "Open 9:00 to 17:00",
+     "cit": [
+      "af_eccezioni"
+     ]
+    },
+    {
+     "data": "2027-11-06",
+     "testo": "Open 9:00 to 18:30",
      "cit": [
       "af_eccezioni"
      ]
@@ -867,7 +977,7 @@
      "id": "af_eccezioni",
      "f": "af_tickets",
      "tema": "chiusure",
-     "x": "Exceptions to the opening hours 1 January 12:00 - 22:00 27 April - King's Day 9:00 - 17:00 4 May 9:00 - 17:00 20 September 2026 9:00 - 17:00 21 September 2026 - Yom Kippur closed 7 November 2026 9:00 - 18:30 25 December 9:00 - 17:00 31 December 9:00 - 17:00"
+     "x": "Exceptions to the opening hours 1 January 12:00 - 22:00 27 April - King's Day 9:00 - 17:00 4 May 9:00 - 17:00 10 October 2027 9:00 - 17:00 11 October 2027 - Yom Kippur closed 6 November 2027 9:00 - 18:30 25 December 9:00 - 17:00 31 December 9:00 - 17:00"
     },
     {
      "id": "af_esauriti",
@@ -2396,13 +2506,1233 @@
      "post": ""
     }
    ]
+  },
+  {
+   "slug": "angels-landing-permits",
+   "nome": "Angels Landing permits",
+   "nome_lungo": "Angels Landing hike in Zion National Park",
+   "citta": "Zion National Park, Utah",
+   "paese": "United States",
+   "fuso": "America/Denver",
+   "ora_locale": "Mountain Time",
+   "area": "USA",
+   "chi": "the National Park Service page for Zion National Park",
+   "sito": "https://www.nps.gov/zion/",
+   "biglietteria": {
+    "url": "https://www.recreation.gov/",
+    "nome": "recreation.gov",
+    "cit": [
+     "al_rec"
+    ],
+    "verbo": "are permits, applied for at"
+   },
+   "titolo": "When Does the Angels Landing Lottery Open? Permit Dates (2026-27)",
+   "h1": "When does the Angels Landing permit lottery open? (2026-27)",
+   "risposta": "you need a permit for the chains section, from a seasonal lottery that opens at 8 am Mountain Time on 1 January, 1 April, 1 July and 1 October, or from a day-before lottery open every day from 12:01 am to 3 pm: the next seasonal lottery opens {next:stagione}, for {per:stagione}, and today's day-before lottery is for hikes on {anticipo:vigilia}.",
+   "uscite": [
+    {
+     "id": "stagione",
+     "tipo": "annuale",
+     "ora": "08:00",
+     "titolo": "Angels Landing seasonal lottery opens",
+     "etichetta": "Seasonal lottery opens",
+     "date_md": [
+      {
+       "md": "01-01",
+       "per": "hikes from March 1 to May 31"
+      },
+      {
+       "md": "04-01",
+       "per": "hikes from June 1 to August 31"
+      },
+      {
+       "md": "07-01",
+       "per": "hikes from September 1 to November 30"
+      },
+      {
+       "md": "10-01",
+       "per": "hikes from December 1 to February 28"
+      }
+     ],
+     "breve": "Seasonal lottery: opens 1 January, 1 April, 1 July and 1 October at 8 am Mountain Time",
+     "cit": [
+      "al_stagione",
+      "al_tabella"
+     ],
+     "indice": "1 January, 1 April, 1 July and 1 October at 8 am Mountain Time"
+    },
+    {
+     "id": "vigilia",
+     "tipo": "anticipo",
+     "giorni": 1,
+     "ora": "00:01",
+     "titolo": "Angels Landing day-before lottery opens",
+     "breve": "Day-before lottery: every day from 12:01 am to 3 pm Mountain Time, for the next day",
+     "cit": [
+      "al_giorno",
+      "al_esempio"
+     ]
+    }
+   ],
+   "uscite_testo": [],
+   "gratis": null,
+   "chiusure": {
+    "md": [],
+    "date": [],
+    "settimana": [],
+    "breve": "",
+    "cit": [],
+    "nota": "The permit page lists no closing days: its lotteries cover hikes in every season. Check the park alerts before you go."
+   },
+   "orari_speciali": [],
+   "orari": {
+    "breve": "Your permit gives a start time at the Grotto",
+    "cit": [
+     "al_ora"
+    ]
+   },
+   "citazioni": [
+    {
+     "id": "al_tutti",
+     "f": "zion_al",
+     "tema": "biglietti",
+     "x": "Everyone who hikes Angels Landing needs to have a permit."
+    },
+    {
+     "id": "al_catene",
+     "f": "zion_al",
+     "tema": "biglietti",
+     "x": "Permits are required to hike the chains section from Scout Lookout to Angels Landing."
+    },
+    {
+     "id": "al_scout",
+     "f": "zion_al",
+     "tema": "biglietti",
+     "x": "You do not need a permit to hike up to Scout Lookout."
+    },
+    {
+     "id": "al_stagione",
+     "f": "zion_al",
+     "tema": "uscita",
+     "x": "The Seasonal Lottery allows you to apply for a permit months in advance."
+    },
+    {
+     "id": "al_tabella",
+     "f": "zion_al",
+     "tema": "uscita",
+     "x": "Hike Dates Lottery Opens 8 am MT Lottery Closes 11:59 pm MT Permits Issued March 1 - May 31 January 1 January 20 January 25 June 1 - August 31 April 1 April 20 April 25 September 1 - November 30 July 1 July 20 July 25 December 1 - February 28 (Next Year) October 1 October 20 October 25"
+    },
+    {
+     "id": "al_giorno",
+     "f": "zion_al",
+     "tema": "uscita",
+     "x": "You can apply for a permit the day before your planned hike. This lottery opens every day at 12:01 am and closes at 3 pm Mountain Time (MT)."
+    },
+    {
+     "id": "al_esempio",
+     "f": "zion_al",
+     "tema": "uscita",
+     "x": "For example: If you want to hike on a Tuesday, you need to apply between 12:01 am and 3 pm (MT) on Monday. We will issue permits at 4 pm on Monday."
+    },
+    {
+     "id": "al_odds",
+     "f": "zion_al",
+     "tema": "uscita",
+     "x": "Remember that this is a lottery system. If you apply at any point during the open window, you will have the same odds of getting a permit as any other applicant."
+    },
+    {
+     "id": "al_costo",
+     "f": "zion_al",
+     "tema": "biglietti",
+     "x": "Note: It costs $6 to apply for a permit."
+    },
+    {
+     "id": "al_tre",
+     "f": "zion_al",
+     "tema": "biglietti",
+     "x": "One will be your permit reservation confirmation, and the other will be a receipt for the $3 per-person permit fee."
+    },
+    {
+     "id": "al_rec",
+     "f": "zion_al",
+     "tema": "biglietti",
+     "x": "Find the date you plan to be in Zion and use recreation.gov to apply for a permit during your application window."
+    },
+    {
+     "id": "al_ora",
+     "f": "zion_al",
+     "tema": "orari",
+     "x": "The time printed on your permit is when you need to be at the Grotto."
+    }
+   ],
+   "faq": [
+    {
+     "q": "When does the Angels Landing lottery open?",
+     "query": "when does angels landing lottery open",
+     "tipo": "uscita",
+     "pre": "The seasonal lottery opens on 1 January, 1 April, 1 July and 1 October at 8 am Mountain Time, each time for a later season of hikes. The official table:",
+     "cit": [
+      "al_tabella"
+     ],
+     "post": "",
+     "regola": "stagione"
+    },
+    {
+     "q": "What time does the Angels Landing seasonal lottery open?",
+     "query": "what time does angels landing seasonal lottery open",
+     "tipo": "testo",
+     "pre": "At 8 am Mountain Time on the opening day; it closes at 11:59 pm Mountain Time on the 20th of the same month. The official page says:",
+     "cit": [
+      "al_stagione",
+      "al_tabella"
+     ],
+     "post": ""
+    },
+    {
+     "q": "How does the Angels Landing day-before lottery work?",
+     "query": "how does angels landing day before lottery work",
+     "tipo": "uscita",
+     "pre": "You apply the day before your hike, between 12:01 am and 3 pm Mountain Time, and permits are issued at 4 pm. The official page says:",
+     "cit": [
+      "al_giorno",
+      "al_esempio"
+     ],
+     "post": "",
+     "regola": "vigilia"
+    },
+    {
+     "q": "What time is the Angels Landing day-before lottery?",
+     "query": "angels landing day before lottery time",
+     "tipo": "testo",
+     "pre": "From 12:01 am to 3 pm Mountain Time on the day before your hike, and applying early in the window does not change your odds:",
+     "cit": [
+      "al_giorno",
+      "al_odds"
+     ],
+     "post": ""
+    },
+    {
+     "q": "How much does an Angels Landing permit cost?",
+     "query": "angels landing permit cost",
+     "tipo": "testo",
+     "pre": "$6 to apply, and a $3 per-person permit fee if you are selected. The official page says:",
+     "cit": [
+      "al_costo",
+      "al_tre"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Do you need a permit for Angels Landing?",
+     "query": "angels landing permit",
+     "tipo": "testo",
+     "pre": "Yes, for the chains section, but not to hike up to Scout Lookout:",
+     "cit": [
+      "al_catene",
+      "al_scout"
+     ],
+     "post": ""
+    }
+   ],
+   "viator": false
+  },
+  {
+   "slug": "half-dome-permits",
+   "nome": "Half Dome permits",
+   "nome_lungo": "Half Dome day hike in Yosemite National Park",
+   "citta": "Yosemite National Park, California",
+   "paese": "United States",
+   "fuso": "America/Los_Angeles",
+   "ora_locale": "Pacific Time",
+   "area": "USA",
+   "chi": "the National Park Service page for Yosemite National Park",
+   "sito": "https://www.nps.gov/yose/",
+   "biglietteria": {
+    "url": "https://www.recreation.gov/permits/234652",
+    "nome": "recreation.gov",
+    "cit": [
+     "hd_rec"
+    ],
+    "verbo": "are permits, applied for at"
+   },
+   "titolo": "When Is the Half Dome Permit Lottery? Dates and Times (2026-27)",
+   "h1": "When is the Half Dome permit lottery? (2026-27)",
+   "risposta": "day-hike permits come from a preseason lottery with an application period from March 1 through March 31 (eastern time) and from daily lotteries during the hiking season, two days before the hike: the next preseason lottery opens {next:apre}.",
+   "uscite": [
+    {
+     "id": "apre",
+     "tipo": "annuale",
+     "ora": null,
+     "titolo": "Half Dome preseason lottery opens",
+     "etichetta": "Preseason lottery opens",
+     "date_md": [
+      {
+       "md": "03-01",
+       "per": "the coming hiking season"
+      }
+     ],
+     "nota_ora": "The official text gives the days and says “eastern time”, but not the hour, so our calendar marks the whole day.",
+     "breve": "Preseason lottery: applications from March 1 through March 31 (eastern time)",
+     "cit": [
+      "hd_pre"
+     ],
+     "indice": "preseason lottery from March 1 through March 31"
+    },
+    {
+     "id": "chiude",
+     "tipo": "annuale",
+     "ora": null,
+     "titolo": "Half Dome preseason lottery: last day to apply",
+     "etichetta": "Preseason lottery closes",
+     "date_md": [
+      {
+       "md": "03-31",
+       "per": "the coming hiking season"
+      }
+     ],
+     "nota_ora": "The official text gives the days and says “eastern time”, but not the hour, so our calendar marks the whole day.",
+     "breve": "Preseason lottery: last day to apply, March 31",
+     "cit": [
+      "hd_pre"
+     ]
+    }
+   ],
+   "uscite_testo": [
+    {
+     "titolo": "Daily lottery: two days before the hike",
+     "cit": [
+      "hd_giorn",
+      "hd_esempio",
+      "hd_orario",
+      "hd_cavi"
+     ],
+     "nota": "The daily lotteries run only during the hiking season. The page gives the usual dates of the cables, “subject to change based on conditions”, not fixed dates, so we do not put the daily lotteries in the calendar: count two days back from your hike."
+    }
+   ],
+   "gratis": null,
+   "chiusure": {
+    "md": [],
+    "date": [],
+    "settimana": [],
+    "breve": "None listed; permits only for the days when the cables are up",
+    "cit": [
+     "hd_cavi"
+    ],
+    "nota": "The permit page lists no closing days, but permits are for the days when the cables are up: normally from the Friday before the last Monday in May to the day after the second Monday in October, dates “subject to change based on conditions”."
+   },
+   "orari_speciali": [],
+   "orari": {
+    "breve": "Not on the permit page; a daily limit of hikers instead",
+    "cit": [
+     "hd_max"
+    ]
+   },
+   "citazioni": [
+    {
+     "id": "hd_cavi",
+     "f": "yose_hd",
+     "tema": "chiusure",
+     "x": "The cables are normally up the Friday before the last Monday in May (Memorial Day) and the last day to use the cables is the day after the second Monday in October. These dates are subject to change based on conditions (check current status)."
+    },
+    {
+     "id": "hd_tot",
+     "f": "yose_hd",
+     "tema": "uscita",
+     "x": "Permits for day hikers are distributed by lottery via Recreation.gov, with one preseason lottery having an application period in March and and daily lotteries during the hiking season."
+    },
+    {
+     "id": "hd_pre",
+     "f": "yose_hd",
+     "tema": "uscita",
+     "x": "The application period for this lottery is from March 1 through March 31 (eastern time). Applicants will receive an email with lottery results in mid-April or can get results online or by calling Recreation.gov."
+    },
+    {
+     "id": "hd_225",
+     "f": "yose_hd",
+     "tema": "biglietti",
+     "x": "During the preseason lottery, 225 permits are available for each day."
+    },
+    {
+     "id": "hd_giorn",
+     "f": "yose_hd",
+     "tema": "uscita",
+     "x": "The daily lotteries have an application period two days prior to the hiking date with a notification late that night."
+    },
+    {
+     "id": "hd_esempio",
+     "f": "yose_hd",
+     "tema": "uscita",
+     "x": "(So, to hike on Saturday, you would apply on Thursday and receive an email notification of results late on Thursday evening. Results are also available online, or by phone the next morning.)"
+    },
+    {
+     "id": "hd_orario",
+     "f": "yose_hd",
+     "tema": "uscita",
+     "x": "The application period is from midnight to 4 pm Pacific time."
+    },
+    {
+     "id": "hd_rec",
+     "f": "yose_hd",
+     "tema": "biglietti",
+     "x": "To apply for a permit, visit Recreation.gov or call 877/444-6777"
+    },
+    {
+     "id": "hd_fee1",
+     "f": "yose_hd",
+     "tema": "biglietti",
+     "x": "The first fee, which is charged at the time you submit an application, is $10."
+    },
+    {
+     "id": "hd_fee2",
+     "f": "yose_hd",
+     "tema": "biglietti",
+     "x": "The second fee is $10 per person and is charged only when you receive a permit."
+    },
+    {
+     "id": "hd_max",
+     "f": "yose_hd",
+     "tema": "orari",
+     "x": "A maximum of 300 hikers are allowed (about 225 day hikers and 75 backpackers) each day on the Half Dome Trail beyond the base of the subdome."
+    }
+   ],
+   "faq": [
+    {
+     "q": "When is the Half Dome lottery?",
+     "query": "when is the half dome lottery",
+     "tipo": "uscita",
+     "pre": "The preseason lottery takes applications for the whole month of March, and results come by email in mid-April. The official page says:",
+     "cit": [
+      "hd_tot",
+      "hd_pre"
+     ],
+     "post": "",
+     "regola": "apre"
+    },
+    {
+     "q": "When are Half Dome lottery results announced?",
+     "query": "when are half dome lottery results announced",
+     "tipo": "testo",
+     "pre": "In mid-April for the preseason lottery, and late the same night for a daily lottery:",
+     "cit": [
+      "hd_pre",
+      "hd_giorn"
+     ],
+     "post": ""
+    },
+    {
+     "q": "How does the Half Dome daily lottery work?",
+     "query": "half dome daily lottery",
+     "tipo": "testo",
+     "pre": "You apply two days before your hike, from midnight to 4 pm Pacific time, during the hiking season:",
+     "cit": [
+      "hd_giorn",
+      "hd_esempio",
+      "hd_orario"
+     ],
+     "post": ""
+    },
+    {
+     "q": "How much does a Half Dome permit cost?",
+     "query": "half dome permit cost",
+     "tipo": "testo",
+     "pre": "Two fees: $10 per application, and $10 per person if you get a permit. The official page says:",
+     "cit": [
+      "hd_fee1",
+      "hd_fee2"
+     ],
+     "post": ""
+    },
+    {
+     "q": "What are the odds in the Half Dome lottery?",
+     "query": "half dome permit odds",
+     "tipo": "testo",
+     "pre": "The page gives no odds, but it gives the numbers: about 225 day hikers a day beyond the base of the subdome, and 225 permits for each day in the preseason lottery:",
+     "cit": [
+      "hd_max",
+      "hd_225"
+     ],
+     "post": ""
+    }
+   ],
+   "viator": false
+  },
+  {
+   "slug": "haleakala-sunrise",
+   "nome": "Haleakalā sunrise",
+   "nome_lungo": "sunrise at Haleakalā National Park",
+   "citta": "Maui, Hawaii",
+   "paese": "United States",
+   "fuso": "Pacific/Honolulu",
+   "ora_locale": "Hawaii time (HST)",
+   "area": "USA",
+   "chi": "the National Park Service page for Haleakalā National Park",
+   "sito": "https://www.nps.gov/hale/",
+   "biglietteria": {
+    "url": "https://www.recreation.gov/ticket/facility/253731",
+    "nome": "recreation.gov",
+    "cit": [
+     "hs_regola",
+     "hs_tel"
+    ],
+    "verbo": "are reservations, sold only at"
+   },
+   "titolo": "When Are Haleakalā Sunrise Reservations Released? (2026-27)",
+   "h1": "When are Haleakalā sunrise reservations released? (2026-27)",
+   "risposta": "sunrise reservations are released at 7:00 am Hawaii time up to 60 days before the visit, and a portion of each day's reservations is released 2 days before: today's 60-day release is for {anticipo:sessanta}.",
+   "uscite": [
+    {
+     "id": "sessanta",
+     "tipo": "anticipo",
+     "giorni": 60,
+     "ora": "07:00",
+     "titolo": "Haleakalā sunrise reservations released",
+     "breve": "Every day at 7:00 am Hawaii time, for the date 60 days later",
+     "cit": [
+      "hs_regola"
+     ],
+     "indice": "every day at 7:00 am Hawaii time, 60 days ahead"
+    }
+   ],
+   "uscite_testo": [
+    {
+     "titolo": "A second release 2 days before",
+     "cit": [
+      "hs_due"
+     ],
+     "nota": "The page does not say at what time this second release happens, so we do not give one."
+    }
+   ],
+   "gratis": null,
+   "chiusure": {
+    "md": [],
+    "date": [],
+    "settimana": [],
+    "breve": "",
+    "cit": [],
+    "nota": "The sunrise page lists no closing days."
+   },
+   "orari_speciali": [],
+   "orari": {
+    "breve": "Sunrise reservation slot from 3:00 to 7:00 am",
+    "cit": [
+     "hs_slot"
+    ]
+   },
+   "citazioni": [
+    {
+     "id": "hs_serve",
+     "f": "hale_sun",
+     "tema": "biglietti",
+     "x": "In order to view sunrise at Haleakalā National Park, you will need to make a reservation ahead of time."
+    },
+    {
+     "id": "hs_regola",
+     "f": "hale_sun",
+     "tema": "uscita",
+     "x": "Reservations can be made online up to 60 days in advance of your sunrise visit on recreation.gov and are only valid for the day reserved. These tickets are released at 7:00 am HST."
+    },
+    {
+     "id": "hs_due",
+     "f": "hale_sun",
+     "tema": "uscita",
+     "x": "A portion of reservations for any given day will be released 2 days (48 hours) in advance"
+    },
+    {
+     "id": "hs_una",
+     "f": "hale_sun",
+     "tema": "biglietti",
+     "x": "A visitor may only purchase one sunrise reservation per three-day period."
+    },
+    {
+     "id": "hs_tel",
+     "f": "hale_sun",
+     "tema": "biglietti",
+     "x": "Please note that calling the park directly, or visiting in-person, will not result in a reservation."
+    },
+    {
+     "id": "hs_meteo",
+     "f": "hale_sun",
+     "tema": "biglietti",
+     "x": "Reservations will not be refunded or exchanged due to weather."
+    },
+    {
+     "id": "hs_tour",
+     "f": "hale_sun",
+     "tema": "biglietti",
+     "x": "Looking for a commercial sunrise tour experience? Visit the road based concessionaire page to explore authorized sunrise tours at Haleakalā."
+    },
+    {
+     "id": "hs_slot",
+     "f": "hale_sun",
+     "tema": "orari",
+     "x": "Select the 3:00 AM - 7:00 AM option."
+    }
+   ],
+   "faq": [
+    {
+     "q": "When are Haleakalā sunrise reservations released?",
+     "query": "haleakala sunrise ticket release",
+     "tipo": "uscita",
+     "pre": "Every day at 7:00 am Hawaii time, for the date 60 days later, and a portion 2 days before. The official page says:",
+     "cit": [
+      "hs_regola",
+      "hs_due"
+     ],
+     "post": "",
+     "regola": "sessanta"
+    },
+    {
+     "q": "What time are Haleakalā sunrise reservations released?",
+     "query": "haleakala sunrise reservation release time",
+     "tipo": "testo",
+     "pre": "At 7:00 am Hawaii time (HST):",
+     "cit": [
+      "hs_regola"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Do you need a reservation for sunrise at Haleakalā?",
+     "query": "haleakala sunrise reservations",
+     "tipo": "testo",
+     "pre": "Yes, made online in advance:",
+     "cit": [
+      "hs_serve",
+      "hs_tel"
+     ],
+     "post": ""
+    },
+    {
+     "q": "What if Haleakalā sunrise reservations are sold out?",
+     "query": "haleakala sunrise tickets sold out",
+     "tipo": "testo",
+     "pre": "Try the second release: a portion of each day's reservations goes on sale 2 days before. The official page says:",
+     "cit": [
+      "hs_due",
+      "hs_una"
+     ],
+     "post": ""
+    },
+    {
+     "q": "What time slot does a Haleakalā sunrise reservation cover?",
+     "query": "haleakala sunrise reservation time",
+     "tipo": "testo",
+     "pre": "From 3:00 to 7:00 am; the booking steps on the official page say:",
+     "cit": [
+      "hs_slot"
+     ],
+     "post": ""
+    }
+   ],
+   "tour": {
+    "titolo": "Guided sunrise tours",
+    "frase": "No reservation left? The National Park Service page points to authorized commercial sunrise tours. A tour usually costs more than the reservation: before you pay, check with the operator that it is authorized by the park and that the tour covers the sunrise entry."
+   }
+  },
+  {
+   "slug": "the-wave-permit-lottery",
+   "nome": "The Wave permits",
+   "nome_lungo": "Wave (Coyote Buttes North)",
+   "citta": "Arizona and Utah border",
+   "paese": "United States",
+   "fuso": "America/Phoenix",
+   "ora_locale": "Arizona time",
+   "area": "USA",
+   "chi": "Recreation.gov and the Bureau of Land Management",
+   "sito": "https://www.blm.gov/programs/recreation/permits-and-passes/lotteries-and-permit-systems/arizona/coyote-buttes-north",
+   "biglietteria": {
+    "url": "https://www.recreation.gov/permits/274309",
+    "nome": "recreation.gov",
+    "cit": [
+     "wv_daily",
+     "wv_tre"
+    ],
+    "verbo": "are permits, won in lotteries at"
+   },
+   "titolo": "The Wave Permit Lottery: When It Opens and Draws (2026-27)",
+   "h1": "The Wave permit lottery: when it opens and draws (2026-27)",
+   "risposta": "you can enter the advanced lottery at any time during a calendar month for a permit in the fourth month ahead, and the lottery is run on the first of the next month: the next drawing is {next:estrae}, for permits in {per:estrae}, and the same day the window for {per:apre} opens.",
+   "uscite": [
+    {
+     "id": "estrae",
+     "tipo": "mensile",
+     "giorno": 1,
+     "ora": null,
+     "mesi_dopo": 3,
+     "titolo": "The Wave advanced lottery drawing",
+     "etichetta": "Lottery drawing",
+     "breve": "Drawing on the first of each month at 9:00am, for permits three months later",
+     "cit": [
+      "wv_estr",
+      "wv_mdt",
+      "wv_mese"
+     ],
+     "nota_ora": "The page says “9:00am” and, further down, “9 am MDT” (Mountain Daylight Time, the summer time of Utah; Arizona does not change its clocks). It does not say which clock applies in winter, so our calendar marks the whole day.",
+     "indice": "drawn on the first of each month",
+     "ora_tabella": "9 am MDT, as the official page writes it"
+    },
+    {
+     "id": "apre",
+     "tipo": "mensile",
+     "giorno": 1,
+     "ora": null,
+     "mesi_dopo": 4,
+     "titolo": "The Wave advanced lottery opens",
+     "etichetta": "Lottery opens",
+     "breve": "Application window: the whole calendar month, for permits in the fourth month ahead",
+     "cit": [
+      "wv_mese",
+      "wv_estr"
+     ],
+     "nota_ora": "The window is the whole calendar month; the page gives no opening time."
+    }
+   ],
+   "uscite_testo": [
+    {
+     "titolo": "Daily lottery: only near the area",
+     "cit": [
+      "wv_daily"
+     ],
+     "nota": "The official pages we read do not say how many days ahead the daily lottery runs, so we do not calculate it."
+    }
+   ],
+   "gratis": null,
+   "chiusure": {
+    "md": [],
+    "date": [],
+    "settimana": [],
+    "breve": "None: permits are issued for every day of the year",
+    "cit": [
+     "wv_ogni"
+    ]
+   },
+   "orari_speciali": [],
+   "orari": {
+    "breve": "No opening hours; a safety briefing for local-drawing winners from 8:30 to 9:00 AM",
+    "cit": [
+     "wv_brief"
+    ]
+   },
+   "citazioni": [
+    {
+     "id": "wv_serve",
+     "f": "wave_blm",
+     "tema": "biglietti",
+     "x": "You must have a permit to visit Coyote Buttes North and Coyote Buttes South."
+    },
+    {
+     "id": "wv_rimb",
+     "f": "wave_blm",
+     "tema": "biglietti",
+     "x": "Note: ALL Permits are NON-REFUNDABLE and NON-TRANSFERABLE."
+    },
+    {
+     "id": "wv_daily",
+     "f": "wave_blm",
+     "tema": "uscita",
+     "x": "The legacy walk-in lottery has transitioned to the new Daily Lottery. While within the geofence area on a mobile device this lottery is only available by going to Recreation.gov in your browser or by installing the Recreation.gov app."
+    },
+    {
+     "id": "wv_mese",
+     "f": "wave_rec",
+     "tema": "uscita",
+     "x": "You may enter the lottery at any time during a calendar month for a permit during the fourth month ahead."
+    },
+    {
+     "id": "wv_tre",
+     "f": "wave_rec",
+     "tema": "biglietti",
+     "x": "You apply for up to three trip dates per application and will be authorized one if you are successful."
+    },
+    {
+     "id": "wv_estr",
+     "f": "wave_rec",
+     "tema": "uscita",
+     "x": "The lottery is run on the first of the next month at 9:00am and applicants are notified (immediately following the lottery) via email, whether they were selected or not."
+    },
+    {
+     "id": "wv_mdt",
+     "f": "wave_rec",
+     "tema": "uscita",
+     "x": "The lottery runs on the first day of the next month at 9 am MDT and applicants are notified of their outcome via email."
+    },
+    {
+     "id": "wv_paga",
+     "f": "wave_rec",
+     "tema": "biglietti",
+     "x": "Permit winners must log back in to confirm the winning permit, complete any remaining information and submit payment by the 15th of the month or forfeit the permit."
+    },
+    {
+     "id": "wv_ogni",
+     "f": "wave_rec",
+     "tema": "chiusure",
+     "x": "Permits are issued for every day of the year, but changing conditions mean that access is not always safe or possible."
+    },
+    {
+     "id": "wv_brief",
+     "f": "wave_rec",
+     "tema": "orari",
+     "x": "This orientation is presented from 8:30 to 9:00 AM daily in person to those who are awarded through the local drawing."
+    }
+   ],
+   "faq": [
+    {
+     "q": "When is The Wave lottery?",
+     "query": "when is the wave lottery",
+     "tipo": "uscita",
+     "pre": "The advanced lottery is open for a whole calendar month, for permits in the fourth month ahead, and it is drawn on the first of the next month. The official page says:",
+     "cit": [
+      "wv_mese",
+      "wv_estr",
+      "wv_mdt"
+     ],
+     "post": "",
+     "regola": "estrae"
+    },
+    {
+     "q": "How does The Wave lottery work?",
+     "query": "how does the wave lottery work",
+     "tipo": "testo",
+     "pre": "You apply online for up to three dates; if you win, you confirm and pay by the 15th of the month:",
+     "cit": [
+      "wv_tre",
+      "wv_estr",
+      "wv_paga"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Is there a daily lottery for The Wave?",
+     "query": "the wave lottery daily",
+     "tipo": "testo",
+     "pre": "Yes, on a mobile device inside the geofence area near the site:",
+     "cit": [
+      "wv_daily"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Can you buy a Wave permit from someone else?",
+     "query": "the wave permits for sale",
+     "tipo": "testo",
+     "pre": "No: permits cannot be transferred or refunded.",
+     "cit": [
+      "wv_rimb"
+     ],
+     "post": ""
+    }
+   ],
+   "viator": false
+  },
+  {
+   "slug": "mt-whitney-permits",
+   "nome": "Mt Whitney permits",
+   "nome_lungo": "Mt. Whitney Trail",
+   "citta": "Inyo National Forest, California",
+   "paese": "United States",
+   "fuso": "America/Los_Angeles",
+   "ora_locale": "Pacific Time",
+   "area": "USA",
+   "chi": "the Recreation.gov page of the Inyo National Forest",
+   "sito": "https://www.recreation.gov/permits/445860",
+   "biglietteria": {
+    "url": "https://www.recreation.gov/permits/445860",
+    "nome": "recreation.gov (Mt. Whitney permits)",
+    "cit": [
+     "wh_lotteria"
+    ],
+    "verbo": "are permits, reserved at"
+   },
+   "titolo": "Mt Whitney Permit Lottery: Results and Release Dates (2026-27)",
+   "h1": "Mt Whitney permit lottery: results and release dates (2026-27)",
+   "risposta": "permits are reserved online through the lottery, with results posted on March 15th, a deadline to claim them on April 21st and unclaimed dates opening for reservations on April 22nd: the next results day is {next:risultati}. The page does not say when applications open.",
+   "uscite": [
+    {
+     "id": "risultati",
+     "tipo": "annuale",
+     "ora": null,
+     "titolo": "Mt Whitney lottery results posted",
+     "etichetta": "Lottery results posted",
+     "date_md": [
+      {
+       "md": "03-15",
+       "per": "the coming permit season"
+      }
+     ],
+     "breve": "Lottery results posted on March 15th",
+     "cit": [
+      "wh_lotteria"
+     ],
+     "indice": "lottery results on March 15th"
+    },
+    {
+     "id": "scadenza",
+     "tipo": "annuale",
+     "ora": null,
+     "titolo": "Mt Whitney: deadline to claim a lottery win",
+     "etichetta": "Deadline to claim",
+     "date_md": [
+      {
+       "md": "04-21",
+       "per": "the coming permit season"
+      }
+     ],
+     "breve": "Deadline to claim a lottery win, April 21st",
+     "cit": [
+      "wh_scadenza"
+     ]
+    },
+    {
+     "id": "aperte",
+     "tipo": "annuale",
+     "ora": null,
+     "titolo": "Mt Whitney unclaimed dates open for reservations",
+     "etichetta": "Unclaimed dates open",
+     "date_md": [
+      {
+       "md": "04-22",
+       "per": "the coming permit season"
+      }
+     ],
+     "breve": "Unclaimed dates open for reservations on April 22nd",
+     "cit": [
+      "wh_aperte"
+     ]
+    }
+   ],
+   "uscite_testo": [
+    {
+     "titolo": "Applications: dates not on the page",
+     "cit": [
+      "wh_lotteria"
+     ],
+     "nota": "The permit page gives the results day but not the application period, so we do not put application dates in the calendar."
+    }
+   ],
+   "gratis": null,
+   "chiusure": {
+    "md": [],
+    "date": [],
+    "settimana": [],
+    "breve": "None listed: a permit is required year-round",
+    "cit": [
+     "wh_anno"
+    ]
+   },
+   "orari_speciali": [],
+   "orari": {
+    "breve": "A day-use permit is valid from midnight to midnight",
+    "cit": [
+     "wh_giorno",
+     "wh_neve"
+    ]
+   },
+   "citazioni": [
+    {
+     "id": "wh_lotteria",
+     "f": "whit_rec",
+     "tema": "uscita",
+     "x": "Mt Whitney permits are reserved online through the lottery. Lottery results will be posted on your recreation.gov account on March 15th."
+    },
+    {
+     "id": "wh_scadenza",
+     "f": "whit_rec",
+     "tema": "uscita",
+     "x": "April 21st is the deadline to claim an awarded reservation from the lottery."
+    },
+    {
+     "id": "wh_aperte",
+     "f": "whit_rec",
+     "tema": "uscita",
+     "x": "After the lottery any unclaimed dates will open for reservations on April 22nd."
+    },
+    {
+     "id": "wh_anno",
+     "f": "whit_rec",
+     "tema": "chiusure",
+     "x": "A wilderness permit is required year-round to visit Mt. Whitney."
+    },
+    {
+     "id": "wh_neve",
+     "f": "whit_rec",
+     "tema": "orari",
+     "x": "The trail is usually snow-free from July to late September."
+    },
+    {
+     "id": "wh_fee",
+     "f": "whit_rec",
+     "tema": "biglietti",
+     "x": "Reservation Fee: A $6.00 non-refundable reservation fee is required for each permit reservation."
+    },
+    {
+     "id": "wh_15",
+     "f": "whit_rec",
+     "tema": "biglietti",
+     "x": "A $15.00 per person fee is charged for trips entering the Whitney Zone"
+    },
+    {
+     "id": "wh_rimborsi",
+     "f": "whit_rec",
+     "tema": "biglietti",
+     "x": "No refunds for Mt Whitney reservations."
+    },
+    {
+     "id": "wh_stampa",
+     "f": "whit_rec",
+     "tema": "biglietti",
+     "x": "One week before the trip you can print or request the permit."
+    },
+    {
+     "id": "wh_giorno",
+     "f": "whit_rec",
+     "tema": "orari",
+     "x": "Valid for one day only, midnight to midnight."
+    }
+   ],
+   "faq": [
+    {
+     "q": "When is the Mt Whitney lottery?",
+     "query": "when is the mt whitney lottery",
+     "tipo": "uscita",
+     "pre": "The permit page gives the results day, March 15th, and the dates after it, but not the application period. The official page says:",
+     "cit": [
+      "wh_lotteria",
+      "wh_scadenza",
+      "wh_aperte"
+     ],
+     "post": "",
+     "regola": "risultati"
+    },
+    {
+     "q": "When do Mt Whitney lottery results come out?",
+     "query": "when does mt whitney lottery results come out",
+     "tipo": "testo",
+     "pre": "On March 15th, in your recreation.gov account:",
+     "cit": [
+      "wh_lotteria"
+     ],
+     "post": ""
+    },
+    {
+     "q": "When do leftover Mt Whitney permits become available?",
+     "query": "mount whitney permit availability calendar",
+     "tipo": "testo",
+     "pre": "On April 22nd, after the deadline to claim lottery wins on April 21st:",
+     "cit": [
+      "wh_scadenza",
+      "wh_aperte"
+     ],
+     "post": ""
+    },
+    {
+     "q": "How much does a Mt Whitney permit cost?",
+     "query": "mt whitney permit cost",
+     "tipo": "testo",
+     "pre": "A $6 reservation fee plus $15 per person, with no refunds:",
+     "cit": [
+      "wh_fee",
+      "wh_15",
+      "wh_rimborsi"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Do you need a permit to climb Mt Whitney?",
+     "query": "do you need a permit to climb mt whitney",
+     "tipo": "testo",
+     "pre": "Yes, all year:",
+     "cit": [
+      "wh_anno"
+     ],
+     "post": ""
+    }
+   ],
+   "viator": false
+  },
+  {
+   "slug": "paris-catacombs",
+   "nome": "Paris Catacombs",
+   "nome_lungo": "Paris Catacombs",
+   "citta": "Paris",
+   "paese": "France",
+   "fuso": "Europe/Paris",
+   "ora_locale": "Paris time",
+   "area": "Europe",
+   "chi": "the official Paris Catacombs website",
+   "sito": "https://www.catacombes.paris.fr/en",
+   "biglietteria": {
+    "url": "https://www.billetterie-parismusees.paris.fr/",
+    "nome": "the Paris Musées online ticket office (linked from the official website)",
+    "cit": [
+     "ct_online",
+     "ct_7"
+    ],
+    "verbo": "are sold online at"
+   },
+   "titolo": "When Do Paris Catacombs Tickets Go on Sale? (2026-27)",
+   "h1": "When do Paris Catacombs tickets go on sale? (2026-27)",
+   "risposta": "tickets are booked online (“Online booking only (7 days in advance)”) and the page gives no release time, so there is no exact release to calculate; the Catacombs are closed every Monday and on January 1, May 1 and December 25, and the next of those three closing days is {next_closure}.",
+   "uscite": [],
+   "uscite_testo": [
+    {
+     "titolo": "Seven days ahead, no time published",
+     "cit": [
+      "ct_7"
+     ],
+     "nota": "The page does not say at what time tickets appear, or whether the seven days count the day of the visit, so we do not calculate a release time."
+    }
+   ],
+   "gratis": null,
+   "chiusure": {
+    "md": [
+     "01-01",
+     "05-01",
+     "12-25"
+    ],
+    "date": [],
+    "settimana": [
+     0
+    ],
+    "breve": "January 1, May 1 and December 25",
+    "cit": [
+     "ct_chiuso",
+     "ct_aperto"
+    ]
+   },
+   "orari_speciali": [],
+   "orari": {
+    "breve": "Tuesday to Sunday, 9.45 a.m. to 8:30 p.m. (last admission 7:30 p.m.)",
+    "cit": [
+     "ct_ore"
+    ]
+   },
+   "citazioni": [
+    {
+     "id": "ct_7",
+     "f": "cat_prima",
+     "tema": "uscita",
+     "x": "Booking tickets Online booking only (7 days in advance) Please book a timed ticket online and check the time slot you reserved."
+    },
+    {
+     "id": "ct_online",
+     "f": "cat_home",
+     "tema": "biglietti",
+     "x": "Purchase your ticket online Online booking is strongly recommended (except free rate tickets)."
+    },
+    {
+     "id": "ct_prezzi",
+     "f": "cat_home",
+     "tema": "biglietti",
+     "x": "Prices 2026 Full rate: 31€ / Reduced rate: 25€ (audio guide included) Children (8-17yo): 15€ (audio guide included)"
+    },
+    {
+     "id": "ct_ore",
+     "f": "cat_info",
+     "tema": "orari",
+     "x": "Tuesday to Sunday from 9.45 a.m. to 8:30 p.m.; last admissions at 7:30 p.m."
+    },
+    {
+     "id": "ct_aperto",
+     "f": "cat_info",
+     "tema": "chiusure",
+     "x": "The Catacombs are open on July 14, August 15, November 1 and November 11."
+    },
+    {
+     "id": "ct_chiuso",
+     "f": "cat_info",
+     "tema": "chiusure",
+     "x": "Closed on Monday and certain holidays: January 1, May 1 and December 25."
+    },
+    {
+     "id": "ct_200",
+     "f": "cat_info",
+     "tema": "biglietti",
+     "x": "The number of site visitors is limited to 200."
+    },
+    {
+     "id": "ct_borse",
+     "f": "cat_info",
+     "tema": "biglietti",
+     "x": "Only bags measuring less than 40x30 cm are allowed."
+    }
+   ],
+   "faq": [
+    {
+     "q": "When do Paris Catacombs tickets go on sale?",
+     "query": "when do paris catacombs tickets go on sale",
+     "tipo": "testo",
+     "pre": "Online, 7 days in advance, according to the official page, which does not say at what time:",
+     "cit": [
+      "ct_7"
+     ],
+     "post": ""
+    },
+    {
+     "q": "What time do Paris Catacombs tickets go on sale?",
+     "query": "what time do paris catacombs tickets go on sale",
+     "tipo": "testo",
+     "pre": "The official pages we read give no time. They say only:",
+     "cit": [
+      "ct_7"
+     ],
+     "post": "Release times you may read elsewhere do not come from these pages."
+    },
+    {
+     "q": "Are the Paris Catacombs open on Mondays?",
+     "query": "are the paris catacombs open on mondays",
+     "tipo": "testo",
+     "pre": "No:",
+     "cit": [
+      "ct_chiuso"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Are the Paris Catacombs open on Sundays?",
+     "query": "are the paris catacombs open on sundays",
+     "tipo": "testo",
+     "pre": "Yes:",
+     "cit": [
+      "ct_ore"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Are the Paris Catacombs open in December?",
+     "query": "are the paris catacombs open in december",
+     "tipo": "testo",
+     "pre": "Yes, except on Mondays and on December 25:",
+     "cit": [
+      "ct_ore",
+      "ct_chiuso"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Can you buy tickets at the Catacombs?",
+     "query": "can you buy tickets at the catacombs",
+     "tipo": "testo",
+     "pre": "The official pages say to book online:",
+     "cit": [
+      "ct_7",
+      "ct_online"
+     ],
+     "post": ""
+    },
+    {
+     "q": "How much are Paris Catacombs tickets?",
+     "query": "catacombs paris tickets price",
+     "tipo": "testo",
+     "pre": "In 2026, audio guide included:",
+     "cit": [
+      "ct_prezzi"
+     ],
+     "post": ""
+    }
+   ]
   }
  ],
  "escluse": [
-  {
-   "nome": "Colosseum (Rome)",
-   "motivo": "The official websites (colosseo.it and its ticket site) did not answer our server normally on 30 October 2026, like other sites of the Italian Ministry of Culture."
-  },
   {
    "nome": "Galleria Borghese (Rome)",
    "motivo": "The official website did not answer our server on 30 October 2026."
@@ -2412,75 +3742,177 @@
    "motivo": "The official websites of the Greek Ministry of Culture and its ticket site did not answer our server normally on 30 October 2026."
   },
   {
+   "nome": "Colosseum (Rome)",
+   "url": "https://ticketing.colosseo.it/en/",
+   "tipo": "non_risponde",
+   "motivo": "The official ticket website did not answer our server normally on 13 November 2026, and colosseo.it closed the connection, like other sites of the Italian Ministry of Culture.",
+   "http": 403,
+   "letto_il": "2026-11-13",
+   "frasi_uscita": null
+  },
+  {
+   "nome": "Eiffel Tower (Paris)",
+   "url": "https://www.toureiffel.paris/en",
+   "tipo": "non_risponde",
+   "motivo": "The official website did not answer our server normally on 13 November 2026.",
+   "http": 403,
+   "letto_il": "2026-11-13",
+   "frasi_uscita": null
+  },
+  {
+   "nome": "Disneyland Paris",
+   "url": "https://www.disneylandparis.com/en-gb/",
+   "tipo": "non_risponde",
+   "motivo": "The official website did not answer our server normally on 13 November 2026.",
+   "http": 302,
+   "letto_il": "2026-11-13",
+   "frasi_uscita": null
+  },
+  {
+   "nome": "Tower of London",
+   "url": "https://www.hrp.org.uk/tower-of-london/",
+   "tipo": "non_risponde",
+   "motivo": "The official website did not answer our server normally on 13 November 2026.",
+   "http": 403,
+   "letto_il": "2026-11-13",
+   "frasi_uscita": null
+  },
+  {
+   "nome": "Machu Picchu (Peru)",
+   "url": "https://www.machupicchu.gob.pe/",
+   "tipo": "nessuna_regola",
+   "motivo": "The official page answered, but on 13 November 2026 it did not say when tickets go on sale.",
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "frasi_uscita": 0
+  },
+  {
+   "nome": "Tokyo Skytree",
+   "url": "https://en.tokyo-skytree.jp/ticket/",
+   "tipo": "nessuna_regola",
+   "motivo": "The official ticket page answered, but on 13 November 2026 its text did not say when tickets go on sale.",
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "frasi_uscita": 0
+  },
+  {
+   "nome": "Uffizi Galleries (Florence)",
+   "url": "https://www.uffizi.it/en/tickets",
+   "tipo": "nessuna_regola",
+   "motivo": "The official page answered, but on 13 November 2026 it did not say when tickets go on sale.",
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "frasi_uscita": 0
+  },
+  {
+   "nome": "Neuschwanstein Castle (Bavaria)",
+   "url": "https://www.neuschwanstein.de/englisch/tourist/index.htm",
+   "tipo": "nessuna_regola",
+   "motivo": "The official page answered, but on 13 November 2026 it did not say when tickets go on sale.",
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "frasi_uscita": 0
+  },
+  {
+   "nome": "Palace of Versailles",
+   "url": "https://en.chateauversailles.fr/plan-your-visit/tickets-and-prices",
+   "tipo": "nessuna_regola",
+   "motivo": "The official page answered, but on 13 November 2026 it did not say when tickets go on sale.",
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "frasi_uscita": 0
+  },
+  {
+   "nome": "Wimbledon public ballot (London)",
+   "url": "https://www.wimbledon.com/en_GB/tickets/ballot",
+   "tipo": "nessuna_regola",
+   "motivo": "The official ballot page answered, but on 13 November 2026 its text did not say when the ballot opens.",
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "frasi_uscita": 0
+  },
+  {
+   "nome": "Rocky Mountain National Park timed entry",
+   "motivo": "The National Park Service page gives the release schedule of the 2026 season only; the 2027 schedule was not published when we read it on 12 November 2026."
+  },
+  {
+   "nome": "Acadia National Park, Cadillac Summit Road",
+   "motivo": "The National Park Service page describes the 2026 season only (20 May to 25 October 2026); the 2027 dates were not published when we read it on 12 November 2026."
+  },
+  {
+   "nome": "Glacier National Park vehicle reservations",
+   "motivo": "The National Park Service page says vehicle reservations were not required in 2026 (read on 12 November 2026)."
+  },
+  {
    "nome": "teamLab Planets (Tokyo)",
    "url": "https://www.teamlab.art/e/planets/",
    "tipo": "nessuna_regola",
-   "motivo": "The official page answered, but on 4 November 2026 it did not say when tickets go on sale.",
+   "motivo": "The official page answered, but on 13 November 2026 it did not say when tickets go on sale.",
    "http": 200,
-   "letto_il": "2026-11-04",
+   "letto_il": "2026-11-13",
    "frasi_uscita": 0
   },
   {
    "nome": "Shibuya Sky (Tokyo)",
    "url": "https://www.shibuya-scramble-square.com/sky/ticket/",
    "tipo": "nessuna_regola",
-   "motivo": "The official ticket page answered, but on 4 November 2026 its text did not say when tickets go on sale.",
+   "motivo": "The official ticket page answered, but on 13 November 2026 its text did not say when tickets go on sale.",
    "http": 200,
-   "letto_il": "2026-11-04",
+   "letto_il": "2026-11-13",
    "frasi_uscita": 0
   },
   {
    "nome": "Mount Fuji, Yoshida Trail reservations",
    "url": "https://www.fujisan-climb.jp/en/",
    "tipo": "nessuna_regola",
-   "motivo": "The official page answered, but on 4 November 2026 it did not say when the reservations open.",
+   "motivo": "The official page answered, but on 13 November 2026 it did not say when the reservations open.",
    "http": 200,
-   "letto_il": "2026-11-04",
+   "letto_il": "2026-11-13",
    "frasi_uscita": 0
   },
   {
    "nome": "Statue of Liberty crown (New York)",
    "url": "https://www.nps.gov/stli/planyourvisit/fees.htm",
    "tipo": "nessuna_regola",
-   "motivo": "The National Park Service page answered, but on 4 November 2026 it only said to book well in advance, with no release day.",
+   "motivo": "The National Park Service page answered, but on 13 November 2026 it only said to book well in advance, with no release day.",
    "http": 200,
-   "letto_il": "2026-11-04",
+   "letto_il": "2026-11-13",
    "frasi_uscita": 0
   },
   {
    "nome": "Alcatraz (San Francisco)",
    "url": "https://www.nps.gov/alca/planyourvisit/index.htm",
    "tipo": "nessuna_regola",
-   "motivo": "The National Park Service page answered, but on 4 November 2026 it did not say when tickets go on sale.",
+   "motivo": "The National Park Service page answered, but on 13 November 2026 it did not say when tickets go on sale.",
    "http": 200,
-   "letto_il": "2026-11-04",
+   "letto_il": "2026-11-13",
    "frasi_uscita": 0
   },
   {
    "nome": "Louvre (Paris)",
    "url": "https://www.louvre.fr/en/visit/hours-admission",
    "tipo": "nessuna_regola",
-   "motivo": "The official page answered, but on 4 November 2026 it only recommended booking a time slot, with no release day.",
+   "motivo": "The official page answered, but on 13 November 2026 it only recommended booking a time slot, with no release day.",
    "http": 200,
-   "letto_il": "2026-11-04",
+   "letto_il": "2026-11-13",
    "frasi_uscita": 0
   },
   {
    "nome": "Pokémon Café (Tokyo)",
    "url": "https://www.pokemoncenter-online.com/cafe/",
    "tipo": "non_risponde",
-   "motivo": "The official address we tried did not answer normally on 4 November 2026.",
+   "motivo": "The official address we tried did not answer normally on 13 November 2026.",
    "http": 404,
-   "letto_il": "2026-11-04",
+   "letto_il": "2026-11-13",
    "frasi_uscita": null
   },
   {
    "nome": "Tokyo Disney Resort",
    "url": "https://www.tokyodisneyresort.jp/en/tdr/ticket/",
    "tipo": "non_risponde",
-   "motivo": "The official website did not answer our server normally on 4 November 2026.",
+   "motivo": "The official website did not answer our server normally on 13 November 2026.",
    "http": null,
-   "letto_il": "2026-11-04",
+   "letto_il": "2026-11-13",
    "frasi_uscita": null
   }
  ]

@@ -1,6 +1,20 @@
 {
  "cambi": [
   {
+   "data": "2026-11-12",
+   "fonte": "af_tickets",
+   "url": "https://www.annefrank.org/en/museum/tickets/",
+   "prima": "e416af9a2d7bbd4c",
+   "dopo": "40474587fbd53852"
+  },
+  {
+   "data": "2026-11-12",
+   "fonte": "vat_orari",
+   "url": "https://www.museivaticani.va/content/museivaticani-mobile/en/info/orari-musei-vaticani.html",
+   "prima": "9c4de9837b60823d",
+   "dopo": "538c0a22e7ed8798"
+  },
+  {
    "data": "2026-11-04",
    "fonte": "nin_biglietti",
    "url": "https://museum-tickets.nintendo.com/en/",

@@ -1,0 +1,262 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Before You Fly//Ticket release dates//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:The Wave permits: ticket releases and closures
+X-WR-TIMEZONE:America/Phoenix
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:the-wave-permit-lottery-uscita-apre-2026-12-01@before-you-fly.com
+DTSTAMP:20261113T000000Z
+DTSTART;VALUE=DATE:20261201
+DTEND;VALUE=DATE:20261202
+SUMMARY:The Wave advanced lottery opens (for April 2027)
+DESCRIPTION:Official rule: “You may enter the lottery at any time during 
+ a calendar month for a permit during the fourth month ahead. The lottery i
+ s run on the first of the next month at 9:00am and applicants are notified
+  (immediately following the lottery) via email\, whether they were selecte
+ d or not.”\nSource: https://www.recreation.gov/camping/poi/274309 (check
+ ed on 13 November 2026)\nDate calculated by Before You Fly from the offici
+ al rule. Rules can change: check the official page before you book.\nOffic
+ ial tickets: https://www.recreation.gov/permits/274309\nhttps://before-you
+ -fly.com/ticket-release-dates/the-wave-permit-lottery/
+URL:https://before-you-fly.com/ticket-release-dates/the-wave-permit-lottery
+ /
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:the-wave-permit-lottery-uscita-estrae-2026-12-01@before-you-fly.com
+DTSTAMP:20261113T000000Z
+DTSTART;VALUE=DATE:20261201
+DTEND;VALUE=DATE:20261202
+SUMMARY:The Wave advanced lottery drawing (for March 2027)
+DESCRIPTION:Official rule: “The lottery is run on the first of the next m
+ onth at 9:00am and applicants are notified (immediately following the lott
+ ery) via email\, whether they were selected or not. The lottery runs on th
+ e first day of the next month at 9 am MDT and applicants are notified of t
+ heir outcome via email. You may enter the lottery at any time during a cal
+ endar month for a permit during the fourth month ahead.”\nSource: https:
+ //www.recreation.gov/camping/poi/274309 (checked on 13 November 2026)\nDat
+ e calculated by Before You Fly from the official rule. Rules can change: c
+ heck the official page before you book.\nOfficial tickets: https://www.rec
+ reation.gov/permits/274309\nhttps://before-you-fly.com/ticket-release-date
+ s/the-wave-permit-lottery/
+URL:https://before-you-fly.com/ticket-release-dates/the-wave-permit-lottery
+ /
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:the-wave-permit-lottery-uscita-apre-2027-01-01@before-you-fly.com
+DTSTAMP:20261113T000000Z
+DTSTART;VALUE=DATE:20270101
+DTEND;VALUE=DATE:20270102
+SUMMARY:The Wave advanced lottery opens (for May 2027)
+DESCRIPTION:Official rule: “You may enter the lottery at any time during 
+ a calendar month for a permit during the fourth month ahead. The lottery i
+ s run on the first of the next month at 9:00am and applicants are notified
+  (immediately following the lottery) via email\, whether they were selecte
+ d or not.”\nSource: https://www.recreation.gov/camping/poi/274309 (check
+ ed on 13 November 2026)\nDate calculated by Before You Fly from the offici
+ al rule. Rules can change: check the official page before you book.\nOffic
+ ial tickets: https://www.recreation.gov/permits/274309\nhttps://before-you
+ -fly.com/ticket-release-dates/the-wave-permit-lottery/
+URL:https://before-you-fly.com/ticket-release-dates/the-wave-permit-lottery
+ /
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:the-wave-permit-lottery-uscita-estrae-2027-01-01@before-you-fly.com
+DTSTAMP:20261113T000000Z
+DTSTART;VALUE=DATE:20270101
+DTEND;VALUE=DATE:20270102
+SUMMARY:The Wave advanced lottery drawing (for April 2027)
+DESCRIPTION:Official rule: “The lottery is run on the first of the next m
+ onth at 9:00am and applicants are notified (immediately following the lott
+ ery) via email\, whether they were selected or not. The lottery runs on th
+ e first day of the next month at 9 am MDT and applicants are notified of t
+ heir outcome via email. You may enter the lottery at any time during a cal
+ endar month for a permit during the fourth month ahead.”\nSource: https:
+ //www.recreation.gov/camping/poi/274309 (checked on 13 November 2026)\nDat
+ e calculated by Before You Fly from the official rule. Rules can change: c
+ heck the official page before you book.\nOfficial tickets: https://www.rec
+ reation.gov/permits/274309\nhttps://before-you-fly.com/ticket-release-date
+ s/the-wave-permit-lottery/
+URL:https://before-you-fly.com/ticket-release-dates/the-wave-permit-lottery
+ /
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:the-wave-permit-lottery-uscita-apre-2027-02-01@before-you-fly.com
+DTSTAMP:20261113T000000Z
+DTSTART;VALUE=DATE:20270201
+DTEND;VALUE=DATE:20270202
+SUMMARY:The Wave advanced lottery opens (for June 2027)
+DESCRIPTION:Official rule: “You may enter the lottery at any time during 
+ a calendar month for a permit during the fourth month ahead. The lottery i
+ s run on the first of the next month at 9:00am and applicants are notified
+  (immediately following the lottery) via email\, whether they were selecte
+ d or not.”\nSource: https://www.recreation.gov/camping/poi/274309 (check
+ ed on 13 November 2026)\nDate calculated by Before You Fly from the offici
+ al rule. Rules can change: check the official page before you book.\nOffic
+ ial tickets: https://www.recreation.gov/permits/274309\nhttps://before-you
+ -fly.com/ticket-release-dates/the-wave-permit-lottery/
+URL:https://before-you-fly.com/ticket-release-dates/the-wave-permit-lottery
+ /
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:the-wave-permit-lottery-uscita-estrae-2027-02-01@before-you-fly.com
+DTSTAMP:20261113T000000Z
+DTSTART;VALUE=DATE:20270201
+DTEND;VALUE=DATE:20270202
+SUMMARY:The Wave advanced lottery drawing (for May 2027)
+DESCRIPTION:Official rule: “The lottery is run on the first of the next m
+ onth at 9:00am and applicants are notified (immediately following the lott
+ ery) via email\, whether they were selected or not. The lottery runs on th
+ e first day of the next month at 9 am MDT and applicants are notified of t
+ heir outcome via email. You may enter the lottery at any time during a cal
+ endar month for a permit during the fourth month ahead.”\nSource: https:
+ //www.recreation.gov/camping/poi/274309 (checked on 13 November 2026)\nDat
+ e calculated by Before You Fly from the official rule. Rules can change: c
+ heck the official page before you book.\nOfficial tickets: https://www.rec
+ reation.gov/permits/274309\nhttps://before-you-fly.com/ticket-release-date
+ s/the-wave-permit-lottery/
+URL:https://before-you-fly.com/ticket-release-dates/the-wave-permit-lottery
+ /
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:the-wave-permit-lottery-uscita-apre-2027-03-01@before-you-fly.com
+DTSTAMP:20261113T000000Z
+DTSTART;VALUE=DATE:20270301
+DTEND;VALUE=DATE:20270302
+SUMMARY:The Wave advanced lottery opens (for July 2027)
+DESCRIPTION:Official rule: “You may enter the lottery at any time during 
+ a calendar month for a permit during the fourth month ahead. The lottery i
+ s run on the first of the next month at 9:00am and applicants are notified
+  (immediately following the lottery) via email\, whether they were selecte
+ d or not.”\nSource: https://www.recreation.gov/camping/poi/274309 (check
+ ed on 13 November 2026)\nDate calculated by Before You Fly from the offici
+ al rule. Rules can change: check the official page before you book.\nOffic
+ ial tickets: https://www.recreation.gov/permits/274309\nhttps://before-you
+ -fly.com/ticket-release-dates/the-wave-permit-lottery/
+URL:https://before-you-fly.com/ticket-release-dates/the-wave-permit-lottery
+ /
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:the-wave-permit-lottery-uscita-estrae-2027-03-01@before-you-fly.com
+DTSTAMP:20261113T000000Z
+DTSTART;VALUE=DATE:20270301
+DTEND;VALUE=DATE:20270302
+SUMMARY:The Wave advanced lottery drawing (for June 2027)
+DESCRIPTION:Official rule: “The lottery is run on the first of the next m
+ onth at 9:00am and applicants are notified (immediately following the lott
+ ery) via email\, whether they were selected or not. The lottery runs on th
+ e first day of the next month at 9 am MDT and applicants are notified of t
+ heir outcome via email. You may enter the lottery at any time during a cal
+ endar month for a permit during the fourth month ahead.”\nSource: https:
+ //www.recreation.gov/camping/poi/274309 (checked on 13 November 2026)\nDat
+ e calculated by Before You Fly from the official rule. Rules can change: c
+ heck the official page before you book.\nOfficial tickets: https://www.rec
+ reation.gov/permits/274309\nhttps://before-you-fly.com/ticket-release-date
+ s/the-wave-permit-lottery/
+URL:https://before-you-fly.com/ticket-release-dates/the-wave-permit-lottery
+ /
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:the-wave-permit-lottery-uscita-apre-2027-04-01@before-you-fly.com
+DTSTAMP:20261113T000000Z
+DTSTART;VALUE=DATE:20270401
+DTEND;VALUE=DATE:20270402
+SUMMARY:The Wave advanced lottery opens (for August 2027)
+DESCRIPTION:Official rule: “You may enter the lottery at any time during 
+ a calendar month for a permit during the fourth month ahead. The lottery i
+ s run on the first of the next month at 9:00am and applicants are notified
+  (immediately following the lottery) via email\, whether they were selecte
+ d or not.”\nSource: https://www.recreation.gov/camping/poi/274309 (check
+ ed on 13 November 2026)\nDate calculated by Before You Fly from the offici
+ al rule. Rules can change: check the official page before you book.\nOffic
+ ial tickets: https://www.recreation.gov/permits/274309\nhttps://before-you
+ -fly.com/ticket-release-dates/the-wave-permit-lottery/
+URL:https://before-you-fly.com/ticket-release-dates/the-wave-permit-lottery
+ /
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:the-wave-permit-lottery-uscita-estrae-2027-04-01@before-you-fly.com
+DTSTAMP:20261113T000000Z
+DTSTART;VALUE=DATE:20270401
+DTEND;VALUE=DATE:20270402
+SUMMARY:The Wave advanced lottery drawing (for July 2027)
+DESCRIPTION:Official rule: “The lottery is run on the first of the next m
+ onth at 9:00am and applicants are notified (immediately following the lott
+ ery) via email\, whether they were selected or not. The lottery runs on th
+ e first day of the next month at 9 am MDT and applicants are notified of t
+ heir outcome via email. You may enter the lottery at any time during a cal
+ endar month for a permit during the fourth month ahead.”\nSource: https:
+ //www.recreation.gov/camping/poi/274309 (checked on 13 November 2026)\nDat
+ e calculated by Before You Fly from the official rule. Rules can change: c
+ heck the official page before you book.\nOfficial tickets: https://www.rec
+ reation.gov/permits/274309\nhttps://before-you-fly.com/ticket-release-date
+ s/the-wave-permit-lottery/
+URL:https://before-you-fly.com/ticket-release-dates/the-wave-permit-lottery
+ /
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:the-wave-permit-lottery-uscita-apre-2027-05-01@before-you-fly.com
+DTSTAMP:20261113T000000Z
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270502
+SUMMARY:The Wave advanced lottery opens (for September 2027)
+DESCRIPTION:Official rule: “You may enter the lottery at any time during 
+ a calendar month for a permit during the fourth month ahead. The lottery i
+ s run on the first of the next month at 9:00am and applicants are notified
+  (immediately following the lottery) via email\, whether they were selecte
+ d or not.”\nSource: https://www.recreation.gov/camping/poi/274309 (check
+ ed on 13 November 2026)\nDate calculated by Before You Fly from the offici
+ al rule. Rules can change: check the official page before you book.\nOffic
+ ial tickets: https://www.recreation.gov/permits/274309\nhttps://before-you
+ -fly.com/ticket-release-dates/the-wave-permit-lottery/
+URL:https://before-you-fly.com/ticket-release-dates/the-wave-permit-lottery
+ /
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:the-wave-permit-lottery-uscita-estrae-2027-05-01@before-you-fly.com
+DTSTAMP:20261113T000000Z
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270502
+SUMMARY:The Wave advanced lottery drawing (for August 2027)
+DESCRIPTION:Official rule: “The lottery is run on the first of the next m
+ onth at 9:00am and applicants are notified (immediately following the lott
+ ery) via email\, whether they were selected or not. The lottery runs on th
+ e first day of the next month at 9 am MDT and applicants are notified of t
+ heir outcome via email. You may enter the lottery at any time during a cal
+ endar month for a permit during the fourth month ahead.”\nSource: https:
+ //www.recreation.gov/camping/poi/274309 (checked on 13 November 2026)\nDat
+ e calculated by Before You Fly from the official rule. Rules can change: c
+ heck the official page before you book.\nOfficial tickets: https://www.rec
+ reation.gov/permits/274309\nhttps://before-you-fly.com/ticket-release-date
+ s/the-wave-permit-lottery/
+URL:https://before-you-fly.com/ticket-release-dates/the-wave-permit-lottery
+ /
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,61 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Before You Fly//Ticket release dates//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Mt Whitney permits: ticket releases and closures
+X-WR-TIMEZONE:America/Los_Angeles
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:mt-whitney-permits-uscita-risultati-2027-03-15@before-you-fly.com
+DTSTAMP:20261113T000000Z
+DTSTART;VALUE=DATE:20270315
+DTEND;VALUE=DATE:20270316
+SUMMARY:Mt Whitney lottery results posted (for the coming permit season)
+DESCRIPTION:Official rule: “Mt Whitney permits are reserved online throug
+ h the lottery. Lottery results will be posted on your recreation.gov accou
+ nt on March 15th.”\nSource: https://www.recreation.gov/permits/445860 (c
+ hecked on 13 November 2026)\nDate calculated by Before You Fly from the of
+ ficial rule. Rules can change: check the official page before you book.\nO
+ fficial tickets: https://www.recreation.gov/permits/445860\nhttps://before
+ -you-fly.com/ticket-release-dates/mt-whitney-permits/
+URL:https://before-you-fly.com/ticket-release-dates/mt-whitney-permits/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:mt-whitney-permits-uscita-scadenza-2027-04-21@before-you-fly.com
+DTSTAMP:20261113T000000Z
+DTSTART;VALUE=DATE:20270421
+DTEND;VALUE=DATE:20270422
+SUMMARY:Mt Whitney: deadline to claim a lottery win (for the coming permit 
+ season)
+DESCRIPTION:Official rule: “April 21st is the deadline to claim an awarde
+ d reservation from the lottery.”\nSource: https://www.recreation.gov/per
+ mits/445860 (checked on 13 November 2026)\nDate calculated by Before You F
+ ly from the official rule. Rules can change: check the official page befor
+ e you book.\nOfficial tickets: https://www.recreation.gov/permits/445860\n
+ https://before-you-fly.com/ticket-release-dates/mt-whitney-permits/
+URL:https://before-you-fly.com/ticket-release-dates/mt-whitney-permits/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:mt-whitney-permits-uscita-aperte-2027-04-22@before-you-fly.com
+DTSTAMP:20261113T000000Z
+DTSTART;VALUE=DATE:20270422
+DTEND;VALUE=DATE:20270423
+SUMMARY:Mt Whitney unclaimed dates open for reservations (for the coming pe
+ rmit season)
+DESCRIPTION:Official rule: “After the lottery any unclaimed dates will op
+ en for reservations on April 22nd.”\nSource: https://www.recreation.gov/
+ permits/445860 (checked on 13 November 2026)\nDate calculated by Before Yo
+ u Fly from the official rule. Rules can change: check the official page be
+ fore you book.\nOfficial tickets: https://www.recreation.gov/permits/44586
+ 0\nhttps://before-you-fly.com/ticket-release-dates/mt-whitney-permits/
+URL:https://before-you-fly.com/ticket-release-dates/mt-whitney-permits/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

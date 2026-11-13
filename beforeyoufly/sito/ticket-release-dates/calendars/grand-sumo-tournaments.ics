@@ -9,7 +9,7 @@ REFRESH-INTERVAL;VALUE=DURATION:P1D
 X-PUBLISHED-TTL:P1D
 BEGIN:VEVENT
 UID:grand-sumo-tournaments-uscita-torneo-2026-12-05@before-you-fly.com
-DTSTAMP:20261112T000000Z
+DTSTAMP:20261113T000000Z
 DTSTART;VALUE=DATE:20261205
 DTEND;VALUE=DATE:20261206
 SUMMARY:Grand Sumo advance tickets go on sale (for the January 2027 tournam
@@ -21,18 +21,18 @@ DESCRIPTION:Official rule: “2027 Grand Tournament Schedule Tournament Ven
  a Osaka (Osaka Prefectural Gymnasium) February 6\, 2027 March 1\, 2027 Mar
  ch 14\, 2027. March 28\, 2027 The May Tournament Kokugikan April 10\, 2027
   April 26\, 2027 May 9\, 2027. May 23\, 2027”\nSource: https://www.sumo.
- or.jp/EnTicket/year_schedule/ (checked on 4 November 2026)\nDate calculate
- d by Before You Fly from the official rule. Rules can change: check the of
- ficial page before you book.\nOfficial tickets: https://sumo.pia.jp/en/sum
- o11.jsp\nhttps://before-you-fly.com/ticket-release-dates/grand-sumo-tourna
- ments/
+ or.jp/EnTicket/year_schedule/ (checked on 13 November 2026)\nDate calculat
+ ed by Before You Fly from the official rule. Rules can change: check the o
+ fficial page before you book.\nOfficial tickets: https://sumo.pia.jp/en/su
+ mo11.jsp\nhttps://before-you-fly.com/ticket-release-dates/grand-sumo-tourn
+ aments/
 URL:https://before-you-fly.com/ticket-release-dates/grand-sumo-tournaments/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:grand-sumo-tournaments-uscita-torneo-2027-02-06@before-you-fly.com
-DTSTAMP:20261112T000000Z
+DTSTAMP:20261113T000000Z
 DTSTART;VALUE=DATE:20270206
 DTEND;VALUE=DATE:20270207
 SUMMARY:Grand Sumo advance tickets go on sale (for the March 2027 tournamen
@@ -44,18 +44,18 @@ DESCRIPTION:Official rule: “2027 Grand Tournament Schedule Tournament Ven
  a Osaka (Osaka Prefectural Gymnasium) February 6\, 2027 March 1\, 2027 Mar
  ch 14\, 2027. March 28\, 2027 The May Tournament Kokugikan April 10\, 2027
   April 26\, 2027 May 9\, 2027. May 23\, 2027”\nSource: https://www.sumo.
- or.jp/EnTicket/year_schedule/ (checked on 4 November 2026)\nDate calculate
- d by Before You Fly from the official rule. Rules can change: check the of
- ficial page before you book.\nOfficial tickets: https://sumo.pia.jp/en/sum
- o11.jsp\nhttps://before-you-fly.com/ticket-release-dates/grand-sumo-tourna
- ments/
+ or.jp/EnTicket/year_schedule/ (checked on 13 November 2026)\nDate calculat
+ ed by Before You Fly from the official rule. Rules can change: check the o
+ fficial page before you book.\nOfficial tickets: https://sumo.pia.jp/en/su
+ mo11.jsp\nhttps://before-you-fly.com/ticket-release-dates/grand-sumo-tourn
+ aments/
 URL:https://before-you-fly.com/ticket-release-dates/grand-sumo-tournaments/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:grand-sumo-tournaments-uscita-torneo-2027-04-10@before-you-fly.com
-DTSTAMP:20261112T000000Z
+DTSTAMP:20261113T000000Z
 DTSTART;VALUE=DATE:20270410
 DTEND;VALUE=DATE:20270411
 SUMMARY:Grand Sumo advance tickets go on sale (for the May 2027 tournament 
@@ -67,11 +67,11 @@ DESCRIPTION:Official rule: “2027 Grand Tournament Schedule Tournament Ven
  a Osaka (Osaka Prefectural Gymnasium) February 6\, 2027 March 1\, 2027 Mar
  ch 14\, 2027. March 28\, 2027 The May Tournament Kokugikan April 10\, 2027
   April 26\, 2027 May 9\, 2027. May 23\, 2027”\nSource: https://www.sumo.
- or.jp/EnTicket/year_schedule/ (checked on 4 November 2026)\nDate calculate
- d by Before You Fly from the official rule. Rules can change: check the of
- ficial page before you book.\nOfficial tickets: https://sumo.pia.jp/en/sum
- o11.jsp\nhttps://before-you-fly.com/ticket-release-dates/grand-sumo-tourna
- ments/
+ or.jp/EnTicket/year_schedule/ (checked on 13 November 2026)\nDate calculat
+ ed by Before You Fly from the official rule. Rules can change: check the o
+ fficial page before you book.\nOfficial tickets: https://sumo.pia.jp/en/su
+ mo11.jsp\nhttps://before-you-fly.com/ticket-release-dates/grand-sumo-tourn
+ aments/
 URL:https://before-you-fly.com/ticket-release-dates/grand-sumo-tournaments/
 TRANSP:TRANSPARENT
 STATUS:CONFIRMED

@@ -1,0 +1,47 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Before You Fly//Ticket release dates//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Half Dome permits: ticket releases and closures
+X-WR-TIMEZONE:America/Los_Angeles
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:half-dome-permits-uscita-apre-2027-03-01@before-you-fly.com
+DTSTAMP:20261113T000000Z
+DTSTART;VALUE=DATE:20270301
+DTEND;VALUE=DATE:20270302
+SUMMARY:Half Dome preseason lottery opens (for the coming hiking season)
+DESCRIPTION:Official rule: “The application period for this lottery is fr
+ om March 1 through March 31 (eastern time). Applicants will receive an ema
+ il with lottery results in mid-April or can get results online or by calli
+ ng Recreation.gov.”\nSource: https://www.nps.gov/yose/planyourvisit/hdpe
+ rmits.htm (checked on 13 November 2026)\nDate calculated by Before You Fly
+  from the official rule. Rules can change: check the official page before 
+ you book.\nOfficial tickets: https://www.recreation.gov/permits/234652\nht
+ tps://before-you-fly.com/ticket-release-dates/half-dome-permits/
+URL:https://before-you-fly.com/ticket-release-dates/half-dome-permits/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:half-dome-permits-uscita-chiude-2027-03-31@before-you-fly.com
+DTSTAMP:20261113T000000Z
+DTSTART;VALUE=DATE:20270331
+DTEND;VALUE=DATE:20270401
+SUMMARY:Half Dome preseason lottery: last day to apply (for the coming hiki
+ ng season)
+DESCRIPTION:Official rule: “The application period for this lottery is fr
+ om March 1 through March 31 (eastern time). Applicants will receive an ema
+ il with lottery results in mid-April or can get results online or by calli
+ ng Recreation.gov.”\nSource: https://www.nps.gov/yose/planyourvisit/hdpe
+ rmits.htm (checked on 13 November 2026)\nDate calculated by Before You Fly
+  from the official rule. Rules can change: check the official page before 
+ you book.\nOfficial tickets: https://www.recreation.gov/permits/234652\nht
+ tps://before-you-fly.com/ticket-release-dates/half-dome-permits/
+URL:https://before-you-fly.com/ticket-release-dates/half-dome-permits/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

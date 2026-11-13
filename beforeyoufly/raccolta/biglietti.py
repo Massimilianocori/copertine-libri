@@ -30,6 +30,10 @@ Regole (decise il 30/10/2026):
     "date" (date fisse di una tabella ufficiale) e "anticipo" (ogni giorno, N giorni prima della visita: nessuna data nel calendario).
     Le attrazioni provate e senza una regola scritta (o che non rispondono) stanno in "escluse" con l'indirizzo: lo script le rilegge
     una volta (HTTP e data) e verifica.py controlla che il motivo scritto sia coerente con l'esito.
+  - 13/11/2026: permessi e lotterie dei parchi USA (Angels Landing, Half Dome, Haleakalā sunrise, The Wave, Mt Whitney) e Catacombe di
+    Parigi, con il tipo di regola "annuale" (stesso giorno e mese ogni anno, con "per" scritto per data). Provate e lasciate fuori (motivo
+    nell'indice): Torre Eiffel, Colosseo, Disneyland Paris, Tower of London (403/302/connessione chiusa), Machu Picchu, Tokyo Skytree,
+    Uffizi, Neuschwanstein, Versailles, ballot di Wimbledon (pagina letta, nessuna regola d'uscita nel testo).
   - Nessun nuovo tentativo su un errore HTTP (403, 404, 503...): l'esito si registra così com'è. Solo gli errori di rete (timeout,
     connessione interrotta) si ritentano, al massimo 3 volte.
 """
@@ -92,6 +96,24 @@ FONTI = {
                "titolo": "Recreation.gov: Washington Monument, National Mall and Memorial Parks"},
     "wm_ore": {"url": "https://www.nps.gov/wamo/planyourvisit/hours.htm", "ente": "National Park Service",
                "titolo": "Washington Monument: Operating Hours & Seasons (NPS)"},
+    # Permessi e lotterie dei parchi USA e Catacombe di Parigi (13/11/2026)
+    "zion_al": {"url": "https://www.nps.gov/zion/planyourvisit/angels-landing-hiking-permits.htm", "ente": "National Park Service",
+                "titolo": "Zion National Park: Angels Landing Permits & Hiking (NPS)"},
+    "yose_hd": {"url": "https://www.nps.gov/yose/planyourvisit/hdpermits.htm", "ente": "National Park Service",
+                "titolo": "Yosemite National Park: Half Dome Permits (NPS)"},
+    "hale_sun": {"url": "https://www.nps.gov/hale/planyourvisit/sunrise.htm", "ente": "National Park Service",
+                 "titolo": "Haleakalā National Park: Sunrise (NPS)"},
+    "wave_blm": {"url": "https://www.blm.gov/programs/recreation/permits-and-passes/lotteries-and-permit-systems/arizona/coyote-buttes-north",
+                 "ente": "Bureau of Land Management", "titolo": "BLM: Coyote Buttes North (The Wave)"},
+    "wave_rec": {"url": "https://www.recreation.gov/camping/poi/274309", "ente": "Recreation.gov (Bureau of Land Management)",
+                 "titolo": "Recreation.gov: Coyote Buttes North Advanced Lottery (The Wave)"},
+    "whit_rec": {"url": "https://www.recreation.gov/permits/445860", "ente": "Recreation.gov (Inyo National Forest)",
+                 "titolo": "Recreation.gov: Inyo National Forest, Mt. Whitney permits"},
+    "cat_home": {"url": "https://www.catacombes.paris.fr/en", "ente": "Catacombes de Paris (Paris Musées)", "titolo": "The Paris Catacombs: official website"},
+    "cat_prima": {"url": "https://www.catacombes.paris.fr/en/visit/please-read-your-visit", "ente": "Catacombes de Paris (Paris Musées)",
+                  "titolo": "Paris Catacombs: Please read before your visit"},
+    "cat_info": {"url": "https://www.catacombes.paris.fr/en/visit/useful-information", "ente": "Catacombes de Paris (Paris Musées)",
+                 "titolo": "Paris Catacombs: Useful Information"},
 }
 
 # Ricerche da rileggere con --domanda (autocompletamento, client=firefox, hl=en, gl=us e gl=uk): le FAQ si legano a queste
@@ -114,6 +136,14 @@ DOMANDA = [
     "imperial palace tour", "imperial palace tour reservation", "imperial palace tokyo tour",
     "washington monument tickets", "washington monument tickets released", "when are washington monument tickets released",
     "washington monument tickets day",
+    # Permessi e lotterie dei parchi USA e Catacombe di Parigi (13/11/2026)
+    "angels landing permit", "angels landing lottery", "when does angels landing lottery open", "angels landing day before lottery",
+    "half dome permit", "half dome lottery", "when is the half dome lottery", "half dome daily lottery",
+    "haleakala sunrise reservations", "haleakala sunrise reservation", "when do haleakala sunrise reservations open", "haleakala sunrise tickets",
+    "the wave lottery", "the wave permit", "when is the wave lottery", "the wave arizona permit",
+    "mt whitney permit", "mt whitney lottery", "mount whitney permit", "when is the mt whitney lottery",
+    "catacombs paris tickets", "paris catacombs tickets", "when do paris catacombs tickets go on sale", "catacombs tickets",
+    "is the paris catacombs open on", "paris catacombs closed",
 ]
 
 

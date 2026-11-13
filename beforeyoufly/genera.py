@@ -57,6 +57,22 @@ def blocco_altri(voci, titolo):
 GOATCOUNTER_URL = "https://rete-siti.goatcounter.com/count"
 SCRIPT_CONTATORE = ('<script>window.goatcounter={path:function(p){return location.host+p}}</script>'
                     f'<script data-goatcounter="{GOATCOUNTER_URL}" async src="https://gc.zgo.at/count.js"></script>')
+# Grow by Mediavine (13/11/2026): tag ufficiale dato da publishers.grow.me per il sito «Before You Fly». È il requisito di Journey by
+# Mediavine (1.000 sessioni da USA, UK, Canada e Australia in 30 giorni, contate SOLO da Grow; studio-business/intelaiatura/
+# reti-pubblicitarie-2026-11-13.md). Va nel <head> di OGNI pagina generata (in indice e fuori indice, 404, contatti, privacy, tutte le
+# lingue): Grow deve contare tutte le sessioni. Interruttore GROW_ATTIVO (False = nessuna traccia, privacy senza la sezione Grow);
+# l'ID del sito (pubblico) solo in GROW_SITE_ID. Il tag resta parola per parola: main.js rilegge l'ID dal testo dello script
+# data-grow-initializer e non parte se trova un ID diverso. Host chiamati (visti nel browser): faves.grow.me (main.js e app),
+# api.grow.me (configurazione del sito). Nessuna Content-Security-Policy nel sito (netlify.toml e meta): nulla da aprire.
+# Privacy: sezione «Grow by Mediavine» in privacy(); verifica.py punto 35.
+GROW_ATTIVO = True
+GROW_SITE_ID = "U2l0ZTpjYWIzOWI5ZC1jOTk3LTQwMzgtOTBjZi04MGM2ODJjOWU0NDg="
+GROW_PRIVACY = "https://vault.pactsafe.io/s/9cf003f8-52ba-4f99-af33-f4edb31f1d1a/privacy.html#template-un-pwvvpr"  # «Advertising Management & Grow Privacy Notice» (Mediavine), letta il 13/11/2026
+GROW_TAG = ('<script data-grow-initializer="">!(function(){window.growMe||((window.growMe=function(e){window.growMe._.push(e);}),'
+            '(window.growMe._=[]));var e=document.createElement("script");(e.type="text/javascript"),(e.src="https://faves.grow.me/main.js"),'
+            '(e.defer=!0),e.setAttribute("data-grow-faves-site-id","' + GROW_SITE_ID + '");var t=document.getElementsByTagName("script")[0];'
+            't.parentNode.insertBefore(e,t);})();</script>')
+GROW_HEAD = ("\n" + GROW_TAG) if GROW_ATTIVO else ""  # subito dopo AdSense (o il segno «senza pubblicità»), prima del <title>
 # IndexNow (Bing, Yandex, Naver, Seznam): chiave pubblica uguale per tutti i siti della rete. Il generatore scrive
 # sito/<chiave>.txt (contenuto: la chiave) accanto a robots.txt; l'invio degli URL lo fa studio-business/strumenti/indexnow.py.
 CHIAVE_INDEXNOW = "b5a26a844a465f58552debee2c8a0114"
@@ -91,7 +107,7 @@ def fuori_indice(percorso):
 def ci_sono_affiliati():
     """True se il sito pubblica almeno un link di affiliazione (voce con "url" in dati/affiliati.json e il riquadro noleggio NOLEGGIO_AUTO):
     accende la sezione privacy sui link di affiliazione. Domini ammessi in monetizzazione.json, controlli in verifica.py."""
-    return any(isinstance(v, dict) and v.get("url") for k, v in AFFILIATI.items() if not k.startswith("_")) or bool(NOLEGGIO_AUTO) or bool(STAY22_BIG) or bool(SW_IN) or bool(ITALO_TB)
+    return any(isinstance(v, dict) and v.get("url") for k, v in AFFILIATI.items() if not k.startswith("_")) or bool(NOLEGGIO_AUTO) or bool(STAY22_BIG) or bool(SW_IN) or bool(ITALO_TB) or WISE_SRV
 
 
 def riquadro_trasparenza(corpo, lingua="en"):
@@ -656,7 +672,7 @@ def pagina(percorso, titolo, descrizione, corpo, briciole=None, indicizza=True, 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="google-site-verification" content="{GOOGLE_VERIFICA}">
-<meta name="google-site-verification" content="{GOOGLE_VERIFICA_DOMINIO}">{adsense}
+<meta name="google-site-verification" content="{GOOGLE_VERIFICA_DOMINIO}">{adsense}{GROW_HEAD}
 <title>{escape(titolo)}</title>
 <meta name="description" content="{escape(descrizione)}">
 {canonico}
@@ -3674,6 +3690,50 @@ def esim_srv(S, c):
     return f'<h2 id="instead">{escape(tit)}</h2>{intro}{box}'
 
 
+# ---- Wise (Partnerize, 13/11/2026): riquadro «Affiliate» SOLO nella sezione «Available in?» di Wise. Interruttore _wise in dati/affiliati.json;
+# link semplice verificato con curl (302 verso wise.com con l'ID partner). Pagina del servizio e pagine Paese dove la lista ufficiale dice
+# "Yes" (hold money) o "Not for holding money" (Paese della lista "send to"); nessun riquadro per "Not supported" o fuori da entrambe le liste,
+# né in pagine fuori indice. Nessun prezzo, commissione o tasso (si rimanda al sito di Wise). Le fonti wise.com/help restano link normali.
+_WISE = AFFILIATI.get("_wise") or {}
+URL_WISE = (_WISE.get("url") or "").strip()
+WISE_SRV = bool(_WISE.get("attivo")) and URL_WISE.startswith("https://wise.prf.hn/click/camref:") and MON.dominio_ammesso(URL_WISE)
+REL_WISE = "sponsored nofollow noopener"
+
+
+def wise_srv_ammesso(S, c=None):
+    """True se la pagina (servizio Wise o Paese c) ha il riquadro Wise."""
+    if not WISE_SRV or S["slug"] != "wise" or fuori_indice(url_srv(S, c)):
+        return False
+    return c is None or stato_srv(S, c)[0] == "si" or solo_invio_wise(S, c)
+
+
+def box_wise_srv(S, c=None):
+    """Riquadro Wise (affiliato) dopo la risposta, le citazioni ufficiali e la sezione sull'uso: '' dove wise_srv_ammesso() è falso."""
+    if not wise_srv_ammesso(S, c):
+        return ""
+    if c is None:
+        tit = "Using Wise?"
+        testo = ("<p>If your country is on the lists above, you can open Wise's website from here. Wise's fees and exchange rates are on its own "
+                 "website: check them there and compare them with your bank before you send or convert money.</p>")
+    elif solo_invio_wise(S, c):
+        P = frase_srv(c)
+        tit = f"Sending money to {P}?"
+        testo = (f"<p>{escape(frase_srv(c, True))} is on Wise's list of countries and regions you can send money to (quoted above). Wise's fees and "
+                 "exchange rates are on its own website: check them there and compare them with your bank before you send money.</p>")
+    else:
+        P = frase_srv(c)
+        tit = f"Using Wise in {P}?"
+        testo = (f"<p>{escape(frase_srv(c, True))} is on Wise's list of countries where you can hold money in your Wise account if you live there "
+                 "(quoted above). Wise's fees and exchange rates are on its own website: check them there and compare them with your bank before "
+                 "you send or convert money.</p>")
+    return (f'<h2 id="wise">{escape(tit)} <span class="aff-tag">Affiliate</span></h2>'
+            f'<section class="card noleggio" aria-label="Wise, affiliate link" data-wise>{testo}'
+            f'<p class="noleggio-btn"><a class="btn" href="{escape(URL_WISE)}" rel="{REL_WISE}" target="_blank">{ico("globe")}'
+            'Go to Wise\'s website</a></p>'
+            f'{MON.nota_trasparenza("en")}<p class="small">Official fees and exchange rates are on Wise\'s website. The availability on this page '
+            'comes only from Wise\'s official lists; this link does not change it.</p></section>')
+
+
 def pagina_srv_paese(S, c):
     rel = "../../../"
     st, v = stato_srv(S, c)
@@ -3741,7 +3801,7 @@ def pagina_srv_paese(S, c):
 {AD}
 {f"<h2>{escape(tit_viaggio)}</h2>" if con_titolo_viaggio else ""}
 {viaggio}
-{esim_srv(S, c)}
+{esim_srv(S, c)}{box_wise_srv(S, c)}
 <h2>Other services in {escape(P)}</h2>
 <div class="tab tab-b"><table><caption class="sr">Official availability of {len(SERVIZI_SRV)} services in {escape(P)}</caption><thead><tr><th>Service</th><th>In {escape(nome_srv(c))}</th><th>Checked</th></tr></thead><tbody>{altri}</tbody></table></div>
 {f'<h2>Before you travel to {escape(P)}</h2><ul>' + "".join(f"<li>{x}</li>" for x in ingresso) + "</ul>" if ingresso else ""}
@@ -3847,7 +3907,7 @@ def pagina_srv_servizio(S):
 <h2>All countries and regions</h2>
 {spiega}
 <div class="cerca-box">{ico("search")}<input class="cerca" type="search" placeholder="Type a country, e.g. India" data-filtro-multi aria-label="Search countries"></div>
-<div class="tab tab-b tab-srv"><table><caption class="sr">{escape(n)}: availability by country, from the official list checked on {d}</caption><thead><tr><th>Country or region</th><th>{escape(n)}</th><th>Official wording</th></tr></thead><tbody>{righe}</tbody></table></div>
+<div class="tab tab-b tab-srv"><table><caption class="sr">{escape(n)}: availability by country, from the official list checked on {d}</caption><thead><tr><th>Country or region</th><th>{escape(n)}</th><th>Official wording</th></tr></thead><tbody>{righe}</tbody></table></div>{box_wise_srv(S)}
 <p class="small">{len(PAESI_ISO)} countries and territories (ISO 3166-1 codes, plus Kosovo). Spotted a change? <a href="{rel}contact/?ref=available-in">Tell us</a>.</p>
 <p><a href="{rel}{SRV_BASE}/">All services by country</a></p>"""
     desc = [f"Where is {n} available? {prima}", f"Where is {n} available? {len(con)} countries on the official list, checked on {d}. Every country, yes or no."]
@@ -5115,7 +5175,7 @@ def viator_link_valido(u):
 # ufficiale (e dopo l'eventuale riquadro Viator); nell'indice una riga con tutti i link dopo i calendari. verifica.py, punto 22, controlla tutto.
 STAY22_BIG = {s: v for s, v in ((AFFILIATI.get("_stay22_alloggi") or {}).get("link") or {}).items() if (v.get("url") or "").strip()}
 TIPI_BIG = {"uscita": "Tickets go on sale", "gratis": "Free entry", "chiusura": "Closed", "orario": "Special hours"}
-TIPI_USCITA_BIG = ("settimanale", "prima_domenica", "mensile", "date", "anticipo")
+TIPI_USCITA_BIG = ("settimanale", "prima_domenica", "mensile", "date", "anticipo", "annuale")
 # Fusi per la conversione dell'ora della prossima uscita (si salta quello dell'attrazione)
 FUSI_ALTRI_BIG = [("London", "Europe/London"), ("New York", "America/New_York"), ("Sydney", "Australia/Sydney")]
 
@@ -5220,6 +5280,12 @@ def eventi_big(a):
                     v = date(d.year + m // 12, m % 12 + 1, 1)
                     ev.append({"data": d.isoformat(), "ora": r["ora"], "tipo": "uscita", "regola": r["id"], "titolo": r["titolo"],
                                "visita": v.isoformat(), "per": f"{MESI[v.month - 1]} {v.year}"})
+        elif r["tipo"] == "annuale":  # 13/11/2026: stesso giorno e mese ogni anno (lotterie dei parchi USA), "per" scritto per data
+            for d in giorni_f:
+                x = next((x for x in r["date_md"] if x["md"] == d.strftime("%m-%d")), None)
+                if x:
+                    ev.append({"data": d.isoformat(), "ora": r["ora"], "tipo": "uscita", "regola": r["id"], "titolo": r["titolo"],
+                               "visita": None, "per": x["per"]})
         elif r["tipo"] == "date":
             for x in r["date"]:
                 if dentro(date.fromisoformat(x["data"])):
@@ -5347,7 +5413,7 @@ def frase_uscite_big(a, regola):
     if not ee:
         return "There is no release under this rule in the next six months."
     tz = a["ora_locale"]
-    if r["tipo"] in ("mensile", "date"):
+    if r["tipo"] in ("mensile", "date", "annuale"):
         voci = [f"{giorno_lungo(e['data'])} (for {e['per']})" for e in ee]
         elenco = ", ".join(voci[:-1]) + " and " + voci[-1] if len(voci) > 1 else voci[0]
         return f"The next ones are {elenco}" + (f", at {ee[0]['ora']} {tz}." if ee[0]["ora"] else ".")
@@ -5506,8 +5572,23 @@ def scrivi_ics_big():
     cart = SITO / BIG_BASE / "calendars"
     cart.mkdir(parents=True, exist_ok=True)
     for a in BIG_ATT:
-        with open(SITO / url_ics_big(a["slug"]), "w", encoding="utf-8", newline="") as fh:
+        f = SITO / url_ics_big(a["slug"])
+        if not eventi_big(a):  # nessuna data (Haleakalā): nessun file. Un VCALENDAR senza eventi non è valido (RFC 5545) e nessuna pagina lo linka
+            f.unlink(missing_ok=True)
+            continue
+        with open(f, "w", encoding="utf-8", newline="") as fh:
             fh.write(ics_big(a))
+
+
+# Pagine senza date da mettere in calendario (13/11/2026: Haleakalā, solo regola "anticipo" e nessuna chiusura): niente tabella né link al
+# calendario, una frase al loro posto e nessun file .ics (scrivi_ics_big; verifica.py, punto 22, lo controlla).
+SENZA_CAL_BIG = ('<p class="small" data-senza-cal>Every day is a release day, so there are no dates to list or to add to a calendar: '
+                 'the rule below counts the days for you.</p>')
+
+
+def cal_pagina_big(a, rel):
+    return (f'{link_cal_big(a, rel)}\n<p class="small">The calendar file has the same dates as the table, with the official rule and the link in each '
+            f'event. It is rebuilt when we update this site; past dates are hidden from the table in your browser.</p>')
 
 
 def link_cal_big(a, rel):
@@ -5533,19 +5614,26 @@ document.querySelectorAll('[data-anticipo]').forEach(function(s){var n=parseInt(
 
 def box_ufficiale_big(a):
     B = a["biglietteria"]
+    # Permessi a lotteria ("viator": false): niente "resellers may charge more", un permesso non si rivende
     return (f'<section class="card ufficiale" aria-label="Official tickets"><h2 style="margin-top:0" id="official-tickets">Official tickets</h2>'
-            f'<p>Official tickets for the {escape(a["nome_lungo"])} {escape(B.get("verbo", "are sold at"))} <a href="{escape(B["url"])}" rel="noopener">{escape(B["nome"])}</a>; '
-            f'resellers may charge more.</p>{blocco_cit_big(a, list(dict.fromkeys(B["cit"] + [c["id"] for c in a["citazioni"] if c["tema"] == "biglietti"])))}</section>')
+            f'<p>Official tickets for the {escape(a["nome_lungo"])} {escape(B.get("verbo", "are sold at"))} <a href="{escape(B["url"])}" rel="noopener">{escape(B["nome"])}</a>'
+            f'{"; resellers may charge more." if a.get("viator") is not False else "."}</p>{blocco_cit_big(a, list(dict.fromkeys(B["cit"] + [c["id"] for c in a["citazioni"] if c["tema"] == "biglietti"])))}</section>')
 
 
 def box_tour_big(a=None):
     """Riquadro "Guided tours with skip-the-line" (Viator): '' finché VIATOR_TOUR è vuoto. Sempre dopo la biglietteria ufficiale."""
-    if not VIATOR_TOUR:
+    if not VIATOR_TOUR or (a and a.get("viator") is False):  # 13/11/2026: niente riquadro dove una visita guidata non include il permesso (lotterie)
         return ""
     dove = f" at the {a['nome_lungo']}" if a else ""
-    return (f'<h2 id="guided-tours">Guided tours with skip-the-line</h2><section class="card noleggio" aria-label="Guided tours, affiliate link" data-tour>'
-            f'<p>Official tickets sold out? A guided tour that includes the entry ticket{escape(dove)} can still be available, usually at a higher price than '
-            f'the official ticket.</p><p class="noleggio-btn"><a class="btn" href="{escape(viator_link(a))}" rel="sponsored noopener" target="_blank">'
+    T = (a or {}).get("tour") or {}  # 13/11/2026: titolo e frase propri (Haleakalā: non c'è una coda da saltare né un biglietto d'ingresso)
+    titolo = T.get("titolo", "Guided tours with skip-the-line")
+    # Indice: il riquadro vale per musei e monumenti, non per le lotterie di permessi dei parchi ("viator": false nelle loro pagine)
+    permessi = (" This is for museums and monuments: for the park permit lotteries in the table, every hiker needs the permit itself."
+                if not a and any(x.get("viator") is False for x in BIG_ATT) else "")
+    frase = T.get("frase") or (f"Official tickets sold out? A guided tour that includes the entry ticket{dove} can still be available, usually at a higher "
+                               f"price than the official ticket.{permessi}")
+    return (f'<h2 id="guided-tours">{escape(titolo)}</h2><section class="card noleggio" aria-label="Guided tours, affiliate link" data-tour>'
+            f'<p>{escape(frase)}</p><p class="noleggio-btn"><a class="btn" href="{escape(viator_link(a))}" rel="sponsored noopener" target="_blank">'
             f'{ico("calendar")}See guided tours on Viator</a></p>{MON.nota_trasparenza("en")}</section>')
 
 
@@ -5593,7 +5681,7 @@ def righe_eventi_big(a, ee):
         ora = f"{e['ora']} {escape(a['ora_locale'])}" if e["ora"] else ("All day" if e["tipo"] == "chiusura" else "Opening hours")
         tipo = regola_di_big(a, e).get("etichetta", TIPI_BIG["uscita"]) if e["tipo"] == "uscita" else TIPI_BIG[e["tipo"]]
         if e["tipo"] == "uscita" and not e["ora"]:
-            ora = "Time not published"
+            ora = escape(regola_di_big(a, e).get("ora_tabella", "Time not published"))
         out.append(f'<tr data-data="{e["data"]}" data-tipo="{e["tipo"]}"><td data-l="Date">{escape(giorno_lungo(e["data"]))}</td>'
                    f'<td data-l="What"><strong>{escape(tipo)}</strong> – {cosa}</td><td data-l="Time">{ora}</td></tr>')
     return "".join(out)
@@ -5644,7 +5732,8 @@ def sezione_regole_big(a):
             continue
         e = prossimo_big(a, "uscita", r["id"])
         fusi = f" {escape(frase_fusi_big(a, e))}" if e and e["ora"] else ""
-        senza_ora = " The official text gives the day but not the time, so our calendar marks the whole day." if not r.get("ora") else ""
+        senza_ora = (" " + r["nota_ora"] if r.get("nota_ora") else
+                     " The official text gives the day but not the time, so our calendar marks the whole day.") if not r.get("ora") else ""
         out.append(f'<h3>{escape(r["breve"])}</h3>{blocco_cit_big(a, r["cit"])}'
                    f'<p class="small">We calculate these dates from the official rule.{" " + escape(nota) if nota else ""}{escape(senza_ora)}{fusi}</p>')
     for t in a["uscite_testo"]:
@@ -5718,9 +5807,8 @@ def pagina_big(a):
 {avviso_date_big(tutte[0]["data"]) if tutte else ""}
 {AVVISO_BIG}
 <h2 id="dates">Next six months: ticket releases, free days and closures</h2>
-{tabella_eventi_big(a)}
-{link_cal_big(a, rel)}
-<p class="small">The calendar file has the same dates as the table, with the official rule and the link in each event. It is rebuilt when we update this site; past dates are hidden from the table in your browser.</p>
+{tabella_eventi_big(a) if tutte else ""}
+{cal_pagina_big(a, rel) if tutte else SENZA_CAL_BIG}
 {AD}
 <h2 id="how">How tickets go on sale: the official rule</h2>
 {sezione_regole_big(a)}
@@ -5797,7 +5885,7 @@ def pagina_indice_big():
                      f'<td data-l="Official tickets"><a href="{escape(B["url"])}" rel="noopener">{escape(B["nome"])}</a></td>'
                      f'<td data-l="Checked">{data_lunga(data_big(a))}</td></tr>')
     griglia = "".join(f'<a href="{rel}{url_big(a["slug"])}">{escape(a["nome"])}<small>{escape(a["citta"])}</small></a>' for a in BIG_ATT)
-    cal = "".join(f'<li><strong>{escape(a["nome"])}</strong>{link_cal_big(a, rel)}</li>' for a in BIG_ATT)
+    cal = "".join(f'<li><strong>{escape(a["nome"])}</strong>{link_cal_big(a, rel)}</li>' for a in BIG_ATT if eventi_big(a))
     escl = "".join(f'<li>{escape(x["nome"])}: {escape(x["motivo"])}</li>' for x in BIG["escluse"])
     faq_h, faq_ld = html_faq_big(faq_indice_big())
     d = data_lunga(BIG["controllato_il"])
@@ -5808,7 +5896,7 @@ def pagina_indice_big():
 {AVVISO_BIG}
 {AD}
 <h2>Every attraction</h2>
-<p>“How tickets go on sale” is our short summary of the official rule; each attraction page quotes it word for word, with the link and the date. We calculate a date only when the official rule is exact (a day of the week and a time, “the first Sunday of the month”, a day of the month, or the dates in an official schedule); when tickets are released every day for a set number of days ahead, the page counts the days for you. When the official page says “roughly”, gives no day, or two official texts disagree, we show the text and no date. Times are local to the attraction. Dates calculated on {data_lunga(OGGI.isoformat())}.</p>
+<p>“How tickets go on sale” is our short summary of the official rule; each attraction page quotes it word for word, with the link and the date. We calculate a date only when the official rule is exact (a day of the week and a time, “the first Sunday of the month”, a day of the month, the same days every year, or the dates in an official schedule; for national parks, the permit lotteries); when tickets are released every day for a set number of days ahead, the page counts the days for you. When the official page says “roughly”, gives no day, or two official texts disagree, we show the text and no date. Times are local to the attraction. Dates calculated on {data_lunga(OGGI.isoformat())}.</p>
 <div class="tab tab-b tab-srv"><table><caption class="cap">Ticket releases, free days and closures at {len(BIG_ATT)} major attractions, from the official websites, checked on {d}</caption><thead><tr><th>Attraction</th><th>How tickets go on sale</th><th>Next release</th><th>Next free day</th><th>Next closing day</th><th>Official tickets</th><th>Checked</th></tr></thead><tbody>{"".join(righe)}</tbody></table></div>
 <p class="small">Official tickets are sold at the websites in the table; resellers may charge more.</p>
 <h2 id="calendars">Add the dates to your calendar</h2>
@@ -5842,7 +5930,7 @@ def about_big(rel):
     enti = list(dict.fromkeys(F["ente"] for F in BIG["fonti"].values()))
     return f"""<h2 id="ticket-release-dates">Ticket release dates, closures and free days</h2>
 <p>Sources: the official websites of {len(BIG_ATT)} major attractions ({escape(", ".join(enti))}), {len(BIG["fonti"])} pages in all, read on {data_lunga(BIG["controllato_il"])}. Each attraction page links every page it quotes.</p>
-<p>Rules: every sentence shown between quotation marks is copied word for word from the official page. We calculate dates only from an exact official rule (a day of the week and a time, “the first Sunday of the month”, “the last Sunday of the month” with the exceptions the page lists, a day of the month, a fixed date, or a set number of days before the visit); the dates cover the next six months from the day we build the page, and the calendar files have the same dates. When the official page says “roughly”, gives no day, or two official texts disagree, we show the text and calculate nothing. We link only the ticket websites that the official pages name; other websites may resell tickets at a higher price. An attraction is included only if its official website answered normally on the day we checked it. This is information, not advice: museums decide.</p>"""
+<p>Rules: every sentence shown between quotation marks is copied word for word from the official page. We calculate dates only from an exact official rule (a day of the week and a time, “the first Sunday of the month”, “the last Sunday of the month” with the exceptions the page lists, a day of the month, the same days every year, a fixed date, or a set number of days before the visit); the dates cover the next six months from the day we build the page, and the calendar files have the same dates. When the official page says “roughly”, gives no day, or two official texts disagree, we show the text and calculate nothing. We link only the ticket websites that the official pages name; other websites may resell tickets at a higher price. An attraction is included only if its official website answered normally on the day we checked it. This is information, not advice: museums decide.</p>"""
 
 
 # ---------------------------------------------------------------- home e pagine di servizio
@@ -9230,12 +9318,25 @@ def privacy():
     amazon = ("<h2>Amazon Associates</h2><p>Before You Fly is a participant in the Amazon Associates programmes of Amazon.co.uk and Amazon.com. "
               f"{AMAZON_FRASE} Our cabin bag pages link to Amazon searches for bags in the right size; the links are marked as affiliate links.</p>"
               if AMAZON_ACCESO else "")
+    # Grow by Mediavine (dal 13/11/2026, interruttore GROW_ATTIVO): misura del pubblico e funzione per salvare le pagine. Dati e
+    # trattamento come li descrive la «Advertising Management & Grow Privacy Notice» di Mediavine (versione 1.2, letta il 13/11/2026);
+    # nel browser (13/11) lo script chiama faves.grow.me e api.grow.me e, fuori dalle zone GDPR, scrive il cookie growme_version.
+    grow = ("<h2>Audience measurement and saving pages (Grow by Mediavine)</h2><p>Every page of this site loads Grow, a service of "
+            "Mediavine, Inc. (United States). We use Grow to measure our audience (for example, how many visits come from each country) "
+            "and to offer a feature that lets you save or bookmark pages to read later. When a page loads, your browser connects to Grow's "
+            "servers (grow.me), which receive technical data such as your IP address, approximate location, browser and device type and the "
+            "page you are viewing; Grow may also store a cookie or similar data in your browser. If you choose to save pages, Grow may ask for "
+            "your name and email address to create a Grow account, which Mediavine manages. Mediavine processes this data under its "
+            f'<a href="{GROW_PRIVACY}" rel="noopener">Advertising Management &amp; Grow Privacy Notice</a>; you can also send privacy '
+            'requests to Mediavine through its <a href="https://privacy.mediavine.com/" rel="noopener">Privacy Request Center</a>.</p>'
+            if GROW_ATTIVO else "")
     corpo = f"""<section class="hero"><h1>Privacy notice</h1><p class="small">Last updated: November 2026</p></section><div class="testo">
 <h2>Who is responsible</h2><p>The data controller is Massimiliano Cori (Italy), who runs {NOME} as an independent project. You can contact us through the <a href="contact/">contact form</a>.</p>
 <h2>What we collect</h2><p>Only what you type in the contact form: your email, the country or airport and your message. We also record the page or link you came from, to understand which pages need corrections. The passport checker runs in your browser: the dates you type are not sent to us.</p>
 <h2>Why</h2><p>To answer your messages and correct the site. The legal basis is your consent (Art. 6(1)(a) GDPR), which you can withdraw at any time.</p>
 <h2>Who processes data for us</h2><p>The site and its form are hosted by Netlify, Inc., which stores form data on our behalf and may process it outside the EU with the safeguards required by the GDPR (standard contractual clauses). We do not sell or share your data.</p>
 {cookie}
+{grow}
 {amazon}
 <h2>How long</h2><p>Messages are kept for up to 12 months after our last exchange.</p>
 <h2>Your rights</h2><p>You can ask for access, correction, deletion, restriction, portability and objection (Articles 15–22 GDPR) and you can complain to the Italian data protection authority (<a href="https://www.garanteprivacy.it" rel="noopener">garanteprivacy.it</a>) or the authority in your country.</p></div>"""
@@ -9458,7 +9559,7 @@ def controlli():
                     errori.append(f"biglietti {a['slug']}: regola senza citazione o con citazione sconosciuta")
             for r in a["uscite"]:
                 if r["tipo"] not in TIPI_USCITA_BIG or not (re.fullmatch(r"\d{2}:\d{2}", r["ora"] or "")
-                                                            or (r["ora"] is None and r["tipo"] in ("mensile", "date"))):
+                                                            or (r["ora"] is None and r["tipo"] in ("mensile", "date", "annuale"))):
                     errori.append(f"biglietti {a['slug']}: regola di uscita {r['id']} non valida")
             for q in a["faq"]:
                 if q["tipo"] not in ("testo", "uscita", "gratis", "giorno") or any(i not in ids for i in q["cit"]):
@@ -9760,7 +9861,7 @@ def main():
              f"({', '.join(f'{k} {len(PAGINE_PAT[k])}' for k in PATENTI)})" if PAT else "")
           + (f"; tolls with a rental car: indice + {len(PED_PAESI)} pagine Paese ({len(PED['fonti'])} fonti)" if PED else "")
           + (f"; winter tyres with a rental car: indice + {len(GOM_PAGINE & set(GOM_PER))} pagine Paese ({len(GOM['fonti'])} fonti)" if GOM else "")
-          + (f"; ticket release dates: indice + {len(BIG_ATT)} pagine attrazione + {len(BIG_ATT)} calendari .ics ({len(BIG['fonti'])} fonti)" if BIG else "")
+          + (f"; ticket release dates: indice + {len(BIG_ATT)} pagine attrazione + {sum(1 for a in BIG_ATT if eventi_big(a))} calendari .ics ({len(BIG['fonti'])} fonti)" if BIG else "")
           + (f"; foreign licence Canada/Australia/NZ: indice + {len(FL_LETTE)} pagine ({len(FL_GIUR) - len(FL_LETTE)} giurisdizioni non lette, {len(FL['fonti'])} fonti)" if FL else "")
           + (f"; public transport rules: indice + {len(TR_LETTE)} pagine città ({len(TR_CITTA) - len(TR_LETTE)} città non lette, {len(TR['fonti'])} fonti)" if TR else "")
           + (f"; train luggage rules: indice + {len(TB_LETTE)} pagine compagnia ({len(TB_COMP) - len(TB_LETTE)} non lette, {len(TB['fonti'])} fonti)"
