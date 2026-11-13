@@ -263,6 +263,18 @@
   "byte": 30743,
   "sha256": "62caca1c1e6300a61ade0a259de70c1643fc4969f9fd9956a0cbeafa7057b5aa"
  },
+ "oh_sb13": {
+  "stato": "OH",
+  "url": "https://search-prod.lis.state.oh.us/api/v2/general_assembly_134/legislation/sb13/05_EN/pdf/",
+  "link": "https://search-prod.lis.state.oh.us/api/v2/general_assembly_134/legislation/sb13/05_EN/pdf/",
+  "titolo": "Senate Bill 13 as enrolled, 134th General Assembly (transition rule, sections 4 and 5)",
+  "chi": "Ohio General Assembly",
+  "letto_il": "2026-11-13",
+  "http": 200,
+  "file": "oh_sb13.pdf",
+  "byte": 78711,
+  "sha256": "728dfd8cb767df68b67a7f55e5920e1609ed9c2c83aa09cf981714ea99881a5a"
+ },
  "oh_2744_04": {
   "stato": "OH",
   "url": "https://codes.ohio.gov/ohio-revised-code/section-2744.04",
@@ -286,6 +298,18 @@
   "file": "wa_4_16.html",
   "byte": 231880,
   "sha256": "804c2d8a1a13733b950550dc1a6306adbd6590a1b5c9d416be1a2dd719fd83ab"
+ },
+ "wa_bennett": {
+  "stato": "WA",
+  "url": "https://www.courts.wa.gov/opinions/pdf/1013001.pdf",
+  "link": "https://www.courts.wa.gov/opinions/pdf/1013001.pdf",
+  "titolo": "Bennett v. United States, No. 101300-1, opinion filed December 7, 2023",
+  "chi": "Washington Supreme Court (Washington Courts)",
+  "letto_il": "2026-11-13",
+  "http": 200,
+  "file": "wa_bennett.pdf",
+  "byte": 671564,
+  "sha256": "2de56098f7e148bc3f6f770766da30b931b1d8618e45aa4d694f23f3ebe7f809"
  },
  "wa_4_96_020": {
   "stato": "WA",

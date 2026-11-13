@@ -82,14 +82,14 @@ def calcola(chiave, d):
     out = []
     for v in c["varianti"]:
         tr = v.get("transizione")
-        if tr and d < date.fromisoformat(tr["data"]):
+        inizio = d + timedelta(days=v.get("giorni_dopo", 0))  # la regola transitoria guarda il giorno in cui il diritto sorge
+        if tr and inizio < date.fromisoformat(tr["data"]):
             out.append((v["etichetta"], None, v["cit"]))
             continue
         a, et, cit = v["anni"], v["etichetta"], v["cit"]
         p = v.get("prima")
         if p and d <= date.fromisoformat(p["fino_al"]):
             a, et, cit = p["anni"], p["etichetta"], p["cit"]
-        inizio = d + timedelta(days=v.get("giorni_dopo", 0))
         out.append((et, piu_anni(inizio, a), cit))
     rip = piu_anni(d, c["repose"]["anni"]) if c.get("repose") else None
     return out, rip
@@ -304,7 +304,7 @@ a link to the legislature's official site and the date we read it. Statutes read
 </div><div>
 <h2>Claims</h2><ul>{cause_piede}</ul>
 </div></div>
-<p class="f-base">Statute text is quoted from the official websites of each state legislature and from the eCFR. This site is not affiliated with
+<p class="f-base">Statute text is quoted from the official websites of each state legislature and from the eCFR; one Washington court ruling is quoted from the state courts' website. This site is not affiliated with
 any court, legislature, government agency or law firm.</p>
 </div></footer>
 <script src="/assets/{JS_FILE}" defer></script>
@@ -387,23 +387,41 @@ def dati_calcolatore():
         ecc = [e["titolo"] + " (" + e["cit"] + ")" for e in c["eccezioni"] if e is not N.REG_F]
         if not c.get("senza_regole_stato"):
             ecc += [e["titolo"] + " (" + e["cit"] + ")" for e in STATI[s]["regole"]]
-        celle[k] = {"n": f"{STATI[s]['nome']}, {CAUSE[ca]['breve']}", "v": vs, "u": url_cella(k), "e": ecc[:6],
-                    "r": {"l": r["etichetta"], "a": r["anni"], "cit": r["cit"]} if r else None}
+        rip = None
+        if r:
+            rip = {"l": r["etichetta"], "a": r["anni"], "cit": r["cit"]}
+            if r.get("nota_data"):
+                rip["nd"] = r["nota_data"]
+        celle[k] = {"n": f"{STATI[s]['nome']}, {CAUSE[ca]['breve']}", "v": vs, "u": url_cella(k), "e": ecc[:6], "r": rip}
+        if c.get("data_etichetta"):
+            celle[k]["d"] = c["data_etichetta"]
+        if ca in CAUSE_ILLECITO:  # i preavvisi agli enti pubblici letti riguardano le cause per danni (tort), non i contratti
+            celle[k]["gv"] = [e["titolo"] + " (" + e["cit"] + ")" for e in STATI[s]["governo"]]
     return {"celle": celle, "date": {c: CAUSE[c]["data"] for c in OC}}
 
 
+CAUSE_ILLECITO = ("personal-injury", "medical-malpractice", "wrongful-death", "property-damage")
 DATI_CALC = dati_calcolatore()
+# Il calcolatore completo (home, Stati, cause) legge tutti i dati da UN file in cache; le pagine di una cella portano solo la loro cella.
+DATI_JS = "window.SOL_DATI=" + json.dumps(DATI_CALC, ensure_ascii=False, separators=(",", ":")) + ";\n"
+DATI_FILE = f"calc.{_impronta(DATI_JS)}.js"
+LIMITI_CALC = ("The result is only the general period counted from the date you enter: no pause (tolling), discovery rule, exception or notice "
+               "deadline is applied, and the date is not moved when it falls on a weekend or a court holiday.")
 
 
 def calcolatore(stato=None, causa=None):
     """Calcolatore: completo (Stato, causa, data) o di una sola cella (solo data)."""
-    json_dati = json.dumps(DATI_CALC, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
-    script = f'<script type="application/json" id="dati-calc">{json_dati}</script>'
     if stato and causa:
+        k = f"{stato}/{causa}"
+        sola = {"celle": {k: DATI_CALC["celle"][k]}, "date": {causa: CAUSE[causa]["data"]}}
+        json_dati = json.dumps(sola, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+        script = f'<script type="application/json" id="dati-calc">{json_dati}</script>'
         return (f'<div class="card calc uno" data-calc data-stato="{stato}" data-causa="{causa}">'
-                f'<form><label><span data-etichetta>{h(CAUSE[causa]["data"])}</span><input type="date" name="data" required min="1950-01-01" max="2100-12-31"></label>'
+                f'<form><label><span data-etichetta>{h(CELLE[k].get("data_etichetta", CAUSE[causa]["data"]))}</span><input type="date" name="data" required min="1950-01-01" max="2100-12-31"></label>'
                 f'<button class="btn" type="submit">{ico("calendar")}Show the deadline</button></form>'
-                f'<div class="esito" hidden aria-live="polite"></div></div>{script}')
+                f'<div class="esito" hidden aria-live="polite"></div>'
+                f'<p class="small limiti-calc" style="margin:0">{h(LIMITI_CALC)} Dates you type stay in your browser.</p></div>{script}')
+    script = f'<script src="/assets/{DATI_FILE}" defer></script>'
     o_stati = "".join(f'<option value="{s}"{" selected" if s == stato else ""}>{h(STATI[s]["nome"])}</option>' for s in OS)
     o_cause = "".join(f'<option value="{c}">{h(CAUSE[c]["nome"])}</option>' for c in OC)
     return (f'<div class="card calc" data-calc id="calculator"><form>'
@@ -413,8 +431,8 @@ def calcolatore(stato=None, causa=None):
             f'<button class="btn" type="submit">{ico("calendar")}Calculate</button>'
             f'<p class="small" data-manca hidden style="grid-column:1/-1;margin:0">Not published for this state: the statute does not state its own deadline.</p></form>'
             f'<div class="esito" hidden aria-live="polite"></div>'
-            f'<p class="small" style="margin:0">Estimate, not legal advice. The result is the general deadline counted from the date you enter; '
-            f'deadlines can be shorter or longer. Talk to a licensed attorney in your state. Dates you type stay in your browser.</p></div>{script}')
+            f'<p class="small limiti-calc" style="margin:0">Estimate, not legal advice. {h(LIMITI_CALC)} Deadlines can be shorter or longer: '
+            f'talk to a licensed attorney in your state. Dates you type stay in your browser.</p></div>{script}')
 
 
 # ---------------------------------------------------------------- FAQ
@@ -459,6 +477,15 @@ def box_affiliati(contesto, aff=None):
 
 
 # ---------------------------------------------------------------- pezzi comuni
+def nota_debito():
+    """Pagine sui debiti: scaduto il termine per fare causa non vuol dire debito cancellato (le leggi citate non lo dicono)."""
+    return (f'<div class="nota info" data-nota-debito>{ico("info")}<p><strong>A deadline to sue is not the end of the debt.</strong> The statutes quoted on this '
+            f'page limit when a lawsuit can be brought; they do not say that the debt is cancelled or erased once the period has run. The federal '
+            f'rule quoted on this page (Regulation F) applies to a “debt collector” as that regulation defines the term (12 CFR 1006.2(i)), so it does '
+            f'not cover every creditor. What appears on a credit report follows a different federal law that this site does not cover. Whether a '
+            f'payment or a written acknowledgment changes the deadline depends on state law; this site mentions it only where a quoted statute says so.</p></div>')
+
+
 def blocco_eccezione(rim, e):
     return f'<div class="ecc"><h3>{h(e["titolo"])}</h3><p>{h(e["spiega"])}</p>{citazione(rim, e["fonte"], e["testo"], e["cit"])}</div>'
 
@@ -540,7 +567,11 @@ def pagina_cella(k):
     corpo += "</ul>"
     if any(v.get("transizione") for v in vs):
         corpo += (f'<div class="nota">{ico("history")}<p>For claims that accrued before {data_lunga(vs[0]["transizione"]["data"])}, a transition rule in '
-                  f'Senate Bill 13 (134th General Assembly) applies to these periods. The calculator does not compute those dates; ask an Ohio attorney.</p></div>')
+                  f'Senate Bill 13 (134th General Assembly) applies: the deadline is the earlier of the new period counted from that date or the end of '
+                  f'the period that applied before. The rule is quoted under <a href="#changes">recent changes</a>. The calculator shows no date for '
+                  f'those claims; ask an Ohio attorney.</p></div>')
+    if ca == "debt":
+        corpo += nota_debito()
     if c.get("nota"):
         corpo += f'<div class="nota info">{ico("info")}<p>{h(c["nota"])}</p></div>'
     # decorrenza
@@ -556,7 +587,6 @@ def pagina_cella(k):
     # calcolatore
     corpo += (f'<h2 id="calculator">Deadline calculator: {h(st["nome"])} {h(cc["breve"])}</h2><p>Enter the date to count from. '
               f'The calculator applies the general period{"s" if len(vs) > 1 else ""} above and nothing else.</p>' + calcolatore(s, ca))
-    corpo += '<div class="ad-slot" aria-hidden="true"></div>'
     # eccezioni
     if c["eccezioni"]:
         corpo += f'<h2 id="exceptions">Exceptions and special rules for {h(cc["breve"])}</h2>'
@@ -568,6 +598,7 @@ def pagina_cella(k):
     else:
         corpo += f'<p>These general rules apply to many {h(st["nome"])} deadlines, including this one, subject to their own conditions.</p>'
     corpo += "".join(blocco_eccezione(rim, e) for e in st["regole"])
+    corpo += '<div class="ad-slot" aria-hidden="true"></div>'  # lontano dal risultato del calcolatore
     corpo += f'<h2 id="government">If the claim is against a government</h2>'
     corpo += "".join(blocco_eccezione(rim, e) for e in st["governo"])
     cambi = [x for x in st["cambi"] if (x["data"] == "2023-03-24" and any(v.get("prima") for v in vs)) or
@@ -616,9 +647,9 @@ def pagina_stato(s):
              f'</tbody></table></div></div>')
     corpo += avviso(st["nome"])
     corpo += (f'<h2 id="calculator">{h(st["nome"])} deadline calculator</h2><p>Choose the claim and the date to count from.</p>' + calcolatore(stato=s))
-    corpo += '<div class="ad-slot" aria-hidden="true"></div>'
     corpo += f'<h2 id="tolling">Rules that pause or extend deadlines in {h(st["nome"])}</h2>'
     corpo += "".join(blocco_eccezione(rim, e) for e in st["regole"])
+    corpo += '<div class="ad-slot" aria-hidden="true"></div>'  # lontano dal risultato del calcolatore
     corpo += f'<h2 id="government">Claims against a government in {h(st["nome"])}</h2>' + "".join(blocco_eccezione(rim, e) for e in st["governo"])
     if st["cambi"]:
         corpo += f'<h2 id="changes">Recent changes in {h(st["nome"])}</h2>' + "".join(blocco_cambio(rim, x) for x in st["cambi"])
@@ -663,9 +694,12 @@ def pagina_causa(ca):
     corpo += avviso()
     corpo += f'<h2 id="table">{h(cc["nome"])} deadlines in ten states</h2>' + tabella_confronto(ca)
     corpo += (f'<h2 id="calculator">Calculate a {h(cc["breve"])} deadline</h2>' + calcolatore())
-    corpo += '<div class="ad-slot" aria-hidden="true"></div>'
+    if ca == "debt":
+        corpo += nota_debito()
     corpo += f'<h2 id="states">State by state</h2>'
-    for s in OS:
+    for n_stato, s in enumerate(OS):
+        if n_stato == 3:
+            corpo += '<div class="ad-slot" aria-hidden="true"></div>'  # lontano dal risultato del calcolatore
         k = f"{s}/{ca}"
         if k not in CELLE:
             continue
@@ -766,7 +800,7 @@ def come_controlliamo():
     n_cit = sum(len(v["testo"]) for c in CELLE.values() for v in c["varianti"])
     corpo = ('<div class="testo pull card">'
              f'<p>Every period on this site comes from a statute we downloaded from the official website of the state legislature (and, for the '
-             f'federal debt rule, from the eCFR). On {data_lunga(LETTO)} we saved {len(FONTI)} official pages and documents and recorded a fingerprint '
+             f'federal debt rule, from the eCFR; one Washington court ruling comes from the state courts\' website). On {data_lunga(LETTO)} we saved {len(FONTI)} official pages and documents and recorded a fingerprint '
              f'of each. Before every update a separate program re-reads the saved copies, checks that each quotation appears word for word, and '
              f'reads the number of years again from the statute text to compare it with what each page shows.</p></div>')
     corpo += ('<h2>What we check</h2><ul class="testo">'
@@ -777,11 +811,13 @@ def come_controlliamo():
     corpo += ('<h2>How the calculator counts</h2><div class="testo"><ul>'
               '<li>It adds the number of years in the statute to the date you enter (the same day and month). If you enter 29 February and the deadline year has no 29 February, it shows 28 February, the earlier date.</li>'
               '<li>It does not move a deadline that falls on a weekend or court holiday. Court rules sometimes do, but do not rely on it.</li>'
-              '<li>Where a statute fixes a different start (Ohio consumer debt: 30 days after the last charge or payment) or a law changed the period for older claims (Florida negligence before March 24, 2023), it applies that rule. For Ohio contract claims that accrued before June 16, 2021 it shows no date, because a transition rule applies.</li>'
+              '<li>Where a statute fixes a different start (Ohio consumer debt: 30 days after the last charge or payment) or a law changed the period for older claims (Florida negligence before March 24, 2023), it applies that rule. For Ohio contract claims that accrued before June 16, 2021 it shows no date and quotes the transition rule of Senate Bill 13 instead, because the deadline depends on the period that applied before.</li>'
+              '<li>It does not compute notice deadlines for claims against a government: it lists the rules that the state page quotes.</li>'
               '<li>It does not apply tolling or exceptions: it lists them so you can ask an attorney.</li></ul></div>')
     corpo += ('<h2>What we do not do</h2><div class="testo"><p>We do not read or work around websites that block automated access (this is why '
-              'California and New York are not on the site), we do not summarize court decisions, and we do not publish a deadline that is not written in '
-              'a statute.</p></div>')
+              'California and New York are not on the site), and we do not publish a deadline that is not written in a statute. We do not summarize court '
+              'decisions, with one exception: where a state supreme court has held a limit printed on this site unconstitutional (Washington, medical '
+              'malpractice), we quote the holding and link the opinion on the court\'s own website, and still show the statute as printed.</p></div>')
     corpo += rim.elenco()
     testata = banda("How we check", "How we check every deadline", "Our sources, how we verify each quotation and period, and how the calculator counts.",
                     corta=True, icona="shield")
@@ -859,6 +895,7 @@ def copia_grafica():
         shutil.copy(og, SITO / "assets" / "og.png")
     for nome, t in ASSET.items():
         (SITO / "assets" / nome).write_text(t, encoding="utf-8")
+    (SITO / "assets" / DATI_FILE).write_text(DATI_JS, encoding="utf-8")
 
 
 def main():

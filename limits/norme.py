@@ -17,7 +17,7 @@ CAUSE = {
     "wrongful-death": {"nome": "Wrongful death", "breve": "wrongful death", "titolo": "Wrongful Death",
                         "data": "Date of death", "esempi": "claims brought after a death caused by someone else's wrongful act or negligence"},
     "debt": {"nome": "Debt collection", "breve": "debt collection", "titolo": "Debt Collection",
-             "data": "Date of default (missed payment) or last payment", "esempi": "lawsuits to collect credit card balances, written contracts and open accounts"},
+             "data": "Date of default (missed payment)", "esempi": "lawsuits to collect credit card balances, written contracts and open accounts"},
     "breach-of-contract": {"nome": "Breach of contract", "breve": "breach of contract", "titolo": "Breach of Contract",
                             "data": "Date of the breach", "esempi": "written and oral agreements"},
     "property-damage": {"nome": "Property damage", "breve": "property damage", "titolo": "Property Damage",
@@ -188,6 +188,10 @@ STATI["FL"] = {
           ["(6)(a) An action may not be instituted on a claim against the state or one of its agencies or subdivisions unless the claimant presents the claim in writing to the appropriate agency",
            "within 3 years after such claim accrues",
            "2. Such action is for wrongful death, the claimant must present the claim in writing to the Department of Financial Services within 2 years after the claim accrues."]),
+        E("Deadline to sue the state or a local government",
+          "The same section sets its own deadline for the lawsuit: four years after the claim accrues for a negligent or wrongful act, while medical malpractice and wrongful death claims follow the periods in § 95.11(5). The calculator does not apply this section.",
+          "fl_768_28", "Fla. Stat. § 768.28(14)",
+          "(14) Every claim against the state or one of its agencies or subdivisions for damages for a negligent or wrongful act or omission pursuant to this section shall be forever barred unless the civil action is commenced by filing a complaint in the court of appropriate jurisdiction within 4 years after such claim accrues;"),
     ],
     "cambi": [
         {"data": "2023-03-24", "titolo": "Negligence: from four years to two (HB 837)",
@@ -224,6 +228,10 @@ CELLE["FL/medical-malpractice"] = {
           "The four-year outer limit does not bar an action brought for a minor on or before the child's eighth birthday.",
           "fl_95_11", "Fla. Stat. § 95.11(5)(c)",
           "except that this 4-year period shall not bar an action brought on behalf of a minor on or before the child's eighth birthday."),
+        E("Fraud or concealment: up to seven years",
+          "If fraud, concealment or intentional misrepresentation prevented discovery of the injury, the period is extended two years from discovery, but not beyond seven years from the incident.",
+          "fl_95_11", "Fla. Stat. § 95.11(5)(c)",
+          "In those actions covered by this paragraph in which it can be shown that fraud, concealment, or intentional misrepresentation of fact prevented the discovery of the injury the period of limitations is extended forward 2 years from the time that the injury is discovered or should have been discovered with the exercise of due diligence, but in no event to exceed 7 years from the date the incident giving rise to the injury occurred,"),
         E("Notice of intent pauses the deadline for 90 days",
           "Florida requires a pre-suit notice of intent; while the 90-day pre-suit period runs, the statute of limitations is tolled.",
           "fl_766_106", "Fla. Stat. § 766.106(4)",
@@ -239,6 +247,10 @@ CELLE["FL/wrongful-death"] = {
           "A wrongful death action against a natural person for an intentional tort resulting in death from acts described in ss. 782.04 or 782.07 may be brought at any time.",
           "fl_95_11", "Fla. Stat. § 95.11(11)",
           "an action for wrongful death seeking damages authorized under s. 768.21 brought against a natural person for an intentional tort resulting in death from acts described in s. 782.04 or s. 782.07 may be commenced at any time."),
+        E("Deaths from medical care",
+          "The medical malpractice paragraph defines its claims to include damages for a death arising from medical care, so its two-year period, discovery rule and four-year outer limit can apply: see the Florida medical malpractice page.",
+          "fl_95_11", "Fla. Stat. § 95.11(5)(c)",
+          "is defined as a claim in tort or in contract for damages because of the death, injury, or monetary loss to any person arising out of any medical, dental, or surgical diagnosis, treatment, or care by any provider of health care."),
     ],
 }
 CELLE["FL/debt"] = {
@@ -298,6 +310,18 @@ CELLE["FL/property-damage"] = {
 }
 
 # =====================================================================================================================  OHIO
+def _oh_trans(sezione, anni_parola):
+    return {"data": "2021-06-16",
+            "messaggio": f"No date: this claim accrued before June 16, 2021. Under {sezione} of Senate Bill 13 the period is {anni_parola} years from June 16, 2021 "
+                         "or the end of the period that applied before that date, whichever comes first. This calculator does not compute the earlier period: ask an Ohio attorney."}
+
+
+_OH_TRANS_SCRITTO = _oh_trans("Section 4", "six")
+_OH_TRANS_VERBALE = _oh_trans("Section 5(A)", "four")
+_OH_TRANS_CONSUMO = _oh_trans("Section 5(B)", "six")
+_OH_SB13_4 = "For causes of action that are governed by section 2305.06 of the Revised Code and that accrued prior to the effective date of this act, the period of limitations shall be six years from the effective date of this act or the expiration of the period of limitations in effect prior to the effective date of this act, whichever occurs first."
+_OH_SB13_5A = "For causes of action that are governed by division (A) of section 2305.07 of the Revised Code that accrued prior to the effective date of this act, the period of limitations shall be four years from the effective date of this act or the expiration of the period of limitations in effect prior to the effective date of this act, whichever occurs first."
+_OH_SB13_5B = "For causes of action that are governed by division (C) of section 2305.07 of the Revised Code that accrued prior to the effective date of this act, the period of limitations shall be six years from the effective date of this act or the expiration of the period of limitations in effect prior to the effective date of this act, whichever occurs first."
 STATI["OH"] = {
     "nome": "Ohio", "slug": "ohio", "codice": "Ohio Revised Code, chapter 2305",
     "regole": [
@@ -322,16 +346,19 @@ STATI["OH"] = {
     ],
     "cambi": [
         {"data": "2021-06-16", "titolo": "Contracts: written 8 → 6 years, oral 6 → 4 years (Senate Bill 13)",
-         "spiega": "The version of § 2305.06 in force until June 16, 2021 gave eight years for written contracts; § 2305.07 gave six years for contracts not in writing. Senate Bill 13 (134th General Assembly) cut them to six and four years and added the six-year rule for consumer transactions. A transition rule in that bill covers claims that accrued before June 16, 2021: our calculator does not compute those dates.",
+         "spiega": "The version of § 2305.06 in force until June 16, 2021 gave eight years for written contracts; § 2305.07 gave six years for contracts not in writing. Senate Bill 13 (134th General Assembly) cut them to six and four years and added the six-year rule for consumer transactions. A transition rule in that bill covers claims that accrued before June 16, 2021 (quoted below on the Ohio pages): our calculator does not compute those dates.",
          "fonte": "oh_2305_06_2012", "cit": "Ohio Rev. Code § 2305.06 (version of September 28, 2012)",
          "testo": "an action upon a specialty or an agreement, contract, or promise in writing shall be brought within eight years after the cause of action accrued."},
+        {"data": "2021-06-16", "titolo": "Claims that accrued before June 16, 2021: the transition rule",
+         "spiega": "For contract claims that already existed when Senate Bill 13 took effect (June 16, 2021, the effective date shown in the official code), the act sets the deadline at the earlier of two dates: the new period counted from the effective date, or the end of the period that applied before. Which earlier period applied depends on the kind of contract and on when the claim accrued; the calculator does not compute it.",
+         "fonte": "oh_sb13", "cit": "Senate Bill 13 (134th General Assembly), Sections 4 and 5",
+         "testo": [_OH_SB13_4, _OH_SB13_5A, _OH_SB13_5B]},
         {"data": "2026-09-23", "titolo": "§ 2305.06 amended again (Senate Bill 219)",
          "spiega": "The official code shows § 2305.06 amended by Senate Bill 219 (136th General Assembly), effective September 23, 2026. The current text still says six years.",
          "fonte": "oh_2305_06", "cit": "Ohio Rev. Code § 2305.06",
          "testo": "September 23, 2026 – Amended by Senate Bill 219 - 136th General Assembly"},
     ],
 }
-_OH_TRANS = {"data": "2021-06-16", "messaggio": "This claim accrued before June 16, 2021, when Senate Bill 13 shortened Ohio's contract periods. A transition rule applies that this calculator does not compute: ask an Ohio attorney."}
 CELLE["OH/personal-injury"] = {
     "varianti": [V("Bodily injury", 2, "oh_2305_10", "Ohio Rev. Code § 2305.10(A)",
                    "an action based on a product liability claim and an action for bodily injury or injuring personal property shall be brought within two years after the cause of action accrues.",
@@ -381,15 +408,16 @@ CELLE["OH/debt"] = {
     "varianti": [
         V("Consumer debt (personal, family or household)", 6, "oh_2305_07", "Ohio Rev. Code § 2305.07(C)",
           "an action arising out of a consumer transaction incurred primarily for personal, family, or household purposes, based upon any contract, agreement, obligation, liability, or promise, express or implied, including an account stated, whether or not reduced to writing or signed by the party to be charged by that transaction, shall be commenced within six years after the cause of action accrued.",
-          "shall be commenced within six years after the cause of action accrued", giorni_dopo=30, transizione=_OH_TRANS,
+          "shall be commenced within six years after the cause of action accrued", giorni_dopo=30, transizione=_OH_TRANS_CONSUMO,
           nota_data="For consumer debt the statute says the claim accrues 30 days after the later of the last charge or the last payment; the calculator adds those 30 days to the date you enter."),
         V("Written contract (business debt)", 6, "oh_2305_06", "Ohio Rev. Code § 2305.06",
           "an action upon a specialty or an agreement, contract, or promise in writing shall be brought within six years after the cause of action accrued.",
-          "shall be brought within six years after the cause of action accrued", transizione=_OH_TRANS),
+          "shall be brought within six years after the cause of action accrued", transizione=_OH_TRANS_SCRITTO),
         V("Contract not in writing (business debt)", 4, "oh_2305_07", "Ohio Rev. Code § 2305.07(A)",
           "an action upon a contract not in writing, express or implied, shall be brought within four years after the cause of action accrued.",
-          "shall be brought within four years after the cause of action accrued", transizione=_OH_TRANS),
+          "shall be brought within four years after the cause of action accrued", transizione=_OH_TRANS_VERBALE),
     ],
+    "data_etichetta": "Date of default, or of the last charge or payment (consumer debt)",
     "inizio": "For consumer debt, the statute fixes the start date itself: thirty days after the later of the last charge or the last payment made by or for the consumer. For business debts the period runs from when the claim accrues, usually the missed payment.",
     "inizio_testo": {"fonte": "oh_2305_07", "cit": "Ohio Rev. Code § 2305.07(C)",
                      "testo": ["For purposes of this division, a cause of action accrues thirty calendar days after the date of the last charge or payment by, or on behalf of, the consumer, whichever is later."]},
@@ -399,10 +427,10 @@ CELLE["OH/breach-of-contract"] = {
     "varianti": [
         V("Written contract", 6, "oh_2305_06", "Ohio Rev. Code § 2305.06",
           "an action upon a specialty or an agreement, contract, or promise in writing shall be brought within six years after the cause of action accrued.",
-          "shall be brought within six years after the cause of action accrued", transizione=_OH_TRANS),
+          "shall be brought within six years after the cause of action accrued", transizione=_OH_TRANS_SCRITTO),
         V("Oral contract", 4, "oh_2305_07", "Ohio Rev. Code § 2305.07(A)",
           "an action upon a contract not in writing, express or implied, shall be brought within four years after the cause of action accrued.",
-          "shall be brought within four years after the cause of action accrued", transizione=_OH_TRANS),
+          "shall be brought within four years after the cause of action accrued", transizione=_OH_TRANS_VERBALE),
     ],
     "inizio": "From the day the claim accrues, usually the breach. For claims that accrued before June 16, 2021 a transition rule applies (see recent changes).",
     "eccezioni": [
@@ -476,7 +504,8 @@ CELLE["WA/medical-malpractice"] = {
     "inizio": "Three years from the act or omission, or one year from when the patient discovered (or should have discovered) that it caused the injury, whichever expires later.",
     "repose": V("Statute of repose", 8, "wa_4_16", "RCW 4.16.350",
                 "except that in no event shall an action be commenced more than eight years after said act or omission:",
-                "more than eight years after said act or omission"),
+                "more than eight years after said act or omission",
+                nota_data="Shown as printed in the statute. In December 2023 the Washington Supreme Court held this eight-year limit unconstitutional (Bennett v. United States): ask a Washington attorney."),
     "eccezioni": [
         E("Fraud, concealment or a foreign body",
           "The time is tolled upon proof of fraud, intentional concealment, or a foreign body with no therapeutic or diagnostic purpose.",
@@ -486,8 +515,12 @@ CELLE["WA/medical-malpractice"] = {
           "For this section, the knowledge of a custodial parent or guardian is imputed to a child, so the general minors rule in RCW 4.16.190 does not simply pause the clock.",
           "wa_4_16", "RCW 4.16.350",
           "For purposes of this section, notwithstanding RCW 4.16.190, the knowledge of a custodial parent or guardian shall be imputed to a person under the age of eighteen years,"),
+        E("The eight-year outer limit: held unconstitutional in 2023",
+          "In Bennett v. United States (opinion filed December 7, 2023), the Washington Supreme Court held that the eight-year statute of repose in this section violates the state constitution. The limit is still printed in the statute, so this page and the calculator show it as written. We do not summarize the rest of the opinion: ask a Washington attorney how it affects a claim.",
+          "wa_bennett", "Bennett v. United States, No. 101300-1 (Wash. Dec. 7, 2023)",
+          "we hold that RCW 4.16.350(3)'s statute of repose violates the independent state law protections of article I, section 12."),
     ],
-    "nota": "Washington courts have ruled on parts of this section (the legislature's own note cites DeYoung v. Providence Medical Center). Ask a Washington attorney how it applies today.",
+    "nota": "Washington courts have ruled on parts of this section more than once: the legislature's own note cites DeYoung v. Providence Medical Center (1998), and in 2023 the state Supreme Court ruled on the eight-year outer limit again (quoted under the exceptions below). The text here is the statute as printed. Ask a Washington attorney how it applies today.",
 }
 CELLE["WA/debt"] = {
     "varianti": [
@@ -696,6 +729,10 @@ CELLE["NC/medical-malpractice"] = {
                 "Provided further, that in no event shall an action be commenced more than four years from the last act of the defendant giving rise to the cause of action:",
                 "more than four years from the last act of the defendant"),
     "eccezioni": [
+        E("Where the three years come from",
+          "Section 1-15(c) sets when a malpractice claim accrues and says its discovery rule cannot cut the period “below three years”; the three-year period itself is in the list of three-year actions in § 1-52, which includes injuries to the person not arising on contract. Reading the two sections together this way is our interpretation of the text.",
+          "nc_1_52", "N.C. Gen. Stat. § 1-52(5)",
+          ["Within three years an action -", "(5) For criminal conversation, or for any other injury to the person or rights of another, not arising on contract and not hereafter enumerated,"]),
         E("Foreign object: up to 10 years",
           "For a foreign object left in the body, one year from discovery, but no more than 10 years from the last act.",
           "nc_1_15", "N.C. Gen. Stat. § 1-15(c)",
@@ -844,7 +881,9 @@ CELLE["MI/wrongful-death"] = {
     "varianti": [V("Death of a person", 3, "mi_5805", "MCL 600.5805(2)",
                    "the period of limitations is 3 years after the time of the death or injury for all actions to recover damages for the death of a person or for injury to a person or property.",
                    "the period of limitations is 3 years after the time of the death or injury")],
-    "inizio": "The statute counts from “the time of the death or injury”. The calculator counts from the date of death you enter; if the injury happened earlier, ask a Michigan attorney which date applies.",
+    "inizio": "The statute counts from “the time of the death or injury” and does not say which of the two dates controls when they differ. The calculator counts from the date you enter: if the injury happened before the death, entering the date of the injury gives the earlier, more cautious date. Ask a Michigan attorney which date applies.",
+    "data_etichetta": "Date of death (or of the injury, if earlier)",
+    "nota": "If the death resulted from medical care, the claim can be an action charging malpractice, which has its own two-year period and six-year outer limit (MCL 600.5805(8), 600.5838a): see the Michigan medical malpractice page.",
     "eccezioni": [
         E("Personal representative: two years after letters of authority",
           "If the person dies before the period runs out (or within 30 days after), the personal representative may sue within 2 years after letters of authority are issued, but never later than 3 years after the period has run.",
@@ -971,9 +1010,17 @@ CELLE["AZ/breach-of-contract"] = {
         V("Oral agreement (debt not in writing)", 3, "az_12_543", "Ariz. Rev. Stat. § 12-543(1)",
           ["There shall be commenced and prosecuted within three years after the cause of action accrues, and not afterward, the following actions:",
            "1. For debt where the indebtedness is not evidenced by a contract in writing."], "within three years after the cause of action accrues"),
+        V("Written instrument signed outside Arizona", 4, "az_12_544", "Ariz. Rev. Stat. § 12-544(3)",
+          ["There shall be commenced and prosecuted within four years after the cause of action accrues, and not afterward, the following actions:",
+           "3. Upon a judgment or decree of a court rendered without the state, or upon an instrument in writing executed without the state."],
+          "within four years after the cause of action accrues"),
     ],
     "inizio": "From the day the claim accrues, usually the breach.",
     "eccezioni": [
+        E("Sale of goods",
+          "A claim for breach of a contract of sale under Arizona's commercial code (title 47, chapter 2) follows the deadline in § 47-2725 instead of these sections.",
+          "az_12_544", "Ariz. Rev. Stat. § 12-544(4)",
+          "4. An action arising under the provisions of title 47, chapter 2, for breach of any contract of sale, which action shall be governed by section 47-2725, notwithstanding any other provision of this section or of section 12-543 or 12-548."),
         E("Employment contracts: one year",
           "Breach of an oral or written employment contract (including handbooks that set no time limit) has one year.",
           "az_12_541", "Ariz. Rev. Stat. § 12-541(3)",
@@ -1121,7 +1168,12 @@ CELLE["MN/personal-injury"] = {
           "shall be commenced within two years"),
     ],
     "inizio": "From the day the claim accrues; the sections do not define it.",
-    "eccezioni": [],
+    "eccezioni": [
+        E("Product strict liability: four years",
+          "A claim based on the strict liability of the defendant and arising from the manufacture, sale, use or consumption of a product has four years.",
+          "mn_541_05", "Minn. Stat. § 541.05, subd. 2",
+          "any action based on the strict liability of the defendant and arising from the manufacture, sale, use or consumption of a product shall be commenced within four years."),
+    ],
     "nota": "Minnesota has two possible periods for injuries. Section 541.07(1) gives two years for libel, slander, assault, battery, false imprisonment “or other tort resulting in personal injury”, while § 541.05 gives six years for “any other injury to the person”. Negligence claims are generally treated under the six-year period; some tables online show two years for all injuries. Ask a Minnesota attorney which applies to your claim.",
 }
 CELLE["MN/medical-malpractice"] = {

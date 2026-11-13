@@ -182,13 +182,13 @@ function calcola(cella,data){
   if(!parte(data))return null;
   var out={varianti:[],repose:null};
   cella.v.forEach(function(v){
-    if(v.tr&&data<v.tr.data){out.varianti.push({l:v.l,cit:v.cit,errore:v.tr.msg});return;}
+    var inizio=v.g?piuGiorni(data,v.g):data;
+    if(v.tr&&inizio<v.tr.data){out.varianti.push({l:v.l,cit:v.cit,errore:v.tr.msg});return;}
     var anni=v.a,l=v.l,cit=v.cit;
     if(v.prima&&data<=v.prima.fino){anni=v.prima.a;l=v.prima.l;cit=v.prima.cit;}
-    var inizio=v.g?piuGiorni(data,v.g):data;
     out.varianti.push({l:l,cit:cit,anni:anni,scadenza:piuAnni(inizio,anni),nd:v.nd||''});
   });
-  if(cella.r)out.repose={l:cella.r.l,cit:cella.r.cit,anni:cella.r.a,scadenza:piuAnni(data,cella.r.a)};
+  if(cella.r)out.repose={l:cella.r.l,cit:cella.r.cit,anni:cella.r.a,scadenza:piuAnni(data,cella.r.a),nd:cella.r.nd||''};
   return out;
 }
 return {calcola:calcola,piuAnni:piuAnni,piuGiorni:piuGiorni,parte:parte};
@@ -207,13 +207,13 @@ function lunga(s){var p=SOL.parte(s);return p[2]+' '+MESI[p[1]-1]+' '+p[0];}
 function esc(t){return String(t).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
 function oggi(){var d=new Date();return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2);}
 function giorniTra(a,b){var pa=SOL.parte(a),pb=SOL.parte(b);return Math.round((Date.UTC(pb[0],pb[1]-1,pb[2])-Date.UTC(pa[0],pa[1]-1,pa[2]))/864e5);}
-var el=document.getElementById('dati-calc');if(!el)return;
-var D=JSON.parse(el.textContent);
+var el=document.getElementById('dati-calc');
+var D=el?JSON.parse(el.textContent):window.SOL_DATI;if(!D)return;
 document.querySelectorAll('[data-calc]').forEach(function(box){
   var f=box.querySelector('form'),out=box.querySelector('.esito');
   var sS=f.querySelector('[name=stato]'),sC=f.querySelector('[name=causa]'),dI=f.querySelector('[name=data]'),lab=f.querySelector('[data-etichetta]');
   function cella(){var s=sS?sS.value:box.getAttribute('data-stato'),c=sC?sC.value:box.getAttribute('data-causa');return D.celle[s+'/'+c]||null;}
-  function aggiornaEtichetta(){var c=sC?sC.value:box.getAttribute('data-causa');if(lab&&D.date[c])lab.textContent=D.date[c];
+  function aggiornaEtichetta(){var c=sC?sC.value:box.getAttribute('data-causa');var ce=cella();if(lab&&D.date[c])lab.textContent=(ce&&ce.d)||D.date[c];
     if(sC&&sS){var ok=!!D.celle[sS.value+'/'+c];f.querySelector('[data-manca]').hidden=ok;}}
   if(sC)sC.addEventListener('change',aggiornaEtichetta);if(sS)sS.addEventListener('change',aggiornaEtichetta);aggiornaEtichetta();
   f.addEventListener('submit',function(ev){ev.preventDefault();
@@ -224,9 +224,12 @@ document.querySelectorAll('[data-calc]').forEach(function(box){
       if(v.errore){h+='<li class="no"><span>'+esc(v.l)+' · '+esc(v.cit)+'</span><b>'+esc(v.errore)+'</b></li>';return;}
       var g=giorniTra(t,v.scadenza);var st=g>=0?'<span class="stato">'+g+' days from today</span>':'<span class="stato passato">This general date is in the past. Exceptions can change it: talk to a licensed attorney.</span>';
       h+='<li><span>'+esc(v.l)+' · '+v.anni+(v.anni===1?' year':' years')+' · '+esc(v.cit)+'</span><b>'+lunga(v.scadenza)+'</b>'+'<small>'+st+(v.nd?' '+esc(v.nd):'')+'</small></li>';});
-    if(r.repose)h+='<li class="rip"><span>'+esc(r.repose.l)+' (outer limit) · '+r.repose.anni+' years · '+esc(r.repose.cit)+'</span><b>'+lunga(r.repose.scadenza)+'</b><small>Counted from the date you entered. Many exceptions do not extend past this date.</small></li>';
+    if(r.repose)h+='<li class="rip"><span>'+esc(r.repose.l)+' (outer limit) · '+r.repose.anni+' years · '+esc(r.repose.cit)+'</span><b>'+lunga(r.repose.scadenza)+'</b><small>Counted from the date you entered. Many exceptions do not extend past this date.'+(r.repose.nd?' '+esc(r.repose.nd):'')+'</small></li>';
     h+='</ol>';
     if(c.e&&c.e.length){h+='<p class="small"><strong>Exceptions that can move this date:</strong></p><ul>'+c.e.map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ul>';}
+    if(c.gv&&c.gv.length){h+='<p class="small"><strong>Claim against a government body?</strong> Separate notice rules and deadlines can apply, and a notice deadline is often much shorter. They are not included in the date above:</p><ul>'+c.gv.map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ul>';}
+    if(/-02-29$/.test(dI.value)){h+='<p class="small">You entered 29 February: when the deadline year has no 29 February, the calculator shows 28 February, the earlier date.</p>';}
+    h+='<p class="small limiti"><strong>What this date leaves out.</strong> It is only the general period counted from the date you entered. No pause (tolling), discovery rule, exception or notice deadline is applied, and the date is not moved when it falls on a weekend or a court holiday.</p>';
     h+='<p class="small">Estimate, not legal advice. Deadlines can be shorter or longer. Talk to a licensed attorney in your state. <a href="'+c.u+'">Read the statute and every exception</a>.</p>';
     out.hidden=false;out.innerHTML=h;});
 });

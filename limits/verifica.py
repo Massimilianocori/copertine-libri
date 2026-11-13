@@ -215,20 +215,97 @@ def py_piu_anni(d, n):
 def py_calcola(cella, d):
     out = []
     for v in cella["v"]:
-        if v.get("tr") and d < date.fromisoformat(v["tr"]["data"]):
+        sorge = d + timedelta(days=v.get("g", 0))  # giorno in cui il diritto sorge (Ohio, debiti di consumo: 30 giorni dopo)
+        if v.get("tr") and sorge < date.fromisoformat(v["tr"]["data"]):
             out.append([v["l"], None])
             continue
         a, l_ = v["a"], v["l"]
         if v.get("prima") and d <= date.fromisoformat(v["prima"]["fino"]):
             a, l_ = v["prima"]["a"], v["prima"]["l"]
-        out.append([l_, py_piu_anni(d + timedelta(days=v.get("g", 0)), a).isoformat()])
+        out.append([l_, py_piu_anni(sorge, a).isoformat()])
     rip = py_piu_anni(d, cella["r"]["a"]).isoformat() if cella.get("r") else None
     return [out, rip]
 
 
+# Casi calcolati A MANO dal revisore indipendente (13/11/2026): cella, data inserita, scadenze attese per variante (None = nessuna
+# data), limite massimo atteso. Dentro: 29 febbraio (anche verso il 2100, non bisestile), Florida 23-24-25/3/2023, Ohio 30 giorni e
+# regola transitoria (conta il giorno in cui il diritto sorge), limiti massimi.
+CASI_A_MANO = [
+    ["TX/personal-injury", "2024-02-29", ["2026-02-28"], None],
+    ["TX/medical-malpractice", "2020-02-29", ["2022-02-28"], "2030-02-28"],
+    ["TX/wrongful-death", "2022-12-31", ["2024-12-31"], None],
+    ["TX/debt", "2021-07-04", ["2025-07-04", "2025-07-04"], None],
+    ["TX/breach-of-contract", "2020-02-29", ["2024-02-29"], None],
+    ["FL/personal-injury", "2023-03-24", ["2027-03-24", "2027-03-24"], None],
+    ["FL/personal-injury", "2023-03-25", ["2025-03-25", "2027-03-25"], None],
+    ["FL/property-damage", "2023-03-23", ["2027-03-23", "2027-03-23", "2027-03-23"], None],
+    ["FL/property-damage", "2024-02-29", ["2026-02-28", "2028-02-29", "2028-02-29"], None],
+    ["FL/medical-malpractice", "2024-02-29", ["2026-02-28"], "2028-02-29"],
+    ["FL/debt", "2022-05-10", ["2027-05-10", "2026-05-10", "2025-05-10"], None],
+    ["FL/wrongful-death", "2023-03-24", ["2025-03-24"], None],
+    ["OH/debt", "2024-01-01", ["2030-01-31", "2030-01-01", "2028-01-01"], None],
+    ["OH/debt", "2024-01-31", ["2030-03-01", "2030-01-31", "2028-01-31"], None],
+    ["OH/debt", "2021-06-15", ["2027-07-15", None, None], None],
+    ["OH/debt", "2021-05-16", [None, None, None], None],
+    ["OH/debt", "2021-05-17", ["2027-06-16", None, None], None],
+    ["OH/debt", "2021-06-16", ["2027-07-16", "2027-06-16", "2025-06-16"], None],
+    ["OH/breach-of-contract", "2021-06-15", [None, None], None],
+    ["OH/breach-of-contract", "2021-06-16", ["2027-06-16", "2025-06-16"], None],
+    ["OH/medical-malpractice", "2024-02-29", ["2025-02-28"], "2028-02-29"],
+    ["WA/medical-malpractice", "2019-03-01", ["2022-03-01"], "2027-03-01"],
+    ["WA/debt", "2020-02-29", ["2026-02-28", "2026-02-28", "2023-02-28"], None],
+    ["VA/personal-injury", "2024-07-04", ["2026-07-04"], None],
+    ["VA/property-damage", "2024-07-04", ["2029-07-04"], None],
+    ["VA/debt", "2023-11-30", ["2028-11-30", "2026-11-30", "2026-11-30"], None],
+    ["NC/medical-malpractice", "2022-08-15", ["2025-08-15"], "2026-08-15"],
+    ["NC/personal-injury", "2016-02-29", ["2019-02-28"], "2026-02-28"],
+    ["MI/medical-malpractice", "2024-02-29", ["2026-02-28"], "2030-02-28"],
+    ["MI/wrongful-death", "2023-12-31", ["2026-12-31"], None],
+    ["AZ/debt", "2021-01-15", ["2027-01-15", "2027-01-15", "2024-01-15", "2025-01-15"], None],
+    ["AZ/breach-of-contract", "2025-10-31", ["2031-10-31", "2028-10-31", "2029-10-31"], None],
+    ["MA/medical-malpractice", "2020-02-29", ["2023-02-28"], "2027-02-28"],
+    ["MN/wrongful-death", "2024-02-29", ["2027-02-28"], "2030-02-28"],
+    ["MN/personal-injury", "2000-02-29", ["2006-02-28", "2002-02-28"], None],
+    ["MN/medical-malpractice", "2096-02-29", ["2100-02-28"], None],
+]
+
+
+def dati_calcolatore_sito():
+    """Dati del calcolatore come li riceve il browser: un file in cache (pagine con il calcolatore completo) + la cella nelle pagine cella."""
+    file_dati = sorted(SITO.glob("assets/calc.*.js"))
+    if len(file_dati) != 1:
+        errore(f"calcolatore: attesi 1 file assets/calc.*.js, trovati {len(file_dati)}")
+        return None
+    tx = leggi(file_dati[0]).strip()
+    if not (tx.startswith("window.SOL_DATI=") and tx.endswith(";")):
+        errore("calcolatore: il file dei dati non ha la forma attesa")
+        return None
+    D = json.loads(tx[len("window.SOL_DATI="):-1])
+    rif = f'<script src="/assets/{file_dati[0].name}" defer></script>'
+    for p, html_ in PAGINE.items():
+        if "data-calc" not in html_:
+            continue
+        m = re.search(r'<script type="application/json" id="dati-calc">(.*?)</script>', html_, re.S)
+        if m:  # pagina di una cella: solo la sua cella, uguale a quella del file comune
+            sola = json.loads(m.group(1).replace("<\\/", "</"))
+            if len(sola["celle"]) != 1:
+                errore(f"{p}: i dati incorporati devono contenere una sola cella")
+            for k, c in sola["celle"].items():
+                if D["celle"].get(k) != c:
+                    errore(f"{p}: cella {k} incorporata diversa dal file comune")
+            if rif in html_:
+                errore(f"{p}: dati caricati due volte")
+        elif rif not in html_:
+            errore(f"{p}: calcolatore senza dati")
+        if len(html_.encode("utf-8")) > 45000:
+            avviso(f"{p}: pagina di {len(html_.encode('utf-8')) // 1000} KB")
+    return D
+
+
 def controlla_calcolatore(N, attesi):
-    m = re.search(r'<script type="application/json" id="dati-calc">(.*?)</script>', PAGINE["index.html"], re.S)
-    D = json.loads(m.group(1).replace("<\\/", "</"))
+    D = dati_calcolatore_sito()
+    if D is None:
+        return None
     if set(D["celle"]) != set(N.CELLE):
         errore("calcolatore: celle diverse da norme.py")
     for k, c in D["celle"].items():
@@ -241,12 +318,13 @@ def controlla_calcolatore(N, attesi):
             errore(f"calcolatore {k}: outer limit diverso dalla legge")
     date_prova = ["2020-02-29", "2021-06-15", "2021-06-16", "2023-03-23", "2023-03-24", "2023-03-25", "2024-02-29", "2024-12-31",
                   "2025-01-15", "2026-11-13", "2019-07-04", "2022-10-01"]
-    casi = [(k, d) for k in sorted(D["celle"]) for d in date_prova]
+    casi = [(k, d) for k in sorted(D["celle"]) for d in date_prova] + [(c[0], c[1]) for c in CASI_A_MANO]
+    a_mano = {(c[0], c[1]): [c[2], c[3]] for c in CASI_A_MANO}
     js = next(SITO.glob("assets/app.*.js"))
     with tempfile.TemporaryDirectory() as tmp:
         prova = Path(tmp) / "prova.js"
         prova.write_text(f"const SOL=require({json.dumps(str(js))});const D={json.dumps(D)};const casi={json.dumps(casi)};"
-                         "const out=casi.map(([k,d])=>{const r=SOL.calcola(D.celle[k],d);"
+                         "const out=casi.map(([k,d])=>{const r=SOL.calcola(D.celle[k],d);if(!r)return null;"
                          "return [r.varianti.map(v=>[v.l,v.scadenza||null]),r.repose?r.repose.scadenza:null];});"
                          "process.stdout.write(JSON.stringify(out));", encoding="utf-8")
         r = subprocess.run(["node", str(prova)], capture_output=True, text=True)
@@ -260,6 +338,8 @@ def controlla_calcolatore(N, attesi):
             diversi += 1
             if diversi <= 5:
                 errore(f"calcolatore {k} {d}: JS {js_out} ≠ Python {py_calcola(D['celle'][k], date.fromisoformat(d))}")
+        if (k, d) in a_mano and (js_out is None or [[x[1] for x in js_out[0]], js_out[1]] != a_mano[(k, d)]):
+            errore(f"calcolatore {k} {d}: il JS dà {js_out}, il calcolo a mano {a_mano[(k, d)]}")
     # casi noti scritti a mano
     noti = [("FL/personal-injury", "2023-03-24", 0, "2027-03-24"), ("FL/personal-injury", "2023-03-25", 0, "2025-03-25"),
             ("OH/debt", "2024-01-01", 0, "2030-01-31"), ("TX/personal-injury", "2024-02-29", 0, "2026-02-28"),
@@ -269,7 +349,73 @@ def controlla_calcolatore(N, attesi):
             errore(f"calcolatore: caso noto {k} {d} non dà {att}")
     if py_calcola(D["celle"]["OH/breach-of-contract"], date(2021, 6, 15))[0][0][1] is not None:
         errore("calcolatore: Ohio prima del 16/6/2021 dovrebbe non dare una data")
-    print(f"Calcolatore: {len(casi)} casi, JS (node) = Python in {len(casi) - diversi}; {len(noti) + 1} casi noti giusti")
+    print(f"Calcolatore: {len(casi)} casi, JS (node) = Python in {len(casi) - diversi}; {len(noti) + 1} casi noti e {len(CASI_A_MANO)} calcolati a mano giusti")
+    return D
+
+
+# ---------------------------------------------------------------- 4b. avvertenze accanto al risultato, debiti, enti pubblici, pubblicità
+ILLECITI = ("personal-injury", "medical-malpractice", "wrongful-death", "property-damage")
+
+
+def controlla_avvertenze(N, D):
+    if D is None:
+        return
+    js = leggi(next(SITO.glob("assets/app.*.js")))
+    for pezzo in ("What this date leaves out", "No pause (tolling), discovery rule, exception or notice deadline is applied",
+                  "not moved when it falls on a weekend or a court holiday", "Claim against a government body?", "29 February"):
+        if pezzo not in js:
+            errore(f"calcolatore: nel risultato manca l'avvertenza «{pezzo}»")
+    for p, html_ in PAGINE.items():
+        if "data-calc" in html_ and "the date is not moved when it falls on a weekend or a court holiday" not in TESTI[p]:
+            errore(f"{p}: sotto il calcolatore manca l'avvertenza (niente sospensioni, niente spostamento per weekend e festivi)")
+        # lo spazio pubblicitario non sta accanto al risultato: fra il calcolatore e lo spazio ci dev'essere almeno un titolo di sezione
+        for m in re.finditer(r'class="ad-slot"', html_):
+            prima = html_[:m.start()]
+            i = prima.rfind('class="esito"')
+            if i >= 0 and "<h2" not in prima[i:]:
+                errore(f"{p}: spazio pubblicitario subito dopo il risultato del calcolatore")
+        if 'rel="sponsored' in html_ or "Legal documents online" in TESTI[p]:
+            aff = json.loads(leggi(DATI / "affiliati.json"))
+            if not any(v.get("attivo") for k, v in aff.items() if not k.startswith("_")):
+                errore(f"{p}: riquadro dei partner visibile con i programmi spenti")
+    # enti pubblici: ogni cella per danni elenca nel risultato i preavvisi letti per quello Stato; i contratti no
+    for k, c in D["celle"].items():
+        s, ca = k.split("/")
+        attese = [e["titolo"] + " (" + e["cit"] + ")" for e in N.STATI[s]["governo"]] if ca in ILLECITI else None
+        if c.get("gv") != attese:
+            errore(f"calcolatore {k}: elenco dei preavvisi agli enti pubblici diverso da norme.py")
+        if c.get("r") and N.CELLE[k]["repose"].get("nota_data") and c["r"].get("nd") != N.CELLE[k]["repose"]["nota_data"]:
+            errore(f"calcolatore {k}: manca la nota sul limite massimo")
+    # debiti: scaduto non vuol dire cancellato; "ultimo pagamento" solo dove la legge citata lo dice
+    if "payment" in D["date"]["debt"].replace("missed payment", ""):
+        errore("calcolatore: l'etichetta generale della data dei debiti parla di pagamenti (vale solo dove la legge lo dice)")
+    for k, c in D["celle"].items():
+        if "payment" in c.get("d", "").replace("missed payment", ""):
+            cella = N.CELLE[k]
+            citati = " ".join(" ".join(v["testo"]) for v in cella["varianti"]) + " " + " ".join(cella.get("inizio_testo", {}).get("testo", []))
+            if "payment" not in citati:
+                errore(f"calcolatore {k}: l'etichetta della data parla di pagamenti ma nessuna citazione della cella lo dice")
+    pag_debiti = ["debt/index.html"] + [f"{N.STATI[k.split('/')[0]]['slug']}/debt/index.html" for k in N.CELLE if k.endswith("/debt")]
+    for p in pag_debiti:
+        if "data-nota-debito" not in PAGINE[p] or "they do not say that the debt is cancelled or erased" not in TESTI[p]:
+            errore(f"{p}: manca la nota «termine scaduto non vuol dire debito cancellato»")
+        if "12 CFR 1006.26(b)" not in TESTI[p] or "12 CFR 1006.2(i)" not in TESTI[p]:
+            errore(f"{p}: manca la regola federale o il suo ambito (debt collector)")
+        for pat in (r"debt (is|will be) (erased|wiped|cancell?ed|forgiven|gone)", r"no longer owe", r"you (do not|don't) have to pay", r"stop paying"):
+            m = re.search(pat, TESTI[p].replace("they do not say that the debt is cancelled or erased", ""), re.I)
+            if m:
+                errore(f"{p}: frase che fa pensare a un debito cancellato «{m.group(0)}»")
+    # Ohio: regola transitoria citata; Washington: sentenza del 2023 citata accanto al limite di otto anni
+    for k, c in N.CELLE.items():
+        s, ca = k.split("/")
+        p = f"{N.STATI[s]['slug']}/{ca}/index.html"
+        if any(v.get("transizione") for v in c["varianti"]) and "whichever occurs first" not in TESTI[p]:
+            errore(f"{p}: regola transitoria non citata")
+    wa = TESTI["washington/medical-malpractice/index.html"]
+    if "statute of repose violates the independent state law protections" not in wa or "December 7, 2023" not in wa:
+        errore("washington/medical-malpractice: manca la sentenza del 2023 sul limite di otto anni")
+    print(f"Avvertenze: limiti del calcolo accanto a ogni calcolatore e nel risultato, preavvisi agli enti pubblici in "
+          f"{sum(1 for c in D['celle'].values() if c.get('gv'))} celle, nota sui debiti in {len(pag_debiti)} pagine, pubblicità lontana dal risultato")
 
 
 # ---------------------------------------------------------------- 5. pagine
@@ -403,7 +549,7 @@ def controlla_monetizzazione():
 
 
 # ---------------------------------------------------------------- browser
-PAGINE_BROWSER = ["/", "/florida/personal-injury/", "/ohio/debt/", "/debt/"]
+PAGINE_BROWSER = ["/", "/florida/personal-injury/", "/ohio/debt/", "/debt/", "/washington/medical-malpractice/"]
 
 
 def controlla_browser():
@@ -443,6 +589,18 @@ def controlla_browser():
                     esito = pg.locator(".esito").first
                     if not esito.is_visible() or "General deadline" not in esito.inner_text():
                         errore(f"browser {w}px {tema} {u}: il calcolatore non mostra il risultato")
+                    if "weekend" not in esito.inner_text() or "tolling" not in esito.inner_text():
+                        errore(f"browser {w}px {tema} {u}: nel risultato manca l'avvertenza sui limiti del calcolo")
+                    if u == "/florida/personal-injury/" and ("24 March 2027" not in esito.inner_text() or "government" not in esito.inner_text()):
+                        errore(f"browser {w}px {tema} {u}: Florida 24/3/2023 deve dare 24 March 2027 e l'elenco dei preavvisi agli enti pubblici")
+                    if u == "/washington/medical-malpractice/" and "unconstitutional" not in esito.inner_text():
+                        errore(f"browser {w}px {tema} {u}: nel risultato manca la nota sul limite di otto anni")
+                    if u == "/ohio/debt/":
+                        pg.locator("input[name=data]").first.fill("2020-01-10")
+                        pg.locator("[data-calc] form button").first.click()
+                        tx_oh = esito.inner_text()
+                        if tx_oh.count("No date") != 3 or "days from today" in tx_oh or "whichever comes first" not in tx_oh:
+                            errore(f"browser {w}px {tema} {u}: Ohio prima del 16/6/2021 non deve dare date")
                     largo = pg.evaluate("document.documentElement.scrollWidth")
                     if largo > w + 1:
                         errore(f"browser {w}px {tema} {u}: scorrimento orizzontale ({largo}px)")
@@ -470,7 +628,8 @@ def main():
     N, attesi = controlla_termini(fonti)
     carica_pagine()
     controlla_periodi_pagine(N, attesi, fonti)
-    controlla_calcolatore(N, attesi)
+    D = controlla_calcolatore(N, attesi)
+    controlla_avvertenze(N, D)
     controlla_pagine()
     controlla_faq()
     controlla_monetizzazione()

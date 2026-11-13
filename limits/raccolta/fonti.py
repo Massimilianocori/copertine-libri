@@ -63,9 +63,13 @@ FONTI = {
     "oh_2305_16": ("OH", OH.format("2305.16"), "Ohio Revised Code § 2305.16", "Ohio Legislative Service Commission"),
     "oh_2305_19": ("OH", OH.format("2305.19"), "Ohio Revised Code § 2305.19", "Ohio Legislative Service Commission"),
     "oh_2125_02": ("OH", OH.format("2125.02"), "Ohio Revised Code § 2125.02", "Ohio Legislative Service Commission"),
+    "oh_sb13": ("OH", "https://search-prod.lis.state.oh.us/api/v2/general_assembly_134/legislation/sb13/05_EN/pdf/",
+                "Senate Bill 13 as enrolled, 134th General Assembly (transition rule, sections 4 and 5)", "Ohio General Assembly"),
     "oh_2744_04": ("OH", OH.format("2744.04"), "Ohio Revised Code § 2744.04", "Ohio Legislative Service Commission"),
     # ---- Washington
     "wa_4_16": ("WA", WA.format("4.16") + "&full=true", "Revised Code of Washington, chapter 4.16 RCW", "Washington State Legislature"),
+    "wa_bennett": ("WA", "https://www.courts.wa.gov/opinions/pdf/1013001.pdf",
+                   "Bennett v. United States, No. 101300-1, opinion filed December 7, 2023", "Washington Supreme Court (Washington Courts)"),
     "wa_4_96_020": ("WA", WA.format("4.96.020"), "RCW 4.96.020", "Washington State Legislature"),
     # ---- Virginia
     "va_8_01_243": ("VA", VA.format("title8.01/chapter4/section8.01-243"), "Code of Virginia § 8.01-243", "Virginia General Assembly"),
@@ -135,7 +139,7 @@ LINK_LETTORE = {"cfr_1006_26": "https://www.ecfr.gov/current/title-12/chapter-X/
 
 
 def estensione(tipo, url):
-    if "pdf" in tipo or url.endswith(".pdf") or "laws.flrules.org" in url:
+    if "pdf" in tipo or url.rstrip("/").endswith(("/pdf", ".pdf")) or "laws.flrules.org" in url:
         return "pdf"
     if "xml" in tipo:
         return "xml"
