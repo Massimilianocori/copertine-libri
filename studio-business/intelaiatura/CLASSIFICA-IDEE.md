@@ -82,4 +82,10 @@ Colonne: idea · mercato · ricerche/mese misurate · costo per clic · €/anno
 
 | – | Sezione USA su payrolltaxbystate.com (payroll tax calculator, SUTA/FUTA per Stato) | US | payroll taxes 18.100, payroll tax calculator 18.100, suta 5.400, employer payroll taxes 4.400, futa tax rate 3.600 | da misurare | da stimare | – | – | alto sul singolo tasso | DA VALUTARE (IRS ed EDD leggibili, SSA 403) | paytax/NOTE.md 13/11 |
 
+| 68 | Global Entry e NEXUS, primo appuntamento libero per centro (sezione di Before You Fly, con la dogana per aeroporto) | US, CA | ~9.900 su 8 centri (+ marca ~70.000) | 2-4,8 $ | 60 / 190 / 750 | 10 | 19 | medio | IN CODA bassa | fronti-2026-11-13-cloni |
+| 69 | Permesso di soggiorno questura per questura (sezione di EsameB1) | IT | ~30.000 su 7 città (+ teste 74.000 del servizio ufficiale) | 0-0,8 € (teste 8,7 €) | 80 / 290 / 1.000 | 25 | 12 | medio (alto sulle teste) | RISERVA | fronti-2026-11-13-cloni |
+| 70 | Einbürgerung per città e per ufficio, Germania (attesa ufficiale datata, domanda online, tariffa) | DE | 64.280 su 33 città (~110.000 con le varianti) | 1,2-1,7 € | 100 / 400 / 1.500 | 50 | 8 | medio | RISERVA (prova di 20 pagine in un sito esistente) | fronti-2026-11-13-cloni |
+| 71 | Einbürgerung per cantone e test fide per città, Svizzera (sezione del n. 70) | CH | 18.680 sulle teste | 0-7 CHF | 60 / 225 / 900 | 18 | 12 | medio | RISERVA bassa | fronti-2026-11-13-cloni |
+| 72 | Inburgering, NT2 e naturalisatie (NL); scartati anche Danimarca, YKI, B1 polacco, PEGP, Austria per Land, cerimonie CA/NZ/UK, attese del visto USA | NL, DK, FI, PL, GR, AT, CA, NZ, UK, IN | 45.000 NL; altri 0-12.000 | 0,3-4 € | 30 / 120 / 450 | 30 | 4 | alto | NO | fronti-2026-11-13-cloni |
+
 (Da completare con le ricerche in corso: mercati esteri, crescita Visa Income, e tutte le prossime.)
