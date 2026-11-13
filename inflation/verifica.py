@@ -1,4 +1,7 @@
-"""Controlli di Inflation Calculator US·UK·DE (dati, motore, pagine, monetizzazione, browser).
+"""Controlli di Inflation Calculator (dati, motore, pagine, monetizzazione, browser).
+
+I controlli tedeschi (Destatis, pagine /de/, casi DE nel browser) girano solo con genera.SEZIONE_DE = True; da spenta si controlla
+invece che nessun file di sito/ nomini la sezione tedesca (vedi sezione_de_spenta()).
 
 Uso (dalla radice del repository):
     python3 inflation/verifica.py            # dati + motore JS = Python + pagine
@@ -26,7 +29,8 @@ SEGNO_CHIAVE = "sd" + "_" + "live"  # prefisso delle chiavi dello strumento dei 
 SITO = RADICE / "sito"
 ERR, AVV, OK = [], [], []
 S = G.S
-C = G.C
+DE = G.SEZIONE_DE
+C = G.C if DE else {k: v for k, v in G.C.items() if k != "de"}  # da spenta il motore si controlla su USA e UK
 
 
 def err(x):
@@ -47,8 +51,8 @@ def tolleranza(c, d0, d1, mezza_unita):
 
 def dati():
     # continuità
-    for k, nome in (("us", "USA CPI-U"), ("uk_cpi", "UK CPI"), ("uk_rpi", "UK RPI lungo"), ("uk_rpi87", "UK RPI 1987"), ("de_vpi", "DE VPI"),
-                    ("de_west", "DE Ovest"), ("de", "DE verkettet")):
+    for k, nome in ((("us", "USA CPI-U"), ("uk_cpi", "UK CPI"), ("uk_rpi", "UK RPI lungo"), ("uk_rpi87", "UK RPI 1987"))
+                    + ((("de_vpi", "DE VPI"), ("de_west", "DE Ovest"), ("de", "DE verkettet")) if DE else ())):
         e = serie.continuita(S[k], nome)
         ERR.extend(e)
         if not e:
@@ -64,7 +68,7 @@ def dati():
     else:
         ok(f"BLS: pagina dati = API su {len(api)} mesi; ottobre 2025 assente in entrambe ({list(api_manc.values())[0]})")
     # medie annue ricalcolate
-    for k, tol_vecchi in (("us", 0.1001), ("uk_cpi", 0.1001), ("uk_rpi", 0.25), ("de_vpi", 0.1001), ("de_west", 0.1001)):
+    for k, tol_vecchi in (("us", 0.1001), ("uk_cpi", 0.1001), ("uk_rpi", 0.25)) + ((("de_vpi", 0.1001), ("de_west", 0.1001)) if DE else ()):
         s, n, mx = S[k], 0, 0
         for y, v in s["annuale"].items():
             ms = [s["mensile"][(y, m)] for m in range(1, 13) if (y, m) in s["mensile"]]
@@ -79,7 +83,7 @@ def dati():
         ok(f"{k}: {n} medie annue ricalcolate dai mesi, scarto massimo {mx:.4f}")
     # valori noti
     noti = [("us", 1913, 9.9), ("us", 1970, 38.8), ("us", 1980, 82.4), ("us", 2000, 172.2), ("us", 2020, 258.811), ("us", 2024, 313.689),
-            ("uk_cpi", 2015, 100.0), ("de_vpi", 2020, 100.0), ("uk_rpi87", 1987, 101.9)]
+            ("uk_cpi", 2015, 100.0), ("uk_rpi87", 1987, 101.9)] + ([("de_vpi", 2020, 100.0)] if DE else [])
     for k, y, v in noti:
         if abs(S[k]["annuale"][y] - v) > 0.051:
             err(f"valore noto {k} {y}: {S[k]['annuale'][y]} invece di {v}")
@@ -131,7 +135,24 @@ def dati():
         err(f"RPI: CDKO / CHAW non costante ({min(rapp):.4f}–{max(rapp):.4f})")
     else:
         ok(f"RPI: CDKO = CHAW × {sum(rapp) / len(rapp):.4f} su {len(rapp)} mesi (stessa serie, basi diverse)")
-    # Destatis
+    if DE:
+        dati_de()
+    # fonti e frasi
+    for fid, f in G.FONTI.items():
+        if fid.startswith("_") or (not DE and fid in G.FONTI_DE):
+            continue
+        if f.get("http") != 200:
+            err(f"fonte {fid}: HTTP {f.get('http')}")
+        if f.get("trovate") and not all(f["trovate"].values()):
+            err(f"fonte {fid}: frase non più presente")
+        if fid.startswith(("ons", "destatis", "bls")) and fid != "bls_calc" and not f.get("licenza"):
+            err(f"fonte {fid}: licenza non registrata")
+        if not f.get("letto_il"):
+            err(f"fonte {fid}: senza data di lettura")
+
+
+def dati_de():
+    """Destatis (solo con la sezione tedesca accesa)."""
     L, T = S["de_lange"], S["de_tabelle"]
     sov_m = [k for k in T["mensile"] if k in L["mensile"]]
     sov_a = [k for k in T["annuale"] if k in L["annuale"]]
@@ -178,18 +199,6 @@ def dati():
     ok(f"DE: fattore di raccordo rifatto = {S['de_vpi']['annuale'][1991]} ÷ {S['de_west']['annuale'][1991]} = {k2:.5f}; "
        f"{sum(1 for a in S['de_west']['annuale'] if a < 1991)} anni e {sum(1 for x in S['de_west']['mensile'] if x[0] < 1991)} mesi prima del 1991 = Ovest × fattore; "
        f"scarto del raccordo a gennaio 1991 {salto * 100:.2f} %")
-    # fonti e frasi
-    for fid, f in G.FONTI.items():
-        if fid.startswith("_"):
-            continue
-        if f.get("http") != 200:
-            err(f"fonte {fid}: HTTP {f.get('http')}")
-        if f.get("trovate") and not all(f["trovate"].values()):
-            err(f"fonte {fid}: frase non più presente")
-        if fid.startswith(("ons", "destatis", "bls")) and fid != "bls_calc" and not f.get("licenza"):
-            err(f"fonte {fid}: licenza non registrata")
-        if not f.get("letto_il"):
-            err(f"fonte {fid}: senza data di lettura")
 
 
 # ---------------------------------------------------------------- 2. motore JS = Python
@@ -209,8 +218,9 @@ def motore():
                 i = rnd.randrange(len(c["m"]))
                 return [c["m0"][0] + (c["m0"][1] - 1 + i) // 12, (c["m0"][1] - 1 + i) % 12 + 1]
             casi.append([k, round(rnd.uniform(0, 100000), 2), data(), data(), (rnd.random() < 0.5) if k == "de" else None])
-    casi += [["us", 100, [2025, 10], [2026, 10], None], ["us", 100, [1913, None], [1913, None], None], ["de", 100, [1990, None], [2002, None], True],
-             ["de", 100, [2005, None], [1980, None], False], ["uk_rpi", 1, [1800, None], [2026, 9], None]]
+    casi += [["us", 100, [2025, 10], [2026, 10], None], ["us", 100, [1913, None], [1913, None], None], ["uk_rpi", 1, [1800, None], [2026, 9], None]]
+    if DE:
+        casi += [["de", 100, [1990, None], [2002, None], True], ["de", 100, [2005, None], [1980, None], False]]
     prog = motore_js + "\nvar C=" + json.dumps(C) + ";var K=" + json.dumps(casi) + (
         ";var o=K.map(function(x){var r=calcola(C[x[0]],x[1],[x[2][0],x[2][1]||undefined],[x[3][0],x[3][1]||undefined],x[4]);return r?r.valore:null;});"
         "process.stdout.write(JSON.stringify(o));")
@@ -274,7 +284,7 @@ def tassi_pubblicati():
             if abs(_pc(r[1]) - rpi[y]) > 1e-9 or abs(_pc(r[2]) - cpi[y]) > 1e-9:
                 err(f"RPI calculator: {y} stampato {r[1]} / {r[2]} ≠ ONS {rpi[y]} / {cpi[y]}")
     R = S["de_rate_pubbl"]
-    for r in _righe("de/inflationsrate-deutschland/index.html"):
+    for r in (_righe("de/inflationsrate-deutschland/index.html") if DE else []):
         if r and re.fullmatch(r"\d{4}", r[0]) and len(r) == 3:
             y = int(r[0])
             n += 1
@@ -289,9 +299,9 @@ def tassi_pubblicati():
             a, d = S["us"]["annuale"], S["us"]["mensile"]
             if abs(_pc(r[2]) - round((a[y] / a[y - 1] - 1) * 100, 1)) > 1e-9 or abs(_pc(r[3]) - round((d[(y, 12)] / d[(y - 1, 12)] - 1) * 100, 1)) > 1e-9:
                 err(f"US tassi: {y} stampato {r[2]} / {r[3]} ≠ indici BLS")
-    if n < 330 or us < 112:
+    if n < (330 if DE else 270) or us < 112:
         err(f"tassi stampati: lette solo {n} righe UK/DE e {us} USA (struttura delle tabelle cambiata?)")
-    ok(f"tassi annui stampati: {n} righe UK/DE = tassi pubblicati da ONS (D7G7, CZBH) e Destatis (prima del 1949 RPI calcolato e segnato con *); "
+    ok(f"tassi annui stampati: {n} righe {'UK/DE' if DE else 'UK'} = tassi pubblicati da ONS (D7G7, CZBH){' e Destatis' if DE else ''} (prima del 1949 RPI calcolato e segnato con *); "
        f"{us} anni USA × 2 = indici BLS")
     # nota sulla Banca d'Inghilterra con l'esempio rifatto a mano
     a, y0, y1, _, _, boe = G.BOE
@@ -302,16 +312,17 @@ def tassi_pubblicati():
             err(f"{rel}: manca la spiegazione CPI/RPI con il confronto con la Banca d'Inghilterra ({G.soldi(boe, 'GBP')} contro {nostro})")
     if not all(G.FONTI.get("boe_calc", {}).get("trovate", {"": False}).values()):
         err("boe_calc: le frasi citate non sono più nella pagina della Banca d'Inghilterra")
-    de = re.sub(r"\s+", " ", testo((SITO / "de/inflationsrechner/index.html").read_text(encoding="utf-8")))
-    for frase in ("0,69551", "eigene Berechnung", "kein amtlicher Index", "1 Euro = 1,95583 DM", "nimmt der Rechner den Jahresdurchschnitt"):
-        if frase not in de:
-            err(f"de/inflationsrechner: manca «{frase}»")
+    if DE:
+        de = re.sub(r"\s+", " ", testo((SITO / "de/inflationsrechner/index.html").read_text(encoding="utf-8")))
+        for frase in ("0,69551", "eigene Berechnung", "kein amtlicher Index", "1 Euro = 1,95583 DM", "nimmt der Rechner den Jahresdurchschnitt"):
+            if frase not in de:
+                err(f"de/inflationsrechner: manca «{frase}»")
     home = re.sub(r"\s+", " ", testo((SITO / "index.html").read_text(encoding="utf-8")))
     for frase in ("annual average", "One month is missing: October 2025", "does not invent a value"):
         if frase not in home:
             err(f"home: manca «{frase}»")
     ok(f"spiegazioni presenti: CPI→RPI senza concatenare e differenza con la Banca d'Inghilterra ({G.soldi(boe, 'GBP')} contro {nostro}), "
-       "raccordo tedesco come calcolo nostro, ottobre 2025, media annua o mese")
+       f"{'raccordo tedesco come calcolo nostro, ' if DE else ''}ottobre 2025, media annua o mese")
 
 
 def pagine_anno():
@@ -452,7 +463,8 @@ def pagine():
         err(f"sitemap ({len(sm)}) ≠ pagine con canonical ({len(canon)})")
     if noindex != ["404.html"]:
         err(f"pagine noindex inattese: {noindex}")
-    attese = ["", "uk/", "uk/rpi-calculator/", "uk/inflation-rate-by-year/", "de/inflationsrechner/", "de/inflationsrate-deutschland/", "us/inflation-rate-by-year/"]
+    attese = ["", "uk/", "uk/rpi-calculator/", "uk/inflation-rate-by-year/", "us/inflation-rate-by-year/"]
+    attese += ["de/inflationsrechner/", "de/inflationsrate-deutschland/"] if DE else []
     attese += [f"us/{y}-dollars-today/" for y in G.ANNI_US] + [f"us/{x}-dollars-in-{y}/" for x in G.IMPORTI_PAGINA for y in G.DECENNI_IMPORTO]
     mancano = [a for a in attese if f"{G.URL_SITO}/{a}" not in canon]
     if mancano:
@@ -487,15 +499,17 @@ def pagine():
         t = (SITO / "us" / f"{x}-dollars-in-{y}" / "index.html").read_text(encoding="utf-8")
         if G.soldi(x * G.vale_oggi("us", y), "USD") not in t:
             err(f"pagina ${x} {y}: valore non uguale al motore")
-    for rel, k, imp, da, a, v in (("index.html", "us", 100, (1970, None), G.ULT["us"], None), ("uk/index.html", "uk_cpi", 100, (1990, None), G.ULT["uk_cpi"], None),
-                                  ("de/inflationsrechner/index.html", "de", 100, (2002, None), G.ULT["de"], False)):
+    for rel, k, imp, da, a, v in ((("index.html", "us", 100, (1970, None), G.ULT["us"], None), ("uk/index.html", "uk_cpi", 100, (1990, None), G.ULT["uk_cpi"], None))
+                                  + ((("de/inflationsrechner/index.html", "de", 100, (2002, None), G.ULT["de"], False),) if DE else ())):
         t = (SITO / rel).read_text(encoding="utf-8")
         m = re.search(r"<b data-valore>([^<]+)</b>", t)
         r = M.calcola(C[k], imp, da, a, v)
         valuta = "EUR" if k == "de" else ("GBP" if k.startswith("uk") else "USD")
         if not m or unescape(m.group(1)) != G.soldi(r["valore"], valuta):
             err(f"{rel}: risultato statico {m and m.group(1)} ≠ motore {r['valore']:.2f}")
-    ok("numeri stampati (pagine anno, pagine importo, risultato iniziale dei tre calcolatori) = motore")
+    ok(f"numeri stampati (pagine anno, pagine importo, risultato iniziale dei {'tre' if DE else 'due'} calcolatori) = motore")
+    if not DE:
+        sezione_de_spenta()
     # monetizzazione
     e, info = MON.controlla_sito(G.SITO_ID, SITO)
     ERR.extend(e)
@@ -511,6 +525,27 @@ def pagine():
                 err(f"{f.relative_to(RADICE)}: nome di modello AI")
 
 
+VIETATE_SENZA_DE = ("/de/", "Inflationsrechner", "Destatis", 'lang="de', "Germany")
+
+
+def sezione_de_spenta():
+    """Con SEZIONE_DE = False nessun file di sito/ (HTML, sitemap, netlify.toml, JS, CSS, immagini) nomina la sezione tedesca:
+    niente link o redirect a /de/, niente pagine in tedesco, niente attribuzione Destatis, niente "Germany" nei testi."""
+    if (SITO / "de").exists():
+        err("sezione tedesca spenta ma sito/de/ esiste ancora")
+    n = 0
+    for f in sorted(SITO.rglob("*")):
+        if not f.is_file():
+            continue
+        n += 1
+        b = f.read_bytes()
+        for parola in VIETATE_SENZA_DE:
+            if parola.encode("utf-8") in b:
+                err(f"sezione tedesca spenta ma {f.relative_to(SITO)} contiene «{parola}»")
+    ok(f"sezione tedesca spenta (SEZIONE_DE = False): nessuno dei {n} file di sito/ contiene "
+       + ", ".join(f"«{p}»" for p in VIETATE_SENZA_DE) + "; sito/de/ assente")
+
+
 # ---------------------------------------------------------------- 4. browser
 def browser():
     lu, uk, de = G.ULT["us"], G.ULT["uk_cpi"], G.ULT["de"]
@@ -522,12 +557,21 @@ def browser():
         {"descr": "UK 1 1950 → ultimo (passa a RPI)", "pagina": "/uk/", "importo_testo": "1", "serie": "uk_cpi", "da": [1950, None], "a": list(uk), "k": "uk_rpi",
          "serie_finale": "uk_rpi"},
         {"descr": "RPI 1000 2000 → ultimo", "pagina": "/uk/rpi-calculator/", "importo_testo": "1000", "da": [2000, None], "a": list(G.ULT["uk_rpi"]), "k": "uk_rpi"},
+    ]
+    casi_de = [
         {"descr": "DE 1.000 DM 1980 → ultimo", "pagina": "/de/inflationsrechner/", "importo_testo": "1.000", "da": [1980, None], "a": list(de), "k": "de", "valuta": "dm",
          "de": True, "dm": True, "foto": "de"},
         {"descr": "DE 50 € 2010 → 2020", "pagina": "/de/inflationsrechner/", "importo_testo": "50", "da": [2010, None], "a": [2020, None], "k": "de", "de": True, "dm": False},
         {"descr": "DE 100 € 1995 → ultimo", "pagina": "/de/inflationsrechner/", "importo_testo": "100", "da": [1995, None], "a": list(de), "k": "de", "valuta": "eur",
          "de": True, "dm": False},
     ]
+    if DE:
+        casi += casi_de
+    pagine_b = ["/", "/uk/", "/us/1970-dollars-today/", "/us/inflation-rate-by-year/", "/us/100-dollars-in-1970/", "/uk/inflation-rate-by-year/",
+                "/uk/rpi-calculator/", "/how-we-check/", "/does-not-exist/"]
+    if DE:
+        pagine_b[2:2] = ["/de/inflationsrechner/"]
+        pagine_b[-2:-2] = ["/de/inflationsrate-deutschland/"]
     for c in casi:
         imp = float(c["importo_testo"].replace(",", "").replace(".", "")) if c.get("de") else float(c["importo_testo"].replace(",", ""))
         r = M.calcola(C[c["k"]], imp, tuple(c["da"]), tuple(c["a"]), c.get("dm"))
@@ -535,7 +579,7 @@ def browser():
         if c.get("ufficiale") and abs(c["atteso"] - c["ufficiale"]) > 0.005:
             err(f"caso {c['descr']}: motore {c['atteso']} ≠ BLS {c['ufficiale']}")
     link = round(M.calcola(C["us"], 250, (1985, None), (2000, None))["valore"], 2)
-    env = {"CASI_CALC": json.dumps(casi), "ATTESO_LINK": str(link), "PATH": "/usr/bin:/bin:/usr/local/bin"}
+    env = {"CASI_CALC": json.dumps(casi), "ATTESO_LINK": str(link), "PAGINE": ",".join(pagine_b), "PATH": "/usr/bin:/bin:/usr/local/bin"}
     import os
     env = dict(os.environ, **env)
     p = subprocess.run(["node", str(RADICE / "verifica_browser.js")], capture_output=True, text=True, env=env, timeout=900)
@@ -547,7 +591,7 @@ def browser():
     for x in out["problemi"]:
         err("browser: " + x)
     if not out["problemi"]:
-        ok(f"browser: {out['viste']} viste (11 pagine × 375/1280 px × chiaro/scuro) senza scorrimento orizzontale, errori JS o testo < 11 px; "
+        ok(f"browser: {out['viste']} viste ({len(pagine_b)} pagine × 375/1280 px × chiaro/scuro) senza scorrimento orizzontale, errori JS o testo < 11 px; "
            f"{out['casi']} casi del calcolatore × 2 larghezze uguali al motore (anche 1000 $ gen 1980 → set 2025 = 4.174,81 del BLS), cambio CPI→RPI e ritorno al CPI, ottobre 2025 non selezionabile, link condiviso, tema")
 
 

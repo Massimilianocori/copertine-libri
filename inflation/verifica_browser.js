@@ -1,7 +1,7 @@
-// Controllo nel browser di Inflation Calculator US·UK·DE: pagine scelte a 375 e 1280 px, tema chiaro e scuro; niente scorrimento
+// Controllo nel browser di Inflation Calculator: pagine scelte a 375 e 1280 px, tema chiaro e scuro; niente scorrimento
 // orizzontale, niente errori JS, niente richieste fallite, niente testo sotto 11 px; i calcolatori danno i numeri attesi (calcolati
 // con motore.py e passati da verifica.py in CASI_CALC). Tutte le richieste non locali sono bloccate (AdSense e contatore compresi).
-// Uso: python3 inflation/verifica.py --browser
+// Uso: python3 inflation/verifica.py --browser (passa PAGINE e CASI_CALC: le pagine e i casi tedeschi solo con genera.SEZIONE_DE = True).
 const { chromium } = require('/opt/node-tools/node_modules/playwright');
 const http = require('http');
 const fs = require('fs');
@@ -12,7 +12,8 @@ const SHOT = path.join(__dirname, 'cache', 'screenshot');
 fs.mkdirSync(SHOT, { recursive: true });
 const TIPI = { '.html': 'text/html; charset=utf-8', '.json': 'application/json', '.css': 'text/css', '.js': 'text/javascript', '.svg': 'image/svg+xml', '.png': 'image/png', '.xml': 'application/xml', '.txt': 'text/plain' };
 const CASI = process.env.CASI_CALC ? JSON.parse(process.env.CASI_CALC) : [];
-const PAGINE = (process.env.PAGINE || '/,/uk/,/de/inflationsrechner/,/us/1970-dollars-today/,/us/inflation-rate-by-year/,/us/100-dollars-in-1970/,/uk/inflation-rate-by-year/,/uk/rpi-calculator/,/de/inflationsrate-deutschland/,/how-we-check/,/does-not-exist/').split(',');
+// Senza PAGINE: solo USA e UK (la sezione tedesca è spenta, genera.SEZIONE_DE = False).
+const PAGINE = (process.env.PAGINE || '/,/uk/,/us/1970-dollars-today/,/us/inflation-rate-by-year/,/us/100-dollars-in-1970/,/uk/inflation-rate-by-year/,/uk/rpi-calculator/,/how-we-check/,/does-not-exist/').split(',');
 
 function server() {
   return http.createServer((req, res) => {

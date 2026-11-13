@@ -10,11 +10,6 @@
   to = "/"
   status = 301
 
-[[redirects]]
-  from = "/de/"
-  to = "/de/inflationsrechner/"
-  status = 301
-
 [[headers]]
   for = "/*"
   [headers.values]

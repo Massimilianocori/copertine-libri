@@ -9,6 +9,7 @@ Pagine: calcolatore USA (home), Regno Unito (/uk/, /uk/rpi-calculator/), Germani
 (USA, UK, DE), una pagina per anno USA 1913-2025 (/us/1970-dollars-today/), 20 pagine importo × decennio USA
 (/us/100-dollars-in-1970/). Solo i modelli con domanda misurata (dati/domanda.json): niente pagine anno per UK e DE.
 Il calcolatore gira nel browser (stile.MOTORE_JS = copia di motore.py). Nessun dato personale.
+Sezione tedesca dietro l'interruttore SEZIONE_DE (spenta dal 13/11/2026: niente Impressum; vedi NOTE.md): da spenta il sito è "US & UK".
 """
 import hashlib
 import json
@@ -29,8 +30,13 @@ import motore as M  # noqa: E402
 import serie  # noqa: E402
 import stile  # noqa: E402
 
+# Sezione tedesca (/de/, Destatis): spenta = nessuna pagina /de/, nessun link, nessuna menzione di Germania/Destatis nelle pagine pubblicate.
+# Codice e dati tedeschi restano qui sotto e in dati/: basta rimettere True, rigenerare e rifare verifica.py --browser.
+SEZIONE_DE = False  # niente Impressum: decisione del 13/11/2026; per riaccendere serve "ok Impressum" di Massimiliano
+
 URL_SITO = "https://inflation-calculator-us-uk-de.netlify.app"  # unico punto da cambiare se il nome su Netlify è diverso
-NOME = "Inflation Calculator US·UK·DE"
+NOME = "Inflation Calculator US·UK·DE" if SEZIONE_DE else "Inflation Calculator US & UK"
+FONTI_DE = ("destatis_tabelle", "destatis_lange_reihen", "ecb_euro", "eurlex_2866")  # fonti usate solo dalle pagine tedesche
 GOOGLE_VERIFICA = "btXTQU_vAoe1K9f3q-43GisAXTiyKQCYcShozNhrAgI"  # Search Console (stesso account degli altri siti)
 GOATCOUNTER_URL = "https://rete-siti.goatcounter.com/count"
 SCRIPT_CONTATORE = ('<script>window.goatcounter={path:function(p){return location.host+p}}</script>'
@@ -183,8 +189,8 @@ URLS = []
 AD = '<div class="ad-slot" aria-hidden="true"></div>'
 DISCLAIMER = {
     "en": ("<strong>General information, not financial or investment advice.</strong> The results show how an official consumer price index changed "
-           "between two dates. Your own costs, pay and savings may have changed by more or less. Index values come from the BLS (US), the ONS (UK) "
-           "and Destatis (Germany), linked on each page."),
+           "between two dates. Your own costs, pay and savings may have changed by more or less. Index values come from the BLS (US)"
+           + (", the ONS (UK) and Destatis (Germany)" if SEZIONE_DE else " and the ONS (UK)") + ", linked on each page."),
     "de": ("<strong>Allgemeine Information, keine Finanz- oder Anlageberatung.</strong> Die Ergebnisse zeigen, wie sich ein amtlicher Verbraucherpreisindex "
            "zwischen zwei Zeitpunkten verändert hat. Ihre eigenen Ausgaben, Löhne und Ersparnisse können sich stärker oder schwächer verändert haben. "
            "Die Indexwerte stammen vom Statistischen Bundesamt (Destatis)."),
@@ -192,7 +198,7 @@ DISCLAIMER = {
 
 
 def menu(percorso, paese):
-    voci = [("", "US"), ("uk/", "UK"), ("de/inflationsrechner/", "Deutschland")]
+    voci = [("", "US"), ("uk/", "UK")] + ([("de/inflationsrechner/", "Deutschland")] if SEZIONE_DE else [])
     if paese == "de":
         voci.append(("de/inflationsrate-deutschland/", "Inflationsrate"))
     elif paese == "uk":
@@ -219,7 +225,7 @@ def pagina(percorso, titolo, descrizione, corpo, testata="", paese="us", briciol
     ld_html = "".join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>' for x in ld)
     de = lingua == "de"
     if de:
-        piede_testo = (f"<p><strong>{NOME}</strong> rechnet Geldbeträge mit amtlichen Verbraucherpreisindizes um: Destatis für Deutschland, "
+        piede_testo = (f"<p><strong>{h(NOME)}</strong> rechnet Geldbeträge mit amtlichen Verbraucherpreisindizes um: Destatis für Deutschland, "
                        "ONS für das Vereinigte Königreich, BLS für die USA. Unabhängige Website, keine Behörde und mit keiner Behörde verbunden.</p>"
                        f"<p>Indexwerte bis {ult_lungo('de', 'de')} (Deutschland). Daten abgerufen am {data_lunga(CONTROLLO, 'de')}.</p>")
         links = [("de/inflationsrechner/", "Inflationsrechner"), ("de/inflationsrate-deutschland/", "Inflationsrate Deutschland"),
@@ -228,16 +234,24 @@ def pagina(percorso, titolo, descrizione, corpo, testata="", paese="us", briciol
         h_calc, h_info, skip, tema_lbl, base = "Rechner", "Info", "Zum Inhalt springen", "Helles oder dunkles Design", \
             "Allgemeine Information, keine Finanzberatung. Amtliche Daten: <a href=\"https://www.destatis.de/\" rel=\"noopener\">destatis.de</a>."
     else:
-        piede_testo = (f"<p><strong>{NOME}</strong> converts amounts of money between years with official consumer price indexes: the BLS CPI-U for the "
-                       "United States, the ONS CPI and RPI for the United Kingdom and the Destatis VPI for Germany. It is an independent site, not a "
-                       "government website and not linked to any statistics office.</p>"
-                       f"<p>Latest index: {ult_lungo('us')} (US), {ult_lungo('uk_cpi')} (UK), {ult_lungo('de')} (Germany). Data read on {data_lunga(CONTROLLO)}.</p>")
+        if SEZIONE_DE:
+            paesi_txt = "the BLS CPI-U for the United States, the ONS CPI and RPI for the United Kingdom and the Destatis VPI for Germany"
+            ultimi_txt = f"{ult_lungo('us')} (US), {ult_lungo('uk_cpi')} (UK), {ult_lungo('de')} (Germany)"
+        else:
+            paesi_txt = "the BLS CPI-U for the United States and the ONS CPI and RPI for the United Kingdom"
+            ultimi_txt = f"{ult_lungo('us')} (US), {ult_lungo('uk_cpi')} (UK)"
+        piede_testo = (f"<p><strong>{h(NOME)}</strong> converts amounts of money between years with official consumer price indexes: {paesi_txt}. "
+                       "It is an independent site, not a government website and not linked to any statistics office.</p>"
+                       f"<p>Latest index: {ultimi_txt}. Data read on {data_lunga(CONTROLLO)}.</p>")
         links = [("", "US inflation calculator"), ("us/inflation-rate-by-year/", "US inflation rate by year"), ("uk/", "UK inflation calculator"),
-                 ("uk/rpi-calculator/", "RPI calculator"), ("uk/inflation-rate-by-year/", "UK inflation rate by year"), ("de/inflationsrechner/", "Inflationsrechner (DE)")]
+                 ("uk/rpi-calculator/", "RPI calculator"), ("uk/inflation-rate-by-year/", "UK inflation rate by year")]
+        if SEZIONE_DE:
+            links.append(("de/inflationsrechner/", "Inflationsrechner (DE)"))
         info = [("about/", "About"), ("how-we-check/", "How we check"), ("privacy/", "Privacy")]
         h_calc, h_info, skip, tema_lbl, base = "Calculators", "Site", "Skip to content", "Switch light or dark theme", \
             ('General information only, not financial advice. Official data: <a href="https://www.bls.gov/cpi/" rel="noopener">bls.gov/cpi</a>, '
-             '<a href="https://www.ons.gov.uk/economy/inflationandpriceindices" rel="noopener">ons.gov.uk</a>, <a href="https://www.destatis.de/" rel="noopener">destatis.de</a>.')
+             '<a href="https://www.ons.gov.uk/economy/inflationandpriceindices" rel="noopener">ons.gov.uk</a>'
+             + (', <a href="https://www.destatis.de/" rel="noopener">destatis.de</a>.' if SEZIONE_DE else "."))
     testo = f"""<!DOCTYPE html>
 <html lang="{lang}">
 <head>
@@ -251,7 +265,7 @@ def pagina(percorso, titolo, descrizione, corpo, testata="", paese="us", briciol
 <meta property="og:description" content="{h(descrizione)}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{url_pag}">
-<meta property="og:site_name" content="{NOME}">
+<meta property="og:site_name" content="{h(NOME)}">
 <meta property="og:locale" content="{og_loc}">
 <meta property="og:image" content="{URL_SITO}/assets/og.png">
 <meta property="og:image:width" content="1200">
@@ -556,9 +570,9 @@ def home():
               f'<div class="tab"><table class="dati"><thead><tr><th scope="col">Year</th><th scope="col" class="n">CPI-U</th><th scope="col" class="n">$1 is worth today</th>'
               f'<th scope="col" class="n">$100 is worth today</th></tr></thead><tbody>{righe}</tbody></table></div>')
     corpo += griglia_anni()
-    corpo += ('<h2>Other countries and tables</h2><ul class="griglia">'
+    corpo += (f'<h2>{"Other countries and tables" if SEZIONE_DE else "UK calculator and more tables"}</h2><ul class="griglia">'
               '<li><a href="/uk/"><b>UK</b>Inflation calculator<small>ONS CPI from 1988 and the RPI long-run series from 1800</small></a></li>'
-              '<li><a href="/de/inflationsrechner/"><b>DE</b>Inflationsrechner<small>Destatis-VPI, D-Mark und Euro, ab 1962</small></a></li>'
+              + ('<li><a href="/de/inflationsrechner/"><b>DE</b>Inflationsrechner<small>Destatis-VPI, D-Mark und Euro, ab 1962</small></a></li>' if SEZIONE_DE else "") +
               '<li><a href="/us/inflation-rate-by-year/"><b>%</b>US inflation rate by year<small>Every year since 1914, annual average and December to December</small></a></li>'
               '<li><a href="/uk/rpi-calculator/"><b>RPI</b>RPI calculator<small>Retail Prices Index increases since 1800</small></a></li></ul>')
     m2000 = media_annua("us", 2000, 2025)
@@ -577,12 +591,14 @@ def home():
           'in 2025 dollars. The calculator above does the same with any month or year.'), "adjusting for inflation calculator", "us"),
     ])
     corpo += faq + fonti_box(["bls_cpiu", "bls_calc", "fed_target"])
-    testata = banda("US · UK · Germany", "Inflation calculator: what is your money worth today?",
+    testata = banda("US · UK · Germany" if SEZIONE_DE else "US & UK", "Inflation calculator: what is your money worth today?",
                     f"Convert any amount between years with the official consumer price index: CPI-U for the US (to <strong>{h(US_ULT_TXT)}</strong>), "
-                    "plus the ONS indexes for the UK and the Destatis VPI for Germany.",
-                    trust([("check", "Official BLS, ONS and Destatis indexes"), ("calendar", "Updated every month"), ("lock", "Runs in your browser")]))
+                    + ("plus the ONS indexes for the UK and the Destatis VPI for Germany." if SEZIONE_DE else "plus the ONS CPI and RPI for the UK."),
+                    trust([("check", "Official BLS, ONS and Destatis indexes" if SEZIONE_DE else "Official BLS and ONS indexes"),
+                           ("calendar", "Updated every month"), ("lock", "Runs in your browser")]))
     pagina("", f"Inflation Calculator: US Dollar Value 1913–{US_LU[0]} (CPI)",
-           f"Free inflation calculator with the official BLS CPI-U from 1913 to {US_ULT_TXT}: see what a past amount is worth today, with the formula. UK and Germany too.",
+           f"Free inflation calculator with the official BLS CPI-U from 1913 to {US_ULT_TXT}: see what a past amount is worth today, with the formula. "
+           + ("UK and Germany too." if SEZIONE_DE else "UK too."),
            corpo, testata, "us", jsonld=[jsonld_app("US inflation calculator", URL_SITO + "/", "en-US")] + ([ld_faq] if ld_faq else []))
 
 
@@ -872,7 +888,8 @@ def uk_calc():
     corpo += ('<ul class="griglia"><li><a href="/uk/inflation-rate-by-year/"><b>%</b>UK inflation rate by year<small>CPI since 1989, RPI since 1801</small></a></li>'
               '<li><a href="/uk/rpi-calculator/"><b>RPI</b>RPI calculator<small>Increases by the Retail Prices Index</small></a></li>'
               '<li><a href="/"><b>US</b>US inflation calculator<small>BLS CPI-U from 1913</small></a></li>'
-              '<li><a href="/de/inflationsrechner/"><b>DE</b>Inflationsrechner<small>Destatis-VPI, D-Mark und Euro</small></a></li></ul>')
+              + ('<li><a href="/de/inflationsrechner/"><b>DE</b>Inflationsrechner<small>Destatis-VPI, D-Mark und Euro</small></a></li>' if SEZIONE_DE else "")
+              + '</ul>')
     faq, ld_faq = faq_blocco("uk", [
         ("Can I use the inflation calculator for a salary?",
          h(f'Yes: enter the pay and the year it was paid. The result is the pay needed in {UK_ULT_TXT} to buy the same as before, measured with the CPI '
@@ -1097,21 +1114,25 @@ def de_rate():
 # ---------------------------------------------------------------- pagine di servizio
 def about():
     corpo = ('<div class="testo pull card">'
-             f'<p><strong>{NOME}</strong> is an independent publication, part of a small network of websites that turn official data into plain tools. '
-             'It converts amounts of money between dates with the consumer price indexes published by three statistics offices: the Bureau of Labor '
-             'Statistics (United States), the Office for National Statistics (United Kingdom) and the Statistisches Bundesamt (Germany).</p>'
+             f'<p><strong>{h(NOME)}</strong> is an independent publication, part of a small network of websites that turn official data into plain tools. '
+             + ('It converts amounts of money between dates with the consumer price indexes published by three statistics offices: the Bureau of Labor '
+                'Statistics (United States), the Office for National Statistics (United Kingdom) and the Statistisches Bundesamt (Germany).</p>' if SEZIONE_DE else
+                'It converts amounts of money between dates with the consumer price indexes published by two statistics offices: the Bureau of Labor '
+                'Statistics (United States) and the Office for National Statistics (United Kingdom).</p>') +
              '<p>We are not a government website, a bank or a financial adviser, and we are not linked to any statistics office.</p></div>'
              '<h2>What we publish</h2><ul class="testo"><li>Only index values taken from the official files, with the date we read them.</li>'
              '<li>The formula and the two index values behind every result.</li><li>Where an index has a gap (such as October 2025 in the US), we say so and do not fill it.</li></ul>'
              f'<h2>Why the pages exist</h2><div class="testo"><p>People search for the value of a dollar from a given year, the inflation rate of a year, '
-             'and calculators for the UK and Germany. We built a page for each question that real searches show, and no more: one page per US year, '
+             + ('and calculators for the UK and Germany. ' if SEZIONE_DE else 'and a calculator for the UK. ') +
+             'We built a page for each question that real searches show, and no more: one page per US year, '
              'ten decades for $100 and $1,000, the inflation tables of each country, and the calculators.</p></div>'
              '<h2>How the site is paid for</h2><div class="testo"><p>The site shows advertising served by Google AdSense. Advertisers never decide what we publish '
              'or change a figure.</p></div>'
              '<h2>Your data</h2><div class="testo"><p>The calculators run entirely in your browser: the amounts you type are not sent to us. See the '
              '<a href="/privacy/">privacy page</a>.</p></div>')
     testata = banda("About", f"About {NOME}", "What this site is, where its numbers come from and how it is paid for.", corta=True, icona="info")
-    pagina("about/", "About Inflation Calculator US·UK·DE", "About Inflation Calculator US·UK·DE: an independent site that converts money between years with official BLS, ONS and Destatis price indexes.",
+    pagina("about/", f"About {NOME}", f"About {NOME}: an independent site that converts money between years with official "
+           + ("BLS, ONS and Destatis price indexes." if SEZIONE_DE else "BLS and ONS price indexes for the US and the UK."),
            corpo, testata, "us", briciole=[("Home", ""), ("About", "about/")])
 
 
@@ -1119,44 +1140,50 @@ def come_controlliamo():
     nl = FONTI["_non_lette"]
     corpo = ('<div class="testo pull card"><p>Every index value on this site comes from an official file that we download from the statistics office and keep '
              f'with its address, the date we read it and a fingerprint (SHA-256). The current files were read on {data_lunga(CONTROLLO)}.</p></div>')
+    boe_par = ('<p>UK results for dates before 1988 use the RPI long-run series and are higher than those of the Bank of England calculator, which uses modelled CPI '
+               'estimates for those years; the <a href="/uk/#boe">UK page</a> shows the difference with an example.</p>')
     corpo += "<h2>Sources and licences</h2>" + "".join([
         '<h3>United States: BLS CPI-U</h3><div class="testo"><p>Consumer Price Index for All Urban Consumers, U.S. city average, all items, not seasonally adjusted '
         '(series CUUR0000SA0, 1982-84=100), monthly from January 1913 with the annual averages, read from the BLS data viewer. A second copy from the BLS Public Data '
         'API is kept to check it month by month. BLS data are in the public domain as works of the U.S. federal government.</p></div>',
         '<h3>United Kingdom: ONS CPI and RPI</h3><div class="testo"><p>CPI index (D7BT, 2015=100) and CPI annual rate (D7G7); Retail Prices Index long-run series '
         '(CDKO, Jan 1974=100), RPI (CHAW, Jan 1987=100) and its 12-month rate (CZBH), all from dataset MM23. Source: Office for National Statistics licensed under the '
-        '<a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="noopener">Open Government Licence v.3.0</a>.</p></div>',
-        '<h3>Germany: Destatis VPI</h3><div class="testo"><p>Verbraucherpreisindex für Deutschland (2020=100): the current monthly and annual table on destatis.de '
+        '<a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="noopener">Open Government Licence v.3.0</a>.</p>'
+        + ("" if SEZIONE_DE else boe_par) + '</div>',
+        ('<h3>Germany: Destatis VPI</h3><div class="testo"><p>Verbraucherpreisindex für Deutschland (2020=100): the current monthly and annual table on destatis.de '
         'and the “Lange Reihen ab 1948” statistical report (VPI from 1991 and the index for all private households in the former West Germany, 1995=100). '
         '© Statistisches Bundesamt (Destatis); reproduction and distribution, also in part, permitted with the source cited. Contents of the GENESIS-Online '
         'database are under the <a href="https://www.govdata.de/dl-de/by-2-0" rel="noopener">Datenlizenz Deutschland – Namensnennung – Version 2.0</a>.</p>'
         f'<p>Before 1991 the German calculator links the West German index to the VPI at 1991 (factor {numero(K_DE, 5)}). This is our only calculated series and it is labelled on the page as our own calculation, not an official index.</p>'
-        '<p>UK results for dates before 1988 use the RPI long-run series and are higher than those of the Bank of England calculator, which uses modelled CPI '
-        'estimates for those years; the <a href="/uk/#boe">UK page</a> shows the difference with an example.</p></div>'])
+        + boe_par + '</div>') if SEZIONE_DE else ""])
     corpo += ('<h2>What the checks do</h2><div class="testo"><ul>'
               '<li><strong>Continuity:</strong> no year or month may be missing between the first and the last value of a series. The only gap allowed is a month the '
               'office itself marks as not collected (October 2025 in the US), and it is shown on the pages.</li>'
               '<li><strong>Annual averages:</strong> the average of the twelve monthly values must match the published annual average within the rounding of the index.</li>'
-              '<li><strong>Published rates:</strong> the rates we calculate from the indexes must match the rates the offices publish (ONS CPI and RPI 12-month rates, '
-              'Destatis yearly and monthly rates) within the rounding of the published indexes: 0.1 to 0.2 percentage points, and up to 0.3 for the RPI long-run '
-              'series, which is published to one decimal place. Where an office publishes a rate (ONS CPI and RPI annual rates, Destatis rates) the tables show the '
-              'published rate, not our own calculation.</li>'
+              '<li><strong>Published rates:</strong> the rates we calculate from the indexes must match the rates the offices publish (ONS CPI and RPI 12-month rates'
+              + (', Destatis yearly and monthly rates' if SEZIONE_DE else '') +
+              ') within the rounding of the published indexes: 0.1 to 0.2 percentage points, and up to 0.3 for the RPI long-run '
+              'series, which is published to one decimal place. Where an office publishes a rate (ONS CPI and RPI annual rates'
+              + (', Destatis rates' if SEZIONE_DE else '') + ') the tables show the published rate, not our own calculation.</li>'
               f'<li><strong>Official calculator:</strong> {len(ESEMPI_BLS)} results are compared with the BLS CPI Inflation Calculator, to the cent.</li>'
-              '<li><strong>Two files, one series:</strong> where two official files overlap (BLS viewer and API; Destatis report and current table; RPI long-run '
-              'and RPI 1987=100) they must agree.</li>'
+              '<li><strong>Two files, one series:</strong> where two official files overlap (BLS viewer and API; '
+              + ('Destatis report and current table; ' if SEZIONE_DE else '') + 'RPI long-run and RPI 1987=100) they must agree.</li>'
               '<li><strong>Browser = reference:</strong> the calculator in your browser is run against our reference implementation on thousands of random cases.</li></ul></div>')
     corpo += ('<h2>What we could not read</h2><div class="testo"><ul>' +
-              "".join(f'<li><a href="{h(v["url"])}" rel="noopener">{h(v["url"].split("//")[1].split("/")[0])}</a>: {h(v["motivo"])}.</li>' for v in nl.values()) +
+              "".join(f'<li><a href="{h(v["url"])}" rel="noopener">{h(v["url"].split("//")[1].split("/")[0])}</a>: {h(v["motivo"])}.</li>' for v in nl.values()
+                      if SEZIONE_DE or "destatis" not in v["url"]) +
               '</ul><p>We never try to get round a block.</p></div>')
-    corpo += ('<h2>When we update</h2><div class="testo"><p>Each office publishes a new month in the middle of the following month (the BLS and the ONS) or at '
-              'the end of the month with a final figure in the middle of the next (Destatis). We download the files again each month, run the checks and update '
-              'the pages only if all of them pass.</p></div>')
-    corpo += fonti_box(["bls_cpiu", "bls_api", "bls_calc", "ons_d7bt", "ons_d7g7", "ons_cdko", "ons_chaw", "ons_czbh", "boe_calc", "destatis_tabelle", "destatis_lange_reihen",
-                        "fed_target", "ecb_euro", "eurlex_2866"])
+    corpo += ('<h2>When we update</h2><div class="testo"><p>' +
+              ('Each office publishes a new month in the middle of the following month (the BLS and the ONS) or at '
+               'the end of the month with a final figure in the middle of the next (Destatis). ' if SEZIONE_DE else
+               'The BLS and the ONS publish a new month in the middle of the following month. ') +
+              'We download the files again each month, run the checks and update the pages only if all of them pass.</p></div>')
+    corpo += fonti_box([i for i in ["bls_cpiu", "bls_api", "bls_calc", "ons_d7bt", "ons_d7g7", "ons_cdko", "ons_chaw", "ons_czbh", "boe_calc", "destatis_tabelle",
+                                    "destatis_lange_reihen", "fed_target", "ecb_euro", "eurlex_2866"] if SEZIONE_DE or i not in FONTI_DE])
     testata = banda("How we check", "How we check every index value", "Our sources and licences, the checks the data must pass and what we could not read.",
                     corta=True, icona="shield")
     pagina("how-we-check/", "How We Check: Sources, Licences and Data Checks",
-           "Where the BLS, ONS and Destatis index values come from, their licences, the continuity and recalculation checks they pass, and how often we update.",
+           f"Where the {'BLS, ONS and Destatis' if SEZIONE_DE else 'BLS and ONS'} index values come from, their licences, the continuity and recalculation checks they pass, and how often we update.",
            corpo, testata, "us", briciole=[("Home", ""), ("How we check", "how-we-check/")])
 
 
@@ -1164,7 +1191,7 @@ def privacy():
     cookie = MON.privacy_cookie("en", SITO_ID)
     cal = MON.frase_california(SITO_ID)
     corpo = ('<div class="testo pull card">'
-             f'<p>This page explains what {NOME} ({URL_SITO.replace("https://", "")}) collects. In short: very little.</p></div>'
+             f'<p>This page explains what {h(NOME)} ({URL_SITO.replace("https://", "")}) collects. In short: very little.</p></div>'
              '<div class="testo"><h2>The calculators</h2><p>The calculators run in your browser. The amounts and dates you type are not sent to us or to anyone else '
              'and are not stored. If you use “Copy link”, they are written into the address of the page so that you can share it; they leave your device only if you '
              'send that link to someone.</p><p>The site remembers your choice of light or dark theme in your browser (local storage). Nothing else is stored on your device by us.</p>'
@@ -1175,17 +1202,17 @@ def privacy():
              f'<h2>Changes</h2><p>We update this page when the site changes. Last update: {data_lunga(CONTROLLO)}.</p></div>')
     breve = MON.privacy_breve("en", SITO_ID) or "What we collect (very little) and how the visit counter works."
     testata = banda("Privacy", "Privacy", h(breve), corta=True, icona="lock")
-    pagina("privacy/", "Privacy | Inflation Calculator US·UK·DE",
-           "Privacy at Inflation Calculator US·UK·DE: the calculators run in your browser, a cookie-free visit counter, and Google AdSense advertising with consent.",
+    pagina("privacy/", f"Privacy | {NOME}",
+           f"Privacy at {NOME}: the calculators run in your browser, a cookie-free visit counter, and Google AdSense advertising with consent.",
            corpo, testata, "us", briciole=[("Home", ""), ("Privacy", "privacy/")])
 
 
 def pagina_404():
     corpo = ('<div class="pull card"><p>The page you asked for does not exist. Try one of the calculators below.</p></div>'
              '<ul class="griglia" style="margin-top:20px"><li><a href="/"><b>US</b>US inflation calculator</a></li><li><a href="/uk/"><b>UK</b>UK inflation calculator</a></li>'
-             '<li><a href="/de/inflationsrechner/"><b>DE</b>Inflationsrechner</a></li><li><a href="/us/inflation-rate-by-year/"><b>%</b>US inflation rate by year</a></li></ul>')
+             + ('<li><a href="/de/inflationsrechner/"><b>DE</b>Inflationsrechner</a></li>' if SEZIONE_DE else '') + '<li><a href="/us/inflation-rate-by-year/"><b>%</b>US inflation rate by year</a></li></ul>')
     testata = banda("404", "Page not found", "This address has no page.", corta=True, icona="alert")
-    pagina("", "Page not found | Inflation Calculator US·UK·DE", "Page not found.", corpo, testata.replace("{bc}", ""), "us", indicizza=False, file="404.html")
+    pagina("", f"Page not found | {NOME}", "Page not found.", corpo, testata.replace("{bc}", ""), "us", indicizza=False, file="404.html")
 
 
 # ---------------------------------------------------------------- file accessori
@@ -1201,12 +1228,7 @@ NETLIFY = """[build]
   to = "/"
   status = 301
 
-[[redirects]]
-  from = "/de/"
-  to = "/de/inflationsrechner/"
-  status = 301
-
-[[headers]]
+{redirect_de}[[headers]]
   for = "/*"
   [headers.values]
     X-Content-Type-Options = "nosniff"
@@ -1227,14 +1249,15 @@ def extra():
     MON.scrivi_ads_txt(SITO_ID, SITO)
     voci = "".join(f"<url><loc>{URL_SITO}/{u}</loc><lastmod>{CONTROLLO.isoformat()}</lastmod></url>" for u in URLS)
     (SITO / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{voci}</urlset>\n', encoding="utf-8")
-    (SITO / "netlify.toml").write_text(NETLIFY, encoding="utf-8")
+    redirect_de = '[[redirects]]\n  from = "/de/"\n  to = "/de/inflationsrechner/"\n  status = 301\n\n' if SEZIONE_DE else ""
+    (SITO / "netlify.toml").write_text(NETLIFY.replace("{redirect_de}", redirect_de), encoding="utf-8")
     (DATI / "faq_generate.json").write_text(json.dumps({"_nota": "Scritto da genera.py: ogni FAQ pubblicata con la frase di ricerca da cui nasce (dati/domanda.json).",
                                                        "faq": FAQ_USATE}, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
 
 
 def copia_grafica():
     (SITO / "assets").mkdir(parents=True, exist_ok=True)
-    og = RADICE / "grafica" / "og.png"
+    og = RADICE / "grafica" / ("og.png" if SEZIONE_DE else "og_us_uk.png")  # og_us_uk.png: stessa immagine senza la pillola DE
     if og.exists():
         shutil.copy(og, SITO / "assets" / "og.png")
     for nome, testo in ASSET.items():
@@ -1247,9 +1270,10 @@ def controlli():
     err += serie.continuita(S["us"], "USA CPI-U")
     err += serie.continuita(S["uk_cpi"], "UK CPI")
     err += serie.continuita(S["uk_rpi"], "UK RPI lungo")
-    err += serie.continuita(S["de"], "DE VPI verkettet")
+    if SEZIONE_DE:
+        err += serie.continuita(S["de"], "DE VPI verkettet")
     for k, f in FONTI.items():
-        if k.startswith("_"):
+        if k.startswith("_") or (not SEZIONE_DE and k in FONTI_DE):
             continue
         if f.get("http") != 200:
             err.append(f"fonte {k}: HTTP {f.get('http')}")
@@ -1290,14 +1314,16 @@ def main():
     uk_calc()
     uk_tassi()
     uk_rpi()
-    de_rechner()
-    de_rate()
+    if SEZIONE_DE:  # spenta: nessuna pagina /de/ (la cartella sito/ è stata appena svuotata, quindi niente avanzi)
+        de_rechner()
+        de_rate()
     about()
     come_controlliamo()
     privacy()
     pagina_404()
     extra()
-    print(f"Sito generato in {SITO}: {len(URLS)} pagine indicizzabili + 404. Ultimi indici: US {US_ULT_TXT}, UK {UK_ULT_TXT}, DE {DE_ULT}.")
+    print(f"Sito generato in {SITO}: {len(URLS)} pagine indicizzabili + 404. Ultimi indici: US {US_ULT_TXT}, UK {UK_ULT_TXT}"
+          + (f", DE {DE_ULT}." if SEZIONE_DE else ". Sezione tedesca spenta (SEZIONE_DE = False)."))
 
 
 if __name__ == "__main__":

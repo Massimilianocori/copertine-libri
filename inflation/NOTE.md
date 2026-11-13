@@ -6,7 +6,18 @@ Germania (`/de/inflationsrechner/`, tedesco), con gli indici ufficiali dentro la
 **Nome Netlify scelto: `inflation-calculator-us-uk-de`** (libero il 13/11: `curl -sI` → 404) → `URL_SITO = https://inflation-calculator-us-uk-de.netlify.app`
 in `genera.py`. Il sito su Netlify NON è ancora creato.
 
-## Pagine (143 indicizzabili + 404)
+## Sezione tedesca SPENTA (13/11/2026)
+
+Il titolare ha deciso di non pubblicare per ora le pagine tedesche: senza Impressum (§ 5 DDG) un sito con pubblicità rivolto al pubblico
+tedesco rischia diffide a pagamento. Interruttore `SEZIONE_DE = False` in cima a `genera.py`: niente `/de/` (la cartella `sito/` viene
+rifatta da zero, quindi nessun avanzo), niente link, redirect, Destatis, «Germany» o lang="de" nelle pagine; titoli e home dicono «US & UK»
+(141 pagine indicizzabili + 404), immagine social `grafica/og_us_uk.png` (da `og_us_uk.html`, senza la pillola DE). Codice, dati Destatis e
+controlli tedeschi restano: `verifica.py` li fa girare solo da accesa e da spenta controlla che nessun file di `sito/` contenga «/de/»,
+«Inflationsrechner», «Destatis», «Germany» o lang="de". **Per riaccendere** (solo dopo «ok Impressum» di Massimiliano): aggiungere l'Impressum,
+mettere `SEZIONE_DE = True`, `python3 inflation/genera.py && python3 inflation/verifica.py --browser` (0 errori, 143 pagine). Il resto di
+queste note descrive anche la sezione tedesca, valido quando è accesa.
+
+## Pagine (143 indicizzabili + 404 con la sezione tedesca; 141 + 404 da spenta)
 
 | Pagina | Contenuto |
 |---|---|
