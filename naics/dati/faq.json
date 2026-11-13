@@ -1,0 +1,189 @@
+{
+ "_nota": "FAQ: ogni domanda nasce da una ricerca vera salvata in domanda.json (campo «ricerca»). Segnaposti {…} riempiti da genera.py con numeri e titoli ufficiali.",
+ "faq": [
+  {
+   "pagina": "home",
+   "ricerca": "what is a naics code",
+   "q": "What is a NAICS code?",
+   "a": "It is a code of the North American Industry Classification System, which groups business establishments by their primary activity so that the economic statistics of the United States, Canada and Mexico are uniform and comparable. The 2022 edition has {n_2} sectors, {n_3} subsectors, {n_4} industry groups, {n_5} NAICS industries and {n_6} six-digit U.S. industries.",
+   "fonti": [
+    "manuale",
+    "conteggi"
+   ]
+  },
+  {
+   "pagina": "home",
+   "ricerca": "naics code how many digits",
+   "q": "How many digits does a NAICS code have?",
+   "a": "Up to six. The first two digits are the sector, the third the subsector, the fourth the industry group, the fifth the NAICS industry and the sixth the national (U.S.) industry. A zero as the sixth digit generally means that the NAICS industry and the U.S. industry are the same, as in 238220 «{t_238220}».",
+   "fonti": [
+    "manuale",
+    "codici"
+   ]
+  },
+  {
+   "pagina": "home",
+   "ricerca": "how to find my naics code",
+   "q": "How do I find the NAICS code for my business?",
+   "a": "Start from the primary business activity. Then search the titles from the two-digit sector down to the six-digit industry, or search the alphabetic index of activities, and read the full description of the industry, including the cross-references and the illustrative examples, to check that it fits. The search box on this page covers all {n_codici} codes and the {n_idx} entries of the official 2022 index.",
+   "fonti": [
+    "manuale",
+    "indice"
+   ]
+  },
+  {
+   "pagina": "home",
+   "ricerca": "can i change my naics code",
+   "q": "Who assigns NAICS codes, and can I change mine?",
+   "a": "No central government agency assigns, monitors or approves NAICS codes. Each agency keeps its own list of businesses and assigns codes with its own method: for example, the Social Security Administration assigns a code to new businesses from the application for an Employer Identification Number. A code held by an agency is changed with that agency; a business does not apply for a NAICS code.",
+   "fonti": [
+    "manuale"
+   ]
+  },
+  {
+   "pagina": "home",
+   "ricerca": "is naics code the same as sic code",
+   "q": "Is a NAICS code the same as a SIC code?",
+   "a": "No. The Standard Industrial Classification (SIC) of 1987 was the earlier U.S. system, and NAICS replaced it in 1997. SIC codes have four digits, NAICS codes up to six. The Census Bureau publishes a concordance between 1987 SIC and 1997 NAICS: our SIC to NAICS table follows it and then the later concordances up to 2022.",
+   "fonti": [
+    "manuale",
+    "sic_naics97"
+   ]
+  },
+  {
+   "pagina": "home",
+   "ricerca": "what is a naics code used for",
+   "q": "What is a NAICS code used for?",
+   "a": "NAICS was built to collect and publish statistics about establishments. Other bodies use it too: the IRS business activity codes for Schedule C are six-digit codes based on NAICS, and the NAICS manual notes that federal agencies have adopted NAICS for procurement and regulatory purposes even though its categories were not developed for those needs.",
+   "fonti": [
+    "manuale",
+    "irs_sc"
+   ]
+  },
+  {
+   "pagina": "home",
+   "ricerca": "naics code on tax return",
+   "q": "Where does a NAICS-based code go on a tax return?",
+   "a": "On Schedule C (Form 1040) the IRS asks for a six-digit Principal Business or Professional Activity code on line B, from a list in the Schedule C instructions; the IRS says these codes are based on NAICS. For other returns, read the instructions of that form.",
+   "fonti": [
+    "irs_sc"
+   ]
+  },
+  {
+   "pagina": "home",
+   "ricerca": "naics code size standards",
+   "q": "Does a NAICS code say whether a business is small?",
+   "a": "No. The NAICS manual says that NAICS categories do not distinguish between small and large business, and that the Small Business Administration (SBA) develops size standards for each NAICS category. This site does not publish the SBA size standards: they are on the SBA website.",
+   "fonti": [
+    "manuale"
+   ]
+  },
+  {
+   "pagina": "home",
+   "ricerca": "naics code 2022 version",
+   "q": "Which NAICS edition does this site use?",
+   "a": "NAICS 2022, the edition the United States adopted in statistical programs for reference year 2022, as published in the Census Bureau files we read on {controllo}. NAICS is reviewed every five years; the 2022 manual says the next scheduled review is for a potential 2027 revision.",
+   "fonti": [
+    "manuale",
+    "codici"
+   ]
+  },
+  {
+   "pagina": "naics-2017-to-2022",
+   "ricerca": "naics code changes 2017 to 2022",
+   "q": "What changed in NAICS from 2017 to 2022?",
+   "a": "According to the change indicators of the official 2022 structure, {n6_nuovi} six-digit codes are new in 2022, {n6_riusati} reuse a 2017 code with different content and {n6_titolo} changed only the title. The sector with the most new six-digit codes is {sett_piu_nuovi}. Before the revision, the government asked for comments on the treatment of electronic shopping in Retail Trade.",
+   "fonti": [
+    "struttura",
+    "manuale"
+   ]
+  },
+  {
+   "pagina": "naics-2017-to-2022",
+   "ricerca": "naics 2017 vs 2022",
+   "q": "Is a 2017 NAICS code still valid in 2022?",
+   "a": "Often yes: {n17_stessi} of the {n17} six-digit 2017 codes match exactly one 2022 code with the same number, according to the official concordance. The other {n17_altri} were renumbered, split or merged: the table on this page gives the 2022 code or codes for each of them.",
+   "fonti": [
+    "c17_22"
+   ]
+  },
+  {
+   "pagina": "sic-to-naics",
+   "ricerca": "what is a sic code",
+   "q": "What is a SIC code?",
+   "a": "A code of the Standard Industrial Classification, the U.S. industry classification of 1987 that NAICS replaced in 1997. SIC codes have four digits: the Census Bureau concordance lists {n_sic} four-digit SIC industries, grouped in two-digit major groups such as 73 «{gs_73}».",
+   "fonti": [
+    "manuale",
+    "sic_naics97"
+   ]
+  },
+  {
+   "pagina": "sic-to-naics",
+   "ricerca": "sic code to naics code conversion",
+   "q": "How do I convert a SIC code to a NAICS code?",
+   "a": "The Census Bureau's concordance links each 1987 SIC code, or each part of it, to 1997 NAICS codes. To reach the 2022 codes, this table follows the official concordances 1997 → 2002 → 2007 → 2012 → 2017 → 2022 step by step. When a SIC code was split, read the part descriptions and the description of each NAICS code to see which one fits the activity.",
+   "fonti": [
+    "sic_naics97",
+    "c97_02",
+    "c22_17"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-consulting",
+   "ricerca": "what is the naics code for consulting",
+   "q": "What is the NAICS code for consulting?",
+   "a": "It depends on the kind of advice. General business and management consulting is 541611 «{t_541611}»; human resources consulting is 541612 «{t_541612}»; marketing consulting is 541613 «{t_541613}»; logistics consulting is 541614 «{t_541614}»; environmental consulting is 541620 «{t_541620}»; and computer consulting is 541512 «{t_541512}».",
+   "fonti": [
+    "indice",
+    "codici"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-consulting",
+   "ricerca": "sic code for consulting",
+   "q": "What is the SIC code for consulting?",
+   "a": "In the 1987 SIC, management consulting is 8742 «{sic_8742}» and other business consulting is 8748 «{sic_8748}». The Census concordance links 8742 to several 1997 NAICS consulting codes, one for each part.",
+   "fonti": [
+    "sic_naics97"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-construction",
+   "ricerca": "what is the naics code for construction",
+   "q": "What is the NAICS code for construction?",
+   "a": "Construction is sector 23, divided into subsector 236 «{t_236}», 237 «{t_237}» and 238 «{t_238}». The six-digit code depends on the main work: for example 236220 «{t_236220}», 237310 «{t_237310}» or 238220 «{t_238220}».",
+   "fonti": [
+    "codici",
+    "descrizioni"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-construction",
+   "ricerca": "naics code for general contractor",
+   "q": "What is the NAICS code for a general contractor?",
+   "a": "The official index places general contractors by type of building: 236115 «{t_236115}», 236116 «{t_236116}», 236118 «{t_236118}», 236210 «{t_236210}» and 236220 «{t_236220}».",
+   "fonti": [
+    "indice"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-construction",
+   "ricerca": "sic code for construction",
+   "q": "What is the SIC code for construction?",
+   "a": "In the 1987 SIC, construction is three major groups: 15 «{gs_15}», 16 «{gs_16}» and 17 «{gs_17}». Each four-digit SIC code is in the SIC to NAICS table with its NAICS equivalents.",
+   "fonti": [
+    "sic_naics97"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-cleaning-services",
+   "ricerca": "what is the naics code for cleaning services",
+   "q": "What is the NAICS code for cleaning services?",
+   "a": "It depends on what is cleaned. Building interiors and homes (janitorial, maid and housekeeping services) are 561720 «{t_561720}»; carpets and upholstery 561740 «{t_561740}»; building exteriors, chimneys and other services to dwellings 561790 «{t_561790}»; clothes and linens 812320 «{t_812320}».",
+   "fonti": [
+    "indice",
+    "codici"
+   ]
+  }
+ ]
+}

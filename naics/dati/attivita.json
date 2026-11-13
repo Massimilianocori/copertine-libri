@@ -1,0 +1,70 @@
+{
+ "_nota": "Pagine «NAICS code for …»: pubblicate solo se una delle frasi ha un volume in volumi.json. Le voci elencate vengono dall'indice ufficiale 2022 (regex su «INDEX ITEM DESCRIPTION»); i testi introduttivi sono nostri e citano solo titoli ufficiali (genera.py li controlla).",
+ "attivita": [
+  {
+   "slug": "naics-code-for-consulting",
+   "nome": "consulting",
+   "frasi": [
+    "naics code for consulting",
+    "sic code for consulting"
+   ],
+   "regex": "\\bconsult",
+   "titolo": "NAICS Code for Consulting: All Official Consulting Codes",
+   "h1": "NAICS code for consulting",
+   "descrizione": "Which NAICS code fits a consulting business: every consulting activity in the official 2022 index, grouped by code, with the SIC equivalents.",
+   "intro": "Consulting has no single NAICS code: the code follows the kind of advice. The official 2022 index of the Census Bureau lists {n_voci} consulting activities in {n_codici} different codes; most are in industry group 5416 «{t_5416}».",
+   "evidenza": [
+    "541611",
+    "541612",
+    "541613",
+    "541614",
+    "541618",
+    "541620",
+    "541690",
+    "541512",
+    "541330"
+   ]
+  },
+  {
+   "slug": "naics-code-for-construction",
+   "nome": "construction",
+   "frasi": [
+    "naics code for construction",
+    "naics code for general contractor"
+   ],
+   "regex": "general contractor",
+   "titolo": "NAICS Code for Construction and General Contractors",
+   "h1": "NAICS code for construction and general contractors",
+   "descrizione": "Construction is NAICS sector 23: all 31 six-digit codes, which code fits a general contractor, and the old SIC construction codes.",
+   "intro": "Construction is NAICS sector 23 «{t_23}», with {n_sei_23} six-digit industries in three subsectors. The code follows the main type of work: what is built (houses, other buildings, roads and utilities) or which trade is done. In the official index, general contractors appear in {n_codici} codes, by type of building.",
+   "evidenza": [
+    "236115",
+    "236116",
+    "236118",
+    "236210",
+    "236220"
+   ],
+   "settore": "23"
+  },
+  {
+   "slug": "naics-code-for-cleaning-services",
+   "nome": "cleaning services",
+   "frasi": [
+    "naics code for cleaning services"
+   ],
+   "regex": "\\bcleaning\\b",
+   "titolo": "NAICS Code for Cleaning Services: Janitorial, Carpet, Laundry",
+   "h1": "NAICS code for cleaning services",
+   "descrizione": "Which NAICS code fits a cleaning business: janitorial, maid, carpet, window, chimney and laundry services, from the official 2022 index.",
+   "intro": "Cleaning services are spread over several NAICS codes, depending on what is cleaned. The official 2022 index lists {n_voci} cleaning activities in {n_codici} codes; cleaning of buildings and homes is in industry group 5617 «{t_5617}».",
+   "evidenza": [
+    "561720",
+    "561740",
+    "561790",
+    "812320",
+    "562991",
+    "562998"
+   ]
+  }
+ ]
+}

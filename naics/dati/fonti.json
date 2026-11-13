@@ -1,0 +1,198 @@
+{
+ "_nota": "Scritto da raccolta/fonti.py. I file grezzi stanno in raccolta/_grezzi/ (fuori da git): verifica.py ne ricalcola l'impronta.",
+ "licenza": "Works of the U.S. federal government (Census Bureau, OMB, IRS): public domain in the United States (17 U.S.C. 105).",
+ "file": {
+  "codici": {
+   "url": "https://www.census.gov/naics/2022NAICS/2-6%20digit_2022_Codes.xlsx",
+   "titolo": "2022 NAICS 2–6 digit codes and titles (xlsx)",
+   "chi": "U.S. Census Bureau",
+   "file": "2-6_digit_2022_Codes.xlsx",
+   "http": 200,
+   "byte": 82460,
+   "sha256": "be12ba41002803359f49181c9bf33a03fbd08578f4f4a4c0bbad7aadaaea0316",
+   "letto_il": "2026-11-13"
+  },
+  "struttura": {
+   "url": "https://www.census.gov/naics/2022NAICS/2022_NAICS_Structure.xlsx",
+   "titolo": "2022 NAICS Structure, with change indicators (xlsx)",
+   "chi": "U.S. Census Bureau",
+   "file": "2022_NAICS_Structure.xlsx",
+   "http": 200,
+   "byte": 88218,
+   "sha256": "217c9e0d4d74e7517bc288f5f308b73aa0de5ee787976a6dd222412be28ada22",
+   "letto_il": "2026-11-13"
+  },
+  "descrizioni": {
+   "url": "https://www.census.gov/naics/2022NAICS/2022_NAICS_Descriptions.xlsx",
+   "titolo": "2022 NAICS Descriptions (xlsx)",
+   "chi": "U.S. Census Bureau",
+   "file": "2022_NAICS_Descriptions.xlsx",
+   "http": 200,
+   "byte": 263810,
+   "sha256": "6222c4d87dcf984970e0ff8a49862ed54b546b089d03956be3f285900cd3d66c",
+   "letto_il": "2026-11-13"
+  },
+  "indice": {
+   "url": "https://www.census.gov/naics/2022NAICS/2022_NAICS_Index_File.xlsx",
+   "titolo": "2022 NAICS Index File (xlsx)",
+   "chi": "U.S. Census Bureau",
+   "file": "2022_NAICS_Index_File.xlsx",
+   "http": 200,
+   "byte": 499358,
+   "sha256": "6506b37b9546dd9cec1f8b79e0b38b68e547a5cce5fd6f8332d35024dbd6cd63",
+   "letto_il": "2026-11-13"
+  },
+  "rimandi": {
+   "url": "https://www.census.gov/naics/2022NAICS/2022_NAICS_Cross_References.xlsx",
+   "titolo": "2022 NAICS Cross-References (xlsx)",
+   "chi": "U.S. Census Bureau",
+   "file": "2022_NAICS_Cross_References.xlsx",
+   "http": 200,
+   "byte": 206775,
+   "sha256": "3c50c3bfa9d76862aea471cc8831fd726f0b978619d833e48c54a749d9622144",
+   "letto_il": "2026-11-13"
+  },
+  "conteggi": {
+   "url": "https://www.census.gov/naics/2022NAICS/2022_NAICS_Structure_Summary_Table.xlsx",
+   "titolo": "2022 NAICS Structure Summary Table: counts by sector (xlsx)",
+   "chi": "U.S. Census Bureau",
+   "file": "2022_NAICS_Structure_Summary_Table.xlsx",
+   "http": 200,
+   "byte": 12212,
+   "sha256": "856c8d9409470f76b48d8bd725851abea1a0a8bb7fae31a800614d62b36ef607",
+   "letto_il": "2026-11-13"
+  },
+  "c22_17": {
+   "url": "https://www.census.gov/naics/concordances/2022_to_2017_NAICS.xlsx",
+   "titolo": "2022 NAICS matched to 2017 NAICS, full concordance (xlsx)",
+   "chi": "U.S. Census Bureau",
+   "file": "2022_to_2017_NAICS.xlsx",
+   "http": 200,
+   "byte": 61577,
+   "sha256": "76ed2d5bc8cd3443dc86f0c3225b83e6d187f3fc47d4c5696c911a3234f1716f",
+   "letto_il": "2026-11-13"
+  },
+  "c17_22": {
+   "url": "https://www.census.gov/naics/concordances/2017_to_2022_NAICS.xlsx",
+   "titolo": "2017 NAICS matched to 2022 NAICS, full concordance (xlsx)",
+   "chi": "U.S. Census Bureau",
+   "file": "2017_to_2022_NAICS.xlsx",
+   "http": 200,
+   "byte": 59656,
+   "sha256": "4662cc7ed9e7f3fb8a968e9504a7d06e448f5b65a349996a5627439df193eb30",
+   "letto_il": "2026-11-13"
+  },
+  "c12_17": {
+   "url": "https://www.census.gov/naics/concordances/2012_to_2017_NAICS.xlsx",
+   "titolo": "2012 NAICS matched to 2017 NAICS, full concordance (xlsx)",
+   "chi": "U.S. Census Bureau",
+   "file": "2012_to_2017_NAICS.xlsx",
+   "http": 200,
+   "byte": 58543,
+   "sha256": "17f463f7e8385df1cc762fadf0dd5c25910aa27034ca96275a906608399188f5",
+   "letto_il": "2026-11-13"
+  },
+  "c07_12": {
+   "url": "https://www.census.gov/naics/concordances/2007_to_2012_NAICS.xls",
+   "titolo": "2007 NAICS matched to 2012 NAICS, full concordance (xls)",
+   "chi": "U.S. Census Bureau",
+   "file": "2007_to_2012_NAICS.xls",
+   "http": 200,
+   "byte": 171520,
+   "sha256": "302b8abcd78881f1ea5aa4c6c9104811bf8fa10d57b48d492939de5cacc8cfc5",
+   "letto_il": "2026-11-13"
+  },
+  "c02_07": {
+   "url": "https://www.census.gov/naics/concordances/2002_to_2007_NAICS.xls",
+   "titolo": "2002 NAICS matched to 2007 NAICS, full concordance (xls)",
+   "chi": "U.S. Census Bureau",
+   "file": "2002_to_2007_NAICS.xls",
+   "http": 200,
+   "byte": 161280,
+   "sha256": "a4b00b2195e318420962ba52b77f3c3122e83d893a9f804e820c151847ec85b1",
+   "letto_il": "2026-11-13"
+  },
+  "c97_02": {
+   "url": "https://www.census.gov/naics/concordances/1997_NAICS_to_2002_NAICS.xls",
+   "titolo": "1997 NAICS matched to 2002 NAICS (xls)",
+   "chi": "U.S. Census Bureau",
+   "file": "1997_NAICS_to_2002_NAICS.xls",
+   "http": 200,
+   "byte": 1282560,
+   "sha256": "c9940c1236a033026acc2c05f0bd75e6ae6d8b716ac6e3f8d3453488d1e74a10",
+   "letto_il": "2026-11-13"
+  },
+  "naics97_sic": {
+   "url": "https://www.census.gov/naics/concordances/1997_NAICS_to_1987_SIC.xls",
+   "titolo": "1997 NAICS matched to 1987 SIC (xls)",
+   "chi": "U.S. Census Bureau",
+   "file": "1997_NAICS_to_1987_SIC.xls",
+   "http": 200,
+   "byte": 366080,
+   "sha256": "5f08af94ac559106a8bc228efd031e3a08aec2ce0eebac0bf8eb5f083c0beadb",
+   "letto_il": "2026-11-13"
+  },
+  "sic_naics97": {
+   "url": "https://www.census.gov/naics/concordances/1987_SIC_to_1997_NAICS.xls",
+   "titolo": "1987 SIC matched to 1997 NAICS (xls)",
+   "chi": "U.S. Census Bureau",
+   "file": "1987_SIC_to_1997_NAICS.xls",
+   "http": 200,
+   "byte": 367616,
+   "sha256": "ba04e2332bbe5d56eec834908f7d0e253b377b59d906dbc3053088a0aa09701d",
+   "letto_il": "2026-11-13"
+  },
+  "manuale": {
+   "url": "https://www.census.gov/naics/reference_files_tools/2022_NAICS_Manual.pdf",
+   "titolo": "North American Industry Classification System, United States, 2022 (manual, PDF)",
+   "chi": "Office of Management and Budget",
+   "file": "2022_NAICS_Manual.pdf",
+   "http": 200,
+   "byte": 7134704,
+   "sha256": "8a19163d845163abe7e93f3e26b9c9110fa6752e4a2797146b593a1818643202",
+   "letto_il": "2026-11-13",
+   "trovate": {
+    "NAICS uses a six-digit coding system to identify industries and their placement in this hierarchical structure of the classification system.": true,
+    "The first two digits of the code designate the sector, the third digit designates the subsector, the fourth digit designates the industry group, the fifth digit designates the NAICS industry, and the sixth digit designates the national industry.": true,
+    "A zero as the sixth digit generally indicates that the NAICS industry and the U.S. industry are the same.": true,
+    "NAICS classifies all economic activities into 20 sectors.": true,
+    "With its inception in 1997, NAICS replaced the Standard Industrial Classification (1980) of Canada, the Mexican Classification of Activities and Products (1994), and the Standard Industrial Classification (1987) of the United States.": true,
+    "The United States has adopted the revised classification in statistical programs for the reference year beginning in 2022.": true,
+    "NAICS was revised in 2002, 2007, 2012, and 2017.": true,
+    "This 2022 NAICS revision was undertaken to achieve one main goal—to modify or create industries to reflect new, emerging, or changing activities and technologies.": true,
+    "To determine the correct NAICS code for your establishment, first identify the primary business activity.": true,
+    "Next, read the full description of the industry (including the narrative, cross-references, and illustrative examples), and determine if that description fits the primary business activity of your establishment.": true,
+    "There is no central government agency with the role of assigning, monitoring, or approving NAICS codes for establishments.": true,
+    "Statistical agencies assign one NAICS code to each establishment based on its primary activity.": true,
+    "the Social Security Administration assigns a NAICS code to new businesses based on information provided on their application for an Employer Identification Number.": true,
+    "A business does not 'apply' for a NAICS code.": true,
+    "Every five years NAICS is reviewed for potential revisions, so that the classification system can keep pace with the changing economy.": true,
+    "The next scheduled review of NAICS will be for a potential 2027 revision.": true,
+    "NAICS categories do not distinguish between small and large business": true,
+    "The Small Business Administration (SBA) develops size standards for each NAICS category.": true,
+    "The NAICS categories and definitions were not developed to meet the needs of procurement and/or regulatory applications.": true,
+    "An establishment is classified in an industry when its primary activity meets the definition for that industry.": true,
+    "the industry code is assigned based on the establishment's principal product or group of products produced or distributed, or services rendered.": true,
+    "An establishment is generally a single, physical location at which economic activity occurs (e.g., store, factory, farm, etc.).": true,
+    "NAICS ensures that such data are uniform and comparable among Canada, Mexico, and the United States.": true,
+    "the NAICS treatment of electronic shopping in Retail Trade": true,
+    "other federal agencies and other organizations have adopted NAICS for procurement and regulatory purposes even though it does not entirely fit their specific needs.": true
+   }
+  },
+  "irs_sc": {
+   "url": "https://www.irs.gov/pub/irs-pdf/i1040sc.pdf",
+   "titolo": "2025 Instructions for Schedule C (Form 1040), Principal Business or Professional Activity Codes (PDF)",
+   "chi": "Internal Revenue Service",
+   "file": "i1040sc.pdf",
+   "http": 200,
+   "byte": 357575,
+   "sha256": "b5536db91498a450572e37078d7d5ee8fdc400e385d4fee3a26c230a33e399b6",
+   "letto_il": "2026-11-13",
+   "trovate": {
+    "These codes for the Principal Business or Professional Activity classify sole proprietorships by the type of activity they are engaged in to facilitate the administration of the Internal Revenue Code.": true,
+    "These six-digit codes are based on the NAICS.": true,
+    "Now find the six-digit code assigned to this activity (for example, 531210, the code for offices of real estate agents and brokers) and enter it on Schedule C, line B.": true
+   }
+  }
+ }
+}

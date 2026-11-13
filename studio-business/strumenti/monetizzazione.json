@@ -21,7 +21,8 @@
     "ateco",
     "limits",
     "inflation",
-    "milpay"
+    "milpay",
+    "naics"
   ],
   "_siti_della_rete": [
     "italystrikes",
@@ -43,7 +44,8 @@
     "ateco",
     "limits",
     "inflation",
-    "milpay"
+    "milpay",
+    "naics"
   ],
   "_domini_affiliazione_nota": "Solo domini (nessun ID, nessun link). Un link di affiliazione è ammesso solo se punta a uno di questi domini o a un loro sottodominio, ha rel=\"sponsored noopener\" e la pagina ha la riga di trasparenza. I link ad Amazon (amazon.it, amazon.co.uk, amazon.com, amazon.es, amazon.fr) devono avere il tag di affiliazione (tag=). Per aggiungere un programma nuovo: aggiungere qui il dominio dei suoi link tracciati.",
   "domini_affiliazione": [

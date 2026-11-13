@@ -1,0 +1,89 @@
+{
+ "_nota": "Volumi medi mensili di ricerca su Google negli Stati Uniti (Google Ads, letti con api.seodata.dev) e costo per clic in dollari. Misure del 12/11/2026 riportate in studio-business/intelaiatura/fronti-2026-11-12-volumi-prima.md (famiglia 1). Il 13/11/2026 lo strumento rispondeva 429 (quota esaurita, con e senza chiave): nessuna misura nuova. Una pagina «NAICS code for …» si pubblica solo per le attività con almeno un volume qui.",
+ "misurato_il": "2026-11-12",
+ "fonte": "studio-business/intelaiatura/fronti-2026-11-12-volumi-prima.md",
+ "frasi": {
+  "naics code": {
+   "volume": 90500,
+   "cpc_usd": 6.06
+  },
+  "naics code lookup": {
+   "volume": 49500,
+   "cpc_usd": 8.16
+  },
+  "sic code": {
+   "volume": 22200,
+   "cpc_usd": 5.8
+  },
+  "sic code finder": {
+   "volume": 12100,
+   "cpc_usd": 2.84
+  },
+  "sic code lookup": {
+   "volume": 9900,
+   "cpc_usd": 4.81
+  },
+  "naics number": {
+   "volume": 6600,
+   "cpc_usd": 5.79
+  },
+  "what is naics code": {
+   "volume": 6600,
+   "cpc_usd": 1.7
+  },
+  "naics code list": {
+   "volume": 2900,
+   "cpc_usd": 7.53
+  },
+  "sic code list": {
+   "volume": 1900,
+   "cpc_usd": 5.33
+  },
+  "sba size standards": {
+   "volume": 1900,
+   "cpc_usd": 10.0
+  },
+  "naics code for construction": {
+   "volume": 3600,
+   "cpc_usd": 1.4
+  },
+  "naics code for general contractor": {
+   "volume": 1900,
+   "cpc_usd": null
+  },
+  "naics code for consulting": {
+   "volume": 3600,
+   "cpc_usd": 0
+  },
+  "naics code for cleaning services": {
+   "volume": 1300,
+   "cpc_usd": 0
+  },
+  "naics code 541511": {
+   "volume": 720,
+   "cpc_usd": 0
+  },
+  "sic code for consulting": {
+   "volume": 1000,
+   "cpc_usd": 0
+  }
+ },
+ "da_misurare": [
+  "naics code for real estate",
+  "naics code for restaurant",
+  "naics code for rental property",
+  "naics code for holding company",
+  "naics code for trucking",
+  "naics code for ecommerce",
+  "naics code for landscaping",
+  "naics code for nonprofit",
+  "naics code for property management",
+  "naics code for photography",
+  "naics code for hair salon",
+  "naics code for home health care",
+  "naics code for staffing",
+  "naics code for software development",
+  "naics code for food truck",
+  "naics code for daycare"
+ ]
+}

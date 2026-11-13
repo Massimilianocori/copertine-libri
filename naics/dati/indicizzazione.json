@@ -1,0 +1,8640 @@
+{
+"_nota": "Scritto da genera.py: perché ogni pagina di codice è indicizzata o no (verifica.py ricalcola le misure dalle pagine).",
+"regola": {
+"min_parole_proprie": 120,
+"max_sovrapposizione": 0.55,
+"quota_modello": 0.05
+},
+"pagine": {
+"11/": {
+"proprie": 303,
+"sovrapposizione": 0.114,
+"piu_simile": "48-49/",
+"indicizzata": true
+},
+"111/": {
+"proprie": 252,
+"sovrapposizione": 0.143,
+"piu_simile": "1111/",
+"indicizzata": true
+},
+"1111/": {
+"proprie": 131,
+"sovrapposizione": 0.299,
+"piu_simile": "111199/",
+"indicizzata": true
+},
+"111110/": {
+"proprie": 77,
+"sovrapposizione": 0.486,
+"piu_simile": "111140/",
+"indicizzata": false
+},
+"111120/": {
+"proprie": 134,
+"sovrapposizione": 0.358,
+"piu_simile": "111199/",
+"indicizzata": true
+},
+"111130/": {
+"proprie": 104,
+"sovrapposizione": 0.359,
+"piu_simile": "111199/",
+"indicizzata": false
+},
+"111140/": {
+"proprie": 77,
+"sovrapposizione": 0.525,
+"piu_simile": "111160/",
+"indicizzata": false
+},
+"111150/": {
+"proprie": 103,
+"sovrapposizione": 0.393,
+"piu_simile": "111199/",
+"indicizzata": false
+},
+"111160/": {
+"proprie": 90,
+"sovrapposizione": 0.479,
+"piu_simile": "111140/",
+"indicizzata": false
+},
+"111191/": {
+"proprie": 80,
+"sovrapposizione": 0.426,
+"piu_simile": "111199/",
+"indicizzata": false
+},
+"111199/": {
+"proprie": 133,
+"sovrapposizione": 0.341,
+"piu_simile": "111191/",
+"indicizzata": true
+},
+"1112/": {
+"proprie": 108,
+"sovrapposizione": 0.386,
+"piu_simile": "111219/",
+"indicizzata": false
+},
+"111211/": {
+"proprie": 115,
+"sovrapposizione": 0.377,
+"piu_simile": "111219/",
+"indicizzata": false
+},
+"111219/": {
+"proprie": 532,
+"sovrapposizione": 0.138,
+"piu_simile": "1112/",
+"indicizzata": true
+},
+"1113/": {
+"proprie": 170,
+"sovrapposizione": 0.174,
+"piu_simile": "111336/",
+"indicizzata": true
+},
+"111310/": {
+"proprie": 56,
+"sovrapposizione": 0.497,
+"piu_simile": "111320/",
+"indicizzata": false
+},
+"111320/": {
+"proprie": 105,
+"sovrapposizione": 0.387,
+"piu_simile": "111310/",
+"indicizzata": false
+},
+"111331/": {
+"proprie": 79,
+"sovrapposizione": 0.522,
+"piu_simile": "111333/",
+"indicizzata": false
+},
+"111332/": {
+"proprie": 95,
+"sovrapposizione": 0.456,
+"piu_simile": "111331/",
+"indicizzata": false
+},
+"111333/": {
+"proprie": 59,
+"sovrapposizione": 0.621,
+"piu_simile": "111334/",
+"indicizzata": false
+},
+"111334/": {
+"proprie": 120,
+"sovrapposizione": 0.457,
+"piu_simile": "111333/",
+"indicizzata": true
+},
+"111335/": {
+"proprie": 131,
+"sovrapposizione": 0.397,
+"piu_simile": "111339/",
+"indicizzata": true
+},
+"111336/": {
+"proprie": 88,
+"sovrapposizione": 0.433,
+"piu_simile": "111339/",
+"indicizzata": false
+},
+"111339/": {
+"proprie": 227,
+"sovrapposizione": 0.266,
+"piu_simile": "111334/",
+"indicizzata": true
+},
+"1114/": {
+"proprie": 195,
+"sovrapposizione": 0.304,
+"piu_simile": "111421/",
+"indicizzata": true
+},
+"111411/": {
+"proprie": 69,
+"sovrapposizione": 0.393,
+"piu_simile": "111419/",
+"indicizzata": false
+},
+"111419/": {
+"proprie": 194,
+"sovrapposizione": 0.221,
+"piu_simile": "111411/",
+"indicizzata": true
+},
+"111421/": {
+"proprie": 176,
+"sovrapposizione": 0.294,
+"piu_simile": "1114/",
+"indicizzata": true
+},
+"111422/": {
+"proprie": 143,
+"sovrapposizione": 0.297,
+"piu_simile": "111421/",
+"indicizzata": true
+},
+"1119/": {
+"proprie": 153,
+"sovrapposizione": 0.496,
+"piu_simile": "111998/",
+"indicizzata": true
+},
+"111910/": {
+"proprie": 67,
+"sovrapposizione": 0.397,
+"piu_simile": "111992/",
+"indicizzata": false
+},
+"111920/": {
+"proprie": 69,
+"sovrapposizione": 0.368,
+"piu_simile": "111930/",
+"indicizzata": false
+},
+"111930/": {
+"proprie": 66,
+"sovrapposizione": 0.365,
+"piu_simile": "111920/",
+"indicizzata": false
+},
+"111940/": {
+"proprie": 101,
+"sovrapposizione": 0.275,
+"piu_simile": "111992/",
+"indicizzata": false
+},
+"111991/": {
+"proprie": 63,
+"sovrapposizione": 0.392,
+"piu_simile": "111992/",
+"indicizzata": false
+},
+"111992/": {
+"proprie": 55,
+"sovrapposizione": 0.443,
+"piu_simile": "111991/",
+"indicizzata": false
+},
+"111998/": {
+"proprie": 261,
+"sovrapposizione": 0.329,
+"piu_simile": "1119/",
+"indicizzata": true
+},
+"112/": {
+"proprie": 204,
+"sovrapposizione": 0.138,
+"piu_simile": "1129/",
+"indicizzata": true
+},
+"1121/": {
+"proprie": 67,
+"sovrapposizione": 0.216,
+"piu_simile": "112111/",
+"indicizzata": false
+},
+"112111/": {
+"proprie": 98,
+"sovrapposizione": 0.279,
+"piu_simile": "112130/",
+"indicizzata": false
+},
+"112112/": {
+"proprie": 83,
+"sovrapposizione": 0.318,
+"piu_simile": "112130/",
+"indicizzata": false
+},
+"112120/": {
+"proprie": 98,
+"sovrapposizione": 0.241,
+"piu_simile": "112130/",
+"indicizzata": false
+},
+"112130/": {
+"proprie": 62,
+"sovrapposizione": 0.276,
+"piu_simile": "112111/",
+"indicizzata": false
+},
+"1122/": {
+"proprie": 24,
+"sovrapposizione": 0.421,
+"piu_simile": "1121/",
+"indicizzata": false
+},
+"112210/": {
+"proprie": 126,
+"sovrapposizione": 0.228,
+"piu_simile": "112410/",
+"indicizzata": true
+},
+"1123/": {
+"proprie": 39,
+"sovrapposizione": 0.4,
+"piu_simile": "112/",
+"indicizzata": false
+},
+"112310/": {
+"proprie": 114,
+"sovrapposizione": 0.25,
+"piu_simile": "112320/",
+"indicizzata": false
+},
+"112320/": {
+"proprie": 94,
+"sovrapposizione": 0.286,
+"piu_simile": "112390/",
+"indicizzata": false
+},
+"112330/": {
+"proprie": 75,
+"sovrapposizione": 0.301,
+"piu_simile": "112340/",
+"indicizzata": false
+},
+"112340/": {
+"proprie": 76,
+"sovrapposizione": 0.311,
+"piu_simile": "112320/",
+"indicizzata": false
+},
+"112390/": {
+"proprie": 157,
+"sovrapposizione": 0.197,
+"piu_simile": "112320/",
+"indicizzata": true
+},
+"1124/": {
+"proprie": 32,
+"sovrapposizione": 0.367,
+"piu_simile": "1125/",
+"indicizzata": false
+},
+"112410/": {
+"proprie": 96,
+"sovrapposizione": 0.274,
+"piu_simile": "112112/",
+"indicizzata": false
+},
+"112420/": {
+"proprie": 77,
+"sovrapposizione": 0.354,
+"piu_simile": "112410/",
+"indicizzata": false
+},
+"1125/": {
+"proprie": 106,
+"sovrapposizione": 0.181,
+"piu_simile": "1124/",
+"indicizzata": false
+},
+"112511/": {
+"proprie": 125,
+"sovrapposizione": 0.292,
+"piu_simile": "112512/",
+"indicizzata": true
+},
+"112512/": {
+"proprie": 102,
+"sovrapposizione": 0.32,
+"piu_simile": "112511/",
+"indicizzata": false
+},
+"112519/": {
+"proprie": 180,
+"sovrapposizione": 0.209,
+"piu_simile": "111998/",
+"indicizzata": true
+},
+"1129/": {
+"proprie": 77,
+"sovrapposizione": 0.29,
+"piu_simile": "112990/",
+"indicizzata": false
+},
+"112910/": {
+"proprie": 116,
+"sovrapposizione": 0.199,
+"piu_simile": "112920/",
+"indicizzata": false
+},
+"112920/": {
+"proprie": 91,
+"sovrapposizione": 0.263,
+"piu_simile": "112930/",
+"indicizzata": false
+},
+"112930/": {
+"proprie": 104,
+"sovrapposizione": 0.277,
+"piu_simile": "112920/",
+"indicizzata": false
+},
+"112990/": {
+"proprie": 296,
+"sovrapposizione": 0.121,
+"piu_simile": "1129/",
+"indicizzata": true
+},
+"113/": {
+"proprie": 188,
+"sovrapposizione": 0.058,
+"piu_simile": "1133/",
+"indicizzata": true
+},
+"1131/": {
+"proprie": 26,
+"sovrapposizione": 0.349,
+"piu_simile": "1132/",
+"indicizzata": false
+},
+"113110/": {
+"proprie": 110,
+"sovrapposizione": 0.107,
+"piu_simile": "113210/",
+"indicizzata": false
+},
+"1132/": {
+"proprie": 24,
+"sovrapposizione": 0.432,
+"piu_simile": "1133/",
+"indicizzata": false
+},
+"113210/": {
+"proprie": 208,
+"sovrapposizione": 0.075,
+"piu_simile": "113110/",
+"indicizzata": true
+},
+"1133/": {
+"proprie": 19,
+"sovrapposizione": 0.463,
+"piu_simile": "1132/",
+"indicizzata": false
+},
+"113310/": {
+"proprie": 125,
+"sovrapposizione": 0.118,
+"piu_simile": "113110/",
+"indicizzata": true
+},
+"114/": {
+"proprie": 133,
+"sovrapposizione": 0.057,
+"piu_simile": "111/",
+"indicizzata": true
+},
+"1141/": {
+"proprie": 100,
+"sovrapposizione": 0.124,
+"piu_simile": "114111/",
+"indicizzata": false
+},
+"114111/": {
+"proprie": 162,
+"sovrapposizione": 0.184,
+"piu_simile": "114112/",
+"indicizzata": true
+},
+"114112/": {
+"proprie": 101,
+"sovrapposizione": 0.266,
+"piu_simile": "114111/",
+"indicizzata": false
+},
+"114119/": {
+"proprie": 102,
+"sovrapposizione": 0.22,
+"piu_simile": "114112/",
+"indicizzata": false
+},
+"1142/": {
+"proprie": 22,
+"sovrapposizione": 0.25,
+"piu_simile": "1141/",
+"indicizzata": false
+},
+"114210/": {
+"proprie": 145,
+"sovrapposizione": 0.06,
+"piu_simile": "112990/",
+"indicizzata": true
+},
+"115/": {
+"proprie": 90,
+"sovrapposizione": 0.138,
+"piu_simile": "1153/",
+"indicizzata": false
+},
+"1151/": {
+"proprie": 162,
+"sovrapposizione": 0.185,
+"piu_simile": "115112/",
+"indicizzata": true
+},
+"115111/": {
+"proprie": 60,
+"sovrapposizione": 0.459,
+"piu_simile": "115116/",
+"indicizzata": false
+},
+"115112/": {
+"proprie": 219,
+"sovrapposizione": 0.166,
+"piu_simile": "115111/",
+"indicizzata": true
+},
+"115113/": {
+"proprie": 148,
+"sovrapposizione": 0.337,
+"piu_simile": "115114/",
+"indicizzata": true
+},
+"115114/": {
+"proprie": 282,
+"sovrapposizione": 0.189,
+"piu_simile": "115113/",
+"indicizzata": true
+},
+"115115/": {
+"proprie": 104,
+"sovrapposizione": 0.411,
+"piu_simile": "115114/",
+"indicizzata": false
+},
+"115116/": {
+"proprie": 120,
+"sovrapposizione": 0.294,
+"piu_simile": "115111/",
+"indicizzata": true
+},
+"1152/": {
+"proprie": 23,
+"sovrapposizione": 0.46,
+"piu_simile": "1153/",
+"indicizzata": false
+},
+"115210/": {
+"proprie": 262,
+"sovrapposizione": 0.095,
+"piu_simile": "112920/",
+"indicizzata": true
+},
+"1153/": {
+"proprie": 22,
+"sovrapposizione": 0.46,
+"piu_simile": "1152/",
+"indicizzata": false
+},
+"115310/": {
+"proprie": 181,
+"sovrapposizione": 0.096,
+"piu_simile": "115113/",
+"indicizzata": true
+},
+"21/": {
+"proprie": 242,
+"sovrapposizione": 0.261,
+"piu_simile": "212/",
+"indicizzata": true
+},
+"211/": {
+"proprie": 154,
+"sovrapposizione": 0.177,
+"piu_simile": "212/",
+"indicizzata": true
+},
+"2111/": {
+"proprie": 15,
+"sovrapposizione": 0.351,
+"piu_simile": "211/",
+"indicizzata": false
+},
+"211120/": {
+"proprie": 170,
+"sovrapposizione": 0.377,
+"piu_simile": "211130/",
+"indicizzata": true
+},
+"211130/": {
+"proprie": 321,
+"sovrapposizione": 0.254,
+"piu_simile": "211120/",
+"indicizzata": true
+},
+"212/": {
+"proprie": 136,
+"sovrapposizione": 0.374,
+"piu_simile": "2123/",
+"indicizzata": true
+},
+"2121/": {
+"proprie": 93,
+"sovrapposizione": 0.275,
+"piu_simile": "212114/",
+"indicizzata": false
+},
+"212114/": {
+"proprie": 256,
+"sovrapposizione": 0.35,
+"piu_simile": "212115/",
+"indicizzata": true
+},
+"212115/": {
+"proprie": 160,
+"sovrapposizione": 0.462,
+"piu_simile": "212114/",
+"indicizzata": true
+},
+"2122/": {
+"proprie": 77,
+"sovrapposizione": 0.276,
+"piu_simile": "212/",
+"indicizzata": false
+},
+"212210/": {
+"proprie": 182,
+"sovrapposizione": 0.245,
+"piu_simile": "212220/",
+"indicizzata": true
+},
+"212220/": {
+"proprie": 204,
+"sovrapposizione": 0.261,
+"piu_simile": "212230/",
+"indicizzata": true
+},
+"212230/": {
+"proprie": 244,
+"sovrapposizione": 0.243,
+"piu_simile": "212290/",
+"indicizzata": true
+},
+"212290/": {
+"proprie": 561,
+"sovrapposizione": 0.126,
+"piu_simile": "212230/",
+"indicizzata": true
+},
+"2123/": {
+"proprie": 230,
+"sovrapposizione": 0.247,
+"piu_simile": "212/",
+"indicizzata": true
+},
+"212311/": {
+"proprie": 197,
+"sovrapposizione": 0.308,
+"piu_simile": "212319/",
+"indicizzata": true
+},
+"212312/": {
+"proprie": 163,
+"sovrapposizione": 0.386,
+"piu_simile": "212319/",
+"indicizzata": true
+},
+"212313/": {
+"proprie": 107,
+"sovrapposizione": 0.476,
+"piu_simile": "212312/",
+"indicizzata": false
+},
+"212319/": {
+"proprie": 266,
+"sovrapposizione": 0.29,
+"piu_simile": "212312/",
+"indicizzata": true
+},
+"212321/": {
+"proprie": 147,
+"sovrapposizione": 0.425,
+"piu_simile": "212322/",
+"indicizzata": true
+},
+"212322/": {
+"proprie": 166,
+"sovrapposizione": 0.411,
+"piu_simile": "212321/",
+"indicizzata": true
+},
+"212323/": {
+"proprie": 370,
+"sovrapposizione": 0.202,
+"piu_simile": "212390/",
+"indicizzata": true
+},
+"212390/": {
+"proprie": 1055,
+"sovrapposizione": 0.094,
+"piu_simile": "212323/",
+"indicizzata": true
+},
+"213/": {
+"proprie": 134,
+"sovrapposizione": 0.271,
+"piu_simile": "2131/",
+"indicizzata": true
+},
+"2131/": {
+"proprie": 121,
+"sovrapposizione": 0.349,
+"piu_simile": "213112/",
+"indicizzata": true
+},
+"213111/": {
+"proprie": 197,
+"sovrapposizione": 0.341,
+"piu_simile": "213112/",
+"indicizzata": true
+},
+"213112/": {
+"proprie": 641,
+"sovrapposizione": 0.136,
+"piu_simile": "213113/",
+"indicizzata": true
+},
+"213113/": {
+"proprie": 229,
+"sovrapposizione": 0.455,
+"piu_simile": "213114/",
+"indicizzata": true
+},
+"213114/": {
+"proprie": 160,
+"sovrapposizione": 0.516,
+"piu_simile": "213115/",
+"indicizzata": true
+},
+"213115/": {
+"proprie": 196,
+"sovrapposizione": 0.494,
+"piu_simile": "213114/",
+"indicizzata": true
+},
+"22/": {
+"proprie": 141,
+"sovrapposizione": 0.208,
+"piu_simile": "51/",
+"indicizzata": true
+},
+"221/": {
+"proprie": 80,
+"sovrapposizione": 0.198,
+"piu_simile": "2213/",
+"indicizzata": false
+},
+"2211/": {
+"proprie": 274,
+"sovrapposizione": 0.128,
+"piu_simile": "221121/",
+"indicizzata": true
+},
+"221111/": {
+"proprie": 74,
+"sovrapposizione": 0.59,
+"piu_simile": "221112/",
+"indicizzata": false
+},
+"221112/": {
+"proprie": 92,
+"sovrapposizione": 0.606,
+"piu_simile": "221113/",
+"indicizzata": false
+},
+"221113/": {
+"proprie": 67,
+"sovrapposizione": 0.673,
+"piu_simile": "221112/",
+"indicizzata": false
+},
+"221114/": {
+"proprie": 62,
+"sovrapposizione": 0.664,
+"piu_simile": "221117/",
+"indicizzata": false
+},
+"221115/": {
+"proprie": 52,
+"sovrapposizione": 0.684,
+"piu_simile": "221116/",
+"indicizzata": false
+},
+"221116/": {
+"proprie": 59,
+"sovrapposizione": 0.682,
+"piu_simile": "221117/",
+"indicizzata": false
+},
+"221117/": {
+"proprie": 66,
+"sovrapposizione": 0.668,
+"piu_simile": "221118/",
+"indicizzata": false
+},
+"221118/": {
+"proprie": 127,
+"sovrapposizione": 0.506,
+"piu_simile": "221117/",
+"indicizzata": true
+},
+"221121/": {
+"proprie": 102,
+"sovrapposizione": 0.492,
+"piu_simile": "221122/",
+"indicizzata": false
+},
+"221122/": {
+"proprie": 122,
+"sovrapposizione": 0.472,
+"piu_simile": "221121/",
+"indicizzata": true
+},
+"2212/": {
+"proprie": 28,
+"sovrapposizione": 0.341,
+"piu_simile": "2213/",
+"indicizzata": false
+},
+"221210/": {
+"proprie": 268,
+"sovrapposizione": 0.048,
+"piu_simile": "221122/",
+"indicizzata": true
+},
+"2213/": {
+"proprie": 49,
+"sovrapposizione": 0.28,
+"piu_simile": "221/",
+"indicizzata": false
+},
+"221310/": {
+"proprie": 173,
+"sovrapposizione": 0.114,
+"piu_simile": "221320/",
+"indicizzata": true
+},
+"221320/": {
+"proprie": 113,
+"sovrapposizione": 0.169,
+"piu_simile": "562998/",
+"indicizzata": false
+},
+"221330/": {
+"proprie": 134,
+"sovrapposizione": 0.143,
+"piu_simile": "423720/",
+"indicizzata": true
+},
+"23/": {
+"proprie": 589,
+"sovrapposizione": 0.053,
+"piu_simile": "52/",
+"indicizzata": true
+},
+"236/": {
+"proprie": 85,
+"sovrapposizione": 0.302,
+"piu_simile": "237/",
+"indicizzata": false
+},
+"2361/": {
+"proprie": 120,
+"sovrapposizione": 0.365,
+"piu_simile": "236115/",
+"indicizzata": true
+},
+"236115/": {
+"proprie": 263,
+"sovrapposizione": 0.393,
+"piu_simile": "236116/",
+"indicizzata": true
+},
+"236116/": {
+"proprie": 168,
+"sovrapposizione": 0.484,
+"piu_simile": "236115/",
+"indicizzata": true
+},
+"236117/": {
+"proprie": 303,
+"sovrapposizione": 0.36,
+"piu_simile": "236118/",
+"indicizzata": true
+},
+"236118/": {
+"proprie": 269,
+"sovrapposizione": 0.386,
+"piu_simile": "236117/",
+"indicizzata": true
+},
+"2362/": {
+"proprie": 49,
+"sovrapposizione": 0.2,
+"piu_simile": "236/",
+"indicizzata": false
+},
+"236210/": {
+"proprie": 423,
+"sovrapposizione": 0.199,
+"piu_simile": "236220/",
+"indicizzata": true
+},
+"236220/": {
+"proprie": 651,
+"sovrapposizione": 0.148,
+"piu_simile": "236210/",
+"indicizzata": true
+},
+"237/": {
+"proprie": 216,
+"sovrapposizione": 0.139,
+"piu_simile": "236/",
+"indicizzata": true
+},
+"2371/": {
+"proprie": 37,
+"sovrapposizione": 0.318,
+"piu_simile": "237/",
+"indicizzata": false
+},
+"237110/": {
+"proprie": 338,
+"sovrapposizione": 0.236,
+"piu_simile": "237120/",
+"indicizzata": true
+},
+"237120/": {
+"proprie": 307,
+"sovrapposizione": 0.229,
+"piu_simile": "237110/",
+"indicizzata": true
+},
+"237130/": {
+"proprie": 355,
+"sovrapposizione": 0.205,
+"piu_simile": "237120/",
+"indicizzata": true
+},
+"2372/": {
+"proprie": 24,
+"sovrapposizione": 0.429,
+"piu_simile": "2373/",
+"indicizzata": false
+},
+"237210/": {
+"proprie": 308,
+"sovrapposizione": 0.067,
+"piu_simile": "237990/",
+"indicizzata": true
+},
+"2373/": {
+"proprie": 24,
+"sovrapposizione": 0.51,
+"piu_simile": "2379/",
+"indicizzata": false
+},
+"237310/": {
+"proprie": 378,
+"sovrapposizione": 0.121,
+"piu_simile": "237990/",
+"indicizzata": true
+},
+"2379/": {
+"proprie": 20,
+"sovrapposizione": 0.51,
+"piu_simile": "2373/",
+"indicizzata": false
+},
+"237990/": {
+"proprie": 532,
+"sovrapposizione": 0.122,
+"piu_simile": "237130/",
+"indicizzata": true
+},
+"238/": {
+"proprie": 263,
+"sovrapposizione": 0.129,
+"piu_simile": "2381/",
+"indicizzata": true
+},
+"2381/": {
+"proprie": 40,
+"sovrapposizione": 0.479,
+"piu_simile": "238/",
+"indicizzata": false
+},
+"238110/": {
+"proprie": 190,
+"sovrapposizione": 0.259,
+"piu_simile": "238140/",
+"indicizzata": true
+},
+"238120/": {
+"proprie": 236,
+"sovrapposizione": 0.232,
+"piu_simile": "238190/",
+"indicizzata": true
+},
+"238130/": {
+"proprie": 164,
+"sovrapposizione": 0.246,
+"piu_simile": "238120/",
+"indicizzata": true
+},
+"238140/": {
+"proprie": 238,
+"sovrapposizione": 0.221,
+"piu_simile": "238110/",
+"indicizzata": true
+},
+"238150/": {
+"proprie": 181,
+"sovrapposizione": 0.234,
+"piu_simile": "238130/",
+"indicizzata": true
+},
+"238160/": {
+"proprie": 182,
+"sovrapposizione": 0.301,
+"piu_simile": "238170/",
+"indicizzata": true
+},
+"238170/": {
+"proprie": 169,
+"sovrapposizione": 0.312,
+"piu_simile": "238160/",
+"indicizzata": true
+},
+"238190/": {
+"proprie": 247,
+"sovrapposizione": 0.197,
+"piu_simile": "238120/",
+"indicizzata": true
+},
+"2382/": {
+"proprie": 65,
+"sovrapposizione": 0.339,
+"piu_simile": "238/",
+"indicizzata": false
+},
+"238210/": {
+"proprie": 409,
+"sovrapposizione": 0.115,
+"piu_simile": "238220/",
+"indicizzata": true
+},
+"238220/": {
+"proprie": 535,
+"sovrapposizione": 0.099,
+"piu_simile": "238290/",
+"indicizzata": true
+},
+"238290/": {
+"proprie": 391,
+"sovrapposizione": 0.131,
+"piu_simile": "238220/",
+"indicizzata": true
+},
+"2383/": {
+"proprie": 27,
+"sovrapposizione": 0.51,
+"piu_simile": "238/",
+"indicizzata": false
+},
+"238310/": {
+"proprie": 311,
+"sovrapposizione": 0.149,
+"piu_simile": "238390/",
+"indicizzata": true
+},
+"238320/": {
+"proprie": 194,
+"sovrapposizione": 0.177,
+"piu_simile": "238390/",
+"indicizzata": true
+},
+"238330/": {
+"proprie": 201,
+"sovrapposizione": 0.192,
+"piu_simile": "238390/",
+"indicizzata": true
+},
+"238340/": {
+"proprie": 196,
+"sovrapposizione": 0.191,
+"piu_simile": "238330/",
+"indicizzata": true
+},
+"238350/": {
+"proprie": 287,
+"sovrapposizione": 0.169,
+"piu_simile": "238390/",
+"indicizzata": true
+},
+"238390/": {
+"proprie": 337,
+"sovrapposizione": 0.143,
+"piu_simile": "238350/",
+"indicizzata": true
+},
+"2389/": {
+"proprie": 34,
+"sovrapposizione": 0.296,
+"piu_simile": "2383/",
+"indicizzata": false
+},
+"238910/": {
+"proprie": 624,
+"sovrapposizione": 0.1,
+"piu_simile": "238990/",
+"indicizzata": true
+},
+"238990/": {
+"proprie": 511,
+"sovrapposizione": 0.121,
+"piu_simile": "238910/",
+"indicizzata": true
+},
+"31-33/": {
+"proprie": 1122,
+"sovrapposizione": 0.034,
+"piu_simile": "21/",
+"indicizzata": true
+},
+"311/": {
+"proprie": 174,
+"sovrapposizione": 0.211,
+"piu_simile": "3119/",
+"indicizzata": true
+},
+"3111/": {
+"proprie": 56,
+"sovrapposizione": 0.335,
+"piu_simile": "3112/",
+"indicizzata": false
+},
+"311111/": {
+"proprie": 155,
+"sovrapposizione": 0.285,
+"piu_simile": "311119/",
+"indicizzata": true
+},
+"311119/": {
+"proprie": 309,
+"sovrapposizione": 0.165,
+"piu_simile": "311111/",
+"indicizzata": true
+},
+"3112/": {
+"proprie": 215,
+"sovrapposizione": 0.251,
+"piu_simile": "3119/",
+"indicizzata": true
+},
+"311211/": {
+"proprie": 296,
+"sovrapposizione": 0.125,
+"piu_simile": "311212/",
+"indicizzata": true
+},
+"311212/": {
+"proprie": 150,
+"sovrapposizione": 0.195,
+"piu_simile": "311211/",
+"indicizzata": true
+},
+"311213/": {
+"proprie": 104,
+"sovrapposizione": 0.26,
+"piu_simile": "311212/",
+"indicizzata": false
+},
+"311221/": {
+"proprie": 250,
+"sovrapposizione": 0.15,
+"piu_simile": "311224/",
+"indicizzata": true
+},
+"311224/": {
+"proprie": 313,
+"sovrapposizione": 0.199,
+"piu_simile": "311225/",
+"indicizzata": true
+},
+"311225/": {
+"proprie": 321,
+"sovrapposizione": 0.19,
+"piu_simile": "311224/",
+"indicizzata": true
+},
+"311230/": {
+"proprie": 185,
+"sovrapposizione": 0.165,
+"piu_simile": "311212/",
+"indicizzata": true
+},
+"3113/": {
+"proprie": 154,
+"sovrapposizione": 0.22,
+"piu_simile": "3119/",
+"indicizzata": true
+},
+"311313/": {
+"proprie": 154,
+"sovrapposizione": 0.396,
+"piu_simile": "311314/",
+"indicizzata": true
+},
+"311314/": {
+"proprie": 168,
+"sovrapposizione": 0.387,
+"piu_simile": "311313/",
+"indicizzata": true
+},
+"311340/": {
+"proprie": 247,
+"sovrapposizione": 0.24,
+"piu_simile": "311352/",
+"indicizzata": true
+},
+"311351/": {
+"proprie": 216,
+"sovrapposizione": 0.269,
+"piu_simile": "311352/",
+"indicizzata": true
+},
+"311352/": {
+"proprie": 192,
+"sovrapposizione": 0.254,
+"piu_simile": "311340/",
+"indicizzata": true
+},
+"3114/": {
+"proprie": 233,
+"sovrapposizione": 0.234,
+"piu_simile": "3119/",
+"indicizzata": true
+},
+"311411/": {
+"proprie": 146,
+"sovrapposizione": 0.22,
+"piu_simile": "311412/",
+"indicizzata": true
+},
+"311412/": {
+"proprie": 183,
+"sovrapposizione": 0.189,
+"piu_simile": "3114/",
+"indicizzata": true
+},
+"311421/": {
+"proprie": 256,
+"sovrapposizione": 0.221,
+"piu_simile": "311422/",
+"indicizzata": true
+},
+"311422/": {
+"proprie": 166,
+"sovrapposizione": 0.292,
+"piu_simile": "311421/",
+"indicizzata": true
+},
+"311423/": {
+"proprie": 239,
+"sovrapposizione": 0.19,
+"piu_simile": "311999/",
+"indicizzata": true
+},
+"3115/": {
+"proprie": 131,
+"sovrapposizione": 0.242,
+"piu_simile": "3114/",
+"indicizzata": true
+},
+"311511/": {
+"proprie": 240,
+"sovrapposizione": 0.152,
+"piu_simile": "311514/",
+"indicizzata": true
+},
+"311512/": {
+"proprie": 84,
+"sovrapposizione": 0.272,
+"piu_simile": "311513/",
+"indicizzata": false
+},
+"311513/": {
+"proprie": 142,
+"sovrapposizione": 0.201,
+"piu_simile": "311514/",
+"indicizzata": true
+},
+"311514/": {
+"proprie": 253,
+"sovrapposizione": 0.163,
+"piu_simile": "311511/",
+"indicizzata": true
+},
+"311520/": {
+"proprie": 165,
+"sovrapposizione": 0.133,
+"piu_simile": "311514/",
+"indicizzata": true
+},
+"3116/": {
+"proprie": 122,
+"sovrapposizione": 0.269,
+"piu_simile": "311612/",
+"indicizzata": true
+},
+"311611/": {
+"proprie": 282,
+"sovrapposizione": 0.247,
+"piu_simile": "311612/",
+"indicizzata": true
+},
+"311612/": {
+"proprie": 334,
+"sovrapposizione": 0.203,
+"piu_simile": "311611/",
+"indicizzata": true
+},
+"311613/": {
+"proprie": 141,
+"sovrapposizione": 0.244,
+"piu_simile": "311612/",
+"indicizzata": true
+},
+"311615/": {
+"proprie": 260,
+"sovrapposizione": 0.233,
+"piu_simile": "311612/",
+"indicizzata": true
+},
+"3117/": {
+"proprie": 26,
+"sovrapposizione": 0.547,
+"piu_simile": "3116/",
+"indicizzata": false
+},
+"311710/": {
+"proprie": 289,
+"sovrapposizione": 0.042,
+"piu_simile": "311224/",
+"indicizzata": true
+},
+"3118/": {
+"proprie": 174,
+"sovrapposizione": 0.262,
+"piu_simile": "3119/",
+"indicizzata": true
+},
+"311811/": {
+"proprie": 102,
+"sovrapposizione": 0.469,
+"piu_simile": "311812/",
+"indicizzata": false
+},
+"311812/": {
+"proprie": 224,
+"sovrapposizione": 0.286,
+"piu_simile": "311811/",
+"indicizzata": true
+},
+"311813/": {
+"proprie": 135,
+"sovrapposizione": 0.408,
+"piu_simile": "311812/",
+"indicizzata": true
+},
+"311821/": {
+"proprie": 117,
+"sovrapposizione": 0.357,
+"piu_simile": "311812/",
+"indicizzata": false
+},
+"311824/": {
+"proprie": 251,
+"sovrapposizione": 0.182,
+"piu_simile": "3118/",
+"indicizzata": true
+},
+"311830/": {
+"proprie": 77,
+"sovrapposizione": 0.28,
+"piu_simile": "311811/",
+"indicizzata": false
+},
+"3119/": {
+"proprie": 302,
+"sovrapposizione": 0.297,
+"piu_simile": "311999/",
+"indicizzata": true
+},
+"311911/": {
+"proprie": 129,
+"sovrapposizione": 0.28,
+"piu_simile": "3119/",
+"indicizzata": true
+},
+"311919/": {
+"proprie": 156,
+"sovrapposizione": 0.197,
+"piu_simile": "311911/",
+"indicizzata": true
+},
+"311920/": {
+"proprie": 197,
+"sovrapposizione": 0.203,
+"piu_simile": "311991/",
+"indicizzata": true
+},
+"311930/": {
+"proprie": 211,
+"sovrapposizione": 0.29,
+"piu_simile": "311942/",
+"indicizzata": true
+},
+"311941/": {
+"proprie": 182,
+"sovrapposizione": 0.289,
+"piu_simile": "311942/",
+"indicizzata": true
+},
+"311942/": {
+"proprie": 230,
+"sovrapposizione": 0.27,
+"piu_simile": "3119/",
+"indicizzata": true
+},
+"311991/": {
+"proprie": 161,
+"sovrapposizione": 0.286,
+"piu_simile": "311999/",
+"indicizzata": true
+},
+"311999/": {
+"proprie": 362,
+"sovrapposizione": 0.353,
+"piu_simile": "3119/",
+"indicizzata": true
+},
+"312/": {
+"proprie": 178,
+"sovrapposizione": 0.07,
+"piu_simile": "313/",
+"indicizzata": true
+},
+"3121/": {
+"proprie": 117,
+"sovrapposizione": 0.15,
+"piu_simile": "312111/",
+"indicizzata": false
+},
+"312111/": {
+"proprie": 164,
+"sovrapposizione": 0.155,
+"piu_simile": "312112/",
+"indicizzata": true
+},
+"312112/": {
+"proprie": 113,
+"sovrapposizione": 0.224,
+"piu_simile": "312111/",
+"indicizzata": false
+},
+"312113/": {
+"proprie": 72,
+"sovrapposizione": 0.245,
+"piu_simile": "312112/",
+"indicizzata": false
+},
+"312120/": {
+"proprie": 139,
+"sovrapposizione": 0.144,
+"piu_simile": "312130/",
+"indicizzata": true
+},
+"312130/": {
+"proprie": 175,
+"sovrapposizione": 0.18,
+"piu_simile": "312140/",
+"indicizzata": true
+},
+"312140/": {
+"proprie": 151,
+"sovrapposizione": 0.188,
+"piu_simile": "312130/",
+"indicizzata": true
+},
+"3122/": {
+"proprie": 18,
+"sovrapposizione": 0.235,
+"piu_simile": "3121/",
+"indicizzata": false
+},
+"312230/": {
+"proprie": 233,
+"sovrapposizione": 0.059,
+"piu_simile": "339999/",
+"indicizzata": true
+},
+"313/": {
+"proprie": 241,
+"sovrapposizione": 0.101,
+"piu_simile": "3132/",
+"indicizzata": true
+},
+"3131/": {
+"proprie": 25,
+"sovrapposizione": 0.311,
+"piu_simile": "3132/",
+"indicizzata": false
+},
+"313110/": {
+"proprie": 504,
+"sovrapposizione": 0.019,
+"piu_simile": "321920/",
+"indicizzata": true
+},
+"3132/": {
+"proprie": 68,
+"sovrapposizione": 0.224,
+"piu_simile": "313/",
+"indicizzata": false
+},
+"313210/": {
+"proprie": 348,
+"sovrapposizione": 0.109,
+"piu_simile": "313220/",
+"indicizzata": true
+},
+"313220/": {
+"proprie": 304,
+"sovrapposizione": 0.13,
+"piu_simile": "313210/",
+"indicizzata": true
+},
+"313230/": {
+"proprie": 168,
+"sovrapposizione": 0.128,
+"piu_simile": "313240/",
+"indicizzata": true
+},
+"313240/": {
+"proprie": 287,
+"sovrapposizione": 0.088,
+"piu_simile": "313210/",
+"indicizzata": true
+},
+"3133/": {
+"proprie": 55,
+"sovrapposizione": 0.214,
+"piu_simile": "3132/",
+"indicizzata": false
+},
+"313310/": {
+"proprie": 501,
+"sovrapposizione": 0.036,
+"piu_simile": "313320/",
+"indicizzata": true
+},
+"313320/": {
+"proprie": 184,
+"sovrapposizione": 0.094,
+"piu_simile": "313310/",
+"indicizzata": true
+},
+"314/": {
+"proprie": 61,
+"sovrapposizione": 0.133,
+"piu_simile": "3149/",
+"indicizzata": false
+},
+"3141/": {
+"proprie": 34,
+"sovrapposizione": 0.247,
+"piu_simile": "314120/",
+"indicizzata": false
+},
+"314110/": {
+"proprie": 160,
+"sovrapposizione": 0.085,
+"piu_simile": "314120/",
+"indicizzata": true
+},
+"314120/": {
+"proprie": 290,
+"sovrapposizione": 0.059,
+"piu_simile": "3141/",
+"indicizzata": true
+},
+"3149/": {
+"proprie": 123,
+"sovrapposizione": 0.356,
+"piu_simile": "314999/",
+"indicizzata": true
+},
+"314910/": {
+"proprie": 287,
+"sovrapposizione": 0.087,
+"piu_simile": "314994/",
+"indicizzata": true
+},
+"314994/": {
+"proprie": 182,
+"sovrapposizione": 0.193,
+"piu_simile": "314999/",
+"indicizzata": true
+},
+"314999/": {
+"proprie": 572,
+"sovrapposizione": 0.342,
+"piu_simile": "315210/",
+"indicizzata": true
+},
+"315/": {
+"proprie": 107,
+"sovrapposizione": 0.309,
+"piu_simile": "3152/",
+"indicizzata": false
+},
+"3151/": {
+"proprie": 28,
+"sovrapposizione": 0.302,
+"piu_simile": "3159/",
+"indicizzata": false
+},
+"315120/": {
+"proprie": 788,
+"sovrapposizione": 0.024,
+"piu_simile": "313310/",
+"indicizzata": true
+},
+"3152/": {
+"proprie": 54,
+"sovrapposizione": 0.453,
+"piu_simile": "315/",
+"indicizzata": false
+},
+"315210/": {
+"proprie": 1332,
+"sovrapposizione": 0.191,
+"piu_simile": "314999/",
+"indicizzata": true
+},
+"315250/": {
+"proprie": 2068,
+"sovrapposizione": 0.128,
+"piu_simile": "315210/",
+"indicizzata": true
+},
+"3159/": {
+"proprie": 21,
+"sovrapposizione": 0.318,
+"piu_simile": "3152/",
+"indicizzata": false
+},
+"315990/": {
+"proprie": 585,
+"sovrapposizione": 0.185,
+"piu_simile": "315210/",
+"indicizzata": true
+},
+"316/": {
+"proprie": 183,
+"sovrapposizione": 0.071,
+"piu_simile": "3169/",
+"indicizzata": true
+},
+"3161/": {
+"proprie": 27,
+"sovrapposizione": 0.348,
+"piu_simile": "3162/",
+"indicizzata": false
+},
+"316110/": {
+"proprie": 333,
+"sovrapposizione": 0.027,
+"piu_simile": "334516/",
+"indicizzata": true
+},
+"3162/": {
+"proprie": 22,
+"sovrapposizione": 0.5,
+"piu_simile": "3169/",
+"indicizzata": false
+},
+"316210/": {
+"proprie": 591,
+"sovrapposizione": 0.015,
+"piu_simile": "315120/",
+"indicizzata": true
+},
+"3169/": {
+"proprie": 19,
+"sovrapposizione": 0.478,
+"piu_simile": "3162/",
+"indicizzata": false
+},
+"316990/": {
+"proprie": 811,
+"sovrapposizione": 0.019,
+"piu_simile": "315990/",
+"indicizzata": true
+},
+"321/": {
+"proprie": 164,
+"sovrapposizione": 0.134,
+"piu_simile": "3219/",
+"indicizzata": true
+},
+"3211/": {
+"proprie": 108,
+"sovrapposizione": 0.269,
+"piu_simile": "321113/",
+"indicizzata": false
+},
+"321113/": {
+"proprie": 241,
+"sovrapposizione": 0.176,
+"piu_simile": "3211/",
+"indicizzata": true
+},
+"321114/": {
+"proprie": 212,
+"sovrapposizione": 0.169,
+"piu_simile": "3211/",
+"indicizzata": true
+},
+"3212/": {
+"proprie": 144,
+"sovrapposizione": 0.152,
+"piu_simile": "321215/",
+"indicizzata": true
+},
+"321211/": {
+"proprie": 101,
+"sovrapposizione": 0.461,
+"piu_simile": "321212/",
+"indicizzata": false
+},
+"321212/": {
+"proprie": 93,
+"sovrapposizione": 0.469,
+"piu_simile": "321211/",
+"indicizzata": false
+},
+"321215/": {
+"proprie": 222,
+"sovrapposizione": 0.128,
+"piu_simile": "3212/",
+"indicizzata": true
+},
+"321219/": {
+"proprie": 144,
+"sovrapposizione": 0.228,
+"piu_simile": "321212/",
+"indicizzata": true
+},
+"3219/": {
+"proprie": 212,
+"sovrapposizione": 0.175,
+"piu_simile": "321999/",
+"indicizzata": true
+},
+"321911/": {
+"proprie": 187,
+"sovrapposizione": 0.197,
+"piu_simile": "321918/",
+"indicizzata": true
+},
+"321912/": {
+"proprie": 320,
+"sovrapposizione": 0.143,
+"piu_simile": "321918/",
+"indicizzata": true
+},
+"321918/": {
+"proprie": 317,
+"sovrapposizione": 0.165,
+"piu_simile": "321912/",
+"indicizzata": true
+},
+"321920/": {
+"proprie": 467,
+"sovrapposizione": 0.087,
+"piu_simile": "321918/",
+"indicizzata": true
+},
+"321991/": {
+"proprie": 124,
+"sovrapposizione": 0.33,
+"piu_simile": "321992/",
+"indicizzata": true
+},
+"321992/": {
+"proprie": 143,
+"sovrapposizione": 0.312,
+"piu_simile": "321991/",
+"indicizzata": true
+},
+"321999/": {
+"proprie": 772,
+"sovrapposizione": 0.082,
+"piu_simile": "321992/",
+"indicizzata": true
+},
+"322/": {
+"proprie": 409,
+"sovrapposizione": 0.059,
+"piu_simile": "3222/",
+"indicizzata": true
+},
+"3221/": {
+"proprie": 26,
+"sovrapposizione": 0.228,
+"piu_simile": "322/",
+"indicizzata": false
+},
+"322110/": {
+"proprie": 149,
+"sovrapposizione": 0.135,
+"piu_simile": "322120/",
+"indicizzata": true
+},
+"322120/": {
+"proprie": 431,
+"sovrapposizione": 0.087,
+"piu_simile": "322130/",
+"indicizzata": true
+},
+"322130/": {
+"proprie": 200,
+"sovrapposizione": 0.171,
+"piu_simile": "322120/",
+"indicizzata": true
+},
+"3222/": {
+"proprie": 201,
+"sovrapposizione": 0.336,
+"piu_simile": "322299/",
+"indicizzata": true
+},
+"322211/": {
+"proprie": 184,
+"sovrapposizione": 0.274,
+"piu_simile": "322212/",
+"indicizzata": true
+},
+"322212/": {
+"proprie": 129,
+"sovrapposizione": 0.358,
+"piu_simile": "322219/",
+"indicizzata": true
+},
+"322219/": {
+"proprie": 281,
+"sovrapposizione": 0.224,
+"piu_simile": "322212/",
+"indicizzata": true
+},
+"322220/": {
+"proprie": 593,
+"sovrapposizione": 0.086,
+"piu_simile": "322299/",
+"indicizzata": true
+},
+"322230/": {
+"proprie": 311,
+"sovrapposizione": 0.21,
+"piu_simile": "322299/",
+"indicizzata": true
+},
+"322291/": {
+"proprie": 163,
+"sovrapposizione": 0.259,
+"piu_simile": "322299/",
+"indicizzata": true
+},
+"322299/": {
+"proprie": 241,
+"sovrapposizione": 0.297,
+"piu_simile": "3222/",
+"indicizzata": true
+},
+"323/": {
+"proprie": 303,
+"sovrapposizione": 0.112,
+"piu_simile": "3231/",
+"indicizzata": true
+},
+"3231/": {
+"proprie": 125,
+"sovrapposizione": 0.243,
+"piu_simile": "323111/",
+"indicizzata": true
+},
+"323111/": {
+"proprie": 895,
+"sovrapposizione": 0.155,
+"piu_simile": "323113/",
+"indicizzata": true
+},
+"323113/": {
+"proprie": 405,
+"sovrapposizione": 0.285,
+"piu_simile": "323111/",
+"indicizzata": true
+},
+"323117/": {
+"proprie": 210,
+"sovrapposizione": 0.179,
+"piu_simile": "323113/",
+"indicizzata": true
+},
+"323120/": {
+"proprie": 362,
+"sovrapposizione": 0.071,
+"piu_simile": "323117/",
+"indicizzata": true
+},
+"324/": {
+"proprie": 99,
+"sovrapposizione": 0.154,
+"piu_simile": "3241/",
+"indicizzata": false
+},
+"3241/": {
+"proprie": 137,
+"sovrapposizione": 0.384,
+"piu_simile": "324199/",
+"indicizzata": true
+},
+"324110/": {
+"proprie": 388,
+"sovrapposizione": 0.2,
+"piu_simile": "324199/",
+"indicizzata": true
+},
+"324121/": {
+"proprie": 110,
+"sovrapposizione": 0.352,
+"piu_simile": "324122/",
+"indicizzata": false
+},
+"324122/": {
+"proprie": 201,
+"sovrapposizione": 0.222,
+"piu_simile": "324121/",
+"indicizzata": true
+},
+"324191/": {
+"proprie": 136,
+"sovrapposizione": 0.265,
+"piu_simile": "324199/",
+"indicizzata": true
+},
+"324199/": {
+"proprie": 172,
+"sovrapposizione": 0.367,
+"piu_simile": "3241/",
+"indicizzata": true
+},
+"325/": {
+"proprie": 193,
+"sovrapposizione": 0.214,
+"piu_simile": "3251/",
+"indicizzata": true
+},
+"3251/": {
+"proprie": 156,
+"sovrapposizione": 0.329,
+"piu_simile": "325199/",
+"indicizzata": true
+},
+"325110/": {
+"proprie": 277,
+"sovrapposizione": 0.149,
+"piu_simile": "325194/",
+"indicizzata": true
+},
+"325120/": {
+"proprie": 182,
+"sovrapposizione": 0.19,
+"piu_simile": "325110/",
+"indicizzata": true
+},
+"325130/": {
+"proprie": 426,
+"sovrapposizione": 0.108,
+"piu_simile": "325180/",
+"indicizzata": true
+},
+"325180/": {
+"proprie": 976,
+"sovrapposizione": 0.08,
+"piu_simile": "325199/",
+"indicizzata": true
+},
+"325193/": {
+"proprie": 85,
+"sovrapposizione": 0.333,
+"piu_simile": "325199/",
+"indicizzata": false
+},
+"325194/": {
+"proprie": 529,
+"sovrapposizione": 0.13,
+"piu_simile": "325199/",
+"indicizzata": true
+},
+"325199/": {
+"proprie": 727,
+"sovrapposizione": 0.157,
+"piu_simile": "3251/",
+"indicizzata": true
+},
+"3252/": {
+"proprie": 101,
+"sovrapposizione": 0.218,
+"piu_simile": "3251/",
+"indicizzata": false
+},
+"325211/": {
+"proprie": 409,
+"sovrapposizione": 0.093,
+"piu_simile": "325212/",
+"indicizzata": true
+},
+"325212/": {
+"proprie": 229,
+"sovrapposizione": 0.152,
+"piu_simile": "325211/",
+"indicizzata": true
+},
+"325220/": {
+"proprie": 372,
+"sovrapposizione": 0.09,
+"piu_simile": "3252/",
+"indicizzata": true
+},
+"3253/": {
+"proprie": 99,
+"sovrapposizione": 0.283,
+"piu_simile": "3254/",
+"indicizzata": false
+},
+"325311/": {
+"proprie": 117,
+"sovrapposizione": 0.33,
+"piu_simile": "325312/",
+"indicizzata": false
+},
+"325312/": {
+"proprie": 92,
+"sovrapposizione": 0.392,
+"piu_simile": "325311/",
+"indicizzata": false
+},
+"325314/": {
+"proprie": 88,
+"sovrapposizione": 0.482,
+"piu_simile": "325315/",
+"indicizzata": false
+},
+"325315/": {
+"proprie": 74,
+"sovrapposizione": 0.541,
+"piu_simile": "325314/",
+"indicizzata": false
+},
+"325320/": {
+"proprie": 262,
+"sovrapposizione": 0.095,
+"piu_simile": "325315/",
+"indicizzata": true
+},
+"3254/": {
+"proprie": 92,
+"sovrapposizione": 0.29,
+"piu_simile": "3253/",
+"indicizzata": false
+},
+"325411/": {
+"proprie": 369,
+"sovrapposizione": 0.143,
+"piu_simile": "325412/",
+"indicizzata": true
+},
+"325412/": {
+"proprie": 399,
+"sovrapposizione": 0.126,
+"piu_simile": "325411/",
+"indicizzata": true
+},
+"325413/": {
+"proprie": 175,
+"sovrapposizione": 0.198,
+"piu_simile": "325412/",
+"indicizzata": true
+},
+"325414/": {
+"proprie": 161,
+"sovrapposizione": 0.227,
+"piu_simile": "325412/",
+"indicizzata": true
+},
+"3255/": {
+"proprie": 37,
+"sovrapposizione": 0.441,
+"piu_simile": "3254/",
+"indicizzata": false
+},
+"325510/": {
+"proprie": 276,
+"sovrapposizione": 0.042,
+"piu_simile": "325130/",
+"indicizzata": true
+},
+"325520/": {
+"proprie": 157,
+"sovrapposizione": 0.07,
+"piu_simile": "325510/",
+"indicizzata": true
+},
+"3256/": {
+"proprie": 113,
+"sovrapposizione": 0.235,
+"piu_simile": "325/",
+"indicizzata": false
+},
+"325611/": {
+"proprie": 184,
+"sovrapposizione": 0.188,
+"piu_simile": "325612/",
+"indicizzata": true
+},
+"325612/": {
+"proprie": 267,
+"sovrapposizione": 0.143,
+"piu_simile": "325611/",
+"indicizzata": true
+},
+"325613/": {
+"proprie": 142,
+"sovrapposizione": 0.192,
+"piu_simile": "325612/",
+"indicizzata": true
+},
+"325620/": {
+"proprie": 283,
+"sovrapposizione": 0.085,
+"piu_simile": "325613/",
+"indicizzata": true
+},
+"3259/": {
+"proprie": 103,
+"sovrapposizione": 0.498,
+"piu_simile": "325998/",
+"indicizzata": false
+},
+"325910/": {
+"proprie": 150,
+"sovrapposizione": 0.211,
+"piu_simile": "325992/",
+"indicizzata": true
+},
+"325920/": {
+"proprie": 170,
+"sovrapposizione": 0.178,
+"piu_simile": "325910/",
+"indicizzata": true
+},
+"325991/": {
+"proprie": 111,
+"sovrapposizione": 0.246,
+"piu_simile": "325992/",
+"indicizzata": false
+},
+"325992/": {
+"proprie": 213,
+"sovrapposizione": 0.171,
+"piu_simile": "3259/",
+"indicizzata": true
+},
+"325998/": {
+"proprie": 538,
+"sovrapposizione": 0.252,
+"piu_simile": "3259/",
+"indicizzata": true
+},
+"326/": {
+"proprie": 288,
+"sovrapposizione": 0.141,
+"piu_simile": "3261/",
+"indicizzata": true
+},
+"3261/": {
+"proprie": 290,
+"sovrapposizione": 0.351,
+"piu_simile": "326199/",
+"indicizzata": true
+},
+"326111/": {
+"proprie": 159,
+"sovrapposizione": 0.365,
+"piu_simile": "326112/",
+"indicizzata": true
+},
+"326112/": {
+"proprie": 103,
+"sovrapposizione": 0.566,
+"piu_simile": "326113/",
+"indicizzata": false
+},
+"326113/": {
+"proprie": 144,
+"sovrapposizione": 0.498,
+"piu_simile": "326112/",
+"indicizzata": true
+},
+"326121/": {
+"proprie": 104,
+"sovrapposizione": 0.456,
+"piu_simile": "326199/",
+"indicizzata": false
+},
+"326122/": {
+"proprie": 88,
+"sovrapposizione": 0.471,
+"piu_simile": "326121/",
+"indicizzata": false
+},
+"326130/": {
+"proprie": 131,
+"sovrapposizione": 0.423,
+"piu_simile": "326121/",
+"indicizzata": true
+},
+"326140/": {
+"proprie": 130,
+"sovrapposizione": 0.405,
+"piu_simile": "326150/",
+"indicizzata": true
+},
+"326150/": {
+"proprie": 133,
+"sovrapposizione": 0.405,
+"piu_simile": "326140/",
+"indicizzata": true
+},
+"326160/": {
+"proprie": 77,
+"sovrapposizione": 0.459,
+"piu_simile": "326150/",
+"indicizzata": false
+},
+"326191/": {
+"proprie": 143,
+"sovrapposizione": 0.384,
+"piu_simile": "326199/",
+"indicizzata": true
+},
+"326199/": {
+"proprie": 544,
+"sovrapposizione": 0.245,
+"piu_simile": "3261/",
+"indicizzata": true
+},
+"3262/": {
+"proprie": 149,
+"sovrapposizione": 0.28,
+"piu_simile": "326299/",
+"indicizzata": true
+},
+"326211/": {
+"proprie": 99,
+"sovrapposizione": 0.314,
+"piu_simile": "326212/",
+"indicizzata": false
+},
+"326212/": {
+"proprie": 88,
+"sovrapposizione": 0.307,
+"piu_simile": "326211/",
+"indicizzata": false
+},
+"326220/": {
+"proprie": 225,
+"sovrapposizione": 0.151,
+"piu_simile": "326299/",
+"indicizzata": true
+},
+"326291/": {
+"proprie": 127,
+"sovrapposizione": 0.29,
+"piu_simile": "326299/",
+"indicizzata": true
+},
+"326299/": {
+"proprie": 334,
+"sovrapposizione": 0.17,
+"piu_simile": "3262/",
+"indicizzata": true
+},
+"327/": {
+"proprie": 272,
+"sovrapposizione": 0.205,
+"piu_simile": "21/",
+"indicizzata": true
+},
+"3271/": {
+"proprie": 37,
+"sovrapposizione": 0.286,
+"piu_simile": "327/",
+"indicizzata": false
+},
+"327110/": {
+"proprie": 574,
+"sovrapposizione": 0.044,
+"piu_simile": "327120/",
+"indicizzata": true
+},
+"327120/": {
+"proprie": 399,
+"sovrapposizione": 0.062,
+"piu_simile": "3271/",
+"indicizzata": true
+},
+"3272/": {
+"proprie": 96,
+"sovrapposizione": 0.191,
+"piu_simile": "327215/",
+"indicizzata": false
+},
+"327211/": {
+"proprie": 120,
+"sovrapposizione": 0.301,
+"piu_simile": "327212/",
+"indicizzata": true
+},
+"327212/": {
+"proprie": 354,
+"sovrapposizione": 0.191,
+"piu_simile": "327215/",
+"indicizzata": true
+},
+"327213/": {
+"proprie": 102,
+"sovrapposizione": 0.269,
+"piu_simile": "327212/",
+"indicizzata": false
+},
+"327215/": {
+"proprie": 348,
+"sovrapposizione": 0.188,
+"piu_simile": "327212/",
+"indicizzata": true
+},
+"3273/": {
+"proprie": 81,
+"sovrapposizione": 0.268,
+"piu_simile": "3279/",
+"indicizzata": false
+},
+"327310/": {
+"proprie": 110,
+"sovrapposizione": 0.239,
+"piu_simile": "327320/",
+"indicizzata": false
+},
+"327320/": {
+"proprie": 115,
+"sovrapposizione": 0.239,
+"piu_simile": "327310/",
+"indicizzata": false
+},
+"327331/": {
+"proprie": 124,
+"sovrapposizione": 0.256,
+"piu_simile": "327332/",
+"indicizzata": true
+},
+"327332/": {
+"proprie": 89,
+"sovrapposizione": 0.294,
+"piu_simile": "327331/",
+"indicizzata": false
+},
+"327390/": {
+"proprie": 203,
+"sovrapposizione": 0.166,
+"piu_simile": "327332/",
+"indicizzata": true
+},
+"3274/": {
+"proprie": 29,
+"sovrapposizione": 0.398,
+"piu_simile": "3271/",
+"indicizzata": false
+},
+"327410/": {
+"proprie": 131,
+"sovrapposizione": 0.092,
+"piu_simile": "327420/",
+"indicizzata": true
+},
+"327420/": {
+"proprie": 238,
+"sovrapposizione": 0.062,
+"piu_simile": "327390/",
+"indicizzata": true
+},
+"3279/": {
+"proprie": 122,
+"sovrapposizione": 0.332,
+"piu_simile": "327999/",
+"indicizzata": true
+},
+"327910/": {
+"proprie": 198,
+"sovrapposizione": 0.175,
+"piu_simile": "327993/",
+"indicizzata": true
+},
+"327991/": {
+"proprie": 176,
+"sovrapposizione": 0.188,
+"piu_simile": "3279/",
+"indicizzata": true
+},
+"327992/": {
+"proprie": 213,
+"sovrapposizione": 0.188,
+"piu_simile": "327991/",
+"indicizzata": true
+},
+"327993/": {
+"proprie": 105,
+"sovrapposizione": 0.269,
+"piu_simile": "327910/",
+"indicizzata": false
+},
+"327999/": {
+"proprie": 278,
+"sovrapposizione": 0.244,
+"piu_simile": "3279/",
+"indicizzata": true
+},
+"331/": {
+"proprie": 278,
+"sovrapposizione": 0.124,
+"piu_simile": "3314/",
+"indicizzata": true
+},
+"3311/": {
+"proprie": 24,
+"sovrapposizione": 0.467,
+"piu_simile": "3315/",
+"indicizzata": false
+},
+"331110/": {
+"proprie": 680,
+"sovrapposizione": 0.072,
+"piu_simile": "331221/",
+"indicizzata": true
+},
+"3312/": {
+"proprie": 82,
+"sovrapposizione": 0.223,
+"piu_simile": "3314/",
+"indicizzata": false
+},
+"331210/": {
+"proprie": 154,
+"sovrapposizione": 0.201,
+"piu_simile": "331221/",
+"indicizzata": true
+},
+"331221/": {
+"proprie": 226,
+"sovrapposizione": 0.154,
+"piu_simile": "331110/",
+"indicizzata": true
+},
+"331222/": {
+"proprie": 244,
+"sovrapposizione": 0.164,
+"piu_simile": "331221/",
+"indicizzata": true
+},
+"3313/": {
+"proprie": 102,
+"sovrapposizione": 0.429,
+"piu_simile": "3314/",
+"indicizzata": false
+},
+"331313/": {
+"proprie": 220,
+"sovrapposizione": 0.15,
+"piu_simile": "331314/",
+"indicizzata": true
+},
+"331314/": {
+"proprie": 229,
+"sovrapposizione": 0.217,
+"piu_simile": "331492/",
+"indicizzata": true
+},
+"331315/": {
+"proprie": 196,
+"sovrapposizione": 0.285,
+"piu_simile": "331318/",
+"indicizzata": true
+},
+"331318/": {
+"proprie": 399,
+"sovrapposizione": 0.15,
+"piu_simile": "331315/",
+"indicizzata": true
+},
+"3314/": {
+"proprie": 130,
+"sovrapposizione": 0.282,
+"piu_simile": "3313/",
+"indicizzata": true
+},
+"331410/": {
+"proprie": 377,
+"sovrapposizione": 0.248,
+"piu_simile": "331420/",
+"indicizzata": true
+},
+"331420/": {
+"proprie": 472,
+"sovrapposizione": 0.188,
+"piu_simile": "331410/",
+"indicizzata": true
+},
+"331491/": {
+"proprie": 487,
+"sovrapposizione": 0.174,
+"piu_simile": "331420/",
+"indicizzata": true
+},
+"331492/": {
+"proprie": 282,
+"sovrapposizione": 0.225,
+"piu_simile": "331410/",
+"indicizzata": true
+},
+"3315/": {
+"proprie": 230,
+"sovrapposizione": 0.112,
+"piu_simile": "331523/",
+"indicizzata": true
+},
+"331511/": {
+"proprie": 237,
+"sovrapposizione": 0.215,
+"piu_simile": "331512/",
+"indicizzata": true
+},
+"331512/": {
+"proprie": 122,
+"sovrapposizione": 0.372,
+"piu_simile": "331513/",
+"indicizzata": true
+},
+"331513/": {
+"proprie": 116,
+"sovrapposizione": 0.388,
+"piu_simile": "331512/",
+"indicizzata": false
+},
+"331523/": {
+"proprie": 188,
+"sovrapposizione": 0.321,
+"piu_simile": "331529/",
+"indicizzata": true
+},
+"331524/": {
+"proprie": 103,
+"sovrapposizione": 0.45,
+"piu_simile": "331529/",
+"indicizzata": false
+},
+"331529/": {
+"proprie": 206,
+"sovrapposizione": 0.291,
+"piu_simile": "331523/",
+"indicizzata": true
+},
+"332/": {
+"proprie": 271,
+"sovrapposizione": 0.189,
+"piu_simile": "3324/",
+"indicizzata": true
+},
+"3321/": {
+"proprie": 134,
+"sovrapposizione": 0.253,
+"piu_simile": "3323/",
+"indicizzata": true
+},
+"332111/": {
+"proprie": 160,
+"sovrapposizione": 0.343,
+"piu_simile": "332112/",
+"indicizzata": true
+},
+"332112/": {
+"proprie": 131,
+"sovrapposizione": 0.385,
+"piu_simile": "332111/",
+"indicizzata": true
+},
+"332114/": {
+"proprie": 107,
+"sovrapposizione": 0.242,
+"piu_simile": "332112/",
+"indicizzata": false
+},
+"332117/": {
+"proprie": 108,
+"sovrapposizione": 0.243,
+"piu_simile": "332114/",
+"indicizzata": false
+},
+"332119/": {
+"proprie": 191,
+"sovrapposizione": 0.198,
+"piu_simile": "332112/",
+"indicizzata": true
+},
+"3322/": {
+"proprie": 75,
+"sovrapposizione": 0.345,
+"piu_simile": "332215/",
+"indicizzata": false
+},
+"332215/": {
+"proprie": 320,
+"sovrapposizione": 0.21,
+"piu_simile": "3322/",
+"indicizzata": true
+},
+"332216/": {
+"proprie": 725,
+"sovrapposizione": 0.075,
+"piu_simile": "332215/",
+"indicizzata": true
+},
+"3323/": {
+"proprie": 195,
+"sovrapposizione": 0.158,
+"piu_simile": "3329/",
+"indicizzata": true
+},
+"332311/": {
+"proprie": 143,
+"sovrapposizione": 0.254,
+"piu_simile": "332312/",
+"indicizzata": true
+},
+"332312/": {
+"proprie": 226,
+"sovrapposizione": 0.174,
+"piu_simile": "332311/",
+"indicizzata": true
+},
+"332313/": {
+"proprie": 296,
+"sovrapposizione": 0.126,
+"piu_simile": "332312/",
+"indicizzata": true
+},
+"332321/": {
+"proprie": 223,
+"sovrapposizione": 0.172,
+"piu_simile": "332322/",
+"indicizzata": true
+},
+"332322/": {
+"proprie": 342,
+"sovrapposizione": 0.129,
+"piu_simile": "3323/",
+"indicizzata": true
+},
+"332323/": {
+"proprie": 277,
+"sovrapposizione": 0.164,
+"piu_simile": "332322/",
+"indicizzata": true
+},
+"3324/": {
+"proprie": 69,
+"sovrapposizione": 0.325,
+"piu_simile": "332/",
+"indicizzata": false
+},
+"332410/": {
+"proprie": 197,
+"sovrapposizione": 0.144,
+"piu_simile": "332420/",
+"indicizzata": true
+},
+"332420/": {
+"proprie": 253,
+"sovrapposizione": 0.113,
+"piu_simile": "332410/",
+"indicizzata": true
+},
+"332431/": {
+"proprie": 139,
+"sovrapposizione": 0.296,
+"piu_simile": "332439/",
+"indicizzata": true
+},
+"332439/": {
+"proprie": 300,
+"sovrapposizione": 0.152,
+"piu_simile": "332431/",
+"indicizzata": true
+},
+"3325/": {
+"proprie": 21,
+"sovrapposizione": 0.639,
+"piu_simile": "3324/",
+"indicizzata": false
+},
+"332510/": {
+"proprie": 283,
+"sovrapposizione": 0.087,
+"piu_simile": "332999/",
+"indicizzata": true
+},
+"3326/": {
+"proprie": 92,
+"sovrapposizione": 0.278,
+"piu_simile": "3322/",
+"indicizzata": false
+},
+"332613/": {
+"proprie": 239,
+"sovrapposizione": 0.117,
+"piu_simile": "332618/",
+"indicizzata": true
+},
+"332618/": {
+"proprie": 448,
+"sovrapposizione": 0.067,
+"piu_simile": "332613/",
+"indicizzata": true
+},
+"3327/": {
+"proprie": 101,
+"sovrapposizione": 0.274,
+"piu_simile": "3328/",
+"indicizzata": false
+},
+"332710/": {
+"proprie": 162,
+"sovrapposizione": 0.18,
+"piu_simile": "332721/",
+"indicizzata": true
+},
+"332721/": {
+"proprie": 107,
+"sovrapposizione": 0.29,
+"piu_simile": "332710/",
+"indicizzata": false
+},
+"332722/": {
+"proprie": 155,
+"sovrapposizione": 0.236,
+"piu_simile": "332721/",
+"indicizzata": true
+},
+"3328/": {
+"proprie": 128,
+"sovrapposizione": 0.36,
+"piu_simile": "332812/",
+"indicizzata": true
+},
+"332811/": {
+"proprie": 136,
+"sovrapposizione": 0.295,
+"piu_simile": "332812/",
+"indicizzata": true
+},
+"332812/": {
+"proprie": 210,
+"sovrapposizione": 0.293,
+"piu_simile": "3328/",
+"indicizzata": true
+},
+"332813/": {
+"proprie": 188,
+"sovrapposizione": 0.299,
+"piu_simile": "332812/",
+"indicizzata": true
+},
+"3329/": {
+"proprie": 293,
+"sovrapposizione": 0.338,
+"piu_simile": "332999/",
+"indicizzata": true
+},
+"332911/": {
+"proprie": 293,
+"sovrapposizione": 0.248,
+"piu_simile": "332912/",
+"indicizzata": true
+},
+"332912/": {
+"proprie": 194,
+"sovrapposizione": 0.289,
+"piu_simile": "332919/",
+"indicizzata": true
+},
+"332913/": {
+"proprie": 172,
+"sovrapposizione": 0.328,
+"piu_simile": "332919/",
+"indicizzata": true
+},
+"332919/": {
+"proprie": 258,
+"sovrapposizione": 0.23,
+"piu_simile": "332912/",
+"indicizzata": true
+},
+"332991/": {
+"proprie": 127,
+"sovrapposizione": 0.354,
+"piu_simile": "332999/",
+"indicizzata": true
+},
+"332992/": {
+"proprie": 172,
+"sovrapposizione": 0.369,
+"piu_simile": "332993/",
+"indicizzata": true
+},
+"332993/": {
+"proprie": 233,
+"sovrapposizione": 0.294,
+"piu_simile": "332992/",
+"indicizzata": true
+},
+"332994/": {
+"proprie": 282,
+"sovrapposizione": 0.246,
+"piu_simile": "332993/",
+"indicizzata": true
+},
+"332996/": {
+"proprie": 148,
+"sovrapposizione": 0.381,
+"piu_simile": "332999/",
+"indicizzata": true
+},
+"332999/": {
+"proprie": 891,
+"sovrapposizione": 0.197,
+"piu_simile": "3329/",
+"indicizzata": true
+},
+"333/": {
+"proprie": 287,
+"sovrapposizione": 0.139,
+"piu_simile": "3331/",
+"indicizzata": true
+},
+"3331/": {
+"proprie": 207,
+"sovrapposizione": 0.157,
+"piu_simile": "3339/",
+"indicizzata": true
+},
+"333111/": {
+"proprie": 422,
+"sovrapposizione": 0.104,
+"piu_simile": "333112/",
+"indicizzata": true
+},
+"333112/": {
+"proprie": 212,
+"sovrapposizione": 0.187,
+"piu_simile": "333111/",
+"indicizzata": true
+},
+"333120/": {
+"proprie": 428,
+"sovrapposizione": 0.125,
+"piu_simile": "333131/",
+"indicizzata": true
+},
+"333131/": {
+"proprie": 260,
+"sovrapposizione": 0.179,
+"piu_simile": "333132/",
+"indicizzata": true
+},
+"333132/": {
+"proprie": 140,
+"sovrapposizione": 0.254,
+"piu_simile": "333131/",
+"indicizzata": true
+},
+"3332/": {
+"proprie": 114,
+"sovrapposizione": 0.271,
+"piu_simile": "3339/",
+"indicizzata": false
+},
+"333241/": {
+"proprie": 338,
+"sovrapposizione": 0.105,
+"piu_simile": "333248/",
+"indicizzata": true
+},
+"333242/": {
+"proprie": 138,
+"sovrapposizione": 0.199,
+"piu_simile": "333243/",
+"indicizzata": true
+},
+"333243/": {
+"proprie": 315,
+"sovrapposizione": 0.119,
+"piu_simile": "333248/",
+"indicizzata": true
+},
+"333248/": {
+"proprie": 856,
+"sovrapposizione": 0.062,
+"piu_simile": "333998/",
+"indicizzata": true
+},
+"3333/": {
+"proprie": 22,
+"sovrapposizione": 0.562,
+"piu_simile": "3332/",
+"indicizzata": false
+},
+"333310/": {
+"proprie": 1107,
+"sovrapposizione": 0.041,
+"piu_simile": "334118/",
+"indicizzata": true
+},
+"3334/": {
+"proprie": 122,
+"sovrapposizione": 0.213,
+"piu_simile": "3339/",
+"indicizzata": true
+},
+"333413/": {
+"proprie": 210,
+"sovrapposizione": 0.239,
+"piu_simile": "333415/",
+"indicizzata": true
+},
+"333414/": {
+"proprie": 269,
+"sovrapposizione": 0.16,
+"piu_simile": "333415/",
+"indicizzata": true
+},
+"333415/": {
+"proprie": 316,
+"sovrapposizione": 0.156,
+"piu_simile": "333413/",
+"indicizzata": true
+},
+"3335/": {
+"proprie": 136,
+"sovrapposizione": 0.236,
+"piu_simile": "3331/",
+"indicizzata": true
+},
+"333511/": {
+"proprie": 119,
+"sovrapposizione": 0.352,
+"piu_simile": "333514/",
+"indicizzata": false
+},
+"333514/": {
+"proprie": 193,
+"sovrapposizione": 0.244,
+"piu_simile": "333511/",
+"indicizzata": true
+},
+"333515/": {
+"proprie": 329,
+"sovrapposizione": 0.137,
+"piu_simile": "333514/",
+"indicizzata": true
+},
+"333517/": {
+"proprie": 591,
+"sovrapposizione": 0.104,
+"piu_simile": "333519/",
+"indicizzata": true
+},
+"333519/": {
+"proprie": 283,
+"sovrapposizione": 0.187,
+"piu_simile": "333517/",
+"indicizzata": true
+},
+"3336/": {
+"proprie": 137,
+"sovrapposizione": 0.187,
+"piu_simile": "3339/",
+"indicizzata": true
+},
+"333611/": {
+"proprie": 165,
+"sovrapposizione": 0.187,
+"piu_simile": "333612/",
+"indicizzata": true
+},
+"333612/": {
+"proprie": 118,
+"sovrapposizione": 0.365,
+"piu_simile": "333613/",
+"indicizzata": false
+},
+"333613/": {
+"proprie": 164,
+"sovrapposizione": 0.294,
+"piu_simile": "333612/",
+"indicizzata": true
+},
+"333618/": {
+"proprie": 178,
+"sovrapposizione": 0.193,
+"piu_simile": "333613/",
+"indicizzata": true
+},
+"3339/": {
+"proprie": 358,
+"sovrapposizione": 0.19,
+"piu_simile": "333998/",
+"indicizzata": true
+},
+"333912/": {
+"proprie": 149,
+"sovrapposizione": 0.359,
+"piu_simile": "333914/",
+"indicizzata": true
+},
+"333914/": {
+"proprie": 215,
+"sovrapposizione": 0.314,
+"piu_simile": "333912/",
+"indicizzata": true
+},
+"333921/": {
+"proprie": 114,
+"sovrapposizione": 0.437,
+"piu_simile": "333922/",
+"indicizzata": false
+},
+"333922/": {
+"proprie": 174,
+"sovrapposizione": 0.342,
+"piu_simile": "333921/",
+"indicizzata": true
+},
+"333923/": {
+"proprie": 167,
+"sovrapposizione": 0.335,
+"piu_simile": "333924/",
+"indicizzata": true
+},
+"333924/": {
+"proprie": 200,
+"sovrapposizione": 0.283,
+"piu_simile": "333923/",
+"indicizzata": true
+},
+"333991/": {
+"proprie": 252,
+"sovrapposizione": 0.244,
+"piu_simile": "333992/",
+"indicizzata": true
+},
+"333992/": {
+"proprie": 174,
+"sovrapposizione": 0.33,
+"piu_simile": "333998/",
+"indicizzata": true
+},
+"333993/": {
+"proprie": 145,
+"sovrapposizione": 0.385,
+"piu_simile": "333994/",
+"indicizzata": true
+},
+"333994/": {
+"proprie": 221,
+"sovrapposizione": 0.389,
+"piu_simile": "333998/",
+"indicizzata": true
+},
+"333995/": {
+"proprie": 99,
+"sovrapposizione": 0.543,
+"piu_simile": "333996/",
+"indicizzata": false
+},
+"333996/": {
+"proprie": 106,
+"sovrapposizione": 0.477,
+"piu_simile": "333995/",
+"indicizzata": false
+},
+"333998/": {
+"proprie": 379,
+"sovrapposizione": 0.208,
+"piu_simile": "333994/",
+"indicizzata": true
+},
+"334/": {
+"proprie": 147,
+"sovrapposizione": 0.248,
+"piu_simile": "3342/",
+"indicizzata": true
+},
+"3341/": {
+"proprie": 98,
+"sovrapposizione": 0.562,
+"piu_simile": "334111/",
+"indicizzata": false
+},
+"334111/": {
+"proprie": 150,
+"sovrapposizione": 0.547,
+"piu_simile": "3341/",
+"indicizzata": true
+},
+"334112/": {
+"proprie": 204,
+"sovrapposizione": 0.22,
+"piu_simile": "334111/",
+"indicizzata": true
+},
+"334118/": {
+"proprie": 253,
+"sovrapposizione": 0.18,
+"piu_simile": "334111/",
+"indicizzata": true
+},
+"3342/": {
+"proprie": 30,
+"sovrapposizione": 0.487,
+"piu_simile": "334/",
+"indicizzata": false
+},
+"334210/": {
+"proprie": 254,
+"sovrapposizione": 0.107,
+"piu_simile": "334290/",
+"indicizzata": true
+},
+"334220/": {
+"proprie": 317,
+"sovrapposizione": 0.104,
+"piu_simile": "334290/",
+"indicizzata": true
+},
+"334290/": {
+"proprie": 237,
+"sovrapposizione": 0.142,
+"piu_simile": "334220/",
+"indicizzata": true
+},
+"3343/": {
+"proprie": 21,
+"sovrapposizione": 0.58,
+"piu_simile": "3346/",
+"indicizzata": false
+},
+"334310/": {
+"proprie": 320,
+"sovrapposizione": 0.08,
+"piu_simile": "334210/",
+"indicizzata": true
+},
+"3344/": {
+"proprie": 137,
+"sovrapposizione": 0.225,
+"piu_simile": "3345/",
+"indicizzata": true
+},
+"334412/": {
+"proprie": 96,
+"sovrapposizione": 0.34,
+"piu_simile": "334418/",
+"indicizzata": false
+},
+"334413/": {
+"proprie": 235,
+"sovrapposizione": 0.176,
+"piu_simile": "334416/",
+"indicizzata": true
+},
+"334416/": {
+"proprie": 204,
+"sovrapposizione": 0.188,
+"piu_simile": "334417/",
+"indicizzata": true
+},
+"334417/": {
+"proprie": 124,
+"sovrapposizione": 0.282,
+"piu_simile": "334416/",
+"indicizzata": true
+},
+"334418/": {
+"proprie": 182,
+"sovrapposizione": 0.224,
+"piu_simile": "334419/",
+"indicizzata": true
+},
+"334419/": {
+"proprie": 321,
+"sovrapposizione": 0.15,
+"piu_simile": "334418/",
+"indicizzata": true
+},
+"3345/": {
+"proprie": 166,
+"sovrapposizione": 0.229,
+"piu_simile": "334519/",
+"indicizzata": true
+},
+"334510/": {
+"proprie": 336,
+"sovrapposizione": 0.209,
+"piu_simile": "334519/",
+"indicizzata": true
+},
+"334511/": {
+"proprie": 400,
+"sovrapposizione": 0.2,
+"piu_simile": "334519/",
+"indicizzata": true
+},
+"334512/": {
+"proprie": 426,
+"sovrapposizione": 0.201,
+"piu_simile": "334519/",
+"indicizzata": true
+},
+"334513/": {
+"proprie": 608,
+"sovrapposizione": 0.159,
+"piu_simile": "334519/",
+"indicizzata": true
+},
+"334514/": {
+"proprie": 329,
+"sovrapposizione": 0.271,
+"piu_simile": "334519/",
+"indicizzata": true
+},
+"334515/": {
+"proprie": 571,
+"sovrapposizione": 0.16,
+"piu_simile": "334514/",
+"indicizzata": true
+},
+"334516/": {
+"proprie": 384,
+"sovrapposizione": 0.237,
+"piu_simile": "334519/",
+"indicizzata": true
+},
+"334517/": {
+"proprie": 213,
+"sovrapposizione": 0.294,
+"piu_simile": "334519/",
+"indicizzata": true
+},
+"334519/": {
+"proprie": 797,
+"sovrapposizione": 0.125,
+"piu_simile": "334514/",
+"indicizzata": true
+},
+"3346/": {
+"proprie": 22,
+"sovrapposizione": 0.58,
+"piu_simile": "3343/",
+"indicizzata": false
+},
+"334610/": {
+"proprie": 366,
+"sovrapposizione": 0.031,
+"piu_simile": "334111/",
+"indicizzata": true
+},
+"335/": {
+"proprie": 133,
+"sovrapposizione": 0.149,
+"piu_simile": "3359/",
+"indicizzata": true
+},
+"3351/": {
+"proprie": 99,
+"sovrapposizione": 0.341,
+"piu_simile": "335139/",
+"indicizzata": false
+},
+"335131/": {
+"proprie": 250,
+"sovrapposizione": 0.355,
+"piu_simile": "335132/",
+"indicizzata": true
+},
+"335132/": {
+"proprie": 196,
+"sovrapposizione": 0.381,
+"piu_simile": "335131/",
+"indicizzata": true
+},
+"335139/": {
+"proprie": 532,
+"sovrapposizione": 0.21,
+"piu_simile": "335132/",
+"indicizzata": true
+},
+"3352/": {
+"proprie": 31,
+"sovrapposizione": 0.342,
+"piu_simile": "335/",
+"indicizzata": false
+},
+"335210/": {
+"proprie": 730,
+"sovrapposizione": 0.065,
+"piu_simile": "335220/",
+"indicizzata": true
+},
+"335220/": {
+"proprie": 326,
+"sovrapposizione": 0.127,
+"piu_simile": "335210/",
+"indicizzata": true
+},
+"3353/": {
+"proprie": 122,
+"sovrapposizione": 0.165,
+"piu_simile": "3351/",
+"indicizzata": true
+},
+"335311/": {
+"proprie": 329,
+"sovrapposizione": 0.1,
+"piu_simile": "335312/",
+"indicizzata": true
+},
+"335312/": {
+"proprie": 358,
+"sovrapposizione": 0.084,
+"piu_simile": "335311/",
+"indicizzata": true
+},
+"335313/": {
+"proprie": 245,
+"sovrapposizione": 0.127,
+"piu_simile": "335314/",
+"indicizzata": true
+},
+"335314/": {
+"proprie": 207,
+"sovrapposizione": 0.141,
+"piu_simile": "335313/",
+"indicizzata": true
+},
+"3359/": {
+"proprie": 239,
+"sovrapposizione": 0.268,
+"piu_simile": "335999/",
+"indicizzata": true
+},
+"335910/": {
+"proprie": 237,
+"sovrapposizione": 0.17,
+"piu_simile": "335921/",
+"indicizzata": true
+},
+"335921/": {
+"proprie": 76,
+"sovrapposizione": 0.412,
+"piu_simile": "335929/",
+"indicizzata": false
+},
+"335929/": {
+"proprie": 127,
+"sovrapposizione": 0.281,
+"piu_simile": "335921/",
+"indicizzata": true
+},
+"335931/": {
+"proprie": 313,
+"sovrapposizione": 0.192,
+"piu_simile": "335932/",
+"indicizzata": true
+},
+"335932/": {
+"proprie": 154,
+"sovrapposizione": 0.3,
+"piu_simile": "335931/",
+"indicizzata": true
+},
+"335991/": {
+"proprie": 193,
+"sovrapposizione": 0.217,
+"piu_simile": "335999/",
+"indicizzata": true
+},
+"335999/": {
+"proprie": 399,
+"sovrapposizione": 0.213,
+"piu_simile": "3359/",
+"indicizzata": true
+},
+"336/": {
+"proprie": 231,
+"sovrapposizione": 0.253,
+"piu_simile": "3363/",
+"indicizzata": true
+},
+"3361/": {
+"proprie": 42,
+"sovrapposizione": 0.404,
+"piu_simile": "3362/",
+"indicizzata": false
+},
+"336110/": {
+"proprie": 260,
+"sovrapposizione": 0.178,
+"piu_simile": "336120/",
+"indicizzata": true
+},
+"336120/": {
+"proprie": 186,
+"sovrapposizione": 0.207,
+"piu_simile": "336110/",
+"indicizzata": true
+},
+"3362/": {
+"proprie": 143,
+"sovrapposizione": 0.232,
+"piu_simile": "336211/",
+"indicizzata": true
+},
+"336211/": {
+"proprie": 261,
+"sovrapposizione": 0.195,
+"piu_simile": "3362/",
+"indicizzata": true
+},
+"336212/": {
+"proprie": 123,
+"sovrapposizione": 0.269,
+"piu_simile": "336214/",
+"indicizzata": true
+},
+"336213/": {
+"proprie": 126,
+"sovrapposizione": 0.261,
+"piu_simile": "336214/",
+"indicizzata": true
+},
+"336214/": {
+"proprie": 222,
+"sovrapposizione": 0.206,
+"piu_simile": "336213/",
+"indicizzata": true
+},
+"3363/": {
+"proprie": 49,
+"sovrapposizione": 0.492,
+"piu_simile": "336/",
+"indicizzata": false
+},
+"336310/": {
+"proprie": 374,
+"sovrapposizione": 0.183,
+"piu_simile": "336390/",
+"indicizzata": true
+},
+"336320/": {
+"proprie": 397,
+"sovrapposizione": 0.173,
+"piu_simile": "336390/",
+"indicizzata": true
+},
+"336330/": {
+"proprie": 147,
+"sovrapposizione": 0.312,
+"piu_simile": "336350/",
+"indicizzata": true
+},
+"336340/": {
+"proprie": 184,
+"sovrapposizione": 0.263,
+"piu_simile": "336310/",
+"indicizzata": true
+},
+"336350/": {
+"proprie": 171,
+"sovrapposizione": 0.284,
+"piu_simile": "336330/",
+"indicizzata": true
+},
+"336360/": {
+"proprie": 197,
+"sovrapposizione": 0.202,
+"piu_simile": "336340/",
+"indicizzata": true
+},
+"336370/": {
+"proprie": 146,
+"sovrapposizione": 0.27,
+"piu_simile": "336390/",
+"indicizzata": true
+},
+"336390/": {
+"proprie": 409,
+"sovrapposizione": 0.149,
+"piu_simile": "336310/",
+"indicizzata": true
+},
+"3364/": {
+"proprie": 168,
+"sovrapposizione": 0.217,
+"piu_simile": "336412/",
+"indicizzata": true
+},
+"336411/": {
+"proprie": 159,
+"sovrapposizione": 0.389,
+"piu_simile": "336412/",
+"indicizzata": true
+},
+"336412/": {
+"proprie": 178,
+"sovrapposizione": 0.335,
+"piu_simile": "336411/",
+"indicizzata": true
+},
+"336413/": {
+"proprie": 194,
+"sovrapposizione": 0.329,
+"piu_simile": "336419/",
+"indicizzata": true
+},
+"336414/": {
+"proprie": 102,
+"sovrapposizione": 0.429,
+"piu_simile": "336413/",
+"indicizzata": false
+},
+"336415/": {
+"proprie": 96,
+"sovrapposizione": 0.551,
+"piu_simile": "336419/",
+"indicizzata": false
+},
+"336419/": {
+"proprie": 85,
+"sovrapposizione": 0.504,
+"piu_simile": "336413/",
+"indicizzata": false
+},
+"3365/": {
+"proprie": 23,
+"sovrapposizione": 0.492,
+"piu_simile": "3364/",
+"indicizzata": false
+},
+"336510/": {
+"proprie": 259,
+"sovrapposizione": 0.066,
+"piu_simile": "811310/",
+"indicizzata": true
+},
+"3366/": {
+"proprie": 109,
+"sovrapposizione": 0.34,
+"piu_simile": "336611/",
+"indicizzata": false
+},
+"336611/": {
+"proprie": 208,
+"sovrapposizione": 0.287,
+"piu_simile": "3366/",
+"indicizzata": true
+},
+"336612/": {
+"proprie": 231,
+"sovrapposizione": 0.126,
+"piu_simile": "3366/",
+"indicizzata": true
+},
+"3369/": {
+"proprie": 98,
+"sovrapposizione": 0.325,
+"piu_simile": "336999/",
+"indicizzata": false
+},
+"336991/": {
+"proprie": 123,
+"sovrapposizione": 0.234,
+"piu_simile": "336999/",
+"indicizzata": true
+},
+"336992/": {
+"proprie": 109,
+"sovrapposizione": 0.204,
+"piu_simile": "336991/",
+"indicizzata": false
+},
+"336999/": {
+"proprie": 188,
+"sovrapposizione": 0.225,
+"piu_simile": "3369/",
+"indicizzata": true
+},
+"337/": {
+"proprie": 500,
+"sovrapposizione": 0.075,
+"piu_simile": "3371/",
+"indicizzata": true
+},
+"3371/": {
+"proprie": 125,
+"sovrapposizione": 0.296,
+"piu_simile": "337127/",
+"indicizzata": true
+},
+"337110/": {
+"proprie": 190,
+"sovrapposizione": 0.211,
+"piu_simile": "337122/",
+"indicizzata": true
+},
+"337121/": {
+"proprie": 232,
+"sovrapposizione": 0.239,
+"piu_simile": "337122/",
+"indicizzata": true
+},
+"337122/": {
+"proprie": 393,
+"sovrapposizione": 0.184,
+"piu_simile": "337127/",
+"indicizzata": true
+},
+"337126/": {
+"proprie": 446,
+"sovrapposizione": 0.174,
+"piu_simile": "337122/",
+"indicizzata": true
+},
+"337127/": {
+"proprie": 335,
+"sovrapposizione": 0.182,
+"piu_simile": "337122/",
+"indicizzata": true
+},
+"3372/": {
+"proprie": 83,
+"sovrapposizione": 0.261,
+"piu_simile": "337215/",
+"indicizzata": false
+},
+"337211/": {
+"proprie": 102,
+"sovrapposizione": 0.417,
+"piu_simile": "337214/",
+"indicizzata": false
+},
+"337212/": {
+"proprie": 194,
+"sovrapposizione": 0.175,
+"piu_simile": "337215/",
+"indicizzata": true
+},
+"337214/": {
+"proprie": 115,
+"sovrapposizione": 0.365,
+"piu_simile": "337211/",
+"indicizzata": false
+},
+"337215/": {
+"proprie": 318,
+"sovrapposizione": 0.152,
+"piu_simile": "337214/",
+"indicizzata": true
+},
+"3379/": {
+"proprie": 37,
+"sovrapposizione": 0.293,
+"piu_simile": "337/",
+"indicizzata": false
+},
+"337910/": {
+"proprie": 144,
+"sovrapposizione": 0.091,
+"piu_simile": "337920/",
+"indicizzata": true
+},
+"337920/": {
+"proprie": 188,
+"sovrapposizione": 0.069,
+"piu_simile": "337910/",
+"indicizzata": true
+},
+"339/": {
+"proprie": 192,
+"sovrapposizione": 0.145,
+"piu_simile": "3399/",
+"indicizzata": true
+},
+"3391/": {
+"proprie": 153,
+"sovrapposizione": 0.139,
+"piu_simile": "339113/",
+"indicizzata": true
+},
+"339112/": {
+"proprie": 296,
+"sovrapposizione": 0.243,
+"piu_simile": "339113/",
+"indicizzata": true
+},
+"339113/": {
+"proprie": 539,
+"sovrapposizione": 0.154,
+"piu_simile": "339112/",
+"indicizzata": true
+},
+"339114/": {
+"proprie": 193,
+"sovrapposizione": 0.201,
+"piu_simile": "339116/",
+"indicizzata": true
+},
+"339115/": {
+"proprie": 186,
+"sovrapposizione": 0.159,
+"piu_simile": "339112/",
+"indicizzata": true
+},
+"339116/": {
+"proprie": 90,
+"sovrapposizione": 0.318,
+"piu_simile": "339114/",
+"indicizzata": false
+},
+"3399/": {
+"proprie": 169,
+"sovrapposizione": 0.442,
+"piu_simile": "339999/",
+"indicizzata": true
+},
+"339910/": {
+"proprie": 554,
+"sovrapposizione": 0.091,
+"piu_simile": "339999/",
+"indicizzata": true
+},
+"339920/": {
+"proprie": 400,
+"sovrapposizione": 0.139,
+"piu_simile": "339930/",
+"indicizzata": true
+},
+"339930/": {
+"proprie": 379,
+"sovrapposizione": 0.137,
+"piu_simile": "339920/",
+"indicizzata": true
+},
+"339940/": {
+"proprie": 456,
+"sovrapposizione": 0.128,
+"piu_simile": "339999/",
+"indicizzata": true
+},
+"339950/": {
+"proprie": 154,
+"sovrapposizione": 0.275,
+"piu_simile": "339991/",
+"indicizzata": true
+},
+"339991/": {
+"proprie": 92,
+"sovrapposizione": 0.39,
+"piu_simile": "339994/",
+"indicizzata": false
+},
+"339992/": {
+"proprie": 257,
+"sovrapposizione": 0.208,
+"piu_simile": "339999/",
+"indicizzata": true
+},
+"339993/": {
+"proprie": 185,
+"sovrapposizione": 0.25,
+"piu_simile": "339999/",
+"indicizzata": true
+},
+"339994/": {
+"proprie": 113,
+"sovrapposizione": 0.364,
+"piu_simile": "339991/",
+"indicizzata": false
+},
+"339995/": {
+"proprie": 86,
+"sovrapposizione": 0.39,
+"piu_simile": "339994/",
+"indicizzata": false
+},
+"339999/": {
+"proprie": 412,
+"sovrapposizione": 0.275,
+"piu_simile": "3399/",
+"indicizzata": true
+},
+"42/": {
+"proprie": 576,
+"sovrapposizione": 0.072,
+"piu_simile": "44-45/",
+"indicizzata": true
+},
+"423/": {
+"proprie": 152,
+"sovrapposizione": 0.215,
+"piu_simile": "4234/",
+"indicizzata": true
+},
+"4231/": {
+"proprie": 21,
+"sovrapposizione": 0.591,
+"piu_simile": "423/",
+"indicizzata": false
+},
+"423110/": {
+"proprie": 202,
+"sovrapposizione": 0.186,
+"piu_simile": "423120/",
+"indicizzata": true
+},
+"423120/": {
+"proprie": 298,
+"sovrapposizione": 0.165,
+"piu_simile": "423140/",
+"indicizzata": true
+},
+"423130/": {
+"proprie": 129,
+"sovrapposizione": 0.281,
+"piu_simile": "423120/",
+"indicizzata": true
+},
+"423140/": {
+"proprie": 107,
+"sovrapposizione": 0.328,
+"piu_simile": "423120/",
+"indicizzata": false
+},
+"4232/": {
+"proprie": 26,
+"sovrapposizione": 0.632,
+"piu_simile": "4235/",
+"indicizzata": false
+},
+"423210/": {
+"proprie": 181,
+"sovrapposizione": 0.18,
+"piu_simile": "423440/",
+"indicizzata": true
+},
+"423220/": {
+"proprie": 306,
+"sovrapposizione": 0.128,
+"piu_simile": "423720/",
+"indicizzata": true
+},
+"4233/": {
+"proprie": 39,
+"sovrapposizione": 0.552,
+"piu_simile": "423/",
+"indicizzata": false
+},
+"423310/": {
+"proprie": 265,
+"sovrapposizione": 0.205,
+"piu_simile": "423390/",
+"indicizzata": true
+},
+"423320/": {
+"proprie": 245,
+"sovrapposizione": 0.223,
+"piu_simile": "423390/",
+"indicizzata": true
+},
+"423330/": {
+"proprie": 163,
+"sovrapposizione": 0.283,
+"piu_simile": "423390/",
+"indicizzata": true
+},
+"423390/": {
+"proprie": 297,
+"sovrapposizione": 0.171,
+"piu_simile": "423320/",
+"indicizzata": true
+},
+"4234/": {
+"proprie": 29,
+"sovrapposizione": 0.62,
+"piu_simile": "423/",
+"indicizzata": false
+},
+"423410/": {
+"proprie": 203,
+"sovrapposizione": 0.223,
+"piu_simile": "423440/",
+"indicizzata": true
+},
+"423420/": {
+"proprie": 249,
+"sovrapposizione": 0.244,
+"piu_simile": "423440/",
+"indicizzata": true
+},
+"423430/": {
+"proprie": 224,
+"sovrapposizione": 0.237,
+"piu_simile": "423420/",
+"indicizzata": true
+},
+"423440/": {
+"proprie": 324,
+"sovrapposizione": 0.2,
+"piu_simile": "423420/",
+"indicizzata": true
+},
+"423450/": {
+"proprie": 320,
+"sovrapposizione": 0.24,
+"piu_simile": "423490/",
+"indicizzata": true
+},
+"423460/": {
+"proprie": 133,
+"sovrapposizione": 0.355,
+"piu_simile": "423450/",
+"indicizzata": true
+},
+"423490/": {
+"proprie": 295,
+"sovrapposizione": 0.251,
+"piu_simile": "423450/",
+"indicizzata": true
+},
+"4235/": {
+"proprie": 31,
+"sovrapposizione": 0.535,
+"piu_simile": "4232/",
+"indicizzata": false
+},
+"423510/": {
+"proprie": 450,
+"sovrapposizione": 0.098,
+"piu_simile": "423520/",
+"indicizzata": true
+},
+"423520/": {
+"proprie": 168,
+"sovrapposizione": 0.176,
+"piu_simile": "423510/",
+"indicizzata": true
+},
+"4236/": {
+"proprie": 32,
+"sovrapposizione": 0.621,
+"piu_simile": "423/",
+"indicizzata": false
+},
+"423610/": {
+"proprie": 337,
+"sovrapposizione": 0.158,
+"piu_simile": "423690/",
+"indicizzata": true
+},
+"423620/": {
+"proprie": 407,
+"sovrapposizione": 0.191,
+"piu_simile": "423720/",
+"indicizzata": true
+},
+"423690/": {
+"proprie": 445,
+"sovrapposizione": 0.13,
+"piu_simile": "423620/",
+"indicizzata": true
+},
+"4237/": {
+"proprie": 27,
+"sovrapposizione": 0.601,
+"piu_simile": "423/",
+"indicizzata": false
+},
+"423710/": {
+"proprie": 243,
+"sovrapposizione": 0.165,
+"piu_simile": "423720/",
+"indicizzata": true
+},
+"423720/": {
+"proprie": 268,
+"sovrapposizione": 0.274,
+"piu_simile": "423620/",
+"indicizzata": true
+},
+"423730/": {
+"proprie": 208,
+"sovrapposizione": 0.291,
+"piu_simile": "423740/",
+"indicizzata": true
+},
+"423740/": {
+"proprie": 196,
+"sovrapposizione": 0.327,
+"piu_simile": "423730/",
+"indicizzata": true
+},
+"4238/": {
+"proprie": 17,
+"sovrapposizione": 0.649,
+"piu_simile": "423/",
+"indicizzata": false
+},
+"423810/": {
+"proprie": 179,
+"sovrapposizione": 0.314,
+"piu_simile": "423830/",
+"indicizzata": true
+},
+"423820/": {
+"proprie": 208,
+"sovrapposizione": 0.25,
+"piu_simile": "423810/",
+"indicizzata": true
+},
+"423830/": {
+"proprie": 692,
+"sovrapposizione": 0.112,
+"piu_simile": "423810/",
+"indicizzata": true
+},
+"423840/": {
+"proprie": 392,
+"sovrapposizione": 0.177,
+"piu_simile": "423830/",
+"indicizzata": true
+},
+"423850/": {
+"proprie": 345,
+"sovrapposizione": 0.165,
+"piu_simile": "423840/",
+"indicizzata": true
+},
+"423860/": {
+"proprie": 248,
+"sovrapposizione": 0.2,
+"piu_simile": "423830/",
+"indicizzata": true
+},
+"4239/": {
+"proprie": 39,
+"sovrapposizione": 0.623,
+"piu_simile": "423/",
+"indicizzata": false
+},
+"423910/": {
+"proprie": 312,
+"sovrapposizione": 0.167,
+"piu_simile": "423990/",
+"indicizzata": true
+},
+"423920/": {
+"proprie": 156,
+"sovrapposizione": 0.249,
+"piu_simile": "423990/",
+"indicizzata": true
+},
+"423930/": {
+"proprie": 204,
+"sovrapposizione": 0.172,
+"piu_simile": "423990/",
+"indicizzata": true
+},
+"423940/": {
+"proprie": 188,
+"sovrapposizione": 0.269,
+"piu_simile": "423990/",
+"indicizzata": true
+},
+"423990/": {
+"proprie": 492,
+"sovrapposizione": 0.101,
+"piu_simile": "423940/",
+"indicizzata": true
+},
+"424/": {
+"proprie": 150,
+"sovrapposizione": 0.267,
+"piu_simile": "4244/",
+"indicizzata": true
+},
+"4241/": {
+"proprie": 30,
+"sovrapposizione": 0.537,
+"piu_simile": "424/",
+"indicizzata": false
+},
+"424110/": {
+"proprie": 132,
+"sovrapposizione": 0.262,
+"piu_simile": "424120/",
+"indicizzata": true
+},
+"424120/": {
+"proprie": 285,
+"sovrapposizione": 0.141,
+"piu_simile": "424110/",
+"indicizzata": true
+},
+"424130/": {
+"proprie": 357,
+"sovrapposizione": 0.127,
+"piu_simile": "424990/",
+"indicizzata": true
+},
+"4242/": {
+"proprie": 22,
+"sovrapposizione": 0.674,
+"piu_simile": "4241/",
+"indicizzata": false
+},
+"424210/": {
+"proprie": 344,
+"sovrapposizione": 0.109,
+"piu_simile": "424690/",
+"indicizzata": true
+},
+"4243/": {
+"proprie": 28,
+"sovrapposizione": 0.565,
+"piu_simile": "424/",
+"indicizzata": false
+},
+"424310/": {
+"proprie": 221,
+"sovrapposizione": 0.145,
+"piu_simile": "423850/",
+"indicizzata": true
+},
+"424340/": {
+"proprie": 110,
+"sovrapposizione": 0.226,
+"piu_simile": "424350/",
+"indicizzata": false
+},
+"424350/": {
+"proprie": 426,
+"sovrapposizione": 0.089,
+"piu_simile": "424340/",
+"indicizzata": true
+},
+"4244/": {
+"proprie": 63,
+"sovrapposizione": 0.575,
+"piu_simile": "424/",
+"indicizzata": false
+},
+"424410/": {
+"proprie": 105,
+"sovrapposizione": 0.394,
+"piu_simile": "424420/",
+"indicizzata": false
+},
+"424420/": {
+"proprie": 207,
+"sovrapposizione": 0.281,
+"piu_simile": "424490/",
+"indicizzata": true
+},
+"424430/": {
+"proprie": 181,
+"sovrapposizione": 0.311,
+"piu_simile": "424450/",
+"indicizzata": true
+},
+"424440/": {
+"proprie": 147,
+"sovrapposizione": 0.374,
+"piu_simile": "424470/",
+"indicizzata": true
+},
+"424450/": {
+"proprie": 173,
+"sovrapposizione": 0.361,
+"piu_simile": "424490/",
+"indicizzata": true
+},
+"424460/": {
+"proprie": 133,
+"sovrapposizione": 0.393,
+"piu_simile": "424470/",
+"indicizzata": true
+},
+"424470/": {
+"proprie": 156,
+"sovrapposizione": 0.363,
+"piu_simile": "424490/",
+"indicizzata": true
+},
+"424480/": {
+"proprie": 95,
+"sovrapposizione": 0.393,
+"piu_simile": "424490/",
+"indicizzata": false
+},
+"424490/": {
+"proprie": 575,
+"sovrapposizione": 0.14,
+"piu_simile": "424470/",
+"indicizzata": true
+},
+"4245/": {
+"proprie": 35,
+"sovrapposizione": 0.517,
+"piu_simile": "4243/",
+"indicizzata": false
+},
+"424510/": {
+"proprie": 146,
+"sovrapposizione": 0.18,
+"piu_simile": "424590/",
+"indicizzata": true
+},
+"424520/": {
+"proprie": 116,
+"sovrapposizione": 0.251,
+"piu_simile": "424590/",
+"indicizzata": false
+},
+"424590/": {
+"proprie": 290,
+"sovrapposizione": 0.146,
+"piu_simile": "424490/",
+"indicizzata": true
+},
+"4246/": {
+"proprie": 19,
+"sovrapposizione": 0.613,
+"piu_simile": "4247/",
+"indicizzata": false
+},
+"424610/": {
+"proprie": 118,
+"sovrapposizione": 0.282,
+"piu_simile": "424690/",
+"indicizzata": false
+},
+"424690/": {
+"proprie": 536,
+"sovrapposizione": 0.108,
+"piu_simile": "424990/",
+"indicizzata": true
+},
+"4247/": {
+"proprie": 21,
+"sovrapposizione": 0.613,
+"piu_simile": "4246/",
+"indicizzata": false
+},
+"424710/": {
+"proprie": 207,
+"sovrapposizione": 0.167,
+"piu_simile": "424720/",
+"indicizzata": true
+},
+"424720/": {
+"proprie": 211,
+"sovrapposizione": 0.153,
+"piu_simile": "424710/",
+"indicizzata": true
+},
+"4248/": {
+"proprie": 26,
+"sovrapposizione": 0.622,
+"piu_simile": "4246/",
+"indicizzata": false
+},
+"424810/": {
+"proprie": 106,
+"sovrapposizione": 0.245,
+"piu_simile": "424820/",
+"indicizzata": false
+},
+"424820/": {
+"proprie": 144,
+"sovrapposizione": 0.197,
+"piu_simile": "424810/",
+"indicizzata": true
+},
+"4249/": {
+"proprie": 44,
+"sovrapposizione": 0.534,
+"piu_simile": "424/",
+"indicizzata": false
+},
+"424910/": {
+"proprie": 227,
+"sovrapposizione": 0.21,
+"piu_simile": "424930/",
+"indicizzata": true
+},
+"424920/": {
+"proprie": 104,
+"sovrapposizione": 0.314,
+"piu_simile": "424990/",
+"indicizzata": false
+},
+"424930/": {
+"proprie": 128,
+"sovrapposizione": 0.299,
+"piu_simile": "424910/",
+"indicizzata": true
+},
+"424940/": {
+"proprie": 127,
+"sovrapposizione": 0.258,
+"piu_simile": "424910/",
+"indicizzata": true
+},
+"424950/": {
+"proprie": 139,
+"sovrapposizione": 0.283,
+"piu_simile": "424990/",
+"indicizzata": true
+},
+"424990/": {
+"proprie": 581,
+"sovrapposizione": 0.09,
+"piu_simile": "424/",
+"indicizzata": true
+},
+"425/": {
+"proprie": 58,
+"sovrapposizione": 0.103,
+"piu_simile": "423/",
+"indicizzata": false
+},
+"4251/": {
+"proprie": 18,
+"sovrapposizione": 0.194,
+"piu_simile": "425/",
+"indicizzata": false
+},
+"425120/": {
+"proprie": 605,
+"sovrapposizione": 0.031,
+"piu_simile": "423850/",
+"indicizzata": true
+},
+"44-45/": {
+"proprie": 647,
+"sovrapposizione": 0.063,
+"piu_simile": "42/",
+"indicizzata": true
+},
+"441/": {
+"proprie": 144,
+"sovrapposizione": 0.093,
+"piu_simile": "4412/",
+"indicizzata": true
+},
+"4411/": {
+"proprie": 25,
+"sovrapposizione": 0.449,
+"piu_simile": "4412/",
+"indicizzata": false
+},
+"441110/": {
+"proprie": 123,
+"sovrapposizione": 0.303,
+"piu_simile": "441120/",
+"indicizzata": true
+},
+"441120/": {
+"proprie": 105,
+"sovrapposizione": 0.332,
+"piu_simile": "441110/",
+"indicizzata": false
+},
+"4412/": {
+"proprie": 125,
+"sovrapposizione": 0.258,
+"piu_simile": "441227/",
+"indicizzata": true
+},
+"441210/": {
+"proprie": 135,
+"sovrapposizione": 0.26,
+"piu_simile": "441227/",
+"indicizzata": true
+},
+"441222/": {
+"proprie": 146,
+"sovrapposizione": 0.273,
+"piu_simile": "441227/",
+"indicizzata": true
+},
+"441227/": {
+"proprie": 219,
+"sovrapposizione": 0.193,
+"piu_simile": "459110/",
+"indicizzata": true
+},
+"4413/": {
+"proprie": 40,
+"sovrapposizione": 0.232,
+"piu_simile": "4411/",
+"indicizzata": false
+},
+"441330/": {
+"proprie": 222,
+"sovrapposizione": 0.308,
+"piu_simile": "441340/",
+"indicizzata": true
+},
+"441340/": {
+"proprie": 139,
+"sovrapposizione": 0.371,
+"piu_simile": "441330/",
+"indicizzata": true
+},
+"444/": {
+"proprie": 96,
+"sovrapposizione": 0.152,
+"piu_simile": "4442/",
+"indicizzata": false
+},
+"4441/": {
+"proprie": 32,
+"sovrapposizione": 0.32,
+"piu_simile": "444/",
+"indicizzata": false
+},
+"444110/": {
+"proprie": 106,
+"sovrapposizione": 0.262,
+"piu_simile": "444140/",
+"indicizzata": false
+},
+"444120/": {
+"proprie": 92,
+"sovrapposizione": 0.262,
+"piu_simile": "444110/",
+"indicizzata": false
+},
+"444140/": {
+"proprie": 107,
+"sovrapposizione": 0.521,
+"piu_simile": "444180/",
+"indicizzata": false
+},
+"444180/": {
+"proprie": 377,
+"sovrapposizione": 0.253,
+"piu_simile": "444140/",
+"indicizzata": true
+},
+"4442/": {
+"proprie": 24,
+"sovrapposizione": 0.333,
+"piu_simile": "444/",
+"indicizzata": false
+},
+"444230/": {
+"proprie": 163,
+"sovrapposizione": 0.384,
+"piu_simile": "444240/",
+"indicizzata": true
+},
+"444240/": {
+"proprie": 196,
+"sovrapposizione": 0.365,
+"piu_simile": "444230/",
+"indicizzata": true
+},
+"445/": {
+"proprie": 93,
+"sovrapposizione": 0.168,
+"piu_simile": "4452/",
+"indicizzata": false
+},
+"4451/": {
+"proprie": 80,
+"sovrapposizione": 0.278,
+"piu_simile": "445131/",
+"indicizzata": false
+},
+"445110/": {
+"proprie": 157,
+"sovrapposizione": 0.224,
+"piu_simile": "445131/",
+"indicizzata": true
+},
+"445131/": {
+"proprie": 95,
+"sovrapposizione": 0.39,
+"piu_simile": "445240/",
+"indicizzata": false
+},
+"445132/": {
+"proprie": 88,
+"sovrapposizione": 0.308,
+"piu_simile": "4451/",
+"indicizzata": false
+},
+"4452/": {
+"proprie": 144,
+"sovrapposizione": 0.305,
+"piu_simile": "445298/",
+"indicizzata": true
+},
+"445230/": {
+"proprie": 116,
+"sovrapposizione": 0.25,
+"piu_simile": "445291/",
+"indicizzata": false
+},
+"445240/": {
+"proprie": 145,
+"sovrapposizione": 0.396,
+"piu_simile": "445250/",
+"indicizzata": true
+},
+"445250/": {
+"proprie": 108,
+"sovrapposizione": 0.498,
+"piu_simile": "445298/",
+"indicizzata": false
+},
+"445291/": {
+"proprie": 62,
+"sovrapposizione": 0.577,
+"piu_simile": "445292/",
+"indicizzata": false
+},
+"445292/": {
+"proprie": 91,
+"sovrapposizione": 0.5,
+"piu_simile": "445291/",
+"indicizzata": false
+},
+"445298/": {
+"proprie": 240,
+"sovrapposizione": 0.274,
+"piu_simile": "445250/",
+"indicizzata": true
+},
+"4453/": {
+"proprie": 24,
+"sovrapposizione": 0.304,
+"piu_simile": "4452/",
+"indicizzata": false
+},
+"445320/": {
+"proprie": 156,
+"sovrapposizione": 0.374,
+"piu_simile": "458210/",
+"indicizzata": true
+},
+"449/": {
+"proprie": 57,
+"sovrapposizione": 0.282,
+"piu_simile": "4491/",
+"indicizzata": false
+},
+"4491/": {
+"proprie": 137,
+"sovrapposizione": 0.151,
+"piu_simile": "449121/",
+"indicizzata": true
+},
+"449110/": {
+"proprie": 202,
+"sovrapposizione": 0.353,
+"piu_simile": "449121/",
+"indicizzata": true
+},
+"449121/": {
+"proprie": 151,
+"sovrapposizione": 0.413,
+"piu_simile": "449129/",
+"indicizzata": true
+},
+"449122/": {
+"proprie": 122,
+"sovrapposizione": 0.48,
+"piu_simile": "449129/",
+"indicizzata": true
+},
+"449129/": {
+"proprie": 200,
+"sovrapposizione": 0.362,
+"piu_simile": "449122/",
+"indicizzata": true
+},
+"4492/": {
+"proprie": 20,
+"sovrapposizione": 0.289,
+"piu_simile": "4491/",
+"indicizzata": false
+},
+"449210/": {
+"proprie": 585,
+"sovrapposizione": 0.134,
+"piu_simile": "459120/",
+"indicizzata": true
+},
+"455/": {
+"proprie": 51,
+"sovrapposizione": 0.191,
+"piu_simile": "457/",
+"indicizzata": false
+},
+"4551/": {
+"proprie": 24,
+"sovrapposizione": 0.325,
+"piu_simile": "4552/",
+"indicizzata": false
+},
+"455110/": {
+"proprie": 168,
+"sovrapposizione": 0.314,
+"piu_simile": "455211/",
+"indicizzata": true
+},
+"4552/": {
+"proprie": 108,
+"sovrapposizione": 0.451,
+"piu_simile": "455219/",
+"indicizzata": false
+},
+"455211/": {
+"proprie": 162,
+"sovrapposizione": 0.388,
+"piu_simile": "455219/",
+"indicizzata": true
+},
+"455219/": {
+"proprie": 220,
+"sovrapposizione": 0.254,
+"piu_simile": "4552/",
+"indicizzata": true
+},
+"456/": {
+"proprie": 80,
+"sovrapposizione": 0.197,
+"piu_simile": "4561/",
+"indicizzata": false
+},
+"4561/": {
+"proprie": 109,
+"sovrapposizione": 0.439,
+"piu_simile": "456199/",
+"indicizzata": false
+},
+"456110/": {
+"proprie": 134,
+"sovrapposizione": 0.442,
+"piu_simile": "456191/",
+"indicizzata": true
+},
+"456120/": {
+"proprie": 118,
+"sovrapposizione": 0.497,
+"piu_simile": "456199/",
+"indicizzata": false
+},
+"456130/": {
+"proprie": 137,
+"sovrapposizione": 0.456,
+"piu_simile": "456199/",
+"indicizzata": true
+},
+"456191/": {
+"proprie": 96,
+"sovrapposizione": 0.502,
+"piu_simile": "456199/",
+"indicizzata": false
+},
+"456199/": {
+"proprie": 182,
+"sovrapposizione": 0.294,
+"piu_simile": "456191/",
+"indicizzata": true
+},
+"457/": {
+"proprie": 54,
+"sovrapposizione": 0.241,
+"piu_simile": "4571/",
+"indicizzata": false
+},
+"4571/": {
+"proprie": 36,
+"sovrapposizione": 0.318,
+"piu_simile": "457/",
+"indicizzata": false
+},
+"457110/": {
+"proprie": 142,
+"sovrapposizione": 0.294,
+"piu_simile": "457120/",
+"indicizzata": true
+},
+"457120/": {
+"proprie": 178,
+"sovrapposizione": 0.241,
+"piu_simile": "457110/",
+"indicizzata": true
+},
+"4572/": {
+"proprie": 18,
+"sovrapposizione": 0.222,
+"piu_simile": "4571/",
+"indicizzata": false
+},
+"457210/": {
+"proprie": 181,
+"sovrapposizione": 0.149,
+"piu_simile": "457110/",
+"indicizzata": true
+},
+"458/": {
+"proprie": 46,
+"sovrapposizione": 0.244,
+"piu_simile": "4583/",
+"indicizzata": false
+},
+"4581/": {
+"proprie": 25,
+"sovrapposizione": 0.46,
+"piu_simile": "4582/",
+"indicizzata": false
+},
+"458110/": {
+"proprie": 412,
+"sovrapposizione": 0.213,
+"piu_simile": "458320/",
+"indicizzata": true
+},
+"4582/": {
+"proprie": 21,
+"sovrapposizione": 0.479,
+"piu_simile": "4581/",
+"indicizzata": false
+},
+"458210/": {
+"proprie": 150,
+"sovrapposizione": 0.426,
+"piu_simile": "458110/",
+"indicizzata": true
+},
+"4583/": {
+"proprie": 58,
+"sovrapposizione": 0.218,
+"piu_simile": "458/",
+"indicizzata": false
+},
+"458310/": {
+"proprie": 163,
+"sovrapposizione": 0.416,
+"piu_simile": "458320/",
+"indicizzata": true
+},
+"458320/": {
+"proprie": 137,
+"sovrapposizione": 0.451,
+"piu_simile": "458310/",
+"indicizzata": true
+},
+"459/": {
+"proprie": 122,
+"sovrapposizione": 0.207,
+"piu_simile": "4591/",
+"indicizzata": true
+},
+"4591/": {
+"proprie": 37,
+"sovrapposizione": 0.409,
+"piu_simile": "459/",
+"indicizzata": false
+},
+"459110/": {
+"proprie": 341,
+"sovrapposizione": 0.254,
+"piu_simile": "459140/",
+"indicizzata": true
+},
+"459120/": {
+"proprie": 187,
+"sovrapposizione": 0.398,
+"piu_simile": "459140/",
+"indicizzata": true
+},
+"459130/": {
+"proprie": 161,
+"sovrapposizione": 0.45,
+"piu_simile": "459120/",
+"indicizzata": true
+},
+"459140/": {
+"proprie": 177,
+"sovrapposizione": 0.433,
+"piu_simile": "459120/",
+"indicizzata": true
+},
+"4592/": {
+"proprie": 24,
+"sovrapposizione": 0.567,
+"piu_simile": "4593/",
+"indicizzata": false
+},
+"459210/": {
+"proprie": 188,
+"sovrapposizione": 0.375,
+"piu_simile": "459140/",
+"indicizzata": true
+},
+"4593/": {
+"proprie": 22,
+"sovrapposizione": 0.594,
+"piu_simile": "4592/",
+"indicizzata": false
+},
+"459310/": {
+"proprie": 119,
+"sovrapposizione": 0.433,
+"piu_simile": "459910/",
+"indicizzata": false
+},
+"4594/": {
+"proprie": 32,
+"sovrapposizione": 0.404,
+"piu_simile": "459/",
+"indicizzata": false
+},
+"459410/": {
+"proprie": 202,
+"sovrapposizione": 0.328,
+"piu_simile": "459420/",
+"indicizzata": true
+},
+"459420/": {
+"proprie": 206,
+"sovrapposizione": 0.361,
+"piu_simile": "459120/",
+"indicizzata": true
+},
+"4595/": {
+"proprie": 23,
+"sovrapposizione": 0.53,
+"piu_simile": "4593/",
+"indicizzata": false
+},
+"459510/": {
+"proprie": 342,
+"sovrapposizione": 0.231,
+"piu_simile": "459110/",
+"indicizzata": true
+},
+"4599/": {
+"proprie": 135,
+"sovrapposizione": 0.499,
+"piu_simile": "459999/",
+"indicizzata": true
+},
+"459910/": {
+"proprie": 113,
+"sovrapposizione": 0.472,
+"piu_simile": "459920/",
+"indicizzata": false
+},
+"459920/": {
+"proprie": 159,
+"sovrapposizione": 0.448,
+"piu_simile": "459999/",
+"indicizzata": true
+},
+"459930/": {
+"proprie": 113,
+"sovrapposizione": 0.205,
+"piu_simile": "459910/",
+"indicizzata": false
+},
+"459991/": {
+"proprie": 133,
+"sovrapposizione": 0.576,
+"piu_simile": "459999/",
+"indicizzata": false
+},
+"459999/": {
+"proprie": 277,
+"sovrapposizione": 0.288,
+"piu_simile": "459991/",
+"indicizzata": true
+},
+"48-49/": {
+"proprie": 425,
+"sovrapposizione": 0.082,
+"piu_simile": "54/",
+"indicizzata": true
+},
+"481/": {
+"proprie": 183,
+"sovrapposizione": 0.155,
+"piu_simile": "482/",
+"indicizzata": true
+},
+"4811/": {
+"proprie": 69,
+"sovrapposizione": 0.311,
+"piu_simile": "481112/",
+"indicizzata": false
+},
+"481111/": {
+"proprie": 103,
+"sovrapposizione": 0.394,
+"piu_simile": "481112/",
+"indicizzata": false
+},
+"481112/": {
+"proprie": 83,
+"sovrapposizione": 0.398,
+"piu_simile": "481111/",
+"indicizzata": false
+},
+"4812/": {
+"proprie": 135,
+"sovrapposizione": 0.231,
+"piu_simile": "481219/",
+"indicizzata": true
+},
+"481211/": {
+"proprie": 93,
+"sovrapposizione": 0.458,
+"piu_simile": "481212/",
+"indicizzata": false
+},
+"481212/": {
+"proprie": 93,
+"sovrapposizione": 0.5,
+"piu_simile": "481211/",
+"indicizzata": false
+},
+"481219/": {
+"proprie": 162,
+"sovrapposizione": 0.253,
+"piu_simile": "481211/",
+"indicizzata": true
+},
+"482/": {
+"proprie": 132,
+"sovrapposizione": 0.209,
+"piu_simile": "481/",
+"indicizzata": true
+},
+"4821/": {
+"proprie": 75,
+"sovrapposizione": 0.286,
+"piu_simile": "482112/",
+"indicizzata": false
+},
+"482111/": {
+"proprie": 150,
+"sovrapposizione": 0.274,
+"piu_simile": "482112/",
+"indicizzata": true
+},
+"482112/": {
+"proprie": 134,
+"sovrapposizione": 0.257,
+"piu_simile": "482111/",
+"indicizzata": true
+},
+"483/": {
+"proprie": 94,
+"sovrapposizione": 0.265,
+"piu_simile": "485/",
+"indicizzata": false
+},
+"4831/": {
+"proprie": 90,
+"sovrapposizione": 0.462,
+"piu_simile": "4832/",
+"indicizzata": false
+},
+"483111/": {
+"proprie": 77,
+"sovrapposizione": 0.48,
+"piu_simile": "483112/",
+"indicizzata": false
+},
+"483112/": {
+"proprie": 80,
+"sovrapposizione": 0.427,
+"piu_simile": "483111/",
+"indicizzata": false
+},
+"483113/": {
+"proprie": 175,
+"sovrapposizione": 0.345,
+"piu_simile": "483114/",
+"indicizzata": true
+},
+"483114/": {
+"proprie": 133,
+"sovrapposizione": 0.328,
+"piu_simile": "483113/",
+"indicizzata": true
+},
+"4832/": {
+"proprie": 60,
+"sovrapposizione": 0.583,
+"piu_simile": "4831/",
+"indicizzata": false
+},
+"483211/": {
+"proprie": 117,
+"sovrapposizione": 0.392,
+"piu_simile": "483212/",
+"indicizzata": false
+},
+"483212/": {
+"proprie": 133,
+"sovrapposizione": 0.385,
+"piu_simile": "483114/",
+"indicizzata": true
+},
+"484/": {
+"proprie": 209,
+"sovrapposizione": 0.119,
+"piu_simile": "4842/",
+"indicizzata": true
+},
+"4841/": {
+"proprie": 103,
+"sovrapposizione": 0.362,
+"piu_simile": "484122/",
+"indicizzata": false
+},
+"484110/": {
+"proprie": 114,
+"sovrapposizione": 0.285,
+"piu_simile": "484220/",
+"indicizzata": false
+},
+"484121/": {
+"proprie": 133,
+"sovrapposizione": 0.446,
+"piu_simile": "484122/",
+"indicizzata": true
+},
+"484122/": {
+"proprie": 125,
+"sovrapposizione": 0.397,
+"piu_simile": "484121/",
+"indicizzata": true
+},
+"4842/": {
+"proprie": 61,
+"sovrapposizione": 0.283,
+"piu_simile": "484/",
+"indicizzata": false
+},
+"484210/": {
+"proprie": 133,
+"sovrapposizione": 0.223,
+"piu_simile": "484220/",
+"indicizzata": true
+},
+"484220/": {
+"proprie": 224,
+"sovrapposizione": 0.282,
+"piu_simile": "484230/",
+"indicizzata": true
+},
+"484230/": {
+"proprie": 252,
+"sovrapposizione": 0.267,
+"piu_simile": "484220/",
+"indicizzata": true
+},
+"485/": {
+"proprie": 151,
+"sovrapposizione": 0.179,
+"piu_simile": "483/",
+"indicizzata": true
+},
+"4851/": {
+"proprie": 109,
+"sovrapposizione": 0.228,
+"piu_simile": "485113/",
+"indicizzata": false
+},
+"485111/": {
+"proprie": 113,
+"sovrapposizione": 0.382,
+"piu_simile": "485119/",
+"indicizzata": false
+},
+"485112/": {
+"proprie": 155,
+"sovrapposizione": 0.331,
+"piu_simile": "485113/",
+"indicizzata": true
+},
+"485113/": {
+"proprie": 118,
+"sovrapposizione": 0.356,
+"piu_simile": "485119/",
+"indicizzata": false
+},
+"485119/": {
+"proprie": 164,
+"sovrapposizione": 0.349,
+"piu_simile": "485113/",
+"indicizzata": true
+},
+"4852/": {
+"proprie": 22,
+"sovrapposizione": 0.516,
+"piu_simile": "4854/",
+"indicizzata": false
+},
+"485210/": {
+"proprie": 112,
+"sovrapposizione": 0.214,
+"piu_simile": "485410/",
+"indicizzata": false
+},
+"4853/": {
+"proprie": 33,
+"sovrapposizione": 0.308,
+"piu_simile": "4859/",
+"indicizzata": false
+},
+"485310/": {
+"proprie": 167,
+"sovrapposizione": 0.134,
+"piu_simile": "485320/",
+"indicizzata": true
+},
+"485320/": {
+"proprie": 124,
+"sovrapposizione": 0.176,
+"piu_simile": "485310/",
+"indicizzata": true
+},
+"4854/": {
+"proprie": 22,
+"sovrapposizione": 0.516,
+"piu_simile": "4852/",
+"indicizzata": false
+},
+"485410/": {
+"proprie": 111,
+"sovrapposizione": 0.228,
+"piu_simile": "485210/",
+"indicizzata": false
+},
+"4855/": {
+"proprie": 26,
+"sovrapposizione": 0.54,
+"piu_simile": "4859/",
+"indicizzata": false
+},
+"485510/": {
+"proprie": 123,
+"sovrapposizione": 0.19,
+"piu_simile": "485113/",
+"indicizzata": true
+},
+"4859/": {
+"proprie": 116,
+"sovrapposizione": 0.307,
+"piu_simile": "485999/",
+"indicizzata": false
+},
+"485991/": {
+"proprie": 84,
+"sovrapposizione": 0.379,
+"piu_simile": "485999/",
+"indicizzata": false
+},
+"485999/": {
+"proprie": 168,
+"sovrapposizione": 0.254,
+"piu_simile": "4859/",
+"indicizzata": true
+},
+"486/": {
+"proprie": 72,
+"sovrapposizione": 0.214,
+"piu_simile": "486210/",
+"indicizzata": false
+},
+"4861/": {
+"proprie": 26,
+"sovrapposizione": 0.326,
+"piu_simile": "4862/",
+"indicizzata": false
+},
+"486110/": {
+"proprie": 99,
+"sovrapposizione": 0.292,
+"piu_simile": "486990/",
+"indicizzata": false
+},
+"4862/": {
+"proprie": 26,
+"sovrapposizione": 0.348,
+"piu_simile": "4869/",
+"indicizzata": false
+},
+"486210/": {
+"proprie": 151,
+"sovrapposizione": 0.143,
+"piu_simile": "486/",
+"indicizzata": true
+},
+"4869/": {
+"proprie": 28,
+"sovrapposizione": 0.324,
+"piu_simile": "486/",
+"indicizzata": false
+},
+"486910/": {
+"proprie": 99,
+"sovrapposizione": 0.193,
+"piu_simile": "486990/",
+"indicizzata": false
+},
+"486990/": {
+"proprie": 117,
+"sovrapposizione": 0.25,
+"piu_simile": "486110/",
+"indicizzata": false
+},
+"487/": {
+"proprie": 167,
+"sovrapposizione": 0.093,
+"piu_simile": "4879/",
+"indicizzata": true
+},
+"4871/": {
+"proprie": 26,
+"sovrapposizione": 0.38,
+"piu_simile": "4872/",
+"indicizzata": false
+},
+"487110/": {
+"proprie": 228,
+"sovrapposizione": 0.137,
+"piu_simile": "487210/",
+"indicizzata": true
+},
+"4872/": {
+"proprie": 26,
+"sovrapposizione": 0.46,
+"piu_simile": "4879/",
+"indicizzata": false
+},
+"487210/": {
+"proprie": 200,
+"sovrapposizione": 0.169,
+"piu_simile": "487110/",
+"indicizzata": true
+},
+"4879/": {
+"proprie": 22,
+"sovrapposizione": 0.46,
+"piu_simile": "4872/",
+"indicizzata": false
+},
+"487990/": {
+"proprie": 170,
+"sovrapposizione": 0.195,
+"piu_simile": "487110/",
+"indicizzata": true
+},
+"488/": {
+"proprie": 159,
+"sovrapposizione": 0.17,
+"piu_simile": "4883/",
+"indicizzata": true
+},
+"4881/": {
+"proprie": 129,
+"sovrapposizione": 0.246,
+"piu_simile": "488119/",
+"indicizzata": true
+},
+"488111/": {
+"proprie": 92,
+"sovrapposizione": 0.277,
+"piu_simile": "488119/",
+"indicizzata": false
+},
+"488119/": {
+"proprie": 174,
+"sovrapposizione": 0.296,
+"piu_simile": "488190/",
+"indicizzata": true
+},
+"488190/": {
+"proprie": 176,
+"sovrapposizione": 0.322,
+"piu_simile": "488119/",
+"indicizzata": true
+},
+"4882/": {
+"proprie": 23,
+"sovrapposizione": 0.515,
+"piu_simile": "4883/",
+"indicizzata": false
+},
+"488210/": {
+"proprie": 226,
+"sovrapposizione": 0.097,
+"piu_simile": "488190/",
+"indicizzata": true
+},
+"4883/": {
+"proprie": 44,
+"sovrapposizione": 0.389,
+"piu_simile": "488/",
+"indicizzata": false
+},
+"488310/": {
+"proprie": 123,
+"sovrapposizione": 0.274,
+"piu_simile": "488390/",
+"indicizzata": true
+},
+"488320/": {
+"proprie": 117,
+"sovrapposizione": 0.255,
+"piu_simile": "488310/",
+"indicizzata": false
+},
+"488330/": {
+"proprie": 154,
+"sovrapposizione": 0.226,
+"piu_simile": "488390/",
+"indicizzata": true
+},
+"488390/": {
+"proprie": 217,
+"sovrapposizione": 0.172,
+"piu_simile": "488310/",
+"indicizzata": true
+},
+"4884/": {
+"proprie": 38,
+"sovrapposizione": 0.402,
+"piu_simile": "488/",
+"indicizzata": false
+},
+"488410/": {
+"proprie": 136,
+"sovrapposizione": 0.158,
+"piu_simile": "488490/",
+"indicizzata": true
+},
+"488490/": {
+"proprie": 246,
+"sovrapposizione": 0.104,
+"piu_simile": "488410/",
+"indicizzata": true
+},
+"4885/": {
+"proprie": 26,
+"sovrapposizione": 0.554,
+"piu_simile": "4889/",
+"indicizzata": false
+},
+"488510/": {
+"proprie": 121,
+"sovrapposizione": 0.167,
+"piu_simile": "488999/",
+"indicizzata": true
+},
+"4889/": {
+"proprie": 92,
+"sovrapposizione": 0.473,
+"piu_simile": "488999/",
+"indicizzata": false
+},
+"488991/": {
+"proprie": 98,
+"sovrapposizione": 0.237,
+"piu_simile": "488999/",
+"indicizzata": false
+},
+"488999/": {
+"proprie": 169,
+"sovrapposizione": 0.366,
+"piu_simile": "4889/",
+"indicizzata": true
+},
+"491/": {
+"proprie": 156,
+"sovrapposizione": 0.25,
+"piu_simile": "492/",
+"indicizzata": true
+},
+"4911/": {
+"proprie": 18,
+"sovrapposizione": 0.231,
+"piu_simile": "491/",
+"indicizzata": false
+},
+"491110/": {
+"proprie": 232,
+"sovrapposizione": 0.108,
+"piu_simile": "492210/",
+"indicizzata": true
+},
+"492/": {
+"proprie": 144,
+"sovrapposizione": 0.259,
+"piu_simile": "491/",
+"indicizzata": true
+},
+"4921/": {
+"proprie": 24,
+"sovrapposizione": 0.372,
+"piu_simile": "4922/",
+"indicizzata": false
+},
+"492110/": {
+"proprie": 217,
+"sovrapposizione": 0.151,
+"piu_simile": "492210/",
+"indicizzata": true
+},
+"4922/": {
+"proprie": 22,
+"sovrapposizione": 0.372,
+"piu_simile": "4921/",
+"indicizzata": false
+},
+"492210/": {
+"proprie": 198,
+"sovrapposizione": 0.154,
+"piu_simile": "492110/",
+"indicizzata": true
+},
+"493/": {
+"proprie": 178,
+"sovrapposizione": 0.108,
+"piu_simile": "4931/",
+"indicizzata": true
+},
+"4931/": {
+"proprie": 17,
+"sovrapposizione": 0.49,
+"piu_simile": "493/",
+"indicizzata": false
+},
+"493110/": {
+"proprie": 170,
+"sovrapposizione": 0.246,
+"piu_simile": "493190/",
+"indicizzata": true
+},
+"493120/": {
+"proprie": 141,
+"sovrapposizione": 0.241,
+"piu_simile": "493190/",
+"indicizzata": true
+},
+"493130/": {
+"proprie": 122,
+"sovrapposizione": 0.27,
+"piu_simile": "493190/",
+"indicizzata": true
+},
+"493190/": {
+"proprie": 178,
+"sovrapposizione": 0.194,
+"piu_simile": "493110/",
+"indicizzata": true
+},
+"51/": {
+"proprie": 515,
+"sovrapposizione": 0.072,
+"piu_simile": "92/",
+"indicizzata": true
+},
+"512/": {
+"proprie": 256,
+"sovrapposizione": 0.085,
+"piu_simile": "5121/",
+"indicizzata": true
+},
+"5121/": {
+"proprie": 177,
+"sovrapposizione": 0.285,
+"piu_simile": "512191/",
+"indicizzata": true
+},
+"512110/": {
+"proprie": 198,
+"sovrapposizione": 0.224,
+"piu_simile": "512120/",
+"indicizzata": true
+},
+"512120/": {
+"proprie": 209,
+"sovrapposizione": 0.183,
+"piu_simile": "512250/",
+"indicizzata": true
+},
+"512131/": {
+"proprie": 105,
+"sovrapposizione": 0.342,
+"piu_simile": "512132/",
+"indicizzata": false
+},
+"512132/": {
+"proprie": 95,
+"sovrapposizione": 0.38,
+"piu_simile": "512131/",
+"indicizzata": false
+},
+"512191/": {
+"proprie": 192,
+"sovrapposizione": 0.308,
+"piu_simile": "5121/",
+"indicizzata": true
+},
+"512199/": {
+"proprie": 222,
+"sovrapposizione": 0.251,
+"piu_simile": "5121/",
+"indicizzata": true
+},
+"5122/": {
+"proprie": 36,
+"sovrapposizione": 0.325,
+"piu_simile": "512/",
+"indicizzata": false
+},
+"512230/": {
+"proprie": 219,
+"sovrapposizione": 0.113,
+"piu_simile": "512250/",
+"indicizzata": true
+},
+"512240/": {
+"proprie": 126,
+"sovrapposizione": 0.264,
+"piu_simile": "512290/",
+"indicizzata": true
+},
+"512250/": {
+"proprie": 303,
+"sovrapposizione": 0.154,
+"piu_simile": "512290/",
+"indicizzata": true
+},
+"512290/": {
+"proprie": 172,
+"sovrapposizione": 0.262,
+"piu_simile": "512250/",
+"indicizzata": true
+},
+"513/": {
+"proprie": 300,
+"sovrapposizione": 0.086,
+"piu_simile": "5131/",
+"indicizzata": true
+},
+"5131/": {
+"proprie": 247,
+"sovrapposizione": 0.278,
+"piu_simile": "513199/",
+"indicizzata": true
+},
+"513110/": {
+"proprie": 158,
+"sovrapposizione": 0.622,
+"piu_simile": "513120/",
+"indicizzata": false
+},
+"513120/": {
+"proprie": 506,
+"sovrapposizione": 0.353,
+"piu_simile": "513110/",
+"indicizzata": true
+},
+"513130/": {
+"proprie": 534,
+"sovrapposizione": 0.322,
+"piu_simile": "513120/",
+"indicizzata": true
+},
+"513140/": {
+"proprie": 325,
+"sovrapposizione": 0.396,
+"piu_simile": "513199/",
+"indicizzata": true
+},
+"513191/": {
+"proprie": 98,
+"sovrapposizione": 0.659,
+"piu_simile": "513199/",
+"indicizzata": false
+},
+"513199/": {
+"proprie": 365,
+"sovrapposizione": 0.328,
+"piu_simile": "513120/",
+"indicizzata": true
+},
+"5132/": {
+"proprie": 20,
+"sovrapposizione": 0.27,
+"piu_simile": "5131/",
+"indicizzata": false
+},
+"513210/": {
+"proprie": 232,
+"sovrapposizione": 0.125,
+"piu_simile": "518210/",
+"indicizzata": true
+},
+"516/": {
+"proprie": 162,
+"sovrapposizione": 0.155,
+"piu_simile": "5161/",
+"indicizzata": true
+},
+"5161/": {
+"proprie": 31,
+"sovrapposizione": 0.521,
+"piu_simile": "516/",
+"indicizzata": false
+},
+"516110/": {
+"proprie": 160,
+"sovrapposizione": 0.276,
+"piu_simile": "516120/",
+"indicizzata": true
+},
+"516120/": {
+"proprie": 119,
+"sovrapposizione": 0.311,
+"piu_simile": "516110/",
+"indicizzata": false
+},
+"5162/": {
+"proprie": 22,
+"sovrapposizione": 0.412,
+"piu_simile": "516/",
+"indicizzata": false
+},
+"516210/": {
+"proprie": 435,
+"sovrapposizione": 0.268,
+"piu_simile": "519290/",
+"indicizzata": true
+},
+"517/": {
+"proprie": 94,
+"sovrapposizione": 0.222,
+"piu_simile": "5171/",
+"indicizzata": false
+},
+"5171/": {
+"proprie": 247,
+"sovrapposizione": 0.346,
+"piu_simile": "517111/",
+"indicizzata": true
+},
+"517111/": {
+"proprie": 259,
+"sovrapposizione": 0.359,
+"piu_simile": "5171/",
+"indicizzata": true
+},
+"517112/": {
+"proprie": 198,
+"sovrapposizione": 0.266,
+"piu_simile": "517111/",
+"indicizzata": true
+},
+"517121/": {
+"proprie": 159,
+"sovrapposizione": 0.293,
+"piu_simile": "517122/",
+"indicizzata": true
+},
+"517122/": {
+"proprie": 118,
+"sovrapposizione": 0.279,
+"piu_simile": "517121/",
+"indicizzata": false
+},
+"5174/": {
+"proprie": 22,
+"sovrapposizione": 0.35,
+"piu_simile": "5178/",
+"indicizzata": false
+},
+"517410/": {
+"proprie": 153,
+"sovrapposizione": 0.325,
+"piu_simile": "517111/",
+"indicizzata": true
+},
+"5178/": {
+"proprie": 26,
+"sovrapposizione": 0.35,
+"piu_simile": "5174/",
+"indicizzata": false
+},
+"517810/": {
+"proprie": 247,
+"sovrapposizione": 0.166,
+"piu_simile": "517111/",
+"indicizzata": true
+},
+"518/": {
+"proprie": 35,
+"sovrapposizione": 0.329,
+"piu_simile": "518210/",
+"indicizzata": false
+},
+"5182/": {
+"proprie": 19,
+"sovrapposizione": 0.405,
+"piu_simile": "518/",
+"indicizzata": false
+},
+"518210/": {
+"proprie": 445,
+"sovrapposizione": 0.086,
+"piu_simile": "541519/",
+"indicizzata": true
+},
+"519/": {
+"proprie": 64,
+"sovrapposizione": 0.198,
+"piu_simile": "5192/",
+"indicizzata": false
+},
+"5192/": {
+"proprie": 17,
+"sovrapposizione": 0.468,
+"piu_simile": "519/",
+"indicizzata": false
+},
+"519210/": {
+"proprie": 254,
+"sovrapposizione": 0.138,
+"piu_simile": "516210/",
+"indicizzata": true
+},
+"519290/": {
+"proprie": 218,
+"sovrapposizione": 0.415,
+"piu_simile": "516210/",
+"indicizzata": true
+},
+"52/": {
+"proprie": 809,
+"sovrapposizione": 0.042,
+"piu_simile": "71/",
+"indicizzata": true
+},
+"521/": {
+"proprie": 41,
+"sovrapposizione": 0.41,
+"piu_simile": "521110/",
+"indicizzata": false
+},
+"5211/": {
+"proprie": 19,
+"sovrapposizione": 0.29,
+"piu_simile": "521/",
+"indicizzata": false
+},
+"521110/": {
+"proprie": 124,
+"sovrapposizione": 0.212,
+"piu_simile": "521/",
+"indicizzata": true
+},
+"522/": {
+"proprie": 77,
+"sovrapposizione": 0.195,
+"piu_simile": "5223/",
+"indicizzata": false
+},
+"5221/": {
+"proprie": 52,
+"sovrapposizione": 0.25,
+"piu_simile": "5222/",
+"indicizzata": false
+},
+"522110/": {
+"proprie": 143,
+"sovrapposizione": 0.177,
+"piu_simile": "522180/",
+"indicizzata": true
+},
+"522130/": {
+"proprie": 98,
+"sovrapposizione": 0.2,
+"piu_simile": "522180/",
+"indicizzata": false
+},
+"522180/": {
+"proprie": 244,
+"sovrapposizione": 0.16,
+"piu_simile": "522299/",
+"indicizzata": true
+},
+"5222/": {
+"proprie": 169,
+"sovrapposizione": 0.233,
+"piu_simile": "522291/",
+"indicizzata": true
+},
+"522210/": {
+"proprie": 176,
+"sovrapposizione": 0.17,
+"piu_simile": "522220/",
+"indicizzata": true
+},
+"522220/": {
+"proprie": 165,
+"sovrapposizione": 0.172,
+"piu_simile": "522210/",
+"indicizzata": true
+},
+"522291/": {
+"proprie": 131,
+"sovrapposizione": 0.303,
+"piu_simile": "522299/",
+"indicizzata": true
+},
+"522292/": {
+"proprie": 147,
+"sovrapposizione": 0.288,
+"piu_simile": "522299/",
+"indicizzata": true
+},
+"522299/": {
+"proprie": 580,
+"sovrapposizione": 0.106,
+"piu_simile": "522292/",
+"indicizzata": true
+},
+"5223/": {
+"proprie": 39,
+"sovrapposizione": 0.316,
+"piu_simile": "522/",
+"indicizzata": false
+},
+"522310/": {
+"proprie": 107,
+"sovrapposizione": 0.359,
+"piu_simile": "522292/",
+"indicizzata": false
+},
+"522320/": {
+"proprie": 257,
+"sovrapposizione": 0.181,
+"piu_simile": "522390/",
+"indicizzata": true
+},
+"522390/": {
+"proprie": 162,
+"sovrapposizione": 0.232,
+"piu_simile": "522320/",
+"indicizzata": true
+},
+"523/": {
+"proprie": 70,
+"sovrapposizione": 0.259,
+"piu_simile": "5239/",
+"indicizzata": false
+},
+"5231/": {
+"proprie": 60,
+"sovrapposizione": 0.336,
+"piu_simile": "523/",
+"indicizzata": false
+},
+"523150/": {
+"proprie": 339,
+"sovrapposizione": 0.126,
+"piu_simile": "523160/",
+"indicizzata": true
+},
+"523160/": {
+"proprie": 291,
+"sovrapposizione": 0.139,
+"piu_simile": "523150/",
+"indicizzata": true
+},
+"5232/": {
+"proprie": 26,
+"sovrapposizione": 0.455,
+"piu_simile": "5239/",
+"indicizzata": false
+},
+"523210/": {
+"proprie": 104,
+"sovrapposizione": 0.295,
+"piu_simile": "523999/",
+"indicizzata": false
+},
+"5239/": {
+"proprie": 136,
+"sovrapposizione": 0.323,
+"piu_simile": "523999/",
+"indicizzata": true
+},
+"523910/": {
+"proprie": 211,
+"sovrapposizione": 0.282,
+"piu_simile": "523999/",
+"indicizzata": true
+},
+"523940/": {
+"proprie": 334,
+"sovrapposizione": 0.186,
+"piu_simile": "5239/",
+"indicizzata": true
+},
+"523991/": {
+"proprie": 143,
+"sovrapposizione": 0.298,
+"piu_simile": "5239/",
+"indicizzata": true
+},
+"523999/": {
+"proprie": 195,
+"sovrapposizione": 0.313,
+"piu_simile": "5239/",
+"indicizzata": true
+},
+"524/": {
+"proprie": 57,
+"sovrapposizione": 0.256,
+"piu_simile": "5241/",
+"indicizzata": false
+},
+"5241/": {
+"proprie": 239,
+"sovrapposizione": 0.17,
+"piu_simile": "524113/",
+"indicizzata": true
+},
+"524113/": {
+"proprie": 129,
+"sovrapposizione": 0.36,
+"piu_simile": "524114/",
+"indicizzata": true
+},
+"524114/": {
+"proprie": 155,
+"sovrapposizione": 0.329,
+"piu_simile": "524113/",
+"indicizzata": true
+},
+"524126/": {
+"proprie": 221,
+"sovrapposizione": 0.25,
+"piu_simile": "524127/",
+"indicizzata": true
+},
+"524127/": {
+"proprie": 105,
+"sovrapposizione": 0.357,
+"piu_simile": "524126/",
+"indicizzata": false
+},
+"524128/": {
+"proprie": 158,
+"sovrapposizione": 0.262,
+"piu_simile": "524126/",
+"indicizzata": true
+},
+"524130/": {
+"proprie": 121,
+"sovrapposizione": 0.279,
+"piu_simile": "524128/",
+"indicizzata": true
+},
+"5242/": {
+"proprie": 115,
+"sovrapposizione": 0.211,
+"piu_simile": "524292/",
+"indicizzata": false
+},
+"524210/": {
+"proprie": 80,
+"sovrapposizione": 0.315,
+"piu_simile": "524298/",
+"indicizzata": false
+},
+"524291/": {
+"proprie": 83,
+"sovrapposizione": 0.408,
+"piu_simile": "524292/",
+"indicizzata": false
+},
+"524292/": {
+"proprie": 161,
+"sovrapposizione": 0.228,
+"piu_simile": "524298/",
+"indicizzata": true
+},
+"524298/": {
+"proprie": 153,
+"sovrapposizione": 0.259,
+"piu_simile": "524292/",
+"indicizzata": true
+},
+"525/": {
+"proprie": 108,
+"sovrapposizione": 0.166,
+"piu_simile": "525990/",
+"indicizzata": false
+},
+"5251/": {
+"proprie": 30,
+"sovrapposizione": 0.337,
+"piu_simile": "525190/",
+"indicizzata": false
+},
+"525110/": {
+"proprie": 102,
+"sovrapposizione": 0.383,
+"piu_simile": "525120/",
+"indicizzata": false
+},
+"525120/": {
+"proprie": 107,
+"sovrapposizione": 0.371,
+"piu_simile": "525190/",
+"indicizzata": false
+},
+"525190/": {
+"proprie": 164,
+"sovrapposizione": 0.249,
+"piu_simile": "525120/",
+"indicizzata": true
+},
+"5259/": {
+"proprie": 46,
+"sovrapposizione": 0.287,
+"piu_simile": "5251/",
+"indicizzata": false
+},
+"525910/": {
+"proprie": 113,
+"sovrapposizione": 0.323,
+"piu_simile": "525990/",
+"indicizzata": false
+},
+"525920/": {
+"proprie": 149,
+"sovrapposizione": 0.21,
+"piu_simile": "525990/",
+"indicizzata": true
+},
+"525990/": {
+"proprie": 268,
+"sovrapposizione": 0.145,
+"piu_simile": "525910/",
+"indicizzata": true
+},
+"53/": {
+"proprie": 250,
+"sovrapposizione": 0.206,
+"piu_simile": "532/",
+"indicizzata": true
+},
+"531/": {
+"proprie": 108,
+"sovrapposizione": 0.254,
+"piu_simile": "5311/",
+"indicizzata": false
+},
+"5311/": {
+"proprie": 50,
+"sovrapposizione": 0.45,
+"piu_simile": "531/",
+"indicizzata": false
+},
+"531110/": {
+"proprie": 201,
+"sovrapposizione": 0.278,
+"piu_simile": "531120/",
+"indicizzata": true
+},
+"531120/": {
+"proprie": 400,
+"sovrapposizione": 0.201,
+"piu_simile": "531190/",
+"indicizzata": true
+},
+"531130/": {
+"proprie": 156,
+"sovrapposizione": 0.289,
+"piu_simile": "531120/",
+"indicizzata": true
+},
+"531190/": {
+"proprie": 249,
+"sovrapposizione": 0.301,
+"piu_simile": "531120/",
+"indicizzata": true
+},
+"5312/": {
+"proprie": 23,
+"sovrapposizione": 0.375,
+"piu_simile": "5313/",
+"indicizzata": false
+},
+"531210/": {
+"proprie": 170,
+"sovrapposizione": 0.133,
+"piu_simile": "531311/",
+"indicizzata": true
+},
+"5313/": {
+"proprie": 109,
+"sovrapposizione": 0.401,
+"piu_simile": "531312/",
+"indicizzata": false
+},
+"531311/": {
+"proprie": 110,
+"sovrapposizione": 0.56,
+"piu_simile": "531312/",
+"indicizzata": false
+},
+"531312/": {
+"proprie": 117,
+"sovrapposizione": 0.443,
+"piu_simile": "531311/",
+"indicizzata": false
+},
+"531320/": {
+"proprie": 76,
+"sovrapposizione": 0.327,
+"piu_simile": "531390/",
+"indicizzata": false
+},
+"531390/": {
+"proprie": 186,
+"sovrapposizione": 0.179,
+"piu_simile": "531312/",
+"indicizzata": true
+},
+"532/": {
+"proprie": 284,
+"sovrapposizione": 0.167,
+"piu_simile": "53/",
+"indicizzata": true
+},
+"5321/": {
+"proprie": 109,
+"sovrapposizione": 0.328,
+"piu_simile": "532112/",
+"indicizzata": false
+},
+"532111/": {
+"proprie": 126,
+"sovrapposizione": 0.403,
+"piu_simile": "532112/",
+"indicizzata": true
+},
+"532112/": {
+"proprie": 101,
+"sovrapposizione": 0.366,
+"piu_simile": "532111/",
+"indicizzata": false
+},
+"532120/": {
+"proprie": 247,
+"sovrapposizione": 0.169,
+"piu_simile": "532112/",
+"indicizzata": true
+},
+"5322/": {
+"proprie": 206,
+"sovrapposizione": 0.18,
+"piu_simile": "532282/",
+"indicizzata": true
+},
+"532210/": {
+"proprie": 131,
+"sovrapposizione": 0.335,
+"piu_simile": "532289/",
+"indicizzata": true
+},
+"532281/": {
+"proprie": 157,
+"sovrapposizione": 0.278,
+"piu_simile": "532289/",
+"indicizzata": true
+},
+"532282/": {
+"proprie": 127,
+"sovrapposizione": 0.264,
+"piu_simile": "5322/",
+"indicizzata": true
+},
+"532283/": {
+"proprie": 142,
+"sovrapposizione": 0.226,
+"piu_simile": "532289/",
+"indicizzata": true
+},
+"532284/": {
+"proprie": 157,
+"sovrapposizione": 0.267,
+"piu_simile": "532289/",
+"indicizzata": true
+},
+"532289/": {
+"proprie": 194,
+"sovrapposizione": 0.228,
+"piu_simile": "532210/",
+"indicizzata": true
+},
+"5323/": {
+"proprie": 26,
+"sovrapposizione": 0.463,
+"piu_simile": "5324/",
+"indicizzata": false
+},
+"532310/": {
+"proprie": 174,
+"sovrapposizione": 0.16,
+"piu_simile": "532289/",
+"indicizzata": true
+},
+"5324/": {
+"proprie": 128,
+"sovrapposizione": 0.295,
+"piu_simile": "532412/",
+"indicizzata": true
+},
+"532411/": {
+"proprie": 157,
+"sovrapposizione": 0.297,
+"piu_simile": "532412/",
+"indicizzata": true
+},
+"532412/": {
+"proprie": 158,
+"sovrapposizione": 0.305,
+"piu_simile": "532490/",
+"indicizzata": true
+},
+"532420/": {
+"proprie": 134,
+"sovrapposizione": 0.397,
+"piu_simile": "532490/",
+"indicizzata": true
+},
+"532490/": {
+"proprie": 384,
+"sovrapposizione": 0.173,
+"piu_simile": "532412/",
+"indicizzata": true
+},
+"533/": {
+"proprie": 86,
+"sovrapposizione": 0.402,
+"piu_simile": "533110/",
+"indicizzata": false
+},
+"5331/": {
+"proprie": 18,
+"sovrapposizione": 0.371,
+"piu_simile": "533/",
+"indicizzata": false
+},
+"533110/": {
+"proprie": 162,
+"sovrapposizione": 0.278,
+"piu_simile": "533/",
+"indicizzata": true
+},
+"54/": {
+"proprie": 135,
+"sovrapposizione": 0.247,
+"piu_simile": "56/",
+"indicizzata": true
+},
+"541/": {
+"proprie": 185,
+"sovrapposizione": 0.211,
+"piu_simile": "5418/",
+"indicizzata": true
+},
+"5411/": {
+"proprie": 96,
+"sovrapposizione": 0.273,
+"piu_simile": "541199/",
+"indicizzata": false
+},
+"541110/": {
+"proprie": 197,
+"sovrapposizione": 0.137,
+"piu_simile": "541120/",
+"indicizzata": true
+},
+"541120/": {
+"proprie": 118,
+"sovrapposizione": 0.238,
+"piu_simile": "541191/",
+"indicizzata": false
+},
+"541191/": {
+"proprie": 121,
+"sovrapposizione": 0.362,
+"piu_simile": "541199/",
+"indicizzata": true
+},
+"541199/": {
+"proprie": 133,
+"sovrapposizione": 0.315,
+"piu_simile": "541191/",
+"indicizzata": true
+},
+"5412/": {
+"proprie": 95,
+"sovrapposizione": 0.355,
+"piu_simile": "5415/",
+"indicizzata": false
+},
+"541211/": {
+"proprie": 224,
+"sovrapposizione": 0.231,
+"piu_simile": "541219/",
+"indicizzata": true
+},
+"541213/": {
+"proprie": 101,
+"sovrapposizione": 0.567,
+"piu_simile": "541214/",
+"indicizzata": false
+},
+"541214/": {
+"proprie": 140,
+"sovrapposizione": 0.486,
+"piu_simile": "541213/",
+"indicizzata": true
+},
+"541219/": {
+"proprie": 135,
+"sovrapposizione": 0.314,
+"piu_simile": "541214/",
+"indicizzata": true
+},
+"5413/": {
+"proprie": 38,
+"sovrapposizione": 0.517,
+"piu_simile": "541/",
+"indicizzata": false
+},
+"541310/": {
+"proprie": 124,
+"sovrapposizione": 0.329,
+"piu_simile": "541330/",
+"indicizzata": true
+},
+"541320/": {
+"proprie": 190,
+"sovrapposizione": 0.176,
+"piu_simile": "541310/",
+"indicizzata": true
+},
+"541330/": {
+"proprie": 289,
+"sovrapposizione": 0.141,
+"piu_simile": "541310/",
+"indicizzata": true
+},
+"541340/": {
+"proprie": 83,
+"sovrapposizione": 0.365,
+"piu_simile": "541350/",
+"indicizzata": false
+},
+"541350/": {
+"proprie": 164,
+"sovrapposizione": 0.2,
+"piu_simile": "541340/",
+"indicizzata": true
+},
+"541360/": {
+"proprie": 221,
+"sovrapposizione": 0.178,
+"piu_simile": "541370/",
+"indicizzata": true
+},
+"541370/": {
+"proprie": 197,
+"sovrapposizione": 0.219,
+"piu_simile": "541330/",
+"indicizzata": true
+},
+"541380/": {
+"proprie": 293,
+"sovrapposizione": 0.125,
+"piu_simile": "541370/",
+"indicizzata": true
+},
+"5414/": {
+"proprie": 36,
+"sovrapposizione": 0.533,
+"piu_simile": "5415/",
+"indicizzata": false
+},
+"541410/": {
+"proprie": 164,
+"sovrapposizione": 0.237,
+"piu_simile": "541420/",
+"indicizzata": true
+},
+"541420/": {
+"proprie": 145,
+"sovrapposizione": 0.233,
+"piu_simile": "541330/",
+"indicizzata": true
+},
+"541430/": {
+"proprie": 257,
+"sovrapposizione": 0.133,
+"piu_simile": "541490/",
+"indicizzata": true
+},
+"541490/": {
+"proprie": 177,
+"sovrapposizione": 0.162,
+"piu_simile": "541420/",
+"indicizzata": true
+},
+"5415/": {
+"proprie": 142,
+"sovrapposizione": 0.209,
+"piu_simile": "541512/",
+"indicizzata": true
+},
+"541511/": {
+"proprie": 189,
+"sovrapposizione": 0.27,
+"piu_simile": "541519/",
+"indicizzata": true
+},
+"541512/": {
+"proprie": 244,
+"sovrapposizione": 0.195,
+"piu_simile": "5415/",
+"indicizzata": true
+},
+"541513/": {
+"proprie": 100,
+"sovrapposizione": 0.324,
+"piu_simile": "541519/",
+"indicizzata": false
+},
+"541519/": {
+"proprie": 115,
+"sovrapposizione": 0.291,
+"piu_simile": "541511/",
+"indicizzata": false
+},
+"5416/": {
+"proprie": 176,
+"sovrapposizione": 0.225,
+"piu_simile": "541611/",
+"indicizzata": true
+},
+"541611/": {
+"proprie": 187,
+"sovrapposizione": 0.266,
+"piu_simile": "541612/",
+"indicizzata": true
+},
+"541612/": {
+"proprie": 136,
+"sovrapposizione": 0.347,
+"piu_simile": "541611/",
+"indicizzata": true
+},
+"541613/": {
+"proprie": 122,
+"sovrapposizione": 0.327,
+"piu_simile": "541611/",
+"indicizzata": true
+},
+"541614/": {
+"proprie": 230,
+"sovrapposizione": 0.216,
+"piu_simile": "541613/",
+"indicizzata": true
+},
+"541618/": {
+"proprie": 117,
+"sovrapposizione": 0.31,
+"piu_simile": "541611/",
+"indicizzata": false
+},
+"541620/": {
+"proprie": 183,
+"sovrapposizione": 0.211,
+"piu_simile": "541690/",
+"indicizzata": true
+},
+"541690/": {
+"proprie": 235,
+"sovrapposizione": 0.19,
+"piu_simile": "541620/",
+"indicizzata": true
+},
+"5417/": {
+"proprie": 180,
+"sovrapposizione": 0.299,
+"piu_simile": "541715/",
+"indicizzata": true
+},
+"541713/": {
+"proprie": 124,
+"sovrapposizione": 0.618,
+"piu_simile": "541714/",
+"indicizzata": false
+},
+"541714/": {
+"proprie": 252,
+"sovrapposizione": 0.471,
+"piu_simile": "541713/",
+"indicizzata": true
+},
+"541715/": {
+"proprie": 261,
+"sovrapposizione": 0.424,
+"piu_simile": "541714/",
+"indicizzata": true
+},
+"541720/": {
+"proprie": 184,
+"sovrapposizione": 0.211,
+"piu_simile": "541715/",
+"indicizzata": true
+},
+"5418/": {
+"proprie": 48,
+"sovrapposizione": 0.526,
+"piu_simile": "541/",
+"indicizzata": false
+},
+"541810/": {
+"proprie": 156,
+"sovrapposizione": 0.417,
+"piu_simile": "541890/",
+"indicizzata": true
+},
+"541820/": {
+"proprie": 107,
+"sovrapposizione": 0.293,
+"piu_simile": "541810/",
+"indicizzata": false
+},
+"541830/": {
+"proprie": 87,
+"sovrapposizione": 0.408,
+"piu_simile": "541840/",
+"indicizzata": false
+},
+"541840/": {
+"proprie": 128,
+"sovrapposizione": 0.337,
+"piu_simile": "541830/",
+"indicizzata": true
+},
+"541850/": {
+"proprie": 227,
+"sovrapposizione": 0.253,
+"piu_simile": "541890/",
+"indicizzata": true
+},
+"541860/": {
+"proprie": 157,
+"sovrapposizione": 0.293,
+"piu_simile": "541870/",
+"indicizzata": true
+},
+"541870/": {
+"proprie": 199,
+"sovrapposizione": 0.251,
+"piu_simile": "541860/",
+"indicizzata": true
+},
+"541890/": {
+"proprie": 266,
+"sovrapposizione": 0.269,
+"piu_simile": "541810/",
+"indicizzata": true
+},
+"5419/": {
+"proprie": 90,
+"sovrapposizione": 0.312,
+"piu_simile": "541921/",
+"indicizzata": false
+},
+"541910/": {
+"proprie": 162,
+"sovrapposizione": 0.168,
+"piu_simile": "541921/",
+"indicizzata": true
+},
+"541921/": {
+"proprie": 134,
+"sovrapposizione": 0.498,
+"piu_simile": "541922/",
+"indicizzata": true
+},
+"541922/": {
+"proprie": 118,
+"sovrapposizione": 0.514,
+"piu_simile": "541921/",
+"indicizzata": false
+},
+"541930/": {
+"proprie": 141,
+"sovrapposizione": 0.217,
+"piu_simile": "541990/",
+"indicizzata": true
+},
+"541940/": {
+"proprie": 204,
+"sovrapposizione": 0.151,
+"piu_simile": "541990/",
+"indicizzata": true
+},
+"541990/": {
+"proprie": 348,
+"sovrapposizione": 0.11,
+"piu_simile": "5419/",
+"indicizzata": true
+},
+"55/": {
+"proprie": 94,
+"sovrapposizione": 0.385,
+"piu_simile": "5511/",
+"indicizzata": false
+},
+"551/": {
+"proprie": 82,
+"sovrapposizione": 0.296,
+"piu_simile": "5511/",
+"indicizzata": false
+},
+"5511/": {
+"proprie": 92,
+"sovrapposizione": 0.364,
+"piu_simile": "55/",
+"indicizzata": false
+},
+"551111/": {
+"proprie": 79,
+"sovrapposizione": 0.559,
+"piu_simile": "551112/",
+"indicizzata": false
+},
+"551112/": {
+"proprie": 126,
+"sovrapposizione": 0.443,
+"piu_simile": "551111/",
+"indicizzata": true
+},
+"551114/": {
+"proprie": 141,
+"sovrapposizione": 0.244,
+"piu_simile": "5511/",
+"indicizzata": true
+},
+"56/": {
+"proprie": 106,
+"sovrapposizione": 0.401,
+"piu_simile": "561/",
+"indicizzata": false
+},
+"561/": {
+"proprie": 278,
+"sovrapposizione": 0.228,
+"piu_simile": "56/",
+"indicizzata": true
+},
+"5611/": {
+"proprie": 24,
+"sovrapposizione": 0.591,
+"piu_simile": "5612/",
+"indicizzata": false
+},
+"561110/": {
+"proprie": 253,
+"sovrapposizione": 0.152,
+"piu_simile": "561210/",
+"indicizzata": true
+},
+"5612/": {
+"proprie": 21,
+"sovrapposizione": 0.591,
+"piu_simile": "5611/",
+"indicizzata": false
+},
+"561210/": {
+"proprie": 249,
+"sovrapposizione": 0.163,
+"piu_simile": "561110/",
+"indicizzata": true
+},
+"5613/": {
+"proprie": 107,
+"sovrapposizione": 0.335,
+"piu_simile": "561312/",
+"indicizzata": false
+},
+"561311/": {
+"proprie": 267,
+"sovrapposizione": 0.323,
+"piu_simile": "561312/",
+"indicizzata": true
+},
+"561312/": {
+"proprie": 160,
+"sovrapposizione": 0.334,
+"piu_simile": "561311/",
+"indicizzata": true
+},
+"561320/": {
+"proprie": 193,
+"sovrapposizione": 0.285,
+"piu_simile": "561312/",
+"indicizzata": true
+},
+"561330/": {
+"proprie": 165,
+"sovrapposizione": 0.262,
+"piu_simile": "561320/",
+"indicizzata": true
+},
+"5614/": {
+"proprie": 307,
+"sovrapposizione": 0.174,
+"piu_simile": "561422/",
+"indicizzata": true
+},
+"561410/": {
+"proprie": 184,
+"sovrapposizione": 0.256,
+"piu_simile": "561439/",
+"indicizzata": true
+},
+"561421/": {
+"proprie": 106,
+"sovrapposizione": 0.474,
+"piu_simile": "561422/",
+"indicizzata": false
+},
+"561422/": {
+"proprie": 154,
+"sovrapposizione": 0.358,
+"piu_simile": "5614/",
+"indicizzata": true
+},
+"561431/": {
+"proprie": 107,
+"sovrapposizione": 0.39,
+"piu_simile": "561439/",
+"indicizzata": false
+},
+"561439/": {
+"proprie": 188,
+"sovrapposizione": 0.306,
+"piu_simile": "561431/",
+"indicizzata": true
+},
+"561440/": {
+"proprie": 157,
+"sovrapposizione": 0.276,
+"piu_simile": "561499/",
+"indicizzata": true
+},
+"561450/": {
+"proprie": 139,
+"sovrapposizione": 0.303,
+"piu_simile": "561439/",
+"indicizzata": true
+},
+"561491/": {
+"proprie": 85,
+"sovrapposizione": 0.455,
+"piu_simile": "561499/",
+"indicizzata": false
+},
+"561492/": {
+"proprie": 114,
+"sovrapposizione": 0.354,
+"piu_simile": "561410/",
+"indicizzata": false
+},
+"561499/": {
+"proprie": 156,
+"sovrapposizione": 0.321,
+"piu_simile": "5614/",
+"indicizzata": true
+},
+"5615/": {
+"proprie": 107,
+"sovrapposizione": 0.455,
+"piu_simile": "561599/",
+"indicizzata": false
+},
+"561510/": {
+"proprie": 96,
+"sovrapposizione": 0.422,
+"piu_simile": "561520/",
+"indicizzata": false
+},
+"561520/": {
+"proprie": 108,
+"sovrapposizione": 0.399,
+"piu_simile": "561510/",
+"indicizzata": false
+},
+"561591/": {
+"proprie": 122,
+"sovrapposizione": 0.425,
+"piu_simile": "561599/",
+"indicizzata": true
+},
+"561599/": {
+"proprie": 286,
+"sovrapposizione": 0.275,
+"piu_simile": "5615/",
+"indicizzata": true
+},
+"5616/": {
+"proprie": 171,
+"sovrapposizione": 0.187,
+"piu_simile": "561621/",
+"indicizzata": true
+},
+"561611/": {
+"proprie": 119,
+"sovrapposizione": 0.345,
+"piu_simile": "561612/",
+"indicizzata": false
+},
+"561612/": {
+"proprie": 136,
+"sovrapposizione": 0.286,
+"piu_simile": "561613/",
+"indicizzata": true
+},
+"561613/": {
+"proprie": 66,
+"sovrapposizione": 0.468,
+"piu_simile": "561612/",
+"indicizzata": false
+},
+"561621/": {
+"proprie": 118,
+"sovrapposizione": 0.284,
+"piu_simile": "5616/",
+"indicizzata": false
+},
+"561622/": {
+"proprie": 112,
+"sovrapposizione": 0.309,
+"piu_simile": "561621/",
+"indicizzata": false
+},
+"5617/": {
+"proprie": 45,
+"sovrapposizione": 0.393,
+"piu_simile": "561/",
+"indicizzata": false
+},
+"561710/": {
+"proprie": 143,
+"sovrapposizione": 0.216,
+"piu_simile": "561720/",
+"indicizzata": true
+},
+"561720/": {
+"proprie": 193,
+"sovrapposizione": 0.171,
+"piu_simile": "238990/",
+"indicizzata": true
+},
+"561730/": {
+"proprie": 346,
+"sovrapposizione": 0.096,
+"piu_simile": "561720/",
+"indicizzata": true
+},
+"561740/": {
+"proprie": 132,
+"sovrapposizione": 0.211,
+"piu_simile": "561730/",
+"indicizzata": true
+},
+"561790/": {
+"proprie": 294,
+"sovrapposizione": 0.131,
+"piu_simile": "561720/",
+"indicizzata": true
+},
+"5619/": {
+"proprie": 28,
+"sovrapposizione": 0.366,
+"piu_simile": "561990/",
+"indicizzata": false
+},
+"561910/": {
+"proprie": 205,
+"sovrapposizione": 0.141,
+"piu_simile": "561920/",
+"indicizzata": true
+},
+"561920/": {
+"proprie": 160,
+"sovrapposizione": 0.348,
+"piu_simile": "561591/",
+"indicizzata": true
+},
+"561990/": {
+"proprie": 316,
+"sovrapposizione": 0.124,
+"piu_simile": "561920/",
+"indicizzata": true
+},
+"562/": {
+"proprie": 158,
+"sovrapposizione": 0.221,
+"piu_simile": "5629/",
+"indicizzata": true
+},
+"5621/": {
+"proprie": 82,
+"sovrapposizione": 0.325,
+"piu_simile": "562111/",
+"indicizzata": false
+},
+"562111/": {
+"proprie": 149,
+"sovrapposizione": 0.43,
+"piu_simile": "562119/",
+"indicizzata": true
+},
+"562112/": {
+"proprie": 88,
+"sovrapposizione": 0.488,
+"piu_simile": "562111/",
+"indicizzata": false
+},
+"562119/": {
+"proprie": 129,
+"sovrapposizione": 0.486,
+"piu_simile": "562111/",
+"indicizzata": true
+},
+"5622/": {
+"proprie": 101,
+"sovrapposizione": 0.243,
+"piu_simile": "562211/",
+"indicizzata": false
+},
+"562211/": {
+"proprie": 141,
+"sovrapposizione": 0.411,
+"piu_simile": "562219/",
+"indicizzata": true
+},
+"562212/": {
+"proprie": 127,
+"sovrapposizione": 0.448,
+"piu_simile": "562211/",
+"indicizzata": true
+},
+"562213/": {
+"proprie": 127,
+"sovrapposizione": 0.479,
+"piu_simile": "562212/",
+"indicizzata": true
+},
+"562219/": {
+"proprie": 81,
+"sovrapposizione": 0.535,
+"piu_simile": "562211/",
+"indicizzata": false
+},
+"5629/": {
+"proprie": 107,
+"sovrapposizione": 0.492,
+"piu_simile": "562998/",
+"indicizzata": false
+},
+"562910/": {
+"proprie": 256,
+"sovrapposizione": 0.205,
+"piu_simile": "562998/",
+"indicizzata": true
+},
+"562920/": {
+"proprie": 93,
+"sovrapposizione": 0.278,
+"piu_simile": "562998/",
+"indicizzata": false
+},
+"562991/": {
+"proprie": 135,
+"sovrapposizione": 0.255,
+"piu_simile": "562998/",
+"indicizzata": true
+},
+"562998/": {
+"proprie": 176,
+"sovrapposizione": 0.374,
+"piu_simile": "5629/",
+"indicizzata": true
+},
+"61/": {
+"proprie": 171,
+"sovrapposizione": 0.159,
+"piu_simile": "62/",
+"indicizzata": true
+},
+"611/": {
+"proprie": 242,
+"sovrapposizione": 0.113,
+"piu_simile": "6116/",
+"indicizzata": true
+},
+"6111/": {
+"proprie": 24,
+"sovrapposizione": 0.538,
+"piu_simile": "6112/",
+"indicizzata": false
+},
+"611110/": {
+"proprie": 266,
+"sovrapposizione": 0.064,
+"piu_simile": "611310/",
+"indicizzata": true
+},
+"6112/": {
+"proprie": 24,
+"sovrapposizione": 0.556,
+"piu_simile": "6111/",
+"indicizzata": false
+},
+"611210/": {
+"proprie": 130,
+"sovrapposizione": 0.398,
+"piu_simile": "611310/",
+"indicizzata": true
+},
+"6113/": {
+"proprie": 24,
+"sovrapposizione": 0.538,
+"piu_simile": "6112/",
+"indicizzata": false
+},
+"611310/": {
+"proprie": 227,
+"sovrapposizione": 0.288,
+"piu_simile": "611210/",
+"indicizzata": true
+},
+"6114/": {
+"proprie": 46,
+"sovrapposizione": 0.505,
+"piu_simile": "6115/",
+"indicizzata": false
+},
+"611410/": {
+"proprie": 135,
+"sovrapposizione": 0.405,
+"piu_simile": "611420/",
+"indicizzata": true
+},
+"611420/": {
+"proprie": 146,
+"sovrapposizione": 0.42,
+"piu_simile": "611410/",
+"indicizzata": true
+},
+"611430/": {
+"proprie": 147,
+"sovrapposizione": 0.338,
+"piu_simile": "611410/",
+"indicizzata": true
+},
+"6115/": {
+"proprie": 150,
+"sovrapposizione": 0.28,
+"piu_simile": "611410/",
+"indicizzata": true
+},
+"611511/": {
+"proprie": 111,
+"sovrapposizione": 0.217,
+"piu_simile": "611519/",
+"indicizzata": false
+},
+"611512/": {
+"proprie": 106,
+"sovrapposizione": 0.34,
+"piu_simile": "611519/",
+"indicizzata": false
+},
+"611513/": {
+"proprie": 105,
+"sovrapposizione": 0.361,
+"piu_simile": "611519/",
+"indicizzata": false
+},
+"611519/": {
+"proprie": 312,
+"sovrapposizione": 0.18,
+"piu_simile": "6115/",
+"indicizzata": true
+},
+"6116/": {
+"proprie": 115,
+"sovrapposizione": 0.372,
+"piu_simile": "611699/",
+"indicizzata": false
+},
+"611610/": {
+"proprie": 239,
+"sovrapposizione": 0.15,
+"piu_simile": "611692/",
+"indicizzata": true
+},
+"611620/": {
+"proprie": 348,
+"sovrapposizione": 0.098,
+"piu_simile": "611630/",
+"indicizzata": true
+},
+"611630/": {
+"proprie": 117,
+"sovrapposizione": 0.25,
+"piu_simile": "611692/",
+"indicizzata": false
+},
+"611691/": {
+"proprie": 138,
+"sovrapposizione": 0.278,
+"piu_simile": "611692/",
+"indicizzata": true
+},
+"611692/": {
+"proprie": 76,
+"sovrapposizione": 0.358,
+"piu_simile": "611699/",
+"indicizzata": false
+},
+"611699/": {
+"proprie": 200,
+"sovrapposizione": 0.313,
+"piu_simile": "6116/",
+"indicizzata": true
+},
+"6117/": {
+"proprie": 18,
+"sovrapposizione": 0.547,
+"piu_simile": "6112/",
+"indicizzata": false
+},
+"611710/": {
+"proprie": 170,
+"sovrapposizione": 0.11,
+"piu_simile": "926110/",
+"indicizzata": true
+},
+"62/": {
+"proprie": 232,
+"sovrapposizione": 0.142,
+"piu_simile": "61/",
+"indicizzata": true
+},
+"621/": {
+"proprie": 96,
+"sovrapposizione": 0.308,
+"piu_simile": "6213/",
+"indicizzata": false
+},
+"6211/": {
+"proprie": 81,
+"sovrapposizione": 0.363,
+"piu_simile": "621112/",
+"indicizzata": false
+},
+"621111/": {
+"proprie": 281,
+"sovrapposizione": 0.282,
+"piu_simile": "621112/",
+"indicizzata": true
+},
+"621112/": {
+"proprie": 103,
+"sovrapposizione": 0.457,
+"piu_simile": "621111/",
+"indicizzata": false
+},
+"6212/": {
+"proprie": 26,
+"sovrapposizione": 0.484,
+"piu_simile": "6211/",
+"indicizzata": false
+},
+"621210/": {
+"proprie": 240,
+"sovrapposizione": 0.214,
+"piu_simile": "621111/",
+"indicizzata": true
+},
+"6213/": {
+"proprie": 92,
+"sovrapposizione": 0.494,
+"piu_simile": "621399/",
+"indicizzata": false
+},
+"621310/": {
+"proprie": 120,
+"sovrapposizione": 0.406,
+"piu_simile": "621320/",
+"indicizzata": true
+},
+"621320/": {
+"proprie": 189,
+"sovrapposizione": 0.306,
+"piu_simile": "621310/",
+"indicizzata": true
+},
+"621330/": {
+"proprie": 149,
+"sovrapposizione": 0.371,
+"piu_simile": "621112/",
+"indicizzata": true
+},
+"621340/": {
+"proprie": 272,
+"sovrapposizione": 0.252,
+"piu_simile": "621399/",
+"indicizzata": true
+},
+"621391/": {
+"proprie": 125,
+"sovrapposizione": 0.4,
+"piu_simile": "621399/",
+"indicizzata": true
+},
+"621399/": {
+"proprie": 302,
+"sovrapposizione": 0.288,
+"piu_simile": "6213/",
+"indicizzata": true
+},
+"6214/": {
+"proprie": 126,
+"sovrapposizione": 0.334,
+"piu_simile": "621498/",
+"indicizzata": true
+},
+"621410/": {
+"proprie": 143,
+"sovrapposizione": 0.249,
+"piu_simile": "621420/",
+"indicizzata": true
+},
+"621420/": {
+"proprie": 197,
+"sovrapposizione": 0.218,
+"piu_simile": "621112/",
+"indicizzata": true
+},
+"621491/": {
+"proprie": 136,
+"sovrapposizione": 0.278,
+"piu_simile": "621493/",
+"indicizzata": true
+},
+"621492/": {
+"proprie": 83,
+"sovrapposizione": 0.376,
+"piu_simile": "621498/",
+"indicizzata": false
+},
+"621493/": {
+"proprie": 179,
+"sovrapposizione": 0.263,
+"piu_simile": "621491/",
+"indicizzata": true
+},
+"621498/": {
+"proprie": 140,
+"sovrapposizione": 0.354,
+"piu_simile": "6214/",
+"indicizzata": true
+},
+"6215/": {
+"proprie": 103,
+"sovrapposizione": 0.272,
+"piu_simile": "621511/",
+"indicizzata": false
+},
+"621511/": {
+"proprie": 166,
+"sovrapposizione": 0.199,
+"piu_simile": "6215/",
+"indicizzata": true
+},
+"621512/": {
+"proprie": 196,
+"sovrapposizione": 0.207,
+"piu_simile": "621511/",
+"indicizzata": true
+},
+"6216/": {
+"proprie": 22,
+"sovrapposizione": 0.538,
+"piu_simile": "6219/",
+"indicizzata": false
+},
+"621610/": {
+"proprie": 211,
+"sovrapposizione": 0.115,
+"piu_simile": "621999/",
+"indicizzata": true
+},
+"6219/": {
+"proprie": 92,
+"sovrapposizione": 0.477,
+"piu_simile": "621999/",
+"indicizzata": false
+},
+"621910/": {
+"proprie": 130,
+"sovrapposizione": 0.176,
+"piu_simile": "621999/",
+"indicizzata": true
+},
+"621991/": {
+"proprie": 109,
+"sovrapposizione": 0.278,
+"piu_simile": "621999/",
+"indicizzata": false
+},
+"621999/": {
+"proprie": 149,
+"sovrapposizione": 0.426,
+"piu_simile": "6219/",
+"indicizzata": true
+},
+"622/": {
+"proprie": 94,
+"sovrapposizione": 0.133,
+"piu_simile": "6223/",
+"indicizzata": false
+},
+"6221/": {
+"proprie": 24,
+"sovrapposizione": 0.404,
+"piu_simile": "6222/",
+"indicizzata": false
+},
+"622110/": {
+"proprie": 146,
+"sovrapposizione": 0.281,
+"piu_simile": "622310/",
+"indicizzata": true
+},
+"6222/": {
+"proprie": 17,
+"sovrapposizione": 0.596,
+"piu_simile": "6223/",
+"indicizzata": false
+},
+"622210/": {
+"proprie": 187,
+"sovrapposizione": 0.366,
+"piu_simile": "622310/",
+"indicizzata": true
+},
+"6223/": {
+"proprie": 14,
+"sovrapposizione": 0.596,
+"piu_simile": "6222/",
+"indicizzata": false
+},
+"622310/": {
+"proprie": 256,
+"sovrapposizione": 0.301,
+"piu_simile": "622210/",
+"indicizzata": true
+},
+"623/": {
+"proprie": 88,
+"sovrapposizione": 0.275,
+"piu_simile": "6232/",
+"indicizzata": false
+},
+"6231/": {
+"proprie": 24,
+"sovrapposizione": 0.574,
+"piu_simile": "6239/",
+"indicizzata": false
+},
+"623110/": {
+"proprie": 181,
+"sovrapposizione": 0.198,
+"piu_simile": "623311/",
+"indicizzata": true
+},
+"6232/": {
+"proprie": 42,
+"sovrapposizione": 0.434,
+"piu_simile": "623/",
+"indicizzata": false
+},
+"623210/": {
+"proprie": 166,
+"sovrapposizione": 0.359,
+"piu_simile": "623220/",
+"indicizzata": true
+},
+"623220/": {
+"proprie": 225,
+"sovrapposizione": 0.293,
+"piu_simile": "623210/",
+"indicizzata": true
+},
+"6233/": {
+"proprie": 84,
+"sovrapposizione": 0.363,
+"piu_simile": "623312/",
+"indicizzata": false
+},
+"623311/": {
+"proprie": 125,
+"sovrapposizione": 0.323,
+"piu_simile": "623312/",
+"indicizzata": true
+},
+"623312/": {
+"proprie": 132,
+"sovrapposizione": 0.319,
+"piu_simile": "623311/",
+"indicizzata": true
+},
+"6239/": {
+"proprie": 20,
+"sovrapposizione": 0.574,
+"piu_simile": "6231/",
+"indicizzata": false
+},
+"623990/": {
+"proprie": 261,
+"sovrapposizione": 0.141,
+"piu_simile": "623312/",
+"indicizzata": true
+},
+"624/": {
+"proprie": 69,
+"sovrapposizione": 0.27,
+"piu_simile": "6241/",
+"indicizzata": false
+},
+"6241/": {
+"proprie": 30,
+"sovrapposizione": 0.381,
+"piu_simile": "624/",
+"indicizzata": false
+},
+"624110/": {
+"proprie": 184,
+"sovrapposizione": 0.199,
+"piu_simile": "624120/",
+"indicizzata": true
+},
+"624120/": {
+"proprie": 185,
+"sovrapposizione": 0.218,
+"piu_simile": "624190/",
+"indicizzata": true
+},
+"624190/": {
+"proprie": 315,
+"sovrapposizione": 0.155,
+"piu_simile": "624120/",
+"indicizzata": true
+},
+"6242/": {
+"proprie": 165,
+"sovrapposizione": 0.349,
+"piu_simile": "624229/",
+"indicizzata": true
+},
+"624210/": {
+"proprie": 142,
+"sovrapposizione": 0.234,
+"piu_simile": "624230/",
+"indicizzata": true
+},
+"624221/": {
+"proprie": 143,
+"sovrapposizione": 0.3,
+"piu_simile": "624229/",
+"indicizzata": true
+},
+"624229/": {
+"proprie": 139,
+"sovrapposizione": 0.384,
+"piu_simile": "6242/",
+"indicizzata": true
+},
+"624230/": {
+"proprie": 88,
+"sovrapposizione": 0.29,
+"piu_simile": "624210/",
+"indicizzata": false
+},
+"6243/": {
+"proprie": 23,
+"sovrapposizione": 0.538,
+"piu_simile": "6244/",
+"indicizzata": false
+},
+"624310/": {
+"proprie": 226,
+"sovrapposizione": 0.073,
+"piu_simile": "611519/",
+"indicizzata": true
+},
+"6244/": {
+"proprie": 18,
+"sovrapposizione": 0.538,
+"piu_simile": "6243/",
+"indicizzata": false
+},
+"624410/": {
+"proprie": 249,
+"sovrapposizione": 0.062,
+"piu_simile": "624190/",
+"indicizzata": true
+},
+"71/": {
+"proprie": 224,
+"sovrapposizione": 0.137,
+"piu_simile": "72/",
+"indicizzata": true
+},
+"711/": {
+"proprie": 398,
+"sovrapposizione": 0.114,
+"piu_simile": "7111/",
+"indicizzata": true
+},
+"7111/": {
+"proprie": 34,
+"sovrapposizione": 0.513,
+"piu_simile": "711/",
+"indicizzata": false
+},
+"711110/": {
+"proprie": 217,
+"sovrapposizione": 0.312,
+"piu_simile": "711120/",
+"indicizzata": true
+},
+"711120/": {
+"proprie": 149,
+"sovrapposizione": 0.416,
+"piu_simile": "711110/",
+"indicizzata": true
+},
+"711130/": {
+"proprie": 252,
+"sovrapposizione": 0.214,
+"piu_simile": "711120/",
+"indicizzata": true
+},
+"711190/": {
+"proprie": 185,
+"sovrapposizione": 0.305,
+"piu_simile": "711110/",
+"indicizzata": true
+},
+"7112/": {
+"proprie": 123,
+"sovrapposizione": 0.324,
+"piu_simile": "711219/",
+"indicizzata": true
+},
+"711211/": {
+"proprie": 218,
+"sovrapposizione": 0.244,
+"piu_simile": "7112/",
+"indicizzata": true
+},
+"711212/": {
+"proprie": 134,
+"sovrapposizione": 0.299,
+"piu_simile": "711219/",
+"indicizzata": true
+},
+"711219/": {
+"proprie": 263,
+"sovrapposizione": 0.277,
+"piu_simile": "7112/",
+"indicizzata": true
+},
+"7113/": {
+"proprie": 35,
+"sovrapposizione": 0.383,
+"piu_simile": "711/",
+"indicizzata": false
+},
+"711310/": {
+"proprie": 545,
+"sovrapposizione": 0.245,
+"piu_simile": "711320/",
+"indicizzata": true
+},
+"711320/": {
+"proprie": 497,
+"sovrapposizione": 0.252,
+"piu_simile": "711310/",
+"indicizzata": true
+},
+"7114/": {
+"proprie": 26,
+"sovrapposizione": 0.603,
+"piu_simile": "7115/",
+"indicizzata": false
+},
+"711410/": {
+"proprie": 259,
+"sovrapposizione": 0.101,
+"piu_simile": "711310/",
+"indicizzata": true
+},
+"7115/": {
+"proprie": 22,
+"sovrapposizione": 0.603,
+"piu_simile": "7114/",
+"indicizzata": false
+},
+"711510/": {
+"proprie": 514,
+"sovrapposizione": 0.051,
+"piu_simile": "711110/",
+"indicizzata": true
+},
+"712/": {
+"proprie": 47,
+"sovrapposizione": 0.253,
+"piu_simile": "712110/",
+"indicizzata": false
+},
+"7121/": {
+"proprie": 17,
+"sovrapposizione": 0.479,
+"piu_simile": "712/",
+"indicizzata": false
+},
+"712110/": {
+"proprie": 177,
+"sovrapposizione": 0.205,
+"piu_simile": "712120/",
+"indicizzata": true
+},
+"712120/": {
+"proprie": 98,
+"sovrapposizione": 0.312,
+"piu_simile": "712110/",
+"indicizzata": false
+},
+"712130/": {
+"proprie": 121,
+"sovrapposizione": 0.313,
+"piu_simile": "712190/",
+"indicizzata": true
+},
+"712190/": {
+"proprie": 178,
+"sovrapposizione": 0.23,
+"piu_simile": "712130/",
+"indicizzata": true
+},
+"713/": {
+"proprie": 237,
+"sovrapposizione": 0.105,
+"piu_simile": "7139/",
+"indicizzata": true
+},
+"7131/": {
+"proprie": 33,
+"sovrapposizione": 0.343,
+"piu_simile": "7132/",
+"indicizzata": false
+},
+"713110/": {
+"proprie": 153,
+"sovrapposizione": 0.329,
+"piu_simile": "713120/",
+"indicizzata": true
+},
+"713120/": {
+"proprie": 155,
+"sovrapposizione": 0.319,
+"piu_simile": "713110/",
+"indicizzata": true
+},
+"7132/": {
+"proprie": 59,
+"sovrapposizione": 0.225,
+"piu_simile": "7131/",
+"indicizzata": false
+},
+"713210/": {
+"proprie": 128,
+"sovrapposizione": 0.225,
+"piu_simile": "713120/",
+"indicizzata": true
+},
+"713290/": {
+"proprie": 232,
+"sovrapposizione": 0.163,
+"piu_simile": "713120/",
+"indicizzata": true
+},
+"7139/": {
+"proprie": 40,
+"sovrapposizione": 0.367,
+"piu_simile": "713/",
+"indicizzata": false
+},
+"713910/": {
+"proprie": 128,
+"sovrapposizione": 0.271,
+"piu_simile": "713920/",
+"indicizzata": true
+},
+"713920/": {
+"proprie": 135,
+"sovrapposizione": 0.263,
+"piu_simile": "713910/",
+"indicizzata": true
+},
+"713930/": {
+"proprie": 159,
+"sovrapposizione": 0.163,
+"piu_simile": "713920/",
+"indicizzata": true
+},
+"713940/": {
+"proprie": 295,
+"sovrapposizione": 0.172,
+"piu_simile": "713990/",
+"indicizzata": true
+},
+"713950/": {
+"proprie": 98,
+"sovrapposizione": 0.269,
+"piu_simile": "713920/",
+"indicizzata": false
+},
+"713990/": {
+"proprie": 756,
+"sovrapposizione": 0.073,
+"piu_simile": "713940/",
+"indicizzata": true
+},
+"72/": {
+"proprie": 141,
+"sovrapposizione": 0.223,
+"piu_simile": "71/",
+"indicizzata": true
+},
+"721/": {
+"proprie": 201,
+"sovrapposizione": 0.149,
+"piu_simile": "7211/",
+"indicizzata": true
+},
+"7211/": {
+"proprie": 69,
+"sovrapposizione": 0.399,
+"piu_simile": "721199/",
+"indicizzata": false
+},
+"721110/": {
+"proprie": 232,
+"sovrapposizione": 0.154,
+"piu_simile": "721120/",
+"indicizzata": true
+},
+"721120/": {
+"proprie": 138,
+"sovrapposizione": 0.223,
+"piu_simile": "721199/",
+"indicizzata": true
+},
+"721191/": {
+"proprie": 102,
+"sovrapposizione": 0.339,
+"piu_simile": "721199/",
+"indicizzata": false
+},
+"721199/": {
+"proprie": 108,
+"sovrapposizione": 0.341,
+"piu_simile": "7211/",
+"indicizzata": false
+},
+"7212/": {
+"proprie": 121,
+"sovrapposizione": 0.198,
+"piu_simile": "721211/",
+"indicizzata": true
+},
+"721211/": {
+"proprie": 114,
+"sovrapposizione": 0.221,
+"piu_simile": "7212/",
+"indicizzata": false
+},
+"721214/": {
+"proprie": 218,
+"sovrapposizione": 0.142,
+"piu_simile": "7212/",
+"indicizzata": true
+},
+"7213/": {
+"proprie": 24,
+"sovrapposizione": 0.375,
+"piu_simile": "721/",
+"indicizzata": false
+},
+"721310/": {
+"proprie": 173,
+"sovrapposizione": 0.087,
+"piu_simile": "721110/",
+"indicizzata": true
+},
+"722/": {
+"proprie": 175,
+"sovrapposizione": 0.092,
+"piu_simile": "7223/",
+"indicizzata": true
+},
+"7223/": {
+"proprie": 52,
+"sovrapposizione": 0.253,
+"piu_simile": "722/",
+"indicizzata": false
+},
+"722310/": {
+"proprie": 265,
+"sovrapposizione": 0.108,
+"piu_simile": "722320/",
+"indicizzata": true
+},
+"722320/": {
+"proprie": 172,
+"sovrapposizione": 0.15,
+"piu_simile": "722330/",
+"indicizzata": true
+},
+"722330/": {
+"proprie": 202,
+"sovrapposizione": 0.168,
+"piu_simile": "722515/",
+"indicizzata": true
+},
+"7224/": {
+"proprie": 26,
+"sovrapposizione": 0.362,
+"piu_simile": "7225/",
+"indicizzata": false
+},
+"722410/": {
+"proprie": 190,
+"sovrapposizione": 0.123,
+"piu_simile": "722511/",
+"indicizzata": true
+},
+"7225/": {
+"proprie": 146,
+"sovrapposizione": 0.293,
+"piu_simile": "722511/",
+"indicizzata": true
+},
+"722511/": {
+"proprie": 158,
+"sovrapposizione": 0.375,
+"piu_simile": "722513/",
+"indicizzata": true
+},
+"722513/": {
+"proprie": 234,
+"sovrapposizione": 0.354,
+"piu_simile": "722511/",
+"indicizzata": true
+},
+"722514/": {
+"proprie": 115,
+"sovrapposizione": 0.471,
+"piu_simile": "722511/",
+"indicizzata": false
+},
+"722515/": {
+"proprie": 309,
+"sovrapposizione": 0.126,
+"piu_simile": "722330/",
+"indicizzata": true
+},
+"81/": {
+"proprie": 138,
+"sovrapposizione": 0.167,
+"piu_simile": "53/",
+"indicizzata": true
+},
+"811/": {
+"proprie": 342,
+"sovrapposizione": 0.13,
+"piu_simile": "8114/",
+"indicizzata": true
+},
+"8111/": {
+"proprie": 279,
+"sovrapposizione": 0.179,
+"piu_simile": "811198/",
+"indicizzata": true
+},
+"811111/": {
+"proprie": 177,
+"sovrapposizione": 0.338,
+"piu_simile": "811114/",
+"indicizzata": true
+},
+"811114/": {
+"proprie": 193,
+"sovrapposizione": 0.34,
+"piu_simile": "811111/",
+"indicizzata": true
+},
+"811121/": {
+"proprie": 147,
+"sovrapposizione": 0.269,
+"piu_simile": "811122/",
+"indicizzata": true
+},
+"811122/": {
+"proprie": 106,
+"sovrapposizione": 0.378,
+"piu_simile": "811121/",
+"indicizzata": false
+},
+"811191/": {
+"proprie": 75,
+"sovrapposizione": 0.441,
+"piu_simile": "811198/",
+"indicizzata": false
+},
+"811192/": {
+"proprie": 117,
+"sovrapposizione": 0.362,
+"piu_simile": "811198/",
+"indicizzata": false
+},
+"811198/": {
+"proprie": 187,
+"sovrapposizione": 0.272,
+"piu_simile": "811114/",
+"indicizzata": true
+},
+"8112/": {
+"proprie": 17,
+"sovrapposizione": 0.662,
+"piu_simile": "8113/",
+"indicizzata": false
+},
+"811210/": {
+"proprie": 577,
+"sovrapposizione": 0.064,
+"piu_simile": "811310/",
+"indicizzata": true
+},
+"8113/": {
+"proprie": 17,
+"sovrapposizione": 0.662,
+"piu_simile": "8112/",
+"indicizzata": false
+},
+"811310/": {
+"proprie": 496,
+"sovrapposizione": 0.068,
+"piu_simile": "811412/",
+"indicizzata": true
+},
+"8114/": {
+"proprie": 119,
+"sovrapposizione": 0.276,
+"piu_simile": "811412/",
+"indicizzata": false
+},
+"811411/": {
+"proprie": 159,
+"sovrapposizione": 0.307,
+"piu_simile": "811412/",
+"indicizzata": true
+},
+"811412/": {
+"proprie": 202,
+"sovrapposizione": 0.231,
+"piu_simile": "811411/",
+"indicizzata": true
+},
+"811420/": {
+"proprie": 136,
+"sovrapposizione": 0.214,
+"piu_simile": "811430/",
+"indicizzata": true
+},
+"811430/": {
+"proprie": 158,
+"sovrapposizione": 0.226,
+"piu_simile": "811412/",
+"indicizzata": true
+},
+"811490/": {
+"proprie": 346,
+"sovrapposizione": 0.131,
+"piu_simile": "811412/",
+"indicizzata": true
+},
+"812/": {
+"proprie": 220,
+"sovrapposizione": 0.081,
+"piu_simile": "8123/",
+"indicizzata": true
+},
+"8121/": {
+"proprie": 177,
+"sovrapposizione": 0.203,
+"piu_simile": "812199/",
+"indicizzata": true
+},
+"812111/": {
+"proprie": 95,
+"sovrapposizione": 0.365,
+"piu_simile": "812112/",
+"indicizzata": false
+},
+"812112/": {
+"proprie": 179,
+"sovrapposizione": 0.218,
+"piu_simile": "812199/",
+"indicizzata": true
+},
+"812113/": {
+"proprie": 75,
+"sovrapposizione": 0.405,
+"piu_simile": "812112/",
+"indicizzata": false
+},
+"812191/": {
+"proprie": 117,
+"sovrapposizione": 0.328,
+"piu_simile": "812199/",
+"indicizzata": false
+},
+"812199/": {
+"proprie": 175,
+"sovrapposizione": 0.238,
+"piu_simile": "812191/",
+"indicizzata": true
+},
+"8122/": {
+"proprie": 39,
+"sovrapposizione": 0.22,
+"piu_simile": "8121/",
+"indicizzata": false
+},
+"812210/": {
+"proprie": 140,
+"sovrapposizione": 0.135,
+"piu_simile": "812220/",
+"indicizzata": true
+},
+"812220/": {
+"proprie": 162,
+"sovrapposizione": 0.114,
+"piu_simile": "812210/",
+"indicizzata": true
+},
+"8123/": {
+"proprie": 101,
+"sovrapposizione": 0.16,
+"piu_simile": "812331/",
+"indicizzata": false
+},
+"812310/": {
+"proprie": 150,
+"sovrapposizione": 0.175,
+"piu_simile": "812320/",
+"indicizzata": true
+},
+"812320/": {
+"proprie": 347,
+"sovrapposizione": 0.09,
+"piu_simile": "812331/",
+"indicizzata": true
+},
+"812331/": {
+"proprie": 150,
+"sovrapposizione": 0.294,
+"piu_simile": "812332/",
+"indicizzata": true
+},
+"812332/": {
+"proprie": 175,
+"sovrapposizione": 0.28,
+"piu_simile": "812331/",
+"indicizzata": true
+},
+"8129/": {
+"proprie": 54,
+"sovrapposizione": 0.265,
+"piu_simile": "812921/",
+"indicizzata": false
+},
+"812910/": {
+"proprie": 149,
+"sovrapposizione": 0.178,
+"piu_simile": "812990/",
+"indicizzata": true
+},
+"812921/": {
+"proprie": 86,
+"sovrapposizione": 0.4,
+"piu_simile": "812922/",
+"indicizzata": false
+},
+"812922/": {
+"proprie": 94,
+"sovrapposizione": 0.429,
+"piu_simile": "812921/",
+"indicizzata": false
+},
+"812930/": {
+"proprie": 115,
+"sovrapposizione": 0.247,
+"piu_simile": "812990/",
+"indicizzata": false
+},
+"812990/": {
+"proprie": 389,
+"sovrapposizione": 0.09,
+"piu_simile": "812930/",
+"indicizzata": true
+},
+"813/": {
+"proprie": 142,
+"sovrapposizione": 0.215,
+"piu_simile": "8139/",
+"indicizzata": true
+},
+"8131/": {
+"proprie": 22,
+"sovrapposizione": 0.482,
+"piu_simile": "8134/",
+"indicizzata": false
+},
+"813110/": {
+"proprie": 168,
+"sovrapposizione": 0.115,
+"piu_simile": "813990/",
+"indicizzata": true
+},
+"8132/": {
+"proprie": 93,
+"sovrapposizione": 0.238,
+"piu_simile": "813212/",
+"indicizzata": false
+},
+"813211/": {
+"proprie": 171,
+"sovrapposizione": 0.203,
+"piu_simile": "813212/",
+"indicizzata": true
+},
+"813212/": {
+"proprie": 130,
+"sovrapposizione": 0.453,
+"piu_simile": "813219/",
+"indicizzata": true
+},
+"813219/": {
+"proprie": 120,
+"sovrapposizione": 0.462,
+"piu_simile": "813212/",
+"indicizzata": true
+},
+"8133/": {
+"proprie": 141,
+"sovrapposizione": 0.269,
+"piu_simile": "813312/",
+"indicizzata": true
+},
+"813311/": {
+"proprie": 175,
+"sovrapposizione": 0.272,
+"piu_simile": "813312/",
+"indicizzata": true
+},
+"813312/": {
+"proprie": 151,
+"sovrapposizione": 0.258,
+"piu_simile": "8133/",
+"indicizzata": true
+},
+"813319/": {
+"proprie": 230,
+"sovrapposizione": 0.207,
+"piu_simile": "813312/",
+"indicizzata": true
+},
+"8134/": {
+"proprie": 23,
+"sovrapposizione": 0.483,
+"piu_simile": "8139/",
+"indicizzata": false
+},
+"813410/": {
+"proprie": 288,
+"sovrapposizione": 0.108,
+"piu_simile": "813990/",
+"indicizzata": true
+},
+"8139/": {
+"proprie": 44,
+"sovrapposizione": 0.384,
+"piu_simile": "813/",
+"indicizzata": false
+},
+"813910/": {
+"proprie": 221,
+"sovrapposizione": 0.279,
+"piu_simile": "813920/",
+"indicizzata": true
+},
+"813920/": {
+"proprie": 157,
+"sovrapposizione": 0.367,
+"piu_simile": "813910/",
+"indicizzata": true
+},
+"813930/": {
+"proprie": 112,
+"sovrapposizione": 0.286,
+"piu_simile": "813990/",
+"indicizzata": false
+},
+"813940/": {
+"proprie": 127,
+"sovrapposizione": 0.275,
+"piu_simile": "813990/",
+"indicizzata": true
+},
+"813990/": {
+"proprie": 206,
+"sovrapposizione": 0.194,
+"piu_simile": "813910/",
+"indicizzata": true
+},
+"814/": {
+"proprie": 35,
+"sovrapposizione": 0.44,
+"piu_simile": "814110/",
+"indicizzata": false
+},
+"8141/": {
+"proprie": 18,
+"sovrapposizione": 0.2,
+"piu_simile": "814/",
+"indicizzata": false
+},
+"814110/": {
+"proprie": 123,
+"sovrapposizione": 0.21,
+"piu_simile": "814/",
+"indicizzata": true
+},
+"92/": {
+"proprie": 406,
+"sovrapposizione": 0.082,
+"piu_simile": "51/",
+"indicizzata": true
+},
+"921/": {
+"proprie": 48,
+"sovrapposizione": 0.352,
+"piu_simile": "9211/",
+"indicizzata": false
+},
+"9211/": {
+"proprie": 19,
+"sovrapposizione": 0.533,
+"piu_simile": "921/",
+"indicizzata": false
+},
+"921110/": {
+"proprie": 115,
+"sovrapposizione": 0.295,
+"piu_simile": "921120/",
+"indicizzata": false
+},
+"921120/": {
+"proprie": 118,
+"sovrapposizione": 0.295,
+"piu_simile": "921110/",
+"indicizzata": false
+},
+"921130/": {
+"proprie": 178,
+"sovrapposizione": 0.184,
+"piu_simile": "921190/",
+"indicizzata": true
+},
+"921140/": {
+"proprie": 131,
+"sovrapposizione": 0.256,
+"piu_simile": "921190/",
+"indicizzata": true
+},
+"921150/": {
+"proprie": 186,
+"sovrapposizione": 0.175,
+"piu_simile": "921190/",
+"indicizzata": true
+},
+"921190/": {
+"proprie": 209,
+"sovrapposizione": 0.17,
+"piu_simile": "921140/",
+"indicizzata": true
+},
+"922/": {
+"proprie": 44,
+"sovrapposizione": 0.33,
+"piu_simile": "9221/",
+"indicizzata": false
+},
+"9221/": {
+"proprie": 19,
+"sovrapposizione": 0.517,
+"piu_simile": "922/",
+"indicizzata": false
+},
+"922110/": {
+"proprie": 116,
+"sovrapposizione": 0.318,
+"piu_simile": "922190/",
+"indicizzata": false
+},
+"922120/": {
+"proprie": 205,
+"sovrapposizione": 0.257,
+"piu_simile": "922190/",
+"indicizzata": true
+},
+"922130/": {
+"proprie": 121,
+"sovrapposizione": 0.29,
+"piu_simile": "922120/",
+"indicizzata": true
+},
+"922140/": {
+"proprie": 187,
+"sovrapposizione": 0.192,
+"piu_simile": "922190/",
+"indicizzata": true
+},
+"922150/": {
+"proprie": 114,
+"sovrapposizione": 0.268,
+"piu_simile": "922190/",
+"indicizzata": false
+},
+"922160/": {
+"proprie": 147,
+"sovrapposizione": 0.269,
+"piu_simile": "922190/",
+"indicizzata": true
+},
+"922190/": {
+"proprie": 223,
+"sovrapposizione": 0.218,
+"piu_simile": "922120/",
+"indicizzata": true
+},
+"923/": {
+"proprie": 31,
+"sovrapposizione": 0.357,
+"piu_simile": "9231/",
+"indicizzata": false
+},
+"9231/": {
+"proprie": 19,
+"sovrapposizione": 0.517,
+"piu_simile": "923/",
+"indicizzata": false
+},
+"923110/": {
+"proprie": 157,
+"sovrapposizione": 0.238,
+"piu_simile": "923120/",
+"indicizzata": true
+},
+"923120/": {
+"proprie": 218,
+"sovrapposizione": 0.203,
+"piu_simile": "923130/",
+"indicizzata": true
+},
+"923130/": {
+"proprie": 175,
+"sovrapposizione": 0.228,
+"piu_simile": "923120/",
+"indicizzata": true
+},
+"923140/": {
+"proprie": 140,
+"sovrapposizione": 0.188,
+"piu_simile": "923130/",
+"indicizzata": true
+},
+"924/": {
+"proprie": 34,
+"sovrapposizione": 0.293,
+"piu_simile": "925/",
+"indicizzata": false
+},
+"9241/": {
+"proprie": 17,
+"sovrapposizione": 0.391,
+"piu_simile": "924/",
+"indicizzata": false
+},
+"924110/": {
+"proprie": 236,
+"sovrapposizione": 0.126,
+"piu_simile": "924120/",
+"indicizzata": true
+},
+"924120/": {
+"proprie": 259,
+"sovrapposizione": 0.106,
+"piu_simile": "924110/",
+"indicizzata": true
+},
+"925/": {
+"proprie": 37,
+"sovrapposizione": 0.282,
+"piu_simile": "924/",
+"indicizzata": false
+},
+"9251/": {
+"proprie": 17,
+"sovrapposizione": 0.417,
+"piu_simile": "925/",
+"indicizzata": false
+},
+"925110/": {
+"proprie": 119,
+"sovrapposizione": 0.174,
+"piu_simile": "925120/",
+"indicizzata": false
+},
+"925120/": {
+"proprie": 121,
+"sovrapposizione": 0.214,
+"piu_simile": "925110/",
+"indicizzata": true
+},
+"926/": {
+"proprie": 32,
+"sovrapposizione": 0.426,
+"piu_simile": "9261/",
+"indicizzata": false
+},
+"9261/": {
+"proprie": 19,
+"sovrapposizione": 0.588,
+"piu_simile": "926/",
+"indicizzata": false
+},
+"926110/": {
+"proprie": 202,
+"sovrapposizione": 0.198,
+"piu_simile": "926120/",
+"indicizzata": true
+},
+"926120/": {
+"proprie": 258,
+"sovrapposizione": 0.146,
+"piu_simile": "926110/",
+"indicizzata": true
+},
+"926130/": {
+"proprie": 171,
+"sovrapposizione": 0.226,
+"piu_simile": "926140/",
+"indicizzata": true
+},
+"926140/": {
+"proprie": 178,
+"sovrapposizione": 0.209,
+"piu_simile": "926110/",
+"indicizzata": true
+},
+"926150/": {
+"proprie": 274,
+"sovrapposizione": 0.164,
+"piu_simile": "926120/",
+"indicizzata": true
+},
+"927/": {
+"proprie": 39,
+"sovrapposizione": 0.246,
+"piu_simile": "927110/",
+"indicizzata": false
+},
+"9271/": {
+"proprie": 21,
+"sovrapposizione": 0.167,
+"piu_simile": "92/",
+"indicizzata": false
+},
+"927110/": {
+"proprie": 126,
+"sovrapposizione": 0.18,
+"piu_simile": "336414/",
+"indicizzata": true
+},
+"928/": {
+"proprie": 35,
+"sovrapposizione": 0.29,
+"piu_simile": "924/",
+"indicizzata": false
+},
+"9281/": {
+"proprie": 18,
+"sovrapposizione": 0.2,
+"piu_simile": "928/",
+"indicizzata": false
+},
+"928110/": {
+"proprie": 154,
+"sovrapposizione": 0.136,
+"piu_simile": "926120/",
+"indicizzata": true
+},
+"928120/": {
+"proprie": 190,
+"sovrapposizione": 0.078,
+"piu_simile": "928110/",
+"indicizzata": true
+}
+},
+"attivita": {
+"naics-code-for-consulting": {
+"volume": 4600,
+"pubblicata": true
+},
+"naics-code-for-construction": {
+"volume": 5500,
+"pubblicata": true
+},
+"naics-code-for-cleaning-services": {
+"volume": 1300,
+"pubblicata": true
+}
+}
+}
