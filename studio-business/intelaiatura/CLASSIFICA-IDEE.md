@@ -44,5 +44,12 @@ Colonne: idea · mercato · ricerche/mese misurate · costo per clic · €/anno
 | 33 | Apertura delle prenotazioni dei ristoranti più richiesti | US, UK | 161.500 misurate (~480.000) | 0,3-6,4 $ | 135 / 335 / 1.350 | 50 | 7 | basso | RISERVA debole (solo 30 pagine da viaggio) | fronti-2026-11-13-coda-lunga |
 | 34 | Mietspiegel ufficiale per città, 80 città | DE | 128.000 | 0,4-3 € | 25 / 60 / 240 | 12 | 5 | basso | NO come sito | fronti-2026-11-13-coda-lunga |
 | 35 | Limiti delle banche (bancomat, Zelle, deposito) | US, UK | 208.900 | mediana 15,9 $ | 45 / 175 / 875 | 35 | 5 | alto | NO (nessun dato ufficiale) | fronti-2026-11-13-coda-lunga |
+| 36 | Riquadri sul traffico esistente (non è un sito nuovo): libro su EsameB1 con link Amazon diretto | IT | 2.500 visite/mese | – | oggi 380 · a 12 mesi 1.140 | 1,5 | ~250 (oggi) | – | IN CODA 15/11 (serve il link del libro) | monetizzazione-traffico-2026-11-13 |
+| 37 | Riquadri a zero iscrizioni: italki su EsameB1 /en/ e /risultati/, HelloSafe sui rifiuti dei visti, Amazon sui liquidi, Stay22 su Tourist Tax | IT, UK, US | 1.190 visite/mese | – | oggi 112 · a 12 mesi 355 | 6 | ~19 (oggi) | – | IN CODA | monetizzazione-traffico-2026-11-13 |
+| 38 | Tiqets (6 %) e GetYourGuide sulle pagine biglietti di Before You Fly | US, UK | 150 visite/mese (3.000 con le +15 attrazioni) | – | oggi 10 · a 12 mesi 195 | 2 | ~5 (oggi) | – | IN CODA (domanda Awin di Massimiliano) | monetizzazione-traffico-2026-11-13 |
+| 39 | Glow Green (250 £ a vendita) su Heat Pump Grants UK: riquadro già pronto | UK | 0 oggi (800 attese) | – | oggi 0 · a 12 mesi 280 | 0,5 | – | – | IN CODA (domanda Awin di Massimiliano) | monetizzazione-traffico-2026-11-13 |
+| 40 | LegalZoom / Rocket Lawyer su Statute of Limitations; Qonto su Codice ATECO; LLC su NAICS | US, IT | 0 oggi | – | non stimato (commissioni non lette su pagina ufficiale) | 3 | – | – | RISERVA (leggere le commissioni nei pannelli Impact e Affilae) | monetizzazione-traffico-2026-11-13 |
+| 41 | Wise sulle cerimonie di cittadinanza australiana; Viator sulle navi; libri IELTS sulle pagine SELT | AU, US, UK | 815 visite/mese | – | oggi 34 · a 12 mesi 115 | 3,5 | ~10 (oggi) | – | RISERVA debole (prova di 30 giorni) | monetizzazione-traffico-2026-11-13 |
+| 42 | Starlink «invita un amico» sulle pagine Available in | 215 Paesi | 260 visite/mese | – | 0 | – | – | – | NO (solo per clienti, premio in mesi di servizio, stesso Paese) | monetizzazione-traffico-2026-11-13 |
 
 (Da completare con le ricerche in corso: mercati esteri, crescita Visa Income, e tutte le prossime.)
