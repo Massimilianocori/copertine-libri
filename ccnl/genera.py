@@ -4,6 +4,7 @@ Uso (dalla radice del repository):
     python3 ccnl/raccolta/fonti.py      # scarica le fonti ufficiali -> raccolta/_grezzi/, dati/fonti.json, dati/cnel_monitor.json
     python3 ccnl/raccolta/estrai.py     # estrae e incrocia le cifre -> dati/estratti.json, dati/contratti.json
     python3 ccnl/raccolta/domanda.py    # ricerche vere (autocompletamento) -> dati/domanda.json
+    python3 -I ccnl/raccolta/volumi.py elenco.txt   # volumi di ricerca misurati -> dati/volumi-AAAA-MM-GG.json (titoli e FAQ)
     python3 ccnl/genera.py              # pagine in ccnl/sito/
     python3 ccnl/verifica.py            # controlli (--browser per Playwright)
 
@@ -54,6 +55,18 @@ FONTI_DEF, FONTI = _F["definizioni"], _F["fonti"]
 PAGINE_UFF = _F["pagine"]
 FAQ = carica("faq.json")["faq"]
 DOMANDA = carica("domanda.json")
+# Domanda misurata: volumi medi mensili di ricerca su Google in Italia (raccolta/volumi.py -> dati/volumi-AAAA-MM-GG.json, il file più recente).
+# MISURE = frase -> volume, contando anche le «simili» restituite dallo strumento (misurate anch'esse); le frasi in 404 non ci sono.
+# Una frase decide un titolo o una FAQ solo con almeno MIN_VOLUME ricerche al mese. Volume di una pagina = la frase più cercata, mai la somma.
+FILE_VOLUMI = sorted(DATI.glob("volumi-*.json"))[-1]
+VOLUMI = carica(FILE_VOLUMI.name)
+MISURE = {q: x["volume"] for q, x in VOLUMI["frasi"].items() if x.get("volume") is not None}
+for _x in VOLUMI["frasi"].values():
+    for _s, _vv in (_x.get("simili") or {}).items():
+        if _vv is not None:
+            MISURE.setdefault(_s, _vv)
+MIN_VOLUME = 100
+TITOLI_MISURATI = {}  # percorso -> titolo, h1, frase misurata e volume (scritto in dati/titoli_misurati.json, controllato da verifica.py)
 CONTROLLO = date.fromisoformat(META["controllato_il"])
 # CCNL_OGGI=2027-01-02 python3 ccnl/genera.py: prova di una data futura (solo per i controlli, non per pubblicare)
 OGGI = date.fromisoformat(os.environ["CCNL_OGGI"]) if os.environ.get("CCNL_OGGI") else date.today()
@@ -194,13 +207,27 @@ def pagina_url(cid, L=None):
 def segnaposto(testo):
     def sost(mm):
         cid, lid, campo = mm.group(1), mm.group(2), mm.group(3)
+        if cid == "domestico" and domestico_vecchio():
+            # gennaio, prima della tabella nuova: le pagine dicono «Tabella dell'anno prima», le risposte pronte (testo e JSON-LD) no
+            raise LookupError("lavoro domestico: tabella dell'anno prima")
         if cid == "domestico" and lid == "unico":
             if campo == "e":
                 return euro(EST["domestico"]["A"]["unico"]["E_mensile"])
             raise KeyError(campo)
         L = next(x for x in C[cid]["livelli"] if x["id"] == lid)
+        fissa = re.fullmatch(r"mensile_(\d{4})(\d\d)(\d\d)", campo)
+        if fissa:
+            # cifra di una data precisa (risposte su un aumento già avvenuto): la tranche di quella data, se pubblicabile
+            dt = "-".join(fissa.groups())
+            t = next((t for t in tranche_livello(cid, lid) if t["dal"] == dt and t["pubblicabile"]), None)
+            if t is None:
+                raise KeyError(f"{cid}/{lid}: nessuna cifra pubblicabile dal {dt}")
+            return euro(totale(t))
         v = valori(cid, L)
-        if campo in ("mensile", "oraria", "giornaliera", "annuo", "conv", "ind", "annuo_conv"):
+        if v.get("sospese"):
+            # il livello mostra l'ultimo minimo verificato con la nota «Cifra da aggiornare»: nessuna FAQ lo presenta come in vigore
+            raise LookupError(f"{cid}/{lid}: riga in vigore sospesa")
+        if campo in ("mensile", "oraria", "giornaliera", "annuo", "conv", "ind", "annuo_conv", "conv_tot"):
             return euro(v[campo])
         if campo == "dal":
             return data_lunga(v["dal"])
@@ -410,7 +437,8 @@ def faq_blocco(pid, rim, titolo="Domande frequenti"):
         try:
             a = segnaposto(x["a"])
         except LookupError as e:
-            # la risposta cita un aumento futuro che non c'è più (data passata): la domanda si salta finché non si riscrive in faq.json
+            # la risposta cita un aumento futuro che non c'è più (data passata) o un livello con la riga in vigore sospesa:
+            # la domanda si salta finché non si riscrive in faq.json (o finché la riga torna pubblicabile)
             print(f"AVVISO: FAQ saltata «{x['q'][:50]}» ({e})", file=sys.stderr)
             continue
         blocchi.append(f'<div class="faq"><h3>{h(x["q"])}</h3><p>{h(a)}{rim.ref(x["fonti"])}</p></div>')
@@ -493,27 +521,92 @@ def nome_corto(L):
     return re.sub(r"\s*\(.*?\)", "", L["nome"]).replace(", ", " ")
 
 
-def titolo_livello(cid, L):
+def misurata(*frasi):
+    """(frase, volume) della frase più cercata tra quelle date, se ha almeno MIN_VOLUME ricerche al mese; altrimenti (None, 0)."""
+    m = max(((f, MISURE[f]) for f in frasi if MISURE.get(f, 0) >= MIN_VOLUME), key=lambda x: x[1], default=(None, 0))
+    return m
+
+
+def num_livello(L):
+    """«4» per «4° livello», «quadro» per il Quadro (come si scrive nelle ricerche)."""
+    return "quadro" if L["id"] == "q" else re.match(r"\d", L["nome"]).group(0)
+
+
+# Lavoro domestico: nome usato nel titolo solo se è vero per il livello (profili dell'art. 9 in contratti_meta.json) e misurato.
+# A e B: lavori domestici (pulizie, collaboratore familiare generico) -> «colf». BS, CS, DS: assistenza a persone -> «badante».
+# C (cuoco) e D (maggiordomo, governante...) restano «colf e badanti» anche se «badante livello c» è cercato: lo spiega una FAQ.
+NOME_DOMESTICO = {"a": "colf", "b": "colf", "bs": "badante", "cs": "badante", "ds": "badante"}
+
+
+def scelta_livello(cid, L):
+    """Titolo, h1 e frase misurata della pagina livello. Il modello del titolo segue la forma più cercata del contratto
+    (misurata il 13/11/2026); la frase registrata è quella del livello, se ha volume."""
     m = C[cid]
     anno = date.fromisoformat(valori(cid, L)["dal"]).year
+    frase, vol = None, 0
     if cid == "domestico":
         nl = L["nome"][0].lower() + L["nome"][1:]
-        cands = [f"{m['nome_titolo']} {nl}: paga oraria e stipendio {anno}", f"{m['nome_titolo']} {nl}: paga e stipendio {anno}"]
-    else:
-        cands = [f"{L['nome']} {m['nome_titolo']}: paga oraria e minimo {anno}", f"{nome_corto(L)} {m['nome_titolo']}: paga oraria e minimo {anno}",
-                 f"{nome_corto(L)} {m['nome_titolo']}: minimo {anno}"]
-    for t in cands:
+        nome = NOME_DOMESTICO.get(L["id"])
+        if nome:
+            frase, vol = misurata(f"{nome} livello {L['id']}", f"livello {L['id']} {nome}", f"stipendio {nome} livello {L['id']}")
+        if frase:
+            sigla = L["id"].upper()
+            esteso = re.sub(r"^Livello ", "", L["nome"])  # «C Super (CS)»
+            h1 = f"{nome.capitalize()} livello {esteso}" if sigla != esteso else f"{nome.capitalize()} livello {sigla}"
+            cands = [(f"{nome.capitalize()} livello {sigla}: paga oraria e stipendio {anno}", h1)]
+        else:
+            cands = [(f"{m['nome_titolo']} {nl}: paga oraria e stipendio {anno}", None), (f"{m['nome_titolo']} {nl}: paga e stipendio {anno}", None)]
+    elif cid == "terziario":
+        n = num_livello(L)
+        frase, vol = misurata(f"ccnl commercio {n} livello" if n != "quadro" else "ccnl commercio quadro",
+                              f"stipendio {n} livello commercio", f"{n} livello commercio")
+        nome = "quadro" if n == "quadro" else L["nome"]
+        cands = [(f"CCNL commercio {nome}: stipendio minimo e paga oraria {anno}", None)]
+    elif cid == "metalmeccanici":
+        frase, vol = misurata(f"livello {L['id']} metalmeccanico", f"ccnl metalmeccanici {L['id']}")
+        cands = [(f"Livello {L['id'].upper()} metalmeccanico: stipendio minimo e paga oraria {anno}", None)]
+    elif cid == "multiservizi":
+        n = num_livello(L)
+        frase, vol = misurata(f"ccnl multiservizi {n} livello")  # le forme più lunghe («contratto…», «…part time») non stanno nel titolo
+        nome = "quadro" if n == "quadro" else L["nome"]
+        cands = [(f"CCNL multiservizi {nome}: paga oraria e minimo {anno}", None)]
+    else:  # logistica: nessuna forma per livello misurata (tutte 404 il 13/11/2026), titolo di prima
+        cands = [(f"{L['nome']} {m['nome_titolo']}: paga oraria e minimo {anno}", None), (f"{nome_corto(L)} {m['nome_titolo']}: paga oraria e minimo {anno}", None),
+                 (f"{nome_corto(L)} {m['nome_titolo']}: minimo {anno}", None)]
+    for t, h1 in cands:
         if len(t) <= 65:
-            return t
-    raise SystemExit(f"titolo troppo lungo: {cands[-1]}")
+            return {"titolo": t, "h1": h1 or t.split(":")[0], "frase": frase, "volume": vol}
+    raise SystemExit(f"titolo troppo lungo: {cands[-1][0]}")
+
+
+def registra_titolo(percorso, titolo, h1, frase, volume):
+    if frase and (frase not in MISURE or MISURE[frase] != volume or volume < MIN_VOLUME):
+        raise SystemExit(f"{percorso}: frase «{frase}» senza il volume misurato")
+    TITOLI_MISURATI[percorso] = {"titolo": titolo, "h1": h1, "frase": frase, "volume": volume}
 
 
 def descr_livello(cid, L, v):
     m = C[cid]
     if cid == "domestico":
         cv = (f"{euro(v['conv_tot'])} al mese convivente con l'indennità di funzione" if v["ind"] else f"{euro(v['conv'])} al mese convivente")
-        cands = [f"{L['nome']} del lavoro domestico nel 2026: {euro(v['oraria'])} l'ora non convivente, {cv}. Calcolo per ore e fonti ufficiali.",
-                 f"{L['nome']} colf e badanti 2026: {euro(v['oraria'])} l'ora, {cv}. Calcolo per ore e fonti."]
+        nome = NOME_DOMESTICO.get(L["id"]) if scelta_livello(cid, L)["frase"] else None
+        anno = date.fromisoformat(v["dal"]).year  # anno della tabella mostrata, non quello di oggi
+        if nome:
+            cands = [f"{nome.capitalize()} livello {L['id'].upper()} nel {anno}: {euro(v['oraria'])} l'ora per chi lavora a ore, {cv}. Calcolo per ore e fonti ufficiali.",
+                     f"{nome.capitalize()} livello {L['id'].upper()} {anno}: {euro(v['oraria'])} l'ora non convivente, {cv}. Calcolo per ore e fonti."]
+        else:
+            cands = [f"{L['nome']} del lavoro domestico nel {anno}: {euro(v['oraria'])} l'ora non convivente, {cv}. Calcolo per ore e fonti ufficiali.",
+                     f"{L['nome']} colf e badanti {anno}: {euro(v['oraria'])} l'ora, {cv}. Calcolo per ore e fonti."]
+    elif v["sospese"]:
+        # riga in vigore sospesa («Cifra da aggiornare»): la descrizione non presenta l'ultimo minimo verificato come quello di oggi
+        testa = scelta_livello(cid, L)["h1"]
+        cands = [f"{testa}: ultimo minimo verificato {euro(v['mensile'])} lordi al mese (dal {data_lunga(v['dal'])}); quello in vigore oggi è più alto. Fonti ufficiali.",
+                 f"{nome_corto(L)} {m['nome_titolo']}: ultimo minimo verificato {euro(v['mensile'])} (dal {data_lunga(v['dal'])}); oggi è più alto."]
+    elif cid in ("terziario", "metalmeccanici"):
+        testa = scelta_livello(cid, L)["h1"]
+        mens = m["mensilita"]["valore"]
+        cands = [f"{testa}: stipendio minimo {euro(v['mensile'])} lordi al mese dal {data_lunga(v['dal'])}, {euro(v['oraria'])} l'ora (divisore {m['divisore_orario']['valore']}), {mens} mensilità e part time.",
+                 f"{testa}: stipendio minimo {euro(v['mensile'])} lordi al mese dal {data_lunga(v['dal'])}, {euro(v['oraria'])} l'ora, part time e aumenti."]
     else:
         cands = [f"{L['nome']} del CCNL {m['nome_breve'].lower()}: minimo {euro(v['mensile'])} dal {data_lunga(v['dal'])}, {euro(v['oraria'])} l'ora (divisore {m['divisore_orario']['valore']}), part time e aumenti.",
                  f"{nome_corto(L)} CCNL {m['nome_breve'].lower()}: {euro(v['mensile'])} al mese dal {data_lunga(v['dal'])}, {euro(v['oraria'])} l'ora, part time e aumenti.",
@@ -632,10 +725,12 @@ def pagina_livello(cid, L):
     corpo += f'<h2 id="altri">Gli altri livelli del contratto</h2>' + lista_livelli(cid, L)
     corpo += documento_ufficiale(cid, rim)
     corpo += rim.elenco()
-    titolo = titolo_livello(cid, L)
+    sc = scelta_livello(cid, L)
+    titolo = sc["titolo"]
+    registra_titolo(pagina_url(cid, L), titolo, sc["h1"], sc["frase"], sc["volume"])
     sub = (f'{"Ultimo minimo verificato, dal" if v["sospese"] else "Minimo in vigore dal"} <strong>{data_lunga(v["dal"])}</strong>: {euro(v["mensile"])} lordi al mese, {euro(v["oraria"])} l\'ora. '
            f'{h(m["nome"])}, codice CNEL {m["codice_cnel"]}.')
-    testata = banda(m["nome_breve"], titolo.split(":")[0], sub)
+    testata = banda(m["nome_breve"], sc["h1"], sub)
     ld = [x for x in [faq_ld] if x]
     pagina(pagina_url(cid, L), titolo, descr_livello(cid, L, v), corpo, testata,
            briciole=[("Home", ""), (m["nome_breve"], pagina_url(cid)), (L["nome"], pagina_url(cid, L))], jsonld=ld)
@@ -807,11 +902,13 @@ def pagina_domestico(L):
     corpo += faq_html
     corpo += '<h2 id="altri">Gli altri livelli</h2>' + lista_livelli(cid, L)
     corpo += documento_ufficiale(cid, rim) + rim.elenco()
-    titolo = titolo_livello(cid, L)
+    sc = scelta_livello(cid, L)
+    titolo = sc["titolo"]
+    registra_titolo(pagina_url(cid, L), titolo, sc["h1"], sc["frase"], sc["volume"])
     sub = (f'Tabella ufficiale {"con decorrenza" if domestico_vecchio() else "in vigore dal"} <strong>{data_lunga(v["dal"])}</strong>: {euro(v["oraria"])} l\'ora per chi non convive, '
            + (f'{euro(v["conv_tot"])} al mese per chi convive ({euro(v["conv"])} più {euro(ind)} di indennità di funzione).' if ind else f'{euro(v["conv"])} al mese per chi convive.')
            + f' CCNL lavoro domestico, codice CNEL {m["codice_cnel"]}.')
-    testata = banda("Colf e badanti", titolo.split(":")[0], sub)
+    testata = banda("Colf e badanti", sc["h1"], sub)
     pagina(pagina_url(cid, L), titolo, descr_livello(cid, L, v), corpo, testata,
            briciole=[("Home", ""), (m["nome_breve"], pagina_url(cid)), (L["nome"], pagina_url(cid, L))], jsonld=[x for x in [faq_ld] if x])
 
@@ -894,19 +991,25 @@ def pagina_contratto(cid):
     faq_html, faq_ld = faq_blocco(cid, rim)
     corpo += faq_html
     corpo += documento_ufficiale(cid, rim) + rim.elenco()
-    titolo = {"terziario": "CCNL commercio 2026: minimi e paga oraria per livello",
-              "metalmeccanici": "CCNL metalmeccanici 2026: minimi e paga oraria per livello",
-              "multiservizi": "CCNL multiservizi 2026: minimi e paga oraria per livello",
-              "logistica": "CCNL logistica 2026: minimi e paga oraria per livello",
-              "domestico": "Colf e badanti 2026: minimi per livello, a ore e conviventi"}[cid]
-    descr = {"terziario": "Minimi del CCNL terziario Confcommercio dal 1° novembre 2026 e da febbraio 2027 per ogni livello, paga oraria con divisore 168, 14 mensilità.",
-             "metalmeccanici": "Minimi tabellari dei metalmeccanici dal 1° giugno 2026, livelli da D1 ad A1, paga oraria con divisore 173 e tredicesima. Fonti ufficiali.",
-             "multiservizi": "Minimi del CCNL pulizia e multiservizi dal 1° ottobre 2026 e tutte le rate fino al 2029, paga oraria con divisore 173, 14 mensilità.",
-             "logistica": "Minimi ed EPA del CCNL logistica, trasporto merci e spedizione dal 1° gennaio 2026, aumenti del 2027 e paga oraria con divisore 168.",
-             "domestico": "Tabella 2026 del lavoro domestico: paga oraria per colf e badanti non conviventi e minimo mensile per conviventi, livello per livello."}[cid]
+    # titolo, h1 e frase misurata (13/11/2026): la frase più cercata che il titolo contiene per intero
+    titolo, h1, frase = {
+        "terziario": ("CCNL commercio 2026: tabelle retributive, livelli e paga oraria", "Tabelle retributive del CCNL commercio 2026",
+                      "ccnl commercio tabelle retributive"),
+        "metalmeccanici": ("CCNL metalmeccanici 2026: livelli e tabelle retributive", "Livelli e tabelle retributive dei metalmeccanici 2026",
+                           "livelli metalmeccanici"),
+        "multiservizi": ("CCNL multiservizi e pulizie 2026: livelli e paga oraria", "CCNL multiservizi e pulizie 2026", "ccnl pulizie multiservizi"),
+        "logistica": ("CCNL logistica e trasporti 2026: livelli, minimi e paga oraria", "CCNL logistica e trasporti 2026", "ccnl logistica e trasporti"),
+        "domestico": ("CCNL lavoro domestico 2026: livelli e minimi di colf e badanti", "CCNL lavoro domestico 2026: colf e badanti", "ccnl lavoro domestico"),
+    }[cid]
+    registra_titolo(pagina_url(cid), titolo, h1, frase, MISURE.get(frase, 0))
+    descr = {"terziario": "Tabelle retributive del CCNL commercio (terziario Confcommercio): minimi per livello dal 1° novembre 2026 e da febbraio 2027, divisore 168, 14 mensilità.",
+             "metalmeccanici": "Livelli e tabelle retributive del CCNL metalmeccanici: minimi dal 1° giugno 2026 da D1 ad A1, paga oraria con divisore 173 e tredicesima.",
+             "multiservizi": "CCNL multiservizi e pulizie: livelli e paga oraria (divisore 173) dal 1° ottobre 2026, tutte le rate fino al 2029, 14 mensilità. Fonti ufficiali.",
+             "logistica": "CCNL logistica, trasporto merci e spedizione: minimi ed EPA per livello dal 1° gennaio 2026, paga oraria (divisore 168), magazzino, autisti e rider.",
+             "domestico": "CCNL lavoro domestico 2026: livelli di colf e badanti, paga oraria per chi lavora a ore e minimo mensile per chi convive. Tabella ufficiale."}[cid]
     sub = {"domestico": f"Tabella ufficiale {'con decorrenza' if domestico_vecchio() else 'in vigore dal'} 1° gennaio 2026, livello per livello, per chi convive e per chi lavora a ore."}.get(
         cid, f"{h(m['nome'])}: minimo mensile, paga oraria e aumenti già firmati per ogni livello. Codice CNEL {m['codice_cnel']}.")
-    testata = banda(f"CCNL · codice CNEL {m['codice_cnel']}", titolo.split(":")[0], sub)
+    testata = banda(f"CCNL · codice CNEL {m['codice_cnel']}", h1, sub)
     pagina(pagina_url(cid), titolo, descr, corpo, testata, briciole=[("Home", ""), (m["nome_breve"], pagina_url(cid))], jsonld=[x for x in [faq_ld] if x])
 
 
@@ -1019,10 +1122,11 @@ def colf_badanti():
     corpo += faq_html
     corpo += f'<h2 id="livelli">Le pagine dei livelli</h2>' + lista_livelli("domestico")
     corpo += documento_ufficiale("domestico", rim) + rim.elenco()
-    titolo = "Assumere colf o badante: minimi 2026, orari e vitto"
-    testata = banda("Guida per le famiglie", "Colf e badanti: quanto spetta nel 2026",
+    titolo = "Stipendio badante convivente e paga oraria colf 2026"
+    registra_titolo("colf-badanti/", titolo, "Stipendio di badanti e colf nel 2026", "stipendio badante convivente", MISURE.get("stipendio badante convivente", 0))
+    testata = banda("Guida per le famiglie", "Stipendio di badanti e colf nel 2026",
                     "Per chi assume: livello, convivenza o ore, vitto e alloggio, notte e tredicesima, con le cifre della tabella ufficiale 2026.", icona="home")
-    pagina("colf-badanti/", titolo, "Guida per le famiglie che assumono colf o badanti: minimi 2026 per livello, convivente o a ore, vitto e alloggio, notturno e tredicesima.",
+    pagina("colf-badanti/", titolo, "Stipendio minimo 2026 di badanti conviventi e paga oraria di colf e badanti a ore, livello per livello: vitto e alloggio, notte e tredicesima.",
            corpo, testata, briciole=[("Home", ""), ("Colf e badanti", "colf-badanti/")], jsonld=[x for x in [faq_ld] if x])
 
 
@@ -1072,7 +1176,7 @@ def home():
                     f'<th scope="col" class="n">Paga oraria</th><th scope="col" class="n nascondi-m">In vigore dal</th></tr></thead><tbody>{righe}</tbody></table></div></section>')
     cerca = ('<form class="cerca" role="search" onsubmit="return false"><label for="q" class="hp">Cerca contratto o livello</label>'
              '<input id="q" type="search" data-cerca placeholder="Cerca: commercio 4 livello, C3, badante CS…" autocomplete="off"></form>')
-    testata = banda("Minimi contrattuali 2026", "Paga oraria e minimo per contratto e livello",
+    testata = banda("Minimi contrattuali 2026", "Tabelle retributive CCNL: paga oraria e minimo per livello",
                     f"Le cifre di <strong>{n} livelli</strong> di 5 contratti nazionali, ognuna confrontata al centesimo su due fonti ufficiali. Lordo, senza netto né stime.",
                     extra=cerca)
     corpo = (f'<div class="card pull"><p style="margin:0">Scrivi il tuo contratto e il livello per filtrare la tabella. Ogni livello ha una pagina con le voci del minimo, '
@@ -1097,8 +1201,10 @@ def home():
     faq_html, faq_ld = faq_blocco("home", rim)
     corpo += faq_html + rim.elenco()
     ld = [{"@context": "https://schema.org", "@type": "WebSite", "name": NOME, "url": URL_SITO + "/", "inLanguage": "it"}] + ([faq_ld] if faq_ld else [])
-    pagina("", "Paga CCNL: minimi e paga oraria per contratto e livello",
-           "Minimi contrattuali 2026 e paga oraria per livello: commercio, metalmeccanici, multiservizi, logistica, colf e badanti. Due fonti ufficiali per ogni cifra.",
+    registra_titolo("", "Tabelle retributive CCNL 2026: minimi e paga oraria per livello", "Tabelle retributive CCNL: paga oraria e minimo per livello",
+                    "tabelle retributive ccnl", MISURE.get("tabelle retributive ccnl", 0))
+    pagina("", "Tabelle retributive CCNL 2026: minimi e paga oraria per livello",
+           "Tabelle retributive 2026 e paga oraria per livello: commercio, metalmeccanici, multiservizi, logistica, colf e badanti. Due fonti ufficiali per ogni cifra.",
            corpo, testata.replace("{bc}", ""), jsonld=ld)
 
 
@@ -1319,6 +1425,11 @@ def main():
     privacy()
     pagina_404()
     extra()
+    (DATI / "titoli_misurati.json").write_text(json.dumps({
+        "_nota": ("Scritto da genera.py: per ogni pagina il titolo, l'h1 e la frase misurata che li ha decisi (volume mensile in Italia dal file "
+                  f"{FILE_VOLUMI.name}). frase null = nessuna forma misurata per quella pagina: titolo con il modello del contratto o quello di prima. "
+                  "verifica.py controlla che titolo e h1 siano quelli delle pagine e che la frase abbia quel volume nel file."),
+        "file_volumi": FILE_VOLUMI.name, "min_volume": MIN_VOLUME, "pagine": TITOLI_MISURATI}, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     n_liv = sum(len(livelli_pubblicati(c)) for c in ORDINE)
     print(f"Sito generato in {SITO}: {len(URLS)} pagine indicizzabili + 404 ({n_liv} pagine livello). Fonti controllate il {data_lunga(CONTROLLO)}.")
 

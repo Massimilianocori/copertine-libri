@@ -1,0 +1,3232 @@
+{
+ "_nota": "Volumi medi mensili di ricerca su Google in Italia (Google Ads) letti con api.seodata.dev (country=it). volume null = la frase non è nel database dello strumento (risposta 404). «dato_del» = data del dato nello strumento. «simili» = frasi vicine restituite dallo strumento con il loro volume (misurate anch'esse). Usati da genera.py per titoli, descrizioni e FAQ.",
+ "misurato_il": "2026-11-13",
+ "strumento": "api.seodata.dev, country=it",
+ "ricerche_usate": 342,
+ "frasi": {
+  "stipendio 4 livello commercio": {
+   "volume": 480,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ral 4 livello commercio": 260,
+    "stipendio quarto livello commercio": 110,
+    "stipendio 5 livello commercio": 390,
+    "ccnl commercio 5 livello stipendio": 140,
+    "ccnl commercio 5 livello retribuzione": 110,
+    "commesso 4 livello stipendio": 110,
+    "ral commercio 4 livello": 90,
+    "ral ccnl commercio": 260,
+    "stipendio quadro commercio": 260,
+    "contratto commercio stipendio": 210
+   }
+  },
+  "stipendio 1 livello commercio": {
+   "volume": 110,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "paga base 5 livello commercio": 110,
+    "ral primo livello commercio": 110,
+    "stipendio 3 livello commercio": 390,
+    "ral 3 livello commercio": 260,
+    "ral ccnl commercio": 260,
+    "stipendio terzo livello commercio": 170,
+    "ral 5 livello commercio": 140,
+    "ral secondo livello commercio": 140,
+    "stipendio 2 livello commercio": 110,
+    "stipendio secondo livello commercio": 110
+   }
+  },
+  "1 livello commercio stipendio netto": {
+   "volume": 720,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "stipendio netto 2 livello commercio": 1300,
+    "stipendio netto 3 livello commercio": 2400,
+    "stipendio netto 2 livello commercio 40 ore": 720,
+    "terzo livello commercio stipendio netto": 480,
+    "2 livello commercio stipendio netto": 1300,
+    "2 livello commercio: stipendio netto": 1300,
+    "3 livello commercio stipendio netto": 2400,
+    "3 livello commercio: stipendio netto": 2400,
+    "stipendio netto 3 livello commercio 40 ore": 1300,
+    "ccnl commercio 5 livello stipendio netto": 390
+   }
+  },
+  "1 livello commercio": {
+   "volume": 210,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "3 livello ccnl commercio": 1600,
+    "ccnl commercio 3 livello": 1600,
+    "livelli commercio": 1300,
+    "terzo livello commercio": 1000,
+    "ccnl commercio 2 livello": 720,
+    "ccnl commercio 1 livello": 390,
+    "ccnl commercio terzo livello": 390,
+    "2 livello commercio": 260,
+    "contratto commercio 2 livello": 260,
+    "contratto terzo livello commercio": 210
+   }
+  },
+  "ccnl commercio 1 livello": {
+   "volume": 390,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ccnl commercio 2 livello": 720,
+    "contratto commercio 2 livello": 260,
+    "ccnl 4 livello commercio": 2400,
+    "ccnl commercio 3 livello": 1600,
+    "ccnl commercio livello 3": 1600,
+    "ccnl commercio livello 2": 720,
+    "primo livello commercio": 480,
+    "ccnl commercio livello 1": 390,
+    "ccnl commercio terzo livello": 390,
+    "ccnl commercio secondo livello": 320
+   }
+  },
+  "1 livello commercio paga oraria": {
+   "volume": null
+  },
+  "primo livello commercio": {
+   "volume": 480,
+   "cpc_eur": 0.03,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "terzo livello commercio": 1000,
+    "ccnl commercio 2 livello": 720,
+    "ccnl commercio livello 2": 720,
+    "ccnl commercio 1 livello": 390,
+    "contratto 2 livello commercio": 260,
+    "ccnl 4 livello commercio": 2400,
+    "ccnl commercio 3 livello": 1600,
+    "ccnl commercio livello 3": 1600,
+    "secondo livello commercio": 720,
+    "ccnl commercio terzo livello": 390
+   }
+  },
+  "stipendio 2 livello commercio": {
+   "volume": 110,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "stipendio terzo livello commercio": 170,
+    "stipendio secondo livello commercio": 110,
+    "retribuzione livello commercio": 110,
+    "ccnl commercio stipendio": 590,
+    "ral 3 livello commercio": 260,
+    "ral ccnl commercio": 260,
+    "contratto commercio stipendio": 210,
+    "ral terzo livello commercio": 170,
+    "ral secondo livello commercio": 140,
+    "ral primo livello commercio": 110
+   }
+  },
+  "2 livello commercio stipendio netto": {
+   "volume": 1300,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "2 livello commercio: stipendio netto": 1300,
+    "stipendio netto 2 livello commercio": 1300,
+    "stipendio netto 2 livello commercio 40 ore": 720,
+    "stipendio netto 3 livello commercio": 2400,
+    "stipendio netto 3 livello commercio 40 ore": 1300,
+    "1 livello commercio stipendio netto": 720,
+    "5 livello commercio stipendio netto": 590,
+    "ccnl commercio 5 livello stipendio netto": 390,
+    "3 livello commercio stipendio netto": 2400,
+    "5 livello commercio: stipendio netto": 590
+   }
+  },
+  "2 livello commercio": {
+   "volume": 260,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "commercio secondo livello": 720,
+    "ccnl commercio secondo livello": 320,
+    "commercio 2 livello": 260,
+    "3 livello ccnl commercio": 1600,
+    "terzo livello commercio": 1000,
+    "ccnl commercio 2 livello": 720,
+    "ccnl commercio livello 2": 720,
+    "primo livello commercio": 480,
+    "ccnl commercio terzo livello": 390,
+    "livello 3 commercio": 390
+   }
+  },
+  "ccnl commercio 2 livello": {
+   "volume": 720,
+   "cpc_eur": 0.02,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ccnl commercio livello 2": 720,
+    "ccnl commercio 1 livello": 390,
+    "ccnl commercio livello 1": 390,
+    "contratto commercio 2 livello": 260,
+    "primo livello commercio": 480,
+    "contratto 2 livello commercio": 260,
+    "ccnl 4 livello commercio": 2400,
+    "ccnl commercio 3 livello": 1600,
+    "ccnl commercio livello 3": 1600,
+    "secondo livello commercio": 720
+   }
+  },
+  "2 livello commercio paga oraria": {
+   "volume": null
+  },
+  "secondo livello commercio": {
+   "volume": 720,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "contratto 1 livello commercio": 170,
+    "ccnl commercio 3 livello": 1600,
+    "ccnl commercio livello 3": 1600,
+    "terzo livello commercio": 1000,
+    "ccnl commercio 2 livello": 720,
+    "ccnl commercio livello 2": 720,
+    "primo livello commercio": 480,
+    "ccnl commercio 1 livello": 390,
+    "ccnl commercio secondo livello": 320,
+    "ccnl commercio primo livello": 260
+   }
+  },
+  "stipendio 3 livello commercio": {
+   "volume": 390,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "stipendio terzo livello commercio": 170,
+    "ccnl commercio 3 livello stipendio": 140,
+    "stipendio secondo livello commercio": 110,
+    "stipendio 5 livello commercio": 390,
+    "ral 3 livello commercio": 260,
+    "ral terzo livello commercio": 170,
+    "ral secondo livello commercio": 140,
+    "stipendio 2 livello commercio": 110,
+    "ccnl commercio stipendio": 590,
+    "5 livello commercio stipendio": 390
+   }
+  },
+  "3 livello commercio stipendio netto": {
+   "volume": 2400,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "3 livello commercio: stipendio netto": 2400,
+    "stipendio netto 3 livello commercio": 2400,
+    "5 livello commercio stipendio netto": 590,
+    "5 livello commercio: stipendio netto": 590,
+    "2 livello commercio stipendio netto": 1300,
+    "2 livello commercio: stipendio netto": 1300,
+    "stipendio netto 2 livello commercio": 1300,
+    "stipendio netto 3 livello commercio 40 ore": 1300,
+    "1 livello commercio stipendio netto": 720,
+    "stipendio netto 2 livello commercio 40 ore": 720
+   }
+  },
+  "3 livello commercio": {
+   "volume": 260,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "contratto 3 livello commercio": 590,
+    "contratto commercio 3 livello": 590,
+    "livello 3 commercio": 390,
+    "contratto commercio 2 livello": 260,
+    "ccnl commercio livelli": 6600,
+    "livello contratto commercio": 3600,
+    "ccnl 3 livello commercio": 1600,
+    "terzo livello commercio": 1000,
+    "ccnl commercio 1 livello": 390,
+    "1 livello commercio": 210
+   }
+  },
+  "ccnl commercio 3 livello": {
+   "volume": 1600,
+   "cpc_eur": 0.07,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ccnl commercio livello 3": 1600,
+    "ccnl commercio terzo livello": 390,
+    "ccnl commercio primo livello": 260,
+    "3 livello ccnl commercio": 1600,
+    "ccnl 3 livello commercio": 1600,
+    "terzo livello commercio": 1000,
+    "ccnl commercio livello 2": 720,
+    "contratto commercio 3 livello": 590,
+    "ccnl commercio 1 livello": 390,
+    "ccnl commercio secondo livello": 320
+   }
+  },
+  "3 livello commercio paga oraria": {
+   "volume": null
+  },
+  "terzo livello commercio": {
+   "volume": 1000,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "contratto commercio 3 livello": 590,
+    "ccnl commercio terzo livello": 390,
+    "ccnl 3 livello commercio": 1600,
+    "ccnl commercio 3 livello": 1600,
+    "ccnl commercio livello 3": 1600,
+    "primo livello commercio": 480,
+    "livello 3 commercio": 390,
+    "3 livello ccnl commercio": 1600,
+    "commercio secondo livello": 720,
+    "secondo livello commercio": 720
+   }
+  },
+  "4 livello commercio stipendio netto": {
+   "volume": 1600,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "stipendio netto 4 livello commercio": 1900,
+    "stipendio netto 4 livello commercio 40 ore": 320,
+    "stipendio netto 4 livello commercio 40 ore netto": 2400,
+    "4 livello commercio: stipendio netto": 1900,
+    "3 livello commercio stipendio netto": 2400,
+    "2 livello commercio stipendio netto": 1300,
+    "2 livello commercio: stipendio netto": 1300,
+    "stipendio netto 2 livello commercio 40 ore": 720,
+    "stipendio netto 3 livello commercio 40 ore netto": 480,
+    "quarto livello commercio stipendio netto": 260
+   }
+  },
+  "4 livello commercio": {
+   "volume": 880,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "livello 4 commercio": 880,
+    "iv livello ccnl commercio": 320,
+    "commercio 4 livello": 110,
+    "ccnl commercio 4 livello": 2400,
+    "4 livello ccnl commercio": 590,
+    "ccnl commercio iv livello": 320,
+    "quarto livello commercio": 720,
+    "5 livello commercio": 480,
+    "4 livello ccnl": 390,
+    "ccnl livello 4": 390
+   }
+  },
+  "ccnl commercio 4 livello": {
+   "volume": 2400,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-12",
+   "simili": {
+    "contratto commercio 4 livello": 1000,
+    "ccnl 4 livello commercio": 2400,
+    "livello 4 commercio": 880,
+    "4 livello ccnl commercio": 590,
+    "ccnl commercio livello 4": 210,
+    "commercio 4 livello": 110,
+    "ccnl commercio livello 5": 4400,
+    "ccnl 3 livello commercio": 1600,
+    "4 livello commercio": 880,
+    "contratto commercio 3 livello": 590
+   }
+  },
+  "4 livello commercio paga oraria": {
+   "volume": null
+  },
+  "quarto livello commercio": {
+   "volume": 720,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "contratto commercio quarto livello": 90,
+    "contratto quarto livello commercio": 90,
+    "ccnl commercio quarto livello": 90,
+    "terzo livello commercio": 1000,
+    "primo livello commercio": 480,
+    "iv livello ccnl commercio": 320,
+    "contratto 1 livello commercio": 170,
+    "6 livello commercio": 140,
+    "ccnl commercio 4 livello retribuzione": 140,
+    "ccnl commercio i livello": 8100
+   }
+  },
+  "stipendio 5 livello commercio": {
+   "volume": 390,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "retribuzione 5 livello commercio": 110,
+    "5 livello commercio stipendio": 390,
+    "ccnl commercio 5 livello stipendio": 140,
+    "ccnl commercio 5 livello retribuzione": 110,
+    "stipendio 4 livello commercio": 480,
+    "stipendio 3 livello commercio": 390,
+    "stipendio terzo livello commercio": 170,
+    "ral 5 livello commercio": 140,
+    "stipendio 2 livello commercio": 110,
+    "stipendio secondo livello commercio": 110
+   }
+  },
+  "5 livello commercio stipendio netto": {
+   "volume": 590,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "5 livello commercio: stipendio netto": 590,
+    "ccnl commercio 5 livello stipendio netto": 390,
+    "3 livello commercio stipendio netto": 2400,
+    "stipendio netto 3 livello commercio": 2400,
+    "2 livello commercio stipendio netto": 1300,
+    "2 livello commercio: stipendio netto": 1300,
+    "5 livello ccnl commercio stipendio netto": 170,
+    "quinto livello commercio stipendio netto": 110,
+    "3 livello commercio: stipendio netto": 2400,
+    "stipendio netto 2 livello commercio": 1300
+   }
+  },
+  "5 livello commercio": {
+   "volume": 480,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "5 livello ccnl commercio": 4400,
+    "ccnl commercio 5 livello": 4400,
+    "ccnl commercio livello 5": 4400,
+    "livello 5 ccnl commercio": 4400,
+    "contratto commercio 5 livello": 1000,
+    "quinto livello commercio": 480,
+    "contratto 5 livello commercio": 1000,
+    "ccnl commercio v livello": 480,
+    "v livello ccnl commercio": 480,
+    "ccnl 5 livello commercio": 4400
+   }
+  },
+  "ccnl commercio 5 livello": {
+   "volume": 4400,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ccnl commercio livello 5": 4400,
+    "contratto commercio 5 livello": 1000,
+    "5 livello commercio": 480,
+    "5 livello ccnl commercio": 4400,
+    "livello 5 ccnl commercio": 4400,
+    "v livello ccnl commercio": 480,
+    "ccnl commercio quinto livello": 110,
+    "ccnl 5 livello commercio": 4400,
+    "ccnl 3 livello commercio": 1600,
+    "contratto 5 livello commercio": 1000
+   }
+  },
+  "5 livello commercio paga oraria": {
+   "volume": null
+  },
+  "quinto livello commercio": {
+   "volume": 480,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ccnl commercio quinto livello": 110,
+    "ccnl commercio livello 5": 4400,
+    "contratto 5 livello commercio": 1000,
+    "5 livello commercio": 480,
+    "ccnl quinto livello commercio": 110,
+    "livello 5 ccnl commercio": 4400,
+    "contratto commercio 5 livello": 1000,
+    "ccnl 5 livello commercio": 4400,
+    "ccnl commercio 5 livello": 4400,
+    "3 livello ccnl commercio": 1600
+   }
+  },
+  "stipendio 6 livello commercio": {
+   "volume": 70,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "stipendio impiegato commerciale 3 livello": 70,
+    "paga 5 livello commercio": 70,
+    "contratto commercio 6 livello retribuzione netta": 90,
+    "stipendio 40 ore settimanali commercio": 90,
+    "ccnl commercio 2 livello stipendio netto": 110,
+    "stipendio impiegata 5 livello": 70,
+    "tabella retribuzione apprendistato commercio": 50,
+    "ccnl commessa": 140,
+    "4 livello commercio retribuzione netta": 110,
+    "4 livello commercio: retribuzione netta": 110
+   }
+  },
+  "6 livello commercio stipendio netto": {
+   "volume": 390,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "6 livello commercio: stipendio netto": 390,
+    "stipendio netto 2 livello commercio 40 ore": 720,
+    "stipendio netto 2 livello commercio": 1300,
+    "impiegato 5 livello stipendio netto": 590,
+    "ccnl commercio 5 livello stipendio netto": 390,
+    "operaio 6 livello stipendio netto": 390,
+    "stipendio netto 3 livello commercio": 2400,
+    "stipendio netto 4 livello commercio": 1900,
+    "2 livello commercio stipendio netto": 1300,
+    "2 livello commercio: stipendio netto": 1300
+   }
+  },
+  "6 livello commercio": {
+   "volume": 140,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ral 5 livello commercio": 140,
+    "livello 6 ccnl commercio": 170,
+    "ccnl commercio retribuzione": 720,
+    "commercio secondo livello": 720,
+    "ral ccnl commercio": 260,
+    "contratto commercio stipendio": 210,
+    "retribuzione contratto commercio": 210,
+    "ccnl commercio 4 livello retribuzione": 140,
+    "ral secondo livello commercio": 140,
+    "ral contratto commercio": 110
+   }
+  },
+  "ccnl commercio 6 livello": {
+   "volume": 260,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ccnl commercio livello 2": 720,
+    "ccnl commercio livello 1": 390,
+    "ccnl commercio primo livello": 260,
+    "commercio 2 livello": 260,
+    "contratto 2 livello commercio": 260,
+    "livello 6 ccnl commercio": 170,
+    "ccnl commercio livelli": 6600,
+    "livelli contratto commercio": 3600,
+    "ccnl commercio 3 livello": 1600,
+    "ccnl commercio livello 3": 1600
+   }
+  },
+  "6 livello commercio paga oraria": {
+   "volume": null
+  },
+  "sesto livello commercio": {
+   "volume": 170,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "livello commercio": 1300,
+    "livello 6 ccnl commercio": 170,
+    "6 livello commercio": 140,
+    "livello contrattuale commercio": 3600,
+    "impiegato livello 4": 260,
+    "contratto commercio terzo livello": 210,
+    "ral 5 livello commercio": 140,
+    "ccnl commercio livello 6": 110,
+    "ccnl commercio quinto livello": 110,
+    "ral primo livello commercio": 110
+   }
+  },
+  "stipendio 7 livello commercio": {
+   "volume": null
+  },
+  "7 livello commercio stipendio netto": {
+   "volume": null
+  },
+  "7 livello commercio": {
+   "volume": null
+  },
+  "ccnl commercio 7 livello": {
+   "volume": null
+  },
+  "7 livello commercio paga oraria": {
+   "volume": null
+  },
+  "settimo livello commercio": {
+   "volume": null
+  },
+  "stipendio quadro commercio": {
+   "volume": 260,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "contratto commercio stipendio": 210,
+    "stipendio 4 livello commercio": 480,
+    "stipendio 3 livello commercio": 390,
+    "stipendio 5 livello commercio": 390,
+    "ral ccnl commercio": 260,
+    "livello 6 ccnl commercio": 170,
+    "stipendio terzo livello commercio": 170,
+    "ccnl commercio 5 livello stipendio": 140,
+    "ral 5 livello commercio": 140,
+    "ral quadro commercio": 140
+   }
+  },
+  "quadro commercio stipendio netto": {
+   "volume": 90,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "stipendio netto quadro commercio": 90,
+    "stipendio netto terzo livello commercio": 90,
+    "stipendio netto 5 livello commercio": 70,
+    "3 livello commercio stipendio netto part-time 20 ore": 140,
+    "terzo livello commercio stipendio": 140,
+    "busta paga 4 livello commercio": 110,
+    "ccnl commercio 2 livello stipendio netto": 110,
+    "stipendio netto commercio": 110,
+    "paga oraria 4 livello commercio": 90,
+    "stipendio 36 ore settimanali commercio": 90
+   }
+  },
+  "ccnl commercio quadro": {
+   "volume": 480,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ccnl commercio quadri": 480,
+    "commercio quadro": 140,
+    "quadro commercio": 140,
+    "quadri ccnl commercio": 480,
+    "quadro contratto commercio": 390,
+    "quadro ccnl commercio": 480,
+    "contratto commercio quadro": 390,
+    "ccnl 3 livello commercio": 1600,
+    "terzo livello commercio": 1000,
+    "contratto commercio 3 livello": 590
+   }
+  },
+  "tabelle retributive commercio 2026": {
+   "volume": null
+  },
+  "minimi contrattuali commercio 2026": {
+   "volume": null
+  },
+  "paga oraria commercio": {
+   "volume": null
+  },
+  "paga oraria ccnl commercio 2026": {
+   "volume": null
+  },
+  "ccnl commercio 2026": {
+   "volume": null
+  },
+  "ccnl commercio": {
+   "volume": 22200,
+   "cpc_eur": 0.39,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ccnl commercio e terziario": 1900,
+    "ccnl del commercio": 22200,
+    "ccnl commercio contratto": 1600,
+    "contratto ccnl commercio": 1600,
+    "contratti nazionali commercio": 1300,
+    "contratto collettivo commercio": 720,
+    "contratto di lavoro commerciale": 320,
+    "contratto lavoro commercio": 320,
+    "contratto nazionale di lavoro commercio": 210,
+    "contratto collettivo nazionale commercio": 22200
+   }
+  },
+  "ccnl terziario": {
+   "volume": 2400,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "terziario ccnl": 2400,
+    "ccnl terziario e servizi": 320,
+    "contratto terziario": 320,
+    "ccnl terziario distribuzione e servizi": 1900,
+    "ccnl servizi": 480,
+    "ccnl commercio e servizi": 320,
+    "commercio terziario": 320,
+    "terziario commercio": 320,
+    "terziario: commercio": 320,
+    "ccnl distribuzione e servizi": 170
+   }
+  },
+  "aumenti ccnl commercio 2026": {
+   "volume": null
+  },
+  "quattordicesima commercio": {
+   "volume": 110,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "commercio quattordicesima": 110,
+    "ccnl commercio quattordicesima": 170,
+    "quattordicesima ccnl commercio": 140,
+    "quattordicesima contratto commercio": 140,
+    "ccnl commercio 14 mensilità": 110,
+    "quando arriva la quattordicesima ccnl commercio": 90,
+    "quando si paga la quattordicesima": 880,
+    "14 mensilità: quando viene pagata": 320,
+    "quando si paga quattordicesima": 90,
+    "14 mensilità quando viene pagata": 260
+   }
+  },
+  "tredicesima commercio": {
+   "volume": null
+  },
+  "scatti di anzianità commercio": {
+   "volume": 590,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "scatti anzianità ccnl commercio": 880,
+    "scatti di anzianità ccnl commercio": 880,
+    "scatti anzianità commercio": 1600,
+    "scatto anzianità commercio": 1600,
+    "ccnl commercio scatti anzianità": 880,
+    "scatto di anzianità commercio": 590,
+    "scatti anzianità commercio tabella": 110,
+    "scatti livello commercio": 90,
+    "scatti contratto commercio": 170,
+    "scatto anzianità ccnl commercio": 880
+   }
+  },
+  "ccnl commercio tabelle retributive": {
+   "volume": 8100,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ccnl commercio: tabelle retributive": 8100,
+    "tabelle retributive ccnl commercio": 8100,
+    "ccnl terziario confcommercio tabelle retributive": 590,
+    "tabelle retributive ccnl commercio livelli": 480,
+    "ccnl confcommercio tabelle retributive": 170,
+    "tabella retributiva ccnl commercio": 8100,
+    "retribuzione ccnl commercio": 720,
+    "tabelle retributive ccnl commercio: livelli": 480,
+    "minimo tabellare ccnl commercio": 320,
+    "retribuzioni contratto commercio": 210
+   }
+  },
+  "ccnl commercio part time": {
+   "volume": 170,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "part time ccnl commercio": 170,
+    "contratto part time commercio": 110,
+    "part time contratto commercio": 110,
+    "ccnl commercio part time 24 ore settimanali": 90,
+    "ccnl commercio part-time 24 ore settimanali": 90,
+    "part time post maternità ccnl commercio": 90,
+    "stipendio part time 30 ore settimanali commercio 4 livello": 590,
+    "stipendio part-time 30 ore settimanali commercio 4 livello": 590,
+    "stipendio part time 30 ore settimanali commercio 5 livello": 480,
+    "stipendio part-time 30 ore settimanali commercio 5 livello": 480
+   }
+  },
+  "livelli ccnl commercio": {
+   "volume": 6600,
+   "cpc_eur": 0.03,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ccnl commercio livelli": 6600,
+    "livello contratto commercio": 3600,
+    "contratto commercio livelli": 3600,
+    "livelli contratto commercio": 3600,
+    "livelli contrattuali commercio": 3600,
+    "livelli commercio": 1300,
+    "ccnl commercio 6 livello": 260,
+    "ccnl 3 livello commercio": 1600,
+    "commercio livelli": 1300,
+    "terzo livello commercio": 1000
+   }
+  },
+  "stipendio commesso": {
+   "volume": 720,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "stipendio commessa": 720,
+    "quanto guadagna una commessa al mese": 140,
+    "stipendio medio commessa": 140,
+    "quanto prende una commessa": 110,
+    "quanto guadagna un commesso": 590,
+    "commessa stipendio": 720,
+    "stipendi commessi": 720,
+    "quanto guadagna una commessa": 590,
+    "una commessa quanto guadagna": 590,
+    "commessa full time stipendio": 110
+   }
+  },
+  "stipendio commessa part time": {
+   "volume": 260,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "stipendio commessa part-time": 260,
+    "commessa part time stipendio": 260,
+    "commesso part time stipendio": 260,
+    "part-time commessa stipendio": 260,
+    "stipendio commesso part time": 260,
+    "quanto guadagna una commessa part time": 90,
+    "part time commessa stipendio": 260,
+    "commessa full time stipendio": 110,
+    "stipendio commessa 40 ore settimanali": 590,
+    "stipendio commessa full time": 110
+   }
+  },
+  "ccnl commercio divisore orario": {
+   "volume": null
+  },
+  "ral ccnl commercio": {
+   "volume": 260,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ral primo livello commercio": 110,
+    "ccnl commercio retribuzione": 720,
+    "contratto commercio stipendio": 210,
+    "ccnl commercio 4 livello retribuzione": 140,
+    "ccnl commercio ral": 140,
+    "ral 5 livello commercio": 140,
+    "ral secondo livello commercio": 140,
+    "ral contratto commercio": 110,
+    "stipendio 2 livello commercio": 110,
+    "stipendio secondo livello commercio": 110
+   }
+  },
+  "stipendio impiegato commercio": {
+   "volume": null
+  },
+  "stipendio cassiera supermercato": {
+   "volume": 480,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "stipendio cassiere supermercato": 480,
+    "cassiera supermercato stipendio": 90,
+    "stipendio cassiera": 210,
+    "cassiera stipendio": 210,
+    "stipendio cassiere": 210,
+    "quanto guadagna un cassiere": 210,
+    "quanto guadagna una cassiera": 170,
+    "stipendio cassiera 40 ore": 140,
+    "stipendio supermercato part time": 110,
+    "stipendio supermercato part-time": 110
+   }
+  },
+  "metalmeccanico livello d1 stipendio": {
+   "volume": null
+  },
+  "livello d1 metalmeccanico": {
+   "volume": 1000,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "livelli contrattuali metalmeccanici": 6600,
+    "livello d1 metalmeccanico industria": 140,
+    "metalmeccanica livello d1": 110,
+    "metalmeccanico livello d1": 110,
+    "contratti metalmeccanici livelli": 6600,
+    "contratto metalmeccanici livelli": 6600,
+    "livelli contratto metalmeccanico": 6600,
+    "livello contratto metalmeccanici": 6600,
+    "livello contratto metalmeccanico": 6600,
+    "ccnl metalmeccanica livelli": 5400
+   }
+  },
+  "stipendio d1 metalmeccanico": {
+   "volume": null
+  },
+  "ccnl metalmeccanici d1": {
+   "volume": null
+  },
+  "metalmeccanico livello d2 stipendio": {
+   "volume": null
+  },
+  "livello d2 metalmeccanico": {
+   "volume": 2900,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "metalmeccanico d2": 260,
+    "livello d2 metalmeccanici": 2900,
+    "metalmeccanico b2": 210,
+    "metalmeccanico c2": 210,
+    "metalmeccanico livello d2": 110,
+    "livello c3 metalmeccanico": 3600,
+    "livello b1 metalmeccanico": 1900,
+    "livello c1 metalmeccanico": 1600,
+    "livello b3 metalmeccanico": 1300,
+    "livello d1 metalmeccanico": 1000
+   }
+  },
+  "stipendio d2 metalmeccanico": {
+   "volume": null
+  },
+  "ccnl metalmeccanici d2": {
+   "volume": null
+  },
+  "metalmeccanico livello c1 stipendio": {
+   "volume": null
+  },
+  "livello c1 metalmeccanico": {
+   "volume": 1600,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "livello b3 metalmeccanici": 1300,
+    "livello b3 metalmeccanico": 1300,
+    "livello metalmeccanico d2": 110,
+    "metalmeccanico livello d2": 110,
+    "livelli contratto metalmeccanico": 6600,
+    "livello d2 metalmeccanici": 2900,
+    "livello d2 metalmeccanico": 2900,
+    "d2 metalmeccanico": 880,
+    "livello a1 metalmeccanico": 590,
+    "livelli impiegati metalmeccanici": 390
+   }
+  },
+  "stipendio c1 metalmeccanico": {
+   "volume": null
+  },
+  "ccnl metalmeccanici c1": {
+   "volume": null
+  },
+  "metalmeccanico livello c2 stipendio": {
+   "volume": null
+  },
+  "livello c2 metalmeccanico": {
+   "volume": 3600,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "livelli impiegati metalmeccanici": 390,
+    "livello contratto metalmeccanico": 6600,
+    "livello contrattuale metalmeccanico": 6600,
+    "metalmeccanici livello c3": 170,
+    "categorie contratto metalmeccanici": 140,
+    "d2 livello metalmeccanico": 140,
+    "impiegato metalmeccanico livelli": 140,
+    "metalmeccanico livello d2": 110,
+    "metalmeccanica livelli": 18100,
+    "metalmeccanico livelli": 18100
+   }
+  },
+  "stipendio c2 metalmeccanico": {
+   "volume": null
+  },
+  "ccnl metalmeccanici c2": {
+   "volume": null
+  },
+  "metalmeccanico livello c3 stipendio": {
+   "volume": null
+  },
+  "livello c3 metalmeccanico": {
+   "volume": 3600,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "metalmeccanico livello c3": 170,
+    "livello c2 metalmeccanico": 3600,
+    "livello d2 metalmeccanico": 2900,
+    "metalmeccanico d2": 260,
+    "metalmeccanico c2": 210,
+    "livello c1 metalmeccanico": 1600,
+    "livello b3 metalmeccanici": 1300,
+    "livelli impiegati metalmeccanici": 390,
+    "metalmeccanico c3": 320,
+    "metalmeccanico b2": 210
+   }
+  },
+  "stipendio c3 metalmeccanico": {
+   "volume": null
+  },
+  "ccnl metalmeccanici c3": {
+   "volume": 170,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ccnl metalmeccanico c3": 170,
+    "ccnl metalmeccanici b1": 110,
+    "metalmeccanici c3": 50,
+    "contratto metalmeccanici c3": 170,
+    "metalmeccanici livello c3": 170,
+    "categorie ccnl metalmeccanici": 110,
+    "ccnl metalmeccanici b2": 110,
+    "metalmeccanica livelli": 18100,
+    "metalmeccanici livelli": 18100,
+    "livello c3 metalmeccanico": 3600
+   }
+  },
+  "metalmeccanico livello b1 stipendio": {
+   "volume": null
+  },
+  "livello b1 metalmeccanico": {
+   "volume": 1900,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "metalmeccanico b1": 140,
+    "livello d2 metalmeccanico": 2900,
+    "livello b2 metalmeccanico": 1900,
+    "b2 metalmeccanico": 480,
+    "metalmeccanica d1": 140,
+    "livelli contrattuali metalmeccanici": 6600,
+    "metalmeccanico industria livelli": 1900,
+    "livello b3 metalmeccanici": 1300,
+    "metalmeccanico d2": 260,
+    "metalmeccanico b2": 210
+   }
+  },
+  "stipendio b1 metalmeccanico": {
+   "volume": null
+  },
+  "ccnl metalmeccanici b1": {
+   "volume": 110,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ccnl metalmeccanici b2": 110,
+    "ccnl metalmeccanici c3": 170,
+    "contratto industria metalmeccanica livelli": 140,
+    "impiegato metalmeccanico livelli": 140,
+    "metalmeccanico b1": 140,
+    "metalmeccanica livelli": 18100,
+    "metalmeccanici livelli": 18100,
+    "livelli contrattuali metalmeccanici": 6600,
+    "ccnl metalmeccanici livelli": 5400,
+    "livello c1 metalmeccanico": 1600
+   }
+  },
+  "metalmeccanico livello b2 stipendio": {
+   "volume": null
+  },
+  "livello b2 metalmeccanico": {
+   "volume": 1900,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "b2 metalmeccanico": 480,
+    "metalmeccanici livello b2": 110,
+    "livello b1 metalmeccanico": 1900,
+    "metalmeccanico b2": 210,
+    "livello d2 metalmeccanico": 2900,
+    "livello c1 metalmeccanico": 1600,
+    "metalmeccanica livelli": 18100,
+    "contratto metalmeccanici livelli": 6600,
+    "livelli contratto metalmeccanico": 6600,
+    "livelli contrattuali metalmeccanici": 6600
+   }
+  },
+  "stipendio b2 metalmeccanico": {
+   "volume": null
+  },
+  "ccnl metalmeccanici b2": {
+   "volume": 110,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ccnl metalmeccanici b1": 110,
+    "metalmeccanico b2": 210,
+    "ccnl metalmeccanico c3": 170,
+    "d2 livello metalmeccanico": 140,
+    "metalmeccanico livello d2": 110,
+    "ccnl metalmeccanici livelli": 5400,
+    "livello d2 metalmeccanici": 2900,
+    "livello c1 metalmeccanico": 1600,
+    "b2 metalmeccanico": 480,
+    "metalmeccanica d2": 260
+   }
+  },
+  "metalmeccanico livello b3 stipendio": {
+   "volume": null
+  },
+  "livello b3 metalmeccanico": {
+   "volume": 1300,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "livello c1 metalmeccanico": 1600,
+    "b2 metalmeccanico": 480,
+    "livello b2 metalmeccanico a cosa corrisponde": 140,
+    "metalmeccanico livello d2": 110,
+    "livelli contratto metalmeccanico": 6600,
+    "livello d2 metalmeccanici": 2900,
+    "livello d2 metalmeccanico": 2900,
+    "metalmeccanico b2": 210,
+    "livello metalmeccanico d2": 110,
+    "livello contratto metalmeccanico": 6600
+   }
+  },
+  "stipendio b3 metalmeccanico": {
+   "volume": null
+  },
+  "ccnl metalmeccanici b3": {
+   "volume": null
+  },
+  "metalmeccanico livello a1 stipendio": {
+   "volume": null
+  },
+  "livello a1 metalmeccanico": {
+   "volume": 590,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "livello c1 metalmeccanico": 1600,
+    "livello b3 metalmeccanici": 1300,
+    "metalmeccanico livello d2": 110,
+    "livelli contratto metalmeccanico": 6600,
+    "livello c2 metalmeccanico": 3600,
+    "livelli impiegati metalmeccanici": 390,
+    "livello 5s metalmeccanico": 260,
+    "contratto metalmeccanico d1": 140,
+    "d2 livello metalmeccanico": 140,
+    "impiegato metalmeccanico livelli": 140
+   }
+  },
+  "stipendio a1 metalmeccanico": {
+   "volume": null
+  },
+  "ccnl metalmeccanici a1": {
+   "volume": null
+  },
+  "tabelle retributive metalmeccanici 2026": {
+   "volume": null
+  },
+  "minimi contrattuali metalmeccanici 2026": {
+   "volume": null
+  },
+  "minimi metalmeccanici 2026": {
+   "volume": null
+  },
+  "paga oraria metalmeccanico": {
+   "volume": 320,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "paga oraria metalmeccanici": 320,
+    "paga metalmeccanico": 170,
+    "metalmeccanica stipendio": 1900,
+    "metalmeccanici stipendio": 1900,
+    "metalmeccanico stipendio": 1900,
+    "metalmeccanici retribuzione": 320,
+    "metalmeccanico retribuzione": 320,
+    "retribuzioni metalmeccanici": 320,
+    "tabella stipendi metalmeccanici": 110,
+    "stipendi metalmeccanici": 1900
+   }
+  },
+  "ccnl metalmeccanici 2026": {
+   "volume": null
+  },
+  "ccnl metalmeccanici": {
+   "volume": 33100,
+   "cpc_eur": 0.23,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ccnl metalmeccanico": 33100,
+    "metalmeccanica ccnl": 33100,
+    "ccnl metalmeccanica": 33100,
+    "ccnl metalmeccanici industria": 6600,
+    "metalmeccanici industria": 1300,
+    "contratto industria metalmeccanica": 1000,
+    "contratto industria metalmeccanici": 1000,
+    "ccnl industria metalmeccanica": 6600,
+    "ccnl metalmeccanica industria": 6600,
+    "industria metalmeccanica ccnl": 6600
+   }
+  },
+  "aumenti metalmeccanici 2026": {
+   "volume": null
+  },
+  "aumenti metalmeccanici 2027": {
+   "volume": null
+  },
+  "livelli metalmeccanici": {
+   "volume": 18100,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "contratto metalmeccanico livelli": 6600,
+    "ccnl metalmeccanici: livelli": 5400,
+    "contratti metalmeccanici livelli": 6600,
+    "contratto metalmeccanici livelli": 6600,
+    "livelli contrattuali metalmeccanici": 6600,
+    "ccnl metalmeccanici livelli": 5400,
+    "ccnl metalmeccanico livelli": 5400,
+    "ccnl metalmeccanico industria livelli": 590,
+    "livello operaio metalmeccanico": 480,
+    "livello inquadramento metalmeccanico": 210
+   }
+  },
+  "stipendio metalmeccanico": {
+   "volume": 1900,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "metalmeccanici stipendio": 1900,
+    "metalmeccanica stipendio": 1900,
+    "stipendi metalmeccanici": 1900,
+    "ccnl metalmeccanici stipendio": 210,
+    "industria metalmeccanica stipendio": 110,
+    "metalmeccanico stipendio": 1900,
+    "paga base metalmeccanico": 590,
+    "contratto metalmeccanici stipendio": 390,
+    "metalmeccanici retribuzione": 320,
+    "retribuzioni metalmeccanici": 320
+   }
+  },
+  "tredicesima metalmeccanici": {
+   "volume": 260,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ccnl metalmeccanici mensilità": 110,
+    "mensilità contratto metalmeccanico": 110,
+    "quando arriva la tredicesima metalmeccanici": 140,
+    "ccnl metalmeccanico mensilità": 110,
+    "metalmeccanico stipendio": 1900,
+    "tabella retributiva metalmeccanici": 590,
+    "tabella retribuzione metalmeccanico": 590,
+    "ccnl metalmeccanici tabelle": 480,
+    "tabella ccnl metalmeccanici": 480,
+    "tabelle ccnl metalmeccanici": 480
+   }
+  },
+  "scatti di anzianità metalmeccanici": {
+   "volume": 720,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "metalmeccanici scatti anzianità": 2900,
+    "scatti di anzianità metalmeccanico": 720,
+    "scatto di anzianità metalmeccanici": 720,
+    "scatti anzianità metalmeccanici": 2900,
+    "scatti anzianità metalmeccanico": 2900,
+    "scatto di anzianità metalmeccanico": 720,
+    "scatti metalmeccanici": 170,
+    "scatto anzianità metalmeccanico": 2900,
+    "scatti anzianità ccnl metalmeccanici": 210,
+    "scatto anzianità ccnl metalmeccanico": 210
+   }
+  },
+  "ccnl metalmeccanici tabelle": {
+   "volume": 480,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ccnl metalmeccanici tabelle retributive": 2400,
+    "tabella retributiva metalmeccanici": 590,
+    "tabella ccnl metalmeccanico": 480,
+    "tabelle ccnl metalmeccanici": 480,
+    "tabelle retributive ccnl metalmeccanici": 480,
+    "metalmeccanici tabelle retributive": 110,
+    "ccnl metalmeccanico tabelle retributive": 2400,
+    "tabelle livelli metalmeccanici": 1600,
+    "tabella retribuzione metalmeccanico": 590,
+    "tabelle retributive metalmeccanici": 590
+   }
+  },
+  "nuovi livelli metalmeccanici": {
+   "volume": 480,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ccnl metalmeccanico minimi tabellari": 210,
+    "livello metalmeccanico 2025": 1000,
+    "ccnl metalmeccanica industria livelli": 590,
+    "livelli metalmeccanici vecchi e nuovi": 210,
+    "minimi tabellari ccnl metalmeccanici": 210,
+    "ccnl metalmeccanica livelli": 5400,
+    "ccnl metalmeccanici livelli": 5400,
+    "ccnl metalmeccanici: livelli": 5400,
+    "metalmeccanica industria livelli": 1900,
+    "tabella livelli metalmeccanici": 1600
+   }
+  },
+  "1 livello multiservizi stipendio": {
+   "volume": null
+  },
+  "multiservizi 1 livello": {
+   "volume": null
+  },
+  "ccnl multiservizi 1 livello": {
+   "volume": 170,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "contratto multiservizi livelli e paga": 720,
+    "contratto multiservizi: livelli e paga": 720,
+    "ccnl multiservizi 2 livello": 170,
+    "ccnl multiservizi livelli": 110,
+    "ccnl multiservizi 2 livello paga": 210,
+    "ccnl multiservizi 3 livello": 110,
+    "contratto multiservizi 1 livello paga oraria": 320,
+    "contratto multiservizi livelli": 90,
+    "ccnl multiservizi 2 livello paga part time": 390,
+    "ccnl multiservizi 1 livello paga part time": 170
+   }
+  },
+  "2 livello multiservizi stipendio": {
+   "volume": null
+  },
+  "multiservizi 2 livello": {
+   "volume": null
+  },
+  "ccnl multiservizi 2 livello": {
+   "volume": 170,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ccnl multiservizi 2 livello paga": 210,
+    "ccnl multiservizi 3 livello": 110,
+    "contratto multiservizi livelli e paga": 720,
+    "contratto multiservizi: livelli e paga": 720,
+    "ccnl multiservizi 1 livello": 170,
+    "ccnl multiservizi livelli": 110,
+    "ccnl multiservizi 2 livello paga part time": 390,
+    "contratto multiservizi 1 livello paga oraria": 320,
+    "ccnl multiservizi 1 livello paga part time": 170,
+    "contratto multiservizi paga oraria": 140
+   }
+  },
+  "3 livello multiservizi stipendio": {
+   "volume": null
+  },
+  "multiservizi 3 livello": {
+   "volume": null
+  },
+  "ccnl multiservizi 3 livello": {
+   "volume": 110,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ccnl multiservizi 2 livello": 170,
+    "ccnl multiservizi 2 livello paga": 210,
+    "ccnl multiservizi livelli": 110,
+    "contratto multiservizi livelli e paga": 720,
+    "contratto multiservizi: livelli e paga": 720,
+    "ccnl multiservizi 1 livello": 170,
+    "contratto multiservizi 3 livello paga": 110,
+    "ccnl multiservizi 2 livello paga part time": 390,
+    "contratto multiservizi 1 livello paga oraria": 320,
+    "contratto multiservizi 2 livello paga oraria": 320
+   }
+  },
+  "4 livello multiservizi stipendio": {
+   "volume": null
+  },
+  "multiservizi 4 livello": {
+   "volume": null
+  },
+  "ccnl multiservizi 4 livello": {
+   "volume": null
+  },
+  "5 livello multiservizi stipendio": {
+   "volume": null
+  },
+  "multiservizi 5 livello": {
+   "volume": null
+  },
+  "ccnl multiservizi 5 livello": {
+   "volume": null
+  },
+  "6 livello multiservizi stipendio": {
+   "volume": null
+  },
+  "multiservizi 6 livello": {
+   "volume": null
+  },
+  "ccnl multiservizi 6 livello": {
+   "volume": null
+  },
+  "7 livello multiservizi stipendio": {
+   "volume": null
+  },
+  "multiservizi 7 livello": {
+   "volume": null
+  },
+  "ccnl multiservizi 7 livello": {
+   "volume": null
+  },
+  "tabelle retributive multiservizi 2026": {
+   "volume": null
+  },
+  "minimi contrattuali multiservizi": {
+   "volume": null
+  },
+  "paga oraria multiservizi": {
+   "volume": null
+  },
+  "paga oraria multiservizi 2026": {
+   "volume": null
+  },
+  "ccnl multiservizi 2026": {
+   "volume": null
+  },
+  "ccnl multiservizi": {
+   "volume": 3600,
+   "cpc_eur": 1.16,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "contratto collettivo nazionale multiservizi": 3600,
+    "contratto multiservizi": 1300,
+    "multiservizi contratto": 1300,
+    "ccnl multiservizi 1 livello": 170,
+    "multiservizi ccnl": 3600,
+    "contratti multiservizi": 1300,
+    "ccnl pulizie multiservizi": 1000,
+    "ccnl multiservizi aggiornato": 170,
+    "ccnl multiservizi livelli": 110,
+    "contratto nazionale multiservizi": 110
+   }
+  },
+  "ccnl pulizie": {
+   "volume": 480,
+   "cpc_eur": 0.6,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ccnl servizi di pulizie": 110,
+    "imprese di pulizia ccnl": 170,
+    "contratto pulizie a ore": 210,
+    "ccnl imprese pulizia": 170,
+    "ccnl servizi di pulizia": 110,
+    "ccnl pulizie paga oraria": 590,
+    "ccnl imprese di pulizia": 170,
+    "ccnl addetti pulizie contratto part time": 140,
+    "ccnl addetti pulizie contratto part-time": 140,
+    "ccnl servizi pulizia": 90
+   }
+  },
+  "stipendio addetto pulizie": {
+   "volume": null
+  },
+  "paga oraria addetto pulizie": {
+   "volume": null
+  },
+  "aumenti multiservizi 2026": {
+   "volume": null
+  },
+  "quattordicesima multiservizi": {
+   "volume": null
+  },
+  "ccnl multiservizi tabelle": {
+   "volume": null
+  },
+  "1 livello logistica stipendio": {
+   "volume": null
+  },
+  "ccnl logistica 1 livello": {
+   "volume": null
+  },
+  "2 livello logistica stipendio": {
+   "volume": null
+  },
+  "ccnl logistica 2 livello": {
+   "volume": null
+  },
+  "3 livello logistica stipendio": {
+   "volume": null
+  },
+  "ccnl logistica 3 livello": {
+   "volume": null
+  },
+  "3 super livello logistica stipendio": {
+   "volume": null
+  },
+  "ccnl logistica 3 super livello": {
+   "volume": null
+  },
+  "4 livello logistica stipendio": {
+   "volume": null
+  },
+  "ccnl logistica 4 livello": {
+   "volume": null
+  },
+  "4 junior livello logistica stipendio": {
+   "volume": null
+  },
+  "ccnl logistica 4 junior livello": {
+   "volume": null
+  },
+  "5 livello logistica stipendio": {
+   "volume": null
+  },
+  "ccnl logistica 5 livello": {
+   "volume": null
+  },
+  "6 livello logistica stipendio": {
+   "volume": null
+  },
+  "ccnl logistica 6 livello": {
+   "volume": null
+  },
+  "livello c3 logistica": {
+   "volume": null
+  },
+  "ccnl logistica livello c3": {
+   "volume": null
+  },
+  "livello b3 logistica": {
+   "volume": null
+  },
+  "ccnl logistica livello b3": {
+   "volume": null
+  },
+  "livello a3 logistica": {
+   "volume": null
+  },
+  "ccnl logistica livello a3": {
+   "volume": null
+  },
+  "livello e2 logistica": {
+   "volume": null
+  },
+  "ccnl logistica livello e2": {
+   "volume": null
+  },
+  "livello d2 logistica": {
+   "volume": null
+  },
+  "ccnl logistica livello d2": {
+   "volume": null
+  },
+  "livello h1 logistica": {
+   "volume": null
+  },
+  "ccnl logistica livello h1": {
+   "volume": null
+  },
+  "livello g1 logistica": {
+   "volume": null
+  },
+  "ccnl logistica livello g1": {
+   "volume": null
+  },
+  "livello i logistica": {
+   "volume": null
+  },
+  "livello l logistica": {
+   "volume": null
+  },
+  "tabelle retributive logistica 2026": {
+   "volume": null
+  },
+  "minimi contrattuali logistica": {
+   "volume": null
+  },
+  "paga oraria logistica": {
+   "volume": null
+  },
+  "ccnl logistica 2026": {
+   "volume": null
+  },
+  "ccnl logistica trasporto merci": {
+   "volume": 140,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ccnl trasporto merci": 260,
+    "ccnl trasporto merci e spedizioni": 260,
+    "spedizione e trasporto merci ccnl": 260,
+    "ccnl logistica": 720,
+    "ccnl trasporti merci": 260,
+    "ccnl trasporto merci e logistica": 140,
+    "ccnl logistica e trasporti": 4400,
+    "contratto logistica e trasporti": 1000,
+    "ccnl autotrasporti merci e logistica": 480,
+    "contratto nazionale trasporto e logistica": 260
+   }
+  },
+  "ccnl logistica": {
+   "volume": 720,
+   "cpc_eur": 0.38,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ccnl autotrasporti merci e logistica": 480,
+    "ccnl logistica e trasporti": 4400,
+    "contratto nazionale trasporto e logistica": 260,
+    "spedizione e trasporto merci ccnl": 260,
+    "ccnl logistica trasporto merci": 140,
+    "contratto logistica e trasporti": 1000,
+    "contratto logistica": 320,
+    "ccnl trasporti merci": 260,
+    "ccnl trasporto e spedizione merci": 260,
+    "ccnl trasporto merci e spedizioni": 260
+   }
+  },
+  "ccnl trasporto merci": {
+   "volume": 260,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ccnl autotrasporti": 260,
+    "ccnl trasporti merci": 260,
+    "contratto nazionale trasporti e logistica": 260,
+    "spedizione e trasporto merci ccnl": 260,
+    "ccnl logistica trasporto merci": 140,
+    "ccnl logistica e trasporti": 4400,
+    "ccnl spedizione e trasporto merci": 260,
+    "ccnl trasporto merci e spedizioni": 260,
+    "contratto nazionale trasporto e logistica": 260,
+    "ccnl trasporto merci e logistica": 140
+   }
+  },
+  "stipendio autista camion": {
+   "volume": 260,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "stipendio autisti camion": 260,
+    "guadagno camionista": 110,
+    "stipendio camionista italia": 110,
+    "stipendio camionista": 1900,
+    "autista camion stipendio": 260,
+    "quanto guadagna un camionista in italia": 260,
+    "stipendi autisti camion": 260,
+    "quanto guadagna un autista di camion": 170,
+    "stipendio camionista in italia": 90,
+    "quanto guadagna un camionista": 2400
+   }
+  },
+  "stipendio camionista": {
+   "volume": 1900,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "quanto guadagna un camionista": 2400,
+    "camionisti stipendio": 1900,
+    "stipendio camionista italia": 110,
+    "stipendio autista camion": 260,
+    "quanto guadagna un autista di camion": 170,
+    "guadagno camionista": 110,
+    "quanto prende un camionista al mese": 110,
+    "stipendio camionista in italia": 90,
+    "camionista stipendio": 1900,
+    "quanto guadagna un camionista al mese": 320
+   }
+  },
+  "stipendio magazziniere": {
+   "volume": 1300,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "magazziniere stipendio": 1300,
+    "quanto guadagna un magazziniere": 590,
+    "stipendi magazziniere": 1300,
+    "stipendio medio magazziniere": 170,
+    "magazziniere stipendio medio": 170,
+    "stipendio magazziniere 1 livello": 170,
+    "magazziniere stipendio netto": 140,
+    "stipendio magazziniere 3 livello": 90,
+    "stipendio medio magazziniere mulettista": 140,
+    "contratto magazziniere": 110
+   }
+  },
+  "stipendio corriere": {
+   "volume": 480,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "corriere stipendio": 480,
+    "quanto guadagna un corriere": 590,
+    "quanto prende un corriere": 110,
+    "stipendi corrieri": 480,
+    "quanto prende un corriere gls": 90,
+    "stipendio corriere gls": 320,
+    "corriere gls stipendio": 90,
+    "corrieri amazon stipendio": 590,
+    "corriere amazon lavoro stipendio": 390,
+    "quanto guadagna un corriere gls": 320
+   }
+  },
+  "stipendio rider": {
+   "volume": 90,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "quanto guadagna un rider": 880,
+    "quanto guadagna un rider a consegna": 90,
+    "rider deliveroo stipendio": 90,
+    "quanto guadagna un rider deliveroo": 720,
+    "deliveroo rider stipendio": 260,
+    "quanto guadagna un rider di deliveroo": 140,
+    "quanto si guadagna con deliveroo": 720,
+    "stipendio rider deliveroo": 140,
+    "guadagno rider deliveroo": 110,
+    "quanto paga deliveroo a consegna": 210
+   }
+  },
+  "aumenti ccnl logistica 2026": {
+   "volume": null
+  },
+  "ccnl trasporti": {
+   "volume": 590,
+   "cpc_eur": 1.46,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ccnl trasporto merci": 260,
+    "ccnl autotrasporto merci e logistica": 110,
+    "contratto nazionale autotrasportatori": 110,
+    "ccnl logistica e trasporti": 4400,
+    "ccnl autotrasporti merci e logistica": 480,
+    "contratto collettivo nazionale logistica trasporto merci e spedizioni": 390,
+    "ccnl autotrasporti": 260,
+    "ccnl trasporti merci": 260,
+    "contratto autotrasporti": 170,
+    "ccnl logistica trasporto merci": 140
+   }
+  },
+  "ccnl logistica tabelle": {
+   "volume": null
+  },
+  "badante livello a": {
+   "volume": null
+  },
+  "colf livello a": {
+   "volume": null
+  },
+  "stipendio badante livello a": {
+   "volume": null
+  },
+  "badante livello as": {
+   "volume": null
+  },
+  "colf livello as": {
+   "volume": null
+  },
+  "stipendio badante livello as": {
+   "volume": null
+  },
+  "badante livello b": {
+   "volume": 140,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "colf livello b": 170,
+    "livello bs colf": 170,
+    "livello b colf": 170,
+    "mansioni colf livello bs": 110,
+    "colf livello bs": 170,
+    "mansioni colf livello b": 110,
+    "badante livello c": 1000,
+    "colf livelli": 390,
+    "livelli colf": 390,
+    "livello colf": 390
+   }
+  },
+  "colf livello b": {
+   "volume": 170,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "livello b colf": 170,
+    "badante livello b": 140,
+    "colf livelli": 390,
+    "livelli colf": 390,
+    "colf livello bs": 170,
+    "livello bs colf": 170,
+    "mansioni colf livello b": 110,
+    "mansioni colf livello bs": 110,
+    "livello a colf": 390,
+    "livello colf": 390
+   }
+  },
+  "stipendio badante livello b": {
+   "volume": null
+  },
+  "badante livello bs": {
+   "volume": 140,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "livello bs badante": 320,
+    "badanti livello bs": 140,
+    "livello bs": 170,
+    "livello bs colf": 170,
+    "badanti livello cs": 1000,
+    "livello cs badante": 1000,
+    "badante livello ds": 260,
+    "colf livello bs": 170,
+    "badante livello b": 140,
+    "mansioni colf livello bs": 110
+   }
+  },
+  "colf livello bs": {
+   "volume": 170,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "livello bs colf": 170,
+    "livello b colf": 170,
+    "colf livello b": 170,
+    "badante livello b": 140,
+    "mansioni colf livello bs": 110,
+    "colf livello": 390,
+    "livello bs badante": 320,
+    "livello bs": 170,
+    "badante livello bs": 140,
+    "mansioni colf livello b": 110
+   }
+  },
+  "stipendio badante livello bs": {
+   "volume": 140,
+   "cpc_eur": 0.81,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "badante livello cs stipendio": 260,
+    "livello cs badante retribuzione": 170,
+    "badante livello c super paga oraria": 320,
+    "livello cs: badante retribuzione": 170,
+    "stipendio badante 2025 54 ore settimanali": 170,
+    "retribuzioni badanti conviventi": 140,
+    "badante retribuzione": 110,
+    "stipendio badante livello ds": 90,
+    "stipendio badante convivente 54 ore settimanali 2025": 880,
+    "stipendi badanti": 720
+   }
+  },
+  "badante livello c": {
+   "volume": 1000,
+   "cpc_eur": 2.02,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "livello c badante": 1000,
+    "livello bs colf": 170,
+    "badante livello b": 140,
+    "mansioni badante livello c super": 140,
+    "livello cs badante": 1000,
+    "colf livelli": 390,
+    "livelli badanti": 390,
+    "livelli colf": 390,
+    "livello cs": 210,
+    "colf livello bs": 170
+   }
+  },
+  "colf livello c": {
+   "volume": 140,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "badanti livelli": 390,
+    "colf livello cs": 140,
+    "livello c colf": 90,
+    "livello badante": 390,
+    "badante livello c": 1000,
+    "badante livelli": 390,
+    "mansioni badante livello c super": 140,
+    "livello cs colf": 90,
+    "colf livelli": 390,
+    "livelli colf": 390
+   }
+  },
+  "stipendio badante livello c": {
+   "volume": null
+  },
+  "badante livello cs": {
+   "volume": 1000,
+   "cpc_eur": 1.26,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "livello cs": 210,
+    "badante livello bs convivente": 110,
+    "badanti livello cs": 1000,
+    "colf livello cs": 140,
+    "livello badanti conviventi": 140,
+    "badante cs": 110,
+    "badante livello c": 1000,
+    "livello cs badante": 1000,
+    "badanti livelli": 390,
+    "livello badante": 390
+   }
+  },
+  "colf livello cs": {
+   "volume": 140,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "livello badante": 390,
+    "badanti livelli": 390,
+    "badante livelli": 390,
+    "colf livello c": 140,
+    "mansioni badante livello c super": 140,
+    "contratto di lavoro livello cs": 90,
+    "livello cs colf": 90,
+    "badante livello cs": 1000,
+    "livelli badanti": 390,
+    "categorie badanti": 110
+   }
+  },
+  "stipendio badante livello cs": {
+   "volume": null
+  },
+  "badante livello d": {
+   "volume": null
+  },
+  "colf livello d": {
+   "volume": null
+  },
+  "stipendio badante livello d": {
+   "volume": null
+  },
+  "badante livello ds": {
+   "volume": 260,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "livello ds badante": 110,
+    "livello bs badante": 320,
+    "badante livello bs": 140,
+    "badanti livello bs": 140,
+    "livello badante convivente": 140,
+    "livello badanti conviventi": 140,
+    "livello bs": 170,
+    "livello bs colf": 170,
+    "badante livello bs convivente": 110,
+    "badante livello cs": 1000
+   }
+  },
+  "colf livello ds": {
+   "volume": null
+  },
+  "stipendio badante livello ds": {
+   "volume": 90,
+   "cpc_eur": 0.64,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "stipendio badante livello bs": 140,
+    "badante livello cs stipendio": 260,
+    "livello cs badante retribuzione": 170,
+    "badante livello c super paga oraria": 320,
+    "colf livello a paga oraria": 260,
+    "livello cs: badante retribuzione": 170,
+    "stipendio badante 2025 54 ore settimanali": 170,
+    "retribuzioni badanti conviventi": 140,
+    "tabella stipendio badante 2025 non convivente": 140,
+    "retribuzione badanti": 110
+   }
+  },
+  "colf badante stipendio 2026": {
+   "volume": null
+  },
+  "stipendio badante 2026": {
+   "volume": null
+  },
+  "stipendio colf 2026": {
+   "volume": null
+  },
+  "paga oraria colf 2026": {
+   "volume": null
+  },
+  "paga oraria badante 2026": {
+   "volume": null
+  },
+  "paga oraria colf": {
+   "volume": 260,
+   "cpc_eur": 0.43,
+   "dato_del": "2026-11-12",
+   "simili": {
+    "paga oraria collaboratrice domestica": 90,
+    "paga oraria per collaboratrice domestica": 90,
+    "collaboratrice domestica paga oraria": 90,
+    "colf livello a paga oraria": 260,
+    "retribuzione oraria colf": 90,
+    "colf paga oraria": 260,
+    "collaboratore domestico stipendio": 110,
+    "stipendi colf": 480,
+    "colf livello b retribuzione": 320,
+    "quanto prende una colf all'ora": 140
+   }
+  },
+  "paga oraria badante": {
+   "volume": 320,
+   "cpc_eur": 0.73,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "paga oraria badante a ore": 1600,
+    "badante paga oraria": 320,
+    "badanti paga oraria": 320,
+    "paga oraria di una badante": 320,
+    "paga oraria per badante": 320,
+    "quanto prende una badante all'ora": 390,
+    "quanto guadagna una badante all'ora": 90,
+    "costi badante a ore": 210,
+    "badante a ore quanto costa": 140,
+    "quanto costa una badante a ore": 90
+   }
+  },
+  "tabelle colf 2026": {
+   "volume": null
+  },
+  "minimi colf 2026": {
+   "volume": null
+  },
+  "tabelle retributive colf e badanti 2026": {
+   "volume": null
+  },
+  "stipendio badante convivente": {
+   "volume": 1600,
+   "cpc_eur": 0.82,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "stipendio badante": 720,
+    "badante convivente stipendio": 1600,
+    "stipendio di una badante convivente": 1600,
+    "badante stipendio": 720,
+    "costi badante convivente": 390,
+    "una badante quanto guadagna": 260,
+    "quanto prende una badante": 170,
+    "costi badante": 880,
+    "badante h24 stipendio": 170,
+    "stipendio badante per persona non autosufficiente": 170
+   }
+  },
+  "stipendio badante convivente 2026": {
+   "volume": null
+  },
+  "quanto prende una badante": {
+   "volume": 170,
+   "cpc_eur": 0.86,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "quanto prende una badante al mese": 170,
+    "stipendio di una badante convivente": 1600,
+    "costi badante": 880,
+    "quanto costa una badante": 880,
+    "costi badante convivente": 390,
+    "quanto costa una badante convivente": 170,
+    "quanto costa una badante per persona non autosufficiente": 140,
+    "stipendio badante convivente": 1600,
+    "quanto costa una badante al mese tutto compreso": 590,
+    "quanto costa una badante fissa al mese": 480
+   }
+  },
+  "quanto guadagna una badante": {
+   "volume": 260,
+   "cpc_eur": 1.2,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "una badante quanto guadagna": 260,
+    "badante stipendio": 720,
+    "stipendio badante": 720,
+    "quanto prende una badante": 170,
+    "stipendio badante per persona non autosufficiente": 170,
+    "stipendio di una badante convivente": 1600,
+    "stipendio badante convivente persona autosufficiente": 90,
+    "stipendio badante convivente": 1600,
+    "stipendio per badante convivente": 1600,
+    "quanto prende una badante al mese": 170
+   }
+  },
+  "stipendio baby sitter": {
+   "volume": null
+  },
+  "paga oraria baby sitter": {
+   "volume": null
+  },
+  "tredicesima colf": {
+   "volume": 260,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "tredicesima per colf": 260,
+    "colf tredicesima": 260,
+    "tredicesima badanti": 140,
+    "badanti tredicesima": 140,
+    "badante tredicesima": 140,
+    "calcolare tredicesima colf": 880,
+    "calcolo tredicesima per colf": 880,
+    "colf tredicesima calcolo": 880,
+    "come si calcola la tredicesima colf": 210,
+    "tredicesima colf a ore": 210
+   }
+  },
+  "tredicesima badante": {
+   "volume": 140,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "badante tredicesima": 140,
+    "badanti tredicesima": 140,
+    "tredicesima badanti con vitto e alloggio": 140,
+    "tredicesima badanti": 140,
+    "colf tredicesima": 260,
+    "tredicesima per colf": 260,
+    "come si calcola la tredicesima colf": 210,
+    "come si calcola tredicesima colf": 210,
+    "tredicesima colf come si calcola": 210,
+    "come calcolare tredicesima colf": 110
+   }
+  },
+  "ccnl colf e badanti": {
+   "volume": 390,
+   "cpc_eur": 1.41,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ccnl badanti": 480,
+    "ccnl badanti e colf": 390,
+    "ccnl colf badanti": 390,
+    "contratto nazionale colf": 110,
+    "ccnl lavoratori domestici": 1000,
+    "ccnl lavoro domestico": 1000,
+    "ccnl colf": 480,
+    "contratto nazionale badanti": 390,
+    "contratto nazionale lavoro domestico": 140,
+    "contratto nazionale colf e badanti": 110
+   }
+  },
+  "ccnl lavoro domestico 2026": {
+   "volume": null
+  },
+  "contratto colf": {
+   "volume": 1000,
+   "cpc_eur": 1.87,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "contratto collaboratore domestico": 140,
+    "contratto di lavoro colf": 140,
+    "colf contratti": 1000,
+    "contratti colf": 1000,
+    "collaboratrici domestiche contratto": 590,
+    "contratto lavoro colf": 140,
+    "contratto lavoro domestico": 880,
+    "collaboratrice domestica contratto": 590,
+    "contratti per collaboratori domestici": 590,
+    "contratti di lavoro colf": 140
+   }
+  },
+  "contratto badante": {
+   "volume": 1900,
+   "cpc_eur": 1.12,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "badanti contratto di lavoro": 320,
+    "contratti di lavoro badanti": 320,
+    "contratti lavoro badanti": 320,
+    "contratto di lavoro badante": 320,
+    "contratto lavoro badante": 320,
+    "contratti di lavoro badante": 320,
+    "contratto lavoro per badanti": 320,
+    "contratto badanti": 1900,
+    "contratti di lavoro per badanti": 320,
+    "contratto di lavoro per badante": 320
+   }
+  },
+  "assumere una badante": {
+   "volume": 90,
+   "cpc_eur": 0.67,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "assumere badante": 90,
+    "come assumere una badante": 110,
+    "badante assunzione": 210,
+    "assumere badanti": 90,
+    "assunzione di badante": 260,
+    "come assumere badante": 110,
+    "assunzioni badante": 210,
+    "assunzione badante": 210,
+    "assunzione badanti": 210,
+    "come mettere in regola una badante": 140
+   }
+  },
+  "vitto e alloggio badante": {
+   "volume": 170,
+   "cpc_eur": 0.61,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "vitto alloggio badante": 170,
+    "vitto alloggio badanti": 170,
+    "badante vitto alloggio": 170,
+    "badanti vitto e alloggio": 170,
+    "badanti conviventi vitto e alloggio": 390,
+    "vitto alloggio badante convivente": 390,
+    "badante vitto e alloggio": 170,
+    "badanti con vitto e alloggio": 170,
+    "contratti per badanti con vitto e alloggio": 170,
+    "contratto badante vitto e alloggio": 170
+   }
+  },
+  "badante notturna": {
+   "volume": 480,
+   "cpc_eur": 1.4,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "badante di notte": 210,
+    "notte badante": 210,
+    "badante assistenza notturna": 140,
+    "badanti notturne": 480,
+    "badanti di notte": 210,
+    "assistenza notturna badanti": 140,
+    "assistenza notturna badante": 140,
+    "badante solo di notte": 140,
+    "badante solo notte": 140,
+    "badanti assistenza notturna": 140
+   }
+  },
+  "ccnl turismo": {
+   "volume": 2900,
+   "cpc_eur": 0.66,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "contratto nazionale del turismo": 260,
+    "contratto nazionale turismo": 260,
+    "turismo ccnl": 2900,
+    "contratto collettivo turismo": 90,
+    "contratto turismo": 880,
+    "ccnl settore turismo": 110,
+    "ccnl settore turistico": 110,
+    "contratto alberghiero": 110,
+    "ccnl turismo e pubblici esercizi": 1000,
+    "ccnl turismo livelli": 390
+   }
+  },
+  "tabelle retributive turismo 2026": {
+   "volume": null
+  },
+  "ccnl pubblici esercizi": {
+   "volume": 1900,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "pubblici esercizi ccnl": 1900,
+    "ccnl ristorazione": 1000,
+    "contratto collettivo nazionale di lavoro pubblici esercizi": 1900,
+    "ccnl turismo pubblici esercizi": 1000,
+    "ccnl barista": 260,
+    "contratto pubblici esercizi": 260,
+    "ccnl pubblici esercizi ristorazione e turismo": 260,
+    "contratto ristorazione": 260,
+    "contratto collettivo ristorazione": 90,
+    "contratto nazionale ristorazione": 90
+   }
+  },
+  "tabelle retributive pubblici esercizi 2026": {
+   "volume": null
+  },
+  "ccnl sanità privata": {
+   "volume": 720,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "contratto sanità privata": 720,
+    "contratto collettivo nazionale di lavoro sanità privata": 720,
+    "sanità privata ccnl": 720,
+    "contratto aiop sanità privata": 480,
+    "livelli contratto sanità privata": 210,
+    "ccnl sanità privata pdf": 320,
+    "contratto aris sanità privata pdf": 210,
+    "contratto aris aiop": 170,
+    "contratto aiop sanità privata retribuzione": 140,
+    "contratto aris sanità privata": 140
+   }
+  },
+  "tabelle retributive sanità privata 2026": {
+   "volume": null
+  },
+  "ccnl aiop": {
+   "volume": 880,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "aiop contratto": 1600,
+    "contratto aiop": 1900,
+    "aiop ccnl": 880,
+    "contratto sanità privata aiop": 480,
+    "sanità privata aiop": 110,
+    "contratto aiop sanità privata": 480,
+    "ccnl aiop aris": 260,
+    "ccnl aiop-aris": 260,
+    "aiop contratto infermieri": 210,
+    "ccnl aiop personale non medico": 170
+   }
+  },
+  "ccnl scuola privata": {
+   "volume": null
+  },
+  "tabelle retributive scuola privata 2026": {
+   "volume": null
+  },
+  "ccnl agidae": {
+   "volume": 390,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "agidae ccnl": 390,
+    "contratto agidae": 1000,
+    "agidae contratto": 1000,
+    "contratto collettivo nazionale di lavoro agidae": 390,
+    "contratto agidae socio-assistenziale pdf": 210,
+    "contratto agidae socio assistenziale pdf": 170,
+    "contratto agidae 2025": 110,
+    "contratto agidae enti ecclesiastici": 110,
+    "contratto agidae tabelle retributive": 480,
+    "contratto agidae livelli e mansioni": 140
+   }
+  },
+  "ccnl aninsei": {
+   "volume": 720,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ccnl scuole private aninsei": 110,
+    "aninsei contratto": 1600,
+    "contratto aninsei": 1600,
+    "contratto aninsei educatore nido": 320,
+    "contratto aninsei 4 livello": 110,
+    "contratto aninsei paga oraria": 390,
+    "contratto aninsei tabelle retributive": 110,
+    "contratto aninsei educatore nido stipendio": 110,
+    "ccnl scuole private laiche": 260,
+    "aninsei": 1000
+   }
+  },
+  "ccnl edilizia": {
+   "volume": 2400,
+   "cpc_eur": 0.12,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "edilizia ccnl": 2400,
+    "ccnl industria edile": 110,
+    "ccnl edilizia e industria": 2400,
+    "edili industria ccnl": 1900,
+    "contratto collettivo edilizia": 110,
+    "ccnl edilizia industriale": 2400,
+    "ccnl industria edilizia": 2400,
+    "ccnl edili industria": 1900,
+    "edilizia industria ccnl": 1900,
+    "contratto nazionale edilizia": 210
+   }
+  },
+  "tabelle retributive edilizia 2026": {
+   "volume": null
+  },
+  "tabelle retributive trasporti 2026": {
+   "volume": null
+  },
+  "ccnl studi professionali": {
+   "volume": 5400,
+   "cpc_eur": 1.12,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "contratto lavoro studi professionali": 110,
+    "studi professionali ccnl": 5400,
+    "contratti studi professionali": 1000,
+    "contratto collettivo studi professionali": 170,
+    "contratto studi professionali": 1000,
+    "studi professionali contratto": 1000,
+    "contratto nazionale studi professionali": 170,
+    "studi professionali": 720,
+    "contratto professionisti": 110,
+    "contratto di lavoro studi professionali": 110
+   }
+  },
+  "tabelle retributive studi professionali 2026": {
+   "volume": null
+  },
+  "ccnl vigilanza privata": {
+   "volume": 1000,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "vigilanza privata ccnl": 1000,
+    "ccnl vigilanza privata e servizi fiduciari": 170,
+    "contratto di vigilanza privata": 320,
+    "contratto vigilanza privata": 320,
+    "ccnl servizi fiduciari": 390,
+    "vigilanza privata contratto": 320,
+    "ccnl vigilanza": 260,
+    "ccnl vigilanza privata pdf": 480,
+    "ccnl guardie giurate": 320,
+    "contratto servizi fiduciari": 110
+   }
+  },
+  "tabelle retributive vigilanza privata 2026": {
+   "volume": null
+  },
+  "ccnl servizi fiduciari": {
+   "volume": 390,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "contratto servizi fiduciari": 110,
+    "ccnl vigilanza privata e servizi fiduciari": 170,
+    "ccnl vigilanza privata": 1000,
+    "vigilanza privata ccnl": 1000,
+    "ccnl guardie giurate": 320,
+    "contratti vigilanza privata": 320,
+    "contratto servizi fiduciari livello d": 390,
+    "contratto collettivo nazionale guardie giurate": 320,
+    "contratto di vigilanza privata": 320,
+    "vigilanza privata contratto": 320
+   }
+  },
+  "tabelle retributive servizi fiduciari 2026": {
+   "volume": null
+  },
+  "ccnl cooperative sociali": {
+   "volume": 6600,
+   "cpc_eur": 0.49,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ccnl coop sociali": 6600,
+    "cooperative sociali ccnl": 6600,
+    "contratto cooperative sociali": 1600,
+    "cooperative sociali contratto": 1600,
+    "contratti nazionali cooperative sociali": 480,
+    "contratto nazionale cooperative sociali": 480,
+    "contratto di lavoro cooperative sociali": 90,
+    "contratto collettivo nazionale cooperative sociali": 6600,
+    "ccnl cooperative": 320,
+    "contratto cooperativa sociale": 320
+   }
+  },
+  "tabelle retributive cooperative sociali 2026": {
+   "volume": null
+  },
+  "ccnl chimici": {
+   "volume": 1600,
+   "cpc_eur": 0.06,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ccnl chimici farmaceutici": 110,
+    "ccnl chimico farmaceutico": 4400,
+    "ccnl chimico-farmaceutico": 4400,
+    "ccnl chimico": 1600,
+    "contratto chimico": 720,
+    "contratto nazionale chimico farmaceutico": 170,
+    "ccnl chimica farmaceutica": 110,
+    "ccnl chimico industria": 1600,
+    "contratto chimico farmaceutico": 1600,
+    "ccnl farmaceutico": 720
+   }
+  },
+  "tabelle retributive chimici 2026": {
+   "volume": null
+  },
+  "ccnl alimentari industria": {
+   "volume": 3600,
+   "cpc_eur": 0.97,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ccnl alimentare industria": 3600,
+    "alimentari industria ccnl": 3600,
+    "ccnl alimentare": 720,
+    "ccnl industria alimentare": 3600,
+    "alimentaristi contratto": 590,
+    "contratto industria alimentare": 480,
+    "contratto nazionale alimentare": 140,
+    "ccnl alimentari": 720,
+    "alimentaristi ccnl": 880,
+    "industria alimentare ccnl": 110
+   }
+  },
+  "tabelle retributive alimentari industria 2026": {
+   "volume": null
+  },
+  "ccnl tessile": {
+   "volume": 880,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "tessile industria ccnl": 590,
+    "ccnl tessile industria": 590,
+    "ccnl tessile abbigliamento": 170,
+    "ccnl tessile abbigliamento industria": 140,
+    "ccnl tessile-abbigliamento industria": 140,
+    "contratto tessile": 590,
+    "contratto industria tessile": 260,
+    "contratto tessile industria": 260,
+    "ccnl industria tessile e abbigliamento": 140,
+    "ccnl tessile abbigliamento moda": 110
+   }
+  },
+  "tabelle retributive tessile 2026": {
+   "volume": null
+  },
+  "ccnl telecomunicazioni": {
+   "volume": 3600,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ccnl tlc": 3600,
+    "contratto collettivo nazionale telecomunicazioni": 3600,
+    "telecomunicazioni ccnl": 3600,
+    "contratto ccnl telecomunicazioni": 110,
+    "contratto telecomunicazioni": 1300,
+    "telecomunicazioni contratto": 1300,
+    "contratto nazionale delle telecomunicazioni": 110,
+    "contratto nazionale telecomunicazioni": 110,
+    "contratto telecomunicazioni: livelli": 210,
+    "livelli contratto telecomunicazioni": 210
+   }
+  },
+  "tabelle retributive telecomunicazioni 2026": {
+   "volume": null
+  },
+  "ccnl bancari": {
+   "volume": 2400,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ccnl dei bancari": 2400,
+    "ccnl bancario": 880,
+    "ccnl banca": 2400,
+    "ccnl credito": 2400,
+    "contratto collettivo nazionale bancario": 2400,
+    "contratto bancari": 1600,
+    "contratto collettivo nazionale bancari": 170,
+    "contratto nazionale bancari": 140,
+    "contratto dei bancari": 1300,
+    "ccnl abi": 390
+   }
+  },
+  "tabelle retributive bancari 2026": {
+   "volume": null
+  },
+  "ccnl assicurativi": {
+   "volume": 1000,
+   "cpc_eur": 0.61,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "contratto assicurativo ccnl": 140,
+    "contratto assicurativo nazionale": 110,
+    "ccnl assicurativo": 1000,
+    "contratto nazionale assicurazioni": 110,
+    "ccnl assicurazioni": 1000,
+    "ania ccnl": 1300,
+    "ccnl ania": 1300,
+    "ccnl assicurazioni pdf": 140,
+    "ccnl ania livelli inquadramento": 140,
+    "ccnl ania pdf": 90
+   }
+  },
+  "tabelle retributive assicurativi 2026": {
+   "volume": null
+  },
+  "ccnl autoferrotranvieri": {
+   "volume": 2400,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "autoferrotranvieri ccnl": 2400,
+    "autoferrotranvieri contratto": 1300,
+    "contratto autoferrotranvieri": 1300,
+    "contratto nazionale autoferrotranvieri": 210,
+    "contratto nazionale autoferrotranvieri aggiornato": 590,
+    "contratto autoferrotranviere": 1300,
+    "autoferrotranvieri": 1600,
+    "ccnl tpl": 140,
+    "tabella parametri autoferrotranvieri": 260,
+    "tabella rinnovo contratto autoferrotranvieri": 140
+   }
+  },
+  "tabelle retributive autoferrotranvieri 2026": {
+   "volume": null
+  },
+  "ccnl agricoltura operai": {
+   "volume": 170,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ccnl per gli operai agricoli e florovivaisti": 320,
+    "contratto agricoltura": 1000,
+    "ccnl operai agricoli e florovivaisti": 320,
+    "ccnl agricolo": 720,
+    "ccnl agricoltura": 720,
+    "contratto bracciante agricolo": 140,
+    "contratti agricoltura": 1000,
+    "bracciante agricolo contratto": 140,
+    "contratto agricolo tempo indeterminato": 480,
+    "ccnl agricoltura livelli": 110
+   }
+  },
+  "tabelle retributive agricoltura operai 2026": {
+   "volume": null
+  },
+  "ccnl gomma plastica": {
+   "volume": 2400,
+   "cpc_eur": 1.01,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "gomma plastica ccnl": 2400,
+    "contratti gomma plastica": 880,
+    "gomma plastica contratto": 880,
+    "ccnl gomma plastica 2025": 170,
+    "ccnl industria gomma plastica": 260,
+    "contratto gomma plastica 2025": 260,
+    "contratto nazionale gomma e plastica": 170,
+    "contratto nazionale gomma plastica": 170,
+    "ccnl gomma e plastica": 2400,
+    "livelli contratto gomma plastica": 880
+   }
+  },
+  "tabelle retributive gomma plastica 2026": {
+   "volume": null
+  },
+  "ccnl legno arredo": {
+   "volume": 260,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ccnl legno e arredamento": 260,
+    "ccnl industria legno": 480,
+    "ccnl legno e arredamento industria": 480,
+    "ccnl legno": 260,
+    "ccnl legno arredamento industria": 480,
+    "ccnl legno industria": 480,
+    "contratto industria legno": 210,
+    "ccnl industria del legno": 480,
+    "ccnl legno industria 14 mensilità": 210,
+    "contratto legno industria": 210
+   }
+  },
+  "tabelle retributive legno arredo 2026": {
+   "volume": null
+  },
+  "ccnl terziario confesercenti": {
+   "volume": 110,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "contratto commercio: livelli": 5400,
+    "4 livello commercio retribuzione netta part-time": 210,
+    "ccnl tds": 90,
+    "impiegata 3 livello commercio": 90,
+    "impiegato secondo livello": 70,
+    "contratto collettivo nazionale di lavoro commercio": 33100,
+    "ccnl commercio: tabelle retributive": 8100,
+    "ccnl commercio livelli": 6600,
+    "livelli ccnl commercio": 6600,
+    "contratti commercio livelli": 5400
+   }
+  },
+  "tabelle retributive terziario confesercenti 2026": {
+   "volume": null
+  },
+  "ccnl metalmeccanici artigiani": {
+   "volume": 3600,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ccnl artigianato metalmeccanico": 3600,
+    "ccnl artigiani metalmeccanici": 3600,
+    "ccnl metalmeccanica artigianato": 3600,
+    "contratto collettivo nazionale metalmeccanici artigiani": 3600,
+    "metalmeccanici artigiani ccnl": 3600,
+    "contratto nazionale metalmeccanici artigianato": 110,
+    "ccnl metalmeccanico artigianato": 3600,
+    "ccnl metalmeccanico artigiano": 3600,
+    "contratto artigianato metalmeccanico": 1300,
+    "contratto metalmeccanici artigiani": 1300
+   }
+  },
+  "tabelle retributive metalmeccanici artigiani 2026": {
+   "volume": null
+  },
+  "ccnl grafici editoriali": {
+   "volume": 390,
+   "cpc_eur": 0.73,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "grafici editoriali ccnl": 390,
+    "contratto grafici editoriali": 260,
+    "ccnl grafica": 210,
+    "ccnl grafica industria": 210,
+    "ccnl grafici industria": 210,
+    "ccnl industria grafica": 210,
+    "ccnl grafica editoria": 320,
+    "contratto grafico editoriale": 260,
+    "grafici editoriali contratto": 260,
+    "ccnl editoria": 140
+   }
+  },
+  "tabelle retributive grafici editoriali 2026": {
+   "volume": null
+  },
+  "ccnl rsa": {
+   "volume": null
+  },
+  "tabelle retributive rsa 2026": {
+   "volume": null
+  },
+  "ccnl socio assistenziale": {
+   "volume": null
+  },
+  "tabelle retributive socio assistenziale 2026": {
+   "volume": null
+  },
+  "ccnl uneba": {
+   "volume": 1300,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "uneba ccnl": 1300,
+    "uneba contratto": 3600,
+    "contratto uneba": 3600,
+    "contratto uneba livelli e mansioni": 170,
+    "contratti uneba": 2900,
+    "contratto uneba oss": 260,
+    "ccnl uneba 2025": 210,
+    "contratto uneba livelli": 110,
+    "livelli contratto uneba": 110,
+    "contratto uneba 2025": 880
+   }
+  },
+  "tabelle retributive uneba 2026": {
+   "volume": null
+  },
+  "ccnl ristorazione collettiva": {
+   "volume": 140,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ccnl pubblici esercizi ristorazione e turismo": 260,
+    "contratti pubblici esercizi": 260,
+    "contratto nazionale ristorazione": 90,
+    "contratto ristorazione collettiva": 90,
+    "contratto pubblici esercizi": 260,
+    "pubblici esercizi contratto": 260,
+    "ristorazione contratto": 260,
+    "contratto collettivo nazionale di lavoro pubblici esercizi": 1900,
+    "pubblici esercizi ccnl": 1900,
+    "ccnl ristorazione": 1000
+   }
+  },
+  "tabelle retributive ristorazione collettiva 2026": {
+   "volume": null
+  },
+  "ccnl acconciatori estetica": {
+   "volume": null
+  },
+  "tabelle retributive acconciatori estetica 2026": {
+   "volume": null
+  },
+  "ccnl panificatori": {
+   "volume": 170,
+   "cpc_eur": 0.52,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "contratto panificatori livelli": 110,
+    "contratto panificatori livello b2": 110,
+    "ccnl panificazione artigianato": 170,
+    "panificatori artigiani": 140,
+    "ccnl panificatori artigiani": 170,
+    "ccnl artigianato alimentare": 720,
+    "alimentaristi artigiani ccnl": 720,
+    "ccnl alimentari artigianato": 720,
+    "ccnl alimentaristi artigiani": 720,
+    "ccnl artigiani alimentari": 720
+   }
+  },
+  "tabelle retributive panificatori 2026": {
+   "volume": null
+  },
+  "stipendio cameriere": {
+   "volume": 880,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "quanto guadagna un cameriere": 1000,
+    "cameriere stipendio": 880,
+    "stipendio medio cameriere": 170,
+    "stipendio medio cameriere italia": 140,
+    "paga di un cameriere": 110,
+    "camerieri stipendio": 880,
+    "stipendio di un cameriere": 880,
+    "quanto prende un cameriere": 210,
+    "quanto guadagna un cameriere in italia": 170,
+    "paga cameriere": 110
+   }
+  },
+  "stipendio barista": {
+   "volume": 590,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "barista stipendio": 590,
+    "quanto guadagna un barista al mese": 140,
+    "stipendio barista all'ora": 110,
+    "quanto prende un barista all'ora": 140,
+    "quanto guadagna una barista": 110,
+    "quanto guadagna un barista": 480,
+    "stipendio barista 40 ore settimanali": 260,
+    "stipendio barman 5 livello": 90,
+    "stipendio barista 36 ore settimanali": 140,
+    "paga oraria barista": 110
+   }
+  },
+  "stipendio cuoco": {
+   "volume": 390,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "stipendio di un cuoco": 390,
+    "cuoco stipendio": 390,
+    "stipendi cuochi": 390,
+    "stipendi cuoco": 390,
+    "stipendio di cuoco": 390,
+    "stipendio cuoco italia": 210,
+    "stipendio di un cuoco in italia": 210,
+    "stipendio medio cuoco italia": 90,
+    "quanto guadagna un cuoco in italia": 140,
+    "quanto prende un cuoco al mese": 110
+   }
+  },
+  "stipendio oss": {
+   "volume": 3600,
+   "cpc_eur": 6.08,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "oss stipendio": 3600,
+    "oss quanto guadagna": 170,
+    "stipendi oss": 3600,
+    "quanto guadagna operatore socio sanitario": 1900,
+    "quanto guadagna un oss": 1900,
+    "operatore socio sanitario quanto guadagna": 170,
+    "stipendio di un oss": 3600,
+    "quanto guadagna oss": 1900,
+    "operatore socio sanitario stipendio": 720,
+    "quanto guadagna un oss in ospedale": 590
+   }
+  },
+  "stipendio oss rsa": {
+   "volume": 90,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "stipendio oss in rsa": 170,
+    "stipendio oss casa di riposo": 110,
+    "quanto guadagna un oss in casa di riposo": 90,
+    "stipendio oss ospedale": 1000,
+    "stipendio oss ospedale pubblico": 320,
+    "stipendio oss clinica privata": 210,
+    "oss in ospedale stipendio": 170,
+    "oss ospedale stipendio": 110,
+    "stipendio oss 36 ore settimanali": 1300,
+    "stipendio di oss in ospedale": 1000
+   }
+  },
+  "stipendio infermiere privato": {
+   "volume": 140,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "paga infermiere": 90,
+    "paga oraria infermiere": 90,
+    "stipendio infermiere pubblico": 90,
+    "guadagni infermiere": 170,
+    "stipendio infermiere al mese": 90,
+    "stipendio mensile infermiere": 90,
+    "stipendio netto infermiere ospedale pubblico": 260,
+    "infermiera professionale stipendio": 170,
+    "infermiere professionale stipendio": 140,
+    "stipendio infermiere ospedale privato": 140
+   }
+  },
+  "stipendio muratore": {
+   "volume": 720,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "muratore stipendio": 720,
+    "stipendio medio muratore": 110,
+    "quanto guadagna un muratore in italia": 170,
+    "quanto prende un muratore al mese": 170,
+    "quanto prende un muratore": 170,
+    "stipendio muratore in italia": 110,
+    "stipendio muratore italia": 110,
+    "quanto guadagna un muratore": 880,
+    "quanto guadagna un muratore al mese": 320,
+    "quanto prende un muratore al giorno": 90
+   }
+  },
+  "stipendio guardia giurata": {
+   "volume": 2900,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "guardie giurate stipendio": 2900,
+    "guardia giurata stipendio": 2900,
+    "quanto guadagna una guardia giurata": 720,
+    "stipendio guardia giurata particolare": 320,
+    "gpg stipendio": 210,
+    "guardia giurata particolare stipendio": 320,
+    "guardia particolare giurata stipendio": 320,
+    "stipendio guardia particolare giurata": 320,
+    "quanto guadagna una guardia giurata armata": 110,
+    "stipendio gpg": 110
+   }
+  },
+  "stipendio segretaria studio": {
+   "volume": null
+  },
+  "stipendio insegnante scuola privata": {
+   "volume": null
+  },
+  "stipendio educatore cooperativa": {
+   "volume": 260,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "stipendio educatrice cooperativa": 320,
+    "stipendio cooperativa": 260,
+    "stipendio cooperative sociali": 90,
+    "livello d2 cooperative sociali stipendio netto": 1000,
+    "stipendio netto d1 cooperative sociali": 590,
+    "livello d1 cooperative sociali stipendio netto part time": 480,
+    "livello b1 cooperative sociali stipendio netto": 390,
+    "livello c2 cooperative sociali stipendio netto": 320,
+    "livello e2 cooperative sociali stipendio netto": 260,
+    "livello e1 cooperative sociali stipendio netto": 210
+   }
+  },
+  "stipendio operaio edile": {
+   "volume": 70,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "operaio edile stipendio": 90,
+    "stipendio manovale edile 1 livello": 170,
+    "operaio edile 3 livello stipendio netto": 140,
+    "paga sindacale manovale edile": 90,
+    "stipendio edilizia": 90,
+    "busta paga manovale edile 1 livello": 320,
+    "stipendio operaio edile 1 livello": 320,
+    "esempio busta paga operaio edile 2 livello": 210,
+    "stipendio operaio edile 2 livello": 210,
+    "stipendio operaio edile 3 livello": 140
+   }
+  },
+  "paga oraria cameriere": {
+   "volume": 110,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "stipendio cameriere all'ora": 480,
+    "quanto prende un cameriere all'ora": 140,
+    "camerieri stipendio": 880,
+    "quanto prende un cameriere": 210,
+    "quanto guadagna una cameriera": 1000,
+    "un cameriere quanto guadagna": 1000,
+    "stipendio medio cameriere": 170,
+    "stipendio medio cameriere italia": 140,
+    "paga cameriere": 110,
+    "stipendio cameriere italia": 110
+   }
+  },
+  "paga oraria barista": {
+   "volume": 110,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "stipendio barman 5 livello": 90,
+    "quanto guadagna un barista all'ora": 70,
+    "stipendio barista": 590,
+    "stipendio barista 40 ore settimanali": 260,
+    "quanto prende un barista all'ora": 140,
+    "barista stipendio": 590,
+    "quanto guadagna un barista al mese": 140,
+    "stipendio barista 36 ore settimanali": 140,
+    "stipendio barista all'ora": 110,
+    "busta paga barista": 70
+   }
+  },
+  "paga oraria muratore": {
+   "volume": 140,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "paga oraria di un muratore": 140,
+    "tariffa oraria muratore": 140,
+    "quanto prende un muratore all'ora": 260,
+    "quanto prende un muratore al giorno": 90,
+    "quanto costa un muratore all'ora": 210,
+    "tariffa oraria muratore artigiano": 70,
+    "quanto costa un operaio edile al datore di lavoro": 110,
+    "paga sindacale operaio edile": 90,
+    "quanto costa un muratore al giorno": 90,
+    "paga oraria muratore 2 livello": 260
+   }
+  },
+  "paga oraria oss": {
+   "volume": 110,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "quanto guadagna un oss all ora": 110,
+    "quanto guadagna un oss all'ora": 110,
+    "operatore socio sanitario quanto guadagna": 170,
+    "quanto guadagna un oss": 1900,
+    "oss stipendio netto": 320,
+    "stipendio oss 30 ore settimanali": 90,
+    "quanto guadagna operatore socio sanitario": 1900,
+    "operatore socio sanitario stipendio": 720,
+    "operatrice socio sanitaria stipendio": 720,
+    "stipendio oss 40 ore settimanali": 320
+   }
+  },
+  "paga oraria guardia giurata": {
+   "volume": 90,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "livello f servizi fiduciari paga oraria": 90,
+    "stipendio portierato vigilanza": 70,
+    "busta paga servizi fiduciari": 140,
+    "ccnl vigilanza privata stipendio": 110,
+    "paga oraria servizi fiduciari livello f": 90,
+    "stipendio gpg livelli": 90,
+    "tabella stipendio guardia giurata": 320,
+    "tabella livelli guardie giurate": 260,
+    "paga oraria guardia giurata armata": 170,
+    "paga oraria guardia giurata 6 livello": 140
+   }
+  },
+  "stipendio receptionist hotel": {
+   "volume": 320,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "receptionist hotel stipendio": 320,
+    "stipendi receptionist hotel": 320,
+    "quanto guadagna un receptionist": 260,
+    "stipendio receptionist hotel 4 stelle": 90,
+    "quanto guadagna una receptionist": 260,
+    "receptionist stipendio": 480,
+    "stipendio receptionist": 480,
+    "quanto guadagna una receptionist al mese": 110,
+    "stipendio netto receptionist hotel": 110,
+    "receptionist 5 livello stipendio netto": 110
+   }
+  },
+  "minimi contrattuali 2026": {
+   "volume": null
+  },
+  "tabelle retributive 2026": {
+   "volume": null
+  },
+  "tabelle retributive ccnl": {
+   "volume": 390,
+   "cpc_eur": 3.59,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "tabella retributiva ccnl": 90,
+    "ccnl tabelle retributive": 390,
+    "tabella retribuzioni ccnl": 90,
+    "ccnl tabella": 720,
+    "tabella ccnl": 260,
+    "contratto collettivo nazionale tabelle": 720,
+    "stipendi ccnl": 480,
+    "retribuzione ccnl": 390,
+    "tabelle retributive": 390,
+    "ccnl retribuzione": 390
+   }
+  },
+  "minimi tabellari 2026": {
+   "volume": null
+  },
+  "paga oraria minima": {
+   "volume": 720,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "retribuzione minima oraria": 140,
+    "retribuzione oraria minima": 140,
+    "paga minima oraria": 720,
+    "salario orario minimo": 110,
+    "paga minima oraria italia": 170,
+    "salario minimo orario": 110,
+    "paga oraria minima italia": 90,
+    "salario minimo italia all ora": 90,
+    "paga oraria minima netta": 210,
+    "paga sindacale all'ora": 170
+   }
+  },
+  "paga oraria minima italia": {
+   "volume": 90,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "paga oraria minima": 720,
+    "salario minimo all'ora italia": 70,
+    "paga minima oraria netta": 140,
+    "retribuzione oraria minima": 140,
+    "paga minima oraria italia": 170,
+    "minimo sindacale all'ora": 140,
+    "retribuzione minima oraria": 140,
+    "salario minimo orario": 110,
+    "salario minimo italia all'ora": 90,
+    "salario minimo italiano": 90
+   }
+  },
+  "come si calcola la paga oraria": {
+   "volume": null
+  },
+  "divisore orario": {
+   "volume": null
+  },
+  "calcolo paga oraria": {
+   "volume": 260,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "calcolo paga oraria online": 320,
+    "calcola paga oraria": 260,
+    "calcolatore paga oraria": 210,
+    "calcolo paga oraria netta": 260,
+    "calcolare paga oraria netta": 260,
+    "paga oraria": 260,
+    "calcolatore paga oraria netta": 260,
+    "retribuzione oraria": 110,
+    "calcolo paga oraria da mensile": 90,
+    "calcolo retribuzione oraria": 110
+   }
+  },
+  "stipendio minimo italia": {
+   "volume": 1900,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "qual è il salario minimo in italia": 90,
+    "italia salario minimo": 6600,
+    "salario minimo italia": 6600,
+    "stipendio minimo in italia": 1900,
+    "salario minimo in italia": 6600,
+    "stipendio minimo": 320,
+    "paga minima oraria italia": 170,
+    "salario minimo italia all ora": 90,
+    "salario minimo italia all'ora": 90,
+    "salario minimo ora": 110
+   }
+  },
+  "ccnl 2026": {
+   "volume": null
+  },
+  "livelli contrattuali": {
+   "volume": 480,
+   "cpc_eur": 0.11,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "livello contratto di lavoro": 170,
+    "livelli lavoro": 880,
+    "livelli lavorativi": 880,
+    "inquadramento contrattuale livelli": 260,
+    "livelli lavorativi busta paga": 260,
+    "contratti di lavoro livelli": 170,
+    "livello lavoro": 880,
+    "impiegati livelli": 480,
+    "livelli busta paga": 480,
+    "livello contratto": 480
+   }
+  },
+  "calcolo stipendio part time": {
+   "volume": 320,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "calcola stipendio part time": 110,
+    "come calcolare stipendio part time": 110,
+    "calcolatore stipendio part time": 320,
+    "calcolo stipendio part-time": 320,
+    "calcolatore stipendio netto part time": 390,
+    "come si calcola lo stipendio part time": 110,
+    "calcolo stipendio netto part time": 390,
+    "calcolo stipendio netto part-time": 390,
+    "stipendio part time 20 ore netto": 1600,
+    "part-time 16 ore stipendio netto": 210
+   }
+  },
+  "scatti di anzianità": {
+   "volume": 8100,
+   "cpc_eur": 0.02,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "scatto di anzianità": 8100,
+    "scatto anzianità": 6600,
+    "scatti anzianità": 6600,
+    "scatti anzianità busta paga": 480,
+    "esempio scatti di anzianità": 320,
+    "scatto di anzianità in busta paga": 260,
+    "quanti sono gli scatti di anzianità": 140,
+    "scatti in busta paga": 140,
+    "scatto in busta paga": 140,
+    "quanto aumenta lo stipendio con lo scatto di anzianità": 110
+   }
+  },
+  "quattordicesima": {
+   "volume": 12100,
+   "cpc_eur": 0.06,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "quando si prende la quattordicesima": 5400,
+    "14 mensilità": 480,
+    "14 esima quando": 1600,
+    "quattordicesima quanto si prende": 1000,
+    "quanto è la quattordicesima": 880,
+    "la quattordicesima": 390,
+    "quando si da la quattordicesima": 170,
+    "la 14 esima quando si prende": 90,
+    "quattordicesima quando": 3600,
+    "14esima quando si prende": 2400
+   }
+  },
+  "tredicesima 2026": {
+   "volume": null
+  },
+  "ral minima": {
+   "volume": null
+  },
+  "salario minimo italia": {
+   "volume": 6600,
+   "cpc_eur": 0.69,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "salario minimo in italia": 6600,
+    "italia salario minimo": 6600,
+    "stipendio minimo in italia": 1900,
+    "stipendio minimo italia": 1900,
+    "qual è il salario minimo in italia": 90,
+    "stipendio minimo": 320,
+    "salario minimo italia all ora": 90,
+    "salario minimo italia all'ora": 90,
+    "sueldo minimo en italia": 390,
+    "sueldo mínimo en italia": 390
+   }
+  },
+  "minimo contrattuale": {
+   "volume": 140,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "contratto di lavoro minimo": 110,
+    "contratto minimo di lavoro": 110,
+    "paga minima sindacale": 110,
+    "retribuzione minima": 110,
+    "minimo sindacale": 590,
+    "minimo contrattuale netto o lordo": 110,
+    "paga oraria minima": 720,
+    "paga sindacale": 390,
+    "stipendio minimo": 320,
+    "minimo tabellare": 210
+   }
+  },
+  "paga base": {
+   "volume": 320,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "retribuzione base": 90,
+    "paga base cos'è": 110,
+    "paga base in busta paga": 90,
+    "paga base significato": 110,
+    "busta paga paga base": 260,
+    "paga base busta paga": 260,
+    "stipendio base": 140,
+    "paga base e contingenza": 390,
+    "stipendio tabellare significato": 90,
+    "minimo tabellare": 210
+   }
+  }
+ }
+}

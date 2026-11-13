@@ -2,7 +2,7 @@
 
 Uso (dalla radice del repository):
     python3 ccnl/verifica.py              # dati, cifre, pagine, link, SEO, FAQ, monetizzazione, testi
-    python3 ccnl/verifica.py --browser    # + Playwright: 4 pagine a 375 e 1280 px, tema chiaro e scuro, calcolo in pagina
+    python3 ccnl/verifica.py --browser    # + Playwright: 6 pagine a 375 e 1280 px, tema chiaro e scuro, calcolo in pagina
     python3 ccnl/verifica.py --rete       # + rilegge i link esterni (documenti ufficiali)
 
 Le cifre si ricalcolano qui senza usare genera.py: si rileggono dati/estratti.json (valori letti dalle fonti), si rifanno
@@ -49,6 +49,18 @@ EST = carica("estratti.json")
 FJ = carica("fonti.json")
 FAQ = carica("faq.json")["faq"]
 DOM = carica("domanda.json")
+# volumi misurati (Google Ads, Italia): file più recente di raccolta/volumi.py; frasi dirette con volume, poi le «simili» non già presenti
+FILE_VOLUMI = sorted(DATI.glob("volumi-*.json"))[-1]
+VOL = json.loads(FILE_VOLUMI.read_text(encoding="utf-8"))
+MISURE = {}
+for _q, _x in VOL["frasi"].items():
+    if _x.get("volume") is not None:
+        MISURE[_q] = _x["volume"]
+for _x in VOL["frasi"].values():
+    for _s, _v in (_x.get("simili") or {}).items():
+        if _v is not None and _s not in MISURE:
+            MISURE[_s] = _v
+MIN_VOLUME = 100
 CONTROLLO = date.fromisoformat(META["controllato_il"])
 D = lambda x: Decimal(str(x))  # noqa: E731
 
@@ -425,20 +437,168 @@ def controlla_pagine():
 
 
 # ---------------------------------------------------------------- 5. FAQ e domanda
+MESI = ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre"]
+
+
+def data_lunga(d):
+    d = date.fromisoformat(d)
+    return f"{'1°' if d.day == 1 else d.day} {MESI[d.month - 1]} {d.year}"
+
+
+def rendi_faq(testo):
+    """Riempie i segnaposto della risposta con cifre rifatte qui da estratti.json (non da genera.py).
+    LookupError se la risposta non deve comparire: aumento futuro che non c'è più o livello con la riga in vigore sospesa."""
+    def sost(mm):
+        cid, lid, campo = mm.group(1), mm.group(2), mm.group(3)
+        if cid == "domestico":
+            anno_dom = max(date.fromisoformat(t["dal"]).year for L_ in RIS["domestico"]["livelli"] for t in L_["tranche"])
+            if OGGI.year > anno_dom:
+                raise LookupError("lavoro domestico: tabella dell'anno prima")
+        if cid == "domestico" and lid == "unico":
+            if campo == "e":
+                return euro(EST["domestico"]["A"]["unico"]["E_mensile"])
+            raise KeyError(campo)
+        m = C[cid]
+        L = next(x for x in m["livelli"] if x["id"] == lid)
+        att = atteso_livello(cid, L)
+        fissa = re.fullmatch(r"mensile_(\d{4})(\d\d)(\d\d)", campo)
+        if fissa:
+            # cifra di una data precisa: la riga di quella data, ricalcolata e pubblicabile
+            x = next((x for x in att if x[0] == "-".join(fissa.groups()) and x[1]), None)
+            if x is None or cid == "domestico":
+                raise KeyError(f"{cid}/{lid}: nessuna cifra pubblicabile per {campo}")
+            return euro(x[2])
+        cur, sosp = corrente(att, cid, L)
+        if not (cur and cur[1]):
+            raise KeyError(f"{cid}/{lid}: nessuna cifra pubblicabile")
+        if sosp:
+            raise LookupError(f"{cid}/{lid}: riga sospesa")
+        dt, _, tot, a = cur
+        if campo == "dal":
+            return data_lunga(dt)
+        if cid == "domestico":
+            oraria, conv = D(a["C_oraria"]), D(a["A_mensile"])
+            ind = D(a.get("A_indennita") or 0)
+            val = {"oraria": oraria, "conv": conv, "mensile": conv, "ind": ind, "conv_tot": conv + ind, "annuo_conv": (conv + ind) * 13,
+                   "tab_b": a.get("B_mensile"), "d_auto": a.get("D_autosuff"), "d_non": a.get("D_non_autosuff")}
+            if re.fullmatch(r"p\d+", campo):
+                return euro(orario52(oraria, int(campo[1:])))
+        else:
+            dv, mens, ore = m["divisore_orario"]["valore"], m["mensilita"]["valore"], m["ore"]["valore"]
+            val = {"mensile": tot, "oraria": arr(tot / dv), "annuo": tot * mens}
+            if m.get("divisore_giornaliero"):
+                val["giornaliera"] = arr(tot / m["divisore_giornaliero"]["valore"])
+            if re.fullmatch(r"p\d+", campo):
+                return euro(prorata(tot, int(campo[1:]), ore))
+            fut = [x for x in att if x[0] > OGGI.isoformat() and x[1]]
+            if campo.startswith("prossimo_"):
+                if not fut:
+                    raise LookupError(f"{cid}/{lid}: nessun aumento futuro")
+                return data_lunga(fut[0][0]) if campo == "prossimo_dal" else euro(fut[0][2])
+        if val.get(campo) is None:
+            raise KeyError(campo)
+        return euro(val[campo])
+    return re.sub(r"\{([a-z]+)/([a-z0-9_]+):([a-z0-9_]+)\}", sost, testo)
+
+
+def pagina_faq(pid):
+    if pid == "home":
+        return SITO / "index.html"
+    if pid == "colf-badanti":
+        return SITO / "colf-badanti" / "index.html"
+    cid, _, lid = pid.partition("/")
+    if not lid:
+        return SITO / C[cid]["slug"] / "index.html"
+    L = next(x for x in C[cid]["livelli"] if x["id"] == lid)
+    return SITO / C[cid]["slug"] / L["slug"] / "index.html"
+
+
 def controlla_faq():
     sugg = {s for v in DOM["radici"].values() if isinstance(v, list) for s in v}
     pagine_valide = {"home", "colf-badanti"} | set(C) | {f"{c}/{L['id']}" for c in C for L in C[c]["livelli"]}
+    testi, n_mis, n_cit, n_rese = {}, 0, 0, 0
     for x in FAQ:
-        if x["ricerca"] not in sugg:
-            errore(f"FAQ «{x['q'][:40]}»: la ricerca «{x['ricerca']}» non è tra i suggerimenti salvati")
+        if x["ricerca"] in sugg and "volume" not in x:
+            pass
+        elif MISURE.get(x["ricerca"], 0) >= MIN_VOLUME and x.get("volume") == MISURE[x["ricerca"]]:
+            n_mis += 1
+        elif x["ricerca"] in MISURE or "volume" in x:
+            errore(f"FAQ «{x['q'][:40]}»: volume dichiarato {x.get('volume')} ma nel file {FILE_VOLUMI.name} è {MISURE.get(x['ricerca'])} (minimo {MIN_VOLUME})")
+        else:
+            errore(f"FAQ «{x['q'][:40]}»: la ricerca «{x['ricerca']}» non è tra i suggerimenti salvati né tra le frasi misurate")
         if x["pagina"] not in pagine_valide:
             errore(f"FAQ «{x['q'][:40]}»: pagina sconosciuta {x['pagina']}")
+            continue
         if "{" in x["q"]:
             errore(f"FAQ con segnaposto nella domanda: {x['q']}")
+        if re.search(r"\bnett[oa] (?:è|di|sono) \d|\d+,\d\d € nett", x["a"]):
+            errore(f"FAQ «{x['q'][:40]}»: la risposta sembra indicare un netto")
+        for c in x.get("citazioni", []):
+            n_cit += 1
+            if c["fonte"] not in x["fonti"]:
+                errore(f"FAQ «{x['q'][:40]}»: citazione da {c['fonte']} che non è tra le fonti della risposta")
+            if c["fonte"] not in testi:
+                testi[c["fonte"]] = testo_fonte(c["fonte"])
+            if norm(c["frase"]) not in testi[c["fonte"]]:
+                errore(f"FAQ «{x['q'][:40]}»: citazione non trovata nel testo di {c['fonte']} («{c['frase'][:50]}»)")
+        # risposta rifatta da zero e cercata nella pagina (o assente se non deve comparire)
+        vis = visibile(leggi_html(pagina_faq(x["pagina"])))
+        try:
+            atteso = norm(rendi_faq(x["a"]))
+        except LookupError:
+            if norm(x["q"]) in vis:
+                errore(f"FAQ «{x['q'][:40]}»: in pagina ma cita un aumento passato o una cifra sospesa")
+            continue
+        n_rese += 1
+        if norm(x["q"]) not in vis or atteso not in vis:
+            errore(f"FAQ «{x['q'][:40]}»: domanda o risposta (cifre ricalcolate) assente da {x['pagina']}")
     for p in pagine_html():
         if re.search(r"\{[a-z]+/[a-z0-9_]+:[a-z0-9_]+\}", leggi_html(p)):
             errore(f"{p}: segnaposto non sostituito")
-    print(f"FAQ: {len(FAQ)} domande, tutte da ricerche vere ({len(sugg)} suggerimenti salvati il {DOM['letto_il']})")
+    print(f"FAQ: {len(FAQ)} domande da ricerche vere ({len(sugg)} suggerimenti salvati il {DOM['letto_il']}; {n_mis} da frasi misurate in "
+          f"{FILE_VOLUMI.name}); {n_rese} risposte ricalcolate e ritrovate in pagina, {n_cit} citazioni ritrovate nei testi ufficiali")
+
+
+# titoli e h1 decisi dalle frasi misurate (dati/titoli_misurati.json, scritto da genera.py)
+VUOTE = {"e", "di", "del", "della", "il", "la", "per", "a"}
+# lavoro domestico: «badante» solo per i livelli che assistono persone, «colf» solo per quelli che non le assistono (declaratoria dell'art. 9)
+def parole(t):
+    t = t.lower().replace("°", " ").replace(":", " ").replace(",", " ")
+    return {w for w in re.split(r"[\s()]+", t) if w and w not in VUOTE}
+
+
+def controlla_titoli_misurati():
+    tm = carica("titoli_misurati.json")
+    if tm.get("file_volumi") != FILE_VOLUMI.name:
+        errore(f"titoli_misurati.json scritto con {tm.get('file_volumi')}, il file dei volumi più recente è {FILE_VOLUMI.name}: rigenerare")
+    n = 0
+    for perc, x in tm["pagine"].items():
+        f = SITO / perc / "index.html"
+        if not f.exists():
+            errore(f"titoli_misurati.json: pagina {perc} assente")
+            continue
+        html = leggi_html(f)
+        t = unescape(re.search(r"<title>(.*?)</title>", html).group(1))
+        h1 = norm(unescape(re.sub(r"<[^>]+>", "", re.search(r"<h1>(.*?)</h1>", html, re.S).group(1))))
+        if t != x["titolo"] or h1 != norm(x["h1"]):
+            errore(f"{perc}: titolo o h1 diversi da titoli_misurati.json")
+        if x["frase"]:
+            n += 1
+            if MISURE.get(x["frase"]) != x["volume"] or x["volume"] < MIN_VOLUME:
+                errore(f"{perc}: frase «{x['frase']}» con volume {x['volume']}, nel file {MISURE.get(x['frase'])} (minimo {MIN_VOLUME})")
+            manca = parole(x["frase"]) - parole(t)
+            if manca:
+                errore(f"{perc}: il titolo non contiene le parole della frase misurata «{x['frase']}» ({', '.join(sorted(manca))})")
+        for cid, m in C.items():
+            for L in m["livelli"]:
+                if perc != f"{m['slug']}/{L['slug']}/" or cid != "domestico":
+                    continue
+                assiste = bool(re.search(r"\bassiste\b", L["declaratoria"]["testo"]))
+                if re.match(r"badante\b", t, re.I) and not assiste:
+                    errore(f"{perc}: «badante» nel titolo ma il livello non assiste persone (art. 9)")
+                if re.match(r"colf\b(?! e badanti)", t, re.I) and assiste:
+                    errore(f"{perc}: «colf» nel titolo ma il livello assiste persone (art. 9)")
+    print(f"Titoli: {n} pagine con titolo da una frase misurata (≥ {MIN_VOLUME} ricerche al mese)")
 
 
 # ---------------------------------------------------------------- 6. date
@@ -531,7 +691,8 @@ def controlla_rete():
     print(f"Rete: {len(urls)} link esterni riletti")
 
 
-PAGINE_BROWSER = ["/", "/terziario-commercio/4-livello/", "/lavoro-domestico/livello-cs/", "/logistica-trasporto-merci/"]
+PAGINE_BROWSER = ["/", "/terziario-commercio/4-livello/", "/lavoro-domestico/livello-cs/", "/logistica-trasporto-merci/", "/metalmeccanici-industria/livello-c2/",
+                  "/colf-badanti/"]
 
 
 def controlla_browser():
@@ -619,6 +780,7 @@ def main():
     controlla_cifre()
     controlla_pagine()
     controlla_faq()
+    controlla_titoli_misurati()
     controlla_date()
     controlla_testi()
     controlla_monetizzazione()

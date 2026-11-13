@@ -1,0 +1,367 @@
+{
+ "_nota": "Scritto da genera.py: per ogni pagina il titolo, l'h1 e la frase misurata che li ha decisi (volume mensile in Italia dal file volumi-2026-11-13.json). frase null = nessuna forma misurata per quella pagina: titolo con il modello del contratto o quello di prima. verifica.py controlla che titolo e h1 siano quelli delle pagine e che la frase abbia quel volume nel file.",
+ "file_volumi": "volumi-2026-11-13.json",
+ "min_volume": 100,
+ "pagine": {
+  "": {
+   "titolo": "Tabelle retributive CCNL 2026: minimi e paga oraria per livello",
+   "h1": "Tabelle retributive CCNL: paga oraria e minimo per livello",
+   "frase": "tabelle retributive ccnl",
+   "volume": 390
+  },
+  "terziario-commercio/": {
+   "titolo": "CCNL commercio 2026: tabelle retributive, livelli e paga oraria",
+   "h1": "Tabelle retributive del CCNL commercio 2026",
+   "frase": "ccnl commercio tabelle retributive",
+   "volume": 8100
+  },
+  "terziario-commercio/quadro/": {
+   "titolo": "CCNL commercio quadro: stipendio minimo e paga oraria 2026",
+   "h1": "CCNL commercio quadro",
+   "frase": "ccnl commercio quadro",
+   "volume": 480
+  },
+  "terziario-commercio/1-livello/": {
+   "titolo": "CCNL commercio 1° livello: stipendio minimo e paga oraria 2026",
+   "h1": "CCNL commercio 1° livello",
+   "frase": "ccnl commercio 1 livello",
+   "volume": 390
+  },
+  "terziario-commercio/2-livello/": {
+   "titolo": "CCNL commercio 2° livello: stipendio minimo e paga oraria 2026",
+   "h1": "CCNL commercio 2° livello",
+   "frase": "ccnl commercio 2 livello",
+   "volume": 720
+  },
+  "terziario-commercio/3-livello/": {
+   "titolo": "CCNL commercio 3° livello: stipendio minimo e paga oraria 2026",
+   "h1": "CCNL commercio 3° livello",
+   "frase": "ccnl commercio 3 livello",
+   "volume": 1600
+  },
+  "terziario-commercio/4-livello/": {
+   "titolo": "CCNL commercio 4° livello: stipendio minimo e paga oraria 2026",
+   "h1": "CCNL commercio 4° livello",
+   "frase": "ccnl commercio 4 livello",
+   "volume": 2400
+  },
+  "terziario-commercio/5-livello/": {
+   "titolo": "CCNL commercio 5° livello: stipendio minimo e paga oraria 2026",
+   "h1": "CCNL commercio 5° livello",
+   "frase": "ccnl commercio 5 livello",
+   "volume": 4400
+  },
+  "terziario-commercio/6-livello/": {
+   "titolo": "CCNL commercio 6° livello: stipendio minimo e paga oraria 2026",
+   "h1": "CCNL commercio 6° livello",
+   "frase": "ccnl commercio 6 livello",
+   "volume": 260
+  },
+  "terziario-commercio/7-livello/": {
+   "titolo": "CCNL commercio 7° livello: stipendio minimo e paga oraria 2026",
+   "h1": "CCNL commercio 7° livello",
+   "frase": null,
+   "volume": 0
+  },
+  "metalmeccanici-industria/": {
+   "titolo": "CCNL metalmeccanici 2026: livelli e tabelle retributive",
+   "h1": "Livelli e tabelle retributive dei metalmeccanici 2026",
+   "frase": "livelli metalmeccanici",
+   "volume": 18100
+  },
+  "metalmeccanici-industria/livello-d1/": {
+   "titolo": "Livello D1 metalmeccanico: stipendio minimo e paga oraria 2026",
+   "h1": "Livello D1 metalmeccanico",
+   "frase": "livello d1 metalmeccanico",
+   "volume": 1000
+  },
+  "metalmeccanici-industria/livello-d2/": {
+   "titolo": "Livello D2 metalmeccanico: stipendio minimo e paga oraria 2026",
+   "h1": "Livello D2 metalmeccanico",
+   "frase": "livello d2 metalmeccanico",
+   "volume": 2900
+  },
+  "metalmeccanici-industria/livello-c1/": {
+   "titolo": "Livello C1 metalmeccanico: stipendio minimo e paga oraria 2026",
+   "h1": "Livello C1 metalmeccanico",
+   "frase": "livello c1 metalmeccanico",
+   "volume": 1600
+  },
+  "metalmeccanici-industria/livello-c2/": {
+   "titolo": "Livello C2 metalmeccanico: stipendio minimo e paga oraria 2026",
+   "h1": "Livello C2 metalmeccanico",
+   "frase": "livello c2 metalmeccanico",
+   "volume": 3600
+  },
+  "metalmeccanici-industria/livello-c3/": {
+   "titolo": "Livello C3 metalmeccanico: stipendio minimo e paga oraria 2026",
+   "h1": "Livello C3 metalmeccanico",
+   "frase": "livello c3 metalmeccanico",
+   "volume": 3600
+  },
+  "metalmeccanici-industria/livello-b1/": {
+   "titolo": "Livello B1 metalmeccanico: stipendio minimo e paga oraria 2026",
+   "h1": "Livello B1 metalmeccanico",
+   "frase": "livello b1 metalmeccanico",
+   "volume": 1900
+  },
+  "metalmeccanici-industria/livello-b2/": {
+   "titolo": "Livello B2 metalmeccanico: stipendio minimo e paga oraria 2026",
+   "h1": "Livello B2 metalmeccanico",
+   "frase": "livello b2 metalmeccanico",
+   "volume": 1900
+  },
+  "metalmeccanici-industria/livello-b3/": {
+   "titolo": "Livello B3 metalmeccanico: stipendio minimo e paga oraria 2026",
+   "h1": "Livello B3 metalmeccanico",
+   "frase": "livello b3 metalmeccanico",
+   "volume": 1300
+  },
+  "metalmeccanici-industria/livello-a1/": {
+   "titolo": "Livello A1 metalmeccanico: stipendio minimo e paga oraria 2026",
+   "h1": "Livello A1 metalmeccanico",
+   "frase": "livello a1 metalmeccanico",
+   "volume": 590
+  },
+  "multiservizi-pulizie/": {
+   "titolo": "CCNL multiservizi e pulizie 2026: livelli e paga oraria",
+   "h1": "CCNL multiservizi e pulizie 2026",
+   "frase": "ccnl pulizie multiservizi",
+   "volume": 1000
+  },
+  "multiservizi-pulizie/1-livello/": {
+   "titolo": "CCNL multiservizi 1° livello: paga oraria e minimo 2026",
+   "h1": "CCNL multiservizi 1° livello",
+   "frase": "ccnl multiservizi 1 livello",
+   "volume": 170
+  },
+  "multiservizi-pulizie/2-livello/": {
+   "titolo": "CCNL multiservizi 2° livello: paga oraria e minimo 2026",
+   "h1": "CCNL multiservizi 2° livello",
+   "frase": "ccnl multiservizi 2 livello",
+   "volume": 170
+  },
+  "multiservizi-pulizie/3-livello/": {
+   "titolo": "CCNL multiservizi 3° livello: paga oraria e minimo 2026",
+   "h1": "CCNL multiservizi 3° livello",
+   "frase": "ccnl multiservizi 3 livello",
+   "volume": 110
+  },
+  "multiservizi-pulizie/4-livello/": {
+   "titolo": "CCNL multiservizi 4° livello: paga oraria e minimo 2026",
+   "h1": "CCNL multiservizi 4° livello",
+   "frase": null,
+   "volume": 0
+  },
+  "multiservizi-pulizie/5-livello/": {
+   "titolo": "CCNL multiservizi 5° livello: paga oraria e minimo 2026",
+   "h1": "CCNL multiservizi 5° livello",
+   "frase": null,
+   "volume": 0
+  },
+  "multiservizi-pulizie/6-livello/": {
+   "titolo": "CCNL multiservizi 6° livello: paga oraria e minimo 2026",
+   "h1": "CCNL multiservizi 6° livello",
+   "frase": null,
+   "volume": 0
+  },
+  "multiservizi-pulizie/7-livello/": {
+   "titolo": "CCNL multiservizi 7° livello: paga oraria e minimo 2026",
+   "h1": "CCNL multiservizi 7° livello",
+   "frase": null,
+   "volume": 0
+  },
+  "multiservizi-pulizie/quadro/": {
+   "titolo": "CCNL multiservizi quadro: paga oraria e minimo 2026",
+   "h1": "CCNL multiservizi quadro",
+   "frase": null,
+   "volume": 0
+  },
+  "logistica-trasporto-merci/": {
+   "titolo": "CCNL logistica e trasporti 2026: livelli, minimi e paga oraria",
+   "h1": "CCNL logistica e trasporti 2026",
+   "frase": "ccnl logistica e trasporti",
+   "volume": 4400
+  },
+  "logistica-trasporto-merci/quadro/": {
+   "titolo": "Quadro CCNL logistica: paga oraria e minimo 2026",
+   "h1": "Quadro CCNL logistica",
+   "frase": null,
+   "volume": 0
+  },
+  "logistica-trasporto-merci/1-livello/": {
+   "titolo": "1° livello CCNL logistica: paga oraria e minimo 2026",
+   "h1": "1° livello CCNL logistica",
+   "frase": null,
+   "volume": 0
+  },
+  "logistica-trasporto-merci/2-livello/": {
+   "titolo": "2° livello CCNL logistica: paga oraria e minimo 2026",
+   "h1": "2° livello CCNL logistica",
+   "frase": null,
+   "volume": 0
+  },
+  "logistica-trasporto-merci/3-livello-super/": {
+   "titolo": "3° livello Super CCNL logistica: paga oraria e minimo 2026",
+   "h1": "3° livello Super CCNL logistica",
+   "frase": null,
+   "volume": 0
+  },
+  "logistica-trasporto-merci/3-livello/": {
+   "titolo": "3° livello CCNL logistica: paga oraria e minimo 2026",
+   "h1": "3° livello CCNL logistica",
+   "frase": null,
+   "volume": 0
+  },
+  "logistica-trasporto-merci/4-livello/": {
+   "titolo": "4° livello CCNL logistica: paga oraria e minimo 2026",
+   "h1": "4° livello CCNL logistica",
+   "frase": null,
+   "volume": 0
+  },
+  "logistica-trasporto-merci/4-livello-junior/": {
+   "titolo": "4° livello Junior CCNL logistica: paga oraria e minimo 2026",
+   "h1": "4° livello Junior CCNL logistica",
+   "frase": null,
+   "volume": 0
+  },
+  "logistica-trasporto-merci/5-livello/": {
+   "titolo": "5° livello CCNL logistica: paga oraria e minimo 2026",
+   "h1": "5° livello CCNL logistica",
+   "frase": null,
+   "volume": 0
+  },
+  "logistica-trasporto-merci/6-livello/": {
+   "titolo": "6° livello CCNL logistica: paga oraria e minimo 2026",
+   "h1": "6° livello CCNL logistica",
+   "frase": null,
+   "volume": 0
+  },
+  "logistica-trasporto-merci/livello-c3/": {
+   "titolo": "Livello C3 (viaggiante) CCNL logistica: paga oraria e minimo 2026",
+   "h1": "Livello C3 (viaggiante) CCNL logistica",
+   "frase": null,
+   "volume": 0
+  },
+  "logistica-trasporto-merci/livello-b3/": {
+   "titolo": "Livello B3 (viaggiante) CCNL logistica: paga oraria e minimo 2026",
+   "h1": "Livello B3 (viaggiante) CCNL logistica",
+   "frase": null,
+   "volume": 0
+  },
+  "logistica-trasporto-merci/livello-a3/": {
+   "titolo": "Livello A3 (viaggiante) CCNL logistica: paga oraria e minimo 2026",
+   "h1": "Livello A3 (viaggiante) CCNL logistica",
+   "frase": null,
+   "volume": 0
+  },
+  "logistica-trasporto-merci/livello-e2/": {
+   "titolo": "Livello E2 (viaggiante) CCNL logistica: paga oraria e minimo 2026",
+   "h1": "Livello E2 (viaggiante) CCNL logistica",
+   "frase": null,
+   "volume": 0
+  },
+  "logistica-trasporto-merci/livello-d2/": {
+   "titolo": "Livello D2 (viaggiante) CCNL logistica: paga oraria e minimo 2026",
+   "h1": "Livello D2 (viaggiante) CCNL logistica",
+   "frase": null,
+   "volume": 0
+  },
+  "logistica-trasporto-merci/livello-h1/": {
+   "titolo": "Livello H1 CCNL logistica: paga oraria e minimo 2026",
+   "h1": "Livello H1 CCNL logistica",
+   "frase": null,
+   "volume": 0
+  },
+  "logistica-trasporto-merci/livello-g1/": {
+   "titolo": "Livello G1 CCNL logistica: paga oraria e minimo 2026",
+   "h1": "Livello G1 CCNL logistica",
+   "frase": null,
+   "volume": 0
+  },
+  "logistica-trasporto-merci/livello-i-primi-6-mesi/": {
+   "titolo": "Livello I primi 6 mesi CCNL logistica: paga oraria e minimo 2026",
+   "h1": "Livello I primi 6 mesi CCNL logistica",
+   "frase": null,
+   "volume": 0
+  },
+  "logistica-trasporto-merci/livello-i/": {
+   "titolo": "Livello I CCNL logistica: paga oraria e minimo 2026",
+   "h1": "Livello I CCNL logistica",
+   "frase": null,
+   "volume": 0
+  },
+  "logistica-trasporto-merci/livello-l-7-15-mesi/": {
+   "titolo": "Livello L da 7 a 15 mesi CCNL logistica: minimo 2026",
+   "h1": "Livello L da 7 a 15 mesi CCNL logistica",
+   "frase": null,
+   "volume": 0
+  },
+  "logistica-trasporto-merci/livello-l/": {
+   "titolo": "Livello L CCNL logistica: paga oraria e minimo 2026",
+   "h1": "Livello L CCNL logistica",
+   "frase": null,
+   "volume": 0
+  },
+  "lavoro-domestico/": {
+   "titolo": "CCNL lavoro domestico 2026: livelli e minimi di colf e badanti",
+   "h1": "CCNL lavoro domestico 2026: colf e badanti",
+   "frase": "ccnl lavoro domestico",
+   "volume": 1000
+  },
+  "lavoro-domestico/livello-a/": {
+   "titolo": "Colf livello A: paga oraria e stipendio 2026",
+   "h1": "Colf livello A",
+   "frase": "livello a colf",
+   "volume": 390
+  },
+  "lavoro-domestico/livello-as/": {
+   "titolo": "Colf e badanti livello A Super (AS): paga oraria e stipendio 2026",
+   "h1": "Colf e badanti livello A Super (AS)",
+   "frase": null,
+   "volume": 0
+  },
+  "lavoro-domestico/livello-b/": {
+   "titolo": "Colf livello B: paga oraria e stipendio 2026",
+   "h1": "Colf livello B",
+   "frase": "colf livello b",
+   "volume": 170
+  },
+  "lavoro-domestico/livello-bs/": {
+   "titolo": "Badante livello BS: paga oraria e stipendio 2026",
+   "h1": "Badante livello B Super (BS)",
+   "frase": "livello bs badante",
+   "volume": 320
+  },
+  "lavoro-domestico/livello-c/": {
+   "titolo": "Colf e badanti livello C: paga oraria e stipendio 2026",
+   "h1": "Colf e badanti livello C",
+   "frase": null,
+   "volume": 0
+  },
+  "lavoro-domestico/livello-cs/": {
+   "titolo": "Badante livello CS: paga oraria e stipendio 2026",
+   "h1": "Badante livello C Super (CS)",
+   "frase": "badante livello cs",
+   "volume": 1000
+  },
+  "lavoro-domestico/livello-d/": {
+   "titolo": "Colf e badanti livello D: paga oraria e stipendio 2026",
+   "h1": "Colf e badanti livello D",
+   "frase": null,
+   "volume": 0
+  },
+  "lavoro-domestico/livello-ds/": {
+   "titolo": "Badante livello DS: paga oraria e stipendio 2026",
+   "h1": "Badante livello D Super (DS)",
+   "frase": "badante livello ds",
+   "volume": 260
+  },
+  "colf-badanti/": {
+   "titolo": "Stipendio badante convivente e paga oraria colf 2026",
+   "h1": "Stipendio di badanti e colf nel 2026",
+   "frase": "stipendio badante convivente",
+   "volume": 1600
+  }
+ }
+}
