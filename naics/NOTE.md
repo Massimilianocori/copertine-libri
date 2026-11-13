@@ -17,23 +17,24 @@ Refuso ufficiale gestito: 323120 «Support Activites for Printing» nella concor
 (anche le 522 «same as 5-digit»). Padri 2→3→4→5→6 (31-33, 44-45, 48-49), stessi codici e titoli in codici/struttura/descrizioni,
 indice e concordanze solo verso codici esistenti.
 
-## Pagine (1.446 HTML: 954 indicizzabili, 492 noindex compresa la 404)
-`/` ricerca (due JSON: codici+titoli 209 KB, poi voci dell'indice 913 KB; cerca codici 2022, 2017 e SIC), 20 settori, come si legge un
+## Pagine (1.446 HTML: 991 indicizzabili, 455 noindex compresa la 404)
+`/` ricerca (due JSON: codici+titoli 209 KB, 46 KB compressi, al primo clic; voci dell'indice 913 KB, 188 KB compressi, scaricate solo quando si scrive una parola, mai per un numero; cerca codici 2022, 2017 e SIC; se nessun codice ha tutte le parole mostra quelli che ne hanno di più), 20 settori, come si legge un
 codice, 9 FAQ · `/54/` settori · `/541/` sottosettori · `/5415/` gruppi (con i capitoli `#n-54151` delle industrie a 5 cifre con più figli) ·
 `/541511/` industrie a 6 cifre (descrizione, esempi, tutte le voci dell'indice, rimandi linkati, codici 2017, SIC, albero, vicini) ·
 `/naics-2017-to-2022/` (1.057 codici 2017, ancore `#v-454110`) · `/sic-to-naics/` (1.005 SIC, ancore `#sic-7371`) ·
-`/naics-code-for-consulting|construction|cleaning-services/` · `/how-we-check/` (modulo correzioni Netlify Forms), `/about/`, `/privacy/`.
+`/naics-code-for-consulting|construction|cleaning-services/` · `/how-we-check/` (modulo correzioni Netlify Forms: solo pagina, messaggio e fonte, nessuna email né casella, come milpay), `/about/`, `/privacy/`.
 
 **5 cifre:** nessuna pagina propria. 522 hanno un solo figlio (stesso titolo, «See industry description for …»): l'indirizzo è la pagina a
 6 cifre. 167 con più figli: capitolo nella pagina del gruppo. **Indicizzazione:** pagina di codice indicizzata con ≥ 120 gruppi di 5 parole
-propri e < 55% in comune con la più simile, escludendo le frasi di modello (presenti in ≥ 5% delle pagine). Oggi: 6 cifre 798 sì / 214 no,
-4 cifre 74/234 (quasi tutti senza descrizione ufficiale), 3 cifre 55/41, settori 18/2. Le indicizzate tra 120 e 150 hanno mediana 540 parole.
+propri e < 55% in comune con la più simile, escludendo le frasi di modello (presenti in ≥ 5% delle pagine). Oggi: 6 cifre 835 sì / 177 no,
+4 cifre 74/234 (quasi tutti senza descrizione ufficiale), 3 cifre 55/41, settori 18/2.
+**Codici cercati (revisione del 13/11):** una pagina a 6 cifre corta ma con domanda dimostrata resta indicizzata con soglie più basse (≥ 60 gruppi propri, < 65% in comune). «Domanda dimostrata» = il codice è scritto per numero in un suggerimento salvato (`domanda.json`) oppure è in `dati/richieste.json` con il suggerimento che lo giustifica (genera e verifica controllano che il suggerimento esista e che le sue parole siano nei testi ufficiali del codice). Oggi 25 pagine: 812113 nail salon, 811192 car wash, 524210 insurance agency, 484110 trucking, 541213 tax preparation, 541519, 541618, 531311/531312 property management, 541120 notary… Per aggiungerne una: riga in `richieste.json`.
+**Rimandi in arrivo:** ogni pagina a 6 cifre mostra anche i rimandi ufficiali di altri codici che la citano («What other industries send to …»); il blocco è marcato `data-ripreso` e non conta come testo proprio nella misura. Le indicizzate tra 120 e 150 hanno mediana 540 parole.
 
 **SIC:** l'unica concordanza ufficiale è SIC 1987 ↔ NAICS 1997. Per il 2022 si seguono le concordanze ufficiali passo per passo. «Diretto»
-(706 industrie: stesso codice e contenuto dal 1997) = riga ufficiale tale e quale; 302 «via catena» = derivazione nostra, detta in pagina
-(alcuni SIC coprono solo un pezzo; es. 516210 riceve 71 righe). 4 industrie senza SIC (112130, 481219, 541120, 551114).
+(702 industrie con SIC: stesso codice e contenuto dal 1997) = riga ufficiale tale e quale; 306 «via catena» = derivazione nostra, detta in pagina («There is no official SIC line for …»). Nelle pagine via catena i SIC sono divisi in due: **principali** (il codice del 1997 è finito tutto in questo codice 2022, oppure aveva lo stesso titolo: 200 pagine) e **parziali**, chiusi in un riquadro con la spiegazione; 106 pagine hanno solo parziali e lo dicono nel titolo («partial match» o «no single equivalent», es. 425120 con 71 righe). La scheda in alto e la tabella SIC → NAICS seguono la stessa regola (prima il codice 2022 con lo stesso titolo del 1997). 4 industrie senza SIC (112130, 481219, 541120, 551114). `naics.json` ha anche `titoli_1997`.
 
-**FAQ:** 19, ognuna da un suggerimento vero (`dati/domanda.json`, 151 radici gl=us, 13/11/2026), risposte solo da manuale, IRS o dati.
+**FAQ:** 20 (aggiunta ecommerce / 454110 nella pagina 2017 → 2022, solo dalla concordanza e dall'indice), ognuna da un suggerimento vero (`dati/domanda.json`, 151 radici gl=us, 13/11/2026), risposte solo da manuale, IRS o dati.
 SBA: solo la frase del manuale («NAICS categories do not distinguish between small and large business… SBA develops size standards»),
 nessuna soglia. Nessuna conseguenza fiscale: solo dove va il codice nello Schedule C (riga B).
 
@@ -43,6 +44,7 @@ services 1.300. Da misurare (autocompletamento le mostra): real estate, restaura
 Per aggiungerne una: volume in `volumi.json`, voce in `dati/attivita.json`, FAQ in `dati/faq.json`, genera e verifica.
 
 ## Controlli (`python3 naics/verifica.py --browser`, 13/11/2026: 0 errori)
+Aggiunti dalla revisione indipendente: catena SIC rifatta dai file grezzi per tutti i 1.012 codici (serve `xlrd`) e presentazione principali/parziali; modulo senza dati personali e testo della privacy coerente; codici con domanda dimostrata e soglie basse; peso compresso dei due JSON; le voci dell'indice non si scaricano per una ricerca numerica; tabelle non più larghe dello schermo a 375 px; invio del modulo.
 Fonti e frasi; dati riletti con un lettore xlsx proprio (codici, titoli, albero, conteggi, 50 codici a caso contro descrizioni, esempi,
 indice, 2017, SIC e pagina); 2.125 codici nella loro pagina/ancora; 20.373 voci dell'indice nelle pagine; tabelle complete; titoli ≤ 65 unici,
 descrizioni ≤ 160; canonical = sitemap; noindex senza pubblicità; link e ancore; FAQ JSON-LD = testo visibile; indicizzazione ricalcolata;

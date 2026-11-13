@@ -1,0 +1,23 @@
+{
+"_nota": "Codici a 6 cifre con domanda dimostrata: ogni voce cita un suggerimento vero di Google salvato in dati/domanda.json. genera.py e verifica.py controllano che il suggerimento esista e che ogni sua parola significativa sia nel titolo, nella descrizione o nelle voci dell'indice ufficiale del codice. I codici scritti per numero nei suggerimenti (es. «naics code 541519») si aggiungono da soli. Serve solo a non escludere dall'indicizzazione pagine corte ma cercate (regola in genera.py: MIN_PROPRIE_RICHIESTA, MAX_SOVRAPPOSIZIONE_RICHIESTA).",
+"codici": {
+"115115": "naics code for farm labor contractor",
+"311811": "naics code for bakery",
+"339116": "naics code for dental laboratory",
+"445131": "naics code convenience store",
+"484110": "naics code for trucking",
+"522310": "naics code for mortgage broker",
+"524210": "naics code for insurance agency",
+"531311": "naics code for property management residential",
+"531312": "naics code for property management",
+"541120": "naics code for notary",
+"541213": "naics code tax preparation",
+"541618": "naics code consulting services",
+"541922": "naics code for photography",
+"561510": "naics code travel agency",
+"561621": "naics code for security systems",
+"811192": "naics code for car wash",
+"812111": "naics code for barber shop",
+"812113": "naics code for nail salon"
+}
+}

@@ -292,11 +292,14 @@ def main():
     if r[0][:6] != ["1997 NAICS", "NAICS Part Indicator", "1997 NAICS Title", "SIC", "SIC Part Indicator", "SIC Title and Part Description"]:
         ferma(f"intestazione inattesa in 1997 NAICS → SIC: {r[0]}")
     sic_di_97 = defaultdict(list)
+    titoli_97 = {}  # titolo ufficiale 1997 di ogni codice NAICS 1997 della concordanza con il SIC
     for x in r[1:]:
         n = n6(x[0])
         s = cod(x[3])
         if not re.fullmatch(r"\d{6}", n) or not s:
             continue
+        if txt(x[2]):
+            titoli_97[n] = txt(x[2])
         s = s.zfill(4)
         if not re.fullmatch(r"\d{4}", s):
             ferma(f"1997 NAICS → SIC: codice SIC illeggibile {x}")
@@ -383,6 +386,7 @@ def main():
         "c17_22": c17_22,
         "titoli_2017": t17,
         "sic_di_22": sic_di_22,
+        "titoli_1997": titoli_97,
         "sic": sic,
         "gruppi_sic": gruppi_sic,
         "refusi_ufficiali": refusi,

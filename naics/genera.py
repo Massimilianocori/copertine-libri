@@ -47,6 +47,8 @@ SITO_ID = "naics"  # nome del sito in monetizzazione.json
 MIN_PAROLE_ADSENSE = 400  # niente pubblicità nelle pagine noindex o con poco testo
 MIN_PAROLE_PROPRIE = 120  # gruppi di 5 parole che non compaiono in nessun'altra pagina di codice: sotto, noindex
 MAX_SOVRAPPOSIZIONE = 0.55  # quota del testo in comune con la pagina di codice più simile: da qui in su, noindex
+MIN_PROPRIE_RICHIESTA = 60  # pagine a 6 cifre con domanda dimostrata (dati/richieste.json): soglia più bassa, perché la descrizione ufficiale è corta
+MAX_SOVRAPPOSIZIONE_RICHIESTA = 0.65
 QUOTA_MODELLO = 0.05  # gruppi di 5 parole presenti in almeno il 5% delle pagine di codice = modello della pagina, esclusi dalla misura
 FRASE_FISSA = "check with the agency or form that asks for the code"
 
@@ -64,6 +66,7 @@ DOM = carica("domanda.json")
 VOL = carica("volumi.json")
 ATT = carica("attivita.json")["attivita"]
 FAQ = carica("faq.json")["faq"]
+RICH = carica("richieste.json")["codici"]
 C = NA["codici"]
 ORDINE = NA["ordine"]
 SIC = NA["sic"]
@@ -380,6 +383,89 @@ def linkifica(testo):
     return re.sub(r"(?<![\w/#>-])(\d{4,6})(?![\w<-])", lambda m: link_cod(m.group(1)) if m.group(1) in C else m.group(1), t)
 
 
+# ---------------------------------------------------------------- domanda dimostrata (suggerimenti veri di Google)
+PAROLE_VUOTE = {"naics", "naic", "sic", "code", "codes", "number", "lookup", "for", "a", "an", "the", "and", "of", "in", "business", "company", "service",
+                "services", "shop", "store", "2022"}
+
+
+def codici_richiesti():
+    """{codice a 6 cifre: suggerimento salvato}. Si ferma se una voce di richieste.json non regge."""
+    tutte = {s for v in DOM["radici"].values() for s in v}
+    out = {}
+    for s in sorted(tutte):
+        for c in re.findall(r"(?<!\d)\d{6}(?!\d)", s):
+            if c in C and C[c]["l"] == 6:
+                out.setdefault(c, s)
+    for c, s in RICH.items():
+        if c not in C or C[c]["l"] != 6:
+            raise SystemExit(f"richieste.json: {c} non è un codice a 6 cifre del 2022")
+        if s not in tutte:
+            raise SystemExit(f"richieste.json: «{s}» non è tra i suggerimenti salvati in domanda.json")
+        parole = {w for w in re.findall(r"[a-z]+", s.lower()) if w not in PAROLE_VUOTE}
+        testo = set(re.findall(r"[a-z]+", " ".join([C[c]["t"]] + C[c]["d"] + C[c]["idx"] + C[c]["es"]).lower()))
+        if not parole or any(not any(x.startswith(w[:5]) for x in testo) for w in parole):
+            raise SystemExit(f"richieste.json: «{s}» non corrisponde al titolo, alla descrizione o all'indice ufficiale di {c}")
+        out[c] = s
+    return out
+
+
+RICHIESTI = codici_richiesti()
+
+# ---------------------------------------------------------------- rimandi ufficiali di altri codici che puntano a un codice a 6 cifre
+ARRIVI = defaultdict(list)  # 6 cifre -> [(codice che manda, frase ufficiale)]
+for _c in ORDINE:
+    if C[_c]["l"] == 5 and unico(_c):
+        continue  # stesso testo del figlio a 6 cifre
+    for _x in C[_c]["xr"]:
+        _visti = set()
+        for _n in re.findall(r"(?<![\w/#-])(\d{5,6})(?![\w-])", _x):
+            if _n in C and C[_n]["l"] == 5 and unico(_n):
+                _n = FIGLI[_n][0]
+            if _n in C and C[_n]["l"] == 6 and _n != _c and C[_n]["p"] != _c and _n not in _visti:
+                _visti.add(_n)
+                ARRIVI[_n].append((_c, _x))
+
+# ---------------------------------------------------------------- SIC: righe principali e righe che condividono solo un pezzo
+AVANTI97, T97 = {}, {}  # codice NAICS 1997 -> codici 2022 raggiunti (catena ufficiale); titolo 1997
+for _s, _v in SIC.items():
+    for _x in _v["n97"]:
+        AVANTI97[_x["n"]] = _x["n22"]
+        T97[_x["n"]] = re.sub(r"\s*\(pt\)\s*$", "", _x["t97"]).strip()
+T97.update(NA["titoli_1997"])  # titolo del file 1997 NAICS → SIC (quello del file SIC → NAICS ha qualche variante)
+
+
+def sic_righe(c):
+    """(principali, altre, motivi) per un codice 2022. Diretto: tutte principali. Via catena: principale la riga il cui codice 1997 è
+    finito tutto in c («whole») o aveva lo stesso titolo («title»); le altre condividono solo un pezzo dell'industria del 1997."""
+    s = SIC22[c]
+    if s["diretto"]:
+        return list(s["righe"]), [], {}
+    princ, altre, motivi = [], [], {}
+    for x in s["righe"]:
+        n = x["n97"]
+        if AVANTI97.get(n) == [c]:
+            motivi[n] = "whole"
+            princ.append(x)
+        elif T97.get(n, "").lower() == C[c]["t"].lower():
+            motivi[n] = "title"
+            princ.append(x)
+        else:
+            altre.append(x)
+    return princ, altre, motivi
+
+
+def sic_in_breve(c, n=3):
+    """Testo corto per la scheda: i SIC principali, oppure quelli parziali dichiarati come tali."""
+    princ, altre, _ = sic_righe(c)
+    if not princ and not altre:
+        return "none"
+    righe = princ or altre
+    sics = sorted({x["sic"] for x in righe})
+    if not princ and len(sics) > 6:
+        return f"{len(sics)} codes (partial)"
+    return ", ".join(sics[:n]) + ("…" if len(sics) > n else "") + ("" if princ else " (partial)")
+
+
 # ---------------------------------------------------------------- numeri e segnaposti
 SEI6_NUOVI = [c for c in SEI if C[c]["ind"] == "**"]
 N17 = sorted(A22)
@@ -391,7 +477,7 @@ NUM.update({"n_codici": num(len(C)), "n_idx": num(NA["numeri"]["righe_indice"]),
             "n6_titolo": num(sum(1 for c in SEI if C[c]["ind"] == "*")),
             "sett_piu_nuovi": f"{_sett_nuovi[0]} «{C[_sett_nuovi[0]]['t']}» ({_sett_nuovi[1]} new codes)",
             "n17": num(len(N17)), "n17_stessi": num(len(N17_STESSI)), "n17_altri": num(len(N17) - len(N17_STESSI)),
-            "controllo": data_lunga(CONTROLLO)})
+            "n_454110": str(len(A22["454110"])), "controllo": data_lunga(CONTROLLO)})
 
 
 class Segnaposti(dict):
@@ -482,7 +568,35 @@ def blocco_2017(c, rim):
         altro = (f'<small>The 2017 code also went to {", ".join(link_cod(x) for x in divisi)}</small>' if divisi else "")
         rr.append([f'<a class="cod" href="/naics-2017-to-2022/#v-{b}">{b}</a>', h(t) + altro])
     return (testa + f'<p class="small">Official 2022 → 2017 concordance: the 2017 industries, or pieces of them, that make up {c}.{rim.ref("c22_17")}</p>'
-            + tabella(["2017 code", "2017 title (and piece moved here)"], rr))
+            + tabella(["2017 code", "2017 title (piece moved)"], rr))
+
+
+def blocco_arrivi(c, rim):
+    v = ARRIVI.get(c)
+    if not v:
+        return ""
+    voci = [f'<li><span class="mini">In {link_cod(a)} {h(C[a]["t"])}:</span> {linkifica(x)}</li>' for a, x in v]
+    lista = '<ul class="arrivi">' + "".join(voci) + "</ul>"
+    if len(voci) > 10:
+        lista = f'<details class="tutte"><summary>Show all {len(voci)} cross-references</summary>{lista}</details>'
+    # testo ripreso da altre pagine: marcato, così la misura dell'indicizzazione non lo conta come contenuto proprio
+    return (f'<section data-ripreso><h2 id="sent-here">What other industries send to {c}</h2><p class="small">Cross-references written in the official '
+            f'descriptions of other codes that name {c}: activities those industries exclude and classify here.{rim.ref("rimandi")}</p>{lista}</section>')
+
+
+def _tab_sic(righe, motivi=None, con_via=False):
+    rr = []
+    for x in righe:
+        note = []
+        if x["parte"]:
+            note.append("Part of the SIC industry")
+        if con_via:
+            n = x["n97"]
+            m = (motivi or {}).get(n)
+            perche = {"whole": ": the whole 1997 industry is now in this code", "title": ": same title in 1997"}.get(m, "")
+            note.append(f'Via 1997 NAICS {n} {h(T97.get(n, ""))}{perche}')
+        rr.append([f'<a class="cod" href="/sic-to-naics/#sic-{x["sic"]}">{x["sic"]}</a>', h(x["t"]) + "".join(f"<small>{y}</small>" for y in note)])
+    return tabella(["SIC 1987", "SIC title"], rr, classe="sic-tab")
 
 
 def blocco_sic(c, rim):
@@ -491,23 +605,42 @@ def blocco_sic(c, rim):
     if not righe:
         return (f'<h2 id="sic">SIC code</h2><p>The Census concordances do not link this industry to any 1987 SIC code.'
                 f'{rim.ref(["naics97_sic", "c22_17"])}</p>')
-    sics = sorted({x["sic"] for x in righe})
+    princ, altre, motivi = sic_righe(c)
     if s["diretto"]:
-        spiega = (f"This industry has the same code and the same content since NAICS 1997, so the official Census concordance between 1987 SIC and "
-                  f"1997 NAICS applies as it is.{rim.ref('naics97_sic')}")
-    else:
-        spiega = (f"This industry changed after 1997 (it came from {', '.join(s['n97'])} in NAICS 1997). We followed the official concordances "
-                  f"2022 → 2017 → 2012 → 2007 → 2002 → 1997 and then the official 1997 NAICS ↔ 1987 SIC concordance: some SIC codes below may cover only a "
-                  f"small piece of this industry.{rim.ref(['c22_17', 'c97_02', 'naics97_sic'])}")
-    rr = []
-    for x in righe:
-        parte = '<small>Part of the SIC industry</small>' if x["parte"] else ""
-        rr.append([f'<a class="cod" href="/sic-to-naics/#sic-{x["sic"]}">{x["sic"]}</a>', h(x["t"]) + parte] + ([] if s["diretto"] else [x["n97"]]))
-    tab = tabella(["SIC 1987", "SIC title (and part)"] + ([] if s["diretto"] else ["Via 1997"]), rr, classe="sic-tab")
-    if len(rr) > 8:
-        tab = f'<details class="tutte"><summary>Show all {len(rr)} SIC lines</summary>{tab}</details>'
-    return (f'<h2 id="sic">SIC code{"s" if len(sics) > 1 else ""}: {", ".join(sics[:6])}{"…" if len(sics) > 6 else ""}</h2>'
-            f'<p class="small">{spiega}</p>' + tab)
+        sics = sorted({x["sic"] for x in righe})
+        tab = _tab_sic(righe)
+        if len(righe) > 8:
+            tab = f'<details class="tutte"><summary>Show all {len(righe)} SIC lines</summary>{tab}</details>'
+        return (f'<h2 id="sic">SIC code{"s" if len(sics) > 1 else ""}: {", ".join(sics[:6])}{"…" if len(sics) > 6 else ""}</h2>'
+                f'<p class="small">This industry has the same code and the same content since NAICS 1997, so the official Census concordance between '
+                f'1987 SIC and 1997 NAICS applies as it is.{rim.ref("naics97_sic")}</p>' + tab)
+    fonti = rim.ref(["c22_17", "c97_02", "naics97_sic"])
+    spiega = (f"There is no official SIC line for {c}: the only official Census concordance is between 1987 SIC and 1997 NAICS, and this industry "
+              f"changed after 1997. The SIC codes below are our derivation: we followed the official concordances 2022 → 2017 → 2012 → 2007 → 2002 → "
+              f"1997 back to {len(s['n97'])} NAICS 1997 {'industry and took its' if len(s['n97']) == 1 else 'industries and took their'} official SIC lines.{fonti}")
+    out = ""
+    if princ:
+        sics = sorted({x["sic"] for x in princ})
+        out += (f'<h2 id="sic">SIC code{"s" if len(sics) > 1 else ""}: {", ".join(sics[:6])}{"…" if len(sics) > 6 else ""}</h2><p class="small">{spiega}</p>'
+                f'<h3 id="sic-closest">Closest SIC codes</h3><p class="small">SIC lines of the 1997 industries that are now entirely inside {c}, or that had '
+                f'the same title.</p>' + _tab_sic(princ, motivi, True))
+        if altre:
+            n_s = len({x["sic"] for x in altre})
+            tab = _tab_sic(altre, motivi, True)
+            out += (f'<h3 id="sic-partial">SIC codes that share only a piece</h3><p class="small">{n_s} more SIC code{"s" if n_s != 1 else ""} reached through 1997 '
+                    f'industries of which only a piece is in {c}; the rest went to other 2022 codes. Most activities of these SIC codes are <strong>not</strong> '
+                    f'in this industry: read the part descriptions.</p>'
+                    f'<details class="tutte"><summary>Show {len(altre)} partial SIC line{"s" if len(altre) != 1 else ""}</summary>{tab}</details>')
+        return out
+    sics = sorted({x["sic"] for x in altre})
+    tab = _tab_sic(altre, motivi, True)
+    if len(altre) > 8:
+        tab = f'<details class="tutte"><summary>Show all {len(altre)} partial SIC lines</summary>{tab}</details>'
+    testa = ("SIC codes: no single equivalent" if len(sics) > 6 else
+             f'SIC code{"s" if len(sics) > 1 else ""} (partial match): {", ".join(sics)}')
+    return (f'<h2 id="sic">{testa}</h2><p class="small">{spiega}</p><p class="small">Only a piece of {"that 1997 industry" if len(s["n97"]) == 1 else "each of those 1997 industries"} '
+            f'is in {c} (the rest went to other 2022 codes), so {"the SIC code" if len(sics) == 1 else f"each of the {len(sics)} SIC codes"} below matches this '
+            f'industry only in part: read the part descriptions.</p>' + tab)
 
 
 def fatti(c):
@@ -518,8 +651,7 @@ def fatti(c):
         p5 = v["p"]
         celle.append(("NAICS industry", f'<span class="cod">{p5}</span> (same)' if unico(p5) else link_cod(p5)))
         celle.append(("2017 code", ", ".join(b for b, _ in DA17[c][:3]) + ("…" if len(DA17[c]) > 3 else "")))
-        sics = sorted({x["sic"] for x in SIC22[c]["righe"]})
-        celle.append(("SIC 1987", (", ".join(sics[:3]) + ("…" if len(sics) > 3 else "")) if sics else "none"))
+        celle.append(("SIC 1987", sic_in_breve(c)))
     else:
         celle.append(("Six-digit codes", num(len(sei_di(c)))))
     if l >= 3:
@@ -584,6 +716,7 @@ def pagina_sei(c):
     corpo += blocco_rimandi(c, "h2")
     if v["xr"]:
         corpo += f'<p class="small">Cross-references from the official 2022 file.{rim.ref("rimandi")}</p>'
+    corpo += blocco_arrivi(c, rim)
     corpo += blocco_2017(c, rim)
     corpo += blocco_sic(c, rim)
     p5 = v["p"]
@@ -603,10 +736,11 @@ def pagina_sei(c):
                   f"index entries: the official examples are not a complete list. Before using it on a form, {FRASE_FISSA}.", "info", "alert")
     corpo += rim.elenco()
     eyebrow = "2022 NAICS · " + ("U.S. national industry" if not unico(p5) else "NAICS industry (6 digits)")
+    coda_sic = "the SIC equivalent" if SIC22[c]["diretto"] else ("the SIC crosswalk" if SIC22[c]["righe"] else "the SIC status")
     testata = banda(eyebrow, f"NAICS code {c}: {v['t']}",
-                    f"Official 2022 title and description, {num(len(v['idx']))} activities from the Census Bureau index, the NAICS 2017 code and the SIC equivalent.",
+                    f"Official 2022 title and description, {num(len(v['idx']))} activities from the Census Bureau index, the NAICS 2017 code and {coda_sic}.",
                     icona="tag")
-    coda = f"official 2022 description, {len(v['idx'])} index activities, 2017 code and SIC equivalent."
+    coda = f"official 2022 description, {len(v['idx'])} index activities, 2017 code and {coda_sic.replace('the ', '')}."
     pagina(f"{c}/", titolo_pagina(c, "NAICS "), descr_pagina(c, coda), corpo, testata, briciole=briciole_di(c), indicizza=INDICIZZA.get(f"{c}/", True))
 
 
@@ -687,6 +821,7 @@ def pagina_settore(s):
 GUIDE_RICERCA = [
     ("NAICS 2017 to 2022 conversion", "/naics-2017-to-2022/", "Guide"),
     ("SIC to NAICS conversion table", "/sic-to-naics/", "Guide"),
+    ("Ecommerce and online retail: 2017 code 454110 in NAICS 2022", "/naics-2017-to-2022/#v-454110", "Guide"),
 ]
 
 
@@ -818,7 +953,13 @@ def sic_naics():
     for s, v in sorted(SIC.items()):
         parti = []
         for x in v["n97"]:
-            arrivo = ", ".join(link_cod(y) for y in x["n22"]) if x["n22"] else '<span class="mini">no single code</span>'
+            t97 = re.sub(r"\s*\(pt\)\s*$", "", x["t97"]).strip().lower()
+            stessi = [y for y in x["n22"] if C[y]["t"].lower() == t97]
+            if stessi and len(x["n22"]) > len(stessi):
+                arrivo = (", ".join(link_cod(y) for y in stessi) + ' <span class="mini">(same title)</span>; pieces also in '
+                          + ", ".join(link_cod(y) for y in x["n22"] if y not in stessi))
+            else:
+                arrivo = ", ".join(link_cod(y) for y in x["n22"]) if x["n22"] else '<span class="mini">no single code</span>'
             pezzo = f'<b>{h(x["parte"])}</b>: ' if x["parte"] else ""
             n97 = x["n"] if re.fullmatch(r"\d{6}", x["n"]) else x["n"]
             parti.append(f'<li>{pezzo}1997 <span class="cod">{h(n97)}</span> {h(x["t97"])} → 2022 {arrivo}</li>')
@@ -833,7 +974,8 @@ def sic_naics():
              f'{rim.ref(["sic_naics97", "c97_02", "c02_07", "c07_12", "c12_17", "c17_22"])}</p></div>')
     corpo += nota("The only official SIC ↔ NAICS concordance of the Census Bureau is between 1987 SIC and 1997 NAICS. The step from 1997 to 2022 is "
                   "our chaining of the later official concordances: when a NAICS industry was split or merged after 1997, a SIC code can lead to "
-                  f"several 2022 codes. Read the descriptions and {FRASE_FISSA}.", "info")
+                  "several 2022 codes, and some of them hold only a small piece of the old SIC industry. When one of the 2022 codes kept the 1997 "
+                  f"title it is listed first. Read the descriptions and {FRASE_FISSA}.", "info")
     corpo += filtro("SIC code or word: 7371, consulting…", tab, "SIC codes")
     voci = faq_pagina("sic-to-naics", rim)
     f_html, f_ld = faq_html(voci)
@@ -868,9 +1010,11 @@ def pagina_attivita(a):
                   f'<div class="testo"><p>{linkifica(prima)}</p></div>')
         if gruppi.get(c):
             corpo += f'<p class="small">In the official index: {h("; ".join(gruppi[c][:6]))}{"…" if len(gruppi[c]) > 6 else ""}</p>'
-        sics = sorted({x["sic"] for x in SIC22[c]["righe"]})
+        princ, altre, _ = sic_righe(c)
+        sics = sorted({x["sic"] for x in (princ or altre)})
         if sics:
-            corpo += f'<p class="small">SIC 1987: {", ".join(f"<a class=cod href=/sic-to-naics/#sic-{s}>{s}</a>" for s in sics[:6])}</p>'
+            corpo += (f'<p class="small">SIC 1987{"" if princ else " (partial match)"}: '
+                      + ", ".join(f'<a class="cod" href="/sic-to-naics/#sic-{s}">{s}</a>' for s in sics[:6]) + "</p>")
         corpo += "</section>"
     corpo += rim.ref("descrizioni")
     if a.get("settore"):
@@ -894,16 +1038,17 @@ def pagina_attivita(a):
 
 
 # ---------------------------------------------------------------- pagine del sito
-MODULO = """<form name="corrections" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form card">
+MODULO = """<form name="corrections" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form card" data-correzioni>
 <input type="hidden" name="form-name" value="corrections">
 <p class="hp"><label>Leave this field empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
 <label>Page or code<input type="text" name="page" required maxlength="300" placeholder="For example /541511/ or 541511"></label>
 <label>What does not match the official files?<textarea name="message" required rows="5" maxlength="3000"></textarea></label>
 <label>Official source (optional)<input type="url" name="source" maxlength="500" placeholder="https://"></label>
-<label>Your email (optional, only if you want a reply)<input type="email" name="email" maxlength="200" autocomplete="email"></label>
-<label class="check"><input type="checkbox" name="consent" value="yes" required><span>I agree that this message, and my email if I gave one, is stored to check and answer the correction (see <a href="/privacy/#corrections">privacy</a>).</span></label>
+<p class="small">Please do not include your name, email address or other personal details: the form does not ask for them and we do not reply to messages.</p>
+<p class="errore" data-errore hidden>The message was not sent. Please try again.</p>
 <button type="submit" class="btn">Send correction</button>
-</form>"""
+</form>
+<p class="ok" data-ok hidden><strong>Thank you.</strong> We will check it against the official files.</p>"""
 
 
 def come_controlliamo(n_idx, n_noidx):
@@ -932,12 +1077,13 @@ def come_controlliamo(n_idx, n_noidx):
               f'Five-digit NAICS industries do not get their own page: when they have a single six-digit industry (code ending in 0, same title, same '
               'description) the six-digit page covers both; when they have several, they are a section of the industry group page, with their own address '
               f'(#n- and the code). We ask search engines to index {n_idx} code pages, those with at least {MIN_PAROLE_PROPRIE} groups of words of their '
-              f'own and less than {int(MAX_SOVRAPPOSIZIONE * 100)}% of text in common with the most similar page; the other {n_noidx} stay available but '
+              f'own and less than {int(MAX_SOVRAPPOSIZIONE * 100)}% of text in common with the most similar page, plus the shorter six-digit pages that people '
+              f'search for (the code or its activity appears in the search suggestions we saved); the other {n_noidx} stay available but '
               'are not indexed and carry no ads. «NAICS code for …» pages exist only for activities with measured Google searches.</p></div>')
     corpo += ('<h2 id="updates">How often we update</h2><div class="testo"><p>Every month we download the Census files again: if a fingerprint changes we '
               'run all the checks. NAICS is revised every five years; when a new edition is published, the site moves to it.</p></div>')
     corpo += ('<h2 id="corrections">Report an error</h2><p>Found a difference with the official files? Tell us the page and, if you can, the link to the '
-              'source. The email is optional.</p>' + MODULO)
+              'official source. The form does not ask who you are.</p>' + MODULO)
     corpo += rim.elenco()
     testata = banda("How we check", "How we read and check the Census files",
                     "Which files we use, when we read them, what we derive, which pages we index and how often we update.", corta=True, icona="shield")
@@ -953,8 +1099,8 @@ def about():
              '<h2>Why it exists</h2><div class="testo"><p>The official files are spreadsheets with thousands of rows: structure, descriptions, index, '
              'cross-references and concordances are in separate files. Here they are joined code by code, with the source next to each block.</p></div>'
              '<h2>What we are not</h2><div class="testo"><ul><li>We are not the Census Bureau, OMB, the IRS or the SBA, and we are not affiliated with them.</li>'
-             f'<li>We give no legal, tax or business advice: {FRASE_FISSA}.</li><li>We do not collect data about readers, apart from the optional form '
-             'to report an error.</li></ul></div>'
+             f'<li>We give no legal, tax or business advice: {FRASE_FISSA}.</li><li>We do not ask readers for personal data: the form to report an error has no name or '
+             'email field.</li></ul></div>'
              '<h2>How the site is paid for</h2><div class="testo"><p>The site may show Google AdSense ads on the pages with the most content. Ads never change '
              'a code or a text, and nobody pays to appear.</p><p>NAICS Code Lookup is part of a small network of free information sites run by the same '
              'independent publisher. How we check the data: <a href="/how-we-check/">how we check</a>.</p></div>')
@@ -973,11 +1119,12 @@ def privacy():
              'are not sent to us or stored. The site remembers only your choice of light or dark theme in your browser (local storage).</p>'
              f'{cookie}'
              '<h2>Hosting</h2><p>The site is hosted on Netlify, which processes technical data (such as IP addresses) to deliver pages and protect the service.</p>'
-             '<h2 id="corrections">Corrections form</h2><p>If you use the <a href="/how-we-check/#corrections">form to report an error</a>, we receive the page you '
-             'name, your message, the source link and, only if you give it, your email address. The form is processed by Netlify Forms on our behalf. We use what '
-             'you send only to check and answer the correction, and keep it only as long as that takes. The legal basis is your consent, given with the tick box; '
-             'you can ask us to delete your message by sending another one through the form. There are no accounts or newsletters on this site.</p>'
-             f'<h2>Your rights</h2><p>You can ask to access, correct or delete what you sent us through the same form. {cal}</p>'
+             '<h2 id="corrections">Corrections form</h2><p>The <a href="/how-we-check/#corrections">form to report an error</a> asks for the page, your '
+             'message and, if you wish, a link to the official source. It does not ask for your name or email address, and we ask you not to put personal '
+             'details in the message. The form is processed by Netlify Forms on our behalf. We use what you send only to check the page against the official '
+             'files and delete it once that is done. There are no accounts, newsletters or comments on this site.</p>'
+             f'<h2>Your rights</h2><p>We hold no personal data about readers. If you put personal details in a correction by mistake, send another message '
+             f'through the same form and we will delete it. {cal}</p>'
              f'<h2>Changes</h2><p>We update this page when the site changes. Last update: {data_lunga(CONTROLLO)}.</p></div>')
     breve = MON.privacy_breve("en", SITO_ID, False) or "What we collect (very little) and how the visit counter works."
     testata = banda("Privacy", "Privacy", h(breve), corta=True, icona="lock")
@@ -1036,7 +1183,8 @@ def copia_grafica():
 
 # ---------------------------------------------------------------- indicizzazione delle pagine di codice
 def gruppi_di_parole(html_, n=5):
-    t = re.sub(r"<(script|style|svg)\b.*?</\1>", " ", html_, flags=re.S | re.I)
+    t = re.sub(r"<section data-ripreso>.*?</section>", " ", html_, flags=re.S)
+    t = re.sub(r"<(script|style|svg)\b.*?</\1>", " ", t, flags=re.S | re.I)
     w = re.findall(r"\w+", unescape(re.sub(r"<[^>]+>", " ", t)).lower())
     return {" ".join(w[i:i + n]) for i in range(max(0, len(w) - n + 1))}
 
@@ -1081,6 +1229,10 @@ def misura():
                 meglio = (c, q)
         MISURA[p] = {"proprie": proprie, "sovrapposizione": round(meglio[0], 3), "piu_simile": meglio[1]}
         INDICIZZA[p] = proprie >= MIN_PAROLE_PROPRIE and meglio[0] < MAX_SOVRAPPOSIZIONE
+        cod = p.rstrip("/")
+        if not INDICIZZA[p] and cod in RICHIESTI and proprie >= MIN_PROPRIE_RICHIESTA and meglio[0] < MAX_SOVRAPPOSIZIONE_RICHIESTA:
+            INDICIZZA[p] = True  # pagina corta ma cercata: la descrizione ufficiale è la risposta
+            MISURA[p]["richiesta"] = RICHIESTI[cod]
 
 
 def main():
@@ -1107,7 +1259,8 @@ def main():
     extra()
     (DATI / "indicizzazione.json").write_text(json.dumps({
         "_nota": "Scritto da genera.py: perché ogni pagina di codice è indicizzata o no (verifica.py ricalcola le misure dalle pagine).",
-        "regola": {"min_parole_proprie": MIN_PAROLE_PROPRIE, "max_sovrapposizione": MAX_SOVRAPPOSIZIONE, "quota_modello": QUOTA_MODELLO},
+        "regola": {"min_parole_proprie": MIN_PAROLE_PROPRIE, "max_sovrapposizione": MAX_SOVRAPPOSIZIONE, "quota_modello": QUOTA_MODELLO,
+                   "min_proprie_con_richiesta": MIN_PROPRIE_RICHIESTA, "max_sovrapposizione_con_richiesta": MAX_SOVRAPPOSIZIONE_RICHIESTA},
         "pagine": {p: dict(MISURA[p], indicizzata=INDICIZZA[p]) for p in sorted(MISURA)},
         "attivita": {a["slug"]: {"volume": volume(a), "pubblicata": volume(a) > 0} for a in ATT}},
         ensure_ascii=False, indent=0) + "\n", encoding="utf-8")

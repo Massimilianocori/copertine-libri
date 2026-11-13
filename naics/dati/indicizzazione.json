@@ -3,7 +3,9 @@
 "regola": {
 "min_parole_proprie": 120,
 "max_sovrapposizione": 0.55,
-"quota_modello": 0.05
+"quota_modello": 0.05,
+"min_proprie_con_richiesta": 60,
+"max_sovrapposizione_con_richiesta": 0.65
 },
 "pagine": {
 "11/": {
@@ -28,7 +30,8 @@
 "proprie": 77,
 "sovrapposizione": 0.486,
 "piu_simile": "111140/",
-"indicizzata": false
+"richiesta": "naics code 111110",
+"indicizzata": true
 },
 "111120/": {
 "proprie": 134,
@@ -79,14 +82,14 @@
 "indicizzata": false
 },
 "111211/": {
-"proprie": 115,
-"sovrapposizione": 0.377,
+"proprie": 135,
+"sovrapposizione": 0.316,
 "piu_simile": "111219/",
-"indicizzata": false
+"indicizzata": true
 },
 "111219/": {
-"proprie": 532,
-"sovrapposizione": 0.138,
+"proprie": 549,
+"sovrapposizione": 0.135,
 "piu_simile": "1112/",
 "indicizzata": true
 },
@@ -97,14 +100,14 @@
 "indicizzata": true
 },
 "111310/": {
-"proprie": 56,
-"sovrapposizione": 0.497,
+"proprie": 53,
+"sovrapposizione": 0.536,
 "piu_simile": "111320/",
 "indicizzata": false
 },
 "111320/": {
-"proprie": 105,
-"sovrapposizione": 0.387,
+"proprie": 102,
+"sovrapposizione": 0.403,
 "piu_simile": "111310/",
 "indicizzata": false
 },
@@ -157,14 +160,14 @@
 "indicizzata": true
 },
 "111411/": {
-"proprie": 69,
-"sovrapposizione": 0.393,
+"proprie": 68,
+"sovrapposizione": 0.414,
 "piu_simile": "111419/",
 "indicizzata": false
 },
 "111419/": {
-"proprie": 194,
-"sovrapposizione": 0.221,
+"proprie": 193,
+"sovrapposizione": 0.225,
 "piu_simile": "111411/",
 "indicizzata": true
 },
@@ -188,7 +191,7 @@
 },
 "111910/": {
 "proprie": 67,
-"sovrapposizione": 0.397,
+"sovrapposizione": 0.372,
 "piu_simile": "111992/",
 "indicizzata": false
 },
@@ -199,32 +202,32 @@
 "indicizzata": false
 },
 "111930/": {
-"proprie": 66,
-"sovrapposizione": 0.365,
+"proprie": 64,
+"sovrapposizione": 0.379,
 "piu_simile": "111920/",
 "indicizzata": false
 },
 "111940/": {
-"proprie": 101,
-"sovrapposizione": 0.275,
+"proprie": 99,
+"sovrapposizione": 0.286,
 "piu_simile": "111992/",
 "indicizzata": false
 },
 "111991/": {
-"proprie": 63,
+"proprie": 61,
 "sovrapposizione": 0.392,
 "piu_simile": "111992/",
 "indicizzata": false
 },
 "111992/": {
-"proprie": 55,
-"sovrapposizione": 0.443,
+"proprie": 53,
+"sovrapposizione": 0.459,
 "piu_simile": "111991/",
 "indicizzata": false
 },
 "111998/": {
-"proprie": 261,
-"sovrapposizione": 0.329,
+"proprie": 283,
+"sovrapposizione": 0.32,
 "piu_simile": "1119/",
 "indicizzata": true
 },
@@ -237,14 +240,15 @@
 "1121/": {
 "proprie": 67,
 "sovrapposizione": 0.216,
-"piu_simile": "112111/",
+"piu_simile": "112130/",
 "indicizzata": false
 },
 "112111/": {
 "proprie": 98,
 "sovrapposizione": 0.279,
 "piu_simile": "112130/",
-"indicizzata": false
+"richiesta": "naics code 112111",
+"indicizzata": true
 },
 "112112/": {
 "proprie": 83,
@@ -256,18 +260,19 @@
 "proprie": 98,
 "sovrapposizione": 0.241,
 "piu_simile": "112130/",
-"indicizzata": false
+"richiesta": "naics code 112120",
+"indicizzata": true
 },
 "112130/": {
 "proprie": 62,
 "sovrapposizione": 0.276,
-"piu_simile": "112111/",
+"piu_simile": "112112/",
 "indicizzata": false
 },
 "1122/": {
 "proprie": 24,
 "sovrapposizione": 0.421,
-"piu_simile": "1121/",
+"piu_simile": "1129/",
 "indicizzata": false
 },
 "112210/": {
@@ -296,8 +301,8 @@
 },
 "112330/": {
 "proprie": 75,
-"sovrapposizione": 0.301,
-"piu_simile": "112340/",
+"sovrapposizione": 0.298,
+"piu_simile": "112320/",
 "indicizzata": false
 },
 "112340/": {
@@ -319,14 +324,14 @@
 "indicizzata": false
 },
 "112410/": {
-"proprie": 96,
+"proprie": 94,
 "sovrapposizione": 0.274,
 "piu_simile": "112112/",
 "indicizzata": false
 },
 "112420/": {
-"proprie": 77,
-"sovrapposizione": 0.354,
+"proprie": 75,
+"sovrapposizione": 0.384,
 "piu_simile": "112410/",
 "indicizzata": false
 },
@@ -349,8 +354,8 @@
 "indicizzata": false
 },
 "112519/": {
-"proprie": 180,
-"sovrapposizione": 0.209,
+"proprie": 202,
+"sovrapposizione": 0.167,
 "piu_simile": "111998/",
 "indicizzata": true
 },
@@ -361,8 +366,8 @@
 "indicizzata": false
 },
 "112910/": {
-"proprie": 116,
-"sovrapposizione": 0.199,
+"proprie": 115,
+"sovrapposizione": 0.205,
 "piu_simile": "112920/",
 "indicizzata": false
 },
@@ -471,7 +476,7 @@
 "115/": {
 "proprie": 90,
 "sovrapposizione": 0.138,
-"piu_simile": "1153/",
+"piu_simile": "1151/",
 "indicizzata": false
 },
 "1151/": {
@@ -481,8 +486,8 @@
 "indicizzata": true
 },
 "115111/": {
-"proprie": 60,
-"sovrapposizione": 0.459,
+"proprie": 59,
+"sovrapposizione": 0.475,
 "piu_simile": "115116/",
 "indicizzata": false
 },
@@ -499,7 +504,7 @@
 "indicizzata": true
 },
 "115114/": {
-"proprie": 282,
+"proprie": 281,
 "sovrapposizione": 0.189,
 "piu_simile": "115113/",
 "indicizzata": true
@@ -508,7 +513,8 @@
 "proprie": 104,
 "sovrapposizione": 0.411,
 "piu_simile": "115114/",
-"indicizzata": false
+"richiesta": "naics code for farm labor contractor",
+"indicizzata": true
 },
 "115116/": {
 "proprie": 120,
@@ -559,14 +565,14 @@
 "indicizzata": false
 },
 "211120/": {
-"proprie": 170,
-"sovrapposizione": 0.377,
+"proprie": 176,
+"sovrapposizione": 0.381,
 "piu_simile": "211130/",
 "indicizzata": true
 },
 "211130/": {
-"proprie": 321,
-"sovrapposizione": 0.254,
+"proprie": 335,
+"sovrapposizione": 0.245,
 "piu_simile": "211120/",
 "indicizzata": true
 },
@@ -583,14 +589,14 @@
 "indicizzata": false
 },
 "212114/": {
-"proprie": 256,
-"sovrapposizione": 0.35,
+"proprie": 271,
+"sovrapposizione": 0.377,
 "piu_simile": "212115/",
 "indicizzata": true
 },
 "212115/": {
-"proprie": 160,
-"sovrapposizione": 0.462,
+"proprie": 175,
+"sovrapposizione": 0.483,
 "piu_simile": "212114/",
 "indicizzata": true
 },
@@ -607,19 +613,19 @@
 "indicizzata": true
 },
 "212220/": {
-"proprie": 204,
-"sovrapposizione": 0.261,
+"proprie": 223,
+"sovrapposizione": 0.25,
 "piu_simile": "212230/",
 "indicizzata": true
 },
 "212230/": {
-"proprie": 244,
-"sovrapposizione": 0.243,
+"proprie": 269,
+"sovrapposizione": 0.231,
 "piu_simile": "212290/",
 "indicizzata": true
 },
 "212290/": {
-"proprie": 561,
+"proprie": 580,
 "sovrapposizione": 0.126,
 "piu_simile": "212230/",
 "indicizzata": true
@@ -643,8 +649,8 @@
 "indicizzata": true
 },
 "212313/": {
-"proprie": 107,
-"sovrapposizione": 0.476,
+"proprie": 105,
+"sovrapposizione": 0.494,
 "piu_simile": "212312/",
 "indicizzata": false
 },
@@ -667,14 +673,14 @@
 "indicizzata": true
 },
 "212323/": {
-"proprie": 370,
-"sovrapposizione": 0.202,
+"proprie": 383,
+"sovrapposizione": 0.204,
 "piu_simile": "212390/",
 "indicizzata": true
 },
 "212390/": {
-"proprie": 1055,
-"sovrapposizione": 0.094,
+"proprie": 1079,
+"sovrapposizione": 0.096,
 "piu_simile": "212323/",
 "indicizzata": true
 },
@@ -697,26 +703,26 @@
 "indicizzata": true
 },
 "213112/": {
-"proprie": 641,
-"sovrapposizione": 0.136,
+"proprie": 655,
+"sovrapposizione": 0.135,
 "piu_simile": "213113/",
 "indicizzata": true
 },
 "213113/": {
-"proprie": 229,
-"sovrapposizione": 0.455,
+"proprie": 236,
+"sovrapposizione": 0.445,
 "piu_simile": "213114/",
 "indicizzata": true
 },
 "213114/": {
-"proprie": 160,
-"sovrapposizione": 0.516,
+"proprie": 167,
+"sovrapposizione": 0.502,
 "piu_simile": "213115/",
 "indicizzata": true
 },
 "213115/": {
-"proprie": 196,
-"sovrapposizione": 0.494,
+"proprie": 202,
+"sovrapposizione": 0.483,
 "piu_simile": "213114/",
 "indicizzata": true
 },
@@ -733,56 +739,56 @@
 "indicizzata": false
 },
 "2211/": {
-"proprie": 274,
+"proprie": 276,
 "sovrapposizione": 0.128,
 "piu_simile": "221121/",
 "indicizzata": true
 },
 "221111/": {
-"proprie": 74,
-"sovrapposizione": 0.59,
+"proprie": 75,
+"sovrapposizione": 0.58,
 "piu_simile": "221112/",
 "indicizzata": false
 },
 "221112/": {
 "proprie": 92,
-"sovrapposizione": 0.606,
+"sovrapposizione": 0.598,
 "piu_simile": "221113/",
 "indicizzata": false
 },
 "221113/": {
 "proprie": 67,
-"sovrapposizione": 0.673,
+"sovrapposizione": 0.665,
 "piu_simile": "221112/",
 "indicizzata": false
 },
 "221114/": {
-"proprie": 62,
-"sovrapposizione": 0.664,
-"piu_simile": "221117/",
-"indicizzata": false
-},
-"221115/": {
-"proprie": 52,
-"sovrapposizione": 0.684,
+"proprie": 72,
+"sovrapposizione": 0.654,
 "piu_simile": "221116/",
 "indicizzata": false
 },
+"221115/": {
+"proprie": 62,
+"sovrapposizione": 0.664,
+"piu_simile": "221114/",
+"indicizzata": false
+},
 "221116/": {
-"proprie": 59,
-"sovrapposizione": 0.682,
+"proprie": 70,
+"sovrapposizione": 0.702,
 "piu_simile": "221117/",
 "indicizzata": false
 },
 "221117/": {
-"proprie": 66,
-"sovrapposizione": 0.668,
-"piu_simile": "221118/",
+"proprie": 76,
+"sovrapposizione": 0.644,
+"piu_simile": "221116/",
 "indicizzata": false
 },
 "221118/": {
-"proprie": 127,
-"sovrapposizione": 0.506,
+"proprie": 150,
+"sovrapposizione": 0.436,
 "piu_simile": "221117/",
 "indicizzata": true
 },
@@ -853,26 +859,26 @@
 "indicizzata": true
 },
 "236115/": {
-"proprie": 263,
-"sovrapposizione": 0.393,
+"proprie": 264,
+"sovrapposizione": 0.402,
 "piu_simile": "236116/",
 "indicizzata": true
 },
 "236116/": {
-"proprie": 168,
-"sovrapposizione": 0.484,
+"proprie": 174,
+"sovrapposizione": 0.495,
 "piu_simile": "236115/",
 "indicizzata": true
 },
 "236117/": {
-"proprie": 303,
-"sovrapposizione": 0.36,
+"proprie": 313,
+"sovrapposizione": 0.378,
 "piu_simile": "236118/",
 "indicizzata": true
 },
 "236118/": {
-"proprie": 269,
-"sovrapposizione": 0.386,
+"proprie": 279,
+"sovrapposizione": 0.404,
 "piu_simile": "236117/",
 "indicizzata": true
 },
@@ -883,14 +889,14 @@
 "indicizzata": false
 },
 "236210/": {
-"proprie": 423,
-"sovrapposizione": 0.199,
+"proprie": 420,
+"sovrapposizione": 0.191,
 "piu_simile": "236220/",
 "indicizzata": true
 },
 "236220/": {
-"proprie": 651,
-"sovrapposizione": 0.148,
+"proprie": 666,
+"sovrapposizione": 0.144,
 "piu_simile": "236210/",
 "indicizzata": true
 },
@@ -907,20 +913,20 @@
 "indicizzata": false
 },
 "237110/": {
-"proprie": 338,
-"sovrapposizione": 0.236,
+"proprie": 349,
+"sovrapposizione": 0.231,
 "piu_simile": "237120/",
 "indicizzata": true
 },
 "237120/": {
-"proprie": 307,
-"sovrapposizione": 0.229,
+"proprie": 313,
+"sovrapposizione": 0.227,
 "piu_simile": "237110/",
 "indicizzata": true
 },
 "237130/": {
-"proprie": 355,
-"sovrapposizione": 0.205,
+"proprie": 366,
+"sovrapposizione": 0.196,
 "piu_simile": "237120/",
 "indicizzata": true
 },
@@ -931,8 +937,8 @@
 "indicizzata": false
 },
 "237210/": {
-"proprie": 308,
-"sovrapposizione": 0.067,
+"proprie": 324,
+"sovrapposizione": 0.065,
 "piu_simile": "237990/",
 "indicizzata": true
 },
@@ -943,8 +949,8 @@
 "indicizzata": false
 },
 "237310/": {
-"proprie": 378,
-"sovrapposizione": 0.121,
+"proprie": 389,
+"sovrapposizione": 0.138,
 "piu_simile": "237990/",
 "indicizzata": true
 },
@@ -955,9 +961,9 @@
 "indicizzata": false
 },
 "237990/": {
-"proprie": 532,
-"sovrapposizione": 0.122,
-"piu_simile": "237130/",
+"proprie": 529,
+"sovrapposizione": 0.127,
+"piu_simile": "237110/",
 "indicizzata": true
 },
 "238/": {
@@ -973,49 +979,49 @@
 "indicizzata": false
 },
 "238110/": {
-"proprie": 190,
-"sovrapposizione": 0.259,
+"proprie": 196,
+"sovrapposizione": 0.248,
 "piu_simile": "238140/",
 "indicizzata": true
 },
 "238120/": {
-"proprie": 236,
-"sovrapposizione": 0.232,
+"proprie": 242,
+"sovrapposizione": 0.242,
 "piu_simile": "238190/",
 "indicizzata": true
 },
 "238130/": {
-"proprie": 164,
+"proprie": 174,
 "sovrapposizione": 0.246,
 "piu_simile": "238120/",
 "indicizzata": true
 },
 "238140/": {
-"proprie": 238,
-"sovrapposizione": 0.221,
+"proprie": 249,
+"sovrapposizione": 0.195,
 "piu_simile": "238110/",
 "indicizzata": true
 },
 "238150/": {
-"proprie": 181,
-"sovrapposizione": 0.234,
+"proprie": 195,
+"sovrapposizione": 0.222,
 "piu_simile": "238130/",
 "indicizzata": true
 },
 "238160/": {
-"proprie": 182,
-"sovrapposizione": 0.301,
+"proprie": 192,
+"sovrapposizione": 0.305,
 "piu_simile": "238170/",
 "indicizzata": true
 },
 "238170/": {
-"proprie": 169,
-"sovrapposizione": 0.312,
+"proprie": 179,
+"sovrapposizione": 0.316,
 "piu_simile": "238160/",
 "indicizzata": true
 },
 "238190/": {
-"proprie": 247,
+"proprie": 254,
 "sovrapposizione": 0.197,
 "piu_simile": "238120/",
 "indicizzata": true
@@ -1027,20 +1033,20 @@
 "indicizzata": false
 },
 "238210/": {
-"proprie": 409,
-"sovrapposizione": 0.115,
+"proprie": 426,
+"sovrapposizione": 0.139,
 "piu_simile": "238220/",
 "indicizzata": true
 },
 "238220/": {
-"proprie": 535,
-"sovrapposizione": 0.099,
-"piu_simile": "238290/",
+"proprie": 542,
+"sovrapposizione": 0.111,
+"piu_simile": "238210/",
 "indicizzata": true
 },
 "238290/": {
-"proprie": 391,
-"sovrapposizione": 0.131,
+"proprie": 395,
+"sovrapposizione": 0.14,
 "piu_simile": "238220/",
 "indicizzata": true
 },
@@ -1051,39 +1057,39 @@
 "indicizzata": false
 },
 "238310/": {
-"proprie": 311,
-"sovrapposizione": 0.149,
+"proprie": 315,
+"sovrapposizione": 0.172,
 "piu_simile": "238390/",
 "indicizzata": true
 },
 "238320/": {
-"proprie": 194,
-"sovrapposizione": 0.177,
-"piu_simile": "238390/",
+"proprie": 206,
+"sovrapposizione": 0.166,
+"piu_simile": "238350/",
 "indicizzata": true
 },
 "238330/": {
-"proprie": 201,
-"sovrapposizione": 0.192,
+"proprie": 206,
+"sovrapposizione": 0.185,
 "piu_simile": "238390/",
 "indicizzata": true
 },
 "238340/": {
-"proprie": 196,
-"sovrapposizione": 0.191,
+"proprie": 210,
+"sovrapposizione": 0.182,
 "piu_simile": "238330/",
 "indicizzata": true
 },
 "238350/": {
-"proprie": 287,
-"sovrapposizione": 0.169,
+"proprie": 297,
+"sovrapposizione": 0.166,
 "piu_simile": "238390/",
 "indicizzata": true
 },
 "238390/": {
-"proprie": 337,
-"sovrapposizione": 0.143,
-"piu_simile": "238350/",
+"proprie": 342,
+"sovrapposizione": 0.17,
+"piu_simile": "238310/",
 "indicizzata": true
 },
 "2389/": {
@@ -1093,14 +1099,14 @@
 "indicizzata": false
 },
 "238910/": {
-"proprie": 624,
-"sovrapposizione": 0.1,
+"proprie": 652,
+"sovrapposizione": 0.103,
 "piu_simile": "238990/",
 "indicizzata": true
 },
 "238990/": {
-"proprie": 511,
-"sovrapposizione": 0.121,
+"proprie": 507,
+"sovrapposizione": 0.129,
 "piu_simile": "238910/",
 "indicizzata": true
 },
@@ -1165,14 +1171,14 @@
 "indicizzata": true
 },
 "311224/": {
-"proprie": 313,
-"sovrapposizione": 0.199,
+"proprie": 325,
+"sovrapposizione": 0.19,
 "piu_simile": "311225/",
 "indicizzata": true
 },
 "311225/": {
-"proprie": 321,
-"sovrapposizione": 0.19,
+"proprie": 323,
+"sovrapposizione": 0.186,
 "piu_simile": "311224/",
 "indicizzata": true
 },
@@ -1195,26 +1201,26 @@
 "indicizzata": true
 },
 "311314/": {
-"proprie": 168,
-"sovrapposizione": 0.387,
+"proprie": 188,
+"sovrapposizione": 0.36,
 "piu_simile": "311313/",
 "indicizzata": true
 },
 "311340/": {
-"proprie": 247,
-"sovrapposizione": 0.24,
+"proprie": 243,
+"sovrapposizione": 0.25,
 "piu_simile": "311352/",
 "indicizzata": true
 },
 "311351/": {
-"proprie": 216,
-"sovrapposizione": 0.269,
+"proprie": 228,
+"sovrapposizione": 0.259,
 "piu_simile": "311352/",
 "indicizzata": true
 },
 "311352/": {
-"proprie": 192,
-"sovrapposizione": 0.254,
+"proprie": 200,
+"sovrapposizione": 0.257,
 "piu_simile": "311340/",
 "indicizzata": true
 },
@@ -1327,8 +1333,8 @@
 "indicizzata": false
 },
 "311710/": {
-"proprie": 289,
-"sovrapposizione": 0.042,
+"proprie": 310,
+"sovrapposizione": 0.043,
 "piu_simile": "311224/",
 "indicizzata": true
 },
@@ -1342,7 +1348,8 @@
 "proprie": 102,
 "sovrapposizione": 0.469,
 "piu_simile": "311812/",
-"indicizzata": false
+"richiesta": "naics code for bakery",
+"indicizzata": true
 },
 "311812/": {
 "proprie": 224,
@@ -1363,8 +1370,8 @@
 "indicizzata": false
 },
 "311824/": {
-"proprie": 251,
-"sovrapposizione": 0.182,
+"proprie": 278,
+"sovrapposizione": 0.17,
 "piu_simile": "3118/",
 "indicizzata": true
 },
@@ -1483,8 +1490,8 @@
 "indicizzata": false
 },
 "312230/": {
-"proprie": 233,
-"sovrapposizione": 0.059,
+"proprie": 259,
+"sovrapposizione": 0.053,
 "piu_simile": "339999/",
 "indicizzata": true
 },
@@ -1501,9 +1508,9 @@
 "indicizzata": false
 },
 "313110/": {
-"proprie": 504,
-"sovrapposizione": 0.019,
-"piu_simile": "321920/",
+"proprie": 521,
+"sovrapposizione": 0.026,
+"piu_simile": "313220/",
 "indicizzata": true
 },
 "3132/": {
@@ -1519,8 +1526,8 @@
 "indicizzata": true
 },
 "313220/": {
-"proprie": 304,
-"sovrapposizione": 0.13,
+"proprie": 321,
+"sovrapposizione": 0.124,
 "piu_simile": "313210/",
 "indicizzata": true
 },
@@ -1531,21 +1538,21 @@
 "indicizzata": true
 },
 "313240/": {
-"proprie": 287,
-"sovrapposizione": 0.088,
+"proprie": 293,
+"sovrapposizione": 0.084,
 "piu_simile": "313210/",
 "indicizzata": true
 },
 "3133/": {
 "proprie": 55,
 "sovrapposizione": 0.214,
-"piu_simile": "3132/",
+"piu_simile": "313/",
 "indicizzata": false
 },
 "313310/": {
-"proprie": 501,
-"sovrapposizione": 0.036,
-"piu_simile": "313320/",
+"proprie": 491,
+"sovrapposizione": 0.057,
+"piu_simile": "315120/",
 "indicizzata": true
 },
 "313320/": {
@@ -1568,14 +1575,14 @@
 },
 "314110/": {
 "proprie": 160,
-"sovrapposizione": 0.085,
+"sovrapposizione": 0.087,
 "piu_simile": "314120/",
 "indicizzata": true
 },
 "314120/": {
-"proprie": 290,
-"sovrapposizione": 0.059,
-"piu_simile": "3141/",
+"proprie": 301,
+"sovrapposizione": 0.07,
+"piu_simile": "314999/",
 "indicizzata": true
 },
 "3149/": {
@@ -1585,20 +1592,20 @@
 "indicizzata": true
 },
 "314910/": {
-"proprie": 287,
-"sovrapposizione": 0.087,
-"piu_simile": "314994/",
+"proprie": 303,
+"sovrapposizione": 0.084,
+"piu_simile": "314999/",
 "indicizzata": true
 },
 "314994/": {
-"proprie": 182,
-"sovrapposizione": 0.193,
+"proprie": 205,
+"sovrapposizione": 0.18,
 "piu_simile": "314999/",
 "indicizzata": true
 },
 "314999/": {
-"proprie": 572,
-"sovrapposizione": 0.342,
+"proprie": 566,
+"sovrapposizione": 0.322,
 "piu_simile": "315210/",
 "indicizzata": true
 },
@@ -1615,8 +1622,8 @@
 "indicizzata": false
 },
 "315120/": {
-"proprie": 788,
-"sovrapposizione": 0.024,
+"proprie": 793,
+"sovrapposizione": 0.041,
 "piu_simile": "313310/",
 "indicizzata": true
 },
@@ -1627,26 +1634,26 @@
 "indicizzata": false
 },
 "315210/": {
-"proprie": 1332,
-"sovrapposizione": 0.191,
+"proprie": 1329,
+"sovrapposizione": 0.182,
 "piu_simile": "314999/",
 "indicizzata": true
 },
 "315250/": {
-"proprie": 2068,
-"sovrapposizione": 0.128,
+"proprie": 2086,
+"sovrapposizione": 0.126,
 "piu_simile": "315210/",
 "indicizzata": true
 },
 "3159/": {
 "proprie": 21,
 "sovrapposizione": 0.318,
-"piu_simile": "3152/",
+"piu_simile": "315/",
 "indicizzata": false
 },
 "315990/": {
-"proprie": 585,
-"sovrapposizione": 0.185,
+"proprie": 591,
+"sovrapposizione": 0.177,
 "piu_simile": "315210/",
 "indicizzata": true
 },
@@ -1664,7 +1671,7 @@
 },
 "316110/": {
 "proprie": 333,
-"sovrapposizione": 0.027,
+"sovrapposizione": 0.028,
 "piu_simile": "334516/",
 "indicizzata": true
 },
@@ -1675,8 +1682,8 @@
 "indicizzata": false
 },
 "316210/": {
-"proprie": 591,
-"sovrapposizione": 0.015,
+"proprie": 634,
+"sovrapposizione": 0.014,
 "piu_simile": "315120/",
 "indicizzata": true
 },
@@ -1687,8 +1694,8 @@
 "indicizzata": false
 },
 "316990/": {
-"proprie": 811,
-"sovrapposizione": 0.019,
+"proprie": 845,
+"sovrapposizione": 0.025,
 "piu_simile": "315990/",
 "indicizzata": true
 },
@@ -1735,8 +1742,8 @@
 "indicizzata": false
 },
 "321215/": {
-"proprie": 222,
-"sovrapposizione": 0.128,
+"proprie": 235,
+"sovrapposizione": 0.122,
 "piu_simile": "3212/",
 "indicizzata": true
 },
@@ -1789,8 +1796,8 @@
 "indicizzata": true
 },
 "321999/": {
-"proprie": 772,
-"sovrapposizione": 0.082,
+"proprie": 790,
+"sovrapposizione": 0.08,
 "piu_simile": "321992/",
 "indicizzata": true
 },
@@ -1808,19 +1815,19 @@
 },
 "322110/": {
 "proprie": 149,
-"sovrapposizione": 0.135,
+"sovrapposizione": 0.155,
 "piu_simile": "322120/",
 "indicizzata": true
 },
 "322120/": {
-"proprie": 431,
-"sovrapposizione": 0.087,
+"proprie": 437,
+"sovrapposizione": 0.093,
 "piu_simile": "322130/",
 "indicizzata": true
 },
 "322130/": {
 "proprie": 200,
-"sovrapposizione": 0.171,
+"sovrapposizione": 0.185,
 "piu_simile": "322120/",
 "indicizzata": true
 },
@@ -1843,20 +1850,20 @@
 "indicizzata": true
 },
 "322219/": {
-"proprie": 281,
-"sovrapposizione": 0.224,
+"proprie": 318,
+"sovrapposizione": 0.204,
 "piu_simile": "322212/",
 "indicizzata": true
 },
 "322220/": {
-"proprie": 593,
-"sovrapposizione": 0.086,
+"proprie": 646,
+"sovrapposizione": 0.079,
 "piu_simile": "322299/",
 "indicizzata": true
 },
 "322230/": {
-"proprie": 311,
-"sovrapposizione": 0.21,
+"proprie": 330,
+"sovrapposizione": 0.202,
 "piu_simile": "322299/",
 "indicizzata": true
 },
@@ -1867,7 +1874,7 @@
 "indicizzata": true
 },
 "322299/": {
-"proprie": 241,
+"proprie": 237,
 "sovrapposizione": 0.297,
 "piu_simile": "3222/",
 "indicizzata": true
@@ -1885,8 +1892,8 @@
 "indicizzata": true
 },
 "323111/": {
-"proprie": 895,
-"sovrapposizione": 0.155,
+"proprie": 921,
+"sovrapposizione": 0.152,
 "piu_simile": "323113/",
 "indicizzata": true
 },
@@ -1903,8 +1910,8 @@
 "indicizzata": true
 },
 "323120/": {
-"proprie": 362,
-"sovrapposizione": 0.071,
+"proprie": 387,
+"sovrapposizione": 0.067,
 "piu_simile": "323117/",
 "indicizzata": true
 },
@@ -1941,7 +1948,7 @@
 "324191/": {
 "proprie": 136,
 "sovrapposizione": 0.265,
-"piu_simile": "324199/",
+"piu_simile": "324110/",
 "indicizzata": true
 },
 "324199/": {
@@ -1975,14 +1982,14 @@
 "indicizzata": true
 },
 "325130/": {
-"proprie": 426,
-"sovrapposizione": 0.108,
+"proprie": 435,
+"sovrapposizione": 0.114,
 "piu_simile": "325180/",
 "indicizzata": true
 },
 "325180/": {
-"proprie": 976,
-"sovrapposizione": 0.08,
+"proprie": 1000,
+"sovrapposizione": 0.077,
 "piu_simile": "325199/",
 "indicizzata": true
 },
@@ -1993,8 +2000,8 @@
 "indicizzata": false
 },
 "325194/": {
-"proprie": 529,
-"sovrapposizione": 0.13,
+"proprie": 545,
+"sovrapposizione": 0.126,
 "piu_simile": "325199/",
 "indicizzata": true
 },
@@ -2023,8 +2030,8 @@
 "indicizzata": true
 },
 "325220/": {
-"proprie": 372,
-"sovrapposizione": 0.09,
+"proprie": 393,
+"sovrapposizione": 0.085,
 "piu_simile": "3252/",
 "indicizzata": true
 },
@@ -2047,14 +2054,14 @@
 "indicizzata": false
 },
 "325314/": {
-"proprie": 88,
-"sovrapposizione": 0.482,
+"proprie": 107,
+"sovrapposizione": 0.433,
 "piu_simile": "325315/",
 "indicizzata": false
 },
 "325315/": {
-"proprie": 74,
-"sovrapposizione": 0.541,
+"proprie": 93,
+"sovrapposizione": 0.477,
 "piu_simile": "325314/",
 "indicizzata": false
 },
@@ -2103,7 +2110,7 @@
 "325510/": {
 "proprie": 276,
 "sovrapposizione": 0.042,
-"piu_simile": "325130/",
+"piu_simile": "325520/",
 "indicizzata": true
 },
 "325520/": {
@@ -2173,7 +2180,7 @@
 "indicizzata": true
 },
 "325998/": {
-"proprie": 538,
+"proprie": 534,
 "sovrapposizione": 0.252,
 "piu_simile": "3259/",
 "indicizzata": true
@@ -2197,7 +2204,7 @@
 "indicizzata": true
 },
 "326112/": {
-"proprie": 103,
+"proprie": 99,
 "sovrapposizione": 0.566,
 "piu_simile": "326113/",
 "indicizzata": false
@@ -2251,8 +2258,8 @@
 "indicizzata": true
 },
 "326199/": {
-"proprie": 544,
-"sovrapposizione": 0.245,
+"proprie": 557,
+"sovrapposizione": 0.24,
 "piu_simile": "3261/",
 "indicizzata": true
 },
@@ -2281,14 +2288,14 @@
 "indicizzata": true
 },
 "326291/": {
-"proprie": 127,
-"sovrapposizione": 0.29,
+"proprie": 136,
+"sovrapposizione": 0.292,
 "piu_simile": "326299/",
 "indicizzata": true
 },
 "326299/": {
-"proprie": 334,
-"sovrapposizione": 0.17,
+"proprie": 340,
+"sovrapposizione": 0.159,
 "piu_simile": "3262/",
 "indicizzata": true
 },
@@ -2305,15 +2312,15 @@
 "indicizzata": false
 },
 "327110/": {
-"proprie": 574,
-"sovrapposizione": 0.044,
+"proprie": 618,
+"sovrapposizione": 0.045,
 "piu_simile": "327120/",
 "indicizzata": true
 },
 "327120/": {
-"proprie": 399,
-"sovrapposizione": 0.062,
-"piu_simile": "3271/",
+"proprie": 438,
+"sovrapposizione": 0.061,
+"piu_simile": "327110/",
 "indicizzata": true
 },
 "3272/": {
@@ -2336,7 +2343,7 @@
 },
 "327213/": {
 "proprie": 102,
-"sovrapposizione": 0.269,
+"sovrapposizione": 0.277,
 "piu_simile": "327212/",
 "indicizzata": false
 },
@@ -2365,20 +2372,20 @@
 "indicizzata": false
 },
 "327331/": {
-"proprie": 124,
-"sovrapposizione": 0.256,
+"proprie": 119,
+"sovrapposizione": 0.237,
 "piu_simile": "327332/",
-"indicizzata": true
+"indicizzata": false
 },
 "327332/": {
-"proprie": 89,
-"sovrapposizione": 0.294,
-"piu_simile": "327331/",
+"proprie": 87,
+"sovrapposizione": 0.297,
+"piu_simile": "327390/",
 "indicizzata": false
 },
 "327390/": {
-"proprie": 203,
-"sovrapposizione": 0.166,
+"proprie": 201,
+"sovrapposizione": 0.173,
 "piu_simile": "327332/",
 "indicizzata": true
 },
@@ -2407,7 +2414,7 @@
 "indicizzata": true
 },
 "327910/": {
-"proprie": 198,
+"proprie": 195,
 "sovrapposizione": 0.175,
 "piu_simile": "327993/",
 "indicizzata": true
@@ -2449,8 +2456,8 @@
 "indicizzata": false
 },
 "331110/": {
-"proprie": 680,
-"sovrapposizione": 0.072,
+"proprie": 695,
+"sovrapposizione": 0.075,
 "piu_simile": "331221/",
 "indicizzata": true
 },
@@ -2467,8 +2474,8 @@
 "indicizzata": true
 },
 "331221/": {
-"proprie": 226,
-"sovrapposizione": 0.154,
+"proprie": 222,
+"sovrapposizione": 0.165,
 "piu_simile": "331110/",
 "indicizzata": true
 },
@@ -2485,8 +2492,8 @@
 "indicizzata": false
 },
 "331313/": {
-"proprie": 220,
-"sovrapposizione": 0.15,
+"proprie": 233,
+"sovrapposizione": 0.141,
 "piu_simile": "331314/",
 "indicizzata": true
 },
@@ -2503,8 +2510,8 @@
 "indicizzata": true
 },
 "331318/": {
-"proprie": 399,
-"sovrapposizione": 0.15,
+"proprie": 418,
+"sovrapposizione": 0.144,
 "piu_simile": "331315/",
 "indicizzata": true
 },
@@ -2515,14 +2522,14 @@
 "indicizzata": true
 },
 "331410/": {
-"proprie": 377,
-"sovrapposizione": 0.248,
+"proprie": 401,
+"sovrapposizione": 0.242,
 "piu_simile": "331420/",
 "indicizzata": true
 },
 "331420/": {
-"proprie": 472,
-"sovrapposizione": 0.188,
+"proprie": 492,
+"sovrapposizione": 0.183,
 "piu_simile": "331410/",
 "indicizzata": true
 },
@@ -2534,8 +2541,8 @@
 },
 "331492/": {
 "proprie": 282,
-"sovrapposizione": 0.225,
-"piu_simile": "331410/",
+"sovrapposizione": 0.229,
+"piu_simile": "331420/",
 "indicizzata": true
 },
 "3315/": {
@@ -2563,8 +2570,8 @@
 "indicizzata": false
 },
 "331523/": {
-"proprie": 188,
-"sovrapposizione": 0.321,
+"proprie": 211,
+"sovrapposizione": 0.299,
 "piu_simile": "331529/",
 "indicizzata": true
 },
@@ -2575,8 +2582,8 @@
 "indicizzata": false
 },
 "331529/": {
-"proprie": 206,
-"sovrapposizione": 0.291,
+"proprie": 229,
+"sovrapposizione": 0.273,
 "piu_simile": "331523/",
 "indicizzata": true
 },
@@ -2612,13 +2619,13 @@
 },
 "332117/": {
 "proprie": 108,
-"sovrapposizione": 0.243,
+"sovrapposizione": 0.25,
 "piu_simile": "332114/",
 "indicizzata": false
 },
 "332119/": {
-"proprie": 191,
-"sovrapposizione": 0.198,
+"proprie": 206,
+"sovrapposizione": 0.186,
 "piu_simile": "332112/",
 "indicizzata": true
 },
@@ -2629,14 +2636,14 @@
 "indicizzata": false
 },
 "332215/": {
-"proprie": 320,
-"sovrapposizione": 0.21,
+"proprie": 327,
+"sovrapposizione": 0.202,
 "piu_simile": "3322/",
 "indicizzata": true
 },
 "332216/": {
-"proprie": 725,
-"sovrapposizione": 0.075,
+"proprie": 745,
+"sovrapposizione": 0.078,
 "piu_simile": "332215/",
 "indicizzata": true
 },
@@ -2685,7 +2692,7 @@
 "3324/": {
 "proprie": 69,
 "sovrapposizione": 0.325,
-"piu_simile": "332/",
+"piu_simile": "3323/",
 "indicizzata": false
 },
 "332410/": {
@@ -2731,8 +2738,8 @@
 "indicizzata": false
 },
 "332613/": {
-"proprie": 239,
-"sovrapposizione": 0.117,
+"proprie": 258,
+"sovrapposizione": 0.11,
 "piu_simile": "332618/",
 "indicizzata": true
 },
@@ -2749,7 +2756,7 @@
 "indicizzata": false
 },
 "332710/": {
-"proprie": 162,
+"proprie": 161,
 "sovrapposizione": 0.18,
 "piu_simile": "332721/",
 "indicizzata": true
@@ -2779,7 +2786,7 @@
 "indicizzata": true
 },
 "332812/": {
-"proprie": 210,
+"proprie": 206,
 "sovrapposizione": 0.293,
 "piu_simile": "3328/",
 "indicizzata": true
@@ -2791,8 +2798,8 @@
 "indicizzata": true
 },
 "3329/": {
-"proprie": 293,
-"sovrapposizione": 0.338,
+"proprie": 292,
+"sovrapposizione": 0.339,
 "piu_simile": "332999/",
 "indicizzata": true
 },
@@ -2839,8 +2846,8 @@
 "indicizzata": true
 },
 "332994/": {
-"proprie": 282,
-"sovrapposizione": 0.246,
+"proprie": 305,
+"sovrapposizione": 0.233,
 "piu_simile": "332993/",
 "indicizzata": true
 },
@@ -2851,13 +2858,13 @@
 "indicizzata": true
 },
 "332999/": {
-"proprie": 891,
-"sovrapposizione": 0.197,
+"proprie": 897,
+"sovrapposizione": 0.194,
 "piu_simile": "3329/",
 "indicizzata": true
 },
 "333/": {
-"proprie": 287,
+"proprie": 286,
 "sovrapposizione": 0.139,
 "piu_simile": "3331/",
 "indicizzata": true
@@ -2905,26 +2912,26 @@
 "indicizzata": false
 },
 "333241/": {
-"proprie": 338,
-"sovrapposizione": 0.105,
+"proprie": 351,
+"sovrapposizione": 0.106,
 "piu_simile": "333248/",
 "indicizzata": true
 },
 "333242/": {
-"proprie": 138,
-"sovrapposizione": 0.199,
+"proprie": 147,
+"sovrapposizione": 0.198,
 "piu_simile": "333243/",
 "indicizzata": true
 },
 "333243/": {
-"proprie": 315,
+"proprie": 336,
 "sovrapposizione": 0.119,
 "piu_simile": "333248/",
 "indicizzata": true
 },
 "333248/": {
-"proprie": 856,
-"sovrapposizione": 0.062,
+"proprie": 874,
+"sovrapposizione": 0.088,
 "piu_simile": "333998/",
 "indicizzata": true
 },
@@ -2935,8 +2942,8 @@
 "indicizzata": false
 },
 "333310/": {
-"proprie": 1107,
-"sovrapposizione": 0.041,
+"proprie": 1136,
+"sovrapposizione": 0.058,
 "piu_simile": "334118/",
 "indicizzata": true
 },
@@ -2947,8 +2954,8 @@
 "indicizzata": true
 },
 "333413/": {
-"proprie": 210,
-"sovrapposizione": 0.239,
+"proprie": 227,
+"sovrapposizione": 0.234,
 "piu_simile": "333415/",
 "indicizzata": true
 },
@@ -2959,9 +2966,9 @@
 "indicizzata": true
 },
 "333415/": {
-"proprie": 316,
-"sovrapposizione": 0.156,
-"piu_simile": "333413/",
+"proprie": 325,
+"sovrapposizione": 0.165,
+"piu_simile": "333998/",
 "indicizzata": true
 },
 "3335/": {
@@ -2989,14 +2996,14 @@
 "indicizzata": true
 },
 "333517/": {
-"proprie": 591,
-"sovrapposizione": 0.104,
+"proprie": 617,
+"sovrapposizione": 0.101,
 "piu_simile": "333519/",
 "indicizzata": true
 },
 "333519/": {
-"proprie": 283,
-"sovrapposizione": 0.187,
+"proprie": 300,
+"sovrapposizione": 0.178,
 "piu_simile": "333517/",
 "indicizzata": true
 },
@@ -3043,8 +3050,8 @@
 "indicizzata": true
 },
 "333914/": {
-"proprie": 215,
-"sovrapposizione": 0.314,
+"proprie": 239,
+"sovrapposizione": 0.295,
 "piu_simile": "333912/",
 "indicizzata": true
 },
@@ -3085,14 +3092,14 @@
 "indicizzata": true
 },
 "333993/": {
-"proprie": 145,
-"sovrapposizione": 0.385,
-"piu_simile": "333994/",
+"proprie": 144,
+"sovrapposizione": 0.392,
+"piu_simile": "333992/",
 "indicizzata": true
 },
 "333994/": {
-"proprie": 221,
-"sovrapposizione": 0.389,
+"proprie": 235,
+"sovrapposizione": 0.42,
 "piu_simile": "333998/",
 "indicizzata": true
 },
@@ -3109,8 +3116,8 @@
 "indicizzata": false
 },
 "333998/": {
-"proprie": 379,
-"sovrapposizione": 0.208,
+"proprie": 396,
+"sovrapposizione": 0.23,
 "piu_simile": "333994/",
 "indicizzata": true
 },
@@ -3139,9 +3146,9 @@
 "indicizzata": true
 },
 "334118/": {
-"proprie": 253,
-"sovrapposizione": 0.18,
-"piu_simile": "334111/",
+"proprie": 265,
+"sovrapposizione": 0.169,
+"piu_simile": "333310/",
 "indicizzata": true
 },
 "3342/": {
@@ -3157,8 +3164,8 @@
 "indicizzata": true
 },
 "334220/": {
-"proprie": 317,
-"sovrapposizione": 0.104,
+"proprie": 330,
+"sovrapposizione": 0.101,
 "piu_simile": "334290/",
 "indicizzata": true
 },
@@ -3194,13 +3201,13 @@
 },
 "334413/": {
 "proprie": 235,
-"sovrapposizione": 0.176,
-"piu_simile": "334416/",
+"sovrapposizione": 0.179,
+"piu_simile": "334412/",
 "indicizzata": true
 },
 "334416/": {
-"proprie": 204,
-"sovrapposizione": 0.188,
+"proprie": 235,
+"sovrapposizione": 0.168,
 "piu_simile": "334417/",
 "indicizzata": true
 },
@@ -3211,14 +3218,14 @@
 "indicizzata": true
 },
 "334418/": {
-"proprie": 182,
+"proprie": 178,
 "sovrapposizione": 0.224,
-"piu_simile": "334419/",
+"piu_simile": "334412/",
 "indicizzata": true
 },
 "334419/": {
-"proprie": 321,
-"sovrapposizione": 0.15,
+"proprie": 339,
+"sovrapposizione": 0.144,
 "piu_simile": "334418/",
 "indicizzata": true
 },
@@ -3229,7 +3236,7 @@
 "indicizzata": true
 },
 "334510/": {
-"proprie": 336,
+"proprie": 335,
 "sovrapposizione": 0.209,
 "piu_simile": "334519/",
 "indicizzata": true
@@ -3259,8 +3266,8 @@
 "indicizzata": true
 },
 "334515/": {
-"proprie": 571,
-"sovrapposizione": 0.16,
+"proprie": 589,
+"sovrapposizione": 0.151,
 "piu_simile": "334514/",
 "indicizzata": true
 },
@@ -3271,14 +3278,14 @@
 "indicizzata": true
 },
 "334517/": {
-"proprie": 213,
-"sovrapposizione": 0.294,
-"piu_simile": "334519/",
+"proprie": 212,
+"sovrapposizione": 0.298,
+"piu_simile": "334510/",
 "indicizzata": true
 },
 "334519/": {
-"proprie": 797,
-"sovrapposizione": 0.125,
+"proprie": 805,
+"sovrapposizione": 0.122,
 "piu_simile": "334514/",
 "indicizzata": true
 },
@@ -3289,9 +3296,9 @@
 "indicizzata": false
 },
 "334610/": {
-"proprie": 366,
-"sovrapposizione": 0.031,
-"piu_simile": "334111/",
+"proprie": 388,
+"sovrapposizione": 0.035,
+"piu_simile": "334118/",
 "indicizzata": true
 },
 "335/": {
@@ -3307,20 +3314,20 @@
 "indicizzata": false
 },
 "335131/": {
-"proprie": 250,
-"sovrapposizione": 0.355,
+"proprie": 254,
+"sovrapposizione": 0.359,
 "piu_simile": "335132/",
 "indicizzata": true
 },
 "335132/": {
-"proprie": 196,
-"sovrapposizione": 0.381,
+"proprie": 204,
+"sovrapposizione": 0.384,
 "piu_simile": "335131/",
 "indicizzata": true
 },
 "335139/": {
-"proprie": 532,
-"sovrapposizione": 0.21,
+"proprie": 544,
+"sovrapposizione": 0.205,
 "piu_simile": "335132/",
 "indicizzata": true
 },
@@ -3331,14 +3338,14 @@
 "indicizzata": false
 },
 "335210/": {
-"proprie": 730,
-"sovrapposizione": 0.065,
+"proprie": 744,
+"sovrapposizione": 0.069,
 "piu_simile": "335220/",
 "indicizzata": true
 },
 "335220/": {
-"proprie": 326,
-"sovrapposizione": 0.127,
+"proprie": 360,
+"sovrapposizione": 0.125,
 "piu_simile": "335210/",
 "indicizzata": true
 },
@@ -3379,8 +3386,8 @@
 "indicizzata": true
 },
 "335910/": {
-"proprie": 237,
-"sovrapposizione": 0.17,
+"proprie": 257,
+"sovrapposizione": 0.162,
 "piu_simile": "335921/",
 "indicizzata": true
 },
@@ -3433,14 +3440,14 @@
 "indicizzata": false
 },
 "336110/": {
-"proprie": 260,
-"sovrapposizione": 0.178,
+"proprie": 270,
+"sovrapposizione": 0.179,
 "piu_simile": "336120/",
 "indicizzata": true
 },
 "336120/": {
-"proprie": 186,
-"sovrapposizione": 0.207,
+"proprie": 187,
+"sovrapposizione": 0.216,
 "piu_simile": "336110/",
 "indicizzata": true
 },
@@ -3481,20 +3488,20 @@
 "indicizzata": false
 },
 "336310/": {
-"proprie": 374,
-"sovrapposizione": 0.183,
+"proprie": 392,
+"sovrapposizione": 0.185,
 "piu_simile": "336390/",
 "indicizzata": true
 },
 "336320/": {
-"proprie": 397,
-"sovrapposizione": 0.173,
+"proprie": 414,
+"sovrapposizione": 0.174,
 "piu_simile": "336390/",
 "indicizzata": true
 },
 "336330/": {
-"proprie": 147,
-"sovrapposizione": 0.312,
+"proprie": 145,
+"sovrapposizione": 0.319,
 "piu_simile": "336350/",
 "indicizzata": true
 },
@@ -3505,8 +3512,8 @@
 "indicizzata": true
 },
 "336350/": {
-"proprie": 171,
-"sovrapposizione": 0.284,
+"proprie": 168,
+"sovrapposizione": 0.296,
 "piu_simile": "336330/",
 "indicizzata": true
 },
@@ -3523,8 +3530,8 @@
 "indicizzata": true
 },
 "336390/": {
-"proprie": 409,
-"sovrapposizione": 0.149,
+"proprie": 414,
+"sovrapposizione": 0.153,
 "piu_simile": "336310/",
 "indicizzata": true
 },
@@ -3535,7 +3542,7 @@
 "indicizzata": true
 },
 "336411/": {
-"proprie": 159,
+"proprie": 157,
 "sovrapposizione": 0.389,
 "piu_simile": "336412/",
 "indicizzata": true
@@ -3595,8 +3602,8 @@
 "indicizzata": true
 },
 "336612/": {
-"proprie": 231,
-"sovrapposizione": 0.126,
+"proprie": 239,
+"sovrapposizione": 0.114,
 "piu_simile": "3366/",
 "indicizzata": true
 },
@@ -3625,7 +3632,7 @@
 "indicizzata": true
 },
 "337/": {
-"proprie": 500,
+"proprie": 499,
 "sovrapposizione": 0.075,
 "piu_simile": "3371/",
 "indicizzata": true
@@ -3655,14 +3662,14 @@
 "indicizzata": true
 },
 "337126/": {
-"proprie": 446,
-"sovrapposizione": 0.174,
+"proprie": 463,
+"sovrapposizione": 0.169,
 "piu_simile": "337122/",
 "indicizzata": true
 },
 "337127/": {
-"proprie": 335,
-"sovrapposizione": 0.182,
+"proprie": 336,
+"sovrapposizione": 0.17,
 "piu_simile": "337122/",
 "indicizzata": true
 },
@@ -3674,7 +3681,7 @@
 },
 "337211/": {
 "proprie": 102,
-"sovrapposizione": 0.417,
+"sovrapposizione": 0.427,
 "piu_simile": "337214/",
 "indicizzata": false
 },
@@ -3733,8 +3740,8 @@
 "indicizzata": true
 },
 "339113/": {
-"proprie": 539,
-"sovrapposizione": 0.154,
+"proprie": 542,
+"sovrapposizione": 0.146,
 "piu_simile": "339112/",
 "indicizzata": true
 },
@@ -3754,7 +3761,8 @@
 "proprie": 90,
 "sovrapposizione": 0.318,
 "piu_simile": "339114/",
-"indicizzata": false
+"richiesta": "naics code for dental laboratory",
+"indicizzata": true
 },
 "3399/": {
 "proprie": 169,
@@ -3763,26 +3771,26 @@
 "indicizzata": true
 },
 "339910/": {
-"proprie": 554,
-"sovrapposizione": 0.091,
+"proprie": 575,
+"sovrapposizione": 0.086,
 "piu_simile": "339999/",
 "indicizzata": true
 },
 "339920/": {
-"proprie": 400,
-"sovrapposizione": 0.139,
+"proprie": 396,
+"sovrapposizione": 0.147,
 "piu_simile": "339930/",
 "indicizzata": true
 },
 "339930/": {
-"proprie": 379,
-"sovrapposizione": 0.137,
+"proprie": 398,
+"sovrapposizione": 0.138,
 "piu_simile": "339920/",
 "indicizzata": true
 },
 "339940/": {
-"proprie": 456,
-"sovrapposizione": 0.128,
+"proprie": 487,
+"sovrapposizione": 0.118,
 "piu_simile": "339999/",
 "indicizzata": true
 },
@@ -3794,8 +3802,8 @@
 },
 "339991/": {
 "proprie": 92,
-"sovrapposizione": 0.39,
-"piu_simile": "339994/",
+"sovrapposizione": 0.384,
+"piu_simile": "339992/",
 "indicizzata": false
 },
 "339992/": {
@@ -3805,15 +3813,15 @@
 "indicizzata": true
 },
 "339993/": {
-"proprie": 185,
+"proprie": 184,
 "sovrapposizione": 0.25,
 "piu_simile": "339999/",
 "indicizzata": true
 },
 "339994/": {
-"proprie": 113,
-"sovrapposizione": 0.364,
-"piu_simile": "339991/",
+"proprie": 109,
+"sovrapposizione": 0.358,
+"piu_simile": "339993/",
 "indicizzata": false
 },
 "339995/": {
@@ -3847,26 +3855,26 @@
 "indicizzata": false
 },
 "423110/": {
-"proprie": 202,
-"sovrapposizione": 0.186,
+"proprie": 206,
+"sovrapposizione": 0.193,
 "piu_simile": "423120/",
 "indicizzata": true
 },
 "423120/": {
-"proprie": 298,
-"sovrapposizione": 0.165,
+"proprie": 303,
+"sovrapposizione": 0.167,
 "piu_simile": "423140/",
 "indicizzata": true
 },
 "423130/": {
-"proprie": 129,
-"sovrapposizione": 0.281,
+"proprie": 135,
+"sovrapposizione": 0.28,
 "piu_simile": "423120/",
 "indicizzata": true
 },
 "423140/": {
-"proprie": 107,
-"sovrapposizione": 0.328,
+"proprie": 112,
+"sovrapposizione": 0.323,
 "piu_simile": "423120/",
 "indicizzata": false
 },
@@ -3877,15 +3885,15 @@
 "indicizzata": false
 },
 "423210/": {
-"proprie": 181,
-"sovrapposizione": 0.18,
+"proprie": 186,
+"sovrapposizione": 0.184,
 "piu_simile": "423440/",
 "indicizzata": true
 },
 "423220/": {
-"proprie": 306,
-"sovrapposizione": 0.128,
-"piu_simile": "423720/",
+"proprie": 312,
+"sovrapposizione": 0.129,
+"piu_simile": "423690/",
 "indicizzata": true
 },
 "4233/": {
@@ -3895,26 +3903,26 @@
 "indicizzata": false
 },
 "423310/": {
-"proprie": 265,
-"sovrapposizione": 0.205,
+"proprie": 270,
+"sovrapposizione": 0.204,
 "piu_simile": "423390/",
 "indicizzata": true
 },
 "423320/": {
-"proprie": 245,
-"sovrapposizione": 0.223,
+"proprie": 250,
+"sovrapposizione": 0.222,
 "piu_simile": "423390/",
 "indicizzata": true
 },
 "423330/": {
-"proprie": 163,
-"sovrapposizione": 0.283,
+"proprie": 168,
+"sovrapposizione": 0.277,
 "piu_simile": "423390/",
 "indicizzata": true
 },
 "423390/": {
-"proprie": 297,
-"sovrapposizione": 0.171,
+"proprie": 302,
+"sovrapposizione": 0.173,
 "piu_simile": "423320/",
 "indicizzata": true
 },
@@ -3925,44 +3933,44 @@
 "indicizzata": false
 },
 "423410/": {
-"proprie": 203,
-"sovrapposizione": 0.223,
+"proprie": 207,
+"sovrapposizione": 0.222,
 "piu_simile": "423440/",
 "indicizzata": true
 },
 "423420/": {
-"proprie": 249,
-"sovrapposizione": 0.244,
+"proprie": 254,
+"sovrapposizione": 0.245,
 "piu_simile": "423440/",
 "indicizzata": true
 },
 "423430/": {
-"proprie": 224,
+"proprie": 229,
 "sovrapposizione": 0.237,
 "piu_simile": "423420/",
 "indicizzata": true
 },
 "423440/": {
-"proprie": 324,
+"proprie": 329,
 "sovrapposizione": 0.2,
 "piu_simile": "423420/",
 "indicizzata": true
 },
 "423450/": {
-"proprie": 320,
-"sovrapposizione": 0.24,
+"proprie": 324,
+"sovrapposizione": 0.242,
 "piu_simile": "423490/",
 "indicizzata": true
 },
 "423460/": {
-"proprie": 133,
-"sovrapposizione": 0.355,
+"proprie": 137,
+"sovrapposizione": 0.36,
 "piu_simile": "423450/",
 "indicizzata": true
 },
 "423490/": {
-"proprie": 295,
-"sovrapposizione": 0.251,
+"proprie": 299,
+"sovrapposizione": 0.253,
 "piu_simile": "423450/",
 "indicizzata": true
 },
@@ -3973,13 +3981,13 @@
 "indicizzata": false
 },
 "423510/": {
-"proprie": 450,
-"sovrapposizione": 0.098,
+"proprie": 455,
+"sovrapposizione": 0.101,
 "piu_simile": "423520/",
 "indicizzata": true
 },
 "423520/": {
-"proprie": 168,
+"proprie": 173,
 "sovrapposizione": 0.176,
 "piu_simile": "423510/",
 "indicizzata": true
@@ -3991,20 +3999,20 @@
 "indicizzata": false
 },
 "423610/": {
-"proprie": 337,
-"sovrapposizione": 0.158,
+"proprie": 342,
+"sovrapposizione": 0.166,
 "piu_simile": "423690/",
 "indicizzata": true
 },
 "423620/": {
-"proprie": 407,
-"sovrapposizione": 0.191,
+"proprie": 417,
+"sovrapposizione": 0.223,
 "piu_simile": "423720/",
 "indicizzata": true
 },
 "423690/": {
-"proprie": 445,
-"sovrapposizione": 0.13,
+"proprie": 450,
+"sovrapposizione": 0.128,
 "piu_simile": "423620/",
 "indicizzata": true
 },
@@ -4015,26 +4023,26 @@
 "indicizzata": false
 },
 "423710/": {
-"proprie": 243,
-"sovrapposizione": 0.165,
+"proprie": 248,
+"sovrapposizione": 0.163,
 "piu_simile": "423720/",
 "indicizzata": true
 },
 "423720/": {
-"proprie": 268,
-"sovrapposizione": 0.274,
+"proprie": 278,
+"sovrapposizione": 0.311,
 "piu_simile": "423620/",
 "indicizzata": true
 },
 "423730/": {
-"proprie": 208,
-"sovrapposizione": 0.291,
+"proprie": 212,
+"sovrapposizione": 0.295,
 "piu_simile": "423740/",
 "indicizzata": true
 },
 "423740/": {
-"proprie": 196,
-"sovrapposizione": 0.327,
+"proprie": 200,
+"sovrapposizione": 0.329,
 "piu_simile": "423730/",
 "indicizzata": true
 },
@@ -4045,38 +4053,38 @@
 "indicizzata": false
 },
 "423810/": {
-"proprie": 179,
-"sovrapposizione": 0.314,
+"proprie": 183,
+"sovrapposizione": 0.311,
 "piu_simile": "423830/",
 "indicizzata": true
 },
 "423820/": {
-"proprie": 208,
-"sovrapposizione": 0.25,
+"proprie": 211,
+"sovrapposizione": 0.265,
 "piu_simile": "423810/",
 "indicizzata": true
 },
 "423830/": {
-"proprie": 692,
-"sovrapposizione": 0.112,
+"proprie": 696,
+"sovrapposizione": 0.113,
 "piu_simile": "423810/",
 "indicizzata": true
 },
 "423840/": {
-"proprie": 392,
-"sovrapposizione": 0.177,
+"proprie": 397,
+"sovrapposizione": 0.175,
 "piu_simile": "423830/",
 "indicizzata": true
 },
 "423850/": {
-"proprie": 345,
-"sovrapposizione": 0.165,
+"proprie": 349,
+"sovrapposizione": 0.167,
 "piu_simile": "423840/",
 "indicizzata": true
 },
 "423860/": {
-"proprie": 248,
-"sovrapposizione": 0.2,
+"proprie": 250,
+"sovrapposizione": 0.219,
 "piu_simile": "423830/",
 "indicizzata": true
 },
@@ -4087,32 +4095,32 @@
 "indicizzata": false
 },
 "423910/": {
-"proprie": 312,
-"sovrapposizione": 0.167,
+"proprie": 316,
+"sovrapposizione": 0.163,
 "piu_simile": "423990/",
 "indicizzata": true
 },
 "423920/": {
-"proprie": 156,
-"sovrapposizione": 0.249,
-"piu_simile": "423990/",
+"proprie": 158,
+"sovrapposizione": 0.258,
+"piu_simile": "423910/",
 "indicizzata": true
 },
 "423930/": {
-"proprie": 204,
-"sovrapposizione": 0.172,
-"piu_simile": "423990/",
+"proprie": 209,
+"sovrapposizione": 0.173,
+"piu_simile": "423940/",
 "indicizzata": true
 },
 "423940/": {
-"proprie": 188,
-"sovrapposizione": 0.269,
+"proprie": 193,
+"sovrapposizione": 0.259,
 "piu_simile": "423990/",
 "indicizzata": true
 },
 "423990/": {
-"proprie": 492,
-"sovrapposizione": 0.101,
+"proprie": 496,
+"sovrapposizione": 0.099,
 "piu_simile": "423940/",
 "indicizzata": true
 },
@@ -4129,20 +4137,20 @@
 "indicizzata": false
 },
 "424110/": {
-"proprie": 132,
-"sovrapposizione": 0.262,
+"proprie": 137,
+"sovrapposizione": 0.257,
 "piu_simile": "424120/",
 "indicizzata": true
 },
 "424120/": {
-"proprie": 285,
-"sovrapposizione": 0.141,
+"proprie": 290,
+"sovrapposizione": 0.144,
 "piu_simile": "424110/",
 "indicizzata": true
 },
 "424130/": {
-"proprie": 357,
-"sovrapposizione": 0.127,
+"proprie": 362,
+"sovrapposizione": 0.129,
 "piu_simile": "424990/",
 "indicizzata": true
 },
@@ -4153,8 +4161,8 @@
 "indicizzata": false
 },
 "424210/": {
-"proprie": 344,
-"sovrapposizione": 0.109,
+"proprie": 349,
+"sovrapposizione": 0.112,
 "piu_simile": "424690/",
 "indicizzata": true
 },
@@ -4165,21 +4173,21 @@
 "indicizzata": false
 },
 "424310/": {
-"proprie": 221,
-"sovrapposizione": 0.145,
+"proprie": 226,
+"sovrapposizione": 0.148,
 "piu_simile": "423850/",
 "indicizzata": true
 },
 "424340/": {
-"proprie": 110,
-"sovrapposizione": 0.226,
-"piu_simile": "424350/",
+"proprie": 116,
+"sovrapposizione": 0.222,
+"piu_simile": "424310/",
 "indicizzata": false
 },
 "424350/": {
-"proprie": 426,
-"sovrapposizione": 0.089,
-"piu_simile": "424340/",
+"proprie": 432,
+"sovrapposizione": 0.101,
+"piu_simile": "425120/",
 "indicizzata": true
 },
 "4244/": {
@@ -4189,56 +4197,56 @@
 "indicizzata": false
 },
 "424410/": {
-"proprie": 105,
-"sovrapposizione": 0.394,
+"proprie": 110,
+"sovrapposizione": 0.381,
 "piu_simile": "424420/",
 "indicizzata": false
 },
 "424420/": {
-"proprie": 207,
-"sovrapposizione": 0.281,
+"proprie": 212,
+"sovrapposizione": 0.277,
 "piu_simile": "424490/",
 "indicizzata": true
 },
 "424430/": {
-"proprie": 181,
-"sovrapposizione": 0.311,
+"proprie": 186,
+"sovrapposizione": 0.305,
 "piu_simile": "424450/",
 "indicizzata": true
 },
 "424440/": {
-"proprie": 147,
-"sovrapposizione": 0.374,
+"proprie": 152,
+"sovrapposizione": 0.365,
 "piu_simile": "424470/",
 "indicizzata": true
 },
 "424450/": {
-"proprie": 173,
-"sovrapposizione": 0.361,
+"proprie": 179,
+"sovrapposizione": 0.356,
 "piu_simile": "424490/",
 "indicizzata": true
 },
 "424460/": {
-"proprie": 133,
-"sovrapposizione": 0.393,
+"proprie": 138,
+"sovrapposizione": 0.382,
 "piu_simile": "424470/",
 "indicizzata": true
 },
 "424470/": {
-"proprie": 156,
-"sovrapposizione": 0.363,
+"proprie": 161,
+"sovrapposizione": 0.358,
 "piu_simile": "424490/",
 "indicizzata": true
 },
 "424480/": {
-"proprie": 95,
-"sovrapposizione": 0.393,
+"proprie": 100,
+"sovrapposizione": 0.394,
 "piu_simile": "424490/",
 "indicizzata": false
 },
 "424490/": {
-"proprie": 575,
-"sovrapposizione": 0.14,
+"proprie": 580,
+"sovrapposizione": 0.142,
 "piu_simile": "424470/",
 "indicizzata": true
 },
@@ -4249,20 +4257,20 @@
 "indicizzata": false
 },
 "424510/": {
-"proprie": 146,
+"proprie": 151,
 "sovrapposizione": 0.18,
 "piu_simile": "424590/",
 "indicizzata": true
 },
 "424520/": {
-"proprie": 116,
-"sovrapposizione": 0.251,
+"proprie": 122,
+"sovrapposizione": 0.25,
 "piu_simile": "424590/",
-"indicizzata": false
+"indicizzata": true
 },
 "424590/": {
-"proprie": 290,
-"sovrapposizione": 0.146,
+"proprie": 295,
+"sovrapposizione": 0.147,
 "piu_simile": "424490/",
 "indicizzata": true
 },
@@ -4273,14 +4281,14 @@
 "indicizzata": false
 },
 "424610/": {
-"proprie": 118,
-"sovrapposizione": 0.282,
+"proprie": 123,
+"sovrapposizione": 0.288,
 "piu_simile": "424690/",
-"indicizzata": false
+"indicizzata": true
 },
 "424690/": {
-"proprie": 536,
-"sovrapposizione": 0.108,
+"proprie": 541,
+"sovrapposizione": 0.11,
 "piu_simile": "424990/",
 "indicizzata": true
 },
@@ -4291,14 +4299,14 @@
 "indicizzata": false
 },
 "424710/": {
-"proprie": 207,
-"sovrapposizione": 0.167,
+"proprie": 219,
+"sovrapposizione": 0.161,
 "piu_simile": "424720/",
 "indicizzata": true
 },
 "424720/": {
-"proprie": 211,
-"sovrapposizione": 0.153,
+"proprie": 217,
+"sovrapposizione": 0.146,
 "piu_simile": "424710/",
 "indicizzata": true
 },
@@ -4309,14 +4317,14 @@
 "indicizzata": false
 },
 "424810/": {
-"proprie": 106,
-"sovrapposizione": 0.245,
+"proprie": 111,
+"sovrapposizione": 0.214,
 "piu_simile": "424820/",
 "indicizzata": false
 },
 "424820/": {
-"proprie": 144,
-"sovrapposizione": 0.197,
+"proprie": 149,
+"sovrapposizione": 0.173,
 "piu_simile": "424810/",
 "indicizzata": true
 },
@@ -4327,38 +4335,38 @@
 "indicizzata": false
 },
 "424910/": {
-"proprie": 227,
-"sovrapposizione": 0.21,
+"proprie": 232,
+"sovrapposizione": 0.212,
 "piu_simile": "424930/",
 "indicizzata": true
 },
 "424920/": {
-"proprie": 104,
-"sovrapposizione": 0.314,
+"proprie": 109,
+"sovrapposizione": 0.318,
 "piu_simile": "424990/",
 "indicizzata": false
 },
 "424930/": {
-"proprie": 128,
-"sovrapposizione": 0.299,
+"proprie": 133,
+"sovrapposizione": 0.296,
 "piu_simile": "424910/",
 "indicizzata": true
 },
 "424940/": {
-"proprie": 127,
-"sovrapposizione": 0.258,
+"proprie": 134,
+"sovrapposizione": 0.242,
 "piu_simile": "424910/",
 "indicizzata": true
 },
 "424950/": {
-"proprie": 139,
-"sovrapposizione": 0.283,
+"proprie": 144,
+"sovrapposizione": 0.278,
 "piu_simile": "424990/",
 "indicizzata": true
 },
 "424990/": {
-"proprie": 581,
-"sovrapposizione": 0.09,
+"proprie": 583,
+"sovrapposizione": 0.089,
 "piu_simile": "424/",
 "indicizzata": true
 },
@@ -4375,9 +4383,9 @@
 "indicizzata": false
 },
 "425120/": {
-"proprie": 605,
-"sovrapposizione": 0.031,
-"piu_simile": "423850/",
+"proprie": 545,
+"sovrapposizione": 0.042,
+"piu_simile": "423620/",
 "indicizzata": true
 },
 "44-45/": {
@@ -4408,7 +4416,8 @@
 "proprie": 105,
 "sovrapposizione": 0.332,
 "piu_simile": "441110/",
-"indicizzata": false
+"richiesta": "naics code 441120",
+"indicizzata": true
 },
 "4412/": {
 "proprie": 125,
@@ -4429,8 +4438,8 @@
 "indicizzata": true
 },
 "441227/": {
-"proprie": 219,
-"sovrapposizione": 0.193,
+"proprie": 241,
+"sovrapposizione": 0.199,
 "piu_simile": "459110/",
 "indicizzata": true
 },
@@ -4441,21 +4450,21 @@
 "indicizzata": false
 },
 "441330/": {
-"proprie": 222,
-"sovrapposizione": 0.308,
+"proprie": 224,
+"sovrapposizione": 0.366,
 "piu_simile": "441340/",
 "indicizzata": true
 },
 "441340/": {
-"proprie": 139,
-"sovrapposizione": 0.371,
+"proprie": 144,
+"sovrapposizione": 0.436,
 "piu_simile": "441330/",
 "indicizzata": true
 },
 "444/": {
 "proprie": 96,
 "sovrapposizione": 0.152,
-"piu_simile": "4442/",
+"piu_simile": "4441/",
 "indicizzata": false
 },
 "4441/": {
@@ -4472,19 +4481,19 @@
 },
 "444120/": {
 "proprie": 92,
-"sovrapposizione": 0.262,
+"sovrapposizione": 0.26,
 "piu_simile": "444110/",
 "indicizzata": false
 },
 "444140/": {
-"proprie": 107,
-"sovrapposizione": 0.521,
+"proprie": 121,
+"sovrapposizione": 0.553,
 "piu_simile": "444180/",
 "indicizzata": false
 },
 "444180/": {
-"proprie": 377,
-"sovrapposizione": 0.253,
+"proprie": 387,
+"sovrapposizione": 0.291,
 "piu_simile": "444140/",
 "indicizzata": true
 },
@@ -4495,14 +4504,14 @@
 "indicizzata": false
 },
 "444230/": {
-"proprie": 163,
-"sovrapposizione": 0.384,
+"proprie": 170,
+"sovrapposizione": 0.432,
 "piu_simile": "444240/",
 "indicizzata": true
 },
 "444240/": {
-"proprie": 196,
-"sovrapposizione": 0.365,
+"proprie": 205,
+"sovrapposizione": 0.411,
 "piu_simile": "444230/",
 "indicizzata": true
 },
@@ -4519,20 +4528,21 @@
 "indicizzata": false
 },
 "445110/": {
-"proprie": 157,
-"sovrapposizione": 0.224,
+"proprie": 152,
+"sovrapposizione": 0.243,
 "piu_simile": "445131/",
 "indicizzata": true
 },
 "445131/": {
-"proprie": 95,
-"sovrapposizione": 0.39,
+"proprie": 101,
+"sovrapposizione": 0.44,
 "piu_simile": "445240/",
-"indicizzata": false
+"richiesta": "naics code convenience store",
+"indicizzata": true
 },
 "445132/": {
-"proprie": 88,
-"sovrapposizione": 0.308,
+"proprie": 102,
+"sovrapposizione": 0.289,
 "piu_simile": "4451/",
 "indicizzata": false
 },
@@ -4544,38 +4554,38 @@
 },
 "445230/": {
 "proprie": 116,
-"sovrapposizione": 0.25,
+"sovrapposizione": 0.254,
 "piu_simile": "445291/",
 "indicizzata": false
 },
 "445240/": {
-"proprie": 145,
-"sovrapposizione": 0.396,
+"proprie": 161,
+"sovrapposizione": 0.436,
 "piu_simile": "445250/",
 "indicizzata": true
 },
 "445250/": {
-"proprie": 108,
-"sovrapposizione": 0.498,
-"piu_simile": "445298/",
-"indicizzata": false
+"proprie": 128,
+"sovrapposizione": 0.535,
+"piu_simile": "445240/",
+"indicizzata": true
 },
 "445291/": {
 "proprie": 62,
-"sovrapposizione": 0.577,
+"sovrapposizione": 0.579,
 "piu_simile": "445292/",
 "indicizzata": false
 },
 "445292/": {
 "proprie": 91,
-"sovrapposizione": 0.5,
+"sovrapposizione": 0.502,
 "piu_simile": "445291/",
 "indicizzata": false
 },
 "445298/": {
-"proprie": 240,
-"sovrapposizione": 0.274,
-"piu_simile": "445250/",
+"proprie": 250,
+"sovrapposizione": 0.306,
+"piu_simile": "445240/",
 "indicizzata": true
 },
 "4453/": {
@@ -4585,9 +4595,9 @@
 "indicizzata": false
 },
 "445320/": {
-"proprie": 156,
-"sovrapposizione": 0.374,
-"piu_simile": "458210/",
+"proprie": 171,
+"sovrapposizione": 0.428,
+"piu_simile": "449110/",
 "indicizzata": true
 },
 "449/": {
@@ -4603,38 +4613,38 @@
 "indicizzata": true
 },
 "449110/": {
-"proprie": 202,
-"sovrapposizione": 0.353,
+"proprie": 207,
+"sovrapposizione": 0.406,
 "piu_simile": "449121/",
 "indicizzata": true
 },
 "449121/": {
-"proprie": 151,
-"sovrapposizione": 0.413,
+"proprie": 160,
+"sovrapposizione": 0.467,
 "piu_simile": "449129/",
 "indicizzata": true
 },
 "449122/": {
-"proprie": 122,
-"sovrapposizione": 0.48,
+"proprie": 134,
+"sovrapposizione": 0.519,
 "piu_simile": "449129/",
 "indicizzata": true
 },
 "449129/": {
-"proprie": 200,
-"sovrapposizione": 0.362,
-"piu_simile": "449122/",
+"proprie": 211,
+"sovrapposizione": 0.406,
+"piu_simile": "449121/",
 "indicizzata": true
 },
 "4492/": {
 "proprie": 20,
 "sovrapposizione": 0.289,
-"piu_simile": "4491/",
+"piu_simile": "449/",
 "indicizzata": false
 },
 "449210/": {
-"proprie": 585,
-"sovrapposizione": 0.134,
+"proprie": 619,
+"sovrapposizione": 0.16,
 "piu_simile": "459120/",
 "indicizzata": true
 },
@@ -4651,8 +4661,8 @@
 "indicizzata": false
 },
 "455110/": {
-"proprie": 168,
-"sovrapposizione": 0.314,
+"proprie": 180,
+"sovrapposizione": 0.295,
 "piu_simile": "455211/",
 "indicizzata": true
 },
@@ -4663,15 +4673,15 @@
 "indicizzata": false
 },
 "455211/": {
-"proprie": 162,
-"sovrapposizione": 0.388,
+"proprie": 178,
+"sovrapposizione": 0.381,
 "piu_simile": "455219/",
 "indicizzata": true
 },
 "455219/": {
-"proprie": 220,
-"sovrapposizione": 0.254,
-"piu_simile": "4552/",
+"proprie": 231,
+"sovrapposizione": 0.255,
+"piu_simile": "459991/",
 "indicizzata": true
 },
 "456/": {
@@ -4687,32 +4697,32 @@
 "indicizzata": false
 },
 "456110/": {
-"proprie": 134,
-"sovrapposizione": 0.442,
+"proprie": 149,
+"sovrapposizione": 0.471,
 "piu_simile": "456191/",
 "indicizzata": true
 },
 "456120/": {
-"proprie": 118,
-"sovrapposizione": 0.497,
+"proprie": 129,
+"sovrapposizione": 0.53,
 "piu_simile": "456199/",
-"indicizzata": false
+"indicizzata": true
 },
 "456130/": {
-"proprie": 137,
-"sovrapposizione": 0.456,
+"proprie": 156,
+"sovrapposizione": 0.499,
 "piu_simile": "456199/",
 "indicizzata": true
 },
 "456191/": {
-"proprie": 96,
-"sovrapposizione": 0.502,
+"proprie": 120,
+"sovrapposizione": 0.55,
 "piu_simile": "456199/",
-"indicizzata": false
+"indicizzata": true
 },
 "456199/": {
-"proprie": 182,
-"sovrapposizione": 0.294,
+"proprie": 193,
+"sovrapposizione": 0.338,
 "piu_simile": "456191/",
 "indicizzata": true
 },
@@ -4729,14 +4739,14 @@
 "indicizzata": false
 },
 "457110/": {
-"proprie": 142,
-"sovrapposizione": 0.294,
+"proprie": 151,
+"sovrapposizione": 0.285,
 "piu_simile": "457120/",
 "indicizzata": true
 },
 "457120/": {
-"proprie": 178,
-"sovrapposizione": 0.241,
+"proprie": 188,
+"sovrapposizione": 0.236,
 "piu_simile": "457110/",
 "indicizzata": true
 },
@@ -4747,8 +4757,8 @@
 "indicizzata": false
 },
 "457210/": {
-"proprie": 181,
-"sovrapposizione": 0.149,
+"proprie": 210,
+"sovrapposizione": 0.132,
 "piu_simile": "457110/",
 "indicizzata": true
 },
@@ -4765,8 +4775,8 @@
 "indicizzata": false
 },
 "458110/": {
-"proprie": 412,
-"sovrapposizione": 0.213,
+"proprie": 438,
+"sovrapposizione": 0.238,
 "piu_simile": "458320/",
 "indicizzata": true
 },
@@ -4777,8 +4787,8 @@
 "indicizzata": false
 },
 "458210/": {
-"proprie": 150,
-"sovrapposizione": 0.426,
+"proprie": 164,
+"sovrapposizione": 0.455,
 "piu_simile": "458110/",
 "indicizzata": true
 },
@@ -4789,14 +4799,14 @@
 "indicizzata": false
 },
 "458310/": {
-"proprie": 163,
-"sovrapposizione": 0.416,
+"proprie": 177,
+"sovrapposizione": 0.448,
 "piu_simile": "458320/",
 "indicizzata": true
 },
 "458320/": {
-"proprie": 137,
-"sovrapposizione": 0.451,
+"proprie": 150,
+"sovrapposizione": 0.48,
 "piu_simile": "458310/",
 "indicizzata": true
 },
@@ -4813,26 +4823,26 @@
 "indicizzata": false
 },
 "459110/": {
-"proprie": 341,
-"sovrapposizione": 0.254,
+"proprie": 354,
+"sovrapposizione": 0.287,
 "piu_simile": "459140/",
 "indicizzata": true
 },
 "459120/": {
-"proprie": 187,
-"sovrapposizione": 0.398,
+"proprie": 202,
+"sovrapposizione": 0.426,
 "piu_simile": "459140/",
 "indicizzata": true
 },
 "459130/": {
-"proprie": 161,
-"sovrapposizione": 0.45,
+"proprie": 174,
+"sovrapposizione": 0.475,
 "piu_simile": "459120/",
 "indicizzata": true
 },
 "459140/": {
-"proprie": 177,
-"sovrapposizione": 0.433,
+"proprie": 191,
+"sovrapposizione": 0.459,
 "piu_simile": "459120/",
 "indicizzata": true
 },
@@ -4843,8 +4853,8 @@
 "indicizzata": false
 },
 "459210/": {
-"proprie": 188,
-"sovrapposizione": 0.375,
+"proprie": 208,
+"sovrapposizione": 0.397,
 "piu_simile": "459140/",
 "indicizzata": true
 },
@@ -4855,10 +4865,10 @@
 "indicizzata": false
 },
 "459310/": {
-"proprie": 119,
-"sovrapposizione": 0.433,
-"piu_simile": "459910/",
-"indicizzata": false
+"proprie": 141,
+"sovrapposizione": 0.456,
+"piu_simile": "459420/",
+"indicizzata": true
 },
 "4594/": {
 "proprie": 32,
@@ -4867,15 +4877,15 @@
 "indicizzata": false
 },
 "459410/": {
-"proprie": 202,
-"sovrapposizione": 0.328,
+"proprie": 212,
+"sovrapposizione": 0.379,
 "piu_simile": "459420/",
 "indicizzata": true
 },
 "459420/": {
-"proprie": 206,
-"sovrapposizione": 0.361,
-"piu_simile": "459120/",
+"proprie": 221,
+"sovrapposizione": 0.403,
+"piu_simile": "459410/",
 "indicizzata": true
 },
 "4595/": {
@@ -4885,8 +4895,8 @@
 "indicizzata": false
 },
 "459510/": {
-"proprie": 342,
-"sovrapposizione": 0.231,
+"proprie": 349,
+"sovrapposizione": 0.269,
 "piu_simile": "459110/",
 "indicizzata": true
 },
@@ -4897,32 +4907,32 @@
 "indicizzata": true
 },
 "459910/": {
-"proprie": 113,
-"sovrapposizione": 0.472,
+"proprie": 127,
+"sovrapposizione": 0.491,
 "piu_simile": "459920/",
-"indicizzata": false
+"indicizzata": true
 },
 "459920/": {
-"proprie": 159,
-"sovrapposizione": 0.448,
-"piu_simile": "459999/",
+"proprie": 173,
+"sovrapposizione": 0.467,
+"piu_simile": "459910/",
 "indicizzata": true
 },
 "459930/": {
-"proprie": 113,
-"sovrapposizione": 0.205,
+"proprie": 126,
+"sovrapposizione": 0.193,
 "piu_simile": "459910/",
-"indicizzata": false
+"indicizzata": true
 },
 "459991/": {
-"proprie": 133,
-"sovrapposizione": 0.576,
+"proprie": 149,
+"sovrapposizione": 0.533,
 "piu_simile": "459999/",
-"indicizzata": false
+"indicizzata": true
 },
 "459999/": {
-"proprie": 277,
-"sovrapposizione": 0.288,
+"proprie": 297,
+"sovrapposizione": 0.279,
 "piu_simile": "459991/",
 "indicizzata": true
 },
@@ -5074,7 +5084,8 @@
 "proprie": 114,
 "sovrapposizione": 0.285,
 "piu_simile": "484220/",
-"indicizzata": false
+"richiesta": "naics code for trucking",
+"indicizzata": true
 },
 "484121/": {
 "proprie": 133,
@@ -5096,7 +5107,7 @@
 },
 "484210/": {
 "proprie": 133,
-"sovrapposizione": 0.223,
+"sovrapposizione": 0.228,
 "piu_simile": "484220/",
 "indicizzata": true
 },
@@ -5169,7 +5180,7 @@
 "485310/": {
 "proprie": 167,
 "sovrapposizione": 0.134,
-"piu_simile": "485320/",
+"piu_simile": "485999/",
 "indicizzata": true
 },
 "485320/": {
@@ -5258,7 +5269,7 @@
 },
 "486910/": {
 "proprie": 99,
-"sovrapposizione": 0.193,
+"sovrapposizione": 0.2,
 "piu_simile": "486990/",
 "indicizzata": false
 },
@@ -5491,7 +5502,7 @@
 "indicizzata": false
 },
 "493110/": {
-"proprie": 170,
+"proprie": 166,
 "sovrapposizione": 0.246,
 "piu_simile": "493190/",
 "indicizzata": true
@@ -5575,7 +5586,7 @@
 "indicizzata": false
 },
 "512230/": {
-"proprie": 219,
+"proprie": 215,
 "sovrapposizione": 0.113,
 "piu_simile": "512250/",
 "indicizzata": true
@@ -5587,8 +5598,8 @@
 "indicizzata": true
 },
 "512250/": {
-"proprie": 303,
-"sovrapposizione": 0.154,
+"proprie": 318,
+"sovrapposizione": 0.149,
 "piu_simile": "512290/",
 "indicizzata": true
 },
@@ -5611,50 +5622,50 @@
 "indicizzata": true
 },
 "513110/": {
-"proprie": 158,
-"sovrapposizione": 0.622,
+"proprie": 185,
+"sovrapposizione": 0.575,
 "piu_simile": "513120/",
 "indicizzata": false
 },
 "513120/": {
-"proprie": 506,
-"sovrapposizione": 0.353,
+"proprie": 537,
+"sovrapposizione": 0.337,
 "piu_simile": "513110/",
 "indicizzata": true
 },
 "513130/": {
-"proprie": 534,
-"sovrapposizione": 0.322,
+"proprie": 562,
+"sovrapposizione": 0.31,
 "piu_simile": "513120/",
 "indicizzata": true
 },
 "513140/": {
-"proprie": 325,
-"sovrapposizione": 0.396,
+"proprie": 338,
+"sovrapposizione": 0.351,
 "piu_simile": "513199/",
 "indicizzata": true
 },
 "513191/": {
-"proprie": 98,
-"sovrapposizione": 0.659,
+"proprie": 132,
+"sovrapposizione": 0.587,
 "piu_simile": "513199/",
 "indicizzata": false
 },
 "513199/": {
-"proprie": 365,
-"sovrapposizione": 0.328,
-"piu_simile": "513120/",
+"proprie": 402,
+"sovrapposizione": 0.303,
+"piu_simile": "513191/",
 "indicizzata": true
 },
 "5132/": {
 "proprie": 20,
 "sovrapposizione": 0.27,
-"piu_simile": "5131/",
+"piu_simile": "513/",
 "indicizzata": false
 },
 "513210/": {
-"proprie": 232,
-"sovrapposizione": 0.125,
+"proprie": 242,
+"sovrapposizione": 0.124,
 "piu_simile": "518210/",
 "indicizzata": true
 },
@@ -5671,26 +5682,26 @@
 "indicizzata": false
 },
 "516110/": {
-"proprie": 160,
-"sovrapposizione": 0.276,
+"proprie": 166,
+"sovrapposizione": 0.269,
 "piu_simile": "516120/",
 "indicizzata": true
 },
 "516120/": {
-"proprie": 119,
-"sovrapposizione": 0.311,
+"proprie": 126,
+"sovrapposizione": 0.293,
 "piu_simile": "516110/",
-"indicizzata": false
+"indicizzata": true
 },
 "5162/": {
 "proprie": 22,
 "sovrapposizione": 0.412,
-"piu_simile": "516/",
+"piu_simile": "5161/",
 "indicizzata": false
 },
 "516210/": {
-"proprie": 435,
-"sovrapposizione": 0.268,
+"proprie": 467,
+"sovrapposizione": 0.263,
 "piu_simile": "519290/",
 "indicizzata": true
 },
@@ -5707,28 +5718,28 @@
 "indicizzata": true
 },
 "517111/": {
-"proprie": 259,
-"sovrapposizione": 0.359,
+"proprie": 278,
+"sovrapposizione": 0.327,
 "piu_simile": "5171/",
 "indicizzata": true
 },
 "517112/": {
-"proprie": 198,
-"sovrapposizione": 0.266,
+"proprie": 206,
+"sovrapposizione": 0.245,
 "piu_simile": "517111/",
 "indicizzata": true
 },
 "517121/": {
-"proprie": 159,
-"sovrapposizione": 0.293,
+"proprie": 173,
+"sovrapposizione": 0.274,
 "piu_simile": "517122/",
 "indicizzata": true
 },
 "517122/": {
-"proprie": 118,
-"sovrapposizione": 0.279,
-"piu_simile": "517121/",
-"indicizzata": false
+"proprie": 130,
+"sovrapposizione": 0.258,
+"piu_simile": "517112/",
+"indicizzata": true
 },
 "5174/": {
 "proprie": 22,
@@ -5737,8 +5748,8 @@
 "indicizzata": false
 },
 "517410/": {
-"proprie": 153,
-"sovrapposizione": 0.325,
+"proprie": 163,
+"sovrapposizione": 0.313,
 "piu_simile": "517111/",
 "indicizzata": true
 },
@@ -5749,8 +5760,8 @@
 "indicizzata": false
 },
 "517810/": {
-"proprie": 247,
-"sovrapposizione": 0.166,
+"proprie": 255,
+"sovrapposizione": 0.223,
 "piu_simile": "517111/",
 "indicizzata": true
 },
@@ -5767,8 +5778,8 @@
 "indicizzata": false
 },
 "518210/": {
-"proprie": 445,
-"sovrapposizione": 0.086,
+"proprie": 454,
+"sovrapposizione": 0.084,
 "piu_simile": "541519/",
 "indicizzata": true
 },
@@ -5785,14 +5796,14 @@
 "indicizzata": false
 },
 "519210/": {
-"proprie": 254,
-"sovrapposizione": 0.138,
+"proprie": 268,
+"sovrapposizione": 0.132,
 "piu_simile": "516210/",
 "indicizzata": true
 },
 "519290/": {
-"proprie": 218,
-"sovrapposizione": 0.415,
+"proprie": 228,
+"sovrapposizione": 0.401,
 "piu_simile": "516210/",
 "indicizzata": true
 },
@@ -5840,13 +5851,13 @@
 },
 "522130/": {
 "proprie": 98,
-"sovrapposizione": 0.2,
+"sovrapposizione": 0.207,
 "piu_simile": "522180/",
 "indicizzata": false
 },
 "522180/": {
-"proprie": 244,
-"sovrapposizione": 0.16,
+"proprie": 262,
+"sovrapposizione": 0.157,
 "piu_simile": "522299/",
 "indicizzata": true
 },
@@ -5881,9 +5892,9 @@
 "indicizzata": true
 },
 "522299/": {
-"proprie": 580,
-"sovrapposizione": 0.106,
-"piu_simile": "522292/",
+"proprie": 573,
+"sovrapposizione": 0.107,
+"piu_simile": "522291/",
 "indicizzata": true
 },
 "5223/": {
@@ -5896,7 +5907,8 @@
 "proprie": 107,
 "sovrapposizione": 0.359,
 "piu_simile": "522292/",
-"indicizzata": false
+"richiesta": "naics code for mortgage broker",
+"indicizzata": true
 },
 "522320/": {
 "proprie": 257,
@@ -5923,14 +5935,14 @@
 "indicizzata": false
 },
 "523150/": {
-"proprie": 339,
+"proprie": 349,
 "sovrapposizione": 0.126,
 "piu_simile": "523160/",
 "indicizzata": true
 },
 "523160/": {
-"proprie": 291,
-"sovrapposizione": 0.139,
+"proprie": 298,
+"sovrapposizione": 0.138,
 "piu_simile": "523150/",
 "indicizzata": true
 },
@@ -5959,8 +5971,8 @@
 "indicizzata": true
 },
 "523940/": {
-"proprie": 334,
-"sovrapposizione": 0.186,
+"proprie": 345,
+"sovrapposizione": 0.18,
 "piu_simile": "5239/",
 "indicizzata": true
 },
@@ -5971,7 +5983,7 @@
 "indicizzata": true
 },
 "523999/": {
-"proprie": 195,
+"proprie": 191,
 "sovrapposizione": 0.313,
 "piu_simile": "5239/",
 "indicizzata": true
@@ -6034,11 +6046,12 @@
 "proprie": 80,
 "sovrapposizione": 0.315,
 "piu_simile": "524298/",
-"indicizzata": false
+"richiesta": "naics code for insurance agency",
+"indicizzata": true
 },
 "524291/": {
-"proprie": 83,
-"sovrapposizione": 0.408,
+"proprie": 82,
+"sovrapposizione": 0.42,
 "piu_simile": "524292/",
 "indicizzata": false
 },
@@ -6092,7 +6105,7 @@
 },
 "525910/": {
 "proprie": 113,
-"sovrapposizione": 0.323,
+"sovrapposizione": 0.332,
 "piu_simile": "525990/",
 "indicizzata": false
 },
@@ -6103,8 +6116,8 @@
 "indicizzata": true
 },
 "525990/": {
-"proprie": 268,
-"sovrapposizione": 0.145,
+"proprie": 279,
+"sovrapposizione": 0.132,
 "piu_simile": "525910/",
 "indicizzata": true
 },
@@ -6127,26 +6140,26 @@
 "indicizzata": false
 },
 "531110/": {
-"proprie": 201,
-"sovrapposizione": 0.278,
+"proprie": 220,
+"sovrapposizione": 0.315,
 "piu_simile": "531120/",
 "indicizzata": true
 },
 "531120/": {
-"proprie": 400,
-"sovrapposizione": 0.201,
+"proprie": 409,
+"sovrapposizione": 0.23,
 "piu_simile": "531190/",
 "indicizzata": true
 },
 "531130/": {
-"proprie": 156,
-"sovrapposizione": 0.289,
+"proprie": 165,
+"sovrapposizione": 0.342,
 "piu_simile": "531120/",
 "indicizzata": true
 },
 "531190/": {
-"proprie": 249,
-"sovrapposizione": 0.301,
+"proprie": 271,
+"sovrapposizione": 0.329,
 "piu_simile": "531120/",
 "indicizzata": true
 },
@@ -6158,7 +6171,7 @@
 },
 "531210/": {
 "proprie": 170,
-"sovrapposizione": 0.133,
+"sovrapposizione": 0.14,
 "piu_simile": "531311/",
 "indicizzata": true
 },
@@ -6172,17 +6185,19 @@
 "proprie": 110,
 "sovrapposizione": 0.56,
 "piu_simile": "531312/",
-"indicizzata": false
+"richiesta": "naics code for property management residential",
+"indicizzata": true
 },
 "531312/": {
 "proprie": 117,
 "sovrapposizione": 0.443,
 "piu_simile": "531311/",
-"indicizzata": false
+"richiesta": "naics code for property management",
+"indicizzata": true
 },
 "531320/": {
 "proprie": 76,
-"sovrapposizione": 0.327,
+"sovrapposizione": 0.345,
 "piu_simile": "531390/",
 "indicizzata": false
 },
@@ -6230,37 +6245,37 @@
 },
 "532210/": {
 "proprie": 131,
-"sovrapposizione": 0.335,
+"sovrapposizione": 0.342,
 "piu_simile": "532289/",
 "indicizzata": true
 },
 "532281/": {
-"proprie": 157,
-"sovrapposizione": 0.278,
+"proprie": 164,
+"sovrapposizione": 0.27,
 "piu_simile": "532289/",
 "indicizzata": true
 },
 "532282/": {
-"proprie": 127,
-"sovrapposizione": 0.264,
+"proprie": 141,
+"sovrapposizione": 0.251,
 "piu_simile": "5322/",
 "indicizzata": true
 },
 "532283/": {
-"proprie": 142,
-"sovrapposizione": 0.226,
+"proprie": 149,
+"sovrapposizione": 0.22,
 "piu_simile": "532289/",
 "indicizzata": true
 },
 "532284/": {
-"proprie": 157,
-"sovrapposizione": 0.267,
+"proprie": 162,
+"sovrapposizione": 0.274,
 "piu_simile": "532289/",
 "indicizzata": true
 },
 "532289/": {
-"proprie": 194,
-"sovrapposizione": 0.228,
+"proprie": 201,
+"sovrapposizione": 0.226,
 "piu_simile": "532210/",
 "indicizzata": true
 },
@@ -6272,7 +6287,7 @@
 },
 "532310/": {
 "proprie": 174,
-"sovrapposizione": 0.16,
+"sovrapposizione": 0.167,
 "piu_simile": "532289/",
 "indicizzata": true
 },
@@ -6301,7 +6316,7 @@
 "indicizzata": true
 },
 "532490/": {
-"proprie": 384,
+"proprie": 380,
 "sovrapposizione": 0.173,
 "piu_simile": "532412/",
 "indicizzata": true
@@ -6352,7 +6367,8 @@
 "proprie": 118,
 "sovrapposizione": 0.238,
 "piu_simile": "541191/",
-"indicizzata": false
+"richiesta": "naics code for notary",
+"indicizzata": true
 },
 "541191/": {
 "proprie": 121,
@@ -6382,7 +6398,8 @@
 "proprie": 101,
 "sovrapposizione": 0.567,
 "piu_simile": "541214/",
-"indicizzata": false
+"richiesta": "naics code tax preparation",
+"indicizzata": true
 },
 "541214/": {
 "proprie": 140,
@@ -6421,7 +6438,7 @@
 "indicizzata": true
 },
 "541340/": {
-"proprie": 83,
+"proprie": 85,
 "sovrapposizione": 0.365,
 "piu_simile": "541350/",
 "indicizzata": false
@@ -6433,7 +6450,7 @@
 "indicizzata": true
 },
 "541360/": {
-"proprie": 221,
+"proprie": 217,
 "sovrapposizione": 0.178,
 "piu_simile": "541370/",
 "indicizzata": true
@@ -6457,8 +6474,8 @@
 "indicizzata": false
 },
 "541410/": {
-"proprie": 164,
-"sovrapposizione": 0.237,
+"proprie": 163,
+"sovrapposizione": 0.256,
 "piu_simile": "541420/",
 "indicizzata": true
 },
@@ -6508,7 +6525,8 @@
 "proprie": 115,
 "sovrapposizione": 0.291,
 "piu_simile": "541511/",
-"indicizzata": false
+"richiesta": "naics code 541519",
+"indicizzata": true
 },
 "5416/": {
 "proprie": 176,
@@ -6523,8 +6541,8 @@
 "indicizzata": true
 },
 "541612/": {
-"proprie": 136,
-"sovrapposizione": 0.347,
+"proprie": 146,
+"sovrapposizione": 0.322,
 "piu_simile": "541611/",
 "indicizzata": true
 },
@@ -6544,7 +6562,8 @@
 "proprie": 117,
 "sovrapposizione": 0.31,
 "piu_simile": "541611/",
-"indicizzata": false
+"richiesta": "naics code consulting services",
+"indicizzata": true
 },
 "541620/": {
 "proprie": 183,
@@ -6565,20 +6584,20 @@
 "indicizzata": true
 },
 "541713/": {
-"proprie": 124,
-"sovrapposizione": 0.618,
+"proprie": 134,
+"sovrapposizione": 0.612,
 "piu_simile": "541714/",
 "indicizzata": false
 },
 "541714/": {
-"proprie": 252,
+"proprie": 262,
 "sovrapposizione": 0.471,
 "piu_simile": "541713/",
 "indicizzata": true
 },
 "541715/": {
-"proprie": 261,
-"sovrapposizione": 0.424,
+"proprie": 271,
+"sovrapposizione": 0.425,
 "piu_simile": "541714/",
 "indicizzata": true
 },
@@ -6602,7 +6621,7 @@
 },
 "541820/": {
 "proprie": 107,
-"sovrapposizione": 0.293,
+"sovrapposizione": 0.301,
 "piu_simile": "541810/",
 "indicizzata": false
 },
@@ -6620,7 +6639,7 @@
 },
 "541850/": {
 "proprie": 227,
-"sovrapposizione": 0.253,
+"sovrapposizione": 0.252,
 "piu_simile": "541890/",
 "indicizzata": true
 },
@@ -6637,7 +6656,7 @@
 "indicizzata": true
 },
 "541890/": {
-"proprie": 266,
+"proprie": 262,
 "sovrapposizione": 0.269,
 "piu_simile": "541810/",
 "indicizzata": true
@@ -6664,7 +6683,8 @@
 "proprie": 118,
 "sovrapposizione": 0.514,
 "piu_simile": "541921/",
-"indicizzata": false
+"richiesta": "naics code for photography",
+"indicizzata": true
 },
 "541930/": {
 "proprie": 141,
@@ -6763,14 +6783,14 @@
 "indicizzata": false
 },
 "561311/": {
-"proprie": 267,
-"sovrapposizione": 0.323,
+"proprie": 274,
+"sovrapposizione": 0.315,
 "piu_simile": "561312/",
 "indicizzata": true
 },
 "561312/": {
-"proprie": 160,
-"sovrapposizione": 0.334,
+"proprie": 170,
+"sovrapposizione": 0.316,
 "piu_simile": "561311/",
 "indicizzata": true
 },
@@ -6830,7 +6850,7 @@
 },
 "561450/": {
 "proprie": 139,
-"sovrapposizione": 0.303,
+"sovrapposizione": 0.31,
 "piu_simile": "561439/",
 "indicizzata": true
 },
@@ -6862,7 +6882,8 @@
 "proprie": 96,
 "sovrapposizione": 0.422,
 "piu_simile": "561520/",
-"indicizzata": false
+"richiesta": "naics code travel agency",
+"indicizzata": true
 },
 "561520/": {
 "proprie": 108,
@@ -6890,19 +6911,19 @@
 },
 "561611/": {
 "proprie": 119,
-"sovrapposizione": 0.345,
+"sovrapposizione": 0.344,
 "piu_simile": "561612/",
 "indicizzata": false
 },
 "561612/": {
-"proprie": 136,
-"sovrapposizione": 0.286,
+"proprie": 134,
+"sovrapposizione": 0.293,
 "piu_simile": "561613/",
 "indicizzata": true
 },
 "561613/": {
-"proprie": 66,
-"sovrapposizione": 0.468,
+"proprie": 64,
+"sovrapposizione": 0.494,
 "piu_simile": "561612/",
 "indicizzata": false
 },
@@ -6910,7 +6931,8 @@
 "proprie": 118,
 "sovrapposizione": 0.284,
 "piu_simile": "5616/",
-"indicizzata": false
+"richiesta": "naics code for security systems",
+"indicizzata": true
 },
 "561622/": {
 "proprie": 112,
@@ -6931,9 +6953,9 @@
 "indicizzata": true
 },
 "561720/": {
-"proprie": 193,
-"sovrapposizione": 0.171,
-"piu_simile": "238990/",
+"proprie": 209,
+"sovrapposizione": 0.166,
+"piu_simile": "561790/",
 "indicizzata": true
 },
 "561730/": {
@@ -7148,7 +7170,7 @@
 },
 "611511/": {
 "proprie": 111,
-"sovrapposizione": 0.217,
+"sovrapposizione": 0.223,
 "piu_simile": "611519/",
 "indicizzata": false
 },
@@ -7191,19 +7213,19 @@
 "611630/": {
 "proprie": 117,
 "sovrapposizione": 0.25,
-"piu_simile": "611692/",
+"piu_simile": "611691/",
 "indicizzata": false
 },
 "611691/": {
-"proprie": 138,
-"sovrapposizione": 0.278,
+"proprie": 137,
+"sovrapposizione": 0.288,
 "piu_simile": "611692/",
 "indicizzata": true
 },
 "611692/": {
 "proprie": 76,
-"sovrapposizione": 0.358,
-"piu_simile": "611699/",
+"sovrapposizione": 0.364,
+"piu_simile": "611691/",
 "indicizzata": false
 },
 "611699/": {
@@ -7274,7 +7296,7 @@
 },
 "621310/": {
 "proprie": 120,
-"sovrapposizione": 0.406,
+"sovrapposizione": 0.415,
 "piu_simile": "621320/",
 "indicizzata": true
 },
@@ -7309,14 +7331,14 @@
 "indicizzata": true
 },
 "6214/": {
-"proprie": 126,
+"proprie": 125,
 "sovrapposizione": 0.334,
 "piu_simile": "621498/",
 "indicizzata": true
 },
 "621410/": {
 "proprie": 143,
-"sovrapposizione": 0.249,
+"sovrapposizione": 0.254,
 "piu_simile": "621420/",
 "indicizzata": true
 },
@@ -7333,8 +7355,8 @@
 "indicizzata": true
 },
 "621492/": {
-"proprie": 83,
-"sovrapposizione": 0.376,
+"proprie": 82,
+"sovrapposizione": 0.387,
 "piu_simile": "621498/",
 "indicizzata": false
 },
@@ -7418,7 +7440,7 @@
 },
 "622110/": {
 "proprie": 146,
-"sovrapposizione": 0.281,
+"sovrapposizione": 0.287,
 "piu_simile": "622310/",
 "indicizzata": true
 },
@@ -7543,15 +7565,15 @@
 "indicizzata": true
 },
 "6242/": {
-"proprie": 165,
+"proprie": 164,
 "sovrapposizione": 0.349,
 "piu_simile": "624229/",
 "indicizzata": true
 },
 "624210/": {
-"proprie": 142,
-"sovrapposizione": 0.234,
-"piu_simile": "624230/",
+"proprie": 144,
+"sovrapposizione": 0.211,
+"piu_simile": "624221/",
 "indicizzata": true
 },
 "624221/": {
@@ -7567,9 +7589,9 @@
 "indicizzata": true
 },
 "624230/": {
-"proprie": 88,
-"sovrapposizione": 0.29,
-"piu_simile": "624210/",
+"proprie": 87,
+"sovrapposizione": 0.292,
+"piu_simile": "624221/",
 "indicizzata": false
 },
 "6243/": {
@@ -7669,7 +7691,7 @@
 "indicizzata": false
 },
 "711310/": {
-"proprie": 545,
+"proprie": 541,
 "sovrapposizione": 0.245,
 "piu_simile": "711320/",
 "indicizzata": true
@@ -7717,14 +7739,14 @@
 "indicizzata": false
 },
 "712110/": {
-"proprie": 177,
-"sovrapposizione": 0.205,
+"proprie": 176,
+"sovrapposizione": 0.208,
 "piu_simile": "712120/",
 "indicizzata": true
 },
 "712120/": {
-"proprie": 98,
-"sovrapposizione": 0.312,
+"proprie": 97,
+"sovrapposizione": 0.327,
 "piu_simile": "712110/",
 "indicizzata": false
 },
@@ -7814,7 +7836,7 @@
 },
 "713950/": {
 "proprie": 98,
-"sovrapposizione": 0.269,
+"sovrapposizione": 0.277,
 "piu_simile": "713920/",
 "indicizzata": false
 },
@@ -7855,8 +7877,8 @@
 "indicizzata": true
 },
 "721191/": {
-"proprie": 102,
-"sovrapposizione": 0.339,
+"proprie": 101,
+"sovrapposizione": 0.354,
 "piu_simile": "721199/",
 "indicizzata": false
 },
@@ -7892,7 +7914,7 @@
 },
 "721310/": {
 "proprie": 173,
-"sovrapposizione": 0.087,
+"sovrapposizione": 0.089,
 "piu_simile": "721110/",
 "indicizzata": true
 },
@@ -7915,7 +7937,7 @@
 "indicizzata": true
 },
 "722320/": {
-"proprie": 172,
+"proprie": 174,
 "sovrapposizione": 0.15,
 "piu_simile": "722330/",
 "indicizzata": true
@@ -7945,26 +7967,26 @@
 "indicizzata": true
 },
 "722511/": {
-"proprie": 158,
-"sovrapposizione": 0.375,
+"proprie": 167,
+"sovrapposizione": 0.37,
 "piu_simile": "722513/",
 "indicizzata": true
 },
 "722513/": {
-"proprie": 234,
-"sovrapposizione": 0.354,
+"proprie": 243,
+"sovrapposizione": 0.35,
 "piu_simile": "722511/",
 "indicizzata": true
 },
 "722514/": {
-"proprie": 115,
-"sovrapposizione": 0.471,
+"proprie": 124,
+"sovrapposizione": 0.457,
 "piu_simile": "722511/",
-"indicizzata": false
+"indicizzata": true
 },
 "722515/": {
-"proprie": 309,
-"sovrapposizione": 0.126,
+"proprie": 318,
+"sovrapposizione": 0.123,
 "piu_simile": "722330/",
 "indicizzata": true
 },
@@ -7993,8 +8015,8 @@
 "indicizzata": true
 },
 "811114/": {
-"proprie": 193,
-"sovrapposizione": 0.34,
+"proprie": 220,
+"sovrapposizione": 0.311,
 "piu_simile": "811111/",
 "indicizzata": true
 },
@@ -8018,9 +8040,10 @@
 },
 "811192/": {
 "proprie": 117,
-"sovrapposizione": 0.362,
+"sovrapposizione": 0.371,
 "piu_simile": "811198/",
-"indicizzata": false
+"richiesta": "naics code for car wash",
+"indicizzata": true
 },
 "811198/": {
 "proprie": 187,
@@ -8035,7 +8058,7 @@
 "indicizzata": false
 },
 "811210/": {
-"proprie": 577,
+"proprie": 559,
 "sovrapposizione": 0.064,
 "piu_simile": "811310/",
 "indicizzata": true
@@ -8083,7 +8106,7 @@
 "indicizzata": true
 },
 "811490/": {
-"proprie": 346,
+"proprie": 342,
 "sovrapposizione": 0.131,
 "piu_simile": "811412/",
 "indicizzata": true
@@ -8104,19 +8127,21 @@
 "proprie": 95,
 "sovrapposizione": 0.365,
 "piu_simile": "812112/",
-"indicizzata": false
+"richiesta": "naics code for barber shop",
+"indicizzata": true
 },
 "812112/": {
-"proprie": 179,
+"proprie": 177,
 "sovrapposizione": 0.218,
 "piu_simile": "812199/",
 "indicizzata": true
 },
 "812113/": {
-"proprie": 75,
-"sovrapposizione": 0.405,
+"proprie": 73,
+"sovrapposizione": 0.431,
 "piu_simile": "812112/",
-"indicizzata": false
+"richiesta": "naics code for nail salon",
+"indicizzata": true
 },
 "812191/": {
 "proprie": 117,
@@ -8156,7 +8181,7 @@
 },
 "812310/": {
 "proprie": 150,
-"sovrapposizione": 0.175,
+"sovrapposizione": 0.179,
 "piu_simile": "812320/",
 "indicizzata": true
 },
@@ -8235,7 +8260,7 @@
 "8132/": {
 "proprie": 93,
 "sovrapposizione": 0.238,
-"piu_simile": "813212/",
+"piu_simile": "813219/",
 "indicizzata": false
 },
 "813211/": {
@@ -8366,15 +8391,17 @@
 },
 "921110/": {
 "proprie": 115,
-"sovrapposizione": 0.295,
+"sovrapposizione": 0.277,
 "piu_simile": "921120/",
-"indicizzata": false
+"richiesta": "naics code 921110",
+"indicizzata": true
 },
 "921120/": {
 "proprie": 118,
-"sovrapposizione": 0.295,
+"sovrapposizione": 0.277,
 "piu_simile": "921110/",
-"indicizzata": false
+"richiesta": "naics code 921120",
+"indicizzata": true
 },
 "921130/": {
 "proprie": 178,
@@ -8534,7 +8561,7 @@
 },
 "925120/": {
 "proprie": 121,
-"sovrapposizione": 0.214,
+"sovrapposizione": 0.22,
 "piu_simile": "925110/",
 "indicizzata": true
 },
@@ -8589,7 +8616,7 @@
 "9271/": {
 "proprie": 21,
 "sovrapposizione": 0.167,
-"piu_simile": "92/",
+"piu_simile": "927/",
 "indicizzata": false
 },
 "927110/": {

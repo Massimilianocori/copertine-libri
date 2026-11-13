@@ -108,6 +108,16 @@
    ]
   },
   {
+   "pagina": "naics-2017-to-2022",
+   "ricerca": "naics code for ecommerce",
+   "q": "What is the NAICS code for ecommerce and online retail in 2022?",
+   "a": "The retail trade sector of NAICS 2022 has no code just for selling online. The 2017 code 454110 (Electronic Shopping and Mail-Order Houses) is not in the 2022 structure: the official concordance splits it among {n_454110} retail codes of 2022, by the kind of goods sold, and the table on this page lists them under 454110. The official 2022 index places Internet retail sales sites of new general merchandise in 455219 «{t_455219}».",
+   "fonti": [
+    "c17_22",
+    "indice"
+   ]
+  },
+  {
    "pagina": "sic-to-naics",
    "ricerca": "what is a sic code",
    "q": "What is a SIC code?",

@@ -40,6 +40,10 @@ import monetizzazione as MON  # noqa: E402
 URL_SITO = "https://naics-code-lookup.netlify.app"
 FRASE_FISSA = "check with the agency or form that asks for the code"
 MIN_PAROLE_PROPRIE, MAX_SOVRAPPOSIZIONE, QUOTA_MODELLO = 120, 0.55, 0.05
+MIN_PROPRIE_RICHIESTA, MAX_SOVRAPPOSIZIONE_RICHIESTA = 60, 0.65  # pagine a 6 cifre con domanda dimostrata (dati/richieste.json)
+MAX_INDICE_GZ, MAX_FRASI_GZ = 70_000, 260_000  # byte compressi dei due file della ricerca (il secondo si scarica solo se si scrive una parola)
+PAROLE_VUOTE = {"naics", "naic", "sic", "code", "codes", "number", "lookup", "for", "a", "an", "the", "and", "of", "in", "business", "company", "service",
+                "services", "shop", "store", "2022"}
 DOMINI_ESTERNI = ["naics-code-lookup.netlify.app", "census.gov", "irs.gov", "goatcounter.com", "zgo.at", "policies.google.com", "adssettings.google.com", "schema.org"]
 ERR, AVV = [], []
 
@@ -58,7 +62,29 @@ DOM = carica("domanda.json")
 FAQ = carica("faq.json")["faq"]
 VOL = carica("volumi.json")
 ATT = carica("attivita.json")["attivita"]
+RICH = carica("richieste.json")["codici"]
 C = NA["codici"]
+
+
+def codici_richiesti():
+    """Codici a 6 cifre con domanda dimostrata, ricalcolati qui: scritti per numero in un suggerimento salvato, oppure in richieste.json
+    con un suggerimento salvato le cui parole sono tutte nel titolo, nella descrizione, negli esempi o nell'indice ufficiale del codice."""
+    tutte = {s for v in DOM["radici"].values() for s in v}
+    out = {c for s in tutte for c in re.findall(r"(?<!\d)\d{6}(?!\d)", s) if c in C and C[c]["l"] == 6}
+    for c, s in RICH.items():
+        if c not in C or C[c]["l"] != 6:
+            errore(f"richieste.json: {c} non è un codice a 6 cifre del 2022")
+            continue
+        if s not in tutte:
+            errore(f"richieste.json: «{s}» non è tra i suggerimenti salvati")
+            continue
+        parole = {w for w in re.findall(r"[a-z]+", s.lower()) if w not in PAROLE_VUOTE}
+        testo = set(re.findall(r"[a-z]+", " ".join([C[c]["t"]] + C[c]["d"] + C[c]["idx"] + C[c]["es"]).lower()))
+        if not parole or any(not any(x.startswith(w[:5]) for x in testo) for w in parole):
+            errore(f"richieste.json: «{s}» non corrisponde ai testi ufficiali di {c}")
+            continue
+        out.add(c)
+    return out
 
 
 def visibile(html):
@@ -238,6 +264,109 @@ def controlla_dati():
           f"dell'indice, codici 2017 e SIC nella pagina)")
 
 
+# ---------------------------------------------------------------- 2b. catena SIC rifatta dai file grezzi e sua presentazione
+def controlla_sic():
+    """Rifà da zero, dai file ufficiali, la catena 2022 → 2017 → 2012 → 2007 → 2002 → 1997 → SIC 1987 per tutti i codici a 6 cifre e controlla
+    che ogni pagina la presenti in modo onesto: «diretto» solo per identità a ogni passo; nelle altre, i SIC principali separati da quelli parziali."""
+    try:
+        import xlrd
+    except ImportError:
+        errore("xlrd assente: la catena SIC non si può rifare (pip install xlrd)")
+        return
+
+    def xls(chiave, foglio=0):
+        wb = xlrd.open_workbook(str(GREZZI / FJ["file"][chiave]["file"]))
+        ws = wb.sheet_by_name(foglio) if isinstance(foglio, str) else wb.sheet_by_index(foglio)
+        return [ws.row_values(i) for i in range(ws.nrows)]
+
+    def cod(x):
+        return str(int(x)) if isinstance(x, float) else str(x or "").strip()
+
+    def sei(x):
+        x = cod(x)
+        return x + "0" if re.fullmatch(r"\d{5}", x) else x
+
+    def passo(righe, i_vecchio, i_nuovo):
+        ind, av = defaultdict(set), defaultdict(set)
+        for r in righe:
+            if len(r) <= max(i_vecchio, i_nuovo):
+                continue
+            a, n = cod(r[i_vecchio]), cod(r[i_nuovo])
+            if re.fullmatch(r"\d{6}", a) and re.fullmatch(r"\d{6}", n):
+                ind[n].add(a)
+                av[a].add(n)
+        return ind, av
+    passi = [passo(xlsx(FJ["file"]["c22_17"]["file"]), 2, 0), passo(xlsx(FJ["file"]["c12_17"]["file"]), 0, 2),
+             passo(xls("c07_12"), 0, 2), passo(xls("c02_07"), 0, 2), passo(xls("c97_02", "Concordance 23 US NoD"), 0, 2)]
+    if any(len(ind) < 1000 for ind, _ in passi):
+        errore("catena SIC: una concordanza è stata letta male (meno di 1000 codici)")
+    sic97, t97 = defaultdict(set), {}
+    for r in xls("naics97_sic")[1:]:
+        n, s = sei(r[0]), cod(r[3])
+        if re.fullmatch(r"\d{6}", n) and s:
+            sic97[n].add(s.zfill(4))
+            t97[n] = str(r[2]).strip()
+
+    def indietro(c):
+        att, diretto = {c}, True
+        for ind, av in passi:
+            if ind.get(c) != {c} or av.get(c) != {c}:
+                diretto = False
+            att = set().union(*[ind.get(x, set()) for x in att]) if att else set()
+        return att, diretto
+
+    def avanti(n):
+        att = {n}
+        for ind, av in reversed(passi):
+            att = set().union(*[av.get(x, set()) for x in att]) if att else set()
+        return att
+    n_dir = n_cat = n_princ = n_parz = 0
+    for c in sorted(x for x in C if C[x]["l"] == 6):
+        v97, diretto = indietro(c)
+        miei = set().union(*[sic97.get(n, set()) for n in v97]) if v97 else set()
+        html = leggi_pagina(f"/{c}/") or ""
+        m = re.search(r'<h2 id="sic".*?(?=<h2 |<section class="fonti-box")', html, re.S)
+        blocco = m.group(0) if m else ""
+        pagina_sic = set(re.findall(r"#sic-(\d{4})", blocco))
+        if pagina_sic != miei:
+            errore(f"SIC {c}: la pagina ha {sorted(pagina_sic ^ miei)[:5]} diversi dalla catena rifatta dai file ufficiali")
+            continue
+        testa = unescape(re.sub(r"<[^>]+>", "", re.search(r"<h2 id=\"sic\">(.*?)</h2>", blocco, re.S).group(1)))
+        if not miei:
+            if "do not link this industry" not in blocco:
+                errore(f"SIC {c}: nessun SIC nella catena ma la pagina non lo dice")
+            continue
+        if diretto:
+            n_dir += 1
+            if "applies as it is" not in blocco or "our derivation" in blocco:
+                errore(f"SIC {c}: codice identico dal 1997 ma la pagina non lo presenta come riga ufficiale")
+            continue
+        n_cat += 1
+        if "applies as it is" in blocco or "no official SIC line" not in blocco or "our derivation" not in blocco:
+            errore(f"SIC {c}: codice cambiato dopo il 1997 presentato come riga ufficiale")
+        # principali = SIC di un'industria del 1997 finita tutta in c, o con lo stesso titolo; gli altri sono solo pezzi
+        princ = {s for n in v97 if avanti(n) == {c} or t97.get(n, "").lower() == C[c]["t"].lower() for s in sic97.get(n, set())}
+        pezzi = blocco.split('id="sic-partial"')
+        in_alto = set(re.findall(r"#sic-(\d{4})", pezzi[0])) if 'id="sic-closest"' in blocco else set()
+        if princ:
+            n_princ += 1
+            if in_alto != princ or set(re.findall(r"\b\d{4}\b", testa)) - princ:
+                errore(f"SIC {c}: i SIC principali in pagina {sorted(in_alto)} non sono quelli ricalcolati {sorted(princ)}")
+            if len(pezzi) > 1 and ("<details" not in pezzi[1] or "only a piece" not in pezzi[1]):
+                errore(f"SIC {c}: i SIC parziali devono stare chiusi, con la spiegazione")
+        else:
+            n_parz += 1
+            if "partial match" not in testa and "no single equivalent" not in testa:
+                errore(f"SIC {c}: solo corrispondenze parziali ma il titolo «{testa}» non lo dice")
+        scheda = re.search(r"<span>SIC 1987</span><b>(.*?)</b>", html)
+        if scheda and not princ and "(partial)" not in scheda.group(1):
+            errore(f"SIC {c}: la scheda in alto mostra SIC parziali senza dirlo")
+        if scheda and princ and set(re.findall(r"\d{4}", scheda.group(1))) - princ:
+            errore(f"SIC {c}: la scheda in alto mostra SIC non principali")
+    print(f"SIC: catena rifatta dai file ufficiali per tutti i codici a 6 cifre: {n_dir} con riga ufficiale diretta, {n_cat} derivati "
+          f"({n_princ} con SIC principali separati dai parziali, {n_parz} solo parziali e dichiarati tali)")
+
+
 # ---------------------------------------------------------------- 3. contenuti
 def url_di(c):
     v = C[c]
@@ -397,6 +526,35 @@ def controlla_pagine():
     for f in ("assets/og.png", "404.html", "privacy/index.html", "about/index.html"):
         if not (SITO / f).exists():
             errore(f"manca {f}")
+    # modulo delle correzioni: nessun campo per dati personali (stesso modulo approvato per milpay)
+    moduli = 0
+    for p in pagine_html():
+        html = p.read_text(encoding="utf-8")
+        rel = str(p.relative_to(SITO))
+        for form in re.findall(r"<form\b.*?</form>", html, re.S):
+            nomi = set(re.findall(r'name="([^"]+)"', form))
+            if "data-netlify" in form:
+                moduli += 1
+                if rel != "how-we-check/index.html" or nomi != {"corrections", "form-name", "bot-field", "page", "message", "source"} or "data-correzioni" not in form:
+                    errore(f"{rel}: il modulo delle correzioni deve avere solo pagina, messaggio e fonte: {sorted(nomi)}")
+            elif 'role="search"' not in form:
+                errore(f"{rel}: modulo inatteso con i campi {sorted(nomi)}")
+        if re.search(r'type="(email|tel|password)"|autocomplete="(email|name|tel)"|name="(email|name|phone|consent)"', html):
+            errore(f"{rel}: campo per dati personali")
+    if moduli != 1:
+        errore(f"moduli Netlify: {moduli} (atteso 1, in /how-we-check/)")
+    priv = visibile((SITO / "privacy" / "index.html").read_text(encoding="utf-8"))
+    if "does not ask for your name or email address" not in priv or re.search(r"your email address\b(?! or)|only if you give it|tick box", priv):
+        errore("privacy: il testo sul modulo delle correzioni non corrisponde al modulo (nessun campo email, nessuna casella)")
+    js = next(SITO.glob("assets/app.*.js")).read_text(encoding="utf-8")
+    if "form[data-correzioni]" not in js or "caricaFrasi" not in js:
+        errore("app.js: manca l'invio del modulo delle correzioni o il caricamento ritardato delle voci dell'indice")
+    import gzip
+    for modello, tetto in (("assets/index.*.json", MAX_INDICE_GZ), ("assets/entries.*.json", MAX_FRASI_GZ)):
+        f = next(SITO.glob(modello), None)
+        peso = len(gzip.compress(f.read_bytes())) if f else 0
+        if not f or peso > tetto:
+            errore(f"{modello}: {peso} byte compressi (max {tetto})")
     indice = next(SITO.glob("assets/index.*.json"), None)
     voci = json.loads(indice.read_text(encoding="utf-8")) if indice else []
     unici5 = {c for c in C if C[c]["l"] == 5 and sum(1 for x in C if C[x]["p"] == c) == 1}
@@ -453,7 +611,9 @@ def controlla_faq():
 
 # ---------------------------------------------------------------- 6. indicizzazione
 def controlla_indicizzazione():
-    insiemi, indic = {}, {}
+    insiemi, indic, parole = {}, {}, {}
+    richiesti = codici_richiesti()
+    salvate = 0
     for p in pagine_html():
         rel = str(p.relative_to(SITO))
         if not re.fullmatch(r"(\d{2}-\d{2}|\d{2,4}|\d{6})/index\.html", rel):
@@ -462,8 +622,10 @@ def controlla_indicizzazione():
         m = re.search(r"<main\b.*?</main>", html, re.S).group(0)
         m = re.sub(r'<p class="disclaimer">.*?</p>', " ", m, flags=re.S)
         m = re.sub(r'<nav class="briciole".*?</nav>', " ", m, flags=re.S)
+        m = re.sub(r"<section data-ripreso>.*?</section>", " ", m, flags=re.S)  # rimandi ripresi da altre pagine: non sono testo proprio
         m = re.sub(r"<(script|style|svg)\b.*?</\1>", " ", m, flags=re.S | re.I)
         w = re.findall(r"\w+", unescape(re.sub(r"<[^>]+>", " ", m)).lower())
+        parole[rel] = len(w)
         insiemi[rel] = {" ".join(w[i:i + 5]) for i in range(len(w) - 4)}
         indic[rel] = '<meta name="robots" content="noindex">' not in html
     conta = Counter(g for s in insiemi.values() for g in s)
@@ -480,14 +642,30 @@ def controlla_indicizzazione():
             continue
         proprie = sum(1 for g in a if conta[g] == 1)
         poche = min(poche, proprie)
-        if proprie < MIN_PAROLE_PROPRIE - 10:
-            errore(f"{rel}: indicizzata con solo {proprie} gruppi di parole propri")
         cand = Counter(r2 for g in a if conta[g] <= 40 for r2 in per_gruppo[g] if r2 != rel)
         q, simile = max(((len(a & insiemi[r2]) / len(a), r2) for r2, _ in cand.most_common(40)), default=(0, ""))
         peggio = max(peggio, q)
+        cod = rel.split("/")[0]
+        if cod in richiesti and (proprie < MIN_PAROLE_PROPRIE - 10 or q >= MAX_SOVRAPPOSIZIONE + 0.02):
+            # pagina corta ma cercata: soglie più basse, mai sotto il minimo assoluto
+            salvate += 1
+            if proprie < MIN_PROPRIE_RICHIESTA - 10:
+                errore(f"{rel}: indicizzata per domanda con solo {proprie} gruppi di parole propri")
+            if q >= MAX_SOVRAPPOSIZIONE_RICHIESTA + 0.02:
+                errore(f"{rel}: indicizzata per domanda ma {q:.0%} del testo è in comune con {simile}")
+            if parole[rel] < 300:
+                errore(f"{rel}: indicizzata per domanda con sole {parole[rel]} parole")
+            continue
+        if proprie < MIN_PAROLE_PROPRIE - 10:
+            errore(f"{rel}: indicizzata con solo {proprie} gruppi di parole propri")
         if q >= MAX_SOVRAPPOSIZIONE + 0.02:
             errore(f"{rel}: indicizzata ma {q:.0%} del testo è in comune con {simile}")
+    for c in sorted(richiesti):
+        if not indic.get(f"{c}/index.html"):
+            AVV.append(f"{c}: codice con domanda dimostrata ma pagina noindex (troppo simile a un'altra o troppo corta)")
     n = sum(indic.values())
+    print(f"Indicizzazione: {len(richiesti)} codici con domanda dimostrata, {salvate} indicizzati con le soglie basse "
+          f"({MIN_PROPRIE_RICHIESTA} gruppi, {MAX_SOVRAPPOSIZIONE_RICHIESTA:.0%})")
     print(f"Indicizzazione: {n} pagine di codice indicizzate su {len(indic)}; testo in comune con la pagina più simile al massimo {peggio:.0%} "
           f"(soglia {MAX_SOVRAPPOSIZIONE:.0%}, frasi di modello escluse); gruppi di parole propri almeno {poche}")
 
@@ -552,7 +730,7 @@ def controlla_monetizzazione():
 
 
 # ---------------------------------------------------------------- 9. browser
-PAGINE_BROWSER = ["/", "/541511/", "/5415/", "/sic-to-naics/", "/naics-2017-to-2022/"]
+PAGINE_BROWSER = ["/", "/541511/", "/425120/", "/812113/", "/5415/", "/sic-to-naics/", "/naics-2017-to-2022/", "/how-we-check/"]
 
 
 def controlla_browser():
@@ -560,13 +738,17 @@ def controlla_browser():
     from playwright.sync_api import sync_playwright
     shot = RADICE / "cache" / "screenshot"
     shot.mkdir(parents=True, exist_ok=True)
-    bloccate = []
+    bloccate, chieste, inviati = [], [], []
 
     def servi(route):
         url = route.request.url
         if not url.startswith("http://sito.test/"):
             bloccate.append(url)
             return route.abort()  # niente richieste esterne: solo i file del sito
+        chieste.append(url)
+        if route.request.method == "POST":
+            inviati.append(route.request.post_data or "")
+            return route.fulfill(status=200, body="ok", content_type="text/plain")
         p = url[len("http://sito.test"):].split("?")[0].split("#")[0]
         if p.endswith("/"):
             p += "index.html"
@@ -602,10 +784,16 @@ def controlla_browser():
                         prove = [("541511", "/541511/"), ("72251", "/7225/#n-72251"), ("454110", "/naics-2017-to-2022/#v-454110"),
                                  ("7371", "/sic-to-naics/#sic-7371"), ("plumbing", "/238220/"), ("bakery", "/311811/"), ("software publishers", "/513210/"),
                                  ("pet grooming", "/812910/")]
+                        del chieste[:]
                         pg.focus("[data-cerca]")
-                        pg.wait_for_selector("[data-cerca][data-pronto]", timeout=10000)  # codici e voci dell'indice caricati
+                        pg.wait_for_selector("[data-cerca][data-pronto]", timeout=10000)  # codici e titoli caricati
                         for q, atteso in prove:
                             pg.fill("[data-cerca]", q)
+                            if q.isdigit():
+                                if any("/assets/entries." in x for x in chieste):
+                                    errore("browser: la ricerca per numero scarica anche le voci dell'indice (file grande)")
+                            else:
+                                pg.wait_for_selector("[data-cerca][data-frasi-pronte]", timeout=10000)  # voci dell'indice: solo quando si scrive una parola
                             pg.wait_for_selector("[data-risultati] a", timeout=8000)
                             hrefs = pg.eval_on_selector_all("[data-risultati] a", "a=>a.map(x=>x.getAttribute('href'))")
                             if not any(hh == atteso for hh in hrefs[:5]):
@@ -625,6 +813,24 @@ def controlla_browser():
                         pg.click("[data-altre-tutte]")
                         if pg.locator("[data-tabella] tbody tr:visible").count() != tot:
                             errore("browser: «Show all» non mostra tutte le righe")
+                    if u in ("/425120/", "/541511/", "/812113/"):
+                        pg.evaluate("document.querySelectorAll('main details').forEach(d=>d.open=true)")
+                        larghe = pg.evaluate("Array.from(document.querySelectorAll('main .tab')).filter(t=>t.scrollWidth>t.clientWidth+1).length")
+                        if larghe:
+                            errore(f"browser {w}px {u}: {larghe} tabelle più larghe dello schermo (scorrono di lato)")
+                        pg.evaluate("document.querySelectorAll('main details').forEach(d=>d.open=false)")
+                    if u == "/425120/":
+                        if pg.locator("#sic ~ details.tutte table").first.is_visible() or "no single equivalent" not in pg.inner_text("#sic"):
+                            errore("browser /425120/: le 71 righe SIC parziali devono essere chiuse e dichiarate senza equivalente unico")
+                    if u == "/how-we-check/" and w == 375 and tema == "light":
+                        if pg.locator("form[data-correzioni] input[type=email], form[data-correzioni] input[type=checkbox]").count():
+                            errore("browser: il modulo delle correzioni chiede dati personali")
+                        pg.fill("form[data-correzioni] input[name=page]", "/541511/")
+                        pg.fill("form[data-correzioni] textarea", "test")
+                        pg.click("form[data-correzioni] button")
+                        pg.wait_for_selector("[data-ok]:not([hidden])", timeout=5000)
+                        if not inviati or "form-name=corrections" not in inviati[-1] or "email" in inviati[-1]:
+                            errore(f"browser: invio del modulo inatteso ({inviati[-1][:80] if inviati else 'nessun invio'})")
                     if u == "/sic-to-naics/":
                         pg.fill("[data-filtro]", "7371")
                         if pg.locator("[data-tabella] tbody tr:visible").count() != 1:
@@ -644,12 +850,13 @@ def controlla_browser():
         b.close()
     esterne = sorted({re.match(r"https?://[^/]+", u).group(0) for u in bloccate if u.startswith("http")})
     print(f"Browser: {len(PAGINE_BROWSER)} pagine × 375/1280 px × chiaro/scuro (richieste esterne bloccate: {', '.join(esterne) or 'nessuna'}), "
-          f"ricerca (8 prove), filtri delle tabelle e tema, nessun errore JS; screenshot in {shot}")
+          f"ricerca (8 prove; le voci dell'indice si scaricano solo scrivendo una parola), modulo delle correzioni senza dati personali, filtri delle tabelle e tema, nessun errore JS; screenshot in {shot}")
 
 
 def main():
     controlla_fonti()
     controlla_dati()
+    controlla_sic()
     controlla_contenuti()
     controlla_pagine()
     controlla_faq()
