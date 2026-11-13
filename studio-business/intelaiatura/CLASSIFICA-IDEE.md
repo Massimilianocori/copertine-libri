@@ -80,4 +80,6 @@ Colonne: idea · mercato · ricerche/mese misurate · costo per clic · €/anno
 | 66 | CN/TARIC UE (DE, ES, FR, IT, NL) | EU | ~110.000 | 0,5-6 € | 10 / 55 / 255 | 40 | 1,4 | alto | NO | fronti-2026-11-13-codici-ufficiali-2 |
 | 67 | SOC/O*NET, ICD-10-PCS, dazi aggiuntivi e notizie sui dazi, NOC, HSN India, NDC, codici IRS di trascrizione | vari | 10.000-135.000 | 0-9 $ | ≤ 0 / 30 / 120 | – | ~1 | alto | NO | fronti-2026-11-13-codici-ufficiali-2 |
 
+| – | Sezione USA su payrolltaxbystate.com (payroll tax calculator, SUTA/FUTA per Stato) | US | payroll taxes 18.100, payroll tax calculator 18.100, suta 5.400, employer payroll taxes 4.400, futa tax rate 3.600 | da misurare | da stimare | – | – | alto sul singolo tasso | DA VALUTARE (IRS ed EDD leggibili, SSA 403) | paytax/NOTE.md 13/11 |
+
 (Da completare con le ricerche in corso: mercati esteri, crescita Visa Income, e tutte le prossime.)
