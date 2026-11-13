@@ -27,7 +27,9 @@
    "leggi": "https://www.govinfo.gov/content/pkg/FR-2024-12-30/pdf/2024-31466.pdf",
    "pdf": true,
    "cerca": [
-    "Schedule 8 is effective January 1, 2025"
+    "Schedule 8 is effective January 1, 2025",
+    "2,108.10",
+    "which is $18,808.20"
    ]
   },
   "usc1009": {
@@ -70,6 +72,66 @@
    "cerca": [
     "2025-23844"
    ]
+  },
+  "eo2026_s5": {
+   "titolo": "Executive Order 14368, Schedule 5 (Executive Schedule: level II $228,000, level V $184,900 a year)",
+   "chi": "Federal Register, 90 FR 60521, published 2025-12-23",
+   "url": "https://www.federalregister.gov/documents/2025/12/23/2025-23844/adjustments-of-certain-rates-of-pay",
+   "leggi": "https://www.govinfo.gov/content/pkg/FR-2025-12-23/pdf/2025-23844.pdf",
+   "pdf": true,
+   "layout": true,
+   "cerca": [
+    "Schedule 5-Executive Schedule",
+    "Level II 228,000",
+    "Level V 184,900"
+   ]
+  },
+  "af_basicpay": {
+   "titolo": "Basic Pay (2026 notes: limits for O-7 to O-10 and for O-6 and below)",
+   "chi": "Department of the Air Force, myairforcebenefits.us.af.mil",
+   "url": "https://myairforcebenefits.us.af.mil/Benefit-Library/Federal-Benefits/Basic-Pay?serv=23",
+   "cerca": [
+    "Basic pay for an O-7 to O-10 is limited by Level II of the Executive Schedule during calendar year 2026 ($18,999.90)",
+    "Basic pay for O-6 and below is limited by Level V of the Executive Schedule in effect during calendar year 2026 ($15,408.30)"
+   ]
+  },
+  "usc203": {
+   "titolo": "37 U.S.C. 203, Rates (limits on basic pay)",
+   "chi": "United States Code, 2023 edition (govinfo.gov, U.S. Government Publishing Office)",
+   "url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title37/html/USCODE-2023-title37-chap3-sec203.htm",
+   "cerca": [
+    "may not exceed the monthly equivalent of the rate of pay for level II of the Executive Schedule",
+    "may not exceed the monthly equivalent of the rate of pay for level V of the Executive Schedule"
+   ]
+  },
+  "ndaa2025": {
+   "titolo": "Public Law 118-159, section 601, Reform of basic pay rates (table effective April 1, 2025)",
+   "chi": "138 Stat. 1924, approved December 23, 2024 (govinfo.gov, U.S. Government Publishing Office)",
+   "url": "https://www.govinfo.gov/content/pkg/PLAW-118publ159/html/PLAW-118publ159.htm",
+   "cerca": [
+    "Effective April 1, 2025, the rates of monthly basic pay for members of the uniformed services within each pay grade",
+    "Approved December 23, 2024"
+   ]
+  },
+  "hdoc189": {
+   "titolo": "House Document 119-189, Alternative Plan for Pay Adjustments (letter of the President, August 26, 2026)",
+   "chi": "119th Congress, 2d Session; referred August 27, 2026 (govinfo.gov, U.S. Government Publishing Office)",
+   "url": "https://www.govinfo.gov/content/pkg/CDOC-119hdoc189/html/CDOC-119hdoc189.htm",
+   "cerca": [
+    "Washington, August 26, 2026",
+    "exercise my authority under section 1009(e) of title 37, United States Code, to set the 2027 monthly basic pay increase for members of the Armed Forces at 7.0 percent for grades E1 to E5, 6.0 percent for grades E6 to O3, and 5.0 percent for grades O4 and above, subject to the caps established by 37 U.S.C. 203",
+    "The adjustments described shall take effect on January 1, 2027",
+    "Uniformed service members who do not serve in the Armed Forces",
+    "monthly basic pay for these service members shall be increased by 3.6 percent, as determined pursuant to 37 U.S.C. 1009(c)"
+   ]
+  },
+  "plaw119": {
+   "titolo": "Public laws of the 119th Congress (list of published laws)",
+   "chi": "govinfo.gov, U.S. Government Publishing Office",
+   "url": "https://www.govinfo.gov/app/collection/plaw/119/public",
+   "leggi": "https://api.govinfo.gov/collections/PLAW/2026-07-01T00:00:00Z?offsetMark=*&pageSize=1000&congress=119&api_key=DEMO_KEY",
+   "api_plaw": true,
+   "cerca": []
   },
   "eo2016": {
    "titolo": "Executive Order 13715, Adjustments of Certain Rates of Pay, Schedule 8 (effective January 1, 2016)",
@@ -170,7 +232,9 @@
    "sha256": "863e74d5b43e06b14a61cc715e324137586eb57de0852c3d31f8955a3c8a8e79",
    "byte": 921263,
    "trovate": {
-    "Schedule 8 is effective January 1, 2025": true
+    "Schedule 8 is effective January 1, 2025": true,
+    "2,108.10": true,
+    "which is $18,808.20": true
    }
   },
   "usc1009": {
@@ -214,6 +278,74 @@
    "trovate": {
     "2025-23844": true
    }
+  },
+  "eo2026_s5": {
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "sha256": "11566b889ca3cd4cc48394d9462b1f22b0f3e12a58d335434fbfe4c06e2f35cf",
+   "byte": 1267738,
+   "trovate": {
+    "Schedule 5-Executive Schedule": true,
+    "Level II 228,000": true,
+    "Level V 184,900": true
+   }
+  },
+  "af_basicpay": {
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "sha256": "e3ccf48fb31e68341f7abb26c2f99063da867053ff3e8ae48583fb366613f2e2",
+   "byte": 222908,
+   "trovate": {
+    "Basic pay for an O-7 to O-10 is limited by Level II of the Executive Schedule during calendar year 2026 ($18,999.90)": true,
+    "Basic pay for O-6 and below is limited by Level V of the Executive Schedule in effect during calendar year 2026 ($15,408.30)": true
+   }
+  },
+  "usc203": {
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "sha256": "c9e1ea4a4af847c2f877a8e535c791ec23a168ca6747ae572f299e5bb50b8754",
+   "byte": 41370,
+   "trovate": {
+    "may not exceed the monthly equivalent of the rate of pay for level II of the Executive Schedule": true,
+    "may not exceed the monthly equivalent of the rate of pay for level V of the Executive Schedule": true
+   }
+  },
+  "ndaa2025": {
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "sha256": "0a24dd8fe96c704051ccb9cf37586242bbc530e6e8088c7f7e8864a5da5572bd",
+   "byte": 2981120,
+   "trovate": {
+    "Effective April 1, 2025, the rates of monthly basic pay for members of the uniformed services within each pay grade": true,
+    "Approved December 23, 2024": true
+   }
+  },
+  "hdoc189": {
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "sha256": "2e87caf7acbcb05b7f85b20eac75a500fbd3f635f7af1258e168da9f03d6f91d",
+   "byte": 5468,
+   "trovate": {
+    "Washington, August 26, 2026": true,
+    "exercise my authority under section 1009(e) of title 37, United States Code, to set the 2027 monthly basic pay increase for members of the Armed Forces at 7.0 percent for grades E1 to E5, 6.0 percent for grades E6 to O3, and 5.0 percent for grades O4 and above, subject to the caps established by 37 U.S.C. 203": true,
+    "The adjustments described shall take effect on January 1, 2027": true,
+    "Uniformed service members who do not serve in the Armed Forces": true,
+    "monthly basic pay for these service members shall be increased by 3.6 percent, as determined pursuant to 37 U.S.C. 1009(c)": true
+   }
+  },
+  "plaw119": {
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "sha256": "fb478027a95824b2570293cfe2a53377de06464ea6c0ca5d35d0a3adb6c18e27",
+   "byte": 16240,
+   "ultima_legge": {
+    "numero": "119-138",
+    "data": "2026-11-03",
+    "titolo": "Accelerating Access to Critical Therapies for ALS Reauthorization Act of 2026"
+   },
+   "leggi_lette": 57,
+   "ndaa_2027": [],
+   "trovate": {}
   },
   "eo2016": {
    "http": 200,

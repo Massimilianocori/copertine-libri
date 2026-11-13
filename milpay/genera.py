@@ -45,6 +45,7 @@ def carica(nome):
 
 P = carica("paga_2026.json")
 P25 = carica("paga_2025.json")
+APR25 = carica("paga_2025_aprile.json")  # tabella in vigore dal 1° aprile 2025 (Public Law 118-159, sez. 601): testo ufficiale, non immagini
 ST = carica("storico.json")
 DOM = carica("domanda.json")
 _F = carica("fonti.json")
@@ -64,6 +65,22 @@ CAT_NOME = {"E": "Enlisted", "W": "Warrant officers", "O": "Commissioned officer
             "OE": "Officers with over 4 years of prior enlisted or warrant officer service"}
 TETTO2 = ["o-7", "o-8", "o-9", "o-10"]  # nota *: livello II dell'Executive Schedule
 TETTO5 = ["o-1", "o-2", "o-3", "o-4", "o-5", "o-6", "o-1e", "o-2e", "o-3e"]  # nota **: livello V, O-6 e sotto
+# Livelli dell'Executive Schedule nello Schedule 5 dello stesso ordine (dollari l'anno; frasi rilette in fonti.json, fonte eo2026_s5).
+ES_ANNUO = {"II": 228000, "V": 184900}
+
+
+def mensile_es(annuo):
+    """Equivalente mensile di un livello dell'Executive Schedule: paga giornaliera (annuo / 360, al centesimo) × 30.
+    Riproduce i tetti stampati negli ordini 2024 e 2025 e il tetto del livello V del 2026."""
+    return round(round(annuo / 360 + 1e-9, 2) * 30, 2)
+
+
+# Tetto O-7…O-10. La nota * dell'ordine 2026 stampa 18.899,90 $, ma la tabella dello stesso ordine paga 18.999,90 $, che è
+# l'equivalente mensile dei 228.000 $ del livello II (Schedule 5) e la cifra pubblicata dal Department of the Air Force.
+# Il sito usa la cifra della tabella e dichiara la differenza con la nota; TETTO_II_NOTA resta solo per dirlo.
+TETTO_II = mensile_es(ES_ANNUO["II"])
+TETTO_II_NOTA = NOTE["tetto_O7_O10"]
+TETTO_V = NOTE["tetto_O6_e_sotto"]
 NOINDEX = {"o-9"}  # riga identica a O-10: la pagina esiste per chi la cerca, ma non va nell'indice (duplicato)
 
 
@@ -103,17 +120,28 @@ def anni_txt(i):
 
 # ---------------------------------------------------------------- calcolo (copia Python di stile.APP_JS calcola)
 def tetti():
-    return {"lvl2": NOTE["tetto_O7_O10"], "lvl5": NOTE["tetto_O6_e_sotto"]}
+    return {"lvl2": TETTO_II, "lvl5": TETTO_V}
 
 
 def pagabile(slug, v):
     if v is None:
         return None
     if slug in TETTO2:
-        return min(v, NOTE["tetto_O7_O10"])
+        return min(v, TETTO_II)
     if slug in TETTO5:
-        return min(v, NOTE["tetto_O6_e_sotto"])
+        return min(v, TETTO_V)
     return v
+
+
+def al_tetto(slug, v):
+    """Il tetto del grado se l'importo della tabella è al limite mensile di legge, altrimenti None."""
+    if v is None:
+        return None
+    if slug in TETTO2 and v >= TETTO_II - 0.001:
+        return TETTO_II
+    if slug in TETTO5 and v >= TETTO_V - 0.001:
+        return TETTO_V
+    return None
 
 
 def calcola(slug, chiave, c):
@@ -127,7 +155,7 @@ def calcola(slug, chiave, c):
         if r[j] is not None and pagabile(slug, r[j]) > m + 0.001:
             pr = {"col": j, "mese": pagabile(slug, r[j]), "piu": round(pagabile(slug, r[j]) - m, 2)}
             break
-    return {"tabella": v, "mese": m, "anno": round(m * 12, 2), "tetto": None if m == v else m, "prossimo": pr}
+    return {"tabella": v, "mese": m, "anno": round(m * 12, 2), "tetto": al_tetto(slug, v), "prossimo": pr}
 
 
 def dati_js():
@@ -187,7 +215,22 @@ def controlla_tabella():
         for v in riga(slug.upper()):
             if v is not None and v > NOTE["tetto_O6_e_sotto"]:
                 err.append(f"{slug}: {v} sopra il tetto del livello V")
-    if not NOTE["tetto_O6_e_sotto"] < NOTE["tetto_O7_O10"]:
+    # tetti: equivalente mensile dei livelli dello Schedule 5; il livello V deve dare la cifra della nota **, il livello II la cifra
+    # più alta della tabella (righe O-9 e O-10). La nota * stampata può differire (2026: 18.899,90): il sito lo dichiara.
+    if mensile_es(ES_ANNUO["V"]) != TETTO_V:
+        err.append(f"livello V: {ES_ANNUO['V']} l'anno dà {mensile_es(ES_ANNUO['V'])}, la nota dice {TETTO_V}")
+    if TETTO_II != massimo(riga("O-10")) or set(v for v in riga("O-9") if v is not None) != {TETTO_II} or set(v for v in riga("O-10") if v is not None) != {TETTO_II}:
+        err.append(f"livello II: {ES_ANNUO['II']} l'anno dà {TETTO_II}, ma le righe O-9/O-10 stampano {massimo(riga('O-10'))}")
+    for g in ("O-7", "O-8"):
+        if any(v is not None and v > TETTO_II for v in riga(g)):
+            err.append(f"{g}: importo sopra il tetto del livello II")
+    for fid, frasi in (("eo2026_s5", ["Level II 228,000", "Level V 184,900"]),
+                       ("af_basicpay", [f"Basic pay for an O-7 to O-10 is limited by Level II of the Executive Schedule during calendar year 2026 ({soldi(TETTO_II)})"]),
+                       ("eo2026", [f"level II of the Executive Schedule in effect during calendar year 2026, which is {soldi(TETTO_II_NOTA)}"])):
+        for fr in frasi:
+            if not ESITI.get(fid, {}).get("trovate", {}).get(fr):
+                err.append(f"tetto: frase non riletta nella fonte {fid}: {fr}")
+    if not TETTO_V < TETTO_II:
         err.append("tetti incoerenti")
     if P["letture"]["A_uguale_B"] != P["letture"]["celle"] or P["letture"]["celle"] != 616:
         err.append(f"letture: {P['letture']}")
@@ -199,7 +242,7 @@ def controlla_tabella():
                 continue
             for i, v in enumerate(r):
                 w = P25["tabelle"][cat][g][i]
-                if v is None or w is None or w >= P25["note"]["tetto_O7_O10"] or v >= NOTE["tetto_O7_O10"] or (g == "O-6" and v >= NOTE["tetto_O6_e_sotto"]):
+                if v is None or w is None or w >= P25["note"]["tetto_O7_O10"] or v >= TETTO_II or (g == "O-6" and v >= TETTO_V):
                     continue
                 conf += 1
                 if abs(v - w * 1.038) > 0.15:
@@ -208,9 +251,46 @@ def controlla_tabella():
         err += fuori
     if conf < 300:
         err.append(f"solo {conf} celle confrontate con il 2025")
+    # secondo controllo indipendente, su TUTTE le righe (E-1…E-5 comprese): 2026 = tabella di legge del 1° aprile 2025 × 1,038 (± $0,15).
+    # La tabella di aprile è testo ufficiale (Public Law 118-159, sez. 601), non una lettura ottica. Le celle al tetto devono valere il tetto.
+    apr, al_tetto, fuori = 0, 0, []
+    for cat in t:
+        for g, r in t[cat].items():
+            if g == "E-1<4":
+                w0 = APR25["E1_meno_di_4_mesi"]
+                apr += 1
+                if abs(r[0] - w0 * 1.038) > 0.151:
+                    fuori.append(f"E-1 sotto i 4 mesi: {w0} × 1,038 ≠ {r[0]}")
+                continue
+            for i, v in enumerate(r):
+                w = APR25["tabelle"][cat][g][i]
+                if v is None:
+                    if w is not None:
+                        fuori.append(f"{g} {COL[i]}: trattino nel 2026, {w} ad aprile 2025")
+                    continue
+                if w is None:
+                    if not (g == "O-1" and i >= 20):  # la legge stampata non riporta le ultime due colonne della riga O-1
+                        fuori.append(f"{g} {COL[i]}: {v} nel 2026, niente ad aprile 2025")
+                    continue
+                tetto = TETTO_II if g in ("O-7", "O-8", "O-9", "O-10") else TETTO_V
+                atteso = w * 1.038
+                if atteso > tetto + 0.15:
+                    al_tetto += 1
+                    if v != tetto:
+                        fuori.append(f"{g} {COL[i]}: {w} × 1,038 supera il tetto {tetto}, ma la tabella stampa {v}")
+                    continue
+                apr += 1
+                if abs(v - atteso) > 0.151:
+                    fuori.append(f"{g} {COL[i]}: aprile 2025 {w} × 1,038 = {atteso:.2f}, tabella 2026 {v}")
+    if abs(NOTE["E9_incarichi_speciali"] - APR25["E9_incarichi_speciali"] * 1.038) > 0.151:
+        fuori.append("E-9 incarichi speciali: non è aprile 2025 × 1,038")
+    if fuori:
+        err += fuori
+    if apr < 500 or al_tetto < 30:
+        err.append(f"confronto con aprile 2025: solo {apr} celle e {al_tetto} al tetto")
     if err:
         raise SystemExit("ERRORI NELLA TABELLA:\n - " + "\n - ".join(err))
-    return {"celle": n, "importi": piene, "confronto_2025": conf}
+    return {"celle": n, "importi": piene, "confronto_2025": conf, "confronto_aprile_2025": apr, "al_tetto": al_tetto}
 
 
 # ---------------------------------------------------------------- fonti e rimandi numerati
@@ -297,7 +377,7 @@ def pagina(percorso, titolo, descrizione, corpo, testata="", briciole=None, json
     enl = "".join(f'<li><a href="/{s}/">{n}</a></li>' for s, n, c, _ in GRADI if c == "E")
     alt = "".join(f'<li><a href="/{s}/">{n}</a></li>' for s, n, c, _ in GRADI if c != "E" and s not in NOINDEX)
     guide = "".join(f'<li><a href="/{u}">{h(t)}</a></li>' for u, t in [("calculator/", "Basic pay calculator"), ("pay-raise-history/", "Pay raise history"),
-                    ("2027-pay-raise/", "2027 pay raise: status"), ("how-we-check/", "How we check"), ("about/", "About"), ("how-we-check/#corrections", "Contact and corrections"), ("privacy/", "Privacy")])
+                    ("2027-pay-raise/", "2027 pay raise: status"), ("how-we-check/", "How we check"), ("about/", "About"), ("how-we-check/#corrections", "Report an error"), ("privacy/", "Privacy")])
     testo = f"""<!DOCTYPE html>
 <html lang="en-US">
 <head>
@@ -426,8 +506,12 @@ def tabella_categoria(cat, rim, evidenzia=None):
 
 def note_tabella(rim, quali=("2", "5", "e9", "e1", "oe")):
     t = {
-        "2": f"<li><strong>O-7 to O-10:</strong> basic pay is limited to the rate for level II of the Executive Schedule, <strong>{soldi(NOTE['tetto_O7_O10'])}</strong> a month in {ANNO}. The table prints {soldi(massimo(riga('O-10')))} in the O-9 and O-10 rows and in the O-8 row from over 22 years, above that cap, so the cap is the monthly amount paid.{rim.ref('eo2026')}</li>",
-        "5": f"<li><strong>O-6 and below:</strong> basic pay is limited to the rate for level V of the Executive Schedule, <strong>{soldi(NOTE['tetto_O6_e_sotto'])}</strong> a month in {ANNO}.{rim.ref('eo2026')}</li>",
+        "2": ("<li><strong>O-7 to O-10:</strong> by law basic pay for these grades may not exceed the monthly equivalent of level II of the Executive Schedule."
+              f"{rim.ref('usc203')} In {ANNO} the table stops at <strong>{soldi(TETTO_II)}</strong> a month: that is the rate printed in the O-9 and O-10 rows and in the O-8 row from over 22 years.{rim.ref('eo2026')} "
+              f"Level II is {soldi(ES_ANNUO['II'], False)} a year in Schedule 5 of the same order{rim.ref('eo2026_s5')} and the Department of the Air Force gives the {ANNO} limit as {soldi(TETTO_II)}.{rim.ref('af_basicpay')}"
+              + (f" The footnote printed under the table gives the limit as {soldi(TETTO_II_NOTA)}, {soldi(TETTO_II - TETTO_II_NOTA)} less than the rates in the table it belongs to; we show the table rate and point out the difference.{rim.ref('eo2026')}"
+                 if abs(TETTO_II - TETTO_II_NOTA) > 0.001 else "") + "</li>"),
+        "5": f"<li><strong>O-6 and below:</strong> basic pay is limited to the rate for level V of the Executive Schedule, <strong>{soldi(TETTO_V)}</strong> a month in {ANNO}. The O-6 row reaches that limit from over 30 years.{rim.ref('eo2026')}</li>",
         "e9": f"<li><strong>Senior enlisted advisors</strong> (Sergeant Major of the Army, Master Chief Petty Officer of the Navy or Coast Guard, Chief Master Sergeant of the Air Force, Sergeant Major of the Marine Corps, Chief Master Sergeant of the Space Force and the senior enlisted advisors to the Chairman of the Joint Chiefs of Staff and to the Chief of the National Guard Bureau): <strong>{soldi(NOTE['E9_incarichi_speciali'])}</strong> a month, whatever their years of service.{rim.ref('eo2026')}</li>",
         "e1": f"<li><strong>E-1:</strong> the full E-1 rate applies after 4 months or more on active duty; with less than 4 months the rate is <strong>{soldi(riga('E-1<4')[0])}</strong>.{rim.ref('eo2026')}</li>",
         "oe": f"<li><strong>O-1E, O-2E, O-3E</strong> rates are for commissioned officers credited with over 4 years of active duty service as an enlisted member or warrant officer; the ordinary O-1 to O-3 rates do not apply to them. Reservists with at least 1,460 points as an enlisted member and/or warrant officer, creditable toward reserve retirement, also qualify.{rim.ref('eo2026')}</li>",
@@ -467,7 +551,7 @@ def calcolatore(g="e-5", c=3, titolo="Basic pay calculator, 2026"):
 </form>
 <div class="calc-out" data-out aria-live="polite">{statico}</div>
 </div>
-<p class="calc-f">Rates from the official {ANNO} table (Executive Order {EO['ordine_esecutivo']}, Schedule 8), with the monthly caps in its notes. Basic pay only. The calculator runs in your browser.</p>
+<p class="calc-f">Rates from the official {ANNO} table (Executive Order {EO['ordine_esecutivo']}, Schedule 8); rates at a monthly limit are marked. Basic pay only. The calculator runs in your browser.</p>
 </section>"""
 
 
@@ -485,7 +569,7 @@ def home():
              f'<div class="stat main"><b>{a26["tabelle"]["aumento"]}%</b><span>January {ANNO} raise in the pay table{rim.ref("eo2026,eo2025")}</span></div>'
              f'<div class="stat"><b>{soldi(e[0])}</b><span>E-1 monthly (4+ months of service){rim.ref("eo2026")}</span></div>'
              f'<div class="stat"><b>{soldi(massimo(riga("E-9")))}</b><span>Top of the E-9 table{rim.ref("eo2026")}</span></div>'
-             f'<div class="stat"><b>{soldi(NOTE["tetto_O7_O10"])}</b><span>Monthly cap for O-7 to O-10{rim.ref("eo2026")}</span></div>'
+             f'<div class="stat"><b>{soldi(TETTO_II)}</b><span>Highest rate in the table: the limit for O-7 to O-10{rim.ref("eo2026,af_basicpay")}</span></div>'
              f'<p class="asof">Effective {P["effettiva_dal"]}. Executive Order {EO["ordine_esecutivo"]} of {data_lunga(EO["firmato_il"])}, Federal Register {EO["citazione"]}, Schedule 8. '
              f'Read on {data_lunga(CONTROLLO)}.</p></section>')
     corpo += ('<div class="testo" style="margin-top:22px"><p>The tables below are the official <strong>monthly basic pay</strong> rates for the U.S. uniformed services in '
@@ -529,8 +613,8 @@ def pagina_calcolatore():
     corpo = '<div class="pull">' + calcolatore() + "</div>" + AD
     corpo += ('<h2 id="method">How the calculator works</h2><div class="testo">' + rim.t(
         f'<p>It looks up the cell for your grade and years of service in the official {ANNO} table[[eo2026]] and shows it as a monthly figure. The yearly figure is that amount × 12. '
-        f'If the table prints a rate above the monthly cap that the order sets for your grade ({soldi(NOTE["tetto_O7_O10"])} for O-7 to O-10, {soldi(NOTE["tetto_O6_e_sotto"])} for O-6 and below), '
-        'it shows the capped amount and says so.[[eo2026]]</p>'
+        f'The official table already stops at the monthly limits set by law ({soldi(TETTO_II)} for O-7 to O-10, {soldi(TETTO_V)} for O-6 and below);[[usc203,eo2026]] '
+        'when your rate is at one of these limits the calculator says so.</p>'
         '<p>“Next step” is the next column of the same row with a higher rate: it tells you after how many years of service the table pays more, at today’s rates. '
         'Rates themselves change every January 1.[[usc1009]]</p>'
         '<p>What it does not include: allowances, special and incentive pays, bonuses, drill pay for reservists, tax and deductions. It is not a retirement calculator.</p>') + "</div>")
@@ -540,9 +624,9 @@ def pagina_calcolatore():
     fh, fld = faq_blocco(voci, rim)
     corpo += fh + rim.elenco()
     testata = banda("Calculator", f"Military Basic Pay Calculator {ANNO}",
-                    "Choose a pay grade and your years of service: monthly and yearly basic pay from the official table, the cap where it applies, and the next step.", corta=False, icona="calc")
+                    "Choose a pay grade and your years of service: monthly and yearly basic pay from the official table, the monthly limit where it applies, and the next step.", corta=False, icona="calc")
     pagina("calculator/", f"Military Basic Pay Calculator {ANNO} (All Grades)",
-           f"Free {ANNO} military basic pay calculator: pick E-1 to O-10 and years of service to see monthly and yearly basic pay from the official table, caps included.",
+           f"Free {ANNO} military basic pay calculator: pick E-1 to O-10 and years of service to see monthly and yearly basic pay from the official table and the next step.",
            corpo, testata, briciole=[("Home", ""), ("Calculator", "calculator/")], jsonld=[fld,
            {"@context": "https://schema.org", "@type": "WebApplication", "name": f"Military Basic Pay Calculator {ANNO}", "applicationCategory": "FinanceApplication",
             "operatingSystem": "Any", "url": f"{URL_SITO}/calculator/", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}], script_dati=script_dati())
@@ -588,7 +672,7 @@ def pagina_grado(slug, nome, cat, k):
     top = max(pag)
     i_top = idx[pag.index(top)]
     passi = [(idx[j], pag[j], pag[j] - pag[j - 1]) for j in range(1, len(idx)) if pag[j] > pag[j - 1] + 0.001]
-    capped = any(pagabile(slug, r[i]) != r[i] for i in idx)
+    capped = any(al_tetto(slug, r[i]) for i in idx)
     eo_ref = rim.ref("eo2026")
     corpo = (f'<section class="card stats pull" aria-label="Key figures">'
              f'<div class="stat main"><b>{soldi(pag[0])}</b><span>Monthly at {anni_txt(idx[0])}{eo_ref}</span></div>'
@@ -602,13 +686,13 @@ def pagina_grado(slug, nome, cat, k):
     for i in idx:
         v, m = r[i], pagabile(slug, r[i])
         diff = "" if prec is None else ("–" if m - prec < 0.005 else f"+{soldi(m - prec)}")
-        tetto = f' <span class="cap" title="capped">cap</span>' if m != v else ""
+        tetto = ' <span class="cap" title="at the monthly limit set by law">cap</span>' if al_tetto(slug, v) else ""
         righe.append(f'<tr><th scope="row">{h(COL[i])}</th><td class="n">{soldi(m)}{tetto}</td><td class="n">{soldi(m * 12)}</td><td class="n">{diff}</td></tr>')
         prec = m
     if k == "E-1":
         righe.insert(0, f'<tr><th scope="row">Under 4 months</th><td class="n">{soldi(riga("E-1<4")[0])}</td><td class="n">{soldi(riga("E-1<4")[0] * 12)}</td><td class="n"></td></tr>')
     cap = (f'{h(nome)} monthly basic pay, {ANNO}, by years of service. Monthly column: Schedule 8 of Executive Order {EO["ordine_esecutivo"]}{eo_ref}'
-           + (" with the monthly cap applied" if capped else "") + '. Per year and change: our arithmetic.')
+           + ('; “cap” marks rates at the monthly limit set by law' if capped else "") + '. Per year and change: our arithmetic.')
     corpo += (f'<h2 id="table">{h(nome)} pay table {ANNO}</h2>'
               f'<div class="tab"><table class="dati"><caption>{cap}</caption><thead><tr><th scope="col">Years of service</th><th scope="col" class="n">Monthly</th>'
               f'<th scope="col" class="n">Per year</th><th scope="col" class="n">Change</th></tr></thead><tbody>{"".join(righe)}</tbody></table></div>')
@@ -654,7 +738,7 @@ def pagina_grado(slug, nome, cat, k):
         for s2, n2, _, k2 in vicini:
             celle = "".join((f'<td class="n">{soldi(pagabile(s2, riga(k2)[i]))}</td>' if riga(k2)[i] is not None else '<td class="na">–</td>') for i in cols)
             tr += f'<tr{" class=\"qui\"" if k2 == k else ""}><th scope="row">' + (h(n2) if k2 == k else f'<a href="/{s2}/">{h(n2)}</a>') + f"</th>{celle}</tr>"
-        corpo += (f'<h2>{h(nome)} compared with nearby grades</h2><div class="tab"><table class="dati"><caption>Monthly basic pay {ANNO} at selected years of service, caps applied. '
+        corpo += (f'<h2>{h(nome)} compared with nearby grades</h2><div class="tab"><table class="dati"><caption>Monthly basic pay {ANNO} at selected years of service. '
                   f'Source: Executive Order {EO["ordine_esecutivo"]}, Schedule 8{eo_ref}.</caption><thead><tr><th scope="col">Grade</th>{th}</tr></thead><tbody>{tr}</tbody></table></div>')
     c0 = idx[0] if len(idx) < 4 else 3
     corpo += f'<h2 id="calculator">Check a different grade or year</h2>' + calcolatore(slug, c0, f"{nome} and other grades")
@@ -664,16 +748,46 @@ def pagina_grado(slug, nome, cat, k):
     corpo += f'<h2>Other pay grades</h2>{griglia_gradi(escludi=slug)}'
     corpo += rim.elenco()
     testata = banda(CAT_NOME[cat], f"{nome} Pay {ANNO}",
-                    f"Monthly basic pay for {h(nome)} from <strong>{soldi(pag[0])}</strong> to <strong>{soldi(top)}</strong> in {ANNO}, by years of service, from the official table.")
+                    (f"Monthly basic pay for {h(nome)} from <strong>{soldi(pag[0])}</strong> to <strong>{soldi(top)}</strong> in {ANNO}, by years of service, from the official table."
+                     if top > pag[0] else
+                     f"Monthly basic pay for {h(nome)} is <strong>{soldi(top)}</strong> in {ANNO} at every length of service in the official table."))
     titolo = f"{nome} Pay {ANNO}: Monthly and Yearly Basic Pay by Years"
-    descr = (f"{nome} basic pay {ANNO}: {soldi(pag[0])} to {soldi(top)} a month by years of service, yearly amounts, every step and the next raise, "
-             f"from the official table (EO {EO['ordine_esecutivo']}).")
+    descr = ((f"{nome} basic pay {ANNO}: {soldi(pag[0])} to {soldi(top)} a month by years of service, yearly amounts, every step and the next raise, "
+              f"from the official table (EO {EO['ordine_esecutivo']}).") if top > pag[0] else
+             (f"{nome} basic pay {ANNO}: {soldi(top)} a month at every length of service in the table, the yearly amount and the next raise, "
+              f"from the official table (EO {EO['ordine_esecutivo']})."))
     pagina(f"{slug}/", titolo, descr, corpo, testata, briciole=[("Home", ""), (f"{nome} pay", f"{slug}/")], jsonld=[fld] if fld else None,
            indicizza=slug not in NOINDEX, script_dati=script_dati())
 
 
+GEN25_E1 = 2108.10
+
+
+def confronto_gennaio_aprile_2025():
+    """Aprile 2025 (legge) rispetto a gennaio 2025 (ordine): variazioni per riga, dalle celle lette in entrambe le tabelle."""
+    var = {}
+    for cat, righe in APR25["tabelle"].items():
+        for g, r in righe.items():
+            x = [round((a / b - 1) * 100, 1) for a, b in zip(r, P25["tabelle"][cat][g]) if a is not None and b is not None]
+            if x:
+                var[g] = (min(x), max(x))
+    if any(var[g] != (10.0, 10.0) for g in ("E-2", "E-3", "E-4")) or var["E-5"][0] != 0.0 or not 5 < var["E-5"][1] < 10:
+        raise SystemExit(f"confronto gennaio/aprile 2025 inatteso: {var}")
+    # riga E-1 di gennaio 2025: 2.108,10 $ nel testo del PDF dell'ordine (frase riletta in fonti.json); la lettura ottica di quella riga non è nei dati
+    e1 = round((APR25["tabelle"]["E"]["E-1"][0] / GEN25_E1 - 1) * 100, 1)
+    if e1 != 10.0 or not ESITI.get("eo2025", {}).get("trovate", {}).get("2,108.10"):
+        raise SystemExit(f"E-1 gennaio/aprile 2025: {e1}% o frase non riletta")
+    altri = {g: v for g, v in var.items() if g not in ("E-1", "E-2", "E-3", "E-4", "E-5") and v != (0.0, 0.0)}
+    if altri:
+        raise SystemExit(f"aprile 2025: righe diverse da gennaio oltre E-1…E-5: {altri}")
+    return {"e1_e4": "10.0", "e5_max": f"{var['E-5'][1]:.1f}"}
+
+
 def storico_pagina():
     rim = Rimandi()
+    a25 = confronto_gennaio_aprile_2025()
+    stat = controlla_tabella()
+    a25.update(celle=stat["confronto_aprile_2025"], al_tetto=stat["al_tetto"])
     righe = []
     for x in ST["aumenti"]:
         a = x["anno"]
@@ -699,8 +813,15 @@ def storico_pagina():
     corpo += AD
     corpo += '<h2>What the table shows</h2><div class="testo">'
     corpo += rim.t('<p>In every year we could measure, the raise in the table equals the formula figure from the Employment Cost Index. '
-                   'In the 2026 table, rows E-1 to E-5 are more than 3.8% above the January 2025 table at some years of service; the 2026 rates on the <a href="/e-1/">E-1</a> to <a href="/e-5/">E-5</a> pages are the figures in force.[[eo2026,eo2025]]</p>'
-                   '<p>The law also lets the President send Congress an alternative pay plan before September 1 of the previous year, in a national emergency or serious economic conditions.[[usc1009]]</p></div>')
+                   '</p>'
+                   f'<p><strong>2025 had two tables.</strong> Besides the January table, Public Law 118-159 (section 601) set new rates “effective April 1, 2025”.[[ndaa2025]] '
+                   f'Compared with the January 2025 table, the April table is {a25["e1_e4"]}% higher in the E-1 to E-4 rows and up to {a25["e5_max"]}% higher in the E-5 row, and the same for E-6 and above '
+                   '(our comparison of the two tables).[[ndaa2025,eo2025]]</p>'
+                   f'<p><strong>The January 2026 raise is 3.8% in every row.</strong> Measured against the April 2025 table, the rates in force when it took effect, each of the {a25["celle"]} cells we compared '
+                   f'in the 2026 table is 3.8% higher (within 15 cents), E-1 to E-5 included; the other {a25["al_tetto"]} amounts are at a monthly limit. That is why, against the <em>January</em> 2025 table, '
+                   'the E-1 to E-5 rows show more than 3.8%.[[eo2026,ndaa2025]] The Department of the Air Force also states that “the 2026 basic pay tables reflect a 3.8% raise”.[[af_basicpay]]</p>'
+                   '<p>The law also lets the President send Congress an alternative pay plan before September 1 of the previous year, in a national emergency or serious economic conditions.[[usc1009]] '
+                   'For January 2027 the President did so: see the <a href="/2027-pay-raise/">status of the 2027 raise</a>.[[hdoc189]]</p></div>')
     serie = []
     for x in ST["aumenti"]:
         if 2018 <= x["anno"] <= ANNO:
@@ -724,48 +845,66 @@ def pagina_2027():
     ric = ST["ricerca_2027"]
     if ric["risultati"]:
         raise SystemExit("C'è un ordine nuovo nel Federal Register: aggiornare il sito alle tabelle 2027 (NOTE.md)")
+    leggi = ESITI.get("plaw119", {})
+    if leggi.get("ndaa_2027"):
+        raise SystemExit(f"È stata pubblicata una legge sulla difesa per il 2027 ({leggi['ndaa_2027']}): riscrivere la pagina /2027-pay-raise/ con la cifra di legge (NOTE.md)")
+    piano = "set the 2027 monthly basic pay increase for members of the Armed Forces at 7.0 percent for grades E1 to E5, 6.0 percent for grades E6 to O3, and 5.0 percent for grades O4 and above, subject to the caps established by 37 U.S.C. 203"
+    if not any(piano in c and ok for c, ok in ESITI.get("hdoc189", {}).get("trovate", {}).items()):
+        raise SystemExit("piano del Presidente (House Document 119-189): frase non riletta")
+    oggi = data_lunga(max(ric["data"], leggi.get("letto_il", ric["data"])))
     corpo = (f'<section class="card stats pull" aria-label="2027 status">'
-             f'<div class="stat main"><b>{x27["eci_formula"]}%</b><span>Formula figure for January 2027 (ECI, {x27["eci_trimestre"]}){rim.ref("usc1009,bls_eci")}</span></div>'
-             f'<div class="stat"><b>5–7%</b><span>Proposed in the FY2027 budget, by grade group{rim.ref("budget2027")}</span></div>'
+             f'<div class="stat main"><b>7 · 6 · 5%</b><span>Set in the President’s plan of August 26, 2026, by grade group{rim.ref("hdoc189")}</span></div>'
+             f'<div class="stat"><b>{x27["eci_formula"]}%</b><span>Formula figure for January 2027 (ECI, {x27["eci_trimestre"]}){rim.ref("usc1009,bls_eci")}</span></div>'
              f'<div class="stat"><b>Not yet</b><span>2027 pay table in the Federal Register{rim.ref("fr_search")}</span></div>'
              f'<div class="stat"><b>Jan 1</b><span>When the annual raise takes effect{rim.ref("usc1009")}</span></div>'
-             f'<p class="asof">Status as of {data_lunga(ric["data"])}. Nothing on this page is a forecast: each line is what an official source says on that date.</p></section>')
-    corpo += '<h2>Proposed, formula and enacted: three different things</h2><div class="testo">'
+             f'<p class="asof">Status as of {oggi}. Nothing on this page is a forecast: each line is what an official source says on that date.</p></section>')
+    corpo += '<h2>Formula, budget, the President’s plan, Congress and the pay table</h2><div class="testo">'
     corpo += rim.t(
-        f'<p><strong>Formula figure: {x27["eci_formula"]}%.</strong> 37 U.S.C. 1009 sets the default raise: the percentage by which the Employment Cost Index for private-industry wages and salaries '
+        f'<p><strong>The formula in the law: {x27["eci_formula"]}%.</strong> 37 U.S.C. 1009 sets the default raise: the percentage by which the Employment Cost Index for private-industry wages and salaries '
         f'in the July–September quarter of the year before the preceding year exceeds the same quarter a year earlier, rounded to 0.1%.[[usc1009]] For January 2027 that is the {x27["eci_trimestre"]} figure '
         f'published by the Bureau of Labor Statistics: {x27["eci_formula"]}%.[[bls_eci]]</p>'
-        '<p><strong>Proposed: 7%, 6% or 5%.</strong> The President’s budget for fiscal year 2027 says that “the Budget funds a military pay raise of 7 percent for all military personnel ranked E-5 and below, '
+        '<p><strong>The budget request: 7%, 6% or 5%.</strong> The President’s budget for fiscal year 2027 says that “the Budget funds a military pay raise of 7 percent for all military personnel ranked E-5 and below, '
         '6 percent for E-6 to O-3, and 5 percent for O-4 and above”. A budget is a request to Congress, not a pay table.[[budget2027]]</p>'
-        f'<p><strong>Enacted: not published yet.</strong> The 2027 rates become official when the President’s annual order with a new Schedule 8 is published in the Federal Register. '
+        '<p><strong>The President’s alternative plan: 7.0%, 6.0% or 5.0%.</strong> The same section of the law lets the President send Congress an alternative pay adjustment before September 1.[[usc1009]] '
+        'In a letter to Congress dated August 26, 2026, the President wrote that he was exercising that authority “to set the 2027 monthly basic pay increase for members of the Armed Forces at '
+        '7.0 percent for grades E1 to E5, 6.0 percent for grades E6 to O3, and 5.0 percent for grades O4 and above, subject to the caps established by 37 U.S.C. 203”, and that '
+        '“the adjustments described shall take effect on January 1, 2027”. For “uniformed service members who do not serve in the Armed Forces” the letter sets 3.6 percent.[[hdoc189]]</p>'
+        + (f'<p><strong>Congress: no 2027 defense act published.</strong> Congress can set different rates by law. On {data_lunga(leggi["letto_il"])} the list of public laws on govinfo.gov ran to '
+           f'Public Law {leggi["ultima_legge"]["numero"]} ({data_lunga(leggi["ultima_legge"]["data"])}) and held no National Defense Authorization Act and no defense appropriations act for fiscal year 2027.[[plaw119]]</p>'
+           if leggi.get("ultima_legge") else "")
+        + f'<p><strong>The 2027 pay table: not published yet.</strong> The rates for each grade and year of service become official when the President’s annual order with a new Schedule 8 is published in the Federal Register. '
         f'On {data_lunga(ric["data"])} the Federal Register held no “Adjustments of Certain Rates of Pay” order published since January 1, {ANNO}.[[fr_search]] '
         f'In each of the last three years the order was published between December 23 and December 30.[[eo2026,eo2025,eo2024]]</p>') + "</div>"
     corpo += AD
-    corpo += ('<h2>What we will not tell you</h2><div class="testo"><p>We do not publish a “2027 pay chart” before the official one exists: any such table would be a guess built on one of the figures above. '
-              f'Until the new order is published, the official rates are the <a href="/">{ANNO} chart</a>.</p></div>')
+    corpo += ('<h2>What we will not tell you</h2><div class="testo"><p>We do not publish a “2027 pay chart” before the official one exists: any such table would be our own arithmetic on a percentage, '
+              f'not the official rates, and the rounding and the monthly limits are set in the order itself. Until the new order is published, the official rates are the <a href="/">{ANNO} chart</a>.</p></div>')
     voci = [("2027 military pay chart", "When will the 2027 military pay chart come out?",
              f"When the President's annual pay order with Schedule 8 is published in the Federal Register. As of {data_lunga(ric['data'])} it had not been published; the last three were published between December 23 and December 30.", "fr_search,eo2026"),
             ("pay raise military", "Will military pay go up in 2027?",
-             f"The law's formula gives {x27['eci_formula']}% for January 1, 2027, and the FY2027 budget proposed 7% for E-5 and below, 6% for E-6 to O-3 and 5% for O-4 and above. The final figure is the one in the 2027 pay table, not yet published as of {data_lunga(ric['data'])}.", "usc1009,bls_eci,budget2027")]
+             f"In a letter to Congress of August 26, 2026 the President set the January 1, 2027 increase for the Armed Forces at 7.0% for E-1 to E-5, 6.0% for E-6 to O-3 and 5.0% for O-4 and above; the formula in the law gives {x27['eci_formula']}%. "
+             f"The official 2027 pay table had not been published as of {data_lunga(ric['data'])}.", "hdoc189,usc1009,bls_eci")]
     fh, fld = faq_blocco(voci, rim)
     corpo += fh + rim.elenco()
-    testata = banda(f"Status on {data_lunga(ric['data'])}", f"{ANNO + 1} Military Pay Raise: What Is Official So Far",
-                    "The formula figure, the President’s budget proposal and the final pay table are different things. Here is what each official source says, with its date.", corta=True, icona="cal")
-    pagina("2027-pay-raise/", f"{ANNO + 1} Military Pay Raise: Proposed vs Official (Status)",
-           f"{ANNO + 1} military pay raise: {x27['eci_formula']}% formula figure, 5-7% proposed in the FY2027 budget, and whether the official 2027 pay table is out yet. Dated, sourced status.",
+    testata = banda(f"Status on {oggi}", f"{ANNO + 1} Military Pay Raise: What Is Official So Far",
+                    "The formula, the budget request, the President’s plan and the final pay table are different things. Here is what each official source says, with its date.", corta=True, icona="cal")
+    pagina("2027-pay-raise/", f"{ANNO + 1} Military Pay Raise: 7%, 6%, 5% Plan and Status",
+           f"{ANNO + 1} military pay raise: the President's plan of 7%, 6% and 5% by grade, the {x27['eci_formula']}% formula figure, and whether the official 2027 pay table is out. Dated, sourced.",
            corpo, testata, briciole=[("Home", ""), ("2027 pay raise", "2027-pay-raise/")], jsonld=[fld])
 
 
-MODULO = """<form name="corrections" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form card">
+# Modulo delle correzioni: stesso metodo di Payroll Tax by State (Netlify Forms, invio senza cambiare pagina), ma SENZA campi per
+# dati personali: niente nome, niente email. Chi scrive non riceve risposta; la pagina privacy dice la stessa cosa (verifica.py lo controlla).
+MODULO = """<form name="corrections" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form card" data-correzioni>
 <input type="hidden" name="form-name" value="corrections">
 <p class="hp"><label>Leave this field empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
 <label>Page or figure<input type="text" name="page" required maxlength="300" placeholder="For example /e-5/, Over 4"></label>
-<label>Your message<textarea name="message" required rows="5" maxlength="3000"></textarea></label>
+<label>What is wrong?<textarea name="message" required rows="5" maxlength="3000"></textarea></label>
 <label>Official source (optional)<input type="url" name="source" maxlength="500" placeholder="https://"></label>
-<label>Your email (optional, only if you want a reply)<input type="email" name="email" maxlength="200" autocomplete="email"></label>
-<label class="check"><input type="checkbox" name="consent" value="yes" required><span>I agree that this message, and my email if I gave one, is stored to check and answer it (see <a href="/privacy/#corrections">privacy</a>).</span></label>
-<button type="submit" class="btn">Send</button>
-</form>"""
+<p class="small">Please do not include your name, email address or other personal details: the form does not ask for them and we do not reply to messages.</p>
+<p class="errore" data-errore hidden>The message was not sent. Please try again.</p>
+<button type="submit" class="btn">Send correction</button>
+</form>
+<p class="ok" data-ok hidden><strong>Thank you.</strong> We will check it against the official source.</p>"""
 
 
 def come_controlliamo(stat):
@@ -782,17 +921,22 @@ def come_controlliamo(stat):
     corpo += '<h2>Checks on the numbers</h2><div class="testo"><ul>'
     corpo += rim.t(f'<li>Count: 28 rows × 22 columns = 616 cells, with dashes exactly where the official table prints them (for example W-5 before 20 years, E-9 before 10).</li>'
                    '<li>Order: in every row pay never falls as years of service rise, and at the same years a higher grade never pays less (O-1E pays at least O-1, and so on).</li>'
-                   f'<li>Caps: no rate for O-6 and below is above the level V cap of {soldi(NOTE["tetto_O6_e_sotto"])}.</li>'
+                   f'<li>Limits: no rate for O-6 and below is above the level V limit of {soldi(TETTO_V)}, and no rate is above {soldi(TETTO_II)}. Both figures are the monthly equivalent of the yearly '
+                   f'Executive Schedule rates in Schedule 5 of the same order ({soldi(ES_ANNUO["V"], False)} and {soldi(ES_ANNUO["II"], False)}: a daily rate of one 360th, rounded to the cent, × 30; our arithmetic).[[eo2026_s5,usc203]] '
+                   + (f'The footnote printed under the officer table gives {soldi(TETTO_II_NOTA)} for O-7 to O-10; the table itself, Schedule 5 and the Department of the Air Force give {soldi(TETTO_II)}, which is what we show.[[eo2026,af_basicpay]]' if abs(TETTO_II - TETTO_II_NOTA) > 0.001 else "") + '</li>'
                    f'<li>Last year: {stat["confronto_2025"]} cells compared with the January 2025 table (Executive Order {P25["fonte"]["ordine_esecutivo"]}) are within 15 cents of the 2025 figure × 1.038. '
                    'Rows E-1 to E-5 and capped cells are left out of this check because they changed by a different amount.[[eo2025,eo2026]]</li>'
+                   f'<li>April 2025: the table that Public Law 118-159 put in force on April 1, 2025 is published as text, not images. All {stat["confronto_aprile_2025"]} amounts of the {ANNO} table below a monthly limit, '
+                   f'rows E-1 to E-5 included, are within 15 cents of the April 2025 figure × 1.038, and the other {stat["al_tetto"]} amounts are exactly at a limit.[[ndaa2025]]</li>'
+                   '<li>By eye: an independent reviewer compared every cell of the published tables with the Federal Register images before the site went online.</li>'
                    '<li>The calculator in your browser is checked against our own reference calculation on every grade and every column.</li></ul></div>')
     corpo += '<h2>What we could not read</h2><div class="testo">'
     corpo += ('<p>The pay pages of the Defense Finance and Accounting Service and of the Department of Defense answer our checking server with an error (403). We do not try to get round these blocks, so this site uses the Federal Register and govinfo.gov, '
               'where the official order is published. The 2020 table could not be read reliably enough for the raise history, which shows only the formula figure for that year.</p></div>')
     corpo += ('<h2>When we update</h2><div class="testo"><p>The pay order for the next year is normally published in the Federal Register in late December and takes effect on January 1. '
               'The site moves to the new table only after the same three readings and checks pass.</p></div>')
-    corpo += ('<h2 id="corrections">Contact and corrections</h2><div class="testo"><p>Seen a figure that does not match the official table, or have a question about the site? Tell us the page and, if you can, the official source. '
-              'Your email is optional. We cannot answer questions about individual pay: your finance office can.</p></div>' + MODULO)
+    corpo += ('<h2 id="corrections">Report an error</h2><div class="testo"><p>Seen a figure that does not match the official table? Tell us which page and, if you can, link the official source: '
+              'we check it and fix the page. We cannot answer questions about individual pay: your finance office can.</p></div>' + MODULO)
     corpo += rim.elenco()
     testata = banda("How we check", "How we check every figure", "Three independent readings of each official cell, arithmetic checks, and the sources we could and could not read.", corta=True, icona="shield")
     pagina("how-we-check/", "How We Check the Military Pay Tables",
@@ -810,7 +954,7 @@ def about():
              '<li>Arithmetic on those figures (yearly amounts, differences, the next step), always labelled as ours.</li>'
              '<li>Where an official source cannot be read, or a figure is not final, we say so instead of filling the gap.</li></ul>'
              '<h2>How the site is paid for</h2><div class="testo"><p>The site shows advertising served by Google AdSense. Advertisers never decide what we publish.</p></div>'
-             '<h2>Contact</h2><div class="testo"><p>Use the <a href="/how-we-check/#corrections">contact and corrections form</a>. For questions about your own pay, '
+             '<h2>Corrections</h2><div class="testo"><p>If a figure does not match the official table, use the <a href="/how-we-check/#corrections">corrections form</a>. For questions about your own pay, '
              'ask your unit’s finance office: they have your records.</p></div>')
     testata = banda("About", f"About {NOME}", "What this site is, what it publishes and how it is paid for.", corta=True, icona="info")
     pagina("about/", f"About {NOME}", f"About {NOME}: an independent site publishing the official U.S. military basic pay tables. Not affiliated with the Department of Defense.",
@@ -826,9 +970,9 @@ def privacy():
              '<p>The site remembers your choice of light or dark theme in your browser (local storage).</p>'
              f'{cookie}'
              '<h2>Hosting</h2><p>The site is hosted on Netlify, which processes technical data (such as IP addresses) to deliver pages and protect the service.</p>'
-             '<h2 id="corrections">Contact form</h2><p>If you use the <a href="/how-we-check/#corrections">contact and corrections form</a>, we receive the page you name, your message, the source link '
-             'and, only if you give it, your email address, through Netlify Forms. We use it only to check and answer your message and keep it only as long as that takes. '
-             'The legal basis is your consent, given with the tick box; you can ask us to delete your message through the same form.</p>'
+             '<h2 id="corrections">Corrections form</h2><p>The <a href="/how-we-check/#corrections">corrections form</a> asks for the page, your message and, if you wish, a link to the official source. '
+             'It does not ask for your name or email address, and we ask you not to put personal details in the message. The form is processed by Netlify Forms on our behalf. '
+             'We use what you send only to check the figure and delete it once that is done. There are no accounts, newsletters or comments on this site.</p>'
              f'<h2>California</h2><p>{california}</p>'
              f'<h2>Changes</h2><p>Last update: {data_lunga(CONTROLLO)}.</p></div>')
     breve = MON.privacy_breve("en", SITO_ID) or "What we collect (very little) and how the visit counter works."

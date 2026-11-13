@@ -101,7 +101,7 @@ sup.ref{font-size:max(.72em,11px);line-height:0;margin-left:1px}sup.ref a{text-d
 .ad-slot{min-height:0;margin:26px 0}
 .form{display:grid;gap:12px;max-width:640px}.form label{display:grid;gap:6px;font-weight:700;font-size:.92rem}
 .form input,.form textarea{font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line-2);border-radius:var(--r-s);padding:9px 11px;width:100%}
-.form .check{display:flex;gap:10px;align-items:flex-start;font-weight:600}.form .check input{width:18px;height:18px;margin-top:3px;flex:none}.hp{display:none}
+.form .check{display:flex;gap:10px;align-items:flex-start;font-weight:600}.form .check input{width:18px;height:18px;margin-top:3px;flex:none}.hp{position:absolute;left:-9999px}.form .btn{justify-self:start}.ok{background:var(--mute);border:1px solid var(--line-2);padding:14px;border-radius:var(--r-s);max-width:640px}.errore{color:var(--bad,#b3261e);font-weight:700;margin:0}
 .disclaimer{margin:42px 0 0;padding:14px 16px;border-radius:var(--r-s);background:var(--mute);font-size:.88rem;color:var(--ink-2)}
 footer{margin-top:46px;background:var(--deep);color:var(--on-deep-2);padding:32px 0 26px;font-size:.9rem}
 footer a{color:var(--on-deep)}footer h2{font-size:1rem;color:#fff;margin:0 0 10px}footer ul{list-style:none;margin:0;padding:0;display:grid;gap:5px}
@@ -140,9 +140,9 @@ function calcola(D, g, c) {
   var r = D.righe[g]; if (!r) return null;
   var v = r[c]; if (v === null || v === undefined) return null;
   var tetto = null;
-  if (D.tetto2.indexOf(g) >= 0 && v > D.tetti.lvl2) tetto = D.tetti.lvl2;
-  if (D.tetto5.indexOf(g) >= 0 && v > D.tetti.lvl5) tetto = D.tetti.lvl5;
-  var m = tetto === null ? v : tetto;
+  if (D.tetto2.indexOf(g) >= 0 && v >= D.tetti.lvl2 - 0.001) tetto = D.tetti.lvl2;
+  if (D.tetto5.indexOf(g) >= 0 && v >= D.tetti.lvl5 - 0.001) tetto = D.tetti.lvl5;
+  var m = tetto === null ? v : Math.min(v, tetto);
   var pr = null;
   for (var j = c + 1; j < r.length; j++) {
     if (r[j] !== null) { var mj = r[j]; if (D.tetto2.indexOf(g) >= 0) mj = Math.min(mj, D.tetti.lvl2); if (D.tetto5.indexOf(g) >= 0) mj = Math.min(mj, D.tetti.lvl5);
@@ -158,6 +158,13 @@ if (typeof module !== 'undefined') module.exports = {calcola: calcola};
     var r = document.documentElement, scuro = r.getAttribute('data-theme') === 'dark' || (!r.getAttribute('data-theme') && matchMedia('(prefers-color-scheme: dark)').matches);
     var t = scuro ? 'light' : 'dark'; r.setAttribute('data-theme', t); try { localStorage.setItem('mp-theme', t); } catch (e) {}
   });
+  document.querySelectorAll('form[data-correzioni]').forEach(function (form) { form.addEventListener('submit', function (ev) { ev.preventDefault();
+    var err = form.querySelector('[data-errore]'); err.hidden = true; if (!form.checkValidity()) { form.reportValidity(); return; }
+    var bt = form.querySelector('button'); bt.disabled = true;
+    fetch('/', {method: 'POST', headers: {'Content-Type': 'application/x-www-form-urlencoded'}, body: new URLSearchParams(new FormData(form)).toString()})
+      .then(function (r) { if (!r.ok) throw new Error(r.status); form.hidden = true; var ok = form.parentNode.querySelector('[data-ok]'); if (ok) ok.hidden = false; })
+      .catch(function () { err.hidden = false; bt.disabled = false; });
+  }); });
   var box = document.querySelector('[data-calc]'); if (!box) return;
   var D = JSON.parse(document.getElementById('dati-paga').textContent);
   var sg = box.querySelector('select[name=g]'), sy = box.querySelector('select[name=y]'), out = box.querySelector('[data-out]');
@@ -176,7 +183,7 @@ if (typeof module !== 'undefined') module.exports = {calcola: calcola};
         ' row of the official table starts at “' + esc(D.colonne[prima]) + '”' + (D.righe[g].slice(prima).some(function (x) { return x === null; }) ? ' and has gaps' : '') + '.</p>';
     } else {
       h = '<div class="tot"><div class="main"><span>Monthly basic pay</span><b>' + soldi(res.mese) + '</b></div><div><span>Per year (× 12)</span><b>' + soldi(res.anno) + '</b></div></div>';
-      if (res.tetto !== null) h += '<p><span class="cap">Capped.</span> The table shows ' + soldi(res.tabella) + ', but the order limits basic pay for this grade to ' + soldi(res.tetto) + ' a month in 2026.</p>';
+      if (res.tetto !== null) h += '<p><span class="cap">At the monthly limit.</span> By law basic pay for this grade cannot go above ' + soldi(res.tetto) + ' a month in 2026; the table already stops there.</p>';
       h += res.prossimo ? '<p><strong>Next step in the table:</strong> “' + esc(D.colonne[res.prossimo.col]) + '” years, ' + soldi(res.prossimo.mese) + ' a month (+' + soldi(res.prossimo.piu) + ').</p>'
         : '<p><strong>Top of the ' + esc(nome) + ' table:</strong> no higher rate at longer service in 2026.</p>';
       h += '<p><a href="/' + D.pagine[g] + '/">Full ' + esc(nome) + ' pay table →</a></p>';
