@@ -13,6 +13,9 @@ Aggiunti dalla revisione indipendente del 13/11/2026 (non dipendono dai dati del
 - 2026 = tabella di legge del 1° aprile 2025 × 1,038 su tutte le righe (in genera.controlla_tabella);
 - modulo delle correzioni senza campi per dati personali e pagina privacy coerente;
 - pagina 2027: piano del Presidente del 26/8/2026 citato alla lettera, nessuna frase che dia la cifra per approvata dal Congresso.
+
+Sezione per diem e miglia (13/11/2026, controlla_perdiem): celle delle tabelle per Stato e per località = xlsx GSA riletto qui in modo indipendente;
+dati dei calcolatori = grezzo; JS = Python su centinaia di viaggi e di casi di miglia; casi a mano; tabella M&IE = API GSA; citazioni = frasi ritrovate nelle fonti.
 """
 import hashlib
 import json
@@ -27,6 +30,9 @@ RADICE = Path(__file__).resolve().parent
 SITO = RADICE / "sito"
 sys.path.insert(0, str(RADICE))
 import genera as G  # noqa: E402
+import sezione_perdiem as SP  # noqa: E402
+
+SP.carica(G)
 
 MON = G.MON
 errori, avvisi = [], []
@@ -238,7 +244,7 @@ def controlla_revisione():
             if "data-netlify" in form:
                 if nomi != {"corrections", "form-name", "bot-field", "page", "message", "source"} or "data-correzioni" not in form:
                     err(f"{nome}: il modulo delle correzioni ha campi diversi da pagina, messaggio e fonte: {sorted(nomi)}")
-            elif nomi != {"g", "y"}:
+            elif nomi not in ({"g", "y"}, {"l", "da", "a"}, {"data", "scopo", "miglia"}, {"q"}):
                 err(f"{nome}: modulo inatteso con i campi {sorted(nomi)}")
         if re.search(r'type="(email|tel|password)"|autocomplete="(email|name|tel)"|name="(email|name|phone|consent)"', html):
             err(f"{nome}: campo per dati personali")
@@ -319,8 +325,11 @@ def controlla_pagine():
             err(f"{nome}: descrizione di {len(unescape(des))} caratteri")
         if G.GOATCOUNTER_URL not in html:
             err(f"{nome}: contatore assente")
-        if "not affiliated with the Department of Defense" not in html:
+        sez_pd = p.startswith("per-diem/") or p.startswith("irs-mileage-rate/")
+        if not sez_pd and "not affiliated with the Department of Defense" not in html:
             err(f"{nome}: avviso di non affiliazione assente")
+        if sez_pd and "not affiliated with the General Services Administration, the IRS, the Department of Defense or any other federal agency" not in html:
+            err(f"{nome}: avviso di non affiliazione (GSA, IRS, DoD) assente")
         if "finance office" not in html:
             err(f"{nome}: invito a verificare con l'ufficio finanziario assente")
         ext = re.findall(r'<script[^>]+src="(https?://[^"]+)"', html)
@@ -387,10 +396,238 @@ def controlla_pagine():
     for s in G.NOINDEX:
         if f"{G.URL_SITO}/{s}/" in locs:
             err(f"/{s}/ noindex ma in sitemap")
-    attese = {"", "calculator/", "pay-raise-history/", "2027-pay-raise/", "how-we-check/", "about/", "privacy/"} | {f"{s}/" for s, *_ in G.GRADI}
+    attese = ({"", "calculator/", "pay-raise-history/", "2027-pay-raise/", "how-we-check/", "about/", "privacy/", "per-diem/", "per-diem/calculator/", "irs-mileage-rate/"}
+              | {f"{s}/" for s, *_ in G.GRADI} | {f"per-diem/{SP.slug_stato(st)}/" for st in SP.PD["stati"]}
+              | {f"per-diem/{SP.slug_stato(st)}/{sl}/" for st, sl, *_ in SP.LOC_PAGINE})
     if not attese <= {percorso(f) for f in pagine()}:
         err(f"pagine mancanti: {attese - {percorso(f) for f in pagine()}}")
     return len(locs)
+
+
+# ---------------------------------------------------------------- sezione per diem e chilometri (13/11/2026)
+MESI_FY = ["Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"]
+
+# Casi calcolati a mano dai file grezzi GSA (non dal calcolatore del costruttore): (località, primo giorno, ultimo giorno, alloggio, M&IE, totale).
+# New York City FY2027: Oct-Dec $342?, letti nell'xlsx; vedi controlla_perdiem, che li ricalcola dai valori grezzi e li confronta con queste cifre.
+CASI_PD_MANO = [
+    ("std", "2026-12-07", "2026-12-10", 3 * 113, 51 + 68 + 68 + 51),        # standard FY2027: 113 / 68
+    ("std", "2026-09-29", "2026-10-02", 110 + 110 + 113, 51 + 68 + 68 + 51),  # attraversa il 1/10/2026: 110 (FY2026) poi 113 (FY2027)
+    ("std", "2026-12-07", "2026-12-07", 0, 51),                               # stesso giorno: 75 % del M&IE, niente alloggio
+]
+
+
+# Parti di Maryland e Virginia dentro l'area GSA "District of Columbia": parole che devono stare nel file grezzo e nelle due pagine.
+DC_FUORI = {"MD": {"grezzo": ["Montgomery and Prince George's in Maryland"], "pagina": ["Montgomery", "Prince George's"]},
+            "VA": {"grezzo": ["Alexandria, Falls Church and Fairfax", "Arlington and Fairfax, in Virginia"], "pagina": ["Alexandria", "Falls Church", "Arlington", "Fairfax"]}}
+
+
+def grezzo_fy(fy):
+    """Lettura indipendente del file xlsx GSA: {(stato, destinazione): {"mesi", "mie", "contee"}}, tariffa standard."""
+    import openpyxl
+    ws = openpyxl.load_workbook(RADICE / "dati" / "grezzi" / f"gsa_fy{fy}.xlsx", data_only=True).worksheets[0]
+    righe = list(ws.iter_rows(values_only=True))
+    o = 1 if fy == "2026" else 0
+    std = (righe[2][o + 5], righe[2][o + 6])
+    out = {}
+    for r in righe[3:]:
+        st, dest, cty, b, e, lod, mie = (r[o + i] for i in range(7))
+        k = (str(st).strip(), str(dest).strip())
+        x = out.setdefault(k, {"mesi": [None] * 12, "mie": mie, "contee": str(cty).strip()})
+        if not str(b or "").strip():
+            ia, ib = 0, 11
+        else:
+            ia, ib = MESI_FY.index(str(b).strip()[:3]), MESI_FY.index(str(e).strip()[:3])
+        for i in range(ia, ib + 1):
+            x["mesi"][i] = lod
+    return out, std
+
+
+def usd_txt(v):
+    return f"${v:,}" if float(v).is_integer() else f"${v:,.2f}"
+
+
+def controlla_perdiem():
+    n_celle = 0
+    raw = {fy: grezzo_fy(fy) for fy in ("2026", "2027")}
+    for fy, (d, s) in raw.items():
+        if any(None in x["mesi"] for x in d.values()):
+            err(f"FY{fy}: mesi senza tariffa nel file grezzo")
+    stati = SP.PD["stati"]
+    # 1) ogni cella delle tabelle per Stato = file grezzo
+    for st, nome_st in stati.items():
+        f = SITO / "per-diem" / SP.slug_stato(st) / "index.html"
+        html = f.read_text(encoding="utf-8")
+        for fy, (d, s) in raw.items():
+            t = next((t for t in tabelle_html(html) if f"{testo(nome_st)}, FY {fy} (" in testo(re.search(r"<caption>(.*?)</caption>", t, re.S).group(1))), None)
+            if not t:
+                err(f"/per-diem/{SP.slug_stato(st)}/: tabella FY{fy} assente")
+                continue
+            righe = righe_html(t)[1:]
+            attese = {k[1]: v for k, v in d.items() if k[0] == st}
+            # revisione del 13/11/2026: l'area GSA di Washington DC comprende contee di Maryland e Virginia (testo GSA nel file grezzo).
+            # Le due pagine devono mostrarla come riga, con i valori della riga DC: prima chi cercava Bethesda o Arlington leggeva la tariffa standard.
+            if st in DC_FUORI:
+                dc = d[("DC", "District of Columbia")]
+                if not all(x in dc["contee"].replace("’", "'") for x in DC_FUORI[st]["grezzo"]):
+                    err(f"FY{fy}: la definizione GSA dell'area di Washington DC non nomina più {DC_FUORI[st]['grezzo']}")
+                attese["Washington, DC area"] = dc
+                riga_dc = next((r for r in righe if r[0] == "Washington, DC area"), None)
+                if not riga_dc or not all(x in riga_dc[1].replace("’", "'") for x in DC_FUORI[st]["pagina"]):
+                    err(f"/per-diem/{SP.slug_stato(st)}/ FY{fy}: manca la riga dell'area di Washington DC con {DC_FUORI[st]['pagina']}")
+                tp = testo(html).replace("’", "'")
+                if not all(x in tp for x in DC_FUORI[st]["pagina"]) or "not the standard rate" not in tp:
+                    err(f"/per-diem/{SP.slug_stato(st)}/: il testo non dice che {DC_FUORI[st]['pagina']} hanno la tariffa di Washington DC")
+            elif any("Washington, DC area" == r[0] for r in righe):
+                err(f"/per-diem/{SP.slug_stato(st)}/ FY{fy}: riga dell'area di Washington DC in uno Stato che non ne fa parte")
+            if righe[0][0] != "Standard rate" or righe[0][2] != usd_txt(s[1]) or any(c != usd_txt(s[0]) for c in righe[0][3:]):
+                err(f"/per-diem/{SP.slug_stato(st)}/ FY{fy}: riga standard {righe[0]}")
+            if sorted(r[0] for r in righe[1:]) != sorted(attese):
+                err(f"/per-diem/{SP.slug_stato(st)}/ FY{fy}: località {sorted(r[0] for r in righe[1:])} ≠ grezzo {sorted(attese)}")
+            for r in righe[1:]:
+                x = attese.get(r[0])
+                if not x:
+                    continue
+                n_celle += 13
+                if r[2] != usd_txt(x["mie"]) or r[3:] != [usd_txt(v) for v in x["mesi"]]:
+                    err(f"/per-diem/{SP.slug_stato(st)}/ FY{fy} {r[0]}: pagina {r[2:]} ≠ grezzo {x['mie']} {x['mesi']}")
+    # 2) pagine di località: tabella per mese = grezzo; frasi obbligatorie
+    for st, sl, ric, disp in SP.LOC_PAGINE:
+        html = (SITO / "per-diem" / SP.slug_stato(st) / sl / "index.html").read_text(encoding="utf-8")
+        nome = next(L["nome"] for L in SP.PD["fy"]["2027"]["localita"] if L["stato"] == st and L["slug"] == sl)
+        t = next((t for t in tabelle_html(html) if "lodging rate per night by month" in t), "")
+        righe = righe_html(t)[1:]
+        a, b = raw["2027"][0][(st, nome)], raw["2026"][0][(st, nome)]
+        if [r[0] for r in righe] != MESI_FY or [r[1] for r in righe] != [usd_txt(v) for v in a["mesi"]] or [r[2] for r in righe] != [usd_txt(v) for v in b["mesi"]]:
+            err(f"/per-diem/{SP.slug_stato(st)}/{sl}/: tabella per mese ≠ grezzo")
+        n_celle += 24
+        tv = testo(html)
+        if "travel under the Joint Travel Regulations" in tv:
+            err(f"/per-diem/{SP.slug_stato(st)}/{sl}/: afferma una regola del JTR senza fonte letta")
+        if f"M&IE per day" not in tv or usd_txt(a["mie"]) not in tv or "Joint Travel Regulations" not in tv:
+            err(f"/per-diem/{SP.slug_stato(st)}/{sl}/: mancano M&IE o la nota sui viaggi militari")
+        if G.volume(ric) < SP.SOGLIA:
+            err(f"/per-diem/{SP.slug_stato(st)}/{sl}/: domanda misurata sotto soglia")
+    # 3) tabella M&IE = API grezza; tariffa standard e 75 % nell'indice
+    mie_api = json.loads((RADICE / "dati" / "grezzi" / "gsa_api_mie_2027.json").read_text())
+    idx = (SITO / "per-diem" / "index.html").read_text(encoding="utf-8")
+    t = next((t for t in tabelle_html(idx) if "M&amp;IE breakdown" in t), "")
+    attese = [[usd_txt(m["total"]), usd_txt(m["breakfast"]), usd_txt(m["lunch"]), usd_txt(m["dinner"]), usd_txt(m["incidental"]), f"${m['FirstLastDay']:.2f}"] for m in mie_api]
+    if righe_html(t)[1:] != attese:
+        err(f"/per-diem/: tabella M&IE ≠ API GSA: {righe_html(t)[1:]}")
+    ti = testo(idx)
+    for frase in ("On the first and last travel day, Federal employees are only eligible for 75 percent of the total M&IE rate",
+                  f"{usd_txt(raw['2027'][1][0])} + {usd_txt(raw['2027'][1][1])}", "Joint Travel Regulations", "(403)", "Alaska, Hawaii, and U.S. territories and possessions"):
+        if frase not in ti:
+            err(f"/per-diem/: manca «{frase}»")
+    # 4) dati del calcolatore in ogni pagina = file grezzo; JS = Python su molti viaggi; casi a mano
+    js = next((SITO / "assets").glob("app.*.js"))
+    import random
+    rnd = random.Random(13112026)
+    pagine_calc = [f for f in pagine() if 'id="dati-pd"' in f.read_text(encoding="utf-8")]
+    if len(pagine_calc) != 1 + len(stati) + len(SP.LOC_PAGINE):
+        err(f"calcolatore per diem in {len(pagine_calc)} pagine")
+    D_tutto = None
+    for f in pagine_calc:
+        D = json.loads(re.search(r'<script type="application/json" id="dati-pd">(.*?)</script>', f.read_text(encoding="utf-8"), re.S).group(1))
+        for fy, (d, s) in raw.items():
+            F = D["fy"][fy]
+            if F["std"] != [[s[0]] * 12, s[1]]:
+                err(f"/{percorso(f)}: tariffa standard FY{fy} del calcolatore ≠ grezzo")
+            for k, (mesi, mie) in F["loc"].items():
+                st = k.split("/")[0].upper()
+                x = next((v for (s2, n2), v in d.items() if s2 == st and SP.PD and any(L["slug"] == k.split("/")[1] and L["nome"] == n2 for L in SP.PD["fy"][fy]["localita"])), None)
+                if x is None:  # rinomina: la chiave FY2027 porta i valori FY2026 della località con le stesse contee
+                    x = next((v for (s2, n2), v in d.items() if s2 == st and v["contee"] == next(L["contee"] for L in SP.PD["fy"]["2027"]["localita"] if f"{L['stato'].lower()}/{L['slug']}" == k)), None)
+                if x is None or x["mesi"] != mesi or x["mie"] != mie:
+                    err(f"/{percorso(f)}: calcolatore {k} FY{fy} ≠ grezzo")
+        if percorso(f) == "per-diem/calculator/":
+            D_tutto = D
+    chiavi = ["std"] + list(D_tutto["fy"]["2027"]["loc"])
+    giorni = [date_iso(2025, 10, 1, i) for i in range(0, 730)]
+    casi = []
+    for _ in range(500):
+        k = rnd.choice(chiavi)
+        a = rnd.choice(giorni)
+        casi.append((k, a, add_days(a, rnd.choice([0, 0, 1, 2, 3, 4, 6, 9, 13, 30, 60, 200]))))
+    casi += [(k, "2026-09-28", "2026-10-03") for k in rnd.sample(chiavi, 40)]  # passaggio d'anno fiscale
+    casi += [("std", "2025-09-30", "2025-10-02"), ("std", "2027-09-29", "2027-10-01"), ("std", "2026-05-10", "2026-05-01"), ("std", "", "2026-05-01"),
+             ("std", "2026-02-30", "2026-03-01"), ("il/oakbrook-terrace", "2026-09-29", "2026-10-02"), ("pa/allentown-easton-bethlehem", "2026-09-29", "2026-10-02")]
+    prog = (f"const m=require({json.dumps(str(js))});const D={json.dumps(D_tutto)};const C={json.dumps(casi)};"
+            "console.log(JSON.stringify(C.map(x=>m.viaggio(D,x[0],x[1],x[2]))));")
+    out = json.loads(subprocess.run(["node", "-e", prog], capture_output=True, text=True, check=True).stdout)
+    diversi = 0
+    for c, r in zip(casi, out):
+        py = SP.viaggio(D_tutto, *c)
+        if json.dumps(py, sort_keys=True) != json.dumps(r, sort_keys=True).replace(".0,", ",") and py != r:
+            diversi += 1
+            if diversi < 4:
+                err(f"calcolatore per diem JS ≠ Python {c}: {str(r)[:200]} / {str(py)[:200]}")
+    if diversi:
+        err(f"calcolatore per diem: {diversi} viaggi diversi su {len(casi)}")
+    errori_attesi = {2: "errore", 3: "errore", 4: "errore"}
+    if out[-7].get("errore") != "fuori" or out[-6].get("errore") != "fuori" or out[-5].get("errore") != "ordine" or out[-4].get("errore") != "data" or out[-3].get("errore") != "data":
+        err(f"calcolatore per diem: casi di errore non riconosciuti {out[-7:-2]}")
+    if "errore" in out[-2] or out[-1].get("errore") != "non_listata":
+        err(f"calcolatore per diem: rinomina Oak Brook Terrace o Allentown (non più elencata) {out[-2:]}")
+    # casi a mano e un caso reale ricalcolato a mano dai valori grezzi (New York City, 30/12/2026 - 2/1/2027)
+    nyc = raw["2027"][0][("NY", "New York City")]
+    casi_m = CASI_PD_MANO + [("ny/new-york-city", "2026-12-30", "2027-01-02", nyc["mesi"][2] + nyc["mesi"][2] + nyc["mesi"][3], nyc["mie"] * (0.75 * 2 + 2))]
+    prog = (f"const m=require({json.dumps(str(js))});const D={json.dumps(D_tutto)};const C={json.dumps([c[:3] for c in casi_m])};"
+            "console.log(JSON.stringify(C.map(x=>m.viaggio(D,x[0],x[1],x[2]))));")
+    for c, r in zip(casi_m, json.loads(subprocess.run(["node", "-e", prog], capture_output=True, text=True, check=True).stdout)):
+        if abs(r.get("alloggio", -1) - c[3]) > 1e-9 or abs(r.get("mie", -1) - c[4]) > 1e-9 or abs(r["totale"] - c[3] - c[4]) > 1e-9:
+            err(f"calcolatore per diem, caso a mano {c}: {r}")
+    # 5) chilometri: valori della pagina = testo grezzo IRS/GSA; JS = Python
+    km = (SITO / "irs-mileage-rate" / "index.html").read_text(encoding="utf-8")
+    tk = testo(km)
+    for frase in ("72.5¢", "76¢", "20.5¢", "23.5¢", "14¢", "$0.760", "$0.725", "$0.235", "$0.205", "Announcement 2026-11", "Notice 2026-10", "had not published 2027 rates"):
+        if frase not in tk:
+            err(f"/irs-mileage-rate/: manca «{frase}»")
+    import subprocess as sp_
+    nt = re.sub(r"\s+", " ", sp_.run(["pdftotext", str(RADICE / "dati" / "grezzi" / "irs_notice_2026-10.pdf"), "-"], capture_output=True, text=True).stdout)
+    irb = re.sub(r"\s+", " ", unescape(re.sub(r"<[^>]+>", " ", (RADICE / "dati" / "grezzi" / "irs_irb_2026-29.html").read_text(encoding="utf-8", errors="replace"))))
+    for frase, dove in (("is 72.5 cents per mile for all miles of business use", nt), ("is 20.5 cents per mile for use of an automobile", nt), ("(1) Business 76 cents per mile", irb),
+                        ("(2) Medical and moving 23.5 cents per mile", irb)):
+        if frase not in dove:
+            err(f"file grezzo IRS: manca «{frase}»")
+    DK = json.loads(re.search(r'<script type="application/json" id="dati-km">(.*?)</script>', km, re.S).group(1))
+    if [p_["tariffe"]["business"] for p_ in DK["periodi"]] != [725, 760] or [p_["tariffe"]["medical"] for p_ in DK["periodi"]] != [205, 235] or {p_["tariffe"]["charity"] for p_ in DK["periodi"]} != {140} \
+            or [p_["tariffe"]["gsa_auto"] for p_ in DK["periodi"]] != [725, 760] or [p_["tariffe"]["gsa_auto_gov"] for p_ in DK["periodi"]] != [205, 235]:
+        err(f"/irs-mileage-rate/: tariffe del calcolatore {DK}")
+    casi_k = [(date_iso(2026, 1, 1, rnd.randrange(365)), rnd.choice(["business", "medical", "charity", "gsa_auto", "gsa_auto_gov"]), str(rnd.choice([1, 12.5, 100, 0.05, 0.15, 333.3, 1234.45, 99999])))
+              for _ in range(300)]
+    casi_k += [("2026-06-30", "business", "100"), ("2026-07-01", "business", "100"), ("2027-01-01", "business", "10"), ("2026-03-01", "business", "0"), ("2026-03-01", "x", "5")]
+    prog = (f"const m=require({json.dumps(str(js))});const D={json.dumps(DK)};const C={json.dumps(casi_k)};console.log(JSON.stringify(C.map(x=>m.miglia(D,x[0],x[1],x[2]))));")
+    outk = json.loads(subprocess.run(["node", "-e", prog], capture_output=True, text=True, check=True).stdout)
+    dk = sum(1 for c, r in zip(casi_k, outk) if json.dumps(SP.miglia(DK, *c), sort_keys=True) != json.dumps(r, sort_keys=True) and SP.miglia(DK, *c) != r)
+    if dk:
+        err(f"calcolatore miglia: {dk} casi JS ≠ Python")
+    if outk[-5]["importo"] != 72.5 or outk[-4]["importo"] != 76.0 or outk[-3].get("errore") != "fuori" or outk[-2].get("errore") != "miglia" or outk[-1].get("errore") != "scopo":
+        err(f"calcolatore miglia: casi a mano {outk[-5:]}")
+    # 6) ogni citazione tra virgolette nelle pagine della sezione è una frase ritrovata nella fonte ufficiale (fonti.json, "cerca")
+    def nrm(s):
+        return re.sub(r"\s+", " ", s.replace("’", "'").replace("–", "-").replace("—", "-")).strip().rstrip(".,;")
+    frasi = [nrm(c) for fid, fd in G.FONTI.items() for c, ok in G.ESITI.get(fid, {}).get("trovate", {}).items() if ok]
+    n_cit = 0
+    for f in pagine():
+        p_ = percorso(f)
+        if not (p_.startswith("per-diem/") or p_.startswith("irs-mileage-rate/")):
+            continue
+        for q in re.findall(r"“([^”]{20,})”", testo(f.read_text(encoding="utf-8"))):
+            n_cit += 1
+            if not any(nrm(q) in fr for fr in frasi):
+                err(f"/{p_}: citazione non ritrovata nelle fonti «{q[:80]}»")
+    return {"celle": n_celle, "viaggi": len(casi), "casi_miglia": len(casi_k), "pagine_calcolatore": len(pagine_calc), "citazioni": n_cit}
+
+
+def date_iso(y, m, d, piu):
+    from datetime import date as _d, timedelta
+    return (_d(y, m, d) + timedelta(days=piu)).isoformat()
+
+
+def add_days(iso, n):
+    from datetime import date as _d, timedelta
+    return (_d.fromisoformat(iso) + timedelta(days=n)).isoformat()
 
 
 def controlla_file():
@@ -425,9 +662,12 @@ def main():
     n_url = controlla_pagine()
     controlla_revisione()
     info = controlla_file()
+    st_pd = controlla_perdiem()
     print(f"Dati: {stat['celle']} celle ({stat['importi']} importi), {stat['confronto_2025']} confrontate con gennaio 2025 e {stat['confronto_aprile_2025']} con la tabella di legge di aprile 2025 "
           f"(× 1,038 ± $0,15), {stat['al_tetto']} al tetto; tetto O-7…O-10 {G.soldi(G.TETTO_II)}; {len(CASI_MANO)} casi letti a mano sulle immagini.")
     print(f"Pagine: {len(pagine())} file HTML, {n_url} nella sitemap; celle pubblicate controllate: home {n_home}, pagine di grado {n_gradi}; calcolatore JS = Python su {n_calc} combinazioni.")
+    print(f"Per diem: {st_pd['celle']} celle pubblicate = file grezzi GSA; calcolatore JS = Python su {st_pd['viaggi']} viaggi ({st_pd['pagine_calcolatore']} pagine); "
+          f"miglia JS = Python su {st_pd['casi_miglia']} casi; {st_pd['citazioni']} citazioni ritrovate nelle fonti.")
     print(f"Monetizzazione: {info}")
     if "--browser" in sys.argv:
         casi = []

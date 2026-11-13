@@ -55,3 +55,46 @@ Tutte le 616 celle confrontate a occhio con le sei immagini dello Schedule 8 (ri
 dipendono dai dati del costruttore: impronta delle tabelle viste (`TABELLE_VISTE`: se i dati cambiano vanno riguardati), 37 casi letti a mano provati sul JS e sulle
 pagine di grado, tetto 18.999,90, modulo senza dati personali e privacy coerente, frasi obbligatorie e vietate nella pagina 2027, titoli e descrizioni unici.
 Il modulo di Payroll Tax by State ha ancora il campo email facoltativo con consenso: se la regola è «nessun dato personale nei moduli» va tolto anche lì.
+
+## Sezione per diem e rimborso chilometrico (13/11/2026, NON ancora pubblicata: revisione indipendente e commit il 14/11)
+
+Coda: riga milpay di `studio-business/DA-PUBBLICARE.md` (famiglia 2 di `fronti-2026-11-13-scoperta-volumi.md`). 76 pagine nuove (109 indicizzabili in tutto):
+`/per-diem/` (ricerca per città/contea/Stato, tariffa standard, come funziona con frasi GSA citate, tabella M&IE, nota su OCONUS/JTR), 49 pagine Stato
+`/per-diem/<stato>/` (48 Stati contigui + DC; FY2027 e FY2026 mese per mese, calcolatore con le località dello Stato), 24 pagine di località solo dove la domanda
+misurata è ≥ 300 ricerche al mese (`LOC_PAGINE` in `sezione_perdiem.py`; Washington DC 4.400, San Diego 1.900 … Houston 320; Norfolk 390 escluso: non è un'area GSA),
+`/per-diem/calculator/` (località + date → alloggio massimo per notte del mese + M&IE con 75 % il primo e l'ultimo giorno; formula scritta sotto), `/irs-mileage-rate/`
+(IRS 2026 in due periodi: 72,5 ¢ fino al 30/6, 76 ¢ dal 1/7 per Announcement 2026-11; medico/trasloco 20,5 → 23,5; beneficenza 14; storico 2023-2025; tariffe GSA per i
+viaggi federali; calcolatore delle miglia in interi). Menu (Per diem, Mileage rate), piè di pagina e un paragrafo in home. Codice: `sezione_perdiem.py` (chiamato da `genera.py`),
+JS in `stile.APP_JS` (`viaggio`, `miglia`), raccolta in `raccolta/perdiem.py`.
+
+- **Dati** (`raccolta/perdiem.py` → `dati/perdiem.json`; file grezzi in `dati/grezzi/`, URL, data e SHA-256 in `dati/fonti.json` chiave `grezzi`): GSA xlsx FY2026
+  (649 righe, 296 aree, standard 110 $ + 68 $) e FY2027 (641 righe, 295 aree, standard 113 $ + 68 $); API GSA (DEMO_KEY) alloggio mese per mese e tabella M&IE:
+  **tutte le aree uguali mese per mese all'xlsx** (l'API ripete Washington DC sotto MD e VA, stessi valori); IRS Notice 2026-10 (PDF), IRB 2026-29 (Announcement 2026-11),
+  pagina IRS dello storico, pagina GSA delle miglia. Tra FY2026 e FY2027: Oak Brook Terrace → Oakbrook Terrace (stesse contee, unite), Allentown/Easton/Bethlehem tolta.
+- **Fonti con frasi** (`raccolta/fonti.py`, nuova opzione `--solo=id1,id2` che rilegge solo quelle fonti e conserva le altre e il registro `grezzi`): gsa_pd, gsa_faq, gsa_mie
+  (anche le 5 righe della tabella M&IE), gsa_api, gsa_mileage, irs_n2026_10, irs_a2026_11, irs_smr, irs_ir2025_128, gsa_xlsx2026/2027 (impronta = file grezzo).
+- **Controlli**: `genera.py` si ferma se un file grezzo cambia impronta, se cambiano i conteggi, se xlsx riletto ≠ perdiem.json, xlsx ≠ API, M&IE fuori dai 5 livelli,
+  alloggio sotto lo standard, frase GSA/IRS mancante, pagina di località sotto 300 ricerche. `verifica.py` (lettura indipendente dell'xlsx): 8.259 celle pubblicate = file
+  grezzi; dati dei calcolatori in 74 pagine = grezzo; JS = Python su 547 viaggi (passaggio del 1/10/2026, giorno singolo, errori, rinomina) e 305 casi di miglia; casi a mano
+  (standard, attraversamento FY, New York 30/12/2026–2/1/2027); 130 citazioni tra virgolette ritrovate alla lettera nelle frasi delle fonti; avviso di non affiliazione GSA/IRS/DoD.
+  Playwright (script in scratchpad, non nel repository): indice, calcolatore, San Diego, miglia, Texas a 375 e 1280 px, chiaro e scuro, nessuno scorrimento orizzontale,
+  calcolatore e ricerca provati, richieste esterne bloccate.
+- **Non coperto e detto in pagina**: Alaska, Hawaii, territori (DoD) ed estero (State) per frase GSA; travel.dod.mil risponde 403 → JTR e OCONUS militari non verificati.
+  Niente tassazione delle diarie (nessuna fonte ufficiale letta). Tariffe IRS 2027 non ancora uscite al 13/11 (di solito a fine dicembre: aggiornare `/irs-mileage-rate/`).
+- **Domanda**: `dati/domanda_perdiem.json`, 127 ricerche seodata del 13/11 (volumi medi recenti: le frasi con "2026/2027" risultano ancora a 0). FAQ solo da queste.
+- **Aggiornare**: a metà agosto 2027 esce FY2028 → aggiungere il file in `raccolta/perdiem.py` (FILE, ATTESI), `FYS` e i testi in `sezione_perdiem.py`; a fine dicembre 2026
+  le miglia IRS 2027. Poi `python3 milpay/raccolta/perdiem.py && python3 milpay/raccolta/fonti.py --solo=... && python3 milpay/genera.py && python3 milpay/verifica.py --browser`.
+
+### Revisione indipendente della sezione per diem (13/11/2026, prima della pubblicazione)
+
+File GSA e IRS riscaricati (stesse impronte SHA-256 dei file in `dati/grezzi/`), xlsx riletto dall'XML senza la libreria del costruttore: 9.533 celle pubblicate
+(Stati e 24 località) = file grezzi, 0 differenze; xlsx = API GSA per tutte le 296 e 295 aree; 26 viaggi calcolati a parte (passaggio 30/9–1/10, cambio di mese e di anno,
+giorno singolo, 75 %) = JS del sito; 25 citazioni distinte ritrovate alla lettera nelle pagine ufficiali riscaricate; Notice 2026-10 e Announcement 2026-11 letti parola per parola
+(72,5 → 76 ¢ e 20,5 → 23,5 ¢ dal 1/7/2026, beneficenza 14 ¢); pagina IRS senza tariffe 2027 al 13/11. Correzioni:
+- **Area di Washington DC in Maryland e Virginia** (errore vero): GSA mette nell'area "District of Columbia" Montgomery e Prince George's (MD) e Alexandria, Falls Church, Fairfax,
+  Arlington (VA), ma le due pagine di Stato dicevano «i luoghi non elencati hanno la tariffa standard» (113 $ invece di 192–295 $). Ora riga «Washington, DC area» nelle due tabelle,
+  paragrafo, cifre chiave, FAQ, descrizione e voce nel calcolatore (anche in quello generale, sotto Maryland e Virginia). Costanti `DC_*` in `sezione_perdiem.py`; `controlla()` si ferma
+  se GSA cambia la definizione o se un'altra area nomina un altro Stato; `verifica.py` (`DC_FUORI`) controlla riga, valori e testo nelle due pagine.
+- Tolta la frase «Military members and DoD civilians travel under the Joint Travel Regulations» (nessuna fonte letta: travel.dod.mil dà 403); ora la nota dice solo che non abbiamo
+  potuto leggere il JTR e che il sito non spiega la diaria dei militari. `verifica.py` vieta la frase vecchia.
+- Descrizione di `/per-diem/` portata sotto i 160 caratteri.

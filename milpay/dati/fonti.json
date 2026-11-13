@@ -133,6 +133,136 @@
    "api_plaw": true,
    "cerca": []
   },
+  "gsa_xlsx2026": {
+   "titolo": "FY 2026 per diem rates master file (Excel), effective October 1, 2025",
+   "chi": "U.S. General Services Administration, Per diem files",
+   "url": "https://www.gsa.gov/travel/per-diem-rates/per-diem-files",
+   "leggi": "https://www.gsa.gov/system/files/FY2026_PerDiemMasterRatesFile.xlsx",
+   "binario": true,
+   "cerca": []
+  },
+  "gsa_xlsx2027": {
+   "titolo": "FY 2027 per diem rates file (Excel, FY2027_PerDiemRates_Validated090126.xlsx), effective October 1, 2026",
+   "chi": "U.S. General Services Administration, Per diem files",
+   "url": "https://www.gsa.gov/travel/per-diem-rates/per-diem-files",
+   "leggi": "https://www.gsa.gov/system/files/FY2027_PerDiemRates_Validated090126.xlsx",
+   "binario": true,
+   "cerca": []
+  },
+  "gsa_api": {
+   "titolo": "Per diem API (lodging by month and M&IE breakdown, FY 2026 and FY 2027)",
+   "chi": "U.S. General Services Administration, open.gsa.gov",
+   "url": "https://open.gsa.gov/api/perdiem/",
+   "cerca": [
+    "The per diem reimbursement rates consist of a maximum lodging allowance component and a meals and incidental expenses (M&IE) component",
+    "Rates for the coming federal government fiscal year (October 1st to September 30th) are typically announced in mid-August"
+   ]
+  },
+  "gsa_pd": {
+   "titolo": "Per diem rates",
+   "chi": "U.S. General Services Administration, gsa.gov",
+   "url": "https://www.gsa.gov/travel/per-diem-rates",
+   "cerca": [
+    "We establish the per diem rates that federal agencies use to reimburse their employees for lodging and meals and incidental expenses incurred while on official travel within the continental United States.",
+    "A standard rate applies to most of CONUS.",
+    "Individual rates apply to about 300 non-standard areas.",
+    "Most NSAs are a key city/primary destination and the surrounding county."
+   ]
+  },
+  "gsa_faq": {
+   "titolo": "Frequently asked questions, per diem",
+   "chi": "U.S. General Services Administration, gsa.gov",
+   "url": "https://www.gsa.gov/travel/per-diem-rates/faqs",
+   "cerca": [
+    "Per diem is an allowance for lodging, meals, and incidental expenses.",
+    "The U.S. General Services Administration (GSA) establishes the per diem reimbursement rates that federal agencies use to reimburse their employees for subsistence expenses incurred while on official travel within the continental U.S. (CONUS), which includes the 48 contiguous states and the District of Columbia.",
+    "The U.S. Department of Defense (DOD) establishes rates for travel in non-foreign areas outside of CONUS, which includes Alaska, Hawaii, and U.S. territories and possessions.",
+    "The U.S. Department of State establishes rates for travel in foreign areas.",
+    "If neither the city nor county you are looking for is listed on the GSA per diem rate page, then the standard CONUS rate applies.",
+    "If the city is not listed, but the county is, then the per diem rate is the rate for that entire county.",
+    "On the first and last travel day, Federal employees are only eligible for 75 percent of the total M&IE rate for their temporary duty travel location (not the official duty station location).",
+    "The lodging per diem rates are a maximum amount; the traveler only receives actual lodging costs up to that maximum rate.",
+    "Lodging taxes are not included in the CONUS per diem rate.",
+    "the meals and incidental expense (M&IE) rate does include taxes and tips in the rate",
+    "Hotels are not required to honor the federal per diem rates.",
+    "travelers are entitled to 75% of the prescribed meals and incidental expenses for one day travel away from your official station if it is longer than 12 hours",
+    "GSA establishes per diem rates and related policies for federal travelers on official travel only"
+   ]
+  },
+  "gsa_mie": {
+   "titolo": "M&IE breakdowns",
+   "chi": "U.S. General Services Administration, gsa.gov",
+   "url": "https://www.gsa.gov/travel/per-diem-rates/mie-breakdowns",
+   "cerca": [
+    "Use the tables below to determine how much to deduct from your meals and incidental expenses allowance, or M&IE, when a meal is provided by the government or included in a registration fee.",
+    "Meals provided by a common carrier or complimentary meals provided by a hotel or motel do not affect your per diem allowance.",
+    "$68 $16 $19 $28 $5 $51.00",
+    "$74 $18 $20 $31 $5 $55.50",
+    "$80 $20 $22 $33 $5 $60.00",
+    "$86 $22 $23 $36 $5 $64.50",
+    "$92 $23 $26 $38 $5 $69.00"
+   ]
+  },
+  "gsa_mileage": {
+   "titolo": "Mileage reimbursements (privately owned vehicle rates for official travel)",
+   "chi": "U.S. General Services Administration, gsa.gov",
+   "url": "https://www.gsa.gov/travel/mileage-reimbursements",
+   "cerca": [
+    "Current mileage rates for official travel on or after July 1, 2026",
+    "For example, 100 miles in your own automobile at $0.76 per mile = $76.00.",
+    "Check with your agency's travel office before using a privately owned vehicle for official travel.",
+    "Jan. 1, 2026 $0.725 $0.205 $0.705 $1.78"
+   ]
+  },
+  "irs_n2026_10": {
+   "titolo": "Notice 2026-10, 2026 Standard Mileage Rates",
+   "chi": "Internal Revenue Service, irs.gov (PDF)",
+   "url": "https://www.irs.gov/pub/irs-drop/n-26-10.pdf",
+   "pdf": true,
+   "cerca": [
+    "The standard mileage rate for transportation or travel expenses for 2026 is 72.5 cents per mile for all miles of business use",
+    "The standard mileage rate is 14 cents per mile for use of an automobile in rendering gratuitous services to a charitable organization",
+    "The standard mileage rate for 2026 is 20.5 cents per mile for use of an automobile: (1) for medical care"
+   ]
+  },
+  "irs_a2026_11": {
+   "titolo": "Announcement 2026-11, Optional Standard Mileage Rates (Internal Revenue Bulletin 2026-29, July 13, 2026)",
+   "chi": "Internal Revenue Service, irs.gov",
+   "url": "https://www.irs.gov/irb/2026-29_irb",
+   "cerca": [
+    "This modification results from recent increases in the price of fuel.",
+    "(1) Business 76 cents per mile",
+    "(2) Medical and moving 23.5 cents per mile",
+    "The mileage rate that applies to the deduction for charitable contributions is fixed under § 170(i) of the Internal Revenue Code at 14 cents per mile.",
+    "on or after July 1, 2026"
+   ]
+  },
+  "irs_smr": {
+   "titolo": "Standard mileage rates (all years)",
+   "chi": "Internal Revenue Service, irs.gov",
+   "url": "https://www.irs.gov/tax-professionals/standard-mileage-rates",
+   "cerca": [
+    "Self-employed and business: 76 cents/mile",
+    "Charities: 14 cents/mile",
+    "Medical: 23.5 cents/mile",
+    "2026 (Jan. 1 - June 30) 72.5 14 20.5",
+    "2025 70 14 21 IR-2024-312",
+    "2024 67 14 21 IR-2023-239",
+    "2023 65.5 14 22 IR-2022-234"
+   ]
+  },
+  "irs_ir2025_128": {
+   "titolo": "IR-2025-128, IRS sets 2026 business standard mileage rate at 72.5 cents per mile",
+   "chi": "Internal Revenue Service newsroom, December 29, 2025",
+   "url": "https://www.irs.gov/newsroom/irs-sets-2026-business-standard-mileage-rate-at-725-cents-per-mile-up-25-cents",
+   "cerca": [
+    "72.5 cents per mile driven for business use",
+    "Use of the standard mileage rates is optional.",
+    "Optional standard mileage rates are used to calculate the deductible costs of operating vehicles for business, charitable, and medical purposes.",
+    "certain members of the intelligence community",
+    "The rates apply to fully-electric and hybrid automobiles, as well as gasoline and diesel-powered vehicles."
+   ]
+  },
   "eo2016": {
    "titolo": "Executive Order 13715, Adjustments of Certain Rates of Pay, Schedule 8 (effective January 1, 2016)",
    "chi": "Federal Register, 80 FR 80195",
@@ -409,6 +539,214 @@
    "sha256": "77faa72db116c1cfbc27d8a11a7bdd8886ebd892522695943bed1d5398a0d635",
    "byte": 1048516,
    "trovate": {}
+  },
+  "gsa_xlsx2026": {
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "sha256": "5a3214fdafa1034799e2ff61d8997cface1a1ff0322be3efad78595b12b4e244",
+   "byte": 42276,
+   "trovate": {}
+  },
+  "gsa_xlsx2027": {
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "sha256": "818af7d0e568228804f6e8d3d475504cf0c22562544f4d808509fc4aa8790618",
+   "byte": 37380,
+   "trovate": {}
+  },
+  "gsa_api": {
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "sha256": "b564009640475e32285192d7566e25c51dfb89fb3b594e274f39b27559546fd2",
+   "byte": 47848,
+   "trovate": {
+    "The per diem reimbursement rates consist of a maximum lodging allowance component and a meals and incidental expenses (M&IE) component": true,
+    "Rates for the coming federal government fiscal year (October 1st to September 30th) are typically announced in mid-August": true
+   }
+  },
+  "gsa_pd": {
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "sha256": "e7424c3eb8e9d568083396b7ca9eb09b684d51ed0c8e93a62fbb3040c6d35b13",
+   "byte": 185037,
+   "trovate": {
+    "We establish the per diem rates that federal agencies use to reimburse their employees for lodging and meals and incidental expenses incurred while on official travel within the continental United States.": true,
+    "A standard rate applies to most of CONUS.": true,
+    "Individual rates apply to about 300 non-standard areas.": true,
+    "Most NSAs are a key city/primary destination and the surrounding county.": true
+   }
+  },
+  "gsa_faq": {
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "sha256": "9c6e708562b6c4a5a067c972d2422649b1ba5279f6083cb6d8493d895d361927",
+   "byte": 191365,
+   "trovate": {
+    "Per diem is an allowance for lodging, meals, and incidental expenses.": true,
+    "The U.S. General Services Administration (GSA) establishes the per diem reimbursement rates that federal agencies use to reimburse their employees for subsistence expenses incurred while on official travel within the continental U.S. (CONUS), which includes the 48 contiguous states and the District of Columbia.": true,
+    "The U.S. Department of Defense (DOD) establishes rates for travel in non-foreign areas outside of CONUS, which includes Alaska, Hawaii, and U.S. territories and possessions.": true,
+    "The U.S. Department of State establishes rates for travel in foreign areas.": true,
+    "If neither the city nor county you are looking for is listed on the GSA per diem rate page, then the standard CONUS rate applies.": true,
+    "If the city is not listed, but the county is, then the per diem rate is the rate for that entire county.": true,
+    "On the first and last travel day, Federal employees are only eligible for 75 percent of the total M&IE rate for their temporary duty travel location (not the official duty station location).": true,
+    "The lodging per diem rates are a maximum amount; the traveler only receives actual lodging costs up to that maximum rate.": true,
+    "Lodging taxes are not included in the CONUS per diem rate.": true,
+    "the meals and incidental expense (M&IE) rate does include taxes and tips in the rate": true,
+    "Hotels are not required to honor the federal per diem rates.": true,
+    "travelers are entitled to 75% of the prescribed meals and incidental expenses for one day travel away from your official station if it is longer than 12 hours": true,
+    "GSA establishes per diem rates and related policies for federal travelers on official travel only": true
+   }
+  },
+  "gsa_mie": {
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "sha256": "32af473830bd82805633c1012b9176752355576fb7c0531848d0552aa5491329",
+   "byte": 240784,
+   "trovate": {
+    "Use the tables below to determine how much to deduct from your meals and incidental expenses allowance, or M&IE, when a meal is provided by the government or included in a registration fee.": true,
+    "Meals provided by a common carrier or complimentary meals provided by a hotel or motel do not affect your per diem allowance.": true,
+    "$68 $16 $19 $28 $5 $51.00": true,
+    "$74 $18 $20 $31 $5 $55.50": true,
+    "$80 $20 $22 $33 $5 $60.00": true,
+    "$86 $22 $23 $36 $5 $64.50": true,
+    "$92 $23 $26 $38 $5 $69.00": true
+   }
+  },
+  "gsa_mileage": {
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "sha256": "38a426ae6f0b649e01de31e7e53f0bba92c8c767d8cbc248d04ef9e1a3923745",
+   "byte": 180717,
+   "trovate": {
+    "Current mileage rates for official travel on or after July 1, 2026": true,
+    "For example, 100 miles in your own automobile at $0.76 per mile = $76.00.": true,
+    "Check with your agency's travel office before using a privately owned vehicle for official travel.": true,
+    "Jan. 1, 2026 $0.725 $0.205 $0.705 $1.78": true
+   }
+  },
+  "irs_n2026_10": {
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "sha256": "8fdda8f02245c38134e08fca50238732c74b0ae693c408252dedf96623d4977a",
+   "byte": 105177,
+   "trovate": {
+    "The standard mileage rate for transportation or travel expenses for 2026 is 72.5 cents per mile for all miles of business use": true,
+    "The standard mileage rate is 14 cents per mile for use of an automobile in rendering gratuitous services to a charitable organization": true,
+    "The standard mileage rate for 2026 is 20.5 cents per mile for use of an automobile: (1) for medical care": true
+   }
+  },
+  "irs_a2026_11": {
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "sha256": "80b033caa86963a9f20d1bf755b2fe3a000cbcc488f4dbbc244928c7bb33006e",
+   "byte": 200120,
+   "trovate": {
+    "This modification results from recent increases in the price of fuel.": true,
+    "(1) Business 76 cents per mile": true,
+    "(2) Medical and moving 23.5 cents per mile": true,
+    "The mileage rate that applies to the deduction for charitable contributions is fixed under § 170(i) of the Internal Revenue Code at 14 cents per mile.": true,
+    "on or after July 1, 2026": true
+   }
+  },
+  "irs_smr": {
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "sha256": "4ad8b26fdf074d9a66d02d90399fb22982606c9d3534c7cba9eb3d1e981b3b66",
+   "byte": 110377,
+   "trovate": {
+    "Self-employed and business: 76 cents/mile": true,
+    "Charities: 14 cents/mile": true,
+    "Medical: 23.5 cents/mile": true,
+    "2026 (Jan. 1 - June 30) 72.5 14 20.5": true,
+    "2025 70 14 21 IR-2024-312": true,
+    "2024 67 14 21 IR-2023-239": true,
+    "2023 65.5 14 22 IR-2022-234": true
+   }
+  },
+  "irs_ir2025_128": {
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "sha256": "94e39f63bcb35c26f508c787705584ac8a79771406b279f2d898e821795ce63e",
+   "byte": 101463,
+   "trovate": {
+    "72.5 cents per mile driven for business use": true,
+    "Use of the standard mileage rates is optional.": true,
+    "Optional standard mileage rates are used to calculate the deductible costs of operating vehicles for business, charitable, and medical purposes.": true,
+    "certain members of the intelligence community": true,
+    "The rates apply to fully-electric and hybrid automobiles, as well as gasoline and diesel-powered vehicles.": true
+   }
+  }
+ },
+ "grezzi": {
+  "gsa_fy2026.xlsx": {
+   "url": "https://www.gsa.gov/system/files/FY2026_PerDiemMasterRatesFile.xlsx",
+   "letto_il": "2026-11-13",
+   "sha256": "5a3214fdafa1034799e2ff61d8997cface1a1ff0322be3efad78595b12b4e244",
+   "byte": 42276,
+   "http": 200
+  },
+  "gsa_fy2027.xlsx": {
+   "url": "https://www.gsa.gov/system/files/FY2027_PerDiemRates_Validated090126.xlsx",
+   "letto_il": "2026-11-13",
+   "sha256": "818af7d0e568228804f6e8d3d475504cf0c22562544f4d808509fc4aa8790618",
+   "byte": 37380,
+   "http": 200
+  },
+  "gsa_api_lodging_2026.json": {
+   "url": "https://api.gsa.gov/travel/perdiem/v2/rates/conus/lodging/2026?api_key=DEMO_KEY",
+   "letto_il": "2026-11-13",
+   "sha256": "569220fd5d546d77b9b760c54ebd4bb5455265322c52df6faf1f9aac75747aad",
+   "byte": 79776,
+   "http": 200
+  },
+  "gsa_api_lodging_2027.json": {
+   "url": "https://api.gsa.gov/travel/perdiem/v2/rates/conus/lodging/2027?api_key=DEMO_KEY",
+   "letto_il": "2026-11-13",
+   "sha256": "a00d1df6fe96bec8578fd8851986fd1ec0bb91e38b78910bf2caa54f2651d974",
+   "byte": 79504,
+   "http": 200
+  },
+  "gsa_api_mie_2026.json": {
+   "url": "https://api.gsa.gov/travel/perdiem/v2/rates/conus/mie/2026?api_key=DEMO_KEY",
+   "letto_il": "2026-11-13",
+   "sha256": "af98fad4c3696bca4f13593a7876378769b5f78091fa76fef7263a8d9c8a1bf2",
+   "byte": 425,
+   "http": 200
+  },
+  "gsa_api_mie_2027.json": {
+   "url": "https://api.gsa.gov/travel/perdiem/v2/rates/conus/mie/2027?api_key=DEMO_KEY",
+   "letto_il": "2026-11-13",
+   "sha256": "af98fad4c3696bca4f13593a7876378769b5f78091fa76fef7263a8d9c8a1bf2",
+   "byte": 425,
+   "http": 200
+  },
+  "gsa_mileage.html": {
+   "url": "https://www.gsa.gov/travel/mileage-reimbursements",
+   "letto_il": "2026-11-13",
+   "sha256": "38a426ae6f0b649e01de31e7e53f0bba92c8c767d8cbc248d04ef9e1a3923745",
+   "byte": 180717,
+   "http": 200
+  },
+  "irs_notice_2026-10.pdf": {
+   "url": "https://www.irs.gov/pub/irs-drop/n-26-10.pdf",
+   "letto_il": "2026-11-13",
+   "sha256": "8fdda8f02245c38134e08fca50238732c74b0ae693c408252dedf96623d4977a",
+   "byte": 105177,
+   "http": 200
+  },
+  "irs_irb_2026-29.html": {
+   "url": "https://www.irs.gov/irb/2026-29_irb",
+   "letto_il": "2026-11-13",
+   "sha256": "80b033caa86963a9f20d1bf755b2fe3a000cbcc488f4dbbc244928c7bb33006e",
+   "byte": 200120,
+   "http": 200
+  },
+  "irs_standard_mileage_rates.html": {
+   "url": "https://www.irs.gov/tax-professionals/standard-mileage-rates",
+   "letto_il": "2026-11-13",
+   "sha256": "4ad8b26fdf074d9a66d02d90399fb22982606c9d3534c7cba9eb3d1e981b3b66",
+   "byte": 110377,
+   "http": 200
   }
  }
 }

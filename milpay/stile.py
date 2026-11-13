@@ -34,7 +34,7 @@ nav.menu a:hover,nav.menu a[aria-current]{color:#fff;background:rgba(255,255,255
 .nav-m{display:none}
 .nav-m summary{list-style:none;cursor:pointer;display:grid;place-items:center;width:40px;height:40px;border:1px solid rgba(255,255,255,.25);border-radius:10px;color:var(--on-deep)}
 .nav-m summary::-webkit-details-marker{display:none}
-.nav-m nav{position:absolute;left:16px;right:16px;top:calc(100% + 4px);background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh-2);padding:8px;display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
+.nav-m nav{position:absolute;left:16px;right:16px;top:calc(100% + 4px);background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh-2);padding:8px;display:grid;grid-template-columns:repeat(4,1fr);gap:2px;max-height:calc(100vh - 80px);overflow:auto}
 .nav-m nav a{padding:10px 8px;border-radius:8px;color:var(--ink);text-decoration:none;font-weight:700;font-size:.93rem;text-align:center}.nav-m nav a:hover{background:var(--accent-2)}
 .nav-m nav a.w2{grid-column:span 2}.nav-m nav .sep{grid-column:1/-1;border-top:1px solid var(--line);margin:4px 0}
 .band{background:linear-gradient(180deg,var(--deep) 0,var(--deep-2) 100%);color:var(--on-deep);position:relative;overflow:hidden}
@@ -107,9 +107,25 @@ footer{margin-top:46px;background:var(--deep);color:var(--on-deep-2);padding:32p
 footer a{color:var(--on-deep)}footer h2{font-size:1rem;color:#fff;margin:0 0 10px}footer ul{list-style:none;margin:0;padding:0;display:grid;gap:5px}
 .f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:26px}.f-grid .logo{margin-bottom:10px}.f-base{border-top:1px solid rgba(255,255,255,.1);margin-top:22px;padding-top:14px;font-size:.84rem}
 .f-gradi{grid-template-columns:repeat(4,auto)!important;gap:5px 14px!important}
+.calc-in input{font:inherit;font-weight:600;color:var(--ink);background:var(--bg);border:1.5px solid var(--line-2);border-radius:var(--r-s);padding:9px 11px;width:100%;min-height:46px}
+.calc-in input:focus,.cerca input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 22%,transparent)}
+.due{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tot .main:first-child:nth-last-child(3){grid-column:1/-1}.calc-out small{color:var(--ink-3)}
+.giorni{width:100%;border-collapse:collapse;font-size:.86rem;background:var(--card);border:1px solid var(--line);border-radius:var(--r-s);font-variant-numeric:tabular-nums}
+.giorni th,.giorni td{padding:5px 8px;border-bottom:1px solid var(--line);text-align:right}.giorni th:first-child,.giorni td:first-child{text-align:left}
+.giorni thead th{font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-2);background:var(--mute)}
+.giorni-box{max-height:320px;overflow:auto;border-radius:var(--r-s)}
+.cerca{display:grid;gap:8px;max-width:640px}.cerca label{font-weight:700;font-size:.92rem}
+.cerca input{font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line-2);border-radius:var(--r-s);padding:10px 12px;width:100%;min-height:46px}
+.cerca .small{margin:0}
+.risultati{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px;max-width:100%}
+.risultati a{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:var(--r-s);padding:9px 12px;text-decoration:none;color:var(--ink);box-shadow:var(--sh-1)}
+.risultati a:hover{border-color:var(--accent)}.risultati b{color:var(--accent)}.risultati small{color:var(--ink-3);font-size:.8rem}
+.griglia.stati{grid-template-columns:repeat(auto-fill,minmax(170px,1fr))}
 @media (max-width:860px){nav.menu{display:none}.nav-m{display:block}.calc-g{grid-template-columns:1fr}.calc-in{border-right:0;border-bottom:1px solid var(--line)}
 .stats{grid-template-columns:1fr 1fr}.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}.f-grid{grid-template-columns:1fr}}
-@media (max-width:420px){body{font-size:16px}.logo span{font-size:1rem}.stat{padding:13px 13px}table.dati{font-size:.86rem}table.dati th,table.dati td{padding:7px 8px}}
+@media (max-width:1000px) and (min-width:861px){nav.menu a{padding:7px 7px;font-size:.88rem}}
+@media (max-width:420px){.due{grid-template-columns:1fr}body{font-size:16px}.logo span{font-size:1rem}.stat{padding:13px 13px}table.dati{font-size:.86rem}table.dati th,table.dati td{padding:7px 8px}}
 """
 
 ICONE = {
@@ -150,7 +166,35 @@ function calcola(D, g, c) {
   }
   return {tabella: v, mese: m, anno: Math.round(m * 12 * 100) / 100, tetto: tetto, prossimo: pr};
 }
-if (typeof module !== 'undefined') module.exports = {calcola: calcola};
+function viaggio(D, k, da, a) {
+  function leggi(s) { var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s || ''); if (!m) return null; var t = Date.UTC(+m[1], +m[2] - 1, +m[3]);
+    var d = new Date(t); return (d.getUTCFullYear() === +m[1] && d.getUTCMonth() === +m[2] - 1 && d.getUTCDate() === +m[3]) ? t : null; }
+  var x = leggi(da), y = leggi(a); if (x === null || y === null) return {errore: 'data'};
+  if (y < x) return {errore: 'ordine'};
+  var n = Math.round((y - x) / 86400000) + 1; if (n > 183) return {errore: 'lungo'};
+  var righe = [], tl = 0, tm = 0;
+  for (var i = 0; i < n; i++) {
+    var d = new Date(x + i * 86400000), mo = d.getUTCMonth() + 1, fy = String(mo >= 10 ? d.getUTCFullYear() + 1 : d.getUTCFullYear());
+    var iso = d.toISOString().slice(0, 10), F = D.fy[fy];
+    if (!F) return {errore: 'fuori', data: iso};
+    var r = k === 'std' ? F.std : F.loc[k];
+    if (!r) return {errore: 'non_listata', fy: fy, data: iso};
+    var q = (i === 0 || i === n - 1) ? 0.75 : 1, m = r[1] * q, lo = i < n - 1 ? r[0][(mo + 2) % 12] : 0;
+    righe.push({data: iso, fy: fy, alloggio: lo, mie: m, quota: q}); tl += lo; tm += m;
+  }
+  return {giorni: n, notti: n - 1, alloggio: tl, mie: tm, totale: tl + tm, righe: righe};
+}
+function miglia(D, giorno, scopo, mi) {
+  var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(giorno || ''); mi = parseFloat(mi);
+  if (!m || isNaN(mi)) return {errore: 'dati'};
+  if (!(mi > 0 && mi <= 100000)) return {errore: 'miglia'};
+  var p = null; for (var i = 0; i < D.periodi.length; i++) if (D.periodi[i].dal <= giorno && giorno <= D.periodi[i].al) p = D.periodi[i];
+  if (!p) return {errore: 'fuori'};
+  var r = p.tariffe[scopo]; if (r === undefined) return {errore: 'scopo'};
+  var t = Math.floor(mi * 10 + 0.5), c = Math.floor((t * r + 50) / 100);
+  return {tariffa: r / 10, decimi: t, centesimi: c, importo: c / 100, dal: p.dal, al: p.al};
+}
+if (typeof module !== 'undefined') module.exports = {calcola: calcola, viaggio: viaggio, miglia: miglia};
 (function () {
   if (typeof document === 'undefined') return;
   var b = document.querySelector('[data-tema]');
@@ -165,6 +209,66 @@ if (typeof module !== 'undefined') module.exports = {calcola: calcola};
       .then(function (r) { if (!r.ok) throw new Error(r.status); form.hidden = true; var ok = form.parentNode.querySelector('[data-ok]'); if (ok) ok.hidden = false; })
       .catch(function () { err.hidden = false; bt.disabled = false; });
   }); });
+  function usd(x) { return '$' + x.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}); }
+  function escp(s) { return String(s).replace(/[&<>"]/g, function (c) { return {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]; }); }
+  var MESI = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  function giorno(iso) { var p = iso.split('-'); return MESI[+p[1] - 1] + ' ' + (+p[2]) + ', ' + p[0]; }
+  var pd = document.querySelector('[data-pd]');
+  if (pd) {
+    var DP = JSON.parse(document.getElementById('dati-pd').textContent);
+    var sl = pd.querySelector('select[name=l]'), da = pd.querySelector('input[name=da]'), a = pd.querySelector('input[name=a]'), op = pd.querySelector('[data-out]');
+    var q0 = new URLSearchParams(location.search);
+    if (q0.get('l') && (q0.get('l') === 'std' || DP.nomi[q0.get('l')])) sl.value = q0.get('l');
+    if (q0.get('da')) da.value = q0.get('da'); if (q0.get('a')) a.value = q0.get('a');
+    var pdAgg = function (scrivi) {
+      var r = viaggio(DP, sl.value, da.value, a.value), h = '';
+      if (r.errore) {
+        var msg = {data: 'Enter both dates.', ordine: 'The last day is before the first day.', lungo: 'This calculator handles trips of up to 183 days.',
+          fuori: 'We have GSA rates for October 1, 2025 to September 30, 2027 only (FY 2026 and FY 2027): ' + (r.data ? giorno(r.data) : '') + ' is outside.',
+          non_listata: escp(DP.nomi[sl.value] || '') + ' is not listed as a separate GSA area in FY ' + r.fy + ' (from ' + (r.data ? giorno(r.data) : '') + '). For those dates check the county, or use the standard rate.'}[r.errore];
+        h = '<p class="vuoto"><strong>' + msg + '</strong></p>';
+      } else {
+        h = '<div class="tot"><div class="main"><span>Maximum per diem for the trip</span><b>' + usd(r.totale) + '</b></div><div><span>Lodging, ' + r.notti + ' night' + (r.notti === 1 ? '' : 's') + ' (maximum)</span><b>' + usd(r.alloggio) +
+          '</b></div><div><span>M&amp;IE, ' + r.giorni + ' day' + (r.giorni === 1 ? '' : 's') + '</span><b>' + usd(r.mie) + '</b></div></div>';
+        if (r.giorni === 1) h += '<p>Same-day trip: no lodging, 75% of M&amp;IE, which GSA allows for one-day travel of more than 12 hours.</p>';
+        h += '<div class="giorni-box"><table class="giorni"><thead><tr><th>Day</th><th>Lodging max</th><th>M&amp;IE</th></tr></thead><tbody>';
+        r.righe.forEach(function (x) { h += '<tr><td>' + giorno(x.data) + ' <small>FY ' + x.fy + '</small></td><td>' + (x.alloggio ? usd(x.alloggio) : '–') + '</td><td>' + usd(x.mie) + (x.quota < 1 ? ' <small>(75%)</small>' : '') + '</td></tr>'; });
+        h += '</tbody></table></div>';
+        if (DP.pagine[sl.value]) h += '<p><a href="/' + DP.pagine[sl.value] + '">' + (sl.value === 'std' ? 'How per diem works →' : 'All rates for ' + escp(DP.nomi[sl.value]) + ' →') + '</a></p>';
+      }
+      op.innerHTML = h;
+      if (scrivi && history.replaceState) { var q = new URLSearchParams(); q.set('l', sl.value); q.set('da', da.value); q.set('a', a.value); history.replaceState(null, '', location.pathname + '?' + q.toString()); }
+    };
+    pdAgg(false);
+    [sl, da, a].forEach(function (el) { el.addEventListener('change', function () { pdAgg(true); }); el.addEventListener('input', function () { pdAgg(true); }); });
+  }
+  var km = document.querySelector('[data-km]');
+  if (km) {
+    var DK = JSON.parse(document.getElementById('dati-km').textContent);
+    var kd = km.querySelector('input[name=data]'), ks = km.querySelector('select[name=scopo]'), kmi = km.querySelector('input[name=miglia]'), ko = km.querySelector('[data-out]');
+    var q1 = new URLSearchParams(location.search);
+    if (q1.get('data')) kd.value = q1.get('data'); if (q1.get('scopo') && DK.periodi[0].tariffe[q1.get('scopo')] !== undefined) ks.value = q1.get('scopo'); if (q1.get('miglia')) kmi.value = q1.get('miglia');
+    var kmAgg = function (scrivi) {
+      var r = miglia(DK, kd.value, ks.value, kmi.value), h;
+      if (r.errore) h = '<p class="vuoto"><strong>' + {dati: 'Enter a date and a number of miles.', miglia: 'Enter between 0.1 and 100,000 miles.', fuori: 'We have the 2026 rates only (January 1 to December 31, 2026).', scopo: 'Choose a rate.'}[r.errore] + '</strong></p>';
+      else h = '<div class="tot"><div class="main"><span>Amount</span><b>' + usd(r.importo) + '</b></div><div><span>Rate per mile</span><b>' + r.tariffa + '¢</b></div></div>' +
+        '<p>' + (r.decimi / 10) + ' miles × ' + r.tariffa + '¢, rate in force ' + giorno(r.dal) + ' to ' + giorno(r.al) + '.</p>';
+      ko.innerHTML = h;
+      if (scrivi && history.replaceState) { var q = new URLSearchParams(); q.set('data', kd.value); q.set('scopo', ks.value); q.set('miglia', kmi.value); history.replaceState(null, '', location.pathname + '?' + q.toString()); }
+    };
+    kmAgg(false);
+    [kd, ks, kmi].forEach(function (el) { el.addEventListener('change', function () { kmAgg(true); }); el.addEventListener('input', function () { kmAgg(true); }); });
+  }
+  var ce = document.querySelector('[data-cerca]');
+  if (ce) {
+    var qi = ce.querySelector('input[name=q]'), conta = ce.querySelector('[data-conta]'), voci = document.querySelectorAll('[data-elenco] li'), base = conta.textContent;
+    var cerca = function () {
+      var s = qi.value.trim().toLowerCase(), n = 0;
+      voci.forEach(function (li) { var ok = s.length >= 2 && li.getAttribute('data-t').indexOf(s) >= 0 && n < 40; li.hidden = !ok; if (ok) n++; });
+      conta.textContent = s.length < 2 ? base : (n ? n + (n === 40 ? '+' : '') + ' area' + (n === 1 ? '' : 's') + ' found.' : 'No GSA area matches: if the county is not listed either, the standard rate applies.');
+    };
+    qi.addEventListener('input', cerca);
+  }
   var box = document.querySelector('[data-calc]'); if (!box) return;
   var D = JSON.parse(document.getElementById('dati-paga').textContent);
   var sg = box.querySelector('select[name=g]'), sy = box.querySelector('select[name=y]'), out = box.querySelector('[data-out]');

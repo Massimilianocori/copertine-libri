@@ -1,6 +1,6 @@
 """Rilegge le fonti ufficiali del sito e controlla le frasi esatte da cui vengono le cifre; scrive dati/fonti.json.
 
-Uso (dalla radice del repository): python3 milpay/raccolta/fonti.py
+Uso (dalla radice del repository): python3 milpay/raccolta/fonti.py [--solo=id1,id2]
 Per ogni fonte: HTTP, SHA-256 del file, data di lettura, esito di ogni frase cercata (spazi normalizzati).
 Nessun blocco aggirato: dfas.mil, militarypay.defense.gov, defense.gov, congress.gov e bls.gov (sito) rispondono 403 al
 nostro server e non sono usati; il BLS si legge dalla sua API pubblica.
@@ -86,6 +86,63 @@ FONTI = {
                 "leggi": "https://api.govinfo.gov/collections/PLAW/2026-07-01T00:00:00Z?offsetMark=*&pageSize=1000&congress=119&api_key=DEMO_KEY",
                 "api_plaw": True, "cerca": []},
 }
+# --- sezione per diem e chilometri (13/11/2026): file grezzi in dati/grezzi/ (raccolta/perdiem.py) e frasi esatte delle pagine GSA e IRS
+_PD = json.loads((DATI / "perdiem.json").read_text()) if (DATI / "perdiem.json").exists() else None
+FONTI.update({
+    "gsa_xlsx2026": {"titolo": "FY 2026 per diem rates master file (Excel), effective October 1, 2025", "chi": "U.S. General Services Administration, Per diem files",
+                     "url": "https://www.gsa.gov/travel/per-diem-rates/per-diem-files", "leggi": "https://www.gsa.gov/system/files/FY2026_PerDiemMasterRatesFile.xlsx", "binario": True, "cerca": []},
+    "gsa_xlsx2027": {"titolo": "FY 2027 per diem rates file (Excel, FY2027_PerDiemRates_Validated090126.xlsx), effective October 1, 2026", "chi": "U.S. General Services Administration, Per diem files",
+                     "url": "https://www.gsa.gov/travel/per-diem-rates/per-diem-files", "leggi": "https://www.gsa.gov/system/files/FY2027_PerDiemRates_Validated090126.xlsx", "binario": True, "cerca": []},
+    "gsa_api": {"titolo": "Per diem API (lodging by month and M&IE breakdown, FY 2026 and FY 2027)", "chi": "U.S. General Services Administration, open.gsa.gov",
+                "url": "https://open.gsa.gov/api/perdiem/",
+                "cerca": ["The per diem reimbursement rates consist of a maximum lodging allowance component and a meals and incidental expenses (M&IE) component",
+                          "Rates for the coming federal government fiscal year (October 1st to September 30th) are typically announced in mid-August"]},
+    "gsa_pd": {"titolo": "Per diem rates", "chi": "U.S. General Services Administration, gsa.gov", "url": "https://www.gsa.gov/travel/per-diem-rates",
+               "cerca": ["We establish the per diem rates that federal agencies use to reimburse their employees for lodging and meals and incidental expenses incurred while on official travel within the continental United States.",
+                         "A standard rate applies to most of CONUS.", "Individual rates apply to about 300 non-standard areas.",
+                         "Most NSAs are a key city/primary destination and the surrounding county."]},
+    "gsa_faq": {"titolo": "Frequently asked questions, per diem", "chi": "U.S. General Services Administration, gsa.gov", "url": "https://www.gsa.gov/travel/per-diem-rates/faqs",
+                "cerca": ["Per diem is an allowance for lodging, meals, and incidental expenses.",
+                          "The U.S. General Services Administration (GSA) establishes the per diem reimbursement rates that federal agencies use to reimburse their employees for subsistence expenses incurred while on official travel within the continental U.S. (CONUS), which includes the 48 contiguous states and the District of Columbia.",
+                          "The U.S. Department of Defense (DOD) establishes rates for travel in non-foreign areas outside of CONUS, which includes Alaska, Hawaii, and U.S. territories and possessions.",
+                          "The U.S. Department of State establishes rates for travel in foreign areas.",
+                          "If neither the city nor county you are looking for is listed on the GSA per diem rate page, then the standard CONUS rate applies.",
+                          "If the city is not listed, but the county is, then the per diem rate is the rate for that entire county.",
+                          "On the first and last travel day, Federal employees are only eligible for 75 percent of the total M&IE rate for their temporary duty travel location (not the official duty station location).",
+                          "The lodging per diem rates are a maximum amount; the traveler only receives actual lodging costs up to that maximum rate.",
+                          "Lodging taxes are not included in the CONUS per diem rate.",
+                          "the meals and incidental expense (M&IE) rate does include taxes and tips in the rate",
+                          "Hotels are not required to honor the federal per diem rates.",
+                          "travelers are entitled to 75% of the prescribed meals and incidental expenses for one day travel away from your official station if it is longer than 12 hours",
+                          "GSA establishes per diem rates and related policies for federal travelers on official travel only"]},
+    "gsa_mie": {"titolo": "M&IE breakdowns", "chi": "U.S. General Services Administration, gsa.gov", "url": "https://www.gsa.gov/travel/per-diem-rates/mie-breakdowns",
+                "cerca": ["Use the tables below to determine how much to deduct from your meals and incidental expenses allowance, or M&IE, when a meal is provided by the government or included in a registration fee.",
+                          "Meals provided by a common carrier or complimentary meals provided by a hotel or motel do not affect your per diem allowance."]
+                + ([f"${m['totale']} ${m['colazione']} ${m['pranzo']} ${m['cena']} ${m['extra']} ${m['primo_ultimo']:.2f}" for m in _PD["mie_tabella"]["2027"]] if _PD else [])},
+    "gsa_mileage": {"titolo": "Mileage reimbursements (privately owned vehicle rates for official travel)", "chi": "U.S. General Services Administration, gsa.gov",
+                    "url": "https://www.gsa.gov/travel/mileage-reimbursements",
+                    "cerca": ["Current mileage rates for official travel on or after July 1, 2026", "For example, 100 miles in your own automobile at $0.76 per mile = $76.00.",
+                              "Check with your agency's travel office before using a privately owned vehicle for official travel.",
+                              "Jan. 1, 2026 $0.725 $0.205 $0.705 $1.78"]},
+    "irs_n2026_10": {"titolo": "Notice 2026-10, 2026 Standard Mileage Rates", "chi": "Internal Revenue Service, irs.gov (PDF)", "url": "https://www.irs.gov/pub/irs-drop/n-26-10.pdf", "pdf": True,
+                     "cerca": ["The standard mileage rate for transportation or travel expenses for 2026 is 72.5 cents per mile for all miles of business use",
+                               "The standard mileage rate is 14 cents per mile for use of an automobile in rendering gratuitous services to a charitable organization",
+                               "The standard mileage rate for 2026 is 20.5 cents per mile for use of an automobile: (1) for medical care"]},
+    "irs_a2026_11": {"titolo": "Announcement 2026-11, Optional Standard Mileage Rates (Internal Revenue Bulletin 2026-29, July 13, 2026)", "chi": "Internal Revenue Service, irs.gov",
+                     "url": "https://www.irs.gov/irb/2026-29_irb",
+                     "cerca": ["This modification results from recent increases in the price of fuel.", "(1) Business 76 cents per mile", "(2) Medical and moving 23.5 cents per mile",
+                               "The mileage rate that applies to the deduction for charitable contributions is fixed under § 170(i) of the Internal Revenue Code at 14 cents per mile.",
+                               "on or after July 1, 2026"]},
+    "irs_smr": {"titolo": "Standard mileage rates (all years)", "chi": "Internal Revenue Service, irs.gov", "url": "https://www.irs.gov/tax-professionals/standard-mileage-rates",
+                "cerca": ["Self-employed and business: 76 cents/mile", "Charities: 14 cents/mile", "Medical: 23.5 cents/mile", "2026 (Jan. 1 - June 30) 72.5 14 20.5",
+                         "2025 70 14 21 IR-2024-312", "2024 67 14 21 IR-2023-239", "2023 65.5 14 22 IR-2022-234"]},
+    "irs_ir2025_128": {"titolo": "IR-2025-128, IRS sets 2026 business standard mileage rate at 72.5 cents per mile", "chi": "Internal Revenue Service newsroom, December 29, 2025",
+                       "url": "https://www.irs.gov/newsroom/irs-sets-2026-business-standard-mileage-rate-at-725-cents-per-mile-up-25-cents",
+                       "cerca": ["72.5 cents per mile driven for business use", "Use of the standard mileage rates is optional.",
+                                 "Optional standard mileage rates are used to calculate the deductible costs of operating vehicles for business, charitable, and medical purposes.",
+                                 "certain members of the intelligence community",
+                                 "The rates apply to fully-electric and hybrid automobiles, as well as gasoline and diesel-powered vehicles."]},
+})
 for anno, f in ST["fonti_tabelle"].items():
     FONTI[f"eo{anno}"] = FONTI.get(f"eo{anno}") or {
         "titolo": f"Executive Order {f['ordine_esecutivo']}, Adjustments of Certain Rates of Pay, Schedule 8 (effective January 1, {anno})",
@@ -105,7 +162,9 @@ def leggi(fid, f):
             b, http = r.read(), r.status
     except urllib.error.HTTPError as e:
         return {"http": e.code, "letto_il": date.today().isoformat()}
-    if f.get("pdf"):
+    if f.get("binario"):
+        testo = ""
+    elif f.get("pdf"):
         with tempfile.NamedTemporaryFile(suffix=".pdf") as t:
             t.write(b)
             t.flush()
@@ -140,13 +199,21 @@ def leggi(fid, f):
 
 
 def main():
-    esiti = {}
+    import sys
+    vecchio = json.loads((DATI / "fonti.json").read_text(encoding="utf-8")) if (DATI / "fonti.json").exists() else {}
+    solo = next((a.split("=", 1)[1].split(",") for a in sys.argv if a.startswith("--solo=")), None)  # rilegge solo queste fonti, le altre restano
+    esiti = dict(vecchio.get("fonti", {})) if solo else {}
     for fid, f in FONTI.items():
+        if solo and fid not in solo:
+            continue
         esiti[fid] = leggi(fid, f)
         e = esiti[fid]
         mancano = [c for c, ok in e.get("trovate", {}).items() if not ok]
         print(f"{fid}: HTTP {e['http']}" + (f" API {e['api']}" if "api" in e else "") + (f" MANCANO {mancano}" if mancano else ""))
-    (DATI / "fonti.json").write_text(json.dumps({"definizioni": FONTI, "fonti": esiti}, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    uscita = {"definizioni": FONTI, "fonti": esiti}
+    if "grezzi" in vecchio:  # registro dei file grezzi scritto da raccolta/perdiem.py: si conserva
+        uscita["grezzi"] = vecchio["grezzi"]
+    (DATI / "fonti.json").write_text(json.dumps(uscita, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
 
 
 if __name__ == "__main__":

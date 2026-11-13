@@ -1,0 +1,4213 @@
+{
+ "_nota": "Volumi medi mensili Google Ads (USA) letti con seodata.dev il 13/11/2026 per la sezione per diem e chilometri: 127 ricerche. Volumi medi degli ultimi mesi disponibili (le frasi con 2026 e 2027 risultano ancora a 0 o quasi). Servono a scegliere le pagine di località e le FAQ: ogni FAQ cita una di queste frasi.",
+ "letto_il": "2026-11-13",
+ "paese": "us",
+ "ricerche": [
+  {
+   "frase": "2026 mileage rate",
+   "volume_mese": 170,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "federal mileage rate 2026",
+     "volume_mese": 70
+    },
+    {
+     "frase": "irs mileage rate 2026",
+     "volume_mese": 170
+    },
+    {
+     "frase": "mileage rate 2026",
+     "volume_mese": 90
+    },
+    {
+     "frase": "mileage rate 2025",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "what is federal mileage rate",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "mileage cost",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "mileage rate",
+     "volume_mese": 8100
+    },
+    {
+     "frase": "mileage reimbursement rate",
+     "volume_mese": 5400
+    },
+    {
+     "frase": "gas mileage rate",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "mileage reimbursement 2025",
+     "volume_mese": 9900
+    }
+   ]
+  },
+  {
+   "frase": "alaska per diem rates",
+   "volume_mese": 260,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "per diem rates alaska",
+     "volume_mese": 260
+    },
+    {
+     "frase": "per diem rates for alaska",
+     "volume_mese": 260
+    },
+    {
+     "frase": "per diem fairbanks alaska",
+     "volume_mese": 70
+    },
+    {
+     "frase": "state of alaska per diem rates",
+     "volume_mese": 260
+    },
+    {
+     "frase": "anchorage alaska per diem",
+     "volume_mese": 90
+    },
+    {
+     "frase": "state of alaska per diem",
+     "volume_mese": 390
+    },
+    {
+     "frase": "per diem anchorage alaska",
+     "volume_mese": 90
+    },
+    {
+     "frase": "alaska per diem rates 2025",
+     "volume_mese": 140
+    },
+    {
+     "frase": "fairbanks per diem",
+     "volume_mese": 70
+    },
+    {
+     "frase": "per diem rates state department",
+     "volume_mese": 3600
+    }
+   ]
+  },
+  {
+   "frase": "albuquerque per diem",
+   "volume_mese": 210,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "per diem albuquerque",
+     "volume_mese": 210
+    },
+    {
+     "frase": "albuquerque per diem 2025",
+     "volume_mese": 50
+    },
+    {
+     "frase": "new mexico per diem rates 2025",
+     "volume_mese": 50
+    },
+    {
+     "frase": "new mexico per diem",
+     "volume_mese": 110
+    },
+    {
+     "frase": "gsa per diem albuquerque",
+     "volume_mese": 40
+    },
+    {
+     "frase": "per diem albuquerque 2025",
+     "volume_mese": 40
+    },
+    {
+     "frase": "new mexico per diem rates",
+     "volume_mese": 30
+    },
+    {
+     "frase": "per diem rates new mexico",
+     "volume_mese": 30
+    },
+    {
+     "frase": "las cruces per diem",
+     "volume_mese": 30
+    },
+    {
+     "frase": "dod per diem",
+     "volume_mese": 1900
+    }
+   ]
+  },
+  {
+   "frase": "arizona per diem rates",
+   "volume_mese": 140,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "per diem rates arizona",
+     "volume_mese": 140
+    },
+    {
+     "frase": "state of arizona per diem rates",
+     "volume_mese": 140
+    },
+    {
+     "frase": "state of arizona per diem",
+     "volume_mese": 90
+    },
+    {
+     "frase": "per diem arizona",
+     "volume_mese": 90
+    },
+    {
+     "frase": "asu per diem rates",
+     "volume_mese": 70
+    },
+    {
+     "frase": "yuma az per diem",
+     "volume_mese": 70
+    },
+    {
+     "frase": "arizona per diem",
+     "volume_mese": 140
+    },
+    {
+     "frase": "yuma per diem",
+     "volume_mese": 70
+    },
+    {
+     "frase": "phoenix per diem",
+     "volume_mese": 480
+    },
+    {
+     "frase": "per diem rates phoenix az",
+     "volume_mese": 390
+    }
+   ]
+  },
+  {
+   "frase": "arlington va per diem",
+   "volume_mese": 260,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "per diem arlington va",
+     "volume_mese": 210
+    },
+    {
+     "frase": "arlington va per diem 2025",
+     "volume_mese": 40
+    },
+    {
+     "frase": "per diem for norfolk va",
+     "volume_mese": 390
+    },
+    {
+     "frase": "per diem rate norfolk va",
+     "volume_mese": 390
+    },
+    {
+     "frase": "per diem rates norfolk va",
+     "volume_mese": 390
+    },
+    {
+     "frase": "per diem washington dc",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "dod per diem rates",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "per diem virginia",
+     "volume_mese": 260
+    },
+    {
+     "frase": "va per diem",
+     "volume_mese": 260
+    },
+    {
+     "frase": "richmond va per diem",
+     "volume_mese": 110
+    }
+   ]
+  },
+  {
+   "frase": "atlanta per diem",
+   "volume_mese": 880,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "per diem for atlanta ga",
+     "volume_mese": 880
+    },
+    {
+     "frase": "per diem atlanta ga",
+     "volume_mese": 880
+    },
+    {
+     "frase": "atlanta ga per diem",
+     "volume_mese": 880
+    },
+    {
+     "frase": "atlanta georgia per diem",
+     "volume_mese": 880
+    },
+    {
+     "frase": "per diem atlanta",
+     "volume_mese": 880
+    },
+    {
+     "frase": "per diem rate atlanta ga",
+     "volume_mese": 90
+    },
+    {
+     "frase": "per diem rate for atlanta ga",
+     "volume_mese": 90
+    },
+    {
+     "frase": "per diem rates atlanta ga",
+     "volume_mese": 90
+    },
+    {
+     "frase": "government per diem atlanta",
+     "volume_mese": 30
+    },
+    {
+     "frase": "atlanta per diem 2025",
+     "volume_mese": 140
+    }
+   ]
+  },
+  {
+   "frase": "austin per diem",
+   "volume_mese": 140,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "per diem austin",
+     "volume_mese": 140
+    },
+    {
+     "frase": "austin texas per diem",
+     "volume_mese": 260
+    },
+    {
+     "frase": "per diem for austin tx",
+     "volume_mese": 260
+    },
+    {
+     "frase": "austin tx per diem",
+     "volume_mese": 260
+    },
+    {
+     "frase": "per diem austin tx",
+     "volume_mese": 260
+    },
+    {
+     "frase": "per diem rate austin tx",
+     "volume_mese": 20
+    },
+    {
+     "frase": "per diem texas",
+     "volume_mese": 320
+    },
+    {
+     "frase": "texas per diem rates",
+     "volume_mese": 170
+    },
+    {
+     "frase": "austin texas per diem 2025",
+     "volume_mese": 50
+    },
+    {
+     "frase": "gsa rate austin tx",
+     "volume_mese": 40
+    }
+   ]
+  },
+  {
+   "frase": "baltimore per diem",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "boise per diem",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "california per diem rates",
+   "volume_mese": 320,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "ca per diem rates",
+     "volume_mese": 320
+    },
+    {
+     "frase": "per diem rates california",
+     "volume_mese": 320
+    },
+    {
+     "frase": "per diem in california",
+     "volume_mese": 720
+    },
+    {
+     "frase": "per diem rates in california",
+     "volume_mese": 320
+    },
+    {
+     "frase": "state of california per diem rates",
+     "volume_mese": 320
+    },
+    {
+     "frase": "per diem rates ca",
+     "volume_mese": 50
+    },
+    {
+     "frase": "per diem ca",
+     "volume_mese": 720
+    },
+    {
+     "frase": "per diem california",
+     "volume_mese": 720
+    },
+    {
+     "frase": "per diem rates 2025 california",
+     "volume_mese": 140
+    },
+    {
+     "frase": "california state per diem",
+     "volume_mese": 50
+    }
+   ]
+  },
+  {
+   "frase": "charity mileage rate",
+   "volume_mese": 90,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "charity mileage reimbursement",
+     "volume_mese": 90
+    },
+    {
+     "frase": "charitable mileage rate",
+     "volume_mese": 90
+    },
+    {
+     "frase": "charitable mileage reimbursement",
+     "volume_mese": 90
+    },
+    {
+     "frase": "what is charitable mileage",
+     "volume_mese": 40
+    },
+    {
+     "frase": "charitable mileage deduction",
+     "volume_mese": 170
+    },
+    {
+     "frase": "irs mileage rate",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "mileage for charity deduction",
+     "volume_mese": 210
+    },
+    {
+     "frase": "charitable deduction for mileage",
+     "volume_mese": 170
+    },
+    {
+     "frase": "irs charitable mileage rate",
+     "volume_mese": 40
+    },
+    {
+     "frase": "irs charity mileage rate",
+     "volume_mese": 40
+    }
+   ]
+  },
+  {
+   "frase": "chicago per diem",
+   "volume_mese": 1000,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "per diem chicago",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "chicago il per diem",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "per diem rate chicago",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "chicago per diem rate",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "chicago per diem rates",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "gsa per diem chicago",
+     "volume_mese": 110
+    },
+    {
+     "frase": "gsa chicago per diem",
+     "volume_mese": 50
+    },
+    {
+     "frase": "gsa rate chicago",
+     "volume_mese": 50
+    },
+    {
+     "frase": "international per diem",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "per diem rates international",
+     "volume_mese": 4400
+    }
+   ]
+  },
+  {
+   "frase": "colorado per diem rates",
+   "volume_mese": 90,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "state of colorado per diem",
+     "volume_mese": 260
+    },
+    {
+     "frase": "colorado per diem",
+     "volume_mese": 260
+    },
+    {
+     "frase": "per diem colorado",
+     "volume_mese": 260
+    },
+    {
+     "frase": "per diem rates colorado",
+     "volume_mese": 90
+    },
+    {
+     "frase": "state of colorado per diem rates",
+     "volume_mese": 90
+    },
+    {
+     "frase": "colorado per diem rates 2025",
+     "volume_mese": 110
+    },
+    {
+     "frase": "denver per diem rate",
+     "volume_mese": 880
+    },
+    {
+     "frase": "denver colorado per diem",
+     "volume_mese": 880
+    },
+    {
+     "frase": "denver per diem rates",
+     "volume_mese": 880
+    },
+    {
+     "frase": "per diem rate denver",
+     "volume_mese": 880
+    }
+   ]
+  },
+  {
+   "frase": "conus per diem rates",
+   "volume_mese": 1300,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "gsa per diem",
+     "volume_mese": 74000
+    },
+    {
+     "frase": "gsa per diem rates",
+     "volume_mese": 74000
+    },
+    {
+     "frase": "conus per diem rate",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "dod per diem rates",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "per diem rates",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "conus per diem",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "standard conus per diem rate",
+     "volume_mese": 70
+    },
+    {
+     "frase": "per diem rates 2025",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "per diem rate",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "per diem rates conus",
+     "volume_mese": 1000
+    }
+   ]
+  },
+  {
+   "frase": "dayton per diem",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "detroit per diem",
+   "volume_mese": 170,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "per diem detroit mi",
+     "volume_mese": 170
+    },
+    {
+     "frase": "detroit per diem 2025",
+     "volume_mese": 40
+    },
+    {
+     "frase": "michigan per diem rates 2025",
+     "volume_mese": 70
+    },
+    {
+     "frase": "oconus per diem",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "per diem rates michigan",
+     "volume_mese": 140
+    },
+    {
+     "frase": "per diem",
+     "volume_mese": 135000
+    },
+    {
+     "frase": "gsa per diem rates",
+     "volume_mese": 74000
+    },
+    {
+     "frase": "gsa rates",
+     "volume_mese": 12100
+    },
+    {
+     "frase": "department of state per diem",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "per diem rates state department",
+     "volume_mese": 3600
+    }
+   ]
+  },
+  {
+   "frase": "dod per diem rates",
+   "volume_mese": 2900,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "dod per diem",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "department of defense per diem",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "dod per diem rate",
+     "volume_mese": 140
+    },
+    {
+     "frase": "per diem rates dod",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "department of state per diem",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "us dod per diem rates",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "oconus per diem",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "per diem rate dod",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "army per diem rates",
+     "volume_mese": 720
+    },
+    {
+     "frase": "military per diem rates",
+     "volume_mese": 720
+    }
+   ]
+  },
+  {
+   "frase": "el paso per diem",
+   "volume_mese": 170,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "per diem el paso tx",
+     "volume_mese": 170
+    },
+    {
+     "frase": "per diem rates el paso tx",
+     "volume_mese": 170
+    },
+    {
+     "frase": "san antonio per diem 2025",
+     "volume_mese": 110
+    },
+    {
+     "frase": "el paso per diem 2025",
+     "volume_mese": 40
+    },
+    {
+     "frase": "per diem in texas",
+     "volume_mese": 320
+    },
+    {
+     "frase": "per diem texas",
+     "volume_mese": 320
+    },
+    {
+     "frase": "texas per diem rates",
+     "volume_mese": 170
+    },
+    {
+     "frase": "san antonio per diem rate",
+     "volume_mese": 140
+    },
+    {
+     "frase": "per diem san antonio 2025",
+     "volume_mese": 90
+    },
+    {
+     "frase": "gsa per diem san antonio",
+     "volume_mese": 70
+    }
+   ]
+  },
+  {
+   "frase": "federal mileage rate 2026",
+   "volume_mese": 70,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "mileage rate 2025",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "mileage rate 2026",
+     "volume_mese": 90
+    },
+    {
+     "frase": "irs 2025 mileage rate",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "2026 mileage rate",
+     "volume_mese": 170
+    },
+    {
+     "frase": "mileage reimbursement 2025",
+     "volume_mese": 12100
+    },
+    {
+     "frase": "mileage rate",
+     "volume_mese": 6600
+    },
+    {
+     "frase": "what is federal mileage rate",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "current irs mileage rate",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "irs mileage 2025",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "irs mileage rate 2025",
+     "volume_mese": 60500
+    }
+   ]
+  },
+  {
+   "frase": "federal per diem rates",
+   "volume_mese": 1300,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "per diem rates",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "per diem rate",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "gsa per diem rates",
+     "volume_mese": 74000
+    },
+    {
+     "frase": "gsa per diem",
+     "volume_mese": 74000
+    },
+    {
+     "frase": "gsa rates",
+     "volume_mese": 12100
+    },
+    {
+     "frase": "per diem rates state department",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "per diem",
+     "volume_mese": 135000
+    },
+    {
+     "frase": "department of state per diem",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "federal per diem rate",
+     "volume_mese": 590
+    },
+    {
+     "frase": "us federal per diem rates",
+     "volume_mese": 320
+    }
+   ]
+  },
+  {
+   "frase": "florida per diem rates",
+   "volume_mese": 140,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "florida per diem",
+     "volume_mese": 320
+    },
+    {
+     "frase": "per diem florida",
+     "volume_mese": 320
+    },
+    {
+     "frase": "state of florida per diem rates",
+     "volume_mese": 140
+    },
+    {
+     "frase": "per diem rates florida",
+     "volume_mese": 140
+    },
+    {
+     "frase": "per diem rates in florida",
+     "volume_mese": 140
+    },
+    {
+     "frase": "per diem orlando fl 2025",
+     "volume_mese": 110
+    },
+    {
+     "frase": "per diem rate florida",
+     "volume_mese": 20
+    },
+    {
+     "frase": "per diem rate orlando fl",
+     "volume_mese": 880
+    },
+    {
+     "frase": "per diem orlando florida",
+     "volume_mese": 880
+    },
+    {
+     "frase": "per diem in florida",
+     "volume_mese": 390
+    }
+   ]
+  },
+  {
+   "frase": "fy 2026 per diem rates",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "fy 2027 per diem rates",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "georgia per diem rates",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "government per diem rates",
+   "volume_mese": 5400,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "per diem rate",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "per diem rates",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "gsa per diem rates",
+     "volume_mese": 74000
+    },
+    {
+     "frase": "gsa rates",
+     "volume_mese": 12100
+    },
+    {
+     "frase": "per diem rates state department",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "gsa per diem",
+     "volume_mese": 74000
+    },
+    {
+     "frase": "department of state per diem",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "what is government per diem rate",
+     "volume_mese": 70
+    },
+    {
+     "frase": "government rates per diem",
+     "volume_mese": 5400
+    },
+    {
+     "frase": "dod per diem rates",
+     "volume_mese": 2400
+    }
+   ]
+  },
+  {
+   "frase": "gsa lodging rates",
+   "volume_mese": 1000,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "gsa per diem",
+     "volume_mese": 74000
+    },
+    {
+     "frase": "gsa per diem rates",
+     "volume_mese": 74000
+    },
+    {
+     "frase": "gsa rates",
+     "volume_mese": 12100
+    },
+    {
+     "frase": "per diem rates",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "gsa per diem rate",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "gsa lodging per diem",
+     "volume_mese": 170
+    },
+    {
+     "frase": "lodging rates gsa",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "gsa rate",
+     "volume_mese": 12100
+    },
+    {
+     "frase": "gsa lodging rate",
+     "volume_mese": 880
+    },
+    {
+     "frase": "gsa meal rates",
+     "volume_mese": 320
+    }
+   ]
+  },
+  {
+   "frase": "gsa mileage rate",
+   "volume_mese": 1000,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "gsa mileage reimbursement",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "what is gsa mileage rate",
+     "volume_mese": 70
+    },
+    {
+     "frase": "what is the gsa mileage rate",
+     "volume_mese": 70
+    },
+    {
+     "frase": "what is the current gsa mileage rate",
+     "volume_mese": 30
+    },
+    {
+     "frase": "gsa mileage rates",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "mileage reimbursement rate gsa",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "gsa mileage",
+     "volume_mese": 720
+    },
+    {
+     "frase": "current gsa mileage rate",
+     "volume_mese": 140
+    },
+    {
+     "frase": "what is the gsa rate for mileage",
+     "volume_mese": 70
+    },
+    {
+     "frase": "gsa fuel rates",
+     "volume_mese": 50
+    }
+   ]
+  },
+  {
+   "frase": "gsa per diem",
+   "volume_mese": 74000,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "gsa per diem rates",
+     "volume_mese": 74000
+    },
+    {
+     "frase": "gsa rates",
+     "volume_mese": 12100
+    },
+    {
+     "frase": "gsa per diem rate",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "per diem rates",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "per diem gsa",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "per diem rate",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "gsa rates per diem",
+     "volume_mese": 880
+    },
+    {
+     "frase": "gsa rate per diem",
+     "volume_mese": 880
+    },
+    {
+     "frase": "gsa lodging per diem",
+     "volume_mese": 170
+    },
+    {
+     "frase": "gsa domestic per diem",
+     "volume_mese": 50
+    }
+   ]
+  },
+  {
+   "frase": "gsa per diem calculator",
+   "volume_mese": 480,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "per diem calculator",
+     "volume_mese": 5400
+    },
+    {
+     "frase": "gsa rates",
+     "volume_mese": 12100
+    },
+    {
+     "frase": "federal gsa per diem calculator",
+     "volume_mese": 140
+    },
+    {
+     "frase": "gsa per diem rates",
+     "volume_mese": 74000
+    },
+    {
+     "frase": "gsa per diem",
+     "volume_mese": 74000
+    },
+    {
+     "frase": "federal per diem calculator",
+     "volume_mese": 110
+    },
+    {
+     "frase": "gsa per diem rate",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "per diem rate calculator",
+     "volume_mese": 140
+    },
+    {
+     "frase": "per diem rates calculator",
+     "volume_mese": 20
+    },
+    {
+     "frase": "per diem rates gsa",
+     "volume_mese": 74000
+    }
+   ]
+  },
+  {
+   "frase": "hawaii per diem rates",
+   "volume_mese": 390,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "hawaii per diem rate",
+     "volume_mese": 390
+    },
+    {
+     "frase": "per diem rates hawaii",
+     "volume_mese": 390
+    },
+    {
+     "frase": "per diem hawaii",
+     "volume_mese": 880
+    },
+    {
+     "frase": "oconus per diem",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "per diem for hawaii",
+     "volume_mese": 880
+    },
+    {
+     "frase": "per diem rates for hawaii",
+     "volume_mese": 390
+    },
+    {
+     "frase": "what is the per diem rate in hawaii",
+     "volume_mese": 40
+    },
+    {
+     "frase": "per diem rates",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "per diem rates state department",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "per diem rates oconus",
+     "volume_mese": 1600
+    }
+   ]
+  },
+  {
+   "frase": "how is per diem calculated",
+   "volume_mese": 590,
+   "cpc_usd": 15.41,
+   "simili": [
+    {
+     "frase": "per diem",
+     "volume_mese": 135000
+    },
+    {
+     "frase": "how to calculate per diem on travel days",
+     "volume_mese": 70
+    },
+    {
+     "frase": "per diem rate",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "how to calculate per diem for travel days",
+     "volume_mese": 70
+    },
+    {
+     "frase": "how to determine per diem rates",
+     "volume_mese": 40
+    },
+    {
+     "frase": "how to calculate per diem rates",
+     "volume_mese": 30
+    },
+    {
+     "frase": "per diem rates",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "per diems meaning",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "per diem calculation",
+     "volume_mese": 5400
+    },
+    {
+     "frase": "per diem calculator",
+     "volume_mese": 5400
+    }
+   ]
+  },
+  {
+   "frase": "huntsville per diem",
+   "volume_mese": 170,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "huntsville al per diem",
+     "volume_mese": 260
+    },
+    {
+     "frase": "huntsville alabama per diem",
+     "volume_mese": 260
+    },
+    {
+     "frase": "per diem huntsville al",
+     "volume_mese": 260
+    },
+    {
+     "frase": "alabama per diem",
+     "volume_mese": 140
+    },
+    {
+     "frase": "per diem alabama",
+     "volume_mese": 140
+    },
+    {
+     "frase": "gsa per diem huntsville al",
+     "volume_mese": 40
+    },
+    {
+     "frase": "per diem rates alabama",
+     "volume_mese": 40
+    },
+    {
+     "frase": "per diem birmingham al",
+     "volume_mese": 30
+    },
+    {
+     "frase": "per diem huntsville al 2025",
+     "volume_mese": 30
+    },
+    {
+     "frase": "per diem rates state department",
+     "volume_mese": 3600
+    }
+   ]
+  },
+  {
+   "frase": "illinois per diem rates",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "irs medical mileage rate",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "irs mileage rate",
+   "volume_mese": 9900,
+   "cpc_usd": 1.07,
+   "simili": [
+    {
+     "frase": "mileage reimbursement irs",
+     "volume_mese": 12100
+    },
+    {
+     "frase": "mileage rate",
+     "volume_mese": 6600
+    },
+    {
+     "frase": "mileage reimbursement rate",
+     "volume_mese": 5400
+    },
+    {
+     "frase": "current irs mileage rate",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "irs mileage",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "irs mileage reimbursement",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "what is federal mileage rate",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "what is mileage rate",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "gas mileage rate",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "irs 2025 mileage rate",
+     "volume_mese": 2400
+    }
+   ]
+  },
+  {
+   "frase": "irs mileage rate 2026",
+   "volume_mese": 170,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "2026 mileage rate",
+     "volume_mese": 170
+    },
+    {
+     "frase": "federal mileage rate 2026",
+     "volume_mese": 70
+    },
+    {
+     "frase": "irs mileage rate 2025",
+     "volume_mese": 60500
+    },
+    {
+     "frase": "irs mileage",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "what is federal mileage rate",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "mileage rate 2026",
+     "volume_mese": 90
+    },
+    {
+     "frase": "irs mileage rate",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "current irs mileage rate",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "irs mileage reimbursement",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "irs mileage 2025",
+     "volume_mese": 1900
+    }
+   ]
+  },
+  {
+   "frase": "irs mileage rate 2027",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "is per diem taxable",
+   "volume_mese": 3600,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "is a per diem taxable",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "can per diem be taxed",
+     "volume_mese": 140
+    },
+    {
+     "frase": "are per diem taxable",
+     "volume_mese": 50
+    },
+    {
+     "frase": "is per diem taxed as income",
+     "volume_mese": 50
+    },
+    {
+     "frase": "are per diems taxed",
+     "volume_mese": 40
+    },
+    {
+     "frase": "is per diem taxed",
+     "volume_mese": 720
+    },
+    {
+     "frase": "per diem is taxable",
+     "volume_mese": 720
+    },
+    {
+     "frase": "per diem taxable",
+     "volume_mese": 720
+    },
+    {
+     "frase": "are per diems taxable",
+     "volume_mese": 480
+    },
+    {
+     "frase": "is per diem taxable income",
+     "volume_mese": 170
+    }
+   ]
+  },
+  {
+   "frase": "jacksonville per diem",
+   "volume_mese": 70,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "jacksonville florida per diem",
+     "volume_mese": 170
+    },
+    {
+     "frase": "per diem jacksonville fl",
+     "volume_mese": 170
+    },
+    {
+     "frase": "jacksonville fl per diem",
+     "volume_mese": 170
+    },
+    {
+     "frase": "per diem rates jacksonville fl",
+     "volume_mese": 30
+    },
+    {
+     "frase": "dod per diem rates",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "dod per diem",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "gsa per diem miami",
+     "volume_mese": 40
+    },
+    {
+     "frase": "per diem melbourne fl",
+     "volume_mese": 40
+    },
+    {
+     "frase": "gsa per diem rates",
+     "volume_mese": 74000
+    },
+    {
+     "frase": "per diem rate",
+     "volume_mese": 2400
+    }
+   ]
+  },
+  {
+   "frase": "jtr per diem",
+   "volume_mese": 390,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "per diem jtr",
+     "volume_mese": 320
+    },
+    {
+     "frase": "dod per diem",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "dod per diem rates",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "department of defense per diem",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "joint travel regulation",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "joint travel regulations",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "per diem state department",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "jtr per diem rates",
+     "volume_mese": 170
+    },
+    {
+     "frase": "per diem",
+     "volume_mese": 135000
+    },
+    {
+     "frase": "foreign per diem rates",
+     "volume_mese": 4400
+    }
+   ]
+  },
+  {
+   "frase": "kansas city per diem",
+   "volume_mese": 210,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "per diem kansas city",
+     "volume_mese": 210
+    },
+    {
+     "frase": "department of state per diem",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "per diem rates state department",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "per diem kansas city mo",
+     "volume_mese": 210
+    },
+    {
+     "frase": "gsa per diem kansas city",
+     "volume_mese": 30
+    },
+    {
+     "frase": "per diem",
+     "volume_mese": 135000
+    },
+    {
+     "frase": "per diem rates",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "per diem rates international",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "per diem rate",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "department of defense per diem",
+     "volume_mese": 1300
+    }
+   ]
+  },
+  {
+   "frase": "key west per diem",
+   "volume_mese": 110,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "per diem key west",
+     "volume_mese": 110
+    },
+    {
+     "frase": "key west per diem 2025",
+     "volume_mese": 30
+    },
+    {
+     "frase": "per diem rates florida",
+     "volume_mese": 140
+    },
+    {
+     "frase": "per diem orlando fl 2025",
+     "volume_mese": 110
+    },
+    {
+     "frase": "fort lauderdale per diem",
+     "volume_mese": 90
+    },
+    {
+     "frase": "jacksonville florida per diem",
+     "volume_mese": 170
+    },
+    {
+     "frase": "per diem jacksonville fl",
+     "volume_mese": 170
+    },
+    {
+     "frase": "tampa per diem 2025",
+     "volume_mese": 90
+    },
+    {
+     "frase": "florida per diem 2025",
+     "volume_mese": 70
+    },
+    {
+     "frase": "miami per diem rate",
+     "volume_mese": 70
+    }
+   ]
+  },
+  {
+   "frase": "m&ie breakdown",
+   "volume_mese": 70,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "m&ie",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "mie breakdown",
+     "volume_mese": 70
+    },
+    {
+     "frase": "per diem meal breakdown",
+     "volume_mese": 50
+    },
+    {
+     "frase": "meal breakdown per diem",
+     "volume_mese": 50
+    },
+    {
+     "frase": "m & ie rate",
+     "volume_mese": 880
+    },
+    {
+     "frase": "meals and incidental expenses",
+     "volume_mese": 90
+    },
+    {
+     "frase": "m&ie total",
+     "volume_mese": 50
+    },
+    {
+     "frase": "incidental expenses per diem",
+     "volume_mese": 40
+    },
+    {
+     "frase": "foreign per diem rates",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "per diem meals",
+     "volume_mese": 1600
+    }
+   ]
+  },
+  {
+   "frase": "m&ie rates",
+   "volume_mese": 880,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "per diem rates",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "per diem rate",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "per diem rates state department",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "m&ie",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "m&ie rate",
+     "volume_mese": 140
+    },
+    {
+     "frase": "department of state per diem",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "mie rate",
+     "volume_mese": 880
+    },
+    {
+     "frase": "mie rates",
+     "volume_mese": 880
+    },
+    {
+     "frase": "per diem",
+     "volume_mese": 135000
+    },
+    {
+     "frase": "gsa per diem rates",
+     "volume_mese": 74000
+    }
+   ]
+  },
+  {
+   "frase": "maryland per diem rates",
+   "volume_mese": 50,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "state of maryland per diem",
+     "volume_mese": 170
+    },
+    {
+     "frase": "per diem maryland",
+     "volume_mese": 170
+    },
+    {
+     "frase": "per diem rates maryland",
+     "volume_mese": 50
+    },
+    {
+     "frase": "state of maryland per diem rates",
+     "volume_mese": 50
+    },
+    {
+     "frase": "maryland per diem",
+     "volume_mese": 170
+    },
+    {
+     "frase": "baltimore md per diem rates",
+     "volume_mese": 50
+    },
+    {
+     "frase": "per diem rate baltimore md",
+     "volume_mese": 50
+    },
+    {
+     "frase": "maryland per diem rates 2025",
+     "volume_mese": 50
+    },
+    {
+     "frase": "per diem rates 2025",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "baltimore md per diem",
+     "volume_mese": 320
+    }
+   ]
+  },
+  {
+   "frase": "massachusetts per diem rates",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "michigan per diem rates",
+   "volume_mese": 140,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "per diem michigan",
+     "volume_mese": 140
+    },
+    {
+     "frase": "michigan per diem",
+     "volume_mese": 140
+    },
+    {
+     "frase": "per diem rates michigan",
+     "volume_mese": 140
+    },
+    {
+     "frase": "michigan per diem rates 2025",
+     "volume_mese": 70
+    },
+    {
+     "frase": "per diem detroit mi",
+     "volume_mese": 170
+    },
+    {
+     "frase": "detroit per diem",
+     "volume_mese": 170
+    },
+    {
+     "frase": "state of michigan travel rates 2025",
+     "volume_mese": 30
+    },
+    {
+     "frase": "detroit per diem 2025",
+     "volume_mese": 40
+    },
+    {
+     "frase": "state of michigan travel rates",
+     "volume_mese": 40
+    },
+    {
+     "frase": "msu per diem rates",
+     "volume_mese": 30
+    }
+   ]
+  },
+  {
+   "frase": "mileage rate july 2026",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "mileage reimbursement calculator",
+   "volume_mese": 5400,
+   "cpc_usd": 5.01,
+   "simili": [
+    {
+     "frase": "mileage calculator reimbursement",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "mileage rate calculator",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "mileage reimbursement rate calculator",
+     "volume_mese": 70
+    },
+    {
+     "frase": "expense mileage calculator",
+     "volume_mese": 260
+    },
+    {
+     "frase": "gas compensation calculator",
+     "volume_mese": 30
+    },
+    {
+     "frase": "gas mileage calculator reimbursement",
+     "volume_mese": 30
+    },
+    {
+     "frase": "gas reimbursement calculator",
+     "volume_mese": 260
+    },
+    {
+     "frase": "gas mileage reimbursement calculator",
+     "volume_mese": 170
+    },
+    {
+     "frase": "federal mileage reimbursement calculator",
+     "volume_mese": 110
+    },
+    {
+     "frase": "mileage calculator for work",
+     "volume_mese": 70
+    }
+   ]
+  },
+  {
+   "frase": "mileage reimbursement irs",
+   "volume_mese": 12100,
+   "cpc_usd": 2.5,
+   "simili": [
+    {
+     "frase": "irs mileage rate",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "mileage reimbursement rate",
+     "volume_mese": 5400
+    },
+    {
+     "frase": "current irs mileage rate",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "irs mileage",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "irs mileage reimbursement",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "what is federal mileage rate",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "what is mileage rate",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "gas mileage rate",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "irs mileage reimbursement rules",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "mileage rate",
+     "volume_mese": 6600
+    }
+   ]
+  },
+  {
+   "frase": "mileage reimbursement rate",
+   "volume_mese": 5400,
+   "cpc_usd": 6.21,
+   "simili": [
+    {
+     "frase": "mileage reimbursement",
+     "volume_mese": 14800
+    },
+    {
+     "frase": "mileage rate",
+     "volume_mese": 6600
+    },
+    {
+     "frase": "what is federal mileage rate",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "what is mileage rate",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "gas mileage rate",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "mileage cost",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "current irs mileage rate",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "irs mileage rate",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "irs mileage reimbursement",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "what is mileage reimbursement",
+     "volume_mese": 1900
+    }
+   ]
+  },
+  {
+   "frase": "minneapolis per diem",
+   "volume_mese": 260,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "minnesota per diem",
+     "volume_mese": 110
+    },
+    {
+     "frase": "per diem minneapolis 2025",
+     "volume_mese": 50
+    },
+    {
+     "frase": "minnesota per diem rates",
+     "volume_mese": 110
+    },
+    {
+     "frase": "mn per diem rates 2025",
+     "volume_mese": 40
+    },
+    {
+     "frase": "department of state per diem",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "per diem rates state department",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "per diem state department",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "per diem",
+     "volume_mese": 135000
+    },
+    {
+     "frase": "per diem rates",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "per diem rates 2025",
+     "volume_mese": 18100
+    }
+   ]
+  },
+  {
+   "frase": "monterey per diem",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "nashville per diem",
+   "volume_mese": 480,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "per diem for nashville tn",
+     "volume_mese": 480
+    },
+    {
+     "frase": "per diem nashville tn",
+     "volume_mese": 480
+    },
+    {
+     "frase": "nashville per diem rate",
+     "volume_mese": 70
+    },
+    {
+     "frase": "per diem rates nashville tn",
+     "volume_mese": 70
+    },
+    {
+     "frase": "per diem nashville",
+     "volume_mese": 480
+    },
+    {
+     "frase": "per diem rates for nashville tn",
+     "volume_mese": 70
+    },
+    {
+     "frase": "per diem rates tennessee",
+     "volume_mese": 30
+    },
+    {
+     "frase": "tennessee per diem rates",
+     "volume_mese": 30
+    },
+    {
+     "frase": "nashville tn per diem",
+     "volume_mese": 480
+    },
+    {
+     "frase": "nashville per diem 2025",
+     "volume_mese": 110
+    }
+   ]
+  },
+  {
+   "frase": "nevada per diem rates",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "new jersey per diem rates",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "new york per diem rates",
+   "volume_mese": 30,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "per diem in new york city",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "per diem nyc",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "per diem in new york",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "new york per diem rate",
+     "volume_mese": 110
+    },
+    {
+     "frase": "new york state per diem rates",
+     "volume_mese": 90
+    },
+    {
+     "frase": "new york city per diem rates",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "new york per diem",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "per diem rates new york city",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "per diem rates ny",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "ny per diem rates",
+     "volume_mese": 110
+    }
+   ]
+  },
+  {
+   "frase": "norfolk per diem",
+   "volume_mese": 390,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "norfolk va per diem",
+     "volume_mese": 390
+    },
+    {
+     "frase": "per diem norfolk",
+     "volume_mese": 390
+    },
+    {
+     "frase": "gsa rates",
+     "volume_mese": 12100
+    },
+    {
+     "frase": "per diem rates oconus",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "per diem rate norfolk va",
+     "volume_mese": 390
+    },
+    {
+     "frase": "per diem rates norfolk va",
+     "volume_mese": 390
+    },
+    {
+     "frase": "gsa per diem rates",
+     "volume_mese": 74000
+    },
+    {
+     "frase": "per diem norfolk va",
+     "volume_mese": 390
+    },
+    {
+     "frase": "fort belvoir per diem",
+     "volume_mese": 30
+    },
+    {
+     "frase": "gsa per diem",
+     "volume_mese": 74000
+    }
+   ]
+  },
+  {
+   "frase": "north carolina per diem rates",
+   "volume_mese": 90,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "nc per diem",
+     "volume_mese": 90
+    },
+    {
+     "frase": "per diem rates north carolina",
+     "volume_mese": 90
+    },
+    {
+     "frase": "per diem north carolina",
+     "volume_mese": 170
+    },
+    {
+     "frase": "per diem jacksonville nc",
+     "volume_mese": 30
+    },
+    {
+     "frase": "nc per diem rates 2025",
+     "volume_mese": 50
+    },
+    {
+     "frase": "charlotte nc per diem",
+     "volume_mese": 210
+    },
+    {
+     "frase": "per diem charlotte nc",
+     "volume_mese": 210
+    },
+    {
+     "frase": "north carolina per diem",
+     "volume_mese": 170
+    },
+    {
+     "frase": "per diem raleigh nc",
+     "volume_mese": 90
+    },
+    {
+     "frase": "raleigh nc per diem",
+     "volume_mese": 90
+    }
+   ]
+  },
+  {
+   "frase": "oconus per diem rates",
+   "volume_mese": 480,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "oconus per diem",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "per diem rates oconus",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "per diem rates international",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "foreign per diem rates",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "international per diem rates",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "per diem rate oconus",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "oconus per diem calculator",
+     "volume_mese": 40
+    },
+    {
+     "frase": "dod per diem rates",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "per diem oconus",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "oconus rates",
+     "volume_mese": 50
+    }
+   ]
+  },
+  {
+   "frase": "ohio per diem rates",
+   "volume_mese": 50,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "ohio per diem",
+     "volume_mese": 90
+    },
+    {
+     "frase": "per diem rates ohio",
+     "volume_mese": 50
+    },
+    {
+     "frase": "state of ohio per diem rates",
+     "volume_mese": 50
+    },
+    {
+     "frase": "per diem ohio",
+     "volume_mese": 90
+    },
+    {
+     "frase": "per diem rates columbus ohio",
+     "volume_mese": 260
+    },
+    {
+     "frase": "ohio per diem rates 2025",
+     "volume_mese": 70
+    },
+    {
+     "frase": "columbus ohio per diem",
+     "volume_mese": 260
+    },
+    {
+     "frase": "per diem columbus ohio",
+     "volume_mese": 260
+    },
+    {
+     "frase": "department of state per diem",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "per diem payment",
+     "volume_mese": 1000
+    }
+   ]
+  },
+  {
+   "frase": "oklahoma city per diem",
+   "volume_mese": 170,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "per diem rates for oklahoma",
+     "volume_mese": 30
+    },
+    {
+     "frase": "per diem oklahoma city",
+     "volume_mese": 170
+    },
+    {
+     "frase": "oklahoma per diem",
+     "volume_mese": 90
+    },
+    {
+     "frase": "oklahoma per diem rates 2025",
+     "volume_mese": 70
+    },
+    {
+     "frase": "oklahoma per diem rates",
+     "volume_mese": 30
+    },
+    {
+     "frase": "per diem rates oklahoma",
+     "volume_mese": 30
+    },
+    {
+     "frase": "per diem oklahoma",
+     "volume_mese": 90
+    },
+    {
+     "frase": "state of oklahoma per diem rates",
+     "volume_mese": 30
+    },
+    {
+     "frase": "tulsa ok per diem",
+     "volume_mese": 40
+    },
+    {
+     "frase": "oklahoma mileage rate 2025",
+     "volume_mese": 70
+    }
+   ]
+  },
+  {
+   "frase": "pennsylvania per diem rates",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "pensacola per diem",
+   "volume_mese": 50,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "pensacola per diem 2025",
+     "volume_mese": 30
+    },
+    {
+     "frase": "dod per diem rates",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "department of defense per diem",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "jacksonville per diem",
+     "volume_mese": 70
+    },
+    {
+     "frase": "dod per diem",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "per diem rates orlando",
+     "volume_mese": 880
+    },
+    {
+     "frase": "jacksonville florida per diem",
+     "volume_mese": 170
+    },
+    {
+     "frase": "per diem jacksonville fl",
+     "volume_mese": 170
+    },
+    {
+     "frase": "gsa per diem rates",
+     "volume_mese": 74000
+    },
+    {
+     "frase": "per diem washington dc",
+     "volume_mese": 4400
+    }
+   ]
+  },
+  {
+   "frase": "per diem calculator",
+   "volume_mese": 5400,
+   "cpc_usd": 6.85,
+   "simili": [
+    {
+     "frase": "per diem rate calculator",
+     "volume_mese": 140
+    },
+    {
+     "frase": "daily per diem calculator",
+     "volume_mese": 40
+    },
+    {
+     "frase": "per diem rates calculator",
+     "volume_mese": 20
+    },
+    {
+     "frase": "gsa rates",
+     "volume_mese": 12100
+    },
+    {
+     "frase": "calculate per diem rates",
+     "volume_mese": 140
+    },
+    {
+     "frase": "gsa per diem rates",
+     "volume_mese": 74000
+    },
+    {
+     "frase": "per diem rates",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "per diem rates international",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "department of state per diem",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "federal gsa per diem calculator",
+     "volume_mese": 140
+    }
+   ]
+  },
+  {
+   "frase": "per diem first and last day",
+   "volume_mese": 90,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "first and last day of travel per diem",
+     "volume_mese": 70
+    },
+    {
+     "frase": "per diem first and last day of travel",
+     "volume_mese": 30
+    },
+    {
+     "frase": "per diem",
+     "volume_mese": 135000
+    },
+    {
+     "frase": "per diems meaning",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "per diem rate",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "per diem rates for travel days",
+     "volume_mese": 390
+    },
+    {
+     "frase": "gsa per diem",
+     "volume_mese": 74000
+    },
+    {
+     "frase": "how does per diem work",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "per diem payment",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "per diem travel day",
+     "volume_mese": 390
+    }
+   ]
+  },
+  {
+   "frase": "per diem rates",
+   "volume_mese": 27100,
+   "cpc_usd": 10.72,
+   "simili": [
+    {
+     "frase": "gsa per diem",
+     "volume_mese": 74000
+    },
+    {
+     "frase": "gsa per diem rates",
+     "volume_mese": 74000
+    },
+    {
+     "frase": "gsa rates",
+     "volume_mese": 12100
+    },
+    {
+     "frase": "per diem rates state department",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "per diem rate",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "department of state per diem",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "per diem",
+     "volume_mese": 135000
+    },
+    {
+     "frase": "per diem calculator",
+     "volume_mese": 5400
+    },
+    {
+     "frase": "dod per diem rates",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "federal per diem rates",
+     "volume_mese": 1300
+    }
+   ]
+  },
+  {
+   "frase": "per diem rates 2026",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "per diem rates 2027",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "per diem rates albuquerque",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "per diem rates arlington va",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "per diem rates atlanta",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "per diem rates austin",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "per diem rates baltimore",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "per diem rates boise",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "per diem rates boston",
+   "volume_mese": 90,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "per diem rates boston ma",
+     "volume_mese": 110
+    },
+    {
+     "frase": "per diem boston",
+     "volume_mese": 720
+    },
+    {
+     "frase": "per diem boston ma",
+     "volume_mese": 720
+    },
+    {
+     "frase": "boston ma per diem",
+     "volume_mese": 720
+    },
+    {
+     "frase": "boston per diem",
+     "volume_mese": 720
+    },
+    {
+     "frase": "boston per diem 2025",
+     "volume_mese": 90
+    },
+    {
+     "frase": "per diem boston ma 2025",
+     "volume_mese": 70
+    },
+    {
+     "frase": "per diem massachusetts",
+     "volume_mese": 50
+    },
+    {
+     "frase": "massachusetts per diem",
+     "volume_mese": 50
+    },
+    {
+     "frase": "per diem rates 2025",
+     "volume_mese": 18100
+    }
+   ]
+  },
+  {
+   "frase": "per diem rates by state",
+   "volume_mese": 720,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "gsa rates",
+     "volume_mese": 12100
+    },
+    {
+     "frase": "per diem rates state department",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "per diem rates",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "gsa per diem rates",
+     "volume_mese": 74000
+    },
+    {
+     "frase": "department of state per diem",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "per diem rates per state",
+     "volume_mese": 720
+    },
+    {
+     "frase": "gsa per diem",
+     "volume_mese": 74000
+    },
+    {
+     "frase": "per diem rate",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "per diem by state",
+     "volume_mese": 720
+    },
+    {
+     "frase": "gov per diem",
+     "volume_mese": 5400
+    }
+   ]
+  },
+  {
+   "frase": "per diem rates charleston sc",
+   "volume_mese": 40,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "per diem rate charleston sc",
+     "volume_mese": 40
+    },
+    {
+     "frase": "per diem charleston sc",
+     "volume_mese": 320
+    },
+    {
+     "frase": "charleston per diem",
+     "volume_mese": 320
+    },
+    {
+     "frase": "charleston sc per diem",
+     "volume_mese": 320
+    },
+    {
+     "frase": "per diem rates south carolina",
+     "volume_mese": 110
+    },
+    {
+     "frase": "south carolina per diem rates 2025",
+     "volume_mese": 40
+    },
+    {
+     "frase": "greenville sc per diem",
+     "volume_mese": 30
+    },
+    {
+     "frase": "gsa per diem charleston sc",
+     "volume_mese": 30
+    },
+    {
+     "frase": "per diem south carolina",
+     "volume_mese": 110
+    },
+    {
+     "frase": "per diem columbia sc",
+     "volume_mese": 40
+    }
+   ]
+  },
+  {
+   "frase": "per diem rates chicago",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "per diem rates colorado springs",
+   "volume_mese": 90,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "per diem rate colorado springs",
+     "volume_mese": 70
+    },
+    {
+     "frase": "colorado springs per diem",
+     "volume_mese": 390
+    },
+    {
+     "frase": "per diem colorado springs 2025",
+     "volume_mese": 70
+    },
+    {
+     "frase": "colorado per diem rates",
+     "volume_mese": 90
+    },
+    {
+     "frase": "per diem rates colorado",
+     "volume_mese": 90
+    },
+    {
+     "frase": "colorado springs per diem 2025",
+     "volume_mese": 70
+    },
+    {
+     "frase": "per diem colorado springs",
+     "volume_mese": 390
+    },
+    {
+     "frase": "colorado per diem rates 2025",
+     "volume_mese": 110
+    },
+    {
+     "frase": "per diem boulder co",
+     "volume_mese": 30
+    },
+    {
+     "frase": "colorado per diem",
+     "volume_mese": 260
+    }
+   ]
+  },
+  {
+   "frase": "per diem rates dallas",
+   "volume_mese": 90,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "per diem rate dallas",
+     "volume_mese": 90
+    },
+    {
+     "frase": "dallas per diem rates",
+     "volume_mese": 90
+    },
+    {
+     "frase": "per diem rates dallas tx",
+     "volume_mese": 90
+    },
+    {
+     "frase": "dallas per diem",
+     "volume_mese": 320
+    },
+    {
+     "frase": "per diem dallas",
+     "volume_mese": 320
+    },
+    {
+     "frase": "per diem in dallas",
+     "volume_mese": 320
+    },
+    {
+     "frase": "dallas tx per diem",
+     "volume_mese": 210
+    },
+    {
+     "frase": "per diem dallas tx",
+     "volume_mese": 210
+    },
+    {
+     "frase": "dallas texas per diem",
+     "volume_mese": 210
+    },
+    {
+     "frase": "fort worth per diem",
+     "volume_mese": 140
+    }
+   ]
+  },
+  {
+   "frase": "per diem rates dayton",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "per diem rates denver",
+   "volume_mese": 880,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "denver per diem rates",
+     "volume_mese": 880
+    },
+    {
+     "frase": "denver colorado per diem",
+     "volume_mese": 880
+    },
+    {
+     "frase": "denver per diem rate",
+     "volume_mese": 880
+    },
+    {
+     "frase": "per diem denver colorado",
+     "volume_mese": 880
+    },
+    {
+     "frase": "per diem for denver colorado",
+     "volume_mese": 880
+    },
+    {
+     "frase": "per diem rate denver",
+     "volume_mese": 880
+    },
+    {
+     "frase": "denver co per diem",
+     "volume_mese": 880
+    },
+    {
+     "frase": "denver per diem",
+     "volume_mese": 880
+    },
+    {
+     "frase": "per diem denver",
+     "volume_mese": 880
+    },
+    {
+     "frase": "denver per diem 2025",
+     "volume_mese": 210
+    }
+   ]
+  },
+  {
+   "frase": "per diem rates detroit",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "per diem rates el paso",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "per diem rates houston",
+   "volume_mese": 110,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "per diem rate houston tx",
+     "volume_mese": 110
+    },
+    {
+     "frase": "per diem rates houston tx",
+     "volume_mese": 90
+    },
+    {
+     "frase": "per diem rates houston texas",
+     "volume_mese": 110
+    },
+    {
+     "frase": "per diem rate for houston tx",
+     "volume_mese": 90
+    },
+    {
+     "frase": "per diem houston",
+     "volume_mese": 320
+    },
+    {
+     "frase": "houston per diem rates",
+     "volume_mese": 110
+    },
+    {
+     "frase": "houston per diem",
+     "volume_mese": 320
+    },
+    {
+     "frase": "houston texas per diem",
+     "volume_mese": 140
+    },
+    {
+     "frase": "houston per diem 2025",
+     "volume_mese": 110
+    },
+    {
+     "frase": "per diem rates dallas tx",
+     "volume_mese": 90
+    }
+   ]
+  },
+  {
+   "frase": "per diem rates huntsville",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "per diem rates indianapolis",
+   "volume_mese": 40,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "per diem indiana",
+     "volume_mese": 90
+    },
+    {
+     "frase": "indiana per diem rates",
+     "volume_mese": 40
+    },
+    {
+     "frase": "per diem indianapolis",
+     "volume_mese": 210
+    },
+    {
+     "frase": "indiana per diem",
+     "volume_mese": 90
+    },
+    {
+     "frase": "per diem rates indiana",
+     "volume_mese": 40
+    },
+    {
+     "frase": "indianapolis per diem",
+     "volume_mese": 210
+    },
+    {
+     "frase": "department of state per diem",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "iu per diem rates",
+     "volume_mese": 40
+    },
+    {
+     "frase": "iu per diem",
+     "volume_mese": 30
+    },
+    {
+     "frase": "per diem",
+     "volume_mese": 135000
+    }
+   ]
+  },
+  {
+   "frase": "per diem rates jacksonville",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "per diem rates kansas city",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "per diem rates las vegas",
+   "volume_mese": 170,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "per diem for las vegas",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "per diem las vegas 2025",
+     "volume_mese": 210
+    },
+    {
+     "frase": "las vegas per diem rate",
+     "volume_mese": 170
+    },
+    {
+     "frase": "gsa per diem las vegas",
+     "volume_mese": 140
+    },
+    {
+     "frase": "per diem rate las vegas",
+     "volume_mese": 50
+    },
+    {
+     "frase": "per diem vegas",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "las vegas per diem 2025",
+     "volume_mese": 320
+    },
+    {
+     "frase": "per diem rates vegas",
+     "volume_mese": 170
+    },
+    {
+     "frase": "las vegas per diem rates 2025",
+     "volume_mese": 140
+    },
+    {
+     "frase": "per diem las vegas",
+     "volume_mese": 1300
+    }
+   ]
+  },
+  {
+   "frase": "per diem rates los angeles",
+   "volume_mese": 90,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "los angeles per diem rates",
+     "volume_mese": 90
+    },
+    {
+     "frase": "los angeles per diem rate",
+     "volume_mese": 90
+    },
+    {
+     "frase": "per diem rates for los angeles",
+     "volume_mese": 90
+    },
+    {
+     "frase": "government per diem los angeles",
+     "volume_mese": 30
+    },
+    {
+     "frase": "gsa rates los angeles",
+     "volume_mese": 30
+    },
+    {
+     "frase": "los angeles per diem",
+     "volume_mese": 590
+    },
+    {
+     "frase": "gsa rate los angeles",
+     "volume_mese": 30
+    },
+    {
+     "frase": "per diem los angeles",
+     "volume_mese": 590
+    },
+    {
+     "frase": "per diem rate los angeles",
+     "volume_mese": 30
+    },
+    {
+     "frase": "per diem rates ca",
+     "volume_mese": 50
+    }
+   ]
+  },
+  {
+   "frase": "per diem rates miami",
+   "volume_mese": 70,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "miami per diem rate",
+     "volume_mese": 70
+    },
+    {
+     "frase": "miami fl per diem",
+     "volume_mese": 390
+    },
+    {
+     "frase": "miami per diem",
+     "volume_mese": 390
+    },
+    {
+     "frase": "miami per diem 2025",
+     "volume_mese": 140
+    },
+    {
+     "frase": "per diem miami",
+     "volume_mese": 390
+    },
+    {
+     "frase": "per diem miami fl",
+     "volume_mese": 390
+    },
+    {
+     "frase": "gsa per diem miami",
+     "volume_mese": 40
+    },
+    {
+     "frase": "per diem for florida",
+     "volume_mese": 390
+    },
+    {
+     "frase": "per diem rate orlando",
+     "volume_mese": 880
+    },
+    {
+     "frase": "state of florida per diem rates",
+     "volume_mese": 140
+    }
+   ]
+  },
+  {
+   "frase": "per diem rates minneapolis",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "per diem rates monterey",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "per diem rates nashville",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "per diem rates new orleans",
+   "volume_mese": 90,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "new orleans per diem rate",
+     "volume_mese": 90
+    },
+    {
+     "frase": "per diem new orleans",
+     "volume_mese": 590
+    },
+    {
+     "frase": "new orleans per diem",
+     "volume_mese": 590
+    },
+    {
+     "frase": "per diem rate new orleans",
+     "volume_mese": 30
+    },
+    {
+     "frase": "new orleans per diem 2025",
+     "volume_mese": 140
+    },
+    {
+     "frase": "per diem new orleans 2025",
+     "volume_mese": 140
+    },
+    {
+     "frase": "louisiana per diem rates 2025",
+     "volume_mese": 70
+    },
+    {
+     "frase": "per diem rates for new orleans",
+     "volume_mese": 90
+    },
+    {
+     "frase": "louisiana per diem rates",
+     "volume_mese": 70
+    },
+    {
+     "frase": "per diem rates louisiana",
+     "volume_mese": 70
+    }
+   ]
+  },
+  {
+   "frase": "per diem rates new york city",
+   "volume_mese": 1600,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "per diem in new york city",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "per diem nyc",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "per diem rates ny",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "new york city per diem",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "new york city per diem rates",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "per diem new york city",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "new york city per diem rate",
+     "volume_mese": 110
+    },
+    {
+     "frase": "per diem rate new york city",
+     "volume_mese": 110
+    },
+    {
+     "frase": "per diem new york",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "per diem rates nyc",
+     "volume_mese": 1600
+    }
+   ]
+  },
+  {
+   "frase": "per diem rates norfolk",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "per diem rates oklahoma city",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "per diem rates orlando",
+   "volume_mese": 880,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "per diem rate orlando",
+     "volume_mese": 880
+    },
+    {
+     "frase": "orlando florida per diem",
+     "volume_mese": 880
+    },
+    {
+     "frase": "per diem for orlando fl",
+     "volume_mese": 880
+    },
+    {
+     "frase": "orlando fl per diem",
+     "volume_mese": 880
+    },
+    {
+     "frase": "orlando per diem",
+     "volume_mese": 880
+    },
+    {
+     "frase": "per diem orlando fl",
+     "volume_mese": 880
+    },
+    {
+     "frase": "per diem rate orlando fl",
+     "volume_mese": 880
+    },
+    {
+     "frase": "orlando per diem 2025",
+     "volume_mese": 260
+    },
+    {
+     "frase": "per diem orlando fl 2025",
+     "volume_mese": 110
+    },
+    {
+     "frase": "per diem orlando",
+     "volume_mese": 880
+    }
+   ]
+  },
+  {
+   "frase": "per diem rates pensacola",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "per diem rates philadelphia",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "per diem rates phoenix",
+   "volume_mese": 480,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "phoenix per diem",
+     "volume_mese": 480
+    },
+    {
+     "frase": "per diem rates phoenix az",
+     "volume_mese": 390
+    },
+    {
+     "frase": "per diem phoenix az",
+     "volume_mese": 480
+    },
+    {
+     "frase": "phoenix per diem rates",
+     "volume_mese": 390
+    },
+    {
+     "frase": "phoenix az per diem",
+     "volume_mese": 30
+    },
+    {
+     "frase": "phoenix per diem 2025",
+     "volume_mese": 70
+    },
+    {
+     "frase": "arizona per diem rates 2025",
+     "volume_mese": 90
+    },
+    {
+     "frase": "state of arizona per diem",
+     "volume_mese": 90
+    },
+    {
+     "frase": "per diem phoenix 2025",
+     "volume_mese": 40
+    },
+    {
+     "frase": "per diem rates arizona",
+     "volume_mese": 140
+    }
+   ]
+  },
+  {
+   "frase": "per diem rates portland",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "per diem rates raleigh",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "per diem rates sacramento",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "per diem rates salt lake city",
+   "volume_mese": 320,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "salt lake city per diem",
+     "volume_mese": 320
+    },
+    {
+     "frase": "salt lake city per diem 2025",
+     "volume_mese": 70
+    },
+    {
+     "frase": "state of utah per diem rates",
+     "volume_mese": 40
+    },
+    {
+     "frase": "utah per diem rates 2025",
+     "volume_mese": 90
+    },
+    {
+     "frase": "per diem utah",
+     "volume_mese": 110
+    },
+    {
+     "frase": "per diem rates utah",
+     "volume_mese": 40
+    },
+    {
+     "frase": "utah per diem rates",
+     "volume_mese": 40
+    },
+    {
+     "frase": "per diem salt lake city",
+     "volume_mese": 320
+    },
+    {
+     "frase": "per diem salt lake city 2025",
+     "volume_mese": 50
+    },
+    {
+     "frase": "utah per diem",
+     "volume_mese": 110
+    }
+   ]
+  },
+  {
+   "frase": "per diem rates san antonio",
+   "volume_mese": 140,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "san antonio per diem rate",
+     "volume_mese": 140
+    },
+    {
+     "frase": "san antonio per diem rates",
+     "volume_mese": 140
+    },
+    {
+     "frase": "san antonio per diem",
+     "volume_mese": 720
+    },
+    {
+     "frase": "per diem san antonio",
+     "volume_mese": 590
+    },
+    {
+     "frase": "texas gsa rates",
+     "volume_mese": 140
+    },
+    {
+     "frase": "gsa per diem san antonio",
+     "volume_mese": 70
+    },
+    {
+     "frase": "per diem san antonio tx",
+     "volume_mese": 720
+    },
+    {
+     "frase": "san antonio tx per diem",
+     "volume_mese": 590
+    },
+    {
+     "frase": "per diem rate texas",
+     "volume_mese": 170
+    },
+    {
+     "frase": "per diem rates texas",
+     "volume_mese": 170
+    }
+   ]
+  },
+  {
+   "frase": "per diem rates san diego",
+   "volume_mese": 1900,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "san diego lodging per diem",
+     "volume_mese": 30
+    },
+    {
+     "frase": "san diego ca per diem",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "san diego per diem rate",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "per diem in san diego",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "per diem rates for san diego",
+     "volume_mese": 30
+    },
+    {
+     "frase": "per diem rates in san diego",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "per diem san diego",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "san diego per diem rates",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "per diem for san diego",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "per diem rate san diego",
+     "volume_mese": 1900
+    }
+   ]
+  },
+  {
+   "frase": "per diem rates san francisco",
+   "volume_mese": 110,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "san francisco per diem 2025",
+     "volume_mese": 170
+    },
+    {
+     "frase": "per diem rate san francisco",
+     "volume_mese": 140
+    },
+    {
+     "frase": "per diem san francisco",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "per diem rate for san francisco",
+     "volume_mese": 110
+    },
+    {
+     "frase": "per diem san francisco 2025",
+     "volume_mese": 70
+    },
+    {
+     "frase": "san francisco per diem",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "california per diem rates 2025",
+     "volume_mese": 480
+    },
+    {
+     "frase": "per diem rates 2025 california",
+     "volume_mese": 140
+    },
+    {
+     "frase": "gsa per diem san francisco",
+     "volume_mese": 90
+    },
+    {
+     "frase": "gsa san francisco per diem",
+     "volume_mese": 90
+    }
+   ]
+  },
+  {
+   "frase": "per diem rates seattle",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "per diem rates st louis",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "per diem rates tampa",
+   "volume_mese": 50,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "per diem rates tampa fl",
+     "volume_mese": 50
+    },
+    {
+     "frase": "tampa florida per diem",
+     "volume_mese": 260
+    },
+    {
+     "frase": "florida per diem 2025",
+     "volume_mese": 70
+    },
+    {
+     "frase": "tampa per diem",
+     "volume_mese": 260
+    },
+    {
+     "frase": "florida per diem rates 2025",
+     "volume_mese": 110
+    },
+    {
+     "frase": "per diem tampa",
+     "volume_mese": 90
+    },
+    {
+     "frase": "per diem tampa florida",
+     "volume_mese": 90
+    },
+    {
+     "frase": "tampa per diem 2025",
+     "volume_mese": 90
+    },
+    {
+     "frase": "jacksonville per diem 2025",
+     "volume_mese": 30
+    },
+    {
+     "frase": "per diem tampa fl 2025",
+     "volume_mese": 30
+    }
+   ]
+  },
+  {
+   "frase": "per diem rates washington dc",
+   "volume_mese": 4400,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "per diem rate washington dc",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "per diem washington dc",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "per diem rate for washington dc",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "per diem rates for washington dc",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "per diem rates in washington dc",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "dc per diem rate",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "washington dc per diem rates",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "washington dc gsa rates",
+     "volume_mese": 30
+    },
+    {
+     "frase": "per diem for washington dc",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "per diem rate dc",
+     "volume_mese": 4400
+    }
+   ]
+  },
+  {
+   "frase": "philadelphia per diem",
+   "volume_mese": 480,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "per diem philadelphia",
+     "volume_mese": 480
+    },
+    {
+     "frase": "philadelphia per diem rates",
+     "volume_mese": 70
+    },
+    {
+     "frase": "philadelphia per diem 2025",
+     "volume_mese": 50
+    },
+    {
+     "frase": "per diem philadelphia 2025",
+     "volume_mese": 40
+    },
+    {
+     "frase": "per diem pittsburgh",
+     "volume_mese": 210
+    },
+    {
+     "frase": "pennsylvania per diem",
+     "volume_mese": 90
+    },
+    {
+     "frase": "per diem pennsylvania",
+     "volume_mese": 90
+    },
+    {
+     "frase": "gsa per diem philadelphia",
+     "volume_mese": 50
+    },
+    {
+     "frase": "pa per diem rates 2025",
+     "volume_mese": 30
+    },
+    {
+     "frase": "pittsburgh per diem",
+     "volume_mese": 210
+    }
+   ]
+  },
+  {
+   "frase": "portland per diem",
+   "volume_mese": 320,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "portland or per diem",
+     "volume_mese": 320
+    },
+    {
+     "frase": "per diem portland or",
+     "volume_mese": 320
+    },
+    {
+     "frase": "per diem portland oregon",
+     "volume_mese": 320
+    },
+    {
+     "frase": "portland oregon per diem",
+     "volume_mese": 320
+    },
+    {
+     "frase": "per diem rates portland oregon",
+     "volume_mese": 40
+    },
+    {
+     "frase": "per diem rate portland oregon",
+     "volume_mese": 40
+    },
+    {
+     "frase": "per diem rates state department",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "oregon per diem rates",
+     "volume_mese": 110
+    },
+    {
+     "frase": "state of oregon per diem rates",
+     "volume_mese": 110
+    },
+    {
+     "frase": "portland per diem 2025",
+     "volume_mese": 50
+    }
+   ]
+  },
+  {
+   "frase": "raleigh per diem",
+   "volume_mese": 40,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "per diem raleigh nc",
+     "volume_mese": 90
+    },
+    {
+     "frase": "raleigh nc per diem",
+     "volume_mese": 90
+    },
+    {
+     "frase": "charlotte nc per diem",
+     "volume_mese": 210
+    },
+    {
+     "frase": "north carolina per diem rates",
+     "volume_mese": 90
+    },
+    {
+     "frase": "per diem rates north carolina",
+     "volume_mese": 90
+    },
+    {
+     "frase": "per diem charlotte nc",
+     "volume_mese": 210
+    },
+    {
+     "frase": "nc per diem",
+     "volume_mese": 90
+    },
+    {
+     "frase": "per diem jacksonville nc",
+     "volume_mese": 30
+    },
+    {
+     "frase": "per diem for charlotte nc",
+     "volume_mese": 210
+    },
+    {
+     "frase": "per diem north carolina",
+     "volume_mese": 170
+    }
+   ]
+  },
+  {
+   "frase": "sacramento per diem",
+   "volume_mese": 170,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "per diem for sacramento ca",
+     "volume_mese": 170
+    },
+    {
+     "frase": "per diem rates sacramento ca",
+     "volume_mese": 40
+    },
+    {
+     "frase": "per diem rates state department",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "sacramento per diem 2025",
+     "volume_mese": 40
+    },
+    {
+     "frase": "per diem rates san diego",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "per diem san francisco",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "california per diem rates 2025",
+     "volume_mese": 480
+    },
+    {
+     "frase": "ca state rate hotels",
+     "volume_mese": 70
+    },
+    {
+     "frase": "california state hotel rate",
+     "volume_mese": 70
+    },
+    {
+     "frase": "california state rate for hotels",
+     "volume_mese": 70
+    }
+   ]
+  },
+  {
+   "frase": "seattle per diem",
+   "volume_mese": 720,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "per diem seattle",
+     "volume_mese": 720
+    },
+    {
+     "frase": "per diem for seattle washington",
+     "volume_mese": 720
+    },
+    {
+     "frase": "per diem rate seattle",
+     "volume_mese": 50
+    },
+    {
+     "frase": "seattle per diem rate",
+     "volume_mese": 90
+    },
+    {
+     "frase": "per diem seattle wa",
+     "volume_mese": 720
+    },
+    {
+     "frase": "seattle per diem 2025",
+     "volume_mese": 110
+    },
+    {
+     "frase": "seattle per diem rates",
+     "volume_mese": 90
+    },
+    {
+     "frase": "seattle wa per diem",
+     "volume_mese": 720
+    },
+    {
+     "frase": "per diem rates for seattle washington",
+     "volume_mese": 90
+    },
+    {
+     "frase": "per diem rates washington state",
+     "volume_mese": 590
+    }
+   ]
+  },
+  {
+   "frase": "st louis per diem",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "standard conus per diem rate",
+   "volume_mese": 70,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "conus per diem rates",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "per diem rates conus",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "conus per diem rate",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "gsa per diem",
+     "volume_mese": 74000
+    },
+    {
+     "frase": "what is standard per diem meal allowance",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "per diem rates",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "per diem rates 2025",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "per diem rate",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "per diem conus",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "conus rates",
+     "volume_mese": 720
+    }
+   ]
+  },
+  {
+   "frase": "tennessee per diem rates",
+   "volume_mese": 30,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "tennessee per diem",
+     "volume_mese": 70
+    },
+    {
+     "frase": "per diem rates tennessee",
+     "volume_mese": 30
+    },
+    {
+     "frase": "per diem rates nashville tn",
+     "volume_mese": 70
+    },
+    {
+     "frase": "per diem tennessee",
+     "volume_mese": 70
+    },
+    {
+     "frase": "per diem for nashville tn",
+     "volume_mese": 480
+    },
+    {
+     "frase": "nashville per diem 2025",
+     "volume_mese": 110
+    },
+    {
+     "frase": "per diem rates for nashville tn",
+     "volume_mese": 70
+    },
+    {
+     "frase": "tennessee per diem rates 2025",
+     "volume_mese": 40
+    },
+    {
+     "frase": "nashville per diem",
+     "volume_mese": 480
+    },
+    {
+     "frase": "per diem nashville 2025",
+     "volume_mese": 70
+    }
+   ]
+  },
+  {
+   "frase": "texas per diem rates",
+   "volume_mese": 170,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "per diem in texas",
+     "volume_mese": 320
+    },
+    {
+     "frase": "per diem texas",
+     "volume_mese": 320
+    },
+    {
+     "frase": "state of texas per diem rates",
+     "volume_mese": 170
+    },
+    {
+     "frase": "per diem rate texas",
+     "volume_mese": 170
+    },
+    {
+     "frase": "per diem rates in texas",
+     "volume_mese": 170
+    },
+    {
+     "frase": "per diem rates texas",
+     "volume_mese": 170
+    },
+    {
+     "frase": "how much is per diem in texas",
+     "volume_mese": 40
+    },
+    {
+     "frase": "texas state per diem rates 2025",
+     "volume_mese": 30
+    },
+    {
+     "frase": "texas per diem",
+     "volume_mese": 140
+    },
+    {
+     "frase": "houston per diem rates",
+     "volume_mese": 110
+    }
+   ]
+  },
+  {
+   "frase": "virginia per diem rates",
+   "volume_mese": 90,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "per diem virginia",
+     "volume_mese": 260
+    },
+    {
+     "frase": "per diem rates in virginia",
+     "volume_mese": 90
+    },
+    {
+     "frase": "per diem for norfolk va",
+     "volume_mese": 390
+    },
+    {
+     "frase": "fredericksburg va per diem",
+     "volume_mese": 40
+    },
+    {
+     "frase": "per diem norfolk",
+     "volume_mese": 390
+    },
+    {
+     "frase": "per diem rate norfolk va",
+     "volume_mese": 390
+    },
+    {
+     "frase": "per diem rates virginia",
+     "volume_mese": 90
+    },
+    {
+     "frase": "gsa per diem rates",
+     "volume_mese": 74000
+    },
+    {
+     "frase": "per diem rates oconus",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "per diem rates norfolk va",
+     "volume_mese": 390
+    }
+   ]
+  },
+  {
+   "frase": "washington state per diem rates",
+   "volume_mese": 590,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "wa state per diem rates",
+     "volume_mese": 590
+    },
+    {
+     "frase": "per diem rates washington state",
+     "volume_mese": 590
+    },
+    {
+     "frase": "per diem wa state",
+     "volume_mese": 30
+    },
+    {
+     "frase": "wa state per diem map",
+     "volume_mese": 40
+    },
+    {
+     "frase": "per diem washington state",
+     "volume_mese": 590
+    },
+    {
+     "frase": "washington state per diem",
+     "volume_mese": 590
+    },
+    {
+     "frase": "wa state per diem",
+     "volume_mese": 110
+    },
+    {
+     "frase": "washington per diem",
+     "volume_mese": 590
+    },
+    {
+     "frase": "washington state per diem rates 2025",
+     "volume_mese": 140
+    },
+    {
+     "frase": "per diem rates washington",
+     "volume_mese": 110
+    }
+   ]
+  },
+  {
+   "frase": "what is per diem",
+   "volume_mese": 18100,
+   "cpc_usd": 0.1,
+   "simili": [
+    {
+     "frase": "per diem meaning",
+     "volume_mese": 74000
+    },
+    {
+     "frase": "what does per diem mean",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "per diems meaning",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "per diem definition",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "what is per diem pay",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "how does per diem work",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "per diem payment",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "per diem",
+     "volume_mese": 135000
+    },
+    {
+     "frase": "what is per diem work",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "what does per diem mean on a job",
+     "volume_mese": 2900
+    }
+   ]
+  }
+ ]
+}

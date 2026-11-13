@@ -48,6 +48,7 @@ P25 = carica("paga_2025.json")
 APR25 = carica("paga_2025_aprile.json")  # tabella in vigore dal 1° aprile 2025 (Public Law 118-159, sez. 601): testo ufficiale, non immagini
 ST = carica("storico.json")
 DOM = carica("domanda.json")
+DOM_PD = carica("domanda_perdiem.json")  # ricerche misurate della sezione per diem e chilometri (sezione_perdiem.py)
 _F = carica("fonti.json")
 FONTI, ESITI = _F["definizioni"], _F["fonti"]
 COL = P["colonne"]
@@ -313,15 +314,15 @@ class Rimandi:
     def t(self, testo):
         return re.sub(r"\[\[([a-z0-9_, ]+)\]\]", lambda m: self.ref(m.group(1)), testo)
 
-    def elenco(self):
+    def elenco(self, nota=None):
         voci = []
         for n, i in enumerate(self.ordine, 1):
             f, es = FONTI[i], ESITI.get(i, {})
             stato = f"checked {data_lunga(es['letto_il'])}" if es.get("http") == 200 else f"last check: HTTP {h(es.get('http'))}"
             voci.append(f'<li id="f{n}"><a href="{h(f["url"])}" rel="noopener">{h(f["titolo"])}</a> · {h(f["chi"])}. <span class="small">{stato}</span></li>')
         return (f'<section class="fonti-box" aria-labelledby="fonti-h"><h2 id="fonti-h">{ico("doc")}Sources</h2><ol>{"".join(voci)}</ol>'
-                '<p class="small">Pay figures are copied from the official tables above; annual amounts (× 12), differences and the “next step” are our arithmetic on those figures. '
-                'See <a href="/how-we-check/">how we check</a>.</p></section>')
+                + (nota or '<p class="small">Pay figures are copied from the official tables above; annual amounts (× 12), differences and the “next step” are our arithmetic on those figures. '
+                   'See <a href="/how-we-check/">how we check</a>.</p>') + '</section>')
 
 
 # ---------------------------------------------------------------- risorse
@@ -345,7 +346,8 @@ def ico(nome, cls="ico"):
 # ---------------------------------------------------------------- scheletro di pagina
 URLS = []
 AD = '<div class="ad-slot" aria-hidden="true"></div>'
-MENU = [("", "2026 chart"), ("calculator/", "Calculator"), ("pay-raise-history/", "Raise history"), ("2027-pay-raise/", "2027 raise")]
+MENU = [("", "2026 chart"), ("calculator/", "Calculator"), ("pay-raise-history/", "Raise history"), ("2027-pay-raise/", "2027 raise"),
+        ("per-diem/", "Per diem"), ("irs-mileage-rate/", "Mileage rate")]
 DISCLAIMER = ("<strong>Independent site, not affiliated with the Department of Defense, any military branch, the Coast Guard or DFAS.</strong> "
               "We show monthly basic pay as printed in the official tables, nothing else: no allowances, special pays, bonuses or taxes. "
               "This is general information, not financial advice. Your Leave and Earnings Statement and your unit’s finance office are the authority on your own pay; "
@@ -353,14 +355,14 @@ DISCLAIMER = ("<strong>Independent site, not affiliated with the Department of D
 
 
 def menu_html(percorso, mobile=False):
-    voci = [f'<a href="/{u}"' + (' aria-current="page"' if u == percorso else "") + (' class="w2"' if mobile else "") + f">{h(t)}</a>" for u, t in MENU]
+    voci = [f'<a href="/{u}"' + (' aria-current="page"' if u == percorso or (u == "per-diem/" and percorso.startswith("per-diem/")) else "") + (' class="w2"' if mobile else "") + f">{h(t)}</a>" for u, t in MENU]
     if mobile:
         voci.append('<span class="sep" aria-hidden="true"></span>')
         voci += [f'<a href="/{s}/">{h(n)}</a>' for s, n, _, _ in GRADI if s not in NOINDEX]
     return "".join(voci)
 
 
-def pagina(percorso, titolo, descrizione, corpo, testata="", briciole=None, jsonld=None, indicizza=True, file=None, script_dati=""):
+def pagina(percorso, titolo, descrizione, corpo, testata="", briciole=None, jsonld=None, indicizza=True, file=None, script_dati="", disclaimer=None):
     file = file or (percorso + "index.html" if percorso else "index.html")
     url_pag = f"{URL_SITO}/{percorso}"
     if indicizza:
@@ -377,7 +379,8 @@ def pagina(percorso, titolo, descrizione, corpo, testata="", briciole=None, json
     enl = "".join(f'<li><a href="/{s}/">{n}</a></li>' for s, n, c, _ in GRADI if c == "E")
     alt = "".join(f'<li><a href="/{s}/">{n}</a></li>' for s, n, c, _ in GRADI if c != "E" and s not in NOINDEX)
     guide = "".join(f'<li><a href="/{u}">{h(t)}</a></li>' for u, t in [("calculator/", "Basic pay calculator"), ("pay-raise-history/", "Pay raise history"),
-                    ("2027-pay-raise/", "2027 pay raise: status"), ("how-we-check/", "How we check"), ("about/", "About"), ("how-we-check/#corrections", "Report an error"), ("privacy/", "Privacy")])
+                    ("2027-pay-raise/", "2027 pay raise: status"), ("per-diem/", "GSA per diem rates"), ("per-diem/calculator/", "Per diem calculator"),
+                    ("irs-mileage-rate/", "IRS mileage rate"), ("how-we-check/", "How we check"), ("about/", "About"), ("how-we-check/#corrections", "Report an error"), ("privacy/", "Privacy")])
     testo = f"""<!DOCTYPE html>
 <html lang="en-US">
 <head>
@@ -416,14 +419,14 @@ def pagina(percorso, titolo, descrizione, corpo, testata="", briciole=None, json
 {testata}
 <div class="wrap">
 {corpo_tr}
-<p class="disclaimer">{DISCLAIMER}</p>
+<p class="disclaimer">{disclaimer or DISCLAIMER}</p>
 </div>
 </main>
 <footer><div class="wrap">
 <div class="f-grid"><div>
 <a class="logo" href="/">{LOGO}<span>Military Pay <b>Chart</b></span></a>
 <p><strong>{NOME}</strong> publishes the {ANNO} monthly basic pay tables of the U.S. uniformed services, copied from Schedule 8 of Executive Order {EO['ordine_esecutivo']}
-in the Federal Register, with a page for every pay grade. Independent site, not a government website.</p>
+in the Federal Register, with a page for every pay grade, and the GSA per diem rates for federal travel in the continental U.S. Independent site, not a government website.</p>
 <p>Official tables read on {data_lunga(CONTROLLO)}.</p>
 </div><div>
 <h2>Enlisted</h2><ul>{enl}</ul>
@@ -431,7 +434,7 @@ in the Federal Register, with a page for every pay grade. Independent site, not 
 <h2>Officers and warrant officers</h2><ul class="f-gradi" style="display:grid">{alt}</ul>
 <h2 style="margin-top:18px">Guides</h2><ul>{guide}</ul>
 </div></div>
-<p class="f-base">General information only, not financial advice. Not affiliated with the U.S. Department of Defense, the military services, the Coast Guard or DFAS.</p>
+<p class="f-base">General information only, not financial advice. Not affiliated with the U.S. Department of Defense, the military services, the Coast Guard, DFAS, GSA or the IRS.</p>
 </div></footer>
 {script_dati}<script src="/assets/{JS_FILE}" defer></script>
 {SCRIPT_CONTATORE}
@@ -453,7 +456,7 @@ def banda(eyebrow, titolo, sub, corta=False, icona="table"):
 
 # ---------------------------------------------------------------- domande frequenti (solo da ricerche vere)
 def volume(frase):
-    for r in DOM["ricerche"]:
+    for r in DOM["ricerche"] + DOM_PD["ricerche"]:
         if r["frase"] == frase:
             return r["volume_mese"]
         for s in r["simili"]:
@@ -589,6 +592,10 @@ def home():
                       f'See the <a href="/pay-raise-history/">raise history</a> and the <a href="/2027-pay-raise/">status of the 2027 raise</a>.</p>'
                       '<p>Basic pay is one element of military compensation. The law lists the basic allowance for subsistence and the basic allowance for housing as separate elements;[[usc1009]] '
                       'this site covers basic pay only.</p>') + "</div>")
+    corpo += ('<h2 id="travel">Travel rates</h2><div class="testo"><p>For official travel in the continental U.S. we also publish the '
+              '<a href="/per-diem/">GSA per diem rates by state and city</a> (FY 2027 and FY 2026, lodging by month and M&amp;IE), a '
+              '<a href="/per-diem/calculator/">per diem calculator</a> and the <a href="/irs-mileage-rate/">IRS and GSA mileage rates for 2026</a>. '
+              'They are separate from basic pay and come from GSA and the IRS.</p></div>')
     voci = [
         ("2026 military pay chart", f"When did the 2026 military pay chart take effect?",
          f"On {P['effettiva_dal']}. The rates are in Schedule 8 of Executive Order {EO['ordine_esecutivo']} of {data_lunga(EO['firmato_il'])}, published in the Federal Register on {data_lunga(EO['pubblicato_il'])}.", "eo2026"),
@@ -935,6 +942,8 @@ def come_controlliamo(stat):
               'where the official order is published. The 2020 table could not be read reliably enough for the raise history, which shows only the formula figure for that year.</p></div>')
     corpo += ('<h2>When we update</h2><div class="testo"><p>The pay order for the next year is normally published in the Federal Register in late December and takes effect on January 1. '
               'The site moves to the new table only after the same three readings and checks pass.</p></div>')
+    import sezione_perdiem
+    corpo += sezione_perdiem.come_controlliamo(sys.modules[__name__], rim)
     corpo += ('<h2 id="corrections">Report an error</h2><div class="testo"><p>Seen a figure that does not match the official table? Tell us which page and, if you can, link the official source: '
               'we check it and fix the page. We cannot answer questions about individual pay: your finance office can.</p></div>' + MODULO)
     corpo += rim.elenco()
@@ -947,10 +956,11 @@ def come_controlliamo(stat):
 def about():
     corpo = ('<div class="testo pull card">'
              f'<p><strong>{NOME}</strong> is an independent publication, part of a small network of websites that turn official data into plain-language reference pages. '
-             'It shows the U.S. military basic pay tables in a form that is easy to read on a phone, with one page per pay grade.</p>'
+             'It shows the U.S. military basic pay tables in a form that is easy to read on a phone, with one page per pay grade, and the GSA per diem rates for federal travel '
+             'in the continental United States, by state and month, with the IRS and GSA mileage rates.</p>'
              '<p>We are <strong>not affiliated with</strong> the Department of Defense, any military branch, the Coast Guard, DFAS or any recruiter. We do not encourage anyone to enlist '
              'or advise on careers or money. The site gives general information, not financial advice.</p></div>'
-             '<h2>What we publish</h2><ul class="testo"><li>Only figures printed in the official tables of the Federal Register, each linked to its source.</li>'
+             '<h2>What we publish</h2><ul class="testo"><li>Only figures printed in official sources (the Federal Register for pay; GSA and IRS files and notices for per diem and mileage), each linked to its source.</li>'
              '<li>Arithmetic on those figures (yearly amounts, differences, the next step), always labelled as ours.</li>'
              '<li>Where an official source cannot be read, or a figure is not final, we say so instead of filling the gap.</li></ul>'
              '<h2>How the site is paid for</h2><div class="testo"><p>The site shows advertising served by Google AdSense. Advertisers never decide what we publish.</p></div>'
@@ -966,7 +976,7 @@ def privacy():
     california = MON.frase_california(SITO_ID) or "California residents: we do not sell or share personal information."
     corpo = ('<div class="testo pull card">'
              f'<p>This page explains what {NOME} ({URL_SITO.replace("https://", "")}) collects. In short: very little.</p></div>'
-             '<div class="testo"><h2>The calculator</h2><p>The calculator runs in your browser. The grade and years you choose are not sent to us; they appear in the page address only so you can share the result.</p>'
+             '<div class="testo"><h2>The calculators</h2><p>The calculators run in your browser. What you choose (grade and years, or place and travel dates, or miles) is not sent to us; it appears in the page address only so you can share the result.</p>'
              '<p>The site remembers your choice of light or dark theme in your browser (local storage).</p>'
              f'{cookie}'
              '<h2>Hosting</h2><p>The site is hosted on Netlify, which processes technical data (such as IP addresses) to deliver pages and protect the service.</p>'
@@ -1049,9 +1059,11 @@ def main():
     come_controlliamo(stat)
     about()
     privacy()
+    import sezione_perdiem
+    n_pd = sezione_perdiem.genera(sys.modules[__name__])
     pagina_404()
     extra()
-    print(f"Sito generato in {SITO}: {len(URLS)} pagine indicizzabili + {len(NOINDEX)} noindex + 404. Celle {stat}.")
+    print(f"Sito generato in {SITO}: {len(URLS)} pagine indicizzabili + {len(NOINDEX)} noindex + 404. Celle {stat}. Per diem: {n_pd}.")
 
 
 if __name__ == "__main__":
