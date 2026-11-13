@@ -1,5 +1,7 @@
 # Libri KDP per chi visita già i nostri siti (12/11/2026)
 
+**13/11/2026, decisione di Massimiliano:** NO all'edizione inglese del libro B1 ("le persone stanno preparando un esame per la cittadinanza italiana, devono studiare l'italiano non l'inglese"). Restano: test A2 per il permesso di lungo periodo (in italiano) e Colf e badanti 2027.
+
 Angolo: non un sito nuovo, ma un libro da vendere a lettori che arrivano già sulle nostre pagine. Il sito è la promozione gratuita (riquadro sulla pagina giusta, audio o tabelle aggiornate sul sito), Amazon vende e incassa. Nessuna pubblicità, nessun social.
 
 Regola applicata (12/11 sera): la concorrenza non scarta l'idea. Se i libri concorrenti vendono, si stima la quota che possiamo prendere. Voto e ordine sono in euro attesi.
