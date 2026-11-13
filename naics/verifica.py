@@ -14,6 +14,9 @@ Uso (dalla radice del repository):
    id unici; link interni e ancore; link esterni solo verso domini previsti; GoatCounter, robots, IndexNow, netlify.toml con `ignore`, og.png.
 5. FAQ: ogni domanda nasce da una ricerca salvata; JSON-LD FAQPage = testo visibile, solo dove ci sono FAQ; titoli citati ufficiali.
 6. Indicizzazione: ricalcolata dalle pagine scritte (stessa regola di genera.py).
+6b. Pagine «NAICS code for …» e indice /naics-code-for/: ogni codice mostrato è nella struttura 2022 (riletta qui) e ha nella pagina almeno una
+   voce dell'indice citata, ritrovata nel file grezzo dell'indice sotto quel codice; descrizioni citate = file grezzo; tabella delle scelte =
+   codici in evidenza; link di ritorno dalle pagine dei codici; volume misurato ≥ 100; FAQ solo da ricerche misurate; regola del testo proprio.
 7. Testi: nessun nome di modelli di IA, nessun dato personale, nessuna frase di consiglio; niente soglie SBA né conseguenze fiscali nei testi
    nostri (le pagine di codice riportano i testi ufficiali parola per parola: lì il controllo non si applica); nessuna chiave.
 8. Monetizzazione: monetizzazione.controlla_sito("naics").
@@ -40,6 +43,8 @@ import monetizzazione as MON  # noqa: E402
 URL_SITO = "https://naics-code-lookup.netlify.app"
 FRASE_FISSA = "check with the agency or form that asks for the code"
 MIN_PAROLE_PROPRIE, MAX_SOVRAPPOSIZIONE, QUOTA_MODELLO = 120, 0.55, 0.05
+FILE_VOLUMI_ATTIVITA, MIN_VOLUME_ATTIVITA, QUOTA_MODELLO_ATTIVITA = "volumi-attivita-2026-11-13.json", 100, 0.25  # = genera.py
+MAX_SOVRAPPOSIZIONE_ATTIVITA = 0.40  # = genera.py
 MIN_PROPRIE_RICHIESTA, MAX_SOVRAPPOSIZIONE_RICHIESTA = 60, 0.65  # pagine a 6 cifre con domanda dimostrata (dati/richieste.json)
 MAX_INDICE_GZ, MAX_FRASI_GZ = 70_000, 260_000  # byte compressi dei due file della ricerca (il secondo si scarica solo se si scrive una parola)
 PAROLE_VUOTE = {"naics", "naic", "sic", "code", "codes", "number", "lookup", "for", "a", "an", "the", "and", "of", "in", "business", "company", "service",
@@ -61,7 +66,27 @@ NA = carica("naics.json")
 DOM = carica("domanda.json")
 FAQ = carica("faq.json")["faq"]
 VOL = carica("volumi.json")
+VOLA = carica(FILE_VOLUMI_ATTIVITA)
 ATT = carica("attivita.json")["attivita"]
+
+
+def vol_frase(f):
+    v = VOLA["frasi"].get(f, {}).get("volume")
+    return v if v is not None else (VOL["frasi"].get(f, {}).get("volume") or 0)
+
+
+def misurate():
+    """Frasi con un volume misurato > 0 (chieste allo strumento o restituite come simili), dai due file dei volumi."""
+    out = {f for f, v in VOL["frasi"].items() if v.get("volume")}
+    for f, v in VOLA["frasi"].items():
+        if v.get("volume"):
+            out.add(f)
+        out |= {x for x, n in (v.get("simili") or {}).items() if n}
+    return out
+
+
+MISURATE = misurate()
+UFFICIALI, IDX_GREZZO, DESC_GREZZO = {}, defaultdict(set), {}  # riempiti da controlla_dati con il lettore xlsx proprio
 RICH = carica("richieste.json")["codici"]
 C = NA["codici"]
 
@@ -177,6 +202,7 @@ def controlla_dati():
     for x in r[2:]:
         if len(x) > 2 and x[1]:
             ufficiali[x[1].strip()] = tit(x[2])
+    UFFICIALI.update(ufficiali)
     if set(ufficiali) != set(C):
         errore(f"dati: codici diversi dal file ufficiale {sorted(set(ufficiali) ^ set(C))[:5]}")
     for c, t in ufficiali.items():
@@ -219,10 +245,12 @@ def controlla_dati():
         errore(f"totali {dict(tot)} diversi da quelli ufficiali {tot_uff}")
     # 50 codici a caso contro i file ufficiali e contro la pagina pubblicata
     desc = {x[0].strip(): x for x in xlsx(FJ["file"]["descrizioni"]["file"])[1:] if x}
+    DESC_GREZZO.update({c: norm(x[2]) for c, x in desc.items() if len(x) > 2})
     idx = defaultdict(list)
     for x in xlsx(FJ["file"]["indice"]["file"])[1:]:
         if x and x[0] != "******":
             idx[x[0].strip()].append(re.sub(r"\s+", " ", x[1]).strip())
+            IDX_GREZZO[x[0].strip()].add(re.sub(r"\s+", " ", x[1]).strip())
     c17 = defaultdict(set)
     for x in xlsx(FJ["file"]["c22_17"]["file"])[3:]:
         if len(x) > 2 and x[0]:
@@ -571,8 +599,10 @@ def controlla_faq():
     sugg = {s for v in DOM["radici"].values() for s in v}
     domande = {}
     for x in FAQ:
-        if x["ricerca"] not in sugg:
-            errore(f"FAQ «{x['q'][:40]}»: ricerca «{x['ricerca']}» non tra i suggerimenti salvati")
+        if x["pagina"].startswith("naics-code-for-") and x["ricerca"] not in MISURATE:
+            errore(f"FAQ «{x['q'][:40]}»: pagina attività con una ricerca senza volume misurato («{x['ricerca']}»)")
+        if x["ricerca"] not in sugg and x["ricerca"] not in MISURATE:
+            errore(f"FAQ «{x['q'][:40]}»: ricerca «{x['ricerca']}» né tra i suggerimenti salvati né tra le ricerche misurate")
         for fid in x["fonti"]:
             if fid not in FJ["file"]:
                 errore(f"FAQ «{x['q'][:40]}»: fonte sconosciuta {fid}")
@@ -605,7 +635,8 @@ def controlla_faq():
                         errore(f"{p.relative_to(SITO)}: FAQ con un titolo non ufficiale per {cod}")
     if n != len(FAQ):
         errore(f"FAQ: {n} nelle pagine, {len(FAQ)} in faq.json")
-    print(f"FAQ: {n} domande in {pagine_faq} pagine, tutte da ricerche vere ({len(sugg)} suggerimenti salvati il {DOM['letto_il']}); "
+    print(f"FAQ: {n} domande in {pagine_faq} pagine, tutte da ricerche vere ({len(sugg)} suggerimenti salvati il {DOM['letto_il']}, "
+          f"{len(MISURATE)} frasi con volume misurato; nelle pagine attività solo ricerche misurate); "
           "JSON-LD FAQPage = testo visibile e solo dove ci sono FAQ")
 
 
@@ -670,6 +701,144 @@ def controlla_indicizzazione():
           f"(soglia {MAX_SOVRAPPOSIZIONE:.0%}, frasi di modello escluse); gruppi di parole propri almeno {poche}")
 
 
+# ---------------------------------------------------------------- 6b. pagine «NAICS code for …»
+def gruppi5(html, voci_a_parte=False):
+    """voci_a_parte (pagine attività, = genera.py): le voci dell'indice citate spezzano il testo e non formano gruppi propri."""
+    m = re.search(r"<main\b.*?</main>", html, re.S).group(0)
+    m = re.sub(r'<p class="disclaimer">.*?</p>', " ", m, flags=re.S)
+    m = re.sub(r'<nav class="briciole".*?</nav>', " ", m, flags=re.S)
+    m = re.sub(r"<section data-ripreso>.*?</section>", " ", m, flags=re.S)
+    m = re.sub(r"<(script|style|svg)\b.*?</\1>", " ", m, flags=re.S | re.I)
+    if voci_a_parte:
+        m = re.sub(r'<q class="vi"[^>]*>.*?</q>', " \x00 ", m, flags=re.S)
+    out = set()
+    for pezzo in unescape(re.sub(r"<[^>]+>", " ", m)).lower().split("\x00"):
+        w = re.findall(r"\w+", pezzo)
+        out |= {" ".join(w[i:i + 5]) for i in range(len(w) - 4)}
+    return out
+
+
+def controlla_attivita():
+    """Ogni codice mostrato in una pagina «NAICS code for …» (e nell'indice delle guide) esiste nella struttura ufficiale 2022 riletta qui
+    e ha nella pagina almeno una voce dell'indice ufficiale citata parola per parola (ricontrollata sul file grezzo dell'indice); i soli
+    altri numeri a 6 cifre ammessi sono codici 2017 soppressi, con il link alla loro riga della tabella 2017 → 2022. Poi: tabella delle
+    scelte, link dalle pagine dei codici, indice delle guide, sitemap e regola del testo proprio ricalcolata qui."""
+    if not UFFICIALI or not IDX_GREZZO:
+        errore("attività: codici o indice ufficiali non letti (controlla_dati deve girare prima)")
+        return
+    struttura = {x[1].strip() for x in xlsx(FJ["file"]["struttura"]["file"]) if len(x) > 1 and re.fullmatch(r"\d{2,6}|\d{2}-\d{2}", (x[1] or "").strip())}
+    t17 = set(NA["titoli_2017"])
+    sm = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    pubblicate = [a for a in ATT if (SITO / a["slug"] / "index.html").exists()]
+    hub = leggi_pagina("/naics-code-for/")
+    if hub is None:
+        errore("manca l'indice delle guide /naics-code-for/")
+        hub = ""
+    elif f"<loc>{URL_SITO}/naics-code-for/</loc>" not in sm:
+        errore("/naics-code-for/ non è nella sitemap")
+    if 'href="/naics-code-for/"' not in leggi_pagina("/"):
+        errore("home: manca il link all'indice delle guide per attività")
+    n_voci, n_codici, n_scelte, n_ritorni, n_desc = 0, set(), 0, 0, 0
+    pagine = {"naics-code-for/index.html": hub}
+    for a in pubblicate:
+        pagine[f"{a['slug']}/index.html"] = leggi_pagina(f"/{a['slug']}/")
+    for rel, html in pagine.items():
+        if not html:
+            continue
+        m = re.search(r"<main\b.*?</main>", html, re.S).group(0)
+        m = re.sub(r'<section class="fonti-box".*?</section>', " ", m, flags=re.S)
+        m = re.sub(r'<p class="disclaimer">.*?</p>', " ", m, flags=re.S)
+        citati = defaultdict(set)
+        for c, e in re.findall(r'<q class="vi" data-c="([^"]+)">(.*?)</q>', m, re.S):
+            e = unescape(e)
+            n_voci += 1
+            if c not in struttura or len(c) != 6:
+                errore(f"{rel}: voce citata per {c}, che non è un codice a 6 cifre della struttura 2022")
+            elif e not in IDX_GREZZO[c]:
+                errore(f"{rel}: «{e[:50]}» non è una voce dell'indice ufficiale per {c} (file grezzo)")
+            citati[c].add(e)
+        mostrati = set(re.findall(r'href="/(\d{6})/"', m)) | set(re.findall(r"(?<![\d#/-])(\d{6})(?!\d)", visibile(m)))
+        for c in sorted(mostrati):
+            if c in struttura:
+                n_codici.add(c)
+                if not citati.get(c):
+                    errore(f"{rel}: il codice {c} è mostrato senza una voce dell'indice ufficiale citata nella pagina")
+            elif c not in t17 or f'href="/naics-2017-to-2022/#v-{c}"' not in m:
+                errore(f"{rel}: {c} non è nella struttura NAICS 2022 (né un codice 2017 con il link alla tabella 2017 → 2022)")
+        for c in re.findall(r'href="/(\d{2,6}|\d{2}-\d{2})/"', m):
+            if c not in struttura:
+                errore(f"{rel}: link a {c}, che non è nella struttura 2022")
+        for c, par in re.findall(r'<section class="voce" id="c-(\d{6})"><h3>(?:(?!</h3>).)*</h3><div class="testo"><p>(.*?)</p></div>', m, re.S):
+            n_desc += 1
+            if norm(unescape(par)) not in DESC_GREZZO.get(c, ""):
+                errore(f"{rel}: la descrizione mostrata per {c} non è il testo ufficiale (file grezzo delle descrizioni)")
+        for par, c in re.findall(r'<blockquote class="legge">(.*?)<cite>Official description of <a class="cod" href="/([^/]+)/"', m, re.S):
+            n_desc += 1
+            if norm(unescape(par)) not in DESC_GREZZO.get(c, ""):
+                errore(f"{rel}: la citazione attribuita a {c} non è il testo ufficiale (file grezzo delle descrizioni)")
+        if rel == "naics-code-for/index.html":
+            continue
+        slug = rel.split("/")[0]
+        a = next(x for x in pubblicate if x["slug"] == slug)
+        if f'href="/{slug}/"' not in hub:
+            errore(f"/naics-code-for/: manca il link a {slug}")
+        ni = '<meta name="robots" content="noindex">' in html
+        if ni == (f"<loc>{URL_SITO}/{slug}/</loc>" in sm):
+            errore(f"{slug}: sitemap e noindex non coincidono")
+        righe = re.findall(r'<tr><td[^>]*>((?:<q class="vi"[^>]*>.*?</q>(?:; )?)+)</td><td[^>]*><a class="cod" href="/(\d{6})/"', m, re.S)
+        if a["evidenza"] and [c for _, c in righe] != a["evidenza"]:
+            errore(f"{slug}: tabella delle scelte con i codici {[c for _, c in righe]} invece di {a['evidenza']}")
+        for voci, c in righe:
+            n_scelte += 1
+            if set(re.findall(r'data-c="(\d{6})"', voci)) != {c}:
+                errore(f"{slug}: nella tabella delle scelte la riga di {c} cita voci di un altro codice")
+        for c in a["evidenza"]:
+            pc = leggi_pagina(f"/{c}/") or ""
+            if f'href="/{slug}/"' not in pc:
+                errore(f"/{c}/: manca il link alla guida {slug} che lo cita")
+            else:
+                n_ritorni += 1
+        if a.get("settore") and f'href="/{slug}/"' not in (leggi_pagina(f"/{a['settore']}/") or ""):
+            errore(f"/{a['settore']}/: manca il link alla guida {slug}")
+        if not re.search(r'<script type="application/ld\+json">[^<]*"FAQPage"', html):
+            errore(f"{slug}: senza FAQ (ogni pagina attività ne ha almeno una da una ricerca misurata)")
+    # regola del testo proprio, ricalcolata qui dalle pagine scritte
+    cod = {}
+    for p in pagine_html():
+        rel = str(p.relative_to(SITO))
+        if re.fullmatch(r"(\d{2}-\d{2}|\d{2,4}|\d{6})/index\.html", rel):
+            cod[rel] = gruppi5(p.read_text(encoding="utf-8"))
+    att = {r: gruppi5(h, voci_a_parte=True) for r, h in pagine.items() if h and r != "naics-code-for/index.html"}
+    cc = Counter(g for s in cod.values() for g in s)
+    ca = Counter(g for s in att.values() for g in s)
+    modello = {g for g, n in cc.items() if n >= QUOTA_MODELLO * len(cod)} | {g for g, n in ca.items() if n >= QUOTA_MODELLO_ATTIVITA * len(att)}
+    altre = {**{r: s - modello for r, s in cod.items()}, **{r: s - modello for r, s in att.items()}}
+    per_gruppo = defaultdict(list)
+    for r, s in altre.items():
+        for g in s:
+            per_gruppo[g].append(r)
+    minimo, massimo = 10 ** 9, 0.0
+    for rel, s in att.items():
+        a_ = s - modello
+        proprie = sum(1 for g in a_ if cc[g] == 0 and ca[g] == 1)
+        cand = Counter(r2 for g in a_ for r2 in per_gruppo[g] if r2 != rel)
+        q, simile = max(((n / len(a_), r2) for r2, n in cand.most_common(5)), default=(0, ""))
+        indic = '<meta name="robots" content="noindex">' not in pagine[rel]
+        if indic:
+            minimo, massimo = min(minimo, proprie), max(massimo, q)
+            if proprie < MIN_PAROLE_PROPRIE - 10:
+                errore(f"{rel}: pagina attività indicizzata con solo {proprie} gruppi di parole propri")
+            if q >= MAX_SOVRAPPOSIZIONE_ATTIVITA + 0.02:
+                errore(f"{rel}: pagina attività indicizzata ma {q:.0%} del testo è in comune con {simile}")
+        elif proprie >= MIN_PAROLE_PROPRIE + 10 and q < MAX_SOVRAPPOSIZIONE_ATTIVITA - 0.02:
+            AVV.append(f"{rel}: pagina attività noindex ma con {proprie} gruppi propri e {q:.0%} in comune")
+    n_ind = sum('<meta name="robots" content="noindex">' not in pagine[r] for r in att)
+    print(f"Attività: {len(pubblicate)} pagine «NAICS code for …» + indice /naics-code-for/; {n_voci} voci dell'indice citate, tutte nel file grezzo "
+          f"dell'indice sotto il codice indicato; {n_desc} descrizioni citate = file grezzo delle descrizioni; {len(n_codici)} codici mostrati, tutti nella struttura 2022 e ognuno con almeno una voce citata; "
+          f"{n_scelte} righe nelle tabelle delle scelte; {n_ritorni} link di ritorno dalle pagine dei codici; {n_ind} indicizzate (= sitemap), "
+          f"gruppi propri almeno {minimo if minimo < 10 ** 9 else 0}, testo in comune al massimo {massimo:.0%}")
+
+
 # ---------------------------------------------------------------- 7. testi
 VIETATE = re.compile(r"\b(claude|anthropic|openai|chatgpt|gpt-?\d|gemini|llama|mistral|copilot|opus|sonnet|haiku)\b", re.I)
 PERSONALI = re.compile(r"massimiliano|\bcori\b|@gmail|@outlook|@libero", re.I)
@@ -682,7 +851,7 @@ def controlla_testi():
              and p.suffix in (".py", ".json", ".html", ".md", ".css", ".js", ".txt", ".xml", ".toml")]
     for p in files:
         t = p.read_text(encoding="utf-8", errors="replace")
-        if ("sd" + "_live") in t:  # prefisso delle chiavi di api.seodata.dev (scritto spezzato: questo file non deve contenerlo)
+        if "".join(["sd", "_live"]) in t:  # prefisso delle chiavi di api.seodata.dev (scritto spezzato: questo file non deve contenerlo)
             errore(f"{p.relative_to(RADICE)}: chiave di uno strumento esterno nel file")
         if p.name in ("verifica.py", "domanda.json", "naics.json") or p.parent.name == "assets":
             continue
@@ -697,7 +866,12 @@ def controlla_testi():
         errore("NOTE.md: indirizzo email")
     sba = 0
     for p in pagine_html():
-        v = visibile(p.read_text(encoding="utf-8"))
+        html = p.read_text(encoding="utf-8")
+        if str(p.relative_to(SITO)).startswith("naics-code-for"):
+            # testi ufficiali citati parola per parola (voci dell'indice, descrizioni): controllati sui file grezzi in controlla_attivita
+            html = re.sub(r'<q class="vi"[^>]*>.*?</q>|<blockquote class="legge">.*?</blockquote>', " ", html, flags=re.S)
+            html = re.sub(r'(<section class="voce" id="c-\d{6}"><h3>(?:(?!</h3>).)*</h3>)<div class="testo"><p>.*?</p></div>', r"\1", html, flags=re.S)
+        v = visibile(html)
         if CONSIGLI.search(v):
             errore(f"{p.relative_to(SITO)}: frase che sembra un consiglio («{CONSIGLI.search(v).group(0)}»)")
         if FISCO.search(v) and not re.fullmatch(r"(\d{2}-\d{2}|\d{2,4}|\d{6})/index\.html", str(p.relative_to(SITO))):
@@ -707,15 +881,15 @@ def controlla_testi():
             if "The NAICS manual says that NAICS categories do not distinguish between small and large business" not in v:
                 errore(f"{p.relative_to(SITO)}: «size standard» fuori dalla FAQ che cita il manuale")
     for a in ATT:
-        vol = sum(VOL["frasi"][f]["volume"] for f in a["frasi"] if f in VOL["frasi"])
+        vol = max((vol_frase(f) for f in a["frasi"]), default=0)
         esiste = (SITO / a["slug"] / "index.html").exists()
-        if esiste != bool(vol):
-            errore(f"{a['slug']}: pagina {'pubblicata senza volume' if esiste else 'assente con volume'}")
+        if esiste != (vol >= MIN_VOLUME_ATTIVITA):
+            errore(f"{a['slug']}: pagina {'pubblicata con volume ' + str(vol) if esiste else 'assente con volume ' + str(vol)} (soglia {MIN_VOLUME_ATTIVITA})")
         for c in a["evidenza"]:
             if c not in C:
                 errore(f"{a['slug']}: codice {c} inesistente")
     print(f"Testi: nessun nome di IA, nessun dato personale, nessuna chiave, nessun consiglio; SBA solo nella FAQ che cita il manuale ({sba} pagina); "
-          "pagine per attività solo con volume misurato")
+          f"pagine per attività solo con almeno {MIN_VOLUME_ATTIVITA} ricerche al mese misurate")
 
 
 # ---------------------------------------------------------------- 8. monetizzazione
@@ -730,7 +904,8 @@ def controlla_monetizzazione():
 
 
 # ---------------------------------------------------------------- 9. browser
-PAGINE_BROWSER = ["/", "/541511/", "/425120/", "/812113/", "/5415/", "/sic-to-naics/", "/naics-2017-to-2022/", "/how-we-check/"]
+PAGINE_BROWSER = ["/", "/541511/", "/425120/", "/812113/", "/5415/", "/sic-to-naics/", "/naics-2017-to-2022/", "/how-we-check/", "/naics-code-for/",
+                  "/naics-code-for-restaurant/", "/naics-code-for-manufacturing/"]
 
 
 def controlla_browser():
@@ -813,7 +988,7 @@ def controlla_browser():
                         pg.click("[data-altre-tutte]")
                         if pg.locator("[data-tabella] tbody tr:visible").count() != tot:
                             errore("browser: «Show all» non mostra tutte le righe")
-                    if u in ("/425120/", "/541511/", "/812113/"):
+                    if u in ("/425120/", "/541511/", "/812113/", "/naics-code-for/", "/naics-code-for-restaurant/", "/naics-code-for-manufacturing/"):
                         pg.evaluate("document.querySelectorAll('main details').forEach(d=>d.open=true)")
                         larghe = pg.evaluate("Array.from(document.querySelectorAll('main .tab')).filter(t=>t.scrollWidth>t.clientWidth+1).length")
                         if larghe:
@@ -861,6 +1036,7 @@ def main():
     controlla_pagine()
     controlla_faq()
     controlla_indicizzazione()
+    controlla_attivita()
     controlla_testi()
     controlla_monetizzazione()
     if "--browser" in sys.argv:

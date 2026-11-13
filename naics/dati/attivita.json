@@ -6,6 +6,8 @@
    "nome": "consulting",
    "frasi": [
     "naics code for consulting",
+    "consulting naics code",
+    "naics code for business consulting",
     "sic code for consulting"
    ],
    "regex": "\\bconsult",
@@ -30,7 +32,9 @@
    "nome": "construction",
    "frasi": [
     "naics code for construction",
-    "naics code for general contractor"
+    "construction naics code",
+    "naics code for general contractor",
+    "sic code for construction"
    ],
    "regex": "general contractor",
    "titolo": "NAICS Code for Construction and General Contractors",
@@ -50,7 +54,9 @@
    "slug": "naics-code-for-cleaning-services",
    "nome": "cleaning services",
    "frasi": [
-    "naics code for cleaning services"
+    "naics code for cleaning services",
+    "janitorial naics code",
+    "naics code for pressure washing"
    ],
    "regex": "\\bcleaning\\b",
    "titolo": "NAICS Code for Cleaning Services: Janitorial, Carpet, Laundry",
@@ -65,6 +71,1915 @@
     "562991",
     "562998"
    ]
+  },
+  {
+   "slug": "naics-code-for-restaurant",
+   "nome": "restaurant, bar, coffee shop and bakery",
+   "frasi": [
+    "naics code for restaurant",
+    "restaurant naics code",
+    "naics code for bar",
+    "coffee shop naics code",
+    "bakery naics code"
+   ],
+   "regex": "restaurant|\\bbars?\\b|drinking places|taverns?|lounges|\\bpubs?\\b|coffee|\\bcafes?\\b|cafeterias?|buffet|snack|baker|baked|doughnut|bagel|diner",
+   "prefissi": [
+    "7224",
+    "7225",
+    "3118",
+    "4452",
+    "311920",
+    "722330"
+   ],
+   "titolo": "NAICS Code for Restaurants, Bars, Coffee Shops and Bakeries",
+   "h1": "NAICS code for a restaurant, bar or coffee shop",
+   "descrizione": "Full-service or limited-service restaurant, bar, coffee shop or bakery: the NAICS 2022 codes the official Census index gives to each one.",
+   "intro": "There is no single restaurant code: NAICS 2022 separates eating places by how they serve. The official index lists {n_voci} entries for restaurants, bars, coffee shops and bakeries in {n_codici} codes, bakery and coffee manufacturing and retailing included; eating places are in industry group 7225 «{t_7225}», while drinking places are 722410 «{t_722410}».",
+   "evidenza": [
+    "722511",
+    "722513",
+    "722514",
+    "722515",
+    "722410",
+    "311811"
+   ],
+   "scelte": {
+    "722511": [
+     "Full service restaurants",
+     "Family restaurants, full service",
+     "Fine dining restaurants, full service"
+    ],
+    "722513": [
+     "Fast-food restaurants",
+     "Carryout restaurants",
+     "Drive-in restaurants"
+    ],
+    "722514": [
+     "Cafeterias",
+     "Buffet eating places"
+    ],
+    "722515": [
+     "Coffee shops, on premise brewing",
+     "Juice bars, nonalcoholic, fixed location",
+     "Bakery cafes, on premise baking and selling for immediate consumption"
+    ],
+    "722410": [
+     "Bars (i.e., drinking places), alcoholic beverage",
+     "Cocktail lounges",
+     "Drinking places (i.e., bars, lounges, taverns), alcoholic"
+    ],
+    "311811": [
+     "Bakeries with baking from flour on the premises, retailing not for immediate consumption"
+    ]
+   }
+  },
+  {
+   "slug": "naics-code-for-food-truck",
+   "nome": "food truck and catering",
+   "frasi": [
+    "naics code for food truck",
+    "food truck naics code",
+    "naics code for catering",
+    "catering naics code"
+   ],
+   "regex": "mobile|food carts|lunch wagons|ice cream truck|coffee carts|cater|concession|food service contractors|bartender",
+   "prefissi": [
+    "7223"
+   ],
+   "titolo": "NAICS Code for Food Trucks and Catering: 722330, 722320",
+   "h1": "NAICS code for a food truck or catering business",
+   "descrizione": "Food trucks and carts are NAICS 722330, caterers 722320, food service contractors 722310: the official index entries for each one.",
+   "intro": "Food trucks and caterers share industry group 7223 «{t_7223}». The official index lists {n_voci} entries in its {n_codici} codes: food served from vehicles and carts is 722330 «{t_722330}», catering for events is 722320 «{t_722320}» and food services run under contract for an institution are 722310 «{t_722310}».",
+   "evidenza": [
+    "722330",
+    "722320",
+    "722310"
+   ],
+   "scelte": {
+    "722330": [
+     "Food carts and trucks, mobile",
+     "Lunch wagons",
+     "Ice cream truck vendors"
+    ],
+    "722320": [
+     "Caterers",
+     "Catering services, social",
+     "Banquet halls with catering staff"
+    ],
+    "722310": [
+     "Food service contractors, institutional",
+     "Cafeteria food services contractors (e.g., government office cafeterias, hospital cafeterias, school cafeterias)"
+    ]
+   }
+  },
+  {
+   "slug": "naics-code-for-real-estate",
+   "nome": "real estate",
+   "frasi": [
+    "naics code for real estate",
+    "real estate naics code",
+    "naics code for real estate agent",
+    "real estate agent naics code"
+   ],
+   "regex": "real estate|realtor|property manag|apprais|escrow|listing services|buyers' agen|lessors? of",
+   "prefissi": [
+    "531"
+   ],
+   "titolo": "NAICS Code for Real Estate: Agents, Brokers, Managers",
+   "h1": "NAICS code for real estate",
+   "descrizione": "Real estate is NAICS subsector 531: agents and brokers 531210, property managers 531311/531312, appraisers 531320, lessors 5311.",
+   "intro": "Real estate is subsector 531 «{t_531}». The official 2022 index lists {n_voci} real estate entries in {n_codici} of its codes. The code follows what you do: sell or buy property for others, manage it, appraise it, or own it and rent it out.",
+   "evidenza": [
+    "531210",
+    "531311",
+    "531312",
+    "531320",
+    "531390",
+    "531110",
+    "531120"
+   ],
+   "scelte": {
+    "531210": [
+     "Real estate agents' offices",
+     "Brokerages, real estate",
+     "Buyers' agents, real estate, offices"
+    ],
+    "531311": [
+     "Property managers' offices, residential real estate",
+     "Managing residential real estate"
+    ],
+    "531312": [
+     "Property managers' offices, commercial real estate",
+     "Managing commercial real estate"
+    ],
+    "531320": [
+     "Real estate appraisal services",
+     "Appraisers' offices, real estate"
+    ],
+    "531390": [
+     "Real estate escrow agencies",
+     "Real estate listing services",
+     "Real estate consultants' (except agents, appraisers) offices"
+    ],
+    "531110": [
+     "Real estate rental or leasing of residential building"
+    ],
+    "531120": [
+     "Real estate rental or leasing of nonresidential building (except miniwarehouse)"
+    ]
+   }
+  },
+  {
+   "slug": "naics-code-for-real-estate-investment",
+   "nome": "real estate investment",
+   "frasi": [
+    "naics code for real estate investment",
+    "real estate investment naics code",
+    "real estate holding naics code"
+   ],
+   "regex": "real estate investment|REIT|lessors of|rental or leasing of (residential|nonresidential)|real estate \\(except building\\)|subdivid|holding companies \\(except bank",
+   "prefissi": [
+    "5311",
+    "525990",
+    "237210",
+    "551112"
+   ],
+   "titolo": "NAICS Code for Real Estate Investment and Rental Owners",
+   "h1": "NAICS code for real estate investment",
+   "descrizione": "Real estate investors, REITs, land subdividers and real estate holding companies: which NAICS 2022 code the official index gives each.",
+   "intro": "The official index has no entry called «real estate investor»: the code follows what the business does with the property. Owners who rent out buildings or land are lessors in industry group 5311 «{t_5311}»; equity REITs follow the same rule, mortgage REITs are 525990 «{t_525990}». The index entries that match are {n_voci}, in {n_codici} codes.",
+   "evidenza": [
+    "531110",
+    "531120",
+    "531190",
+    "525990",
+    "237210",
+    "551112"
+   ],
+   "scelte": {
+    "531110": [
+     "Equity real estate investment trusts (REITs), primarily leasing residential buildings and dwellings",
+     "Real estate rental or leasing of residential building"
+    ],
+    "531120": [
+     "Equity real estate investment trusts (REITs), primarily leasing nonresidential buildings (except miniwarehouses)",
+     "Real estate rental or leasing of nonresidential building (except miniwarehouse)"
+    ],
+    "531190": [
+     "Real estate (except building) rental or leasing",
+     "Land rental or leasing"
+    ],
+    "525990": [
+     "Mortgage real estate investment trusts (REITs)"
+    ],
+    "237210": [
+     "Subdividing real estate",
+     "Preparing and subdividing land for sale"
+    ],
+    "551112": [
+     "Holding companies (except bank, managing)"
+    ]
+   },
+   "citazioni": [
+    [
+     "531110",
+     0
+    ]
+   ]
+  },
+  {
+   "slug": "naics-code-for-rental-property",
+   "nome": "rental property, Airbnb and short-term rental",
+   "frasi": [
+    "naics code for rental property",
+    "rental property naics code",
+    "naics code for airbnb",
+    "airbnb naics code",
+    "naics code for short term rental"
+   ],
+   "regex": "rental or leasing|lessors|guest houses|tourist homes|cottages|bed and breakfast|rooming|boarding houses|vacation|accommodations reservation|apartment",
+   "prefissi": [
+    "5311",
+    "5313",
+    "7211",
+    "7213",
+    "561599"
+   ],
+   "titolo": "NAICS Code for Rental Property, Airbnb and Short-Term Rentals",
+   "h1": "NAICS code for rental property, Airbnb and short-term rentals",
+   "descrizione": "Long-term rental, short-term rental, guest house or bed and breakfast: the NAICS 2022 codes of the official index for each case.",
+   "intro": "Renting out a home and running short-term lodging are different industries. Leasing residential buildings is 531110 «{t_531110}»; short-term lodging other than hotels, motels and bed-and-breakfast inns is 721199 «{t_721199}». The official index lists {n_voci} matching entries in {n_codici} codes.",
+   "evidenza": [
+    "531110",
+    "531120",
+    "721199",
+    "721191",
+    "721310",
+    "531311",
+    "561599"
+   ],
+   "scelte": {
+    "531110": [
+     "Apartment rental or leasing",
+     "Residential building rental or leasing",
+     "Cottage rental or leasing"
+    ],
+    "531120": [
+     "Commercial building rental or leasing",
+     "Banquet hall rental or leasing"
+    ],
+    "721199": [
+     "Guest houses",
+     "Tourist homes",
+     "Housekeeping cottages"
+    ],
+    "721191": [
+     "Bed and breakfast inns"
+    ],
+    "721310": [
+     "Rooming and boarding houses",
+     "Boarding houses"
+    ],
+    "531311": [
+     "Resort or vacation property managers' offices"
+    ],
+    "561599": [
+     "Online accommodations reservation services (through a website or mobile application)"
+    ]
+   },
+   "citazioni": [
+    [
+     "721199",
+     0
+    ]
+   ]
+  },
+  {
+   "slug": "naics-code-for-property-management",
+   "nome": "property management",
+   "frasi": [
+    "naics code for property management",
+    "property management naics code"
+   ],
+   "regex": "property manag|managers' offices|managing (residential|commercial|cooperative|nonresidential)|property managing|condominium|homeowners' associations|owners' associations|facilities \\(except computer",
+   "prefissi": [
+    "5313",
+    "8139",
+    "5612"
+   ],
+   "titolo": "NAICS Code for Property Management: 531311 and 531312",
+   "h1": "NAICS code for property management",
+   "descrizione": "Residential property managers are NAICS 531311, commercial ones 531312; homeowners' associations and facilities support have other codes.",
+   "intro": "The official 2022 index splits property management by the kind of property: residential is 531311 «{t_531311}», commercial and other nonresidential is 531312 «{t_531312}». It lists {n_voci} matching entries in {n_codici} codes, including owners' associations and facilities support services.",
+   "evidenza": [
+    "531311",
+    "531312",
+    "813990",
+    "561210"
+   ],
+   "scelte": {
+    "531311": [
+     "Property managers' offices, residential real estate",
+     "Apartment managers' offices",
+     "Condominium managers' offices, residential"
+    ],
+    "531312": [
+     "Property managers' offices, commercial real estate",
+     "Nonresidential property managing",
+     "Condominium managers' offices, commercial"
+    ],
+    "813990": [
+     "Homeowners' associations",
+     "Condominium owners' associations",
+     "Property owners' associations"
+    ],
+    "561210": [
+     "Facilities (except computer operation) support services"
+    ]
+   }
+  },
+  {
+   "slug": "naics-code-for-holding-company",
+   "nome": "holding company",
+   "frasi": [
+    "naics code for holding company",
+    "holding company naics code",
+    "naics code 551112"
+   ],
+   "regex": "holding compan|managing offices|head offices|corporate offices|agreement corporation",
+   "prefissi": [
+    "551"
+   ],
+   "titolo": "NAICS Code for a Holding Company: 551111, 551112, 551114",
+   "h1": "NAICS code for a holding company",
+   "descrizione": "Bank holding companies are NAICS 551111, other holding companies 551112, holding companies that manage 551114: official index and texts.",
+   "intro": "Holding companies are in subsector 551 «{t_551}», split into {n_codici} codes. The official index lists {n_voci} entries; the difference between 551112 «{t_551112}» and 551114 «{t_551114}» is whether the company manages the businesses whose securities it holds.",
+   "evidenza": [
+    "551112",
+    "551111",
+    "551114"
+   ],
+   "scelte": {
+    "551112": [
+     "Holding companies (except bank, managing)",
+     "Personal holding companies",
+     "Financial holding companies"
+    ],
+    "551111": [
+     "Bank holding companies (except managing)"
+    ],
+    "551114": [
+     "Holding companies that manage",
+     "Head offices",
+     "Corporate offices"
+    ]
+   },
+   "citazioni": [
+    [
+     "551112",
+     0
+    ],
+    [
+     "551114",
+     0
+    ]
+   ]
+  },
+  {
+   "slug": "naics-code-for-trucking",
+   "nome": "trucking and moving",
+   "frasi": [
+    "naics code for trucking",
+    "trucking naics code",
+    "naics code for trucking company",
+    "moving company naics code"
+   ],
+   "regex": "truck|motor freight|hauling|moving|van lines|freight carrier",
+   "prefissi": [
+    "484",
+    "4884"
+   ],
+   "titolo": "NAICS Code for Trucking: Local, Long-Distance, Moving",
+   "h1": "NAICS code for trucking",
+   "descrizione": "Trucking is NAICS subsector 484: general freight local or long-distance (TL, LTL), specialized freight, moving, independent drivers.",
+   "intro": "Trucking is subsector 484 «{t_484}». The code depends on three things in the official titles: general or specialized freight, local or long-distance, and for long-distance general freight whether loads are truckload (TL) or less-than-truckload (LTL). The index lists {n_voci} trucking entries in {n_codici} codes.",
+   "evidenza": [
+    "484110",
+    "484121",
+    "484122",
+    "484210",
+    "484220",
+    "484230",
+    "488490"
+   ],
+   "scelte": {
+    "484110": [
+     "General freight trucking, local",
+     "Container trucking services, local"
+    ],
+    "484121": [
+     "General freight trucking, long-distance, truckload (TL)"
+    ],
+    "484122": [
+     "General freight trucking, long-distance, less-than-truckload (LTL)"
+    ],
+    "484210": [
+     "Used household and office goods moving",
+     "Furniture moving, used",
+     "Van lines, moving and storage services"
+    ],
+    "484220": [
+     "Dump trucking (e.g., gravel, sand, top-soil)",
+     "Flatbed trucking, local",
+     "Agricultural products trucking, local"
+    ],
+    "484230": [
+     "Flatbed trucking, long-distance",
+     "Automobile carrier trucking, long-distance",
+     "Bulk liquids trucking, long-distance"
+    ],
+    "488490": [
+     "Independent truck driver (except owner-operators)"
+    ]
+   }
+  },
+  {
+   "slug": "naics-code-for-logistics",
+   "nome": "logistics, freight broker and courier",
+   "frasi": [
+    "naics code for logistics",
+    "logistics naics code",
+    "naics code for freight broker",
+    "freight broker naics code",
+    "courier naics code"
+   ],
+   "regex": "freight|logistic|courier|messenger|parcel|delivery|warehousing|shipping|customs|supply chain|packing|crating",
+   "prefissi": [
+    "4885",
+    "48899",
+    "4921",
+    "4922",
+    "4931",
+    "541614",
+    "484110"
+   ],
+   "titolo": "NAICS Code for Logistics, Freight Brokers and Couriers",
+   "h1": "NAICS code for logistics, freight brokers and couriers",
+   "descrizione": "Freight forwarding and arrangement 488510, logistics consulting 541614, warehousing 493110, couriers 492110 and local delivery 492210.",
+   "intro": "«Logistics» covers several NAICS industries. Arranging freight between shippers and carriers is 488510 «{t_488510}»; advising on supply chains is 541614 «{t_541614}»; storing goods is industry group 4931 «{t_4931}»; carrying parcels is subsector 492 «{t_492}». The official index lists {n_voci} matching entries in {n_codici} codes.",
+   "evidenza": [
+    "488510",
+    "541614",
+    "493110",
+    "492110",
+    "492210",
+    "488991"
+   ],
+   "scelte": {
+    "488510": [
+     "Freight forwarding",
+     "Customs brokers",
+     "Shipping agents (freight forwarding)"
+    ],
+    "541614": [
+     "Logistics management consulting services",
+     "Logistics and integrated supply chain management consulting services"
+    ],
+    "493110": [
+     "General warehousing and storage",
+     "Warehousing and storage, general merchandise"
+    ],
+    "492110": [
+     "Courier services (i.e., intercity network) (except establishments operating under a universal service obligation)",
+     "Express delivery services (except establishments operating under a universal service obligation)"
+    ],
+    "492210": [
+     "Messenger service",
+     "Bicycle courier",
+     "Delivery service (except as part of intercity courier network, U.S. Postal Service)"
+    ],
+    "488991": [
+     "Packing and preparing goods for shipping"
+    ]
+   },
+   "citazioni": [
+    [
+     "488510",
+     0
+    ]
+   ]
+  },
+  {
+   "slug": "naics-code-for-rideshare-and-delivery-drivers",
+   "nome": "rideshare and delivery driver",
+   "frasi": [
+    "naics code for uber driver",
+    "uber driver naics code",
+    "doordash naics code",
+    "naics code for doordash"
+   ],
+   "regex": "taxi|ridesharing|ride hailing|delivery|courier|messenger|limousine|driving services",
+   "prefissi": [
+    "4853",
+    "4921",
+    "4922",
+    "4884"
+   ],
+   "titolo": "NAICS Code for Rideshare and Delivery Drivers (Uber, DoorDash)",
+   "h1": "NAICS code for rideshare and delivery drivers",
+   "descrizione": "Ridesharing and ride hailing are NAICS 485310; restaurant meal and grocery delivery 492210: the official index entries for drivers.",
+   "intro": "No entry of the official index names Uber, Lyft or DoorDash: the index classifies the service. Carrying passengers by car without regular routes, including ridesharing and ride hailing, is 485310 «{t_485310}»; delivering meals, groceries and small items locally is 492210 «{t_492210}». The index lists {n_voci} matching entries in {n_codici} codes.",
+   "evidenza": [
+    "485310",
+    "492210",
+    "492110",
+    "485320",
+    "488490"
+   ],
+   "scelte": {
+    "485310": [
+     "Ridesharing services",
+     "Ride hailing services",
+     "Taxicab owner-operators"
+    ],
+    "492210": [
+     "Restaurant meals order and delivery services (i.e., independent order and delivery services)",
+     "Grocery delivery services (i.e., independent service from grocery store)",
+     "Delivery service (except as part of intercity courier network, U.S. Postal Service)"
+    ],
+    "492110": [
+     "Express delivery services (except establishments operating under a universal service obligation)"
+    ],
+    "485320": [
+     "Limousine services (except shuttle services)",
+     "Luxury automobiles for hire with driver (except taxis)"
+    ],
+    "488490": [
+     "Driving services, independent (e.g., automobile, truck delivery)"
+    ]
+   },
+   "citazioni": [
+    [
+     "485310",
+     0
+    ]
+   ]
+  },
+  {
+   "slug": "naics-code-for-transportation",
+   "nome": "transportation",
+   "frasi": [
+    "naics code for transportation",
+    "transportation naics code"
+   ],
+   "regex": "passenger transportation|freight transportation|transportation services|transportation, (local|long-distance)",
+   "prefissi": [
+    "48",
+    "49"
+   ],
+   "settore": "48-49",
+   "titolo": "NAICS Code for Transportation: Sector 48-49 Codes",
+   "h1": "NAICS code for transportation",
+   "descrizione": "Transportation and warehousing is NAICS sector 48-49: subsectors by mode (air, rail, water, truck, transit, pipeline) and examples.",
+   "intro": "Transportation is sector 48-49 «{t_48-49}», with {n_sotto_settore} subsectors and {n_sei_settore} six-digit industries. The official description groups them by mode of transportation, plus warehousing, couriers and support activities. The index lists {n_voci} entries for passenger or freight transportation services in {n_codici} codes.",
+   "evidenza": [
+    "484110",
+    "485310",
+    "485510",
+    "481111",
+    "488510",
+    "492110",
+    "493110"
+   ],
+   "scelte": {
+    "484110": [
+     "General freight trucking, local"
+    ],
+    "485310": [
+     "Ridesharing services",
+     "Taxicab services"
+    ],
+    "485510": [
+     "Bus charter services (except scenic, sightseeing)"
+    ],
+    "481111": [
+     "Scheduled air passenger transportation"
+    ],
+    "488510": [
+     "Freight forwarding"
+    ],
+    "492110": [
+     "Express delivery services (except establishments operating under a universal service obligation)"
+    ],
+    "493110": [
+     "General warehousing and storage"
+    ]
+   },
+   "citazioni": [
+    [
+     "48-49",
+     1
+    ]
+   ]
+  },
+  {
+   "slug": "naics-code-for-hvac",
+   "nome": "HVAC and plumbing",
+   "frasi": [
+    "naics code for hvac",
+    "hvac naics code",
+    "plumbing naics code",
+    "naics code for plumbing"
+   ],
+   "regex": "plumb|heating|air.condition|\\bhvac|furnace|boiler|ventilat|sprinkler|water heater|heat pump|duct",
+   "prefissi": [
+    "2382",
+    "4237",
+    "3334"
+   ],
+   "titolo": "NAICS Code for HVAC and Plumbing Contractors: 238220",
+   "h1": "NAICS code for HVAC and plumbing",
+   "descrizione": "HVAC and plumbing contractors share NAICS 238220; equipment wholesalers and manufacturers have other codes in the official index.",
+   "intro": "Installing and servicing plumbing, heating and air-conditioning is one code: 238220 «{t_238220}». The official index lists {n_voci} matching entries in {n_codici} codes; selling or making the equipment is classified in wholesale trade or manufacturing.",
+   "evidenza": [
+    "238220",
+    "238290",
+    "423720",
+    "423730",
+    "333415"
+   ],
+   "scelte": {
+    "238220": [
+     "Air-conditioning system (except window) installation",
+     "Bathroom plumbing fixture and sanitary ware installation",
+     "Boiler, heating, installation"
+    ],
+    "238290": [
+     "Boiler and pipe insulation installation"
+    ],
+    "423720": [
+     "Bathtubs merchant wholesalers",
+     "Gas hot water heaters merchant wholesalers"
+    ],
+    "423730": [
+     "Air-conditioning equipment (except room units) merchant wholesalers",
+     "Heat pumps merchant wholesalers"
+    ],
+    "333415": [
+     "Air-conditioning equipment (except motor vehicle) manufacturing"
+    ]
+   },
+   "citazioni": [
+    [
+     "238220",
+     0
+    ]
+   ]
+  },
+  {
+   "slug": "naics-code-for-electrician",
+   "nome": "electrician",
+   "frasi": [
+    "naics code for electrician",
+    "electrician naics code",
+    "electrical contractor naics code"
+   ],
+   "regex": "electric(al)? (contract|work|wiring)|wiring|electrician|low voltage|solar panel|alarm system|power line|lighting contractors",
+   "prefissi": [
+    "2382",
+    "2371",
+    "5616",
+    "4236"
+   ],
+   "titolo": "NAICS Code for Electricians and Electrical Contractors",
+   "h1": "NAICS code for electricians and electrical contractors",
+   "descrizione": "Electrical contractors and electricians are NAICS 238210; power lines, alarm monitoring and wiring supplies have other codes.",
+   "intro": "Electrical work in buildings is 238210 «{t_238210}». The official index lists {n_voci} matching entries in {n_codici} codes: building power and communication lines is heavy construction, and selling alarm systems with monitoring is a security service.",
+   "evidenza": [
+    "238210",
+    "237130",
+    "561621",
+    "423610"
+   ],
+   "scelte": {
+    "238210": [
+     "Electrical contractors",
+     "Electrical work",
+     "Solar panel installation"
+    ],
+    "237130": [
+     "Power line stringing",
+     "Electric power transmission line and tower construction"
+    ],
+    "561621": [
+     "Alarm systems sales combined with installation, repair, or monitoring services"
+    ],
+    "423610": [
+     "Wiring supplies merchant wholesalers"
+    ]
+   }
+  },
+  {
+   "slug": "naics-code-for-roofing",
+   "nome": "roofing",
+   "frasi": [
+    "naics code for roofing",
+    "roofing naics code",
+    "roofing contractor naics code"
+   ],
+   "regex": "\\broof|gutter|shingle",
+   "prefissi": [
+    "238",
+    "4233",
+    "3241",
+    "5416"
+   ],
+   "titolo": "NAICS Code for Roofing Contractors: 238160 and Related",
+   "h1": "NAICS code for roofing",
+   "descrizione": "Roofing contractors are NAICS 238160; gutters 238170, roofing material wholesalers 423330, shingle makers 324122: official entries.",
+   "intro": "Roof installation and repair is 238160 «{t_238160}». The official index lists {n_voci} roof-related entries in {n_codici} codes; gutters, materials and roof consulting each have their own code.",
+   "evidenza": [
+    "238160",
+    "238170",
+    "423330",
+    "324122",
+    "541690"
+   ],
+   "scelte": {
+    "238160": [
+     "Asphalt roof shingle installation",
+     "Roof painting, spraying, or coating"
+    ],
+    "238170": [
+     "Gutters, seamless roof, formed and installed on site",
+     "Gutter and downspout contractors"
+    ],
+    "423330": [
+     "Roofing materials (except wood) merchant wholesalers",
+     "Asphalt roofing shingles merchant wholesalers"
+    ],
+    "324122": [
+     "Asphalt shingles made from purchased asphaltic materials"
+    ],
+    "541690": [
+     "Roof consulting services"
+    ]
+   }
+  },
+  {
+   "slug": "naics-code-for-handyman",
+   "nome": "handyman, remodeling and painting",
+   "frasi": [
+    "naics code for handyman",
+    "handyman naics code",
+    "remodeling naics code",
+    "painting naics code"
+   ],
+   "regex": "handyman|remodel|home improvement|renovat|painting|wall covering|wallpaper|drywall",
+   "prefissi": [
+    "236",
+    "238",
+    "237310"
+   ],
+   "titolo": "NAICS Code for Handyman, Remodeling and Painting Work",
+   "h1": "NAICS code for handyman, remodeling and painting",
+   "descrizione": "Handyman construction service on homes is NAICS 236118, on commercial buildings 236220; painting contractors 238320; drywall 238310.",
+   "intro": "The official index places «handyman construction service» with building contractors, by type of building: residential is 236118 «{t_236118}». A trade done on its own, such as painting or drywall, has its own specialty code. The index lists {n_voci} matching entries in {n_codici} codes.",
+   "evidenza": [
+    "236118",
+    "236220",
+    "238320",
+    "238310"
+   ],
+   "scelte": {
+    "236118": [
+     "Handyman construction service, residential building",
+     "Home improvement (e.g., adding on, remodeling, renovating)"
+    ],
+    "236220": [
+     "Handyman construction service, commercial and institutional building"
+    ],
+    "238320": [
+     "House painting",
+     "Painting (except roof) contractors"
+    ],
+    "238310": [
+     "Drywall contractors",
+     "Drywall installation"
+    ]
+   },
+   "citazioni": [
+    [
+     "236118",
+     0
+    ]
+   ]
+  },
+  {
+   "slug": "naics-code-for-landscaping",
+   "nome": "landscaping and lawn care",
+   "frasi": [
+    "naics code for landscaping",
+    "landscaping naics code",
+    "naics code for lawn care",
+    "lawn care naics code"
+   ],
+   "regex": "landscap|lawn|tree|garden|arborist|hydroseed|mowing|snow plow",
+   "prefissi": [
+    "5617",
+    "5413",
+    "8114"
+   ],
+   "titolo": "NAICS Code for Landscaping and Lawn Care: 561730",
+   "h1": "NAICS code for landscaping and lawn care",
+   "descrizione": "Landscaping, lawn care and tree services are NAICS 561730; landscape architects 541320; mower repair 811411: the official entries.",
+   "intro": "Lawn care, landscape maintenance and tree services are 561730 «{t_561730}». Designing landscapes is a professional service, 541320 «{t_541320}». The official index lists {n_voci} matching entries in {n_codici} codes.",
+   "evidenza": [
+    "561730",
+    "541320",
+    "811411"
+   ],
+   "scelte": {
+    "561730": [
+     "Landscape care and maintenance services",
+     "Fertilizing lawns",
+     "Tree trimming services"
+    ],
+    "541320": [
+     "Landscape design services",
+     "Landscape architects' offices"
+    ],
+    "811411": [
+     "Lawnmower repair and maintenance shops without retailing new lawnmowers"
+    ]
+   }
+  },
+  {
+   "slug": "naics-code-for-hair-salon",
+   "nome": "hair salon, beauty salon, nail salon and barber",
+   "frasi": [
+    "naics code for hair salon",
+    "hair salon naics code",
+    "naics code for beauty salon",
+    "nail salon naics code",
+    "barber shop naics code"
+   ],
+   "regex": "beauty|hair|\\bnail|barber|cosmetolog|manicur|pedicur|makeup|esthetic|facial|spa|tanning|threading",
+   "prefissi": [
+    "8121",
+    "6115"
+   ],
+   "titolo": "NAICS Code for Hair Salons, Beauty Salons, Nail Salons, Barbers",
+   "h1": "NAICS code for a hair salon, beauty salon, nail salon or barber",
+   "descrizione": "Beauty and women's hair salons 812112, barber shops 812111, nail salons 812113, day spas 812199, beauty schools 611511.",
+   "intro": "Personal care services are industry group 8121 «{t_8121}», and the official index separates hair and beauty salons from barber shops and nail salons. It lists {n_voci} matching entries in {n_codici} codes, including beauty and barber schools.",
+   "evidenza": [
+    "812112",
+    "812111",
+    "812113",
+    "812199",
+    "611511"
+   ],
+   "scelte": {
+    "812112": [
+     "Beauty salons",
+     "Hair stylist salons or shops, unisex or women's",
+     "Esthetician (i.e., skin care) services"
+    ],
+    "812111": [
+     "Barber shops",
+     "Hair stylist services, men's"
+    ],
+    "812113": [
+     "Nail salons",
+     "Manicure and pedicure salons"
+    ],
+    "812199": [
+     "Day spas",
+     "Hair removal (i.e., depilatory, electrolysis, laser, waxing) services"
+    ],
+    "611511": [
+     "Cosmetology schools",
+     "Beauty schools"
+    ]
+   }
+  },
+  {
+   "slug": "naics-code-for-home-health-care",
+   "nome": "home health care, home care and assisted living",
+   "frasi": [
+    "naics code for home health care",
+    "home health care naics code",
+    "naics code for home care",
+    "assisted living naics code"
+   ],
+   "regex": "home health|home care|homemaker|home nursing|nursing agencies|assisted living|elderly|aged|companion|nursing homes|hospices|retirement",
+   "prefissi": [
+    "6216",
+    "6241",
+    "6233",
+    "6231",
+    "6213"
+   ],
+   "titolo": "NAICS Code for Home Health Care, Home Care, Assisted Living",
+   "h1": "NAICS code for home health care, home care and assisted living",
+   "descrizione": "Medical home health care 621610, non-medical home care 624120, assisted living 623312, nursing homes 623110: official NAICS entries.",
+   "intro": "The official index separates home care by whether it is medical. Home health agencies and home nursing are 621610 «{t_621610}»; non-medical home care of the elderly and homemaker services are 624120 «{t_624120}». It lists {n_voci} matching entries in {n_codici} codes, including residential care.",
+   "evidenza": [
+    "621610",
+    "624120",
+    "623312",
+    "623110",
+    "623311"
+   ],
+   "scelte": {
+    "621610": [
+     "Home health care agencies",
+     "Home care of elderly, medical",
+     "Home nursing services (except private practices)"
+    ],
+    "624120": [
+     "Home care of elderly, non-medical",
+     "Companion services for disabled persons and the elderly"
+    ],
+    "623312": [
+     "Assisted living facilities for the elderly without nursing care"
+    ],
+    "623110": [
+     "Nursing homes",
+     "Assisted living facilities (without nursing facilities) for the elderly with nursing care"
+    ],
+    "623311": [
+     "Assisted living facilities with on-site nursing facilities"
+    ]
+   },
+   "citazioni": [
+    [
+     "621610",
+     0
+    ],
+    [
+     "624120",
+     0
+    ]
+   ]
+  },
+  {
+   "slug": "naics-code-for-daycare",
+   "nome": "daycare and child care",
+   "frasi": [
+    "naics code for daycare",
+    "daycare naics code",
+    "childcare naics code"
+   ],
+   "regex": "child care|day care|babysit|preschool|pre-kindergarten|before-school|after-school|kindergarten|head start|nursery",
+   "prefissi": [
+    "6244",
+    "6241",
+    "6111",
+    "5613"
+   ],
+   "titolo": "NAICS Code for Daycare and Child Care: 624410",
+   "h1": "NAICS code for daycare and child care",
+   "descrizione": "Child day care, preschool centers and babysitting are NAICS 624410; kindergartens 611110; adult day care 624120: official entries.",
+   "intro": "Child care is 624410 «{t_624410}», including care in the provider's own home and preschool centers outside the elementary school system. The official index lists {n_voci} matching entries in {n_codici} codes.",
+   "evidenza": [
+    "624410",
+    "611110",
+    "624120",
+    "561311"
+   ],
+   "scelte": {
+    "624410": [
+     "Child care services",
+     "Child care services in provider's own home",
+     "Preschool centers"
+    ],
+    "611110": [
+     "Kindergartens",
+     "Kindergartens, combined with preschools"
+    ],
+    "624120": [
+     "Adult day care centers"
+    ],
+    "561311": [
+     "Babysitting bureaus (i.e., registries)"
+    ]
+   },
+   "citazioni": [
+    [
+     "624410",
+     0
+    ]
+   ]
+  },
+  {
+   "slug": "naics-code-for-gym",
+   "nome": "gym and personal trainer",
+   "frasi": [
+    "gym naics code",
+    "naics code for gym",
+    "naics code for personal trainer",
+    "personal trainer naics code"
+   ],
+   "regex": "fitness|\\bgym|health club|exercise|aerobic|yoga|pilates|body building|athletic club|personal fitness|martial arts",
+   "prefissi": [
+    "7139",
+    "8129",
+    "6116"
+   ],
+   "titolo": "NAICS Code for Gyms, Fitness Centers and Personal Trainers",
+   "h1": "NAICS code for a gym or personal trainer",
+   "descrizione": "Gyms and fitness centers are NAICS 713940, personal fitness training 812990, exercise and yoga instruction 611620/611699.",
+   "intro": "Running a gym and training clients are different codes in the official index. Fitness centers and health clubs are 713940 «{t_713940}»; personal fitness training services are 812990 «{t_812990}». The index lists {n_voci} matching entries in {n_codici} codes.",
+   "evidenza": [
+    "713940",
+    "812990",
+    "611620",
+    "611699"
+   ],
+   "scelte": {
+    "713940": [
+     "Fitness centers",
+     "Exercise centers",
+     "Body building studios, physical fitness"
+    ],
+    "812990": [
+     "Personal fitness training services"
+    ],
+    "611620": [
+     "Aerobic dance and exercise instruction"
+    ],
+    "611699": [
+     "Yoga instruction, camps or schools",
+     "Pilates instruction, camps or schools"
+    ]
+   }
+  },
+  {
+   "slug": "naics-code-for-physical-therapy",
+   "nome": "physical therapy and massage therapy",
+   "frasi": [
+    "naics code for physical therapy",
+    "physical therapy naics code",
+    "naics code for massage therapy",
+    "massage therapy naics code"
+   ],
+   "regex": "therap|massage|chiropract|physiotherap|audiolog|speech",
+   "prefissi": [
+    "6213",
+    "8121",
+    "6115"
+   ],
+   "titolo": "NAICS Code for Physical Therapy and Massage Therapy",
+   "h1": "NAICS code for physical therapy and massage therapy",
+   "descrizione": "Physical therapists' offices are NAICS 621340, massage therapists' offices 621399, massage wellness spas 812199, chiropractors 621310.",
+   "intro": "Therapy practices are offices of health practitioners in industry group 6213 «{t_6213}». The official index lists {n_voci} matching entries in {n_codici} codes; massage appears both as a health practice and as a personal care service.",
+   "evidenza": [
+    "621340",
+    "621399",
+    "812199",
+    "621310"
+   ],
+   "scelte": {
+    "621340": [
+     "Physical therapy offices (e.g., centers, clinics)",
+     "Physical therapists' offices (e.g., centers, clinics)",
+     "Occupational therapists' offices (e.g., centers, clinics)"
+    ],
+    "621399": [
+     "Massage therapists' offices (e.g., centers, clinics)"
+    ],
+    "812199": [
+     "Massage wellness spas/centers"
+    ],
+    "621310": [
+     "Chiropractors' offices (e.g., centers, clinics)"
+    ]
+   }
+  },
+  {
+   "slug": "naics-code-for-event-planning",
+   "nome": "event planning",
+   "frasi": [
+    "naics code for event planning",
+    "event planning naics code",
+    "event planner naics code",
+    "wedding planner naics code"
+   ],
+   "regex": "\\bevents?\\b|party planning|wedding|convention|trade show|banquet|festival",
+   "prefissi": [
+    "5619",
+    "8129",
+    "7113",
+    "531120",
+    "7223",
+    "5414",
+    "541921"
+   ],
+   "titolo": "NAICS Code for Event Planning, Wedding Planners and Venues",
+   "h1": "NAICS code for event planning",
+   "descrizione": "Party and wedding planning 812990, conventions and trade shows 561920, event promoters 711310/711320, venue rental 531120.",
+   "intro": "The official index places event planning by the kind of event. Party and wedding planning are personal services; business events, conventions and trade shows are 561920 «{t_561920}». It lists {n_voci} matching entries in {n_codici} codes.",
+   "evidenza": [
+    "812990",
+    "561920",
+    "711320",
+    "711310",
+    "531120",
+    "722320"
+   ],
+   "scelte": {
+    "812990": [
+     "Party planning services",
+     "Wedding planning services"
+    ],
+    "561920": [
+     "Convention or trade show event planners",
+     "Convention organizers"
+    ],
+    "711320": [
+     "Arts event organizers without facilities",
+     "Arts festival organizers without facilities"
+    ],
+    "711310": [
+     "Arts event organizers with facilities"
+    ],
+    "531120": [
+     "Banquet hall rental or leasing",
+     "Conference center, no promotion of events, rental or leasing"
+    ],
+    "722320": [
+     "Banquet halls with catering staff"
+    ]
+   },
+   "citazioni": [
+    [
+     "561920",
+     0
+    ]
+   ]
+  },
+  {
+   "slug": "naics-code-for-photography",
+   "nome": "photography and video production",
+   "frasi": [
+    "naics code for photography",
+    "photography naics code",
+    "video production naics code"
+   ],
+   "regex": "photograph|video|film|motion picture|portrait|cinematograph|cameramen",
+   "prefissi": [
+    "5419",
+    "5121",
+    "7115"
+   ],
+   "titolo": "NAICS Code for Photography and Video Production",
+   "h1": "NAICS code for photography and video production",
+   "descrizione": "Portrait and wedding photography 541921, commercial photography 541922, independent artistic photographers 711510, video 512110.",
+   "intro": "Photography has two main codes in the official index: portrait work for consumers is 541921 «{t_541921}», work for businesses is 541922 «{t_541922}». The index lists {n_voci} matching entries in {n_codici} codes, including film and video production.",
+   "evidenza": [
+    "541921",
+    "541922",
+    "711510",
+    "512110"
+   ],
+   "scelte": {
+    "541921": [
+     "Portrait photography services",
+     "Wedding photography services",
+     "Video taping services, special events (e.g., birthdays, weddings)"
+    ],
+    "541922": [
+     "Commercial photography services",
+     "Commercial event videography services",
+     "Photographers specializing in aerial photography"
+    ],
+    "711510": [
+     "Photographers, independent artistic"
+    ],
+    "512110": [
+     "Motion picture and video production",
+     "Commercials, television, production"
+    ]
+   }
+  },
+  {
+   "slug": "naics-code-for-church",
+   "nome": "church and religious organization",
+   "frasi": [
+    "naics code for church",
+    "church naics code"
+   ],
+   "regex": "church|religio|worship|ministr|mosque|synagogue|temple|monaster|convent|bible|shrine",
+   "prefissi": [
+    "8131",
+    "6113",
+    "6116",
+    "8132"
+   ],
+   "titolo": "NAICS Code for a Church or Religious Organization: 813110",
+   "h1": "NAICS code for a church or religious organization",
+   "descrizione": "Churches, mosques, temples and other religious organizations are NAICS 813110; religious schools and trusts have their own codes.",
+   "intro": "Churches and other places of worship are 813110 «{t_813110}». The official index lists {n_voci} matching entries in {n_codici} codes: religious colleges, Bible schools and grantmaking religious trusts are classified by what they do.",
+   "evidenza": [
+    "813110",
+    "611310",
+    "611699",
+    "813211"
+   ],
+   "scelte": {
+    "813110": [
+     "Churches",
+     "Places of worship",
+     "Ministries, religious"
+    ],
+    "611310": [
+     "Bible colleges offering baccalaureate degrees"
+    ],
+    "611699": [
+     "Bible schools (except degree granting)"
+    ],
+    "813211": [
+     "Trusts, religious, awarding grants"
+    ]
+   },
+   "citazioni": [
+    [
+     "813110",
+     0
+    ]
+   ]
+  },
+  {
+   "slug": "naics-code-for-nonprofit",
+   "nome": "nonprofit organization",
+   "frasi": [
+    "naics code for nonprofit",
+    "naics code for non profit organization",
+    "nonprofit naics code"
+   ],
+   "regex": "organizations?|foundations?|charit|fundraising|advocacy|associations?|clubs|food banks|food pantries|shelters|trusts",
+   "prefissi": [
+    "813",
+    "6241",
+    "6242"
+   ],
+   "titolo": "NAICS Code for a Nonprofit Organization: Codes by Activity",
+   "h1": "NAICS code for a nonprofit organization",
+   "descrizione": "NAICS has no nonprofit code: charities, foundations, advocacy groups, clubs and food banks each have an activity code in the official index.",
+   "intro": "No entry of the official 2022 index contains the word «nonprofit»: NAICS classifies an establishment by its primary activity. Many organizations people call nonprofits are in subsector 813 «{t_813}» or in social assistance; the index lists {n_voci} matching entries in {n_codici} of those codes.",
+   "evidenza": [
+    "813211",
+    "813219",
+    "813212",
+    "813311",
+    "813312",
+    "813319",
+    "813410",
+    "624190",
+    "624210",
+    "813110"
+   ],
+   "scelte": {
+    "813211": [
+     "Grantmaking foundations",
+     "Community foundations",
+     "Charitable trusts, awarding grants"
+    ],
+    "813219": [
+     "Federated charities",
+     "Community chest fundraising organizations"
+    ],
+    "813212": [
+     "Voluntary health organizations",
+     "Disease research (e.g., cancer, heart) fundraising organizations"
+    ],
+    "813311": [
+     "Human rights advocacy organizations",
+     "Civil liberties organizations"
+    ],
+    "813312": [
+     "Environmental advocacy organizations",
+     "Animal welfare associations or leagues"
+    ],
+    "813319": [
+     "Social service advocacy organizations",
+     "Antipoverty advocacy organizations"
+    ],
+    "813410": [
+     "Civic associations",
+     "Alumni associations"
+    ],
+    "624190": [
+     "Family social service agencies",
+     "Community action service agencies"
+    ],
+    "624210": [
+     "Food banks",
+     "Soup kitchens"
+    ],
+    "813110": [
+     "Churches"
+    ]
+   },
+   "citazioni": [
+    [
+     "813",
+     0
+    ]
+   ]
+  },
+  {
+   "slug": "naics-code-for-software-development",
+   "nome": "software development and IT services",
+   "frasi": [
+    "naics code for software development",
+    "software development naics code",
+    "software naics code",
+    "it consulting naics code",
+    "it services naics code",
+    "naics code for web design"
+   ],
+   "regex": "software|computer programming|web \\(i\\.e\\., internet\\) page design|web page design|computer systems|computer (hardware|software) consulting|facilities management|disaster recovery|cloud|hosting|data processing|applications",
+   "prefissi": [
+    "5132",
+    "5182",
+    "5415"
+   ],
+   "titolo": "NAICS Code for Software Development and IT Services",
+   "h1": "NAICS code for software development and IT services",
+   "descrizione": "Custom software and web development 541511, IT consulting and integration 541512, packaged software 513210, cloud and hosting 518210.",
+   "intro": "Software is classified by how it reaches the client. Writing software to the client's order is 541511 «{t_541511}»; publishing software or apps for many users is 513210 «{t_513210}»; planning and integrating systems is 541512 «{t_541512}». The official index lists {n_voci} matching entries in {n_codici} codes.",
+   "evidenza": [
+    "541511",
+    "541512",
+    "513210",
+    "518210",
+    "541513",
+    "541519"
+   ],
+   "scelte": {
+    "541511": [
+     "Computer program or software development, custom",
+     "Computer programming services, custom",
+     "Web (i.e., Internet) page design services, custom"
+    ],
+    "541512": [
+     "Computer software consulting services or consultants",
+     "Computer systems integration design consulting services"
+    ],
+    "513210": [
+     "Software publishers",
+     "Mobile applications development and publishing, except on a custom basis"
+    ],
+    "518210": [
+     "Cloud computing services (except software publishing and computer systems design)",
+     "Web hosting (excluding software publishing)"
+    ],
+    "541513": [
+     "Computer systems facilities (i.e., clients' facilities) management and operation services"
+    ],
+    "541519": [
+     "Computer disaster recovery services",
+     "Software installation services, computer"
+    ]
+   }
+  },
+  {
+   "slug": "naics-code-for-marketing",
+   "nome": "marketing, advertising and graphic design",
+   "frasi": [
+    "naics code for marketing",
+    "marketing naics code",
+    "naics code for digital marketing",
+    "graphic design naics code"
+   ],
+   "regex": "marketing|advertising|graphic|public relations|media buying|direct mail|logo|commercial art",
+   "prefissi": [
+    "5418",
+    "5416",
+    "5414",
+    "5419"
+   ],
+   "titolo": "NAICS Code for Marketing, Advertising and Graphic Design",
+   "h1": "NAICS code for marketing, advertising and graphic design",
+   "descrizione": "Marketing consulting 541613, advertising and digital agencies 541810, PR 541820, graphic design 541430, market research 541910.",
+   "intro": "Marketing businesses are spread over industry group 5418 «{t_5418}» and a few nearby codes. The official index lists {n_voci} matching entries in {n_codici} codes: advising on marketing, running campaigns, buying media and designing graphics are different industries.",
+   "evidenza": [
+    "541613",
+    "541810",
+    "541820",
+    "541830",
+    "541860",
+    "541430",
+    "541910"
+   ],
+   "scelte": {
+    "541613": [
+     "Marketing consulting services",
+     "Marketing management consulting services"
+    ],
+    "541810": [
+     "Advertising agencies",
+     "Digital advertising agencies",
+     "Online advertising agencies"
+    ],
+    "541820": [
+     "Public relations agencies",
+     "Public relations services"
+    ],
+    "541830": [
+     "Media buying agencies"
+    ],
+    "541860": [
+     "Direct mail advertising services"
+    ],
+    "541430": [
+     "Graphic design services",
+     "Corporate identification (i.e., logo) design services"
+    ],
+    "541910": [
+     "Marketing research services",
+     "Marketing analysis services"
+    ]
+   }
+  },
+  {
+   "slug": "naics-code-for-staffing-agency",
+   "nome": "staffing agency",
+   "frasi": [
+    "naics code for staffing agency",
+    "staffing agency naics code",
+    "staffing naics code"
+   ],
+   "regex": "staffing|employment|temporary|help supply|labor|leasing|PEO|executive|placement|recruitment|registries",
+   "prefissi": [
+    "5613",
+    "115115"
+   ],
+   "titolo": "NAICS Code for a Staffing Agency: 561311, 561320, 561330",
+   "h1": "NAICS code for a staffing agency",
+   "descrizione": "Employment placement 561311, temporary help and contract staffing 561320, PEOs 561330, executive search 561312: the official index.",
+   "intro": "Staffing is industry group 5613 «{t_5613}». The official index lists {n_voci} matching entries in {n_codici} codes. The code depends on who employs the worker: an agency placing candidates with employers, an agency supplying its own temporary staff, or a co-employer.",
+   "evidenza": [
+    "561311",
+    "561320",
+    "561330",
+    "561312",
+    "115115"
+   ],
+   "scelte": {
+    "561311": [
+     "Employment agencies",
+     "Employment placement agencies or services",
+     "Employee recruitment services (non-executive)"
+    ],
+    "561320": [
+     "Temporary help services",
+     "Contract staffing services",
+     "Temporary employment services"
+    ],
+    "561330": [
+     "Professional employer organizations (PEO)",
+     "Employee leasing services"
+    ],
+    "561312": [
+     "Executive search services"
+    ],
+    "115115": [
+     "Farm labor contractors"
+    ]
+   },
+   "citazioni": [
+    [
+     "561320",
+     0
+    ]
+   ]
+  },
+  {
+   "slug": "naics-code-for-law-firm",
+   "nome": "law firm and lawyer",
+   "frasi": [
+    "naics code for law firm",
+    "law firm naics code",
+    "naics code for lawyer",
+    "lawyer naics code"
+   ],
+   "regex": "\\blaw\\b|lawyer|attorney|barrister|legal|paralegal|notar|title|settlement|patent|process serv|jury",
+   "prefissi": [
+    "5411"
+   ],
+   "titolo": "NAICS Code for a Law Firm or Lawyer: 541110",
+   "h1": "NAICS code for a law firm or lawyer",
+   "descrizione": "Law firms and lawyers' offices are NAICS 541110; title and settlement offices 541191; paralegals and notary publics 541199.",
+   "intro": "Legal services are industry group 5411 «{t_5411}». The official index lists {n_voci} matching entries in {n_codici} codes; offices of lawyers are separate from title companies, paralegals and other legal services.",
+   "evidenza": [
+    "541110",
+    "541191",
+    "541199"
+   ],
+   "scelte": {
+    "541110": [
+     "Law firms",
+     "Lawyers' offices",
+     "Attorneys' offices"
+    ],
+    "541191": [
+     "Title companies, real estate",
+     "Settlement offices, real estate"
+    ],
+    "541199": [
+     "Paralegal services",
+     "Notary public services",
+     "Process serving services"
+    ]
+   }
+  },
+  {
+   "slug": "naics-code-for-accounting",
+   "nome": "accounting, bookkeeping and tax preparation",
+   "frasi": [
+    "accounting naics code",
+    "naics code for bookkeeping",
+    "bookkeeping naics code",
+    "naics code for tax preparation"
+   ],
+   "regex": "account|bookkeep|tax|payroll|audit|billing|CPA",
+   "prefissi": [
+    "5412"
+   ],
+   "titolo": "NAICS Code for Accounting, Bookkeeping and Tax Preparation",
+   "h1": "NAICS code for accounting, bookkeeping and tax preparation",
+   "descrizione": "CPA firms are NAICS 541211, tax return preparation 541213, payroll 541214, bookkeeping and non-CPA accounting 541219.",
+   "intro": "Accounting services are industry group 5412 «{t_5412}». The official index lists {n_voci} matching entries in its {n_codici} codes: certified public accountants have their own code, separate from bookkeepers, tax preparers and payroll services.",
+   "evidenza": [
+    "541211",
+    "541213",
+    "541214",
+    "541219"
+   ],
+   "scelte": {
+    "541211": [
+     "Certified public accountants' (CPAs) offices",
+     "Auditing accountants' (i.e., CPAs) offices"
+    ],
+    "541213": [
+     "Tax return preparation services",
+     "Income tax return preparation services"
+    ],
+    "541214": [
+     "Payroll processing services"
+    ],
+    "541219": [
+     "Bookkeeping services",
+     "Bookkeepers' offices",
+     "Accounting services (except CPAs)"
+    ]
+   }
+  },
+  {
+   "slug": "naics-code-for-insurance-agency",
+   "nome": "insurance agency",
+   "frasi": [
+    "naics code for insurance agency",
+    "insurance agency naics code",
+    "insurance agent naics code"
+   ],
+   "regex": "insurance|claims|actuarial",
+   "prefissi": [
+    "5242"
+   ],
+   "titolo": "NAICS Code for an Insurance Agency or Broker: 524210",
+   "h1": "NAICS code for an insurance agency or broker",
+   "descrizione": "Insurance agencies and brokerages are NAICS 524210; claims adjusting 524291, third party administration 524292, other services 524298.",
+   "intro": "Selling insurance for insurers is industry group 5242 «{t_5242}», separate from the carriers that underwrite it. The official index lists {n_voci} matching entries in {n_codici} codes.",
+   "evidenza": [
+    "524210",
+    "524291",
+    "524292",
+    "524298"
+   ],
+   "scelte": {
+    "524210": [
+     "Insurance agencies",
+     "Insurance brokerages",
+     "Life insurance agencies"
+    ],
+    "524291": [
+     "Insurance claims adjusting",
+     "Insurance claims investigation services"
+    ],
+    "524292": [
+     "Insurance claims processing services, third party"
+    ],
+    "524298": [
+     "Insurance advisory services",
+     "Insurance actuarial services"
+    ]
+   }
+  },
+  {
+   "slug": "naics-code-for-engineering",
+   "nome": "engineering and architecture",
+   "frasi": [
+    "naics code for engineering",
+    "engineering naics code",
+    "architect naics code"
+   ],
+   "regex": "engineer|architect|drafting|surveying|inspection|testing",
+   "prefissi": [
+    "5413"
+   ],
+   "titolo": "NAICS Code for Engineering and Architecture Firms",
+   "h1": "NAICS code for engineering and architecture",
+   "descrizione": "Engineering services 541330, architects 541310, landscape architects 541320, drafting 541340, home inspection 541350, surveying 541370.",
+   "intro": "Engineering and architecture are industry group 5413 «{t_5413}». The official index lists {n_voci} matching entries in {n_codici} codes, from design to drafting, inspection, surveying and testing.",
+   "evidenza": [
+    "541330",
+    "541310",
+    "541320",
+    "541340",
+    "541350",
+    "541370",
+    "541380"
+   ],
+   "scelte": {
+    "541330": [
+     "Engineering services",
+     "Civil engineering services",
+     "Consulting engineers' offices"
+    ],
+    "541310": [
+     "Architects' (except landscape) offices",
+     "Building architectural design services"
+    ],
+    "541320": [
+     "Landscape architects' offices"
+    ],
+    "541340": [
+     "Drafting services",
+     "Computer-aided design drafting (CADD) services"
+    ],
+    "541350": [
+     "Home inspection services",
+     "Building inspection services"
+    ],
+    "541370": [
+     "Land surveying services"
+    ],
+    "541380": [
+     "Environmental testing laboratories or services"
+    ]
+   }
+  },
+  {
+   "slug": "naics-code-for-auto-repair",
+   "nome": "auto repair, car wash and towing",
+   "frasi": [
+    "naics code for auto repair",
+    "auto repair naics code",
+    "car wash naics code",
+    "towing naics code"
+   ],
+   "regex": "automotive|car |car$|truck|towing|wrecker|tow |detail|oil change|lube|muffler|brake|body shops|windshield|tire",
+   "prefissi": [
+    "8111",
+    "4884"
+   ],
+   "titolo": "NAICS Code for Auto Repair, Car Wash and Towing",
+   "h1": "NAICS code for auto repair, car wash and towing",
+   "descrizione": "General auto repair 811111, specialized repair 811114, body shops 811121, car washes and detailing 811192, towing 488410.",
+   "intro": "Automotive repair is industry group 8111 «{t_8111}», split by type of work. The official index lists {n_voci} matching entries in {n_codici} codes; towing is a transportation support activity.",
+   "evidenza": [
+    "811111",
+    "811114",
+    "811121",
+    "811122",
+    "811191",
+    "811192",
+    "811198",
+    "488410"
+   ],
+   "scelte": {
+    "811111": [
+     "General automotive repair shops",
+     "Car repair shops, general",
+     "Mobile automotive and truck repair services"
+    ],
+    "811114": [
+     "Automotive brake repair shops",
+     "Automotive transmission repair shops"
+    ],
+    "811121": [
+     "Automotive body shops",
+     "Automotive paint shops"
+    ],
+    "811122": [
+     "Windshield repair shops, automotive"
+    ],
+    "811191": [
+     "Quick-lube shops",
+     "Automotive oil change and lubrication shops"
+    ],
+    "811192": [
+     "Car washes",
+     "Automotive detailing services (i.e., cleaning, polishing)"
+    ],
+    "811198": [
+     "Automotive tire repair (except retreading) shops"
+    ],
+    "488410": [
+     "Tow truck services",
+     "Towing services, motor vehicle"
+    ]
+   }
+  },
+  {
+   "slug": "naics-code-for-ecommerce",
+   "nome": "ecommerce and online selling",
+   "frasi": [
+    "naics code for ecommerce",
+    "ecommerce naics code",
+    "naics code for online store",
+    "naics code for amazon seller",
+    "amazon seller naics code"
+   ],
+   "regex": "internet|electronic auctions|mail-order|online|downloadable",
+   "prefissi": [
+    "44",
+    "45"
+   ],
+   "titolo": "NAICS Code for Ecommerce, Online Stores and Amazon Sellers",
+   "h1": "NAICS code for ecommerce and online stores",
+   "descrizione": "NAICS 2022 has no ecommerce code: online retailers are classified by goods sold. Official index entries, 454110 and the 2022 rule.",
+   "intro": "NAICS 2022 has no separate code for selling online: the 2017 code 454110 (Electronic Shopping and Mail-Order Houses) was removed and its content was split among {n_454110} retail codes by the kind of goods sold. In retail trade the official index lists {n_voci} Internet, electronic auction, mail-order and downloadable entries in {n_codici} codes.",
+   "evidenza": [
+    "455219",
+    "459510",
+    "449210",
+    "458110",
+    "425120"
+   ],
+   "scelte": {
+    "455219": [
+     "Internet retail sales sites (except department store, warehouse club, and supercenter sites), new general merchandise",
+     "Internet auctions, general merchandise (new and used), retail"
+    ],
+    "459510": [
+     "Auctions, general merchandise (used), Internet retail"
+    ],
+    "449210": [
+     "Music retailers (e.g., downloadable digital music files (without production or publishing))"
+    ],
+    "425120": [
+     "Business to business electronic markets, durable goods, wholesale trade"
+    ],
+    "458110": [
+     "Clothing stores, family"
+    ]
+   },
+   "citazioni": [
+    [
+     "44-45",
+     1
+    ],
+    [
+     "44-45",
+     4
+    ],
+    [
+     "44-45",
+     5
+    ]
+   ]
+  },
+  {
+   "slug": "naics-code-for-retail-store",
+   "nome": "retail store",
+   "frasi": [
+    "naics code for retail store",
+    "retail store naics code"
+   ],
+   "regex": "\\bstores\\b",
+   "prefissi": [
+    "44",
+    "45"
+   ],
+   "settore": "44-45",
+   "titolo": "NAICS Code for a Retail Store: Sector 44-45 Codes",
+   "h1": "NAICS code for a retail store",
+   "descrizione": "Retail trade is NAICS sector 44-45: nine subsectors by merchandise line, from grocery and clothing stores to general merchandise.",
+   "intro": "Retail is sector 44-45 «{t_44-45}», with {n_sotto_settore} subsectors and {n_sei_settore} six-digit industries. The code follows the merchandise line carried and the usual trade name of the store; the official index lists {n_voci} kinds of store in {n_codici} codes.",
+   "evidenza": [
+    "445110",
+    "458110",
+    "455219",
+    "459999"
+   ],
+   "scelte": {
+    "445110": [
+     "Grocery stores",
+     "Supermarkets"
+    ],
+    "458110": [
+     "Clothing stores, family",
+     "Clothing stores, women's and girls'"
+    ],
+    "455219": [
+     "General stores",
+     "Variety stores",
+     "Dollar stores"
+    ]
+   },
+   "citazioni": [
+    [
+     "44-45",
+     0
+    ],
+    [
+     "44-45",
+     4
+    ],
+    [
+     "44-45",
+     5
+    ]
+   ]
+  },
+  {
+   "slug": "naics-code-for-manufacturing",
+   "nome": "manufacturing",
+   "frasi": [
+    "naics code for manufacturing",
+    "manufacturing naics code"
+   ],
+   "regex": null,
+   "settore": "31-33",
+   "titolo": "NAICS Code for Manufacturing: Sector 31-33 Subsectors",
+   "h1": "NAICS code for manufacturing",
+   "descrizione": "Manufacturing is NAICS sector 31-33: 21 subsectors by product, from food and apparel to chemicals and machinery, with index examples.",
+   "intro": "Manufacturing is sector 31-33 «{t_31-33}», with {n_sotto_settore} subsectors and {n_sei_settore} six-digit industries. The code follows the product made; the table below gives, for each subsector, two industries with an entry of the official index.",
+   "evidenza": [],
+   "citazioni": [
+    [
+     "31-33",
+     0
+    ],
+    [
+     "31-33",
+     1
+    ]
+   ]
+  },
+  {
+   "slug": "naics-code-for-hotel",
+   "nome": "hotel and motel",
+   "frasi": [
+    "naics code for hotel",
+    "hotel naics code"
+   ],
+   "regex": "hotel|motel|\\binns?\\b|resort|lodging|bed and breakfast|accommodations|cottages|guest houses",
+   "prefissi": [
+    "721",
+    "561599",
+    "561110"
+   ],
+   "titolo": "NAICS Code for a Hotel or Motel: 721110 and Related",
+   "h1": "NAICS code for a hotel or motel",
+   "descrizione": "Hotels and motels are NAICS 721110, casino hotels 721120, bed and breakfast inns 721191; hotel management and booking services too.",
+   "intro": "Hotels and motels are 721110 «{t_721110}» unless they have a casino. The official index lists {n_voci} matching entries in {n_codici} codes, including bed and breakfast inns, other short-term lodging and hotel management or reservation services.",
+   "evidenza": [
+    "721110",
+    "721120",
+    "721191",
+    "721199",
+    "561599",
+    "561110"
+   ],
+   "scelte": {
+    "721110": [
+     "Hotels (except casino hotels)",
+     "Motels",
+     "Hotel management services (i.e., providing management and operating staff to run hotel)"
+    ],
+    "721120": [
+     "Casino hotels"
+    ],
+    "721191": [
+     "Bed and breakfast inns"
+    ],
+    "721199": [
+     "Guest houses"
+    ],
+    "561599": [
+     "Hotel reservation services"
+    ],
+    "561110": [
+     "Hotel management services (except complete operation of client's business)"
+    ]
+   }
   }
  ]
 }

@@ -1,0 +1,4094 @@
+{
+ "_nota": "Volumi medi mensili di ricerca su Google negli Stati Uniti (Google Ads) letti con api.seodata.dev il 13/11/2026 per le pagine «NAICS code for …»: per ogni attività le due forme «naics code for X» e «X naics code» (più 2 frasi delle FAQ esistenti), 252 ricerche. volume null = la frase non è nel database dello strumento (risposta 404). «dato_del» = data del dato nello strumento (cache). «simili» = frasi vicine restituite dallo strumento con il loro volume (misurate anch'esse: valgono per le FAQ). Una pagina si pubblica con almeno 100 ricerche al mese su una delle sue frasi (genera.py: MIN_VOLUME_ATTIVITA).",
+ "misurato_il": "2026-11-13",
+ "strumento": "api.seodata.dev, country=us",
+ "ricerche_usate": 252,
+ "attivita_misurate": [
+  "ecommerce",
+  "online store",
+  "online business",
+  "amazon seller",
+  "dropshipping",
+  "trucking",
+  "freight broker",
+  "logistics",
+  "courier",
+  "real estate",
+  "real estate agent",
+  "real estate investment",
+  "property management",
+  "rental property",
+  "airbnb",
+  "short term rental",
+  "holding company",
+  "restaurant",
+  "food truck",
+  "catering",
+  "bakery",
+  "coffee shop",
+  "bar",
+  "consulting",
+  "business consulting",
+  "management consulting",
+  "it consulting",
+  "photography",
+  "videography",
+  "software development",
+  "software",
+  "it services",
+  "web design",
+  "graphic design",
+  "marketing",
+  "digital marketing",
+  "social media marketing",
+  "landscaping",
+  "lawn care",
+  "daycare",
+  "child care",
+  "cleaning services",
+  "janitorial",
+  "construction",
+  "general contractor",
+  "electrician",
+  "plumbing",
+  "hvac",
+  "roofing",
+  "painting",
+  "handyman",
+  "remodeling",
+  "beauty salon",
+  "hair salon",
+  "barber shop",
+  "nail salon",
+  "insurance agency",
+  "home health care",
+  "nonprofit",
+  "church",
+  "youtube",
+  "content creator",
+  "notary",
+  "tutoring",
+  "event planning",
+  "auto repair",
+  "car wash",
+  "staffing agency",
+  "accounting",
+  "bookkeeping",
+  "tax preparation",
+  "personal trainer",
+  "gym",
+  "massage therapy",
+  "medical office",
+  "dental office",
+  "physical therapy",
+  "security guard",
+  "pressure washing",
+  "pest control",
+  "moving company",
+  "dog grooming",
+  "pet sitting",
+  "credit repair",
+  "mortgage broker",
+  "investment",
+  "life coach",
+  "interior design",
+  "wedding planner",
+  "event venue",
+  "tattoo",
+  "clothing boutique",
+  "retail store",
+  "medical billing",
+  "assisted living",
+  "home inspection",
+  "private investigator",
+  "law firm",
+  "mobile detailing",
+  "towing",
+  "childcare",
+  "transportation",
+  "security company",
+  "engineering",
+  "architect",
+  "lawyer",
+  "medical",
+  "home care",
+  "staffing",
+  "self employed",
+  "independent contractor",
+  "freelancer",
+  "uber driver",
+  "doordash",
+  "rideshare",
+  "etsy",
+  "ebay seller",
+  "cosmetology",
+  "hotel",
+  "vending machine",
+  "manufacturing",
+  "farming",
+  "education",
+  "non profit organization",
+  "startup"
+ ],
+ "frasi": {
+  "naics code for ecommerce": {
+   "volume": 1000,
+   "cpc_usd": 0,
+   "dato_del": "2026-08-24",
+   "simili": {
+    "e commerce naics code": 1300,
+    "ecommerce naics code": 1300,
+    "naics code ecommerce": 170,
+    "what is the naics code for ecommerce": 40,
+    "online retailer naics code": 260,
+    "naics for ecommerce": 210,
+    "naics code e-commerce": 170,
+    "naics code for ecommerce business": 90,
+    "what is naics code for ecommerce": 20,
+    "e-commerce naics code": 1000
+   }
+  },
+  "ecommerce naics code": {
+   "volume": 1300,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "e commerce naics code": 1300,
+    "naics code for ecommerce": 1000,
+    "naics code ecommerce": 170,
+    "what is the naics code for ecommerce": 40,
+    "e-commerce naics code": 1000,
+    "naics code for e commerce": 1000,
+    "naics code for e-commerce": 1000,
+    "naics for ecommerce": 210,
+    "naics code for ecommerce business": 90,
+    "online store naics": 30
+   }
+  },
+  "naics code for online store": {
+   "volume": 210,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "e commerce naics code": 1300,
+    "ecommerce naics code": 1300,
+    "naics code for ecommerce": 1000,
+    "naics code for online retailer": 480,
+    "naics code for online retail": 480,
+    "online retailer naics code": 260,
+    "online store naics code": 210,
+    "naics code e commerce": 170,
+    "naics code e-commerce": 170,
+    "online retail store naics code": 480
+   }
+  },
+  "online store naics code": {
+   "volume": 210,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "e commerce naics code": 1300,
+    "ecommerce naics code": 1300,
+    "naics code for ecommerce": 1000,
+    "online retail sales naics code": 30,
+    "online retailer naics code": 260,
+    "naics code for online retail store": 480,
+    "naics code for online retailer": 480,
+    "online retail store naics code": 480,
+    "naics code for online store": 210,
+    "what is naics code for online retail": 90
+   }
+  },
+  "naics code for online business": {
+   "volume": 40,
+   "cpc_usd": 0,
+   "dato_del": "2026-08-24",
+   "simili": {
+    "naics code for ecommerce": 1000,
+    "e commerce naics code": 1300,
+    "naics code for online sales": 320,
+    "ecommerce naics code": 1300,
+    "naics code online sales": 70,
+    "naics code for online retailer": 480,
+    "online sales naics code": 320,
+    "online retail naics code": 260,
+    "online retailer naics code": 260,
+    "online store naics code": 210
+   }
+  },
+  "online business naics code": {
+   "volume": null,
+   "nota": "404: not in the keyword database"
+  },
+  "naics code for amazon seller": {
+   "volume": 390,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code amazon seller": 30,
+    "naics code for amazon fba": 30,
+    "amazon seller naics code": 390,
+    "naics for amazon seller": 30,
+    "amazon naics code": 210,
+    "naics code for amazon": 70,
+    "amazon fba naics code": 30,
+    "naics code amazon": 30,
+    "naics code for selling on amazon": 30,
+    "ecommerce naics code": 1300
+   }
+  },
+  "amazon seller naics code": {
+   "volume": 390,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for amazon seller": 390,
+    "amazon naics code": 210,
+    "naics code for selling on amazon": 30,
+    "naics code amazon seller": 30,
+    "naics code for ecommerce": 1000,
+    "amazon fba naics code": 30,
+    "naics code for amazon fba": 30,
+    "naics code for amazon": 70,
+    "naics code amazon": 30,
+    "naics for amazon seller": 30
+   }
+  },
+  "naics code for dropshipping": {
+   "volume": 50,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for ecommerce": 1000,
+    "e commerce naics code": 1300,
+    "ecommerce naics code": 1300,
+    "dropshipping naics code": 40,
+    "online store naics code": 210,
+    "naics code for ecommerce business": 90,
+    "e-commerce naics code": 1000,
+    "naics code for e commerce": 1000,
+    "naics code for e-commerce": 1000,
+    "online retailer naics code": 260
+   }
+  },
+  "dropshipping naics code": {
+   "volume": 40,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "e commerce naics code": 1300,
+    "ecommerce naics code": 1300,
+    "naics code for ecommerce": 1000,
+    "online retailer naics code": 260,
+    "online store naics code": 210,
+    "online sales naics": 90,
+    "naics code for online retail clothing store": 70,
+    "online retail naics": 70,
+    "naics code for online reseller": 30,
+    "naics code for online retailer": 480
+   }
+  },
+  "naics code for trucking": {
+   "volume": 1600,
+   "cpc_usd": 0,
+   "dato_del": "2026-08-24",
+   "simili": {
+    "trucking naics code": 1600,
+    "naics code for trucking company": 260,
+    "naics trucking code": 1600,
+    "naics code trucking company": 260,
+    "naics code truck driver": 70,
+    "naics code for trucking business": 40,
+    "naics codes for trucking": 1600,
+    "trucking company naics code": 110,
+    "naics code for trucking transportation": 50,
+    "naics for trucking": 50
+   }
+  },
+  "trucking naics code": {
+   "volume": 1600,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for trucking": 1600,
+    "naics code for trucking company": 260,
+    "naics code trucking company": 260,
+    "naics code for trucking transportation": 50,
+    "naics code for trucking business": 40,
+    "naics codes for trucking": 1600,
+    "naics trucking code": 1600,
+    "trucking company naics code": 110,
+    "naics code truck driver": 70,
+    "naics for trucking": 50
+   }
+  },
+  "naics code for freight broker": {
+   "volume": 170,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "freight broker naics code": 170,
+    "freight forwarder naics code": 70,
+    "freight brokerage naics code": 170,
+    "naics code for freight forwarder": 70,
+    "freight forwarding naics code": 70,
+    "naics code for freight transportation": 40,
+    "naics 488510": 90,
+    "transportation logistics naics code": 90,
+    "488510 naics code": 40,
+    "freight transportation arrangement naics code": 30
+   }
+  },
+  "freight broker naics code": {
+   "volume": 170,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for freight broker": 170,
+    "freight forwarder naics code": 70,
+    "freight brokerage naics code": 170,
+    "naics code for freight forwarder": 70,
+    "freight forwarding naics code": 70,
+    "naics code for freight transportation": 40,
+    "transportation logistics naics code": 90,
+    "freight transportation arrangement naics code": 30,
+    "naics 488510": 90,
+    "488510 naics code": 40
+   }
+  },
+  "naics code for logistics": {
+   "volume": 480,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "logistics naics code": 480,
+    "naics code for logistics services": 480,
+    "naics code for logistics company": 40,
+    "naics code logistics": 480,
+    "logistics company naics code": 30,
+    "logistic naics code": 480,
+    "naics logistics": 110,
+    "3pl naics code": 40,
+    "logistics naics": 110,
+    "naics code for distribution": 90
+   }
+  },
+  "logistics naics code": {
+   "volume": 480,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "logistic naics code": 480,
+    "naics code logistics": 480,
+    "naics code for logistics services": 480,
+    "naics code for logistics": 480,
+    "naics code for logistics company": 40,
+    "logistics company naics code": 30,
+    "logistics naics": 110,
+    "naics logistics": 110,
+    "3pl naics code": 40,
+    "naics code for logistics and transportation": 90
+   }
+  },
+  "naics code for courier": {
+   "volume": null,
+   "nota": "404: not in the keyword database"
+  },
+  "courier naics code": {
+   "volume": 110,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for courier service": 140,
+    "naics code courier service": 40,
+    "delivery naics code": 140,
+    "naics code for delivery service": 140,
+    "delivery services naics code": 70,
+    "naics code delivery service": 70,
+    "naics code 492110": 90,
+    "courier service naics code": 50,
+    "naics code for delivery": 30,
+    "delivery service naics code": 70
+   }
+  },
+  "naics code for real estate": {
+   "volume": 2400,
+   "cpc_usd": 0,
+   "dato_del": "2026-08-24",
+   "simili": {
+    "naics code real estate consulting": 90,
+    "naics code for real estate consulting": 50,
+    "naics code for real estate company": 40,
+    "real estate company naics code": 40,
+    "naics code real estate": 720,
+    "real estate holding naics": 720,
+    "real estate naics": 590,
+    "naics code for real estate sales": 30,
+    "naics codes for real estate": 2400,
+    "real estate holding naics code": 1000
+   }
+  },
+  "real estate naics code": {
+   "volume": 2400,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for real estate": 2400,
+    "naics codes for real estate": 2400,
+    "naics codes real estate": 720,
+    "real estate company naics code": 40,
+    "naics code real estate": 720,
+    "real estate investment naics": 110,
+    "real estate investments naics": 110,
+    "realty naics code": 40,
+    "real estate naics codes": 2400,
+    "naics code for real estate investment": 1000
+   }
+  },
+  "naics code for real estate agent": {
+   "volume": 260,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for real estate": 2400,
+    "real estate agent naics code": 210,
+    "naics code for real estate brokerage": 70,
+    "naics code for real estate broker": 70,
+    "real estate agency naics code": 40,
+    "what is the naics code for real estate agents": 20,
+    "real estate brokerage naics code": 140,
+    "real estate broker naics code": 110,
+    "real estate agency naics": 70,
+    "realty naics code": 40
+   }
+  },
+  "real estate agent naics code": {
+   "volume": 210,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for real estate": 2400,
+    "naics code for real estate agent": 260,
+    "real estate agency naics code": 40,
+    "naics code for real estate brokerage": 70,
+    "real estate brokerage naics code": 140,
+    "naics code for real estate broker": 70,
+    "naics real estate agent": 30,
+    "what is the naics code for real estate agents": 20,
+    "real estate broker naics code": 110,
+    "real estate agent naics": 70
+   }
+  },
+  "naics code for real estate investment": {
+   "volume": 1000,
+   "cpc_usd": 5.71,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for real estate": 2400,
+    "naics code for real estate investments": 590,
+    "real estate investment naics code": 390,
+    "naics code for real estate investment company": 50,
+    "real estate investment company naics code": 50,
+    "real estate investments naics code": 390,
+    "naics code real estate investment": 260,
+    "naics real estate investment": 110,
+    "real estate investment naics": 110,
+    "real estate investments naics": 110
+   }
+  },
+  "real estate investment naics code": {
+   "volume": 390,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for real estate": 2400,
+    "naics code for real estate investment": 1000,
+    "naics code for real estate investment company": 50,
+    "real estate investments naics code": 390,
+    "naics code for real estate investments": 590,
+    "investment property naics code": 70,
+    "real estate investment company naics code": 50,
+    "naics real estate investment": 110,
+    "real estate investment naics": 110,
+    "real estate investments naics": 110
+   }
+  },
+  "naics code for property management": {
+   "volume": 720,
+   "cpc_usd": 0,
+   "dato_del": "2026-08-24",
+   "simili": {
+    "naics code for property management company": 70,
+    "real estate property management naics code": 30,
+    "property management naics code": 720,
+    "property manager naics code": 70,
+    "naics code residential property management": 50,
+    "naics code for property management companies": 70,
+    "property management company naics code": 70,
+    "naics code rental property management": 50,
+    "naics code property management": 880,
+    "property management naics": 480
+   }
+  },
+  "property management naics code": {
+   "volume": 720,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "property management naics": 480,
+    "naics property management": 390,
+    "naics code for property management": 720,
+    "property manager naics code": 70,
+    "residential property management naics code": 70,
+    "naics code residential property management": 50,
+    "real estate property management naics code": 30,
+    "property management company naics code": 70,
+    "naics code property management": 880,
+    "naics code for property management companies": 70
+   }
+  },
+  "naics code for rental property": {
+   "volume": 880,
+   "cpc_usd": 0,
+   "dato_del": "2026-08-24",
+   "simili": {
+    "real estate rental naics code": 260,
+    "rental real estate naics code": 260,
+    "naics code rental property": 880,
+    "rental properties naics code": 390,
+    "rental property naics code": 390,
+    "naics code for real estate leasing": 210,
+    "property rental naics code": 30,
+    "naics code real estate rental": 260,
+    "naics code for real estate rental": 90,
+    "naics for rental property": 90
+   }
+  },
+  "rental property naics code": {
+   "volume": 390,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "real estate rental naics code": 260,
+    "rental real estate naics code": 260,
+    "property rental naics code": 30,
+    "naics code for rental property": 880,
+    "naics code rental property": 880,
+    "rental properties naics code": 390,
+    "what is naics code for rental property": 30,
+    "naics code for residential rental property": 110,
+    "naics code for real estate": 2400,
+    "naics code real estate rental": 260
+   }
+  },
+  "naics code for airbnb": {
+   "volume": 210,
+   "cpc_usd": 0,
+   "dato_del": "2026-08-24",
+   "simili": {
+    "naics code for airbnb rental": 30,
+    "naics for airbnb": 30,
+    "naics code for airbnb rental property": 40,
+    "airbnb naics code": 260,
+    "naics code airbnb": 50,
+    "naics code for short term rental": 170,
+    "naics code for short-term rental": 170,
+    "naics code for short-term rentals": 170,
+    "airbnb naics": 70,
+    "naics code short term rental": 50
+   }
+  },
+  "airbnb naics code": {
+   "volume": 260,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for airbnb rental": 30,
+    "naics for airbnb": 30,
+    "naics code for airbnb rental property": 40,
+    "naics code for airbnb": 210,
+    "airbnb naics": 70,
+    "naics code airbnb": 50,
+    "naics code for short-term rental": 170,
+    "naics code for short-term rentals": 170,
+    "short term rental naics code": 110,
+    "short-term rental naics code": 110
+   }
+  },
+  "naics code for short term rental": {
+   "volume": 170,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for short-term rentals": 170,
+    "naics code for short-term rental": 170,
+    "naics code short term rental": 50,
+    "naics code short-term rental": 50,
+    "naics short term rental": 30,
+    "short term rental naics code": 110,
+    "short-term rental naics code": 110,
+    "naics code for vacation rental": 50,
+    "naics code for short term rental property": 40,
+    "naics code for short-term vacation rentals": 30
+   }
+  },
+  "short term rental naics code": {
+   "volume": 110,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "short-term rental naics code": 110,
+    "naics code short-term rental": 50,
+    "naics code short term rental": 50,
+    "naics code for short-term rentals": 170,
+    "naics short term rental": 30,
+    "naics code for short term rental": 170,
+    "naics code for short-term rental": 170,
+    "naics code for short term rental property": 40,
+    "naics code for vacation rental": 50,
+    "naics code for short-term rental property": 40
+   }
+  },
+  "naics code for holding company": {
+   "volume": 590,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "holding company naics": 320,
+    "naics code holding company": 590,
+    "naics for holding company": 90,
+    "holding company naics code": 480,
+    "naics holding company": 320,
+    "holding companies naics code": 480,
+    "investment holding company naics code": 50,
+    "naics code investment holding company": 50,
+    "naics code 551112": 480,
+    "naics 551112": 260
+   }
+  },
+  "holding company naics code": {
+   "volume": 480,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics for holding company": 90,
+    "naics code for holding company": 590,
+    "naics holding company": 320,
+    "holding companies naics code": 480,
+    "holding company naics": 320,
+    "investment holding company naics code": 50,
+    "naics code holding company": 590,
+    "naics code for investment holding company": 140,
+    "naics code investment holding company": 50,
+    "naics 551112": 260
+   }
+  },
+  "naics code for restaurant": {
+   "volume": 3600,
+   "cpc_usd": 0,
+   "dato_del": "2026-08-24",
+   "simili": {
+    "naics code restaurant": 3600,
+    "restaurant naics code": 3600,
+    "naics codes for restaurants": 3600,
+    "naics for restaurant": 720,
+    "what is naics code for restaurant": 70,
+    "naics code for restaurants": 3600,
+    "naics restaurant code": 3600,
+    "restaurants naics code": 3600,
+    "naics code for full-service restaurant": 170,
+    "restaurant naics": 590
+   }
+  },
+  "restaurant naics code": {
+   "volume": 3600,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for restaurant": 3600,
+    "naics code restaurant": 3600,
+    "naics restaurant code": 3600,
+    "naics code for restaurants": 3600,
+    "restaurant naics": 590,
+    "what is naics code for restaurant": 70,
+    "naics code for restaurant bar": 50,
+    "naics codes for restaurants": 3600,
+    "restaurants naics code": 3600,
+    "naics for restaurant": 720
+   }
+  },
+  "naics code for food truck": {
+   "volume": 720,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "food truck naics code": 720,
+    "naics code food truck": 140,
+    "naics code for mobile food vendor": 50,
+    "food truck naics": 90,
+    "naics food truck": 50,
+    "naics for food truck": 50,
+    "naics 722330": 50,
+    "food truck business code": 40,
+    "food truck sic code": 70,
+    "naics code 722330": 70
+   }
+  },
+  "food truck naics code": {
+   "volume": 720,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code food truck": 140,
+    "naics for food truck": 50,
+    "naics code for food truck": 720,
+    "food truck naics": 90,
+    "naics code for mobile food vendor": 50,
+    "naics food truck": 50,
+    "naics 722330": 50,
+    "naics code 722330": 70,
+    "food truck business code": 40,
+    "food truck sic code": 70
+   }
+  },
+  "naics code for catering": {
+   "volume": 260,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "catering naics code": 260,
+    "naics code catering": 260,
+    "catering naics": 50,
+    "banquet hall naics code": 30,
+    "naics code for catering business": 30,
+    "naics code for food catering": 30,
+    "naics code 722320": 70,
+    "naics code for catering services": 50,
+    "food catering naics code": 30,
+    "catering business code": 70
+   }
+  },
+  "catering naics code": {
+   "volume": 260,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code catering": 260,
+    "naics code for catering business": 30,
+    "catering naics": 50,
+    "naics code for catering services": 50,
+    "naics code for catering": 260,
+    "food catering naics code": 30,
+    "catering business code": 70,
+    "naics code for food catering": 30,
+    "naics code 722320": 70,
+    "naics 722320": 50
+   }
+  },
+  "naics code for bakery": {
+   "volume": 210,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "bakery naics code": 260,
+    "naics code bakery": 70,
+    "naics bakery": 40,
+    "naics code for baked goods": 30,
+    "home bakery naics code": 30,
+    "retail bakery naics code": 20,
+    "naics code for selling baked goods from home": 40,
+    "naics code for cottage food business": 50,
+    "naics code for home bakery": 50,
+    "naics code for dessert shop": 30
+   }
+  },
+  "bakery naics code": {
+   "volume": 260,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for bakery": 210,
+    "naics bakery": 40,
+    "naics code for baked goods": 30,
+    "naics code bakery": 70,
+    "home bakery naics code": 30,
+    "retail bakery naics code": 20,
+    "naics code for baking cakes": 20,
+    "naics code 311811": 50,
+    "naics code for dessert shop": 30,
+    "naics code for cottage food business": 50
+   }
+  },
+  "naics code for coffee shop": {
+   "volume": 210,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code coffee shop": 90,
+    "coffee shop naics code": 260,
+    "coffee shop naics": 90,
+    "naics coffee shop": 90,
+    "naics for coffee shop": 90,
+    "naics code for cafe": 50,
+    "cafe naics code": 90,
+    "naics code for restaurant": 3600,
+    "naics code restaurant": 3600,
+    "restaurant naics code": 3600
+   }
+  },
+  "coffee shop naics code": {
+   "volume": 260,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for coffee shop": 210,
+    "coffee shop naics": 90,
+    "naics code coffee shop": 90,
+    "naics coffee shop": 90,
+    "naics for coffee shop": 90,
+    "naics code for cafe": 50,
+    "cafe naics code": 90,
+    "naics 722515": 70,
+    "722515 naics code": 50,
+    "naics code restaurant": 3600
+   }
+  },
+  "naics code for bar": {
+   "volume": 170,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for bars": 170,
+    "bar naics code": 170,
+    "bar naics": 40,
+    "restaurant naics code": 3600,
+    "naics code for bar and restaurant": 50,
+    "naics code for bar restaurant": 50,
+    "naics code for restaurant": 3600,
+    "naics code restaurant": 3600,
+    "naics code bar": 170,
+    "naics code for bar and grill": 30
+   }
+  },
+  "bar naics code": {
+   "volume": 170,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for bar": 170,
+    "naics code for bars": 170,
+    "bar naics": 40,
+    "restaurant naics code": 3600,
+    "naics code for restaurant": 3600,
+    "naics code bar": 170,
+    "naics code for bar and restaurant": 50,
+    "naics code for bar restaurant": 50,
+    "naics code restaurant": 3600,
+    "naics code for restaurant and bar": 90
+   }
+  },
+  "naics code for consulting": {
+   "volume": 3600,
+   "cpc_usd": 0,
+   "dato_del": "2026-05-14",
+   "simili": {
+    "consulting naics code": 3600,
+    "naics code consulting businesses": 1000,
+    "consulting firm naics code": 3600,
+    "naics consulting code": 3600,
+    "naics code consulting services": 480,
+    "what is the naics code for consulting services": 30,
+    "naics code consulting firm": 3600,
+    "naics code for consulting firm": 3600,
+    "naics codes for consulting": 3600,
+    "naics code consulting company": 1000
+   }
+  },
+  "consulting naics code": {
+   "volume": 3600,
+   "cpc_usd": 0,
+   "dato_del": "2026-05-10",
+   "simili": {
+    "naics code for consulting": 3600,
+    "naics code consulting businesses": 1000,
+    "naics code consulting services": 480,
+    "naics code consulting business": 50,
+    "consulting firm naics code": 3600,
+    "naics consulting code": 3600,
+    "naics code consulting company": 1000,
+    "consulting business naics code": 40,
+    "naics code consulting": 3600,
+    "naics code consulting firm": 3600
+   }
+  },
+  "naics code for business consulting": {
+   "volume": 1000,
+   "cpc_usd": 0,
+   "dato_del": "2026-06-25",
+   "simili": {
+    "consulting naics code": 3600,
+    "naics code for consulting": 3600,
+    "naics consulting code": 3600,
+    "business consulting services naics code": 1000,
+    "naics code for consulting business": 1000,
+    "naics for business consulting": 210,
+    "naics code consulting firm": 3600,
+    "business consulting naics code": 1000,
+    "naics code for business consultant": 1000,
+    "naics code consulting services": 480
+   }
+  },
+  "business consulting naics code": {
+   "volume": 1000,
+   "cpc_usd": 0,
+   "dato_del": "2026-06-02",
+   "simili": {
+    "consulting naics code": 3600,
+    "naics code for consulting": 3600,
+    "business consulting services naics code": 1000,
+    "naics code consulting businesses": 1000,
+    "naics code for consulting business": 1000,
+    "naics code consulting business": 50,
+    "naics code for business consulting services": 40,
+    "consulting firm naics code": 3600,
+    "naics code consulting firm": 3600,
+    "naics code for consulting firm": 3600
+   }
+  },
+  "naics code for management consulting": {
+   "volume": 140,
+   "cpc_usd": 0,
+   "dato_del": "2026-06-16",
+   "simili": {
+    "consulting naics code": 3600,
+    "naics code for consulting": 3600,
+    "business management consulting naics code": 50,
+    "naics code for management consulting services": 30,
+    "naics code management consulting": 480,
+    "management consulting services naics code": 50,
+    "naics management consulting": 720,
+    "management consulting naics code": 480,
+    "business management consultant naics code": 50,
+    "naics code for business consultant": 1000
+   }
+  },
+  "management consulting naics code": {
+   "volume": 480,
+   "cpc_usd": 0,
+   "dato_del": "2026-06-16",
+   "simili": {
+    "consulting naics code": 3600,
+    "naics code for consulting": 3600,
+    "business management consulting naics code": 50,
+    "management consulting services naics code": 50,
+    "naics code management consulting": 480,
+    "naics code for management consulting": 140,
+    "business management consultant naics code": 50,
+    "naics code for consultant": 3600,
+    "naics code for consulting firm": 3600,
+    "naics code consulting businesses": 1000
+   }
+  },
+  "naics code for it consulting": {
+   "volume": 480,
+   "cpc_usd": 0,
+   "dato_del": "2026-06-05",
+   "simili": {
+    "naics code for consulting": 3600,
+    "consulting naics code": 3600,
+    "it consultant naics code": 480,
+    "it consulting services naics code": 140,
+    "naics code for technology consulting": 70,
+    "it consulting naics code": 480,
+    "naics code technology consulting": 480,
+    "naics code for it services and it consulting": 30,
+    "naics for it consulting": 30,
+    "it consulting naics": 170
+   }
+  },
+  "it consulting naics code": {
+   "volume": 480,
+   "cpc_usd": 0,
+   "dato_del": "2026-06-06",
+   "simili": {
+    "consulting naics code": 3600,
+    "naics code for consulting": 3600,
+    "it consultant naics code": 480,
+    "naics for it consulting": 30,
+    "it consulting naics": 170,
+    "it consulting services naics code": 140,
+    "naics code for it consulting": 480,
+    "naics it consulting": 140,
+    "naics code for technology consulting": 70,
+    "naics code for it consulting services": 140
+   }
+  },
+  "naics code for photography": {
+   "volume": 480,
+   "cpc_usd": 0,
+   "dato_del": "2026-08-24",
+   "simili": {
+    "photography naics code": 480,
+    "photographer naics code": 50,
+    "naics code photography": 480,
+    "naics code for photographer": 70,
+    "photography naics": 50,
+    "naics code for photography business": 50,
+    "naics for photography": 40,
+    "naics code for photography and videography": 50,
+    "naics photography": 70,
+    "business code photography": 170
+   }
+  },
+  "photography naics code": {
+   "volume": 480,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for photography": 480,
+    "photographer naics code": 50,
+    "photography naics": 50,
+    "naics code photography": 480,
+    "naics code for photographer": 70,
+    "naics code for photography business": 50,
+    "naics for photography": 40,
+    "naics photography": 70,
+    "naics code for photography and videography": 50,
+    "business code for photography": 170
+   }
+  },
+  "naics code for videography": {
+   "volume": 30,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code video production": 210,
+    "naics code for film production": 70,
+    "film production naics code": 50,
+    "videography naics code": 30,
+    "naics code for video production": 210,
+    "video production naics code": 210,
+    "media production naics code": 30,
+    "production company naics code": 30,
+    "naics code 512110": 90,
+    "naics 512110": 70
+   }
+  },
+  "videography naics code": {
+   "volume": 30,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for videography": 30,
+    "naics code video production": 210,
+    "video production naics code": 210,
+    "naics code for film production": 70,
+    "film production naics code": 50,
+    "media production naics code": 30,
+    "production company naics code": 30,
+    "naics code for video production": 210,
+    "naics code for media production": 40,
+    "naics code 512110": 90
+   }
+  },
+  "naics code for software development": {
+   "volume": 590,
+   "cpc_usd": 26.86,
+   "dato_del": "2026-06-05",
+   "simili": {
+    "what is the naics code for software development": 30,
+    "naics code software development": 590,
+    "naics code for software company": 260,
+    "naics for software company": 30,
+    "software developer naics code": 70,
+    "software engineering naics code": 50,
+    "naics code for software development company": 30,
+    "software development naics code": 720,
+    "software company naics code": 260,
+    "naics software development": 170
+   }
+  },
+  "software development naics code": {
+   "volume": 720,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code software development": 590,
+    "naics software development": 170,
+    "software developer naics code": 70,
+    "naics code for software development company": 30,
+    "what is the naics code for software development": 30,
+    "software engineer naics code": 50,
+    "software engineering naics code": 50,
+    "naics code for software development": 590,
+    "naics code for software company": 260,
+    "naics code for software as a service": 170
+   }
+  },
+  "naics code for software": {
+   "volume": 480,
+   "cpc_usd": 0,
+   "dato_del": "2026-06-14",
+   "simili": {
+    "naics code software": 480,
+    "naics code for software company": 260,
+    "software company naics code": 260,
+    "computer software naics code": 480,
+    "naics for software company": 30,
+    "software company naics": 30,
+    "naics code for software development": 590,
+    "software naics code": 480,
+    "naics code for software as a service": 170,
+    "software as a service naics code": 170
+   }
+  },
+  "software naics code": {
+   "volume": 480,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "software company naics code": 260,
+    "computer software naics code": 480,
+    "naics code for software company": 260,
+    "naics for software company": 30,
+    "naics code for software": 480,
+    "naics code software": 480,
+    "software naics": 110,
+    "naics code for computer programming": 30,
+    "naics code for software development company": 30,
+    "what is the naics code for software development": 30
+   }
+  },
+  "naics code for it services": {
+   "volume": 170,
+   "cpc_usd": 0,
+   "dato_del": "2026-05-27",
+   "simili": {
+    "naics code for it": 320,
+    "naics code for information technology services": 40,
+    "it naics code": 320,
+    "information technology services naics code": 40,
+    "naics code it": 30,
+    "it services naics code": 260,
+    "naics code it services": 260,
+    "naics code for software consulting": 110,
+    "naics it services": 70,
+    "technology company naics code": 50
+   }
+  },
+  "it services naics code": {
+   "volume": 260,
+   "cpc_usd": 0,
+   "dato_del": "2026-05-27",
+   "simili": {
+    "naics code it services": 260,
+    "it naics code": 320,
+    "naics code for it": 320,
+    "naics code computer consulting": 70,
+    "naics code for information technology services": 40,
+    "it service naics code": 260,
+    "information technology naics code": 170,
+    "information technology naics codes": 170,
+    "naics code information technology": 170,
+    "naics codes for it services": 170
+   }
+  },
+  "naics code for web design": {
+   "volume": 210,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code web design": 210,
+    "naics for web design": 30,
+    "web design naics code": 210,
+    "naics web design": 30,
+    "naics code for website development": 30,
+    "naics code for website design": 210,
+    "website design naics code": 210,
+    "website development naics code": 40,
+    "naics website design": 30,
+    "naics code for web development": 40
+   }
+  },
+  "web design naics code": {
+   "volume": 210,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for web design": 210,
+    "naics for web design": 30,
+    "naics web design": 30,
+    "naics code web design": 210,
+    "naics code for website design": 210,
+    "website design naics code": 210,
+    "naics website design": 30,
+    "website development naics code": 40,
+    "naics code for website development": 30,
+    "naics code for web development": 40
+   }
+  },
+  "naics code for graphic design": {
+   "volume": 110,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code 541430": 70,
+    "naics graphic design": 50,
+    "graphic design naics code": 140,
+    "naics 541430": 50,
+    "naics code graphic design": 50,
+    "graphic design naics": 30,
+    "naics code for graphic design services": 30,
+    "graphic design business code": 70,
+    "business code for graphic design": 70,
+    "naics code for creative services": 20
+   }
+  },
+  "graphic design naics code": {
+   "volume": 140,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for graphic design services": 30,
+    "graphic design naics": 30,
+    "naics code graphic design": 50,
+    "naics graphic design": 50,
+    "naics code for graphic design": 110,
+    "business code for graphic design": 70,
+    "graphic design business code": 70,
+    "naics code 541430": 70,
+    "naics 541430": 50,
+    "naics code for creative services": 20
+   }
+  },
+  "naics code for marketing": {
+   "volume": 720,
+   "cpc_usd": 0,
+   "dato_del": "2026-05-21",
+   "simili": {
+    "naics code marketing": 720,
+    "marketing naics": 170,
+    "naics marketing": 170,
+    "naics code for marketing agency": 70,
+    "marketing company naics code": 30,
+    "marketing naics code": 720,
+    "marketing agency naics code": 110,
+    "naics code for marketing services": 50,
+    "naics code marketing services": 50,
+    "naics code for digital marketing agency": 40
+   }
+  },
+  "marketing naics code": {
+   "volume": 720,
+   "cpc_usd": 0,
+   "dato_del": "2026-06-16",
+   "simili": {
+    "naics code marketing": 720,
+    "marketing naics": 170,
+    "naics marketing": 170,
+    "naics marketing consulting": 70,
+    "naics code for marketing services": 50,
+    "marketing services naics code": 40,
+    "naics code for marketing": 720,
+    "marketing consultant naics code": 480,
+    "naics code for marketing consulting": 480,
+    "naics code marketing consulting": 480
+   }
+  },
+  "naics code for digital marketing": {
+   "volume": 260,
+   "cpc_usd": 0,
+   "dato_del": "2026-05-21",
+   "simili": {
+    "naics code digital marketing": 40,
+    "naics code for digital marketing agency": 40,
+    "digital marketing naics": 40,
+    "digital marketing naics code": 260,
+    "naics code for marketing agency": 70,
+    "naics code for social media marketing": 50,
+    "marketing company naics code": 30,
+    "naics code for marketing": 720,
+    "naics code for marketing and advertising": 140,
+    "marketing agency naics": 40
+   }
+  },
+  "digital marketing naics code": {
+   "volume": 260,
+   "cpc_usd": 0,
+   "dato_del": "2026-06-16",
+   "simili": {
+    "naics code digital marketing": 40,
+    "naics code for digital marketing agency": 40,
+    "naics code for digital marketing": 260,
+    "digital marketing naics": 40,
+    "naics code for marketing agency": 70,
+    "marketing company naics code": 30,
+    "marketing agency naics": 40,
+    "naics code for marketing": 720,
+    "naics code marketing": 720,
+    "naics marketing": 170
+   }
+  },
+  "naics code for social media marketing": {
+   "volume": 50,
+   "cpc_usd": 0,
+   "dato_del": "2026-06-16",
+   "simili": {
+    "naics code for digital marketing": 260,
+    "naics code digital marketing": 40,
+    "naics code for marketing and advertising": 140,
+    "digital marketing naics": 40,
+    "naics code for digital marketing agency": 40,
+    "social media marketing naics code": 40,
+    "digital marketing naics code": 260,
+    "marketing and advertising naics code": 140,
+    "marketing agency naics code": 110,
+    "naics code advertising": 110
+   }
+  },
+  "social media marketing naics code": {
+   "volume": 40,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for social media marketing": 50,
+    "digital marketing naics code": 260,
+    "naics code for digital marketing": 260,
+    "naics code for marketing and advertising": 140,
+    "digital marketing naics": 40,
+    "naics code digital marketing": 40,
+    "marketing company naics code": 30,
+    "advertising agency naics code": 140,
+    "marketing and advertising naics code": 140,
+    "naics code for marketing services": 50
+   }
+  },
+  "naics code for landscaping": {
+   "volume": 1600,
+   "cpc_usd": 0,
+   "dato_del": "2026-08-24",
+   "simili": {
+    "landscape naics code": 1300,
+    "landscaping naics code": 1300,
+    "naics code for tree trimming service": 30,
+    "naics code for lawn care": 480,
+    "what is the naics code for landscaping": 50,
+    "naics code for lawn care services": 30,
+    "lawn care naics code": 480,
+    "naics landscaping": 480,
+    "naics code 561730": 260,
+    "naics code for tree service": 170
+   }
+  },
+  "landscaping naics code": {
+   "volume": 1300,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "landscape naics code": 1300,
+    "naics code for landscaping": 590,
+    "naics code landscaping": 1300,
+    "naics code for lawn care": 480,
+    "naics landscaping": 480,
+    "naics code 561730": 260,
+    "naics code for lawn care services": 30,
+    "lawn care naics code": 480,
+    "tree service naics code": 140,
+    "tree services naics code": 140
+   }
+  },
+  "naics code for lawn care": {
+   "volume": 480,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for landscaping": 1600,
+    "landscape naics code": 1300,
+    "landscaping naics code": 1300,
+    "lawn care naics code": 480,
+    "naics code lawn care": 70,
+    "naics code for lawn care service": 30,
+    "naics code for lawn care services": 30,
+    "naics code for lawn maintenance": 30,
+    "naics lawn care": 110,
+    "naics code for lawn service": 50
+   }
+  },
+  "lawn care naics code": {
+   "volume": 480,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "landscape naics code": 1300,
+    "landscaping naics code": 1300,
+    "naics code for landscaping": 590,
+    "lawn service naics code": 40,
+    "naics code for lawn care services": 30,
+    "naics code for lawn maintenance": 30,
+    "naics code for lawn care": 480,
+    "naics code lawn care": 70,
+    "naics code for lawn service": 50,
+    "naics code for lawn care service": 30
+   }
+  },
+  "naics code for daycare": {
+   "volume": 590,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "daycare naics code": 590,
+    "childcare naics code": 140,
+    "naics code daycare": 90,
+    "naics code childcare": 50,
+    "day care naics code": 590,
+    "naics code for childcare": 90,
+    "naics daycare": 40,
+    "daycare naics": 90,
+    "day care business code": 70,
+    "preschool naics code": 70
+   }
+  },
+  "daycare naics code": {
+   "volume": 590,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "childcare naics code": 140,
+    "naics code daycare": 90,
+    "day care naics code": 590,
+    "naics code for daycare": 590,
+    "naics code childcare": 50,
+    "naics daycare": 40,
+    "naics code for childcare": 90,
+    "babysitter naics code": 50,
+    "naics code for babysitting": 50,
+    "naics code 624410": 90
+   }
+  },
+  "naics code for child care": {
+   "volume": null,
+   "nota": "404: not in the keyword database"
+  },
+  "child care naics code": {
+   "volume": null,
+   "nota": "404: not in the keyword database"
+  },
+  "naics code for cleaning services": {
+   "volume": 1300,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-12",
+   "simili": {
+    "naics code cleaning services": 720,
+    "cleaning services naics code": 720,
+    "cleaning service naics code": 720,
+    "naics code for cleaning business": 720,
+    "what is the naics code for cleaning services": 70,
+    "naics code for cleaning company": 720,
+    "naics for cleaning services": 260,
+    "janitorial naics": 170,
+    "cleaning company naics code": 70,
+    "naics code for housekeeper": 50
+   }
+  },
+  "cleaning services naics code": {
+   "volume": 720,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for cleaning services": 590,
+    "naics code cleaning services": 720,
+    "naics code janitorial service": 170,
+    "cleaning service naics code": 720,
+    "naics code for cleaning business": 720,
+    "naics code for janitorial service": 480,
+    "janitorial service naics code": 260,
+    "janitorial naics": 170,
+    "naics code janitorial services": 170,
+    "what is the naics code for cleaning services": 70
+   }
+  },
+  "naics code for janitorial": {
+   "volume": null,
+   "nota": "404: not in the keyword database"
+  },
+  "janitorial naics code": {
+   "volume": 720,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for cleaning services": 590,
+    "naics code janitorial": 720,
+    "naics code janitorial services": 170,
+    "janitor naics code": 720,
+    "naics code for janitorial service": 480,
+    "naics code for janitorial services": 480,
+    "janitorial services naics code": 260,
+    "naics code janitorial service": 170,
+    "naics code for cleaning business": 720,
+    "janitorial naics": 170
+   }
+  },
+  "naics code for construction": {
+   "volume": 3600,
+   "cpc_usd": 0,
+   "dato_del": "2026-08-24",
+   "simili": {
+    "construction naics code": 3600,
+    "naics code construction": 3600,
+    "general construction naics code": 1900,
+    "general contractor naics code": 1900,
+    "naics code for general construction": 1900,
+    "naics code for general contractor": 1900,
+    "construction naics codes": 3600,
+    "naics codes construction": 3600,
+    "what is naics code for construction": 90,
+    "what is the naics code for construction": 90
+   }
+  },
+  "construction naics code": {
+   "volume": 3600,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code construction": 3600,
+    "naics code for construction": 3600,
+    "general construction naics code": 1900,
+    "general contractor naics code": 1900,
+    "naics code for general construction": 1900,
+    "naics code for general contractor": 1900,
+    "construction naics": 590,
+    "naics for construction": 720,
+    "construction company naics code": 140,
+    "what is naics code for construction": 90
+   }
+  },
+  "naics code for general contractor": {
+   "volume": 1900,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "construction naics code": 3600,
+    "naics code construction": 3600,
+    "naics code for construction": 3600,
+    "general construction naics code": 1900,
+    "general contractor naics code": 1900,
+    "naics code for general construction": 1900,
+    "naics code general contractor": 1900,
+    "naics code for general contractors": 1900,
+    "naics general contractor": 320,
+    "naics code for general contractor construction": 140
+   }
+  },
+  "general contractor naics code": {
+   "volume": 1900,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "construction naics code": 3600,
+    "naics code construction": 3600,
+    "naics code for construction": 3600,
+    "general construction naics code": 1900,
+    "naics code for general construction": 1900,
+    "naics code for general contractor": 1900,
+    "naics code for general contractor construction": 140,
+    "naics code for general contractors": 1900,
+    "naics general contractor": 320,
+    "naics code for general contractor commercial": 70
+   }
+  },
+  "naics code for electrician": {
+   "volume": 140,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "electrical contractor naics": 90,
+    "naics code for electrical contractor": 880,
+    "electrician naics code": 590,
+    "naics code for electricians": 590,
+    "naics code for electrical contractors": 880,
+    "naics code electrician": 590,
+    "naics electrical contractor": 140,
+    "electrical contractors naics": 90,
+    "what is the naics code for electrical contractors": 40,
+    "electrical contractor naics code": 880
+   }
+  },
+  "electrician naics code": {
+   "volume": 590,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for electricians": 590,
+    "electrical contractor naics code": 880,
+    "electrical contractors naics code": 880,
+    "naics code for electrician": 140,
+    "naics code for electrical services": 50,
+    "naics codes for electrical contractor": 880,
+    "naics code electrical contractor": 880,
+    "electrical naics code": 590,
+    "naics code electrician": 590,
+    "electrical contractor naics": 90
+   }
+  },
+  "naics code for plumbing": {
+   "volume": 260,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for plumbers": 260,
+    "naics code plumbing": 140,
+    "plumbing naics code": 590,
+    "plumbing naics": 110,
+    "naics plumbing": 70,
+    "naics for plumbing": 30,
+    "naics code for plumbing and heating": 20,
+    "plumber naics code": 590,
+    "naics plumbing code": 480,
+    "naics code for plumber": 260
+   }
+  },
+  "plumbing naics code": {
+   "volume": 590,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics plumbing code": 480,
+    "naics plumbing": 70,
+    "naics for plumbing": 30,
+    "naics code for plumbing": 260,
+    "naics code plumbing": 140,
+    "plumber naics code": 590,
+    "naics code for plumbers": 260,
+    "plumbing naics": 110,
+    "plumbing services naics code": 30,
+    "naics code for plumbing and heating": 20
+   }
+  },
+  "naics code for hvac": {
+   "volume": 1000,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "hvac naics code": 1000,
+    "naics code hvac": 140,
+    "naics code hvac contractor": 30,
+    "naics code for hvac contractors": 170,
+    "naics code for heating and air conditioning": 50,
+    "heating and cooling naics code": 40,
+    "naics code for hvac service": 40,
+    "hvac contractor naics code": 170,
+    "naics code for heating and air-conditioning": 50,
+    "naics code hvac contractors": 30
+   }
+  },
+  "hvac naics code": {
+   "volume": 1000,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code hvac": 140,
+    "naics code hvac contractor": 30,
+    "naics code for hvac": 1000,
+    "hvac contractor naics code": 170,
+    "naics code for hvac contractors": 170,
+    "naics code for heating and air conditioning": 50,
+    "heating and cooling naics code": 40,
+    "naics code for heating and air-conditioning": 50,
+    "naics code hvac contractors": 30,
+    "naics code for hvac service": 40
+   }
+  },
+  "naics code for roofing": {
+   "volume": 720,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code roofing": 720,
+    "roofing naics code": 720,
+    "naics code for roofing company": 40,
+    "naics code roofing contractor": 50,
+    "roofing company naics code": 40,
+    "naics code for roofing contractor": 170,
+    "roofing contractor naics code": 140,
+    "roofing naics": 140,
+    "roofing business code": 30,
+    "naics roofing": 50
+   }
+  },
+  "roofing naics code": {
+   "volume": 720,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code roofing": 720,
+    "naics code for roofing": 720,
+    "naics code for roofing company": 40,
+    "roofing naics": 140,
+    "roofing company naics code": 40,
+    "naics code roofing contractor": 50,
+    "roofing business code": 30,
+    "naics code for roofing contractor": 170,
+    "roofing contractor naics code": 140,
+    "naics roofing": 50
+   }
+  },
+  "naics code for painting": {
+   "volume": 210,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "painting naics code": 320,
+    "naics code for painting contractor": 110,
+    "naics code for painter": 90,
+    "painting contractor naics code": 50,
+    "naics painting": 40,
+    "naics code for painting company": 50,
+    "painter naics code": 320,
+    "naics code painting": 210,
+    "naics code for painting contractors": 90,
+    "naics code 238320": 90
+   }
+  },
+  "painting naics code": {
+   "volume": 320,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for painting": 210,
+    "naics code for painting contractor": 110,
+    "naics code for painter": 90,
+    "painting contractor naics code": 50,
+    "naics painting": 40,
+    "painter naics code": 320,
+    "naics code painting": 210,
+    "naics code for painting contractors": 90,
+    "naics code for painting company": 50,
+    "painting business code": 40
+   }
+  },
+  "naics code for handyman": {
+   "volume": 880,
+   "cpc_usd": 0,
+   "dato_del": "2026-08-24",
+   "simili": {
+    "handyman naics code": 880,
+    "naics code handyman": 880,
+    "handyman naics": 110,
+    "naics code for handyman services": 110,
+    "handyman services naics code": 70,
+    "naics handyman": 70,
+    "naics for handyman": 50,
+    "business code for handyman services": 50,
+    "naics code for residential handyman services": 30,
+    "naics code for handyman business": 20
+   }
+  },
+  "handyman naics code": {
+   "volume": 880,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for handyman": 880,
+    "naics for handyman": 50,
+    "naics code handyman": 880,
+    "handyman naics": 110,
+    "naics handyman": 70,
+    "handyman services naics code": 70,
+    "naics code for handyman services": 110,
+    "business code for handyman services": 50,
+    "business code for handyman": 210,
+    "naics code for residential handyman services": 30
+   }
+  },
+  "naics code for remodeling": {
+   "volume": 90,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code remodeling": 70,
+    "naics code for construction remodeling": 50,
+    "renovations naics code": 40,
+    "remodeling naics code": 170,
+    "home remodeling naics code": 70,
+    "renovation naics code": 40,
+    "naics code home remodeling": 30,
+    "naics remodeling": 30,
+    "home improvement naics code": 210,
+    "remodeling naics": 40
+   }
+  },
+  "remodeling naics code": {
+   "volume": 170,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code remodeling": 70,
+    "naics code for construction remodeling": 50,
+    "naics code for remodeling": 90,
+    "renovation naics code": 40,
+    "renovations naics code": 40,
+    "naics remodeling": 30,
+    "naics code for general construction": 1900,
+    "residential remodelers naics code": 140,
+    "home remodeling naics code": 70,
+    "home renovation naics code": 40
+   }
+  },
+  "naics code for beauty salon": {
+   "volume": 880,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "cosmetology naics code": 50,
+    "hair salon naics code": 880,
+    "naics code for hair salon": 880,
+    "beauty salon naics code": 210,
+    "hairstylist naics code": 140,
+    "naics code beauty salon": 90,
+    "naics code for beauty services": 50,
+    "naics code for salon": 880,
+    "salon naics code": 880,
+    "naics code for hair stylist": 170
+   }
+  },
+  "beauty salon naics code": {
+   "volume": 210,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for hair salon": 880,
+    "naics code for salon": 880,
+    "naics code beauty salon": 90,
+    "beauty salon naics": 50,
+    "hair salon naics code": 880,
+    "salon naics code": 880,
+    "naics code 812112": 170,
+    "hair stylist naics code": 140,
+    "hairstylist naics code": 140,
+    "naics code hair salon": 110
+   }
+  },
+  "naics code for hair salon": {
+   "volume": 880,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "beauty salon naics code": 210,
+    "hair stylist naics code": 140,
+    "naics code beauty salon": 90,
+    "naics code for salon": 880,
+    "hairstylist naics code": 140,
+    "beauty salon naics": 50,
+    "cosmetology naics code": 50,
+    "hair salon naics code": 880,
+    "naics code for beauty salon": 880,
+    "salon naics code": 880
+   }
+  },
+  "hair salon naics code": {
+   "volume": 880,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "hairstylist naics code": 140,
+    "naics code for salon": 880,
+    "beauty salon naics code": 210,
+    "naics code for hair stylist": 170,
+    "naics code hair salon": 110,
+    "naics code beauty salon": 90,
+    "hairdresser naics code": 30,
+    "naics code hair stylist": 30,
+    "salon naics code": 880,
+    "naics code 812112": 170
+   }
+  },
+  "naics code for barber shop": {
+   "volume": 140,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for barbershop": 140,
+    "barber naics code": 110,
+    "naics code barber shop": 50,
+    "barber shop naics code": 170,
+    "barbershop naics code": 170,
+    "naics code for barber": 50,
+    "naics code for barbers": 50,
+    "naics code barber": 40,
+    "business code for barber": 110,
+    "barber business code": 110
+   }
+  },
+  "barber shop naics code": {
+   "volume": 170,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for barbershop": 140,
+    "barbershop naics code": 170,
+    "naics code for barber shop": 140,
+    "barber naics code": 110,
+    "naics code barber shop": 50,
+    "naics code for barbers": 50,
+    "naics code barber": 40,
+    "naics code for barber": 50,
+    "business code for barber": 110,
+    "barber business code": 110
+   }
+  },
+  "naics code for nail salon": {
+   "volume": 320,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "nail salon naics code": 320,
+    "naics code nail salon": 70,
+    "nail salon naics": 70,
+    "naics nail salon": 30,
+    "naics code for nail technician": 50,
+    "business code for nail technician": 40,
+    "nail technician business code": 70,
+    "nail tech naics code": 40,
+    "naics code 812113": 40,
+    "nail tech business code": 70
+   }
+  },
+  "nail salon naics code": {
+   "volume": 320,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for nail salon": 320,
+    "naics code nail salon": 70,
+    "nail salon naics": 70,
+    "naics code for nail technician": 50,
+    "business code for nail technician": 40,
+    "naics nail salon": 30,
+    "nail technician business code": 70,
+    "naics code 812113": 40,
+    "nail tech naics code": 40,
+    "nail tech business code": 70
+   }
+  },
+  "naics code for insurance agency": {
+   "volume": 480,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "insurance agency naics code": 480,
+    "naics code insurance agency": 90,
+    "naics code for insurance agent": 90,
+    "naics code insurance agent": 40,
+    "insurance agent naics code": 90,
+    "insurance broker naics code": 90,
+    "naics code insurance broker": 40,
+    "naics code insurance brokerage": 40,
+    "insurance agency naics": 50,
+    "naics code for insurance sales": 40
+   }
+  },
+  "insurance agency naics code": {
+   "volume": 480,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for insurance agency": 480,
+    "naics code insurance agency": 90,
+    "insurance agent naics code": 90,
+    "insurance broker naics code": 90,
+    "naics code insurance agent": 40,
+    "naics code for insurance agent": 90,
+    "insurance agency naics": 50,
+    "naics code for insurance sales": 40,
+    "naics code insurance broker": 40,
+    "naics code insurance brokerage": 40
+   }
+  },
+  "naics code for home health care": {
+   "volume": 590,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for home health": 590,
+    "naics for home health care": 30,
+    "home health care naics code": 590,
+    "home healthcare naics": 140,
+    "homecare naics code": 140,
+    "home health care services naics code": 30,
+    "naics code home health care": 590,
+    "home health naics code": 90,
+    "naics code for home health care services": 30,
+    "home healthcare naics code": 590
+   }
+  },
+  "home health care naics code": {
+   "volume": 590,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for home health": 590,
+    "naics code home health care": 590,
+    "homecare naics code": 140,
+    "home health naics code": 90,
+    "naics code for home health care services": 30,
+    "naics for home health care": 30,
+    "home healthcare naics code": 590,
+    "naics code for home health care": 590,
+    "home healthcare naics": 140,
+    "home health care services naics code": 30
+   }
+  },
+  "naics code for nonprofit": {
+   "volume": 1300,
+   "cpc_usd": 7.34,
+   "dato_del": "2026-08-24",
+   "simili": {
+    "naics code for non profit": 1300,
+    "naics code for non profit organization": 1300,
+    "naics code for non-profit": 1300,
+    "naics code for non-profit organization": 1300,
+    "naics code non profit": 1300,
+    "naics code non-profit": 1300,
+    "non profit naics code": 720,
+    "naics code nonprofit": 1300,
+    "naics for nonprofit": 320,
+    "naics code for 501 c 3": 40
+   }
+  },
+  "nonprofit naics code": {
+   "volume": 720,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for non profit": 1300,
+    "naics code for non profit organization": 1300,
+    "naics code for non-profit": 1300,
+    "naics code for non-profit organization": 1300,
+    "naics code non profit": 1300,
+    "naics code non-profit": 1300,
+    "non profit naics code": 720,
+    "non-profit naics code": 720,
+    "naics code for 501 c 3": 40,
+    "naics codes for nonprofits": 1300
+   }
+  },
+  "naics code for church": {
+   "volume": 1000,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "church naics code": 1000,
+    "naics code for churches": 1000,
+    "naics code church": 1000,
+    "naics code for ministry": 50,
+    "church naics": 170,
+    "religious organization naics code": 50,
+    "naics church": 170,
+    "naics code for religious organizations": 90,
+    "813110 naics code": 40,
+    "naics code religious organizations": 40
+   }
+  },
+  "church naics code": {
+   "volume": 1000,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for church": 1000,
+    "naics code for churches": 1000,
+    "naics code church": 1000,
+    "church naics": 170,
+    "naics code for ministry": 50,
+    "religious organization naics code": 50,
+    "naics church": 170,
+    "naics code for religious organizations": 90,
+    "813110 naics code": 40,
+    "naics code religious organizations": 40
+   }
+  },
+  "naics code for youtube": {
+   "volume": null,
+   "nota": "404: not in the keyword database"
+  },
+  "youtube naics code": {
+   "volume": 30,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for youtubers": 30,
+    "youtube business code": 30,
+    "youtuber business code": 30,
+    "nix codes": 140,
+    "naics code for content creator": 110,
+    "content creator business code": 70,
+    "naics 519130": 70,
+    "naics code 519130": 70,
+    "naics code for social media influencers": 70,
+    "naics code: 519130": 70
+   }
+  },
+  "naics code for content creator": {
+   "volume": 110,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "content creator naics code": 70,
+    "naics code for youtubers": 30,
+    "influencer naics code": 30,
+    "social media influencer naics code": 30,
+    "naics code for podcast production": 20,
+    "naics code for social media influencers": 70,
+    "naics code for podcast": 50,
+    "naics code for social media influencer": 50,
+    "podcast naics code": 50,
+    "naics code for influencer": 30
+   }
+  },
+  "content creator naics code": {
+   "volume": 70,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for content creator": 110,
+    "naics code for youtubers": 30,
+    "influencer naics code": 30,
+    "naics code for influencer": 30,
+    "naics code for podcast": 50,
+    "podcast naics code": 50,
+    "social media influencer naics code": 30,
+    "naics code for podcast production": 20,
+    "content creator business code": 70,
+    "social media naics code": 50
+   }
+  },
+  "naics code for notary": {
+   "volume": 40,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "notary naics code": 90,
+    "naics code for notary services": 30,
+    "naics code for notary public": 70,
+    "naics code notary": 20,
+    "what is the naics code for notary public": 20,
+    "notary business code": 30,
+    "notary public naics code": 20,
+    "business code for notary public": 30,
+    "what industry is notary public considered": 50,
+    "notary public business code": 30
+   }
+  },
+  "notary naics code": {
+   "volume": 90,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for notary": 40,
+    "naics code for notary services": 30,
+    "naics code for notary public": 70,
+    "naics code notary": 20,
+    "notary public naics code": 20,
+    "what is the naics code for notary public": 20,
+    "notary business code": 30,
+    "business code for notary public": 30,
+    "what industry is notary public considered": 50,
+    "notary public business code": 30
+   }
+  },
+  "naics code for tutoring": {
+   "volume": 70,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "tutor naics code": 110,
+    "tutoring naics code": 110,
+    "naics code tutoring": 30,
+    "tutoring business code": 90,
+    "business code for tutoring": 90,
+    "naics code for teaching": 140,
+    "teacher naics code": 110,
+    "teaching naics code": 110,
+    "tutor business code": 90,
+    "naics code teacher": 140
+   }
+  },
+  "tutoring naics code": {
+   "volume": 110,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "tutor naics code": 110,
+    "naics code for tutoring": 70,
+    "naics code tutoring": 30,
+    "tutoring business code": 90,
+    "business code for tutoring": 90,
+    "tutor business code": 90,
+    "teaching naics code": 110,
+    "naics code for teacher": 140,
+    "naics code for teaching": 140,
+    "naics code teacher": 140
+   }
+  },
+  "naics code for event planning": {
+   "volume": 720,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "event planning naics code": 720,
+    "naics code event planning": 720,
+    "naics code for event planner": 720,
+    "naics event planning": 110,
+    "naics for event planning": 30,
+    "event planner naics code": 720,
+    "naics code for party planning": 30,
+    "event planning naics": 110,
+    "event planner naics": 110,
+    "business code for event planner": 40
+   }
+  },
+  "event planning naics code": {
+   "volume": 720,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code event planning": 720,
+    "naics code for event planner": 720,
+    "naics code for event planning": 720,
+    "naics for event planning": 30,
+    "event planner naics": 110,
+    "naics event planning": 110,
+    "event planner naics code": 720,
+    "event planning naics": 110,
+    "business code for event planning": 40,
+    "event planning business code": 30
+   }
+  },
+  "naics code for auto repair": {
+   "volume": 480,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for automotive": 30,
+    "diesel mechanic naics code": 30,
+    "auto repair shop naics code": 90,
+    "naics auto repair": 210,
+    "naics automotive repair": 210,
+    "mechanic naics code": 170,
+    "naics code for mechanic": 110,
+    "mechanic business code": 70,
+    "naics 811111": 70,
+    "auto mechanic naics code": 40
+   }
+  },
+  "auto repair naics code": {
+   "volume": 480,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13"
+  },
+  "naics code for car wash": {
+   "volume": 110,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "car wash naics code": 210,
+    "naics code car wash": 70,
+    "naics code for car detailing": 50,
+    "car detailing naics code": 70,
+    "naics 811192": 40,
+    "naics code for mobile detailing": 30,
+    "naics code for auto detailing": 90,
+    "auto detailing naics code": 70,
+    "naics code 811192": 50,
+    "naics code: 811192": 50
+   }
+  },
+  "car wash naics code": {
+   "volume": 210,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code car wash": 70,
+    "naics code for car wash": 110,
+    "naics code 811192": 50,
+    "naics code: 811192": 50,
+    "naics 811192": 40,
+    "car detailing naics code": 70,
+    "naics code for auto detailing": 90,
+    "auto detailing naics code": 70,
+    "naics code for car detailing": 50,
+    "naics code for mobile detailing": 30
+   }
+  },
+  "naics code for staffing agency": {
+   "volume": 720,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for staffing services": 880,
+    "naics code staffing agency": 720,
+    "staffing agency naics code": 720,
+    "naics code for staffing company": 90,
+    "staffing company naics code": 90,
+    "naics code for recruiting": 40,
+    "naics for staffing agency": 30,
+    "staffing naics code": 880,
+    "staffing services naics code": 720,
+    "staffing naics": 50
+   }
+  },
+  "staffing agency naics code": {
+   "volume": 720,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for staffing agency": 720,
+    "naics code staffing agency": 720,
+    "naics code for staffing services": 880,
+    "staffing naics code": 880,
+    "staffing services naics code": 720,
+    "naics code for employment agency": 40,
+    "employment agency naics code": 720,
+    "staffing company naics code": 90,
+    "staffing naics": 50,
+    "naics code for recruiting": 40
+   }
+  },
+  "naics code for accounting": {
+   "volume": 170,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "bookkeeping naics": 40,
+    "naics bookkeeping": 30,
+    "naics code for accounting and bookkeeping": 30,
+    "bookkeeping naics code": 320,
+    "naics code for bookkeeping": 320,
+    "naics code accounting": 320,
+    "naics code bookkeeping": 70,
+    "naics code for bookkeeping services": 50,
+    "accounting naics code": 320,
+    "bookkeeper naics code": 320
+   }
+  },
+  "accounting naics code": {
+   "volume": 320,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code accounting": 320,
+    "bookkeeper naics code": 320,
+    "naics code accountant": 320,
+    "naics code for bookkeeping": 320,
+    "bookkeeping naics code": 320,
+    "naics code for accountant": 170,
+    "naics code for accounting": 170,
+    "accountant naics code": 70,
+    "bookkeeping business code": 40,
+    "naics code for accounting and bookkeeping": 30
+   }
+  },
+  "naics code for bookkeeping": {
+   "volume": 320,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code accounting": 320,
+    "bookkeeping naics": 40,
+    "naics bookkeeping": 30,
+    "bookkeeper naics code": 320,
+    "bookkeeping naics code": 320,
+    "naics code for accounting": 170,
+    "naics code bookkeeping": 70,
+    "accounting naics code": 320,
+    "naics code for bookkeeping services": 50,
+    "naics code for accountant": 170
+   }
+  },
+  "bookkeeping naics code": {
+   "volume": 320,
+   "cpc_usd": 2.59,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "bookkeeper naics code": 320,
+    "naics code for bookkeeping": 320,
+    "naics code for accounting": 170,
+    "bookkeeping naics": 40,
+    "naics bookkeeping": 30,
+    "accounting naics": 70,
+    "naics code bookkeeping": 70,
+    "naics code for bookkeeping services": 50,
+    "accounting naics code": 320,
+    "naics code accounting": 320
+   }
+  },
+  "naics code for tax preparation": {
+   "volume": 210,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "tax preparation naics code": 140,
+    "tax preparation naics": 30,
+    "tax service naics code": 30,
+    "naics tax preparation": 30,
+    "tax prep naics": 30,
+    "tax preparer naics code": 140,
+    "naics code tax preparation": 70,
+    "tax preparation business code": 90,
+    "tax preparer business code": 90,
+    "tax services naics code": 30
+   }
+  },
+  "tax preparation naics code": {
+   "volume": 140,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for tax preparation": 210,
+    "tax service naics code": 30,
+    "naics code tax preparation": 70,
+    "tax prep naics": 30,
+    "tax preparation naics": 30,
+    "tax preparer naics code": 140,
+    "tax preparation business code": 90,
+    "tax preparer business code": 90,
+    "tax services naics code": 30,
+    "naics code for accounting and tax services": 30
+   }
+  },
+  "naics code for personal trainer": {
+   "volume": 210,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "personal trainer naics": 30,
+    "personal training naics code": 50,
+    "naics code personal trainer": 40,
+    "personal trainer naics code": 210,
+    "naics code for fitness trainer": 70,
+    "naics code for personal training": 30,
+    "naics personal trainer": 30,
+    "business code for personal trainer": 70,
+    "fitness naics code": 50,
+    "personal trainer business code": 70
+   }
+  },
+  "personal trainer naics code": {
+   "volume": 210,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "personal trainer naics": 30,
+    "naics code for personal trainer": 210,
+    "personal training naics code": 50,
+    "naics code personal trainer": 40,
+    "naics code for personal training": 30,
+    "naics personal trainer": 30,
+    "personal trainer business code": 70,
+    "naics code for fitness trainer": 70,
+    "business code for personal trainer": 70,
+    "fitness instructor business code": 30
+   }
+  },
+  "naics code for gym": {
+   "volume": 110,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "gym naics code": 320,
+    "naics code gym": 320,
+    "naics code for fitness center": 70,
+    "fitness naics code": 50,
+    "naics code for fitness gym": 30,
+    "fitness center naics code": 320,
+    "gym naics": 50,
+    "naics code 713940": 90,
+    "naics gym": 30,
+    "naics 713940": 90
+   }
+  },
+  "gym naics code": {
+   "volume": 320,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code gym": 320,
+    "naics code for gym": 110,
+    "gym naics": 50,
+    "naics code for fitness gym": 30,
+    "naics code for fitness center": 70,
+    "fitness naics code": 50,
+    "fitness center naics code": 320,
+    "naics code for pilates studio": 30,
+    "naics gym": 30,
+    "naics code 713940": 90
+   }
+  },
+  "naics code for massage therapy": {
+   "volume": 390,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for massage therapist": 390,
+    "massage therapist naics code": 390,
+    "naics code massage therapy": 90,
+    "massage therapy naics code": 390,
+    "massage therapist naics": 110,
+    "massage naics": 40,
+    "naics code for massage": 30,
+    "naics for massage therapy": 30,
+    "naics code for medical spa": 140,
+    "massage therapy naics": 110
+   }
+  },
+  "massage therapy naics code": {
+   "volume": 390,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "massage therapist naics code": 390,
+    "naics code for massage therapist": 390,
+    "naics code for massage therapy": 390,
+    "naics code massage therapy": 90,
+    "massage therapist naics": 110,
+    "naics for massage therapy": 30,
+    "massage therapy naics": 110,
+    "naics massage therapy": 110,
+    "massage naics": 40,
+    "621399 naics": 70
+   }
+  },
+  "naics code for medical office": {
+   "volume": 110,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code medical office": 110,
+    "medical office naics code": 50,
+    "naics code for medical practice": 50,
+    "naics code for medical clinic": 50,
+    "naics code for physician": 50,
+    "physician naics code": 50,
+    "naics code for doctors office": 40,
+    "medical practice naics code": 30,
+    "naics code physician": 30,
+    "medical naics code": 70
+   }
+  },
+  "medical office naics code": {
+   "volume": 50,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for medical office": 110,
+    "naics code medical office": 110,
+    "naics code physician": 30,
+    "naics code for physician": 50,
+    "physician naics code": 50,
+    "naics code for medical practice": 50,
+    "naics code for doctors office": 40,
+    "medical practice naics code": 30,
+    "naics code for medical clinic": 50,
+    "naics code for doctors": 40
+   }
+  },
+  "naics code for dental office": {
+   "volume": 210,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "dental office naics code": 110,
+    "naics code dentist": 260,
+    "naics code for dentist": 260,
+    "naics code dental office": 210,
+    "naics dental office": 50,
+    "dentist naics code": 320,
+    "dentist naics": 70,
+    "naics dentist": 40,
+    "dental naics code": 320,
+    "naics code dental": 260
+   }
+  },
+  "dental office naics code": {
+   "volume": 110,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code dental office": 210,
+    "naics code for dental office": 210,
+    "naics code dentist": 260,
+    "dentist naics code": 320,
+    "naics code for dentist": 260,
+    "dentist naics": 70,
+    "naics dental office": 50,
+    "naics dentist": 40,
+    "dental naics code": 320,
+    "dentistry naics code": 320
+   }
+  },
+  "naics code for physical therapy": {
+   "volume": 390,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for occupational therapy": 20,
+    "physical therapist naics code": 390,
+    "physical therapy naics code": 390,
+    "naics code for speech therapy": 40,
+    "speech therapy naics code": 40,
+    "naics 621340": 50,
+    "physical therapy naics": 50,
+    "naics code 621340": 70,
+    "naics physical therapy": 30,
+    "occupational therapy naics code": 30
+   }
+  },
+  "physical therapy naics code": {
+   "volume": 390,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "physical therapy naics": 50,
+    "naics physical therapy": 30,
+    "naics 621340": 50,
+    "physical therapist naics code": 390,
+    "naics code for physical therapy": 390,
+    "naics code 621340": 70,
+    "occupational therapy naics code": 30,
+    "naics code for speech therapy": 40,
+    "speech therapy naics code": 40,
+    "621340 naics": 30
+   }
+  },
+  "naics code for security guard": {
+   "volume": null,
+   "nota": "404: not in the keyword database"
+  },
+  "security guard naics code": {
+   "volume": 90,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for security guard services": 90,
+    "naics code security services": 70,
+    "naics code security guard": 30,
+    "naics 561612": 70,
+    "naics code 561612": 70,
+    "naics security services": 70,
+    "naics code security": 210,
+    "security services naics code": 70,
+    "security company naics code": 40,
+    "security naics code": 210
+   }
+  },
+  "naics code for pressure washing": {
+   "volume": 260,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for pressure washing business": 30,
+    "pressure washing naics": 30,
+    "pressure washing naics code": 170,
+    "naics code pressure washing": 50,
+    "power washing naics code": 40,
+    "naics pressure washing": 20,
+    "naics 561790": 90,
+    "561790 naics": 50,
+    "561790 naics code": 50,
+    "pool cleaning naics code": 40
+   }
+  },
+  "pressure washing naics code": {
+   "volume": 170,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for pressure washing business": 30,
+    "naics code for pressure washing": 260,
+    "pressure washing naics": 30,
+    "power washing naics code": 40,
+    "naics pressure washing": 20,
+    "naics code for cleaning services": 1300,
+    "naics code pressure washing": 50,
+    "naics code 561790": 140,
+    "naics code: 561790": 140,
+    "naics 561790": 90
+   }
+  },
+  "naics code for pest control": {
+   "volume": 90,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code pest control": 260,
+    "pest control naics code": 260,
+    "pest control naics": 170,
+    "naics pest control": 170,
+    "naics code 561710": 30,
+    "naics 561710": 30,
+    "sic code for pest control": 170,
+    "sic code pest control": 170,
+    "what industry is pest control under": 30,
+    "naics code for cleaning services": 1300
+   }
+  },
+  "pest control naics code": {
+   "volume": 260,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for pest control": 90,
+    "naics code pest control": 260,
+    "pest control naics": 170,
+    "naics pest control": 170,
+    "naics code 561710": 30,
+    "naics 561710": 30,
+    "sic code for pest control": 170,
+    "sic code pest control": 170,
+    "what industry is pest control under": 30,
+    "naics code for cleaning services": 1300
+   }
+  },
+  "naics code for moving company": {
+   "volume": 260,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "moving company naics code": 260,
+    "moving company naics": 50,
+    "naics code moving company": 260,
+    "moving naics code": 40,
+    "moving services naics": 70,
+    "naics moving company": 50,
+    "naics code 484210": 40,
+    "naics code for moving services": 20,
+    "naics 484210": 30,
+    "sic code for moving company": 110
+   }
+  },
+  "moving company naics code": {
+   "volume": 260,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for moving company": 260,
+    "moving company naics": 50,
+    "moving naics code": 40,
+    "naics code moving company": 260,
+    "moving services naics": 70,
+    "naics moving company": 50,
+    "naics code 484210": 40,
+    "naics code for moving services": 20,
+    "naics 484210": 30,
+    "sic code for moving company": 110
+   }
+  },
+  "naics code for dog grooming": {
+   "volume": 50,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for pet grooming": 70,
+    "pet grooming naics code": 70,
+    "dog grooming naics code": 50,
+    "naics code 812910": 70,
+    "naics 812910": 50,
+    "naics code for dog training": 40,
+    "dog training naics code": 40,
+    "naics code for animal rescue": 40,
+    "pet grooming sic code": 20,
+    "naics code for dog breeding": 40
+   }
+  },
+  "dog grooming naics code": {
+   "volume": 50,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for pet grooming": 70,
+    "pet grooming naics code": 70,
+    "naics code for dog grooming": 50,
+    "naics code 812910": 70,
+    "naics code for dog training": 40,
+    "naics 812910": 50,
+    "dog training naics code": 40,
+    "naics code for animal rescue": 40,
+    "pet grooming sic code": 20,
+    "dog breeder naics code": 40
+   }
+  },
+  "naics code for pet sitting": {
+   "volume": null,
+   "nota": "404: not in the keyword database"
+  },
+  "pet sitting naics code": {
+   "volume": null,
+   "nota": "404: not in the keyword database"
+  },
+  "naics code for credit repair": {
+   "volume": 70,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "low risk naics code": 1300,
+    "business code 541990": 140,
+    "naics low risk codes": 110,
+    "low risk naics": 90,
+    "low-risk naics codes for real estate": 90,
+    "541990 business code": 50,
+    "low risk naics codes 2025": 50,
+    "low risk naics codes for funding": 50,
+    "low risk naics codes pdf": 50,
+    "what naics code gets the most funding": 20
+   }
+  },
+  "credit repair naics code": {
+   "volume": 110,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for credit counseling": 10,
+    "naics code for credit repair": 70,
+    "credit repair sic code": 20,
+    "541990 naics code": 880,
+    "naics code 541990": 880,
+    "naics 541990": 590,
+    "541990 naics": 320,
+    "54190 naics": 70,
+    "business activity code 541990": 70,
+    "professional services naics": 70
+   }
+  },
+  "naics code for mortgage broker": {
+   "volume": 50,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "mortgage broker naics code": 70,
+    "mortgage lending naics code": 40,
+    "mortgage lender naics code": 40,
+    "naics 522310": 30,
+    "naics code mortgage broker": 30,
+    "naics code 522310": 50,
+    "naics code for mortgage lender": 30,
+    "mortgage broker naics": 40,
+    "mortgage broker sic code": 30,
+    "naics code 522292": 70
+   }
+  },
+  "mortgage broker naics code": {
+   "volume": 70,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for mortgage broker": 50,
+    "mortgage lending naics code": 40,
+    "mortgage lender naics code": 40,
+    "naics 522310": 30,
+    "naics code mortgage broker": 30,
+    "naics code 522310": 50,
+    "mortgage broker naics": 40,
+    "naics code for mortgage lender": 30,
+    "naics code 522292": 70,
+    "mortgage broker sic code": 30
+   }
+  },
+  "naics code for investment": {
+   "volume": 140,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "investment naics code": 140,
+    "investments naics code": 140,
+    "naics code investment": 70,
+    "naics code for investment management": 40,
+    "naics code for investments": 140,
+    "naics code for investors": 140,
+    "private equity naics code": 170,
+    "naics code investment company": 110,
+    "venture capital naics code": 70,
+    "investment management naics code": 50
+   }
+  },
+  "investment naics code": {
+   "volume": 140,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "investments naics code": 140,
+    "naics code investments": 70,
+    "naics code for investment": 140,
+    "naics code for investments": 140,
+    "naics code investment company": 110,
+    "investment company naics code": 70,
+    "investment naics": 30,
+    "investments naics": 30,
+    "naics code for investors": 140,
+    "naics code for investment company": 110
+   }
+  },
+  "naics code for life coach": {
+   "volume": 140,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for life coaching": 140,
+    "life coach naics code": 110,
+    "naics code for life coaching services": 30,
+    "naics code life coach": 30,
+    "life coaching naics code": 110,
+    "life coach naics": 30,
+    "naics code for coaching services": 50,
+    "coach naics code": 70,
+    "naics code for health coaching": 40,
+    "naics code for wellness coaching": 30
+   }
+  },
+  "life coach naics code": {
+   "volume": 110,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "life coaching naics code": 110,
+    "naics code life coach": 30,
+    "naics code for life coach": 140,
+    "naics code for life coaching services": 30,
+    "life coach naics": 30,
+    "naics code for life coaching": 140,
+    "naics code for health coaching": 40,
+    "naics code for coaching services": 50,
+    "812990 naics": 140,
+    "812990 naics code": 140
+   }
+  },
+  "naics code for interior design": {
+   "volume": 260,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code interior design": 260,
+    "interior design naics": 110,
+    "naics interior design": 110,
+    "interior design naics code": 260,
+    "naics code for interior decorator": 260,
+    "naics 541410": 90,
+    "naics code 541410": 90,
+    "interior design business code": 30,
+    "interior designer naics code": 30,
+    "business code for interior design": 50
+   }
+  },
+  "interior design naics code": {
+   "volume": 260,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for interior decorator": 260,
+    "interior design naics": 110,
+    "naics interior design": 110,
+    "naics code for interior design": 260,
+    "naics code interior design": 260,
+    "naics 541410": 90,
+    "naics code 541410": 90,
+    "interior design business code": 30,
+    "interior designer naics code": 30,
+    "business code for interior design": 50
+   }
+  },
+  "naics code for wedding planner": {
+   "volume": 30,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "wedding planning naics code": 70,
+    "wedding planner naics code": 70,
+    "naics code for wedding and event planning": 40,
+    "event planner naics code": 720,
+    "naics code for party planning": 30,
+    "naics code for event planner": 720,
+    "naics code event planning": 720,
+    "event planning business code": 30,
+    "naics for event planning": 30,
+    "event planning naics code": 720
+   }
+  },
+  "wedding planner naics code": {
+   "volume": 70,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "wedding planning naics code": 70,
+    "naics code for wedding planner": 30,
+    "naics code for wedding and event planning": 40,
+    "event planner naics code": 720,
+    "naics code for event planner": 720,
+    "naics code for party planning": 30,
+    "event planning naics code": 720,
+    "naics code event planning": 720,
+    "naics event planning": 110,
+    "event planning business code": 30
+   }
+  },
+  "naics code for event venue": {
+   "volume": 70,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "event venue naics code": 70,
+    "event space naics code": 30,
+    "event center naics code": 40,
+    "event management naics code": 30,
+    "wedding venue naics code": 110,
+    "naics code for wedding venue": 70,
+    "naics code for event space rental": 50,
+    "naics code event planning": 720,
+    "naics event planning": 110,
+    "event planning naics code": 720
+   }
+  },
+  "event venue naics code": {
+   "volume": 70,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "event center naics code": 40,
+    "naics code for event venue": 70,
+    "event space naics code": 30,
+    "event management naics code": 30,
+    "event production naics code": 20,
+    "naics code 711310": 40,
+    "event planning naics code": 720,
+    "naics code event planning": 720,
+    "naics code for event planning": 720,
+    "wedding venue naics code": 110
+   }
+  },
+  "naics code for tattoo": {
+   "volume": null,
+   "nota": "404: not in the keyword database"
+  },
+  "tattoo naics code": {
+   "volume": 40,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for tattoo shop": 30,
+    "naics code for tattoo artist": 70,
+    "tattoo artist naics code": 40,
+    "naics code 812199": 110,
+    "massage naics code": 70,
+    "812199 naics": 40,
+    "812199 naics code": 40,
+    "naics code for massage": 30,
+    "naics 812199": 70,
+    "naics code 812190": 70
+   }
+  },
+  "naics code for clothing boutique": {
+   "volume": 50,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for boutique": 50,
+    "naics code for clothing brand": 110,
+    "naics code for clothing store": 70,
+    "naics code for women's clothing boutique online": 20,
+    "naics code for retail clothing": 260,
+    "clothing store naics code": 90,
+    "boutique naics code": 50,
+    "clothing store naics": 40,
+    "naics code for retail clothing store": 40,
+    "retail clothing store naics code": 40
+   }
+  },
+  "clothing boutique naics code": {
+   "volume": 30,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "clothing sales naics code": 30,
+    "naics code for boutique": 50,
+    "naics retail clothing": 30,
+    "clothing store naics code": 90,
+    "naics code for clothing boutique": 50,
+    "naics code clothing store": 30,
+    "naics code for clothing line": 30,
+    "clothing store naics": 40,
+    "naics clothing store": 30,
+    "retail clothing naics code": 30
+   }
+  },
+  "naics code for retail store": {
+   "volume": 590,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code retail store": 590,
+    "retail store naics code": 590,
+    "retail naics code": 390,
+    "naics code for retail sales": 320,
+    "what is the naics code for retail": 40,
+    "naics for retail store": 30,
+    "naics code for retail": 590,
+    "naics code for retail stores": 590,
+    "retail industry naics code": 590,
+    "retail store naics": 260
+   }
+  },
+  "retail store naics code": {
+   "volume": 590,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code retail store": 590,
+    "naics code for retail": 590,
+    "naics code for retail store": 590,
+    "naics code retail": 140,
+    "naics for retail store": 30,
+    "naics code for retail stores": 590,
+    "naics code for retail trade": 590,
+    "retail industry naics code": 590,
+    "retail naics code": 390,
+    "naics code for retail sales": 320
+   }
+  },
+  "naics code for medical billing": {
+   "volume": 170,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "medical billing naics code": 170,
+    "naics code medical billing": 170,
+    "naics code for medical billing services": 40,
+    "medical billing naics": 30,
+    "medical billing services naics code": 40,
+    "medical billing sic code": 50,
+    "sic code for medical billing": 50,
+    "naics code for billing services": 20,
+    "healthcare naics code": 480,
+    "naics code for health care": 480
+   }
+  },
+  "medical billing naics code": {
+   "volume": 170,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for medical billing": 170,
+    "medical billing naics": 30,
+    "naics code medical billing": 170,
+    "medical billing services naics code": 40,
+    "naics code for medical billing services": 40,
+    "naics code for billing services": 20,
+    "medical billing sic code": 50,
+    "sic code for medical billing": 50,
+    "healthcare naics code": 480,
+    "naics code for health care": 480
+   }
+  },
+  "naics code for assisted living": {
+   "volume": null,
+   "nota": "404: not in the keyword database"
+  },
+  "assisted living naics code": {
+   "volume": 170,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code assisted living": 170,
+    "assisted living facility naics code": 40,
+    "naics code for senior living": 40,
+    "naics code for assisted living facility": 90,
+    "naics assisted living": 70,
+    "senior living naics code": 70,
+    "assisted living naics": 50,
+    "naics code 623312": 40,
+    "naics 623312": 30,
+    "nursing home naics code": 90
+   }
+  },
+  "naics code for home inspection": {
+   "volume": null,
+   "nota": "404: not in the keyword database"
+  },
+  "home inspection naics code": {
+   "volume": 70,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code home inspection": 50,
+    "home inspector naics code": 70,
+    "naics code 541350": 40,
+    "naics code for home inspector": 50,
+    "naics 541350": 30,
+    "home inspector sic code": 30,
+    "home inspection sic code": 30,
+    "general construction naics code": 1900,
+    "general contractor naics code": 1900
+   }
+  },
+  "naics code for private investigator": {
+   "volume": null,
+   "nota": "404: not in the keyword database"
+  },
+  "private investigator naics code": {
+   "volume": 30,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for private investigators": 30,
+    "naics 561611": 30,
+    "naics code 561611": 40,
+    "naics code for security guard services": 90,
+    "naics code security services": 70,
+    "security services naics code": 70,
+    "naics code security guard": 30,
+    "naics code for security": 210,
+    "naics code security": 210,
+    "security naics code": 210
+   }
+  },
+  "naics code for law firm": {
+   "volume": 260,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for law firms": 260,
+    "naics code law firm": 480,
+    "naics code lawyer": 390,
+    "naics code for law office": 50,
+    "lawyer naics code": 390,
+    "naics code for lawyer": 390,
+    "law office naics code": 110,
+    "lawyer naics": 110,
+    "law firm naics": 90,
+    "naics law firm": 50
+   }
+  },
+  "law firm naics code": {
+   "volume": 480,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code law firm": 480,
+    "naics code for lawyer": 390,
+    "naics code for law office": 50,
+    "naics law firm": 50,
+    "naics code for attorney at law": 30,
+    "law office naics": 30,
+    "attorney naics code": 390,
+    "lawyer naics code": 390,
+    "naics code for law firms": 260,
+    "law office naics code": 110
+   }
+  },
+  "naics code for mobile detailing": {
+   "volume": 30,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "auto detailing naics code": 70,
+    "car detailing naics code": 70,
+    "naics code for auto detailing": 90,
+    "car wash naics code": 210,
+    "naics code for car wash": 110,
+    "naics code for car detailing": 50,
+    "naics code for mobile car detailing": 30,
+    "naics code car wash": 70,
+    "naics code 811192": 50,
+    "naics code: 811192": 50
+   }
+  },
+  "mobile detailing naics code": {
+   "volume": null,
+   "nota": "404: not in the keyword database"
+  },
+  "naics code for towing": {
+   "volume": 40,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics towing": 70,
+    "naics code towing company": 20,
+    "towing naics code": 110,
+    "naics code 488410": 30,
+    "naics code for towing company": 110,
+    "naics code for roadside assistance": 40,
+    "towing company naics code": 30,
+    "naics code for towing services": 20,
+    "roadside assistance naics code": 30,
+    "sic code for towing company": 40
+   }
+  },
+  "towing naics code": {
+   "volume": 110,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics towing": 70,
+    "towing company naics code": 30,
+    "naics code for towing": 40,
+    "naics code towing company": 20,
+    "naics code for roadside assistance": 40,
+    "naics code 488410": 30,
+    "roadside assistance naics code": 30,
+    "naics code for towing services": 20,
+    "naics code for towing company": 110,
+    "sic code for towing company": 40
+   }
+  },
+  "naics code for childcare": {
+   "volume": 90,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "day care naics code": 590,
+    "childcare naics code": 140,
+    "naics code daycare": 90,
+    "naics code childcare": 50,
+    "daycare naics code": 590,
+    "naics code for daycare": 590,
+    "naics code 624410": 90,
+    "day care business code": 70,
+    "babysitter naics code": 50,
+    "naics code for babysitting": 50
+   }
+  },
+  "childcare naics code": {
+   "volume": 140,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "daycare naics code": 590,
+    "naics code daycare": 90,
+    "day care naics code": 590,
+    "naics daycare": 40,
+    "naics code for daycare": 590,
+    "naics code for childcare": 90,
+    "naics code childcare": 50,
+    "naics code 624410": 90,
+    "day care business code": 70,
+    "naics 624410": 70
+   }
+  },
+  "naics code for transportation": {
+   "volume": 1300,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code transportation": 590,
+    "transportation naics code": 590,
+    "trucking naics code": 1600,
+    "naics transportation code": 40,
+    "naics code for trucking": 1600,
+    "transportation naics": 170,
+    "transport naics code": 590,
+    "naics code transportation services": 40,
+    "naics code for transportation services": 170,
+    "naics code for transportation of goods": 40
+   }
+  },
+  "transportation naics code": {
+   "volume": 720,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code transportation": 590,
+    "naics code for transportation": 320,
+    "naics code for trucking": 1600,
+    "trucking naics code": 1600,
+    "naics code for transportation services": 170,
+    "transportation naics": 170,
+    "naics transportation code": 40,
+    "transport naics code": 590,
+    "naics transportation": 170,
+    "what is the naics code for transportation": 20
+   }
+  },
+  "naics code for security company": {
+   "volume": null,
+   "nota": "404: not in the keyword database"
+  },
+  "security company naics code": {
+   "volume": 40,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "security naics code": 210,
+    "naics code security": 210,
+    "security services naics code": 70,
+    "naics code security services": 70,
+    "naics code for security": 210,
+    "naics code for security services": 140,
+    "naics security services": 70,
+    "naics code for security guard services": 90,
+    "security business code": 40,
+    "security services naics": 20
+   }
+  },
+  "naics code for engineering": {
+   "volume": 480,
+   "cpc_usd": 0,
+   "dato_del": "2026-06-27",
+   "simili": {
+    "engineer naics code": 480,
+    "engineering naics codes": 480,
+    "naics code engineering services": 50,
+    "engineering naics code": 480,
+    "naics code engineering": 480,
+    "engineering naics": 50,
+    "naics engineering services": 70,
+    "naics code engineering consulting": 20,
+    "engineering services naics code": 110,
+    "engineering consulting naics code": 70
+   }
+  },
+  "engineering naics code": {
+   "volume": 480,
+   "cpc_usd": 0,
+   "dato_del": "2026-06-27",
+   "simili": {
+    "naics code engineering": 480,
+    "engineer naics code": 480,
+    "naics code for engineering services": 110,
+    "engineering naics codes": 480,
+    "naics code for engineering": 480,
+    "naics code engineering services": 50,
+    "naics code engineering consulting": 20,
+    "naics code 541330": 720,
+    "engineering services naics code": 110,
+    "engineering consulting naics code": 70
+   }
+  },
+  "naics code for architect": {
+   "volume": null,
+   "nota": "404: not in the keyword database"
+  },
+  "architect naics code": {
+   "volume": 210,
+   "cpc_usd": 0,
+   "dato_del": "2026-06-23",
+   "simili": {
+    "naics code architecture": 110,
+    "architecture naics code": 210,
+    "naics architecture": 40,
+    "naics code for architects": 110,
+    "naics code for architecture": 90,
+    "naics 541310": 320,
+    "541310 naics code": 170,
+    "naics code 541310": 170,
+    "naics code for architectural and engineering services": 30,
+    "5413 naics code": 70
+   }
+  },
+  "naics code for lawyer": {
+   "volume": 390,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code law firm": 480,
+    "naics code for law office": 50,
+    "naics code for lawyers": 50,
+    "law firm naics code": 480,
+    "naics code for attorney at law": 30,
+    "naics code attorney": 390,
+    "naics code for law firms": 260,
+    "law office naics code": 110,
+    "law office naics": 30,
+    "naics code lawyer": 390
+   }
+  },
+  "lawyer naics code": {
+   "volume": 390,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "attorney naics code": 390,
+    "naics code for law office": 50,
+    "law firm naics code": 480,
+    "naics code law firm": 480,
+    "naics code for lawyer": 390,
+    "naics code lawyer": 390,
+    "naics code for law firm": 260,
+    "naics code for law firms": 260,
+    "naics code for attorney": 110,
+    "naics code for attorney at law": 30
+   }
+  },
+  "naics code for medical": {
+   "volume": null,
+   "nota": "404: not in the keyword database"
+  },
+  "medical naics code": {
+   "volume": 70,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "healthcare naics codes": 480,
+    "medical services naics code": 30,
+    "naics code health care": 480,
+    "naics code for medical services": 40,
+    "naics code medical": 20,
+    "healthcare naics code": 480,
+    "naics code healthcare": 480,
+    "naics codes for healthcare": 480,
+    "naics code for healthcare": 480,
+    "naics code for health care services": 110
+   }
+  },
+  "naics code for home care": {
+   "volume": 590,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for home care services": 70,
+    "home care naics code": 140,
+    "naics code for home health": 590,
+    "naics code for home health care": 590,
+    "home healthcare naics": 140,
+    "home health care naics code": 590,
+    "home healthcare naics code": 590,
+    "homecare naics code": 140,
+    "naics code caregiver": 30,
+    "naics for home health care": 30
+   }
+  },
+  "home care naics code": {
+   "volume": 140,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "home healthcare naics": 140,
+    "naics code for home care": 590,
+    "naics home health care": 140,
+    "home health naics code": 90,
+    "homecare naics code": 140,
+    "naics code for home care services": 70,
+    "home health care naics code": 590,
+    "home healthcare naics code": 590,
+    "naics code for home health": 590,
+    "naics code for home health care": 590
+   }
+  },
+  "naics code for staffing": {
+   "volume": 720,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for recruiting": 40,
+    "staffing company naics code": 90,
+    "recruiting naics code": 40,
+    "naics for staffing agency": 30,
+    "naics code for staffing services": 880,
+    "naics code staffing": 880,
+    "naics code staffing agency": 720,
+    "staffing services naics code": 720,
+    "staffing agency naics": 50,
+    "staffing naics code": 880
+   }
+  },
+  "staffing naics code": {
+   "volume": 880,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "staffing services naics code": 720,
+    "naics code for staffing services": 880,
+    "naics code staffing agency": 720,
+    "staffing naics": 50,
+    "naics staffing": 30,
+    "naics code staffing": 880,
+    "naics code for staffing company": 90,
+    "staffing company naics code": 90,
+    "naics for staffing agency": 30,
+    "naics code for staffing agency": 720
+   }
+  },
+  "naics code for self employed": {
+   "volume": 30,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "business code": 1600,
+    "code business": 1600,
+    "principal business code lookup": 880,
+    "naics code for self-employed": 30,
+    "business codes": 1600,
+    "business activity code": 1600,
+    "naics codes": 90500,
+    "business activity code irs": 2400,
+    "irs business activity codes": 2400,
+    "business activity codes": 1600
+   }
+  },
+  "self employed naics code": {
+   "volume": 20,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "self-employed naics code": 20,
+    "naics code for independent contractor": 30,
+    "naics codes": 90500,
+    "naics number": 6600,
+    "naics code for self-employed": 30,
+    "what is naics code": 6600,
+    "naics code meaning": 1900,
+    "principal business code lookup": 880,
+    "naics code for self employed": 30,
+    "naics code": 90500
+   }
+  },
+  "naics code for independent contractor": {
+   "volume": 30,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "independent contractor naics code": 30,
+    "self-employed naics code": 20,
+    "business codes": 1600,
+    "self employed naics code": 20,
+    "principal business code lookup": 880,
+    "naics code for self employed": 30,
+    "naics code for self-employed": 30,
+    "business activity code irs": 2400,
+    "business code irs": 2400,
+    "business code": 1600
+   }
+  },
+  "independent contractor naics code": {
+   "volume": 30,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for independent contractor": 30,
+    "general contractor naics code": 1900,
+    "naics code construction": 3600,
+    "naics code for construction": 3600,
+    "construction naics code": 3600,
+    "naics codes list": 3600,
+    "general construction naics code": 1900,
+    "naics code for general construction": 1900,
+    "naics code for general contractor": 1900,
+    "business codes": 1600
+   }
+  },
+  "naics code for freelancer": {
+   "volume": null,
+   "nota": "404: not in the keyword database"
+  },
+  "freelancer naics code": {
+   "volume": null,
+   "nota": "404: not in the keyword database"
+  },
+  "naics code for uber driver": {
+   "volume": 390,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for uber drivers": 390,
+    "naics code uber driver": 70,
+    "naics for uber driver": 30,
+    "uber driver naics code": 390,
+    "naics code for uber": 320,
+    "naics uber driver": 30,
+    "naics code for uber and lyft": 40,
+    "naics code uber": 30,
+    "uber naics code": 320,
+    "uber naics": 40
+   }
+  },
+  "uber driver naics code": {
+   "volume": 390,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for uber driver": 390,
+    "naics code for uber drivers": 390,
+    "naics for uber driver": 30,
+    "naics code uber driver": 70,
+    "naics code for uber": 320,
+    "naics code for uber and lyft": 40,
+    "naics code uber": 30,
+    "naics uber driver": 30,
+    "uber naics code": 320,
+    "lyft driver naics code": 40
+   }
+  },
+  "naics code for doordash": {
+   "volume": 110,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "doordash naics code": 320,
+    "naics code for doordash driver": 70,
+    "naics code doordash": 50,
+    "doordash naics": 70,
+    "doordash business code": 1000,
+    "delivery business code": 110,
+    "business code delivery driver": 40,
+    "naics doordash": 30,
+    "what business code for doordash": 30,
+    "delivery driver business code": 170
+   }
+  },
+  "doordash naics code": {
+   "volume": 320,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code doordash": 50,
+    "naics code for doordash": 110,
+    "doordash naics": 70,
+    "doordash business code": 1000,
+    "naics code for doordash driver": 70,
+    "naics doordash": 30,
+    "delivery business code": 110,
+    "business code delivery driver": 40,
+    "delivery driver business code": 170,
+    "business code for delivery driver": 140
+   }
+  },
+  "naics code for rideshare": {
+   "volume": 30,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "uber driver naics": 30,
+    "naics code for uber drivers": 390,
+    "naics code for uber": 320,
+    "uber naics": 40,
+    "naics code uber": 30,
+    "naics uber code": 30,
+    "naics uber": 20,
+    "what is uber's naics code": 20,
+    "naics code for uber driver": 390,
+    "naics code uber driver": 70
+   }
+  },
+  "rideshare naics code": {
+   "volume": 70,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for lyft driver": 30,
+    "taxi naics code": 40,
+    "naics code for uber drivers": 390,
+    "naics code for lyft": 70,
+    "naics uber driver": 30,
+    "naics code for uber driver": 390,
+    "naics code for uber": 320,
+    "naics code 485310": 40,
+    "naics code for uber and lyft": 40,
+    "uber naics": 40
+   }
+  },
+  "naics code for etsy": {
+   "volume": null,
+   "nota": "404: not in the keyword database"
+  },
+  "etsy naics code": {
+   "volume": 30,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for etsy shop": 30,
+    "naics code for ecommerce": 1000,
+    "naics code for etsy sellers": 40,
+    "ecommerce naics code": 1300,
+    "e commerce naics code": 1300,
+    "naics code for shopify store": 40,
+    "naics code for online retail store": 480,
+    "online retail store naics code": 480,
+    "online retailer naics code": 260,
+    "naics code for online store": 210
+   }
+  },
+  "naics code for ebay seller": {
+   "volume": 70,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for ecommerce": 1000,
+    "ebay naics code": 40,
+    "ecommerce naics code": 1300,
+    "e commerce naics code": 1300,
+    "online sale business code": 170,
+    "business code for online retail": 40,
+    "naics code for online store": 210,
+    "e-commerce business code": 140,
+    "business code for ebay sales": 110,
+    "naics online sales": 90
+   }
+  },
+  "ebay seller naics code": {
+   "volume": null,
+   "nota": "404: not in the keyword database"
+  },
+  "naics code for cosmetology": {
+   "volume": 70,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "cosmetology naics code": 50,
+    "beauty salon naics code": 210,
+    "naics code for hair salon": 880,
+    "hair stylist naics code": 140,
+    "naics code hair salon": 110,
+    "naics code beauty salon": 90,
+    "hair salon naics code": 880,
+    "naics code for beauty salon": 880,
+    "naics code for salon": 880,
+    "naics code 812112": 170
+   }
+  },
+  "cosmetology naics code": {
+   "volume": 50,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for cosmetology": 70,
+    "beauty salon naics code": 210,
+    "naics code beauty salon": 90,
+    "hair salon naics code": 880,
+    "naics code for beauty salon": 880,
+    "naics code for hair salon": 880,
+    "hairstylist naics code": 140,
+    "naics code for salon": 880,
+    "naics code 812112": 170,
+    "hair stylist naics code": 140
+   }
+  },
+  "naics code for hotel": {
+   "volume": 720,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for hotels": 720,
+    "hotels naics code": 720,
+    "naics code hotel": 720,
+    "hotel naics": 210,
+    "hotel naics code": 720,
+    "naics hotel": 210,
+    "naics code hospitality": 30,
+    "hospitality naics": 20,
+    "naics code for hotel management company": 20,
+    "naics code for hospitality": 50
+   }
+  },
+  "hotel naics code": {
+   "volume": 720,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for hotels": 720,
+    "naics code hotel": 720,
+    "hotel naics": 210,
+    "naics code for hotel management company": 20,
+    "hotels naics code": 720,
+    "naics hotel": 210,
+    "naics code for hotel": 720,
+    "naics code for hospitality": 50,
+    "naics code for hospitality services": 50,
+    "motel naics code": 30
+   }
+  },
+  "naics code for vending machine": {
+   "volume": null,
+   "nota": "404: not in the keyword database"
+  },
+  "vending machine naics code": {
+   "volume": 90,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code vending machines": 140,
+    "naics code for vending machines": 140,
+    "naics vending machine": 30,
+    "naics code 454210": 30,
+    "vending machine code": 880,
+    "vending machine codes": 720,
+    "naics code transportation": 590,
+    "transportation naics code": 590,
+    "vending machine operators": 210,
+    "vending machines operators": 210
+   }
+  },
+  "naics code for manufacturing": {
+   "volume": 880,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code manufacturing": 880,
+    "naics code for manufacturing company": 30,
+    "manufacturing naics code": 880,
+    "naics codes for manufacturing": 880,
+    "what is the naics code for manufacturing": 30,
+    "manufacturer naics code": 880,
+    "manufacturing naics codes": 880,
+    "naics for manufacturing": 30,
+    "naics codes manufacturing": 880,
+    "naics manufacturing codes": 880
+   }
+  },
+  "manufacturing naics code": {
+   "volume": 880,
+   "cpc_usd": 2.16,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "manufacturing naics codes": 880,
+    "naics code for manufacturing": 880,
+    "naics codes for manufacturing": 880,
+    "naics for manufacturing": 30,
+    "naics code manufacturing": 880,
+    "naics code for manufacturing company": 30,
+    "what is the naics code for manufacturing": 30,
+    "manufacturer naics code": 880,
+    "naics codes manufacturing": 880,
+    "naics manufacturing code": 880
+   }
+  },
+  "naics code for farming": {
+   "volume": 0,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for farm": 0,
+    "naics code for farmer": 0,
+    "naics code for agriculture farming": 30,
+    "farm naics code": 0,
+    "naics code agriculture": 210,
+    "farming naics code": 0,
+    "naics code farm": 110,
+    "naics code farming": 110,
+    "naics code for agriculture": 210,
+    "naics agriculture": 20
+   }
+  },
+  "farming naics code": {
+   "volume": 0,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "farm naics code": 0,
+    "naics code agriculture": 210,
+    "naics code for farm": 0,
+    "naics code for farmer": 0,
+    "naics code for farming": 0,
+    "naics code farm": 110,
+    "naics code farming": 110,
+    "naics code for agriculture farming": 30,
+    "agriculture naics code": 210,
+    "naics code for agriculture": 210
+   }
+  },
+  "naics code for education": {
+   "volume": 170,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "education services naics code": 260,
+    "naics code education": 40,
+    "educational services naics code": 260,
+    "naics code educational services": 260,
+    "naics code for educational services": 260,
+    "education naics code": 170,
+    "naics educational services": 50,
+    "naics code for teacher": 140,
+    "naics code teacher": 140,
+    "611000 naics": 40
+   }
+  },
+  "education naics code": {
+   "volume": 170,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code education": 40,
+    "education services naics code": 260,
+    "educational services naics code": 260,
+    "naics education": 30,
+    "naics code educational services": 260,
+    "naics code for educational services": 260,
+    "naics code for teaching": 140,
+    "naics code teacher": 140,
+    "teaching naics code": 110,
+    "naics code for education": 170
+   }
+  },
+  "naics code for non profit organization": {
+   "volume": 1300,
+   "cpc_usd": 7.34,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for non profit": 1300,
+    "naics code for non-profit": 1300,
+    "naics code for non-profit organization": 1300,
+    "naics code non profit": 1300,
+    "naics code non-profit": 1300,
+    "non profit naics code": 720,
+    "naics for non profit": 320,
+    "non profit organization naics code": 90,
+    "what is the naics code for non profit organizations": 50,
+    "naics code for non profit organizations": 1300
+   }
+  },
+  "non profit organization naics code": {
+   "volume": 90,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "naics code for non profit": 1300,
+    "naics code for non profit organization": 1300,
+    "naics code for non-profit": 1300,
+    "naics code for non-profit organization": 1300,
+    "naics code non profit": 1300,
+    "naics code non-profit": 1300,
+    "non profit naics code": 720,
+    "naics for non profit": 320,
+    "naics code for non-profit organizations": 1300,
+    "non profit organizations naics code": 1300
+   }
+  },
+  "naics code for startup": {
+   "volume": null,
+   "nota": "404: not in the keyword database"
+  },
+  "startup naics code": {
+   "volume": null,
+   "nota": "404: not in the keyword database"
+  },
+  "sic code for construction": {
+   "volume": 1300,
+   "cpc_usd": 13.66,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "construction company sic code": 1300,
+    "construction sic code": 1300,
+    "sic code construction": 1300,
+    "construction sic codes": 1300,
+    "sic codes construction": 1300,
+    "sic codes for construction": 1300,
+    "sic code construction company": 1300,
+    "sic code for construction company": 1300,
+    "sic for construction": 1300,
+    "construction sic": 1300
+   }
+  },
+  "what is the naics code for consulting": {
+   "volume": 140,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "consulting naics code": 3600,
+    "naics code for consulting": 3600,
+    "naics for business consulting": 210,
+    "naics code consulting firm": 3600,
+    "naics code for consulting firm": 3600,
+    "naics consulting code": 3600,
+    "business consulting naics code": 1000,
+    "naics code consulting businesses": 1000,
+    "naics code for business consulting": 1000,
+    "naics code for consulting business": 1000
+   }
+  }
+ }
+}

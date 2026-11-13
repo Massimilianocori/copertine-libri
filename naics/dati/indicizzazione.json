@@ -240,7 +240,7 @@
 "1121/": {
 "proprie": 67,
 "sovrapposizione": 0.216,
-"piu_simile": "112130/",
+"piu_simile": "112111/",
 "indicizzata": false
 },
 "112111/": {
@@ -266,13 +266,13 @@
 "112130/": {
 "proprie": 62,
 "sovrapposizione": 0.276,
-"piu_simile": "112112/",
+"piu_simile": "112111/",
 "indicizzata": false
 },
 "1122/": {
 "proprie": 24,
 "sovrapposizione": 0.421,
-"piu_simile": "1129/",
+"piu_simile": "1121/",
 "indicizzata": false
 },
 "112210/": {
@@ -326,7 +326,7 @@
 "112410/": {
 "proprie": 94,
 "sovrapposizione": 0.274,
-"piu_simile": "112112/",
+"piu_simile": "112420/",
 "indicizzata": false
 },
 "112420/": {
@@ -392,7 +392,7 @@
 "113/": {
 "proprie": 188,
 "sovrapposizione": 0.058,
-"piu_simile": "1133/",
+"piu_simile": "113210/",
 "indicizzata": true
 },
 "1131/": {
@@ -1594,7 +1594,7 @@
 "314910/": {
 "proprie": 303,
 "sovrapposizione": 0.084,
-"piu_simile": "314999/",
+"piu_simile": "314994/",
 "indicizzata": true
 },
 "314994/": {
@@ -1744,7 +1744,7 @@
 "321215/": {
 "proprie": 235,
 "sovrapposizione": 0.122,
-"piu_simile": "3212/",
+"piu_simile": "321219/",
 "indicizzata": true
 },
 "321219/": {
@@ -2110,7 +2110,7 @@
 "325510/": {
 "proprie": 276,
 "sovrapposizione": 0.042,
-"piu_simile": "325520/",
+"piu_simile": "325130/",
 "indicizzata": true
 },
 "325520/": {
@@ -3202,7 +3202,7 @@
 "334413/": {
 "proprie": 235,
 "sovrapposizione": 0.179,
-"piu_simile": "334412/",
+"piu_simile": "334416/",
 "indicizzata": true
 },
 "334416/": {
@@ -3220,7 +3220,7 @@
 "334418/": {
 "proprie": 178,
 "sovrapposizione": 0.224,
-"piu_simile": "334412/",
+"piu_simile": "334419/",
 "indicizzata": true
 },
 "334419/": {
@@ -3706,7 +3706,7 @@
 "3379/": {
 "proprie": 37,
 "sovrapposizione": 0.293,
-"piu_simile": "337/",
+"piu_simile": "3372/",
 "indicizzata": false
 },
 "337910/": {
@@ -4891,7 +4891,7 @@
 "4595/": {
 "proprie": 23,
 "sovrapposizione": 0.53,
-"piu_simile": "4593/",
+"piu_simile": "4599/",
 "indicizzata": false
 },
 "459510/": {
@@ -5180,7 +5180,7 @@
 "485310/": {
 "proprie": 167,
 "sovrapposizione": 0.134,
-"piu_simile": "485999/",
+"piu_simile": "485320/",
 "indicizzata": true
 },
 "485320/": {
@@ -5528,7 +5528,7 @@
 "51/": {
 "proprie": 515,
 "sovrapposizione": 0.072,
-"piu_simile": "92/",
+"piu_simile": "22/",
 "indicizzata": true
 },
 "512/": {
@@ -5660,7 +5660,7 @@
 "5132/": {
 "proprie": 20,
 "sovrapposizione": 0.27,
-"piu_simile": "513/",
+"piu_simile": "5131/",
 "indicizzata": false
 },
 "513210/": {
@@ -5696,7 +5696,7 @@
 "5162/": {
 "proprie": 22,
 "sovrapposizione": 0.412,
-"piu_simile": "5161/",
+"piu_simile": "516/",
 "indicizzata": false
 },
 "516210/": {
@@ -6652,7 +6652,7 @@
 "541870/": {
 "proprie": 199,
 "sovrapposizione": 0.251,
-"piu_simile": "541860/",
+"piu_simile": "541890/",
 "indicizzata": true
 },
 "541890/": {
@@ -7213,7 +7213,7 @@
 "611630/": {
 "proprie": 117,
 "sovrapposizione": 0.25,
-"piu_simile": "611691/",
+"piu_simile": "611692/",
 "indicizzata": false
 },
 "611691/": {
@@ -7993,7 +7993,7 @@
 "81/": {
 "proprie": 138,
 "sovrapposizione": 0.167,
-"piu_simile": "53/",
+"piu_simile": "56/",
 "indicizzata": true
 },
 "811/": {
@@ -8260,7 +8260,7 @@
 "8132/": {
 "proprie": 93,
 "sovrapposizione": 0.238,
-"piu_simile": "813219/",
+"piu_simile": "813212/",
 "indicizzata": false
 },
 "813211/": {
@@ -8650,18 +8650,557 @@
 "indicizzata": true
 }
 },
+"regola_attivita": {
+"min_volume_mensile": 100,
+"min_parole_proprie": 120,
+"max_sovrapposizione": 0.4,
+"quota_modello_attivita": 0.25,
+"volumi": "volumi-attivita-2026-11-13.json"
+},
 "attivita": {
 "naics-code-for-consulting": {
-"volume": 4600,
-"pubblicata": true
+"volume": 3600,
+"frasi": {
+"naics code for consulting": 3600,
+"consulting naics code": 3600,
+"naics code for business consulting": 1000,
+"sic code for consulting": 1000
+},
+"pubblicata": true,
+"proprie": 251,
+"sovrapposizione": 0.131,
+"piu_simile": "541620/",
+"indicizzata": true
 },
 "naics-code-for-construction": {
-"volume": 5500,
-"pubblicata": true
+"volume": 3600,
+"frasi": {
+"naics code for construction": 3600,
+"construction naics code": 3600,
+"naics code for general contractor": 1900,
+"sic code for construction": 1300
+},
+"pubblicata": true,
+"proprie": 273,
+"sovrapposizione": 0.215,
+"piu_simile": "naics-code-for-handyman/",
+"indicizzata": true
 },
 "naics-code-for-cleaning-services": {
 "volume": 1300,
-"pubblicata": true
+"frasi": {
+"naics code for cleaning services": 1300,
+"janitorial naics code": 720,
+"naics code for pressure washing": 260
+},
+"pubblicata": true,
+"proprie": 256,
+"sovrapposizione": 0.174,
+"piu_simile": "812320/",
+"indicizzata": true
+},
+"naics-code-for-restaurant": {
+"volume": 3600,
+"frasi": {
+"naics code for restaurant": 3600,
+"restaurant naics code": 3600,
+"naics code for bar": 170,
+"coffee shop naics code": 260,
+"bakery naics code": 260
+},
+"pubblicata": true,
+"proprie": 347,
+"sovrapposizione": 0.133,
+"piu_simile": "722514/",
+"indicizzata": true
+},
+"naics-code-for-food-truck": {
+"volume": 720,
+"frasi": {
+"naics code for food truck": 720,
+"food truck naics code": 720,
+"naics code for catering": 260,
+"catering naics code": 260
+},
+"pubblicata": true,
+"proprie": 191,
+"sovrapposizione": 0.214,
+"piu_simile": "722310/",
+"indicizzata": true
+},
+"naics-code-for-real-estate": {
+"volume": 2400,
+"frasi": {
+"naics code for real estate": 2400,
+"real estate naics code": 2400,
+"naics code for real estate agent": 260,
+"real estate agent naics code": 210
+},
+"pubblicata": true,
+"proprie": 223,
+"sovrapposizione": 0.314,
+"piu_simile": "naics-code-for-rental-property/",
+"indicizzata": true
+},
+"naics-code-for-real-estate-investment": {
+"volume": 1000,
+"frasi": {
+"naics code for real estate investment": 1000,
+"real estate investment naics code": 390,
+"real estate holding naics code": 0
+},
+"pubblicata": true,
+"proprie": 229,
+"sovrapposizione": 0.235,
+"piu_simile": "naics-code-for-real-estate/",
+"indicizzata": true
+},
+"naics-code-for-rental-property": {
+"volume": 880,
+"frasi": {
+"naics code for rental property": 880,
+"rental property naics code": 390,
+"naics code for airbnb": 210,
+"airbnb naics code": 260,
+"naics code for short term rental": 170
+},
+"pubblicata": true,
+"proprie": 228,
+"sovrapposizione": 0.266,
+"piu_simile": "naics-code-for-real-estate/",
+"indicizzata": true
+},
+"naics-code-for-property-management": {
+"volume": 720,
+"frasi": {
+"naics code for property management": 720,
+"property management naics code": 720
+},
+"pubblicata": true,
+"proprie": 163,
+"sovrapposizione": 0.319,
+"piu_simile": "561210/",
+"indicizzata": true
+},
+"naics-code-for-holding-company": {
+"volume": 590,
+"frasi": {
+"naics code for holding company": 590,
+"holding company naics code": 480,
+"naics code 551112": 0
+},
+"pubblicata": true,
+"proprie": 203,
+"sovrapposizione": 0.214,
+"piu_simile": "551114/",
+"indicizzata": true
+},
+"naics-code-for-trucking": {
+"volume": 1600,
+"frasi": {
+"naics code for trucking": 1600,
+"trucking naics code": 1600,
+"naics code for trucking company": 0,
+"moving company naics code": 260
+},
+"pubblicata": true,
+"proprie": 257,
+"sovrapposizione": 0.126,
+"piu_simile": "484122/",
+"indicizzata": true
+},
+"naics-code-for-logistics": {
+"volume": 480,
+"frasi": {
+"naics code for logistics": 480,
+"logistics naics code": 480,
+"naics code for freight broker": 170,
+"freight broker naics code": 170,
+"courier naics code": 110
+},
+"pubblicata": true,
+"proprie": 260,
+"sovrapposizione": 0.309,
+"piu_simile": "naics-code-for-transportation/",
+"indicizzata": true
+},
+"naics-code-for-rideshare-and-delivery-drivers": {
+"volume": 390,
+"frasi": {
+"naics code for uber driver": 390,
+"uber driver naics code": 390,
+"doordash naics code": 320,
+"naics code for doordash": 110
+},
+"pubblicata": true,
+"proprie": 174,
+"sovrapposizione": 0.307,
+"piu_simile": "naics-code-for-logistics/",
+"indicizzata": true
+},
+"naics-code-for-transportation": {
+"volume": 1300,
+"frasi": {
+"naics code for transportation": 1300,
+"transportation naics code": 720
+},
+"pubblicata": true,
+"proprie": 246,
+"sovrapposizione": 0.247,
+"piu_simile": "naics-code-for-logistics/",
+"indicizzata": true
+},
+"naics-code-for-hvac": {
+"volume": 1000,
+"frasi": {
+"naics code for hvac": 1000,
+"hvac naics code": 1000,
+"plumbing naics code": 590,
+"naics code for plumbing": 260
+},
+"pubblicata": true,
+"proprie": 189,
+"sovrapposizione": 0.132,
+"piu_simile": "333415/",
+"indicizzata": true
+},
+"naics-code-for-electrician": {
+"volume": 590,
+"frasi": {
+"naics code for electrician": 140,
+"electrician naics code": 590,
+"electrical contractor naics code": 0
+},
+"pubblicata": true,
+"proprie": 171,
+"sovrapposizione": 0.223,
+"piu_simile": "237130/",
+"indicizzata": true
+},
+"naics-code-for-roofing": {
+"volume": 720,
+"frasi": {
+"naics code for roofing": 720,
+"roofing naics code": 720,
+"roofing contractor naics code": 0
+},
+"pubblicata": true,
+"proprie": 162,
+"sovrapposizione": 0.132,
+"piu_simile": "238170/",
+"indicizzata": true
+},
+"naics-code-for-handyman": {
+"volume": 880,
+"frasi": {
+"naics code for handyman": 880,
+"handyman naics code": 880,
+"remodeling naics code": 170,
+"painting naics code": 320
+},
+"pubblicata": true,
+"proprie": 211,
+"sovrapposizione": 0.342,
+"piu_simile": "naics-code-for-construction/",
+"indicizzata": true
+},
+"naics-code-for-landscaping": {
+"volume": 1600,
+"frasi": {
+"naics code for landscaping": 1600,
+"landscaping naics code": 1300,
+"naics code for lawn care": 480,
+"lawn care naics code": 480
+},
+"pubblicata": true,
+"proprie": 170,
+"sovrapposizione": 0.243,
+"piu_simile": "561730/",
+"indicizzata": true
+},
+"naics-code-for-hair-salon": {
+"volume": 880,
+"frasi": {
+"naics code for hair salon": 880,
+"hair salon naics code": 880,
+"naics code for beauty salon": 880,
+"nail salon naics code": 320,
+"barber shop naics code": 170
+},
+"pubblicata": true,
+"proprie": 207,
+"sovrapposizione": 0.157,
+"piu_simile": "812112/",
+"indicizzata": true
+},
+"naics-code-for-home-health-care": {
+"volume": 590,
+"frasi": {
+"naics code for home health care": 590,
+"home health care naics code": 590,
+"naics code for home care": 590,
+"assisted living naics code": 170
+},
+"pubblicata": true,
+"proprie": 246,
+"sovrapposizione": 0.161,
+"piu_simile": "623311/",
+"indicizzata": true
+},
+"naics-code-for-daycare": {
+"volume": 590,
+"frasi": {
+"naics code for daycare": 590,
+"daycare naics code": 590,
+"childcare naics code": 140
+},
+"pubblicata": true,
+"proprie": 171,
+"sovrapposizione": 0.176,
+"piu_simile": "624410/",
+"indicizzata": true
+},
+"naics-code-for-gym": {
+"volume": 320,
+"frasi": {
+"gym naics code": 320,
+"naics code for gym": 110,
+"naics code for personal trainer": 210,
+"personal trainer naics code": 210
+},
+"pubblicata": true,
+"proprie": 154,
+"sovrapposizione": 0.148,
+"piu_simile": "naics-code-for-church/",
+"indicizzata": true
+},
+"naics-code-for-physical-therapy": {
+"volume": 390,
+"frasi": {
+"naics code for physical therapy": 390,
+"physical therapy naics code": 390,
+"naics code for massage therapy": 390,
+"massage therapy naics code": 390
+},
+"pubblicata": true,
+"proprie": 154,
+"sovrapposizione": 0.331,
+"piu_simile": "621340/",
+"indicizzata": true
+},
+"naics-code-for-event-planning": {
+"volume": 720,
+"frasi": {
+"naics code for event planning": 720,
+"event planning naics code": 720,
+"event planner naics code": 0,
+"wedding planner naics code": 70
+},
+"pubblicata": true,
+"proprie": 211,
+"sovrapposizione": 0.179,
+"piu_simile": "531120/",
+"indicizzata": true
+},
+"naics-code-for-photography": {
+"volume": 480,
+"frasi": {
+"naics code for photography": 480,
+"photography naics code": 480,
+"video production naics code": 0
+},
+"pubblicata": true,
+"proprie": 195,
+"sovrapposizione": 0.185,
+"piu_simile": "711510/",
+"indicizzata": true
+},
+"naics-code-for-church": {
+"volume": 1000,
+"frasi": {
+"naics code for church": 1000,
+"church naics code": 1000
+},
+"pubblicata": true,
+"proprie": 170,
+"sovrapposizione": 0.226,
+"piu_simile": "611310/",
+"indicizzata": true
+},
+"naics-code-for-nonprofit": {
+"volume": 1300,
+"frasi": {
+"naics code for nonprofit": 1300,
+"naics code for non profit organization": 1300,
+"nonprofit naics code": 720
+},
+"pubblicata": true,
+"proprie": 239,
+"sovrapposizione": 0.128,
+"piu_simile": "813311/",
+"indicizzata": true
+},
+"naics-code-for-software-development": {
+"volume": 720,
+"frasi": {
+"naics code for software development": 590,
+"software development naics code": 720,
+"software naics code": 480,
+"it consulting naics code": 480,
+"it services naics code": 260,
+"naics code for web design": 210
+},
+"pubblicata": true,
+"proprie": 214,
+"sovrapposizione": 0.146,
+"piu_simile": "naics-code-for-consulting/",
+"indicizzata": true
+},
+"naics-code-for-marketing": {
+"volume": 720,
+"frasi": {
+"naics code for marketing": 720,
+"marketing naics code": 720,
+"naics code for digital marketing": 260,
+"graphic design naics code": 140
+},
+"pubblicata": true,
+"proprie": 204,
+"sovrapposizione": 0.142,
+"piu_simile": "541860/",
+"indicizzata": true
+},
+"naics-code-for-staffing-agency": {
+"volume": 880,
+"frasi": {
+"naics code for staffing agency": 720,
+"staffing agency naics code": 720,
+"staffing naics code": 880
+},
+"pubblicata": true,
+"proprie": 197,
+"sovrapposizione": 0.227,
+"piu_simile": "561312/",
+"indicizzata": true
+},
+"naics-code-for-law-firm": {
+"volume": 480,
+"frasi": {
+"naics code for law firm": 260,
+"law firm naics code": 480,
+"naics code for lawyer": 390,
+"lawyer naics code": 390
+},
+"pubblicata": true,
+"proprie": 145,
+"sovrapposizione": 0.266,
+"piu_simile": "541191/",
+"indicizzata": true
+},
+"naics-code-for-accounting": {
+"volume": 320,
+"frasi": {
+"accounting naics code": 320,
+"naics code for bookkeeping": 320,
+"bookkeeping naics code": 320,
+"naics code for tax preparation": 210
+},
+"pubblicata": true,
+"proprie": 166,
+"sovrapposizione": 0.225,
+"piu_simile": "541211/",
+"indicizzata": true
+},
+"naics-code-for-insurance-agency": {
+"volume": 480,
+"frasi": {
+"naics code for insurance agency": 480,
+"insurance agency naics code": 480,
+"insurance agent naics code": 0
+},
+"pubblicata": true,
+"proprie": 153,
+"sovrapposizione": 0.238,
+"piu_simile": "524298/",
+"indicizzata": true
+},
+"naics-code-for-engineering": {
+"volume": 480,
+"frasi": {
+"naics code for engineering": 480,
+"engineering naics code": 480,
+"architect naics code": 210
+},
+"pubblicata": true,
+"proprie": 145,
+"sovrapposizione": 0.185,
+"piu_simile": "541330/",
+"indicizzata": true
+},
+"naics-code-for-auto-repair": {
+"volume": 480,
+"frasi": {
+"naics code for auto repair": 480,
+"auto repair naics code": 480,
+"car wash naics code": 210,
+"towing naics code": 110
+},
+"pubblicata": true,
+"proprie": 225,
+"sovrapposizione": 0.167,
+"piu_simile": "811198/",
+"indicizzata": true
+},
+"naics-code-for-ecommerce": {
+"volume": 1300,
+"frasi": {
+"naics code for ecommerce": 1000,
+"ecommerce naics code": 1300,
+"naics code for online store": 210,
+"naics code for amazon seller": 390,
+"amazon seller naics code": 390
+},
+"pubblicata": true,
+"proprie": 248,
+"sovrapposizione": 0.241,
+"piu_simile": "naics-code-for-retail-store/",
+"indicizzata": true
+},
+"naics-code-for-retail-store": {
+"volume": 590,
+"frasi": {
+"naics code for retail store": 590,
+"retail store naics code": 590
+},
+"pubblicata": true,
+"proprie": 225,
+"sovrapposizione": 0.282,
+"piu_simile": "naics-code-for-ecommerce/",
+"indicizzata": true
+},
+"naics-code-for-manufacturing": {
+"volume": 880,
+"frasi": {
+"naics code for manufacturing": 880,
+"manufacturing naics code": 880
+},
+"pubblicata": true,
+"proprie": 159,
+"sovrapposizione": 0.5,
+"piu_simile": "31-33/",
+"indicizzata": false
+},
+"naics-code-for-hotel": {
+"volume": 720,
+"frasi": {
+"naics code for hotel": 720,
+"hotel naics code": 720
+},
+"pubblicata": true,
+"proprie": 172,
+"sovrapposizione": 0.244,
+"piu_simile": "naics-code-for-rental-property/",
+"indicizzata": true
 }
 }
 }

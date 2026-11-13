@@ -49,8 +49,13 @@ MIN_PAROLE_PROPRIE = 120  # gruppi di 5 parole che non compaiono in nessun'altra
 MAX_SOVRAPPOSIZIONE = 0.55  # quota del testo in comune con la pagina di codice più simile: da qui in su, noindex
 MIN_PROPRIE_RICHIESTA = 60  # pagine a 6 cifre con domanda dimostrata (dati/richieste.json): soglia più bassa, perché la descrizione ufficiale è corta
 MAX_SOVRAPPOSIZIONE_RICHIESTA = 0.65
+MAX_SOVRAPPOSIZIONE_ATTIVITA = 0.40  # pagine «NAICS code for …» (revisione del 13/11 sera): più severa, una guida che ripete la pagina di settore resta noindex
 QUOTA_MODELLO = 0.05  # gruppi di 5 parole presenti in almeno il 5% delle pagine di codice = modello della pagina, esclusi dalla misura
 FRASE_FISSA = "check with the agency or form that asks for the code"
+FILE_VOLUMI_ATTIVITA = "volumi-attivita-2026-11-13.json"  # misura con data: per rifarla, file nuovo con la data e nome qui (e in verifica.py)
+MIN_VOLUME_ATTIVITA = 100  # pagina «NAICS code for …» solo con almeno 100 ricerche al mese misurate su una delle sue frasi
+QUOTA_MODELLO_ATTIVITA = 0.25  # gruppi di 5 parole presenti in almeno un quarto delle pagine attività = modello della pagina
+SOGLIA_SETTORE_COMPLETO = 40  # nella pagina attività di un settore: ogni codice a 6 cifre se sono al massimo 40, altrimenti 2 esempi per sottosettore
 
 MESI = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 LIVELLO = {2: "Sector", 3: "Subsector", 4: "Industry group", 5: "NAICS industry", 6: "National industry"}
@@ -64,6 +69,7 @@ FJ = carica("fonti.json")
 NA = carica("naics.json")
 DOM = carica("domanda.json")
 VOL = carica("volumi.json")
+VOLA = carica(FILE_VOLUMI_ATTIVITA)
 ATT = carica("attivita.json")["attivita"]
 FAQ = carica("faq.json")["faq"]
 RICH = carica("richieste.json")["codici"]
@@ -219,8 +225,9 @@ def ico(nome, cls="ico"):
 # ---------------------------------------------------------------- scheletro
 URLS = []
 INDICIZZA = {}
+INDICIZZA_ATT = {}  # pagine «NAICS code for …»: stessa regola del testo proprio (misura_attivita)
 _PROVA = None
-MENU = [("#sectors", "Sectors"), ("naics-2017-to-2022/", "2017 → 2022"), ("sic-to-naics/", "SIC to NAICS"), ("how-we-check/", "How we check")]
+MENU = [("#sectors", "Sectors"), ("naics-code-for/", "By activity"), ("naics-2017-to-2022/", "2017 → 2022"), ("sic-to-naics/", "SIC to NAICS"), ("how-we-check/", "How we check")]
 DISCLAIMER = ("<strong>Information from the official Census Bureau NAICS files, not legal, tax or business advice.</strong> The right code depends "
               f"on the primary activity of your establishment, and each agency assigns codes with its own method: {FRASE_FISSA}. Independent "
               "site, not affiliated with the U.S. Census Bureau, the Office of Management and Budget, the IRS or the SBA.")
@@ -509,14 +516,31 @@ def controlla_titoli_citati(testo, dove):
             raise SystemExit(f"{dove}: il titolo citato per {cod} («{tit}») non è quello ufficiale")
 
 
+def frasi_misurate():
+    """{frase: volume} di tutte le frasi con un volume misurato (> 0): frasi chieste allo strumento e frasi simili che ha restituito."""
+    out = {f: v["volume"] for f, v in VOL["frasi"].items() if v.get("volume")}
+    for f, v in VOLA["frasi"].items():
+        for s, n in (v.get("simili") or {}).items():
+            if n:
+                out.setdefault(s, n)
+        if v.get("volume"):
+            out[f] = v["volume"]
+    return out
+
+
+MISURATE = frasi_misurate()
+
+
 def faq_pagina(pid, rim, extra=None):
     voci = []
     tutte = {s for v in DOM["radici"].values() for s in v}
     for x in FAQ:
         if x["pagina"] != pid:
             continue
-        if x["ricerca"] not in tutte:
-            raise SystemExit(f"FAQ «{x['q']}»: la ricerca «{x['ricerca']}» non è tra i suggerimenti salvati")
+        if pid.startswith("naics-code-for-") and not MISURATE.get(x["ricerca"]):
+            raise SystemExit(f"FAQ «{x['q']}»: la ricerca «{x['ricerca']}» non ha un volume misurato (pagine attività: solo ricerche misurate)")
+        if x["ricerca"] not in tutte and not MISURATE.get(x["ricerca"]):
+            raise SystemExit(f"FAQ «{x['q']}»: la ricerca «{x['ricerca']}» non è tra i suggerimenti salvati né tra le ricerche misurate")
         voci.append((x["q"], riempi(x["a"], extra), rim.ref(x["fonti"])))
     return voci
 
@@ -721,6 +745,7 @@ def pagina_sei(c):
     corpo += blocco_sic(c, rim)
     p5 = v["p"]
     g4 = antenato(c, 4)
+    corpo += blocco_guide(c)
     corpo += f'<h2 id="hierarchy">Where {c} sits in NAICS</h2><ul class="albero">'
     for l in (2, 3, 4):
         a = antenato(c, l)
@@ -808,6 +833,7 @@ def pagina_settore(s):
     u = NA["conteggi_ufficiali"][s]
     corpo += (f'<p class="small">Official counts for sector {s}: {u["3"]} subsectors, {u["4"]} industry groups, {u["5"]} NAICS industries, {u["6"]} six-digit '
               f'industries ({u["6_dettaglio_usa"]} with U.S. detail, {u["6_come_5"]} the same as the five-digit industry).{rim.ref("conteggi")}</p>')
+    corpo += blocco_guide(s)
     corpo += rim.elenco()
     n6 = len(sei_di(s))
     testata = banda("2022 NAICS · Sector (2 digits)", f"NAICS sector {s}: {v['t']}",
@@ -822,14 +848,25 @@ GUIDE_RICERCA = [
     ("NAICS 2017 to 2022 conversion", "/naics-2017-to-2022/", "Guide"),
     ("SIC to NAICS conversion table", "/sic-to-naics/", "Guide"),
     ("Ecommerce and online retail: 2017 code 454110 in NAICS 2022", "/naics-2017-to-2022/#v-454110", "Guide"),
+    ("NAICS codes by business activity", "/naics-code-for/", "Guide"),
 ]
 
 
+def vol_frase(f):
+    """Volume mensile misurato di una frase: misura del 13/11 (volumi-attivita-…json), altrimenti quella del 12/11 (volumi.json)."""
+    v = VOLA["frasi"].get(f, {}).get("volume")
+    if v is not None:
+        return v
+    return VOL["frasi"].get(f, {}).get("volume") or 0
+
+
 def volume(a):
-    return sum(VOL["frasi"][f]["volume"] for f in a["frasi"] if f in VOL["frasi"])
+    """Volume di una pagina «NAICS code for …»: la frase misurata più cercata (le forme «naics code for X» e «X naics code» sono varianti
+    vicine che Google Ads conta insieme: non si sommano)."""
+    return max((vol_frase(f) for f in a["frasi"]), default=0)
 
 
-ATTIVITA = [a for a in ATT if volume(a) > 0]
+ATTIVITA = [a for a in ATT if volume(a) >= MIN_VOLUME_ATTIVITA]
 
 
 def indice_ricerca():
@@ -873,7 +910,9 @@ def home():
     corpo += '<h2 id="guides">Guides</h2><ul class="griglia">'
     utili = [("/naics-2017-to-2022/", "NAICS 2017 to 2022", f"The 2022 code for each of the {NUM['n17']} six-digit 2017 codes."),
              ("/sic-to-naics/", "SIC to NAICS", f"The NAICS codes linked to each of the {NUM['n_sic']} SIC codes of 1987.")]
-    utili += [(f"/{a['slug']}/", a["h1"][0].upper() + a["h1"][1:], accorcia(a["descrizione"], 90)) for a in ATTIVITA]
+    utili += [(f"/{a['slug']}/", maiuscola(a["h1"]), accorcia(a["descrizione"], 90))
+              for a in sorted(ATTIVITA, key=lambda a: (-volume(a), a["slug"]))[:7]]
+    utili.append(("/naics-code-for/", "NAICS codes by business activity", f"All {len(ATTIVITA)} guides, from restaurants and trucking to software."))
     corpo += "".join(f'<li><a href="{u}"><b>{h(t)}</b><span>{h(s)}</span></a></li>' for u, t, s in utili) + "</ul>"
     corpo += f'<h2 id="sectors">The {len(SETTORI)} NAICS sectors</h2><ul class="albero">'
     for s in SETTORI:
@@ -988,53 +1027,196 @@ def sic_naics():
 
 
 # ---------------------------------------------------------------- pagine «NAICS code for …»
-def pagina_attivita(a):
-    rim = Rimandi()
-    rx = re.compile(a["regex"], re.I)
+def maiuscola(t):
+    return t[0].upper() + t[1:]
+
+
+def vi(c, e):
+    """Voce dell'indice ufficiale citata tale e quale, con il codice a cui l'indice la assegna (verifica.py la ricontrolla sul file grezzo)."""
+    if e not in C[c]["idx"]:
+        raise SystemExit(f"voce «{e}» assente dall'indice ufficiale di {c}")
+    return f'<q class="vi" data-c="{c}">{h(e)}</q>'
+
+
+def voci_attivita(a):
+    """{codice a 6 cifre: voci dell'indice che corrispondono alla regex della pagina}, solo nei codici dei prefissi indicati."""
     gruppi = defaultdict(list)
+    if not a.get("regex"):
+        return gruppi
+    rx = re.compile(a["regex"], re.I)
+    pref = a.get("prefissi")
     for c in SEI:
+        if pref and not any(c.startswith(p) for p in pref):
+            continue
         for e in C[c]["idx"]:
             if rx.search(e):
                 gruppi[c].append(e)
+    return gruppi
+
+
+def scelte_attivita(a, gruppi):
+    """Righe della tabella delle scelte: per ogni codice in evidenza, le voci dell'indice che lo indicano (scelte a mano o le prime trovate)."""
+    out = {}
+    for c in a["evidenza"]:
+        if c not in C or C[c]["l"] != 6:
+            raise SystemExit(f"{a['slug']}: {c} non è un codice a 6 cifre del 2022")
+        voci = a.get("scelte", {}).get(c) or gruppi.get(c, [])[:3]
+        if not voci:
+            raise SystemExit(f"{a['slug']}: nessuna voce dell'indice ufficiale per {c}")
+        out[c] = voci
+    return out
+
+
+def esempi_sottosettore(s3, n=2):
+    """I codici a 6 cifre del sottosettore con più voci nell'indice (esempi nella pagina attività di un settore)."""
+    return sorted((x for x in sei_di(s3) if C[x]["idx"]), key=lambda x: (-len(C[x]["idx"]), x))[:n]
+
+
+def blocco_settore(s):
+    sei = sei_di(s)
+    if len(sei) <= SOGLIA_SETTORE_COMPLETO:
+        out = f'<h2 id="sector">All {len(sei)} six-digit codes of sector {s}</h2>'
+        for s3 in FIGLI[s]:
+            rr = [[link_cod(x), h(C[x]["t"]), vi(x, C[x]["idx"][0]) if C[x]["idx"] else "—"] for x in sei_di(s3)]
+            out += f'<h3 class="cat-h">{link_cod(s3)} {h(C[s3]["t"])}</h3>'
+            out += tabella(["Code", "Official title", "First entry of the official index"], rr, resp="resp7")
+        return out
+    rr = []
+    for s3 in FIGLI[s]:
+        es = "; ".join(f'{link_cod(x)} {vi(x, C[x]["idx"][0])}' for x in esempi_sottosettore(s3))
+        rr.append([link_cod(s3), h(C[s3]["t"]), num(len(sei_di(s3))), es])
+    return (f'<h2 id="sector">The {len(FIGLI[s])} subsectors of sector {s}</h2><p class="small">For each subsector, the number of six-digit '
+            'industries and the two with the most entries in the official index, each with its first entry.</p>'
+            + tabella(["Subsector", "Official title", "Six-digit codes", "Examples from the official index"], rr, num_=[2], resp="resp7"))
+
+
+def link_2017(t):
+    """Codici a 6 cifre del 2017 che non esistono nel 2022 (es. 454110): link alla riga della tabella 2017 → 2022."""
+    return re.sub(r"(?<![\w/#>-])(\d{6})(?![\w<-])",
+                  lambda m: f'<a class="cod" href="/naics-2017-to-2022/#v-{m.group(1)}">{m.group(1)}</a>' if m.group(1) not in C and m.group(1) in T17 else m.group(1), t)
+
+
+def pagina_attivita(a):
+    rim = Rimandi()
+    gruppi = voci_attivita(a)
+    scelte = scelte_attivita(a, gruppi)
     ordinati = sorted(gruppi, key=lambda c: (-len(gruppi[c]), c))
     extra = {"n_voci": num(sum(len(v) for v in gruppi.values())), "n_codici": num(len(gruppi))}
-    if a.get("settore"):
-        extra[f"n_sei_{a['settore']}"] = num(len(sei_di(a["settore"])))
+    s = a.get("settore")
+    if s:
+        extra[f"n_sei_{s}"] = num(len(sei_di(s)))
+        extra["n_sei_settore"] = num(len(sei_di(s)))
+        extra["n_sotto_settore"] = num(len(FIGLI[s]))
     intro = riempi(a["intro"], extra)
-    corpo = f'<div class="card pull"><p style="margin:0">{h(intro)}{rim.ref(["indice", "codici"])}</p></div>'
-    corpo += '<h2 id="main-codes">The codes to look at first</h2>'
-    for c in a["evidenza"]:
+    corpo = f'<div class="card pull"><p style="margin:0">{link_2017(h(intro))}{rim.ref(["indice", "codici"])}</p></div>'
+    if scelte:
+        rr = [["; ".join(vi(c, e) for e in voci), link_cod(c), h(C[c]["t"])] for c, voci in scelte.items()]
+        corpo += ('<h2 id="which-code">Which code: what the official index says</h2><p class="small">If the main activity of the establishment is '
+                  f'one of the entries in the first column, the official 2022 index points to the code next to it. Entries are quoted word for word.'
+                  f'{rim.ref("indice")}</p>' + tabella(["Official index entries", "NAICS 2022 code", "Official title"], rr, resp="resp7"))
+    for cod, n in a.get("citazioni", []):
+        corpo += (f'<blockquote class="legge">{h(C[cod]["d"][n])}<cite>Official description of {link_cod(cod)} «{h(C[cod]["t"])}», '
+                  f'2022 NAICS{rim.ref("descrizioni")}</cite></blockquote>')
+    if scelte:
+        corpo += '<h2 id="main-codes">The codes to look at first</h2>'
+    for c in scelte:
         v = C[c]
-        prima = v["d"][0] if v["d"] else ""
+        prima = v["d"][0] if v["d"] and [c, 0] not in a.get("citazioni", []) else ""  # già citata sopra: non si ripete
         corpo += (f'<section class="voce" id="c-{c}"><h3><span class="chip-cod">{c}</span><a href="{url_di(c)}">{h(v["t"])}</a></h3>'
-                  f'<div class="testo"><p>{linkifica(prima)}</p></div>')
-        if gruppi.get(c):
-            corpo += f'<p class="small">In the official index: {h("; ".join(gruppi[c][:6]))}{"…" if len(gruppi[c]) > 6 else ""}</p>'
+                  + (f'<div class="testo"><p>{h(prima)}</p></div>' if prima else '<p class="small">Official description quoted above.</p>'))
+        voci = list(dict.fromkeys(scelte[c] + gruppi.get(c, [])))
+        corpo += f'<p class="small">In the official index: {"; ".join(vi(c, e) for e in voci[:6])}{"…" if len(voci) > 6 else ""}</p>'
         princ, altre, _ = sic_righe(c)
         sics = sorted({x["sic"] for x in (princ or altre)})
         if sics:
             corpo += (f'<p class="small">SIC 1987{"" if princ else " (partial match)"}: '
-                      + ", ".join(f'<a class="cod" href="/sic-to-naics/#sic-{s}">{s}</a>' for s in sics[:6]) + "</p>")
+                      + ", ".join(f'<a class="cod" href="/sic-to-naics/#sic-{x}">{x}</a>' for x in sics[:6]) + "</p>")
         corpo += "</section>"
-    corpo += rim.ref("descrizioni")
-    if a.get("settore"):
-        s = a["settore"]
-        corpo += f'<h2 id="sector">All six-digit codes of sector {s}</h2>'
-        for s3 in FIGLI[s]:
-            corpo += f'<h3 class="cat-h">{link_cod(s3)} {h(C[s3]["t"])}</h3><ul class="albero">'
-            corpo += "".join(f'<li>{link_cod(x)}<span>{h(C[x]["t"])}</span></li>' for x in sei_di(s3)) + "</ul>"
-    rr = [[link_cod(c), h(C[c]["t"]) + f'<small>{h("; ".join(gruppi[c][:4]))}{"…" if len(gruppi[c]) > 4 else ""}</small>', num(len(gruppi[c]))] for c in ordinati]
-    corpo += (f'<h2 id="index">Every {h(a["nome"])} entry of the official index, by code</h2><p class="small">Entries of the 2022 NAICS index that '
-              f'match «{h(a["regex"].replace(chr(92) + "b", ""))}», grouped by six-digit code.{rim.ref("indice")}</p>'
-              + tabella(["Code", "Title and entries", "Entries"], rr, num_=[2], resp="resp7"))
+    if scelte:
+        corpo += f'<p class="small">Descriptions: 2022 NAICS, U.S. Census Bureau.{rim.ref("descrizioni")}</p>'
+    if s:
+        corpo += blocco_settore(s)
+    if gruppi:
+        rr = [[link_cod(c), h(C[c]["t"]) + f'<small>{"; ".join(vi(c, e) for e in gruppi[c][:4])}{"…" if len(gruppi[c]) > 4 else ""}</small>',
+               num(len(gruppi[c]))] for c in ordinati]
+        corpo += (f'<h2 id="index">Every matching entry of the official index, by code</h2><p class="small">{num(sum(len(v) for v in gruppi.values()))} '
+                  f'entries of the 2022 NAICS index match this guide ({h(a["nome"])}); here they are grouped by six-digit code, and the full list of each code is on its page.'
+                  f'{rim.ref("indice")}</p>' + tabella(["Code", "Title and entries", "Entries"], rr, num_=[2], resp="resp7"))
     corpo += nota(f"The code follows the primary activity of the establishment, not a keyword: read the description of each candidate code. "
                   f"Before using a code on a form, {FRASE_FISSA}.", "info", "alert")
     voci = faq_pagina(a["slug"], rim, extra)
     f_html, f_ld = faq_html(voci)
-    corpo += f_html + rim.elenco()
-    testata = banda("NAICS code by activity", a["h1"][0].upper() + a["h1"][1:], h(a["descrizione"]), icona="tag")
+    corpo += f_html
+    corpo += ('<p class="small">More activities: <a href="/naics-code-for/">NAICS codes by business activity</a>.</p>' + rim.elenco())
+    controlla_codici_attivita(a["slug"], corpo)
+    testata = banda("NAICS code by activity", maiuscola(a["h1"]), h(a["descrizione"]), icona="tag")
     pagina(a["slug"] + "/", a["titolo"], a["descrizione"], corpo, testata,
-           briciole=[("Home", ""), (a["h1"][0].upper() + a["h1"][1:], a["slug"] + "/")], jsonld=[f_ld] if f_ld else None)
+           briciole=[("Home", ""), ("By activity", "naics-code-for/"), (maiuscola(a["h1"]), a["slug"] + "/")], jsonld=[f_ld] if f_ld else None,
+           indicizza=INDICIZZA_ATT.get(a["slug"] + "/", True))
+
+
+def controlla_codici_attivita(dove, corpo):
+    """Ogni codice a 6 cifre mostrato (link o numero nel testo) deve avere nella pagina almeno una voce dell'indice ufficiale citata;
+    i soli numeri ammessi senza voce sono codici 2017 che non esistono più, con il link alla tabella 2017 → 2022."""
+    t = re.sub(r'<section class="fonti-box".*?</section>', " ", corpo, flags=re.S)
+    citati = set(re.findall(r'<q class="vi" data-c="(\d{6})">', t))
+    mostrati = set(re.findall(r'href="/(\d{6})/"', t)) | set(re.findall(r"(?<![\d#/-])(\d{6})(?!\d)", unescape(re.sub(r"<[^>]+>", " ", t))))
+    senza = [c for c in sorted(mostrati - citati) if c in C]
+    if senza:
+        raise SystemExit(f"{dove}: codici mostrati senza una voce dell'indice ufficiale citata nella pagina: {', '.join(senza)}")
+    for c in sorted(mostrati - citati):
+        if c not in T17 or f'href="/naics-2017-to-2022/#v-{c}"' not in t:
+            raise SystemExit(f"{dove}: {c} non è un codice NAICS 2022 (né un codice 2017 con il suo link)")
+
+
+GUIDE_DI = defaultdict(list)  # codice -> pagine «NAICS code for …» che lo indicano
+for _a in ATTIVITA:
+    for _c in _a["evidenza"]:
+        GUIDE_DI[_c].append(_a)
+    if _a.get("settore"):
+        GUIDE_DI[_a["settore"]].append(_a)
+
+
+def blocco_guide(c):
+    """Link dalle pagine di codice alle guide per attività che le citano (ripreso: non conta come testo proprio nella misura)."""
+    if not GUIDE_DI.get(c):
+        return ""
+    return ('<section data-ripreso><h2 id="guides">Guides by activity that point to this code</h2><ul>'
+            + "".join(f'<li><a href="/{a["slug"]}/">{h(maiuscola(a["h1"]))}</a></li>' for a in GUIDE_DI[c]) + "</ul></section>")
+
+
+def indice_attivita():
+    rim = Rimandi()
+    righe = []
+    for a in sorted(ATTIVITA, key=lambda a: a["nome"].lower()):
+        gruppi = voci_attivita(a)
+        scelte = scelte_attivita(a, gruppi)
+        if scelte:
+            c = next(iter(scelte))
+            cod = f'{link_cod(c)} {vi(c, scelte[c][0])}'
+            if len(scelte) > 1:
+                cod += f'<small>and {len(scelte) - 1} other code{"s" if len(scelte) > 2 else ""} compared in the guide</small>'
+        else:
+            cod = f'Sector {link_cod(a["settore"])}'
+        righe.append([f'<a href="/{a["slug"]}/">{h(maiuscola(a["nome"]))}</a>', cod])
+    corpo = ('<div class="card pull"><p style="margin:0">Guides for the activities people search most often with «NAICS code for …» '
+             f'({len(ATTIVITA)} activities, each with at least {MIN_VOLUME_ATTIVITA} searches a month in the United States). Each guide quotes the '
+             f'entries of the official 2022 index that point to each code and links to the code pages.{rim.ref("indice")}</p></div>')
+    corpo += ('<h2 id="activities">Activities and their codes</h2><p class="small">First column: the guide. Second column: the first code of the guide, '
+              'with an entry of the official index that points to it, and how many other codes the guide compares.</p>'
+              + tabella(["Activity", "Codes from the official index"], righe, resp="resp7"))
+    corpo += ('<h2 id="other">Activity not listed?</h2><div class="testo"><p>Use the <a href="/#search">search on the home page</a>: it covers all '
+              f'{NUM["n_idx"]} entries of the official index. The NAICS manual says to identify the primary business activity first and then read '
+              f'the full description of the industry, including cross-references and illustrative examples.{rim.ref("manuale")}</p></div>')
+    corpo += nota(f"These guides give the codes of the official classification, not advice: {FRASE_FISSA}.", "info", "alert")
+    corpo += rim.elenco()
+    controlla_codici_attivita("naics-code-for", corpo)
+    testata = banda("NAICS code by activity", "NAICS codes by business activity",
+                    f"{len(ATTIVITA)} guides to the activities people search for, from restaurants and trucking to software and real estate.",
+                    corta=True, icona="tag")
+    pagina("naics-code-for/", f"NAICS Codes by Business Activity: {len(ATTIVITA)} Guides",
+           f"NAICS codes for {len(ATTIVITA)} common business activities, from restaurants and trucking to real estate and software, with official index entries.",
+           corpo, testata, briciole=[("Home", ""), ("By activity", "naics-code-for/")])
 
 
 # ---------------------------------------------------------------- pagine del sito
@@ -1079,7 +1261,10 @@ def come_controlliamo(n_idx, n_noidx):
               f'(#n- and the code). We ask search engines to index {n_idx} code pages, those with at least {MIN_PAROLE_PROPRIE} groups of words of their '
               f'own and less than {int(MAX_SOVRAPPOSIZIONE * 100)}% of text in common with the most similar page, plus the shorter six-digit pages that people '
               f'search for (the code or its activity appears in the search suggestions we saved); the other {n_noidx} stay available but '
-              'are not indexed and carry no ads. «NAICS code for …» pages exist only for activities with measured Google searches.</p></div>')
+              'are not indexed and carry no ads. «NAICS code for …» pages exist only for activities with at least '
+              f'{MIN_VOLUME_ATTIVITA} measured Google searches a month in the United States; they quote only entries of the official index and '
+              'official descriptions, and follow a stricter rule of own text: the quoted official texts count as text in common with the code pages, the quoted '
+              f'index entries are not counted as text of the page, and less than {int(MAX_SOVRAPPOSIZIONE_ATTIVITA * 100)}% may be in common with the most similar page.</p></div>')
     corpo += ('<h2 id="updates">How often we update</h2><div class="testo"><p>Every month we download the Census files again: if a fingerprint changes we '
               'run all the checks. NAICS is revised every five years; when a new edition is published, the site moves to it.</p></div>')
     corpo += ('<h2 id="corrections">Report an error</h2><p>Found a difference with the official files? Tell us the page and, if you can, the link to the '
@@ -1182,11 +1367,18 @@ def copia_grafica():
 
 
 # ---------------------------------------------------------------- indicizzazione delle pagine di codice
-def gruppi_di_parole(html_, n=5):
+def gruppi_di_parole(html_, n=5, voci_a_parte=False):
+    """voci_a_parte (pagine attività, revisione del 13/11 sera): ogni voce dell'indice citata (<q class="vi">) è tolta e spezza il testo,
+    così gli accostamenti di voci ufficiali diverse nella stessa riga non contano come testo proprio; conta solo la prosa nostra."""
     t = re.sub(r"<section data-ripreso>.*?</section>", " ", html_, flags=re.S)
     t = re.sub(r"<(script|style|svg)\b.*?</\1>", " ", t, flags=re.S | re.I)
-    w = re.findall(r"\w+", unescape(re.sub(r"<[^>]+>", " ", t)).lower())
-    return {" ".join(w[i:i + n]) for i in range(max(0, len(w) - n + 1))}
+    if voci_a_parte:
+        t = re.sub(r'<q class="vi"[^>]*>.*?</q>', " \x00 ", t, flags=re.S)
+    out = set()
+    for pezzo in unescape(re.sub(r"<[^>]+>", " ", t)).lower().split("\x00"):
+        w = re.findall(r"\w+", pezzo)
+        out |= {" ".join(w[i:i + n]) for i in range(max(0, len(w) - n + 1))}
+    return out
 
 
 def pagine_codice():
@@ -1210,6 +1402,7 @@ def misura():
     testi, _PROVA = _PROVA, None
     ins = {p: gruppi_di_parole(t) for p, t in testi.items()}
     conta = Counter(g for s in ins.values() for g in s)
+    GREZZI_CODICE.update(ins)
     # frasi di modello (presenti in almeno QUOTA_MODELLO delle pagine di codice: titoli dei blocchi, avvertenze, spiegazioni fisse)
     # non sono contenuto di nessuna pagina: si tolgono prima di misurare la sovrapposizione
     soglia = QUOTA_MODELLO * len(ins)
@@ -1235,6 +1428,41 @@ def misura():
             MISURA[p]["richiesta"] = RICHIESTI[cod]
 
 
+GREZZI_CODICE = {}  # pagina di codice -> gruppi di 5 parole (con le frasi di modello)
+MISURA_ATT = {}
+
+
+def misura_attivita():
+    """Pagine «NAICS code for …»: indicizzate solo con almeno MIN_PAROLE_PROPRIE gruppi di 5 parole che non sono in nessun'altra pagina
+    (di codice o di attività) e meno di MAX_SOVRAPPOSIZIONE_ATTIVITA di testo in comune con la pagina più simile. Le voci dell'indice e le
+    descrizioni ufficiali citate sono anche nelle pagine dei codici: contano solo come testo in comune."""
+    global _PROVA
+    _PROVA = {}
+    for a in ATTIVITA:
+        pagina_attivita(a)
+    testi, _PROVA = _PROVA, None
+    att = {p: gruppi_di_parole(t, voci_a_parte=True) for p, t in testi.items()}
+    conta_cod = Counter(g for s in GREZZI_CODICE.values() for g in s)
+    conta_att = Counter(g for s in att.values() for g in s)
+    modello = {g for g, n in conta_cod.items() if n >= QUOTA_MODELLO * len(GREZZI_CODICE)}
+    modello |= {g for g, n in conta_att.items() if n >= QUOTA_MODELLO_ATTIVITA * len(att)}
+    att = {p: s - modello for p, s in att.items()}
+    altre = {**{p: s - modello for p, s in GREZZI_CODICE.items()}, **att}
+    indice = defaultdict(set)
+    for q, s in altre.items():
+        for g in s:
+            indice[g].add(q)
+    for p, a in att.items():
+        proprie = sum(1 for g in a if conta_cod[g] == 0 and conta_att[g] == 1)
+        cand = Counter(q for g in a for q in indice[g] if q != p)
+        meglio = (0.0, "")
+        for q, n in cand.most_common(5):
+            if a and n / len(a) > meglio[0]:
+                meglio = (round(n / len(a), 3), q)
+        MISURA_ATT[p] = {"proprie": proprie, "sovrapposizione": meglio[0], "piu_simile": meglio[1]}
+        INDICIZZA_ATT[p] = proprie >= MIN_PAROLE_PROPRIE and meglio[0] < MAX_SOVRAPPOSIZIONE_ATTIVITA
+
+
 def main():
     conserva = {}
     if SITO.exists():
@@ -1245,12 +1473,14 @@ def main():
         (SITO / nome).write_bytes(contenuto)
     copia_grafica()
     misura()
+    misura_attivita()
     home()
     pagine_codice()
     da_2017()
     sic_naics()
     for a in ATTIVITA:
         pagina_attivita(a)
+    indice_attivita()
     n_idx = sum(INDICIZZA.values())
     come_controlliamo(n_idx, len(INDICIZZA) - n_idx)
     about()
@@ -1262,13 +1492,21 @@ def main():
         "regola": {"min_parole_proprie": MIN_PAROLE_PROPRIE, "max_sovrapposizione": MAX_SOVRAPPOSIZIONE, "quota_modello": QUOTA_MODELLO,
                    "min_proprie_con_richiesta": MIN_PROPRIE_RICHIESTA, "max_sovrapposizione_con_richiesta": MAX_SOVRAPPOSIZIONE_RICHIESTA},
         "pagine": {p: dict(MISURA[p], indicizzata=INDICIZZA[p]) for p in sorted(MISURA)},
-        "attivita": {a["slug"]: {"volume": volume(a), "pubblicata": volume(a) > 0} for a in ATT}},
+        "regola_attivita": {"min_volume_mensile": MIN_VOLUME_ATTIVITA, "min_parole_proprie": MIN_PAROLE_PROPRIE,
+                            "max_sovrapposizione": MAX_SOVRAPPOSIZIONE_ATTIVITA, "quota_modello_attivita": QUOTA_MODELLO_ATTIVITA,
+                            "volumi": FILE_VOLUMI_ATTIVITA},
+        "attivita": {a["slug"]: dict({"volume": volume(a), "frasi": {f: vol_frase(f) for f in a["frasi"]},
+                                      "pubblicata": volume(a) >= MIN_VOLUME_ATTIVITA},
+                                     **({**MISURA_ATT[a["slug"] + "/"], "indicizzata": INDICIZZA_ATT[a["slug"] + "/"]}
+                                        if a["slug"] + "/" in MISURA_ATT else {})) for a in ATT}},
         ensure_ascii=False, indent=0) + "\n", encoding="utf-8")
     per_liv = Counter((C[p.rstrip("/")]["l"], INDICIZZA[p]) for p in INDICIZZA)
     print(f"Sito generato in {SITO}: {len(URLS)} pagine indicizzabili ({n_idx} pagine di codice su {len(INDICIZZA)}, "
           f"{len(INDICIZZA) - n_idx} noindex) + 404. Per livello (sì/no): "
           + ", ".join(f"{l}: {per_liv[(l, True)]}/{per_liv[(l, False)]}" for l in (2, 3, 4, 6))
-          + f". Attività pubblicate: {', '.join(a['slug'] for a in ATTIVITA)}. Indice {len(INDICE) // 1024} KB + voci {len(FRASI) // 1024} KB.")
+          + f". Pagine attività: {len(ATTIVITA)} ({sum(INDICIZZA_ATT.values())} indicizzate"
+          + (f"; noindex: {', '.join(p.rstrip('/') for p, v in INDICIZZA_ATT.items() if not v)}" if not all(INDICIZZA_ATT.values()) else "")
+          + f"). Indice {len(INDICE) // 1024} KB + voci {len(FRASI) // 1024} KB.")
 
 
 if __name__ == "__main__":

@@ -159,7 +159,7 @@
   },
   {
    "pagina": "naics-code-for-construction",
-   "ricerca": "what is the naics code for construction",
+   "ricerca": "naics code for construction",
    "q": "What is the NAICS code for construction?",
    "a": "Construction is sector 23, divided into subsector 236 «{t_236}», 237 «{t_237}» and 238 «{t_238}». The six-digit code depends on the main work: for example 236220 «{t_236220}», 237310 «{t_237310}» or 238220 «{t_238220}».",
    "fonti": [
@@ -187,12 +187,841 @@
   },
   {
    "pagina": "naics-code-for-cleaning-services",
-   "ricerca": "what is the naics code for cleaning services",
+   "ricerca": "naics code for cleaning services",
    "q": "What is the NAICS code for cleaning services?",
    "a": "It depends on what is cleaned. Building interiors and homes (janitorial, maid and housekeeping services) are 561720 «{t_561720}»; carpets and upholstery 561740 «{t_561740}»; building exteriors, chimneys and other services to dwellings 561790 «{t_561790}»; clothes and linens 812320 «{t_812320}».",
    "fonti": [
     "indice",
     "codici"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-restaurant",
+   "ricerca": "naics code for restaurant",
+   "q": "What is the NAICS code for a restaurant?",
+   "a": "It depends on the service. In the official 2022 index, full service restaurants, family restaurants with full service and fine dining restaurants are 722511 «{t_722511}»; fast-food, carryout and drive-in restaurants are 722513 «{t_722513}»; cafeterias and buffet eating places are 722514 «{t_722514}».",
+   "fonti": [
+    "indice",
+    "codici"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-restaurant",
+   "ricerca": "naics code for bar",
+   "q": "What is the NAICS code for a bar?",
+   "a": "Bars, cocktail lounges and taverns serving alcoholic beverages are 722410 «{t_722410}». Nonalcoholic beverage bars at a fixed location, such as juice bars, are 722515 «{t_722515}».",
+   "fonti": [
+    "indice",
+    "codici"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-restaurant",
+   "ricerca": "coffee shop naics code",
+   "q": "What is the NAICS code for a coffee shop?",
+   "a": "The official index lists «Coffee shops, on premise brewing» under 722515 «{t_722515}». Mobile coffee carts are 722330 «{t_722330}», and coffee roasting is 311920 «{t_311920}».",
+   "fonti": [
+    "indice",
+    "codici"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-restaurant",
+   "ricerca": "bakery naics code",
+   "q": "What is the NAICS code for a bakery?",
+   "a": "Bakeries that bake from flour on the premises and sell for consumption elsewhere are 311811 «{t_311811}»; bakery cafes that sell for immediate consumption are 722515 «{t_722515}»; stores selling baked goods not made on the premises are 445291 «{t_445291}»; commercial bakeries are 311812 «{t_311812}».",
+   "fonti": [
+    "indice",
+    "codici"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-food-truck",
+   "ricerca": "naics code for food truck",
+   "q": "What is the NAICS code for a food truck?",
+   "a": "722330 «{t_722330}». The official index lists food carts and trucks, lunch wagons, mobile food stands and ice cream truck vendors there, and the official description says the establishment is the central location from which the route is served, not each vehicle.",
+   "fonti": [
+    "indice",
+    "descrizioni"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-food-truck",
+   "ricerca": "naics code for catering",
+   "q": "What is the NAICS code for catering?",
+   "a": "Caterers and social catering services are 722320 «{t_722320}», which also includes banquet halls with catering staff. Food services provided on a contract basis, for example for hospital or school cafeterias, are 722310 «{t_722310}».",
+   "fonti": [
+    "indice",
+    "codici"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-real-estate",
+   "ricerca": "naics code for real estate",
+   "q": "What is the NAICS code for real estate?",
+   "a": "Real estate is subsector 531 «{t_531}». Real estate agents and brokers are 531210 «{t_531210}»; property managers are 531311 «{t_531311}» or 531312 «{t_531312}»; appraisers are 531320 «{t_531320}»; owners renting out buildings are in industry group 5311 «{t_5311}».",
+   "fonti": [
+    "codici",
+    "indice"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-real-estate",
+   "ricerca": "naics code for real estate agent",
+   "q": "What is the NAICS code for a real estate agent?",
+   "a": "531210 «{t_531210}». The official index lists real estate agents' offices, real estate agencies and brokerages, buyers' agents and commercial real estate agents there. The IRS instructions for Schedule C use 531210 as their example of a code.",
+   "fonti": [
+    "indice",
+    "irs_sc"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-real-estate-investment",
+   "ricerca": "naics code for real estate investment",
+   "q": "What is the NAICS code for real estate investment?",
+   "a": "The official index places equity real estate investment trusts by the kind of property they lease: 531110 «{t_531110}», 531120 «{t_531120}», 531130 «{t_531130}» or 531190 «{t_531190}». Mortgage REITs are 525990 «{t_525990}». Buying land to subdivide it for sale is 237210 «{t_237210}».",
+   "fonti": [
+    "indice",
+    "codici"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-real-estate-investment",
+   "ricerca": "real estate holding naics code",
+   "q": "What is the NAICS code for a real estate holding company?",
+   "a": "The index has no separate entry for real estate holding. Holding companies that hold securities of other companies without managing them are 551112 «{t_551112}»; a company that owns buildings and leases them is a lessor, for example 531110 «{t_531110}», whose description includes owner-lessors.",
+   "fonti": [
+    "indice",
+    "descrizioni"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-rental-property",
+   "ricerca": "naics code for rental property",
+   "q": "What is the NAICS code for rental property?",
+   "a": "Residential rentals such as apartments, houses and cottages are 531110 «{t_531110}»; commercial buildings are 531120 «{t_531120}»; land is 531190 «{t_531190}». The official description of 531110 includes owner-lessors and says they may manage the property themselves or have another establishment manage it.",
+   "fonti": [
+    "indice",
+    "descrizioni"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-rental-property",
+   "ricerca": "naics code for airbnb",
+   "q": "What is the NAICS code for an Airbnb or short-term rental?",
+   "a": "The official index has no entry for a booking platform or for «short-term rental». Short-term lodging (except hotels, motels, casino hotels and bed-and-breakfast inns) is 721199 «{t_721199}», with guest houses, tourist homes and housekeeping cottages; bed and breakfast inns are 721191 «{t_721191}». Online accommodations reservation services are 561599 «{t_561599}».",
+   "fonti": [
+    "indice",
+    "descrizioni"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-property-management",
+   "ricerca": "naics code for property management",
+   "q": "What is the NAICS code for property management?",
+   "a": "531311 «{t_531311}» for homes, apartments and residential condominiums, and 531312 «{t_531312}» for commercial and other nonresidential real estate. Homeowners' and condominium owners' associations are 813990 «{t_813990}».",
+   "fonti": [
+    "indice",
+    "codici"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-property-management",
+   "ricerca": "residential property management naics code",
+   "q": "What is the NAICS code for residential property management?",
+   "a": "531311 «{t_531311}». The official index also places resort or vacation property managers' offices and managers of cooperative apartments in this code.",
+   "fonti": [
+    "indice"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-holding-company",
+   "ricerca": "naics code for holding company",
+   "q": "What is the NAICS code for a holding company?",
+   "a": "Bank holding companies that do not manage are 551111 «{t_551111}»; other holding companies that do not manage, including personal, financial and insurance holding companies, are 551112 «{t_551112}»; holding companies that manage are 551114 «{t_551114}».",
+   "fonti": [
+    "indice",
+    "codici"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-holding-company",
+   "ricerca": "naics code 551112",
+   "q": "What does NAICS code 551112 mean?",
+   "a": "551112 is «{t_551112}». Its official description covers legal entities that hold the securities of other companies to own a controlling interest or influence management decisions, without administering, overseeing and managing the other establishments.",
+   "fonti": [
+    "descrizioni"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-trucking",
+   "ricerca": "naics code for trucking",
+   "q": "What is the NAICS code for trucking?",
+   "a": "General freight trucking is 484110 «{t_484110}» when local; long-distance it is 484121 «{t_484121}» or 484122 «{t_484122}». Specialized freight such as dump, flatbed, bulk liquids or livestock trucking is 484220 «{t_484220}» (local) or 484230 «{t_484230}» (long-distance).",
+   "fonti": [
+    "indice",
+    "codici"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-trucking",
+   "ricerca": "naics code truck driver",
+   "q": "What is the NAICS code for an independent truck driver?",
+   "a": "The official index lists «Independent truck driver (except owner-operators)» under 488490 «{t_488490}». Owner-operators are excluded from that entry; the official description of subsector 484 «{t_484}» covers over-the-road transportation of cargo using motor vehicles, such as trucks and tractor trailers.",
+   "fonti": [
+    "indice",
+    "codici"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-trucking",
+   "ricerca": "moving company naics code",
+   "q": "What is the NAICS code for a moving company?",
+   "a": "484210 «{t_484210}». The official index lists used household and office goods moving, used furniture moving and van lines offering moving and storage services there.",
+   "fonti": [
+    "indice"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-logistics",
+   "ricerca": "naics code for logistics",
+   "q": "What is the NAICS code for logistics?",
+   "a": "It depends on the activity: arranging freight transportation is 488510 «{t_488510}»; logistics management consulting is 541614 «{t_541614}»; general warehousing is 493110 «{t_493110}»; carrying the goods yourself is in the transportation subsectors, for example trucking 484110 «{t_484110}».",
+   "fonti": [
+    "indice",
+    "codici"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-logistics",
+   "ricerca": "naics code for freight broker",
+   "q": "What is the NAICS code for a freight broker?",
+   "a": "The official index has no entry with the words «freight broker». The description of 488510 «{t_488510}» covers establishments that arrange transportation of freight between shippers and carriers without providing the shipping themselves, usually known as freight forwarders, marine shipping agents or customs brokers.",
+   "fonti": [
+    "descrizioni",
+    "indice"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-logistics",
+   "ricerca": "courier naics code",
+   "q": "What is the NAICS code for a courier?",
+   "a": "Courier and express delivery services operating an intercity network are 492110 «{t_492110}»; local messengers, bicycle couriers and local delivery services that are not part of an intercity network are 492210 «{t_492210}».",
+   "fonti": [
+    "indice",
+    "codici"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-rideshare-and-delivery-drivers",
+   "ricerca": "naics code for uber driver",
+   "q": "What is the NAICS code for an Uber or Lyft driver?",
+   "a": "No entry of the official index names Uber or Lyft. Ridesharing services and ride hailing services are listed under 485310 «{t_485310}», whose official description includes ridesharing and ride hailing services, including arrangement services.",
+   "fonti": [
+    "indice",
+    "descrizioni"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-rideshare-and-delivery-drivers",
+   "ricerca": "doordash naics code",
+   "q": "What is the NAICS code for a DoorDash driver?",
+   "a": "No entry of the official index names DoorDash. It lists «Restaurant meals order and delivery services (i.e., independent order and delivery services)» and grocery delivery services under 492210 «{t_492210}».",
+   "fonti": [
+    "indice"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-transportation",
+   "ricerca": "naics code for transportation",
+   "q": "What is the NAICS code for transportation?",
+   "a": "Transportation is sector 48-49 «{t_48-49}». The six-digit code depends on the mode and on what is carried: for example 484110 «{t_484110}» for local general freight trucking, 485310 «{t_485310}» for taxis and ridesharing, 481111 «{t_481111}» for scheduled passenger flights.",
+   "fonti": [
+    "codici",
+    "indice"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-transportation",
+   "ricerca": "naics code for transportation services",
+   "q": "What is the NAICS code for transportation services?",
+   "a": "Carrying passengers or freight is classified by mode of transportation in sector 48-49. Arranging freight transportation between shippers and carriers is 488510 «{t_488510}»; travel arrangement and reservation services are in industry group 5615 «{t_5615}», outside the transportation sector.",
+   "fonti": [
+    "descrizioni",
+    "codici"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-hvac",
+   "ricerca": "naics code for hvac",
+   "q": "What is the NAICS code for HVAC?",
+   "a": "HVAC contractors are 238220 «{t_238220}», the same code as plumbers. Wholesalers of warm air heating and air-conditioning equipment are 423730 «{t_423730}» and manufacturers of that equipment are 333415 «{t_333415}».",
+   "fonti": [
+    "indice",
+    "codici"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-hvac",
+   "ricerca": "plumbing naics code",
+   "q": "What is the NAICS code for plumbing?",
+   "a": "Plumbing contractors are 238220 «{t_238220}». Wholesalers of plumbing and heating equipment and supplies are 423720 «{t_423720}».",
+   "fonti": [
+    "indice",
+    "codici"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-electrician",
+   "ricerca": "naics code for electrician",
+   "q": "What is the NAICS code for an electrician?",
+   "a": "238210 «{t_238210}». The official index lists electrical contractors, electrical work, electrical wiring contractors and solar panel installation there.",
+   "fonti": [
+    "indice"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-electrician",
+   "ricerca": "electrical contractor naics code",
+   "q": "What is the NAICS code for an electrical contractor?",
+   "a": "Electrical contractors are 238210 «{t_238210}». Contractors building power lines are classified elsewhere: power and communication line construction, such as electric power transmission line and tower construction, is 237130 «{t_237130}» in the heavy and civil engineering subsector.",
+   "fonti": [
+    "indice",
+    "codici"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-roofing",
+   "ricerca": "naics code for roofing",
+   "q": "What is the NAICS code for roofing?",
+   "a": "Roofing contractors are 238160 «{t_238160}», including roof shingle installation and roof painting, spraying or coating. Gutter and downspout contractors are 238170 «{t_238170}».",
+   "fonti": [
+    "indice",
+    "codici"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-roofing",
+   "ricerca": "roofing contractor naics code",
+   "q": "What is the NAICS code for a roofing contractor?",
+   "a": "Roofing contractors are 238160 «{t_238160}». Selling roofing materials is a different industry: merchant wholesalers of roofing materials (except wood) and asphalt roofing shingles are 423330 «{t_423330}».",
+   "fonti": [
+    "indice"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-handyman",
+   "ricerca": "naics code for handyman",
+   "q": "What is the NAICS code for a handyman?",
+   "a": "The official index lists «Handyman construction service, residential building» under 236118 «{t_236118}» and «Handyman construction service, commercial and institutional building» under 236220 «{t_236220}».",
+   "fonti": [
+    "indice"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-handyman",
+   "ricerca": "remodeling naics code",
+   "q": "What is the NAICS code for remodeling?",
+   "a": "Remodeling houses and other residential buildings is 236118 «{t_236118}», which includes remodeling general contractors, for-sale remodelers and remodeling design-build firms according to its official description.",
+   "fonti": [
+    "descrizioni"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-handyman",
+   "ricerca": "painting naics code",
+   "q": "What is the NAICS code for painting?",
+   "a": "House painting and painting contractors (except roofs) are 238320 «{t_238320}». Roof painting is 238160 «{t_238160}» and line painting on highways and parking lots is 237310 «{t_237310}».",
+   "fonti": [
+    "indice",
+    "codici"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-landscaping",
+   "ricerca": "naics code for landscaping",
+   "q": "What is the NAICS code for landscaping?",
+   "a": "561730 «{t_561730}». The official index lists landscape care and maintenance services, landscape installation services and landscape contractors (except construction) there. Landscape design and landscape architects are 541320 «{t_541320}».",
+   "fonti": [
+    "indice",
+    "codici"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-landscaping",
+   "ricerca": "naics code for lawn care",
+   "q": "What is the NAICS code for lawn care?",
+   "a": "Lawn care is in 561730 «{t_561730}», with entries such as fertilizing lawns. Repair of lawn and garden equipment without retailing new equipment is 811411 «{t_811411}».",
+   "fonti": [
+    "indice",
+    "codici"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-landscaping",
+   "ricerca": "tree service naics code",
+   "q": "What is the NAICS code for a tree service?",
+   "a": "The official index lists tree services (bracing, planting, pruning, removal, spraying, surgery, trimming), arborist services and tree removal services under 561730 «{t_561730}».",
+   "fonti": [
+    "indice"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-hair-salon",
+   "ricerca": "naics code for hair salon",
+   "q": "What is the NAICS code for a hair salon?",
+   "a": "Unisex or women's hair stylist salons, hairdressers and beauty salons are 812112 «{t_812112}». Men's hair stylist shops and barber shops are 812111 «{t_812111}».",
+   "fonti": [
+    "indice",
+    "codici"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-hair-salon",
+   "ricerca": "nail salon naics code",
+   "q": "What is the NAICS code for a nail salon?",
+   "a": "812113 «{t_812113}», with nail salons, manicure and pedicure salons and manicurist services in the official index.",
+   "fonti": [
+    "indice"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-hair-salon",
+   "ricerca": "barber shop naics code",
+   "q": "What is the NAICS code for a barber shop?",
+   "a": "812111 «{t_812111}». Shops combining beauty and barber services are listed under 812112 «{t_812112}» as «Beauty and barber shops, combined».",
+   "fonti": [
+    "indice"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-home-health-care",
+   "ricerca": "naics code for home health care",
+   "q": "What is the NAICS code for home health care?",
+   "a": "621610 «{t_621610}». The official index lists home health agencies, home health care agencies, medical home care of elderly and home nursing services (except private practices) there.",
+   "fonti": [
+    "indice"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-home-health-care",
+   "ricerca": "naics code for home care",
+   "q": "What is the NAICS code for non-medical home care?",
+   "a": "The official index lists «Home care of elderly, non-medical» and homemaker's service for elderly or disabled persons under 624120 «{t_624120}», in social assistance rather than health care.",
+   "fonti": [
+    "indice",
+    "codici"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-home-health-care",
+   "ricerca": "assisted living naics code",
+   "q": "What is the NAICS code for assisted living?",
+   "a": "It depends on nursing care: assisted living facilities for the elderly without nursing care are 623312 «{t_623312}»; with nursing care they are 623110 «{t_623110}»; with on-site nursing facilities they are 623311 «{t_623311}».",
+   "fonti": [
+    "indice",
+    "codici"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-daycare",
+   "ricerca": "naics code for daycare",
+   "q": "What is the NAICS code for a daycare?",
+   "a": "624410 «{t_624410}». The official index lists child care services, child care in the provider's own home, babysitting services and preschool centers there. Adult day care centers are 624120 «{t_624120}».",
+   "fonti": [
+    "indice",
+    "codici"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-daycare",
+   "ricerca": "preschool naics code",
+   "q": "What is the NAICS code for a preschool?",
+   "a": "Preschool centers and pre-kindergarten centers (except part of elementary school system) are 624410 «{t_624410}». Kindergartens, including kindergartens combined with preschools, are 611110 «{t_611110}».",
+   "fonti": [
+    "indice"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-gym",
+   "ricerca": "gym naics code",
+   "q": "What is the NAICS code for a gym?",
+   "a": "713940 «{t_713940}». The official index lists fitness centers, exercise centers, health clubs and body building studios there.",
+   "fonti": [
+    "indice"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-gym",
+   "ricerca": "naics code for personal trainer",
+   "q": "What is the NAICS code for a personal trainer?",
+   "a": "The official index lists «Personal fitness training services» under 812990 «{t_812990}». Aerobic dance and exercise instruction is 611620 «{t_611620}», and yoga or pilates instruction is 611699 «{t_611699}».",
+   "fonti": [
+    "indice"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-physical-therapy",
+   "ricerca": "naics code for physical therapy",
+   "q": "What is the NAICS code for physical therapy?",
+   "a": "621340 «{t_621340}», with physical therapists', occupational therapists' and physiotherapists' offices in the official index.",
+   "fonti": [
+    "indice"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-physical-therapy",
+   "ricerca": "naics code for massage therapy",
+   "q": "What is the NAICS code for massage therapy?",
+   "a": "The official index lists massage therapists' offices (centers, clinics) under 621399 «{t_621399}» and massage wellness spas or centers under 812199 «{t_812199}».",
+   "fonti": [
+    "indice"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-event-planning",
+   "ricerca": "naics code for event planning",
+   "q": "What is the NAICS code for event planning?",
+   "a": "Party planning services are 812990 «{t_812990}»; convention or trade show event planners are 561920 «{t_561920}»; organizers of arts, sports and similar events are 711310 «{t_711310}» with facilities or 711320 «{t_711320}» without.",
+   "fonti": [
+    "indice",
+    "codici"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-event-planning",
+   "ricerca": "wedding planner naics code",
+   "q": "What is the NAICS code for a wedding planner?",
+   "a": "The official index lists «Wedding planning services» under 812990 «{t_812990}». Wedding photography services are 541921 «{t_541921}».",
+   "fonti": [
+    "indice"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-event-planning",
+   "ricerca": "wedding venue naics code",
+   "q": "What is the NAICS code for a wedding or event venue?",
+   "a": "The index has no entry called «wedding venue». Renting out a banquet hall is 531120 «{t_531120}»; banquet halls with catering staff are 722320 «{t_722320}».",
+   "fonti": [
+    "indice"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-photography",
+   "ricerca": "naics code for photography",
+   "q": "What is the NAICS code for photography?",
+   "a": "Portrait, wedding and school photography services are 541921 «{t_541921}»; commercial, medical and aerial photography services are 541922 «{t_541922}»; independent artistic photographers are 711510 «{t_711510}».",
+   "fonti": [
+    "indice",
+    "codici"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-photography",
+   "ricerca": "video production naics code",
+   "q": "What is the NAICS code for video production?",
+   "a": "Motion picture and video production, including television commercials, is 512110 «{t_512110}». Video taping of special events such as weddings is 541921 «{t_541921}», and commercial event videography is 541922 «{t_541922}».",
+   "fonti": [
+    "indice"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-church",
+   "ricerca": "naics code for church",
+   "q": "What is the NAICS code for a church?",
+   "a": "813110 «{t_813110}». The official index lists churches, mosques, places of worship, religious ministries, missions and monasteries there.",
+   "fonti": [
+    "indice"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-church",
+   "ricerca": "naics code for religious organizations",
+   "q": "What is the NAICS code for a religious organization?",
+   "a": "Religious organizations are 813110 «{t_813110}», the same code as churches. Religious schools are classified as schools: in the official index, Bible colleges offering baccalaureate degrees are 611310 «{t_611310}» and Bible schools (except degree granting) are 611699 «{t_611699}».",
+   "fonti": [
+    "indice"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-nonprofit",
+   "ricerca": "naics code for nonprofit",
+   "q": "What is the NAICS code for a nonprofit?",
+   "a": "There is no NAICS code for being a nonprofit. The NAICS manual says an establishment is classified in an industry when its primary activity meets the definition for that industry; for example grantmaking foundations are 813211 «{t_813211}», advocacy organizations for the environment 813312 «{t_813312}» and food banks 624210 «{t_624210}».",
+   "fonti": [
+    "manuale",
+    "indice"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-software-development",
+   "ricerca": "naics code for software development",
+   "q": "What is the NAICS code for software development?",
+   "a": "Custom software development is 541511 «{t_541511}». Developing and publishing applications for sale, except on a custom basis, is 513210 «{t_513210}».",
+   "fonti": [
+    "indice"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-software-development",
+   "ricerca": "it consulting naics code",
+   "q": "What is the NAICS code for IT consulting?",
+   "a": "The official index lists computer software consulting services, computer hardware consulting services and systems integration design under 541512 «{t_541512}».",
+   "fonti": [
+    "indice"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-software-development",
+   "ricerca": "naics code for web design",
+   "q": "What is the NAICS code for web design?",
+   "a": "The official index lists «Web (i.e., Internet) page design services, custom» under 541511 «{t_541511}». Web hosting is 518210 «{t_518210}».",
+   "fonti": [
+    "indice"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-marketing",
+   "ricerca": "naics code for marketing",
+   "q": "What is the NAICS code for marketing?",
+   "a": "Marketing consulting is 541613 «{t_541613}»; advertising agencies are 541810 «{t_541810}»; marketing research is 541910 «{t_541910}».",
+   "fonti": [
+    "indice",
+    "codici"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-marketing",
+   "ricerca": "naics code for digital marketing",
+   "q": "What is the NAICS code for digital marketing?",
+   "a": "The official index lists digital advertising agencies, Internet advertising agencies and online advertising agencies under 541810 «{t_541810}».",
+   "fonti": [
+    "indice"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-marketing",
+   "ricerca": "graphic design naics code",
+   "q": "What is the NAICS code for graphic design?",
+   "a": "541430 «{t_541430}», with graphic design services, commercial art services and logo design services in the official index.",
+   "fonti": [
+    "indice"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-staffing-agency",
+   "ricerca": "naics code for staffing agency",
+   "q": "What is the NAICS code for a staffing agency?",
+   "a": "Temporary help services and contract staffing services are 561320 «{t_561320}»; employment placement agencies are 561311 «{t_561311}»; professional employer organizations and employee leasing are 561330 «{t_561330}».",
+   "fonti": [
+    "indice",
+    "codici"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-staffing-agency",
+   "ricerca": "employment agency naics code",
+   "q": "What is the NAICS code for an employment agency?",
+   "a": "561311 «{t_561311}», with employment agencies, employment placement services and non-executive recruitment services in the official index. Executive search services are 561312 «{t_561312}».",
+   "fonti": [
+    "indice"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-law-firm",
+   "ricerca": "naics code for law firm",
+   "q": "What is the NAICS code for a law firm?",
+   "a": "541110 «{t_541110}». The official index lists law firms, law offices, lawyers' and attorneys' offices and practices there.",
+   "fonti": [
+    "indice"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-law-firm",
+   "ricerca": "notary naics code",
+   "q": "What is the NAICS code for a notary public?",
+   "a": "The official index lists notary public services and notary publics' private practices under 541199 «{t_541199}».",
+   "fonti": [
+    "indice"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-accounting",
+   "ricerca": "accounting naics code",
+   "q": "What is the NAICS code for accounting?",
+   "a": "Offices of certified public accountants are 541211 «{t_541211}»; accountants who are not CPAs are 541219 «{t_541219}».",
+   "fonti": [
+    "indice",
+    "codici"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-accounting",
+   "ricerca": "naics code for bookkeeping",
+   "q": "What is the NAICS code for bookkeeping?",
+   "a": "541219 «{t_541219}», with bookkeeping services, bookkeepers' offices and billing services in the official index.",
+   "fonti": [
+    "indice"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-accounting",
+   "ricerca": "naics code for tax preparation",
+   "q": "What is the NAICS code for tax preparation?",
+   "a": "541213 «{t_541213}», with tax return preparation services and income tax return preparation services in the official index.",
+   "fonti": [
+    "indice"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-insurance-agency",
+   "ricerca": "naics code for insurance agency",
+   "q": "What is the NAICS code for an insurance agency?",
+   "a": "524210 «{t_524210}», with insurance agencies, insurance brokerages and life insurance agencies in the official index.",
+   "fonti": [
+    "indice"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-insurance-agency",
+   "ricerca": "insurance broker naics code",
+   "q": "Do insurance brokers have a different code from agents?",
+   "a": "No. The official index lists insurance brokerages in the same code as insurance agencies, 524210 «{t_524210}». Claims adjusting is 524291 «{t_524291}».",
+   "fonti": [
+    "indice"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-engineering",
+   "ricerca": "naics code for engineering",
+   "q": "What is the NAICS code for engineering?",
+   "a": "541330 «{t_541330}», with engineering services, engineering consulting services and consulting engineers' offices in the official index.",
+   "fonti": [
+    "indice"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-engineering",
+   "ricerca": "architect naics code",
+   "q": "What is the NAICS code for an architect?",
+   "a": "Architects (except landscape) are 541310 «{t_541310}»; landscape architects are 541320 «{t_541320}».",
+   "fonti": [
+    "indice",
+    "codici"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-auto-repair",
+   "ricerca": "naics code for auto repair",
+   "q": "What is the NAICS code for auto repair?",
+   "a": "General automotive repair shops are 811111 «{t_811111}»; brake, transmission, exhaust and other specialized repair shops are 811114 «{t_811114}»; body and paint shops are 811121 «{t_811121}».",
+   "fonti": [
+    "indice",
+    "codici"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-auto-repair",
+   "ricerca": "car wash naics code",
+   "q": "What is the NAICS code for a car wash or detailing?",
+   "a": "811192 «{t_811192}», with car washes, self-service and mobile car washes and automotive detailing services in the official index.",
+   "fonti": [
+    "indice"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-auto-repair",
+   "ricerca": "towing naics code",
+   "q": "What is the NAICS code for towing?",
+   "a": "488410 «{t_488410}», with tow truck services, wrecker services and emergency road services in the official index.",
+   "fonti": [
+    "indice"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-ecommerce",
+   "ricerca": "ecommerce naics code",
+   "q": "What is the NAICS code for ecommerce?",
+   "a": "There is none in NAICS 2022. The retail trade sector groups retailers by the merchandise line carried, and its description says retailers often reach customers through Internet websites. Internet retail sales sites of new general merchandise are 455219 «{t_455219}» in the official index.",
+   "fonti": [
+    "descrizioni",
+    "indice"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-ecommerce",
+   "ricerca": "naics code for amazon seller",
+   "q": "What is the NAICS code for an Amazon seller?",
+   "a": "No entry of the official index names Amazon. In NAICS 2022 an online retailer is classified like other retailers, mainly by the merchandise line carried: for example clothing is 458110 «{t_458110}» and electronics 449210 «{t_449210}». The 2017 to 2022 table shows the 2022 codes for the old 454110.",
+   "fonti": [
+    "indice",
+    "c17_22"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-retail-store",
+   "ricerca": "naics code for retail store",
+   "q": "What is the NAICS code for a retail store?",
+   "a": "Retail trade is sector 44-45 «{t_44-45}». The six-digit code follows the merchandise sold: for example grocery stores are 445110 «{t_445110}», clothing stores 458110 «{t_458110}» and general or variety stores 455219 «{t_455219}».",
+   "fonti": [
+    "codici",
+    "indice"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-retail-store",
+   "ricerca": "naics code for retail clothing",
+   "q": "What is the NAICS code for a clothing store?",
+   "a": "458110 «{t_458110}», with family, women's, men's and children's clothing stores in the official index.",
+   "fonti": [
+    "indice"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-manufacturing",
+   "ricerca": "naics code for manufacturing",
+   "q": "What is the NAICS code for manufacturing?",
+   "a": "Manufacturing is sector 31-33 «{t_31-33}». The six-digit code depends on the product: for example petroleum refineries are 324110 «{t_324110}» and wood household furniture other than upholstered is 337122 «{t_337122}». The NAICS manual says the code is assigned on the principal product or group of products produced.",
+   "fonti": [
+    "codici",
+    "manuale"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-hotel",
+   "ricerca": "naics code for hotel",
+   "q": "What is the NAICS code for a hotel?",
+   "a": "721110 «{t_721110}» for hotels without casinos and motels; 721120 «{t_721120}» for casino hotels. In the official index, hotel management services providing the staff to run the hotel are also 721110, while management without complete operation is 561110 «{t_561110}».",
+   "fonti": [
+    "indice",
+    "codici"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-consulting",
+   "ricerca": "naics code for business consulting",
+   "q": "What is the NAICS code for business consulting?",
+   "a": "The official 2022 index lists business management consulting services, business start-up consulting services and general management consulting services under 541611 «{t_541611}».",
+   "fonti": [
+    "indice"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-cleaning-services",
+   "ricerca": "janitorial naics code",
+   "q": "What is the NAICS code for janitorial services?",
+   "a": "561720 «{t_561720}». The official index lists janitorial services, office cleaning services and housekeeping services there.",
+   "fonti": [
+    "indice"
+   ]
+  },
+  {
+   "pagina": "naics-code-for-cleaning-services",
+   "ricerca": "naics code for pressure washing",
+   "q": "What is the NAICS code for pressure washing?",
+   "a": "The official index lists «Pressure washing (e.g., buildings, decks, fences)», power washing and steam cleaning of building exteriors under 561790 «{t_561790}».",
+   "fonti": [
+    "indice"
    ]
   }
  ]
