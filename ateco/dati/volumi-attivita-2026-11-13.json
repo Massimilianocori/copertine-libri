@@ -1,0 +1,2230 @@
+{
+ "_nota": "Volumi medi mensili di ricerca su Google in Italia (Google Ads) letti con api.seodata.dev (country=it) il 13/11/2026 per le pagine «Codice ATECO per …»: per ogni attività la forma «codice ateco X» e, per le attività con volume, la forma «X codice ateco»; più alcune frasi alternative. volume null = la frase non è nel database dello strumento (risposta 404: quasi tutte le forme «X codice ateco», che Google Ads conta insieme alla forma principale). «dato_del» = data del dato nello strumento (cache). «simili» = frasi vicine restituite dallo strumento con il loro volume (misurate anch'esse: valgono per le FAQ). Una pagina si pubblica con almeno 100 ricerche al mese su una delle sue frasi (genera.py: MIN_VOLUME_ATTIVITA); il volume della pagina è quello della frase più cercata, non la somma.",
+ "misurato_il": "2026-11-13",
+ "strumento": "api.seodata.dev, country=it",
+ "ricerche_usate": 244,
+ "attivita_misurate": [
+  "fotografo",
+  "videomaker",
+  "consulente",
+  "consulenza aziendale",
+  "consulente informatico",
+  "consulente marketing",
+  "parrucchiere",
+  "barbiere",
+  "estetista",
+  "centro estetico",
+  "onicotecnica",
+  "ristorante",
+  "pizzeria",
+  "bar",
+  "gelateria",
+  "pasticceria",
+  "panificio",
+  "catering",
+  "food truck",
+  "affittacamere",
+  "b&b",
+  "bed and breakfast",
+  "affitti brevi",
+  "casa vacanze",
+  "agriturismo",
+  "hotel",
+  "agente immobiliare",
+  "agenzia immobiliare",
+  "amministratore di condominio",
+  "e-commerce",
+  "ecommerce",
+  "vendita online",
+  "dropshipping",
+  "amazon fba",
+  "influencer",
+  "content creator",
+  "youtuber",
+  "social media manager",
+  "web designer",
+  "programmatore",
+  "sviluppatore software",
+  "grafico",
+  "copywriter",
+  "traduttore",
+  "insegnante",
+  "ripetizioni",
+  "formatore",
+  "personal trainer",
+  "istruttore fitness",
+  "palestra",
+  "psicologo",
+  "avvocato",
+  "commercialista",
+  "consulente del lavoro",
+  "architetto",
+  "geometra",
+  "ingegnere",
+  "medico",
+  "fisioterapista",
+  "osteopata",
+  "nutrizionista",
+  "infermiere",
+  "logopedista",
+  "dentista",
+  "veterinario",
+  "idraulico",
+  "elettricista",
+  "imbianchino",
+  "muratore",
+  "edilizia",
+  "impresa edile",
+  "impresa di pulizie",
+  "pulizie",
+  "giardiniere",
+  "manutenzione del verde",
+  "autotrasporto",
+  "trasporto merci",
+  "corriere",
+  "ncc",
+  "taxi",
+  "ambulante",
+  "artigiano",
+  "sarta",
+  "fiorista",
+  "tatuatore",
+  "wedding planner",
+  "organizzazione eventi",
+  "dj",
+  "musicista",
+  "guida turistica",
+  "agenzia viaggi",
+  "noleggio auto",
+  "noleggio attrezzature",
+  "agente di commercio",
+  "procacciatore d'affari",
+  "consulente finanziario",
+  "agente assicurativo",
+  "mediatore creditizio",
+  "falegname",
+  "fabbro",
+  "meccanico",
+  "carrozzeria",
+  "gommista",
+  "autolavaggio",
+  "toelettatura",
+  "dog sitter",
+  "educatore cinofilo",
+  "babysitter",
+  "asilo nido",
+  "tabaccheria",
+  "edicola",
+  "ferramenta",
+  "negozio abbigliamento",
+  "alimentari",
+  "macelleria",
+  "enoteca",
+  "erboristeria",
+  "farmacia",
+  "ottico",
+  "lavanderia",
+  "orafo",
+  "artista",
+  "scrittore",
+  "giornalista",
+  "agenzia di comunicazione",
+  "coach",
+  "operatore olistico",
+  "massaggiatore",
+  "naturopata",
+  "insegnante yoga",
+  "apicoltore",
+  "azienda agricola",
+  "hobbista",
+  "stampa 3d",
+  "tipografia",
+  "riparazione cellulari",
+  "installatore fotovoltaico",
+  "piastrellista",
+  "traslochi",
+  "disinfestazione",
+  "onoranze funebri",
+  "holding",
+  "call center",
+  "affiliate marketing"
+ ],
+ "frasi": {
+  "affitti brevi codice ateco": {
+   "volume": null
+  },
+  "agente immobiliare codice ateco": {
+   "volume": null
+  },
+  "agenzia viaggi codice ateco": {
+   "volume": null
+  },
+  "agriturismo codice ateco": {
+   "volume": null
+  },
+  "amministratore di condominio codice ateco": {
+   "volume": null
+  },
+  "architetto codice ateco": {
+   "volume": null
+  },
+  "artigiano codice ateco": {
+   "volume": null
+  },
+  "artista codice ateco": {
+   "volume": null
+  },
+  "asilo nido codice ateco": {
+   "volume": null
+  },
+  "autolavaggio codice ateco": {
+   "volume": null
+  },
+  "azienda agricola codice ateco": {
+   "volume": null
+  },
+  "b&b codice ateco": {
+   "volume": null
+  },
+  "bar codice ateco": {
+   "volume": null
+  },
+  "barbiere codice ateco": {
+   "volume": null
+  },
+  "bed and breakfast codice ateco": {
+   "volume": null
+  },
+  "carrozzeria codice ateco": {
+   "volume": null
+  },
+  "casa vacanze codice ateco": {
+   "volume": null
+  },
+  "catering codice ateco": {
+   "volume": null
+  },
+  "centro estetico codice ateco": {
+   "volume": null
+  },
+  "codice ateco affiliate marketing": {
+   "volume": null
+  },
+  "codice ateco affittacamere": {
+   "volume": 1000,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ateco affittacamere": 260,
+    "codice ateco b&b": 590,
+    "affittacamere codice ateco": 110,
+    "ateco b&b": 140,
+    "ateco bed and breakfast": 140,
+    "codice ateco bed and breakfast": 590,
+    "codice ateco casa vacanze": 390,
+    "55.20 51 codice ateco": 210,
+    "codice ateco affittacamere 2025": 110,
+    "codice ateco 55.20 51": 480
+   }
+  },
+  "codice ateco affitti brevi": {
+   "volume": 320,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco casa vacanze": 390,
+    "codice ateco locazione turistica": 170,
+    "codice ateco locazione turistica non imprenditoriale": 70,
+    "codice ateco affittacamere": 1000,
+    "codice ateco casa vacanze senza partita iva": 90,
+    "codice ateco b&b": 590,
+    "ateco affittacamere": 260,
+    "55.20 51 codice ateco": 210,
+    "affittacamere codice ateco": 110,
+    "codice ateco affittacamere 2025": 110
+   }
+  },
+  "codice ateco agente assicurativo": {
+   "volume": null
+  },
+  "codice ateco agente di commercio": {
+   "volume": 720,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco agenti di commercio": 720,
+    "ateco agente di commercio": 260,
+    "agente di commercio codice ateco": 170,
+    "codici ateco agente di commercio": 720,
+    "codici ateco agenti di commercio": 720,
+    "agenti di commercio codice ateco": 170,
+    "codice ateco agente di commercio forfettario": 90,
+    "codice ateco 461901": 170,
+    "agente di commercio partita iva": 140,
+    "partita iva agente di commercio": 140
+   }
+  },
+  "codice ateco agente immobiliare": {
+   "volume": 390,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco agenzia immobiliare": 320,
+    "ateco agente immobiliare": 170,
+    "ateco immobiliare": 110,
+    "codice ateco 68.31": 110,
+    "codice ateco immobiliare": 260,
+    "codice ateco 683100": 110,
+    "codice ateco consulente immobiliare": 110,
+    "codice ateco consulenza immobiliare": 110,
+    "codice ateco società immobiliare": 110,
+    "partita iva agente immobiliare": 170
+   }
+  },
+  "codice ateco agenzia di comunicazione": {
+   "volume": null
+  },
+  "codice ateco agenzia immobiliare": {
+   "volume": 320,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco agente immobiliare": 390,
+    "ateco agente immobiliare": 170,
+    "ateco immobiliare": 110,
+    "codice ateco immobiliare": 260,
+    "codice ateco 68.31": 110,
+    "codice ateco consulente immobiliare": 110,
+    "codice ateco consulenza immobiliare": 110,
+    "codice ateco 683100": 110,
+    "codice ateco società immobiliare": 110,
+    "partita iva agente immobiliare": 170
+   }
+  },
+  "codice ateco agenzia pubblicitaria": {
+   "volume": null
+  },
+  "codice ateco agenzia viaggi": {
+   "volume": 170,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco turismo": 110,
+    "codice ateco 799019": 140,
+    "codici ateco turismo": 110,
+    "codice ateco 79.90 19": 170,
+    "codice ateco 79.90 19 requisiti": 110
+   }
+  },
+  "codice ateco agriturismo": {
+   "volume": 390,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ateco agriturismo": 110,
+    "codice ateco 55.1": 170,
+    "ateco 55.1": 90,
+    "codice ateco somministrazione alimenti e bevande": 210,
+    "ateco alberghi": 170,
+    "codice ateco 55": 170,
+    "codice ateco 561012": 110,
+    "codice ateco locazione turistica non imprenditoriale": 70,
+    "codici ateco": 40500,
+    "codice ateco elenco": 2400
+   }
+  },
+  "codice ateco alimentari": {
+   "volume": 140,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco alimentare": 140,
+    "codice ateco supermercato": 210,
+    "ateco commerciante": 140,
+    "codice ateco minimarket": 140,
+    "ateco supermercato": 110,
+    "codice ateco commercio al dettaglio": 110,
+    "codici ateco commercio al dettaglio": 110,
+    "codice ateco commercianti": 320,
+    "codice ateco somministrazione alimenti e bevande": 210,
+    "codici ateco 47": 170
+   }
+  },
+  "codice ateco amazon fba": {
+   "volume": null
+  },
+  "codice ateco amazon": {
+   "volume": null
+  },
+  "codice ateco ambulante": {
+   "volume": null
+  },
+  "codice ateco amministratore di condominio": {
+   "volume": 320,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ateco amministratore condominio": 140,
+    "codice ateco amministratori di condominio": 320,
+    "codice ateco amministratore condominio": 140,
+    "codice ateco amministrazione condomini": 140,
+    "codice ateco condominio con amministratore": 110,
+    "ateco condominio": 390,
+    "codice ateco condomini": 1300,
+    "codice ateco condominio": 1300,
+    "codice ateco per condominio": 1300,
+    "codici ateco condomini": 1300
+   }
+  },
+  "codice ateco animatore": {
+   "volume": null
+  },
+  "codice ateco apicoltore": {
+   "volume": null
+  },
+  "codice ateco architetto": {
+   "volume": 1000,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco architetti": 1000,
+    "ateco architetti": 260,
+    "ateco architetto": 260,
+    "codice ateco studio architettura": 110,
+    "codice ateco architetti liberi professionisti": 260,
+    "codice ateco architetto libero professionista": 260,
+    "codice ateco architetto 2025": 110,
+    "codice ateco 711100": 170,
+    "codice ateco ingegneri": 590,
+    "codice ateco ingegneria": 590
+   }
+  },
+  "codice ateco artigiano": {
+   "volume": 390,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco artigiani": 390,
+    "codice ateco artigianato": 390,
+    "codici ateco artigiani": 390,
+    "codice ateco artigiano generico": 110,
+    "elenco codici ateco artigiani": 90,
+    "tabella codici ciae": 90,
+    "codici ateco": 40500,
+    "codice ateco elenco": 2400,
+    "codice attività": 1600,
+    "tabella codice ateco": 720
+   }
+  },
+  "codice ateco artista": {
+   "volume": 170,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco artisti": 170,
+    "codice ateco 90.03 09": 210,
+    "partita iva artista": 320,
+    "partita iva artisti": 320,
+    "partita iva come artista": 320,
+    "partita iva da artista": 320,
+    "partita iva per artisti": 320,
+    "codice ateco 900309": 260,
+    "codice ateco 90.01 09": 110,
+    "un artista da codici": 390
+   }
+  },
+  "codice ateco asilo nido": {
+   "volume": 140,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco asili nido": 140,
+    "codice ateco educatore": 90
+   }
+  },
+  "codice ateco autolavaggio": {
+   "volume": 210,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "aprire autolavaggio a mano": 110,
+    "aprire un autolavaggio a mano": 110
+   }
+  },
+  "codice ateco autotrasportatore": {
+   "volume": 110,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco autotrasporti": 110,
+    "codice ateco autotrasporti conto terzi": 140,
+    "codice ateco 49.41": 320,
+    "ateco 49.41": 170,
+    "codice ateco 4941": 140,
+    "codice ateco autotrasporto conto terzi": 140,
+    "codice ateco trasporti conto terzi": 170,
+    "codice ateco trasporto conto terzi": 170,
+    "codice ateco 494100": 140,
+    "codice ateco trasporto merci su strada": 90
+   }
+  },
+  "codice ateco autotrasporto": {
+   "volume": null
+  },
+  "codice ateco avvocato": {
+   "volume": 1300,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice attivita avvocato": 90,
+    "codice ateco avvocati": 1300,
+    "codice attività avvocato": 90,
+    "ateco studio legale": 110,
+    "ateco avvocati": 590,
+    "ateco avvocato": 590,
+    "codice ateco studi legali": 260,
+    "codice ateco studio legale": 260,
+    "codice ateco avvocato 2025": 110,
+    "avvocato codice ateco": 90
+   }
+  },
+  "codice ateco azienda agricola": {
+   "volume": 480,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ateco azienda agricola": 110,
+    "codice ateco agricoltura": 390,
+    "codici ateco agricoltura": 390,
+    "codice ateco 01": 110,
+    "ateco imprenditore agricolo": 210,
+    "codice ateco imprenditore agricolo": 110,
+    "codice ateco imprenditore agricolo professionale": 110,
+    "codici ateco attività agricole connesse": 90,
+    "codice ateco coltivatore diretto": 110,
+    "ateco coltivatore diretto": 110
+   }
+  },
+  "codice ateco b&b": {
+   "volume": 590,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco affittacamere": 1000,
+    "codice ateco bed and breakfast": 590,
+    "ateco affittacamere": 260,
+    "ateco b&b": 140,
+    "ateco bed and breakfast": 140,
+    "affittacamere codice ateco": 110,
+    "codice ateco casa vacanze": 390,
+    "55.20 51 codice ateco": 210,
+    "codice ateco 55.20 51": 480,
+    "codice ateco 552051": 320
+   }
+  },
+  "codice ateco babysitter": {
+   "volume": null
+  },
+  "codice ateco bar": {
+   "volume": 1900,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ateco bar": 720,
+    "codice ateco per bar": 1900,
+    "codice ateco bar con somministrazione": 110,
+    "codici ateco bar": 1900,
+    "codice ateco 563000": 260,
+    "codice ateco bar senza cucina": 590,
+    "codice ateco bar con cucina": 320,
+    "codice ateco 56.30 00": 210,
+    "ateco bar senza cucina": 70,
+    "codice ateco bar caffetteria": 110
+   }
+  },
+  "codice ateco barbiere": {
+   "volume": 170,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco parrucchiera": 1300,
+    "codice ateco parrucchiere": 1300,
+    "codice ateco parrucchieri": 1300,
+    "ateco parrucchiera": 480,
+    "ateco parrucchiere": 480,
+    "ateco parrucchieri": 480,
+    "codice ateco 960201": 170,
+    "parrucchiere codice ateco": 90,
+    "codice ateco visura camerale": 480,
+    "codici ateco elenco aggiornato": 320
+   }
+  },
+  "codice ateco bed and breakfast": {
+   "volume": 590,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ateco bed and breakfast": 140,
+    "codice ateco b&b": 590,
+    "affittacamere codice ateco": 110,
+    "codice ateco affittacamere": 1000,
+    "ateco affittacamere": 260,
+    "ateco b&b": 140,
+    "codice ateco 55.20 51": 480,
+    "55.20 51 codice ateco": 210,
+    "codice ateco 552051": 320,
+    "codice ateco casa vacanze": 390
+   }
+  },
+  "codice ateco call center": {
+   "volume": null
+  },
+  "codice ateco calzolaio": {
+   "volume": null
+  },
+  "codice ateco carrozzeria": {
+   "volume": 320,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco carrozziere": 320,
+    "ateco carrozzeria": 140,
+    "codice ateco 45.20 20 requisiti": 170,
+    "codice ateco meccanico senza officina": 170,
+    "codice ateco 45": 90,
+    "codice ateco gommista": 210,
+    "codice ateco 452010": 110,
+    "codice ateco officina meccanica": 210,
+    "codice ateco meccatronica": 170,
+    "codice ateco meccatronico": 170
+   }
+  },
+  "codice ateco casa vacanze": {
+   "volume": 390,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco affittacamere": 1000,
+    "codice ateco locazione turistica": 170,
+    "codice ateco affitti brevi": 320,
+    "ateco affittacamere": 260,
+    "codice ateco b&b": 590,
+    "affittacamere codice ateco": 110,
+    "codice ateco locazione turistica non imprenditoriale": 70,
+    "codice ateco 55.20 51": 480,
+    "55.20 51 codice ateco": 210,
+    "ateco bed and breakfast": 140
+   }
+  },
+  "codice ateco catering": {
+   "volume": 140,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco ristorante": 720,
+    "codice ateco 56.10 11": 590,
+    "codice ateco ristorazione": 590,
+    "codici ateco ristorazione": 590,
+    "ateco ristorante": 390,
+    "codice ateco somministrazione alimenti e bevande": 210,
+    "ateco ristorazione": 170,
+    "codice ateco bar ristorante": 90,
+    "codice ateco ristorante pizzeria": 90,
+    "codice ateco 56.10": 70
+   }
+  },
+  "codice ateco centro estetico": {
+   "volume": 320,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ateco centro estetico": 110,
+    "codice ateco estetista": 720,
+    "ateco estetista": 210,
+    "codice ateco estetica": 140,
+    "codice ateco estetiste": 140,
+    "codice ateco estetisti": 140,
+    "codice ateco 96.02 02": 140,
+    "codice ateco 960202": 170,
+    "codice ateco estetista forfettario": 90,
+    "estetista con partita iva": 140
+   }
+  },
+  "codice ateco coach": {
+   "volume": null
+  },
+  "codice ateco commercialista": {
+   "volume": 880,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco commercialisti": 880,
+    "ateco commercialisti": 480,
+    "ateco commercialista": 480,
+    "codice ateco dottori commercialisti": 170,
+    "codice ateco 692011": 170,
+    "ateco 692011": 170,
+    "codice attività 692011": 90,
+    "codice ateco 69.20 13 requisiti": 110,
+    "codice ateco 692012": 90,
+    "ateco esperto": 140
+   }
+  },
+  "codice ateco commercio all'ingrosso": {
+   "volume": 110,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codici ateco commercio all'ingrosso": 110,
+    "codice ateco 46": 140,
+    "ateco commercio": 140,
+    "commercio all'ingrosso e al dettaglio": 110,
+    "commercio all ingrosso": 590,
+    "codice ateco commercio": 320,
+    "codici ateco commercio": 320,
+    "commercio all'ingrosso senza deposito codice ateco": 140,
+    "codici ateco commercio al dettaglio": 110,
+    "codice ateco 45": 90
+   }
+  },
+  "codice ateco commercio ambulante": {
+   "volume": null
+  },
+  "codice ateco consulente del lavoro": {
+   "volume": 260,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco consulenti del lavoro": 260,
+    "ateco consulente del lavoro": 170,
+    "ateco consulenti del lavoro": 170,
+    "codice ateco consulente": 590,
+    "codici ateco consulenza": 590,
+    "codice ateco consulente generico": 320,
+    "codice ateco consulenza generica": 320,
+    "codice ateco per consulenza generica": 170,
+    "ateco consulente": 140,
+    "ateco consulenza": 140
+   }
+  },
+  "codice ateco consulente finanziario": {
+   "volume": 170,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco 661921": 110,
+    "codice ateco consulenza generica": 320,
+    "codice ateco per consulenza generica": 170,
+    "codice ateco 661922": 140
+   }
+  },
+  "codice ateco consulente informatico": {
+   "volume": 170,
+   "cpc_eur": 0.33,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco consulenza informatica": 140,
+    "codice ateco informatica": 140,
+    "codici ateco informatica": 140,
+    "codice ateco 62.02": 210,
+    "ateco 62.02": 140,
+    "codice ateco sviluppo software": 140,
+    "codice ateco 620909": 170,
+    "codice ateco sviluppatore software": 140,
+    "codice ateco 62": 110,
+    "codice ateco 62.09 09": 170
+   }
+  },
+  "codice ateco consulente marketing": {
+   "volume": 140,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco consulenza marketing": 140,
+    "codice ateco marketing": 140,
+    "codice ateco consulente commerciale": 140,
+    "codice ateco consulenza commerciale": 140,
+    "codice ateco consulenza commerciale e marketing": 110,
+    "codice ateco consulenza": 590,
+    "codice ateco consulente": 590,
+    "ateco consulenza": 140,
+    "ateco consulenza aziendale": 140,
+    "consulenza aziendale codice ateco": 140
+   }
+  },
+  "codice ateco consulente": {
+   "volume": 590,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codici ateco consulenza": 590,
+    "ateco consulenza": 140,
+    "codice ateco consulenza": 590,
+    "codice ateco per consulenza generica": 170,
+    "codice ateco consulente generico": 320,
+    "ateco consulenza aziendale": 140,
+    "codice ateco consulenza commerciale": 140,
+    "consulente aziendale codice ateco": 140,
+    "consulenza aziendale codice ateco": 140,
+    "codice ateco consulenza aziendale": 390
+   }
+  },
+  "codice ateco consulenza aziendale": {
+   "volume": 390,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco consulente aziendale": 320,
+    "consulente aziendale codice ateco": 140,
+    "ateco consulente aziendale": 140,
+    "ateco consulenza aziendale": 140,
+    "consulenza aziendale codice ateco": 140,
+    "codice ateco consulenza": 590,
+    "codice ateco consulenza commerciale": 140,
+    "ateco consulenza": 140,
+    "codice ateco consulente commerciale": 140,
+    "codice ateco consulente": 590
+   }
+  },
+  "codice ateco content creator": {
+   "volume": 210,
+   "cpc_eur": 0.32,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco influencer": 390,
+    "codice ateco 73.11 03": 110,
+    "codice ateco youtuber": 110
+   }
+  },
+  "codice ateco copywriter": {
+   "volume": 110,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {}
+  },
+  "codice ateco corriere espresso": {
+   "volume": null
+  },
+  "codice ateco corriere": {
+   "volume": null
+  },
+  "codice ateco dentista": {
+   "volume": 320,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco odontoiatra": 260,
+    "codice ateco studio dentistico": 170,
+    "ateco dentista": 140,
+    "codice ateco 862300": 110,
+    "codice ateco odontotecnici": 170,
+    "codice ateco odontotecnico": 170,
+    "codice ateco dentista libero professionista": 90,
+    "dentistas iva": 390,
+    "codice ateco igienista dentale": 260
+   }
+  },
+  "codice ateco disinfestazione": {
+   "volume": null
+  },
+  "codice ateco dj": {
+   "volume": null
+  },
+  "codice ateco dog sitter": {
+   "volume": null
+  },
+  "codice ateco dropshipping": {
+   "volume": 140,
+   "cpc_eur": 0.57,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "partita iva dropshipping": 90,
+    "partita iva per dropshipping": 90,
+    "dropshipping partita iva": 90,
+    "partita iva dropshipping costi": 90,
+    "dropshipping serve partita iva": 90,
+    "codice ateco ecommerce": 390,
+    "codice ateco vendita online": 390,
+    "codici ateco vendita online": 390,
+    "codice ateco commercio online": 210,
+    "codice ateco commercio elettronico": 140
+   }
+  },
+  "codice ateco e-commerce": {
+   "volume": 480,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-12",
+   "simili": {
+    "codice ateco vendite online": 390,
+    "commercio on line codice ateco": 90,
+    "codice ateco vendita online": 390,
+    "codici ateco vendita online": 390,
+    "commercio online codice ateco": 110,
+    "codice ateco ecommerce": 390,
+    "codice ateco commercio online": 210,
+    "ateco commercio elettronico": 110,
+    "commercio elettronico codice ateco": 110,
+    "ateco ecommerce": 90
+   }
+  },
+  "codice ateco ecommerce": {
+   "volume": 390,
+   "cpc_eur": 0.88,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "commercio elettronico codice ateco": 110,
+    "codice ateco vendita online": 390,
+    "codice ateco commercio online": 210,
+    "ateco commercio elettronico": 110,
+    "codici ateco vendita online": 390,
+    "codice ateco commercio elettronico": 140,
+    "ateco ecommerce": 90,
+    "commercio online codice ateco": 110,
+    "codice ateco 47.91 10": 390,
+    "47.91 10 codice ateco": 210
+   }
+  },
+  "codice ateco edicola": {
+   "volume": 110,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco edicole": 110,
+    "nuovo codice ateco 2025": 6600,
+    "codici ateco 2025 elenco": 1600,
+    "elenco codice ateco 2025": 880,
+    "ateco 2025 elenco": 390,
+    "codice ateco 47.91 10": 390,
+    "codice ateco 479110": 390,
+    "codice ateco ecommerce": 390,
+    "codice ateco vendita online": 390,
+    "codici ateco vendita online": 390
+   }
+  },
+  "codice ateco edilizia": {
+   "volume": 720,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codici ateco edilizia": 720,
+    "ateco edilizia": 320,
+    "codice ateco lavori edili": 140,
+    "codice ateco ristrutturazioni edili": 210,
+    "ateco impresa edile": 170,
+    "codice ateco ristrutturazioni edilizie": 210,
+    "codici ateco lavori edili": 140,
+    "codice ateco impresa edile": 320,
+    "codice ateco 412000": 390,
+    "codice ateco costruzione di edifici residenziali e non residenziali": 210
+   }
+  },
+  "codice ateco educatore cinofilo": {
+   "volume": null
+  },
+  "codice ateco elettricista": {
+   "volume": 390,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codici ateco elettricista": 390,
+    "ateco elettricista": 140,
+    "codice ateco impianti elettrici": 210,
+    "codice ateco impiantistica elettrica": 210,
+    "codice ateco 43.21 01": 590,
+    "codice ateco 43.21 01 requisiti": 110,
+    "codici ateco 43.21 01": 590,
+    "codice ateco 432101": 390,
+    "ateco 432101": 210,
+    "codice ateco 43.21 02": 90
+   }
+  },
+  "codice ateco enoteca": {
+   "volume": null
+  },
+  "codice ateco erboristeria": {
+   "volume": null
+  },
+  "codice ateco estetista": {
+   "volume": 720,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ateco estetista": 210,
+    "codice ateco estetica": 140,
+    "codice ateco estetisti": 140,
+    "codice ateco estetiste": 140,
+    "ateco centro estetico": 110,
+    "codice ateco centro estetico": 320,
+    "codice ateco 96.02 02": 140,
+    "codice ateco 960202": 170,
+    "partita iva per estetista": 140,
+    "partita iva estetista": 140
+   }
+  },
+  "codice ateco fabbro": {
+   "volume": 210,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "fabbro codice ateco": 210,
+    "codice ateco carpenteria metallica": 110,
+    "codice ateco artigiano": 390,
+    "codice ateco 25.11": 260,
+    "ateco 25.11": 140,
+    "codice ateco artigianato": 390,
+    "codice ateco artigiani": 390,
+    "codici ateco artigiani": 390,
+    "codice ateco artigiano generico": 110,
+    "elenco codici ateco artigiani": 90
+   }
+  },
+  "codice ateco falegname": {
+   "volume": 260,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco falegnameria": 260,
+    "codici ateco falegnameria": 260,
+    "ateco falegname": 110,
+    "ateco falegnameria": 110,
+    "codice ateco 162320": 70
+   }
+  },
+  "codice ateco farmacia": {
+   "volume": 590,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco farmacie": 590,
+    "ateco farmacia": 210,
+    "codice ateco farmacista": 590,
+    "farmacista partita iva": 880,
+    "farmacista con partita iva": 110,
+    "partita iva farmacista": 110,
+    "farmacisti partita iva": 880,
+    "codice ateco parafarmacia": 110,
+    "farmacista libero professionista": 110,
+    "farmacisti liberi professionisti": 110
+   }
+  },
+  "codice ateco ferramenta": {
+   "volume": 110,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {}
+  },
+  "codice ateco fiorista": {
+   "volume": 90,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco fioraio": 90,
+    "codice ateco 01": 110
+   }
+  },
+  "codice ateco fisioterapista": {
+   "volume": 720,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco fisioterapista 2025": 140,
+    "codice ateco 869021": 110,
+    "codice ateco fisioterapisti": 720,
+    "ateco fisioterapista": 170
+   }
+  },
+  "codice ateco food truck": {
+   "volume": null
+  },
+  "codice ateco formatore sicurezza": {
+   "volume": null
+  },
+  "codice ateco formatore": {
+   "volume": 90,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco 855920": 260,
+    "codice ateco 85.59 20": 210,
+    "855920": 140,
+    "codice ateco 85.59 20 requisiti": 140,
+    "codice ateco insegnamento": 140,
+    "codice ateco insegnante": 140,
+    "ateco 855920": 110,
+    "codice ateco coaching": 110,
+    "codice ateco insegnante privato": 110
+   }
+  },
+  "codice ateco fotografo": {
+   "volume": 390,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco fotografia": 390,
+    "ateco fotografo": 90,
+    "codice ateco 74.20 19": 110,
+    "partita iva fotografo": 110
+   }
+  },
+  "codice ateco gelateria": {
+   "volume": 170,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco pasticceria": 260,
+    "ateco pasticceria": 110,
+    "gelateria e pasticceria": 40
+   }
+  },
+  "codice ateco geometra": {
+   "volume": 720,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco geometri": 720,
+    "ateco geometra": 260,
+    "ateco geometri": 260,
+    "codice ateco geometri liberi professionisti": 110,
+    "codice ateco geometra libero professionista": 90,
+    "codice ateco 711230": 110,
+    "codice ateco geometra non iscritto all albo": 90,
+    "codice ateco geometra non iscritto all'albo": 90,
+    "ateco ingegneria": 260,
+    "codice ateco 71.12 10": 110
+   }
+  },
+  "codice ateco giardiniere": {
+   "volume": 320,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "giardiniere codice ateco": 320,
+    "codici ateco giardinaggio": 110,
+    "codice ateco manutenzione del verde": 110,
+    "codice ateco 81.30 00 requisiti": 140,
+    "codice ateco 813000": 110,
+    "partita iva giardiniere": 90,
+    "giardiniere con partita iva agricola": 140,
+    "giardiniere senza partita iva": 70,
+    "iva giardiniere": 70,
+    "codice ateco 81.3": 170
+   }
+  },
+  "codice ateco giornalista": {
+   "volume": 170,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco giornalisti": 170
+   }
+  },
+  "codice ateco gommista": {
+   "volume": 210,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco carrozzeria": 320,
+    "codice ateco 45.20 20 requisiti": 170,
+    "codice ateco meccatronica": 170,
+    "codice ateco meccatronico": 170,
+    "codice ateco carrozziere": 320,
+    "codice ateco officina meccanica": 210,
+    "codici ateco officina meccanica": 210,
+    "codice ateco meccanico senza officina": 170,
+    "codice ateco 45.20 1": 140,
+    "codice ateco 452010": 110
+   }
+  },
+  "codice ateco grafico": {
+   "volume": 170,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco grafica": 170,
+    "codice ateco 74.10 29": 140,
+    "codice ateco 741029": 170,
+    "codice ateco disegnatore tecnico": 170,
+    "codice ateco designer": 110,
+    "codice ateco tipografia": 90
+   }
+  },
+  "codice ateco guida turistica": {
+   "volume": 140,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco accompagnatore turistico": 110,
+    "codice ateco guide turistiche": 90,
+    "esempio fattura guida turistica": 70,
+    "accompagnatore turistico occasionale": 210,
+    "codici ateco turismo": 110
+   }
+  },
+  "codice ateco hobbista": {
+   "volume": null
+  },
+  "codice ateco holding": {
+   "volume": 260,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco 642000": 170,
+    "ateco holding": 110,
+    "codice ateco 64.2": 170,
+    "codice ateco 701000": 140,
+    "holding finanziaria": 260,
+    "holding finanziarie": 260,
+    "holding di partecipazione": 140,
+    "holding di partecipazioni": 140,
+    "attività prevalente": 110,
+    "holding pura": 110
+   }
+  },
+  "codice ateco hotel": {
+   "volume": 320,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco alberghi": 480,
+    "codice ateco albergo": 480,
+    "ateco alberghi": 170,
+    "codice ateco 55.10 00": 110,
+    "codice ateco 55": 170,
+    "codice ateco 55.1": 170,
+    "ateco 55.1": 90,
+    "codice ateco affittacamere": 1000,
+    "codice ateco b&b": 590,
+    "codice ateco casa vacanze": 390
+   }
+  },
+  "codice ateco idraulico": {
+   "volume": 260,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ateco idraulico": 110,
+    "codice ateco 43.22 01 requisiti": 140,
+    "codice ateco 432201": 260,
+    "codice ateco idraulico artigiano": 110,
+    "ateco 432201": 140,
+    "codice ateco 43.21 01": 590,
+    "codici ateco 43.21 01": 590,
+    "codici ateco elettricista": 390,
+    "codice ateco impianti elettrici": 210,
+    "codice ateco impiantistica elettrica": 210
+   }
+  },
+  "codice ateco imbianchino": {
+   "volume": 260,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "imbianchino codice ateco": 260,
+    "ateco imbianchino": 90,
+    "codice ateco 43.34": 110,
+    "codice ateco imbianchino e cartongesso": 90,
+    "codice ateco 433909": 170,
+    "codice ateco 439909": 140,
+    "pittore imbianchino": 140,
+    "codice ateco cartongesso": 110,
+    "elenco codici ateco artigiani": 90
+   }
+  },
+  "codice ateco impresa di pulizie": {
+   "volume": 170,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco pulizie": 210,
+    "codici ateco pulizie": 210,
+    "codice ateco pulizia": 210,
+    "ateco pulizie": 90,
+    "codice ateco 81.21 00 requisiti": 140,
+    "codice ateco 81.21": 210,
+    "codici ateco 81.21": 210,
+    "ateco 81.21": 110,
+    "codice ateco 812100": 140,
+    "impresa di pulizie senza partita iva": 140
+   }
+  },
+  "codice ateco impresa edile": {
+   "volume": 320,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ateco impresa edile": 170,
+    "codici ateco lavori edili": 140,
+    "codice ateco ristrutturazioni edili": 210,
+    "codice ateco ristrutturazioni edilizie": 210,
+    "codice ateco lavori edili": 140,
+    "codici ateco edilizia": 720,
+    "codice ateco edilizia": 720,
+    "ateco edilizia": 320,
+    "ateco muratore": 210,
+    "codice ateco costruzione di edifici residenziali e non residenziali": 210
+   }
+  },
+  "codice ateco infermiere": {
+   "volume": 480,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ateco infermiere": 110,
+    "codice ateco infermiere professionale": 110,
+    "codice ateco 86.90 29 forfettario": 110,
+    "partita iva infermiere": 880,
+    "infermieri con partita iva": 720,
+    "codice ateco 869029": 390,
+    "partita iva per infermieri": 40
+   }
+  },
+  "codice ateco influencer": {
+   "volume": 390,
+   "cpc_eur": 0.32,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco 73.11 03": 110,
+    "codice ateco content creator": 210,
+    "codice ateco youtuber": 110,
+    "codice ateco marketing": 140,
+    "codice ateco 73.11 02 forfettario": 110,
+    "partita iva influencer": 40
+   }
+  },
+  "codice ateco ingegnere": {
+   "volume": 590,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco studio ingegneria": 110,
+    "codice ateco ingegneri": 590,
+    "ateco ingegneria": 260,
+    "codice ateco studi di ingegneria": 110,
+    "codice ateco studi ingegneria": 110,
+    "codice ateco studio di ingegneria": 110,
+    "ateco ingegneri": 260,
+    "codice ateco ingegneria": 590,
+    "ateco ingegnere": 260,
+    "codice ateco 71.12 10": 110
+   }
+  },
+  "codice ateco insegnante yoga": {
+   "volume": null
+  },
+  "codice ateco insegnante": {
+   "volume": 140,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco insegnamento": 140,
+    "codice ateco insegnante privato": 110,
+    "partita iva per insegnanti": 110,
+    "insegnamento privato": 210,
+    "codice ateco 85.59 90": 110,
+    "insegnante con partita iva": 110,
+    "codice ateco 855990": 210,
+    "insegnante privato": 210,
+    "855990": 110,
+    "insegnamento e partita iva": 110
+   }
+  },
+  "codice ateco installatore fotovoltaico": {
+   "volume": null
+  },
+  "codice ateco istruttore fitness": {
+   "volume": null
+  },
+  "codice ateco lavanderia": {
+   "volume": 210,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco lavanderia self service": 110,
+    "codice ateco lavanderia self-service": 110,
+    "codice ateco lavanderie self service": 110,
+    "codice ateco lavanderie self-service": 110
+   }
+  },
+  "codice ateco lezioni private": {
+   "volume": null
+  },
+  "codice ateco locazione turistica": {
+   "volume": 170,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco locazione turistica non imprenditoriale": 70,
+    "codice ateco casa vacanze": 390,
+    "codice ateco affitti brevi": 320,
+    "codice ateco affittacamere": 1000,
+    "affittacamere codice ateco": 110,
+    "ateco affittacamere": 260,
+    "55.20 51 codice ateco": 210,
+    "codice ateco casa vacanze senza partita iva": 90,
+    "codice ateco b&b": 590,
+    "codice ateco 55.20 51": 480
+   }
+  },
+  "codice ateco logopedista": {
+   "volume": 210,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco fisioterapista 2025": 140,
+    "codice ateco 869029": 390,
+    "codice ateco igienista dentale": 260,
+    "codice ateco massoterapia": 140,
+    "codice ateco 86.90 29 forfettario": 110
+   }
+  },
+  "codice ateco macelleria": {
+   "volume": 260,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ateco macelleria": 140,
+    "lista codici ateco": 590,
+    "codice ateco somministrazione alimenti e bevande": 210,
+    "codici ateco lista": 210,
+    "codice ateco alimentare": 140,
+    "codice ateco alimentari": 140,
+    "codice ateco 477899": 110
+   }
+  },
+  "codice ateco manutenzione del verde": {
+   "volume": 110,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "giardiniere codice ateco": 320,
+    "codici ateco giardinaggio": 110,
+    "codice ateco giardiniere": 320,
+    "codice ateco 81.30 00 requisiti": 140,
+    "codice ateco 813000": 110,
+    "codice ateco 81.3": 170,
+    "manutentore del verde": 590,
+    "manutenzione del verde": 480,
+    "manutentore verde": 320,
+    "manutenzione verde": 320
+   }
+  },
+  "codice ateco massaggiatore": {
+   "volume": 260,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "partita iva massaggiatore": 90,
+    "codice ateco massaggiatore olistico": 110,
+    "codice ateco massoterapia": 140,
+    "massaggiatore senza partita iva": 90,
+    "codice ateco operatore olistico": 210,
+    "codice ateco mcb": 110,
+    "massaggiatore a domicilio normativa": 110,
+    "operatore olistico codice ateco": 110,
+    "operatore olistico senza partita iva": 260,
+    "codice ateco massofisioterapista": 90
+   }
+  },
+  "codice ateco meccanico": {
+   "volume": 170,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco officina metalmeccanica": 210,
+    "codice ateco meccanica": 170,
+    "codici ateco meccanica": 170,
+    "codici ateco officina meccanica": 210,
+    "codice ateco officina meccanica": 210,
+    "codice ateco 452010": 110,
+    "codice ateco meccatronica": 170,
+    "codice ateco metalmeccanico": 140,
+    "elenco codice ateco": 2400,
+    "codici ateco elenco aggiornato": 320
+   }
+  },
+  "codice ateco mediatore creditizio": {
+   "volume": null
+  },
+  "codice ateco medico": {
+   "volume": 590,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco medici": 590,
+    "codici ateco medici": 590,
+    "ateco medico": 170,
+    "codice ateco medico specialista": 170,
+    "codice ateco medici liberi professionisti": 140,
+    "codice ateco medico libero professionista": 140,
+    "codice ateco medico generico": 140,
+    "codice ateco medico neolaureato": 140,
+    "codice ateco 86.22 09": 110,
+    "codice ateco studio medico": 110
+   }
+  },
+  "codice ateco muratore": {
+   "volume": 320,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ateco muratore": 210,
+    "codice ateco lavori edili": 140,
+    "codice ateco 433901": 390,
+    "codice ateco 43.39 01 cosa comprende": 210,
+    "codice ateco ristrutturazioni edili": 210,
+    "codice ateco ristrutturazioni edilizie": 210,
+    "codici ateco lavori edili": 140,
+    "codice ateco impresa edile": 320,
+    "codice ateco edilizia": 720,
+    "codici ateco edilizia": 720
+   }
+  },
+  "codice ateco musicista": {
+   "volume": 140,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "partita iva musicista": 110,
+    "partita iva per musicisti": 110,
+    "codice ateco 900109": 170,
+    "codice ateco artista": 170,
+    "codice ateco artisti": 170,
+    "codice ateco 90.01 09": 110,
+    "fac simile fattura musicista forfettario": 90
+   }
+  },
+  "codice ateco naturopata": {
+   "volume": 90,
+   "cpc_eur": 0.86,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "operatore olistico codice ateco": 110,
+    "codice attivita 960909": 90,
+    "operatore olistico": 3600,
+    "operatore olistico senza partita iva": 260,
+    "codice ateco operatore olistico": 210,
+    "consulenti olistici": 170,
+    "codice ateco massaggiatore olistico": 110,
+    "come iscriversi all'albo degli operatori olistici": 110,
+    "fac simile fattura operatore olistico": 110,
+    "fac-simile fattura operatore olistico": 110
+   }
+  },
+  "codice ateco ncc": {
+   "volume": 210,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco noleggio con conducente": 210,
+    "codice ateco taxi": 110,
+    "iva ncc": 110,
+    "noleggio con conducente": 27100,
+    "codice ateco noleggio senza conducente": 210,
+    "codice ateco noleggio auto": 110
+   }
+  },
+  "codice ateco negozio abbigliamento": {
+   "volume": 140,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codici ateco abbigliamento": 170,
+    "codice ateco abbigliamento": 170,
+    "commercio al dettaglio di confezioni per adulti": 140,
+    "ateco commercio abbigliamento": 110,
+    "ateco commerciante abbigliamento": 110,
+    "codice ateco 477110": 140,
+    "codice ateco commercianti": 320,
+    "codici ateco commercio": 320,
+    "codici ateco 47": 170,
+    "ateco commercio": 140
+   }
+  },
+  "codice ateco noleggio attrezzature": {
+   "volume": null
+  },
+  "codice ateco noleggio auto": {
+   "volume": 110,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco noleggio senza conducente": 210,
+    "codice ateco 77.11": 110,
+    "codice ateco ncc": 210,
+    "codice ateco noleggio con conducente": 210
+   }
+  },
+  "codice ateco nutrizionista": {
+   "volume": 170,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco biologo nutrizionista": 320,
+    "biologo della nutrizione": 390,
+    "biologia nutrizionista": 260,
+    "codice ateco biologo": 110
+   }
+  },
+  "codice ateco onicotecnica": {
+   "volume": 170,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco onicotecnico": 170,
+    "applicazione e decorazione unghie artificiali codice ateco": 110,
+    "partita iva onicotecnica in casa": 140,
+    "partita iva onicotecnica": 90,
+    "onicotecnica come mettersi in regola": 90,
+    "onicotecnico significato": 2900,
+    "chi fa le unghie": 260,
+    "lavorare come onicotecnica": 260,
+    "chi fa le unghie come si chiama": 140
+   }
+  },
+  "codice ateco onoranze funebri": {
+   "volume": null
+  },
+  "codice ateco operatore olistico": {
+   "volume": 210,
+   "cpc_eur": 1.69,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco massaggiatore olistico": 110,
+    "operatore olistico senza partita iva": 260,
+    "operatore olistico codice ateco": 110,
+    "codice ateco massaggiatore": 260,
+    "aprire uno studio olistico in casa": 110,
+    "fac-simile fattura operatore olistico": 110,
+    "operatore olistico": 3600,
+    "operatore olistico legge": 210,
+    "fac simile fattura operatore olistico": 110,
+    "operatore olistico requisiti": 110
+   }
+  },
+  "codice ateco orafo": {
+   "volume": null
+  },
+  "codice ateco organizzazione eventi": {
+   "volume": 390,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "organizzazione eventi codice ateco": 110,
+    "ateco organizzazione eventi": 140,
+    "codice ateco 96.09 05": 110,
+    "codice ateco 960905": 110,
+    "codice ateco affitto sala per feste": 110,
+    "codice ateco wedding planner": 90,
+    "codice ateco 749099": 880,
+    "codice ateco 74.90 99": 590,
+    "codice ateco 74.90 99 forfettario": 170,
+    "fattura organizzazione eventi iva": 90
+   }
+  },
+  "codice ateco osteopata": {
+   "volume": 0,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco osteopatia": 390,
+    "osteopatia detrazione 730": 260,
+    "esempio fattura osteopata": 110,
+    "osteopata guadagno": 90
+   }
+  },
+  "codice ateco ottico": {
+   "volume": 140,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco ottica": 140,
+    "codice ateco ottici": 140,
+    "codici ateco ottici": 140
+   }
+  },
+  "codice ateco palestra": {
+   "volume": 260,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco palestre": 260,
+    "codici ateco personal trainer": 590,
+    "codice ateco personal trainer": 590,
+    "codice ateco asd": 480,
+    "codice ateco associazione sportiva dilettantistica": 480,
+    "codice ateco 85.51 00": 170,
+    "ateco personal trainer": 110,
+    "codice ateco istruttore sportivo": 110,
+    "personal trainer codice ateco": 110,
+    "codice ateco 855100": 320
+   }
+  },
+  "codice ateco panificio": {
+   "volume": 260,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {}
+  },
+  "codice ateco parrucchiere": {
+   "volume": 1300,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-12",
+   "simili": {
+    "ateco parrucchiera": 480,
+    "codice ateco parrucchiera": 1300,
+    "ateco parrucchiere": 480,
+    "ateco parrucchieri": 480,
+    "codice ateco parrucchieri": 1300,
+    "codice ateco barbiere": 170,
+    "parrucchiere codice ateco": 90,
+    "codice ateco 960201": 170,
+    "iva parrucchieri": 170,
+    "iva parrucchiere": 170
+   }
+  },
+  "codice ateco pasticceria": {
+   "volume": 260,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ateco pasticceria": 110,
+    "codice ateco gelateria": 170,
+    "codice ateco bar senza cucina": 590,
+    "codice ateco 56.30 00": 210,
+    "ateco pizzeria": 140,
+    "codice ateco bar caffetteria": 110,
+    "codice ateco gastronomia": 90,
+    "ateco bar senza cucina": 70
+   }
+  },
+  "codice ateco personal trainer": {
+   "volume": 590,
+   "cpc_eur": 1.07,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "personal trainer codice ateco": 110,
+    "ateco personal trainer": 110,
+    "codici ateco personal trainer": 590,
+    "codice ateco 85.51 00": 170,
+    "codice ateco 855100": 320,
+    "ateco 855100": 110,
+    "partita iva personal trainer": 170,
+    "codice ateco 931999": 140,
+    "codice ateco istruttore sportivo": 110,
+    "codice ateco associazione sportiva dilettantistica": 480
+   }
+  },
+  "codice ateco piastrellista": {
+   "volume": null
+  },
+  "codice ateco pizzeria": {
+   "volume": 390,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco pizzeria da asporto": 170,
+    "ateco pizzeria": 140,
+    "codice ateco ristorazione con somministrazione": 720,
+    "ateco ristorazione con somministrazione": 390,
+    "ristorazione con somministrazione codice ateco": 110,
+    "codici ateco ristorazione": 590,
+    "ateco ristorante": 390,
+    "ateco ristorazione": 170,
+    "codice ateco 56.10 20": 110,
+    "codice ateco gastronomia": 90
+   }
+  },
+  "codice ateco procacciatore d'affari": {
+   "volume": 590,
+   "cpc_eur": 0.15,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco procacciatore d affari": 590,
+    "procacciatore d'affari codice ateco": 390,
+    "procacciatori d'affari codice ateco": 390,
+    "codice ateco 461902": 390,
+    "ateco procacciatore d'affari": 170,
+    "codice ateco 46.19 02": 260,
+    "procacciatore d'affari con partita iva forfettaria": 90,
+    "procacciatore d'affari inps": 90,
+    "procacciatore d'affari con partita iva": 320,
+    "procacciatore d'affari senza partita iva": 210
+   }
+  },
+  "codice ateco programmatore informatico": {
+   "volume": null
+  },
+  "codice ateco programmatore": {
+   "volume": null
+  },
+  "codice ateco psicologo": {
+   "volume": 210,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco psicoterapeuta": 110,
+    "codice ateco psicologi": 720,
+    "codice ateco psicoterapeuti": 110,
+    "codice ateco psicologi 2025": 170,
+    "ateco psicologo": 260,
+    "partita iva psicologo": 170,
+    "partita iva psicologi": 210,
+    "psicologo può esercitare senza partita iva": 70
+   }
+  },
+  "codice ateco pulizie": {
+   "volume": 210,
+   "cpc_eur": 1.05,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco pulizia": 210,
+    "codici ateco pulizie": 210,
+    "codice ateco impresa di pulizie": 170,
+    "ateco 81.21": 110,
+    "codice ateco 81.21": 210,
+    "codici ateco 81.21": 210,
+    "ateco pulizie": 90,
+    "codice ateco 81.21 00 requisiti": 140,
+    "codice ateco 812100": 140,
+    "codice ateco multiservizi": 110
+   }
+  },
+  "codice ateco riparazione cellulari": {
+   "volume": null
+  },
+  "codice ateco ripetizioni": {
+   "volume": null
+  },
+  "codice ateco ristorante": {
+   "volume": 720,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-12",
+   "simili": {
+    "codice ateco ristoranti": 720,
+    "ateco ristorante": 390,
+    "codice ateco ristorazione": 590,
+    "codici ateco ristorazione": 590,
+    "ateco ristorazione": 170,
+    "codice ateco ristorazione con somministrazione": 720,
+    "ristorazione con somministrazione codice ateco": 110,
+    "codice ateco 56.10 11": 590,
+    "ateco ristorazione con somministrazione": 390,
+    "codice ateco pizzeria": 390
+   }
+  },
+  "codice ateco sarta": {
+   "volume": null
+  },
+  "codice ateco sartoria": {
+   "volume": 140,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "aprire sartoria": 90,
+    "aprire una sartoria": 90
+   }
+  },
+  "codice ateco scrittore": {
+   "volume": null
+  },
+  "codice ateco scuola di danza": {
+   "volume": null
+  },
+  "codice ateco serramentista": {
+   "volume": null
+  },
+  "codice ateco social media manager": {
+   "volume": 390,
+   "cpc_eur": 0.6,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "social media manager codice ateco": 480,
+    "inps social media manager": 90,
+    "codice ateco 73.11 02 forfettario": 110,
+    "social manager inps": 110,
+    "codice ateco 73.11 02": 390,
+    "codice ateco 731102": 320,
+    "codice ateco 73.11 01": 210
+   }
+  },
+  "codice ateco stampa 3d": {
+   "volume": null
+  },
+  "codice ateco street food": {
+   "volume": null
+  },
+  "codice ateco sviluppatore software": {
+   "volume": 140,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco sviluppo software": 140,
+    "codice ateco 62.01 00": 170,
+    "codice ateco 62.01": 390,
+    "produzione di software non connesso all'edizione": 170,
+    "codice ateco 62.01 00 inquadramento inps": 110,
+    "ateco 62.01": 260,
+    "codice ateco 620100": 210,
+    "codice ateco consulente informatico": 170,
+    "codice ateco consulenza informatica": 140,
+    "codice ateco informatica": 140
+   }
+  },
+  "codice ateco sviluppatore web": {
+   "volume": null
+  },
+  "codice ateco tabaccheria": {
+   "volume": 480,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ateco tabaccaio": 320,
+    "codici ateco elenco": 2400,
+    "elenco codice ateco": 2400,
+    "elenco codici ateco": 2400,
+    "codici attività": 1600,
+    "istat codici ateco 2025": 720,
+    "tabella codici ateco": 720,
+    "codici ateco agenzia entrate": 590,
+    "raccordo ateco 2007 e 2025": 590,
+    "tabella raccordo ateco 2025": 480
+   }
+  },
+  "codice ateco tatuatore": {
+   "volume": 320,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco tatuatori": 320,
+    "partita iva tatuatore senza studio": 110,
+    "tatuatore senza sede fissa": 110,
+    "tatuatore libero professionista o artigiano": 70
+   }
+  },
+  "codice ateco taxi": {
+   "volume": 110,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco ncc": 210,
+    "codice ateco noleggio con conducente": 210,
+    "tabella raccordo ateco": 110
+   }
+  },
+  "codice ateco tipografia": {
+   "volume": 90,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco grafica": 170,
+    "codice ateco grafico": 170,
+    "codice ateco 18.12": 140,
+    "codice ateco 74.10 29": 140,
+    "ateco 2007 pdf": 90,
+    "un acido impiegato in preparati farmaceutici e fertilizzanti": 70
+   }
+  },
+  "codice ateco toelettatura": {
+   "volume": 140,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {}
+  },
+  "codice ateco traduttore": {
+   "volume": 90,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {}
+  },
+  "codice ateco traslochi": {
+   "volume": null
+  },
+  "codice ateco trasporto merci su strada": {
+   "volume": 90,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco 49.41": 320,
+    "ateco 49.41": 170,
+    "codice ateco 4941": 140,
+    "codice ateco autotrasporti conto terzi": 140,
+    "codice ateco autotrasporto conto terzi": 140,
+    "codice ateco autotrasporti": 110,
+    "codice ateco trasporti conto terzi": 170,
+    "codice ateco trasporto conto terzi": 170,
+    "codice ateco autotrasportatore": 110,
+    "codice ateco 494100": 140
+   }
+  },
+  "codice ateco trasporto merci": {
+   "volume": null
+  },
+  "codice ateco vendita online": {
+   "volume": 390,
+   "cpc_eur": 0.11,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codici ateco vendita online": 390,
+    "commercio elettronico codice ateco": 110,
+    "commercio online codice ateco": 110,
+    "codice ateco ecommerce": 390,
+    "codice ateco commercio online": 210,
+    "ateco commercio elettronico": 110,
+    "codice ateco commercio elettronico": 140,
+    "ateco ecommerce": 90,
+    "codice ateco e-commerce": 480,
+    "codice ateco vendite online": 390
+   }
+  },
+  "codice ateco venditore ambulante": {
+   "volume": null
+  },
+  "codice ateco veterinario": {
+   "volume": 210,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "partita iva veterinario": 260
+   }
+  },
+  "codice ateco videomaker": {
+   "volume": 170,
+   "cpc_eur": 1.49,
+   "dato_del": "2026-11-13",
+   "simili": {}
+  },
+  "codice ateco web agency": {
+   "volume": null
+  },
+  "codice ateco web designer": {
+   "volume": 90,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "partita iva disegnatore": 50
+   }
+  },
+  "codice ateco wedding planner": {
+   "volume": 90,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco 96.09 05": 110,
+    "codice ateco 960905": 110,
+    "codice ateco organizzazione eventi": 390,
+    "ateco organizzazione eventi": 140,
+    "organizzazione eventi codice ateco": 110,
+    "codice ateco affitto sala per feste": 110
+   }
+  },
+  "codice ateco youtuber": {
+   "volume": 110,
+   "cpc_eur": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "codice ateco influencer": 390,
+    "codice ateco content creator": 210,
+    "partita iva youtuber": 90,
+    "codice ateco 73.11 02 forfettario": 110,
+    "partita iva youtube": 90
+   }
+  },
+  "commercialista codice ateco": {
+   "volume": null
+  },
+  "consulente codice ateco": {
+   "volume": null
+  },
+  "consulente del lavoro codice ateco": {
+   "volume": null
+  },
+  "consulente informatico codice ateco": {
+   "volume": null
+  },
+  "consulente marketing codice ateco": {
+   "volume": 90,
+   "cpc_eur": 2.32,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "consulenza marketing codice ateco": 90,
+    "codice ateco consulenza commerciale e marketing": 110,
+    "consulenza codice ateco": 70,
+    "codice ateco consulente marketing": 140,
+    "codice ateco consulenza marketing": 140,
+    "codice ateco consulente commerciale": 140,
+    "codice ateco servizi di consulenza": 90,
+    "codice ateco marketing": 140,
+    "codice ateco 702209": 1300,
+    "codice ateco 70.22 09": 1000
+   }
+  },
+  "content creator codice ateco": {
+   "volume": null
+  },
+  "copywriter codice ateco": {
+   "volume": null
+  },
+  "dentista codice ateco": {
+   "volume": null
+  },
+  "dropshipping codice ateco": {
+   "volume": null
+  },
+  "e-commerce codice ateco": {
+   "volume": null
+  },
+  "edilizia codice ateco": {
+   "volume": null
+  },
+  "elettricista codice ateco": {
+   "volume": null
+  },
+  "estetista codice ateco": {
+   "volume": null
+  },
+  "falegname codice ateco": {
+   "volume": null
+  },
+  "farmacia codice ateco": {
+   "volume": null
+  },
+  "fisioterapista codice ateco": {
+   "volume": null
+  },
+  "fotografo codice ateco": {
+   "volume": null
+  },
+  "gelateria codice ateco": {
+   "volume": null
+  },
+  "geometra codice ateco": {
+   "volume": null
+  },
+  "giornalista codice ateco": {
+   "volume": null
+  },
+  "gommista codice ateco": {
+   "volume": null
+  },
+  "grafico codice ateco": {
+   "volume": null
+  },
+  "guida turistica codice ateco": {
+   "volume": null
+  },
+  "holding codice ateco": {
+   "volume": null
+  },
+  "hotel codice ateco": {
+   "volume": null
+  },
+  "idraulico codice ateco": {
+   "volume": null
+  },
+  "impresa di pulizie codice ateco": {
+   "volume": null
+  },
+  "infermiere codice ateco": {
+   "volume": null
+  },
+  "influencer codice ateco": {
+   "volume": null
+  },
+  "ingegnere codice ateco": {
+   "volume": null
+  },
+  "insegnante codice ateco": {
+   "volume": null
+  },
+  "lavanderia codice ateco": {
+   "volume": null
+  },
+  "logopedista codice ateco": {
+   "volume": null
+  },
+  "macelleria codice ateco": {
+   "volume": null
+  },
+  "massaggiatore codice ateco": {
+   "volume": null
+  },
+  "meccanico codice ateco": {
+   "volume": null
+  },
+  "medico codice ateco": {
+   "volume": null
+  },
+  "muratore codice ateco": {
+   "volume": null
+  },
+  "musicista codice ateco": {
+   "volume": null
+  },
+  "ncc codice ateco": {
+   "volume": null
+  },
+  "nutrizionista codice ateco": {
+   "volume": null
+  },
+  "onicotecnica codice ateco": {
+   "volume": null
+  },
+  "osteopata codice ateco": {
+   "volume": null
+  },
+  "ottico codice ateco": {
+   "volume": null
+  },
+  "palestra codice ateco": {
+   "volume": null
+  },
+  "panificio codice ateco": {
+   "volume": null
+  },
+  "pasticceria codice ateco": {
+   "volume": null
+  },
+  "pizzeria codice ateco": {
+   "volume": null
+  },
+  "psicologo codice ateco": {
+   "volume": null
+  },
+  "ristorante codice ateco": {
+   "volume": null
+  },
+  "sviluppatore software codice ateco": {
+   "volume": null
+  },
+  "tabaccheria codice ateco": {
+   "volume": null
+  },
+  "tatuatore codice ateco": {
+   "volume": null
+  },
+  "taxi codice ateco": {
+   "volume": null
+  },
+  "toelettatura codice ateco": {
+   "volume": null
+  },
+  "traduttore codice ateco": {
+   "volume": null
+  },
+  "veterinario codice ateco": {
+   "volume": null
+  },
+  "videomaker codice ateco": {
+   "volume": null
+  },
+  "web designer codice ateco": {
+   "volume": null
+  },
+  "wedding planner codice ateco": {
+   "volume": null
+  },
+  "youtuber codice ateco": {
+   "volume": null
+  }
+ }
+}

@@ -46,6 +46,12 @@ MIN_PAROLE_ADSENSE = 400  # niente pubblicità nelle pagine noindex o con poco t
 MIN_PAROLE_PROPRIE = 150  # parole (gruppi di 5) che non compaiono in nessun'altra pagina di codice: sotto, la pagina è noindex
 MAX_SOVRAPPOSIZIONE = 0.55  # quota del testo in comune con la pagina di codice più simile: da qui in su, noindex
 FRASE_FISSA = "verifica con il commercialista o la Camera di commercio"
+FILE_VOLUMI_ATTIVITA = "volumi-attivita-2026-11-13.json"  # misura con data: per rifarla, file nuovo con la data e nome qui (e in verifica.py)
+MIN_VOLUME_ATTIVITA = 100  # pagina «Codice ATECO per …» solo con almeno 100 ricerche al mese misurate su una delle sue frasi
+MAX_SOVRAPPOSIZIONE_ATTIVITA = 0.40  # pagine attività: più severa delle pagine di codice (stessa scelta di naics/ dopo la revisione del 13/11)
+QUOTA_MODELLO_ATTIVITA = 0.25  # frasi presenti in almeno un quarto delle pagine attività = modello, non contano come testo proprio
+MAX_RIGHE_CODICE = 5  # righe delle note Istat mostrate per codice nella tabella delle scelte (se non scelte a mano)
+MAX_ESCLUSIONI = 10  # note «Non comprende» mostrate per pagina attività
 
 MESI = ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre"]
 LIVELLI = {1: "sezione", 2: "divisione", 3: "gruppo", 4: "classe", 5: "categoria", 6: "sottocategoria"}
@@ -62,6 +68,8 @@ DOM = carica("domanda.json")
 VOL = carica("volumi.json")
 MES = carica("mestieri.json")["mestieri"]
 FAQ = carica("faq.json")["faq"]
+ATT = carica("attivita.json")["attivita"]
+VOLA = carica(FILE_VOLUMI_ATTIVITA)
 AFF = carica("affiliati.json")
 C = AT["codici"]
 OP = AT["operativa"]
@@ -84,6 +92,10 @@ def data_lunga(d):
 
 def num(n):
     return f"{n:,}".replace(",", ".")
+
+
+def maiuscola(t):
+    return t[0].upper() + t[1:]
 
 
 def accorcia(s, n):
@@ -249,14 +261,15 @@ URLS = []
 INDICIZZA = {}  # percorso -> True/False (pagine di codice)
 _PROVA = None  # dizionario: pagina() raccoglie il testo invece di scrivere (misura della sovrapposizione)
 MENU = [("#sezioni", "Codici"), ("da-ateco-2022-a-2025/", "Da 2022 a 2025"), ("cosa-cambia-ateco-2025/", "Cosa cambia"),
-        ("coefficienti-redditivita-forfettario/", "Forfettario")]
+        ("coefficienti-redditivita-forfettario/", "Forfettario"), ("codice-ateco-per/", "Per attività")]
 DISCLAIMER = ("<strong>Informazioni dalle tabelle ufficiali Istat e dai testi di legge, non una consulenza.</strong> Il codice ATECO giusto dipende "
               f"dall'attività svolta davvero e la scelta del regime fiscale dalla tua situazione: {FRASE_FISSA}. Sito indipendente, non affiliato a "
               "Istat, all'Agenzia delle entrate o alle Camere di commercio.")
 
 
 def parole_principali(corpo):
-    t = re.sub(r"<(form|script|style|svg)\b.*?</\1>", " ", corpo, flags=re.S | re.I)
+    t = re.sub(r"<section data-ripreso>.*?</section>", " ", corpo, flags=re.S)  # link alle guide: non contano come testo della pagina
+    t = re.sub(r"<(form|script|style|svg)\b.*?</\1>", " ", t, flags=re.S | re.I)
     t = unescape(re.sub(r"<[^>]+>", " ", t))
     return len(re.findall(r"\w+", t))
 
@@ -341,7 +354,8 @@ Camere di commercio.</p>
 </div><div>
 <h2>Codici</h2><ul><li><a href="/#cerca">Cerca un codice</a></li><li><a href="/#sezioni">Tutte le sezioni</a></li>
 <li><a href="/da-ateco-2022-a-2025/">Da ATECO 2022 a 2025</a></li><li><a href="/cosa-cambia-ateco-2025/">Cosa cambia dal 2025</a></li>
-<li><a href="/coefficienti-redditivita-forfettario/">Coefficienti del forfettario</a></li></ul>
+<li><a href="/coefficienti-redditivita-forfettario/">Coefficienti del forfettario</a></li>
+<li><a href="/codice-ateco-per/">Codice ATECO per attività</a></li></ul>
 </div><div>
 <h2>Il sito</h2><ul><li><a href="/come-lavoriamo/">Come lavoriamo</a></li><li><a href="/come-lavoriamo/#segnala">Segnala un errore</a></li>
 <li><a href="/chi-siamo/">Chi siamo</a></li><li><a href="/privacy/">Privacy</a></li></ul>
@@ -519,9 +533,9 @@ def blocco_coeff(sc, rim):
         return (f'<p class="coef"><span>Forfettario, ricavato dai vecchi codici:</span> <b>{percentuali[0]}%</b> <span class="mini">'
                 f'{"gruppo" if len(g) == 1 else "gruppi"} {nomi} della tabella di legge{", stessa percentuale" if len(g) > 1 else ""}.</span>' + coda)
     parti = []
-    for x in g:
-        cods = sorted({r["c22"] for r in vecchi_di(sc) if GRUPPO22[r["c22"]] == x})
-        parti.append(f'<b>{coeff_txt(x)}</b> se il vecchio codice era {", ".join(cods)}')
+    for perc in percentuali:  # una voce per percentuale: due gruppi di legge con la stessa percentuale non si ripetono
+        cods = sorted({r["c22"] for r in vecchi_di(sc) if TABCO[str(GRUPPO22[r["c22"]])]["coefficiente"] == perc})
+        parti.append(f'<b>{perc}%</b> se il vecchio codice era {", ".join(cods)}')
     return (f'<p class="coef"><span>Forfettario, secondo il vecchio codice dell\'attività:</span> {"; ".join(parti)}.'
             f' <span class="mini">Derivazione nostra dalla tavola di raccordo: per la legge conta il codice ATECO 2007 della tua attività, verifica con '
             f'il commercialista quale percentuale si applica.</span>{rim.ref(["l190_all4", "dlgs81_art1", "raccordo"])}</p>')
@@ -606,6 +620,7 @@ def pagina_classe(cl):
         for da, testo in rim_qui[:40]:
             corpo += f'<li>{link_cod(da)}<span>{h(testo)}</span></li>'
         corpo += "</ul>"
+    corpo += blocco_guide(cl)
     # dove sta
     fratelli = [x for x in FIGLI[gru] if C[x]["l"] == 4]
     corpo += f'<h2 id="albero">Dove si trova nella classificazione</h2><ul class="albero">'
@@ -746,6 +761,31 @@ def volume_mestiere(m):
 MESTIERI_PUBBLICATI = [m for m in MES if volume_mestiere(m) > 0]
 
 
+def _volumi_misurati():
+    """Frase -> volume mensile misurato (misura del 13/11: frasi cercate e frasi simili restituite dallo strumento; poi quella del 12/11)."""
+    out = {}
+    for f, v in VOLA["frasi"].items():
+        if v.get("volume") is not None:
+            out[f] = v["volume"]
+    for v in VOLA["frasi"].values():
+        for f, n in (v.get("simili") or {}).items():
+            out.setdefault(f, n)
+    for f, v in VOL["frasi"].items():
+        out.setdefault(f, v["volume"])
+    return out
+
+
+VOLUMI_MISURATI = _volumi_misurati()
+
+
+def volume_attivita(a):
+    """Volume di una pagina: la frase misurata più cercata tra le sue (le varianti vicine non si sommano: Google Ads le conta insieme)."""
+    return max((VOLUMI_MISURATI.get(f, 0) or 0 for f in a["frasi"]), default=0)
+
+
+ATTIVITA = [a for a in ATT if volume_attivita(a) >= MIN_VOLUME_ATTIVITA]
+
+
 GUIDE_RICERCA = [  # pagine guida nella ricerca: titolo, indirizzo, parole che le fanno trovare
     ("Cosa cambia con ATECO 2025", "/cosa-cambia-ateco-2025/", "nuovi codici cosa cambia variazione cambiato cambio 2025 date"),
     ("Da ATECO 2022 a ATECO 2025", "/da-ateco-2022-a-2025/", "vecchio vecchi conversione corrispondenza raccordo tabella 2022"),
@@ -756,6 +796,8 @@ GUIDE_RICERCA = [  # pagine guida nella ricerca: titolo, indirizzo, parole che l
 def indice_ricerca():
     voci = [["Guida", t, u, "p", "", w] for t, u, w in GUIDE_RICERCA]
     voci += [["Guida", f"Codice ATECO {m['nome']}", f"/{m['slug']}/", "p", "", " ".join(m["frasi"]) + " " + m["nome"]] for m in MESTIERI_PUBBLICATI]
+    voci += [["Guida", maiuscola(a["h1"]), f"/{a['slug']}/", "p", "", " ".join(a["frasi"]) + " " + a["nome"]] for a in ATTIVITA]
+    voci.append(["Guida", "Codice ATECO per attività: tutte le guide", "/codice-ateco-per/", "p", "", "attività mestiere professione guide"])
     for c in ORDINE:
         v = C[c]
         # parole delle note di inclusione (senza ripetizioni e senza quelle del titolo): servono a trovare «pizzeria» in 56.11.11
@@ -796,6 +838,11 @@ def home():
              ("/coefficienti-redditivita-forfettario/", "Coefficienti del forfettario", "Le 9 percentuali di legge e quale codice conta.")]
     utili += [(f"/{m['slug']}/", f"Codice ATECO {m['nome']}", m["descrizione"][:90] + "…") for m in MESTIERI_PUBBLICATI]
     corpo += "".join(f'<li><a href="{u}"><b>{h(t)}</b><span>{h(s)}</span></a></li>' for u, t, s in utili) + "</ul>"
+    piu = sorted(ATTIVITA, key=lambda a: -volume_attivita(a))[:8]
+    corpo += ('<h2 id="per-attivita">Codice ATECO per attività</h2><p class="small">Le attività più cercate, con le note Istat che portano a ogni codice. '
+              f'<a href="/codice-ateco-per/">Tutte le {len(ATTIVITA) + len(MESTIERI_PUBBLICATI)} guide</a>.</p><ul class="griglia">'
+              + "".join(f'<li><a href="/{a["slug"]}/"><b>{h(maiuscola(a["h1"]))}</b><span>{h(accorcia(a["descrizione"], 90))}</span></a></li>' for a in piu)
+              + "</ul>")
     corpo += '<h2 id="sezioni">Le 22 sezioni di ATECO 2025</h2><ul class="albero">'
     for s in SEZIONI:
         corpo += (f'<li><a class="cod" href="{url_di(s)}">Sezione {s}</a><span>{h(C[s]["it"][0] + C[s]["it"][1:].lower())}</span>'
@@ -1020,6 +1067,289 @@ def pagina_mestiere(m):
            briciole=[("Home", ""), (m["h1"], m["slug"] + "/")], jsonld=[f_ld] if f_ld else None)
 
 
+# ---------------------------------------------------------------- pagine «Codice ATECO per …» (13/11/2026)
+INDICIZZA_ATT = {}  # percorso -> True/False (misura_attivita)
+MISURA_ATT = {}
+_SEGNAPOSTO = re.compile(r"\{(c|t|ct|v|perc|t22|d22):([\dA-Z][\d.]*)\}")
+
+
+def vecchi_codici(c):
+    return sorted({r["c22"] for r in vecchi_di(c)})
+
+
+def percentuali(c):
+    p = sorted({TABCO[str(g)]["coefficiente"] for g in gruppi_coeff(c)})
+    return " o ".join(f"{x}%" for x in p) if p else "nessun coefficiente ricavabile"
+
+
+def riempi_att(testo, html=True, dove=""):
+    """Segnaposto nei testi nostri: {c:X} codice (link), {t:X} «titolo ufficiale», {ct:X} codice e titolo, {v:X} vecchi codici 2022,
+    {perc:X} coefficienti ricavati dai vecchi codici. I titoli e i numeri vengono sempre dai dati, mai scritti a mano."""
+    def sost(m):
+        k, c = m.group(1), m.group(2)
+        if k in ("t22", "d22"):
+            if c not in OP:
+                raise SystemExit(f"{dove}: {c} non è un codice ATECO 2022")
+            if k == "t22":
+                return h(f"«{OP[c]['t22']}»") if html else f"«{OP[c]['t22']}»"
+            dest = sorted({r["c25"] for r in RAC22[c] if len(r["c25"]) == 8})
+            return "; ".join(f"{link_cod(x) if html else x} {h('«' + C[x]['it'] + '»') if html else '«' + C[x]['it'] + '»'}" for x in dest)
+        if c not in C:
+            raise SystemExit(f"{dove}: {c} non è un codice ATECO 2025")
+        tit = f"«{C[c]['it']}»"
+        cod = link_cod(c) if html else c
+        if k == "c":
+            return cod
+        if k == "t":
+            return h(tit) if html else tit
+        if k == "ct":
+            return f"{cod} {h(tit) if html else tit}"
+        if k == "v":
+            return ", ".join(vecchi_codici(c)) or "nessuno"
+        return percentuali(c)
+    if html:
+        parti = _SEGNAPOSTO.split(testo)
+        out = ""
+        for i in range(0, len(parti), 3):
+            out += h(parti[i])
+            if i + 2 < len(parti):
+                out += sost(re.match(_SEGNAPOSTO, "{" + parti[i + 1] + ":" + parti[i + 2] + "}"))
+        return out
+    return _SEGNAPOSTO.sub(sost, testo)
+
+
+def riga_istat(c, testo, con_link=False, rif=None):
+    """Riga ufficiale citata tale e quale (nota Istat o titolo del codice c); verifica.py la ritrova nel file Istat."""
+    corpo = linkifica(testo, rif) if con_link else h(testo)
+    return f'<q class="ni" data-c="{c}">{corpo}</q>'
+
+
+def risolvi_riga(c, pref, dove):
+    if pref == "=titolo":
+        return C[c]["it"]
+    trovate = [n["it"] for n in C[c]["note"] if n["it"].startswith(pref) and n["t"] != 3] or [n["it"] for n in C[c]["note"] if n["it"].startswith(pref)]
+    if len(trovate) != 1:
+        raise SystemExit(f"{dove}: {len(trovate)} note di {c} iniziano con «{pref}»")
+    return trovate[0]
+
+
+def righe_scelte(a):
+    """{codice: righe ufficiali} della tabella delle scelte: scelte a mano (inizio della nota o =titolo) o le note di inclusione del codice."""
+    out = {}
+    for c in a["evidenza"]:
+        if c not in C or C[c]["l"] < 4:
+            raise SystemExit(f"{a['slug']}: {c} non è un codice ATECO 2025 di classe o sottocategoria")
+        scelte = a.get("scelte", {}).get(c)
+        if scelte:
+            out[c] = [risolvi_riga(c, p, a["slug"]) for p in scelte]
+            continue
+        inc = [n["it"] for n in C[c]["note"] if n["t"] in (2, 5) and not n["it"].rstrip().endswith(":")]
+        out[c] = inc[:MAX_RIGHE_CODICE] or [C[c]["it"]]
+    return out
+
+
+def esclusioni(a):
+    """Note «Non comprende» dei codici in evidenza e delle loro classi e categorie: [(codice della nota, nota)], senza doppioni."""
+    visti, out = {}, []
+    for i, c in enumerate(a["evidenza"]):
+        # classe e categoria solo per i due codici principali: le esclusioni lunghe delle classi vicine renderebbero le guide simili tra loro
+        catena = [c] + ([antenato(c, l) for l in (5, 4) if C[c]["l"] > l] if i < 2 else [])
+        for x in catena:
+            for n in C[x]["note"]:
+                if n["t"] != 3 or not n["rif"]:
+                    continue
+                chiave = n["it"].split(", cfr.")[0].lower()
+                if chiave in visti:
+                    continue
+                if a.get("escludi_rx") and not re.search(a["escludi_rx"], n["it"], re.I):
+                    continue
+                visti[chiave] = True
+                out.append((x, n))
+    return out[:a.get("max_esclusioni", MAX_ESCLUSIONI)]
+
+
+def faq_attivita(a, rim):
+    voci = []
+    for x in FAQ:
+        if x["pagina"] != a["slug"]:
+            continue
+        if not VOLUMI_MISURATI.get(x["ricerca"]):
+            raise SystemExit(f"FAQ «{x['q']}»: la ricerca «{x['ricerca']}» non ha un volume misurato")
+        risp = riempi_att(x["a"], html=False, dove=f"FAQ {a['slug']}")
+        controlla_titoli_citati(risp, f"FAQ {a['slug']}")
+        voci.append((x["q"], risp, rim.ref(x["fonti"])))
+    return voci
+
+
+def pagina_attivita(a):
+    rim = Rimandi()
+    dove = a["slug"]
+    intro = riempi_att(a["intro"], dove=dove)
+    controlla_titoli_citati(riempi_att(a["intro"], html=False, dove=dove), dove)
+    fonti_intro = a.get("fonti_intro", ["struttura", "note"])  # fonti delle frasi dell'introduzione (es. «operativa» se cita la tabella operativa)
+    corpo = f'<div class="card pull testo">' + "".join(f"<p>{p}</p>" for p in intro.split("\n\n")) + f'<p class="mini">Titoli e note: Istat ATECO 2025{rim.ref(fonti_intro)}</p></div>'
+    scelte = righe_scelte(a)
+    rr = [["<br>".join(riga_istat(c, r) for r in righe), link_cod(codice_principale(c) if C[c]["l"] == 4 else c),
+           '<span class="mini">il titolo ufficiale, citato a sinistra</span>' if righe == [C[c]["it"]] else h(C[c]["it"])]
+          for c, righe in scelte.items()]
+    corpo += ('<h2 id="quale-codice">Quale codice: cosa dicono le note Istat</h2><p class="small">Nella prima colonna le righe delle note '
+              'esplicative Istat (o il titolo ufficiale) del codice accanto, citate parola per parola: se l\'attività svolta davvero è quella, Istat la '
+              f'classifica lì.{rim.ref("note")}</p>' + tabella(["Se l'attività è…", "Codice ATECO 2025", "Titolo ufficiale"], rr, resp="resp7"))
+    if a.get("citazioni"):
+        corpo += '<h2 id="regola">La regola di Istat</h2>'
+        for c, pref in a["citazioni"]:
+            corpo += (f'<blockquote class="legge">{riga_istat(c, risolvi_riga(c, pref, dove))}<cite>Note esplicative Istat, '
+                      f'{LIVELLI[C[c]["l"]]} {link_cod(c)}{rim.ref("note")}</cite></blockquote>')
+    escl = esclusioni(a)
+    if escl:
+        rr = [[riga_istat(x, n["it"], True, n["rif"]), f'{link_cod(x)}'] for x, n in escl]
+        corpo += ('<h2 id="altri-codici">Cosa Istat mette in un altro codice</h2><p class="small">Note «Non comprende» dei codici qui sopra (o della '
+                  f'loro classe): l\'attività descritta non va in quel codice ma in quello dopo «cfr.».{rim.ref("note")}</p>'
+                  + tabella(["Nota di esclusione Istat", "Nota del codice"], rr, resp="resp7"))
+    sei = [c for c in a["evidenza"] if C[c]["l"] == 6]
+    if sei:
+        corpo += ('<h2 id="forfettario">Coefficiente del forfettario dei codici indicati</h2><p class="small">La classificazione ATECO non contiene '
+                  'coefficienti: sono nell\'allegato 4 della legge 190/2014, che usa i codici ATECO 2007. Per ogni codice la percentuale è ricavata da noi '
+                  'dai vecchi codici collegati nella tavola di raccordo Istat, come nelle pagine dei codici.</p>')
+        for c in sei:
+            corpo += (f'<section class="voce" id="k-{c}"><h3><span class="chip-cod">{c}</span> <a href="{url_di(c)}">{h(C[c]["it"])}</a></h3>'
+                      f'{blocco_coeff(c, rim)}</section>')
+        vecchi = sorted({c22 for c in sei for c22 in vecchi_codici(c)})
+        rr = []
+        for c22 in vecchi:
+            dest = [r for r in RAC22[c22] if len(r["c25"]) == 8]
+            for r in dest:
+                if r["c25"] in sei:
+                    rr.append([f'<a class="cod" href="/da-ateco-2022-a-2025/#v-{c22}">{c22}</a>', h(OP[c22]["t22"]), link_cod(r["c25"]), comune_html(r["comune"])])
+            altri = [r["c25"] for r in dest if r["c25"] not in sei]
+            if altri:  # le altre destinazioni del vecchio codice: solo il numero, l'elenco è nella tabella 2022 → 2025
+                rr.append([f'<a class="cod" href="/da-ateco-2022-a-2025/#v-{c22}">{c22}</a>', h(OP[c22]["t22"]),
+                           f'<a href="/da-ateco-2022-a-2025/#v-{c22}">{"un altro codice" if len(altri) == 1 else f"altri {len(altri)} codici"}</a>', "—"])
+        if rr:
+            corpo += (f'<h2 id="vecchi-codici">Dai vecchi codici ATECO 2022 ai codici 2025</h2><p class="small">Tavola di raccordo Istat ATECO 2025 – '
+                      f'ATECO 2022, aggiornamento 2026: per ogni vecchio codice, i codici indicati in questa guida in cui confluisce e quanti altri ne riceve una parte. ATECO 2022 è '
+                      f'l\'aggiornamento 2022 di ATECO 2007.{rim.ref("raccordo")}</p>'
+                      + tabella(["ATECO 2022", "Titolo 2022", "ATECO 2025", "Contenuto in comune (Istat)"], rr, resp="resp7"))
+    corpo += nota(f"Il codice va scelto sull'attività svolta davvero: le note Istat danno esempi, non un elenco completo. Prima di comunicarlo, {FRASE_FISSA}.",
+                  "info", "alert")
+    corpo += box_affiliati()
+    voci = faq_attivita(a, rim)
+    f_html, f_ld = faq_html(voci)
+    corpo += f_html
+    pubblicate = {x["slug"]: maiuscola(x["h1"]) for x in ATTIVITA} | {m["slug"]: f"Codice ATECO {m['nome']}" for m in MESTIERI_PUBBLICATI}
+    vicine = [f'<a href="/{s}/">{h(pubblicate[s])}</a>' for s in a.get("vedi", []) if s in pubblicate]
+    corpo += ('<p class="small">' + (f'Guide vicine: {"; ".join(vicine)}. ' if vicine else "")
+              + 'Tutte le attività: <a href="/codice-ateco-per/">codice ATECO per attività</a>.</p>' + rim.elenco())
+    controlla_codici_attivita(dove, corpo)
+    testata = banda("Codice ATECO per attività", maiuscola(a["h1"]), h(a["descrizione"]), icona="tag")
+    pagina(a["slug"] + "/", a["titolo"], a["descrizione"], corpo, testata,
+           briciole=[("Home", ""), ("Per attività", "codice-ateco-per/"), (maiuscola(a["h1"]), a["slug"] + "/")], jsonld=[f_ld] if f_ld else None,
+           indicizza=INDICIZZA_ATT.get(a["slug"] + "/", True))
+
+
+def controlla_codici_attivita(dove, corpo):
+    """Ogni codice ATECO 2025 a 6 cifre della tabella delle scelte o del forfettario ha almeno una riga ufficiale citata nella pagina;
+    ogni codice citato in un link esiste."""
+    t = re.sub(r'<section class="fonti-box".*?</section>', " ", corpo, flags=re.S)
+    for c in re.findall(r'href="/[\w-]+/#c-([\d.]+)"', t):
+        if c not in C:
+            raise SystemExit(f"{dove}: link a un codice inesistente {c}")
+    citati = set(re.findall(r'<q class="ni" data-c="([\d.A-Z]+)">', t))
+    for c in re.findall(r'<section class="voce" id="k-([\d.]+)">', t):
+        if c not in citati:
+            raise SystemExit(f"{dove}: {c} senza una riga Istat citata nella pagina")
+
+
+GUIDE_DI = defaultdict(list)  # classe -> guide (pagine attività e mestieri) che indicano un suo codice
+
+
+def _guide_di():
+    tutte = [(m["slug"], f"Codice ATECO {m['nome']}", [*m["codici"], *(["47.91.10"] if m.get("tipo") == "ecommerce" else [])]) for m in MESTIERI_PUBBLICATI]
+    tutte += [(a["slug"], maiuscola(a["h1"]), a["evidenza"]) for a in ATTIVITA]
+    for slug, nome, cods in tutte:
+        for cl in dict.fromkeys(antenato(c, 4) for c in cods if c in C and C[c]["l"] >= 4):
+            if (slug, nome) not in GUIDE_DI[cl]:
+                GUIDE_DI[cl].append((slug, nome))
+
+
+_guide_di()
+
+
+def blocco_guide(cl):
+    """Link dalla pagina di classe alle guide per attività che indicano un suo codice (al massimo 3; non contano come testo della pagina)."""
+    g = GUIDE_DI.get(cl, [])[:3]
+    if not g:
+        return ""
+    return ('<section data-ripreso><h2 id="guide">Guide per attività che indicano questo codice</h2><ul>'
+            + "".join(f'<li><a href="/{s}/">{h(n)}</a></li>' for s, n in g) + "</ul></section>")
+
+
+def indice_attivita():
+    rim = Rimandi()
+    righe = []
+    voci = [(a["slug"], maiuscola(a["nome"]), [c for c in a["evidenza"]], volume_attivita(a)) for a in ATTIVITA]
+    voci += [(m["slug"], maiuscola(m["nome"]), m["codici"] or [], volume_mestiere(m)) for m in MESTIERI_PUBBLICATI]
+    for slug, nome, cods, _ in sorted(voci, key=lambda x: x[1].lower()):
+        if cods:
+            c = codice_principale(cods[0]) if C[cods[0]]["l"] == 4 else cods[0]
+            cod = f'{link_cod(c)} {h(C[c]["it"])}'
+            if len(cods) > 1:
+                cod += f'<small>{"e un altro codice" if len(cods) == 2 else f"e altri {len(cods) - 1} codici"} nella guida</small>'
+        else:
+            cod = "Dipende da cosa vendi: le corrispondenze del vecchio 47.91.10"
+        righe.append([f'<a href="/{slug}/">{h(nome)}</a>', cod])
+    corpo = ('<div class="card pull"><p style="margin:0">Guide per le attività che in Italia si cercano di più con «codice ATECO …»: '
+             f'{len(voci)} attività, ognuna con almeno {MIN_VOLUME_ATTIVITA} ricerche al mese su Google misurate. Ogni guida cita parola per parola '
+             f'le note esplicative Istat che portano a ogni codice, i vecchi codici collegati e il coefficiente del forfettario ricavato da noi.{rim.ref("note")}</p></div>')
+    corpo += ('<h2 id="attivita">Attività e codici</h2><p class="small">Prima colonna: la guida. Seconda colonna: il primo codice indicato dalla guida '
+              'con il suo titolo ufficiale, e quanti altri codici confronta.</p>' + tabella(["Attività", "Codici ATECO 2025"], righe, resp="resp7"))
+    corpo += ('<h2 id="altre">L\'attività non c\'è?</h2><div class="testo"><p>Usa la <a href="/#cerca">ricerca nella home</a>: cerca tra i titoli e le '
+              f'parole delle note di tutti i {NUM["n_tot"]} codici ATECO 2025 e tra i vecchi codici ATECO 2022. Istat avverte che gli esempi delle note '
+              f'di inclusione non sono un elenco completo: conta l\'attività svolta davvero.{rim.ref("istat_ateco")}</p></div>')
+    corpo += nota(f"Queste guide riportano i codici della classificazione ufficiale, non una consulenza: {FRASE_FISSA}.", "info", "alert")
+    corpo += rim.elenco()
+    testata = banda("Codice ATECO per attività", "Codice ATECO per attività",
+                    f"{len(voci)} guide alle attività più cercate, dal bar all'avvocato, dal B&B all'elettricista.", corta=True, icona="tag")
+    pagina("codice-ateco-per/", f"Codice ATECO per attività: {len(voci)} guide con le note Istat",
+           f"Il codice ATECO 2025 per {len(voci)} attività cercate: bar, avvocato, B&B, estetista, edilizia e altre, con le note Istat, i vecchi codici e il forfettario.",
+           corpo, testata, briciole=[("Home", ""), ("Per attività", "codice-ateco-per/")])
+
+
+def misura_attivita():
+    """Pagine attività: indicizzate solo con almeno MIN_PAROLE_PROPRIE gruppi di 5 parole che non sono in nessun'altra pagina (di codice o di
+    attività) e meno di MAX_SOVRAPPOSIZIONE_ATTIVITA di testo in comune con la pagina più simile. Le righe Istat citate spezzano il testo e
+    contano solo come testo in comune; le frasi di modello (≥ 25% delle pagine attività) non contano."""
+    global _PROVA
+    _PROVA = {}
+    pagine_codice()
+    cod = {p: gruppi_di_parole(t) for p, t in _PROVA.items()}
+    _PROVA = {}
+    for a in ATTIVITA:
+        pagina_attivita(a)
+    testi, _PROVA = _PROVA, None
+    att = {p: gruppi_di_parole(t, citazioni_a_parte=True) for p, t in testi.items()}
+    conta_cod = Counter(g for s in cod.values() for g in s)
+    conta_att = Counter(g for s in att.values() for g in s)
+    modello = {g for g, n in conta_att.items() if n >= QUOTA_MODELLO_ATTIVITA * len(att)}
+    att = {p: s - modello for p, s in att.items()}
+    indice = defaultdict(set)
+    for q, s in list(cod.items()) + list(att.items()):
+        for g in s:
+            if conta_cod[g] + conta_att[g] <= 60:
+                indice[g].add(q)
+    tutti = {**cod, **att}
+    for p, a in att.items():
+        proprie = sum(1 for g in a if conta_cod[g] == 0 and conta_att[g] == 1)
+        cand = Counter(q for g in a for q in indice[g] if q != p)
+        meglio = (0.0, "")
+        for q, _ in cand.most_common(15):
+            x = len(a & tutti[q]) / len(a) if a else 0
+            if x > meglio[0]:
+                meglio = (round(x, 3), q)
+        MISURA_ATT[p] = {"proprie": proprie, "sovrapposizione": meglio[0], "piu_simile": meglio[1]}
+        INDICIZZA_ATT[p] = proprie >= MIN_PAROLE_PROPRIE and meglio[0] < MAX_SOVRAPPOSIZIONE_ATTIVITA
+
+
 # ---------------------------------------------------------------- pagine del sito
 MODULO = """<form name="segnalazioni" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form card">
 <input type="hidden" name="form-name" value="segnalazioni">
@@ -1062,8 +1392,10 @@ def come_lavoriamo(n_idx, n_noidx):
               'schede dentro la pagina della loro classe, con un indirizzo proprio (#c- e il codice): molte hanno lo stesso titolo della classe e poche righe di '
               f'note, e pagine separate sarebbero quasi uguali. Chiediamo ai motori di ricerca di indicizzare {n_idx} pagine di codice, quelle con almeno '
               f'{MIN_PAROLE_PROPRIE} gruppi di parole propri e meno del {int(MAX_SOVRAPPOSIZIONE * 100)}% di testo in comune con la pagina più simile; le altre '
-              f'{n_noidx} restano consultabili ma non indicizzate e senza pubblicità. Le pagine «codice ATECO per mestiere» esistono solo per i mestieri con '
-              'ricerche misurate su Google.</p></div>')
+              f'{n_noidx} restano consultabili ma non indicizzate e senza pubblicità. Le pagine «codice ATECO per mestiere» e «codice ATECO per '
+              f'attività» esistono solo per le attività con ricerche misurate su Google (almeno {MIN_VOLUME_ATTIVITA} al mese per le guide per attività): '
+              'citano parola per parola le note Istat e i titoli ufficiali e vengono indicizzate solo se hanno abbastanza testo proprio, con meno del '
+              f'{int(MAX_SOVRAPPOSIZIONE_ATTIVITA * 100)}% in comune con la pagina più simile.</p></div>')
     corpo += ('<h2 id="aggiornamenti">Ogni quanto aggiorniamo</h2><div class="testo"><p>Ogni mese ricarichiamo i file Istat e le pagine di legge: se un\'impronta '
               'cambia rifacciamo tutti i controlli. Istat ha annunciato aggiornamenti più frequenti della classificazione dal 2026.</p></div>')
     corpo += ('<h2 id="segnala">Segnala un errore</h2><p>Hai trovato una differenza con le tabelle Istat? Scrivici la pagina e, se puoi, il link alla fonte. '
@@ -1167,10 +1499,18 @@ def copia_grafica():
 
 
 # ---------------------------------------------------------------- indicizzazione delle pagine di codice
-def gruppi_di_parole(html_, n=5):
-    t = re.sub(r"<(script|style|svg)\b.*?</\1>", " ", html_, flags=re.S | re.I)
-    w = re.findall(r"\w+", unescape(re.sub(r"<[^>]+>", " ", t)).lower())
-    return {" ".join(w[i:i + n]) for i in range(max(0, len(w) - n + 1))}
+def gruppi_di_parole(html_, n=5, citazioni_a_parte=False):
+    """citazioni_a_parte (pagine attività): ogni riga Istat citata (<q class="ni">) è tolta e spezza il testo, così gli accostamenti di righe
+    ufficiali diverse non contano come testo proprio. I blocchi <section data-ripreso> (link alle guide) non contano mai."""
+    t = re.sub(r"<section data-ripreso>.*?</section>", " ", html_, flags=re.S)
+    t = re.sub(r"<(script|style|svg)\b.*?</\1>", " ", t, flags=re.S | re.I)
+    if citazioni_a_parte:
+        t = re.sub(r'<q class="ni"[^>]*>.*?</q>', " \x00 ", t, flags=re.S)
+    out = set()
+    for pezzo in unescape(re.sub(r"<[^>]+>", " ", t)).lower().split("\x00"):
+        w = re.findall(r"\w+", pezzo)
+        out |= {" ".join(w[i:i + n]) for i in range(max(0, len(w) - n + 1))}
+    return out
 
 
 def pagine_codice():
@@ -1220,6 +1560,7 @@ def main():
         (SITO / nome).write_bytes(contenuto)
     copia_grafica()
     misura()
+    misura_attivita()
     home()
     pagine_codice()
     da_2022()
@@ -1227,6 +1568,9 @@ def main():
     coefficienti()
     for m in MESTIERI_PUBBLICATI:
         pagina_mestiere(m)
+    for a in ATTIVITA:
+        pagina_attivita(a)
+    indice_attivita()
     n_idx = sum(INDICIZZA.values())
     come_lavoriamo(n_idx, len(INDICIZZA) - n_idx)
     chi_siamo()
@@ -1237,10 +1581,15 @@ def main():
         "_nota": "Scritto da genera.py: perché ogni pagina di codice è indicizzata o no (verifica.py ricalcola le misure dalle pagine).",
         "regola": {"min_parole_proprie": MIN_PAROLE_PROPRIE, "max_sovrapposizione": MAX_SOVRAPPOSIZIONE},
         "pagine": {p: dict(MISURA[p], indicizzata=INDICIZZA[p]) for p in sorted(MISURA)},
-        "mestieri": {m["slug"]: {"volume": volume_mestiere(m), "pubblicata": volume_mestiere(m) > 0} for m in MES}},
+        "mestieri": {m["slug"]: {"volume": volume_mestiere(m), "pubblicata": volume_mestiere(m) > 0} for m in MES},
+        "regola_attivita": {"min_volume_mensile": MIN_VOLUME_ATTIVITA, "min_parole_proprie": MIN_PAROLE_PROPRIE,
+                            "max_sovrapposizione": MAX_SOVRAPPOSIZIONE_ATTIVITA, "quota_modello_attivita": QUOTA_MODELLO_ATTIVITA},
+        "attivita": {a["slug"]: {"volume": volume_attivita(a), "pubblicata": a in ATTIVITA,
+                                 **({**MISURA_ATT[a["slug"] + "/"], "indicizzata": INDICIZZA_ATT[a["slug"] + "/"]} if a in ATTIVITA else {})} for a in ATT}},
         ensure_ascii=False, indent=0) + "\n", encoding="utf-8")
     print(f"Sito generato in {SITO}: {len(URLS)} pagine indicizzabili ({n_idx} pagine di codice su {len(INDICIZZA)}, "
-          f"{len(INDICIZZA) - n_idx} noindex) + 404. Mestieri pubblicati: {', '.join(m['slug'] for m in MESTIERI_PUBBLICATI)}.")
+          f"{len(INDICIZZA) - n_idx} noindex) + 404. Mestieri pubblicati: {', '.join(m['slug'] for m in MESTIERI_PUBBLICATI)}. "
+          f"Pagine attività: {len(ATTIVITA)} ({sum(INDICIZZA_ATT.values())} indicizzate).")
 
 
 if __name__ == "__main__":

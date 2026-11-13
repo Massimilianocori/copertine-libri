@@ -1,0 +1,1294 @@
+{
+ "_nota": "Pagine «Codice ATECO per …» (13/11/2026). Si pubblica una pagina solo se una frase in «frasi» ha almeno 100 ricerche al mese misurate (dati/volumi-attivita-2026-11-13.json; genera.py: MIN_VOLUME_ATTIVITA). «evidenza»: codici ATECO 2025 della tabella delle scelte (sottocategorie o classi). «scelte»: righe Istat citate per codice (inizio della nota, oppure =titolo); senza scelte valgono le note di inclusione del codice. «citazioni»: note Istat da riportare intere ([codice, inizio della nota]). «intro»: testo nostro; i titoli e i numeri vengono dai segnaposto {c:}, {t:}, {ct:}, {v:}, {perc:}, {t22:}, {d22:} (genera.py). «vedi»: guide vicine. Nessun consiglio: la scelta del codice si verifica con il commercialista o la Camera di commercio.",
+ "attivita": [
+  {
+   "slug": "codice-ateco-bar",
+   "nome": "bar e caffetteria",
+   "frasi": [
+    "codice ateco bar",
+    "codice ateco per bar",
+    "codice ateco bar senza cucina",
+    "codice ateco bar con cucina",
+    "codice ateco bar caffetteria"
+   ],
+   "titolo": "Codice ATECO bar 2025: 56.30.01 e gli altri codici dei bar",
+   "h1": "Codice ATECO per bar e caffetteria",
+   "descrizione": "Bar e caffetterie: 56.30.01. Lounge bar, birrerie e wine bar: 56.30.02. Con le note Istat, il vecchio 56.30.00 diviso in quattro e il caso del bar con cucina.",
+   "intro": "Con ATECO 2025 il vecchio codice unico dei bar, 56.30.00 «Bar e altri esercizi simili senza cucina», non esiste più: la tavola di raccordo Istat lo divide in quattro sottocategorie della classe 56.30. Il bar di quartiere, la caffetteria e la sala da tè stanno in {ct:56.30.01}; lounge cocktail bar, birrerie, enoteche e bottiglierie (wine bar) in {ct:56.30.02}.\n\nPer i bar contano due distinzioni che Istat scrive nelle note: il luogo (un locale fisso, un servizio ambulante, un mezzo di trasporto gestito da altri) e la cucina. Un locale con cucina attrezzata, secondo la nota operativa della classe, di solito fa ristorazione e non solo somministrazione di bevande: in quel caso il codice va cercato tra quelli dei ristoranti.",
+   "evidenza": [
+    "56.30.01",
+    "56.30.02",
+    "56.30.03",
+    "56.30.04"
+   ],
+   "citazioni": [
+    [
+     "56.30",
+     "Solitamente"
+    ]
+   ],
+   "vedi": [
+    "codice-ateco-ristorante",
+    "codice-ateco-panificio-pasticceria"
+   ]
+  },
+  {
+   "slug": "codice-ateco-avvocato",
+   "nome": "avvocato e studio legale",
+   "frasi": [
+    "codice ateco avvocato",
+    "codice ateco avvocati",
+    "codice ateco studio legale",
+    "codice ateco studi legali",
+    "codice ateco avvocato 2025"
+   ],
+   "titolo": "Codice ATECO avvocato 2025: 69.10.10 attività legali e giuridiche",
+   "h1": "Codice ATECO per avvocato e studio legale",
+   "descrizione": "Avvocati e studi legali: 69.10.10 «Attività legali e giuridiche». Cosa include per Istat, cosa va altrove, il vecchio 69.10.10 e il forfettario.",
+   "intro": "Le note della classe 69.10 non usano la parola «avvocato» (compare solo negli «ordini degli avvocati», tra le associazioni professionali): parlano di rappresentanza legale effettuata da persone abilitate a esercitare la professione forense. È la classe 69.10, insieme ai notai e alle attività di supporto. Il codice a sei cifre è {ct:69.10.10}: le note citano la difesa davanti ai tribunali nei processi civili, penali e del lavoro e la consulenza giuridico-legale, ma anche la mediazione legale e i tutori legali nominati.\n\nIl numero è lo stesso del vecchio codice ATECO 2022, ma il contenuto non coincide del tutto: la tavola di raccordo porta una parte del vecchio 69.10.10 in {ct:69.10.30}, che comprende le aste giudiziarie per conto dei tribunali e alcune attività peritali. I notai hanno un codice proprio, {c:69.10.20}. Le note di esclusione della classe ricordano infine che consulenza finanziaria e mediazione sociale stanno in altre divisioni.",
+   "evidenza": [
+    "69.10.10",
+    "69.10.30",
+    "69.10.20"
+   ]
+  },
+  {
+   "slug": "codice-ateco-affittacamere-bb",
+   "nome": "affittacamere e B&B",
+   "frasi": [
+    "codice ateco affittacamere",
+    "codice ateco b&b",
+    "codice ateco bed and breakfast",
+    "codice ateco affittacamere 2025",
+    "codice ateco 55.20 51",
+    "ateco bed and breakfast"
+   ],
+   "titolo": "Codice ATECO affittacamere e B&B 2025: 55.20.41 e 55.20.42",
+   "h1": "Codice ATECO per affittacamere e B&B",
+   "descrizione": "Bed and breakfast: 55.20.41. Affittacamere, case e appartamenti per vacanze: 55.20.42. Il vecchio 55.20.51 diviso in quattro codici, con le note Istat.",
+   "intro": "In ATECO 2022 affittacamere, bed and breakfast, case vacanze e residence avevano un solo codice, 55.20.51. In ATECO 2025 il bed and breakfast ha una sottocategoria propria, {ct:55.20.41}, mentre gli affittacamere stanno in {ct:55.20.42} insieme alle case e agli appartamenti per vacanze e all'alloggio fornito da famiglie private.\n\nLa divisione 55 ha una regola sulla durata che vale per tutte queste attività: sotto un anno si tratta di servizi di alloggio, da un anno in su di affitto, nella divisione 68. Una parte del vecchio 55.20.51 va anche nelle case religiose e nelle altre case sociali di ospitalità, come si vede nella tavola di raccordo più sotto.",
+   "evidenza": [
+    "55.20.41",
+    "55.20.42"
+   ],
+   "citazioni": [
+    [
+     "55",
+     "È prevista una regola specifica"
+    ]
+   ],
+   "vedi": [
+    "codice-ateco-affitti-brevi",
+    "codice-ateco-agriturismo"
+   ]
+  },
+  {
+   "slug": "codice-ateco-affitti-brevi",
+   "nome": "affitti brevi e casa vacanze",
+   "frasi": [
+    "codice ateco affitti brevi",
+    "codice ateco casa vacanze",
+    "codice ateco locazione turistica",
+    "codice ateco locazione turistica non imprenditoriale"
+   ],
+   "titolo": "Codice ATECO affitti brevi e casa vacanze: la regola dell'anno",
+   "h1": "Codice ATECO per affitti brevi e casa vacanze",
+   "descrizione": "Affitti brevi e case vacanze: 55.20.42 sotto un anno, divisione 68 da un anno in su, 68.32.01 per chi gestisce alloggi di altri. Note Istat citate.",
+   "intro": "Le note Istat non usano le espressioni «affitti brevi» o «locazione turistica»: parlano di servizi di alloggio in case e appartamenti per vacanze e per turisti, «per un periodo inferiore a un anno». Quella è la sottocategoria {ct:55.20.42}. Se lo stesso appartamento è dato a lavoratori o studenti per meno di un anno, per motivi diversi dalla vacanza, la nota rimanda a {c:55.90.00}.\n\nLa durata decide anche il confine con l'affitto vero e proprio: da un anno in su l'attività è nella divisione 68, per esempio in {ct:68.20.09}. Chi invece gestisce per conto dei proprietari alloggi per soggiorni brevi fa property management in ambito turistico, che Istat mette in {c:68.32.01}. Il codice ATECO descrive l'attività; se serva aprire una posizione fiscale dipende da norme che non sono nella classificazione.",
+   "evidenza": [
+    "55.20.42",
+    "55.90.00",
+    "68.20.09",
+    "68.32.01"
+   ],
+   "scelte": {
+    "55.20.42": [
+     "servizi di alloggio in case e appartamenti per vacanze",
+     "servizi di alloggio in case e appartamenti per turisti",
+     "servizi di alloggio forniti da famiglie private"
+    ],
+    "68.32.01": [
+     "attività di property management in ambito turistico"
+    ],
+    "68.20.09": [
+     "fornitura di case e appartamenti ammobiliati"
+    ]
+   },
+   "citazioni": [
+    [
+     "55",
+     "È prevista una regola specifica"
+    ]
+   ],
+   "vedi": [
+    "codice-ateco-affittacamere-bb",
+    "codice-ateco-agente-immobiliare"
+   ]
+  },
+  {
+   "slug": "codice-ateco-architetto",
+   "nome": "architetto",
+   "frasi": [
+    "codice ateco architetto",
+    "codice ateco architetti",
+    "codice ateco architetto libero professionista",
+    "codice ateco studio architettura",
+    "codice ateco architetto 2025"
+   ],
+   "titolo": "Codice ATECO architetto 2025: 71.11.09 attività di architettura",
+   "h1": "Codice ATECO per architetto",
+   "descrizione": "Architetti: 71.11.09 «Attività di architettura n.c.a.»; scavi archeologici: 71.11.01. Note Istat, interni e decorazione, vecchio 71.11.00 e forfettario.",
+   "intro": "Con ATECO 2025 il vecchio 71.11.00 degli studi di architettura si divide in due. Quasi tutta l'attività dell'architetto è in {ct:71.11.09}: progettazione di edifici, pianificazione urbanistica e architettura del paesaggio, architettura di interni intesa come riprogettazione della struttura interna di un edificio, supporto al restauro dei beni culturali. La nuova sottocategoria {ct:71.11.01} riguarda solo gli scavi archeologici.\n\nLe note di esclusione tracciano confini utili per chi lavora tra progetto e arredo: la decorazione di interni è in 74.13, gli studi di ingegneria in 71.12, la ristrutturazione di edifici storici eseguita in cantiere nella sezione delle costruzioni. Nei titoli e nelle note della classe 71.11 non c'è una distinzione tra architetto iscritto all'albo e non iscritto, né tra studio e libero professionista: descrivono l'attività.",
+   "evidenza": [
+    "71.11.09",
+    "71.11.01",
+    "74.13.00"
+   ],
+   "vedi": [
+    "codice-ateco-ingegnere",
+    "codice-ateco-geometra"
+   ]
+  },
+  {
+   "slug": "codice-ateco-commercialista",
+   "nome": "commercialista e consulente del lavoro",
+   "frasi": [
+    "codice ateco commercialista",
+    "codice ateco commercialisti",
+    "codice ateco consulente del lavoro",
+    "codice ateco consulenti del lavoro",
+    "codice ateco dottori commercialisti"
+   ],
+   "titolo": "Codice ATECO commercialista e consulente del lavoro: 69.20",
+   "h1": "Codice ATECO per commercialista e consulente del lavoro",
+   "descrizione": "Commercialisti 69.20.01, consulenti del lavoro 69.20.04, esperti contabili, revisori e CAF: le sette sottocategorie della classe 69.20 con le note Istat.",
+   "intro": "La classe 69.20 riunisce contabilità, revisione e consulenza fiscale. In ATECO 2025 ha sette sottocategorie che si distinguono soprattutto per chi svolge l'attività: {ct:69.20.01}, {ct:69.20.03}, {ct:69.20.04}, i revisori legali, i centri di assistenza fiscale e gli altri soggetti che si occupano di buste paga o di consulenza tributaria e contabile.\n\nLe sottocategorie non hanno note proprie. Cosa comprende il lavoro lo dicono le note della categoria 69.20.0, riportate qui sotto: tenuta della contabilità, buste paga, dichiarazioni dei redditi, rappresentanza davanti alle autorità fiscali. Le esclusioni della classe portano altrove il software per la contabilità, l'elaborazione elettronica dei dati e la consulenza gestionale sui sistemi contabili.",
+   "evidenza": [
+    "69.20.01",
+    "69.20.03",
+    "69.20.04",
+    "69.20.05",
+    "69.20.06",
+    "69.20.07",
+    "69.20.02"
+   ],
+   "citazioni": [
+    [
+     "69.20.0",
+     "registrazione delle transazioni"
+    ],
+    [
+     "69.20.0",
+     "attività di contabilità finanziaria"
+    ],
+    [
+     "69.20.0",
+     "compilazione di dichiarazioni"
+    ],
+    [
+     "69.20.0",
+     "attività di consulenza contabile e rappresentanza"
+    ]
+   ],
+   "vedi": [
+    "codice-ateco-consulente"
+   ]
+  },
+  {
+   "slug": "codice-ateco-estetista",
+   "nome": "estetista e centro estetico",
+   "frasi": [
+    "codice ateco estetista",
+    "codice ateco centro estetico",
+    "codice ateco estetica",
+    "codice ateco onicotecnica",
+    "codice ateco onicotecnico",
+    "codice ateco estetista forfettario",
+    "codice ateco 96.02 02"
+   ],
+   "titolo": "Codice ATECO estetista 2025: 96.22.09, manicure, centri benessere",
+   "h1": "Codice ATECO per estetista e centro estetico",
+   "descrizione": "Estetiste e centri estetici: 96.22.09. Manicure e pedicure: 96.22.01. Centri benessere e massaggi non terapeutici: 96.23.99. Note Istat e vecchio 96.02.02.",
+   "intro": "Il vecchio 96.02.02 «Servizi degli istituti di bellezza» in ATECO 2025 diventa {ct:96.22.09}. Le note citano i trattamenti estetici più comuni, dal massaggio del viso alla depilazione, il trucco permanente e il lash making per ciglia e sopracciglia. Manicure e pedicure hanno ora una sottocategoria a parte, {c:96.22.01}.\n\nSe l'attività è soprattutto un centro benessere, con sauna, bagno turco o solarium, o un centro massaggi non medico-terapeutici, le note indicano {ct:96.23.99}. Due esclusioni della classe 96.22 segnano il confine con la sanità: la chirurgia estetica fatta da medici specialisti è in 86.22, l'attività dei podologi in 86.99. La parola «onicotecnica» non compare nelle note Istat.",
+   "evidenza": [
+    "96.22.09",
+    "96.22.01",
+    "96.23.99"
+   ],
+   "vedi": [
+    "codice-ateco-parrucchiere",
+    "codice-ateco-massaggiatore",
+    "codice-ateco-tatuatore"
+   ]
+  },
+  {
+   "slug": "codice-ateco-geometra",
+   "nome": "geometra",
+   "frasi": [
+    "codice ateco geometra",
+    "codice ateco geometri",
+    "codice ateco geometri liberi professionisti",
+    "codice ateco geometra libero professionista"
+   ],
+   "titolo": "Codice ATECO geometra 2025: 71.12.30 progetti dei geometri",
+   "h1": "Codice ATECO per geometra",
+   "descrizione": "Geometri: 71.12.30 «Elaborazione e supervisione di progetti da parte di geometri». Rilievi, cartografia e periti nelle note Istat, vecchio codice.",
+   "intro": "Il geometra ha una sottocategoria ATECO 2025 che porta il suo nome: {ct:71.12.30}. La nota Istat parla di progettazione, direzione di progetti e assistenza ai lavori di costruzione svolte da geometri.\n\nAltri lavori che un geometra fa spesso sono però descritti in sottocategorie vicine della stessa classe 71.12: il rilevamento di terreni e di confini è tra le note di {ct:71.12.50}, la preparazione di mappe e il rilievo fotogrammetrico, anche con droni, in {ct:71.12.40}. Le esclusioni della classe rimandano altrove i periti mensori, i collaudi tecnici e lo sviluppo di progetti immobiliari destinati alla vendita.",
+   "evidenza": [
+    "71.12.30",
+    "71.12.50",
+    "71.12.40"
+   ],
+   "scelte": {
+    "71.12.50": [
+     "attività di rilevamento di terreni"
+    ],
+    "71.12.40": [
+     "preparazione e revisione di mappe",
+     "attività di rilievo fotogrammetrico"
+    ]
+   },
+   "vedi": [
+    "codice-ateco-architetto",
+    "codice-ateco-ingegnere",
+    "codice-ateco-edilizia"
+   ]
+  },
+  {
+   "slug": "codice-ateco-fisioterapista",
+   "nome": "fisioterapista e osteopata",
+   "frasi": [
+    "codice ateco fisioterapista",
+    "codice ateco fisioterapisti",
+    "codice ateco osteopatia",
+    "codice ateco osteopata",
+    "codice ateco fisioterapista 2025"
+   ],
+   "titolo": "Codice ATECO fisioterapista e osteopata 2025: 86.95 e 86.96",
+   "h1": "Codice ATECO per fisioterapista e osteopata",
+   "descrizione": "Fisioterapisti: 86.95.00 «Attività di fisioterapia». Osteopati: 86.96.09. Chinesiologi: 86.96.01. Le note Istat e i vecchi codici 86.90.21 e 86.90.29.",
+   "intro": "In ATECO 2022 fisioterapia e molte attività paramediche erano nel gruppo dei codici 86.90. ATECO 2025 crea classi nuove: la fisioterapia ha la sua, {ct:86.95.00}, che comprende anche massoterapisti, ergoterapisti e terapisti occupazionali. Il vecchio 86.90.21 «Fisioterapia» passa tutto qui.\n\nGli osteopati non sono nella classe della fisioterapia: una nota di esclusione li rimanda alla classe 86.96, e la nota di {ct:86.96.09} cita i servizi terapeutici di medicina osteopatica. Nella stessa classe c'è {ct:86.96.01}. Tecniche come shiatsu, massaggio thailandese o qigong sono invece in 86.99.01, una sottocategoria delle altre attività per la salute umana: se ne parla nella guida al massaggiatore.",
+   "evidenza": [
+    "86.95.00",
+    "86.96.09",
+    "86.96.01"
+   ],
+   "scelte": {
+    "86.96.09": [
+     "fornitura di servizi terapeutici di medicina osteopatica"
+    ]
+   },
+   "vedi": [
+    "codice-ateco-massaggiatore",
+    "codice-ateco-infermiere",
+    "codice-ateco-medico"
+   ]
+  },
+  {
+   "slug": "codice-ateco-edilizia",
+   "nome": "edilizia, impresa edile e muratore",
+   "frasi": [
+    "codice ateco edilizia",
+    "codici ateco edilizia",
+    "codice ateco impresa edile",
+    "codice ateco muratore",
+    "codice ateco lavori edili",
+    "codice ateco costruzione di edifici residenziali e non residenziali",
+    "codice ateco 43.39 01 cosa comprende"
+   ],
+   "titolo": "Codice ATECO edilizia 2025: impresa edile 41.00.00 e muratore",
+   "h1": "Codice ATECO per edilizia, impresa edile e muratore",
+   "descrizione": "Impresa edile che costruisce edifici: 41.00.00. Muratore: 43.91.00 «Lavori di muratura». Ponteggi e altri lavori: 43.99.09. Note Istat e vecchi codici 2022.",
+   "intro": "Nell'edilizia il codice dipende da cosa si costruisce e da quanta parte del lavoro si fa. L'impresa che realizza edifici interi, case, capannoni, scuole o uffici, è in {ct:41.00.00}, dove confluisce gran parte del vecchio 41.20.00 della costruzione di edifici.\n\nIl muratore che esegue opere murarie per altri ha ora una sottocategoria propria, {ct:43.91.00}: il vecchio 43.39.01 «Attività non specializzate di lavori edili (muratori)» confluisce tutto lì. Lavori specializzati come il montaggio di ponteggi o la piegatura del ferro in cantiere sono in {ct:43.99.09}. Le note di esclusione, nella tabella più sotto, dicono dove vanno le attività vicine che non sono costruzione.",
+   "evidenza": [
+    "41.00.00",
+    "43.91.00",
+    "43.99.09"
+   ],
+   "scelte": {
+    "41.00.00": [
+     "edifici residenziali",
+     "fabbricati per uso industriale",
+     "edifici adibiti a ospedali"
+    ],
+    "43.99.09": [
+     "montaggio e smontaggio di ponteggi",
+     "attività di piegatura di acciaio per armature, svolte in cantiere"
+    ]
+   },
+   "vedi": [
+    "codice-ateco-imbianchino",
+    "codice-ateco-elettricista",
+    "codice-ateco-idraulico"
+   ]
+  },
+  {
+   "slug": "codice-ateco-agente-di-commercio",
+   "nome": "agente di commercio e procacciatore d'affari",
+   "frasi": [
+    "codice ateco agente di commercio",
+    "codice ateco agenti di commercio",
+    "codice ateco procacciatore d'affari",
+    "procacciatore d'affari codice ateco",
+    "codice ateco 46.19 02",
+    "codice ateco agente di commercio forfettario"
+   ],
+   "titolo": "Codice ATECO agente di commercio e procacciatore: gruppo 46.1",
+   "h1": "Codice ATECO per agente di commercio e procacciatore d'affari",
+   "descrizione": "Agenti di commercio e procacciatori in ATECO 2025: classi 46.11-46.18 per settore, 46.19.00 senza prevalenza. Note Istat, vecchi 46.19.01 e 46.19.02.",
+   "intro": "Le note Istat di ATECO 2025 non usano le parole «agente di commercio» o «procacciatore d'affari». «Agenti e rappresentanti» e «procacciatori d'affari» compaiono nei titoli dei vecchi codici ATECO 2022, per esempio 46.19.01 e 46.19.02, che la tavola di raccordo porta nel gruppo 46.1. La nota del gruppo descrive l'intermediazione per il commercio all'ingrosso: facilitare le transazioni tra venditori e acquirenti a fronte di un compenso o di una commissione, senza assumere la proprietà dei beni. Il codice dipende da cosa si tratta: materie prime agricole, combustibili, legname, macchinari, mobili, tessili e abbigliamento, prodotti alimentari, altri prodotti specifici. Chi tratta prodotti vari senza un settore prevalente è in {ct:46.19.00}.\n\nIn ATECO 2022 agenti e procacciatori senza prevalenza avevano due sottocategorie diverse, 46.19.01 e 46.19.02. In ATECO 2025 la tavola di raccordo le porta entrambe in 46.19.00. Le classi da 46.11 a 46.18 hanno a loro volta più sottocategorie a sei cifre, elencate nelle pagine delle classi. Gli agenti commissionari che assumono la proprietà dei beni, anche se agiscono in nome e per conto terzi, secondo le note di esclusione vanno invece nel commercio all'ingrosso, gruppi da 46.2 a 46.9.",
+   "evidenza": [
+    "46.19.00",
+    "46.11",
+    "46.12",
+    "46.13",
+    "46.14",
+    "46.15",
+    "46.16",
+    "46.17",
+    "46.18"
+   ],
+   "citazioni": [
+    [
+     "46.1",
+     "attività di commissionari"
+    ]
+   ],
+   "vedi": [
+    "codice-ateco-e-commerce",
+    "codice-ateco-agente-immobiliare"
+   ]
+  },
+  {
+   "slug": "codice-ateco-psicologo",
+   "nome": "psicologo e psicoterapeuta",
+   "frasi": [
+    "codice ateco psicologo",
+    "codice ateco psicologi",
+    "codice ateco psicoterapeuta",
+    "codice ateco psicoterapeuti",
+    "codice ateco psicologi 2025"
+   ],
+   "titolo": "Codice ATECO psicologo 2025: 86.93.00 psicologi e psicoterapeuti",
+   "h1": "Codice ATECO per psicologo e psicoterapeuta",
+   "descrizione": "Psicologi e psicoterapeuti non medici: 86.93.00. Psichiatri: 86.22.02. Il vecchio 86.90.30 e il coefficiente del forfettario, con le note Istat citate.",
+   "intro": "Fino ad ATECO 2022 lo psicologo era una sottocategoria degli altri servizi di assistenza sanitaria (classe 86.90), 86.90.30 «Attività svolta da psicologi». In ATECO 2025 ha una classe propria: {ct:86.93.00}. La nota comprende psicologi clinici, psicologi della salute e psicoterapeuti, gli psicanalisti e la musicoterapia svolta da psicologi o psicoterapeuti.\n\nIl confine che conta è quello con i medici. Lo dice il titolo stesso («esclusi i medici») e lo ripete la nota di esclusione della classe: gli psichiatri sono rimandati a 86.22, dove la nota di {ct:86.22.02} cita le attività di psichiatri. Le attività di psicomotricità hanno un'altra sottocategoria ancora, nella classe 86.99.",
+   "evidenza": [
+    "86.93.00",
+    "86.22.02"
+   ],
+   "scelte": {
+    "86.22.02": [
+     "attività di psichiatri"
+    ]
+   },
+   "vedi": [
+    "codice-ateco-medico",
+    "codice-ateco-massaggiatore"
+   ]
+  },
+  {
+   "slug": "codice-ateco-consulente",
+   "nome": "consulente e consulenza aziendale",
+   "frasi": [
+    "codice ateco consulente",
+    "codice ateco consulenza",
+    "codice ateco consulenza aziendale",
+    "codice ateco consulente aziendale",
+    "codice ateco consulenza generica",
+    "codice ateco consulente generico",
+    "codice ateco 70.22 09",
+    "codice ateco 74.90 99"
+   ],
+   "titolo": "Codice ATECO consulente 2025: 70.20.09 e la consulenza generica",
+   "h1": "Codice ATECO per consulente e consulenza aziendale",
+   "descrizione": "Consulenza aziendale e gestionale: 70.20.09. Logistica: 70.20.01. Altre consulenze tecniche: 74.99.99. Dove vanno i vecchi 70.22.09 e 74.90.99.",
+   "intro": "«Consulente» non è un codice ATECO: il codice dipende dalla materia della consulenza. Quella aziendale e gestionale, la più cercata, è in {ct:70.20.09}, che raccoglie il vecchio 70.22.09. Le note elencano esempi concreti: procedure contabili e di budget, avvio di imprese, risorse umane, sostenibilità, project management, strategia, marketing.\n\nAltre consulenze hanno codici propri. La logistica ha {c:70.20.01}; la consulenza informatica è nella divisione 62, quella fiscale e contabile in 69.20, quella su sicurezza e salute sul lavoro in 74.99.21. Il vecchio 74.90.99 «Altre attività professionali n.c.a.», molto usato come codice generico, in ATECO 2025 si divide in più codici diversi; le «altre consulenze tecniche» sono tra le note di {ct:74.99.99}.",
+   "evidenza": [
+    "70.20.09",
+    "70.20.01",
+    "74.99.99"
+   ],
+   "scelte": {
+    "70.20.09": [
+     "attività per l'avviamento",
+     "attività di consulenza per la definizione di strategie",
+     "attività di consulenza in materia di project management",
+     "obiettivi e politiche di marketing"
+    ],
+    "74.99.99": [
+     "altre consulenze tecniche",
+     "attività peritali"
+    ]
+   },
+   "vedi": [
+    "codice-ateco-commercialista",
+    "codice-ateco-social-media-manager"
+   ]
+  },
+  {
+   "slug": "codice-ateco-personal-trainer",
+   "nome": "personal trainer e palestra",
+   "frasi": [
+    "codice ateco personal trainer",
+    "codici ateco personal trainer",
+    "codice ateco palestra",
+    "codice ateco palestre",
+    "codice ateco istruttore sportivo",
+    "codice ateco 85.51 00"
+   ],
+   "titolo": "Codice ATECO personal trainer e palestra 2025: 85.51 e 93.13",
+   "h1": "Codice ATECO per personal trainer e palestra",
+   "descrizione": "Personal trainer e istruttori: 85.51.09. Insegnanti di pilates: 85.51.01. Palestre: 93.13.09. Studi di yoga e pilates: 93.13.01. Note Istat e vecchio 85.51.00.",
+   "intro": "Per Istat c'è differenza tra insegnare uno sport e gestire il luogo dove lo si pratica. L'istruzione sportiva è nella divisione dell'istruzione: {ct:85.51.09}, mentre chi insegna pilates come insegnante o istruttore indipendente ha la sottocategoria {c:85.51.01}. La gestione di una palestra o di un centro fitness è invece nella divisione delle attività sportive, in {ct:93.13.09}, e gli studi di yoga, pilates e Tai Chi hanno {c:93.13.01}.\n\nIl vecchio 85.51.00 «Corsi sportivi e ricreativi» si divide così in tre codici, e il vecchio 93.13.00 «Gestione di palestre» passa a 93.13.09. La nota di 85.51.09 nomina espressamente le «attività di personal trainer», accanto ai corsi di ginnastica e alle attività di istruttori, insegnanti e allenatori sportivi.",
+   "evidenza": [
+    "85.51.09",
+    "85.51.01",
+    "93.13.09",
+    "93.13.01"
+   ],
+   "scelte": {
+    "85.51.09": [
+     "attività di personal trainer",
+     "corsi di ginnastica",
+     "attività di istruttori"
+    ]
+   },
+   "vedi": [
+    "codice-ateco-massaggiatore",
+    "codice-ateco-fisioterapista"
+   ]
+  },
+  {
+   "slug": "codice-ateco-ingegnere",
+   "nome": "ingegnere e studio di ingegneria",
+   "frasi": [
+    "codice ateco ingegnere",
+    "codice ateco ingegneri",
+    "codice ateco ingegneria",
+    "codice ateco studio ingegneria",
+    "codice ateco studio di ingegneria",
+    "codice ateco 71.12 10"
+   ],
+   "titolo": "Codice ATECO ingegnere 2025: 71.12.10 attività di ingegneria",
+   "h1": "Codice ATECO per ingegnere e studio di ingegneria",
+   "descrizione": "Ingegneri e studi di ingegneria: 71.12.10. Progetti integrati: 71.12.20. Cosa dicono le note Istat, cosa va in altri codici, vecchio 71.12.10 e forfettario.",
+   "intro": "L'attività dell'ingegnere è in {ct:71.12.10}, lo stesso numero del vecchio codice ATECO 2022 degli studi di ingegneria. Le note sono tra le più lunghe della divisione 71: progettazione di macchinari e impianti industriali, opere di ingegneria civile e idraulica, impianti degli edifici, ingegneria ambientale, acustica, economia circolare, perfino le specifiche per la stampa in 3D.\n\nQuando progettazione, consulenza tecnica, direzione dei lavori e piani di manutenzione sono svolti insieme, in forma integrata, Istat indica {ct:71.12.20}. Le esclusioni della classe 71.12 ricordano che costruire non è progettare (sezione F), che il software ha la divisione 62 e la ricerca e sviluppo nel campo dell'ingegneria la classe 72.10.",
+   "evidenza": [
+    "71.12.10",
+    "71.12.20"
+   ],
+   "scelte": {
+    "71.12.10": [
+     "macchinari, processi industriali",
+     "progetti di ingegneria civile",
+     "ingegneria ambientale",
+     "attività di ingegneria nei cantieri",
+     "sviluppo informatico di progetti"
+    ]
+   },
+   "vedi": [
+    "codice-ateco-architetto",
+    "codice-ateco-geometra"
+   ]
+  },
+  {
+   "slug": "codice-ateco-medico",
+   "nome": "medico",
+   "frasi": [
+    "codice ateco medico",
+    "codice ateco medici",
+    "codice ateco medico specialista",
+    "codice ateco medico generico",
+    "codice ateco medico libero professionista",
+    "codice ateco studio medico"
+   ],
+   "titolo": "Codice ATECO medico 2025: 86.21.00 e 86.22 per gli specialisti",
+   "h1": "Codice ATECO per medico",
+   "descrizione": "Medicina generale: 86.21.00. Medici specialisti: 86.22.02, chirurgia estetica 86.22.01, cliniche e day hospital 86.22.03. Note Istat, vecchio 86.22.09.",
+   "intro": "La classificazione separa il medico di medicina generale dallo specialista. Il primo è in {ct:86.21.00}: le note citano il consulto e il trattamento nel campo della medicina generale, gli studi medici e polimedici e gli ambulatori di medicina generale.\n\nPer gli specialisti ATECO 2025 ha tre sottocategorie nella classe 86.22, dove si divide il vecchio 86.22.09 «Altri studi medici specialistici e poliambulatori». La chirurgia estetica ha {c:86.22.01}; il medico specialista indipendente e gli studi medici e polimedici di medicina specialistica, compresi gli psichiatri e i pediatri, sono in {ct:86.22.02}; gli ambulatori e poliambulatori specialistici, i trattamenti in day hospital e i centri vaccinali sono tra le note di 86.22.03. Dentisti, psicologi non medici, infermieri e fisioterapisti hanno classi proprie.",
+   "evidenza": [
+    "86.21.00",
+    "86.22.02",
+    "86.22.01"
+   ],
+   "scelte": {
+    "86.22.02": [
+     "consulto e trattamento medico",
+     "attività di psichiatri"
+    ],
+    "86.22.01": [
+     "trattamenti di chirurgia estetica effettuati"
+    ]
+   },
+   "vedi": [
+    "codice-ateco-dentista",
+    "codice-ateco-psicologo",
+    "codice-ateco-infermiere"
+   ]
+  },
+  {
+   "slug": "codice-ateco-farmacia",
+   "nome": "farmacia e parafarmacia",
+   "frasi": [
+    "codice ateco farmacia",
+    "codice ateco farmacie",
+    "codice ateco farmacista",
+    "codice ateco parafarmacia"
+   ],
+   "titolo": "Codice ATECO farmacia 2025: 47.73.10, parafarmacia, erboristeria",
+   "h1": "Codice ATECO per farmacia e parafarmacia",
+   "descrizione": "Farmacie: 47.73.10 medicinali con prescrizione. Parafarmacie: 47.73.90. Erboristerie: 47.73.20. Cosa dicono le note Istat e i vecchi codici ATECO 2022.",
+   "intro": "Nella classe 47.73 il codice dipende da cosa si vende. {ct:47.73.10} è la sottocategoria delle farmacie: le note parlano della vendita al dettaglio di medicinali soggetti a prescrizione medica. La vendita di medicinali senza obbligo di ricetta, per uso umano o veterinario, e di prodotti omeopatici è descritta nelle note di {ct:47.73.90}. La parola «parafarmacia» non compare nelle note Istat.\n\nI rimedi erboristici hanno una sottocategoria propria, {c:47.73.20}. Le note di esclusione, nella tabella più sotto, dicono dove vanno le attività vicine.",
+   "evidenza": [
+    "47.73.10",
+    "47.73.90",
+    "47.73.20"
+   ],
+   "vedi": [
+    "codice-ateco-tabaccheria"
+   ]
+  },
+  {
+   "slug": "codice-ateco-social-media-manager",
+   "nome": "social media manager e marketing",
+   "frasi": [
+    "codice ateco social media manager",
+    "social media manager codice ateco",
+    "codice ateco consulente marketing",
+    "codice ateco consulenza marketing",
+    "codice ateco marketing",
+    "codice ateco 73.11 02",
+    "codice ateco 73.11 02 forfettario"
+   ],
+   "titolo": "Codice ATECO social media manager 2025: 73.11.01 e 73.11.02",
+   "h1": "Codice ATECO per social media manager e marketing",
+   "descrizione": "Social media manager: 73.11.01 per la pianificazione di campagne di social media marketing, 73.11.02 per campagne e consulenza di marketing. Le note Istat.",
+   "intro": "Le note Istat non nominano il social media manager, ma nominano il social media marketing: la «pianificazione di campagne di social media marketing» è tra le note di {ct:73.11.01}, che comprende anche ideazione dei messaggi, pianificazione e organizzazione di campagne pubblicitarie e di marketing. La nota di esclusione di 73.11.03 lo ripete: la pianificazione di campagne di social media marketing va in 73.11.01.\n\nLa gestione dell'andamento delle campagne, la conduzione di campagne di marketing e la consulenza di marketing sono invece tra le note di {ct:73.11.02}. Se l'attività si basa sulla propria visibilità come influencer, le note portano ad altri codici, tra cui {c:73.11.03}. La riga «obiettivi e politiche di marketing» compare anche tra gli esempi di consulenza gestionale di {ct:70.20.09}; la grafica di pagine web ha un codice a parte, {c:74.12.01}. Il vecchio 73.11.02 si divide in due sottocategorie nella tavola di raccordo.",
+   "evidenza": [
+    "73.11.01",
+    "73.11.02",
+    "70.20.09",
+    "74.12.01"
+   ],
+   "scelte": {
+    "73.11.01": [
+     "creazione e collocazione (intesa come strategia di diffusione) di pubblicità, pianificazione",
+     "pianificazione e organizzazione di campagne",
+     "lavoro concettuale sul messaggio pubblicitario"
+    ],
+    "73.11.02": [
+     "gestione dell'andamento",
+     "consulenza di marketing",
+     "promozione di prodotti"
+    ],
+    "70.20.09": [
+     "obiettivi e politiche di marketing"
+    ]
+   },
+   "vedi": [
+    "codice-ateco-influencer",
+    "codice-ateco-consulente"
+   ]
+  },
+  {
+   "slug": "codice-ateco-influencer",
+   "nome": "influencer e content creator",
+   "frasi": [
+    "codice ateco influencer",
+    "codice ateco content creator",
+    "codice ateco youtuber",
+    "codice ateco 73.11 03"
+   ],
+   "titolo": "Codice ATECO influencer e content creator: 73.11.03 o 59.11.00",
+   "h1": "Codice ATECO per influencer e content creator",
+   "descrizione": "Influencer marketing: 73.11.03. Video content creator: 59.11.00. Creatori di contenuti non video: 58.19.00. Influencer nei vlog di terzi: 90.20.09.",
+   "intro": "In ATECO 2025 influencer e creatori di contenuti compaiono in quattro punti diversi della classificazione. L'influencer marketing ha una sottocategoria nuova, {ct:73.11.03}: le note citano le agenzie pubblicitarie che basano le campagne sul coinvolgimento di persone influenti e gli influencer marketer che conducono campagne di influencer marketing. La pubblicazione di contenuti da parte di influencer e blogger è invece rimandata altrove dalle note di esclusione: con video a {ct:59.11.00}, che cita anche i creatori di contenuti video digitali; testi, fotografie e altri contenuti senza video a {ct:58.19.00}.\n\nC'è poi un quarto caso: le persone influenti che compaiono in vlog pubblicati da terzi, citate tra le arti performative in {c:90.20.09}. La parola «youtuber» non compare. Per scegliere conta quale attività produce i ricavi: la conduzione di campagne di influencer marketing, la pubblicazione di video, quella di testi e foto o le apparizioni in vlog di altri.",
+   "evidenza": [
+    "73.11.03",
+    "59.11.00",
+    "58.19.00",
+    "90.20.09"
+   ],
+   "scelte": {
+    "59.11.00": [
+     "attività di creatori di contenuti video"
+    ],
+    "58.19.00": [
+     "attività di creatori di contenuti"
+    ],
+    "90.20.09": [
+     "attività di persone influenti"
+    ]
+   },
+   "vedi": [
+    "codice-ateco-social-media-manager",
+    "codice-ateco-fotografo"
+   ]
+  },
+  {
+   "slug": "codice-ateco-infermiere",
+   "nome": "infermiere e ostetrica",
+   "frasi": [
+    "codice ateco infermiere",
+    "codice ateco infermiere professionale",
+    "codice ateco 86.90 29 forfettario"
+   ],
+   "titolo": "Codice ATECO infermiere 2025: 86.94.01 attività infermieristiche",
+   "h1": "Codice ATECO per infermiere",
+   "descrizione": "Infermieri indipendenti: 86.94.01 «Attività infermieristiche». Ostetriche: 86.94.02. Il vecchio 86.90.29 e il forfettario.",
+   "intro": "L'infermiere che lavora in proprio, nel suo ambulatorio o a casa dei pazienti, ha in ATECO 2025 una sottocategoria con il nome dell'attività: {ct:86.94.01}. La nota cita anche l'assistenza infermieristica palliativa per pazienti ambulatoriali. Le ostetriche sono nella stessa classe, in {c:86.94.02}.\n\nLa classe 86.94 riguarda le attività infermieristiche e ostetriche non svolte da personale medico. Le esclusioni rimandano altrove gli ospedali, le strutture di assistenza infermieristica residenziale e i servizi di assistenza domiciliare. Prima del 2025 queste attività erano nel vecchio 86.90.29 «Altre attività paramediche indipendenti n.c.a.», che ora si divide tra diverse sottocategorie.",
+   "evidenza": [
+    "86.94.01",
+    "86.94.02"
+   ],
+   "vedi": [
+    "codice-ateco-fisioterapista",
+    "codice-ateco-medico"
+   ]
+  },
+  {
+   "slug": "codice-ateco-tabaccheria",
+   "nome": "tabaccheria",
+   "frasi": [
+    "codice ateco tabaccheria",
+    "ateco tabaccaio"
+   ],
+   "titolo": "Codice ATECO tabaccheria 2025: 47.26.01 e il vecchio 47.26.00",
+   "h1": "Codice ATECO per tabaccheria",
+   "descrizione": "Tabacco in qualsiasi forma: 47.26.01. Sigarette elettroniche: 47.26.02. Accessori per fumatori: 47.26.09. Il vecchio 47.26.00 delle tabaccherie e le note Istat.",
+   "intro": "La parola «tabaccheria» compare solo nel titolo del vecchio codice ATECO 2022, 47.26.00 «Commercio al dettaglio di generi di monopolio (tabaccherie)», che in ATECO 2025 si divide per prodotto, come dice la nota operativa citata più sotto. Il tabacco in qualsiasi forma, dalle sigarette al tabacco da pipa e da masticare, e i tabacchi da inalazione senza combustione sono in {ct:47.26.01}.\n\nLe sigarette elettroniche hanno {ct:47.26.02}, gli altri accessori per fumatori {ct:47.26.09}. La tavola di raccordo porta una parte del vecchio 47.26.00 anche in {ct:47.92.10}.\n\nIl confine tra i tre codici passa quindi per il prodotto venduto, non per il tipo di negozio. La tabella del forfettario più sotto mostra un dettaglio utile: per i liquidi e per gli accessori la percentuale ricavata cambia secondo il vecchio codice da cui viene l'attività, perché la tavola di raccordo collega a questi codici anche vecchi codici del commercio ambulante e della vendita via Internet.",
+   "evidenza": [
+    "47.26.01",
+    "47.26.02",
+    "47.26.09"
+   ],
+   "vedi": [
+    "codice-ateco-farmacia",
+    "codice-ateco-bar"
+   ],
+   "scelte": {
+    "47.26.02": [
+     "=titolo"
+    ],
+    "47.26.09": [
+     "=titolo"
+    ]
+   },
+   "max_esclusioni": 4,
+   "citazioni": [
+    [
+     "47.26.0",
+     "Il commercio al dettaglio di prodotti del tabacco"
+    ]
+   ]
+  },
+  {
+   "slug": "codice-ateco-hotel",
+   "nome": "hotel e albergo",
+   "frasi": [
+    "codice ateco hotel",
+    "codice ateco alberghi",
+    "codice ateco albergo",
+    "codice ateco 55.10 00"
+   ],
+   "titolo": "Codice ATECO hotel e albergo 2025: 55.10.00 servizi di alloggio",
+   "h1": "Codice ATECO per hotel e albergo",
+   "descrizione": "Alberghi, hotel resort, motel, pensioni, condhotel e alberghi diffusi: 55.10.00. Cosa dice la nota Istat, cosa va in altri codici e il vecchio 55.10.00.",
+   "intro": "Tutte le strutture alberghiere hanno in ATECO 2025 un solo codice, {ct:55.10.00}. La nota elenca alberghi, anche attrezzati per congressi, hotel resort, alberghi diffusi e residenze turistico alberghiere, motel, villaggi albergo, condhotel, pensioni e meublé.\n\nRispetto al 2022 il codice ha lo stesso numero, ma raccoglie anche i villaggi albergo che prima erano tra i villaggi turistici. A distinguere l'albergo dalle altre strutture ricettive è il servizio: le note della classe 55.20 descrivono l'alloggio in spazi autonomi, senza assistenza al cliente in loco, mentre per gli alberghi parlano di pulizia giornaliera, rifacimento dei letti e assistenza al cliente. Il ristorante interno gestito da un'altra impresa ha il codice dei ristoranti.",
+   "evidenza": [
+    "55.10.00"
+   ],
+   "scelte": {
+    "55.10.00": [
+     "alberghi, inclusi",
+     "hotel resort",
+     "alberghi con suite",
+     "motel",
+     "pensioni"
+    ]
+   },
+   "vedi": [
+    "codice-ateco-affittacamere-bb",
+    "codice-ateco-agriturismo"
+   ]
+  },
+  {
+   "slug": "codice-ateco-agriturismo",
+   "nome": "agriturismo",
+   "frasi": [
+    "codice ateco agriturismo",
+    "ateco agriturismo"
+   ],
+   "titolo": "Codice ATECO agriturismo 2025: 55.20.51 alloggio e 56.11.91",
+   "h1": "Codice ATECO per agriturismo",
+   "descrizione": "Agriturismo con alloggio: 55.20.51 «Servizi di alloggio in aziende agricole». Ristorazione: 56.11.91. Le note Istat, il vecchio 55.20.52 e il forfettario.",
+   "intro": "La parola «agriturismo» non compare nei titoli e nelle note di ATECO 2025. Istat descrive l'attività come servizi connessi alle coltivazioni agricole e all'allevamento di animali, con due codici distinti: l'ospitalità è in {ct:55.20.51}, la ristorazione in {ct:56.11.91}.\n\nPer l'alloggio il passaggio dal 2022 è uno a uno: il vecchio 55.20.52 «Attività di alloggio connesse alle aziende agricole» corrisponde interamente a 55.20.51. Attenzione al numero: in ATECO 2022 il 55.20.51 era il codice di affittacamere e bed and breakfast, che ora hanno 55.20.41 e 55.20.42. L'attività agricola vera e propria resta nella sezione A.",
+   "evidenza": [
+    "55.20.51",
+    "56.11.91"
+   ],
+   "vedi": [
+    "codice-ateco-affittacamere-bb",
+    "codice-ateco-hotel"
+   ]
+  },
+  {
+   "slug": "codice-ateco-fotografo",
+   "nome": "fotografo e videomaker",
+   "frasi": [
+    "codice ateco fotografo",
+    "codice ateco fotografia",
+    "codice ateco videomaker",
+    "codice ateco 74.20 19"
+   ],
+   "titolo": "Codice ATECO fotografo e videomaker 2025: 74.20.19 e 59.11.00",
+   "h1": "Codice ATECO per fotografo e videomaker",
+   "descrizione": "Fotografi: 74.20.19, fotoreporter 74.20.11, foto aeree 74.20.12, laboratori 74.20.20. Video di matrimoni ed eventi: 74.20.19; produzione video: 59.11.00.",
+   "intro": "Il fotografo che lavora per privati e aziende, dai ritratti alle foto di matrimonio, dai servizi di moda alle foto per agenzie immobiliari, è in {ct:74.20.19}. La parola «videomaker» non compare nelle note, ma la stessa nota di 74.20.19 comprende le riprese video di eventi come matrimoni e riunioni.\n\nLa classe 74.20 ha poi sottocategorie per casi specifici: i fotoreporter in {c:74.20.11}, le foto aeree e subacquee in {c:74.20.12}, i laboratori di sviluppo, stampa, ritocco e digitalizzazione in {c:74.20.20}. Chi produce video, film o programmi, comprese le attività di video content creator, è invece in {ct:59.11.00}.",
+   "evidenza": [
+    "74.20.19",
+    "74.20.11",
+    "74.20.12",
+    "74.20.20",
+    "59.11.00"
+   ],
+   "scelte": {
+    "74.20.19": [
+     "ritratti fotografici",
+     "servizi fotografici per spot",
+     "riprese video di eventi",
+     "attività fotografiche per finalità artistiche"
+    ],
+    "74.20.20": [
+     "laboratori di sviluppo",
+     "copia e riproduzione",
+     "digitalizzazione di fotografie"
+    ],
+    "59.11.00": [
+     "=titolo",
+     "attività di creatori di contenuti video"
+    ]
+   },
+   "vedi": [
+    "codice-ateco-influencer",
+    "codice-ateco-organizzazione-eventi"
+   ]
+  },
+  {
+   "slug": "codice-ateco-agente-immobiliare",
+   "nome": "agente immobiliare",
+   "frasi": [
+    "codice ateco agente immobiliare",
+    "codice ateco agenzia immobiliare",
+    "codice ateco immobiliare",
+    "codice ateco consulente immobiliare",
+    "codice ateco 68.31"
+   ],
+   "titolo": "Codice ATECO agente immobiliare 2025: 68.31.00 intermediazione",
+   "h1": "Codice ATECO per agente immobiliare",
+   "descrizione": "Agenzie e agenti immobiliari: 68.31.00 «Attività di servizi di intermediazione per attività immobiliari». Note Istat, vecchio codice, forfettario.",
+   "intro": "L'agente immobiliare è in {ct:68.31.00}. Le note citano le agenzie immobiliari e gli agenti indipendenti, l'intermediazione nell'acquisto, nella vendita e nella locazione di immobili, le aste non giudiziarie e le quotazioni immobiliari.\n\nIl numero è quello del vecchio codice 2022 «Attività di mediazione immobiliare», ma il contenuto si è diviso: la tavola di raccordo porta una parte del vecchio 68.31.00 in {ct:68.32.09}. Chi gestisce immobili per conto dei proprietari, compresi gli amministratori di condominio e il property management, è in {c:68.32.01}. Comprare e vendere immobili propri non è intermediazione: è la classe 68.11.",
+   "evidenza": [
+    "68.31.00",
+    "68.32.09"
+   ],
+   "vedi": [
+    "codice-ateco-amministratore-di-condominio",
+    "codice-ateco-affitti-brevi"
+   ]
+  },
+  {
+   "slug": "codice-ateco-elettricista",
+   "nome": "elettricista",
+   "frasi": [
+    "codice ateco elettricista",
+    "codici ateco elettricista",
+    "codice ateco impianti elettrici",
+    "codice ateco impiantistica elettrica",
+    "codice ateco 43.21 01"
+   ],
+   "titolo": "Codice ATECO elettricista 2025: 43.21.01 impianti negli edifici",
+   "h1": "Codice ATECO per elettricista",
+   "descrizione": "Elettricisti: 43.21.01 per impianti elettrici, di illuminazione e fotovoltaici negli edifici. Reti e allarmi: 43.21.02. Il vecchio 43.21.01 e il forfettario.",
+   "intro": "La parola «elettricista» non compare nelle note Istat, che parlano di installazione di impianti elettrici. Il codice degli impianti elettrici negli edifici ha mantenuto il numero ma ha cambiato titolo. Il vecchio 43.21.01 {t22:43.21.01} in ATECO 2025 diventa {ct:43.21.01}, con una piccola parte che passa all'illuminazione votiva e cimiteriale, {c:43.21.05}.\n\nNelle note del nuovo 43.21.01 ci sono cablaggi e impianti elettrici, illuminazione, rilevatori di incendio, impianti fotovoltaici negli edifici, sistemi di accumulo, wallbox per auto elettriche e collegamento degli elettrodomestici, con la riparazione e manutenzione degli stessi impianti. Cablaggi per telecomunicazioni, fibra, parabole e antifurto sono in {ct:43.21.02}.\n\nDue confini si leggono nelle esclusioni. Le colonnine di ricarica autonome, non collegate all'impianto di un edificio, non sono lavoro da elettricista edile: una nota di esclusione le rimanda a 33.20.09. Le luminarie per le feste hanno invece una sottocategoria tutta loro, 43.21.04, separata dagli altri impianti di illuminazione.",
+   "evidenza": [
+    "43.21.01",
+    "43.21.02"
+   ],
+   "scelte": {
+    "43.21.01": [
+     "cablaggi e impianti elettrici",
+     "impianti (sistemi) di illuminazione",
+     "impianti fotovoltaici in edifici",
+     "installazione di stazioni di ricarica",
+     "riparazione e manutenzione"
+    ],
+    "43.21.02": [
+     "cablaggi per telecomunicazioni",
+     "reti di elaboratori",
+     "sistemi di allarme antifurto"
+    ]
+   },
+   "vedi": [
+    "codice-ateco-idraulico",
+    "codice-ateco-edilizia"
+   ]
+  },
+  {
+   "slug": "codice-ateco-idraulico",
+   "nome": "idraulico",
+   "frasi": [
+    "codice ateco idraulico",
+    "codice ateco idraulico artigiano"
+   ],
+   "titolo": "Codice ATECO idraulico 2025: 43.22.05 e il vecchio 43.22.01",
+   "h1": "Codice ATECO per idraulico",
+   "descrizione": "Idraulici: 43.22.05 impianti idraulico-sanitari. Caldaie, condizionatori e pompe di calore: 43.22.07. Gas: 43.22.06. Il vecchio 43.22.01 diviso in tre codici.",
+   "intro": "In ATECO 2022 l'idraulico aveva un codice unico per acqua, riscaldamento e condizionamento: 43.22.01 {t22:43.22.01}. In ATECO 2025 quel numero indica gli impianti geotermici e il vecchio codice si divide in tre.\n\nIl lavoro classico dell'idraulico, impianti idraulico-sanitari, tubazioni dell'acqua, disotturazione degli scarichi e contatori, è in {ct:43.22.05}. Caldaie, pompe di calore, collettori solari termici e condizionatori sono in {ct:43.22.07}; la distribuzione del gas in {ct:43.22.06}. Le tre sottocategorie descrivono attività diverse: conta quella svolta davvero.",
+   "evidenza": [
+    "43.22.05",
+    "43.22.07",
+    "43.22.06",
+    "43.22.01"
+   ],
+   "vedi": [
+    "codice-ateco-elettricista",
+    "codice-ateco-edilizia"
+   ]
+  },
+  {
+   "slug": "codice-ateco-organizzazione-eventi",
+   "nome": "organizzazione eventi e wedding planner",
+   "frasi": [
+    "codice ateco organizzazione eventi",
+    "organizzazione eventi codice ateco",
+    "codice ateco wedding planner",
+    "codice ateco 96.09 05",
+    "codice ateco affitto sala per feste"
+   ],
+   "titolo": "Codice ATECO organizzazione eventi e wedding planner: 96.99.93",
+   "h1": "Codice ATECO per organizzazione eventi e wedding planner",
+   "descrizione": "Feste private e matrimoni (wedding planner): 96.99.93. Convegni ed eventi aziendali: 82.30.03. Fiere: 82.30.02. Seminari e workshop: 82.30.09. Note Istat.",
+   "intro": "Per Istat organizzare un evento ha codici diversi secondo chi è il cliente. Le feste private e le cerimonie personali, battesimi, baby shower, matrimoni, sono servizi alla persona: {ct:96.99.93}. La nota nomina espressamente l'attività di wedding planner, che prima era nel vecchio 96.09.05 «Organizzazione di feste e cerimonie».\n\nGli eventi per le imprese sono invece servizi alle imprese, nella classe 82.30: convegni ed eventi aziendali in {ct:82.30.03}, conferenze e congressi in {c:82.30.01}, fiere commerciali in {c:82.30.02}, seminari, simposi e workshop in {ct:82.30.09}. Le note di esclusione, più sotto, dicono dove vanno le attività vicine.",
+   "evidenza": [
+    "96.99.93",
+    "82.30.03",
+    "82.30.01",
+    "82.30.02",
+    "82.30.09"
+   ],
+   "vedi": [
+    "codice-ateco-fotografo",
+    "codice-ateco-bar"
+   ]
+  },
+  {
+   "slug": "codice-ateco-dentista",
+   "nome": "dentista e igienista dentale",
+   "frasi": [
+    "codice ateco dentista",
+    "codice ateco odontoiatra",
+    "codice ateco studio dentistico",
+    "codice ateco igienista dentale",
+    "codice ateco dentista libero professionista"
+   ],
+   "titolo": "Codice ATECO dentista 2025: 86.23.00 attività odontoiatriche",
+   "h1": "Codice ATECO per dentista e igienista dentale",
+   "descrizione": "Dentisti e studi dentistici: 86.23.00 «Attività odontoiatriche». Igienisti dentali: 86.99.09. Odontotecnici: 32.50. Note Istat, vecchi codici e forfettario.",
+   "intro": "Lo studio del dentista è in {ct:86.23.00}, il codice delle attività odontoiatriche. Le note della classe e i rimandi delle altre classi della divisione 86 tracciano i confini con le professioni vicine.\n\nGli igienisti dentali e il personale paramedico odontoiatrico che lavora in autonomia sotto la supervisione periodica dei dentisti sono nelle note di {ct:86.99.09}, insieme agli specialisti in terapia dentaria. L'odontotecnico che fabbrica protesi è invece manifattura: una nota di esclusione della classe 86.99 lo rimanda alla classe 32.50, dove {ct:32.50.10} è la sottocategoria delle protesi dentarie.",
+   "evidenza": [
+    "86.23.00",
+    "86.99.09",
+    "32.50.10"
+   ],
+   "scelte": {
+    "86.99.09": [
+     "attività di igienisti dentali",
+     "attività del personale paramedico odontoiatrico",
+     "attività di specialisti in terapia dentaria"
+    ]
+   },
+   "vedi": [
+    "codice-ateco-medico"
+   ]
+  },
+  {
+   "slug": "codice-ateco-amministratore-di-condominio",
+   "nome": "amministratore di condominio e condominio",
+   "frasi": [
+    "codice ateco amministratore di condominio",
+    "codice ateco amministratori di condominio",
+    "codice ateco amministratore condominio",
+    "codice ateco condominio",
+    "codice ateco per condominio",
+    "codice ateco condomini"
+   ],
+   "titolo": "Codice ATECO amministratore di condominio e condominio: 68.32.01",
+   "h1": "Codice ATECO per amministratore di condominio e condominio",
+   "descrizione": "Amministratori di condominio: 68.32.01. Il condominio come datore di lavoro di custodi, giardinieri e addetti alle pulizie: 97.00.10. Note Istat citate.",
+   "intro": "Qui i codici sono due, perché le ricerche sono di due tipi. L'amministratore di condominio, anche indipendente, è in {ct:68.32.01}: la nota lo nomina insieme alle agenzie di riscossione dei canoni e al property management. Il vecchio 68.32.00 {t22:68.32.00} passa qui.\n\nIl condominio stesso, quando assume personale, ha un codice proprio nella divisione delle famiglie e convivenze come datori di lavoro: {ct:97.00.10}. La nota cita come esempi gli addetti alle pulizie, i giardinieri e i custodi. Le imprese che puliscono le parti comuni o curano il verde del condominio hanno invece i codici delle pulizie e della cura del paesaggio.",
+   "evidenza": [
+    "68.32.01",
+    "97.00.10"
+   ],
+   "scelte": {
+    "68.32.01": [
+     "attività di amministrazione di condomini",
+     "attività di agenzie di riscossione"
+    ]
+   },
+   "vedi": [
+    "codice-ateco-agente-immobiliare",
+    "codice-ateco-impresa-di-pulizie",
+    "codice-ateco-giardiniere"
+   ]
+  },
+  {
+   "slug": "codice-ateco-tatuatore",
+   "nome": "tatuatore",
+   "frasi": [
+    "codice ateco tatuatore",
+    "codice ateco tatuatori"
+   ],
+   "titolo": "Codice ATECO tatuatore 2025: 96.99.91 tatuaggi e piercing",
+   "h1": "Codice ATECO per tatuatore",
+   "descrizione": "Tatuatori e piercer: 96.99.91 «Attività di studi di tatuaggi e piercing», anche per decorazioni temporanee all'henné. Note Istat, vecchio codice, forfettario.",
+   "intro": "In ATECO 2025 tatuaggi e piercing hanno una sottocategoria con il loro nome: {ct:96.99.91}. In ATECO 2022 il codice era 96.09.02 {t22:96.09.02}; la tavola di raccordo, più sotto, mostra la corrispondenza con il contenuto in comune scritto da Istat.\n\nLa nota comprende anche i tatuatori che usano sostanze biologiche, per esempio l'henné, per decorazioni temporanee. Il trucco permanente, che molti studi offrono, è invece tra i trattamenti di bellezza di 96.22.09, il codice delle estetiste.\n\nNella stessa classe 96.99 ci sono altri servizi alla persona che non hanno niente a che fare con i tatuaggi, dalla cura degli animali da compagnia all'organizzazione di feste: per questo la nota del tatuatore va letta da sola, senza fermarsi al numero della classe. Il piercing non ha un codice separato dal tatuaggio.",
+   "evidenza": [
+    "96.99.91"
+   ],
+   "vedi": [
+    "codice-ateco-estetista"
+   ]
+  },
+  {
+   "slug": "codice-ateco-giardiniere",
+   "nome": "giardiniere e manutenzione del verde",
+   "frasi": [
+    "codice ateco giardiniere",
+    "giardiniere codice ateco",
+    "codice ateco giardinaggio",
+    "codici ateco giardinaggio",
+    "codice ateco manutenzione del verde"
+   ],
+   "titolo": "Codice ATECO giardiniere 2025: 81.30.00 cura del paesaggio",
+   "h1": "Codice ATECO per giardiniere e manutenzione del verde",
+   "descrizione": "Giardinieri e manutenzione del verde: 81.30.00 «Attività di servizi per la cura del paesaggio». Impianti di irrigazione: 43.22.04. Note Istat.",
+   "intro": "Il giardiniere che cura giardini e parchi per altri è in {ct:81.30.00}. La nota comprende giardinaggio e piantumazione a scopo paesaggistico e la realizzazione, cura e manutenzione di parchi e giardini, per abitazioni, edifici pubblici e gli altri luoghi che elenca.\n\nIl confine più vicino è con l'edilizia: l'installazione di impianti di irrigazione per giardini ha un codice delle costruzioni, {ct:43.22.04}. Il vecchio 81.30.00 {t22:81.30.00} corrisponde al nuovo con lo stesso numero.",
+   "evidenza": [
+    "81.30.00",
+    "43.22.04"
+   ],
+   "vedi": [
+    "codice-ateco-impresa-di-pulizie",
+    "codice-ateco-amministratore-di-condominio"
+   ],
+   "scelte": {
+    "81.30.00": [
+     "attività di giardinaggio",
+     "realizzazione, cura e manutenzione di parchi",
+     "realizzazione, cura e manutenzione di aree verdi",
+     "attività di protezione e ripristino del paesaggio"
+    ]
+   }
+  },
+  {
+   "slug": "codice-ateco-meccanico",
+   "nome": "meccanico, carrozziere e gommista",
+   "frasi": [
+    "codice ateco meccanico",
+    "codice ateco officina meccanica",
+    "codici ateco officina meccanica",
+    "codice ateco carrozzeria",
+    "codice ateco carrozziere",
+    "codice ateco gommista",
+    "codice ateco autolavaggio"
+   ],
+   "titolo": "Codice ATECO meccanico, carrozziere e gommista 2025: classe 95.31",
+   "h1": "Codice ATECO per meccanico, carrozziere e gommista",
+   "descrizione": "Officine meccaniche: 95.31.10. Carrozzerie: 95.31.20. Gommisti: 95.31.30. Autolavaggi: 95.31.91. Con ATECO 2025 la riparazione di auto passa dalla 45 alla 95.",
+   "intro": "Il cambiamento più grande per le officine è la divisione: in ATECO 2022 la riparazione di autoveicoli era nel gruppo 45.20, insieme al commercio di auto; in ATECO 2025 è nella classe 95.31, con le altre riparazioni. Il vecchio 45.20.10 «Riparazioni meccaniche di autoveicoli» diventa {ct:95.31.10}, il vecchio 45.20.20 delle carrozzerie {ct:95.31.20}.\n\nLe altre sottocategorie seguono lo stesso schema: pneumatici, equilibratura e convergenza in {ct:95.31.30}, lavaggio, lucidatura, detailing e autolavaggio self-service in {ct:95.31.91}. Le note di 95.31.10 comprendono anche la manutenzione ordinaria, le riparazioni elettriche e la diagnostica dei sistemi meccatronici. Le moto hanno una classe propria, 95.32.",
+   "evidenza": [
+    "95.31.10",
+    "95.31.20",
+    "95.31.30",
+    "95.31.91"
+   ],
+   "scelte": {
+    "95.31.10": [
+     "manutenzione ordinaria",
+     "riparazioni meccaniche",
+     "riparazioni elettriche",
+     "riparazione e diagnostica"
+    ]
+   },
+   "vedi": [
+    "codice-ateco-ncc-taxi",
+    "codice-ateco-autotrasporto"
+   ]
+  },
+  {
+   "slug": "codice-ateco-imbianchino",
+   "nome": "imbianchino e cartongessista",
+   "frasi": [
+    "codice ateco imbianchino",
+    "imbianchino codice ateco",
+    "codice ateco cartongesso",
+    "codice ateco imbianchino e cartongesso",
+    "codice ateco 43.34"
+   ],
+   "titolo": "Codice ATECO imbianchino 2025: 43.34.01 tinteggiatura",
+   "h1": "Codice ATECO per imbianchino e cartongessista",
+   "descrizione": "Imbianchini: 43.34.01 «Tinteggiatura». Cartongesso: 43.31.01. Intonaci: 43.31.02. Posa di vetri: 43.34.02. Le note Istat e i vecchi codici ATECO 2022.",
+   "intro": "Le note Istat non usano la parola «imbianchino»: la tinteggiatura interna ed esterna di edifici è in {ct:43.34.01}, con la verniciatura di strutture di ingegneria civile e di infissi già installati. Nella stessa classe 43.34 la posa di vetrate e specchi ha un codice proprio, {ct:43.34.02}.\n\nChi posa cartongesso ha in ATECO 2025 una sottocategoria propria, {ct:43.31.01}; gli altri lavori di intonacatura sono in {c:43.31.02}. La tavola di raccordo più sotto mostra da quali vecchi codici vengono.",
+   "evidenza": [
+    "43.34.01",
+    "43.31.01",
+    "43.31.02",
+    "43.34.02"
+   ],
+   "vedi": [
+    "codice-ateco-edilizia",
+    "codice-ateco-falegname"
+   ]
+  },
+  {
+   "slug": "codice-ateco-holding",
+   "nome": "holding",
+   "frasi": [
+    "codice ateco holding",
+    "ateco holding",
+    "codice ateco 64.2",
+    "codice ateco 701000"
+   ],
+   "titolo": "Codice ATECO holding 2025: 64.21.00 o 70.10.00 sedi centrali",
+   "h1": "Codice ATECO per holding",
+   "descrizione": "Holding di partecipazione: 64.21.00. Holding che dirige e gestisce le società del gruppo: 70.10.00 «Attività di sedi centrali». Note Istat a confronto.",
+   "intro": "Per una holding la classificazione chiede di guardare cosa fa davvero la società. Se detiene le partecipazioni in altre società senza dirigerle, è in {ct:64.21.00}: la nota dice «non impegnate in attività gestionali di head office», e le note della classe parlano di unità che detengono le attività di un gruppo di società controllate senza gestirle.\n\nSe invece supervisiona e gestisce le altre unità dell'impresa o del gruppo, con la pianificazione strategica e le decisioni operative, Istat la mette tra le sedi centrali, {ct:70.10.00}. La differenza tra le due note è la presenza dell'attività di direzione. Il vecchio 70.10.00 {t22:70.10.00} nella tavola di raccordo va in parte nel nuovo 70.10.00, ma la tabella operativa di riclassificazione usata da Istat e Camere di commercio gli assegna come codice rappresentativo {ct:82.10.00}.",
+   "evidenza": [
+    "64.21.00",
+    "70.10.00"
+   ],
+   "citazioni": [
+    [
+     "64.21",
+     "Questa classe include le attività svolte da holding"
+    ]
+   ],
+   "vedi": [
+    "codice-ateco-consulente"
+   ],
+   "fonti_intro": [
+    "struttura",
+    "note",
+    "raccordo",
+    "operativa"
+   ]
+  },
+  {
+   "slug": "codice-ateco-falegname",
+   "nome": "falegname e falegnameria",
+   "frasi": [
+    "codice ateco falegname",
+    "codice ateco falegnameria",
+    "codici ateco falegnameria"
+   ],
+   "titolo": "Codice ATECO falegname 2025: carpenteria, mobili e posa in opera",
+   "h1": "Codice ATECO per falegname e falegnameria",
+   "descrizione": "Falegnami: 16.23.09 carpenteria in legno, 31.00 mobili, 43.32.02 posa di infissi e arredi, 95.24.09 riparazione di mobili. Note Istat e vecchi codici.",
+   "intro": "Per il falegname non esiste un codice unico: le note Istat dividono il lavoro del legno secondo cosa si produce e dove. Chi fabbrica in laboratorio prodotti in legno per l'edilizia, travi, capriate, scale, ringhiere, è in {ct:16.23.09}. Porte e finestre in legno hanno una classe a parte, la 16.25, come dice una nota di esclusione.\n\nI mobili sono un'altra divisione: per esempio {ct:31.00.31} e {ct:31.00.20}. Quando il lavoro si svolge in cantiere, montare infissi, cucine su misura, armadi a muro e scale è posa in opera, {ct:43.32.02}. La rifinitura e la riparazione di mobili sono infine nella classe 95.24.",
+   "evidenza": [
+    "16.23.09",
+    "31.00.31",
+    "31.00.20",
+    "43.32.02",
+    "95.24.09"
+   ],
+   "scelte": {
+    "16.23.09": [
+     "travi, travicelli",
+     "scale, ringhiere",
+     "fabbricazione di edifici prefabbricati"
+    ],
+    "43.32.02": [
+     "installazione di infissi",
+     "installazione di cucine su misura"
+    ]
+   },
+   "vedi": [
+    "codice-ateco-edilizia",
+    "codice-ateco-imbianchino"
+   ]
+  },
+  {
+   "slug": "codice-ateco-panificio-pasticceria",
+   "nome": "panificio, pasticceria e gelateria",
+   "frasi": [
+    "codice ateco panificio",
+    "codice ateco pasticceria",
+    "ateco pasticceria",
+    "codice ateco gelateria"
+   ],
+   "titolo": "Codice ATECO panificio, pasticceria e gelateria 2025",
+   "h1": "Codice ATECO per panificio, pasticceria e gelateria",
+   "descrizione": "Panifici: 10.71.10. Laboratori di pasticceria: 10.71.20. Pasticcerie e gelaterie aperte al pubblico: 56.11.21-56.11.24. Vendita di pane: 47.24.10.",
+   "intro": "Pane e dolci hanno codici diversi secondo dove finisce il prodotto. Chi produce pane, panini, rustici, pizzette e altri prodotti da forno è nella manifattura: {ct:10.71.10}. La produzione di pasticceria fresca è in {ct:10.71.20}.\n\nSe invece il locale è una gelateria o una pasticceria che serve i clienti, ATECO 2025 usa la classe dei ristoranti, con quattro sottocategorie: gelaterie e pasticcerie, ciascuna con o senza servizio al tavolo. In ATECO 2022 erano tutte nel vecchio 56.10.30 «Gelaterie e pasticcerie». La sola rivendita di pane senza produzione è commercio al dettaglio, {ct:47.24.10}.",
+   "evidenza": [
+    "10.71.10",
+    "10.71.20",
+    "56.11.24",
+    "56.11.23",
+    "56.11.22",
+    "56.11.21",
+    "47.24.10"
+   ],
+   "scelte": {
+    "10.71.10": [
+     "produzione di pane e panini",
+     "produzione di rustici",
+     "produzione di prodotti da forno"
+    ]
+   },
+   "vedi": [
+    "codice-ateco-bar",
+    "codice-ateco-ristorante"
+   ]
+  },
+  {
+   "slug": "codice-ateco-massaggiatore",
+   "nome": "massaggiatore e operatore olistico",
+   "frasi": [
+    "codice ateco massaggiatore",
+    "codice ateco operatore olistico",
+    "operatore olistico codice ateco",
+    "codice ateco massaggiatore olistico",
+    "codice ateco massoterapia"
+   ],
+   "titolo": "Codice ATECO massaggiatore e operatore olistico 2025",
+   "h1": "Codice ATECO per massaggiatore e operatore olistico",
+   "descrizione": "Centri massaggi non terapeutici: 96.23.99. Shiatsu, massaggio thailandese, tui na: 86.99.01. Massoterapisti: 86.95.00. Discipline complementari: 86.96.09.",
+   "intro": "Il massaggio ha più codici, e la linea che li separa è quella tra benessere e salute. I centri massaggi senza finalità medico-terapeutiche sono servizi alla persona, in {ct:96.23.99}, insieme a saune, bagni turchi e centri benessere. I massoterapisti sono invece nella fisioterapia, 86.95.00, come dice la nota di esclusione della classe 96.23.\n\nTecniche come shiatsu, massaggio thailandese, watsu, tui na e qigong sono in {ct:86.99.01}. Altre discipline, come aromaterapia, terapia di Bach, riflessoterapia e medicina ayurvedica, sono tra gli esempi di {ct:86.96.09}. La parola «olistico» non compare nelle note: per l'operatore olistico conta quale delle tecniche descritte pratica.",
+   "evidenza": [
+    "96.23.99",
+    "86.99.01"
+   ],
+   "scelte": {
+    "96.23.99": [
+     "attività di centri massaggi",
+     "attività di bagni turchi"
+    ],
+    "86.96.09": [
+     "fornitura di servizi terapeutici complementari",
+     "attività di riflessoterapia",
+     "attività di guaritori"
+    ]
+   },
+   "vedi": [
+    "codice-ateco-fisioterapista",
+    "codice-ateco-estetista",
+    "codice-ateco-personal-trainer"
+   ]
+  },
+  {
+   "slug": "codice-ateco-impresa-di-pulizie",
+   "nome": "impresa di pulizie",
+   "frasi": [
+    "codice ateco pulizie",
+    "codice ateco pulizia",
+    "codici ateco pulizie",
+    "codice ateco impresa di pulizie",
+    "codice ateco 81.21",
+    "codice ateco multiservizi"
+   ],
+   "titolo": "Codice ATECO impresa di pulizie 2025: 81.21.00 e sanificazione",
+   "h1": "Codice ATECO per impresa di pulizie",
+   "descrizione": "Pulizia di uffici, case e condomini: 81.21.00. Pulizie specializzate: 81.22.09. Sanificazione e disinfestazione: 81.23.10. Note Istat, vecchi codici.",
+   "intro": "L'impresa di pulizie generica è in {ct:81.21.00}. La nota elenca uffici, abitazioni private, fabbriche, negozi, uffici pubblici, condomini, lo sgombero di cantine, solai e garage e la pulizia domestica.\n\nLe pulizie specializzate hanno altre sottocategorie: facciate e vetrate, camini, pulizia all'esterno degli edifici e pulizia per imprese alimentari sono in {ct:81.22.09}; sanificazione, disinfezione, disinfestazione e derattizzazione in {ct:81.23.10}. Il vecchio 81.21.00 si divide tra il nuovo 81.21.00 e {ct:96.91.00}, il codice dei servizi domestici.",
+   "evidenza": [
+    "81.21.00",
+    "81.22.09",
+    "81.23.10",
+    "96.91.00"
+   ],
+   "scelte": {
+    "81.21.00": [
+     "alloggi privati",
+     "pulizia generale (non specializzata) di altre",
+     "pulizia generale (non specializzata) e attività di sgombero",
+     "attività di pulizia domestica"
+    ]
+   },
+   "vedi": [
+    "codice-ateco-giardiniere",
+    "codice-ateco-amministratore-di-condominio"
+   ]
+  },
+  {
+   "slug": "codice-ateco-ncc-taxi",
+   "nome": "NCC e taxi",
+   "frasi": [
+    "codice ateco ncc",
+    "codice ateco noleggio con conducente",
+    "codice ateco taxi",
+    "codice ateco noleggio senza conducente",
+    "codice ateco noleggio auto"
+   ],
+   "titolo": "Codice ATECO NCC e taxi 2025: 49.33.20 e 49.33.10",
+   "h1": "Codice ATECO per NCC e taxi",
+   "descrizione": "Noleggio con conducente (NCC): 49.33.20. Taxi: 49.33.10. Piattaforme e radio taxi: 52.32.00. Noleggio auto senza conducente: 77.11.00. Note Istat.",
+   "intro": "Con ATECO 2025 taxi e noleggio con conducente cambiano classe: dalla vecchia classe 49.32 passano alla nuova classe 49.33, «Trasporto di passeggeri a richiesta su veicoli con conducente». Il taxi è {ct:49.33.10}, l'NCC {ct:49.33.20}.\n\nPer tutte e due la tavola di raccordo porta una parte del vecchio codice in {ct:52.32.00}: l'intermediazione, per esempio i servizi di radio taxi senza trasporto o le piattaforme che mettono in contatto passeggeri e autisti. Il noleggio di auto senza autista è invece {ct:77.11.00}.",
+   "evidenza": [
+    "49.33.20",
+    "49.33.10",
+    "52.32.00",
+    "77.11.00"
+   ],
+   "scelte": {
+    "52.32.00": [
+     "intermediazione di servizi di trasporto via radio taxi",
+     "gestione di piattaforme online di ridesharing"
+    ],
+    "77.11.00": [
+     "noleggio e leasing operativo di autoveicoli",
+     "noleggio di automobili condivise"
+    ]
+   },
+   "vedi": [
+    "codice-ateco-autotrasporto",
+    "codice-ateco-meccanico"
+   ]
+  },
+  {
+   "slug": "codice-ateco-autotrasporto",
+   "nome": "autotrasporto merci",
+   "frasi": [
+    "codice ateco autotrasportatore",
+    "codice ateco trasporto merci su strada",
+    "codice ateco autotrasporto conto terzi",
+    "codice ateco trasporti conto terzi",
+    "codice ateco trasporto conto terzi"
+   ],
+   "titolo": "Codice ATECO autotrasporto merci 2025: 49.41.00",
+   "h1": "Codice ATECO per autotrasporto merci",
+   "descrizione": "Autotrasportatori e trasporto merci conto terzi: 49.41.00 «Trasporto di merci su strada». Traslochi: 49.42.00. Corrieri e consegne: classe 53. Note Istat.",
+   "intro": "Tutto il trasporto di merci su strada è in un solo codice: {ct:49.41.00}. La nota comprende ogni tipo di carico, dal legname al bestiame, il trasporto refrigerato e i carichi pesanti, e anche il noleggio di veicoli per trasporto merci con conducente.\n\nI traslochi hanno un codice proprio, {ct:49.42.00}. Le note di esclusione della classe 49.41 indicano dove vanno le attività vicine, come i terminal merci, l'imballaggio per il trasporto e i servizi postali e di corriere. Il noleggio di autocarri è nella classe 77.12.\n\nLa nota di 49.41.00 è più ampia di quanto si pensi: comprende il trasporto di autovetture, quello di opere d'arte con mezzi a temperatura controllata, la raccolta del latte nelle fattorie con autocisterna e il trasporto per conto di corrieri quando non è legato ad altre attività postali. Il trasporto di rifiuti fatto da chi li raccoglie, invece, segue il codice della raccolta.",
+   "evidenza": [
+    "49.41.00",
+    "49.42.00"
+   ],
+   "scelte": {
+    "49.41.00": [
+     "trasporto di legname",
+     "trasporto refrigerato",
+     "noleggio di veicoli per il trasporto di merci con conducente"
+    ]
+   },
+   "vedi": [
+    "codice-ateco-ncc-taxi",
+    "codice-ateco-meccanico"
+   ],
+   "max_esclusioni": 5
+  }
+ ]
+}

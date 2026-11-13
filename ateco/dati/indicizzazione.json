@@ -2298,7 +2298,7 @@
 "indicizzata": true
 },
 "46-18/": {
-"proprie": 2171,
+"proprie": 2173,
 "sovrapposizione": 0.164,
 "piu_simile": "46-15/",
 "indicizzata": true
@@ -2592,8 +2592,8 @@
 "indicizzata": false
 },
 "47-26/": {
-"proprie": 279,
-"sovrapposizione": 0.487,
+"proprie": 269,
+"sovrapposizione": 0.492,
 "piu_simile": "47-27/",
 "indicizzata": true
 },
@@ -3001,8 +3001,8 @@
 },
 "55-90/": {
 "proprie": 214,
-"sovrapposizione": 0.336,
-"piu_simile": "68-20/",
+"sovrapposizione": 0.341,
+"piu_simile": "56-11/",
 "indicizzata": true
 },
 "55/": {
@@ -3012,7 +3012,7 @@
 "indicizzata": true
 },
 "56-11/": {
-"proprie": 891,
+"proprie": 894,
 "sovrapposizione": 0.167,
 "piu_simile": "56-12/",
 "indicizzata": true
@@ -3384,14 +3384,14 @@
 "indicizzata": true
 },
 "68-20/": {
-"proprie": 576,
+"proprie": 574,
 "sovrapposizione": 0.194,
 "piu_simile": "68-12/",
 "indicizzata": true
 },
 "68-31/": {
-"proprie": 197,
-"sovrapposizione": 0.544,
+"proprie": 200,
+"sovrapposizione": 0.545,
 "piu_simile": "52-31/",
 "indicizzata": true
 },
@@ -3504,7 +3504,7 @@
 "indicizzata": true
 },
 "73-30/": {
-"proprie": 444,
+"proprie": 443,
 "sovrapposizione": 0.278,
 "piu_simile": "70-20/",
 "indicizzata": true
@@ -3552,8 +3552,8 @@
 "indicizzata": false
 },
 "74-91/": {
-"proprie": 179,
-"sovrapposizione": 0.435,
+"proprie": 180,
+"sovrapposizione": 0.442,
 "piu_simile": "55-40/",
 "indicizzata": true
 },
@@ -3738,7 +3738,7 @@
 "indicizzata": true
 },
 "81-22/": {
-"proprie": 341,
+"proprie": 340,
 "sovrapposizione": 0.305,
 "piu_simile": "82-40/",
 "indicizzata": true
@@ -3960,7 +3960,7 @@
 "indicizzata": false
 },
 "86-22/": {
-"proprie": 525,
+"proprie": 524,
 "sovrapposizione": 0.271,
 "piu_simile": "86-21/",
 "indicizzata": true
@@ -4578,6 +4578,342 @@
 "codice-ateco-e-commerce": {
 "volume": 870,
 "pubblicata": true
+}
+},
+"regola_attivita": {
+"min_volume_mensile": 100,
+"min_parole_proprie": 150,
+"max_sovrapposizione": 0.4,
+"quota_modello_attivita": 0.25
+},
+"attivita": {
+"codice-ateco-bar": {
+"volume": 1900,
+"pubblicata": true,
+"proprie": 361,
+"sovrapposizione": 0.25,
+"piu_simile": "56-30/",
+"indicizzata": true
+},
+"codice-ateco-avvocato": {
+"volume": 1300,
+"pubblicata": true,
+"proprie": 313,
+"sovrapposizione": 0.329,
+"piu_simile": "69-10/",
+"indicizzata": true
+},
+"codice-ateco-affittacamere-bb": {
+"volume": 1000,
+"pubblicata": true,
+"proprie": 249,
+"sovrapposizione": 0.302,
+"piu_simile": "codice-ateco-affitti-brevi/",
+"indicizzata": true
+},
+"codice-ateco-affitti-brevi": {
+"volume": 390,
+"pubblicata": true,
+"proprie": 285,
+"sovrapposizione": 0.187,
+"piu_simile": "68-20/",
+"indicizzata": true
+},
+"codice-ateco-architetto": {
+"volume": 1000,
+"pubblicata": true,
+"proprie": 295,
+"sovrapposizione": 0.171,
+"piu_simile": "71-11/",
+"indicizzata": true
+},
+"codice-ateco-commercialista": {
+"volume": 880,
+"pubblicata": true,
+"proprie": 358,
+"sovrapposizione": 0.356,
+"piu_simile": "69-20/",
+"indicizzata": true
+},
+"codice-ateco-estetista": {
+"volume": 720,
+"pubblicata": true,
+"proprie": 277,
+"sovrapposizione": 0.156,
+"piu_simile": "codice-ateco-massaggiatore/",
+"indicizzata": true
+},
+"codice-ateco-geometra": {
+"volume": 720,
+"pubblicata": true,
+"proprie": 227,
+"sovrapposizione": 0.182,
+"piu_simile": "71-12/",
+"indicizzata": true
+},
+"codice-ateco-fisioterapista": {
+"volume": 720,
+"pubblicata": true,
+"proprie": 253,
+"sovrapposizione": 0.338,
+"piu_simile": "86-96/",
+"indicizzata": true
+},
+"codice-ateco-edilizia": {
+"volume": 720,
+"pubblicata": true,
+"proprie": 270,
+"sovrapposizione": 0.275,
+"piu_simile": "43-99/",
+"indicizzata": true
+},
+"codice-ateco-agente-di-commercio": {
+"volume": 720,
+"pubblicata": true,
+"proprie": 378,
+"sovrapposizione": 0.225,
+"piu_simile": "46-19/",
+"indicizzata": true
+},
+"codice-ateco-psicologo": {
+"volume": 720,
+"pubblicata": true,
+"proprie": 230,
+"sovrapposizione": 0.285,
+"piu_simile": "codice-ateco-medico/",
+"indicizzata": true
+},
+"codice-ateco-consulente": {
+"volume": 1000,
+"pubblicata": true,
+"proprie": 338,
+"sovrapposizione": 0.27,
+"piu_simile": "codice-ateco-social-media-manager/",
+"indicizzata": true
+},
+"codice-ateco-personal-trainer": {
+"volume": 590,
+"pubblicata": true,
+"proprie": 298,
+"sovrapposizione": 0.228,
+"piu_simile": "85-51/",
+"indicizzata": true
+},
+"codice-ateco-ingegnere": {
+"volume": 590,
+"pubblicata": true,
+"proprie": 242,
+"sovrapposizione": 0.126,
+"piu_simile": "71-12/",
+"indicizzata": true
+},
+"codice-ateco-medico": {
+"volume": 590,
+"pubblicata": true,
+"proprie": 250,
+"sovrapposizione": 0.266,
+"piu_simile": "86-22/",
+"indicizzata": true
+},
+"codice-ateco-farmacia": {
+"volume": 590,
+"pubblicata": true,
+"proprie": 266,
+"sovrapposizione": 0.391,
+"piu_simile": "47-73/",
+"indicizzata": true
+},
+"codice-ateco-social-media-manager": {
+"volume": 480,
+"pubblicata": true,
+"proprie": 322,
+"sovrapposizione": 0.308,
+"piu_simile": "codice-ateco-consulente/",
+"indicizzata": true
+},
+"codice-ateco-influencer": {
+"volume": 390,
+"pubblicata": true,
+"proprie": 371,
+"sovrapposizione": 0.192,
+"piu_simile": "58-19/",
+"indicizzata": true
+},
+"codice-ateco-infermiere": {
+"volume": 480,
+"pubblicata": true,
+"proprie": 217,
+"sovrapposizione": 0.157,
+"piu_simile": "86-94/",
+"indicizzata": true
+},
+"codice-ateco-tabaccheria": {
+"volume": 480,
+"pubblicata": true,
+"proprie": 343,
+"sovrapposizione": 0.402,
+"piu_simile": "47-26/",
+"indicizzata": false
+},
+"codice-ateco-hotel": {
+"volume": 480,
+"pubblicata": true,
+"proprie": 247,
+"sovrapposizione": 0.308,
+"piu_simile": "55-10/",
+"indicizzata": true
+},
+"codice-ateco-agriturismo": {
+"volume": 390,
+"pubblicata": true,
+"proprie": 199,
+"sovrapposizione": 0.147,
+"piu_simile": "56-11/",
+"indicizzata": true
+},
+"codice-ateco-fotografo": {
+"volume": 390,
+"pubblicata": true,
+"proprie": 297,
+"sovrapposizione": 0.284,
+"piu_simile": "74-20/",
+"indicizzata": true
+},
+"codice-ateco-agente-immobiliare": {
+"volume": 390,
+"pubblicata": true,
+"proprie": 237,
+"sovrapposizione": 0.284,
+"piu_simile": "68-31/",
+"indicizzata": true
+},
+"codice-ateco-elettricista": {
+"volume": 590,
+"pubblicata": true,
+"proprie": 302,
+"sovrapposizione": 0.344,
+"piu_simile": "43-21/",
+"indicizzata": true
+},
+"codice-ateco-idraulico": {
+"volume": 260,
+"pubblicata": true,
+"proprie": 227,
+"sovrapposizione": 0.358,
+"piu_simile": "43-22/",
+"indicizzata": true
+},
+"codice-ateco-organizzazione-eventi": {
+"volume": 390,
+"pubblicata": true,
+"proprie": 260,
+"sovrapposizione": 0.18,
+"piu_simile": "82-30/",
+"indicizzata": true
+},
+"codice-ateco-dentista": {
+"volume": 320,
+"pubblicata": true,
+"proprie": 237,
+"sovrapposizione": 0.379,
+"piu_simile": "86-99/",
+"indicizzata": true
+},
+"codice-ateco-amministratore-di-condominio": {
+"volume": 1300,
+"pubblicata": true,
+"proprie": 214,
+"sovrapposizione": 0.148,
+"piu_simile": "68-32/",
+"indicizzata": true
+},
+"codice-ateco-tatuatore": {
+"volume": 320,
+"pubblicata": true,
+"proprie": 197,
+"sovrapposizione": 0.082,
+"piu_simile": "96-99/",
+"indicizzata": true
+},
+"codice-ateco-giardiniere": {
+"volume": 320,
+"pubblicata": true,
+"proprie": 156,
+"sovrapposizione": 0.142,
+"piu_simile": "43-22/",
+"indicizzata": true
+},
+"codice-ateco-meccanico": {
+"volume": 320,
+"pubblicata": true,
+"proprie": 286,
+"sovrapposizione": 0.359,
+"piu_simile": "95-31/",
+"indicizzata": true
+},
+"codice-ateco-imbianchino": {
+"volume": 260,
+"pubblicata": true,
+"proprie": 276,
+"sovrapposizione": 0.235,
+"piu_simile": "43-31/",
+"indicizzata": true
+},
+"codice-ateco-holding": {
+"volume": 260,
+"pubblicata": true,
+"proprie": 327,
+"sovrapposizione": 0.134,
+"piu_simile": "70-10/",
+"indicizzata": true
+},
+"codice-ateco-falegname": {
+"volume": 260,
+"pubblicata": true,
+"proprie": 336,
+"sovrapposizione": 0.204,
+"piu_simile": "43-32/",
+"indicizzata": true
+},
+"codice-ateco-panificio-pasticceria": {
+"volume": 260,
+"pubblicata": true,
+"proprie": 375,
+"sovrapposizione": 0.224,
+"piu_simile": "47-24/",
+"indicizzata": true
+},
+"codice-ateco-massaggiatore": {
+"volume": 260,
+"pubblicata": true,
+"proprie": 222,
+"sovrapposizione": 0.17,
+"piu_simile": "86-99/",
+"indicizzata": true
+},
+"codice-ateco-impresa-di-pulizie": {
+"volume": 210,
+"pubblicata": true,
+"proprie": 322,
+"sovrapposizione": 0.264,
+"piu_simile": "81-22/",
+"indicizzata": true
+},
+"codice-ateco-ncc-taxi": {
+"volume": 210,
+"pubblicata": true,
+"proprie": 367,
+"sovrapposizione": 0.287,
+"piu_simile": "52-32/",
+"indicizzata": true
+},
+"codice-ateco-autotrasporto": {
+"volume": 170,
+"pubblicata": true,
+"proprie": 269,
+"sovrapposizione": 0.357,
+"piu_simile": "49-41/",
+"indicizzata": true
 }
 }
 }

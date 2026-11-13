@@ -15,6 +15,10 @@ Uso (dalla radice del repository):
    comune con un'altra pagina di codice (ricalcolato sulle pagine scritte).
 6. Testi: nessun nome di modelli o servizi di IA, nessun dato personale (titolare solo in privacy), frase fissa e licenza in ogni pagina.
 7. Monetizzazione: monetizzazione.controlla_sito("ateco"); mestieri pubblicati solo con un volume misurato.
+6b. Pagine «Codice ATECO per …» (13/11/2026): pubblicate solo con ≥ 100 ricerche misurate (file dei volumi con data); ogni riga Istat
+   citata (<q class="ni" data-c>) ritrovata parola per parola nel file Istat delle note o dei titoli del suo codice; ogni codice esiste in
+   ATECO 2025; coefficienti e righe del raccordo uguali al ricalcolo; FAQ solo da ricerche misurate; indice /codice-ateco-per/ completo;
+   testo proprio e sovrapposizione ricalcolati sulle pagine scritte.
 """
 import hashlib
 import html as H
@@ -40,6 +44,8 @@ import monetizzazione as MON  # noqa: E402
 URL_SITO = "https://codici-ateco.netlify.app"
 FRASE_FISSA = "verifica con il commercialista o la Camera di commercio"
 MIN_PAROLE_PROPRIE, MAX_SOVRAPPOSIZIONE = 150, 0.55
+FILE_VOLUMI_ATTIVITA = "volumi-attivita-2026-11-13.json"  # = genera.py
+MIN_VOLUME_ATTIVITA, MAX_SOVRAPPOSIZIONE_ATTIVITA, QUOTA_MODELLO_ATTIVITA = 100, 0.40, 0.25
 ERR, AVV = [], []
 
 
@@ -62,6 +68,22 @@ DOM = carica("domanda.json")
 FAQ = carica("faq.json")["faq"]
 MES = carica("mestieri.json")["mestieri"]
 VOL = carica("volumi.json")
+ATT = carica("attivita.json")["attivita"]
+VOLA = carica(FILE_VOLUMI_ATTIVITA)
+
+
+def volumi_misurati():
+    """Ricalcolo indipendente: frase -> volume (frasi misurate il 13/11, poi le frasi simili restituite dallo strumento, poi la misura del 12/11)."""
+    out = {f: v["volume"] for f, v in VOLA["frasi"].items() if v.get("volume") is not None}
+    for v in VOLA["frasi"].values():
+        for f, n in (v.get("simili") or {}).items():
+            out.setdefault(f, n)
+    for f, v in VOL["frasi"].items():
+        out.setdefault(f, v["volume"])
+    return out
+
+
+MISURATI = volumi_misurati()
 
 
 def visibile(html):
@@ -156,6 +178,7 @@ def controlla_dati():
                 errore(f"{c}: padre {p} assente o di livello sbagliato")
             elif v["l"] > 2 and not c.startswith(p):
                 errore(f"{c}: il codice non inizia con quello del padre {p}")
+    RAW["tit"] = {c: v["it"] for c, v in raw.items()}
     figli = Counter(v["p"] for v in raw.values() if v["p"])
     foglie = [c for c, v in raw.items() if v["l"] < 6 and figli[c] == 0]
     if foglie:
@@ -453,7 +476,10 @@ def controlla_faq():
     sugg = {s for v in DOM["radici"].values() for s in v}
     domande = {}
     for x in FAQ:
-        if x["ricerca"] not in sugg:
+        if x.get("misura"):  # FAQ delle pagine attività: la ricerca deve avere un volume misurato
+            if x["misura"] != FILE_VOLUMI_ATTIVITA or not MISURATI.get(x["ricerca"]):
+                errore(f"FAQ «{x['q'][:40]}»: ricerca «{x['ricerca']}» senza volume misurato")
+        elif x["ricerca"] not in sugg:
             errore(f"FAQ «{x['q'][:40]}»: ricerca «{x['ricerca']}» non tra i suggerimenti salvati")
         for fid in x["fonti"]:
             if fid not in FJ["file"] and fid not in FJ["pagine"]:
@@ -493,6 +519,7 @@ def controlla_indicizzazione():
         html = p.read_text(encoding="utf-8")
         m = re.search(r"<main\b.*?</main>", html, re.S).group(0)
         m = re.sub(r'<p class="disclaimer">.*?</p>', " ", m, flags=re.S)
+        m = re.sub(r"<section data-ripreso>.*?</section>", " ", m, flags=re.S)  # link alle guide per attività: non contano
         m = re.sub(r"<(script|style|svg)\b.*?</\1>", " ", m, flags=re.S | re.I)
         w = re.findall(r"\w+", unescape(re.sub(r"<[^>]+>", " ", m)).lower())
         insiemi[rel] = {" ".join(w[i:i + 5]) for i in range(len(w) - 4)}
@@ -529,6 +556,8 @@ def controlla_testi():
         if p.name in ("verifica.py", "domanda.json") or p.parent.name == "assets":
             continue
         t = p.read_text(encoding="utf-8", errors="replace")
+        if "".join(["sd", "_live"]) in t:
+            errore(f"{p.relative_to(RADICE)}: contiene una chiave dello strumento dei volumi")
         if VIETATE.search(t):
             errore(f"{p.relative_to(RADICE)}: nome di un modello o servizio di IA ({VIETATE.search(t).group(0)})")
         if p.name == "genera.py" or p.relative_to(RADICE).as_posix() == "sito/privacy/index.html":
@@ -561,6 +590,125 @@ def controlla_testi():
     print(f"Testi: nessun nome di IA, nessun dato personale fuori dalla privacy, nessuna frase di consiglio; mestieri pubblicati solo con volume misurato")
 
 
+# ---------------------------------------------------------------- 6b. pagine «Codice ATECO per …»
+def gruppi(html, citazioni_a_parte=False):
+    m = re.search(r"<main\b.*?</main>", html, re.S).group(0)
+    m = re.sub(r'<p class="disclaimer">.*?</p>', " ", m, flags=re.S)
+    m = re.sub(r"<section data-ripreso>.*?</section>", " ", m, flags=re.S)
+    m = re.sub(r"<(script|style|svg)\b.*?</\1>", " ", m, flags=re.S | re.I)
+    if citazioni_a_parte:
+        m = re.sub(r'<q class="ni"[^>]*>.*?</q>', " \x00 ", m, flags=re.S)
+    out = set()
+    for pezzo in unescape(re.sub(r"<[^>]+>", " ", m)).lower().split("\x00"):
+        w = re.findall(r"\w+", pezzo)
+        out |= {" ".join(w[i:i + 5]) for i in range(len(w) - 4)}
+    return out
+
+
+def controlla_attivita():
+    C = AT["codici"]
+    tit, note = RAW["tit"], RAW["note"]
+    gruppo22 = {}
+    for c22, (_, liv, _, _, _) in RAW["op"].items():
+        if liv >= 4:
+            for n, (pref, _) in RAW["regole"].items():
+                if any(c22.startswith(p) for p in pref):
+                    gruppo22.setdefault(c22, set()).add(int(n))
+    perc = {int(n): v[1] for n, v in RAW["regole"].items()}
+    coppie = {(r[1], r[0]) for r in RAW["rac"] if r[1]}
+    dest22 = defaultdict(set)
+    for c25, c22, _ in RAW["rac"]:
+        if c22 and len(c25) == 8:
+            dest22[c22].add(c25)
+    pubblicate, n_righe, n_coef = [], 0, 0
+    for a in ATT:
+        vol = max((MISURATI.get(f) or 0 for f in a["frasi"]), default=0)
+        f = SITO / a["slug"] / "index.html"
+        if vol < MIN_VOLUME_ATTIVITA:
+            if f.exists():
+                errore(f"{a['slug']}: pagina pubblicata con {vol} ricerche al mese (minimo {MIN_VOLUME_ATTIVITA})")
+            continue
+        if not f.exists():
+            errore(f"{a['slug']}: {vol} ricerche al mese ma pagina assente")
+            continue
+        pubblicate.append(a)
+        html = f.read_text(encoding="utf-8")
+        for c in a["evidenza"]:
+            if c not in tit:
+                errore(f"{a['slug']}: codice {c} non esiste in ATECO 2025")
+        for c, testo in re.findall(r'<q class="ni" data-c="([^"]+)">(.*?)</q>', html, re.S):
+            n_righe += 1
+            vis = norm(unescape(re.sub(r"<[^>]+>", "", testo)))
+            if c not in tit:
+                errore(f"{a['slug']}: riga citata per un codice inesistente {c}")
+            elif vis != norm(tit[c]) and vis not in {norm(x) for _, x in note.get(c, [])}:
+                errore(f"{a['slug']}: riga non trovata nelle note Istat di {c} «{vis[:60]}»")
+        for c in set(re.findall(r'href="/[\w-]+/#c-([\d.]+)"', html)):
+            if c not in tit:
+                errore(f"{a['slug']}: link a un codice inesistente {c}")
+        for c, blocco in re.findall(r'<section class="voce" id="k-([\d.]+)">(.*?)</section>', html, re.S):
+            n_coef += 1
+            if f'data-c="{c}"' not in html:
+                errore(f"{a['slug']}: {c} senza una riga Istat citata")
+            gg = sorted({g for r in RAW["rac"] if r[0] == c and r[1] and len(r[1]) == 8 for g in gruppo22.get(r[1], ())})
+            visto = sorted({int(x) for x in re.findall(r"<b>(\d{2})%</b>", blocco)})
+            if visto != sorted({perc[g] for g in gg}):
+                errore(f"{a['slug']}: coefficienti di {c} mostrati {visto}, ricalcolati {sorted({perc[g] for g in gg})}")
+            if "Derivazione nostra" not in blocco:
+                errore(f"{a['slug']}: coefficiente di {c} senza la dicitura «Derivazione nostra»")
+        tab = html[html.find('id="vecchi-codici"'):] if 'id="vecchi-codici"' in html else ""
+        for riga in re.findall(r"<tr>(.*?)</tr>", tab, re.S)[1:]:
+            c22 = re.search(r"#v-([\d.]+)", riga).group(1)
+            c25 = re.search(r'#c-([\d.]+)"', riga)
+            if c25 and (c22, c25.group(1)) not in coppie:
+                errore(f"{a['slug']}: {c22} → {c25.group(1)} non è nella tavola di raccordo")
+            m = re.search(r"altri (\d+) codici|un altro codice", riga)
+            if m:
+                mostrati = set(re.findall(r'#c-([\d.]+)"', tab)) & dest22[c22]
+                atteso = len(dest22[c22] - mostrati)
+                if atteso != (int(m.group(1)) if m.group(1) else 1):
+                    errore(f"{a['slug']}: per {c22} «{m.group(0)}», attesi {atteso}")
+        for c in re.findall(r"(\d{2}\.\d{2}\.\d{2}) «", visibile(html)):
+            if c not in tit and c not in RAW["op"]:
+                errore(f"{a['slug']}: codice {c} non esiste né in ATECO 2025 né in ATECO 2022")
+    indice = (SITO / "codice-ateco-per" / "index.html").read_text(encoding="utf-8") if (SITO / "codice-ateco-per" / "index.html").exists() else ""
+    if not indice:
+        errore("indice /codice-ateco-per/ assente")
+    for s in [a["slug"] for a in pubblicate] + [m["slug"] for m in MES if (SITO / m["slug"] / "index.html").exists()]:
+        if f'href="/{s}/"' not in indice:
+            errore(f"indice /codice-ateco-per/: manca il link a /{s}/")
+    # testo proprio e sovrapposizione (stessa regola di genera.py, ricalcolata sulle pagine scritte)
+    cod = {}
+    for p in pagine_html():
+        rel = str(p.relative_to(SITO))
+        if re.fullmatch(r"(sezione-[a-v]|\d{2}|\d{2}-\d{2})/index\.html", rel):
+            cod[rel] = gruppi(p.read_text(encoding="utf-8"))
+    att = {a["slug"]: gruppi((SITO / a["slug"] / "index.html").read_text(encoding="utf-8"), True) for a in pubblicate}
+    conta_cod = Counter(g for s in cod.values() for g in s)
+    conta_att = Counter(g for s in att.values() for g in s)
+    modello = {g for g, n in conta_att.items() if n >= QUOTA_MODELLO_ATTIVITA * len(att)}
+    att = {k: s - modello for k, s in att.items()}
+    tutti = {**cod, **att}
+    n_idx, peggio, poche = 0, 0.0, 10 ** 9
+    for s, a_ in att.items():
+        html = (SITO / s / "index.html").read_text(encoding="utf-8")
+        if '<meta name="robots" content="noindex">' in html:
+            if "googlesyndication" in html:
+                errore(f"{s}: noindex con pubblicità")
+            continue
+        n_idx += 1
+        proprie = sum(1 for g in a_ if conta_cod[g] == 0 and conta_att[g] == 1)
+        q = max((len(a_ & b) / len(a_) for k, b in tutti.items() if k != s), default=0)
+        peggio, poche = max(peggio, q), min(poche, proprie)
+        if proprie < MIN_PAROLE_PROPRIE - 10:
+            errore(f"{s}: indicizzata con solo {proprie} gruppi di parole propri")
+        if q >= MAX_SOVRAPPOSIZIONE_ATTIVITA + 0.02:
+            errore(f"{s}: indicizzata ma {q:.0%} del testo è in comune con un'altra pagina")
+    print(f"Pagine attività: {len(pubblicate)} pubblicate (tutte con ≥ {MIN_VOLUME_ATTIVITA} ricerche misurate), {n_idx} indicizzate; {n_righe} righe Istat "
+          f"citate ritrovate nei file Istat; {n_coef} coefficienti uguali al ricalcolo; raccordo e indice a posto; testo in comune al massimo "
+          f"{peggio:.0%}, gruppi propri almeno {poche}")
+
+
 # ---------------------------------------------------------------- 7. monetizzazione
 def controlla_monetizzazione():
     e, info = MON.controlla_sito("ateco", SITO)
@@ -574,7 +722,7 @@ def controlla_monetizzazione():
 
 
 # ---------------------------------------------------------------- 8. browser
-PAGINE_BROWSER = ["/", "/56-11/", "/codice-ateco-parrucchiere/", "/da-ateco-2022-a-2025/"]
+PAGINE_BROWSER = ["/", "/56-11/", "/codice-ateco-parrucchiere/", "/da-ateco-2022-a-2025/", "/codice-ateco-per/", "/codice-ateco-bar/"]
 
 
 def controlla_browser():
@@ -669,6 +817,7 @@ def main():
     controlla_faq()
     controlla_indicizzazione()
     controlla_testi()
+    controlla_attivita()
     controlla_monetizzazione()
     if "--browser" in sys.argv:
         controlla_browser()

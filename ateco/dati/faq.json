@@ -1,89 +1,1100 @@
 {
  "_nota": "FAQ del sito. Ogni domanda nasce da una ricerca vera: «ricerca» deve essere tra i suggerimenti salvati in dati/domanda.json (verifica.py lo controlla). Le risposte usano solo le fonti indicate (id di dati/fonti.json). I segnaposto {…} li riempie genera.py con numeri calcolati dai file ISTAT. Ogni «codice «titolo»» nel testo è confrontato con il titolo ufficiale.",
  "faq": [
-  {"pagina": "home", "ricerca": "codice ateco cos'è", "q": "Che cos'è il codice ATECO?",
+  {
+   "pagina": "home",
+   "ricerca": "codice ateco cos'è",
+   "q": "Che cos'è il codice ATECO?",
    "a": "È il codice della classificazione delle attività economiche curata dall'Istat e identifica l'attività svolta da un'impresa o da un professionista. Dal 1° aprile 2025 si usa ATECO 2025, coerente con la classificazione europea NACE Rev. 2.1, per tutti gli adempimenti statistici e amministrativi, compresi quelli verso l'Agenzia delle entrate.",
-   "fonti": ["istat_ateco", "nota_congiunta"]},
-  {"pagina": "home", "ricerca": "codice ateco come è composto", "q": "Come è composto un codice ATECO?",
+   "fonti": [
+    "istat_ateco",
+    "nota_congiunta"
+   ]
+  },
+  {
+   "pagina": "home",
+   "ricerca": "codice ateco come è composto",
+   "q": "Come è composto un codice ATECO?",
    "a": "Da una lettera e fino a sei cifre. La lettera è la sezione; poi vengono divisione (2 cifre), gruppo (3), classe (4), categoria (5) e sottocategoria (6). Per esempio 96.21.00 «Servizi di parrucchieri e barbieri» è una sottocategoria della divisione 96, nella sezione {sez_96}. ATECO 2025 ha {n_1} sezioni, {n_2} divisioni, {n_3} gruppi, {n_4} classi, {n_5} categorie e {n_6} sottocategorie.",
-   "fonti": ["istat_ateco", "struttura"]},
-  {"pagina": "home", "ricerca": "codice ateco dove si trova", "q": "Dove trovo il mio codice ATECO?",
+   "fonti": [
+    "istat_ateco",
+    "struttura"
+   ]
+  },
+  {
+   "pagina": "home",
+   "ricerca": "codice ateco dove si trova",
+   "q": "Dove trovo il mio codice ATECO?",
    "a": "Nell'area riservata del sito dell'Agenzia delle entrate, alla voce «Cassetto fiscale – Consultazioni – Anagrafica», si vedono i codici prevalente e secondari registrati in Anagrafe tributaria. Per le imprese iscritte al Registro delle imprese il codice è anche nella visura camerale, che per un periodo transitorio riporta sia i nuovi codici ATECO sia quelli precedenti.",
-   "fonti": ["risoluzione_24e", "nota_congiunta"]},
-  {"pagina": "home", "ricerca": "codici ateco 2025 elenco", "q": "Dov'è l'elenco completo dei codici ATECO 2025?",
+   "fonti": [
+    "risoluzione_24e",
+    "nota_congiunta"
+   ]
+  },
+  {
+   "pagina": "home",
+   "ricerca": "codici ateco 2025 elenco",
+   "q": "Dov'è l'elenco completo dei codici ATECO 2025?",
    "a": "L'elenco ufficiale è il file della struttura ATECO 2025 pubblicato dall'Istat: {n_tot} codici con i titoli in italiano, inglese e tedesco. In questo sito ogni classe ha la sua pagina, con le sottocategorie, le note di Istat e i vecchi codici: parti da una delle {n_1} sezioni o cerca una parola.",
-   "fonti": ["struttura"]},
-
-  {"pagina": "cosa-cambia", "ricerca": "nuovi codici ateco 2025 da quando", "q": "Da quando valgono i nuovi codici ATECO 2025?",
+   "fonti": [
+    "struttura"
+   ]
+  },
+  {
+   "pagina": "cosa-cambia",
+   "ricerca": "nuovi codici ateco 2025 da quando",
+   "q": "Da quando valgono i nuovi codici ATECO 2025?",
    "a": "ATECO 2025 è in vigore dal 1° gennaio 2025 ed è adottata operativamente da Istat, Camere di commercio e Agenzia delle entrate dal 1° aprile 2025. Da quella data i nuovi codici si usano negli atti e nelle dichiarazioni da presentare all'Agenzia delle entrate.",
-   "fonti": ["istat_ateco", "risoluzione_24e"]},
-  {"pagina": "cosa-cambia", "ricerca": "codice ateco cambiato cosa fare", "q": "Il codice ATECO è cambiato: devo fare qualcosa?",
+   "fonti": [
+    "istat_ateco",
+    "risoluzione_24e"
+   ]
+  },
+  {
+   "pagina": "cosa-cambia",
+   "ricerca": "codice ateco cambiato cosa fare",
+   "q": "Il codice ATECO è cambiato: devo fare qualcosa?",
    "a": "L'adozione di ATECO 2025 non comporta l'obbligo di presentare una dichiarazione di variazione dati. Nel Registro delle imprese la riclassificazione è eseguita d'ufficio dalle Camere di commercio a partire dal 1° aprile 2025. Se il nuovo codice non descrive bene l'attività, il cambio si comunica con ComUnica (imprese iscritte al Registro) o con i modelli dell'Agenzia delle entrate: verifica con il commercialista o la Camera di commercio.",
-   "fonti": ["risoluzione_24e", "nota_congiunta"]},
-  {"pagina": "cosa-cambia", "ricerca": "variazione codice ateco agenzia entrate", "q": "Con quale modello si comunica un codice ATECO diverso?",
+   "fonti": [
+    "risoluzione_24e",
+    "nota_congiunta"
+   ]
+  },
+  {
+   "pagina": "cosa-cambia",
+   "ricerca": "variazione codice ateco agenzia entrate",
+   "q": "Con quale modello si comunica un codice ATECO diverso?",
    "a": "Chi è iscritto al Registro delle imprese usa la Comunicazione Unica (ComUnica). Chi non è iscritto usa i modelli dell'Agenzia delle entrate: AA9/12 per imprese individuali, lavoratori autonomi, artisti e professionisti; AA7/10 per società, enti e associazioni; AA5/6 per enti non commerciali; ANR/3 per l'identificazione diretta ai fini IVA di un soggetto non residente.",
-   "fonti": ["nota_congiunta"]},
-  {"pagina": "cosa-cambia", "ricerca": "corrispondenza vecchio e nuovo codice ateco", "q": "Come trovo il codice nuovo partendo da quello vecchio?",
+   "fonti": [
+    "nota_congiunta"
+   ]
+  },
+  {
+   "pagina": "cosa-cambia",
+   "ricerca": "corrispondenza vecchio e nuovo codice ateco",
+   "q": "Come trovo il codice nuovo partendo da quello vecchio?",
    "a": "Istat pubblica due tabelle: la tavola di raccordo bidirezionale ATECO 2025 – ATECO 2022, con tutte le corrispondenze possibili (aggiornata nel 2026), e la tabella operativa di riclassificazione, che per ogni codice 2022 indica un solo codice 2025 rappresentativo. Nella pagina «Da ATECO 2022 a ATECO 2025» trovi entrambe, codice per codice.",
-   "fonti": ["raccordo", "operativa"]},
-
-  {"pagina": "coefficienti", "ricerca": "coefficiente di redditività", "q": "Che cos'è il coefficiente di redditività?",
+   "fonti": [
+    "raccordo",
+    "operativa"
+   ]
+  },
+  {
+   "pagina": "coefficienti",
+   "ricerca": "coefficiente di redditività",
+   "q": "Che cos'è il coefficiente di redditività?",
    "a": "Nel regime forfetario il reddito imponibile si calcola applicando ai ricavi o ai compensi percepiti un coefficiente di redditività, diverso secondo il codice ATECO dell'attività; sul reddito così ottenuto si paga un'imposta sostitutiva. I coefficienti stanno nell'allegato 4 della legge 190/2014 e, dal 1° gennaio 2027, nell'allegato D del testo unico delle imposte sui redditi, con le stesse percentuali.",
-   "fonti": ["tuir_art235", "l190_all4", "tuir_allD", "tuir_art377"]},
-  {"pagina": "coefficienti", "ricerca": "coefficiente di redditività per codice ateco 2025", "q": "Il coefficiente si sceglie con il codice ATECO 2025?",
+   "fonti": [
+    "tuir_art235",
+    "l190_all4",
+    "tuir_allD",
+    "tuir_art377"
+   ]
+  },
+  {
+   "pagina": "coefficienti",
+   "ricerca": "coefficiente di redditività per codice ateco 2025",
+   "q": "Il coefficiente si sceglie con il codice ATECO 2025?",
    "a": "No. Fino all'approvazione di nuovi coefficienti basati su ATECO 2025, il coefficiente si individua con il codice dell'attività secondo la classificazione ATECO 2007 (decreto legislativo 81/2025, art. 1; dal 2027 art. 235, comma 6, del testo unico imposte sui redditi). Il codice ATECO 2025 resta quello da usare negli atti e nelle dichiarazioni.",
-   "fonti": ["dlgs81_art1", "tuir_art235", "risoluzione_24e"]},
-  {"pagina": "coefficienti", "ricerca": "coefficiente di redditività forfettario tabella", "q": "Quali sono i coefficienti di redditività del forfettario?",
+   "fonti": [
+    "dlgs81_art1",
+    "tuir_art235",
+    "risoluzione_24e"
+   ]
+  },
+  {
+   "pagina": "coefficienti",
+   "ricerca": "coefficiente di redditività forfettario tabella",
+   "q": "Quali sono i coefficienti di redditività del forfettario?",
    "a": "Sono nove gruppi: {tabella_coeff}. I codici di ogni gruppo sono codici ATECO 2007.",
-   "fonti": ["l190_all4", "tuir_allD"]},
-
-  {"pagina": "da-ateco-2022-a-2025", "ricerca": "conversione codice ateco 2022 a 2025", "q": "Come si converte un codice ATECO 2022 in ATECO 2025?",
+   "fonti": [
+    "l190_all4",
+    "tuir_allD"
+   ]
+  },
+  {
+   "pagina": "da-ateco-2022-a-2025",
+   "ricerca": "conversione codice ateco 2022 a 2025",
+   "q": "Come si converte un codice ATECO 2022 in ATECO 2025?",
    "a": "Con la tabella operativa di riclassificazione: per ogni codice ATECO 2022 indica un codice ATECO 2025 rappresentativo, più quello scelto dal sistema camerale. Quando a un codice vecchio corrispondono più codici nuovi la tabella ne sceglie uno, e Istat avverte che questa semplificazione comporta una perdita di informazioni: in quei casi la tavola di raccordo mostra tutte le corrispondenze possibili.",
-   "fonti": ["operativa", "istat_ateco", "raccordo"]},
-  {"pagina": "da-ateco-2022-a-2025", "ricerca": "codice ateco 2022 vs 2025", "q": "Quanti codici ATECO 2022 hanno un solo codice 2025?",
+   "fonti": [
+    "operativa",
+    "istat_ateco",
+    "raccordo"
+   ]
+  },
+  {
+   "pagina": "da-ateco-2022-a-2025",
+   "ricerca": "codice ateco 2022 vs 2025",
+   "q": "Quanti codici ATECO 2022 hanno un solo codice 2025?",
    "a": "Delle {n22_6} sottocategorie ATECO 2022, {n22_11} hanno una corrispondenza uno a uno con ATECO 2025 e {n22_n1} confluiscono con altre in un unico codice nuovo; {n22_c} si dividono tra più codici ATECO 2025 (ricodifica complessa nella tabella operativa).",
-   "fonti": ["operativa"]},
-
-  {"pagina": "codice-ateco-parrucchiere", "ricerca": "codice ateco parrucchiere 2025", "q": "Qual è il codice ATECO 2025 del parrucchiere?",
+   "fonti": [
+    "operativa"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-parrucchiere",
+   "ricerca": "codice ateco parrucchiere 2025",
+   "q": "Qual è il codice ATECO 2025 del parrucchiere?",
    "a": "96.21.00 «Servizi di parrucchieri e barbieri». Secondo le note Istat comprende lavaggio, taglio, messa in piega, tintura, colorazione, ondulazione, stiratura e attività simili sui capelli, l'hairstyling e la rasatura e rifinitura della barba.",
-   "fonti": ["struttura", "note"]},
-  {"pagina": "codice-ateco-parrucchiere", "ricerca": "codice ateco barbiere", "q": "Il barbiere ha un codice ATECO diverso dal parrucchiere?",
+   "fonti": [
+    "struttura",
+    "note"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-parrucchiere",
+   "ricerca": "codice ateco barbiere",
+   "q": "Il barbiere ha un codice ATECO diverso dal parrucchiere?",
    "a": "No: in ATECO 2025 barbieri e parrucchieri, per uomo e per donna, hanno lo stesso codice, 96.21.00 «Servizi di parrucchieri e barbieri».",
-   "fonti": ["struttura"]},
-  {"pagina": "codice-ateco-parrucchiere", "ricerca": "vecchio codice ateco parrucchieri", "q": "Qual era il vecchio codice ATECO dei parrucchieri?",
+   "fonti": [
+    "struttura"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-parrucchiere",
+   "ricerca": "vecchio codice ateco parrucchieri",
+   "q": "Qual era il vecchio codice ATECO dei parrucchieri?",
    "a": "Era 96.02.01 «Servizi dei saloni di barbiere e parrucchiere» (ATECO 2022). La tavola di raccordo Istat lo collega solo a 96.21.00 e il contenuto dei due codici coincide.",
-   "fonti": ["raccordo"]},
-  {"pagina": "codice-ateco-parrucchiere", "ricerca": "codice ateco barbiere forfettario", "q": "Che coefficiente ha il parrucchiere nel forfettario?",
+   "fonti": [
+    "raccordo"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-parrucchiere",
+   "ricerca": "codice ateco barbiere forfettario",
+   "q": "Che coefficiente ha il parrucchiere nel forfettario?",
    "a": "67% se il codice ATECO 2007 dell'attività è 96.02.01, quello dei saloni di barbiere e parrucchiere: la divisione 96 è nel gruppo «Altre attività economiche» dell'allegato 4 della legge 190/2014. Fino a nuovi coefficienti per ATECO 2025 conta il codice ATECO 2007: per il tuo caso verifica con il commercialista.",
-   "fonti": ["l190_all4", "dlgs81_art1"]},
-  {"pagina": "codice-ateco-parrucchiere", "ricerca": "codice ateco parrucchiere estetista", "q": "Parrucchiere ed estetista hanno lo stesso codice ATECO?",
+   "fonti": [
+    "l190_all4",
+    "dlgs81_art1"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-parrucchiere",
+   "ricerca": "codice ateco parrucchiere estetista",
+   "q": "Parrucchiere ed estetista hanno lo stesso codice ATECO?",
    "a": "No. I trattamenti di bellezza sono nella classe 96.22, per esempio 96.22.01 «Servizi di manicure e pedicure» e 96.22.09 «Altri servizi di cura della bellezza e altri trattamenti di bellezza n.c.a.». Chi svolge più attività ha un codice prevalente e codici secondari: verifica con il commercialista o la Camera di commercio quale indicare.",
-   "fonti": ["struttura", "risoluzione_24e"]},
-
-  {"pagina": "codice-ateco-ristorante", "ricerca": "codice ateco ristorante 2025", "q": "Qual è il codice ATECO 2025 di un ristorante?",
+   "fonti": [
+    "struttura",
+    "risoluzione_24e"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-ristorante",
+   "ricerca": "codice ateco ristorante 2025",
+   "q": "Qual è il codice ATECO 2025 di un ristorante?",
    "a": "Con servizio al tavolo è 56.11.11 «Attività di ristoranti con servizio al tavolo, escluse gelaterie e pasticcerie»; senza servizio al tavolo o da asporto è 56.11.12 «Attività di ristoranti senza servizio al tavolo o da asporto, escluse gelaterie e pasticcerie».",
-   "fonti": ["struttura"]},
-  {"pagina": "codice-ateco-ristorante", "ricerca": "codice ateco pizzeria da asporto", "q": "Che codice ATECO ha una pizzeria da asporto?",
+   "fonti": [
+    "struttura"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-ristorante",
+   "ricerca": "codice ateco pizzeria da asporto",
+   "q": "Che codice ATECO ha una pizzeria da asporto?",
    "a": "56.11.12: tra gli esempi Istat ci sono le attività di rosticcerie, friggitorie, pizzerie a taglio senza servizio al tavolo o da asporto (take-away). La pizzeria con servizio al tavolo è invece in 56.11.11, che comprende le attività di ristoranti e pizzerie con servizio al tavolo.",
-   "fonti": ["note"]},
-  {"pagina": "codice-ateco-ristorante", "ricerca": "codice ateco ristorazione con somministrazione", "q": "Che fine ha fatto il codice «ristorazione con somministrazione»?",
+   "fonti": [
+    "note"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-ristorante",
+   "ricerca": "codice ateco ristorazione con somministrazione",
+   "q": "Che fine ha fatto il codice «ristorazione con somministrazione»?",
    "a": "Era il codice ATECO 2022 56.10.11 «Ristorazione con somministrazione». La tavola di raccordo Istat lo collega a un solo codice ATECO 2025, 56.11.11, con lo stesso contenuto.",
-   "fonti": ["raccordo"]},
-  {"pagina": "codice-ateco-ristorante", "ricerca": "codice ateco gelateria", "q": "Gelaterie e pasticcerie usano il codice dei ristoranti?",
+   "fonti": [
+    "raccordo"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-ristorante",
+   "ricerca": "codice ateco gelateria",
+   "q": "Gelaterie e pasticcerie usano il codice dei ristoranti?",
    "a": "No. In ATECO 2025 hanno sottocategorie proprie: 56.11.21 «Attività di gelaterie con servizio al tavolo», 56.11.22 «Attività di gelaterie senza servizio al tavolo o da asporto», 56.11.23 «Attività di pasticcerie con servizio al tavolo» e 56.11.24 «Attività di pasticcerie senza servizio al tavolo o da asporto».",
-   "fonti": ["struttura"]},
-
-  {"pagina": "codice-ateco-e-commerce", "ricerca": "nuovo codice ateco ecommerce 2025", "q": "Qual è il nuovo codice ATECO per l'e-commerce?",
+   "fonti": [
+    "struttura"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-e-commerce",
+   "ricerca": "nuovo codice ateco ecommerce 2025",
+   "q": "Qual è il nuovo codice ATECO per l'e-commerce?",
    "a": "Non ce n'è uno solo. In ATECO 2025 il commercio al dettaglio si classifica in base ai beni venduti e non al canale di vendita (in negozio, online, presso bancarelle e mercati): chi vende online usa il codice del commercio al dettaglio del prodotto che vende. La tavola di raccordo Istat collega il vecchio 47.91.10 a {n_ecom} codici ATECO 2025.",
-   "fonti": ["note", "raccordo"]},
-  {"pagina": "codice-ateco-e-commerce", "ricerca": "codice ateco ecommerce abbigliamento", "q": "Che codice ATECO ha un e-commerce di abbigliamento?",
+   "fonti": [
+    "note",
+    "raccordo"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-e-commerce",
+   "ricerca": "codice ateco ecommerce abbigliamento",
+   "q": "Che codice ATECO ha un e-commerce di abbigliamento?",
    "a": "Dipende dal tipo di articoli. Per la tavola di raccordo, la vendita via Internet di abbigliamento per adulti va in 47.71.10 «Commercio al dettaglio di articoli di abbigliamento per adulti», quella per neonati e bambini in 47.71.20 «Commercio al dettaglio di articoli di abbigliamento per neonati e bambini», gli accessori in 47.71.50 «Commercio al dettaglio di accessori per l'abbigliamento» e l'usato in 47.79.31 «Commercio al dettaglio di articoli di abbigliamento di seconda mano».",
-   "fonti": ["raccordo"]},
-  {"pagina": "codice-ateco-e-commerce", "ricerca": "codice ateco ecommerce prodotti digitali", "q": "E se vendo prodotti digitali?",
+   "fonti": [
+    "raccordo"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-e-commerce",
+   "ricerca": "codice ateco ecommerce prodotti digitali",
+   "q": "E se vendo prodotti digitali?",
    "a": "Il commercio di beni digitali, lo streaming e il download di contenuti su piattaforme digitali (per esempio e-book e audio) non è commercio al dettaglio: la nota di esclusione della divisione 47 rimanda alla sezione J.",
-   "fonti": ["note"]},
-  {"pagina": "codice-ateco-e-commerce", "ricerca": "codice ateco ecommerce forfettario", "q": "Che coefficiente ha l'e-commerce nel forfettario?",
+   "fonti": [
+    "note"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-e-commerce",
+   "ricerca": "codice ateco ecommerce forfettario",
+   "q": "Che coefficiente ha l'e-commerce nel forfettario?",
    "a": "40% se il codice ATECO 2007 dell'attività era 47.91.10: la classe 47.9 rientra nel gruppo «Commercio all'ingrosso e al dettaglio» dell'allegato 4 della legge 190/2014. Fino a nuovi coefficienti per ATECO 2025 conta il codice ATECO 2007: per il tuo caso verifica con il commercialista.",
-   "fonti": ["l190_all4", "dlgs81_art1"]}
+   "fonti": [
+    "l190_all4",
+    "dlgs81_art1"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-bar",
+   "ricerca": "codice ateco bar senza cucina",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Qual è il codice ATECO di un bar senza cucina?",
+   "a": "In ATECO 2022 era 56.30.00 {t22:56.30.00}. Con ATECO 2025 la tavola di raccordo Istat lo divide in quattro codici: {d22:56.30.00}. Per bar, caffetterie, sale da tè e fruit juice bar le note indicano 56.30.01.",
+   "fonti": [
+    "raccordo",
+    "note"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-bar",
+   "ricerca": "codice ateco bar con cucina",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "E se il bar ha una cucina?",
+   "a": "Una nota operativa della classe 56.30 dice che le unità dotate di cucina attrezzata di solito non offrono servizi di somministrazione di bevande ma servizi di ristorazione, e vanno quindi classificate nelle classi 56.11 e 56.12, quelle dei ristoranti.",
+   "fonti": [
+    "note"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-bar",
+   "ricerca": "codice ateco bar caffetteria",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Bar e caffetteria hanno lo stesso codice?",
+   "a": "Sì. Le note di {ct:56.30.01} elencano bar, caffetterie, sale da tè e fruit juice bar. Le caffetterie intese come tavole calde sono invece citate tra le attività dei ristoranti, nella categoria 56.11.1.",
+   "fonti": [
+    "note"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-avvocato",
+   "ricerca": "codice ateco studio legale",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Che codice ATECO ha uno studio legale?",
+   "a": "{ct:69.10.10}. Le note citano la rappresentanza legale davanti a tribunali o altri organi giudiziari, nei processi civili, penali e del lavoro, e l'attività di consulenza giuridico-legale. In ATECO 2022 il codice degli studi legali era 69.10.10 {t22:69.10.10}.",
+   "fonti": [
+    "note",
+    "raccordo"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-avvocato",
+   "ricerca": "codice ateco avvocato 2025",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Il codice ATECO dell'avvocato è cambiato con ATECO 2025?",
+   "a": "Il numero è rimasto 69.10.10, ma il titolo è ora {t:69.10.10} e la tavola di raccordo divide il vecchio codice in due: {d22:69.10.10}.",
+   "fonti": [
+    "raccordo"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-affittacamere-bb",
+   "ricerca": "codice ateco 55.20 51",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Il vecchio 55.20.51 a quale codice ATECO 2025 corrisponde?",
+   "a": "Il vecchio 55.20.51 {t22:55.20.51} si divide in quattro codici: {d22:55.20.51}. Attenzione: in ATECO 2025 il numero 55.20.51 esiste ancora ma indica {t:55.20.51}, cioè l'alloggio negli agriturismi.",
+   "fonti": [
+    "raccordo"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-affittacamere-bb",
+   "ricerca": "ateco bed and breakfast",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Il bed and breakfast ha un codice proprio?",
+   "a": "Sì: {ct:55.20.41}, con la nota «servizi di alloggio in bed and breakfast». Gli affittacamere sono invece in {ct:55.20.42}.",
+   "fonti": [
+    "note"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-affitti-brevi",
+   "ricerca": "codice ateco locazione turistica",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Che codice ATECO ha la locazione turistica?",
+   "a": "Le note Istat non usano l'espressione «locazione turistica». L'alloggio in case e appartamenti per turisti per un periodo inferiore a un anno è tra le note di {ct:55.20.42}; da un anno in su l'attività è nella divisione 68, l'affitto di immobili.",
+   "fonti": [
+    "note"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-affitti-brevi",
+   "ricerca": "codice ateco casa vacanze",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Che codice ha una casa vacanze?",
+   "a": "{ct:55.20.42}: tra le note ci sono i «servizi di alloggio in case e appartamenti per vacanze». Il vecchio codice era 55.20.51, che con ATECO 2025 si divide in {d22:55.20.51}.",
+   "fonti": [
+    "note",
+    "raccordo"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-architetto",
+   "ricerca": "codice ateco studio architettura",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Che codice ATECO ha uno studio di architettura?",
+   "a": "{ct:71.11.09}. Il vecchio 71.11.00 {t22:71.11.00} si divide in due codici: {d22:71.11.00}. Il primo riguarda solo gli scavi archeologici.",
+   "fonti": [
+    "raccordo"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-architetto",
+   "ricerca": "codice ateco architetto 2025",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Cosa cambia per l'architetto con ATECO 2025?",
+   "a": "Nasce la sottocategoria {ct:71.11.01}; tutto il resto dell'attività di architettura è in 71.11.09. La nota di 71.11.09 comprende l'architettura di interni intesa come riprogettazione della struttura interna di un edificio, mentre la decorazione di interni è esclusa dalla classe 71.11 e rimandata a 74.13, dove c'è {ct:74.13.00}.",
+   "fonti": [
+    "note"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-commercialista",
+   "ricerca": "codice ateco consulente del lavoro",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Il consulente del lavoro ha un codice diverso dal commercialista?",
+   "a": "Sì: {ct:69.20.04}, mentre il commercialista è {ct:69.20.01}. Sono sottocategorie della stessa classe 69.20, con le stesse note di categoria.",
+   "fonti": [
+    "note"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-commercialista",
+   "ricerca": "codice ateco dottori commercialisti",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Qual è il codice ATECO dei dottori commercialisti?",
+   "a": "{ct:69.20.01}. Per questa sottocategoria la tavola di raccordo indica come vecchio codice {v:69.20.01}; la corrispondenza con il contenuto in comune scritto da Istat è nella tabella più sotto.",
+   "fonti": [
+    "raccordo"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-estetista",
+   "ricerca": "codice ateco 96.02 02",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Il vecchio 96.02.02 degli istituti di bellezza che codice diventa?",
+   "a": "Il vecchio 96.02.02 {t22:96.02.02} confluisce in {d22:96.02.02}.",
+   "fonti": [
+    "raccordo"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-estetista",
+   "ricerca": "codice ateco onicotecnica",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "E l'onicotecnica?",
+   "a": "Le note Istat di ATECO 2025 non nominano onicotecniche né unghie artificiali. La riga più vicina è «servizi di manicure e pedicure», nella sottocategoria {ct:96.22.01}. Se l'attività è diversa, il codice va verificato con la Camera di commercio.",
+   "fonti": [
+    "note"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-estetista",
+   "ricerca": "codice ateco estetista forfettario",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Che coefficiente ha l'estetista nel forfettario?",
+   "a": "Per 96.22.09 il coefficiente ricavato dal vecchio codice {v:96.22.09} è {perc:96.22.09}, secondo la tabella dell'allegato 4 della legge 190/2014. È una derivazione nostra: per la legge conta il codice ATECO 2007 dell'attività, quindi per il tuo caso verifica con il commercialista.",
+   "fonti": [
+    "l190_all4",
+    "dlgs81_art1",
+    "raccordo"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-geometra",
+   "ricerca": "codice ateco geometra",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Qual è il codice ATECO del geometra?",
+   "a": "{ct:71.12.30}. La nota Istat parla di «attività di progettazione, direzione di progetti e assistenza ai lavori di costruzione svolte da geometri». Il vecchio codice collegato nella tavola di raccordo è {v:71.12.30}.",
+   "fonti": [
+    "note",
+    "raccordo"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-geometra",
+   "ricerca": "codice ateco geometri liberi professionisti",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Il geometra libero professionista ha un codice diverso?",
+   "a": "No: titoli e note della classe 71.12 non distinguono tra libero professionista e società. Per progettazione, direzione di progetti e assistenza ai lavori dei geometri il codice è {ct:71.12.30}; il rilevamento di terreni e di confini è tra le note di {ct:71.12.50}, la preparazione di mappe in {ct:71.12.40}.",
+   "fonti": [
+    "note"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-fisioterapista",
+   "ricerca": "codice ateco osteopatia",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Che codice ATECO ha l'osteopata?",
+   "a": "{ct:86.96.09}: tra le note c'è la «fornitura di servizi terapeutici di medicina osteopatica (osteopatia) nell'ambito multidisciplinare della prevenzione sanitaria». La classe della fisioterapia esclude gli osteopati e li rimanda a 86.96.",
+   "fonti": [
+    "note"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-fisioterapista",
+   "ricerca": "codice ateco fisioterapista 2025",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Il codice del fisioterapista è cambiato?",
+   "a": "Sì. Il vecchio 86.90.21 {t22:86.90.21} confluisce in {d22:86.90.21}, una classe nuova di ATECO 2025.",
+   "fonti": [
+    "raccordo"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-edilizia",
+   "ricerca": "codice ateco 43.39 01 cosa comprende",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Il vecchio 43.39.01 dei muratori a cosa corrisponde?",
+   "a": "Il vecchio 43.39.01 {t22:43.39.01} confluisce in {d22:43.39.01}. La nota di 43.91.00 parla di lavori di muratura, posa di blocchi e di pietre e altre opere murarie.",
+   "fonti": [
+    "raccordo",
+    "note"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-edilizia",
+   "ricerca": "codice ateco costruzione di edifici residenziali e non residenziali",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Dove va il vecchio 41.20.00 della costruzione di edifici?",
+   "a": "Il vecchio 41.20.00 {t22:41.20.00} si divide in {d22:41.20.00}. La costruzione di edifici nuovi resta in 41.00.00; gli interventi su edifici storici hanno codici propri.",
+   "fonti": [
+    "raccordo"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-agente-di-commercio",
+   "ricerca": "codice ateco 46.19 02",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Che codice ha il procacciatore d'affari in ATECO 2025?",
+   "a": "Il vecchio 46.19.02 {t22:46.19.02} confluisce in {d22:46.19.02}, lo stesso codice in cui va il vecchio 46.19.01 degli agenti e rappresentanti senza prevalenza. Per chi tratta un settore specifico il codice è nelle classi da 46.11 a 46.18.",
+   "fonti": [
+    "raccordo"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-agente-di-commercio",
+   "ricerca": "codice ateco agente di commercio forfettario",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Che coefficiente ha l'agente di commercio nel forfettario?",
+   "a": "Nella tabella dell'allegato 4 della legge 190/2014 il gruppo «Intermediari del commercio», codice ATECO 2007 46.1, ha il 62%. Per 46.19.00 il coefficiente ricavato dai vecchi codici {v:46.19.00} è {perc:46.19.00}: 62% dai vecchi 46.19, 67% dal vecchio 82.99.99. È una derivazione nostra: per la legge conta il codice ATECO 2007 dell'attività, quindi per il tuo caso verifica con il commercialista.",
+   "fonti": [
+    "l190_all4",
+    "dlgs81_art1",
+    "raccordo"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-psicologo",
+   "ricerca": "codice ateco psicologi 2025",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Il codice ATECO degli psicologi è cambiato nel 2025?",
+   "a": "Sì. Il vecchio 86.90.30 {t22:86.90.30} confluisce in {d22:86.90.30}, una classe propria.",
+   "fonti": [
+    "raccordo"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-psicologo",
+   "ricerca": "codice ateco psicoterapeuta",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Lo psicoterapeuta ha un codice diverso dallo psicologo?",
+   "a": "No, se non è medico: la nota di 86.93.00 cita psicologi clinici, psicologi della salute e psicoterapeuti (esclusi medici). Gli psichiatri sono rimandati alla classe 86.22.",
+   "fonti": [
+    "note"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-consulente",
+   "ricerca": "codice ateco 70.22 09",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Il vecchio 70.22.09 che codice ATECO 2025 diventa?",
+   "a": "Il vecchio 70.22.09 {t22:70.22.09} si divide in {d22:70.22.09}. La consulenza imprenditoriale e gestionale descritta nelle note è in 70.20.09.",
+   "fonti": [
+    "raccordo"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-consulente",
+   "ricerca": "codice ateco 74.90 99",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "E il vecchio 74.90.99 «Altre attività professionali n.c.a.»?",
+   "a": "Con ATECO 2025 si divide in molti codici: {d22:74.90.99}.",
+   "fonti": [
+    "raccordo"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-consulente",
+   "ricerca": "codice ateco consulenza generica",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Esiste un codice per la consulenza generica?",
+   "a": "Nessun titolo ATECO 2025 parla di consulenza generica. I due codici residuali più vicini sono {ct:70.20.09}, per la consulenza alle imprese, e {ct:74.99.99}, che tra le note ha «altre consulenze tecniche».",
+   "fonti": [
+    "note"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-personal-trainer",
+   "ricerca": "codice ateco 85.51 00",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Il vecchio 85.51.00 dei corsi sportivi dove va?",
+   "a": "Il vecchio 85.51.00 {t22:85.51.00} si divide in {d22:85.51.00}.",
+   "fonti": [
+    "raccordo"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-personal-trainer",
+   "ricerca": "codice ateco palestra",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Che codice ha una palestra?",
+   "a": "{ct:93.13.09}: le note citano le attività di palestre, le strutture per il body-building e i corsi di fitness forniti dai centri di fitness. Il vecchio 93.13.00 {t22:93.13.00} confluisce qui.",
+   "fonti": [
+    "note",
+    "raccordo"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-ingegnere",
+   "ricerca": "codice ateco studio di ingegneria",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Che codice ha uno studio di ingegneria?",
+   "a": "{ct:71.12.10}. Il vecchio 71.12.10 {t22:71.12.10} confluisce in {d22:71.12.10}: numero uguale, titolo nuovo.",
+   "fonti": [
+    "raccordo"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-ingegnere",
+   "ricerca": "codice ateco 71.12 10",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Cosa comprende il codice 71.12.10?",
+   "a": "Le note citano la progettazione ingegneristica di macchinari, processi e impianti industriali, di opere di ingegneria civile e idraulica, di sistemi informativi degli edifici, l'ingegneria ambientale, l'abbattimento del rumore, l'economia circolare e le attività di ingegneria nei cantieri.",
+   "fonti": [
+    "note"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-medico",
+   "ricerca": "codice ateco medico specialista",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Qual è il codice del medico specialista?",
+   "a": "Per il medico specialista indipendente e gli studi medici e polimedici di medicina specialistica le note indicano {ct:86.22.02}; gli ambulatori e poliambulatori di medicina specialistica sono tra le note di {ct:86.22.03}. Il vecchio 86.22.09 {t22:86.22.09} si divide in {d22:86.22.09}.",
+   "fonti": [
+    "note",
+    "raccordo"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-medico",
+   "ricerca": "codice ateco medico generico",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "E il medico di medicina generale?",
+   "a": "{ct:86.21.00}: le note citano il consulto e il trattamento medico nel campo della medicina generale, gli studi medici e polimedici e gli ambulatori di medicina generale.",
+   "fonti": [
+    "note"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-farmacia",
+   "ricerca": "codice ateco parafarmacia",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "E la parafarmacia?",
+   "a": "La parola «parafarmacia» non compare nelle note Istat. La vendita al dettaglio di medicinali non soggetti a prescrizione medica, per uso umano e veterinario, e di prodotti omeopatici è descritta in {ct:47.73.90}.",
+   "fonti": [
+    "note"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-farmacia",
+   "ricerca": "codice ateco farmacista",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Che codice ATECO ha la farmacia del farmacista titolare?",
+   "a": "{ct:47.73.10}, con le note sulla vendita al dettaglio di medicinali soggetti a prescrizione medica. I vecchi codici collegati nella tavola di raccordo sono {v:47.73.10}.",
+   "fonti": [
+    "note",
+    "raccordo"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-social-media-manager",
+   "ricerca": "codice ateco 73.11 02",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Cosa comprende oggi 73.11.02?",
+   "a": "Il titolo è {t:73.11.02}. Il vecchio 73.11.02 {t22:73.11.02} si divide in {d22:73.11.02}: l'influencer marketing ha ora una sottocategoria propria.",
+   "fonti": [
+    "raccordo"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-social-media-manager",
+   "ricerca": "codice ateco 73.11 02 forfettario",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Che coefficiente del forfettario ha 73.11.02?",
+   "a": "Il coefficiente ricavato dal vecchio codice {v:73.11.02} è {perc:73.11.02}, secondo la tabella dell'allegato 4 della legge 190/2014. È una derivazione nostra: per la legge conta il codice ATECO 2007 dell'attività, quindi per il tuo caso verifica con il commercialista.",
+   "fonti": [
+    "l190_all4",
+    "dlgs81_art1",
+    "raccordo"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-social-media-manager",
+   "ricerca": "codice ateco consulenza marketing",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "La consulenza di marketing ha un codice a parte?",
+   "a": "Non del tutto: la riga «consulenza di marketing» è tra le note di {ct:73.11.02}, insieme alla conduzione di campagne di marketing. La riga «obiettivi e politiche di marketing» compare invece tra gli esempi di consulenza imprenditoriale e gestionale di {ct:70.20.09}.",
+   "fonti": [
+    "note"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-influencer",
+   "ricerca": "codice ateco content creator",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Che codice ha un content creator?",
+   "a": "Dipende dai contenuti. Per i video la nota di {ct:59.11.00} cita le «attività di creatori di contenuti video digitali, cioè attività di video content creator»; per i contenuti non video la nota di {ct:58.19.00} cita le «attività di creatori di contenuti anche digitali (esclusi contenuti video)».",
+   "fonti": [
+    "note"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-influencer",
+   "ricerca": "codice ateco 73.11 03",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Da dove viene il codice 73.11.03?",
+   "a": "È una sottocategoria nuova: nella tavola di raccordo {ct:73.11.03} viene dal vecchio {v:73.11.03}.",
+   "fonti": [
+    "raccordo"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-influencer",
+   "ricerca": "codice ateco youtuber",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "E uno youtuber?",
+   "a": "La parola «youtuber» non compare nelle note. I creatori di contenuti video digitali e la pubblicazione di contenuti con video da parte di influencer e video blogger sono rimandati a 59.11.00; chi compare in vlog pubblicati da terzi è in {ct:90.20.09}; gli influencer marketer che conducono campagne di influencer marketing sono in 73.11.03.",
+   "fonti": [
+    "note"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-infermiere",
+   "ricerca": "codice ateco 86.90 29 forfettario",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Il vecchio 86.90.29 dove va, e con che coefficiente del forfettario?",
+   "a": "Il vecchio 86.90.29 {t22:86.90.29} si divide in {d22:86.90.29}. Per 86.94.01 il coefficiente del forfettario ricavato dai vecchi codici è {perc:86.94.01}. È una derivazione nostra: per la legge conta il codice ATECO 2007 dell'attività, quindi per il tuo caso verifica con il commercialista.",
+   "fonti": [
+    "raccordo",
+    "l190_all4",
+    "dlgs81_art1"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-infermiere",
+   "ricerca": "codice ateco infermiere professionale",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Qual è il codice dell'infermiere libero professionista?",
+   "a": "{ct:86.94.01}: la nota cita le «attività di infermieri indipendenti, che lavorano nei propri ambulatori o a casa dei pazienti».",
+   "fonti": [
+    "note"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-tabaccheria",
+   "ricerca": "ateco tabaccaio",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Qual era il vecchio codice del tabaccaio e dove va?",
+   "a": "Il vecchio 47.26.00 {t22:47.26.00} si divide in {d22:47.26.00}.",
+   "fonti": [
+    "raccordo"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-hotel",
+   "ricerca": "codice ateco 55.10 00",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Il codice 55.10.00 è cambiato?",
+   "a": "Il numero è lo stesso, il titolo è ora {t:55.10.00}. Nella tavola di raccordo il nuovo codice raccoglie i vecchi codici {v:55.10.00}: oltre agli alberghi, anche i villaggi albergo che in ATECO 2022 erano tra i villaggi turistici.",
+   "fonti": [
+    "raccordo"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-hotel",
+   "ricerca": "codice ateco albergo",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Un albergo diffuso ha lo stesso codice di un hotel?",
+   "a": "Sì: la nota di 55.10.00 cita «alberghi con suite o appartamenti (alberghi diffusi e residenze turistico alberghiere)». Le strutture senza assistenza al cliente in loco, con servizi accessori minimi, sono invece nella classe 55.20.",
+   "fonti": [
+    "note"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-agriturismo",
+   "ricerca": "codice ateco agriturismo",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Agriturismo con alloggio e ristorazione: quanti codici?",
+   "a": "Due attività, due codici: l'alloggio è {ct:55.20.51}, la ristorazione {ct:56.11.91}. Tutte e due le note parlano di servizi «connessi alle coltivazioni agricole e all'allevamento di animali».",
+   "fonti": [
+    "note"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-fotografo",
+   "ricerca": "codice ateco videomaker",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Che codice ATECO ha un videomaker?",
+   "a": "Dipende da cosa riprende. Le riprese video di eventi, per esempio matrimoni e riunioni, sono tra le note di {ct:74.20.19}; la produzione di film, video e programmi è in {ct:59.11.00}.",
+   "fonti": [
+    "note"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-fotografo",
+   "ricerca": "codice ateco 74.20 19",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Il codice 74.20.19 è ancora valido?",
+   "a": "Sì, con un titolo nuovo: {t:74.20.19}. Il vecchio 74.20.19 {t22:74.20.19} confluisce in {d22:74.20.19}.",
+   "fonti": [
+    "raccordo"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-agente-immobiliare",
+   "ricerca": "codice ateco 68.31",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Cosa comprende oggi 68.31?",
+   "a": "La classe ha una sola sottocategoria, {ct:68.31.00}. Il vecchio 68.31.00 {t22:68.31.00} si divide in {d22:68.31.00}.",
+   "fonti": [
+    "raccordo"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-agente-immobiliare",
+   "ricerca": "codice ateco consulente immobiliare",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "E la consulenza immobiliare?",
+   "a": "Nelle note di 68.31.00 ci sono l'intermediazione nell'acquisto, nella vendita e nella locazione e i servizi di quotazione di beni immobili. La gestione di immobili per conto terzi è invece in {ct:68.32.01}.",
+   "fonti": [
+    "note"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-elettricista",
+   "ricerca": "codice ateco 43.21 01",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Il vecchio 43.21.01 a quale codice ATECO 2025 passa?",
+   "a": "Il vecchio 43.21.01 {t22:43.21.01} si divide in {d22:43.21.01}.",
+   "fonti": [
+    "raccordo"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-elettricista",
+   "ricerca": "codice ateco impianti elettrici",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Gli impianti fotovoltaici hanno un codice diverso?",
+   "a": "Se installati in edifici no: la nota di 43.21.01 cita gli «impianti fotovoltaici in edifici» insieme agli impianti elettrici e di illuminazione e ai sistemi di accumulo di energia.",
+   "fonti": [
+    "note"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-idraulico",
+   "ricerca": "codice ateco idraulico",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Il vecchio 43.22.01 dell'idraulico dove va?",
+   "a": "Il vecchio 43.22.01 {t22:43.22.01} si divide in {d22:43.22.01}.",
+   "fonti": [
+    "raccordo"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-organizzazione-eventi",
+   "ricerca": "codice ateco 96.09 05",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Il vecchio 96.09.05 dove va?",
+   "a": "Il vecchio 96.09.05 {t22:96.09.05} confluisce in {d22:96.09.05}.",
+   "fonti": [
+    "raccordo"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-organizzazione-eventi",
+   "ricerca": "codice ateco wedding planner",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Che codice ATECO ha il wedding planner?",
+   "a": "{ct:96.99.93}: la nota cita l'«organizzazione di matrimoni (attività di wedding planner)», anche per matrimoni celebrati lontano da casa.",
+   "fonti": [
+    "note"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-dentista",
+   "ricerca": "codice ateco igienista dentale",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Che codice ha l'igienista dentale?",
+   "a": "Gli igienisti dentali sono tra le note di {ct:86.99.09}, insieme al personale paramedico odontoiatrico che lavora in autonomia ma è periodicamente supervisionato da dentisti.",
+   "fonti": [
+    "note"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-dentista",
+   "ricerca": "codice ateco studio dentistico",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Qual è il codice di uno studio dentistico?",
+   "a": "{ct:86.23.00}. Il vecchio codice collegato nella tavola di raccordo è {v:86.23.00}.",
+   "fonti": [
+    "raccordo"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-amministratore-di-condominio",
+   "ricerca": "codice ateco condominio",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Che codice ATECO ha il condominio?",
+   "a": "ATECO 2025 ha un codice per i condomini come datori di lavoro: {ct:97.00.10}, con la nota «attività di condomini come datori di lavoro ad esempio per addetti alle pulizie, giardinieri, custodi».",
+   "fonti": [
+    "note"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-amministratore-di-condominio",
+   "ricerca": "codice ateco amministratori di condominio",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "E l'amministratore di condominio?",
+   "a": "{ct:68.32.01}: la nota cita l'«attività di amministrazione di condomini, inclusi amministratori di condomini indipendenti». Il vecchio 68.32.00 {t22:68.32.00} confluisce qui.",
+   "fonti": [
+    "note",
+    "raccordo"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-tatuatore",
+   "ricerca": "codice ateco tatuatori",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Qual è il codice ATECO del tatuatore?",
+   "a": "{ct:96.99.91}. La nota comprende anche i tatuatori che usano sostanze biologiche, per esempio l'henné, per decorazioni temporanee. Il vecchio 96.09.02 {t22:96.09.02} confluisce in {d22:96.09.02}.",
+   "fonti": [
+    "note",
+    "raccordo"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-giardiniere",
+   "ricerca": "codice ateco manutenzione del verde",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Manutenzione del verde e giardiniere hanno lo stesso codice?",
+   "a": "Sì: {ct:81.30.00}. La nota comprende la realizzazione, cura e manutenzione di parchi e giardini. Il vecchio 81.30.00 {t22:81.30.00} confluisce in {d22:81.30.00}.",
+   "fonti": [
+    "note",
+    "raccordo"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-meccanico",
+   "ricerca": "codice ateco officina meccanica",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Che codice ha un'officina meccanica con ATECO 2025?",
+   "a": "Il vecchio 45.20.10 {t22:45.20.10} confluisce in {d22:45.20.10}: la riparazione di autoveicoli passa dalla divisione 45 alla 95.",
+   "fonti": [
+    "raccordo"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-meccanico",
+   "ricerca": "codice ateco carrozzeria",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "E la carrozzeria?",
+   "a": "Il vecchio 45.20.20 {t22:45.20.20} confluisce in {d22:45.20.20}.",
+   "fonti": [
+    "raccordo"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-meccanico",
+   "ricerca": "codice ateco autolavaggio",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Che codice ha un autolavaggio?",
+   "a": "{ct:95.31.91}: le note citano lavaggio e lucidatura di autoveicoli, il detailing e l'autolavaggio self-service.",
+   "fonti": [
+    "note"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-imbianchino",
+   "ricerca": "codice ateco imbianchino e cartongesso",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Imbianchino e cartongessista hanno lo stesso codice?",
+   "a": "No: la tinteggiatura è {ct:43.34.01}, la posa in opera di cartongesso {ct:43.31.01}. Sono due sottocategorie diverse della divisione 43.",
+   "fonti": [
+    "note"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-imbianchino",
+   "ricerca": "codice ateco 43.34",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Cosa comprende la classe 43.34?",
+   "a": "Ha due sottocategorie: {ct:43.34.01} e {ct:43.34.02}. Le note di 43.34.01 citano la tinteggiatura interna ed esterna di edifici, la verniciatura di strutture di ingegneria civile e di infissi già installati.",
+   "fonti": [
+    "note"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-holding",
+   "ricerca": "codice ateco 701000",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Holding: 64.21.00 o 70.10.00?",
+   "a": "Dipende da cosa fa la società. La nota di {ct:64.21.00} riguarda le holding «non impegnate in attività gestionali di head office»; {ct:70.10.00} comprende la supervisione e gestione di altre unità della stessa impresa o dello stesso gruppo. Il vecchio 70.10.00 {t22:70.10.00} nella tavola di raccordo si divide in {d22:70.10.00}; la tabella operativa di riclassificazione indica come codice rappresentativo del vecchio 70.10.00 il codice 82.10.00.",
+   "fonti": [
+    "note",
+    "operativa"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-falegname",
+   "ricerca": "codice ateco falegnameria",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Qual è il codice di una falegnameria?",
+   "a": "Non c'è un codice unico: dipende da cosa produce. Carpenteria in legno per l'edilizia {ct:16.23.09}, porte e finestre nella classe 16.25, mobili nella divisione 31, posa in opera di infissi e arredi {ct:43.32.02}.",
+   "fonti": [
+    "note"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-panificio-pasticceria",
+   "ricerca": "codice ateco gelateria",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Che codice ATECO ha una gelateria?",
+   "a": "Due sottocategorie, secondo il servizio: {ct:56.11.21} e {ct:56.11.22}. Il vecchio 56.10.30 {t22:56.10.30} si divide in {d22:56.10.30}.",
+   "fonti": [
+    "note",
+    "raccordo"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-panificio-pasticceria",
+   "ricerca": "codice ateco pasticceria",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Laboratorio di pasticceria o pasticceria con vendita: cambia il codice?",
+   "a": "Sì. La produzione di pasticceria fresca è {ct:10.71.20}; la pasticceria aperta al pubblico è in 56.11.23 o 56.11.24, con o senza servizio al tavolo.",
+   "fonti": [
+    "note"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-massaggiatore",
+   "ricerca": "codice ateco operatore olistico",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Che codice ATECO ha l'operatore olistico?",
+   "a": "Le note Istat non usano la parola «olistico». Shiatsu, massaggio thailandese, watsu, tui na e qigong sono in {ct:86.99.01}; aromaterapia, terapia di Bach, riflessoterapia e medicina ayurvedica tra gli esempi di {ct:86.96.09}.",
+   "fonti": [
+    "note"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-massaggiatore",
+   "ricerca": "codice ateco massoterapia",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "E il massoterapista?",
+   "a": "I massoterapisti sono nella fisioterapia: la nota di {ct:86.95.00} cita le «attività di massoterapisti». I centri massaggi non medico-terapeutici sono invece in 96.23.99.",
+   "fonti": [
+    "note"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-impresa-di-pulizie",
+   "ricerca": "codice ateco 81.21",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Il vecchio 81.21.00 è cambiato?",
+   "a": "Il vecchio 81.21.00 {t22:81.21.00} si divide in {d22:81.21.00}.",
+   "fonti": [
+    "raccordo"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-impresa-di-pulizie",
+   "ricerca": "codice ateco multiservizi",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Un'impresa multiservizi che codice usa?",
+   "a": "Nessun titolo ATECO 2025 parla di multiservizi: le note descrivono le singole attività. La pulizia generale è in 81.21.00, le pulizie specializzate in 81.22.09, sanificazione e disinfestazione in 81.23.10, la cura del verde in {ct:81.30.00}.",
+   "fonti": [
+    "note"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-ncc-taxi",
+   "ricerca": "codice ateco noleggio con conducente",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Che codice ha il noleggio con conducente?",
+   "a": "{ct:49.33.20}. Il vecchio 49.32.20 {t22:49.32.20} si divide in {d22:49.32.20}.",
+   "fonti": [
+    "raccordo"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-ncc-taxi",
+   "ricerca": "codice ateco taxi",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "E il taxi?",
+   "a": "{ct:49.33.10}, con le note «trasporto su taxi» e «trasporto su mototaxi». Il vecchio 49.32.10 {t22:49.32.10} si divide in {d22:49.32.10}.",
+   "fonti": [
+    "note",
+    "raccordo"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-ncc-taxi",
+   "ricerca": "codice ateco noleggio senza conducente",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "E il noleggio di auto senza conducente?",
+   "a": "{ct:77.11.00}: le note citano il noleggio e leasing operativo di autoveicoli fino a 3,5 tonnellate senza conducente e il noleggio di automobili condivise.",
+   "fonti": [
+    "note"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-autotrasporto",
+   "ricerca": "codice ateco trasporto conto terzi",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Che codice ATECO ha il trasporto merci conto terzi?",
+   "a": "{ct:49.41.00}: la nota parla di «tutte le attività di trasporto di merci su strada» e cita anche il noleggio di veicoli per il trasporto di merci con conducente.",
+   "fonti": [
+    "note"
+   ]
+  },
+  {
+   "pagina": "codice-ateco-autotrasporto",
+   "ricerca": "codice ateco autotrasportatore",
+   "misura": "volumi-attivita-2026-11-13.json",
+   "q": "Il codice dell'autotrasportatore è cambiato?",
+   "a": "Il codice 49.41.00 resta: il vecchio {v:49.41.00} confluisce nel nuovo {ct:49.41.00}, come mostra la tavola di raccordo.",
+   "fonti": [
+    "raccordo"
+   ]
+  }
  ]
 }

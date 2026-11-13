@@ -152,3 +152,83 @@ dati. Date 1/1/2025 e 1/4/2025 rilette in nota congiunta, risoluzione 24/E e pag
 Classi molto cercate ma noindex perché le note Istat sono corte (96.21 parrucchieri, 86.21 medici, 86.23 dentisti, 86.93 psicologi, 86.95
 fisioterapisti, 74.30 traduttori): non gonfiarle; la strada è la pagina mestiere (come per il parrucchiere), appena ci sono i volumi misurati.
 Note senza distinzione di provenienza, sezioni con l'iniziale maiuscola e spiegazione del 47.91.10 → 47.1: vanno bene così.
+
+## Pagine «Codice ATECO per …» (13/11/2026 sera, NON pubblicato: revisione indipendente, poi pubblicazione)
+Modello: le pagine «NAICS code for …» di `naics/` (stesse regole: righe ufficiali citate parola per parola, FAQ solo da ricerche misurate, misura del
+testo proprio). **Misura.** 244 ricerche `api.seodata.dev` (country=it) il 13/11: 144 attività × «codice ateco X», 80 forme «X codice ateco» (quasi
+tutte 404: lo strumento le conta con la forma principale) e 20 frasi alternative (autotrasportatore, locazione turistica, sartoria…), in
+`dati/volumi-attivita-2026-11-13.json` (volume, cpc, data del dato, frasi simili con volume; null = 404). 685 frasi con volume tra cercate e simili.
+Volume di una pagina = la frase più cercata tra le sue (comprese le frasi «simili» e i vecchi codici a cui la pagina risponde, es. «codice ateco 70.22 09»
+1.000 nella pagina del consulente), mai la somma. Soglia `MIN_VOLUME_ATTIVITA = 100`; tetto ~40 → attività vicine riunite.
+**Pagine (41 + indice `/codice-ateco-per/`; le 3 pagine mestiere del 12/11 restano agli stessi indirizzi e sono nell'indice):** bar 1.900, avvocato
+1.300, amministratore di condominio e condominio 1.300 («codice ateco condominio»; la frase dell'amministratore è 320), affittacamere e B&B 1.000,
+architetto 1.000, consulente 1.000, commercialista e consulente del lavoro 880, estetista 720, geometra 720, fisioterapista e osteopata 720, edilizia e
+muratore 720, agente di commercio e procacciatore 720, psicologo 720, personal trainer e palestra 590, ingegnere 590, medico 590, farmacia 590, elettricista
+590, social media manager 480, infermiere 480, tabaccheria 480 (**noindex**: 42% in comune con la classe 47.26), hotel 480, affitti brevi e casa vacanze 390,
+influencer e content creator 390, agriturismo 390, fotografo e videomaker 390, agente immobiliare 390, organizzazione eventi e wedding planner 390, dentista
+320, tatuatore 320, giardiniere 320, meccanico/carrozziere/gommista 320, idraulico 260, imbianchino 260, holding 260, falegname 260, panificio/pasticceria/
+gelateria 260, massaggiatore e operatore olistico 260, impresa di pulizie 210, NCC e taxi 210, autotrasporto 170. Misurate ≥ 100 ma senza pagina (tetto):
+macelleria, lavanderia, autolavaggio (FAQ nel meccanico), veterinario, logopedista, giornalista, artista, musicista, agenzia viaggi, guida turistica, grafico,
+copywriter, insegnante/formatore, asilo nido, ottico, toelettatura, consulente finanziario, consulente informatico/sviluppatore, noleggio auto (FAQ in NCC),
+alimentari, negozio di abbigliamento, sartoria, edicola, ferramenta, artigiano (nessun codice: è una qualifica), azienda agricola 480 (sezione A troppo
+ampia per una tabella di scelte). 404 (non nel database): food truck, ambulante, programmatore, dj, babysitter. Dropshipping 140: nessuna pagina propria, la pagina e-commerce del 12/11 non è stata toccata (possibile FAQ).
+**Contenuto (`dati/attivita.json`, `pagina_attivita` in genera.py).** Introduzione nostra con i titoli e i numeri solo da segnaposto (`{ct:56.30.01}`,
+`{t22:56.30.00}`, `{d22:…}` destinazioni del raccordo, `{v:…}` vecchi codici, `{perc:…}` coefficienti), tabella «Quale codice» (righe delle note Istat o
+titolo ufficiale citati in `<q class="ni" data-c>`, scelte con l'inizio della nota o le note di inclusione del codice), «La regola di Istat» (note centrali
+o operative, es. la regola della durata della divisione 55 e la nota sulla cucina della classe 56.30), «Cosa Istat mette in un altro codice» (note «Non
+comprende» dei codici e, per i due principali, della loro classe e categoria; massimo 10), coefficiente del forfettario per ogni sottocategoria (stessa riga
+delle pagine di codice: «Derivazione nostra…», con le fonti), «Dai vecchi codici ATECO 2022 ai codici 2025» (solo le righe verso i codici della guida, le
+altre come «altri N codici» con link alla tabella 2022 → 2025), FAQ, guide vicine, fonti. Dove le note non usano la parola cercata la pagina lo dice
+(agriturismo, onicotecnica, parafarmacia, youtuber, olistico, locazione turistica, multiservizi, personal trainer invece è citato).
+**FAQ:** 82 nuove in `faq.json` con `"misura": "volumi-attivita-2026-11-13.json"`: la `ricerca` deve avere un volume misurato (genera si ferma). Molte
+rispondono alle ricerche dei vecchi codici (70.22.09, 74.90.99, 73.11.02, 55.20.51, 43.21.01, 46.19.02, 45.20.10…) con la tavola di raccordo.
+**Link:** menu «Per attività», piè di pagina, home (8 guide più cercate), ricerca (voci «Guida»), breadcrumb, e nelle pagine di classe un blocco
+`<section data-ripreso>` «Guide per attività che indicano questo codice» (massimo 3 link; escluso dalla misura del testo e dal conteggio delle parole per la
+pubblicità: le pagine di codice restano 437 indicizzate su 760, invariate).
+**Indicizzazione:** pagina attività indicizzata con ≥ 150 gruppi di 5 parole propri (le righe Istat citate spezzano il testo, le frasi presenti in ≥ 25%
+delle pagine attività non contano) e < 40% in comune con la pagina più simile, di codice o di attività (`MAX_SOVRAPPOSIZIONE_ATTIVITA`). Oggi 40 su 41
+(minimo 156 gruppi propri, massimo 39% in comune); tabaccheria noindex, fuori sitemap, senza pubblicità. Per ridurre le somiglianze: massaggiatore e
+fisioterapista non condividono più i codici in evidenza; esclusioni di classe solo per i due codici principali.
+**Controlli** (`verifica.py --browser`, 13/11 sera: 0 errori, 0 avvisi; `monetizzazione.py verifica ateco`: 0 errori): nuova sezione 6b — pubblicazione
+solo con volume ≥ 100 dal file con data; 599 righe citate ritrovate parola per parola nelle note o nei titoli del file Istat riletto con openpyxl; ogni
+codice esiste; 128 coefficienti ricalcolati dalla legge; ogni riga del raccordo esiste e il conteggio «altri N codici» torna; indice completo; testo proprio
+ricalcolato. FAQ attività solo da ricerche misurate; nessun file contiene una chiave dello strumento dei volumi. Prova di manomissione fatta (riga
+citata cambiata, coefficiente cambiato: due errori trovati). Playwright anche su `/codice-ateco-per/` e `/codice-ateco-bar/` (375/1280, chiaro/scuro).
+**Dubbi per il revisore:** pagina «amministratore di condominio e condominio» (il volume 1.300 è di «codice ateco condominio», risposta con 97.00.10);
+tabelle «Quale codice» con righe brevi (es. «bar», «caffetterie») che sono voci S di una nota «attività di:»; intro di agente di commercio e tabaccheria
+con frasi di sintesi nostre da rileggere contro le note; la soglia del 40% lascia noindex la tabaccheria (480 ricerche).
+
+## Revisione indipendente delle pagine «Codice ATECO per …» (13/11/2026, notte; NON pubblicato, non committato)
+Rifatto da zero con file riscaricati da istat.it (struttura, note, raccordo e tabella operativa: impronte uguali a `fonti.json`), letti con un
+programma proprio (openpyxl), e con l'allegato 4 della L. 190/2014 riletto su Normattiva (versione vigente) e il D.Lgs. 81/2025 art. 1 (testo
+originale; abrogato dal D.Lgs. 117/2026 art. 376 solo «dalla data di cui all'articolo 377», cioè dal 1/1/2027: la citazione va bene).
+- **Righe citate:** 596 su 596 ritrovate parola per parola come nota intera o riga di nota del codice indicato in `data-c`; nella tabella «Quale
+  codice» solo note centrali, di inclusione o titoli; in «Cosa Istat mette in un altro codice» solo note di esclusione. 0 differenze.
+- **Coefficienti:** 129 su 129 ricalcolati dalla tabella di legge (gruppo per divisione/gruppo/classe ATECO 2007) sui vecchi codici del raccordo,
+  con l'elenco dei vecchi codici mostrati: 0 differenze. Etichetta «Derivazione nostra … verifica con il commercialista» presente ovunque.
+- **Intro e FAQ lette contro le note (16 pagine: bar, avvocato, condominio, affittacamere/B&B, affitti brevi, consulente, commercialista, psicologo,
+  medico, social media manager, influencer, fotografo, agente di commercio, tabaccheria, holding, NCC/taxi; più imbianchino, giardiniere,
+  elettricista, panificio, autotrasporto, eventi, hotel).** Corretti:
+  - social media manager: la nota di 73.11.01 cita la «pianificazione di campagne di social media marketing» (e l'esclusione di 73.11.03 la rimanda lì)
+    e 73.11.02 cita la «consulenza di marketing»; la pagina metteva 73.11.02 per primo e la FAQ mandava la consulenza di marketing a 70.20.09.
+    Ora 73.11.01 e 73.11.02 con le righe giuste, FAQ corretta, titolo e descrizione nuovi;
+  - influencer: 73.11.03 non era «la pubblicità basata sulla propria influenza»: le note citano agenzie e influencer marketer che conducono
+    campagne, e rimandano la pubblicazione di contenuti di influencer a 59.11.00 (video) e 58.19.00 (non video). Intro, FAQ youtuber e titolo corretti;
+  - medico: gli ambulatori specialistici sono in 86.22.03, non in 86.22.02 (intro e FAQ);
+  - psicologo: 86.90.30 non era tra le «attività paramediche» (86.90.2) ma in 86.90.3;
+  - agente di commercio: la frase «la nota del gruppo 46.1 lo dice in modo esplicito» legava la nota alla fusione di 46.19.01/02; ora la pagina dice
+    che le parole «agente di commercio» e «procacciatore» non sono nelle note 2025, cita la nota del gruppo e l'esclusione degli agenti che
+    assumono la proprietà dei beni; FAQ del forfettario con il gruppo di legge 46.1 (62%);
+  - tabaccheria: l'intro rimandava a «note di esclusione più sotto» che la pagina non ha (47.26 non ne ha); ora cita la nota operativa di 47.26.0 e
+    dice che «tabaccheria» è solo nel titolo del vecchio 47.26.00; descrizione senza «Tabaccherie: 47.26.01». Resta noindex (40,2% in comune con 47.26);
+  - holding: aggiunto che la tabella operativa dà al vecchio 70.10.00 (holding operative) il codice rappresentativo 82.10.00 (la FAQ risponde alla
+    ricerca «codice ateco 701000»); fonte «tabella operativa» nell'intro (`fonti_intro` in `attivita.json`);
+  - parola cercata assente dalle note, ora detto: avvocato (solo «ordini degli avvocati»), imbianchino, elettricista, videomaker, agente di commercio,
+    tabaccheria; NCC: «classe 49.32», non «gruppo»; imbianchino: aggiunto 43.34.02 che la descrizione prometteva, frase sgrammaticata corretta;
+    giardiniere: la tabella mostrava come «attività» righe di elenco come «abitazioni private e pubbliche», ora righe di attività; panificio: «serve i clienti».
+- **genera.py:** riga del forfettario con una voce per percentuale (prima «40% … ; 40% …» quando due gruppi di legge hanno la stessa percentuale).
+- **Misure:** 41 pagine, 40 indicizzate (tabaccheria no), testo in comune massimo 39,1%, gruppi propri minimo 156; FAQ 82, tutte da ricerche con
+  volume nel file del 13/11, JSON-LD = testo visibile; titoli ≤ 65 e unici, descrizioni ≤ 160 e uniche, canonical = sitemap. Doppioni: affitti brevi /
+  affittacamere 30% in comune ma intenti diversi (regola dell'anno e property management contro B&B/affittacamere): restano separate.
+- **Controlli:** `genera.py`, `verifica.py --browser` 0 errori 0 avvisi, `monetizzazione.py verifica ateco` 0 errori, Playwright proprio su 4 pagine a
+  375/1280 chiaro/scuro con richieste non-file bloccate (nessuno scorrimento orizzontale, nessun errore JS), nessuna chiave dello strumento nei file.
