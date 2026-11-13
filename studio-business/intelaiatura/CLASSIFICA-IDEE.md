@@ -59,4 +59,15 @@ Colonne: idea · mercato · ricerche/mese misurate · costo per clic · €/anno
 | 47 | Ezoic (250.000 utenti), Freestar (~1 mln), Snigel/Publisher Collective (3 mln), Playwire (100.000-500.000), Setupad e Pubfuture (100.000), Monumetric (solo WordPress, 99 $), Ad Manager + header bidding in proprio | – | sotto soglia di 15-1.000 volte | – | 0 in 12 mesi | – | – | – | NO (soglie) | reti-pubblicitarie-2026-11-13 |
 | 48 | Adsterra / Monetag (ex PropellerAds): pop-under, push, Smartlink | – | – | – | negativo (AdSense vieta i pop-under sul sito: si perde AdSense e l'accesso a Mediavine) | – | – | – | NO (rischio) | reti-pubblicitarie-2026-11-13 |
 
+| 49 | Lemon law per Stato (in Statute Limits; prova 10 Stati già letti) | US | 102.100 su 20 Stati (~145.000 usate) | 2,4-54 $ | 20 / 180 / 830 | 30 | 6 | medio | RISERVA (prova di 8 ore se Statute Limits ha impressioni) | fronti-2026-11-13-stati-usa-alto-valore |
+| 50 | Notaio per Stato: come si diventa + tariffe | US | 52.670 su 20 Stati (~74.000) | 0-6,7 $ | 10 / 50 / 180 | 22 | 2,3 | basso-medio | NO | fronti-2026-11-13-stati-usa-alto-valore |
+| 51 | Assicurazione auto minima per Stato + no-fault | US | 21.970 su 20 Stati (~32.000) | 6,5-91 $ | 10 / 40 / 170 | 18 | 2,2 | alto | NO | fronti-2026-11-13-stati-usa-alto-valore |
+| 52 | DUI prima volta per Stato | US | 44.250 su 20 Stati (~66.000) | 4-73 $ | 10 / 70 / 300 | 35 | 2 | medio | NO | fronti-2026-11-13-stati-usa-alto-valore |
+| 53 | Medicaid, limiti di reddito per Stato | US | 91.260 su 14 Stati (~150.000) | 1,9-6,5 $ | 10 / 50 / 230 | 30 | 1,7 | medio | NO | fronti-2026-11-13-stati-usa-alto-valore |
+| 54 | Sussidio di disoccupazione per Stato | US | 32.670 su 20 Stati (~52.000) | 0 $ (calcolatore 9 $) | 0 / 20 / 80 | 12 | 1,7 | alto | NO confermato | fronti-2026-11-13-stati-usa-alto-valore |
+| 55 | Sfratto e cauzione per Stato | US | 57.350 su 20 Stati (~81.000) | 0,5-6,6 $ | 10 / 50 / 200 | 35 | 1,4 | basso-medio | NO | fronti-2026-11-13-stati-usa-alto-valore |
+| 56 | Esenzione homestead per Stato | US | 53.690 su 20 Stati (~69.000) | 0-8,4 $ | 10 / 40 / 150 | 30 | 1,3 | medio | NO (dentro la riserva anziani) | fronti-2026-11-13-stati-usa-alto-valore |
+| 57 | Workers' comp, massimo settimanale per Stato | US | 2.150 informative su 20 Stati (~28.000) | 4-99 $ | 0 / 30 / 110 | 25 | 1,2 | alto | NO | fronti-2026-11-13-stati-usa-alto-valore |
+| 58 | Small estate affidavit per Stato | US | 19.900 su 20 Stati (~33.000) | 1,3-3,7 $ | 0 / 20 / 90 | 25 | 0,8 | alto | NO | fronti-2026-11-13-stati-usa-alto-valore |
+
 (Da completare con le ricerche in corso: mercati esteri, crescita Visa Income, e tutte le prossime.)
