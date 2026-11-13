@@ -1,0 +1,50 @@
+{
+ "_nota": "Risultati letti dal CPI Inflation Calculator ufficiale del BLS (data.bls.gov/cgi-bin/cpicalc.pl).",
+ "casi": [
+  {
+   "importo": 100.0,
+   "da": "1970-01",
+   "a": "2026-10",
+   "risultato_ufficiale": 892.89,
+   "url": "https://data.bls.gov/cgi-bin/cpicalc.pl?cost1=100.00&year1=197001&year2=202610",
+   "http": 200,
+   "letto_il": "2026-11-13"
+  },
+  {
+   "importo": 1.0,
+   "da": "1950-06",
+   "a": "2026-10",
+   "risultato_ufficiale": 14.18,
+   "url": "https://data.bls.gov/cgi-bin/cpicalc.pl?cost1=1.00&year1=195006&year2=202610",
+   "http": 200,
+   "letto_il": "2026-11-13"
+  },
+  {
+   "importo": 1000.0,
+   "da": "1980-01",
+   "a": "2025-09",
+   "risultato_ufficiale": 4174.81,
+   "url": "https://data.bls.gov/cgi-bin/cpicalc.pl?cost1=1000.00&year1=198001&year2=202509",
+   "http": 200,
+   "letto_il": "2026-11-13"
+  },
+  {
+   "importo": 50.0,
+   "da": "2000-01",
+   "a": "2020-01",
+   "risultato_ufficiale": 76.41,
+   "url": "https://data.bls.gov/cgi-bin/cpicalc.pl?cost1=50.00&year1=200001&year2=202001",
+   "http": 200,
+   "letto_il": "2026-11-13"
+  },
+  {
+   "importo": 100.0,
+   "da": "1913-01",
+   "a": "2024-12",
+   "risultato_ufficiale": 3220.46,
+   "url": "https://data.bls.gov/cgi-bin/cpicalc.pl?cost1=100.00&year1=191301&year2=202412",
+   "http": 200,
+   "letto_il": "2026-11-13"
+  }
+ ]
+}

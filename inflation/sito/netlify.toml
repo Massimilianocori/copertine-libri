@@ -1,0 +1,29 @@
+[build]
+  publish = "."
+  command = ""
+  # Pubblica solo se è cambiato qualcosa in inflation/sito (ogni pubblicazione consuma crediti Netlify).
+  # Impostazioni del sito su Netlify: Base directory = inflation/sito, Build command vuoto, Publish directory = "."
+  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- ."
+
+[[redirects]]
+  from = "/us/"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/de/"
+  to = "/de/inflationsrechner/"
+  status = 301
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "DENY"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"

@@ -1,0 +1,113 @@
+{
+ "_nota": "Scritto da genera.py: ogni FAQ pubblicata con la frase di ricerca da cui nasce (dati/domanda.json).",
+ "faq": [
+  {
+   "pagina": "home",
+   "domanda": "What is the normal inflation rate?",
+   "ricerca": "normal inflation rate",
+   "paese": "us"
+  },
+  {
+   "pagina": "home",
+   "domanda": "What is the average inflation rate in the US?",
+   "ricerca": "average inflation rate",
+   "paese": "us"
+  },
+  {
+   "pagina": "home",
+   "domanda": "How do you adjust an amount for inflation?",
+   "ricerca": "adjusting for inflation calculator",
+   "paese": "us"
+  },
+  {
+   "pagina": "us-rates",
+   "domanda": "What is the annual inflation rate?",
+   "ricerca": "annual inflation rate",
+   "paese": "us"
+  },
+  {
+   "pagina": "us-1950",
+   "domanda": "How much was 1 dollar worth in 1950?",
+   "ricerca": "how much was 1 dollar worth in 1950",
+   "paese": "us"
+  },
+  {
+   "pagina": "us-1960",
+   "domanda": "What was the dollar worth in 1960?",
+   "ricerca": "what was the dollar worth in 1960",
+   "paese": "us"
+  },
+  {
+   "pagina": "us-1970",
+   "domanda": "How much was a dollar worth in 1970?",
+   "ricerca": "how much was a dollar worth in 1970",
+   "paese": "us"
+  },
+  {
+   "pagina": "us-1980",
+   "domanda": "What was the inflation rate in 1980?",
+   "ricerca": "what was the inflation rate in 1980",
+   "paese": "us"
+  },
+  {
+   "pagina": "us-100-1970",
+   "domanda": "How much was 100 dollars worth in 1970?",
+   "ricerca": "how much was 100 dollars worth in 1970",
+   "paese": "us"
+  },
+  {
+   "pagina": "us-1000-1980",
+   "domanda": "How much was 1000 dollars worth in 1980?",
+   "ricerca": "how much was 1000 dollars worth in 1980",
+   "paese": "us"
+  },
+  {
+   "pagina": "uk",
+   "domanda": "Can I use the inflation calculator for a salary?",
+   "ricerca": "uk inflation calculator salary",
+   "paese": "gb"
+  },
+  {
+   "pagina": "uk",
+   "domanda": "What is the current UK CPI?",
+   "ricerca": "current uk cpi",
+   "paese": "gb"
+  },
+  {
+   "pagina": "uk-rates",
+   "domanda": "What is the average UK inflation rate?",
+   "ricerca": "uk inflation average",
+   "paese": "gb"
+  },
+  {
+   "pagina": "uk-rates",
+   "domanda": "What were UK inflation rates over the last 10 years?",
+   "ricerca": "uk inflation rate last 10 years",
+   "paese": "gb"
+  },
+  {
+   "pagina": "uk-rpi",
+   "domanda": "How do you calculate an RPI increase?",
+   "ricerca": "rpi increase calculator",
+   "paese": "gb"
+  },
+  {
+   "pagina": "de",
+   "domanda": "Wie rechnet man einen Betrag inflationsbereinigt?",
+   "ricerca": "inflationsbereinigung rechner",
+   "paese": "de"
+  },
+  {
+   "pagina": "de",
+   "domanda": "Wie berechnet man die Inflation zwischen zwei Jahren?",
+   "ricerca": "inflation berechnen",
+   "paese": "de"
+  },
+  {
+   "pagina": "de-rate",
+   "domanda": "Wie hoch ist die Inflation in Deutschland aktuell?",
+   "ricerca": "aktuelle inflation deutschland",
+   "paese": "de"
+  }
+ ]
+}

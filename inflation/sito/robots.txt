@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://inflation-calculator-us-uk-de.netlify.app/sitemap.xml
