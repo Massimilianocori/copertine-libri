@@ -28,4 +28,10 @@ Colonne: idea · mercato · ricerche/mese misurate · costo per clic · €/anno
 | 19 | EsameB1: 4 guide (pratica, matrimonio, carta, A2) | IT | ~17.800 | – | – | 8 | – | basso | PRONTO 14/11 | esameb1-parole-2026-11-13 |
 | 20 | EsameB1: ricongiungimento familiare | IT | 9.900 | – | – | 5 | – | basso | IN CODA | esameb1-parole-2026-11-13 |
 
+| 21 | Calcolatore IVA/GST in 13 Paesi (sezione di Inflation) | GB, AU, IE, CA, NZ, DE, FR, IT, NL, IN | ~1,2 mln | 8 £ GB, 5-10 $ AU | – / 900 / 3.500 | 16 | 56 | basso | IN CODA | fronti-2026-11-13-mercati-esteri |
+| 22 | Calcolatore inflazione GB/CA/AU/DE (sezione) | GB, CA, AU, DE | 335.000 | – | – / 410 / – | 12 | 34 | basso | IN CODA | fronti-2026-11-13-mercati-esteri |
+| 23 | Prezzo luce ora per ora | ES | 1,5 mln | 1,3-6,7 € | – / 560 / 2.250 | 25 | 22 | medio | RISERVA (dato PVPC 403) | fronti-2026-11-13-mercati-esteri |
+| 24 | Stipendio netto GB "£X after tax" | GB | 2 mln | 2-8 £ | – / 870 / – | 58 | 15 | basso | RISERVA | fronti-2026-11-13-mercati-esteri |
+| 25 | Bollo auto NL, imposte AU, calendari, sussidi DE, buste paga CA, carburanti | vari | 0,3-3,4 mln | – | 150-360 | 30-60 | 3-10 | vario | NO | fronti-2026-11-13-mercati-esteri |
+
 (Da completare con le ricerche in corso: mercati esteri, crescita Visa Income, e tutte le prossime.)
