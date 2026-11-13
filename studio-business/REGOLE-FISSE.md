@@ -3,6 +3,9 @@
 
 **OBIETTIVO UNICO (Massimiliano, 10/11/2026): "il tuo goal è portare il guadagno maggiore possibile".** Ogni scelta si misura in euro attesi: 1) far rendere il traffico che c'è già (AdSense, affiliazioni sulle pagine più viste); 2) espandere ciò che cresce; 3) costruire tutto ciò che rende, in ordine di €/anno ÷ ore; 4) ricerca continua di idee più grandi. Tante piccole cose insieme fanno un grande ritorno.
 
+**NIENTE VENDITA DIRETTA (Massimiliano, 13/11/2026):** "a meno che non mi iscrivo alla camera di commercio non posso vendere direttamente, ma l'iscrizione alla camera di commercio è troppo cara" (per lo stesso motivo ha chiuso Etsy). Quindi: niente simulatori, avvisi o prodotti venduti da noi, niente donazioni. Si guadagna solo con pubblicità (AdSense), affiliazioni e libri dove vende la piattaforma e lui riceve diritti d'autore (Amazon KDP). La leva "vendere" = più libri KDP collegati ai siti (modello EsameB1 + libro B1).
+
+
 **RICERCA CONTINUA E CLASSIFICA (Massimiliano, 13/11/2026):** "continuare e segnarti tutto per ogni idea trovata ma non fermarti alla pubblicazione così continua la ricerca e alla fine tiri le somme di tutto e fai un ranking". La ricerca non si ferma mai per costruire o pubblicare: i ricercatori girano sempre. Ogni idea trovata (anche bocciata) va scritta in ESPLORATE.md E in `intelaiatura/CLASSIFICA-IDEE.md` con volume misurato, €/anno a 36 mesi (prudente/centrale/ottimista), ore, €/ora, rischio zero-click, verdetto. A fine settimana dei crediti (18/11) si tirano le somme: classifica unica di tutte le idee, da presentare a Massimiliano.
 
 
