@@ -19,4 +19,13 @@ Colonne: idea · mercato · ricerche/mese misurate · costo per clic · €/anno
 | 11 | Salario minimo per Stato/Paese | multi | 1,5-2,9 mln | – | – / 2.000 / – | 40 | 50 | alto | RISERVA | fronti-2026-11-13-scoperta-volumi |
 | 12 | Aiuti agli studenti USA (FAFSA, prestiti) | US | 400.000 | $10-47 | – / 1.380 / – | 30 | 46 | medio | RISERVA alta | fronti-2026-11-13-scoperta-volumi |
 
+| 13 | Visa Income: giro dei titoli | UK, US | >180.000 | – | – | 5 | alto (poche ore) | basso | IN COSTRUZIONE | visaincome-crescita-2026-11-13 |
+| 14 | Visa Income: cliniche TB + test SELT | UK | ~67.000 | – | – | 25 | – | basso | IN CODA | visaincome-crescita-2026-11-13 |
+| 15 | Visa Income: costi UK (visti, ILR, cittadinanza) | UK | ~95.000 + 41.000 | – | – | 20 | – | alto sul singolo costo | IN CODA | visaincome-crescita-2026-11-13 |
+| 16 | Before You Fly: giro dei titoli | US, UK | >300.000 | – | – | 5 | alto (poche ore) | basso | IN CODA 14/11 | byf-crescita-2026-11-13 |
+| 17 | Before You Fly: biglietti +15 attrazioni + 7 prenotazioni USA | US, UK, EU | ~915.000 | – | – | 20 | – | medio | IN CODA | byf-crescita-2026-11-13 |
+| 18 | Before You Fly: bagagli 19 compagnie + stiva | US, EU | ~740.000 | fino a $15 | – | 20 | – | medio | IN CODA | byf-crescita-2026-11-13 |
+| 19 | EsameB1: 4 guide (pratica, matrimonio, carta, A2) | IT | ~17.800 | – | – | 8 | – | basso | PRONTO 14/11 | esameb1-parole-2026-11-13 |
+| 20 | EsameB1: ricongiungimento familiare | IT | 9.900 | – | – | 5 | – | basso | IN CODA | esameb1-parole-2026-11-13 |
+
 (Da completare con le ricerche in corso: mercati esteri, crescita Visa Income, e tutte le prossime.)
