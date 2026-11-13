@@ -39,12 +39,16 @@ SITI = [  # host -> cartella nel repository (sito/sitemap.xml)
     ("payrolltaxbystate.com", "paytax"),  # dominio dal 13/11/2026
     ("pagaccnl.com", "ccnl"),  # online dal 12/11/2026, dominio dal 13/11/2026
     ("farmaco-equivalente.netlify.app", "farmaci"),  # online dal 13/11/2026
+    ("quiz-ufficiali.netlify.app", "quiz"),  # online dal 13/11/2026
+    ("heat-pump-grants-uk.netlify.app", "heatpumps"),  # costruito il 12-13/11/2026
+    ("codici-ateco.netlify.app", "ateco"),  # costruito il 12-13/11/2026
+    ("statute-limits-by-state.netlify.app", "limits"),  # costruito il 13/11/2026
     ("inflation-calculator-us-uk-de.netlify.app", "inflation"),  # costruito il 13/11/2026, non ancora online
     ("military-pay-chart.netlify.app", "milpay"),  # costruito il 13/11/2026, non ancora su Netlify
 ]
 # Siti non ancora collegati a Netlify: saltati nell'invio di tutti i siti (la chiave non è online e IndexNow risponderebbe 403).
 # Si inviano solo con --solo; togliere l'host da qui il giorno in cui il sito è online.
-NON_ONLINE = {"inflation-calculator-us-uk-de.netlify.app", "military-pay-chart.netlify.app"}  # paytax online dal 12/11/2026; inflation non ancora su Netlify
+NON_ONLINE = {"inflation-calculator-us-uk-de.netlify.app", "military-pay-chart.netlify.app", "heat-pump-grants-uk.netlify.app", "codici-ateco.netlify.app", "statute-limits-by-state.netlify.app"}  # paytax online dal 12/11/2026; inflation non ancora su Netlify
 SPIEGAZIONE = {200: "ok", 202: "ok, preso in carico", 400: "richiesta malformata", 403: "chiave non ancora pubblicata (o diversa dal file online)",
                422: "URL non validi per questo host", 429: "troppe richieste: riprovare più tardi"}
 
