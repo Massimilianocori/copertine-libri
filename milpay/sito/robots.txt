@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://military-pay-chart.netlify.app/sitemap.xml

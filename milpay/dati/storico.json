@@ -1,0 +1,262 @@
+{
+ "letto_il": "2026-11-13",
+ "metodo": "aumento dalle tabelle = mediana dei rapporti cella per cella tra due Schedule 8 consecutivi (livello di testo dei PDF GPO), arrotondata allo 0,1 %",
+ "fonti_tabelle": {
+  "2016": {
+   "ordine_esecutivo": "13715",
+   "firmato_il": "2015-12-18",
+   "citazione": "80 FR 80195",
+   "documento": "2015-32582",
+   "url": "https://www.federalregister.gov/documents/2015/12/23/2015-32582/adjustments-of-certain-rates-of-pay",
+   "pdf": "https://www.govinfo.gov/content/pkg/FR-2015-12-23/pdf/2015-32582.pdf",
+   "celle_lette": 246,
+   "celle_da": "testo del PDF"
+  },
+  "2017": {
+   "ordine_esecutivo": "13756",
+   "firmato_il": "2016-12-27",
+   "citazione": "81 FR 97099",
+   "documento": "2016-31875",
+   "url": "https://www.federalregister.gov/documents/2016/12/30/2016-31875/adjustments-of-certain-rates-of-pay",
+   "pdf": "https://www.govinfo.gov/content/pkg/FR-2016-12-30/pdf/2016-31875.pdf",
+   "celle_lette": 217,
+   "celle_da": "testo del PDF"
+  },
+  "2018": {
+   "ordine_esecutivo": "13819",
+   "firmato_il": "2017-12-22",
+   "citazione": "82 FR 61431",
+   "documento": "2017-28160",
+   "url": "https://www.federalregister.gov/documents/2017/12/27/2017-28160/adjustments-of-certain-rates-of-pay",
+   "pdf": "https://www.govinfo.gov/content/pkg/FR-2017-12-27/pdf/2017-28160.pdf",
+   "celle_lette": 61,
+   "celle_da": "lettura ottica delle immagini (il PDF non ha testo nelle tabelle)"
+  },
+  "2019": {
+   "ordine_esecutivo": "13856",
+   "firmato_il": "2018-12-28",
+   "citazione": "84 FR 65",
+   "documento": "2019-00048",
+   "url": "https://www.federalregister.gov/documents/2019/01/08/2019-00048/adjustments-of-certain-rates-of-pay",
+   "pdf": "https://www.govinfo.gov/content/pkg/FR-2019-01-08/pdf/2019-00048.pdf",
+   "celle_lette": 314,
+   "celle_da": "testo del PDF"
+  },
+  "2020": {
+   "ordine_esecutivo": "13901",
+   "firmato_il": "2019-12-26",
+   "citazione": "84 FR 72213",
+   "documento": "2019-28286",
+   "url": "https://www.federalregister.gov/documents/2019/12/30/2019-28286/adjustments-of-certain-rates-of-pay",
+   "pdf": "https://www.govinfo.gov/content/pkg/FR-2019-12-30/pdf/2019-28286.pdf",
+   "celle_lette": 55,
+   "celle_da": "lettura ottica delle immagini (il PDF non ha testo nelle tabelle)"
+  },
+  "2021": {
+   "ordine_esecutivo": "13970",
+   "firmato_il": "2020-12-31",
+   "citazione": "86 FR 421",
+   "documento": "2021-00040",
+   "url": "https://www.federalregister.gov/documents/2021/01/06/2021-00040/adjustments-of-certain-rates-of-pay",
+   "pdf": "https://www.govinfo.gov/content/pkg/FR-2021-01-06/pdf/2021-00040.pdf",
+   "celle_lette": 177,
+   "celle_da": "lettura ottica delle immagini (il PDF non ha testo nelle tabelle)"
+  },
+  "2022": {
+   "ordine_esecutivo": "14061",
+   "firmato_il": "2021-12-22",
+   "citazione": "86 FR 73601",
+   "documento": "2021-28313",
+   "url": "https://www.federalregister.gov/documents/2021/12/28/2021-28313/adjustments-of-certain-rates-of-pay",
+   "pdf": "https://www.govinfo.gov/content/pkg/FR-2021-12-28/pdf/2021-28313.pdf",
+   "celle_lette": 475,
+   "celle_da": "testo del PDF"
+  },
+  "2023": {
+   "ordine_esecutivo": "14090",
+   "firmato_il": "2022-12-23",
+   "citazione": "87 FR 79985",
+   "documento": "2022-28474",
+   "url": "https://www.federalregister.gov/documents/2022/12/29/2022-28474/adjustments-of-certain-rates-of-pay",
+   "pdf": "https://www.govinfo.gov/content/pkg/FR-2022-12-29/pdf/2022-28474.pdf",
+   "celle_lette": 431,
+   "celle_da": "testo del PDF"
+  },
+  "2024": {
+   "ordine_esecutivo": "14113",
+   "firmato_il": "2023-12-21",
+   "citazione": "88 FR 89259",
+   "documento": "2023-28661",
+   "url": "https://www.federalregister.gov/documents/2023/12/26/2023-28661/adjustments-of-certain-rates-of-pay",
+   "pdf": "https://www.govinfo.gov/content/pkg/FR-2023-12-26/pdf/2023-28661.pdf",
+   "celle_lette": 417,
+   "celle_da": "testo del PDF"
+  },
+  "2025": {
+   "ordine_esecutivo": "14132",
+   "firmato_il": "2024-12-23",
+   "citazione": "89 FR 106963",
+   "documento": "2024-31466",
+   "url": "https://www.federalregister.gov/documents/2024/12/30/2024-31466/adjustments-of-certain-rates-of-pay",
+   "pdf": "https://www.govinfo.gov/content/pkg/FR-2024-12-30/pdf/2024-31466.pdf",
+   "celle_lette": 462,
+   "celle_da": "testo del PDF"
+  },
+  "2026": {
+   "ordine_esecutivo": "14368",
+   "firmato_il": "2025-12-18",
+   "citazione": "90 FR 60521",
+   "documento": "2025-23844",
+   "url": "https://www.federalregister.gov/documents/2025/12/23/2025-23844/adjustments-of-certain-rates-of-pay",
+   "pdf": "https://www.govinfo.gov/content/pkg/FR-2025-12-23/pdf/2025-23844.pdf",
+   "celle_lette": 501,
+   "celle_da": "testo del PDF"
+  }
+ },
+ "eci": {
+  "serie": "CIU2020000000000A",
+  "descrizione": "Employment Cost Index, wages and salaries, private industry workers, 12-month percent change (BLS)",
+  "url_api": "https://api.bls.gov/publicAPI/v2/timeseries/data/CIU2020000000000A",
+  "q3_12_mesi": {
+   "2016": 2.4,
+   "2017": 2.6,
+   "2018": 3.1,
+   "2019": 3.0,
+   "2020": 2.7,
+   "2021": 4.6,
+   "2022": 5.2,
+   "2023": 4.5,
+   "2024": 3.8,
+   "2025": 3.6,
+   "2026": 3.1
+  },
+  "letti_il": {
+   "2016": "2026-11-13",
+   "2017": "2026-11-13",
+   "2018": "2026-11-13",
+   "2019": "2026-11-13",
+   "2020": "2026-11-13",
+   "2021": "2026-11-13",
+   "2022": "2026-11-13",
+   "2023": "2026-11-13",
+   "2024": "2026-11-13",
+   "2025": "2026-11-13",
+   "2026": "2026-11-13"
+  }
+ },
+ "aumenti": [
+  {
+   "anno": 2017,
+   "tabelle": {
+    "aumento": 2.1,
+    "celle_confrontate": 149,
+    "celle_alla_mediana": 128,
+    "celle_diverse": 21
+   }
+  },
+  {
+   "anno": 2018,
+   "eci_formula": 2.4,
+   "eci_trimestre": "2016 Q3",
+   "tabelle": {
+    "aumento": 2.4,
+    "celle_confrontate": 59,
+    "celle_alla_mediana": 52,
+    "celle_diverse": 7
+   }
+  },
+  {
+   "anno": 2019,
+   "eci_formula": 2.6,
+   "eci_trimestre": "2017 Q3",
+   "tabelle": {
+    "aumento": 2.6,
+    "celle_confrontate": 56,
+    "celle_alla_mediana": 53,
+    "celle_diverse": 3
+   }
+  },
+  {
+   "anno": 2020,
+   "eci_formula": 3.1,
+   "eci_trimestre": "2018 Q3",
+   "tabelle": {
+    "aumento": 3.1,
+    "celle_confrontate": 44,
+    "celle_alla_mediana": 40,
+    "celle_diverse": 4
+   }
+  },
+  {
+   "anno": 2021,
+   "eci_formula": 3.0,
+   "eci_trimestre": "2019 Q3"
+  },
+  {
+   "anno": 2022,
+   "eci_formula": 2.7,
+   "eci_trimestre": "2020 Q3",
+   "tabelle": {
+    "aumento": 2.7,
+    "celle_confrontate": 149,
+    "celle_alla_mediana": 143,
+    "celle_diverse": 6
+   }
+  },
+  {
+   "anno": 2023,
+   "eci_formula": 4.6,
+   "eci_trimestre": "2021 Q3",
+   "tabelle": {
+    "aumento": 4.6,
+    "celle_confrontate": 420,
+    "celle_alla_mediana": 420,
+    "celle_diverse": 0
+   }
+  },
+  {
+   "anno": 2024,
+   "eci_formula": 5.2,
+   "eci_trimestre": "2022 Q3",
+   "tabelle": {
+    "aumento": 5.2,
+    "celle_confrontate": 340,
+    "celle_alla_mediana": 323,
+    "celle_diverse": 17
+   }
+  },
+  {
+   "anno": 2025,
+   "eci_formula": 4.5,
+   "eci_trimestre": "2023 Q3",
+   "tabelle": {
+    "aumento": 4.5,
+    "celle_confrontate": 384,
+    "celle_alla_mediana": 367,
+    "celle_diverse": 17
+   }
+  },
+  {
+   "anno": 2026,
+   "eci_formula": 3.8,
+   "eci_trimestre": "2024 Q3",
+   "tabelle": {
+    "aumento": 3.8,
+    "celle_confrontate": 413,
+    "celle_alla_mediana": 291,
+    "celle_diverse": 122
+   }
+  },
+  {
+   "anno": 2027,
+   "eci_formula": 3.6,
+   "eci_trimestre": "2025 Q3"
+  }
+ ],
+ "ricerca_2027": {
+  "data": "2026-11-13",
+  "query": "Adjustments of Certain Rates of Pay, Presidential Documents, published from 2026-01-01",
+  "risultati": 0,
+  "documenti": []
+ }
+}

@@ -1,0 +1,282 @@
+{
+ "definizioni": {
+  "eo2026": {
+   "titolo": "Executive Order 14368, Adjustments of Certain Rates of Pay, Schedule 8 (Pay of the Uniformed Services)",
+   "chi": "Federal Register, 90 FR 60521, published 2025-12-23",
+   "url": "https://www.federalregister.gov/documents/2025/12/23/2025-23844/adjustments-of-certain-rates-of-pay",
+   "leggi": "https://www.govinfo.gov/content/pkg/FR-2025-12-23/pdf/2025-23844.pdf",
+   "pdf": true,
+   "cerca": [
+    "Schedule 8 is effective January 1, 2026",
+    "rates of monthly basic pay (37 U.S.C. 203(a)) for members of the uniformed services",
+    "level II of the Executive Schedule in effect during calendar year 2026, which is $18,899.90",
+    "level V of the Executive Schedule in effect during calendar year 2026, which is $15,408.30",
+    "basic pay for this grade is $11,166.90 per month",
+    "cadet or midshipman pay authorized by 37 U.S.C. 203(c) is $1,452.90",
+    "credited with over 4 years of active duty service as an enlisted member or warrant officer",
+    "at least 1,460 points",
+    "served 4 months or more on active duty",
+    "served less than 4 months on active duty",
+    "Computed Under 37 U.S.C. 205"
+   ]
+  },
+  "eo2025": {
+   "titolo": "Executive Order 14132, Adjustments of Certain Rates of Pay, Schedule 8",
+   "chi": "Federal Register, 89 FR 106963, published 2024-12-30",
+   "url": "https://www.federalregister.gov/documents/2024/12/30/2024-31466/adjustments-of-certain-rates-of-pay",
+   "leggi": "https://www.govinfo.gov/content/pkg/FR-2024-12-30/pdf/2024-31466.pdf",
+   "pdf": true,
+   "cerca": [
+    "Schedule 8 is effective January 1, 2025"
+   ]
+  },
+  "usc1009": {
+   "titolo": "37 U.S.C. 1009, Adjustments of monthly basic pay",
+   "chi": "United States Code, 2024 edition (govinfo.gov, U.S. Government Publishing Office)",
+   "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title37/html/USCODE-2024-title37-chap19-sec1009.htm",
+   "cerca": [
+    "Effective on January 1 of each year, the rates of basic pay for members of the uniformed services",
+    "rounded to the nearest one-tenth of one percent",
+    "the ECI for the base quarter of the year before the preceding year",
+    "Employment Cost Index (wages and salaries, private industry workers) published quarterly by the Bureau of Labor Statistics",
+    "the three-month period ending on September 30 of such year",
+    "before September 1 of the preceding year a plan for such alternative pay adjustments",
+    "the basic allowance for subsistence",
+    "the basic allowance for housing"
+   ]
+  },
+  "bls_eci": {
+   "titolo": "Employment Cost Index: wages and salaries, private industry workers, 12-month percent change (series CIU2020000000000A)",
+   "chi": "U.S. Bureau of Labor Statistics, public data API",
+   "url": "https://api.bls.gov/publicAPI/v2/timeseries/data/CIU2020000000000A",
+   "api_bls": true,
+   "cerca": []
+  },
+  "budget2027": {
+   "titolo": "Budget of the U.S. Government, Fiscal Year 2027, Appendix (Department of Defense, Military Personnel), PDF page 241",
+   "chi": "Office of Management and Budget, published on govinfo.gov",
+   "url": "https://www.govinfo.gov/app/details/BUDGET-2027-APP",
+   "leggi": "https://www.govinfo.gov/content/pkg/BUDGET-2027-APP/pdf/BUDGET-2027-APP.pdf",
+   "pdf": true,
+   "cerca": [
+    "the Budget funds a military pay raise of 7 percent for all military personnel ranked E-5 and below, 6 percent for E-6 to O-3, and 5 percent for O-4 and above"
+   ]
+  },
+  "fr_search": {
+   "titolo": "Federal Register search: presidential documents titled “Adjustments of Certain Rates of Pay”",
+   "chi": "Federal Register (National Archives), public API",
+   "url": "https://www.federalregister.gov/documents/search?conditions%5Bterm%5D=%22Adjustments+of+Certain+Rates+of+Pay%22&conditions%5Btype%5D%5B%5D=PRESDOCU",
+   "leggi": "https://www.federalregister.gov/api/v1/documents.json?conditions%5Bterm%5D=%22Adjustments%20of%20Certain%20Rates%20of%20Pay%22&conditions%5Btype%5D%5B%5D=PRESDOCU&per_page=5&order=newest",
+   "cerca": [
+    "2025-23844"
+   ]
+  },
+  "eo2016": {
+   "titolo": "Executive Order 13715, Adjustments of Certain Rates of Pay, Schedule 8 (effective January 1, 2016)",
+   "chi": "Federal Register, 80 FR 80195",
+   "url": "https://www.federalregister.gov/documents/2015/12/23/2015-32582/adjustments-of-certain-rates-of-pay",
+   "leggi": "https://www.govinfo.gov/content/pkg/FR-2015-12-23/pdf/2015-32582.pdf",
+   "pdf": true,
+   "cerca": []
+  },
+  "eo2017": {
+   "titolo": "Executive Order 13756, Adjustments of Certain Rates of Pay, Schedule 8 (effective January 1, 2017)",
+   "chi": "Federal Register, 81 FR 97099",
+   "url": "https://www.federalregister.gov/documents/2016/12/30/2016-31875/adjustments-of-certain-rates-of-pay",
+   "leggi": "https://www.govinfo.gov/content/pkg/FR-2016-12-30/pdf/2016-31875.pdf",
+   "pdf": true,
+   "cerca": []
+  },
+  "eo2018": {
+   "titolo": "Executive Order 13819, Adjustments of Certain Rates of Pay, Schedule 8 (effective January 1, 2018)",
+   "chi": "Federal Register, 82 FR 61431",
+   "url": "https://www.federalregister.gov/documents/2017/12/27/2017-28160/adjustments-of-certain-rates-of-pay",
+   "leggi": "https://www.govinfo.gov/content/pkg/FR-2017-12-27/pdf/2017-28160.pdf",
+   "pdf": true,
+   "cerca": []
+  },
+  "eo2019": {
+   "titolo": "Executive Order 13856, Adjustments of Certain Rates of Pay, Schedule 8 (effective January 1, 2019)",
+   "chi": "Federal Register, 84 FR 65",
+   "url": "https://www.federalregister.gov/documents/2019/01/08/2019-00048/adjustments-of-certain-rates-of-pay",
+   "leggi": "https://www.govinfo.gov/content/pkg/FR-2019-01-08/pdf/2019-00048.pdf",
+   "pdf": true,
+   "cerca": []
+  },
+  "eo2020": {
+   "titolo": "Executive Order 13901, Adjustments of Certain Rates of Pay, Schedule 8 (effective January 1, 2020)",
+   "chi": "Federal Register, 84 FR 72213",
+   "url": "https://www.federalregister.gov/documents/2019/12/30/2019-28286/adjustments-of-certain-rates-of-pay",
+   "leggi": "https://www.govinfo.gov/content/pkg/FR-2019-12-30/pdf/2019-28286.pdf",
+   "pdf": true,
+   "cerca": []
+  },
+  "eo2021": {
+   "titolo": "Executive Order 13970, Adjustments of Certain Rates of Pay, Schedule 8 (effective January 1, 2021)",
+   "chi": "Federal Register, 86 FR 421",
+   "url": "https://www.federalregister.gov/documents/2021/01/06/2021-00040/adjustments-of-certain-rates-of-pay",
+   "leggi": "https://www.govinfo.gov/content/pkg/FR-2021-01-06/pdf/2021-00040.pdf",
+   "pdf": true,
+   "cerca": []
+  },
+  "eo2022": {
+   "titolo": "Executive Order 14061, Adjustments of Certain Rates of Pay, Schedule 8 (effective January 1, 2022)",
+   "chi": "Federal Register, 86 FR 73601",
+   "url": "https://www.federalregister.gov/documents/2021/12/28/2021-28313/adjustments-of-certain-rates-of-pay",
+   "leggi": "https://www.govinfo.gov/content/pkg/FR-2021-12-28/pdf/2021-28313.pdf",
+   "pdf": true,
+   "cerca": []
+  },
+  "eo2023": {
+   "titolo": "Executive Order 14090, Adjustments of Certain Rates of Pay, Schedule 8 (effective January 1, 2023)",
+   "chi": "Federal Register, 87 FR 79985",
+   "url": "https://www.federalregister.gov/documents/2022/12/29/2022-28474/adjustments-of-certain-rates-of-pay",
+   "leggi": "https://www.govinfo.gov/content/pkg/FR-2022-12-29/pdf/2022-28474.pdf",
+   "pdf": true,
+   "cerca": []
+  },
+  "eo2024": {
+   "titolo": "Executive Order 14113, Adjustments of Certain Rates of Pay, Schedule 8 (effective January 1, 2024)",
+   "chi": "Federal Register, 88 FR 89259",
+   "url": "https://www.federalregister.gov/documents/2023/12/26/2023-28661/adjustments-of-certain-rates-of-pay",
+   "leggi": "https://www.govinfo.gov/content/pkg/FR-2023-12-26/pdf/2023-28661.pdf",
+   "pdf": true,
+   "cerca": []
+  }
+ },
+ "fonti": {
+  "eo2026": {
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "sha256": "11566b889ca3cd4cc48394d9462b1f22b0f3e12a58d335434fbfe4c06e2f35cf",
+   "byte": 1267738,
+   "trovate": {
+    "Schedule 8 is effective January 1, 2026": true,
+    "rates of monthly basic pay (37 U.S.C. 203(a)) for members of the uniformed services": true,
+    "level II of the Executive Schedule in effect during calendar year 2026, which is $18,899.90": true,
+    "level V of the Executive Schedule in effect during calendar year 2026, which is $15,408.30": true,
+    "basic pay for this grade is $11,166.90 per month": true,
+    "cadet or midshipman pay authorized by 37 U.S.C. 203(c) is $1,452.90": true,
+    "credited with over 4 years of active duty service as an enlisted member or warrant officer": true,
+    "at least 1,460 points": true,
+    "served 4 months or more on active duty": true,
+    "served less than 4 months on active duty": true,
+    "Computed Under 37 U.S.C. 205": true
+   }
+  },
+  "eo2025": {
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "sha256": "863e74d5b43e06b14a61cc715e324137586eb57de0852c3d31f8955a3c8a8e79",
+   "byte": 921263,
+   "trovate": {
+    "Schedule 8 is effective January 1, 2025": true
+   }
+  },
+  "usc1009": {
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "sha256": "ede3aeb948473b2326b1aee8c8e87a57e8205aafb87a115b4811ec01f30795ed",
+   "byte": 20790,
+   "trovate": {
+    "Effective on January 1 of each year, the rates of basic pay for members of the uniformed services": true,
+    "rounded to the nearest one-tenth of one percent": true,
+    "the ECI for the base quarter of the year before the preceding year": true,
+    "Employment Cost Index (wages and salaries, private industry workers) published quarterly by the Bureau of Labor Statistics": true,
+    "the three-month period ending on September 30 of such year": true,
+    "before September 1 of the preceding year a plan for such alternative pay adjustments": true,
+    "the basic allowance for subsistence": true,
+    "the basic allowance for housing": true
+   }
+  },
+  "bls_eci": {
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "sha256": "eb5c04a5116a0571ef414dcc7ea02cb96fe43eb488ced3e8eabaa086b9ae9d9f",
+   "byte": 1124,
+   "api": "REQUEST_SUCCEEDED",
+   "trovate": {}
+  },
+  "budget2027": {
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "sha256": "888d2ddab06466bb51894ff83caa3557f93da8734607efb30a0ee08ddf18b7c8",
+   "byte": 19401052,
+   "trovate": {
+    "the Budget funds a military pay raise of 7 percent for all military personnel ranked E-5 and below, 6 percent for E-6 to O-3, and 5 percent for O-4 and above": true
+   }
+  },
+  "fr_search": {
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "sha256": "60d63c72bf5f360b864f019e5e88726c6504e714e86b847095db95d127183c24",
+   "byte": 7266,
+   "trovate": {
+    "2025-23844": true
+   }
+  },
+  "eo2016": {
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "sha256": "993d853b777c435edf8fe30f7e2bac7ad843211d66414e32a42b7e6780b005f3",
+   "byte": 937929,
+   "trovate": {}
+  },
+  "eo2017": {
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "sha256": "0c8038c214e15aecea922869846ae9b0ac91575a8c6b36d265d2feb768399ee2",
+   "byte": 924108,
+   "trovate": {}
+  },
+  "eo2018": {
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "sha256": "dded888ca7cc491ec23342fc2ab4462ca5d1a9413a78096900ad47a18cb1cd04",
+   "byte": 906954,
+   "trovate": {}
+  },
+  "eo2019": {
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "sha256": "08c804fdb08d2255cfc0f6d611c74052dd89d63a70d34c5ba82f5bc4048718ca",
+   "byte": 928365,
+   "trovate": {}
+  },
+  "eo2020": {
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "sha256": "9f5aade68322bab96e36fc4675e3275ee92a6055174819b10323a7171be1fe88",
+   "byte": 823055,
+   "trovate": {}
+  },
+  "eo2021": {
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "sha256": "55c3c430d190354a8e26e01d5b0244b2db3e5225bf9bb92c4e97951fbb8a1ec6",
+   "byte": 913730,
+   "trovate": {}
+  },
+  "eo2022": {
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "sha256": "d8af9257651e7718d63821f14e17a74183337bae4d161debaace944356eeadea",
+   "byte": 996913,
+   "trovate": {}
+  },
+  "eo2023": {
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "sha256": "1c9947377d98d290a8a8f17bac9e8362af147a78e9202013e3ebd208acdb5036",
+   "byte": 1053894,
+   "trovate": {}
+  },
+  "eo2024": {
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "sha256": "77faa72db116c1cfbc27d8a11a7bdd8886ebd892522695943bed1d5398a0d635",
+   "byte": 1048516,
+   "trovate": {}
+  }
+ }
+}

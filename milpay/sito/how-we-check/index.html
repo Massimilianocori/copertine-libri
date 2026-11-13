@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="btXTQU_vAoe1K9f3q-43GisAXTiyKQCYcShozNhrAgI">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3750093987658434" crossorigin="anonymous"></script>
+<title>How We Check the Military Pay Tables</title>
+<meta name="description" content="How Military Pay Chart reads the official 2026 pay tables: three readings of every cell, count and order checks, comparison with 2025, sources and corrections.">
+<link rel="canonical" href="https://military-pay-chart.netlify.app/how-we-check/">
+<meta property="og:title" content="How We Check the Military Pay Tables">
+<meta property="og:description" content="How Military Pay Chart reads the official 2026 pay tables: three readings of every cell, count and order checks, comparison with 2025, sources and corrections.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://military-pay-chart.netlify.app/how-we-check/">
+<meta property="og:site_name" content="Military Pay Chart">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://military-pay-chart.netlify.app/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#111A2E">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/assets/favicon.9ca4d51dae.svg" type="image/svg+xml">
+<script>(function(){try{var t=localStorage.getItem('mp-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<link rel="stylesheet" href="/assets/site.c142627470.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://military-pay-chart.netlify.app/"}, {"@type": "ListItem", "position": 2, "name": "How we check", "item": "https://military-pay-chart.netlify.app/how-we-check/"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="wrap">
+<a class="logo" href="/"><img src="/assets/favicon.9ca4d51dae.svg" width="32" height="32" alt=""><span>Military Pay <b>Chart</b></span></a>
+<nav class="menu" aria-label="Main"><a href="/">2026 chart</a><a href="/calculator/">Calculator</a><a href="/pay-raise-history/">Raise history</a><a href="/2027-pay-raise/">2027 raise</a></nav>
+<button type="button" class="tema" data-tema aria-label="Switch light or dark theme"><svg class="ico i-moon" aria-hidden="true" focusable="false"><use href="/assets/icons.7c68ea11a0.svg#i-moon"/></svg><svg class="ico i-sun" aria-hidden="true" focusable="false"><use href="/assets/icons.7c68ea11a0.svg#i-sun"/></svg></button>
+<details class="nav-m"><summary aria-label="Menu"><svg class="ico" aria-hidden="true" focusable="false"><use href="/assets/icons.7c68ea11a0.svg#i-menu"/></svg></summary><nav aria-label="Main menu"><a href="/" class="w2">2026 chart</a><a href="/calculator/" class="w2">Calculator</a><a href="/pay-raise-history/" class="w2">Raise history</a><a href="/2027-pay-raise/" class="w2">2027 raise</a><span class="sep" aria-hidden="true"></span><a href="/e-1/">E-1</a><a href="/e-2/">E-2</a><a href="/e-3/">E-3</a><a href="/e-4/">E-4</a><a href="/e-5/">E-5</a><a href="/e-6/">E-6</a><a href="/e-7/">E-7</a><a href="/e-8/">E-8</a><a href="/e-9/">E-9</a><a href="/w-1/">W-1</a><a href="/w-2/">W-2</a><a href="/w-3/">W-3</a><a href="/w-4/">W-4</a><a href="/w-5/">W-5</a><a href="/o-1/">O-1</a><a href="/o-2/">O-2</a><a href="/o-3/">O-3</a><a href="/o-4/">O-4</a><a href="/o-5/">O-5</a><a href="/o-6/">O-6</a><a href="/o-7/">O-7</a><a href="/o-8/">O-8</a><a href="/o-10/">O-10</a><a href="/o-1e/">O-1E</a><a href="/o-2e/">O-2E</a><a href="/o-3e/">O-3E</a></nav></details>
+</div></header>
+<main id="main">
+<section class="band corta"><div class="wrap band-in"><nav class="briciole" aria-label="Breadcrumb"><a href="/">Home</a> › How we check</nav>
+<p class="eyebrow"><svg class="ico" aria-hidden="true" focusable="false"><use href="/assets/icons.7c68ea11a0.svg#i-shield"/></svg>How we check</p>
+<h1>How we check every figure</h1>
+<p class="sub">Three independent readings of each official cell, arithmetic checks, and the sources we could and could not read.</p>
+</div></section>
+<div class="wrap">
+<div class="testo pull card"><p>The 2026 tables in the Federal Register are printed as <strong>images</strong>, not text.<sup class="ref"><a href="#f1" aria-label="source 1">[1]</a></sup> So every one of the 616 cells (542 amounts and 74 dashes) was read three separate ways, and the site is built only if they agree.</p></div><h2>How each cell is read</h2><div class="testo"><ol><li>We download the original images of Schedule 8 from the Federal Register (6 images) and record a fingerprint (SHA-256) of each.<sup class="ref"><a href="#f1" aria-label="source 1">[1]</a></sup></li><li>A text-recognition program reads each cell on its own, cut out along the table’s grid lines, at two different magnifications. Both readings matched on <strong>616 of 616</strong> cells.</li><li>The official PDF from the Government Publishing Office carries its own text layer for the same images. Where that layer is readable it matched our reading on <strong>515</strong> cells and disagreed on none; on 101 cells it was garbled and could not be compared.</li><li>Any disagreement stops the build and the cell is checked by eye on the image.</li></ol></div><h2>Checks on the numbers</h2><div class="testo"><ul><li>Count: 28 rows × 22 columns = 616 cells, with dashes exactly where the official table prints them (for example W-5 before 20 years, E-9 before 10).</li><li>Order: in every row pay never falls as years of service rise, and at the same years a higher grade never pays less (O-1E pays at least O-1, and so on).</li><li>Caps: no rate for O-6 and below is above the level V cap of $15,408.30.</li><li>Last year: 374 cells compared with the January 2025 table (Executive Order 14132) are within 15 cents of the 2025 figure × 1.038. Rows E-1 to E-5 and capped cells are left out of this check because they changed by a different amount.<sup class="ref"><a href="#f1" aria-label="source 1">[1]</a>,<a href="#f2" aria-label="source 2">[2]</a></sup></li><li>The calculator in your browser is checked against our own reference calculation on every grade and every column.</li></ul></div><h2>What we could not read</h2><div class="testo"><p>The pay pages of the Defense Finance and Accounting Service and of the Department of Defense answer our checking server with an error (403). We do not try to get round these blocks, so this site uses the Federal Register and govinfo.gov, where the official order is published. The 2020 table could not be read reliably enough for the raise history, which shows only the formula figure for that year.</p></div><h2>When we update</h2><div class="testo"><p>The pay order for the next year is normally published in the Federal Register in late December and takes effect on January 1. The site moves to the new table only after the same three readings and checks pass.</p></div><h2 id="corrections">Contact and corrections</h2><div class="testo"><p>Seen a figure that does not match the official table, or have a question about the site? Tell us the page and, if you can, the official source. Your email is optional. We cannot answer questions about individual pay: your finance office can.</p></div><form name="corrections" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form card">
+<input type="hidden" name="form-name" value="corrections">
+<p class="hp"><label>Leave this field empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+<label>Page or figure<input type="text" name="page" required maxlength="300" placeholder="For example /e-5/, Over 4"></label>
+<label>Your message<textarea name="message" required rows="5" maxlength="3000"></textarea></label>
+<label>Official source (optional)<input type="url" name="source" maxlength="500" placeholder="https://"></label>
+<label>Your email (optional, only if you want a reply)<input type="email" name="email" maxlength="200" autocomplete="email"></label>
+<label class="check"><input type="checkbox" name="consent" value="yes" required><span>I agree that this message, and my email if I gave one, is stored to check and answer it (see <a href="/privacy/#corrections">privacy</a>).</span></label>
+<button type="submit" class="btn">Send</button>
+</form><section class="fonti-box" aria-labelledby="fonti-h"><h2 id="fonti-h"><svg class="ico" aria-hidden="true" focusable="false"><use href="/assets/icons.7c68ea11a0.svg#i-doc"/></svg>Sources</h2><ol><li id="f1"><a href="https://www.federalregister.gov/documents/2025/12/23/2025-23844/adjustments-of-certain-rates-of-pay" rel="noopener">Executive Order 14368, Adjustments of Certain Rates of Pay, Schedule 8 (Pay of the Uniformed Services)</a> · Federal Register, 90 FR 60521, published 2025-12-23. <span class="small">checked November 13, 2026</span></li><li id="f2"><a href="https://www.federalregister.gov/documents/2024/12/30/2024-31466/adjustments-of-certain-rates-of-pay" rel="noopener">Executive Order 14132, Adjustments of Certain Rates of Pay, Schedule 8</a> · Federal Register, 89 FR 106963, published 2024-12-30. <span class="small">checked November 13, 2026</span></li></ol><p class="small">Pay figures are copied from the official tables above; annual amounts (× 12), differences and the “next step” are our arithmetic on those figures. See <a href="/how-we-check/">how we check</a>.</p></section>
+<p class="disclaimer"><strong>Independent site, not affiliated with the Department of Defense, any military branch, the Coast Guard or DFAS.</strong> We show monthly basic pay as printed in the official tables, nothing else: no allowances, special pays, bonuses or taxes. This is general information, not financial advice. Your Leave and Earnings Statement and your unit’s finance office are the authority on your own pay; check with them before making decisions.</p>
+</div>
+</main>
+<footer><div class="wrap">
+<div class="f-grid"><div>
+<a class="logo" href="/"><img src="/assets/favicon.9ca4d51dae.svg" width="32" height="32" alt=""><span>Military Pay <b>Chart</b></span></a>
+<p><strong>Military Pay Chart</strong> publishes the 2026 monthly basic pay tables of the U.S. uniformed services, copied from Schedule 8 of Executive Order 14368
+in the Federal Register, with a page for every pay grade. Independent site, not a government website.</p>
+<p>Official tables read on November 13, 2026.</p>
+</div><div>
+<h2>Enlisted</h2><ul><li><a href="/e-1/">E-1</a></li><li><a href="/e-2/">E-2</a></li><li><a href="/e-3/">E-3</a></li><li><a href="/e-4/">E-4</a></li><li><a href="/e-5/">E-5</a></li><li><a href="/e-6/">E-6</a></li><li><a href="/e-7/">E-7</a></li><li><a href="/e-8/">E-8</a></li><li><a href="/e-9/">E-9</a></li></ul>
+</div><div>
+<h2>Officers and warrant officers</h2><ul class="f-gradi" style="display:grid"><li><a href="/w-1/">W-1</a></li><li><a href="/w-2/">W-2</a></li><li><a href="/w-3/">W-3</a></li><li><a href="/w-4/">W-4</a></li><li><a href="/w-5/">W-5</a></li><li><a href="/o-1/">O-1</a></li><li><a href="/o-2/">O-2</a></li><li><a href="/o-3/">O-3</a></li><li><a href="/o-4/">O-4</a></li><li><a href="/o-5/">O-5</a></li><li><a href="/o-6/">O-6</a></li><li><a href="/o-7/">O-7</a></li><li><a href="/o-8/">O-8</a></li><li><a href="/o-10/">O-10</a></li><li><a href="/o-1e/">O-1E</a></li><li><a href="/o-2e/">O-2E</a></li><li><a href="/o-3e/">O-3E</a></li></ul>
+<h2 style="margin-top:18px">Guides</h2><ul><li><a href="/calculator/">Basic pay calculator</a></li><li><a href="/pay-raise-history/">Pay raise history</a></li><li><a href="/2027-pay-raise/">2027 pay raise: status</a></li><li><a href="/how-we-check/">How we check</a></li><li><a href="/about/">About</a></li><li><a href="/how-we-check/#corrections">Contact and corrections</a></li><li><a href="/privacy/">Privacy</a></li></ul>
+</div></div>
+<p class="f-base">General information only, not financial advice. Not affiliated with the U.S. Department of Defense, the military services, the Coast Guard or DFAS.</p>
+</div></footer>
+<script src="/assets/app.f73cd7b64d.js" defer></script>
+<script>window.goatcounter={path:function(p){return location.host+p}}</script><script data-goatcounter="https://rete-siti.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>
