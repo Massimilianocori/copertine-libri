@@ -34,4 +34,15 @@ Colonne: idea · mercato · ricerche/mese misurate · costo per clic · €/anno
 | 24 | Stipendio netto GB "£X after tax" | GB | 2 mln | 2-8 £ | – / 870 / – | 58 | 15 | basso | RISERVA | fronti-2026-11-13-mercati-esteri |
 | 25 | Bollo auto NL, imposte AU, calendari, sussidi DE, buste paga CA, carburanti | vari | 0,3-3,4 mln | – | 150-360 | 30-60 | 3-10 | vario | NO | fronti-2026-11-13-mercati-esteri |
 
+| 26 | Before You Fly: vendita dei biglietti di sport e festival (club di Premier League, Gran Premi, Masters, NFL, Glastonbury, sumo) | US, UK | 87.600 misurate (~200.000 stimate) | 0,3-5,7 $ | 95 / 310 / 1.120 | 20 | 16 | medio | IN CODA | fronti-2026-11-13-coda-lunga |
+| 27 | LHA per area, Regno Unito (sezione del calcolatore dell'inflazione) | UK | 23.800 misurate (~45.000) | 3,7-4,2 £ | 55 / 155 / 590 | 10 | 15 | medio | IN CODA | fronti-2026-11-13-coda-lunga |
+| 28 | Before You Fly: apertura delle prenotazioni di voli e treni per compagnia | UK, US, FR | 9.500 misurate (~60.000) | fino a 6,9 $ | 65 / 190 / 1.170 | 14 | 13 | medio | IN CODA (prima 10 compagnie; fonti da browser) | fronti-2026-11-13-coda-lunga |
+| 29 | Licenza di matrimonio per Stato e contea USA (sezione del sito delle leggi per Stato) | US | 254.800 misurate (~600.000) | 1,5-5,3 $ | 250 / 590 / 2.250 | 45 | 13 | medio | RISERVA alta (prova 40 pagine) | fronti-2026-11-13-coda-lunga |
+| 30 | Parcheggio degli ospedali inglesi, tariffe per ospedale | UK | 36.000 misurate (~70.000) | 0,3-1 £ | 120 / 360 / 960 | 30 | 12 | medio-basso | RISERVA (manca il sito) | fronti-2026-11-13-coda-lunga |
+| 31 | Zusatzbeitrag per cassa malattia (94 casse, un PDF ufficiale) | DE | ~110.000 | 1,3-7,5 € | 40 / 95 / 275 | 10 | 10 | alto | RISERVA (serve sito tedesco) | fronti-2026-11-13-coda-lunga |
+| 32 | Stipendi per distretto scolastico e polizia, 80 voci (in Military Pay) | US | 66.300 misurate (~110.000) | ~0 | 70 / 205 / 690 | 20 | 10 | basso | RISERVA (prova 20 pagine) | fronti-2026-11-13-coda-lunga |
+| 33 | Apertura delle prenotazioni dei ristoranti più richiesti | US, UK | 161.500 misurate (~480.000) | 0,3-6,4 $ | 135 / 335 / 1.350 | 50 | 7 | basso | RISERVA debole (solo 30 pagine da viaggio) | fronti-2026-11-13-coda-lunga |
+| 34 | Mietspiegel ufficiale per città, 80 città | DE | 128.000 | 0,4-3 € | 25 / 60 / 240 | 12 | 5 | basso | NO come sito | fronti-2026-11-13-coda-lunga |
+| 35 | Limiti delle banche (bancomat, Zelle, deposito) | US, UK | 208.900 | mediana 15,9 $ | 45 / 175 / 875 | 35 | 5 | alto | NO (nessun dato ufficiale) | fronti-2026-11-13-coda-lunga |
+
 (Da completare con le ricerche in corso: mercati esteri, crescita Visa Income, e tutte le prossime.)
