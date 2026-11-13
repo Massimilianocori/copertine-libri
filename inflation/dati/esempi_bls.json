@@ -45,6 +45,51 @@
    "url": "https://data.bls.gov/cgi-bin/cpicalc.pl?cost1=100.00&year1=191301&year2=202412",
    "http": 200,
    "letto_il": "2026-11-13"
+  },
+  {
+   "importo": 100.0,
+   "da": "1965-01",
+   "a": "2026-09",
+   "risultato_ufficiale": 1079.94,
+   "url": "https://data.bls.gov/cgi-bin/cpicalc.pl?cost1=100.00&year1=196501&year2=202609",
+   "http": 200,
+   "letto_il": "2026-11-13"
+  },
+  {
+   "importo": 250.0,
+   "da": "1990-03",
+   "a": "2015-07",
+   "risultato_ufficiale": 463.59,
+   "url": "https://data.bls.gov/cgi-bin/cpicalc.pl?cost1=250.00&year1=199003&year2=201507",
+   "http": 200,
+   "letto_il": "2026-11-13"
+  },
+  {
+   "importo": 1.0,
+   "da": "1920-01",
+   "a": "2026-10",
+   "risultato_ufficiale": 17.49,
+   "url": "https://data.bls.gov/cgi-bin/cpicalc.pl?cost1=1.00&year1=192001&year2=202610",
+   "http": 200,
+   "letto_il": "2026-11-13"
+  },
+  {
+   "importo": 1000.0,
+   "da": "2008-06",
+   "a": "2026-01",
+   "risultato_ufficiale": 1486.42,
+   "url": "https://data.bls.gov/cgi-bin/cpicalc.pl?cost1=1000.00&year1=200806&year2=202601",
+   "http": 200,
+   "letto_il": "2026-11-13"
+  },
+  {
+   "importo": 75.5,
+   "da": "1944-12",
+   "a": "1980-05",
+   "risultato_ufficiale": 346.96,
+   "url": "https://data.bls.gov/cgi-bin/cpicalc.pl?cost1=75.50&year1=194412&year2=198005",
+   "http": 200,
+   "letto_il": "2026-11-13"
   }
  ]
 }

@@ -41,6 +41,7 @@ ADSENSE_HEAD = MON.script_adsense(SITO_ID)
 
 FONTI = json.loads((DATI / "fonti.json").read_text(encoding="utf-8"))
 DOMANDA = json.loads((DATI / "domanda.json").read_text(encoding="utf-8"))
+ESEMPI_BLS = json.loads((DATI / "esempi_bls.json").read_text(encoding="utf-8"))["casi"]
 S = serie.tutte()
 C = {k: M.compatta(S[k]) for k in ("us", "uk_cpi", "uk_rpi", "de")}
 ULT = {k: max(S[k]["mensile"]) for k in C}
@@ -79,7 +80,8 @@ def numero(x, dec, de=False):
 
 def pct(x, dec=1, de=False, segno=True):
     s = numero(abs(x * 100), dec, de)
-    seg = ("+" if x >= 0 else "−") if segno else ("−" if x < 0 else "")
+    zero = round(abs(x * 100), dec) == 0  # 0.0% senza segno (né "+0.0%" né "−0.0%")
+    seg = "" if zero else (("+" if x >= 0 else "−") if segno else ("−" if x < 0 else ""))
     return f"{seg}{s}{chr(160) + '%' if de else '%'}"
 
 
@@ -142,8 +144,8 @@ def ico(nome, cls="ico"):
 LICENZA_TESTO = {
     "bls": "U.S. Bureau of Labor Statistics. Public domain (work of the U.S. federal government).",
     "ons": "Source: Office for National Statistics licensed under the Open Government Licence v.3.0.",
-    "destatis": "Quelle: Statistisches Bundesamt (Destatis). Vervielfältigung und Verbreitung mit Quellenangabe gestattet; "
-                "Inhalte der Datenbank GENESIS-Online: Datenlizenz Deutschland – Namensnennung – Version 2.0.",
+    "destatis": "Quelle: Statistisches Bundesamt (Destatis). Vervielfältigung und Verbreitung, auch auszugsweise, mit Quellenangabe gestattet. "
+                "Für Inhalte der Datenbank GENESIS-Online gilt die Datenlizenz Deutschland – Namensnennung – Version 2.0:",
 }
 
 
@@ -158,7 +160,9 @@ def fonti_box(ids, lingua="en"):
             lic = (LICENZA_TESTO["ons"] + ' <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="noopener">OGL v3.0</a>')
         elif i.startswith("destatis"):
             lic = LICENZA_TESTO["destatis"] + ' <a href="https://www.govdata.de/dl-de/by-2-0" rel="noopener">dl-de/by-2-0</a>'
-        letto = (f"gelesen am {data_lunga(f['letto_il'], 'de')}" if lingua == "de" else f"read on {data_lunga(f['letto_il'])}")
+        letto = (f"Abgerufen am {data_lunga(f['letto_il'], 'de')}" if lingua == "de" else f"Read on {data_lunga(f['letto_il'])}")
+        if f.get("stand"):
+            letto += f"; Stand der Tabelle: {h(f['stand'])}" if lingua == "de" else f"; table dated {h(f['stand'])}"
         uscita = ""
         if f.get("uscita"):
             uscita = f"; release of {h(f['uscita'].replace('-', '/'))}" if lingua != "de" else f"; Veröffentlichung vom {h(f['uscita'].replace('-', '.'))}"
@@ -217,11 +221,11 @@ def pagina(percorso, titolo, descrizione, corpo, testata="", paese="us", briciol
     if de:
         piede_testo = (f"<p><strong>{NOME}</strong> rechnet Geldbeträge mit amtlichen Verbraucherpreisindizes um: Destatis für Deutschland, "
                        "ONS für das Vereinigte Königreich, BLS für die USA. Unabhängige Website, keine Behörde und mit keiner Behörde verbunden.</p>"
-                       f"<p>Indexwerte bis {ult_lungo('de', 'de')} (Deutschland). Daten gelesen am {data_lunga(CONTROLLO, 'de')}.</p>")
+                       f"<p>Indexwerte bis {ult_lungo('de', 'de')} (Deutschland). Daten abgerufen am {data_lunga(CONTROLLO, 'de')}.</p>")
         links = [("de/inflationsrechner/", "Inflationsrechner"), ("de/inflationsrate-deutschland/", "Inflationsrate Deutschland"),
                  ("", "US inflation calculator"), ("uk/", "UK inflation calculator")]
         info = [("about/", "Über uns (englisch)"), ("how-we-check/", "Methodik (englisch)"), ("privacy/", "Datenschutz (englisch)")]
-        h_calc, h_info, skip, tema_lbl, base = "Rechner", "Info", "Zum Inhalt", "Helles oder dunkles Design", \
+        h_calc, h_info, skip, tema_lbl, base = "Rechner", "Info", "Zum Inhalt springen", "Helles oder dunkles Design", \
             "Allgemeine Information, keine Finanzberatung. Amtliche Daten: <a href=\"https://www.destatis.de/\" rel=\"noopener\">destatis.de</a>."
     else:
         piede_testo = (f"<p><strong>{NOME}</strong> converts amounts of money between years with official consumer price indexes: the BLS CPI-U for the "
@@ -399,10 +403,10 @@ TESTI = {
            "cumulata_neg": "price fall", "media": "average a year", "inverso": "Put the other way: {importo} in {a} buys what {valore} bought in {da}.",
            "copia": "Copy link to this result", "copiato": "Link copied.", "importo_errato": "Enter an amount, for example 100 or 1,500.",
            "manca": "No index value is published for this date. Choose another month or year.",
-           "cambio_serie": "The CPI starts in 1988, so this period uses the RPI long-run series.", "grafico_aria": "Value of the amount in each year"},
-    "de": {"media_suffix": "(Jahresdurchschnitt)", "vale": "{importo} von {da} entsprechen", "in_": "Kaufkraft {a}", "cumulata": "Preisanstieg",
+           "cambio_serie": "The CPI starts in 1988, so both dates use the RPI long-run series. Results differ from CPI-based calculators (see below).", "grafico_aria": "Value of the amount in each year"},
+    "de": {"media_suffix": "(Jahresdurchschnitt)", "vale": "{importo} von {da} entsprechen", "in_": "in Preisen von {a}", "cumulata": "Preisanstieg",
            "cumulata_neg": "Preisrückgang", "media": "pro Jahr im Schnitt",
-           "inverso": "Umgekehrt: Für die Kaufkraft von {importo} ({a}) brauchte man {da} {valore}.",
+           "inverso": "Umgekehrt: {importo} von {a} entsprechen {valore} in Preisen von {da}.",
            "copia": "Link zu diesem Ergebnis kopieren", "copiato": "Link kopiert.", "importo_errato": "Bitte einen Betrag eingeben, zum Beispiel 100 oder 1.500.",
            "manca": "Für diesen Zeitpunkt gibt es keinen veröffentlichten Indexwert. Bitte einen anderen Monat oder ein anderes Jahr wählen.",
            "cambio_serie": "", "grafico_aria": "Wert des Betrags in jedem Jahr"},
@@ -445,6 +449,9 @@ def calcolatore(paese, titolo, importo, da, a, serie_def=None, pill=""):
     dati = {"locale": locale, "valuta": valuta, "dm": paese == "de", "serie_def": serie_def,
             "serie": {k: dict(C[k], nome=NOME_SERIE[k]) for k in ids}, "serie_alt": {"uk_cpi": "uk_rpi"} if paese == "uk" else {},
             "t": dict(TESTI[lingua], mesi=MESI[lingua])}
+    if paese == "de":  # prima del 1991 l'indice è il nostro raccordo con la Germania Ovest: lo dice anche accanto al risultato
+        dati["avviso"] = {"prima": serie.ANNO_RACCORDO_DE, "testo": "Vor 1991: Index für das frühere Bundesgebiet (Westdeutschland), mit dem VPI verkettet – "
+                                                                 "eigene Berechnung, nur eine Näherung (siehe unten)."}
     a0 = min(C[k]["a0"] for k in ids)
     a1 = max(ULT[k][0] for k in ids)
     anni = "".join(f'<option value="{y}"{{sel}}>{y}</option>' for y in range(a0, a1 + 1))
@@ -618,11 +625,22 @@ def pagina_anno(y):
                 + (f', and inflation in {y} itself was <strong>{pct(t_y, 1, segno=False) if t_y >= 0 else pct(t_y, 1)}</strong>.' if t_y is not None else ".")
                 + f'</p><p class="small">Official CPI-U (BLS): {y} annual average {idx(i_y)}; {h(US_ULT_TXT)} {idx(val("us", *US_LU))}.</p></div>')
     corpo = risposta
+    # precisione e anni con la stessa media annua (dati veri della serie, diversi per ogni anno)
+    note_anno = ""
+    if cifre(i_y) == 1 and 0.05 / i_y >= 0.002:
+        note_anno += (f'<p>The BLS publishes the {y} index to one decimal place ({idx(i_y)}), so amounts converted from {y} are accurate to about '
+                      f'±{pct(0.05 / i_y, 1, segno=False)}: {soldi(100 * r, "USD")} for $100 could be up to {soldi(100 * r * 0.05 / i_y, "USD")} higher or lower.</p>')
+    gemelli = [a for a in ANNI_US if a != y and val("us", a) == i_y]
+    if gemelli:
+        ll = [f'<a href="/us/{a}-dollars-today/">{a}</a>' for a in gemelli]
+        elenco = ll[0] if len(ll) == 1 else ", ".join(ll[:-1]) + " and " + ll[-1]
+        note_anno += (f'<p>The annual average CPI-U was also {idx(i_y)} in {elenco}, so the annual-average amounts for {"that year" if len(gemelli) == 1 else "those years"} '
+                      f'are the same as for {y}. The months were different: see the monthly table below.</p>')
     corpo += (f'<h2>{y} dollars in today\'s money</h2><div class="cols"><div class="tab"><table class="dati"><thead><tr><th scope="col" class="n">In {y}</th>'
               f'<th scope="col" class="n">In {h(US_ULT_BR)}</th></tr></thead><tbody>{righe}</tbody></table></div><div class="testo">'
               f'<p>Each row multiplies the {y} amount by {idx(val("us", *US_LU))} ÷ {idx(i_y)} = {numero(r, 4)}. The other way round, '
               f'$100 in {h(US_ULT_TXT)} buys what {soldi(100 / r, "USD")} bought in {y}.</p>'
-              f'<p><a class="btn" href="/?a=100&amp;f={y}#calc">{ico("calc")}Any amount or month from {y}</a></p></div></div>')
+              f'{note_anno}<p><a class="btn" href="/?a=100&amp;f={y}#calc">{ico("calc")}Any amount or month from {y}</a></p></div></div>')
     corpo += AD
     # grafico
     punti = [(a, val("us", a) / i_y) for a in range(y, ULTIMO_ANNO_US + 1)]
@@ -655,13 +673,23 @@ def pagina_anno(y):
         v = val("us", y, m)
         t12 = M.tasso_12_mesi(C["us"], y, m)
         mesi_r += (f'<tr><td>{MESI["en"][m - 1]}</td><td class="n">{idx(v) if v else "–"}</td>'
-                   f'<td class="n">{pct(t12, 1) if t12 is not None else "–"}</td></tr>')
+                   f'<td class="n">{pct(t12, 1) if t12 is not None else "–"}</td>'
+                   f'<td class="n">{soldi(100 * val("us", *US_LU) / v, "USD") if v else "–"}</td></tr>')
+    vm = {m: val("us", y, m) for m in range(1, 13) if val("us", y, m)}
+    v_min, v_max = min(vm.values()), max(vm.values())
+
+    def _quali(v):
+        ms = [MESI["en"][m - 1] for m in vm if vm[m] == v]
+        return ", ".join(ms) if len(ms) <= 3 else f"{len(ms)} months"
+    estremi = (f'. Lowest monthly index of {y}: {idx(v_min)} ({_quali(v_min)}); highest: {idx(v_max)} ({_quali(v_max)}).'
+               if v_min != v_max else f'. The index was {idx(v_min)} in every published month of {y}.')
     nota_mesi = ""
     if any(k[0] in (y, y + 1) for k in OTT25):
         nota_mesi = f'<p class="small">October 2025: {h(list(OTT25.values())[0])} (BLS).</p>'
     corpo += (f'<h3>Monthly CPI-U in {y}</h3><div class="tab"><table class="dati"><thead><tr><th scope="col">Month</th><th scope="col" class="n">CPI-U</th>'
-              f'<th scope="col" class="n">12-month change</th></tr></thead><tbody>{mesi_r}</tbody></table></div>{nota_mesi}'
-              '<p class="small">12-month changes are calculated here from the published index (not seasonally adjusted).</p>')
+              f'<th scope="col" class="n">12-month change</th><th scope="col" class="n">$100 from that month in {h(US_ULT_BR)}</th></tr></thead>'
+              f'<tbody>{mesi_r}</tbody></table></div>{nota_mesi}'
+              f'<p class="small">12-month changes and the value of $100 are calculated here from the published monthly index (not seasonally adjusted){estremi}</p>')
     if y in FAQ_ANNI:
         q, frase = FAQ_ANNI[y]
         if y == 1980:
@@ -766,7 +794,7 @@ def us_tassi():
     corpo += (f'<h2>US inflation rate by year, 1914–{ULTIMO_ANNO_US}</h2><div class="tab alta"><table class="dati"><thead><tr><th scope="col">Year</th>'
               '<th scope="col" class="n">CPI-U (annual average)</th><th scope="col" class="n">Annual average change</th><th scope="col" class="n">Dec to Dec</th>'
               f'<th scope="col" class="n">$1 then is worth in {h(US_ULT_BR)}</th></tr></thead><tbody>{righe}</tbody></table></div>'
-              '<p class="small">December 2025 to December 2025 comparisons use the published December values; October 2025 was not collected by the BLS.</p>')
+              '<p class="small">The December 2024 to December 2025 comparison uses the published December values; October 2025 was not collected by the BLS.</p>')
     mesi_r = ""
     for m in range(1, US_LU[1] + 1):
         t12 = M.tasso_12_mesi(C["us"], US_LU[0], m)
@@ -796,6 +824,14 @@ def us_tassi():
 UK_LU = ULT["uk_cpi"]
 UK_ULT_TXT = ult_lungo("uk_cpi")
 CPI_RATE = S["uk_cpi_rate"]
+RPI_RATE = S["uk_rpi_rate"]
+BOE = (23, 1975, 1985, 17.78, 44.6, 57.68)  # esempio scritto nella pagina del calcolatore della Banca d'Inghilterra (frasi controllate in fonti.json: boe_calc)
+
+
+def tasso_rpi(y):
+    """(tasso, pubblicato): tasso annuo RPI pubblicato dall'ONS (serie CZBH, dal 1949); prima, calcolato dall'indice lungo CDKO."""
+    v = RPI_RATE["annuale"].get(y)
+    return (v / 100, True) if v is not None else (M.tasso_annuo(C["uk_rpi"], y), False)
 
 
 def uk_spiega():
@@ -805,7 +841,16 @@ def uk_spiega():
             f'<p>For earlier years the calculator uses the ONS <strong>Retail Prices Index long-run series</strong> (series CDKO, January 1974=100). It has an '
             f'annual value for every year from 1800 and monthly values from June 1947, so it can answer questions such as the value of £1 in 1950.</p>'
             '<p>The two indexes measure prices differently and the RPI has usually risen faster, so the calculator never mixes them in one calculation: '
-            'it uses the CPI when both dates are from 1988 on (unless you choose the RPI) and the RPI long-run series otherwise.</p></div>')
+            'it uses the CPI when both dates are from 1988 on (unless you choose the RPI) and the RPI long-run series for <em>both</em> dates otherwise. '
+            'No CPI value is linked to an RPI value.</p>'
+            '<p>Choose a year on its own to use that year\'s <strong>annual average</strong> index, or pick a month to use the index of that month.</p>'
+            '<h3 id="boe">Why results before 1988 differ from the Bank of England calculator</h3>'
+            '<p>The Bank of England\'s inflation calculator also uses the ONS CPI from 1988, but for earlier years it uses CPI estimates that, in its words, '
+            '“are modelled based on data collected for the Retail Price Index (RPI)”. This site uses the published RPI long-run series itself for those '
+            f'years, and the RPI rose faster. Example from the Bank\'s page: £{BOE[0]} in {BOE[1]} becomes {soldi(BOE[5], "GBP")} in {BOE[2]} (its price indexes: '
+            f'{BOE[3]} and {BOE[4]}). With the RPI long-run series ({idx(val("uk_rpi", BOE[1]))} and {idx(val("uk_rpi", BOE[2]))}) the same £{BOE[0]} becomes '
+            f'{soldi(BOE[0] * val("uk_rpi", BOE[2]) / val("uk_rpi", BOE[1]), "GBP")}. The two answers use different indexes, so for dates before 1988 '
+            'expect a higher figure here than at the Bank of England.</p></div>')
 
 
 def uk_calc():
@@ -831,13 +876,13 @@ def uk_calc():
     faq, ld_faq = faq_blocco("uk", [
         ("Can I use the inflation calculator for a salary?",
          h(f'Yes: enter the pay and the year it was paid. The result is the pay needed in {UK_ULT_TXT} to buy the same as before, measured with the CPI '
-           f'(or the RPI for years before 1988). For example £25,000 in 2015 corresponds to {soldi(25000 * vale_oggi("uk_cpi", 2015), "GBP", 0)} with the CPI. '
+           f'(or, when a date is before 1988, with the RPI long-run series). For example £25,000 in 2015 corresponds to {soldi(25000 * vale_oggi("uk_cpi", 2015), "GBP", 0)} with the CPI. '
            'It does not show what pay rises were actually agreed or what any employer must pay.'), "uk inflation calculator salary", "gb"),
         ("What is the current UK CPI?",
          h(f'The ONS CPI index (2015=100) was {idx(val("uk_cpi", *UK_LU))} in {UK_ULT_TXT}, {pct(a12 / 100, 1, segno=False)} higher than a year earlier. '
            f'The next figures are due on {FONTI["ons_d7bt"].get("prossima_uscita") or "the date shown by the ONS"}.'), "current uk cpi", "gb"),
     ])
-    corpo += faq + fonti_box(["ons_d7bt", "ons_cdko", "ons_d7g7"])
+    corpo += faq + fonti_box(["ons_d7bt", "ons_cdko", "ons_d7g7", "boe_calc"])
     testata = banda("United Kingdom · ONS", "UK inflation calculator (CPI and RPI)",
                     f"What money from any year since 1800 is worth today, with the official ONS Consumer Prices Index and the Retail Prices Index long-run series (to <strong>{h(UK_ULT_TXT)}</strong>).",
                     trust([("check", "Official ONS indexes"), ("calendar", "Updated every month"), ("lock", "Runs in your browser")]))
@@ -849,7 +894,8 @@ def uk_calc():
 
 def uk_tassi():
     cpi = [(y, CPI_RATE["annuale"][y] / 100) for y in sorted(CPI_RATE["annuale"])]
-    rpi = tassi_annui("uk_rpi", 1801, max(S["uk_rpi"]["annuale"]))
+    rpi = [(y, tasso_rpi(y)[0]) for y in range(1801, max(S["uk_rpi"]["annuale"]) + 1)]
+    rpi_dal = min(RPI_RATE["annuale"])
     ultimi = [(y, v) for y, v in cpi if y > cpi[-1][0] - 10]
     corpo = (f'<div class="card risposta pull"><p>UK CPI inflation in {cpi[-1][0]} was<span class="big">{pct(cpi[-1][1], 1, segno=False)}</span>'
              f'according to the ONS; the 12-month rate for {h(UK_ULT_TXT)} is <strong>{pct(CPI_RATE["mensile"][UK_LU] / 100, 1, segno=False)}</strong>.</p></div>')
@@ -867,10 +913,13 @@ def uk_tassi():
               f'<th scope="col" class="n">12-month rate (ONS)</th></tr></thead><tbody>{righe}</tbody></table></div>')
     rpi_vis = [p for p in rpi if p[0] >= 1900]
     corpo += (f'<h2>RPI long-run series: inflation since 1801</h2>' +
-              graf_barre(rpi_vis, "UK RPI long-run inflation by year since 1900", 'Change of the annual RPI long-run index (series CDKO), calculated here; 1900 onwards shown.'))
-    righe = "".join(f'<tr><td>{y}</td><td class="n">{idx(val("uk_rpi", y))}</td><td class="n">{pct(v, 1)}</td></tr>' for y, v in reversed(rpi))
+              graf_barre(rpi_vis, "UK RPI long-run inflation by year since 1900",
+                         f'RPI annual rate: published by the ONS from {rpi_dal} (series CZBH); earlier years calculated here from the RPI long-run index (series CDKO). 1900 onwards shown.'))
+    righe = "".join(f'<tr><td>{y}</td><td class="n">{idx(val("uk_rpi", y))}</td><td class="n">{pct(v, 1)}{"" if y >= rpi_dal else " *"}</td></tr>' for y, v in reversed(rpi))
     corpo += (f'<details><summary>Show all years 1801–{rpi[-1][0]}</summary><div class="tab alta"><table class="dati"><thead><tr><th scope="col">Year</th>'
-              f'<th scope="col" class="n">RPI long-run (Jan 1974=100)</th><th scope="col" class="n">Change</th></tr></thead><tbody>{righe}</tbody></table></div></details>')
+              f'<th scope="col" class="n">RPI long-run (Jan 1974=100)</th><th scope="col" class="n">Annual rate</th></tr></thead><tbody>{righe}</tbody></table></div>'
+              f'<p class="small">{rpi_dal}–{rpi[-1][0]}: RPI annual rate published by the ONS (series CZBH). * Before {rpi_dal} the ONS publishes no rate: '
+              'the change is calculated here from the annual RPI long-run index, which is published to one decimal place.</p></details>')
     media10 = (val("uk_cpi", cpi[-1][0]) / val("uk_cpi", cpi[-1][0] - 10)) ** 0.1 - 1
     faq, ld_faq = faq_blocco("uk-rates", [
         ("What is the average UK inflation rate?",
@@ -880,7 +929,7 @@ def uk_tassi():
         ("What were UK inflation rates over the last 10 years?",
          h("CPI annual rates published by the ONS: " + "; ".join(f"{y}: {pct(v, 1, segno=False)}" for y, v in ultimi) + "."), "uk inflation rate last 10 years", "gb"),
     ])
-    corpo += faq + fonti_box(["ons_d7g7", "ons_d7bt", "ons_cdko"])
+    corpo += faq + fonti_box(["ons_d7g7", "ons_d7bt", "ons_cdko", "ons_czbh"])
     testata = banda("United Kingdom · ONS", f"UK inflation rate by year ({cpi[0][0]}–{cpi[-1][0]})",
                     "Official CPI inflation from the Office for National Statistics, the last 12 months, and the Retail Prices Index long-run series back to 1801.",
                     corta=True)
@@ -906,11 +955,11 @@ def uk_rpi():
               'Follow the wording of the document: the calculator only applies the published index.</p></div>')
     righe = ""
     for y in range(lu[0] - 10, lu[0]):
-        rc, rp = M.tasso_annuo(C["uk_cpi"], y), M.tasso_annuo(C["uk_rpi"], y)
+        rc, rp = CPI_RATE["annuale"][y] / 100, RPI_RATE["annuale"][y] / 100
         righe += f'<tr><td>{y}</td><td class="n">{pct(rp, 1)}</td><td class="n">{pct(rc, 1)}</td></tr>'
-    corpo += ('<h2>RPI and CPI side by side</h2><div class="tab"><table class="dati"><thead><tr><th scope="col">Year</th><th scope="col" class="n">RPI change</th>'
-              f'<th scope="col" class="n">CPI change</th></tr></thead><tbody>{righe}</tbody></table></div>'
-              f'<p class="small">Annual average changes calculated from the ONS indexes. Since 1988 the RPI rose {pct(vale_oggi("uk_rpi", 1988) - 1, 0, segno=False)} '
+    corpo += ('<h2>RPI and CPI side by side</h2><div class="tab"><table class="dati"><thead><tr><th scope="col">Year</th><th scope="col" class="n">RPI annual rate</th>'
+              f'<th scope="col" class="n">CPI annual rate</th></tr></thead><tbody>{righe}</tbody></table></div>'
+              f'<p class="small">Annual rates published by the ONS (series CZBH and D7G7). Since 1988 the RPI rose {pct(vale_oggi("uk_rpi", 1988) - 1, 0, segno=False)} '
               f'and the CPI {pct(vale_oggi("uk_cpi", 1988) - 1, 0, segno=False)} (to {h(mese_lungo(*lu))}).</p>')
     corpo += uk_spiega()
     faq, ld_faq = faq_blocco("uk-rpi", [
@@ -918,7 +967,7 @@ def uk_rpi():
          h(f'New amount = old amount × RPI of the later month ÷ RPI of the earlier month. From {mese_lungo(a0, m0)} to {mese_lungo(*lu)} the RPI long-run series '
            f'went from {idx(val("uk_rpi", a0, m0))} to {idx(val("uk_rpi", *lu))}, an increase of {pct(val("uk_rpi", *lu) / val("uk_rpi", a0, m0) - 1, 1, segno=False)}.'),
          "rpi increase calculator", "gb")])
-    corpo += faq + fonti_box(["ons_cdko", "ons_chaw", "ons_d7bt"])
+    corpo += faq + fonti_box(["ons_cdko", "ons_chaw", "ons_czbh", "ons_d7bt", "ons_d7g7", "boe_calc"])
     testata = banda("United Kingdom · Retail Prices Index", "RPI calculator: increases by the Retail Prices Index",
                     f"Apply the official ONS Retail Prices Index to any amount between 1800 and {h(mese_lungo(*lu))}, with the formula and the index values used.",
                     trust([("check", "ONS RPI long-run series"), ("calc", "Formula shown"), ("lock", "Runs in your browser")]))
@@ -957,16 +1006,21 @@ def de_rechner():
               'Das Ergebnis zeigt auch den gesamten Preisanstieg und die durchschnittliche Teuerung pro Jahr.</p></div>')
     corpo += ('<h2>D-Mark und Euro</h2><div class="testo">'
               '<p>Bis Ende 2001 bezahlte man in Deutschland mit der D-Mark; seit 2002 gibt es Euro-Bargeld. Der Umrechnungskurs ist unwiderruflich festgelegt: '
-              '<strong>1 Euro = 1,95583 DM</strong>. Liegt das Startjahr vor 2002, geben Sie den Betrag wahlweise in D-Mark oder in Euro ein. Liegt das Ziel ab 2002, '
-              'rechnet der Rechner das Ergebnis in Euro um (geteilt durch 1,95583), sonst bleibt es in D-Mark.</p>'
+              '<strong>1 Euro = 1,95583 DM</strong>. Liegt das Startjahr vor 2002, können Sie den Betrag in D-Mark oder in Euro eingeben. Liegt das Zieljahr im Jahr 2002 oder später, '
+              'rechnet der Rechner das Ergebnis in Euro um (geteilt durch 1,95583); sonst bleibt es in D-Mark.</p>'
               f'<p>Beispiel: 1.000 DM im Jahr 1995 entsprechen 1.000 × {idx(val("de", *DE_LU), True)} ÷ {idx(val("de", 1995), True)} ÷ 1,95583 = '
               f'<strong>{soldi(1000 * vale_oggi("de", 1995) / M.DM_PER_EURO, "EUR")}</strong> im {h(DE_ULT)}.</p></div>')
-    corpo += ('<h2>Vor 1991: frühere Bundesrepublik</h2><div class="testo">'
+    sprung = val("de", 1991, 1) / (S["de_west"]["mensile"][(1991, 1)] * K_DE) - 1
+    corpo += ('<h2>Vor 1991: früheres Bundesgebiet (Westdeutschland)</h2><div class="testo">'
               '<p>Der Verbraucherpreisindex für Deutschland beginnt mit dem Jahr 1991. Für die Jahre 1962 bis 1990 verwendet der Rechner den Preisindex für die '
               'Lebenshaltung aller privaten Haushalte im früheren Bundesgebiet (1995 = 100), den Destatis in den „Langen Reihen“ veröffentlicht. Damit beide Reihen '
               f'zusammenpassen, wird dieser Index im Jahr 1991 mit dem VPI verkettet: VPI 1991 ({idx(val("de", 1991), True)}) ÷ Index früheres Bundesgebiet 1991 '
-              f'({idx(S["de_west"]["annuale"][1991], True)}) = {numero(K_DE, 5, True)}. Jeder Wert vor 1991 wird mit diesem Faktor multipliziert.</p>'
-              '<p>Das ist eine Näherung: Der frühere Index gilt nur für Westdeutschland und hat einen anderen Warenkorb. Für die DDR gibt es keinen vergleichbaren Index.</p></div>')
+              f'({idx(S["de_west"]["annuale"][1991], True)}) = {numero(K_DE, 5, True)}. Jeder Jahres- und Monatswert vor 1991 wird mit diesem Faktor multipliziert.</p>'
+              '<p>Die verketteten Werte sind unsere eigene Berechnung auf Grundlage der Destatis-Daten, kein amtlicher Index, und nur eine Näherung: '
+              'Der frühere Index gilt nur für Westdeutschland und beruht auf einem anderen Warenkorb. Destatis veröffentlicht beide Indizes mit einer Nachkommastelle; '
+              'die verketteten Werte sind deshalb nicht genauer, auch wenn sie hier mit drei Nachkommastellen stehen. Weil über die Jahresdurchschnitte verkettet wird, '
+              f'entsteht bei Monatswerten zwischen Dezember 1990 und Januar 1991 ein kleiner Sprung von rund {pct(abs(sprung), 1, True, segno=False)}. '
+              'Für die DDR gibt es keinen vergleichbaren Index.</p></div>')
     righe = ""
     for y in (1965, 1970, 1975, 1980, 1985, 1990, 1995, 2000, 2002, 2005, 2010, 2015, 2020, 2025):
         dm = y < 2002
@@ -976,13 +1030,13 @@ def de_rechner():
     corpo += (f'<h2>So viel sind 100 D-Mark oder 100 Euro von damals heute wert</h2><div class="tab"><table class="dati"><thead><tr><th scope="col">Jahr</th>'
               f'<th scope="col" class="n">VPI (2020 = 100)</th><th scope="col" class="n">Betrag damals</th><th scope="col" class="n">Wert im {h(DE_ULT)}</th>'
               f'<th scope="col" class="n">Preisanstieg seitdem</th></tr></thead><tbody>{righe}</tbody></table></div>'
-              '<p class="small">* Vor 1991: Index für das frühere Bundesgebiet, verkettet. Jahreswerte = Jahresdurchschnitte.</p>')
+              '<p class="small">* Vor 1991: Index für das frühere Bundesgebiet, mit dem VPI verkettet (eigene Berechnung auf Grundlage der Destatis-Daten). Jahreswerte sind Jahresdurchschnitte.</p>')
     corpo += ('<ul class="griglia"><li><a href="/de/inflationsrate-deutschland/"><b>%</b>Inflationsrate Deutschland<small>Jahre seit 1992, Monate seit 2021</small></a></li>'
               '<li><a href="/"><b>US</b>US inflation calculator<small>BLS CPI-U seit 1913 (englisch)</small></a></li>'
               '<li><a href="/uk/"><b>UK</b>UK inflation calculator<small>ONS CPI und RPI (englisch)</small></a></li></ul>')
     a, b = 2015, 2025
     faq, ld_faq = faq_blocco("de", [
-        ("Wie rechnet man einen Betrag inflationsbereinigt?",
+        ("Wie berechnet man einen inflationsbereinigten Betrag?",
          h(f'Man multipliziert den Betrag mit dem Verbraucherpreisindex des Zieljahres und teilt durch den Index des Ausgangsjahres. Beispiel: 500 Euro aus dem Jahr '
            f'{a} entsprechen 500 × {idx(val("de", b), True)} ÷ {idx(val("de", a), True)} = {soldi(500 * val("de", b) / val("de", a), "EUR")} in Preisen von {b}.'),
          "inflationsbereinigung rechner", "de"),
@@ -993,8 +1047,8 @@ def de_rechner():
     ], "de")
     corpo += faq + fonti_box(["destatis_tabelle", "destatis_lange_reihen", "eurlex_2866", "ecb_euro"], "de")
     testata = banda("Deutschland · Verbraucherpreisindex", "Inflationsrechner: Was ist Ihr Geld heute wert?",
-                    f"Rechnet Beträge mit dem amtlichen Verbraucherpreisindex des Statistischen Bundesamtes um – von 1962 bis <strong>{h(DE_ULT)}</strong>, auch in D-Mark.",
-                    trust([("check", "Amtliche Indexwerte von Destatis"), ("coins", "D-Mark und Euro"), ("lock", "Rechnet nur in Ihrem Browser")]))
+                    f"Der Rechner rechnet Beträge mit dem amtlichen Verbraucherpreisindex des Statistischen Bundesamtes um – von 1962 bis <strong>{h(DE_ULT)}</strong>, auch in D-Mark.",
+                    trust([("check", "Amtliche Indexwerte von Destatis"), ("coins", "D-Mark und Euro"), ("lock", "Berechnung nur in Ihrem Browser")]))
     pagina("de/inflationsrechner/", "Inflationsrechner: Kaufkraft von Euro und D-Mark (VPI)",
            f"Kostenloser Inflationsrechner mit dem amtlichen Verbraucherpreisindex von Destatis, 1962 bis {DE_ULT}: Euro und D-Mark, Formel und Quellen.",
            corpo, testata, "de", briciole=[("Start", ""), ("Inflationsrechner", "de/inflationsrechner/")],
@@ -1021,8 +1075,8 @@ def de_rate():
               f'<tbody>{righe}</tbody></table></div>')
     west = sorted((a, v / 100) for a, v in RATE_DE["west_jahr"].items() if 1963 <= a <= 1991)
     righe = "".join(f'<tr><td>{a}</td><td class="n">{idx(S["de_west"]["annuale"][a], True)}</td><td class="n">{pct(v, 1, True)}</td></tr>' for a, v in reversed(west))
-    corpo += (f'<h2>Früheres Bundesgebiet, {west[0][0]}–{west[-1][0]}</h2><div class="testo"><p>Vor 1991 gab es keinen Index für ganz Deutschland. '
-              'Destatis veröffentlicht für Westdeutschland den Preisindex für die Lebenshaltung aller privaten Haushalte (1995 = 100).</p></div>'
+    corpo += (f'<h2>Früheres Bundesgebiet, {west[0][0]}–{west[-1][0]}</h2><div class="testo"><p>Für die Zeit vor 1991 gibt es keinen Index für ganz Deutschland. '
+              'Für Westdeutschland veröffentlicht Destatis den Preisindex für die Lebenshaltung aller privaten Haushalte (1995 = 100); die Veränderungsraten sind amtliche Werte.</p></div>'
               '<div class="tab alta"><table class="dati"><thead><tr><th scope="col">Jahr</th><th scope="col" class="n">Index (1995 = 100)</th>'
               f'<th scope="col" class="n">Veränderung zum Vorjahr</th></tr></thead><tbody>{righe}</tbody></table></div>')
     vorher = (DE_LU[0] - 1, DE_LU[1])
@@ -1076,14 +1130,18 @@ def come_controlliamo():
         'and the “Lange Reihen ab 1948” statistical report (VPI from 1991 and the index for all private households in the former West Germany, 1995=100). '
         '© Statistisches Bundesamt (Destatis); reproduction and distribution, also in part, permitted with the source cited. Contents of the GENESIS-Online '
         'database are under the <a href="https://www.govdata.de/dl-de/by-2-0" rel="noopener">Datenlizenz Deutschland – Namensnennung – Version 2.0</a>.</p>'
-        f'<p>Before 1991 the German calculator links the West German index to the VPI at 1991 (factor {numero(K_DE, 5)}). This is our only calculated series and it is labelled on the page.</p></div>'])
+        f'<p>Before 1991 the German calculator links the West German index to the VPI at 1991 (factor {numero(K_DE, 5)}). This is our only calculated series and it is labelled on the page as our own calculation, not an official index.</p>'
+        '<p>UK results for dates before 1988 use the RPI long-run series and are higher than those of the Bank of England calculator, which uses modelled CPI '
+        'estimates for those years; the <a href="/uk/#boe">UK page</a> shows the difference with an example.</p></div>'])
     corpo += ('<h2>What the checks do</h2><div class="testo"><ul>'
               '<li><strong>Continuity:</strong> no year or month may be missing between the first and the last value of a series. The only gap allowed is a month the '
               'office itself marks as not collected (October 2025 in the US), and it is shown on the pages.</li>'
               '<li><strong>Annual averages:</strong> the average of the twelve monthly values must match the published annual average within the rounding of the index.</li>'
               '<li><strong>Published rates:</strong> the rates we calculate from the indexes must match the rates the offices publish (ONS CPI and RPI 12-month rates, '
-              'Destatis yearly and monthly rates) within 0.1 to 0.15 percentage points of rounding.</li>'
-              '<li><strong>Official calculator:</strong> several results are compared with the BLS CPI Inflation Calculator, to the cent.</li>'
+              'Destatis yearly and monthly rates) within the rounding of the published indexes: 0.1 to 0.2 percentage points, and up to 0.3 for the RPI long-run '
+              'series, which is published to one decimal place. Where an office publishes a rate (ONS CPI and RPI annual rates, Destatis rates) the tables show the '
+              'published rate, not our own calculation.</li>'
+              f'<li><strong>Official calculator:</strong> {len(ESEMPI_BLS)} results are compared with the BLS CPI Inflation Calculator, to the cent.</li>'
               '<li><strong>Two files, one series:</strong> where two official files overlap (BLS viewer and API; Destatis report and current table; RPI long-run '
               'and RPI 1987=100) they must agree.</li>'
               '<li><strong>Browser = reference:</strong> the calculator in your browser is run against our reference implementation on thousands of random cases.</li></ul></div>')
@@ -1093,7 +1151,7 @@ def come_controlliamo():
     corpo += ('<h2>When we update</h2><div class="testo"><p>Each office publishes a new month in the middle of the following month (the BLS and the ONS) or at '
               'the end of the month with a final figure in the middle of the next (Destatis). We download the files again each month, run the checks and update '
               'the pages only if all of them pass.</p></div>')
-    corpo += fonti_box(["bls_cpiu", "bls_api", "bls_calc", "ons_d7bt", "ons_d7g7", "ons_cdko", "ons_chaw", "ons_czbh", "destatis_tabelle", "destatis_lange_reihen",
+    corpo += fonti_box(["bls_cpiu", "bls_api", "bls_calc", "ons_d7bt", "ons_d7g7", "ons_cdko", "ons_chaw", "ons_czbh", "boe_calc", "destatis_tabelle", "destatis_lange_reihen",
                         "fed_target", "ecb_euro", "eurlex_2866"])
     testata = banda("How we check", "How we check every index value", "Our sources and licences, the checks the data must pass and what we could not read.",
                     corta=True, icona="shield")

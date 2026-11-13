@@ -96,6 +96,8 @@ def dati():
         r = M.calcola(C["us"], c["importo"], (a0, m0), (a1, m1))
         if c["risultato_ufficiale"] is None or abs(round(r["valore"], 2) - c["risultato_ufficiale"]) > 0.0051:
             err(f"calcolatore BLS {c}: nostro {r['valore']:.4f}")
+    if len(es) < 10:
+        err(f"calcolatore BLS: solo {len(es)} casi ufficiali (servono almeno 10, su decenni diversi)")
     ok(f"{len(es)} risultati del CPI Inflation Calculator ufficiale del BLS rifatti al centesimo")
     # ONS: tassi pubblicati
     cpi_r = S["uk_cpi_rate"]
@@ -161,6 +163,21 @@ def dati():
     k = S["de"]["fattore"]
     if abs(S["de"]["annuale"][1990] - round(S["de_west"]["annuale"][1990] * k, 3)) > 1e-9 or S["de"]["annuale"][1991] != S["de_vpi"]["annuale"][1991]:
         err("DE: raccordo 1991 non applicato come descritto")
+    # (revisione indipendente) fattore rifatto dall'anno di sovrapposizione e applicato a OGNI valore prima del 1991, anni e mesi
+    k2 = S["de_vpi"]["annuale"][1991] / S["de_west"]["annuale"][1991]
+    if abs(k - k2) > 1e-12 or f"{k2:.5f}" != "0.69551":
+        err(f"DE: fattore di raccordo {k} ≠ VPI 1991 / Ovest 1991 = {k2:.5f} (se Destatis ha rivisto i dati, rileggere il testo della pagina)")
+    sbagliati = [a for a, v in S["de_west"]["annuale"].items() if a < 1991 and abs(S["de"]["annuale"][a] - round(v * k2, 3)) > 1e-9]
+    sbagliati += [x for x, v in S["de_west"]["mensile"].items() if x[0] < 1991 and abs(S["de"]["mensile"][x] - round(v * k2, 3)) > 1e-9]
+    sbagliati += [x for x, v in S["de_vpi"]["annuale"].items() if S["de"]["annuale"][x] != v] + [x for x, v in S["de_vpi"]["mensile"].items() if S["de"]["mensile"][x] != v]
+    if sbagliati or min(S["de"]["annuale"]) != 1962:
+        err(f"DE: valori della serie verkettet diversi da Ovest × fattore o dal VPI: {sbagliati[:5]}")
+    salto = S["de_vpi"]["mensile"][(1991, 1)] / (S["de_west"]["mensile"][(1991, 1)] * k2) - 1
+    if abs(salto) > 0.006:
+        err(f"DE: salto dic 1990 → gen 1991 del raccordo {salto:.4f} oltre lo 0,6 % (la pagina dice «rund 0,4 %»)")
+    ok(f"DE: fattore di raccordo rifatto = {S['de_vpi']['annuale'][1991]} ÷ {S['de_west']['annuale'][1991]} = {k2:.5f}; "
+       f"{sum(1 for a in S['de_west']['annuale'] if a < 1991)} anni e {sum(1 for x in S['de_west']['mensile'] if x[0] < 1991)} mesi prima del 1991 = Ovest × fattore; "
+       f"scarto del raccordo a gennaio 1991 {salto * 100:.2f} %")
     # fonti e frasi
     for fid, f in G.FONTI.items():
         if fid.startswith("_"):
@@ -217,6 +234,114 @@ def motore():
 
 
 # ---------------------------------------------------------------- 3. pagine
+TITOLI, DESCR = {}, {}
+CONSIGLI = re.compile(r"\b(you should (buy|sell|invest|save)|we recommend|best investment|guaranteed? return|financial advice:|invest in|"
+                      r"sollten Sie (kaufen|verkaufen|anlegen|investieren)|wir empfehlen|Anlagetipp)\b", re.I)
+
+
+def _righe(rel):
+    """Righe delle tabelle di una pagina: liste di celle (testo)."""
+    t = (SITO / rel).read_text(encoding="utf-8")
+    return [[re.sub(r"\s+", " ", testo(c)).strip() for c in re.findall(r"<t[dh][^>]*>(.*?)</t[dh]>", r, re.S)] for r in re.findall(r"<tr.*?</tr>", t, re.S)]
+
+
+def _pc(x):
+    return float(x.replace("−", "-").replace("+", "").replace("%", "").replace("\xa0", "").replace("*", "").replace(",", ".").strip())
+
+
+def tassi_pubblicati():
+    """(revisione indipendente) Dove l'ufficio pubblica un tasso annuo, la pagina stampa quello pubblicato (non uno ricalcolato da indici
+    arrotondati, che in 14 anni su 77 del RPI dava 0,1-0,2 punti di differenza) e due pagine non danno mai due tassi diversi per lo stesso anno."""
+    cpi, rpi = S["uk_cpi_rate"]["annuale"], S["uk_rpi_rate"]["annuale"]
+    n = 0
+    for r in _righe("uk/inflation-rate-by-year/index.html"):
+        if not r or not re.fullmatch(r"\d{4}", r[0]):
+            continue
+        y = int(r[0])
+        if len(r) == 4:  # tabella CPI: anno, indice, tasso ONS, valore di 1 £
+            n += 1
+            if abs(_pc(r[2]) - cpi[y]) > 1e-9:
+                err(f"UK tassi: CPI {y} stampato {r[2]} ≠ ONS D7G7 {cpi[y]}")
+        elif len(r) == 3:  # tabella RPI
+            n += 1
+            atteso = rpi[y] if y in rpi else round(M.tasso_annuo(C["uk_rpi"], y) * 100, 1)
+            if abs(_pc(r[2]) - atteso) > 1e-9 or (("*" in r[2]) != (y not in rpi)):
+                err(f"UK tassi: RPI {y} stampato {r[2]} ≠ {'ONS CZBH' if y in rpi else 'calcolato'} {atteso}")
+    for r in _righe("uk/rpi-calculator/index.html"):
+        if r and re.fullmatch(r"\d{4}", r[0]) and len(r) == 3:
+            n += 1
+            y = int(r[0])
+            if abs(_pc(r[1]) - rpi[y]) > 1e-9 or abs(_pc(r[2]) - cpi[y]) > 1e-9:
+                err(f"RPI calculator: {y} stampato {r[1]} / {r[2]} ≠ ONS {rpi[y]} / {cpi[y]}")
+    R = S["de_rate_pubbl"]
+    for r in _righe("de/inflationsrate-deutschland/index.html"):
+        if r and re.fullmatch(r"\d{4}", r[0]) and len(r) == 3:
+            y = int(r[0])
+            n += 1
+            atteso = R["west_jahr"][y] if y <= 1991 else R["vpi_jahr"][y]
+            if abs(_pc(r[2]) - atteso) > 1e-9:
+                err(f"DE Inflationsrate: {y} stampato {r[2]} ≠ Destatis {atteso}")
+    us = 0
+    for r in _righe("us/inflation-rate-by-year/index.html"):
+        if r and re.fullmatch(r"\d{4}", r[0]) and len(r) == 5:
+            y = int(r[0])
+            us += 1
+            a, d = S["us"]["annuale"], S["us"]["mensile"]
+            if abs(_pc(r[2]) - round((a[y] / a[y - 1] - 1) * 100, 1)) > 1e-9 or abs(_pc(r[3]) - round((d[(y, 12)] / d[(y - 1, 12)] - 1) * 100, 1)) > 1e-9:
+                err(f"US tassi: {y} stampato {r[2]} / {r[3]} ≠ indici BLS")
+    if n < 330 or us < 112:
+        err(f"tassi stampati: lette solo {n} righe UK/DE e {us} USA (struttura delle tabelle cambiata?)")
+    ok(f"tassi annui stampati: {n} righe UK/DE = tassi pubblicati da ONS (D7G7, CZBH) e Destatis (prima del 1949 RPI calcolato e segnato con *); "
+       f"{us} anni USA × 2 = indici BLS")
+    # nota sulla Banca d'Inghilterra con l'esempio rifatto a mano
+    a, y0, y1, _, _, boe = G.BOE
+    nostro = G.soldi(a * S["uk_rpi"]["annuale"][y1] / S["uk_rpi"]["annuale"][y0], "GBP")
+    for rel in ("uk/index.html", "uk/rpi-calculator/index.html"):
+        vis = re.sub(r"\s+", " ", testo((SITO / rel).read_text(encoding="utf-8")))
+        if "Bank of England" not in vis or nostro not in vis or G.soldi(boe, "GBP") not in vis or "RPI long-run series for both dates" not in vis:
+            err(f"{rel}: manca la spiegazione CPI/RPI con il confronto con la Banca d'Inghilterra ({G.soldi(boe, 'GBP')} contro {nostro})")
+    if not all(G.FONTI.get("boe_calc", {}).get("trovate", {"": False}).values()):
+        err("boe_calc: le frasi citate non sono più nella pagina della Banca d'Inghilterra")
+    de = re.sub(r"\s+", " ", testo((SITO / "de/inflationsrechner/index.html").read_text(encoding="utf-8")))
+    for frase in ("0,69551", "eigene Berechnung", "kein amtlicher Index", "1 Euro = 1,95583 DM", "nimmt der Rechner den Jahresdurchschnitt"):
+        if frase not in de:
+            err(f"de/inflationsrechner: manca «{frase}»")
+    home = re.sub(r"\s+", " ", testo((SITO / "index.html").read_text(encoding="utf-8")))
+    for frase in ("annual average", "One month is missing: October 2025", "does not invent a value"):
+        if frase not in home:
+            err(f"home: manca «{frase}»")
+    ok(f"spiegazioni presenti: CPI→RPI senza concatenare e differenza con la Banca d'Inghilterra ({G.soldi(boe, 'GBP')} contro {nostro}), "
+       "raccordo tedesco come calcolo nostro, ottobre 2025, media annua o mese")
+
+
+def pagine_anno():
+    """(revisione indipendente) Ogni pagina anno ha il suo valore dal motore e numeri suoi: nessuna coppia con la stessa impronta
+    (media annua + 12 mesi + tasso); gli anni con la stessa media annua lo dichiarano e si collegano."""
+    impronte, n_gemelli = {}, 0
+    for y in G.ANNI_US:
+        t = (SITO / "us" / f"{y}-dollars-today" / "index.html").read_text(encoding="utf-8")
+        vis = re.sub(r"\s+", " ", testo(t))
+        atteso = G.soldi(G.vale_oggi("us", y), "USD")
+        if f'<span class="big">{atteso}</span>' not in t:
+            err(f"pagina {y}: valore di $1 non uguale al motore ({atteso})")
+        mesi = tuple(S["us"]["mensile"].get((y, m)) for m in range(1, 13))
+        for m, v in enumerate(mesi, 1):
+            if v and f"<td>{G.MESI['en'][m - 1]}</td><td class=\"n\">{G.idx(v)}</td>" not in t:
+                err(f"pagina {y}: indice di {G.MESI['en'][m - 1]} ≠ BLS {v}")
+        imp = (S["us"]["annuale"][y], mesi, M.tasso_annuo(C["us"], y))
+        if imp in impronte:
+            err(f"pagine anno {impronte[imp]} e {y}: stessi numeri (pagina doppia)")
+        impronte[imp] = y
+        gemelli = [a for a in G.ANNI_US if a != y and S["us"]["annuale"][a] == S["us"]["annuale"][y]]
+        n_gemelli += bool(gemelli)
+        for a in gemelli:
+            if f'href="/us/{a}-dollars-today/">{a}</a>' not in t or "annual average CPI-U was also" not in vis:
+                err(f"pagina {y}: non dichiara la stessa media annua del {a}")
+        if len(vis.split()) < 450:
+            err(f"pagina {y}: solo {len(vis.split())} parole")
+    ok(f"{len(impronte)} pagine anno: valore di $1 e 12 indici mensili = BLS, nessuna con gli stessi numeri di un'altra; "
+       f"{n_gemelli} anni con una media annua uguale a un altro anno lo dichiarano")
+
 PAROLE_EN = re.compile(r"\b(the|and|with|from|year|price|prices|which|this|that|calculator)\b", re.I)
 _NOMI = [x[::-1] for x in ("edualc", "ciporhtna", "tpgtahc", "ianepo", "inimeg", "amall", "supo", "tennos", "ukiah")]  # nomi di modelli AI da non pubblicare (scritti al contrario: questo file non li contiene)
 MODELLI = re.compile(r"\b(" + "|".join(_NOMI) + r"|gpt-?\d)\b", re.I)
@@ -243,10 +368,34 @@ def pagine():
             if not m or m.group(1) != f"{G.URL_SITO}/{percorso}":
                 err(f"{rel}: canonical errato")
             canon[m.group(1)] = rel
-            if not (20 <= len(unescape(tit)) <= 70):
+            if not (20 <= len(unescape(tit)) <= 65):
                 err(f"{rel}: titolo di {len(unescape(tit))} caratteri")
             if not (70 <= len(unescape(des)) <= 165):
                 err(f"{rel}: descrizione di {len(unescape(des))} caratteri")
+        TITOLI.setdefault(unescape(tit), []).append(rel)
+        DESCR.setdefault(unescape(des), []).append(rel)
+        vis = re.sub(r"\s+", " ", testo(t))
+        # (revisione indipendente) attribuzione della fonte in ogni pagina con i suoi dati, avviso, niente consigli, niente refusi noti
+        if rel.startswith("uk/") and "Source: Office for National Statistics licensed under the Open Government Licence v.3.0" not in vis:
+            err(f"{rel}: manca l'attribuzione OGL dell'ONS")
+        if rel.startswith("uk/") and "nationalarchives.gov.uk/doc/open-government-licence/version/3/" not in t:
+            err(f"{rel}: manca il link alla licenza OGL v3.0")
+        if rel.startswith("de/") and not ("Quelle: Statistisches Bundesamt (Destatis)" in vis and "mit Quellenangabe gestattet" in vis
+                                          and "Datenlizenz Deutschland – Namensnennung – Version 2.0" in vis and "govdata.de/dl-de/by-2-0" in t):
+            err(f"{rel}: citazione Destatis / dl-de/by-2-0 incompleta")
+        if rel.startswith("us/") and "U.S. Bureau of Labor Statistics" not in vis:
+            err(f"{rel}: manca la fonte BLS")
+        if rel != "404.html" and not ("not financial or investment advice" in vis or "keine Finanz- oder Anlageberatung" in vis):
+            err(f"{rel}: manca l'avviso «non è consulenza finanziaria»")
+        m = CONSIGLI.search(vis)
+        if m:
+            err(f"{rel}: frase da consiglio finanziario «{m.group(0)}»")
+        m = re.search(r"[+−-]0[.,]0+\s?%", vis)
+        if m:
+            err(f"{rel}: zero con il segno «{m.group(0)}»")
+        m = re.search(r"December (\d{4}) to December \1\b", vis)
+        if m:
+            err(f"{rel}: confronto di un dicembre con sé stesso «{m.group(0)}»")
         if t.count("<h1") != 1:
             err(f"{rel}: {t.count('<h1')} h1")
         if "gc.zgo.at/count.js" not in t:
@@ -283,6 +432,12 @@ def pagine():
             for sbagliata in ("Jahresdurchschnit ", "Inflationrate", "Verbraucherpreisindexes", " dass dass"):
                 if sbagliata in testo(main):
                     err(f"{rel}: '{sbagliata}'")
+    for nome, mappa in (("titolo", TITOLI), ("descrizione", DESCR)):
+        for testo_, dove in mappa.items():
+            if len(dove) > 1:
+                err(f"{nome} uguale in {dove[:3]}: «{testo_[:60]}»")
+    tassi_pubblicati()
+    pagine_anno()
     # link interni
     rotti = set()
     for rel, l in tutti_link:
@@ -393,7 +548,7 @@ def browser():
         err("browser: " + x)
     if not out["problemi"]:
         ok(f"browser: {out['viste']} viste (11 pagine × 375/1280 px × chiaro/scuro) senza scorrimento orizzontale, errori JS o testo < 11 px; "
-           f"{out['casi']} casi del calcolatore × 2 larghezze uguali al motore (anche 1000 $ gen 1980 → set 2025 = 4.174,81 del BLS), cambio CPI→RPI, link condiviso, tema")
+           f"{out['casi']} casi del calcolatore × 2 larghezze uguali al motore (anche 1000 $ gen 1980 → set 2025 = 4.174,81 del BLS), cambio CPI→RPI e ritorno al CPI, ottobre 2025 non selezionabile, link condiviso, tema")
 
 
 def main():

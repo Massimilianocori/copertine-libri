@@ -7,7 +7,7 @@
   "file": "grezzi/bls_cpiu.csv",
   "http": 200,
   "letto_il": "2026-11-13",
-  "sha256_pagina": "91cbde144f51434d2ee5a3cc767d62e2b86f1e3980bdaa1a375cd701bf0f73e2",
+  "sha256_pagina": "6c01addde88ce884b8d9b93bd3f98f198430f4de25b059a0f4fbf709f0964352",
   "titolo_letto": "All items in U.S. city average, all urban consumers, not seasonally adjusted",
   "licenza": {
    "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
@@ -142,8 +142,8 @@
   "file": "grezzi/destatis_12kategorien.csv",
   "http": 200,
   "letto_il": "2026-11-13",
-  "sha256": "41ed5498067cec65b49a40f9a94ff8f627810b676f096215dc69de139e0afbde",
-  "stand": null,
+  "sha256": "c174f321183fd17e7d6288cde3955b3c400565bfc37395253b6141c2c8c1f29b",
+  "stand": "11. November 2026",
   "licenza": {
    "nome": "© Statistisches Bundesamt (Destatis); Vervielfältigung und Verbreitung, auch auszugsweise, mit Quellenangabe gestattet (Inhalte von GENESIS-Online: Datenlizenz Deutschland – Namensnennung – Version 2.0, dl-de/by-2-0)",
    "url": "https://www.destatis.de/DE/Service/Impressum/_inhalt.html",
@@ -170,7 +170,7 @@
   "url": "https://www.federalreserve.gov/faqs/economy_14400.htm",
   "http": 200,
   "letto_il": "2026-11-13",
-  "sha256": "202248fce383b35f2d1b585eec50d08f35221452b641375e3fdd959b88df2328",
+  "sha256": "d13db9691aee178430b0acaff28f53c92ed9b84387610d1ee6813ff337b90eab",
   "cerca": [
    "inflation of 2 percent over the longer run, as measured by the annual change in the price index for personal consumption expenditures"
   ],
@@ -184,7 +184,7 @@
   "url": "https://www.ecb.europa.eu/euro/intro/html/index.en.html",
   "http": 200,
   "letto_il": "2026-11-13",
-  "sha256": "97f4c870794f6703e65a752510e7eb73b6add29e8601dc1603b68f8a4929409b",
+  "sha256": "e5e8e7ab65ed4ce502eabe15bda33f04cd202c82e919798ea7bdd5ef66d4e652",
   "cerca": [
    "1 DEM 1.95583 (Deutsche Mark)",
    "Germany 1957 1999 (cash since 2002)"
@@ -223,6 +223,24 @@
    "url": "https://genesis.destatis.de/genesisWS/rest/2020/data/tablefile",
    "motivo": "HTTP 401: the GENESIS-Online web service needs a registered account; we use the Destatis downloads instead",
    "provato_il": "2026-11-13"
+  }
+ },
+ "boe_calc": {
+  "chi": "Bank of England",
+  "titolo": "Inflation calculator",
+  "url": "https://www.bankofengland.co.uk/monetary-policy/inflation/inflation-calculator",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "0464ace46af06ba52571b7cdfe5b52bc273725d2026461c543b0dc23ba13410c",
+  "cerca": [
+   "CPI estimates before 1988 are modelled based on data collected for the Retail Price Index (RPI)",
+   "The price index for 1975 = 17.78",
+   "The price index for 1985 = 44.6"
+  ],
+  "trovate": {
+   "CPI estimates before 1988 are modelled based on data collected for the Retail Price Index (RPI)": true,
+   "The price index for 1975 = 17.78": true,
+   "The price index for 1985 = 44.6": true
   }
  }
 }

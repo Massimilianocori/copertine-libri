@@ -119,6 +119,27 @@ function numero(t, de) {
     const v = await page.textContent('[data-valore]');
     const atteso = process.env.ATTESO_LINK ? parseFloat(process.env.ATTESO_LINK) : null;
     if (atteso !== null && Math.abs(numero(v, false) - atteso) > 0.006) problemi.push(`link condiviso: atteso ${atteso}, letto ${v}`);
+    // (revisione indipendente) passaggio CPI -> RPI: automatico prima del 1988 con la nota visibile, ritorno al CPI quando le due date
+    // tornano dal 1988 in poi; una scelta fatta a mano del RPI resta
+    await page.goto(base + '/uk/', { waitUntil: 'load' });
+    const stato = async () => ({ s: await page.inputValue('select[name=s]'), nota: await page.isVisible('[data-nota]'), v: await page.textContent('[data-valore]') });
+    await page.selectOption('select[name=fy]', '1970');
+    let st = await stato();
+    if (st.s !== 'uk_rpi' || !st.nota) problemi.push('UK 1970: serie ' + st.s + ', nota visibile ' + st.nota);
+    await page.fill('input[name=a]', '200');
+    st = await stato();
+    if (st.s !== 'uk_rpi' || !st.nota) problemi.push('UK 1970 dopo un altro importo: la nota sul RPI sparisce (' + st.s + ', ' + st.nota + ')');
+    await page.selectOption('select[name=fy]', '1995');
+    st = await stato();
+    if (st.s !== 'uk_cpi' || st.nota) problemi.push('UK 1995 dopo il 1970: resta ' + st.s + ' (nota ' + st.nota + ') invece di tornare al CPI');
+    await page.selectOption('select[name=s]', 'uk_rpi');
+    await page.selectOption('select[name=fy]', '2000');
+    st = await stato();
+    if (st.s !== 'uk_rpi') problemi.push('UK: il RPI scelto a mano non resta');
+    // ottobre 2025 (USA): mese non selezionabile, nessun numero inventato
+    await page.goto(base + '/?a=100&f=2025-10&t=2026-10#calc', { waitUntil: 'load' });
+    const ott = await page.evaluate(() => ({ dis: document.querySelector('select[name=fm] option[value="10"]').disabled, fm: document.querySelector('select[name=fm]').value }));
+    if (!ott.dis || ott.fm === '10') problemi.push('ottobre 2025 selezionabile nel calcolatore USA: ' + JSON.stringify(ott));
     await ctx.close();
   }
   await browser.close();

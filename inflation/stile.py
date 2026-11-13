@@ -216,7 +216,7 @@ APP_JS = MOTORE_JS + r"""
   function fmt(x,val){var cur=val||D.valuta;try{return new Intl.NumberFormat(D.locale,{style:'currency',currency:cur,minimumFractionDigits:2,maximumFractionDigits:2}).format(x).replace('DEM','DM');}catch(e){return cur+' '+x.toFixed(2);}}
   function num(x,d){return new Intl.NumberFormat(D.locale,{minimumFractionDigits:d,maximumFractionDigits:d}).format(x);}
   var DE=D.locale.indexOf('de')===0;
-  function pc(x,d){return (x>=0?'+':'\u2212')+num(Math.abs(x*100),d===undefined?1:d)+(DE?'\u00a0%':'%');}
+  function pc(x,d){d=d===undefined?1:d;var z=parseFloat(Math.abs(x*100).toFixed(d))===0;return (z?'':(x>=0?'+':'\u2212'))+num(Math.abs(x*100),d)+(DE?'\u00a0%':'%');}
   function dec(x){var s=String(x),i=s.indexOf('.');return i<0?1:Math.max(1,Math.min(3,s.length-i-1));}
   function esc(t){return String(t).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
   function parseImporto(v){v=String(v||'').trim().toLowerCase().replace(/[\s$£€]/g,'').replace(/^(usd|gbp|eur|dm)|(usd|gbp|eur|dm)$/g,'');var m=1;
@@ -235,10 +235,15 @@ APP_JS = MOTORE_JS + r"""
     var fm=f.elements.fm.value?parseInt(f.elements.fm.value,10):0,tm=f.elements.tm.value?parseInt(f.elements.tm.value,10):0;
     var val=null;if(D.dm){val=fy<ANNO_EURO?(f.elements.c&&f.elements.c.value==='eur'?false:true):false;}
     return {c:c,a:parseImporto(f.elements.a.value),da:[fy,fm||undefined],aa:[ty,tm||undefined],val:val};}
-  function controllaSerie(){if(!f.elements.s)return;var fy=parseInt(f.elements.fy.value,10),ty=parseInt(f.elements.ty.value,10);
-    var s=f.elements.s.value,c=D.serie[s];
-    if(Math.min(fy,ty)<c.a0){var alt=D.serie_alt[s];if(alt){f.elements.s.value=alt;nota.textContent=T.cambio_serie;nota.hidden=false;return;}}
-    nota.hidden=true;}
+  var autoDa=null;
+  function controllaSerie(ev){if(!f.elements.s)return;var mn=Math.min(parseInt(f.elements.fy.value,10),parseInt(f.elements.ty.value,10));
+    if(ev&&ev.target===f.elements.s)autoDa=null;
+    var s=f.elements.s.value,c=D.serie[s],alt=D.serie_alt[s];
+    if(mn<c.a0&&alt){f.elements.s.value=alt;autoDa=s;}
+    else if(autoDa&&mn>=D.serie[autoDa].a0){f.elements.s.value=autoDa;autoDa=null;}
+    nota.hidden=!autoDa;if(autoDa)nota.textContent=T.cambio_serie;}
+  function avvisoSerie(){if(!D.avviso)return;var mn=Math.min(parseInt(f.elements.fy.value,10),parseInt(f.elements.ty.value,10));
+    nota.hidden=!(mn<D.avviso.prima);if(!nota.hidden)nota.textContent=D.avviso.testo;}
   function tacche(mn,mx){var span=(mx-mn)||Math.abs(mx)||1,bs=[1,2,2.5,5,10],p,a,b;
     for(var i=0;i<bs.length;i++){p=bs[i]*Math.pow(10,Math.floor(Math.log10(span/4)));a=Math.floor(mn/p+1e-9)*p;b=Math.ceil(mx/p-1e-9)*p;if((b-a)/p<=5.0001)break;}
     var n=Math.round((b-a)/p),o=[];for(var j=0;j<=n;j++)o.push(a+p*j);return o;}
@@ -254,7 +259,7 @@ APP_JS = MOTORE_JS + r"""
       lab+='<span class="gy" style="top:'+(yy/3).toFixed(1)+'%">'+esc(fmt(v,vOut).replace(/[.,]\d\d(?=\D*$)/,''))+'</span>';}
     g+='<path class="area" d="'+d+' L1000 300 L0 300 Z"/><path class="lin" d="'+d+'"/></svg>'+lab;
     g+='<span class="gx first" style="left:0">'+y0+'</span><span class="gx last" style="left:100%">'+y1+'</span></div></figure>';return g;}
-  function calcolaUi(){controllaSerie();var c=serie();aggiornaMesi(f.elements.fm,f.elements.fy,c);aggiornaMesi(f.elements.tm,f.elements.ty,c);
+  function calcolaUi(ev){controllaSerie(ev);avvisoSerie();var c=serie();aggiornaMesi(f.elements.fm,f.elements.fy,c);aggiornaMesi(f.elements.tm,f.elements.ty,c);
     var st=legge();if(D.dm){var vb=box.querySelector('[data-valuta]');if(vb)vb.hidden=!(st.da[0]<ANNO_EURO);}
     var sym=box.querySelector('[data-sym]');if(sym&&D.dm)sym.setAttribute('data-sym',st.val?'DM':'€');
     if(st.a===null){out.innerHTML='<p>'+esc(T.importo_errato)+'</p>';return;}

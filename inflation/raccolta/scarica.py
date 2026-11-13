@@ -57,7 +57,10 @@ URL_DE_PAGINA = "https://www.destatis.de/DE/Themen/Wirtschaft/Preise/Verbraucher
 
 # Casi letti dal calcolatore ufficiale del BLS (CPI Inflation Calculator): importo, mese di partenza, mese di arrivo
 CASI_BLS = [("100.00", "197001", None), ("1.00", "195006", None), ("1000.00", "198001", "202509"), ("50.00", "200001", "202001"),
-            ("100.00", "191301", "202412")]
+            ("100.00", "191301", "202412"),
+            # aggiunti dal controllo indipendente del 13/11/2026 (altri decenni, importi non tondi, arrivo nel passato)
+            ("100.00", "196501", "202609"), ("250.00", "199003", "201507"), ("1.00", "192001", "202610"), ("1000.00", "200806", "202601"),
+            ("75.50", "194412", "198005")]
 
 MESI_DE = {"Januar": 1, "Februar": 2, "März": 3, "April": 4, "Mai": 5, "Juni": 6, "Juli": 7, "August": 8, "September": 9,
            "Oktober": 10, "November": 11, "Dezember": 12}
@@ -261,7 +264,7 @@ def destatis(fonti):
         w = csv.writer(f)
         w.writerow(["tabelle", "jahr", "monat", "wert"])
         w.writerows(uniche)
-    stand = re.search(r"Stand:\s*([^<]{4,40})<", t)
+    stand = re.search(r"Stand(?::|&nbsp;|\s)\s*(\d{1,2}\.\s*[A-Za-zä]+\s+\d{4})", t)
     fonti["destatis_tabelle"] = {"chi": "Statistisches Bundesamt (Destatis)", "titolo": "Verbraucherpreisindex für Deutschland, 2020=100: Monate und Jahre, "
                                  "Index und Veränderungsraten (Tabelle „Verbraucherpreisindex: Deutschland, Monate, Kategorien“)", "url": URL_DE_TAB,
                                  "file": "grezzi/destatis_12kategorien.csv", "http": http, "letto_il": OGGI, "sha256": sha(b),
@@ -278,6 +281,10 @@ FRASI = [
      ["1 DEM 1.95583 (Deutsche Mark)", "Germany 1957 1999 (cash since 2002)"]),
     ("eurlex_2866", "Rat der Europäischen Union", "Verordnung (EG) Nr. 2866/98 des Rates über die Umrechnungskurse zwischen dem Euro und den Währungen "
      "der Mitgliedstaaten, die den Euro einführen", "https://eur-lex.europa.eu/legal-content/DE/TXT/PDF/?uri=CELEX:31998R2866", ["1,95583 Deutsche Mark"]),
+    # Il calcolatore della Banca d'Inghilterra usa un altro indice prima del 1988 (stime CPI modellate): le pagine UK lo dicono, con il suo esempio
+    ("boe_calc", "Bank of England", "Inflation calculator", "https://www.bankofengland.co.uk/monetary-policy/inflation/inflation-calculator",
+     ["CPI estimates before 1988 are modelled based on data collected for the Retail Price Index (RPI)", "The price index for 1975 = 17.78",
+      "The price index for 1985 = 44.6"]),
 ]
 # Indirizzi provati e non letti (mai aggirati): restano scritti in fonti.json e nella pagina "How we check"
 NON_LETTE = {
