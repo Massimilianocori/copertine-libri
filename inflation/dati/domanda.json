@@ -1,5 +1,5 @@
 {
- "_nota": "Volumi medi mensili di ricerca Google (strumento seodata, dati Google Ads) letti il 13/11/2026: 29 richieste. 'simili' = frasi vicine restituite dallo strumento. Usati per decidere quali pagine creare e per le FAQ (ogni FAQ cita la sua frase).",
+ "_nota": "Volumi medi mensili di ricerca Google (strumento seodata, dati Google Ads) letti il 13/11/2026: 29 richieste. 'simili' = frasi vicine restituite dallo strumento. Usati per decidere quali pagine creare e per le FAQ (ogni FAQ cita la sua frase). Dal 13/11/2026 anche 138 ricerche sui limiti 401(k)/IRA/Roth/HSA/SIMPLE (gruppo limiti_pensione): decidono quali pagine e FAQ della sezione /retirement-limits/ esistono.",
  "letto_il": "2026-11-13",
  "richieste": [
   {
@@ -1180,6 +1180,5124 @@
      "cpc": 3.69
     }
    ]
+  },
+  {
+   "frase": "401k contribution limits 2026",
+   "paese": "us",
+   "volume": 1000,
+   "cpc": 2.48,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "401k 2026 contribution limit",
+     "volume": 390,
+     "cpc": 0.31
+    },
+    {
+     "frase": "2026 max 401k contribution",
+     "volume": 320,
+     "cpc": 0
+    },
+    {
+     "frase": "401k max contribution 2026",
+     "volume": 720,
+     "cpc": 0.31
+    },
+    {
+     "frase": "2026 401k contribution limits",
+     "volume": 260,
+     "cpc": 0
+    },
+    {
+     "frase": "401k contribution limit 2026",
+     "volume": 170,
+     "cpc": 0
+    },
+    {
+     "frase": "401k contribution limits 2026 over 50",
+     "volume": 90,
+     "cpc": 0
+    },
+    {
+     "frase": "401k catch up",
+     "volume": 4400,
+     "cpc": 1.05
+    },
+    {
+     "frase": "401k catch up contribution",
+     "volume": 3600,
+     "cpc": 0.9
+    },
+    {
+     "frase": "401k catch up contributions",
+     "volume": 3600,
+     "cpc": 0.9
+    },
+    {
+     "frase": "catch up contribution 401k",
+     "volume": 3600,
+     "cpc": 0.64
+    }
+   ]
+  },
+  {
+   "frase": "401k contribution limit 2027",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "401k limit 2026",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "401k limit 2027",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "401k max contribution 2026",
+   "paese": "us",
+   "volume": 720,
+   "cpc": 0.31,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "401k contribution limit 2026",
+     "volume": 170,
+     "cpc": 0
+    },
+    {
+     "frase": "401k contribution limits 2026",
+     "volume": 1000,
+     "cpc": 2.48
+    },
+    {
+     "frase": "max 401k contribution 2026",
+     "volume": 590,
+     "cpc": 0.3
+    },
+    {
+     "frase": "2026 max 401k contribution",
+     "volume": 320,
+     "cpc": 0
+    },
+    {
+     "frase": "401k contribution limits 2026 over 50",
+     "volume": 90,
+     "cpc": 0
+    },
+    {
+     "frase": "401k 2026 contribution limit",
+     "volume": 390,
+     "cpc": 0.31
+    },
+    {
+     "frase": "401k catch up contributions",
+     "volume": 3600,
+     "cpc": 0.9
+    },
+    {
+     "frase": "2026 401k contribution limits",
+     "volume": 260,
+     "cpc": 0
+    },
+    {
+     "frase": "401k catch up",
+     "volume": 4400,
+     "cpc": 1.05
+    },
+    {
+     "frase": "401k catch up contribution",
+     "volume": 3600,
+     "cpc": 0.9
+    }
+   ]
+  },
+  {
+   "frase": "401k contribution limits",
+   "paese": "us",
+   "volume": 6600,
+   "cpc": 5.11,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "401k contribution limits 2025",
+     "volume": 135000,
+     "cpc": 3.87
+    },
+    {
+     "frase": "401k 2025 contribution limit irs",
+     "volume": 60500,
+     "cpc": 0.75
+    },
+    {
+     "frase": "401k max contribution 2025",
+     "volume": 49500,
+     "cpc": 2.86
+    },
+    {
+     "frase": "max 401k contribution 2025",
+     "volume": 49500,
+     "cpc": 0.85
+    },
+    {
+     "frase": "401k limit 2025",
+     "volume": 33100,
+     "cpc": 1.54
+    },
+    {
+     "frase": "401k limits 2025",
+     "volume": 33100,
+     "cpc": 1.54
+    },
+    {
+     "frase": "2025 401k limit",
+     "volume": 22200,
+     "cpc": 0.27
+    },
+    {
+     "frase": "401k max",
+     "volume": 18100,
+     "cpc": 0.66
+    },
+    {
+     "frase": "maximum 401k",
+     "volume": 18100,
+     "cpc": 0.61
+    },
+    {
+     "frase": "401k deduction limit",
+     "volume": 14800,
+     "cpc": 1.24
+    }
+   ]
+  },
+  {
+   "frase": "401k limit",
+   "paese": "us",
+   "volume": 14800,
+   "cpc": 0.74,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "401k contribution limits 2025",
+     "volume": 135000,
+     "cpc": 3.87
+    },
+    {
+     "frase": "401k max contribution 2025",
+     "volume": 49500,
+     "cpc": 2.86
+    },
+    {
+     "frase": "max 401k contribution 2025",
+     "volume": 49500,
+     "cpc": 0.85
+    },
+    {
+     "frase": "401k limit 2025",
+     "volume": 33100,
+     "cpc": 1.54
+    },
+    {
+     "frase": "401k limits 2025",
+     "volume": 33100,
+     "cpc": 1.54
+    },
+    {
+     "frase": "2025 401k limit",
+     "volume": 22200,
+     "cpc": 0.27
+    },
+    {
+     "frase": "401k max",
+     "volume": 18100,
+     "cpc": 0.66
+    },
+    {
+     "frase": "maximum 401k",
+     "volume": 18100,
+     "cpc": 0.61
+    },
+    {
+     "frase": "401k limits",
+     "volume": 14800,
+     "cpc": 0.74
+    },
+    {
+     "frase": "401k max contribution",
+     "volume": 14800,
+     "cpc": 0.88
+    }
+   ]
+  },
+  {
+   "frase": "401k catch up contribution 2026",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "super catch up 401k",
+   "paese": "us",
+   "volume": 1300,
+   "cpc": 0.3,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "catch up contribution 401k",
+     "volume": 3600,
+     "cpc": 0.64
+    },
+    {
+     "frase": "catch up contributions",
+     "volume": 2400,
+     "cpc": 5.31
+    },
+    {
+     "frase": "401k catch up",
+     "volume": 4400,
+     "cpc": 1.05
+    },
+    {
+     "frase": "401k super catch up",
+     "volume": 1300,
+     "cpc": 0.29
+    },
+    {
+     "frase": "401k catch up contribution",
+     "volume": 3600,
+     "cpc": 0.9
+    },
+    {
+     "frase": "super catch-up 401k",
+     "volume": 1300,
+     "cpc": 2.31
+    },
+    {
+     "frase": "401 k super catch up",
+     "volume": 50,
+     "cpc": 0
+    },
+    {
+     "frase": "catch-up contributions 2025",
+     "volume": 4400,
+     "cpc": 4.14
+    },
+    {
+     "frase": "401k catch-up",
+     "volume": 3600,
+     "cpc": 2.63
+    },
+    {
+     "frase": "super catch up",
+     "volume": 720,
+     "cpc": 0
+    }
+   ]
+  },
+  {
+   "frase": "401k catch up age 60",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "401k contribution limits 2025",
+   "paese": "us",
+   "volume": 135000,
+   "cpc": 3.87,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "401k 2025 contribution limit irs",
+     "volume": 60500,
+     "cpc": 0.75
+    },
+    {
+     "frase": "401k max contribution 2025",
+     "volume": 49500,
+     "cpc": 2.86
+    },
+    {
+     "frase": "max 401k contribution 2025",
+     "volume": 49500,
+     "cpc": 0.85
+    },
+    {
+     "frase": "401k limit 2025",
+     "volume": 33100,
+     "cpc": 1.54
+    },
+    {
+     "frase": "401k limits 2025",
+     "volume": 33100,
+     "cpc": 1.54
+    },
+    {
+     "frase": "2025 401k limit",
+     "volume": 22200,
+     "cpc": 0.27
+    },
+    {
+     "frase": "401k max",
+     "volume": 18100,
+     "cpc": 0.66
+    },
+    {
+     "frase": "401k limit",
+     "volume": 14800,
+     "cpc": 0.85
+    },
+    {
+     "frase": "401k limits",
+     "volume": 14800,
+     "cpc": 0.74
+    },
+    {
+     "frase": "401k contribution limits",
+     "volume": 6600,
+     "cpc": 1.2
+    }
+   ]
+  },
+  {
+   "frase": "401k limits by year",
+   "paese": "us",
+   "volume": 320,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "2025 401k limit",
+     "volume": 22200,
+     "cpc": 0.27
+    },
+    {
+     "frase": "401k limit",
+     "volume": 14800,
+     "cpc": 0.85
+    },
+    {
+     "frase": "401k limits",
+     "volume": 14800,
+     "cpc": 0.74
+    },
+    {
+     "frase": "max 401k contribution",
+     "volume": 14800,
+     "cpc": 0.58
+    },
+    {
+     "frase": "401k max contribution 2025",
+     "volume": 49500,
+     "cpc": 2.86
+    },
+    {
+     "frase": "max 401k contribution 2025",
+     "volume": 49500,
+     "cpc": 0.85
+    },
+    {
+     "frase": "401k contribution limits",
+     "volume": 6600,
+     "cpc": 1.2
+    },
+    {
+     "frase": "401k contribution limit",
+     "volume": 5400,
+     "cpc": 1.83
+    },
+    {
+     "frase": "401k limit 2025",
+     "volume": 33100,
+     "cpc": 1.54
+    },
+    {
+     "frase": "401k limits 2025",
+     "volume": 33100,
+     "cpc": 1.54
+    }
+   ]
+  },
+  {
+   "frase": "401k contribution limits history",
+   "paese": "us",
+   "volume": 480,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "401k contribution limits historical",
+     "volume": 590,
+     "cpc": 8.41
+    },
+    {
+     "frase": "401k historical contribution limits",
+     "volume": 590,
+     "cpc": 8.41
+    },
+    {
+     "frase": "max 401k contribution history",
+     "volume": 590,
+     "cpc": 8.41
+    },
+    {
+     "frase": "401 k contribution limits history",
+     "volume": 480,
+     "cpc": 0
+    },
+    {
+     "frase": "historical 401k contribution limits",
+     "volume": 480,
+     "cpc": 0
+    },
+    {
+     "frase": "401k contribution limit history",
+     "volume": 590,
+     "cpc": 8.41
+    },
+    {
+     "frase": "401k max contribution history",
+     "volume": 40,
+     "cpc": 0
+    },
+    {
+     "frase": "historical 401k contribution limits by year",
+     "volume": 40,
+     "cpc": 0
+    },
+    {
+     "frase": "history of 401k contribution limits",
+     "volume": 590,
+     "cpc": 8.41
+    },
+    {
+     "frase": "401k limit history",
+     "volume": 140,
+     "cpc": 0
+    }
+   ]
+  },
+  {
+   "frase": "403b contribution limits 2026",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "403b limit 2026",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "457 contribution limits 2026",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "457b limit 2026",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "tsp contribution limits 2026",
+   "paese": "us",
+   "volume": 30,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "2026 tsp contribution limits",
+     "volume": 70,
+     "cpc": 0
+    },
+    {
+     "frase": "tsp max contribution 2026",
+     "volume": 50,
+     "cpc": 0
+    },
+    {
+     "frase": "max tsp contribution 2026",
+     "volume": 30,
+     "cpc": 0
+    },
+    {
+     "frase": "tsp contribution limits 2025",
+     "volume": 2400,
+     "cpc": 0
+    },
+    {
+     "frase": "tsp max contribution 2025",
+     "volume": 3600,
+     "cpc": 0
+    },
+    {
+     "frase": "tsp catch-up 2025",
+     "volume": 390,
+     "cpc": 0
+    },
+    {
+     "frase": "thrift savings plan catch up contributions",
+     "volume": 320,
+     "cpc": 0
+    },
+    {
+     "frase": "tsp catch-up contributions 2025",
+     "volume": 70,
+     "cpc": 0
+    },
+    {
+     "frase": "tsp max contribution 2025 catch-up",
+     "volume": 40,
+     "cpc": 0
+    },
+    {
+     "frase": "max tsp contribution 2025",
+     "volume": 3600,
+     "cpc": 0
+    }
+   ]
+  },
+  {
+   "frase": "415c limit 2026",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "total 401k contribution limit 2026",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "401k catch up contribution limit",
+   "paese": "us",
+   "volume": 1000,
+   "cpc": 2.75,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "401k catch-up 2025",
+     "volume": 5400,
+     "cpc": 0.32
+    },
+    {
+     "frase": "401k catch up",
+     "volume": 4400,
+     "cpc": 1.05
+    },
+    {
+     "frase": "401k catch up contribution",
+     "volume": 3600,
+     "cpc": 0.9
+    },
+    {
+     "frase": "401k catch up contributions",
+     "volume": 3600,
+     "cpc": 0.9
+    },
+    {
+     "frase": "catch up contribution 401k",
+     "volume": 3600,
+     "cpc": 0.64
+    },
+    {
+     "frase": "401k 2025 catch-up limits",
+     "volume": 1600,
+     "cpc": 0.29
+    },
+    {
+     "frase": "catch up contributions",
+     "volume": 2400,
+     "cpc": 5.31
+    },
+    {
+     "frase": "401k catch-up age",
+     "volume": 1600,
+     "cpc": 2.43
+    },
+    {
+     "frase": "catch-up contributions 2025",
+     "volume": 4400,
+     "cpc": 4.14
+    },
+    {
+     "frase": "401k catch-up",
+     "volume": 3600,
+     "cpc": 2.63
+    }
+   ]
+  },
+  {
+   "frase": "catch up contributions 2026",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "roth catch up contribution rule",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "401k limit 2024",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "401k limit 2023",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "ira contribution limits 2026",
+   "paese": "us",
+   "volume": 590,
+   "cpc": 4.93,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "roth ira contribution limits 2026",
+     "volume": 880,
+     "cpc": 4.42
+    },
+    {
+     "frase": "2026 roth ira contribution limits",
+     "volume": 1300,
+     "cpc": 3.52
+    },
+    {
+     "frase": "max roth ira contribution 2026",
+     "volume": 110,
+     "cpc": 2.88
+    },
+    {
+     "frase": "roth ira limit 2026",
+     "volume": 320,
+     "cpc": 1.96
+    },
+    {
+     "frase": "2026 roth ira contribution limit",
+     "volume": 90,
+     "cpc": 0
+    },
+    {
+     "frase": "2026 ira contribution limits",
+     "volume": 1000,
+     "cpc": 2.39
+    },
+    {
+     "frase": "roth ira 2026 contribution limit",
+     "volume": 170,
+     "cpc": 2.33
+    },
+    {
+     "frase": "roth ira contribution limit 2026",
+     "volume": 140,
+     "cpc": 5.85
+    },
+    {
+     "frase": "roth ira 2026",
+     "volume": 170,
+     "cpc": 0.87
+    },
+    {
+     "frase": "roth ira 2026 contribution limit irs",
+     "volume": 40,
+     "cpc": 2.44
+    }
+   ]
+  },
+  {
+   "frase": "ira contribution limits 2027",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "ira limit 2026",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "ira contribution limit 2025",
+   "paese": "us",
+   "volume": 40500,
+   "cpc": 3.39,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "ira contribution limits 2025",
+     "volume": 40500,
+     "cpc": 3.39
+    },
+    {
+     "frase": "2025 ira contribution limits",
+     "volume": 27100,
+     "cpc": 3.21
+    },
+    {
+     "frase": "ira limits 2025",
+     "volume": 9900,
+     "cpc": 2.18
+    },
+    {
+     "frase": "roth ira 2025 contribution limit",
+     "volume": 3600,
+     "cpc": 3.63
+    },
+    {
+     "frase": "2025 ira contribution limits over 50",
+     "volume": 1900,
+     "cpc": 2.79
+    },
+    {
+     "frase": "roth ira contribution limits 2025",
+     "volume": 90500,
+     "cpc": 2.58
+    },
+    {
+     "frase": "roth ira limit 2025",
+     "volume": 9900,
+     "cpc": 2.65
+    },
+    {
+     "frase": "roth ira max contribution 2025",
+     "volume": 8100,
+     "cpc": 3.26
+    },
+    {
+     "frase": "2025 roth ira contribution limits",
+     "volume": 33100,
+     "cpc": 2.5
+    },
+    {
+     "frase": "ira contributions 2025",
+     "volume": 880,
+     "cpc": 1.91
+    }
+   ]
+  },
+  {
+   "frase": "ira catch up contribution 2026",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "traditional ira deduction limits 2026",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "ira deduction income limit",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "ira contribution limits",
+   "paese": "us",
+   "volume": 14800,
+   "cpc": 1.77,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "max ira contribution",
+     "volume": 18100,
+     "cpc": 1.38
+    },
+    {
+     "frase": "ira income limits",
+     "volume": 6600,
+     "cpc": 2.08
+    },
+    {
+     "frase": "traditional ira limits",
+     "volume": 3600,
+     "cpc": 3.03
+    },
+    {
+     "frase": "ira contribution",
+     "volume": 2900,
+     "cpc": 3.84
+    },
+    {
+     "frase": "income limit for ira deduction",
+     "volume": 1900,
+     "cpc": 1.95
+    },
+    {
+     "frase": "traditional ira limit",
+     "volume": 3600,
+     "cpc": 3.23
+    },
+    {
+     "frase": "what is ira contribution",
+     "volume": 1600,
+     "cpc": 2.36
+    },
+    {
+     "frase": "roth ira contribution limits",
+     "volume": 33100,
+     "cpc": 2.51
+    },
+    {
+     "frase": "roth ira yearly limit",
+     "volume": 1900,
+     "cpc": 2.48
+    },
+    {
+     "frase": "roth ira yearly contribution limit",
+     "volume": 1300,
+     "cpc": 1.94
+    }
+   ]
+  },
+  {
+   "frase": "ira limits by year",
+   "paese": "us",
+   "volume": 90,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "ira income limits",
+     "volume": 6600,
+     "cpc": 2.08
+    },
+    {
+     "frase": "traditional ira limit",
+     "volume": 3600,
+     "cpc": 3.23
+    },
+    {
+     "frase": "traditional ira limits",
+     "volume": 3600,
+     "cpc": 3.03
+    },
+    {
+     "frase": "income limit for ira deduction",
+     "volume": 1900,
+     "cpc": 1.95
+    },
+    {
+     "frase": "what is ira contribution",
+     "volume": 1600,
+     "cpc": 2.36
+    },
+    {
+     "frase": "max ira contribution",
+     "volume": 18100,
+     "cpc": 1.38
+    },
+    {
+     "frase": "traditional ira income limits",
+     "volume": 12100,
+     "cpc": 1.92
+    },
+    {
+     "frase": "roth ira yearly limit",
+     "volume": 1900,
+     "cpc": 2.48
+    },
+    {
+     "frase": "roth ira yearly contribution limit",
+     "volume": 1300,
+     "cpc": 1.94
+    },
+    {
+     "frase": "roth ira contribution limits",
+     "volume": 33100,
+     "cpc": 2.51
+    }
+   ]
+  },
+  {
+   "frase": "ira contribution limits history",
+   "paese": "us",
+   "volume": 320,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "historical ira contribution limits",
+     "volume": 320,
+     "cpc": 3.83
+    },
+    {
+     "frase": "ira contribution limit history",
+     "volume": 320,
+     "cpc": 0
+    },
+    {
+     "frase": "history of ira contribution limits",
+     "volume": 320,
+     "cpc": 0
+    },
+    {
+     "frase": "ira historical contribution limits",
+     "volume": 320,
+     "cpc": 0
+    },
+    {
+     "frase": "roth ira contribution limits history",
+     "volume": 390,
+     "cpc": 1.86
+    },
+    {
+     "frase": "roth ira historical contribution limits",
+     "volume": 50,
+     "cpc": 0
+    },
+    {
+     "frase": "roth ira limits history",
+     "volume": 50,
+     "cpc": 0
+    },
+    {
+     "frase": "ira contribution",
+     "volume": 2900,
+     "cpc": 3.84
+    },
+    {
+     "frase": "roth ira contribution limits historical",
+     "volume": 390,
+     "cpc": 11.91
+    },
+    {
+     "frase": "historical roth ira income limits by year",
+     "volume": 50,
+     "cpc": 0
+    }
+   ]
+  },
+  {
+   "frase": "spousal ira contribution limit",
+   "paese": "us",
+   "volume": 320,
+   "cpc": 1.7,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "spousal ira",
+     "volume": 3600,
+     "cpc": 4.63
+    },
+    {
+     "frase": "spousal roth ira",
+     "volume": 1600,
+     "cpc": 7.4
+    },
+    {
+     "frase": "spousal ira limits",
+     "volume": 320,
+     "cpc": 1.7
+    },
+    {
+     "frase": "spousal ira contribution rules",
+     "volume": 110,
+     "cpc": 0
+    },
+    {
+     "frase": "income limits for spousal ira",
+     "volume": 590,
+     "cpc": 0.94
+    },
+    {
+     "frase": "spousal ira limit",
+     "volume": 320,
+     "cpc": 3.03
+    },
+    {
+     "frase": "spousal ira contribution income limits",
+     "volume": 50,
+     "cpc": 0
+    },
+    {
+     "frase": "spousal ira contributions",
+     "volume": 590,
+     "cpc": 2.52
+    },
+    {
+     "frase": "ira spouse contribution",
+     "volume": 480,
+     "cpc": 4.97
+    },
+    {
+     "frase": "income limits for spousal ira contribution",
+     "volume": 50,
+     "cpc": 0
+    }
+   ]
+  },
+  {
+   "frase": "roth ira income limits 2026",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "roth ira income limits 2027",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "roth ira contribution limits 2026",
+   "paese": "us",
+   "volume": 880,
+   "cpc": 4.42,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "ira contribution limits 2026",
+     "volume": 590,
+     "cpc": 4.93
+    },
+    {
+     "frase": "2026 roth ira contribution limits",
+     "volume": 1300,
+     "cpc": 3.52
+    },
+    {
+     "frase": "max roth ira contribution 2026",
+     "volume": 110,
+     "cpc": 2.88
+    },
+    {
+     "frase": "roth ira limit 2026",
+     "volume": 320,
+     "cpc": 1.96
+    },
+    {
+     "frase": "2026 roth ira contribution limit",
+     "volume": 90,
+     "cpc": 0
+    },
+    {
+     "frase": "roth ira 2026 contribution limit",
+     "volume": 170,
+     "cpc": 2.33
+    },
+    {
+     "frase": "roth ira contribution limit 2026",
+     "volume": 140,
+     "cpc": 5.85
+    },
+    {
+     "frase": "2026 ira contribution limits",
+     "volume": 1000,
+     "cpc": 2.39
+    },
+    {
+     "frase": "roth ira 2026",
+     "volume": 170,
+     "cpc": 0.87
+    },
+    {
+     "frase": "roth ira 2026 contribution limit irs",
+     "volume": 40,
+     "cpc": 2.44
+    }
+   ]
+  },
+  {
+   "frase": "roth ira contribution limits 2027",
+   "paese": "us",
+   "volume": 50,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "2025 ira contribution limits",
+     "volume": 27100,
+     "cpc": 3.21
+    },
+    {
+     "frase": "roth ira limit 2025",
+     "volume": 9900,
+     "cpc": 2.82
+    },
+    {
+     "frase": "ira contribution limits 2025",
+     "volume": 40500,
+     "cpc": 3.39
+    },
+    {
+     "frase": "roth ira contribution limits",
+     "volume": 33100,
+     "cpc": 2.51
+    },
+    {
+     "frase": "max ira contribution",
+     "volume": 18100,
+     "cpc": 1.38
+    },
+    {
+     "frase": "ira income limits",
+     "volume": 6600,
+     "cpc": 2.08
+    },
+    {
+     "frase": "roth ira 2025 contribution limit",
+     "volume": 3600,
+     "cpc": 3.17
+    },
+    {
+     "frase": "2025 ira contribution limits over 50",
+     "volume": 1900,
+     "cpc": 2.79
+    },
+    {
+     "frase": "roth ira yearly limit",
+     "volume": 1900,
+     "cpc": 2.48
+    },
+    {
+     "frase": "roth ira yearly contribution limit",
+     "volume": 1300,
+     "cpc": 1.94
+    }
+   ]
+  },
+  {
+   "frase": "roth ira income limits 2025",
+   "paese": "us",
+   "volume": 18100,
+   "cpc": 2.34,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "roth ira contribution limits 2025",
+     "volume": 90500,
+     "cpc": 2.58
+    },
+    {
+     "frase": "2025 roth ira contribution limits",
+     "volume": 33100,
+     "cpc": 2.5
+    },
+    {
+     "frase": "roth ira limit 2025",
+     "volume": 9900,
+     "cpc": 2.82
+    },
+    {
+     "frase": "roth ira max contribution 2025",
+     "volume": 8100,
+     "cpc": 3.31
+    },
+    {
+     "frase": "roth ira 2025 contribution limit",
+     "volume": 3600,
+     "cpc": 3.17
+    },
+    {
+     "frase": "roth ira phase out",
+     "volume": 1000,
+     "cpc": 2.65
+    },
+    {
+     "frase": "income limit for roth ira",
+     "volume": 90500,
+     "cpc": 2.12
+    },
+    {
+     "frase": "roth ira max contribution",
+     "volume": 33100,
+     "cpc": 2.52
+    },
+    {
+     "frase": "roth ira max",
+     "volume": 8100,
+     "cpc": 2.06
+    },
+    {
+     "frase": "roth ira guidelines",
+     "volume": 6600,
+     "cpc": 1.72
+    }
+   ]
+  },
+  {
+   "frase": "roth ira limits 2026",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "roth ira eligibility",
+   "paese": "us",
+   "volume": 2900,
+   "cpc": 2.15,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "income limit for roth ira",
+     "volume": 90500,
+     "cpc": 2.12
+    },
+    {
+     "frase": "roth ira income limit",
+     "volume": 90500,
+     "cpc": 2.12
+    },
+    {
+     "frase": "roth ira income limits",
+     "volume": 90500,
+     "cpc": 2.12
+    },
+    {
+     "frase": "roth ira limit income",
+     "volume": 90500,
+     "cpc": 2.12
+    },
+    {
+     "frase": "roth ira salary limits",
+     "volume": 90500,
+     "cpc": 2.1
+    },
+    {
+     "frase": "roth ira contribution limits",
+     "volume": 33100,
+     "cpc": 2.51
+    },
+    {
+     "frase": "roth ira max contribution",
+     "volume": 33100,
+     "cpc": 2.52
+    },
+    {
+     "frase": "roth ira limitations",
+     "volume": 27100,
+     "cpc": 2
+    },
+    {
+     "frase": "roth ira limit",
+     "volume": 22200,
+     "cpc": 2.56
+    },
+    {
+     "frase": "roth ira limits",
+     "volume": 22200,
+     "cpc": 1.98
+    }
+   ]
+  },
+  {
+   "frase": "roth ira calculator",
+   "paese": "us",
+   "volume": 135000,
+   "cpc": 2.39,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "calculator for roth ira",
+     "volume": 135000,
+     "cpc": 2.45
+    },
+    {
+     "frase": "calculator roth ira",
+     "volume": 135000,
+     "cpc": 2.45
+    },
+    {
+     "frase": "ira calculator roth",
+     "volume": 135000,
+     "cpc": 2.54
+    },
+    {
+     "frase": "ira calculator",
+     "volume": 22200,
+     "cpc": 1.93
+    },
+    {
+     "frase": "roth ira investment calculator",
+     "volume": 1600,
+     "cpc": 1.58
+    },
+    {
+     "frase": "roth ira contributions calculator",
+     "volume": 1300,
+     "cpc": 2.13
+    },
+    {
+     "frase": "ira roth calculator",
+     "volume": 135000,
+     "cpc": 2.45
+    },
+    {
+     "frase": "roth ira estimator",
+     "volume": 135000,
+     "cpc": 2.45
+    },
+    {
+     "frase": "roth calculator",
+     "volume": 6600,
+     "cpc": 1.95
+    },
+    {
+     "frase": "roth ira compound interest calculator",
+     "volume": 1600,
+     "cpc": 1.62
+    }
+   ]
+  },
+  {
+   "frase": "roth ira contribution calculator",
+   "paese": "us",
+   "volume": 1300,
+   "cpc": 1.75,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "roth ira investment calculator",
+     "volume": 1600,
+     "cpc": 1.58
+    },
+    {
+     "frase": "roth ira contributions calculator",
+     "volume": 1300,
+     "cpc": 2.13
+    },
+    {
+     "frase": "roth ira calculator",
+     "volume": 135000,
+     "cpc": 2.39
+    },
+    {
+     "frase": "ira roth calculator",
+     "volume": 135000,
+     "cpc": 2.45
+    },
+    {
+     "frase": "calculator for roth ira",
+     "volume": 135000,
+     "cpc": 2.45
+    },
+    {
+     "frase": "ira calculator roth",
+     "volume": 135000,
+     "cpc": 2.54
+    },
+    {
+     "frase": "roth ira estimator",
+     "volume": 135000,
+     "cpc": 2.45
+    },
+    {
+     "frase": "ira account calculator",
+     "volume": 27100,
+     "cpc": 1.82
+    },
+    {
+     "frase": "ira calculator",
+     "volume": 22200,
+     "cpc": 1.93
+    },
+    {
+     "frase": "ira growth calculator",
+     "volume": 1600,
+     "cpc": 1.72
+    }
+   ]
+  },
+  {
+   "frase": "roth ira income limit calculator",
+   "paese": "us",
+   "volume": 50,
+   "cpc": 1.42,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "roth ira contribution limit calculator",
+     "volume": 480,
+     "cpc": 2.85
+    },
+    {
+     "frase": "roth ira income limits calculator",
+     "volume": 50,
+     "cpc": 1.71
+    },
+    {
+     "frase": "roth ira investment calculator",
+     "volume": 1600,
+     "cpc": 1.58
+    },
+    {
+     "frase": "roth ira contributions calculator",
+     "volume": 1300,
+     "cpc": 2.13
+    },
+    {
+     "frase": "roth ira maximum contribution calculator",
+     "volume": 480,
+     "cpc": 2.85
+    },
+    {
+     "frase": "roth ira phase out calculator",
+     "volume": 90,
+     "cpc": 2.47
+    },
+    {
+     "frase": "roth ira phase-out calculator",
+     "volume": 90,
+     "cpc": 0.74
+    },
+    {
+     "frase": "roth ira contribution limits calculator",
+     "volume": 70,
+     "cpc": 1.8
+    },
+    {
+     "frase": "roth ira limit calculator",
+     "volume": 50,
+     "cpc": 2.24
+    },
+    {
+     "frase": "roth ira estimator",
+     "volume": 135000,
+     "cpc": 2.45
+    }
+   ]
+  },
+  {
+   "frase": "roth ira phase out 2026",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "roth ira phase out calculator",
+   "paese": "us",
+   "volume": 90,
+   "cpc": 2.47,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "roth ira phase-out calculator",
+     "volume": 90,
+     "cpc": 0.74
+    },
+    {
+     "frase": "roth ira contribution limit calculator",
+     "volume": 480,
+     "cpc": 2.85
+    },
+    {
+     "frase": "max roth ira contribution calculator",
+     "volume": 480,
+     "cpc": 2.85
+    },
+    {
+     "frase": "roth ira maximum contribution calculator",
+     "volume": 480,
+     "cpc": 2.85
+    },
+    {
+     "frase": "roth ira contribution limits 2025 calculator",
+     "volume": 210,
+     "cpc": 1.78
+    },
+    {
+     "frase": "roth phase out calculator",
+     "volume": 30,
+     "cpc": 1.15
+    },
+    {
+     "frase": "roth ira contribution calculator based on income",
+     "volume": 20,
+     "cpc": 0
+    },
+    {
+     "frase": "roth ira salary limits",
+     "volume": 90500,
+     "cpc": 2.1
+    },
+    {
+     "frase": "calculate ira contribution limit",
+     "volume": 1300,
+     "cpc": 1.79
+    },
+    {
+     "frase": "roth ira contributions calculator",
+     "volume": 1300,
+     "cpc": 2.13
+    }
+   ]
+  },
+  {
+   "frase": "can i contribute to a roth ira",
+   "paese": "us",
+   "volume": 2400,
+   "cpc": 2.27,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "income limit for roth ira",
+     "volume": 90500,
+     "cpc": 2.12
+    },
+    {
+     "frase": "roth ira contribution limits",
+     "volume": 33100,
+     "cpc": 2.51
+    },
+    {
+     "frase": "roth ira limit",
+     "volume": 22200,
+     "cpc": 1.98
+    },
+    {
+     "frase": "roth ira limits",
+     "volume": 22200,
+     "cpc": 2.56
+    },
+    {
+     "frase": "how much can you put in a roth ira",
+     "volume": 5400,
+     "cpc": 1.9
+    },
+    {
+     "frase": "roth ira eligibility",
+     "volume": 2900,
+     "cpc": 2.02
+    },
+    {
+     "frase": "roth contribution",
+     "volume": 1900,
+     "cpc": 1.58
+    },
+    {
+     "frase": "roth ira age limit",
+     "volume": 1900,
+     "cpc": 1.91
+    },
+    {
+     "frase": "roth ira yearly limit",
+     "volume": 1900,
+     "cpc": 2.48
+    },
+    {
+     "frase": "who can contribute to a roth ira",
+     "volume": 1900,
+     "cpc": 1.82
+    }
+   ]
+  },
+  {
+   "frase": "roth ira magi limit",
+   "paese": "us",
+   "volume": 720,
+   "cpc": 1.76,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "roth ira limit income",
+     "volume": 90500,
+     "cpc": 2.12
+    },
+    {
+     "frase": "roth ira salary limits",
+     "volume": 90500,
+     "cpc": 2.1
+    },
+    {
+     "frase": "roth ira limitations",
+     "volume": 27100,
+     "cpc": 2
+    },
+    {
+     "frase": "roth ira limits",
+     "volume": 22200,
+     "cpc": 1.98
+    },
+    {
+     "frase": "roth ira maximum income",
+     "volume": 6600,
+     "cpc": 1.36
+    },
+    {
+     "frase": "roth ira yearly contribution limit",
+     "volume": 1300,
+     "cpc": 1.94
+    },
+    {
+     "frase": "roth ira phase out",
+     "volume": 1000,
+     "cpc": 2.65
+    },
+    {
+     "frase": "income limit for roth ira",
+     "volume": 90500,
+     "cpc": 2.12
+    },
+    {
+     "frase": "roth ira income limits",
+     "volume": 90500,
+     "cpc": 2.12
+    },
+    {
+     "frase": "roth limits",
+     "volume": 22200,
+     "cpc": 2.56
+    }
+   ]
+  },
+  {
+   "frase": "roth ira income limits married filing jointly",
+   "paese": "us",
+   "volume": 90,
+   "cpc": 0.82,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "income limit for roth ira",
+     "volume": 90500,
+     "cpc": 2.12
+    },
+    {
+     "frase": "roth ira income limit",
+     "volume": 90500,
+     "cpc": 2.12
+    },
+    {
+     "frase": "roth ira income limits",
+     "volume": 90500,
+     "cpc": 2.12
+    },
+    {
+     "frase": "roth ira limit income",
+     "volume": 90500,
+     "cpc": 2.12
+    },
+    {
+     "frase": "roth ira salary limits",
+     "volume": 90500,
+     "cpc": 2.1
+    },
+    {
+     "frase": "roth ira contribution limits",
+     "volume": 33100,
+     "cpc": 2.51
+    },
+    {
+     "frase": "roth ira limitations",
+     "volume": 27100,
+     "cpc": 2
+    },
+    {
+     "frase": "roth ira limit",
+     "volume": 22200,
+     "cpc": 2.56
+    },
+    {
+     "frase": "roth ira limits",
+     "volume": 22200,
+     "cpc": 1.98
+    },
+    {
+     "frase": "roth ira max",
+     "volume": 8100,
+     "cpc": 2.06
+    }
+   ]
+  },
+  {
+   "frase": "roth ira income limits single",
+   "paese": "us",
+   "volume": 210,
+   "cpc": 1.33,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "income limit for roth ira",
+     "volume": 90500,
+     "cpc": 2.12
+    },
+    {
+     "frase": "roth ira income limit",
+     "volume": 90500,
+     "cpc": 2.12
+    },
+    {
+     "frase": "roth ira income limits",
+     "volume": 90500,
+     "cpc": 2.12
+    },
+    {
+     "frase": "roth ira limit income",
+     "volume": 90500,
+     "cpc": 2.12
+    },
+    {
+     "frase": "roth ira salary limits",
+     "volume": 90500,
+     "cpc": 2.1
+    },
+    {
+     "frase": "roth ira contribution limits",
+     "volume": 33100,
+     "cpc": 2.51
+    },
+    {
+     "frase": "roth ira max contribution",
+     "volume": 33100,
+     "cpc": 2.52
+    },
+    {
+     "frase": "roth ira limit",
+     "volume": 22200,
+     "cpc": 2.56
+    },
+    {
+     "frase": "roth ira limits",
+     "volume": 22200,
+     "cpc": 1.98
+    },
+    {
+     "frase": "roth limits",
+     "volume": 22200,
+     "cpc": 2.56
+    }
+   ]
+  },
+  {
+   "frase": "roth ira max contribution 2026",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "backdoor roth ira",
+   "paese": "us",
+   "volume": 18100,
+   "cpc": 1.92,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "backdoor roth",
+     "volume": 27100,
+     "cpc": 3.33
+    },
+    {
+     "frase": "backdoor ira",
+     "volume": 6600,
+     "cpc": 2.86
+    },
+    {
+     "frase": "what is a backdoor roth ira",
+     "volume": 5400,
+     "cpc": 3.71
+    },
+    {
+     "frase": "backdoor roth conversion",
+     "volume": 2400,
+     "cpc": 3.44
+    },
+    {
+     "frase": "backdoor roth ira conversion",
+     "volume": 2400,
+     "cpc": 3.44
+    },
+    {
+     "frase": "backdoor roth ira limit",
+     "volume": 2400,
+     "cpc": 2.66
+    },
+    {
+     "frase": "backdoor roth ira limits",
+     "volume": 2400,
+     "cpc": 3.97
+    },
+    {
+     "frase": "roth ira backdoor limit",
+     "volume": 2400,
+     "cpc": 2.66
+    },
+    {
+     "frase": "backdoor roth limit",
+     "volume": 1600,
+     "cpc": 4.79
+    },
+    {
+     "frase": "roth backdoor contribution",
+     "volume": 30,
+     "cpc": 1.68
+    }
+   ]
+  },
+  {
+   "frase": "roth ira contribution limits by year",
+   "paese": "us",
+   "volume": 320,
+   "cpc": 2.09,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "income limit for roth ira",
+     "volume": 90500,
+     "cpc": 2.12
+    },
+    {
+     "frase": "roth ira income limit",
+     "volume": 90500,
+     "cpc": 2.12
+    },
+    {
+     "frase": "roth ira income limits",
+     "volume": 90500,
+     "cpc": 2.12
+    },
+    {
+     "frase": "roth ira salary limits",
+     "volume": 90500,
+     "cpc": 2.1
+    },
+    {
+     "frase": "roth ira contribution limits",
+     "volume": 33100,
+     "cpc": 2.51
+    },
+    {
+     "frase": "roth ira max contribution",
+     "volume": 33100,
+     "cpc": 2.52
+    },
+    {
+     "frase": "roth ira limit",
+     "volume": 22200,
+     "cpc": 2.56
+    },
+    {
+     "frase": "roth ira limits",
+     "volume": 22200,
+     "cpc": 1.98
+    },
+    {
+     "frase": "roth limits",
+     "volume": 22200,
+     "cpc": 2.56
+    },
+    {
+     "frase": "maximum contribution to roth ira",
+     "volume": 8100,
+     "cpc": 1.91
+    }
+   ]
+  },
+  {
+   "frase": "roth ira income limits history",
+   "paese": "us",
+   "volume": 50,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "roth ira income limit history",
+     "volume": 50,
+     "cpc": 1.82
+    },
+    {
+     "frase": "roth ira limits history",
+     "volume": 50,
+     "cpc": 0
+    },
+    {
+     "frase": "roth ira max",
+     "volume": 8100,
+     "cpc": 2.06
+    },
+    {
+     "frase": "roth ira contribution limit history",
+     "volume": 390,
+     "cpc": 11.91
+    },
+    {
+     "frase": "roth contribution limits history",
+     "volume": 30,
+     "cpc": 0
+    },
+    {
+     "frase": "roth ira contribution limits",
+     "volume": 33100,
+     "cpc": 2.51
+    },
+    {
+     "frase": "roth ira limits",
+     "volume": 22200,
+     "cpc": 1.98
+    },
+    {
+     "frase": "history of roth ira contribution limits",
+     "volume": 390,
+     "cpc": 1.86
+    },
+    {
+     "frase": "roth ira historical contribution limits",
+     "volume": 50,
+     "cpc": 0
+    },
+    {
+     "frase": "roth ira income limits",
+     "volume": 90500,
+     "cpc": 2.12
+    }
+   ]
+  },
+  {
+   "frase": "how much can i contribute to roth ira",
+   "paese": "us",
+   "volume": 2400,
+   "cpc": 1.74,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "income limit for roth ira",
+     "volume": 90500,
+     "cpc": 2.12
+    },
+    {
+     "frase": "roth ira income limit",
+     "volume": 90500,
+     "cpc": 2.12
+    },
+    {
+     "frase": "roth ira income limits",
+     "volume": 90500,
+     "cpc": 2.1
+    },
+    {
+     "frase": "roth ira salary limits",
+     "volume": 90500,
+     "cpc": 2.1
+    },
+    {
+     "frase": "roth ira contribution limits",
+     "volume": 33100,
+     "cpc": 2.51
+    },
+    {
+     "frase": "roth ira limit",
+     "volume": 22200,
+     "cpc": 1.98
+    },
+    {
+     "frase": "roth ira limits",
+     "volume": 22200,
+     "cpc": 2.56
+    },
+    {
+     "frase": "roth ira guidelines",
+     "volume": 6600,
+     "cpc": 1.78
+    },
+    {
+     "frase": "roth ira max income",
+     "volume": 6600,
+     "cpc": 2.07
+    },
+    {
+     "frase": "roth ira maximum income",
+     "volume": 6600,
+     "cpc": 2.07
+    }
+   ]
+  },
+  {
+   "frase": "roth ira contribution limit over 50",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "roth ira married filing separately",
+   "paese": "us",
+   "volume": 880,
+   "cpc": 2.33,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "roth ira contributions married filing separately",
+     "volume": 90,
+     "cpc": 2.56
+    },
+    {
+     "frase": "married filing separately roth ira contribution",
+     "volume": 90,
+     "cpc": 2.56
+    },
+    {
+     "frase": "married filing separately roth ira",
+     "volume": 880,
+     "cpc": 2.33
+    },
+    {
+     "frase": "roth ira income limits married filing separately",
+     "volume": 170,
+     "cpc": 3.47
+    },
+    {
+     "frase": "married filing separately roth ira limit",
+     "volume": 140,
+     "cpc": 0
+    },
+    {
+     "frase": "roth ira contribution married filing separately",
+     "volume": 90,
+     "cpc": 2.76
+    },
+    {
+     "frase": "married filing separate roth ira",
+     "volume": 50,
+     "cpc": 0
+    },
+    {
+     "frase": "roth contributions married filing separately",
+     "volume": 50,
+     "cpc": 0
+    },
+    {
+     "frase": "roth ira limits married filing separately",
+     "volume": 50,
+     "cpc": 0.31
+    },
+    {
+     "frase": "married filing separately roth",
+     "volume": 30,
+     "cpc": 0
+    }
+   ]
+  },
+  {
+   "frase": "hsa contribution limits 2026",
+   "paese": "us",
+   "volume": 880,
+   "cpc": 0.34,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "2026 hsa contribution limits",
+     "volume": 1300,
+     "cpc": 5.54
+    },
+    {
+     "frase": "hsa 2026",
+     "volume": 170,
+     "cpc": 0
+    },
+    {
+     "frase": "irs hsa limits 2026",
+     "volume": 50,
+     "cpc": 0
+    },
+    {
+     "frase": "hsa limit 2025",
+     "volume": 27100,
+     "cpc": 3.58
+    },
+    {
+     "frase": "hsa max contribution 2025",
+     "volume": 14800,
+     "cpc": 3.73
+    },
+    {
+     "frase": "hsa 2026 contribution limit",
+     "volume": 260,
+     "cpc": 0
+    },
+    {
+     "frase": "2025 hsa contribution limits",
+     "volume": 33100,
+     "cpc": 3.44
+    },
+    {
+     "frase": "2025 hsa limits",
+     "volume": 9900,
+     "cpc": 0
+    },
+    {
+     "frase": "hsa contribution limits",
+     "volume": 4400,
+     "cpc": 0.82
+    },
+    {
+     "frase": "hsa max 2025",
+     "volume": 12100,
+     "cpc": 0.22
+    }
+   ]
+  },
+  {
+   "frase": "hsa contribution limits 2027",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "hsa limit 2026",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "hsa limit 2027",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "hsa contribution limits 2025",
+   "paese": "us",
+   "volume": 60500,
+   "cpc": 3.03,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "2025 hsa contribution limits",
+     "volume": 33100,
+     "cpc": 3.44
+    },
+    {
+     "frase": "hsa limit 2025",
+     "volume": 27100,
+     "cpc": 3.58
+    },
+    {
+     "frase": "hsa limits 2025",
+     "volume": 27100,
+     "cpc": 4.19
+    },
+    {
+     "frase": "hsa max contribution 2025",
+     "volume": 14800,
+     "cpc": 3.73
+    },
+    {
+     "frase": "hsa max 2025",
+     "volume": 12100,
+     "cpc": 0.22
+    },
+    {
+     "frase": "max hsa contribution 2025",
+     "volume": 12100,
+     "cpc": 0.67
+    },
+    {
+     "frase": "2025 hsa limits",
+     "volume": 9900,
+     "cpc": 0
+    },
+    {
+     "frase": "hsa contribution limits",
+     "volume": 4400,
+     "cpc": 0.82
+    },
+    {
+     "frase": "hsa contribution limit",
+     "volume": 2400,
+     "cpc": 2.91
+    },
+    {
+     "frase": "2025 hsa contribution limits over 55",
+     "volume": 1600,
+     "cpc": 0
+    }
+   ]
+  },
+  {
+   "frase": "hsa family contribution limit 2026",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "hsa catch up contribution",
+   "paese": "us",
+   "volume": 1000,
+   "cpc": 6.97,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "catch up contribution hsa",
+     "volume": 1000,
+     "cpc": 6.97
+    },
+    {
+     "frase": "hsa max",
+     "volume": 5400,
+     "cpc": 4.55
+    },
+    {
+     "frase": "catch-up contributions hsa",
+     "volume": 1000,
+     "cpc": 6.97
+    },
+    {
+     "frase": "hsa catch up contributions",
+     "volume": 1000,
+     "cpc": 6.97
+    },
+    {
+     "frase": "hsa catch-up contributions",
+     "volume": 1000,
+     "cpc": 0
+    },
+    {
+     "frase": "is there a catch-up contribution for hsa",
+     "volume": 40,
+     "cpc": 0
+    },
+    {
+     "frase": "hsa contribution limits",
+     "volume": 4400,
+     "cpc": 0.82
+    },
+    {
+     "frase": "hsa contribution limit",
+     "volume": 2400,
+     "cpc": 2.91
+    },
+    {
+     "frase": "catch up contributions for hsa",
+     "volume": 1000,
+     "cpc": 0
+    },
+    {
+     "frase": "catch up contributions hsa",
+     "volume": 1000,
+     "cpc": 0
+    }
+   ]
+  },
+  {
+   "frase": "hsa limits by year",
+   "paese": "us",
+   "volume": 70,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "hsa contribution limits",
+     "volume": 4400,
+     "cpc": 0.82
+    },
+    {
+     "frase": "hsa max",
+     "volume": 5400,
+     "cpc": 4.55
+    },
+    {
+     "frase": "hsa contribution limit",
+     "volume": 2400,
+     "cpc": 2.91
+    },
+    {
+     "frase": "2025 hsa contribution limits",
+     "volume": 33100,
+     "cpc": 3.44
+    },
+    {
+     "frase": "hsa max contribution 2025",
+     "volume": 14800,
+     "cpc": 3.73
+    },
+    {
+     "frase": "max hsa contribution 2025",
+     "volume": 12100,
+     "cpc": 0.67
+    },
+    {
+     "frase": "hsa contribution limits 2025",
+     "volume": 49500,
+     "cpc": 3.88
+    },
+    {
+     "frase": "hsa max 2025",
+     "volume": 12100,
+     "cpc": 0.22
+    },
+    {
+     "frase": "hsa limit 2025",
+     "volume": 27100,
+     "cpc": 3.58
+    },
+    {
+     "frase": "hsa limits 2025",
+     "volume": 27100,
+     "cpc": 4.19
+    }
+   ]
+  },
+  {
+   "frase": "hsa max contribution 2026",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "hsa contribution limits history",
+   "paese": "us",
+   "volume": 20,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "historical hsa contribution limits",
+     "volume": 30,
+     "cpc": 0
+    },
+    {
+     "frase": "hsa limits 2025",
+     "volume": 27100,
+     "cpc": 4.19
+    },
+    {
+     "frase": "hsa max 2025",
+     "volume": 12100,
+     "cpc": 0.22
+    },
+    {
+     "frase": "hsa contribution rules",
+     "volume": 1000,
+     "cpc": 2
+    },
+    {
+     "frase": "hsa irs limit",
+     "volume": 390,
+     "cpc": 0
+    },
+    {
+     "frase": "health savings account",
+     "volume": 246000,
+     "cpc": 3.78
+    },
+    {
+     "frase": "hsa contribution limits 2025",
+     "volume": 49500,
+     "cpc": 3.88
+    },
+    {
+     "frase": "2025 hsa contribution limits",
+     "volume": 33100,
+     "cpc": 3.44
+    },
+    {
+     "frase": "hsa limit 2025",
+     "volume": 27100,
+     "cpc": 3.58
+    },
+    {
+     "frase": "max hsa contribution 2025",
+     "volume": 12100,
+     "cpc": 0.67
+    }
+   ]
+  },
+  {
+   "frase": "hdhp minimum deductible 2026",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "simple ira contribution limits 2026",
+   "paese": "us",
+   "volume": 50,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "simple ira max contribution",
+     "volume": 2400,
+     "cpc": 5.76
+    },
+    {
+     "frase": "simple ira contribution limits 2025",
+     "volume": 12100,
+     "cpc": 4.08
+    },
+    {
+     "frase": "simple ira limits",
+     "volume": 880,
+     "cpc": 2.85
+    },
+    {
+     "frase": "simple ira max",
+     "volume": 2900,
+     "cpc": 2.9
+    },
+    {
+     "frase": "simple ira rules",
+     "volume": 1300,
+     "cpc": 2.84
+    },
+    {
+     "frase": "simple ira matching rules 2025",
+     "volume": 30,
+     "cpc": 0
+    },
+    {
+     "frase": "contribution limits simple ira",
+     "volume": 2400,
+     "cpc": 5.76
+    },
+    {
+     "frase": "simple ira contribution limits",
+     "volume": 2400,
+     "cpc": 1.83
+    },
+    {
+     "frase": "roth simple ira",
+     "volume": 1900,
+     "cpc": 9.1
+    },
+    {
+     "frase": "simple roth ira",
+     "volume": 1900,
+     "cpc": 5.79
+    }
+   ]
+  },
+  {
+   "frase": "simple ira limit 2026",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "simple ira catch up 2026",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "sep ira contribution limits 2026",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "solo 401k contribution limits 2026",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "retirement contribution limits 2026",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "retirement contribution limits 2027",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "irs contribution limits 2026",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "2026 contribution limits",
+   "paese": "us",
+   "volume": 50,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "403b max contribution 2026",
+     "volume": 70,
+     "cpc": 0
+    },
+    {
+     "frase": "irs 401k limits 2026",
+     "volume": 30,
+     "cpc": 0
+    },
+    {
+     "frase": "2026 ira contribution limits",
+     "volume": 1000,
+     "cpc": 2.39
+    },
+    {
+     "frase": "401k contribution limits 2026",
+     "volume": 1000,
+     "cpc": 2.48
+    },
+    {
+     "frase": "401k max contribution 2026",
+     "volume": 720,
+     "cpc": 0.31
+    },
+    {
+     "frase": "401k 2026 contribution limit",
+     "volume": 390,
+     "cpc": 0.31
+    },
+    {
+     "frase": "2026 max 401k contribution",
+     "volume": 320,
+     "cpc": 0
+    },
+    {
+     "frase": "2026 401k contribution limits",
+     "volume": 260,
+     "cpc": 0
+    },
+    {
+     "frase": "401k contribution limits 2026 over 50",
+     "volume": 90,
+     "cpc": 0
+    },
+    {
+     "frase": "401k contribution limit 2026",
+     "volume": 170,
+     "cpc": 0
+    }
+   ]
+  },
+  {
+   "frase": "2027 contribution limits",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "saver's credit income limits 2026",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "highly compensated employee 2026",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "401k compensation limit 2026",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "401k limit adjusted for inflation",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "simple ira contribution limits 2025",
+   "paese": "us",
+   "volume": 12100,
+   "cpc": 4.08,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "simple ira max contribution",
+     "volume": 2400,
+     "cpc": 5.76
+    },
+    {
+     "frase": "simple ira 2025 limits",
+     "volume": 390,
+     "cpc": 2
+    },
+    {
+     "frase": "max simple ira contribution 2025",
+     "volume": 1300,
+     "cpc": 0
+    },
+    {
+     "frase": "simple ira limits",
+     "volume": 880,
+     "cpc": 2.85
+    },
+    {
+     "frase": "simple ira contribution 2025",
+     "volume": 210,
+     "cpc": 0
+    },
+    {
+     "frase": "simple ira contributions 2025",
+     "volume": 210,
+     "cpc": 0
+    },
+    {
+     "frase": "simple ira contribution limits for 2025",
+     "volume": 70,
+     "cpc": 0
+    },
+    {
+     "frase": "2025 simple ira contribution limits",
+     "volume": 4400,
+     "cpc": 4.93
+    },
+    {
+     "frase": "simple ira limits 2025",
+     "volume": 1300,
+     "cpc": 3.31
+    },
+    {
+     "frase": "simple ira max contribution 2025",
+     "volume": 1000,
+     "cpc": 1.64
+    }
+   ]
+  },
+  {
+   "frase": "simple ira contribution limits",
+   "paese": "us",
+   "volume": 2400,
+   "cpc": 1.83,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "simple ira max",
+     "volume": 2900,
+     "cpc": 2.9
+    },
+    {
+     "frase": "simple ira max contribution",
+     "volume": 2400,
+     "cpc": 5.76
+    },
+    {
+     "frase": "simple ira limits",
+     "volume": 880,
+     "cpc": 2.85
+    },
+    {
+     "frase": "simple ira contribution limits 2025",
+     "volume": 12100,
+     "cpc": 4.08
+    },
+    {
+     "frase": "simple ira rules",
+     "volume": 1300,
+     "cpc": 2.84
+    },
+    {
+     "frase": "contribution limits simple ira",
+     "volume": 2400,
+     "cpc": 5.76
+    },
+    {
+     "frase": "simple ira contribution limit",
+     "volume": 390,
+     "cpc": 0
+    },
+    {
+     "frase": "what is the max contribution to a simple ira",
+     "volume": 90,
+     "cpc": 1.53
+    },
+    {
+     "frase": "simple ira max contributions",
+     "volume": 2400,
+     "cpc": 1.83
+    },
+    {
+     "frase": "simple ira maximum contributions",
+     "volume": 2400,
+     "cpc": 1.83
+    }
+   ]
+  },
+  {
+   "frase": "sep ira contribution limits 2025",
+   "paese": "us",
+   "volume": 3600,
+   "cpc": 3.68,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "what is the sep ira contribution limit for 2025",
+     "volume": 40,
+     "cpc": 0
+    },
+    {
+     "frase": "sep ira contribution limits for 2025",
+     "volume": 30,
+     "cpc": 2.18
+    },
+    {
+     "frase": "2025 sep ira contribution limits",
+     "volume": 1300,
+     "cpc": 2.01
+    },
+    {
+     "frase": "max sep ira contribution 2025",
+     "volume": 720,
+     "cpc": 1.59
+    },
+    {
+     "frase": "sep ira limits 2025",
+     "volume": 480,
+     "cpc": 4.28
+    },
+    {
+     "frase": "sep contribution limits 2025",
+     "volume": 590,
+     "cpc": 2.97
+    },
+    {
+     "frase": "sep ira maximum 2025",
+     "volume": 170,
+     "cpc": 1.08
+    },
+    {
+     "frase": "sep ira max 2025",
+     "volume": 140,
+     "cpc": 0
+    },
+    {
+     "frase": "sep ira 2025 limits",
+     "volume": 90,
+     "cpc": 0
+    },
+    {
+     "frase": "sep ira 2025 contribution limit",
+     "volume": 30,
+     "cpc": 0
+    }
+   ]
+  },
+  {
+   "frase": "403b contribution limits 2025",
+   "paese": "us",
+   "volume": 2400,
+   "cpc": 2.61,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "403b max contribution 2025",
+     "volume": 5400,
+     "cpc": 2.69
+    },
+    {
+     "frase": "maximum 403b contribution 2025",
+     "volume": 2900,
+     "cpc": 1.98
+    },
+    {
+     "frase": "403b contribution limit 2025",
+     "volume": 210,
+     "cpc": 0
+    },
+    {
+     "frase": "403b limits 2025",
+     "volume": 1300,
+     "cpc": 2.35
+    },
+    {
+     "frase": "max 403b 2025",
+     "volume": 720,
+     "cpc": 2.58
+    },
+    {
+     "frase": "max 403b contribution 2025 over 50",
+     "volume": 260,
+     "cpc": 4.35
+    },
+    {
+     "frase": "403b 2025 limit",
+     "volume": 140,
+     "cpc": 0
+    },
+    {
+     "frase": "403b roth max contribution 2025",
+     "volume": 110,
+     "cpc": 11.68
+    },
+    {
+     "frase": "how much can i contribute to my 403b in 2025",
+     "volume": 50,
+     "cpc": 0
+    },
+    {
+     "frase": "403b 2025 limits",
+     "volume": 170,
+     "cpc": 0
+    }
+   ]
+  },
+  {
+   "frase": "457 contribution limits 2025",
+   "paese": "us",
+   "volume": 1600,
+   "cpc": 1.74,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "457 max contribution 2025",
+     "volume": 2400,
+     "cpc": 1.5
+    },
+    {
+     "frase": "457b max contribution 2025",
+     "volume": 1600,
+     "cpc": 1.67
+    },
+    {
+     "frase": "457 2025 contribution limits",
+     "volume": 40,
+     "cpc": 0
+    },
+    {
+     "frase": "max 457 contribution 2025",
+     "volume": 880,
+     "cpc": 2.14
+    },
+    {
+     "frase": "maximum 457 contribution 2025",
+     "volume": 720,
+     "cpc": 0
+    },
+    {
+     "frase": "457 contribution limits 2025 over 50",
+     "volume": 320,
+     "cpc": 2.89
+    },
+    {
+     "frase": "457 plan max contribution 2025",
+     "volume": 110,
+     "cpc": 0
+    },
+    {
+     "frase": "2025 401k limit",
+     "volume": 22200,
+     "cpc": 0.27
+    },
+    {
+     "frase": "403b max contribution 2025",
+     "volume": 5400,
+     "cpc": 2.69
+    },
+    {
+     "frase": "457b 2025 limits",
+     "volume": 1300,
+     "cpc": 0
+    }
+   ]
+  },
+  {
+   "frase": "403b contribution limits",
+   "paese": "us",
+   "volume": 5400,
+   "cpc": 1.75,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "403b max contribution",
+     "volume": 5400,
+     "cpc": 1.75
+    },
+    {
+     "frase": "403b max contribution 2025",
+     "volume": 5400,
+     "cpc": 2.69
+    },
+    {
+     "frase": "maximum contribution to 403b",
+     "volume": 5400,
+     "cpc": 1.75
+    },
+    {
+     "frase": "maximum 403b contribution 2025",
+     "volume": 2900,
+     "cpc": 1.98
+    },
+    {
+     "frase": "403b limit",
+     "volume": 880,
+     "cpc": 1.94
+    },
+    {
+     "frase": "limits on 403b contributions",
+     "volume": 50,
+     "cpc": 2.3
+    },
+    {
+     "frase": "max contribution to 403b",
+     "volume": 5400,
+     "cpc": 1.75
+    },
+    {
+     "frase": "403b yearly contribution limits",
+     "volume": 70,
+     "cpc": 0
+    },
+    {
+     "frase": "403b plan contribution limits",
+     "volume": 5400,
+     "cpc": 1.75
+    },
+    {
+     "frase": "403b max",
+     "volume": 880,
+     "cpc": 1.86
+    }
+   ]
+  },
+  {
+   "frase": "457b contribution limits",
+   "paese": "us",
+   "volume": 1000,
+   "cpc": 0.79,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "457b max contribution 2025",
+     "volume": 1600,
+     "cpc": 1.67
+    },
+    {
+     "frase": "457 contribution limits",
+     "volume": 1000,
+     "cpc": 0
+    },
+    {
+     "frase": "457 b contribution limits",
+     "volume": 1000,
+     "cpc": 0
+    },
+    {
+     "frase": "457b max contributions",
+     "volume": 320,
+     "cpc": 1.89
+    },
+    {
+     "frase": "457b maximum contribution",
+     "volume": 320,
+     "cpc": 1.89
+    },
+    {
+     "frase": "max 457 b contribution",
+     "volume": 320,
+     "cpc": 1.89
+    },
+    {
+     "frase": "457 max contribution 2025",
+     "volume": 2400,
+     "cpc": 1.5
+    },
+    {
+     "frase": "457 plan limits",
+     "volume": 720,
+     "cpc": 3.03
+    },
+    {
+     "frase": "457b max",
+     "volume": 140,
+     "cpc": 0
+    },
+    {
+     "frase": "457b maximum",
+     "volume": 140,
+     "cpc": 0
+    }
+   ]
+  },
+  {
+   "frase": "hsa contribution limits",
+   "paese": "us",
+   "volume": 4400,
+   "cpc": 0.82,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "hsa contribution limits 2025",
+     "volume": 49500,
+     "cpc": 3.88
+    },
+    {
+     "frase": "2025 hsa contribution limits",
+     "volume": 33100,
+     "cpc": 3.44
+    },
+    {
+     "frase": "hsa limit 2025",
+     "volume": 27100,
+     "cpc": 3.58
+    },
+    {
+     "frase": "hsa limits 2025",
+     "volume": 27100,
+     "cpc": 4.19
+    },
+    {
+     "frase": "hsa max contribution 2025",
+     "volume": 14800,
+     "cpc": 3.73
+    },
+    {
+     "frase": "hsa max 2025",
+     "volume": 12100,
+     "cpc": 0.22
+    },
+    {
+     "frase": "max hsa contribution 2025",
+     "volume": 12100,
+     "cpc": 0.67
+    },
+    {
+     "frase": "hsa max",
+     "volume": 5400,
+     "cpc": 4.55
+    },
+    {
+     "frase": "hsa contribution limit",
+     "volume": 2400,
+     "cpc": 2.91
+    },
+    {
+     "frase": "2025 hsa limits",
+     "volume": 9900,
+     "cpc": 0
+    }
+   ]
+  },
+  {
+   "frase": "hsa family contribution limit",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "hsa max contribution",
+   "paese": "us",
+   "volume": 2900,
+   "cpc": 0.17,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "hsa max",
+     "volume": 5400,
+     "cpc": 4.55
+    },
+    {
+     "frase": "hsa contribution limits",
+     "volume": 4400,
+     "cpc": 0.82
+    },
+    {
+     "frase": "hsa contribution limit",
+     "volume": 2400,
+     "cpc": 2.91
+    },
+    {
+     "frase": "2025 hsa contribution limits",
+     "volume": 33100,
+     "cpc": 3.44
+    },
+    {
+     "frase": "hsa contribution limits 2025",
+     "volume": 49500,
+     "cpc": 3.88
+    },
+    {
+     "frase": "hsa max contribution 2025",
+     "volume": 14800,
+     "cpc": 3.73
+    },
+    {
+     "frase": "max hsa contribution 2025",
+     "volume": 12100,
+     "cpc": 0.67
+    },
+    {
+     "frase": "hsa limits 2025",
+     "volume": 27100,
+     "cpc": 4.19
+    },
+    {
+     "frase": "hsa limit 2025",
+     "volume": 27100,
+     "cpc": 3.58
+    },
+    {
+     "frase": "hsa max 2025",
+     "volume": 12100,
+     "cpc": 0.22
+    }
+   ]
+  },
+  {
+   "frase": "catch up contributions 2025",
+   "paese": "us",
+   "volume": 4400,
+   "cpc": 1.63,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "401k catch-up 2025",
+     "volume": 5400,
+     "cpc": 0.32
+    },
+    {
+     "frase": "401k catch up",
+     "volume": 4400,
+     "cpc": 1.05
+    },
+    {
+     "frase": "401k catch up contribution",
+     "volume": 3600,
+     "cpc": 0.64
+    },
+    {
+     "frase": "401k catch up contributions",
+     "volume": 3600,
+     "cpc": 0.64
+    },
+    {
+     "frase": "catch up contribution 401k",
+     "volume": 3600,
+     "cpc": 0.9
+    },
+    {
+     "frase": "401k 2025 catch-up limits",
+     "volume": 1600,
+     "cpc": 0.29
+    },
+    {
+     "frase": "catch up contributions",
+     "volume": 2400,
+     "cpc": 2.61
+    },
+    {
+     "frase": "catch-up contributions 2025",
+     "volume": 320,
+     "cpc": 1.15
+    },
+    {
+     "frase": "2025 catch-up contributions",
+     "volume": 480,
+     "cpc": 0
+    },
+    {
+     "frase": "401k contribution limits 2025 over 50",
+     "volume": 5400,
+     "cpc": 2.38
+    }
+   ]
+  },
+  {
+   "frase": "roth ira contribution limits",
+   "paese": "us",
+   "volume": 33100,
+   "cpc": 2.51,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "income limit for roth ira",
+     "volume": 90500,
+     "cpc": 2.12
+    },
+    {
+     "frase": "roth ira income limit",
+     "volume": 90500,
+     "cpc": 2.12
+    },
+    {
+     "frase": "roth ira income limits",
+     "volume": 90500,
+     "cpc": 2.12
+    },
+    {
+     "frase": "roth ira limit income",
+     "volume": 90500,
+     "cpc": 2.12
+    },
+    {
+     "frase": "roth ira salary limits",
+     "volume": 90500,
+     "cpc": 2.1
+    },
+    {
+     "frase": "roth ira max contribution",
+     "volume": 33100,
+     "cpc": 2.52
+    },
+    {
+     "frase": "roth ira limitations",
+     "volume": 27100,
+     "cpc": 2
+    },
+    {
+     "frase": "roth ira limit",
+     "volume": 22200,
+     "cpc": 2.56
+    },
+    {
+     "frase": "roth ira limits",
+     "volume": 22200,
+     "cpc": 1.98
+    },
+    {
+     "frase": "roth limits",
+     "volume": 22200,
+     "cpc": 2.56
+    }
+   ]
+  },
+  {
+   "frase": "roth ira phase out",
+   "paese": "us",
+   "volume": 1300,
+   "cpc": 1.23,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "income limit for roth ira",
+     "volume": 90500,
+     "cpc": 2.12
+    },
+    {
+     "frase": "roth ira income limit",
+     "volume": 90500,
+     "cpc": 2.12
+    },
+    {
+     "frase": "roth ira income limits",
+     "volume": 90500,
+     "cpc": 2.12
+    },
+    {
+     "frase": "roth ira limit income",
+     "volume": 90500,
+     "cpc": 2.12
+    },
+    {
+     "frase": "roth ira salary limits",
+     "volume": 90500,
+     "cpc": 2.1
+    },
+    {
+     "frase": "roth ira contribution limits",
+     "volume": 33100,
+     "cpc": 2.51
+    },
+    {
+     "frase": "roth ira max contribution",
+     "volume": 33100,
+     "cpc": 2.52
+    },
+    {
+     "frase": "roth ira limitations",
+     "volume": 27100,
+     "cpc": 2
+    },
+    {
+     "frase": "roth ira limit",
+     "volume": 22200,
+     "cpc": 2.56
+    },
+    {
+     "frase": "roth limits",
+     "volume": 22200,
+     "cpc": 2.56
+    }
+   ]
+  },
+  {
+   "frase": "roth ira phase out 2025",
+   "paese": "us",
+   "volume": 480,
+   "cpc": 2.57,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "roth ira contribution limits 2025",
+     "volume": 90500,
+     "cpc": 2.58
+    },
+    {
+     "frase": "2025 roth ira contribution limits",
+     "volume": 33100,
+     "cpc": 2.5
+    },
+    {
+     "frase": "roth ira income limits 2025",
+     "volume": 14800,
+     "cpc": 2.33
+    },
+    {
+     "frase": "roth ira limit 2025",
+     "volume": 9900,
+     "cpc": 2.82
+    },
+    {
+     "frase": "roth ira max contribution 2025",
+     "volume": 8100,
+     "cpc": 3.31
+    },
+    {
+     "frase": "roth ira 2025 contribution limit",
+     "volume": 3600,
+     "cpc": 3.17
+    },
+    {
+     "frase": "2025 ira contribution limits",
+     "volume": 27100,
+     "cpc": 3.21
+    },
+    {
+     "frase": "ira limits 2025",
+     "volume": 9900,
+     "cpc": 2.18
+    },
+    {
+     "frase": "2025 ira contribution limits over 50",
+     "volume": 1900,
+     "cpc": 2.79
+    },
+    {
+     "frase": "ira contribution limits 2025",
+     "volume": 40500,
+     "cpc": 3.39
+    }
+   ]
+  },
+  {
+   "frase": "roth ira income limits 2024",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "401k contribution limits 2024",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "hsa contribution limits 2024",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "ira contribution limits 2024",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "traditional ira deduction limits",
+   "paese": "us",
+   "volume": 1000,
+   "cpc": 1.97,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "max ira contribution",
+     "volume": 18100,
+     "cpc": 1.38
+    },
+    {
+     "frase": "traditional ira income limits",
+     "volume": 12100,
+     "cpc": 1.92
+    },
+    {
+     "frase": "ira income limits",
+     "volume": 6600,
+     "cpc": 2.08
+    },
+    {
+     "frase": "traditional ira limit",
+     "volume": 3600,
+     "cpc": 3.03
+    },
+    {
+     "frase": "traditional ira limits",
+     "volume": 3600,
+     "cpc": 3.03
+    },
+    {
+     "frase": "income limit for ira deduction",
+     "volume": 1900,
+     "cpc": 1.95
+    },
+    {
+     "frase": "ira deduction",
+     "volume": 6600,
+     "cpc": 2.41
+    },
+    {
+     "frase": "ira tax deduction",
+     "volume": 6600,
+     "cpc": 2.17
+    },
+    {
+     "frase": "ira contribution",
+     "volume": 2900,
+     "cpc": 3.84
+    },
+    {
+     "frase": "ira contribution what is",
+     "volume": 1600,
+     "cpc": 2.23
+    }
+   ]
+  },
+  {
+   "frase": "traditional ira income limits",
+   "paese": "us",
+   "volume": 12100,
+   "cpc": 1.92,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "max ira contribution",
+     "volume": 18100,
+     "cpc": 1.38
+    },
+    {
+     "frase": "ira income limits",
+     "volume": 6600,
+     "cpc": 2.08
+    },
+    {
+     "frase": "traditional ira limit",
+     "volume": 3600,
+     "cpc": 3.03
+    },
+    {
+     "frase": "traditional ira limits",
+     "volume": 3600,
+     "cpc": 3.03
+    },
+    {
+     "frase": "ira contribution",
+     "volume": 2900,
+     "cpc": 3.84
+    },
+    {
+     "frase": "income limit for ira deduction",
+     "volume": 1900,
+     "cpc": 1.95
+    },
+    {
+     "frase": "roth ira yearly limit",
+     "volume": 1900,
+     "cpc": 2.48
+    },
+    {
+     "frase": "what is ira contribution",
+     "volume": 1600,
+     "cpc": 2.36
+    },
+    {
+     "frase": "income limit to traditional ira",
+     "volume": 40,
+     "cpc": 1.89
+    },
+    {
+     "frase": "roth ira salary limits",
+     "volume": 90500,
+     "cpc": 2.1
+    }
+   ]
+  },
+  {
+   "frase": "ira deduction limits 2025",
+   "paese": "us",
+   "volume": 390,
+   "cpc": 1.9,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "ira contribution limits 2025",
+     "volume": 40500,
+     "cpc": 3.39
+    },
+    {
+     "frase": "ira limits 2025",
+     "volume": 9900,
+     "cpc": 2.18
+    },
+    {
+     "frase": "roth ira max contribution 2025",
+     "volume": 8100,
+     "cpc": 3.26
+    },
+    {
+     "frase": "roth ira 2025 contribution limit",
+     "volume": 3600,
+     "cpc": 3.63
+    },
+    {
+     "frase": "2025 ira contribution limits over 50",
+     "volume": 1900,
+     "cpc": 2.79
+    },
+    {
+     "frase": "roth ira limit 2025",
+     "volume": 9900,
+     "cpc": 2.65
+    },
+    {
+     "frase": "2025 ira contribution limits",
+     "volume": 27100,
+     "cpc": 3.21
+    },
+    {
+     "frase": "max ira contribution",
+     "volume": 18100,
+     "cpc": 1.38
+    },
+    {
+     "frase": "roth ira income limits 2025",
+     "volume": 18100,
+     "cpc": 2.34
+    },
+    {
+     "frase": "income limit for ira deduction",
+     "volume": 1900,
+     "cpc": 1.95
+    }
+   ]
+  },
+  {
+   "frase": "max ira contribution",
+   "paese": "us",
+   "volume": 18100,
+   "cpc": 1.38,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "roth ira salary limits",
+     "volume": 90500,
+     "cpc": 2.1
+    },
+    {
+     "frase": "traditional ira income limits",
+     "volume": 12100,
+     "cpc": 1.92
+    },
+    {
+     "frase": "ira income limits",
+     "volume": 6600,
+     "cpc": 2.08
+    },
+    {
+     "frase": "traditional ira limit",
+     "volume": 3600,
+     "cpc": 3.23
+    },
+    {
+     "frase": "traditional ira limits",
+     "volume": 3600,
+     "cpc": 3.03
+    },
+    {
+     "frase": "ira contribution",
+     "volume": 2900,
+     "cpc": 3.84
+    },
+    {
+     "frase": "income limit for ira deduction",
+     "volume": 1900,
+     "cpc": 1.95
+    },
+    {
+     "frase": "roth ira yearly limit",
+     "volume": 1900,
+     "cpc": 2.48
+    },
+    {
+     "frase": "ira contribution what is",
+     "volume": 1600,
+     "cpc": 2.23
+    },
+    {
+     "frase": "what is ira contribution",
+     "volume": 1600,
+     "cpc": 2.36
+    }
+   ]
+  },
+  {
+   "frase": "how much can i put in my 401k",
+   "paese": "us",
+   "volume": 1900,
+   "cpc": 0.82,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "401k limits",
+     "volume": 14800,
+     "cpc": 0.74
+    },
+    {
+     "frase": "401k limit",
+     "volume": 14800,
+     "cpc": 0.74
+    },
+    {
+     "frase": "401k contribution limits",
+     "volume": 6600,
+     "cpc": 1.2
+    },
+    {
+     "frase": "401k max",
+     "volume": 18100,
+     "cpc": 0.66
+    },
+    {
+     "frase": "401k max contribution",
+     "volume": 14800,
+     "cpc": 0.88
+    },
+    {
+     "frase": "max 401k contribution",
+     "volume": 14800,
+     "cpc": 0.58
+    },
+    {
+     "frase": "401k contribution limit",
+     "volume": 5400,
+     "cpc": 1.83
+    },
+    {
+     "frase": "401k yearly contribution limit",
+     "volume": 2400,
+     "cpc": 0.23
+    },
+    {
+     "frase": "401k yearly limit",
+     "volume": 1600,
+     "cpc": 2.27
+    },
+    {
+     "frase": "401k deduction limit",
+     "volume": 14800,
+     "cpc": 0.68
+    }
+   ]
+  },
+  {
+   "frase": "how much can i contribute to my hsa",
+   "paese": "us",
+   "volume": 590,
+   "cpc": 0.37,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "how much contribute to hsa",
+     "volume": 1300,
+     "cpc": 1.44
+    },
+    {
+     "frase": "hsa contribution limits",
+     "volume": 4400,
+     "cpc": 0.82
+    },
+    {
+     "frase": "hsa contribution limit",
+     "volume": 2400,
+     "cpc": 2.91
+    },
+    {
+     "frase": "hsa contribution rules",
+     "volume": 1000,
+     "cpc": 2
+    },
+    {
+     "frase": "how much can you contribute to hsa",
+     "volume": 1000,
+     "cpc": 6.39
+    },
+    {
+     "frase": "how much can i contribute to hsa",
+     "volume": 720,
+     "cpc": 0.02
+    },
+    {
+     "frase": "how much money can you put in an hsa",
+     "volume": 50,
+     "cpc": 0.01
+    },
+    {
+     "frase": "hsa contribution limits 2025",
+     "volume": 49500,
+     "cpc": 3.88
+    },
+    {
+     "frase": "hsa limits 2025",
+     "volume": 27100,
+     "cpc": 4.19
+    },
+    {
+     "frase": "hsa max 2025",
+     "volume": 12100,
+     "cpc": 0.22
+    }
+   ]
+  },
+  {
+   "frase": "roth ira catch up contribution",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "ira catch up contribution",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "401k catch up age 60 63",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "secure 2.0 catch up",
+   "paese": "us",
+   "volume": 70,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "secure act 2.0 catch-up contributions",
+     "volume": 480,
+     "cpc": 15.87
+    },
+    {
+     "frase": "secure act 2.0 catch up",
+     "volume": 30,
+     "cpc": 9.68
+    },
+    {
+     "frase": "secure 2.0 catch up contributions",
+     "volume": 480,
+     "cpc": 3.02
+    },
+    {
+     "frase": "secure 2.0 catch-up contributions",
+     "volume": 480,
+     "cpc": 0
+    },
+    {
+     "frase": "secure act 2.0 catch up contributions",
+     "volume": 480,
+     "cpc": 2.85
+    },
+    {
+     "frase": "catch up contributions secure act 2.0",
+     "volume": 50,
+     "cpc": 0
+    },
+    {
+     "frase": "secure 2.0 additional catch up",
+     "volume": 40,
+     "cpc": 0
+    },
+    {
+     "frase": "catch up contributions",
+     "volume": 2400,
+     "cpc": 5.31
+    },
+    {
+     "frase": "secure 2.0 super catch up",
+     "volume": 260,
+     "cpc": 0
+    },
+    {
+     "frase": "secure 2.0 super catch-up",
+     "volume": 260,
+     "cpc": 0
+    }
+   ]
+  },
+  {
+   "frase": "roth catch up contributions",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "max 401k contribution",
+   "paese": "us",
+   "volume": 14800,
+   "cpc": 0.58,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "401k max contribution 2025",
+     "volume": 49500,
+     "cpc": 2.86
+    },
+    {
+     "frase": "max 401k contribution 2025",
+     "volume": 49500,
+     "cpc": 0.85
+    },
+    {
+     "frase": "2025 401k limit",
+     "volume": 22200,
+     "cpc": 0.27
+    },
+    {
+     "frase": "401k max",
+     "volume": 18100,
+     "cpc": 0.66
+    },
+    {
+     "frase": "maximum 401k",
+     "volume": 18100,
+     "cpc": 0.99
+    },
+    {
+     "frase": "401k deduction limit",
+     "volume": 14800,
+     "cpc": 0.68
+    },
+    {
+     "frase": "401k limit",
+     "volume": 14800,
+     "cpc": 0.74
+    },
+    {
+     "frase": "401k limits",
+     "volume": 14800,
+     "cpc": 0.74
+    },
+    {
+     "frase": "401k max contribution",
+     "volume": 14800,
+     "cpc": 0.88
+    },
+    {
+     "frase": "401k contribution limits",
+     "volume": 6600,
+     "cpc": 1.2
+    }
+   ]
+  },
+  {
+   "frase": "hsa catch up contribution 2025",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "how much can you put in a roth ira",
+   "paese": "us",
+   "volume": 5400,
+   "cpc": 1.9,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "income limit for roth ira",
+     "volume": 90500,
+     "cpc": 2.12
+    },
+    {
+     "frase": "roth ira income limit",
+     "volume": 90500,
+     "cpc": 2.12
+    },
+    {
+     "frase": "roth ira income limits",
+     "volume": 90500,
+     "cpc": 2.1
+    },
+    {
+     "frase": "roth ira limit income",
+     "volume": 90500,
+     "cpc": 2.12
+    },
+    {
+     "frase": "roth ira salary limits",
+     "volume": 90500,
+     "cpc": 2.1
+    },
+    {
+     "frase": "roth ira contribution limits",
+     "volume": 33100,
+     "cpc": 2.51
+    },
+    {
+     "frase": "roth ira max contribution",
+     "volume": 33100,
+     "cpc": 2.51
+    },
+    {
+     "frase": "roth ira limitations",
+     "volume": 27100,
+     "cpc": 2
+    },
+    {
+     "frase": "roth limits",
+     "volume": 27100,
+     "cpc": 1.72
+    },
+    {
+     "frase": "roth ira limits",
+     "volume": 22200,
+     "cpc": 2.56
+    }
+   ]
+  },
+  {
+   "frase": "what is the max i can contribute to my 401k",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "401k catch up",
+   "paese": "us",
+   "volume": 4400,
+   "cpc": 1.05,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "401k catch-up 2025",
+     "volume": 5400,
+     "cpc": 0.32
+    },
+    {
+     "frase": "401k catch up contribution",
+     "volume": 3600,
+     "cpc": 0.9
+    },
+    {
+     "frase": "401k catch up contributions",
+     "volume": 3600,
+     "cpc": 0.9
+    },
+    {
+     "frase": "catch up contribution 401k",
+     "volume": 3600,
+     "cpc": 0.64
+    },
+    {
+     "frase": "catch up contributions",
+     "volume": 2400,
+     "cpc": 5.31
+    },
+    {
+     "frase": "catch-up contributions",
+     "volume": 2400,
+     "cpc": 2.61
+    },
+    {
+     "frase": "401k 2025 catch-up limits",
+     "volume": 1600,
+     "cpc": 0.29
+    },
+    {
+     "frase": "401k catch-up age",
+     "volume": 1600,
+     "cpc": 2.43
+    },
+    {
+     "frase": "401k catch-up",
+     "volume": 3600,
+     "cpc": 2.63
+    },
+    {
+     "frase": "401k catch up contribution rules",
+     "volume": 320,
+     "cpc": 0.61
+    }
+   ]
+  },
+  {
+   "frase": "401k catch-up 2025",
+   "paese": "us",
+   "volume": 5400,
+   "cpc": 0.32,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "401k contribution limits 2025",
+     "volume": 135000,
+     "cpc": 3.87
+    },
+    {
+     "frase": "401k max contribution 2025",
+     "volume": 49500,
+     "cpc": 2.86
+    },
+    {
+     "frase": "max 401k contribution 2025",
+     "volume": 49500,
+     "cpc": 0.85
+    },
+    {
+     "frase": "401k limit 2025",
+     "volume": 33100,
+     "cpc": 1.54
+    },
+    {
+     "frase": "401k limits 2025",
+     "volume": 33100,
+     "cpc": 1.54
+    },
+    {
+     "frase": "2025 401k limit",
+     "volume": 22200,
+     "cpc": 0.27
+    },
+    {
+     "frase": "401k contribution limits 2025 over 50",
+     "volume": 5400,
+     "cpc": 2.38
+    },
+    {
+     "frase": "what is the maximum 401k contribution for 2025",
+     "volume": 2900,
+     "cpc": 0.69
+    },
+    {
+     "frase": "401k 2025 catch-up limits",
+     "volume": 1600,
+     "cpc": 0.29
+    },
+    {
+     "frase": "401k catch up",
+     "volume": 4400,
+     "cpc": 1.05
+    }
+   ]
+  },
+  {
+   "frase": "what is the roth ira income limit",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "roth ira income limits married",
+   "paese": "us",
+   "volume": 390,
+   "cpc": 1.3,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "roth ira salary limits",
+     "volume": 90500,
+     "cpc": 2.1
+    },
+    {
+     "frase": "roth ira limitations",
+     "volume": 27100,
+     "cpc": 2
+    },
+    {
+     "frase": "roth ira phase out",
+     "volume": 1000,
+     "cpc": 2.65
+    },
+    {
+     "frase": "roth ira income limit",
+     "volume": 90500,
+     "cpc": 2.12
+    },
+    {
+     "frase": "roth ira limit income",
+     "volume": 90500,
+     "cpc": 2.12
+    },
+    {
+     "frase": "roth ira maximum income",
+     "volume": 6600,
+     "cpc": 1.36
+    },
+    {
+     "frase": "income limit for roth ira",
+     "volume": 90500,
+     "cpc": 2.12
+    },
+    {
+     "frase": "roth ira limit",
+     "volume": 22200,
+     "cpc": 2.56
+    },
+    {
+     "frase": "roth limits",
+     "volume": 22200,
+     "cpc": 2.56
+    },
+    {
+     "frase": "roth ira guidelines",
+     "volume": 6600,
+     "cpc": 1.72
+    }
+   ]
+  },
+  {
+   "frase": "roth ira limit",
+   "paese": "us",
+   "volume": 22200,
+   "cpc": 1.98,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "income limit for roth ira",
+     "volume": 90500,
+     "cpc": 2.12
+    },
+    {
+     "frase": "roth ira income limit",
+     "volume": 90500,
+     "cpc": 2.12
+    },
+    {
+     "frase": "roth ira income limits",
+     "volume": 90500,
+     "cpc": 2.12
+    },
+    {
+     "frase": "roth ira limit income",
+     "volume": 90500,
+     "cpc": 2.12
+    },
+    {
+     "frase": "roth ira salary limits",
+     "volume": 90500,
+     "cpc": 2.1
+    },
+    {
+     "frase": "roth ira contribution limits",
+     "volume": 33100,
+     "cpc": 2.51
+    },
+    {
+     "frase": "roth ira max contribution",
+     "volume": 33100,
+     "cpc": 2.52
+    },
+    {
+     "frase": "roth ira limitations",
+     "volume": 27100,
+     "cpc": 2
+    },
+    {
+     "frase": "roth ira limits",
+     "volume": 22200,
+     "cpc": 1.98
+    },
+    {
+     "frase": "roth limits",
+     "volume": 22200,
+     "cpc": 2.56
+    }
+   ]
+  },
+  {
+   "frase": "ira income limits",
+   "paese": "us",
+   "volume": 6600,
+   "cpc": 2.08,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "roth ira salary limits",
+     "volume": 90500,
+     "cpc": 2.1
+    },
+    {
+     "frase": "max ira contribution",
+     "volume": 18100,
+     "cpc": 1.38
+    },
+    {
+     "frase": "traditional ira income limits",
+     "volume": 12100,
+     "cpc": 1.92
+    },
+    {
+     "frase": "traditional ira limit",
+     "volume": 3600,
+     "cpc": 3.23
+    },
+    {
+     "frase": "traditional ira limits",
+     "volume": 3600,
+     "cpc": 3.03
+    },
+    {
+     "frase": "ira contribution",
+     "volume": 2900,
+     "cpc": 3.84
+    },
+    {
+     "frase": "income limit for ira deduction",
+     "volume": 1900,
+     "cpc": 1.95
+    },
+    {
+     "frase": "roth ira yearly limit",
+     "volume": 1900,
+     "cpc": 2.48
+    },
+    {
+     "frase": "what is ira contribution",
+     "volume": 1600,
+     "cpc": 2.36
+    },
+    {
+     "frase": "roth ira yearly contribution limit",
+     "volume": 1300,
+     "cpc": 1.94
+    }
+   ]
+  },
+  {
+   "frase": "roth ira maximum income",
+   "paese": "us",
+   "volume": 6600,
+   "cpc": 2.07,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "income limit for roth ira",
+     "volume": 90500,
+     "cpc": 2.12
+    },
+    {
+     "frase": "roth ira income limit",
+     "volume": 90500,
+     "cpc": 2.12
+    },
+    {
+     "frase": "roth ira income limits",
+     "volume": 90500,
+     "cpc": 2.12
+    },
+    {
+     "frase": "roth ira limit income",
+     "volume": 90500,
+     "cpc": 2.12
+    },
+    {
+     "frase": "roth ira salary limits",
+     "volume": 90500,
+     "cpc": 2.1
+    },
+    {
+     "frase": "roth ira contribution limits",
+     "volume": 33100,
+     "cpc": 2.51
+    },
+    {
+     "frase": "roth ira max contribution",
+     "volume": 33100,
+     "cpc": 2.52
+    },
+    {
+     "frase": "roth ira limitations",
+     "volume": 27100,
+     "cpc": 2
+    },
+    {
+     "frase": "roth ira limit",
+     "volume": 22200,
+     "cpc": 2.56
+    },
+    {
+     "frase": "roth ira limits",
+     "volume": 22200,
+     "cpc": 1.98
+    }
+   ]
+  },
+  {
+   "frase": "hsa contribution limit",
+   "paese": "us",
+   "volume": 2400,
+   "cpc": 2.91,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "hsa contribution limits 2025",
+     "volume": 49500,
+     "cpc": 3.88
+    },
+    {
+     "frase": "2025 hsa contribution limits",
+     "volume": 33100,
+     "cpc": 3.44
+    },
+    {
+     "frase": "hsa limit 2025",
+     "volume": 27100,
+     "cpc": 3.58
+    },
+    {
+     "frase": "hsa limits 2025",
+     "volume": 27100,
+     "cpc": 4.19
+    },
+    {
+     "frase": "hsa max contribution 2025",
+     "volume": 14800,
+     "cpc": 3.73
+    },
+    {
+     "frase": "hsa max 2025",
+     "volume": 12100,
+     "cpc": 0.22
+    },
+    {
+     "frase": "max hsa contribution 2025",
+     "volume": 12100,
+     "cpc": 0.67
+    },
+    {
+     "frase": "2025 hsa limits",
+     "volume": 9900,
+     "cpc": 0
+    },
+    {
+     "frase": "hsa max",
+     "volume": 5400,
+     "cpc": 4.55
+    },
+    {
+     "frase": "hsa contribution limits",
+     "volume": 4400,
+     "cpc": 0.82
+    }
+   ]
+  },
+  {
+   "frase": "hsa contribution limits family",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "can i contribute to an hsa",
+   "paese": "us",
+   "volume": 260,
+   "cpc": 0.07,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "hsa contributions",
+     "volume": 3600,
+     "cpc": 2.94
+    },
+    {
+     "frase": "health savings account rules",
+     "volume": 6600,
+     "cpc": 4.02
+    },
+    {
+     "frase": "hsa contribution rules",
+     "volume": 1000,
+     "cpc": 2
+    },
+    {
+     "frase": "rules for hsa contributions",
+     "volume": 1000,
+     "cpc": 1.31
+    },
+    {
+     "frase": "can i contribute to hsa",
+     "volume": 260,
+     "cpc": 0.07
+    },
+    {
+     "frase": "a health savings account",
+     "volume": 70,
+     "cpc": 5.48
+    },
+    {
+     "frase": "when can you contribute to hsa",
+     "volume": 70,
+     "cpc": 0
+    },
+    {
+     "frase": "when can you contribute to an hsa",
+     "volume": 40,
+     "cpc": 0
+    },
+    {
+     "frase": "health savings account definition",
+     "volume": 6600,
+     "cpc": 3.29
+    },
+    {
+     "frase": "hsa contribution limits",
+     "volume": 4400,
+     "cpc": 0.82
+    }
+   ]
+  },
+  {
+   "frase": "457 catch up contribution",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "403b catch up contribution",
+   "paese": "us",
+   "volume": 210,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "simple ira catch up contribution",
+   "paese": "us",
+   "volume": 90,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "simple ira max contribution",
+     "volume": 2400,
+     "cpc": 5.76
+    },
+    {
+     "frase": "simple ira limits",
+     "volume": 880,
+     "cpc": 2.85
+    },
+    {
+     "frase": "simple ira contribution limits 2025",
+     "volume": 12100,
+     "cpc": 4.08
+    },
+    {
+     "frase": "catch up contribution simple ira",
+     "volume": 90,
+     "cpc": 0
+    },
+    {
+     "frase": "simple ira max",
+     "volume": 2900,
+     "cpc": 2.9
+    },
+    {
+     "frase": "simple ira catch up",
+     "volume": 170,
+     "cpc": 0
+    },
+    {
+     "frase": "catch up contributions simple ira",
+     "volume": 90,
+     "cpc": 0
+    },
+    {
+     "frase": "simple ira rules",
+     "volume": 1300,
+     "cpc": 2.84
+    },
+    {
+     "frase": "simple ira max 2025",
+     "volume": 390,
+     "cpc": 0
+    },
+    {
+     "frase": "simple ira catch up contribution limits 2025",
+     "volume": 260,
+     "cpc": 0
+    }
+   ]
+  },
+  {
+   "frase": "tsp contribution limits 2025",
+   "paese": "us",
+   "volume": 2400,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "max tsp contribution 2025",
+     "volume": 3600,
+     "cpc": 0
+    },
+    {
+     "frase": "tsp max contribution 2025",
+     "volume": 3600,
+     "cpc": 0
+    },
+    {
+     "frase": "tsp contribution limits",
+     "volume": 2900,
+     "cpc": 6.27
+    },
+    {
+     "frase": "2025 tsp contribution limits",
+     "volume": 1900,
+     "cpc": 0
+    },
+    {
+     "frase": "tsp maximum contribution 2025",
+     "volume": 3600,
+     "cpc": 0
+    },
+    {
+     "frase": "tsp contribution limit 2025",
+     "volume": 260,
+     "cpc": 0
+    },
+    {
+     "frase": "2025 tsp catch-up contribution limits",
+     "volume": 40,
+     "cpc": 0
+    },
+    {
+     "frase": "tsp limits 2025",
+     "volume": 880,
+     "cpc": 0
+    },
+    {
+     "frase": "tsp 2025 contribution limits",
+     "volume": 480,
+     "cpc": 0
+    },
+    {
+     "frase": "tsp 2025 limit",
+     "volume": 170,
+     "cpc": 0
+    }
+   ]
+  },
+  {
+   "frase": "tsp catch up contribution",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "what happens if you contribute too much to a roth ira",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
+  },
+  {
+   "frase": "excess roth ira contribution",
+   "paese": "us",
+   "volume": 1000,
+   "cpc": 0.32,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "roth ira excess contribution",
+     "volume": 1000,
+     "cpc": 0.32
+    },
+    {
+     "frase": "excess contribution roth ira",
+     "volume": 1000,
+     "cpc": 0.32
+    },
+    {
+     "frase": "over contribution to roth ira",
+     "volume": 720,
+     "cpc": 2.04
+    },
+    {
+     "frase": "ira return of excess contribution",
+     "volume": 70,
+     "cpc": 0
+    },
+    {
+     "frase": "how to correct roth ira excess contribution",
+     "volume": 30,
+     "cpc": 0
+    },
+    {
+     "frase": "irs excess contribution",
+     "volume": 30,
+     "cpc": 0
+    },
+    {
+     "frase": "excess roth contributions",
+     "volume": 1000,
+     "cpc": 0.32
+    },
+    {
+     "frase": "excess roth ira contributions",
+     "volume": 1000,
+     "cpc": 0.32
+    },
+    {
+     "frase": "excess contribution to roth ira",
+     "volume": 260,
+     "cpc": 0
+    },
+    {
+     "frase": "excess ira contribution",
+     "volume": 140,
+     "cpc": 0
+    }
+   ]
+  },
+  {
+   "frase": "roth ira deadline",
+   "paese": "us",
+   "volume": 1300,
+   "cpc": 1.86,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "roth contribution deadline",
+     "volume": 2400,
+     "cpc": 3.22
+    },
+    {
+     "frase": "roth ira contribution deadline",
+     "volume": 2400,
+     "cpc": 0.98
+    },
+    {
+     "frase": "ira contribution deadline",
+     "volume": 1900,
+     "cpc": 0
+    },
+    {
+     "frase": "roth ira deadlines",
+     "volume": 1300,
+     "cpc": 0
+    },
+    {
+     "frase": "deadline to contribute to ira",
+     "volume": 260,
+     "cpc": 0
+    },
+    {
+     "frase": "deadline to contribute to roth ira",
+     "volume": 880,
+     "cpc": 0
+    },
+    {
+     "frase": "roth ira contribution due date",
+     "volume": 90,
+     "cpc": 0
+    },
+    {
+     "frase": "contribution to roth ira deadline",
+     "volume": 40,
+     "cpc": 0
+    },
+    {
+     "frase": "deadline roth ira contribution",
+     "volume": 2400,
+     "cpc": 0.98
+    },
+    {
+     "frase": "roth ira contributions deadline",
+     "volume": 2400,
+     "cpc": 3.22
+    }
+   ]
+  },
+  {
+   "frase": "ira contribution deadline",
+   "paese": "us",
+   "volume": 1900,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "roth contribution deadline",
+     "volume": 2400,
+     "cpc": 0.98
+    },
+    {
+     "frase": "roth ira contribution deadline",
+     "volume": 2400,
+     "cpc": 0.98
+    },
+    {
+     "frase": "deadline to contribute to ira",
+     "volume": 1900,
+     "cpc": 8.78
+    },
+    {
+     "frase": "roth ira deadlines",
+     "volume": 1300,
+     "cpc": 1.86
+    },
+    {
+     "frase": "roth ira deadline",
+     "volume": 1000,
+     "cpc": 0.4
+    },
+    {
+     "frase": "deadline for contributing to ira",
+     "volume": 260,
+     "cpc": 0
+    },
+    {
+     "frase": "ira contribution timeline",
+     "volume": 30,
+     "cpc": 0
+    },
+    {
+     "frase": "contribution deadline for ira",
+     "volume": 1900,
+     "cpc": 0
+    },
+    {
+     "frase": "deadlines for ira contributions",
+     "volume": 1900,
+     "cpc": 0
+    },
+    {
+     "frase": "ira contribution deadlines",
+     "volume": 1900,
+     "cpc": 0
+    }
+   ]
+  },
+  {
+   "frase": "hsa contribution deadline",
+   "paese": "us",
+   "volume": 1300,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": [
+    {
+     "frase": "deadline for hsa contributions",
+     "volume": 1300,
+     "cpc": 0
+    },
+    {
+     "frase": "hsa funding deadline",
+     "volume": 50,
+     "cpc": 0
+    },
+    {
+     "frase": "hsa contribution deadlines",
+     "volume": 1300,
+     "cpc": 0
+    },
+    {
+     "frase": "contribution deadline for hsa",
+     "volume": 1300,
+     "cpc": 0
+    },
+    {
+     "frase": "deadline for hsa contribution",
+     "volume": 1300,
+     "cpc": 0
+    },
+    {
+     "frase": "hsa contributions deadline",
+     "volume": 1300,
+     "cpc": 0
+    },
+    {
+     "frase": "when is hsa contribution deadline",
+     "volume": 30,
+     "cpc": 0
+    },
+    {
+     "frase": "when are hsa contributions due",
+     "volume": 70,
+     "cpc": 0
+    },
+    {
+     "frase": "hsa contribution due date",
+     "volume": 50,
+     "cpc": 0
+    },
+    {
+     "frase": "hsa contribution limits",
+     "volume": 4400,
+     "cpc": 0.82
+    }
+   ]
+  },
+  {
+   "frase": "2025 contribution limits",
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0,
+   "gruppo": "limiti_pensione",
+   "letto_il": "2026-11-13",
+   "simili": []
   }
  ]
 }

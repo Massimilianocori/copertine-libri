@@ -12,6 +12,7 @@ const SHOT = path.join(__dirname, 'cache', 'screenshot');
 fs.mkdirSync(SHOT, { recursive: true });
 const TIPI = { '.html': 'text/html; charset=utf-8', '.json': 'application/json', '.css': 'text/css', '.js': 'text/javascript', '.svg': 'image/svg+xml', '.png': 'image/png', '.xml': 'application/xml', '.txt': 'text/plain' };
 const CASI = process.env.CASI_CALC ? JSON.parse(process.env.CASI_CALC) : [];
+const CASI_ROTH = process.env.CASI_ROTH ? JSON.parse(process.env.CASI_ROTH) : [];  // calcolatore Roth: casi rifatti con pensione.roth_limite
 // Senza PAGINE: solo USA e UK (la sezione tedesca è spenta, genera.SEZIONE_DE = False).
 const PAGINE = (process.env.PAGINE || '/,/uk/,/us/1970-dollars-today/,/us/inflation-rate-by-year/,/us/100-dollars-in-1970/,/uk/inflation-rate-by-year/,/uk/rpi-calculator/,/how-we-check/,/does-not-exist/').split(',');
 
@@ -75,6 +76,29 @@ function numero(t, de) {
         for (const e of errori) problemi.push(`${p} ${w}px ${tema}: ${e}`);
         await page.close();
         n++;
+      }
+      // calcolatore Roth (/roth-ira-income-limit/): anno, stato, MAGI, età, compenso → limite atteso da Python
+      if (tema === 'light') {
+        for (const c of CASI_ROTH) {
+          const page = await ctx.newPage();
+          const errori = [];
+          page.on('pageerror', e => errori.push('JS: ' + e.message));
+          await page.goto(base + '/roth-ira-income-limit/', { waitUntil: 'load' });
+          await page.selectOption('select[name=y]', c.y);
+          await page.selectOption('select[name=s]', c.s);
+          await page.fill('input[name=m]', c.m);
+          if (c.e) await page.check('input[name=e]'); else await page.uncheck('input[name=e]');
+          await page.fill('input[name=c]', c.c || '');
+          await page.waitForTimeout(30);
+          const t = await page.textContent('[data-roth-out] [data-roth-limite]').catch(() => null);
+          const cls = await page.getAttribute('[data-roth-out] .ris-main', 'class').catch(() => '');
+          const v = t === null ? null : numero(t, false);
+          if (v === null || Math.abs(v - c.atteso) > 0.001) errori.push(`Roth: atteso ${c.atteso}, letto ${t}`);
+          if (!cls || cls.indexOf('roth-' + c.esito) < 0) errori.push(`Roth: esito atteso ${c.esito}, classe ${cls}`);
+          if (w === 375 && c.y === '2025') await page.screenshot({ path: path.join(SHOT, 'calc_roth.png'), fullPage: false, clip: { x: 0, y: 150, width: 375, height: 812 } }).catch(() => {});
+          for (const e of errori) problemi.push(`Roth ${JSON.stringify(c)} ${w}px: ${e}`);
+          await page.close();
+        }
       }
       // calcolatori: casi attesi (solo una volta per larghezza)
       if (tema === 'light') {
@@ -145,5 +169,5 @@ function numero(t, de) {
   }
   await browser.close();
   srv.close();
-  console.log(JSON.stringify({ viste: n, casi: CASI.length, problemi }));
+  console.log(JSON.stringify({ viste: n, casi: CASI.length, roth: CASI_ROTH.length, problemi }));
 })();

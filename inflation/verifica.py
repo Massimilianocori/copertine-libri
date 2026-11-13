@@ -20,11 +20,12 @@ RADICE = Path(__file__).resolve().parent
 sys.path.insert(0, str(RADICE))
 sys.path.append(str(RADICE.parent / "studio-business" / "strumenti"))
 import genera as G  # noqa: E402
+import pensione as PEN  # noqa: E402
 import monetizzazione as MON  # noqa: E402
 import motore as M  # noqa: E402
 import serie  # noqa: E402
 
-SEGNO_CHIAVE = "sd" + "_" + "live"  # prefisso delle chiavi dello strumento dei volumi (scritto spezzato per non comparire nei file)
+SEGNO_CHIAVE = "_".join(("sd", "live"))  # prefisso delle chiavi dello strumento dei volumi (scritto spezzato per non comparire nei file)
 
 SITO = RADICE / "sito"
 ERR, AVV, OK = [], [], []
@@ -245,7 +246,7 @@ def motore():
 
 # ---------------------------------------------------------------- 3. pagine
 TITOLI, DESCR = {}, {}
-CONSIGLI = re.compile(r"\b(you should (buy|sell|invest|save)|we recommend|best investment|guaranteed? return|financial advice:|invest in|"
+CONSIGLI = re.compile(r"\b(you should|should you|we recommend|best (account|plan|ira|401\(k\))|best investment|guaranteed? return|financial advice:|invest in|"
                       r"sollten Sie (kaufen|verkaufen|anlegen|investieren)|wir empfehlen|Anlagetipp)\b", re.I)
 
 
@@ -449,6 +450,7 @@ def pagine():
                 err(f"{nome} uguale in {dove[:3]}: «{testo_[:60]}»")
     tassi_pubblicati()
     pagine_anno()
+    pensione()
     # link interni
     rotti = set()
     for rel, l in tutti_link:
@@ -465,6 +467,7 @@ def pagine():
         err(f"pagine noindex inattese: {noindex}")
     attese = ["", "uk/", "uk/rpi-calculator/", "uk/inflation-rate-by-year/", "us/inflation-rate-by-year/"]
     attese += ["de/inflationsrechner/", "de/inflationsrate-deutschland/"] if DE else []
+    attese += list(PEN.PAGINE.values())
     attese += [f"us/{y}-dollars-today/" for y in G.ANNI_US] + [f"us/{x}-dollars-in-{y}/" for x in G.IMPORTI_PAGINA for y in G.DECENNI_IMPORTO]
     mancano = [a for a in attese if f"{G.URL_SITO}/{a}" not in canon]
     if mancano:
@@ -525,6 +528,264 @@ def pagine():
                 err(f"{f.relative_to(RADICE)}: nome di modello AI")
 
 
+# ---------------------------------------------------------------- 3b. limiti IRS (401(k), IRA, Roth, SIMPLE, HSA)
+def _norm(t):
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("irs_raccolta", RADICE / "raccolta" / "irs.py")
+    m = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(m)
+    return m.normalizza(t)
+
+
+# Fonti di legge ammesse (non irs.gov): id → (voci che possono citarla, frase che estende la cifra a tutti gli anni)
+LEGGE_USA = {"usc_223": (("hsa_catchup",), "2009 and thereafter $1,000")}
+
+
+def _usd_in(x, frase):
+    return f"${x:,}" in frase or f"$ {x:,}" in frase
+
+
+def pensione():
+    """Ogni cifra di dati/limiti.json contro la frase IRS citata; frasi nel testo della fonte; fonte dell'anno giusto; controprove sui comunicati
+    e sulle tabelle COLA dell'IRS; coerenza interna; cifre stampate nelle pagine = limiti.json; motore Roth JS pubblicato = Python."""
+    import hashlib
+    L = PEN.LIM
+    testi, n_cifre, n_frasi, n_mostra = {}, 0, 0, 0
+
+    def testo_fonte(fid):
+        if fid not in testi:
+            f = G.FONTI.get(fid)
+            p = RADICE / "dati" / "grezzi" / "irs" / f"{fid}.txt"
+            if not f or f.get("http") != 200 or not f.get("sha256") or not f.get("letto_il") or not p.exists():
+                err(f"limiti: fonte {fid} senza registrazione completa in fonti.json o senza testo")
+                testi[fid] = ""
+            else:
+                testi[fid] = p.read_text(encoding="utf-8")
+                if f.get("originale"):
+                    b = (RADICE / "dati" / f["originale"]).read_bytes()
+                    if hashlib.sha256(b).hexdigest() != f["sha256"]:
+                        err(f"limiti: {fid}: SHA-256 del PDF conservato ≠ fonti.json")
+                atteso_url = "https://www.govinfo.gov/content/pkg/USCODE-" if fid in LEGGE_USA else "https://www.irs.gov/"
+                if not f["url"].startswith(atteso_url):
+                    err(f"limiti: {fid} non è una pagina {atteso_url} ({f['url']})")
+        return testi[fid]
+    for fid, segno in L["identita"].items():
+        if segno not in testo_fonte(fid):
+            err(f"limiti: {fid} non contiene «{segno}» (documento di un altro anno?)")
+    for y, voci in L["anni"].items():
+        for k, x in voci.items():
+            t = testo_fonte(x["fonte"])
+            n_frasi += 1
+            if _norm(x["frase"]) not in t:
+                err(f"limiti {y} {k}: frase non trovata in {x['fonte']}")
+            for val in (x["valore"] if isinstance(x["valore"], list) else [x["valore"]]):
+                n_cifre += 1
+                if not _usd_in(val, x["frase"]):
+                    err(f"limiti {y} {k}: {val} non è nella frase citata")
+                if x.get("mostra") and not _usd_in(val, x["mostra"]):
+                    err(f"limiti {y} {k}: {val} non è nella frase mostrata")
+            if x.get("mostra"):
+                # «mostra» = «frase» senza un solo numero di pagina del PDF (es. «high -2deductible» → «high deductible»): niente altro può cambiare
+                senza = {re.sub(r"\s+", " ", x["frase"][:m.start()] + x["frase"][m.end():]) for m in re.finditer(r"-?\d{1,2}-? ?", x["frase"])}
+                n_mostra += 1
+                if x["mostra"] not in senza or not x["fonte"].startswith("irs_rp_"):
+                    err(f"limiti {y} {k}: la frase mostrata non è la frase IRS senza il numero di pagina")
+            if x["fonte"] in LEGGE_USA:
+                # cifra fissata dalla legge, non da un documento dell'anno: solo le voci ammesse e solo con la frase che la estende a ogni anno
+                if k not in LEGGE_USA[x["fonte"]][0] or LEGGE_USA[x["fonte"]][1] not in x["frase"]:
+                    err(f"limiti {y} {k}: la legge {x['fonte']} non può essere la fonte di questa voce")
+                continue
+            anno_fonte = re.search(r"_(\d{4})b?$", x["fonte"])
+            if not anno_fonte or anno_fonte.group(1) != y:
+                err(f"limiti {y} {k}: la fonte {x['fonte']} è di un altro anno")
+    for k, x in L["testi"].items():
+        n_frasi += 1
+        if _norm(x["frase"]) not in testo_fonte(x["fonte"]):
+            err(f"limiti testo {k}: frase non trovata in {x['fonte']}")
+    # controprova 1: il comunicato dell'anno (documento diverso dal Notice) contiene le stesse cifre
+    A, n_cp = PEN.A, 0
+    for y in PEN.ANNI:
+        t = testo_fonte(f"irs_ir_{y}")
+        for k in ("k401", "catchup", "catchup_6063", "ira", "ira_catchup", "roth_single", "roth_mfj", "ded_single", "ded_mfj", "ded_spouse", "simple"):
+            if k in A[y]:
+                for val in (A[y][k]["valore"] if isinstance(A[y][k]["valore"], list) else [A[y][k]["valore"]]):
+                    n_cp += 1
+                    if f"${val:,}" not in t:
+                        err(f"limiti {y} {k}: {val} non compare nel comunicato IRS dell'anno")
+    # controprova 2: tabelle COLA dell'IRS (pagina 2023-2026 e PDF degli anni precedenti, 2020-2025)
+    cola_p, cola_t = testo_fonte("irs_cola_pagina"), testo_fonte("irs_cola_tabella")
+    seq = lambda k, anni, pre="": " ".join(f"{pre}{PEN.v(a, k):,}" for a in anni)  # noqa: E731
+    pag = [2026, 2025, 2024, 2023]
+    controlli_cola = [("Elective deferrals " + seq("k401", pag), cola_p), ("IRA contribution limit " + seq("ira", pag, "$"), cola_p),
+                      ("IRA catch-up contributions " + seq("ira_catchup", pag), cola_p), ("SIMPLE maximum contributions " + seq("simple", pag), cola_p),
+                      ("Defined contribution plan limit " + seq("dc415c", pag), cola_p), ("457 elective deferrals " + seq("k457", pag), cola_p),
+                      ("Joint return " + " ".join(f"{PEN.v(a, 'ded_mfj')[0]:,}" for a in pag), cola_p),
+                      ("Single or head of household " + " ".join(f"{PEN.v(a, 'ded_single')[0]:,}" for a in pag), cola_p)]
+    tab = [2025, 2024, 2023, 2022, 2021, 2020]
+    controlli_cola += [(seq("k401", tab), cola_t), (seq("simple", tab), cola_t), (seq("dc415c", tab), cola_t), (seq("ira", tab), cola_t),
+                       (seq("simple_catchup", tab), cola_t), (" ".join(f"--{PEN.v(a, 'catchup'):,}" for a in tab), cola_t),
+                       (seq("simple", [2019, 2018, 2017, 2016, 2015]), cola_t)]
+    for frase, t in controlli_cola:
+        if frase not in t:
+            err(f"limiti: le tabelle COLA dell'IRS non danno «{frase}»")
+    # coerenza interna
+    for y in PEN.ANNI:
+        if PEN.v(y, "k457") != PEN.v(y, "k401"):
+            err(f"limiti {y}: 457(b) ≠ 402(g) (la pagina 401(k) dice che sono uguali in ogni anno)")
+        for k, w in (("roth_single", 15000), ("roth_mfj", 10000), ("roth_mfs", 10000), ("ded_single", 10000), ("ded_mfj", 20000), ("ded_spouse", 10000)):
+            lo, hi = PEN.v(y, k)
+            if hi - lo != w:
+                err(f"limiti {y} {k}: ampiezza {hi - lo} invece di {w}")
+        if PEN.v(y, "roth_mfs") != [0, 10000]:
+            err(f"limiti {y}: Roth MFS ≠ 0-10.000")
+        if y > PEN.PRIMO:
+            for k in ("k401", "catchup", "ira", "dc415c", "simple", "hsa_self", "hsa_family"):
+                if PEN.v(y, k) < PEN.v(y - 1, k):
+                    err(f"limiti {y} {k}: più basso dell'anno prima")
+    # contributo HSA dai 55 anni: 1.000 $ in ogni anno (legge: «2009 and thereafter $1,000», non indicizzato perché § 223(g) nomina solo (b)(2) e (c)(2)(A))
+    usc = testo_fonte("usc_223")
+    for y in PEN.ANNI:
+        if PEN.v(y, "hsa_catchup") != 1000:
+            err(f"limiti {y}: contributo HSA 55+ = {PEN.v(y, 'hsa_catchup')} invece dei 1.000 $ fissati dalla sezione 223(b)(3)(B)")
+    if "2009 and thereafter $1,000" not in usc or "Each dollar amount in subsections (b)(2) and (c)(2)(A) shall be increased" not in usc or "(b)(3)" in \
+            usc[usc.find("(g) Cost-of-living adjustment"):usc.find("(h) Reports")]:
+        err("limiti: la sezione 223 letta non fissa più a 1.000 $ non indicizzati il contributo HSA 55+")
+    # soglia salariale del catch-up Roth: la frase del Notice dell'anno dopo parte dalla cifra dell'anno prima
+    for y in PEN.ANNI:
+        if "roth_catchup_soglia" in A[y] and "roth_catchup_soglia" in A.get(y - 1, {}):
+            if f"from ${PEN.v(y - 1, 'roth_catchup_soglia'):,} to ${PEN.v(y, 'roth_catchup_soglia'):,}" not in A[y]["roth_catchup_soglia"]["frase"]:
+                err(f"limiti {y}: soglia del catch-up Roth non coerente con l'anno prima")
+    if f"${PEN.v(2026, 'roth_catchup_soglia'):,} (for 2026)" not in L["testi"]["roth_catchup_salario"]["frase"]:
+        err("limiti: la pagina IRS sui catch-up non dà la soglia Roth 2026 del Notice")
+    # Publication 590-A (2025): soglie e metodo coerenti con i limiti 2025
+    r25 = PEN.v(2025, "roth_mfj"), PEN.v(2025, "roth_single")
+    if not (_usd_in(r25[0][1], L["testi"]["roth_chi"]["frase"]) and _usd_in(r25[1][1], L["testi"]["roth_chi"]["frase"])
+            and _usd_in(r25[0][0], L["testi"]["roth_riga2"]["frase"]) and _usd_in(r25[1][0], L["testi"]["roth_riga2"]["frase"])):
+        err("Publication 590-A (2025): soglie Roth diverse da quelle del Notice 2024-80")
+    ok(f"limiti IRS: {n_cifre} cifre in {sum(len(a) for a in L['anni'].values())} voci ({PEN.PRIMO}-{PEN.ULTIMO}) e {len(L['testi'])} frasi di metodo: "
+       f"{n_frasi} frasi ritrovate nel testo IRS della fonte dell'anno giusto, ogni cifra dentro la sua frase ({n_mostra} frasi mostrate senza il numero di pagina del PDF); {len(L['identita'])} documenti con il loro anno; "
+       f"{n_cp} cifre ritrovate anche nel comunicato IRS dell'anno; {len(controlli_cola)} serie uguali alle tabelle COLA dell'IRS; ampiezze delle fasce e crescita coerenti")
+    # pagine: ogni cella con data-k = limiti.json
+    n_celle = 0
+    for chiave, perc in PEN.PAGINE.items():
+        t = (SITO / perc / "index.html").read_text(encoding="utf-8")
+        vis = re.sub(r"\s+", " ", testo(t))
+        for anno, riga in re.findall(r'<tr data-anno="(\d{4})"[^>]*>(.*?)</tr>', t, re.S):
+            for k, cell in re.findall(r'<td class="n[^"]*" data-k="([\w.]+)">([^<]*)</td>', riga):
+                base, _, i = k.partition(".")
+                val = PEN.v(int(anno), base)
+                if val is not None and i:
+                    val = val[int(i)]
+                atteso = "–" if val is None else (PEN.fascia(val) if isinstance(val, list) else PEN.usd(val))
+                n_celle += 1
+                if unescape(cell) != atteso:
+                    err(f"{perc} {anno} {k}: stampato {cell} ≠ IRS {atteso}")
+            m = re.search(r'data-tot="(\d+)"', riga)
+            if m and int(m.group(1)) != PEN.v(int(anno), "k401") + PEN.v(int(anno), "catchup"):
+                err(f"{perc} {anno}: totale con catch-up sbagliato")
+        for k, c0, c1 in re.findall(r'<tr data-riga="(\w+)">.*?<td class="n[^"]*" data-k="\w+">([^<]*)</td><td class="n[^"]*" data-k="\w+">([^<]*)</td>', t, re.S):
+            for anno, cell in ((PEN.CORRENTE, c0), (PEN.ULTIMO, c1)):
+                val = PEN.v(anno, k)
+                n_celle += 1
+                if unescape(cell) != ("–" if val is None else PEN.fascia(val) if isinstance(val, list) else PEN.usd(val)):
+                    err(f"{perc} sintesi {k} {anno}: {cell}")
+        if "Internal Revenue Service" not in vis or "not financial or investment advice" not in vis or "We do not promote any account" not in vis:
+            err(f"{perc}: manca la fonte IRS o l'avviso")
+        if "irs.gov/" not in t:
+            err(f"{perc}: nessun link a irs.gov")
+        for x in re.findall(r'<blockquote class="citaz">“(.*?)\.”<cite>', t, re.S):
+            n_celle += 0
+            if not any(_norm(unescape(x)) == _norm(v.get("mostra") or v["frase"]) for a in L["anni"].values() for v in a.values()) and \
+                    not any(_norm(unescape(x)) == _norm(v["frase"]) for v in L["testi"].values()):
+                err(f"{perc}: citazione non presa da limiti.json «{unescape(x)[:60]}»")
+    # pagina 401(k): le spiegazioni (somma tra piani, 457(b) a parte, catch-up «if permitted by the plan», 415(c) senza catch-up, soglia Roth)
+    # sono citate dalle pagine IRS, non scritte da noi
+    t401 = (SITO / PEN.PAGINE["401k"] / "index.html").read_text(encoding="utf-8")
+    for k in ("k401_somma", "k401_457", "k401_piano_limite", "k401_catchup_piano", "k401_415c", "roth_catchup_salario"):
+        if G.h(L["testi"][k]["frase"]) not in t401:
+            err(f"401k-limit/: manca la frase IRS «{k}» che regge la spiegazione")
+    for vecchia in ("to one person", "to one account", "if the plan allows it"):
+        if vecchia in t401:
+            err(f"401k-limit/: è tornata una spiegazione non citata («{vecchia}»)")
+    thsa = (SITO / PEN.PAGINE["hsa"] / "index.html").read_text(encoding="utf-8")
+    if 'class="n vuoto"' in thsa or G.h(L["testi"]["hsa_55_legge"]["frase"]) not in thsa or "govinfo.gov" not in thsa:
+        err("hsa-limit/: contributo 55+ senza la legge come fonte, o celle vuote")
+    if n_celle < 400:
+        err(f"limiti: solo {n_celle} celle lette nelle pagine (struttura cambiata?)")
+    # tabella limiti e inflazione: valori in dollari di oggi = CPI-U
+    t = (SITO / PEN.PAGINE["indice"] / "index.html").read_text(encoding="utf-8")
+    r = G.val("us", G.ULTIMO_ANNO_US) / G.val("us", PEN.PRIMO)
+    righe_cpi = re.findall(r'<tr data-k="(\w+)"><td>[^<]*</td><td class="n">[^<]*</td><td class="n" data-cpi>([^<]*)</td>', t)
+    for k, cell in righe_cpi:
+        if cell != G.soldi(PEN.v(PEN.PRIMO, k) * r, "USD", 0):
+            err(f"limiti e inflazione: {k} {cell} ≠ CPI-U")
+    if len(righe_cpi) != 5 or f"/?a={PEN.v(PEN.PRIMO, 'k401')}&amp;f={PEN.PRIMO}&amp;t={G.ULTIMO_ANNO_US}#calc" not in t:
+        err("limiti e inflazione: tabella o link al calcolatore mancanti")
+    ok(f"pagine dei limiti: {n_celle} celle (tabelle per anno e sintesi {PEN.CORRENTE}/{PEN.ULTIMO}) = limiti.json; citazioni = frasi IRS registrate; "
+       f"{len(righe_cpi)} limiti {PEN.PRIMO} in dollari {G.ULTIMO_ANNO_US} = CPI-U; avviso e link irs.gov in tutte le {len(PEN.PAGINE)} pagine")
+    roth_motore()
+
+
+def roth_casi():
+    rnd = random.Random(11)
+    casi = []
+    for y in PEN.ANNI:
+        for stato in PEN.STATI:
+            lo, hi = PEN.roth_dati(y)[PEN.FASCIA_STATO[stato]]
+            for o50 in (False, True):
+                magi = [0, lo * 100 - 1, lo * 100, lo * 100 + 1, hi * 100 - 1, hi * 100, hi * 100 + 1, (lo + hi) * 50, 99999999]
+                magi += [rnd.randrange(max(0, lo * 100 - 300000), hi * 100 + 300000) for _ in range(25)]
+                magi += [(lo + rnd.randrange(0, hi - lo)) * 100 for _ in range(10)]  # dollari tondi: arrotondamenti esatti ai 10 $
+                for m in magi:
+                    casi.append([y, stato, m, o50, None, 0])
+                casi.append([y, stato, (lo + hi) * 50, o50, 300000, 0])           # compenso sotto il limite
+                casi.append([y, stato, lo * 100 + 10, o50, 15000, 0])              # compenso piccolissimo: riga 11 = riga 10
+                casi.append([y, stato, hi * 100 - 500, o50, None, 0])              # sotto i 200 $: diventa 200 $
+                casi.append([y, stato, (lo + hi) * 50, o50, None, 250000])         # già versati 2.500 $ in un IRA tradizionale
+                casi.append([y, stato, lo * 100 - 100, o50, None, PEN.v(y, "ira") * 100])  # tutto già versato altrove
+    return casi
+
+
+def roth_motore():
+    """Motore Roth pubblicato (sito/assets/roth.*.js) = pensione.roth_limite su ogni anno, stato, età, ai bordi delle fasce e a caso;
+    esempio del foglio IRS (2025, single, MAGI 151.000 $ → 6.540 $); risultato iniziale della pagina = Python."""
+    js_file = next((SITO / "assets").glob("roth.*.js"))
+    js = js_file.read_text(encoding="utf-8")
+    motore_js = js[:js.index("(function(){")]
+    casi = roth_casi()
+    dati = {str(y): PEN.roth_dati(y) for y in PEN.ANNI}
+    prog = motore_js + "\nvar D=" + json.dumps(dati) + ";var K=" + json.dumps(casi) + (
+        ";process.stdout.write(JSON.stringify(K.map(function(c){var r=rothLimite(D[c[0]],c[1],c[2],c[3],c[4],c[5]);return [r.esito,r.limite];})));")
+    p = subprocess.run(["node", "-"], input=prog, capture_output=True, text=True)
+    if p.returncode:
+        err("node (Roth): " + p.stderr[:300])
+        return
+    diversi, esiti = 0, {"full": 0, "partial": 0, "none": 0}
+    minimi = 0
+    for c, (e, lim) in zip(casi, json.loads(p.stdout)):
+        r = PEN.roth_limite(PEN.roth_dati(c[0]), c[1], c[2], c[3], c[4], c[5])
+        esiti[r["esito"]] += 1
+        minimi += r["esito"] == "partial" and r["l8"] == 20000
+        if (e, lim) != (r["esito"], r["limite"]):
+            diversi += 1
+            if diversi < 4:
+                err(f"Roth JS ≠ Python: {c}: {e} {lim} / {r['esito']} {r['limite']}")
+        lo, hi = PEN.roth_dati(c[0])[PEN.FASCIA_STATO[c[1]]]
+        atteso = "full" if c[2] <= lo * 100 else "none" if c[2] >= hi * 100 else "partial"
+        if r["esito"] != atteso or r["limite"] < 0 or r["limite"] > r["L"] or (r["esito"] == "partial" and r["limite"] % 1000 and r["limite"] != r["l10"]):
+            err(f"Roth: risultato incoerente {c} → {r}")
+    es = PEN.roth_limite(PEN.roth_dati(2025), "single", 15100000, False)
+    if es["limite"] != 654000:
+        err(f"Roth: esempio del foglio IRS 2025 (MAGI 151.000 $) = {es['limite'] / 100} invece di 6.540 $")
+    t = (SITO / PEN.PAGINE["roth"] / "index.html").read_text(encoding="utf-8")
+    ini = PEN.roth_limite(PEN.roth_dati(PEN.CORRENTE), "single", 16000000, False)
+    if f"<b data-roth-limite>{PEN.usd(ini['limite'] // 100)}</b>" not in t or "$6,540" not in t:
+        err("Roth: risultato iniziale della pagina o esempio IRS diversi dal motore")
+    if not diversi:
+        ok(f"calcolatore Roth pubblicato ({js_file.name}) = Python su {len(casi)} casi ({esiti['full']} pieni, {esiti['partial']} ridotti, {esiti['none']} nulli; "
+           f"bordi delle fasce al centesimo, {minimi} casi al minimo di 200 $, compenso basso, versamenti ad altri IRA); esempio del foglio IRS 2025 = 6.540 $")
+
+
 VIETATE_SENZA_DE = ("/de/", "Inflationsrechner", "Destatis", 'lang="de', "Germany")
 
 
@@ -567,7 +828,7 @@ def browser():
     ]
     if DE:
         casi += casi_de
-    pagine_b = ["/", "/uk/", "/us/1970-dollars-today/", "/us/inflation-rate-by-year/", "/us/100-dollars-in-1970/", "/uk/inflation-rate-by-year/",
+    pagine_b = ["/", "/uk/", "/retirement-limits/", "/roth-ira-income-limit/", "/hsa-limit/", "/401k-limit/", "/us/1970-dollars-today/", "/us/inflation-rate-by-year/", "/us/100-dollars-in-1970/", "/uk/inflation-rate-by-year/",
                 "/uk/rpi-calculator/", "/how-we-check/", "/does-not-exist/"]
     if DE:
         pagine_b[2:2] = ["/de/inflationsrechner/"]
@@ -579,7 +840,12 @@ def browser():
         if c.get("ufficiale") and abs(c["atteso"] - c["ufficiale"]) > 0.005:
             err(f"caso {c['descr']}: motore {c['atteso']} ≠ BLS {c['ufficiale']}")
     link = round(M.calcola(C["us"], 250, (1985, None), (2000, None))["valore"], 2)
-    env = {"CASI_CALC": json.dumps(casi), "ATTESO_LINK": str(link), "PAGINE": ",".join(pagine_b), "PATH": "/usr/bin:/bin:/usr/local/bin"}
+    casi_roth = []
+    for y, stato, magi, o50, comp in ((PEN.CORRENTE, "single", "160,000", False, ""), (PEN.ULTIMO, "mfj", "255000", True, ""), (2025, "single", "151000", False, ""),
+                                      (PEN.CORRENTE, "mfs", "9,990", False, ""), (PEN.ULTIMO, "single", "120000", True, "5000"), (PEN.CORRENTE, "mfj", "300000", False, ""), (PEN.ULTIMO, "mfs_sep", "165,000", False, "")):
+        r = PEN.roth_limite(PEN.roth_dati(y), stato, int(magi.replace(",", "")) * 100, o50, int(comp) * 100 if comp else None)
+        casi_roth.append({"y": str(y), "s": stato, "m": magi, "e": o50, "c": comp, "atteso": r["limite"] / 100, "esito": r["esito"]})
+    env = {"CASI_CALC": json.dumps(casi), "CASI_ROTH": json.dumps(casi_roth), "ATTESO_LINK": str(link), "PAGINE": ",".join(pagine_b), "PATH": "/usr/bin:/bin:/usr/local/bin"}
     import os
     env = dict(os.environ, **env)
     p = subprocess.run(["node", str(RADICE / "verifica_browser.js")], capture_output=True, text=True, env=env, timeout=900)
@@ -592,7 +858,7 @@ def browser():
         err("browser: " + x)
     if not out["problemi"]:
         ok(f"browser: {out['viste']} viste ({len(pagine_b)} pagine × 375/1280 px × chiaro/scuro) senza scorrimento orizzontale, errori JS o testo < 11 px; "
-           f"{out['casi']} casi del calcolatore × 2 larghezze uguali al motore (anche 1000 $ gen 1980 → set 2025 = 4.174,81 del BLS), cambio CPI→RPI e ritorno al CPI, ottobre 2025 non selezionabile, link condiviso, tema")
+           f"{out.get('roth', 0)} casi del calcolatore Roth × 2 larghezze = Python; {out['casi']} casi del calcolatore × 2 larghezze uguali al motore (anche 1000 $ gen 1980 → set 2025 = 4.174,81 del BLS), cambio CPI→RPI e ritorno al CPI, ottobre 2025 non selezionabile, link condiviso, tema")
 
 
 def main():

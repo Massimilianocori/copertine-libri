@@ -90,6 +90,108 @@
    "domanda": "How do you calculate an RPI increase?",
    "ricerca": "rpi increase calculator",
    "paese": "gb"
+  },
+  {
+   "pagina": "indice",
+   "domanda": "How have 401(k) contribution limits changed over time?",
+   "ricerca": "401k contribution limits history",
+   "paese": "us"
+  },
+  {
+   "pagina": "401k",
+   "domanda": "How much can I put in my 401(k)?",
+   "ricerca": "how much can i put in my 401k",
+   "paese": "us"
+  },
+  {
+   "pagina": "401k",
+   "domanda": "What is the 401(k) catch-up contribution?",
+   "ricerca": "401k catch up",
+   "paese": "us"
+  },
+  {
+   "pagina": "401k",
+   "domanda": "What is the super catch-up for ages 60 to 63?",
+   "ricerca": "super catch up 401k",
+   "paese": "us"
+  },
+  {
+   "pagina": "401k",
+   "domanda": "What are the 403(b) contribution limits?",
+   "ricerca": "403b contribution limits",
+   "paese": "us"
+  },
+  {
+   "pagina": "ira",
+   "domanda": "What is the maximum IRA contribution?",
+   "ricerca": "max ira contribution",
+   "paese": "us"
+  },
+  {
+   "pagina": "ira",
+   "domanda": "What are the traditional IRA income limits?",
+   "ricerca": "traditional ira income limits",
+   "paese": "us"
+  },
+  {
+   "pagina": "ira",
+   "domanda": "What is the IRA contribution deadline?",
+   "ricerca": "ira contribution deadline",
+   "paese": "us"
+  },
+  {
+   "pagina": "roth",
+   "domanda": "Can I contribute to a Roth IRA?",
+   "ricerca": "can i contribute to a roth ira",
+   "paese": "us"
+  },
+  {
+   "pagina": "roth",
+   "domanda": "How much can you put in a Roth IRA?",
+   "ricerca": "how much can you put in a roth ira",
+   "paese": "us"
+  },
+  {
+   "pagina": "roth",
+   "domanda": "What is the Roth IRA income limit for married filing separately?",
+   "ricerca": "roth ira married filing separately",
+   "paese": "us"
+  },
+  {
+   "pagina": "roth",
+   "domanda": "What is the Roth IRA contribution deadline?",
+   "ricerca": "roth ira deadline",
+   "paese": "us"
+  },
+  {
+   "pagina": "hsa",
+   "domanda": "Is there a catch-up contribution for an HSA?",
+   "ricerca": "hsa catch up contribution",
+   "paese": "us"
+  },
+  {
+   "pagina": "hsa",
+   "domanda": "How much can I contribute to my HSA?",
+   "ricerca": "how much can i contribute to my hsa",
+   "paese": "us"
+  },
+  {
+   "pagina": "hsa",
+   "domanda": "What is the HSA contribution deadline?",
+   "ricerca": "hsa contribution deadline",
+   "paese": "us"
+  },
+  {
+   "pagina": "simple",
+   "domanda": "What is the SIMPLE IRA max contribution?",
+   "ricerca": "simple ira max contribution",
+   "paese": "us"
+  },
+  {
+   "pagina": "simple",
+   "domanda": "What is the SIMPLE IRA catch-up contribution?",
+   "ricerca": "simple ira catch up contribution",
+   "paese": "us"
   }
  ]
 }

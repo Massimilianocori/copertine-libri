@@ -223,6 +223,21 @@
    "url": "https://genesis.destatis.de/genesisWS/rest/2020/data/tablefile",
    "motivo": "HTTP 401: the GENESIS-Online web service needs a registered account; we use the Destatis downloads instead",
    "provato_il": "2026-11-13"
+  },
+  "irs_n_2014_70": {
+   "url": "https://www.irs.gov/pub/irs-drop/n-14-70.pdf",
+   "motivo": "HTTP 404; the same notice is read in Internal Revenue Bulletin 2014-48",
+   "provato_il": "2026-11-13"
+  },
+  "irs_rp_2019_25": {
+   "url": "https://www.irs.gov/pub/irs-drop/rp-19-25.pdf",
+   "motivo": "HTTP 404; the same revenue procedure is read in Internal Revenue Bulletin 2019-22",
+   "provato_il": "2026-11-13"
+  },
+  "irs_rp_2018_18": {
+   "url": "https://www.irs.gov/pub/irs-drop/rp-18-18.pdf",
+   "motivo": "HTTP 404; Rev. Proc. 2018-27 (read) restores the 2018 family HSA limit and cites it",
+   "provato_il": "2026-11-13"
   }
  },
  "boe_calc": {
@@ -241,6 +256,1251 @@
    "CPI estimates before 1988 are modelled based on data collected for the Retail Price Index (RPI)": true,
    "The price index for 1975 = 17.78": true,
    "The price index for 1985 = 44.6": true
+  }
+ },
+ "irs_ir_2015": {
+  "chi": "IRS news release IR-2014-99",
+  "titolo": "IRS news release IR-2014-99: retirement plan limits for 2015",
+  "url": "https://www.irs.gov/newsroom/irs-announces-2015-pension-plan-limitations-taxpayers-may-contribute-up-to-18000-to-their-401k-plans-in-2015",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "222e40adde42e1eefd9e1609586fd975900f8fc13ea991898b063a0c027b7633",
+  "byte": 110140,
+  "testo": "grezzi/irs/irs_ir_2015.txt",
+  "originale": null,
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "The additional catch-up contribution limit for individuals aged 50 and over is not subject to an annual cost-of-living adjustment and remains $1,000.": true,
+   "The limitation under Section 402(g)(1) on the exclusion for elective deferrals described in Section 402(g)(3) is increased from $17,500 to $18,000": true,
+   "The limitation on deferrals under Section 457(e)(15) concerning deferred compensation plans of state and local governments and tax-exempt organizations is increased from $17,500 to $18,000": true,
+   "The dollar limitation under Section 414(v)(2)(B)(i) for catch-up contributions to an applicable employer plan other than a plan described in Section 401(k)(11) or Section 408(p) for individuals aged 50 or over is increased from $5,500 to $6,000": true,
+   "The limitation for defined contribution plans under Section 415(c)(1)(A) is increased in 2015 from $52,000 to $53,000": true,
+   "The limitation under Section 408(p)(2)(E) regarding SIMPLE retirement accounts is increased from $12,000 to $12,500": true,
+   "The dollar limitation under Section 414(v)(2)(B)(ii) for catch-up contributions to an applicable employer plan described in Section 401(k)(11) or Section 408(p) for individuals aged 50 or over is increased from $2,500 to $3,000": true,
+   "The limit on annual contributions to an Individual Retirement Arrangement (IRA) remains unchanged at $5,500": true,
+   "The deduction for taxpayers making contributions to a traditional IRA is phased out for singles and heads of household who are covered by a workplace retirement plan and have modified adjusted gross incomes (AGI) between $61,000 and $71,000": true,
+   "For married couples filing jointly, in which the spouse who makes the IRA contribution is covered by a workplace retirement plan, the income phase-out range is $98,000 to $118,000": true,
+   "For an IRA contributor who is not covered by a workplace retirement plan and is married to someone who is covered, the deduction is phased out if the couple's income is between $183,000 and $193,000": true,
+   "The AGI phase-out range for taxpayers making contributions to a Roth IRA is $183,000 to $193,000 for married couples filing jointly": true,
+   "For singles and heads of household, the income phase-out range is $116,000 to $131,000": true,
+   "For a married individual filing a separate return, the phase-out range is not subject to an annual cost-of-living adjustment and remains $0 to $10,000": true
+  }
+ },
+ "irs_ir_2016": {
+  "chi": "IRS news release IR-2015-118",
+  "titolo": "IRS news release IR-2015-118: retirement plan limits for 2016",
+  "url": "https://www.irs.gov/newsroom/irs-announces-2016-pension-plan-limitations-401k-contribution-limit-remains-unchanged-at-18000-for-2016",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "b32c06807e5e1723dc22be4583b9f6ee86015ec81a0407161ce6a9a982e995e4",
+  "byte": 110733,
+  "testo": "grezzi/irs/irs_ir_2016.txt",
+  "originale": null,
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "The additional catch-up contribution limit for individuals aged 50 and over is not subject to an annual cost-of-living adjustment and remains $1,000.": true
+  }
+ },
+ "irs_ir_2017": {
+  "chi": "IRS news release IR-2016-141",
+  "titolo": "IRS news release IR-2016-141: retirement plan limits for 2017",
+  "url": "https://www.irs.gov/newsroom/irs-announces-2017-pension-plan-limitations-401k-contribution-limit-remains-unchanged-at-18000-for-2017",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "89e0cc12f42e1d71ebdba2f1a6f67162807af21bdee0744ba6d90a2479f95483",
+  "byte": 111734,
+  "testo": "grezzi/irs/irs_ir_2017.txt",
+  "originale": null,
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "The additional catch-up contribution limit for individuals aged 50 and over is not subject to an annual cost-of-living adjustment and remains $1,000.": true
+  }
+ },
+ "irs_ir_2018": {
+  "chi": "IRS news release IR-2017-177",
+  "titolo": "IRS news release IR-2017-177: retirement plan limits for 2018",
+  "url": "https://www.irs.gov/newsroom/irs-announces-2018-pension-plan-limitations-401k-contribution-limit-increases-to-18500-for-2018",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "874c1d54bd06db324e4d954e237c1d4f1198c4bf00420c6a801baa8f95a9ea89",
+  "byte": 110347,
+  "testo": "grezzi/irs/irs_ir_2018.txt",
+  "originale": null,
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "The additional catch-up contribution limit for individuals aged 50 and over is not subject to an annual cost-of-living adjustment and remains $1,000.": true
+  }
+ },
+ "irs_ir_2019": {
+  "chi": "IRS news release IR-2018-211",
+  "titolo": "IRS news release IR-2018-211: retirement plan limits for 2019",
+  "url": "https://www.irs.gov/newsroom/401k-contribution-limit-increases-to-19000-for-2019-ira-limit-increases-to-6000",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "9639a9fc70a0efbf01589006db843bab8605cd4dbda17d1c18e35b77e6bcbc72",
+  "byte": 110251,
+  "testo": "grezzi/irs/irs_ir_2019.txt",
+  "originale": null,
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "The additional catch-up contribution limit for individuals aged 50 and over is not subject to an annual cost-of-living adjustment and remains $1,000.": true
+  }
+ },
+ "irs_ir_2020": {
+  "chi": "IRS news release IR-2019-179",
+  "titolo": "IRS news release IR-2019-179: retirement plan limits for 2020",
+  "url": "https://www.irs.gov/newsroom/401k-contribution-limit-increases-to-19500-for-2020-catch-up-limit-rises-to-6500",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "90a381c8b449fd4e538f21d583b2ed6cfce0f99b7f1d8d6a5a99c18bdd1b3186",
+  "byte": 102473,
+  "testo": "grezzi/irs/irs_ir_2020.txt",
+  "originale": null,
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "The additional catch-up contribution limit for individuals aged 50 and over is not subject to an annual cost-of-living adjustment and remains $1,000.": true
+  }
+ },
+ "irs_ir_2021": {
+  "chi": "IRS news release IR-2020-244",
+  "titolo": "IRS news release IR-2020-244: retirement plan limits for 2021",
+  "url": "https://www.irs.gov/newsroom/income-ranges-for-determining-ira-eligibility-change-for-2021",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "86f0c57ad29bc1be35921ed1b892f55964bb35937679d8d9155ab6e047a7d4da",
+  "byte": 103149,
+  "testo": "grezzi/irs/irs_ir_2021.txt",
+  "originale": null,
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "The additional catch-up contribution limit for individuals aged 50 and over is not subject to an annual cost-of-living adjustment and remains $1,000.": true
+  }
+ },
+ "irs_ir_2022": {
+  "chi": "IRS news release IR-2021-216",
+  "titolo": "IRS news release IR-2021-216: retirement plan limits for 2022",
+  "url": "https://www.irs.gov/newsroom/irs-announces-401k-limit-increases-to-20500",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "efceeda8586c8da4bae1f85d4b7e6c3c7ab1c731542eda678c1d5adc7e73182a",
+  "byte": 103752,
+  "testo": "grezzi/irs/irs_ir_2022.txt",
+  "originale": null,
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "The IRA catch-up contribution limit for individuals aged 50 and over is not subject to an annual cost-of-living adjustment and remains $1,000.": true,
+   "For single taxpayers covered by a workplace retirement plan, the phase-out range is increased to $68,000 to $78,000": true
+  }
+ },
+ "irs_ir_2023": {
+  "chi": "IRS news release IR-2022-188",
+  "titolo": "IRS news release IR-2022-188: retirement plan limits for 2023",
+  "url": "https://www.irs.gov/newsroom/401k-limit-increases-to-22500-for-2023-ira-limit-rises-to-6500",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "d4159ff4c9a60d3e6d73f3076916a9d032c88641a69ec2db9400ea94c9f70ee7",
+  "byte": 106551,
+  "testo": "grezzi/irs/irs_ir_2023.txt",
+  "originale": null,
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "The IRA catch-up contribution limit for individuals aged 50 and over is not subject to an annual cost-of-living adjustment and remains $1,000.": true
+  }
+ },
+ "irs_ir_2024": {
+  "chi": "IRS news release IR-2023-203",
+  "titolo": "IRS news release IR-2023-203: retirement plan limits for 2024",
+  "url": "https://www.irs.gov/newsroom/401k-limit-increases-to-23000-for-2024-ira-limit-rises-to-7000",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "00e3d21f708199ee33746a813d7ed588065612aa367f05f7bfa7352b22ab0df0",
+  "byte": 107006,
+  "testo": "grezzi/irs/irs_ir_2024.txt",
+  "originale": null,
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  }
+ },
+ "irs_ir_2025": {
+  "chi": "IRS news release IR-2024-285",
+  "titolo": "IRS news release IR-2024-285: retirement plan limits for 2025",
+  "url": "https://www.irs.gov/newsroom/401k-limit-increases-to-23500-for-2025-ira-limit-remains-7000",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "6c185fc5789427d2058c15ff54483c7a0dcb3410c0174b1aa06c336851fabe3f",
+  "byte": 107202,
+  "testo": "grezzi/irs/irs_ir_2025.txt",
+  "originale": null,
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "For 2025, this higher catch-up contribution limit is $11,250 instead of $7,500": true
+  }
+ },
+ "irs_ir_2026": {
+  "chi": "IRS news release IR-2025-111",
+  "titolo": "IRS news release IR-2025-111: retirement plan limits for 2026",
+  "url": "https://www.irs.gov/newsroom/401k-limit-increases-to-24500-for-2026-ira-limit-increases-to-7500",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "eb8a383ea36777f8f87731d31a90054dc18c5beb9d5bf44d32f19512f9b7829f",
+  "byte": 104459,
+  "testo": "grezzi/irs/irs_ir_2026.txt",
+  "originale": null,
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "For 2026, this higher catch-up contribution limit remains $11,250 instead of the $8,000 noted above": true
+  }
+ },
+ "irs_ir_2027": {
+  "chi": "IRS news release IR-2026-136",
+  "titolo": "IRS news release IR-2026-136: retirement plan limits for 2027",
+  "url": "https://www.irs.gov/newsroom/401k-limit-increases-to-25500-for-2027-ira-limit-remains-7500",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "d3d43c08b6ffe6534401d03b55a9ed86997b1d2290daf1d505d6dea3d42eee08",
+  "byte": 103960,
+  "testo": "grezzi/irs/irs_ir_2027.txt",
+  "originale": null,
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "For 2027, this higher catch-up contribution limit is $11,750 instead of the $8,500 noted above": true,
+   "If neither the taxpayer nor the spouse is covered by a retirement plan at work, the phase-outs of the deduction do not apply": true
+  }
+ },
+ "irs_n_2015": {
+  "chi": "Notice 2014-70",
+  "titolo": "Internal Revenue Bulletin 2014-48 (Notice 2014-70)",
+  "url": "https://www.irs.gov/pub/irs-irbs/irb14-48.pdf",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "b17924be24d8eed0757b7a4ca1bcd6fe5a17fd54dc7d1b70c0f626b2cd7c594d",
+  "byte": 218899,
+  "testo": "grezzi/irs/irs_n_2015.txt",
+  "originale": "grezzi/irs/irs_n_2015.pdf",
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  }
+ },
+ "irs_n_2016": {
+  "chi": "Notice 2015-75",
+  "titolo": "Notice 2015-75: cost-of-living adjustments for retirement items, 2016",
+  "url": "https://www.irs.gov/pub/irs-drop/n-15-75.pdf",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "e82fb2baa86309a021b1264c869616254f155524c06c8838330320467183f14f",
+  "byte": 20143,
+  "testo": "grezzi/irs/irs_n_2016.txt",
+  "originale": "grezzi/irs/irs_n_2016.pdf",
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "The limitation for defined contribution plans under § 415(c)(1)(A) remains unchanged in 2016 at $53,000": true,
+   "The limitation under § 402(g)(1) on the exclusion for elective deferrals described in § 402(g)(3) remains unchanged at $18,000": true,
+   "The limitation on deferrals under § 457(e)(15) concerning deferred compensation plans of state and local governments and tax-exempt organizations remains unchanged at $18,000": true,
+   "The dollar limitation under § 414(v)(2)(B)(i) for catch-up contributions to an applicable employer plan other than a plan described in § 401(k)(11) or § 408(p) for individuals aged 50 or over remains unchanged at $6,000": true,
+   "The limitation under § 408(p)(2)(E) regarding SIMPLE retirement accounts remains unchanged at $12,500": true,
+   "The dollar limitation under § 414(v)(2)(B)(ii) for catch-up contributions to an applicable employer plan described in § 401(k)(11) or 408(p) for individuals aged 50 or over remains unchanged at $3,000": true,
+   "The deductible amount under § 219(b)(5)(A) for an individual making qualified retirement contributions remains unchanged at $5,500": true,
+   "Accordingly, under § 408A(c)(3)(A), the adjusted gross income phase-out range for taxpayers making contributions to a Roth IRA is $184,000 to $194,000": true,
+   "For singles and heads of household, the income phase-out range is $117,000 to $132,000": true,
+   "For a married individual filing a separate return, the phase-out range is not subject to an annual cost-of-living adjustment and remains $0 to $10,000": true,
+   "Accordingly, under § 219(g)(2)(A), the deduction for taxpayers making contributions to a traditional IRA is phased out for single individuals and heads of household who are active participants in a qualified plan (or another retirement plan specified in § 219(g)(5)) and have adjusted gross incomes (as defined in § 219(g)(3)(A)) between $61,000 and $71,000": true,
+   "For married couples filing jointly, if the spouse who makes the IRA contribution is an active participant, the income phase-out range remains unchanged at $98,000 to $118,000": true,
+   "For an IRA contributor who is not an active participant and is married to someone who is an active participant, the deduction is phased out if the couple's income is between $184,000 and $194,000": true
+  }
+ },
+ "irs_n_2017": {
+  "chi": "Notice 2016-62",
+  "titolo": "Notice 2016-62: cost-of-living adjustments for retirement items, 2017",
+  "url": "https://www.irs.gov/pub/irs-drop/n-16-62.pdf",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "77c05592931c9030270b167b63e61de52be944c5a65ea21fc3512f9ffa01416e",
+  "byte": 25517,
+  "testo": "grezzi/irs/irs_n_2017.txt",
+  "originale": "grezzi/irs/irs_n_2017.pdf",
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "The limitation for defined contribution plans under § 415(c)(1)(A) is increased in 2017 from $53,000 to $54,000": true,
+   "The limitation under § 402(g)(1) on the exclusion for elective deferrals described in § 402(g)(3) remains unchanged at $18,000": true,
+   "The limitation on deferrals under § 457(e)(15) concerning deferred compensation plans of state and local governments and tax-exempt organizations remains unchanged at $18,000": true,
+   "The dollar limitation under § 414(v)(2)(B)(i) for catch-up contributions to an applicable employer plan other than a plan described in § 401(k)(11) or § 408(p) for individuals aged 50 or over remains unchanged at $6,000": true,
+   "The limitation under § 408(p)(2)(E) regarding SIMPLE retirement accounts remains unchanged at $12,500": true,
+   "The dollar limitation under § 414(v)(2)(B)(ii) for catch-up contributions to an applicable employer plan described in § 401(k)(11) or 408(p) for individuals aged 50 or over remains unchanged at $3,000": true,
+   "The deductible amount under § 219(b)(5)(A) for an individual making qualified retirement contributions remains unchanged at $5,500": true,
+   "Accordingly, under § 408A(c)(3)(A), the adjusted gross income phase-out range for taxpayers making contributions to a Roth IRA is $186,000 to $196,000": true,
+   "For singles and heads of household, the income phase-out range is $118,000 to $133,000": true,
+   "For a married individual filing a separate return, the phase-out range is not subject to an annual cost-of-living adjustment and remains $0 to $10,000": true,
+   "Accordingly, under § 219(g)(2)(A), the deduction for taxpayers making contributions to a traditional IRA is phased out for single individuals and heads of household who are active participants in a qualified plan (or another retirement plan specified in § 219(g)(5)) and have adjusted gross incomes (as defined in § 219(g)(3)(A)) between $62,000 and $72,000": true,
+   "For married couples filing jointly, if the spouse who makes the IRA contribution is an active participant, the income phase-out range is between $99,000 and $119,000": true,
+   "For an IRA contributor who is not an active participant and is married to someone who is an active participant, the deduction is phased out if the couple's income is between $186,000 and $196,000": true
+  }
+ },
+ "irs_n_2018": {
+  "chi": "Notice 2017-64",
+  "titolo": "Notice 2017-64: cost-of-living adjustments for retirement items, 2018",
+  "url": "https://www.irs.gov/pub/irs-drop/n-17-64.pdf",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "f71839e9f670b18c7eac504a1887912863f26a0770b5d42267c205491f1b57fb",
+  "byte": 30944,
+  "testo": "grezzi/irs/irs_n_2018.txt",
+  "originale": "grezzi/irs/irs_n_2018.pdf",
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "The limitation for defined contribution plans under § 415(c)(1)(A) is increased in 2018 from $54,000 to $55,000": true,
+   "The limitation under § 402(g)(1) on the exclusion for elective deferrals described in § 402(g)(3) is increased from $18,000 to $18,500": true,
+   "The limitation on deferrals under § 457(e)(15) concerning deferred compensation plans of state and local governments and tax-exempt organizations is increased from $18,000 to $18,500": true,
+   "The dollar limitation under § 414(v)(2)(B)(i) for catch-up contributions to an applicable employer plan other than a plan described in § 401(k)(11) or § 408(p) for individuals aged 50 or over remains unchanged at $6,000": true,
+   "The limitation under § 408(p)(2)(E) regarding SIMPLE retirement accounts remains unchanged at $12,500": true,
+   "The dollar limitation under § 414(v)(2)(B)(ii) for catch-up contributions to an applicable employer plan described in § 401(k)(11) or 408(p) for individuals aged 50 or over remains unchanged at $3,000": true,
+   "The deductible amount under § 219(b)(5)(A) for an individual making qualified retirement contributions remains unchanged at $5,500": true,
+   "Accordingly, under § 408A(c)(3)(A), the adjusted gross income phase-out range for taxpayers making contributions to a Roth IRA is $189,000 to $199,000": true,
+   "For singles and heads of household, the income phase-out range is $120,000 to $135,000": true,
+   "For a married individual filing a separate return, the phase-out range is not subject to an annual cost-of-living adjustment and remains $0 to $10,000": true,
+   "Accordingly, under § 219(g)(2)(A), the deduction for taxpayers making contributions to a traditional IRA is phased out for single individuals and heads of household who are active participants in a qualified plan (or another retirement plan specified in § 219(g)(5)) and have adjusted gross incomes (as defined in § 219(g)(3)(A)) between $63,000 and $73,000": true,
+   "For married couples filing jointly, if the spouse who makes the IRA contribution is an active participant, the income phaseout range is between $101,000 and $121,000": true,
+   "For an IRA contributor who is not an active participant and is married to someone who is an active participant, the deduction is phased out if the couple's income is between $189,000 and $199,000": true
+  }
+ },
+ "irs_n_2019": {
+  "chi": "Notice 2018-83",
+  "titolo": "Notice 2018-83: cost-of-living adjustments for retirement items, 2019",
+  "url": "https://www.irs.gov/pub/irs-drop/n-18-83.pdf",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "41b8cf99adba3f59f6177b01a019fbf2608dc84ddff78c92fdabb448419f0372",
+  "byte": 51288,
+  "testo": "grezzi/irs/irs_n_2019.txt",
+  "originale": "grezzi/irs/irs_n_2019.pdf",
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "The limitation for defined contribution plans under § 415(c)(1)(A) is increased in 2019 from $55,000 to $56,000": true,
+   "The limitation under § 402(g)(1) on the exclusion for elective deferrals described in § 402(g)(3) is increased from $18,500 to $19,000": true,
+   "The limitation on deferrals under § 457(e)(15) concerning deferred compensation plans of state and local governments and tax-exempt organizations is increased from $18,500 to $19,000": true,
+   "The dollar limitation under § 414(v)(2)(B)(i) for catch-up contributions to an applicable employer plan other than a plan described in § 401(k)(11) or § 408(p) for individuals aged 50 or over remains unchanged at $6,000": true,
+   "The limitation under § 408(p)(2)(E) regarding SIMPLE retirement accounts is increased from $12,500 to $13,000": true,
+   "The dollar limitation under § 414(v)(2)(B)(ii) for catch-up contributions to an applicable employer plan described in § 401(k)(11) or 408(p) for individuals aged 50 or over remains unchanged at $3,000": true,
+   "The deductible amount under § 219(b)(5)(A) for an individual making qualified retirement contributions is increased from $5,500 to $6,000": true,
+   "Accordingly, under § 408A(c)(3)(A), the adjusted gross income phase-out range for taxpayers making contributions to a Roth IRA is $193,000 to $203,000": true,
+   "For singles and heads of household, the income phase-out range is $122,000 to $137,000": true,
+   "For a married individual filing a separate return, the phase-out range is not subject to an annual cost-of-living adjustment and remains $0 to $10,000": true,
+   "Accordingly, under § 219(g)(2)(A), the deduction for taxpayers making contributions to a traditional IRA is phased out for single individuals and heads of household who are active participants in a qualified plan (or another retirement plan specified in § 219(g)(5)) and have adjusted gross incomes (as defined in § 219(g)(3)(A)) between $64,000 and $74,000": true,
+   "For married couples filing jointly, if the spouse who makes the IRA contribution is an active participant, the income phaseout range is between $103,000 and $123,000": true,
+   "For an IRA contributor who is not an active participant and is married to someone who is an active participant, the deduction is phased out if the couple's income is between $193,000 and $203,000": true
+  }
+ },
+ "irs_n_2020": {
+  "chi": "Notice 2019-59",
+  "titolo": "Notice 2019-59: cost-of-living adjustments for retirement items, 2020",
+  "url": "https://www.irs.gov/pub/irs-drop/n-19-59.pdf",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "ee4d9fe3fed4b5f49319350eeaf665684f9ad668aab54ca30ac2550555a3e349",
+  "byte": 59023,
+  "testo": "grezzi/irs/irs_n_2020.txt",
+  "originale": "grezzi/irs/irs_n_2020.pdf",
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "The limitation for defined contribution plans under § 415(c)(1)(A) is increased in 2020 from $56,000 to $57,000": true,
+   "The limitation under § 402(g)(1) on the exclusion for elective deferrals described in § 402(g)(3) is increased from $19,000 to $19,500": true,
+   "The limitation on deferrals under § 457(e)(15) concerning deferred compensation plans of state and local governments and tax-exempt organizations is increased from $19,000 to $19,500": true,
+   "The dollar limitation under § 414(v)(2)(B)(i) for catch-up contributions to an applicable employer plan other than a plan described in § 401(k)(11) or § 408(p) for individuals aged 50 or over is increased from $6,000 to $6,500": true,
+   "The limitation under § 408(p)(2)(E) regarding SIMPLE retirement accounts is increased from $13,000 to $13,500": true,
+   "The dollar limitation under § 414(v)(2)(B)(ii) for catch-up contributions to an applicable employer plan described in § 401(k)(11) or § 408(p) for individuals aged 50 or over remains unchanged at $3,000": true,
+   "The deductible amount under § 219(b)(5)(A) for an individual making qualified retirement contributions remains unchanged at $6,000": true,
+   "Accordingly, under § 408A(c)(3)(A), the adjusted gross income phase-out range for taxpayers making contributions to a Roth IRA is $196,000 to $206,000": true,
+   "For singles and heads of household, the income phase-out range is $124,000 to $139,000": true,
+   "For a married individual filing a separate return, the phase-out range is not subject to an annual cost-of-living adjustment and remains $0 to $10,000": true,
+   "Accordingly, under § 219(g)(2)(A), the deduction for taxpayers making contributions to a traditional IRA is phased out for single individuals and heads of household who are active participants in a qualified plan (or another retirement plan specified in § 219(g)(5)) and have adjusted gross incomes (as defined in § 219(g)(3)(A)) between $65,000 and $75,000": true,
+   "For married couples filing jointly, if the spouse who makes the IRA contribution is an active participant, the income phaseout range is between $104,000 and $124,000": true,
+   "For an IRA contributor who is not an active participant and is married to someone who is an active participant, the deduction is phased out if the couple's income is between $196,000 and $206,000": true
+  }
+ },
+ "irs_n_2021": {
+  "chi": "Notice 2020-79",
+  "titolo": "Notice 2020-79: cost-of-living adjustments for retirement items, 2021",
+  "url": "https://www.irs.gov/pub/irs-drop/n-20-79.pdf",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "fcabeb97d4ab3045472d96bbc16aa9fab978cfebc2c6369f3368c6875fade001",
+  "byte": 77574,
+  "testo": "grezzi/irs/irs_n_2021.txt",
+  "originale": "grezzi/irs/irs_n_2021.pdf",
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "The limitation for defined contribution plans under § 415(c)(1)(A) is increased for 2021 from $57,000 to $58,000": true,
+   "The limitation under § 402(g)(1) on the exclusion for elective deferrals described in § 402(g)(3) remains unchanged at $19,500": true,
+   "The limitation on deferrals under § 457(e)(15) concerning deferred compensation plans of state and local governments and tax-exempt organizations remains unchanged at $19,500": true,
+   "The dollar limitation under § 414(v)(2)(B)(i) for catch-up contributions to an applicable employer plan other than a plan described in § 401(k)(11) or § 408(p) for individuals aged 50 or over remains unchanged at $6,500": true,
+   "The limitation under § 408(p)(2)(E) regarding SIMPLE retirement accounts remains unchanged at $13,500": true,
+   "The dollar limitation under § 414(v)(2)(B)(ii) for catch-up contributions to an applicable employer plan described in § 401(k)(11) or § 408(p) for individuals aged 50 or over remains unchanged at $3,000": true,
+   "The deductible amount under § 219(b)(5)(A) for an individual making qualified retirement contributions remains unchanged at $6,000": true,
+   "Accordingly, under § 408A(c)(3)(A), the adjusted gross income phase-out range for taxpayers making contributions to a Roth IRA is $198,000 to $208,000": true,
+   "For single individuals and heads of household, the income phase-out range is $125,000 to $140,000": true,
+   "For a married individual filing a separate return, the phaseout range is not subject to an annual cost-of-living adjustment and remains $0 to $10,000": true,
+   "Accordingly, under § 219(g)(2)(A), the deduction for taxpayers making contributions to a traditional IRA is phased out for single individuals and heads of household who are active participants in a qualified plan (or another retirement plan specified in § 219(g)(5)) and have adjusted gross incomes (as defined in § 219(g)(3)(A)) between $66,000 and $76,000": true,
+   "For married couples filing jointly, if the spouse who makes the IRA contribution is an active participant, the income phase-out range is between $105,000 and $125,000": true,
+   "For an IRA contributor who is not an active participant and is married to someone who is an active participant, the deduction is phased out if the couple's income is between $198,000 and $208,000": true
+  }
+ },
+ "irs_n_2022": {
+  "chi": "Notice 2021-61",
+  "titolo": "Notice 2021-61: cost-of-living adjustments for retirement items, 2022",
+  "url": "https://www.irs.gov/pub/irs-drop/n-21-61.pdf",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "8016c2fdf5834b1d9e0fb68548aa07659bb2a9cfeb20a62633c51799c5e74004",
+  "byte": 119851,
+  "testo": "grezzi/irs/irs_n_2022.txt",
+  "originale": "grezzi/irs/irs_n_2022.pdf",
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "The limitation for defined contribution plans under section 415(c)(1)(A) is increased in 2022 from $58,000 to $61,000": true,
+   "The limitation under section 402(g)(1) on the exclusion for elective deferrals described in section 402(g)(3) is increased from $19,500 to $20,500": true,
+   "The limitation on deferrals under section 457(e)(15) concerning deferred compensation plans of state and local governments and tax-exempt organizations is increased from $19,500 to $20,500": true,
+   "The dollar limitation under section 414(v)(2)(B)(i) for catch-up contributions to an applicable employer plan other than a plan described in section 401(k)(11) or section 408(p) for individuals aged 50 or over remains unchanged at $6,500": true,
+   "The limitation under section 408(p)(2)(E) regarding SIMPLE retirement accounts is increased from $13,500 to $14,000": true,
+   "The dollar limitation under section 414(v)(2)(B)(ii) for catch-up contributions to an applicable employer plan described in section 401(k)(11) or section 408(p) for individuals aged 50 or over remains unchanged at $3,000": true,
+   "The deductible amount under sections 219(b)(5)(A) for an individual making qualified retirement contributions remains unchanged at $6,000": true,
+   "Accordingly, under section 408A(c)(3)(A), the adjusted gross income phase-out range for taxpayers making contributions to a Roth IRA is $204,000 to $214,000": true,
+   "For singles and heads of household, the income phase-out range is $129,000 to $144,000": true,
+   "For a married individual filing a separate return, the phase-out range is not subject to an annual cost-of-living adjustment and remains $0 to $10,000": true,
+   "For married couples filing jointly, if the spouse who makes the IRA contribution is an active participant, the income phase-out range is between $109,000 and $129,000": true,
+   "For an IRA contributor who is not an active participant and is married to someone who is an active participant, the deduction is phased out if the couple's income is between $204,000 and $214,000": true
+  }
+ },
+ "irs_n_2023": {
+  "chi": "Notice 2022-55",
+  "titolo": "Notice 2022-55: cost-of-living adjustments for retirement items, 2023",
+  "url": "https://www.irs.gov/pub/irs-drop/n-22-55.pdf",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "204a8ef116142cb3effaa7b864a10783ef33efb830e285349f2508fd37b92b6f",
+  "byte": 124629,
+  "testo": "grezzi/irs/irs_n_2023.txt",
+  "originale": "grezzi/irs/irs_n_2023.pdf",
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "The limitation for defined contribution plans under section 415(c)(1)(A) is increased in 2023 from $61,000 to $66,000": true,
+   "The limitation under section 402(g)(1) on the exclusion for elective deferrals described in section 402(g)(3) is increased from $20,500 to $22,500": true,
+   "The limitation on deferrals under section 457(e)(15) concerning deferred compensation plans of state and local governments and tax-exempt organizations is increased from $20,500 to $22,500": true,
+   "The dollar limitation under section 414(v)(2)(B)(i) for catch-up contributions to an applicable employer plan other than a plan described in section 401(k)(11) or section 408(p) for individuals aged 50 or over is increased from $6,500 to $7,500": true,
+   "The limitation under section 408(p)(2)(E) regarding SIMPLE retirement accounts is increased from $14,000 to $15,500": true,
+   "The dollar limitation under section 414(v)(2)(B)(ii) for catch-up contributions to an applicable employer plan described in section 401(k)(11) or section 408(p) for individuals aged 50 or over is increased from $3,000 to $3,500": true,
+   "The deductible amount under sections 219(b)(5)(A) for an individual making qualified retirement contributions is increased from $6,000 to $6,500": true,
+   "Accordingly, under section 408A(c)(3)(A), the adjusted gross income phase-out range for taxpayers making contributions to a Roth IRA is between $218,000 and $228,000": true,
+   "For singles and heads of household, the income phase-out range is between $138,000 and $153,000": true,
+   "For a married individual filing a separate return, the phase-out range is not subject to an annual cost-of-living adjustment and remains between $0 and $10,000": true,
+   "Accordingly, under section 219(g)(2)(A), the deduction for taxpayers making contributions to a traditional IRA is phased out for single individuals and heads of household who are active participants in a qualified plan (or another retirement plan specified in section 219(g)(5)) and have adjusted gross incomes (as defined in section 219(g)(3)(A)) between $73,000 and $83,000": true,
+   "For married couples filing jointly, if the spouse who makes the IRA contribution is an active participant, the income phase-out range is between $116,000 and $136,000": true,
+   "For an IRA contributor who is not an active participant and is married to someone who is an active participant, the deduction is phased out if the couple's income is between $218,000 and $228,000": true
+  }
+ },
+ "irs_n_2024": {
+  "chi": "Notice 2023-75",
+  "titolo": "Notice 2023-75: cost-of-living adjustments for retirement items, 2024",
+  "url": "https://www.irs.gov/pub/irs-drop/n-23-75.pdf",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "dbe86eb16e2c19cd1cd61fb33bae82f0c9276edc2ab9c23e82b0c698eab593ad",
+  "byte": 128390,
+  "testo": "grezzi/irs/irs_n_2024.txt",
+  "originale": "grezzi/irs/irs_n_2024.pdf",
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "The limitation for defined contribution plans under section 415(c)(1)(A) is increased in 2024 from $66,000 to $69,000": true,
+   "The limitation under section 402(g)(1) on the exclusion for elective deferrals described in section 402(g)(3) is increased from $22,500 to $23,000": true,
+   "The limitation on deferrals under section 457(e)(15) concerning deferred compensation plans of state and local governments and tax-exempt organizations is increased from $22,500 to $23,000": true,
+   "The dollar limitation under section 414(v)(2)(B)(i) for catch-up contributions to an applicable employer plan other than a plan described in section 401(k)(11) or section 408(p) for individuals aged 50 or over remains $7,500": true,
+   "The limitation under section 408(p)(2)(E) regarding SIMPLE retirement accounts is increased from $15,500 to $16,000": true,
+   "The dollar limitation under section 414(v)(2)(B)(ii) for catch-up contributions to an applicable employer plan described in section 401(k)(11) or section 408(p) for individuals aged 50 or over remains $3,500": true,
+   "The deductible amount under section 219(b)(5)(A), which limits the amount of an individual's deductible qualified retirement contributions for a taxable year, is increased from $6,500 to $7,000": true,
+   "The increase in the deductible amount pursuant to section 219(b)(5)(B)(ii) for individuals who have attained age 50 before the close of the taxable year remains $1,000": true,
+   "Accordingly, under section 408A(c)(3)(A), the adjusted gross income phase-out range for taxpayers making contributions to a Roth IRA is between $230,000 and $240,000": true,
+   "For singles and heads of household, the income phase-out range is between $146,000 and $161,000": true,
+   "For a married individual filing a separate return, the phase-out range is not subject to an annual cost-of-living adjustment and remains between $0 and $10,000": true,
+   "Accordingly, under section 219(g)(2)(A), the deduction for taxpayers making contributions to a traditional IRA is phased out for single individuals and heads of household who are active participants in a qualified plan (or another retirement plan specified in section 219(g)(5)) and have adjusted gross incomes (as defined in section 219(g)(3)(A)) between $77,000 and $87,000": true,
+   "For married couples filing jointly, if the spouse who makes the IRA contribution is an active participant, the income phase-out range is between $123,000 and $143,000": true,
+   "For an IRA contributor who is not an active participant and is married to someone who is an active participant, the deduction is phased out if the couple's income is between $230,000 and $240,000": true
+  }
+ },
+ "irs_n_2025": {
+  "chi": "Notice 2024-80",
+  "titolo": "Notice 2024-80: cost-of-living adjustments for retirement items, 2025",
+  "url": "https://www.irs.gov/pub/irs-drop/n-24-80.pdf",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "cbf7843c9c25317455e0373ad70381a13b80ab3dd2ff777f05d1d84ed22e59ad",
+  "byte": 123240,
+  "testo": "grezzi/irs/irs_n_2025.txt",
+  "originale": "grezzi/irs/irs_n_2025.pdf",
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "The limitation for defined contribution plans under section 415(c)(1)(A) is increased in 2025 from $69,000 to $70,000": true,
+   "The limitation under section 402(g)(1) on the exclusion for elective deferrals described in section 402(g)(3), which includes elective deferrals made to the Thrift Savings Plan, is increased from $23,000 to $23,500": true,
+   "The limitation on deferrals under section 457(e)(15) concerning deferred compensation plans of state and local governments and tax-exempt organizations is increased from $23,000 to $23,500": true,
+   "The limitation under section 414(v)(2)(B)(i) for catch-up contributions to an applicable employer plan other than a plan described in section 401(k)(11) or section 408(p) that generally applies for individuals aged 50 or over remains $7,500": true,
+   "The limitation under section 408(p)(2)(E)(i)(III) that generally applies to salary reduction contributions under a SIMPLE retirement account or elective contributions under a SIMPLE 401(k) plan is increased from $16,000 to $16,500": true,
+   "The limitation for certain of those accounts or plans under section 408(p)(2)(E)(i)(I) or (II) remains $17,600": true,
+   "The limitation under section 414(v)(2)(B)(ii) for catch-up contributions to an applicable employer plan described in section 401(k)(11) or section 408(p) that generally applies for individuals aged 50 or over remains $3,500": true,
+   "The limitation under section 414(v)(2)(B)(iii) for catch-up contributions to certain accounts or plans described in section 401(k)(11) or section 408(p) that generally applies for individuals aged 50 or over remains $3,850": true,
+   "The limitation under section 414(v)(2)(E)(ii) for catch-up contributions to an applicable employer plan described in section 401(k)(11) or section 408(p) that applies for individuals who attain age 60, 61, 62, or 63 in 2025 is $5,250": true,
+   "The deductible amount under section 219(b)(5)(A), which limits the amount of an individual's deductible qualified retirement contributions for a taxable year remains $7,000": true,
+   "The increase in the deductible amount pursuant to section 219(b)(5)(B)(ii) for individuals who have attained age 50 before the close of the taxable year remains $1,000": true,
+   "In light of the changes to the adjusted gross income limitations, under section 408A(c)(3)(A), the adjusted gross income phase-out range for taxpayers making contributions to a Roth IRA is between $236,000 and $246,000": true,
+   "For singles and heads of household, the income phase-out range is between $150,000 and $165,000": true,
+   "For a married individual filing a separate return, the phase-out range is not subject to an annual cost-of-living adjustment and remains between $0 and $10,000": true,
+   "In light of the changes to the applicable amounts, under section 219(g)(2)(A), the deduction for taxpayers making contributions to a traditional IRA is phased out for single individuals and heads of household who are active participants in a qualified plan (or another retirement plan specified in section 219(g)(5)) and have adjusted gross incomes (as defined in section 219(g)(3)(A)) between $79,000 and $89,000": true,
+   "For married couples filing jointly, if the spouse who makes the IRA contribution is an active participant, the income phase-out range is between $126,000 and $146,000": true,
+   "For an IRA contributor who is not an active participant and is married to someone who is an active participant, the deduction is phased out if the couple's income is between $236,000 and $246,000": true
+  }
+ },
+ "irs_n_2026": {
+  "chi": "Notice 2025-67",
+  "titolo": "Notice 2025-67: cost-of-living adjustments for retirement items, 2026",
+  "url": "https://www.irs.gov/pub/irs-drop/n-25-67.pdf",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "1eea8f141b0cddd182f9f09b3bc8ffad683d27ceb806dfc6da126811dc0a1f8d",
+  "byte": 133701,
+  "testo": "grezzi/irs/irs_n_2026.txt",
+  "originale": "grezzi/irs/irs_n_2026.pdf",
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "The limitation for defined contribution plans under section 415(c)(1)(A) is increased in 2026 from $70,000 to $72,000": true,
+   "The limitation under section 402(g)(1) on the exclusion for elective deferrals described in section 402(g)(3), which includes elective deferrals made to the Thrift Savings Plan, is increased from $23,500 to $24,500": true,
+   "The limitation on deferrals under section 457(e)(15) concerning deferred compensation plans of state and local governments and tax-exempt organizations is increased from $23,500 to $24,500": true,
+   "The limitation under section 414(v)(2)(B)(i) for catch-up contributions to an applicable employer plan other than a plan described in section 401(k)(11) or section 408(p) that generally applies for individuals aged 50 or over is increased from $7,500 to $8,000": true,
+   "The limitation under section 408(p)(2)(E)(i)(III) that generally applies to salary reduction contributions under a SIMPLE retirement account or elective contributions under a SIMPLE 401(k) plan is increased from $16,500 to $17,000": true,
+   "The limitation for certain of those accounts or plans under section 408(p)(2)(E)(i)(I) or (II) is increased from $17,600 to $18,100": true,
+   "The limitation under section 414(v)(2)(B)(ii) for catch-up contributions to an applicable employer plan described in section 401(k)(11) or section 408(p) that generally applies for individuals aged 50 or over is increased from $3,500 to $4,000": true,
+   "The limitation under section 414(v)(2)(B)(iii) for catch-up contributions to certain accounts or plans described in section 401(k)(11) or section 408(p) that generally applies for individuals aged 50 or over remains $3,850": true,
+   "The limitation under section 414(v)(2)(E)(ii) for catch-up contributions to an applicable employer plan described in section 401(k)(11) or section 408(p) that applies for individuals who attain age 60, 61, 62, or 63 in 2026 remains $5,250": true,
+   "The deductible amount under section 219(b)(5)(A), which limits the amount of an individual's deductible qualified retirement contributions for a taxable year is increased from $7,000 to $7,500": true,
+   "The deductible amount pursuant to section 219(b)(5)(B)(ii) for individuals who have attained age 50 before the close of the taxable year is increased from $1,000 to $1,100": true,
+   "In light of the changes to the adjusted gross income limitations, under section 408A(c)(3)(A), the adjusted gross income phase-out range for taxpayers making contributions to a Roth IRA is between $242,000 and $252,000": true,
+   "For singles and heads of household, the income phase-out range is between $153,000 and $168,000": true,
+   "For a married individual filing a separate return, the phase-out range is not subject to an annual cost-of-living adjustment and remains between $0 and $10,000": true,
+   "In light of the changes to the applicable amounts, under section 219(g)(2)(A), the deduction for taxpayers making contributions to a traditional IRA is phased out for single individuals and heads of household who are active participants in a qualified plan (or another retirement plan specified in section 219(g)(5)) and have adjusted gross incomes (as defined in section 219(g)(3)(A)) between $81,000 and $91,000": true,
+   "For married couples filing jointly, if the spouse who makes the IRA contribution is an active participant, the income phase-out range is between $129,000 and $149,000": true,
+   "For an IRA contributor who is not an active participant and is married to someone who is an active participant, the deduction is phased out if the couple's income is between $242,000 and $252,000": true
+  }
+ },
+ "irs_n_2027": {
+  "chi": "Notice 2026-66",
+  "titolo": "Notice 2026-66: cost-of-living adjustments for retirement items, 2027",
+  "url": "https://www.irs.gov/pub/irs-drop/n-26-66.pdf",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "d36060fae77e49760073db883f048abb3076ac5d9cf73772977b4cd4aca46aba",
+  "byte": 198985,
+  "testo": "grezzi/irs/irs_n_2027.txt",
+  "originale": "grezzi/irs/irs_n_2027.pdf",
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "The limitation for defined contribution plans under section 415(c)(1)(A) is increased in 2027 from $72,000 to $75,000": true,
+   "The limitation under section 402(g)(1) on the exclusion for elective deferrals described in section 402(g)(3), which includes elective deferrals made to the Thrift Savings Plan, is increased from $24,500 to $25,500": true,
+   "The limitation on deferrals under section 457(e)(15) concerning deferred compensation plans of state and local governments and tax-exempt organizations is increased from $24,500 to $25,500": true,
+   "The limitation under section 414(v)(2)(B)(i) for catch-up contributions to an applicable employer plan other than a plan described in section 401(k)(11) or section 408(p) that generally applies for individuals aged 50 or over is increased from $8,000 to $8,500": true,
+   "The limitation under section 408(p)(2)(E)(i)(III) that generally applies to salary reduction contributions under a SIMPLE retirement account or elective contributions under a SIMPLE 401(k) plan is increased from $17,000 to $17,500": true,
+   "The limitation under section 408(p)(2)(E)(i)(I) or (II) for employee elective deferrals for SIMPLE retirement accounts maintained by certain eligible employers is increased from $18,100 to $19,100": true,
+   "The limitation under section 414(v)(2)(B)(ii) for catch-up contributions to an applicable employer plan described in section 401(k)(11) or section 408(p) that generally applies for individuals aged 50 or over remains $4,000": true,
+   "The limitation under section 414(v)(2)(B)(iii) for catch-up contributions to certain accounts or plans described in section 401(k)(11) or section 408(p) that generally applies for individuals aged 50 or over remains $3,850": true,
+   "The limitation under section 414(v)(2)(E)(ii) for catch-up contributions to an applicable employer plan described in section 401(k)(11) or section 408(p) that applies for individuals who attain age 60, 61, 62, or 63 in 2027 remains $5,250": true,
+   "The deductible amount under section 219(b)(5)(A), which limits the amount of an individual's deductible qualified retirement contributions for a taxable year remains $7,500": true,
+   "The deductible amount pursuant to section 219(b)(5)(B)(ii) for individuals who have attained age 50 before the close of the taxable year remains $1,100": true,
+   "In light of the changes to the adjusted gross income limitations, under section 408A(c)(3)(A), the adjusted gross income phase-out range for taxpayers making contributions to a Roth IRA is between $250,000 and $260,000": true,
+   "For singles and heads of household, the income phase-out range is between $158,000 and $173,000": true,
+   "For a married individual filing a separate return, the phase-out range is not subject to an annual cost-of-living adjustment and remains between $0 and $10,000": true,
+   "In light of the changes to the applicable amounts, under section 219(g)(2)(A), the deduction for taxpayers making contributions to a traditional IRA is phased out for single individuals and heads of household who are active participants in a qualified plan (or another retirement plan specified in section 219(g)(5)) and have adjusted gross incomes (as defined in section 219(g)(3)(A)) between $83,000 and $93,000": true,
+   "For married couples filing jointly, if the spouse who makes the IRA contribution is an active participant, the income phase-out range is between $133,000 and $153,000": true,
+   "For an IRA contributor who is not an active participant and is married to someone who is an active participant, the deduction is phased out if the couple's income is between $250,000 and $260,000": true,
+   "The Roth catch-up wage threshold for 2026, which under section 414(v)(7)(A) is used to determine whether an individual's catch-up contributions to an applicable employer plan (other than a plan described in section 408(k) or (p)) for 2027 must be designated as Roth contributions, is increased from $150,000 to $155,000": true
+  }
+ },
+ "irs_rp_2015": {
+  "chi": "Rev. Proc. 2014-30",
+  "titolo": "Rev. Proc. 2014-30: HSA inflation adjusted amounts for 2015",
+  "url": "https://www.irs.gov/pub/irs-drop/rp-14-30.pdf",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "037abe60f4bdda95b120feac70d6ff78d07db8b328124505103bcfcf426c44b9",
+  "byte": 11395,
+  "testo": "grezzi/irs/irs_rp_2015.txt",
+  "originale": "grezzi/irs/irs_rp_2015.pdf",
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "For calendar year 2015, the annual limitation on deductions under § 223(b)(2)(A) for an individual with self-only coverage under a high deductible health plan is $3,350": true,
+   "For calendar year 2015, the annual limitation on deductions under § 223(b)(2)(B) for an individual with family coverage under a high deductible health plan is $6,650": true,
+   "For calendar year 2015, a \"high deductible health plan\" is defined under § 223(c)(2)(A) as a health plan with an annual deductible that is not less than $1,300 for self-only coverage or $2,600 for family coverage, and the annual out-of-pocket expenses (deductibles, co-payments, and other amounts, but not premiums) do not exceed $6,450 for self-only coverage or $12,900 for family coverage": true
+  }
+ },
+ "irs_rp_2016": {
+  "chi": "Rev. Proc. 2015-30",
+  "titolo": "Rev. Proc. 2015-30: HSA inflation adjusted amounts for 2016",
+  "url": "https://www.irs.gov/pub/irs-drop/rp-15-30.pdf",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "9984c3319b2e57621c56ef27ef144af6bc53584227e0db3d1e117992cdc8cfd6",
+  "byte": 69803,
+  "testo": "grezzi/irs/irs_rp_2016.txt",
+  "originale": "grezzi/irs/irs_rp_2016.pdf",
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "For calendar year 2016, the annual limitation on deductions under § 223(b)(2)(A) for an individual with self-only coverage under a high deductible health plan is $3,350": true,
+   "For calendar year 2016, the annual limitation on deductions under § 223(b)(2)(B) for an individual with family coverage under a high deductible health plan is $6,750": true,
+   "For calendar year 2016, a \"high deductible health plan\" is defined under § 223(c)(2)(A) as a health plan with an annual deductible that is not less than $1,300 for self-only coverage or $2,600 for family coverage, and the annual out-of-pocket expenses (deductibles, co-payments, and other amounts, but not premiums) do not exceed $6,550 for self-only coverage or $13,100 for family coverage": true
+  }
+ },
+ "irs_rp_2017": {
+  "chi": "Rev. Proc. 2016-28",
+  "titolo": "Rev. Proc. 2016-28: HSA inflation adjusted amounts for 2017",
+  "url": "https://www.irs.gov/pub/irs-drop/rp-16-28.pdf",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "7ecff692aae5db80559063f17a39cf326295f2fb57281710a14dd638509869eb",
+  "byte": 10205,
+  "testo": "grezzi/irs/irs_rp_2017.txt",
+  "originale": "grezzi/irs/irs_rp_2017.pdf",
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "For calendar year 2017, the annual limitation on deductions under § 223(b)(2)(A) for an individual with self-only coverage under a high deductible health plan is $3,400": true,
+   "For calendar year 2017, the annual limitation on deductions under § 223(b)(2)(B) for an individual with family coverage under a high deductible health plan is $6,750": true,
+   "For calendar year 2017, a \"high deductible health plan\" is defined under § 223(c)(2)(A) as a health plan with an annual deductible that is not less than $1,300 for self-only coverage or $2,600 for family coverage, and the annual out-of-pocket expenses (deductibles, co-payments, and other amounts, but not premiums) do not exceed $6,550 for self-only coverage or $13,100 for family coverage": true
+  }
+ },
+ "irs_rp_2018": {
+  "chi": "Rev. Proc. 2017-37",
+  "titolo": "Rev. Proc. 2017-37: HSA inflation adjusted amounts for 2018",
+  "url": "https://www.irs.gov/pub/irs-drop/rp-17-37.pdf",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "674dd44e0fb646e64f5d3182e8bec02c90402a09f8eb5dccb1bcbe4b654f7bf9",
+  "byte": 10448,
+  "testo": "grezzi/irs/irs_rp_2018.txt",
+  "originale": "grezzi/irs/irs_rp_2018.pdf",
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "For calendar year 2018, the annual limitation on deductions under § 223(b)(2)(A) for an individual with self-only coverage under a high deductible health plan is $3,450": true,
+   "For calendar year 2018, a \"high deductible health plan\" is defined under § 223(c)(2)(A) as a health plan with an annual deductible that is not less than $1,350 for self-only coverage or $2,700 for family coverage, and the annual out-of-pocket expenses (deductibles, co-payments, and other amounts, but not premiums) do not exceed $6,650 for self-only coverage or $13,300 for family coverage": true
+  }
+ },
+ "irs_rp_2018b": {
+  "chi": "Rev. Proc. 2018-27",
+  "titolo": "Rev. Proc. 2018-27: HSA inflation adjusted amounts for 2018",
+  "url": "https://www.irs.gov/pub/irs-drop/rp-18-27.pdf",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "d9f4febc81d8f3dc7bdb96e8dc359a40253ad12c7bb45bb9177ad12e37634897",
+  "byte": 18875,
+  "testo": "grezzi/irs/irs_rp_2018b.txt",
+  "originale": "grezzi/irs/irs_rp_2018b.pdf",
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "For calendar year 2018, taxpayers may treat $6,900 as the annual limitation on deductions under section 223(b)(2)(B) for an individual with family coverage under an HDHP": true,
+   "2018-18, the annual limitation on deductions under section 223(b)(2)(B) for an individual with family coverage under an HDHP was $6,850 for 2018": true
+  }
+ },
+ "irs_rp_2019": {
+  "chi": "Rev. Proc. 2018-30",
+  "titolo": "Rev. Proc. 2018-30: HSA inflation adjusted amounts for 2019",
+  "url": "https://www.irs.gov/pub/irs-drop/rp-18-30.pdf",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "dc5ec7e6e4d7f10b2f51d922abf2e39a140157d3ee67ed1fa2be91e0ee210d40",
+  "byte": 10804,
+  "testo": "grezzi/irs/irs_rp_2019.txt",
+  "originale": "grezzi/irs/irs_rp_2019.pdf",
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "For calendar year 2019, the annual limitation on deductions under § 223(b)(2)(A) for an individual with self-only coverage under a high deductible health plan is $3,500": true,
+   "For calendar year 2019, the annual limitation on deductions under § 223(b)(2)(B) for an individual with family coverage under a high deductible health plan is $7,000": true,
+   "For calendar year 2019, a \"high deductible health plan\" is defined under § 223(c)(2)(A) as a health plan with an annual deductible that is not less than $1,350 for self-only coverage or $2,700 for family coverage, and the annual out-of-pocket expenses (deductibles, co-payments, and other amounts, but not premiums) do not exceed $6,750 for self-only coverage or $13,500 for family coverage": true
+  }
+ },
+ "irs_rp_2020": {
+  "chi": "Rev. Proc. 2019-25",
+  "titolo": "Internal Revenue Bulletin 2019-22 (Rev. Proc. 2019-25)",
+  "url": "https://www.irs.gov/pub/irs-irbs/irb19-22.pdf",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "f202b91abf6c3e3655ed58937dd8fe0ed60957c41388678ac47d0befda589a0f",
+  "byte": 2233453,
+  "testo": "grezzi/irs/irs_rp_2020.txt",
+  "originale": null,
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "For calendar year 2020, the annual limitation on deductions under § 223(b)(2)(A) for an individual with self-only coverage under a high deductible health plan is $3,550": true,
+   "For 1261 calendar year 2020, the annual limitation on deductions under § 223(b)(2)(B) for an individual with family coverage under a high deductible health plan is $7,100": true,
+   "For calendar year 2020, a \"high deductible health plan\" is defined under § 223(c)(2)(A) as a health plan with an annual deductible that is not less than $1,400 for self-only coverage or $2,800 for family coverage, and the annual out-of-pocket expenses (deductibles, co-payments, and other amounts, but not premiums) do not exceed $6,900 for self-only coverage or $13,800 for family coverage": true
+  }
+ },
+ "irs_rp_2021": {
+  "chi": "Rev. Proc. 2020-32",
+  "titolo": "Rev. Proc. 2020-32: HSA inflation adjusted amounts for 2021",
+  "url": "https://www.irs.gov/pub/irs-drop/rp-20-32.pdf",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "6a11a2972c493ae667efd538f41472df6828ae1491542b78e3e866207c424a66",
+  "byte": 10897,
+  "testo": "grezzi/irs/irs_rp_2021.txt",
+  "originale": "grezzi/irs/irs_rp_2021.pdf",
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "For calendar year 2021, the annual limitation on deductions under § 223(b)(2)(A) for an individual with self-only coverage under a high deductible health plan is $3,600": true,
+   "For calendar year 2021, the annual limitation on deductions under § 223(b)(2)(B) for an individual with family coverage under a high deductible health plan is $7,200": true,
+   "For calendar year 2021, a \"high deductible health plan\" is defined under § 223(c)(2)(A) as a health plan with an annual deductible that is not less than $1,400 for self-only coverage or $2,800 for family coverage, and the annual out-of-pocket expenses (deductibles, co-payments, and other amounts, but not premiums) do not exceed $7,000 for self-only coverage or $14,000 for family coverage": true
+  }
+ },
+ "irs_rp_2022": {
+  "chi": "Rev. Proc. 2021-25",
+  "titolo": "Rev. Proc. 2021-25: HSA inflation adjusted amounts for 2022",
+  "url": "https://www.irs.gov/pub/irs-drop/rp-21-25.pdf",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "00df62cb92a23bbf17027818e9f8a0c6f51062f4892ae29586448fed43cca098",
+  "byte": 67669,
+  "testo": "grezzi/irs/irs_rp_2022.txt",
+  "originale": "grezzi/irs/irs_rp_2022.pdf",
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "For calendar year 2022, the annual limitation on deductions under § 223(b)(2)(A) for an individual with self-only coverage under a high deductible health plan is $3,650": true,
+   "For calendar year 2022, the annual limitation on deductions under § 223(b)(2)(B) for an individual with family coverage under a high deductible health plan is $7,300": true,
+   "For calendar year 2022, a \"high deductible health 1 plan\" is defined under § 223(c)(2)(A) as a health plan with an annual deductible that is not less than $1,400 for self-only coverage or $2,800 for family coverage, and the annual out-of-pocket expenses (deductibles, co-payments, and other amounts, but not premiums) do not exceed $7,050 for self-only coverage or $14,100 for family coverage": true
+  }
+ },
+ "irs_rp_2023": {
+  "chi": "Rev. Proc. 2022-24",
+  "titolo": "Rev. Proc. 2022-24: HSA inflation adjusted amounts for 2023",
+  "url": "https://www.irs.gov/pub/irs-drop/rp-22-24.pdf",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "17a31b7914df927728190fbb29d64cfa4f070d4a9aba4f228d88f934fddc1608",
+  "byte": 55387,
+  "testo": "grezzi/irs/irs_rp_2023.txt",
+  "originale": "grezzi/irs/irs_rp_2023.pdf",
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "For calendar year 2023, the annual limitation on deductions under § 223(b)(2)(A) for an individual with self-only coverage under a high deductible health plan is $3,850": true,
+   "For calendar year 2023, the annual limitation on deductions under § 223(b)(2)(B) for an individual with family coverage under a high deductible health plan is $7,750": true,
+   "For calendar year 2023, a \"high deductible health 1 plan\" is defined under § 223(c)(2)(A) as a health plan with an annual deductible that is not less than $1,500 for self-only coverage or $3,000 for family coverage, and for which the annual out-of-pocket expenses (deductibles, co-payments, and other amounts, but not premiums) do not exceed $7,500 for self-only coverage or $15,000 for family coverage": true
+  }
+ },
+ "irs_rp_2024": {
+  "chi": "Rev. Proc. 2023-23",
+  "titolo": "Rev. Proc. 2023-23: HSA inflation adjusted amounts for 2024",
+  "url": "https://www.irs.gov/pub/irs-drop/rp-23-23.pdf",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "cdc4574bde94667d68dbf8df8ff9ca97de0352f0c6cbaf4ef356881277442ded",
+  "byte": 58027,
+  "testo": "grezzi/irs/irs_rp_2024.txt",
+  "originale": "grezzi/irs/irs_rp_2024.pdf",
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "For calendar year 2024, the annual limitation on deductions under § 223(b)(2)(A) for an individual with self-only coverage under a high 1 deductible health plan is $4,150": true,
+   "For calendar year 2024, the annual limitation on deductions under § 223(b)(2)(B) for an individual with family coverage under a high deductible health plan is $8,300": true,
+   "For calendar year 2024, a \"high deductible health plan\" is defined under § 223(c)(2)(A) as a health plan with an annual deductible that is not less than $1,600 for self-only coverage or $3,200 for family coverage, and for which the annual out-of-pocket expenses (deductibles, co-payments, and other amounts, but not premiums) do not exceed $8,050 for self-only coverage or $16,100 for family coverage": true
+  }
+ },
+ "irs_rp_2025": {
+  "chi": "Rev. Proc. 2024-25",
+  "titolo": "Rev. Proc. 2024-25: HSA inflation adjusted amounts for 2025",
+  "url": "https://www.irs.gov/pub/irs-drop/rp-24-25.pdf",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "6093d2e3923f1f85da962923de667f7fe076b04c61b733e0bd71ebc1ac65dc00",
+  "byte": 55683,
+  "testo": "grezzi/irs/irs_rp_2025.txt",
+  "originale": "grezzi/irs/irs_rp_2025.pdf",
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "For calendar year 2025, the annual limitation on deductions under § 223(b)(2)(A) for an individual with self-only coverage under a high deductible health plan is $4,300": true,
+   "For calendar year 2025, the annual limitation on -2deductions under § 223(b)(2)(B) for an individual with family coverage under a high deductible health plan is $8,550": true,
+   "For calendar year 2025, a \"high deductible health plan\" is defined under § 223(c)(2)(A) as a health plan with an annual deductible that is not less than $1,650 for self-only coverage or $3,300 for family coverage, and for which the annual out-of-pocket expenses (deductibles, co-payments, and other amounts, but not premiums) do not exceed $8,300 for self-only coverage or $16,600 for family coverage": true
+  }
+ },
+ "irs_rp_2026": {
+  "chi": "Rev. Proc. 2025-19",
+  "titolo": "Rev. Proc. 2025-19: HSA inflation adjusted amounts for 2026",
+  "url": "https://www.irs.gov/pub/irs-drop/rp-25-19.pdf",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "ff2ba4bac62ef6940c57578d70f8be88ff3898ac806e921ad52787c11da35bf4",
+  "byte": 65328,
+  "testo": "grezzi/irs/irs_rp_2026.txt",
+  "originale": "grezzi/irs/irs_rp_2026.pdf",
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "For calendar year 2026, the annual limitation on deductions under § 223(b)(2)(A) for an individual with self-only coverage under a high -2deductible health plan is $4,400": true,
+   "For calendar year 2026, the annual limitation on deductions under § 223(b)(2)(B) for an individual with family coverage under a high deductible health plan is $8,750": true,
+   "For calendar year 2026, a \"high deductible health plan\" is defined under § 223(c)(2)(A) as a health plan with an annual deductible that is not less than $1,700 for self-only coverage or $3,400 for family coverage, and for which the annual out-of-pocket expenses (deductibles, co-payments, and other amounts, but not premiums) do not exceed $8,500 for self-only coverage or $17,000 for family coverage": true
+  }
+ },
+ "irs_rp_2027": {
+  "chi": "Rev. Proc. 2026-24",
+  "titolo": "Rev. Proc. 2026-24: HSA inflation adjusted amounts for 2027",
+  "url": "https://www.irs.gov/pub/irs-drop/rp-26-24.pdf",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "bcb6b41a835b84d4315f738a7250801831021829e39d70225424e2f45afcb715",
+  "byte": 88557,
+  "testo": "grezzi/irs/irs_rp_2027.txt",
+  "originale": "grezzi/irs/irs_rp_2027.pdf",
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "For calendar year 2027, the annual limitation on deductions under section 223(b)(2)(A) for an individual with self-only coverage under a high deductible health plan is $4,500": true,
+   "For calendar year 2027, the annual limitation on deductions under § 223(b)(2)(B) for an individual with family coverage under a high deductible health plan is $9,000": true,
+   "For calendar year 2027, a \"high deductible health plan\" is defined under section 223(c)(2)(A) as a health plan with an annual deductible that is not less than $1,750 for self-only coverage or $3,500 for family coverage, and for which the annual out-of-pocket expenses (deductibles, co-payments, and other 3 amounts, but not premiums) do not exceed $8,700 for self-only coverage or $17,400 for family coverage": true
+  }
+ },
+ "irs_p969_2015": {
+  "chi": "Publication 969 (2015)",
+  "titolo": "Publication 969 (2015), Health Savings Accounts and Other Tax-Favored Health Plans",
+  "url": "https://www.irs.gov/pub/irs-prior/p969--2015.pdf",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "e3868db7e1b4a14d2189da5a5aefa378a5dcf5f750a8ddceb3198126d72730c2",
+  "byte": 2237069,
+  "testo": "grezzi/irs/irs_p969_2015.txt",
+  "originale": null,
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "If you are an eligible individual who is age 55 or older at the end of your tax year, your contribution limit is increased by $1,000": true
+  }
+ },
+ "irs_p969_2016": {
+  "chi": "Publication 969 (2016)",
+  "titolo": "Publication 969 (2016), Health Savings Accounts and Other Tax-Favored Health Plans",
+  "url": "https://www.irs.gov/pub/irs-prior/p969--2016.pdf",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "e280cd2127cf3a6f9bc24d2ccaafec4096c7680673c6bcf5f1bafc4846f2ec69",
+  "byte": 1446530,
+  "testo": "grezzi/irs/irs_p969_2016.txt",
+  "originale": null,
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "If you are an eligible individual who is age 55 or older at the end of your tax year, your contribution limit is increased by $1,000": true
+  }
+ },
+ "irs_p969_2017": {
+  "chi": "Publication 969 (2017)",
+  "titolo": "Publication 969 (2017), Health Savings Accounts and Other Tax-Favored Health Plans",
+  "url": "https://www.irs.gov/pub/irs-prior/p969--2017.pdf",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "d987ab1a0b0d0d54941dc1d64aacdd9927d1e249c64a77c3349b7207518c02e6",
+  "byte": 1436720,
+  "testo": "grezzi/irs/irs_p969_2017.txt",
+  "originale": null,
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "If you are an eligible individual who is age 55 or older at the end of your tax year, your contribution limit is increased by $1,000": true
+  }
+ },
+ "irs_p969_2018": {
+  "chi": "Publication 969 (2018)",
+  "titolo": "Publication 969 (2018), Health Savings Accounts and Other Tax-Favored Health Plans",
+  "url": "https://www.irs.gov/pub/irs-prior/p969--2018.pdf",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "df90989647ad9bb3c34f812e4dac0d836bae0eea9b25dc24179cb589556c7215",
+  "byte": 1430853,
+  "testo": "grezzi/irs/irs_p969_2018.txt",
+  "originale": null,
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "If you are an eligible individual who is age 55 or older at the end of your tax year, your contribution limit is increased by $1,000": true
+  }
+ },
+ "irs_p969_2019": {
+  "chi": "Publication 969 (2019)",
+  "titolo": "Publication 969 (2019), Health Savings Accounts and Other Tax-Favored Health Plans",
+  "url": "https://www.irs.gov/pub/irs-prior/p969--2019.pdf",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "d3c2f49ffe080fc60dadbea97094bd9baa74c1cc6b146543b517f472dc020a6e",
+  "byte": 1442973,
+  "testo": "grezzi/irs/irs_p969_2019.txt",
+  "originale": null,
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "If you are an eligible individual who is age 55 or older at the end of your tax year, your contribution limit is increased by $1,000": true
+  }
+ },
+ "irs_p969_2020": {
+  "chi": "Publication 969 (2020)",
+  "titolo": "Publication 969 (2020), Health Savings Accounts and Other Tax-Favored Health Plans",
+  "url": "https://www.irs.gov/pub/irs-prior/p969--2020.pdf",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "8adac4b2e82872da281ab3cf6da6045e83a752c89d61fe060f2dfe0b3057c4e3",
+  "byte": 1442497,
+  "testo": "grezzi/irs/irs_p969_2020.txt",
+  "originale": null,
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "If you are an eligible individual who is age 55 or older at the end of your tax year, your contribution limit is increased by $1,000": true
+  }
+ },
+ "irs_p969_2021": {
+  "chi": "Publication 969 (2021)",
+  "titolo": "Publication 969 (2021), Health Savings Accounts and Other Tax-Favored Health Plans",
+  "url": "https://www.irs.gov/pub/irs-prior/p969--2021.pdf",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "af181dfaa74d0172618cef801fcb2485ebe637515ce9c1f9317b1a4ac35febfd",
+  "byte": 1251130,
+  "testo": "grezzi/irs/irs_p969_2021.txt",
+  "originale": null,
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "If you are an eligible individual who is age 55 or older at the end of your tax year, your contribution limit is increased by $1,000": true
+  }
+ },
+ "irs_p969_2022": {
+  "chi": "Publication 969 (2022)",
+  "titolo": "Publication 969 (2022), Health Savings Accounts and Other Tax-Favored Health Plans",
+  "url": "https://www.irs.gov/pub/irs-prior/p969--2022.pdf",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "586377e2d74e7a9e765a1b7fc330f82870e7fa6a256bef0c193b9f6be71ca6dd",
+  "byte": 1253717,
+  "testo": "grezzi/irs/irs_p969_2022.txt",
+  "originale": null,
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "If you are an eligible individual who is age 55 or older at the end of your tax year, your contribution limit is increased by $1,000": true
+  }
+ },
+ "irs_p969_2023": {
+  "chi": "Publication 969 (2023)",
+  "titolo": "Publication 969 (2023), Health Savings Accounts and Other Tax-Favored Health Plans",
+  "url": "https://www.irs.gov/pub/irs-prior/p969--2023.pdf",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "2ddb626e70d7074e94463c5cb9038a58a75dda6b3729af7061407b1965a64855",
+  "byte": 1259721,
+  "testo": "grezzi/irs/irs_p969_2023.txt",
+  "originale": null,
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "If you are an eligible individual who is age 55 or older at the end of your tax year, your contribution limit is increased by $1,000": true
+  }
+ },
+ "irs_p969_2024": {
+  "chi": "Publication 969 (2024)",
+  "titolo": "Publication 969 (2024), Health Savings Accounts and Other Tax-Favored Health Plans",
+  "url": "https://www.irs.gov/pub/irs-prior/p969--2024.pdf",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "47d4db236ec156b56dfe36028a34311d1acabfb009217831ff829cea3fa43997",
+  "byte": 1271199,
+  "testo": "grezzi/irs/irs_p969_2024.txt",
+  "originale": null,
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "If you are an eligible individual who is age 55 or older at the end of your tax year, your contribution limit is increased by $1,000": true
+  }
+ },
+ "irs_p969_2025": {
+  "chi": "Publication 969 (2025)",
+  "titolo": "Publication 969 (2025), Health Savings Accounts and Other Tax-Favored Health Plans",
+  "url": "https://www.irs.gov/pub/irs-prior/p969--2025.pdf",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "d51681ecae43d517415500efe6f7dcc1bba65fed09b48d416f18d6407a5b522f",
+  "byte": 1306073,
+  "testo": "grezzi/irs/irs_p969_2025.txt",
+  "originale": null,
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "If you are an eligible individual who is age 55 or older at the end of your tax year, your contribution limit is increased by $1,000": true,
+   "You can make contributions to your HSA for 2025 through April 15, 2026": true
+  }
+ },
+ "irs_p590a": {
+  "chi": "Internal Revenue Service",
+  "titolo": "Publication 590-A (2025), Contributions to Individual Retirement Arrangements (IRAs)",
+  "url": "https://www.irs.gov/pub/irs-pdf/p590a.pdf",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "ca0e42873cfd66d2d9bfd082125d381f8a0c2f3b0a441d7d65ab5ccc06a0e1c7",
+  "byte": 1817459,
+  "testo": "grezzi/irs/irs_p590a.txt",
+  "originale": null,
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  },
+  "trovate": {
+   "Generally, you can contribute to a Roth IRA if you have taxable compensation (defined later) and your modified AGI (defined later) is less than: • $246,000 for married filing jointly or qualifying surviving spouse; • $165,000 for single, head of household, or married filing separately and you didn't live with your spouse at any time during the year; and • $10,000 for married filing separately and you lived with your spouse at any time during the year": true,
+   "$236,000 if filing a joint return or qualifying surviving spouse, • $-0- if married filing a separate return and you lived with your spouse at any time in 2025, or • $150,000 for all others": true,
+   "$10,000 if filing a joint return or qualifying surviving spouse or married filing a separate return and you lived with your spouse at any time during the year, or • $15,000 for all others": true,
+   "Divide line 3 by line 4 and enter the result as a decimal (rounded to at least three places). If the result is 1.000 or more, enter 1.000": true,
+   "Enter the lesser of: • $7,000 ($8,000 if you are age 50 or older), or • Your taxable compensation": true,
+   "Subtract line 7 from line 6. Round the result up to the nearest $10. If the result is less than $200, enter $200": true,
+   "Enter the lesser of line 8 or line 10. This is your reduced Roth IRA contribution limit": true,
+   "If your reduced contribution limit is more than $0, but less than $200, increase the limit to $200": true,
+   "You can make contributions to a Roth IRA for a year at any time during the year or by the due date of your return for that year (not including extensions)": true,
+   "Contributions can be made to your traditional IRA for a year at any time during the year or by the due date for filing your return for that year, not including extensions": true,
+   "For most people, this means that contributions for 2025 must be made by April 15, 2026": true,
+   "You can be any age": true
+  }
+ },
+ "irs_cola_tabella": {
+  "chi": "Internal Revenue Service",
+  "titolo": "Cost-of-Living Adjustments for Retirement Items (prior years table)",
+  "url": "https://www.irs.gov/pub/foia/ig/tege/cola-table-dci005ma4578824.pdf",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "565bec57bc4a6ed8cdee50717f98b44806b6ce83bc047faf8e97cda83928ad26",
+  "byte": 157489,
+  "testo": "grezzi/irs/irs_cola_tabella.txt",
+  "originale": "grezzi/irs/irs_cola_tabella.pdf",
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  }
+ },
+ "irs_cola_pagina": {
+  "chi": "Internal Revenue Service",
+  "titolo": "COLA increases for dollar limitations on benefits and contributions",
+  "url": "https://www.irs.gov/retirement-plans/cola-increases-for-dollar-limitations-on-benefits-and-contributions",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "f644730a9ec2f1ac097fa4a40d808b7f9b0728d5b755888b068c3210d0c2503c",
+  "byte": 109574,
+  "testo": "grezzi/irs/irs_cola_pagina.txt",
+  "originale": null,
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  }
+ },
+ "irs_401k_limiti": {
+  "chi": "Internal Revenue Service",
+  "titolo": "Retirement topics: 401(k) and profit-sharing plan contribution limits",
+  "url": "https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-401k-and-profit-sharing-plan-contribution-limits",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "c3942d90e054e15ff098979a36aa67afdecb8016cc4990726183c504c0994da2",
+  "byte": 110683,
+  "testo": "grezzi/irs/irs_401k_limiti.txt",
+  "originale": null,
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  }
+ },
+ "irs_piu_piani": {
+  "chi": "Internal Revenue Service",
+  "titolo": "How much salary can you defer if you're eligible for more than one retirement plan?",
+  "url": "https://www.irs.gov/retirement-plans/how-much-salary-can-you-defer-if-youre-eligible-for-more-than-one-retirement-plan",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "2fff57367e91b4719432201c8464784176b3a68802709d148400ac565d7c13fa",
+  "byte": 108299,
+  "testo": "grezzi/irs/irs_piu_piani.txt",
+  "originale": null,
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  }
+ },
+ "irs_catchup": {
+  "chi": "Internal Revenue Service",
+  "titolo": "Retirement topics: catch-up contributions",
+  "url": "https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-catch-up-contributions",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "27b1c0714015280fa32f31265878bfe6df8e75a787924a7cd7767367e04da358",
+  "byte": 103726,
+  "testo": "grezzi/irs/irs_catchup.txt",
+  "originale": null,
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  }
+ },
+ "irs_n_hsa_obbba": {
+  "chi": "Internal Revenue Service",
+  "titolo": "Notice 2026-5: expanded availability of health savings accounts under the One, Big, Beautiful Bill Act",
+  "url": "https://www.irs.gov/pub/irs-drop/n-26-05.pdf",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "2adafd5d53b5a16efa14afa39cf09f7e9bcd235a6f26f6779945f484dee4e09c",
+  "byte": 167550,
+  "testo": "grezzi/irs/irs_n_hsa_obbba.txt",
+  "originale": "grezzi/irs/irs_n_hsa_obbba.pdf",
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "IRS publications, notices, revenue procedures and news releases are works of the U.S. federal government."
+  }
+ },
+ "usc_223": {
+  "chi": "26 U.S.C. § 223 (U.S. Code, 2024 edition)",
+  "titolo": "Internal Revenue Code, section 223: Health savings accounts",
+  "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title26/html/USCODE-2024-title26-subtitleA-chap1-subchapB-partVII-sec223.htm",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "87318467920074a8f9d2f7c5a56dfa2b1ec6f15166d0d8e022385bfbed8267a5",
+  "byte": 50194,
+  "testo": "grezzi/irs/usc_223.txt",
+  "originale": null,
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "nota": "The United States Code is a work of the U.S. federal government, published by the Government Publishing Office."
   }
  }
 }

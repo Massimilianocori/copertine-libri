@@ -117,3 +117,70 @@ Corretto:
 
 Resta al titolare: Impressum per le pagine tedesche (§ 5 DDG: un sito con pubblicità rivolto al pubblico tedesco è «geschäftsmäßig»; senza
 Impressum il rischio concreto è una diffida a pagamento da concorrenti o associazioni). Alternativa senza Impressum: non pubblicare `/de/`.
+
+## Sezione limiti 401(k)/IRA/Roth/SIMPLE/HSA (13/11/2026, NON ancora committata: revisione indipendente prima del commit del 14/11)
+
+Dalla riga "inflation" di `DA-PUBBLICARE.md` (famiglia #3 di `fronti-2026-11-13-scoperta-volumi.md`). **6 pagine nuove** (147 indicizzabili + 404):
+`/retirement-limits/` (2026 e 2027 a colpo d'occhio, storia 2015-2027, limiti 2015 in dollari 2025 con il CPI-U e link al calcolatore),
+`/401k-limit/` (401(k)/403(b)/457(b)/TSP, catch-up 50+ e 60-63, 415(c)), `/ira-limit/` (limite IRA e fasce di deducibilità),
+`/roth-ira-income-limit/` (fasce Roth + **calcolatore**), `/hsa-limit/` (HSA e HDHP), `/simple-ira-limit/`. Codice in `pensione.py` (chiamato da
+`genera.py`), JS del calcolatore in `stile.ROTH_JS` (file `assets/roth.*.js`, solo in quella pagina). Menu USA: "401(k) & IRA limits"; card in home.
+
+**Domanda** (138 ricerche seodata in `dati/domanda.json`, gruppo `limiti_pensione`): i volumi sono ancora sulle frasi "2025" (401k contribution
+limits 2025 135.000, roth ira income limits 90.500, hsa contribution limits 2025 60.500, ira contribution limit 2025 40.500, simple ira 2025 12.100,
+max ira contribution 18.100, 403b 5.400, 401k catch up 4.400, super catch up 1.300, roth ira contribution calculator 1.300); le frasi "2026/2027" hanno
+ancora volumi bassi o 0. Niente pagine per SEP (3.600) e 529; 403(b), 457(b) e TSP stanno nella pagina 401(k) (stesso limite). 15 FAQ nuove, tutte da frasi misurate.
+
+**Dati, solo IRS** (`raccolta/irs.py` → `dati/grezzi/irs/<id>.txt` + PDF piccoli, `fonti.json` con URL, data, HTTP, SHA-256): 13 comunicati (IR-2014-99 …
+IR-2026-136 del 12/11/2026, il 2027 c'è), 13 Notice (2015 dall'IRB 2014-48: `n-14-70.pdf` dà 404), 14 Rev. Proc. HSA (2020 dall'IRB 2019-22:
+`rp-19-25.pdf` 404; 2018 famiglia da Rev. Proc. 2018-27, 6.900 $), Publication 969 2015-2025, Publication 590-A (2025), tabelle COLA dell'IRS.
+`dati/limiti.json`: 244 voci / 361 cifre, ognuna con fonte e **frase IRS citata** (scelte con un estrattore e riviste a mano; per il 2015 frasi del
+comunicato perché l'IRB ha le intestazioni di pagina dentro le frasi). Contributo HSA 55+ per 2026 e 2027: dalla legge (vedi "Revisione indipendente
+della sezione limiti" qui sotto), non più celle vuote. Limiti SIMPLE "alti" (SECURE 2.0) solo dal 2025, come nei Notice.
+
+**Calcolatore Roth**: Publication 590-A, Worksheet 2-2, in centesimi interi; rapporto esatto (il foglio dice "rounded to at least three places":
+cambia al massimo 10 $ ai bordi), per eccesso ai 10 $, minimo 200 $ se sopra zero, poi il minore tra riga 8 e riga 10 (compenso e versamenti ad
+altri IRA facoltativi). 4 stati (MFS che ha vissuto separato = fascia single, come dice la Pub 590-A). Esempio del foglio IRS: 2025, single, MAGI
+151.000 → 6.540 $ (attenzione: il testo dell'esempio IRS dice MAGI 150.000 e 6.530 $, ma le righe del foglio danno 151.000 e 6.540; usiamo le righe).
+
+**Controlli nuovi in `verifica.py`** (`pensione()`, `roth_motore()`): ogni frase ritrovata nel testo della fonte, ogni cifra dentro la sua frase, fonte
+dell'anno giusto (52 documenti con il loro numero/anno), 198 cifre ritrovate anche nel comunicato dell'anno, 15 serie uguali alle tabelle COLA dell'IRS,
+ampiezze delle fasce e crescita; 440 celle delle pagine = `limiti.json`; citazioni nelle pagine = frasi registrate; limiti 2015 in dollari 2025 = CPI-U;
+JS Roth = Python su 5.096 casi (bordi al centesimo, minimo 200 $, compenso basso); 7 casi Roth nel browser × 2 larghezze; 4 pagine nuove in Playwright.
+Prova al contrario fatta: una cifra cambiata in `limiti.json`, una fonte di un altro anno e una cella cambiata nella pagina danno 8 errori.
+`SEGNO_CHIAVE` ora è `"_".join(...)`: la vecchia somma di stringhe finiva intera nel `.pyc` e faceva scattare il controllo `grep` sul prefisso della chiave.
+
+**Aggiornamento annuale**: a novembre (comunicato + Notice dell'anno dopo) e a maggio-giugno (Rev. Proc. HSA): aggiungere i nuovi URL in
+`raccolta/irs.py`, `python3 -I inflation/raccolta/irs.py`, aggiungere l'anno in `dati/limiti.json` con le frasi (le pagine si rifanno da sole),
+poi `genera.py` e `verifica.py --browser`. Quando esce la Publication 969 (2026) si può passare `hsa_catchup` 2026 dalla legge alla pubblicazione
+(non è obbligatorio: la cifra è fissata dalla legge). Ogni novembre aggiungere anche `roth_catchup_soglia` del nuovo anno (è nel Notice).
+
+### Revisione indipendente della sezione limiti (13/11/2026, prima del commit)
+
+Fonti IRS riscaricate da zero in una cartella a parte (13 Notice, 14 Rev. Proc., comunicati 2026 e 2027, Publication 590-A e 969) e cifre estratte con
+un programma scritto per la revisione: **224 cifre confrontate, 0 diverse** (204 lette in automatico, 20 a mano dove il PDF spezza la frase).
+IR-2026-136 del 12/11/2026 esiste e dà le cifre 2027 pubblicate (25.500, 8.500, 11.750, IRA 7.500/1.100, Roth 158-173 e 250-260 mila, SIMPLE 17.500/19.100,
+415(c) 75.000; HSA 2027 4.500/9.000 dalla Rev. Proc. 2026-24). Calcolatore Roth: 38 casi fatti a mano dal Worksheet 2-2 contro il JS pubblicato, 0 diversi.
+
+Corretto:
+- **HSA 55+ 2026 e 2027 = 1.000 $**, fonte la legge: 26 U.S.C. § 223(b)(3)(B) («2009 and thereafter $1,000»), non indicizzato perché § 223(g) indicizza
+  solo (b)(2) e (c)(2)(A). Testo letto su govinfo.gov (U.S. Code ed. 2024, fonte `usc_223`, unica non irs.gov: `verifica.LEGGE_USA` la ammette solo per
+  `hsa_catchup`). La pagina diceva già "From age 55 the limit is $1,000 higher" con le celle vuote: ora cella, testo e FAQ dicono la stessa cosa con la fonte.
+- **Pagina 401(k)**: le tre spiegazioni non citate ora sono frasi IRS (`testi.k401_*`, fonti `irs_401k_limiti`, `irs_piu_piani`, `irs_catchup`):
+  somma dei differimenti tra piani e 457(b) a parte, catch-up «If permitted by the 401(k) plan», 415(c) «elective deferrals (but not catch-up
+  contributions)». Tolto "to one person's account" / "all contributions to one account": l'IRS dice «all of your accounts in plans maintained by one employer».
+- **Soglia salariale del catch-up Roth** (150.000 $ per il 2026, 155.000 $ per il 2027): era scritta a mano nel codice; ora è una voce d'anno
+  (`roth_catchup_soglia`) con la frase del Notice, e il testo dice che il salario è quello dell'anno prima presso il datore che ha il piano (frase IRS).
+- **HDHP dal 2026**: la pagina diceva che serve un piano con quelle franchigie; dal 2026 i piani bronze e catastrophic dell'Exchange valgono come HDHP
+  anche senza (Notice 2026-5, citato).
+- **Citazioni con il numero di pagina del PDF dentro** («a high -2deductible health plan», «other 3 amounts»: 6 frasi delle Rev. Proc.): `frase` resta
+  quella del testo estratto, `mostra` è quella stampata, e `verifica.py` controlla che differiscano solo per quel numero.
+- Calcolatore Roth: con versamenti ad altri IRA il titolo diceva "you can contribute the full amount" e la riga sotto "before contributions you already
+  made to other IRAs" anche quando la cifra era già al netto; ora due testi distinti (`full_meno`, `sotto_altre`). Il motore non è cambiato.
+- Testi: SIMPLE 401(k) ("same amounts" valeva solo per limite generale e catch-up), "in fixed steps (for example $500)" tolto, "by $10 near the edges"
+  corretto, fascia 0-10.000 $ dei coniugi separati citata, etichetta "Figures quoted from IRS documents", nome della pagina IRS nelle citazioni.
+- `raccolta/irs.py`: 5 fonti nuove; le voci di elenco delle pagine HTML diventano «• » come nei PDF.
+
+Controlli aggiunti in `verifica.py`: fonte di legge solo per le voci ammesse, HSA 55+ = 1.000 $ in ogni anno e § 223(g) senza (b)(3), soglia Roth
+coerente tra un anno e l'altro e con la pagina IRS, frasi `mostra`, le 6 frasi IRS della pagina 401(k) presenti e le vecchie formule assenti, nessuna
+cella vuota nella pagina HSA. Prova al contrario: 3 dati alterati → 6 errori.

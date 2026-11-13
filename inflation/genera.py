@@ -29,6 +29,7 @@ import monetizzazione as MON  # noqa: E402
 import motore as M  # noqa: E402
 import serie  # noqa: E402
 import stile  # noqa: E402
+import pensione as PEN  # noqa: E402  (sezione limiti 401(k)/IRA/Roth/HSA: dati/limiti.json)
 
 # Sezione tedesca (/de/, Destatis): spenta = nessuna pagina /de/, nessun link, nessuna menzione di Germania/Destatis nelle pagine pubblicate.
 # Codice e dati tedeschi restano qui sotto e in dati/: basta rimettere True, rigenerare e rifare verifica.py --browser.
@@ -136,9 +137,11 @@ CSS = re.sub(r"\n", "", stile.CSS)
 SPRITE = ('<svg xmlns="http://www.w3.org/2000/svg">' +
           "".join(f'<symbol id="i-{k}" viewBox="0 0 24 24">{v}</symbol>' for k, v in stile.ICONE.items()) + "</svg>\n")
 APP_JS = stile.APP_JS.strip() + "\n"
+ROTH_JS = stile.ROTH_JS.strip() + "\n"  # calcolatore Roth (solo nella pagina /roth-ira-income-limit/)
 ASSET = {f"site.{_impronta(CSS)}.css": CSS, f"app.{_impronta(APP_JS)}.js": APP_JS,
-         f"favicon.{_impronta(stile.FAVICON_SVG)}.svg": stile.FAVICON_SVG, f"icons.{_impronta(SPRITE)}.svg": SPRITE}
-CSS_FILE, JS_FILE, FAVICON_FILE, ICONS_FILE = ASSET
+         f"favicon.{_impronta(stile.FAVICON_SVG)}.svg": stile.FAVICON_SVG, f"icons.{_impronta(SPRITE)}.svg": SPRITE,
+         f"roth.{_impronta(ROTH_JS)}.js": ROTH_JS}
+CSS_FILE, JS_FILE, FAVICON_FILE, ICONS_FILE, ROTH_FILE = ASSET
 LOGO = f'<img src="/assets/{FAVICON_FILE}" width="32" height="32" alt="">'
 
 
@@ -150,6 +153,8 @@ def ico(nome, cls="ico"):
 LICENZA_TESTO = {
     "bls": "U.S. Bureau of Labor Statistics. Public domain (work of the U.S. federal government).",
     "ons": "Source: Office for National Statistics licensed under the Open Government Licence v.3.0.",
+    "irs": "Internal Revenue Service. Public domain (work of the U.S. federal government).",
+    "usc": "United States Code, U.S. Government Publishing Office. Public domain (work of the U.S. federal government).",
     "destatis": "Quelle: Statistisches Bundesamt (Destatis). Vervielfältigung und Verbreitung, auch auszugsweise, mit Quellenangabe gestattet. "
                 "Für Inhalte der Datenbank GENESIS-Online gilt die Datenlizenz Deutschland – Namensnennung – Version 2.0:",
 }
@@ -162,6 +167,10 @@ def fonti_box(ids, lingua="en"):
         lic = ""
         if i.startswith("bls"):
             lic = LICENZA_TESTO["bls"]
+        elif i.startswith("irs"):
+            lic = LICENZA_TESTO["irs"]
+        elif i.startswith("usc"):
+            lic = LICENZA_TESTO["usc"]
         elif i.startswith("ons"):
             lic = (LICENZA_TESTO["ons"] + ' <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="noopener">OGL v3.0</a>')
         elif i.startswith("destatis"):
@@ -204,11 +213,11 @@ def menu(percorso, paese):
     elif paese == "uk":
         voci += [("uk/inflation-rate-by-year/", "UK rates by year"), ("uk/rpi-calculator/", "RPI")]
     else:
-        voci += [("us/inflation-rate-by-year/", "US rates by year")]
+        voci += [("us/inflation-rate-by-year/", "US rates by year"), ("retirement-limits/", "401(k) & IRA limits")]
     return "".join(f'<a href="/{u}"' + (' aria-current="page"' if u == percorso else "") + f">{h(t)}</a>" for u, t in voci)
 
 
-def pagina(percorso, titolo, descrizione, corpo, testata="", paese="us", briciole=None, jsonld=None, indicizza=True, file=None):
+def pagina(percorso, titolo, descrizione, corpo, testata="", paese="us", briciole=None, jsonld=None, indicizza=True, file=None, disclaimer=None, script=""):
     file = file or (percorso + "index.html" if percorso else "index.html")
     lang, og_loc, lingua = LINGUA[paese]
     url_pag = f"{URL_SITO}/{percorso}"
@@ -244,7 +253,8 @@ def pagina(percorso, titolo, descrizione, corpo, testata="", paese="us", briciol
                        "It is an independent site, not a government website and not linked to any statistics office.</p>"
                        f"<p>Latest index: {ultimi_txt}. Data read on {data_lunga(CONTROLLO)}.</p>")
         links = [("", "US inflation calculator"), ("us/inflation-rate-by-year/", "US inflation rate by year"), ("uk/", "UK inflation calculator"),
-                 ("uk/rpi-calculator/", "RPI calculator"), ("uk/inflation-rate-by-year/", "UK inflation rate by year")]
+                 ("uk/rpi-calculator/", "RPI calculator"), ("uk/inflation-rate-by-year/", "UK inflation rate by year"),
+                 ("retirement-limits/", "401(k), IRA and HSA limits")]
         if SEZIONE_DE:
             links.append(("de/inflationsrechner/", "Inflationsrechner (DE)"))
         info = [("about/", "About"), ("how-we-check/", "How we check"), ("privacy/", "Privacy")]
@@ -290,7 +300,7 @@ def pagina(percorso, titolo, descrizione, corpo, testata="", paese="us", briciol
 {testata}
 <div class="wrap">
 {corpo}
-<p class="disclaimer">{DISCLAIMER[lingua]}</p>
+<p class="disclaimer">{disclaimer or DISCLAIMER[lingua]}</p>
 </div>
 </main>
 <footer><div class="wrap">
@@ -304,7 +314,7 @@ def pagina(percorso, titolo, descrizione, corpo, testata="", paese="us", briciol
 </div></div>
 <p class="f-base">{base}</p>
 </div></footer>
-<script src="/assets/{JS_FILE}" defer></script>
+<script src="/assets/{JS_FILE}" defer></script>{script}
 {SCRIPT_CONTATORE}
 </body>
 </html>
@@ -574,7 +584,8 @@ def home():
               '<li><a href="/uk/"><b>UK</b>Inflation calculator<small>ONS CPI from 1988 and the RPI long-run series from 1800</small></a></li>'
               + ('<li><a href="/de/inflationsrechner/"><b>DE</b>Inflationsrechner<small>Destatis-VPI, D-Mark und Euro, ab 1962</small></a></li>' if SEZIONE_DE else "") +
               '<li><a href="/us/inflation-rate-by-year/"><b>%</b>US inflation rate by year<small>Every year since 1914, annual average and December to December</small></a></li>'
-              '<li><a href="/uk/rpi-calculator/"><b>RPI</b>RPI calculator<small>Retail Prices Index increases since 1800</small></a></li></ul>')
+              '<li><a href="/uk/rpi-calculator/"><b>RPI</b>RPI calculator<small>Retail Prices Index increases since 1800</small></a></li>'
+              f'<li><a href="/retirement-limits/"><b>401(k)</b>Retirement and HSA limits<small>IRS limits for 401(k), IRA, Roth IRA, SIMPLE and HSA, {PEN.PRIMO}–{PEN.ULTIMO}</small></a></li></ul>')
     m2000 = media_annua("us", 2000, 2025)
     faq, ld_faq = faq_blocco("home", [
         ("What is the normal inflation rate?",
@@ -1156,6 +1167,15 @@ def come_controlliamo():
         'database are under the <a href="https://www.govdata.de/dl-de/by-2-0" rel="noopener">Datenlizenz Deutschland – Namensnennung – Version 2.0</a>.</p>'
         f'<p>Before 1991 the German calculator links the West German index to the VPI at 1991 (factor {numero(K_DE, 5)}). This is our only calculated series and it is labelled on the page as our own calculation, not an official index.</p>'
         + boe_par + '</div>') if SEZIONE_DE else ""])
+    corpo += ('<h3>Retirement and HSA limits: IRS</h3><div class="testo"><p>The <a href="/retirement-limits/">401(k), IRA, Roth IRA, SIMPLE IRA and HSA '
+              f'limits</a> ({PEN.PRIMO}–{PEN.ULTIMO}) come from IRS documents: the yearly notice on cost-of-living adjustments for retirement items, the yearly news '
+              'release (2015), the revenue procedure with the HSA amounts and Publication 969 for the age-55 HSA contribution (for the years whose edition is '
+              'not out yet, section 223(b)(3) of the Internal Revenue Code, read in the U.S. Code on govinfo.gov, which fixes it at $1,000); the Roth IRA calculator follows '
+              'Worksheet 2-2 of Publication 590-A. We keep the text of each document with its address, reading date and SHA-256 fingerprint, and store next to every '
+              'figure the IRS sentence it comes from (in six sentences from HSA revenue procedures a PDF page number falls in the middle of the sentence: the quote on '
+              'the page leaves that number out and changes nothing else). The checks confirm that each sentence is still in the document, that it contains the figure, that the pages print '
+              'that figure, and that the calculator in your browser gives the same result as our reference code on thousands of incomes, including the edges of '
+              'each range. IRS documents are works of the U.S. federal government and in the public domain.</p></div>')
     corpo += ('<h2>What the checks do</h2><div class="testo"><ul>'
               '<li><strong>Continuity:</strong> no year or month may be missing between the first and the last value of a series. The only gap allowed is a month the '
               'office itself marks as not collected (October 2025 in the US), and it is shown on the pages.</li>'
@@ -1314,6 +1334,7 @@ def main():
     uk_calc()
     uk_tassi()
     uk_rpi()
+    PEN.genera(sys.modules[__name__])  # /retirement-limits/ e pagine per conto (401k, IRA, Roth con calcolatore, HSA, SIMPLE)
     if SEZIONE_DE:  # spenta: nessuna pagina /de/ (la cartella sito/ è stata appena svuotata, quindi niente avanzi)
         de_rechner()
         de_rate()

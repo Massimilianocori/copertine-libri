@@ -1,0 +1,1738 @@
+{
+ "_nota": "Limiti IRS per anno: ogni cifra con la fonte (id di dati/fonti.json, testo in grezzi/irs/<id>.txt) e la frase IRS da cui viene, copiata dal testo estratto (comprese le rare cifre di pagina dei PDF). Scritto il 13/11/2026 dopo la lettura dei testi; verifica.py controlla che ogni frase sia nel testo e contenga la cifra, e che le pagine stampino queste cifre. Revisione del 13/11/2026: il contributo HSA 55+ per 2026 e 2027 viene dalla legge (26 U.S.C. § 223(b)(3)(B), fonte usc_223, non indicizzato: § 223(g) indicizza solo (b)(2) e (c)(2)(A)); soglia salariale del catch-up Roth come voce d'anno (roth_catchup_soglia); frasi di spiegazione della pagina 401(k) da due pagine IRS. Dove il testo estratto dal PDF ha un numero di pagina dentro la frase (6 frasi delle Rev. Proc. HSA), «frase» resta com'è nel testo estratto (è quella che verifica.py cerca) e «mostra» è la frase senza il numero di pagina, quella stampata nelle pagine.",
+ "letto_il": "2026-11-13",
+ "anni": {
+  "2015": {
+   "ira_catchup": {
+    "valore": 1000,
+    "fonte": "irs_ir_2015",
+    "frase": "The additional catch-up contribution limit for individuals aged 50 and over is not subject to an annual cost-of-living adjustment and remains $1,000."
+   },
+   "k401": {
+    "valore": 18000,
+    "fonte": "irs_ir_2015",
+    "frase": "The limitation under Section 402(g)(1) on the exclusion for elective deferrals described in Section 402(g)(3) is increased from $17,500 to $18,000"
+   },
+   "k457": {
+    "valore": 18000,
+    "fonte": "irs_ir_2015",
+    "frase": "The limitation on deferrals under Section 457(e)(15) concerning deferred compensation plans of state and local governments and tax-exempt organizations is increased from $17,500 to $18,000"
+   },
+   "catchup": {
+    "valore": 6000,
+    "fonte": "irs_ir_2015",
+    "frase": "The dollar limitation under Section 414(v)(2)(B)(i) for catch-up contributions to an applicable employer plan other than a plan described in Section 401(k)(11) or Section 408(p) for individuals aged 50 or over is increased from $5,500 to $6,000"
+   },
+   "dc415c": {
+    "valore": 53000,
+    "fonte": "irs_ir_2015",
+    "frase": "The limitation for defined contribution plans under Section 415(c)(1)(A) is increased in 2015 from $52,000 to $53,000"
+   },
+   "simple": {
+    "valore": 12500,
+    "fonte": "irs_ir_2015",
+    "frase": "The limitation under Section 408(p)(2)(E) regarding SIMPLE retirement accounts is increased from $12,000 to $12,500"
+   },
+   "simple_catchup": {
+    "valore": 3000,
+    "fonte": "irs_ir_2015",
+    "frase": "The dollar limitation under Section 414(v)(2)(B)(ii) for catch-up contributions to an applicable employer plan described in Section 401(k)(11) or Section 408(p) for individuals aged 50 or over is increased from $2,500 to $3,000"
+   },
+   "ira": {
+    "valore": 5500,
+    "fonte": "irs_ir_2015",
+    "frase": "The limit on annual contributions to an Individual Retirement Arrangement (IRA) remains unchanged at $5,500"
+   },
+   "ded_single": {
+    "valore": [
+     61000,
+     71000
+    ],
+    "fonte": "irs_ir_2015",
+    "frase": "The deduction for taxpayers making contributions to a traditional IRA is phased out for singles and heads of household who are covered by a workplace retirement plan and have modified adjusted gross incomes (AGI) between $61,000 and $71,000"
+   },
+   "ded_mfj": {
+    "valore": [
+     98000,
+     118000
+    ],
+    "fonte": "irs_ir_2015",
+    "frase": "For married couples filing jointly, in which the spouse who makes the IRA contribution is covered by a workplace retirement plan, the income phase-out range is $98,000 to $118,000"
+   },
+   "ded_spouse": {
+    "valore": [
+     183000,
+     193000
+    ],
+    "fonte": "irs_ir_2015",
+    "frase": "For an IRA contributor who is not covered by a workplace retirement plan and is married to someone who is covered, the deduction is phased out if the couple's income is between $183,000 and $193,000"
+   },
+   "roth_mfj": {
+    "valore": [
+     183000,
+     193000
+    ],
+    "fonte": "irs_ir_2015",
+    "frase": "The AGI phase-out range for taxpayers making contributions to a Roth IRA is $183,000 to $193,000 for married couples filing jointly"
+   },
+   "roth_single": {
+    "valore": [
+     116000,
+     131000
+    ],
+    "fonte": "irs_ir_2015",
+    "frase": "For singles and heads of household, the income phase-out range is $116,000 to $131,000"
+   },
+   "roth_mfs": {
+    "valore": [
+     0,
+     10000
+    ],
+    "fonte": "irs_ir_2015",
+    "frase": "For a married individual filing a separate return, the phase-out range is not subject to an annual cost-of-living adjustment and remains $0 to $10,000"
+   },
+   "hsa_self": {
+    "valore": 3350,
+    "fonte": "irs_rp_2015",
+    "frase": "For calendar year 2015, the annual limitation on deductions under § 223(b)(2)(A) for an individual with self-only coverage under a high deductible health plan is $3,350"
+   },
+   "hsa_family": {
+    "valore": 6650,
+    "fonte": "irs_rp_2015",
+    "frase": "For calendar year 2015, the annual limitation on deductions under § 223(b)(2)(B) for an individual with family coverage under a high deductible health plan is $6,650"
+   },
+   "hdhp": {
+    "valore": [
+     1300,
+     2600,
+     6450,
+     12900
+    ],
+    "fonte": "irs_rp_2015",
+    "frase": "For calendar year 2015, a \"high deductible health plan\" is defined under § 223(c)(2)(A) as a health plan with an annual deductible that is not less than $1,300 for self-only coverage or $2,600 for family coverage, and the annual out-of-pocket expenses (deductibles, co-payments, and other amounts, but not premiums) do not exceed $6,450 for self-only coverage or $12,900 for family coverage"
+   },
+   "hsa_catchup": {
+    "valore": 1000,
+    "fonte": "irs_p969_2015",
+    "frase": "If you are an eligible individual who is age 55 or older at the end of your tax year, your contribution limit is increased by $1,000"
+   }
+  },
+  "2016": {
+   "ira_catchup": {
+    "valore": 1000,
+    "fonte": "irs_ir_2016",
+    "frase": "The additional catch-up contribution limit for individuals aged 50 and over is not subject to an annual cost-of-living adjustment and remains $1,000."
+   },
+   "dc415c": {
+    "valore": 53000,
+    "fonte": "irs_n_2016",
+    "frase": "The limitation for defined contribution plans under § 415(c)(1)(A) remains unchanged in 2016 at $53,000"
+   },
+   "k401": {
+    "valore": 18000,
+    "fonte": "irs_n_2016",
+    "frase": "The limitation under § 402(g)(1) on the exclusion for elective deferrals described in § 402(g)(3) remains unchanged at $18,000"
+   },
+   "k457": {
+    "valore": 18000,
+    "fonte": "irs_n_2016",
+    "frase": "The limitation on deferrals under § 457(e)(15) concerning deferred compensation plans of state and local governments and tax-exempt organizations remains unchanged at $18,000"
+   },
+   "catchup": {
+    "valore": 6000,
+    "fonte": "irs_n_2016",
+    "frase": "The dollar limitation under § 414(v)(2)(B)(i) for catch-up contributions to an applicable employer plan other than a plan described in § 401(k)(11) or § 408(p) for individuals aged 50 or over remains unchanged at $6,000"
+   },
+   "simple": {
+    "valore": 12500,
+    "fonte": "irs_n_2016",
+    "frase": "The limitation under § 408(p)(2)(E) regarding SIMPLE retirement accounts remains unchanged at $12,500"
+   },
+   "simple_catchup": {
+    "valore": 3000,
+    "fonte": "irs_n_2016",
+    "frase": "The dollar limitation under § 414(v)(2)(B)(ii) for catch-up contributions to an applicable employer plan described in § 401(k)(11) or 408(p) for individuals aged 50 or over remains unchanged at $3,000"
+   },
+   "ira": {
+    "valore": 5500,
+    "fonte": "irs_n_2016",
+    "frase": "The deductible amount under § 219(b)(5)(A) for an individual making qualified retirement contributions remains unchanged at $5,500"
+   },
+   "roth_mfj": {
+    "valore": [
+     184000,
+     194000
+    ],
+    "fonte": "irs_n_2016",
+    "frase": "Accordingly, under § 408A(c)(3)(A), the adjusted gross income phase-out range for taxpayers making contributions to a Roth IRA is $184,000 to $194,000"
+   },
+   "roth_single": {
+    "valore": [
+     117000,
+     132000
+    ],
+    "fonte": "irs_n_2016",
+    "frase": "For singles and heads of household, the income phase-out range is $117,000 to $132,000"
+   },
+   "roth_mfs": {
+    "valore": [
+     0,
+     10000
+    ],
+    "fonte": "irs_n_2016",
+    "frase": "For a married individual filing a separate return, the phase-out range is not subject to an annual cost-of-living adjustment and remains $0 to $10,000"
+   },
+   "ded_single": {
+    "valore": [
+     61000,
+     71000
+    ],
+    "fonte": "irs_n_2016",
+    "frase": "Accordingly, under § 219(g)(2)(A), the deduction for taxpayers making contributions to a traditional IRA is phased out for single individuals and heads of household who are active participants in a qualified plan (or another retirement plan specified in § 219(g)(5)) and have adjusted gross incomes (as defined in § 219(g)(3)(A)) between $61,000 and $71,000"
+   },
+   "ded_mfj": {
+    "valore": [
+     98000,
+     118000
+    ],
+    "fonte": "irs_n_2016",
+    "frase": "For married couples filing jointly, if the spouse who makes the IRA contribution is an active participant, the income phase-out range remains unchanged at $98,000 to $118,000"
+   },
+   "ded_spouse": {
+    "valore": [
+     184000,
+     194000
+    ],
+    "fonte": "irs_n_2016",
+    "frase": "For an IRA contributor who is not an active participant and is married to someone who is an active participant, the deduction is phased out if the couple's income is between $184,000 and $194,000"
+   },
+   "hsa_self": {
+    "valore": 3350,
+    "fonte": "irs_rp_2016",
+    "frase": "For calendar year 2016, the annual limitation on deductions under § 223(b)(2)(A) for an individual with self-only coverage under a high deductible health plan is $3,350"
+   },
+   "hsa_family": {
+    "valore": 6750,
+    "fonte": "irs_rp_2016",
+    "frase": "For calendar year 2016, the annual limitation on deductions under § 223(b)(2)(B) for an individual with family coverage under a high deductible health plan is $6,750"
+   },
+   "hdhp": {
+    "valore": [
+     1300,
+     2600,
+     6550,
+     13100
+    ],
+    "fonte": "irs_rp_2016",
+    "frase": "For calendar year 2016, a \"high deductible health plan\" is defined under § 223(c)(2)(A) as a health plan with an annual deductible that is not less than $1,300 for self-only coverage or $2,600 for family coverage, and the annual out-of-pocket expenses (deductibles, co-payments, and other amounts, but not premiums) do not exceed $6,550 for self-only coverage or $13,100 for family coverage"
+   },
+   "hsa_catchup": {
+    "valore": 1000,
+    "fonte": "irs_p969_2016",
+    "frase": "If you are an eligible individual who is age 55 or older at the end of your tax year, your contribution limit is increased by $1,000"
+   }
+  },
+  "2017": {
+   "ira_catchup": {
+    "valore": 1000,
+    "fonte": "irs_ir_2017",
+    "frase": "The additional catch-up contribution limit for individuals aged 50 and over is not subject to an annual cost-of-living adjustment and remains $1,000."
+   },
+   "dc415c": {
+    "valore": 54000,
+    "fonte": "irs_n_2017",
+    "frase": "The limitation for defined contribution plans under § 415(c)(1)(A) is increased in 2017 from $53,000 to $54,000"
+   },
+   "k401": {
+    "valore": 18000,
+    "fonte": "irs_n_2017",
+    "frase": "The limitation under § 402(g)(1) on the exclusion for elective deferrals described in § 402(g)(3) remains unchanged at $18,000"
+   },
+   "k457": {
+    "valore": 18000,
+    "fonte": "irs_n_2017",
+    "frase": "The limitation on deferrals under § 457(e)(15) concerning deferred compensation plans of state and local governments and tax-exempt organizations remains unchanged at $18,000"
+   },
+   "catchup": {
+    "valore": 6000,
+    "fonte": "irs_n_2017",
+    "frase": "The dollar limitation under § 414(v)(2)(B)(i) for catch-up contributions to an applicable employer plan other than a plan described in § 401(k)(11) or § 408(p) for individuals aged 50 or over remains unchanged at $6,000"
+   },
+   "simple": {
+    "valore": 12500,
+    "fonte": "irs_n_2017",
+    "frase": "The limitation under § 408(p)(2)(E) regarding SIMPLE retirement accounts remains unchanged at $12,500"
+   },
+   "simple_catchup": {
+    "valore": 3000,
+    "fonte": "irs_n_2017",
+    "frase": "The dollar limitation under § 414(v)(2)(B)(ii) for catch-up contributions to an applicable employer plan described in § 401(k)(11) or 408(p) for individuals aged 50 or over remains unchanged at $3,000"
+   },
+   "ira": {
+    "valore": 5500,
+    "fonte": "irs_n_2017",
+    "frase": "The deductible amount under § 219(b)(5)(A) for an individual making qualified retirement contributions remains unchanged at $5,500"
+   },
+   "roth_mfj": {
+    "valore": [
+     186000,
+     196000
+    ],
+    "fonte": "irs_n_2017",
+    "frase": "Accordingly, under § 408A(c)(3)(A), the adjusted gross income phase-out range for taxpayers making contributions to a Roth IRA is $186,000 to $196,000"
+   },
+   "roth_single": {
+    "valore": [
+     118000,
+     133000
+    ],
+    "fonte": "irs_n_2017",
+    "frase": "For singles and heads of household, the income phase-out range is $118,000 to $133,000"
+   },
+   "roth_mfs": {
+    "valore": [
+     0,
+     10000
+    ],
+    "fonte": "irs_n_2017",
+    "frase": "For a married individual filing a separate return, the phase-out range is not subject to an annual cost-of-living adjustment and remains $0 to $10,000"
+   },
+   "ded_single": {
+    "valore": [
+     62000,
+     72000
+    ],
+    "fonte": "irs_n_2017",
+    "frase": "Accordingly, under § 219(g)(2)(A), the deduction for taxpayers making contributions to a traditional IRA is phased out for single individuals and heads of household who are active participants in a qualified plan (or another retirement plan specified in § 219(g)(5)) and have adjusted gross incomes (as defined in § 219(g)(3)(A)) between $62,000 and $72,000"
+   },
+   "ded_mfj": {
+    "valore": [
+     99000,
+     119000
+    ],
+    "fonte": "irs_n_2017",
+    "frase": "For married couples filing jointly, if the spouse who makes the IRA contribution is an active participant, the income phase-out range is between $99,000 and $119,000"
+   },
+   "ded_spouse": {
+    "valore": [
+     186000,
+     196000
+    ],
+    "fonte": "irs_n_2017",
+    "frase": "For an IRA contributor who is not an active participant and is married to someone who is an active participant, the deduction is phased out if the couple's income is between $186,000 and $196,000"
+   },
+   "hsa_self": {
+    "valore": 3400,
+    "fonte": "irs_rp_2017",
+    "frase": "For calendar year 2017, the annual limitation on deductions under § 223(b)(2)(A) for an individual with self-only coverage under a high deductible health plan is $3,400"
+   },
+   "hsa_family": {
+    "valore": 6750,
+    "fonte": "irs_rp_2017",
+    "frase": "For calendar year 2017, the annual limitation on deductions under § 223(b)(2)(B) for an individual with family coverage under a high deductible health plan is $6,750"
+   },
+   "hdhp": {
+    "valore": [
+     1300,
+     2600,
+     6550,
+     13100
+    ],
+    "fonte": "irs_rp_2017",
+    "frase": "For calendar year 2017, a \"high deductible health plan\" is defined under § 223(c)(2)(A) as a health plan with an annual deductible that is not less than $1,300 for self-only coverage or $2,600 for family coverage, and the annual out-of-pocket expenses (deductibles, co-payments, and other amounts, but not premiums) do not exceed $6,550 for self-only coverage or $13,100 for family coverage"
+   },
+   "hsa_catchup": {
+    "valore": 1000,
+    "fonte": "irs_p969_2017",
+    "frase": "If you are an eligible individual who is age 55 or older at the end of your tax year, your contribution limit is increased by $1,000"
+   }
+  },
+  "2018": {
+   "ira_catchup": {
+    "valore": 1000,
+    "fonte": "irs_ir_2018",
+    "frase": "The additional catch-up contribution limit for individuals aged 50 and over is not subject to an annual cost-of-living adjustment and remains $1,000."
+   },
+   "dc415c": {
+    "valore": 55000,
+    "fonte": "irs_n_2018",
+    "frase": "The limitation for defined contribution plans under § 415(c)(1)(A) is increased in 2018 from $54,000 to $55,000"
+   },
+   "k401": {
+    "valore": 18500,
+    "fonte": "irs_n_2018",
+    "frase": "The limitation under § 402(g)(1) on the exclusion for elective deferrals described in § 402(g)(3) is increased from $18,000 to $18,500"
+   },
+   "k457": {
+    "valore": 18500,
+    "fonte": "irs_n_2018",
+    "frase": "The limitation on deferrals under § 457(e)(15) concerning deferred compensation plans of state and local governments and tax-exempt organizations is increased from $18,000 to $18,500"
+   },
+   "catchup": {
+    "valore": 6000,
+    "fonte": "irs_n_2018",
+    "frase": "The dollar limitation under § 414(v)(2)(B)(i) for catch-up contributions to an applicable employer plan other than a plan described in § 401(k)(11) or § 408(p) for individuals aged 50 or over remains unchanged at $6,000"
+   },
+   "simple": {
+    "valore": 12500,
+    "fonte": "irs_n_2018",
+    "frase": "The limitation under § 408(p)(2)(E) regarding SIMPLE retirement accounts remains unchanged at $12,500"
+   },
+   "simple_catchup": {
+    "valore": 3000,
+    "fonte": "irs_n_2018",
+    "frase": "The dollar limitation under § 414(v)(2)(B)(ii) for catch-up contributions to an applicable employer plan described in § 401(k)(11) or 408(p) for individuals aged 50 or over remains unchanged at $3,000"
+   },
+   "ira": {
+    "valore": 5500,
+    "fonte": "irs_n_2018",
+    "frase": "The deductible amount under § 219(b)(5)(A) for an individual making qualified retirement contributions remains unchanged at $5,500"
+   },
+   "roth_mfj": {
+    "valore": [
+     189000,
+     199000
+    ],
+    "fonte": "irs_n_2018",
+    "frase": "Accordingly, under § 408A(c)(3)(A), the adjusted gross income phase-out range for taxpayers making contributions to a Roth IRA is $189,000 to $199,000"
+   },
+   "roth_single": {
+    "valore": [
+     120000,
+     135000
+    ],
+    "fonte": "irs_n_2018",
+    "frase": "For singles and heads of household, the income phase-out range is $120,000 to $135,000"
+   },
+   "roth_mfs": {
+    "valore": [
+     0,
+     10000
+    ],
+    "fonte": "irs_n_2018",
+    "frase": "For a married individual filing a separate return, the phase-out range is not subject to an annual cost-of-living adjustment and remains $0 to $10,000"
+   },
+   "ded_single": {
+    "valore": [
+     63000,
+     73000
+    ],
+    "fonte": "irs_n_2018",
+    "frase": "Accordingly, under § 219(g)(2)(A), the deduction for taxpayers making contributions to a traditional IRA is phased out for single individuals and heads of household who are active participants in a qualified plan (or another retirement plan specified in § 219(g)(5)) and have adjusted gross incomes (as defined in § 219(g)(3)(A)) between $63,000 and $73,000"
+   },
+   "ded_mfj": {
+    "valore": [
+     101000,
+     121000
+    ],
+    "fonte": "irs_n_2018",
+    "frase": "For married couples filing jointly, if the spouse who makes the IRA contribution is an active participant, the income phaseout range is between $101,000 and $121,000"
+   },
+   "ded_spouse": {
+    "valore": [
+     189000,
+     199000
+    ],
+    "fonte": "irs_n_2018",
+    "frase": "For an IRA contributor who is not an active participant and is married to someone who is an active participant, the deduction is phased out if the couple's income is between $189,000 and $199,000"
+   },
+   "hsa_self": {
+    "valore": 3450,
+    "fonte": "irs_rp_2018",
+    "frase": "For calendar year 2018, the annual limitation on deductions under § 223(b)(2)(A) for an individual with self-only coverage under a high deductible health plan is $3,450"
+   },
+   "hsa_family": {
+    "valore": 6900,
+    "fonte": "irs_rp_2018b",
+    "frase": "For calendar year 2018, taxpayers may treat $6,900 as the annual limitation on deductions under section 223(b)(2)(B) for an individual with family coverage under an HDHP"
+   },
+   "hdhp": {
+    "valore": [
+     1350,
+     2700,
+     6650,
+     13300
+    ],
+    "fonte": "irs_rp_2018",
+    "frase": "For calendar year 2018, a \"high deductible health plan\" is defined under § 223(c)(2)(A) as a health plan with an annual deductible that is not less than $1,350 for self-only coverage or $2,700 for family coverage, and the annual out-of-pocket expenses (deductibles, co-payments, and other amounts, but not premiums) do not exceed $6,650 for self-only coverage or $13,300 for family coverage"
+   },
+   "hsa_catchup": {
+    "valore": 1000,
+    "fonte": "irs_p969_2018",
+    "frase": "If you are an eligible individual who is age 55 or older at the end of your tax year, your contribution limit is increased by $1,000"
+   }
+  },
+  "2019": {
+   "ira_catchup": {
+    "valore": 1000,
+    "fonte": "irs_ir_2019",
+    "frase": "The additional catch-up contribution limit for individuals aged 50 and over is not subject to an annual cost-of-living adjustment and remains $1,000."
+   },
+   "dc415c": {
+    "valore": 56000,
+    "fonte": "irs_n_2019",
+    "frase": "The limitation for defined contribution plans under § 415(c)(1)(A) is increased in 2019 from $55,000 to $56,000"
+   },
+   "k401": {
+    "valore": 19000,
+    "fonte": "irs_n_2019",
+    "frase": "The limitation under § 402(g)(1) on the exclusion for elective deferrals described in § 402(g)(3) is increased from $18,500 to $19,000"
+   },
+   "k457": {
+    "valore": 19000,
+    "fonte": "irs_n_2019",
+    "frase": "The limitation on deferrals under § 457(e)(15) concerning deferred compensation plans of state and local governments and tax-exempt organizations is increased from $18,500 to $19,000"
+   },
+   "catchup": {
+    "valore": 6000,
+    "fonte": "irs_n_2019",
+    "frase": "The dollar limitation under § 414(v)(2)(B)(i) for catch-up contributions to an applicable employer plan other than a plan described in § 401(k)(11) or § 408(p) for individuals aged 50 or over remains unchanged at $6,000"
+   },
+   "simple": {
+    "valore": 13000,
+    "fonte": "irs_n_2019",
+    "frase": "The limitation under § 408(p)(2)(E) regarding SIMPLE retirement accounts is increased from $12,500 to $13,000"
+   },
+   "simple_catchup": {
+    "valore": 3000,
+    "fonte": "irs_n_2019",
+    "frase": "The dollar limitation under § 414(v)(2)(B)(ii) for catch-up contributions to an applicable employer plan described in § 401(k)(11) or 408(p) for individuals aged 50 or over remains unchanged at $3,000"
+   },
+   "ira": {
+    "valore": 6000,
+    "fonte": "irs_n_2019",
+    "frase": "The deductible amount under § 219(b)(5)(A) for an individual making qualified retirement contributions is increased from $5,500 to $6,000"
+   },
+   "roth_mfj": {
+    "valore": [
+     193000,
+     203000
+    ],
+    "fonte": "irs_n_2019",
+    "frase": "Accordingly, under § 408A(c)(3)(A), the adjusted gross income phase-out range for taxpayers making contributions to a Roth IRA is $193,000 to $203,000"
+   },
+   "roth_single": {
+    "valore": [
+     122000,
+     137000
+    ],
+    "fonte": "irs_n_2019",
+    "frase": "For singles and heads of household, the income phase-out range is $122,000 to $137,000"
+   },
+   "roth_mfs": {
+    "valore": [
+     0,
+     10000
+    ],
+    "fonte": "irs_n_2019",
+    "frase": "For a married individual filing a separate return, the phase-out range is not subject to an annual cost-of-living adjustment and remains $0 to $10,000"
+   },
+   "ded_single": {
+    "valore": [
+     64000,
+     74000
+    ],
+    "fonte": "irs_n_2019",
+    "frase": "Accordingly, under § 219(g)(2)(A), the deduction for taxpayers making contributions to a traditional IRA is phased out for single individuals and heads of household who are active participants in a qualified plan (or another retirement plan specified in § 219(g)(5)) and have adjusted gross incomes (as defined in § 219(g)(3)(A)) between $64,000 and $74,000"
+   },
+   "ded_mfj": {
+    "valore": [
+     103000,
+     123000
+    ],
+    "fonte": "irs_n_2019",
+    "frase": "For married couples filing jointly, if the spouse who makes the IRA contribution is an active participant, the income phaseout range is between $103,000 and $123,000"
+   },
+   "ded_spouse": {
+    "valore": [
+     193000,
+     203000
+    ],
+    "fonte": "irs_n_2019",
+    "frase": "For an IRA contributor who is not an active participant and is married to someone who is an active participant, the deduction is phased out if the couple's income is between $193,000 and $203,000"
+   },
+   "hsa_self": {
+    "valore": 3500,
+    "fonte": "irs_rp_2019",
+    "frase": "For calendar year 2019, the annual limitation on deductions under § 223(b)(2)(A) for an individual with self-only coverage under a high deductible health plan is $3,500"
+   },
+   "hsa_family": {
+    "valore": 7000,
+    "fonte": "irs_rp_2019",
+    "frase": "For calendar year 2019, the annual limitation on deductions under § 223(b)(2)(B) for an individual with family coverage under a high deductible health plan is $7,000"
+   },
+   "hdhp": {
+    "valore": [
+     1350,
+     2700,
+     6750,
+     13500
+    ],
+    "fonte": "irs_rp_2019",
+    "frase": "For calendar year 2019, a \"high deductible health plan\" is defined under § 223(c)(2)(A) as a health plan with an annual deductible that is not less than $1,350 for self-only coverage or $2,700 for family coverage, and the annual out-of-pocket expenses (deductibles, co-payments, and other amounts, but not premiums) do not exceed $6,750 for self-only coverage or $13,500 for family coverage"
+   },
+   "hsa_catchup": {
+    "valore": 1000,
+    "fonte": "irs_p969_2019",
+    "frase": "If you are an eligible individual who is age 55 or older at the end of your tax year, your contribution limit is increased by $1,000"
+   }
+  },
+  "2020": {
+   "ira_catchup": {
+    "valore": 1000,
+    "fonte": "irs_ir_2020",
+    "frase": "The additional catch-up contribution limit for individuals aged 50 and over is not subject to an annual cost-of-living adjustment and remains $1,000."
+   },
+   "dc415c": {
+    "valore": 57000,
+    "fonte": "irs_n_2020",
+    "frase": "The limitation for defined contribution plans under § 415(c)(1)(A) is increased in 2020 from $56,000 to $57,000"
+   },
+   "k401": {
+    "valore": 19500,
+    "fonte": "irs_n_2020",
+    "frase": "The limitation under § 402(g)(1) on the exclusion for elective deferrals described in § 402(g)(3) is increased from $19,000 to $19,500"
+   },
+   "k457": {
+    "valore": 19500,
+    "fonte": "irs_n_2020",
+    "frase": "The limitation on deferrals under § 457(e)(15) concerning deferred compensation plans of state and local governments and tax-exempt organizations is increased from $19,000 to $19,500"
+   },
+   "catchup": {
+    "valore": 6500,
+    "fonte": "irs_n_2020",
+    "frase": "The dollar limitation under § 414(v)(2)(B)(i) for catch-up contributions to an applicable employer plan other than a plan described in § 401(k)(11) or § 408(p) for individuals aged 50 or over is increased from $6,000 to $6,500"
+   },
+   "simple": {
+    "valore": 13500,
+    "fonte": "irs_n_2020",
+    "frase": "The limitation under § 408(p)(2)(E) regarding SIMPLE retirement accounts is increased from $13,000 to $13,500"
+   },
+   "simple_catchup": {
+    "valore": 3000,
+    "fonte": "irs_n_2020",
+    "frase": "The dollar limitation under § 414(v)(2)(B)(ii) for catch-up contributions to an applicable employer plan described in § 401(k)(11) or § 408(p) for individuals aged 50 or over remains unchanged at $3,000"
+   },
+   "ira": {
+    "valore": 6000,
+    "fonte": "irs_n_2020",
+    "frase": "The deductible amount under § 219(b)(5)(A) for an individual making qualified retirement contributions remains unchanged at $6,000"
+   },
+   "roth_mfj": {
+    "valore": [
+     196000,
+     206000
+    ],
+    "fonte": "irs_n_2020",
+    "frase": "Accordingly, under § 408A(c)(3)(A), the adjusted gross income phase-out range for taxpayers making contributions to a Roth IRA is $196,000 to $206,000"
+   },
+   "roth_single": {
+    "valore": [
+     124000,
+     139000
+    ],
+    "fonte": "irs_n_2020",
+    "frase": "For singles and heads of household, the income phase-out range is $124,000 to $139,000"
+   },
+   "roth_mfs": {
+    "valore": [
+     0,
+     10000
+    ],
+    "fonte": "irs_n_2020",
+    "frase": "For a married individual filing a separate return, the phase-out range is not subject to an annual cost-of-living adjustment and remains $0 to $10,000"
+   },
+   "ded_single": {
+    "valore": [
+     65000,
+     75000
+    ],
+    "fonte": "irs_n_2020",
+    "frase": "Accordingly, under § 219(g)(2)(A), the deduction for taxpayers making contributions to a traditional IRA is phased out for single individuals and heads of household who are active participants in a qualified plan (or another retirement plan specified in § 219(g)(5)) and have adjusted gross incomes (as defined in § 219(g)(3)(A)) between $65,000 and $75,000"
+   },
+   "ded_mfj": {
+    "valore": [
+     104000,
+     124000
+    ],
+    "fonte": "irs_n_2020",
+    "frase": "For married couples filing jointly, if the spouse who makes the IRA contribution is an active participant, the income phaseout range is between $104,000 and $124,000"
+   },
+   "ded_spouse": {
+    "valore": [
+     196000,
+     206000
+    ],
+    "fonte": "irs_n_2020",
+    "frase": "For an IRA contributor who is not an active participant and is married to someone who is an active participant, the deduction is phased out if the couple's income is between $196,000 and $206,000"
+   },
+   "hsa_self": {
+    "valore": 3550,
+    "fonte": "irs_rp_2020",
+    "frase": "For calendar year 2020, the annual limitation on deductions under § 223(b)(2)(A) for an individual with self-only coverage under a high deductible health plan is $3,550"
+   },
+   "hsa_family": {
+    "valore": 7100,
+    "fonte": "irs_rp_2020",
+    "frase": "For 1261 calendar year 2020, the annual limitation on deductions under § 223(b)(2)(B) for an individual with family coverage under a high deductible health plan is $7,100"
+   },
+   "hdhp": {
+    "valore": [
+     1400,
+     2800,
+     6900,
+     13800
+    ],
+    "fonte": "irs_rp_2020",
+    "frase": "For calendar year 2020, a \"high deductible health plan\" is defined under § 223(c)(2)(A) as a health plan with an annual deductible that is not less than $1,400 for self-only coverage or $2,800 for family coverage, and the annual out-of-pocket expenses (deductibles, co-payments, and other amounts, but not premiums) do not exceed $6,900 for self-only coverage or $13,800 for family coverage"
+   },
+   "hsa_catchup": {
+    "valore": 1000,
+    "fonte": "irs_p969_2020",
+    "frase": "If you are an eligible individual who is age 55 or older at the end of your tax year, your contribution limit is increased by $1,000"
+   }
+  },
+  "2021": {
+   "ira_catchup": {
+    "valore": 1000,
+    "fonte": "irs_ir_2021",
+    "frase": "The additional catch-up contribution limit for individuals aged 50 and over is not subject to an annual cost-of-living adjustment and remains $1,000."
+   },
+   "dc415c": {
+    "valore": 58000,
+    "fonte": "irs_n_2021",
+    "frase": "The limitation for defined contribution plans under § 415(c)(1)(A) is increased for 2021 from $57,000 to $58,000"
+   },
+   "k401": {
+    "valore": 19500,
+    "fonte": "irs_n_2021",
+    "frase": "The limitation under § 402(g)(1) on the exclusion for elective deferrals described in § 402(g)(3) remains unchanged at $19,500"
+   },
+   "k457": {
+    "valore": 19500,
+    "fonte": "irs_n_2021",
+    "frase": "The limitation on deferrals under § 457(e)(15) concerning deferred compensation plans of state and local governments and tax-exempt organizations remains unchanged at $19,500"
+   },
+   "catchup": {
+    "valore": 6500,
+    "fonte": "irs_n_2021",
+    "frase": "The dollar limitation under § 414(v)(2)(B)(i) for catch-up contributions to an applicable employer plan other than a plan described in § 401(k)(11) or § 408(p) for individuals aged 50 or over remains unchanged at $6,500"
+   },
+   "simple": {
+    "valore": 13500,
+    "fonte": "irs_n_2021",
+    "frase": "The limitation under § 408(p)(2)(E) regarding SIMPLE retirement accounts remains unchanged at $13,500"
+   },
+   "simple_catchup": {
+    "valore": 3000,
+    "fonte": "irs_n_2021",
+    "frase": "The dollar limitation under § 414(v)(2)(B)(ii) for catch-up contributions to an applicable employer plan described in § 401(k)(11) or § 408(p) for individuals aged 50 or over remains unchanged at $3,000"
+   },
+   "ira": {
+    "valore": 6000,
+    "fonte": "irs_n_2021",
+    "frase": "The deductible amount under § 219(b)(5)(A) for an individual making qualified retirement contributions remains unchanged at $6,000"
+   },
+   "roth_mfj": {
+    "valore": [
+     198000,
+     208000
+    ],
+    "fonte": "irs_n_2021",
+    "frase": "Accordingly, under § 408A(c)(3)(A), the adjusted gross income phase-out range for taxpayers making contributions to a Roth IRA is $198,000 to $208,000"
+   },
+   "roth_single": {
+    "valore": [
+     125000,
+     140000
+    ],
+    "fonte": "irs_n_2021",
+    "frase": "For single individuals and heads of household, the income phase-out range is $125,000 to $140,000"
+   },
+   "roth_mfs": {
+    "valore": [
+     0,
+     10000
+    ],
+    "fonte": "irs_n_2021",
+    "frase": "For a married individual filing a separate return, the phaseout range is not subject to an annual cost-of-living adjustment and remains $0 to $10,000"
+   },
+   "ded_single": {
+    "valore": [
+     66000,
+     76000
+    ],
+    "fonte": "irs_n_2021",
+    "frase": "Accordingly, under § 219(g)(2)(A), the deduction for taxpayers making contributions to a traditional IRA is phased out for single individuals and heads of household who are active participants in a qualified plan (or another retirement plan specified in § 219(g)(5)) and have adjusted gross incomes (as defined in § 219(g)(3)(A)) between $66,000 and $76,000"
+   },
+   "ded_mfj": {
+    "valore": [
+     105000,
+     125000
+    ],
+    "fonte": "irs_n_2021",
+    "frase": "For married couples filing jointly, if the spouse who makes the IRA contribution is an active participant, the income phase-out range is between $105,000 and $125,000"
+   },
+   "ded_spouse": {
+    "valore": [
+     198000,
+     208000
+    ],
+    "fonte": "irs_n_2021",
+    "frase": "For an IRA contributor who is not an active participant and is married to someone who is an active participant, the deduction is phased out if the couple's income is between $198,000 and $208,000"
+   },
+   "hsa_self": {
+    "valore": 3600,
+    "fonte": "irs_rp_2021",
+    "frase": "For calendar year 2021, the annual limitation on deductions under § 223(b)(2)(A) for an individual with self-only coverage under a high deductible health plan is $3,600"
+   },
+   "hsa_family": {
+    "valore": 7200,
+    "fonte": "irs_rp_2021",
+    "frase": "For calendar year 2021, the annual limitation on deductions under § 223(b)(2)(B) for an individual with family coverage under a high deductible health plan is $7,200"
+   },
+   "hdhp": {
+    "valore": [
+     1400,
+     2800,
+     7000,
+     14000
+    ],
+    "fonte": "irs_rp_2021",
+    "frase": "For calendar year 2021, a \"high deductible health plan\" is defined under § 223(c)(2)(A) as a health plan with an annual deductible that is not less than $1,400 for self-only coverage or $2,800 for family coverage, and the annual out-of-pocket expenses (deductibles, co-payments, and other amounts, but not premiums) do not exceed $7,000 for self-only coverage or $14,000 for family coverage"
+   },
+   "hsa_catchup": {
+    "valore": 1000,
+    "fonte": "irs_p969_2021",
+    "frase": "If you are an eligible individual who is age 55 or older at the end of your tax year, your contribution limit is increased by $1,000"
+   }
+  },
+  "2022": {
+   "ira_catchup": {
+    "valore": 1000,
+    "fonte": "irs_ir_2022",
+    "frase": "The IRA catch-up contribution limit for individuals aged 50 and over is not subject to an annual cost-of-living adjustment and remains $1,000."
+   },
+   "dc415c": {
+    "valore": 61000,
+    "fonte": "irs_n_2022",
+    "frase": "The limitation for defined contribution plans under section 415(c)(1)(A) is increased in 2022 from $58,000 to $61,000"
+   },
+   "k401": {
+    "valore": 20500,
+    "fonte": "irs_n_2022",
+    "frase": "The limitation under section 402(g)(1) on the exclusion for elective deferrals described in section 402(g)(3) is increased from $19,500 to $20,500"
+   },
+   "k457": {
+    "valore": 20500,
+    "fonte": "irs_n_2022",
+    "frase": "The limitation on deferrals under section 457(e)(15) concerning deferred compensation plans of state and local governments and tax-exempt organizations is increased from $19,500 to $20,500"
+   },
+   "catchup": {
+    "valore": 6500,
+    "fonte": "irs_n_2022",
+    "frase": "The dollar limitation under section 414(v)(2)(B)(i) for catch-up contributions to an applicable employer plan other than a plan described in section 401(k)(11) or section 408(p) for individuals aged 50 or over remains unchanged at $6,500"
+   },
+   "simple": {
+    "valore": 14000,
+    "fonte": "irs_n_2022",
+    "frase": "The limitation under section 408(p)(2)(E) regarding SIMPLE retirement accounts is increased from $13,500 to $14,000"
+   },
+   "simple_catchup": {
+    "valore": 3000,
+    "fonte": "irs_n_2022",
+    "frase": "The dollar limitation under section 414(v)(2)(B)(ii) for catch-up contributions to an applicable employer plan described in section 401(k)(11) or section 408(p) for individuals aged 50 or over remains unchanged at $3,000"
+   },
+   "ira": {
+    "valore": 6000,
+    "fonte": "irs_n_2022",
+    "frase": "The deductible amount under sections 219(b)(5)(A) for an individual making qualified retirement contributions remains unchanged at $6,000"
+   },
+   "roth_mfj": {
+    "valore": [
+     204000,
+     214000
+    ],
+    "fonte": "irs_n_2022",
+    "frase": "Accordingly, under section 408A(c)(3)(A), the adjusted gross income phase-out range for taxpayers making contributions to a Roth IRA is $204,000 to $214,000"
+   },
+   "roth_single": {
+    "valore": [
+     129000,
+     144000
+    ],
+    "fonte": "irs_n_2022",
+    "frase": "For singles and heads of household, the income phase-out range is $129,000 to $144,000"
+   },
+   "roth_mfs": {
+    "valore": [
+     0,
+     10000
+    ],
+    "fonte": "irs_n_2022",
+    "frase": "For a married individual filing a separate return, the phase-out range is not subject to an annual cost-of-living adjustment and remains $0 to $10,000"
+   },
+   "ded_single": {
+    "valore": [
+     68000,
+     78000
+    ],
+    "fonte": "irs_ir_2022",
+    "frase": "For single taxpayers covered by a workplace retirement plan, the phase-out range is increased to $68,000 to $78,000"
+   },
+   "ded_mfj": {
+    "valore": [
+     109000,
+     129000
+    ],
+    "fonte": "irs_n_2022",
+    "frase": "For married couples filing jointly, if the spouse who makes the IRA contribution is an active participant, the income phase-out range is between $109,000 and $129,000"
+   },
+   "ded_spouse": {
+    "valore": [
+     204000,
+     214000
+    ],
+    "fonte": "irs_n_2022",
+    "frase": "For an IRA contributor who is not an active participant and is married to someone who is an active participant, the deduction is phased out if the couple's income is between $204,000 and $214,000"
+   },
+   "hsa_self": {
+    "valore": 3650,
+    "fonte": "irs_rp_2022",
+    "frase": "For calendar year 2022, the annual limitation on deductions under § 223(b)(2)(A) for an individual with self-only coverage under a high deductible health plan is $3,650"
+   },
+   "hsa_family": {
+    "valore": 7300,
+    "fonte": "irs_rp_2022",
+    "frase": "For calendar year 2022, the annual limitation on deductions under § 223(b)(2)(B) for an individual with family coverage under a high deductible health plan is $7,300"
+   },
+   "hdhp": {
+    "valore": [
+     1400,
+     2800,
+     7050,
+     14100
+    ],
+    "fonte": "irs_rp_2022",
+    "frase": "For calendar year 2022, a \"high deductible health 1 plan\" is defined under § 223(c)(2)(A) as a health plan with an annual deductible that is not less than $1,400 for self-only coverage or $2,800 for family coverage, and the annual out-of-pocket expenses (deductibles, co-payments, and other amounts, but not premiums) do not exceed $7,050 for self-only coverage or $14,100 for family coverage",
+    "mostra": "For calendar year 2022, a \"high deductible health plan\" is defined under § 223(c)(2)(A) as a health plan with an annual deductible that is not less than $1,400 for self-only coverage or $2,800 for family coverage, and the annual out-of-pocket expenses (deductibles, co-payments, and other amounts, but not premiums) do not exceed $7,050 for self-only coverage or $14,100 for family coverage"
+   },
+   "hsa_catchup": {
+    "valore": 1000,
+    "fonte": "irs_p969_2022",
+    "frase": "If you are an eligible individual who is age 55 or older at the end of your tax year, your contribution limit is increased by $1,000"
+   }
+  },
+  "2023": {
+   "ira_catchup": {
+    "valore": 1000,
+    "fonte": "irs_ir_2023",
+    "frase": "The IRA catch-up contribution limit for individuals aged 50 and over is not subject to an annual cost-of-living adjustment and remains $1,000."
+   },
+   "dc415c": {
+    "valore": 66000,
+    "fonte": "irs_n_2023",
+    "frase": "The limitation for defined contribution plans under section 415(c)(1)(A) is increased in 2023 from $61,000 to $66,000"
+   },
+   "k401": {
+    "valore": 22500,
+    "fonte": "irs_n_2023",
+    "frase": "The limitation under section 402(g)(1) on the exclusion for elective deferrals described in section 402(g)(3) is increased from $20,500 to $22,500"
+   },
+   "k457": {
+    "valore": 22500,
+    "fonte": "irs_n_2023",
+    "frase": "The limitation on deferrals under section 457(e)(15) concerning deferred compensation plans of state and local governments and tax-exempt organizations is increased from $20,500 to $22,500"
+   },
+   "catchup": {
+    "valore": 7500,
+    "fonte": "irs_n_2023",
+    "frase": "The dollar limitation under section 414(v)(2)(B)(i) for catch-up contributions to an applicable employer plan other than a plan described in section 401(k)(11) or section 408(p) for individuals aged 50 or over is increased from $6,500 to $7,500"
+   },
+   "simple": {
+    "valore": 15500,
+    "fonte": "irs_n_2023",
+    "frase": "The limitation under section 408(p)(2)(E) regarding SIMPLE retirement accounts is increased from $14,000 to $15,500"
+   },
+   "simple_catchup": {
+    "valore": 3500,
+    "fonte": "irs_n_2023",
+    "frase": "The dollar limitation under section 414(v)(2)(B)(ii) for catch-up contributions to an applicable employer plan described in section 401(k)(11) or section 408(p) for individuals aged 50 or over is increased from $3,000 to $3,500"
+   },
+   "ira": {
+    "valore": 6500,
+    "fonte": "irs_n_2023",
+    "frase": "The deductible amount under sections 219(b)(5)(A) for an individual making qualified retirement contributions is increased from $6,000 to $6,500"
+   },
+   "roth_mfj": {
+    "valore": [
+     218000,
+     228000
+    ],
+    "fonte": "irs_n_2023",
+    "frase": "Accordingly, under section 408A(c)(3)(A), the adjusted gross income phase-out range for taxpayers making contributions to a Roth IRA is between $218,000 and $228,000"
+   },
+   "roth_single": {
+    "valore": [
+     138000,
+     153000
+    ],
+    "fonte": "irs_n_2023",
+    "frase": "For singles and heads of household, the income phase-out range is between $138,000 and $153,000"
+   },
+   "roth_mfs": {
+    "valore": [
+     0,
+     10000
+    ],
+    "fonte": "irs_n_2023",
+    "frase": "For a married individual filing a separate return, the phase-out range is not subject to an annual cost-of-living adjustment and remains between $0 and $10,000"
+   },
+   "ded_single": {
+    "valore": [
+     73000,
+     83000
+    ],
+    "fonte": "irs_n_2023",
+    "frase": "Accordingly, under section 219(g)(2)(A), the deduction for taxpayers making contributions to a traditional IRA is phased out for single individuals and heads of household who are active participants in a qualified plan (or another retirement plan specified in section 219(g)(5)) and have adjusted gross incomes (as defined in section 219(g)(3)(A)) between $73,000 and $83,000"
+   },
+   "ded_mfj": {
+    "valore": [
+     116000,
+     136000
+    ],
+    "fonte": "irs_n_2023",
+    "frase": "For married couples filing jointly, if the spouse who makes the IRA contribution is an active participant, the income phase-out range is between $116,000 and $136,000"
+   },
+   "ded_spouse": {
+    "valore": [
+     218000,
+     228000
+    ],
+    "fonte": "irs_n_2023",
+    "frase": "For an IRA contributor who is not an active participant and is married to someone who is an active participant, the deduction is phased out if the couple's income is between $218,000 and $228,000"
+   },
+   "hsa_self": {
+    "valore": 3850,
+    "fonte": "irs_rp_2023",
+    "frase": "For calendar year 2023, the annual limitation on deductions under § 223(b)(2)(A) for an individual with self-only coverage under a high deductible health plan is $3,850"
+   },
+   "hsa_family": {
+    "valore": 7750,
+    "fonte": "irs_rp_2023",
+    "frase": "For calendar year 2023, the annual limitation on deductions under § 223(b)(2)(B) for an individual with family coverage under a high deductible health plan is $7,750"
+   },
+   "hdhp": {
+    "valore": [
+     1500,
+     3000,
+     7500,
+     15000
+    ],
+    "fonte": "irs_rp_2023",
+    "frase": "For calendar year 2023, a \"high deductible health 1 plan\" is defined under § 223(c)(2)(A) as a health plan with an annual deductible that is not less than $1,500 for self-only coverage or $3,000 for family coverage, and for which the annual out-of-pocket expenses (deductibles, co-payments, and other amounts, but not premiums) do not exceed $7,500 for self-only coverage or $15,000 for family coverage",
+    "mostra": "For calendar year 2023, a \"high deductible health plan\" is defined under § 223(c)(2)(A) as a health plan with an annual deductible that is not less than $1,500 for self-only coverage or $3,000 for family coverage, and for which the annual out-of-pocket expenses (deductibles, co-payments, and other amounts, but not premiums) do not exceed $7,500 for self-only coverage or $15,000 for family coverage"
+   },
+   "hsa_catchup": {
+    "valore": 1000,
+    "fonte": "irs_p969_2023",
+    "frase": "If you are an eligible individual who is age 55 or older at the end of your tax year, your contribution limit is increased by $1,000"
+   }
+  },
+  "2024": {
+   "dc415c": {
+    "valore": 69000,
+    "fonte": "irs_n_2024",
+    "frase": "The limitation for defined contribution plans under section 415(c)(1)(A) is increased in 2024 from $66,000 to $69,000"
+   },
+   "k401": {
+    "valore": 23000,
+    "fonte": "irs_n_2024",
+    "frase": "The limitation under section 402(g)(1) on the exclusion for elective deferrals described in section 402(g)(3) is increased from $22,500 to $23,000"
+   },
+   "k457": {
+    "valore": 23000,
+    "fonte": "irs_n_2024",
+    "frase": "The limitation on deferrals under section 457(e)(15) concerning deferred compensation plans of state and local governments and tax-exempt organizations is increased from $22,500 to $23,000"
+   },
+   "catchup": {
+    "valore": 7500,
+    "fonte": "irs_n_2024",
+    "frase": "The dollar limitation under section 414(v)(2)(B)(i) for catch-up contributions to an applicable employer plan other than a plan described in section 401(k)(11) or section 408(p) for individuals aged 50 or over remains $7,500"
+   },
+   "simple": {
+    "valore": 16000,
+    "fonte": "irs_n_2024",
+    "frase": "The limitation under section 408(p)(2)(E) regarding SIMPLE retirement accounts is increased from $15,500 to $16,000"
+   },
+   "simple_catchup": {
+    "valore": 3500,
+    "fonte": "irs_n_2024",
+    "frase": "The dollar limitation under section 414(v)(2)(B)(ii) for catch-up contributions to an applicable employer plan described in section 401(k)(11) or section 408(p) for individuals aged 50 or over remains $3,500"
+   },
+   "ira": {
+    "valore": 7000,
+    "fonte": "irs_n_2024",
+    "frase": "The deductible amount under section 219(b)(5)(A), which limits the amount of an individual's deductible qualified retirement contributions for a taxable year, is increased from $6,500 to $7,000"
+   },
+   "ira_catchup": {
+    "valore": 1000,
+    "fonte": "irs_n_2024",
+    "frase": "The increase in the deductible amount pursuant to section 219(b)(5)(B)(ii) for individuals who have attained age 50 before the close of the taxable year remains $1,000"
+   },
+   "roth_mfj": {
+    "valore": [
+     230000,
+     240000
+    ],
+    "fonte": "irs_n_2024",
+    "frase": "Accordingly, under section 408A(c)(3)(A), the adjusted gross income phase-out range for taxpayers making contributions to a Roth IRA is between $230,000 and $240,000"
+   },
+   "roth_single": {
+    "valore": [
+     146000,
+     161000
+    ],
+    "fonte": "irs_n_2024",
+    "frase": "For singles and heads of household, the income phase-out range is between $146,000 and $161,000"
+   },
+   "roth_mfs": {
+    "valore": [
+     0,
+     10000
+    ],
+    "fonte": "irs_n_2024",
+    "frase": "For a married individual filing a separate return, the phase-out range is not subject to an annual cost-of-living adjustment and remains between $0 and $10,000"
+   },
+   "ded_single": {
+    "valore": [
+     77000,
+     87000
+    ],
+    "fonte": "irs_n_2024",
+    "frase": "Accordingly, under section 219(g)(2)(A), the deduction for taxpayers making contributions to a traditional IRA is phased out for single individuals and heads of household who are active participants in a qualified plan (or another retirement plan specified in section 219(g)(5)) and have adjusted gross incomes (as defined in section 219(g)(3)(A)) between $77,000 and $87,000"
+   },
+   "ded_mfj": {
+    "valore": [
+     123000,
+     143000
+    ],
+    "fonte": "irs_n_2024",
+    "frase": "For married couples filing jointly, if the spouse who makes the IRA contribution is an active participant, the income phase-out range is between $123,000 and $143,000"
+   },
+   "ded_spouse": {
+    "valore": [
+     230000,
+     240000
+    ],
+    "fonte": "irs_n_2024",
+    "frase": "For an IRA contributor who is not an active participant and is married to someone who is an active participant, the deduction is phased out if the couple's income is between $230,000 and $240,000"
+   },
+   "hsa_self": {
+    "valore": 4150,
+    "fonte": "irs_rp_2024",
+    "frase": "For calendar year 2024, the annual limitation on deductions under § 223(b)(2)(A) for an individual with self-only coverage under a high 1 deductible health plan is $4,150",
+    "mostra": "For calendar year 2024, the annual limitation on deductions under § 223(b)(2)(A) for an individual with self-only coverage under a high deductible health plan is $4,150"
+   },
+   "hsa_family": {
+    "valore": 8300,
+    "fonte": "irs_rp_2024",
+    "frase": "For calendar year 2024, the annual limitation on deductions under § 223(b)(2)(B) for an individual with family coverage under a high deductible health plan is $8,300"
+   },
+   "hdhp": {
+    "valore": [
+     1600,
+     3200,
+     8050,
+     16100
+    ],
+    "fonte": "irs_rp_2024",
+    "frase": "For calendar year 2024, a \"high deductible health plan\" is defined under § 223(c)(2)(A) as a health plan with an annual deductible that is not less than $1,600 for self-only coverage or $3,200 for family coverage, and for which the annual out-of-pocket expenses (deductibles, co-payments, and other amounts, but not premiums) do not exceed $8,050 for self-only coverage or $16,100 for family coverage"
+   },
+   "hsa_catchup": {
+    "valore": 1000,
+    "fonte": "irs_p969_2024",
+    "frase": "If you are an eligible individual who is age 55 or older at the end of your tax year, your contribution limit is increased by $1,000"
+   }
+  },
+  "2025": {
+   "dc415c": {
+    "valore": 70000,
+    "fonte": "irs_n_2025",
+    "frase": "The limitation for defined contribution plans under section 415(c)(1)(A) is increased in 2025 from $69,000 to $70,000"
+   },
+   "k401": {
+    "valore": 23500,
+    "fonte": "irs_n_2025",
+    "frase": "The limitation under section 402(g)(1) on the exclusion for elective deferrals described in section 402(g)(3), which includes elective deferrals made to the Thrift Savings Plan, is increased from $23,000 to $23,500"
+   },
+   "k457": {
+    "valore": 23500,
+    "fonte": "irs_n_2025",
+    "frase": "The limitation on deferrals under section 457(e)(15) concerning deferred compensation plans of state and local governments and tax-exempt organizations is increased from $23,000 to $23,500"
+   },
+   "catchup": {
+    "valore": 7500,
+    "fonte": "irs_n_2025",
+    "frase": "The limitation under section 414(v)(2)(B)(i) for catch-up contributions to an applicable employer plan other than a plan described in section 401(k)(11) or section 408(p) that generally applies for individuals aged 50 or over remains $7,500"
+   },
+   "catchup_6063": {
+    "valore": 11250,
+    "fonte": "irs_ir_2025",
+    "frase": "For 2025, this higher catch-up contribution limit is $11,250 instead of $7,500"
+   },
+   "simple": {
+    "valore": 16500,
+    "fonte": "irs_n_2025",
+    "frase": "The limitation under section 408(p)(2)(E)(i)(III) that generally applies to salary reduction contributions under a SIMPLE retirement account or elective contributions under a SIMPLE 401(k) plan is increased from $16,000 to $16,500"
+   },
+   "simple_alto": {
+    "valore": 17600,
+    "fonte": "irs_n_2025",
+    "frase": "The limitation for certain of those accounts or plans under section 408(p)(2)(E)(i)(I) or (II) remains $17,600"
+   },
+   "simple_catchup": {
+    "valore": 3500,
+    "fonte": "irs_n_2025",
+    "frase": "The limitation under section 414(v)(2)(B)(ii) for catch-up contributions to an applicable employer plan described in section 401(k)(11) or section 408(p) that generally applies for individuals aged 50 or over remains $3,500"
+   },
+   "simple_catchup_alto": {
+    "valore": 3850,
+    "fonte": "irs_n_2025",
+    "frase": "The limitation under section 414(v)(2)(B)(iii) for catch-up contributions to certain accounts or plans described in section 401(k)(11) or section 408(p) that generally applies for individuals aged 50 or over remains $3,850"
+   },
+   "simple_catchup_6063": {
+    "valore": 5250,
+    "fonte": "irs_n_2025",
+    "frase": "The limitation under section 414(v)(2)(E)(ii) for catch-up contributions to an applicable employer plan described in section 401(k)(11) or section 408(p) that applies for individuals who attain age 60, 61, 62, or 63 in 2025 is $5,250"
+   },
+   "ira": {
+    "valore": 7000,
+    "fonte": "irs_n_2025",
+    "frase": "The deductible amount under section 219(b)(5)(A), which limits the amount of an individual's deductible qualified retirement contributions for a taxable year remains $7,000"
+   },
+   "ira_catchup": {
+    "valore": 1000,
+    "fonte": "irs_n_2025",
+    "frase": "The increase in the deductible amount pursuant to section 219(b)(5)(B)(ii) for individuals who have attained age 50 before the close of the taxable year remains $1,000"
+   },
+   "roth_mfj": {
+    "valore": [
+     236000,
+     246000
+    ],
+    "fonte": "irs_n_2025",
+    "frase": "In light of the changes to the adjusted gross income limitations, under section 408A(c)(3)(A), the adjusted gross income phase-out range for taxpayers making contributions to a Roth IRA is between $236,000 and $246,000"
+   },
+   "roth_single": {
+    "valore": [
+     150000,
+     165000
+    ],
+    "fonte": "irs_n_2025",
+    "frase": "For singles and heads of household, the income phase-out range is between $150,000 and $165,000"
+   },
+   "roth_mfs": {
+    "valore": [
+     0,
+     10000
+    ],
+    "fonte": "irs_n_2025",
+    "frase": "For a married individual filing a separate return, the phase-out range is not subject to an annual cost-of-living adjustment and remains between $0 and $10,000"
+   },
+   "ded_single": {
+    "valore": [
+     79000,
+     89000
+    ],
+    "fonte": "irs_n_2025",
+    "frase": "In light of the changes to the applicable amounts, under section 219(g)(2)(A), the deduction for taxpayers making contributions to a traditional IRA is phased out for single individuals and heads of household who are active participants in a qualified plan (or another retirement plan specified in section 219(g)(5)) and have adjusted gross incomes (as defined in section 219(g)(3)(A)) between $79,000 and $89,000"
+   },
+   "ded_mfj": {
+    "valore": [
+     126000,
+     146000
+    ],
+    "fonte": "irs_n_2025",
+    "frase": "For married couples filing jointly, if the spouse who makes the IRA contribution is an active participant, the income phase-out range is between $126,000 and $146,000"
+   },
+   "ded_spouse": {
+    "valore": [
+     236000,
+     246000
+    ],
+    "fonte": "irs_n_2025",
+    "frase": "For an IRA contributor who is not an active participant and is married to someone who is an active participant, the deduction is phased out if the couple's income is between $236,000 and $246,000"
+   },
+   "hsa_self": {
+    "valore": 4300,
+    "fonte": "irs_rp_2025",
+    "frase": "For calendar year 2025, the annual limitation on deductions under § 223(b)(2)(A) for an individual with self-only coverage under a high deductible health plan is $4,300"
+   },
+   "hsa_family": {
+    "valore": 8550,
+    "fonte": "irs_rp_2025",
+    "frase": "For calendar year 2025, the annual limitation on -2deductions under § 223(b)(2)(B) for an individual with family coverage under a high deductible health plan is $8,550",
+    "mostra": "For calendar year 2025, the annual limitation on deductions under § 223(b)(2)(B) for an individual with family coverage under a high deductible health plan is $8,550"
+   },
+   "hdhp": {
+    "valore": [
+     1650,
+     3300,
+     8300,
+     16600
+    ],
+    "fonte": "irs_rp_2025",
+    "frase": "For calendar year 2025, a \"high deductible health plan\" is defined under § 223(c)(2)(A) as a health plan with an annual deductible that is not less than $1,650 for self-only coverage or $3,300 for family coverage, and for which the annual out-of-pocket expenses (deductibles, co-payments, and other amounts, but not premiums) do not exceed $8,300 for self-only coverage or $16,600 for family coverage"
+   },
+   "hsa_catchup": {
+    "valore": 1000,
+    "fonte": "irs_p969_2025",
+    "frase": "If you are an eligible individual who is age 55 or older at the end of your tax year, your contribution limit is increased by $1,000"
+   }
+  },
+  "2026": {
+   "dc415c": {
+    "valore": 72000,
+    "fonte": "irs_n_2026",
+    "frase": "The limitation for defined contribution plans under section 415(c)(1)(A) is increased in 2026 from $70,000 to $72,000"
+   },
+   "k401": {
+    "valore": 24500,
+    "fonte": "irs_n_2026",
+    "frase": "The limitation under section 402(g)(1) on the exclusion for elective deferrals described in section 402(g)(3), which includes elective deferrals made to the Thrift Savings Plan, is increased from $23,500 to $24,500"
+   },
+   "k457": {
+    "valore": 24500,
+    "fonte": "irs_n_2026",
+    "frase": "The limitation on deferrals under section 457(e)(15) concerning deferred compensation plans of state and local governments and tax-exempt organizations is increased from $23,500 to $24,500"
+   },
+   "catchup": {
+    "valore": 8000,
+    "fonte": "irs_n_2026",
+    "frase": "The limitation under section 414(v)(2)(B)(i) for catch-up contributions to an applicable employer plan other than a plan described in section 401(k)(11) or section 408(p) that generally applies for individuals aged 50 or over is increased from $7,500 to $8,000"
+   },
+   "catchup_6063": {
+    "valore": 11250,
+    "fonte": "irs_ir_2026",
+    "frase": "For 2026, this higher catch-up contribution limit remains $11,250 instead of the $8,000 noted above"
+   },
+   "simple": {
+    "valore": 17000,
+    "fonte": "irs_n_2026",
+    "frase": "The limitation under section 408(p)(2)(E)(i)(III) that generally applies to salary reduction contributions under a SIMPLE retirement account or elective contributions under a SIMPLE 401(k) plan is increased from $16,500 to $17,000"
+   },
+   "simple_alto": {
+    "valore": 18100,
+    "fonte": "irs_n_2026",
+    "frase": "The limitation for certain of those accounts or plans under section 408(p)(2)(E)(i)(I) or (II) is increased from $17,600 to $18,100"
+   },
+   "simple_catchup": {
+    "valore": 4000,
+    "fonte": "irs_n_2026",
+    "frase": "The limitation under section 414(v)(2)(B)(ii) for catch-up contributions to an applicable employer plan described in section 401(k)(11) or section 408(p) that generally applies for individuals aged 50 or over is increased from $3,500 to $4,000"
+   },
+   "simple_catchup_alto": {
+    "valore": 3850,
+    "fonte": "irs_n_2026",
+    "frase": "The limitation under section 414(v)(2)(B)(iii) for catch-up contributions to certain accounts or plans described in section 401(k)(11) or section 408(p) that generally applies for individuals aged 50 or over remains $3,850"
+   },
+   "simple_catchup_6063": {
+    "valore": 5250,
+    "fonte": "irs_n_2026",
+    "frase": "The limitation under section 414(v)(2)(E)(ii) for catch-up contributions to an applicable employer plan described in section 401(k)(11) or section 408(p) that applies for individuals who attain age 60, 61, 62, or 63 in 2026 remains $5,250"
+   },
+   "ira": {
+    "valore": 7500,
+    "fonte": "irs_n_2026",
+    "frase": "The deductible amount under section 219(b)(5)(A), which limits the amount of an individual's deductible qualified retirement contributions for a taxable year is increased from $7,000 to $7,500"
+   },
+   "ira_catchup": {
+    "valore": 1100,
+    "fonte": "irs_n_2026",
+    "frase": "The deductible amount pursuant to section 219(b)(5)(B)(ii) for individuals who have attained age 50 before the close of the taxable year is increased from $1,000 to $1,100"
+   },
+   "roth_mfj": {
+    "valore": [
+     242000,
+     252000
+    ],
+    "fonte": "irs_n_2026",
+    "frase": "In light of the changes to the adjusted gross income limitations, under section 408A(c)(3)(A), the adjusted gross income phase-out range for taxpayers making contributions to a Roth IRA is between $242,000 and $252,000"
+   },
+   "roth_single": {
+    "valore": [
+     153000,
+     168000
+    ],
+    "fonte": "irs_n_2026",
+    "frase": "For singles and heads of household, the income phase-out range is between $153,000 and $168,000"
+   },
+   "roth_mfs": {
+    "valore": [
+     0,
+     10000
+    ],
+    "fonte": "irs_n_2026",
+    "frase": "For a married individual filing a separate return, the phase-out range is not subject to an annual cost-of-living adjustment and remains between $0 and $10,000"
+   },
+   "ded_single": {
+    "valore": [
+     81000,
+     91000
+    ],
+    "fonte": "irs_n_2026",
+    "frase": "In light of the changes to the applicable amounts, under section 219(g)(2)(A), the deduction for taxpayers making contributions to a traditional IRA is phased out for single individuals and heads of household who are active participants in a qualified plan (or another retirement plan specified in section 219(g)(5)) and have adjusted gross incomes (as defined in section 219(g)(3)(A)) between $81,000 and $91,000"
+   },
+   "ded_mfj": {
+    "valore": [
+     129000,
+     149000
+    ],
+    "fonte": "irs_n_2026",
+    "frase": "For married couples filing jointly, if the spouse who makes the IRA contribution is an active participant, the income phase-out range is between $129,000 and $149,000"
+   },
+   "ded_spouse": {
+    "valore": [
+     242000,
+     252000
+    ],
+    "fonte": "irs_n_2026",
+    "frase": "For an IRA contributor who is not an active participant and is married to someone who is an active participant, the deduction is phased out if the couple's income is between $242,000 and $252,000"
+   },
+   "hsa_self": {
+    "valore": 4400,
+    "fonte": "irs_rp_2026",
+    "frase": "For calendar year 2026, the annual limitation on deductions under § 223(b)(2)(A) for an individual with self-only coverage under a high -2deductible health plan is $4,400",
+    "mostra": "For calendar year 2026, the annual limitation on deductions under § 223(b)(2)(A) for an individual with self-only coverage under a high deductible health plan is $4,400"
+   },
+   "hsa_family": {
+    "valore": 8750,
+    "fonte": "irs_rp_2026",
+    "frase": "For calendar year 2026, the annual limitation on deductions under § 223(b)(2)(B) for an individual with family coverage under a high deductible health plan is $8,750"
+   },
+   "hdhp": {
+    "valore": [
+     1700,
+     3400,
+     8500,
+     17000
+    ],
+    "fonte": "irs_rp_2026",
+    "frase": "For calendar year 2026, a \"high deductible health plan\" is defined under § 223(c)(2)(A) as a health plan with an annual deductible that is not less than $1,700 for self-only coverage or $3,400 for family coverage, and for which the annual out-of-pocket expenses (deductibles, co-payments, and other amounts, but not premiums) do not exceed $8,500 for self-only coverage or $17,000 for family coverage"
+   },
+   "hsa_catchup": {
+    "valore": 1000,
+    "fonte": "usc_223",
+    "frase": "the additional contribution amount is the amount determined in accordance with the following table: For taxable years beginning in: The additional contribution amount is: 2004 $500 2005 $600 2006 $700 2007 $800 2008 $900 2009 and thereafter $1,000"
+   },
+   "roth_catchup_soglia": {
+    "valore": 150000,
+    "fonte": "irs_n_2026",
+    "frase": "The Roth catch-up wage threshold for 2025, which under section 414(v)(7)(A) is used to determine whether an individual's catch-up contributions to an applicable employer plan (other than a plan described in section 408(k) or (p)) for 2026 must be designated as Roth contributions, is increased from $145,000 to $150,000"
+   }
+  },
+  "2027": {
+   "dc415c": {
+    "valore": 75000,
+    "fonte": "irs_n_2027",
+    "frase": "The limitation for defined contribution plans under section 415(c)(1)(A) is increased in 2027 from $72,000 to $75,000"
+   },
+   "k401": {
+    "valore": 25500,
+    "fonte": "irs_n_2027",
+    "frase": "The limitation under section 402(g)(1) on the exclusion for elective deferrals described in section 402(g)(3), which includes elective deferrals made to the Thrift Savings Plan, is increased from $24,500 to $25,500"
+   },
+   "k457": {
+    "valore": 25500,
+    "fonte": "irs_n_2027",
+    "frase": "The limitation on deferrals under section 457(e)(15) concerning deferred compensation plans of state and local governments and tax-exempt organizations is increased from $24,500 to $25,500"
+   },
+   "catchup": {
+    "valore": 8500,
+    "fonte": "irs_n_2027",
+    "frase": "The limitation under section 414(v)(2)(B)(i) for catch-up contributions to an applicable employer plan other than a plan described in section 401(k)(11) or section 408(p) that generally applies for individuals aged 50 or over is increased from $8,000 to $8,500"
+   },
+   "catchup_6063": {
+    "valore": 11750,
+    "fonte": "irs_ir_2027",
+    "frase": "For 2027, this higher catch-up contribution limit is $11,750 instead of the $8,500 noted above"
+   },
+   "simple": {
+    "valore": 17500,
+    "fonte": "irs_n_2027",
+    "frase": "The limitation under section 408(p)(2)(E)(i)(III) that generally applies to salary reduction contributions under a SIMPLE retirement account or elective contributions under a SIMPLE 401(k) plan is increased from $17,000 to $17,500"
+   },
+   "simple_alto": {
+    "valore": 19100,
+    "fonte": "irs_n_2027",
+    "frase": "The limitation under section 408(p)(2)(E)(i)(I) or (II) for employee elective deferrals for SIMPLE retirement accounts maintained by certain eligible employers is increased from $18,100 to $19,100"
+   },
+   "simple_catchup": {
+    "valore": 4000,
+    "fonte": "irs_n_2027",
+    "frase": "The limitation under section 414(v)(2)(B)(ii) for catch-up contributions to an applicable employer plan described in section 401(k)(11) or section 408(p) that generally applies for individuals aged 50 or over remains $4,000"
+   },
+   "simple_catchup_alto": {
+    "valore": 3850,
+    "fonte": "irs_n_2027",
+    "frase": "The limitation under section 414(v)(2)(B)(iii) for catch-up contributions to certain accounts or plans described in section 401(k)(11) or section 408(p) that generally applies for individuals aged 50 or over remains $3,850"
+   },
+   "simple_catchup_6063": {
+    "valore": 5250,
+    "fonte": "irs_n_2027",
+    "frase": "The limitation under section 414(v)(2)(E)(ii) for catch-up contributions to an applicable employer plan described in section 401(k)(11) or section 408(p) that applies for individuals who attain age 60, 61, 62, or 63 in 2027 remains $5,250"
+   },
+   "ira": {
+    "valore": 7500,
+    "fonte": "irs_n_2027",
+    "frase": "The deductible amount under section 219(b)(5)(A), which limits the amount of an individual's deductible qualified retirement contributions for a taxable year remains $7,500"
+   },
+   "ira_catchup": {
+    "valore": 1100,
+    "fonte": "irs_n_2027",
+    "frase": "The deductible amount pursuant to section 219(b)(5)(B)(ii) for individuals who have attained age 50 before the close of the taxable year remains $1,100"
+   },
+   "roth_mfj": {
+    "valore": [
+     250000,
+     260000
+    ],
+    "fonte": "irs_n_2027",
+    "frase": "In light of the changes to the adjusted gross income limitations, under section 408A(c)(3)(A), the adjusted gross income phase-out range for taxpayers making contributions to a Roth IRA is between $250,000 and $260,000"
+   },
+   "roth_single": {
+    "valore": [
+     158000,
+     173000
+    ],
+    "fonte": "irs_n_2027",
+    "frase": "For singles and heads of household, the income phase-out range is between $158,000 and $173,000"
+   },
+   "roth_mfs": {
+    "valore": [
+     0,
+     10000
+    ],
+    "fonte": "irs_n_2027",
+    "frase": "For a married individual filing a separate return, the phase-out range is not subject to an annual cost-of-living adjustment and remains between $0 and $10,000"
+   },
+   "ded_single": {
+    "valore": [
+     83000,
+     93000
+    ],
+    "fonte": "irs_n_2027",
+    "frase": "In light of the changes to the applicable amounts, under section 219(g)(2)(A), the deduction for taxpayers making contributions to a traditional IRA is phased out for single individuals and heads of household who are active participants in a qualified plan (or another retirement plan specified in section 219(g)(5)) and have adjusted gross incomes (as defined in section 219(g)(3)(A)) between $83,000 and $93,000"
+   },
+   "ded_mfj": {
+    "valore": [
+     133000,
+     153000
+    ],
+    "fonte": "irs_n_2027",
+    "frase": "For married couples filing jointly, if the spouse who makes the IRA contribution is an active participant, the income phase-out range is between $133,000 and $153,000"
+   },
+   "ded_spouse": {
+    "valore": [
+     250000,
+     260000
+    ],
+    "fonte": "irs_n_2027",
+    "frase": "For an IRA contributor who is not an active participant and is married to someone who is an active participant, the deduction is phased out if the couple's income is between $250,000 and $260,000"
+   },
+   "hsa_self": {
+    "valore": 4500,
+    "fonte": "irs_rp_2027",
+    "frase": "For calendar year 2027, the annual limitation on deductions under section 223(b)(2)(A) for an individual with self-only coverage under a high deductible health plan is $4,500"
+   },
+   "hsa_family": {
+    "valore": 9000,
+    "fonte": "irs_rp_2027",
+    "frase": "For calendar year 2027, the annual limitation on deductions under § 223(b)(2)(B) for an individual with family coverage under a high deductible health plan is $9,000"
+   },
+   "hdhp": {
+    "valore": [
+     1750,
+     3500,
+     8700,
+     17400
+    ],
+    "fonte": "irs_rp_2027",
+    "frase": "For calendar year 2027, a \"high deductible health plan\" is defined under section 223(c)(2)(A) as a health plan with an annual deductible that is not less than $1,750 for self-only coverage or $3,500 for family coverage, and for which the annual out-of-pocket expenses (deductibles, co-payments, and other 3 amounts, but not premiums) do not exceed $8,700 for self-only coverage or $17,400 for family coverage",
+    "mostra": "For calendar year 2027, a \"high deductible health plan\" is defined under section 223(c)(2)(A) as a health plan with an annual deductible that is not less than $1,750 for self-only coverage or $3,500 for family coverage, and for which the annual out-of-pocket expenses (deductibles, co-payments, and other amounts, but not premiums) do not exceed $8,700 for self-only coverage or $17,400 for family coverage"
+   },
+   "hsa_catchup": {
+    "valore": 1000,
+    "fonte": "usc_223",
+    "frase": "the additional contribution amount is the amount determined in accordance with the following table: For taxable years beginning in: The additional contribution amount is: 2004 $500 2005 $600 2006 $700 2007 $800 2008 $900 2009 and thereafter $1,000"
+   },
+   "roth_catchup_soglia": {
+    "valore": 155000,
+    "fonte": "irs_n_2027",
+    "frase": "The Roth catch-up wage threshold for 2026, which under section 414(v)(7)(A) is used to determine whether an individual's catch-up contributions to an applicable employer plan (other than a plan described in section 408(k) or (p)) for 2027 must be designated as Roth contributions, is increased from $150,000 to $155,000"
+   }
+  }
+ },
+ "testi": {
+  "roth_chi": {
+   "fonte": "irs_p590a",
+   "frase": "Generally, you can contribute to a Roth IRA if you have taxable compensation (defined later) and your modified AGI (defined later) is less than: • $246,000 for married filing jointly or qualifying surviving spouse; • $165,000 for single, head of household, or married filing separately and you didn't live with your spouse at any time during the year; and • $10,000 for married filing separately and you lived with your spouse at any time during the year"
+  },
+  "roth_riga2": {
+   "fonte": "irs_p590a",
+   "frase": "$236,000 if filing a joint return or qualifying surviving spouse, • $-0- if married filing a separate return and you lived with your spouse at any time in 2025, or • $150,000 for all others"
+  },
+  "roth_riga4": {
+   "fonte": "irs_p590a",
+   "frase": "$10,000 if filing a joint return or qualifying surviving spouse or married filing a separate return and you lived with your spouse at any time during the year, or • $15,000 for all others"
+  },
+  "roth_riga5": {
+   "fonte": "irs_p590a",
+   "frase": "Divide line 3 by line 4 and enter the result as a decimal (rounded to at least three places). If the result is 1.000 or more, enter 1.000"
+  },
+  "roth_riga6": {
+   "fonte": "irs_p590a",
+   "frase": "Enter the lesser of: • $7,000 ($8,000 if you are age 50 or older), or • Your taxable compensation"
+  },
+  "roth_riga8": {
+   "fonte": "irs_p590a",
+   "frase": "Subtract line 7 from line 6. Round the result up to the nearest $10. If the result is less than $200, enter $200"
+  },
+  "roth_riga11": {
+   "fonte": "irs_p590a",
+   "frase": "Enter the lesser of line 8 or line 10. This is your reduced Roth IRA contribution limit"
+  },
+  "roth_200": {
+   "fonte": "irs_p590a",
+   "frase": "If your reduced contribution limit is more than $0, but less than $200, increase the limit to $200"
+  },
+  "roth_scadenza": {
+   "fonte": "irs_p590a",
+   "frase": "You can make contributions to a Roth IRA for a year at any time during the year or by the due date of your return for that year (not including extensions)"
+  },
+  "ira_scadenza": {
+   "fonte": "irs_p590a",
+   "frase": "Contributions can be made to your traditional IRA for a year at any time during the year or by the due date for filing your return for that year, not including extensions"
+  },
+  "ira_scadenza_2025": {
+   "fonte": "irs_p590a",
+   "frase": "For most people, this means that contributions for 2025 must be made by April 15, 2026"
+  },
+  "ira_eta": {
+   "fonte": "irs_p590a",
+   "frase": "You can be any age"
+  },
+  "hsa_scadenza": {
+   "fonte": "irs_p969_2025",
+   "frase": "You can make contributions to your HSA for 2025 through April 15, 2026"
+  },
+  "hsa_2018_ridotto": {
+   "fonte": "irs_rp_2018b",
+   "frase": "2018-18, the annual limitation on deductions under section 223(b)(2)(B) for an individual with family coverage under an HDHP was $6,850 for 2018"
+  },
+  "ira_deduzione_regola": {
+   "fonte": "irs_ir_2027",
+   "frase": "If neither the taxpayer nor the spouse is covered by a retirement plan at work, the phase-outs of the deduction do not apply"
+  },
+  "k401_somma": {
+   "fonte": "irs_piu_piani",
+   "frase": "The amount of salary deferrals you can contribute to retirement plans is your individual limit each calendar year no matter how many plans you're in. This limit must be aggregated for these plan types: • 401(k) • 403(b) • SIMPLE plans (SIMPLE IRA and SIMPLE 401(k) plans) • SARSEP"
+  },
+  "k401_457": {
+   "fonte": "irs_piu_piani",
+   "frase": "You have a separate deferral limit if you're also eligible to participate in a 457(b) plan"
+  },
+  "k401_415c": {
+   "fonte": "irs_401k_limiti",
+   "frase": "Total annual contributions (annual additions) to all of your accounts in plans maintained by one employer (and any related employer) are limited. The limit applies to the total of: • elective deferrals (but not catch-up contributions) • employer matching contributions • employer nonelective contributions • allocations of forfeitures"
+  },
+  "k401_catchup_piano": {
+   "fonte": "irs_401k_limiti",
+   "frase": "If permitted by the 401(k) plan, participants age 50 or over at the end of the calendar year can also make catch-up contributions"
+  },
+  "k401_piano_limite": {
+   "fonte": "irs_401k_limiti",
+   "frase": "Your plan's terms may impose a lower limit on elective deferrals"
+  },
+  "roth_catchup_salario": {
+   "fonte": "irs_catchup",
+   "frase": "Beginning in 2026, participants of plans with Roth features offering catch-up contributions must make catch-up contributions on a Roth basis if prior-year wages with the plan sponsor exceeded $150,000 (for 2026)"
+  },
+  "hsa_55_legge": {
+   "fonte": "usc_223",
+   "frase": "In the case of an individual who has attained age 55 before the close of the taxable year, the applicable limitation under subparagraphs (A) and (B) of paragraph (2) shall be increased by the additional contribution amount"
+  },
+  "hsa_55_non_indicizzato": {
+   "fonte": "usc_223",
+   "frase": "Each dollar amount in subsections (b)(2) and (c)(2)(A) shall be increased by an amount equal to- (A) such dollar amount, multiplied by (B) the cost-of-living adjustment determined under section 1(f)(3) for the calendar year in which such taxable year begins"
+  },
+  "hsa_bronze": {
+   "fonte": "irs_n_hsa_obbba",
+   "frase": "for months beginning after December 31, 2025, a bronze or catastrophic plan will be treated as an HDHP if the plan is available as individual coverage through an Exchange established under section 1311 or 1321 of the ACA even if the plan does not satisfy the minimum annual deductible requirement or maximum out-of-pocket expenses requirement for an HDHP under section 223(c)(2)(A)(i) and (ii) of the Code"
+  },
+  "ira_ded_mfs": {
+   "fonte": "irs_ir_2027",
+   "frase": "For a married individual filing a separate return who is covered by a workplace retirement plan, the phase-out range is not subject to an annual cost-of-living adjustment and remains between $0 and $10,000"
+  }
+ },
+ "identita": {
+  "irs_ir_2015": "IR-2014-99",
+  "irs_n_2015": "Notice 2014 -70",
+  "irs_rp_2015": "calendar year 2015",
+  "irs_p969_2015": "Publication 969 (2015)",
+  "irs_ir_2016": "IR-2015-118",
+  "irs_n_2016": "Notice 2015-75",
+  "irs_rp_2016": "calendar year 2016",
+  "irs_p969_2016": "Publication 969 (2016)",
+  "irs_ir_2017": "IR-2016-141",
+  "irs_n_2017": "Notice 2016-62",
+  "irs_rp_2017": "calendar year 2017",
+  "irs_p969_2017": "Publication 969 (2017)",
+  "irs_ir_2018": "IR-2017-177",
+  "irs_n_2018": "Notice 2017-64",
+  "irs_rp_2018": "calendar year 2018",
+  "irs_p969_2018": "Publication 969 (2018)",
+  "irs_ir_2019": "IR-2018-211",
+  "irs_n_2019": "Notice 2018-83",
+  "irs_rp_2019": "calendar year 2019",
+  "irs_p969_2019": "Publication 969 (2019)",
+  "irs_ir_2020": "IR-2019-179",
+  "irs_n_2020": "Notice 2019-59",
+  "irs_rp_2020": "calendar year 2020",
+  "irs_p969_2020": "Publication 969 (2020)",
+  "irs_ir_2021": "IR-2020-244",
+  "irs_n_2021": "Notice 2020-79",
+  "irs_rp_2021": "calendar year 2021",
+  "irs_p969_2021": "Publication 969 (2021)",
+  "irs_ir_2022": "IR-2021-216",
+  "irs_n_2022": "Notice 2021-61",
+  "irs_rp_2022": "calendar year 2022",
+  "irs_p969_2022": "Publication 969 (2022)",
+  "irs_ir_2023": "IR-2022-188",
+  "irs_n_2023": "Notice 2022-55",
+  "irs_rp_2023": "calendar year 2023",
+  "irs_p969_2023": "Publication 969 (2023)",
+  "irs_ir_2024": "IR-2023-203",
+  "irs_n_2024": "Notice 2023-75",
+  "irs_rp_2024": "calendar year 2024",
+  "irs_p969_2024": "Publication 969 (2024)",
+  "irs_ir_2025": "IR-2024-285",
+  "irs_n_2025": "Notice 2024-80",
+  "irs_rp_2025": "calendar year 2025",
+  "irs_p969_2025": "Publication 969 (2025)",
+  "irs_ir_2026": "IR-2025-111",
+  "irs_n_2026": "Notice 2025-67",
+  "irs_rp_2026": "calendar year 2026",
+  "irs_ir_2027": "IR-2026-136",
+  "irs_n_2027": "Notice 2026-66",
+  "irs_rp_2027": "calendar year 2027",
+  "irs_rp_2018b": "For calendar year 2018",
+  "irs_p590a": "Publication 590-A (2025)",
+  "usc_223": "§223. Health savings accounts",
+  "irs_n_hsa_obbba": "Notice 2026-5",
+  "irs_401k_limiti": "Deferral limits for 401(k) plans",
+  "irs_piu_piani": "no matter how many plans you're in",
+  "irs_catchup": "IRA catch-up amounts"
+ }
+}
