@@ -92,4 +92,6 @@ Colonne: idea · mercato · ricerche/mese misurate · costo per clic · €/anno
 | 74 | Additivi vietati o con avviso dal 2027 (FDA Red 3 15/1/2027, California AB 418 e Texas SB 25 1/1/2027), impegni dei marchi, coda per prodotto | US (+ GB, CA, AU) | ~570.000 | 0-1,7 $ (pesato ~0,6) | 200 / 600 / 3.000 | 35 | 17 | alto | NO come sito | fronti-2026-11-13-sera-riscaldamento-additivi |
 | 75 | Semi del radar serale: salary sacrifice e tassa auto aziendale per modello (GB), Employment Rights Act (GB), spedizioni USPS/UPS/Royal Mail, no tax on overtime, Premium Bonds, Child Trust Fund, pickleball, SPID a pagamento, AI Act, fine supporto Windows 10, Medicaid al lavoro, monopattino, tariffe elettriche per azienda, class action | vari | 9.900-368.000 per seme | 0,1-15,7 $ | non stimati (≤ 300 centrali) | – | – | vario | NO | fronti-2026-11-13-sera-riscaldamento-additivi |
 
+| – | Lemon law per Stato (sezione di Statute Limits) | US | lemon law texas 12.100, florida 9.900, 1.600-12.100 nei 10 Stati coperti (misurato 13/11 notte) | $2,4-54 | da rifare: la stima del 13/11 (180 €/anno) contava solo le frasi informative | – | – | medio | DA VERIFICARE (volumi testa molto più alti del previsto) | limits/dati/volumi-2026-11-13.json |
+
 (Da completare con le ricerche in corso: mercati esteri, crescita Visa Income, e tutte le prossime.)
