@@ -169,3 +169,6 @@ Massimiliano: "io voglio sapere solo quando porti cose buone". Quindi i messaggi
 
 
 **Regola tecnica (11/11/2026):** con agenti che lavorano in parallelo nella stessa cartella, MAI `git pull --rebase --autostash` (l'11/11 un autostash non riapplicato ha cancellato lavoro non salvato di due agenti). Prima `git fetch`; se il remoto non è avanti si fa solo `git push`; se è avanti si aspetta che gli agenti finiscano o si fa `git pull --rebase` con l'albero pulito.
+
+## METODO DELEGATO (14/11/2026)
+Massimiliano: «il metodo lo scegli tu, a me interessa che porti cose nuove e che miglioriamo il fatturato». Il metodo di ricerca e di lavoro lo decido io; a lui porto solo risultati nuovi e numeri di fatturato.
