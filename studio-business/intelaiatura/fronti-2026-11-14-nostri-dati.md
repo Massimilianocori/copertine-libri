@@ -10,7 +10,7 @@ Solo ricerca: nessun sito modificato. Approcci del giro: n. 1 «Dai nostri dati�
 - **Da dove arrivano (7-13/11):** Google 672 (era 426), **ChatGPT 302 (era 141, raddoppiato: il 18 % di tutte le visite)**, diretto 328. Gli altri motori di risposta quasi non esistono: Gemini 4, Perplexity 2, Bing 1.
 - **Google e ChatGPT premiano pagine diverse.** Google manda le persone sulle pagine «una cosa ufficiale in un luogo» (esame per città, cerimonia per council, liquidi per aeroporto). ChatGPT manda sulle pagine «un numero o un link ufficiale che lui non sa a memoria» (esempi d'esame ufficiali, percentuale di visti rifiutati per nazionalità, Starlink sì/no per Paese).
 - **Le pagine che rendono di più per pagina sono poche e strette:** esempi d'esame 12 visite a pagina a settimana, pagine degli enti 9, risultati 4,8, città 3. Le griglie grandi rendono 0,1-0,2 (385 pagine «moved to»: 34 visite; 160 pagine H-1B: 6).
-- **Sette candidati nuovi misurati**, tutti dentro siti esistenti. Nessuno è grande: insieme valgono circa **1.700 €/anno centrali a 36 mesi per circa 70 ore (24 €/ora)**. I due migliori (pagine «dopo l'esame» ed esempi A2/B2 su EsameB1) stanno a 37-38 €/ora, cioè appena sotto la soglia dei 40.
+- **Otto candidati nuovi misurati**, tutti dentro siti esistenti. Nessuno è grande: insieme valgono circa **1.700 €/anno centrali a 36 mesi per circa 80 ore (21 €/ora)**. I due migliori (pagine «dopo l'esame» ed esempi A2/B2 su EsameB1) stanno a 37-38 €/ora, cioè appena sotto la soglia dei 40.
 
 ## 2. I numeri veri
 
