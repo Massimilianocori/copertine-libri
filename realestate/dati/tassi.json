@@ -1,0 +1,3342 @@
+{
+ "_nota": "Generato da raccolta/fonti.py dai file in dati/grezzi/ (Nebraska: da dati/manuali/ne_q3_2026.json, controllato). n = esami, p = promossi, pc = percentuale come la stampa la fonte (null se nessun esame). Texas: solo primo tentativo. Alabama: first = primo tentativo, all = tutti i tentativi. Nebraska: parte nazionale e parte statale, first = First Time Takers, all = Total. Hawaii: parte nazionale e parte statale, tutti gli esami sostenuti. totale.origine: «ufficiale» se la riga è della fonte, «somma» se è la nostra somma delle scuole.",
+ "soglia_campione": 30,
+ "stati": {
+  "TX": {
+   "nome": "Texas",
+   "slug": "texas",
+   "ente": "Texas Real Estate Commission",
+   "sigla": "TREC",
+   "titolo_licenza": "sales agent",
+   "fonte": "tx_tassi",
+   "fonte_def": "tx_pagina",
+   "periodo": {
+    "dal": "2023-12-01",
+    "al": "2025-11-30"
+   },
+   "totale": {
+    "origine": "ufficiale",
+    "first": {
+     "n": 29980,
+     "p": 16824,
+     "pc": "56.12%"
+    }
+   },
+   "somma_scuole": {
+    "n": 29980,
+    "p": 16824
+   },
+   "complessivo_pc": "56.18%",
+   "mpr": "44.9440",
+   "scuole": [
+    {
+     "nome": "Champions School of Real Estate LTD",
+     "nome_ufficiale": "Champions School of Real Estate LTD",
+     "first": {
+      "n": 15547,
+      "p": 8278,
+      "pc": "53.24%"
+     }
+    },
+    {
+     "nome": "AceableAgent",
+     "nome_ufficiale": "AceableAgent",
+     "first": {
+      "n": 8516,
+      "p": 5604,
+      "pc": "65.81%"
+     }
+    },
+    {
+     "nome": "Kaplan Real Estate Education",
+     "nome_ufficiale": "Kaplan Real Estate Education",
+     "first": {
+      "n": 1280,
+      "p": 681,
+      "pc": "53.20%"
+     }
+    },
+    {
+     "nome": "The CE Shop LLC",
+     "nome_ufficiale": "The CE Shop LLC",
+     "first": {
+      "n": 1077,
+      "p": 608,
+      "pc": "56.45%"
+     }
+    },
+    {
+     "nome": "The Real Estate Business School",
+     "nome_ufficiale": "The Real Estate Business School",
+     "first": {
+      "n": 862,
+      "p": 379,
+      "pc": "43.97%"
+     }
+    },
+    {
+     "nome": "AYPORealEstate.com",
+     "nome_ufficiale": "! ! ! AYPORealEstate.com ! ! !",
+     "first": {
+      "n": 566,
+      "p": 280,
+      "pc": "49.47%"
+     }
+    },
+    {
+     "nome": "Colibri Real Estate LLC",
+     "nome_ufficiale": "Colibri Real Estate LLC",
+     "first": {
+      "n": 534,
+      "p": 303,
+      "pc": "56.74%"
+     }
+    },
+    {
+     "nome": "Academy of Real Estate of El Paso",
+     "nome_ufficiale": "Academy of Real Estate of El Paso",
+     "first": {
+      "n": 370,
+      "p": 121,
+      "pc": "32.70%"
+     }
+    },
+    {
+     "nome": "A Fast Track Realty School",
+     "nome_ufficiale": "! ! A Fast Track Realty School ! !",
+     "first": {
+      "n": 298,
+      "p": 142,
+      "pc": "47.65%"
+     }
+    },
+    {
+     "nome": "360training.com Inc.",
+     "nome_ufficiale": "360training.com Inc.",
+     "first": {
+      "n": 290,
+      "p": 138,
+      "pc": "47.59%"
+     }
+    },
+    {
+     "nome": "Train Agents Inc.",
+     "nome_ufficiale": "Train Agents Inc.",
+     "first": {
+      "n": 121,
+      "p": 26,
+      "pc": "21.49%"
+     }
+    },
+    {
+     "nome": "REALTOR Academy",
+     "nome_ufficiale": "REALTOR Academy",
+     "first": {
+      "n": 105,
+      "p": 58,
+      "pc": "55.24%"
+     }
+    },
+    {
+     "nome": "License Classroom LLC",
+     "nome_ufficiale": "License Classroom LLC",
+     "first": {
+      "n": 100,
+      "p": 48,
+      "pc": "48.00%"
+     }
+    },
+    {
+     "nome": "Learn Texas Real Estate Online",
+     "nome_ufficiale": "Learn Texas Real Estate Online",
+     "first": {
+      "n": 67,
+      "p": 58,
+      "pc": "86.57%"
+     }
+    },
+    {
+     "nome": "VanEd",
+     "nome_ufficiale": "VanEd",
+     "first": {
+      "n": 59,
+      "p": 30,
+      "pc": "50.85%"
+     }
+    },
+    {
+     "nome": "Continuing Education for Licensing Inc.",
+     "nome_ufficiale": "Continuing Education for Licensing Inc.",
+     "first": {
+      "n": 34,
+      "p": 16,
+      "pc": "47.06%"
+     }
+    },
+    {
+     "nome": "Pioneer School of Real Estate LLC",
+     "nome_ufficiale": "Pioneer School of Real Estate LLC",
+     "first": {
+      "n": 28,
+      "p": 16,
+      "pc": "57.14%"
+     }
+    },
+    {
+     "nome": "Texas State Online Real Estate LLC",
+     "nome_ufficiale": "Texas State Online Real Estate LLC",
+     "first": {
+      "n": 28,
+      "p": 13,
+      "pc": "46.43%"
+     }
+    },
+    {
+     "nome": "Ford High School",
+     "nome_ufficiale": "Ford High School",
+     "first": {
+      "n": 18,
+      "p": 4,
+      "pc": "22.22%"
+     }
+    },
+    {
+     "nome": "Real Estate Training and Technology Licensing School",
+     "nome_ufficiale": "Real Estate Training and Technology Licensing School",
+     "first": {
+      "n": 18,
+      "p": 5,
+      "pc": "27.78%"
+     }
+    },
+    {
+     "nome": "All About Texas Real Estate LLC",
+     "nome_ufficiale": "All About Texas Real Estate LLC",
+     "first": {
+      "n": 12,
+      "p": 4,
+      "pc": "33.33%"
+     }
+    },
+    {
+     "nome": "AbsoluteCE",
+     "nome_ufficiale": "AbsoluteCE",
+     "first": {
+      "n": 10,
+      "p": 4,
+      "pc": "40.00%"
+     }
+    },
+    {
+     "nome": "Modern Agent Institute",
+     "nome_ufficiale": "Modern Agent Institute",
+     "first": {
+      "n": 9,
+      "p": 1,
+      "pc": "11.11%"
+     }
+    },
+    {
+     "nome": "License Lion",
+     "nome_ufficiale": "License Lion",
+     "first": {
+      "n": 7,
+      "p": 3,
+      "pc": "42.86%"
+     }
+    },
+    {
+     "nome": "Lewisville Independent School District",
+     "nome_ufficiale": "Lewisville Independent School District",
+     "first": {
+      "n": 6,
+      "p": 0,
+      "pc": "0.00%"
+     }
+    },
+    {
+     "nome": "MLS Campus Inc",
+     "nome_ufficiale": "MLS Campus Inc",
+     "first": {
+      "n": 5,
+      "p": 1,
+      "pc": "20.00%"
+     }
+    },
+    {
+     "nome": "Ysleta Independent School District",
+     "nome_ufficiale": "Ysleta Independent School District",
+     "first": {
+      "n": 5,
+      "p": 1,
+      "pc": "20.00%"
+     }
+    },
+    {
+     "nome": "REAL Agent Services LLC",
+     "nome_ufficiale": "REAL Agent Services LLC",
+     "first": {
+      "n": 4,
+      "p": 0,
+      "pc": "0.00%"
+     }
+    },
+    {
+     "nome": "Purvis Real Estate Training Institute",
+     "nome_ufficiale": "Purvis Real Estate Training Institute",
+     "first": {
+      "n": 3,
+      "p": 2,
+      "pc": "66.67%"
+     }
+    },
+    {
+     "nome": "Perry Real Estate School",
+     "nome_ufficiale": "Perry Real Estate School",
+     "first": {
+      "n": 1,
+      "p": 0,
+      "pc": "0.00%"
+     }
+    }
+   ],
+   "letto_il": "2026-11-14"
+  },
+  "AL": {
+   "nome": "Alabama",
+   "slug": "alabama",
+   "ente": "Alabama Real Estate Commission",
+   "sigla": "AREC",
+   "titolo_licenza": "salesperson",
+   "fonte": "al_tassi",
+   "fonte_def": "al_tassi",
+   "periodo": null,
+   "totale": {
+    "origine": "somma",
+    "first": {
+     "n": 2378,
+     "p": 1653,
+     "pc": null
+    },
+    "all": {
+     "n": 3960,
+     "p": 2173,
+     "pc": null
+    }
+   },
+   "scuole": [
+    {
+     "nome": "The CE Shop, Inc.",
+     "nome_ufficiale": "The CE Shop, Inc.",
+     "codice": "71381",
+     "citta": "Englewood, CO",
+     "formati": [
+      "Online"
+     ],
+     "first": {
+      "n": 591,
+      "p": 483,
+      "pc": "81.7%"
+     },
+     "all": {
+      "n": 793,
+      "p": 584,
+      "pc": "73.6%"
+     }
+    },
+    {
+     "nome": "Colibri Real Estate, LLC",
+     "nome_ufficiale": "Colibri Real Estate, LLC",
+     "codice": "51303",
+     "citta": "Saint Louis, MO",
+     "formati": [
+      "Online"
+     ],
+     "first": {
+      "n": 272,
+      "p": 222,
+      "pc": "81.6%"
+     },
+     "all": {
+      "n": 388,
+      "p": 269,
+      "pc": "69.3%"
+     }
+    },
+    {
+     "nome": "MY Real Estate School",
+     "nome_ufficiale": "MY Real Estate School",
+     "codice": "45088",
+     "citta": "Birmingham, AL",
+     "formati": [
+      "Classroom",
+      "Online"
+     ],
+     "first": {
+      "n": 267,
+      "p": 153,
+      "pc": "57.3%"
+     },
+     "all": {
+      "n": 520,
+      "p": 239,
+      "pc": "46%"
+     }
+    },
+    {
+     "nome": "Kaplan Real Estate Education",
+     "nome_ufficiale": "Kaplan Real Estate Education",
+     "codice": "59788",
+     "citta": "La Crosse, WI",
+     "formati": [
+      "Online"
+     ],
+     "first": {
+      "n": 202,
+      "p": 127,
+      "pc": "62.9%"
+     },
+     "all": {
+      "n": 319,
+      "p": 170,
+      "pc": "53.3%"
+     }
+    },
+    {
+     "nome": "RealEstateU Online, LLC",
+     "nome_ufficiale": "RealEstateU Online, LLC",
+     "codice": "145097",
+     "citta": "Miami, FL",
+     "formati": [
+      "Online"
+     ],
+     "first": {
+      "n": 85,
+      "p": 59,
+      "pc": "69.4%"
+     },
+     "all": {
+      "n": 131,
+      "p": 77,
+      "pc": "58.8%"
+     }
+    },
+    {
+     "nome": "Career Academy of Real Estate",
+     "nome_ufficiale": "Career Academy of Real Estate",
+     "codice": "63145",
+     "citta": "Birmingham, AL",
+     "formati": [
+      "Classroom",
+      "Online"
+     ],
+     "first": {
+      "n": 80,
+      "p": 64,
+      "pc": "80%"
+     },
+     "all": {
+      "n": 103,
+      "p": 76,
+      "pc": "73.8%"
+     }
+    },
+    {
+     "nome": "Martin and Fellows Real Estate School",
+     "nome_ufficiale": "Martin and Fellows Real Estate School",
+     "codice": "65695",
+     "citta": "Montgomery, AL",
+     "formati": [
+      "Classroom",
+      "Online"
+     ],
+     "first": {
+      "n": 68,
+      "p": 52,
+      "pc": "76.5%"
+     },
+     "all": {
+      "n": 127,
+      "p": 66,
+      "pc": "52%"
+     }
+    },
+    {
+     "nome": "P.A.S.S. Real Estate School",
+     "nome_ufficiale": "P.A.S.S. Real Estate School",
+     "codice": "131528",
+     "citta": "Huntsville, AL",
+     "formati": [
+      "Classroom",
+      "Online"
+     ],
+     "first": {
+      "n": 61,
+      "p": 45,
+      "pc": "73.8%"
+     },
+     "all": {
+      "n": 105,
+      "p": 57,
+      "pc": "54.3%"
+     }
+    },
+    {
+     "nome": "Real Estate School of South Alabama",
+     "nome_ufficiale": "Real Estate School of South Alabama",
+     "codice": "85598",
+     "citta": "Daphne, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 56,
+      "p": 43,
+      "pc": "76.8%"
+     },
+     "all": {
+      "n": 87,
+      "p": 51,
+      "pc": "58.6%"
+     }
+    },
+    {
+     "nome": "Orion School of Real Estate",
+     "nome_ufficiale": "Orion School of Real Estate",
+     "codice": "77941",
+     "citta": "Huntsville, AL",
+     "formati": [
+      "Classroom",
+      "Online"
+     ],
+     "first": {
+      "n": 45,
+      "p": 30,
+      "pc": "66.7%"
+     },
+     "all": {
+      "n": 94,
+      "p": 42,
+      "pc": "44.7%"
+     }
+    },
+    {
+     "nome": "Academy of Real Estate",
+     "nome_ufficiale": "Academy of Real Estate",
+     "codice": "45080",
+     "citta": "Mobile, AL",
+     "formati": [
+      "Classroom",
+      "Online"
+     ],
+     "first": {
+      "n": 42,
+      "p": 37,
+      "pc": "88.1%"
+     },
+     "all": {
+      "n": 50,
+      "p": 38,
+      "pc": "76%"
+     }
+    },
+    {
+     "nome": "360training.com, Inc.",
+     "nome_ufficiale": "360training.com, Inc.",
+     "codice": "72472",
+     "citta": "Austin, TX",
+     "formati": [
+      "Online"
+     ],
+     "first": {
+      "n": 33,
+      "p": 11,
+      "pc": "33.3%"
+     },
+     "all": {
+      "n": 101,
+      "p": 22,
+      "pc": "21.8%"
+     }
+    },
+    {
+     "nome": "BrickDriven Academy",
+     "nome_ufficiale": "BrickDriven Academy",
+     "codice": "80054",
+     "citta": "Florence, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 33,
+      "p": 14,
+      "pc": "42.4%"
+     },
+     "all": {
+      "n": 82,
+      "p": 27,
+      "pc": "32.9%"
+     }
+    },
+    {
+     "nome": "National School of Real Estate - Huntsville",
+     "nome_ufficiale": "National School of Real Estate - Huntsville",
+     "codice": "45131",
+     "citta": "Huntsville, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 30,
+      "p": 14,
+      "pc": "46.7%"
+     },
+     "all": {
+      "n": 65,
+      "p": 18,
+      "pc": "27.7%"
+     }
+    },
+    {
+     "nome": "The Real Estate Learning Center",
+     "nome_ufficiale": "The Real Estate Learning Center",
+     "codice": "133496",
+     "citta": "Birmingham, AL",
+     "formati": [
+      "Classroom",
+      "Online"
+     ],
+     "first": {
+      "n": 30,
+      "p": 17,
+      "pc": "56.7%"
+     },
+     "all": {
+      "n": 61,
+      "p": 23,
+      "pc": "37.7%"
+     }
+    },
+    {
+     "nome": "Barnes School of Real Estate",
+     "nome_ufficiale": "Barnes School of Real Estate",
+     "codice": "90316",
+     "citta": "Birmingham, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 27,
+      "p": 14,
+      "pc": "51.9%"
+     },
+     "all": {
+      "n": 62,
+      "p": 30,
+      "pc": "48.4%"
+     }
+    },
+    {
+     "nome": "Shoals School of Business, Inc.",
+     "nome_ufficiale": "Shoals School of Business, Inc.",
+     "codice": "100905",
+     "citta": "Tuscumbia, AL",
+     "formati": [
+      "Classroom",
+      "Online"
+     ],
+     "first": {
+      "n": 27,
+      "p": 19,
+      "pc": "70.4%"
+     },
+     "all": {
+      "n": 45,
+      "p": 21,
+      "pc": "46.7%"
+     }
+    },
+    {
+     "nome": "Alabama Real Estate Institute",
+     "nome_ufficiale": "Alabama Real Estate Institute",
+     "codice": "63393",
+     "citta": "Jemison, AL",
+     "formati": [
+      "Classroom",
+      "Online"
+     ],
+     "first": {
+      "n": 25,
+      "p": 20,
+      "pc": "80%"
+     },
+     "all": {
+      "n": 28,
+      "p": 23,
+      "pc": "82.1%"
+     }
+    },
+    {
+     "nome": "Academy of Real Estate - Eastern Shore Branch",
+     "nome_ufficiale": "Academy of Real Estate - Eastern Shore Branch",
+     "codice": "81914",
+     "citta": "Daphne, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 23,
+      "p": 20,
+      "pc": "87%"
+     },
+     "all": {
+      "n": 29,
+      "p": 22,
+      "pc": "75.9%"
+     }
+    },
+    {
+     "nome": "University of Alabama",
+     "nome_ufficiale": "University of Alabama",
+     "codice": "63868",
+     "citta": "Tuscaloosa, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 22,
+      "p": 9,
+      "pc": "40.9%"
+     },
+     "all": {
+      "n": 35,
+      "p": 18,
+      "pc": "51.4%"
+     }
+    },
+    {
+     "nome": "Superior School of Real Estate",
+     "nome_ufficiale": "Superior School of Real Estate",
+     "codice": "73969",
+     "citta": "Huntsville, AL",
+     "formati": [
+      "Classroom",
+      "Online"
+     ],
+     "first": {
+      "n": 21,
+      "p": 19,
+      "pc": "90.5%"
+     },
+     "all": {
+      "n": 24,
+      "p": 20,
+      "pc": "83.3%"
+     }
+    },
+    {
+     "nome": "South Coast School of Real Estate",
+     "nome_ufficiale": "South Coast School of Real Estate",
+     "codice": "142675",
+     "citta": "Mobile, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 20,
+      "p": 13,
+      "pc": "65%"
+     },
+     "all": {
+      "n": 45,
+      "p": 17,
+      "pc": "37.8%"
+     }
+    },
+    {
+     "nome": "Pivot to Your Next Academy",
+     "nome_ufficiale": "Pivot to Your Next Academy",
+     "codice": "155956",
+     "citta": "Huntsville, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 18,
+      "p": 9,
+      "pc": "50%"
+     },
+     "all": {
+      "n": 35,
+      "p": 16,
+      "pc": "45.7%"
+     }
+    },
+    {
+     "nome": "Real Estate School of Mobile, LLC",
+     "nome_ufficiale": "Real Estate School of Mobile, LLC",
+     "codice": "149612",
+     "citta": "Mobile, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 18,
+      "p": 10,
+      "pc": "55.6%"
+     },
+     "all": {
+      "n": 34,
+      "p": 13,
+      "pc": "38.2%"
+     }
+    },
+    {
+     "nome": "Real Estate Virtual Academy LLC",
+     "nome_ufficiale": "Real Estate Virtual Academy LLC",
+     "codice": "95856",
+     "citta": "Apollo Beach, FL",
+     "formati": [
+      "Online"
+     ],
+     "first": {
+      "n": 18,
+      "p": 12,
+      "pc": "66.7%"
+     },
+     "all": {
+      "n": 35,
+      "p": 15,
+      "pc": "42.9%"
+     }
+    },
+    {
+     "nome": "Real Estate U of Alabama",
+     "nome_ufficiale": "Real Estate U of Alabama",
+     "codice": "98094",
+     "citta": "Montgomery, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 16,
+      "p": 16,
+      "pc": "100%"
+     },
+     "all": {
+      "n": 18,
+      "p": 16,
+      "pc": "88.9%"
+     }
+    },
+    {
+     "nome": "Shelton State Community College",
+     "nome_ufficiale": "Shelton State Community College",
+     "codice": "45143",
+     "citta": "Tuscaloosa, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 16,
+      "p": 11,
+      "pc": "68.8%"
+     },
+     "all": {
+      "n": 33,
+      "p": 15,
+      "pc": "45.5%"
+     }
+    },
+    {
+     "nome": "Southern Union State Community College",
+     "nome_ufficiale": "Southern Union State Community College",
+     "codice": "138545",
+     "citta": "Opelika, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 15,
+      "p": 7,
+      "pc": "46.7%"
+     },
+     "all": {
+      "n": 40,
+      "p": 10,
+      "pc": "25%"
+     }
+    },
+    {
+     "nome": "BrickDriven Academy - Madison",
+     "nome_ufficiale": "BrickDriven Academy - Madison",
+     "codice": "124264",
+     "citta": "Madison, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 14,
+      "p": 3,
+      "pc": "21.4%"
+     },
+     "all": {
+      "n": 36,
+      "p": 10,
+      "pc": "27.8%"
+     }
+    },
+    {
+     "nome": "P.A.S.S. Real Estate School - Decatur",
+     "nome_ufficiale": "P.A.S.S. Real Estate School - Decatur",
+     "codice": "148573",
+     "citta": "Huntsville, AL",
+     "formati": [
+      "Classroom",
+      "Online"
+     ],
+     "first": {
+      "n": 14,
+      "p": 10,
+      "pc": "71.4%"
+     },
+     "all": {
+      "n": 24,
+      "p": 13,
+      "pc": "54.2%"
+     }
+    },
+    {
+     "nome": "Regency School of Real Estate",
+     "nome_ufficiale": "Regency School of Real Estate",
+     "codice": "68768",
+     "citta": "Enterprise, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 14,
+      "p": 7,
+      "pc": "50%"
+     },
+     "all": {
+      "n": 29,
+      "p": 12,
+      "pc": "41.4%"
+     }
+    },
+    {
+     "nome": "Bevill State Community College",
+     "nome_ufficiale": "Bevill State Community College",
+     "codice": "135081",
+     "citta": "Jasper, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 13,
+      "p": 7,
+      "pc": "53.8%"
+     },
+     "all": {
+      "n": 33,
+      "p": 8,
+      "pc": "24.2%"
+     }
+    },
+    {
+     "nome": "Premiere Academy Career Center",
+     "nome_ufficiale": "Premiere Academy Career Center",
+     "codice": "125499",
+     "citta": "Jasper, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 12,
+      "p": 6,
+      "pc": "50%"
+     },
+     "all": {
+      "n": 27,
+      "p": 14,
+      "pc": "51.9%"
+     }
+    },
+    {
+     "nome": "Real Estate School of Alabama",
+     "nome_ufficiale": "Real Estate School of Alabama",
+     "codice": "80582",
+     "citta": "Homewood, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 11,
+      "p": 7,
+      "pc": "63.6%"
+     },
+     "all": {
+      "n": 16,
+      "p": 9,
+      "pc": "56.3%"
+     }
+    },
+    {
+     "nome": "Christian School of Real Estate, LLC",
+     "nome_ufficiale": "Christian School of Real Estate, LLC",
+     "codice": "139727",
+     "citta": "Birmingham, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 10,
+      "p": 1,
+      "pc": "10%"
+     },
+     "all": {
+      "n": 25,
+      "p": 3,
+      "pc": "12%"
+     }
+    },
+    {
+     "nome": "Ignite Real Estate Academy",
+     "nome_ufficiale": "Ignite Real Estate Academy",
+     "codice": "154022",
+     "citta": "Decatur, AL",
+     "formati": [
+      "Classroom",
+      "Online"
+     ],
+     "first": {
+      "n": 9,
+      "p": 6,
+      "pc": "66.7%"
+     },
+     "all": {
+      "n": 17,
+      "p": 8,
+      "pc": "47.1%"
+     }
+    },
+    {
+     "nome": "Perry Real Estate College",
+     "nome_ufficiale": "Perry Real Estate College",
+     "codice": "99427",
+     "citta": "Newport, KY",
+     "formati": [
+      "Online"
+     ],
+     "first": {
+      "n": 9,
+      "p": 6,
+      "pc": "66.7%"
+     },
+     "all": {
+      "n": 13,
+      "p": 10,
+      "pc": "76.9%"
+     }
+    },
+    {
+     "nome": "Stepping Stone Real Estate School",
+     "nome_ufficiale": "Stepping Stone Real Estate School",
+     "codice": "133994",
+     "citta": "Atlanta, GA",
+     "formati": [
+      "Online"
+     ],
+     "first": {
+      "n": 9,
+      "p": 5,
+      "pc": "55.6%"
+     },
+     "all": {
+      "n": 20,
+      "p": 8,
+      "pc": "40%"
+     }
+    },
+    {
+     "nome": "West Alabama Real Estate School",
+     "nome_ufficiale": "West Alabama Real Estate School",
+     "codice": "99116",
+     "citta": "Fairfield, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 9,
+      "p": 0,
+      "pc": "0%"
+     },
+     "all": {
+      "n": 31,
+      "p": 4,
+      "pc": "12.9%"
+     }
+    },
+    {
+     "nome": "Choice Academy of Real Estate",
+     "nome_ufficiale": "Choice Academy of Real Estate",
+     "codice": "98220",
+     "citta": "Huntsville, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 8,
+      "p": 3,
+      "pc": "37.5%"
+     },
+     "all": {
+      "n": 17,
+      "p": 6,
+      "pc": "35.3%"
+     }
+    },
+    {
+     "nome": "Academy of Real Estate - Gulf Coast Branch",
+     "nome_ufficiale": "Academy of Real Estate - Gulf Coast Branch",
+     "codice": "86034",
+     "citta": "Foley, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 7,
+      "p": 7,
+      "pc": "100%"
+     },
+     "all": {
+      "n": 9,
+      "p": 9,
+      "pc": "100%"
+     }
+    },
+    {
+     "nome": "Auburn University Main Campus",
+     "nome_ufficiale": "Auburn University Main Campus",
+     "codice": "57245",
+     "citta": "Auburn University, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 6,
+      "p": 4,
+      "pc": "66.7%"
+     },
+     "all": {
+      "n": 9,
+      "p": 5,
+      "pc": "55.6%"
+     }
+    },
+    {
+     "nome": "Professional School of Real Estate",
+     "nome_ufficiale": "Professional School of Real Estate",
+     "codice": "60705",
+     "citta": "Mobile, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 6,
+      "p": 2,
+      "pc": "33.3%"
+     },
+     "all": {
+      "n": 13,
+      "p": 4,
+      "pc": "30.8%"
+     }
+    },
+    {
+     "nome": "Real Estate Prep Academy",
+     "nome_ufficiale": "Real Estate Prep Academy",
+     "codice": "91151",
+     "citta": "Gardendale, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 6,
+      "p": 2,
+      "pc": "33.3%"
+     },
+     "all": {
+      "n": 9,
+      "p": 4,
+      "pc": "44.4%"
+     }
+    },
+    {
+     "nome": "RAMP Real Estate School - Gardendale Branch",
+     "nome_ufficiale": "RAMP Real Estate School - Gardendale Branch",
+     "codice": "150717",
+     "citta": "Gardendale, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 5,
+      "p": 2,
+      "pc": "40%"
+     },
+     "all": {
+      "n": 8,
+      "p": 3,
+      "pc": "37.5%"
+     }
+    },
+    {
+     "nome": "University of South Alabama",
+     "nome_ufficiale": "University of South Alabama",
+     "codice": "45743",
+     "citta": "Mobile, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 5,
+      "p": 1,
+      "pc": "20%"
+     },
+     "all": {
+      "n": 15,
+      "p": 3,
+      "pc": "20%"
+     }
+    },
+    {
+     "nome": "Bo Evans School of Real Estate",
+     "nome_ufficiale": "Bo Evans School of Real Estate",
+     "codice": "81232",
+     "citta": "Prattville, AL",
+     "formati": [
+      "Classroom",
+      "Online"
+     ],
+     "first": {
+      "n": 4,
+      "p": 1,
+      "pc": "25%"
+     },
+     "all": {
+      "n": 9,
+      "p": 2,
+      "pc": "22.2%"
+     }
+    },
+    {
+     "nome": "First Rate Real Estate School",
+     "nome_ufficiale": "First Rate Real Estate School",
+     "codice": "74379",
+     "citta": "Owens Cross Roads, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 4,
+      "p": 0,
+      "pc": "0%"
+     },
+     "all": {
+      "n": 16,
+      "p": 3,
+      "pc": "18.8%"
+     }
+    },
+    {
+     "nome": "License Classroom, LLC",
+     "nome_ufficiale": "License Classroom, LLC",
+     "codice": "139996",
+     "citta": "Austin, TX",
+     "formati": [
+      "Online"
+     ],
+     "first": {
+      "n": 4,
+      "p": 4,
+      "pc": "100%"
+     },
+     "all": {
+      "n": 4,
+      "p": 4,
+      "pc": "100%"
+     }
+    },
+    {
+     "nome": "Outlaw Real Estate School",
+     "nome_ufficiale": "Outlaw Real Estate School",
+     "codice": "150414",
+     "citta": "ANDALUSIA, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 4,
+      "p": 3,
+      "pc": "75%"
+     },
+     "all": {
+      "n": 6,
+      "p": 4,
+      "pc": "66.7%"
+     }
+    },
+    {
+     "nome": "Alabama Real Estate Education Academy",
+     "nome_ufficiale": "Alabama Real Estate Education Academy",
+     "codice": "139618",
+     "citta": "Jasper, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 3,
+      "p": 2,
+      "pc": "66.7%"
+     },
+     "all": {
+      "n": 6,
+      "p": 3,
+      "pc": "50%"
+     }
+    },
+    {
+     "nome": "E.S. Brooks School of Real Estate",
+     "nome_ufficiale": "E.S. Brooks School of Real Estate",
+     "codice": "60672",
+     "citta": "Huntsville, AL",
+     "formati": [
+      "Classroom",
+      "Online"
+     ],
+     "first": {
+      "n": 3,
+      "p": 2,
+      "pc": "66.7%"
+     },
+     "all": {
+      "n": 7,
+      "p": 3,
+      "pc": "42.9%"
+     }
+    },
+    {
+     "nome": "Elite ESCP Real Estate School",
+     "nome_ufficiale": "Elite ESCP Real Estate School",
+     "codice": "96044",
+     "citta": "Tuscaloosa, AL",
+     "formati": [
+      "Classroom",
+      "Online"
+     ],
+     "first": {
+      "n": 3,
+      "p": 1,
+      "pc": "33.3%"
+     },
+     "all": {
+      "n": 5,
+      "p": 3,
+      "pc": "60%"
+     }
+    },
+    {
+     "nome": "Matthews School of Real Estate",
+     "nome_ufficiale": "Matthews School of Real Estate",
+     "codice": "94052",
+     "citta": "Bessemer, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 3,
+      "p": 1,
+      "pc": "33.3%"
+     },
+     "all": {
+      "n": 7,
+      "p": 1,
+      "pc": "14.3%"
+     }
+    },
+    {
+     "nome": "VRG University",
+     "nome_ufficiale": "VRG University",
+     "codice": "154051",
+     "citta": "Huntsville, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 3,
+      "p": 1,
+      "pc": "33.3%"
+     },
+     "all": {
+      "n": 10,
+      "p": 4,
+      "pc": "40%"
+     }
+    },
+    {
+     "nome": "Ayporealestate.com",
+     "nome_ufficiale": "Ayporealestate.com",
+     "codice": "81938",
+     "citta": "Gold Hill, OR",
+     "formati": [
+      "Online"
+     ],
+     "first": {
+      "n": 2,
+      "p": 2,
+      "pc": "100%"
+     },
+     "all": {
+      "n": 2,
+      "p": 2,
+      "pc": "100%"
+     }
+    },
+    {
+     "nome": "Bishop State Community College",
+     "nome_ufficiale": "Bishop State Community College",
+     "codice": "135042",
+     "citta": "Mobile, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 2,
+      "p": 0,
+      "pc": "0%"
+     },
+     "all": {
+      "n": 4,
+      "p": 0,
+      "pc": "0%"
+     }
+    },
+    {
+     "nome": "Elite Real Estate School",
+     "nome_ufficiale": "Elite Real Estate School",
+     "codice": "95464",
+     "citta": "Daphne, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 2,
+      "p": 1,
+      "pc": "50%"
+     },
+     "all": {
+      "n": 4,
+      "p": 3,
+      "pc": "75%"
+     }
+    },
+    {
+     "nome": "Mullins School of Real Estate",
+     "nome_ufficiale": "Mullins School of Real Estate",
+     "codice": "88730",
+     "citta": "Trussville, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 2,
+      "p": 0,
+      "pc": "0%"
+     },
+     "all": {
+      "n": 17,
+      "p": 2,
+      "pc": "11.8%"
+     }
+    },
+    {
+     "nome": "P.A.S.S. Real Estate School - Ft. Payne",
+     "nome_ufficiale": "P.A.S.S. Real Estate School - Ft. Payne",
+     "codice": "147840",
+     "citta": "Fort Payne, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 2,
+      "p": 2,
+      "pc": "100%"
+     },
+     "all": {
+      "n": 2,
+      "p": 2,
+      "pc": "100%"
+     }
+    },
+    {
+     "nome": "RAMP Real Estate School",
+     "nome_ufficiale": "RAMP Real Estate School",
+     "codice": "147021",
+     "citta": "Birmingham, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 2,
+      "p": 1,
+      "pc": "50%"
+     },
+     "all": {
+      "n": 2,
+      "p": 1,
+      "pc": "50%"
+     }
+    },
+    {
+     "nome": "Sherry Weeks Real Estate Academy",
+     "nome_ufficiale": "Sherry Weeks Real Estate Academy",
+     "codice": "56702",
+     "citta": "Montgomery, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 2,
+      "p": 0,
+      "pc": "0%"
+     },
+     "all": {
+      "n": 4,
+      "p": 2,
+      "pc": "50%"
+     }
+    },
+    {
+     "nome": "Experts Real Estate Academy EREA",
+     "nome_ufficiale": "Experts Real Estate Academy EREA",
+     "codice": "125102",
+     "citta": "Athens, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 1,
+      "p": 1,
+      "pc": "100%"
+     },
+     "all": {
+      "n": 1,
+      "p": 1,
+      "pc": "100%"
+     }
+    },
+    {
+     "nome": "New Pathways Consultants, LLC",
+     "nome_ufficiale": "New Pathways Consultants, LLC",
+     "codice": "94676",
+     "citta": "Peachtree City, GA",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 1,
+      "p": 0,
+      "pc": "0%"
+     },
+     "all": {
+      "n": 2,
+      "p": 0,
+      "pc": "0%"
+     }
+    },
+    {
+     "nome": "NXCEL University",
+     "nome_ufficiale": "NXCEL University",
+     "codice": "147541",
+     "citta": "Florence, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 1,
+      "p": 1,
+      "pc": "100%"
+     },
+     "all": {
+      "n": 1,
+      "p": 1,
+      "pc": "100%"
+     }
+    },
+    {
+     "nome": "Samford University",
+     "nome_ufficiale": "Samford University",
+     "codice": "93951",
+     "citta": "Birmingham, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 1,
+      "p": 0,
+      "pc": "0%"
+     },
+     "all": {
+      "n": 2,
+      "p": 1,
+      "pc": "50%"
+     }
+    },
+    {
+     "nome": "Troy University Dothan",
+     "nome_ufficiale": "Troy University Dothan",
+     "codice": "45150",
+     "citta": "Dothan, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 1,
+      "p": 1,
+      "pc": "100%"
+     },
+     "all": {
+      "n": 2,
+      "p": 1,
+      "pc": "50%"
+     }
+    },
+    {
+     "nome": "A&C Real Estate School",
+     "nome_ufficiale": "A&C Real Estate School",
+     "codice": "96604",
+     "citta": "Montgomery, AL",
+     "formati": [
+      "Classroom",
+      "Online"
+     ],
+     "first": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "all": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     }
+    },
+    {
+     "nome": "Alabama Courses In Real Estate",
+     "nome_ufficiale": "Alabama Courses In Real Estate",
+     "codice": "45054",
+     "citta": "Birmingham, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "all": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     }
+    },
+    {
+     "nome": "Alabama School of Real Estate",
+     "nome_ufficiale": "Alabama School of Real Estate",
+     "codice": "45057",
+     "citta": "Birmingham, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "all": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     }
+    },
+    {
+     "nome": "Bealoaks School of Real Estate",
+     "nome_ufficiale": "Bealoaks School of Real Estate",
+     "codice": "93232",
+     "citta": "Montgomery, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "all": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     }
+    },
+    {
+     "nome": "Birmingham Association of REALTORS",
+     "nome_ufficiale": "Birmingham Association of REALTORS",
+     "codice": "45041",
+     "citta": "Homewood, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "all": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     }
+    },
+    {
+     "nome": "Birmingham Realtist School of Real Estate",
+     "nome_ufficiale": "Birmingham Realtist School of Real Estate",
+     "codice": "137125",
+     "citta": "Birmingham, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "all": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     }
+    },
+    {
+     "nome": "Bo Goodson Real Estate School",
+     "nome_ufficiale": "Bo Goodson Real Estate School",
+     "codice": "45064",
+     "citta": "Montgomery, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "all": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     }
+    },
+    {
+     "nome": "Cahaba Real Estate Academy",
+     "nome_ufficiale": "Cahaba Real Estate Academy",
+     "codice": "100561",
+     "citta": "Birmingham, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "all": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     }
+    },
+    {
+     "nome": "Capital Real Estate School",
+     "nome_ufficiale": "Capital Real Estate School",
+     "codice": "77163",
+     "citta": "Montgomery, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "all": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     }
+    },
+    {
+     "nome": "Cooke Real Estate School Headquarters",
+     "nome_ufficiale": "Cooke Real Estate School Headquarters",
+     "codice": "59303",
+     "citta": "Saint Petersburg, FL",
+     "formati": [
+      "Online"
+     ],
+     "first": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "all": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     }
+    },
+    {
+     "nome": "Darden School of Real Estate",
+     "nome_ufficiale": "Darden School of Real Estate",
+     "codice": "139990",
+     "citta": "Harvest, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "all": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     }
+    },
+    {
+     "nome": "Donaldson Educational Services",
+     "nome_ufficiale": "Donaldson Educational Services",
+     "codice": "88834",
+     "citta": "Metairie, LA",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "all": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     }
+    },
+    {
+     "nome": "Elevation Academy",
+     "nome_ufficiale": "Elevation Academy",
+     "codice": "82467",
+     "citta": "Birmingham, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "all": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     }
+    },
+    {
+     "nome": "Gold Star Real Estate School",
+     "nome_ufficiale": "Gold Star Real Estate School",
+     "codice": "94187",
+     "citta": "Anniston, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "all": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     }
+    },
+    {
+     "nome": "Gulf Coast School of Real Estate",
+     "nome_ufficiale": "Gulf Coast School of Real Estate",
+     "codice": "67590",
+     "citta": "Mobile, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "all": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     }
+    },
+    {
+     "nome": "Hound Dog Country Learning Center",
+     "nome_ufficiale": "Hound Dog Country Learning Center",
+     "codice": "90016",
+     "citta": "Hartselle, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "all": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     }
+    },
+    {
+     "nome": "Huntsville Real Estate School",
+     "nome_ufficiale": "Huntsville Real Estate School",
+     "codice": "56467",
+     "citta": "Huntsville, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "all": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     }
+    },
+    {
+     "nome": "InnovatEd Real Estate Academy",
+     "nome_ufficiale": "InnovatEd Real Estate Academy",
+     "codice": "124476",
+     "citta": "Pleasant Grove, AL",
+     "formati": [
+      "Classroom",
+      "Online"
+     ],
+     "first": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "all": {
+      "n": 3,
+      "p": 1,
+      "pc": "33.3%"
+     }
+    },
+    {
+     "nome": "Iverson Gandy School of Real Estate",
+     "nome_ufficiale": "Iverson Gandy School of Real Estate",
+     "codice": "45154",
+     "citta": "Tuskegee, AL",
+     "formati": [
+      "Online"
+     ],
+     "first": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "all": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     }
+    },
+    {
+     "nome": "Jacksonville State University",
+     "nome_ufficiale": "Jacksonville State University",
+     "codice": "45120",
+     "citta": "Anniston, AL",
+     "formati": [
+      "Online"
+     ],
+     "first": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "all": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     }
+    },
+    {
+     "nome": "Justice School of Real Estate",
+     "nome_ufficiale": "Justice School of Real Estate",
+     "codice": "97143",
+     "citta": "Gardendale, AL",
+     "formati": [
+      "Classroom",
+      "Online"
+     ],
+     "first": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "all": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     }
+    },
+    {
+     "nome": "Kathy Mann Real Estate School",
+     "nome_ufficiale": "Kathy Mann Real Estate School",
+     "codice": "94335",
+     "citta": "Huntsville, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "all": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     }
+    },
+    {
+     "nome": "King Real Estate School",
+     "nome_ufficiale": "King Real Estate School",
+     "codice": "131531",
+     "citta": "Birmingham, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "all": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     }
+    },
+    {
+     "nome": "Lawson State Community College",
+     "nome_ufficiale": "Lawson State Community College",
+     "codice": "48884",
+     "citta": "Birmingham, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "all": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     }
+    },
+    {
+     "nome": "Madison Alabama School of Real Estate",
+     "nome_ufficiale": "Madison Alabama School of Real Estate",
+     "codice": "88622",
+     "citta": "Madison, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "all": {
+      "n": 4,
+      "p": 1,
+      "pc": "25%"
+     }
+    },
+    {
+     "nome": "Mullins School of Real Estate - Oneonta Branch",
+     "nome_ufficiale": "Mullins School of Real Estate - Oneonta Branch",
+     "codice": "89281",
+     "citta": "Oneonta, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "all": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     }
+    },
+    {
+     "nome": "P.A.S.S. Real Estate School - Guntersville",
+     "nome_ufficiale": "P.A.S.S. Real Estate School - Guntersville",
+     "codice": "137247",
+     "citta": "Guntersville, AL",
+     "formati": [
+      "Online"
+     ],
+     "first": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "all": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     }
+    },
+    {
+     "nome": "RealtySouth U",
+     "nome_ufficiale": "RealtySouth U",
+     "codice": "45072",
+     "citta": "Birmingham, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "all": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     }
+    },
+    {
+     "nome": "Red Bridge Real Estate School",
+     "nome_ufficiale": "Red Bridge Real Estate School",
+     "codice": "137461",
+     "citta": "Huntsville, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "all": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     }
+    },
+    {
+     "nome": "Redstone School of Real Estate",
+     "nome_ufficiale": "Redstone School of Real Estate",
+     "codice": "71374",
+     "citta": "Huntsville, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "all": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     }
+    },
+    {
+     "nome": "Rice School of Real Estate",
+     "nome_ufficiale": "Rice School of Real Estate",
+     "codice": "45062",
+     "citta": "Opelika, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "all": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     }
+    },
+    {
+     "nome": "Sil-loH Metro Realty Brokers School of Real Estate",
+     "nome_ufficiale": "Sil-loH Metro Realty Brokers School of Real Estate",
+     "codice": "138801",
+     "citta": "Homewood, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "all": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     }
+    },
+    {
+     "nome": "Stanton Center of Real Estate Education",
+     "nome_ufficiale": "Stanton Center of Real Estate Education",
+     "codice": "79490",
+     "citta": "Gulf Shores, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "all": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     }
+    },
+    {
+     "nome": "Success Real Estate School",
+     "nome_ufficiale": "Success Real Estate School",
+     "codice": "72364",
+     "citta": "Huntsville, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "all": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     }
+    },
+    {
+     "nome": "The Walter-James School of Real Estate",
+     "nome_ufficiale": "The Walter-James School of Real Estate",
+     "codice": "88425",
+     "citta": "Mobile, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "all": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     }
+    },
+    {
+     "nome": "Tuscaloosa School of Real Estate",
+     "nome_ufficiale": "Tuscaloosa School of Real Estate",
+     "codice": "60066",
+     "citta": "Tuscaloosa, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "all": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     }
+    },
+    {
+     "nome": "Tuskegee University",
+     "nome_ufficiale": "Tuskegee University",
+     "codice": "50796",
+     "citta": "Tuskegee Institute, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "all": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     }
+    },
+    {
+     "nome": "University of Alabama at Birmingham",
+     "nome_ufficiale": "University of Alabama at Birmingham",
+     "codice": "97497",
+     "citta": "Birmingham, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "all": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     }
+    },
+    {
+     "nome": "Wallace State Community College - Hanceville",
+     "nome_ufficiale": "Wallace State Community College - Hanceville",
+     "codice": "45159",
+     "citta": "Hanceville, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "all": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     }
+    },
+    {
+     "nome": "Zenith Real Estate Institute",
+     "nome_ufficiale": "Zenith Real Estate Institute",
+     "codice": "82015",
+     "citta": "Warrior, AL",
+     "formati": [
+      "Classroom"
+     ],
+     "first": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "all": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     }
+    }
+   ],
+   "letto_il": "2026-11-14"
+  },
+  "NE": {
+   "nome": "Nebraska",
+   "slug": "nebraska",
+   "ente": "Nebraska Real Estate Commission",
+   "sigla": "NREC",
+   "titolo_licenza": "salesperson",
+   "fonte": "ne_tassi",
+   "fonte_def": "ne_indice",
+   "periodo": {
+    "dal": "2026-07-01",
+    "al": "2026-09-30"
+   },
+   "totale": {
+    "origine": "somma",
+    "national_first": {
+     "n": 116,
+     "p": 81,
+     "pc": null
+    },
+    "state_first": {
+     "n": 116,
+     "p": 48,
+     "pc": null
+    },
+    "national_all": {
+     "n": 210,
+     "p": 117,
+     "pc": null
+    },
+    "state_all": {
+     "n": 307,
+     "p": 117,
+     "pc": null
+    }
+   },
+   "scuole": [
+    {
+     "nome": "360training.com, Inc dba Van Education Center",
+     "nome_ufficiale": "360training.com, Inc dba Van Education Center",
+     "codice": "0032",
+     "national_first": {
+      "n": 32,
+      "p": 27,
+      "pc": "84%"
+     },
+     "national_all": {
+      "n": 56,
+      "p": 38,
+      "pc": "68%"
+     },
+     "state_first": {
+      "n": 32,
+      "p": 9,
+      "pc": "28%"
+     },
+     "state_all": {
+      "n": 94,
+      "p": 36,
+      "pc": "38%"
+     },
+     "solo_broker": false
+    },
+    {
+     "nome": "Randall School of Real Estate",
+     "nome_ufficiale": "Randall School of Real Estate",
+     "codice": "0017",
+     "national_first": {
+      "n": 28,
+      "p": 20,
+      "pc": "71%"
+     },
+     "national_all": {
+      "n": 46,
+      "p": 31,
+      "pc": "67%"
+     },
+     "state_first": {
+      "n": 28,
+      "p": 12,
+      "pc": "43%"
+     },
+     "state_all": {
+      "n": 76,
+      "p": 28,
+      "pc": "37%"
+     },
+     "solo_broker": false
+    },
+    {
+     "nome": "Reesults Coaching",
+     "nome_ufficiale": "Reesults Coaching",
+     "codice": "0031",
+     "national_first": {
+      "n": 18,
+      "p": 8,
+      "pc": "44%"
+     },
+     "national_all": {
+      "n": 38,
+      "p": 11,
+      "pc": "29%"
+     },
+     "state_first": {
+      "n": 18,
+      "p": 8,
+      "pc": "44%"
+     },
+     "state_all": {
+      "n": 38,
+      "p": 10,
+      "pc": "26%"
+     },
+     "solo_broker": false
+    },
+    {
+     "nome": "Larabee School of Real Estate",
+     "nome_ufficiale": "Larabee School of Real Estate",
+     "codice": "0007",
+     "national_first": {
+      "n": 12,
+      "p": 7,
+      "pc": "58%"
+     },
+     "national_all": {
+      "n": 32,
+      "p": 12,
+      "pc": "38%"
+     },
+     "state_first": {
+      "n": 12,
+      "p": 7,
+      "pc": "58%"
+     },
+     "state_all": {
+      "n": 40,
+      "p": 17,
+      "pc": "43%"
+     },
+     "solo_broker": false
+    },
+    {
+     "nome": "Colibri Real Estate LLC",
+     "nome_ufficiale": "Colibri Real Estate LLC",
+     "codice": "0004",
+     "national_first": {
+      "n": 9,
+      "p": 5,
+      "pc": "56%"
+     },
+     "national_all": {
+      "n": 13,
+      "p": 7,
+      "pc": "54%"
+     },
+     "state_first": {
+      "n": 9,
+      "p": 1,
+      "pc": "11%"
+     },
+     "state_all": {
+      "n": 23,
+      "p": 6,
+      "pc": "26%"
+     },
+     "solo_broker": false
+    },
+    {
+     "nome": "The CE Shop, LLC",
+     "nome_ufficiale": "The CE Shop, LLC",
+     "codice": "0010",
+     "national_first": {
+      "n": 8,
+      "p": 7,
+      "pc": "88%"
+     },
+     "national_all": {
+      "n": 11,
+      "p": 8,
+      "pc": "73%"
+     },
+     "state_first": {
+      "n": 8,
+      "p": 6,
+      "pc": "75%"
+     },
+     "state_all": {
+      "n": 14,
+      "p": 9,
+      "pc": "64%"
+     },
+     "solo_broker": false
+    },
+    {
+     "nome": "Kaplan Real Estate Education",
+     "nome_ufficiale": "Kaplan Real Estate Education",
+     "codice": "0005",
+     "national_first": {
+      "n": 4,
+      "p": 4,
+      "pc": "100%"
+     },
+     "national_all": {
+      "n": 4,
+      "p": 4,
+      "pc": "100%"
+     },
+     "state_first": {
+      "n": 4,
+      "p": 3,
+      "pc": "75%"
+     },
+     "state_all": {
+      "n": 4,
+      "p": 3,
+      "pc": "75%"
+     },
+     "solo_broker": false
+    },
+    {
+     "nome": "Metropolitan Community College",
+     "nome_ufficiale": "Metropolitan Community College",
+     "codice": "0009",
+     "national_first": {
+      "n": 3,
+      "p": 2,
+      "pc": "67%"
+     },
+     "national_all": {
+      "n": 6,
+      "p": 3,
+      "pc": "50%"
+     },
+     "state_first": {
+      "n": 3,
+      "p": 2,
+      "pc": "67%"
+     },
+     "state_all": {
+      "n": 9,
+      "p": 6,
+      "pc": "67%"
+     },
+     "solo_broker": false
+    },
+    {
+     "nome": "University of Nebraska-Lincoln",
+     "nome_ufficiale": "University of Nebraska-Lincoln",
+     "codice": "0034",
+     "national_first": {
+      "n": 1,
+      "p": 1,
+      "pc": "100%"
+     },
+     "national_all": {
+      "n": 1,
+      "p": 1,
+      "pc": "100%"
+     },
+     "state_first": {
+      "n": 1,
+      "p": 0,
+      "pc": "0%"
+     },
+     "state_all": {
+      "n": 2,
+      "p": 0,
+      "pc": "0%"
+     },
+     "solo_broker": false
+    },
+    {
+     "nome": "University of Nebraska-Omaha",
+     "nome_ufficiale": "University of Nebraska-Omaha",
+     "codice": "0025",
+     "national_first": {
+      "n": 1,
+      "p": 0,
+      "pc": "0%"
+     },
+     "national_all": {
+      "n": 2,
+      "p": 1,
+      "pc": "50%"
+     },
+     "state_first": {
+      "n": 1,
+      "p": 0,
+      "pc": "0%"
+     },
+     "state_all": {
+      "n": 4,
+      "p": 1,
+      "pc": "25%"
+     },
+     "solo_broker": false
+    },
+    {
+     "nome": "Cooke Real Estate School",
+     "nome_ufficiale": "Cooke Real Estate School",
+     "codice": "0003",
+     "national_first": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "national_all": {
+      "n": 1,
+      "p": 1,
+      "pc": "100%"
+     },
+     "state_first": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "state_all": {
+      "n": 3,
+      "p": 1,
+      "pc": "33%"
+     },
+     "solo_broker": false
+    },
+    {
+     "nome": "Northeast Community College-Pre Lic",
+     "nome_ufficiale": "Northeast Community College-Pre Lic",
+     "codice": "0014",
+     "national_first": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "national_all": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "state_first": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "state_all": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "solo_broker": true
+    }
+   ],
+   "letto_il": "2026-11-14"
+  },
+  "HI": {
+   "nome": "Hawaii",
+   "slug": "hawaii",
+   "ente": "Hawaii Real Estate Commission",
+   "sigla": "REC",
+   "titolo_licenza": "salesperson",
+   "fonte": "hi_tassi",
+   "fonte_def": "hi_tassi",
+   "periodo": {
+    "dal": "2025-10-01",
+    "al": "2026-09-30"
+   },
+   "trimestre": {
+    "dal": "2026-07-01",
+    "al": "2026-09-30"
+   },
+   "totale": {
+    "origine": "ufficiale",
+    "national": {
+     "n": 1986,
+     "p": 721,
+     "pc": "36.3%"
+    },
+    "state": {
+     "n": 2300,
+     "p": 712,
+     "pc": "30.9%"
+    }
+   },
+   "non_scuole": [
+    {
+     "nome": "Unknown",
+     "nome_ufficiale": "Unknown",
+     "codice": "0",
+     "national": {
+      "n": 1,
+      "p": 1,
+      "pc": "100.0%"
+     },
+     "state": {
+      "n": 1,
+      "p": 1,
+      "pc": "100.0%"
+     }
+    },
+    {
+     "nome": "Uniform Equivalency Only",
+     "nome_ufficiale": "Uniform Equivalency Only",
+     "codice": "5555",
+     "national": {
+      "n": 3,
+      "p": 1,
+      "pc": "33.3%"
+     },
+     "state": {
+      "n": 3,
+      "p": 1,
+      "pc": "33.3%"
+     }
+    },
+    {
+     "nome": "Pre-License Equivalency Only",
+     "nome_ufficiale": "Pre-License Equivalency Only",
+     "codice": "7777",
+     "national": {
+      "n": 19,
+      "p": 14,
+      "pc": "73.6%"
+     },
+     "state": {
+      "n": 33,
+      "p": 13,
+      "pc": "39.3%"
+     }
+    },
+    {
+     "nome": "Pre-License and Uniform Equivalency",
+     "nome_ufficiale": "Pre-License and Uniform Equivalency",
+     "codice": "8888",
+     "national": {
+      "n": 3,
+      "p": 1,
+      "pc": "33.3%"
+     },
+     "state": {
+      "n": 7,
+      "p": 3,
+      "pc": "42.8%"
+     }
+    },
+    {
+     "nome": "Restoration",
+     "nome_ufficiale": "Restoration",
+     "codice": "9999",
+     "national": {
+      "n": 3,
+      "p": 1,
+      "pc": "33.3%"
+     },
+     "state": {
+      "n": 4,
+      "p": 1,
+      "pc": "25.0%"
+     }
+    }
+   ],
+   "scuole": [
+    {
+     "nome": "Abe Lee Seminars (Online)",
+     "nome_ufficiale": "Abe Lee Seminars (Online)",
+     "codice": "1166",
+     "national": {
+      "n": 504,
+      "p": 156,
+      "pc": "30.9%"
+     },
+     "state": {
+      "n": 576,
+      "p": 152,
+      "pc": "26.3%"
+     },
+     "formati": [
+      "Online"
+     ]
+    },
+    {
+     "nome": "Hawaii Institute of Real Estate (Classroom)",
+     "nome_ufficiale": "Hawaii Institute of Real Estate (Classroom)",
+     "codice": "1172",
+     "national": {
+      "n": 306,
+      "p": 106,
+      "pc": "34.6%"
+     },
+     "state": {
+      "n": 312,
+      "p": 105,
+      "pc": "33.6%"
+     },
+     "formati": [
+      "Classroom"
+     ]
+    },
+    {
+     "nome": "The CE Shop, Inc. (Online)",
+     "nome_ufficiale": "The CE Shop, Inc. (Online)",
+     "codice": "1193",
+     "national": {
+      "n": 293,
+      "p": 134,
+      "pc": "45.7%"
+     },
+     "state": {
+      "n": 407,
+      "p": 136,
+      "pc": "33.4%"
+     },
+     "formati": [
+      "Online"
+     ]
+    },
+    {
+     "nome": "Excellence in Education, LLC, DBA Maui Real Estate School",
+     "nome_ufficiale": "Excellence in Education, LLC, DBA Maui Real Estate School",
+     "codice": "1188",
+     "national": {
+      "n": 255,
+      "p": 96,
+      "pc": "37.6%"
+     },
+     "state": {
+      "n": 252,
+      "p": 99,
+      "pc": "39.2%"
+     },
+     "formati": []
+    },
+    {
+     "nome": "Colibri Real Estate, LLC (Online)",
+     "nome_ufficiale": "Colibri Real Estate, LLC (Online)",
+     "codice": "1190",
+     "national": {
+      "n": 209,
+      "p": 85,
+      "pc": "40.6%"
+     },
+     "state": {
+      "n": 271,
+      "p": 75,
+      "pc": "27.6%"
+     },
+     "formati": [
+      "Online"
+     ]
+    },
+    {
+     "nome": "REMI School of Real Estate (Online)",
+     "nome_ufficiale": "REMI School of Real Estate (Online)",
+     "codice": "1169",
+     "national": {
+      "n": 97,
+      "p": 41,
+      "pc": "42.2%"
+     },
+     "state": {
+      "n": 121,
+      "p": 35,
+      "pc": "28.9%"
+     },
+     "formati": [
+      "Online"
+     ]
+    },
+    {
+     "nome": "Abe Lee Seminars (Classroom)",
+     "nome_ufficiale": "Abe Lee Seminars (Classroom)",
+     "codice": "1150",
+     "national": {
+      "n": 72,
+      "p": 21,
+      "pc": "29.1%"
+     },
+     "state": {
+      "n": 68,
+      "p": 19,
+      "pc": "27.9%"
+     },
+     "formati": [
+      "Classroom"
+     ]
+    },
+    {
+     "nome": "Hawaii Real Estate License School LLC",
+     "nome_ufficiale": "Hawaii Real Estate License School LLC",
+     "codice": "1198",
+     "national": {
+      "n": 56,
+      "p": 12,
+      "pc": "21.4%"
+     },
+     "state": {
+      "n": 65,
+      "p": 14,
+      "pc": "21.5%"
+     },
+     "formati": []
+    },
+    {
+     "nome": "Bly School of Real Estate (Classroom)",
+     "nome_ufficiale": "Bly School of Real Estate (Classroom)",
+     "codice": "1180",
+     "national": {
+      "n": 39,
+      "p": 14,
+      "pc": "35.8%"
+     },
+     "state": {
+      "n": 30,
+      "p": 16,
+      "pc": "53.3%"
+     },
+     "formati": [
+      "Classroom"
+     ]
+    },
+    {
+     "nome": "Excellence in Education, LLC, DBA Maui Real Estate School",
+     "nome_ufficiale": "Excellence in Education, LLC, DBA Maui Real Estate School",
+     "codice": "1185",
+     "national": {
+      "n": 36,
+      "p": 16,
+      "pc": "44.4%"
+     },
+     "state": {
+      "n": 36,
+      "p": 16,
+      "pc": "44.4%"
+     },
+     "formati": []
+    },
+    {
+     "nome": "Vitousek RE Schools, Inc (Classroom)",
+     "nome_ufficiale": "Vitousek RE Schools, Inc (Classroom)",
+     "codice": "1165",
+     "national": {
+      "n": 23,
+      "p": 4,
+      "pc": "17.3%"
+     },
+     "state": {
+      "n": 33,
+      "p": 4,
+      "pc": "12.1%"
+     },
+     "formati": [
+      "Classroom"
+     ]
+    },
+    {
+     "nome": "Carol Ball School of Real Estate (Online)",
+     "nome_ufficiale": "Carol Ball School of Real Estate (Online)",
+     "codice": "1174",
+     "national": {
+      "n": 14,
+      "p": 3,
+      "pc": "21.4%"
+     },
+     "state": {
+      "n": 20,
+      "p": 4,
+      "pc": "20.0%"
+     },
+     "formati": [
+      "Online"
+     ]
+    },
+    {
+     "nome": "Real Estate School Hawaii (Classroom)",
+     "nome_ufficiale": "Real Estate School Hawaii (Classroom)",
+     "codice": "1186",
+     "national": {
+      "n": 9,
+      "p": 2,
+      "pc": "22.2%"
+     },
+     "state": {
+      "n": 9,
+      "p": 3,
+      "pc": "33.3%"
+     },
+     "formati": [
+      "Classroom"
+     ]
+    },
+    {
+     "nome": "Hawaii Real Estate Academy (Classroom)",
+     "nome_ufficiale": "Hawaii Real Estate Academy (Classroom)",
+     "codice": "1182",
+     "national": {
+      "n": 8,
+      "p": 2,
+      "pc": "25.0%"
+     },
+     "state": {
+      "n": 10,
+      "p": 2,
+      "pc": "20.0%"
+     },
+     "formati": [
+      "Classroom"
+     ]
+    },
+    {
+     "nome": "REMI School of Real Estate (Classroom)",
+     "nome_ufficiale": "REMI School of Real Estate (Classroom)",
+     "codice": "1162",
+     "national": {
+      "n": 8,
+      "p": 1,
+      "pc": "12.5%"
+     },
+     "state": {
+      "n": 8,
+      "p": 2,
+      "pc": "25.0%"
+     },
+     "formati": [
+      "Classroom"
+     ]
+    },
+    {
+     "nome": "Carol Ball School of Real Estate (Classroom)",
+     "nome_ufficiale": "Carol Ball School of Real Estate (Classroom)",
+     "codice": "1153",
+     "national": {
+      "n": 7,
+      "p": 2,
+      "pc": "28.5%"
+     },
+     "state": {
+      "n": 8,
+      "p": 2,
+      "pc": "25.0%"
+     },
+     "formati": [
+      "Classroom"
+     ]
+    },
+    {
+     "nome": "Continuing Ed Express LLC (Online)",
+     "nome_ufficiale": "Continuing Ed Express LLC (Online)",
+     "codice": "1177",
+     "national": {
+      "n": 6,
+      "p": 4,
+      "pc": "66.6%"
+     },
+     "state": {
+      "n": 13,
+      "p": 5,
+      "pc": "38.4%"
+     },
+     "formati": [
+      "Online"
+     ]
+    },
+    {
+     "nome": "Coldwell Banker Pacific Properties, Real Estate School",
+     "nome_ufficiale": "Coldwell Banker Pacific Properties, Real Estate School",
+     "codice": "1154",
+     "national": {
+      "n": 5,
+      "p": 1,
+      "pc": "20.0%"
+     },
+     "state": {
+      "n": 1,
+      "p": 1,
+      "pc": "100.0%"
+     },
+     "formati": []
+    },
+    {
+     "nome": "All Islands Real Estate School",
+     "nome_ufficiale": "All Islands Real Estate School",
+     "codice": "1152",
+     "national": {
+      "n": 4,
+      "p": 1,
+      "pc": "25.0%"
+     },
+     "state": {
+      "n": 7,
+      "p": 1,
+      "pc": "14.2%"
+     },
+     "formati": []
+    },
+    {
+     "nome": "American Dream Real Estate School (Classroom)",
+     "nome_ufficiale": "American Dream Real Estate School (Classroom)",
+     "codice": "1187",
+     "national": {
+      "n": 2,
+      "p": 1,
+      "pc": "50.0%"
+     },
+     "state": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "formati": [
+      "Classroom"
+     ]
+    },
+    {
+     "nome": "Vitousek RE Schools, Inc (Online)",
+     "nome_ufficiale": "Vitousek RE Schools, Inc (Online)",
+     "codice": "1171",
+     "national": {
+      "n": 2,
+      "p": 0,
+      "pc": "0.0%"
+     },
+     "state": {
+      "n": 2,
+      "p": 0,
+      "pc": "0.0%"
+     },
+     "formati": [
+      "Online"
+     ]
+    },
+    {
+     "nome": "American Dream Real Estate School (Online)",
+     "nome_ufficiale": "American Dream Real Estate School (Online)",
+     "codice": "1178",
+     "national": {
+      "n": 1,
+      "p": 0,
+      "pc": "0.0%"
+     },
+     "state": {
+      "n": 1,
+      "p": 0,
+      "pc": "0.0%"
+     },
+     "formati": [
+      "Online"
+     ]
+    },
+    {
+     "nome": "Mbition Learn Real Estate",
+     "nome_ufficiale": "Mbition Learn Real Estate",
+     "codice": "1184",
+     "national": {
+      "n": 1,
+      "p": 1,
+      "pc": "100.0%"
+     },
+     "state": {
+      "n": 1,
+      "p": 1,
+      "pc": "100.0%"
+     },
+     "formati": []
+    },
+    {
+     "nome": "Bly School of Real Estate (Online)",
+     "nome_ufficiale": "Bly School of Real Estate (Online)",
+     "codice": "1181",
+     "national": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "state": {
+      "n": 1,
+      "p": 1,
+      "pc": "100.0%"
+     },
+     "formati": [
+      "Online"
+     ]
+    }
+   ],
+   "letto_il": "2026-11-14"
+  }
+ },
+ "licenza": {
+  "TX": {
+   "ore": 180,
+   "corsi": [
+    {
+     "nome": "Principles of Real Estate I",
+     "ore": 30
+    },
+    {
+     "nome": "Principles of Real Estate II",
+     "ore": 30
+    },
+    {
+     "nome": "Law of Agency",
+     "ore": 30
+    },
+    {
+     "nome": "Law of Contracts",
+     "ore": 30
+    },
+    {
+     "nome": "Promulgated Contract Forms",
+     "ore": 30
+    },
+    {
+     "nome": "Real Estate Finance",
+     "ore": 30
+    }
+   ],
+   "eta": 18,
+   "in_vigore": "September 1, 2026",
+   "domanda": {
+    "tassa": 15000,
+    "texas_online": 600,
+    "centro_ricerca": 4000,
+    "fondo": 1000,
+    "totale": 20600
+   },
+   "esame": 5800,
+   "impronte": 4000
+  },
+  "AL": {
+   "ore": 60,
+   "mesi_esame": 6,
+   "ore_post": 30,
+   "eta": 19,
+   "giorni_domanda": 90
+  },
+  "NE": {
+   "ore": 96,
+   "ore_standard": 6,
+   "ore_corsi": 90,
+   "eta": 19,
+   "domanda": 17500,
+   "esame": 15000,
+   "ripetizione": 15000,
+   "licenza": 9000,
+   "rinnovo": 18000,
+   "soglia_nazionale": [
+    60,
+    80
+   ],
+   "soglia_statale": [
+    38,
+    50
+   ]
+  },
+  "HI": {
+   "ore": 60,
+   "eta": 18,
+   "licenza_dispari": 38200,
+   "licenza_pari": 28200,
+   "rinnovo": 26800,
+   "ore_attesa": 24,
+   "ore_formazione_continua": 20
+  }
+ },
+ "letto_il": "2026-11-14"
+}

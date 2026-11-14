@@ -34,7 +34,7 @@ FILE = QUI / "monetizzazione.json"
 RADICE_REPO = QUI.parent.parent
 
 SITI = ["italystrikes", "touristtax", "visaincome", "beforeyoufly", "esameb1", "esamidistato",
-        "floodcost", "aste", "fhacondos", "cruisescores", "solarebalcone", "paytax", "ccnl", "farmaci", "quiz", "heatpumps", "ateco", "limits", "inflation", "milpay", "naics", "paycheck"]
+        "floodcost", "aste", "fhacondos", "cruisescores", "solarebalcone", "paytax", "ccnl", "farmaci", "quiz", "heatpumps", "ateco", "limits", "inflation", "milpay", "naics", "paycheck", "realestate"]
 
 # Righe di trasparenza obbligatorie in ogni pagina con link di affiliazione (testo esatto: lo cerca anche controlla_sito)
 RIGA_EN = "Some links are affiliate links: we may earn a commission at no extra cost to you."

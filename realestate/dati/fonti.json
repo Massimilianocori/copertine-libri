@@ -1,0 +1,449 @@
+{
+ "_nota": "Generato da raccolta/fonti.py. File grezzi in dati/grezzi/. PDF, JSON e pagine dei numeri: fa fede sha256 (file intero). Altre pagine HTML (impronta = frasi): i byte cambiano a ogni scarico, fa fede sha256_frasi (le frasi citate alla lettera, ritrovate nel file).",
+ "fonti": {
+  "tx_tassi": {
+   "url": "https://www.trec.texas.gov/sites/default/files/json/PassRatesRei.json",
+   "file": "dati/grezzi/tx_passrates_rei.json",
+   "titolo": "Education provider exam passage rates, sales agents and brokers (data file loaded by the official page)",
+   "chi": "Texas Real Estate Commission",
+   "sha256": "a6280d059945426dee0318ea44a1e6a13021492bfc0d2d8362f83bbd740465cf",
+   "byte": 8708,
+   "impronta": "file",
+   "sha256_frasi": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {},
+   "trovate": {}
+  },
+  "tx_pagina": {
+   "url": "https://www.trec.texas.gov/education/education-provider-exam-passage-rates-sales-agents-and-brokers",
+   "file": "dati/grezzi/tx_passrates_pagina.html",
+   "titolo": "Provider Exam Passage Rates for Sales Agents and Brokers",
+   "chi": "Texas Real Estate Commission",
+   "sha256": "80f7689390241173676566739dec5ca0f016ea35f272e3763e56a7aaead1b66d",
+   "byte": 153661,
+   "impronta": "frasi",
+   "sha256_frasi": "a915163e5d5a46993c073ec070502aef9e063fcf98085d4f86ac34aa37d42fd6",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "sales": "The percentage of students who passed the Sales Agent licensing exam on their first attempt, within the past two years.",
+    "affiliazione": "If a student took the majority of his or her qualifying courses from the same provider in the two years prior to taking the licensing exam for the first time, the student's exam results are attributed to that provider.",
+    "totale": "The Overall Provider Statistics row at the top of the table contains the combined data for all students included in the table, no matter their provider affiliation.",
+    "mpr": "Minimum Pass Rate (MPR) is equal to 80% of the Overall Pass Rate.",
+    "standing": "A provider whose Overall Pass Rate is greater than or equal to the Minimum Pass Rate (MPR) benchmark is considered in good standing."
+   },
+   "trovate": {
+    "sales": true,
+    "affiliazione": true,
+    "totale": true,
+    "mpr": true,
+    "standing": true
+   }
+  },
+  "tx_licenza": {
+   "url": "https://www.trec.texas.gov/become-licensed/sales-agent",
+   "file": "dati/grezzi/tx_sales_agent.html",
+   "titolo": "Become a Real Estate Sales Agent",
+   "chi": "Texas Real Estate Commission",
+   "sha256": "d6e452d6833ab4535a63459128bb6b08d1e3b510ebd234d21cb1acec92ad5a88",
+   "byte": 151553,
+   "impronta": "frasi",
+   "sha256_frasi": "ab6b99729e5ba3b8d5bebbfba79d145a114273ff8b2d90fbd6a284562242beaf",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "sponsor": "A sales agent must be sponsored by a licensed Broker in order to perform any act of real estate services.",
+    "realm": "If you do not have a TREC license number, register for a REALM Portal account to receive a pre-license education application number by email.",
+    "tasse": "Application fees are non-refundable and non-transferable.",
+    "eta": "18 years of age or older",
+    "ore": "A sales agent applicant must complete 180 classroom hours of the following qualifying real estate courses:",
+    "prima": "Do not submit your license application until you have completed all required pre-licensing education.",
+    "anno": "Your application expires one year from the date it is filed. You must complete all license requirements within that one-year period.",
+    "impronte": "You are required by law to have fingerprints on file with the Texas Department of Public Safety (DPS) so a background check can be performed.",
+    "pearson": "License exams are administered by Pearson, a testing service company.",
+    "tre": "If you fail either exam three times, you will be required to complete additional education before you can test again.",
+    "inattiva": "After meeting the above requirements, you will be issued an inactive license. You must be sponsored by a broker to move to active status and be able to practice brokerage activity."
+   },
+   "trovate": {
+    "sponsor": true,
+    "realm": true,
+    "tasse": true,
+    "eta": true,
+    "ore": true,
+    "prima": true,
+    "anno": true,
+    "impronte": true,
+    "pearson": true,
+    "tre": true,
+    "inattiva": true
+   }
+  },
+  "tx_tariffe": {
+   "url": "https://www.trec.texas.gov/agency-information/fee-schedule",
+   "file": "dati/grezzi/tx_fee_schedule.html",
+   "titolo": "Fee Schedule Effective September 1, 2026",
+   "chi": "Texas Real Estate Commission",
+   "sha256": "949dc8f2323817d7359e5c9210af32a7e337fbb66b53ec848e3c040a95e8e521",
+   "byte": 303791,
+   "impronta": "frasi",
+   "sha256_frasi": "22ac517dbf418b4a20844a82935317e630429d32fd8323d90c918cb58a33097b",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "titolo": "Fee Schedule Effective September 1, 2026",
+    "esame": "Real Estate Sales Examination Fee, paid to exam provider",
+    "impronte": "Fingerprint Fee – paid to IDEMIA if the applicant has not previously been fingerprinted for TREC."
+   },
+   "trovate": {
+    "titolo": true,
+    "esame": true,
+    "impronte": true
+   }
+  },
+  "al_tassi": {
+   "url": "https://arec.alabama.gov/apps/SchoolStatsWF/",
+   "file": "dati/grezzi/al_school_stats.html",
+   "titolo": "Exam Pass Rates by School",
+   "chi": "Alabama Real Estate Commission",
+   "sha256": "397e6d5342f28b38fadcd4f9f1b5458800d04d737401e99d3b34e28674d8bc37",
+   "byte": 580088,
+   "impronta": "file",
+   "sha256_frasi": "dc07e6330bb48f20310e3bd0ed9e73d5acd78a3dfd572911ce817354542db1c7",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "periodo": "Data reflects the previous 12 months and is updated the 10th of every month.",
+    "definizione": "The displayed school statistics represent the number of students who have taken and passed the license examination on their first attempt (1st) and the total number of students who have taken and passed the license examination, including retakes (All)."
+   },
+   "trovate": {
+    "periodo": true,
+    "definizione": true
+   }
+  },
+  "al_licenza": {
+   "url": "https://arec.alabama.gov/pages/consumer/tools/becomerep.aspx",
+   "file": "dati/grezzi/al_become.html",
+   "titolo": "Become a Licensed Real Estate Professional",
+   "chi": "Alabama Real Estate Commission",
+   "sha256": "663c70df93062e7c9aa81d5eec3e5995e6f3589cef32d6dee4048ecd3f3e1630",
+   "byte": 60573,
+   "impronta": "frasi",
+   "sha256_frasi": "cfa49fb0f10d07600c15a769edd349bc31ee51ec1a613a51e347b06eace12453",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "eta": "Be at least 19 years old;",
+    "diploma": "Show proof of high school graduation or the equivalent;",
+    "residenza": "Show proof of bona fide residency in any state in the U.S.;",
+    "ore": "Prior to taking the state exam, successfully complete an approved 60 clock hour prelicense course. Applicants have 6 months to pass the state exam after completing the course. If these deadlines are not met, the course must be retaken.",
+    "post": "Must complete a 30 hour post license training course within the first twelve months of licensure in order to be issued an original (permanent) license."
+   },
+   "trovate": {
+    "eta": true,
+    "diploma": true,
+    "residenza": true,
+    "ore": true,
+    "post": true
+   }
+  },
+  "al_domanda": {
+   "url": "https://arec.alabama.gov/pages/professionals/licensing/app_instructions.aspx",
+   "file": "dati/grezzi/al_app_instructions.html",
+   "titolo": "License Application Instructions",
+   "chi": "Alabama Real Estate Commission",
+   "sha256": "0e1b6688a98d2ac010ab221fe22f9314f59e0a3bca0d590fbabe265c1368ed4a",
+   "byte": 72546,
+   "impronta": "frasi",
+   "sha256_frasi": "99188caa61ee0ef21b5639cccd966d7056deba60dc33665a1e87a28e2eafe0c6",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "novanta": "The completed applications, all additional materials and fees MUST be complete and submitted to the Alabama Real Estate Commission within 90 days of your examination date.",
+    "nullo": "Failure to meet this deadline will mean your exam score is null and void.",
+    "tariffe": "Fees vary depending upon the license-type you are seeking. Refer to the license application for an accurate accounting of the fees owed.",
+    "impronte": "Applicants must submit to a fingerprint-based federal and state criminal background check"
+   },
+   "trovate": {
+    "novanta": true,
+    "nullo": true,
+    "tariffe": true,
+    "impronte": true
+   }
+  },
+  "al_esame": {
+   "url": "https://arec.alabama.gov/pages/professionals/edu/exam_locations.aspx",
+   "file": "dati/grezzi/al_exam_locations.html",
+   "titolo": "Exam Scheduling",
+   "chi": "Alabama Real Estate Commission",
+   "sha256": "ed44f282748cc25d7e114888d7d6413907ed191f583ce5381f4bb1da21d34206",
+   "byte": 54573,
+   "impronta": "frasi",
+   "sha256_frasi": "065025c6fd5750e19e61bc4bb8c5ad0715616b19f8df7bda021d3f3675349444",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "pearson": "To find license examination locations and schedule the license examination, please visit Pearson at home.pearsonvue.com/al/realestate or call 888-926-9488."
+   },
+   "trovate": {
+    "pearson": true
+   }
+  },
+  "ne_indice": {
+   "url": "https://nrec.nebraska.gov/sites/default/files/doc/Education/examperformancebyschool.pdf",
+   "file": "dati/grezzi/ne_exam_performance_index.pdf",
+   "titolo": "License Examination Performance by School",
+   "chi": "Nebraska Real Estate Commission",
+   "sha256": "2f7a2099a713113ee5f8d188c0a9ea7ee66d92c1be0490f8c40b2bd757ffd335",
+   "byte": 161640,
+   "impronta": "file",
+   "sha256_frasi": "b820c1579b96f37f3f10e368078e73248966a9a981afdcccc861f9fd64c56243",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "cosa": "This report shows the performance on the Nebraska real estate license examination by school for candidates taking the examination for the first time during the reporting period.",
+    "soglie": "The number of correct questions necessary to pass the National exam is 60/80. The number of correct questions necessary to pass the State exam is 38/50.",
+    "cautela": "The Commission would caution readers to be aware of the total number of students that are being tested from any school.",
+    "piccoli": "percentages have less to tell when the number of students is quite small."
+   },
+   "trovate": {
+    "cosa": true,
+    "soglie": true,
+    "cautela": true,
+    "piccoli": true
+   }
+  },
+  "ne_tassi": {
+   "url": "https://nrec.nebraska.gov/sites/default/files/doc/Education/School%20Reports/School%20Pass%20Report%20thirdquarter2026.pdf",
+   "file": "dati/grezzi/ne_school_pass_report_2026_q3.pdf",
+   "titolo": "Exam Performance Summary by School, 3rd Quarter 2026",
+   "chi": "Nebraska Real Estate Commission",
+   "sha256": "2426aaeda98cfab6c911995b28bde33a30800239616d455cec2fc7570e7310c0",
+   "byte": 871878,
+   "impronta": "file",
+   "sha256_frasi": "7c120843e6893e652ec9cbe41ac77162644dc8a37da88b6352823be6fcc52943",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "intervallo": "Date Range: 01-Jul-2026 to 30-Sep-2026"
+   },
+   "trovate": {
+    "intervallo": true
+   }
+  },
+  "ne_licenza": {
+   "url": "https://nrec.nebraska.gov/sites/default/files/doc/Application/salesperson%20information.pdf",
+   "file": "dati/grezzi/ne_salesperson_information.pdf",
+   "titolo": "Resident Real Estate Salesperson Information",
+   "chi": "Nebraska Real Estate Commission",
+   "sha256": "f962b3ffeb5a696c858fe4dc9548f1e144857376b95bcf777f55f88219d197f6",
+   "byte": 496011,
+   "impronta": "file",
+   "sha256_frasi": "b5253d794ff2073440d7d195ab86d96039db655888405f076533163b6bdee46e",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "ore": "CURRENT REQUIREMENT- 96 HOURS TOTAL",
+    "eta": "At least 19 years old",
+    "tempi": "The typical application process takes approximately 4-8 weeks.",
+    "trenta": "Your license must be issued within 30 days from passing the exam.",
+    "valida": "Your application and background report is only valid for 1 year from the date the application is received.",
+    "eo": "Purchase an E&O Insurance policy that meets the Nebraska requirements.",
+    "voto": "Exam score of 75%"
+   },
+   "trovate": {
+    "ore": true,
+    "eta": true,
+    "tempi": true,
+    "trenta": true,
+    "valida": true,
+    "eo": true,
+    "voto": true
+   }
+  },
+  "ne_tariffe": {
+   "url": "https://nrec.nebraska.gov/sites/default/files/doc/Commission/fees.pdf",
+   "file": "dati/grezzi/ne_fees.pdf",
+   "titolo": "Fee Schedule",
+   "chi": "Nebraska Real Estate Commission",
+   "sha256": "ffeef7c8b669e55e2dfd2fa18db019f319d36d8096bcb985e31eb8eabab3612c",
+   "byte": 181577,
+   "impronta": "file",
+   "sha256_frasi": "7f77d6c9a508c3f7fbc1434d1b9ce24563eb394094ea088bd4321cccadb0bc06",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "domanda": "License Application Fee - Salespersons & Brokers",
+    "esame": "License Examination Fee - Salespersons & Brokers - per exam",
+    "licenza": "Salesperson Original License Fee (current year only)",
+    "data": "Updated January 2026"
+   },
+   "trovate": {
+    "domanda": true,
+    "esame": true,
+    "licenza": true,
+    "data": true
+   }
+  },
+  "ne_esame": {
+   "url": "https://nrec.nebraska.gov/sites/default/files/doc/Application/examinationprocess.pdf",
+   "file": "dati/grezzi/ne_examination_process.pdf",
+   "titolo": "Real Estate Examination Information",
+   "chi": "Nebraska Real Estate Commission",
+   "sha256": "2899b037752b1cf0918de14b6b4580f1168a9384d3a86757940e88fca934a2c6",
+   "byte": 187470,
+   "impronta": "file",
+   "sha256_frasi": "0f923a99a185bdd56225e66b6a265ebe0978673e979944fd0eae4f8b1529fb9a",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "pearson": "Schedule the exam online through Pearson or by phone at 800-819-3966.",
+    "ripetere": "Applicants may retake the examination multiple times during their eligibility period.",
+    "tassa": "Examination appointments and fees are required for each retake."
+   },
+   "trovate": {
+    "pearson": true,
+    "ripetere": true,
+    "tassa": true
+   }
+  },
+  "hi_tassi": {
+   "url": "https://cca.hawaii.gov/wp-content/uploads/2026/10/sf2610.pdf",
+   "file": "dati/grezzi/hi_school_files_2610.pdf",
+   "titolo": "School Files, October 2026 (pass-fail rates, July to September 2026 and one year rolling)",
+   "chi": "Hawaii Real Estate Commission",
+   "sha256": "a8ff06657b8ee681ff44ff5961d145f249b2710c1d9ed68c4e773eafd3dbb849",
+   "byte": 917201,
+   "impronta": "file",
+   "sha256_frasi": "f0958bcb5708e0f02a10259c47e29437e38f4cd538214a42dfe8a5d2b64498d2",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "titolo": "JULY – SEPTEMBER 2026 STATS AND ONE YEAR ROLLING"
+   },
+   "trovate": {
+    "titolo": true
+   }
+  },
+  "hi_licenza": {
+   "url": "https://cca.hawaii.gov/wp-content/uploads/2026/01/190605.salesflowchart.pdf",
+   "file": "dati/grezzi/hi_salesperson_flowchart.pdf",
+   "titolo": "General Steps on Becoming a Hawaii Licensed Real Estate Salesperson on Active Status",
+   "chi": "Hawaii Real Estate Commission",
+   "sha256": "102ce65791719725cac22d18f62c051a20af5ea1d04f2275b337ba87a5827b6d",
+   "byte": 75609,
+   "impronta": "file",
+   "sha256_frasi": "fe06046df97f3d80061573cbe516b0c8f75e7b7a60215b2205346ad77bec5d8a",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "ore": "Successfully complete a 60 hour Hawaii salesperson prelicensing course.",
+    "certificato": "School Completion Certificates are valid two (2) years from the date of issuance",
+    "domanda": "Within two (2) years of passing the Hawaii salesperson’s examination, submit a complete application for a Hawaii real estate salesperson’s license.",
+    "attivo": "To be licensed on active status, the applicant must be employed or associated with a current and active Hawaii licensed real estate brokerage firm or sole proprietor."
+   },
+   "trovate": {
+    "ore": true,
+    "certificato": true,
+    "domanda": true,
+    "attivo": true
+   }
+  },
+  "hi_requisiti": {
+   "url": "https://cca.hawaii.gov/reb/real_ed-exam_lic-exam_info-exam_prereq/",
+   "file": "dati/grezzi/hi_exam_prerequisites.html",
+   "titolo": "Examination Prerequisites",
+   "chi": "Hawaii Real Estate Commission",
+   "sha256": "f54dbdaf3c367deb7346bf1c9789ec1276f44cdefca580f51bc7d07c497bfbe6",
+   "byte": 133932,
+   "impronta": "frasi",
+   "sha256_frasi": "56372d798f04a68dd331114bbe62e0fea6ab0ecd479b3f66e55faf5f891c08ef",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "eta": "You must be at least 18 years of age as of the date of the examination.",
+    "diploma": "You must have earned a high school diploma or equivalent",
+    "cittadinanza": "You must be a United States citizen, a United States national, or an alien authorized to work in the United States."
+   },
+   "trovate": {
+    "eta": true,
+    "diploma": true,
+    "cittadinanza": true
+   }
+  },
+  "hi_prelicenza": {
+   "url": "https://cca.hawaii.gov/reb/general-prelicensing-information-and-prelicense-school-resources/",
+   "file": "dati/grezzi/hi_prelicensing.html",
+   "titolo": "General Prelicensing Information",
+   "chi": "Hawaii Real Estate Commission",
+   "sha256": "37c0e7462b4a6c830f096fa39995f25787070e76d945d9b4da28936f57c64455",
+   "byte": 150740,
+   "impronta": "frasi",
+   "sha256_frasi": "617a264e87189353bc9a3839ec0f64744830a52ccf2c44caadbcf667cfc84047",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "psi": "PSI administers the Hawaii real estate licensing examination."
+   },
+   "trovate": {
+    "psi": true
+   }
+  },
+  "hi_tariffe": {
+   "url": "https://cca.hawaii.gov/reb/application-registration-fees/",
+   "file": "dati/grezzi/hi_fees.html",
+   "titolo": "Application / Registration Fees",
+   "chi": "Hawaii Real Estate Commission",
+   "sha256": "42bc2a9ae6582c4d1f867a7ab6a8825bbe5218c3f64689a6adb741581ff53c7a",
+   "byte": 143201,
+   "impronta": "frasi",
+   "sha256_frasi": "16a0e1e92e77ab848904188432ebabd190acd179ed86c8d3f7130117266ecbd8",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "licenza": "Odd numbered year – $382 Even numbered year – $282 Renewal – $268"
+   },
+   "trovate": {
+    "licenza": true
+   }
+  },
+  "hi_faq": {
+   "url": "https://cca.hawaii.gov/reb/faqs-re_faqs/",
+   "file": "dati/grezzi/hi_faq.html",
+   "titolo": "Real Estate Licensing, Renewals, and Education FAQs",
+   "chi": "Hawaii Real Estate Commission",
+   "sha256": "6ff006bf73f933fc679cb9882d2173769a2daefc3ec60be3e9003f172fc6e2ff",
+   "byte": 198730,
+   "impronta": "frasi",
+   "sha256_frasi": "853b6579ddabe81333003e008d11cff577eedd46b94760a0b6fdc36f7dc0b9d6",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "attesa": "You must wait 24 hours before rescheduling an examination.",
+    "residente": "Do I have to be a resident of Hawaii to secure a real estate license? No."
+   },
+   "trovate": {
+    "attesa": true,
+    "residente": true
+   }
+  },
+  "aceable": {
+   "url": "https://partnerships.aceable.com/affiliate",
+   "file": "dati/grezzi/aceable_affiliate.html",
+   "titolo": "Affiliate Program",
+   "chi": "Aceable",
+   "sha256": "29f538f12721077e5459410ca947a0a860ef306a7897e54db453bfbff1516203",
+   "byte": 94297,
+   "impronta": "frasi",
+   "sha256_frasi": "a9317fcbda4808b9203abd1c0c065fe3bb084943ca220b388727d89d4e400380",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "compenso": "15–25% commission per sale, tiered by volume. 30-day attribution."
+   },
+   "trovate": {
+    "compenso": true
+   }
+  }
+ }
+}

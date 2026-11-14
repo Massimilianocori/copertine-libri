@@ -1,0 +1,26 @@
+{
+ "_nota": "Riquadro del partner (scuola online con programma di affiliazione). SPENTO: nessun link di affiliazione esiste ancora e nessuno va inventato. Per accenderlo, dopo l'iscrizione di Massimiliano al programma (partnerships.aceable.com/affiliate, solo dopo le prime 300 visite al mese): 1) mettere in \"link\" il link tracciato vero (https://...); 2) aggiungere il dominio del link a studio-business/strumenti/monetizzazione.json (domini_affiliazione), altrimenti genera.py si ferma; 3) \"attivo\": true; 4) python3 realestate/genera.py && python3 realestate/verifica.py --browser && python3 studio-business/strumenti/monetizzazione.py verifica realestate. Il riquadro esce solo nelle pagine degli Stati elencati in \"stati\", sempre SOTTO la tabella ufficiale, e solo se la scuola è nella tabella di quello Stato con il nome scritto in \"nome_tabella\" (così la sua percentuale ufficiale resta visibile sopra). Nessun giudizio sulla scuola, nessun prezzo.",
+ "riquadro": {
+  "etichetta": "Advertisement · affiliate link",
+  "titolo": "Looking for a pre-licensing course?",
+  "testo": "The schools in the table above sell the course you need before the exam. One of them has an affiliate program with us, shown below. Its official pass rate is in the table like everyone else's, and the link does not change any figure on this site. We have not tested the course: compare the official numbers and the prices of several schools before you enroll.",
+  "trasparenza": "Advertisement. If you enroll through this link we may earn a commission, at no extra cost to you."
+ },
+ "partner": [
+  {
+   "id": "aceable",
+   "nome": "AceableAgent",
+   "attivo": false,
+   "link": "",
+   "pulsante": "Visit AceableAgent",
+   "stati": [
+    "TX"
+   ],
+   "nome_tabella": {
+    "TX": "AceableAgent"
+   },
+   "fonte_programma": "aceable",
+   "compenso_letto": "15–25% commission per sale, tiered by volume. 30-day attribution. (pagina ufficiale del programma, letta il 14/11/2026; scaglione di partenza 15 %)"
+  }
+ ]
+}

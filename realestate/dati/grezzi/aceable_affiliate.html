@@ -1,0 +1,1774 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior:smooth;scroll-padding-top:80px;">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KQJ83WF5');</script>
+  <!-- End Google Tag Manager -->
+  <!-- Paid media conversion tracking: Google Ads + LinkedIn -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-971780355"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-971780355');
+    window.ACEABLE_ADS = {
+      formLead:   { googleLabel: 'oldKCO7DprccEIPisM8D', linkedinId: 28116354 },
+      toolMagnet: { googleLabel: 'DTVZCPTDprccEIPisM8D', linkedinId: 28116370 }
+    };
+    window.aceableTrackConversion = function(conv, eventName, payload) {
+      var data = payload || {};
+      if (conv && conv.googleLabel) {
+        try { gtag('event', 'conversion', Object.assign({ send_to: 'AW-971780355/' + conv.googleLabel }, data)); } catch (e) {}
+      }
+      if (conv && conv.linkedinId && typeof window.lintrk === 'function') {
+        try { window.lintrk('track', { conversion_id: conv.linkedinId }); } catch (e) {}
+      }
+      try { window.dataLayer.push(Object.assign({ event: eventName }, data)); } catch (e) {}
+    };
+  </script>
+  <!-- End paid media conversion tracking -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="https://xgrit-ecom.imgix.net/ace/ace_favicon-1.png?v=1664811694">
+  <link rel="shortcut icon" href="https://xgrit-ecom.imgix.net/ace/ace_favicon-1.png?v=1664811694">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <title>Affiliate Program — Aceable Partners</title>
+  <meta name="description" content="Join Aceable's affiliate program. Earn commissions promoting online education courses in real estate, insurance, drivers ed, and mortgage.">
+  <meta property="og:title" content="Affiliate Program — Aceable Partners">
+  <meta property="og:description" content="Earn commissions promoting Aceable's online education courses. Real estate, insurance, drivers ed, and mortgage verticals with dedicated affiliate support.">
+  <meta property="og:image" content="https://partnerships.aceable.com/images/og/default.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Affiliate Program — Aceable Partners">
+  <meta name="twitter:description" content="Earn commissions promoting Aceable's online education courses. Real estate, insurance, drivers ed, and mortgage verticals with dedicated affiliate support.">
+  <meta name="twitter:image" content="https://partnerships.aceable.com/images/og/default.png">
+  <link rel="preload" href="fonts/nunito-sans-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/nunito-sans-800.woff2" as="font" type="font/woff2" crossorigin>
+  <style>
+    @font-face { font-family: 'Nunito Sans'; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/nunito-sans-400.woff2) format('woff2'); }
+    @font-face { font-family: 'Nunito Sans'; font-style: normal; font-weight: 600; font-display: swap; src: url(fonts/nunito-sans-600.woff2) format('woff2'); }
+    @font-face { font-family: 'Nunito Sans'; font-style: normal; font-weight: 700; font-display: swap; src: url(fonts/nunito-sans-700.woff2) format('woff2'); }
+    @font-face { font-family: 'Nunito Sans'; font-style: normal; font-weight: 800; font-display: swap; src: url(fonts/nunito-sans-800.woff2) format('woff2'); }
+    @font-face { font-family: 'Nunito Sans'; font-style: normal; font-weight: 900; font-display: swap; src: url(fonts/nunito-sans-900.woff2) format('woff2'); }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --pink: #DB306A;
+      --pink-hover: #C50B4A;
+      --pink-active: #990235;
+      --teal: #197886;
+      --teal-hover: #0C5F6B;
+      --teal-active: #024C56;
+      --charcoal: #21333F;
+      --text-secondary: #43646F;
+      --text-muted: #6B8A92;
+      --bg-light: #F4F9FC;
+      --bg-white: #FFFFFF;
+      --bg-grey: #F1F5F5;
+      --bg-blue: #E9F3F9;
+      --border: #D3DDDF;
+      --shadow-card: 0 0 4px 0 rgba(195,218,232,0.6), 0 12px 0 0 rgba(195,218,232,0.5);
+      --radius: 24px;
+      --radius-sm: 8px;
+      --green: #0E8A68;
+      --star: #DB306A;
+      --blue-accent: #2689CA;
+      --footer-bg: #E9F3F9;
+      --grey-300: #e8eeef;
+      --v-spacing: 24px;
+      --font: 'Nunito Sans', sans-serif;
+    }
+
+    body {
+      font-family: var(--font);
+      color: var(--charcoal);
+      line-height: 1.6;
+      font-size: 1.125rem;
+      background: var(--bg-white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0;
+      transition: box-shadow 0.2s;
+    }
+    nav.scrolled {
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    }
+    .nav-inner {
+      max-width: 1188px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: var(--charcoal);
+      text-decoration: none;
+    }
+    .logo-mark {
+      width: 36px;
+      height: 36px;
+      background: var(--pink);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+    .logo-sub {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--teal);
+      margin-left: 4px;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      list-style: none;
+    }
+    .nav-links > li > a {
+      display: block;
+      padding: 8px 16px;
+      color: var(--charcoal);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 400;
+      border-radius: 8px;
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav-links > li > a:hover {
+      color: var(--teal-hover);
+      background: var(--bg-light);
+    }
+    .nav-links .has-dropdown {
+      position: relative;
+    }
+    .nav-links .has-dropdown > a::after {
+      content: "";
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 5px solid var(--text-secondary);
+      margin-left: 6px;
+      vertical-align: middle;
+      transition: transform 0.2s;
+    }
+    .nav-links .has-dropdown:hover > a::after {
+      transform: rotate(180deg);
+    }
+    .nav-links .has-dropdown::before {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      height: 16px;
+      display: none;
+    }
+    .nav-links .has-dropdown:hover::before {
+      display: block;
+    }
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      background: var(--bg-white);
+      border: 1px solid #e8eeef;
+      border-radius: 16px;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+      padding: 8px;
+      min-width: 260px;
+      z-index: 200;
+    }
+    .nav-links .has-dropdown:hover .dropdown {
+      display: block;
+    }
+    .dropdown a {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      text-decoration: none;
+    }
+    .dropdown a:hover {
+      background: var(--bg-light);
+      color: var(--charcoal);
+    }
+    .dropdown-icon {
+      width: 36px;
+      height: 36px;
+      min-width: 36px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+    }
+    .dropdown-icon-bulk { background: #E8F5F6; }
+    .dropdown-icon-affiliate { background: #FDEEF3; }
+    .dropdown-icon-re { background: #FFF3E0; }
+    .dropdown-icon-de { background: #E3F2FD; }
+    .dropdown-icon-ins { background: #F3E5F5; }
+    .dropdown-icon-mtg { background: #E8F5E9; }
+    .dropdown-text { display: flex; flex-direction: column; }
+    .dropdown-title { font-weight: 700; color: var(--charcoal); font-size: 0.95rem; }
+    .dropdown-desc { font-size: 0.8rem; color: var(--text-secondary); font-weight: 400; margin-top: 2px; }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .nav-login {
+      color: var(--charcoal);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 400;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav-login:hover {
+      color: var(--teal-hover);
+      background: var(--bg-light);
+    }
+    .login-dropdown {
+      position: relative;
+    }
+    .login-dropdown-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 4px);
+      right: 0;
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+      padding: 8px;
+      min-width: 240px;
+      z-index: 200;
+    }
+    .login-dropdown::before {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      height: 12px;
+      display: none;
+    }
+    .login-dropdown:hover::before { display: block; }
+    .login-dropdown:hover .login-dropdown-menu { display: block; }
+    .login-option {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--charcoal);
+      transition: background 0.15s;
+    }
+    .login-option:hover { background: var(--bg-light); }
+    .login-option-icon {
+      width: 36px;
+      height: 36px;
+      min-width: 36px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .login-option-title { font-weight: 700; font-size: 0.9rem; }
+    .login-option-desc { font-size: 0.75rem; color: var(--text-muted); margin-top: 1px; }
+
+    nav .btn-primary {
+      font-size: 0.95rem;
+      padding: 12px 28px;
+    }
+
+    /* ── MOBILE NAV ── */
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      color: var(--charcoal);
+    }
+    .mobile-toggle svg { display: block; }
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 72px;
+      left: 0;
+      right: 0;
+      height: calc(100vh - 72px);
+      background: var(--bg-white);
+      z-index: 99;
+      padding: 24px;
+      overflow-y: auto;
+    }
+    .mobile-menu.active { display: block; }
+    .mobile-menu a {
+      display: block;
+      padding: 14px 0;
+      color: var(--charcoal);
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 400;
+      border-bottom: 1px solid var(--bg-light);
+    }
+    .mobile-menu .mobile-sub-label {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-secondary);
+      padding-top: 20px;
+      padding-bottom: 8px;
+      border-bottom: none;
+    }
+    .mobile-menu .btn-primary {
+      color: #fff; width: 100%;
+      text-align: center;
+      margin-top: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav-right { display: none; }
+      .mobile-toggle { display: block; }
+      .dropdown { min-width: auto !important; max-width: calc(100vw - 32px); }
+    }
+
+    /* ── BUTTONS ── */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--pink);
+      color: #fff;
+      font-family: var(--font);
+      font-weight: 700;
+      font-size: 1.125rem;
+      line-height: 1;
+      padding: 18px 2rem;
+      border-radius: 9999px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: var(--pink-hover); }
+    .btn-primary:active { background: var(--pink-active); }
+    .btn-primary:focus { outline: none; box-shadow: 0 0 0 4px #C4EEF2; }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--pink);
+      font-family: var(--font);
+      font-weight: 700;
+      font-size: 1.125rem;
+      line-height: 1;
+      padding: 16.5px 30.5px;
+      border-radius: 9999px;
+      border: 1.5px solid currentColor;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-secondary:hover { background: var(--pink); color: #fff; }
+    .btn-secondary:active { background: var(--pink-active); color: #fff; border-color: var(--pink-active); }
+    .btn-secondary:focus { outline: none; box-shadow: 0 0 0 4px #C4EEF2; }
+
+    .btn-tertiary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--teal);
+      font-family: var(--font);
+      font-weight: 700;
+      font-size: 1.125rem;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      padding: 0;
+      transition: color 0.2s;
+    }
+    .btn-tertiary:hover { color: var(--teal-hover); }
+    .btn-tertiary:active { color: var(--teal-active); }
+    .btn-tertiary:focus { outline: none; box-shadow: 0 0 0 4px #C4EEF2; }
+
+    /* ── SECTION HELPERS ── */
+    .section { padding: 60px 24px; }
+    .section-light { background: var(--bg-grey); }
+    .section-blue { background: var(--bg-blue); }
+    .container { max-width: 1188px; margin: 0 auto; }
+    .eyebrow {
+      font-size: 0.875rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+    }
+    h1 { font-size: 3rem; font-weight: 800; line-height: 1.25; margin-bottom: 24px; }
+    h2 { font-size: 2rem; font-weight: 800; line-height: 1.25; margin-bottom: 16px; }
+    h3 { font-size: 1.5rem; font-weight: 800; line-height: 1.25; margin-bottom: 12px; }
+    .subtitle { font-size: 1.125rem; color: var(--text-secondary); line-height: 1.6; max-width: 640px; }
+    .text-center { text-align: center; }
+    .mx-auto { margin-left: auto; margin-right: auto; }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 40px 0 60px;
+      background: linear-gradient(165deg, var(--bg-white) 60%, var(--bg-light) 100%);
+      overflow: hidden;
+    }
+    .hero-inner {
+      max-width: 1188px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .hero h1 span { color: var(--pink); }
+    .hero .subtitle { margin-bottom: 36px; }
+    .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+    .hero-trust {
+      margin-top: 40px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+    .hero-trust-logos {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+    .trust-logo {
+      width: 80px;
+      height: 32px;
+      background: var(--border);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+    }
+    .hero-visual {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 400px;
+      background: var(--bg-light);
+      border-radius: 32px;
+      padding: 40px 20px;
+    }
+    .hero-visual-inner {
+      text-align: center;
+      color: var(--text-secondary);
+    }
+    .hero-visual-icon {
+      font-size: 4rem;
+      margin-bottom: 12px;
+    }
+
+    /* ── STEPS ── */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 48px;
+    }
+    .step-card {
+      background: var(--bg-white);
+      border-radius: var(--radius);
+      padding: 24px;
+      text-align: center;
+      box-shadow: var(--shadow-card);
+    }
+    .step-num {
+      width: 56px;
+      height: 56px;
+      min-width: 56px;
+      border-radius: 50%;
+      background: var(--pink);
+      color: white;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin: 0 auto 20px;
+    }
+    .step-card p {
+      color: var(--text-secondary);
+      font-size: 1rem;
+    }
+
+    /* ── BENEFIT CARDS ── */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .benefit-card {
+      background: var(--bg-white);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow-card);
+    }
+    .benefit-icon {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+    .benefit-card p { color: var(--text-secondary); font-size: 0.95rem; }
+
+    /* ── AUDIENCE GRID ── */
+    .audience-card {
+      background: var(--bg-white);
+      border-radius: var(--radius);
+      padding: 32px 20px;
+      text-align: center;
+      box-shadow: var(--shadow-card);
+    }
+    .audience-icon {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .audience-card p { font-size: 0.9rem; color: var(--text-secondary); }
+    .audience-card-wide { text-align: left; padding: 36px 32px; border-radius: var(--radius); background: var(--bg-white); box-shadow: var(--shadow-card); }
+    .audience-card-wide h3 { font-size: 1.6rem; }
+    .audience-card-wide p { font-size: 1rem; }
+    .audience-columns { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; margin-top: 48px; }
+    .audience-column { display: flex; flex-direction: column; gap: 32px; }
+    .audience-card-wide.audience-pink { border: 2px solid var(--pink); }
+    .audience-card-wide.audience-teal { border: 2px solid var(--teal); }
+    .audience-subgrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .audience-subgrid .audience-card { padding: 24px 18px; }
+    .audience-subgrid .audience-icon { width: 36px; height: 36px; margin-bottom: 10px; }
+    .audience-subgrid .audience-card h3 { font-size: 1.05rem; }
+    .audience-sub-pink { background: #FFEAF0; }
+    .audience-sub-teal { background: #C4EEF2; }
+
+    /* ── COMMISSION TIERS ── */
+    .tiers-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 48px;
+    }
+    .tier-card {
+      background: var(--bg-white);
+      border-radius: var(--radius);
+      padding: 24px;
+      text-align: center;
+      box-shadow: var(--shadow-card);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    .tier-card.featured {
+      border: 2px solid var(--pink);
+    }
+    .tier-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--pink);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 16px;
+      border-radius: 9999px;
+    }
+    .tier-name {
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--teal);
+      margin-bottom: 8px;
+    }
+    .tier-rate {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--pink);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .tier-label {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+    }
+    .tier-card ul {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 28px;
+      flex: 1;
+    }
+    .tier-card ul li {
+      padding: 6px 0;
+      padding-left: 24px;
+      position: relative;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+    .tier-card ul li::before {
+      content: "\2713";
+      position: absolute;
+      left: 0;
+      color: var(--blue-accent);
+      font-weight: 800;
+    }
+
+    /* ── TESTIMONIAL ── */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    /* ── FAQ ── */
+    .faq-list {
+      max-width: 800px;
+      margin: 48px auto 0;
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      font-family: var(--font);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      text-align: left;
+      padding: 24px 40px 24px 0;
+      cursor: pointer;
+      position: relative;
+      transition: color 0.2s;
+    }
+    .faq-question:hover { color: var(--teal-hover); }
+    .faq-question:focus { outline: none; box-shadow: 0 0 0 4px #C4EEF2; }
+    .faq-question::after {
+      content: "+";
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--pink);
+      transition: transform 0.2s;
+    }
+    .faq-item.open .faq-question::after {
+      content: "\2212";
+    }
+    .faq-answer {
+      display: none;
+      padding: 0 0 24px;
+      color: var(--text-secondary);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+    .faq-item.open .faq-answer { display: block; }
+
+    /* ── LEAD CAPTURE ── */
+    .form-section {
+      padding: 60px 24px;
+      background: linear-gradient(165deg, var(--charcoal) 0%, #1a3a4a 100%);
+      color: #fff;
+    }
+    .form-wrapper {
+      max-width: 1188px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .form-copy .eyebrow { color: #7BC8CE; }
+    .form-copy h2 { color: #fff; }
+    .form-copy p { color: #A8C8D0; font-size: 1.1rem; line-height: 1.7; }
+    .form-copy ul {
+      list-style: none;
+      margin-top: 24px;
+    }
+    .form-copy ul li {
+      padding: 8px 0;
+      padding-left: 28px;
+      position: relative;
+      color: #A8C8D0;
+    }
+    .form-copy ul li::before {
+      content: "\2713";
+      position: absolute;
+      left: 0;
+      color: #7BC8CE;
+      font-weight: 800;
+    }
+    .form-card {
+      background: var(--bg-white);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+    }
+    .form-card h3 { color: var(--charcoal); margin-bottom: 24px; }
+    .hs-form-frame, .hs-form-frame *, .hs-form-frame *::before, .hs-form-frame *::after { box-sizing: revert; margin: revert; padding: revert; }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .form-group {
+      margin-bottom: 16px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 6px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      font-family: var(--font);
+      font-size: 1rem;
+      color: var(--charcoal);
+      background: var(--bg-light);
+      transition: border-color 0.2s;
+    }
+    .form-group select {
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%2343646F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 40px;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--teal);
+      box-shadow: 0 0 0 4px #C4EEF2;
+    }
+    .form-card .btn-primary {
+      width: 100%;
+      padding: 16px;
+      font-size: 1.1rem;
+      margin-top: 8px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--footer-bg);
+      color: var(--charcoal);
+      padding: 40px 24px;
+      font-size: 0.9rem;
+    }
+    .footer-inner {
+      max-width: 1188px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+    .footer-links a {
+      color: var(--teal);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--teal-hover); }
+    .footer-logo {
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: var(--charcoal);
+    }
+    .footer-inner > div:last-child {
+      flex-basis: 100%;
+      text-align: center;
+      margin: 16px -24px -40px;
+      padding: 16px 24px;
+      background: #d6e8f0;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .hero-inner, .form-wrapper { grid-template-columns: 1fr; gap: 40px; }
+      .hero-visual { min-height: auto; }
+      .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      h1 { font-size: 2.25rem; }
+      h2 { font-size: 1.75rem; }
+      h3 { font-size: 1.5rem; }
+      .section { padding: 48px 20px; }
+      .steps-grid, .tiers-grid, .benefits-grid, .testimonials-grid { grid-template-columns: 1fr; }
+      .audience-columns { grid-template-columns: 1fr; gap: 40px; }
+      .form-row { grid-template-columns: 1fr; }
+      .hero-ctas { flex-direction: column; }
+      .hero-ctas .btn-primary, .hero-ctas .btn-secondary { text-align: center; }
+    }
+    @media (max-width: 480px) {
+      body { font-size: 1rem; }
+      h1 { font-size: 1.5rem; }
+      h2 { font-size: 1.25rem; }
+      h3 { font-size: 1.15rem; }
+      .section { padding: 30px 12px; }
+      .hero { padding: 24px 0 36px; }
+      .hero-inner { padding: 0 12px; gap: 24px; }
+      .hero .subtitle { font-size: 1rem; }
+      .hero-ctas .btn-primary, .hero-ctas .btn-secondary { width: 100%; justify-content: center; }
+      .hero-visual { min-height: auto; padding: 24px 12px; }
+      .btn-primary { font-size: 1rem; padding: 14px 1.25rem; width: 100%; justify-content: center; }
+      .btn-secondary { font-size: 1rem; padding: 12px 1.25rem; width: 100%; justify-content: center; }
+      .steps-grid { gap: 20px; }
+      .step-card { padding: 20px; }
+      .benefits-grid { gap: 16px; }
+      .benefit-card { padding: 20px; }
+      .audience-subgrid { grid-template-columns: 1fr; gap: 12px; }
+      .audience-card { padding: 24px 16px; }
+      .tiers-grid { gap: 20px; }
+      .tier-card { padding: 20px; }
+      .tier-rate { font-size: 2.25rem; }
+      .testimonials-grid { gap: 16px; }
+      .faq-question { font-size: 1rem; padding: 18px 32px 18px 0; }
+      .stats-row { gap: 16px; }
+      .stat-number { font-size: 2.25rem; }
+      .form-section { padding: 36px 12px; }
+      .form-wrapper { gap: 24px; }
+      .form-card { padding: 20px; }
+      .form-group input, .form-group select, .form-group textarea { min-width: 0; font-size: 1rem; padding: 10px 12px; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-links { flex-wrap: wrap; justify-content: center; gap: 16px; }
+      .hero-trust { flex-direction: column; gap: 12px; }
+      .hero-trust-logos { gap: 8px; }
+      .subtitle { font-size: 1rem; }
+    }
+
+    /* ── HERO FORM CARD (refresh) ── */
+    .hero-form-card { background: #fff; border-radius: 24px; padding: 32px 28px; box-shadow: 0 0 4px 0 rgba(195,218,232,0.6), 0 12px 0 0 rgba(195,218,232,0.5); border: 1px solid var(--grey-300, #E8EEEF); }
+    .trust-strip { padding: 28px 24px; border-top: 1px solid var(--grey-300, #E8EEEF); background: var(--bg-white); }
+    .trust-strip-label { text-align: center; font-size: 0.78rem; color: var(--text-muted, #6F8C95); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 18px; }
+    .trust-strip-logos { display: grid; grid-template-columns: repeat(6, 1fr); align-items: center; justify-items: center; gap: 24px; }
+    .trust-strip-logos img { width: auto; max-width: 100%; opacity: 0.65; filter: grayscale(1); }
+    .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+    .stat { text-align: center; }
+    .stat-number { font-size: 3rem; font-weight: 800; color: var(--pink); line-height: 1; }
+    .stat-label { font-size: 1rem; color: var(--text-secondary); margin-top: 8px; }
+    @media (max-width: 768px) {
+      .trust-strip-logos { grid-template-columns: repeat(3, 1fr); row-gap: 20px; }
+      .stats-row { grid-template-columns: 1fr; }
+    }
+    .hero-form-card h3 { font-size: 1.4rem; font-weight: 800; color: var(--charcoal); margin-bottom: 6px; }
+    .hero-form-card p.hero-form-sub { font-size: 0.95rem; color: var(--text-secondary, #43646F); margin-bottom: 20px; line-height: 1.5; }
+    .hero-form-card .form-group { margin-bottom: 12px; }
+    .hero-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .hero-form-card label { display: block; font-size: 0.8rem; font-weight: 700; color: var(--charcoal); margin-bottom: 4px; }
+    .hero-form-card input, .hero-form-card select { width: 100%; padding: 11px 14px; border: 1.5px solid var(--grey-300, #E8EEEF); border-radius: 10px; font-family: 'Nunito Sans', sans-serif; font-size: 0.95rem; color: var(--charcoal); background: #fff; transition: border-color 0.15s; }
+    .hero-form-card input:focus, .hero-form-card select:focus { outline: none; border-color: var(--teal); }
+    .hero-form-card .btn-primary { width: 100%; margin-top: 6px; padding: 14px 20px; font-size: 1rem; }
+    .hero-form-divider { display: flex; align-items: center; gap: 12px; margin: 20px 0 16px; color: var(--text-muted, #6F8C95); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+    .hero-form-divider::before, .hero-form-divider::after { content: ""; flex: 1; height: 1px; background: var(--grey-300, #E8EEEF); }
+    .hero-call-cta { text-align: center; padding: 16px; background: var(--bg-blue, #E9F3F9); border-radius: 12px; }
+    .hero-form-success { display: none; text-align: center; padding: 32px 16px; }
+    .hero-form-success svg { width: 56px; height: 56px; margin-bottom: 12px; }
+    .hero-form-success h3 { color: var(--charcoal); margin-bottom: 6px; font-size: 1.2rem; }
+    .hero-form-success p { color: var(--text-secondary, #43646F); font-size: 0.95rem; margin-bottom: 0; }
+    .mobile-cta-bar { display: none; position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: 1px solid var(--grey-300, #E8EEEF); box-shadow: 0 -4px 16px rgba(0,0,0,0.08); padding: 10px 16px; z-index: 90; gap: 8px; align-items: center; }
+    .mobile-cta-bar a.mobile-call { flex: 0 0 auto; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: var(--bg-blue, #E9F3F9); color: var(--teal); text-decoration: none; }
+    .mobile-cta-bar a.mobile-form { flex: 1; padding: 12px; background: var(--pink); color: #fff; text-align: center; text-decoration: none; border-radius: 9999px; font-weight: 800; font-size: 0.95rem; }
+    @media (max-width: 1024px) {
+      .hero-inner { grid-template-columns: 1fr !important; gap: 40px !important; }
+      .hero-visual { display: none !important; }
+    }
+    @media (max-width: 768px) {
+      .hero-inner > div { min-width: 0; }
+      .hero-bullet { white-space: normal !important; font-size: 1rem !important; }
+      .hero-form-card { padding: 24px 18px; }
+      .hero-form-card h3 { font-size: 1.2rem; }
+      .hero-form-row { grid-template-columns: 1fr; gap: 0; }
+      .mobile-cta-bar { display: flex; }
+      body { padding-bottom: 70px; }
+    }
+    html, body { overflow-x: hidden; }
+
+  </style>
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"Affiliate Program — Aceable Partners","description":"Join Aceable's affiliate program. Earn commissions promoting online education courses in real estate, insurance, drivers ed, and mortgage.","url":"https://partnerships.aceable.com/affiliate.html","publisher":{"@type":"Organization","name":"Aceable","url":"https://partnerships.aceable.com/"}}
+  </script>
+  <!-- Segment Analytics -->
+  <script>!function(){var i="analytics",analytics=window[i]=window[i]||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","screen","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware","register"];analytics.factory=function(e){return function(){if(window[i].initialized)return window[i][e].apply(window[i],arguments);var n=Array.prototype.slice.call(arguments);if(["track","screen","alias","group","page","identify"].indexOf(e)>-1){var c=document.querySelector("link[rel='canonical']");n.push({__t:"bpc",c:c&&c.getAttribute("href")||void 0,p:location.pathname,u:location.href,s:location.search,t:document.title,r:document.referrer})}n.unshift(e);analytics.push(n);return analytics}};for(var n=0;n<analytics.methods.length;n++){var key=analytics.methods[n];analytics[key]=analytics.factory(key)}analytics.load=function(key,n){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.setAttribute("data-global-segment-analytics-key",i);t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";var r=document.getElementsByTagName("script")[0];r.parentNode.insertBefore(t,r);analytics._loadOptions=n};analytics._writeKey="rKfGDkJjmPeqbENFPPiUaG0KacqWlaKF";;analytics.SNIPPET_VERSION="5.2.0";analytics.load("rKfGDkJjmPeqbENFPPiUaG0KacqWlaKF");analytics.page();}}();</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQJ83WF5"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+  <!-- ── NAV ── -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <a href="/" class="logo">
+          <img src="images/aceable-logo.png" alt="Aceable" style="height:32px; width:auto;">
+          <span class="logo-sub">Partners</span>
+        </a>
+        <ul class="nav-links">
+          <li class="has-dropdown">
+            <a href="/#paths">Partnership Models</a>
+            <div class="dropdown">
+              <a href="bulk-buy">
+                <div class="dropdown-text">
+                  <span class="dropdown-title">Bulk Buy</span>
+                  <span class="dropdown-desc">Purchase course seats in volume</span>
+                </div>
+              </a>
+              <a href="affiliate">
+                <div class="dropdown-text">
+                  <span class="dropdown-title">Affiliate Program</span>
+                  <span class="dropdown-desc">Earn commission on referrals</span>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="has-dropdown">
+            <a href="/#who-we-serve">Who We Serve</a>
+            <div class="dropdown" style="min-width:300px;">
+              <a href="real-estate">
+                <div class="dropdown-text">
+                  <span class="dropdown-title">Real Estate Schools &amp; Brokerages</span>
+                  <span class="dropdown-desc">Pre-licensing & CE for brokerages</span>
+                </div>
+              </a>
+              <a href="mortgage">
+                <div class="dropdown-text">
+                  <span class="dropdown-title">Loan Originators & Brokers</span>
+                  <span class="dropdown-desc">NMLS licensing & compliance training</span>
+                </div>
+              </a>
+              <a href="high-schools-districts">
+                <div class="dropdown-text">
+                  <span class="dropdown-title">High Schools & Districts</span>
+                  <span class="dropdown-desc">Driver's ed programs at scale</span>
+                </div>
+              </a>
+              <a href="insurance">
+                <div class="dropdown-text">
+                  <span class="dropdown-title">Insurance Agencies</span>
+                  <span class="dropdown-desc">PL, onboarding, and CE for P&amp;C and L&amp;H</span>
+                </div>
+              </a>
+                            <a href="driving-schools">
+                <div class="dropdown-text">
+                  <span class="dropdown-title">Driving Schools</span>
+                  <span class="dropdown-desc">Earn revenue on student referrals</span>
+                </div>
+              </a>
+              <a href="affiliate">
+                <div class="dropdown-text">
+                  <span class="dropdown-title">Affiliate Partners</span>
+                  <span class="dropdown-desc">Associations, media & influencers</span>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="has-dropdown">
+            <a href="blog">Blog</a>
+            <div class="dropdown">
+              <a href="blog">
+                <div class="dropdown-text">
+                  <span class="dropdown-title">Blog</span>
+                  <span class="dropdown-desc">Industry insights and how-to guides</span>
+                </div>
+              </a>
+              <a href="/tools">
+                <div class="dropdown-text">
+                  <span class="dropdown-title">Free Tools</span>
+                  <span class="dropdown-desc">Calculators, calendars &amp; templates</span>
+                </div>
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="nav-right">
+        <div class="login-dropdown">
+          <a href="#" class="nav-login" onclick="return false;">Partner Login <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" style="vertical-align:middle; margin-left:2px;"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="login-dropdown-menu">
+            <a href="affiliate-resources" class="login-option">
+              <div>
+                <div class="login-option-title">Affiliate Toolkit</div>
+                <div class="login-option-desc">Links, creatives & reporting</div>
+              </div>
+            </a>
+            <a href="https://partners.aceable.com/signin" class="login-option">
+              <div>
+                <div class="login-option-title">Bulk Buy Portal</div>
+                <div class="login-option-desc">Vouchers, seats & monitoring</div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <a href="#apply" class="btn-primary">Apply Now</a>
+      </div>
+      <button class="mobile-toggle" onclick="document.getElementById('mobileMenu').classList.toggle('active')" aria-label="Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-sub-label">Partnership Models</div>
+      <a href="bulk-buy">Bulk Buy</a>
+      <a href="affiliate">Affiliate Program</a>
+      <div class="mobile-sub-label">Who We Serve</div>
+      <a href="real-estate">Real Estate Schools &amp; Brokerages</a>
+      <a href="mortgage">Loan Originators & Brokers</a>
+      <a href="high-schools-districts">High Schools & Districts</a>
+      <a href="insurance">Insurance Agencies</a>
+      <a href="driving-schools">Driving Schools</a>
+      <a href="affiliate">Affiliate Partners</a>
+      <div class="mobile-sub-label">&nbsp;</div>
+      <a href="/#how-it-works" onclick="document.getElementById('mobileMenu').classList.remove('active')">How It Works</a>
+      <div class="mobile-sub-label">&nbsp;</div>
+      <a href="blog" onclick="document.getElementById('mobileMenu').classList.remove('active')">Blog</a>
+      <a href="/tools" onclick="document.getElementById('mobileMenu').classList.remove('active')">Free Tools</a>
+      <a href="affiliate-resources" onclick="document.getElementById('mobileMenu').classList.remove('active')">Affiliate Toolkit</a>
+      <a href="https://partners.aceable.com/signin" onclick="document.getElementById('mobileMenu').classList.remove('active')">Bulk Buy Portal</a>
+      <a href="#apply" class="btn-primary" onclick="document.getElementById('mobileMenu').classList.remove('active')">Apply Now</a>
+    </div>
+  </nav>
+
+  <main>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 10);
+    });
+  </script>
+
+  <!-- ── SECTION 1: HERO ── -->
+    <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="eyebrow">Affiliate program</div>
+        <h1>Refer licensing students. <span>Get paid.</span></h1>
+        <p class="subtitle" style="margin-bottom:20px;">Share a tracked link and earn commission on every enrollment. Access real-time reporting, marketing assets, and a partner manager to ensure maximum RevShare.</p>
+        <ul style="list-style:none; padding:0; margin:0 0 24px 0;">
+          <li class="hero-bullet" style="display:flex; align-items:flex-start; gap:10px; margin-bottom:12px; font-size:1.1rem; color:var(--text-secondary, #43646F); white-space:nowrap;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--green, #2CE1AB)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong style="color:var(--charcoal);">15–25% commission</strong> per sale, tiered by volume.</span>
+          </li>
+          <li class="hero-bullet" style="display:flex; align-items:flex-start; gap:10px; margin-bottom:12px; font-size:1.1rem; color:var(--text-secondary, #43646F); white-space:nowrap;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--green, #2CE1AB)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong style="color:var(--charcoal);">30-day attribution.</strong> You get credit even when they buy later.</span>
+          </li>
+          <li class="hero-bullet" style="display:flex; align-items:flex-start; gap:10px; margin-bottom:0; font-size:1.1rem; color:var(--text-secondary, #43646F); white-space:nowrap;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--green, #2CE1AB)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong style="color:var(--charcoal);">Marketing assets</strong> to help amplify your reach.</span>
+          </li>
+        </ul>
+        <div style="margin-top:32px; padding-top:24px; border-top:1px solid var(--grey-300, #E8EEEF);">
+          <div style="font-size:0.78rem; color:var(--text-muted, #6F8C95); font-weight:700; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:14px;">Trusted by 200+ affiliate partners</div>
+          <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:24px 20px; align-items:center; justify-items:center;">
+            <img src="images/partners/kw-logo.png" alt="Keller Williams" style="height:26px; width:auto; max-width:100%; opacity:0.65; filter:grayscale(1);" onerror="this.style.display='none'">
+            <img src="images/partners/exp-realty-logo.png" alt="eXp Realty" style="height:24px; width:auto; max-width:100%; opacity:0.65; filter:grayscale(1);" onerror="this.style.display='none'">
+            <img src="images/partners/compass-logo.svg" alt="Compass" style="height:22px; width:auto; max-width:100%; opacity:0.65; filter:grayscale(1);" onerror="this.style.display='none'">
+            <img src="images/partners/allstate-logo.svg" alt="Allstate" style="height:20px; width:auto; max-width:100%; opacity:0.7; filter:grayscale(1);" onerror="this.style.display='none'">
+            <img src="images/partners/rei-logo.png" alt="Real Estate Institute" style="height:34px; width:auto; max-width:100%; opacity:0.75; filter:grayscale(1);" onerror="this.style.display='none'">
+            <img src="images/partners/tom-ferry-logo.svg" alt="Tom Ferry" style="height:26px; width:auto; max-width:100%; opacity:0.7; filter:grayscale(1);" onerror="this.style.display='none'">
+          </div>
+        </div>
+        <div style="margin-top:28px; padding-top:24px; border-top:1px solid var(--grey-300, #E8EEEF); display:grid; grid-template-columns:repeat(4, 1fr); gap:20px;">
+          <div><div style="font-size:1.85rem; font-weight:900; color:var(--pink); line-height:1;">200+</div><div style="font-size:0.78rem; color:var(--text-muted, #6F8C95); font-weight:600; margin-top:6px; line-height:1.3;">Affiliate partners</div></div>
+          <div><div style="font-size:1.85rem; font-weight:900; color:var(--pink); line-height:1;">70%</div><div style="font-size:0.78rem; color:var(--text-muted, #6F8C95); font-weight:600; margin-top:6px; line-height:1.3;">Intro commission</div></div>
+          <div><div style="font-size:1.85rem; font-weight:900; color:var(--pink); line-height:1;">30-day</div><div style="font-size:0.78rem; color:var(--text-muted, #6F8C95); font-weight:600; margin-top:6px; line-height:1.3;">Cookie window</div></div>
+          <div><div style="font-size:1.85rem; font-weight:900; color:var(--pink); line-height:1;">50</div><div style="font-size:0.78rem; color:var(--text-muted, #6F8C95); font-weight:600; margin-top:6px; line-height:1.3;">States in catalog</div></div>
+        </div>
+      </div>
+
+      <div class="hero-form-card">
+        <script charset="utf-8" type="text/javascript" src="//js-na2.hsforms.net/forms/embed/v2.js"></script>
+        <script>
+          hbspt.forms.create({
+            portalId: "4906327",
+            formId: "32ba488c-35b4-4dc8-b3cc-a3370b8f9da1",
+            region: "na2",
+            css: `
+              @font-face { font-family: 'Nunito Sans'; font-style: normal; font-weight: 400; font-display: swap; src: url(https://partnerships.aceable.com/fonts/nunito-sans-400.woff2) format('woff2'); }
+              @font-face { font-family: 'Nunito Sans'; font-style: normal; font-weight: 600; font-display: swap; src: url(https://partnerships.aceable.com/fonts/nunito-sans-600.woff2) format('woff2'); }
+              @font-face { font-family: 'Nunito Sans'; font-style: normal; font-weight: 700; font-display: swap; src: url(https://partnerships.aceable.com/fonts/nunito-sans-700.woff2) format('woff2'); }
+              @font-face { font-family: 'Nunito Sans'; font-style: normal; font-weight: 800; font-display: swap; src: url(https://partnerships.aceable.com/fonts/nunito-sans-800.woff2) format('woff2'); }
+              @font-face { font-family: 'Nunito Sans'; font-style: normal; font-weight: 900; font-display: swap; src: url(https://partnerships.aceable.com/fonts/nunito-sans-900.woff2) format('woff2'); }
+              body, * { font-family: 'Nunito Sans', system-ui, -apple-system, sans-serif !important; }
+              body { color: #21333F; }
+              .hs-richtext, .hs-richtext p { color: #21333F !important; font-size: 14px !important; line-height: 1.6 !important; margin-bottom: 16px !important; }
+              .hs-form-title { display: none !important; }
+              .hs-richtext h1 { display: none !important; }
+              .inputs-list { list-style: none !important; padding: 0 !important; margin: 0 !important; }
+              .inputs-list label { display: flex !important; align-items: center !important; gap: 8px !important; font-weight: 600 !important; margin-bottom: 4px !important; }
+              .hs-field-desc { color: #6F8C95 !important; font-size: 12px !important; line-height: 1.4 !important; margin: 0 0 6px !important; }
+              .hs-form-field { margin-bottom: 16px !important; }
+              .hs-form-field label { color: #21333F !important; font-weight: 700 !important; font-size: 14px !important; display: block !important; margin-bottom: 6px !important; }
+              .hs-form-required { color: #DB306A !important; }
+              input[type="text"], input[type="email"], input[type="tel"], input[type="number"], select, textarea {
+                width: 100% !important; box-sizing: border-box !important; color: #21333F !important; background: #fff !important;
+                border: 1px solid #E8EEEF !important; border-radius: 8px !important; padding: 12px 14px !important; font-size: 15px !important;
+              }
+              ul.hs-error-msgs { list-style: none !important; margin: 4px 0 0 !important; padding: 0 !important; }
+              ul.hs-error-msgs label { color: #c0392b !important; font-size: 12px !important; font-weight: 600 !important; }
+              .legal-consent-container, .legal-consent-container p, .legal-consent-container a, .legal-consent-container * {
+                color: #6F8C95 !important; font-size: 12px !important; line-height: 1.5 !important;
+              }
+              .hs-button, input[type="submit"] {
+                background: #DB306A !important; color: #ffffff !important; border: none !important; border-radius: 9999px !important;
+                padding: 14px 28px !important; font-weight: 700 !important; font-size: 15px !important; cursor: pointer !important;
+              }
+              .hs-button:hover { background: #B8245A !important; }
+            `
+          });
+        </script>
+        <div class="hero-form-divider">Or</div>
+        <div class="hero-call-cta">
+          <p style="font-weight:700; font-size:0.95rem; color:var(--charcoal); margin-bottom:10px;">Prefer to talk it through?</p>
+          <button type="button" onclick="openMeetingsModal()" class="btn-secondary" style="display:inline-flex; align-items:center; gap:8px; padding:12px 22px; font-size:0.95rem; font-weight:700; background:#fff;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Book a 15-min Call
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 4: WHO IT'S FOR ── -->
+  <section class="section section-light">
+    <div class="container text-center">
+      <div class="eyebrow">Who it's for</div>
+      <h2>Two different partners, one affiliate program</h2>
+      <p class="subtitle mx-auto">Whether you have a blog, students, franchises, or team members who need to get licensed. The Aceable affiliate program is designed for you.</p>
+    </div>
+    <div class="container">
+      <div class="audience-columns">
+        <div class="audience-column">
+          <div class="audience-card-wide audience-pink">
+            <h3>For publishers and creators</h3>
+            <p>Content sites, associations, publishers, creators, educators. People come to you for guidance and some of them need a license.</p>
+          </div>
+          <div class="audience-subgrid">
+            <div class="audience-card audience-sub-pink">
+              <div class="audience-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="var(--pink)" stroke="none"><path d="M15.5 1h-8C6.12 1 5 2.12 5 3.5v17C5 21.88 6.12 23 7.5 23h8c1.38 0 2.5-1.12 2.5-2.5v-17C18 2.12 16.88 1 15.5 1zm-4 21c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4.5-4H7V4h9v14z"/></svg></div>
+              <h3>Content Creators</h3>
+              <p>Bloggers, YouTubers, and podcasters in real estate and career niches.</p>
+            </div>
+            <div class="audience-card audience-sub-pink">
+              <div class="audience-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="var(--pink)" stroke="none"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div>
+              <h3>Industry Associations</h3>
+              <p>Professional orgs that recommend resources and tools to their members.</p>
+            </div>
+            <div class="audience-card audience-sub-pink">
+              <div class="audience-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="var(--pink)" stroke="none"><path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"/></svg></div>
+              <h3>Media Companies</h3>
+              <p>Publishers and content sites looking for high-quality affiliate offers.</p>
+            </div>
+            <div class="audience-card audience-sub-pink">
+              <div class="audience-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="var(--pink)" stroke="none"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+              <h3>Influencers</h3>
+              <p>Social media creators with engaged audiences in relevant verticals.</p>
+            </div>
+          </div>
+        </div>
+        <div class="audience-column">
+          <div class="audience-card-wide audience-teal">
+            <h3>For agencies and organizations</h3>
+            <p>FMOs, IMOs, franchise networks, agencies, brokerages, and schools that serve or recruit team members who need to get licensed.</p>
+          </div>
+          <div class="audience-subgrid">
+            <div class="audience-card audience-sub-teal">
+              <div class="audience-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="var(--teal)" stroke="none"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+              <h3>Schools</h3>
+              <p>Driving and real estate schools guiding students toward their next license.</p>
+            </div>
+            <div class="audience-card audience-sub-teal">
+              <div class="audience-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="var(--teal)" stroke="none"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg></div>
+              <h3>Agencies</h3>
+              <p>Agencies that recruit and license team members.</p>
+            </div>
+            <div class="audience-card audience-sub-teal">
+              <div class="audience-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="var(--teal)" stroke="none"><path d="M12 3L2 9v2h20V9L12 3zM4 21h16v-2H4v2zm2-3h2v-6H6v6zm5 0h2v-6h-2v6zm5 0h2v-6h-2v6z"/></svg></div>
+              <h3>Brokerages</h3>
+              <p>Onboarding agents who need pre-licensing and CE.</p>
+            </div>
+            <div class="audience-card audience-sub-teal">
+              <div class="audience-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="var(--teal)" stroke="none"><path d="M20 4H4v2h16V4zm1 10v-2l-1-5H4l-1 5v2h1v6h10v-6h4v6h2v-6h1zm-9 4H6v-4h6v4z"/></svg></div>
+              <h3>Franchises</h3>
+              <p>Licensing teams across every franchise location.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 5: COMMISSION STRUCTURE ── -->
+  <section class="section" id="commissions">
+    <div class="container text-center">
+      <div class="eyebrow">Commission Structure</div>
+      <h2>The more you refer, the more you earn</h2>
+      <p class="subtitle mx-auto">Our tiered commission structure rewards top-performing affiliates with higher rates and exclusive perks.</p>
+    </div>
+    <div class="container">
+      <div style="background:#E9F3F9; border:1.5px solid #B8D8E8; border-radius:16px; padding:20px 28px; text-align:center; margin-top:24px; margin-bottom:32px; display:flex; align-items:center; justify-content:center; gap:12px; flex-wrap:wrap;">
+        <span style="font-size:1.5rem;">&#128293;</span>
+        <span style="font-weight:700; font-size:1.05rem;">Limited intro offer: Qualifying new partners start at <span style="color:#DB306A; font-size:1.2rem; font-weight:800;">70% commission</span> for the first year.</span>
+        <a href="#apply" style="background:var(--pink); color:#fff; font-weight:700; font-size:0.9rem; padding:8px 20px; border-radius:9999px; text-decoration:none; white-space:nowrap;">Ask If You Qualify</a>
+      </div>
+      <div class="tiers-grid">
+        <div class="tier-card">
+          <div class="tier-name">Starter</div>
+          <div class="tier-rate">15%</div>
+          <div class="tier-label">commission per sale</div>
+          <ul>
+            <li>1 - 25 referrals / month</li>
+            <li>Standard marketing assets</li>
+            <li>Real-time tracking dashboard</li>
+            <li>Monthly payouts</li>
+          </ul>
+          <a href="#apply" class="btn-secondary" style="padding:12px 28px; font-size:0.95rem;">Get Started</a>
+        </div>
+        <div class="tier-card featured">
+          <div class="tier-badge">Most Popular</div>
+          <div class="tier-name">Growth</div>
+          <div class="tier-rate">20%</div>
+          <div class="tier-label">commission per sale</div>
+          <ul>
+            <li>26 - 100 referrals / month</li>
+            <li>Priority marketing assets</li>
+            <li>Real-time tracking dashboard</li>
+            <li>Monthly payouts</li>
+            <li>Dedicated affiliate manager</li>
+          </ul>
+          <a href="#apply" class="btn-primary" style="padding:12px 28px; font-size:0.95rem;">Apply Now</a>
+        </div>
+        <div class="tier-card">
+          <div class="tier-name">Elite</div>
+          <div class="tier-rate">25%</div>
+          <div class="tier-label">commission per sale</div>
+          <ul>
+            <li>100+ referrals / month</li>
+            <li>Custom co-branded assets</li>
+            <li>Real-time tracking dashboard</li>
+            <li>Bi-weekly payouts</li>
+            <li>Dedicated affiliate manager</li>
+            <li>Early access to new courses</li>
+          </ul>
+          <a href="#apply" class="btn-secondary" style="padding:12px 28px; font-size:0.95rem;">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── AFFILIATE EARNINGS CALCULATOR ── -->
+  <section id="earnings-calculator" style="background-color: #21333F; padding: 80px 0; font-family: 'Nunito Sans', sans-serif;">
+    <style>
+      .aff-calc-container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+      .aff-calc-label { text-transform: uppercase; font-size: 0.8rem; font-weight: 700; letter-spacing: 2px; color: #DB306A; text-align: center; margin-bottom: 12px; }
+      .aff-calc-title { font-size: 2.25rem; font-weight: 800; color: #fff; text-align: center; margin: 0 0 12px; line-height: 1.15; }
+      .aff-calc-subtitle { font-size: 1.1rem; color: #a0b3bf; text-align: center; margin: 0 auto 48px; max-width: 580px; line-height: 1.5; }
+      .aff-calc-card { background: #29404e; border-radius: 16px; padding: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+      .aff-calc-inputs h3, .aff-calc-results h3 { font-size: 1.2rem; font-weight: 700; color: #fff; margin: 0 0 28px; }
+      .aff-calc-group { margin-bottom: 32px; }
+      .aff-calc-group:last-child { margin-bottom: 0; }
+      .aff-calc-group-label { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; }
+      .aff-calc-group-label span { font-size: 0.85rem; font-weight: 600; color: #c0d0d8; }
+      .aff-calc-group-label strong { font-size: 1.6rem; font-weight: 800; color: #fff; }
+      .aff-calc-slider { -webkit-appearance: none; appearance: none; width: 100%; height: 6px; border-radius: 3px; background: linear-gradient(to right, #DB306A var(--fill, 0%), #1a2d38 var(--fill, 0%)); outline: none; cursor: pointer; }
+      .aff-calc-slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 24px; height: 24px; border-radius: 50%; background: #DB306A; border: 3px solid #fff; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.3); transition: transform 0.15s; }
+      .aff-calc-slider::-webkit-slider-thumb:hover { transform: scale(1.15); }
+      .aff-calc-slider::-moz-range-thumb { width: 24px; height: 24px; border-radius: 50%; background: #DB306A; border: 3px solid #fff; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.3); }
+      .aff-calc-price-wrap { position: relative; }
+      .aff-calc-price-wrap::before { content: '$'; position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: #a0b3bf; font-size: 1.1rem; font-weight: 700; pointer-events: none; }
+      .aff-calc-price-input { width: 100%; padding: 12px 16px 12px 28px; background: #1a2d38; border: 2px solid #3a5565; border-radius: 8px; color: #fff; font-size: 1.1rem; font-weight: 700; font-family: inherit; outline: none; transition: border-color 0.2s; }
+      .aff-calc-price-input:focus { border-color: #DB306A; }
+      .aff-calc-result-row { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+      .aff-calc-result-row:last-child { border-bottom: none; }
+      .aff-calc-result-label { font-size: 0.85rem; font-weight: 600; color: #a0b3bf; }
+      .aff-calc-result-value { font-size: 1.1rem; font-weight: 800; color: #fff; transition: opacity 0.2s; }
+      .aff-tier-badge { display: inline-block; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
+      .aff-tier-starter { background: rgba(219,48,106,0.15); color: #DB306A; }
+      .aff-tier-growth { background: rgba(25,120,134,0.2); color: #2bc4d8; }
+      .aff-tier-elite { background: rgba(255,193,7,0.15); color: #ffc107; }
+      .aff-calc-gated { position: relative; margin-top: 8px; border-radius: 12px; overflow: hidden; }
+      .aff-calc-gated-nums .aff-calc-result-row { filter: blur(8px); user-select: none; pointer-events: none; }
+      .aff-calc-gate { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(41,64,78,0.55); backdrop-filter: blur(2px); z-index: 2; text-align: center; padding: 16px; }
+      .aff-calc-gate p { font-size: 1rem; font-weight: 700; color: #fff; margin: 0 0 16px; }
+      .aff-calc-gate-cta { display: inline-block; padding: 12px 28px; background: #DB306A; color: #fff; font-size: 0.95rem; font-weight: 700; font-family: inherit; border-radius: 8px; text-decoration: none; transition: background 0.2s, transform 0.15s; }
+      .aff-calc-gate-cta:hover { background: #c42a5e; transform: translateY(-1px); }
+      .aff-calc-intro-note { margin-top: 24px; padding: 16px 20px; background: rgba(25,120,134,0.12); border-left: 3px solid #197886; border-radius: 0 8px 8px 0; font-size: 0.85rem; color: #a0b3bf; line-height: 1.5; }
+      .aff-calc-intro-note strong { color: #2bc4d8; }
+      @media (max-width: 768px) { .aff-calc-card { grid-template-columns: 1fr; gap: 36px; padding: 28px 24px; } .aff-calc-title { font-size: 1.75rem; } .aff-calc-subtitle { font-size: 1rem; margin-bottom: 32px; } }
+      @media (max-width: 480px) { #earnings-calculator { padding: 56px 0; } .aff-calc-card { padding: 24px 20px; border-radius: 12px; } .aff-calc-title { font-size: 1.5rem; } .aff-calc-group-label strong { font-size: 1.4rem; } }
+    </style>
+    <div class="aff-calc-container">
+      <p class="aff-calc-label">Earnings Calculator</p>
+      <h2 class="aff-calc-title">Estimate Your Commission</h2>
+      <p class="aff-calc-subtitle">Adjust the sliders to see which tier you qualify for and what you could earn as an Aceable affiliate partner.</p>
+      <div class="aff-calc-card">
+        <div class="aff-calc-inputs">
+          <h3>Your Numbers</h3>
+          <div class="aff-calc-group">
+            <div class="aff-calc-group-label">
+              <span>Monthly Referrals</span>
+              <strong id="affReferralDisplay">25</strong>
+            </div>
+            <input type="range" id="affReferralSlider" class="aff-calc-slider" min="1" max="200" value="25">
+          </div>
+          <div class="aff-calc-group">
+            <div class="aff-calc-group-label"><span>Average Course Price</span></div>
+            <div class="aff-calc-price-wrap">
+              <input type="number" id="affPriceInput" class="aff-calc-price-input" value="400" min="1" max="9999" step="1">
+            </div>
+          </div>
+          <div class="aff-calc-intro-note">
+            <strong>New partner?</strong> Qualifying partners can receive a <strong>70% introductory commission</strong> on their first sales.
+          </div>
+        </div>
+        <div class="aff-calc-results">
+          <h3>Your Estimate</h3>
+          <div class="aff-calc-result-row">
+            <span class="aff-calc-result-label">Commission Tier</span>
+            <span class="aff-calc-result-value"><span id="affTierBadge" class="aff-tier-badge aff-tier-starter">Starter</span></span>
+          </div>
+          <div style="height:1px; background:rgba(255,255,255,0.08); margin:8px 0;"></div>
+          <div class="aff-calc-gated">
+            <div class="aff-calc-gated-nums">
+              <div class="aff-calc-result-row">
+                <span class="aff-calc-result-label">Commission Rate</span>
+                <span class="aff-calc-result-value" id="affRate">15%</span>
+              </div>
+              <div class="aff-calc-result-row">
+                <span class="aff-calc-result-label">Monthly Commission</span>
+                <span class="aff-calc-result-value" id="affMonthly">$1,500</span>
+              </div>
+              <div class="aff-calc-result-row">
+                <span class="aff-calc-result-label">Annual Commission</span>
+                <span class="aff-calc-result-value" id="affAnnual" style="color:#DB306A; font-size:1.3rem;">$18,000</span>
+              </div>
+            </div>
+            <div class="aff-calc-gate">
+              <p>See your full earnings</p>
+              <a href="#apply" class="aff-calc-gate-cta">Talk to a Partner Manager</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+    (function() {
+      var slider = document.getElementById('affReferralSlider');
+      var display = document.getElementById('affReferralDisplay');
+      var priceInput = document.getElementById('affPriceInput');
+      var tierBadge = document.getElementById('affTierBadge');
+      var rateEl = document.getElementById('affRate');
+      var revenueEl = document.getElementById('affRevenue');
+      var monthlyEl = document.getElementById('affMonthly');
+      var annualEl = document.getElementById('affAnnual');
+      function getTier(r) { if(r<=25) return {name:'Starter',rate:0.15,cls:'aff-tier-starter'}; if(r<=100) return {name:'Growth',rate:0.20,cls:'aff-tier-growth'}; return {name:'Elite',rate:0.25,cls:'aff-tier-elite'}; }
+      function fmt(n) { return '$'+Math.round(n).toLocaleString('en-US'); }
+      function fillSlider() { var pct=((slider.value-slider.min)/(slider.max-slider.min))*100; slider.style.setProperty('--fill',pct+'%'); }
+      function calc() {
+        var refs=parseInt(slider.value,10), price=Math.max(1,parseFloat(priceInput.value)||400), t=getTier(refs);
+        var rev=refs*price, mo=rev*t.rate, yr=mo*12;
+        display.textContent=refs; fillSlider();
+        tierBadge.textContent=t.name; tierBadge.className='aff-tier-badge '+t.cls;
+        rateEl.textContent=Math.round(t.rate*100)+'%';
+        revenueEl.textContent=fmt(rev); monthlyEl.textContent=fmt(mo); annualEl.textContent=fmt(yr);
+      }
+      slider.addEventListener('input',calc);
+      priceInput.addEventListener('input',calc);
+      calc();
+    })();
+    </script>
+  </section>
+
+  <!-- ── WHAT'S INCLUDED ── -->
+  <section class="section">
+    <div class="container text-center">
+      <div class="eyebrow">WHAT'S INCLUDED</div>
+      <h2>Why affiliate with Aceable?</h2>
+      <p class="subtitle mx-auto">We've built our affiliate program to make it easy for partners to succeed — with industry-leading tools, support, and payouts.</p>
+    </div>
+    <div class="container">
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="var(--teal)" stroke="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.67v-1.93c-1.71-.36-3.16-1.46-3.27-3.4h1.96c.1 1.05.82 1.87 2.65 1.87 1.96 0 2.4-.98 2.4-1.59 0-.83-.44-1.61-2.67-2.14-2.48-.6-4.18-1.62-4.18-3.67 0-1.72 1.39-2.84 3.11-3.21V4h2.67v1.95c1.86.45 2.79 1.86 2.85 3.39H14.3c-.05-1.11-.64-1.87-2.22-1.87-1.5 0-2.4.68-2.4 1.64 0 .84.65 1.39 2.67 1.94s4.18 1.36 4.18 3.85c0 1.89-1.44 2.98-3.12 3.19z"/></svg></div>
+          <h3>Competitive commission</h3>
+          <p>15%-25% commission that increases as you grow and scale your affiliate efforts.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="var(--teal)" stroke="none"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg></div>
+          <h3>30-day attribution</h3>
+          <p>Licensing is a considered purchase. People research, leave and come back. You still get credit.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="var(--teal)" stroke="none"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg></div>
+          <h3>Real-time dashboard</h3>
+          <p>Clicks, conversions and earnings as they happen. No waiting for a monthly report.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="var(--teal)" stroke="none"><path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z"/></svg></div>
+          <h3>Marketing assets</h3>
+          <p>Ready-to-send emails, social copy, banners, landing page content, Slacks, text messages, and more.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="var(--teal)" stroke="none"><path d="M12 3C7.03 3 3 7.03 3 12s4.03 9 9 9c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-.99 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8zm-5.5 9c-.83 0-1.5-.67-1.5-1.5S5.67 9 6.5 9 8 9.67 8 10.5 7.33 12 6.5 12zm3-4C8.67 8 8 7.33 8 6.5S8.67 5 9.5 5s1.5.67 1.5 1.5S10.33 8 9.5 8zm5 0c-.83 0-1.5-.67-1.5-1.5S13.67 5 14.5 5s1.5.67 1.5 1.5S15.33 8 14.5 8zm3 4c-.83 0-1.5-.67-1.5-1.5S16.67 9 17.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg></div>
+          <h3>Co-branded campaigns</h3>
+          <p>Designed to help our partners convert up to 3x better and maximize affiliate revenue.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="var(--teal)" stroke="none"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div>
+          <h3>Dedicated partner manager</h3>
+          <p>A real person for strategy and optimization, not a support queue.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="var(--teal)" stroke="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L21 8l-9 9z"/></svg></div>
+          <h3>Courses people finish</h3>
+          <p>Mobile-first, engaging courses that boast a 94% course completion rate. Your reputation is in good hands.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="var(--teal)" stroke="none"><path d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z"/></svg></div>
+          <h3>Multiple verticals</h3>
+          <p>Share licensing courses with people interested in driving licenses, real estate, mortgage, insurance, and more!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 6: TESTIMONIAL ── -->
+  <section class="section section-light">
+    <div class="container text-center">
+      <div class="eyebrow">What Partners Say</div>
+      <h2>Hear from our affiliates</h2>
+    </div>
+    <div class="container">
+      <div class="testimonials-grid">
+        <div style="background:var(--bg-white); border-radius:var(--radius); padding:32px; box-shadow:var(--shadow-card);">
+          <div style="display:flex; gap:2px; margin-bottom:16px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#DB306A" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#DB306A" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#DB306A" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#DB306A" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#DB306A" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p style="font-style:italic; color:var(--text-secondary); line-height:1.7; margin-bottom:20px;">"The 30-day cookie window and high course completion rates mean our audience actually follows through — which means consistent commissions for us. One of our top-performing partnerships."</p>
+          <div style="display:flex; align-items:center; gap:12px;">
+            <div style="width:40px;height:40px;border-radius:50%;background:var(--bg-blue);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--teal);font-size:0.9rem;">JT</div>
+            <div><div style="font-weight:700; font-size:0.9rem;">James Torres</div><div style="font-size:0.8rem; color:var(--text-muted);">Content Lead, RealEstateHub Media</div></div>
+          </div>
+        </div>
+        <div style="background:var(--bg-white); border-radius:var(--radius); padding:32px; box-shadow:var(--shadow-card);">
+          <div style="display:flex; gap:2px; margin-bottom:16px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#DB306A" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#DB306A" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#DB306A" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#DB306A" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#DB306A" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p style="font-style:italic; color:var(--text-secondary); line-height:1.7; margin-bottom:20px;">"We added Aceable links to our driver's ed resource page and it immediately started converting. The dashboard makes it easy to see what's working, and the payouts are always on time."</p>
+          <div style="display:flex; align-items:center; gap:12px;">
+            <div style="width:40px;height:40px;border-radius:50%;background:#FDEEF3;display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--pink);font-size:0.9rem;">PM</div>
+            <div><div style="font-weight:700; font-size:0.9rem;">Priya Mehta</div><div style="font-size:0.8rem; color:var(--text-muted);">Founder, SafeTeenDrivers.com</div></div>
+          </div>
+        </div>
+        <div style="background:var(--bg-white); border-radius:var(--radius); padding:32px; box-shadow:var(--shadow-card);">
+          <div style="display:flex; gap:2px; margin-bottom:16px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#DB306A" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#DB306A" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#DB306A" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#DB306A" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#DB306A" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p style="font-style:italic; color:var(--text-secondary); line-height:1.7; margin-bottom:20px;">"Our insurance newsletter audience loves Aceable's courses. The marketing assets they provide are actually good — we barely had to customize anything to match our brand."</p>
+          <div style="display:flex; align-items:center; gap:12px;">
+            <div style="width:40px;height:40px;border-radius:50%;background:#E8F5E9;display:flex;align-items:center;justify-content:center;font-weight:800;color:#0E8A68;font-size:0.9rem;">RB</div>
+            <div><div style="font-weight:700; font-size:0.9rem;">Ryan Beck</div><div style="font-size:0.8rem; color:var(--text-muted);">Director of Partnerships, InsureWise Media</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 7: FAQ ── -->
+  <section class="section" id="faq">
+    <div class="container text-center">
+      <div class="eyebrow">FAQ</div>
+      <h2>Frequently asked questions</h2>
+      <p class="subtitle mx-auto">Everything you need to know about the Aceable affiliate program.</p>
+    </div>
+    <div class="container">
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">How do I apply to the affiliate program?</button>
+          <div class="faq-answer">Fill out the application form on this page with your name, website or social channels, and a brief description of your audience. Our team reviews applications within 48 hours and will follow up via email with next steps.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">How and when do I get paid?</button>
+          <div class="faq-answer">Commissions are paid monthly via direct deposit or PayPal. You'll receive payment for all confirmed sales from the previous month by the 15th of the following month. Elite tier affiliates are eligible for bi-weekly payouts.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">What is the cookie window?</button>
+          <div class="faq-answer">We use a 30-day cookie window, which means if someone clicks your affiliate link and makes a purchase within 30 days, you receive the commission — even if they don't buy on their first visit.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">Which courses can I promote?</button>
+          <div class="faq-answer">You can promote any Aceable course across all of our verticals: driver's education, real estate pre-licensing and CE, mortgage (NMLS), and insurance. We have 50+ state-approved courses available.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">Is there a minimum audience size to qualify?</button>
+          <div class="faq-answer">There is no strict minimum, but we look for partners who have an engaged audience relevant to our course verticals. This could be a blog, social following, email list, YouTube channel, podcast, or membership community.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">Do I need to handle customer support?</button>
+          <div class="faq-answer">No. Aceable handles all customer support, course delivery, and learner communication. Your only job is to share your link. We take care of everything else.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 8: LEAD CAPTURE FORM ── -->
+  <section class="form-section" id="apply">
+    <div class="form-wrapper">
+      <div class="form-copy">
+        <div class="eyebrow">Join the Program</div>
+        <h2>Apply to become an Aceable partner</h2>
+        <p>Tell us about your audience or your organization. We review applications within 48 hours.</p>
+        <ul>
+          <li>Free to join — no fees, no minimums</li>
+          <li>Dashboard access on approval</li>
+          <li>Marketing assets on day one</li>
+          <li>A dedicated partner manager</li>
+        </ul>
+        <div style="margin-top:28px; padding:24px; background:var(--bg-blue); border-radius:16px; border:1px solid var(--border);">
+          <p style="font-weight:800; font-size:1rem; margin-bottom:12px; color:var(--charcoal);">Prefer to skip the form?</p>
+          <div style="display:flex; gap:12px;">
+            <button onclick="openMeetingsModal()" class="btn-secondary" style="font-size:0.9rem; padding:12px 24px; flex:1; text-align:center;">Book a 15-min Call</button>
+          </div>
+        </div>
+      </div>
+      <div class="form-card">
+        <script charset="utf-8" type="text/javascript" src="//js-na2.hsforms.net/forms/embed/v2.js"></script>
+        <script>
+          hbspt.forms.create({
+            portalId: "4906327",
+            formId: "32ba488c-35b4-4dc8-b3cc-a3370b8f9da1",
+            region: "na2",
+            css: `
+              @font-face { font-family: 'Nunito Sans'; font-style: normal; font-weight: 400; font-display: swap; src: url(https://partnerships.aceable.com/fonts/nunito-sans-400.woff2) format('woff2'); }
+              @font-face { font-family: 'Nunito Sans'; font-style: normal; font-weight: 600; font-display: swap; src: url(https://partnerships.aceable.com/fonts/nunito-sans-600.woff2) format('woff2'); }
+              @font-face { font-family: 'Nunito Sans'; font-style: normal; font-weight: 700; font-display: swap; src: url(https://partnerships.aceable.com/fonts/nunito-sans-700.woff2) format('woff2'); }
+              @font-face { font-family: 'Nunito Sans'; font-style: normal; font-weight: 800; font-display: swap; src: url(https://partnerships.aceable.com/fonts/nunito-sans-800.woff2) format('woff2'); }
+              @font-face { font-family: 'Nunito Sans'; font-style: normal; font-weight: 900; font-display: swap; src: url(https://partnerships.aceable.com/fonts/nunito-sans-900.woff2) format('woff2'); }
+              body, * { font-family: 'Nunito Sans', system-ui, -apple-system, sans-serif !important; }
+              body { color: #21333F; }
+              .hs-richtext, .hs-richtext p { color: #21333F !important; font-size: 14px !important; line-height: 1.6 !important; margin-bottom: 16px !important; }
+              .hs-form-title { display: none !important; }
+              .hs-richtext h1 { display: none !important; }
+              .inputs-list { list-style: none !important; padding: 0 !important; margin: 0 !important; }
+              .inputs-list label { display: flex !important; align-items: center !important; gap: 8px !important; font-weight: 600 !important; margin-bottom: 4px !important; }
+              .hs-field-desc { color: #6F8C95 !important; font-size: 12px !important; line-height: 1.4 !important; margin: 0 0 6px !important; }
+              .hs-form-field { margin-bottom: 16px !important; }
+              .hs-form-field label { color: #21333F !important; font-weight: 700 !important; font-size: 14px !important; display: block !important; margin-bottom: 6px !important; }
+              .hs-form-required { color: #DB306A !important; }
+              input[type="text"], input[type="email"], input[type="tel"], input[type="number"], select, textarea {
+                width: 100% !important; box-sizing: border-box !important; color: #21333F !important; background: #fff !important;
+                border: 1px solid #E8EEEF !important; border-radius: 8px !important; padding: 12px 14px !important; font-size: 15px !important;
+              }
+              ul.hs-error-msgs { list-style: none !important; margin: 4px 0 0 !important; padding: 0 !important; }
+              ul.hs-error-msgs label { color: #c0392b !important; font-size: 12px !important; font-weight: 600 !important; }
+              .legal-consent-container, .legal-consent-container p, .legal-consent-container a, .legal-consent-container * {
+                color: #6F8C95 !important; font-size: 12px !important; line-height: 1.5 !important;
+              }
+              .hs-button, input[type="submit"] {
+                background: #DB306A !important; color: #ffffff !important; border: none !important; border-radius: 9999px !important;
+                padding: 14px 28px !important; font-weight: 700 !important; font-size: 15px !important; cursor: pointer !important;
+              }
+              .hs-button:hover { background: #B8245A !important; }
+            `
+          });
+        </script>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  </main>
+
+  <!-- ── MOBILE STICKY CTA BAR ── -->
+  <div class="mobile-cta-bar">
+    <a href="tel:+15124881212" class="mobile-call" aria-label="Call us">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    </a>
+    <a href="#apply" class="mobile-form">Talk to a partner manager</a>
+  </div>
+
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo"><img src="images/aceable-logo.png" alt="Aceable" style="height:28px; width:auto;"></div>
+      <div class="footer-links">
+        <a href="https://www.aceable.com/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a>
+        <a href="https://www.aceable.com/tandc/" target="_blank" rel="noopener">Terms &amp; Conditions</a>
+        <a href="mailto:sales@aceable.com">sales@aceable.com</a>
+      </div>
+      <div>&copy; 2026 Aceable, Inc. All rights reserved.</div>
+    </div>
+  </footer>
+
+
+  <!-- Segment Event Tracking -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Track form submissions as Email Gathered
+    document.querySelectorAll('form').forEach(function(form) {
+      form.addEventListener('submit', function() {
+        var emailField = this.querySelector('input[type="email"], input[name="email"]');
+        analytics.track('Email Gathered', {
+          email: emailField ? emailField.value : '',
+          source: 'b2b_partner_form'
+        });
+      });
+    });
+  });
+  </script>
+
+<!-- HubSpot Meetings Modal -->
+<div id="meetings-modal" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.6); overflow-y:auto; padding:24px 16px;" onclick="closeMeetingsModal()">
+  <div style="position:relative; background:#fff; border-radius:12px; width:100%; max-width:700px; min-height:600px; margin:0 auto; box-shadow:0 25px 50px rgba(0,0,0,0.25);" onclick="event.stopPropagation()">
+    <button onclick="closeMeetingsModal()" style="position:absolute; top:12px; right:12px; z-index:10; width:36px; height:36px; border-radius:50%; border:none; background:#E8EBED; cursor:pointer; font-size:18px; font-weight:bold; color:#21333F; display:flex; align-items:center; justify-content:center;" aria-label="Close">&times;</button>
+    <div id="meetings-embed" style="width:100%; min-height:600px; border-radius:12px;"></div>
+  </div>
+</div>
+<script>
+function aceableBookingSuccessHandler(event){
+  if(!event || !event.data) return;
+  var origin = event.origin || '';
+  if (origin.indexOf('hubspot.com') === -1) return;
+  if (event.data.meetingBookSucceeded === true) {
+    window.removeEventListener('message', aceableBookingSuccessHandler);
+    var src = encodeURIComponent(window.location.pathname || '/');
+    setTimeout(function(){ window.location.href = '/booking-thank-you?source=' + src; }, 250);
+  }
+}
+window.aceableBookingSuccessHandler = aceableBookingSuccessHandler;
+function openMeetingsModal(){
+  var m=document.getElementById('meetings-modal');
+  var c=document.getElementById('meetings-embed');
+  c.innerHTML='<div class="meetings-iframe-container" data-src="https://meetings-na2.hubspot.com/dweier/partners-call?embed=true"></div>';
+  m.style.display='block';
+  document.body.style.overflow='hidden';
+  window.removeEventListener('message', window.aceableBookingSuccessHandler);
+  window.addEventListener('message', window.aceableBookingSuccessHandler);
+  var old=document.getElementById('hs-meetings-script');
+  if(old)old.remove();
+  var s=document.createElement('script');
+  s.id='hs-meetings-script';
+  s.src='https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js';
+  document.body.appendChild(s);
+}
+function closeMeetingsModal(){
+  window.removeEventListener('message', window.aceableBookingSuccessHandler);
+  var m=document.getElementById('meetings-modal');
+  var c=document.getElementById('meetings-embed');
+  c.innerHTML='';
+  m.style.display='none';
+  document.body.style.overflow='';
+}
+</script>
+
+
+<!-- Start of HubSpot Embed Code -->
+<script type="text/javascript" id="hs-script-loader" async defer src="https://js-na2.hs-scripts.com/4906327.js"></script>
+<!-- End of HubSpot Embed Code -->
+</body>
+</html>

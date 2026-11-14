@@ -1,0 +1,382 @@
+{"dates": [
+  {
+    "BgnDt": "12/1/2023",
+    "EndDt": "11/30/2025"
+  }
+],"passrates0":[
+  {
+    "SchlNm": "Overall Subject Matter Statistics",
+    "SbjctMttrPC": "56.18%",
+    "SALEExmCnt": 29980,
+    "SALEExmPssdCnt": 16824,
+    "SALEPC": "56.12%",
+    "BRKExmCnt": 2326,
+    "BRKExmPssdCnt": 1326,
+    "BRKPC": "57.01%",
+    "SbjMttrDifOPR": null,
+    "MPR": "44.9440"
+  }
+],"passrates1":[
+  {
+    "SchlNm": "Learn Texas Real Estate Online",
+    "SbjctMttrPC": "86.76%",
+    "SALEExmCnt": 67,
+    "SALEExmPssdCnt": 58,
+    "SALEPC": "86.57%",
+    "BRKExmCnt": 1,
+    "BRKExmPssdCnt": 1,
+    "BRKPC": "100.00%",
+    "SbjMttrDifOPR": null,
+    "MPR": null
+  }
+],"passrates2":[
+  {
+    "SchlNm": "AceableAgent",
+    "SbjctMttrPC": "65.73%",
+    "SALEExmCnt": 8516,
+    "SALEExmPssdCnt": 5604,
+    "SALEPC": "65.81%",
+    "BRKExmCnt": 61,
+    "BRKExmPssdCnt": 34,
+    "BRKPC": "55.74%",
+    "SbjMttrDifOPR": null,
+    "MPR": null
+  },
+  {
+    "SchlNm": "Champions School of Real Estate LTD",
+    "SbjctMttrPC": "53.58%",
+    "SALEExmCnt": 15547,
+    "SALEExmPssdCnt": 8278,
+    "SALEPC": "53.24%",
+    "BRKExmCnt": 1515,
+    "BRKExmPssdCnt": 864,
+    "BRKPC": "57.03%",
+    "SbjMttrDifOPR": null,
+    "MPR": null
+  },
+  {
+    "SchlNm": "Colibri Real Estate LLC",
+    "SbjctMttrPC": "55.67%",
+    "SALEExmCnt": 534,
+    "SALEExmPssdCnt": 303,
+    "SALEPC": "56.74%",
+    "BRKExmCnt": 30,
+    "BRKExmPssdCnt": 11,
+    "BRKPC": "36.67%",
+    "SbjMttrDifOPR": null,
+    "MPR": null
+  },
+  {
+    "SchlNm": "Continuing Education for Licensing Inc.",
+    "SbjctMttrPC": "52.08%",
+    "SALEExmCnt": 34,
+    "SALEExmPssdCnt": 16,
+    "SALEPC": "47.06%",
+    "BRKExmCnt": 14,
+    "BRKExmPssdCnt": 9,
+    "BRKPC": "64.29%",
+    "SbjMttrDifOPR": null,
+    "MPR": null
+  },
+  {
+    "SchlNm": "Kaplan Real Estate Education",
+    "SbjctMttrPC": "53.69%",
+    "SALEExmCnt": 1280,
+    "SALEExmPssdCnt": 681,
+    "SALEPC": "53.20%",
+    "BRKExmCnt": 35,
+    "BRKExmPssdCnt": 25,
+    "BRKPC": "71.43%",
+    "SbjMttrDifOPR": null,
+    "MPR": null
+  },
+  {
+    "SchlNm": "Pioneer School of Real Estate LLC",
+    "SbjctMttrPC": "53.33%",
+    "SALEExmCnt": 28,
+    "SALEExmPssdCnt": 16,
+    "SALEPC": "57.14%",
+    "BRKExmCnt": 2,
+    "BRKExmPssdCnt": 0,
+    "BRKPC": "0.00%",
+    "SbjMttrDifOPR": null,
+    "MPR": null
+  },
+  {
+    "SchlNm": "Purvis Real Estate Training Institute",
+    "SbjctMttrPC": "66.67%",
+    "SALEExmCnt": 3,
+    "SALEExmPssdCnt": 2,
+    "SALEPC": "66.67%",
+    "BRKExmCnt": 0,
+    "BRKExmPssdCnt": 0,
+    "BRKPC": "n/a",
+    "SbjMttrDifOPR": null,
+    "MPR": null
+  },
+  {
+    "SchlNm": "REALTOR Academy",
+    "SbjctMttrPC": "55.14%",
+    "SALEExmCnt": 105,
+    "SALEExmPssdCnt": 58,
+    "SALEPC": "55.24%",
+    "BRKExmCnt": 2,
+    "BRKExmPssdCnt": 1,
+    "BRKPC": "50.00%",
+    "SbjMttrDifOPR": null,
+    "MPR": null
+  },
+  {
+    "SchlNm": "The CE Shop LLC",
+    "SbjctMttrPC": "57.51%",
+    "SALEExmCnt": 1077,
+    "SALEExmPssdCnt": 608,
+    "SALEPC": "56.45%",
+    "BRKExmCnt": 401,
+    "BRKExmPssdCnt": 242,
+    "BRKPC": "60.35%",
+    "SbjMttrDifOPR": null,
+    "MPR": null
+  },
+  {
+    "SchlNm": "VanEd",
+    "SbjctMttrPC": "50.00%",
+    "SALEExmCnt": 59,
+    "SALEExmPssdCnt": 30,
+    "SALEPC": "50.85%",
+    "BRKExmCnt": 9,
+    "BRKExmPssdCnt": 4,
+    "BRKPC": "44.44%",
+    "SbjMttrDifOPR": null,
+    "MPR": null
+  }
+],"passrates3":[
+  {
+    "SchlNm": "! ! ! AYPORealEstate.com ! ! !",
+    "SbjctMttrPC": "49.47%",
+    "SALEExmCnt": 566,
+    "SALEExmPssdCnt": 280,
+    "SALEPC": "49.47%",
+    "BRKExmCnt": 0,
+    "BRKExmPssdCnt": 0,
+    "BRKPC": "n/a",
+    "SbjMttrDifOPR": null,
+    "MPR": null
+  },
+  {
+    "SchlNm": "! ! A Fast Track Realty School ! !",
+    "SbjctMttrPC": "48.09%",
+    "SALEExmCnt": 298,
+    "SALEExmPssdCnt": 142,
+    "SALEPC": "47.65%",
+    "BRKExmCnt": 16,
+    "BRKExmPssdCnt": 9,
+    "BRKPC": "56.25%",
+    "SbjMttrDifOPR": null,
+    "MPR": null
+  },
+  {
+    "SchlNm": "360training.com Inc.",
+    "SbjctMttrPC": "48.71%",
+    "SALEExmCnt": 290,
+    "SALEExmPssdCnt": 138,
+    "SALEPC": "47.59%",
+    "BRKExmCnt": 98,
+    "BRKExmPssdCnt": 51,
+    "BRKPC": "52.04%",
+    "SbjMttrDifOPR": null,
+    "MPR": null
+  },
+  {
+    "SchlNm": "AbsoluteCE",
+    "SbjctMttrPC": "45.45%",
+    "SALEExmCnt": 10,
+    "SALEExmPssdCnt": 4,
+    "SALEPC": "40.00%",
+    "BRKExmCnt": 1,
+    "BRKExmPssdCnt": 1,
+    "BRKPC": "100.00%",
+    "SbjMttrDifOPR": null,
+    "MPR": null
+  },
+  {
+    "SchlNm": "Academy of Real Estate of El Paso",
+    "SbjctMttrPC": "32.98%",
+    "SALEExmCnt": 370,
+    "SALEExmPssdCnt": 121,
+    "SALEPC": "32.70%",
+    "BRKExmCnt": 3,
+    "BRKExmPssdCnt": 2,
+    "BRKPC": "66.67%",
+    "SbjMttrDifOPR": null,
+    "MPR": null
+  },
+  {
+    "SchlNm": "All About Texas Real Estate LLC",
+    "SbjctMttrPC": "33.33%",
+    "SALEExmCnt": 12,
+    "SALEExmPssdCnt": 4,
+    "SALEPC": "33.33%",
+    "BRKExmCnt": 0,
+    "BRKExmPssdCnt": 0,
+    "BRKPC": "n/a",
+    "SbjMttrDifOPR": null,
+    "MPR": null
+  },
+  {
+    "SchlNm": "Ford High School",
+    "SbjctMttrPC": "22.22%",
+    "SALEExmCnt": 18,
+    "SALEExmPssdCnt": 4,
+    "SALEPC": "22.22%",
+    "BRKExmCnt": 0,
+    "BRKExmPssdCnt": 0,
+    "BRKPC": "n/a",
+    "SbjMttrDifOPR": null,
+    "MPR": null
+  },
+  {
+    "SchlNm": "Lewisville Independent School District",
+    "SbjctMttrPC": "0.00%",
+    "SALEExmCnt": 6,
+    "SALEExmPssdCnt": 0,
+    "SALEPC": "0.00%",
+    "BRKExmCnt": 0,
+    "BRKExmPssdCnt": 0,
+    "BRKPC": "n/a",
+    "SbjMttrDifOPR": null,
+    "MPR": null
+  },
+  {
+    "SchlNm": "License Classroom LLC",
+    "SbjctMttrPC": "47.24%",
+    "SALEExmCnt": 100,
+    "SALEExmPssdCnt": 48,
+    "SALEPC": "48.00%",
+    "BRKExmCnt": 27,
+    "BRKExmPssdCnt": 12,
+    "BRKPC": "44.44%",
+    "SbjMttrDifOPR": null,
+    "MPR": null
+  },
+  {
+    "SchlNm": "License Lion",
+    "SbjctMttrPC": "42.86%",
+    "SALEExmCnt": 7,
+    "SALEExmPssdCnt": 3,
+    "SALEPC": "42.86%",
+    "BRKExmCnt": 0,
+    "BRKExmPssdCnt": 0,
+    "BRKPC": "n/a",
+    "SbjMttrDifOPR": null,
+    "MPR": null
+  },
+  {
+    "SchlNm": "MLS Campus Inc",
+    "SbjctMttrPC": "44.44%",
+    "SALEExmCnt": 5,
+    "SALEExmPssdCnt": 1,
+    "SALEPC": "20.00%",
+    "BRKExmCnt": 4,
+    "BRKExmPssdCnt": 3,
+    "BRKPC": "75.00%",
+    "SbjMttrDifOPR": null,
+    "MPR": null
+  },
+  {
+    "SchlNm": "Modern Agent Institute",
+    "SbjctMttrPC": "11.11%",
+    "SALEExmCnt": 9,
+    "SALEExmPssdCnt": 1,
+    "SALEPC": "11.11%",
+    "BRKExmCnt": 0,
+    "BRKExmPssdCnt": 0,
+    "BRKPC": "n/a",
+    "SbjMttrDifOPR": null,
+    "MPR": null
+  },
+  {
+    "SchlNm": "Perry Real Estate School",
+    "SbjctMttrPC": "0.00%",
+    "SALEExmCnt": 1,
+    "SALEExmPssdCnt": 0,
+    "SALEPC": "0.00%",
+    "BRKExmCnt": 0,
+    "BRKExmPssdCnt": 0,
+    "BRKPC": "n/a",
+    "SbjMttrDifOPR": null,
+    "MPR": null
+  },
+  {
+    "SchlNm": "REAL Agent Services LLC",
+    "SbjctMttrPC": "0.00%",
+    "SALEExmCnt": 4,
+    "SALEExmPssdCnt": 0,
+    "SALEPC": "0.00%",
+    "BRKExmCnt": 0,
+    "BRKExmPssdCnt": 0,
+    "BRKPC": "n/a",
+    "SbjMttrDifOPR": null,
+    "MPR": null
+  },
+  {
+    "SchlNm": "Real Estate Training and Technology Licensing School",
+    "SbjctMttrPC": "27.78%",
+    "SALEExmCnt": 18,
+    "SALEExmPssdCnt": 5,
+    "SALEPC": "27.78%",
+    "BRKExmCnt": 0,
+    "BRKExmPssdCnt": 0,
+    "BRKPC": "n/a",
+    "SbjMttrDifOPR": null,
+    "MPR": null
+  },
+  {
+    "SchlNm": "Texas State Online Real Estate LLC",
+    "SbjctMttrPC": "46.43%",
+    "SALEExmCnt": 28,
+    "SALEExmPssdCnt": 13,
+    "SALEPC": "46.43%",
+    "BRKExmCnt": 0,
+    "BRKExmPssdCnt": 0,
+    "BRKPC": "n/a",
+    "SbjMttrDifOPR": null,
+    "MPR": null
+  },
+  {
+    "SchlNm": "The Real Estate Business School",
+    "SbjctMttrPC": "45.01%",
+    "SALEExmCnt": 862,
+    "SALEExmPssdCnt": 379,
+    "SALEPC": "43.97%",
+    "BRKExmCnt": 100,
+    "BRKExmPssdCnt": 54,
+    "BRKPC": "54.00%",
+    "SbjMttrDifOPR": null,
+    "MPR": null
+  },
+  {
+    "SchlNm": "Train Agents Inc.",
+    "SbjctMttrPC": "22.66%",
+    "SALEExmCnt": 121,
+    "SALEExmPssdCnt": 26,
+    "SALEPC": "21.49%",
+    "BRKExmCnt": 7,
+    "BRKExmPssdCnt": 3,
+    "BRKPC": "42.86%",
+    "SbjMttrDifOPR": null,
+    "MPR": null
+  },
+  {
+    "SchlNm": "Ysleta Independent School District",
+    "SbjctMttrPC": "20.00%",
+    "SALEExmCnt": 5,
+    "SALEExmPssdCnt": 1,
+    "SALEPC": "20.00%",
+    "BRKExmCnt": 0,
+    "BRKExmPssdCnt": 0,
+    "BRKPC": "n/a",
+    "SbjMttrDifOPR": null,
+    "MPR": null
+  }
+]}
