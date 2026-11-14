@@ -70,6 +70,7 @@ Una riga al giorno, scritta dal riassunto delle 08:12. Previsto = stima centrale
 |---|---|---|---|---|
 | 13/11/2026 | 27.400 | base (stima del 13/11) | 260 (12/11 → 13/11 miglior giorno) | 0 |
 | 14/11/2026 | 35.700 | +2.300 calcolatore stipendio USA online; +6.000 partner ≥ 50 $ sui siti esistenti (fronti-2026-11-14-pagatori-prima, in costruzione) | 260 (13/11) | 0 |
+| 14/11/2026 (sera) | 38.500 | +2.800 sito esame immobiliare online (realestate) | 260 (13/11) | 0 |
 
 ## 2b. Stima dei ricavi a 18 mesi (14/10/2026, aggiornata il 17/10 con FloodCost, rifiuti visti, navi e FHA). Sono stime, non numeri: si rifanno con i dati veri.
 
