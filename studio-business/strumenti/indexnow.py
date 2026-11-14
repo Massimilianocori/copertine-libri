@@ -47,11 +47,11 @@ SITI = [  # host -> cartella nel repository (sito/sitemap.xml)
     ("military-pay-chart.netlify.app", "milpay"),  # online dal 13/11/2026
     ("naics-code-lookup.netlify.app", "naics"),  # costruito il 13/11/2026, non ancora online
     ("us-paycheck-calculator.netlify.app", "paycheck"),  # online dal 14/11/2026
-    ("real-estate-exam-pass-rates.netlify.app", "realestate"),  # costruito il 14/11/2026, non ancora online (nome proposto, libero il 14/11)
+    ("real-estate-exam-pass-rates.netlify.app", "realestate"),  # online dal 14/11/2026
 ]
 # Siti non ancora collegati a Netlify: saltati nell'invio di tutti i siti (la chiave non è online e IndexNow risponderebbe 403).
 # Si inviano solo con --solo; togliere l'host da qui il giorno in cui il sito è online.
-NON_ONLINE = {"real-estate-exam-pass-rates.netlify.app"}  # paycheck online dal 14/11/2026; realestate: sito Netlify ancora da creare
+NON_ONLINE = set()  # realestate online dal 14/11/2026
 SPIEGAZIONE = {200: "ok", 202: "ok, preso in carico", 400: "richiesta malformata", 403: "chiave non ancora pubblicata (o diversa dal file online)",
                422: "URL non validi per questo host", 429: "troppe richieste: riprovare più tardi"}
 
