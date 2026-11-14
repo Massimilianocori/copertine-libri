@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://us-paycheck-calculator.netlify.app/sitemap.xml

@@ -1,0 +1,381 @@
+{
+ "_nota": "Generato da raccolta/fonti.py. File grezzi in dati/grezzi/. PDF e fogli di calcolo: fa fede sha256 (file intero). Pagine HTML (impronta = frasi): i byte cambiano a ogni scarico, fa fede sha256_frasi (le frasi citate alla lettera, ritrovate nel file).",
+ "fonti": {
+  "irs_p15t": {
+   "url": "https://www.irs.gov/pub/irs-pdf/p15t.pdf",
+   "file": "dati/grezzi/irs_p15t.pdf",
+   "titolo": "Publication 15-T (2026), Federal Income Tax Withholding Methods",
+   "chi": "Internal Revenue Service",
+   "sha256": "31b3e2428628e8d2e40f6266c2c8f1b9b0b6ccd24607895f9b3be3d9d306d3fb",
+   "byte": 2480887,
+   "impronta": "file",
+   "sha256_frasi": "e69fc2bcfba77bdc9006f6de437cd9f067089c26b9033d59c8111dfd254bda8f",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "uso": "If you’re an employer with an automated payroll system, use Worksheet 1A and the Percentage Method tables in this section to figure federal income tax withholding.",
+    "1g": "If the box in Step 2 of Form W-4 is checked, enter -0-. If the box is not checked, enter $12,900 if the taxpayer is married filing jointly or $8,600 otherwise",
+    "1i": "Subtract line 1h from line 1e. If zero or less, enter -0-. This is the Adjusted Annual Wage Amount",
+    "2h": "Divide the amount on line 2g by the number of pay periods on line 1b. This is the Tentative Withholding Amount",
+    "3c": "Subtract line 3b from line 2h. If zero or less, enter -0-",
+    "4b": "Add lines 3c and 4a. This is the amount to withhold from the employee’s wages this pay period",
+    "arrotonda": "You may also round the tax for the pay period to the nearest dollar. If rounding is used, it must be used consistently."
+   },
+   "trovate": {
+    "uso": true,
+    "1g": true,
+    "1i": true,
+    "2h": true,
+    "3c": true,
+    "4b": true,
+    "arrotonda": true
+   }
+  },
+  "irs_p15": {
+   "url": "https://www.irs.gov/pub/irs-pdf/p15.pdf",
+   "file": "dati/grezzi/irs_p15.pdf",
+   "titolo": "Publication 15 (2026), (Circular E), Employer’s Tax Guide",
+   "chi": "Internal Revenue Service",
+   "sha256": "b46c3622439d8521e3a0faca4cd5b5ece3451b526f65f06a5e38d5c9f804c88b",
+   "byte": 1713916,
+   "impronta": "file",
+   "sha256_frasi": "9d405ab8169810953928b640b69765ef8750f8911c9728e4c38065d14c679f77",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "ss": "For 2026, the social security tax rate is 6.2% (amount withheld) each for the employer and employee (12.4% total). The social security wage base limit is $184,500.",
+    "medicare": "The tax rate for Medicare is 1.45% (amount withheld) each for the employee and employer (2.9% total). There is no wage base limit for Medicare tax; all covered wages are subject to Medicare tax.",
+    "addl": "0.9% Additional Medicare Tax from wages you pay to an employee in excess of $200,000 in a calendar year.",
+    "addl_solo": "Additional Medicare Tax is only imposed on the employee. There is no employer share of Additional Medicare Tax.",
+    "futa": "For 2026, the FUTA tax rate is 6.0%. The tax applies to the first $7,000 you pay to each employee as wages during the year.",
+    "futa_credito": "The credit may be as much as 5.4% of FUTA taxable wages. If you’re entitled to the maximum 5.4% credit, the FUTA tax rate after credit is 0.6%.",
+    "futa_condizione": "You’re entitled to the maximum credit if you paid your state unemployment taxes in full, on time, and on all the same wages as are subject to FUTA tax, and as long as the state isn’t determined to be a credit reduction state."
+   },
+   "trovate": {
+    "ss": true,
+    "medicare": true,
+    "addl": true,
+    "addl_solo": true,
+    "futa": true,
+    "futa_credito": true,
+    "futa_condizione": true
+   }
+  },
+  "irs_fw4": {
+   "url": "https://www.irs.gov/pub/irs-pdf/fw4.pdf",
+   "file": "dati/grezzi/irs_fw4.pdf",
+   "titolo": "Form W-4 (2026), Employee’s Withholding Certificate",
+   "chi": "Internal Revenue Service",
+   "sha256": "92444d8856ce55d9e25dca8b6d1420634fc68b11e1ab1f760916ea29ddd312b2",
+   "byte": 208845,
+   "impronta": "file",
+   "sha256_frasi": "193830efca44ae5b012a05a1702194b1ad72c6cc42d1e82bda30acc79b349572",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "step2": "Multiple Jobs or Spouse Works",
+    "step3": "Claim Dependent and Other Credits",
+    "step4": "Other Adjustments"
+   },
+   "trovate": {
+    "step2": true,
+    "step3": true,
+    "step4": true
+   }
+  },
+  "irs_p15t_2027": {
+   "url": "https://www.irs.gov/pub/irs-dft/p15t--dft.pdf",
+   "file": "dati/grezzi/irs_p15t_2027_draft.pdf",
+   "titolo": "Publication 15-T for 2027, early release draft",
+   "chi": "Internal Revenue Service",
+   "sha256": "2721e3f6cc67383d44c4e7a06d28275da3c57a77159c3a0b92e0f8cfa3c6b83f",
+   "byte": 4041217,
+   "impronta": "file",
+   "sha256_frasi": "f7309779c953b5bf25850558d4821d5daf598a83f976ccc3fb465782482b5d0c",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "bozza": "This is an early release draft of an IRS tax form, instructions, or publication, which the IRS is providing for your information.",
+    "tabelle": "The 2027 federal income tax withholding tables are provided as an Excel attachment to this PDF rather than incorporated into this early release draft of Publication 15-T."
+   },
+   "trovate": {
+    "bozza": true,
+    "tabelle": true
+   }
+  },
+  "dol_futa": {
+   "url": "https://oui.doleta.gov/unemploy/futa_credit.asp",
+   "file": "dati/grezzi/dol_futa_credit.html",
+   "titolo": "FUTA Credit Reductions",
+   "chi": "U.S. Department of Labor, Employment and Training Administration",
+   "sha256": "368b853ca40341a1a1bde2ba7f819207a5135811d409af3efe47c6f18a7c2c65",
+   "byte": 10482,
+   "impronta": "frasi",
+   "sha256_frasi": "eb1c1cb9b34a2ca72f6ccdecef5e4ec5f708f686b177343dc89e856345c44e21",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "regola": "employers in states with a further credit reduction due to an outstanding balance of advances will incur a FUTA tax rate of .6% + FUTA credit reduction"
+   },
+   "trovate": {
+    "regola": true
+   }
+  },
+  "dol_futa_2026": {
+   "url": "https://oui.doleta.gov/unemploy/docs/final_credit_states_2026.xlsx",
+   "file": "dati/grezzi/dol_final_credit_states_2026.xlsx",
+   "titolo": "Final 2026 Federal Unemployment Tax Act (FUTA) Credit Reductions",
+   "chi": "U.S. Department of Labor, Employment and Training Administration",
+   "sha256": "bd861249685536783ee3750542a0b49b904c3d7549ea86a08e2a42e26a8f1399",
+   "byte": 14429,
+   "impronta": "file",
+   "sha256_frasi": "fc33b6f59915432fcbb32d5ef16a0d3adc5116a6e756a4a7e116d86e337b1d12",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "titolo": "Final 2026 Federal Unemployment Tax Act (FUTA) Credit Reductions",
+    "ca": "therefore employers in California are subject to a 1.5% credit reduction"
+   },
+   "trovate": {
+    "titolo": true,
+    "ca": true
+   }
+  },
+  "tx_rates": {
+   "url": "https://www.twc.texas.gov/programs/unemployment-tax/tax-rates",
+   "file": "dati/grezzi/tx_tax_rates.html",
+   "titolo": "Unemployment Insurance Tax Rates",
+   "chi": "Texas Workforce Commission",
+   "sha256": "b2dd2dcd69dbe47898180d2a36a147a2f5adbe6c682185b0b1d812e4970648c1",
+   "byte": 124496,
+   "impronta": "frasi",
+   "sha256_frasi": "ca042f48140eb1c4c3e0d3aa6d1568a3e7d774ac479071a1142b7a93ced3e38c",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "base": "The maximum amount of taxable wages per employee per calendar year is set by statute and is currently $9,000.",
+    "nuovo": "For 2026, the entry-level rate is 2.70% for all groups with no exceptions.",
+    "formula": "The effective tax rate for experience-rated employers is the sum of five components."
+   },
+   "trovate": {
+    "base": true,
+    "nuovo": true,
+    "formula": true
+   }
+  },
+  "tx_your": {
+   "url": "https://www.twc.texas.gov/programs/unemployment-tax/your-tax-rates",
+   "file": "dati/grezzi/tx_twc.html",
+   "titolo": "Your 2026 Tax Rates",
+   "chi": "Texas Workforce Commission",
+   "sha256": "01df9dc2f35413eee37fcc066bc3b4b03ec879a28a1b11329a66ef2fe452f1b3",
+   "byte": 111297,
+   "impronta": "frasi",
+   "sha256_frasi": "350e30606d10482834e3c7939fb3840d1a29203d6bcb3bbd8ae78ab3b9e46c68",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "minmax": "The minimum tax rate for 2026 is 0.32 percent. The maximum tax rate for 2026 is 6.32 percent.",
+    "rtr": "The second component of your UI tax rate is the Replenishment Tax Rate (RTR), a flat tax paid by all employers.",
+    "rtr_2026": "The RTR for 2026 is 0.21 percent.",
+    "base": "You pay unemployment tax on the first $9,000 that each employee earns during the calendar year."
+   },
+   "trovate": {
+    "minmax": true,
+    "rtr": true,
+    "rtr_2026": true,
+    "base": true
+   }
+  },
+  "fl_rt": {
+   "url": "https://floridarevenue.com/taxes/taxesfees/Pages/reemployment.aspx",
+   "file": "dati/grezzi/fl_rt.html",
+   "titolo": "Florida Reemployment Tax",
+   "chi": "Florida Department of Revenue",
+   "sha256": "320a33726f0272044456e223e27984c291549ca69e6a18ca4659d4a34c2cb83d",
+   "byte": 95713,
+   "impronta": "frasi",
+   "sha256_frasi": "f307dea52b70616926aada00ece610d27e43da2aa213348e12704994367b501d",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "nuovo": "The initial tax rate for new employers is .0270 (2.7%), which is applied to the first $7,000 in wages paid to each employee during a calendar year.",
+    "base": "Only the first $7,000 of wages paid to each employee by their employer in a calendar year is taxable.",
+    "chi": "Reemployment tax is paid by employers"
+   },
+   "trovate": {
+    "nuovo": true,
+    "base": true,
+    "chi": true
+   }
+  },
+  "ca_rates": {
+   "url": "https://edd.ca.gov/en/payroll_taxes/rates_and_withholding/",
+   "file": "dati/grezzi/ca_rates.html",
+   "titolo": "Contribution Rates, Withholding Schedules, and Meals and Lodging Values",
+   "chi": "California Employment Development Department (EDD)",
+   "sha256": "370132bd92502d20795d60dee1f8979e03adb5ba3a69ebcfd98b66a0418531bb",
+   "byte": 225325,
+   "impronta": "frasi",
+   "sha256_frasi": "b2dbd92d2015d70a77477e0245c6ee4157b49aafc0bb3882a5ccb19355501f3b",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "ui_nuovo": "New employers are assigned a 3.4 percent UI rate for two to three years.",
+    "ui_2026": "The UI rate schedule for 2026 is Schedule F+.",
+    "ui_base": "The taxable wage limit is $7,000 per employee, per calendar year.",
+    "ett_2026": "The ETT rate for 2026 is 0.1 percent. The ETT taxable wage limit is $7,000 per employee, per calendar year.",
+    "sdi_2026": "The SDI withholding rate for 2026 is 1.3 percent.",
+    "sdi_tutto": "Senate Bill 951 removes the taxable wage limit and maximum withholdings for each employee subject to SDI contributions.",
+    "sdi_2027": "The SDI withholding rate for 2027 is 1.4 percent."
+   },
+   "trovate": {
+    "ui_nuovo": true,
+    "ui_2026": true,
+    "ui_base": true,
+    "ett_2026": true,
+    "sdi_2026": true,
+    "sdi_tutto": true,
+    "sdi_2027": true
+   }
+  },
+  "ca_methb": {
+   "url": "https://edd.ca.gov/siteassets/files/pdf_pub_ctr/26methb.pdf",
+   "file": "dati/grezzi/ca_26methb.pdf",
+   "titolo": "California Withholding Schedules for 2026, Method B – Exact Calculation Method",
+   "chi": "California Employment Development Department (EDD)",
+   "sha256": "145b570a333f22ff0b4c230ef8ee04bd6f5dc89f8351eb134754b4820f6c7047",
+   "byte": 403985,
+   "impronta": "file",
+   "sha256_frasi": "13b002f23c5e11ccd62d03b8c54cdb004f4fea6d69412dd76c06110d6355b251",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "metodo": "Method B may be used to calculate withholding amounts either manually or by computer. This method will give an exact amount of tax to withhold.",
+    "step1": "Determine if the employee’s gross wages are less than, or equal to, the amount shown in Table 1",
+    "step1b": "If so, no income tax is required to be withheld.",
+    "step3": "Subtract the standard deduction amount shown in Table 3 - Standard Deduction Table to arrive at the employee’s taxable income.",
+    "step5": "Subtract the tax credit shown in Table 4 - Exemption Allowance Table",
+    "sposati": "we recommend that you use one of the following options: Single filing status to compute withholding amounts for the employee and spouse; or withhold an additional flat amount of tax."
+   },
+   "trovate": {
+    "metodo": true,
+    "step1": true,
+    "step1b": true,
+    "step3": true,
+    "step5": true,
+    "sposati": true
+   }
+  },
+  "il_700t": {
+   "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/forms/withholding/documents/currentyear/il-700-t.pdf",
+   "file": "dati/grezzi/il_700t.pdf",
+   "titolo": "2026 Booklet IL-700-T, Illinois Withholding Tax Tables",
+   "chi": "Illinois Department of Revenue",
+   "sha256": "f8f05eda8025bc8b80b7dee5fa9a69af04e2c32b3320386ace7027b5fc6d635e",
+   "byte": 492017,
+   "impronta": "file",
+   "sha256_frasi": "14e5bae117fa8873b57510ab29344edb24c44bc0715841a367f7174188df0752",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "aliquota": "The income tax rate is 4.95 percent and the exemption allowance is $2,925.",
+    "riga1": "Multiply the number of allowances your employee claimed on Form IL-W-4, Line 1, by $2,925.",
+    "riga2": "Multiply the number of allowances your employee claimed on Form IL-W-4, Line 2, by $1,000.",
+    "step4": "Multiply the taxable amount by 4.95 percent (.0495). You must withhold this amount."
+   },
+   "trovate": {
+    "aliquota": true,
+    "riga1": true,
+    "riga2": true,
+    "step4": true
+   }
+  },
+  "il_ea50": {
+   "url": "https://ides.illinois.gov/content/dam/soi/en/web/ides/ides_forms_and_publications/EA-50_2026.pdf",
+   "file": "dati/grezzi/il_ea50_2026.pdf",
+   "titolo": "EA-50 Report 2026: State Experience Factor and Employers’ UI Contribution Rates",
+   "chi": "Illinois Department of Employment Security (IDES)",
+   "sha256": "4b66ca453cfa1b7455929ef971ad25c17fbea454272c73c934e2228480bebd69",
+   "byte": 46416,
+   "impronta": "file",
+   "sha256_frasi": "3a4e8c239c582d9a36ce9f8ad84b9bc08d6437f25b236b9fafda8f30d2e2c3f1",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "nuovo": "Most employers who became liable for the payment of contributions on or after January 1, 2024 will pay at the entry rate of 3.350%.",
+    "fondo": "The above entry rate includes the 0.550% Fund Building Rate in effect for 2026.",
+    "base": "Only the first $14,250 of wages paid to a worker in the calendar year 2026 are subject to the payment of contributions."
+   },
+   "trovate": {
+    "nuovo": true,
+    "fondo": true,
+    "base": true
+   }
+  },
+  "nc_30": {
+   "url": "https://www.ncdor.gov/income-tax-withholding-tables-and-instructions-employers/open",
+   "file": "dati/grezzi/nc_30.pdf",
+   "titolo": "NC-30, 2026 Income Tax Withholding Tables and Instructions for Employers",
+   "chi": "North Carolina Department of Revenue",
+   "sha256": "56a00f942c48c51019c3b78d72da1f1cc04969890678c107fe9d0386c5d655be",
+   "byte": 570759,
+   "impronta": "file",
+   "sha256_frasi": "e86a5611c8fbb90c8eebf24455e75525b3838ca029569643e74ed4d25ed08d8d",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "aliquota": "tax year 2026 will be 3.99%. This change is reflected in the tables and computations included in this publication",
+    "ritenuta": "The withholding calculations are based on the individual income tax rate of 3.99% plus 0.1%. This results in a withholding tax rate of 4.09%. Round off the final amount to the nearest whole dollar."
+   },
+   "trovate": {
+    "aliquota": true,
+    "ritenuta": true
+   }
+  },
+  "nc_des": {
+   "url": "https://www.des.nc.gov/employers/tax-rate-information",
+   "file": "dati/grezzi/nc_des.html",
+   "titolo": "Tax Rate Information",
+   "chi": "North Carolina Division of Employment Security",
+   "sha256": "11f65f084d9325fd95494b80e9fb8763dcf74badb62c299ea4463ae1b4c6228c",
+   "byte": 86586,
+   "impronta": "frasi",
+   "sha256_frasi": "795c57766ad87396236a56613b3023cf6f8bdcb7dfef25ef9786f303b686bb87",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "base": "Taxable Wage Base for 2026 $34,200",
+    "nuovo": "UI Tax Rate for Beginning Employers 1%",
+    "minmax": "your rate could be as low as 0.060% or as high as 5.760%"
+   },
+   "trovate": {
+    "base": true,
+    "nuovo": true,
+    "minmax": true
+   }
+  },
+  "patriot": {
+   "url": "https://www.patriotsoftware.com/affiliates/",
+   "file": "dati/grezzi/patriot_aff.html",
+   "titolo": "Patriot Software affiliate program",
+   "chi": "Patriot Software",
+   "sha256": "9c8c52d27a0b35ffcec1f058d9a58e65eb3b6775d9f8bfb392f58ac4b271971a",
+   "byte": 93708,
+   "impronta": "frasi",
+   "sha256_frasi": "4a6128957e2dd4ee0e901a40767f92280e90c5be25a7d2ec6614a96adb28be42",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "compenso": "You receive $150 per new customer.",
+    "impact": "Apply Now With Impact",
+    "prodotti": "Patriot offers two payroll software products— Basic Payroll and Full Service Payroll . Run unlimited payrolls and pay employees with ease."
+   },
+   "trovate": {
+    "compenso": true,
+    "impact": true,
+    "prodotti": true
+   }
+  }
+ }
+}

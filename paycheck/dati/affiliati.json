@@ -1,0 +1,11 @@
+{
+ "_nota": "Riquadro di affiliazione nelle pagine per i datori di lavoro. Resta SPENTO finché Massimiliano non è iscritto al programma Patriot Software su Impact. Per accenderlo: mettere in \"link\" il link tracciato dato da Impact (il suo dominio deve essere in studio-business/strumenti/monetizzazione.json, domini_affiliazione: sjv.io, pxf.io ed evyy.net ci sono già), poi \"attivo\": true, poi genera.py e verifica.py. Il testo ripete solo ciò che Patriot scrive sulla propria pagina (dati/fonti.json, fonte patriot): nessun prezzo, nessun giudizio.",
+ "patriot": {
+  "attivo": false,
+  "link": "https://LINK-IMPACT-DA-INSERIRE.invalid/",
+  "titolo": "Payroll software: Patriot",
+  "testo": "Patriot offers two payroll software products, Basic Payroll and Full Service Payroll. This description comes from Patriot’s own website; we have not tested the software and the figures on this page do not depend on it.",
+  "pulsante": "See Patriot payroll",
+  "trasparenza": "Advertisement. If you sign up through this link we may earn a commission, at no extra cost to you."
+ }
+}
