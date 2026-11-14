@@ -47,3 +47,5 @@ Ogni giro di ricerca usa almeno UN approccio diverso dal giro precedente, scelto
 7. **Prima chi paga:** programmi con compenso scritto ≥ 50 $ → domanda collegata.
 8. **Altre lingue:** spagnolo, tedesco, francese, portoghese.
 9. **Formati diversi:** strumenti stampabili, liste di controllo, calcolatori di confronto, mappe, scadenzari, sempre gratuiti con affiliazione o pubblicità.
+
+Nota tecnica (14/11): con più agenti insieme, ogni agente usa una sua sottocartella dello scratchpad (es. scratchpad/<nome-del-giro>/): un ricercatore ha avuto uno script sovrascritto da un altro. Siti in tedesco che richiedono Impressum: restano NO finché Massimiliano non scrive «ok Impressum» (le idee dentista/veterinario DE del 14/11 sono sotto la soglia di 40 €/ora comunque).
