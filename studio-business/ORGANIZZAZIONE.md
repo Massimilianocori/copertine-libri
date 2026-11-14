@@ -220,3 +220,6 @@ Coda in ordine (ore, €/ora dove calcolato): **1** riquadro del libro B1 su Esa
 | Ven 27/11 | n. 9 costi UK (1ª parte) | **pubblicazione**: BYF (biglietti + Tiqets se approvato), EsameB1, Visa Income |
 
 Dopo: 29/11 FloodCost e Aste a 45 giorni · 30/11 previsione sulla curva vera · 1/12 primo ciclo mensile (ApprovedCondos e Cruise a 45 giorni) · dal 28/11 n. 9, 10, 11 e ciò che la classifica del 18/11 mette davanti.
+
+## Correzione del 14/11/2026 (dopo la ricerca della notte)
+La ricerca di mercati nuovi rende sempre meno: la notte del 13-14/11 ha dato al massimo un voto 6 (calcolatore di stipendio USA) e un 5. Da ora la maggior parte del lavoro va alla crescita dei siti che funzionano (BeforeYouFly prima di tutto, poi stipendio USA verso 50 Stati se la prova regge, riquadri dei partner che pagano: Patriot, Tiqets, Genki, Wise). La ricerca di mercati nuovi resta solo nel giro grande del mercoledì sera.
