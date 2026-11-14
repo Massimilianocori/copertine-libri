@@ -29,3 +29,9 @@ Consegna: il tuo file in `studio-business/intelaiatura/` (nome indicato nel comp
 Risposta finale (max 15 righe): le idee con voto, ognuna con la fonte esterna da cui è nata, la migliore, quelle che passano l'asticella.
 
 **Obbligo dal 10/11/2026:** prima di stimare, leggere le pagine dei 3 concorrenti più probabili su 5 esempi concreti e scrivere cosa manca a loro. Senza un vuoto dimostrato il voto massimo è 5. (Tre idee ridimensionate dalla verifica il 10/11: furti di dati, libri di testo, filtri caldaia.)
+
+## Correzioni di metodo (14/11/2026, dopo la notte con voti massimi 6 e 5)
+1. **Concorrenti prima del voto:** per ogni idea che supera i filtri di domanda e pagatore, leggere davvero i primi risultati (pagine dei concorrenti raggiungibili, loro data, profondità, fonti) prima di dare il voto; niente quote stimate a occhio sulle idee finaliste.
+2. **Fonte bloccata ≠ idea bocciata:** se un dato ufficiale dà 403 o JavaScript, cercare un'altra via legittima (file scaricabile, API ufficiale, pagina gemella, ente diverso) e segnare l'idea «DA RIPROVARE», non NO.
+3. **Fuori dall'inglese:** ogni giro grande copre almeno un mercato in spagnolo, tedesco, francese o portoghese, dove la concorrenza è più debole.
+4. **Prima chi paga:** partire dai programmi con compenso scritto ≥ 50 $ ad azione e cercare la domanda collegata; è stato l'unico metodo che ha dato idee sopra 5.
