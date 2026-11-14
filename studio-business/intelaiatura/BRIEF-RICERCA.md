@@ -35,3 +35,15 @@ Risposta finale (max 15 righe): le idee con voto, ognuna con la fonte esterna da
 2. **Fonte bloccata ≠ idea bocciata:** se un dato ufficiale dà 403 o JavaScript, cercare un'altra via legittima (file scaricabile, API ufficiale, pagina gemella, ente diverso) e segnare l'idea «DA RIPROVARE», non NO.
 3. **Fuori dall'inglese:** ogni giro grande copre almeno un mercato in spagnolo, tedesco, francese o portoghese, dove la concorrenza è più debole.
 4. **Prima chi paga:** partire dai programmi con compenso scritto ≥ 50 $ ad azione e cercare la domanda collegata; è stato l'unico metodo che ha dato idee sopra 5.
+
+## Approcci nuovi da ruotare (Massimiliano, 14/11/2026: «ti eri fissato sempre negli stessi settori… cambia metodo di approccio»)
+Ogni giro di ricerca usa almeno UN approccio diverso dal giro precedente, scelto da questa lista, e lo scrive nel file del giro:
+1. **Dai nostri dati:** domande che già ci portano visite (GoatCounter per pagina, Search Console dalle foto, referrer ChatGPT/Perplexity) → frasi vicine non ancora coperte, sezioni gemelle delle pagine che rendono di più.
+2. **Motori di risposta:** ChatGPT ci manda ~300 visite a settimana. Cercare che tipo di domande citano fonti piccole con dato ufficiale e data (risposta secca + fonte), e costruire per quelle.
+3. **Regole che cambiano a data fissa:** leggi, tasse, soglie, visti, documenti che cambiano nei prossimi 3-12 mesi (2027): la domanda sale prima della data e i siti grandi arrivano tardi.
+4. **Eventi con data:** grandi eventi 2027-2028 (sport, fiere, giubilei, festival) con regole di biglietti, visti, trasporti.
+5. **Dal sito al libro:** temi dei siti con domanda forte → libro KDP (come EsameB1 → libro B1), valutato con il metodo dei libri (BookBeam, BSR dei concorrenti).
+6. **Domande delle comunità:** leggere (solo leggere, mai scrivere) forum e domande pubbliche per trovare problemi ricorrenti con risposta ufficiale.
+7. **Prima chi paga:** programmi con compenso scritto ≥ 50 $ → domanda collegata.
+8. **Altre lingue:** spagnolo, tedesco, francese, portoghese.
+9. **Formati diversi:** strumenti stampabili, liste di controllo, calcolatori di confronto, mappe, scadenzari, sempre gratuiti con affiliazione o pubblicità.
