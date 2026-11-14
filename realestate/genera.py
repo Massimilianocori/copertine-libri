@@ -110,6 +110,11 @@ def slug_lic(s):
     return f"{slug(s)}-real-estate-license"
 
 
+def an(nome):
+    """Articolo inglese davanti al nome dello Stato: «an Alabama license», «a Texas license»."""
+    return ("an " if nome[:1].lower() in "aeio" else "a ") + nome
+
+
 def periodo(s, breve=False):
     p = st(s)["periodo"]
     if not p:
@@ -369,7 +374,8 @@ def tabella_scuole(s, rim):
            "NE": f"Nebraska salesperson licensing exam by school, national and state parts: first-time takers and all takers. Period: {periodo(s)}.",
            "HI": f"Hawaii salesperson licensing exam by school, national and state parts: all exams taken. Period: {periodo(s)}."}[s]
     return (f'<div data-tabella data-soglia="{SOGLIA}" data-primaria="{prim}">{strumenti}'
-            f'<div class="tab"><table class="dati tassi"><caption><span>{h(cap)} Each cell: the percentage printed by the commission, then passed exams out of exams taken.{rim.ref(d["fonte"])}</span></caption>'
+            + ('<p class="small scorri">Swipe the table sideways to see every column.</p>' if len(MISURE[s]) > 1 else '')
+            + f'<div class="tab"><table class="dati tassi"><caption><span>{h(cap)} Each cell: the percentage printed by the commission, then passed exams out of exams taken.{rim.ref(d["fonte"])}</span></caption>'
             f'<thead><tr><th scope="col"><button type="button" class="ord" data-ord="nome" aria-pressed="false">School</button></th>{intest}</tr></thead>'
             f'<tbody>{"".join(righe)}</tbody></table><p class="vuoto" data-vuoto hidden>No school matches. Clear the search box or the filters.</p></div></div>')
 
@@ -448,7 +454,8 @@ def leggere_ne(rim):
     L = LIC["NE"]
     t = d["totale"]
     return ('<h2 id="read">How to read the Nebraska figures</h2><div class="testo">'
-            + rim.t(f'<p>The Nebraska Real Estate Commission (NREC) publishes a report for each quarter. This page shows the latest one we could read, {periodo("NE")}.[[ne_tassi]] '
+            + rim.t(f'<p>The Nebraska Real Estate Commission (NREC) posts a report for each quarter on its public page “License Examination Performance by School”.[[ne_indice]] '
+                    f'This page shows the most recent quarterly report that the commission linked from that page when we read it: {periodo("NE")}.[[ne_tassi]] We use only reports linked there. '
                     'The exam has two parts, national and state, and the report counts them separately, for first-time takers and for everyone (first-time takers plus repeaters).</p>')
             + rim.cit("ne_indice", "cosa")
             + rim.t(f'<p>The pass mark is {L["soglia_nazionale"][0]} correct answers out of {L["soglia_nazionale"][1]} on the national part and {L["soglia_statale"][0]} out of {L["soglia_statale"][1]} on the state part.[[ne_indice]]</p>')
@@ -456,7 +463,7 @@ def leggere_ne(rim):
             + rim.t(f'<p>In this quarter only {sum(1 for x in d["scuole"] if x["national_first"]["n"] >= SOGLIA)} of the {len(d["scuole"])} schools had {SOGLIA} or more first-time takers on the national part. '
                     f'The report we read has no statewide row, so the top row is <strong>our sum of the school rows</strong>: first-time takers passed {num(t["national_first"]["p"])} of {num(t["national_first"]["n"])} national parts '
                     f'({pct1(t["national_first"]["p"], t["national_first"]["n"])}) and {num(t["state_first"]["p"])} of {num(t["state_first"]["n"])} state parts ({pct1(t["state_first"]["p"], t["state_first"]["n"])}).[[ne_tassi]]</p>'
-                    '<p>The official report is a scanned document: we typed its figures by hand and checked that every row adds up (passed plus failed equals graded, first-time takers plus repeaters equals the total, the percentages match). '
+                    '<p>The report is a printout prepared by the exam company, Pearson, which the commission posts on its own website. It is a scanned document: we typed its figures by hand and checked that every row adds up (passed plus failed equals graded, first-time takers plus repeaters equals the total, the percentages match). '
                     'It shows whole percentages. Broker exam rows are in the official report; a school with broker exams only is marked.</p></div>'))
 
 
@@ -472,7 +479,7 @@ def leggere_hi(rim):
                     f'and {num(d["totale"]["state"]["p"])} of {num(d["totale"]["state"]["n"])} state parts ({h(d["totale"]["state"]["pc"])}). '
                     f'That total also includes {num(n_altri)} national-part exams by candidates who are not attributed to a school (prelicense equivalency, uniform-section equivalency, license restoration, unknown school); those rows are not in the table below.[[hi_tassi]]</p>'
                     '<p>The bulletin cuts percentages to one decimal instead of rounding (4 passed out of 6 is printed as 66.6%); we show them as printed. '
-                    'Some schools appear twice, once for classroom and once for online courses, with different school codes: the code is under each name. Broker exam tables and the latest quarter alone are in the bulletin.</p></div>'))
+                    'Some schools appear twice, once for classroom and once for online courses, with different school codes: the code is under each name. The bulletin prints the same name for codes 1185 and 1188. Broker exam tables and the latest quarter alone are in the bulletin.</p></div>'))
 
 
 LEGGERE = {"TX": leggere_tx, "AL": leggere_al, "NE": leggere_ne, "HI": leggere_hi}
@@ -487,9 +494,9 @@ def faq_tassi(s):
         tot = d["totale"]["first"]
         return [
             ("texas real estate exam pass rate", "What is the pass rate for the Texas real estate exam?",
-             f"On the sales agent exam, {tot['pc']} of first attempts passed between {periodo(s)}: {num(tot['p'])} of {num(tot['n'])}. That is the Texas Real Estate Commission's own figure for all education providers together.", "tx_tassi"),
+             f"On the sales agent exam, {tot['pc']} of first attempts passed ({num(tot['p'])} of {num(tot['n'])}) in the period {periodo(s)}. That is the Texas Real Estate Commission's own figure for all education providers together.", "tx_tassi"),
             ("how hard is the texas real estate exam", "How hard is the Texas real estate exam?",
-             f"The official numbers give an idea: {tot['pc']} of first attempts at the sales agent exam passed in the period covered, so a little under half did not pass the first time. If you fail either part three times, TREC requires more education before you can test again.", "tx_tassi,tx_licenza"),
+             f"The official numbers give an idea: {tot['pc']} of first attempts at the sales agent exam passed in the period covered ({num(tot['p'])} of {num(tot['n'])}), so a little under half did not pass the first time. If you fail either part three times, TREC requires more education before you can test again.", "tx_tassi,tx_licenza"),
             ("online real estate school texas", "Which online real estate schools are in the Texas table?",
              f"TREC's table does not say whether a provider teaches online or in a classroom. It lists {len(d['scuole'])} providers with their first-attempt results; the ones with the most exams in the period are {grandi[0]['nome']} ({num(grandi[0]['first']['n'])} exams, {grandi[0]['first']['pc']}), {grandi[1]['nome']} ({num(grandi[1]['first']['n'])}, {grandi[1]['first']['pc']}) and {grandi[2]['nome']} ({num(grandi[2]['first']['n'])}, {grandi[2]['first']['pc']}).", "tx_tassi"),
             ("trec pass rates", "Where does TREC publish school pass rates?",
@@ -501,7 +508,7 @@ def faq_tassi(s):
             ("alabama real estate exam", "What is the pass rate for the Alabama real estate exam?",
              f"The commission publishes rates by school, not a statewide rate. Adding up the school figures for the previous 12 months, {num(t['first']['p'])} of {num(t['first']['n'])} first attempts at the salesperson exam passed ({pct1(t['first']['p'], t['first']['n'])}), and {num(t['all']['p'])} of {num(t['all']['n'])} of all attempts including retakes ({pct1(t['all']['p'], t['all']['n'])}). The sums are ours.", "al_tassi"),
             ("how hard is the alabama real estate exam", "How hard is the Alabama real estate exam?",
-             f"Going by the commission's school figures, about {pct1(t['first']['p'], t['first']['n']).split('.')[0]} in 100 first attempts at the salesperson exam passed in the previous 12 months. You have {L['mesi_esame']} months after finishing the prelicense course to pass; after that the course must be retaken.", "al_tassi,al_licenza"),
+             f"Going by the commission's school figures, {num(t['first']['p'])} of {num(t['first']['n'])} first attempts at the salesperson exam passed in the previous 12 months ({pct1(t['first']['p'], t['first']['n'])}, our sum). You have {L['mesi_esame']} months after finishing the prelicense course to pass; after that the course must be retaken.", "al_tassi,al_licenza"),
             ("real estate classes alabama", "How do I compare real estate classes in Alabama?",
              f"The commission lists {len(d['scuole'])} approved schools with their exam results, city and format (classroom or online). In the table you can filter by format and see, next to each rate, how many students it is based on. Only {len(grandi)} schools had {SOGLIA} or more first-attempt exams in the period.", "al_tassi"),
         ]
@@ -513,16 +520,16 @@ def faq_tassi(s):
             ("nebraska real estate exam", "How many questions do you need to pass the Nebraska real estate exam?",
              f"The commission says the number of correct answers needed is {L['soglia_nazionale'][0]} out of {L['soglia_nazionale'][1]} on the national part and {L['soglia_statale'][0]} out of {L['soglia_statale'][1]} on the state part. The exam is given by Pearson.", "ne_indice,ne_esame"),
             ("real estate classes nebraska", "How do I compare real estate classes in Nebraska?",
-             f"The commission's quarterly report lists {len(d['scuole'])} schools with exam results. Most have very few students in a quarter: only {len(grandi)} had {SOGLIA} or more first-time takers. The commission itself warns that percentages say little when the number of students is small.", "ne_tassi,ne_indice"),
+             f"The commission's report for the quarter {periodo(s)} lists {len(d['scuole'])} schools with exam results. Most have very few students in a quarter: only {len(grandi)} had {SOGLIA} or more first-time takers. The commission itself warns that percentages say little when the number of students is small.", "ne_tassi,ne_indice"),
         ]
     t = d["totale"]
     return [
         ("hawaii real estate exam", "What is the pass rate for the Hawaii real estate exam?",
-         f"Between {periodo(s)}, {t['national']['pc']} of the national parts of the salesperson exam were passed ({num(t['national']['p'])} of {num(t['national']['n'])}) and {t['state']['pc']} of the state parts ({num(t['state']['p'])} of {num(t['state']['n'])}). The commission's bulletin counts all exams taken, retakes included.", "hi_tassi"),
+         f"From {periodo(s)}, {t['national']['pc']} of the national parts of the salesperson exam were passed ({num(t['national']['p'])} of {num(t['national']['n'])}) and {t['state']['pc']} of the state parts ({num(t['state']['p'])} of {num(t['state']['n'])}). The commission's bulletin counts all exams taken, retakes included.", "hi_tassi"),
         ("real estate classes hawaii", "How do I compare real estate classes in Hawaii?",
          f"The commission's School Files bulletin lists {len(d['scuole'])} prelicense school codes with exams taken and passed, classroom and online courses separately. Only {len(grandi)} of them had {SOGLIA} or more national-part exams in the year; for the others one or two results change the percentage a lot.", "hi_tassi"),
         ("hawaii real estate license", "Does the Hawaii commission publish first-attempt pass rates?",
-         "No. Its bulletin counts exams tested, passed and failed for each school, without separating first attempts from retakes. That is why the Hawaii percentages look low next to first-attempt rates from other states: the two are not the same measure.", "hi_tassi"),
+         "No. Its bulletin counts exams tested, passed and failed for each school, without separating first attempts from retakes. So the Hawaii percentages cannot be set next to first-attempt rates from other states: the two are not the same measure.", "hi_tassi"),
     ]
 
 
@@ -540,7 +547,7 @@ def pagina_stato(s):
     corpo = fatti(voci, sotto)
     intro = {"TX": "Every education provider in the Texas Real Estate Commission’s table, with its first-attempt results on the sales agent exam.",
              "AL": "Every school on the Alabama Real Estate Commission’s list, with first-attempt and all-attempt results on the salesperson exam.",
-             "NE": "Every school in the Nebraska Real Estate Commission’s latest quarterly report, with the national and state parts of the salesperson exam.",
+             "NE": "Every school in the latest quarterly report linked from the Nebraska Real Estate Commission’s index, with the national and state parts of the salesperson exam.",
              "HI": "Every prelicense school in the Hawaii Real Estate Commission’s bulletin, with the national and state parts of the salesperson exam."}[s]
     corpo += (f'<h2 id="schools">{h(nome)} pass rates by school</h2><div class="testo"><p>{intro} The table starts with the schools that had the most exams. '
               f'You can sort by pass rate: schools with fewer than {SOGLIA} exams are then listed after the others, because one or two results move their percentage a lot.</p></div>')
@@ -551,7 +558,7 @@ def pagina_stato(s):
     corpo += riquadro_partner(s)
     corpo += LEGGERE[s](rim)
     L = LIC[s]
-    corpo += (f'<h2 id="license">Getting a {h(nome)} real estate license</h2><div class="testo"><p>Before the exam you need {L["ore"]} hours of approved pre-licensing education and you must be at least {L["eta"]} years old. '
+    corpo += (f'<h2 id="license">Getting {an(h(nome))} real estate license</h2><div class="testo"><p>Before the exam you need {L["ore"]} hours of approved pre-licensing education and you must be at least {L["eta"]} years old. '
               f'The steps, deadlines and official fees are on a separate page.</p><p class="azioni"><a class="btn" href="/{slug_lic(s)}/">{h(nome)} real estate license: steps and fees{ico("arrow")}</a></p></div>')
     faq_html, faq_ld = faq_blocco(faq_tassi(s), rim)
     corpo += faq_html
@@ -561,7 +568,7 @@ def pagina_stato(s):
     eyebrow = f'{nome} · official {d["sigla"]} data' if s != "HI" else "Hawaii · official commission data"
     sub = {"TX": f"First-attempt pass rates on the Texas sales agent exam for the {len(d['scuole'])} education providers in TREC’s table, with the number of exams behind every percentage.",
            "AL": f"First-attempt and overall pass rates on the Alabama salesperson exam for the {len(d['scuole'])} schools on the commission’s list, with the number of students behind every percentage.",
-           "NE": f"Pass rates on the Nebraska salesperson exam for the {len(d['scuole'])} schools in the commission’s latest quarterly report: first-time takers and all takers, national and state parts.",
+           "NE": f"Pass rates on the Nebraska salesperson exam for the {len(d['scuole'])} schools in the latest quarterly report the commission links: first-time takers and all takers, national and state parts.",
            "HI": f"Pass rates on the Hawaii salesperson exam for the {len(d['scuole'])} prelicense school codes in the commission’s bulletin, national and state parts, with the number of exams."}[s]
     testata = banda(eyebrow, f"{nome} real estate school pass rates", h(sub), icona="chart")
     titolo = f"{nome} Real Estate School Pass Rates: Official {d['sigla']} Data" if s != "HI" else "Hawaii Real Estate School Pass Rates: Official Data"
@@ -611,7 +618,7 @@ def licenza_tx(rim):
         ("texas real estate license cost", "How much does a Texas real estate license cost?",
          f"The official fees add up to {usd(somma)}: {usd(d['totale'])} for the application, {usd(L['esame'])} for the exam and {usd(L['impronte'])} for fingerprints, under the fee schedule effective {L['in_vigore']}. The price of the {L['ore']} hours of courses is on top and depends on the school.", "tx_tariffe"),
         ("texas real estate license online", "Can I get a Texas real estate license online?",
-         "The application is filed online in TREC's REALM Portal, and TREC's table of approved providers includes schools that teach online. Fingerprints are taken in person, and the exam is given by Pearson.", "tx_licenza"),
+         "Only part of it. The application is filed online in TREC's REALM Portal, where you also upload your course completion documents. You still have to have your fingerprints taken and pass the exam, which is given by Pearson. TREC's page does not say which providers teach online: ask the provider.", "tx_licenza"),
         ("how to become a real estate agent in texas", "How do I become a real estate agent in Texas?",
          f"In TREC's order: register in the REALM Portal, complete {L['ore']} hours of qualifying courses, apply and pay the fee, have your fingerprints taken, pass the exam and find a sponsoring broker. The application expires one year after it is filed.", "tx_licenza"),
         ("trec fingerprinting", "Do I need fingerprints for a TREC license?",
@@ -628,7 +635,7 @@ def licenza_al(rim):
                      f'<li><strong>Complete the {L["ore"]} clock hour prelicense course</strong> with an approved school.[[al_licenza]]</li>'
                      f'<li><strong>Pass the exam within {L["mesi_esame"]} months</strong> of finishing the course. The exam is scheduled with Pearson.[[al_licenza,al_esame]]</li>'
                      f'<li><strong>Apply within {L["giorni_domanda"]} days of the exam date</strong>, with the fees, and have your fingerprints taken for the background check.[[al_domanda]]</li>'
-                     f'<li><strong>Complete the {L["ore_post"]} hour post license course</strong> within the first twelve months to receive the original (permanent) license.[[al_licenza]]</li></ol>'))
+                     f'<li><strong>Complete the {L["ore_post"]} hour post license course</strong> within the first twelve months to receive the original (permanent) license. The same page adds that the course must be completed and the original license issued within the first six months to keep the license active.[[al_licenza]]</li></ol>'))
     testo = (passi + '<h2>What the commission says, word for word</h2>' + rim.cit("al_licenza", "ore") + rim.cit("al_licenza", "post") + rim.cit("al_domanda", "novanta") + rim.cit("al_domanda", "nullo")
              + rim.cit("al_domanda", "impronte") + rim.cit("al_esame", "pearson"))
     tariffe = ('<h2 id="fees">Official fees</h2><div class="testo"><p>The commission’s pages that we read do not print the license fee or the exam fee. They say:</p></div>'
@@ -673,6 +680,7 @@ def licenza_ne(rim):
                      ("Salesperson renewal, 2 years", f'<b>{usd(L["rinnovo"])}</b>')]))
     fatti_ = [(f'{L["ore"]} hours', "of education in all"), (usd(somma), "application, exam and license (our sum)"), (str(L["eta"]), "minimum age"), ("Pearson", "gives the exam")]
     non = ('<li>The cost of fingerprints and of errors and omissions insurance.</li><li>The price of the courses: each school sets its own.</li>'
+           '<li>Education after the license is issued: the commission’s checklist names a course to take within 180 days of being licensed.</li>'
            '<li>The rules for people licensed in another state (license recognition) are in a separate commission document.</li>')
     faq = [
         ("nebraska real estate license", "What do I need for a Nebraska real estate license?",
@@ -740,9 +748,10 @@ def pagina_licenza(s):
     corpo += (f'<div class="testo"><p>This page covers a first {h(d["titolo_licenza"])} license for someone who is not licensed in another state. '
               f'Every step and figure comes from the commission; where its pages do not give a figure, we say so instead of guessing.</p></div>')
     corpo += testo
+    cosa_passa = {"TX": "first attempts passed", "AL": "first attempts passed",
+                  "NE": "first-time takers passed the national part", "HI": "the national parts taken were passed"}[s]
     corpo += (f'<h2 id="schools">Choosing a school: the official pass rates</h2><div class="testo"><p>The commission publishes exam results for each school. In the latest figures, '
-              f'{h(tasso_stato(s, prim))} of {MISURE[s][0][2].split(", ", 1)[1] if s != "HI" else "the national parts taken"} '
-              f'{"were passed" if s == "HI" else "passed"} ({num(d["totale"][prim]["p"])} of {num(d["totale"][prim]["n"])}; {periodo(s)}).{rim.ref(d["fonte"])}</p>'
+              f'{h(tasso_stato(s, prim))} of {cosa_passa} ({num(d["totale"][prim]["p"])} of {num(d["totale"][prim]["n"])}{", our sum of the school rows" if s in ("AL", "NE") else ""}; {periodo(s)}).{rim.ref(d["fonte"])}</p>'
               f'<p class="azioni"><a class="btn" href="/{slug(s)}/">{h(nome)} pass rates by school{ico("arrow")}</a></p></div>')
     corpo += f'<h2 id="not-covered">What this page does not cover</h2><ul class="testo">{non}</ul>'
     faq_html, faq_ld = faq_blocco(faq, rim)
@@ -750,8 +759,8 @@ def pagina_licenza(s):
     altri = "".join(f'<li><a href="/{slug_lic(o)}/"><b>{h(st(o)["nome"])}</b><small>{LIC[o]["ore"]} hours</small></a></li>' for o in STATI if o != s)
     corpo += f'<h2>Other states</h2><ul class="griglia larga">{altri}</ul>'
     corpo += rim.elenco('<p class="small">Hours, ages, deadlines and fees are copied from the official pages above; the totals marked “our sum” are our arithmetic on those figures. See <a href="/how-we-check/">how we check</a>.</p>')
-    testata = banda(f"{nome} · {d['ente']}", f"How to get a {nome} real estate license",
-                    h(f"The steps, hours, deadlines and official fees for a {nome} real estate {d['titolo_licenza']} license, taken from the commission’s own pages and quoted word for word."), icona="key")
+    testata = banda(f"{nome} · {d['ente']}", f"How to get {an(nome)} real estate license",
+                    h(f"The steps, hours, deadlines and official fees for {an(nome)} real estate {d['titolo_licenza']} license, taken from the commission’s own pages and quoted word for word."), icona="key")
     titolo = f"{nome} Real Estate License: Steps, Hours and Fees ({CONTROLLO.year})"
     if s == "TX":
         descr = f"How to get a Texas real estate license: {L['ore']} hours of courses, TREC application, fingerprints, exam and official fees, from TREC’s own pages."
@@ -787,7 +796,7 @@ def home():
         d = st(s)
         primo = {"TX": "Yes (only first attempts)", "AL": "Yes, and all attempts", "NE": "Yes, and all takers", "HI": "No: all exams taken"}[s]
         righe.append(f'<tr><th scope="row"><a href="/{slug(s)}/">{h(d["nome"])}</a></th><td>{h(d["ente"])}{rim.ref(d["fonte"])}</td><td>{h(periodo(s, True))}</td><td>{primo}</td><td class="n">{len(d["scuole"])}</td><td class="n">{LIC[s]["ore"]}</td></tr>')
-    corpo += ('<h2>The four states at a glance</h2><div class="tab"><table class="dati ampia"><caption><span>What each commission publishes. Hours: pre-licensing education required for a first license.</span></caption>'
+    corpo += ('<h2>The four states at a glance</h2><p class="small scorri">Swipe the table sideways to see every column.</p><div class="tab"><table class="dati ampia"><caption><span>What each commission publishes. Hours: pre-licensing education required for a first license.</span></caption>'
               '<thead><tr><th scope="col">State</th><th scope="col">Published by</th><th scope="col">Period</th><th scope="col">First attempts separated?</th><th scope="col" class="n">Schools</th><th scope="col" class="n">Course hours</th></tr></thead>'
               f'<tbody>{"".join(righe)}</tbody></table></div>')
     corpo += ('<h2>Why the number of exams matters</h2><div class="testo"><p>A school with 4 students and 3 passes shows 75%; one more fail and it shows 60%. A school with 8,000 exams does not move like that. '
@@ -796,11 +805,11 @@ def home():
     tx, al = st("TX")["totale"]["first"], st("AL")["totale"]
     faq = [
         ("real estate exam pass rate", "What is the pass rate for the real estate exam?",
-         f"It depends on the state and on what is counted. In Texas, {tx['pc']} of first attempts at the sales agent exam passed between {periodo('TX')}. In Alabama, the school figures add up to {pct1(al['first']['p'], al['first']['n'])} of first attempts over the previous 12 months, and {pct1(al['all']['p'], al['all']['n'])} when retakes are counted.", "tx_tassi,al_tassi"),
+         f"It depends on the state and on what is counted. In Texas, {tx['pc']} of first attempts at the sales agent exam passed ({num(tx['p'])} of {num(tx['n'])}) in the period {periodo('TX')}. In Alabama, the school figures add up to {pct1(al['first']['p'], al['first']['n'])} of first attempts over the previous 12 months ({num(al['first']['p'])} of {num(al['first']['n'])}), and {pct1(al['all']['p'], al['all']['n'])} when retakes are counted ({num(al['all']['p'])} of {num(al['all']['n'])}).", "tx_tassi,al_tassi"),
         ("how hard is the real estate exam", "How hard is the real estate exam?",
          f"Official results show that many people do not pass the first time. In Texas {num(tx['n'] - tx['p'])} of {num(tx['n'])} first attempts failed in the two years covered. States let you retake the exam; in Texas three fails on either part mean more education before you can test again.", "tx_tassi,tx_licenza"),
         ("is the real estate exam hard", "Is the real estate exam hard to pass on the first try?",
-         f"In the states that separate first attempts, the first-try rate was {tx['pc']} in Texas and {pct1(al['first']['p'], al['first']['n'])} in Alabama (our sum of the commission's school figures). The rate differs a lot from school to school, and for small schools it is based on very few students.", "tx_tassi,al_tassi"),
+         f"In the states that separate first attempts, the first-try rate was {tx['pc']} in Texas ({num(tx['p'])} of {num(tx['n'])} exams) and {pct1(al['first']['p'], al['first']['n'])} in Alabama ({num(al['first']['p'])} of {num(al['first']['n'])}, our sum of the commission's school figures). The rate differs a lot from school to school, and for small schools it is based on very few students.", "tx_tassi,al_tassi"),
     ]
     faq_html, faq_ld = faq_blocco(faq, rim)
     corpo += faq_html
@@ -844,7 +853,7 @@ def come_controlliamo():
         forma = {"TX": "Data file (JSON) loaded by the commission’s page", "AL": "The commission’s web page, one card per school", "NE": "Scanned PDF report; typed by hand and checked row by row", "HI": "PDF bulletin with text tables"}[s]
         righe.append(f'<tr><th scope="row"><a href="/{slug(s)}/">{h(d["nome"])}</a></th><td><a href="{h(f["url"])}" rel="noopener">{h(f["titolo"])}</a>{rim.ref(d["fonte"])}<br><span class="small">{h(d["ente"])}</span></td>'
                      f'<td>{h(forma)}</td><td>{h(conta)}</td><td>{h(periodo(s))}</td><td>{giorno(d["letto_il"])}</td></tr>')
-    corpo += ('<h2 id="sources">The four data sources</h2><div class="tab"><table class="dati ampia"><caption><span>Where each state table comes from, what it counts and when we read it.</span></caption>'
+    corpo += ('<h2 id="sources">The four data sources</h2><p class="small scorri">Swipe the table sideways to see every column.</p><div class="tab"><table class="dati ampia"><caption><span>Where each state table comes from, what it counts and when we read it.</span></caption>'
               '<thead><tr><th scope="col">State</th><th scope="col">Official publication</th><th scope="col">Form</th><th scope="col">What is counted</th><th scope="col">Period</th><th scope="col">Read on</th></tr></thead>'
               f'<tbody>{"".join(righe)}</tbody></table></div>')
     corpo += '<h2>How the figures get from the commission to the page</h2><div class="testo"><ul>'
@@ -852,7 +861,7 @@ def come_controlliamo():
                    'and record its address, the date and a fingerprint (SHA-256).</li>'
                    '<li>Exam counts and percentages are read from the file by a program and copied as printed. The build stops if a percentage does not match its own counts (passed ÷ exams), '
                    'if passed plus failed does not equal the exams taken, or if a total printed by the commission is not the sum of its rows.[[tx_tassi,hi_tassi]]</li>'
-                   '<li>Nebraska’s report is a scan, so its numbers are typed by hand from the page images. Each row has to add up in three ways (passed + failed = graded; first-time takers + repeaters = total; the rows of a school = its total row) before the site is built, and the typed figures are tied to the fingerprint of that exact PDF.[[ne_tassi]]</li>'
+                   '<li>For Nebraska we use only a quarterly report that the commission links from its own index page (“License Examination Performance by School”), never a file found in any other way. The report is a scan, so its numbers are typed by hand from the page images. Each row has to add up in three ways (passed + failed = graded; first-time takers + repeaters = total; the rows of a school = its total row) before the site is built, and the typed figures are tied to the fingerprint of that exact PDF.[[ne_tassi]]</li>'
                    f'<li>Every sentence in a quotation box is copied word for word and searched for in the downloaded file each time ({n_frasi} sentences). If one is no longer there, the build stops.</li>'
                    '<li>A second program, written separately, reads the raw files again in its own way and compares every number on every page.</li></ul></div>')
     corpo += ('<h2>Small samples</h2><div class="testo">'

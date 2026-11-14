@@ -1,0 +1,1119 @@
+{
+ "_nota": "Trascrizione a mano (14/11/2026, revisione indipendente) del rapporto trimestrale della Nebraska Real Estate Commission, primo trimestre 2026: è l'ultimo trimestre COLLEGATO dall'indice ufficiale (examperformancebyschool.pdf, «Updated July 2026»; i trimestri successivi sono nominati nell'indice ma non collegati, quindi non si usano). Il PDF è una scansione senza strato di testo: le cifre sono state lette dalle immagini delle 7 pagine. Ogni riga: [graded, passed, pass rate %, failed, fail rate %] per first (First Time Takers), repeat (Repeaters), all (Total). raccolta/fonti.py controlla che il PDF abbia l'impronta sotto, che il suo indirizzo sia tra i collegamenti dell'indice e che ogni riga torni (passed + failed = graded, percentuali arrotondate, first + repeat = all, somma delle righe = riga Total): una cifra letta male fa fermare lo script. verifica.py confronta le righe con una lettura automatica (tesseract) delle stesse pagine. Trimestre nuovo, solo quando l'indice lo collega: nuova trascrizione, nuovo file, nuova impronta.",
+ "fonte": "ne_tassi",
+ "periodo": {
+  "dal": "2026-01-01",
+  "al": "2026-03-31"
+ },
+ "intervallo_stampato": "Date Range: 01-Jan-2026 to 31-Mar-2026",
+ "sha256_pdf": "febd43901fae10b20939d604f963d6f8c4063a5e0acb4249ef4b5f7db08c20d2",
+ "scuole": [
+  {
+   "codice": "0003",
+   "nome": "Cooke Real Estate School",
+   "righe": {
+    "sales_national": {
+     "first": [
+      1,
+      0,
+      0,
+      1,
+      100
+     ],
+     "repeat": [
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "all": [
+      1,
+      0,
+      0,
+      1,
+      100
+     ]
+    },
+    "sales_state": {
+     "first": [
+      1,
+      0,
+      0,
+      1,
+      100
+     ],
+     "repeat": [
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "all": [
+      1,
+      0,
+      0,
+      1,
+      100
+     ]
+    },
+    "total": {
+     "first": [
+      2,
+      0,
+      0,
+      2,
+      100
+     ],
+     "repeat": [
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "all": [
+      2,
+      0,
+      0,
+      2,
+      100
+     ]
+    }
+   }
+  },
+  {
+   "codice": "0004",
+   "nome": "Colibri Real Estate LLC",
+   "righe": {
+    "broker_national": {
+     "first": [
+      1,
+      1,
+      100,
+      0,
+      0
+     ],
+     "repeat": [
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "all": [
+      1,
+      1,
+      100,
+      0,
+      0
+     ]
+    },
+    "sales_national": {
+     "first": [
+      16,
+      12,
+      75,
+      4,
+      25
+     ],
+     "repeat": [
+      10,
+      6,
+      60,
+      4,
+      40
+     ],
+     "all": [
+      26,
+      18,
+      69,
+      8,
+      31
+     ]
+    },
+    "broker_state": {
+     "first": [
+      1,
+      1,
+      100,
+      0,
+      0
+     ],
+     "repeat": [
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "all": [
+      1,
+      1,
+      100,
+      0,
+      0
+     ]
+    },
+    "sales_state": {
+     "first": [
+      16,
+      5,
+      31,
+      11,
+      69
+     ],
+     "repeat": [
+      22,
+      7,
+      32,
+      15,
+      68
+     ],
+     "all": [
+      38,
+      12,
+      32,
+      26,
+      68
+     ]
+    },
+    "total": {
+     "first": [
+      34,
+      19,
+      56,
+      15,
+      44
+     ],
+     "repeat": [
+      32,
+      13,
+      41,
+      19,
+      59
+     ],
+     "all": [
+      66,
+      32,
+      48,
+      34,
+      52
+     ]
+    }
+   }
+  },
+  {
+   "codice": "0007",
+   "nome": "Larabee School of Real Estate",
+   "righe": {
+    "broker_national": {
+     "first": [
+      2,
+      2,
+      100,
+      0,
+      0
+     ],
+     "repeat": [
+      3,
+      1,
+      33,
+      2,
+      67
+     ],
+     "all": [
+      5,
+      3,
+      60,
+      2,
+      40
+     ]
+    },
+    "sales_national": {
+     "first": [
+      13,
+      7,
+      54,
+      6,
+      46
+     ],
+     "repeat": [
+      7,
+      5,
+      71,
+      2,
+      29
+     ],
+     "all": [
+      20,
+      12,
+      60,
+      8,
+      40
+     ]
+    },
+    "broker_state": {
+     "first": [
+      2,
+      1,
+      50,
+      1,
+      50
+     ],
+     "repeat": [
+      3,
+      2,
+      67,
+      1,
+      33
+     ],
+     "all": [
+      5,
+      3,
+      60,
+      2,
+      40
+     ]
+    },
+    "sales_state": {
+     "first": [
+      13,
+      3,
+      23,
+      10,
+      77
+     ],
+     "repeat": [
+      23,
+      5,
+      22,
+      18,
+      78
+     ],
+     "all": [
+      36,
+      8,
+      22,
+      28,
+      78
+     ]
+    },
+    "total": {
+     "first": [
+      30,
+      13,
+      43,
+      17,
+      57
+     ],
+     "repeat": [
+      36,
+      13,
+      36,
+      23,
+      64
+     ],
+     "all": [
+      66,
+      26,
+      39,
+      40,
+      61
+     ]
+    }
+   }
+  },
+  {
+   "codice": "0009",
+   "nome": "Metropolitan Community College",
+   "righe": {
+    "sales_national": {
+     "first": [
+      4,
+      0,
+      0,
+      4,
+      100
+     ],
+     "repeat": [
+      5,
+      2,
+      40,
+      3,
+      60
+     ],
+     "all": [
+      9,
+      2,
+      22,
+      7,
+      78
+     ]
+    },
+    "sales_state": {
+     "first": [
+      4,
+      0,
+      0,
+      4,
+      100
+     ],
+     "repeat": [
+      13,
+      2,
+      15,
+      11,
+      85
+     ],
+     "all": [
+      17,
+      2,
+      12,
+      15,
+      88
+     ]
+    },
+    "total": {
+     "first": [
+      8,
+      0,
+      0,
+      8,
+      100
+     ],
+     "repeat": [
+      18,
+      4,
+      22,
+      14,
+      78
+     ],
+     "all": [
+      26,
+      4,
+      15,
+      22,
+      85
+     ]
+    }
+   }
+  },
+  {
+   "codice": "0014",
+   "nome": "Northeast Community College-Pre Lic",
+   "righe": {
+    "broker_national": {
+     "first": [
+      1,
+      1,
+      100,
+      0,
+      0
+     ],
+     "repeat": [
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "all": [
+      1,
+      1,
+      100,
+      0,
+      0
+     ]
+    },
+    "sales_national": {
+     "first": [
+      1,
+      0,
+      0,
+      1,
+      100
+     ],
+     "repeat": [
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "all": [
+      1,
+      0,
+      0,
+      1,
+      100
+     ]
+    },
+    "broker_state": {
+     "first": [
+      1,
+      1,
+      100,
+      0,
+      0
+     ],
+     "repeat": [
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "all": [
+      1,
+      1,
+      100,
+      0,
+      0
+     ]
+    },
+    "sales_state": {
+     "first": [
+      1,
+      0,
+      0,
+      1,
+      100
+     ],
+     "repeat": [
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "all": [
+      1,
+      0,
+      0,
+      1,
+      100
+     ]
+    },
+    "total": {
+     "first": [
+      4,
+      2,
+      50,
+      2,
+      50
+     ],
+     "repeat": [
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "all": [
+      4,
+      2,
+      50,
+      2,
+      50
+     ]
+    }
+   }
+  },
+  {
+   "codice": "0017",
+   "nome": "Randall School of Real Estate",
+   "righe": {
+    "broker_national": {
+     "first": [
+      7,
+      2,
+      29,
+      5,
+      71
+     ],
+     "repeat": [
+      6,
+      5,
+      83,
+      1,
+      17
+     ],
+     "all": [
+      13,
+      7,
+      54,
+      6,
+      46
+     ]
+    },
+    "sales_national": {
+     "first": [
+      32,
+      18,
+      56,
+      14,
+      44
+     ],
+     "repeat": [
+      40,
+      12,
+      30,
+      28,
+      70
+     ],
+     "all": [
+      72,
+      30,
+      42,
+      42,
+      58
+     ]
+    },
+    "broker_state": {
+     "first": [
+      7,
+      3,
+      43,
+      4,
+      57
+     ],
+     "repeat": [
+      6,
+      4,
+      67,
+      2,
+      33
+     ],
+     "all": [
+      13,
+      7,
+      54,
+      6,
+      46
+     ]
+    },
+    "sales_state": {
+     "first": [
+      32,
+      12,
+      38,
+      20,
+      63
+     ],
+     "repeat": [
+      61,
+      18,
+      30,
+      43,
+      70
+     ],
+     "all": [
+      93,
+      30,
+      32,
+      63,
+      68
+     ]
+    },
+    "total": {
+     "first": [
+      78,
+      35,
+      45,
+      43,
+      55
+     ],
+     "repeat": [
+      113,
+      39,
+      35,
+      74,
+      65
+     ],
+     "all": [
+      191,
+      74,
+      39,
+      117,
+      61
+     ]
+    }
+   }
+  },
+  {
+   "codice": "0025",
+   "nome": "University of Nebraska-Omaha",
+   "righe": {
+    "sales_national": {
+     "first": [
+      2,
+      1,
+      50,
+      1,
+      50
+     ],
+     "repeat": [
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "all": [
+      2,
+      1,
+      50,
+      1,
+      50
+     ]
+    },
+    "sales_state": {
+     "first": [
+      2,
+      1,
+      50,
+      1,
+      50
+     ],
+     "repeat": [
+      2,
+      1,
+      50,
+      1,
+      50
+     ],
+     "all": [
+      4,
+      2,
+      50,
+      2,
+      50
+     ]
+    },
+    "total": {
+     "first": [
+      4,
+      2,
+      50,
+      2,
+      50
+     ],
+     "repeat": [
+      2,
+      1,
+      50,
+      1,
+      50
+     ],
+     "all": [
+      6,
+      3,
+      50,
+      3,
+      50
+     ]
+    }
+   }
+  },
+  {
+   "codice": "0031",
+   "nome": "Reesults Coaching",
+   "righe": {
+    "sales_national": {
+     "first": [
+      15,
+      10,
+      67,
+      5,
+      33
+     ],
+     "repeat": [
+      17,
+      6,
+      35,
+      11,
+      65
+     ],
+     "all": [
+      32,
+      16,
+      50,
+      16,
+      50
+     ]
+    },
+    "sales_state": {
+     "first": [
+      15,
+      6,
+      40,
+      9,
+      60
+     ],
+     "repeat": [
+      30,
+      12,
+      40,
+      18,
+      60
+     ],
+     "all": [
+      45,
+      18,
+      40,
+      27,
+      60
+     ]
+    },
+    "total": {
+     "first": [
+      30,
+      16,
+      53,
+      14,
+      47
+     ],
+     "repeat": [
+      47,
+      18,
+      38,
+      29,
+      62
+     ],
+     "all": [
+      77,
+      34,
+      44,
+      43,
+      56
+     ]
+    }
+   }
+  },
+  {
+   "codice": "0032",
+   "nome": "360training.com, Inc dba Van Education Center",
+   "righe": {
+    "broker_national": {
+     "first": [
+      2,
+      2,
+      100,
+      0,
+      0
+     ],
+     "repeat": [
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "all": [
+      2,
+      2,
+      100,
+      0,
+      0
+     ]
+    },
+    "sales_national": {
+     "first": [
+      33,
+      21,
+      64,
+      12,
+      36
+     ],
+     "repeat": [
+      30,
+      10,
+      33,
+      20,
+      67
+     ],
+     "all": [
+      63,
+      31,
+      49,
+      32,
+      51
+     ]
+    },
+    "broker_state": {
+     "first": [
+      2,
+      2,
+      100,
+      0,
+      0
+     ],
+     "repeat": [
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "all": [
+      2,
+      2,
+      100,
+      0,
+      0
+     ]
+    },
+    "sales_state": {
+     "first": [
+      33,
+      4,
+      12,
+      29,
+      88
+     ],
+     "repeat": [
+      78,
+      23,
+      29,
+      55,
+      71
+     ],
+     "all": [
+      111,
+      27,
+      24,
+      84,
+      76
+     ]
+    },
+    "total": {
+     "first": [
+      70,
+      29,
+      41,
+      41,
+      59
+     ],
+     "repeat": [
+      108,
+      33,
+      31,
+      75,
+      69
+     ],
+     "all": [
+      178,
+      62,
+      35,
+      116,
+      65
+     ]
+    }
+   }
+  },
+  {
+   "codice": "0034",
+   "nome": "University of Nebraska-Lincoln",
+   "righe": {
+    "sales_national": {
+     "first": [
+      1,
+      0,
+      0,
+      1,
+      100
+     ],
+     "repeat": [
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "all": [
+      1,
+      0,
+      0,
+      1,
+      100
+     ]
+    },
+    "sales_state": {
+     "first": [
+      1,
+      0,
+      0,
+      1,
+      100
+     ],
+     "repeat": [
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "all": [
+      1,
+      0,
+      0,
+      1,
+      100
+     ]
+    },
+    "total": {
+     "first": [
+      2,
+      0,
+      0,
+      2,
+      100
+     ],
+     "repeat": [
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "all": [
+      2,
+      0,
+      0,
+      2,
+      100
+     ]
+    }
+   }
+  },
+  {
+   "codice": "0002",
+   "nome": "Real Estate Institute of Learning",
+   "righe": {
+    "sales_national": {
+     "first": [
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "repeat": [
+      1,
+      0,
+      0,
+      1,
+      100
+     ],
+     "all": [
+      1,
+      0,
+      0,
+      1,
+      100
+     ]
+    },
+    "sales_state": {
+     "first": [
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "repeat": [
+      1,
+      0,
+      0,
+      1,
+      100
+     ],
+     "all": [
+      1,
+      0,
+      0,
+      1,
+      100
+     ]
+    },
+    "total": {
+     "first": [
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "repeat": [
+      2,
+      0,
+      0,
+      2,
+      100
+     ],
+     "all": [
+      2,
+      0,
+      0,
+      2,
+      100
+     ]
+    }
+   }
+  },
+  {
+   "codice": "0005",
+   "nome": "Kaplan Real Estate Education",
+   "righe": {
+    "sales_state": {
+     "first": [
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "repeat": [
+      2,
+      1,
+      50,
+      1,
+      50
+     ],
+     "all": [
+      2,
+      1,
+      50,
+      1,
+      50
+     ]
+    },
+    "total": {
+     "first": [
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "repeat": [
+      2,
+      1,
+      50,
+      1,
+      50
+     ],
+     "all": [
+      2,
+      1,
+      50,
+      1,
+      50
+     ]
+    }
+   }
+  }
+ ]
+}

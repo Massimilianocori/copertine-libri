@@ -8,7 +8,47 @@ import zipfile
 
 def pdf(percorso, layout=False):
     cmd = ["pdftotext"] + (["-layout"] if layout else []) + [str(percorso), "-"]
-    return subprocess.run(cmd, capture_output=True, check=True).stdout.decode("utf-8", errors="replace")
+    t = subprocess.run(cmd, capture_output=True, check=True).stdout.decode("utf-8", errors="replace")
+    # Una scansione senza strato di testo (rapporto del Nebraska): si legge con il riconoscimento dei caratteri.
+    return t if len(t.strip()) > 200 else pdf_ocr(percorso)
+
+
+def pdf_ocr(percorso):
+    """Testo di un PDF scansionato, pagina per pagina, con tesseract (immagini a 400 punti per pollice, una riga di tabella per riga di testo).
+
+    È una seconda lettura fatta da una macchina: serve a ritrovare le frasi citate e a confrontare le cifre trascritte a mano, non a produrre i dati.
+    Il risultato si tiene in cache/ con l'impronta del file nel nome.
+    """
+    import shutil
+    import tempfile
+    from pathlib import Path
+    dati = Path(percorso).read_bytes()
+    cache = Path(__file__).resolve().parent.parent / "cache" / f"ocr_{hashlib.sha256(dati).hexdigest()[:16]}.txt"
+    if cache.exists():
+        return cache.read_text(encoding="utf-8")
+    if not shutil.which("tesseract") or not shutil.which("pdftoppm"):
+        raise SystemExit(f"{percorso}: PDF scansionato senza strato di testo; servono pdftoppm e tesseract per rileggerlo")
+    with tempfile.TemporaryDirectory() as d:
+        subprocess.run(["pdftoppm", "-r", "400", "-gray", "-png", str(percorso), f"{d}/p"], check=True, capture_output=True)
+        pagine = []
+        for img in sorted(Path(d).glob("p-*.png")):
+            pagine.append(subprocess.run(["tesseract", str(img), "stdout", "--psm", "6"], capture_output=True, check=True).stdout.decode("utf-8", errors="replace"))
+    t = "\f".join(pagine)
+    cache.parent.mkdir(exist_ok=True)
+    cache.write_text(t, encoding="utf-8")
+    return t
+
+
+def link_pdf(percorso):
+    """Indirizzi dei collegamenti (annotazioni /URI) di un PDF: serve per l'indice del Nebraska, che elenca i rapporti trimestrali."""
+    import pypdf
+    trovati = set()
+    for pagina in pypdf.PdfReader(str(percorso)).pages:
+        for a in pagina.get("/Annots", []) or []:
+            az = a.get_object().get("/A")
+            if az and "/URI" in az:
+                trovati.add(str(az["/URI"]))
+    return trovati
 
 
 def pagina_html(percorso):

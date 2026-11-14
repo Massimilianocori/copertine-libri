@@ -8,7 +8,7 @@ scritta qui in un altro modo rispetto a raccolta/fonti.py:
 - Alabama: le schede HTML rilette cella per cella (fonti.py le legge come testo);
 - Hawaii: il PDF riletto con un'altra libreria (pypdf: righe «codice, esami, promossi, bocciati»; fonti.py usa pdftotext -layout), con la
   percentuale ricalcolata e troncata a un decimale come fa il bollettino;
-- Nebraska (scansione, trascritta a mano): righe che tornano con l'aritmetica, confronto con lo strato di testo della scansione dove si legge
+- Nebraska (scansione, trascritta a mano): righe che tornano con l'aritmetica, confronto con la lettura automatica (tesseract) della scansione dove si legge
   pulito, e alcune cifre chiave ritrascritte qui sotto;
 - ore, età, scadenze e tariffe della licenza: trascritte a mano qui sotto (ATTESO_LIC) dalle pagine delle commissioni.
 Poi: frasi alla lettera, FAQ da ricerche misurate, link, titoli, modulo senza dati personali, regola dei campioni piccoli (numero di esami
@@ -70,15 +70,16 @@ ATTESO_RIGHE = {
            "kaplan real estate education": {"first": (1280, 681, "53.20%")}, "the ce shop llc": {"first": (1077, 608, "56.45%")}, "360training.com inc.": {"first": (290, 138, "47.59%")}},
     "AL": {"360training.com, inc.": {"first": (33, 11, "33.3%"), "all": (101, 22, "21.8%")}, "academy of real estate": {"first": (42, 37, "88.1%"), "all": (50, 38, "76%")},
            "colibri real estate, llc": {"first": (272, 222, "81.6%"), "all": (388, 269, "69.3%")}},
-    "NE": {"randall school of real estate": {"national_first": (28, 20, "71%"), "state_first": (28, 12, "43%"), "national_all": (46, 31, "67%"), "state_all": (76, 28, "37%")},
-           "360training.com, inc dba van education center": {"national_first": (32, 27, "84%"), "state_first": (32, 9, "28%"), "national_all": (56, 38, "68%"), "state_all": (94, 36, "38%")},
-           "the ce shop, llc": {"national_first": (8, 7, "88%"), "state_first": (8, 6, "75%"), "national_all": (11, 8, "73%"), "state_all": (14, 9, "64%")},
-           "colibri real estate llc": {"national_first": (9, 5, "56%"), "state_first": (9, 1, "11%"), "national_all": (13, 7, "54%"), "state_all": (23, 6, "26%")}},
+    # Nebraska, 1° trimestre 2026 (rapporto collegato dall'indice ufficiale), riletto dalle immagini delle pagine 2, 4 e 5 nella revisione del 14/11/2026
+    "NE": {"randall school of real estate": {"national_first": (32, 18, "56%"), "state_first": (32, 12, "38%"), "national_all": (72, 30, "42%"), "state_all": (93, 30, "32%")},
+           "360training.com, inc dba van education center": {"national_first": (33, 21, "64%"), "state_first": (33, 4, "12%"), "national_all": (63, 31, "49%"), "state_all": (111, 27, "24%")},
+           "reesults coaching": {"national_first": (15, 10, "67%"), "state_first": (15, 6, "40%"), "national_all": (32, 16, "50%"), "state_all": (45, 18, "40%")},
+           "colibri real estate llc": {"national_first": (16, 12, "75%"), "state_first": (16, 5, "31%"), "national_all": (26, 18, "69%"), "state_all": (38, 12, "32%")}},
     "HI": {"abe lee seminars (online)": {"national": (504, 156, "30.9%"), "state": (576, 152, "26.3%")}, "the ce shop, inc. (online)": {"national": (293, 134, "45.7%"), "state": (407, 136, "33.4%")},
            "colibri real estate, llc (online)": {"national": (209, 85, "40.6%"), "state": (271, 75, "27.6%")}},
 }
 MESI = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-PERIODI = {"TX": "December 1, 2023 to November 30, 2025", "NE": "July 1 to September 30, 2026", "HI": "October 1, 2025 to September 30, 2026"}
+PERIODI = {"TX": "December 1, 2023 to November 30, 2025", "NE": "January 1 to March 31, 2026", "HI": "October 1, 2025 to September 30, 2026"}
 
 
 def err(m):
@@ -101,7 +102,13 @@ def norm(s):
 
 def testo_grezzo(p):
     if p.suffix == ".pdf":
-        return subprocess.run(["pdftotext", str(p), "-"], capture_output=True, check=True).stdout.decode("utf-8", errors="replace")
+        t = subprocess.run(["pdftotext", str(p), "-"], capture_output=True, check=True).stdout.decode("utf-8", errors="replace")
+        if len(t.strip()) > 200:
+            return t
+        # scansione senza strato di testo (rapporto del Nebraska): lettura automatica delle pagine
+        sys.path.insert(0, str(RADICE / "raccolta"))
+        import testo as T_ocr
+        return T_ocr.pdf_ocr(p)
     s = p.read_text(encoding="utf-8", errors="replace")
     s = re.sub(r"(?is)<(script|style|noscript).*?</\1>", " ", s)
     return unescape(re.sub(r"<[^>]+>", " ", s))
@@ -215,19 +222,33 @@ def rif_hawaii(F):
 
 
 def rif_nebraska(F):
-    """La trascrizione a mano: ogni riga deve tornare; dove lo strato di testo della scansione si legge pulito deve dire le stesse cifre."""
-    m = json.loads((DATI / "manuali" / "ne_q3_2026.json").read_text(encoding="utf-8"))
+    """La trascrizione a mano: ogni riga deve tornare; dove la lettura automatica della scansione (tesseract) è pulita deve dire le stesse cifre."""
+    m = json.loads((DATI / "manuali" / "ne_q1_2026.json").read_text(encoding="utf-8"))
     pdf = RADICE / F["ne_tassi"]["file"]
     ok(hashlib.sha256(pdf.read_bytes()).hexdigest() == m["sha256_pdf"], "Nebraska: la trascrizione non è legata a questo PDF")
-    ocr = subprocess.run(["pdftotext", "-layout", str(pdf), "-"], capture_output=True, check=True).stdout.decode("utf-8", errors="replace")
-    ok("01-Jul-2026 to 30-Sep-2026" in ocr and (m["periodo"]["dal"], m["periodo"]["al"]) == ("2026-07-01", "2026-09-30"), "Nebraska: periodo")
-    blocchi = re.split(r"School Nam\S*:?\s*", ocr)[1:]
-    ok(len(blocchi) == len(m["scuole"]) == 12, f"Nebraska: {len(blocchi)} scuole nello strato di testo, {len(m['scuole'])} trascritte")
-    righe, pulite, diverse = {}, 0, 0
+    # Regola: solo un rapporto collegato dall'indice ufficiale della Commissione (mai un indirizzo indovinato).
+    import pypdf
+    collegati = set()
+    for pagina in pypdf.PdfReader(str(RADICE / F["ne_indice"]["file"])).pages:
+        for a in pagina.get("/Annots", []) or []:
+            az = a.get_object().get("/A")
+            if az and "/URI" in az:
+                collegati.add(str(az["/URI"]))
+    ok(F["ne_tassi"]["url"] in collegati, "Nebraska: il rapporto usato non è tra i collegamenti dell'indice ufficiale (examperformancebyschool.pdf)")
+    if any(re.search(r"(second|third|fourth)\s*(%20)*quarter(%20)*2026", u, re.I) for u in collegati) and "firstquarter2026" in F["ne_tassi"]["url"]:
+        AVV.append("Nebraska: l'indice ufficiale ora collega un trimestre 2026 più recente del primo: rifare la trascrizione su quello")
+    # La scansione non ha strato di testo: seconda lettura automatica delle pagine (tesseract), indipendente dalla trascrizione a mano.
+    sys.path.insert(0, str(RADICE / "raccolta"))
+    import testo as T_ocr
+    ocr = T_ocr.pdf_ocr(pdf)
+    ok("01-Jan-2026 to 31-Mar-2026" in ocr and (m["periodo"]["dal"], m["periodo"]["al"]) == ("2026-01-01", "2026-03-31"), "Nebraska: periodo")
+    blocchi = re.split(r"School Nam\S*\s*", ocr)[1:]
+    ok(len(blocchi) == len(m["scuole"]) == 12, f"Nebraska: {len(blocchi)} scuole nella lettura automatica, {len(m['scuole'])} trascritte")
+    righe, pulite, diverse, illeggibili = {}, 0, 0, 0
     quindici = re.compile(r"(?<![\w%])" + r"\s+".join([r"(\d+)\s+(\d+)\s+(\d+)%\s+(\d+)\s+(\d+)%"] * 3) + r"\s*$")
     for s in m["scuole"]:
         blocco = next((b for b in blocchi if f"({s['codice']})" in b[:120]), None)
-        if not ok(blocco is not None, f"Nebraska: codice {s['codice']} non trovato nello strato di testo del PDF"):
+        if not ok(blocco is not None, f"Nebraska: codice {s['codice']} non trovato nella lettura automatica del PDF"):
             continue
         attese = {tuple(r["first"] + r["repeat"] + r["all"]) for r in s["righe"].values()}
         for riga in blocco.splitlines():
@@ -236,9 +257,12 @@ def rif_nebraska(F):
                 t = tuple(int(x) for x in mm.groups())
                 if t in attese:
                     pulite += 1
+                elif not all(t[i + 1] + t[i + 3] == t[i] and (not t[i] or (abs(100 * t[i + 1] / t[i] - t[i + 2]) <= 0.5 and abs(100 * t[i + 3] / t[i] - t[i + 4]) <= 0.5)) for i in (0, 5, 10)) \
+                        or (t[0] + t[5], t[1] + t[6]) != (t[10], t[11]):
+                    illeggibili += 1     # la riga letta dalla macchina non torna con la sua stessa aritmetica (es. un 1 letto come 4): è rumore, non una seconda lettura
                 else:
                     diverse += 1
-                    AVV.append(f"Nebraska/{s['nome']}: lo strato di testo della scansione legge {t}, che non è tra le righe trascritte (controllare a occhio sul PDF)")
+                    AVV.append(f"Nebraska/{s['nome']}: la lettura automatica della scansione legge {t}, che non è tra le righe trascritte (controllare a occhio sul PDF)")
         for nome_riga, r in s["righe"].items():
             for g in ("first", "repeat", "all"):
                 n, p, pc, f, fc = r[g]
@@ -250,7 +274,7 @@ def rif_nebraska(F):
             for g, coda in (("first", "_first"), ("all", "_all")):
                 v[chiave + coda] = (r[g][0], r[g][1], f"{r[g][2]}%" if r[g][0] else None) if r else (0, 0, None)
         righe[(s["nome"].lower(), s["codice"])] = v
-    ok(pulite >= 20, f"Nebraska: solo {pulite} righe della trascrizione confermate dallo strato di testo della scansione")
+    ok(pulite >= 20, f"Nebraska: solo {pulite} righe della trascrizione confermate dalla lettura automatica della scansione")
     return righe, pulite, diverse
 
 
@@ -460,7 +484,7 @@ def controlla_pagine(F, testi):
         for n in re.findall(r'href="#(f\d+)"', html):
             ok(f'id="{n}"' in html, f"{u}: rimando {n} senza fonte")
         for href in set(re.findall(r'<a [^>]*href="(https?://[^"]+)"', html)):
-            ok(unescape(href) in {f["url"] for fid, f in F.items() if fid not in FONTI_PARTNER} or href in link_partner
+            ok(unescape(href) in {f["url"] for fid, f in F.items() if fid not in FONTI_PARTNER} or unescape(href) in link_partner
                or re.match(r"https://(www\.goatcounter\.com|policies\.google\.com|adssettings\.google\.com|www\.google\.com|support\.google\.com)(/|$)", href),
                f"{u}: link esterno non previsto {href}")
         for fid, k, frase in re.findall(r'<blockquote class="cit" data-fonte="([\w]+)" data-frase="([\w]+)"><p>“<span data-cit>(.*?)</span>”</p>', html, re.S):
@@ -555,7 +579,7 @@ def main():
     for e in ERR:
         print("ERRORE:", e)
     print(f"{len(F)} fonti e {sum(len(f['frasi']) for f in F.values())} frasi alla lettera · {n_celle} celle delle tabelle = seconda lettura dei file grezzi "
-          f"(Nebraska: {ne_pulite} righe confermate dallo strato di testo della scansione, {ne_diverse} da guardare) · {n_cit} citazioni in pagina · {n_faq} FAQ · "
+          f"(Nebraska: {ne_pulite} righe confermate dalla lettura automatica della scansione, {ne_diverse} da guardare) · {n_cit} citazioni in pagina · {n_faq} FAQ · "
           f"{len(pagine)} pagine · {len(ERR)} errori, {len(AVV)} avvisi")
     sys.exit(1 if ERR else 0)
 

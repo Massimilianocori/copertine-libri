@@ -8,7 +8,7 @@ Uso (dalla radice del repository):
 
 Uscite: dati/fonti.json (una voce per fonte: url, file, sha256, letto_il, http, frasi trovate) e dati/tassi.json.
 Ogni cifra di tassi.json viene dal file grezzo: dal JSON del Texas, dalle schede HTML dell'Alabama, dalle tabelle del PDF delle Hawaii,
-da espressioni regolari sui testi (ore, età, tariffe). Solo il Nebraska è una trascrizione a mano (dati/manuali/ne_q3_2026.json: il PDF
+da espressioni regolari sui testi (ore, età, tariffe). Solo il Nebraska è una trascrizione a mano (dati/manuali/ne_q1_2026.json: il PDF
 è una scansione), legata all'impronta del PDF e controllata con l'aritmetica delle sue righe. Se una fonte cambia forma lo script si
 ferma e dati/grezzi resta com'era («tutto o niente»).
 
@@ -100,10 +100,12 @@ FONTI = [
          "cautela": "The Commission would caution readers to be aware of the total number of students that are being tested from any school.",
          "piccoli": "percentages have less to tell when the number of students is quite small.",
      }),
-    ("ne_tassi", "ne_school_pass_report_2026_q3.pdf",
-     "https://nrec.nebraska.gov/sites/default/files/doc/Education/School%20Reports/School%20Pass%20Report%20thirdquarter2026.pdf",
-     "Exam Performance Summary by School, 3rd Quarter 2026", "Nebraska Real Estate Commission", {
-         "intervallo": "Date Range: 01-Jul-2026 to 30-Sep-2026",
+    # Regola (revisione del 14/11/2026): del Nebraska si usa SOLO un rapporto collegato dall'indice ufficiale qui sopra (ne_indice), mai un file
+    # raggiunto indovinando l'indirizzo. Il giro si ferma se questo indirizzo non è tra i collegamenti dell'indice. Trimestre nuovo = quando l'indice lo collega.
+    ("ne_tassi", "ne_school_pass_report_2026_q1.pdf",
+     "https://nrec.nebraska.gov/sites/default/files/doc/Education/School%20Reports/School%20Pass%20Report%20firstquarter2026.pdf",
+     "Exam Performance Summary by School, 1st Quarter 2026 (report posted by the commission)", "Nebraska Real Estate Commission", {
+         "intervallo": "Date Range: 01-Jan-2026 to 31-Mar-2026",
      }),
     ("ne_licenza", "ne_salesperson_information.pdf", "https://nrec.nebraska.gov/sites/default/files/doc/Application/salesperson%20information.pdf",
      "Resident Real Estate Salesperson Information", "Nebraska Real Estate Commission", {
@@ -346,10 +348,10 @@ def hawaii(percorso):
 
 # ---------------------------------------------------------------- Nebraska (trascrizione a mano, controllata)
 def nebraska(percorso_pdf):
-    m = json.loads((MANUALI / "ne_q3_2026.json").read_text(encoding="utf-8"))
+    m = json.loads((MANUALI / "ne_q1_2026.json").read_text(encoding="utf-8"))
     sha = hashlib.sha256(Path(percorso_pdf).read_bytes()).hexdigest()
     if m["sha256_pdf"] != sha:
-        raise SystemExit(f"ne_tassi: il PDF non è quello trascritto in dati/manuali/ne_q3_2026.json (impronta {sha}): rileggere le 7 pagine e aggiornare la trascrizione")
+        raise SystemExit(f"ne_tassi: il PDF non è quello trascritto in dati/manuali/ne_q1_2026.json (impronta {sha}): rileggere le pagine e aggiornare la trascrizione")
     scuole = []
     for s in m["scuole"]:
         somma = {g: [0, 0, 0] for g in ("first", "repeat", "all")}
@@ -462,7 +464,7 @@ def dati(testi, fonti):
         v.update(lettori[s](DATI.parent / fonti[info["fonte"]]["file"]))
         v["letto_il"] = fonti[info["fonte"]]["letto_il"]
         stati[s] = v
-    return {"_nota": "Generato da raccolta/fonti.py dai file in dati/grezzi/ (Nebraska: da dati/manuali/ne_q3_2026.json, controllato). n = esami, p = promossi, "
+    return {"_nota": "Generato da raccolta/fonti.py dai file in dati/grezzi/ (Nebraska: da dati/manuali/ne_q1_2026.json, controllato). n = esami, p = promossi, "
                      "pc = percentuale come la stampa la fonte (null se nessun esame). Texas: solo primo tentativo. Alabama: first = primo tentativo, all = tutti i tentativi. "
                      "Nebraska: parte nazionale e parte statale, first = First Time Takers, all = Total. Hawaii: parte nazionale e parte statale, tutti gli esami sostenuti. "
                      "totale.origine: «ufficiale» se la riga è della fonte, «somma» se è la nostra somma delle scuole.",
@@ -477,6 +479,7 @@ def main():
         vecchie = json.loads((DATI / "fonti.json").read_text(encoding="utf-8"))["fonti"]
     oggi = date.today().isoformat()
     fonti, testi, errori, nuovi = {}, {}, [], []
+    link_indice_ne = set()
     with tempfile.TemporaryDirectory() as tmpdir:
         barattolo = str(Path(tmpdir) / "cookie.txt")
         for fid, nome, url, titolo, chi, frasi in FONTI:
@@ -501,6 +504,10 @@ def main():
             for k, ok in trovate.items():
                 if not ok:
                     errori.append(f"{fid}: frase «{k}» non trovata alla lettera")
+            if fid == "ne_indice":
+                link_indice_ne = T.link_pdf(leggi)
+            if fid == "ne_tassi" and url not in link_indice_ne:
+                errori.append(f"{fid}: {url} non è tra i collegamenti dell'indice ufficiale del Nebraska (ne_indice): si usa solo un rapporto collegato dalla Commissione")
             # Le pagine HTML cambiano byte a ogni scarico (parti dinamiche): per loro fa fede l'impronta delle frasi citate. Per i file dei numeri fa sempre fede il file intero.
             fonti[fid] = {"url": url, "file": f"dati/grezzi/{nome}", "titolo": titolo, "chi": chi, "sha256": hashlib.sha256(grezzo).hexdigest(), "byte": len(grezzo),
                           "impronta": "frasi" if nome.endswith(".html") and fid not in FILE_DATI else "file", "sha256_frasi": T.impronta_frasi(testi[fid], frasi),

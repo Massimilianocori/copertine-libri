@@ -1,5 +1,5 @@
 {
- "_nota": "Generato da raccolta/fonti.py dai file in dati/grezzi/ (Nebraska: da dati/manuali/ne_q3_2026.json, controllato). n = esami, p = promossi, pc = percentuale come la stampa la fonte (null se nessun esame). Texas: solo primo tentativo. Alabama: first = primo tentativo, all = tutti i tentativi. Nebraska: parte nazionale e parte statale, first = First Time Takers, all = Total. Hawaii: parte nazionale e parte statale, tutti gli esami sostenuti. totale.origine: «ufficiale» se la riga è della fonte, «somma» se è la nostra somma delle scuole.",
+ "_nota": "Generato da raccolta/fonti.py dai file in dati/grezzi/ (Nebraska: da dati/manuali/ne_q1_2026.json, controllato). n = esami, p = promossi, pc = percentuale come la stampa la fonte (null se nessun esame). Texas: solo primo tentativo. Alabama: first = primo tentativo, all = tutti i tentativi. Nebraska: parte nazionale e parte statale, first = First Time Takers, all = Total. Hawaii: parte nazionale e parte statale, tutti gli esami sostenuti. totale.origine: «ufficiale» se la riga è della fonte, «somma» se è la nostra somma delle scuole.",
  "soglia_campione": 30,
  "stati": {
   "TX": {
@@ -2388,29 +2388,29 @@
    "fonte": "ne_tassi",
    "fonte_def": "ne_indice",
    "periodo": {
-    "dal": "2026-07-01",
-    "al": "2026-09-30"
+    "dal": "2026-01-01",
+    "al": "2026-03-31"
    },
    "totale": {
     "origine": "somma",
     "national_first": {
-     "n": 116,
-     "p": 81,
+     "n": 118,
+     "p": 69,
      "pc": null
     },
     "state_first": {
-     "n": 116,
-     "p": 48,
+     "n": 118,
+     "p": 31,
      "pc": null
     },
     "national_all": {
-     "n": 210,
-     "p": 117,
+     "n": 228,
+     "p": 110,
      "pc": null
     },
     "state_all": {
-     "n": 307,
-     "p": 117,
+     "n": 350,
+     "p": 100,
      "pc": null
     }
    },
@@ -2420,24 +2420,24 @@
      "nome_ufficiale": "360training.com, Inc dba Van Education Center",
      "codice": "0032",
      "national_first": {
-      "n": 32,
-      "p": 27,
-      "pc": "84%"
+      "n": 33,
+      "p": 21,
+      "pc": "64%"
      },
      "national_all": {
-      "n": 56,
-      "p": 38,
-      "pc": "68%"
+      "n": 63,
+      "p": 31,
+      "pc": "49%"
      },
      "state_first": {
-      "n": 32,
-      "p": 9,
-      "pc": "28%"
+      "n": 33,
+      "p": 4,
+      "pc": "12%"
      },
      "state_all": {
-      "n": 94,
-      "p": 36,
-      "pc": "38%"
+      "n": 111,
+      "p": 27,
+      "pc": "24%"
      },
      "solo_broker": false
     },
@@ -2446,76 +2446,24 @@
      "nome_ufficiale": "Randall School of Real Estate",
      "codice": "0017",
      "national_first": {
-      "n": 28,
-      "p": 20,
-      "pc": "71%"
+      "n": 32,
+      "p": 18,
+      "pc": "56%"
      },
      "national_all": {
-      "n": 46,
-      "p": 31,
-      "pc": "67%"
+      "n": 72,
+      "p": 30,
+      "pc": "42%"
      },
      "state_first": {
-      "n": 28,
-      "p": 12,
-      "pc": "43%"
-     },
-     "state_all": {
-      "n": 76,
-      "p": 28,
-      "pc": "37%"
-     },
-     "solo_broker": false
-    },
-    {
-     "nome": "Reesults Coaching",
-     "nome_ufficiale": "Reesults Coaching",
-     "codice": "0031",
-     "national_first": {
-      "n": 18,
-      "p": 8,
-      "pc": "44%"
-     },
-     "national_all": {
-      "n": 38,
-      "p": 11,
-      "pc": "29%"
-     },
-     "state_first": {
-      "n": 18,
-      "p": 8,
-      "pc": "44%"
-     },
-     "state_all": {
-      "n": 38,
-      "p": 10,
-      "pc": "26%"
-     },
-     "solo_broker": false
-    },
-    {
-     "nome": "Larabee School of Real Estate",
-     "nome_ufficiale": "Larabee School of Real Estate",
-     "codice": "0007",
-     "national_first": {
-      "n": 12,
-      "p": 7,
-      "pc": "58%"
-     },
-     "national_all": {
       "n": 32,
       "p": 12,
       "pc": "38%"
      },
-     "state_first": {
-      "n": 12,
-      "p": 7,
-      "pc": "58%"
-     },
      "state_all": {
-      "n": 40,
-      "p": 17,
-      "pc": "43%"
+      "n": 93,
+      "p": 30,
+      "pc": "32%"
      },
      "solo_broker": false
     },
@@ -2524,76 +2472,76 @@
      "nome_ufficiale": "Colibri Real Estate LLC",
      "codice": "0004",
      "national_first": {
-      "n": 9,
-      "p": 5,
-      "pc": "56%"
+      "n": 16,
+      "p": 12,
+      "pc": "75%"
      },
      "national_all": {
+      "n": 26,
+      "p": 18,
+      "pc": "69%"
+     },
+     "state_first": {
+      "n": 16,
+      "p": 5,
+      "pc": "31%"
+     },
+     "state_all": {
+      "n": 38,
+      "p": 12,
+      "pc": "32%"
+     },
+     "solo_broker": false
+    },
+    {
+     "nome": "Reesults Coaching",
+     "nome_ufficiale": "Reesults Coaching",
+     "codice": "0031",
+     "national_first": {
+      "n": 15,
+      "p": 10,
+      "pc": "67%"
+     },
+     "national_all": {
+      "n": 32,
+      "p": 16,
+      "pc": "50%"
+     },
+     "state_first": {
+      "n": 15,
+      "p": 6,
+      "pc": "40%"
+     },
+     "state_all": {
+      "n": 45,
+      "p": 18,
+      "pc": "40%"
+     },
+     "solo_broker": false
+    },
+    {
+     "nome": "Larabee School of Real Estate",
+     "nome_ufficiale": "Larabee School of Real Estate",
+     "codice": "0007",
+     "national_first": {
       "n": 13,
       "p": 7,
       "pc": "54%"
      },
+     "national_all": {
+      "n": 20,
+      "p": 12,
+      "pc": "60%"
+     },
      "state_first": {
-      "n": 9,
-      "p": 1,
-      "pc": "11%"
+      "n": 13,
+      "p": 3,
+      "pc": "23%"
      },
      "state_all": {
-      "n": 23,
-      "p": 6,
-      "pc": "26%"
-     },
-     "solo_broker": false
-    },
-    {
-     "nome": "The CE Shop, LLC",
-     "nome_ufficiale": "The CE Shop, LLC",
-     "codice": "0010",
-     "national_first": {
-      "n": 8,
-      "p": 7,
-      "pc": "88%"
-     },
-     "national_all": {
-      "n": 11,
+      "n": 36,
       "p": 8,
-      "pc": "73%"
-     },
-     "state_first": {
-      "n": 8,
-      "p": 6,
-      "pc": "75%"
-     },
-     "state_all": {
-      "n": 14,
-      "p": 9,
-      "pc": "64%"
-     },
-     "solo_broker": false
-    },
-    {
-     "nome": "Kaplan Real Estate Education",
-     "nome_ufficiale": "Kaplan Real Estate Education",
-     "codice": "0005",
-     "national_first": {
-      "n": 4,
-      "p": 4,
-      "pc": "100%"
-     },
-     "national_all": {
-      "n": 4,
-      "p": 4,
-      "pc": "100%"
-     },
-     "state_first": {
-      "n": 4,
-      "p": 3,
-      "pc": "75%"
-     },
-     "state_all": {
-      "n": 4,
-      "p": 3,
-      "pc": "75%"
+      "pc": "22%"
      },
      "solo_broker": false
     },
@@ -2602,24 +2550,102 @@
      "nome_ufficiale": "Metropolitan Community College",
      "codice": "0009",
      "national_first": {
-      "n": 3,
-      "p": 2,
-      "pc": "67%"
+      "n": 4,
+      "p": 0,
+      "pc": "0%"
      },
      "national_all": {
-      "n": 6,
-      "p": 3,
+      "n": 9,
+      "p": 2,
+      "pc": "22%"
+     },
+     "state_first": {
+      "n": 4,
+      "p": 0,
+      "pc": "0%"
+     },
+     "state_all": {
+      "n": 17,
+      "p": 2,
+      "pc": "12%"
+     },
+     "solo_broker": false
+    },
+    {
+     "nome": "University of Nebraska-Omaha",
+     "nome_ufficiale": "University of Nebraska-Omaha",
+     "codice": "0025",
+     "national_first": {
+      "n": 2,
+      "p": 1,
+      "pc": "50%"
+     },
+     "national_all": {
+      "n": 2,
+      "p": 1,
       "pc": "50%"
      },
      "state_first": {
-      "n": 3,
-      "p": 2,
-      "pc": "67%"
+      "n": 2,
+      "p": 1,
+      "pc": "50%"
      },
      "state_all": {
-      "n": 9,
-      "p": 6,
-      "pc": "67%"
+      "n": 4,
+      "p": 2,
+      "pc": "50%"
+     },
+     "solo_broker": false
+    },
+    {
+     "nome": "Cooke Real Estate School",
+     "nome_ufficiale": "Cooke Real Estate School",
+     "codice": "0003",
+     "national_first": {
+      "n": 1,
+      "p": 0,
+      "pc": "0%"
+     },
+     "national_all": {
+      "n": 1,
+      "p": 0,
+      "pc": "0%"
+     },
+     "state_first": {
+      "n": 1,
+      "p": 0,
+      "pc": "0%"
+     },
+     "state_all": {
+      "n": 1,
+      "p": 0,
+      "pc": "0%"
+     },
+     "solo_broker": false
+    },
+    {
+     "nome": "Northeast Community College-Pre Lic",
+     "nome_ufficiale": "Northeast Community College-Pre Lic",
+     "codice": "0014",
+     "national_first": {
+      "n": 1,
+      "p": 0,
+      "pc": "0%"
+     },
+     "national_all": {
+      "n": 1,
+      "p": 0,
+      "pc": "0%"
+     },
+     "state_first": {
+      "n": 1,
+      "p": 0,
+      "pc": "0%"
+     },
+     "state_all": {
+      "n": 1,
+      "p": 0,
+      "pc": "0%"
      },
      "solo_broker": false
     },
@@ -2629,13 +2655,13 @@
      "codice": "0034",
      "national_first": {
       "n": 1,
-      "p": 1,
-      "pc": "100%"
+      "p": 0,
+      "pc": "0%"
      },
      "national_all": {
       "n": 1,
-      "p": 1,
-      "pc": "100%"
+      "p": 0,
+      "pc": "0%"
      },
      "state_first": {
       "n": 1,
@@ -2643,89 +2669,63 @@
       "pc": "0%"
      },
      "state_all": {
-      "n": 2,
+      "n": 1,
       "p": 0,
       "pc": "0%"
      },
      "solo_broker": false
     },
     {
-     "nome": "University of Nebraska-Omaha",
-     "nome_ufficiale": "University of Nebraska-Omaha",
-     "codice": "0025",
+     "nome": "Kaplan Real Estate Education",
+     "nome_ufficiale": "Kaplan Real Estate Education",
+     "codice": "0005",
      "national_first": {
-      "n": 1,
+      "n": 0,
       "p": 0,
-      "pc": "0%"
+      "pc": null
      },
      "national_all": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "state_first": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "state_all": {
       "n": 2,
       "p": 1,
       "pc": "50%"
      },
-     "state_first": {
+     "solo_broker": false
+    },
+    {
+     "nome": "Real Estate Institute of Learning",
+     "nome_ufficiale": "Real Estate Institute of Learning",
+     "codice": "0002",
+     "national_first": {
+      "n": 0,
+      "p": 0,
+      "pc": null
+     },
+     "national_all": {
       "n": 1,
       "p": 0,
       "pc": "0%"
      },
-     "state_all": {
-      "n": 4,
-      "p": 1,
-      "pc": "25%"
-     },
-     "solo_broker": false
-    },
-    {
-     "nome": "Cooke Real Estate School",
-     "nome_ufficiale": "Cooke Real Estate School",
-     "codice": "0003",
-     "national_first": {
+     "state_first": {
       "n": 0,
       "p": 0,
       "pc": null
      },
-     "national_all": {
+     "state_all": {
       "n": 1,
-      "p": 1,
-      "pc": "100%"
-     },
-     "state_first": {
-      "n": 0,
       "p": 0,
-      "pc": null
-     },
-     "state_all": {
-      "n": 3,
-      "p": 1,
-      "pc": "33%"
+      "pc": "0%"
      },
      "solo_broker": false
-    },
-    {
-     "nome": "Northeast Community College-Pre Lic",
-     "nome_ufficiale": "Northeast Community College-Pre Lic",
-     "codice": "0014",
-     "national_first": {
-      "n": 0,
-      "p": 0,
-      "pc": null
-     },
-     "national_all": {
-      "n": 0,
-      "p": 0,
-      "pc": null
-     },
-     "state_first": {
-      "n": 0,
-      "p": 0,
-      "pc": null
-     },
-     "state_all": {
-      "n": 0,
-      "p": 0,
-      "pc": null
-     },
-     "solo_broker": true
     }
    ],
    "letto_il": "2026-11-14"

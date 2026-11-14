@@ -4,7 +4,7 @@ Costruito il 14/11/2026 come **prova su 4 Stati** dell'idea «abilitazioni immob
 (`studio-business/intelaiatura/fronti-2026-11-14-riaperte.md`, sezione A; `fronti-2026-11-14-notte-grandi.md`, idea B). Sito statico in inglese (USA)
 generato da `genera.py` in `sito/`. Indirizzo proposto: **`https://real-estate-exam-pass-rates.netlify.app`** (nome libero il 14/11: risposta 404;
 costante `URL_SITO` in `genera.py` e in `verifica.py`). **Il sito Netlify non esiste ancora** (in `indexnow.py` l'host è in `NON_ONLINE`).
-Pubblicità: AdSense acceso (`monetizzazione.json`), contatore GoatCounter, meta di verifica Google della rete. **Manca la revisione indipendente** (fatti e aspetto) prima della pubblicazione.
+Pubblicità: AdSense acceso (`monetizzazione.json`), contatore GoatCounter, meta di verifica Google della rete. Revisione indipendente fatta il 14/11/2026 (vedi in fondo).
 
 ## Pagine (12 indicizzabili + 404)
 
@@ -21,19 +21,24 @@ FAQ: 36, ognuna da una ricerca misurata (`dati/domanda.json`).
 |---|---|---|---|---|
 | Texas | `trec.texas.gov/sites/default/files/json/PassRatesRei.json`, il file che la pagina ufficiale carica | esame da sales agent, **solo primo tentativo** | 1/12/2023 – 30/11/2025 | 30 (totale ufficiale 29.980 esami, 56,12 %; le 30 scuole sommano esattamente al totale) |
 | Alabama | `arec.alabama.gov/apps/SchoolStatsWF/` (una scheda HTML per scuola) | salesperson: **primo tentativo e tutti i tentativi** | «previous 12 months», aggiornato il 10 del mese (date non stampate) | 107 (40 senza esami nel periodo); nessun totale ufficiale: riga «our sum» |
-| Nebraska | PDF del 3° trimestre 2026 (`School Pass Report thirdquarter2026.pdf`) | parte nazionale e parte statale: **first-time takers e totale** | 1/7 – 30/9/2026 | 12 (una sola con ≥ 30 esami) |
+| Nebraska | PDF del 1° trimestre 2026 (`School Pass Report firstquarter2026.pdf`), **l'ultimo collegato dall'indice ufficiale** | parte nazionale e parte statale: **first-time takers e totale** | 1/1 – 31/3/2026 | 12 (due con ≥ 30 esami) |
 | Hawaii | bollettino «School Files» di ottobre 2026 (`sf2610.pdf`, PDF con testo) | parte nazionale e statale, **tutti gli esami** (primo tentativo non separato) | 1/10/2025 – 30/9/2026 | 24 codici di scuola (+ 5 categorie senza scuola, non in tabella) |
 
 **Stati non costruiti e perché** (non riprovati oggi; esito della ricerca del 14/11): North Carolina, Colorado, Kansas (i siti delle commissioni rispondono 403 al
 server: blocco non aggirato); Washington e Arizona (i PDF trovati danno 404). Restano «da riprovare» da un altro posto, non bocciati.
 
 Cose da sapere sulle fonti:
-- **Nebraska è una scansione**: lo strato di testo ha errori di lettura, quindi le cifre sono trascritte a mano in `dati/manuali/ne_q3_2026.json` (lette dalle
-  immagini delle 7 pagine), legate allo SHA-256 del PDF. `fonti.py` e `verifica.py` controllano che ogni riga torni in tre modi; `verifica.py` conferma 27 righe
-  anche con lo strato di testo della scansione. Trimestre nuovo = nuova trascrizione. L'indice ufficiale (`examperformancebyschool.pdf`, «Updated July 2026»)
-  nomina il 3° trimestre 2026 ma il suo collegamento nel PDF non c'è: il file è stato letto dall'indirizzo che segue lo schema degli altri trimestri, sullo stesso sito ufficiale.
-  **Da far vedere al revisore:** il rapporto è una stampa di Pearson con la filigrana «PEARSON CONFIDENTIAL», pubblicata però dalla Commissione sul proprio sito
-  come rapporto ufficiale; in pagina citiamo la Commissione e solo conteggi per scuola.
+- **Nebraska: solo rapporti collegati dall'indice ufficiale** (decisione applicata nella revisione del 14/11/2026). L'indice è `examperformancebyschool.pdf`
+  («Updated July 2026»), collegato dalla pagina della Commissione `nrec.nebraska.gov/licensing-forms/educationinfo`. Per il 2026 collega solo il 1° trimestre
+  (2°, 3° e 4° sono nominati ma senza collegamento): si usa quello. Il PDF del 3° trimestre, raggiunto indovinando l'indirizzo, è stato **tolto** (file, trascrizione e cifre).
+  `fonti.py` e `verifica.py` leggono i collegamenti dell'indice e si fermano se l'indirizzo di `ne_tassi` non è tra quelli; `verifica.py` avvisa quando l'indice collega un trimestre più recente.
+- **Nebraska è una scansione senza strato di testo**: le cifre sono trascritte a mano in `dati/manuali/ne_q1_2026.json` (lette dalle immagini delle 7 pagine), legate
+  allo SHA-256 del PDF. Ogni riga deve tornare in tre modi (`fonti.py`, `verifica.py`); la seconda lettura è automatica (`raccolta/testo.py`, `pdf_ocr`: pdftoppm a 400 dpi + tesseract,
+  risultato in `cache/`): 25 delle 45 righe coincidono cifra per cifra, le altre la macchina le legge male (un 1 preso per 4: righe che non tornano con la loro stessa aritmetica, contate come rumore).
+  Servono `pdftoppm` e `tesseract` sul computer che lancia i controlli. Trimestre nuovo = nuova trascrizione, solo quando l'indice lo collega.
+  Il rapporto è una stampa di Pearson con la scritta «PEARSON CONFIDENTIAL», ma è pubblicato dalla Commissione sul proprio sito e collegato dal suo indice pubblico: in pagina è citato così
+  («report posted by the commission», «printout prepared by the exam company, Pearson, which the commission posts on its own website»), con soli conteggi per scuola.
+  La stampa porta anche il nome di chi l'ha stampata: non è in nessun file nostro né in pagina.
 - **Texas**: alcune scuole si registrano con punti esclamativi attorno al nome («! ! ! AYPORealEstate.com ! ! !»): in pagina il nome è senza, il nome ufficiale resta in `tassi.json`.
 - **Alabama**: il sito chiede che il client accetti i cookie (altrimenti reindirizza all'infinito): `fonti.py` usa un barattolo dei cookie di curl. Non è un blocco aggirato.
   Le pagine lette **non stampano le tariffe** («Refer to the license application…»): la pagina della licenza lo dice e non dà cifre. Il «Blueprint» (PDF di 11 MB) non è stato messo tra le fonti.
@@ -64,20 +69,28 @@ Generali: «real estate license» 60.500, «how to become a real estate agent» 
   `monetizzazione.json` (`domini_affiliazione`), `"attivo": true`, poi `genera.py`, `verifica.py --browser`, `monetizzazione.py verifica realestate`.
   Il riquadro esce solo in `/texas/`, sotto la tabella ufficiale, e solo se la scuola è in quella tabella. Provato acceso con un link di prova (poi tolto): 0 errori.
 
-## Controlli (14/11/2026)
+## Controlli (14/11/2026, dopo la revisione)
 
 `python3 realestate/verifica.py --browser`: 0 errori, 0 avvisi. 20 fonti e 63 frasi alla lettera; **340 celle** delle quattro tabelle uguali a una seconda lettura dei
-file grezzi scritta in un altro modo (Texas: JSON con percentuale ricalcolata; Alabama: cella per cella; Hawaii: pypdf invece di pdftotext; Nebraska: aritmetica e strato di testo);
+file grezzi scritta in un altro modo (Texas: JSON con percentuale ricalcolata; Alabama: cella per cella; Hawaii: pypdf invece di pdftotext; Nebraska: aritmetica e lettura automatica della scansione);
 righe e totali chiave e tutte le cifre della licenza trascritti a mano in `verifica.py`; FAQ = JSON-LD e solo da ricerche misurate; link, titoli ≤ 65, descrizioni ≤ 160.
 Browser: 13 pagine a 375 e 1280 px, chiaro e scuro (52 viste), contrasto ≥ 4,5, 29 prove sulle tabelle (ordini, filtri, ricerca, senza JavaScript).
-Prova di rottura: 4 cifre cambiate in `tassi.json` → 8 errori; una cifra cambiata nel JSON del Texas → `genera.py` si ferma.
 `python3 studio-business/strumenti/monetizzazione.py verifica realestate`: 0 errori.
+
+## Revisione indipendente (14/11/2026)
+
+Il revisore ha riscaricato le 20 fonti (13 identiche byte per byte, 7 pagine HTML diverse solo nelle parti dinamiche), ritrovato le 63 frasi con un suo programma, e riletto
+**tutte** le celle di Texas (30 righe + totale), Alabama (214 celle + somme) e Hawaii (48 celle + totali) contro i file riscaricati: nessuna differenza. Nebraska ritrascritto da capo sul 1° trimestre 2026.
+Corretto: Nebraska (sopra); «a Alabama» nei titoli; «between … to …»; cifre degli esami accanto a ogni percentuale anche nelle FAQ; risposta «license online» del Texas
+(diceva una cosa che la pagina citata non dice); frase causale sulle percentuali delle Hawaii; aggiunti la condizione dei sei mesi dell'Alabama, il corso dopo la licenza del Nebraska,
+il nome uguale dei codici 1185 e 1188 delle Hawaii; riga «scorri la tabella» sul telefono; `verifica.py` confrontava il link del partner senza togliere `&amp;` (un link vero con `&` avrebbe dato errore).
+Riquadro del partner: spento non scrive niente; provato acceso con un link di prova (0 errori) e rimesso spento, sito identico byte per byte.
 
 ## Aggiornamenti
 
 `python3 realestate/raccolta/fonti.py && python3 realestate/genera.py && python3 realestate/verifica.py --browser`. Alabama cambia il 10 di ogni mese (le cifre a mano
 in `verifica.py`, `ATTESO_RIGHE["AL"]`, vanno rilette); Hawaii ogni trimestre (nuovo `sfAAMM.pdf`: cambiare l'URL in `fonti.py`, i totali e i periodi a mano in `verifica.py`);
-Nebraska ogni trimestre (nuova trascrizione); Texas quando cambia il periodo nel file (finestra di due anni). `genera.py` avvisa se le fonti hanno più di 45 giorni.
+Nebraska quando l'indice ufficiale collega un trimestre nuovo (nuova trascrizione; `verifica.py` avvisa); Texas quando cambia il periodo nel file (finestra di due anni). `genera.py` avvisa se le fonti hanno più di 45 giorni.
 
 ## Non coperto (detto anche in pagina)
 

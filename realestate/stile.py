@@ -83,6 +83,7 @@ footer a{color:var(--on-deep)}footer h2{font-size:1rem;color:#fff;margin:0 0 10p
 @media (max-width:860px){nav.menu{display:none}.nav-m{display:block}
 .f-grid{grid-template-columns:1fr}}
 @media (max-width:1000px) and (min-width:861px){nav.menu a{padding:7px 7px;font-size:.88rem}}
+.scorri{display:none;margin:0 0 6px}@media (max-width:700px){.scorri{display:block}}
 @media (max-width:420px){body{font-size:16px}.logo span{font-size:1rem}table.dati{font-size:.86rem}table.dati th,table.dati td{padding:7px 8px}}
 blockquote.cit{margin:14px 0;padding:12px 16px;border-left:4px solid var(--brass);background:var(--card);border-radius:0 var(--r-s) var(--r-s) 0;max-width:800px;box-shadow:var(--sh-1)}
 blockquote.cit p{margin:0 0 6px;font-family:var(--serif);font-size:1.02rem}blockquote.cit cite{font-style:normal;font-size:.85rem;color:var(--ink-3)}
