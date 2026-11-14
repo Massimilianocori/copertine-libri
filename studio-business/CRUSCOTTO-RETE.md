@@ -62,6 +62,15 @@ Archiviati (non fanno parte della rete): orelab (abbandonato, vedi REGOLE-FISSE)
 | al 23/10/2026 | Aste in Chiaro | **62** (389 rilevate non indicizzate, 3 scansionate non indicizzate) | – | – | – | – | Foto rapporto Pagine di Search Console, 30/10 (era 1 al 16/10) |
 | 8-28/10/2026 (3 mesi = dall'apertura) | EsameB1 | – | **3.570** | **163** | – | – | Foto Rendimento di Search Console, 30/10: CTR 4,6 %, posizione media 7,3; ~400 impressioni e 20-25 clic al giorno il 26-28/10 (erano ~70 e 4 al giorno il 15/10). Query in testa: "celi b1 cittadinanza risultati" (29 impr.), "risultati esami cils b1 cittadinanza 2026" (52), "esame b1 italiano per cittadinanza verona" (16) |
 
+## 2a. Registro giornaliero del fatturato (Massimiliano, 14/11/2026: «te lo chiedo ogni giorno per misurare le migliorie»)
+
+Una riga al giorno, scritta dal riassunto delle 08:12. Previsto = stima centrale a 36 mesi della rete (€/anno, somma delle righe ONLINE o PRONTE di CLASSIFICA-IDEE.md più la base del 13/11); cambia solo quando una sezione nuova va online/pronta o una stima viene rifatta con dati veri. Reale = visite del giorno prima (GoatCounter, tutta la rete) e incassi veri dai pannelli (AdSense, affiliazioni, KDP), "0" finché non arrivano.
+
+| Data | Previsto centrale €/anno | Variazione e motivo | Visite giorno prima | Incassi veri del mese |
+|---|---|---|---|---|
+| 13/11/2026 | 27.400 | base (stima del 13/11) | 260 (12/11 → 13/11 miglior giorno) | 0 |
+| 14/11/2026 | 35.700 | +2.300 calcolatore stipendio USA online; +6.000 partner ≥ 50 $ sui siti esistenti (fronti-2026-11-14-pagatori-prima, in costruzione) | 260 (13/11) | 0 |
+
 ## 2b. Stima dei ricavi a 18 mesi (14/10/2026, aggiornata il 17/10 con FloodCost, rifiuti visti, navi e FHA). Sono stime, non numeri: si rifanno con i dati veri.
 
 | Sito | Prudente €/anno | Ottimista €/anno | Fonte della stima |
