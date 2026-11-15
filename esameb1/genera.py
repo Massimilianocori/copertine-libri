@@ -245,12 +245,14 @@ CSS = """
 --rosso:#B3361F;--rosso-soft:#FBE6E0;--warn:#8A4B00;--warn-soft:#FFF2DF;--focus:#1B5FD1;
 --hero-a:#0B6B4F;--hero-b:#0A4F3B;--hero-ink:#FFFFFF;--hero-ink-2:#D5ECE2;
 --cils:#0D5A8A;--cils-bg:#E1EEF7;--celi:#6A3E9E;--celi-bg:#EEE6F7;--plida:#9A3412;--plida-bg:#FCE9DC;--certit:#7A5E00;--certit-bg:#F8EFCB;
+--libro-bg:#FFF4DC;--libro-bordo:#E8A33A;--libro-ink:#3A2600;--libro-ink-2:#5C4214;--libro-etichetta:#2B1C00;
 --r-s:8px;--r:14px;--r-l:20px;--ombra:0 1px 2px rgba(27,42,40,.06),0 4px 14px rgba(27,42,40,.06);color-scheme:light}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E1615;--surface:#15201E;--surface-2:#1B2826;--ink:#ECF2EF;--ink-2:#BCCAC5;--ink-3:#97A7A2;
 --line:#283734;--line-2:#34463F;--brand:#4CC596;--brand-2:#6AD6AB;--on-brand:#052118;--brand-soft:#13332A;--brand-ink:#7FE0B9;
 --rosso:#FF8D74;--rosso-soft:#3B1D16;--warn:#FFB45E;--warn-soft:#33250F;--focus:#8AB4FF;
 --hero-a:#123D31;--hero-b:#0C2A22;--hero-ink:#ECF2EF;--hero-ink-2:#B5D6C8;
 --cils:#8CC4EE;--cils-bg:#132A3B;--celi:#C9A8F0;--celi-bg:#271D36;--plida:#FFA57A;--plida-bg:#3A2116;--certit:#E8C95A;--certit-bg:#332B10;
+--libro-bg:#2E2410;--libro-bordo:#E8A33A;--libro-ink:#FFF1D6;--libro-ink-2:#EAD7B0;--libro-etichetta:#2B1C00;
 --ombra:0 1px 2px rgba(0,0,0,.3);color-scheme:dark}}
 *{box-sizing:border-box}
 [hidden]{display:none!important}
@@ -426,6 +428,20 @@ ol.passi li::before{content:counter(p);display:grid;place-items:center;width:32p
 /* modulo */
 .modulo-testa{display:flex;gap:12px;align-items:flex-start;margin-bottom:6px}
 .libro{margin-top:28px}
+/* riquadro del libro in prima pagina (15/11/2026): in alto a destra su schermo largo, sotto il titolo sul telefono */
+.testa-home{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:28px;align-items:start}
+@media (max-width:860px){.testa-home{grid-template-columns:1fr;gap:16px}}
+.libro-top{position:relative;background:var(--libro-bg);color:var(--libro-ink);border:2px solid var(--libro-bordo);border-radius:var(--r-l);
+padding:18px 18px 16px;box-shadow:0 6px 22px rgba(138,75,0,.18)}
+.libro-top .etichetta{display:inline-block;font-size:.75rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;background:var(--libro-bordo);
+color:var(--libro-etichetta);padding:3px 10px;border-radius:999px;margin-bottom:10px}
+.libro-top .riga{display:flex;gap:14px;align-items:flex-start}
+.libro-top img{width:92px;height:auto;border-radius:4px;box-shadow:0 3px 10px rgba(0,0,0,.25);flex:none}
+.libro-top .finto{width:72px;height:100px;flex:none;border-radius:4px;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:var(--on-brand);
+display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.3rem;box-shadow:0 3px 10px rgba(0,0,0,.25)}
+.libro-top h2{font-size:1.15rem;line-height:1.25;margin:0 0 6px;color:var(--libro-ink)}
+.libro-top p{margin:0;font-size:.92rem;color:var(--libro-ink-2)}
+.libro-top .btn{display:flex;justify-content:center;margin-top:14px;width:100%}
 .modulo-testa .bolla{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:var(--brand-soft);color:var(--brand);flex:none}
 .modulo-testa .bolla .i{width:22px;height:22px}
 .modulo-testa h2{margin:0;font-size:1.25rem}
@@ -959,6 +975,26 @@ Le tracce audio delle prove d'ascolto sono gratis sulla pagina <a href="{rel}aud
 </section>"""
 
 
+COPERTINA_LIBRO = "libro-b1.jpg"  # copertina in esameb1/assets/ (se manca: segnaposto «B1»); main() la copia in sito/
+
+
+def libro_top(rel=""):
+    """Riquadro evidenziato del libro in prima pagina (15/11/2026, richiesta di Massimiliano: «un riquadro a destra evidenziato»).
+    Link diretto al cartaceo, senza codice affiliato; nessun prezzo (lo mostra Amazon) e nessuna promessa di superare l'esame."""
+    if (RADICE / "assets" / COPERTINA_LIBRO).exists():
+        cop = f'<img src="{rel}{COPERTINA_LIBRO}" alt="Copertina del libro {LIBRO_TITOLO}" width="92" height="138" loading="eager">'
+    else:
+        cop = '<span class="finto" aria-hidden="true">B1</span>'
+    return f"""<aside class="libro-top" id="libro" aria-label="Il nostro libro">
+<span class="etichetta">Novità · il nostro libro</span>
+<div class="riga">{cop}<div>
+<h2>{LIBRO_TITOLO}</h2>
+<p>Esercizi e prove per prepararti all'esame B1 per la cittadinanza. Le tracce audio sono gratis su <a href="{rel}audio-libro/">questo sito</a>.</p>
+</div></div>
+<a class="btn" href="{LIBRO_URL}" rel="noopener" target="_blank" data-libro-proprio="si">{ic("libro")}Compralo su Amazon</a>
+</aside>"""
+
+
 def scheda_sede(s, con_citta=False):
     righe = [escape(s["indirizzo"])] if s["indirizzo"] else []
     luogo = " ".join(x for x in [s.get("cap", ""), s["citta"], f'({s["sigla"]})' if s.get("sigla") else ""] if x)
@@ -1259,10 +1295,14 @@ def home(prossime):
     griglia_cercate = "".join(
         f'<a href="citta/{c["slug"]}/">{ic("pin")}<span>{escape(c["nome"])}<small>{n_sedi(sedi_di(c))}</small></span></a>' for c in cercate)
     corpo = f"""<section class="hero">
+<div class="testa-home"><div>
 <span class="occhiello">{ic("scudo")}CILS · CELI · PLIDA · CERT.IT</span>
 <h1>Esame di italiano B1 per la cittadinanza: tutte le date 2026 e 2027</h1>
 <p class="lead">Per chiedere la cittadinanza italiana per residenza o matrimonio serve un certificato di italiano almeno B1. Qui trovi date, scadenze e sedi
 dei 4 enti principali: le date sono uguali in tutta Italia, ci si iscrive presso la sede.</p>
+</div>
+{libro_top("")}
+</div>
 {risposta(prossime)}
 <div class="azioni"><a class="btn" href="#avvisami">{ic("campana")}Avvisami per la mia città</a><a class="btn btn-2" href="#citta">{ic("pin")}Trova una sede</a></div>
 <ul class="cifre"><li>{ic("edificio")}<span><strong>{len(sedi)}</strong> sedi d'esame in Italia</span></li>
@@ -1270,7 +1310,6 @@ dei 4 enti principali: le date sono uguali in tutta Italia, ci si iscrive presso
 <li>{ic("doc")}<span>dati presi dalle fonti ufficiali</span></li></ul>
 </section>
 {avviso("Ogni sede può avere una scadenza diversa da quella nazionale. <strong>Prima di iscriverti, chiedi sempre conferma alla sede.</strong>")}
-{riquadro_libro("")}
 <div class="due">
 <section id="date">
 <h2>{ic("cal")}Prossime date d'esame</h2>
@@ -4785,6 +4824,8 @@ def main():
         conserva = {}
     SITO.mkdir()
     shutil.copy(RADICE / "assets" / "og.png", SITO / "og.png")
+    if (RADICE / "assets" / COPERTINA_LIBRO).exists():
+        shutil.copy(RADICE / "assets" / COPERTINA_LIBRO, SITO / COPERTINA_LIBRO)
     shutil.copytree(RADICE / "assets" / "fonts", SITO / "fonts")  # Figtree (SIL OFL), servito dal sito stesso
     (SITO / "audio-libro").mkdir()  # tracce del libro (12/11/2026): solo gli MP3, non lo script che li genera
     for t in AUDIO_LIBRO["tracce"]:
