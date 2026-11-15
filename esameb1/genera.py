@@ -943,7 +943,7 @@ def modulo(citta_scelta=""):
 
 # Libro di Massimiliano (uscito su Amazon il 15/11/2026). Link diretto, SENZA codice affiliato (sua scelta del 15/11): non è un'affiliazione,
 # quindi niente rel="sponsored" e niente riga di trasparenza; monetizzazione.py lo riconosce dall'attributo data-libro-proprio="si".
-LIBRO_URL = "https://www.amazon.it/dp/B0HQ2TTHPY"
+LIBRO_URL = "https://www.amazon.it/dp/B0HRS46GSB"  # libro cartaceo (15/11: prima puntava al Kindle B0HQ2TTHPY)
 LIBRO_TITOLO = "Esame B1 Cittadinanza Italiana"
 
 
