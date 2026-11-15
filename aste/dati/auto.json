@@ -1,4 +1,4 @@
-{"letto_il":"2026-11-14T23:18+01:00","veicoli":[
+{"letto_il":"2026-11-15T23:18+01:00","veicoli":[
 {"id":4640365,"tipo":"Veicolo commerciale","marca":"Peugeot","anno":null,"comune":"Silea","prov":"Treviso","base":562,"minima":422,"data":"2026-11-16T11:00","disp":null,"tribunale":"Belluno"},
 {"id":4641449,"tipo":"Veicolo","marca":null,"anno":null,"comune":"Valdina","prov":"Messina","base":1167,"minima":1167,"data":"2026-11-16T11:00","disp":null,"tribunale":"Messina"},
 {"id":4641456,"tipo":"Veicolo","marca":null,"anno":null,"comune":"Valdina","prov":"Messina","base":1751,"minima":1751,"data":"2026-11-16T11:00","disp":null,"tribunale":"Messina"},
@@ -670,6 +670,7 @@
 {"id":4653219,"tipo":"Automobile","marca":"Skoda","anno":null,"comune":"Casciana Terme Lari","prov":"Pisa","base":2250,"minima":2250,"data":"2026-12-10T15:32","disp":null,"tribunale":"Pisa"},
 {"id":4631111,"tipo":"Automobile","marca":"Opel","anno":2011,"comune":"Chieve","prov":"Cremona","base":2000,"minima":1500,"data":"2026-12-10T16:00","disp":null,"tribunale":"Cremona"},
 {"id":4654845,"tipo":"Moto o ciclomotore","marca":"Smart","anno":null,"comune":"Borgomanero","prov":"Novara","base":750,"minima":750,"data":"2026-12-10T16:00","disp":null,"tribunale":"Novara"},
+{"id":4661119,"tipo":"Veicolo","marca":"Fiat","anno":null,"comune":"Marigliano","prov":"Napoli","base":844,"minima":844,"data":"2026-12-10T16:30","disp":null,"tribunale":"Nola"},
 {"id":4637828,"tipo":"Veicolo commerciale","marca":"Iveco","anno":2002,"comune":"Selargius","prov":"Cagliari","base":32500,"minima":null,"data":"2026-12-11T09:00","disp":null,"tribunale":"Cagliari"},
 {"id":4622513,"tipo":"Veicolo commerciale","marca":"Iveco","anno":null,"comune":"Spoleto","prov":"Perugia","base":310,"minima":null,"data":"2026-12-11T10:00","disp":null,"tribunale":"Perugia"},
 {"id":4625371,"tipo":"Veicolo","marca":null,"anno":null,"comune":"Perugia","prov":"Perugia","base":900,"minima":null,"data":"2026-12-11T10:00","disp":null,"tribunale":"Perugia"},
