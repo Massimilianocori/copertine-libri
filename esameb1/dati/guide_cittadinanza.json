@@ -1,6 +1,6 @@
 {
-  "_nota": "Pagine del 13/11/2026: /test-italiano-a2/, /carta-di-soggiorno/, /cittadinanza-per-matrimonio/, /pratica-cittadinanza/ (stato della pratica, decreto e giuramento). Solo fatti letti nelle fonti ufficiali; le frasi in 'citazioni' le controlla raccolta/guide.py (fonte scaricata, frase presente). Le domande frequenti usano solo ricerche misurate il 13/11/2026 (campo 'ricerca' di ogni FAQ, volumi in studio-business/intelaiatura/esameb1-parole-2026-11-13.md). Decide sempre l'ufficio: Prefettura, Questura o Ministero. Revisione indipendente del 13/11/2026: aggiunte le fonti l91_art9ter, portale_costi (contributo 100 € e bollettino 130,46 €) e catania_matrimonio; il decreto 7/12/2021 sul test A2 è in dati/esoneri.json (fonte dm2021).",
-  "verificato_il": "2026-11-13",
+  "_nota": "Pagine del 13/11/2026: /test-italiano-a2/, /carta-di-soggiorno/, /cittadinanza-per-matrimonio/, /pratica-cittadinanza/ (stato della pratica, decreto e giuramento). Solo fatti letti nelle fonti ufficiali; le frasi in 'citazioni' le controlla raccolta/guide.py (fonte scaricata, frase presente). Le domande frequenti usano solo ricerche misurate il 13/11/2026 (campo 'ricerca' di ogni FAQ, volumi in studio-business/intelaiatura/esameb1-parole-2026-11-13.md). Decide sempre l'ufficio: Prefettura, Questura o Ministero. Revisione indipendente del 13/11/2026: aggiunte le fonti l91_art9ter, portale_costi (contributo 100 € e bollettino 130,46 €) e catania_matrimonio; il decreto 7/12/2021 sul test A2 è in dati/esoneri.json (fonte dm2021). Dal 14/11/2026 anche le tre pagine sul ricongiungimento familiare (/ricongiungimento-familiare/, /ricongiungimento-familiare-documenti/, /permesso-soggiorno-motivi-familiari/): fonti tu28, tu29, tu29bis, tu30, dpr394_6, dlgs30_23, sui, ali, firenze_*, pi_*; ricerche misurate in dati/parole_ricongiungimento.json. Dal 14/11/2026 (sera) anche /idoneita-alloggiativa/: fonti tu5bis, tu22, dpr394_16, dpr394_8bis e le pagine dei Comuni ida_* (Roma, Torino, Napoli, Bologna, Firenze; il sito del Comune di Milano risponde «accesso negato» e non è citato); ricerche misurate in dati/parole_idoneita.json.",
+  "verificato_il": "2026-11-14",
   "fonti": {
     "minint_test": {
       "nome": "Ministero dell'Interno, «Test di conoscenza della lingua italiana»",
@@ -66,6 +66,110 @@
     "catania_matrimonio": {
       "nome": "Prefettura di Catania, «Concessione cittadinanza per matrimonio»",
       "url": "https://prefettura.interno.gov.it/it/prefetture/catania/concessione-cittadinanza-matrimonio"
+    },
+    "tu28": {
+      "nome": "Testo unico immigrazione (d.lgs. 286/1998), art. 28, su Normattiva",
+      "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art28!vig="
+    },
+    "tu29": {
+      "nome": "Testo unico immigrazione (d.lgs. 286/1998), art. 29, su Normattiva",
+      "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art29!vig="
+    },
+    "tu29bis": {
+      "nome": "Testo unico immigrazione (d.lgs. 286/1998), art. 29-bis, su Normattiva",
+      "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art29bis!vig="
+    },
+    "tu30": {
+      "nome": "Testo unico immigrazione (d.lgs. 286/1998), art. 30, su Normattiva",
+      "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art30!vig="
+    },
+    "dpr394_6": {
+      "nome": "Regolamento del Testo unico immigrazione (DPR 394/1999), art. 6, su Normattiva",
+      "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1999-08-31;394~art6!vig="
+    },
+    "dlgs30_23": {
+      "nome": "Decreto legislativo 30/2007, art. 23, su Normattiva",
+      "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2007-02-06;30~art23!vig="
+    },
+    "sui": {
+      "nome": "Ministero dell'Interno, «Sportello unico per l'immigrazione»",
+      "url": "https://www.interno.gov.it/it/temi/immigrazione-e-asilo/modalita-dingresso/sportello-unico-limmigrazione"
+    },
+    "ali": {
+      "nome": "Portale Servizi ALI del Ministero dell'Interno (Sportello unico per l'immigrazione)",
+      "url": "https://portaleservizi.dlci.interno.it/AliSportello/ali/home.htm"
+    },
+    "firenze_ric": {
+      "nome": "Prefettura di Firenze, «Nulla osta al ricongiungimento familiare» (3/11/2026)",
+      "url": "https://prefettura.interno.gov.it/it/prefetture/firenze/nulla-osta-ricongiungimento-familiare"
+    },
+    "firenze_doc": {
+      "nome": "Prefettura di Firenze, «Nuove modalità operative per il rilascio dei nulla osta al ricongiungimento familiare (novembre 2026)» (PDF)",
+      "url": "https://prefettura.interno.gov.it/sites/default/files/0/2026-11/nuove-modalita-operative-per-il-rilascio-dei-nulla-osta-al-ricongiungimento-familiare-novembre-2026_0.pdf"
+    },
+    "firenze_faq": {
+      "nome": "Prefettura di Firenze, «FAQ» sul ricongiungimento familiare (PDF, novembre 2026)",
+      "url": "https://prefettura.interno.gov.it/sites/default/files/42/2026-11/faq.pdf"
+    },
+    "firenze_arrivo": {
+      "nome": "Prefettura di Firenze, «Cosa fare all'arrivo del familiare in Italia» (PDF, novembre 2026)",
+      "url": "https://prefettura.interno.gov.it/sites/default/files/42/2026-11/informativa-sui.pdf"
+    },
+    "pi_famiglia": {
+      "nome": "Portale Immigrazione, «Codice 13 - Permesso di soggiorno per motivi di famiglia» (aggiornato il 22/7/2024)",
+      "url": "https://www.portaleimmigrazione.it/ITA/soggFamiglia.html"
+    },
+    "pi_conversione": {
+      "nome": "Portale Immigrazione, «Codice 10 - Conversione permesso di soggiorno di altro tipo in permesso di soggiorno per motivi familiari» (aggiornato il 4/11/2024)",
+      "url": "https://www.portaleimmigrazione.it/ITA/conversionePermessoSoggFamiliari.html"
+    },
+    "pi_famita": {
+      "nome": "Portale Immigrazione, «Codice 34 - Permesso di soggiorno per familiare cittadino italiano» (aggiornato il 22/7/2024)",
+      "url": "https://www.portaleimmigrazione.it/ITA/familiareCittIta.html"
+    },
+    "tu5bis": {
+      "nome": "Testo unico immigrazione (d.lgs. 286/1998), art. 5-bis, su Normattiva",
+      "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art5bis!vig="
+    },
+    "tu22": {
+      "nome": "Testo unico immigrazione (d.lgs. 286/1998), art. 22, su Normattiva",
+      "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art22!vig="
+    },
+    "dpr394_16": {
+      "nome": "Regolamento del Testo unico immigrazione (DPR 394/1999), art. 16, su Normattiva",
+      "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1999-08-31;394~art16!vig="
+    },
+    "dpr394_8bis": {
+      "nome": "Regolamento del Testo unico immigrazione (DPR 394/1999), art. 8-bis, su Normattiva",
+      "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.del.presidente.della.repubblica:1999-08-31;394~art8bis!vig="
+    },
+    "ida_firenze": {
+      "nome": "Comune di Firenze, domande frequenti sull'attestazione di idoneità alloggiativa (PDF, maggio 2026)",
+      "url": "https://www.comune.firenze.it/system/files/2026-06/faq-2026-05.pdf"
+    },
+    "ida_torino": {
+      "nome": "Città di Torino, «Richiedere l'attestato di idoneità alloggiativa» (ultima modifica 12/3/2026)",
+      "url": "https://www.comune.torino.it/servizi/richiedere-lattestato-idoneita-alloggiativa"
+    },
+    "ida_torino_calc": {
+      "nome": "Città di Torino, «Scheda calcolo superfici» (PDF)",
+      "url": "https://www.comune.torino.it/media/5119"
+    },
+    "ida_roma": {
+      "nome": "Roma Capitale, procedimento «Rilascio dell'attestazione di idoneità alloggiativa» (Municipi)",
+      "url": "https://www.comune.roma.it/web/it/amministrazione-trasparente-procedimenti-amministrativi-municipi.page?contentId=PRC275979"
+    },
+    "ida_roma15": {
+      "nome": "Roma Capitale, «Idoneità alloggiativa: iter per la richiesta dell'attestato» (aggiornato il 6/7/2026)",
+      "url": "https://www.comune.roma.it/web/it/informazione-di-servizio.page?contentId=IDS1468349"
+    },
+    "ida_napoli": {
+      "nome": "Comune di Napoli, «Certificato di idoneità abitativa dell'alloggio» (aggiornato il 18/2/2026)",
+      "url": "https://www.comune.napoli.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/27847"
+    },
+    "ida_bologna": {
+      "nome": "Comune di Bologna, scheda «Richiedere l'idoneità abitativa» (PDF)",
+      "url": "https://www.comune.bologna.it/myportal/C_A944/api/content/download?id=6a4e20a0196885009a1e5348"
     }
   },
   "citazioni": [
@@ -508,6 +612,998 @@
     {
       "fonte": "vademecum",
       "testo": "relativi ad istanze presentate in Italia ai sensi degli"
+    },
+    {
+      "fonte": "tu28",
+      "testo": "Testo in vigore dal: 11-12-2024"
+    },
+    {
+      "fonte": "tu28",
+      "testo": "agli stranieri titolari di carta di soggiorno o di permesso di soggiorno di durata non inferiore a un anno rilasciato per motivi di lavoro subordinato o autonomo"
+    },
+    {
+      "fonte": "tu28",
+      "testo": "in conseguenza del riconoscimento della protezione internazionale o per"
+    },
+    {
+      "fonte": "tu28",
+      "testo": "studio, per motivi religiosi o per motivi familiari"
+    },
+    {
+      "fonte": "tu28",
+      "testo": "ad esclusione dei titolari di permesso di soggiorno conseguente al riconoscimento della protezione internazionale"
+    },
+    {
+      "fonte": "tu28",
+      "testo": "devono avere maturato, al momento della richiesta di ricongiungimento per i familiari di cui all'articolo 29, comma 1, lettere a), c) e d), un periodo ininterrotto di soggiorno legale di almeno due anni nel territorio nazionale"
+    },
+    {
+      "fonte": "tu29",
+      "testo": "Testo in vigore dal: 4-10-2025"
+    },
+    {
+      "fonte": "tu29",
+      "testo": "coniuge non legalmente separato e di età non inferiore ai diciotto anni"
+    },
+    {
+      "fonte": "tu29",
+      "testo": "figli minori, anche del coniuge o nati fuori del matrimonio, non coniugati, a condizione che l'altro genitore, qualora esistente, abbia dato il suo consenso"
+    },
+    {
+      "fonte": "tu29",
+      "testo": "figli maggiorenni a carico, qualora per ragioni oggettive non possano provvedere alle proprie indispensabili esigenze di vita in ragione del loro stato di salute che comporti invalidità totale"
+    },
+    {
+      "fonte": "tu29",
+      "testo": "genitori a carico, qualora non abbiano altri figli nel Paese di origine o di provenienza, ovvero genitori ultrasessantacinquenni, qualora gli altri figli siano impossibilitati al loro sostentamento per documentati, gravi motivi di salute"
+    },
+    {
+      "fonte": "tu29",
+      "testo": "sulla base dell'esame del DNA (acido desossiribonucleico), effettuato a spese degli interessati"
+    },
+    {
+      "fonte": "tu29",
+      "testo": "quando il familiare di cui si chiede il ricongiungimento è coniugato con un cittadino straniero regolarmente soggiornante con altro coniuge nel territorio nazionale"
+    },
+    {
+      "fonte": "tu29",
+      "testo": "si considerano minori i figli di età inferiore a diciotto anni al momento della presentazione dell'istanza di ricongiungimento"
+    },
+    {
+      "fonte": "tu29",
+      "testo": "I minori adottati o affidati o sottoposti a tutela sono equiparati ai figli"
+    },
+    {
+      "fonte": "tu29",
+      "testo": "di un alloggio conforme ai requisiti igienico-sanitari, nonché di idoneità abitativa, accertati dai competenti uffici comunali, previa verifica del numero degli occupanti dell'alloggio e degli altri requisiti previsti dal decreto del Ministro della sanità 5 luglio 1975"
+    },
+    {
+      "fonte": "tu29",
+      "testo": "Nel caso di un figlio di età inferiore agli anni quattordici al seguito di uno dei genitori, è sufficiente il consenso del titolare dell'alloggio nel quale il minore effettivamente dimorerà"
+    },
+    {
+      "fonte": "tu29",
+      "testo": "di un reddito minimo annuo derivante da fonti lecite non inferiore all'importo annuo dell'assegno sociale aumentato della metà dell'importo dell'assegno sociale per ogni familiare da ricongiungere"
+    },
+    {
+      "fonte": "tu29",
+      "testo": "Per il ricongiungimento di due o più figli di età inferiore agli anni quattordici è richiesto, in ogni caso, un reddito non inferiore al doppio dell'importo annuo dell'assegno sociale"
+    },
+    {
+      "fonte": "tu29",
+      "testo": "si tiene conto anche del reddito annuo complessivo dei familiari conviventi con il richiedente"
+    },
+    {
+      "fonte": "tu29",
+      "testo": "di una assicurazione sanitaria o di altro titolo idoneo, a garantire la copertura di tutti i rischi nel territorio nazionale a favore dell'ascendente ultrasessantacinquenne ovvero della sua iscrizione al Servizio sanitario nazionale"
+    },
+    {
+      "fonte": "tu29",
+      "testo": "È consentito l'ingresso, al seguito dello straniero titolare di carta di soggiorno o di un visto di ingresso per lavoro subordinato relativo a contratto di durata non inferiore a un anno, o per lavoro autonomo non occasionale, ovvero per studio o per motivi religiosi, dei familiari con i quali è possibile attuare il ricongiungimento"
+    },
+    {
+      "fonte": "tu29",
+      "testo": "La domanda di nulla osta al ricongiungimento familiare, corredata della documentazione relativa ai requisiti di cui al comma 3, è inviata, con modalità informatiche, allo Sportello unico per l'immigrazione presso la prefettura - ufficio territoriale del Governo competente per il luogo di dimora del richiedente"
+    },
+    {
+      "fonte": "tu29",
+      "testo": "acquisito dalla questura il parere sulla insussistenza dei motivi ostativi all'ingresso dello straniero nel territorio nazionale"
+    },
+    {
+      "fonte": "tu29",
+      "testo": "rilascia il nulla osta ovvero un provvedimento di diniego dello stesso"
+    },
+    {
+      "fonte": "tu29",
+      "testo": "è subordinato all'effettivo accertamento dell'autenticità, da parte dell'autorità consolare italiana, della documentazione comprovante i presupposti di parentela, coniugio, minore età o stato di salute"
+    },
+    {
+      "fonte": "tu29",
+      "testo": "Il nulla osta al ricongiungimento familiare è rilasciato entro"
+    },
+    {
+      "fonte": "tu29",
+      "testo": "centocinquanta giorni"
+    },
+    {
+      "fonte": "tu29",
+      "testo": "La richiesta di ricongiungimento familiare è respinta se è accertato che il matrimonio o l'adozione hanno avuto luogo allo scopo esclusivo di consentire all'interessato di entrare o soggiornare nel territorio dello Stato"
+    },
+    {
+      "fonte": "tu29",
+      "testo": "quando il soggiornante chiede il riconoscimento dello status di rifugiato e la sua domanda non è ancora stata oggetto di una decisione definitiva"
+    },
+    {
+      "fonte": "tu29bis",
+      "testo": "Lo straniero al quale è stato riconosciuto lo status di rifugiato può richiedere il ricongiungimento familiare per le medesime categorie di familiari e con la stessa procedura di cui all'articolo 29"
+    },
+    {
+      "fonte": "tu29bis",
+      "testo": "Non si applicano, in tal caso, le disposizioni di cui all'articolo 29, comma 3"
+    },
+    {
+      "fonte": "tu29bis",
+      "testo": "Il rigetto della domanda non può essere motivato unicamente dall'assenza di documenti probatori"
+    },
+    {
+      "fonte": "tu29bis",
+      "testo": "Se il rifugiato è un minore non accompagnato, è consentito l'ingresso ed il soggiorno, ai fini del ricongiungimento, degli ascendenti diretti di primo grado"
+    },
+    {
+      "fonte": "tu30",
+      "testo": "allo straniero che ha fatto ingresso in Italia con visto di ingresso per ricongiungimento familiare, ovvero con visto di ingresso al seguito del proprio familiare nei casi previsti dall'articolo 29, ovvero con visto di ingresso per ricongiungimento al figlio minore"
+    },
+    {
+      "fonte": "tu30",
+      "testo": "agli stranieri regolarmente soggiornanti ad altro titolo da almeno un anno che abbiano contratto matrimonio nel territorio dello Stato con cittadini italiani o di uno Stato membro dell'Unione europea, ovvero con cittadini stranieri regolarmente soggiornanti"
+    },
+    {
+      "fonte": "tu30",
+      "testo": "al familiare straniero regolarmente soggiornante, in possesso dei requisiti per il ricongiungimento con il cittadino italiano o di uno Stato membro dell'Unione europea residenti in Italia, ovvero con straniero regolarmente soggiornante in Italia"
+    },
+    {
+      "fonte": "tu30",
+      "testo": "In tal caso il permesso del familiare è convertito in permesso di soggiorno per motivi familiari. La conversione può essere richiesta entro un anno dalla data di scadenza del titolo di soggiorno originariamente posseduto dal familiare"
+    },
+    {
+      "fonte": "tu30",
+      "testo": "Qualora detto cittadino sia un rifugiato si prescinde dal possesso di un valido permesso di soggiorno da parte del familiare"
+    },
+    {
+      "fonte": "tu30",
+      "testo": "al genitore straniero, anche naturale, di minore italiano residente in Italia"
+    },
+    {
+      "fonte": "tu30",
+      "testo": "è rilasciato anche a prescindere dal possesso di un valido titolo di soggiorno, a condizione che il genitore richiedente non sia stato privato della potestà genitoriale secondo la legge italiana"
+    },
+    {
+      "fonte": "tu30",
+      "testo": "è immediatamente revocato qualora sia accertato che al matrimonio non è seguita l'effettiva convivenza salvo che dal matrimonio sia nata prole"
+    },
+    {
+      "fonte": "tu30",
+      "testo": "consente l'accesso ai servizi assistenziali, l'iscrizione a corsi di studio o di formazione professionale, l'iscrizione nelle liste di collocamento, lo svolgimento di lavoro subordinato o autonomo, fermi i requisiti minimi di età per lo svolgimento di attività di lavoro"
+    },
+    {
+      "fonte": "tu30",
+      "testo": "ha la stessa durata del permesso di soggiorno del familiare straniero in possesso dei requisiti per il ricongiungimento ai sensi dell'articolo 29 ed è rinnovabile insieme con quest'ultimo"
+    },
+    {
+      "fonte": "tu30",
+      "testo": "In caso di morte del familiare in possesso dei requisiti per il ricongiungimento e in caso di separazione legale o di scioglimento del matrimonio o, per il figlio che non possa ottenere la carta di soggiorno, al compimento del diciottesimo anno di età, il permesso di soggiorno può essere convertito in permesso per lavoro subordinato, per lavoro autonomo o per studio"
+    },
+    {
+      "fonte": "tu30",
+      "testo": "Contro il diniego del nulla osta al ricongiungimento familiare e del permesso di soggiorno per motivi familiari, nonché contro gli altri provvedimenti dell'autorità amministrativa in materia di diritto all'unità familiare, l'interessato può proporre opposizione all'autorità giudiziaria ordinaria"
+    },
+    {
+      "fonte": "dpr394_6",
+      "testo": "Testo in vigore dal: 25-2-2005"
+    },
+    {
+      "fonte": "dpr394_6",
+      "testo": "copia della carta di soggiorno o del permesso di soggiorno avente i requisiti di cui all'articolo 28, comma 1, del testo unico"
+    },
+    {
+      "fonte": "dpr394_6",
+      "testo": "documentazione attestante la disponibilità del reddito di cui all'articolo 29, comma 3, lettera b), del testo unico"
+    },
+    {
+      "fonte": "dpr394_6",
+      "testo": "l'interessato deve produrre l'attestazione dell'ufficio comunale circa la sussistenza dei requisiti di cui al predetto articolo del testo unico ovvero il certificato di idoneità igienico-sanitaria rilasciato dall'Azienda unità sanitaria locale competente per territorio"
+    },
+    {
+      "fonte": "dpr394_6",
+      "testo": "documentazione attestante i rapporti di parentela, la minore età e lo stato di famiglia"
+    },
+    {
+      "fonte": "dpr394_6",
+      "testo": "documentazione attestante l'invalidità totale o i gravi motivi di salute"
+    },
+    {
+      "fonte": "dpr394_6",
+      "testo": "rilasciata, a spese del richiedente, dal medico nominato con decreto della rappresentanza diplomatica o consolare"
+    },
+    {
+      "fonte": "dpr394_6",
+      "testo": "L'autorità consolare italiana provvede, ove nulla osti, alla legalizzazione della documentazione di cui al comma 1, lettere d), e) e f), salvo che gli accordi internazionali vigenti per l'Italia prevedano diversamente"
+    },
+    {
+      "fonte": "dpr394_6",
+      "testo": "Ai fini della richiesta del nullaosta lo straniero può avvalersi di un procuratore speciale"
+    },
+    {
+      "fonte": "dpr394_6",
+      "testo": "entro novanta giorni dalla ricezione, il nullaosta ovvero il provvedimento di diniego"
+    },
+    {
+      "fonte": "dpr394_6",
+      "testo": "rilasciano il visto di ingresso entro trenta giorni dalla presentazione della richiesta di visto"
+    },
+    {
+      "fonte": "dlgs30_23",
+      "testo": "Testo in vigore dal: 11-8-2023"
+    },
+    {
+      "fonte": "dlgs30_23",
+      "testo": "si applicano ai familiari di cittadini italiani non aventi la cittadinanza italiana"
+    },
+    {
+      "fonte": "dlgs30_23",
+      "testo": "che hanno esercitato il diritto di libera circolazione in ambito europeo"
+    },
+    {
+      "fonte": "dlgs30_23",
+      "testo": "di cittadini italiani che non hanno esercitato il diritto alla libera circolazione"
+    },
+    {
+      "fonte": "dlgs30_23",
+      "testo": "è rilasciato il permesso di soggiorno per motivi di famiglia"
+    },
+    {
+      "fonte": "dlgs30_23",
+      "testo": "Il permesso di soggiorno per motivi di famiglia di cui al presente comma è valido cinque anni, è rinnovabile alla scadenza e può essere convertito in permesso di soggiorno per motivi di lavoro"
+    },
+    {
+      "fonte": "sui",
+      "testo": "il rilascio di nulla osta all'ingresso di cittadini stranieri per ricongiungimento familiare"
+    },
+    {
+      "fonte": "sui",
+      "testo": "Il cittadino straniero che si trova regolarmente nel territorio nazionale con un permesso di soggiorno di validità non inferiore a un anno può chiedere allo Sportello unico il nulla osta per ricongiungimento familiare"
+    },
+    {
+      "fonte": "sui",
+      "testo": "Vai alla procedura on line"
+    },
+    {
+      "fonte": "ali",
+      "testo": "Accedi con SPID o CIE"
+    },
+    {
+      "fonte": "firenze_ric",
+      "testo": "ultimo aggiornamento martedì 3 novembre 2026"
+    },
+    {
+      "fonte": "firenze_ric",
+      "testo": "permesso di soggiorno della durata non inferiore a due anni rilasciato per"
+    },
+    {
+      "fonte": "firenze_ric",
+      "testo": "deve essere inviata esclusivamente utilizzando la procedura telematica tramite il portale ALI"
+    },
+    {
+      "fonte": "firenze_ric",
+      "testo": "ogni documento allegato dovrà avere una dimensione massima di 2MB e dovrà essere in formato pdf"
+    },
+    {
+      "fonte": "firenze_ric",
+      "testo": "Le domande saranno esaminate in base all'ordine di arrivo"
+    },
+    {
+      "fonte": "firenze_ric",
+      "testo": "Entro 150 giorni dalla presentazione, dopo aver verificato tutti i requisiti, lo Sportello Immigrazione rilascia il nulla osta, ovvero il provvedimento di diniego, dandone comunicazione all'autorità consolare"
+    },
+    {
+      "fonte": "firenze_ric",
+      "testo": "Tutte le comunicazioni saranno visibili e consultabili esclusivamente nella propria area riservata del portale ALI del Ministero dell'Interno, nella sezione comunicazioni"
+    },
+    {
+      "fonte": "firenze_ric",
+      "testo": "Il nulla osta ha validità di 6 mesi dalla data del rilascio"
+    },
+    {
+      "fonte": "firenze_ric",
+      "testo": "rilascerà un visto con validità di 365 giorni entro i quali i familiari da ricongiungere dovranno fare ingresso in Italia"
+    },
+    {
+      "fonte": "firenze_ric",
+      "testo": "Entro 48 ore dall'ingresso in Italia dei familiari ricongiunti, il richiedente, o colui che li ospita, dovrà presentare la \"dichiarazione di ospitalità\" (cessione di fabbricato)"
+    },
+    {
+      "fonte": "firenze_ric",
+      "testo": "Entro 8 giorni dall'ingresso in Italia dei familiari ricongiunti, il richiedente dovrà inviare una e-mail"
+    },
+    {
+      "fonte": "firenze_ric",
+      "testo": "lo Sportello Unico provvederà al rilascio del modello 209 e del kit postale per l'invio alla Questura"
+    },
+    {
+      "fonte": "firenze_ric",
+      "testo": "il familiare non comunitario di cittadino italiano o comunitario non deve richiedere il nulla osta allo sportello immigrazione, ma deve richiedere specifico visto di ingresso presso le rappresentanze consolari italiane competenti"
+    },
+    {
+      "fonte": "firenze_ric",
+      "testo": "Modello S1 - consenso del titolare alloggio per minori 14 anni"
+    },
+    {
+      "fonte": "firenze_ric",
+      "testo": "Modello S2 - consenso del titolare alloggio"
+    },
+    {
+      "fonte": "firenze_ric",
+      "testo": "Modello S3 - dichiarazione del datore di lavoro"
+    },
+    {
+      "fonte": "firenze_doc",
+      "testo": "pagine del passaporto del richiedente e dei familiari all'estero dove siano visibili il numero e i dati anagrafici"
+    },
+    {
+      "fonte": "firenze_doc",
+      "testo": "permesso di soggiorno in corso di validità, ovvero, permesso scaduto, con allegata ricevuta di presentazione dell'istanza di rinnovo"
+    },
+    {
+      "fonte": "firenze_doc",
+      "testo": "codice fiscale del richiedente"
+    },
+    {
+      "fonte": "firenze_doc",
+      "testo": "certificato di stato di famiglia del richiedente rilasciato dal comune di residenza"
+    },
+    {
+      "fonte": "firenze_doc",
+      "testo": "certificato di stato di famiglia relativo alle persone che abitano nell'alloggio ove dimoreranno i familiari ricongiunti rilasciato dal comune di residenza con la dicitura \"uso immigrazione\""
+    },
+    {
+      "fonte": "firenze_doc",
+      "testo": "contratto di affitto che deve essere di durata non inferiore a sei mesi a decorrere dalla data di presentazione della domanda con ricevuta di registrazione e/o rinnovo"
+    },
+    {
+      "fonte": "firenze_doc",
+      "testo": "certificato di idoneità alloggiativa rilasciato dal comune per finalità di ricongiungimento familiare"
+    },
+    {
+      "fonte": "firenze_doc",
+      "testo": "allegare il file pdf originale del certificato di idoneità alloggiativa, scaricato direttamente dal comune/sito ufficiale dell'ente, non la scansione o la fotografia del documento stampato"
+    },
+    {
+      "fonte": "firenze_doc",
+      "testo": "dichiarazione redatta dal titolare/i dell'appartamento su mod. \"S2\", attestante il consenso ad ospitare anche i ricongiunti"
+    },
+    {
+      "fonte": "firenze_doc",
+      "testo": "in caso di ricongiungimento a favore di un solo minore di anni 14, il certificato di idoneità alloggiativa può essere sostituito dalla copia del contratto di affitto e dalla dichiarazione di ospitalità del titolare/i dell'appartamento redatta su mod. \"S1\""
+    },
+    {
+      "fonte": "firenze_doc",
+      "testo": "dichiarazione di cessione fabbricato per ospitalità redatta dal titolare/i dell'appartamento o contratto di comodato d'uso"
+    },
+    {
+      "fonte": "firenze_doc",
+      "testo": "contratto di compravendita"
+    },
+    {
+      "fonte": "firenze_doc",
+      "testo": "assegno sociale mensile euro 546,24 - annuale 7.101,12"
+    },
+    {
+      "fonte": "firenze_doc",
+      "testo": "10.651,68 14.202,24 17.752,80 21.303,36 24.853,92 28.404,48"
+    },
+    {
+      "fonte": "firenze_doc",
+      "testo": "per ogni persona aggiungere il 50% dell'assegno sociale annuale pari a 3.550,56"
+    },
+    {
+      "fonte": "firenze_doc",
+      "testo": "per il calcolo delle soglie con 2 o più figli minori di 14 anni bisogna partire dal doppio dell'importo annuale dell'assegno sociale (euro 14.202,24) e per ogni persona maggiorenne aggiungere il 50% dell'assegno sociale annuale pari a 3.550,56"
+    },
+    {
+      "fonte": "firenze_doc",
+      "testo": "1 maggiorenne con 2 minori di 14 anni (14.202,24+3.550,56) euro 17.752,80"
+    },
+    {
+      "fonte": "firenze_doc",
+      "testo": "circolare del Ministero dell'Interno prot. n. 11524 del 28 ottobre 2008"
+    },
+    {
+      "fonte": "firenze_doc",
+      "testo": "ai titolari di riconoscimento della protezione internazionale non è richiesta la dimostrazione dei sopracitati requisiti di alloggio e reddito"
+    },
+    {
+      "fonte": "firenze_doc",
+      "testo": "in caso di attività intrapresa da oltre un anno: ultima dichiarazione dei redditi, oppure, ultimo CUD o modello unico e ultime tre buste paga"
+    },
+    {
+      "fonte": "firenze_doc",
+      "testo": "in caso di attività intrapresa da meno di un anno: devono essere allegate tutte le buste paga"
+    },
+    {
+      "fonte": "firenze_doc",
+      "testo": "contratto di lavoro/lettera di assunzione (UNILAV)"
+    },
+    {
+      "fonte": "firenze_doc",
+      "testo": "autocertificazione del datore di lavoro, redatta su modello \"S3\" con data non anteriore di mesi 1, da cui risulti l'attualità del rapporto di lavoro e la retribuzione mensile corrisposta"
+    },
+    {
+      "fonte": "firenze_doc",
+      "testo": "comunicazione di assunzione all'I.N.P.S."
+    },
+    {
+      "fonte": "firenze_doc",
+      "testo": "ultimi 3 bollettini di versamento dei contributi I.N.P.S."
+    },
+    {
+      "fonte": "firenze_doc",
+      "testo": "visura camerale non anteriore a trenta giorni"
+    },
+    {
+      "fonte": "firenze_doc",
+      "testo": "certificato di attribuzione partita IVA"
+    },
+    {
+      "fonte": "firenze_doc",
+      "testo": "bilancino, relativo al periodo dal 1° gennaio dell'anno in corso, alla data di presentazione della domanda, timbrato e sottoscritto dal professionista che lo ha redatto"
+    },
+    {
+      "fonte": "firenze_doc",
+      "testo": "iscrizione all'albo del libero professionista"
+    },
+    {
+      "fonte": "firenze_doc",
+      "testo": "assicurazione sanitaria o altro titolo idoneo a garantire la copertura di tutti i rischi nel territorio nazionale"
+    },
+    {
+      "fonte": "firenze_doc",
+      "testo": "un preavviso di rigetto ai sensi dell'art. 10-bis della legge n. 241/1990 con richiesta di integrazioni documentali e/o chiarimenti da riscontrare entro il termine perentorio di 10 giorni allo scadere dei quali l'istanza sarà automaticamente archiviata dal sistema"
+    },
+    {
+      "fonte": "firenze_faq",
+      "testo": "le domande vengono esaminate in ordine cronologico di presentazione"
+    },
+    {
+      "fonte": "firenze_faq",
+      "testo": "è possibile richiedere l'anticipo dell'esame di un'istanza solo per gravi e comprovate motivazioni di salute"
+    },
+    {
+      "fonte": "firenze_faq",
+      "testo": "la domanda di ricongiungimento familiare necessita di n. 1 marca da bollo da euro 16,00"
+    },
+    {
+      "fonte": "firenze_faq",
+      "testo": "il numero dei familiari che si possono ricongiungere con un'unica pratica è pari a 5"
+    },
+    {
+      "fonte": "firenze_faq",
+      "testo": "per il ricongiungimento di due o più familiari di età inferiore agli anni quattordici l'idoneità alloggiativa deve essere presentata"
+    },
+    {
+      "fonte": "firenze_faq",
+      "testo": "modello S2 compilato a nome di ogni proprietario e di ogni conduttore con annessa copia firmata del documento di identità di ognuno"
+    },
+    {
+      "fonte": "firenze_faq",
+      "testo": "i redditi possono essere integrati solo da familiari conviventi fino al secondo grado di parentela"
+    },
+    {
+      "fonte": "firenze_faq",
+      "testo": "la prefettura non accetta che il modello S2 venga trasmesso in copia"
+    },
+    {
+      "fonte": "firenze_faq",
+      "testo": "il modello S3, invece, viene accettato in copia solo se viene provato che il datore di lavoro vive fuori provincia o all'estero"
+    },
+    {
+      "fonte": "firenze_faq",
+      "testo": "possono essere caricati esclusivamente files in formato pdf e p7m con dimensioni massime di 2MB"
+    },
+    {
+      "fonte": "firenze_faq",
+      "testo": "il nulla osta da parte dello S.U.I. sarà inviato telematicamente all'autorità diplomatico-consolare competente e contestualmente visibile sul portale ALI, nella sezione comunicazioni"
+    },
+    {
+      "fonte": "firenze_faq",
+      "testo": "il nulla osta avrà una durata di 6 mesi a partire dalla data di invio telematico alla rappresentanza diplomatica di riferimento"
+    },
+    {
+      "fonte": "firenze_faq",
+      "testo": "non è possibile modificare o prorogare il nulla osta già emesso"
+    },
+    {
+      "fonte": "firenze_arrivo",
+      "testo": "la comunicazione del rilascio, in formato pdf, è scaricabile direttamente online dal richiedente accedendo all'area personale del Portale Servizi ALI con le credenziali SPID/CIE"
+    },
+    {
+      "fonte": "firenze_arrivo",
+      "testo": "entro 8 giorni dall'ingresso in Italia inviare una e-mail"
+    },
+    {
+      "fonte": "firenze_arrivo",
+      "testo": "marca da bollo da euro 16,00"
+    },
+    {
+      "fonte": "firenze_arrivo",
+      "testo": "fotocopia passaporto dei familiari arrivati (prima pagina, visto e timbri ingresso)"
+    },
+    {
+      "fonte": "firenze_arrivo",
+      "testo": "comunicazione di cessione di fabbricato o di ospitalità"
+    },
+    {
+      "fonte": "firenze_arrivo",
+      "testo": "per i genitori sopra i 65 anni: assicurazione sanitaria della durata di un anno"
+    },
+    {
+      "fonte": "firenze_arrivo",
+      "testo": "idoneità alloggiativa in originale"
+    },
+    {
+      "fonte": "firenze_arrivo",
+      "testo": "il codice fiscale al familiare è rilasciato da questo Sportello Unico per l'Immigrazione"
+    },
+    {
+      "fonte": "firenze_arrivo",
+      "testo": "chi ospita la persona arrivata con ricongiungimento deve fare, entro 48 ore, una dichiarazione alla polizia, ai carabinieri o al comune"
+    },
+    {
+      "fonte": "pi_famiglia",
+      "testo": "Codice 13 - Permesso di soggiorno per motivi di famiglia"
+    },
+    {
+      "fonte": "pi_famiglia",
+      "testo": "ultimo aggiornamento: 22/07/2024"
+    },
+    {
+      "fonte": "pi_famiglia",
+      "testo": "istanza compilata e sottoscritta dall'interessato (modulo 1)"
+    },
+    {
+      "fonte": "pi_famiglia",
+      "testo": "fotocopia di tutto il passaporto o di altro documento equipollente"
+    },
+    {
+      "fonte": "pi_famiglia",
+      "testo": "per la richiesta di rilascio del permesso di soggiorno il modulo 1 è compilato presso lo Sportello Unico Immigrazione, che ha rilasciato il nulla osta all'ingresso per il ricongiungimento familiare"
+    },
+    {
+      "fonte": "pi_famiglia",
+      "testo": "la richiesta di rinnovo del permesso di soggiorno deve essere corredata da una dichiarazione del familiare, che ha richiesto ed ottenuto il ricongiungimento familiare o con il quale è stata effettuata la coesione familiare, di provvedere al sostentamento del componente il suo nucleo familiare"
+    },
+    {
+      "fonte": "pi_famiglia",
+      "testo": "il permesso per motivi di famiglia ha la stessa durata del permesso di soggiorno del familiare straniero che ha ottenuto il nulla osta al ricongiungimento familiare ed è rinnovabile insieme a questo ultimo"
+    },
+    {
+      "fonte": "pi_famiglia",
+      "testo": "può essere utilizzato anche per le altre attività consentite allo straniero, anche senza conversione o rettifica del documento, per il periodo di validità dello stesso"
+    },
+    {
+      "fonte": "pi_conversione",
+      "testo": "Codice 10 - Conversione permesso di soggiorno di altro tipo in permesso di soggiorno per motivi familiari"
+    },
+    {
+      "fonte": "pi_conversione",
+      "testo": "ultimo aggiornamento: 04/11/2024"
+    },
+    {
+      "fonte": "pi_conversione",
+      "testo": "documentazione anagrafica comprovante il legame familiare"
+    },
+    {
+      "fonte": "pi_conversione",
+      "testo": "fotocopia della dichiarazione dei redditi del familiare straniero con il quale si chiede la coesione"
+    },
+    {
+      "fonte": "pi_conversione",
+      "testo": "certificato di idoneità alloggiativa ai sensi dell'art. 29, comma 3, lett. a), decreto legislativo n. 286/98 e succ. mod. rapportato alla composizione del nucleo familiare"
+    },
+    {
+      "fonte": "pi_conversione",
+      "testo": "cioè entro l'ultimo anno di validità del permesso di soggiorno"
+    },
+    {
+      "fonte": "pi_conversione",
+      "testo": "se la documentazione anagrafica proviene dall'estero deve essere tradotta, legalizzata e validata dalla rappresentanza diplomatica/consolare italiana del Paese di appartenenza dello straniero"
+    },
+    {
+      "fonte": "pi_conversione",
+      "testo": "per 1 familiare - l'importo annuo dell'assegno sociale; per 2 o 3 familiari - il doppio dell'importo annuo dell'assegno sociale; 4 o più - il triplo dell'importo annuo dell'assegno sociale"
+    },
+    {
+      "fonte": "pi_conversione",
+      "testo": "per coesione familiare con cittadino italiano o cittadino di uno Stato membro dell'U.E. è sufficiente produrre documentazione attestante il rapporto di parentela"
+    },
+    {
+      "fonte": "pi_famita",
+      "testo": "Codice 34 - Permesso di soggiorno per familiare cittadino italiano"
+    },
+    {
+      "fonte": "pi_famita",
+      "testo": "documentazione anagrafica comprovante il legame familiare"
+    },
+    {
+      "fonte": "pi_famita",
+      "testo": "fotocopia della dichiarazione dei redditi o altra obiettiva documentazione del familiare italiano con il quale si chiede la coesione"
+    },
+    {
+      "fonte": "portale_costi",
+      "testo": "marca da bollo 16.00 €"
+    },
+    {
+      "fonte": "portale_costi",
+      "testo": "produzione del permesso di soggiorno 30.46 €"
+    },
+    {
+      "fonte": "portale_costi",
+      "testo": "contributo per permessi di soggiorno di durata superiore a tre mesi e fino ad un anno 40.00 €"
+    },
+    {
+      "fonte": "portale_costi",
+      "testo": "contributo per i permessi di soggiorno di durata superiore a un anno e fino a due anni 50.00 €"
+    },
+    {
+      "fonte": "portale_costi",
+      "testo": "costo spedizione Poste Italiane 30.00 €"
+    },
+    {
+      "fonte": "poste",
+      "testo": "se hai il nullaosta e chiedi il rilascio del permesso di soggiorno per lavoro o per motivi di famiglia, rivolgiti allo Sportello Unico Immigrazione (SUI) presso la Prefettura"
+    },
+    {
+      "fonte": "poste",
+      "testo": "Se sei familiare straniero extracomunitario di cittadino italiano o di cittadino dell'Unione Europea e chiedi il titolo di soggiorno per motivi legati alla famiglia, puoi scegliere di presentare la domanda tramite l'ufficio postale con Sportello Amico oppure recarti direttamente in Questura"
+    },
+    {
+      "fonte": "poste",
+      "testo": "FAMIGLIA MINORE"
+    },
+    {
+      "fonte": "portale_costi",
+      "testo": "Aggiornamento 2 Conversione 3 Duplicato 30.46 € non previsto"
+    },
+    {
+      "fonte": "tu5bis",
+      "testo": "Testo in vigore dal: 18-12-2025"
+    },
+    {
+      "fonte": "tu5bis",
+      "testo": "la garanzia da parte del datore di lavoro della disponibilità di un alloggio per il lavoratore che rientri nei parametri minimi previsti"
+    },
+    {
+      "fonte": "tu5bis",
+      "testo": "dal decreto del Ministro per la sanità 5 luglio 1975, pubblicato nella Gazzetta Ufficiale n. 190 del 18 luglio 1975"
+    },
+    {
+      "fonte": "tu22",
+      "testo": "idonea documentazione relativa alle modalità di sistemazione alloggiativa per il lavoratore straniero"
+    },
+    {
+      "fonte": "dpr394_16",
+      "testo": "la disponibilità di un alloggio, a norma dell'articolo 29, comma 3, lettera a), del testo unico"
+    },
+    {
+      "fonte": "dpr394_16",
+      "testo": "A tale fine l'interessato deve produrre l'attestazione dell'ufficio comunale circa la sussistenza dei requisiti di cui al medesimo articolo 29 del testo unico ovvero il certificato di idoneità igienico-sanitaria rilasciato dall'Azienda unità sanitaria locale competente per territorio"
+    },
+    {
+      "fonte": "dpr394_8bis",
+      "testo": "un alloggio fornito di requisiti di abitabilità e idoneità igienico sanitaria, o che rientri nei parametri previsti dal testo unico"
+    },
+    {
+      "fonte": "tu9",
+      "testo": "ovvero che sia fornito dei requisiti di idoneità igienico-sanitaria accertati dall'Azienda unità sanitaria locale competente per territorio"
+    },
+    {
+      "fonte": "ida_firenze",
+      "testo": "è un documento con il quale, ai sensi al Decreto del Ministero della Sanità 5 luglio 1975, si dichiara l'idoneità di un alloggio ad ospitare un determinato numero di persone rispetto ai vani di cui l'alloggio è composto ed alla sua superficie complessiva"
+    },
+    {
+      "fonte": "ida_firenze",
+      "testo": "Decreto del Ministero della Sanità del 05/07/1975 e regolamenti comunali vigenti"
+    },
+    {
+      "fonte": "ida_firenze",
+      "testo": "Per ogni abitante deve essere assicurata una superficie abitabile non inferiore a mq 14, per i primi 4 abitanti, ed a mq 10, per ciascuno dei successivi"
+    },
+    {
+      "fonte": "ida_firenze",
+      "testo": "Le stanze da letto debbono avere una superficie minima di mq 9, se per una persona, e di mq 14, se per due persone"
+    },
+    {
+      "fonte": "ida_firenze",
+      "testo": "Ogni alloggio deve essere dotato di una stanza di soggiorno di almeno mq 14"
+    },
+    {
+      "fonte": "ida_firenze",
+      "testo": "Un vano di altezza minima 2,70 m, provvisto di finestra apribile, che deve avere una superficie calpestabile di almeno 9 mq"
+    },
+    {
+      "fonte": "ida_firenze",
+      "testo": "L'alloggio monostanza, per una persona, deve avere una superficie minima calpestabile, comprensiva dei servizi, non inferiore a mq 28, e non inferiore a mq 38, se per due persone"
+    },
+    {
+      "fonte": "ida_firenze",
+      "testo": "La superficie calpestabile è la superficie interna dei vani, al netto delle murature"
+    },
+    {
+      "fonte": "ida_firenze",
+      "testo": "La domanda di Idoneità Alloggiativa può essere inserita ed inviata esclusivamente on line"
+    },
+    {
+      "fonte": "ida_firenze",
+      "testo": "ricevuta di pagamento dell'imposta di bollo da 16,00€"
+    },
+    {
+      "fonte": "ida_firenze",
+      "testo": "SCHEDA TECNICA DI VALUTAZIONE DELL'ALLOGGIO firmata digitalmente da un tecnico abilitato"
+    },
+    {
+      "fonte": "ida_firenze",
+      "testo": "planimetria catastale, aggiornata e corrispondente allo stato di fatto"
+    },
+    {
+      "fonte": "ida_firenze",
+      "testo": "L'attestazione viene rilasciata entro 90 giorni dall'acquisizione della domanda con la documentazione completa"
+    },
+    {
+      "fonte": "ida_firenze",
+      "testo": "6 mesi dalla data di emissione dell'attestato"
+    },
+    {
+      "fonte": "ida_firenze",
+      "testo": "Non è possibile richiedere l'attestazione di idoneità alloggiativa per soli posti letto"
+    },
+    {
+      "fonte": "ida_firenze",
+      "testo": "Nel caso la documentazione allegata alla domanda fosse incompleta, sarà inviato un diniego in forma semplificata e la pratica verrà chiusa"
+    },
+    {
+      "fonte": "ida_torino",
+      "testo": "definisce quante persone possono abitare in un alloggio, secondo la vigente normativa in materia e i parametri definiti dal Comune di Torino"
+    },
+    {
+      "fonte": "ida_torino",
+      "testo": "visto per ricongiungimento familiare; visto per familiari al seguito; contratto di soggiorno per lavoro subordinato; permesso di soggiorno U.E. per soggiornanti di lungo periodo; coesione familiare; altre tipologie di permessi"
+    },
+    {
+      "fonte": "ida_torino",
+      "testo": "il conduttore o il comodatario dell'alloggio, con contratto (di locazione o di comodato) regolarmente registrato"
+    },
+    {
+      "fonte": "ida_torino",
+      "testo": "Puoi presentare la domanda unicamente presso gli sportelli dell'ufficio Idoneità Alloggiativa di via Orvieto 1/20/A, su appuntamento"
+    },
+    {
+      "fonte": "ida_torino",
+      "testo": "Non puoi presentare l'istanza di Idoneità Alloggiativa via posta, via mail o via posta elettronica certificata"
+    },
+    {
+      "fonte": "ida_torino",
+      "testo": "L'unico requisito obbligatorio per redigere la scheda tecnica è l'iscrizione al proprio Collegio/Ordine professionale"
+    },
+    {
+      "fonte": "ida_torino",
+      "testo": "esibizione delle dichiarazioni degli impianti gas ed elettrico"
+    },
+    {
+      "fonte": "ida_torino",
+      "testo": "Entro 120 giorni dalla presentazione dell'istanza, verrai contattato per la consegna dell'attestazione"
+    },
+    {
+      "fonte": "ida_torino",
+      "testo": "considereremo urgente la tua istanza e la tempistica è ridotta a 10 gg"
+    },
+    {
+      "fonte": "ida_torino",
+      "testo": "ha una validità di un anno dalla data del rilascio"
+    },
+    {
+      "fonte": "ida_torino",
+      "testo": "La validità viene meno, in qualunque momento, se cambiano le condizioni soggettive e/o oggettive esistenti e dichiarate al momento della presentazione dell'istanza"
+    },
+    {
+      "fonte": "ida_torino",
+      "testo": "una prima marca da bollo da 16 euro"
+    },
+    {
+      "fonte": "ida_torino",
+      "testo": "una seconda marca da bollo da 16 euro"
+    },
+    {
+      "fonte": "ida_torino",
+      "testo": "Non è possibile ottenere l'attestazione nel caso di capienza necessaria superiore all'idoneità dell'alloggio oppure nel caso di non rispetto dei requisiti igienico-sanitari"
+    },
+    {
+      "fonte": "ida_torino",
+      "testo": "può essere utilizzata dal tecnico quando si chiede un nuovo attestato di idoneità alloggiativa, sullo stesso alloggio per il quale era già stato richiesto un precedente attestato"
+    },
+    {
+      "fonte": "ida_torino",
+      "testo": "Ultima modifica 12 Marzo 2026"
+    },
+    {
+      "fonte": "ida_torino_calc",
+      "testo": "confrontando i valori restituiti dai due seguenti parametri e adottando quello inferiore"
+    },
+    {
+      "fonte": "ida_torino_calc",
+      "testo": "14 mq per i primi 4 abitanti e 10 mq per ciascuno dei successivi"
+    },
+    {
+      "fonte": "ida_roma",
+      "testo": "Procedimento diretto ad ottenere, per i cittadini stranieri non comunitari, l'attestazione relativa all'idoneità dell'alloggio"
+    },
+    {
+      "fonte": "ida_roma",
+      "testo": "l'interessato inoltra la richiesta per via telematica"
+    },
+    {
+      "fonte": "ida_roma",
+      "testo": "stampare l'istanza con l'elenco dei documenti allegati e consegnare in Municipio"
+    },
+    {
+      "fonte": "ida_roma",
+      "testo": "Termine 30 giorni"
+    },
+    {
+      "fonte": "ida_roma",
+      "testo": "Non è più necessario ritirare l'attestazione di idoneità alloggiativa, in formato cartaceo, presso il Municipio (Uffici Tecnici) né consegnarla allo Sportello Unico per l'Immigrazione"
+    },
+    {
+      "fonte": "ida_roma",
+      "testo": "anche una seconda mail che attesta l'avvenuto rilascio dell'attestazione di idoneità alloggiativa"
+    },
+    {
+      "fonte": "ida_roma15",
+      "testo": "apporre la marca da bollo da €16.00 sulla prima pagina"
+    },
+    {
+      "fonte": "ida_roma15",
+      "testo": "inviare tutto tramite pec a protocollo.municipioroma15@pec.comune.roma.it"
+    },
+    {
+      "fonte": "ida_roma15",
+      "testo": "Non è necessario venire in Municipio per presentare la domanda"
+    },
+    {
+      "fonte": "ida_roma15",
+      "testo": "presentando un'ulteriore marca da bollo da €16.00"
+    },
+    {
+      "fonte": "ida_roma15",
+      "testo": "Planimetria in scala, aggiornata agli ultimi 30 giorni"
+    },
+    {
+      "fonte": "ida_roma15",
+      "testo": "Visura catastale aggiornata agli ultimi 30 giorni"
+    },
+    {
+      "fonte": "ida_roma15",
+      "testo": "Pagamento dei diritti di istruttoria di € 60,00 come da circolare del Segretariato Generale n. 2154 del 29/07/2014"
+    },
+    {
+      "fonte": "ida_roma15",
+      "testo": "compilata ed asseverata da tecnico abilitato"
+    },
+    {
+      "fonte": "ida_roma15",
+      "testo": "aggiornato il 06/07/2026"
+    },
+    {
+      "fonte": "ida_napoli",
+      "testo": "Dal 01/02/2025, le istanze dovranno essere presentate mediante PEC"
+    },
+    {
+      "fonte": "ida_napoli",
+      "testo": "è richiesto nell'ambito delle procedure di competenza della Questura e della Prefettura"
+    },
+    {
+      "fonte": "ida_napoli",
+      "testo": "Esso attesta l'idoneità dell'alloggio ad ospitare un certo numero di persone in rapporto al numero e alla superficie dei vani"
+    },
+    {
+      "fonte": "ida_napoli",
+      "testo": "non costituisce alcuna certificazione di conformità edilizia, urbanistica ed impiantistica"
+    },
+    {
+      "fonte": "ida_napoli",
+      "testo": "Nuova istanza per idoneità abitativa € 20.00"
+    },
+    {
+      "fonte": "ida_napoli",
+      "testo": "Rinnovo istanza per idoneità abitativa € 10.00"
+    },
+    {
+      "fonte": "ida_napoli",
+      "testo": "Duplicato istanza per idoneità abitativa € 10.00"
+    },
+    {
+      "fonte": "ida_napoli",
+      "testo": "Istanza redatta in bollo debitamente compilata a cura del tecnico incaricato"
+    },
+    {
+      "fonte": "ida_napoli",
+      "testo": "Relazione tecnica asseverata in cui sia dichiarata la conformità dell'alloggio al Decreto del Ministero della Sanità 5 luglio 1975"
+    },
+    {
+      "fonte": "ida_napoli",
+      "testo": "seconda imposta di bollo per l'emanazione del provvedimento"
+    },
+    {
+      "fonte": "ida_napoli",
+      "testo": "Il termine per il rilascio/rinnovo del certificato e/o di eventuali duplicati è di 30 giorni dalla presentazione della richiesta"
+    },
+    {
+      "fonte": "ida_napoli",
+      "testo": "non saranno accettati se non vi sarà riscontro di inoltro dal N.I.I.A. a mezzo PEC"
+    },
+    {
+      "fonte": "ida_napoli",
+      "testo": "Per l'inoltro dei certificati agli Enti richiedenti, Sportello Unico Immigrazione della Prefettura o Ufficio Immigrazione della Questura, sarà necessario inviare un ulteriore Modello AB"
+    },
+    {
+      "fonte": "ida_napoli",
+      "testo": "Ultimo aggiornamento: 18/02/2026"
+    },
+    {
+      "fonte": "ida_bologna",
+      "testo": "se l'abitazione si trova in un altro comune, devi rivolgerti al Comune in cui si trova l'alloggio"
+    },
+    {
+      "fonte": "ida_bologna",
+      "testo": "rilascio del permesso di soggiorno dell'Unione Europea per soggiorni di lungo periodo (ex carta di soggiorno)"
+    },
+    {
+      "fonte": "ida_bologna",
+      "testo": "Le persone con cittadinanza di un Paese dell'Unione Europea non hanno bisogno dell'attestato di idoneità abitativa per ricongiungere i loro familiari stranieri"
+    },
+    {
+      "fonte": "ida_bologna",
+      "testo": "Devi avere un'identità SPID"
+    },
+    {
+      "fonte": "ida_bologna",
+      "testo": "la planimetria catastale dell'alloggio"
+    },
+    {
+      "fonte": "ida_bologna",
+      "testo": "riceverai un'email di richiesta di integrazione che dovrai presentare entro 10 giorni"
+    },
+    {
+      "fonte": "ida_bologna",
+      "testo": "Entro 30 giorni dalla domanda, l'attestato sarà disponibile sull'area personale della persona che ha presentato la domanda"
+    },
+    {
+      "fonte": "ida_bologna",
+      "testo": "L'attestato ha validità illimitata"
+    },
+    {
+      "fonte": "ida_bologna",
+      "testo": "Devi aggiornarlo solo se ci saranno variazioni"
+    },
+    {
+      "fonte": "ida_bologna",
+      "testo": "Presentare domanda per l'attestato di idoneità dell'abitazione non richiede nessun costo"
+    },
+    {
+      "fonte": "ida_bologna",
+      "testo": "Per le richieste di rilascio urgente della Questura/Prefettura (entro due giorni lavorativi)"
+    },
+    {
+      "fonte": "ida_bologna",
+      "testo": "Delibera della Giunta comunale Pg n. 532942/2018"
     }
   ]
 }

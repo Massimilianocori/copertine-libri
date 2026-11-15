@@ -358,6 +358,11 @@ def link_affiliati(html):
     for m in _RE_A.finditer(html):
         a = {k.lower(): unescape(v) for k, v in _RE_ATTR.findall(m.group(0))}
         href = a.get("href", "")
+        # 15/11/2026: link diretto al libro di Massimiliano (non è un'affiliazione, scelta sua: nessun tag, nessun «sponsored»).
+        # Ammesso solo con data-libro-proprio="si", senza rel sponsored e solo verso una scheda /dp/ di Amazon.
+        if (a.get("data-libro-proprio") == "si" and "sponsored" not in a.get("rel", "").lower()
+                and re.match(r"https://www\.amazon\.(it|com|co\.uk|de|fr|es)/dp/[A-Z0-9]{10}$", href)):
+            continue
         rel = set(a.get("rel", "").lower().split())
         host = ""
         if href.startswith(("http://", "https://", "//")):

@@ -1,0 +1,659 @@
+{
+ "_nota": "Pagine del 15/11/2026: /dopo-esame/ (indice), /dopo-esame/<ente>/ (certificato, tempi per sessione, se non superi), /dopo-esame/non-superato/, /esempi/a2/ e /esempi/b2/. Solo fatti scritti dagli enti su pagine o documenti ufficiali. Le frasi in 'citazioni' le controlla raccolta/dopo_esame.py (fonte scaricata, frase presente). Le fonti con 'browser': true (sito PLIDA) mostrano il testo solo dopo il caricamento della pagina in un browser: lette il 15/11/2026 con un browser, il controllo le rilegge così se Playwright è installato. Non letto dal server: www.unistrapg.it (catena TLS incompleta), dove stanno i file d'esempio CELI: per il CELI si linka solo la pagina ufficiale del CVCL. CERT.IT: niente link diretti ai file (note legali di Roma Tre), solo pagine HTML.",
+ "verificato_il": "2026-11-15",
+ "fonti": {
+  "cils_risultati": {
+   "nome": "Università per Stranieri di Siena, «Risultati degli esami»",
+   "url": "https://cils.unistrasi.it/1/127/201/Risultati_degli_esami.htm"
+  },
+  "cils_faq": {
+   "nome": "Centro CILS, «FAQ»",
+   "url": "https://cils.unistrasi.it/1/210/412/FAQ.htm"
+  },
+  "cils_valutazione": {
+   "nome": "Centro CILS, «La valutazione»",
+   "url": "https://cils.unistrasi.it/1/117/83/La_valutazione.htm"
+  },
+  "cils_b1c": {
+   "nome": "Centro CILS, «Prove Liv. B1 c» (B1 Cittadinanza)",
+   "url": "https://cils.unistrasi.it/1/89/382/Prove_Liv._B1_c.htm"
+  },
+  "cils_linee": {
+   "nome": "Centro CILS, «Linee guida CILS» (PDF, senza data)",
+   "url": "https://cils.unistrasi.it/public/articoli/12/linee_guida_cils_pdf(2).pdf",
+   "pagina": "https://cils.unistrasi.it/1/6/12/Le_Linee_Guida_CILS.htm"
+  },
+  "cils_a2": {
+   "nome": "Centro CILS, «Prove Liv. A2 standard»",
+   "url": "https://cils.unistrasi.it/1/89/196/Prove_Liv._A2_standard.htm"
+  },
+  "cils_a2i": {
+   "nome": "Centro CILS, «Prove Liv. A2 integrazione in Italia»",
+   "url": "https://cils.unistrasi.it/1/89/194/Prove_Liv._A2_integrazione_in_Italia.htm"
+  },
+  "cils_b2": {
+   "nome": "Centro CILS, «Prove Liv. B2»",
+   "url": "https://cils.unistrasi.it/1/89/198/Prove_Liv._B2.htm"
+  },
+  "celi_regolamento": {
+   "nome": "CVCL, Università per Stranieri di Perugia, «Regolamento degli esami CELI» (PDF, Senato Accademico 27/9/2024 e 22/10/2024)",
+   "url": "https://cvcl.unistrapg.it/MC-API/Risorse/StreamRisorsa.ashx?guid=b682a9a2-1380-4d6c-9d54-496cbd0f4c18",
+   "pagina": "https://cvcl.unistrapg.it/pagine/regolamenti-000"
+  },
+  "celi_esami": {
+   "nome": "CVCL, «Esami CELI»",
+   "url": "https://cvcl.unistrapg.it/pagine/esami-celi-lingua-italiana"
+  },
+  "celi_iscrizione": {
+   "nome": "CVCL, «Iscrizione Esami CELI»",
+   "url": "https://cvcl.unistrapg.it/pagine/iscrizione-esami-celi-000"
+  },
+  "celi_immigrati": {
+   "nome": "CVCL, «Esami CELI immigrati»",
+   "url": "https://cvcl.unistrapg.it/pagine/esami-celi-immigrati"
+  },
+  "celi_generici": {
+   "nome": "CVCL, «Esami CELI generici»",
+   "url": "https://cvcl.unistrapg.it/pagine/esami-celi-generici"
+  },
+  "celi_digitali": {
+   "nome": "CVCL, «Dichiarazione di validità dei certificati digitali» (PDF, 15/4/2025)",
+   "url": "https://cvcl.unistrapg.it/MC-API/Risorse/StreamRisorsa.ashx?guid=f5e3a827-fb90-4f59-bd8a-21bed106ce2e",
+   "pagina": "https://cvcl.unistrapg.it/pagine/modulistica"
+  },
+  "plida_faq": {
+   "nome": "Società Dante Alighieri, «FAQ» PLIDA",
+   "url": "https://plida.dante.global/it/faq/",
+   "browser": true
+  },
+  "plida_istruzioni": {
+   "nome": "PLIDA, «Istruzioni per scaricare i certificati PLIDA» (PDF, 13/5/2025)",
+   "url": "https://cms.plida.dante.global/wp-content/uploads/2025/05/Istruzioni-accesso-def-2.pdf"
+  },
+  "plida_quaderno": {
+   "nome": "PLIDA, «Quaderno delle specifiche PLIDA B1» (PDF)",
+   "url": "https://cms.plida.dante.global/wp-content/uploads/2026/10/Quaderno-delle-specifiche-PLIDA-B1.pdf"
+  },
+  "plida_prepara": {
+   "nome": "PLIDA, «Preparati all'esame»",
+   "url": "https://plida.dante.global/it/preparati-allesame",
+   "browser": true
+  },
+  "plida_a2": {
+   "nome": "PLIDA, «PLIDA A2 inItalia»",
+   "url": "https://plida.dante.global/it/plida_a2_initalia",
+   "browser": true
+  },
+  "plida_esami": {
+   "nome": "PLIDA, «Gli esami PLIDA»",
+   "url": "https://plida.dante.global/it/esami-plida",
+   "browser": true
+  },
+  "certit_b1": {
+   "nome": "Roma Tre, CERT.IT, «Livello B1: livello soglia»",
+   "url": "https://certificazioneitaliano.uniroma3.it/il-sistema-di-certificazione/livello-b1-livello-soglia/"
+  },
+  "certit_a2": {
+   "nome": "Roma Tre, CERT.IT, «Livello A2: livello di sopravvivenza»",
+   "url": "https://certificazioneitaliano.uniroma3.it/il-sistema-di-certificazione/livello-a2-livello-di-sopravvivenza/"
+  },
+  "certit_b2": {
+   "nome": "Roma Tre, CERT.IT, «Livello B2: livello dell'autonomia»",
+   "url": "https://certificazioneitaliano.uniroma3.it/il-sistema-di-certificazione/livello-b2-livello-dellautonomia/"
+  },
+  "certit_iscrizione": {
+   "nome": "Roma Tre, CERT.IT, «Iscrizione agli esami»",
+   "url": "https://certificazioneitaliano.uniroma3.it/gli-esami/iscrizione-agli-esami/"
+  },
+  "certit_presentazione": {
+   "nome": "Roma Tre, CERT.IT, «Presentazione»",
+   "url": "https://certificazioneitaliano.uniroma3.it/chi-siamo/presentazione/"
+  },
+  "certit_contatti": {
+   "nome": "Roma Tre, CERT.IT, «Contatti»",
+   "url": "https://certificazioneitaliano.uniroma3.it/chi-siamo/contatti/"
+  }
+ },
+ "citazioni": [
+  {
+   "fonte": "cils_risultati",
+   "testo": "I risultati degli esami saranno disponibili dopo circa 3 mesi."
+  },
+  {
+   "fonte": "cils_risultati",
+   "testo": "Non si eseguono valutazioni anticipate."
+  },
+  {
+   "fonte": "cils_risultati",
+   "testo": "Per il ritiro del certificato devi rivolgerti alla Sede in cui hai sostenuto l'esame."
+  },
+  {
+   "fonte": "cils_risultati",
+   "testo": "entro 30 giorni dalla data di pubblicazione dei risultati sul sito"
+  },
+  {
+   "fonte": "cils_faq",
+   "testo": "Potrai così visualizzare l’esito e scaricare anche il certificato."
+  },
+  {
+   "fonte": "cils_faq",
+   "testo": "Nella sede dove hai svolto l’esame."
+  },
+  {
+   "fonte": "cils_faq",
+   "testo": "Attualmente non ha una scadenza."
+  },
+  {
+   "fonte": "cils_faq",
+   "testo": "richiesto anche per la cittadinanza italiana"
+  },
+  {
+   "fonte": "cils_valutazione",
+   "testo": "I candidati che non ottengono la sufficienza in tutte le abilità, ricevono un attestato di capitalizzazione."
+  },
+  {
+   "fonte": "cils_valutazione",
+   "testo": "In questo attestato sono indicate le abilità superate e quelle non superate."
+  },
+  {
+   "fonte": "cils_valutazione",
+   "testo": "Entro 18 mesi, infatti, il candidato può presentarsi allo stesso esame e sostenere solo le abilità che non ha superato."
+  },
+  {
+   "fonte": "cils_valutazione",
+   "testo": "L’esame di capitalizzazione può essere sostenuto anche in una sede diversa da quella dell’esame precedente."
+  },
+  {
+   "fonte": "cils_valutazione",
+   "testo": "I risultati degli esami CILS sono comunicati alle sedi e ai candidati dopo circa 3 mesi dalla data dell'esame."
+  },
+  {
+   "fonte": "cils_b1c",
+   "testo": "Per questo livello non è consentita la \"capitalizzazione\"."
+  },
+  {
+   "fonte": "cils_b1c",
+   "testo": "si dovrà sostenere di nuovo tutto l'esame nella sessione successiva"
+  },
+  {
+   "fonte": "cils_b1c",
+   "testo": "La tassa di esame è di 100 euro, in Italia e all'estero."
+  },
+  {
+   "fonte": "cils_linee",
+   "testo": "La validità del certificato è illimitata."
+  },
+  {
+   "fonte": "cils_linee",
+   "testo": "I certificati vengono inviati in Italia e all’estero direttamente alle singole sedi di esame."
+  },
+  {
+   "fonte": "cils_linee",
+   "testo": "Sono indicate altresì le abilità CILS con accanto il corrispondente punteggio ed infine il punteggio complessivo."
+  },
+  {
+   "fonte": "cils_linee",
+   "testo": "Alle sedi di esame vengono inviati via e-mail i risultati complessivi dei candidati afferenti alla sede."
+  },
+  {
+   "fonte": "cils_linee",
+   "testo": "Non vengono comunicati i risultati su richiesta telefonica."
+  },
+  {
+   "fonte": "cils_linee",
+   "testo": "I reclami relativi ai risultati devono essere effettuati entro 30 giorni dalla data di pubblicazione dei risultati sul sito o dal ricevimento del certificato."
+  },
+  {
+   "fonte": "cils_linee",
+   "testo": "rilascia un nuovo certificato che viene spedito all’indirizzo indicato dal candidato, previa restituzione del certificato per il quale è stata effettuata la correzione"
+  },
+  {
+   "fonte": "cils_linee",
+   "testo": "Le abilità capitalizzate valgono per un anno dalla data del primo esame sostenuto."
+  },
+  {
+   "fonte": "cils_linee",
+   "testo": "deve versare, per ogni abilità, l’importo stabilito"
+  },
+  {
+   "fonte": "celi_regolamento",
+   "testo": "Il CVCL provvede alla comunicazione dei risultati all’incirca 90 giorni lavorativi a partire dalla data di ricezione degli elaborati dei candidati da parte del CVCL"
+  },
+  {
+   "fonte": "celi_regolamento",
+   "testo": "I risultati sono comunque disponibili anche presso il Centro sede di svolgimento della prova, compresi i punteggi ottenuti nelle singole componenti."
+  },
+  {
+   "fonte": "celi_regolamento",
+   "testo": "Tre sono i gradi che indicano il superamento dell’esame e il conseguimento del certificato: A (ottimo) – B (buono) – C (sufficiente)."
+  },
+  {
+   "fonte": "celi_regolamento",
+   "testo": "I gradi D (insufficiente) ed E (gravemente insufficiente) indicano invece che l’esame non è stato superato."
+  },
+  {
+   "fonte": "celi_regolamento",
+   "testo": "Per i livelli A1 e A2 il risultato finale viene comunicato come positivo o negativo, senza graduazione."
+  },
+  {
+   "fonte": "celi_regolamento",
+   "testo": "I certificati in formato elettronico vengono rilasciati ed emessi dal CVCL che provvede a inviarli al Centro che a sua volta provvederà alla loro distribuzione."
+  },
+  {
+   "fonte": "celi_regolamento",
+   "testo": "I candidati che prima di ricevere il certificato, abbiano bisogno di un documento provvisorio attestante il superamento dell’esame, possono scaricarlo direttamente dall’area loro riservata."
+  },
+  {
+   "fonte": "celi_regolamento",
+   "testo": "capitalizzare per un anno il risultato parziale ottenuto, sottoponendosi di nuovo alla prova risultata insufficiente nel suddetto arco di tempo, pagando il 70% della tassa complessiva"
+  },
+  {
+   "fonte": "celi_regolamento",
+   "testo": "Si specifica che tale prova dovrà riferirsi al medesimo livello e tipologia d’esame sostenuto in precedenza."
+  },
+  {
+   "fonte": "celi_regolamento",
+   "testo": "Il candidato può chiedere chiarimenti in merito ai risultati rivolgendosi all’indirizzo certificazione@unistrapg.it."
+  },
+  {
+   "fonte": "celi_regolamento",
+   "testo": "Richieste di correzione dovranno essere inviate all’indirizzo certificazione@unistrapg.it."
+  },
+  {
+   "fonte": "celi_esami",
+   "testo": "i Certificati CELI non hanno scadenza"
+  },
+  {
+   "fonte": "celi_iscrizione",
+   "testo": "provvederà ad inviare i certificati digitali direttamente al centro d’esame che si occuperà della distribuzione ai propri candidati"
+  },
+  {
+   "fonte": "celi_immigrati",
+   "testo": "rappresentare un titolo idoneo ai fini dell’adempimento degli obblighi di legge"
+  },
+  {
+   "fonte": "celi_digitali",
+   "testo": "a partire dal mese di settembre 2022 rilascia certificati di conoscenza della lingua italiana solo in formato digitale (PDF)"
+  },
+  {
+   "fonte": "celi_digitali",
+   "testo": "completi di QR Code scansionabile per verificarne facilmente la validità, hanno lo stesso valore dei certificati cartacei emessi precedentemente"
+  },
+  {
+   "fonte": "plida_faq",
+   "testo": "Il certificato PLIDA B1 è valido per richiedere la Cittadinanza."
+  },
+  {
+   "fonte": "plida_faq",
+   "testo": "Per visualizzare il risultato dei tuoi esami e scaricare il certificato PLIDA devi cliccare su certificazioneplida.dante.global ed entrare con la tua email e password."
+  },
+  {
+   "fonte": "plida_faq",
+   "testo": "Ricorda di comunicare al Centro d’esame il tuo indirizzo email al momento dell’iscrizione."
+  },
+  {
+   "fonte": "plida_istruzioni",
+   "testo": "ATTENZIONE: non è lo stesso link che hai usato quando hai fatto l’iscrizione!"
+  },
+  {
+   "fonte": "plida_istruzioni",
+   "testo": "qui ci sono i punteggi e i risultati degli esami"
+  },
+  {
+   "fonte": "plida_istruzioni",
+   "testo": "fai click sull’icona della stampante"
+  },
+  {
+   "fonte": "plida_quaderno",
+   "testo": "Per superare l’esame è necessario ottenere un punteggio di almeno 18/30 in ogni abilità."
+  },
+  {
+   "fonte": "plida_quaderno",
+   "testo": "I candidati che non superano le prove di una o più abilità, fino a tre, possono recuperarle nei 18 mesi successivi in tutte le sessioni utili previste dal calendario PLIDA"
+  },
+  {
+   "fonte": "plida_quaderno",
+   "testo": "i candidati possono tentare il recupero anche più volte nel corso dei 18 mesi"
+  },
+  {
+   "fonte": "plida_quaderno",
+   "testo": "Le prove di recupero possono essere svolte anche in Centri PLIDA diversi da quello in cui si è sostenuto l’esame la prima volta"
+  },
+  {
+   "fonte": "plida_quaderno",
+   "testo": "sarà sufficiente presentarsi nel Centro con il proprio Codice personale, rilasciato al momento della prima iscrizione"
+  },
+  {
+   "fonte": "plida_a2",
+   "testo": "Scarica qui la Prova d’esempio PLIDA A2 inItalia"
+  },
+  {
+   "fonte": "plida_a2",
+   "testo": "Puoi fare questo esame solo in Italia"
+  },
+  {
+   "fonte": "certit_b1",
+   "testo": "L’esame è superato se si raggiunge il 60% del punteggio totale nelle sezioni Ascolto, Lettura e Produzione scritta, e il 60% del punteggio nella sezione di Produzione orale."
+  },
+  {
+   "fonte": "certit_b1",
+   "testo": "i richiedenti saranno tenuti a consegnare una certificazione di lingua italiana rilasciata dall’Ente certificatore"
+  },
+  {
+   "fonte": "certit_b1",
+   "testo": "In fondo alla pagina è possibile scaricare un esempio di esame per esercitarsi."
+  },
+  {
+   "fonte": "certit_a2",
+   "testo": "L’esame è superato se si raggiunge il 60% del punteggio totale nelle sezioni di Ascolto, Lettura, Produzione scritta e il 60% del punteggio nella sezione di Produzione orale."
+  },
+  {
+   "fonte": "certit_a2",
+   "testo": "Le sezioni Ascolto, Lettura e Produzione scritta durano complessivamente 2 ore."
+  },
+  {
+   "fonte": "certit_a2",
+   "testo": "La sezione Produzione orale dura 5 minuti."
+  },
+  {
+   "fonte": "certit_a2",
+   "testo": "In fondo alla pagina è anche possibile scaricare un esempio di esame per esercitarsi."
+  },
+  {
+   "fonte": "certit_b2",
+   "testo": "L’esame è superato se si raggiunge il 60% del punteggio totale di tutte le 3 sezioni (Ascolto e Lettura, Produzione scritta, Produzione orale)"
+  },
+  {
+   "fonte": "certit_b2",
+   "testo": "Laddove non venissero sostenute o superate tutte le sezioni, è possibile capitalizzare quelle superate entro due anni dal superamento della prima."
+  },
+  {
+   "fonte": "certit_b2",
+   "testo": "Il certificato verrà rilasciato solo quando il candidato avrà superato tutte le sezioni."
+  },
+  {
+   "fonte": "certit_b2",
+   "testo": "Le sezioni Ascolto, Lettura e Produzione scritta durano complessivamente 3 ore."
+  },
+  {
+   "fonte": "certit_b2",
+   "testo": "La sezione Produzione orale dura 10 minuti."
+  },
+  {
+   "fonte": "certit_b2",
+   "testo": "In fondo alla pagina è possibile scaricare un esempio di esame per esercitarsi."
+  },
+  {
+   "fonte": "certit_iscrizione",
+   "testo": "Qui di seguito sono riportate le quote di iscrizione per ogni livello e per ogni sezione nei casi in cui sia possibile sostenerle separatamente."
+  },
+  {
+   "fonte": "certit_iscrizione",
+   "testo": "B1: 80 €"
+  },
+  {
+   "fonte": "certit_iscrizione",
+   "testo": "A2: 40 €"
+  },
+  {
+   "fonte": "certit_iscrizione",
+   "testo": "B2: 140 € (Ascolto e Lettura: 80 €; Produzione scritta: 30 €; Produzione orale: 30 €)"
+  },
+  {
+   "fonte": "certit_iscrizione",
+   "testo": "Chi deve iscriversi a una singola sezione è pregato di rivolgersi a"
+  },
+  {
+   "fonte": "certit_presentazione",
+   "testo": "ente certificatore della lingua italiana riconosciuto dai Ministeri degli Affari Esteri"
+  },
+  {
+   "fonte": "celi_generici",
+   "testo": "CELI 1 (Livello A2 del QCER)"
+  },
+  {
+   "fonte": "celi_generici",
+   "testo": "CELI 3 (Livello B2 del QCER)"
+  },
+  {
+   "fonte": "celi_generici",
+   "testo": "riconosce il CELI 3 come certificato valido per attestare la conoscenza della lingua italiana necessaria per iscriversi all’Università in Italia"
+  },
+  {
+   "fonte": "celi_immigrati",
+   "testo": "Durata totale dell’esame: 2 ore e 10 minuti"
+  },
+  {
+   "fonte": "cils_linee",
+   "testo": "Per superare un’abilità occorre ottenere il punteggio minimo di 7 punti."
+  },
+  {
+   "fonte": "cils_linee",
+   "testo": "Per superare una abilità occorre ottenere il punteggio minimo di 11 punti."
+  },
+  {
+   "fonte": "cils_linee",
+   "testo": "Il punteggio totale massimo ottenibile è 100. Il punteggio minimo è 55."
+  },
+  {
+   "fonte": "cils_linee",
+   "testo": "Per superare le abilità di comprensione dell’ascolto e di produzione orale occorre ottenere il punteggio minimo di 10 punti"
+  },
+  {
+   "fonte": "celi_immigrati",
+   "testo": "DLeg. 113/2018, per il CELI 2 i cittadinanza - B1"
+  },
+  {
+   "fonte": "celi_iscrizione",
+   "testo": "Sarà cura del Centro d’esame fornire ai candidati indicazioni sull’importo della tassa e sulle modalità di pagamento."
+  },
+  {
+   "fonte": "certit_contatti",
+   "testo": "certificazioneitaliano@uniroma3.it"
+  },
+  {
+   "fonte": "celi_generici",
+   "testo": "prova d'esame: esempio 1 (zip) - esempio 2 (zip)"
+  },
+  {
+   "fonte": "celi_immigrati",
+   "testo": "prova d'esame - esempio 1 (zip) - esempio 2 (zip)"
+  },
+  {
+   "fonte": "plida_faq",
+   "testo": "richiedere il visto di studio (PLIDA B2)"
+  },
+  {
+   "fonte": "plida_faq",
+   "testo": "iscriversi all’Università (PLIDA B2 o C1)"
+  },
+  {
+   "fonte": "plida_faq",
+   "testo": "Il certificato PLIDA A2 è valido per richiedere il Permesso di Soggiorno UE."
+  },
+  {
+   "fonte": "cils_risultati",
+   "testo": "trasparenzacertificazioni@unistrasi.it"
+  },
+  {
+   "fonte": "plida_prepara",
+   "testo": "Scarica i materiali"
+  }
+ ],
+ "esempi": {
+  "cils_a2": [
+   {
+    "nome": "Quaderno del candidato",
+    "contenuto": "le prove di ascolto, lettura e analisi delle strutture",
+    "url": "https://cils.unistrasi.it/public/articoli/196/Quaderno%20A2.pdf",
+    "formato": "PDF",
+    "byte": 142923,
+    "tipo": "application/pdf"
+   },
+   {
+    "nome": "File audio",
+    "contenuto": "l'audio della prova di ascolto",
+    "url": "https://cils.unistrasi.it/public/articoli/196/A2_6_17.mp3",
+    "formato": "MP3",
+    "byte": 48637954,
+    "tipo": "audio/mpeg"
+   },
+   {
+    "nome": "Trascrizioni delle prove di ascolto",
+    "contenuto": "il testo scritto di quello che si sente nell'audio",
+    "url": "https://cils.unistrasi.it/public/articoli/196/Trascrizioni%20A2.pdf",
+    "formato": "PDF",
+    "byte": 87934,
+    "tipo": "application/pdf"
+   },
+   {
+    "nome": "Prove di produzione orale",
+    "contenuto": "le tracce dell'orale",
+    "url": "https://cils.unistrasi.it/public/articoli/196/Produzione%20orale%20A2.pdf",
+    "formato": "PDF",
+    "byte": 252001,
+    "tipo": "application/pdf"
+   },
+   {
+    "nome": "Soluzioni",
+    "contenuto": "le risposte giuste",
+    "url": "https://cils.unistrasi.it/public/articoli/196/Chiavi%20A2.pdf",
+    "formato": "PDF",
+    "byte": 101378,
+    "tipo": "application/pdf"
+   },
+   {
+    "nome": "Criteri di valutazione",
+    "contenuto": "come si danno i punti",
+    "url": "https://cils.unistrasi.it/public/articoli/196/criteri%20valutazione%20A2.pdf",
+    "formato": "PDF",
+    "byte": 14393,
+    "tipo": "application/pdf"
+   },
+   {
+    "nome": "Foglio delle risposte",
+    "contenuto": "il foglio su cui si segnano le risposte",
+    "url": "https://cils.unistrasi.it/public/articoli/196/Risposte_A2.pdf",
+    "formato": "PDF",
+    "byte": 1437797,
+    "tipo": "application/pdf"
+   }
+  ],
+  "cils_a2i": [
+   {
+    "nome": "Quaderno (prototipo)",
+    "contenuto": "le prove di ascolto e di lettura",
+    "url": "https://cils.unistrasi.it/public/articoli/194/Prototipo%20Quaderno%20A2%20Integrazione.pdf",
+    "formato": "PDF",
+    "byte": 300296,
+    "tipo": "application/pdf"
+   },
+   {
+    "nome": "File audio",
+    "contenuto": "l'audio della prova di ascolto",
+    "url": "https://cils.unistrasi.it/public/articoli/194/A2%20integrazione%20Italia.mp3",
+    "formato": "MP3",
+    "byte": 44529876,
+    "tipo": "audio/mpeg"
+   },
+   {
+    "nome": "Trascrizioni delle prove di ascolto",
+    "contenuto": "il testo scritto di quello che si sente nell'audio",
+    "url": "https://cils.unistrasi.it/public/articoli/194/Trascrizioni%20A2%20modulo%20integrazione_def.pdf",
+    "formato": "PDF",
+    "byte": 33458,
+    "tipo": "application/pdf"
+   },
+   {
+    "nome": "Prova di produzione scritta",
+    "contenuto": "la traccia della prova di scrittura",
+    "url": "https://cils.unistrasi.it/public/articoli/194/Input%20Poduzione%20scritta_A2%20integrazione_dic19.pdf",
+    "formato": "PDF",
+    "byte": 248075,
+    "tipo": "application/pdf"
+   },
+   {
+    "nome": "Prove di produzione orale",
+    "contenuto": "le tracce dell'orale",
+    "url": "https://cils.unistrasi.it/public/articoli/194/Produzione%20Orale%20A2%20integrazione.pdf",
+    "formato": "PDF",
+    "byte": 21676,
+    "tipo": "application/pdf"
+   },
+   {
+    "nome": "Criteri di valutazione delle prove",
+    "contenuto": "come si danno i punti",
+    "url": "https://cils.unistrasi.it/public/articoli/194/Criteri%20di%20valutazione%20nuovo%20A2%20Integrazione.pdf",
+    "formato": "PDF",
+    "byte": 72184,
+    "tipo": "application/pdf"
+   },
+   {
+    "nome": "Foglio delle risposte",
+    "contenuto": "il foglio su cui si segnano le risposte",
+    "url": "https://cils.unistrasi.it/public/articoli/194/Risposte_A2_Integrazione.pdf",
+    "formato": "PDF",
+    "byte": 1416486,
+    "tipo": "application/pdf"
+   }
+  ],
+  "cils_b2": [
+   {
+    "nome": "Quaderno del candidato (prototipo)",
+    "contenuto": "le prove di ascolto, lettura e analisi delle strutture",
+    "url": "https://cils.unistrasi.it/public/articoli/198/PROTOTIPO_Quaderno%20Due_B2.pdf",
+    "formato": "PDF",
+    "byte": 362901,
+    "tipo": "application/pdf"
+   },
+   {
+    "nome": "File audio",
+    "contenuto": "l'audio della prova di ascolto",
+    "url": "https://cils.unistrasi.it/public/articoli/198/DUEB2_6_17.mp3",
+    "formato": "MP3",
+    "byte": 93832925,
+    "tipo": "audio/mpeg"
+   },
+   {
+    "nome": "Trascrizione della prova di ascolto",
+    "contenuto": "il testo scritto di quello che si sente nell'audio",
+    "url": "https://cils.unistrasi.it/public/articoli/198/Trascrizioni%20Due%20B2.pdf",
+    "formato": "PDF",
+    "byte": 73344,
+    "tipo": "application/pdf"
+   },
+   {
+    "nome": "Prove di produzione orale",
+    "contenuto": "le tracce dell'orale",
+    "url": "https://cils.unistrasi.it/public/articoli/198/Produzione%20orale%20Due%20B2.pdf",
+    "formato": "PDF",
+    "byte": 417711,
+    "tipo": "application/pdf"
+   },
+   {
+    "nome": "Soluzioni",
+    "contenuto": "le risposte giuste",
+    "url": "https://cils.unistrasi.it/public/articoli/198/chiavi%20Due-B2.pdf",
+    "formato": "PDF",
+    "byte": 100180,
+    "tipo": "application/pdf"
+   },
+   {
+    "nome": "Criteri di valutazione delle prove",
+    "contenuto": "come si danno i punti",
+    "url": "https://cils.unistrasi.it/public/articoli/198/criteri%20valutazione%20DUE-B2%20nuove.pdf",
+    "formato": "PDF",
+    "byte": 141488,
+    "tipo": "application/pdf"
+   },
+   {
+    "nome": "Foglio delle risposte",
+    "contenuto": "il foglio su cui si segnano le risposte",
+    "url": "https://cils.unistrasi.it/public/articoli/198/B2.pdf",
+    "formato": "PDF",
+    "byte": 1435141,
+    "tipo": "application/pdf"
+   }
+  ]
+ }
+}

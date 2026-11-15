@@ -48,7 +48,8 @@ sys.path.append(str(RADICE.parent / "studio-business" / "strumenti"))
 import monetizzazione as MON  # noqa: E402
 import genera_en as EN  # noqa: E402  sezione inglese /en/ (dal 31/10/2026)
 import genera_lingue as LG  # noqa: E402  sezioni /uk/ e /ro/ (dal 31/10/2026); hreflang e menu delle lingue per tutto il sito
-import genera_guide as GU  # noqa: E402  test A2, carta di soggiorno, cittadinanza per matrimonio, stato della pratica (13/11/2026)
+import genera_dopo as DP  # noqa: E402  pagine «dopo l'esame» (certificato, tempi per sessione, esame non superato) ed esempi A2 e B2 (15/11/2026)
+import genera_guide as GU  # noqa: E402  test A2, carta di soggiorno, cittadinanza per matrimonio, stato della pratica (13/11/2026); ricongiungimento familiare, documenti, permesso per motivi familiari, idoneità alloggiativa (14/11/2026)
 SITO_ID = "esameb1"  # nome del sito in monetizzazione.json ("adsense_siti")
 ADSENSE_HEAD = MON.script_adsense(SITO_ID)  # "" con AdSense spento; altrimenti a capo + script ufficiale, subito dopo il meta di verifica Google
 # Qualità per AdSense (9/11/2026): niente script AdSense nelle pagine noindex o con meno di MIN_PAROLE_ADSENSE parole
@@ -750,6 +751,12 @@ def pagina(percorso, titolo, descrizione, corpo, jsonld=None, base=None, indiciz
     alternati = LG.alternati(sys.modules[__name__], "it", percorso)
     radice = rel or "/"
     enti_link = "".join(f'<li><a href="{rel}ente/{SLUG_ENTE[e]}/">{e}</a></li>' for e in ENTE)
+    # 14/11/2026: guide sul ricongiungimento nel piede di tutte le pagine tranne /audio-libro/ (pagina del libro: non si tocca)
+    piede_famiglia = "" if percorso.startswith("audio-libro/") else (
+        f'<li><a href="{rel}ricongiungimento-familiare/">Ricongiungimento familiare</a></li>'
+        f'<li><a href="{rel}permesso-soggiorno-motivi-familiari/">Permesso per motivi familiari</a></li>'
+        f'<li><a href="{rel}idoneita-alloggiativa/">Idoneità alloggiativa</a></li>'
+        f'<li><a href="{rel}dopo-esame/">Dopo l\'esame: certificato</a></li>')  # 15/11/2026
     altri_siti = "".join(f'<li><a href="{u}" rel="noopener">{n}</a>: {escape(d)} Un altro sito gratuito e indipendente dello stesso gestore.</li>'
                          for u, n, d in ALTRI_SITI)
     testo = f"""<!DOCTYPE html>
@@ -793,7 +800,7 @@ def pagina(percorso, titolo, descrizione, corpo, jsonld=None, base=None, indiciz
 <div>
 <a class="logo" href="{home_href}">{MARCHIO}<span class="logo-testo">Esame<b>B1</b></span></a>
 <ul class="piede-link">
-<li><a href="{rel}#date">Date d'esame</a></li><li><a href="{rel}#citta">Sedi per città</a></li><li><a href="{rel}come-funziona/">Come funziona</a></li><li><a href="{rel}costo/">Costo</a></li><li><a href="{rel}risultati/">Risultati</a></li><li><a href="{rel}esenzioni-e-domande/">Orale e domande</a></li><li><a href="{rel}esonero-test-italiano/">Chi è esonerato</a></li><li><a href="{rel}esempi/">Prove d'esempio</a></li><li><a href="{rel}esempi/confronto/">CILS, CELI, PLIDA, CERT.IT a confronto</a></li><li><a href="{rel}cittadinanza/">Domanda di cittadinanza</a></li><li><a href="{rel}reddito-minimo-cittadinanza/">Reddito minimo</a></li><li><a href="{rel}cittadinanza-per-matrimonio/">Cittadinanza per matrimonio</a></li><li><a href="{rel}pratica-cittadinanza/">Stato della pratica e giuramento</a></li><li><a href="{rel}carta-di-soggiorno/">Carta di soggiorno</a></li><li><a href="{rel}test-italiano-a2/">Test di italiano A2</a></li><li><a href="{rel}decreto-flussi-click-day/">Decreto flussi: click day</a></li>{enti_link}{LG.link_piede_lingue("it", percorso, radice)}<li><a href="{rel}chi-siamo/">Chi siamo</a></li><li><a href="{rel}come-lavoriamo/">Come lavoriamo</a></li><li><a href="{rel}come-lavoriamo/#segnala">Segnala un errore</a></li><li><a href="{rel}privacy.html">Privacy</a></li>
+<li><a href="{rel}#date">Date d'esame</a></li><li><a href="{rel}#citta">Sedi per città</a></li><li><a href="{rel}come-funziona/">Come funziona</a></li><li><a href="{rel}costo/">Costo</a></li><li><a href="{rel}risultati/">Risultati</a></li><li><a href="{rel}esenzioni-e-domande/">Orale e domande</a></li><li><a href="{rel}esonero-test-italiano/">Chi è esonerato</a></li><li><a href="{rel}esempi/">Prove d'esempio</a></li><li><a href="{rel}esempi/confronto/">CILS, CELI, PLIDA, CERT.IT a confronto</a></li><li><a href="{rel}cittadinanza/">Domanda di cittadinanza</a></li><li><a href="{rel}reddito-minimo-cittadinanza/">Reddito minimo</a></li><li><a href="{rel}cittadinanza-per-matrimonio/">Cittadinanza per matrimonio</a></li><li><a href="{rel}pratica-cittadinanza/">Stato della pratica e giuramento</a></li><li><a href="{rel}carta-di-soggiorno/">Carta di soggiorno</a></li><li><a href="{rel}test-italiano-a2/">Test di italiano A2</a></li>{piede_famiglia}<li><a href="{rel}decreto-flussi-click-day/">Decreto flussi: click day</a></li>{enti_link}{LG.link_piede_lingue("it", percorso, radice)}<li><a href="{rel}chi-siamo/">Chi siamo</a></li><li><a href="{rel}come-lavoriamo/">Come lavoriamo</a></li><li><a href="{rel}come-lavoriamo/#segnala">Segnala un errore</a></li><li><a href="{rel}privacy.html">Privacy</a></li>
 </ul>
 </div>
 <div>
@@ -934,28 +941,21 @@ def modulo(citta_scelta=""):
 </section>"""
 
 
-def riquadro_libro():
-    """Riquadro «Libro in arrivo: avvisami» (11/11/2026): stesso modulo Netlify `avvisami` del sito, con il campo nascosto
-    fonte=libro (il modulo delle date ha fonte=date) per distinguere le iscrizioni. Solo email e consenso, niente città.
-    Nessun prezzo e nessuna data: il libro non è ancora uscito. Dal 12/11/2026 solo su /esempi/ e /esempi/simulazione/ (tolto da home e
-    /come-funziona/: per la revisione AdSense niente annunci di cose non ancora pronte nelle pagine più viste)."""
+# Libro di Massimiliano (uscito su Amazon il 15/11/2026). Link diretto, SENZA codice affiliato (sua scelta del 15/11): non è un'affiliazione,
+# quindi niente rel="sponsored" e niente riga di trasparenza; monetizzazione.py lo riconosce dall'attributo data-libro-proprio="si".
+LIBRO_URL = "https://www.amazon.it/dp/B0HQ2TTHPY"
+LIBRO_TITOLO = "Esame B1 Cittadinanza Italiana"
+
+
+def riquadro_libro(rel="../"):
+    """Riquadro del libro (dal 15/11/2026, prima era «in arrivo: avvisami»). Nessun prezzo e nessuna promessa di superare l'esame:
+    il prezzo lo mostra Amazon. Rimanda anche alla pagina gratuita con gli audio del libro."""
     return f"""<section class="card libro" id="libro">
 <div class="modulo-testa"><span class="bolla">{ic("libro")}</span><div>
-<h2>Libro «Esame B1 cittadinanza» in arrivo: avvisami</h2>
-<p class="small" style="margin:4px 0 0">Stiamo preparando un libro per esercitarsi all'esame B1 per la cittadinanza. Non è ancora uscito e non c'è ancora una data:
-se vuoi saperlo, lascia la tua email. Ti scriviamo una sola email quando esce.</p></div></div>
-<form class="form avvisami" name="avvisami" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field">
-<input type="hidden" name="form-name" value="avvisami">
-<input type="hidden" name="fonte" value="libro">
-<input type="hidden" name="source" value="">
-<p class="hp"><label>Non compilare <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
-<label>La tua email<input type="email" name="email" required autocomplete="email" placeholder="nome@esempio.it"></label>
-<label class="check"><input type="checkbox" name="consenso" value="si" required>
-<span>Accetto di ricevere da {NOME} una sola email quando esce il libro. Ho letto la <a href="/privacy.html">privacy</a>.</span></label>
-<button class="btn" type="submit">{ic("libro")}Avvisami quando esce</button>
-<p class="errore" data-errore hidden>Non è stato possibile inviare. Riprova tra poco.</p>
-</form>
-<div class="ok" data-ok hidden>{ic("ok")}<span><strong>Fatto!</strong> Ti scriveremo una sola volta, quando il libro esce.</span></div>
+<h2>Il libro «{LIBRO_TITOLO}» è uscito</h2>
+<p class="small" style="margin:4px 0 0">Un libro per esercitarsi all'esame B1 per la cittadinanza, scritto da chi cura questo sito.
+Le tracce audio delle prove d'ascolto sono gratis sulla pagina <a href="{rel}audio-libro/">audio del libro</a>.</p></div></div>
+<div class="azioni"><a class="btn" href="{LIBRO_URL}" rel="noopener" target="_blank" data-libro-proprio="si">{ic("libro")}Vedi il libro su Amazon</a></div>
 </section>"""
 
 
@@ -1187,10 +1187,11 @@ def link_guide(rel, salta=None, dopo_b1=True):
             ("cittadinanza/", "edificio", "Dopo il B1: la domanda", "prefettura per prefettura"),
             ("reddito-minimo-cittadinanza/", "euro", "Reddito minimo", "cittadinanza e carta di soggiorno"),
             ("cittadinanza-per-matrimonio/", "scudo", "Cittadinanza per matrimonio", "requisiti, B1, domanda"),
-            ("carta-di-soggiorno/", "doc", "Carta di soggiorno", "requisiti, documenti, test A2")]
+            ("carta-di-soggiorno/", "doc", "Carta di soggiorno", "requisiti, documenti, test A2"),
+            ("ricongiungimento-familiare/", "ok", "Ricongiungimento familiare", "requisiti, nulla osta, documenti")]
     return '<div class="griglia link3">' + "".join(
         f'<a href="{rel}{h}">{ic(i)}<span>{t}<small>{sm}</small></span></a>' for h, i, t, sm in voci
-        if h != salta and (dopo_b1 or h not in ("cittadinanza/", "reddito-minimo-cittadinanza/", "cittadinanza-per-matrimonio/", "carta-di-soggiorno/"))) + "</div>"
+        if h != salta and (dopo_b1 or h not in ("cittadinanza/", "reddito-minimo-cittadinanza/", "cittadinanza-per-matrimonio/", "carta-di-soggiorno/", "ricongiungimento-familiare/"))) + "</div>"
 
 
 # Città più cercate (blocco in home): Search Console e GoatCounter fino al 27/10/2026 (Milano 22 visite in una settimana, Verona 12,
@@ -2028,6 +2029,8 @@ PLIDA nel tuo account online, mentre il sito CERT.IT non spiega dove vederlo. Fo
 <h2 id="guide">{ic("info")}Le guide ente per ente</h2>
 <p>Passo per passo dove vedere il risultato, il certificato, il punteggio, cosa fare se non superi, le prossime date e le domande frequenti.</p>
 <div class="griglia link3">{guide}</div>
+<p><a href="../dopo-esame/">{ic("doc")} Dopo il risultato: il certificato, quando aspettarsi il risultato sessione per sessione e se scade</a> ·
+<a href="../dopo-esame/non-superato/">esame non superato: cosa si rifà con ogni ente</a></p>
 </section>
 <div class="due">
 <section>
@@ -2117,6 +2120,9 @@ def pagina_risultati_ente(e, prossime):
 {fonte_ris(r, dv["fonti"])}
 </section>
 {sezioni}
+<section class="ris-sez">
+<p><a href="../../dopo-esame/{r["slug"]}/">{ic("doc")} Dopo l'esame {escape(s)}: il certificato, la validità, i tempi sessione per sessione e le regole del recupero, con le frasi dell'ente</a></p>
+</section>
 <div class="due">
 <section>
 <h2 id="date">{ic("cal")}Prossime date {escape(s)} (livello B1)</h2>
@@ -2272,7 +2278,8 @@ cosa portare il giorno dell'esame è in <a href="../come-funziona/#durata">Come 
 <section>
 <h2 id="ricongiungimento">{ic("euro")}Ricongiungimento familiare: quanto reddito serve</h2>
 <p>Vuoi far venire in Italia moglie, marito, figli o genitori? Per il nulla osta serve un reddito minimo che dipende dal numero di familiari:
-nel {RICONG['anno']} almeno {euro(tabella_ricongiungimento()[0][1])} l'anno con 1 familiare. <a href="../reddito-ricongiungimento-familiare/">Tabella {RICONG['anno']} del reddito per il ricongiungimento familiare, con le fonti</a>.</p>
+nel {RICONG['anno']} almeno {euro(tabella_ricongiungimento()[0][1])} l'anno con 1 familiare. <a href="../reddito-ricongiungimento-familiare/">Tabella {RICONG['anno']} del reddito per il ricongiungimento familiare, con le fonti</a> ·
+<a href="../ricongiungimento-familiare/">requisiti, nulla osta e domanda</a>.</p>
 </section>
 <section>
 <h2>{ic("info")}Domande frequenti</h2>
@@ -2494,6 +2501,8 @@ Scegli l'ente: per ognuno trovi i link ai file ufficiali (per CERT.IT la pagina 
 {faq_html}
 </section>
 <section>
+<h2 id="altri-livelli">{ic("libro")}Ti serve un altro livello?</h2>
+<div class="altre"><a href="a2/">Prove d'esempio A2 (carta di soggiorno)</a><a href="b2/">Prove d'esempio B2</a><a href="../dopo-esame/">Dopo l'esame: certificato e tempi</a></div>
 <h2>{ic("info")}Altre domande</h2>
 {link_guide("../", salta="esempi/", dopo_b1=False)}
 </section>
@@ -2963,7 +2972,7 @@ Per una simulazione ti servono la prova d'esempio ufficiale del tuo ente e quest
 <h2>{ic("info")}Altre domande</h2>
 {link_guide("../../", salta="esempi/", dopo_b1=False)}
 </section>
-{riquadro_libro()}
+{riquadro_libro("../../")}
 <script>{JS_CRONO}</script>"""
     pagina("esempi/simulazione/index.html",
            titolo_pagina("Simulazione esame B1 cittadinanza: prove ufficiali e cronometro"),
@@ -3514,7 +3523,7 @@ Il doppio dell'assegno sociale {anno} è <strong>{euro(doppio)}</strong>. Se ins
 <h2 id="reddito">{ic("info")}Cosa conta come reddito</h2>
 <p>La legge chiede un reddito annuo «derivante da fonti lecite» e dice che <strong>si somma anche il reddito dei familiari che vivono già con te</strong>
 («si tiene conto anche del reddito annuo complessivo dei familiari conviventi con il richiedente»). Quali documenti valgono per dimostrarlo, e di quale anno,
-te lo dice lo Sportello unico della tua Prefettura.</p>
+te lo dice lo Sportello unico della tua Prefettura. Un esempio: <a href="../ricongiungimento-familiare-documenti/#reddito">i documenti del reddito chiesti dalla Prefettura di Firenze</a>.</p>
 <div class="fonte">{ic("doc")}<span>Fonte: {fonte_legge}, comma 3, lettera b) · {verifica}</span></div>
 </section>
 <section>
@@ -3527,6 +3536,8 @@ te lo dice lo Sportello unico della tua Prefettura.</p>
 <li>i genitori a carico, se non hanno altri figli nel Paese di origine, oppure con più di 65 anni se gli altri figli non possono mantenerli per gravi motivi di salute.</li>
 </ul>
 <div class="fonte">{ic("doc")}<span>Fonte: {fonte_sui} · {verifica}</span></div>
+<p>Il testo dell'art. 28 del Testo unico in vigore dall'11 dicembre 2024 chiede anche, per il coniuge, i figli maggiorenni e i genitori, <strong>2 anni di soggiorno legale in Italia senza interruzioni</strong>
+(non vale per chi ha la protezione internazionale). <a href="../ricongiungimento-familiare/">Chi può chiederlo, per quali familiari e come funziona il nulla osta: la guida al ricongiungimento familiare</a>.</p>
 </section>
 <section>
 <h2 id="domanda">{ic("edificio")}Dove si fa la domanda</h2>
@@ -3534,9 +3545,12 @@ te lo dice lo Sportello unico della tua Prefettura.</p>
 con i documenti su reddito e alloggio. Si compila sul <a href="{escape(sp["portale_url"])}" rel="noopener">Portale Servizi del Ministero dell'Interno</a>, con SPID o CIE.
 Per legge il nulla osta va rilasciato entro 150 giorni dalla richiesta.</p>
 <div class="fonte">{ic("doc")}<span>Fonti: {fonte_sui} · <a href="{escape(sp["portale_url"])}" rel="noopener">Portale Servizi – Sportello unico</a> · {fonte_legge}, commi 7 e 8 · {verifica}</span></div>
+<p><a href="../ricongiungimento-familiare/#domanda">La domanda passo per passo</a> · <a href="../ricongiungimento-familiare-documenti/">i documenti da allegare (modelli S2 e S3, idoneità alloggiativa)</a> ·
+<a href="../ricongiungimento-familiare/#controllo">come si controlla il nulla osta online</a> · <a href="../permesso-soggiorno-motivi-familiari/">il permesso per motivi familiari dopo l'arrivo</a></p>
 <h3 id="alloggio">Alloggio idoneo</h3>
 <p>Oltre al reddito serve un <strong>alloggio</strong> che rispetti i requisiti igienico-sanitari e di idoneità abitativa, controllati dagli uffici del Comune
-(contano anche quante persone ci vivranno). Per un figlio sotto i 14 anni che arriva con uno dei genitori basta il consenso di chi è titolare della casa dove abiterà.</p>
+(contano anche quante persone ci vivranno). Per un figlio sotto i 14 anni che arriva con uno dei genitori basta il consenso di chi è titolare della casa dove abiterà.
+<a href="../idoneita-alloggiativa/">Il certificato di idoneità alloggiativa: metri quadri per persona, costi e tempi nei Comuni</a>.</p>
 <div class="fonte">{ic("doc")}<span>Fonte: {fonte_legge}, comma 3, lettera a) · {verifica}</span></div>
 <p class="small">Per chi ha lo status di rifugiato i requisiti di reddito e di alloggio non si applicano (<a href="{escape(r["url_29bis"])}" rel="noopener">art. 29-bis del Testo unico</a>).</p>
 </section>
@@ -4823,7 +4837,8 @@ def main():
         if ha_pagina_pref(sl):
             pagina_prefettura(sl, prossime)
             urls.append(f"cittadinanza/{pref_url(sl)}/")
-    urls += GU.genera(sys.modules[__name__])  # 4 guide del 13/11/2026 (genera_guide.py)
+    urls += DP.genera(sys.modules[__name__], prossime)  # 15/11/2026: /dopo-esame/ (indice, 4 enti, non superato) ed /esempi/a2/, /esempi/b2/ (genera_dopo.py)
+    urls += GU.genera(sys.modules[__name__])  # 4 guide del 13/11/2026, 3 sul ricongiungimento familiare e 1 sull'idoneità alloggiativa del 14/11/2026 (genera_guide.py)
     chi_siamo()
     urls.append("chi-siamo/")
     come_lavoriamo()
@@ -4836,6 +4851,7 @@ def main():
     extra(urls)
     n_en = EN.controlli(sys.modules[__name__])  # cifre /en/ = cifre italiane, link tra le lingue
     n_l = LG.controlli(sys.modules[__name__])
+    DP.controlli(sys.modules[__name__])  # frasi tra «» = frasi citate, ricerche misurate, FAQ visibili
     GU.controlli(sys.modules[__name__])  # cifre delle 4 guide nelle frasi citate, FAQ visibili  # cifre /uk/ e /ro/, hreflang reciproci su tutto il sito, calcolatore identico in 4 lingue
     print(f"Pagine città fuori indice (noindex, fuori sitemap, senza AdSense): {len(fuori_indice)}: {', '.join(fuori_indice)}")
     print(f"Sito generato in {SITO}: {len(urls)} pagine in sitemap ({n_en} in inglese, {n_l['uk']} in ucraino, {n_l['ro']} in rumeno, controllate), "
