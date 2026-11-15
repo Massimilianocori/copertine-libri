@@ -183,3 +183,6 @@ Massimiliano (15/11): «non avrei problemi a pagare la camera di commercio se av
 
 ## PAUSA ATTIVA (dal 15/11/2026)
 Massimiliano: «ok finisci il lavoro iniziato e poi fai pausa». Si finiscono solo i due lavori iniziati (tabelle VA 2027 in milpay, pagine «dopo l'esame» in EsameB1) con la loro revisione; poi nessun agente, nessuna ricerca o costruzione nuova. Restano: riassunto del mattino, dati senza agenti, pubblicazione delle sezioni già revisionate (lotto del 17/11). Turno di costruzione (B) e ricerca del mercoledì (G) disattivati; turno serale (C) solo PARTE A. Togliere questa sezione e riattivare B e G solo quando Massimiliano dice di ripartire.
+
+## MIGLIORA SEMPRE (15/11/2026)
+Massimiliano: «devi fare tutto quello che è migliorabile». Quando vedo un miglioramento chiaro e piccolo (aspetto, chiarezza, posizione dei riquadri, testi), lo faccio senza chiedere, lo controllo e glielo dico dopo. Chiedo solo per spese, scelte fiscali o cose che cambiano la strategia. Sul libro B1: niente «il nostro libro» (controproducente); copertina vera e colore evidenziato.

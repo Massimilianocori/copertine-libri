@@ -116,7 +116,8 @@ def riquadro_preparati(rel, gratis=None, scritto=False):
 <div>
 <h2 id="preparati-titolo">{"Fatti correggere i testi" if scritto else "Preparati alla prova orale"}</h2>
 <p>{"Per la scrittura aiuta far correggere i tuoi testi da un insegnante madrelingua, anche online: ti dice gli errori che ripeti." if scritto else "La prova orale è la parte che preoccupa molte persone. Per prepararti aiuta parlare spesso con un insegnante madrelingua, anche online."}{italki_txt}</p>
-<div class="azioni">{italki_btn}<a class="btn btn-2" href="{LIBRO_URL}" rel="noopener" target="_blank" data-libro-proprio="si">{ic("libro")}Libro per l'esame B1 (Amazon)</a><a class="btn btn-2" href="{gratis}">{ic("libro")}Prove d'esame ufficiali gratuite</a></div>{libri}
+<div class="azioni">{italki_btn}<a class="btn btn-2" href="{gratis}">{ic("libro")}Prove d'esame ufficiali gratuite</a></div>
+{libro_mini(rel)}{libri}
 {MON.nota_trasparenza("it")}
 </div>
 </section>"""
@@ -436,7 +437,12 @@ padding:18px 18px 16px;box-shadow:0 6px 22px rgba(138,75,0,.18)}
 .libro-top .etichetta{display:inline-block;font-size:.75rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;background:var(--libro-bordo);
 color:var(--libro-etichetta);padding:3px 10px;border-radius:999px;margin-bottom:10px}
 .libro-top .riga{display:flex;gap:14px;align-items:flex-start}
-.libro-top img{width:92px;height:auto;border-radius:4px;box-shadow:0 3px 10px rgba(0,0,0,.25);flex:none}
+.libro-top .cop{flex:none;line-height:0}.libro-top img{width:110px;height:auto;border-radius:4px;box-shadow:0 3px 10px rgba(0,0,0,.25)}
+@media (max-width:860px){.libro-top img{width:92px}}
+.libro-mini{display:flex;gap:12px;align-items:center;margin-top:14px;padding:12px;border:2px solid var(--libro-bordo);border-radius:var(--r);background:var(--libro-bg);color:var(--libro-ink)}
+.libro-mini .cop{flex:none;line-height:0}.libro-mini img{width:64px;height:auto;border-radius:3px;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.libro-mini strong{display:block;color:var(--libro-ink)}.libro-mini small{display:block;color:var(--libro-ink-2);margin:2px 0 8px}
+.libro-mini .btn{padding:8px 12px;font-size:.9rem;white-space:nowrap}
 .libro-top .finto{width:72px;height:100px;flex:none;border-radius:4px;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:var(--on-brand);
 display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.3rem;box-shadow:0 3px 10px rgba(0,0,0,.25)}
 .libro-top h2{font-size:1.15rem;line-height:1.25;margin:0 0 6px;color:var(--libro-ink)}
@@ -966,8 +972,8 @@ LIBRO_TITOLO = "Esame B1 Cittadinanza Italiana"
 def riquadro_libro(rel="../"):
     """Riquadro del libro (dal 15/11/2026, prima era «in arrivo: avvisami»). Nessun prezzo e nessuna promessa di superare l'esame:
     il prezzo lo mostra Amazon. Rimanda anche alla pagina gratuita con gli audio del libro."""
-    return f"""<section class="card libro" id="libro">
-<div class="modulo-testa"><span class="bolla">{ic("libro")}</span><div>
+    return f"""<section class="card libro libro-top" id="libro">
+<div class="modulo-testa">{('<a href="' + LIBRO_URL + '" rel="noopener" target="_blank" data-libro-proprio="si" class="cop"><img src="' + rel + COPERTINA_LIBRO + '" alt="Copertina del libro ' + LIBRO_TITOLO + '" width="80" height="104" loading="lazy" style="border-radius:4px;box-shadow:0 3px 10px rgba(0,0,0,.25)"></a>') if (RADICE / "assets" / COPERTINA_LIBRO).exists() else '<span class="bolla">' + ic("libro") + '</span>'}<div>
 <h2>Il libro «{LIBRO_TITOLO}» è uscito</h2>
 <p class="small" style="margin:4px 0 0">Guida a tutti e 4 gli esami, 4 simulazioni con soluzioni, modelli di email e orale.
 Le tracce audio delle prove d'ascolto sono gratis sulla pagina <a href="{rel}audio-libro/">audio del libro</a>.</p></div></div>
@@ -978,11 +984,24 @@ Le tracce audio delle prove d'ascolto sono gratis sulla pagina <a href="{rel}aud
 COPERTINA_LIBRO = "libro-b1.jpg"  # copertina in esameb1/assets/ (se manca: segnaposto «B1»); main() la copia in sito/
 
 
+def libro_mini(rel=""):
+    """Striscia evidenziata del libro (copertina piccola + pulsante) per le pagine interne (15/11/2026)."""
+    if (RADICE / "assets" / COPERTINA_LIBRO).exists():
+        cop = (f'<a href="{LIBRO_URL}" rel="noopener" target="_blank" data-libro-proprio="si" class="cop">'
+               f'<img src="{rel}{COPERTINA_LIBRO}" alt="Copertina del libro {LIBRO_TITOLO}" width="64" height="83" loading="lazy"></a>')
+    else:
+        cop = ""
+    return (f'<div class="libro-mini">{cop}<div><strong>Libro: {LIBRO_TITOLO}</strong>'
+            f'<small>Tutti e 4 gli esami, 4 simulazioni con soluzioni, modelli di email e orale.</small>'
+            f'<a class="btn" href="{LIBRO_URL}" rel="noopener" target="_blank" data-libro-proprio="si">{ic("libro")}Compra su Amazon</a></div></div>')
+
+
 def libro_top(rel=""):
     """Riquadro evidenziato del libro in prima pagina (15/11/2026, richiesta di Massimiliano: «un riquadro a destra evidenziato»).
     Link diretto al cartaceo, senza codice affiliato; nessun prezzo (lo mostra Amazon) e nessuna promessa di superare l'esame."""
     if (RADICE / "assets" / COPERTINA_LIBRO).exists():
-        cop = f'<img src="{rel}{COPERTINA_LIBRO}" alt="Copertina del libro {LIBRO_TITOLO}" width="92" height="119" loading="eager">'
+        cop = (f'<a href="{LIBRO_URL}" rel="noopener" target="_blank" data-libro-proprio="si" class="cop">'
+               f'<img src="{rel}{COPERTINA_LIBRO}" alt="Copertina del libro {LIBRO_TITOLO}" width="110" height="142" loading="eager"></a>')
     else:
         cop = '<span class="finto" aria-hidden="true">B1</span>'
     return f"""<aside class="libro-top" id="libro" aria-label="Libro {LIBRO_TITOLO}">

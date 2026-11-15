@@ -218,7 +218,12 @@ padding:18px 18px 16px;box-shadow:0 6px 22px rgba(138,75,0,.18)}
 .libro-top .etichetta{display:inline-block;font-size:.75rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;background:var(--libro-bordo);
 color:var(--libro-etichetta);padding:3px 10px;border-radius:999px;margin-bottom:10px}
 .libro-top .riga{display:flex;gap:14px;align-items:flex-start}
-.libro-top img{width:92px;height:auto;border-radius:4px;box-shadow:0 3px 10px rgba(0,0,0,.25);flex:none}
+.libro-top .cop{flex:none;line-height:0}.libro-top img{width:110px;height:auto;border-radius:4px;box-shadow:0 3px 10px rgba(0,0,0,.25)}
+@media (max-width:860px){.libro-top img{width:92px}}
+.libro-mini{display:flex;gap:12px;align-items:center;margin-top:14px;padding:12px;border:2px solid var(--libro-bordo);border-radius:var(--r);background:var(--libro-bg);color:var(--libro-ink)}
+.libro-mini .cop{flex:none;line-height:0}.libro-mini img{width:64px;height:auto;border-radius:3px;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.libro-mini strong{display:block;color:var(--libro-ink)}.libro-mini small{display:block;color:var(--libro-ink-2);margin:2px 0 8px}
+.libro-mini .btn{padding:8px 12px;font-size:.9rem;white-space:nowrap}
 .libro-top .finto{width:72px;height:100px;flex:none;border-radius:4px;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:var(--on-brand);
 display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.3rem;box-shadow:0 3px 10px rgba(0,0,0,.25)}
 .libro-top h2{font-size:1.15rem;line-height:1.25;margin:0 0 6px;color:var(--libro-ink)}
@@ -529,7 +534,8 @@ Le date d'esame sono le stesse in tutta Italia; la scadenza per iscriversi può 
 <h2 id="preparati-titolo">Preparati alla prova orale</h2>
 <p>La prova orale è la parte che preoccupa molte persone. Per prepararti aiuta parlare spesso con un insegnante madrelingua, anche online.
 Su italki scegli tu un insegnante di italiano: fai lezioni 1 a 1 e paghi a lezione.</p>
-<div class="azioni"><a class="btn" href="https://www.italki.com/affshare?ref=af34201678" rel="sponsored noopener" target="_blank"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-voce"/></svg>Trova un insegnante di italiano su italki</a><a class="btn btn-2" href="https://www.amazon.it/dp/B0HRS46GSB" rel="noopener" target="_blank" data-libro-proprio="si"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-libro"/></svg>Libro per l'esame B1 (Amazon)</a><a class="btn btn-2" href="../../esempi/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-libro"/></svg>Prove d'esame ufficiali gratuite</a></div>
+<div class="azioni"><a class="btn" href="https://www.italki.com/affshare?ref=af34201678" rel="sponsored noopener" target="_blank"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-voce"/></svg>Trova un insegnante di italiano su italki</a><a class="btn btn-2" href="../../esempi/"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-libro"/></svg>Prove d'esame ufficiali gratuite</a></div>
+<div class="libro-mini"><a href="https://www.amazon.it/dp/B0HRS46GSB" rel="noopener" target="_blank" data-libro-proprio="si" class="cop"><img src="../../libro-b1.jpg" alt="Copertina del libro Esame B1 Cittadinanza Italiana" width="64" height="83" loading="lazy"></a><div><strong>Libro: Esame B1 Cittadinanza Italiana</strong><small>Tutti e 4 gli esami, 4 simulazioni con soluzioni, modelli di email e orale.</small><a class="btn" href="https://www.amazon.it/dp/B0HRS46GSB" rel="noopener" target="_blank" data-libro-proprio="si"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-libro"/></svg>Compra su Amazon</a></div></div>
 <p class="prep-libri"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-libro"/></svg><a href="https://www.amazon.it/s?k=esame+b1+cittadinanza+italiano&amp;i=stripbooks&amp;tag=guideesami-21" rel="sponsored noopener" target="_blank">Libri per prepararsi all'esame B1 su Amazon</a></p>
 <p class="small aff-nota">In qualità di Affiliato Amazon, ricevo un guadagno dagli acquisti idonei.</p>
 <p class="small aff-nota">Alcuni link sono di affiliazione: potremmo ricevere una commissione, senza costi in più per te.</p>
