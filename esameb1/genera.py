@@ -1270,6 +1270,7 @@ dei 4 enti principali: le date sono uguali in tutta Italia, ci si iscrive presso
 <li>{ic("doc")}<span>dati presi dalle fonti ufficiali</span></li></ul>
 </section>
 {avviso("Ogni sede può avere una scadenza diversa da quella nazionale. <strong>Prima di iscriverti, chiedi sempre conferma alla sede.</strong>")}
+{riquadro_libro("")}
 <div class="due">
 <section id="date">
 <h2>{ic("cal")}Prossime date d'esame</h2>
