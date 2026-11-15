@@ -116,7 +116,7 @@ def riquadro_preparati(rel, gratis=None, scritto=False):
 <div>
 <h2 id="preparati-titolo">{"Fatti correggere i testi" if scritto else "Preparati alla prova orale"}</h2>
 <p>{"Per la scrittura aiuta far correggere i tuoi testi da un insegnante madrelingua, anche online: ti dice gli errori che ripeti." if scritto else "La prova orale è la parte che preoccupa molte persone. Per prepararti aiuta parlare spesso con un insegnante madrelingua, anche online."}{italki_txt}</p>
-<div class="azioni">{italki_btn}<a class="btn btn-2" href="{gratis}">{ic("libro")}Prove d'esame ufficiali gratuite</a></div>{libri}
+<div class="azioni">{italki_btn}<a class="btn btn-2" href="{LIBRO_URL}" rel="noopener" target="_blank" data-libro-proprio="si">{ic("libro")}Il nostro libro di esercizi B1 (Amazon)</a><a class="btn btn-2" href="{gratis}">{ic("libro")}Prove d'esame ufficiali gratuite</a></div>{libri}
 {MON.nota_trasparenza("it")}
 </div>
 </section>"""
