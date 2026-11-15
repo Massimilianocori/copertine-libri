@@ -173,3 +173,6 @@ Massimiliano: "io voglio sapere solo quando porti cose buone". Quindi i messaggi
 ## METODO DELEGATO (14/11/2026)
 Massimiliano: «il metodo lo scegli tu, a me interessa che porti cose nuove e che miglioriamo il fatturato». Il metodo di ricerca e di lavoro lo decido io; a lui porto solo risultati nuovi e numeri di fatturato.
 Conferma (14/11): «mi interessa solo quello». Nei messaggi a Massimiliano parlo solo di cose nuove trovate o fatte e di fatturato (previsto e reale), più le azioni che deve fare lui. Niente dettagli di metodo, revisioni o spiegazioni tecniche, se non le chiede.
+
+## NIENTE COMMERCIALISTA (15/11/2026)
+Massimiliano non ha un commercialista («io non ho commercialista, te l'ho detto»). Non dirgli mai «chiedi al commercialista»: dare i passi pratici che può fare da solo (portale gratuito Fatture e Corrispettivi dell'Agenzia delle Entrate, servizi online AdE) e, solo per dubbi veri, indicare fonti gratuite (assistenza dell'Agenzia delle Entrate, CAF). Restare prudenti: io non sono un consulente fiscale e lo dico una volta, senza ripeterlo.
