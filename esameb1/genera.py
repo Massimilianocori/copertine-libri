@@ -116,7 +116,7 @@ def riquadro_preparati(rel, gratis=None, scritto=False):
 <div>
 <h2 id="preparati-titolo">{"Fatti correggere i testi" if scritto else "Preparati alla prova orale"}</h2>
 <p>{"Per la scrittura aiuta far correggere i tuoi testi da un insegnante madrelingua, anche online: ti dice gli errori che ripeti." if scritto else "La prova orale è la parte che preoccupa molte persone. Per prepararti aiuta parlare spesso con un insegnante madrelingua, anche online."}{italki_txt}</p>
-<div class="azioni">{italki_btn}<a class="btn btn-2" href="{LIBRO_URL}" rel="noopener" target="_blank" data-libro-proprio="si">{ic("libro")}Il nostro libro di esercizi B1 (Amazon)</a><a class="btn btn-2" href="{gratis}">{ic("libro")}Prove d'esame ufficiali gratuite</a></div>{libri}
+<div class="azioni">{italki_btn}<a class="btn btn-2" href="{LIBRO_URL}" rel="noopener" target="_blank" data-libro-proprio="si">{ic("libro")}Libro per l'esame B1 (Amazon)</a><a class="btn btn-2" href="{gratis}">{ic("libro")}Prove d'esame ufficiali gratuite</a></div>{libri}
 {MON.nota_trasparenza("it")}
 </div>
 </section>"""
@@ -969,7 +969,7 @@ def riquadro_libro(rel="../"):
     return f"""<section class="card libro" id="libro">
 <div class="modulo-testa"><span class="bolla">{ic("libro")}</span><div>
 <h2>Il libro «{LIBRO_TITOLO}» è uscito</h2>
-<p class="small" style="margin:4px 0 0">Un libro per esercitarsi all'esame B1 per la cittadinanza, scritto da chi cura questo sito.
+<p class="small" style="margin:4px 0 0">Guida a tutti e 4 gli esami, 4 simulazioni con soluzioni, modelli di email e orale.
 Le tracce audio delle prove d'ascolto sono gratis sulla pagina <a href="{rel}audio-libro/">audio del libro</a>.</p></div></div>
 <div class="azioni"><a class="btn" href="{LIBRO_URL}" rel="noopener" target="_blank" data-libro-proprio="si">{ic("libro")}Vedi il libro su Amazon</a></div>
 </section>"""
@@ -982,14 +982,14 @@ def libro_top(rel=""):
     """Riquadro evidenziato del libro in prima pagina (15/11/2026, richiesta di Massimiliano: «un riquadro a destra evidenziato»).
     Link diretto al cartaceo, senza codice affiliato; nessun prezzo (lo mostra Amazon) e nessuna promessa di superare l'esame."""
     if (RADICE / "assets" / COPERTINA_LIBRO).exists():
-        cop = f'<img src="{rel}{COPERTINA_LIBRO}" alt="Copertina del libro {LIBRO_TITOLO}" width="92" height="138" loading="eager">'
+        cop = f'<img src="{rel}{COPERTINA_LIBRO}" alt="Copertina del libro {LIBRO_TITOLO}" width="92" height="119" loading="eager">'
     else:
         cop = '<span class="finto" aria-hidden="true">B1</span>'
-    return f"""<aside class="libro-top" id="libro" aria-label="Il nostro libro">
-<span class="etichetta">Novità · il nostro libro</span>
+    return f"""<aside class="libro-top" id="libro" aria-label="Libro {LIBRO_TITOLO}">
+<span class="etichetta">Novità · libro</span>
 <div class="riga">{cop}<div>
 <h2>{LIBRO_TITOLO}</h2>
-<p>Esercizi e prove per prepararti all'esame B1 per la cittadinanza. Le tracce audio sono gratis su <a href="{rel}audio-libro/">questo sito</a>.</p>
+<p>Guida a tutti e 4 gli esami (CILS, CELI, PLIDA, CERT.IT), 4 simulazioni con soluzioni, modelli di email e orale. Audio gratis su <a href="{rel}audio-libro/">questo sito</a>.</p>
 </div></div>
 <a class="btn" href="{LIBRO_URL}" rel="noopener" target="_blank" data-libro-proprio="si">{ic("libro")}Compralo su Amazon</a>
 </aside>"""
