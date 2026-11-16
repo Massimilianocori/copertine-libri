@@ -73,6 +73,7 @@ Una riga al giorno, scritta dal riassunto delle 08:12. Previsto = stima centrale
 | 14/11/2026 | 35.700 | +2.300 calcolatore stipendio USA online; +6.000 partner ≥ 50 $ sui siti esistenti (fronti-2026-11-14-pagatori-prima, in costruzione) | 260 (13/11) | 0 |
 | 14/11/2026 (sera) | 38.500 | +2.800 sito esame immobiliare online (realestate) | 260 (13/11) | 0 |
 | 15/11/2026 | 39.740 | +1.030 Visa Income assicurazione Germania (pronta, riquadro ottonova spento fino alla decisione sulle affiliazioni) +210 Military Pay invalidità veterani (pronta) | 201 (14/11, sabato; 13/11: 260) | 0 |
+| 16/11/2026 | 40.270 | +530 EsameB1 pagine «dopo l'esame» ed esempi A2/B2 (online 15/11). Libro B1 online sul sito il 15/11 (le royalty KDP non sono in questa stima) | 185 (15/11, domenica; 14/11: 203). Settimana 9-15/11: 1.792 (+78 %) | 0 |
 
 ## 2b. Stima dei ricavi a 18 mesi (14/10/2026, aggiornata il 17/10 con FloodCost, rifiuti visti, navi e FHA). Sono stime, non numeri: si rifanno con i dati veri.
 
