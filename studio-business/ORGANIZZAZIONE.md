@@ -207,7 +207,7 @@ Coda in ordine (ore, €/ora dove calcolato): **1** riquadro del libro B1 su Esa
 |---|---|---|
 | Sab 14/11 | n. 2 titoli BYF + revisione | 2 ricercatori (uno sui volumi dei siti senza universo). Massimiliano: verifica Grow |
 | Dom 15/11 | n. 3 riquadri senza iscrizione; n. 1 appena arriva il link del libro | Esce il libro B1 · ultima sonda dei passi alpini · inizia il ciclo nuovo dei crediti Netlify · pubblicazione di EsameB1 se il riquadro è pronto (scadenza) |
-| Lun 16/11 | n. 4 gasolio e propano (1ª parte) | 07:59 dati e numeri · sera: verdetto dei passi alpini |
+| Lun 16/11 | n. 4 gasolio e propano (1ª parte) | 07:59 dati e numeri · sera: verdetto dei passi alpini (FATTO 16/11: NON PASSA, riserva con nuova prova a maggio 2027, vedi passi-test/VERDETTO.md) |
 | Mar 17/11 | n. 4 (2ª parte) + revisione | Bollo auto: art. 2 su Normattiva · **pubblicazione**: BYF (titoli, Amazon liquidi), Visa Income (Wise cerimonie), Tourist Tax (Stay22) |
 | Mer 18/11 | n. 6 ricongiungimento | 10:37 revisione · **classifica finale delle idee a Massimiliano** · 21:07 ricerca grande (fine dei crediti doppi: da qui massimo 2 agenti) |
 | Gio 19/11 | n. 5 IVA/GST (1ª parte) | 07:43 farmaci · 2 ricercatori |

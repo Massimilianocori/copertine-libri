@@ -164,5 +164,7 @@ Colonne: idea · mercato · ricerche/mese misurate · costo per clic · €/anno
 | 142 | Paghe GS 2027 degli statali americani (in Military Pay) | US | 249.800 | 0 $ | 11 / 57 / 180 | 25 | 2 | medio | NO (2,5; clic a zero, federalpay.org e generalschedule.org padroni) | fronti-2026-11-14-sera-regole-2027 |
 | 143 | Italia, «cifre 2027»: ISEE, assegno unico, pensioni, IRPEF, bonus (conferma con i volumi del NO del 12/11) | IT | 1.042.100 | 0,03-2,4 € | 9 / 45 / 225 | 30 | 1,5 | alto | NO (2,5; nessun sito nostro adatto, incasso italiano basso) | fronti-2026-11-14-sera-regole-2027 |
 | 144 | Tetto del prezzo dell'energia nel Regno Unito, gennaio 2027 (in Heat Pump Grants) | GB | 20.900 | 3,6-5,4 £ | 3 / 17 / 55 | 4 | 4 | alto | NO (2,5; domanda piccola) | fronti-2026-11-14-sera-regole-2027 |
+| 145 | «Il passo è aperto oggi?» (passi alpini EN+IT, 40 passi) | IT, CH, FR, AT | stagionale (picchi mag-giu e ott-nov) | – | – / basso / – | – | – | alto (risposta di una riga) | RISERVA: test 15/10-15/11 NON PASSA (soglie 1 e 4: TCS e CCISS non affidabili come fonte principale, caso Spluga); nuova prova 1/5-15/6/2027 solo con enti pubblici + token svizzero | passi-test/VERDETTO.md |
 
 (Da completare con le ricerche in corso: mercati esteri, crescita Visa Income, e tutte le prossime.)
+
