@@ -6,14 +6,14 @@
  "fonte_rss": "https://scioperi.mit.gov.it/mit2/public/scioperi/rss",
  "fonte_prospetto": "https://scioperi.mit.gov.it/mit2/public/scioperi",
  "fonte_non_raggiungibile_dal": "2026-10-23",
- "ultimo_tentativo_fallito": "2026-11-17 15:28",
+ "ultimo_tentativo_fallito": "2026-11-17 23:58",
  "ultimo_errore": "<urlopen error timed out>",
  "riserva_cgsse": {
-  "usata_il": "2026-11-17 15:28",
-  "copia_aggiornata_il": "",
-  "controllo_eta": "data più recente nel file (2026-12-16; API GitHub non raggiungibile)",
+  "usata_il": "2026-11-17 23:58",
+  "copia_aggiornata_il": "2026-11-17 05:08",
+  "controllo_eta": "ultimo commit del file (API GitHub)",
   "fonte": "https://raw.githubusercontent.com/ondata/liberiamoli-tutti/main/scioperi/data/cgsse/cgsse_data.jsonl",
-  "nuovi": 1,
+  "nuovi": 0,
   "revoche": 0
  }
 }
