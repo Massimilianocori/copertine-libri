@@ -190,3 +190,4 @@ Massimiliano: «devi fare tutto quello che è migliorabile». Quando vedo un mig
 
 ## UPGRADE (17/11/2026)
 Massimiliano: «se il limite degli agenti ci costa più dell'upgrade allora faremo l'upgrade». Regola: proporre un upgrade (piano degli agenti o Netlify) solo con i conti scritti: quanto lavoro pronto resta fermo per il limite (sezioni in coda × €/anno), quanto costa l'upgrade al mese, e incassi veri del mese. Sempre con il suo sì prima di spendere. Primo controllo con i numeri: revisione del 30/11.
+Crediti Netlify (17/11): Massimiliano ogni tanto ne compra (pacchetti da circa 5 €) e «non è un problema». Quindi i crediti non bloccano il lavoro: si pubblica quando le sezioni sono pronte e revisionate, senza sprechi (una pubblicazione per sito al giorno). Quando restano meno di ~60 crediti, avvisarlo nel riassunto del mattino perché aggiunga un pacchetto, prima che i siti vengano sospesi.
