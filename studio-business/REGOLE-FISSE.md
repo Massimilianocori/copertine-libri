@@ -187,3 +187,6 @@ Massimiliano: «ok finisci il lavoro iniziato e poi fai pausa». FINE PAUSA: mer
 
 ## MIGLIORA SEMPRE (15/11/2026)
 Massimiliano: «devi fare tutto quello che è migliorabile». Quando vedo un miglioramento chiaro e piccolo (aspetto, chiarezza, posizione dei riquadri, testi), lo faccio senza chiedere, lo controllo e glielo dico dopo. Chiedo solo per spese, scelte fiscali o cose che cambiano la strategia. Sul libro B1: niente «il nostro libro» (controproducente); copertina vera e colore evidenziato.
+
+## UPGRADE (17/11/2026)
+Massimiliano: «se il limite degli agenti ci costa più dell'upgrade allora faremo l'upgrade». Regola: proporre un upgrade (piano degli agenti o Netlify) solo con i conti scritti: quanto lavoro pronto resta fermo per il limite (sezioni in coda × €/anno), quanto costa l'upgrade al mese, e incassi veri del mese. Sempre con il suo sì prima di spendere. Primo controllo con i numeri: revisione del 30/11.
