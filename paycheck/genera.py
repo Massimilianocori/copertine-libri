@@ -10,7 +10,7 @@ Prova su 5 Stati (Texas, Florida, California, Illinois, North Carolina): calcola
 Worksheet 1A; FICA; ritenuta statale con la formula ufficiale) e imposte del datore di lavoro (FICA, FUTA, disoccupazione statale).
 Ogni cifra viene da dati/regole.json, che raccolta/fonti.py ricava dai file ufficiali in dati/grezzi/. Le frasi tra virgolette
 sono copiate alla lettera dalle fonti (dati/fonti.json). Le FAQ nascono da ricerche misurate (dati/domanda.json).
-Riquadro di affiliazione Patriot Software: spento finché dati/affiliati.json ha "attivo": false.
+Riquadro dei partner (Gusto, ADP, Patriot): ogni partner è spento finché dati/affiliati.json non ha il suo link tracciato e "attivo": true.
 """
 import hashlib
 import json
@@ -51,6 +51,7 @@ G = carica("regole.json")
 FONTI = carica("fonti.json")["fonti"]
 DOM = carica("domanda.json")
 AFF = carica("affiliati.json")
+FONTI_PARTNER = {"patriot", "gusto", "adp", "adp_accordo"}   # pagine dei programmi di affiliazione: non contano tra le fonti ufficiali
 R = motore.dati_js(G)
 ANNO = G["anno"]
 CONTROLLO = date.fromisoformat(G["letto_il"])
@@ -183,7 +184,8 @@ def pagina(percorso, titolo, descrizione, corpo, testata="", briciole=None, json
     ld_html = "".join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>' for x in ld)
     corpo_tr = corpo + MON.riga_trasparenza(corpo, "en")
     f_stati = "".join(f'<li><a href="/{slug(s)}/">{h(nome_stato(s))} paycheck calculator</a></li>' for s in STATI)
-    guide = "".join(f'<li><a href="/{u}">{h(t)}</a></li>' for u, t in [("", "Paycheck calculator"), ("employer-payroll-taxes/", "Employer payroll taxes"), ("federal-withholding/", "Federal withholding tables"),
+    f_paghe = "".join(f'<li><a href="/{slug(s)}-payroll-taxes/">{h(nome_stato(s))} payroll taxes</a></li>' for s in STATI)
+    guide = "".join(f'<li><a href="/{u}">{h(t)}</a></li>' for u, t in [("", "Paycheck calculator"), ("employer-payroll-taxes/", "Employer payroll taxes"), ("how-to-do-payroll/", "How to do payroll"), ("federal-withholding/", "Federal withholding tables"),
                     ("how-we-check/", "How we check"), ("about/", "About"), ("how-we-check/#corrections", "Report an error"), ("privacy/", "Privacy")])
     testo = f"""<!DOCTYPE html>
 <html lang="en-US">
@@ -234,6 +236,8 @@ Publication 15 for Social Security, Medicare and FUTA, and each state’s own wi
 <p>Official sources read on {data_lunga(CONTROLLO)}.</p>
 </div><div>
 <h2>States</h2><ul>{f_stati}</ul>
+</div><div>
+<h2>Employers</h2><ul>{f_paghe}</ul>
 </div><div>
 <h2>Guides</h2><ul>{guide}</ul>
 </div></div>
@@ -355,21 +359,41 @@ def calcolatore_datore(stato="TX", salario=50000):
 </section>"""
 
 
-def riquadro_patriot():
-    """Riquadro di affiliazione: scritto in pagina solo con "attivo": true in dati/affiliati.json (dopo l'iscrizione su Impact)."""
-    p = AFF["patriot"]
-    if not p["attivo"]:
+def partner_attivi():
+    """Partner accesi in dati/affiliati.json, già controllati: link vero, dominio ammesso, descrizione ancora nella pagina del partner."""
+    attivi, visti = [], set()
+    for p in AFF["partner"]:
+        if p["id"] in visti or not re.fullmatch(r"[a-z0-9_]+", p["id"]):
+            raise SystemExit(f"affiliati.json: id doppio o non valido ({p['id']})")
+        visti.add(p["id"])
+        if not p["attivo"]:
+            continue
+        link = p["link"]
+        if not link.startswith("https://") or "DA-INSERIRE" in link or ".invalid" in link or " " in link:
+            raise SystemExit(f"affiliati.json: {p['id']} è attivo ma il link tracciato non è stato inserito")
+        if not MON.dominio_ammesso(link):
+            raise SystemExit(f"affiliati.json: il dominio del link di {p['id']} non è in monetizzazione.json (domini_affiliazione)")
+        if not FONTI[p["fonte"]]["trovate"][p["frase"]]:
+            raise SystemExit(f"la descrizione di {p['nome']} non è più nella sua pagina: riscrivere il testo in affiliati.json")
+        attivi.append(p)
+    return attivi
+
+
+PARTNER = partner_attivi()
+
+
+def riquadro_partner():
+    """Riquadro di affiliazione per i datori di lavoro: scritto in pagina solo se almeno un partner è acceso.
+
+    Va sempre SOTTO il calcolatore del datore (mai sopra la risposta); i link hanno rel="sponsored nofollow noopener"."""
+    if not PARTNER:
         return ""
-    if "DA-INSERIRE" in p["link"] or not p["link"].startswith("https://"):
-        raise SystemExit("affiliati.json: attivo è true ma il link Impact non è stato inserito")
-    if not MON.dominio_ammesso(p["link"]):
-        raise SystemExit("affiliati.json: il dominio del link non è in monetizzazione.json (domini_affiliazione)")
-    if not FONTI["patriot"]["trovate"]["prodotti"]:
-        raise SystemExit("la descrizione di Patriot non è più nella pagina ufficiale: riscrivere il riquadro")
-    return (f'<aside class="partner" data-partner="patriot"><p class="tag">Advertisement · affiliate link</p><h3>{h(p["titolo"])}</h3>'
-            f'<p>{h(p["testo"])}</p>'
-            f'<p><a class="btn" href="{h(p["link"])}" rel="sponsored noopener" target="_blank">{h(p["pulsante"])}</a></p>'
-            f'<p class="small">{h(p["trasparenza"])}</p></aside>')
+    q = AFF["riquadro"]
+    voci = "".join(f'<li data-partner="{h(p["id"])}"><b>{h(p["nome"])}</b><p>{h(p["testo"])}</p>'
+                   f'<a class="btn sec" href="{h(p["link"])}" rel="sponsored nofollow noopener" target="_blank">{h(p["pulsante"])}</a></li>' for p in PARTNER)
+    return (f'<aside class="partner" data-partner-box aria-labelledby="partner-h"><p class="tag">{h(q["etichetta"])}</p><h3 id="partner-h">{h(q["titolo"])}</h3>'
+            f'<p>{h(q["testo"])}</p><ul class="partner-l">{voci}</ul>'
+            f'<p class="small">{h(q["trasparenza"])}</p></aside>')
 
 
 # ---------------------------------------------------------------- pezzi comuni
@@ -475,7 +499,7 @@ def home():
     corpo += NON_INCLUSO
     corpo += (f'<h2>For employers</h2><div class="testo"><p>Hiring someone costs more than the wage. On top of gross pay an employer owes its own {pct(F["ss"])} Social Security and {pct(F["medicare"])} Medicare, '
               f'federal unemployment tax (FUTA) on the first {usd0(FU["base"])} of each employee’s wages and state unemployment tax. '
-              f'See <a href="/employer-payroll-taxes/">employer payroll taxes for {ANNO}</a> for the rates in each of the five states and a cost calculator.</p></div>')
+              f'See <a href="/employer-payroll-taxes/">employer payroll taxes for {ANNO}</a> for the rates in each of the five states and a cost calculator, and <a href="/how-to-do-payroll/">how to do payroll yourself</a> for the deposits and forms.</p></div>')
     faq = [
         ("how much taxes are taken out of a paycheck", "How much tax is taken out of a paycheck?",
          f"It depends on your pay, your Form W-4 and your state. Every paycheck has {pct(F['ss'])} Social Security and {pct(F['medicare'])} Medicare withheld, plus federal income tax worked out from IRS Publication 15-T. "
@@ -706,8 +730,9 @@ def pagina_stato(s):
     corpo += rim.t('<h2>The federal part</h2><div class="testo"><p>Federal income tax, Social Security and Medicare are the same in every state. The calculator follows Worksheet 1A of IRS Publication 15-T and the rates in Publication 15; '
                    'the tables and a worked example are on the <a href="/federal-withholding/">federal withholding page</a>.[[irs_p15t,irs_p15]]</p></div>')
     corpo += blocco_datore(s, rim) + datore_t
-    corpo += '<div style="margin-top:22px">' + calcolatore_datore(s) + '</div>' + riquadro_patriot()
-    corpo += f'<p>Rates for all five states side by side: <a href="/employer-payroll-taxes/">employer payroll taxes {ANNO}</a>.</p>'
+    corpo += '<div style="margin-top:22px">' + calcolatore_datore(s) + '</div>' + riquadro_partner()
+    corpo += (f'<p>Registering, reports and due dates for employers: <a href="/{slug_paghe(s)}">{h(n)} payroll taxes {ANNO}</a>. '
+              f'Rates for all five states side by side: <a href="/employer-payroll-taxes/">employer payroll taxes {ANNO}</a>.</p>')
     fq, ld = faq_blocco(faq_stato(s), rim)
     corpo += fq
     corpo += f'<h2>Other states</h2>{griglia_stati(s)}' + rim.elenco()
@@ -730,7 +755,7 @@ def pagina_stato(s):
 def pagina_datore():
     rim = Rimandi()
     F, FU = G["fica"], G["futa"]
-    corpo = '<div class="pull">' + calcolatore_datore("TX") + '</div>' + riquadro_patriot()
+    corpo = '<div class="pull">' + calcolatore_datore("TX") + '</div>' + riquadro_partner()
     corpo += f'<h2>Federal payroll taxes paid by the employer, {ANNO}</h2><div class="testo">'
     corpo += rim.cit("irs_p15", "ss") + rim.cit("irs_p15", "medicare") + rim.cit("irs_p15", "addl_solo")
     corpo += (f'<p>The employer matches the employee’s Social Security and Medicare: {pct(F["ss"] + F["medicare"])} of wages up to {usd0(F["ss_base"])}, then {pct(F["medicare"])} above it. '
@@ -763,7 +788,9 @@ def pagina_datore():
                    f'<tbody>{righe}</tbody></table></div>')
     corpo += ('<div class="testo"><p>State unemployment tax is paid by the employer in all five states; none of them deducts it from the employee. After the first years each state replaces the new-employer rate with one based on the business’s own record, '
               'so use the rate on your notice in the calculator.</p>'
-              '<p>Deadlines, deposit schedules and forms are outside this pilot: see IRS Publication 15 and your state agency. Workers’ compensation insurance is not a payroll tax and is not included.</p></div>')
+              '<p>Federal deposit dates and Forms 941 and 940 are on <a href="/how-to-do-payroll/">how to do payroll yourself</a>; registration and state reports are on each state’s payroll page below. '
+              'Workers’ compensation insurance is not a payroll tax and is not included.</p></div>'
+              f'<h2 id="by-state">Payroll taxes by state: registration and due dates</h2>{griglia_paghe()}')
     r50 = motore.datore(R, "TX", 5000000)
     faq = [
         ("employer payroll taxes", "What payroll taxes does an employer pay?",
@@ -786,6 +813,335 @@ def pagina_datore():
     pagina("employer-payroll-taxes/", f"Employer Payroll Taxes {ANNO}: FICA, FUTA and State Rates",
            f"Employer payroll taxes for {ANNO}: 7.65% FICA, FUTA 0.6% on $7,000 and state unemployment tax for new employers in TX, FL, CA, IL and NC, with a calculator.",
            corpo, testata, briciole=[("Home", ""), ("Employer payroll taxes", "employer-payroll-taxes/")], jsonld=[ld], script_dati=script_dati())
+
+
+# ---------------------------------------------------------------- pagine per i datori di lavoro: paghe per Stato e «how to do payroll»
+def slug_paghe(s):
+    return f"{slug(s)}-payroll-taxes/"
+
+
+SCADENZE_TRIM = "April 30, July 31, October 31 and January 31"   # ultimo giorno del mese dopo il trimestre
+
+
+def griglia_paghe(escludi=None):
+    voci = []
+    for s in STATI:
+        if s == escludi:
+            continue
+        su = G["stati"][s]["suta"]
+        voci.append(f'<li><a href="/{slug_paghe(s)}"><b>{h(nome_stato(s))}</b><small>{pct(su["nuovo"])} on {usd0(su["base"])}, new employers</small></a></li>')
+    return f'<ul class="griglia stati">{"".join(voci)}</ul>'
+
+
+def stato_iscrizione(s, rim):
+    """Iscrizione, dichiarazioni e scadenze dello Stato: solo frasi delle agenzie, citate alla lettera."""
+    n = nome_stato(s)
+    if s == "TX":
+        return ('<div class="testo">'
+                + rim.t('<p>Texas has no income tax on wages, so there is no state withholding account to open. The one state registration is the unemployment tax account with the Texas Workforce Commission (TWC).[[tx_ut]]</p>')
+                + rim.cit("tx_ut", "registro") + rim.cit("tx_ut", "scadenza")
+                + f'<p>That makes the four due dates {SCADENZE_TRIM}; TWC’s own due-date page moves a date that falls on a weekend or holiday.</p>'
+                + rim.t('<p>Reports and payments go through TWC’s online systems; paper is allowed only with a hardship waiver.[[tx_filing]]</p>')
+                + rim.cit("tx_filing", "elettronico") + rim.cit("tx_filing", "uts") + '</div>')
+    if s == "FL":
+        return ('<div class="testo">'
+                + rim.t('<p>Florida has no income tax on wages, so there is no state withholding account to open. The one state registration is for reemployment tax, with the Florida Department of Revenue.[[fl_rt]]</p>')
+                + rim.cit("fl_rt", "registro")
+                + '<p>The Department lists the conditions that make an employer liable. The two that matter to most small businesses:</p>'
+                + rim.cit("fl_rt", "soglia") + rim.cit("fl_rt", "soglia_20")
+                + rim.t('<p>The report is Form RT-6, the Employer’s Quarterly Report.[[fl_return]]</p>') + rim.cit("fl_return", "trimestre")
+                + '<p>About Form RT-6 the Department writes that it:</p>' + rim.cit("fl_return", "scadenza")
+                + rim.t(f'<p>The Department’s table gives the last timely days as {SCADENZE_TRIM}.[[fl_return]]</p>') + '</div>')
+    if s == "CA":
+        return ('<div class="testo">'
+                + rim.t('<p>California payroll taxes are run by the Employment Development Department (EDD). One EDD payroll tax account covers all four state taxes.[[ca_step5]]</p>')
+                + rim.cit("ca_step5", "quattro")
+                + rim.t('<p>The two paid by the employer are Unemployment Insurance (UI) and the Employment Training Tax (ETT); the two withheld from pay are State Disability Insurance (SDI) and Personal Income Tax (PIT).[[ca_step5]] '
+                        'When to register:[[ca_step1]]</p>')
+                + rim.cit("ca_step1", "registro")
+                + rim.t('<p>The 15 days start, for a business with employees, once you:[[ca_step1]]</p>') + rim.cit("ca_step1", "soglia")
+                + rim.t('<p>Registration is online, through the EDD’s e-Services for Business. New employees are reported to the EDD as well:[[ca_step4]]</p>') + rim.cit("ca_step4", "nuovi")
+                + '<p>Deposits and payments:</p>' + rim.cit("ca_step5", "depositi")
+                + rim.t('<p>Every quarter you file two reports, the Quarterly Contribution Return and Report of Wages (DE 9) and its continuation (DE 9C). The EDD gives their due dates as January 1, April 1, July 1 and October 1; '
+                        'its “Required Filings and Due Dates” page says when a report counts as late.[[ca_step6]]</p>') + '</div>')
+    if s == "IL":
+        return ('<div class="testo">'
+                + rim.t('<p>Illinois has two agencies for payroll: the Department of Revenue (IDOR) for the income tax you withhold and the Department of Employment Security (IDES) for unemployment contributions. '
+                        'Both use the MyTax Illinois website.[[il_idor_reg,il_ides_tax]]</p>')
+                + rim.cit("il_idor_reg", "registro") + rim.cit("il_idor_reg", "ides")
+                + rim.t('<p>For unemployment contributions, IDES says most for-profit employers are liable as soon as they have:[[il_ides_tax]]</p>') + rim.cit("il_ides_tax", "soglia")
+                + '<p>Reports and payments:</p>' + rim.cit("il_ides_tax", "mytax")
+                + '<p>The return and deposit schedule for Illinois income tax withholding is not covered here: the Department of Revenue assigns it.</p></div>')
+    return ('<div class="testo">'
+            + rim.t(f'<p>{n} has two agencies for payroll: the Department of Revenue (NCDOR) for the income tax you withhold and the Division of Employment Security (DES) for unemployment tax.[[nc_30,nc_required]]</p>')
+            + '<p>For withholding, the NC-30 booklet says that when you begin paying wages:</p>' + rim.cit("nc_30", "registro") + rim.cit("nc_30", "frequenza")
+            + '<p>For unemployment tax, DES writes:</p>' + rim.cit("nc_required", "chi_paga")
+            + '<p>A general business is liable when it has:</p>' + rim.cit("nc_required", "soglia") + rim.cit("nc_required", "numero")
+            + rim.t('<p>You get the number when you create an account in NCSUITS, the DES online tax system. Then, every quarter:[[nc_quarterly]]</p>')
+            + rim.cit("nc_quarterly", "trimestre") + rim.cit("nc_quarterly", "online") + '</div>')
+
+
+def faq_paghe(s, d50):
+    st, su, F, FU = G["stati"][s], G["stati"][s]["suta"], G["fica"], G["futa"]
+    n = st["nome"]
+    nl = n.lower()
+    futa = FU["netta"] + FU["riduzione_credito"].get(s, 0)
+    fica = pct(F["ss"] + F["medicare"])
+    quota_pct = f"{d50['totale'] / 50000:.1f}%"       # centesimi / 5.000.000 × 100
+    righe = (f"{usd(d50['ss'])} Social Security, {usd(d50['medicare'])} Medicare, {usd(d50['futa'])} FUTA and {usd(d50['suta'])} {n} unemployment tax"
+             + (f", plus {usd(d50['ett'])} Employment Training Tax" if d50["ett"] else ""))
+    if st["imposta_reddito"] is None:
+        q1 = (f"{nl} payroll tax", f"Is there a payroll tax in {n}?",
+              f"{n} has no state income tax on wages, so nothing is withheld for the state. An employer still pays {n} unemployment tax, {pct(su['nuovo'])} on the first {usd0(su['base'])} of each employee’s wages as a new employer in {ANNO}, "
+              f"and the federal payroll taxes: Social Security, Medicare and FUTA.", f"irs_p15,{su['fonte']}")
+        dip = f"The employee pays {fica} for Social Security and Medicare and no state tax"
+    elif s == "CA":
+        q1 = ("california payroll tax", "What are the payroll taxes in California?",
+              f"California has four state payroll taxes. The employer pays Unemployment Insurance ({pct(su['nuovo'])} for new employers) and the Employment Training Tax ({pct(su['ett'])}), both on the first {usd0(su['base'])} of each employee’s wages. "
+              f"State Disability Insurance ({pct(st['sdi']['aliquota'])} in {ANNO}) and Personal Income Tax are withheld from the employee. The federal payroll taxes come on top.", "ca_step5,ca_rates")
+        dip = f"The employee pays {fica} for Social Security and Medicare, {pct(st['sdi']['aliquota'])} SDI and California income tax"
+    else:
+        al = st["imposta_reddito"]["aliquota"] if s == "IL" else st["imposta_reddito"]["aliquota_ritenuta"]
+        q1 = (f"{nl} payroll tax", f"What payroll taxes apply in {n}?",
+              f"Two state items. The employer withholds {n} income tax from each paycheck, at {pct(al)} after allowances in {ANNO}, and pays state unemployment tax of {pct(su['nuovo'])} on the first {usd0(su['base'])} of each employee’s wages as a new employer. "
+              f"The federal payroll taxes (Social Security, Medicare, FUTA) come on top.", f"{st['imposta_reddito']['fonte']},{su['fonte']},irs_p15")
+        dip = f"The employee pays {fica} for Social Security and Medicare and has {n} income tax withheld at {pct(al)}"
+    ett_txt = f" (plus the {pct(su['ett'])} Employment Training Tax)" if su.get("ett") else ""
+    voci = [q1,
+            (f"{nl} payroll tax rate", f"What is the payroll tax rate in {n}?",
+             f"There is no single rate. In {ANNO} the employer pays {fica} for Social Security and Medicare (Social Security stops at {usd0(F['ss_base'])} of wages), FUTA of {pct(futa)} on the first {usd0(FU['base'])} "
+             f"and {n} unemployment tax of {pct(su['nuovo'])} on the first {usd0(su['base'])} as a new employer{ett_txt}. {dip}. On a {usd0(50000)} salary the employer’s taxes come to {usd(d50['totale'])}, about {quota_pct} of the wage.",
+             f"irs_p15,{su['fonte']}")]
+    ric3 = f"employer payroll taxes {nl}" if volume(f"employer payroll taxes {nl}") > 0 else f"{nl} employer taxes"
+    voci.append((ric3, f"How much are employer payroll taxes in {n} on a {usd0(50000)} salary?",
+                 f"{usd(d50['totale'])} in {ANNO} at the new-employer rate: {righe}. Wages plus taxes: {usd(d50['costo'])}. Workers’ compensation insurance and benefits are not included.", f"irs_p15,{su['fonte']}"))
+    come = {"TX": ("Get an EIN from the IRS, register an unemployment tax account with the Texas Workforce Commission within ten days of becoming liable, take a Form W-4 from each employee and withhold federal income tax, Social Security and Medicare from each paycheck. "
+                   "Deposit the federal taxes, file Form 941 every quarter and Form 940 once a year, and file the TWC wage report and pay the state tax by the last day of the month after each quarter. Texas has no state income tax to withhold.", "irs_p15,tx_ut"),
+            "FL": ("Get an EIN from the IRS, register for reemployment tax with the Florida Department of Revenue, take a Form W-4 from each employee and withhold federal income tax, Social Security and Medicare from each paycheck. "
+                   "Deposit the federal taxes, file Form 941 every quarter and Form 940 once a year, and file Form RT-6 with the reemployment tax each quarter. Florida has no state income tax to withhold.", "irs_p15,fl_rt,fl_return"),
+            "CA": ("Get an EIN from the IRS, then register with the EDD within 15 days of paying more than $100 in wages in a calendar quarter. Take a Form W-4 and a DE 4 from each employee, report new hires within 20 days, "
+                   "and withhold federal income tax, Social Security, Medicare, California income tax and SDI. Deposit the taxes, file federal Form 941 and the EDD’s DE 9 and DE 9C every quarter, and Form 940 once a year.", "irs_p15,ca_step1,ca_step4,ca_step6")}
+    if s in come and volume(f"how to do payroll in {nl}") > 0:
+        voci.append((f"how to do payroll in {nl}", f"How do I do payroll in {n}?", come[s][0], come[s][1]))
+    if s == "TX":
+        voci.append(("texas employer taxes", "When are Texas employer taxes due?",
+                     f"The Texas Workforce Commission wants the quarterly wage report and the unemployment tax by the last day of the month after each calendar quarter: {SCADENZE_TRIM}. Both must be filed and paid electronically. "
+                     "Federal deposits follow the IRS schedule: for a new employer, by the 15th of the following month.", "tx_ut,tx_filing,irs_p15"))
+    elif s == "FL":
+        voci.append(("florida employer taxes", "When are Florida employer taxes due?",
+                     f"Form RT-6, the Employer’s Quarterly Report, is due the 1st day of the month after each calendar quarter and is late after the last day of that month: {SCADENZE_TRIM}. "
+                     "Federal deposits follow the IRS schedule: for a new employer, by the 15th of the following month.", "fl_return,irs_p15"))
+    elif s == "CA":
+        voci.append(("edd payroll taxes", "Which payroll taxes does the EDD collect?",
+                     "Four: Unemployment Insurance and the Employment Training Tax, paid by the employer, and State Disability Insurance and Personal Income Tax, withheld from employees’ wages. "
+                     "UI and ETT payments are due every quarter; SDI and PIT deposit dates depend on your federal deposit schedule and on how much PIT you withhold.", "ca_step5"))
+        voci.append(("california de 9", "What is the California DE 9?",
+                     "The DE 9 is the EDD’s Quarterly Contribution Return and Report of Wages. Employers file it every quarter together with the DE 9C, the continuation that lists wages. The EDD gives the due dates as January 1, April 1, July 1 and October 1.", "ca_step6"))
+    elif s == "IL":
+        voci.append(("illinois unemployment tax", "Who has to pay Illinois unemployment tax?",
+                     "According to the Illinois Department of Employment Security, most for-profit employers are liable as soon as they have paid $1,500 in wages in a single calendar quarter, or employed one or more persons for 20 weeks in a calendar year. "
+                     f"New employers then pay {pct(su['nuovo'])} on the first {usd0(su['base'])} of each worker’s wages in {ANNO}.", "il_ides_tax,il_ea50"))
+    else:
+        voci.append(("north carolina unemployment tax", "Who has to pay North Carolina unemployment tax?",
+                     "According to the Division of Employment Security, a general business is liable when it paid quarterly wages of at least $1,500 or employed at least one worker in 20 different weeks during a calendar year. "
+                     f"The tax is paid by the employer and is not deducted from employees’ wages. Beginning employers pay {pct(su['nuovo'])} on the first {usd0(su['base'])} in {ANNO}.", "nc_required,nc_des"))
+    return voci
+
+
+def pagina_paghe_stato(s):
+    rim = Rimandi()
+    st, su, F, FU = G["stati"][s], G["stati"][s]["suta"], G["fica"], G["futa"]
+    n = st["nome"]
+    rid = FU["riduzione_credito"].get(s, 0)
+    d50 = motore.datore(R, s, 5000000)
+    b = motore.busta(R, caso(s, 200000))
+    corpo = '<div class="pull">' + calcolatore_datore(s) + '</div>'
+    if st["imposta_reddito"] is None:
+        r1, r2 = "None", f"{n} income tax to withhold from wages"
+    elif s == "CA":
+        r1, r2 = pct(st["sdi"]["aliquota"]), "SDI withheld from employees, plus California income tax"
+    elif s == "IL":
+        r1, r2 = pct(st["imposta_reddito"]["aliquota"]), "Illinois income tax to withhold, flat rate"
+    else:
+        r1, r2 = pct(st["imposta_reddito"]["aliquota_ritenuta"]), "North Carolina income tax withholding rate"
+    corpo += ('<div class="stats card" style="margin-top:26px">'
+              f'<div class="stat main"><b>{usd(d50["totale"])}</b><span>Employer payroll taxes on a {usd0(50000)} salary, new employer</span></div>'
+              f'<div class="stat"><b>{pct(su["nuovo"])}</b><span>{h(n)} unemployment tax rate for new employers</span></div>'
+              f'<div class="stat"><b>{usd0(su["base"])}</b><span>Wages per employee subject to it</span></div>'
+              f'<div class="stat"><b>{r1}</b><span>{h(r2)}</span></div>'
+              f'<p class="asof">Official {n} and IRS figures for {ANNO}, read on {data_lunga(CONTROLLO)}. Dollar amounts are our arithmetic.</p></div>')
+    # ---- tabella: chi paga che cosa
+    def riga(nome, chi, aliq, su_cosa):
+        return f'<tr><th scope="row">{nome}</th><td class="n">{aliq}</td><td>{chi}</td><td>{su_cosa}</td></tr>'
+    righe = (riga("Federal income tax", "Employee (withheld)", "Tables", 'By Form W-4 and IRS Publication 15-T: see <a href="/federal-withholding/">federal withholding</a>')
+             + riga("Social Security", "Employer and employee", f'{pct(F["ss"])} each', f'First {usd0(F["ss_base"])} of each employee’s wages')
+             + riga("Medicare", "Employer and employee", f'{pct(F["medicare"])} each', f'All wages; the employee pays {pct(F["addl"])} more above {usd0(F["addl_soglia"])}')
+             + riga("FUTA (federal unemployment)", "Employer", pct(FU["netta"] + rid),
+                    f'First {usd0(FU["base"])}' + (f'; includes the {pct(rid)} credit reduction for {h(n)} in {ANNO}' if rid else '; after the full state credit'))
+             + riga(f'{h(n)} {h(su["nome"])}', "Employer", pct(su["nuovo"]),
+                    f'First {usd0(su["base"])}; rate for new employers' + (f', then {pct(su["min"])} to {pct(su["max"])}' if "min" in su else "")))
+    if "ett" in su:
+        righe += riga("Employment Training Tax (ETT)", "Employer", pct(su["ett"]), f'First {usd0(su["ett_base"])}')
+    if st.get("sdi"):
+        righe += riga("State Disability Insurance (SDI)", "Employee (withheld)", pct(st["sdi"]["aliquota"]), "All wages, no limit")
+    if st["imposta_reddito"] is None:
+        righe += riga(f"{h(n)} income tax", "–", "None", f"{h(n)} does not tax wages")
+    elif s == "CA":
+        righe += riga("California Personal Income Tax (PIT)", "Employee (withheld)", "1.1%–14.63%", f'By Form DE 4 and the EDD’s Method B: see the <a href="/{slug(s)}/">California paycheck calculator</a>')
+    elif s == "IL":
+        righe += riga("Illinois income tax", "Employee (withheld)", pct(st["imposta_reddito"]["aliquota"]), f'Pay after Form IL-W-4 allowances: see the <a href="/{slug(s)}/">Illinois paycheck calculator</a>')
+    else:
+        righe += riga("North Carolina income tax", "Employee (withheld)", pct(st["imposta_reddito"]["aliquota_ritenuta"]), f'Pay after the N.C. standard deduction and Form NC-4 allowances: see the <a href="/{slug(s)}/">North Carolina paycheck calculator</a>')
+    fonti_tab = ",".join(dict.fromkeys(["irs_p15", su["fonte"]] + ([st["sdi"]["fonte"]] if st.get("sdi") else []) + ([st["imposta_reddito"]["fonte"]] if st["imposta_reddito"] else [])))
+    corpo += f'<h2 id="rates">{h(n)} payroll taxes at a glance, {ANNO}</h2>'
+    corpo += rim.t(f'<div class="tab"><table class="dati ampia" data-paghe-tab="{s}"><caption><span>Every payroll tax on wages paid in {h(n)} in {ANNO}, and who pays it.[[{fonti_tab}]]</span></caption>'
+                   f'<thead><tr><th>Tax</th><th class="n">Rate</th><th>Who pays</th><th>Applies to</th></tr></thead><tbody>{righe}</tbody></table></div>')
+    if s == "TX":
+        corpo += ('<p class="small">The Texas rate shown is the entry-level rate TWC prints for new employers; whether its flat components of 0.32% come on top is discussed on the '
+                  '<a href="/texas/#employer">Texas page</a>.</p>')
+    # ---- costo di un dipendente
+    voci = [("Social Security, employer share", d50["ss"]), ("Medicare, employer share", d50["medicare"]), ("FUTA", d50["futa"]), (f"{n} unemployment tax, new employer rate", d50["suta"])]
+    if d50["ett"]:
+        voci.append(("Employment Training Tax", d50["ett"]))
+    costo = "".join(f'<tr><th scope="row">{h(a)}</th><td class="n">{usd(c)}</td></tr>' for a, c in voci)
+    costo += (f'<tr><th scope="row">Employer payroll taxes for the year</th><td class="n"><b>{usd(d50["totale"])}</b></td></tr>'
+              f'<tr><th scope="row">Wages plus payroll taxes</th><td class="n"><b>{usd(d50["costo"])}</b></td></tr>')
+    corpo += f'<h2 id="cost">What a {usd0(50000)} employee costs in {h(n)}</h2>'
+    corpo += (f'<div class="tab stretta"><table class="dati" data-costo="{s}"><caption><span>One employee paid {usd0(50000)} in {ANNO}, employer in its first years. Our arithmetic on the official rates; '
+              f'workers’ compensation insurance and benefits are not included.</span></caption><tbody>{costo}</tbody></table></div>')
+    corpo += (f'<div class="testo"><p>State unemployment tax and FUTA stop once the employee has earned the wage base, so they are paid in the first months of the year; Social Security and Medicare continue on every paycheck. '
+              f'After the first years {h(n)} replaces the new-employer rate with one based on your own record: type the rate from your notice into the calculator above.</p></div>')
+    # ---- iscrizione e dichiarazioni
+    corpo += f'<h2 id="how">How to do payroll in {h(n)}: register, report, pay</h2>' + stato_iscrizione(s, rim)
+    corpo += rim.t('<div class="testo"><p>The federal side is the same in every state: an EIN, a Form W-4 from each employee, deposits of the tax you withhold, Form 941 every quarter and Form 940 once a year. '
+                   'The steps, with the IRS deadlines, are on <a href="/how-to-do-payroll/">how to do payroll yourself</a>.[[irs_p15]]</p></div>')
+    corpo += riquadro_partner()
+    # ---- lato dipendente
+    tolto = [f"{usd(b['fed'])} federal income tax", f"{usd(b['ss'])} Social Security", f"{usd(b['medicare'])} Medicare"]
+    if b["stato"]:
+        tolto.append(f"{usd(b['stato'])} {n} income tax")
+    if b["sdi"]:
+        tolto.append(f"{usd(b['sdi'])} SDI")
+    corpo += (f'<h2 id="withhold">What you withhold from {"an" if n[0] in "AEIOU" else "a"} {h(n)} paycheck</h2><div class="testo"><p>Example: {usd(200000)} gross every two weeks, federal filing status Single'
+              + {"CA": ", California Single with no allowances", "IL": ", one Line 1 allowance on Form IL-W-4", "NC": ", N.C. Single with no allowances"}.get(s, "")
+              + f', nothing else on the forms. You withhold {", ".join(tolto[:-1])} and {tolto[-1]}, and the employee takes home <strong>{usd(b["netto"])}</strong>. '
+              f'For any other pay or form entries use the <a href="/{slug(s)}/">{h(n)} paycheck calculator</a>, which shows every line.</p></div>')
+    fq, ld = faq_blocco(faq_paghe(s, d50), rim)
+    corpo += fq
+    corpo += (f'<h2>Payroll taxes in the other states</h2>{griglia_paghe(s)}'
+              f'<p>All five states side by side: <a href="/employer-payroll-taxes/">employer payroll taxes {ANNO}</a>.</p>') + rim.elenco()
+    sub = {"TX": "No state income tax to withhold. What a Texas employer pays, how to register with the Texas Workforce Commission and when the reports are due.",
+           "FL": "No state income tax to withhold. What a Florida employer pays, how to register for reemployment tax and when Form RT-6 is due.",
+           "CA": "Four state payroll taxes, two paid by the employer and two withheld from pay. Rates, EDD registration and the quarterly reports.",
+           "IL": "Flat income tax to withhold and unemployment contributions paid by the employer. Rates, registration with IDOR and IDES, and what an employee costs.",
+           "NC": "Income tax to withhold and unemployment tax paid by the employer. Rates, registration with NCDOR and DES, and the quarterly report."}[s]
+    testata = banda(f"Employers · {n} · {ANNO}", f"{n} payroll taxes {ANNO}", h(sub), icona="build")
+    desc = {"TX": f"Texas payroll taxes for {ANNO}: no state income tax, unemployment tax {pct(su['nuovo'])} on {usd0(su['base'])} for new employers, FICA and FUTA. TWC registration and due dates.",
+            "FL": f"Florida payroll taxes for {ANNO}: no state income tax, reemployment tax {pct(su['nuovo'])} on {usd0(su['base'])} for new employers, FICA and FUTA. Form RT-6 due dates.",
+            "CA": f"California payroll taxes for {ANNO}: UI {pct(su['nuovo'])} and ETT {pct(su.get('ett', 0))} paid by the employer, SDI and income tax withheld. EDD registration, DE 9 dates.",
+            "IL": f"Illinois payroll taxes for {ANNO}: 4.95% income tax to withhold, unemployment rate {pct(su['nuovo'])} on {usd0(su['base'])} for new employers. IDOR and IDES registration.",
+            "NC": f"North Carolina payroll taxes for {ANNO}: 4.09% withholding, unemployment tax {pct(su['nuovo'])} on {usd0(su['base'])} for new employers. NCDOR and DES registration."}[s]
+    pagina(slug_paghe(s), f"{n} Payroll Taxes {ANNO}: Employer Rates and Due Dates", desc, corpo, testata,
+           briciole=[("Home", ""), ("Employer payroll taxes", "employer-payroll-taxes/"), (n, slug_paghe(s))], jsonld=[ld], script_dati=script_dati())
+
+
+def pagina_come_fare():
+    rim = Rimandi()
+    F, FU = G["fica"], G["futa"]
+    b = motore.busta(R, caso("TX", 200000))
+    fica_dip = b["ss"] + b["medicare"]
+    deposito = b["fed"] + 2 * fica_dip
+    corpo = '<div class="testo pull card">' + rim.t(
+        f'<p>Payroll done by hand is the same handful of jobs repeated every payday, every quarter and every January. This page lists them in order for a small employer in {ANNO}, '
+        'with the sentence of IRS Publication 15 behind each federal deadline and the state agency to register with in Texas, Florida, California, Illinois and North Carolina.[[irs_p15]]</p>'
+        '<p class="small">A summary of the ordinary case (an employer that files Form 941), for general information: not tax, legal or payroll advice.</p>') + '</div>'
+    corpo += '<h2 id="steps">The steps</h2><div class="testo">'
+    corpo += '<h3>1. Get an Employer Identification Number (EIN)</h3><p>The IRS identifies every employer by its EIN. It goes on each deposit and return.</p>' + rim.cit("irs_p15", "ein")
+    corpo += ('<h3>2. Register with your state</h3><p>Each state has its own account for unemployment tax and, where wages are taxed, a second one for income tax withholding. '
+              'The table of the five states is <a href="#states">below</a>.</p>')
+    corpo += ('<h3>3. Take a Form W-4 and report the new hire</h3><p>Each employee fills in a federal Form W-4 (and the state form in California, Illinois and North Carolina); their entries decide how much income tax you withhold. '
+              'Then the hire is reported to the state:</p>') + rim.cit("irs_p15", "nuovi_assunti")
+    corpo += rim.t(f'<h3>4. Work out each paycheck</h3><p>From gross pay you withhold federal income tax (Worksheet 1A of Publication 15-T), {pct(F["ss"])} Social Security up to {usd0(F["ss_base"])} of wages in the year, '
+                   f'{pct(F["medicare"])} Medicare and any state income tax. As the employer you owe the same Social Security and Medicare again.[[irs_p15t,irs_p15]] '
+                   'The <a href="/">paycheck calculator</a> does the employee’s side line by line; the <a href="/federal-withholding/">federal withholding page</a> shows the tables.</p>')
+    corpo += '<h3>5. Deposit the federal taxes</h3><p>The income tax you withheld and both halves of Social Security and Medicare are deposited together, electronically:</p>' + rim.cit("irs_p15", "eft")
+    corpo += '<p>How often depends on the taxes you reported in an earlier 12-month “lookback period”:</p>' + rim.cit("irs_p15", "lookback")
+    corpo += '<p>For a new business the taxes of the lookback period count as zero, so the publication says:</p>' + rim.cit("irs_p15", "primo_anno") + rim.cit("irs_p15", "mensile")
+    corpo += '<p>For the larger employers on the other schedule:</p>' + rim.cit("irs_p15", "semisett")
+    corpo += '<h3>6. File Form 941 every quarter</h3><p>Form 941 reports the wages paid and the taxes withheld and deposited in the quarter.</p>' + rim.cit("irs_p15", "f941")
+    corpo += f'<p>So the four dates are {SCADENZE_TRIM}; a date on a weekend or legal holiday moves to the next business day.</p>'
+    corpo += '<h3>7. Pay FUTA and file Form 940 once a year</h3>' + rim.cit("irs_p15", "futa") + rim.cit("irs_p15", "futa_credito") + rim.cit("irs_p15", "f940_500")
+    corpo += (f'<p>After the full credit FUTA is {pct(FU["netta"])} of the first {usd0(FU["base"])}: {usd(motore.quota(FU["base"] * 100, motore.m(FU["netta"])))} per employee, '
+              f'or {usd(motore.quota(FU["base"] * 100, motore.m(FU["netta"] + FU["riduzione_credito"]["CA"])))} in California in {ANNO} because of the credit reduction. '
+              'Details on the <a href="/employer-payroll-taxes/">employer payroll taxes page</a>.</p>')
+    corpo += ('<h3>8. File the state report every quarter</h3><p>All five states want a quarterly wage report with the unemployment tax; the three with an income tax also want the tax you withheld. See the table below.</p></div>')
+    # ---- una busta paga svolta
+    corpo += (f'<h2 id="example">One payday, worked through</h2><div class="testo"><p>One employee in Texas, {usd(200000)} gross every two weeks, Form W-4 marked Single with nothing else filled in, {ANNO}.</p>'
+              '<ul class="passi">'
+              f'<li>Withhold federal income tax: <b>{usd(b["fed"])}</b></li>'
+              f'<li>Withhold Social Security {pct(F["ss"])}: <b>{usd(b["ss"])}</b> and Medicare {pct(F["medicare"])}: <b>{usd(b["medicare"])}</b></li>'
+              f'<li>Pay the employee: {usd(200000)} − {usd(b["totale"])} = <b>{usd(b["netto"])}</b></li>'
+              f'<li>Add your own share of Social Security and Medicare: <b>{usd(fica_dip)}</b></li>'
+              f'<li>Owed to the IRS for this payday: {usd(b["fed"])} + {usd(fica_dip)} + {usd(fica_dip)} = <b>{usd(deposito)}</b>, deposited by the 15th of the following month on the monthly schedule</li></ul>'
+              '<p>State unemployment tax and FUTA are worked out on the same wages but paid separately: use the calculator at the bottom of the page.</p></div>')
+    # ---- scadenze
+    corpo += '<h2 id="due">When payroll taxes are due</h2>'
+    righe = (f'<tr><th scope="row">Federal deposit, monthly schedule</th><td>15th day of the following month</td><td>Income tax withheld, Social Security and Medicare</td></tr>'
+             f'<tr><th scope="row">Federal deposit, semiweekly schedule</th><td>The following Wednesday or Friday, by payday</td><td>The same taxes, for employers above $50,000 in the lookback period</td></tr>'
+             f'<tr><th scope="row">Form 941</th><td>{SCADENZE_TRIM}</td><td>Quarterly return</td></tr>'
+             f'<tr><th scope="row">Form 940 and FUTA</th><td>January 31</td><td>Yearly return; deposit when the amount owed is over $500</td></tr>')
+    corpo += rim.t('<div class="tab"><table class="dati ampia" data-scadenze><caption><span>Federal dates from IRS Publication 15; a date on a weekend or legal holiday moves to the next business day.[[irs_p15]]</span></caption>'
+                   f'<thead><tr><th>What</th><th>Due</th><th>Covers</th></tr></thead><tbody>{righe}</tbody></table></div>')
+    # ---- Stati
+    corpo += '<h2 id="states">Where to register and what to file in the five states</h2>'
+    stati_r = {
+        "TX": ("Texas Workforce Commission, within ten days of becoming liable", "None: no state income tax", f"Wage report and tax by {SCADENZE_TRIM}, online", "tx_ut,tx_filing"),
+        "FL": ("Florida Department of Revenue (reemployment tax)", "None: no state income tax", f"Form RT-6, late after {SCADENZE_TRIM}", "fl_rt,fl_return"),
+        "CA": ("EDD, within 15 days of paying more than $100 in wages in a quarter", "Personal Income Tax and SDI, same EDD account", "DE 9 and DE 9C every quarter; UI and ETT paid quarterly", "ca_step1,ca_step5,ca_step6"),
+        "IL": ("IDES, through MyTax Illinois", "Department of Revenue (IDOR), through MyTax Illinois", "UI contribution and wage report, monthly or quarterly", "il_idor_reg,il_ides_tax"),
+        "NC": ("Division of Employment Security (NCSUITS account)", "Department of Revenue, Form NC-BR", "Quarterly Tax and Wage Report; withholding quarterly, monthly or semiweekly", "nc_required,nc_quarterly,nc_30"),
+    }
+    righe = "".join(f'<tr data-stato="{s}"><th scope="row"><a href="/{slug_paghe(s)}">{h(nome_stato(s))}</a></th><td>{h(v[0])}{rim.ref(v[3])}</td><td>{h(v[1])}</td><td>{h(v[2])}</td></tr>' for s, v in stati_r.items())
+    corpo += ('<div class="tab"><table class="dati ampia" data-stati-paghe><caption><span>From each state agency’s own pages; the state pages quote the sentences.</span></caption>'
+              f'<thead><tr><th>State</th><th>Unemployment tax account</th><th>Income tax withholding account</th><th>State reports</th></tr></thead><tbody>{righe}</tbody></table></div>')
+    corpo += f'<h2 id="cost">What the employer pays on top of wages</h2><div style="margin-top:14px">{calcolatore_datore("TX")}</div>' + riquadro_partner()
+    corpo += ('<h2 id="not-covered">What this page leaves out</h2><ul class="testo">'
+              '<li>Form I-9 and checking that a new employee may work in the United States.</li>'
+              '<li>Year-end forms: Form W-2 for each employee and Form W-3.</li>'
+              '<li>The $100,000 next-day deposit rule, Form 944 for the smallest employers, and farm or household employees.</li>'
+              '<li>Deposit schedules for state income tax withholding, local taxes, workers’ compensation insurance and benefits.</li>'
+              '<li>Wage and hour law: minimum wage, overtime, pay frequency and pay stub rules.</li></ul>')
+    faq = [
+        ("how to do payroll", "How do I do payroll myself?",
+         "Get an EIN, register with your state, take a Form W-4 from each employee, and on every payday withhold federal income tax, Social Security, Medicare and any state tax. "
+         "Deposit the federal taxes on your schedule, file Form 941 every quarter and Form 940 once a year, file the state reports, and give each employee a Form W-2 after the year ends.", "irs_p15"),
+        ("how to calculate payroll taxes", "How do you calculate payroll taxes?",
+         f"For each paycheck in {ANNO}: {pct(F['ss'])} of gross pay for Social Security (up to {usd0(F['ss_base'])} of wages in the year) and {pct(F['medicare'])} for Medicare, withheld from the employee and paid again by the employer; "
+         f"federal income tax from the Form W-4 and the tables in IRS Publication 15-T; then state tax. Example: on {usd(200000)} every two weeks, single filer in Texas, {usd(b['fed'])} income tax, {usd(b['ss'])} Social Security and {usd(b['medicare'])} Medicare are withheld.", "irs_p15,irs_p15t"),
+        ("how to pay payroll taxes", "How do I pay payroll taxes to the IRS?",
+         "By electronic funds transfer: IRS Publication 15 says you must use EFT to make all federal tax deposits, for example through the Electronic Federal Tax Payment System (EFTPS). "
+         "The deposit covers the income tax withheld and both the employee and employer shares of Social Security and Medicare.", "irs_p15"),
+        ("when are payroll taxes due", "When are payroll taxes due?",
+         f"On the monthly schedule, federal deposits are due by the 15th day of the following month. Form 941 is due by the last day of the month after each quarter ({SCADENZE_TRIM}) and Form 940 by January 31. "
+         "State unemployment tax reports are quarterly in Texas, Florida, California and North Carolina, and monthly or quarterly in Illinois.", "irs_p15,tx_ut,fl_return,ca_step6,il_ides_tax,nc_quarterly"),
+        ("payroll tax deposit schedule", "What is the payroll tax deposit schedule?",
+         "There are two. If you reported $50,000 or less of taxes in the lookback period you are a monthly schedule depositor and deposit by the 15th of the following month; above $50,000 you are a semiweekly schedule depositor. "
+         "A new business is a monthly schedule depositor for its first calendar year.", "irs_p15"),
+        ("form 941", "What is Form 941 and when is it due?",
+         f"Form 941 is the quarterly federal return on which an employer reports wages, the income tax withheld and Social Security and Medicare taxes. It must be filed by the last day of the month that follows the end of the quarter: {SCADENZE_TRIM}.", "irs_p15"),
+        ("form 940", "What is Form 940?",
+         f"Form 940 is the yearly return for FUTA, the federal unemployment tax paid only by employers: {pct(FU['aliquota'])} on the first {usd0(FU['base'])} of each employee’s wages, {pct(FU['netta'])} after the full credit for state unemployment tax. Its due date is January 31.", "irs_p15"),
+        ("how to do payroll yourself", "Can a small business do payroll without software?",
+         "Yes. The IRS publishes the worksheet and tables for working out withholding by hand, and the deposits and returns can be made on the IRS and state websites. "
+         "What it takes is time and care with deadlines: a late deposit or return can bring penalties.", "irs_p15t,irs_p15"),
+    ]
+    fq, ld = faq_blocco(faq, rim)
+    corpo += fq + f'<h2>Payroll taxes by state</h2>{griglia_paghe()}' + rim.elenco()
+    testata = banda(f"Employers · {ANNO}", f"How to do payroll yourself, {ANNO}",
+                    "The jobs a small employer repeats every payday, every quarter and every January: what to withhold, when to deposit it and which forms to file, from IRS Publication 15.", icona="build")
+    pagina("how-to-do-payroll/", f"How to Do Payroll Yourself in {ANNO}: Steps, Taxes, Due Dates",
+           f"How to do payroll for a small business in {ANNO}: EIN, Form W-4, what to withhold, when to deposit, Form 941 and Form 940, with IRS quotes and a worked payday.",
+           corpo, testata, briciole=[("Home", ""), ("Employer payroll taxes", "employer-payroll-taxes/"), ("How to do payroll", "how-to-do-payroll/")], jsonld=[ld], script_dati=script_dati())
 
 
 # ---------------------------------------------------------------- ritenuta federale
@@ -858,12 +1214,13 @@ MODULO = """<form name="corrections" method="POST" data-netlify="true" netlify-h
 
 def come_controlliamo():
     rim = Rimandi()
-    n_frasi = sum(len(f["frasi"]) for f in FONTI.values())
+    ufficiali = {k: f for k, f in FONTI.items() if k not in FONTI_PARTNER}   # le pagine dei programmi di affiliazione non sono documenti ufficiali
+    n_frasi = sum(len(f["frasi"]) for f in ufficiali.values())
     corpo = ('<div class="testo pull card">'
              f'<p>A mistake in a paycheck calculator is a mistake about someone’s money. So every rate, threshold and table on this site is read from an official document that we download and keep, '
              f'and the calculator is tested against a second, separately written calculation before the site is built.</p></div>')
     corpo += '<h2>Where the figures come from</h2><div class="testo"><ul>'
-    corpo += rim.t(f'<li>We download each official document ({len(FONTI)} files: IRS publications, state withholding booklets, state unemployment agency pages, the Department of Labor’s FUTA list) and record its address, the date and a fingerprint (SHA-256): of the whole file for PDFs and spreadsheets, of the quoted sentences for web pages, whose code changes at every download.</li>'
+    corpo += rim.t(f'<li>We download each official document ({len(ufficiali)} files: IRS publications, state withholding booklets, state unemployment agency pages, the Department of Labor’s FUTA list) and record its address, the date and a fingerprint (SHA-256): of the whole file for PDFs and spreadsheets, of the quoted sentences for web pages, whose code changes at every download.</li>'
                    f'<li>The federal tables are read from Publication 15-T, section 1: six tables of eight rows. The build stops unless the rows join up and each “tentative amount” equals the tax on the rows before it.[[irs_p15t]]</li>'
                    f'<li>California’s twelve rate tables, the low income exemption, standard deduction, estimated deduction and exemption allowance tables are read from the EDD’s Method B schedule, with the same joining-up check.[[ca_methb]]</li>'
                    f'<li>Every sentence shown in a quotation box is copied word for word from the source and searched for in the downloaded file each time ({n_frasi} sentences). If one is no longer there, the build stops.</li></ul></div>')
@@ -891,7 +1248,7 @@ def come_controlliamo():
 
 
 def about():
-    aff = ('<p>Some pages may also carry a clearly marked affiliate link to a payroll software company; if you sign up through it we may earn a commission. It never changes the figures.</p>' if AFF["patriot"]["attivo"] else "")
+    aff = ('<p>Some pages may also carry a clearly marked affiliate link to a payroll software company; if you sign up through it we may earn a commission. It never changes the figures.</p>' if PARTNER else "")
     corpo = ('<div class="testo pull card">'
              f'<p><strong>{NOME}</strong> is an independent publication, part of a small network of websites that turn official data into plain-language reference pages and calculators. '
              f'It estimates take-home pay and employer payroll taxes for {ANNO} in five states, from the official withholding formulas.</p>'
@@ -909,7 +1266,7 @@ def about():
 
 
 def privacy():
-    con_aff = AFF["patriot"]["attivo"]
+    con_aff = bool(PARTNER)
     cookie = MON.privacy_cookie("en", SITO_ID, con_aff) or ("<h2>Cookies and visit counter</h2><p>To count visits we use GoatCounter, which sets no cookies. This site shows no advertising.</p>")
     california = MON.frase_california(SITO_ID) or "California residents: we do not sell or share personal information."
     corpo = ('<div class="testo pull card">'
@@ -1005,13 +1362,16 @@ def main():
     for s in STATI:
         pagina_stato(s)
     pagina_datore()
+    for s in STATI:
+        pagina_paghe_stato(s)
+    pagina_come_fare()
     pagina_federale()
     come_controlliamo()
     about()
     privacy()
     pagina_404()
     extra()
-    print(f"Sito generato in {SITO}: {len(URLS)} pagine indicizzabili + 404. Riquadro Patriot: {'ACCESO' if AFF['patriot']['attivo'] else 'spento'}.")
+    print(f"Sito generato in {SITO}: {len(URLS)} pagine indicizzabili + 404. Partner accesi: {', '.join(p['id'] for p in PARTNER) or 'nessuno (riquadro spento)'}.")
 
 
 if __name__ == "__main__":

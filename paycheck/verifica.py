@@ -82,6 +82,11 @@ STIPENDI = [30000, 50000, 75000, 100000, 150000]
 PREDEFINITI = {"CA": {"ca_fs": "single", "ca_reg": 0, "ca_est": 0}, "IL": {"il1": 1, "il2": 0}, "NC": {"nc_fs": "single", "nc_all": 0}, "TX": {}, "FL": {}}
 # nomi di modelli e di aziende di IA che non devono comparire nel sito (scritti a pezzi per non comparire nemmeno qui)
 MODELLI_VIETATI = re.compile(r"\b(" + "|".join(a + b for a, b in [("cla", "ude"), ("chat", "gpt"), ("gpt", r"-?\d"), ("open", "ai"), ("anth", "ropic"), ("gem", "ini"), ("lla", "ma"), ("copi", "lot")]) + r")\b", re.I)
+# fonti che non sono documenti ufficiali: pagine dei programmi di affiliazione (servono solo al riquadro dei partner e a NOTE.md)
+FONTI_PARTNER = {"patriot", "gusto", "adp", "adp_accordo"}
+NOMI_PARTNER = re.compile(r"\b(Patriot|Gusto|ADP|PartnerStack)\b|patriotsoftware|gusto\.com|adp\.com")
+PAGINE_DATORE = {"/employer-payroll-taxes/", "/how-to-do-payroll/"} | {f"/{v[1]}/" for v in NOMI.values()} | {f"/{v[1]}-payroll-taxes/" for v in NOMI.values()}
+SCADENZE_TRIM = "April 30, July 31, October 31 and January 31"   # ultimo giorno del mese dopo ogni trimestre (Pub. 15, TWC, Florida DOR)
 CHIAVE = "sd_" + "live"   # prefisso delle chiavi seodata: non deve comparire in nessun file
 
 
@@ -340,7 +345,7 @@ def controlla_fonti():
         # impronta delle frasi ricalcolata qui (non con raccolta/testo.py): chiave, tabulazione, frase normalizzata, in ordine di chiave
         attesa = hashlib.sha256("\n".join(f"{k}\t{norm(f['frasi'][k])}" for k in sorted(f["frasi"])).encode("utf-8")).hexdigest()
         ok(f.get("sha256_frasi") == attesa, f"fonte {fid}: impronta delle frasi diversa da fonti.json")
-    ufficiali = [f["url"] for fid, f in F.items() if fid != "patriot"]
+    ufficiali = [f["url"] for fid, f in F.items() if fid not in FONTI_PARTNER]
     ok(all(re.match(r"https://([\w.-]+\.)?(irs\.gov|doleta\.gov|texas\.gov|floridarevenue\.com|ca\.gov|illinois\.gov|ncdor\.gov|nc\.gov)/", u) for u in ufficiali), "una fonte non è su un dominio ufficiale")
     return F, testi
 
@@ -463,7 +468,18 @@ def controlla_pagine(F, testi, G, CA, R, dati_home):
         if p.name.startswith("google"):
             continue
         pagine["/" + str(p.relative_to(SITO)).replace("index.html", "")] = p.read_text(encoding="utf-8")
-    attese = {"/", "/404.html", "/employer-payroll-taxes/", "/federal-withholding/", "/how-we-check/", "/about/", "/privacy/"} | {f"/{v[1]}/" for v in NOMI.values()}
+    attese = ({"/", "/404.html", "/employer-payroll-taxes/", "/how-to-do-payroll/", "/federal-withholding/", "/how-we-check/", "/about/", "/privacy/"}
+              | {f"/{v[1]}/" for v in NOMI.values()} | {f"/{v[1]}-payroll-taxes/" for v in NOMI.values()})
+    aff = json.loads((DATI / "affiliati.json").read_text(encoding="utf-8"))
+    accesi = [p for p in aff["partner"] if p["attivo"]]
+    ok(len({p["id"] for p in aff["partner"]}) == len(aff["partner"]), "affiliati.json: id doppi")
+    for p in accesi:
+        ok(p["link"].startswith("https://") and "DA-INSERIRE" not in p["link"] and ".invalid" not in p["link"] and MON.dominio_ammesso(p["link"]), f"affiliati.json: {p['id']} attivo senza un link tracciato ammesso")
+        ok(p["fonte"] in FONTI_PARTNER and norm(F[p["fonte"]]["frasi"][p["frase"]]) in testi[p["fonte"]], f"affiliati.json: la descrizione di {p['id']} non è più nella pagina del partner")
+    for p in aff["partner"]:
+        if not p["attivo"]:
+            ok(p["link"] == "", f"affiliati.json: {p['id']} è spento ma ha un link (i link non si inventano: metterlo solo quando è quello vero, con attivo true)")
+    link_partner = {p["link"] for p in accesi}
     ok(set(pagine) == attese, f"pagine: {sorted(set(pagine) ^ attese)}")
     titoli, descr = {}, {}
     sitemap = re.findall(r"<loc>(.*?)</loc>", (SITO / "sitemap.xml").read_text(encoding="utf-8"))
@@ -497,7 +513,7 @@ def controlla_pagine(F, testi, G, CA, R, dati_home):
             ok(f'id="{n}"' in html, f"{u}: rimando {n} senza fonte")
         # link esterni: solo le fonti registrate, GoatCounter e le pagine Google della privacy
         for href in set(re.findall(r'<a [^>]*href="(https?://[^"]+)"', html)):
-            ok(href in {f["url"] for f in F.values()} or re.match(r"https://(www\.goatcounter\.com|policies\.google\.com|adssettings\.google\.com|www\.google\.com|support\.google\.com)(/|$)", href),
+            ok(href in {f["url"] for fid, f in F.items() if fid not in FONTI_PARTNER} or href in link_partner or re.match(r"https://(www\.goatcounter\.com|policies\.google\.com|adssettings\.google\.com|www\.google\.com|support\.google\.com)(/|$)", href),
                f"{u}: link esterno non previsto {href}")
         # citazioni: alla lettera nelle fonti e nel file grezzo
         for fid, k, frase in re.findall(r'<blockquote class="cit" data-fonte="([\w]+)" data-frase="([\w]+)"><p>“<span data-cit>(.*?)</span>”</p>', html, re.S):
@@ -519,13 +535,25 @@ def controlla_pagine(F, testi, G, CA, R, dati_home):
         if "data-busta" in html or "data-datore" in html:
             ok(m and m.group(1) == dati_home, f"{u}: dati del calcolatore assenti o diversi dalla home")
             ok("Estimate" in html or "estimate" in html, f"{u}: manca la parola estimate")
-        # affiliazione spenta: nessun link a Patriot, nessun riquadro
-        aff = json.loads((DATI / "affiliati.json").read_text(encoding="utf-8"))["patriot"]
-        if not aff["attivo"]:
-            ok("data-partner" not in html and 'rel="sponsored' not in html and "patriotsoftware" not in html and "Patriot" not in html, f"{u}: riquadro Patriot presente con interruttore spento")
+        # riquadro dei partner: assente se nessuno è acceso; se acceso, solo nelle pagine per i datori, sotto il calcolatore del datore,
+        # con rel="sponsored nofollow noopener", la riga di trasparenza e soltanto i partner accesi
+        sponsorizzati = re.findall(r'<a\b[^>]*\brel="[^"]*sponsored[^"]*"[^>]*>', html)
+        if not accesi or u not in PAGINE_DATORE:
+            ok("data-partner" not in html and not sponsorizzati and not NOMI_PARTNER.search(visibile(html)), f"{u}: riquadro o nome di un partner dove non deve esserci")
         else:
-            ok(aff["link"].startswith("https://") and "DA-INSERIRE" not in aff["link"], "affiliati.json: attivo senza link")
-    ok(len(set(titoli.values())) == len(titoli) == 11, f"titoli unici: {len(titoli)}")
+            box = re.findall(r'<aside class="partner" data-partner-box.*?</aside>', html, re.S)
+            if ok(len(box) == 1, f"{u}: riquadro dei partner assente o doppio ({len(box)})"):
+                ok(re.findall(r'<li data-partner="(\w+)">', box[0]) == [p["id"] for p in accesi], f"{u}: partner in pagina diversi da quelli accesi")
+                ok(len(sponsorizzati) == len(accesi) and all(a in box[0] for a in sponsorizzati), f"{u}: link sponsorizzati fuori dal riquadro")
+                for a in sponsorizzati:
+                    rel = re.search(r'rel="([^"]*)"', a).group(1).split()
+                    ok({"sponsored", "nofollow", "noopener"} <= set(rel) and re.search(r'href="([^"]*)"', a).group(1) in link_partner, f"{u}: link del partner senza rel sponsored nofollow noopener o non registrato")
+                ok("Advertisement" in box[0] and "we may earn a commission" in box[0] and "have not tested" in box[0], f"{u}: riquadro senza etichetta di pubblicità o riga di trasparenza")
+                ok(not re.search(r"\$\s?\d|\bbest\b|\bcheapest\b|\brecommend", visibile(box[0]), re.I), f"{u}: prezzo o giudizio nel riquadro dei partner")
+                ok("data-datore" in html and html.index("data-datore") < html.index("data-partner-box"), f"{u}: riquadro dei partner sopra il calcolatore del datore")
+                fuori = html.replace(box[0], "")
+                ok(not NOMI_PARTNER.search(visibile(fuori)) or u in ("/about/", "/privacy/"), f"{u}: nome di un partner fuori dal riquadro")
+    ok(len(set(titoli.values())) == len(titoli) == 17, f"titoli unici: {len(titoli)}")
 
     # ---- cifre delle pagine contro i valori trascritti a mano
     home = visibile(pagine["/"])
@@ -571,6 +599,43 @@ def controlla_pagine(F, testi, G, CA, R, dati_home):
                       "north-carolina": ["4.09%", "3.99%", "$490.38", "$735.58", "$96.15", "$4.00", "$108.65", "1%", "$342.00", "0.06%", "5.76%"]}.items():
         for pezzo in pezzi:
             ok(pezzo in visibile(pagine[f"/{sl}/"]), f"{sl}: manca {pezzo}")
+    # ---- pagine per i datori di lavoro: paghe per Stato (cifre dalle trascrizioni a mano, non da regole.json)
+    def pc(x):
+        return f"{float(x) * 100:.3f}".rstrip("0").rstrip(".") + "%"
+    for s, (nome, sl) in NOMI.items():
+        u = f"/{sl}-payroll-taxes/"
+        html = pagine[u]
+        vis_p = visibile(html)
+        d = rif_datore(s, 5000000)
+        al, base = SUTA[s]
+        ok(f"{nome} payroll taxes 2026" in vis_p and f'<option value="{s}" selected>' in html and html.count("data-datore") >= 1, f"{u}: h1 o calcolatore del datore con lo Stato sbagliato")
+        m = re.search(rf'<table class="dati" data-costo="{s}">.*?<tbody>(.*?)</tbody>', html, re.S)
+        celle = [re.sub(r"<[^>]+>", "", c) for c in re.findall(r'<td class="n">(.*?)</td>', m.group(1))] if m else []
+        attese_c = [soldi(d["ss"]), soldi(d["medicare"]), soldi(d["futa"]), soldi(d["suta"])] + ([soldi(d["ett"])] if s == "CA" else []) + [soldi(d["totale"]), soldi(5000000 + d["totale"])]
+        ok(celle == attese_c, f"{u}: costo di un dipendente = {celle}, atteso {attese_c}")
+        m = re.search(rf'<table class="dati ampia" data-paghe-tab="{s}">.*?<tbody>(.*?)</tbody>', html, re.S)
+        aliq = re.findall(r'<td class="n">(.*?)</td>', m.group(1)) if m else []
+        attese_a = ["Tables", f"{pc(SS)} each", f"{pc(MED)} each", pc(FUTA_NETTA + FUTA_RIDUZIONE.get(s, 0)), pc(al)]
+        attese_a += {"TX": ["None"], "FL": ["None"], "CA": [pc(CA_ETT), pc(CA_SDI), "1.1%–14.63%"], "IL": [pc(IL_ALIQUOTA)], "NC": [pc(NC_ALIQUOTA)]}[s]
+        ok(aliq == attese_a, f"{u}: aliquote della tabella = {aliq}, attese {attese_a}")
+        ok(f"${base:,}" in vis_p and f"${SS_BASE:,}" in vis_p and soldi(d["totale"]) in vis_p and f"about {float(Fr(d['totale'], 50000)):.1f}% of the wage" in vis_p, f"{u}: base imponibile, totale o quota sul salario")
+        b = rif_busta(caso(s, 200000), CA)
+        ok(all(soldi(b[k]) in vis_p for k in ("fed", "ss", "medicare", "netto")) and (not b["stato"] or soldi(b["stato"]) in vis_p) and (not b["sdi"] or soldi(b["sdi"]) in vis_p), f"{u}: esempio della ritenuta")
+        ok(f'href="/{sl}/"' in html and 'href="/how-to-do-payroll/"' in html and f'href="{u}"' in pagine[f"/{sl}/"] and f'href="{u}"' in dat, f"{u}: collegamenti con la pagina dello Stato e con le pagine dei datori")
+        ok(html.count('<blockquote class="cit"') >= 3, f"{u}: meno di 3 frasi ufficiali citate")
+    for u, pezzi in {"/texas-payroll-taxes/": ["within ten days", SCADENZE_TRIM, "$243.00"], "/florida-payroll-taxes/": ["RT-6", SCADENZE_TRIM, "$1,500", "$189.00"],
+                     "/california-payroll-taxes/": ["within 15 days", "$100", "within 20 days", "DE 9C", "January 1, April 1, July 1 and October 1", "$238.00", "$7.00", "$147.00"],
+                     "/illinois-payroll-taxes/": ["MyTax Illinois", "$1,500", "20 weeks", "$477.38"], "/north-carolina-payroll-taxes/": ["NC-BR", "$1,500", "20 different weeks", "NCSUITS", "$342.00"]}.items():
+        for pezzo in pezzi:
+            ok(pezzo in visibile(pagine[u]), f"{u}: manca {pezzo}")
+    # ---- «how to do payroll»: scadenze federali (Pub. 15) e busta paga svolta, rifatta qui (caso a mano: Texas, 2.000 $ ogni due settimane)
+    come = visibile(pagine["/how-to-do-payroll/"])
+    b = rif_busta(caso("TX", 200000), CA)
+    fica = b["ss"] + b["medicare"]
+    for pezzo in [soldi(b["fed"]), soldi(b["ss"]), soldi(b["medicare"]), soldi(b["netto"]), soldi(fica), soldi(b["fed"] + 2 * fica), "15th day of the following month", "$50,000", SCADENZE_TRIM,
+                  "January 31", "over $500", "$42.00", "$147.00", "6.2%", "1.45%", f"${SS_BASE:,}", "within ten days", "within 15 days", "NC-BR", "MyTax Illinois", "RT-6"]:
+        ok(pezzo in come, f"how-to-do-payroll: manca {pezzo}")
+    ok(pagine["/how-to-do-payroll/"].count('<blockquote class="cit" data-fonte="irs_p15"') >= 9 and "data-datore" in pagine["/how-to-do-payroll/"], "how-to-do-payroll: citazioni della Pub. 15 o calcolatore del datore assenti")
     # ---- file accessori
     ok((SITO / "ads.txt").read_text().strip() == "google.com, pub-3750093987658434, DIRECT, f08c47fec0942fa0", "ads.txt")
     ok((SITO / "robots.txt").read_text() == f"User-agent: *\nAllow: /\nSitemap: {URL_SITO}/sitemap.xml\n", "robots.txt")

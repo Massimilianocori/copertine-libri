@@ -1,5 +1,5 @@
 {
- "_nota": "Volumi medi mensili Google Ads (USA) letti con seodata.dev: 97 ricerche. Servono a scegliere gli Stati, i titoli e le FAQ: ogni FAQ cita una di queste frasi. Le frasi con l'anno risultano quasi sempre a 0 nello strumento.",
+ "_nota": "Volumi medi mensili Google Ads (USA) letti con seodata.dev: 149 ricerche. Servono a scegliere gli Stati, i titoli e le FAQ: ogni FAQ cita una di queste frasi. Le frasi con l'anno risultano quasi sempre a 0 nello strumento.",
  "letto_il": "2026-11-14",
  "paese": "us",
  "ricerche": [
@@ -282,6 +282,53 @@
     {
      "frase": "fica tax rate",
      "volume_mese": 9900
+    }
+   ]
+  },
+  {
+   "frase": "form 941",
+   "volume_mese": 40500,
+   "cpc_usd": 9.62,
+   "simili": [
+    {
+     "frase": "941 form",
+     "volume_mese": 40500
+    },
+    {
+     "frase": "form 941 irs",
+     "volume_mese": 12100
+    },
+    {
+     "frase": "internal revenue service 941",
+     "volume_mese": 12100
+    },
+    {
+     "frase": "internal revenue service 941 form",
+     "volume_mese": 12100
+    },
+    {
+     "frase": "irs form 941",
+     "volume_mese": 12100
+    },
+    {
+     "frase": "federal 941 form",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "941 taxes",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "tax 941",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "tax form 941",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "taxes 941",
+     "volume_mese": 2400
     }
    ]
   },
@@ -1175,6 +1222,53 @@
     {
      "frase": "income taxes in florida",
      "volume_mese": 14800
+    }
+   ]
+  },
+  {
+   "frase": "form 940",
+   "volume_mese": 14800,
+   "cpc_usd": 6.48,
+   "simili": [
+    {
+     "frase": "940 form",
+     "volume_mese": 14800
+    },
+    {
+     "frase": "irs form 940",
+     "volume_mese": 5400
+    },
+    {
+     "frase": "where to mail form 940",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "where to send form 940",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "form 940 instructions",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "irs 940",
+     "volume_mese": 5400
+    },
+    {
+     "frase": "940 form instructions",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "where to file form 940",
+     "volume_mese": 880
+    },
+    {
+     "frase": "940 instructions",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "form 940 irs",
+     "volume_mese": 5400
     }
    ]
   },
@@ -2166,6 +2260,53 @@
    ]
   },
   {
+   "frase": "florida payroll",
+   "volume_mese": 3600,
+   "cpc_usd": 46.67,
+   "simili": [
+    {
+     "frase": "payroll florida",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "state of florida pay stubs",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "state payroll florida",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "payroll taxes florida",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "paystub state of florida",
+     "volume_mese": 90
+    },
+    {
+     "frase": "payroll in florida",
+     "volume_mese": 70
+    },
+    {
+     "frase": "paystubs state of florida",
+     "volume_mese": 50
+    },
+    {
+     "frase": "state of florida paycheck",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "state of florida payroll",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "state of florida employees paystub",
+     "volume_mese": 390
+    }
+   ]
+  },
+  {
    "frase": "futa tax rate",
    "volume_mese": 3600,
    "cpc_usd": 0.05,
@@ -2303,6 +2444,53 @@
     {
      "frase": "salary calculator in california",
      "volume_mese": 9900
+    }
+   ]
+  },
+  {
+   "frase": "how to calculate payroll taxes",
+   "volume_mese": 2900,
+   "cpc_usd": 18.76,
+   "simili": [
+    {
+     "frase": "calculator payroll",
+     "volume_mese": 550000
+    },
+    {
+     "frase": "payroll tax calculator",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "payroll taxes calculator",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "free payroll calculator",
+     "volume_mese": 8100
+    },
+    {
+     "frase": "payroll calculator free",
+     "volume_mese": 8100
+    },
+    {
+     "frase": "payroll online calculator",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "employee payroll taxes calculator",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "payroll tax withholding calculator",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "payroll withholding calculator",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "employer payroll taxes calculator",
+     "volume_mese": 1900
     }
    ]
   },
@@ -2446,6 +2634,59 @@
      "volume_mese": 320
     }
    ]
+  },
+  {
+   "frase": "california payroll",
+   "volume_mese": 2400,
+   "cpc_usd": 12.61,
+   "simili": [
+    {
+     "frase": "payroll california",
+     "volume_mese": 720
+    },
+    {
+     "frase": "ca payroll",
+     "volume_mese": 720
+    },
+    {
+     "frase": "ca state payroll",
+     "volume_mese": 720
+    },
+    {
+     "frase": "payroll state of california",
+     "volume_mese": 720
+    },
+    {
+     "frase": "ca payroll calculator",
+     "volume_mese": 60500
+    },
+    {
+     "frase": "california paycheck calculator",
+     "volume_mese": 60500
+    },
+    {
+     "frase": "paycheck calculator in california",
+     "volume_mese": 60500
+    },
+    {
+     "frase": "paycheck calculator state of california",
+     "volume_mese": 60500
+    },
+    {
+     "frase": "calculator taxes california",
+     "volume_mese": 40500
+    },
+    {
+     "frase": "salary tax calculator usa california",
+     "volume_mese": 27100
+    }
+   ]
+  },
+  {
+   "frase": "california payroll tax",
+   "volume_mese": 2400,
+   "cpc_usd": 15.1,
+   "simili": []
   },
   {
    "frase": "how to calculate federal withholding",
@@ -3059,6 +3300,100 @@
    ]
   },
   {
+   "frase": "cost of an employee calculator",
+   "volume_mese": 1300,
+   "cpc_usd": 7.67,
+   "simili": [
+    {
+     "frase": "cost of employee calculator",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "employee cost calculator",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "employee costs calculator",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "cost of employees calculator",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "calculate employee costs",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "employee calculator cost",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "estimate employee cost",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "employee on cost calculator",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "total cost of employee calculator",
+     "volume_mese": 90
+    },
+    {
+     "frase": "total employee cost calculator",
+     "volume_mese": 90
+    }
+   ]
+  },
+  {
+   "frase": "employee cost calculator",
+   "volume_mese": 1300,
+   "cpc_usd": 20.36,
+   "simili": [
+    {
+     "frase": "cost of employee calculator",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "employee on cost calculator",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "total employee cost calculator",
+     "volume_mese": 90
+    },
+    {
+     "frase": "cost of employment calculator",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "employment cost calculator",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "total cost of employment calculator",
+     "volume_mese": 170
+    },
+    {
+     "frase": "total employment cost calculator",
+     "volume_mese": 90
+    },
+    {
+     "frase": "cost to company calculator",
+     "volume_mese": 50
+    },
+    {
+     "frase": "how much does an employee cost calculator",
+     "volume_mese": 50
+    },
+    {
+     "frase": "free employee cost calculator",
+     "volume_mese": 30
+    }
+   ]
+  },
+  {
    "frase": "florida reemployment tax",
    "volume_mese": 1300,
    "cpc_usd": 30.29,
@@ -3247,6 +3582,53 @@
    ]
   },
   {
+   "frase": "texas payroll tax",
+   "volume_mese": 1300,
+   "cpc_usd": 16.97,
+   "simili": [
+    {
+     "frase": "employee taxes texas",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "payroll tax in texas",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "payroll taxes in texas",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "state of texas payroll taxes",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "how much taxes deducted from paycheck texas",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "payroll tax texas",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "payroll taxes texas",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "what are the payroll taxes in texas",
+     "volume_mese": 110
+    },
+    {
+     "frase": "employer payroll taxes texas",
+     "volume_mese": 90
+    },
+    {
+     "frase": "texas employer payroll taxes",
+     "volume_mese": 70
+    }
+   ]
+  },
+  {
    "frase": "texas payroll taxes",
    "volume_mese": 1300,
    "cpc_usd": 15.67,
@@ -3388,6 +3770,100 @@
    ]
   },
   {
+   "frase": "florida employer taxes",
+   "volume_mese": 1000,
+   "cpc_usd": 18.99,
+   "simili": [
+    {
+     "frase": "payroll taxes florida",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "reemployment tax florida",
+     "volume_mese": 880
+    },
+    {
+     "frase": "florida payroll taxes for employers",
+     "volume_mese": 140
+    },
+    {
+     "frase": "payroll in florida",
+     "volume_mese": 70
+    },
+    {
+     "frase": "florida employee taxes",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "florida employer payroll taxes",
+     "volume_mese": 50
+    },
+    {
+     "frase": "florida employee tax",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "what is payroll tax in florida",
+     "volume_mese": 50
+    },
+    {
+     "frase": "what are payroll taxes in florida",
+     "volume_mese": 40
+    },
+    {
+     "frase": "what is florida payroll tax",
+     "volume_mese": 40
+    }
+   ]
+  },
+  {
+   "frase": "florida payroll tax",
+   "volume_mese": 1000,
+   "cpc_usd": 20.99,
+   "simili": [
+    {
+     "frase": "payroll taxes florida",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "payroll taxes in florida",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "employee taxes florida",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "employee taxes in florida",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "florida taxes for employees",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "payroll tax in florida",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "employer taxes in florida",
+     "volume_mese": 70
+    },
+    {
+     "frase": "salary tax in florida",
+     "volume_mese": 14800
+    },
+    {
+     "frase": "payroll taxes for florida",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "does florida have payroll taxes",
+     "volume_mese": 30
+    }
+   ]
+  },
+  {
    "frase": "florida payroll taxes",
    "volume_mese": 1000,
    "cpc_usd": 18.99,
@@ -3431,6 +3907,53 @@
     {
      "frase": "how much is payroll tax in florida",
      "volume_mese": 140
+    }
+   ]
+  },
+  {
+   "frase": "how to pay payroll taxes",
+   "volume_mese": 1000,
+   "cpc_usd": 54.69,
+   "simili": [
+    {
+     "frase": "how to file payroll taxes",
+     "volume_mese": 170
+    },
+    {
+     "frase": "federal employment taxes",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "how to pay employee taxes",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "payroll taxes payment",
+     "volume_mese": 390
+    },
+    {
+     "frase": "how to pay payroll tax online",
+     "volume_mese": 210
+    },
+    {
+     "frase": "how to file payroll tax",
+     "volume_mese": 170
+    },
+    {
+     "frase": "payroll filing",
+     "volume_mese": 170
+    },
+    {
+     "frase": "filing payroll taxes",
+     "volume_mese": 140
+    },
+    {
+     "frase": "submitting payroll taxes",
+     "volume_mese": 140
+    },
+    {
+     "frase": "where to pay payroll taxes",
+     "volume_mese": 50
     }
    ]
   },
@@ -3482,6 +4005,53 @@
    ]
   },
   {
+   "frase": "texas payroll",
+   "volume_mese": 880,
+   "cpc_usd": 29.95,
+   "simili": [
+    {
+     "frase": "how much taxes deducted from paycheck texas",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "payroll texas",
+     "volume_mese": 880
+    },
+    {
+     "frase": "paycheck calculator texas",
+     "volume_mese": 60500
+    },
+    {
+     "frase": "payroll calculator texas",
+     "volume_mese": 60500
+    },
+    {
+     "frase": "salary calculator texas",
+     "volume_mese": 60500
+    },
+    {
+     "frase": "texas paycheck calculator",
+     "volume_mese": 60500
+    },
+    {
+     "frase": "texas wages calculator",
+     "volume_mese": 60500
+    },
+    {
+     "frase": "calculator taxes texas",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "taxes calculator texas",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "taxes in texas calculator",
+     "volume_mese": 18100
+    }
+   ]
+  },
+  {
    "frase": "what payroll taxes do employers pay",
    "volume_mese": 880,
    "cpc_usd": 9.68,
@@ -3529,6 +4099,53 @@
    ]
   },
   {
+   "frase": "edd payroll taxes",
+   "volume_mese": 590,
+   "cpc_usd": 25.37,
+   "simili": [
+    {
+     "frase": "california edd payroll taxes",
+     "volume_mese": 590
+    },
+    {
+     "frase": "edd payroll",
+     "volume_mese": 590
+    },
+    {
+     "frase": "california edd tax",
+     "volume_mese": 320
+    },
+    {
+     "frase": "edd taxes",
+     "volume_mese": 320
+    },
+    {
+     "frase": "ca edd tax",
+     "volume_mese": 320
+    },
+    {
+     "frase": "employer payroll taxes california",
+     "volume_mese": 260
+    },
+    {
+     "frase": "ca employment training tax",
+     "volume_mese": 110
+    },
+    {
+     "frase": "california employment training tax",
+     "volume_mese": 110
+    },
+    {
+     "frase": "what is ca ett tax",
+     "volume_mese": 30
+    },
+    {
+     "frase": "edd employment tax",
+     "volume_mese": 20
+    }
+   ]
+  },
+  {
    "frase": "florida payroll tax calculator",
    "volume_mese": 590,
    "cpc_usd": 35.28,
@@ -3572,6 +4189,53 @@
     {
      "frase": "employer payroll tax calculator florida",
      "volume_mese": 40
+    }
+   ]
+  },
+  {
+   "frase": "how to do payroll yourself",
+   "volume_mese": 590,
+   "cpc_usd": 63.65,
+   "simili": [
+    {
+     "frase": "how to do a payroll",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "how to payroll yourself",
+     "volume_mese": 210
+    },
+    {
+     "frase": "running a payroll",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "do payroll yourself",
+     "volume_mese": 40
+    },
+    {
+     "frase": "small business payroll do it yourself",
+     "volume_mese": 30
+    },
+    {
+     "frase": "learn how to do payroll for small business",
+     "volume_mese": 20
+    },
+    {
+     "frase": "how to do the payroll",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "how to do payroll",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "doing payroll",
+     "volume_mese": 260
+    },
+    {
+     "frase": "how can i do payroll on my own",
+     "volume_mese": 140
     }
    ]
   },
@@ -3717,6 +4381,59 @@
    ]
   },
   {
+   "frase": "florida unemployment tax",
+   "volume_mese": 480,
+   "cpc_usd": 20.27,
+   "simili": []
+  },
+  {
+   "frase": "how to do payroll for small business",
+   "volume_mese": 480,
+   "cpc_usd": 131.3,
+   "simili": [
+    {
+     "frase": "how to do payroll",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "how to do payroll small business",
+     "volume_mese": 480
+    },
+    {
+     "frase": "can i do my own payroll for my small business",
+     "volume_mese": 40
+    },
+    {
+     "frase": "running payroll",
+     "volume_mese": 14800
+    },
+    {
+     "frase": "how to manage payroll for a small business",
+     "volume_mese": 90
+    },
+    {
+     "frase": "how do i do payroll for my small business",
+     "volume_mese": 50
+    },
+    {
+     "frase": "how to do payroll for my small business",
+     "volume_mese": 50
+    },
+    {
+     "frase": "how to payroll for small business",
+     "volume_mese": 30
+    },
+    {
+     "frase": "running a payroll",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "how to do payroll for a small business",
+     "volume_mese": 480
+    }
+   ]
+  },
+  {
    "frase": "texas unemployment tax",
    "volume_mese": 480,
    "cpc_usd": 0,
@@ -3760,6 +4477,100 @@
     {
      "frase": "texas state unemployment tax",
      "volume_mese": 480
+    }
+   ]
+  },
+  {
+   "frase": "when are payroll taxes due",
+   "volume_mese": 480,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "due dates for payroll taxes",
+     "volume_mese": 210
+    },
+    {
+     "frase": "when payroll taxes are due",
+     "volume_mese": 480
+    },
+    {
+     "frase": "941 tax payment due dates",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "when is payroll taxes due",
+     "volume_mese": 480
+    },
+    {
+     "frase": "payroll tax due date",
+     "volume_mese": 210
+    },
+    {
+     "frase": "payroll tax payment dates",
+     "volume_mese": 210
+    },
+    {
+     "frase": "payroll taxes due date",
+     "volume_mese": 210
+    },
+    {
+     "frase": "payroll tax deposits due dates",
+     "volume_mese": 110
+    },
+    {
+     "frase": "when are federal payroll taxes due",
+     "volume_mese": 70
+    },
+    {
+     "frase": "when is payroll tax deposit due",
+     "volume_mese": 50
+    }
+   ]
+  },
+  {
+   "frase": "illinois payroll tax",
+   "volume_mese": 390,
+   "cpc_usd": 18.46,
+   "simili": [
+    {
+     "frase": "illinois state payroll tax",
+     "volume_mese": 390
+    },
+    {
+     "frase": "payroll taxes illinois",
+     "volume_mese": 390
+    },
+    {
+     "frase": "payroll taxes in illinois",
+     "volume_mese": 390
+    },
+    {
+     "frase": "employer payroll taxes illinois",
+     "volume_mese": 50
+    },
+    {
+     "frase": "il withholding tax",
+     "volume_mese": 590
+    },
+    {
+     "frase": "how much are payroll taxes in illinois",
+     "volume_mese": 50
+    },
+    {
+     "frase": "illinois tax withholding",
+     "volume_mese": 590
+    },
+    {
+     "frase": "payroll tax illinois",
+     "volume_mese": 390
+    },
+    {
+     "frase": "illinois payroll tax rates",
+     "volume_mese": 90
+    },
+    {
+     "frase": "il state withholding",
+     "volume_mese": 590
     }
    ]
   },
@@ -3905,6 +4716,147 @@
    ]
   },
   {
+   "frase": "california payroll tax rate",
+   "volume_mese": 320,
+   "cpc_usd": 42.65,
+   "simili": [
+    {
+     "frase": "california employee tax",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "payroll taxes in california",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "ca payroll tax rate",
+     "volume_mese": 50
+    },
+    {
+     "frase": "california payroll tax percentage",
+     "volume_mese": 320
+    },
+    {
+     "frase": "how much is payroll tax in california",
+     "volume_mese": 320
+    },
+    {
+     "frase": "payroll tax rate california",
+     "volume_mese": 320
+    },
+    {
+     "frase": "what is california payroll tax rate",
+     "volume_mese": 90
+    },
+    {
+     "frase": "california employment tax rate",
+     "volume_mese": 70
+    },
+    {
+     "frase": "calculator taxes california",
+     "volume_mese": 40500
+    },
+    {
+     "frase": "how much is california payroll tax",
+     "volume_mese": 480
+    }
+   ]
+  },
+  {
+   "frase": "illinois payroll",
+   "volume_mese": 320,
+   "cpc_usd": 11.51,
+   "simili": [
+    {
+     "frase": "salary illinois",
+     "volume_mese": 14800
+    },
+    {
+     "frase": "illinois salary",
+     "volume_mese": 14800
+    },
+    {
+     "frase": "state of illinois salaries",
+     "volume_mese": 14800
+    },
+    {
+     "frase": "payroll illinois",
+     "volume_mese": 320
+    },
+    {
+     "frase": "state of illinois salary",
+     "volume_mese": 14800
+    },
+    {
+     "frase": "illinois state employee salaries",
+     "volume_mese": 6600
+    },
+    {
+     "frase": "state of illinois employee salaries",
+     "volume_mese": 6600
+    },
+    {
+     "frase": "state of illinois jobs salary",
+     "volume_mese": 6600
+    },
+    {
+     "frase": "paycheck calculator for illinois",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "salary calculator illinois",
+     "volume_mese": 27100
+    }
+   ]
+  },
+  {
+   "frase": "north carolina payroll tax",
+   "volume_mese": 320,
+   "cpc_usd": 38.83,
+   "simili": [
+    {
+     "frase": "payroll taxes north carolina",
+     "volume_mese": 320
+    },
+    {
+     "frase": "payroll taxes in north carolina",
+     "volume_mese": 320
+    },
+    {
+     "frase": "payroll tax nc",
+     "volume_mese": 320
+    },
+    {
+     "frase": "payroll taxes nc",
+     "volume_mese": 320
+    },
+    {
+     "frase": "north carolina employment taxes",
+     "volume_mese": 320
+    },
+    {
+     "frase": "payroll tax in nc",
+     "volume_mese": 320
+    },
+    {
+     "frase": "payroll tax north carolina",
+     "volume_mese": 320
+    },
+    {
+     "frase": "north carolina payroll taxes",
+     "volume_mese": 320
+    },
+    {
+     "frase": "payroll taxes in nc",
+     "volume_mese": 320
+    },
+    {
+     "frase": "nc employment taxes",
+     "volume_mese": 320
+    }
+   ]
+  },
+  {
    "frase": "north carolina payroll taxes",
    "volume_mese": 320,
    "cpc_usd": 38.83,
@@ -3999,6 +4951,53 @@
    ]
   },
   {
+   "frase": "payroll tax deposit schedule",
+   "volume_mese": 320,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "deposit schedule for payroll taxes",
+     "volume_mese": 320
+    },
+    {
+     "frase": "payroll deposit schedule",
+     "volume_mese": 320
+    },
+    {
+     "frase": "weekly 941 deposit schedule",
+     "volume_mese": 20
+    },
+    {
+     "frase": "941 tax payment due dates",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "941 deposit schedule",
+     "volume_mese": 390
+    },
+    {
+     "frase": "federal deposit schedule payroll taxes",
+     "volume_mese": 90
+    },
+    {
+     "frase": "deposit schedule for 941",
+     "volume_mese": 390
+    },
+    {
+     "frase": "payroll tax deposit dates",
+     "volume_mese": 320
+    },
+    {
+     "frase": "when are 941 deposits due",
+     "volume_mese": 260
+    },
+    {
+     "frase": "what is the due date for semi weekly 941 deposits",
+     "volume_mese": 140
+    }
+   ]
+  },
+  {
    "frase": "california sdi rate",
    "volume_mese": 260,
    "cpc_usd": 0,
@@ -4042,6 +5041,288 @@
     {
      "frase": "california sdi tax rate 2025",
      "volume_mese": 70
+    }
+   ]
+  },
+  {
+   "frase": "employer payroll taxes california",
+   "volume_mese": 260,
+   "cpc_usd": 12.22,
+   "simili": [
+    {
+     "frase": "california employer payroll taxes",
+     "volume_mese": 260
+    },
+    {
+     "frase": "california employee tax",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "payroll taxes in california",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "state of california payroll taxes",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "california employer payroll tax",
+     "volume_mese": 260
+    },
+    {
+     "frase": "california employment training tax",
+     "volume_mese": 110
+    },
+    {
+     "frase": "employer taxes california",
+     "volume_mese": 110
+    },
+    {
+     "frase": "california state payroll tax",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "employment taxes in california",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "ca payroll taxes",
+     "volume_mese": 720
+    }
+   ]
+  },
+  {
+   "frase": "california de 9",
+   "volume_mese": 210,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "de 9",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "ca de 9",
+     "volume_mese": 260
+    },
+    {
+     "frase": "ca de-9",
+     "volume_mese": 260
+    },
+    {
+     "frase": "california de-9",
+     "volume_mese": 210
+    },
+    {
+     "frase": "ca form de9",
+     "volume_mese": 40
+    },
+    {
+     "frase": "ca de 9 form",
+     "volume_mese": 70
+    },
+    {
+     "frase": "ca de-9 form",
+     "volume_mese": 70
+    },
+    {
+     "frase": "de 9 form",
+     "volume_mese": 880
+    },
+    {
+     "frase": "ca de9",
+     "volume_mese": 260
+    },
+    {
+     "frase": "de 9 california",
+     "volume_mese": 210
+    }
+   ]
+  },
+  {
+   "frase": "california sui rate",
+   "volume_mese": 210,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "sui rate california",
+     "volume_mese": 210
+    },
+    {
+     "frase": "sui rate ca",
+     "volume_mese": 210
+    },
+    {
+     "frase": "ca suta rate",
+     "volume_mese": 210
+    },
+    {
+     "frase": "sui rates california",
+     "volume_mese": 210
+    },
+    {
+     "frase": "california state unemployment insurance rate",
+     "volume_mese": 70
+    },
+    {
+     "frase": "california state unemployment insurance rates",
+     "volume_mese": 70
+    },
+    {
+     "frase": "ca sui rate",
+     "volume_mese": 50
+    },
+    {
+     "frase": "suta rate california",
+     "volume_mese": 210
+    },
+    {
+     "frase": "unemployment tax rate california",
+     "volume_mese": 170
+    },
+    {
+     "frase": "ui rates california",
+     "volume_mese": 90
+    }
+   ]
+  },
+  {
+   "frase": "california suta rate",
+   "volume_mese": 210,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "ca suta rate",
+     "volume_mese": 210
+    },
+    {
+     "frase": "suta rate california",
+     "volume_mese": 210
+    },
+    {
+     "frase": "unemployment tax rate california",
+     "volume_mese": 170
+    },
+    {
+     "frase": "california sui rate",
+     "volume_mese": 210
+    },
+    {
+     "frase": "sui rate ca",
+     "volume_mese": 210
+    },
+    {
+     "frase": "sui rate california",
+     "volume_mese": 210
+    },
+    {
+     "frase": "sui rates california",
+     "volume_mese": 210
+    },
+    {
+     "frase": "california state unemployment insurance rates",
+     "volume_mese": 70
+    },
+    {
+     "frase": "ca sui rate",
+     "volume_mese": 50
+    },
+    {
+     "frase": "california unemployment tax rate",
+     "volume_mese": 170
+    }
+   ]
+  },
+  {
+   "frase": "california unemployment tax",
+   "volume_mese": 210,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "unemployment tax california",
+     "volume_mese": 210
+    },
+    {
+     "frase": "california unemployment taxes",
+     "volume_mese": 210
+    },
+    {
+     "frase": "california state unemployment tax",
+     "volume_mese": 210
+    },
+    {
+     "frase": "unemployment taxes california",
+     "volume_mese": 210
+    },
+    {
+     "frase": "ca sui / ett",
+     "volume_mese": 70
+    },
+    {
+     "frase": "ca sui/ett",
+     "volume_mese": 70
+    },
+    {
+     "frase": "california employee tax",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "california employer payroll tax",
+     "volume_mese": 260
+    },
+    {
+     "frase": "ca sui tax",
+     "volume_mese": 170
+    },
+    {
+     "frase": "ca employment training tax",
+     "volume_mese": 110
+    }
+   ]
+  },
+  {
+   "frase": "how to run payroll",
+   "volume_mese": 210,
+   "cpc_usd": 63.82,
+   "simili": [
+    {
+     "frase": "how to do payroll",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "running payroll",
+     "volume_mese": 14800
+    },
+    {
+     "frase": "how to do a payroll",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "how to do payroll for employees",
+     "volume_mese": 90
+    },
+    {
+     "frase": "running a payroll",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "how to make payroll for employees",
+     "volume_mese": 40
+    },
+    {
+     "frase": "how to do payroll on my own",
+     "volume_mese": 140
+    },
+    {
+     "frase": "how to use payroll",
+     "volume_mese": 40
+    },
+    {
+     "frase": "payroll how to",
+     "volume_mese": 40
+    },
+    {
+     "frase": "payroll processing",
+     "volume_mese": 2900
     }
    ]
   },
@@ -4093,6 +5374,53 @@
    ]
   },
   {
+   "frase": "florida reemployment tax rate",
+   "volume_mese": 170,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "reemployment tax rate florida",
+     "volume_mese": 170
+    },
+    {
+     "frase": "reemployment tax florida",
+     "volume_mese": 880
+    },
+    {
+     "frase": "florida reemployment tax",
+     "volume_mese": 880
+    },
+    {
+     "frase": "what is florida reemployment tax",
+     "volume_mese": 90
+    },
+    {
+     "frase": "what is reemployment tax in florida",
+     "volume_mese": 40
+    },
+    {
+     "frase": "florida reemployment tax payment",
+     "volume_mese": 40
+    },
+    {
+     "frase": "suta tax florida",
+     "volume_mese": 40
+    },
+    {
+     "frase": "unemployment florida tax",
+     "volume_mese": 480
+    },
+    {
+     "frase": "unemployment tax florida",
+     "volume_mese": 480
+    },
+    {
+     "frase": "unemployment tax in florida",
+     "volume_mese": 480
+    }
+   ]
+  },
+  {
    "frase": "how much does it cost to hire an employee",
    "volume_mese": 170,
    "cpc_usd": 33.48,
@@ -4136,6 +5464,53 @@
     {
      "frase": "cost to hire new employee",
      "volume_mese": 170
+    }
+   ]
+  },
+  {
+   "frase": "florida suta rate",
+   "volume_mese": 140,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "florida sui rate",
+     "volume_mese": 140
+    },
+    {
+     "frase": "suta rate florida",
+     "volume_mese": 140
+    },
+    {
+     "frase": "reemployment tax florida",
+     "volume_mese": 880
+    },
+    {
+     "frase": "florida state unemployment tax rate",
+     "volume_mese": 210
+    },
+    {
+     "frase": "unemployment tax rate florida",
+     "volume_mese": 210
+    },
+    {
+     "frase": "sui rate florida",
+     "volume_mese": 140
+    },
+    {
+     "frase": "suta florida",
+     "volume_mese": 140
+    },
+    {
+     "frase": "florida state unemployment insurance rate",
+     "volume_mese": 40
+    },
+    {
+     "frase": "florida unemployment insurance rate",
+     "volume_mese": 40
+    },
+    {
+     "frase": "suta tax florida",
+     "volume_mese": 40
     }
    ]
   },
@@ -4234,6 +5609,53 @@
    ]
   },
   {
+   "frase": "illinois unemployment tax",
+   "volume_mese": 140,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "illinois unemployment taxes",
+     "volume_mese": 140
+    },
+    {
+     "frase": "illinois tax unemployment",
+     "volume_mese": 140
+    },
+    {
+     "frase": "il sui tax",
+     "volume_mese": 30
+    },
+    {
+     "frase": "illinois unemployment tax withholding",
+     "volume_mese": 30
+    },
+    {
+     "frase": "unemployment tax illinois",
+     "volume_mese": 140
+    },
+    {
+     "frase": "suta illinois",
+     "volume_mese": 50
+    },
+    {
+     "frase": "il sui employer",
+     "volume_mese": 40
+    },
+    {
+     "frase": "illinois state unemployment tax",
+     "volume_mese": 140
+    },
+    {
+     "frase": "il unemployment tax rate",
+     "volume_mese": 110
+    },
+    {
+     "frase": "is unemployment taxed in illinois",
+     "volume_mese": 40
+    }
+   ]
+  },
+  {
    "frase": "how much does an employee cost",
    "volume_mese": 110,
    "cpc_usd": 14.45,
@@ -4328,6 +5750,335 @@
    ]
   },
   {
+   "frase": "north carolina unemployment tax",
+   "volume_mese": 110,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "north carolina unemployment taxes",
+     "volume_mese": 110
+    },
+    {
+     "frase": "unemployment tax nc",
+     "volume_mese": 110
+    },
+    {
+     "frase": "unemployment taxes nc",
+     "volume_mese": 110
+    },
+    {
+     "frase": "nc unemployment taxes",
+     "volume_mese": 90
+    },
+    {
+     "frase": "nc state unemployment tax",
+     "volume_mese": 110
+    },
+    {
+     "frase": "north carolina state unemployment tax",
+     "volume_mese": 30
+    },
+    {
+     "frase": "nc unemployment tax",
+     "volume_mese": 90
+    },
+    {
+     "frase": "nc suta",
+     "volume_mese": 170
+    },
+    {
+     "frase": "apply for nc unemployment account number",
+     "volume_mese": 30
+    },
+    {
+     "frase": "how to apply for nc unemployment tax number",
+     "volume_mese": 30
+    }
+   ]
+  },
+  {
+   "frase": "texas employer taxes",
+   "volume_mese": 110,
+   "cpc_usd": 53.43,
+   "simili": [
+    {
+     "frase": "payroll taxes in texas",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "employee taxes texas",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "texas payroll taxes for employers",
+     "volume_mese": 40
+    },
+    {
+     "frase": "payroll tax in texas",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "state of texas payroll taxes",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "employer tax in texas",
+     "volume_mese": 110
+    },
+    {
+     "frase": "employer taxes in texas",
+     "volume_mese": 110
+    },
+    {
+     "frase": "what is payroll tax in texas",
+     "volume_mese": 110
+    },
+    {
+     "frase": "employer payroll taxes texas",
+     "volume_mese": 90
+    },
+    {
+     "frase": "texas payroll taxes",
+     "volume_mese": 1300
+    }
+   ]
+  },
+  {
+   "frase": "texas payroll tax rate",
+   "volume_mese": 110,
+   "cpc_usd": 18.6,
+   "simili": [
+    {
+     "frase": "payroll tax in texas",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "employee taxes texas",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "state of texas payroll taxes",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "payroll taxes in texas",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "texas payroll tax rates",
+     "volume_mese": 110
+    },
+    {
+     "frase": "how much taxes deducted from paycheck texas",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "payroll tax texas",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "how much is the payroll tax in texas",
+     "volume_mese": 210
+    },
+    {
+     "frase": "payroll tax rates in texas",
+     "volume_mese": 140
+    },
+    {
+     "frase": "payroll tax rates texas",
+     "volume_mese": 140
+    }
+   ]
+  },
+  {
+   "frase": "employer payroll taxes texas",
+   "volume_mese": 90,
+   "cpc_usd": 16.45,
+   "simili": [
+    {
+     "frase": "employee taxes texas",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "payroll tax in texas",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "payroll taxes in texas",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "state of texas payroll taxes",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "what is payroll tax in texas",
+     "volume_mese": 110
+    },
+    {
+     "frase": "texas payroll taxes for employers",
+     "volume_mese": 40
+    },
+    {
+     "frase": "texas payroll tax",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "what are the payroll taxes in texas",
+     "volume_mese": 110
+    },
+    {
+     "frase": "texas employer payroll taxes",
+     "volume_mese": 70
+    },
+    {
+     "frase": "employer taxes in texas",
+     "volume_mese": 110
+    }
+   ]
+  },
+  {
+   "frase": "illinois payroll tax rate",
+   "volume_mese": 90,
+   "cpc_usd": 48.39,
+   "simili": [
+    {
+     "frase": "illinois state payroll tax rate",
+     "volume_mese": 90
+    },
+    {
+     "frase": "illinois employment tax rate",
+     "volume_mese": 90
+    },
+    {
+     "frase": "il payroll tax rate",
+     "volume_mese": 30
+    },
+    {
+     "frase": "illinois payroll tax rates",
+     "volume_mese": 90
+    },
+    {
+     "frase": "tax rate in illinois for paychecks",
+     "volume_mese": 40
+    },
+    {
+     "frase": "chicago income tax",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "illinois withholding tax rates",
+     "volume_mese": 90
+    },
+    {
+     "frase": "how much are payroll taxes in illinois",
+     "volume_mese": 50
+    },
+    {
+     "frase": "income tax illinois",
+     "volume_mese": 6600
+    },
+    {
+     "frase": "illinois state income tax rate",
+     "volume_mese": 4400
+    }
+   ]
+  },
+  {
+   "frase": "north carolina payroll",
+   "volume_mese": 90,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "payroll tax nc",
+     "volume_mese": 320
+    },
+    {
+     "frase": "north carolina payroll taxes",
+     "volume_mese": 320
+    },
+    {
+     "frase": "payroll tax in nc",
+     "volume_mese": 320
+    },
+    {
+     "frase": "payroll tax north carolina",
+     "volume_mese": 320
+    },
+    {
+     "frase": "payroll taxes in north carolina",
+     "volume_mese": 320
+    },
+    {
+     "frase": "payroll taxes north carolina",
+     "volume_mese": 320
+    },
+    {
+     "frase": "nc paycheck calculator",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "paycheck calculator nc",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "payroll taxes in nc",
+     "volume_mese": 320
+    },
+    {
+     "frase": "payroll taxes nc",
+     "volume_mese": 320
+    }
+   ]
+  },
+  {
+   "frase": "north carolina payroll tax rate",
+   "volume_mese": 90,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "nc payroll tax rate",
+     "volume_mese": 90
+    },
+    {
+     "frase": "north carolina income tax calculator",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "north carolina payroll tax rates",
+     "volume_mese": 90
+    },
+    {
+     "frase": "how much is payroll tax in nc",
+     "volume_mese": 40
+    },
+    {
+     "frase": "payroll tax in nc",
+     "volume_mese": 320
+    },
+    {
+     "frase": "north carolina state withholding tax rate",
+     "volume_mese": 50
+    },
+    {
+     "frase": "paycheck calculator nc",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "north carolina payroll tax",
+     "volume_mese": 320
+    },
+    {
+     "frase": "payroll taxes in nc",
+     "volume_mese": 320
+    },
+    {
+     "frase": "payroll taxes nc",
+     "volume_mese": 320
+    }
+   ]
+  },
+  {
    "frase": "north carolina unemployment tax rate",
    "volume_mese": 90,
    "cpc_usd": 0,
@@ -4375,6 +6126,241 @@
    ]
   },
   {
+   "frase": "employer payroll taxes florida",
+   "volume_mese": 70,
+   "cpc_usd": 4.92,
+   "simili": [
+    {
+     "frase": "payroll taxes florida",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "employer payroll taxes in florida",
+     "volume_mese": 70
+    },
+    {
+     "frase": "employee taxes florida",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "payroll tax in florida",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "payroll taxes in florida",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "employer taxes in florida",
+     "volume_mese": 70
+    },
+    {
+     "frase": "florida employment taxes",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "florida taxes for employees",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "payroll taxes for florida",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "employer taxes florida",
+     "volume_mese": 10
+    }
+   ]
+  },
+  {
+   "frase": "illinois suta rate",
+   "volume_mese": 70,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "illinois state unemployment tax rate",
+     "volume_mese": 110
+    },
+    {
+     "frase": "unemployment tax rate illinois",
+     "volume_mese": 110
+    },
+    {
+     "frase": "il suta rate",
+     "volume_mese": 70
+    },
+    {
+     "frase": "illinois sui rate",
+     "volume_mese": 70
+    },
+    {
+     "frase": "sui rate illinois",
+     "volume_mese": 70
+    },
+    {
+     "frase": "illinois unemployment tax rate",
+     "volume_mese": 110
+    },
+    {
+     "frase": "il unemployment tax rate",
+     "volume_mese": 110
+    },
+    {
+     "frase": "how to calculate illinois unemployment tax",
+     "volume_mese": 70
+    },
+    {
+     "frase": "illinois suta wage base 2025",
+     "volume_mese": 50
+    },
+    {
+     "frase": "suta illinois",
+     "volume_mese": 50
+    }
+   ]
+  },
+  {
+   "frase": "texas suta rate",
+   "volume_mese": 70,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "sui rate texas",
+     "volume_mese": 390
+    },
+    {
+     "frase": "suta rate texas",
+     "volume_mese": 390
+    },
+    {
+     "frase": "texas state unemployment tax rate",
+     "volume_mese": 390
+    },
+    {
+     "frase": "texas employer unemployment tax rate",
+     "volume_mese": 40
+    },
+    {
+     "frase": "texas sui rate",
+     "volume_mese": 390
+    },
+    {
+     "frase": "unemployment tax rate texas",
+     "volume_mese": 390
+    },
+    {
+     "frase": "suta tax texas",
+     "volume_mese": 50
+    },
+    {
+     "frase": "texas suta tax",
+     "volume_mese": 50
+    },
+    {
+     "frase": "texas state unemployment tax rate 2025",
+     "volume_mese": 30
+    },
+    {
+     "frase": "texas unemployment insurance rate",
+     "volume_mese": 70
+    }
+   ]
+  },
+  {
+   "frase": "employer payroll taxes illinois",
+   "volume_mese": 50,
+   "cpc_usd": 8.76,
+   "simili": [
+    {
+     "frase": "illinois state payroll tax",
+     "volume_mese": 390
+    },
+    {
+     "frase": "payroll taxes illinois",
+     "volume_mese": 390
+    },
+    {
+     "frase": "how much are payroll taxes in illinois",
+     "volume_mese": 50
+    },
+    {
+     "frase": "payroll tax illinois",
+     "volume_mese": 390
+    },
+    {
+     "frase": "payroll taxes in illinois",
+     "volume_mese": 390
+    },
+    {
+     "frase": "illinois payroll tax rates",
+     "volume_mese": 90
+    },
+    {
+     "frase": "illinois payroll tax",
+     "volume_mese": 390
+    },
+    {
+     "frase": "how much is payroll tax in illinois",
+     "volume_mese": 50
+    },
+    {
+     "frase": "il payroll tax rate",
+     "volume_mese": 30
+    },
+    {
+     "frase": "payroll tax in illinois",
+     "volume_mese": 390
+    }
+   ]
+  },
+  {
+   "frase": "florida payroll tax rate",
+   "volume_mese": 50,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "payroll taxes florida",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "salary tax in florida",
+     "volume_mese": 14800
+    },
+    {
+     "frase": "florida employment tax rate",
+     "volume_mese": 40
+    },
+    {
+     "frase": "how much are payroll taxes in florida",
+     "volume_mese": 140
+    },
+    {
+     "frase": "payroll tax rate florida",
+     "volume_mese": 50
+    },
+    {
+     "frase": "florida employee tax rate",
+     "volume_mese": 40
+    },
+    {
+     "frase": "how much is florida payroll tax",
+     "volume_mese": 140
+    },
+    {
+     "frase": "how much is payroll tax in florida",
+     "volume_mese": 140
+    },
+    {
+     "frase": "florida employment tax percentage",
+     "volume_mese": 40
+    },
+    {
+     "frase": "florida payroll taxes percentage",
+     "volume_mese": 30
+    }
+   ]
+  },
+  {
    "frase": "social security wage base 2026",
    "volume_mese": 50,
    "cpc_usd": 0,
@@ -4418,6 +6404,382 @@
     {
      "frase": "2025 social security tax limit",
      "volume_mese": 8100
+    }
+   ]
+  },
+  {
+   "frase": "california ett tax",
+   "volume_mese": 40,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "ett tax california",
+     "volume_mese": 140
+    },
+    {
+     "frase": "california employee tax",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "ca ett",
+     "volume_mese": 210
+    },
+    {
+     "frase": "ca employment training tax",
+     "volume_mese": 110
+    },
+    {
+     "frase": "ca sui / ett",
+     "volume_mese": 70
+    },
+    {
+     "frase": "ca sui/ett",
+     "volume_mese": 70
+    },
+    {
+     "frase": "what is ca ett",
+     "volume_mese": 40
+    },
+    {
+     "frase": "what is ca ett tax",
+     "volume_mese": 30
+    },
+    {
+     "frase": "california employment training tax",
+     "volume_mese": 110
+    },
+    {
+     "frase": "ca sui ett",
+     "volume_mese": 70
+    }
+   ]
+  },
+  {
+   "frase": "how to do payroll in california",
+   "volume_mese": 40,
+   "cpc_usd": 106.39,
+   "simili": [
+    {
+     "frase": "california employee tax",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "california state payroll tax",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "how to do payroll california",
+     "volume_mese": 40
+    },
+    {
+     "frase": "payroll taxes in california",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "payroll tax in ca",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "california employer payroll tax",
+     "volume_mese": 260
+    },
+    {
+     "frase": "state of california payroll taxes",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "employment taxes in california",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "ca payroll",
+     "volume_mese": 720
+    },
+    {
+     "frase": "payroll in california",
+     "volume_mese": 720
+    }
+   ]
+  },
+  {
+   "frase": "how to hire an employee in california",
+   "volume_mese": 40,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "hiring an employee in california",
+     "volume_mese": 50
+    },
+    {
+     "frase": "hiring employee in california",
+     "volume_mese": 50
+    },
+    {
+     "frase": "how to hire employees in california",
+     "volume_mese": 40
+    },
+    {
+     "frase": "hiring employees california",
+     "volume_mese": 50
+    },
+    {
+     "frase": "hiring employees in california",
+     "volume_mese": 50
+    },
+    {
+     "frase": "new hire paperwork california",
+     "volume_mese": 260
+    },
+    {
+     "frase": "california hire",
+     "volume_mese": 70
+    },
+    {
+     "frase": "ca new hire forms",
+     "volume_mese": 260
+    },
+    {
+     "frase": "california new hire paperwork",
+     "volume_mese": 260
+    },
+    {
+     "frase": "new employee forms california",
+     "volume_mese": 90
+    }
+   ]
+  },
+  {
+   "frase": "how to hire an employee in texas",
+   "volume_mese": 40,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "how to hire employees in texas",
+     "volume_mese": 40
+    },
+    {
+     "frase": "hiring employees in texas",
+     "volume_mese": 40
+    },
+    {
+     "frase": "hiring an employee in texas",
+     "volume_mese": 40
+    },
+    {
+     "frase": "new hire paperwork texas",
+     "volume_mese": 90
+    },
+    {
+     "frase": "texas new hire paperwork",
+     "volume_mese": 170
+    },
+    {
+     "frase": "new hire form texas",
+     "volume_mese": 170
+    },
+    {
+     "frase": "new hire forms for texas",
+     "volume_mese": 170
+    },
+    {
+     "frase": "new hire forms texas",
+     "volume_mese": 170
+    },
+    {
+     "frase": "texas new hire forms",
+     "volume_mese": 170
+    },
+    {
+     "frase": "new hire texas",
+     "volume_mese": 70
+    }
+   ]
+  },
+  {
+   "frase": "how to do payroll in texas",
+   "volume_mese": 30,
+   "cpc_usd": 65.64,
+   "simili": [
+    {
+     "frase": "state of texas payroll taxes",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "texas payroll withholding",
+     "volume_mese": 20
+    },
+    {
+     "frase": "payroll tax in texas",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "employee taxes texas",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "employer payroll taxes in texas",
+     "volume_mese": 70
+    },
+    {
+     "frase": "texas employer payroll taxes",
+     "volume_mese": 70
+    },
+    {
+     "frase": "texas sui id",
+     "volume_mese": 10
+    },
+    {
+     "frase": "payroll taxes in texas",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "payroll tax texas",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "payroll taxes texas",
+     "volume_mese": 1300
+    }
+   ]
+  },
+  {
+   "frase": "how to do payroll in florida",
+   "volume_mese": 20,
+   "cpc_usd": 54.88,
+   "simili": [
+    {
+     "frase": "payroll taxes florida",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "fl withholding tax",
+     "volume_mese": 210
+    },
+    {
+     "frase": "employer taxes in florida",
+     "volume_mese": 70
+    },
+    {
+     "frase": "florida payroll tax",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "florida pay stub requirements",
+     "volume_mese": 30
+    },
+    {
+     "frase": "florida payroll registration",
+     "volume_mese": 20
+    },
+    {
+     "frase": "employer taxes florida",
+     "volume_mese": 10
+    },
+    {
+     "frase": "running a payroll",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "running payroll",
+     "volume_mese": 14800
+    },
+    {
+     "frase": "how to do a payroll",
+     "volume_mese": 1600
+    }
+   ]
+  },
+  {
+   "frase": "illinois employer taxes",
+   "volume_mese": 20,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "employer taxes in illinois",
+     "volume_mese": 20
+    },
+    {
+     "frase": "illinois employer payroll taxes",
+     "volume_mese": 20
+    },
+    {
+     "frase": "illinois employer withholding",
+     "volume_mese": 30
+    },
+    {
+     "frase": "il withholding tax rate",
+     "volume_mese": 70
+    },
+    {
+     "frase": "illinois payroll tax registration",
+     "volume_mese": 30
+    },
+    {
+     "frase": "medicare tax rate illinois",
+     "volume_mese": 20
+    },
+    {
+     "frase": "how do i change my tax withholding on unemployment illinois",
+     "volume_mese": 10
+    },
+    {
+     "frase": "illinois unemployment id number",
+     "volume_mese": 10
+    },
+    {
+     "frase": "illinois payroll taxes",
+     "volume_mese": 390
+    },
+    {
+     "frase": "payroll tax illinois",
+     "volume_mese": 390
+    }
+   ]
+  },
+  {
+   "frase": "north carolina employer taxes",
+   "volume_mese": 20,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "nc unemployment tax withholding",
+     "volume_mese": 30
+    },
+    {
+     "frase": "north carolina employer payroll taxes",
+     "volume_mese": 20
+    },
+    {
+     "frase": "nc withholding tax rate",
+     "volume_mese": 90
+    },
+    {
+     "frase": "north carolina payroll registration",
+     "volume_mese": 30
+    },
+    {
+     "frase": "nc employment tax",
+     "volume_mese": 320
+    },
+    {
+     "frase": "how much nc tax withheld from paycheck",
+     "volume_mese": 20
+    },
+    {
+     "frase": "nc unemployment ein number",
+     "volume_mese": 20
+    },
+    {
+     "frase": "north carolina pay state taxes",
+     "volume_mese": 20
+    },
+    {
+     "frase": "north carolina unemployment registration for employers",
+     "volume_mese": 20
+    },
+    {
+     "frase": "payroll taxes nc",
+     "volume_mese": 320
     }
    ]
   },

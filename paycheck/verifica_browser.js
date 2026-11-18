@@ -1,4 +1,4 @@
-// Controllo nel browser di US Paycheck Calculator: tutte le pagine a 375 e 1280 px (chiaro; home, California ed employer anche scuro):
+// Controllo nel browser di US Paycheck Calculator: tutte le pagine a 375 e 1280 px (chiaro; home, California, employer, «how to do payroll» e due pagine delle paghe per Stato anche scuro):
 // niente scorrimento orizzontale della pagina, niente errori JS, niente richieste fallite, testo >= 11 px.
 // Ogni richiesta che non è del server locale viene bloccata (pubblicità e contatore compresi).
 // Calcolatore: i 10 casi a mano passati da verifica.py in CASI_CALC (netto atteso), stipendio annuo, paga oraria, errori; calcolatore del datore.
@@ -45,12 +45,13 @@ function pagine() {
   const browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' });
   const problemi = [];
   const tutte = pagine();
+  const SCURE = ['/', '/california/', '/employer-payroll-taxes/', '/how-to-do-payroll/', '/texas-payroll-taxes/', '/california-payroll-taxes/'];
   let n = 0, bloccate = 0;
   for (const [w, hgt] of [[375, 812], [1280, 900]]) {
     for (const tema of ['light', 'dark']) {
       const ctx = await browser.newContext({ viewport: { width: w, height: hgt }, colorScheme: tema, deviceScaleFactor: 1 });
       await ctx.route(u => !locale(u.toString()), r => { bloccate++; return r.abort(); });
-      const elenco = tema === 'light' ? tutte : ['/', '/california/', '/employer-payroll-taxes/'];
+      const elenco = tema === 'light' ? tutte : SCURE;
       for (const p of elenco) {
         const page = await ctx.newPage();
         const errori = [];
@@ -68,7 +69,7 @@ function pagine() {
         const piccoli = await page.evaluate(() => [...document.querySelectorAll('main *')].filter(e => [...e.childNodes].some(c => c.nodeType === 3 && c.textContent.trim()) &&
           parseFloat(getComputedStyle(e).fontSize) < 11 && e.offsetParent !== null).slice(0, 3).map(e => e.tagName + ':' + e.textContent.trim().slice(0, 30)));
         if (piccoli.length) errori.push('testo sotto 11px: ' + piccoli.join(' | '));
-        if (['/', '/california/', '/employer-payroll-taxes/', '/federal-withholding/', '/texas/'].includes(p)) {
+        if (['/', '/california/', '/employer-payroll-taxes/', '/federal-withholding/', '/texas/', '/how-to-do-payroll/', '/texas-payroll-taxes/', '/california-payroll-taxes/', '/north-carolina-payroll-taxes/'].includes(p)) {
           const nome = (p === '/' ? 'home' : p.replace(/\//g, '')) + `-${w}-${tema}.png`;
           await page.screenshot({ path: path.join(SHOT, nome), fullPage: true });
         }
@@ -133,6 +134,13 @@ function pagine() {
   if ((await page.inputValue(D + 'input[name=aliquota]')) !== '3.4') problemi.push('datore: aliquota non aggiornata per la California');
   await page.fill(D + 'input[name=aliquota]', 'x');
   if (!((await page.textContent(D + '[data-out]')) || '').includes('Check the figures')) problemi.push('datore: aliquota non valida senza messaggio');
+  // pagine delle paghe per Stato: il calcolatore del datore parte con lo Stato della pagina
+  await page.goto(base + '/california-payroll-taxes/', { waitUntil: 'load' });
+  t = ((await page.textContent(D + '[data-tasse]')) || '').trim();
+  if (t !== process.env.DATORE_CA) problemi.push(`california-payroll-taxes: ${t}, atteso ${process.env.DATORE_CA}`);
+  await page.goto(base + '/how-to-do-payroll/', { waitUntil: 'load' });
+  t = ((await page.textContent(D + '[data-tasse]')) || '').trim();
+  if (t !== process.env.DATORE_TX) problemi.push(`how-to-do-payroll: ${t}, atteso ${process.env.DATORE_TX}`);
   await page.goto(base + '/', { waitUntil: 'load' });
   const prima = await page.evaluate(() => getComputedStyle(document.body).backgroundColor);
   await page.click('[data-tema]');
@@ -141,7 +149,7 @@ function pagine() {
   await ctx.close();
   await browser.close();
   srv.close();
-  console.log(`Browser: ${n} viste (${tutte.length} pagine a 375/1280 px, 3 anche in scuro), ${CASI.length} casi del calcolatore, ${bloccate} richieste esterne bloccate; screenshot in ${SHOT}`);
+  console.log(`Browser: ${n} viste (${tutte.length} pagine a 375/1280 px, ${SCURE.length} anche in scuro), ${CASI.length} casi del calcolatore, ${bloccate} richieste esterne bloccate; screenshot in ${SHOT}`);
   if (problemi.length) {
     console.log(problemi.length + ' PROBLEMI:\n - ' + problemi.slice(0, 60).join('\n - '));
     process.exit(1);

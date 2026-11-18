@@ -1,11 +1,44 @@
 {
- "_nota": "Riquadro di affiliazione nelle pagine per i datori di lavoro. Resta SPENTO finché Massimiliano non è iscritto al programma Patriot Software su Impact. Per accenderlo: mettere in \"link\" il link tracciato dato da Impact (il suo dominio deve essere in studio-business/strumenti/monetizzazione.json, domini_affiliazione: sjv.io, pxf.io ed evyy.net ci sono già), poi \"attivo\": true, poi genera.py e verifica.py. Il testo ripete solo ciò che Patriot scrive sulla propria pagina (dati/fonti.json, fonte patriot): nessun prezzo, nessun giudizio.",
- "patriot": {
-  "attivo": false,
-  "link": "https://LINK-IMPACT-DA-INSERIRE.invalid/",
-  "titolo": "Payroll software: Patriot",
-  "testo": "Patriot offers two payroll software products, Basic Payroll and Full Service Payroll. This description comes from Patriot’s own website; we have not tested the software and the figures on this page do not depend on it.",
-  "pulsante": "See Patriot payroll",
-  "trasparenza": "Advertisement. If you sign up through this link we may earn a commission, at no extra cost to you."
- }
+ "_nota": "Riquadro dei partner (programmi paghe) nelle pagine per i datori di lavoro. Ogni partner resta SPENTO finché Massimiliano non è iscritto al suo programma e non c'è il link tracciato vero: nessun link va inventato. Per accenderne uno: 1) mettere in \"link\" il link tracciato dato dalla rete (https://...); 2) se il dominio del link non è già in studio-business/strumenti/monetizzazione.json (domini_affiliazione; quelli di Impact sjv.io, pxf.io, evyy.net ci sono già) aggiungerlo lì; 3) \"attivo\": true; 4) python3 paycheck/genera.py && python3 paycheck/verifica.py --browser. L'ordine dei partner in pagina è quello di questo elenco. \"testo\" ripete solo ciò che il partner scrive di sé nella pagina registrata in dati/fonti.json (\"fonte\" e \"frase\"): nessun prezzo, nessun giudizio; se quella frase sparisce dalla pagina genera.py si ferma. ADP: l'accordo chiede il consenso scritto di ADP per usare i suoi marchi in pubblicità e il programma lavora con una pagina di segnalazione co-marcata: accenderlo solo dopo aver letto le regole nel pannello PartnerStack.",
+ "riquadro": {
+  "etichetta": "Advertisement · affiliate links",
+  "titolo": "Running payroll for employees?",
+  "testo": "Payroll software works out these taxes on every payday, and full-service plans also make the deposits and file the returns for you. The companies below sell it. We have not tested their software, the descriptions come from their own pages, and the figures on this page do not depend on them. Check what each plan includes before you sign up.",
+  "trasparenza": "Advertisement. If you sign up through one of these links we may earn a commission, at no extra cost to you."
+ },
+ "partner": [
+  {
+   "id": "gusto",
+   "nome": "Gusto",
+   "attivo": false,
+   "link": "",
+   "rete": "PartnerStack",
+   "fonte": "gusto",
+   "frase": "prodotti",
+   "testo": "Gusto describes itself as a people platform that helps growing businesses onboard, pay, insure and support their teams, with payroll and benefits.",
+   "pulsante": "See Gusto payroll"
+  },
+  {
+   "id": "adp",
+   "nome": "RUN Powered by ADP",
+   "attivo": false,
+   "link": "",
+   "rete": "PartnerStack",
+   "fonte": "adp",
+   "frase": "prodotti",
+   "testo": "RUN Powered by ADP is ADP’s payroll and HR service for small businesses; ADP says its tools simplify payroll and HR.",
+   "pulsante": "See RUN by ADP"
+  },
+  {
+   "id": "patriot",
+   "nome": "Patriot Software",
+   "attivo": false,
+   "link": "",
+   "rete": "Impact",
+   "fonte": "patriot",
+   "frase": "prodotti",
+   "testo": "Patriot offers two payroll software products, Basic Payroll and Full Service Payroll.",
+   "pulsante": "See Patriot payroll"
+  }
+ ]
 }

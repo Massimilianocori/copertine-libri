@@ -18,7 +18,7 @@ Indirizzo previsto: **`https://us-paycheck-calculator.netlify.app`** (nome liber
 Scartati per questa prova: **Ohio** (22.200; le pagine di tax.ohio.gov e jfs.ohio.gov provate rispondono 404 e quasi tutti i lavoratori pagano tasse comunali e
 scolastiche: fuori portata), **Pennsylvania** (18.100; pa.gov è una pagina JavaScript e l'imposta locale EIT vale quasi ovunque), **New York** (40.500; New York City e Yonkers).
 
-## Pagine (11 indicizzabili + 404)
+## Pagine (17 indicizzabili + 404; le 11 della mattina del 14/11 più le 6 per i datori, vedi sotto)
 
 `/` calcolatore (Stato, frequenza, lordo per periodo / stipendio annuo / paga oraria × ore, W-4: stato civile, casella Step 2, Step 3, 4(a), 4(b), 4(c), lordo già
 ricevuto nell'anno; moduli statali DE 4, IL-W-4, NC-4) · `/texas/` `/florida/` `/california/` `/illinois/` `/north-carolina/` (calcolatore con lo Stato scelto, tabella di
@@ -71,8 +71,8 @@ scaglioni della California rilette con un'altra estrazione (`pdftotext -raw`); b
 **3.041 buste paga** (600 casuali per Stato con casi al limite del tetto Social Security e dei 200.000 $, 10 casi a mano con i conti scritti nel file, 6 esempi
 stampati dalle agenzie: California A-D, Illinois, North Carolina, 25 righe delle tabelle) e 1.505 casi del datore. Poi: impronte e 60 frasi alla lettera, ogni citazione in
 pagina = frase della fonte, tabelle federali e dei datori cella per cella, titoli ≤ 65 e descrizioni ≤ 160 unici, FAQ visibili = JSON-LD e solo da ricerche misurate,
-link interni ed esterni, modulo senza dati personali, riquadro Patriot assente con l'interruttore spento, nessuna chiave. `--browser`: Playwright, 12 pagine a 375 e
-1280 px (3 anche in scuro), richieste esterne bloccate, i 10 casi a mano digitati nel calcolatore, stipendio annuo, paga oraria, messaggi d'errore, calcolatore del datore.
+link interni ed esterni, modulo senza dati personali, riquadro dei partner assente se tutti spenti (e, se acceso, solo nelle pagine dei datori, sotto il calcolatore, con rel sponsored nofollow noopener), cifre delle 6 pagine dei datori contro le trascrizioni a mano, nessuna chiave. `--browser`: Playwright, 18 pagine a 375 e
+1280 px (6 anche in scuro), richieste esterne bloccate, i 10 casi a mano digitati nel calcolatore, stipendio annuo, paga oraria, messaggi d'errore, calcolatore del datore.
 
 ## Non coperto o non verificato (detto anche in pagina)
 
@@ -81,16 +81,65 @@ link interni ed esterni, modulo senza dati personali, riquadro Patriot assente c
   giornaliere non usate (gli esempi E e F dell'EDD non sono riprodotti).
 - Texas: le pagine lette non dicono se le componenti fisse (0,32 % in tutto) si sommano all'aliquota d'ingresso del 2,70 % per un datore nuovo (in pagina: le due cifre, 2,70 % e 3,02 %).
 - Florida: l'intervallo delle aliquote dopo il periodo iniziale non è nella pagina letta. Illinois: aliquote d'ingresso più alte per alcuni settori (citato solo il settore 56).
-- Scadenze e versamenti (moduli 941/940, calendari statali): fuori dalla prova.
+- Scadenze e versamenti: dal 14/11 sera i moduli 941/940 e i rapporti trimestrali statali sono in `/how-to-do-payroll/` e nelle pagine `/<stato>-payroll-taxes/`; restano fuori i calendari della ritenuta statale.
 - Le ricerche con l'anno («… 2026») risultano a 0 nello strumento: i titoli usano l'anno comunque, come i concorrenti.
 
-## Riquadro Patriot Software (SPENTO)
+## Riquadro dei partner paghe: Gusto, ADP, Patriot (tutti SPENTI, 14/11/2026 sera)
 
-`dati/affiliati.json`: `"attivo": false`, link segnaposto. Il riquadro (`riquadro_patriot()` in `genera.py`) è previsto sotto il calcolatore del datore nelle 5 pagine
-di Stato e in `/employer-payroll-taxes/`; testo e riga di trasparenza sono già scritti e ripetono solo la descrizione che Patriot dà di sé. Per accenderlo:
-1. Massimiliano si iscrive al programma Patriot su Impact (pulsante «Apply Now With Impact» in https://www.patriotsoftware.com/affiliates/; proposto dopo le prime 300 visite al mese).
-2. Mettere il link tracciato in `"link"` (i domini Impact `sjv.io`, `pxf.io`, `evyy.net` sono già ammessi in `monetizzazione.json`; se il dominio è un altro va aggiunto lì) e `"attivo": true`.
-3. `python3 paycheck/genera.py && python3 paycheck/verifica.py --browser`. La privacy e la pagina About prendono da sole il paragrafo sui link di affiliazione.
+`dati/affiliati.json` ora ha un elenco `partner` (Gusto, RUN Powered by ADP, Patriot), ognuno con `"attivo": false` e `"link": ""`. **Nessun link di affiliazione esiste
+ancora e nessuno è stato inventato**: `verifica.py` dà errore se un partner spento ha un link, o se uno acceso non ha un link https su un dominio ammesso.
+Il riquadro (`riquadro_partner()` in `genera.py`) esce solo se almeno un partner è acceso e mostra solo quelli accesi, nell'ordine dell'elenco. Titolo «Running payroll
+for employees?», testo neutro («Payroll software works out these taxes on every payday, and full-service plans also make the deposits and file the returns for you…
+We have not tested their software… Check what each plan includes»), per ogni partner una riga che ripete solo ciò che scrive di sé nella pagina registrata in
+`fonti.json` (nessun prezzo, nessun giudizio: `verifica.py` lo controlla), pulsante con `rel="sponsored nofollow noopener"`, etichetta «Advertisement · affiliate
+links» e riga di trasparenza. Posizione: **sempre sotto il calcolatore del datore, mai sopra la risposta**: 5 pagine di Stato (sotto il calcolatore del datore),
+`/employer-payroll-taxes/`, le 5 pagine `/<stato>-payroll-taxes/` (dopo tabella, costo e iscrizione) e `/how-to-do-payroll/` (sotto il calcolatore in fondo). Mai in
+home, federale, about, privacy. Provato acceso il 14/11 con tre link di prova (poi tolti): 0 errori, 36 link in 12 pagine, schermate 375/1280 chiaro e scuro buone.
+
+### Programmi letti il 14/11/2026 (file in `dati/grezzi/`, frasi in `fonti.json`)
+
+| Partner | Rete | Compenso scritto | Condizioni lette | Editore fuori dagli USA |
+|---|---|---|---|---|
+| Gusto | PartnerStack (`market.partnerstack.com/page/gusto`, 200) | «Earn $300 for every new customer (who runs payroll) you refer to Gusto.» | Termini `gusto.com/legal/terms/partnerstack-terms`: **non letta (403)**; anche `gusto.com/partners/affiliates`: non letta (403) | **non scritto** nella pagina letta; termini non letti |
+| RUN Powered by ADP | PartnerStack (`/page/adp`, 200) + accordo PDF (`contracts.adp.com`, 200, «Last updated: June 9, 2026») | «Earn up to $1,000+ for every new U.S. based RUN Powered by ADP® customer who actively runs payroll!». Accordo: 500 $ (1–4 clienti convertiti), 750 $ (5–9), 1.000 $ (10 o più) | Cliente «convertito» = almeno 3 paghe nei 45 giorni dall'inizio e fattura pagata; pagamento entro 45 giorni dalla fine del mese; consenso scritto di ADP per usare i marchi ADP in pubblicità; il programma lavora con una pagina di segnalazione co-marcata e moduli (lead) | **non scritto**: l'accordo non nomina Paesi; chiede che il partner sia «duly organized, validly existing and in good standing under the laws of its jurisdiction of organization» (formula da società: per una persona fisica va chiesto) |
+| Patriot Software | Impact (`patriotsoftware.com/affiliates/`, 200) | «You receive $150 per new customer.» | «Apply Now With Impact»; chiede il pubblico: «Do you have an audience of USA–based business owners?» | **non scritto**: la pagina parla del pubblico (USA), non del Paese dell'editore |
+
+Quindi per un editore italiano persona fisica: **nessuno dei tre lo esclude per iscritto e nessuno lo ammette per iscritto**; si saprà alla domanda. Con 1–4 clienti
+ADP paga 500 $, non 1.000 $. `adp.com/affiliates` e `adp.com/partners/affiliate-program` rispondono 404.
+
+### Per accendere un partner
+
+1. Massimiliano crea il conto editore su PartnerStack (Gusto, ADP) e su Impact (Patriot) e chiede i programmi. Per ADP leggere prima nel pannello le regole sull'uso del marchio.
+2. In `dati/affiliati.json`: mettere il link tracciato vero in `"link"` e `"attivo": true` solo per quel partner. Se il dominio del link non è in
+   `studio-business/strumenti/monetizzazione.json` (`domini_affiliazione`: per Impact `sjv.io`, `pxf.io`, `evyy.net` ci sono già; i link PartnerStack usano un dominio del
+   programma, da leggere nel pannello) va aggiunto lì, altrimenti `genera.py` si ferma.
+3. `python3 paycheck/genera.py && python3 paycheck/verifica.py --browser && python3 studio-business/strumenti/monetizzazione.py verifica paycheck`. Privacy e About prendono da sole il paragrafo sui link di affiliazione.
+
+## Contenuti per i datori di lavoro aggiunti il 14/11/2026 (sera): 6 pagine, NON ancora pubblicate
+
+- **`/texas-payroll-taxes/`, `/florida-payroll-taxes/`, `/california-payroll-taxes/`, `/illinois-payroll-taxes/`, `/north-carolina-payroll-taxes/`**: calcolatore del datore
+  con lo Stato scelto in alto, tabella «chi paga che cosa» (aliquota, chi, su che cosa), costo di un dipendente da 50.000 $ riga per riga, «How to do payroll in <State>:
+  register, report, pay» con le frasi delle agenzie alla lettera (TWC: iscrizione entro dieci giorni, rapporto e tassa entro l'ultimo giorno del mese dopo il trimestre,
+  tutto in via elettronica; Florida DOR: iscrizione, soglie 1.500 $ / 20 settimane, RT-6; EDD: 15 giorni, 100 $ nel trimestre, nuovi assunti entro 20 giorni, DE 9 e DE 9C;
+  IDOR e IDES: MyTax Illinois, soglie; NCDOR NC-BR e frequenza, DES: soglie, numero, rapporto trimestrale), che cosa si trattiene al dipendente (esempio 2.000 $), 4–6 FAQ.
+- **`/how-to-do-payroll/`**: 8 passi con le frasi della Pub. 15 (EIN, registro dei nuovi assunti, EFT, lookback 50.000 $, primo anno mensile, 15 del mese dopo,
+  semisettimanale, Form 941, FUTA e Form 940), una busta paga svolta (Texas, 2.000 $: da versare all'IRS 462,15 $), tabella delle scadenze, tabella dei 5 Stati, calcolatore del datore.
+- Collegamenti: da ogni pagina di Stato, da `/employer-payroll-taxes/` (griglia «Payroll taxes by state»), dalla home («For employers») e dal piè di pagina (colonna «Employers»).
+- Fonti nuove (11 pagine ufficiali + 8 frasi in più della Pub. 15, 2 dell'NC-30, 3 di Florida DOR): `tx_ut`, `tx_filing`, `fl_return`, `ca_step1/4/5/6`, `il_ides_tax`,
+  `il_idor_reg`, `nc_required`, `nc_quarterly`. Scaricate con curl il 14/11 e registrate con `raccolta/fonti.py --locale` (le altre fonti non sono state riscaricate).
+- **Domanda misurata** (seodata, 52 frasi nuove il 14/11, aggiunte a `dati/domanda.json` con `raccolta/domanda.py <cartella> --aggiungi`; 149 in tutto):
+  «<stato> payroll tax»: California 2.400 (15,1 $), Texas 1.300 (17,0 $), Florida 1.000 (21,0 $), Illinois 390 (18,5 $), North Carolina 320 (38,8 $) = **5.410 al mese**;
+  «<stato> payroll tax rate»: 320 / 110 / 50 / 90 / 90; «employer payroll taxes <stato>»: California 260, Texas 90, Florida 70, Illinois 50, North Carolina senza dato;
+  «how to do payroll in <stato>»: California 40 (106 $), Texas 30 (66 $), Florida 20 (55 $), Illinois e North Carolina senza dato: **piccole**, usate solo come FAQ;
+  «florida employer taxes» 1.000 (19 $), «edd payroll taxes» 590 (25 $), «california de 9» 210, «florida unemployment tax» 480;
+  generiche: «how to calculate payroll taxes» 2.900 (18,8 $), «how to do payroll» 1.300, «how to pay payroll taxes» 1.000 (54,7 $), «how to do payroll yourself» 590 (63,7 $),
+  «how to do payroll for small business» 480 (131 $), «when are payroll taxes due» 480, «payroll tax deposit schedule» 320, «how to run payroll» 210 (63,8 $),
+  «employee cost calculator» 1.300 (20,4 $), «form 941» 40.500, «form 940» 14.800. Già misurate la mattina: «<stato> payroll tax calculator» Texas 2.900, California 1.600,
+  North Carolina 1.600, Illinois 1.000, Florida 590.
+- Non coperto (detto in pagina): Form I-9, W-2 e W-3, regola dei 100.000 $, Form 944, calendario dei versamenti della ritenuta statale (Illinois, California, North Carolina
+  nel dettaglio), giorno esatto in cui un DE 9 è in ritardo (la pagina EDD «Required Filings and Due Dates» non è tra le fonti).
+- **Seconda revisione indipendente (14/11 sera)**: 30 fonti riscaricate, 106 frasi su 106 ritrovate alla lettera; tutte le cifre, scadenze e soglie delle 6 pagine rilette sulle fonti (0 differenze); riquadro provato acceso con link di prova e rispento. Corretti: «a Illinois paycheck» → «an Illinois», e nella FAQ californiana sull'aliquota ora è nominato lo 0,1 % di ETT compreso nel totale.
+- **Da fare per pubblicare** (insieme agli altri siti): commit di `paycheck/`, poi IndexNow per i 6 indirizzi nuovi.
 
 ## Aggiornare alle tabelle 2027 (fine dicembre 2026 – gennaio 2027)
 

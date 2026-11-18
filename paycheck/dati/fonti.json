@@ -39,7 +39,7 @@
    "sha256": "b46c3622439d8521e3a0faca4cd5b5ece3451b526f65f06a5e38d5c9f804c88b",
    "byte": 1713916,
    "impronta": "file",
-   "sha256_frasi": "9d405ab8169810953928b640b69765ef8750f8911c9728e4c38065d14c679f77",
+   "sha256_frasi": "75bf7a1b0d2107bf89f718f5568db74307f414dc5735d5c686d227c5e90df703",
    "http": 200,
    "letto_il": "2026-11-14",
    "frasi": {
@@ -49,7 +49,16 @@
     "addl_solo": "Additional Medicare Tax is only imposed on the employee. There is no employer share of Additional Medicare Tax.",
     "futa": "For 2026, the FUTA tax rate is 6.0%. The tax applies to the first $7,000 you pay to each employee as wages during the year.",
     "futa_credito": "The credit may be as much as 5.4% of FUTA taxable wages. If you’re entitled to the maximum 5.4% credit, the FUTA tax rate after credit is 0.6%.",
-    "futa_condizione": "You’re entitled to the maximum credit if you paid your state unemployment taxes in full, on time, and on all the same wages as are subject to FUTA tax, and as long as the state isn’t determined to be a credit reduction state."
+    "futa_condizione": "You’re entitled to the maximum credit if you paid your state unemployment taxes in full, on time, and on all the same wages as are subject to FUTA tax, and as long as the state isn’t determined to be a credit reduction state.",
+    "ein": "If you don’t have an EIN, you may apply for one online by going to IRS.gov/EIN.",
+    "nuovi_assunti": "You’re required to report any new employee to a designated state new hire registry.",
+    "eft": "You must use EFT to make all federal tax deposits.",
+    "lookback": "If you reported $50,000 or less of taxes for the lookback period, you’re a monthly schedule depositor; if you reported more than $50,000, you’re a semiweekly schedule depositor.",
+    "primo_anno": "Therefore, you’re a monthly schedule depositor for the first calendar year of your business.",
+    "mensile": "Under the monthly deposit schedule, deposit employment taxes on payments made during a month by the 15th day of the following month.",
+    "semisett": "Under the semiweekly deposit schedule, deposit employment taxes for payments made on Wednesday, Thursday, and/or Friday by the following Wednesday. Deposit taxes for payments made on Saturday, Sunday, Monday, and/or Tuesday by the following Friday.",
+    "f941": "Form 941 must be filed by the last day of the month that follows the end of the quarter.",
+    "f940_500": "If your liability for the fourth quarter (plus any undeposited amount from any earlier quarter) is over $500, deposit the entire amount by the due date of Form 940 (January 31)."
    },
    "trovate": {
     "ss": true,
@@ -58,7 +67,16 @@
     "addl_solo": true,
     "futa": true,
     "futa_credito": true,
-    "futa_condizione": true
+    "futa_condizione": true,
+    "ein": true,
+    "nuovi_assunti": true,
+    "eft": true,
+    "lookback": true,
+    "primo_anno": true,
+    "mensile": true,
+    "semisett": true,
+    "f941": true,
+    "f940_500": true
    }
   },
   "irs_fw4": {
@@ -195,18 +213,24 @@
    "sha256": "320a33726f0272044456e223e27984c291549ca69e6a18ca4659d4a34c2cb83d",
    "byte": 95713,
    "impronta": "frasi",
-   "sha256_frasi": "f307dea52b70616926aada00ece610d27e43da2aa213348e12704994367b501d",
+   "sha256_frasi": "79514f7bf8bf73a5eb0411afa20a140d9faff67801bc84c321f969519a0c2810",
    "http": 200,
    "letto_il": "2026-11-14",
    "frasi": {
     "nuovo": "The initial tax rate for new employers is .0270 (2.7%), which is applied to the first $7,000 in wages paid to each employee during a calendar year.",
     "base": "Only the first $7,000 of wages paid to each employee by their employer in a calendar year is taxable.",
-    "chi": "Reemployment tax is paid by employers"
+    "chi": "Reemployment tax is paid by employers",
+    "registro": "The Department recommends that employers register to pay reemployment tax using the online Florida Business Tax Application",
+    "soglia": "At least one quarterly payroll totaling $1,500 or more (including wages for both full and part-time employees) in a calendar year.",
+    "soglia_20": "One or more employees for a day (or portion of a day) during any 20 weeks in a calendar year."
    },
    "trovate": {
     "nuovo": true,
     "base": true,
-    "chi": true
+    "chi": true,
+    "registro": true,
+    "soglia": true,
+    "soglia_20": true
    }
   },
   "ca_rates": {
@@ -321,16 +345,20 @@
    "sha256": "56a00f942c48c51019c3b78d72da1f1cc04969890678c107fe9d0386c5d655be",
    "byte": 570759,
    "impronta": "file",
-   "sha256_frasi": "e86a5611c8fbb90c8eebf24455e75525b3838ca029569643e74ed4d25ed08d8d",
+   "sha256_frasi": "a4a185ae4617ad3ab1487391c229e207b0b2b01bbba41ab3de5f4a9339b8cfea",
    "http": 200,
    "letto_il": "2026-11-14",
    "frasi": {
     "aliquota": "tax year 2026 will be 3.99%. This change is reflected in the tables and computations included in this publication",
-    "ritenuta": "The withholding calculations are based on the individual income tax rate of 3.99% plus 0.1%. This results in a withholding tax rate of 4.09%. Round off the final amount to the nearest whole dollar."
+    "ritenuta": "The withholding calculations are based on the individual income tax rate of 3.99% plus 0.1%. This results in a withholding tax rate of 4.09%. Round off the final amount to the nearest whole dollar.",
+    "registro": "you must file Form NC-BR, Business Registration Application for Income Tax Withholding, Sales and Use Tax, and Other Taxes and Service Charge, with the Department of Revenue to obtain a North Carolina withholding identification number.",
+    "frequenza": "You are required to report and pay the tax withheld on a quarterly, monthly, or semiweekly basis."
    },
    "trovate": {
     "aliquota": true,
-    "ritenuta": true
+    "ritenuta": true,
+    "registro": true,
+    "frequenza": true
    }
   },
   "nc_des": {
@@ -355,6 +383,292 @@
     "minmax": true
    }
   },
+  "tx_ut": {
+   "url": "https://www.twc.texas.gov/programs/unemployment-tax",
+   "file": "dati/grezzi/tx_ut.html",
+   "titolo": "Unemployment Tax",
+   "chi": "Texas Workforce Commission",
+   "sha256": "491acf07a13e66081d2d82250c08893e659204d742f356a2501ffcfeabe7c2a8",
+   "byte": 117568,
+   "impronta": "frasi",
+   "sha256_frasi": "1eaff7dc2f984c975bbf0944ae03a64ff89192f93f4b1cd1a0ea159e432c14ba",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "registro": "Employers must register for a tax account within ten days of becoming a liable employer.",
+    "scadenza": "Quarterly wage reports and taxes are due by the last day of the month following the end of the calendar quarter."
+   },
+   "trovate": {
+    "registro": true,
+    "scadenza": true
+   }
+  },
+  "tx_filing": {
+   "url": "https://www.twc.texas.gov/programs/unemployment-tax/employers-quarterly-wage-report-filing-options",
+   "file": "dati/grezzi/tx_filing.html",
+   "titolo": "Employer’s Quarterly Wage Report Filing Options",
+   "chi": "Texas Workforce Commission",
+   "sha256": "5e371ba87b997d322a5174f4749551bcda2e5a0fc1e973ade7c3002e32c0872c",
+   "byte": 108746,
+   "impronta": "frasi",
+   "sha256_frasi": "6484fef3d6143b778ebb70912012c15190d340587864923d5ec64d41803e4e62",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "elettronico": "require all employers to report Unemployment Insurance (UI) wages and to pay their quarterly UI taxes electronically.",
+    "uts": "The UTS system allows employers with 1,000 or fewer employees to file wage reports via the Internet."
+   },
+   "trovate": {
+    "elettronico": true,
+    "uts": true
+   }
+  },
+  "fl_return": {
+   "url": "https://floridarevenue.com/taxes/taxesfees/Pages/rt_return_pay.aspx",
+   "file": "dati/grezzi/fl_return.html",
+   "titolo": "Reemployment Tax Report and Payment Information",
+   "chi": "Florida Department of Revenue",
+   "sha256": "4bc528b9d57d5ebbce2651100e2b095f69d660747292397c859464b8a66a06c7",
+   "byte": 91142,
+   "impronta": "frasi",
+   "sha256_frasi": "d8d635428fb6781f5f49a5ec0be42967f29b79d490864e5d5b60d03f2d0d57d4",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "trimestre": "Wages must be reported each calendar quarter.",
+    "scadenza": "is due the 1st day of the month following the end of each calendar quarter and is late if not postmarked by the last day of the month."
+   },
+   "trovate": {
+    "trimestre": true,
+    "scadenza": true
+   }
+  },
+  "ca_step1": {
+   "url": "https://edd.ca.gov/en/payroll_taxes/step-1-register-as-an-employer/",
+   "file": "dati/grezzi/ca_step1.html",
+   "titolo": "Step 1: Register as an Employer",
+   "chi": "California Employment Development Department (EDD)",
+   "sha256": "b8bb590f8d8bd150ed7602681b757715f4de0cd8e74576e33a92159757fe74e2",
+   "byte": 198207,
+   "impronta": "frasi",
+   "sha256_frasi": "da3a897c62b938ae37ae3652a2e1a3cb35edd4316aa7cdd5f36aa8d5f655a42e",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "registro": "You must register as an employer within 15 days",
+    "soglia": "Pay more than $100 in wages in a calendar quarter"
+   },
+   "trovate": {
+    "registro": true,
+    "soglia": true
+   }
+  },
+  "ca_step4": {
+   "url": "https://edd.ca.gov/en/payroll_taxes/step-4-report-employees-and-independent-contractors/",
+   "file": "dati/grezzi/ca_step4.html",
+   "titolo": "Step 4: Report Employees and Independent Contractors",
+   "chi": "California Employment Development Department (EDD)",
+   "sha256": "f7e2735272fb5e88cd453ade59c9e1f6670315ee16d2560fa5f3a1471a66fc18",
+   "byte": 198711,
+   "impronta": "frasi",
+   "sha256_frasi": "558d467bef9f9225dc8329281d45084ae199f4cc92c7a3a888a22217ac688c36",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "nuovi": "Report all new hires within 20 days of their first day of work"
+   },
+   "trovate": {
+    "nuovi": true
+   }
+  },
+  "ca_step5": {
+   "url": "https://edd.ca.gov/en/payroll_taxes/step-5-withhold-and-pay-payroll-taxes/",
+   "file": "dati/grezzi/ca_step5.html",
+   "titolo": "Step 5: Withhold and Pay Payroll Taxes",
+   "chi": "California Employment Development Department (EDD)",
+   "sha256": "e4ee333073fd540c52a4f0988b7cb81a104cfe8d67c09b4f83c89e1c99427869",
+   "byte": 198386,
+   "impronta": "frasi",
+   "sha256_frasi": "4762a78f1a9e0fb24316096d43f93e6cf57f3354eccbdd161f8a3dac8153b85f",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "quattro": "Two are paid by employers, and two are withheld from employee wages.",
+    "depositi": "Your SDI and PIT deposit due dates depend on your federal deposit schedule and the amount of PIT you withhold. Your UI and ETT payments are due every quarter."
+   },
+   "trovate": {
+    "quattro": true,
+    "depositi": true
+   }
+  },
+  "ca_step6": {
+   "url": "https://edd.ca.gov/en/payroll_taxes/step-6-file-tax-returns-and-wage-reports/",
+   "file": "dati/grezzi/ca_step6.html",
+   "titolo": "Step 6: File Tax Returns and Wage Reports",
+   "chi": "California Employment Development Department (EDD)",
+   "sha256": "4ad12191df410a539230071a6338c7e9e6f41d61def7c6b313ff512ae04a4c5b",
+   "byte": 198636,
+   "impronta": "frasi",
+   "sha256_frasi": "afeb21c37ccc715d28e830edd668413490033ca83405ffeb88d1e0e202bbeb61",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "de9": "File a Quarterly Contribution Return and Report of Wages (DE 9)",
+    "de9c": "File a Quarterly Contribution Return and Report of Wages (Continuation) (DE 9C)",
+    "date": "These reports are due on: January 1 April 1 July 1 October 1"
+   },
+   "trovate": {
+    "de9": true,
+    "de9c": true,
+    "date": true
+   }
+  },
+  "il_ides_tax": {
+   "url": "https://ides.illinois.gov/employer-resources/taxes-reporting.html",
+   "file": "dati/grezzi/il_ides_tax.html",
+   "titolo": "Unemployment Taxes & Reporting",
+   "chi": "Illinois Department of Employment Security (IDES)",
+   "sha256": "19c4207f76b99d7cfd28b25549a454ab8082a05b190ed7fad0e7ec0738f1070f",
+   "byte": 91917,
+   "impronta": "frasi",
+   "sha256_frasi": "9b431704bf97d6575d4b5305debe3e6068adc489c6374f79559785591fd55d4f",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "soglia": "Paid $1,500 in wages in a single calendar quarter, or employed one or more persons for 20 weeks in a given calendar year",
+    "mytax": "With MyTax Illinois you can file monthly or quarterly UI contribution and wage reports"
+   },
+   "trovate": {
+    "soglia": true,
+    "mytax": true
+   }
+  },
+  "il_idor_reg": {
+   "url": "https://tax.illinois.gov/businesses/registration.html",
+   "file": "dati/grezzi/il_idor_reg.html",
+   "titolo": "Business Registration",
+   "chi": "Illinois Department of Revenue",
+   "sha256": "b63cc9c6e40aceb7054afb09ca9975d703b9110c6c18fc4742e4d882c21706e8",
+   "byte": 73706,
+   "impronta": "frasi",
+   "sha256_frasi": "46b2764add5f50f512bfd8d33e19b46c4d2ee1050295e7217f1f8f5158839346",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "registro": "You must register with the Illinois Department of Revenue (IDOR) if you conduct business in Illinois or with Illinois customers.",
+    "ides": "If necessary, you may also register with the Illinois Department of Employment Security (IDES) using MyTax Illinois."
+   },
+   "trovate": {
+    "registro": true,
+    "ides": true
+   }
+  },
+  "nc_required": {
+   "url": "https://www.des.nc.gov/employers/am-i-required-pay-taxes",
+   "file": "dati/grezzi/nc_required.html",
+   "titolo": "Am I Required to Pay Taxes?",
+   "chi": "North Carolina Division of Employment Security",
+   "sha256": "78f1c197f10542d7de8dd0092c607e74a58fb2d3a8a4978f794c09e3aa519e8b",
+   "byte": 66339,
+   "impronta": "frasi",
+   "sha256_frasi": "be4f1d02df4271bfbf119fd63822762db5369d10737c9ea54644c3eb0ae91a44",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "chi_paga": "Unemployment taxes are not deducted from employees’ wages.",
+    "soglia": "Paid quarterly wages of at least $1,500; OR Employed at least one worker in 20 different weeks during a calendar year.",
+    "numero": "You need an Employer ID Number if you must pay unemployment taxes."
+   },
+   "trovate": {
+    "chi_paga": true,
+    "soglia": true,
+    "numero": true
+   }
+  },
+  "nc_quarterly": {
+   "url": "https://www.des.nc.gov/employers/file-adjust-or-review-quarterly-tax-wage-report",
+   "file": "dati/grezzi/nc_quarterly.html",
+   "titolo": "File, Adjust or Review Quarterly Tax & Wage Report",
+   "chi": "North Carolina Division of Employment Security",
+   "sha256": "1023ffff28867a8263240611e5aff2647f8204c084e0eb52b29a2a10108d9f3a",
+   "byte": 75741,
+   "impronta": "frasi",
+   "sha256_frasi": "0bdfad7da65afcaed16f0f4c4c43fd8506f7b12d2fffe2da9974a8bf840ec3e5",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "trimestre": "Employers must file the Quarterly Report for each quarter, beginning with the quarter in which employment begins for each employee.",
+    "online": "If you have ten or more employee wage items, you must file the report online."
+   },
+   "trovate": {
+    "trimestre": true,
+    "online": true
+   }
+  },
+  "gusto": {
+   "url": "https://market.partnerstack.com/page/gusto",
+   "file": "dati/grezzi/gusto_partnerstack.html",
+   "titolo": "Gusto partner program (PartnerStack directory)",
+   "chi": "PartnerStack",
+   "sha256": "9c38465962586264fc0e1823f860d27e8009c2b2cd4f000ac7280b097ae5c5c5",
+   "byte": 44517,
+   "impronta": "frasi",
+   "sha256_frasi": "83c860a48c4980662adbdeafd0163d8e52f0779ddb34e2a7d83e573c5189e4a4",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "compenso": "Earn $300 for every new customer (who runs payroll) you refer to Gusto.",
+    "prodotti": "Gusto's people platform helps growing businesses onboard, pay, insure, and support their hardworking teams with payroll, benefits, and more."
+   },
+   "trovate": {
+    "compenso": true,
+    "prodotti": true
+   }
+  },
+  "adp": {
+   "url": "https://market.partnerstack.com/page/adp",
+   "file": "dati/grezzi/adp_partnerstack.html",
+   "titolo": "RUN Powered by ADP partner program (PartnerStack directory)",
+   "chi": "PartnerStack",
+   "sha256": "ded299bcf34130c51ee97755cac3f5706add72174a796d00bf9e6ae66468bd57",
+   "byte": 46712,
+   "impronta": "frasi",
+   "sha256_frasi": "267dc6edfdb0bc87b32bb1fc66427b18c022023bba9796a2e357319d69ed422f",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "compenso": "Earn up to $1,000+ for every new U.S. based RUN Powered by ADP® customer who actively runs payroll!",
+    "prodotti": "Our small business expertise and easy-to-use tools simplify payroll and HR, so you can stay focused on the work that matters most.",
+    "pagamento": "Payments are verified and paid out 45 days after we notify you that your commission is earned."
+   },
+   "trovate": {
+    "compenso": true,
+    "prodotti": true,
+    "pagamento": true
+   }
+  },
+  "adp_accordo": {
+   "url": "https://contracts.adp.com/-/media/microsites/contracts/pdf/adp-partnerstack-partner-referral-program-agreement-20250801-v1.pdf",
+   "file": "dati/grezzi/adp_referral_agreement.pdf",
+   "titolo": "ADP Partner Referral Program Agreement",
+   "chi": "ADP, Inc.",
+   "sha256": "057a6689df82e0a8d628633a0ee7ae7ca7e56ca972a5dc1359e30fd2811e3803",
+   "byte": 813156,
+   "impronta": "file",
+   "sha256_frasi": "9dc6774ef5bb7c66ac4c3c420d8d4a28fd5391da823c35e0ec158155a120d2a5",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "frasi": {
+    "compenso": "The Program, as further described below, pays Partner a Referral Fee for each Converted Client.",
+    "conservazione": "during the 45-day period starting on the date a Client commences processing payroll, such Client (i) processes at least 3 payrolls",
+    "marchi": "use the ADP Marks for advertising, publicity, or"
+   },
+   "trovate": {
+    "compenso": true,
+    "conservazione": true,
+    "marchi": true
+   }
+  },
   "patriot": {
    "url": "https://www.patriotsoftware.com/affiliates/",
    "file": "dati/grezzi/patriot_aff.html",
@@ -363,17 +677,19 @@
    "sha256": "9c8c52d27a0b35ffcec1f058d9a58e65eb3b6775d9f8bfb392f58ac4b271971a",
    "byte": 93708,
    "impronta": "frasi",
-   "sha256_frasi": "4a6128957e2dd4ee0e901a40767f92280e90c5be25a7d2ec6614a96adb28be42",
+   "sha256_frasi": "ad7b75df8672cd7d7533786ae7593882ef7afa52c030ea125942346763018df6",
    "http": 200,
    "letto_il": "2026-11-14",
    "frasi": {
     "compenso": "You receive $150 per new customer.",
     "impact": "Apply Now With Impact",
+    "pubblico": "Do you have an audience of USA–based business owners?",
     "prodotti": "Patriot offers two payroll software products— Basic Payroll and Full Service Payroll . Run unlimited payrolls and pay employees with ease."
    },
    "trovate": {
     "compenso": true,
     "impact": true,
+    "pubblico": true,
     "prodotti": true
    }
   }

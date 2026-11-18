@@ -47,6 +47,15 @@ FONTI = [
          "futa": "For 2026, the FUTA tax rate is 6.0%. The tax applies to the first $7,000 you pay to each employee as wages during the year.",
          "futa_credito": "The credit may be as much as 5.4% of FUTA taxable wages. If you’re entitled to the maximum 5.4% credit, the FUTA tax rate after credit is 0.6%.",
          "futa_condizione": "You’re entitled to the maximum credit if you paid your state unemployment taxes in full, on time, and on all the same wages as are subject to FUTA tax, and as long as the state isn’t determined to be a credit reduction state.",
+         "ein": "If you don’t have an EIN, you may apply for one online by going to IRS.gov/EIN.",
+         "nuovi_assunti": "You’re required to report any new employee to a designated state new hire registry.",
+         "eft": "You must use EFT to make all federal tax deposits.",
+         "lookback": "If you reported $50,000 or less of taxes for the lookback period, you’re a monthly schedule depositor; if you reported more than $50,000, you’re a semiweekly schedule depositor.",
+         "primo_anno": "Therefore, you’re a monthly schedule depositor for the first calendar year of your business.",
+         "mensile": "Under the monthly deposit schedule, deposit employment taxes on payments made during a month by the 15th day of the following month.",
+         "semisett": "Under the semiweekly deposit schedule, deposit employment taxes for payments made on Wednesday, Thursday, and/or Friday by the following Wednesday. Deposit taxes for payments made on Saturday, Sunday, Monday, and/or Tuesday by the following Friday.",
+         "f941": "Form 941 must be filed by the last day of the month that follows the end of the quarter.",
+         "f940_500": "If your liability for the fourth quarter (plus any undeposited amount from any earlier quarter) is over $500, deposit the entire amount by the due date of Form 940 (January 31).",
      }),
     ("irs_fw4", "irs_fw4.pdf", "https://www.irs.gov/pub/irs-pdf/fw4.pdf",
      "Form W-4 (2026), Employee’s Withholding Certificate", "Internal Revenue Service", {
@@ -86,6 +95,9 @@ FONTI = [
          "nuovo": "The initial tax rate for new employers is .0270 (2.7%), which is applied to the first $7,000 in wages paid to each employee during a calendar year.",
          "base": "Only the first $7,000 of wages paid to each employee by their employer in a calendar year is taxable.",
          "chi": "Reemployment tax is paid by employers",
+         "registro": "The Department recommends that employers register to pay reemployment tax using the online Florida Business Tax Application",
+         "soglia": "At least one quarterly payroll totaling $1,500 or more (including wages for both full and part-time employees) in a calendar year.",
+         "soglia_20": "One or more employees for a day (or portion of a day) during any 20 weeks in a calendar year.",
      }),
     ("ca_rates", "ca_rates.html", "https://edd.ca.gov/en/payroll_taxes/rates_and_withholding/",
      "Contribution Rates, Withholding Schedules, and Meals and Lodging Values", "California Employment Development Department (EDD)", {
@@ -123,6 +135,8 @@ FONTI = [
      "NC-30, 2026 Income Tax Withholding Tables and Instructions for Employers", "North Carolina Department of Revenue", {
          "aliquota": "tax year 2026 will be 3.99%. This change is reflected in the tables and computations included in this publication",
          "ritenuta": "The withholding calculations are based on the individual income tax rate of 3.99% plus 0.1%. This results in a withholding tax rate of 4.09%. Round off the final amount to the nearest whole dollar.",
+         "registro": "you must file Form NC-BR, Business Registration Application for Income Tax Withholding, Sales and Use Tax, and Other Taxes and Service Charge, with the Department of Revenue to obtain a North Carolina withholding identification number.",
+         "frequenza": "You are required to report and pay the tax withheld on a quarterly, monthly, or semiweekly basis.",
      }),
     ("nc_des", "nc_des.html", "https://www.des.nc.gov/employers/tax-rate-information",
      "Tax Rate Information", "North Carolina Division of Employment Security", {
@@ -130,10 +144,86 @@ FONTI = [
          "nuovo": "UI Tax Rate for Beginning Employers 1%",
          "minmax": "your rate could be as low as 0.060% or as high as 5.760%",
      }),
+    # ---- pagine per i datori di lavoro: iscrizione, dichiarazioni e scadenze (lette il 14/11/2026)
+    ("tx_ut", "tx_ut.html", "https://www.twc.texas.gov/programs/unemployment-tax",
+     "Unemployment Tax", "Texas Workforce Commission", {
+         "registro": "Employers must register for a tax account within ten days of becoming a liable employer.",
+         "scadenza": "Quarterly wage reports and taxes are due by the last day of the month following the end of the calendar quarter.",
+     }),
+    ("tx_filing", "tx_filing.html", "https://www.twc.texas.gov/programs/unemployment-tax/employers-quarterly-wage-report-filing-options",
+     "Employer’s Quarterly Wage Report Filing Options", "Texas Workforce Commission", {
+         "elettronico": "require all employers to report Unemployment Insurance (UI) wages and to pay their quarterly UI taxes electronically.",
+         "uts": "The UTS system allows employers with 1,000 or fewer employees to file wage reports via the Internet.",
+     }),
+    ("fl_return", "fl_return.html", "https://floridarevenue.com/taxes/taxesfees/Pages/rt_return_pay.aspx",
+     "Reemployment Tax Report and Payment Information", "Florida Department of Revenue", {
+         "trimestre": "Wages must be reported each calendar quarter.",
+         "scadenza": "is due the 1st day of the month following the end of each calendar quarter and is late if not postmarked by the last day of the month.",
+     }),
+    ("ca_step1", "ca_step1.html", "https://edd.ca.gov/en/payroll_taxes/step-1-register-as-an-employer/",
+     "Step 1: Register as an Employer", "California Employment Development Department (EDD)", {
+         "registro": "You must register as an employer within 15 days",
+         "soglia": "Pay more than $100 in wages in a calendar quarter",
+     }),
+    ("ca_step4", "ca_step4.html", "https://edd.ca.gov/en/payroll_taxes/step-4-report-employees-and-independent-contractors/",
+     "Step 4: Report Employees and Independent Contractors", "California Employment Development Department (EDD)", {
+         "nuovi": "Report all new hires within 20 days of their first day of work",
+     }),
+    ("ca_step5", "ca_step5.html", "https://edd.ca.gov/en/payroll_taxes/step-5-withhold-and-pay-payroll-taxes/",
+     "Step 5: Withhold and Pay Payroll Taxes", "California Employment Development Department (EDD)", {
+         "quattro": "Two are paid by employers, and two are withheld from employee wages.",
+         "depositi": "Your SDI and PIT deposit due dates depend on your federal deposit schedule and the amount of PIT you withhold. Your UI and ETT payments are due every quarter.",
+     }),
+    ("ca_step6", "ca_step6.html", "https://edd.ca.gov/en/payroll_taxes/step-6-file-tax-returns-and-wage-reports/",
+     "Step 6: File Tax Returns and Wage Reports", "California Employment Development Department (EDD)", {
+         "de9": "File a Quarterly Contribution Return and Report of Wages (DE 9)",
+         "de9c": "File a Quarterly Contribution Return and Report of Wages (Continuation) (DE 9C)",
+         "date": "These reports are due on: January 1 April 1 July 1 October 1",
+     }),
+    ("il_ides_tax", "il_ides_tax.html", "https://ides.illinois.gov/employer-resources/taxes-reporting.html",
+     "Unemployment Taxes & Reporting", "Illinois Department of Employment Security (IDES)", {
+         "soglia": "Paid $1,500 in wages in a single calendar quarter, or employed one or more persons for 20 weeks in a given calendar year",
+         "mytax": "With MyTax Illinois you can file monthly or quarterly UI contribution and wage reports",
+     }),
+    ("il_idor_reg", "il_idor_reg.html", "https://tax.illinois.gov/businesses/registration.html",
+     "Business Registration", "Illinois Department of Revenue", {
+         "registro": "You must register with the Illinois Department of Revenue (IDOR) if you conduct business in Illinois or with Illinois customers.",
+         "ides": "If necessary, you may also register with the Illinois Department of Employment Security (IDES) using MyTax Illinois.",
+     }),
+    ("nc_required", "nc_required.html", "https://www.des.nc.gov/employers/am-i-required-pay-taxes",
+     "Am I Required to Pay Taxes?", "North Carolina Division of Employment Security", {
+         "chi_paga": "Unemployment taxes are not deducted from employees’ wages.",
+         "soglia": "Paid quarterly wages of at least $1,500; OR Employed at least one worker in 20 different weeks during a calendar year.",
+         "numero": "You need an Employer ID Number if you must pay unemployment taxes.",
+     }),
+    ("nc_quarterly", "nc_quarterly.html", "https://www.des.nc.gov/employers/file-adjust-or-review-quarterly-tax-wage-report",
+     "File, Adjust or Review Quarterly Tax & Wage Report", "North Carolina Division of Employment Security", {
+         "trimestre": "Employers must file the Quarterly Report for each quarter, beginning with the quarter in which employment begins for each employee.",
+         "online": "If you have ten or more employee wage items, you must file the report online.",
+     }),
+    # ---- programmi di affiliazione (non sono fonti ufficiali: servono solo al riquadro dei partner e a NOTE.md)
+    ("gusto", "gusto_partnerstack.html", "https://market.partnerstack.com/page/gusto",
+     "Gusto partner program (PartnerStack directory)", "PartnerStack", {
+         "compenso": "Earn $300 for every new customer (who runs payroll) you refer to Gusto.",
+         "prodotti": "Gusto's people platform helps growing businesses onboard, pay, insure, and support their hardworking teams with payroll, benefits, and more.",
+     }),
+    ("adp", "adp_partnerstack.html", "https://market.partnerstack.com/page/adp",
+     "RUN Powered by ADP partner program (PartnerStack directory)", "PartnerStack", {
+         "compenso": "Earn up to $1,000+ for every new U.S. based RUN Powered by ADP® customer who actively runs payroll!",
+         "prodotti": "Our small business expertise and easy-to-use tools simplify payroll and HR, so you can stay focused on the work that matters most.",
+         "pagamento": "Payments are verified and paid out 45 days after we notify you that your commission is earned.",
+     }),
+    ("adp_accordo", "adp_referral_agreement.pdf", "https://contracts.adp.com/-/media/microsites/contracts/pdf/adp-partnerstack-partner-referral-program-agreement-20250801-v1.pdf",
+     "ADP Partner Referral Program Agreement", "ADP, Inc.", {
+         "compenso": "The Program, as further described below, pays Partner a Referral Fee for each Converted Client.",
+         "conservazione": "during the 45-day period starting on the date a Client commences processing payroll, such Client (i) processes at least 3 payrolls",
+         "marchi": "use the ADP Marks for advertising, publicity, or",
+     }),
     ("patriot", "patriot_aff.html", "https://www.patriotsoftware.com/affiliates/",
      "Patriot Software affiliate program", "Patriot Software", {
          "compenso": "You receive $150 per new customer.",
          "impact": "Apply Now With Impact",
+         "pubblico": "Do you have an audience of USA–based business owners?",
          "prodotti": "Patriot offers two payroll software products— Basic Payroll and Full Service Payroll . Run unlimited payrolls and pay employees with ease.",
      }),
 ]
@@ -462,6 +552,13 @@ def main():
             dest.replace(prec)
             precedenti.append((prec, dest))
         tmp.replace(dest)
+        if dest.suffix in (".html", ".htm"):
+            # 18/11/2026: alcune pagine statali (Illinois) contengono un token Mapbox pubblico «pk.eyJ…» che la protezione
+            # di GitHub blocca come segreto; nelle copie grezze lo sostituiamo (le frasi citate non lo contengono).
+            b = dest.read_bytes()
+            b2 = re.sub(rb"pk\.eyJ[A-Za-z0-9._-]+", b"pk.REDACTED", b)
+            if b2 != b:
+                dest.write_bytes(b2)
     try:
         reg = regole(testi)
     except SystemExit:
