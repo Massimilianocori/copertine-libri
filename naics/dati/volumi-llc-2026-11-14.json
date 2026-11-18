@@ -1,0 +1,1457 @@
+{
+ "_nota": "Volumi medi mensili di ricerca su Google negli Stati Uniti (Google Ads) letti con api.seodata.dev per le pagine «LLC by State». volume null = la frase non è nel database dello strumento (risposta 404). «simili» = frasi vicine restituite dallo strumento con il loro volume (misurate anch'esse: valgono per titoli e FAQ).",
+ "misurato_il": "2026-11-14",
+ "strumento": "api.seodata.dev, country=us",
+ "ricerche_usate": 93,
+ "frasi": {
+  "texas llc": {
+   "volume": 18100,
+   "cpc_usd": 47.36,
+   "dato_del": "2026-10-08",
+   "simili": {
+    "llc en texas": 18100,
+    "llc in texas": 18100,
+    "llc texas": 18100,
+    "how to form an llc in texas": 12100,
+    "how to open an llc in texas": 12100,
+    "how to create an llc in texas": 9900,
+    "how to register an llc in texas": 9900,
+    "how to start an llc in texas": 9900,
+    "how to start an llc texas": 9900,
+    "texas secretary of state llc formation": 8100
+   }
+  },
+  "how to start an llc in texas": {
+   "volume": 12100,
+   "cpc_usd": 23.59,
+   "dato_del": "2026-06-18",
+   "simili": {
+    "llc en texas": 18100,
+    "llc in texas": 18100,
+    "llc texas": 18100,
+    "texas llc": 18100,
+    "how to form an llc in texas": 12100,
+    "how to open an llc in texas": 12100,
+    "how to create an llc in texas": 9900,
+    "how to register an llc in texas": 9900,
+    "how to start an llc texas": 9900,
+    "texas llc formation": 6600
+   }
+  },
+  "texas llc cost": {
+   "volume": 2900,
+   "cpc_usd": 17.57,
+   "dato_del": "2026-10-13",
+   "simili": {
+    "llc in texas cost": 3600,
+    "llc cost in texas": 2900,
+    "llc cost texas": 2900,
+    "llc texas cost": 2900,
+    "how much is an llc in texas": 1000,
+    "how much does it cost for an llc in texas": 50,
+    "cost to form llc in texas": 2900,
+    "texas llc formation fees": 1900,
+    "texas llc formation cost": 480,
+    "llc price in texas": 90
+   }
+  },
+  "how much does an llc cost in texas": {
+   "volume": 480,
+   "cpc_usd": 10.54,
+   "dato_del": "2026-11-14",
+   "simili": {
+    "llc cost in texas": 2900,
+    "llc cost texas": 2900,
+    "llc texas cost": 2900,
+    "how much is an llc in texas": 1000,
+    "llc in texas cost": 3600,
+    "how much llc cost in texas": 40,
+    "texas llc fees annual": 320,
+    "how much to get llc in texas": 40,
+    "how much does it cost to get llc in texas": 30,
+    "llc registration texas cost": 30
+   }
+  },
+  "texas llc filing fee": {
+   "volume": 1900,
+   "cpc_usd": 21.73,
+   "dato_del": "2026-10-13",
+   "simili": {
+    "llc in texas cost": 3600,
+    "llc cost in texas": 2900,
+    "llc cost texas": 2900,
+    "llc texas cost": 2900,
+    "how much is an llc in texas": 1000,
+    "texas llc state filing fee": 1900,
+    "llc fees in texas": 480,
+    "texas llc fees annual": 320,
+    "texas llc annual fees": 320,
+    "texas llc annual fee": 260
+   }
+  },
+  "texas registered agent": {
+   "volume": 9900,
+   "cpc_usd": 20.13,
+   "dato_del": "2026-09-17",
+   "simili": {
+    "registered agent texas": 9900,
+    "registered agent in texas": 8100,
+    "texas registered agents": 8100,
+    "texan registered agent": 1600,
+    "texan registered agent llc": 1600,
+    "texas llc registered agent": 1600,
+    "texas registered agent llc": 1600,
+    "texas registered agent address": 50,
+    "texas registered agent service": 1000,
+    "what is a registered agent texas": 50
+   }
+  },
+  "texas annual report": {
+   "volume": 880,
+   "cpc_usd": 9.78,
+   "dato_del": "2026-11-14",
+   "simili": {
+    "texas annual report filing": 320,
+    "texas business annual report": 40,
+    "texas annual report llc": 480,
+    "texas llc annual report": 480,
+    "file annual report texas": 320,
+    "file texas annual report": 320,
+    "how to file annual report for llc in texas": 110,
+    "texas annual report for llc": 70,
+    "texas corporate annual report": 30,
+    "texas file annual report": 20
+   }
+  },
+  "texas llc annual fee": {
+   "volume": 260,
+   "cpc_usd": 5.91,
+   "dato_del": "2026-11-14",
+   "simili": {
+    "llc in texas cost": 3600,
+    "llc cost in texas": 2900,
+    "llc cost texas": 2900,
+    "llc texas cost": 2900,
+    "how much is an llc in texas": 1000,
+    "texas llc yearly fees": 260,
+    "texas llc annual fees": 320,
+    "texas llc fees annual": 320,
+    "texas llc renewal fee": 40,
+    "texas llc filing fee": 1900
+   }
+  },
+  "how long does it take to get an llc in texas": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "florida llc": {
+   "volume": 18100,
+   "cpc_usd": 42.33,
+   "dato_del": "2026-09-26",
+   "simili": {
+    "llc company florida": 18100,
+    "llc en florida": 18100,
+    "llc florida": 18100,
+    "llc for florida": 18100,
+    "llc in florida": 18100,
+    "create an llc in florida": 9900,
+    "create llc in florida": 9900,
+    "open llc in florida": 9900,
+    "how to open an llc in florida": 8100,
+    "how to start an llc in florida": 8100
+   }
+  },
+  "how to start an llc in florida": {
+   "volume": 8100,
+   "cpc_usd": 28.89,
+   "dato_del": "2026-09-24",
+   "simili": {
+    "florida llc": 18100,
+    "llc en florida": 18100,
+    "llc florida": 18100,
+    "llc in florida": 18100,
+    "create an llc in florida": 9900,
+    "create llc in florida": 9900,
+    "open an llc in florida": 9900,
+    "open llc in florida": 9900,
+    "how to open an llc in florida": 8100,
+    "how to register an llc in florida": 8100
+   }
+  },
+  "florida llc cost": {
+   "volume": 5400,
+   "cpc_usd": 18.94,
+   "dato_del": "2026-09-26",
+   "simili": {
+    "llc costs florida": 9900,
+    "llc florida cost": 9900,
+    "llc in florida cost": 9900,
+    "how much is an llc in florida": 1300,
+    "florida llc formation cost": 590,
+    "llc fees in florida": 50,
+    "florida state fee for llc": 30,
+    "how much llc cost in florida": 30,
+    "florida llc filing fees": 480,
+    "how much does an llc cost in florida": 320
+   }
+  },
+  "how much does an llc cost in florida": {
+   "volume": 320,
+   "cpc_usd": 9.01,
+   "dato_del": "2026-09-27",
+   "simili": {
+    "llc costs florida": 9900,
+    "llc florida cost": 9900,
+    "llc in florida cost": 9900,
+    "florida llc cost": 5400,
+    "how much is an llc in florida": 1300,
+    "florida llc formation cost": 590,
+    "how much does a llc cost in florida": 90,
+    "llc fees in florida": 50,
+    "florida llc filing cost": 30,
+    "how much llc cost in florida": 30
+   }
+  },
+  "florida llc filing fee": {
+   "volume": 320,
+   "cpc_usd": 12.86,
+   "dato_del": "2026-11-14",
+   "simili": {
+    "llc costs florida": 9900,
+    "llc florida cost": 9900,
+    "llc in florida cost": 9900,
+    "florida llc cost": 5400,
+    "how much is an llc in florida": 1300,
+    "florida llc fee": 9900,
+    "florida llc fees": 9900,
+    "state of florida llc filing fees": 320,
+    "florida llc yearly fees": 30,
+    "florida llc costs": 9900
+   }
+  },
+  "florida registered agent": {
+   "volume": 9900,
+   "cpc_usd": 32.19,
+   "dato_del": "2026-09-23",
+   "simili": {
+    "registered agent florida": 9900,
+    "fl registered agent": 9900,
+    "registered agent in florida": 9900,
+    "florida registered agent service": 1000,
+    "registered agent services florida": 1000,
+    "florida registered agent llc": 880,
+    "florida registered agent services": 480,
+    "resident agent florida": 9900,
+    "registered agent fl": 50,
+    "how to get a registered agent in florida": 30
+   }
+  },
+  "florida annual report": {
+   "volume": 6600,
+   "cpc_usd": 5.64,
+   "dato_del": "2026-10-09",
+   "simili": {
+    "annual report sunbiz": 12100,
+    "sunbiz annual report": 12100,
+    "annual report florida": 6600,
+    "file annual report florida": 5400,
+    "file annual report sunbiz": 3600,
+    "annual report florida llc": 1900,
+    "annual report llc florida": 1900,
+    "florida llc annual report": 1900,
+    "llc annual report florida": 1900,
+    "llc florida annual report": 1900
+   }
+  },
+  "florida llc annual fee": {
+   "volume": 320,
+   "cpc_usd": 7.54,
+   "dato_del": "2026-11-14",
+   "simili": {
+    "llc florida cost": 9900,
+    "llc in florida cost": 9900,
+    "florida llc cost": 5400,
+    "llc costs florida": 9900,
+    "how much is an llc in florida": 1300,
+    "llc annual fee florida": 320,
+    "florida llc renewal fee": 90,
+    "florida llc registration fee": 70,
+    "llc renewal fee florida": 30,
+    "florida llc filing fees": 480
+   }
+  },
+  "how long does it take to get an llc in florida": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "california llc": {
+   "volume": 12100,
+   "cpc_usd": 43.96,
+   "dato_del": "2026-10-08",
+   "simili": {
+    "llc california": 12100,
+    "llc in california": 12100,
+    "how to create an llc in california": 8100,
+    "how to get an llc in california": 8100,
+    "how to open an llc in california": 8100,
+    "how to start an llc in california": 8100,
+    "open llc in california": 6600,
+    "california llc registration": 3600,
+    "llc registration california": 3600,
+    "register an llc in california": 2900
+   }
+  },
+  "how to start an llc in california": {
+   "volume": 8100,
+   "cpc_usd": 33.02,
+   "dato_del": "2026-10-13",
+   "simili": {
+    "california llc": 12100,
+    "llc california": 12100,
+    "llc in california": 12100,
+    "how to create an llc california": 8100,
+    "how to create an llc in california": 8100,
+    "how to form an llc in california": 8100,
+    "how to get an llc in california": 8100,
+    "how to open an llc in california": 8100,
+    "how to set up an llc california": 8100,
+    "how to start an llc california": 8100
+   }
+  },
+  "california llc cost": {
+   "volume": 2400,
+   "cpc_usd": 17.44,
+   "dato_del": "2026-10-13",
+   "simili": {
+    "california llc fee": 2900,
+    "llc fee california": 2900,
+    "llc california cost": 2400,
+    "llc cost california": 2400,
+    "llc in california cost": 2400,
+    "llc california": 12100,
+    "california llc costs": 2400,
+    "california llc": 12100,
+    "llc in california": 12100,
+    "california llc tax": 1300
+   }
+  },
+  "how much does an llc cost in california": {
+   "volume": 390,
+   "cpc_usd": 15.44,
+   "dato_del": "2026-11-14",
+   "simili": {
+    "california llc cost": 2400,
+    "llc california cost": 2400,
+    "llc cost california": 2400,
+    "llc in california cost": 2400,
+    "cost to start llc in california": 260,
+    "what is the cost of an llc in california": 30,
+    "cost of llc in california": 2400,
+    "how much does it cost to start llc in california": 590,
+    "how much does llc cost in california": 390,
+    "cost to start an llc in california": 260
+   }
+  },
+  "california llc filing fee": {
+   "volume": 480,
+   "cpc_usd": 22.44,
+   "dato_del": "2026-11-14",
+   "simili": {
+    "california llc cost": 2400,
+    "llc california cost": 2400,
+    "llc in california cost": 2400,
+    "california llc fee": 2900,
+    "llc fee california": 2900,
+    "llc cost california": 2400,
+    "llc california fee": 2900,
+    "llc registration fee california": 480,
+    "california state fees for llc": 90,
+    "california llc state filing fees": 50
+   }
+  },
+  "california registered agent": {
+   "volume": 3600,
+   "cpc_usd": 28.78,
+   "dato_del": "2026-09-17",
+   "simili": {
+    "california registered agent inc": 3600,
+    "california registered agents": 390,
+    "registered agents ca": 40,
+    "california registered agent service": 480,
+    "california registered agent services": 480,
+    "ca registered agent": 3600,
+    "registered agent california": 3600,
+    "california llc registered agent": 480,
+    "california registered corporate agent": 110,
+    "registered agent services california": 590
+   }
+  },
+  "california annual report": {
+   "volume": 590,
+   "cpc_usd": 10.51,
+   "dato_del": "2026-11-14",
+   "simili": {
+    "ca annual report": 170,
+    "annual report california": 590,
+    "file california annual report": 210,
+    "ca annual report filing": 50,
+    "california annual report compliance filing": 40,
+    "california business annual report": 30,
+    "california corporation annual report": 30,
+    "file annual report california": 170,
+    "ca llc annual report": 30,
+    "california annual report filing": 210
+   }
+  },
+  "california llc annual fee": {
+   "volume": 720,
+   "cpc_usd": 9.61,
+   "dato_del": "2026-10-13",
+   "simili": {
+    "california llc fee": 2900,
+    "llc fee california": 2900,
+    "llc california cost": 2400,
+    "california annual fee for llc": 720,
+    "california annual llc fee": 720,
+    "california llc annual fees": 720,
+    "llc annual fees california": 720,
+    "california llc cost": 2400,
+    "california llc tax": 1300,
+    "llc california annual fee": 720
+   }
+  },
+  "how long does it take to get an llc in california": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "new york llc": {
+   "volume": 5400,
+   "cpc_usd": 22.12,
+   "dato_del": "2026-10-08",
+   "simili": {
+    "llc new york state": 5400,
+    "llc new york": 4400,
+    "how to create an llc new york": 2900,
+    "how to form an llc new york": 2900,
+    "how to get an llc new york": 2900,
+    "how to start an llc new york": 2900,
+    "create llc new york": 2400,
+    "file llc new york": 1900,
+    "file llc ny": 1900,
+    "register llc new york": 1900
+   }
+  },
+  "how to start an llc in new york": {
+   "volume": 2900,
+   "cpc_usd": 21.97,
+   "dato_del": "2026-11-02",
+   "simili": {
+    "llc new york": 4400,
+    "llc new york state": 4400,
+    "how to get an llc new york": 2900,
+    "create llc new york": 2400,
+    "creating an llc in new york": 2400,
+    "how to create an llc new york": 2400,
+    "how to form an llc new york": 2400,
+    "how to start an llc new york": 2400,
+    "file llc new york": 1900,
+    "register llc new york": 1900
+   }
+  },
+  "new york llc cost": {
+   "volume": 70,
+   "cpc_usd": 21.35,
+   "dato_del": "2026-10-13",
+   "simili": {
+    "llc cost nyc": 590,
+    "llc new york cost": 590,
+    "ny llc cost": 590,
+    "cost to set up llc in new york": 40,
+    "how much for an llc in ny": 30,
+    "cost of llc in ny": 590,
+    "llc nyc cost": 590,
+    "new york llc filing fees": 590,
+    "how much is an llc in ny": 260,
+    "how much does an llc cost in ny": 140
+   }
+  },
+  "how much does an llc cost in new york": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "new york llc filing fee": {
+   "volume": 590,
+   "cpc_usd": 20.94,
+   "dato_del": "2026-11-14",
+   "simili": {
+    "llc annual fee new york": 110,
+    "ny state llc filing fee": 70,
+    "new york llc fee": 210,
+    "ny llc filing fee": 210,
+    "new york llc filing fees": 590,
+    "nys llc filing fee": 590,
+    "new york llc fees": 210,
+    "ny llc fee": 210,
+    "nyc llc fees": 210,
+    "new york llc annual fee": 110
+   }
+  },
+  "new york registered agent": {
+   "volume": 1600,
+   "cpc_usd": 19.79,
+   "dato_del": "2026-10-13",
+   "simili": {
+    "new york registered agent llc": 1600,
+    "nyc registered agent": 1300,
+    "registered agents in new york": 1300,
+    "new york registered agents": 1600,
+    "ny registered agent": 1300,
+    "nys registered agent": 210,
+    "registered agent nyc": 1300,
+    "llc registered agent ny": 90,
+    "ny registered agent llc": 90,
+    "registered agent new york llc": 90
+   }
+  },
+  "new york annual report": {
+   "volume": 390,
+   "cpc_usd": 4.27,
+   "dato_del": "2026-11-14",
+   "simili": {}
+  },
+  "new york llc annual fee": {
+   "volume": 110,
+   "cpc_usd": 12.48,
+   "dato_del": "2026-10-13",
+   "simili": {
+    "new york llc fees": 210,
+    "llc annual fee new york": 110,
+    "new york state llc annual filing fee": 50,
+    "new york llc filing fee": 590,
+    "nys llc filing fee": 590,
+    "nys llc filing fees": 590,
+    "nyc llc fees": 210,
+    "ny state llc filing fee": 70,
+    "ny llc annual fee": 30,
+    "new york llc filing fees": 590
+   }
+  },
+  "how long does it take to get an llc in new york": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "north carolina llc": {
+   "volume": 5400,
+   "cpc_usd": 37.06,
+   "dato_del": "2026-10-08",
+   "simili": {
+    "nc llc": 5400,
+    "llc north carolina": 6600,
+    "starting an llc in nc": 2900,
+    "create llc in nc": 2900,
+    "north carolina llc application": 1300,
+    "llc nc": 6600,
+    "how to create an llc in nc": 3600,
+    "how to start an llc in north carolina": 3600,
+    "nc llc application": 1300,
+    "start an llc in nc": 2900
+   }
+  },
+  "how to start an llc in north carolina": {
+   "volume": 3600,
+   "cpc_usd": 22.52,
+   "dato_del": "2026-11-14",
+   "simili": {
+    "nc llc": 5400,
+    "how to create an llc in nc": 3600,
+    "how to start an llc in nc": 3600,
+    "create an llc in nc": 2900,
+    "create llc in nc": 2900,
+    "start an llc in nc": 2900,
+    "starting an llc in nc": 2900,
+    "nc llc application": 1300,
+    "north carolina llc application": 1000,
+    "how to set up an llc in north carolina": 210
+   }
+  },
+  "north carolina llc cost": {
+   "volume": 90,
+   "cpc_usd": 19.04,
+   "dato_del": "2026-10-30",
+   "simili": {
+    "cost of llc in nc": 590,
+    "nc llc cost": 590,
+    "how much is an llc in north carolina": 50,
+    "llc in north carolina cost": 590,
+    "how much does an llc cost in nc": 110,
+    "how much does an llc cost in north carolina": 40,
+    "llc cost in north carolina": 30,
+    "llc cost north carolina": 590,
+    "north carolina llc filing fee": 210,
+    "how much is an llc in nc": 170
+   }
+  },
+  "how much does an llc cost in north carolina": {
+   "volume": 40,
+   "cpc_usd": 5.45,
+   "dato_del": "2026-11-14",
+   "simili": {
+    "how much is an llc in north carolina": 50,
+    "north carolina llc cost": 90,
+    "cost of llc in nc": 590,
+    "llc cost north carolina": 590,
+    "nc llc cost": 590,
+    "how much does an llc cost in nc": 110,
+    "north carolina llc fees": 50,
+    "llc cost in north carolina": 30,
+    "llc in north carolina cost": 590,
+    "how much is an llc in nc": 170
+   }
+  },
+  "north carolina llc filing fee": {
+   "volume": 210,
+   "cpc_usd": 18.64,
+   "dato_del": "2026-11-14",
+   "simili": {
+    "nc llc filing fee": 210,
+    "north carolina llc fees": 50,
+    "north carolina llc cost": 90,
+    "nc llc fees": 50,
+    "nc llc annual fees": 30,
+    "cost of llc in nc": 590,
+    "nc llc cost": 590,
+    "north carolina llc annual fees": 70,
+    "how much is an llc in nc": 170,
+    "how much is a llc in nc": 110
+   }
+  },
+  "north carolina registered agent": {
+   "volume": 2400,
+   "cpc_usd": 27.54,
+   "dato_del": "2026-11-06",
+   "simili": {
+    "registered agent in nc": 2400,
+    "north carolina registered agent service": 210,
+    "north carolina registered agent services": 210,
+    "registered agent services north carolina": 170,
+    "registered agent for llc in nc": 90,
+    "nc registered agent llc": 40,
+    "nc registered agent": 2400,
+    "registered agent services nc": 210,
+    "north carolina llc registered agent": 50,
+    "registered agent charlotte nc": 30
+   }
+  },
+  "north carolina annual report": {
+   "volume": 1600,
+   "cpc_usd": 8.86,
+   "dato_del": "2026-11-14",
+   "simili": {
+    "annual report north carolina": 1300,
+    "nc annual report": 1300,
+    "nc secretary of state annual report": 1300,
+    "nc llc annual report": 1000,
+    "nc annual report llc": 1300,
+    "file annual report nc": 720,
+    "nc annual report filing": 720,
+    "business annual report nc": 40,
+    "nc file annual report": 70,
+    "business corporation annual report north carolina": 50
+   }
+  },
+  "north carolina llc annual fee": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "how long does it take to get an llc in north carolina": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "michigan llc": {
+   "volume": 6600,
+   "cpc_usd": 36.86,
+   "dato_del": "2026-06-22",
+   "simili": {
+    "llc in michigan": 6600,
+    "llc michigan": 6600,
+    "how to start an llc michigan": 4400,
+    "how to create an llc in michigan": 3600,
+    "how to form an llc michigan": 3600,
+    "how to start an llc in michigan": 3600,
+    "create an llc in michigan": 2900,
+    "create llc michigan": 2900,
+    "start an llc in michigan": 2900,
+    "register llc michigan": 2400
+   }
+  },
+  "how to start an llc in michigan": {
+   "volume": 3600,
+   "cpc_usd": 21.98,
+   "dato_del": "2026-06-21",
+   "simili": {
+    "llc in michigan": 6600,
+    "llc michigan": 6600,
+    "michigan llc": 6600,
+    "how to start an llc michigan": 4400,
+    "how to create an llc in michigan": 3600,
+    "how to form an llc michigan": 3600,
+    "create an llc in michigan": 2900,
+    "create llc michigan": 2900,
+    "start an llc in michigan": 2900,
+    "register llc michigan": 2400
+   }
+  },
+  "michigan llc cost": {
+   "volume": 590,
+   "cpc_usd": 19.27,
+   "dato_del": "2026-11-06",
+   "simili": {
+    "michigan llc fees": 70,
+    "llc filing fee michigan": 110,
+    "michigan llc fee": 70,
+    "llc in michigan cost": 590,
+    "how much is an llc in michigan": 170,
+    "how much is llc in michigan": 40,
+    "michigan llc state filing fee": 20,
+    "how to start an llc in michigan": 3600,
+    "how much to start an llc in michigan": 50,
+    "how much for llc in michigan": 20
+   }
+  },
+  "how much does an llc cost in michigan": {
+   "volume": 110,
+   "cpc_usd": 6.17,
+   "dato_del": "2026-11-14",
+   "simili": {
+    "how to start an llc in michigan": 3600,
+    "llc in michigan cost": 590,
+    "llc filing fee michigan": 110,
+    "michigan llc fees": 70,
+    "how much is an llc in michigan": 170,
+    "michigan llc fee": 70,
+    "how much to start an llc in michigan": 50,
+    "cost to start an llc in michigan": 40,
+    "how much for llc in michigan": 20,
+    "llc michigan": 6600
+   }
+  },
+  "michigan llc filing fee": {
+   "volume": 70,
+   "cpc_usd": 31.9,
+   "dato_del": "2026-11-14",
+   "simili": {
+    "llc fees michigan": 90,
+    "cost for llc in michigan": 590,
+    "cost of llc in michigan": 590,
+    "llc cost in michigan": 590,
+    "how much for an llc in michigan": 30,
+    "llc cost michigan": 590,
+    "llc in michigan cost": 590,
+    "llc michigan cost": 590,
+    "cost to start an llc in michigan": 40,
+    "how much is llc in michigan": 40
+   }
+  },
+  "michigan registered agent": {
+   "volume": 1600,
+   "cpc_usd": 26.19,
+   "dato_del": "2026-11-06",
+   "simili": {
+    "registered agent michigan": 1600,
+    "michigan registered agent services": 170,
+    "michigan resident agent": 70,
+    "resident agent michigan": 90,
+    "michigan registered agent llc": 50,
+    "llc registered agent michigan": 140,
+    "registered agent services michigan": 140,
+    "registered agent service michigan": 40,
+    "state of michigan registered agent": 1300,
+    "michigan llc registered agent": 140
+   }
+  },
+  "michigan annual report": {
+   "volume": 590,
+   "cpc_usd": 4.15,
+   "dato_del": "2026-11-14",
+   "simili": {
+    "annual report michigan": 590,
+    "michigan annual statement": 140,
+    "mi annual report": 90,
+    "michigan annual report filing": 390,
+    "michigan annual report form": 40,
+    "llc annual report michigan": 320,
+    "annual statement llc michigan": 90,
+    "how to file annual report for llc in michigan": 70,
+    "michigan corporation annual report": 70,
+    "michigan llc annual statement form": 50
+   }
+  },
+  "michigan llc annual fee": {
+   "volume": 70,
+   "cpc_usd": 3.78,
+   "dato_del": "2026-11-14",
+   "simili": {
+    "michigan llc renewal fee": 110,
+    "pay llc annual fee michigan": 40,
+    "michigan llc annual fees": 70,
+    "michigan llc fee": 70,
+    "how do i pay my annual llc fees in michigan": 40,
+    "llc in michigan cost": 590,
+    "michigan llc annual report": 320,
+    "llc filing fee michigan": 110,
+    "michigan llc annual report online filing": 70,
+    "michigan llc fees": 70
+   }
+  },
+  "how long does it take to get an llc in michigan": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "colorado llc": {
+   "volume": 2400,
+   "cpc_usd": 31.25,
+   "dato_del": "2026-10-08",
+   "simili": {
+    "form llc in colorado": 2400,
+    "colorado llc registration": 1900,
+    "create an llc in colorado": 1900,
+    "create llc colorado": 1900,
+    "how to create an llc colorado": 1900,
+    "how to get an llc in colorado": 1900,
+    "how to start an llc colorado": 1900,
+    "how to start an llc in colorado": 1900,
+    "llc colorado": 1900,
+    "llc registration colorado": 1900
+   }
+  },
+  "how to start an llc in colorado": {
+   "volume": 1900,
+   "cpc_usd": 24.54,
+   "dato_del": "2026-11-14",
+   "simili": {
+    "colorado llc": 2400,
+    "form llc in colorado": 2400,
+    "colorado llc registration": 1900,
+    "create an llc in colorado": 1900,
+    "create llc colorado": 1900,
+    "how to create an llc colorado": 1900,
+    "how to get an llc in colorado": 1900,
+    "how to start an llc colorado": 1900,
+    "llc registration colorado": 1900,
+    "starting an llc in colorado": 1900
+   }
+  },
+  "colorado llc cost": {
+   "volume": 480,
+   "cpc_usd": 21.58,
+   "dato_del": "2026-11-06",
+   "simili": {
+    "how much is a llc in colorado": 30,
+    "how much is an llc in colorado": 110,
+    "colorado llc fees": 90,
+    "llc colorado fees": 90,
+    "cost of llc in colorado": 480,
+    "llc colorado cost": 480,
+    "llc cost in colorado": 480,
+    "colorado llc fee": 90,
+    "llc in colorado fees": 90,
+    "colorado llc formation cost": 90
+   }
+  },
+  "how much does an llc cost in colorado": {
+   "volume": 70,
+   "cpc_usd": 7.19,
+   "dato_del": "2026-11-14",
+   "simili": {
+    "llc cost in colorado": 480,
+    "llc colorado fees": 90,
+    "how much is an llc in colorado": 110,
+    "colorado llc formation cost": 90,
+    "llc in colorado fees": 90,
+    "llc colorado cost": 480,
+    "colorado llc fees and taxes": 140,
+    "colorado llc fees": 90,
+    "how much is a llc in colorado": 30,
+    "llc cost colorado": 480
+   }
+  },
+  "colorado llc filing fee": {
+   "volume": 90,
+   "cpc_usd": 15.55,
+   "dato_del": "2026-11-14",
+   "simili": {
+    "colorado llc fee": 90,
+    "colorado llc fees": 90,
+    "colorado llc annual fee": 70,
+    "llc colorado cost": 480,
+    "colorado llc cost": 480,
+    "llc colorado fees": 90,
+    "llc in colorado fees": 90,
+    "colorado llc annual fees": 70,
+    "how much is a llc in colorado": 30,
+    "llc cost in colorado": 480
+   }
+  },
+  "colorado registered agent": {
+   "volume": 1900,
+   "cpc_usd": 25.99,
+   "dato_del": "2026-11-06",
+   "simili": {
+    "registered agent colorado": 480,
+    "colorado registered agent services": 210,
+    "colorado registered agent llc": 1900,
+    "colorado registered agents": 1900,
+    "registered agent llc colorado": 1600,
+    "registered agent in colorado": 480,
+    "colorado registered agent service": 90,
+    "co registered agent": 320,
+    "registered agents inc colorado": 30,
+    "llc registered agent colorado": 1600
+   }
+  },
+  "colorado annual report": {
+   "volume": 480,
+   "cpc_usd": 10.25,
+   "dato_del": "2026-11-14",
+   "simili": {
+    "colorado annual report llc": 110,
+    "colorado annual report filing": 140,
+    "annual report colorado": 480,
+    "state of colorado annual report": 480,
+    "colorado sos annual report": 260,
+    "colorado periodic report filing": 140,
+    "colorado llc annual report": 110,
+    "colorado periodic report due date": 70,
+    "colorado file periodic report": 210,
+    "file periodic report colorado": 210
+   }
+  },
+  "colorado llc annual fee": {
+   "volume": 70,
+   "cpc_usd": 4.67,
+   "dato_del": "2026-11-14",
+   "simili": {
+    "colorado llc filing fee": 90,
+    "colorado llc fees": 90,
+    "colorado llc annual fees": 70,
+    "colorado llc fee": 90,
+    "colorado llc cost": 480,
+    "llc colorado cost": 480,
+    "llc colorado fees": 90,
+    "how much is a llc in colorado": 30,
+    "llc fees colorado": 30,
+    "colorado llc costs": 480
+   }
+  },
+  "how long does it take to get an llc in colorado": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "arizona llc": {
+   "volume": 5400,
+   "cpc_usd": 47.89,
+   "dato_del": "2026-10-08",
+   "simili": {
+    "llc in arizona": 6600,
+    "llc arizona": 5400,
+    "how to start an llc in arizona": 3600,
+    "how to create an llc arizona": 2900,
+    "how to create an llc in arizona": 2900,
+    "how to open an llc in arizona": 2900,
+    "create llc in arizona": 2400,
+    "arizona llc registration": 1900,
+    "llc az": 5400,
+    "how to start an llc arizona": 2900
+   }
+  },
+  "how to start an llc in arizona": {
+   "volume": 3600,
+   "cpc_usd": 29.41,
+   "dato_del": "2026-11-14",
+   "simili": {
+    "llc in arizona": 6600,
+    "arizona llc": 5400,
+    "how to get an llc arizona": 3600,
+    "how to apply for an llc in arizona": 2900,
+    "how to create an llc arizona": 2900,
+    "how to create an llc in arizona": 2900,
+    "how to make an llc arizona": 2900,
+    "how to open an llc in arizona": 2900,
+    "how to start an llc arizona": 2900,
+    "create llc in arizona": 2400
+   }
+  },
+  "arizona llc cost": {
+   "volume": 720,
+   "cpc_usd": 28.07,
+   "dato_del": "2026-11-06",
+   "simili": {
+    "how much does an llc cost in arizona": 110,
+    "how much is it to get an llc in arizona": 30,
+    "how much is llc in arizona": 30,
+    "llc filing fee arizona": 110,
+    "llc in az cost": 40,
+    "llc in arizona cost": 720,
+    "how much is an llc in arizona": 170,
+    "arizona llc filing fee": 110,
+    "how much to start an llc in arizona": 40,
+    "llc arizona cost": 720
+   }
+  },
+  "how much does an llc cost in arizona": {
+   "volume": 110,
+   "cpc_usd": 11.59,
+   "dato_del": "2026-11-14",
+   "simili": {
+    "arizona llc cost": 720,
+    "llc filing fee arizona": 110,
+    "how much to start an llc in arizona": 40,
+    "how much is it to get an llc in arizona": 30,
+    "arizona llc filing fee": 110,
+    "llc fees arizona": 90,
+    "llc in az cost": 40,
+    "how much is llc in arizona": 30,
+    "how much is an llc in arizona": 170,
+    "how much is it to start an llc in arizona": 20
+   }
+  },
+  "arizona llc filing fee": {
+   "volume": 110,
+   "cpc_usd": 37.56,
+   "dato_del": "2026-11-14",
+   "simili": {
+    "how much does an llc cost in arizona": 110,
+    "llc in az cost": 40,
+    "arizona llc cost": 720,
+    "how much is an llc in arizona": 170,
+    "llc filing fee arizona": 110,
+    "arizona llc annual fees": 90,
+    "llc fees arizona": 90,
+    "arizona llc renewal fee": 40,
+    "how much to start an llc in arizona": 40,
+    "how much is it to get an llc in arizona": 30
+   }
+  },
+  "arizona registered agent": {
+   "volume": 880,
+   "cpc_usd": 29.34,
+   "dato_del": "2026-11-06",
+   "simili": {
+    "az registered agent": 90,
+    "arizona llc registered agent": 70,
+    "arizona registered agent llc": 70,
+    "arizona registered agents": 720,
+    "arizona statutory agent services": 260,
+    "arizona statutory agent service": 110,
+    "arizona registered agent services": 90,
+    "statutory agents in arizona": 1000,
+    "registered agent arizona": 720,
+    "registered agent in arizona": 720
+   }
+  },
+  "arizona annual report": {
+   "volume": 260,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-14",
+   "simili": {
+    "annual report arizona": 260,
+    "arizona annual report filing": 140,
+    "az annual report": 70,
+    "arizona corporation annual report": 40,
+    "arizona corporation commission annual report": 110,
+    "arizona corporation commission annual report form": 40,
+    "file arizona annual report": 40,
+    "az corporation commission annual report": 30,
+    "state of arizona annual report": 260,
+    "file annual report arizona": 140
+   }
+  },
+  "arizona llc annual fee": {
+   "volume": 170,
+   "cpc_usd": 4.21,
+   "dato_del": "2026-11-14",
+   "simili": {
+    "arizona llc fees": 110,
+    "arizona llc annual fees": 90,
+    "how much for an llc in arizona": 20,
+    "az llc cost": 880,
+    "arizona llc cost": 720,
+    "llc in az cost": 40,
+    "az llc filing fees": 30,
+    "how much is it to get an llc in arizona": 30,
+    "how much is llc in arizona": 30,
+    "how much is it to start an llc in arizona": 20
+   }
+  },
+  "how long does it take to get an llc in arizona": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "llc cost by state": {
+   "volume": 320,
+   "cpc_usd": 8.34,
+   "dato_del": "2026-10-13",
+   "simili": {
+    "llc cost": 3600,
+    "llc fees by state": 590,
+    "llc annual fees by state": 480,
+    "how much does an llc cost": 2900,
+    "llc filing fees by state": 1000,
+    "cost of llc by state": 590,
+    "annual llc fees by state": 480,
+    "llc prices by state": 320,
+    "llc formation fees by state": 30,
+    "how much is an llc": 3600
+   }
+  },
+  "llc fees by state": {
+   "volume": 590,
+   "cpc_usd": 12.32,
+   "dato_del": "2026-11-14",
+   "simili": {
+    "llc cost by state": 320,
+    "llc filing fees by state": 1000,
+    "llc annual fees by state": 480,
+    "llc cost": 3600,
+    "llc prices by state": 320,
+    "how much does an llc cost": 2900,
+    "llc state filing fees": 1000,
+    "cost of llc by state": 590,
+    "annual llc fees by state": 480,
+    "llc cost per state": 40
+   }
+  },
+  "llc filing fees by state": {
+   "volume": 1000,
+   "cpc_usd": 18.53,
+   "dato_del": "2026-11-03",
+   "simili": {
+    "llc fees by state": 590,
+    "llc annual fees by state": 480,
+    "llc cost by state": 320,
+    "llc cost per state": 40,
+    "llc cost": 3600,
+    "annual llc fees by state": 480,
+    "llc formation fees by state": 30,
+    "llc state filing fees": 1000,
+    "cost of llc by state": 590,
+    "llc annual fee by state": 590
+   }
+  },
+  "llc annual fees by state": {
+   "volume": 480,
+   "cpc_usd": 6.33,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "llc cost by state": 320,
+    "llc fees by state": 590,
+    "annual llc fees by state": 480,
+    "llc filing fees by state": 1000,
+    "llc cost": 3600,
+    "how much does an llc cost": 2900,
+    "cost of llc by state": 590,
+    "llc prices by state": 320,
+    "llc formation fees by state": 30,
+    "llc filing costs by state": 20
+   }
+  },
+  "llc by state": {
+   "volume": 480,
+   "cpc_usd": 18.3,
+   "dato_del": "2026-11-14",
+   "simili": {
+    "llc cost": 3600,
+    "cost of llc by state": 590,
+    "llc comparison by state": 110,
+    "states with free llc": 20,
+    "llc costs": 6600,
+    "cheapest llc": 1600,
+    "llc prices by state": 320,
+    "cheapest llc state fee": 40,
+    "llc cost per state": 40,
+    "llc costs per state": 40
+   }
+  },
+  "naics code for llc": {
+   "volume": 480,
+   "cpc_usd": 28.86,
+   "dato_del": "2026-08-24",
+   "simili": {
+    "naics codes": 90500,
+    "naics number": 6600,
+    "llc naics code": 110,
+    "naics code lookup": 49500,
+    "naics code list": 2900,
+    "what is naics code for llc": 260,
+    "naics code texas": 1300,
+    "what is a naics code for llc": 40,
+    "naics code": 90500,
+    "ga naics codes": 1600
+   }
+  },
+  "do i need a naics code for my llc": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "what is a registered agent": {
+   "volume": 4400,
+   "cpc_usd": 15.78,
+   "dato_del": "2026-11-02",
+   "simili": {
+    "registered agent": 14800,
+    "llc what is a registered agent": 8100,
+    "what is a registered agent for llc": 6600,
+    "what is a registered agent llc": 6600,
+    "what is registered agent for llc": 6600,
+    "registered agent meaning": 1600,
+    "registered agent for llc": 9900,
+    "llc registered agent": 9900,
+    "what is a registered agent for business": 720,
+    "what is a registered agent for": 30
+   }
+  },
+  "texas franchise tax": {
+   "volume": 14800,
+   "cpc_usd": 5.19,
+   "dato_del": "2026-10-09",
+   "simili": {
+    "franchise tax texas": 14800,
+    "what is franchise tax texas": 1300,
+    "texas comptroller franchise tax": 1600,
+    "state of texas franchise tax": 14800,
+    "texas business franchise tax": 30,
+    "texas corporate franchise tax": 30,
+    "texas franchise": 720,
+    "franchise tax account texas": 40,
+    "texas franchise fee": 30,
+    "llc franchise tax texas": 320
+   }
+  },
+  "texas llc franchise tax": {
+   "volume": 390,
+   "cpc_usd": 1.75,
+   "dato_del": "2026-11-14",
+   "simili": {
+    "what is franchise tax texas": 1300,
+    "franchise tax for llc in texas": 390,
+    "franchise tax texas llc": 390,
+    "texas franchise tax": 14800,
+    "franchise taxes texas": 18100,
+    "texas comptroller franchise tax": 1600,
+    "franchise tax texas": 14800,
+    "texas franchise tax due date": 1000,
+    "texas franchise tax for llc": 390,
+    "texas franchise tax llc": 390
+   }
+  },
+  "california llc fee": {
+   "volume": 2900,
+   "cpc_usd": 24.77,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "llc fee california": 2900,
+    "california llc cost": 2400,
+    "california llc tax": 1300,
+    "llc in california cost": 2400,
+    "llc fee schedule california": 1000,
+    "california llc yearly fee": 720,
+    "llc annual fee california": 720,
+    "what is llc fee in california": 30,
+    "limited liability company fee california": 2900,
+    "llc fee ca": 2900
+   }
+  },
+  "california llc tax": {
+   "volume": 1600,
+   "cpc_usd": 13.85,
+   "dato_del": "2026-11-14",
+   "simili": {
+    "california llc fee": 2900,
+    "llc fee california": 2900,
+    "llc ca tax": 1300,
+    "llc taxation in california": 1300,
+    "franchise tax llc california": 320,
+    "llc franchise tax california": 320,
+    "llc taxation california": 1600,
+    "california llc cost": 2400,
+    "california franchise tax llc": 320,
+    "california llc franchise tax": 320
+   }
+  },
+  "california statement of information": {
+   "volume": 5400,
+   "cpc_usd": 10.06,
+   "dato_del": "2026-06-22",
+   "simili": {
+    "statement of information california": 9900,
+    "statement of information": 5400,
+    "ca secretary of state statement of information": 4400,
+    "california secretary of state statement of information": 4400,
+    "secretary of state california statement of information": 4400,
+    "secretary of state statement of information": 4400,
+    "state of california statement of information": 4400,
+    "statement of information ca": 4400,
+    "statement of information california secretary of state": 4400,
+    "statement of information filing": 1000
+   }
+  },
+  "florida llc annual report": {
+   "volume": 1900,
+   "cpc_usd": 10.2,
+   "dato_del": "2026-11-06",
+   "simili": {
+    "annual report sunbiz": 12100,
+    "sunbiz annual report": 12100,
+    "annual report florida": 6600,
+    "florida annual report": 6600,
+    "file annual report florida": 5400,
+    "sunbiz llc renewal fee": 5400,
+    "file annual report sunbiz": 3600,
+    "annual report llc florida": 1900,
+    "llc annual report florida": 1900,
+    "llc florida annual report": 1900
+   }
+  },
+  "new york llc publication requirement": {
+   "volume": 720,
+   "cpc_usd": 17.94,
+   "dato_del": "2026-06-06",
+   "simili": {
+    "publication requirement for llc in new york": 880,
+    "nys llc publication requirement": 170,
+    "ny publishing requirements llc": 20,
+    "publication requirements llc new york": 880,
+    "new york publication requirement llc": 720,
+    "nys publication requirement llc": 70,
+    "publish llc in newspaper nyc": 20,
+    "nyc llc publication requirement": 880,
+    "nys llc publication requirements": 170,
+    "new york publication requirement": 50
+   }
+  },
+  "new york biennial statement": {
+   "volume": 2400,
+   "cpc_usd": 8.69,
+   "dato_del": "2026-10-09",
+   "simili": {
+    "nys biennial statement": 2400,
+    "new york state biennial statement": 2400,
+    "nys department of state biennial statement": 140,
+    "what is a biennial statement": 320,
+    "nys dos biennial filing": 110,
+    "ny dos biennial statement": 50,
+    "biennial statement nys": 2400,
+    "what is biennial statement": 320,
+    "how to file biennial statement nys": 70,
+    "how to pay nys biennial statement": 50
+   }
+  },
+  "nc llc annual report": {
+   "volume": 1300,
+   "cpc_usd": 4.69,
+   "dato_del": "2026-11-14",
+   "simili": {
+    "north carolina annual report": 1600,
+    "annual report north carolina": 1300,
+    "nc annual report": 1300,
+    "nc annual report llc": 1300,
+    "nc secretary of state annual report": 1300,
+    "llc annual report north carolina": 1300,
+    "how to file llc annual report north carolina": 40,
+    "north carolina limited liability company annual report": 1300,
+    "file annual report nc": 720,
+    "file annual report north carolina": 720
+   }
+  },
+  "michigan llc annual statement": {
+   "volume": 70,
+   "cpc_usd": 3.7,
+   "dato_del": "2026-11-14",
+   "simili": {
+    "michigan llc annual report": 320,
+    "annual statement llc michigan": 90,
+    "how to file annual report for llc in michigan": 70,
+    "michigan llc annual filing": 30,
+    "llc annual report michigan": 320,
+    "michigan llc annual statement form": 50,
+    "michigan llc annual report filing": 20,
+    "michigan annual report filing": 390,
+    "michigan corporation annual report": 70,
+    "michigan llc annual report online filing": 70
+   }
+  },
+  "colorado periodic report": {
+   "volume": 1300,
+   "cpc_usd": 9.13,
+   "dato_del": "2026-11-14",
+   "simili": {
+    "colorado secretary of state periodic report": 720,
+    "colorado sos periodic report": 90,
+    "periodic report colorado secretary of state": 30,
+    "colorado periodic report filing": 140,
+    "colorado llc periodic report": 110,
+    "co sos periodic report": 40,
+    "file colorado periodic report": 40,
+    "colorado sos annual report": 260,
+    "colorado file periodic report": 210,
+    "file periodic report colorado": 210
+   }
+  },
+  "arizona llc publication requirement": {
+   "volume": 40,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-14",
+   "simili": {
+    "notice of publication llc arizona": 30,
+    "publish llc arizona newspaper": 30,
+    "notice for publication arizona llc": 30,
+    "publish articles of organization arizona": 20,
+    "arizona llc": 5400,
+    "how to start an llc in arizona": 3600,
+    "how to create an llc arizona": 2900,
+    "how to create an llc in arizona": 2900,
+    "create llc in arizona": 2400,
+    "arizona llc registration": 1900
+   }
+  },
+  "arizona statutory agent": {
+   "volume": 880,
+   "cpc_usd": 25.94,
+   "dato_del": "2026-11-14",
+   "simili": {
+    "statutory agent for llc": 8100,
+    "statutory agent az": 30,
+    "statutory agent": 1300,
+    "statutory agent arizona llc": 70,
+    "what is a statutory agent in arizona": 140,
+    "arizona llc registered agent": 70,
+    "arizona llc statutory agent": 50,
+    "az statutory agent": 1000,
+    "what is a statutory agent arizona": 140,
+    "what is statutory agent arizona": 140
+   }
+  }
+ }
+}

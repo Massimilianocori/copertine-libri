@@ -53,6 +53,7 @@ MAX_SOVRAPPOSIZIONE_ATTIVITA = 0.40  # pagine «NAICS code for …» (revisione 
 QUOTA_MODELLO = 0.05  # gruppi di 5 parole presenti in almeno il 5% delle pagine di codice = modello della pagina, esclusi dalla misura
 FRASE_FISSA = "check with the agency or form that asks for the code"
 FILE_VOLUMI_ATTIVITA = "volumi-attivita-2026-11-13.json"  # misura con data: per rifarla, file nuovo con la data e nome qui (e in verifica.py)
+FILE_VOLUMI_LLC = "volumi-llc-2026-11-14.json"  # misura delle frasi «LLC by State» (raccolta/volumi_llc.py); anche in verifica.py
 MIN_VOLUME_ATTIVITA = 100  # pagina «NAICS code for …» solo con almeno 100 ricerche al mese misurate su una delle sue frasi
 QUOTA_MODELLO_ATTIVITA = 0.25  # gruppi di 5 parole presenti in almeno un quarto delle pagine attività = modello della pagina
 SOGLIA_SETTORE_COMPLETO = 40  # nella pagina attività di un settore: ogni codice a 6 cifre se sono al massimo 40, altrimenti 2 esempi per sottosettore
@@ -73,6 +74,10 @@ VOLA = carica(FILE_VOLUMI_ATTIVITA)
 ATT = carica("attivita.json")["attivita"]
 FAQ = carica("faq.json")["faq"]
 RICH = carica("richieste.json")["codici"]
+LLC = carica("llc-stati.json")  # sezione «LLC by State»: fatti e frasi citate dalle pagine ufficiali degli Stati
+LLCF = carica("llc-fonti.json")["fonti"]  # scritto da raccolta/llc.py: HTTP, data di lettura, frasi ritrovate
+VOLL = carica(FILE_VOLUMI_LLC)
+AFF = carica("affiliati.json")["avvio"]  # riquadro dei partner: spento finché "attivo" è false
 C = NA["codici"]
 ORDINE = NA["ordine"]
 SIC = NA["sic"]
@@ -170,6 +175,11 @@ def stato_2017(c):
 
 # ---------------------------------------------------------------- fonti e rimandi
 FONTI_DEF = {fid: {"titolo": f["titolo"], "chi": f["chi"], "url": f["url"], "letto": f["letto_il"]} for fid, f in FJ["file"].items()}
+for _fid, _f in LLCF.items():
+    if _fid in FONTI_DEF:
+        raise SystemExit(f"llc-fonti.json: nome di fonte già usato ({_fid})")
+    FONTI_DEF[_fid] = {"titolo": _f["titolo"], "chi": _f["chi"], "url": _f["url"], "letto": _f["letto_il"]}
+CONTROLLO_LLC = max(date.fromisoformat(x["letto_il"]) for x in LLCF.values())
 
 
 class Rimandi:
@@ -188,15 +198,19 @@ class Rimandi:
             nums.append(self.ordine.index(i) + 1)
         return '<sup class="ref">' + ",".join(f'<a href="#f{n}" aria-label="source {n}">[{n}]</a>' for n in sorted(set(nums))) + "</sup>"
 
-    def elenco(self):
+    def elenco(self, llc=False):
         if not self.ordine:
             return ""
         voci = []
         for n, i in enumerate(self.ordine, 1):
             f = FONTI_DEF[i]
-            voci.append(f'<li id="f{n}"><a href="{h(f["url"])}" rel="noopener">{h(f["titolo"])}</a> · {h(f["chi"])}.</li>')
+            letto = f' Read on {data_lunga(f["letto"])}.' if llc else ""
+            voci.append(f'<li id="f{n}"><a href="{h(f["url"])}" rel="noopener">{h(f["titolo"])}</a> · {h(f["chi"])}.{letto}</li>')
+        coda = ("Official state pages, quoted without changes; each figure on this page is in one of the quoted sentences. "
+                '<a href="/how-we-check/#llc">How we check</a>.' if llc else
+                f'Files read on {data_lunga(CONTROLLO)}. Official texts are reproduced without changes. <a href="/how-we-check/">How we check</a>.')
         return (f'<section class="fonti-box" aria-labelledby="fonti-h"><h2 id="fonti-h">{ico("doc")}Sources</h2><ol>{"".join(voci)}</ol>'
-                f'<p class="small">Files read on {data_lunga(CONTROLLO)}. Official texts are reproduced without changes. <a href="/how-we-check/">How we check</a>.</p></section>')
+                f'<p class="small">{coda}</p></section>')
 
 
 ATTRIBUZIONE = ("Codes, titles, descriptions, index entries and concordances: U.S. Census Bureau, North American Industry Classification "
@@ -227,7 +241,10 @@ URLS = []
 INDICIZZA = {}
 INDICIZZA_ATT = {}  # pagine «NAICS code for …»: stessa regola del testo proprio (misura_attivita)
 _PROVA = None
-MENU = [("#sectors", "Sectors"), ("naics-code-for/", "By activity"), ("naics-2017-to-2022/", "2017 → 2022"), ("sic-to-naics/", "SIC to NAICS"), ("how-we-check/", "How we check")]
+MENU = [("#sectors", "Sectors"), ("naics-code-for/", "By activity"), ("llc/", "LLC by state"), ("naics-2017-to-2022/", "2017 → 2022"), ("sic-to-naics/", "SIC to NAICS"), ("how-we-check/", "How we check")]
+DISCLAIMER_LLC = ("<strong>Information from official state pages, not legal or tax advice.</strong> Fees, forms and deadlines change, and a state "
+                  "can ask for more than what is listed here: confirm each figure on the state page linked next to it before you file. For the NAICS "
+                  f"code, {FRASE_FISSA}. Independent site, not affiliated with the U.S. Census Bureau, any Secretary of State or any other state agency.")
 DISCLAIMER = ("<strong>Information from the official Census Bureau NAICS files, not legal, tax or business advice.</strong> The right code depends "
               f"on the primary activity of your establishment, and each agency assigns codes with its own method: {FRASE_FISSA}. Independent "
               "site, not affiliated with the U.S. Census Bureau, the Office of Management and Budget, the IRS or the SBA.")
@@ -247,7 +264,7 @@ def menu_html(percorso):
     return out
 
 
-def pagina(percorso, titolo, descrizione, corpo, testata="", briciole=None, jsonld=None, indicizza=True, file=None):
+def pagina(percorso, titolo, descrizione, corpo, testata="", briciole=None, jsonld=None, indicizza=True, file=None, disclaimer=None):
     file = file or (percorso + "index.html" if percorso else "index.html")
     if _PROVA is not None:
         _PROVA[percorso] = testata + corpo
@@ -306,7 +323,7 @@ def pagina(percorso, titolo, descrizione, corpo, testata="", briciole=None, json
 {testata}
 <div class="wrap">
 {corpo_tr}
-<p class="disclaimer">{DISCLAIMER}</p>
+<p class="disclaimer">{disclaimer or DISCLAIMER}</p>
 </div>
 </main>
 <footer><div class="wrap">
@@ -317,7 +334,8 @@ activities of the official index, the 2017 codes and the 1987 SIC codes. Indepen
 <p>{ATTRIBUZIONE}</p>
 </div><div>
 <h2>Codes</h2><ul><li><a href="/#search">Search a code</a></li><li><a href="/#sectors">All 20 sectors</a></li>
-<li><a href="/naics-2017-to-2022/">NAICS 2017 to 2022</a></li><li><a href="/sic-to-naics/">SIC to NAICS</a></li></ul>
+<li><a href="/naics-2017-to-2022/">NAICS 2017 to 2022</a></li><li><a href="/sic-to-naics/">SIC to NAICS</a></li>
+<li><a href="/naics-code-for/">NAICS codes by activity</a></li><li><a href="/llc/">LLC filing fees by state</a></li></ul>
 </div><div>
 <h2>The site</h2><ul><li><a href="/how-we-check/">How we check</a></li><li><a href="/how-we-check/#corrections">Report an error</a></li>
 <li><a href="/about/">About</a></li><li><a href="/privacy/">Privacy</a></li></ul>
@@ -520,6 +538,12 @@ def frasi_misurate():
     """{frase: volume} di tutte le frasi con un volume misurato (> 0): frasi chieste allo strumento e frasi simili che ha restituito."""
     out = {f: v["volume"] for f, v in VOL["frasi"].items() if v.get("volume")}
     for f, v in VOLA["frasi"].items():
+        for s, n in (v.get("simili") or {}).items():
+            if n:
+                out.setdefault(s, n)
+        if v.get("volume"):
+            out[f] = v["volume"]
+    for f, v in VOLL["frasi"].items():
         for s, n in (v.get("simili") or {}).items():
             if n:
                 out.setdefault(s, n)
@@ -745,7 +769,7 @@ def pagina_sei(c):
     corpo += blocco_sic(c, rim)
     p5 = v["p"]
     g4 = antenato(c, 4)
-    corpo += blocco_guide(c)
+    corpo += blocco_guide(c) + (blocco_avvio() if GUIDE_DI.get(c) else "")
     corpo += f'<h2 id="hierarchy">Where {c} sits in NAICS</h2><ul class="albero">'
     for l in (2, 3, 4):
         a = antenato(c, l)
@@ -913,6 +937,7 @@ def home():
     utili += [(f"/{a['slug']}/", maiuscola(a["h1"]), accorcia(a["descrizione"], 90))
               for a in sorted(ATTIVITA, key=lambda a: (-volume(a), a["slug"]))[:7]]
     utili.append(("/naics-code-for/", "NAICS codes by business activity", f"All {len(ATTIVITA)} guides, from restaurants and trucking to software."))
+    utili.append(("/llc/", "LLC filing fees by state", f"Filing fee, annual report and registered agent in {len(STATI_LLC)} states, quoted from official state pages."))
     corpo += "".join(f'<li><a href="{u}"><b>{h(t)}</b><span>{h(s)}</span></a></li>' for u, t, s in utili) + "</ul>"
     corpo += f'<h2 id="sectors">The {len(SETTORI)} NAICS sectors</h2><ul class="albero">'
     for s in SETTORI:
@@ -1146,7 +1171,7 @@ def pagina_attivita(a):
                   f"Before using a code on a form, {FRASE_FISSA}.", "info", "alert")
     voci = faq_pagina(a["slug"], rim, extra)
     f_html, f_ld = faq_html(voci)
-    corpo += f_html
+    corpo += f_html + blocco_avvio()
     corpo += ('<p class="small">More activities: <a href="/naics-code-for/">NAICS codes by business activity</a>.</p>' + rim.elenco())
     controlla_codici_attivita(a["slug"], corpo)
     testata = banda("NAICS code by activity", maiuscola(a["h1"]), h(a["descrizione"]), icona="tag")
@@ -1219,6 +1244,220 @@ def indice_attivita():
            corpo, testata, briciole=[("Home", ""), ("By activity", "naics-code-for/")])
 
 
+# ---------------------------------------------------------------- riquadro dei partner e sezione «LLC by State»
+ETICHETTE_LLC = {"filing": "Filing fee", "annual": "Annual report", "tax": "State tax or fee", "extra": "Also required",
+                 "processing": "Processing time", "agent": "Registered agent"}
+ASSENTE_LLC = {"tax": "A separate state tax or fee for LLCs", "processing": "A standard processing time", "annual": "An annual report rule",
+               "agent": "A registered agent rule"}
+
+
+def partner_attivi():
+    """Partner da mostrare: nessuno finché "attivo" è false sul riquadro o sul partner. Con un link segnaposto la generazione si ferma."""
+    if not AFF["attivo"]:
+        return []
+    out = [x for x in AFF["partner"] if x["attivo"]]
+    for x in out:
+        if "DA-INSERIRE" in x["link"] or ".invalid" in x["link"] or not x["link"].startswith("https://"):
+            raise SystemExit(f"affiliati.json: {x['id']} è attivo ma il link di affiliazione non è stato inserito")
+        if not MON.dominio_ammesso(x["link"]):
+            raise SystemExit(f"affiliati.json: il dominio del link di {x['id']} non è in monetizzazione.json (domini_affiliazione)")
+    return out
+
+
+def riquadro_partner():
+    """Riquadro «Starting this business?»: stringa vuota finché dati/affiliati.json non ha "attivo": true e link veri."""
+    attivi = partner_attivi()
+    if not attivi:
+        return ""
+    bottoni = "".join(f'<a class="btn" href="{h(x["link"])}" rel="sponsored nofollow noopener" target="_blank" data-partner-link="{h(x["id"])}">'
+                      f'{h(x["pulsante"])}</a>' for x in attivi)
+    return (f'<aside class="partner" data-partner="avvio"><p class="tag neu">Advertisement · affiliate links</p><h2>{h(AFF["titolo"])}</h2>'
+            f'<p>{h(AFF["testo"])}</p><p class="partner-b">{bottoni}</p><p class="small">{h(AFF["trasparenza"])}</p></aside>')
+
+
+def blocco_avvio():
+    """Nelle pagine delle attività e dei codici che le guide indicano: link alle tariffe statali e, se acceso, riquadro dei partner.
+    Blocco ripreso: non conta come testo proprio della pagina."""
+    nomi = ", ".join(s["nome"] for s in STATI_LLC[:4])
+    return (f'<section data-ripreso><div class="avvio"><h2>Forming an LLC for this business?</h2><p>State filing fee, annual report and registered agent '
+            f'rules, quoted from each state’s official page: <a href="/llc/">LLC filing fees by state</a> ({nomi} and {len(STATI_LLC) - 4} more).</p></div>'
+            f'{riquadro_partner()}</section>')
+
+
+def _cifre(t):
+    """Numeri di un testo, uniformati (1,000 = 1000; 125.00 = 125): servono a controllare che ogni cifra scritta da noi sia in una frase citata."""
+    out = set()
+    for x in re.findall(r"\d[\d,]*(?:\.\d+)?", t):
+        x = x.replace(",", "")
+        if "." in x:
+            x = x.rstrip("0").rstrip(".")
+        out.add(x)
+    return out
+
+
+def volume_llc(s):
+    return max((MISURATE.get(f, 0) for f in s["frasi"]), default=0)
+
+
+def controlla_stato_llc(s):
+    """La generazione si ferma se una frase citata non è stata ritrovata nella pagina ufficiale o se una nostra cifra non è in una frase citata."""
+    citate = set()
+    for f in s["fatti"]:
+        if f["id"] not in ETICHETTE_LLC or not f["citazioni"]:
+            raise SystemExit(f"llc-stati.json, {s['slug']}: fatto {f['id']} sconosciuto o senza frase citata")
+        for c in f["citazioni"]:
+            fonte = LLCF.get(c["fonte"])
+            if not fonte or fonte["http"] != 200:
+                raise SystemExit(f"llc-stati.json, {s['slug']}: fonte {c['fonte']} non letta (lanciare raccolta/llc.py)")
+            if not any(x["testo"] == c["testo"] and x["trovata"] for x in fonte["frasi"]):
+                raise SystemExit(f"llc-stati.json, {s['slug']}: frase non ritrovata nella pagina ufficiale ({c['testo'][:60]}…): lanciare raccolta/llc.py")
+            citate |= _cifre(c["testo"])
+    nostri = [s["intro"]] + [f[k] for f in s["fatti"] for k in ("valore", "breve", "nota")] + [x["a"] for x in s["faq"]]
+    for t in nostri:
+        fuori = _cifre(t) - citate
+        if fuori:
+            raise SystemExit(f"llc-stati.json, {s['slug']}: cifra {sorted(fuori)} non presente in nessuna frase citata («{t[:60]}…»)")
+    for x in s["faq"]:
+        if not MISURATE.get(x["ricerca"]):
+            raise SystemExit(f"llc-stati.json, {s['slug']}: la ricerca «{x['ricerca']}» non ha un volume misurato")
+    if {f["id"] for f in s["fatti"]} < {"filing", "annual", "agent"}:
+        raise SystemExit(f"llc-stati.json, {s['slug']}: mancano tariffa, rapporto annuale o agente")
+
+
+STATI_LLC = [s for s in LLC["stati"] if volume_llc(s) >= MIN_VOLUME_ATTIVITA]
+for _s in STATI_LLC:
+    controlla_stato_llc(_s)
+
+
+def fatto_llc(s, fid):
+    return next((f for f in s["fatti"] if f["id"] == fid), None)
+
+
+def etichetta_llc(f):
+    return f.get("etichetta") or ETICHETTE_LLC[f["id"]]
+
+
+def titolo_llc(s):
+    t = f'{s["nome"]} LLC Cost: Filing Fee, Annual Report, Registered Agent'
+    return t if len(t) <= 65 else f'{s["nome"]} LLC Cost: Filing Fee, Annual Report, Agent'
+
+
+def pagina_llc(s):
+    rim = Rimandi()
+    letto = data_lunga(max(date.fromisoformat(LLCF[c["fonte"]]["letto_il"]) for f in s["fatti"] for c in f["citazioni"]))
+    celle = "".join(f'<div class="fatto"><span>{h(etichetta_llc(f))}</span><b>{h(f["breve"])}</b></div>' for f in s["fatti"])
+    corpo = (f'<div class="card pull fatti llc-f">{celle}</div>'
+             f'<p class="asof">{ico("check")}Read on the official pages of the state on {letto}. Each figure below is followed by the sentence it comes from.</p>'
+             f'<div class="testo"><p>{h(s["intro"])}</p></div>')
+    corpo += f'<h2 id="facts">What {h(s["nome"])} publishes, in its own words</h2>'
+    for f in s["fatti"]:
+        cit = ""
+        for c in f["citazioni"]:
+            fonte = LLCF[c["fonte"]]
+            cit += (f'<blockquote class="legge">{h(c["testo"])}<cite>{h(fonte["chi"])}, <a href="{h(fonte["url"])}" rel="noopener">{h(fonte["titolo"])}</a>, '
+                    f'read on {data_lunga(fonte["letto_il"])}{rim.ref(c["fonte"])}</cite></blockquote>')
+        corpo += (f'<section class="voce llc-v" id="{f["id"]}"><h3><span class="pill">{h(etichetta_llc(f))}</span>{h(f["valore"])}</h3>'
+                  f'<p>{h(f["nota"])}</p>{cit}</section>')
+    assenti = [ASSENTE_LLC[k] for k in ("annual", "tax", "processing", "agent") if not fatto_llc(s, k)]
+    if assenti:
+        corpo += ('<p class="small">Not on the pages we read: ' + "; ".join(x[0].lower() + x[1:] for x in assenti)
+                  + ". That means we did not find it there, not that none applies: ask the state office.</p>")
+    corpo += nota("This page repeats what the state’s official pages say on the date shown. It is information, not legal advice, and it does not "
+                  "cover local licenses, federal filings or your own tax position.", "info", "alert")
+    corpo += ('<h2 id="naics">The NAICS code of the business</h2><div class="testo"><p>A NAICS code describes what the business does, not its legal '
+              'form. The NAICS manual says an establishment is classified in an industry when its primary activity meets the definition for that '
+              f'industry.{rim.ref("manuale")} To find it, use the <a href="/#search">code search</a> or the <a href="/naics-code-for/">guides by '
+              f'business activity</a>; before using a code on a form, {FRASE_FISSA}.</p></div>')
+    voci = [(x["q"], x["a"], "") for x in s["faq"]]
+    f_html, f_ld = faq_html(voci)
+    corpo += f_html
+    corpo += '<h2 id="other-states">Other states</h2><ul class="griglia">'
+    corpo += "".join(f'<li><a href="/llc/{x["slug"]}/"><b>{h(x["nome"])}</b><span>Filing fee <em>{h(fatto_llc(x, "filing")["breve"])}</em></span></a></li>'
+                     for x in STATI_LLC if x is not s)
+    corpo += '</ul><p class="small">All states side by side: <a href="/llc/">LLC filing fees by state</a>.</p>'
+    corpo += riquadro_partner() + rim.elenco(llc=True)
+    fil, ann = fatto_llc(s, "filing"), fatto_llc(s, "annual")
+    descr = (f'{s["nome"]} LLC: filing fee {fil["breve"]}; {etichetta_llc(ann).lower()}: {ann["breve"][0].lower() + ann["breve"][1:]}. '
+             f'Quoted from official state pages, read {letto}.')
+    if len(descr) > 160:
+        descr = f'{s["nome"]} LLC: filing fee {fil["breve"]}, {etichetta_llc(ann).lower()} and registered agent, quoted from official state pages read {letto}.'
+    testata = banda("LLC by state · official state pages", f'{s["nome"]} LLC: filing fee, annual report and registered agent',
+                    f'What the {h(s["ufficio"])} and the other state offices publish, with the official sentence next to each figure.', icona="doc")
+    pagina(f'llc/{s["slug"]}/', titolo_llc(s), descr, corpo, testata,
+           briciole=[("Home", ""), ("LLC by state", "llc/"), (s["nome"], f'llc/{s["slug"]}/')], jsonld=[f_ld] if f_ld else None, disclaimer=DISCLAIMER_LLC)
+
+
+def indice_llc():
+    rim = Rimandi()
+    letto = data_lunga(CONTROLLO_LLC)
+    righe = []
+    for s in STATI_LLC:
+        def cella(fid):
+            f = fatto_llc(s, fid)
+            if not f:
+                return '<span class="small">not on the pages read</span>'
+            et = f'<small>{h(f["etichetta"])}</small>' if f.get("etichetta") else ""
+            return h(f["breve"]) + et
+        altro = fatto_llc(s, "tax") or fatto_llc(s, "extra")
+        righe.append([f'<a href="/llc/{s["slug"]}/"><strong>{h(s["nome"])}</strong></a>', cella("filing"), cella("annual"),
+                      (h(altro["breve"]) if altro else '<span class="small">not on the pages read</span>'), cella("agent")])
+    corpo = ('<div class="card pull"><p style="margin:0"><strong>State fees for forming and keeping an LLC, read on each state’s official pages.</strong> '
+             f'{len(STATI_LLC)} states so far, read on {letto}. Each state page shows the sentence every figure comes from, with the link to the state page. '
+             'Information, not legal advice.</p></div>')
+    corpo += ('<h2 id="states">LLC filing fee and yearly filing, state by state</h2>'
+              + tabella(["State", "Filing fee", "Annual report", "State tax or other requirement", "Registered agent"], righe, resp="resp7",
+                        caption="Fees charged by the state. «Not on the pages read» means we did not find it on the official pages listed on the state page."))
+    corpo += ('<h2 id="not-covered">States not covered</h2><div class="testo"><p>We publish a state only when its official pages can be read and quoted. '
+              f'Georgia and Ohio are not here yet: on {letto} the pages of their Secretary of State did not open from our server, and we do not fill '
+              'the gap with figures from other websites. The other states will follow if these pages prove useful.</p></div>')
+    corpo += ('<h2 id="naics">LLCs and NAICS codes</h2><div class="testo"><p>A NAICS code depends on what the business does, not on its legal '
+              'form. The <a href="/#search">code search</a> and the <a href="/naics-code-for/">guides by business activity</a> give the NAICS code '
+              f'of the activity; before using a code on a form, {FRASE_FISSA}.</p></div>')
+    extra = {"elenco_tariffe": f"On the official state pages read on {letto}: " + "; ".join(f'{s["nome"]} {fatto_llc(s, "filing")["breve"]}' for s in STATI_LLC),
+             "elenco_annuali": f"On the official state pages read on {letto}: "
+                               + "; ".join(f'{s["nome"]}: {fatto_llc(s, "annual")["breve"][0].lower() + fatto_llc(s, "annual")["breve"][1:]}'
+                                           + (f' ({fatto_llc(s, "annual")["etichetta"]})' if fatto_llc(s, "annual").get("etichetta") else "") for s in STATI_LLC)}
+    voci = []
+    for x in LLC["indice"]["faq"]:
+        if not MISURATE.get(x["ricerca"]):
+            raise SystemExit(f"llc-stati.json, indice: la ricerca «{x['ricerca']}» non ha un volume misurato")
+        a = x["a"]
+        for k, v in extra.items():
+            a = a.replace("{" + k + "}", v)
+        voci.append((x["q"], a, ""))
+    voci += faq_pagina("llc", rim)
+    f_html, f_ld = faq_html(voci)
+    corpo += f_html + riquadro_partner()
+    for s in STATI_LLC:
+        for f in s["fatti"]:
+            for c in f["citazioni"]:
+                rim.ref(c["fonte"])
+    corpo += rim.elenco(llc=True)
+    testata = banda("LLC by state · official state pages", "LLC filing fees by state",
+                    f"Filing fee, annual report and registered agent rules in {len(STATI_LLC)} states, each figure quoted from the state’s own page.",
+                    corta=True, icona="doc")
+    pagina("llc/", f"LLC Filing Fees by State: {len(STATI_LLC)} States from Official Pages",
+           f"LLC filing fees, annual report fees and registered agent rules in {len(STATI_LLC)} states, quoted from official state pages read on {letto}. Not legal advice.",
+           corpo, testata, briciole=[("Home", ""), ("LLC by state", "llc/")], jsonld=[f_ld] if f_ld else None, disclaimer=DISCLAIMER_LLC)
+
+
+def blocco_metodo_llc(rim):
+    rr = []
+    for s in STATI_LLC:
+        ids = list(dict.fromkeys(c["fonte"] for f in s["fatti"] for c in f["citazioni"]))
+        for fid in ids:
+            f = LLCF[fid]
+            rr.append([h(s["nome"]), f'<a href="{h(f["url"])}" rel="noopener">{h(f["titolo"])}</a><small>{h(f["chi"])}</small>', data_lunga(f["letto_il"]),
+                       str(len(f["frasi"]))])
+    return ('<h2 id="llc">LLC by state pages</h2><div class="testo"><p>The <a href="/llc/">LLC by state</a> pages use only official state pages: the '
+            'Secretary of State or the office that registers companies, and the state tax office. We save the sentence each figure comes from and '
+            'show it next to the figure; table rows are quoted cell by cell, in the order of the page. Before every build each sentence is looked for '
+            'again in the page we downloaded: if it is gone, the build stops and the fact is read again or removed. A state whose official pages '
+            'cannot be read from our server is left out. State pages exist only for states with at least '
+            f'{MIN_VOLUME_ATTIVITA} measured Google searches a month.</p></div>'
+            + tabella(["State", "Official page", "Read on", "Sentences quoted"], rr, num_=[3], resp="resp7"))
+
+
 # ---------------------------------------------------------------- pagine del sito
 MODULO = """<form name="corrections" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form card" data-correzioni>
 <input type="hidden" name="form-name" value="corrections">
@@ -1265,6 +1504,7 @@ def come_controlliamo(n_idx, n_noidx):
               f'{MIN_VOLUME_ATTIVITA} measured Google searches a month in the United States; they quote only entries of the official index and '
               'official descriptions, and follow a stricter rule of own text: the quoted official texts count as text in common with the code pages, the quoted '
               f'index entries are not counted as text of the page, and less than {int(MAX_SOVRAPPOSIZIONE_ATTIVITA * 100)}% may be in common with the most similar page.</p></div>')
+    corpo += blocco_metodo_llc(rim)
     corpo += ('<h2 id="updates">How often we update</h2><div class="testo"><p>Every month we download the Census files again: if a fingerprint changes we '
               'run all the checks. NAICS is revised every five years; when a new edition is published, the site moves to it.</p></div>')
     corpo += ('<h2 id="corrections">Report an error</h2><p>Found a difference with the official files? Tell us the page and, if you can, the link to the '
@@ -1287,7 +1527,11 @@ def about():
              f'<li>We give no legal, tax or business advice: {FRASE_FISSA}.</li><li>We do not ask readers for personal data: the form to report an error has no name or '
              'email field.</li></ul></div>'
              '<h2>How the site is paid for</h2><div class="testo"><p>The site may show Google AdSense ads on the pages with the most content. Ads never change '
-             'a code or a text, and nobody pays to appear.</p><p>NAICS Code Lookup is part of a small network of free information sites run by the same '
+             'a code or a text, and nobody pays to appear.</p>'
+             + ('<p>Some pages carry a box, marked as advertisement, with affiliate links to companies that file business formation papers: if you '
+                'sign up through one of them we may earn a commission. We have not tested those services, and no code, fee or text on this site '
+                'depends on them.</p>' if partner_attivi() else "") +
+             '<p>NAICS Code Lookup is part of a small network of free information sites run by the same '
              'independent publisher. How we check the data: <a href="/how-we-check/">how we check</a>.</p></div>')
     testata = banda("About", "About NAICS Code Lookup", "An independent site that makes the NAICS classification readable.", corta=True, icona="people")
     pagina("about/", "About | NAICS Code Lookup",
@@ -1296,7 +1540,7 @@ def about():
 
 
 def privacy():
-    cookie = MON.privacy_cookie("en", SITO_ID, False) or ("<h2>Cookies and visit counter</h2><p>To count visits we use GoatCounter, which sets no cookies. "
+    cookie = MON.privacy_cookie("en", SITO_ID, bool(partner_attivi())) or ("<h2>Cookies and visit counter</h2><p>To count visits we use GoatCounter, which sets no cookies. "
                                                          "This site does not use profiling cookies and shows no advertising.</p>")
     cal = MON.frase_california(SITO_ID) or "California residents: we do not sell or share personal information."
     corpo = ('<div class="card pull testo"><p>This page explains what NAICS Code Lookup collects. In short: very little.</p></div>'
@@ -1311,7 +1555,7 @@ def privacy():
              f'<h2>Your rights</h2><p>We hold no personal data about readers. If you put personal details in a correction by mistake, send another message '
              f'through the same form and we will delete it. {cal}</p>'
              f'<h2>Changes</h2><p>We update this page when the site changes. Last update: {data_lunga(CONTROLLO)}.</p></div>')
-    breve = MON.privacy_breve("en", SITO_ID, False) or "What we collect (very little) and how the visit counter works."
+    breve = MON.privacy_breve("en", SITO_ID, bool(partner_attivi())) or "What we collect (very little) and how the visit counter works."
     testata = banda("Privacy", "Privacy", h(breve), corta=True, icona="lock")
     pagina("privacy/", "Privacy | NAICS Code Lookup",
            "Privacy at NAICS Code Lookup: the search runs in your browser, a cookie-free visit counter, and Google AdSense ads only with consent where required.",
@@ -1481,6 +1725,9 @@ def main():
     for a in ATTIVITA:
         pagina_attivita(a)
     indice_attivita()
+    for s in STATI_LLC:
+        pagina_llc(s)
+    indice_llc()
     n_idx = sum(INDICIZZA.values())
     come_controlliamo(n_idx, len(INDICIZZA) - n_idx)
     about()
@@ -1506,7 +1753,8 @@ def main():
           + ", ".join(f"{l}: {per_liv[(l, True)]}/{per_liv[(l, False)]}" for l in (2, 3, 4, 6))
           + f". Pagine attività: {len(ATTIVITA)} ({sum(INDICIZZA_ATT.values())} indicizzate"
           + (f"; noindex: {', '.join(p.rstrip('/') for p, v in INDICIZZA_ATT.items() if not v)}" if not all(INDICIZZA_ATT.values()) else "")
-          + f"). Indice {len(INDICE) // 1024} KB + voci {len(FRASI) // 1024} KB.")
+          + f"). Indice {len(INDICE) // 1024} KB + voci {len(FRASI) // 1024} KB. LLC by State: {len(STATI_LLC)} Stati + indice; "
+          + f"riquadro dei partner: {'ACCESO (' + ', '.join(x['nome'] for x in partner_attivi()) + ')' if partner_attivi() else 'spento'}.")
 
 
 if __name__ == "__main__":

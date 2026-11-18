@@ -136,7 +136,9 @@ footer a{color:var(--on-deep)}footer h2{color:#fff;font-size:1rem;margin:0 0 8px
 .f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:28px}
 footer ul{list-style:none;margin:0;padding:0}footer li{margin-bottom:6px}
 .f-base{margin:24px 0 0;padding-top:16px;border-top:1px solid rgba(255,255,255,.12);font-size:.84rem}
-@media (max-width:900px){nav.menu{display:none}.nav-m{display:block}.f-grid{grid-template-columns:1fr 1fr}.f-grid>div:first-child{grid-column:1/-1}}
+@media (max-width:1000px){nav.menu{display:none}.nav-m{display:block}}
+@media (max-width:340px){header.top .logo{font-size:.96rem;gap:7px}header.top .logo img{width:28px;height:28px}}
+@media (max-width:900px){.f-grid{grid-template-columns:1fr 1fr}.f-grid>div:first-child{grid-column:1/-1}}
 @media (max-width:720px){.cifre{grid-template-columns:1fr 1fr}.cifra:nth-child(2){border-right:0}.cifra:nth-child(-n+2){border-bottom:1px solid var(--line)}
 .calc-g{grid-template-columns:1fr}.calc-in{border-right:0;border-bottom:1px solid var(--line)}}
 @media (max-width:560px){.nascondi-m{display:none}}
@@ -213,6 +215,14 @@ details.tutte ul{margin:6px 0;padding-left:18px;font-size:.9rem}
 .fatto span{display:block;font-size:.78rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-bottom:4px}
 .fatto b{font-family:var(--serif);font-size:1.15rem}
 .cinque{border-left:4px solid var(--accent)}
+.avvio{margin:26px 0 8px;padding:16px 20px;border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:var(--r-s);background:var(--card)}
+.avvio h2{margin:0 0 6px;font-size:1.12rem}.avvio p{margin:0}
+.partner{margin:18px 0 26px;padding:18px 20px;border:1px dashed var(--line-2);border-radius:var(--r);background:var(--mute)}
+.partner h2{margin:8px 0 6px;font-size:1.2rem}.partner p{margin:0 0 10px;max-width:760px}.partner p:last-child{margin:0}
+.partner-b{display:flex;flex-wrap:wrap;gap:10px}
+.llc-f{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}.llc-f .fatto b{font-size:1.02rem;line-height:1.3;display:block}
+.llc-v>h3{display:block;font-size:1.18rem;line-height:1.3}.llc-v>h3 .pill{display:table;margin:0 0 8px}.llc-v>p{margin:6px 0 12px}
+.llc-v blockquote.legge{background:var(--mute);font-size:.98rem;max-width:none;overflow-wrap:anywhere}
 """
 
 ICONE = {

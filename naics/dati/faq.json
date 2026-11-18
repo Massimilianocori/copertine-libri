@@ -1023,6 +1023,15 @@
    "fonti": [
     "indice"
    ]
+  },
+  {
+   "pagina": "llc",
+   "ricerca": "naics code for llc",
+   "q": "Is there a NAICS code for an LLC?",
+   "a": "NAICS classifies establishments by what they do. The NAICS manual says an establishment is classified in an industry when its primary activity meets the definition for that industry. So an LLC looks up the code of its primary activity, not a code for its legal form.",
+   "fonti": [
+    "manuale"
+   ]
   }
  ]
 }

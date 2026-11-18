@@ -29,7 +29,7 @@
 "111110/": {
 "proprie": 77,
 "sovrapposizione": 0.486,
-"piu_simile": "111140/",
+"piu_simile": "111160/",
 "richiesta": "naics code 111110",
 "indicizzata": true
 },
@@ -326,7 +326,7 @@
 "112410/": {
 "proprie": 94,
 "sovrapposizione": 0.274,
-"piu_simile": "112420/",
+"piu_simile": "112112/",
 "indicizzata": false
 },
 "112420/": {
@@ -392,7 +392,7 @@
 "113/": {
 "proprie": 188,
 "sovrapposizione": 0.058,
-"piu_simile": "113210/",
+"piu_simile": "1133/",
 "indicizzata": true
 },
 "1131/": {
@@ -1648,7 +1648,7 @@
 "3159/": {
 "proprie": 21,
 "sovrapposizione": 0.318,
-"piu_simile": "315/",
+"piu_simile": "3152/",
 "indicizzata": false
 },
 "315990/": {
@@ -2110,13 +2110,13 @@
 "325510/": {
 "proprie": 276,
 "sovrapposizione": 0.042,
-"piu_simile": "325130/",
+"piu_simile": "325520/",
 "indicizzata": true
 },
 "325520/": {
 "proprie": 157,
 "sovrapposizione": 0.07,
-"piu_simile": "325510/",
+"piu_simile": "325611/",
 "indicizzata": true
 },
 "3256/": {
@@ -2692,7 +2692,7 @@
 "3324/": {
 "proprie": 69,
 "sovrapposizione": 0.325,
-"piu_simile": "3323/",
+"piu_simile": "332/",
 "indicizzata": false
 },
 "332410/": {
@@ -3166,7 +3166,7 @@
 "334220/": {
 "proprie": 330,
 "sovrapposizione": 0.101,
-"piu_simile": "334290/",
+"piu_simile": "334515/",
 "indicizzata": true
 },
 "334290/": {
@@ -3280,7 +3280,7 @@
 "334517/": {
 "proprie": 212,
 "sovrapposizione": 0.298,
-"piu_simile": "334510/",
+"piu_simile": "334516/",
 "indicizzata": true
 },
 "334519/": {
@@ -3706,7 +3706,7 @@
 "3379/": {
 "proprie": 37,
 "sovrapposizione": 0.293,
-"piu_simile": "3372/",
+"piu_simile": "337/",
 "indicizzata": false
 },
 "337910/": {
@@ -4639,7 +4639,7 @@
 "4492/": {
 "proprie": 20,
 "sovrapposizione": 0.289,
-"piu_simile": "449/",
+"piu_simile": "4491/",
 "indicizzata": false
 },
 "449210/": {
@@ -4891,7 +4891,7 @@
 "4595/": {
 "proprie": 23,
 "sovrapposizione": 0.53,
-"piu_simile": "4599/",
+"piu_simile": "4593/",
 "indicizzata": false
 },
 "459510/": {
@@ -5660,7 +5660,7 @@
 "5132/": {
 "proprie": 20,
 "sovrapposizione": 0.27,
-"piu_simile": "5131/",
+"piu_simile": "513/",
 "indicizzata": false
 },
 "513210/": {
@@ -7213,7 +7213,7 @@
 "611630/": {
 "proprie": 117,
 "sovrapposizione": 0.25,
-"piu_simile": "611692/",
+"piu_simile": "611691/",
 "indicizzata": false
 },
 "611691/": {
@@ -7279,7 +7279,7 @@
 "6212/": {
 "proprie": 26,
 "sovrapposizione": 0.484,
-"piu_simile": "6211/",
+"piu_simile": "6213/",
 "indicizzata": false
 },
 "621210/": {
@@ -7993,7 +7993,7 @@
 "81/": {
 "proprie": 138,
 "sovrapposizione": 0.167,
-"piu_simile": "56/",
+"piu_simile": "53/",
 "indicizzata": true
 },
 "811/": {
@@ -8616,7 +8616,7 @@
 "9271/": {
 "proprie": 21,
 "sovrapposizione": 0.167,
-"piu_simile": "927/",
+"piu_simile": "92/",
 "indicizzata": false
 },
 "927110/": {

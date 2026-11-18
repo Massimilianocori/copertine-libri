@@ -1,0 +1,292 @@
+{
+ "_nota": "Sezione «LLC by State» (prova, 14/11/2026). Scritto a mano: per ogni Stato i fatti letti SOLO sulle pagine ufficiali dello Stato (Secretary of State o ufficio equivalente, ufficio delle imposte), ognuno con la frase ufficiale citata parola per parola («citazioni»: fonte + testo). raccolta/llc.py scarica le pagine, ritrova ogni frase e scrive llc-fonti.json; genera.py si ferma se una frase non è stata ritrovata; verifica.py le ricerca di nuovo nei file grezzi con un lettore suo e controlla che ogni cifra di «valore», «breve», «nota» e delle FAQ sia in una frase citata dello stesso Stato. Le righe di tabella sono citate cella per cella, nell'ordine della pagina. Nessun consiglio: solo che cosa scrive lo Stato. FAQ: «ricerca» deve avere un volume misurato in volumi-llc-*.json. Stati esclusi: vedi «esclusi».",
+ "esclusi": {
+  "georgia": "sos.ga.gov risponde 403 dal nostro server (pagina delle tariffe, guide e portale eCorp): Stato lasciato fuori, nessuna cifra indovinata.",
+  "ohio": "ohiosos.gov risponde 403 dal nostro server (pagine e moduli PDF): Stato lasciato fuori, nessuna cifra indovinata."
+ },
+ "fonti": {
+  "tx_205": {"url": "https://www.sos.state.tx.us/corp/forms/205_boc.pdf", "titolo": "Form 205, Certificate of Formation, Limited Liability Company (PDF)", "chi": "Texas Secretary of State", "tipo": "pdf"},
+  "tx_struct": {"url": "https://www.sos.state.tx.us/corp/businessstructure.shtml", "titolo": "Selecting a Business Structure", "chi": "Texas Secretary of State", "tipo": "html"},
+  "tx_formfaq": {"url": "https://www.sos.state.tx.us/corp/formationfaqs.shtml", "titolo": "Formation of Texas Entities FAQs", "chi": "Texas Secretary of State", "tipo": "html"},
+  "tx_rafaq": {"url": "https://www.sos.state.tx.us/corp/registeredagentfaqs.shtml", "titolo": "Registered Agents FAQs", "chi": "Texas Secretary of State", "tipo": "html"},
+  "tx_fr": {"url": "https://comptroller.texas.gov/taxes/franchise/", "titolo": "Franchise Tax", "chi": "Texas Comptroller of Public Accounts", "tipo": "html"},
+  "fl_fees": {"url": "https://dos.fl.gov/sunbiz/forms/fees/llc-fees/", "titolo": "LLC Fees", "chi": "Florida Department of State, Division of Corporations", "tipo": "html"},
+  "fl_inst": {"url": "https://dos.fl.gov/sunbiz/start-business/efile/fl-llc/instructions/", "titolo": "Instructions for Articles of Organization (FL LLC)", "chi": "Florida Department of State, Division of Corporations", "tipo": "html"},
+  "fl_ar": {"url": "https://dos.fl.gov/sunbiz/manage-business/efile/annual-report/", "titolo": "File Annual Report", "chi": "Florida Department of State, Division of Corporations", "tipo": "html"},
+  "fl_llc": {"url": "https://dos.fl.gov/sunbiz/start-business/efile/fl-llc/", "titolo": "Florida Limited Liability Company", "chi": "Florida Department of State, Division of Corporations", "tipo": "html"},
+  "ca_llcforms": {"url": "https://www.sos.ca.gov/business-programs/business-entities/forms/limited-liability-companies-california-domestic", "titolo": "Forms, Samples and Fees: Limited Liability Companies – California (Domestic)", "chi": "California Secretary of State", "tipo": "html"},
+  "ca_faq": {"url": "https://www.sos.ca.gov/business-programs/business-entities/faqs", "titolo": "Business Entities: Frequently Asked Questions", "chi": "California Secretary of State", "tipo": "html"},
+  "ca_ftb": {"url": "https://www.ftb.ca.gov/file/business/types/limited-liability-company/index.html", "titolo": "Limited liability company", "chi": "California Franchise Tax Board", "tipo": "html"},
+  "ny_llc": {"url": "https://dos.ny.gov/forming-limited-liability-company-new-york", "titolo": "Forming a Limited Liability Company in New York", "chi": "New York Department of State", "tipo": "html"},
+  "ny_biennial": {"url": "https://dos.ny.gov/biennial-statements-business-corporations-and-limited-liability-companies", "titolo": "Biennial Statements for Business Corporations and Limited Liability Companies", "chi": "New York Department of State", "tipo": "html"},
+  "ny_fees": {"url": "https://dos.ny.gov/fee-schedules", "titolo": "Fee Schedules", "chi": "New York Department of State", "tipo": "html"},
+  "ny_tax": {"url": "https://www.tax.ny.gov/pit/efile/annual_filing_fee.htm", "titolo": "Partnership, LLC, and LLP annual filing fee", "chi": "New York State Department of Taxation and Finance", "tipo": "html"},
+  "nc_brfee": {"url": "https://www.sosnc.gov/fees/by_title/_Business_Registration", "titolo": "Fees: Business Registration", "chi": "North Carolina Secretary of State", "tipo": "html"},
+  "nc_due": {"url": "https://www.sosnc.gov/divisions/business_registration/annual_report_due_dates", "titolo": "Annual Report Due Dates", "chi": "North Carolina Secretary of State", "tipo": "html"},
+  "nc_ra": {"url": "https://www.sosnc.gov/divisions/business_registration/registered_agent_links", "titolo": "Registered Office and Registered Agent Information", "chi": "North Carolina Secretary of State", "tipo": "html"},
+  "mi_fees": {"url": "https://www.michigan.gov/lara/-/media/Project/Websites/lara/cscl/Folder6/Filing_Fees.pdf?rev=13440b18f0e34dfc8e648602a4e58d3d&hash=FBEF0E98D837CA6DFC2503D2110DBEE1", "titolo": "Corporations Division filing fees (PDF)", "chi": "Michigan Department of Licensing and Regulatory Affairs", "tipo": "pdf"},
+  "mi_ann": {"url": "https://www.michigan.gov/lara/bureau-list/cscl/corps/limited-liability-co/filling-requirements-continued/annual-filings", "titolo": "Limited Liability Company: Annual Filings", "chi": "Michigan Department of Licensing and Regulatory Affairs", "tipo": "html"},
+  "mi_ra": {"url": "https://www.michigan.gov/lara/bureau-list/cscl/corps/limited-liability-co/filing/resident-agent-and-registered-office", "titolo": "Limited Liability Company: Resident Agent and Registered Office", "chi": "Michigan Department of Licensing and Regulatory Affairs", "tipo": "html"},
+  "co_fees": {"url": "https://www.coloradosos.gov/pubs/info_center/fees/business.html", "titolo": "Business Organizations Fee Schedule", "chi": "Colorado Secretary of State", "tipo": "html"},
+  "co_reports": {"url": "https://www.coloradosos.gov/pubs/business/FAQs/reports.html", "titolo": "Business FAQs: Periodic reports", "chi": "Colorado Secretary of State", "tipo": "html"},
+  "co_filing": {"url": "https://www.coloradosos.gov/pubs/business/FAQs/filing.html", "titolo": "Business FAQs: Filing a document", "chi": "Colorado Secretary of State", "tipo": "html"},
+  "co_ra": {"url": "https://www.coloradosos.gov/pubs/business/FAQs/regAgent.html", "titolo": "Business FAQs: Registered agents", "chi": "Colorado Secretary of State", "tipo": "html"},
+  "az_llcfee": {"url": "https://azcc.gov/docs/default-source/corps-files/fee-schedules/fee-schedule-llcs646a1cd0d6b24246ab2253aecbc3ab40.pdf?sfvrsn=debb38e6_5", "titolo": "Schedule of Fees: Limited Liability Companies (PDF)", "chi": "Arizona Corporation Commission", "tipo": "pdf"},
+  "az_faq": {"url": "https://azcc.gov/faqs/BusinessServicesFAQs", "titolo": "Business Services FAQs", "chi": "Arizona Corporation Commission", "tipo": "html"}
+ },
+ "stati": [
+  {
+   "slug": "texas", "nome": "Texas", "sigla": "TX", "ufficio": "Texas Secretary of State", "documento": "certificate of formation (Form 205)",
+   "frasi": ["texas llc", "how to start an llc in texas", "texas llc cost", "texas llc filing fee", "texas registered agent"],
+   "intro": "A Texas LLC is created by filing a certificate of formation with the Texas Secretary of State. The form shows a $300 filing fee. Texas LLCs do not send an annual report to the Secretary of State: they report each year to the Comptroller, with the franchise tax report due May 15.",
+   "fatti": [
+    {"id": "filing", "valore": "$300", "breve": "$300",
+     "nota": "Fee printed on Form 205 (revised 09/26), the certificate of formation for a limited liability company.",
+     "citazioni": [{"fonte": "tx_205", "testo": "Form 205 (Revised 09/26)"}, {"fonte": "tx_205", "testo": "Filing Fee: $300"},
+                   {"fonte": "tx_struct", "testo": "A Texas limited liability company is created by filing a certificate of formation with the Texas Secretary of State."}]},
+    {"id": "annual", "valore": "No annual report to the Secretary of State; a Public Information Report goes to the Comptroller", "breve": "None to the Secretary of State; report to the Comptroller",
+     "nota": "The Secretary of State’s FAQ answers the annual report question for LLCs by pointing to the Comptroller: the Public Information Report is part of the annual franchise tax report.",
+     "citazioni": [{"fonte": "tx_formfaq", "testo": "For-profit and professional corporations, professional associations, LLCs, and certain limited partnerships (whether Texas or foreign) that are subject to state franchise tax laws file annually with the Comptroller of Public Accounts. As part of the annual franchise tax reports, these taxable entities file a Public Information Report (PIR)."}]},
+    {"id": "tax", "etichetta": "Franchise tax", "valore": "Report due May 15; no tax due threshold $2,650,000 for 2026 and 2027", "breve": "Franchise tax report due May 15",
+     "nota": "The Comptroller’s table lists a no tax due threshold of $2,650,000 for report years 2026 and 2027. An entity at or below the threshold still files a Public Information Report or Ownership Report.",
+     "citazioni": [{"fonte": "tx_fr", "testo": "The Texas franchise tax is a privilege tax imposed on each taxable entity formed or organized in Texas or doing business in Texas."},
+                   {"fonte": "tx_fr", "testo": "The annual franchise tax report is due May 15. If May 15 falls on a weekend or holiday, the due date will be the next business day."},
+                   {"fonte": "tx_fr", "testo": "2026 and 2027 Item Amount No Tax Due Threshold $2,650,000"},
+                   {"fonte": "tx_fr", "testo": "If you are at or below the no tax due threshold, simply file your 2026 Public Information Report or Ownership Report."}]},
+    {"id": "agent", "valore": "Required: a registered agent and registered office in Texas", "breve": "Required, in Texas",
+     "nota": "The agent is an individual Texas resident or an entity allowed to do business in Texas, and must have consented to serve.",
+     "citazioni": [{"fonte": "tx_rafaq", "testo": "A domestic or foreign filing entity is required to continuously maintain a registered agent and registered office in Texas."},
+                   {"fonte": "tx_formfaq", "testo": "A registered agent is an individual Texas resident or a domestic entity, or a foreign entity that has qualified or registered to transact business in Texas who is responsible for receiving and forwarding service of process or official notices addressed to an entity."}]}
+   ],
+   "faq": [
+    {"ricerca": "texas llc cost", "q": "How much does an LLC cost in Texas?", "a": "The state filing fee printed on Form 205, the certificate of formation for a limited liability company, is $300. After that there is no annual report fee to the Secretary of State; Texas LLCs file each year with the Comptroller as part of the franchise tax report, due May 15."},
+    {"ricerca": "how to start an llc in texas", "q": "How do you start an LLC in Texas?", "a": "The Texas Secretary of State says a Texas limited liability company is created by filing a certificate of formation with its office; the form for an LLC is Form 205 and the filing fee is $300. The entity must also keep a registered agent and registered office in Texas. This page lists what the state publishes; it is not a step-by-step legal guide."},
+    {"ricerca": "texas registered agent", "q": "Does a Texas LLC need a registered agent?", "a": "Yes. The Secretary of State writes that a domestic or foreign filing entity is required to continuously maintain a registered agent and registered office in Texas. The agent is an individual Texas resident, or a domestic or registered foreign entity, that receives and forwards service of process and official notices."},
+    {"ricerca": "texas franchise tax", "q": "What is the Texas franchise tax for an LLC?", "a": "The Comptroller describes it as a privilege tax on entities formed or organized in Texas or doing business in Texas. The annual franchise tax report is due May 15. For report years 2026 and 2027 the no tax due threshold in the Comptroller’s table is $2,650,000; an entity at or below it still files a Public Information Report or Ownership Report."}
+   ]
+  },
+  {
+   "slug": "florida", "nome": "Florida", "sigla": "FL", "ufficio": "Florida Division of Corporations", "documento": "Articles of Organization",
+   "frasi": ["florida llc", "how to start an llc in florida", "florida llc cost", "florida registered agent", "florida annual report"],
+   "intro": "A new Florida LLC costs $125 to file with the Division of Corporations: a $100 filing fee plus a required $25 registered agent fee. Every year the LLC files an annual report between January 1 and May 1; the fee is $138.75 and a $400 late fee applies after May 1.",
+   "fatti": [
+    {"id": "filing", "valore": "$125", "breve": "$125",
+     "nota": "$100 filing fee plus the required $25 registered agent fee, as listed in the state fee table for a new Florida or foreign LLC.",
+     "citazioni": [{"fonte": "fl_fees", "testo": "New Florida/Foreign LLC Filing Fee (Required) $100.00 Registered Agent Fee (Required) $25.00 Total Fee For New Florida/Foreign LLC $125.00"},
+                   {"fonte": "fl_inst", "testo": "These instructions are for the formation of a Florida Limited Liability Company pursuant to s. 605.0201, F.S., and cover the minimum requirements for filing Articles of Organization."}]},
+    {"id": "annual", "valore": "$138.75 a year, filed January 1 to May 1", "breve": "$138.75, January 1 to May 1",
+     "nota": "After May 1 the fee table shows $538.75, which is the report fee plus the $400 late fee. An LLC that does not file is administratively dissolved.",
+     "citazioni": [{"fonte": "fl_fees", "testo": "Annual Report (& Supplemental Fee) $138.75 Annual Report (Received after May 1) $538.75"},
+                   {"fonte": "fl_inst", "testo": "The filing period for annual reports is January 1st to May 1st of the calendar year following the LLC’s date of filing or, if listed, its effective date."},
+                   {"fonte": "fl_ar", "testo": "A $400 late fee will be imposed on all profit corporations, limited liability companies, limited partnerships and limited liability limited partnerships."},
+                   {"fonte": "fl_inst", "testo": "If the limited liability company fails to file the report, it will be administratively dissolved."}]},
+    {"id": "processing", "valore": "In the order received", "breve": "In the order received",
+     "nota": "The Division gives no fixed number of days for new LLCs. It publishes the receipt date it is currently working on, on its Document Processing Dates page.",
+     "citazioni": [{"fonte": "fl_llc", "testo": "Filed online with a credit card: Your document will be processed in the order it was received."}]},
+    {"id": "agent", "valore": "Required: a registered agent with a street address in Florida", "breve": "Required, Florida street address",
+     "nota": "The LLC cannot be its own agent, but a person associated with the business can serve. The $25 registered agent fee is part of the filing total.",
+     "citazioni": [{"fonte": "fl_inst", "testo": "The registered agent must have a physical street address in Florida. (Do not list a P.O. Box address.)"},
+                   {"fonte": "fl_inst", "testo": "An entity cannot serve as its own registered agent. However, an individual or principal associated with the business may serve as the registered agent."}]}
+   ],
+   "faq": [
+    {"ricerca": "florida llc cost", "q": "How much does an LLC cost in Florida?", "a": "The state total for a new Florida LLC is $125: a $100 filing fee plus a required $25 registered agent fee. Each following year the annual report costs $138.75 if it is filed between January 1 and May 1; after May 1 the fee table shows $538.75."},
+    {"ricerca": "how to start an llc in florida", "q": "How do you start an LLC in Florida?", "a": "A Florida LLC is formed by filing Articles of Organization with the Division of Corporations; the state total is $125. The articles name a registered agent with a physical street address in Florida, who must sign. This page lists what the state publishes; it is not a step-by-step legal guide."},
+    {"ricerca": "florida llc annual report", "q": "When is the Florida LLC annual report due?", "a": "The filing period is January 1 to May 1 of the calendar year after the LLC was filed. The fee is $138.75. A $400 late fee is imposed after May 1, and an LLC that does not file the report is administratively dissolved."},
+    {"ricerca": "florida registered agent", "q": "Does a Florida LLC need a registered agent?", "a": "Yes. The registered agent fee is marked as required in the state fee table ($25), and the instructions say the registered agent must have a physical street address in Florida and must sign the application. An entity cannot serve as its own registered agent, but an individual or principal associated with the business may."}
+   ]
+  },
+  {
+   "slug": "california", "nome": "California", "sigla": "CA", "ufficio": "California Secretary of State", "documento": "Articles of Organization (Form LLC-1)",
+   "frasi": ["california llc", "how to start an llc in california", "california llc cost", "california llc fee", "california registered agent"],
+   "intro": "Filing Articles of Organization for a California LLC costs $70 at the Secretary of State. A $20 Statement of Information is due within 90 days and then every two years. Separately, the Franchise Tax Board says every LLC doing business or organized in California must pay an annual tax of $800.",
+   "fatti": [
+    {"id": "filing", "valore": "$70", "breve": "$70",
+     "nota": "Articles of Organization, Form LLC-1, in the Secretary of State’s fee table for California LLCs.",
+     "citazioni": [{"fonte": "ca_llcforms", "testo": "Formation - Articles of Organization Form LLC-1 (PDF) $70.00"}]},
+    {"id": "annual", "etichetta": "Statement of Information", "valore": "$20, within 90 days and then every two years", "breve": "$20 every two years (first within 90 days)",
+     "nota": "California asks for a Statement of Information (Form LLC-12) rather than a yearly report.",
+     "citazioni": [{"fonte": "ca_llcforms", "testo": "Statement of Information: Due within 90 days of initial registration and every two years thereafter. Form LLC-12 (PDF) $20.00"}]},
+    {"id": "tax", "etichetta": "Annual LLC tax (Franchise Tax Board)", "valore": "$800 a year", "breve": "$800 annual tax",
+     "nota": "The first payment is due by the 15th day of the 4th month after filing with the Secretary of State. An LLC that will make more than $250,000 also pays an LLC fee.",
+     "citazioni": [{"fonte": "ca_ftb", "testo": "Every LLC that is doing business or organized in California must pay an annual tax of $800."},
+                   {"fonte": "ca_ftb", "testo": "You have until the 15th day of the 4th month from the date you file with the SOS to pay your first-year annual tax."},
+                   {"fonte": "ca_ftb", "testo": "If your LLC will make more than $250,000, you will have to pay a fee."}]},
+    {"id": "processing", "valore": "Online: 5 days or less; PDF forms: 10+ days", "breve": "Online 5 days or less",
+     "nota": "Response times shown at the top of the Secretary of State’s LLC forms table.",
+     "citazioni": [{"fonte": "ca_llcforms", "testo": "Online Submissions File Online for fastest response 5 days or less"},
+                   {"fonte": "ca_llcforms", "testo": "PDF Forms 10+ days"}]},
+    {"id": "agent", "etichetta": "Agent for service of process", "valore": "An individual who resides in California or a registered corporate agent", "breve": "California resident or registered corporate agent",
+     "nota": "California calls the registered agent an agent for service of process. A business entity cannot be its own agent.",
+     "citazioni": [{"fonte": "ca_faq", "testo": "An agent for service of process is an individual who resides in California, or a registered 1505 corporate agent, designated to accept service of process (court papers) if the business entity is sued."},
+                   {"fonte": "ca_faq", "testo": "A business entity cannot act as its own agent for service of process"}]}
+   ],
+   "faq": [
+    {"ricerca": "california llc cost", "q": "How much does an LLC cost in California?", "a": "The Secretary of State charges $70 to file Articles of Organization (Form LLC-1) and $20 for the Statement of Information, due within 90 days and then every two years. The Franchise Tax Board adds an annual tax of $800 for every LLC doing business or organized in California."},
+    {"ricerca": "california llc fee", "q": "What is the $800 California LLC fee?", "a": "It is the annual tax of the Franchise Tax Board: every LLC that is doing business or organized in California must pay $800 a year. The first payment is due by the 15th day of the 4th month from the date of filing with the Secretary of State. An LLC that will make more than $250,000 also has to pay a separate LLC fee."},
+    {"ricerca": "how to start an llc in california", "q": "How do you start an LLC in California?", "a": "A California LLC is formed by filing Articles of Organization (Form LLC-1) with the Secretary of State; the fee is $70 and online filings get a response in 5 days or less. A Statement of Information is due within 90 days. This page lists what the state publishes; it is not a step-by-step legal guide."},
+    {"ricerca": "california registered agent", "q": "Does a California LLC need a registered agent?", "a": "California calls it an agent for service of process: an individual who resides in California, or a registered 1505 corporate agent, designated to accept court papers if the business is sued. The Secretary of State says a business entity cannot act as its own agent for service of process."}
+   ]
+  },
+  {
+   "slug": "new-york", "nome": "New York", "sigla": "NY", "ufficio": "New York Department of State", "documento": "Articles of Organization",
+   "frasi": ["new york llc", "how to start an llc in new york", "new york llc filing fee", "new york registered agent", "new york llc publication requirement"],
+   "intro": "The fee for filing the Articles of Organization of a New York LLC is $200. Most LLCs must then publish a notice in two newspapers for six consecutive weeks and file a Certificate of Publication ($50) within 120 days. A Biennial Statement ($9) is due every two years.",
+   "fatti": [
+    {"id": "filing", "valore": "$200", "breve": "$200",
+     "nota": "Paid to the Department of State with the Articles of Organization.",
+     "citazioni": [{"fonte": "ny_llc", "testo": "The fee for filing the Articles of Organization is $200."}]},
+    {"id": "extra", "etichetta": "Publication requirement", "valore": "Notice in two newspapers for six consecutive weeks, then a $50 Certificate of Publication within 120 days", "breve": "Publication + $50 certificate within 120 days",
+     "nota": "The newspapers charge their own fee, which the Department of State does not list.",
+     "citazioni": [{"fonte": "ny_llc", "testo": "Section 206 of the Limited Liability Company Law requires a copy of the Articles of Organization or a notice related to the formation of most limited liability companies to be published in two newspapers for six consecutive weeks."},
+                   {"fonte": "ny_llc", "testo": "The newspapers charge a fee for the publication of the notice."},
+                   {"fonte": "ny_llc", "testo": "A Certificate of Publication, with the affidavits of publication of the newspapers annexed thereto, must be submitted to the Department of State, with a $50 filing fee."},
+                   {"fonte": "ny_llc", "testo": "Failure to publish and file the Certificate of Publication with the Department of State within 120 days will result in the suspension of the LLC’s authority to carry on, conduct or transact business."}]},
+    {"id": "annual", "etichetta": "Biennial Statement", "valore": "$9 every two years", "breve": "$9 every two years",
+     "nota": "New York asks for a Biennial Statement rather than a yearly report.",
+     "citazioni": [{"fonte": "ny_biennial", "testo": "Domestic and foreign limited liability companies (LLCs) are required by Section 301(e) of the Limited Liability Company Law to file a Biennial Statement every two years with the New York Department of State"},
+                   {"fonte": "ny_biennial", "testo": "$9 filing fee for Biennial Statement."}]},
+    {"id": "tax", "etichetta": "Annual filing fee (Tax Department)", "valore": "$25 with no New York source gross income; more by income", "breve": "Annual filing fee from $25 (Form IT-204-LL)",
+     "nota": "Paid with Form IT-204-LL by certain LLCs; the amount depends on New York source gross income of the preceding tax year (table on the official page).",
+     "citazioni": [{"fonte": "ny_tax", "testo": "Certain partnerships, limited liability companies (LLCs), and limited liability partnerships (LLPs) must pay an annual filing fee using Form IT-204-LL"},
+                   {"fonte": "ny_tax", "testo": "If an LLC or LLP did not have any New York Source gross income for the preceding tax year, the filing fee is $25."},
+                   {"fonte": "ny_tax", "testo": "You must file Form IT-204-LL on or before the 15th day of the third month following the close of the tax year."}]},
+    {"id": "processing", "valore": "Expedited handling: within 24 hours $25, same day $75, within 2 hours $150", "breve": "Expedited from $25 (24 hours)",
+     "nota": "Extra fees per document, in addition to the filing fee. The pages we read give no standard processing time.",
+     "citazioni": [{"fonte": "ny_fees", "testo": "For processing within 2 hours $150 For processing the same day $75 For processing within 24 hours $25"}]},
+    {"id": "agent", "etichetta": "Agent for service of process", "valore": "The Secretary of State must be designated as agent for service of process", "breve": "Secretary of State designated as agent",
+     "nota": "This designation is part of the Articles of Organization.",
+     "citazioni": [{"fonte": "ny_llc", "testo": "The LLC must designate the Secretary of State as its agent for service of process."}]}
+   ],
+   "faq": [
+    {"ricerca": "new york llc filing fee", "q": "What is the New York LLC filing fee?", "a": "The Department of State writes that the fee for filing the Articles of Organization is $200. The Certificate of Publication that follows has a $50 filing fee, and the Biennial Statement costs $9 every two years."},
+    {"ricerca": "new york llc publication requirement", "q": "What is the New York LLC publication requirement?", "a": "Section 206 of the Limited Liability Company Law requires a copy of the Articles of Organization, or a notice about the formation, to be published in two newspapers for six consecutive weeks. A Certificate of Publication is then filed with the Department of State with a $50 fee. Failure to publish and file within 120 days suspends the LLC’s authority to carry on business."},
+    {"ricerca": "how to start an llc in new york", "q": "How do you start an LLC in New York?", "a": "A New York LLC is formed by filing Articles of Organization with the Department of State; the fee is $200. The articles designate the Secretary of State as agent for service of process, and most LLCs then have to meet the publication requirement within 120 days. This page lists what the state publishes; it is not a step-by-step legal guide."},
+    {"ricerca": "new york registered agent", "q": "Does a New York LLC need a registered agent?", "a": "What the Department of State requires in the Articles of Organization is that the LLC designate the Secretary of State as its agent for service of process. The Biennial Statement, every two years, gives the address to which the Secretary of State mails a copy of any process."},
+    {"ricerca": "new york biennial statement", "q": "What is the New York biennial statement?", "a": "Domestic and foreign LLCs are required to file a Biennial Statement every two years with the New York Department of State, setting out the address to which the Secretary of State mails a copy of any process accepted on their behalf. The filing fee is $9."}
+   ]
+  },
+  {
+   "slug": "north-carolina", "nome": "North Carolina", "sigla": "NC", "ufficio": "North Carolina Secretary of State", "documento": "Articles of Organization",
+   "frasi": ["north carolina llc", "how to start an llc in north carolina", "north carolina registered agent", "north carolina annual report", "nc llc annual report"],
+   "intro": "Articles of Organization for a North Carolina LLC cost $125 at the Secretary of State. The LLC annual report is due on April 15th of each year after the year of creation and costs $200 on paper or $203 online.",
+   "fatti": [
+    {"id": "filing", "valore": "$125", "breve": "$125",
+     "nota": "Articles of Organization, in the Secretary of State’s fee table for domestic and foreign limited liability companies.",
+     "citazioni": [{"fonte": "nc_brfee", "testo": "Domestic & Foreign Limited Liability Companies* Articles of Organization $125.00"}]},
+    {"id": "annual", "valore": "$200 on paper, $203 online, due April 15th", "breve": "$200 ($203 online), due April 15th",
+     "nota": "Due each year after the year of creation. The online amount includes a $3 electronic filing fee for credit cards.",
+     "citazioni": [{"fonte": "nc_due", "testo": "Limited Liability Company (LLC or L3C) Your report is due on April 15th of each year after the year of creation. Online $203.00* Paper $200.00"},
+                   {"fonte": "nc_due", "testo": "* Fee includes a $3.00 electronic filing fee for credit cards."}]},
+    {"id": "processing", "valore": "Expedited: within 24 hours $100, same business day $200", "breve": "Expedited from $100 (24 hours)",
+     "nota": "Extra fees on top of the filing fee; the same-day service is for documents received by 12:00 noon. The pages we read give no standard processing time.",
+     "citazioni": [{"fonte": "nc_brfee", "testo": "Two hundred dollars ($200.00) for the filing by the end of the same business day of a document received by 12:00 noon Eastern Standard Time; and One hundred dollars ($100.00) for the filing of a document within 24 hours after receipt, excluding weekends and holidays"}]},
+    {"id": "agent", "valore": "Required: a registered agent and registered office in North Carolina", "breve": "Required, in North Carolina",
+     "nota": "The agent must agree to act and keep a physical registered office in the state.",
+     "citazioni": [{"fonte": "nc_ra", "testo": "Each domestic and foreign Business Corporation, Nonprofit Corporation, Limited Liability Company, Limited Partnership and Limited Liability Partnership registered on the NC Business Registry is required to have a current Registered Agent and Registered Agent Office of record with the North Carolina Secretary of State’s Office."},
+                   {"fonte": "nc_ra", "testo": "Each registered agent must continuously maintain a physical registered office in North Carolina where the registered agent can receive notices, demands, and service of process on behalf of the entity."}]}
+   ],
+   "faq": [
+    {"ricerca": "how to start an llc in north carolina", "q": "How do you start an LLC in North Carolina?", "a": "A North Carolina LLC is formed by filing Articles of Organization with the Secretary of State; the fee is $125. The LLC must have a registered agent and registered office of record in North Carolina. This page lists what the state publishes; it is not a step-by-step legal guide."},
+    {"ricerca": "nc llc annual report", "q": "When is the NC LLC annual report due and how much is it?", "a": "The Secretary of State writes that the report of a limited liability company is due on April 15th of each year after the year of creation. The fee is $200 on paper and $203 online; the online amount includes a $3 electronic filing fee for credit cards."},
+    {"ricerca": "north carolina registered agent", "q": "Does a North Carolina LLC need a registered agent?", "a": "Yes. Each limited liability company registered on the NC Business Registry is required to have a current registered agent and registered agent office of record with the Secretary of State. The agent must continuously maintain a physical registered office in North Carolina."},
+    {"ricerca": "north carolina llc filing fee", "q": "What is the North Carolina LLC filing fee?", "a": "$125 for the Articles of Organization. Expedited filing costs extra: $100 for filing within 24 hours after receipt, or $200 for filing by the end of the same business day when the document is received by 12:00 noon."}
+   ]
+  },
+  {
+   "slug": "michigan", "nome": "Michigan", "sigla": "MI", "ufficio": "Michigan Department of Licensing and Regulatory Affairs (LARA)", "documento": "Articles of Organization (Form 700)",
+   "frasi": ["michigan llc", "how to start an llc in michigan", "michigan llc cost", "michigan registered agent", "michigan annual report"],
+   "intro": "Articles of Organization for a Michigan LLC (Form 700) cost $50 in the Corporations Division fee schedule. Every LLC then files an Annual Statement each year, due February 15, with a $25 fee.",
+   "fatti": [
+    {"id": "filing", "valore": "$50", "breve": "$50",
+     "nota": "Form 700, Articles of Organization, in the Corporations Division fee schedule.",
+     "citazioni": [{"fonte": "mi_fees", "testo": "700 Articles of Organization $50"}]},
+    {"id": "annual", "etichetta": "Annual Statement", "valore": "$25 a year, due February 15", "breve": "$25, due February 15",
+     "nota": "The fee schedule lists $25 for an LLC on the line of the Annual Statements (form 2700). An LLC formed after September 30 skips the statement due the following February 15.",
+     "citazioni": [{"fonte": "mi_ann", "testo": "Every limited liability company (LLC) is required to file an Annual Statement each year."},
+                   {"fonte": "mi_ann", "testo": "If an LLC/PLLC is formed or qualified after September 30, it is not required to file an Annual Statement due on February 15 immediately following its formation/qualification."},
+                   {"fonte": "mi_fees", "testo": "$25 LLC"},
+                   {"fonte": "mi_fees", "testo": "2700 Limited Liability Companies Annual"}]},
+    {"id": "processing", "valore": "Expedited for formation documents: 24 hours $50, same day $100", "breve": "Expedited from $50 (24 hours)",
+     "nota": "Extra fees in addition to the filing fee of the document. The pages we read give no standard processing time.",
+     "citazioni": [{"fonte": "mi_fees", "testo": "24 Hours for Formation/Qualification Docs $50.00"},
+                   {"fonte": "mi_fees", "testo": "Same day for Formation/Qualification Docs $100.00"},
+                   {"fonte": "mi_fees", "testo": "Above fees are in addition to the filing fee of the document"}]},
+    {"id": "agent", "etichetta": "Resident agent", "valore": "Required: a resident agent and registered office, named in the Articles of Organization", "breve": "Resident agent required",
+     "nota": "Michigan calls the registered agent a resident agent.",
+     "citazioni": [{"fonte": "mi_ra", "testo": "A resident agent and registered office must be included in the Articles of Organization."},
+                   {"fonte": "mi_ra", "testo": "The resident agent must be a Michigan resident, a Michigan corporation, a foreign corporation with a certificate of authority to transact business in Michigan, a Michigan limited liability company or a foreign limited liability company authorized to transact business in this state."}]}
+   ],
+   "faq": [
+    {"ricerca": "michigan llc cost", "q": "How much does an LLC cost in Michigan?", "a": "The Corporations Division fee schedule lists $50 for the Articles of Organization (Form 700). Every LLC then files an Annual Statement each year, due February 15, for which the schedule lists $25."},
+    {"ricerca": "how to start an llc in michigan", "q": "How do you start an LLC in Michigan?", "a": "A Michigan LLC is formed by filing Articles of Organization (Form 700) with the Corporations Division of LARA; the fee is $50. A resident agent and registered office must be included in the articles. This page lists what the state publishes; it is not a step-by-step legal guide."},
+    {"ricerca": "michigan registered agent", "q": "Does a Michigan LLC need a registered agent?", "a": "Yes, under the name resident agent: a resident agent and registered office must be included in the Articles of Organization. The resident agent must be a Michigan resident, a Michigan corporation or LLC, or a foreign corporation or LLC authorized to transact business in Michigan."},
+    {"ricerca": "michigan annual report", "q": "Does a Michigan LLC file an annual report?", "a": "It files an Annual Statement: every limited liability company is required to file one each year, online, due February 15. An LLC formed or qualified after September 30 is not required to file the statement due on the February 15 immediately following."}
+   ]
+  },
+  {
+   "slug": "colorado", "nome": "Colorado", "sigla": "CO", "ufficio": "Colorado Secretary of State", "documento": "Articles of Organization",
+   "frasi": ["colorado llc", "how to start an llc in colorado", "colorado llc cost", "colorado registered agent", "colorado periodic report"],
+   "intro": "Articles of Organization for a Colorado LLC cost $50 and are filed online with the Secretary of State, in real time. Each year the LLC submits a Periodic Report ($25); the late filing penalty is $50.",
+   "fatti": [
+    {"id": "filing", "valore": "$50", "breve": "$50",
+     "nota": "Online fee in the Business Organizations Fee Schedule; the paper column shows n/a.",
+     "citazioni": [{"fonte": "co_fees", "testo": "Limited liability company Online fee Paper fee Articles of Organization $50.00 n/a"}]},
+    {"id": "annual", "etichetta": "Periodic Report", "valore": "$25 a year; late filing penalty $50", "breve": "$25 a year",
+     "nota": "It can be filed from two months before to two months after the entity’s Periodic Report month without penalty.",
+     "citazioni": [{"fonte": "co_fees", "testo": "Periodic Report $25.00 n/a Periodic Report Late Filing Penalty $50.00"},
+                   {"fonte": "co_reports", "testo": "Reporting entities, such as limited liability companies, corporations, nonprofit corporations, and foreign entities, are required by law to submit a Periodic Report each year to the Secretary of State."},
+                   {"fonte": "co_reports", "testo": "The Periodic Report can be filed two months prior to the Periodic Report month or two months after without any penalty."}]},
+    {"id": "processing", "valore": "Online documents are filed in real time", "breve": "Online: real time",
+     "nota": "The document is processed right after the payment confirmation.",
+     "citazioni": [{"fonte": "co_filing", "testo": "Documents submitted online are filed in real-time, which means that the document is immediately processed after you receive your payment confirmation."}]},
+    {"id": "agent", "valore": "Required: a registered agent with a Colorado address", "breve": "Required, Colorado address",
+     "nota": "The agent must consent to be the registered agent.",
+     "citazioni": [{"fonte": "co_ra", "testo": "Almost all entities on record with the Secretary of State must have a registered agent listed with a Colorado address, even if their business is located in a different state."},
+                   {"fonte": "co_ra", "testo": "The registered agent must consent (agree) to be the registered agent."}]}
+   ],
+   "faq": [
+    {"ricerca": "colorado llc cost", "q": "How much does an LLC cost in Colorado?", "a": "The Secretary of State’s fee schedule lists $50 for the Articles of Organization of a limited liability company, filed online. The Periodic Report due each year costs $25, and the late filing penalty is $50."},
+    {"ricerca": "how to start an llc in colorado", "q": "How do you start an LLC in Colorado?", "a": "A Colorado LLC is formed by filing Articles of Organization online with the Secretary of State; the fee is $50 and documents submitted online are filed in real time. The entity must list a registered agent with a Colorado address. This page lists what the state publishes; it is not a step-by-step legal guide."},
+    {"ricerca": "colorado periodic report", "q": "What is the Colorado periodic report?", "a": "Reporting entities such as limited liability companies are required by law to submit a Periodic Report each year to the Secretary of State. The fee is $25. It can be filed two months before the entity’s Periodic Report month or two months after without any penalty; the late filing penalty is $50."},
+    {"ricerca": "colorado registered agent", "q": "Does a Colorado LLC need a registered agent?", "a": "Yes. The Secretary of State writes that almost all entities on its record must have a registered agent listed with a Colorado address, even if the business is located in a different state, and that the registered agent must consent to be the registered agent."}
+   ]
+  },
+  {
+   "slug": "arizona", "nome": "Arizona", "sigla": "AZ", "ufficio": "Arizona Corporation Commission", "documento": "Articles of Organization",
+   "frasi": ["arizona llc", "how to start an llc in arizona", "arizona llc cost", "arizona registered agent", "arizona statutory agent"],
+   "intro": "Articles of Organization for an Arizona LLC cost $50 with regular processing, or $85 expedited, at the Arizona Corporation Commission. Arizona LLCs are not required to file annual reports. Every LLC must appoint and maintain a statutory agent.",
+   "fatti": [
+    {"id": "filing", "valore": "$50 ($85 expedited)", "breve": "$50",
+     "nota": "Total fee for regular processing and total fee for expedited processing, in the Commission’s schedule of fees for LLCs.",
+     "citazioni": [{"fonte": "az_llcfee", "testo": "Articles of Organization $50.00 $85.00"}]},
+    {"id": "annual", "valore": "None: LLCs are not required to file annual reports", "breve": "None",
+     "nota": "In Arizona only corporations file annual reports.",
+     "citazioni": [{"fonte": "az_faq", "testo": "No, LLCs are not required to file annual reports. Only corporations are required to file annual reports."}]},
+    {"id": "extra", "etichetta": "Publication", "valore": "Some filings must be published; the Commission says so by letter after approval", "breve": "Publication for some filings",
+     "nota": "It depends on the county where the business or its statutory agent is located.",
+     "citazioni": [{"fonte": "az_faq", "testo": "By law, certain documents must be published in a newspaper of general circulation or posted to the A.C.C.'s database. The determining factor typically depends on the county where the business or statutory agent are located. Following the approval of your filing, the A.C.C. will inform you by letter if your document is required to be published."}]},
+    {"id": "processing", "valore": "Regular: typically 14-16 days; expedited ($35 more): typically 3-5 days", "breve": "Typically 14-16 days (3-5 expedited)",
+     "nota": "Estimated time for the Commission’s staff to review a filing.",
+     "citazioni": [{"fonte": "az_faq", "testo": "Regular (no additional fee; the estimated processing time is typically 14-16 days)"},
+                   {"fonte": "az_faq", "testo": "Expedite ($35 in addition to the filing fee; the estimated processing time is typically 3-5 days)"}]},
+    {"id": "agent", "etichetta": "Statutory agent", "valore": "Required: a statutory agent with a physical address in Arizona", "breve": "Statutory agent required",
+     "nota": "Arizona calls the registered agent a statutory agent; the agent must accept the designation.",
+     "citazioni": [{"fonte": "az_faq", "testo": "Every corporation and limited liability company is required to appoint and maintain a statutory agent at all times."},
+                   {"fonte": "az_faq", "testo": "A statutory agent is a person or business that has a physical address in Arizona."}]}
+   ],
+   "faq": [
+    {"ricerca": "arizona llc cost", "q": "How much does an LLC cost in Arizona?", "a": "The Arizona Corporation Commission’s schedule of fees lists $50 for Articles of Organization with regular processing and $85 with expedited processing. LLCs are not required to file annual reports in Arizona."},
+    {"ricerca": "how to start an llc in arizona", "q": "How do you start an LLC in Arizona?", "a": "An Arizona LLC is formed by filing Articles of Organization with the Arizona Corporation Commission; the fee is $50, and regular processing typically takes 14-16 days. Every LLC must appoint a statutory agent, who accepts the designation. This page lists what the state publishes; it is not a step-by-step legal guide."},
+    {"ricerca": "arizona statutory agent", "q": "What is an Arizona statutory agent?", "a": "The Commission describes a statutory agent as a person or business that has a physical address in Arizona and accepts service of process or legal documents on behalf of a corporation or LLC. Every corporation and limited liability company is required to appoint and maintain a statutory agent at all times."},
+    {"ricerca": "arizona annual report", "q": "Does an Arizona LLC file an annual report?", "a": "No. The Arizona Corporation Commission writes that LLCs are not required to file annual reports; only corporations are."}
+   ]
+  }
+ ],
+ "indice": {
+  "faq": [
+   {"ricerca": "llc filing fees by state", "q": "What are the LLC filing fees by state?", "a": "{elenco_tariffe}. These are the fees we read on each state’s official page; other states are not covered yet."},
+   {"ricerca": "llc annual fees by state", "q": "What are the LLC annual fees by state?", "a": "{elenco_annuali}. Names and deadlines differ from state to state, and some states also have a separate state tax or fee listed on the state page."},
+   {"ricerca": "what is a registered agent", "q": "What is a registered agent?", "a": "The Texas Secretary of State describes a registered agent as the person or entity responsible for receiving and forwarding service of process or official notices addressed to an entity. Other states use other names: resident agent in Michigan, statutory agent in Arizona, agent for service of process in California."}
+  ]
+ }
+}

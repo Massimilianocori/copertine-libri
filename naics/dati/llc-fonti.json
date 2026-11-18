@@ -1,0 +1,649 @@
+{
+ "_nota": "Scritto da raccolta/llc.py. File grezzi in raccolta/_grezzi/llc/ (fuori da git). Le pagine HTML cambiano byte a ogni scarico: fa fede sha256_frasi (le frasi citate alla lettera) e «trovata» per ogni frase; verifica.py le ricerca di nuovo nei file grezzi.",
+ "fonti": {
+  "tx_205": {
+   "url": "https://www.sos.state.tx.us/corp/forms/205_boc.pdf",
+   "titolo": "Form 205, Certificate of Formation, Limited Liability Company (PDF)",
+   "chi": "Texas Secretary of State",
+   "tipo": "pdf",
+   "file": "tx_205.pdf",
+   "http": 200,
+   "byte": 839853,
+   "letto_il": "2026-11-14",
+   "sha256_frasi": "582320426e8cb31e0f341fc85ea4189b6bad303eb03e4505dc04e6655a6b2269",
+   "frasi": [
+    {
+     "testo": "Form 205 (Revised 09/26)",
+     "trovata": true
+    },
+    {
+     "testo": "Filing Fee: $300",
+     "trovata": true
+    }
+   ]
+  },
+  "tx_struct": {
+   "url": "https://www.sos.state.tx.us/corp/businessstructure.shtml",
+   "titolo": "Selecting a Business Structure",
+   "chi": "Texas Secretary of State",
+   "tipo": "html",
+   "file": "tx_struct.html",
+   "http": 200,
+   "byte": 24772,
+   "letto_il": "2026-11-14",
+   "sha256_frasi": "34ae6928637a5f458d8dbc9a89f95d9421c06ea9b51c07bad9bedc6c97b3308c",
+   "frasi": [
+    {
+     "testo": "A Texas limited liability company is created by filing a certificate of formation with the Texas Secretary of State.",
+     "trovata": true
+    }
+   ]
+  },
+  "tx_formfaq": {
+   "url": "https://www.sos.state.tx.us/corp/formationfaqs.shtml",
+   "titolo": "Formation of Texas Entities FAQs",
+   "chi": "Texas Secretary of State",
+   "tipo": "html",
+   "file": "tx_formfaq.html",
+   "http": 200,
+   "byte": 88415,
+   "letto_il": "2026-11-14",
+   "sha256_frasi": "666f34a2970a848ecf83bf0a6789ccfc9bbe817d4e7502e35616214a3b5580f9",
+   "frasi": [
+    {
+     "testo": "For-profit and professional corporations, professional associations, LLCs, and certain limited partnerships (whether Texas or foreign) that are subject to state franchise tax laws file annually with the Comptroller of Public Accounts. As part of the annual franchise tax reports, these taxable entities file a Public Information Report (PIR).",
+     "trovata": true
+    },
+    {
+     "testo": "A registered agent is an individual Texas resident or a domestic entity, or a foreign entity that has qualified or registered to transact business in Texas who is responsible for receiving and forwarding service of process or official notices addressed to an entity.",
+     "trovata": true
+    }
+   ]
+  },
+  "tx_rafaq": {
+   "url": "https://www.sos.state.tx.us/corp/registeredagentfaqs.shtml",
+   "titolo": "Registered Agents FAQs",
+   "chi": "Texas Secretary of State",
+   "tipo": "html",
+   "file": "tx_rafaq.html",
+   "http": 200,
+   "byte": 30863,
+   "letto_il": "2026-11-14",
+   "sha256_frasi": "80c5ae0b9870928002172cb3a7782d4cc7faa0e36c4a34e6b6e7a50d457fdcce",
+   "frasi": [
+    {
+     "testo": "A domestic or foreign filing entity is required to continuously maintain a registered agent and registered office in Texas.",
+     "trovata": true
+    }
+   ]
+  },
+  "tx_fr": {
+   "url": "https://comptroller.texas.gov/taxes/franchise/",
+   "titolo": "Franchise Tax",
+   "chi": "Texas Comptroller of Public Accounts",
+   "tipo": "html",
+   "file": "tx_fr.html",
+   "http": 200,
+   "byte": 95469,
+   "letto_il": "2026-11-14",
+   "sha256_frasi": "4d76c766bb6b1f93f61f9834054a752f5190332ac48ed24181a42f37c3737f3d",
+   "frasi": [
+    {
+     "testo": "The Texas franchise tax is a privilege tax imposed on each taxable entity formed or organized in Texas or doing business in Texas.",
+     "trovata": true
+    },
+    {
+     "testo": "The annual franchise tax report is due May 15. If May 15 falls on a weekend or holiday, the due date will be the next business day.",
+     "trovata": true
+    },
+    {
+     "testo": "2026 and 2027 Item Amount No Tax Due Threshold $2,650,000",
+     "trovata": true
+    },
+    {
+     "testo": "If you are at or below the no tax due threshold, simply file your 2026 Public Information Report or Ownership Report.",
+     "trovata": true
+    }
+   ]
+  },
+  "fl_fees": {
+   "url": "https://dos.fl.gov/sunbiz/forms/fees/llc-fees/",
+   "titolo": "LLC Fees",
+   "chi": "Florida Department of State, Division of Corporations",
+   "tipo": "html",
+   "file": "fl_fees.html",
+   "http": 200,
+   "byte": 26949,
+   "letto_il": "2026-11-14",
+   "sha256_frasi": "eda73ed18987c08fbd3502761856ddc9a7eebf052db9d12f3940abb6d571ab1c",
+   "frasi": [
+    {
+     "testo": "New Florida/Foreign LLC Filing Fee (Required) $100.00 Registered Agent Fee (Required) $25.00 Total Fee For New Florida/Foreign LLC $125.00",
+     "trovata": true
+    },
+    {
+     "testo": "Annual Report (& Supplemental Fee) $138.75 Annual Report (Received after May 1) $538.75",
+     "trovata": true
+    }
+   ]
+  },
+  "fl_inst": {
+   "url": "https://dos.fl.gov/sunbiz/start-business/efile/fl-llc/instructions/",
+   "titolo": "Instructions for Articles of Organization (FL LLC)",
+   "chi": "Florida Department of State, Division of Corporations",
+   "tipo": "html",
+   "file": "fl_inst.html",
+   "http": 200,
+   "byte": 38161,
+   "letto_il": "2026-11-14",
+   "sha256_frasi": "551972b26d8c38aa9ae9081c5eb85ea5c24901ec5ab709c63370bd54eccae30e",
+   "frasi": [
+    {
+     "testo": "These instructions are for the formation of a Florida Limited Liability Company pursuant to s. 605.0201, F.S., and cover the minimum requirements for filing Articles of Organization.",
+     "trovata": true
+    },
+    {
+     "testo": "The filing period for annual reports is January 1st to May 1st of the calendar year following the LLC’s date of filing or, if listed, its effective date.",
+     "trovata": true
+    },
+    {
+     "testo": "If the limited liability company fails to file the report, it will be administratively dissolved.",
+     "trovata": true
+    },
+    {
+     "testo": "The registered agent must have a physical street address in Florida. (Do not list a P.O. Box address.)",
+     "trovata": true
+    },
+    {
+     "testo": "An entity cannot serve as its own registered agent. However, an individual or principal associated with the business may serve as the registered agent.",
+     "trovata": true
+    }
+   ]
+  },
+  "fl_ar": {
+   "url": "https://dos.fl.gov/sunbiz/manage-business/efile/annual-report/",
+   "titolo": "File Annual Report",
+   "chi": "Florida Department of State, Division of Corporations",
+   "tipo": "html",
+   "file": "fl_ar.html",
+   "http": 200,
+   "byte": 39332,
+   "letto_il": "2026-11-14",
+   "sha256_frasi": "7cb0e83472f8f006ba071828ddd9fafabd0278cbd7da07a40d6e6bf5a0c14528",
+   "frasi": [
+    {
+     "testo": "A $400 late fee will be imposed on all profit corporations, limited liability companies, limited partnerships and limited liability limited partnerships.",
+     "trovata": true
+    }
+   ]
+  },
+  "fl_llc": {
+   "url": "https://dos.fl.gov/sunbiz/start-business/efile/fl-llc/",
+   "titolo": "Florida Limited Liability Company",
+   "chi": "Florida Department of State, Division of Corporations",
+   "tipo": "html",
+   "file": "fl_llc.html",
+   "http": 200,
+   "byte": 35007,
+   "letto_il": "2026-11-14",
+   "sha256_frasi": "21142fc7ed082a325cc2f6c4a1d41635170456743afd9751f272645aa83fd4b6",
+   "frasi": [
+    {
+     "testo": "Filed online with a credit card: Your document will be processed in the order it was received.",
+     "trovata": true
+    }
+   ]
+  },
+  "ca_llcforms": {
+   "url": "https://www.sos.ca.gov/business-programs/business-entities/forms/limited-liability-companies-california-domestic",
+   "titolo": "Forms, Samples and Fees: Limited Liability Companies – California (Domestic)",
+   "chi": "California Secretary of State",
+   "tipo": "html",
+   "file": "ca_llcforms.html",
+   "http": 200,
+   "byte": 77216,
+   "letto_il": "2026-11-14",
+   "sha256_frasi": "ea8fe368f57c556862b7abd5c3302cc023b2075f35c5fc90c6e54eb60b43ec6c",
+   "frasi": [
+    {
+     "testo": "Formation - Articles of Organization Form LLC-1 (PDF) $70.00",
+     "trovata": true
+    },
+    {
+     "testo": "Statement of Information: Due within 90 days of initial registration and every two years thereafter. Form LLC-12 (PDF) $20.00",
+     "trovata": true
+    },
+    {
+     "testo": "Online Submissions File Online for fastest response 5 days or less",
+     "trovata": true
+    },
+    {
+     "testo": "PDF Forms 10+ days",
+     "trovata": true
+    }
+   ]
+  },
+  "ca_faq": {
+   "url": "https://www.sos.ca.gov/business-programs/business-entities/faqs",
+   "titolo": "Business Entities: Frequently Asked Questions",
+   "chi": "California Secretary of State",
+   "tipo": "html",
+   "file": "ca_faq.html",
+   "http": 200,
+   "byte": 120071,
+   "letto_il": "2026-11-14",
+   "sha256_frasi": "145516e34bb5aa36651d9bfc4adb806c9f5d1382259d2cd70a791cd2e203e586",
+   "frasi": [
+    {
+     "testo": "An agent for service of process is an individual who resides in California, or a registered 1505 corporate agent, designated to accept service of process (court papers) if the business entity is sued.",
+     "trovata": true
+    },
+    {
+     "testo": "A business entity cannot act as its own agent for service of process",
+     "trovata": true
+    }
+   ]
+  },
+  "ca_ftb": {
+   "url": "https://www.ftb.ca.gov/file/business/types/limited-liability-company/index.html",
+   "titolo": "Limited liability company",
+   "chi": "California Franchise Tax Board",
+   "tipo": "html",
+   "file": "ca_ftb.html",
+   "http": 200,
+   "byte": 39235,
+   "letto_il": "2026-11-14",
+   "sha256_frasi": "8545a49f65b2de5ba05200aadcaa38aa3c540de6a438973d5cd7121b88b6d737",
+   "frasi": [
+    {
+     "testo": "Every LLC that is doing business or organized in California must pay an annual tax of $800.",
+     "trovata": true
+    },
+    {
+     "testo": "You have until the 15th day of the 4th month from the date you file with the SOS to pay your first-year annual tax.",
+     "trovata": true
+    },
+    {
+     "testo": "If your LLC will make more than $250,000, you will have to pay a fee.",
+     "trovata": true
+    }
+   ]
+  },
+  "ny_llc": {
+   "url": "https://dos.ny.gov/forming-limited-liability-company-new-york",
+   "titolo": "Forming a Limited Liability Company in New York",
+   "chi": "New York Department of State",
+   "tipo": "html",
+   "file": "ny_llc.html",
+   "http": 200,
+   "byte": 48261,
+   "letto_il": "2026-11-14",
+   "sha256_frasi": "a05694600c3fae7d449ddd5ec31ce4733d81d5503a36eaae72f4e39b4a74e5ab",
+   "frasi": [
+    {
+     "testo": "The fee for filing the Articles of Organization is $200.",
+     "trovata": true
+    },
+    {
+     "testo": "Section 206 of the Limited Liability Company Law requires a copy of the Articles of Organization or a notice related to the formation of most limited liability companies to be published in two newspapers for six consecutive weeks.",
+     "trovata": true
+    },
+    {
+     "testo": "The newspapers charge a fee for the publication of the notice.",
+     "trovata": true
+    },
+    {
+     "testo": "A Certificate of Publication, with the affidavits of publication of the newspapers annexed thereto, must be submitted to the Department of State, with a $50 filing fee.",
+     "trovata": true
+    },
+    {
+     "testo": "Failure to publish and file the Certificate of Publication with the Department of State within 120 days will result in the suspension of the LLC’s authority to carry on, conduct or transact business.",
+     "trovata": true
+    },
+    {
+     "testo": "The LLC must designate the Secretary of State as its agent for service of process.",
+     "trovata": true
+    }
+   ]
+  },
+  "ny_biennial": {
+   "url": "https://dos.ny.gov/biennial-statements-business-corporations-and-limited-liability-companies",
+   "titolo": "Biennial Statements for Business Corporations and Limited Liability Companies",
+   "chi": "New York Department of State",
+   "tipo": "html",
+   "file": "ny_biennial.html",
+   "http": 200,
+   "byte": 47734,
+   "letto_il": "2026-11-14",
+   "sha256_frasi": "382d3a87131d6e3279a0925a00a5741813ac3cc7b6f4c412ac8c8b853cbe5ed4",
+   "frasi": [
+    {
+     "testo": "Domestic and foreign limited liability companies (LLCs) are required by Section 301(e) of the Limited Liability Company Law to file a Biennial Statement every two years with the New York Department of State",
+     "trovata": true
+    },
+    {
+     "testo": "$9 filing fee for Biennial Statement.",
+     "trovata": true
+    }
+   ]
+  },
+  "ny_fees": {
+   "url": "https://dos.ny.gov/fee-schedules",
+   "titolo": "Fee Schedules",
+   "chi": "New York Department of State",
+   "tipo": "html",
+   "file": "ny_fees.html",
+   "http": 200,
+   "byte": 46624,
+   "letto_il": "2026-11-14",
+   "sha256_frasi": "3524492fa82e05578f6cf61f45c2d834add054e2fa8b7139c1c48e72e9c902f4",
+   "frasi": [
+    {
+     "testo": "For processing within 2 hours $150 For processing the same day $75 For processing within 24 hours $25",
+     "trovata": true
+    }
+   ]
+  },
+  "ny_tax": {
+   "url": "https://www.tax.ny.gov/pit/efile/annual_filing_fee.htm",
+   "titolo": "Partnership, LLC, and LLP annual filing fee",
+   "chi": "New York State Department of Taxation and Finance",
+   "tipo": "html",
+   "file": "ny_tax.html",
+   "http": 200,
+   "byte": 27915,
+   "letto_il": "2026-11-14",
+   "sha256_frasi": "55a78a60616be23e6e1a317ecdf1bbf20e45ec6d4e9614d2f6fee5ef78feda92",
+   "frasi": [
+    {
+     "testo": "Certain partnerships, limited liability companies (LLCs), and limited liability partnerships (LLPs) must pay an annual filing fee using Form IT-204-LL",
+     "trovata": true
+    },
+    {
+     "testo": "If an LLC or LLP did not have any New York Source gross income for the preceding tax year, the filing fee is $25.",
+     "trovata": true
+    },
+    {
+     "testo": "You must file Form IT-204-LL on or before the 15th day of the third month following the close of the tax year.",
+     "trovata": true
+    }
+   ]
+  },
+  "nc_brfee": {
+   "url": "https://www.sosnc.gov/fees/by_title/_Business_Registration",
+   "titolo": "Fees: Business Registration",
+   "chi": "North Carolina Secretary of State",
+   "tipo": "html",
+   "file": "nc_brfee.html",
+   "http": 200,
+   "byte": 42056,
+   "letto_il": "2026-11-14",
+   "sha256_frasi": "985a1269fe7b56c46fbae5ce4300350646ec0487e970009d218018009940d481",
+   "frasi": [
+    {
+     "testo": "Domestic & Foreign Limited Liability Companies* Articles of Organization $125.00",
+     "trovata": true
+    },
+    {
+     "testo": "Two hundred dollars ($200.00) for the filing by the end of the same business day of a document received by 12:00 noon Eastern Standard Time; and One hundred dollars ($100.00) for the filing of a document within 24 hours after receipt, excluding weekends and holidays",
+     "trovata": true
+    }
+   ]
+  },
+  "nc_due": {
+   "url": "https://www.sosnc.gov/divisions/business_registration/annual_report_due_dates",
+   "titolo": "Annual Report Due Dates",
+   "chi": "North Carolina Secretary of State",
+   "tipo": "html",
+   "file": "nc_due.html",
+   "http": 200,
+   "byte": 28312,
+   "letto_il": "2026-11-14",
+   "sha256_frasi": "7503bc69b2430d887f456c10dc259ee3c83cbb0aa296382ae0bfafe1ac386da9",
+   "frasi": [
+    {
+     "testo": "Limited Liability Company (LLC or L3C) Your report is due on April 15th of each year after the year of creation. Online $203.00* Paper $200.00",
+     "trovata": true
+    },
+    {
+     "testo": "* Fee includes a $3.00 electronic filing fee for credit cards.",
+     "trovata": true
+    }
+   ]
+  },
+  "nc_ra": {
+   "url": "https://www.sosnc.gov/divisions/business_registration/registered_agent_links",
+   "titolo": "Registered Office and Registered Agent Information",
+   "chi": "North Carolina Secretary of State",
+   "tipo": "html",
+   "file": "nc_ra.html",
+   "http": 200,
+   "byte": 47589,
+   "letto_il": "2026-11-14",
+   "sha256_frasi": "1f782c13ad27e97f69dcda8a5fe5718cd5cee12b6e9eada7fb4678e74bff2608",
+   "frasi": [
+    {
+     "testo": "Each domestic and foreign Business Corporation, Nonprofit Corporation, Limited Liability Company, Limited Partnership and Limited Liability Partnership registered on the NC Business Registry is required to have a current Registered Agent and Registered Agent Office of record with the North Carolina Secretary of State’s Office.",
+     "trovata": true
+    },
+    {
+     "testo": "Each registered agent must continuously maintain a physical registered office in North Carolina where the registered agent can receive notices, demands, and service of process on behalf of the entity.",
+     "trovata": true
+    }
+   ]
+  },
+  "mi_fees": {
+   "url": "https://www.michigan.gov/lara/-/media/Project/Websites/lara/cscl/Folder6/Filing_Fees.pdf?rev=13440b18f0e34dfc8e648602a4e58d3d&hash=FBEF0E98D837CA6DFC2503D2110DBEE1",
+   "titolo": "Corporations Division filing fees (PDF)",
+   "chi": "Michigan Department of Licensing and Regulatory Affairs",
+   "tipo": "pdf",
+   "file": "mi_fees.pdf",
+   "http": 200,
+   "byte": 247809,
+   "letto_il": "2026-11-14",
+   "sha256_frasi": "f68e9230358ab3c8fc113ec196903b3e7af96050f3d4778219b594d8f2e85fca",
+   "frasi": [
+    {
+     "testo": "700 Articles of Organization $50",
+     "trovata": true
+    },
+    {
+     "testo": "$25 LLC",
+     "trovata": true
+    },
+    {
+     "testo": "2700 Limited Liability Companies Annual",
+     "trovata": true
+    },
+    {
+     "testo": "24 Hours for Formation/Qualification Docs $50.00",
+     "trovata": true
+    },
+    {
+     "testo": "Same day for Formation/Qualification Docs $100.00",
+     "trovata": true
+    },
+    {
+     "testo": "Above fees are in addition to the filing fee of the document",
+     "trovata": true
+    }
+   ]
+  },
+  "mi_ann": {
+   "url": "https://www.michigan.gov/lara/bureau-list/cscl/corps/limited-liability-co/filling-requirements-continued/annual-filings",
+   "titolo": "Limited Liability Company: Annual Filings",
+   "chi": "Michigan Department of Licensing and Regulatory Affairs",
+   "tipo": "html",
+   "file": "mi_ann.html",
+   "http": 200,
+   "byte": 458059,
+   "letto_il": "2026-11-14",
+   "sha256_frasi": "c898d67e2b5d2ea3ae4df1f6c91f507c6961ec658e4626abdda9b7124913323e",
+   "frasi": [
+    {
+     "testo": "Every limited liability company (LLC) is required to file an Annual Statement each year.",
+     "trovata": true
+    },
+    {
+     "testo": "If an LLC/PLLC is formed or qualified after September 30, it is not required to file an Annual Statement due on February 15 immediately following its formation/qualification.",
+     "trovata": true
+    }
+   ]
+  },
+  "mi_ra": {
+   "url": "https://www.michigan.gov/lara/bureau-list/cscl/corps/limited-liability-co/filing/resident-agent-and-registered-office",
+   "titolo": "Limited Liability Company: Resident Agent and Registered Office",
+   "chi": "Michigan Department of Licensing and Regulatory Affairs",
+   "tipo": "html",
+   "file": "mi_ra.html",
+   "http": 200,
+   "byte": 456481,
+   "letto_il": "2026-11-14",
+   "sha256_frasi": "4abf5229f27e54ec6b9370fbcf8e8b70988c19116608174d1f25b858f16b12c4",
+   "frasi": [
+    {
+     "testo": "A resident agent and registered office must be included in the Articles of Organization.",
+     "trovata": true
+    },
+    {
+     "testo": "The resident agent must be a Michigan resident, a Michigan corporation, a foreign corporation with a certificate of authority to transact business in Michigan, a Michigan limited liability company or a foreign limited liability company authorized to transact business in this state.",
+     "trovata": true
+    }
+   ]
+  },
+  "co_fees": {
+   "url": "https://www.coloradosos.gov/pubs/info_center/fees/business.html",
+   "titolo": "Business Organizations Fee Schedule",
+   "chi": "Colorado Secretary of State",
+   "tipo": "html",
+   "file": "co_fees.html",
+   "http": 200,
+   "byte": 43730,
+   "letto_il": "2026-11-14",
+   "sha256_frasi": "3e71b76ad3ccd5a5622886c34c902e34bf0f5ae0df1f0a42a61cb7b468301dee",
+   "frasi": [
+    {
+     "testo": "Limited liability company Online fee Paper fee Articles of Organization $50.00 n/a",
+     "trovata": true
+    },
+    {
+     "testo": "Periodic Report $25.00 n/a Periodic Report Late Filing Penalty $50.00",
+     "trovata": true
+    }
+   ]
+  },
+  "co_reports": {
+   "url": "https://www.coloradosos.gov/pubs/business/FAQs/reports.html",
+   "titolo": "Business FAQs: Periodic reports",
+   "chi": "Colorado Secretary of State",
+   "tipo": "html",
+   "file": "co_reports.html",
+   "http": 200,
+   "byte": 37259,
+   "letto_il": "2026-11-14",
+   "sha256_frasi": "f3f2904801890198c3d11fc74f37bfd977e31c360eec22dd4efd4130d2585b1b",
+   "frasi": [
+    {
+     "testo": "Reporting entities, such as limited liability companies, corporations, nonprofit corporations, and foreign entities, are required by law to submit a Periodic Report each year to the Secretary of State.",
+     "trovata": true
+    },
+    {
+     "testo": "The Periodic Report can be filed two months prior to the Periodic Report month or two months after without any penalty.",
+     "trovata": true
+    }
+   ]
+  },
+  "co_filing": {
+   "url": "https://www.coloradosos.gov/pubs/business/FAQs/filing.html",
+   "titolo": "Business FAQs: Filing a document",
+   "chi": "Colorado Secretary of State",
+   "tipo": "html",
+   "file": "co_filing.html",
+   "http": 200,
+   "byte": 36605,
+   "letto_il": "2026-11-14",
+   "sha256_frasi": "8059923765e94160641f86f4279be47ef6c131145a25256b7a834eaa578ab58f",
+   "frasi": [
+    {
+     "testo": "Documents submitted online are filed in real-time, which means that the document is immediately processed after you receive your payment confirmation.",
+     "trovata": true
+    }
+   ]
+  },
+  "co_ra": {
+   "url": "https://www.coloradosos.gov/pubs/business/FAQs/regAgent.html",
+   "titolo": "Business FAQs: Registered agents",
+   "chi": "Colorado Secretary of State",
+   "tipo": "html",
+   "file": "co_ra.html",
+   "http": 200,
+   "byte": 44892,
+   "letto_il": "2026-11-14",
+   "sha256_frasi": "44ee5a0d841ebd297f92a01d1b96ddb0c7418d7704032cc6d766bbbc7ee3a93b",
+   "frasi": [
+    {
+     "testo": "Almost all entities on record with the Secretary of State must have a registered agent listed with a Colorado address, even if their business is located in a different state.",
+     "trovata": true
+    },
+    {
+     "testo": "The registered agent must consent (agree) to be the registered agent.",
+     "trovata": true
+    }
+   ]
+  },
+  "az_llcfee": {
+   "url": "https://azcc.gov/docs/default-source/corps-files/fee-schedules/fee-schedule-llcs646a1cd0d6b24246ab2253aecbc3ab40.pdf?sfvrsn=debb38e6_5",
+   "titolo": "Schedule of Fees: Limited Liability Companies (PDF)",
+   "chi": "Arizona Corporation Commission",
+   "tipo": "pdf",
+   "file": "az_llcfee.pdf",
+   "http": 200,
+   "byte": 194558,
+   "letto_il": "2026-11-14",
+   "sha256_frasi": "c71b97c1122cde2a4c94e4da1bad87b867db6abf4c605314941c5c9403df064a",
+   "frasi": [
+    {
+     "testo": "Articles of Organization $50.00 $85.00",
+     "trovata": true
+    }
+   ]
+  },
+  "az_faq": {
+   "url": "https://azcc.gov/faqs/BusinessServicesFAQs",
+   "titolo": "Business Services FAQs",
+   "chi": "Arizona Corporation Commission",
+   "tipo": "html",
+   "file": "az_faq.html",
+   "http": 200,
+   "byte": 256387,
+   "letto_il": "2026-11-14",
+   "sha256_frasi": "95802debf79887bbd620595fd61578a252a2ed5ab7f026bf4194079104446a71",
+   "frasi": [
+    {
+     "testo": "No, LLCs are not required to file annual reports. Only corporations are required to file annual reports.",
+     "trovata": true
+    },
+    {
+     "testo": "By law, certain documents must be published in a newspaper of general circulation or posted to the A.C.C.'s database. The determining factor typically depends on the county where the business or statutory agent are located. Following the approval of your filing, the A.C.C. will inform you by letter if your document is required to be published.",
+     "trovata": true
+    },
+    {
+     "testo": "Regular (no additional fee; the estimated processing time is typically 14-16 days)",
+     "trovata": true
+    },
+    {
+     "testo": "Expedite ($35 in addition to the filing fee; the estimated processing time is typically 3-5 days)",
+     "trovata": true
+    },
+    {
+     "testo": "Every corporation and limited liability company is required to appoint and maintain a statutory agent at all times.",
+     "trovata": true
+    },
+    {
+     "testo": "A statutory agent is a person or business that has a physical address in Arizona.",
+     "trovata": true
+    }
+   ]
+  }
+ }
+}

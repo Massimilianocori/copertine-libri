@@ -19,6 +19,10 @@ Uso (dalla radice del repository):
    codici in evidenza; link di ritorno dalle pagine dei codici; volume misurato ≥ 100; FAQ solo da ricerche misurate; regola del testo proprio.
 7. Testi: nessun nome di modelli di IA, nessun dato personale, nessuna frase di consiglio; niente soglie SBA né conseguenze fiscali nei testi
    nostri (le pagine di codice riportano i testi ufficiali parola per parola: lì il controllo non si applica); nessuna chiave.
+6c. «LLC by State»: file grezzi delle pagine ufficiali degli Stati in raccolta/_grezzi/llc; ogni frase citata è ricercata di nuovo con un lettore
+   suo (html.parser, non raccolta/llc.py); ogni cifra scritta da noi (valore, nota, introduzione, FAQ) è in una frase citata dello stesso Stato;
+   ogni frase citata e il link alla sua fonte sono nella pagina; pagina solo con volume misurato ≥ 100; Stati esclusi senza pagina; FAQ solo da
+   ricerche misurate; nessuna frase di consiglio legale; riquadro dei partner assente finché affiliati.json è spento (nessun nome, nessun link).
 8. Monetizzazione: monetizzazione.controlla_sito("naics").
 """
 import hashlib
@@ -30,7 +34,9 @@ import sys
 import zipfile
 import xml.etree.ElementTree as ET
 from collections import Counter, defaultdict
+from datetime import date
 from html import unescape
+from html.parser import HTMLParser
 from pathlib import Path
 
 RADICE = Path(__file__).resolve().parent
@@ -49,6 +55,7 @@ MIN_PROPRIE_RICHIESTA, MAX_SOVRAPPOSIZIONE_RICHIESTA = 60, 0.65  # pagine a 6 ci
 MAX_INDICE_GZ, MAX_FRASI_GZ = 70_000, 260_000  # byte compressi dei due file della ricerca (il secondo si scarica solo se si scrive una parola)
 PAROLE_VUOTE = {"naics", "naic", "sic", "code", "codes", "number", "lookup", "for", "a", "an", "the", "and", "of", "in", "business", "company", "service",
                 "services", "shop", "store", "2022"}
+FILE_VOLUMI_LLC = "volumi-llc-2026-11-14.json"  # = genera.py
 DOMINI_ESTERNI = ["naics-code-lookup.netlify.app", "census.gov", "irs.gov", "goatcounter.com", "zgo.at", "policies.google.com", "adssettings.google.com", "schema.org"]
 ERR, AVV = [], []
 
@@ -68,6 +75,12 @@ FAQ = carica("faq.json")["faq"]
 VOL = carica("volumi.json")
 VOLA = carica(FILE_VOLUMI_ATTIVITA)
 ATT = carica("attivita.json")["attivita"]
+LLC = carica("llc-stati.json")
+LLCF = carica("llc-fonti.json")["fonti"]
+VOLL = carica(FILE_VOLUMI_LLC)
+AFF = carica("affiliati.json")["avvio"]
+# link esterni delle pagine LLC: solo gli host delle pagine ufficiali registrate in llc-stati.json
+DOMINI_ESTERNI += sorted({re.match(r"https://([^/]+)", f["url"]).group(1) for f in LLC["fonti"].values()})
 
 
 def vol_frase(f):
@@ -79,6 +92,10 @@ def misurate():
     """Frasi con un volume misurato > 0 (chieste allo strumento o restituite come simili), dai due file dei volumi."""
     out = {f for f, v in VOL["frasi"].items() if v.get("volume")}
     for f, v in VOLA["frasi"].items():
+        if v.get("volume"):
+            out.add(f)
+        out |= {x for x, n in (v.get("simili") or {}).items() if n}
+    for f, v in VOLL["frasi"].items():
         if v.get("volume"):
             out.add(f)
         out |= {x for x, n in (v.get("simili") or {}).items() if n}
@@ -515,7 +532,8 @@ def controlla_pagine():
             href = unescape(href)
             if href.startswith(("http://", "https://")):
                 host = re.match(r"https?://([^/]+)", href).group(1)
-                if not any(host == d or host.endswith("." + d) for d in DOMINI_ESTERNI):
+                partner = AFF["attivo"] and any(x["attivo"] for x in AFF["partner"]) and MON.dominio_ammesso(href)  # link del riquadro acceso
+                if not partner and not any(host == d or host.endswith("." + d) for d in DOMINI_ESTERNI):
                     errore(f"{rel}: link esterno non previsto {host}")
                 continue
             if href.startswith("#"):
@@ -607,6 +625,13 @@ def controlla_faq():
             if fid not in FJ["file"]:
                 errore(f"FAQ «{x['q'][:40]}»: fonte sconosciuta {fid}")
         domande[x["q"]] = x
+    faq_llc = [x for s in LLC["stati"] for x in s["faq"]] + LLC["indice"]["faq"]
+    for x in faq_llc:
+        if x["ricerca"] not in MISURATE:
+            errore(f"FAQ LLC «{x['q'][:40]}»: ricerca «{x['ricerca']}» senza volume misurato")
+        if x["q"] in domande:
+            errore(f"FAQ LLC «{x['q'][:40]}»: domanda doppia")
+        domande[x["q"]] = x
     n, pagine_faq = 0, 0
     for p in pagine_html():
         html = p.read_text(encoding="utf-8")
@@ -633,8 +658,8 @@ def controlla_faq():
                 for cod, tt in re.findall(r"(?<![\d-])(\d{2,6}(?:-\d{2})?) «([^»]+)»", a):
                     if not ((cod in C and C[cod]["t"] == tt) or (cod in NA["sic"] and NA["sic"][cod]["t"] == tt) or NA["gruppi_sic"].get(cod) == tt):
                         errore(f"{p.relative_to(SITO)}: FAQ con un titolo non ufficiale per {cod}")
-    if n != len(FAQ):
-        errore(f"FAQ: {n} nelle pagine, {len(FAQ)} in faq.json")
+    if n != len(FAQ) + len(faq_llc):
+        errore(f"FAQ: {n} nelle pagine, {len(FAQ)} in faq.json + {len(faq_llc)} in llc-stati.json")
     print(f"FAQ: {n} domande in {pagine_faq} pagine, tutte da ricerche vere ({len(sugg)} suggerimenti salvati il {DOM['letto_il']}, "
           f"{len(MISURATE)} frasi con volume misurato; nelle pagine attività solo ricerche misurate); "
           "JSON-LD FAQPage = testo visibile e solo dove ci sono FAQ")
@@ -840,6 +865,175 @@ def controlla_attivita():
 
 
 # ---------------------------------------------------------------- 7. testi
+# ---------------------------------------------------------------- 6c. «LLC by State» e riquadro dei partner
+class _Testo(HTMLParser):
+    """Lettore proprio delle pagine degli Stati: testo senza script, stili e commenti (non usa raccolta/llc.py)."""
+
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.pezzi, self.salta = [], 0
+
+    def handle_starttag(self, tag, attrs):
+        if tag in ("script", "style", "svg", "noscript"):
+            self.salta += 1
+        self.pezzi.append(" ")
+
+    def handle_endtag(self, tag):
+        if tag in ("script", "style", "svg", "noscript") and self.salta:
+            self.salta -= 1
+        self.pezzi.append(" ")
+
+    def handle_data(self, d):
+        if not self.salta:
+            self.pezzi.append(d)
+
+
+def stretto(t):
+    t = unescape(t)
+    for a, b in (("’", "'"), ("‘", "'"), ("“", '"'), ("”", '"'), ("–", "-"), ("—", "-"), ("­", ""), ("​", "")):
+        t = t.replace(a, b)
+    return re.sub(r"\s+", "", re.sub(r"[.…]{3,}", " ", t))
+
+
+def cifre(t):
+    out = set()
+    for x in re.findall(r"\d[\d,]*(?:\.\d+)?", t):
+        x = x.replace(",", "")
+        out.add(x.rstrip("0").rstrip(".") if "." in x else x)
+    return out
+
+
+LEGALE = re.compile(r"\b(you should|we recommend|we advise|our advice|best state to|cheapest state|you must hire|you need a lawyer|guaranteed)\b", re.I)
+ETICHETTE_LLC = {"filing", "annual", "tax", "extra", "processing", "agent"}
+
+
+def controlla_llc():
+    grezzi = GREZZI / "llc"
+    testi, n_frasi = {}, 0
+    for fid, f in LLC["fonti"].items():
+        reg = LLCF.get(fid)
+        host = re.match(r"https://([^/]+)", f["url"]).group(1)
+        if not re.search(r"(\.gov|\.us|^dos\.fl\.gov|coloradosos\.gov|azcc\.gov)$", host):
+            errore(f"LLC, fonte {fid}: {host} non è un sito ufficiale di uno Stato")
+        if not reg or reg["url"] != f["url"] or reg.get("http") != 200:
+            errore(f"LLC, fonte {fid}: non letta o indirizzo diverso da llc-fonti.json (lanciare raccolta/llc.py)")
+            continue
+        p = grezzi / reg["file"]
+        if not p.exists():
+            errore(f"LLC, fonte {fid}: file grezzo assente ({p.name}): lanciare raccolta/llc.py")
+            continue
+        if f["tipo"] == "pdf":
+            testi[fid] = stretto(subprocess.run(["pdftotext", "-layout", str(p), "-"], capture_output=True, text=True).stdout)
+        else:
+            lettore = _Testo()
+            lettore.feed(p.read_text(encoding="utf-8", errors="replace"))
+            testi[fid] = stretto("".join(lettore.pezzi))
+        if (date.today() - date.fromisoformat(reg["letto_il"])).days > 45:
+            AVV.append(f"LLC, fonte {fid}: letta il {reg['letto_il']}, più di 45 giorni fa (rilanciare raccolta/llc.py --rete)")
+    usate = set()
+    slug_pubblicati = set()
+    for s in LLC["stati"]:
+        vol = max((v for f in s["frasi"] for v in [VOLL["frasi"].get(f, {}).get("volume") or 0]), default=0)
+        html = leggi_pagina(f"/llc/{s['slug']}/")
+        if (html is not None) != (vol >= MIN_VOLUME_ATTIVITA):
+            errore(f"LLC {s['slug']}: pagina {'presente' if html else 'assente'} con volume misurato {vol}")
+        if html is None:
+            continue
+        slug_pubblicati.add(s["slug"])
+        vis = norm(visibile(html))
+        citate = set()
+        if {f["id"] for f in s["fatti"]} - ETICHETTE_LLC or not {"filing", "annual", "agent"} <= {f["id"] for f in s["fatti"]}:
+            errore(f"LLC {s['slug']}: fatti sconosciuti o mancanti (servono almeno tariffa, rapporto annuale, agente)")
+        for f in s["fatti"]:
+            for c in f["citazioni"]:
+                n_frasi += 1
+                usate.add(c["fonte"])
+                if c["fonte"] not in testi or stretto(c["testo"]) not in testi[c["fonte"]]:
+                    errore(f"LLC {s['slug']}: frase non ritrovata nel file grezzo di {c['fonte']} («{c['testo'][:60]}»)")
+                citate |= cifre(c["testo"])
+                if norm(c["testo"]) not in vis:
+                    errore(f"LLC {s['slug']}: frase citata assente dalla pagina («{c['testo'][:60]}»)")
+                if f'href="{LLC["fonti"][c["fonte"]]["url"].replace("&", "&amp;")}"' not in html:
+                    errore(f"LLC {s['slug']}: manca il link alla fonte {c['fonte']}")
+            for k in ("valore", "nota", "breve"):
+                if norm(f[k]) not in vis:
+                    errore(f"LLC {s['slug']}: {k} del fatto {f['id']} assente dalla pagina")
+        for t in [s["intro"]] + [f[k] for f in s["fatti"] for k in ("valore", "breve", "nota")] + [x["a"] for x in s["faq"]]:
+            if cifre(t) - citate:
+                errore(f"LLC {s['slug']}: cifra {sorted(cifre(t) - citate)} non presente in nessuna frase citata («{t[:50]}»)")
+        nostro = visibile(re.sub(r'<blockquote class="legge">.*?</blockquote>', " ", html, flags=re.S))
+        if LEGALE.search(nostro):
+            errore(f"LLC {s['slug']}: frase che sembra un consiglio («{LEGALE.search(nostro).group(0)}»)")
+        if "not legal advice" not in nostro or "not legal or tax advice" not in nostro:
+            errore(f"LLC {s['slug']}: manca «information, not legal advice»")
+        for altro in LLC["esclusi"]:
+            if altro.replace("-", " ").title() in nostro:
+                errore(f"LLC {s['slug']}: cita uno Stato escluso ({altro})")
+        for x in s["faq"]:
+            if norm(x["a"]) not in vis:
+                errore(f"LLC {s['slug']}: risposta della FAQ «{x['q'][:40]}» assente dalla pagina")
+    for fid in set(LLC["fonti"]) - usate:
+        errore(f"LLC, fonte {fid}: registrata ma non citata")
+    for e in LLC["esclusi"]:
+        if (SITO / "llc" / e).exists() or e in {s["slug"] for s in LLC["stati"]}:
+            errore(f"LLC: lo Stato escluso {e} ha una pagina")
+    for d in (SITO / "llc").iterdir():
+        if d.is_dir() and d.name not in slug_pubblicati:
+            errore(f"LLC: cartella inattesa llc/{d.name}")
+    indice = leggi_pagina("/llc/") or ""
+    vi_ = norm(visibile(indice))
+    for s in LLC["stati"]:
+        if s["slug"] in slug_pubblicati:
+            if f'href="/llc/{s["slug"]}/"' not in indice:
+                errore(f"LLC, indice: manca {s['slug']}")
+            for fid in ("filing", "annual", "agent"):
+                f = next(x for x in s["fatti"] if x["id"] == fid)
+                if norm(f["breve"]) not in vi_:
+                    errore(f"LLC, indice: manca «{f['breve']}» di {s['slug']}")
+    if "not legal advice" not in vi_:
+        errore("LLC, indice: manca «information, not legal advice»")
+    # testo in comune tra le pagine degli Stati (frasi citate comprese): ogni pagina deve avere testo suo
+    g = {s: gruppi5(leggi_pagina(f"/llc/{s}/")) for s in sorted(slug_pubblicati)}
+    conta = Counter(x for v in g.values() for x in v)
+    peggio = 0.0
+    for a, ga in g.items():
+        proprie = sum(1 for x in ga if conta[x] == 1)
+        q = max((len(ga & gb) / len(ga) for b, gb in g.items() if b != a), default=0)
+        peggio = max(peggio, q)
+        if proprie < 300 or q >= 0.55:
+            errore(f"LLC {a}: {proprie} gruppi di parole propri, {q:.0%} in comune con un'altra pagina di Stato")
+    # riquadro dei partner
+    acceso = AFF["attivo"] and any(x["attivo"] for x in AFF["partner"])
+    con_riquadro = 0
+    nomi = [x["nome"] for x in AFF["partner"]]
+    for p in pagine_html():
+        html = p.read_text(encoding="utf-8")
+        rel = str(p.relative_to(SITO))
+        if ".invalid" in html or "DA-INSERIRE" in html:
+            errore(f"{rel}: link segnaposto in pagina")
+        riquadri = re.findall(r'<aside class="partner".*?</aside>', html, re.S)
+        if not acceso:
+            if riquadri or "data-partner" in html or re.search(r'rel="[^"]*sponsored', html) or any(x in html for x in nomi):
+                errore(f"{rel}: riquadro dei partner o nome di un partner con affiliati.json spento")
+            continue
+        con_riquadro += bool(riquadri)
+        fuori = re.sub(r'<aside class="partner".*?</aside>', " ", html, flags=re.S)
+        if re.search(r'rel="[^"]*sponsored', fuori) or any(x in visibile(fuori) for x in nomi):
+            errore(f"{rel}: link o nome di un partner fuori dal riquadro")
+        for r in riquadri:
+            if "Advertisement" not in r or AFF["trasparenza"] not in unescape(r):
+                errore(f"{rel}: riquadro dei partner senza la dicitura di pubblicità")
+            for a in re.findall(r"<a\b[^>]*>", r):
+                rl = set(re.search(r'rel="([^"]*)"', a).group(1).split()) if 'rel="' in a else set()
+                if not {"sponsored", "nofollow", "noopener"} <= rl or not MON.dominio_ammesso(unescape(re.search(r'href="([^"]*)"', a).group(1))):
+                    errore(f"{rel}: link del riquadro senza rel=\"sponsored nofollow noopener\" o verso un dominio non ammesso")
+    if acceso and not con_riquadro:
+        errore("riquadro dei partner acceso ma assente dalle pagine")
+    print(f"LLC by State: {len(slug_pubblicati)} Stati + indice ({', '.join(sorted(LLC['esclusi']))} esclusi: pagine ufficiali non leggibili), {len(testi)} pagine "
+          f"ufficiali, {n_frasi} frasi citate ritrovate nei file grezzi e nelle pagine, ogni cifra nostra in una frase citata; testo in comune tra due Stati "
+          f"al massimo {peggio:.0%}; riquadro dei partner {'ACCESO in ' + str(con_riquadro) + ' pagine' if acceso else 'spento: nessun nome e nessun link in nessuna pagina'}")
+
+
 VIETATE = re.compile(r"\b(claude|anthropic|openai|chatgpt|gpt-?\d|gemini|llama|mistral|copilot|opus|sonnet|haiku)\b", re.I)
 PERSONALI = re.compile(r"massimiliano|\bcori\b|@gmail|@outlook|@libero", re.I)
 CONSIGLI = re.compile(r"\b(we recommend|you should choose|we suggest|best code for you|the right code for you is)\b", re.I)
@@ -871,6 +1065,9 @@ def controlla_testi():
             # testi ufficiali citati parola per parola (voci dell'indice, descrizioni): controllati sui file grezzi in controlla_attivita
             html = re.sub(r'<q class="vi"[^>]*>.*?</q>|<blockquote class="legge">.*?</blockquote>', " ", html, flags=re.S)
             html = re.sub(r'(<section class="voce" id="c-\d{6}"><h3>(?:(?!</h3>).)*</h3>)<div class="testo"><p>.*?</p></div>', r"\1", html, flags=re.S)
+        if str(p.relative_to(SITO)).startswith("llc/"):
+            # frasi ufficiali degli Stati citate parola per parola (controllate sui file grezzi in controlla_llc)
+            html = re.sub(r'<blockquote class="legge">.*?</blockquote>', " ", html, flags=re.S)
         v = visibile(html)
         if CONSIGLI.search(v):
             errore(f"{p.relative_to(SITO)}: frase che sembra un consiglio («{CONSIGLI.search(v).group(0)}»)")
@@ -897,15 +1094,15 @@ def controlla_monetizzazione():
     e, info = MON.controlla_sito("naics", SITO)
     for x in e:
         errore("monetizzazione: " + x)
-    if info["link_affiliati"]:
-        errore("link di affiliazione presenti: per ora il sito non ne ha")
+    if info["link_affiliati"] and not (AFF["attivo"] and any(x["attivo"] for x in AFF["partner"])):
+        errore("link di affiliazione presenti con il riquadro dei partner spento")
     senza = sum(1 for p in pagine_html() if MON.SEGNO_SENZA_ADSENSE in p.read_text(encoding="utf-8"))
     print(MON.riepilogo("naics", info, e) + f"; pagine senza pubblicità (noindex o poco testo): {senza}")
 
 
 # ---------------------------------------------------------------- 9. browser
 PAGINE_BROWSER = ["/", "/541511/", "/425120/", "/812113/", "/5415/", "/sic-to-naics/", "/naics-2017-to-2022/", "/how-we-check/", "/naics-code-for/",
-                  "/naics-code-for-restaurant/", "/naics-code-for-manufacturing/"]
+                  "/naics-code-for-restaurant/", "/naics-code-for-manufacturing/", "/llc/", "/llc/texas/", "/llc/new-york/", "/llc/michigan/"]
 
 
 def controlla_browser():
@@ -988,7 +1185,7 @@ def controlla_browser():
                         pg.click("[data-altre-tutte]")
                         if pg.locator("[data-tabella] tbody tr:visible").count() != tot:
                             errore("browser: «Show all» non mostra tutte le righe")
-                    if u in ("/425120/", "/541511/", "/812113/", "/naics-code-for/", "/naics-code-for-restaurant/", "/naics-code-for-manufacturing/"):
+                    if u in ("/425120/", "/541511/", "/812113/", "/naics-code-for/", "/naics-code-for-restaurant/", "/naics-code-for-manufacturing/") or u.startswith("/llc/"):
                         pg.evaluate("document.querySelectorAll('main details').forEach(d=>d.open=true)")
                         larghe = pg.evaluate("Array.from(document.querySelectorAll('main .tab')).filter(t=>t.scrollWidth>t.clientWidth+1).length")
                         if larghe:
@@ -1037,6 +1234,7 @@ def main():
     controlla_faq()
     controlla_indicizzazione()
     controlla_attivita()
+    controlla_llc()
     controlla_testi()
     controlla_monetizzazione()
     if "--browser" in sys.argv:

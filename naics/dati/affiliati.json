@@ -1,0 +1,14 @@
+{
+ "_nota": "Riquadro dei partner «Starting this business?» (pagine «NAICS code for …», pagine dei codici indicati dalle guide, pagine /llc/). SPENTO: con \"attivo\": false genera.py non scrive niente in pagina (nessun riquadro, nessun nome, nessun link) e verifica.py controlla che sia così. Al 14/11/2026 non esiste nessun link di affiliazione: l'editore non è ancora iscritto a ZenBusiness (Awin), Northwest Registered Agent (programma diretto) o Tailor Brands. Per accenderlo: 1) mettere in \"link\" il link tracciato ricevuto dal programma (mai un link inventato o diretto senza tracciamento); 2) il dominio del link deve essere in studio-business/strumenti/monetizzazione.json, domini_affiliazione (awin1.com c'è già; per un programma diretto aggiungere il dominio lì, con la nota del programma); 3) \"attivo\": true sul partner e poi \"attivo\": true su \"avvio\"; 4) genera.py e verifica.py --browser. I link escono con rel=\"sponsored nofollow noopener\" e la dicitura di pubblicità; privacy e about cambiano da soli. Il testo non dice nulla sui servizi dei partner (non li abbiamo provati né letti): se si vuole descriverli, prima leggere la loro pagina ufficiale e citarla come fa paycheck con Patriot.",
+ "avvio": {
+  "attivo": false,
+  "titolo": "Starting this business?",
+  "testo": "You can file the formation papers yourself with your state. Some people pay a company to prepare and file them instead. The companies below are advertising partners of this site: they charge their own fees on top of the state fee, we have not tested their services, and no code or figure on this site depends on them.",
+  "trasparenza": "Advertisement. If you sign up through these links we may earn a commission, at no extra cost to you.",
+  "partner": [
+   {"id": "zenbusiness", "nome": "ZenBusiness", "attivo": false, "link": "https://LINK-AWIN-DA-INSERIRE.invalid/", "pulsante": "Visit ZenBusiness"},
+   {"id": "northwest", "nome": "Northwest Registered Agent", "attivo": false, "link": "https://LINK-DA-INSERIRE.invalid/", "pulsante": "Visit Northwest Registered Agent"},
+   {"id": "tailorbrands", "nome": "Tailor Brands", "attivo": false, "link": "https://LINK-DA-INSERIRE.invalid/", "pulsante": "Visit Tailor Brands"}
+  ]
+ }
+}
