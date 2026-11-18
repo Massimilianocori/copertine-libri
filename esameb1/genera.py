@@ -973,11 +973,11 @@ def riquadro_libro(rel="../"):
     """Riquadro del libro (dal 15/11/2026, prima era «in arrivo: avvisami»). Nessun prezzo e nessuna promessa di superare l'esame:
     il prezzo lo mostra Amazon. Rimanda anche alla pagina gratuita con gli audio del libro."""
     return f"""<section class="card libro libro-top" id="libro">
-<div class="modulo-testa">{('<a href="' + LIBRO_URL + '" rel="noopener" target="_blank" data-libro-proprio="si" class="cop"><img src="' + rel + COPERTINA_LIBRO + '" alt="Copertina del libro ' + LIBRO_TITOLO + '" width="80" height="104" loading="lazy" style="border-radius:4px;box-shadow:0 3px 10px rgba(0,0,0,.25)"></a>') if (RADICE / "assets" / COPERTINA_LIBRO).exists() else '<span class="bolla">' + ic("libro") + '</span>'}<div>
+<div class="modulo-testa">{('<a href="' + LIBRO_URL + '" rel="noopener" target="_blank" data-libro-proprio="si" data-goatcounter-click="esameb1.eu/clic/libro-esempi" class="cop"><img src="' + rel + COPERTINA_LIBRO + '" alt="Copertina del libro ' + LIBRO_TITOLO + '" width="80" height="104" loading="lazy" style="border-radius:4px;box-shadow:0 3px 10px rgba(0,0,0,.25)"></a>') if (RADICE / "assets" / COPERTINA_LIBRO).exists() else '<span class="bolla">' + ic("libro") + '</span>'}<div>
 <h2>Il libro «{LIBRO_TITOLO}» è uscito</h2>
 <p class="small" style="margin:4px 0 0">Guida a tutti e 4 gli esami, 4 simulazioni con soluzioni, modelli di email e orale.
 Le tracce audio delle prove d'ascolto sono gratis sulla pagina <a href="{rel}audio-libro/">audio del libro</a>.</p></div></div>
-<div class="azioni"><a class="btn" href="{LIBRO_URL}" rel="noopener" target="_blank" data-libro-proprio="si">{ic("libro")}Vedi il libro su Amazon</a></div>
+<div class="azioni"><a class="btn" href="{LIBRO_URL}" rel="noopener" target="_blank" data-libro-proprio="si" data-goatcounter-click="esameb1.eu/clic/libro-esempi">{ic("libro")}Vedi il libro su Amazon</a></div>
 </section>"""
 
 
@@ -987,20 +987,20 @@ COPERTINA_LIBRO = "libro-b1.jpg"  # copertina in esameb1/assets/ (se manca: segn
 def libro_mini(rel=""):
     """Striscia evidenziata del libro (copertina piccola + pulsante) per le pagine interne (15/11/2026)."""
     if (RADICE / "assets" / COPERTINA_LIBRO).exists():
-        cop = (f'<a href="{LIBRO_URL}" rel="noopener" target="_blank" data-libro-proprio="si" class="cop">'
+        cop = (f'<a href="{LIBRO_URL}" rel="noopener" target="_blank" data-libro-proprio="si" data-goatcounter-click="esameb1.eu/clic/libro-pagine" class="cop">'
                f'<img src="{rel}{COPERTINA_LIBRO}" alt="Copertina del libro {LIBRO_TITOLO}" width="64" height="83" loading="lazy"></a>')
     else:
         cop = ""
     return (f'<div class="libro-mini">{cop}<div><strong>Libro: {LIBRO_TITOLO}</strong>'
             f'<small>Tutti e 4 gli esami, 4 simulazioni con soluzioni, modelli di email e orale.</small>'
-            f'<a class="btn" href="{LIBRO_URL}" rel="noopener" target="_blank" data-libro-proprio="si">{ic("libro")}Compra su Amazon</a></div></div>')
+            f'<a class="btn" href="{LIBRO_URL}" rel="noopener" target="_blank" data-libro-proprio="si" data-goatcounter-click="esameb1.eu/clic/libro-pagine">{ic("libro")}Compra su Amazon</a></div></div>')
 
 
 def libro_top(rel=""):
     """Riquadro evidenziato del libro in prima pagina (15/11/2026, richiesta di Massimiliano: «un riquadro a destra evidenziato»).
     Link diretto al cartaceo, senza codice affiliato; nessun prezzo (lo mostra Amazon) e nessuna promessa di superare l'esame."""
     if (RADICE / "assets" / COPERTINA_LIBRO).exists():
-        cop = (f'<a href="{LIBRO_URL}" rel="noopener" target="_blank" data-libro-proprio="si" class="cop">'
+        cop = (f'<a href="{LIBRO_URL}" rel="noopener" target="_blank" data-libro-proprio="si" data-goatcounter-click="esameb1.eu/clic/libro-home" class="cop">'
                f'<img src="{rel}{COPERTINA_LIBRO}" alt="Copertina del libro {LIBRO_TITOLO}" width="110" height="142" loading="eager"></a>')
     else:
         cop = '<span class="finto" aria-hidden="true">B1</span>'
@@ -1010,7 +1010,7 @@ def libro_top(rel=""):
 <h2>{LIBRO_TITOLO}</h2>
 <p>Guida a tutti e 4 gli esami (CILS, CELI, PLIDA, CERT.IT), 4 simulazioni con soluzioni, modelli di email e orale. Audio gratis su <a href="{rel}audio-libro/">questo sito</a>.</p>
 </div></div>
-<a class="btn" href="{LIBRO_URL}" rel="noopener" target="_blank" data-libro-proprio="si">{ic("libro")}Compralo su Amazon</a>
+<a class="btn" href="{LIBRO_URL}" rel="noopener" target="_blank" data-libro-proprio="si" data-goatcounter-click="esameb1.eu/clic/libro-home">{ic("libro")}Compralo su Amazon</a>
 </aside>"""
 
 
