@@ -1053,13 +1053,13 @@
   "provincia": "Tutte",
   "sindacati": "CLAP/CONFEDERAZIONE COBAS/SIAL COBAS (ADERENTE: ADL VARESE/CUB)",
   "categoria": "TUTTI I SETTORI PUBBLICI E PRIVATI",
-  "modalita": "INTERA GIORNATA AD ESLUSIONE DEL TRASPORTO FERROVIARIO, TRASPORTO MERCI SU ROTAIA.PER LA SANITÀ LO SCIOPERO È ARTICOLATO DALL'INIZIO DEL PRIMO TURNO DEL 20/11 ALLA FINE DELL'ULTIMO",
+  "modalita": "INTERA GIORNATA AD ESCLUSIONE DEL TRASPORTO PUBBLICO LOCALE, TRASPORTO FERROVIARIO, TRASPORTO MERCI SU ROTAIA.PER LA SANITÀ LO SCIOPERO È ARTICOLATO DALL'INIZIO DEL PRIMO TURNO DEL 20/11 ALLA FINE DELL'ULTIMO",
   "proclamazione": "",
   "ricezione": "",
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-11-06",
-  "visto_ultimo": "2026-11-17",
+  "visto_ultimo": "2026-11-18",
   "modifiche": [
    {
     "il": "2026-11-11",
@@ -1067,6 +1067,15 @@
      "sindacati": [
       "CLAP/CONFEDERAZIONE COBAS/SIAL COBAS",
       "CLAP/CONFEDERAZIONE COBAS/SIAL COBAS (ADERENTE: ADL VARESE/CUB)"
+     ]
+    }
+   },
+   {
+    "il": "2026-11-18",
+    "campi": {
+     "modalita": [
+      "INTERA GIORNATA AD ESLUSIONE DEL TRASPORTO FERROVIARIO, TRASPORTO MERCI SU ROTAIA.PER LA SANITÀ LO SCIOPERO È ARTICOLATO DALL'INIZIO DEL PRIMO TURNO DEL 20/11 ALLA FINE DELL'ULTIMO",
+      "INTERA GIORNATA AD ESCLUSIONE DEL TRASPORTO PUBBLICO LOCALE, TRASPORTO FERROVIARIO, TRASPORTO MERCI SU ROTAIA.PER LA SANITÀ LO SCIOPERO È ARTICOLATO DALL'INIZIO DEL PRIMO TURNO DEL 20/11 ALLA FINE DELL'ULTIMO"
      ]
     }
    }
@@ -1092,7 +1101,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-11-07",
-  "visto_ultimo": "2026-11-17",
+  "visto_ultimo": "2026-11-18",
   "modifiche": [],
   "fonte": "cgsse",
   "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/383015",
@@ -1115,7 +1124,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-11-10",
-  "visto_ultimo": "2026-11-17",
+  "visto_ultimo": "2026-11-18",
   "modifiche": [],
   "fonte": "cgsse",
   "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/383057",
@@ -1170,7 +1179,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-10-29",
-  "visto_ultimo": "2026-11-17",
+  "visto_ultimo": "2026-11-18",
   "modifiche": [
    {
     "il": "2026-11-05",
@@ -1225,6 +1234,29 @@
   "visto_ultimo": "2026-10-23",
   "modifiche": []
  },
+ "cgsse-381623": {
+  "id": "cgsse-381623",
+  "inizio": "2026-11-22",
+  "fine": "2026-11-22",
+  "settore": "Aereo",
+  "rilevanza": "Locale",
+  "regione": "Lombardia",
+  "provincia": "Varese",
+  "sindacati": "FAST CONFSAL AV UNICA",
+  "categoria": "ENAV",
+  "modalita": "DALLE ORE 00.01 ALLE ORE 24.00",
+  "proclamazione": "",
+  "ricezione": "",
+  "note": "",
+  "stato": "in programma",
+  "visto_prima": "2026-11-18",
+  "visto_ultimo": "2026-11-18",
+  "modifiche": [],
+  "fonte": "cgsse",
+  "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/381623",
+  "settore_cgsse": "Trasporto aereo",
+  "ambito_cgsse": "VARESE"
+ },
  "cgsse-382862": {
   "id": "cgsse-382862",
   "inizio": "2026-11-22",
@@ -1241,7 +1273,7 @@
   "note": "REVOCATO (CGSSE)",
   "stato": "revocato",
   "visto_prima": "2026-11-03",
-  "visto_ultimo": "2026-11-17",
+  "visto_ultimo": "2026-11-18",
   "modifiche": [
    {
     "il": "2026-11-10",
@@ -1307,7 +1339,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-11-04",
-  "visto_ultimo": "2026-11-17",
+  "visto_ultimo": "2026-11-18",
   "modifiche": [],
   "fonte": "cgsse",
   "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/382773",
@@ -1349,7 +1381,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-11-14",
-  "visto_ultimo": "2026-11-17",
+  "visto_ultimo": "2026-11-18",
   "modifiche": [],
   "fonte": "cgsse",
   "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/383268",
@@ -1372,7 +1404,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-11-17",
-  "visto_ultimo": "2026-11-17",
+  "visto_ultimo": "2026-11-18",
   "modifiche": [],
   "fonte": "cgsse",
   "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/383288",
@@ -1447,7 +1479,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-11-16",
-  "visto_ultimo": "2026-11-17",
+  "visto_ultimo": "2026-11-18",
   "modifiche": [],
   "fonte": "cgsse",
   "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/382371",
@@ -1470,7 +1502,7 @@
   "note": "",
   "stato": "in programma",
   "visto_prima": "2026-11-16",
-  "visto_ultimo": "2026-11-17",
+  "visto_ultimo": "2026-11-18",
   "modifiche": [],
   "fonte": "cgsse",
   "url_dettaglio": "https://www.cgsse.it/calendario-scioperi/dettaglio-sciopero/383009",
