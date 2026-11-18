@@ -263,6 +263,135 @@
     "The rates apply to fully-electric and hybrid automobiles, as well as gasoline and diesel-powered vehicles."
    ]
   },
+  "va_rates": {
+   "titolo": "Current Veterans disability compensation rates (effective December 1, 2025)",
+   "chi": "U.S. Department of Veterans Affairs, va.gov",
+   "url": "https://www.va.gov/disability/compensation-rates/veteran-rates/",
+   "cerca": [
+    "Review 2026 Veterans disability compensation rates.",
+    "Effective December 1, 2025",
+    "We base your monthly payment amount on your disability rating and details about your dependent family members.",
+    "If you have a 10% to 20% disability rating, you won't receive a higher rate even if you have a dependent spouse, child, or parent.",
+    "We're required by law to match the percentage of cost-of-living adjustments made to Social Security benefits.",
+    "These adjustments help to make sure that the purchasing power of your benefits keeps up with inflation.",
+    "If your spouse receives Aid and Attendance benefits or you have more than 1 child, you may qualify for additional monthly payment amounts as listed in the Added amounts table.",
+    "Since your basic rate already provides payment for 1 child, you would add the rate of $76.00 for each additional child",
+    "Find the dependent status in the left column that best describes you. Then look for your disability rating in the top row. Your basic monthly rate is where your dependent status and disability rating meet."
+   ]
+  },
+  "va_rates_2025": {
+   "titolo": "Past rates: 2025 Veterans disability compensation rates (effective December 1, 2024)",
+   "chi": "U.S. Department of Veterans Affairs, va.gov",
+   "url": "https://www.va.gov/disability/compensation-rates/veteran-rates/past-rates-2025/",
+   "cerca": [
+    "Effective December 1, 2024"
+   ]
+  },
+  "va_fr_2026": {
+   "titolo": "Cost of Living Adjustments for Service-Connected Benefits (notice of the rates effective December 1, 2025)",
+   "chi": "Department of Veterans Affairs, Federal Register, 91 FR 7386, February 17, 2026 (document 2026-02997, text from govinfo.gov)",
+   "url": "https://www.govinfo.gov/content/pkg/FR-2026-02-17/html/2026-02997.htm",
+   "cerca": [
+    "As required by the Veterans' Compensation Cost-of-Living Adjustment Act of 2025, Public Law 119-42, the VA is hereby giving notice of adjustments in certain benefit rates.",
+    "VA is required to increase these benefit rates by the same percentage as increases in the benefit amounts payable under title II of the Social Security Act.",
+    "The increased rates are required to be published in the Federal Register.",
+    "The Social Security Administration has announced that there will be a 2.8% cost-of-living increase in Social Security benefits for 2026.",
+    "the following rates for VA's compensation program became effective on December 1, 2025"
+   ]
+  },
+  "va_fr_2025": {
+   "titolo": "Cost of Living Adjustments for Service-Connected Benefits (notice of the rates effective December 1, 2024)",
+   "chi": "Department of Veterans Affairs, Federal Register, July 18, 2025 (document 2025-13484, text from govinfo.gov)",
+   "url": "https://www.govinfo.gov/content/pkg/FR-2025-07-18/html/2025-13484.htm",
+   "cerca": [
+    "2.5% cost-of-living increase in Social Security benefits for 2025"
+   ]
+  },
+  "ssa_cola_2027": {
+   "titolo": "Cost-of-Living Increase and Other Determinations for 2027",
+   "chi": "Social Security Administration, Federal Register, 91 FR 67380, October 26, 2026 (document 2026-21796, text from govinfo.gov)",
+   "url": "https://www.govinfo.gov/content/pkg/FR-2026-10-26/html/2026-21796.htm",
+   "cerca": [
+    "there will be a 3.6 percent cost-of-living increase in Social Security benefits effective December 2026"
+   ]
+  },
+  "hr8552": {
+   "titolo": "H.R. 8552, Veterans' Compensation Cost-of-Living Adjustment Act of 2026, enrolled bill",
+   "chi": "119th Congress, 2d Session (govinfo.gov, U.S. Government Publishing Office, issued November 13, 2026)",
+   "url": "https://www.govinfo.gov/content/pkg/BILLS-119hr8552enr/html/BILLS-119hr8552enr.htm",
+   "cerca": [
+    "H.R. 8552 Enrolled Bill (ENR)",
+    "Veterans' Compensation Cost-of-Living Adjustment Act of 2026",
+    "Effective on December 1, 2026, the Secretary of Veterans Affairs shall increase, in accordance with subsection (c), the dollar amounts in effect on November 30, 2026, for the payment of disability compensation and dependency and indemnity compensation",
+    "Each dollar amount described in subsection (b) shall be increased by the same percentage as the percentage by which benefit amounts payable under title II of the Social Security Act (42 U.S.C. 401 et seq.) are increased effective December 1, 2026",
+    "The Secretary of Veterans Affairs shall publish in the Federal Register the amounts specified in section 2(b), as increased under that section"
+   ]
+  },
+  "plaw119_42": {
+   "titolo": "Public Law 119-42, Veterans' Compensation Cost-of-Living Adjustment Act of 2025",
+   "chi": "139 Stat. 665, approved November 25, 2025 (govinfo.gov, U.S. Government Publishing Office)",
+   "url": "https://www.govinfo.gov/content/pkg/PLAW-119publ42/html/PLAW-119publ42.htm",
+   "cerca": [
+    "Approved November 25, 2025",
+    "Effective on December 1, 2025, the Secretary of Veterans Affairs shall increase"
+   ]
+  },
+  "usc1115": {
+   "titolo": "38 U.S.C. 1115, Additional compensation for dependents",
+   "chi": "United States Code, 2024 edition (govinfo.gov, U.S. Government Publishing Office)",
+   "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title38/html/USCODE-2024-title38-partII-chap11-subchapII-sec1115.htm",
+   "cerca": [
+    "whose disability is rated not less than 30 percent, shall be entitled to additional compensation for dependents",
+    "in an amount having the same ratio to the amount specified in paragraph (1) of this section as the degree of disability bears to total disability",
+    "The amounts payable under this paragraph, if not a multiple of $1, shall be rounded down to the nearest dollar."
+   ]
+  },
+  "cfr4_25": {
+   "titolo": "38 CFR 4.25, Combined ratings table (Table I)",
+   "chi": "Code of Federal Regulations, eCFR in effect on October 1, 2026 (ecfr.gov, National Archives and GPO)",
+   "url": "https://www.ecfr.gov/current/title-38/section-4.25",
+   "leggi": "https://www.ecfr.gov/api/versioner/v1/full/2026-10-01/title-38.xml?part=4&section=4.25",
+   "gzip": true,
+   "cerca": [
+    "the disabilities will first be arranged in the exact order of their severity, beginning with the greatest disability and then combined with use of table I",
+    "This combined value will then be converted to the nearest number divisible by 10, and combined values ending in 5 will be adjusted upward.",
+    "Thus, a person having a 60 percent disability is considered 40 percent efficient.",
+    "with a 50 percent disability and a 30 percent disability, the combined value will be found to be 65 percent, but the 65 percent must be converted to 70 percent to represent the final degree of disability",
+    "if there are three disabilities ratable at 60 percent, 40 percent, and 20 percent, respectively, the combined value for the first two will be found opposite 60 and under 40 and is 76 percent",
+    "The conversion to the nearest degree divisible by 10 will be done only once per rating decision",
+    "10 combined with 10 is 19"
+   ]
+  },
+  "cfr4_26": {
+   "titolo": "38 CFR 4.26, Bilateral factor",
+   "chi": "Code of Federal Regulations, eCFR in effect on October 1, 2026 (ecfr.gov, National Archives and GPO)",
+   "url": "https://www.ecfr.gov/current/title-38/section-4.26",
+   "leggi": "https://www.ecfr.gov/api/versioner/v1/full/2026-10-01/title-38.xml?part=4&section=4.26",
+   "gzip": true,
+   "cerca": [
+    "the ratings for the disabilities of the right and left sides will be combined as usual, and 10 percent of this value will be added"
+   ]
+  },
+  "va_about": {
+   "titolo": "About disability ratings (combined ratings table)",
+   "chi": "U.S. Department of Veterans Affairs, va.gov",
+   "url": "https://www.va.gov/disability/about-disability-ratings/",
+   "cerca": [
+    "Calculating your combined disability rating involves more than adding up your individual ratings.",
+    "That's why your combined rating may be different from the sum of your individual ratings.",
+    "If you have 2 disabilities, each rated at 10% disabling, your combined disability rating is 19%."
+   ]
+  },
+  "fr_va_search": {
+   "titolo": "Federal Register search: VA notices of cost-of-living adjustments for service-connected benefits",
+   "chi": "Federal Register (National Archives), public API",
+   "url": "https://www.federalregister.gov/documents/search?conditions%5Bagencies%5D%5B%5D=veterans-affairs-department&conditions%5Bterm%5D=%22Cost+of+Living+Adjustments+for+Service-Connected+Benefits%22",
+   "leggi": "https://www.federalregister.gov/api/v1/documents.json?conditions%5Bagencies%5D%5B%5D=veterans-affairs-department&conditions%5Bterm%5D=%22Cost+of+Living+Adjustments+for+Service-Connected+Benefits%22&conditions%5Btype%5D%5B%5D=NOTICE&order=newest&per_page=5",
+   "api_fr_va": true,
+   "cerca": [
+    "2026-02997"
+   ]
+  },
   "eo2016": {
    "titolo": "Executive Order 13715, Adjustments of Certain Rates of Pay, Schedule 8 (effective January 1, 2016)",
    "chi": "Federal Register, 80 FR 80195",
@@ -465,7 +594,7 @@
   },
   "plaw119": {
    "http": 200,
-   "letto_il": "2026-11-13",
+   "letto_il": "2026-11-15",
    "sha256": "fb478027a95824b2570293cfe2a53377de06464ea6c0ca5d35d0a3adb6c18e27",
    "byte": 16240,
    "ultima_legge": {
@@ -475,6 +604,7 @@
    },
    "leggi_lette": 57,
    "ndaa_2027": [],
+   "va_cola_2026": [],
    "trovate": {}
   },
   "eo2016": {
@@ -675,6 +805,163 @@
     "certain members of the intelligence community": true,
     "The rates apply to fully-electric and hybrid automobiles, as well as gasoline and diesel-powered vehicles.": true
    }
+  },
+  "va_rates": {
+   "http": 200,
+   "letto_il": "2026-11-15",
+   "sha256": "425ac5761c4f8662c6e0438d666a6b68cb8247ac844d95a5c1c81dbfc3619547",
+   "byte": 93661,
+   "trovate": {
+    "Review 2026 Veterans disability compensation rates.": true,
+    "Effective December 1, 2025": true,
+    "We base your monthly payment amount on your disability rating and details about your dependent family members.": true,
+    "If you have a 10% to 20% disability rating, you won't receive a higher rate even if you have a dependent spouse, child, or parent.": true,
+    "We're required by law to match the percentage of cost-of-living adjustments made to Social Security benefits.": true,
+    "These adjustments help to make sure that the purchasing power of your benefits keeps up with inflation.": true,
+    "If your spouse receives Aid and Attendance benefits or you have more than 1 child, you may qualify for additional monthly payment amounts as listed in the Added amounts table.": true,
+    "Since your basic rate already provides payment for 1 child, you would add the rate of $76.00 for each additional child": true,
+    "Find the dependent status in the left column that best describes you. Then look for your disability rating in the top row. Your basic monthly rate is where your dependent status and disability rating meet.": true
+   }
+  },
+  "va_rates_2025": {
+   "http": 200,
+   "letto_il": "2026-11-15",
+   "sha256": "596d387c533e9141a192a6a40a4e99ec4f0f3978e0e7ddf71766f941d92be042",
+   "byte": 92151,
+   "trovate": {
+    "Effective December 1, 2024": true
+   }
+  },
+  "va_fr_2026": {
+   "http": 200,
+   "letto_il": "2026-11-15",
+   "sha256": "5e1b36aff98fd52b7d85530d7f9f851f1f605b475ecef8945a11eb4e5aec8a9f",
+   "byte": 5355,
+   "trovate": {
+    "As required by the Veterans' Compensation Cost-of-Living Adjustment Act of 2025, Public Law 119-42, the VA is hereby giving notice of adjustments in certain benefit rates.": true,
+    "VA is required to increase these benefit rates by the same percentage as increases in the benefit amounts payable under title II of the Social Security Act.": true,
+    "The increased rates are required to be published in the Federal Register.": true,
+    "The Social Security Administration has announced that there will be a 2.8% cost-of-living increase in Social Security benefits for 2026.": true,
+    "the following rates for VA's compensation program became effective on December 1, 2025": true
+   }
+  },
+  "va_fr_2025": {
+   "http": 200,
+   "letto_il": "2026-11-15",
+   "sha256": "267c2e183003f156540424bcd017a04deaddef9de963258dbf713dbd4bc19c63",
+   "byte": 4905,
+   "trovate": {
+    "2.5% cost-of-living increase in Social Security benefits for 2025": true
+   }
+  },
+  "ssa_cola_2027": {
+   "http": 200,
+   "letto_il": "2026-11-15",
+   "sha256": "89b04bc216c7b616187ae611e614b43870116abcf3fb06536c0229c484bcef7c",
+   "byte": 39750,
+   "trovate": {
+    "there will be a 3.6 percent cost-of-living increase in Social Security benefits effective December 2026": true
+   }
+  },
+  "hr8552": {
+   "http": 200,
+   "letto_il": "2026-11-15",
+   "sha256": "f19698714bd54e78086cc9aeae29af3d740f7ee4be4a49e28c26f56193a64a59",
+   "byte": 3637,
+   "trovate": {
+    "H.R. 8552 Enrolled Bill (ENR)": true,
+    "Veterans' Compensation Cost-of-Living Adjustment Act of 2026": true,
+    "Effective on December 1, 2026, the Secretary of Veterans Affairs shall increase, in accordance with subsection (c), the dollar amounts in effect on November 30, 2026, for the payment of disability compensation and dependency and indemnity compensation": true,
+    "Each dollar amount described in subsection (b) shall be increased by the same percentage as the percentage by which benefit amounts payable under title II of the Social Security Act (42 U.S.C. 401 et seq.) are increased effective December 1, 2026": true,
+    "The Secretary of Veterans Affairs shall publish in the Federal Register the amounts specified in section 2(b), as increased under that section": true
+   }
+  },
+  "plaw119_42": {
+   "http": 200,
+   "letto_il": "2026-11-15",
+   "sha256": "51e93a05f6ef4e6bc46b55b9e289e6e97852bbc9bea00169ef03da305d3328b8",
+   "byte": 3940,
+   "trovate": {
+    "Approved November 25, 2025": true,
+    "Effective on December 1, 2025, the Secretary of Veterans Affairs shall increase": true
+   }
+  },
+  "usc1115": {
+   "http": 200,
+   "letto_il": "2026-11-15",
+   "sha256": "63fd71d2d30eb09e9946599c4b08411572978fd6ebd5415e20b8f18620663d40",
+   "byte": 45633,
+   "trovate": {
+    "whose disability is rated not less than 30 percent, shall be entitled to additional compensation for dependents": true,
+    "in an amount having the same ratio to the amount specified in paragraph (1) of this section as the degree of disability bears to total disability": true,
+    "The amounts payable under this paragraph, if not a multiple of $1, shall be rounded down to the nearest dollar.": true
+   }
+  },
+  "cfr4_25": {
+   "http": 200,
+   "letto_il": "2026-11-15",
+   "sha256": "5d48bdeee20adaaaf19fd7454021b77fa9dcf06ce7a9d27d6f4e021bdcd31cd6",
+   "byte": 39438,
+   "trovate": {
+    "the disabilities will first be arranged in the exact order of their severity, beginning with the greatest disability and then combined with use of table I": true,
+    "This combined value will then be converted to the nearest number divisible by 10, and combined values ending in 5 will be adjusted upward.": true,
+    "Thus, a person having a 60 percent disability is considered 40 percent efficient.": true,
+    "with a 50 percent disability and a 30 percent disability, the combined value will be found to be 65 percent, but the 65 percent must be converted to 70 percent to represent the final degree of disability": true,
+    "if there are three disabilities ratable at 60 percent, 40 percent, and 20 percent, respectively, the combined value for the first two will be found opposite 60 and under 40 and is 76 percent": true,
+    "The conversion to the nearest degree divisible by 10 will be done only once per rating decision": true,
+    "10 combined with 10 is 19": true
+   }
+  },
+  "cfr4_26": {
+   "http": 200,
+   "letto_il": "2026-11-15",
+   "sha256": "03f17fff01a04d16f237c3218a5473f0e7d55bd0e7f129009ed6db2d020a7b72",
+   "byte": 2954,
+   "trovate": {
+    "the ratings for the disabilities of the right and left sides will be combined as usual, and 10 percent of this value will be added": true
+   }
+  },
+  "va_about": {
+   "http": 200,
+   "letto_il": "2026-11-15",
+   "sha256": "51eef57c4696110edefaeef29042557c8176ac2b160f3570b84b3b273647a304",
+   "byte": 118817,
+   "trovate": {
+    "Calculating your combined disability rating involves more than adding up your individual ratings.": true,
+    "That's why your combined rating may be different from the sum of your individual ratings.": true,
+    "If you have 2 disabilities, each rated at 10% disabling, your combined disability rating is 19%.": true
+   }
+  },
+  "fr_va_search": {
+   "http": 200,
+   "letto_il": "2026-11-15",
+   "sha256": "050cf85b1ecad9ef92a3b8e21639a72da45b2ea95d8955733355d0c9eb73c0f2",
+   "byte": 5610,
+   "avvisi": [
+    {
+     "numero": "2026-02997",
+     "data": "2026-02-17"
+    },
+    {
+     "numero": "2025-13484",
+     "data": "2025-07-18"
+    },
+    {
+     "numero": "2024-00160",
+     "data": "2024-01-08"
+    },
+    {
+     "numero": "2021-27043",
+     "data": "2021-12-14"
+    },
+    {
+     "numero": "2020-27092",
+     "data": "2020-12-10"
+    }
+   ],
+   "trovate": {
+    "2026-02997": true
+   }
   }
  },
  "grezzi": {
@@ -746,6 +1033,55 @@
    "letto_il": "2026-11-13",
    "sha256": "4ad8b26fdf074d9a66d02d90399fb22982606c9d3534c7cba9eb3d1e981b3b66",
    "byte": 110377,
+   "http": 200
+  },
+  "va_rates_2026.html": {
+   "url": "https://www.va.gov/disability/compensation-rates/veteran-rates/",
+   "letto_il": "2026-11-15",
+   "sha256": "eb6339c1a62735f545a58be6babc1a0a636c6073a018ca1b9d83c9fa826a44b9",
+   "byte": 93661,
+   "http": 200
+  },
+  "va_rates_2025.html": {
+   "url": "https://www.va.gov/disability/compensation-rates/veteran-rates/past-rates-2025/",
+   "letto_il": "2026-11-15",
+   "sha256": "2ee72d7b12f0f29fad996ba2c6dbd241ae2d6e02315f07ce32ecea93a9c8cefb",
+   "byte": 92151,
+   "http": 200
+  },
+  "va_fr_2026-02997.htm": {
+   "url": "https://www.govinfo.gov/content/pkg/FR-2026-02-17/html/2026-02997.htm",
+   "letto_il": "2026-11-15",
+   "sha256": "5e1b36aff98fd52b7d85530d7f9f851f1f605b475ecef8945a11eb4e5aec8a9f",
+   "byte": 5355,
+   "http": 200
+  },
+  "va_fr_2025-13484.htm": {
+   "url": "https://www.govinfo.gov/content/pkg/FR-2025-07-18/html/2025-13484.htm",
+   "letto_il": "2026-11-15",
+   "sha256": "267c2e183003f156540424bcd017a04deaddef9de963258dbf713dbd4bc19c63",
+   "byte": 4905,
+   "http": 200
+  },
+  "ecfr_38_4_25.xml": {
+   "url": "https://www.ecfr.gov/api/versioner/v1/full/2026-10-01/title-38.xml?part=4&section=4.25",
+   "letto_il": "2026-11-15",
+   "sha256": "5d48bdeee20adaaaf19fd7454021b77fa9dcf06ce7a9d27d6f4e021bdcd31cd6",
+   "byte": 39438,
+   "http": 200
+  },
+  "va_about_ratings.html": {
+   "url": "https://www.va.gov/disability/about-disability-ratings/",
+   "letto_il": "2026-11-15",
+   "sha256": "c5e8c10635b78ac2bbe5dfb8ce9e7942bd3f4ddbb7350fac802c63cd8c897470",
+   "byte": 118817,
+   "http": 200
+  },
+  "fr_api_va_cola.json": {
+   "url": "https://www.federalregister.gov/api/v1/documents.json?conditions%5Bagencies%5D%5B%5D=veterans-affairs-department&conditions%5Bterm%5D=%22Cost+of+Living+Adjustments+for+Service-Connected+Benefits%22&conditions%5Btype%5D%5B%5D=NOTICE&order=newest&per_page=5",
+   "letto_il": "2026-11-15",
+   "sha256": "050cf85b1ecad9ef92a3b8e21639a72da45b2ea95d8955733355d0c9eb73c0f2",
+   "byte": 5610,
    "http": 200
   }
  }

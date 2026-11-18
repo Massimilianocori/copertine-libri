@@ -5,6 +5,7 @@ Per ogni fonte: HTTP, SHA-256 del file, data di lettura, esito di ogni frase cer
 Nessun blocco aggirato: dfas.mil, militarypay.defense.gov, defense.gov, congress.gov e bls.gov (sito) rispondono 403 al
 nostro server e non sono usati; il BLS si legge dalla sua API pubblica.
 """
+import gzip
 import hashlib
 import html
 import json
@@ -143,6 +144,74 @@ FONTI.update({
                                  "certain members of the intelligence community",
                                  "The rates apply to fully-electric and hybrid automobiles, as well as gasoline and diesel-powered vehicles."]},
 })
+# --- sezione "VA disability" (15/11/2026): tabelle di va.gov, avvisi del VA e della SSA nel Federal Register (testo GPO su govinfo), legge, regolamento.
+# Le frasi di va_rates dicono anche QUALI tabelle sono in linea: quando va.gov passa alle tabelle dal 1/12/2026 le frasi non si trovano più e genera.py si ferma.
+FONTI.update({
+    "va_rates": {"titolo": "Current Veterans disability compensation rates (effective December 1, 2025)", "chi": "U.S. Department of Veterans Affairs, va.gov",
+                 "url": "https://www.va.gov/disability/compensation-rates/veteran-rates/",
+                 "cerca": ["Review 2026 Veterans disability compensation rates.", "Effective December 1, 2025",
+                           "We base your monthly payment amount on your disability rating and details about your dependent family members.",
+                           "If you have a 10% to 20% disability rating, you won't receive a higher rate even if you have a dependent spouse, child, or parent.",
+                           "We're required by law to match the percentage of cost-of-living adjustments made to Social Security benefits.",
+                           "These adjustments help to make sure that the purchasing power of your benefits keeps up with inflation.",
+                           "If your spouse receives Aid and Attendance benefits or you have more than 1 child, you may qualify for additional monthly payment amounts as listed in the Added amounts table.",
+                           "Since your basic rate already provides payment for 1 child, you would add the rate of $76.00 for each additional child",
+                           "Find the dependent status in the left column that best describes you. Then look for your disability rating in the top row. Your basic monthly rate is where your dependent status and disability rating meet."]},
+    "va_rates_2025": {"titolo": "Past rates: 2025 Veterans disability compensation rates (effective December 1, 2024)", "chi": "U.S. Department of Veterans Affairs, va.gov",
+                      "url": "https://www.va.gov/disability/compensation-rates/veteran-rates/past-rates-2025/", "cerca": ["Effective December 1, 2024"]},
+    "va_fr_2026": {"titolo": "Cost of Living Adjustments for Service-Connected Benefits (notice of the rates effective December 1, 2025)",
+                   "chi": "Department of Veterans Affairs, Federal Register, 91 FR 7386, February 17, 2026 (document 2026-02997, text from govinfo.gov)",
+                   "url": "https://www.govinfo.gov/content/pkg/FR-2026-02-17/html/2026-02997.htm",
+                   "cerca": ["As required by the Veterans' Compensation Cost-of-Living Adjustment Act of 2025, Public Law 119-42, the VA is hereby giving notice of adjustments in certain benefit rates.",
+                             "VA is required to increase these benefit rates by the same percentage as increases in the benefit amounts payable under title II of the Social Security Act.",
+                             "The increased rates are required to be published in the Federal Register.",
+                             "The Social Security Administration has announced that there will be a 2.8% cost-of-living increase in Social Security benefits for 2026.",
+                             "the following rates for VA's compensation program became effective on December 1, 2025"]},
+    "va_fr_2025": {"titolo": "Cost of Living Adjustments for Service-Connected Benefits (notice of the rates effective December 1, 2024)",
+                   "chi": "Department of Veterans Affairs, Federal Register, July 18, 2025 (document 2025-13484, text from govinfo.gov)",
+                   "url": "https://www.govinfo.gov/content/pkg/FR-2025-07-18/html/2025-13484.htm",
+                   "cerca": ["2.5% cost-of-living increase in Social Security benefits for 2025"]},
+    "ssa_cola_2027": {"titolo": "Cost-of-Living Increase and Other Determinations for 2027",
+                      "chi": "Social Security Administration, Federal Register, 91 FR 67380, October 26, 2026 (document 2026-21796, text from govinfo.gov)",
+                      "url": "https://www.govinfo.gov/content/pkg/FR-2026-10-26/html/2026-21796.htm",
+                      "cerca": ["there will be a 3.6 percent cost-of-living increase in Social Security benefits effective December 2026"]},
+    "hr8552": {"titolo": "H.R. 8552, Veterans' Compensation Cost-of-Living Adjustment Act of 2026, enrolled bill",
+               "chi": "119th Congress, 2d Session (govinfo.gov, U.S. Government Publishing Office, issued November 13, 2026)",
+               "url": "https://www.govinfo.gov/content/pkg/BILLS-119hr8552enr/html/BILLS-119hr8552enr.htm",
+               "cerca": ["H.R. 8552 Enrolled Bill (ENR)", "Veterans' Compensation Cost-of-Living Adjustment Act of 2026",
+                         "Effective on December 1, 2026, the Secretary of Veterans Affairs shall increase, in accordance with subsection (c), the dollar amounts in effect on November 30, 2026, for the payment of disability compensation and dependency and indemnity compensation",
+                         "Each dollar amount described in subsection (b) shall be increased by the same percentage as the percentage by which benefit amounts payable under title II of the Social Security Act (42 U.S.C. 401 et seq.) are increased effective December 1, 2026",
+                         "The Secretary of Veterans Affairs shall publish in the Federal Register the amounts specified in section 2(b), as increased under that section"]},
+    "plaw119_42": {"titolo": "Public Law 119-42, Veterans' Compensation Cost-of-Living Adjustment Act of 2025", "chi": "139 Stat. 665, approved November 25, 2025 (govinfo.gov, U.S. Government Publishing Office)",
+                   "url": "https://www.govinfo.gov/content/pkg/PLAW-119publ42/html/PLAW-119publ42.htm",
+                   "cerca": ["Approved November 25, 2025", "Effective on December 1, 2025, the Secretary of Veterans Affairs shall increase"]},
+    "usc1115": {"titolo": "38 U.S.C. 1115, Additional compensation for dependents", "chi": "United States Code, 2024 edition (govinfo.gov, U.S. Government Publishing Office)",
+                "url": "https://www.govinfo.gov/content/pkg/USCODE-2024-title38/html/USCODE-2024-title38-partII-chap11-subchapII-sec1115.htm",
+                "cerca": ["whose disability is rated not less than 30 percent, shall be entitled to additional compensation for dependents",
+                          "in an amount having the same ratio to the amount specified in paragraph (1) of this section as the degree of disability bears to total disability",
+                          "The amounts payable under this paragraph, if not a multiple of $1, shall be rounded down to the nearest dollar."]},
+    "cfr4_25": {"titolo": "38 CFR 4.25, Combined ratings table (Table I)", "chi": "Code of Federal Regulations, eCFR in effect on October 1, 2026 (ecfr.gov, National Archives and GPO)",
+                "url": "https://www.ecfr.gov/current/title-38/section-4.25", "leggi": "https://www.ecfr.gov/api/versioner/v1/full/2026-10-01/title-38.xml?part=4&section=4.25", "gzip": True,
+                "cerca": ["the disabilities will first be arranged in the exact order of their severity, beginning with the greatest disability and then combined with use of table I",
+                          "This combined value will then be converted to the nearest number divisible by 10, and combined values ending in 5 will be adjusted upward.",
+                          "Thus, a person having a 60 percent disability is considered 40 percent efficient.",
+                          "with a 50 percent disability and a 30 percent disability, the combined value will be found to be 65 percent, but the 65 percent must be converted to 70 percent to represent the final degree of disability",
+                          "if there are three disabilities ratable at 60 percent, 40 percent, and 20 percent, respectively, the combined value for the first two will be found opposite 60 and under 40 and is 76 percent",
+                          "The conversion to the nearest degree divisible by 10 will be done only once per rating decision",
+                          "10 combined with 10 is 19"]},
+    "cfr4_26": {"titolo": "38 CFR 4.26, Bilateral factor", "chi": "Code of Federal Regulations, eCFR in effect on October 1, 2026 (ecfr.gov, National Archives and GPO)",
+                "url": "https://www.ecfr.gov/current/title-38/section-4.26", "leggi": "https://www.ecfr.gov/api/versioner/v1/full/2026-10-01/title-38.xml?part=4&section=4.26", "gzip": True,
+                "cerca": ["the ratings for the disabilities of the right and left sides will be combined as usual, and 10 percent of this value will be added"]},
+    "va_about": {"titolo": "About disability ratings (combined ratings table)", "chi": "U.S. Department of Veterans Affairs, va.gov", "url": "https://www.va.gov/disability/about-disability-ratings/",
+                 "cerca": ["Calculating your combined disability rating involves more than adding up your individual ratings.",
+                           "That's why your combined rating may be different from the sum of your individual ratings.",
+                           "If you have 2 disabilities, each rated at 10% disabling, your combined disability rating is 19%."]},
+    "fr_va_search": {"titolo": "Federal Register search: VA notices of cost-of-living adjustments for service-connected benefits", "chi": "Federal Register (National Archives), public API",
+                     "url": "https://www.federalregister.gov/documents/search?conditions%5Bagencies%5D%5B%5D=veterans-affairs-department&conditions%5Bterm%5D=%22Cost+of+Living+Adjustments+for+Service-Connected+Benefits%22",
+                     "leggi": ("https://www.federalregister.gov/api/v1/documents.json?conditions%5Bagencies%5D%5B%5D=veterans-affairs-department"
+                               "&conditions%5Bterm%5D=%22Cost+of+Living+Adjustments+for+Service-Connected+Benefits%22&conditions%5Btype%5D%5B%5D=NOTICE&order=newest&per_page=5"),
+                     "api_fr_va": True, "cerca": ["2026-02997"]},
+})
 for anno, f in ST["fonti_tabelle"].items():
     FONTI[f"eo{anno}"] = FONTI.get(f"eo{anno}") or {
         "titolo": f"Executive Order {f['ordine_esecutivo']}, Adjustments of Certain Rates of Pay, Schedule 8 (effective January 1, {anno})",
@@ -158,8 +227,10 @@ def norm(t):
 def leggi(fid, f):
     url = f.get("leggi", f["url"])
     try:
-        with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=180) as r:
+        with urllib.request.urlopen(urllib.request.Request(url, headers=dict(UA, **({"Accept-Encoding": "gzip"} if f.get("gzip") else {}))), timeout=180) as r:
             b, http = r.read(), r.status
+            if r.headers.get("Content-Encoding") == "gzip":
+                b = gzip.decompress(b)
     except urllib.error.HTTPError as e:
         return {"http": e.code, "letto_il": date.today().isoformat()}
     if f.get("binario"):
@@ -191,8 +262,16 @@ def leggi(fid, f):
             es["ultima_legge"] = {"numero": "119-" + ult["packageId"].split("publ")[1], "data": ult.get("dateIssued"), "titolo": ult.get("title")}
             es["leggi_lette"] = len(pk)
             es["ndaa_2027"] = [p["packageId"] for p in pk if re.search(r"National Defense Authorization Act for Fiscal Year 2027|Department of (Defense|War) Appropriations Act, 2027", p.get("title", ""))]
+            # sezione VA: la legge che fa scattare l'aumento dal 1/12/2026 (finché non è tra le leggi pubblicate il sito lo dice)
+            es["va_cola_2026"] = [p["packageId"] for p in pk if re.search(r"Veterans.{0,3} Compensation Cost-of-Living Adjustment Act of 2026", p.get("title", ""))]
         else:
             es["api"] = "elenco non letto"
+    if f.get("api_fr_va"):
+        # ultimo avviso del VA con gli importi di legge: se ne esce uno nuovo (quello delle tabelle dal 1/12/2026) genera.py si ferma
+        try:
+            es["avvisi"] = [{"numero": r_["document_number"], "data": r_["publication_date"]} for r_ in json.loads(b).get("results", [])]
+        except ValueError:
+            es["avvisi"] = []
     t = norm(testo)
     es["trovate"] = {c: norm(c) in t for c in f["cerca"]}
     return es

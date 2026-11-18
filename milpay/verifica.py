@@ -31,8 +31,10 @@ SITO = RADICE / "sito"
 sys.path.insert(0, str(RADICE))
 import genera as G  # noqa: E402
 import sezione_perdiem as SP  # noqa: E402
+import sezione_va as SV  # noqa: E402
 
 SP.carica(G)
+SV.carica(G)
 
 MON = G.MON
 errori, avvisi = [], []
@@ -244,7 +246,7 @@ def controlla_revisione():
             if "data-netlify" in form:
                 if nomi != {"corrections", "form-name", "bot-field", "page", "message", "source"} or "data-correzioni" not in form:
                     err(f"{nome}: il modulo delle correzioni ha campi diversi da pagina, messaggio e fonte: {sorted(nomi)}")
-            elif nomi not in ({"g", "y"}, {"l", "da", "a"}, {"data", "scopo", "miglia"}, {"q"}):
+            elif nomi not in ({"g", "y"}, {"l", "da", "a"}, {"data", "scopo", "miglia"}, {"q"}, {"g", "lista", "s", "p", "u", "c"}):
                 err(f"{nome}: modulo inatteso con i campi {sorted(nomi)}")
         if re.search(r'type="(email|tel|password)"|autocomplete="(email|name|tel)"|name="(email|name|phone|consent)"', html):
             err(f"{nome}: campo per dati personali")
@@ -326,11 +328,16 @@ def controlla_pagine():
         if G.GOATCOUNTER_URL not in html:
             err(f"{nome}: contatore assente")
         sez_pd = p.startswith("per-diem/") or p.startswith("irs-mileage-rate/")
-        if not sez_pd and "not affiliated with the Department of Defense" not in html:
+        sez_va = p.startswith("va-disability-")
+        if sez_va:
+            if "not affiliated with the Department of Veterans Affairs, the Department of Defense or any other federal agency" not in html or "not benefits advice" not in html \
+                    or "Only VA decides your rating, your dependents and what you are paid" not in html:
+                err(f"{nome}: avviso della sezione VA (non affiliazione, informazione e non consulenza) assente")
+        elif not sez_pd and "not affiliated with the Department of Defense" not in html:
             err(f"{nome}: avviso di non affiliazione assente")
         if sez_pd and "not affiliated with the General Services Administration, the IRS, the Department of Defense or any other federal agency" not in html:
             err(f"{nome}: avviso di non affiliazione (GSA, IRS, DoD) assente")
-        if "finance office" not in html:
+        if not sez_va and "finance office" not in html:
             err(f"{nome}: invito a verificare con l'ufficio finanziario assente")
         ext = re.findall(r'<script[^>]+src="(https?://[^"]+)"', html)
         for u in ext:
@@ -398,7 +405,8 @@ def controlla_pagine():
             err(f"/{s}/ noindex ma in sitemap")
     attese = ({"", "calculator/", "pay-raise-history/", "2027-pay-raise/", "how-we-check/", "about/", "privacy/", "per-diem/", "per-diem/calculator/", "irs-mileage-rate/"}
               | {f"{s}/" for s, *_ in G.GRADI} | {f"per-diem/{SP.slug_stato(st)}/" for st in SP.PD["stati"]}
-              | {f"per-diem/{SP.slug_stato(st)}/{sl}/" for st, sl, *_ in SP.LOC_PAGINE})
+              | {f"per-diem/{SP.slug_stato(st)}/{sl}/" for st, sl, *_ in SP.LOC_PAGINE}
+              | {"va-disability-rates/", "va-disability-calculator/", "va-disability-rates/2027/"} | {SV.slug_grado(g) for g in range(10, 101, 10)})
     if not attese <= {percorso(f) for f in pagine()}:
         err(f"pagine mancanti: {attese - {percorso(f) for f in pagine()}}")
     return len(locs)
@@ -611,13 +619,277 @@ def controlla_perdiem():
     n_cit = 0
     for f in pagine():
         p_ = percorso(f)
-        if not (p_.startswith("per-diem/") or p_.startswith("irs-mileage-rate/")):
+        if not (p_.startswith("per-diem/") or p_.startswith("irs-mileage-rate/") or p_.startswith("va-disability-")):
             continue
         for q in re.findall(r"“([^”]{20,})”", testo(f.read_text(encoding="utf-8"))):
             n_cit += 1
             if not any(nrm(q) in fr for fr in frasi):
                 err(f"/{p_}: citazione non ritrovata nelle fonti «{q[:80]}»")
     return {"celle": n_celle, "viaggi": len(casi), "casi_miglia": len(casi_k), "pagine_calcolatore": len(pagine_calc), "citazioni": n_cit}
+
+
+# ---------------------------------------------------------------- sezione VA disability (15/11/2026)
+# Lettura indipendente dei file grezzi (non usa raccolta/va.py né dati/va.json): ogni cella pubblicata = pagina va.gov scaricata; il calcolatore JS =
+# calcolo rifatto dagli importi di legge dell'avviso nel Federal Register (38 U.S.C. 1114 e 1115) = copia Python; gradi combinati JS = formula del 38 CFR 4.25.
+VA_STATI = ["alone", "spouse", "spouse_p1", "spouse_p2", "p1", "p2", "child", "child_spouse", "child_spouse_p1", "child_spouse_p2", "child_p1", "child_p2"]
+VA_AGG = ["child_u18", "child_school", "spouse_aa"]
+# casi letti a mano il 15/11/2026: esempi scritti nella pagina va.gov e celle guardate nella pagina (grado, coniuge, A&A, genitori, figli <18, figli a scuola, centesimi)
+CASI_VA_MANO = [(30, 1, 0, 0, 0, 0, 61747), (70, 1, 1, 0, 3, 0, 236745), (70, 1, 0, 0, 3, 0, 222645), (100, 0, 0, 0, 0, 0, 393858), (100, 1, 0, 0, 1, 0, 431899), (10, 1, 0, 2, 3, 1, 18042),
+                 (20, 0, 0, 0, 0, 0, 35666), (60, 1, 0, 2, 1, 0, 187302), (90, 0, 0, 1, 0, 0, 252030), (50, 0, 0, 0, 1, 0, 120590), (100, 1, 1, 2, 2, 1, 467147 + 10911 + 35245 + 20141)]
+# esempi del 38 CFR 4.25 e nota della Table I: (gradi, valore combinato, grado finale)
+CASI_COMB_MANO = [([50, 30], 65, 70), ([40, 20], 52, 50), ([60, 40, 20], 81, 80), ([10, 10], 19, 20), ([20, 60, 40], 81, 80), ([100, 10], 100, 100), ([70], 70, 70), ([90, 90], 99, 100)]
+
+
+def _cent(t):
+    m = re.fullmatch(r"\+?\$?(\d{1,3}(?:,\d{3})*|\d+)\.(\d\d)", t.strip())
+    return int(m.group(1).replace(",", "")) * 100 + int(m.group(2)) if m else None
+
+
+def va_grezzo(nome):
+    """Pagina va.gov scaricata -> (base 10 gradi, righe 12 × 8, aggiunte 3 × 8), per posizione nelle tabelle della pagina."""
+    t = (RADICE / "dati" / "grezzi" / nome).read_text(encoding="utf-8")
+    tab = []
+    for blocco in re.findall(r"<va-table\b.*?</va-table>", t, re.S):
+        righe = []
+        for r in re.findall(r"<va-table-row[^>]*>(.*?)</va-table-row>", blocco, re.S):
+            celle = [testo(c) for c in r.split("</span><span>")]
+            righe.append(celle)
+        tab.append(righe)
+    base = {10: _cent(tab[0][1][1]), 20: _cent(tab[0][2][1])}
+    righe = {k: {} for k in VA_STATI}
+    agg = {k: {} for k in VA_AGG}
+    for i, (figli, gg) in enumerate([(0, [30, 40, 50, 60]), (0, [70, 80, 90, 100]), (1, [30, 40, 50, 60]), (1, [70, 80, 90, 100])]):
+        b, a = tab[1 + 2 * i], tab[2 + 2 * i]
+        for k, r in zip(VA_STATI[6:] if figli else VA_STATI[:6], b[1:]):
+            for g, v in zip(gg, r[1:]):
+                righe[k][g] = _cent(v)
+        for r in a[1:]:
+            nome_r = r[0].lower()
+            k = "child_u18" if "under age 18" in nome_r else ("child_school" if "school" in nome_r else "spouse_aa")
+            for g, v in zip(gg, r[1:]):
+                agg[k][g] = _cent(v)
+    for g in range(30, 101, 10):
+        base[g] = righe["alone"][g]
+    return base, righe, agg
+
+
+def va_avviso(nome):
+    """Avviso del VA nel Federal Register -> importi di legge in centesimi (lettura a parte, per righe)."""
+    t = unescape(re.sub(r"<[^>]+>", "", (RADICE / "dati" / "grezzi" / nome).read_text(encoding="utf-8")))
+    v = {}
+    for riga in t.splitlines():
+        m = re.match(r"\s*(\S.*?)\.{5,}\s+(\S.*)$", riga)
+        if m:
+            v[re.sub(r"\s+", "", m.group(1)).replace("38U.S.C.Sec.", "").replace("38U.S.C.", "")] = [_cent(x) for x in re.findall(r"[\d,]+\.\d\d", m.group(2))]
+    return v
+
+
+def va_atteso(av, g, coniuge, aa, genitori, u18, scuola):
+    """Importo dagli importi di legge: 38 U.S.C. 1114 (base) + 1115(1) (familiari, al 100 %) con la proporzione e l'arrotondamento per difetto del 1115(2)."""
+    q = (lambda x: x) if g == 100 else (lambda x: (g * x // 10000) * 100)
+    tot = av[str(g)][0]
+    if g < 30:
+        return tot
+    if coniuge and u18:
+        tot += q(av["1115(1)(B)"][0])
+    elif coniuge:
+        tot += q(av["1115(1)(A)"][0])
+    elif u18:
+        tot += q(av["1115(1)(C)"][0])
+    tot += genitori * q(av["1115(1)(D)"][0])
+    tot += max(0, u18 - 1) * q(av["1115(1)(B)"][1]) + scuola * q(av["1115(1)(F)"][0])
+    if coniuge and aa:
+        tot += q(av["1115(1)(E)"][0]) - q(av["1115(1)(A)"][0])
+    return tot
+
+
+def controlla_va():
+    n_celle = 0
+    R = {"2026": va_grezzo("va_rates_2026.html"), "2025": va_grezzo("va_rates_2025.html")}
+    b26, r26, a26 = R["2026"]
+    b25, r25, a25 = R["2025"]
+    GG = list(range(30, 101, 10))
+    for anno, (b, r, a) in R.items():
+        if len(b) != 10 or any(v is None for v in b.values()) or any(len(r[k]) != 8 or None in r[k].values() for k in VA_STATI) or any(len(a[k]) != 8 or None in a[k].values() for k in VA_AGG):
+            err(f"VA {anno}: file grezzo non letto per intero")
+            return {"celle": 0, "combinazioni": 0, "liste": 0}
+    usd = lambda c: f"${c // 100:,}.{c % 100:02d}"  # noqa: E731
+
+    def tabella_base_ok(nome, html):
+        nonlocal n_celle
+        t = next((x for x in tabelle_html(html) if "Veteran with no dependents" in x), None)
+        if t is None:
+            err(f"{nome}: tabella base assente")
+            return
+        rr = righe_html(t)[1:]
+        if len(rr) != 10:
+            err(f"{nome}: tabella base con {len(rr)} righe")
+        for g, r in zip(range(10, 101, 10), rr):
+            att = [f"{g}%", usd(b26[g]), usd(b26[g] * 12), usd(b25[g]), "+" + usd(b26[g] - b25[g])]
+            n_celle += 4
+            if r != att:
+                err(f"{nome}: riga {g}% {r} ≠ grezzo {att}")
+
+    # 1) pagina delle tabelle
+    hp = (SITO / "va-disability-rates" / "index.html").read_text(encoding="utf-8")
+    tabella_base_ok("/va-disability-rates/", hp)
+    tt = [righe_html(x) for x in tabelle_html(hp) if 'class="dati va"' in hp[max(0, hp.find(x) - 40):hp.find(x)]]
+    if len(tt) != 3:
+        err(f"/va-disability-rates/: {len(tt)} tabelle con familiari (attese 3)")
+    else:
+        for tab, chiavi, src, nomi in ((tt[0], VA_STATI[:6], r26, SV.STATO_NOME), (tt[1], VA_STATI[6:], r26, SV.STATO_NOME), (tt[2], VA_AGG, a26, SV.AGG_NOME)):
+            if tab[0][1:] != [f"{g}%" for g in GG] or len(tab) != len(chiavi) + 1:
+                err(f"/va-disability-rates/: intestazioni o righe inattese {tab[0]}")
+            for k, r in zip(chiavi, tab[1:]):
+                n_celle += 8
+                if r != [nomi[k]] + [usd(src[k][g]) for g in GG]:
+                    err(f"/va-disability-rates/: riga {k} {r} ≠ grezzo")
+    # 2) pagine di grado
+    for g in range(10, 101, 10):
+        f = SITO / "va-disability-rates" / f"{g}-percent" / "index.html"
+        if not f.exists():
+            err(f"pagina del {g}% assente")
+            continue
+        hg = f.read_text(encoding="utf-8")
+        tabs = [righe_html(x) for x in tabelle_html(hg)]
+        tv = testo(hg)
+        if f"{g}% VA Disability Pay 2026" not in tv or usd(b26[g]) not in re.search(r"<title>(.*?)</title>", hg).group(1):
+            err(f"/{g}-percent/: titolo o importo assente")
+        if g >= 30:
+            if len(tabs) != 2 or len(tabs[0]) != 13 or len(tabs[1]) != 4:
+                err(f"/{g}-percent/: tabelle inattese")
+                continue
+            for k, r in zip(VA_STATI, tabs[0][1:]):
+                n_celle += 4
+                if r != [SV.STATO_NOME[k], usd(r26[k][g]), usd(r26[k][g] * 12), usd(r25[k][g]), "+" + usd(r26[k][g] - r25[k][g])]:
+                    err(f"/{g}-percent/: riga {k} {r} ≠ grezzo")
+            for k, r in zip(VA_AGG, tabs[1][1:]):
+                n_celle += 2
+                if r != [SV.AGG_NOME[k], usd(a26[k][g]), usd(a25[k][g])]:
+                    err(f"/{g}-percent/: aggiunta {k} {r} ≠ grezzo")
+        else:
+            n_celle += 6
+            att = [usd(b26[g]), usd(b26[g] * 12), usd(b25[g]), usd(b25[g] * 12), "+" + usd(b26[g] - b25[g]), "+" + usd((b26[g] - b25[g]) * 12)]
+            if len(tabs) != 1 or [c for r in tabs[0][1:] for c in r[1:]] != att:
+                err(f"/{g}-percent/: tabella {tabs} ≠ grezzo {att}")
+            if "won’t receive a higher rate even if you have a dependent spouse, child, or parent" not in tv:
+                err(f"/{g}-percent/: manca la frase del VA sui familiari al 10-20 %")
+    tabella_base_ok("/va-disability-calculator/", (SITO / "va-disability-calculator" / "index.html").read_text(encoding="utf-8"))
+    h27 = (SITO / "va-disability-rates" / "2027" / "index.html").read_text(encoding="utf-8")
+    tabella_base_ok("/va-disability-rates/2027/", h27)
+    # 3) Table I: XML dell'eCFR riletto qui = dati del calcolatore = tabella pubblicata = formula del testo
+    xml = (RADICE / "dati" / "grezzi" / "ecfr_38_4_25.xml").read_text(encoding="utf-8")
+    TI = {}
+    for tr in re.findall(r"<TR\b.*?</TR>", xml, re.S):
+        c = [testo(x) for x in re.findall(r"<T[DH]\b[^>]*>(.*?)</T[DH]>", tr, re.S)]
+        if len(c) == 10 and all(x.isdigit() for x in c):
+            TI[c[0]] = [int(x) for x in c[1:]]
+    formula = lambda a, b: (2 * (10000 - (100 - a) * (100 - b)) + 100) // 200  # noqa: E731
+    if sorted(TI, key=int) != [str(i) for i in range(19, 95)] or any(TI[a][i] != formula(int(a), 10 * (i + 1)) for a in TI for i in range(9)):
+        err("Table I (eCFR): righe mancanti o valori diversi dalla formula del testo")
+    hc = (SITO / "va-disability-calculator" / "index.html").read_text(encoding="utf-8")
+    tpub = next((righe_html(x) for x in tabelle_html(hc) if "Table I of 38 CFR 4.25" in x), [])
+    if {r[0]: [int(x) for x in r[1:]] for r in tpub[1:]} != TI:
+        err("/va-disability-calculator/: Table I pubblicata ≠ eCFR")
+    n_celle += len(TI) * 9
+    # 4) dati dei calcolatori in ogni pagina = grezzo
+    js = SITO / "assets" / G.JS_FILE
+    DV = None
+    pagine_calc = 0
+    for f in pagine():
+        hh = f.read_text(encoding="utf-8")
+        m = re.search(r'<script type="application/json" id="dati-va">(.*?)</script>', hh, re.S)
+        if ("data-va" in hh) != bool(m):
+            err(f"/{percorso(f)}: calcolatore VA senza dati (o dati senza calcolatore)")
+        if not m:
+            continue
+        pagine_calc += 1
+        D = json.loads(m.group(1))
+        if (D["base"] != {str(g): v for g, v in b26.items()} or D["righe"] != {k: {str(g): v for g, v in r26[k].items()} for k in VA_STATI}
+                or D["agg"] != {k: {str(g): v for g, v in a26[k].items()} for k in VA_AGG} or D["T"] != TI or D["anno"] != "2026"):
+            err(f"/{percorso(f)}: dati del calcolatore VA ≠ file grezzi")
+        DV = D
+    if pagine_calc != 12 or DV is None:
+        err(f"calcolatore VA in {pagine_calc} pagine (attese 12)")
+        return {"celle": n_celle, "combinazioni": 0, "liste": 0}
+    # 5) JS = importi di legge dell'avviso (calcolo rifatto qui) = copia Python, su tutte le combinazioni
+    av = va_avviso("va_fr_2026-02997.htm")
+    casi = [(g, c, aa, p, u, sc) for g in range(10, 101, 10) for c in (0, 1) for aa in (0, 1) for p in (0, 1, 2) for u in range(0, 6) for sc in range(0, 4)]
+    casi += [(100, 1, 1, 2, 12, 12), (30, 0, 0, 0, 13, 0), (25, 0, 0, 0, 0, 0), (110, 0, 0, 0, 0, 0), (50, 2, 0, 0, 0, 0), (50, 0, 0, 3, 0, 0), (50, 0, 0, 0, 1.5, 0), (50, 0, 0, 0, -1, 0)]
+    prog = (f"const m=require({json.dumps(str(js))});const D={json.dumps(DV)};const C={json.dumps(casi)};console.log(JSON.stringify(C.map(x=>m.vaPaga(D,x[0],x[1],x[2],x[3],x[4],x[5]))));")
+    out = json.loads(subprocess.run(["node", "-e", prog], capture_output=True, text=True, check=True).stdout)
+    diversi = 0
+    for c, r in zip(casi[:-8], out):
+        g, co, aa, p, u, sc = c
+        if g >= 30 and sc and not u:
+            ok = r.get("errore") == "scuola"
+        else:
+            ok = r.get("cent") == va_atteso(av, *c) and r.get("anno") == 12 * r.get("cent")
+        if ok and (g < 30 or u or not sc) and c[4] == int(c[4]):
+            py = SV.paga(DV, *c)
+            ok = json.dumps(py, sort_keys=True) == json.dumps(r, sort_keys=True)
+        if not ok:
+            diversi += 1
+            if diversi < 4:
+                err(f"calcolatore VA {c}: JS {r} ≠ importi di legge {va_atteso(av, *c)} o ≠ Python")
+    if diversi:
+        err(f"calcolatore VA: {diversi} combinazioni diverse su {len(casi)}")
+    if out[-8].get("cent") != va_atteso(av, 100, 1, 1, 2, 12, 12) or [x.get("errore") for x in out[-7:]] != ["dati", "grado", "grado", "dati", "dati", "dati", "dati"]:
+        err(f"calcolatore VA: casi limite {out[-8:]}")
+    prog = (f"const m=require({json.dumps(str(js))});const D={json.dumps(DV)};const C={json.dumps([c[:6] for c in CASI_VA_MANO])};console.log(JSON.stringify(C.map(x=>m.vaPaga(D,x[0],x[1],x[2],x[3],x[4],x[5]))));")
+    for c, r in zip(CASI_VA_MANO, json.loads(subprocess.run(["node", "-e", prog], capture_output=True, text=True, check=True).stdout)):
+        if r.get("cent") != c[6]:
+            err(f"calcolatore VA, caso letto a mano {c}: {r}")
+    # 6) gradi combinati: JS = formula applicata in ordine di gravità (calcolo rifatto qui) = copia Python
+    import random
+    rnd = random.Random(20261115)
+    liste = [[rnd.choice(range(10, 101, 10)) for _ in range(rnd.choice([1, 2, 2, 3, 3, 4, 5, 7, 10]))] for _ in range(3000)]
+    liste += [[a, b] for a in range(10, 101, 10) for b in range(10, 101, 10)]
+    brutte = [[], [15], [0], [110], ["50"], [50, 30.5], list(range(10, 101, 10)) * 3]
+    prog = (f"const m=require({json.dumps(str(js))});const D={json.dumps(DV)};const C={json.dumps(liste + brutte + [c[0] for c in CASI_COMB_MANO])};console.log(JSON.stringify(C.map(x=>m.vaCombina(D,x))));")
+    outc = json.loads(subprocess.run(["node", "-e", prog], capture_output=True, text=True, check=True).stdout)
+    dc = 0
+    for L, r in zip(liste, outc):
+        v = None
+        for x in sorted(L, reverse=True):
+            v = x if v is None else formula(v, x)
+        fin = min(100, (v + 5) // 10 * 10)
+        py = SV.combina(DV, L)
+        if r.get("finale") != fin or (r["valore"] != v and not (r["valore"] >= 95 and v >= 95)) or json.dumps(py, sort_keys=True) != json.dumps(r, sort_keys=True):
+            dc += 1
+            if dc < 4:
+                err(f"gradi combinati {L}: JS {r} ≠ formula ({v} → {fin}) o ≠ Python")
+    if dc:
+        err(f"gradi combinati: {dc} liste diverse su {len(liste)}")
+    if [x.get("errore") for x in outc[len(liste):len(liste) + len(brutte)]] != ["lista", "grado", "grado", "grado", "grado", "grado", "lista"]:
+        err(f"gradi combinati: liste non valide non riconosciute {outc[len(liste):len(liste) + len(brutte)]}")
+    for (L, v, fin), r in zip(CASI_COMB_MANO, outc[len(liste) + len(brutte):]):
+        if (r.get("valore"), r.get("finale")) != (v, fin):
+            err(f"gradi combinati, esempio del regolamento {L}: {r}")
+    # 7) nessun importo 2027 calcolato: finché il VA non pubblica la tabella, nelle pagine non deve comparire nessun importo base × 1,036
+    stimati = set()
+    for g, c in b26.items():
+        for k in (c * 1036 // 1000, (c * 1036 + 500) // 1000, c * 1036 // 1000 + 1):
+            stimati.add(usd(k))
+            stimati.add(usd(k)[1:])
+    for f in pagine():
+        tv = testo(f.read_text(encoding="utf-8"))
+        trovati = [x for x in stimati if re.search(r"(?<![\d,.])" + re.escape(x) + r"(?!\d)", tv)]
+        if trovati:
+            err(f"/{percorso(f)}: importo 2027 calcolato in pagina {trovati[:3]} (vietato finché il VA non pubblica la tabella)")
+    t27 = testo(h27)
+    for frase in ("3.6 percent cost-of-living increase in Social Security benefits effective December 2026", "Not yet", "We do not publish a “2027 VA pay chart” worked out from the percentage",
+                  "still showed the tables effective December 1, 2025", "H.R. 8552", "Nothing on this page is a forecast"):
+        if frase not in t27:
+            err(f"/va-disability-rates/2027/: manca «{frase}»")
+    for vietata in (r"\bwill be \$", r"\bestimated\b", r"\bprojected\b", r"you should", r"we recommend", r"\bfile a claim\b", r"\bappeal\b", r"\blawyer\b", r"\battorney\b"):
+        for f in pagine():
+            if percorso(f).startswith("va-disability-") and re.search(vietata, testo(f.read_text(encoding="utf-8")), re.I):
+                err(f"/{percorso(f)}: testo vietato nella sezione VA «{vietata}» (previsioni o consigli)")
+    es = G.ESITI
+    if es.get("plaw119", {}).get("va_cola_2026") != [] or (es.get("fr_va_search", {}).get("avvisi") or [{}])[0].get("numero") != "2026-02997":
+        err("stato 2027: la legge o l'avviso nuovo risultano pubblicati, ma il sito dice di no")
+    return {"celle": n_celle, "combinazioni": len(casi), "liste": len(liste), "pagine_calcolatore": pagine_calc}
 
 
 def date_iso(y, m, d, piu):
@@ -663,11 +935,14 @@ def main():
     controlla_revisione()
     info = controlla_file()
     st_pd = controlla_perdiem()
+    st_va = controlla_va()
     print(f"Dati: {stat['celle']} celle ({stat['importi']} importi), {stat['confronto_2025']} confrontate con gennaio 2025 e {stat['confronto_aprile_2025']} con la tabella di legge di aprile 2025 "
           f"(× 1,038 ± $0,15), {stat['al_tetto']} al tetto; tetto O-7…O-10 {G.soldi(G.TETTO_II)}; {len(CASI_MANO)} casi letti a mano sulle immagini.")
     print(f"Pagine: {len(pagine())} file HTML, {n_url} nella sitemap; celle pubblicate controllate: home {n_home}, pagine di grado {n_gradi}; calcolatore JS = Python su {n_calc} combinazioni.")
     print(f"Per diem: {st_pd['celle']} celle pubblicate = file grezzi GSA; calcolatore JS = Python su {st_pd['viaggi']} viaggi ({st_pd['pagine_calcolatore']} pagine); "
           f"miglia JS = Python su {st_pd['casi_miglia']} casi; {st_pd['citazioni']} citazioni ritrovate nelle fonti.")
+    print(f"VA disability: {st_va['celle']} celle pubblicate = file grezzi (va.gov, eCFR); calcolatore JS = importi di legge del Federal Register = Python su {st_va['combinazioni']} combinazioni "
+          f"({st_va.get('pagine_calcolatore', 0)} pagine); gradi combinati JS = formula del 38 CFR 4.25 su {st_va['liste']} liste; nessun importo 2027 calcolato in pagina.")
     print(f"Monetizzazione: {info}")
     if "--browser" in sys.argv:
         casi = []

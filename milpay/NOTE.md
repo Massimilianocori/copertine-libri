@@ -98,3 +98,43 @@ giorno singolo, 75 %) = JS del sito; 25 citazioni distinte ritrovate alla letter
 - Tolta la frase «Military members and DoD civilians travel under the Joint Travel Regulations» (nessuna fonte letta: travel.dod.mil dà 403); ora la nota dice solo che non abbiamo
   potuto leggere il JTR e che il sito non spiega la diaria dei militari. `verifica.py` vieta la frase vecchia.
 - Descrizione di `/per-diem/` portata sotto i 160 caratteri.
+
+## Sezione VA disability (15/11/2026, NON ancora pubblicata: serve la revisione indipendente, poi il commit)
+
+Idea B di `studio-business/intelaiatura/fronti-2026-11-14-sera-regole-2027.md` (online entro il 28/11/2026). 13 pagine nuove (122 indicizzabili in tutto):
+`/va-disability-rates/` (tabelle ufficiali in vigore dal 1/12/2025, che il VA chiama «2026»: 10 gradi, 12 situazioni familiari × 8 gradi, 3 importi aggiunti; confronto con il 2025;
+come si leggono con le frasi del VA; calcolatore), 10 pagine di grado `/va-disability-rates/<n>-percent/` (tutte con ricerca misurata ≥ 300 al mese, `GRADO_RICERCA`),
+`/va-disability-calculator/` (grado combinato, oppure più gradi combinati con la Table I del 38 CFR 4.25, + coniuge, Aid and Attendance del coniuge, genitori, figli → mese e anno),
+`/va-disability-rates/2027/` (stato dell'aumento). Menu («VA disability»), piè di pagina, paragrafo in home e in `/how-we-check/#va-checks`.
+Codice: `sezione_va.py` (chiamato da `genera.py`), JS in `stile.APP_JS` (`vaCombina`, `vaPaga`), raccolta in `raccolta/va.py`, avviso proprio (`DISCLAIMER_VA`: informazione, non consulenza sui benefici).
+
+- **2027: tabelle NON calcolate, solo la percentuale ufficiale.** Al 15/11/2026: SSA +3,6 % da dicembre 2026 (Federal Register 91 FR 67380, doc 2026-21796); la legge dell'anno (H.R. 8552,
+  Veterans' Compensation COLA Act of 2026) è su govinfo come «enrolled bill» dal 13/11 ma non è ancora tra le leggi pubblicate (ultima: P.L. 119-138); va.gov (pagina aggiornata il 2/11)
+  mostra ancora le tabelle dal 1/12/2025; l'ultimo avviso del VA con gli importi è il 2026-02997 del 17/2/2026. **Perché non si calcola:** la legge dà la percentuale e una sola regola di
+  arrotondamento (38 U.S.C. 1115(2): quote dei familiari sotto il 100 % arrotondate per difetto al dollaro); nessuna fonte ufficiale letta dice come si arrotonda al centesimo ogni importo aumentato.
+  Prova fatta sugli avvisi 2024→2025 (2,5 %) e 2025→2026 (2,8 %): «importo × percentuale, metà in su» ridà 27 importi su 28 ogni anno (tutti i 10 importi base e i 7 dei familiari; sbaglia di
+  1 centesimo solo il primo importo del 1114(r)); il troncamento ne ridà 11-12. Quindi il metodo è molto probabile ma non scritto: se il coordinatore decide di pubblicare una tabella
+  «calcolata dal 3,6 % ufficiale, tabella VA non ancora pubblicata» il calcolo è: 10 importi base e importi del 1115(1) × 1,036 al centesimo (metà in su), poi `quota()` di `raccolta/va.py`.
+  `verifica.py` oggi vieta qualsiasi importo base × 1,036 nelle pagine.
+- **Quando esce la tabella 2027** la generazione si ferma da sola (`stato_2027()` in `sezione_va.py`): le frasi di `va_rates` («Effective December 1, 2025», «Review 2026 Veterans…») non si
+  trovano più, oppure la legge compare in `plaw119` (`va_cola_2026`), oppure l'API del Federal Register dà un avviso più nuovo del 2026-02997. Allora: in `raccolta/va.py` aggiungere il 2027 in
+  `ANNI` e `FILE` (pagina corrente = 2027, `past-rates-2026/` = 2026; l'avviso nel Federal Register può arrivare mesi dopo: finché manca, il confronto si fa con importi × percentuale e va detto),
+  aggiornare le frasi in `raccolta/fonti.py`, `ANNO`/`PRIMA` e i testi «2026» in `sezione_va.py`, riscrivere `/va-disability-rates/2027/`, i casi a mano in `verifica.py` (`CASI_VA_MANO`).
+  Poi `python3 milpay/raccolta/va.py && python3 milpay/raccolta/fonti.py --solo=va_rates,va_rates_2025,plaw119,fr_va_search,... && python3 milpay/genera.py && python3 milpay/verifica.py --browser`.
+  Ricontrollare va.gov ogni 2-3 giorni fino al 1/12 (basta `fonti.py --solo=va_rates,plaw119,fr_va_search` + `genera.py`).
+- **Dati** (`raccolta/va.py` → `dati/va.json`, importi in centesimi interi; file grezzi in `dati/grezzi/` con URL, data e SHA-256 nel registro `grezzi` di `dati/fonti.json`): due pagine va.gov
+  (122 importi l'una), due avvisi del VA nel Federal Register letti su govinfo (importi di legge 38 U.S.C. 1114 e 1115(1)), XML dell'eCFR del 38 CFR 4.25, pagina va.gov «About disability ratings»,
+  API del Federal Register. **Tutte le 244 celle di va.gov = importo di legge + quota 1115(2)**; Table I (76 righe × 9) = formula del testo del 4.25. La copia della Table I su va.gov ha un refuso
+  (riga 86, colonna 80: 91 invece di 97): vale il regolamento, la differenza è dichiarata in `/how-we-check/` e `REFUSI_VA` ferma la raccolta se cambia.
+- **Fonti con frasi** (`raccolta/fonti.py`, 12 nuove): va_rates, va_rates_2025, va_fr_2026, va_fr_2025, ssa_cola_2027, hr8552, plaw119_42, usc1115, cfr4_25, cfr4_26 (eCFR: serve la compressione,
+  opzione `gzip`), va_about, fr_va_search. federalregister.gov (pagine HTML) chiede un CAPTCHA ai programmi: non aggirato, si usano la sua API e govinfo.
+- **Controlli di `verifica.py`** (`controlla_va`, lettura dei file grezzi rifatta a parte): 1.368 celle pubblicate = file grezzi; dati dei calcolatori in 12 pagine = grezzo; JS = calcolo rifatto
+  dagli importi di legge dell'avviso = copia Python su 2.888 combinazioni; gradi combinati JS = formula su 3.100 liste; 11 casi letti a mano (esempi di va.gov) e 8 esempi del regolamento;
+  citazioni tra virgolette ritrovate nelle fonti; nessun importo × 1,036 in pagina; parole di previsione o consiglio vietate; avviso proprio della sezione.
+  Playwright (script in scratchpad, non nel repository): 6 pagine nuove + home e how-we-check a 375 e 1280 px, chiaro e scuro, nessuno scorrimento orizzontale, menu su una riga, 11 casi del calcolatore per vista.
+- **Non coperto e detto in pagina**: special monthly compensation, special benefit allowances, birth defect, superstiti (DIC); fattore bilaterale (38 CFR 4.26) non applicato dal calcolatore;
+  famiglia con soli figli maggiorenni a scuola (la tabella del VA dà quell'importo solo come aggiunta: il calcolatore lo dice e non calcola). Niente date di pagamento («va disability pay dates 2025»
+  18.100 ricerche, 3,57 $: nessuna fonte letta, possibile aggiunta) e niente tassazione.
+- **Domanda**: `dati/domanda_va.json`, 77 ricerche seodata del 15/11 (us): «va disability calculator» 135.000 (1,69 $), «va disability rates 2025» 90.500, «va disability rates» 74.000,
+  «va disability pay chart 2025» 49.500, «va rating calculator» 27.100, «va disability rating calculator» 22.200, «va disability pay chart» 22.200, «va combined rating calculator» 12.100,
+  «100 va disability pay» 12.100, «2026 va disability rates» 3.600; tutte le frasi con 2027 ancora a 0. `genera.volume()` ora guarda prima la frase esatta, poi le simili.

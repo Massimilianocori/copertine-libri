@@ -122,6 +122,10 @@ footer a{color:var(--on-deep)}footer h2{font-size:1rem;color:#fff;margin:0 0 10p
 .risultati a{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:var(--r-s);padding:9px 12px;text-decoration:none;color:var(--ink);box-shadow:var(--sh-1)}
 .risultati a:hover{border-color:var(--accent)}.risultati b{color:var(--accent)}.risultati small{color:var(--ink-3);font-size:.8rem}
 .griglia.stati{grid-template-columns:repeat(auto-fill,minmax(170px,1fr))}
+table.dati.va th[scope=row]{white-space:normal;min-width:150px;font-weight:700}
+.piega{padding:0;margin:14px 0}.piega summary{cursor:pointer;font-weight:800;padding:14px 18px;color:var(--accent)}.piega .tab{border:0;border-top:1px solid var(--line);border-radius:0;box-shadow:none;margin:0;max-height:460px;overflow:auto}
+.piega table.dati thead th{position:sticky;top:0}
+.passi{margin:0;padding-left:20px;font-size:.92rem;color:var(--ink-2)}.passi li{margin-bottom:3px}
 @media (max-width:860px){nav.menu{display:none}.nav-m{display:block}.calc-g{grid-template-columns:1fr}.calc-in{border-right:0;border-bottom:1px solid var(--line)}
 .stats{grid-template-columns:1fr 1fr}.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}.f-grid{grid-template-columns:1fr}}
 @media (max-width:1000px) and (min-width:861px){nav.menu a{padding:7px 7px;font-size:.88rem}}
@@ -194,7 +198,29 @@ function miglia(D, giorno, scopo, mi) {
   var t = Math.floor(mi * 10 + 0.5), c = Math.floor((t * r + 50) / 100);
   return {tariffa: r / 10, decimi: t, centesimi: c, importo: c / 100, dal: p.dal, al: p.al};
 }
-if (typeof module !== 'undefined') module.exports = {calcola: calcola, viaggio: viaggio, miglia: miglia};
+function vaCombina(D, lista) {
+  if (!Array.isArray(lista) || !lista.length || lista.length > 20) return {errore: 'lista'};
+  for (var i = 0; i < lista.length; i++) { var x = lista[i]; if (typeof x !== 'number' || Math.floor(x) !== x || x < 10 || x > 100 || x % 10) return {errore: 'grado'}; }
+  var o = lista.slice().sort(function (a, b) { return b - a; }), v = o[0], passi = [];
+  for (var j = 1; j < o.length; j++) { if (v >= 95) break; var b = o[j], c = (v === 10 && b === 10) ? 19 : D.T[String(v)][b / 10 - 1]; passi.push([v, b, c]); v = c; }
+  return {ordinati: o, passi: passi, valore: v, finale: Math.min(100, Math.floor((v + 5) / 10) * 10)};
+}
+function vaPaga(D, g, coniuge, aa, genitori, u18, scuola) {
+  function ok(x, lo, hi) { return typeof x === 'number' && Math.floor(x) === x && x >= lo && x <= hi; }
+  if (!ok(g, 10, 100) || g % 10) return {errore: 'grado'};
+  if (!(ok(coniuge, 0, 1) && ok(aa, 0, 1) && ok(genitori, 0, 2) && ok(u18, 0, 12) && ok(scuola, 0, 12))) return {errore: 'dati'};
+  var sg = String(g);
+  if (g < 30) return {cent: D.base[sg], anno: D.base[sg] * 12, chiave: 'alone', base: D.base[sg], extra: [], senza_familiari: (coniuge || genitori || u18 || scuola) ? 1 : 0};
+  if (scuola && !u18) return {errore: 'scuola'};
+  var k = u18 ? ((coniuge ? 'child_spouse' : 'child') + (genitori ? '_p' + genitori : '')) : (coniuge ? 'spouse' + (genitori ? '_p' + genitori : '') : (genitori ? 'p' + genitori : 'alone'));
+  var base = D.righe[k][sg], extra = [], tot = base;
+  if (u18 > 1) extra.push(['child_u18', u18 - 1, D.agg.child_u18[sg]]);
+  if (scuola) extra.push(['child_school', scuola, D.agg.child_school[sg]]);
+  if (coniuge && aa) extra.push(['spouse_aa', 1, D.agg.spouse_aa[sg]]);
+  extra.forEach(function (e) { tot += e[1] * e[2]; });
+  return {cent: tot, anno: tot * 12, chiave: k, base: base, extra: extra, senza_familiari: 0};
+}
+if (typeof module !== 'undefined') module.exports = {calcola: calcola, viaggio: viaggio, miglia: miglia, vaCombina: vaCombina, vaPaga: vaPaga};
 (function () {
   if (typeof document === 'undefined') return;
   var b = document.querySelector('[data-tema]');
@@ -268,6 +294,55 @@ if (typeof module !== 'undefined') module.exports = {calcola: calcola, viaggio: 
       conta.textContent = s.length < 2 ? base : (n ? n + (n === 40 ? '+' : '') + ' area' + (n === 1 ? '' : 's') + ' found.' : 'No GSA area matches: if the county is not listed either, the standard rate applies.');
     };
     qi.addEventListener('input', cerca);
+  }
+  var vb = document.querySelector('[data-va]');
+  if (vb) {
+    var DV = JSON.parse(document.getElementById('dati-va').textContent);
+    var vg = vb.querySelector('select[name=g]'), vl = vb.querySelector('input[name=lista]'), vs = vb.querySelector('select[name=s]'), vp = vb.querySelector('select[name=p]'),
+      vu = vb.querySelector('input[name=u]'), vc = vb.querySelector('input[name=c]'), vo = vb.querySelector('[data-out]');
+    var NOMI = {alone: 'Veteran alone', spouse: 'Veteran with spouse', spouse_p1: 'Veteran with spouse and 1 parent', spouse_p2: 'Veteran with spouse and 2 parents', p1: 'Veteran with 1 parent', p2: 'Veteran with 2 parents',
+      child: 'Veteran with 1 child', child_spouse: 'Veteran with spouse and 1 child', child_spouse_p1: 'Veteran with spouse, 1 child and 1 parent', child_spouse_p2: 'Veteran with spouse, 1 child and 2 parents',
+      child_p1: 'Veteran with 1 child and 1 parent', child_p2: 'Veteran with 1 child and 2 parents'};
+    var AGG = {child_u18: 'additional child under 18', child_school: 'child over 18 in school', spouse_aa: 'spouse receiving Aid and Attendance'};
+    var cu = function (c) { return usd(c / 100); };
+    var intero = function (el) { var t = el.value.trim(); if (t === '') return 0; return /^\d{1,2}$/.test(t) ? +t : -1; };
+    var qv = new URLSearchParams(location.search);
+    if (qv.get('g') && DV.base[qv.get('g')]) vg.value = qv.get('g');
+    if (qv.get('r')) vl.value = qv.get('r').slice(0, 80);
+    if (/^[012]$/.test(qv.get('s') || '')) vs.value = qv.get('s'); if (/^[012]$/.test(qv.get('p') || '')) vp.value = qv.get('p');
+    if (/^\d{1,2}$/.test(qv.get('u') || '')) vu.value = qv.get('u'); if (/^\d{1,2}$/.test(qv.get('c') || '')) vc.value = qv.get('c');
+    var vaAgg = function (scrivi) {
+      var h = '', g = +vg.value, testo = vl.value.trim(), comb = null;
+      if (testo !== '') {
+        var parti = testo.split(/[\s,;+%]+/).filter(function (x) { return x !== ''; }), nums = parti.map(function (x) { return /^\d{1,3}$/.test(x) ? +x : NaN; });
+        comb = vaCombina(DV, nums);
+        if (comb.errore) { vo.innerHTML = '<p class="vuoto"><strong>Enter the single ratings as multiples of 10 between 10 and 100, separated by commas, for example 50, 30, 10.</strong> Or clear the field and pick the combined rating.</p>'; return; }
+        g = comb.finale;
+      }
+      if (g < 10) { vo.innerHTML = '<p class="vuoto"><strong>These ratings combine to less than 10%.</strong></p>'; return; }
+      var s = +vs.value, r = vaPaga(DV, g, s > 0 ? 1 : 0, s === 2 ? 1 : 0, +vp.value, intero(vu), intero(vc));
+      if (r.errore === 'scuola') h = '<p class="vuoto"><strong>VA’s table lists the amount for a child over 18 in school only as an addition for a further child.</strong> We do not calculate a household whose only children are over 18 and in school: VA can tell you that amount.</p>';
+      else if (r.errore) h = '<p class="vuoto"><strong>Enter whole numbers from 0 to 12 for the children.</strong></p>';
+      else {
+        h = '<div class="tot"><div class="main"><span>Monthly payment at ' + g + '%, ' + DV.anno + ' rates</span><b>' + cu(r.cent) + '</b></div><div><span>Per year (× 12)</span><b>' + cu(r.anno) + '</b></div></div>';
+        if (comb) {
+          h += '<p><strong>Combined rating: ' + comb.finale + '%.</strong> ' + (comb.passi.length ? 'Table I, in order of severity:' : 'One rating, nothing to combine.') + '</p>';
+          if (comb.passi.length) { h += '<ol class="passi">'; comb.passi.forEach(function (p) { h += '<li>' + p[0] + ' and ' + p[1] + ' → ' + p[2] + '</li>'; });
+            h += '<li>' + comb.valore + (comb.valore >= 95 && comb.passi.length < comb.ordinati.length - 1 ? ' is already 95 or more' : '') + ' → converted to ' + comb.finale + '%</li></ol>'; }
+        }
+        if (g < 30) h += '<p>' + (r.senza_familiari ? '<strong>Dependents do not change the rate at ' + g + '%.</strong> ' : '') + 'At 10% and 20% VA pays one rate, with or without dependents.</p>';
+        else {
+          h += '<p><strong>Basic rate:</strong> ' + escp(NOMI[r.chiave]) + ', ' + cu(r.base) + '.</p>';
+          if (r.extra.length) { h += '<ol class="passi">'; r.extra.forEach(function (e) { h += '<li>+ ' + (e[1] > 1 ? e[1] + ' × ' : '') + cu(e[2]) + ' ' + AGG[e[0]] + '</li>'; }); h += '</ol>'; }
+        }
+        if (DV.pagine[String(g)] && location.pathname !== '/' + DV.pagine[String(g)]) h += '<p><a href="/' + DV.pagine[String(g)] + '">All ' + g + '% rates →</a></p>';
+      }
+      vo.innerHTML = h;
+      if (scrivi && history.replaceState) { var q = new URLSearchParams(); if (testo !== '') q.set('r', testo); else q.set('g', vg.value); q.set('s', vs.value); q.set('p', vp.value); q.set('u', String(intero(vu))); q.set('c', String(intero(vc)));
+        history.replaceState(null, '', location.pathname + '?' + q.toString()); }
+    };
+    vaAgg(false);
+    [vg, vl, vs, vp, vu, vc].forEach(function (el) { el.addEventListener('change', function () { vaAgg(true); }); el.addEventListener('input', function () { vaAgg(true); }); });
   }
   var box = document.querySelector('[data-calc]'); if (!box) return;
   var D = JSON.parse(document.getElementById('dati-paga').textContent);

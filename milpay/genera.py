@@ -48,6 +48,7 @@ P25 = carica("paga_2025.json")
 APR25 = carica("paga_2025_aprile.json")  # tabella in vigore dal 1° aprile 2025 (Public Law 118-159, sez. 601): testo ufficiale, non immagini
 ST = carica("storico.json")
 DOM = carica("domanda.json")
+DOM_VA = carica("domanda_va.json")  # ricerche misurate della sezione sull'invalidità dei veterani (sezione_va.py)
 DOM_PD = carica("domanda_perdiem.json")  # ricerche misurate della sezione per diem e chilometri (sezione_perdiem.py)
 _F = carica("fonti.json")
 FONTI, ESITI = _F["definizioni"], _F["fonti"]
@@ -347,7 +348,7 @@ def ico(nome, cls="ico"):
 URLS = []
 AD = '<div class="ad-slot" aria-hidden="true"></div>'
 MENU = [("", "2026 chart"), ("calculator/", "Calculator"), ("pay-raise-history/", "Raise history"), ("2027-pay-raise/", "2027 raise"),
-        ("per-diem/", "Per diem"), ("irs-mileage-rate/", "Mileage rate")]
+        ("per-diem/", "Per diem"), ("irs-mileage-rate/", "Mileage rate"), ("va-disability-rates/", "VA disability")]
 DISCLAIMER = ("<strong>Independent site, not affiliated with the Department of Defense, any military branch, the Coast Guard or DFAS.</strong> "
               "We show monthly basic pay as printed in the official tables, nothing else: no allowances, special pays, bonuses or taxes. "
               "This is general information, not financial advice. Your Leave and Earnings Statement and your unit’s finance office are the authority on your own pay; "
@@ -355,7 +356,7 @@ DISCLAIMER = ("<strong>Independent site, not affiliated with the Department of D
 
 
 def menu_html(percorso, mobile=False):
-    voci = [f'<a href="/{u}"' + (' aria-current="page"' if u == percorso or (u == "per-diem/" and percorso.startswith("per-diem/")) else "") + (' class="w2"' if mobile else "") + f">{h(t)}</a>" for u, t in MENU]
+    voci = [f'<a href="/{u}"' + (' aria-current="page"' if u == percorso or (u in ("per-diem/", "va-disability-rates/") and percorso.startswith(u)) or (u == "va-disability-rates/" and percorso == "va-disability-calculator/") else "") + (' class="w2"' if mobile else "") + f">{h(t)}</a>" for u, t in MENU]
     if mobile:
         voci.append('<span class="sep" aria-hidden="true"></span>')
         voci += [f'<a href="/{s}/">{h(n)}</a>' for s, n, _, _ in GRADI if s not in NOINDEX]
@@ -380,7 +381,8 @@ def pagina(percorso, titolo, descrizione, corpo, testata="", briciole=None, json
     alt = "".join(f'<li><a href="/{s}/">{n}</a></li>' for s, n, c, _ in GRADI if c != "E" and s not in NOINDEX)
     guide = "".join(f'<li><a href="/{u}">{h(t)}</a></li>' for u, t in [("calculator/", "Basic pay calculator"), ("pay-raise-history/", "Pay raise history"),
                     ("2027-pay-raise/", "2027 pay raise: status"), ("per-diem/", "GSA per diem rates"), ("per-diem/calculator/", "Per diem calculator"),
-                    ("irs-mileage-rate/", "IRS mileage rate"), ("how-we-check/", "How we check"), ("about/", "About"), ("how-we-check/#corrections", "Report an error"), ("privacy/", "Privacy")])
+                    ("irs-mileage-rate/", "IRS mileage rate"), ("va-disability-rates/", "VA disability rates"), ("va-disability-calculator/", "VA disability calculator"),
+                    ("va-disability-rates/2027/", "2027 VA rates: status"), ("how-we-check/", "How we check"), ("about/", "About"), ("how-we-check/#corrections", "Report an error"), ("privacy/", "Privacy")])
     testo = f"""<!DOCTYPE html>
 <html lang="en-US">
 <head>
@@ -426,7 +428,7 @@ def pagina(percorso, titolo, descrizione, corpo, testata="", briciole=None, json
 <div class="f-grid"><div>
 <a class="logo" href="/">{LOGO}<span>Military Pay <b>Chart</b></span></a>
 <p><strong>{NOME}</strong> publishes the {ANNO} monthly basic pay tables of the U.S. uniformed services, copied from Schedule 8 of Executive Order {EO['ordine_esecutivo']}
-in the Federal Register, with a page for every pay grade, and the GSA per diem rates for federal travel in the continental U.S. Independent site, not a government website.</p>
+in the Federal Register, with a page for every pay grade, the GSA per diem rates for federal travel in the continental U.S. and VA’s disability compensation rates. Independent site, not a government website.</p>
 <p>Official tables read on {data_lunga(CONTROLLO)}.</p>
 </div><div>
 <h2>Enlisted</h2><ul>{enl}</ul>
@@ -434,7 +436,7 @@ in the Federal Register, with a page for every pay grade, and the GSA per diem r
 <h2>Officers and warrant officers</h2><ul class="f-gradi" style="display:grid">{alt}</ul>
 <h2 style="margin-top:18px">Guides</h2><ul>{guide}</ul>
 </div></div>
-<p class="f-base">General information only, not financial advice. Not affiliated with the U.S. Department of Defense, the military services, the Coast Guard, DFAS, GSA or the IRS.</p>
+<p class="f-base">General information only, not financial or benefits advice. Not affiliated with the U.S. Department of Defense, the military services, the Coast Guard, DFAS, GSA, the IRS or the Department of Veterans Affairs.</p>
 </div></footer>
 {script_dati}<script src="/assets/{JS_FILE}" defer></script>
 {SCRIPT_CONTATORE}
@@ -456,9 +458,12 @@ def banda(eyebrow, titolo, sub, corta=False, icona="table"):
 
 # ---------------------------------------------------------------- domande frequenti (solo da ricerche vere)
 def volume(frase):
-    for r in DOM["ricerche"] + DOM_PD["ricerche"]:
+    """Volume misurato: prima la ricerca fatta con quella frase esatta, poi (se manca) il valore tra le frasi simili delle altre ricerche."""
+    tutte = DOM["ricerche"] + DOM_PD["ricerche"] + DOM_VA["ricerche"]
+    for r in tutte:
         if r["frase"] == frase:
             return r["volume_mese"]
+    for r in tutte:
         for s in r["simili"]:
             if s["frase"] == frase:
                 return s["volume_mese"]
@@ -596,6 +601,9 @@ def home():
               '<a href="/per-diem/">GSA per diem rates by state and city</a> (FY 2027 and FY 2026, lodging by month and M&amp;IE), a '
               '<a href="/per-diem/calculator/">per diem calculator</a> and the <a href="/irs-mileage-rate/">IRS and GSA mileage rates for 2026</a>. '
               'They are separate from basic pay and come from GSA and the IRS.</p></div>')
+    corpo += ('<h2 id="veterans">After service: VA disability rates</h2><div class="testo"><p>For Veterans we publish VA’s official '
+              '<a href="/va-disability-rates/">disability compensation rates by rating and dependents</a>, a <a href="/va-disability-calculator/">VA disability calculator</a> '
+              'and the <a href="/va-disability-rates/2027/">status of the 2027 rates</a>. They come from the Department of Veterans Affairs and have nothing to do with basic pay.</p></div>')
     voci = [
         ("2026 military pay chart", f"When did the 2026 military pay chart take effect?",
          f"On {P['effettiva_dal']}. The rates are in Schedule 8 of Executive Order {EO['ordine_esecutivo']} of {data_lunga(EO['firmato_il'])}, published in the Federal Register on {data_lunga(EO['pubblicato_il'])}.", "eo2026"),
@@ -944,6 +952,8 @@ def come_controlliamo(stat):
               'The site moves to the new table only after the same three readings and checks pass.</p></div>')
     import sezione_perdiem
     corpo += sezione_perdiem.come_controlliamo(sys.modules[__name__], rim)
+    import sezione_va
+    corpo += sezione_va.come_controlliamo(sys.modules[__name__], rim)
     corpo += ('<h2 id="corrections">Report an error</h2><div class="testo"><p>Seen a figure that does not match the official table? Tell us which page and, if you can, link the official source: '
               'we check it and fix the page. We cannot answer questions about individual pay: your finance office can.</p></div>' + MODULO)
     corpo += rim.elenco()
@@ -1061,9 +1071,11 @@ def main():
     privacy()
     import sezione_perdiem
     n_pd = sezione_perdiem.genera(sys.modules[__name__])
+    import sezione_va
+    n_va = sezione_va.genera(sys.modules[__name__])
     pagina_404()
     extra()
-    print(f"Sito generato in {SITO}: {len(URLS)} pagine indicizzabili + {len(NOINDEX)} noindex + 404. Celle {stat}. Per diem: {n_pd}.")
+    print(f"Sito generato in {SITO}: {len(URLS)} pagine indicizzabili + {len(NOINDEX)} noindex + 404. Celle {stat}. Per diem: {n_pd}. VA: {n_va}.")
 
 
 if __name__ == "__main__":
