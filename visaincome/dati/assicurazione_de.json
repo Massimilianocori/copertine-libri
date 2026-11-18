@@ -1,0 +1,980 @@
+{
+ "_nota": "Generato da raccolta/assicurazione_de.py: non modificare a mano. Le letture sono frammenti dei testi ufficiali, ricontrollati a ogni lancio.",
+ "letto_il": "2026-11-14",
+ "fonti": {
+  "aa_kv": {
+   "titolo": "Federal Foreign Office, Health insurance cover for applications for national visas (article dated 21 August 2026)",
+   "editore": "Auswärtiges Amt",
+   "url": "https://www.auswaertiges-amt.de/en/2804434-2804434",
+   "lingua": "en",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "byte": 81858,
+   "sha256": "4dc0181832cf2deb7e11299444f2da2f45969ceb5222ff57137cb11db9548cf3",
+   "formato": "html",
+   "sha256_testo": "8ea38e36080a331c7af2336a9f538a4770276b0ea17bbd582e907b928c43fd58"
+  },
+  "aa_faq": {
+   "titolo": "Federal Foreign Office, FAQ: Visa for Germany",
+   "editore": "Auswärtiges Amt",
+   "url": "https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/606848-606848",
+   "lingua": "en",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "byte": 119183,
+   "sha256": "a5dff4ac0329b1e25628b545dbaa654cd4eaa65c1200074d936432bd98270800",
+   "formato": "html",
+   "sha256_testo": "9237913e62ea7c5555ac5bbf724c78ba079b6a4913d08215c88deb49a8112175"
+  },
+  "aufenthg": {
+   "titolo": "Residence Act (Aufenthaltsgesetz), English translation by the Federal Ministry of the Interior, section 2 (3)",
+   "editore": "Federal Ministry of Justice, gesetze-im-internet.de",
+   "url": "https://www.gesetze-im-internet.de/englisch_aufenthg/englisch_aufenthg.html",
+   "lingua": "en",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "byte": 747706,
+   "sha256": "5391ae8ea3177fa8770e2cdd6d30e1e01d7c5a51c970ebc0c6213bdefc52cf0d",
+   "formato": "html",
+   "sha256_testo": "b302587109657ef2bd0cd5affe003d727c9ad3dba6a3f1d04b713af1df01e8a6"
+  },
+  "be_bc": {
+   "titolo": "Service-Portal Berlin, EU Blue Card",
+   "editore": "State of Berlin, Landesamt für Einwanderung",
+   "url": "https://service.berlin.de/dienstleistung/324659/en/",
+   "lingua": "en",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "byte": 53227,
+   "sha256": "44ef6194273e7f811fdaa9428e0d51aa2f499009de2619fa5d20861ff7d3aadb",
+   "formato": "html",
+   "sha256_testo": "444e527ad36e634d70a5879c8eb86d6fb5943ec53afcf695cc59de735dd44766"
+  },
+  "be_free": {
+   "titolo": "Service-Portal Berlin, Residence permit for a freelance employment",
+   "editore": "State of Berlin, Landesamt für Einwanderung",
+   "url": "https://service.berlin.de/dienstleistung/328332/en/",
+   "lingua": "en",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "byte": 45054,
+   "sha256": "32cc26e80275e2388d2f5c861b521f4f237ab1f841b9651eed4a3fc3ad5bf3bf",
+   "formato": "html",
+   "sha256_testo": "ac02b2de548f7719254808c9b1d8d3c52ae39dd0cf259737a0d2601036193fdc"
+  },
+  "be_stud": {
+   "titolo": "Service-Portal Berlin, Residence permit for the purpose of full-time studies",
+   "editore": "State of Berlin, Landesamt für Einwanderung",
+   "url": "https://service.berlin.de/dienstleistung/305244/en/",
+   "lingua": "en",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "byte": 48432,
+   "sha256": "25aeffba2333d6d1a4bcbbbb220935fc81ef727e2403df4faac179b9786f2b14",
+   "formato": "html",
+   "sha256_testo": "59f764637245b4958cde40956f2970555a42af3a92286b12200a720b28fe8937"
+  },
+  "lea_kv": {
+   "titolo": "Landesamt für Einwanderung, Information sheet on required health insurance cover for granting / extension of residence permits (LEA 4326a, 12/2024)",
+   "editore": "State of Berlin, Landesamt für Einwanderung",
+   "url": "https://www.berlin.de/einwanderung/_assets/merkblatt_zur_krankenversicherung__englisch_.pdf",
+   "lingua": "en",
+   "formato": "pdf",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "byte": 136669,
+   "sha256": "09c2c8ef845723992ee63ba729a16e3a59c8555409e4702be924dd59788dfb5d",
+   "sha256_testo": "09b30374f2ade8a48e244ad3e2521dd408e22c1579fa88cfa5bc358da3f12343"
+  },
+  "lea_stud": {
+   "titolo": "Landesamt für Einwanderung, Information for students on adequate health insurance (LEA 4310b, 12/2024)",
+   "editore": "State of Berlin, Landesamt für Einwanderung",
+   "url": "https://www.berlin.de/einwanderung/_assets/krankenversicherung-fuer-studierende-englisch.pdf",
+   "lingua": "en",
+   "formato": "pdf",
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "byte": 130313,
+   "sha256": "20c092c7a3c93578b7e2bd5d1602914d93b551d68b4d1c2d81e0ca5472a82e8d",
+   "sha256_testo": "61f2092a24402cd6bf4477cf8b6793a19402f362d637be8198b96cddd4a1ef91"
+  },
+  "ottonova": {
+   "titolo": "ottonova, English home page (the company's own description; not an official source)",
+   "editore": "ottonova",
+   "url": "https://www.ottonova.de/en",
+   "lingua": "en",
+   "partner": true,
+   "http": 200,
+   "letto_il": "2026-11-14",
+   "byte": 416605,
+   "sha256": "d7d00b6de66d7fb54d03e6e172a8298686c5e27c80c6077cdb34fe9315f75233",
+   "formato": "html",
+   "sha256_testo": "53648329d54dc4192e7ebf271860db565bc633cde18e74bd4ab489ee5504b0dd"
+  }
+ },
+ "letture": {
+  "aa_data": {
+   "fonte": "aa_kv",
+   "frammento": "21.08.2026 - Article"
+  },
+  "aa_obbligo": {
+   "fonte": "aa_kv",
+   "frammento": "In Germany, health insurance is generally compulsory. Anyone resident in Germany is required to take out health insurance with a company licensed to do business in Germany to cover their medical costs."
+  },
+  "aa_prova": {
+   "fonte": "aa_kv",
+   "frammento": "As a rule, proof of sufficient health insurance cover also needs to be presented when applying for a visa."
+  },
+  "aa_90": {
+   "fonte": "aa_kv",
+   "frammento": "In the case of longer stays of more than 90 days within a period of 180 days, travel health insurance for the Schengen area does not as a rule suffice."
+  },
+  "aa_gkv": {
+   "fonte": "aa_kv",
+   "frammento": "You always have sufficient health insurance cover if you are insured in the German statutory health insurance system."
+  },
+  "aa_gkv_conferma": {
+   "fonte": "aa_kv",
+   "frammento": "If you are going to be insured within the statutory health insurance system, the provider you choose can issue you with written confirmation which you can submit in the visa process."
+  },
+  "aa_gkv_inizio": {
+   "fonte": "aa_kv",
+   "frammento": "In the statutory health insurance system, your insurance cover generally does not begin as soon as you arrive in Germany. To make sure you are covered from day one, you therefore also need travel health insurance or alternatively incoming insurance."
+  },
+  "aa_ponte": {
+   "fonte": "aa_kv",
+   "frammento": "The insurance must have at least the scope of a Schengen travel health insurance policy. The insurance should as a rule be valid for three months.",
+   "valore": 3
+  },
+  "aa_ponte_valida": {
+   "fonte": "aa_kv",
+   "frammento": "Please make sure that this travel health insurance or incoming insurance is valid despite your planned longer stay (ensure cover is not excluded if you plan to take up residence)."
+  },
+  "aa_pkv": {
+   "fonte": "aa_kv",
+   "frammento": "In principle, private health insurance has to provide the same protection as statutory health insurance. That means that insurance cannot to any major extent exclude treatment or impose limits on amounts to be reimbursed in the case of illness."
+  },
+  "aa_pkv_clausole": {
+   "fonte": "aa_kv",
+   "frammento": "It must not, as a rule, contain clauses that terminate insurance upon you reaching a certain age, ending a work contract, changing the purpose of a stay or losing residence status thus leaving you without health insurance cover."
+  },
+  "aa_incoming": {
+   "fonte": "aa_kv",
+   "frammento": "For certain temporary stays, though, for example a language course or an opportunity card, insurance is generally only taken out for a certain period of time; however, this insurance must be valid for at least the entire duration of the visa you applied for. Insurance for these stays is usually called incoming or expat insurance."
+  },
+  "aa_minimo": {
+   "fonte": "aa_kv",
+   "frammento": "Insurance must at least cover the reimbursement of costs for outpatient and inpatient treatment and must not be restricted to emergencies. That is why travel health insurance is as a rule not enough."
+  },
+  "aa_cronico": {
+   "fonte": "aa_kv",
+   "frammento": "Please make sure that any chronic or underlying illnesses as well as (if applicable) care during pregnancy are covered."
+  },
+  "aa_lavoretto": {
+   "fonte": "aa_kv",
+   "frammento": "If you are applying for a visa to study or engage in training, to look for a university or training position or receive an opportunity card, you can take up employment to a limited extent. You need to ensure that you have adequate health insurance to also cover incidents connected to this employment."
+  },
+  "aa_bafin": {
+   "fonte": "aa_kv",
+   "frammento": "The only providers authorised to offer such private health insurance are insurance companies subject to supervision by the Federal Financial Supervisory Authority (BaFin) and those from European countries who are registered as EEA service providers."
+  },
+  "aa_libero": {
+   "fonte": "aa_kv",
+   "frammento": "Provided your insurance provider meets this criterion, you are free to choose. The Federal Foreign Office is not allowed to recommend insurance providers."
+  },
+  "aa_non_esaustivo": {
+   "fonte": "aa_kv",
+   "frammento": "This is not an exhaustive list. Exceptions are possible in individual cases."
+  },
+  "aa_formazione": {
+   "fonte": "aa_kv",
+   "frammento": "Trainees completing an apprenticeship have statutory health insurance.",
+   "sezione": "1. Vocational training and continuing vocational training"
+  },
+  "aa_formazione_ponte": {
+   "fonte": "aa_kv",
+   "frammento": "In the visa process, you also need to present documentation regarding health insurance before your statutory health insurance cover begins. Incoming insurance or travel health insurance valid for the first three months of your stay in Germany is sufficient.",
+   "valore": 3
+  },
+  "aa_formazione_privata": {
+   "fonte": "aa_kv",
+   "frammento": "If you are not working as part of your vocational training, you will normally not be eligible for statutory health insurance."
+  },
+  "aa_studenti": {
+   "fonte": "aa_kv",
+   "frammento": "Students up to the age of 30 who are enrolled at a state or state-recognised university are insured in the statutory health insurance system upon matriculation.",
+   "sezione": "3. Students",
+   "valore": 30
+  },
+  "aa_studenti_ponte": {
+   "fonte": "aa_kv",
+   "frammento": "In the visa process, you need to present documentation regarding health insurance before your statutory health insurance cover begins. Incoming insurance or travel health insurance valid in Germany for the first three months of your stay is sufficient.",
+   "valore": 3
+  },
+  "aa_studenti_30": {
+   "fonte": "aa_kv",
+   "frammento": "Students aged 30 and older are generally no longer eligible for statutory health insurance. Younger students are free to choose and can opt for adequate private health insurance instead.",
+   "valore": 30
+  },
+  "aa_studenti_durata": {
+   "fonte": "aa_kv",
+   "frammento": "Insurance documentation has to be presented in the visa process and insurance must be valid for at least the entire duration of your visa."
+  },
+  "aa_studenti_kolleg": {
+   "fonte": "aa_kv",
+   "frammento": "Please note that you are not covered in the statutory health insurance system if you are attending a Studienkolleg preparatory course or a language course to prepare for studies"
+  },
+  "aa_kolleg": {
+   "fonte": "aa_kv",
+   "frammento": "While you attend a Studienkolleg preparatory course, you are not covered by the statutory health insurance system.",
+   "sezione": "4. Studienkolleg preparatory course"
+  },
+  "aa_lingua": {
+   "fonte": "aa_kv",
+   "frammento": "If you are attending a language course, you need private health insurance (often called incoming insurance) which is valid for the entire duration of your visa.",
+   "sezione": "5. Language course"
+  },
+  "aa_cerca_uni": {
+   "fonte": "aa_kv",
+   "frammento": "In the visa process, you need to submit proof of private health insurance (often called incoming insurance) which is valid for the entire duration of your visa.",
+   "sezione": "7. Looking for a place at university/vocational training"
+  },
+  "aa_lavoro": {
+   "fonte": "aa_kv",
+   "frammento": "People who work in Germany are in many cases obliged to join the statutory health insurance system. You can choose your insurance provider yourself.",
+   "sezione": "8. Taking up employment"
+  },
+  "aa_lavoro_cert": {
+   "fonte": "aa_kv",
+   "frammento": "Usually the insurance provider can issue a certificate confirming that you will be insured once your term of employment begins."
+  },
+  "aa_lavoro_ponte": {
+   "fonte": "aa_kv",
+   "frammento": "In the visa process, you also need to submit proof of insurance for the period before you enter the statutory health insurance system. Incoming insurance or travel health insurance valid in Germany for the first three months of your stay is sufficient.",
+   "valore": 3
+  },
+  "aa_lavoro_esenzione": {
+   "fonte": "aa_kv",
+   "frammento": "There are exemptions from compulsory insurance, for example, if your earnings exceed a certain amount. If you are not going to be insured through the statutory health insurance system, you need to provide proof that you will be privately insured and on what terms. A non-binding quote from an insurance provider is usually not enough."
+  },
+  "aa_autonomi": {
+   "fonte": "aa_kv",
+   "frammento": "As a rule, self-employed persons need to have private health insurance. Insurance documentation has to be presented in the visa process and insurance must be valid for at least the entire duration of your visa. Insurance must at least cover the reimbursement of costs for outpatient and inpatient treatment and must not be restricted to emergencies. That is why travel health insurance is as a rule not enough.",
+   "sezione": "9. Self-employment"
+  },
+  "aa_aupair": {
+   "fonte": "aa_kv",
+   "frammento": "As an au pair, you need private health insurance that also covers treatment relating to pregnancy and childbirth.",
+   "sezione": "10. Au-pair stays"
+  },
+  "aa_whv": {
+   "fonte": "aa_kv",
+   "frammento": "In the visa process, proof of travel health insurance or incoming insurance which complies with Article 15 of the Visa Code is, as a rule, sufficient. The insurance must be valid for the entire duration of the stay.",
+   "sezione": "11. Working holiday/youth mobility agreements"
+  },
+  "aa_whv_gkv": {
+   "fonte": "aa_kv",
+   "frammento": "Please note that depending on your type of employment, you may be subject to mandatory statutory health insurance."
+  },
+  "aa_ricerca": {
+   "fonte": "aa_kv",
+   "frammento": "Researchers with an employment contract are subject to mandatory statutory health insurance (see number 8). Researchers who have a scholarship for coming to Germany or are financing their own stay as a rule need private health insurance with proof being provided that it is valid for the entire duration of the visa.",
+   "sezione": "12. Conducting research"
+  },
+  "aa_chance": {
+   "fonte": "aa_kv",
+   "frammento": "In the visa process, you need to submit proof of private health insurance (often called incoming insurance) which is valid for the entire duration of your visa. Insurance must at least cover the reimbursement of costs for outpatient and inpatient treatment and must not be restricted to emergencies. That is why travel health insurance is as a rule not enough.",
+   "sezione": "13. Opportunity card"
+  },
+  "aa_famiglia_gkv": {
+   "fonte": "aa_kv",
+   "frammento": "Persons being reunified with a spouse or parent (applies only to minors) who is insured through the statutory health insurance system, can also benefit from their cover.",
+   "sezione": "16. Family reunification"
+  },
+  "aa_famiglia_ponte": {
+   "fonte": "aa_kv",
+   "frammento": "You should take out travel health insurance or incoming insurance for the period until statutory health insurance takes effect so that you have insurance cover for your journey and the first period in Germany. You should present proof of this in the visa process."
+  },
+  "aa_famiglia_pkv": {
+   "fonte": "aa_kv",
+   "frammento": "If the family member you are moving to join is privately insured in Germany, you also as a rule need private health insurance. Please present the relevant documentation in the visa process."
+  },
+  "aa_famiglia_tedesco": {
+   "fonte": "aa_kv",
+   "frammento": "If family members are coming to Germany to join a German citizen, they generally do not need to prove health insurance cover. Do, however, make sure you have adequate health insurance."
+  },
+  "aa_accordi": {
+   "fonte": "aa_kv",
+   "frammento": "Germany has concluded social security agreements that also apply to the field of health insurance with the following countries: Bosnia and Herzegovina, North Macedonia, Montenegro, Serbia, Turkey and Tunisia.",
+   "sezione": "17. Social security agreements"
+  },
+  "aa_accordi_cert": {
+   "fonte": "aa_kv",
+   "frammento": "If you continue to be insured in your home country, you can apply for a certificate confirming your cover from your health insurance provider. This must then be presented in the visa process."
+  },
+  "aa_faq_domanda": {
+   "fonte": "aa_faq",
+   "frammento": "I don't need a visa for my trip to Germany, but are there other things I should bear in mind?"
+  },
+  "aa_faq_consiglio": {
+   "fonte": "aa_faq",
+   "frammento": "You are advised to take out health insurance before your trip which also covers return transport to your home country."
+  },
+  "aa_faq_90": {
+   "fonte": "aa_faq",
+   "frammento": "visits to the Schengen area are restricted to 90 days in any period of 180 days",
+   "valore": 90
+  },
+  "ag_2_3": {
+   "fonte": "aufenthg",
+   "frammento": "Foreigners have a secure subsistence if they are able to earn a living, including sufficient health insurance coverage, without recourse to public funds."
+  },
+  "ag_2_3_gkv": {
+   "fonte": "aufenthg",
+   "frammento": "A foreigner who is enrolled in a statutory health insurance fund is deemed to have sufficient health insurance coverage."
+  },
+  "ag_versione": {
+   "fonte": "aufenthg",
+   "frammento": "Version information: The translation includes the amendment(s) to the Act by Article 3 of the Act of 8 May 2024 (Federal Law Gazette 2024 I No. 152)"
+  },
+  "be_bc_kv": {
+   "fonte": "be_bc",
+   "frammento": "You have health insurance in Germany, either in the statutory health insurance system or a comparable private health insurance. Foreign health insurance is not sufficient."
+  },
+  "be_free_kv": {
+   "fonte": "be_free",
+   "frammento": "You have health insurance in Germany, either in the statutory health insurance system or a comparable private health insurance. Foreign health insurance is not sufficient."
+  },
+  "be_stud_kv": {
+   "fonte": "be_stud",
+   "frammento": "You have health insurance in Germany, either in the statutory health insurance system or a comparable private health insurance. Foreign health insurance is not sufficient."
+  },
+  "be_stud_mezzi": {
+   "fonte": "be_stud",
+   "frammento": "Sufficient funds to secure your livelihood, including adequate health insurance coverage, are required."
+  },
+  "lea_gkv": {
+   "fonte": "lea_kv",
+   "frammento": "They need only provide proof of their relevant membership in the statutory health insurance."
+  },
+  "lea_adeguata": {
+   "fonte": "lea_kv",
+   "frammento": "The health insurance cover provided by such a health insurance policy is considered adequate if it corresponds in terms of type and scope to that of the statutory health insurance"
+  },
+  "lea_franchigia": {
+   "fonte": "lea_kv",
+   "frammento": "in principle require a higher deductible from the insured person in the event of sickness than €300 per annum",
+   "valore": 300
+  },
+  "lea_franchigia_alta": {
+   "fonte": "lea_kv",
+   "frammento": "A higher deductible under Article 152 par. 1 of the German Insurance Supervision Act (Versicherungsaufsichtsgesetz – VAG) may be permitted following an assessment of the individual case."
+  },
+  "lea_estero": {
+   "fonte": "lea_kv",
+   "frammento": "Such insurance cover may also be provided by an insurer with its registered office abroad."
+  },
+  "lea_bafin": {
+   "fonte": "lea_kv",
+   "frammento": "Insurance cover must always be deemed to be adequate if the Federal Financial Supervisory Authority (BaFin) has confirmed to the insurance company that on the basis of the respective insurance agreement it fulfils the statutory requirements with regard to health insurance under Article 257 par. 2a SGB V and the health insurer certifies this."
+  },
+  "lea_continuita": {
+   "fonte": "lea_kv",
+   "frammento": "in the event of extensions of residence permits all persons who do not have statutory insurance must submit a confirmation from the health insurer that the insurance cover has existed continuously and has not been terminated in the meantime."
+  },
+  "lea_rifiuto": {
+   "fonte": "lea_kv",
+   "frammento": "The granting or extension of the residence document may then be refused."
+  },
+  "leas_permesso": {
+   "fonte": "lea_stud",
+   "frammento": "A residence permit will not be granted unless proof of adequate health insurance has been submitted."
+  },
+  "leas_due": {
+   "fonte": "lea_stud",
+   "frammento": "Health insurance may be covered by the German statutory health insurance or by a private health insurance company."
+  },
+  "leas_257": {
+   "fonte": "lea_stud",
+   "frammento": "In the event that a private health insurance does not fulfil the conditions under § 257 Section 2 a SGB V, as a matter of principle, it is not regarded as adequate health insurance in the sense of § 2 Section 3 Section 1 of the Residence Act, also if, otherwise, the type and scope of the insurance coverage is equivalent to that of the statutory health insurance."
+  },
+  "leas_anno": {
+   "fonte": "lea_stud",
+   "frammento": "Private health insurance must cover a period of at least one year.",
+   "valore": 1
+  },
+  "leas_eta": {
+   "fonte": "lea_stud",
+   "frammento": "Regardless of age, also when confirmation of enrolment is presented, proof of adequate insurance cover must be submitted."
+  },
+  "leas_viaggio": {
+   "fonte": "lea_stud",
+   "frammento": "Travel health insurance is only sufficient for short stays, for example, in the case of exchange students."
+  },
+  "otto_pkv": {
+   "fonte": "ottonova",
+   "frammento": "Private health insurance"
+  },
+  "otto_expat": {
+   "fonte": "ottonova",
+   "frammento": "Expat tariff"
+  }
+ },
+ "domanda": {
+  "data": "2026-11-14",
+  "metodo": "strumento dei volumi (api.seodata.dev /v1/keyword): volume medio mensile di Google Ads e costo per clic, per Paese; null = frase non nel database",
+  "paesi": [
+   "us",
+   "gb",
+   "de",
+   "in"
+  ],
+  "query": {
+   "us|health insurance germany": {
+    "volume": 880,
+    "cpc": 22.27
+   },
+   "us|german health insurance": {
+    "volume": 880,
+    "cpc": 22.27
+   },
+   "us|private health insurance germany": {
+    "volume": 260,
+    "cpc": 12.72
+   },
+   "us|public health insurance germany": {
+    "volume": 50,
+    "cpc": 25.8
+   },
+   "us|statutory health insurance germany": {
+    "volume": 70,
+    "cpc": 79.2
+   },
+   "us|public vs private health insurance germany": {
+    "volume": null,
+    "cpc": null
+   },
+   "us|expat health insurance germany": {
+    "volume": 110,
+    "cpc": 27.04
+   },
+   "us|health insurance for expats in germany": {
+    "volume": 70,
+    "cpc": 93.19
+   },
+   "us|health insurance germany for foreigners": {
+    "volume": 90,
+    "cpc": 17.51
+   },
+   "us|health insurance germany cost": {
+    "volume": 140,
+    "cpc": 10.03
+   },
+   "us|how much is health insurance in germany": {
+    "volume": 70,
+    "cpc": 5.91
+   },
+   "us|student health insurance germany": {
+    "volume": 480,
+    "cpc": 24.11
+   },
+   "us|health insurance for students in germany": {
+    "volume": 70,
+    "cpc": 90.26
+   },
+   "us|health insurance for international students in germany": {
+    "volume": 40,
+    "cpc": 20.65
+   },
+   "us|travel insurance germany": {
+    "volume": 590,
+    "cpc": 15.58
+   },
+   "us|travel insurance for germany visa": {
+    "volume": 20,
+    "cpc": 7.88
+   },
+   "us|travel health insurance germany": {
+    "volume": 210,
+    "cpc": 13.77
+   },
+   "us|incoming health insurance germany": {
+    "volume": null,
+    "cpc": null
+   },
+   "us|health insurance for germany visa": {
+    "volume": 30,
+    "cpc": 39.68
+   },
+   "us|health insurance germany visa": {
+    "volume": 20,
+    "cpc": 6.92
+   },
+   "us|germany visa insurance": {
+    "volume": 30,
+    "cpc": 0
+   },
+   "us|is travel insurance mandatory for germany": {
+    "volume": 10,
+    "cpc": 0
+   },
+   "us|health insurance for blue card germany": {
+    "volume": null,
+    "cpc": null
+   },
+   "us|blue card germany health insurance": {
+    "volume": null,
+    "cpc": null
+   },
+   "us|opportunity card germany health insurance": {
+    "volume": null,
+    "cpc": null
+   },
+   "us|chancenkarte health insurance": {
+    "volume": null,
+    "cpc": null
+   },
+   "us|job seeker visa germany health insurance": {
+    "volume": null,
+    "cpc": null
+   },
+   "us|freelance visa germany health insurance": {
+    "volume": null,
+    "cpc": null
+   },
+   "us|health insurance for freelancers in germany": {
+    "volume": null,
+    "cpc": null
+   },
+   "us|family reunion visa germany health insurance": {
+    "volume": null,
+    "cpc": null
+   },
+   "us|health insurance for spouse visa germany": {
+    "volume": null,
+    "cpc": null
+   },
+   "us|german student visa health insurance": {
+    "volume": null,
+    "cpc": null
+   },
+   "us|health insurance for work visa germany": {
+    "volume": null,
+    "cpc": null
+   },
+   "us|health insurance for visitors to germany": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|health insurance germany": {
+    "volume": 720,
+    "cpc": 10.36
+   },
+   "gb|german health insurance": {
+    "volume": 720,
+    "cpc": 9.09
+   },
+   "gb|private health insurance germany": {
+    "volume": 210,
+    "cpc": 7.6
+   },
+   "gb|public health insurance germany": {
+    "volume": 30,
+    "cpc": 7.6
+   },
+   "gb|statutory health insurance germany": {
+    "volume": 40,
+    "cpc": 11.45
+   },
+   "gb|public vs private health insurance germany": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|expat health insurance germany": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|health insurance for expats in germany": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|health insurance germany for foreigners": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|health insurance germany cost": {
+    "volume": 50,
+    "cpc": 7.71
+   },
+   "gb|how much is health insurance in germany": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|student health insurance germany": {
+    "volume": 390,
+    "cpc": 10.04
+   },
+   "gb|health insurance for students in germany": {
+    "volume": 70,
+    "cpc": 8.5
+   },
+   "gb|health insurance for international students in germany": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|travel insurance germany": {
+    "volume": 590,
+    "cpc": 5.63
+   },
+   "gb|travel insurance for germany visa": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|travel health insurance germany": {
+    "volume": 70,
+    "cpc": 4.44
+   },
+   "gb|incoming health insurance germany": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|health insurance for germany visa": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|health insurance germany visa": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|germany visa insurance": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|is travel insurance mandatory for germany": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|health insurance for blue card germany": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|blue card germany health insurance": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|opportunity card germany health insurance": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|chancenkarte health insurance": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|job seeker visa germany health insurance": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|freelance visa germany health insurance": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|health insurance for freelancers in germany": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|family reunion visa germany health insurance": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|health insurance for spouse visa germany": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|german student visa health insurance": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|health insurance for work visa germany": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|health insurance for visitors to germany": {
+    "volume": null,
+    "cpc": null
+   },
+   "de|health insurance germany": {
+    "volume": 1600,
+    "cpc": 25.17
+   },
+   "de|german health insurance": {
+    "volume": 1900,
+    "cpc": 21.83
+   },
+   "de|private health insurance germany": {
+    "volume": 1900,
+    "cpc": 27.64
+   },
+   "de|public health insurance germany": {
+    "volume": 480,
+    "cpc": 15.12
+   },
+   "de|statutory health insurance germany": {
+    "volume": 260,
+    "cpc": 20.57
+   },
+   "de|public vs private health insurance germany": {
+    "volume": 50,
+    "cpc": 15.46
+   },
+   "de|expat health insurance germany": {
+    "volume": 210,
+    "cpc": 27.04
+   },
+   "de|health insurance for expats in germany": {
+    "volume": 210,
+    "cpc": 35.1
+   },
+   "de|health insurance germany for foreigners": {
+    "volume": 260,
+    "cpc": 30.44
+   },
+   "de|health insurance germany cost": {
+    "volume": 170,
+    "cpc": 17.25
+   },
+   "de|how much is health insurance in germany": {
+    "volume": 90,
+    "cpc": 17.93
+   },
+   "de|student health insurance germany": {
+    "volume": 320,
+    "cpc": 27.62
+   },
+   "de|health insurance for students in germany": {
+    "volume": 260,
+    "cpc": 22.31
+   },
+   "de|health insurance for international students in germany": {
+    "volume": 50,
+    "cpc": 8.55
+   },
+   "de|travel insurance germany": {
+    "volume": 1600,
+    "cpc": 6.85
+   },
+   "de|travel insurance for germany visa": {
+    "volume": null,
+    "cpc": null
+   },
+   "de|travel health insurance germany": {
+    "volume": 480,
+    "cpc": 6.74
+   },
+   "de|incoming health insurance germany": {
+    "volume": 90,
+    "cpc": 8.95
+   },
+   "de|health insurance for germany visa": {
+    "volume": null,
+    "cpc": null
+   },
+   "de|health insurance germany visa": {
+    "volume": null,
+    "cpc": null
+   },
+   "de|germany visa insurance": {
+    "volume": null,
+    "cpc": null
+   },
+   "de|is travel insurance mandatory for germany": {
+    "volume": null,
+    "cpc": null
+   },
+   "de|health insurance for blue card germany": {
+    "volume": null,
+    "cpc": null
+   },
+   "de|blue card germany health insurance": {
+    "volume": null,
+    "cpc": null
+   },
+   "de|opportunity card germany health insurance": {
+    "volume": null,
+    "cpc": null
+   },
+   "de|chancenkarte health insurance": {
+    "volume": null,
+    "cpc": null
+   },
+   "de|job seeker visa germany health insurance": {
+    "volume": null,
+    "cpc": null
+   },
+   "de|freelance visa germany health insurance": {
+    "volume": null,
+    "cpc": null
+   },
+   "de|health insurance for freelancers in germany": {
+    "volume": null,
+    "cpc": null
+   },
+   "de|family reunion visa germany health insurance": {
+    "volume": null,
+    "cpc": null
+   },
+   "de|health insurance for spouse visa germany": {
+    "volume": null,
+    "cpc": null
+   },
+   "de|german student visa health insurance": {
+    "volume": null,
+    "cpc": null
+   },
+   "de|health insurance for work visa germany": {
+    "volume": null,
+    "cpc": null
+   },
+   "de|health insurance for visitors to germany": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|health insurance germany": {
+    "volume": 590,
+    "cpc": 2.26
+   },
+   "in|german health insurance": {
+    "volume": 590,
+    "cpc": 2.26
+   },
+   "in|private health insurance germany": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|public health insurance germany": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|statutory health insurance germany": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|public vs private health insurance germany": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|expat health insurance germany": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|health insurance for expats in germany": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|health insurance germany for foreigners": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|health insurance germany cost": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|how much is health insurance in germany": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|student health insurance germany": {
+    "volume": 390,
+    "cpc": 1.67
+   },
+   "in|health insurance for students in germany": {
+    "volume": 390,
+    "cpc": 1.67
+   },
+   "in|health insurance for international students in germany": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|travel insurance germany": {
+    "volume": 390,
+    "cpc": 8.25
+   },
+   "in|travel insurance for germany visa": {
+    "volume": 170,
+    "cpc": 4.72
+   },
+   "in|travel health insurance germany": {
+    "volume": 260,
+    "cpc": 4.52
+   },
+   "in|incoming health insurance germany": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|health insurance for germany visa": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|health insurance germany visa": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|germany visa insurance": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|is travel insurance mandatory for germany": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|health insurance for blue card germany": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|blue card germany health insurance": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|opportunity card germany health insurance": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|chancenkarte health insurance": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|job seeker visa germany health insurance": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|freelance visa germany health insurance": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|health insurance for freelancers in germany": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|family reunion visa germany health insurance": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|health insurance for spouse visa germany": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|german student visa health insurance": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|health insurance for work visa germany": {
+    "volume": null,
+    "cpc": null
+   },
+   "in|health insurance for visitors to germany": {
+    "volume": null,
+    "cpc": null
+   }
+  }
+ },
+ "impronta": "1beafc4f53b21f3cd39e"
+}

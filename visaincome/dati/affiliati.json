@@ -85,7 +85,7 @@
   "_safetywing_salute": {
     "url": "https://safetywing.com/nomad-insurance?referenceID=26614957&campaign=visa-health-insurance&utm_campaign=visa-health-insurance&utm_source=26614957&utm_medium=Ambassador",
     "nome": "SafetyWing",
-    "nota": "Usato SOLO nelle pagine per nomadi della sezione Health insurance for visas (Portogallo D8 e Thailandia DTV; box_sw_ass in genera.py), al posto di HelloSafe: mai due riquadri assicurativi nella stessa pagina. Stesso referenceID 26614957 del link attivo (_safetywing_schengen), campagna visa-health-insurance per contare i clic a parte (7/11/2026).",
+    "nota": "Usato SOLO nelle pagine per nomadi della sezione Health insurance for visas (Portogallo D8 e Thailandia DTV; box_sw_ass in genera.py), al posto di HelloSafe: mai due riquadri assicurativi nella stessa pagina. Stesso referenceID 26614957 del link attivo (_safetywing_schengen), campagna visa-health-insurance per contare i clic a parte (7/11/2026). Dal 16/11/2026, con l'interruttore _genki acceso, nella pagina Portogallo D8 il riquadro è quello di Genki (mai due riquadri assicurativi nella stessa pagina): SafetyWing resta sulla pagina Thailandia DTV e torna sul D8 se _genki viene spento.",
     "attivo_dal": "2026-11-07",
     "regole": "rel=\"sponsored noopener\", etichetta Affiliate, riga di trasparenza; riporta la FAQ SafetyWing (nessuna garanzia di accettazione). Per spegnerlo: url vuoto e rigenerare."
   },
@@ -130,5 +130,131 @@
     "link_verificato": "13/11/2026: il link risponde 302 verso wise.com con l'ID partner (curl). Nessun deep link: il link semplice porta alla home di Wise, che sceglie da sola Paese e lingua.",
     "nota": "INTERRUTTORE del riquadro Wise «Moving money for your visa?» (box_wise in genera.py, 13/11/2026): con 'attivo': false le pagine escono senza riquadro e senza alcun link a prf.hn (verifica.py, controllo 36). Solo pagine inglesi in indice dove si parla di soldi in un'altra valuta: i 17 calcolatori del reddito, la tabella dei visti per nomadi digitali, Thailand DTV (indice, proof of funds, requirements), Mexico residency (indice, income requirements, pagine dei consolati), Who moved where (pagine delle nazionalità e coppie in indice), Study in Italy (student-visa-funds). MAI nelle pagine fuori indice, nelle pagine dell'esperimento /visa-refusal-rates/ (fino al 28/12/2026) né nelle sezioni es/pt. Le fonti ufficiali verso wise.com restano link normali (wise.com non è un dominio di affiliazione).",
     "regole": "rel=\"sponsored nofollow noopener\", target _blank, etichetta Affiliate, riga di trasparenza; nessun prezzo, nessuna commissione o tasso di cambio scritti nella pagina (si rimanda al sito di Wise), nessuna promessa sul visto; frase fissa: non abbiamo verificato se un consolato accetta gli estratti conto Wise come prova dei fondi. Per spegnere: 'attivo': false e rigenerare."
+  },
+  "_ottonova": {
+    "attivo": false,
+    "nome": "ottonova",
+    "url": "",
+    "rete": "Awin, programma 15971 (ottonova DE). awin1.com è già tra i domini ammessi di studio-business/strumenti/monetizzazione.json.",
+    "programma": "Compenso letto sulla scheda Awin il 14/11/2026 (studio-business/intelaiatura/fronti-2026-11-14-mercati-non-inglesi.md): 75 € per ogni richiesta di contatto valida + 500 € a contratto (dipendenti, autonomi, «Expats»); studenti 180 €. Massimiliano non è ancora iscritto: NESSUN link esiste, nessuno va inventato.",
+    "pagine": [
+      "private-or-public",
+      "work-visa-eu-blue-card",
+      "freelance-visa"
+    ],
+    "nota": "INTERRUTTORE del riquadro ottonova «Looking at private health insurance?» (box_ot in genera.py, 14/11/2026), sezione /germany-health-insurance/. SPENTO: con 'attivo': false (o senza un link https://www.awin1.com/…) le pagine escono senza riquadro, senza alcun link ad Awin o a ottonova e senza la frase nella privacy (verifica.py, controllo 38). Per accenderlo, dopo l'approvazione di ottonova su Awin: 1) mettere in 'url' il link tracciato dato da Awin (https://www.awin1.com/cread.php?awinmid=15971&awinaffid=…), mai un link scritto a mano; 2) 'attivo': true; 3) python3 visaincome/genera.py && python3 visaincome/verifica.py && python3 studio-business/strumenti/monetizzazione.py verifica visaincome. Il riquadro compare solo nelle pagine elencate in 'pagine' (dove le fonti ufficiali parlano di assicurazione privata: pubblica o privata, lavoro e Blue Card, lavoro autonomo), sotto la risposta e le parole ufficiali, con etichetta Affiliate, rel=\"sponsored nofollow noopener\" e riga di trasparenza. Il testo ripete solo ciò che ottonova scrive di sé nella sua home inglese (letture otto_pkv e otto_expat di dati/assicurazione_de.json, ricontrollate a ogni lancio della raccolta): nessun prezzo, nessun giudizio, nessuna promessa sul visto. Mai nelle pagine studenti, Chancenkarte, famiglia e viaggio (lì le fonti chiedono un'assicurazione temporanea o di viaggio, e non abbiamo letto che ottonova la venda), mai fuori dalla sezione."
+  },
+  "_genki": {
+    "attivo": true,
+    "nome": "Genki",
+    "url": "https://genki.world/with/massinico72",
+    "url_native": "https://genki.world/products/native?with=massinico72",
+    "url_traveler": "https://genki.world/products/traveler?with=massinico72",
+    "codice": "massinico72",
+    "attivo_dal": "2026-11-16",
+    "letto_il": "2026-11-16",
+    "programma": "Programma partner di Genki: contratto firmato da Massimiliano il 13/11/2026; link personale mandato da Massimiliano il 16/11/2026 (la sua decisione di accendere Genki). Link per prodotto dalla email di benvenuto di Genki del 16/11/2026. I compensi stanno solo nelle note interne (studio-business/intelaiatura/fronti-2026-11-12-genki-visti.md), mai nelle pagine.",
+    "link_verificato": "16/11/2026 (curl): https://genki.world/with/massinico72 risponde 307 verso https://genki.world/?with=massinico72; i due link di prodotto rispondono 200. Usato nelle pagine: il link del prodotto che Genki stessa nomina per quel visto (url_traveler, url_native); il link generico 'url' resta di riserva e non è in nessuna pagina.",
+    "fonti": {
+      "guida": {
+        "url": "https://guide.genki.world/digital-nomad-visa/",
+        "titolo": "Digital nomad visas: all countries compared & how to apply",
+        "editore": "Genki",
+        "http": 200,
+        "letto_il": "2026-11-16"
+      },
+      "native": {
+        "url": "https://genki.world/products/native",
+        "titolo": "Genki Native",
+        "editore": "Genki",
+        "http": 200,
+        "letto_il": "2026-11-16"
+      }
+    },
+    "letture": {
+      "avvertenza": {
+        "fonte": "guida",
+        "frammento": "Genki can't guarantee that a policy meets a specific visa's insurance requirements, so always confirm with the consulate or immigration office."
+      },
+      "native_limiti": {
+        "fonte": "guida",
+        "frammento": "Genki Native is a separate sign-up, available up to age 55 and subject to health questions."
+      },
+      "verificata": {
+        "fonte": "guida",
+        "frammento": "All figures verified October 2026."
+      },
+      "pt_d8": {
+        "fonte": "guida",
+        "frammento": "Genki Traveler covers the 12 month temporary stay track exactly. For the residence route, Genki Native runs with no end date, which matters here: it carries you through the 2 year permit and the long AIMA gap without a policy expiring mid-process."
+      },
+      "it_dn": {
+        "fonte": "guida",
+        "frammento": "Genki Traveler is a travel health insurance in the medical sense: €1,000,000 cover for inpatient and outpatient treatment, matching the 12 month visa exactly. For annual renewals, Genki Native continues without an end date."
+      },
+      "hr_dn": {
+        "fonte": "guida",
+        "frammento": "Genki Traveler caps at 12 months, so for the full 18 month permit Genki Native is the fit, it runs monthly with no end date and covers the whole window including the extension."
+      },
+      "hu_wc": {
+        "fonte": "guida",
+        "frammento": "Genki Traveler covers the initial 12-month card exactly, with €1,000,000 medical cover far above the requirement. If you renew for the second year, Genki Native continues indefinitely."
+      },
+      "hu_wc_cifra": {
+        "fonte": "guida",
+        "frammento": "Hungary requires health insurance valid for the whole stay with at least €30,000 coverage."
+      },
+      "es_dn": {
+        "fonte": "guida",
+        "frammento": "Spanish consulates verify your insurer against an official list and often accept only policies from insurers licensed in Spain, so many international health plans are rejected on that basis, regardless of how good the cover is."
+      },
+      "native_visto": {
+        "fonte": "native",
+        "frammento": "We cannot guarantee that your visa will be approved, since that's up to the discretion of the authorities"
+      }
+    },
+    "pagine": {
+      "visa-health-insurance/portugal-d8-digital-nomad-visa/": {
+        "visto": "portugal-d8-digital-nomad-visa",
+        "lettura": "pt_d8",
+        "prodotti": [
+          "native",
+          "traveler"
+        ]
+      },
+      "italy-digital-nomad-visa/": {
+        "visto": "italy-digital-nomad-visa",
+        "lettura": "it_dn",
+        "prodotti": [
+          "traveler",
+          "native"
+        ]
+      },
+      "croatia-digital-nomad-visa/": {
+        "visto": "croatia-digital-nomad-visa",
+        "lettura": "hr_dn",
+        "prodotti": [
+          "native"
+        ]
+      },
+      "hungary-white-card/": {
+        "visto": "hungary-white-card",
+        "lettura": "hu_wc",
+        "prodotti": [
+          "traveler",
+          "native"
+        ]
+      }
+    },
+    "escluse": {
+      "portugal-d7-visa": "La guida di Genki parla solo del D8 (lavoro da remoto); sul D7 non dichiara nulla (la sua pagina sul Portogallo dice solo che il D7 è per i redditi passivi). Resta il riquadro HelloSafe.",
+      "japan-digital-nomad": "Genki dichiara l'idoneità (guida e /lps/digital-nomad-visa-japan-health-insurance), ma il sito non ha nessuna pagina sul visto giapponese con la regola ufficiale letta: niente riquadro finché la pagina non esiste.",
+      "spain": "MAI: la guida di Genki stessa dice che i consolati spagnoli spesso accettano solo assicuratori autorizzati in Spagna (lettura es_dn, riportata nella tabella indice senza link).",
+      "germany": "MAI (comprese le pagine /germany-health-insurance/): Berlino scrive che l'assicurazione estera non basta.",
+      "schengen": "MAI: Genki non dichiara nulla sul visto Schengen.",
+      "thailand-ltr-visa": "MAI: la checklist BOI esclude l'assicurazione di viaggio e Genki non dichiara nulla sull'LTR."
+    },
+    "nota": "INTERRUTTORE del riquadro Genki «What one insurer says about this visa» (box_gk in genera.py, 16/11/2026): con 'attivo': false le pagine escono senza riquadro, senza alcun link a genki.world, senza la colonna «What one insurer says» nella tabella indice e senza la frase nella privacy; la pagina Portogallo D8 torna al riquadro SafetyWing (verifica.py, controllo 39). Il riquadro compare SOLO nelle pagine elencate in 'pagine': dove la guida di Genki dichiara quale suo prodotto calza per quel visto E la regola ufficiale è tra le letture di dati/assicurazione.json. Ogni riquadro riporta prima la regola ufficiale parola per parola (con la fonte e la data) e la via che non passa da una polizza dove esiste (accordi sanitari per il Portogallo, prova dei mezzi per l'Ungheria), poi la frase di Genki tra virgolette con link e data, l'avvertenza di Genki stessa («can't guarantee…») e l'invito a chiedere al consolato. Mai due riquadri assicurativi nella stessa pagina. Le frasi di Genki sono le 'letture' qui sotto, rilette online a ogni verifica.py completo: se Genki cambia la guida la verifica fallisce e il riquadro va riletto (le regole dei partner Genki chiedono informazioni esatte).",
+    "regole": "rel=\"sponsored nofollow noopener\", target _blank, etichetta Affiliate, riga di trasparenza; solo link semplici (MAI il widget di Genki né altri script di terzi); nessun prezzo e nessun compenso nelle pagine (i prezzi si leggono sul sito di Genki); nessuna promessa che un consolato accetti la polizza; nessuna pagina con il marchio Genki. Per spegnere: 'attivo': false e rigenerare."
   }
 }

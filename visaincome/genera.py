@@ -79,7 +79,7 @@ def ci_sono_affiliati():
     """True se il sito pubblica almeno un link di affiliazione (voce con "url" in dati/affiliati.json e il link SafetyWing delle pagine dei rifiuti):
     accende la sezione privacy sui link di affiliazione. Domini ammessi in monetizzazione.json, controlli in verifica.py."""
     return (any(isinstance(v, dict) and v.get("url") for k, v in AFFILIATI.items() if not k.startswith("_")) or bool(URL_SAFETYWING) or HS_ATTIVO
-            or AL_ATTIVO or WISE_ATTIVO)
+            or AL_ATTIVO or WISE_ATTIVO or GK_ATTIVO)
 
 
 def riquadro_trasparenza(corpo, lingua="en"):
@@ -1324,6 +1324,7 @@ def box_al(percorso):
 # «Moving money for your visa?»: nessun prezzo, commissione o tasso nella pagina (si rimanda al sito di Wise), nessuna promessa sul visto,
 # e la frase che non sappiamo se un consolato accetta gli estratti conto Wise. Solo pagine inglesi in indice che parlano di soldi in
 # un'altra valuta (in_wise); mai pagine fuori indice, pagine dell'esperimento /visa-refusal-rates/ o sezioni es/pt. Controllo 36 di verifica.py.
+SEZ_ASS_DE = "germany-health-insurance/"   # sezione del 14/11/2026 (in fondo al file): serve prima per i collegamenti
 _WISE = AFFILIATI.get("_wise", {})
 URL_WISE = _WISE.get("url", "")
 WISE_ATTIVO = bool(_WISE.get("attivo")) and URL_WISE.startswith("https://wise.prf.hn/click/camref:") and MON.dominio_ammesso(URL_WISE)
@@ -1459,7 +1460,7 @@ def pagina_programma(P):
 <div class="s-body">
 <p class="cifra"><span class="c-lab">Minimum for the main applicant{(' (' + escape(V0['nome'].lower()) + ')') if len(P['varianti']) > 1 else ''}</span><span class="sr">: </span>{figura}</p>
 {fonte_breve(P)}
-{eur_eq}{riga_salute(P, rel)}
+{eur_eq}{riga_salute(P, rel)}{link_de(P['paese'], rel)}
 <p class="lead">{escape(P['descrizione'])} Official name: <em>{escape(P['nome_ufficiale'])}</em>.</p>
 </div>
 </section>
@@ -1479,7 +1480,7 @@ def pagina_programma(P):
 <h2>In your currency</h2>
 {tabella_valute(P, V0)}
 <h2>Good to know</h2>
-<ul>{note}</ul>
+<ul>{note}</ul>{box_gk(P['slug'] + '/')}
 <h2>Official sources</h2>
 {fonti_html(fonti_prog(P))}
 <p class="small">Spotted a change in the official amount? <a href="{rel}contact/?ref={P['slug']}">Tell us</a>.</p>
@@ -1516,7 +1517,7 @@ def pagina_paese(slug):
 {AD}
 <div class="griglia" style="margin-top:20px">{''.join(scheda(p, rel) for p in pp)}</div>{box_al('country/' + slug + '/')}
 <p><a href="{rel}">All countries</a> · <a href="{rel}digital-nomad-visa-income-requirements/">Digital nomad visas compared</a></p>
-{link_rifiuti(nome, rel)}
+{link_rifiuti(nome, rel)}{link_de(nome, rel)}
 {link_studio_it({"paese": nome}, rel)}{link_flat7_it({"paese": nome}, rel)}
 {blocco_tr_dest(nome, rel)}"""
     pagina(f"country/{slug}/", f"{nome} visa income requirements {ANNO}: official amounts and calculator",
@@ -1841,6 +1842,16 @@ def privacy():
                    "“Affiliate” on the Italy digital nomad visa, Study in Italy and Italy 7% flat tax pages: our site sets no cookie for them, but if you click one "
                    "you go to AnchorLess's website, which uses its own cookies under its own privacy policy and tells AnchorLess that you came from us. "
                    "Using the service does not change the decision on your visa or permit.</p>")
+    if cookie and OT_ATTIVO:
+        cookie += ("\n<p>Affiliate links to ottonova (a company that sells private health insurance in Germany) appear in the box marked “Affiliate” on some pages of the "
+                   "health insurance in Germany section: our site sets no cookie for them, but if you click one you go to ottonova's website through its affiliate network, "
+                   "Awin, which uses its own cookies under its own privacy policy and tells ottonova that you came from us. Taking out a policy does not decide your visa "
+                   "or residence permit.</p>")
+    if cookie and GK_ATTIVO:
+        cookie += ("\n<p>Affiliate links to Genki (a company that sells health insurance for travellers and digital nomads) appear in the box marked “Affiliate” on the "
+                   "Portugal D8 health insurance page and on the Italy, Croatia and Hungary digital nomad visa pages: our site sets no cookie for them and loads no "
+                   "Genki script, but if you click one you go to Genki's website, which uses its own cookies under its own privacy policy and tells Genki that you came "
+                   "from us. Buying a policy does not change the decision on your visa.</p>")
     if cookie and WISE_ATTIVO:
         cookie += ("\n<p>Affiliate links to Wise (money transfers and multi-currency accounts) appear in the box marked “Affiliate” on the visa income "
                    "calculators, the digital nomad visa table, the Thailand DTV, Mexico residency, Who moved where and Italian student visa funds pages: "
@@ -4338,6 +4349,8 @@ def link_sito_dest(d, rel):
     if slug_sito:
         voci.append((f"{rel}country/{slug_sito}/", f"{nome_sito} visa income requirements {ANNO}"))
         voci += [(f"{rel}{P['slug']}/", f"{nome_prog(P)}: income requirement") for P in PROG if P["paese_slug"] == slug_sito]
+    if nome_sito == "Germany":
+        voci.append((f"{rel}{SEZ_ASS_DE}", "Health insurance in Germany for visas and residence permits"))
     nb = _GEO_SITO.get(nt, nt)
     if nb in SLUG_STATO:
         voci.append((f"{rel}{SEZ}schengen/{SLUG_STATO[nb]}/", f"{nb} Schengen visa rejection rate {A1}"))
@@ -13958,6 +13971,7 @@ def controlli():
     errori += controlli_anc()
     errori += controlli_h1b()
     errori += controlli_ass()
+    errori += controlli_de()
     if errori:
         raise SystemExit("ERRORI NEI DATI:\n" + "\n".join(errori))
 
@@ -15633,6 +15647,123 @@ AVVISO_ASS = ('<p class="avviso"><strong>Not immigration or insurance advice.</s
               'Consulates can ask for more, and each consulate decides whether your policy is acceptable: check with the consulate or visa centre where you apply before you buy.</p>')
 
 
+# ---------------------------------------------------------------- riquadro Genki (16/11/2026)
+# Interruttore _genki in dati/affiliati.json ("attivo"). Genki vende assicurazioni sanitarie per viaggiatori e nomadi (programma partner:
+# contratto firmato il 13/11/2026, link personale di Massimiliano del 16/11/2026). Il riquadro «What one insurer says about this visa»
+# compare SOLO dove la guida di Genki (guide.genki.world/digital-nomad-visa/, letta il 16/11/2026) dichiara quale suo prodotto calza per
+# quel visto E la regola ufficiale è tra le letture di dati/assicurazione.json: Portogallo D8 (pagina della sezione, al posto di
+# SafetyWing: mai due riquadri assicurativi nella stessa pagina), Italia nomadi digitali, Croazia, Ungheria (pagine dei programmi).
+# MAI Spagna, Germania (comprese le pagine /germany-health-insurance/), Schengen, Thailandia LTR; non il Portogallo D7 (Genki non ne
+# parla) né il Giappone (il sito non ha una pagina con la regola ufficiale). Prima la regola ufficiale parola per parola e la via che non
+# passa da una polizza, poi la frase di Genki tra virgolette con link e data, l'avvertenza di Genki stessa e l'invito a chiedere al
+# consolato. Solo link semplici (nessun widget o script di terzi), nessun prezzo, nessun compenso. Controllo 39 di verifica.py.
+_GK = AFFILIATI.get("_genki", {})
+URL_GK = {"traveler": _GK.get("url_traveler", ""), "native": _GK.get("url_native", "")}
+NOME_GK = {"traveler": "Genki Traveler", "native": "Genki Native"}
+GK_ATTIVO = bool(_GK.get("attivo")) and bool(_GK.get("codice")) and all(
+    u == f"https://genki.world/products/{k}?with={_GK.get('codice')}" and MON.dominio_ammesso(u) for k, u in URL_GK.items())
+REL_GK = "sponsored nofollow noopener"
+TITOLO_GK = "What one insurer says about this visa"
+L_GK = _GK.get("letture", {})
+F_GK = _GK.get("fonti", {})
+PAGINE_GK = _GK.get("pagine", {}) if GK_ATTIVO else {}
+# Celle della colonna «What one insurer says» della tabella indice: pezzi delle letture, parola per parola (controllo 39), senza link a Genki
+BREVE_GK = {
+    "portugal-d8-digital-nomad-visa": ("pt_d8", "Genki Traveler covers the 12 month temporary stay track exactly. For the residence route, Genki Native runs with no end date", " […]"),
+    "italy-digital-nomad-visa": ("it_dn", "Genki Traveler is a travel health insurance in the medical sense: €1,000,000 cover for inpatient and outpatient treatment, matching the 12 month visa exactly.", ""),
+    "croatia-digital-nomad-visa": ("hr_dn", "Genki Traveler caps at 12 months, so for the full 18 month permit Genki Native is the fit", " […]"),
+    "hungary-white-card": ("hu_wc", "Genki Traveler covers the initial 12-month card exactly", " […] Genki also writes of a €30,000 minimum: the official page we read names no amount."),
+    "spain-digital-nomad-visa": ("es_dn", "often accept only policies from insurers licensed in Spain, so many international health plans are rejected on that basis", " (said of Spanish consulates)."),
+}
+
+
+def cita_gk(k):
+    return f'<q class="cit-gk">{escape(L_GK[k]["frammento"])}</q>'
+
+
+def link_guida_gk():
+    f = F_GK["guida"]
+    return (f'<a href="{escape(f["url"])}" rel="{REL_GK}" target="_blank">Genki, “{escape(f["titolo"])}”<span class="sr"> (opens in a new tab)</span></a>, '
+            f'read on {data_lunga(f["letto_il"])}')
+
+
+def _ufficiale_gk(visto):
+    """La regola ufficiale del visto, parola per parola (letture di dati/assicurazione.json), e la via che non passa da una polizza."""
+    if visto == "portugal-d8-digital-nomad-visa":
+        return (f'The Portuguese Ministry of Foreign Affairs asks residence visa applicants, D8 included, for {cita_ass("pt_viagem")}. It names no minimum amount. '
+                'It also says the requirement may be waived under a health agreement, for example Brazil (PB4) and the United Kingdom (S1): if one covers you, '
+                'you may not need to buy a policy at all.')
+    if visto == "italy-digital-nomad-visa":
+        return (f'The Italian decree on digital nomads asks that applicants {cita_ass("it_dn_decreto")}. The Consulate General of Italy in Boston asks for: '
+                f'{cita_ass("it_boston_polizza")} It adds: {cita_ass("it_boston_minimo")}')
+    if visto == "croatia-digital-nomad-visa":
+        return f'The Croatian Ministry of the Interior asks digital nomads for {cita_ass("hr_seguro")}. It names no minimum amount.'
+    if visto == "hungary-white-card":
+        return (f'For the White Card, the Hungarian immigration authority says: {cita_ass("hu_biztositas")}. A policy is not the only route: the page also accepts proof, '
+                'with the documents on your means of subsistence, that you can pay for your own health care. The page names no minimum amount.')
+    raise KeyError(visto)
+
+
+def _nota_gk(visto):
+    """La nostra nota sotto la frase di Genki: dove la frase di Genki e la fonte ufficiale non dicono la stessa cosa."""
+    if visto == "portugal-d8-digital-nomad-visa":
+        return ("The official page does not say how long the policy must last, and it asks for travel insurance with medical expenses, urgent care and "
+                "repatriation: ask the consulate where you apply which kind of policy it accepts for your route.")
+    if visto == "italy-digital-nomad-visa":
+        return ("The cover figure in the quote is Genki's description of its own product. Compare the policy with the official words above (medical care and "
+                "hospital stays, valid in Italy, for the whole stay; at least €30,000 in Boston): other Italian consulates publish their own document lists.")
+    if visto == "croatia-digital-nomad-visa":
+        return ("Note the difference: the official page accepts “travel or private health insurance” for the time you plan to be in Croatia; it is Genki that "
+                "says its travel product stops at 12 months and points to its long-term product for a longer permit.")
+    if visto == "hungary-white-card":
+        return (f'In the same guide Genki writes: {cita_gk("hu_wc_cifra")} That figure is Genki\'s: the official page we read names no amount and asks for '
+                'cover for the full range of health services. Ask the immigration office whether the policy you choose meets that wording.')
+    raise KeyError(visto)
+
+
+def box_gk(percorso):
+    """Riquadro Genki: '' con l'interruttore spento, fuori dalle pagine di _genki.pagine o in una pagina fuori indice."""
+    p = PAGINE_GK.get(percorso)
+    if not p or fuori_indice(percorso):
+        return ""
+    v = V_ASS[p["visto"]]
+    primo, altri = p["prodotti"][0], p["prodotti"][1:]
+    altro = ""
+    if altri:
+        altro = (f' The other product Genki names for this visa: <a href="{escape(URL_GK[altri[0]])}" rel="{REL_GK}" target="_blank">{NOME_GK[altri[0]]}'
+                 f'<span class="sr"> (opens in a new tab)</span></a>.')
+    return (f'\n<section class="card aff-r" aria-labelledby="aff-gk-h"><div class="aff-r-t"><span class="ic">{ico("shield")}</span>'
+            f'<h2 id="aff-gk-h">{TITOLO_GK}</h2><span class="aff-tag">Affiliate</span></div>'
+            f'<p><strong>The official rule comes first.</strong> {_ufficiale_gk(p["visto"])}</p>'
+            f'{fonte_ass_p(v["chiavi"])}'
+            f'<p><strong>What the insurer says.</strong> Genki is a company that sells health insurance for travellers and digital nomads online. '
+            f'Its guide to digital nomad visas says about the {escape(v["nome"])}: {cita_gk(p["lettura"])} ({link_guida_gk()}). {_nota_gk(p["visto"])}</p>'
+            f'<p>The same guide says: {cita_gk("native_limiti")} And it warns: {cita_gk("avvertenza")} We have not checked any Genki policy against a '
+            f'consulate\'s requirements. No insurer decides what a consulate accepts: check with the consulate or immigration office where you apply before you buy.</p>'
+            f'<p class="aff-r-cta"><a class="btn" href="{escape(URL_GK[primo])}" rel="{REL_GK}" target="_blank">See {NOME_GK[primo]} on Genki\'s website{ico("arrow")}'
+            f'<span class="sr"> (opens in a new tab)</span></a></p>'
+            f'<p class="small">{MON.RIGA_EN} Prices and conditions are on Genki\'s website.{altro} Buying insurance does not guarantee a visa: the consulate decides.</p></section>')
+
+
+def cella_gk(v, rel):
+    """Cella «What one insurer says» della tabella indice: le parole di Genki (senza link a Genki) e il link alla nostra pagina con il riquadro."""
+    b = BREVE_GK.get(v["id"])
+    if not b:
+        return "–"
+    dove = next((pp for pp, x in PAGINE_GK.items() if x["visto"] == v["id"]), None)
+    link = f' <a href="{rel}{dove}#aff-gk-h">Official rule and details</a>' if dove else ""
+    return f'Genki: <q class="cit-gk">{escape(b[1])}</q>{escape(b[2])}{link}'
+
+
+def nota_colonna_gk():
+    if not GK_ATTIVO:
+        return ""
+    return (f'<p class="small">The last column quotes Genki, an insurance company, from its guide to digital nomad visas (read on {data_lunga(F_GK["guida"]["letto_il"])}). '
+            'It is the insurer\'s own statement about its own products: not an official rule, and not our judgement. Genki itself says it cannot guarantee that a policy meets '
+            'a specific visa\'s insurance requirements. “–” means we quote nothing for that visa: the guide does not cover it, or the official pages we read do not ask for insurance. Some pages linked from that column have a box marked '
+            '“Affiliate”; this table has no link to Genki.</p>')
+
+
 def perc_ass(v):
     return f"{SEZ_ASS}{v['id']}/"
 
@@ -15671,18 +15802,21 @@ def citazioni_ass(v, rel):
     return f'<ul class="testo">{voci}</ul>{fonte_ass_p(v["chiavi"], extra)}'
 
 
-def riga_tab_ass(v, rel):
+def riga_tab_ass(v, rel, assicuratore=False):
     return (f'<tr id="{v["id"]}-r"><td>{bandiera(v["paese"])} {link_v_ass(v, rel)}<br><span class="small">{escape(v["cat"])}</span></td>'
             f'<td>{escape(v["obbligo"])}</td><td>{escape(v["minimo"])}</td><td>{escape(v["locale"])}</td><td>{escape(v["viaggio"])}</td>'
-            f'<td>{escape(v["durata"])}</td></tr>')
+            f'<td>{escape(v["durata"])}</td>{f"<td>{cella_gk(v, rel)}</td>" if assicuratore else ""}</tr>')
 
 
-def tabella_ass(rel, voci=None):
+def tabella_ass(rel, voci=None, assicuratore=False):
+    """assicuratore=True (solo nella pagina indice, con l'interruttore _genki acceso): colonna «What one insurer says»."""
     voci = voci or VISTI_ASS
+    assicuratore = assicuratore and GK_ATTIVO
     return ('<div class="tab compatta"><table id="t-ass"><caption class="sr">Health insurance asked for each long-stay visa</caption><thead><tr>'
             '<th scope="col">Visa</th><th scope="col">Insurance required?</th><th scope="col">Minimum cover</th><th scope="col">Local insurer only?</th>'
-            '<th scope="col">Travel insurance accepted?</th><th scope="col">How long</th></tr></thead><tbody>' +
-            "".join(riga_tab_ass(v, rel) for v in voci) + "</tbody></table></div>")
+            '<th scope="col">Travel insurance accepted?</th><th scope="col">How long</th>'
+            + ('<th scope="col">What one insurer says</th>' if assicuratore else "") + '</tr></thead><tbody>' +
+            "".join(riga_tab_ass(v, rel, assicuratore) for v in voci) + "</tbody></table></div>")
 
 
 def riga_salute(P, rel):
@@ -15699,6 +15833,8 @@ def riga_salute(P, rel):
 
 
 def box_pagina_ass(v, rel):
+    if perc_ass(v) in PAGINE_GK:   # riquadro Genki (16/11/2026) al posto dell'altro: mai due riquadri assicurativi nella stessa pagina
+        return box_gk(perc_ass(v))
     if v["box"] == "hs":
         regole = {"portugal-d7-visa": "The Portuguese consulates ask for valid travel insurance covering necessary medical expenses, urgent medical care and possible repatriation.",
                   "portugal-student-visa": "Higher education students at a recognised institution are exempt; vocational students and other residence visa applicants are asked for travel insurance covering medical expenses, urgent care and repatriation."}
@@ -15810,7 +15946,7 @@ def pagina_ass_visto(v):
 {AD}
 <h2>Other long-stay visas</h2>
 {tabella_ass(rel, [v] + [x for x in VISTI_ASS if x["paese"] == v["paese"] and x is not v])}
-<p><a href="{rel}{SEZ_ASS}">Health insurance for every visa in one table</a> · <a href="{rel}{PERC_SCH_ASS}">Schengen visa insurance: the official rule</a></p>
+<p><a href="{rel}{SEZ_ASS}">Health insurance for every visa in one table</a> · <a href="{rel}{PERC_SCH_ASS}">Schengen visa insurance: the official rule</a>{f' · <a href="{rel}{SEZ_ASS_DE}work-visa-eu-blue-card/">Public or private? Health insurance for a German work visa or EU Blue Card</a> · <a href="{rel}{SEZ_ASS_DE}">all German visas and permits</a>' if v["paese"] == "Germany" else ""}</p>
 <h2>Questions people ask</h2>
 <div class="testo">{faq_html(faq)}</div>
 {box_pagina_ass(v, rel) if v["id"] in BOX_IN_FONDO_ASS else ""}
@@ -15843,8 +15979,8 @@ def pagina_ass_indice():
     corpo = f"""<section class="hero">{h1_diviso(f"Health insurance for visas: what each long-stay visa asks ({ANNO})")}
 <p class="lead">Spain asks for an insurer authorised in Spain with 100% cover and no co-payments, Germany says foreign insurance is not sufficient, Portugal and Croatia accept travel insurance, Thailand's LTR asks for USD 50,000 of cover, and the UK charges a health surcharge instead. One row per visa, from the official pages read on {data_lunga(LETTO_ASS)}; where the source says nothing, the table says so.</p></section>
 {AVVISO_ASS}
-{tabella_ass(rel)}
-<p class="small">“Not stated” means the official page we read does not say it: it does not mean the consulate will not ask. Rows with a link have their own page with the official words.</p>
+{tabella_ass(rel, assicuratore=True)}
+<p class="small">“Not stated” means the official page we read does not say it: it does not mean the consulate will not ask. Rows with a link have their own page with the official words.</p>{nota_colonna_gk()}
 {box_hs("health-insurance", regola_idx)}
 {AD}
 <h2>The official words, visa by visa</h2>
@@ -15853,7 +15989,7 @@ def pagina_ass_indice():
 <div class="griglia">{"".join(f'<a href="{perc_ass(x).replace(SEZ_ASS, "")}"><span class="ic f">{bandiera(x["paese"])}</span><span>{escape(x["nome"])}</span></a>' for x in PAG_ASS)}</div>
 <h2>Visas we could not check</h2>
 <p>Greece (digital nomad and financially independent persons visas): the official pages of the Ministry of Migration answered 404 and the Ministry of Foreign Affairs page 403 on {data_lunga(LETTO_ASS)}, so we do not publish a rule.</p>
-<p><a href="{rel}{PERC_SCH_ASS}">Schengen visa insurance (short stays): the official rule</a> · <a href="{rel}digital-nomad-visa-income-requirements/">Digital nomad visa income requirements</a></p>
+<p><a href="{rel}{PERC_SCH_ASS}">Schengen visa insurance (short stays): the official rule</a> · <a href="{rel}{SEZ_ASS_DE}">Health insurance in Germany: every visa and residence permit</a> · <a href="{rel}digital-nomad-visa-income-requirements/">Digital nomad visa income requirements</a></p>
 <h2>Questions people ask</h2>
 <div class="testo">{faq_html(faq)}</div>"""
     titolo = f"Health insurance for visas: requirements by country ({ANNO})"
@@ -15939,6 +16075,17 @@ def controlli_ass():
         errori.append("assicurazione: _hellosafe attivo ma senza ref o url_base hellosafe.com")
     if URL_SW_SALUTE and not URL_SW_SALUTE.startswith("https://safetywing.com/"):
         errori.append("assicurazione: link SafetyWing non valido (_safetywing_salute)")
+    if _GK.get("attivo") and not GK_ATTIVO:
+        errori.append("assicurazione: _genki attivo ma link di prodotto non validi (attesi https://genki.world/products/<prodotto>?with=<codice>) o genki.world non ammesso")
+    for pp, x in PAGINE_GK.items():
+        v = V_ASS.get(x["visto"])
+        if not v or not v["chiavi"] or x["lettura"] not in L_GK or not x["prodotti"] or any(k not in URL_GK for k in x["prodotti"]):
+            errori.append(f"assicurazione: _genki.pagine, voce {pp} senza visto con letture ufficiali, senza lettura Genki o con un prodotto ignoto")
+        elif v["paese"] in ("Spain", "Germany") or v["viaggio"].startswith(("No:", "No (")) or v["id"] == "thailand-ltr-visa":
+            errori.append(f"assicurazione: riquadro Genki vietato per {x['visto']} (Spagna, Germania, LTR)")
+    for k, (lett, pezzo, _) in BREVE_GK.items():
+        if GK_ATTIVO and pezzo not in L_GK.get(lett, {}).get("frammento", ""):
+            errori.append(f"assicurazione: cella Genki di {k} diversa dalla lettura {lett}")
     return errori
 
 
@@ -15955,6 +16102,477 @@ def controlli_ass():
 #   - Schengen visa from the UK / from Dubai: gli Stati nominati nei suggerimenti delle ricerche generali ("schengen visa from uk to france").
 # Indici, hub per nazionalità, pagine per occupazione e liste restano tutti in indice. Per riaprire una sezione dopo l'approvazione:
 # togliere la sua riga da SEZIONI_IN_SCALA (o aggiungere pagine a "visite") e rigenerare; verifica.py (controllo 34) ricalcola l'elenco.
+# ---------------------------------------------------------------- Health insurance in Germany for visas and residence permits (14/11/2026)
+# Dati: dati/assicurazione_de.json, scritto da raccolta/assicurazione_de.py (frammenti dei testi ufficiali ricontrollati a ogni lancio:
+# Auswärtiges Amt, legge sul soggiorno, ufficio immigrazione di Berlino) e, per il visto Schengen, le letture dell'art. 15 del Codice
+# dei visti già in dati/assicurazione.json. Una pagina indice (/germany-health-insurance/) e una pagina per scopo del soggiorno.
+# Titoli e FAQ sulle frasi misurate con lo strumento dei volumi (chiave "domanda" del JSON). Riquadro del partner ottonova
+# (interruttore _ottonova in dati/affiliati.json): SPENTO finché non c'è il link tracciato Awin vero; da spento non stampa niente.
+# Mai nelle pagine dell'esperimento /visa-refusal-rates/<paese>/ (verifica.py, controllo 38).
+ASD = json.loads((DATI / "assicurazione_de.json").read_text(encoding="utf-8"))
+F_DE = ASD["fonti"]
+L_DE = ASD["letture"]
+DOM_DE = ASD["domanda"]["query"]
+PAESI_DOM_DE = ASD["domanda"]["paesi"]
+LETTO_DE = ASD["letto_il"]
+DATA_AA_DE = "2026-08-21"   # data scritta sull'articolo dell'Auswärtiges Amt (lettura aa_data: "21.08.2026 - Article")
+_OT = AFFILIATI.get("_ottonova", {})
+URL_OT = _OT.get("url", "")
+# acceso solo con il link tracciato Awin vero (awin1.com è già tra i domini ammessi di monetizzazione.json)
+OT_ATTIVO = bool(_OT.get("attivo")) and URL_OT.startswith("https://www.awin1.com/") and MON.dominio_ammesso(URL_OT)
+REL_OT = "sponsored nofollow noopener"
+PAGINE_OT = tuple(_OT.get("pagine", []))   # id delle pagine della sezione dove il riquadro può comparire
+
+
+def vol_de(frase):
+    """Ricerche al mese della frase, somma dei Paesi misurati (0 se la frase non è nel database)."""
+    return sum((DOM_DE.get(f"{p}|{frase}") or {}).get("volume") or 0 for p in PAESI_DOM_DE)
+
+
+def _let_de(k):
+    return L_DE[k] if k in L_DE else L_ASS[k]
+
+
+def _fon_de(f):
+    return F_DE[f] if f in F_DE else F_ASS[f]
+
+
+def fr_de(k):
+    """Il frammento ufficiale, tra virgolette, per le risposte delle FAQ (testo semplice)."""
+    return "“" + _let_de(k)["frammento"] + "”"
+
+
+def q_de(k):
+    return f'<q class="cit-de">{escape(_let_de(k)["frammento"])}</q>'
+
+
+def link_f_de(f, testo=None):
+    x = _fon_de(f)
+    return f'<a href="{escape(x.get("pubblico") or x["url"])}" rel="noopener">{escape(testo or x["titolo"])}</a>'
+
+
+def fonte_de_p(chiavi):
+    fonti = list(dict.fromkeys(_let_de(k)["fonte"] for k in chiavi))
+    return ('<p class="fonte">Source' + ("s" if len(fonti) > 1 else "") + ": " +
+            "; ".join(f'{link_f_de(f)} ({escape(_fon_de(f)["editore"])}, read on {data_lunga(_fon_de(f)["letto_il"])})' for f in fonti) + ".</p>")
+
+
+# Etichetta davanti alle citazioni che da sole non dicono di chi o di che cosa parlano (frasi prese a metà di un foglio informativo)
+ETICHETTE_DE = {
+    "lea_gkv": "People insured in a German statutory fund",
+    "lea_adeguata": "Everyone else",
+    "lea_bafin": "With a confirmation from the supervisory authority",
+    "lea_estero": "Where the insurer is based",
+    "lea_continuita": "When you extend the permit",
+    "lea_rifiuto": "If you cannot prove that the cover was continuous",
+    "be_bc_kv": "EU Blue Card page",
+    "be_free_kv": "Freelance permit page",
+    "be_stud_kv": "Student permit page",
+    "be_stud_mezzi": "Student permit page",
+    "leas_permesso": "Leaflet for students",
+    "leas_due": "Leaflet for students",
+    "leas_257": "Leaflet for students",
+    "leas_anno": "Leaflet for students",
+    "leas_eta": "Leaflet for students",
+    "leas_viaggio": "Leaflet for students",
+    "ue_15_1": "Article 15 (1)",
+    "ue_15_2": "Article 15 (2)",
+    "ue_15_3": "Article 15 (3)",
+    "ue_15_3_minimo": "Article 15 (3)",
+    "ue_15_4": "Article 15 (4)",
+}
+
+
+def voce_de(k):
+    e = ETICHETTE_DE.get(k)
+    return f"<li>{f'<strong>{escape(e)}:</strong> ' if e else ''}{q_de(k)}</li>"
+
+
+def blocco_de(titolo, intro, chiavi, coda=""):
+    """Un gruppo di citazioni con il suo titolo: le parole della fonte in elenco, la fonte e la data sotto."""
+    return (f"<h3>{escape(titolo)}</h3>" + (f"<p>{intro}</p>" if intro else "") +
+            '<ul class="testo">' + "".join(voce_de(k) for k in chiavi) + "</ul>" + (f"<p>{coda}</p>" if coda else "") + fonte_de_p(chiavi))
+
+
+AVVISO_DE = ('<p class="avviso"><strong>Information, not legal or insurance advice.</strong> These are the words of the official sources on the date we read them. '
+             'The German mission abroad or the immigration office that handles your application decides whether your insurance is sufficient, and the Federal '
+             'Foreign Office says exceptions are possible in individual cases. We do not assess individual cases: check with that office before you buy a policy.</p>')
+
+_FRANCHIGIA_DE = ('The same leaflet lists what such a policy must not do, for example '
+                  f'<q class="cit-de">{escape(L_DE["lea_franchigia"]["frammento"])}</q>. It adds: '
+                  f'<q class="cit-de">{escape(L_DE["lea_franchigia_alta"]["frammento"])}</q>')
+_NO_PREZZI_DE = ("The official sources we read set the rules on cover and give no prices: no contribution rate, no premium and no list of insurers. "
+                 "The Federal Foreign Office article says: " + fr_de("aa_libero"))
+
+# Una voce per pagina. "righe": la risposta in tabella (etichetta, testo); "blocchi": (titolo, introduzione, letture, coda);
+# "faq": (frase misurata, domanda, risposta in testo semplice); "tab": le celle della tabella della pagina indice.
+PAG_DE = [
+    {"id": "private-or-public", "nome": "Private or public insurance", "ico": "shield",
+     "h1": "Private or public health insurance in Germany: what the visa rules accept",
+     "titoli": [f"Private Health Insurance Germany: When a Visa Accepts It ({ANNO})", f"Private Health Insurance Germany: Visa Rules ({ANNO})"],
+     "descr": ["Private health insurance for a German visa: same protection as public insurance, no major exclusions, BaFin-supervised insurer. The official words.",
+               "Private health insurance for a German visa: same protection as public insurance, BaFin-supervised insurer. The official words."],
+     "lead": "German statutory (public) health insurance always counts as sufficient cover for a visa or residence permit. Private health insurance is accepted when it gives, "
+             "in principle, the same protection: no major exclusions or limits on what is reimbursed and, as a rule, no clause that ends the cover at a certain age or when the "
+             "job or the permit ends. For stays of more than 90 days, travel insurance is as a rule not enough.",
+     "righe": [("Public (statutory) insurance", "Always sufficient. The fund you choose can confirm in writing that it will insure you"),
+               ("Private insurance", "Accepted if it gives in principle the same protection as statutory insurance, with no clauses that end the cover"),
+               ("Which insurers", "Companies supervised by BaFin, or from European countries and registered as EEA service providers"),
+               ("Temporary stays", "Incoming or expat insurance, valid for at least the entire duration of the visa"),
+               ("Travel insurance", "As a rule not enough: the cover must not be restricted to emergencies")],
+     "tab": None,
+     "blocchi": [("Insurance is compulsory, and the visa section asks for proof", "", ["aa_obbligo", "aa_prova", "aa_90"], ""),
+                 ("Public (statutory) health insurance", "", ["aa_gkv", "aa_gkv_conferma", "aa_gkv_inizio", "aa_ponte"], ""),
+                 ("Private health insurance", "", ["aa_pkv", "aa_pkv_clausole", "aa_minimo", "aa_cronico"], ""),
+                 ("Incoming or expat insurance for temporary stays", "", ["aa_incoming"], ""),
+                 ("Which insurers are accepted", "", ["aa_bafin", "aa_libero"], ""),
+                 ("At the immigration office, for the residence permit (Berlin)",
+                  "Inside Germany the immigration office of your city decides. We read the leaflet of the Berlin office; other offices may word it differently.",
+                  ["lea_gkv", "lea_adeguata", "lea_bafin", "lea_estero", "lea_continuita", "lea_rifiuto"], _FRANCHIGIA_DE),
+                 ("The law: section 2 (3) of the Residence Act", "", ["ag_2_3", "ag_2_3_gkv"],
+                  f'English translation by the Federal Ministry of the Interior; the page says: {q_de("ag_versione")}.')],
+     "non_dice": "What these sources do not say: who may choose between the two systems in each case (that is social security law, decided by the insurance funds), "
+                 "any price, and any list of accepted insurers.",
+     "faq": [("private health insurance germany", "Is private health insurance accepted for a German visa?",
+              "Yes, if it gives in principle the same protection as statutory insurance. The Federal Foreign Office says: " + fr_de("aa_pkv") + " It also says: " + fr_de("aa_pkv_clausole")),
+             ("public health insurance germany", "Is public health insurance enough for a German residence permit?",
+              "Yes. The Federal Foreign Office says: " + fr_de("aa_gkv") + " Section 2 (3) of the Residence Act says: " + fr_de("ag_2_3_gkv")),
+             ("statutory health insurance germany", "When does statutory health insurance start after I arrive?",
+              "Not always on the first day. The Federal Foreign Office says: " + fr_de("aa_gkv_inizio") + " " + fr_de("aa_ponte")),
+             ("public vs private health insurance germany", "Public vs private health insurance in Germany: who can choose?",
+              "The Federal Foreign Office gives examples. Employees: " + fr_de("aa_lavoro") + " " + fr_de("aa_lavoro_esenzione").split(" If you are not")[0] + "” Students: " + fr_de("aa_studenti_30")
+              + " Self-employed: “As a rule, self-employed persons need to have private health insurance.” The sources we read give no income figure.")]},
+    {"id": "work-visa-eu-blue-card", "nome": "Work visa and EU Blue Card", "ico": "briefcase", "programma": "germany-eu-blue-card",
+     "h1": "Health insurance for expats working in Germany: work visa and EU Blue Card rules",
+     "titoli": [f"Health Insurance for Expats in Germany: Work Visa, Blue Card {ANNO}", f"Expat Health Insurance Germany: Work Visa, EU Blue Card ({ANNO})"],
+     "descr": ["Health insurance for expats in Germany with a work visa or EU Blue Card: statutory in many cases, private if exempt, proof for the first three months.",
+               "Health insurance for expats in Germany with a work visa or EU Blue Card: statutory in many cases, private if exempt."],
+     "lead": "If you take up a job in Germany, the Federal Foreign Office says you are in many cases obliged to join the statutory health insurance system, and the visa section "
+             "also wants proof of insurance for the period before it starts. If you are exempt, for example because your earnings exceed a certain amount, you show that you "
+             "will be privately insured and on what terms.",
+     "righe": [("Public (statutory) insurance", "In many cases compulsory for employees; it always counts as sufficient cover"),
+               ("Private insurance", "If you are exempt from compulsory insurance: proof that you will be privately insured and on what terms. A non-binding quote is usually not enough"),
+               ("Travel or incoming insurance", "Sufficient only for the period before statutory cover begins: the first three months of your stay"),
+               ("Insurance from your home country", "Berlin immigration office, EU Blue Card page: “Foreign health insurance is not sufficient.”")],
+     "tab": ("In many cases compulsory", "If exempt from compulsory insurance: proof of the policy and its terms", "Only for the first three months, before statutory cover begins"),
+     "blocchi": [("Taking up employment: the Federal Foreign Office list",
+                  "The list has no entry called “EU Blue Card”. The Blue Card is a residence title for a job, so the entry to read is the one for people who take up employment.",
+                  ["aa_lavoro", "aa_lavoro_cert", "aa_lavoro_ponte", "aa_lavoro_esenzione"], ""),
+                 ("If you will be privately insured", "", ["aa_pkv", "aa_pkv_clausole", "aa_bafin"], ""),
+                 ("EU Blue Card at the immigration office (Berlin)",
+                  "Inside Germany the immigration office of your city issues the card. We read the Berlin office's Blue Card page and its leaflet on health insurance.",
+                  ["be_bc_kv", "lea_gkv", "lea_adeguata", "lea_continuita"], _FRANCHIGIA_DE),
+                 ("The law: section 2 (3) of the Residence Act", "", ["ag_2_3", "ag_2_3_gkv"], "")],
+     "non_dice": "What these sources do not say: the earnings amount above which an employee is exempt from compulsory statutory insurance (the Federal Foreign Office "
+                 "writes only “a certain amount”), any price, and any list of accepted insurers.",
+     "faq": [("health insurance for expats in germany", "Do expats working in Germany need public or private health insurance?",
+              "The Federal Foreign Office says: " + fr_de("aa_lavoro") + " It adds: " + fr_de("aa_lavoro_esenzione")),
+             ("expat health insurance germany", "What is expat health insurance in Germany?",
+              "The Federal Foreign Office uses the words incoming or expat insurance for private insurance taken out for a limited time: " + fr_de("aa_incoming")
+              + " For employees it points to statutory insurance or to private insurance that gives the same protection."),
+             ("travel insurance for germany visa", "Is travel insurance enough for a German work visa?",
+              "Only for the first period. The Federal Foreign Office says: " + fr_de("aa_lavoro_ponte") + " For the stay as a whole it says: " + fr_de("aa_90")),
+             ("health insurance germany for foreigners", "Does the EU Blue Card accept health insurance from my home country?",
+              "The Berlin immigration office's EU Blue Card page says: " + fr_de("be_bc_kv") + " Its leaflet says that people without German statutory insurance must show that "
+              "their policy corresponds in type and scope to statutory insurance.")]},
+    {"id": "students", "nome": "Students", "ico": "user",
+     "h1": "Student health insurance in Germany: what the visa rules ask, by age",
+     "titoli": [f"Student Health Insurance Germany: Visa Rules by Age ({ANNO})", f"Student Health Insurance Germany: Visa Rules ({ANNO})"],
+     "descr": ["Student health insurance in Germany: statutory up to age 30 at a state-recognised university, generally not from 30, never for language courses. Official words.",
+               "Student health insurance in Germany: statutory up to age 30, generally not from 30. The official words."],
+     "lead": "Students up to the age of 30 who enrol at a state or state-recognised university are insured in the statutory system on enrolment. Students aged 30 and older are "
+             "generally no longer eligible for it; private insurance has to be valid for at least the entire duration of the visa. Language courses and the Studienkolleg are not covered by statutory insurance.",
+     "righe": [("Public (statutory) insurance", "Up to the age of 30, on enrolment at a state or state-recognised university"),
+               ("Private insurance", "If you are not in the statutory system (generally from 30, or by choice if you are younger): valid for at least the entire duration of the visa (Berlin leaflet: at least one year)"),
+               ("Travel or incoming insurance", "Sufficient for the first three months, before statutory cover begins; otherwise as a rule not enough"),
+               ("Language course, Studienkolleg", "Not covered by statutory insurance: private (incoming) insurance for the entire duration of the visa")],
+     "tab": ("Up to age 30, on enrolment", "Generally from 30, or by choice: valid for the whole visa", "Only for the first three months, before statutory cover begins"),
+     "blocchi": [("Students: the Federal Foreign Office list", "", ["aa_studenti", "aa_studenti_ponte", "aa_studenti_30", "aa_studenti_durata", "aa_minimo"], ""),
+                 ("Language course and Studienkolleg", "", ["aa_studenti_kolleg", "aa_kolleg", "aa_lingua"], ""),
+                 ("Looking for a place at university", "", ["aa_cerca_uni"], ""),
+                 ("If you work alongside your studies", "", ["aa_lavoretto"], ""),
+                 ("Residence permit for students at the immigration office (Berlin)",
+                  "Inside Germany the immigration office of your city issues the permit. We read the Berlin office's page for full-time studies and its leaflet for students.",
+                  ["be_stud_mezzi", "be_stud_kv", "leas_permesso", "leas_due", "leas_257", "leas_anno", "leas_eta", "leas_viaggio"], "")],
+     "non_dice": "What these sources do not say: the student contribution of the statutory funds, any price, and any list of accepted insurers. The Berlin leaflet for students also has its own wording on the deductible, which we do not reproduce: read it at the source.",
+     "faq": [("student health insurance germany", "What health insurance does a student need for a German visa?",
+              "It depends on age and course. The Federal Foreign Office says: " + fr_de("aa_studenti") + " And: " + fr_de("aa_studenti_30")),
+             ("health insurance for students in germany", "Can students in Germany choose private health insurance?",
+              "The Federal Foreign Office says younger students “are free to choose and can opt for adequate private health insurance instead”. For private insurance it asks: "
+              + fr_de("aa_studenti_durata") + " The Berlin immigration office's leaflet says: " + fr_de("leas_anno")),
+             ("health insurance for international students in germany", "Is travel insurance enough for international students in Germany?",
+              "Only at the start or for short stays. The Federal Foreign Office says: " + fr_de("aa_studenti_ponte") + " The Berlin immigration office's leaflet says: " + fr_de("leas_viaggio"))]},
+    {"id": "freelance-visa", "nome": "Freelance visa and self-employment", "ico": "laptop",
+     "h1": "Health insurance for the Germany freelance visa and self-employment",
+     "titoli": [f"Germany Freelance Visa: Health Insurance Rules ({ANNO})"],
+     "descr": ["Germany freelance visa health insurance: as a rule private, valid for the whole visa, same protection as statutory insurance. The official words.",
+               "Germany freelance visa health insurance: as a rule private, valid for the whole visa. The official words."],
+     "lead": "The Federal Foreign Office says self-employed persons as a rule need private health insurance, valid for at least the entire duration of the visa, and that travel "
+             "health insurance is as a rule not enough. The Berlin immigration office asks freelancers for German statutory insurance or comparable private insurance.",
+     "righe": [("Private insurance", "As a rule needed: same protection as statutory insurance, valid for at least the entire duration of the visa"),
+               ("Public (statutory) insurance", "Sufficient if you are a member; the sources we read do not say when a self-employed person can join"),
+               ("Travel insurance", "As a rule not enough: the cover must not be restricted to emergencies"),
+               ("Insurance from your home country", "Berlin immigration office, freelance permit page: “Foreign health insurance is not sufficient.”")],
+     "tab": ("Sufficient if you are a member", "As a rule needed, valid for the whole visa", "As a rule not enough"),
+     "blocchi": [("Self-employment: the Federal Foreign Office list", "", ["aa_autonomi"], ""),
+                 ("What the private policy must look like", "", ["aa_pkv", "aa_pkv_clausole", "aa_cronico", "aa_bafin", "aa_libero"], ""),
+                 ("Residence permit for freelance work at the immigration office (Berlin)",
+                  "Inside Germany the immigration office of your city issues the permit. We read the Berlin office's page for freelance employment and its leaflet on health insurance.",
+                  ["be_free_kv", "lea_gkv", "lea_adeguata", "lea_bafin", "lea_estero", "lea_continuita", "lea_rifiuto"], _FRANCHIGIA_DE),
+                 ("The law: section 2 (3) of the Residence Act", "", ["ag_2_3", "ag_2_3_gkv"], "")],
+     "non_dice": "What these sources do not say: when a self-employed person can join a statutory fund as a voluntary member, any price, and any list of accepted insurers. "
+                 "The Berlin page says foreign insurance is not sufficient, while its leaflet says adequate cover “may also be provided by an insurer with its registered office "
+                 "abroad”: we quote both as they are, and the office decides.",
+     "faq": [("private health insurance germany", "Do freelancers in Germany need private health insurance?",
+              "The Federal Foreign Office says: “As a rule, self-employed persons need to have private health insurance. Insurance documentation has to be presented in the visa "
+              "process and insurance must be valid for at least the entire duration of your visa.” The Berlin immigration office's freelance page says: " + fr_de("be_free_kv")),
+             ("travel insurance for germany visa", "Is travel insurance accepted for the German freelance visa?",
+              "As a rule, no. In the entry for self-employment the Federal Foreign Office says: " + fr_de("aa_minimo")),
+             ("health insurance germany cost", "How much does health insurance cost for a freelancer in Germany?", _NO_PREZZI_DE)]},
+    {"id": "opportunity-card", "nome": "Opportunity Card (Chancenkarte)", "ico": "globe",
+     "h1": "Health insurance for the Germany Opportunity Card (Chancenkarte)",
+     "titoli": [f"Germany Opportunity Card (Chancenkarte): Health Insurance {ANNO}", f"Germany Opportunity Card: Health Insurance Rules ({ANNO})"],
+     "descr": ["Germany Opportunity Card (Chancenkarte) health insurance: private incoming insurance valid for the whole visa, not only emergencies. The official words.",
+               "Germany Opportunity Card health insurance: private incoming insurance valid for the whole visa. The official words."],
+     "lead": "For an opportunity card the Federal Foreign Office asks for proof of private health insurance, often called incoming insurance, valid for the entire duration of "
+             "the visa. It must cover outpatient and inpatient treatment and not only emergencies, so travel health insurance is as a rule not enough.",
+     "righe": [("Private insurance", "Incoming insurance, valid for the entire duration of the visa"),
+               ("What it must cover", "Outpatient and inpatient treatment, not only emergencies"),
+               ("Travel insurance", "As a rule not enough"),
+               ("If you work to a limited extent", "The insurance must also cover incidents connected to that work"),
+               ("Which insurers", "Companies supervised by BaFin, or from European countries and registered as EEA service providers")],
+     "tab": ("Not mentioned in this entry", "Incoming insurance, valid for the whole visa", "As a rule not enough"),
+     "blocchi": [("Opportunity card: the Federal Foreign Office list", "", ["aa_chance"], ""),
+                 ("Insurance for a limited time", "", ["aa_incoming", "aa_lavoretto", "aa_cronico"], ""),
+                 ("Which insurers are accepted", "", ["aa_bafin", "aa_libero"], ""),
+                 ("Looking for a place at university or in vocational training", "The list has a separate entry for this kind of search, with the same wording.", ["aa_cerca_uni"], ""),
+                 ("If you take up employment", "The list has a separate entry for people who take up employment.", ["aa_lavoro", "aa_lavoro_cert"], "")],
+     "non_dice": "What these sources do not say: the list has no separate entry for other job search visas, and it says: " + fr_de("aa_non_esaustivo")
+                 + " It gives no minimum amount of cover for incoming insurance, no price and no list of insurers.",
+     "faq": [("incoming health insurance germany", "What is incoming health insurance in Germany?",
+              "It is the name the Federal Foreign Office uses for private insurance taken out for a limited stay: " + fr_de("aa_incoming")),
+             ("travel insurance for germany visa", "Is travel insurance enough for the Chancenkarte?",
+              "As a rule, no. In the entry for the opportunity card the Federal Foreign Office says: " + fr_de("aa_minimo")),
+             ("health insurance for germany visa", "Which insurers are accepted for the opportunity card?",
+              "The Federal Foreign Office names no company. It says: " + fr_de("aa_bafin") + " " + fr_de("aa_libero"))]},
+    {"id": "family-reunion", "nome": "Family reunion visa", "ico": "family",
+     "h1": "Health insurance for the Germany family reunion visa",
+     "titoli": [f"Germany Family Reunion Visa: Health Insurance Rules ({ANNO})"],
+     "descr": ["Germany family reunion visa health insurance: covered by the statutory insurance of your spouse or parent, private if they are privately insured. Official words.",
+               "Germany family reunion visa health insurance: it depends on how your spouse or parent is insured. Official words."],
+     "lead": "It depends on how your family member in Germany is insured. If they are in the statutory system you can benefit from their cover, with travel or incoming insurance "
+             "for the journey and the first period. If they are privately insured, you as a rule need private insurance too. Family members of German citizens generally do not "
+             "have to prove cover.",
+     "righe": [("Your spouse or parent has statutory insurance", "You can benefit from their cover"),
+               ("Before that cover takes effect", "Travel health insurance or incoming insurance for the journey and the first period, with proof in the visa process"),
+               ("Your family member is privately insured", "You also, as a rule, need private health insurance"),
+               ("You join a German citizen", "Generally no proof of health insurance is needed for the visa")],
+     "tab": ("Through your spouse or parent, if they are in the statutory system", "As a rule, if your family member is privately insured", "For the journey and the first period, until statutory cover takes effect"),
+     "blocchi": [("Family reunification: the Federal Foreign Office list", "", ["aa_famiglia_gkv", "aa_famiglia_ponte", "aa_famiglia_pkv", "aa_famiglia_tedesco"], ""),
+                 ("The insurance for the first period", "In its general part the article says what this first insurance must look like.", ["aa_gkv_inizio", "aa_ponte", "aa_ponte_valida"], ""),
+                 ("If the private route applies", "", ["aa_pkv", "aa_pkv_clausole", "aa_bafin"], ""),
+                 ("The law: section 2 (3) of the Residence Act", "", ["ag_2_3", "ag_2_3_gkv"], "")],
+     "non_dice": "What these sources do not say: when the statutory fund starts to cover a family member, whether it charges a contribution, any price, and any list of accepted insurers.",
+     "faq": [("german health insurance", "Does German health insurance cover a spouse who joins from abroad?",
+              "The Federal Foreign Office says: " + fr_de("aa_famiglia_gkv") + " It adds: " + fr_de("aa_famiglia_ponte")),
+             ("travel health insurance germany", "Which travel health insurance do I need before statutory cover starts?",
+              "The Federal Foreign Office says: " + fr_de("aa_ponte") + " " + fr_de("aa_ponte_valida")),
+             ("health insurance germany for foreigners", "Do family members of German citizens need to prove health insurance?",
+              "The Federal Foreign Office says: " + fr_de("aa_famiglia_tedesco"))]},
+    {"id": "travel-insurance", "nome": "Travel insurance for visits", "ico": "passport",
+     "h1": f"Travel insurance for Germany: the Schengen visa rule (€{COPERTURA_ASS:,}) and long stays",
+     "titoli": [f"Travel Insurance Germany: Visa Rule, €{COPERTURA_ASS:,} Minimum ({ANNO})", f"Travel Insurance Germany: Visa Rule ({ANNO})"],
+     "descr": [f"Travel insurance for a Germany visa: at least €{COPERTURA_ASS:,} of cover in all Schengen countries for the whole stay. Not enough for stays over 90 days.",
+               f"Travel insurance for a Germany visa: at least €{COPERTURA_ASS:,} of cover for the whole stay. Not enough for long stays."],
+     "lead": f"For a Schengen visa to visit Germany you need travel medical insurance with at least €{COPERTURA_ASS:,} of cover, valid in all Schengen countries for your whole "
+             "stay: that is Article 15 of the EU Visa Code. If you do not need a visa, the Federal Foreign Office advises you to take out health insurance. For stays of more "
+             "than 90 days, travel insurance as a rule does not suffice.",
+     "righe": [("Schengen visa (up to 90 days)", f"Travel medical insurance required: at least €{COPERTURA_ASS:,}, all Schengen countries, the whole stay (multiple-entry visa: the first intended visit)"),
+               ("Visitors who need no visa", "Advised by the Federal Foreign Office, with return transport to your home country"),
+               ("Stays of more than 90 days", "Travel health insurance for the Schengen area as a rule does not suffice"),
+               ("First months of a long stay", "Travel or incoming insurance with at least the scope of a Schengen policy, as a rule for three months, until statutory cover begins"),
+               ("Working holiday visa", "Travel or incoming insurance that complies with Article 15 is as a rule sufficient")],
+     "tab": ("Not part of the Schengen visa rule", "Not part of the Schengen visa rule", f"Required for a Schengen visa: at least €{COPERTURA_ASS:,}"),
+     "blocchi": [("Schengen visa: Article 15 of the EU Visa Code", "Germany issues Schengen visas under the EU Visa Code, which sets the rule for all Schengen countries.",
+                  ["ue_15_1", "ue_15_2", "ue_15_3", "ue_15_3_minimo", "ue_15_4"], ""),
+                 ("If you do not need a visa", "From the Federal Foreign Office's answer to the question " + fr_de("aa_faq_domanda"),
+                  ["aa_faq_consiglio", "aa_faq_90"], ""),
+                 ("Long stays: travel insurance is not enough", "", ["aa_90", "aa_minimo"], ""),
+                 ("Travel insurance as a bridge at the start of a long stay", "", ["aa_gkv_inizio", "aa_ponte", "aa_ponte_valida"], ""),
+                 ("Working holiday and youth mobility", "", ["aa_whv"], "")],
+     "non_dice": "What these sources do not say: Article 15 names no insurer and sets no price, and the Federal Foreign Office article says it is not allowed to recommend insurance providers. Article 15 has further paragraphs, including exemptions, that this page does not quote: the page linked below has them.",
+     "faq": [("travel insurance germany", "Is travel insurance mandatory for Germany?",
+              "With a Schengen visa, yes. Article 15 of the Visa Code says: " + fr_de("ue_15_1") + " If you do not need a visa, the Federal Foreign Office says: " + fr_de("aa_faq_consiglio")),
+             ("travel insurance for germany visa", "How much travel insurance cover do I need for a Germany visa?",
+              f"At least €{COPERTURA_ASS:,}. Article 15 of the Visa Code says: " + fr_de("ue_15_3") + " " + fr_de("ue_15_3_minimo")),
+             ("travel health insurance germany", "Can I use travel health insurance for a long stay in Germany?",
+              "As a rule, no. The Federal Foreign Office says: " + fr_de("aa_90") + " It is accepted as a bridge at the start: " + fr_de("aa_ponte"))]},
+]
+V_DE = {v["id"]: v for v in PAG_DE}
+
+# righe della tabella indice senza pagina propria: (nome, pubblica, privata, viaggio, lettura principale)
+ALTRE_DE = [
+    ("Language course or Studienkolleg", "Not covered", "Incoming insurance, valid for the whole visa", "As a rule not enough", ["aa_lingua", "aa_kolleg"]),
+    ("Vocational training (apprenticeship)", "Yes: trainees have statutory insurance", "If you are not working as part of the training, when the statutory system does not insure you", "Only for the first three months, before statutory cover begins", ["aa_formazione", "aa_formazione_ponte", "aa_formazione_privata"]),
+    ("Research", "Mandatory with an employment contract", "As a rule, with a scholarship or own funds", "Not stated in this entry", ["aa_ricerca"]),
+    ("Au pair", "Not mentioned in this entry", "Needed, also covering pregnancy and childbirth", "Not stated in this entry", ["aa_aupair"]),
+    ("Working holiday, youth mobility", "May be mandatory, depending on your type of employment", "Not asked for in this entry", "As a rule sufficient if it complies with Article 15 of the Visa Code", ["aa_whv", "aa_whv_gkv"]),
+]
+
+
+FAQ_IDX_DE = [
+    ("health insurance germany", "Is health insurance compulsory in Germany?", "Yes, as a general rule. The Federal Foreign Office says: " + fr_de("aa_obbligo") + " " + fr_de("aa_prova")),
+    ("german health insurance", "Does German health insurance start on the day I arrive?",
+     "Not always. The Federal Foreign Office says: " + fr_de("aa_gkv_inizio") + " " + fr_de("aa_ponte")),
+    ("health insurance germany for foreigners", "Can foreigners keep the health insurance of their home country?",
+     "Only in some cases. The Berlin immigration office's pages say: “Foreign health insurance is not sufficient.” The Federal Foreign Office says: " + fr_de("aa_accordi") + " "
+     + fr_de("aa_accordi_cert")),
+    ("health insurance for germany visa", "Which insurance company does Germany accept for a visa?",
+     "No official source names one. The Federal Foreign Office says: " + fr_de("aa_bafin") + " " + fr_de("aa_libero")),
+    ("how much is health insurance in germany", "How much is health insurance in Germany?", _NO_PREZZI_DE),
+]
+FAQ_DE = {SEZ_ASS_DE: [f for f, _, _ in FAQ_IDX_DE], **{f"{SEZ_ASS_DE}{v['id']}/": [f for f, _, _ in v["faq"]] for v in PAG_DE}}   # percorso -> frasi misurate (controllo 38)
+
+
+def perc_de(v):
+    return f"{SEZ_ASS_DE}{v['id']}/"
+
+
+def box_ot(v):
+    """Riquadro del partner ottonova, sotto la risposta e le parole ufficiali. '' con l'interruttore spento o fuori dalle pagine previste."""
+    if not OT_ATTIVO or v["id"] not in PAGINE_OT:
+        return ""
+    return (f'\n<section class="card aff-r" aria-labelledby="aff-ot-h"><div class="aff-r-t"><span class="ic">{ico("shield")}</span>'
+            f'<h2 id="aff-ot-h">Looking at private health insurance?</h2><span class="aff-tag">Affiliate</span></div>'
+            '<p>The official rule comes first: private insurance has to give, in principle, the same protection as German statutory insurance, and the German mission '
+            'or the immigration office decides whether a policy is sufficient. Whether you can or must join the statutory system instead depends on your own situation.</p>'
+            f'<p>ottonova sells private health insurance in Germany. Its website lists private health insurance for employees, the self-employed and students, and an expat tariff '
+            f'(the company\'s own description, read on {data_lunga(F_DE["ottonova"]["letto_il"])}). We have not tested its policies and have not checked any of them against the '
+            'requirements of a German mission or immigration office: ask the insurer to confirm in writing that the tariff meets the rule above before you sign.</p>'
+            f'<p class="aff-r-cta"><a class="btn" href="{escape(URL_OT)}" rel="{REL_OT}" target="_blank">See ottonova\'s tariffs{ico("arrow")}'
+            f'<span class="sr"> (opens in a new tab)</span></a></p>'
+            f'<p class="small">{MON.RIGA_EN} Prices and conditions are on ottonova\'s website. Taking out a policy does not decide your visa or residence permit, '
+            'and the official words on this page do not depend on this link.</p></section>')
+
+
+def risposta_de(v):
+    return ('<div class="tab compatta"><table class="t-de"><caption class="sr">The answer in short</caption><tbody>' +
+            "".join(f'<tr><th scope="row" style="vertical-align:top">{escape(a)}</th><td>{escape(b)}</td></tr>' for a, b in v["righe"]) + "</tbody></table></div>")
+
+
+def altre_de(v, rel):
+    return ('<div class="griglia">' + "".join(f'<a href="{rel}{perc_de(x)}"><span class="ic">{ico(x["ico"])}</span><span>{escape(x["nome"])}</span></a>'
+                                              for x in PAG_DE if x is not v) + "</div>")
+
+
+def link_de(paese, rel):
+    """Riga di collegamento alla sezione dalle pagine tedesche del sito (programma Blue Card, pagina Paese)."""
+    if paese != "Germany":
+        return ""
+    return (f'\n<p class="small">{ico("shield")} <strong>Public or private?</strong> <a href="{rel}{perc_de(V_DE["work-visa-eu-blue-card"])}">Health insurance for a German work visa '
+            f'or EU Blue Card</a> · <a href="{rel}{SEZ_ASS_DE}">all German visas and residence permits</a>.</p>')
+
+
+def pagina_de_visto(v):
+    percorso = perc_de(v)
+    rel = "../../"
+    faq = [(d, escape(a)) for _, d, a in v["faq"]]
+    prog = next((p for p in PROG if p["slug"] == v.get("programma")), None)
+    link_prog = (f'<p class="small">{ico("check")} Salary for this permit: <a href="{rel}{prog["slug"]}/">{escape(nome_prog(prog))}: {escape(riassunto(prog))}</a> · '
+                 f'<a href="{rel}{SEZ_ASS}germany-eu-blue-card/">EU Blue Card insurance next to other countries\' visas</a>.</p>' if prog else "")
+    if v["id"] == "travel-insurance":
+        link_prog = (f'<p class="small">{ico("check")} The whole of Article 15, word for word: <a href="{rel}{PERC_SCH_ASS}">Schengen travel insurance requirements</a>.</p>')
+    corpo = f"""<section class="hero">{h1_diviso(v["h1"])}
+<p class="lead">{escape(v["lead"])} Official sources read on {data_lunga(LETTO_DE)}.</p></section>
+{risposta_de(v)}
+{AVVISO_DE}
+<h2>What the official sources say</h2>
+<div class="testo">{"".join(blocco_de(*b) for b in v["blocchi"])}</div>
+<p class="small">{escape(v["non_dice"])}</p>
+{link_prog}{box_ot(v)}
+{AD}
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(faq)}</div>
+<h2>Other German visas and permits</h2>
+{altre_de(v, rel)}
+<p><a href="{rel}{SEZ_ASS_DE}">Health insurance in Germany for every visa in one table</a> · <a href="{rel}country/germany/">Germany visa income requirements</a> · <a href="{rel}{SEZ_ASS}">Health insurance for visas in other countries</a></p>"""
+    pagina(percorso, entro(v["titoli"], LIM_TIT_NUOVE), entro(v["descr"], LIM_DESCR_NUOVE), corpo, jsonld_extra=[ld_faq(faq)],
+           briciole=[("Health insurance in Germany", SEZ_ASS_DE), (v["nome"], percorso)])
+
+
+def pagina_de_indice():
+    percorso = SEZ_ASS_DE
+    rel = "../"
+    righe = "".join(f'<tr><td><a href="{v["id"]}/">{escape(v["nome"])}</a></td><td>{escape(v["tab"][0])}</td><td>{escape(v["tab"][1])}</td><td>{escape(v["tab"][2])}</td></tr>'
+                    for v in PAG_DE if v["tab"])
+    righe += "".join(f'<tr><td>{escape(n)}</td><td>{escape(a)}</td><td>{escape(b)}</td><td>{escape(c)}</td></tr>' for n, a, b, c, _ in ALTRE_DE)
+    altre = "".join(f"<h3>{escape(n)}</h3><ul class=\"testo\">{''.join(f'<li>{q_de(k)}</li>' for k in kk)}</ul>" for n, _, _, _, kk in ALTRE_DE)
+    faq_v = FAQ_IDX_DE
+    faq = [(d, escape(a)) for _, d, a in faq_v]
+    gen = ["aa_obbligo", "aa_prova", "aa_90", "aa_gkv", "aa_pkv", "aa_non_esaustivo"]
+    corpo = f"""<section class="hero">{h1_diviso("Health insurance in Germany for visas and residence permits: the official rules")}
+<p class="lead">In Germany health insurance is generally compulsory, and proof of sufficient cover is as a rule part of a visa application. Statutory (public) insurance always counts, private insurance must give in principle the same protection, and for stays of more than 90 days travel insurance for the Schengen area as a rule does not suffice. One row per purpose of stay, from the Federal Foreign Office (article dated {data_lunga(DATA_AA_DE)}), the Residence Act and the Berlin immigration office, read on {data_lunga(LETTO_DE)}.</p></section>
+{AVVISO_DE}
+<div class="tab compatta"><table id="t-de"><caption class="sr">Health insurance asked for each German visa or residence permit</caption><thead><tr><th scope="col">Purpose of stay</th><th scope="col">Public (statutory) insurance</th><th scope="col">Private insurance</th><th scope="col">Travel insurance</th></tr></thead><tbody>{righe}</tbody></table></div>
+<p class="small">Each cell shortens the entry of the Federal Foreign Office list for that purpose of stay; rows with a link have their own page with the official words. The list says of itself: {q_de("aa_non_esaustivo")}</p>
+<div class="griglia">{"".join(f'<a href="{v["id"]}/"><span class="ic">{ico(v["ico"])}</span><span>{escape(v["nome"])}</span></a>' for v in PAG_DE)}</div>
+{AD}
+<h2>The general rule, in the official words</h2>
+<div class="testo"><ul class="testo">{"".join(f"<li>{q_de(k)}</li>" for k in gen)}</ul>{fonte_de_p(gen)}
+<p>The legal basis is section 2 (3) of the Residence Act: {q_de("ag_2_3")} {q_de("ag_2_3_gkv")}</p>{fonte_de_p(["ag_2_3"])}</div>
+<h2>Purposes of stay without a page of their own</h2>
+<div class="testo">{altre}{fonte_de_p([k for x in ALTRE_DE for k in x[4]])}</div>
+<h2>Insured in your home country: social security agreements</h2>
+<div class="testo"><ul class="testo"><li>{q_de("aa_accordi")}</li><li>{q_de("aa_accordi_cert")}</li></ul>{fonte_de_p(["aa_accordi"])}</div>
+<h2>Sources we could not use</h2>
+<p>We publish a rule only when we have read it on an official page. On {data_lunga(LETTO_DE)} the federal portal Make it in Germany answered our reader with a browser-check page on every address, so we quote nothing from it. The EU Blue Card page of the Federal Office for Migration and Refugees (BAMF) says nothing about health insurance, and we found no page of the Federal Employment Agency that states an insurance rule for visas.</p>
+<p><a href="{rel}country/germany/">Germany visa income requirements</a> · <a href="{rel}germany-eu-blue-card/">EU Blue Card salary threshold</a> · <a href="{rel}{SEZ_ASS}">Health insurance for visas in other countries</a> · <a href="{rel}{PERC_SCH_ASS}">Schengen travel insurance requirements</a></p>
+<h2>Questions people ask</h2>
+<div class="testo">{faq_html(faq)}</div>"""
+    titolo = entro([f"Health Insurance Germany: Visa and Residence Permit Rules ({ANNO})", f"Health Insurance Germany: Visa Rules ({ANNO})"], LIM_TIT_NUOVE)
+    descr = entro(["German health insurance rules for a visa or residence permit: statutory or private, travel insurance, by purpose of stay. Official sources, quoted.",
+                   "German health insurance rules for a visa or residence permit, by purpose of stay. Official sources, quoted."], LIM_DESCR_NUOVE)
+    pagina(percorso, titolo, descr, corpo, jsonld_extra=[ld_faq(faq)], briciole=[("Health insurance in Germany", percorso)])
+
+
+def genera_de():
+    pagina_de_indice()
+    for v in PAG_DE:
+        pagina_de_visto(v)
+
+
+def controlli_de():
+    import hashlib
+    errori = []
+    cont = {"url": {k: f["url"] for k, f in F_DE.items()}, "letture": L_DE, "domanda": ASD["domanda"]}
+    if hashlib.sha256(json.dumps(cont, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:20] != ASD["impronta"]:
+        errori.append("assicurazione_de: impronta del JSON diversa dal contenuto (file modificato a mano?)")
+    for k, f in F_DE.items():
+        if f.get("http") != 200:
+            errori.append(f"assicurazione_de: fonte {k} non letta (HTTP {f.get('http')})")
+    if L_DE["aa_data"]["frammento"] != f"{DATA_AA_DE[8:]}.{DATA_AA_DE[5:7]}.{DATA_AA_DE[:4]} - Article":
+        errori.append("assicurazione_de: la data dell'articolo dell'Auswärtiges Amt è cambiata: rileggere l'articolo e aggiornare DATA_AA_DE")
+    for v in PAG_DE:
+        for b in v["blocchi"]:
+            for k in b[2]:
+                if k not in L_DE and k not in L_ASS:
+                    errori.append(f"assicurazione_de: {v['id']} cita una lettura inesistente ({k})")
+        for f, _, _ in v["faq"]:
+            if vol_de(f) <= 0:
+                errori.append(f"assicurazione_de: {v['id']}: FAQ sulla frase «{f}», che non ha un volume misurato")
+    for f, _, _ in FAQ_IDX_DE:
+        if vol_de(f) <= 0:
+            errori.append(f"assicurazione_de: indice: FAQ sulla frase «{f}», che non ha un volume misurato")
+    for x in PAGINE_OT:
+        if x not in V_DE:
+            errori.append(f"assicurazione_de: _ottonova.pagine contiene una pagina che non esiste ({x})")
+    if _OT.get("attivo") and not OT_ATTIVO:
+        errori.append("assicurazione_de: _ottonova attivo ma senza un link tracciato https://www.awin1.com/… ammesso")
+    if URL_OT and not _OT.get("attivo"):
+        pass   # link pronto ma interruttore spento: ammesso (il riquadro resta spento)
+    return errori
+
+
 NOINDEX = json.loads((DATI / "noindex.json").read_text(encoding="utf-8"))
 SEZIONI_IN_SCALA = {
     "moved-to": re.compile(r"^moved-to/[^/]+/[^/]+/$"),
@@ -16029,6 +16647,7 @@ def main():
     genera_tu()
     genera_h1b()
     genera_ass()
+    genera_de()
     pagina_come_funziona()
     about()
     contatti()

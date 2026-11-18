@@ -734,8 +734,8 @@
 "9e724b6412926ae0b541"
 ],
 "country/germany/": [
-"2026-11-11",
-"ea59d6f19af58ed4d539"
+"2026-11-14",
+"301d28abdc635100381b"
 ],
 "country/hungary/": [
 "2026-11-11",
@@ -770,8 +770,8 @@
 "83735f1d8942ac9ff9f1"
 ],
 "croatia-digital-nomad-visa/": [
-"2026-11-13",
-"316fcca66e33cd91eaeb"
+"2026-11-16",
+"57384c3c8be0077fa065"
 ],
 "denmark-pay-limit-scheme/": [
 "2026-11-13",
@@ -950,8 +950,40 @@
 "a0ca7d9c6435d3863cf5"
 ],
 "germany-eu-blue-card/": [
-"2026-11-13",
-"4aa12511e9f1a6a0648f"
+"2026-11-14",
+"705b577cd838aaf1d9e8"
+],
+"germany-health-insurance/": [
+"2026-11-14",
+"77d52a53997a0bd6d8c2"
+],
+"germany-health-insurance/family-reunion/": [
+"2026-11-14",
+"b9a57d35d24d577bfb0f"
+],
+"germany-health-insurance/freelance-visa/": [
+"2026-11-14",
+"635314d46c45461c25da"
+],
+"germany-health-insurance/opportunity-card/": [
+"2026-11-14",
+"91aa2538deea01f6f517"
+],
+"germany-health-insurance/private-or-public/": [
+"2026-11-14",
+"6824fa21cc044cd371af"
+],
+"germany-health-insurance/students/": [
+"2026-11-14",
+"1dc64c57cb3702ba1e56"
+],
+"germany-health-insurance/travel-insurance/": [
+"2026-11-14",
+"4a4cd26e599ca12c7fa3"
+],
+"germany-health-insurance/work-visa-eu-blue-card/": [
+"2026-11-14",
+"d798fb2f484442ea75d4"
 ],
 "h1b-wage-level/": [
 "2026-11-13",
@@ -1182,8 +1214,8 @@
 "6e1b6fc4d9fd3b852389"
 ],
 "hungary-white-card/": [
-"2026-11-13",
-"27e4ce2e1f0949919ada"
+"2026-11-16",
+"94a1a108eb54e0daecdc"
 ],
 "ireland-critical-skills-employment-permit/": [
 "2026-11-13",
@@ -1198,8 +1230,8 @@
 "24188910bc3a2ec8edbe"
 ],
 "italy-digital-nomad-visa/": [
-"2026-11-13",
-"74fc3cad26bbdfba7d4e"
+"2026-11-16",
+"4d5a72834d3c122ad996"
 ],
 "mexico-residency/": [
 "2026-11-13",
@@ -1338,8 +1370,8 @@
 "e71db08a4dbdfd5d5d96"
 ],
 "moved-to/british/germany/": [
-"2026-11-13",
-"95a4773e4627f9fc863d"
+"2026-11-14",
+"fe5afbab069410c2c12c"
 ],
 "moved-to/british/spain/": [
 "2026-11-13",
@@ -1354,8 +1386,8 @@
 "e6d6990f8834bf50927b"
 ],
 "moved-to/canadians/germany/": [
-"2026-11-13",
-"a8a26f682346be937cb7"
+"2026-11-14",
+"d9421a1e2e96b867b361"
 ],
 "moved-to/canadians/uk/": [
 "2026-11-13",
@@ -1398,8 +1430,8 @@
 "0adc9541c9277a3ffa42"
 ],
 "moved-to/egyptians/germany/": [
-"2026-11-13",
-"54bd716337103560641d"
+"2026-11-14",
+"9c0620ef38b1ad6a390c"
 ],
 "moved-to/egyptians/italy/": [
 "2026-11-13",
@@ -1430,8 +1462,8 @@
 "5b2329f7df3f2d102fe8"
 ],
 "moved-to/ghanaians/germany/": [
-"2026-11-13",
-"a926f275ffc927c43c50"
+"2026-11-14",
+"10a9bccbe1db9db8d0f0"
 ],
 "moved-to/ghanaians/italy/": [
 "2026-11-13",
@@ -1450,8 +1482,8 @@
 "ad589ef4e3f872ec4ab0"
 ],
 "moved-to/indians/germany/": [
-"2026-11-13",
-"9e2ffc680944ff415fd6"
+"2026-11-14",
+"fc5c656e3745ba780d68"
 ],
 "moved-to/indians/ireland/": [
 "2026-11-13",
@@ -1474,8 +1506,8 @@
 "b5894f9fa9cf16d756dc"
 ],
 "moved-to/kenyans/germany/": [
-"2026-11-13",
-"532a77261276c9833797"
+"2026-11-14",
+"abaa2330c1255f91a6d2"
 ],
 "moved-to/kenyans/uk/": [
 "2026-11-13",
@@ -1534,8 +1566,8 @@
 "504c65ffb93ca220f04e"
 ],
 "moved-to/nigerians/germany/": [
-"2026-11-13",
-"2a8119da4019b7483202"
+"2026-11-14",
+"05732e3836f15d1bb495"
 ],
 "moved-to/nigerians/portugal/": [
 "2026-11-13",
@@ -1550,8 +1582,8 @@
 "9acea16a96e8eb9592bd"
 ],
 "moved-to/pakistanis/germany/": [
-"2026-11-13",
-"f310f54ed85266bbe067"
+"2026-11-14",
+"f7462a3aeeda133fafd2"
 ],
 "moved-to/pakistanis/italy/": [
 "2026-11-13",
@@ -1610,8 +1642,8 @@
 "1b7225a4aeb872d47958"
 ],
 "moved-to/turkish/germany/": [
-"2026-11-13",
-"5522e92bc64b743f5e8b"
+"2026-11-14",
+"de037d586ad8c576d5a2"
 ],
 "moved-to/turkish/uk/": [
 "2026-11-13",
@@ -1626,8 +1658,8 @@
 "bfb1e30e66911a376186"
 ],
 "moved-to/vietnamese/germany/": [
-"2026-11-13",
-"870b031541c601e2d493"
+"2026-11-14",
+"6aa25edec4fe2fe2396f"
 ],
 "moved-to/vietnamese/hungary/": [
 "2026-11-13",
@@ -1718,8 +1750,8 @@
 "ca66c40a2ff57c442384"
 ],
 "privacy.html": [
-"2026-11-13",
-"fbf4aebe72cae65158fc"
+"2026-11-16",
+"a90497fd01613eb307d0"
 ],
 "pt/": [
 "2026-10-31",
@@ -2106,344 +2138,344 @@
 "9d795df4425e9a9f992f"
 ],
 "uk-english-test/": [
-"2026-11-13",
-"368b3e25d1a9e48ff6bd"
+"2026-11-16",
+"0f59e141bb42a419221d"
 ],
 "uk-english-test/a1-english-test-spouse-visa/": [
-"2026-11-11",
-"7b23de9322ef909c6983"
+"2026-11-16",
+"cbf2d33100692a9b2527"
 ],
 "uk-english-test/a2-english-test-spouse-visa-extension/": [
-"2026-11-11",
-"96728a69d9d4b3a3dc2f"
+"2026-11-16",
+"79f5b52bd0bcbebadfa7"
 ],
 "uk-english-test/albania/": [
-"2026-11-11",
-"b5b8b4939589309bba1c"
+"2026-11-16",
+"9f2da1300af7f046208c"
 ],
 "uk-english-test/algeria/": [
-"2026-11-11",
-"30e8f770a0883c6a72d0"
+"2026-11-16",
+"fe066f172a41bdcefaa3"
 ],
 "uk-english-test/argentina/": [
-"2026-11-11",
-"42e71753ee1fccd7ec3a"
+"2026-11-16",
+"d8cc5eea98e4e7cb4dd9"
 ],
 "uk-english-test/armenia/": [
-"2026-11-11",
-"da57beff4b252c03a2bc"
+"2026-11-16",
+"92498ba404b2e379d4aa"
 ],
 "uk-english-test/australia/": [
-"2026-11-11",
-"db9a0630c845dd7ca375"
+"2026-11-16",
+"a0e7e2e16a4b3a1a85c0"
 ],
 "uk-english-test/azerbaijan/": [
-"2026-11-11",
-"baf68e1bf1f71301eb2b"
+"2026-11-16",
+"562fa8f0f46552e12aef"
 ],
 "uk-english-test/b1-english-test-citizenship/": [
-"2026-11-13",
-"3e46af6ee98815de84c4"
+"2026-11-16",
+"41880e71836c2277fbe6"
 ],
 "uk-english-test/b2-english-test-ilr/": [
-"2026-11-11",
-"4d3758eca124f48dacc0"
+"2026-11-16",
+"391af7d07a90cab6e78e"
 ],
 "uk-english-test/bahrain/": [
-"2026-11-11",
-"af8eeb9c4e8036db1a87"
+"2026-11-16",
+"7bdb2f1abb2489f2705c"
 ],
 "uk-english-test/bangladesh/": [
-"2026-11-11",
-"bc78305aa4d99671f28c"
+"2026-11-16",
+"9ebca7759b74347c4fb9"
 ],
 "uk-english-test/belfast/": [
-"2026-11-13",
-"90b1779e7ba4a78b9e5a"
+"2026-11-16",
+"bab4f370c49a2d447a3e"
 ],
 "uk-english-test/birmingham/": [
-"2026-11-13",
-"4110a3fdd376e6cfc7f1"
+"2026-11-16",
+"6eb726dd1737303af553"
 ],
 "uk-english-test/bradford/": [
-"2026-11-13",
-"58f123b40bcb1b83ae99"
+"2026-11-16",
+"1bf0d32188ec4d55189e"
 ],
 "uk-english-test/brazil/": [
-"2026-11-11",
-"f815d440b9e72518dcff"
+"2026-11-16",
+"7b1fc6d4da3608b89b53"
 ],
 "uk-english-test/bristol/": [
-"2026-11-13",
-"62e05e01c25faa8f7a2e"
+"2026-11-16",
+"9e49871c926217699cc8"
 ],
 "uk-english-test/cambridge/": [
-"2026-11-13",
-"cd16d3f4e664d1549a86"
+"2026-11-16",
+"1e07d12ebc9e071e8a84"
 ],
 "uk-english-test/cardiff/": [
-"2026-11-13",
-"5216a4d3acf5e16fcd72"
+"2026-11-16",
+"17792a65a59d958eff1b"
 ],
 "uk-english-test/chile/": [
-"2026-11-11",
-"4cd75c9d1f983eb97697"
+"2026-11-16",
+"b23dc13afbd80ab6211e"
 ],
 "uk-english-test/china/": [
-"2026-11-11",
-"6720768d3d77b02d8dff"
+"2026-11-16",
+"5bfe8b46ba504472accb"
 ],
 "uk-english-test/colombia/": [
-"2026-11-11",
-"4431bfe0a1af24a6ed4f"
+"2026-11-16",
+"679a1550d8376d7c4f50"
 ],
 "uk-english-test/coventry/": [
-"2026-11-13",
-"f6340f5892553affc8eb"
+"2026-11-16",
+"4b3dd7f0aacb262dc6e1"
 ],
 "uk-english-test/croydon/": [
-"2026-11-13",
-"89fbb7452d56256f6473"
+"2026-11-16",
+"ec03c685d2d22de0566a"
 ],
 "uk-english-test/cyprus-south/": [
-"2026-11-11",
-"975822ed7dcc7adc1dd7"
+"2026-11-16",
+"091998786735f8d37cdf"
 ],
 "uk-english-test/ecuador/": [
-"2026-11-11",
-"c80325da87f92bae59f6"
+"2026-11-16",
+"1b6bce6bc2537a775967"
 ],
 "uk-english-test/edinburgh/": [
-"2026-11-13",
-"4540cf48160fb61d4d48"
+"2026-11-16",
+"6a88b194122fafd99620"
 ],
 "uk-english-test/egypt/": [
-"2026-11-11",
-"d4fbdad84cb34052e11c"
+"2026-11-16",
+"5633681bb418bf81bad7"
 ],
 "uk-english-test/exeter/": [
-"2026-11-13",
-"fa0d32b09c678f878f6b"
+"2026-11-16",
+"d647a1978fc108ef4d9a"
 ],
 "uk-english-test/georgia/": [
-"2026-11-11",
-"c8a30e427c0013c47844"
+"2026-11-16",
+"6c1c379f20c2c8c712eb"
 ],
 "uk-english-test/ghana/": [
-"2026-11-11",
-"ee6ab9bf49a53ca075ca"
+"2026-11-16",
+"210c4bcbd1dcf4a3d106"
 ],
 "uk-english-test/glasgow/": [
-"2026-11-13",
-"a445ea35815a9b57928b"
+"2026-11-16",
+"384a105bbc5920e5dca4"
 ],
 "uk-english-test/india/": [
-"2026-11-11",
-"fde02ec68b5883164bce"
+"2026-11-16",
+"967c3675050185719364"
 ],
 "uk-english-test/indonesia/": [
-"2026-11-11",
-"8a3a964a349fa8b5f610"
+"2026-11-16",
+"08dc856c842e1a299767"
 ],
 "uk-english-test/iran/": [
-"2026-11-11",
-"ed2a38a345ef60182b00"
+"2026-11-16",
+"1417661f556ea09379ae"
 ],
 "uk-english-test/iraq/": [
-"2026-11-11",
-"9291b86fc5ee584eb175"
+"2026-11-16",
+"e6a9dde179972b4933a9"
 ],
 "uk-english-test/israel/": [
-"2026-11-11",
-"5496d1a1be973fcd4c52"
+"2026-11-16",
+"418fc4b009b063018c35"
 ],
 "uk-english-test/jordan/": [
-"2026-11-11",
-"d54aa957b2496875c6e6"
+"2026-11-16",
+"eed6daca73de5f9d0ed7"
 ],
 "uk-english-test/kazakhstan/": [
-"2026-11-11",
-"ac9211dd4e93830eaab1"
+"2026-11-16",
+"1ae2b2bd22e0f3bf2f55"
 ],
 "uk-english-test/kuwait/": [
-"2026-11-11",
-"db08bc0b0288e4ed38c9"
+"2026-11-16",
+"edf42dc7b5b83fc7f3b8"
 ],
 "uk-english-test/lebanon/": [
-"2026-11-11",
-"b7b78b13647b5d5a4fdb"
+"2026-11-16",
+"ebca662b7967dbab43d2"
 ],
 "uk-english-test/leeds/": [
-"2026-11-13",
-"18c6e375ad2fe8dd462b"
+"2026-11-16",
+"48dd2721bb469efb3fd1"
 ],
 "uk-english-test/leicester/": [
-"2026-11-13",
-"91a538362539e3afb82a"
+"2026-11-16",
+"fa4c99ce2be33ffd0a82"
 ],
 "uk-english-test/liverpool/": [
-"2026-11-13",
-"3c4c10889c0a4b5e6456"
+"2026-11-16",
+"a5934c21f41a2d88eb2a"
 ],
 "uk-english-test/london/": [
-"2026-11-13",
-"041da62a84274310b648"
+"2026-11-16",
+"bab9aec71c4b35b3e5cc"
 ],
 "uk-english-test/maidstone/": [
-"2026-11-13",
-"c5819a6dc27506d926d4"
+"2026-11-16",
+"fcab9e8394bd6bdbd3cc"
 ],
 "uk-english-test/malaysia/": [
-"2026-11-11",
-"b5cff07a1dc2f0c1c682"
+"2026-11-16",
+"4b033869ea1702a5e521"
 ],
 "uk-english-test/manchester/": [
-"2026-11-13",
-"8dc66b39c3ed9331ea6c"
+"2026-11-16",
+"5ff21c8b347498bf2842"
 ],
 "uk-english-test/mexico/": [
-"2026-11-11",
-"0a6affb23703fc36b888"
+"2026-11-16",
+"d131439e262207a4ebb5"
 ],
 "uk-english-test/milton-keynes/": [
-"2026-11-13",
-"cb57fe2d9ac49ba6983c"
+"2026-11-16",
+"5f4c1311632d22e0a31a"
 ],
 "uk-english-test/morocco/": [
-"2026-11-11",
-"71031b63b60ae5247e56"
+"2026-11-16",
+"e7db0abd5196dd42f238"
 ],
 "uk-english-test/nepal/": [
-"2026-11-11",
-"04198f68af6dcb57b797"
+"2026-11-16",
+"4304a22f8ae6f3c624d4"
 ],
 "uk-english-test/newcastle/": [
-"2026-11-13",
-"1c044ddd4d8bfb3b5435"
+"2026-11-16",
+"66f3a0301862ad82fe31"
 ],
 "uk-english-test/nigeria/": [
-"2026-11-11",
-"2bf70d298d23d23fe9ad"
+"2026-11-16",
+"12f8796ba50812fa3ec5"
 ],
 "uk-english-test/oman/": [
-"2026-11-11",
-"c600c7219afe854cd412"
+"2026-11-16",
+"91762338914ed27b56a5"
 ],
 "uk-english-test/oxford/": [
-"2026-11-13",
-"251f252964fbb9fd5fd2"
+"2026-11-16",
+"d134a78481767ebd1553"
 ],
 "uk-english-test/pakistan/": [
-"2026-11-11",
-"bb44ebd6df6ebaa497ae"
+"2026-11-16",
+"86a244ee8cacb3210abe"
 ],
 "uk-english-test/peru/": [
-"2026-11-11",
-"f144c1972bb305f4ee99"
+"2026-11-16",
+"2dd6ef1fa8ad2650eafe"
 ],
 "uk-english-test/peterborough/": [
-"2026-11-13",
-"a812ef60a4ee5469707a"
+"2026-11-16",
+"51d4f3bf9162f901fce2"
 ],
 "uk-english-test/philippines/": [
-"2026-11-11",
-"cc8a945825d3781cc824"
+"2026-11-16",
+"9996cb24f1a14f8beea6"
 ],
 "uk-english-test/portsmouth/": [
-"2026-11-13",
-"14fcc71a5222a2afabd0"
+"2026-11-16",
+"87f447c9e418d9b19a93"
 ],
 "uk-english-test/portugal/": [
-"2026-11-11",
-"8dbdcb4e50cae017bb1b"
+"2026-11-16",
+"41d6a51588457429c4f2"
 ],
 "uk-english-test/preston/": [
-"2026-11-13",
-"4f77e50bdefd3c01fe30"
+"2026-11-16",
+"6216491c1b98e829523d"
 ],
 "uk-english-test/qatar/": [
-"2026-11-11",
-"677a0a1ef49615385474"
+"2026-11-16",
+"b26dec79e045b85a9f4e"
 ],
 "uk-english-test/saudi-arabia/": [
-"2026-11-11",
-"1b290301ff2183d25bde"
+"2026-11-16",
+"fe290cd1296dca5a8f2f"
 ],
 "uk-english-test/sheffield/": [
-"2026-11-13",
-"fcf18afea32141c31d71"
+"2026-11-16",
+"a3efaf184bceae301831"
 ],
 "uk-english-test/singapore/": [
-"2026-11-11",
-"7b0b7238214f3a219a06"
+"2026-11-16",
+"c19b30ffa6399ebbb7a5"
 ],
 "uk-english-test/south-africa/": [
-"2026-11-11",
-"dc5d92b498f2b0e938bf"
+"2026-11-16",
+"a010044e772408f93078"
 ],
 "uk-english-test/southampton/": [
-"2026-11-13",
-"fa0757f7d09e8e606b1c"
+"2026-11-16",
+"ae75ba217240d5436e4d"
 ],
 "uk-english-test/spain/": [
-"2026-11-11",
-"630078dbc9d795ec4679"
+"2026-11-16",
+"cbee0ce0d786a546eb8b"
 ],
 "uk-english-test/sri-lanka/": [
-"2026-11-11",
-"e47a83788868c9485e4d"
+"2026-11-16",
+"49bb7c38ec5e4a341643"
 ],
 "uk-english-test/stratford/": [
-"2026-11-13",
-"b1835b5391f16f136d14"
+"2026-11-16",
+"aa09d3a962ebaa3e3c43"
 ],
 "uk-english-test/taiwan/": [
-"2026-11-11",
-"0f07ed5f88d804297592"
+"2026-11-16",
+"c690e32181a5d66fcdb5"
 ],
 "uk-english-test/tajikistan/": [
-"2026-11-11",
-"21cc8cba6010909b220b"
+"2026-11-16",
+"776a30707288294ceb7c"
 ],
 "uk-english-test/thailand/": [
-"2026-11-11",
-"bfa9fc77454259db2917"
+"2026-11-16",
+"9f9186d0e8efff972e4b"
 ],
 "uk-english-test/tunisia/": [
-"2026-11-11",
-"b3e56723a4a638a088d4"
+"2026-11-16",
+"ff93afe135a23f0610f6"
 ],
 "uk-english-test/turkey/": [
-"2026-11-11",
-"e373d2859ef60085c8e3"
+"2026-11-16",
+"fcca65cfa7b81759af17"
 ],
 "uk-english-test/uganda/": [
-"2026-11-11",
-"172621ad81157de40c57"
+"2026-11-16",
+"a6d7dccc14abdfdb8333"
 ],
 "uk-english-test/united-arab-emirates/": [
-"2026-11-11",
-"749cb8b9d220a5cc99a9"
+"2026-11-16",
+"76e6160acadce065ec09"
 ],
 "uk-english-test/uxbridge/": [
-"2026-11-13",
-"40b135215d209c5cc491"
+"2026-11-16",
+"b76081e6f96f10e3582b"
 ],
 "uk-english-test/uzbekistan/": [
-"2026-11-11",
-"8b3ca4a735bf7e7252ac"
+"2026-11-16",
+"52e36f87001a160000d5"
 ],
 "uk-english-test/vietnam/": [
-"2026-11-11",
-"5a88c327a9d411b860cb"
+"2026-11-16",
+"9259b48de58c8bee3f44"
 ],
 "uk-english-test/wolverhampton/": [
-"2026-11-13",
-"9eeae74de6525f2bba2c"
+"2026-11-16",
+"c4555f1f43feb9bdd231"
 ],
 "uk-english-test/zambia/": [
-"2026-11-11",
-"817b26eaededbf88eace"
+"2026-11-16",
+"07c8eaedd38e0d318093"
 ],
 "uk-graduate-visa/": [
 "2026-11-08",
@@ -2494,20 +2526,20 @@
 "d8e5172aabad93c67d4c"
 ],
 "visa-health-insurance/": [
-"2026-11-08",
-"78780f23f586ab483f83"
+"2026-11-16",
+"1836991b474c887d899b"
 ],
 "visa-health-insurance/germany-eu-blue-card/": [
-"2026-11-08",
-"f02059d1a830675b78b8"
+"2026-11-14",
+"1b9a7b1a882c990e90d6"
 ],
 "visa-health-insurance/portugal-d7-visa/": [
 "2026-11-08",
 "d7c9c5511833423ed653"
 ],
 "visa-health-insurance/portugal-d8-digital-nomad-visa/": [
-"2026-11-08",
-"47faf179a55cede038e6"
+"2026-11-16",
+"202c230d0b142a09acc6"
 ],
 "visa-health-insurance/portugal-student-visa/": [
 "2026-11-08",

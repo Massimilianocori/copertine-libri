@@ -153,6 +153,17 @@ Uso (dalla radice del repository, dopo python3 visaincome/genera.py):
     noindex, en/es/pt, 404) il tag compare una volta sola, dentro <head>, con l'ID giusto; nessun altro riferimento a grow.me fuori dal tag;
     la privacy nomina Grow by Mediavine, la funzione di salvataggio e linka l'informativa di Mediavine; con l'interruttore spento nessuna
     traccia; online: main.js risponde e la configurazione pubblica del sito si chiama "Visa Income Checker" con visaincomechecker.com.
+39. Riquadro Genki «What one insurer says about this visa» (16/11/2026, interruttore _genki in dati/affiliati.json): link di prodotto =
+    https://genki.world/products/<traveler|native>?with=<codice>, genki.world tra i domini ammessi; riquadro SOLO nelle pagine di
+    _genki.pagine, che devono stare nell'elenco chiuso PAGINE_GK_AMMESSE (Portogallo D8, Italia nomadi, Croazia, Ungheria): mai Spagna,
+    Germania (comprese le pagine /germany-health-insurance/), Schengen, Thailandia LTR, Portogallo D7, pagine A/B, es/pt o fuori indice;
+    una volta per pagina, dopo la regola ufficiale; dentro il riquadro: prima le parole ufficiali (citazioni = frammenti di
+    dati/assicurazione.json, con la fonte), poi la frase di Genki (ogni <q class="cit-gk"> = lettura salvata), l'avvertenza di Genki,
+    «check with the consulate», etichetta Affiliate, riga di trasparenza; link solo ai prodotti dei dati e alla guida citata, tutti
+    rel="sponsored nofollow noopener" e target _blank; nessun prezzo, compenso o promessa, nessun widget o script di Genki; mai insieme a
+    un altro riquadro assicurativo; fuori dai riquadri il nome compare solo nella colonna «What one insurer says» dell'indice (pezzi
+    delle letture, nessun link a Genki) e nella privacy; con l'interruttore spento nessuna traccia; online: letture rilette sulla guida
+    di Genki e link di prodotto che rispondono.
 Il controllo 16 comprende dall'11/11/2026, sulle 4 pagine per livello: voto minimo = elenco ufficiale con i separatori uniformi e ripetuto
 sotto il nome del test (visibile solo sotto i 480 px, dove la colonna si nasconde), avviso con "aged 65 or over", tutti i fornitori dei test
 del livello in "How to book", frase del livello nel riquadro italki, Appendix FM E-ILRP.1.6 e Appendix KoLL 2.2(c)(ii) per il partner
@@ -5010,6 +5021,187 @@ def controlla_ass(online=True):
     return errori, len(trovate), note
 
 
+# ---------------------------------------------------------------- 39. Riquadro Genki (16/11/2026)
+_RE_BOX_GK = re.compile(r'\n?<section class="card aff-r" aria-labelledby="aff-gk-h">.*?</section>', re.S)
+# Elenco chiuso: aggiungere una pagina qui solo dopo aver letto che Genki dichiara l'idoneità per quel visto E che la regola ufficiale è
+# tra le letture di dati/assicurazione.json. Mai Spagna, Germania, Schengen, Thailandia LTR.
+PAGINE_GK_AMMESSE = {"visa-health-insurance/portugal-d8-digital-nomad-visa/": "portugal-d8-digital-nomad-visa", "italy-digital-nomad-visa/": "italy-digital-nomad-visa",
+                     "croatia-digital-nomad-visa/": "croatia-digital-nomad-visa", "hungary-white-card/": "hungary-white-card"}
+VIETATE_GK = ("germany", "spain", "schengen", "thailand", "portugal-d7", "visa-refusal-rates", "es/", "pt/")
+
+
+def togli_gk(main):
+    """Il <main> senza il riquadro Genki (si controlla al punto 39)."""
+    return _RE_BOX_GK.sub("", main)
+
+
+def controlla_gk(online=True):
+    import urllib.parse as up
+    import importlib.util
+    errori, note = [], []
+    A = json.loads((SITO.parent / "dati" / "affiliati.json").read_text(encoding="utf-8"))
+    DA = json.loads((SITO.parent / "dati" / "assicurazione.json").read_text(encoding="utf-8"))
+    gk = A.get("_genki", {})
+    acceso = bool(gk.get("attivo"))
+    if acceso != G.GK_ATTIVO:
+        errori.append("39: interruttore _genki e genera.GK_ATTIVO non coincidono (link di prodotto non validi?)")
+    codice = gk.get("codice", "")
+    attesi = {k: f"https://genki.world/products/{k}?with={codice}" for k in ("traveler", "native")}
+    if gk and (not re.fullmatch(r"[a-z0-9]{4,30}", codice) or gk.get("url_traveler") != attesi["traveler"] or gk.get("url_native") != attesi["native"]
+               or gk.get("url") != f"https://genki.world/with/{codice}"):
+        errori.append("39: link Genki dei dati non validi (attesi https://genki.world/with/<codice> e /products/<prodotto>?with=<codice>)")
+    if not G.MON.dominio_ammesso("https://genki.world/") or not G.MON.dominio_ammesso("https://guide.genki.world/"):
+        errori.append("39: genki.world non è tra i domini ammessi di monetizzazione.json")
+    L = gk.get("letture", {})
+    pagine = gk.get("pagine", {}) if acceso else {}
+    uff = {html.unescape(v["frammento"]) for v in DA["letture"].values()}
+    for pp, x in pagine.items():
+        if PAGINE_GK_AMMESSE.get(pp) != x.get("visto") or any(pp.startswith(v) or v in pp for v in VIETATE_GK):
+            errori.append(f"39: _genki.pagine contiene una pagina fuori dall'elenco chiuso o vietata: {pp}")
+        if x.get("lettura") not in L or not x.get("prodotti") or not set(x["prodotti"]) <= {"traveler", "native"}:
+            errori.append(f"39: _genki.pagine, {pp}: lettura o prodotti non validi")
+        elif not all(("Genki " + p.capitalize()) in L[x["lettura"]]["frammento"] for p in x["prodotti"]):
+            errori.append(f"39: {pp}: un prodotto linkato non è nominato nella frase di Genki per quel visto")
+        if G.fuori_indice(pp):
+            errori.append(f"39: {pp} è fuori indice: niente riquadro")
+    guida = gk.get("fonti", {}).get("guida", {}).get("url", "")
+    vietate = ("per month", "a month", "per year", "from €", "from only", "cheapest", "cheaper", "best ", "recommend", "will be accepted", "accepted by every",
+               "approved by", "visa-approved", "official partner", "get your visa", "commission of", "discount", "%", "free ")
+    sitemap = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    con_box, n_link = set(), 0
+    for f in SITO.rglob("*.html"):
+        rel_p = str(f.parent.relative_to(SITO)) + "/" if f.name == "index.html" else str(f.relative_to(SITO))
+        rel_p = "" if rel_p == "./" else rel_p
+        t = f.read_text(encoding="utf-8")
+        if "genki" not in t.lower() and 'id="aff-gk-h"' not in t and "cit-gk" not in t:
+            continue
+        if not acceso:
+            errori.append(f"39: Genki spento ma {rel_p} ne contiene il nome, il riquadro o un link")
+            continue
+        if "widgets.genki.world" in t or re.search(r"<(script|iframe|img)\b[^>]*genki", t, re.I):
+            errori.append(f"39: {rel_p}: widget, script, iframe o immagine di Genki (ammessi solo link semplici)")
+        if rel_p == "privacy.html":
+            if "genki.world" in t:
+                errori.append("39: la privacy non deve linkare genki.world")
+            continue
+        if rel_p == G.SEZ_ASS:   # tabella indice: parole di Genki senza link
+            if "genki.world" in t or 'id="aff-gk-h"' in t:
+                errori.append("39: la pagina indice non deve avere link a Genki né il riquadro")
+            if '<th scope="col">What one insurer says</th>' not in t or "not an official rule, and not our judgement" not in t:
+                errori.append("39: pagina indice senza la colonna «What one insurer says» o senza la nota che la spiega")
+            celle = re.findall(r'<q class="cit-gk">(.*?)</q>', t, re.S)
+            if len(celle) != len(G.BREVE_GK):
+                errori.append(f"39: pagina indice: {len(celle)} citazioni di Genki invece di {len(G.BREVE_GK)}")
+            for q in celle:
+                if not any(html.unescape(q) in v["frammento"] for v in L.values()):
+                    errori.append(f"39: pagina indice: citazione di Genki che non è parte di una lettura: {html.unescape(q)[:60]}")
+            for vid, (lett, pezzo, _) in G.BREVE_GK.items():
+                riga = re.search(rf'<tr id="{vid}-r">.*?</tr>', t, re.S)
+                if not riga or html.escape(pezzo) not in riga.group(0) and pezzo not in html.unescape(riga.group(0)):
+                    errori.append(f"39: pagina indice: riga {vid} senza le parole di Genki")
+            continue
+        if rel_p not in pagine:
+            errori.append(f"39: Genki nominato o linkato in una pagina non prevista: {rel_p}")
+            continue
+        con_box.add(rel_p)
+        x = pagine[rel_p]
+        if f"<loc>{G.URL_SITO}/{rel_p}</loc>" not in sitemap or 'content="noindex' in t:
+            errori.append(f"39: {rel_p}: pagina con il riquadro fuori dalla sitemap o noindex")
+        main = t.split('<main id="main">', 1)[1].split("</main>", 1)[0]
+        box = _RE_BOX_GK.findall(main)
+        fuori = _RE_BOX_GK.sub("", main) + t.split('<main id="main">', 1)[0] + t.split("</main>", 1)[1]
+        if len(box) != 1 or "genki" in fuori.lower():
+            errori.append(f"39: {rel_p}: riquadro assente o doppio, o Genki nominato fuori dal riquadro")
+            continue
+        if "hellosafe.com" in t or "safetywing.com/nomad-insurance?" in t or 'id="aff-ot-h"' in t or 'id="aff-sw-h"' in t or 'id="aff-hs-h"' in t:
+            errori.append(f"39: {rel_p}: due riquadri assicurativi nella stessa pagina")
+        b = box[0]
+        tag = re.findall(r"<a\b[^>]*>", b)
+        link = [html.unescape(re.search(r'href="([^"]*)"', a).group(1)) for a in tag]
+        gk_link = [(u, a) for u, a in zip(link, tag) if "genki" in u]
+        n_link += len(gk_link)
+        attesi_p = [guida] + [attesi[p] for p in x["prodotti"]]
+        if sorted(u for u, _ in gk_link) != sorted(attesi_p):
+            errori.append(f"39: {rel_p}: link a Genki diversi dagli attesi (guida citata + prodotti dei dati): {[u for u, _ in gk_link]}")
+        for u, a in gk_link:
+            if 'rel="sponsored nofollow noopener"' not in a or 'target="_blank"' not in a:
+                errori.append(f"39: {rel_p}: link Genki senza rel=\"sponsored nofollow noopener\" o target ({u})")
+        for u, a in zip(link, tag):
+            if "genki" not in u and ("sponsored" in a or up.urlsplit(u).netloc not in {up.urlsplit(v["url"]).netloc for v in DA["fonti"].values()} | {up.urlsplit(v.get("pubblico") or v["url"]).netloc for v in DA["fonti"].values()}):
+                errori.append(f"39: {rel_p}: nel riquadro un link che non è né di Genki né una fonte ufficiale ({u})")
+        tb = html.unescape(re.sub(r"<[^>]+>", " ", b))
+        tb1 = re.sub(r"\s+", " ", tb)
+        if '<span class="aff-tag">Affiliate</span>' not in b or G.MON.RIGA_EN not in tb1:
+            errori.append(f"39: {rel_p}: riquadro senza etichetta Affiliate o riga di trasparenza")
+        for frase in ("The official rule comes first.", "What the insurer says.", "We have not checked any Genki policy against a consulate's requirements",
+                      "check with the consulate or immigration office where you apply before you buy", "Buying insurance does not guarantee a visa: the consulate decides.",
+                      "Prices and conditions are on Genki's website.", "read on "):
+            if frase not in tb1:
+                errori.append(f"39: {rel_p}: riquadro senza la frase «{frase}»")
+        cit = [html.unescape(q) for q in re.findall(r'<q class="cit-gk">(.*?)</q>', b, re.S)]
+        for q in cit:
+            if q not in {v["frammento"] for v in L.values()}:
+                errori.append(f"39: {rel_p}: citazione di Genki che non è una lettura salvata: {q[:60]}")
+        for k in (x["lettura"], "avvertenza", "native_limiti"):
+            if L.get(k, {}).get("frammento") not in cit:
+                errori.append(f"39: {rel_p}: il riquadro non riporta la lettura {k}")
+        cit_uff = [html.unescape(q) for q in re.findall(r'<q[^>]*class="cit-ass"[^>]*>(.*?)</q>', b, re.S)]
+        attese_uff = [DA["letture"][k]["frammento"] for k in G.V_ASS[x["visto"]]["chiavi"]]
+        if not cit_uff or any(q not in uff for q in cit_uff) or cit_uff[0] not in attese_uff or '<p class="fonte">Source' not in b:
+            errori.append(f"39: {rel_p}: il riquadro non riporta le parole ufficiali del visto (frammenti di assicurazione.json) con la fonte")
+        elif b.index('class="cit-ass"') > b.index("What the insurer says.") or b.index('<p class="fonte">Source') > b.index("What the insurer says.") \
+                or b.index("What the insurer says.") > b.index('class="btn"'):
+            errori.append(f"39: {rel_p}: nel riquadro la regola ufficiale deve venire prima della frase di Genki e del pulsante")
+        senza_cit = html.unescape(re.sub(r"<[^>]+>", " ", re.sub(r"<q\b.*?</q>", " ", b, flags=re.S))).lower()
+        for v in vietate:
+            if v in senza_cit:
+                errori.append(f"39: {rel_p}: parola vietata nel riquadro ({v.strip()})")
+        if re.search(r"[€$£]\s?\d[\d.,]*\s*(?:per|a|/|each)\s*(?:month|year|week|day)", tb1, re.I) or re.search(r"\b(?:costs?|price[sd]?|from)\s+[€$£]\s?\d", tb1, re.I):
+            errori.append(f"39: {rel_p}: prezzo nel riquadro")
+        i_box = main.index('id="aff-gk-h"')
+        if rel_p.startswith(G.SEZ_ASS):
+            if not main.index("What the official source says") < i_box < main.index("Questions people ask"):
+                errori.append(f"39: {rel_p}: il riquadro non è tra le parole ufficiali e le FAQ")
+        elif not main.index("<strong>Health insurance:</strong>") < i_box < main.index("<h2>Official sources</h2>"):
+            errori.append(f"39: {rel_p}: il riquadro non è dopo la riga Health insurance e prima delle fonti ufficiali")
+    if acceso and con_box != set(pagine):
+        errori.append(f"39: Genki acceso ma riquadro in {sorted(con_box)} invece di {sorted(pagine)}")
+    # pagine vietate: box_gk() vuoto qualunque cosa dicano i dati
+    for p in ("spain-digital-nomad-visa/", "spain-non-lucrative-visa/", "germany-eu-blue-card/", "portugal-d7-visa/", "portugal-d8-digital-nomad-visa/",
+              f"{G.SEZ_ASS}portugal-d7-visa/", f"{G.SEZ_ASS}thailand-ltr-visa/", f"{G.SEZ_ASS}germany-eu-blue-card/", G.PERC_SCH_ASS, G.SEZ_ASS, G.SEZ_ASS_DE,
+              f"{G.SEZ_ASS_DE}private-or-public/"):
+        if G.box_gk(p):
+            errori.append(f"39: box_gk() non vuoto per una pagina vietata o non prevista ({p})")
+    priv = leggi("privacy.html")
+    if ("Genki" in priv) != acceso or (acceso and "Affiliate links to Genki" not in priv):
+        errori.append("39: privacy non coerente con l'interruttore Genki")
+    note.append(f"Genki {'acceso' if acceso else 'spento'}: {len(con_box)} pagine con il riquadro, {n_link} link")
+    if online and acceso:
+        spec = importlib.util.spec_from_file_location("ass_racc_gk", SITO.parent / "raccolta" / "assicurazione.py")
+        R = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(R)
+        cache = {}
+        riletti = 0
+        for k, v in L.items():
+            fk = v["fonte"]
+            if fk not in cache:
+                st, body = R.get(gk["fonti"][fk]["url"], tentativi=2)
+                cache[fk] = R.testo(body) if st == 200 else None
+            if cache[fk] is None:
+                AVVISI.append(("39", f"fonte Genki {fk} non raggiungibile ora: lettura {k} non riletta"))
+            elif R.norm(v["frammento"]) not in cache[fk]:
+                errori.append(f"39: la frase di Genki {k} non è più nella pagina {gk['fonti'][fk]['url']}: rileggere la guida e aggiornare o spegnere il riquadro")
+            else:
+                riletti += 1
+        note.append(f"frasi di Genki rilette online: {riletti} su {len(L)}")
+        for k, u in attesi.items():
+            st, _ = R.get(u, tentativi=2)
+            if st != 200:
+                AVVISI.append(("39", f"link Genki {k} risponde {st}"))
+        note.append("link di prodotto provati online")
+    return errori, len(con_box), note
+
+
 # ---------------------------------------------------------------- 33. Titoli e descrizioni delle 210 pagine dell'11/11/2026
 STATI_CER_33 = ("new-south-wales", "victoria", "queensland", "western-australia", "south-australia", "tasmania", "northern-territory")
 LIVELLI_SELT_33 = ("a1-english-test-spouse-visa", "a2-english-test-spouse-visa-extension", "b1-english-test-citizenship", "b2-english-test-ilr")
@@ -5520,6 +5712,233 @@ def controlla_fuori_indice():
     return errori, len(fuori), len(sitemap), per_sez, len(senza_ads)
 
 
+_RE_BOX_OT = re.compile(r'<section class="card aff-r" aria-labelledby="aff-ot-h">.*?</section>', re.S)
+
+
+def controlla_de(online=True):
+    """38 (14/11/2026): sezione "Health insurance in Germany for visas and residence permits" (/germany-health-insurance/) e riquadro
+    del partner ottonova (interruttore _ottonova in dati/affiliati.json, Awin). Impronta e fonti di dati/assicurazione_de.json; valori =
+    numeri scritti nei frammenti; pagine attese = indice + una per voce di genera.PAG_DE, nessuna in più; titoli ≤ 65 con l'anno e
+    descrizioni ≤ 160, tutti diversi; sitemap, canonical, FAQPage (tante domande quante in pagina), BreadcrumbList, avviso "Information,
+    not legal or insurance advice", data di lettura; ogni <q class="cit-de"> e ogni frase tra virgolette lunga è un frammento ufficiale
+    (o un suo pezzo); ogni pagina cita tutte le sue letture; ogni FAQ è legata a una frase con un volume misurato; collegamenti dalle
+    pagine tedesche del sito; pagine dell'esperimento A/B senza link alla sezione. Riquadro: con l'interruttore spento nessuna traccia
+    (né riquadro, né link Awin, né il nome del partner, né la frase nella privacy); acceso: solo nelle pagine previste, una volta, sotto
+    le parole ufficiali e prima delle FAQ, un solo link = URL dei dati su awin1.com, rel="sponsored nofollow noopener", etichetta
+    Affiliate, riga di trasparenza, nessun prezzo né promessa, mai insieme a un altro riquadro assicurativo, privacy coerente.
+    Online: 6 frammenti a caso riletti sulle fonti. Ritorna (errori, pagine, note)."""
+    import hashlib
+    import importlib.util
+    import urllib.parse as up
+    errori, note = [], []
+    D = json.loads((SITO.parent / "dati" / "assicurazione_de.json").read_text(encoding="utf-8"))
+    DA = json.loads((SITO.parent / "dati" / "assicurazione.json").read_text(encoding="utf-8"))
+    A = json.loads((SITO.parent / "dati" / "affiliati.json").read_text(encoding="utf-8"))
+    errori += [f"38: {e}" for e in G.controlli_de()]
+    cont = {"url": {k: f["url"] for k, f in D["fonti"].items()}, "letture": D["letture"], "domanda": D["domanda"]}
+    if hashlib.sha256(json.dumps(cont, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:20] != D["impronta"]:
+        errori.append("38: impronta di dati/assicurazione_de.json diversa dal contenuto")
+    for k, f in D["fonti"].items():
+        if f.get("http") != 200 or not re.fullmatch(r"[0-9a-f]{64}", f.get("sha256") or "") or f.get("letto_il") != D["letto_il"]:
+            errori.append(f"38: fonte {k} senza HTTP 200, impronta o data di lettura")
+        if not f["url"].startswith("https://"):
+            errori.append(f"38: fonte {k} senza https")
+    ufficiali = ("auswaertiges-amt.de", "gesetze-im-internet.de", "service.berlin.de", "www.berlin.de")
+    for k, f in D["fonti"].items():
+        host = up.urlsplit(f["url"]).netloc
+        if not f.get("partner") and not host.endswith(ufficiali):
+            errori.append(f"38: fonte {k} su un dominio non ufficiale ({host})")
+    L = D["letture"]
+    parole = {1: "one", 3: "three"}
+    for k, v in L.items():
+        if "valore" in v and str(v["valore"]) not in re.findall(r"\d+", v["frammento"]) and parole.get(v["valore"], "§") not in v["frammento"]:
+            errori.append(f"38: valore di {k} ({v['valore']}) non scritto nel frammento")
+        if D["fonti"][v["fonte"]].get("partner") and not k.startswith("otto_"):
+            errori.append(f"38: lettura {k} presa dal sito del partner")
+    # volumi ricalcolati qui dal JSON (somma dei Paesi misurati)
+    def volume(frase):
+        return sum((D["domanda"]["query"].get(f"{p}|{frase}") or {}).get("volume") or 0 for p in D["domanda"]["paesi"])
+    attese = {G.SEZ_ASS_DE} | {f"{G.SEZ_ASS_DE}{v['id']}/" for v in G.PAG_DE}
+    trovate = {str(f.parent.relative_to(SITO)) + "/" for f in (SITO / G.SEZ_ASS_DE).rglob("index.html")}
+    if trovate != attese:
+        errori.append(f"38: pagine diverse dalle attese: in più {sorted(trovate - attese)}, mancanti {sorted(attese - trovate)}")
+    if len(attese) != 8:
+        errori.append(f"38: attese 8 pagine (indice + 7), sono {len(attese)}")
+    mappa = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    frammenti = [v["frammento"] for v in L.values() if not v["fonte"] == "ottonova"] + [v["frammento"] for v in DA["letture"].values()]
+    titoli, descr = {}, {}
+    per_id = {f"{G.SEZ_ASS_DE}{v['id']}/": v for v in G.PAG_DE}
+    for p in sorted(attese & trovate):
+        t = leggi(p + "index.html")
+        tit = html.unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+        de = html.unescape(re.search(r'<meta name="description" content="([^"]*)"', t).group(1))
+        if len(tit) > 65 or str(G.ANNO) not in tit or "Germany" not in tit:
+            errori.append(f"38: {p}: titolo oltre 65 caratteri, senza l'anno o senza Germany ({tit})")
+        if len(de) > 160 or len(de) < 90 or de.endswith("…"):
+            errori.append(f"38: {p}: descrizione fuori misura ({len(de)})")
+        titoli.setdefault(tit, []).append(p)
+        descr.setdefault(de, []).append(p)
+        if f"<loc>{G.URL_SITO}/{p}</loc>" not in mappa or f'rel="canonical" href="{G.URL_SITO}/{p}"' not in t or 'content="noindex' in t:
+            errori.append(f"38: {p}: fuori dalla sitemap, senza canonical o noindex")
+        if '"FAQPage"' not in t or '"BreadcrumbList"' not in t or "Information, not legal or insurance advice." not in t:
+            errori.append(f"38: {p}: FAQPage, BreadcrumbList o avviso mancanti")
+        if f"read on {G.data_lunga(D['letto_il'])}" not in t:
+            errori.append(f"38: {p}: nessuna data di lettura della fonte")
+        main = t.split('<main id="main">', 1)[1].split("</main>", 1)[0]
+        senza_box = _RE_BOX_OT.sub("", main)
+        cit = [html.unescape(q) for q in re.findall(r'<q class="cit-de">(.*?)</q>', main, re.S)]
+        if len(cit) < 5:
+            errori.append(f"38: {p}: meno di 5 citazioni ufficiali ({len(cit)})")
+        for q in cit:
+            if q not in frammenti:
+                errori.append(f"38: {p}: citazione che non è un frammento ufficiale: {q[:60]}")
+        testo = html.unescape(re.sub(r"<[^>]+>", " ", senza_box))
+        for q in re.findall(r"“([^”]{30,})”", testo):
+            q = re.sub(r"\s+", " ", q).strip()
+            if not any(q in fr for fr in frammenti):
+                errori.append(f"38: {p}: frase tra virgolette che non è nei frammenti ufficiali: {q[:70]}")
+        for url in re.findall(r'<a href="(https?://[^"]+)"', senza_box):
+            host = up.urlsplit(html.unescape(url)).netloc
+            if not host.endswith(ufficiali + ("europa.eu",)):
+                errori.append(f"38: {p}: link esterno a un dominio non ufficiale ({host})")
+        if 'rel="sponsored' in senza_box or "hellosafe.com" in t or "safetywing.com" in t:
+            errori.append(f"38: {p}: link di affiliazione fuori dal riquadro ottonova")
+        n_faq = len(re.findall(r'"@type": ?"Question"', t))
+        faq_attese = G.FAQ_DE.get(p, [])
+        if n_faq != len(faq_attese) or n_faq < 3:
+            errori.append(f"38: {p}: {n_faq} domande nel JSON-LD, attese {len(faq_attese)} (almeno 3)")
+        for f in faq_attese:
+            if volume(f) <= 0:
+                errori.append(f"38: {p}: FAQ legata a una frase senza volume misurato ({f})")
+        v = per_id.get(p)
+        if v:
+            pulito = html.unescape(main)
+            for b in v["blocchi"]:
+                for k in b[2]:
+                    fr = (L.get(k) or DA["letture"].get(k) or {}).get("frammento")
+                    if not fr or fr not in pulito:
+                        errori.append(f"38: {v['id']}: lettura {k} non citata nella pagina")
+            if G.entro(v["titoli"], 65) != tit:
+                errori.append(f"38: {p}: titolo diverso dalla prima variante entro 65 caratteri")
+            if "The answer in short" not in main or main.index("The answer in short") > main.index("What the official sources say"):
+                errori.append(f"38: {p}: la risposta in breve non è prima delle citazioni")
+    for d, nome in ((titoli, "titolo"), (descr, "descrizione")):
+        for x, pp in d.items():
+            if len(pp) > 1:
+                errori.append(f"38: {nome} uguale in {pp}")
+    # frasi misurate dei titoli: almeno una frase con volume in ogni titolo delle pagine con domanda
+    frasi_titolo = {"": "health insurance germany", "private-or-public/": "private health insurance germany", "students/": "student health insurance germany",
+                    "travel-insurance/": "travel insurance germany", "work-visa-eu-blue-card/": "health insurance for expats in germany"}
+    for suff, frase in frasi_titolo.items():
+        t = leggi(G.SEZ_ASS_DE + suff + "index.html")
+        tit = html.unescape(re.search(r"<title>(.*?)</title>", t).group(1)).lower()
+        if volume(frase) <= 0 or not tit.startswith(frase):
+            errori.append(f"38: {G.SEZ_ASS_DE}{suff}: il titolo non comincia con la frase misurata «{frase}» ({volume(frase)} al mese)")
+    # collegamenti dalle pagine tedesche; pagine dell'esperimento intatte
+    for p in ("germany-eu-blue-card/", "country/germany/", "visa-health-insurance/germany-eu-blue-card/", "visa-health-insurance/"):
+        if G.SEZ_ASS_DE not in leggi(p + "index.html"):
+            errori.append(f"38: {p}: manca il link alla sezione")
+    n_tr = 0
+    for f in (SITO / "moved-to").glob("*/germany/index.html"):
+        n_tr += 1
+        if G.SEZ_ASS_DE not in f.read_text(encoding="utf-8"):
+            errori.append(f"38: {f.parent.relative_to(SITO)}: manca il link alla sezione")
+    if n_tr < 15:
+        errori.append(f"38: solo {n_tr} pagine Who moved where verso la Germania")
+    for p in ("france-eu-blue-card/", "country/spain/", "netherlands-eu-blue-card/"):
+        if G.SEZ_ASS_DE in leggi(p + "index.html"):
+            errori.append(f"38: {p}: link alla sezione tedesca in una pagina di un altro Paese")
+    # riquadro ottonova
+    ot = A.get("_ottonova", {})
+    acceso = bool(ot.get("attivo"))
+    url = ot.get("url", "")
+    if acceso != G.OT_ATTIVO:
+        errori.append("38: interruttore _ottonova e genera.OT_ATTIVO non coincidono (link Awin mancante o non valido?)")
+    u = up.urlsplit(url)
+    qs = dict(up.parse_qsl(u.query))
+    if url and (u.scheme != "https" or u.netloc != "www.awin1.com" or qs.get("awinmid") != "15971" or not qs.get("awinaffid", "").isdigit()):
+        errori.append(f"38: link ottonova dei dati non valido (atteso il link tracciato Awin con awinmid=15971 e awinaffid numerico): {url}")
+    if not G.MON.dominio_ammesso("https://www.awin1.com/"):
+        errori.append("38: awin1.com non è tra i domini ammessi di monetizzazione.json")
+    ammesse = {f"{G.SEZ_ASS_DE}{x}/" for x in ot.get("pagine", [])}
+    if not ammesse <= {f"{G.SEZ_ASS_DE}{x}/" for x in ("private-or-public", "work-visa-eu-blue-card", "freelance-visa")}:
+        errori.append(f"38: _ottonova.pagine contiene pagine dove le fonti non parlano di assicurazione privata: {sorted(ammesse)}")
+    vietate = ("guarantee", "will be accepted", "accepted by every", "approved by", "visa-approved", "get your visa", "cheapest", "cheaper", "best ", "recommended",
+               "official partner", "€", "per month", "from only", "free ")
+    con_box = set()
+    for f in SITO.rglob("*.html"):
+        rel_p = str(f.parent.relative_to(SITO)) + "/" if f.name == "index.html" else str(f.relative_to(SITO))
+        rel_p = "" if rel_p == "./" else rel_p
+        t = f.read_text(encoding="utf-8")
+        parti = f.relative_to(SITO).parts
+        if parti[0] == "visa-refusal-rates" and len(parti) == 3 and (G.SEZ_ASS_DE in t or "ottonova" in t.lower()):
+            errori.append(f"38: pagina dell'esperimento {rel_p} con link alla sezione o al partner (deve restare identica fino al 28/12)")
+        if "ottonova" not in t.lower() and 'id="aff-ot-h"' not in t and "awinmid=15971" not in t:
+            continue
+        if not acceso:
+            errori.append(f"38: ottonova spento ma {rel_p} ne contiene il nome, il riquadro o il link")
+            continue
+        if rel_p == "privacy.html":
+            continue
+        if rel_p not in ammesse:
+            errori.append(f"38: riquadro o nome del partner in una pagina non prevista: {rel_p}")
+            continue
+        con_box.add(rel_p)
+        main = t.split('<main id="main">', 1)[1].split("</main>", 1)[0]
+        box = _RE_BOX_OT.findall(main)
+        fuori = _RE_BOX_OT.sub("", main) + t.split('<main id="main">', 1)[0] + t.split("</main>", 1)[1]
+        if len(box) != 1 or "ottonova" in fuori.lower() or "awin1.com" in fuori:
+            errori.append(f"38: {rel_p}: riquadro assente o doppio, o partner nominato fuori dal riquadro")
+            continue
+        b = box[0]
+        tag = re.findall(r"<a\b[^>]*>", b)
+        link = [html.unescape(re.search(r'href="([^"]*)"', x).group(1)) for x in tag]
+        if len(link) != 1 or link[0] != url:
+            errori.append(f"38: {rel_p}: nel riquadro ci deve essere un solo link, uguale ai dati ({link})")
+        elif 'rel="sponsored nofollow noopener"' not in tag[0] or 'target="_blank"' not in tag[0]:
+            errori.append(f"38: {rel_p}: link ottonova senza rel=\"sponsored nofollow noopener\" o target")
+        tb = html.unescape(re.sub(r"<[^>]+>", " ", b))
+        if '<span class="aff-tag">Affiliate</span>' not in b or G.MON.RIGA_EN not in tb:
+            errori.append(f"38: {rel_p}: riquadro senza etichetta Affiliate o riga di trasparenza")
+        for x in ("We have not tested its policies", "does not decide your visa or residence permit", "the company's own description", "The official rule comes first"):
+            if x not in tb:
+                errori.append(f"38: {rel_p}: riquadro senza la frase «{x}»")
+        for x in vietate:
+            if x in tb.lower():
+                errori.append(f"38: {rel_p}: parola vietata nel riquadro ({x.strip()})")
+        for k in ("otto_pkv", "otto_expat"):
+            if L[k]["frammento"].lower() not in tb.lower():
+                errori.append(f"38: {rel_p}: il riquadro non usa le parole del sito del partner ({k})")
+        i_box = main.index('id="aff-ot-h"')
+        if not main.index("What the official sources say") < i_box < main.index("Questions people ask"):
+            errori.append(f"38: {rel_p}: il riquadro non è tra le parole ufficiali e le FAQ")
+    if acceso and con_box != ammesse:
+        errori.append(f"38: ottonova acceso ma riquadro in {sorted(con_box)} invece di {sorted(ammesse)}")
+    priv = leggi("privacy.html")
+    if ("ottonova" in priv) != acceso:
+        errori.append("38: privacy non coerente con l'interruttore ottonova")
+    note.append(f"ottonova {'acceso' if acceso else 'spento'}: {len(con_box)} pagine con il riquadro")
+    note.append("frasi misurate con volume: " + str(sum(1 for q in {k.split('|', 1)[1] for k in D['domanda']['query']} if volume(q) > 0))
+                + f" su {len({k.split('|', 1)[1] for k in D['domanda']['query']})} (misura del {D['domanda']['data']})")
+    if online:
+        spec = importlib.util.spec_from_file_location("ass_de_racc", SITO.parent / "raccolta" / "assicurazione_de.py")
+        R = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(R)
+        scelte = random.sample(sorted(k for k in L if not k.startswith("otto_")), 6)
+        cache = {}
+        for k in scelte:
+            fk = L[k]["fonte"]
+            if fk not in cache:
+                st, b = R.get(D["fonti"][fk]["url"], tentativi=2)
+                cache[fk] = R.testo(b) if st == 200 else None
+            if cache[fk] is None:
+                note.append(f"{k}: fonte {fk} non raggiungibile ora")
+            elif L[k]["frammento"] not in cache[fk]:
+                errori.append(f"38: frammento {k} non più presente in {fk}: rileggere la fonte")
+        note.append(f"riletti online: {len(scelte)} frammenti")
+    return errori, len(trovate), note
+
+
 def main():
     errori = controlla_esempi()
     print(f"1. Esempi a mano: {len(ESEMPI)} importi e {len(ESITI)} confronti con il reddito, {len(errori)} errori")
@@ -5639,7 +6058,19 @@ def main():
     e37, n37, c37, r37 = controlla_grow(online="--offline" not in sys.argv)
     print(f"37. Grow by Mediavine (interruttore {'acceso' if G.GROW_ATTIVO else 'spento'}): tag ufficiale una volta nel <head> di {n37} pagine HTML "
           f"({c37['indice']} in indice, {c37['noindex']} noindex; en {c37['en']}, es {c37['es']}, pt {c37['pt']}), ID del sito giusto, privacy; online: {r37}: {len(e37)} errori")
-    tutti = errori +e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28 + e29 + e30 + e31 + e32 + e33 + e34 + e35 + e36 + e37
+    e38, n38, r38 = controlla_de(online="--offline" not in sys.argv)
+    print(f"38. Health insurance in Germany for visas (sezione del 14/11/2026) e riquadro ottonova (interruttore {'acceso' if G.OT_ATTIVO else 'spento'}): {n38} pagine, "
+          f"impronta e fonti ufficiali, citazioni = frammenti, titoli sulle frasi misurate, FAQ con volume, sitemap, collegamenti dalle pagine tedesche, "
+          f"pagine A/B intatte, riquadro (pagine, link Awin, rel, trasparenza, nessun prezzo né promessa, privacy): {len(e38)} errori")
+    for x in r38:
+        print("    ·", x)
+    e39, n39, r39 = controlla_gk(online="--offline" not in sys.argv)
+    print(f"39. Riquadro Genki (interruttore {'acceso' if G.GK_ATTIVO else 'spento'}): {n39} pagine (elenco chiuso: Portogallo D8, Italia nomadi, Croazia, Ungheria; mai Spagna, "
+          f"Germania, Schengen, LTR, D7, A/B, es/pt), regola ufficiale prima, frasi di Genki = letture, avvertenza, link di prodotto = dati, rel sponsored nofollow, "
+          f"trasparenza, nessun prezzo né promessa, nessun widget, nessun riquadro doppio, colonna dell'indice senza link, privacy: {len(e39)} errori")
+    for x in r39:
+        print("    ·", x)
+    tutti = errori +e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28 + e29 + e30 + e31 + e32 + e33 + e34 + e35 + e36 + e37 + e38 + e39
     if AVVISI:  # fonti che rispondono non-200 o con una pagina anti-robot (controllo 28): non sono errori
         per_punto = {}
         for k, _ in AVVISI:
