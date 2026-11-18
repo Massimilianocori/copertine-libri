@@ -208,6 +208,10 @@ Uso (dalla radice del repository, dopo python3 beforeyoufly/genera.py):
     dati (wise.prf.hn/click/camref:…), rel="sponsored nofollow noopener", target _blank, riga di trasparenza, rimando a Wise per commissioni e
     cambi, nessuna cifra né promessa, dopo le citazioni ufficiali; prf.hn mai altrove; fonti wise.com come link normali; spento = nessuna
     traccia; online (senza --offline): 302 verso wise.com.
+36. Giro dei titoli (14/11/2026, byf-crescita-2026-11-13.md sez. 4): titolo e descrizione presenti e unici in tutto il sito, descrizioni
+    <= 160, titoli <= 70 e <= 65 nelle pagine riscritte; ogni titolo-domanda ha la risposta in pagina; «Do … Need a Visa for X?» solo con il
+    testo ufficiale sui visti citato nella sezione #visa; Uber «Is There Uber in X?» = stato della lista ufficiale; TSA «3.4 oz» e «3-1-1»
+    con la citazione e la nota; cifre dei titoli India = tabelle ufficiali; «(Free)» = dati; «Visa-Free Countries» = righe ricalcolate.
 35. Grow by Mediavine (13/11/2026, interruttore GROW_ATTIVO in genera.py; requisito di Journey by Mediavine): ogni pagina HTML del sito
     (in indice e fuori indice, 404, contatti, privacy, inglese, italiano, tedesco e francese) ha nel <head> esattamente un tag Grow, uguale
     parola per parola al tag di publishers.grow.me scritto a mano qui, con l'ID del sito giusto, e nessun altro riferimento a Grow; la
@@ -556,7 +560,7 @@ def controlla_visti():
             errori.append(f"visti {p['slug']}: dati del visto mancanti (rilanciare raccolta/passaporti.py)")
             continue
         t = leggi(f"passport-validity/{p['slug']}/index.html")
-        if f"Do I need a visa for {escape(p['nome'])} with a British passport?" not in t:
+        if f"Do I need a visa for {escape(G.nome_frase_uk(p))} with a British passport?" not in t:  # dal 14/11/2026 con l'articolo ("the Maldives")
             errori.append(f"visti {p['slug']}: domanda sul visto mancante")
         schema, sintesi, frase, _ = RP.sintesi_visto(V["testo"], p["nome"], p["slug"])
         if (schema, sintesi, frase) != (V["schema"], V["sintesi"], V["frase"]):
@@ -792,8 +796,11 @@ def controlla_liquidi_2110():
                   "contraddice": ("Pages Disagree", "pages disagree")}[a["regola"]]
         if a.get("etichetta", "").lower() == "depends on journey":
             atteso = ("by Journey", "depending on the journey")
-        if f"({a['iata']}) Liquid Rules {G.ANNO}" not in tit or (atteso[0] not in tit and not tit.endswith(f"Liquid Rules {G.ANNO}")):
-            errori.append(f"liquidi {a['slug']}: titolo senza sigla, 'Liquid Rules {G.ANNO}' o regola: {tit}")
+        # dal 14/11/2026 (giro dei titoli) gli aeroporti britannici hanno il titolo senza sigla ("Manchester Airport Liquid Rules 2026: …"),
+        # come si cerca nel Regno Unito; la sigla resta nell'H1
+        inizio = f"Liquid Rules {G.ANNO}" if a.get("paese") == "United Kingdom" else f"({a['iata']}) Liquid Rules {G.ANNO}"
+        if inizio not in tit or (a.get("paese") == "United Kingdom" and f"({a['iata']})" in tit) or (atteso[0] not in tit and not tit.endswith(f"Liquid Rules {G.ANNO}")):
+            errori.append(f"liquidi {a['slug']}: titolo senza sigla (o con la sigla, se britannico), 'Liquid Rules {G.ANNO}' o regola: {tit}")
         if f"({a['iata']}) liquid rules {G.ANNO}:" not in h1 or atteso[1] not in h1 or "hand luggage" not in h1:
             errori.append(f"liquidi {a['slug']}: H1 senza sigla, 'liquid rules {G.ANNO}', regola o 'hand luggage': {h1}")
         if a["regola"] == "100ml" and ("2 Litres" in tit or "2 litres" in h1):
@@ -890,9 +897,10 @@ def controlla_liquidi_0511():
         if f'href="../liquids/{s_}/"' not in idx or f'href="{escape(a["url"])}"' not in idx or f"<loc>{G.URL_SITO}/liquids/{s_}/</loc>" not in sm:
             errori.append(f"liquidi nuovo {s_}: manca nell'indice (riga o fonte) o nella sitemap")
         tit = unescape(re.search(r"<title>(.*?)</title>", t).group(1))
-        nome_t = tit.split(" Airport (")[0].split(f" ({iata})")[0]
+        uk = a.get("paese") == "United Kingdom"  # dal 14/11/2026: titolo britannico senza sigla
+        nome_t = tit.split(" Airport (")[0].split(f" ({iata})")[0].split(" Airport Liquid Rules")[0].split(" Liquid Rules")[0]
         sugg = dom.get(s_, {}).get("uk", []) + dom.get(s_, {}).get("us", [])
-        if len(tit) > 70 or str(G.ANNO) not in tit or f"({iata})" not in tit:
+        if len(tit) > 70 or str(G.ANNO) not in tit or (f"({iata})" not in tit and not uk):
             errori.append(f"liquidi nuovo {s_}: titolo oltre 70 caratteri, senza l'anno o senza la sigla: {tit}")
         if not any(x.startswith(nome_t.lower() + " airport liquid") for x in sugg):
             errori.append(f"liquidi nuovo {s_}: il nome del titolo «{nome_t}» non viene da una ricerca vera «… airport liquid…»")
@@ -2249,7 +2257,7 @@ def controlla_servizi():
                 errori.append(f"{rel}: FAQ JSON-LD diversa dal testo visibile o dalla prima frase")
             conti["faq"] += len(vis)
             tit = unescape(re.search(r"<title>(.*?)</title>", t).group(1))
-            if len(tit) > 70 or not tit.startswith((f"Is {S['nome']} Available in", f"{S['nome']} in")):
+            if len(tit) > 70 or not tit.startswith((f"Is {S['nome']} Available in", f"{S['nome']} in") + (("Is There Uber in",) if sl == "uber" else ())):
                 errori.append(f"{rel}: titolo oltre 70 caratteri o senza la domanda: {tit}")
     # tutte le pagine nuove: niente nomi di assistenti, niente consigli per aggirare, link da home, menu e About
     for p in (SITO / G.SRV_BASE).rglob("*.html"):
@@ -3212,7 +3220,14 @@ DOMINI_UFFICIALI_BIG = {"cenacolovinciano.org", "cenacolovinciano.vivaticket.it"
                         "www.ghibli-museum.jp", "ghibli-park.jp", "l-tike.com", "museum.nintendo.com", "museum-tickets.nintendo.com",
                         "www.sumo.or.jp", "sumo.pia.jp", "sankan.kunaicho.go.jp", "www.recreation.gov", "www.nps.gov",
                         # 13/11/2026: lotterie dei parchi USA (BLM) e Catacombe di Parigi con la biglietteria di Paris Musées che il sito ufficiale linka
-                        "www.blm.gov", "www.catacombes.paris.fr", "www.billetterie-parismusees.paris.fr"}
+                        "www.blm.gov", "www.catacombes.paris.fr", "www.billetterie-parismusees.paris.fr",
+                        # 14/11/2026: +15 attrazioni. Siti ufficiali e biglietterie che le pagine ufficiali indicano o linkano (Statue City
+                        # Cruises e Alcatraz City Cruises su cityexperiences.com dalle pagine NPS, congress.gov dalla pagina della Casa Bianca,
+                        # GoMuirWoods.com dalla pagina NPS di Muir Woods)
+                        "www.cityexperiences.com", "colosseo.it", "ticketing.colosseo.it", "www.whitehouse.gov", "www.congress.gov",
+                        "en.chateauversailles.fr", "billetterie.chateauversailles.fr", "www.911memorial.org", "www.louvre.fr", "ticket.louvre.fr",
+                        "www.vangoghmuseum.nl", "tickets.vangoghmuseum.com", "www.visitthecapitol.gov", "tours.visitthecapitol.gov",
+                        "gomuirwoods.com"}
 # Mesi e numeri ordinali in inglese, scritti qui di nuovo (controllo indipendente da genera.py)
 MESI_EN_BIG = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
@@ -3330,6 +3345,29 @@ ATTESE_BIG_1311 = {
     "mt-whitney-permits": {"fuso": "America/Los_Angeles", "regole": {("annuale", "risultati"): (None, ["03-15"]), ("annuale", "scadenza"): (None, ["04-21"]),
                                                                     ("annuale", "aperte"): (None, ["04-22"])}, "testo": True},
     "paris-catacombs": {"fuso": "Europe/Paris", "regole": {}, "chiusure_md": ["01-01", "05-01", "12-25"], "settimana": [0], "testo": True},
+}
+
+
+# Attrazioni aggiunte il 14/11/2026 (stessa forma; "date" = chiusure con una data sola, il Giorno del Ringraziamento 2026 è giovedì 26 novembre).
+# Scritte qui a mano di nuovo dalla lettura delle pagine ufficiali: Colosseo 30 giorni, Alcatraz e richieste alla Casa Bianca 90 giorni (nessuna
+# ora scritta), Pearl Harbor 56 giorni e 1 giorno alle 15:00 HST, Muir Woods 90 e 3 giorni alle 9:00 PT, 9/11 Museum ogni lunedì alle 7:00 ET.
+ATTESE_BIG_1411 = {
+    "statue-of-liberty": {"fuso": "America/New_York", "regole": {}, "testo": True},
+    "colosseum": {"fuso": "Europe/Rome", "regole": {("anticipo", "trenta"): (None, 30)}, "chiusure_md": ["01-01", "12-25"], "gratis": "prima_domenica"},
+    "alcatraz": {"fuso": "America/Los_Angeles", "regole": {("anticipo", "novanta"): (None, 90)}, "chiusure_md": ["01-01", "12-25"], "date": ["2026-11-26"]},
+    "white-house-tour": {"fuso": "America/New_York", "regole": {("anticipo", "novanta"): (None, 90)}, "settimana": [6, 0]},
+    "yosemite-reservations": {"fuso": "America/Los_Angeles", "regole": {}, "testo": True},
+    "pearl-harbor": {"fuso": "Pacific/Honolulu", "regole": {("anticipo", "otto"): ("15:00", 56), ("anticipo", "vigilia"): ("15:00", 1)},
+                     "chiusure_md": ["01-01", "12-25"], "date": ["2026-11-26"]},
+    "palace-of-versailles": {"fuso": "Europe/Paris", "regole": {}, "chiusure_md": ["01-01", "05-01", "12-25"], "settimana": [0], "testo": True},
+    "9-11-memorial-museum": {"fuso": "America/New_York", "regole": {("settimanale", "lunedi"): ("07:00", (0, None))}, "testo": True},
+    "louvre": {"fuso": "Europe/Paris", "regole": {}, "chiusure_md": ["01-01", "05-01", "12-25"], "settimana": [1], "testo": True},
+    "van-gogh-museum": {"fuso": "Europe/Amsterdam", "regole": {}, "testo": True},
+    "us-capitol-tour": {"fuso": "America/New_York", "regole": {}, "chiusure_md": ["01-01", "12-25"], "date": ["2026-11-26"], "settimana": [6], "testo": True},
+    "rocky-mountain-timed-entry": {"fuso": "America/Denver", "regole": {}, "testo": True},
+    "muir-woods-reservations": {"fuso": "America/Los_Angeles", "regole": {("anticipo", "novanta"): ("09:00", 90), ("anticipo", "tre"): ("09:00", 3)}},
+    "glacier-national-park-reservations": {"fuso": "America/Denver", "regole": {}, "testo": True},
+    "cadillac-mountain-reservations": {"fuso": "America/New_York", "regole": {}, "testo": True},
 }
 
 
@@ -3480,6 +3518,13 @@ def controlla_biglietti():
         campi += [(f"nota_ora {r['id']}", r.get("nota_ora", "")) for r in a["uscite"]]
         campi += [(f"ora_tabella {r['id']}", r.get("ora_tabella", "")) for r in a["uscite"]]
         campi += [(f"etichetta {r['id']}", r.get("etichetta", "")) for r in a["uscite"]] + [("nota chiusure", a["chiusure"].get("nota", ""))]
+        # 14/11/2026: frase propria del calcolo (richieste di visita), ingresso gratuito solo citato, frase del riquadro delle visite guidate
+        campi += [(f"nota_calc {r['id']}", r.get("nota_calc", "")) for r in a["uscite"]]
+        campi += [("gratis_testo", a["gratis_testo"]["titolo"] + " " + a["gratis_testo"].get("nota", ""))] if a.get("gratis_testo") else []
+        campi += [("tour", (a.get("tour") or {}).get("titolo", "") + " " + (a.get("tour") or {}).get("frase", ""))]
+        # revisione del 14/11/2026: frase propria del conto nelle FAQ e descrizione propria (segnaposto esclusi)
+        campi += [(f"faq_calc {r['id']}", re.sub(r"\{[^}]+\}", " ", r.get("faq_calc", ""))) for r in a["uscite"]]
+        campi += [("descrizione", re.sub(r"\{[^}]+\}", " ", a.get("descrizione", "")))]
         campi += [(f"FAQ «{q['q']}»", q["pre"] + " " + q["post"]) for q in a["faq"]]
         for nome, testo in campi:
             extra = _numeri_big(testo) - ammessi
@@ -3670,20 +3715,25 @@ def controlla_biglietti():
         if "not affiliated with any museum or ticket seller" not in vis:
             errori.append(f"{rel}: manca l'avviso di indipendenza")
     # f2) attrazioni del 13/11/2026: regole scritte qui a mano di nuovo (fuso, tipo, ora, giorni) dalla lettura delle pagine ufficiali
-    for slug, X in ATTESE_BIG_1311.items():
+    for slug, X in {**ATTESE_BIG_1311, **ATTESE_BIG_1411}.items():
         a = G.BIG_PER.get(slug)
         if not a:
-            errori.append(f"biglietti {slug}: attrazione del 13/11/2026 mancante")
+            errori.append(f"biglietti {slug}: attrazione del 13 o 14/11/2026 mancante")
             continue
+        if slug in ATTESE_BIG_1411:
+            if sorted(a["chiusure"]["date"]) != X.get("date", []) or ((a.get("gratis") or {}).get("tipo") != X.get("gratis")):
+                errori.append(f"biglietti {slug}: chiusure a data singola o giorno gratuito diversi da quelli letti il 14/11/2026")
+            if "{anticipo:" in a["risposta"] and not any(r["tipo"] == "anticipo" for r in a["uscite"]):
+                errori.append(f"biglietti {slug}: la prima frase conta i giorni senza una regola 'anticipo'")
         conti["attese_1311"] = conti.get("attese_1311", 0) + 1
         if a["fuso"] != X["fuso"]:
             errori.append(f"biglietti {slug}: fuso {a['fuso']} invece di {X['fuso']}")
         trovate = {(r["tipo"], r["id"]): (r["ora"], sorted(x["md"] for x in r["date_md"]) if r["tipo"] == "annuale" else r.get("giorni") if r["tipo"] == "anticipo"
                                           else (r.get("giorno"), r.get("mesi_dopo"))) for r in a["uscite"]}
         if trovate != X["regole"]:
-            errori.append(f"biglietti {slug}: regole diverse da quelle lette il 13/11/2026: {trovate} invece di {X['regole']}")
+            errori.append(f"biglietti {slug}: regole diverse da quelle lette sulle pagine ufficiali: {trovate} invece di {X['regole']}")
         if sorted(a["chiusure"]["md"]) != X.get("chiusure_md", []) or a["chiusure"]["settimana"] != X.get("settimana", []):
-            errori.append(f"biglietti {slug}: chiusure diverse da quelle lette il 13/11/2026")
+            errori.append(f"biglietti {slug}: chiusure diverse da quelle lette sulle pagine ufficiali")
         if X.get("testo") and not a["uscite_testo"]:
             errori.append(f"biglietti {slug}: manca la regola solo citata (senza data calcolata)")
         for fid in G.fonti_big(a):
@@ -3701,7 +3751,7 @@ def controlla_biglietti():
         if not m or unescape(re.sub(r"<[^>]+>", "", m.group(1))) != G.prima_frase_big() or f"last checked on {G.data_lunga(G.BIG['controllato_il'])}" not in unescape(m.group(1)) \
                 or "data-prox=" not in m.group(1) or "data-vecchie=" not in t:
             errori.append(f"{idx}: prima frase diversa dai dati o senza la data")
-        righe = re.findall(r'<tr data-voce id="([a-z-]+)">(.*?)</tr>', t)
+        righe = re.findall(r'<tr data-voce id="([a-z0-9-]+)">(.*?)</tr>', t)
         if [r[0] for r in righe] != [a["slug"] for a in G.BIG_ATT]:
             errori.append(f"{idx}: righe della tabella diverse dalle attrazioni dei dati")
         for (sl, r), a in zip(righe, G.BIG_ATT):
@@ -6288,6 +6338,220 @@ def controlla_grow():
     return errori, c
 
 
+# ---------------------------------------------------------------- 36. Giro dei titoli (14/11/2026)
+# Slug scritti qui a mano (non letti da genera.py): le pagine che il giro dei titoli del 14/11/2026 ha riscritto fuori dai modelli per sezione.
+BIGLIETTI_RITITOLATI = {"vatican-museums": "Vatican Museum Tickets", "sagrada-familia": "Sagrada Familia Tickets",
+                        "anne-frank-house": "Anne Frank House Tickets", "pompeii": "Pompeii Tickets"}
+SEGNI_RISPOSTA = ('id="answer"', 'id="visa"', 'class="cifra"')
+from html import unescape  # noqa: E402
+
+
+def _solo_testo(x):
+    return re.sub(r"\s+", " ", unescape(re.sub(r"<[^>]+>", " ", x))).strip()
+
+
+def controlla_titoli():
+    """36. Giro dei titoli del 14/11/2026 (studio-business/intelaiatura/byf-crescita-2026-11-13.md, sez. 4).
+    a) In tutto il sito: ogni pagina ha un <title> e una descrizione, unici; descrizione <= 160; titolo <= 70 (le sezioni con il limite a 70)
+       e <= 65 per tutte le pagine riscritte in questo giro, salvo le pagine passaporto in cui nessuna forma prevista ci sta.
+    b) Ogni titolo che è una domanda ("?") ha la risposta in pagina: un riquadro di risposta (id="answer"), la sezione #visa o la cifra in alto.
+    c) Titoli-domanda sul visto (passaporto britannico, canadese, australiano): solo se i dati hanno il testo ufficiale sui visti; la pagina
+       ha la sezione #visa con quel testo citato e il link alla pagina ufficiale, e non l'avviso "no visa section"; il nome del Paese del
+       titolo è quello dei dati. Nessuna pagina senza testo sui visti ha il titolo-domanda.
+    d) Uber: "Is There Uber in <Paese>?" con "Yes" solo se il Paese è nella lista ufficiale; la risposta in pagina è quella dei dati.
+    e) TSA: "3.4 oz" e "3-1-1" nel titolo solo con la citazione TSA delle 3,4 once e la nota che spiega "3-1-1"; aeroporti britannici:
+       regola del titolo = regola dei dati (già al punto 14), senza sigla.
+    f) India: la cifra del titolo ("5 Years $X", "e-Medical Fee $X") è quella delle tabelle ufficiali ed è nella tabella della pagina.
+    g) Bagaglio a mano: "(Free)" nel titolo solo se la borsa sotto il sedile è inclusa in ogni tariffa nei dati.
+    h) Indice canadese: "Visa-Free Countries" solo con il conteggio in pagina uguale alle righe "Not required" ricalcolate.
+    i) Biglietti: i 4 titoli riscritti cominciano con la frase misurata; "Every Tuesday, 10am" e "When They Go on Sale" hanno la risposta."""
+    errori = []
+    conti = {"pagine": 0, "domande": 0, "visto": 0, "visto_senza": 0, "uber": 0, "liquidi_uk": 0, "india": 0, "riscritte": 0}
+    titoli, descr = {}, {}
+    pagine = {}
+    for f in sorted(SITO.rglob("*.html")):
+        if f.name.startswith("google"):
+            continue
+        rel = str(f.relative_to(SITO)).replace("\\", "/")
+        t = f.read_text(encoding="utf-8")
+        mt = re.search(r"<title>(.*?)</title>", t, re.S)
+        md = re.search(r'<meta name="description" content="(.*?)">', t, re.S)
+        if not mt or not md or not mt.group(1).strip() or not md.group(1).strip():
+            errori.append(f"{rel}: senza <title> o senza descrizione")
+            continue
+        tit, des = unescape(mt.group(1)), unescape(md.group(1))
+        pagine[rel] = (tit, des, t)
+        conti["pagine"] += 1
+        titoli.setdefault(tit, []).append(rel)
+        descr.setdefault(des, []).append(rel)
+        if len(des) > 160:
+            errori.append(f"{rel}: descrizione di {len(des)} caratteri (> 160)")
+        if len(tit) > 70:
+            errori.append(f"{rel}: titolo di {len(tit)} caratteri (> 70): {tit}")
+        if "?" in tit:
+            conti["domande"] += 1
+            if not any(x in t for x in SEGNI_RISPOSTA):
+                errori.append(f"{rel}: il titolo è una domanda ma la pagina non ha un riquadro di risposta: {tit}")
+    for nome, mappa in (("titolo", titoli), ("descrizione", descr)):
+        for x, dove in mappa.items():
+            if len(dove) > 1:
+                errori.append(f"{nome} uguale in {len(dove)} pagine ({', '.join(dove[:3])}): {x[:80]}")
+
+    def corto(rel, forme=None):
+        """<= 65 caratteri, salvo quando nessuna delle forme previste ci sta."""
+        tit = pagine[rel][0]
+        conti["riscritte"] += 1
+        if len(tit) > 65 and not (forme and all(len(x) > 65 for x in forme)):
+            errori.append(f"{rel}: titolo riscritto di {len(tit)} caratteri (> 65): {tit}")
+        return tit
+
+    def sezione_visto(t):
+        m = re.search(r'<h2 id="visa">(.*?)</h2>(.*?)(?=<h2|<div class="ad-slot"|$)', t, re.S)
+        return (unescape(m.group(1)), m.group(2)) if m else (None, "")
+
+    # c) passaporti
+    casi = [(f"passport-validity/{P['slug']}/index.html", G.titoli_passaporto(P), bool(G.visto(P)["testo"]), "Do I Need a Visa for ",
+             G.nome_frase_uk(P), P["url_ingresso"], f"Do I need a visa for {G.nome_frase_uk(P)} with a British passport?") for P in G.PAESI]
+    for k in G.ESTERI:
+        pop = G.ESTERI[k]["pop"]
+        casi += [(v["url_pag"] + "index.html", G.titoli_estero(v), bool(v["p"]["visto"]["testo"]), f"Do {pop} Need a Visa for ", G.nome_frase(v), v["p"]["url"],
+                  f"Do {pop} need a visa for {G.nome_frase(v)}?") for v in G.VOCI[k]]
+    for rel, forme, con_testo, inizio, nf, url, h2_atteso in casi:
+        if rel not in pagine:
+            errori.append(f"{rel}: pagina passaporto mancante")
+            continue
+        tit, _, t = pagine[rel]
+        corto(rel, forme)
+        domanda = tit.startswith(("Do I Need a Visa", "Do Canadians Need a Visa", "Do Australians Need a Visa")) or re.search(r": Do \w+ Need a Visa\?", tit)
+        h2, corpo_v = sezione_visto(t)
+        if not con_testo:
+            conti["visto_senza"] += 1
+            if domanda or "Need a Visa" in tit:
+                errori.append(f"{rel}: titolo-domanda sul visto ma i dati non hanno il testo ufficiale sui visti: {tit}")
+            continue
+        if not domanda:
+            continue  # nessuna forma con la domanda sta in 65 caratteri: titolo di prima
+        conti["visto"] += 1
+        if tit.startswith("Do ") and not tit.startswith(inizio + nf + "?"):
+            errori.append(f"{rel}: il titolo-domanda non nomina il Paese dei dati («{nf}»): {tit}")
+        if h2 != h2_atteso:
+            errori.append(f"{rel}: sezione #visa senza la domanda attesa «{h2_atteso}»: {h2}")
+        if "<blockquote" not in corpo_v or f'href="{escape(url)}"' not in corpo_v or "no visa section" in corpo_v:
+            errori.append(f"{rel}: titolo-domanda sul visto senza il testo ufficiale citato e il link alla fonte nella sezione #visa")
+        if "do you need a visa" not in _solo_testo(re.search(r"<h1>(.*?)</h1>", t, re.S).group(1)):
+            errori.append(f"{rel}: H1 senza la domanda sul visto")
+    # d) Uber
+    S = next((x for x in G.SERVIZI_SRV if x["slug"] == "uber"), None)
+    for c in (G.pagine_srv(S) if S else []):
+        rel = G.url_srv(S, c) + "index.html"
+        tit, des, t = pagine[rel]
+        corto(rel)
+        conti["uber"] += 1
+        P, st = G.frase_srv(c), G.stato_srv(S, c)[0]
+        if tit != G.scegli(G.titoli_srv(S, c), 65) or not tit.startswith((f"Is There Uber in {P}?", "Uber in ")):
+            errori.append(f"{rel}: titolo Uber non scelto tra le forme previste: {tit}")
+        if ("Yes" in tit.split("?", 1)[-1]) != (st == "si") and "?" in tit and tit.split("?", 1)[-1].strip() != f"({G.ANNO})":
+            errori.append(f"{rel}: «Yes» nel titolo diverso dallo stato della lista ufficiale ({st}): {tit}")
+        m = re.search(r'<p class="lead" id="answer">(.*?)</p>', t, re.S)
+        if not m or unescape(m.group(1)) != G.risposta_srv(S, c) or not unescape(m.group(1)).startswith(("Yes.", "No")) or escape(S["pagina"]) not in t:
+            errori.append(f"{rel}: la risposta in pagina non è quella dei dati o manca il link alla lista ufficiale")
+        if f"<h1>Is there Uber in {escape(P)}?</h1>" not in t:
+            errori.append(f"{rel}: H1 diverso da «Is there Uber in {P}?»")
+        if "cities" in tit.lower() or "Cities" in des.split("?")[0]:
+            errori.append(f"{rel}: il titolo promette le città, che la pagina non elenca")
+    # e) liquidi: TSA e aeroporti britannici
+    tsa = next((a for a in G.AER["nazionali"] if a["slug"] == G.TSA_SLUG), None)
+    if tsa:
+        rel = f"liquids/{tsa['slug']}/index.html"
+        tit, _, t = pagine[rel]
+        corto(rel)
+        if not tit.startswith(f"TSA Liquid Rule {G.ANNO}: 3.4 oz (100 ml)"):
+            errori.append(f"{rel}: titolo TSA senza «TSA Liquid Rule {G.ANNO}: 3.4 oz (100 ml)»: {tit}")
+        if not any("3.4 ounces (100 milliliters)" in x for x in tsa["citazioni"]) or not any("quart-sized bag" in x for x in tsa["citazioni"]):
+            errori.append(f"{rel}: i dati TSA non hanno più le citazioni con «3.4 ounces (100 milliliters)» e «quart-sized bag» su cui poggia il titolo")
+        if any(escape(x) not in t for x in tsa["citazioni"]):
+            errori.append(f"{rel}: citazioni TSA non in pagina")
+        if "3-1-1" in tit and (escape(G.NOTA_311) not in t or "in our words" not in G.NOTA_311):
+            errori.append(f"{rel}: «3-1-1» nel titolo senza la nota che lo spiega (dichiarata come parole nostre)")
+    for a in G.AER["aeroporti"]:
+        if a.get("paese") != "United Kingdom":
+            continue
+        rel = f"liquids/{a['slug']}/index.html"
+        tit = corto(rel)
+        conti["liquidi_uk"] += 1
+        if f"({a['iata']})" in tit or f"Liquid Rules {G.ANNO}" not in tit or not tit.startswith(G.nome_titolo(a)):
+            errori.append(f"{rel}: titolo britannico con la sigla, senza «Liquid Rules {G.ANNO}» o senza il nome: {tit}")
+        if ("2 Litres" in tit) != (a["regola"] in ("2l", "dipende", "contraddice")) and ":" in tit:
+            errori.append(f"{rel}: la regola del titolo non è quella dei dati ({a['regola']}): {tit}")
+    # f) India
+    for g in (G.IN_PAGINE if G.IN else []):
+        rel = G.url_in(g) + "index.html"
+        tit, _, t = pagine[rel]
+        corto(rel)
+        conti["india"] += 1
+        p = G.IN_PER[g["iso2"]]
+        if tit != G.scegli(G.titoli_in(g), 65) or not tit.startswith(("India e-Visa for ", "India Visa for ", "India e-Visa Fee")):
+            errori.append(f"{rel}: titolo India non scelto tra le forme previste: {tit}")
+        m = re.search(r"(5 Years|e-Medical Fee) (\$[\d,.]+)", tit)
+        if m:
+            atteso = G.usd(G.val_in(p, "tv5" if m.group(1) == "5 Years" else "medico"))
+            if m.group(2) != atteso or f'<td class="n">{escape(atteso)}</td>' not in t:
+                errori.append(f"{rel}: la cifra del titolo ({m.group(2)}) non è quella della tabella ufficiale ({atteso}) o non è nella tabella della pagina")
+        if "How to Apply" in tit:
+            errori.append(f"{rel}: il titolo promette «How to Apply», che la pagina non spiega")
+    if G.IN:
+        rel = f"{G.IN_BASE}/index.html"
+        if "e-Tourist Visa" not in corto(rel) or "e-Tourist" not in _solo_testo(pagine[rel][2]):
+            errori.append(f"{rel}: titolo dell'indice India senza «e-Tourist Visa»")
+    # g) bagaglio a mano
+    for C in G.COMPAGNIE:
+        if C["slug"] not in G.PRIMA_PERSONAL_ITEM | G.NOME_INTERO_BAG:
+            continue
+        rel = f"{G.BAG_BASE}/{C['slug']}/index.html"
+        tit = corto(rel)
+        sotto = next((b for b in C["borse"] if b["tipo"] == "sotto"), None)
+        if "(Free)" in tit and not (sotto and sotto.get("incluso") == "tutte"):
+            errori.append(f"{rel}: «(Free)» nel titolo ma la borsa sotto il sedile non è inclusa in ogni tariffa nei dati")
+        if C["slug"] in G.PRIMA_PERSONAL_ITEM and not tit.startswith(f"{C['nome'].replace(' Airlines', '')} Personal Item Size {G.ANNO}"):
+            errori.append(f"{rel}: titolo senza «Personal Item Size» in testa: {tit}")
+    # h) indici: driving abroad e passaporto canadese
+    rel = f"{G.PAT_BASE}/index.html"
+    if rel in pagine:
+        tit, _, t = pagine[rel]
+        corto(rel)
+        if "International Driving Permit" not in tit or str(G.ANNO) not in tit:
+            errori.append(f"{rel}: titolo senza «International Driving Permit» o senza l'anno: {tit}")
+        if "Which Countries" in tit and len(re.findall(r"<tr data-voce", t)) < 100:
+            errori.append(f"{rel}: «Which Countries Need One?» nel titolo senza la tabella Paese per Paese")
+    for k in G.ESTERI:
+        rel = f"{G.ESTERI[k]['base']}/index.html"
+        if rel not in pagine:
+            continue
+        tit, _, t = pagine[rel]
+        corto(rel)
+        n_nr = sum(1 for v in G.VOCI[k] if G.breve_visto_estero(v).startswith("Not required"))
+        if "Visa-Free" in tit:
+            righe = len(re.findall(r'<td data-l="Visa">Not required', t))
+            if n_nr < 40 or righe != n_nr or f"{n_nr} destinations are marked “Not required”" not in t:
+                errori.append(f"{rel}: «Visa-Free Countries» nel titolo ma le righe «Not required» ({righe}) non sono quelle ricalcolate ({n_nr}) o sono meno di 40")
+    # i) biglietti
+    for a in G.BIG_ATT:
+        if a["slug"] not in BIGLIETTI_RITITOLATI:
+            continue
+        rel = f"{G.BIG_BASE}/{a['slug']}/index.html"
+        tit = corto(rel)
+        cit = " ".join(c["x"] for c in a["citazioni"])
+        if not tit.startswith(BIGLIETTI_RITITOLATI[a["slug"]] + f" {G.STAGIONE_BIG}:") or tit != a["titolo"]:
+            errori.append(f"{rel}: titolo senza la frase misurata «{BIGLIETTI_RITITOLATI[a['slug']]}» in testa: {tit}")
+        if "Every Tuesday, 10am" in tit and not ("Tuesday" in cit and re.search(r"10(:00)? ?a\.?m", cit, re.I)):
+            errori.append(f"{rel}: «Every Tuesday, 10am» nel titolo senza una citazione ufficiale che lo dice")
+        if "When They Go on Sale" in tit and not re.search(r"two months|months before|days before|weeks before|in advance", a["risposta"] + " " + cit):
+            errori.append(f"{rel}: «When They Go on Sale» nel titolo senza la risposta (quanto prima si comprano) nei dati")
+        if "Free Sundays" in tit and "Sunday" not in cit:
+            errori.append(f"{rel}: «Free Sundays» nel titolo senza una citazione ufficiale sulle domeniche gratuite")
+    return errori, conti
+
+
 def main():
     e1 = controlla_casi()
     print(f"1. Casi del passaporto calcolati a mano: {len(CASI)}, {len(e1)} errori")
@@ -6442,9 +6706,15 @@ def main():
           f"{c35['pagine']} (fuori indice: {c35['fuori_indice']}; lingue: {', '.join(f'{k} {v}' for k, v in sorted(c35['lingue'].items()))}), "
           f"un solo tag e ID del sito {GROW_ID_ATTESO[:12]}… in ogni pagina, privacy con Grow e link all'informativa di Mediavine, "
           f"Content-Security-Policy: {c35['csp']}: {len(e35)} errori")
+    e36, c36 = controlla_titoli()
+    print(f"36. Giro dei titoli: {c36['pagine']} pagine con titolo e descrizione unici (descrizioni <= 160, titoli <= 70); {c36['riscritte']} pagine "
+          f"riscritte con titolo <= 65 (salvo i nomi che non ci stanno); {c36['domande']} titoli-domanda tutti con la risposta in pagina; "
+          f"{c36['visto']} titoli «Need a Visa» con il testo ufficiale citato nella sezione #visa ({c36['visto_senza']} pagine senza testo sui visti "
+          f"senza la domanda); Uber {c36['uber']}, liquidi britannici {c36['liquidi_uk']} + TSA, India {c36['india']} + indice, bagagli, "
+          f"indici e biglietti: {len(e36)} errori")
     e19, i19 = G.MON.controlla_sito(G.SITO_ID, SITO)  # controllo comune di monetizzazione (monetizzazione.py)
     print("19. " + G.MON.riepilogo(G.SITO_ID, i19, e19))
-    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28 + e29 + e30 + e31 + e32 + e33 + e34 + e35
+    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28 + e29 + e30 + e31 + e32 + e33 + e34 + e35 + e36
     if AVVISI:  # ricalcoli dalle copie salvati saltati (copia mancante, pagina di blocco, raccolta che non ha aggiornato il JSON): non sono errori
         per_punto = {}
         for k, _ in AVVISI:

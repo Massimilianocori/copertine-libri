@@ -1,0 +1,150 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Before You Fly//Ticket release dates//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Colosseum: ticket releases and closures
+X-WR-TIMEZONE:Europe/Rome
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:colosseum-gratis-prima_domenica-2026-12-06@before-you-fly.com
+DTSTAMP:20261118T000000Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:Colosseum: free entry
+DESCRIPTION:Official rule: “Free admission: first Sunday of the month\, 2
+ 5 April\, 2 June\, 4 November Free tickets cannot be booked but can be col
+ lected at the ticket offices.”\nSource: https://colosseo.it/en/opening-t
+ imes-and-tickets/\, https://colosseo.it/en/tickets/colosseum-roman-forum-p
+ alatine/ (checked on 14 November 2026)\nDate calculated by Before You Fly 
+ from the official rule. Rules can change: check the official page before y
+ ou book.\nOfficial tickets: https://ticketing.colosseo.it/en/\nhttps://bef
+ ore-you-fly.com/ticket-release-dates/colosseum/
+URL:https://before-you-fly.com/ticket-release-dates/colosseum/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:colosseum-chiusura-chiusure-2026-12-25@before-you-fly.com
+DTSTAMP:20261118T000000Z
+DTSTART;VALUE=DATE:20261225
+DTEND;VALUE=DATE:20261226
+SUMMARY:Colosseum: closed
+DESCRIPTION:Official rule: “Closed: 25 December 2026 1 January 2027”\nS
+ ource: https://colosseo.it/en/opening-times-and-tickets/ (checked on 14 No
+ vember 2026)\nDate calculated by Before You Fly from the official rule. Ru
+ les can change: check the official page before you book.\nOfficial tickets
+ : https://ticketing.colosseo.it/en/\nhttps://before-you-fly.com/ticket-rel
+ ease-dates/colosseum/
+URL:https://before-you-fly.com/ticket-release-dates/colosseum/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:colosseum-chiusura-chiusure-2027-01-01@before-you-fly.com
+DTSTAMP:20261118T000000Z
+DTSTART;VALUE=DATE:20270101
+DTEND;VALUE=DATE:20270102
+SUMMARY:Colosseum: closed
+DESCRIPTION:Official rule: “Closed: 25 December 2026 1 January 2027”\nS
+ ource: https://colosseo.it/en/opening-times-and-tickets/ (checked on 14 No
+ vember 2026)\nDate calculated by Before You Fly from the official rule. Ru
+ les can change: check the official page before you book.\nOfficial tickets
+ : https://ticketing.colosseo.it/en/\nhttps://before-you-fly.com/ticket-rel
+ ease-dates/colosseum/
+URL:https://before-you-fly.com/ticket-release-dates/colosseum/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:colosseum-gratis-prima_domenica-2027-01-03@before-you-fly.com
+DTSTAMP:20261118T000000Z
+DTSTART;VALUE=DATE:20270103
+DTEND;VALUE=DATE:20270104
+SUMMARY:Colosseum: free entry
+DESCRIPTION:Official rule: “Free admission: first Sunday of the month\, 2
+ 5 April\, 2 June\, 4 November Free tickets cannot be booked but can be col
+ lected at the ticket offices.”\nSource: https://colosseo.it/en/opening-t
+ imes-and-tickets/\, https://colosseo.it/en/tickets/colosseum-roman-forum-p
+ alatine/ (checked on 14 November 2026)\nDate calculated by Before You Fly 
+ from the official rule. Rules can change: check the official page before y
+ ou book.\nOfficial tickets: https://ticketing.colosseo.it/en/\nhttps://bef
+ ore-you-fly.com/ticket-release-dates/colosseum/
+URL:https://before-you-fly.com/ticket-release-dates/colosseum/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:colosseum-gratis-prima_domenica-2027-02-07@before-you-fly.com
+DTSTAMP:20261118T000000Z
+DTSTART;VALUE=DATE:20270207
+DTEND;VALUE=DATE:20270208
+SUMMARY:Colosseum: free entry
+DESCRIPTION:Official rule: “Free admission: first Sunday of the month\, 2
+ 5 April\, 2 June\, 4 November Free tickets cannot be booked but can be col
+ lected at the ticket offices.”\nSource: https://colosseo.it/en/opening-t
+ imes-and-tickets/\, https://colosseo.it/en/tickets/colosseum-roman-forum-p
+ alatine/ (checked on 14 November 2026)\nDate calculated by Before You Fly 
+ from the official rule. Rules can change: check the official page before y
+ ou book.\nOfficial tickets: https://ticketing.colosseo.it/en/\nhttps://bef
+ ore-you-fly.com/ticket-release-dates/colosseum/
+URL:https://before-you-fly.com/ticket-release-dates/colosseum/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:colosseum-gratis-prima_domenica-2027-03-07@before-you-fly.com
+DTSTAMP:20261118T000000Z
+DTSTART;VALUE=DATE:20270307
+DTEND;VALUE=DATE:20270308
+SUMMARY:Colosseum: free entry
+DESCRIPTION:Official rule: “Free admission: first Sunday of the month\, 2
+ 5 April\, 2 June\, 4 November Free tickets cannot be booked but can be col
+ lected at the ticket offices.”\nSource: https://colosseo.it/en/opening-t
+ imes-and-tickets/\, https://colosseo.it/en/tickets/colosseum-roman-forum-p
+ alatine/ (checked on 14 November 2026)\nDate calculated by Before You Fly 
+ from the official rule. Rules can change: check the official page before y
+ ou book.\nOfficial tickets: https://ticketing.colosseo.it/en/\nhttps://bef
+ ore-you-fly.com/ticket-release-dates/colosseum/
+URL:https://before-you-fly.com/ticket-release-dates/colosseum/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:colosseum-gratis-prima_domenica-2027-04-04@before-you-fly.com
+DTSTAMP:20261118T000000Z
+DTSTART;VALUE=DATE:20270404
+DTEND;VALUE=DATE:20270405
+SUMMARY:Colosseum: free entry
+DESCRIPTION:Official rule: “Free admission: first Sunday of the month\, 2
+ 5 April\, 2 June\, 4 November Free tickets cannot be booked but can be col
+ lected at the ticket offices.”\nSource: https://colosseo.it/en/opening-t
+ imes-and-tickets/\, https://colosseo.it/en/tickets/colosseum-roman-forum-p
+ alatine/ (checked on 14 November 2026)\nDate calculated by Before You Fly 
+ from the official rule. Rules can change: check the official page before y
+ ou book.\nOfficial tickets: https://ticketing.colosseo.it/en/\nhttps://bef
+ ore-you-fly.com/ticket-release-dates/colosseum/
+URL:https://before-you-fly.com/ticket-release-dates/colosseum/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:colosseum-gratis-prima_domenica-2027-05-02@before-you-fly.com
+DTSTAMP:20261118T000000Z
+DTSTART;VALUE=DATE:20270502
+DTEND;VALUE=DATE:20270503
+SUMMARY:Colosseum: free entry
+DESCRIPTION:Official rule: “Free admission: first Sunday of the month\, 2
+ 5 April\, 2 June\, 4 November Free tickets cannot be booked but can be col
+ lected at the ticket offices.”\nSource: https://colosseo.it/en/opening-t
+ imes-and-tickets/\, https://colosseo.it/en/tickets/colosseum-roman-forum-p
+ alatine/ (checked on 14 November 2026)\nDate calculated by Before You Fly 
+ from the official rule. Rules can change: check the official page before y
+ ou book.\nOfficial tickets: https://ticketing.colosseo.it/en/\nhttps://bef
+ ore-you-fly.com/ticket-release-dates/colosseum/
+URL:https://before-you-fly.com/ticket-release-dates/colosseum/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

@@ -1,6 +1,14 @@
 {
  "cambi": [
   {
+   "rilevato_il": "2026-11-16",
+   "iso2": "NG",
+   "patente": "uk",
+   "esito_prima": "dipende",
+   "esito_dopo": "dipende",
+   "testo_cambiato": true
+  },
+  {
    "rilevato_il": "2026-11-10",
    "iso2": "SZ",
    "patente": "uk",

@@ -971,9 +971,14 @@ def nota_ees(P):
             f'ETIAS is not in operation yet. Details and sources: <a href="../../ees-etias/">EES and ETIAS status</a> (checked on {data_lunga(EES["controllato_il"])}).</p>')
 
 
+def nome_frase_uk(P):
+    """Nome FCDO dentro una frase: "the Maldives", "the USA" (nome_frase), tranne i nomi che l'articolo renderebbe goffi."""
+    return P["nome"] if P["nome"].startswith("South Georgia") else nome_frase(P)
+
+
 def sezione_visto(P):
     V = visto(P)
-    dom = f'<h2 id="visa">Do I need a visa for {escape(P["nome"])} with a British passport?</h2>'
+    dom = f'<h2 id="visa">Do I need a visa for {escape(nome_frase_uk(P))} with a British passport?</h2>'
     if not V["testo"]:
         return (dom + f'<p class="avviso">The FCDO entry requirements page for {escape(P["nome"])} had no “Visa requirements” section when we checked it on '
                 f'{data_lunga(PASS["controllato_il"])}, so we have nothing to quote. Read the <a href="{escape(P["url"])}" rel="noopener">full FCDO travel advice on GOV.UK</a> '
@@ -1002,18 +1007,31 @@ def sezione_visto(P):
 
 
 def titoli_passaporto(P):
+    """Giro dei titoli del 14/11/2026 (byf-crescita-2026-11-13.md, sez. 4): la domanda cercata ("do i need a visa for turkey" 5.400 al mese
+    nel Regno Unito; "do brits need a visa for" 0) in testa, SOLO se la pagina ha il testo FCDO sui visti (la risposta è nel riquadro in alto
+    e nella sezione #visa); altrimenti restano le forme di prima."""
     n = P["nome"]
-    return [f"{n} Visa & Passport Validity for British Passport Holders {ANNO}", f"{n} Visa & Passport Validity for British Citizens {ANNO}",
+    nf = nome_frase_uk(P)  # "the Maldives", "the USA"
+    domanda = ([f"Do I Need a Visa for {nf}? British Passport Rules ({ANNO})", f"Do I Need a Visa for {nf}? UK Passport Rules ({ANNO})",
+                f"Do I Need a Visa for {nf}? UK Passport ({ANNO})"] if visto(P)["testo"] else [])
+    return domanda + [f"{n} Visa & Passport Validity for British Passport Holders {ANNO}", f"{n} Visa & Passport Validity for British Citizens {ANNO}",
             f"{n} Visa & Passport Rules for UK Citizens {ANNO}", f"{n} Visa & Passport Rules {ANNO}", f"{n} Visa & Passport {ANNO}"]
+
+
+def h1_passaporto(P):
+    if visto(P)["testo"]:
+        return f"{P['nome']} entry requirements for British passport holders ({ANNO}): do you need a visa, and passport validity"
+    return f"{P['nome']} entry requirements for British passport holders ({ANNO}): visa and passport validity"
 
 
 def descrizioni_passaporto(P, sint):
     n, R = P["nome"], P["regola"]
+    nf = nome_frase_uk(P)  # come nel titolo e nella domanda della sezione: "the Maldives", "the USA" (revisione del 14/11/2026)
     V = visto(P)
     vis = V["sintesi"] or ("The FCDO visa text is quoted word for word" if V["testo"] else "The FCDO page has no visa section")
-    return [f"Do you need a visa for {n} with a British passport? {vis}. Passport validity: {sint}. Official FCDO text, with dates.",
-            f"Do you need a visa for {n} with a British passport? {vis}. Plus the FCDO passport validity rule{' and a date checker' if R else ''}.",
-            f"Do you need a visa for {n} with a British passport? Official FCDO visa and passport validity text, quoted with dates.",
+    return [f"Do you need a visa for {nf} with a British passport? {vis}. Passport validity: {sint}. Official FCDO text, with dates.",
+            f"Do you need a visa for {nf} with a British passport? {vis}. Plus the FCDO passport validity rule{' and a date checker' if R else ''}.",
+            f"Do you need a visa for {nf} with a British passport? Official FCDO visa and passport validity text, quoted with dates.",
             f"{n} visa and passport validity for British passport holders ({ANNO}): FCDO text quoted, with dates."]
 
 
@@ -1074,7 +1092,7 @@ def pagina_paese(P):
     V = visto(P)
     riga_visto = (f'<p class="cifra" style="margin-top:14px">Visa (FCDO): <strong>{escape(V["sintesi"])}.</strong> <a href="#visa">Official visa text</a></p>' if V["sintesi"] else
                   f'<p class="cifra" style="margin-top:14px">Visa (FCDO): <strong><a href="#visa">{"Read the official visa text below" if V["testo"] else "No visa section on the FCDO page"}</a></strong></p>')
-    corpo = f"""<section class="hero"><h1>{escape(P['nome'])} entry requirements for British passport holders ({ANNO}): visa and passport validity</h1></section>
+    corpo = f"""<section class="hero"><h1>{escape(h1_passaporto(P))}</h1></section>
 <section class="card summary" aria-label="Summary">
 <div class="s-top"><span class="sq">{ico("passport")}</span><span>FCDO · British passport</span><span>Updated {data_lunga(P["aggiornata"])}</span></div>
 <div class="s-body">
@@ -1212,7 +1230,8 @@ def _uk_di(k, p):
 
 
 CON_ARTICOLO = {"USA", "Netherlands", "Philippines", "Bahamas", "Maldives", "Dominican Republic", "Central African Republic", "Comoros", "Azores",
-                "Democratic Republic of the Congo", "Republic of Congo", "Republic of the Congo", "Seychelles", "Czech Republic", "Vatican City", "Gambia"}
+                "Democratic Republic of the Congo", "Republic of Congo", "Republic of the Congo", "Seychelles", "Czech Republic", "Vatican City", "Gambia",
+                "Northern Marianas", "Virgin Islands (U.S.)"}
 
 
 def nome_frase(v):
@@ -1477,10 +1496,25 @@ def sezione_validita_estera(v):
 
 
 def titoli_estero(v):
+    """Giro dei titoli del 14/11/2026: la domanda cercata in testa ("do canadians need a visa for thailand" 1.000-1.300 al mese in Canada,
+    "do australians need a visa for japan" 5.400 in Australia), SOLO se la pagina cita il testo ufficiale sui visti (sezione #visa, che ha
+    la stessa domanda come titolo); "entry requirements" resta nell'H1."""
     n, pop = v["nome"], ESTERI[v["k"]]["pop"]
-    return [f"{n} Entry Requirements for {pop} {ANNO}: Visa & Passport", f"{n} Entry Rules for {pop} {ANNO}: Visa & Passport",
+    nf = nome_frase(v)
+    domanda = ([f"Do {pop} Need a Visa for {nf}? ({ANNO}) Entry Rules", f"Do {pop} Need a Visa for {nf}? ({ANNO})",
+                f"{n}: Do {pop} Need a Visa? ({ANNO})"] if v["p"]["visto"]["testo"] else [])
+    return domanda + [f"{n} Entry Requirements for {pop} {ANNO}: Visa & Passport", f"{n} Entry Rules for {pop} {ANNO}: Visa & Passport",
             f"{n} Entry Requirements for {pop} {ANNO}",
             f"{n} Visa & Passport for {pop} {ANNO}", f"{n}: Entry Rules for {pop} {ANNO}", f"{n} for {pop} {ANNO}"]
+
+
+def h1_estero(v):
+    """H1: "<Paese> entry requirements" (cercato: 2.400 al mese nel Regno Unito per la Thailandia) più la domanda sul visto, se la pagina
+    ha il testo ufficiale che le risponde."""
+    c = ESTERI[v["k"]]
+    if v["p"]["visto"]["testo"]:
+        return f"{v['nome']} entry requirements for {c['pop']} ({ANNO}): do you need a visa, and passport validity"
+    return f"{v['nome']} entry requirements for {c['agg']} passport holders ({ANNO}): visa and passport validity"
 
 
 def descrizioni_estero(v):
@@ -1524,7 +1558,7 @@ def pagina_estera(v):
     aggiornata = p.get("aggiornata")
     lead = (f"Whether {c['pop']} need a visa for {escape(nome_frase(v))} and how long {c['un']} {c['agg']} passport must be valid, as published by {escape(c['ente_frase'])}, "
             "quoted word for word with the date of the official page.")
-    corpo = f"""<section class="hero"><h1>{n} entry requirements for {c['agg']} passport holders ({ANNO}): visa and passport validity</h1></section>
+    corpo = f"""<section class="hero"><h1>{escape(h1_estero(v))}</h1></section>
 <section class="card summary" aria-label="Summary">
 <div class="s-top"><span class="sq">{ico("passport")}</span><span>{escape(c["icona_top"])}</span><span>{"Updated " + data_lunga(aggiornata) if aggiornata else ""}</span></div>
 <div class="s-body">
@@ -1581,9 +1615,20 @@ def indice_estero(k):
         spiega = (f"Smartraveller writes its advice in prose, so we summarise very little: {n_vis} visa summaries and {n_val} passport validity summaries, only where the official "
                   "sentence matches a fixed wording. For most destinations Smartraveller gives only its general passport advice (“Many countries require your passport to be "
                   "valid for at least 6 months…”), which we quote as general advice, not as a rule of the country.")
-    corpo = f"""<section class="hero">{h1_diviso(f"{c['agg']} passport: visa and passport validity rules for every destination ({ANNO})")}
+    # Giro dei titoli del 14/11/2026: "canadian passport visa free countries" 4.400 ricerche al mese in Canada. Il titolo lo dice solo dove la
+    # tabella lo regge (Canada: decine di righe "Not required" ricavate dalla riga ufficiale "Tourist visa"; Australia: 3, il titolo resta).
+    n_nr = sum(1 for v in voci if breve_visto_estero(v).startswith("Not required"))
+    n_req = sum(1 for v in voci if breve_visto_estero(v) == "Required")
+    senza_visto = n_nr >= 40
+    h1 = (f"{c['agg']} passport visa-free countries ({ANNO}): visa and passport validity rules for every destination" if senza_visto else
+          f"{c['agg']} passport: visa and passport validity rules for every destination ({ANNO})")
+    conta = (f'<p class="lead">Visa-free destinations: in the table below, {n_nr} destinations are marked “Not required”, because the official “Tourist visa” line says '
+             f"{c['pop']} do not need a visa there, often only for a limited stay; {n_req} are marked “Required”. For the others the official text adds an "
+             "electronic authorization, an e-visa, a form or a fee, so we quote it without a one-word label: open the destination to read it.</p>"
+             if senza_visto else "")
+    corpo = f"""<section class="hero">{h1_diviso(h1)}
 <p class="lead">Do {c['pop']} need a visa, and how long must {c['un']} {c['agg']} passport be valid? For {len(voci)} destinations, the text of {escape(c['ente_frase'])}, quoted word for word, with the date of each official page.</p>
-<p class="lead">{spiega}</p>
+{conta}<p class="lead">{spiega}</p>
 {fonte}
 </section>
 {avviso_estero(k, rel)}
@@ -1595,9 +1640,13 @@ def indice_estero(k):
 {senza_pagina}
 <p>Other passports: <a href="{rel}passport-validity/">British passport (FCDO)</a> · {" · ".join(f'<a href="{rel}{ESTERI[j]["base"]}/">{ESTERI[j]["agg"]} passport</a>' for j in ESTERI if j != k and VOCI[j])}</p>
 {box_affiliati()}"""
-    titolo = f"{c['agg']} Passport: Visa & Passport Rules by Country {ANNO}"
+    vecchio = f"{c['agg']} Passport: Visa & Passport Rules by Country {ANNO}"
+    titolo = scegli([f"{c['agg']} Passport Visa-Free Countries {ANNO}: Rules for Every Country", f"{c['agg']} Passport Visa-Free Countries {ANNO}: Official Rules",
+                     vecchio], LIMITE_TITOLO) if senza_visto else vecchio
     pagina(f"{c['base']}/", titolo,
-           f"Do {c['pop']} need a visa? How long must {c['un']} {c['agg']} passport be valid? Official rules for {len(voci)} destinations, quoted word for word, with dates.",
+           (f"{c['agg']} passport visa-free countries: {n_nr} destinations where the official tourist visa line says no visa is needed. Visa and "
+            f"passport rules for all {len(voci)}, dated." if senza_visto else
+            f"Do {c['pop']} need a visa? How long must {c['un']} {c['agg']} passport be valid? Official rules for {len(voci)} destinations, quoted word for word, with dates."),
            corpo, briciole=[(f"{c['agg']} passport", f"{c['base']}/")], js=MOTORE_JS + APP_JS)
 
 
@@ -2210,13 +2259,29 @@ def dipende_da(A):
     return etichetta(A).lower().replace("depends on ", "").strip() or "checkpoint"
 
 
+TSA_SLUG = "us-airports-tsa"
+# "3-1-1" è il nome con cui si cerca la regola TSA: spiegato con parole nostre e dichiarato come tale; i due limiti (3,4 once e la busta da
+# un quarto) sono nella citazione TSA della pagina.
+NOTA_311 = ("Travellers usually call this the “3-1-1 rule”: containers of 3.4 ounces (100 ml) or less, in 1 quart-sized bag, 1 bag per traveller. "
+            "“3-1-1” is the common name, in our words; the 3.4-ounce limit and the quart-sized bag are in the TSA text quoted below.")
+
+
 def titoli_liquidi(A, nazionale=False):
     """Titoli scritti come le ricerche ('<aeroporto> liquid rules 2026', '100ml'), con la regola vera nel titolo; la prima forma che sta in 65 caratteri."""
     if nazionale:
         x, e = SIGLA_PAESE.get(A["paese"], A["paese"]), sigla_ente(A)
+        if A["slug"] == TSA_SLUG:  # 14/11/2026: "tsa liquid rule" 165.000 ricerche al mese negli USA, "3-1-1 rule" 6.600; "100ml" lì non si cerca
+            return [f"TSA Liquid Rule {ANNO}: 3.4 oz (100 ml) and the 3-1-1 Rule", f"TSA Liquid Rule {ANNO}: 3.4 oz (100 ml)"]
         return [f"{x} Airport Liquid Rules {ANNO} ({e}): 100ml Limit Still Applies", f"{x} Airport Liquid Rules {ANNO} ({e}): 100ml Limit",
                 f"{x} Airport Liquid Rules {ANNO} ({e})"]
     n, i, r = nome_titolo(A), A["iata"], A["regola"]
+    if A.get("paese") == "United Kingdom":
+        # 14/11/2026: nel Regno Unito si cerca "<nome> airport liquids" / "liquid rules" (Manchester 4.400 e 2.400 al mese, Gatwick 3.600,
+        # Heathrow 2.400), mai con la sigla: titolo senza sigla (la sigla resta nell'H1 e nella pagina).
+        coda = {"2l": ["2 Litres Allowed, Not 100ml", "Up to 2 Litres"], "100ml": ["100ml Limit Still Applies", "100ml Limit"],
+                "dipende": [f"100ml or 2 Litres by {dipende_da(A).capitalize()}"], "contraddice": ["100ml or 2 Litres? Pages Disagree", "100ml or 2 Litres?"]}[r]
+        return ([f"{n} Airport Liquid Rules {ANNO}: {c}" for c in coda] + [f"{n} Liquid Rules {ANNO}: {c}" for c in coda] +
+                [f"{n} Airport Liquid Rules {ANNO}"])
     if r == "2l":
         code = [f"{n} Airport ({i}) Liquid Rules {ANNO}: 2 Litres Allowed, Not 100ml", f"{n} ({i}) Liquid Rules {ANNO}: 2 Litres Allowed, Not 100ml",
                 f"{n} ({i}) Liquid Rules {ANNO}: Up to 2 Litres"]
@@ -2235,6 +2300,8 @@ def titoli_liquidi(A, nazionale=False):
 
 def h1_liquidi(A, nazionale=False):
     """H1 coerente con il titolo: nome completo, sigla, 'liquid rules 2026', '100ml' e 'hand luggage' come scrive chi cerca."""
+    if nazionale and A["slug"] == TSA_SLUG:
+        return f"TSA liquid rule {ANNO}: 3.4 oz (100 ml) per container in carry-on bags at US airports, the 3-1-1 rule"
     if nazionale:
         return f"{A['paese']} airport liquid rules {ANNO} ({sigla_ente(A)}): the 100ml limit for liquids in hand luggage"
     n, i, r = A["nome"], A["iata"], A["regola"]
@@ -2261,6 +2328,9 @@ def frase_diretta(A, nazionale=False):
 
 def descrizioni_liquidi(A, nazionale=False):
     d, r, sx, c = dove_liq(A, nazionale), risposta_liq(A), A["sintesi"], data_lunga(A["controllato_il"])
+    if nazionale and A["slug"] == TSA_SLUG:
+        return [f"TSA liquid rule (the 3-1-1 rule) for carry-on bags at US airports: {sx}. TSA page quoted word for word, checked {c}.",
+                f"TSA liquid rule (3-1-1) at US airports: {sx}. TSA page quoted, checked {c}."]
     return [f"Can you take liquids over 100ml in hand luggage at {d}? {r}. {sx}. Official page quoted word for word, checked {c}.",
             f"Can you take liquids over 100ml in hand luggage at {d}? {r}. {sx}. Official page quoted, checked {c}.",
             f"Liquids over 100ml in hand luggage at {d}? {r}. {sx}. Official page quoted.",
@@ -2375,6 +2445,8 @@ def faq_liquidi(A, nazionale=False):
         if chiave in A.get("faq_salta", []):  # domanda che non si adatta a questa pagina (es. Zurigo: dipende dal viaggio, non dal varco)
             continue
         q = dom.format(d=d, anno=ANNO)
+        if nazionale and q.startswith("Does "):  # "US airports" è plurale: "Do US airports have…" (revisione del 14/11/2026)
+            q = "Do " + q[5:]
         if chiave == "limite":
             ff = list(pool) if A["regola"] in ("dipende", "contraddice") else list(A["citazioni"])
             voci[chiave] = (q, frase_risposta(A), [(pre, ff)])
@@ -2507,7 +2579,7 @@ def pagina_aeroporto(A, nazionale=False):
 <div class="s-top"><span class="sq">{ico("bottle")}</span><span>Liquids · hand luggage</span><span>{escape(A.get("iata") or A.get("paese") or "")}</span></div>
 <div class="s-body">
 <p class="cifra">Can I take liquids over 100 ml through security at {escape(dove_liq(A, nazionale))}? <strong>{escape(frase_risposta(A))} {badge(A['regola'], A)}</strong></p>
-<p class="lead">{escape(frase_diretta(A, nazionale))}{escape(FONTE_GRUPPO.get(A.get('gestore'), ''))}</p>
+<p class="lead">{escape(frase_diretta(A, nazionale))}{escape(FONTE_GRUPPO.get(A.get('gestore'), ''))}</p>{f'<p class="small" id="rule-311">{escape(NOTA_311)}</p>' if nazionale and A["slug"] == TSA_SLUG else ""}
 {fonte_liq(A)}
 </div>
 </section>
@@ -2775,6 +2847,10 @@ def risposta_bag(C):
     return f"{C['nome']} free carry-on: {m} in the overhead bin"
 
 
+PRIMA_PERSONAL_ITEM = {"frontier"}
+NOME_INTERO_BAG = {"american-airlines"}
+
+
 def titoli_bag(C):
     n = C["nome"].replace(" Airlines", "").replace(" Air Lines", "")
     s, o = borsa_gratis(C, "sotto"), borsa_gratis(C, "sopra")
@@ -2782,12 +2858,27 @@ def titoli_bag(C):
     if nordamerica(C):
         if s and alt:
             a, p_ = misura_breve(alt, C), misura_breve(s, C)
+            if C["slug"] in PRIMA_PERSONAL_ITEM and alt["incluso"] != "tutte":
+                # 14/11/2026: per Frontier si cerca la borsa gratuita ("frontier personal item size" 60.500 al mese negli USA, "personal item
+                # dimensions frontier" 74.000) più del carry-on (27.100). Per Southwest, Delta e American è il contrario (60.500, 90.500 e
+                # 110.000 contro 9.900, 18.100 e 14.800): i loro titoli restano con "Carry-On Size" in testa.
+                return [f"{n} Personal Item Size {ANNO}: {p_} (Free) & Carry-On {a}", f"{n} Personal Item Size {ANNO}: {p_} (Free) & Carry-On",
+                        f"{n} Personal Item Size {ANNO}: {p_} (Free)", f"{n} Personal Item & Carry-On Size {ANNO}"]
+            if C["slug"] in NOME_INTERO_BAG:  # "american airlines carry on size" 110.000: il nome come lo si cerca
+                n = C["nome"]
             return [f"{n} Carry-On Size {ANNO}: {a} + {p_} Personal Item", f"{n} Carry-On Size {ANNO}: {a.replace(' in', '')} & {p_.replace(' in', '')} in",
                     f"{n} Carry-On & Personal Item Size {ANNO}", f"{n} Carry-On Size {ANNO}"]
         return [f"{n} Carry-On Size {ANNO}: {misura_breve(o, C)} & Personal Item", f"{n} Carry-On Size {ANNO}: {misura_breve(o, C)}", f"{n} Carry-On Size {ANNO}"]
     if s:
         return [f"{n} Cabin Bag Size {ANNO}: Free Bag {misura_breve(s)}", f"{n} Hand Luggage Size {ANNO}: {misura_breve(s)}", f"{n} Cabin Bag Size {ANNO}"]
     return [f"{n} Cabin Bag Size {ANNO}: Carry-On {misura_breve(o)}", f"{n} Cabin Bag Size {ANNO}"]
+
+
+def h1_bag(C):
+    if C["slug"] in PRIMA_PERSONAL_ITEM:
+        return f"{C['nome']} personal item size {ANNO}: free personal item and carry-on by fare"
+    return (f"{C['nome']} {'carry-on size' if nordamerica(C) else 'cabin bag size'} {ANNO}: "
+            f"{'personal item and carry-on' if nordamerica(C) else 'free under-seat bag and cabin bag'} by fare")
 
 
 def descrizioni_bag(C):
@@ -3008,7 +3099,7 @@ def pagina_compagnia(C):
     altre = "".join(f'<a href="{rel}{BAG_BASE}/{D["slug"]}/">{escape(D["nome"])}<small>{escape(misura_breve(borsa_gratis(D, "sotto") or borsa_gratis(D, "sopra"), D))} free</small></a>'
                     for D in COMPAGNIE if D is not C and D["area"] == C["area"])
     faq_html, faq_ld = html_faq_bag(C)
-    corpo = f"""<section class="hero"><h1>{escape(C["nome"])} {"carry-on size" if nordamerica(C) else "cabin bag size"} {ANNO}: {"personal item and carry-on" if nordamerica(C) else "free under-seat bag and cabin bag"} by fare</h1></section>
+    corpo = f"""<section class="hero"><h1>{escape(h1_bag(C))}</h1></section>
 <section class="card summary" aria-label="Summary">
 <div class="s-top"><span class="sq">{ico("bag")}</span><span>Cabin bags · {escape(C["nome"])}</span><span>{escape(C["paese"])}</span></div>
 <div class="s-body">
@@ -3460,13 +3551,27 @@ def titoli_srv(S, c):
     b_tit = {"Not on the list": "Not on the Official List", "Coming soon": "Coming Soon", "No service shown": "No Service Shown",
              "Not listed": "Not Listed", "By region": "Depends on the Region", "Not supported": "Not Supported",
              "Yes, no tap to pay": "Yes, No Tap to Pay", "Not for holding money": "Not for Holding Money"}.get(b, b.title() if b != "Yes" else b)
+    if S["slug"] == "uber":
+        # Giro dei titoli del 14/11/2026: si cerca "is there uber in italy" (1.600 al mese negli USA), "uber in italy" (2.900), "is there uber
+        # in japan" (1.900); "is uber available in italy" solo 170. Niente "cities" nel titolo: la pagina ha la risposta della lista ufficiale
+        # dei Paesi, non l'elenco delle città.
+        return [f"Is There Uber in {P}? {'Yes, on Uber’s Official List' if b == 'Yes' else b_tit} ({ANNO})", f"Is There Uber in {P}? {b_tit} ({ANNO})",
+                f"Is There Uber in {P}? ({ANNO})", f"Uber in {P}: {b_tit} ({ANNO})", f"Uber in {P} ({ANNO})", f"Uber in {nome_srv(c)} ({ANNO})"]
     return [f"Is {n} Available in {P}? {b_tit} ({ANNO})", f"Is {n} Available in {P}? ({ANNO})", f"{n} in {P}: {b_tit} ({ANNO})",
             f"{n} in {P} ({ANNO})", f"{n} in {nome_srv(c)} ({ANNO})"]  # l'ultima senza "the" (12/11/2026: South Georgia and the South Sandwich Islands)
+
+
+def h1_srv(S, c):
+    if S["slug"] == "uber":
+        return f"Is there Uber in {frase_srv(c)}?"
+    return f"Is {S['nome']} available in {frase_srv(c)}?"
 
 
 def descrizioni_srv(S, c):
     r = risposta_srv(S, c)
     corto = f"Is {S['nome']} available in {frase_srv(c)}? {breve_srv(S, c)}, according to the official list checked on {data_controllo_srv(S)}."
+    if S["slug"] == "uber":
+        return [f"Is there Uber in {frase_srv(c)}? {r}", r, f"Is there Uber in {frase_srv(c)}? {breve_srv(S, c)}, according to Uber’s official list checked on {data_controllo_srv(S)}."]
     return [r, corto, f"Is {S['nome']} available in {frase_srv(c)}? {breve_srv(S, c)}, from the official list."]
 
 
@@ -3783,7 +3888,7 @@ def pagina_srv_paese(S, c):
                     for S2 in SERVIZI_SRV)
     ingresso = ingresso_srv(c, rel)
     faq_h, faq_ld = html_faq_srv(S, c)
-    corpo = f"""<section class="hero"><h1>Is {escape(n)} available in {escape(P)}?</h1></section>
+    corpo = f"""<section class="hero"><h1>{escape(h1_srv(S, c))}</h1></section>
 <section class="card summary" aria-label="Answer">
 <div class="s-top"><span class="sq">{ico("apps")}</span><span>{escape(n)} · {escape(nome_srv(c))}</span><span>{ANNO}</span></div>
 <div class="s-body">
@@ -4494,7 +4599,7 @@ def pagina_hub_pat():
         if c in PAGINE_PAT[k] and len(popolari) < 15:
             popolari.append(f'<a href="{rel}{url_pat(k, c)}">{escape(nome_srv(c))}, {escape(nomi[k])}<small>{escape(ESITI_PAT[voce_pat(k, c)["esito"]][0])}</small></a>')
     d = data_lunga(PAT["controllato_il"])
-    corpo = f"""<section class="hero">{h1_diviso(f"Driving abroad: do I need an international driving permit? UK, Canadian and Australian licences ({ANNO})")}
+    corpo = f"""<section class="hero">{h1_diviso(f"International driving permit: which countries need one? UK, Canadian and Australian licences ({ANNO})")}
 <p class="lead" id="answer">Whether you need an international driving permit (IDP) depends on the country you visit and on the licence you hold. For each country we quote what the UK government (GOV.UK and FCDO), the Government of Canada (travel.gc.ca) and the Australian Government (Smartraveller) say about driving there with their licence, with the date we checked it (last check {d}).</p></section>
 <div class="griglia g-pat">{carte}</div>
 {AVVISO_PAT}
@@ -4514,8 +4619,11 @@ def pagina_hub_pat():
 {f'<p class="altri-pass">{ico("car")}<span>Renting a scooter instead? <a href="{rel}{SC_BASE}/">Moped and 125 cc on a car licence: what the official texts say in {len(SC_PAESI)} countries</a></span></p>' if SC else ""}
 <h2>How we check</h2>
 <p>{metodo_pat("uk")} {metodo_pat("ca")} {metodo_pat("au")} We only use official government sources and never fill a gap with our own reading: where the advice is silent, we say so. More on the <a href="{rel}about/#driving-abroad">About page</a>.</p>"""
-    pagina(f"{PAT_BASE}/", f"Driving Abroad: Do I Need an IDP? UK, Canada, Australia ({ANNO})",
-           scegli([f"Do you need an international driving permit? Official GOV.UK, Government of Canada and Smartraveller advice for every country, checked on {d}.",
+    # 14/11/2026: "international driving permit" 33.100 ricerche al mese nel Regno Unito, 22.200 in Canada, 18.100 in Australia; "IDP" da solo
+    # non si cerca. La domanda del titolo ha la risposta nella tabella (Paese per Paese, per ogni patente).
+    pagina(f"{PAT_BASE}/", scegli([f"International Driving Permit {ANNO}: Which Countries Need One?", f"International Driving Permit {ANNO} by Country"], LIMITE_TITOLO),
+           scegli([f"Which countries need an international driving permit? Official GOV.UK, Government of Canada and Smartraveller advice for every country, checked on {d}.",
+                   f"Do you need an international driving permit? Official GOV.UK, Government of Canada and Smartraveller advice for every country, checked on {d}.",
                    f"International driving permit by country for UK, Canadian and Australian licences, from official advice."], LIMITE_DESCRIZIONE),
            corpo, briciole=[("Driving abroad", f"{PAT_BASE}/")], js=APP_JS_FILTRO)
     LASTMOD[f"{PAT_BASE}/"] = PAT["controllato_il"]
@@ -5407,6 +5515,8 @@ def testo_cit_big(a, id_):
 def frase_uscite_big(a, regola):
     r = next(x for x in a["uscite"] if x["id"] == regola)
     if r["tipo"] == "anticipo":
+        if r.get("faq_calc"):  # 14/11/2026 (revisione): frase propria dove "today's release" direbbe più della fonte (richieste, "up to N days")
+            return r["faq_calc"].format(oggi=data_lunga(OGGI.isoformat()), data=giorno_lungo((OGGI + timedelta(days=r["giorni"])).isoformat()))
         return (f"So today's release ({data_lunga(OGGI.isoformat())}) is for {giorno_lungo((OGGI + timedelta(days=r['giorni'])).isoformat())}: "
                 f"for any visit date, count back {r['giorni']} day{'s' if r['giorni'] != 1 else ''}.")
     ee = [e for e in eventi_big(a) if e["tipo"] == "uscita" and e["regola"] == regola][:3]
@@ -5586,6 +5696,11 @@ SENZA_CAL_BIG = ('<p class="small" data-senza-cal>Every day is a release day, so
                  'the rule below counts the days for you.</p>')
 
 
+# 14/11/2026: pagine senza nessuna data calcolata e senza una regola "N giorni prima" (prenotazioni dei parchi sospese, visite su richiesta)
+SENZA_DATE_BIG = ('<p class="small" data-senza-cal>The official pages give no fixed release day, free day or closing day that we can calculate, '
+                  'so there are no dates to list or to add to a calendar: the official rule is quoted below.</p>')
+
+
 def cal_pagina_big(a, rel):
     return (f'{link_cal_big(a, rel)}\n<p class="small">The calendar file has the same dates as the table, with the official rule and the link in each '
             f'event. It is rebuilt when we update this site; past dates are hidden from the table in your browser.</p>')
@@ -5727,7 +5842,10 @@ def sezione_regole_big(a):
         nota = nota_ora_big(a, r)
         if r["tipo"] == "anticipo":
             calc = (f"There is no single date to put in a calendar: every day is a release day. For a visit on a given date, the release is "
-                    f"{r['giorni']} day{'s' if r['giorni'] != 1 else ''} before, at {r['ora']} {a['ora_locale']}.")
+                    f"{r['giorni']} day{'s' if r['giorni'] != 1 else ''} before"
+                    # 14/11/2026: "up to N days in advance" senza ora scritta (Alcatraz, Colosseo): lo diciamo, nessuna ora inventata
+                    + (f", at {r['ora']} {a['ora_locale']}." if r["ora"] else ". The official page does not say at what time of day the new date opens."))
+            calc = r.get("nota_calc") or calc  # 14/11/2026: frase propria dove non è un'uscita di biglietti (richieste di visita)
             out.append(f'<h3>{escape(r["breve"])}</h3>{blocco_cit_big(a, r["cit"])}<p class="small">{escape(calc)}</p>')
             continue
         e = prossimo_big(a, "uscita", r["id"])
@@ -5747,6 +5865,10 @@ def sezione_giorni_big(a):
     if g:
         out.append(f'<h3 id="free-days">Free days: {escape(g["breve"])}</h3>{blocco_cit_big(a, g["cit"])}'
                    f'<p class="small">{escape(frase_gratis_big(a))}</p>')
+    elif a.get("gratis_testo"):  # 14/11/2026: ingresso gratuito che non è una domenica calcolabile (sempre gratis, una sera al mese…): solo citato
+        gt = a["gratis_testo"]
+        out.append(f'<h3 id="free-days">Free entry: {escape(gt["titolo"])}</h3>{blocco_cit_big(a, gt["cit"])}'
+                   + (f'<p class="small">{escape(gt["nota"])}</p>' if gt.get("nota") else ""))
     else:
         out.append('<h3 id="free-days">Free days</h3><p>The official pages we read list no free entry days for everyone.</p>')
     C = a["chiusure"]
@@ -5773,6 +5895,8 @@ def titolo_big(a):
 
 def descrizione_big(a):
     d = data_lunga(data_big(a))
+    if a.get("descrizione"):  # 14/11/2026 (revisione): descrizione propria dove non c'è un'uscita da promettere ("{d}" = data della lettura)
+        return scegli([a["descrizione"].format(d=d)], LIMITE_DESCRIZIONE)
     e = prossimo_big(a, "uscita")
     if e:
         cands = [f"{a['nome']}: next ticket release {giorno_breve(e['data'])}{' at ' + e['ora'] if e['ora'] else ''}, closures and free days, from the official website ({d}).",
@@ -5802,13 +5926,13 @@ def pagina_big(a):
 <div class="s-body">
 <div class="esito e-srv {"si" if e or ant else "manuale"}">{esito}</div>
 <p class="lead" id="answer">{risposta_big(a, html=True)}</p>
-<p class="small">Official tickets: <a href="{escape(a["biglietteria"]["url"])}" rel="noopener">{escape(a["biglietteria"]["nome"])}</a>. Dates calculated on {data_lunga(OGGI.isoformat())}.</p>
+<p class="small">Official tickets: <a href="{escape(a["biglietteria"]["url"])}" rel="noopener">{escape(a["biglietteria"]["nome"])}</a>.{" Dates calculated on " + data_lunga(OGGI.isoformat()) + "." if tutte or ant else ""}</p>
 </div></section>
 {avviso_date_big(tutte[0]["data"]) if tutte else ""}
 {AVVISO_BIG}
 <h2 id="dates">Next six months: ticket releases, free days and closures</h2>
 {tabella_eventi_big(a) if tutte else ""}
-{cal_pagina_big(a, rel) if tutte else SENZA_CAL_BIG}
+{cal_pagina_big(a, rel) if tutte else SENZA_CAL_BIG if ant else SENZA_DATE_BIG}
 {AD}
 <h2 id="how">How tickets go on sale: the official rule</h2>
 {sezione_regole_big(a)}
@@ -5879,7 +6003,7 @@ def pagina_indice_big():
                      f'<small>{escape(a["citta"])}</small></td>'
                      f'<td data-l="How tickets go on sale">{escape(regola_breve_big(a))}</td>'
                      f'<td data-l="Next release">{prox_big([(x["data"], quando_big(x, a)) for x in ee if x["tipo"] == "uscita"], "") if e else "Every day (rolling)" if any(r["tipo"] == "anticipo" for r in a["uscite"]) else "No exact date published"}</td>'
-                     f'<td data-l="Next free day">{prox_big([(x["data"], giorno_lungo(x["data"])) for x in ee if x["tipo"] == "gratis"], "") if g else "None"}</td>'
+                     f'<td data-l="Next free day">{prox_big([(x["data"], giorno_lungo(x["data"])) for x in ee if x["tipo"] == "gratis"], "") if g else escape((a.get("gratis_testo") or {}).get("titolo") or "None")}</td>'
                      f'<td data-l="Next closing day">{prox_big([(x["data"], giorno_lungo(x["data"])) for x in ee if x["tipo"] == "chiusura"], "") if c else "None on the official list"}'
                      f'{f" <small>({escape(chiusura_sett_big(a))})</small>" if chiusura_sett_big(a) else ""}</td>'
                      f'<td data-l="Official tickets"><a href="{escape(B["url"])}" rel="noopener">{escape(B["nome"])}</a></td>'
@@ -5906,7 +6030,7 @@ def pagina_indice_big():
 {riga_alloggi_big(rel)}
 {faq_h}
 <h2>Attractions we left out</h2>
-<p>We include an attraction only if its official website answered normally on the day we checked it and writes down when tickets go on sale. For now we left out:</p>
+<p>We include an attraction only if its official website answered normally on the day we checked it and writes down how or when tickets and reservations are booked. For now we left out:</p>
 <ul>{escl}</ul>
 <h2>How we check</h2>
 <p>We read the official websites of the museums and sites (and nothing else: no blogs, guides or ticket resellers), quote the rules word for word and calculate the dates of the next six months from them. The pages and the calendar files show the date of our last check. More on the <a href="{rel}about/#ticket-release-dates">About page</a>. Spotted a change? <a href="{rel}contact/?ref=ticket-release-dates">Tell us</a>.</p>"""
@@ -8248,19 +8372,37 @@ def righe_tipi_in(p):
 def titoli_in(g):
     p = IN_PER[g["iso2"]]
     c = g["cittadini"].replace(" citizens", " Citizens").replace(" nationals", " Nationals")
+    # Giro dei titoli del 14/11/2026 (misure del 13-14/11): "fee" da solo si cerca poco ("india e visa fee" 480 al mese negli USA); si cerca
+    # "india e visa" (14.800 us, 6.600 gb), "e-tourist visa india" (22.200 us) e, nei quattro Paesi misurati, "india visa for <cittadini>"
+    # (us 12.100, ca 3.600, au 2.900, gb 1.300). Il titolo non promette "how to apply": la pagina cita tariffe, durata, quando e dove pagare.
     if p["tv"] is None:
-        return [f"India e-Visa Fee for {c} ({ANNO}): e-Medical {usd(val_in(p, 'medico'))}", f"India e-Visa Fee for {c} ({ANNO})"]
-    return [f"India e-Visa Fee for {c} ({ANNO}): 5 Years {usd(val_in(p, 'tv5'))}", f"India e-Visa Fee for {c} ({ANNO})",
+        return [f"India e-Visa for {c} ({ANNO}): e-Medical Fee {usd(val_in(p, 'medico'))}", f"India e-Visa for {c} ({ANNO}): Fees",
+                f"India e-Visa Fee for {c} ({ANNO})"]
+    x = usd(val_in(p, 'tv5'))
+    if g["iso2"] == "US":
+        return [f"India Visa for {c} ({ANNO}): e-Tourist Visa, 5 Years {x}", f"India Visa for {c} ({ANNO}): e-Tourist Visa Fees"]
+    if g["iso2"] in ("GB", "CA", "AU"):
+        return [f"India Visa for {c} ({ANNO}): e-Visa Fees, 5 Years {x}", f"India Visa for {c} ({ANNO}): e-Visa Fees"]
+    return [f"India e-Visa for {c} ({ANNO}): Fees, 5 Years {x}", f"India e-Visa for {c} ({ANNO}): Fees",
             f"India e-Visa Fee: {g['titolo']} ({ANNO})"]
+
+
+def h1_in(g):
+    c = g["cittadini"]
+    if g["iso2"] in ("US", "GB", "CA", "AU"):
+        return f"India visa for {c} ({ANNO}): e-Tourist, e-Business and e-Medical Visa fees"
+    return f"India e-Visa for {c} ({ANNO}): e-Tourist, e-Business and e-Medical Visa fees"
 
 
 def descrizione_in(g):
     p = IN_PER[g["iso2"]]
     d = data_lunga(data_in())
     if p["tv"] is None:
-        return scegli([f"India e-Visa fees for {g['cittadini']} from the official tables: e-Medical {usd(val_in(p, 'medico'))}. Checked on {d}. Pay only on indianvisaonline.gov.in."],
+        return scegli([f"India e-Visa for {g['cittadini']}, fees from the official tables: e-Medical {usd(val_in(p, 'medico'))}. Checked on {d}. Pay only on indianvisaonline.gov.in."],
                       LIMITE_DESCRIZIONE)
-    return scegli([f"India e-Visa fee for {g['cittadini']}: 30 days {usd(val_in(p, 'tv30_lug_mar'))}, 1 year {usd(val_in(p, 'tv1'))}, 5 years {usd(val_in(p, 'tv5'))}, "
+    return scegli([f"India e-Visa (e-Tourist Visa) for {g['cittadini']}: 30 days {usd(val_in(p, 'tv30_lug_mar'))}, 1 year {usd(val_in(p, 'tv1'))}, "
+                   f"5 years {usd(val_in(p, 'tv5'))}, e-Business {usd(val_in(p, 'business'))}. Official tables, checked on {d}.",
+                   f"India e-Visa for {g['cittadini']}: 30 days {usd(val_in(p, 'tv30_lug_mar'))}, 1 year {usd(val_in(p, 'tv1'))}, 5 years {usd(val_in(p, 'tv5'))}, "
                    f"e-Business {usd(val_in(p, 'business'))}. Official tables, checked on {d}.",
                    f"India e-Visa fee for {g['cittadini']} from the official tables, checked on {d}."], LIMITE_DESCRIZIONE)
 
@@ -8387,7 +8529,7 @@ def pagina_in(g):
     if voa_paese_in(g["iso2"]) != "no":
         voa = (f'<h2>Visa on arrival</h2>{blocco_cit_in(["ev_voa"] + (["voa_uae"] if g["iso2"] == "AE" else []))}'
                f'<p><a href="{rel}{IN_VOA}/">Visa on arrival in India: cost, airports and conditions</a></p>')
-    corpo = f"""{STILE_IN}<section class="hero">{h1_diviso(f"India e-Visa fee for {c} ({ANNO}): tourist, business and medical")}</section>
+    corpo = f"""{STILE_IN}<section class="hero">{h1_diviso(h1_in(g))}</section>
 <section class="card summary" aria-label="Answer">
 <div class="s-top"><span class="sq">{ico("passport")}</span><span>India e-Visa · {escape(p["nome"])}</span><span>{ANNO}</span></div>
 <div class="s-body">
@@ -8413,7 +8555,7 @@ def pagina_in(g):
 <p><a href="{rel}{IN_BASE}/">India e-Visa fees for all {len(IN_PAESI)} countries in the official tables</a></p>
 {faq_h}
 <p class="small">This page is information, not legal advice. Immigration officers at the border decide. Spotted a change? <a href="{rel}contact/?ref={IN_BASE}">Tell us</a>.</p>"""
-    pagina(url_in(g), scegli(titoli_in(g), LIMITE_TITOLO_IN), descrizione_in(g), corpo,
+    pagina(url_in(g), scegli(titoli_in(g), LIMITE_TITOLO), descrizione_in(g), corpo,
            briciole=[("India e-Visa fee", f"{IN_BASE}/"), (p["nome"], url_in(g))], ld_extra=faq_ld)
     LASTMOD[url_in(g)] = data_in()
 
@@ -8435,7 +8577,9 @@ def prima_frase_in():
 
 
 def titoli_indice_in():
-    return [f"India e-Visa Fee by Nationality ({ANNO}): Official Table, {len(IN_PAESI)} Countries", f"India e-Visa Fee by Nationality ({ANNO})"]
+    # 14/11/2026: "e-tourist visa india" 22.200 ricerche al mese negli USA, "india e visa" 14.800; la prima forma che sta in 65 caratteri.
+    return [f"India e-Visa (e-Tourist Visa) Fees {ANNO} by Nationality: Official Table",
+            f"India e-Visa (e-Tourist Visa) Fees {ANNO} by Nationality"]
 
 
 def nazioni_moda_in(k, valore):
@@ -8540,7 +8684,7 @@ def pagina_indice_in():
     opzioni = '<option value="tutti">All types</option>' + "".join(f'<option value="{k}">{escape(n)}</option>' for k, n in COL_IN)
     faq_h, faq_ld = html_faq_in(faq_indice_in())
     n_tv = len([p for p in IN_PAESI if p["tv"]])
-    corpo = f"""{STILE_IN}<section class="hero">{h1_diviso(f"India e-Visa fee by nationality ({ANNO}): the official table for every country")}
+    corpo = f"""{STILE_IN}<section class="hero">{h1_diviso(f"India e-Visa (e-Tourist Visa) fees by nationality ({ANNO}): the official table for every country")}
 <p class="lead" id="answer">{escape(prima_frase_in())}</p></section>
 {avviso_in()}
 {piu_cercati_in(rel)}
@@ -8570,9 +8714,10 @@ def pagina_indice_in():
 {faq_h}
 <h2>How we check</h2>
 <p>Our script downloads the two official PDF tables from indianvisaonline.gov.in, reads every row (serial number, country, fees) and stops if a row is missing, if the column headings or the note on the 3% bank charge change, or if a country name is not recognised; a second, independent reading of the same PDF must give the same countries and the same figures. We quote the official e-Visa pages word for word, in short extracts, with the date we checked them, and we link no visa agencies. More on the <a href="{rel}about/#{IN_BASE}">About page</a>. This page is information, not legal advice. Spotted a change? <a href="{rel}contact/?ref={IN_BASE}">Tell us</a>.</p>"""
-    desc = scegli([f"India e-Visa fee for every nationality ({len(IN_PAESI)} countries): e-Tourist 30 days, 1 and 5 years, e-Business, e-Medical. Official tables, checked on {d}.",
+    desc = scegli([f"India e-Visa fees for every nationality ({len(IN_PAESI)} countries): e-Tourist Visa 30 days, 1 and 5 years, e-Business, e-Medical. Official tables, checked on {d}.",
+                   f"India e-Visa fee for every nationality ({len(IN_PAESI)} countries): e-Tourist 30 days, 1 and 5 years, e-Business, e-Medical. Official tables, checked on {d}.",
                    f"India e-Visa fee by nationality from the official tables of the Government of India, checked on {d}."], LIMITE_DESCRIZIONE)
-    pagina(f"{IN_BASE}/", scegli(titoli_indice_in(), LIMITE_TITOLO_IN), desc, corpo, briciole=[("India e-Visa fee", f"{IN_BASE}/")], js=IN_JS, ld_extra=faq_ld)
+    pagina(f"{IN_BASE}/", scegli(titoli_indice_in(), LIMITE_TITOLO), desc, corpo, briciole=[("India e-Visa fee", f"{IN_BASE}/")], js=IN_JS, ld_extra=faq_ld)
     LASTMOD[f"{IN_BASE}/"] = data_in()
 
 
@@ -9554,12 +9699,13 @@ def controlli():
             for f in fonti_big(a):
                 if f not in BIG["fonti"] or BIG["fonti"][f]["http"] != 200:
                     errori.append(f"biglietti {a['slug']}: fonte {f} non letta con HTTP 200")
-            for r in a["uscite"] + a["uscite_testo"] + [a["chiusure"], a["orari"], a["biglietteria"]] + ([a["gratis"]] if a.get("gratis") else []) + a["orari_speciali"]:
+            for r in a["uscite"] + a["uscite_testo"] + [a["chiusure"], a["orari"], a["biglietteria"]] + ([a["gratis"]] if a.get("gratis") else []) + a["orari_speciali"] \
+                    + ([a["gratis_testo"]] if a.get("gratis_testo") else []):
                 if (not r.get("cit") and not (r is a["chiusure"] and r.get("nota"))) or any(i not in ids for i in r.get("cit", [])):
                     errori.append(f"biglietti {a['slug']}: regola senza citazione o con citazione sconosciuta")
             for r in a["uscite"]:
                 if r["tipo"] not in TIPI_USCITA_BIG or not (re.fullmatch(r"\d{2}:\d{2}", r["ora"] or "")
-                                                            or (r["ora"] is None and r["tipo"] in ("mensile", "date", "annuale"))):
+                                                            or (r["ora"] is None and r["tipo"] in ("mensile", "date", "annuale", "anticipo"))):
                     errori.append(f"biglietti {a['slug']}: regola di uscita {r['id']} non valida")
             for q in a["faq"]:
                 if q["tipo"] not in ("testo", "uscita", "gratis", "giorno") or any(i not in ids for i in q["cit"]):

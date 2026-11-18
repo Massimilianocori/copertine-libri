@@ -1,0 +1,61 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Before You Fly//Ticket release dates//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:US Capitol tour: ticket releases and closures
+X-WR-TIMEZONE:America/New_York
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:us-capitol-tour-chiusura-chiusure-2026-11-26@before-you-fly.com
+DTSTAMP:20261118T000000Z
+DTSTART;VALUE=DATE:20261126
+DTEND;VALUE=DATE:20261127
+SUMMARY:US Capitol tour: closed
+DESCRIPTION:Official rule: “The Capitol Visitor Center is closed on Thank
+ sgiving Day\, Christmas Day\, New Year's Day and Inauguration Day.”\nSou
+ rce: https://www.visitthecapitol.gov/visit/book-a-tour (checked on 14 Nove
+ mber 2026)\nDate calculated by Before You Fly from the official rule. Rule
+ s can change: check the official page before you book.\nOfficial tickets: 
+ https://tours.visitthecapitol.gov/cvc\nhttps://before-you-fly.com/ticket-r
+ elease-dates/us-capitol-tour/
+URL:https://before-you-fly.com/ticket-release-dates/us-capitol-tour/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:us-capitol-tour-chiusura-chiusure-2026-12-25@before-you-fly.com
+DTSTAMP:20261118T000000Z
+DTSTART;VALUE=DATE:20261225
+DTEND;VALUE=DATE:20261226
+SUMMARY:US Capitol tour: closed
+DESCRIPTION:Official rule: “The Capitol Visitor Center is closed on Thank
+ sgiving Day\, Christmas Day\, New Year's Day and Inauguration Day.”\nSou
+ rce: https://www.visitthecapitol.gov/visit/book-a-tour (checked on 14 Nove
+ mber 2026)\nDate calculated by Before You Fly from the official rule. Rule
+ s can change: check the official page before you book.\nOfficial tickets: 
+ https://tours.visitthecapitol.gov/cvc\nhttps://before-you-fly.com/ticket-r
+ elease-dates/us-capitol-tour/
+URL:https://before-you-fly.com/ticket-release-dates/us-capitol-tour/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:us-capitol-tour-chiusura-chiusure-2027-01-01@before-you-fly.com
+DTSTAMP:20261118T000000Z
+DTSTART;VALUE=DATE:20270101
+DTEND;VALUE=DATE:20270102
+SUMMARY:US Capitol tour: closed
+DESCRIPTION:Official rule: “The Capitol Visitor Center is closed on Thank
+ sgiving Day\, Christmas Day\, New Year's Day and Inauguration Day.”\nSou
+ rce: https://www.visitthecapitol.gov/visit/book-a-tour (checked on 14 Nove
+ mber 2026)\nDate calculated by Before You Fly from the official rule. Rule
+ s can change: check the official page before you book.\nOfficial tickets: 
+ https://tours.visitthecapitol.gov/cvc\nhttps://before-you-fly.com/ticket-r
+ elease-dates/us-capitol-tour/
+URL:https://before-you-fly.com/ticket-release-dates/us-capitol-tour/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

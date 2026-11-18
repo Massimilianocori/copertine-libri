@@ -1,0 +1,61 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Before You Fly//Ticket release dates//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Alcatraz: ticket releases and closures
+X-WR-TIMEZONE:America/Los_Angeles
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:alcatraz-chiusura-chiusure-2026-11-26@before-you-fly.com
+DTSTAMP:20261118T000000Z
+DTSTART;VALUE=DATE:20261126
+DTEND;VALUE=DATE:20261127
+SUMMARY:Alcatraz: closed
+DESCRIPTION:Official rule: “Alcatraz is open every day except Christmas\,
+  Thanksgiving and New Year's day.”\nSource: https://www.nps.gov/alca/pla
+ nyourvisit/hours.htm (checked on 14 November 2026)\nDate calculated by Bef
+ ore You Fly from the official rule. Rules can change: check the official p
+ age before you book.\nOfficial tickets: https://www.cityexperiences.com/sa
+ n-francisco/city-cruises/alcatraz/\nhttps://before-you-fly.com/ticket-rele
+ ase-dates/alcatraz/
+URL:https://before-you-fly.com/ticket-release-dates/alcatraz/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:alcatraz-chiusura-chiusure-2026-12-25@before-you-fly.com
+DTSTAMP:20261118T000000Z
+DTSTART;VALUE=DATE:20261225
+DTEND;VALUE=DATE:20261226
+SUMMARY:Alcatraz: closed
+DESCRIPTION:Official rule: “Alcatraz is open every day except Christmas\,
+  Thanksgiving and New Year's day.”\nSource: https://www.nps.gov/alca/pla
+ nyourvisit/hours.htm (checked on 14 November 2026)\nDate calculated by Bef
+ ore You Fly from the official rule. Rules can change: check the official p
+ age before you book.\nOfficial tickets: https://www.cityexperiences.com/sa
+ n-francisco/city-cruises/alcatraz/\nhttps://before-you-fly.com/ticket-rele
+ ase-dates/alcatraz/
+URL:https://before-you-fly.com/ticket-release-dates/alcatraz/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:alcatraz-chiusura-chiusure-2027-01-01@before-you-fly.com
+DTSTAMP:20261118T000000Z
+DTSTART;VALUE=DATE:20270101
+DTEND;VALUE=DATE:20270102
+SUMMARY:Alcatraz: closed
+DESCRIPTION:Official rule: “Alcatraz is open every day except Christmas\,
+  Thanksgiving and New Year's day.”\nSource: https://www.nps.gov/alca/pla
+ nyourvisit/hours.htm (checked on 14 November 2026)\nDate calculated by Bef
+ ore You Fly from the official rule. Rules can change: check the official p
+ age before you book.\nOfficial tickets: https://www.cityexperiences.com/sa
+ n-francisco/city-cruises/alcatraz/\nhttps://before-you-fly.com/ticket-rele
+ ase-dates/alcatraz/
+URL:https://before-you-fly.com/ticket-release-dates/alcatraz/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

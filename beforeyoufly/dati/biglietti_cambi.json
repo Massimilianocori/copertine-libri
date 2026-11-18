@@ -1,6 +1,20 @@
 {
  "cambi": [
   {
+   "data": "2026-11-14",
+   "fonte": "nin_biglietti",
+   "url": "https://museum-tickets.nintendo.com/en/",
+   "prima": "04b9bc0e1020dfcc",
+   "dopo": "57533d5154716384"
+  },
+  {
+   "data": "2026-11-14",
+   "fonte": "wave_rec",
+   "url": "https://www.recreation.gov/camping/poi/274309",
+   "prima": "b73dc3fe1e6657d6",
+   "dopo": "b481db0366bfc4ac"
+  },
+  {
    "data": "2026-11-12",
    "fonte": "af_tickets",
    "url": "https://www.annefrank.org/en/museum/tickets/",

@@ -264,8 +264,8 @@
      "vat_ufficiale"
     ]
    },
-   "titolo": "Vatican Museums 2026-27: Free Sundays, Closures, Official Tickets",
-   "h1": "Vatican Museums: when tickets go on sale, closing days and free Sundays (2026-27)",
+   "titolo": "Vatican Museum Tickets 2026-27: Official Site, Free Sundays",
+   "h1": "Vatican Museums tickets: when they go on sale, closing days and free Sundays (2026-27)",
    "risposta": "the official pages give no fixed day on which tickets go on sale, and the only official site for buying tickets online is tickets.museivaticani.va; the next free last Sunday is {next_free} and the next holiday closure is {next_closure}.",
    "uscite": [],
    "uscite_testo": [
@@ -441,8 +441,8 @@
      "af_solo"
     ]
    },
-   "titolo": "Anne Frank House Ticket Release Dates 2026-27: Every Tuesday",
-   "h1": "Anne Frank House: ticket release dates, every Tuesday at 10am CET (2026-27)",
+   "titolo": "Anne Frank House Tickets 2026-27: Released Every Tuesday, 10am",
+   "h1": "Anne Frank House tickets: released every Tuesday at 10am CET (2026-27)",
    "risposta": "every Tuesday at 10am CET all tickets become available for a visit six weeks later: the next release is {next:martedi} (Amsterdam time), and six weeks after it is {visita:martedi}.",
    "uscite": [
     {
@@ -663,8 +663,8 @@
      "pom_venditore"
     ]
    },
-   "titolo": "Pompeii Free Sundays and Closed Days 2026-27, Official Tickets",
-   "h1": "Pompeii: free Sundays, closing days and official tickets (2026-27)",
+   "titolo": "Pompeii Tickets 2026-27: Official Site, Free Sundays, Closed Days",
+   "h1": "Pompeii tickets: official site, free Sundays and closing days (2026-27)",
    "risposta": "Pompeii is closed on 25 December and 1 January and entry is free on the first Sunday of every month: the next free Sunday is {next_free}. The official page gives no date on which online tickets go on sale.",
    "uscite": [],
    "uscite_testo": [
@@ -977,8 +977,8 @@
      "sf_online"
     ]
    },
-   "titolo": "Sagrada Família Tickets 2026-27: How Far Ahead, Hours, Official Site",
-   "h1": "Sagrada Família: how far ahead tickets go on sale, holiday hours and the official site (2026-27)",
+   "titolo": "Sagrada Familia Tickets 2026-27: When They Go on Sale, Hours",
+   "h1": "Sagrada Família tickets: how far ahead they go on sale, holiday hours and the official site (2026-27)",
    "risposta": "tickets can currently be bought roughly two months before the visit, so there is no exact release day to calculate; there is no closing day on the official timetable, and the Basilica opens 9:00 am to 2:00 pm on 25 and 26 December and 1 and 6 January.",
    "uscite": [],
    "uscite_testo": [
@@ -3311,6 +3311,3029 @@
      "post": ""
     }
    ]
+  },
+  {
+   "slug": "statue-of-liberty",
+   "nome": "Statue of Liberty",
+   "nome_lungo": "Statue of Liberty",
+   "citta": "New York",
+   "fuso": "America/New_York",
+   "ora_locale": "New York time (ET)",
+   "chi": "the National Park Service pages for the Statue of Liberty National Monument",
+   "sito": "https://www.nps.gov/stli/",
+   "biglietteria": {
+    "url": "https://www.cityexperiences.com/new-york/city-cruises/statue/",
+    "nome": "Statue City Cruises (the ferry operator authorized by the National Park Service)",
+    "cit": [
+     "sl_solo"
+    ]
+   },
+   "titolo": "Statue of Liberty Tickets 2026-27: Official Site, Crown, Prices",
+   "h1": "Statue of Liberty tickets: the official site, crown access and prices (2026-27)",
+   "risposta": "the National Park Service charges no entrance fee, but a ferry ticket from Statue City Cruises, the only authorized ferry, is required; crown access is a reserved ticket that the Park Service says is usually available 3-4 months in advance, and the pages give no exact release day.",
+   "uscite_testo": [
+    {
+     "titolo": "Crown tickets: usually 3-4 months ahead, no exact day",
+     "cit": [
+      "sl_corona",
+      "sl_limit"
+     ],
+     "nota": "“Usually” is not an exact rule, and the pages we read give no release day or time, so we do not calculate a date."
+    }
+   ],
+   "chiusure": {
+    "md": [],
+    "date": [],
+    "settimana": [],
+    "breve": "",
+    "cit": [],
+    "nota": "The pages we read list no closing days: access depends on the ferry schedule."
+   },
+   "orari": {
+    "breve": "Set by the ferry schedule",
+    "cit": [
+     "sl_ore"
+    ]
+   },
+   "citazioni": [
+    {
+     "id": "sl_serve",
+     "f": "stli_fees",
+     "tema": "biglietti",
+     "x": "The National Park Service does not charge an entrance fee to visit the museums on Liberty Island and Ellis Island, but a ticket for ferry transportation by Statue City Cruises is required to visit the islands."
+    },
+    {
+     "id": "sl_solo",
+     "f": "stli_fees",
+     "tema": "biglietti",
+     "x": "Statue City Cruises is the ONLY NPS-authorized ferry transportation provider to the Statue of Liberty and Ellis Island and is the ONLY ferry permitted to dock and discharge passengers at the islands."
+    },
+    {
+     "id": "sl_prezzi",
+     "f": "stli_fees",
+     "tema": "biglietti",
+     "x": "Ferry and Tour Tickets Children Under 4 Children 4 - 12 Years Adult 13+ Senior 62+ $0 $17.00 $26.00 $23.00 PEDESTAL ACCESS: $0 +$0.30 +$0.30 +$0.30 CROWN ACCESS: Restricted +$0.30 +$0.30 +$0.30"
+    },
+    {
+     "id": "sl_truffe",
+     "f": "stli_fees",
+     "tema": "biglietti",
+     "x": "We strongly recommend purchasing tickets in advance. The only on-site location to purchase authorized tickets is the Statue City Cruises official ticket office inside Castle Clinton in The Battery."
+    },
+    {
+     "id": "sl_limit",
+     "f": "stli_faq",
+     "tema": "uscita",
+     "x": "Tickets to the crown and pedestal are limited, so plan your visit today!"
+    },
+    {
+     "id": "sl_corona",
+     "f": "stli_faq",
+     "tema": "uscita",
+     "x": "Crown tickets are available by reservation usually 3-4 months in advance."
+    },
+    {
+     "id": "sl_scale",
+     "f": "stli_faq",
+     "tema": "biglietti",
+     "x": "Those wishing to visit the Crown must be able to walk approximately 10 floors of stairs."
+    },
+    {
+     "id": "sl_altezza",
+     "f": "stli_tick",
+     "tema": "biglietti",
+     "x": "NOTE: Crown Reserve tickets require a minimum height of 42 inches."
+    },
+    {
+     "id": "sl_rimborso",
+     "f": "stli_tick",
+     "tema": "biglietti",
+     "x": "Refunds are available for cancellations made at least 24 hours before departure."
+    },
+    {
+     "id": "sl_ore",
+     "f": "stli_hours",
+     "tema": "orari",
+     "x": "The Statue of Liberty is only accessible via ferry. Please check the ferry schedule for ferry times."
+    }
+   ],
+   "faq": [
+    {
+     "q": "How much are Statue of Liberty tickets?",
+     "query": "how much are statue of liberty tickets",
+     "tipo": "testo",
+     "pre": "The National Park Service fee table lists, per person, the ferry ticket and the add-ons for the pedestal and the crown:",
+     "cit": [
+      "sl_prezzi"
+     ],
+     "post": ""
+    },
+    {
+     "q": "What is the official site to buy Statue of Liberty tickets?",
+     "query": "what is the official site to buy statue of liberty tickets",
+     "tipo": "testo",
+     "pre": "Statue City Cruises, the only ferry operator authorized by the National Park Service:",
+     "cit": [
+      "sl_solo",
+      "sl_truffe"
+     ],
+     "post": ""
+    },
+    {
+     "q": "How much are Statue of Liberty crown tickets?",
+     "query": "how much are statue of liberty crown tickets",
+     "tipo": "testo",
+     "pre": "Crown access is an add-on to the ferry ticket in the official fee table, which marks it “Restricted” for children under 4:",
+     "cit": [
+      "sl_prezzi"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Can you go in the Statue of Liberty crown?",
+     "query": "can you go in the statue of liberty crown",
+     "tipo": "testo",
+     "pre": "Yes, with a crown ticket reserved in advance. The official pages say:",
+     "cit": [
+      "sl_corona",
+      "sl_scale",
+      "sl_altezza"
+     ],
+     "post": ""
+    },
+    {
+     "q": "What if Statue of Liberty crown tickets are sold out?",
+     "query": "statue of liberty crown tickets sold out",
+     "tipo": "testo",
+     "pre": "Crown tickets are limited and reserved months ahead; the pages we read give no exact release day. They say:",
+     "cit": [
+      "sl_limit",
+      "sl_corona"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Do you need tickets for the Statue of Liberty?",
+     "query": "do you need tickets for statue of liberty",
+     "tipo": "testo",
+     "pre": "Yes, a ferry ticket:",
+     "cit": [
+      "sl_serve"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Can I buy Statue of Liberty tickets on the day?",
+     "query": "can i buy statue of liberty tickets on the day",
+     "tipo": "testo",
+     "pre": "The National Park Service recommends buying in advance and names one authorized ticket office on site:",
+     "cit": [
+      "sl_truffe"
+     ],
+     "post": ""
+    }
+   ],
+   "paese": "United States",
+   "area": "USA",
+   "gratis": null,
+   "orari_speciali": [],
+   "uscite": [],
+   "tour": {
+    "titolo": "Guided tours of the Statue of Liberty",
+    "frase": "Ferry tickets gone for your date? Guided tours usually cost more than the official ticket. Statue City Cruises is the only ferry allowed to land on the islands, so check before you pay that the tour includes its ferry ticket and, if you want it, pedestal or crown access."
+   },
+   "descrizione": "Statue of Liberty tickets: the only authorized ferry, official prices and what the Park Service says about crown reservations, checked on {d}."
+  },
+  {
+   "slug": "colosseum",
+   "nome": "Colosseum",
+   "nome_lungo": "Colosseum",
+   "citta": "Rome",
+   "paese": "Italy",
+   "area": "Europe",
+   "fuso": "Europe/Rome",
+   "ora_locale": "Rome time",
+   "chi": "the official website of the Parco archeologico del Colosseo",
+   "sito": "https://colosseo.it/en/",
+   "biglietteria": {
+    "url": "https://ticketing.colosseo.it/en/",
+    "nome": "ticketing.colosseo.it (the official online booking)",
+    "cit": [
+     "co_ufficiale"
+    ]
+   },
+   "titolo": "Colosseum Tickets 2026-27: On Sale 30 Days Ahead, Official Site",
+   "h1": "Colosseum tickets: on sale 30 days before the visit, official site and prices (2026-27)",
+   "risposta": "ticket sales open 30 days before the date of the visit, so the furthest date on sale today is {anticipo:trenta}; the page gives no time of day, the official online booking is ticketing.colosseo.it, and the next free first Sunday is {next_free}.",
+   "uscite": [
+    {
+     "id": "trenta",
+     "tipo": "anticipo",
+     "giorni": 30,
+     "ora": null,
+     "titolo": "Colosseum tickets go on sale",
+     "breve": "Every day, 30 days before the date of the visit",
+     "cit": [
+      "co_30"
+     ],
+     "indice": "every day, 30 days ahead"
+    }
+   ],
+   "gratis": {
+    "tipo": "prima_domenica",
+    "breve": "First Sunday of the month (the page also lists 25 April, 2 June and 4 November)",
+    "cit": [
+     "co_gratis",
+     "co_gratis_come"
+    ]
+   },
+   "chiusure": {
+    "md": [
+     "12-25",
+     "01-01"
+    ],
+    "date": [],
+    "settimana": [],
+    "breve": "25 December and 1 January",
+    "cit": [
+     "co_chiuso"
+    ]
+   },
+   "orari": {
+    "breve": "8.30 am to 4.30 pm from 25 October 2026 to 28 February 2027 (last admission 3.30 pm)",
+    "cit": [
+     "co_ore"
+    ]
+   },
+   "citazioni": [
+    {
+     "id": "co_30",
+     "f": "col_orari",
+     "tema": "uscita",
+     "x": "Ticket sales, with compulsory reservation of the time slot for entry to the Colosseum, open 30 days before the date of the visit."
+    },
+    {
+     "id": "co_ufficiale",
+     "f": "col_orari",
+     "tema": "biglietti",
+     "x": "OFFICIAL ONLINE BOOKING https://ticketing.colosseo.it/en"
+    },
+    {
+     "id": "co_nome",
+     "f": "col_orari",
+     "tema": "biglietti",
+     "x": "Tickets are issued in the holder’s name. At the entrances of the PArCo, along with the purchased ticket, an identification document must be kept visible."
+    },
+    {
+     "id": "co_chiuso",
+     "f": "col_orari",
+     "tema": "chiusure",
+     "x": "Closed: 25 December 2026 1 January 2027"
+    },
+    {
+     "id": "co_gratis",
+     "f": "col_orari",
+     "tema": "gratis",
+     "x": "Free admission: first Sunday of the month, 25 April, 2 June, 4 November"
+    },
+    {
+     "id": "co_ore",
+     "f": "col_orari",
+     "tema": "orari",
+     "x": "From 25 October 2026 to 28 February 2027 8.30 am – 4.30 pm Last admission at 3.30 pm"
+    },
+    {
+     "id": "co_prezzo",
+     "f": "col_t24",
+     "tema": "biglietti",
+     "x": "Fares Full entry: €18.00 Reduced fare: €2.00 for EU citizens aged 18-until the day of the 25th birthday"
+    },
+    {
+     "id": "co_75",
+     "f": "col_t24",
+     "tema": "biglietti",
+     "x": "THE PERMANENCE PERIOD IN THE COLOSSEUM IS 75 MINUTES FOR THIS TYPE OF TICKET"
+    },
+    {
+     "id": "co_gratis_come",
+     "f": "col_t24",
+     "tema": "gratis",
+     "x": "Free tickets cannot be booked but can be collected at the ticket offices."
+    },
+    {
+     "id": "co_cassa",
+     "f": "col_t24",
+     "tema": "biglietti",
+     "x": "Can I buy my ticket at the ticket office? Yes, find the ticket office here"
+    },
+    {
+     "id": "co_sotto",
+     "f": "col_full",
+     "tema": "biglietti",
+     "x": "Fares Full entry: €24.00 Full entry and educational tour: €32.00 Reduced fare: €2.00 for EU citizens aged 18-until the day of the 25th birthday"
+    }
+   ],
+   "faq": [
+    {
+     "q": "When do Colosseum tickets go on sale?",
+     "query": "when do colosseum tickets go on sale",
+     "tipo": "uscita",
+     "pre": "30 days before the date of the visit. The official page says:",
+     "cit": [
+      "co_30"
+     ],
+     "post": "",
+     "regola": "trenta"
+    },
+    {
+     "q": "What time do Colosseum tickets go on sale each day?",
+     "query": "what time do colosseum tickets go on sale each day",
+     "tipo": "testo",
+     "pre": "The official page gives the day, not the time. It says only:",
+     "cit": [
+      "co_30"
+     ],
+     "post": "Release times you may read elsewhere do not come from this page."
+    },
+    {
+     "q": "How far in advance can you book Colosseum tickets?",
+     "query": "how far in advance can you book colosseum tickets",
+     "tipo": "testo",
+     "pre": "30 days:",
+     "cit": [
+      "co_30"
+     ],
+     "post": ""
+    },
+    {
+     "q": "What is the official website for Colosseum tickets?",
+     "query": "colosseum tickets official website",
+     "tipo": "testo",
+     "pre": "The official page names one online booking site, and tickets carry the holder's name:",
+     "cit": [
+      "co_ufficiale",
+      "co_nome"
+     ],
+     "post": ""
+    },
+    {
+     "q": "How much are Colosseum tickets?",
+     "query": "colosseum tickets price",
+     "tipo": "testo",
+     "pre": "For the ticket “Colosseum, Roman Forum and Palatine” the official page lists:",
+     "cit": [
+      "co_prezzo",
+      "co_75"
+     ],
+     "post": ""
+    },
+    {
+     "q": "How much are Colosseum underground tickets?",
+     "query": "colosseum underground tickets price",
+     "tipo": "testo",
+     "pre": "For the ticket “Full Experience Underground and Arena” the official page lists:",
+     "cit": [
+      "co_sotto"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Is the Colosseum free on the first Sunday of the month?",
+     "query": "colosseum free first sunday of the month",
+     "tipo": "gratis",
+     "pre": "Yes, and free tickets are collected at the ticket offices, not booked online:",
+     "cit": [
+      "co_gratis",
+      "co_gratis_come"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Is the Colosseum open on Christmas Day?",
+     "query": "is the colosseum open on christmas day",
+     "tipo": "giorno",
+     "pre": "",
+     "cit": [
+      "co_chiuso"
+     ],
+     "post": "",
+     "md": "12-25"
+    },
+    {
+     "q": "Is the Colosseum open on New Year's Day?",
+     "query": "is the colosseum open on new year's day",
+     "tipo": "giorno",
+     "pre": "",
+     "cit": [
+      "co_chiuso"
+     ],
+     "post": "",
+     "md": "01-01"
+    }
+   ],
+   "orari_speciali": [],
+   "uscite_testo": []
+  },
+  {
+   "slug": "alcatraz",
+   "nome": "Alcatraz",
+   "nome_lungo": "Alcatraz Island ferry and tour",
+   "citta": "San Francisco",
+   "fuso": "America/Los_Angeles",
+   "ora_locale": "San Francisco time (PT)",
+   "chi": "the National Park Service pages for Alcatraz Island",
+   "sito": "https://www.nps.gov/alca/",
+   "biglietteria": {
+    "url": "https://www.cityexperiences.com/san-francisco/city-cruises/alcatraz/",
+    "nome": "Alcatraz City Cruises (the ferry operator authorized by the National Park Service)",
+    "cit": [
+     "al_solo"
+    ]
+   },
+   "titolo": "Alcatraz Tickets 2026-27: On Sale 90 Days Ahead, Official Site",
+   "h1": "Alcatraz tickets: on sale up to 90 days ahead, official site and prices (2026-27)",
+   "risposta": "tickets can be bought up to 90 days in advance from Alcatraz City Cruises, the only authorized ferry: counting 90 days from today, that is up to {anticipo:novanta}; the page gives no time of day, and Alcatraz is closed on Thanksgiving, Christmas and New Year's Day (next: {next_closure}).",
+   "uscite": [
+    {
+     "id": "novanta",
+     "tipo": "anticipo",
+     "giorni": 90,
+     "ora": null,
+     "titolo": "Alcatraz tickets go on sale",
+     "breve": "Every day, up to 90 days before the visit",
+     "cit": [
+      "al_90"
+     ],
+     "indice": "every day, up to 90 days ahead",
+     "faq_calc": "Counting 90 days from today ({oggi}), that is up to {data}; the page does not say at what time of day a new date is added."
+    }
+   ],
+   "chiusure": {
+    "md": [
+     "12-25",
+     "01-01"
+    ],
+    "date": [
+     "2026-11-26"
+    ],
+    "settimana": [],
+    "breve": "Thanksgiving, Christmas and New Year's Day",
+    "cit": [
+     "al_chiuso"
+    ],
+    "nota": "Thanksgiving Day changes date every year: the table has the one in the next six months."
+   },
+   "orari": {
+    "breve": "Departures about every half hour from 8:45am; hours vary with the season",
+    "cit": [
+     "al_ore"
+    ]
+   },
+   "citazioni": [
+    {
+     "id": "al_90",
+     "f": "alca_fees",
+     "tema": "uscita",
+     "x": "For additional information on schedules, prices, and to purchase tickets up to 90 days in advance, please visit the Alcatraz City Cruises."
+    },
+    {
+     "id": "al_serve",
+     "f": "alca_fees",
+     "tema": "biglietti",
+     "x": "The National Park Service does not charge an Entrance Fee to visit Alcatraz Island, but a ticket for ferry transportation by Alcatraz City Cruises is required to visit."
+    },
+    {
+     "id": "al_solo",
+     "f": "alca_fees",
+     "tema": "biglietti",
+     "x": "Alcatraz City Cruises is the ONLY NPS-authorized ferry transportation provider to the Alcatraz Island and is the ONLY ferry permitted to dock and discharge passengers at the islands."
+    },
+    {
+     "id": "al_prezzi",
+     "f": "alca_fees",
+     "tema": "biglietti",
+     "x": "Tour Option Children Under 5 Children 5-11 Years Youth 12-17 Adults 18+ Senior 62+ DAY TOUR: $0 $29.15 $47.95 $47.95 $45.15 NIGHT TOUR: $0 $34.85 $58.35 $59.65 $55.25 BEHIND THE SCENES TOUR: * Restricted Restricted $100.35 $104.65 $97.25"
+    },
+    {
+     "id": "al_prima",
+     "f": "alca_fees",
+     "tema": "biglietti",
+     "x": "The National Park Service strongly recommends making advanced ticket reservations."
+    },
+    {
+     "id": "al_ore",
+     "f": "alca_hours",
+     "tema": "orari",
+     "x": "The hours of operation vary with the season. Departures are available about every half hour throughout the day beginning at 8:45am."
+    },
+    {
+     "id": "al_chiuso",
+     "f": "alca_hours",
+     "tema": "chiusure",
+     "x": "Alcatraz is open every day except Christmas, Thanksgiving and New Year's day."
+    },
+    {
+     "id": "al_esaurito",
+     "f": "alca_hours",
+     "tema": "uscita",
+     "x": "Alcatraz frequently sells out in advance, as much as a month or more in summer and near holidays."
+    }
+   ],
+   "faq": [
+    {
+     "q": "How far in advance can you book Alcatraz tickets?",
+     "query": "how far in advance can you book alcatraz tickets",
+     "tipo": "uscita",
+     "pre": "Up to 90 days. The National Park Service page says:",
+     "cit": [
+      "al_90"
+     ],
+     "post": "",
+     "regola": "novanta"
+    },
+    {
+     "q": "When do Alcatraz tickets go on sale?",
+     "query": "when do alcatraz tickets go on sale",
+     "tipo": "testo",
+     "pre": "Up to 90 days before the visit; the official pages give no time of day:",
+     "cit": [
+      "al_90"
+     ],
+     "post": ""
+    },
+    {
+     "q": "What is the official site for Alcatraz tickets?",
+     "query": "alcatraz tickets official site",
+     "tipo": "testo",
+     "pre": "Alcatraz City Cruises, the only ferry operator authorized by the National Park Service:",
+     "cit": [
+      "al_solo",
+      "al_serve"
+     ],
+     "post": ""
+    },
+    {
+     "q": "How much are Alcatraz tickets?",
+     "query": "alcatraz tickets price",
+     "tipo": "testo",
+     "pre": "The National Park Service fee table lists, per person:",
+     "cit": [
+      "al_prezzi"
+     ],
+     "post": ""
+    },
+    {
+     "q": "How much are Alcatraz night tour tickets?",
+     "query": "alcatraz night tour tickets",
+     "tipo": "testo",
+     "pre": "The night tour has its own row in the official fee table:",
+     "cit": [
+      "al_prezzi"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Do you need to book Alcatraz tours in advance?",
+     "query": "do you need to book alcatraz tours in advance",
+     "tipo": "testo",
+     "pre": "The National Park Service recommends it, because tickets sell out:",
+     "cit": [
+      "al_prima",
+      "al_esaurito"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Is Alcatraz open on Thanksgiving?",
+     "query": "is alcatraz open on thanksgiving",
+     "tipo": "testo",
+     "pre": "No:",
+     "cit": [
+      "al_chiuso"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Is Alcatraz open on Christmas Day?",
+     "query": "is alcatraz open on christmas day",
+     "tipo": "giorno",
+     "pre": "",
+     "cit": [
+      "al_chiuso"
+     ],
+     "post": "",
+     "md": "12-25"
+    },
+    {
+     "q": "Is Alcatraz open on New Year's Day?",
+     "query": "is alcatraz open on new year's day",
+     "tipo": "giorno",
+     "pre": "",
+     "cit": [
+      "al_chiuso"
+     ],
+     "post": "",
+     "md": "01-01"
+    }
+   ],
+   "paese": "United States",
+   "area": "USA",
+   "gratis": null,
+   "orari_speciali": [],
+   "uscite_testo": [],
+   "tour": {
+    "titolo": "Guided tours that include Alcatraz",
+    "frase": "Official tickets sold out? Tours that include Alcatraz usually cost more than the official ticket. Alcatraz City Cruises is the only ferry allowed to dock at the island, so check before you pay that the tour includes its ferry ticket."
+   }
+  },
+  {
+   "slug": "white-house-tour",
+   "nome": "White House tour",
+   "nome_lungo": "White House tour",
+   "citta": "Washington, DC",
+   "fuso": "America/New_York",
+   "ora_locale": "Washington time (ET)",
+   "viator": false,
+   "chi": "the White House visit page (whitehouse.gov)",
+   "sito": "https://www.whitehouse.gov/visit/",
+   "biglietteria": {
+    "url": "https://www.congress.gov/members",
+    "nome": "your Member of Congress (congress.gov/members)",
+    "cit": [
+     "wh_come"
+    ],
+    "verbo": "are free and are requested through"
+   },
+   "titolo": "White House Tour 2026-27: How to Request, 7 to 90 Days Ahead",
+   "h1": "White House tour: how to request it, 7 to 90 days ahead, free of charge (2026-27)",
+   "risposta": "tours are free and are requested through a Member of Congress, 7 to 90 days before the tour date, so a request made today can be for tour dates up to {anticipo:novanta}; tours are generally available Tuesday through Saturday, excluding Federal holidays.",
+   "uscite": [
+    {
+     "id": "novanta",
+     "tipo": "anticipo",
+     "giorni": 90,
+     "ora": null,
+     "titolo": "White House tour requests open",
+     "breve": "Requests open 90 days before the tour date and close 7 days before",
+     "cit": [
+      "wh_90"
+     ],
+     "indice": "requests from 90 to 7 days ahead",
+     "nota_calc": "There is no single date to put in a calendar: every day is the first day to request a tour 90 days later, and the last day to request one 7 days later. The page gives no time of day.",
+     "faq_calc": "Counting 90 days from today ({oggi}), a request can be for tour dates up to {data}; it has to be submitted at least 7 days before the tour date."
+    }
+   ],
+   "gratis_testo": {
+    "titolo": "Always free",
+    "cit": [
+     "wh_gratis"
+    ],
+    "nota": ""
+   },
+   "chiusure": {
+    "md": [],
+    "date": [],
+    "settimana": [
+     6,
+     0
+    ],
+    "breve": "Sundays, Mondays and Federal holidays (no dates listed)",
+    "cit": [
+     "wh_ore"
+    ],
+    "nota": "The page gives no list of closing dates: it excludes Federal holidays and says schedules may change at short notice."
+   },
+   "orari": {
+    "breve": "7:30 a.m. to 11:30 a.m. Tuesday through Thursday, 7:30 a.m. to 1:30 p.m. Friday through Saturday",
+    "cit": [
+     "wh_ore"
+    ]
+   },
+   "citazioni": [
+    {
+     "id": "wh_come",
+     "f": "wh_visit",
+     "tema": "biglietti",
+     "x": "Tours can be requested via your Member of Congress (U.S. Representative or U.S. Senator)."
+    },
+    {
+     "id": "wh_90",
+     "f": "wh_visit",
+     "tema": "uscita",
+     "x": "White House tour requests should be made through your Member of Congress, which may be submitted 7 – 90 days in advance of the requested tour date."
+    },
+    {
+     "id": "wh_ore",
+     "f": "wh_visit",
+     "tema": "orari",
+     "x": "Tours are generally available 7:30 a.m. to 11:30 a.m. Tuesday through Thursday as well as 7:30 a.m. to 1:30 p.m. Friday through Saturday (excluding Federal holidays or unless otherwise noted)."
+    },
+    {
+     "id": "wh_gratis",
+     "f": "wh_visit",
+     "tema": "gratis",
+     "x": "All White House tours are free of charge."
+    },
+    {
+     "id": "wh_cambi",
+     "f": "wh_visit",
+     "tema": "biglietti",
+     "x": "Tour schedules may change at any time, with little notice, due to inclement weather or scheduling conflicts, even after your tour is confirmed."
+    },
+    {
+     "id": "wh_stanze",
+     "f": "wh_visit",
+     "tema": "biglietti",
+     "x": "Tours of The White House include the public rooms on the State Floor, which include the Blue Room, Red Room, Green Room, State Dining Room, Cross Hall, and Entrance Hall."
+    },
+    {
+     "id": "wh_durata",
+     "f": "wh_faqs",
+     "tema": "biglietti",
+     "x": "Tours are self-guided and last approximately 45 minutes."
+    },
+    {
+     "id": "wh_stranieri",
+     "f": "wh_faqs",
+     "tema": "biglietti",
+     "x": "All U.S. citizens ages 18 and older, and foreign nationals of all ages (including children), must present a valid, government-issued ID upon arrival for their tour."
+    }
+   ],
+   "faq": [
+    {
+     "q": "How do you tour the White House?",
+     "query": "how to tour the white house",
+     "tipo": "testo",
+     "pre": "By asking a Member of Congress, 7 to 90 days ahead. The official page says:",
+     "cit": [
+      "wh_come",
+      "wh_90"
+     ],
+     "post": ""
+    },
+    {
+     "q": "How far in advance do you book a White House tour?",
+     "query": "how far in advance book white house tour",
+     "tipo": "uscita",
+     "pre": "Between 90 and 7 days before the tour date:",
+     "cit": [
+      "wh_90"
+     ],
+     "post": "",
+     "regola": "novanta"
+    },
+    {
+     "q": "Are White House tours free?",
+     "query": "are white house tours free",
+     "tipo": "testo",
+     "pre": "Yes:",
+     "cit": [
+      "wh_gratis"
+     ],
+     "post": ""
+    },
+    {
+     "q": "How do you get White House tour tickets?",
+     "query": "white house tour tickets",
+     "tipo": "testo",
+     "pre": "There is no ticket to buy: the tour is requested through a Member of Congress and is free.",
+     "cit": [
+      "wh_come",
+      "wh_gratis"
+     ],
+     "post": ""
+    },
+    {
+     "q": "What are the White House tour hours?",
+     "query": "white house tour hours",
+     "tipo": "testo",
+     "pre": "Tuesday through Saturday, from 7:30 a.m.:",
+     "cit": [
+      "wh_ore",
+      "wh_cambi"
+     ],
+     "post": ""
+    },
+    {
+     "q": "How long is the White House tour?",
+     "query": "how long white house tour",
+     "tipo": "testo",
+     "pre": "About 45 minutes:",
+     "cit": [
+      "wh_durata"
+     ],
+     "post": ""
+    },
+    {
+     "q": "What parts of the White House can you tour?",
+     "query": "what parts of the white house can you tour",
+     "tipo": "testo",
+     "pre": "The public rooms on the State Floor:",
+     "cit": [
+      "wh_stanze"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Can foreigners get White House tour tickets?",
+     "query": "white house tour tickets for foreigners",
+     "tipo": "testo",
+     "pre": "The page we read says how to request a tour (through a Member of Congress) and which ID foreign nationals must show; it gives no separate request route for visitors from abroad:",
+     "cit": [
+      "wh_come",
+      "wh_stranieri"
+     ],
+     "post": ""
+    }
+   ],
+   "paese": "United States",
+   "area": "USA",
+   "gratis": null,
+   "orari_speciali": [],
+   "uscite_testo": [],
+   "descrizione": "White House tour: how to request it through a Member of Congress, 7 to 90 days ahead, free of charge, from the official page, checked on {d}."
+  },
+  {
+   "slug": "yosemite-reservations",
+   "nome": "Yosemite entrance reservations",
+   "nome_lungo": "Yosemite National Park entrance",
+   "citta": "California",
+   "fuso": "America/Los_Angeles",
+   "ora_locale": "California time (PT)",
+   "viator": false,
+   "chi": "the National Park Service pages for Yosemite National Park",
+   "sito": "https://www.nps.gov/yose/",
+   "biglietteria": {
+    "url": "https://www.nps.gov/yose/planyourvisit/fees.htm",
+    "nome": "the National Park Service fees page",
+    "cit": [
+     "yo_pass"
+    ],
+    "verbo": "are entrance passes, listed on"
+   },
+   "titolo": "Yosemite Reservations 2026-27: Not Required in 2026, Fees",
+   "h1": "Yosemite reservations: no timed entry reservation in 2026, nothing announced for 2027, entrance fees",
+   "risposta": "Yosemite no longer uses a timed reservation system in 2026, so no reservation is needed to drive into the park; the entrance fee still applies, and the page, last updated on February 18, 2026, says nothing yet about 2027.",
+   "uscite_testo": [
+    {
+     "titolo": "No entrance reservation in 2026; nothing published for 2027",
+     "cit": [
+      "yo_no",
+      "yo_perche",
+      "yo_data"
+     ],
+     "nota": "There is no release day to calculate. If a reservation system comes back, the page says the annual passes would not cover it. We will read the page again when the 2027 season is announced."
+    }
+   ],
+   "chiusure": {
+    "md": [],
+    "date": [],
+    "settimana": [],
+    "breve": "",
+    "cit": [],
+    "nota": "The pages we read list no closing days."
+   },
+   "orari": {
+    "breve": "Park entrances (except Hetch Hetchy) open 24 hours per day",
+    "cit": [
+     "yo_ore"
+    ]
+   },
+   "citazioni": [
+    {
+     "id": "yo_no",
+     "f": "yose_res",
+     "tema": "uscita",
+     "x": "Yosemite National Park today announced it will no longer use a timed reservation system in 2026."
+    },
+    {
+     "id": "yo_perche",
+     "f": "yose_res",
+     "tema": "uscita",
+     "x": "These findings indicate that a season-wide reservation requirement is not the most effective approach for 2026."
+    },
+    {
+     "id": "yo_consigli",
+     "f": "yose_res",
+     "tema": "biglietti",
+     "x": "Plan visits early, especially for weekends and holiday periods."
+    },
+    {
+     "id": "yo_data",
+     "f": "yose_res",
+     "tema": "uscita",
+     "x": "Last updated: February 18, 2026"
+    },
+    {
+     "id": "yo_pass",
+     "f": "yose_fees",
+     "tema": "biglietti",
+     "x": "Standard Entrance Pass $20.00–$35.00 Buy pass Non-US residents must pay a $100 per person fee in addition to the standard entrance pass fee."
+    },
+    {
+     "id": "yo_auto",
+     "f": "yose_fees",
+     "tema": "biglietti",
+     "x": "Private Vehicle $35.00 This fee is valid for seven consecutive days for a non-commercial car, pickup truck, RV, or van with 15 or fewer passenger seats."
+    },
+    {
+     "id": "yo_ore",
+     "f": "yose_fees",
+     "tema": "orari",
+     "x": "All park entrances (except Hetch Hetchy) are open 24 hours per day."
+    },
+    {
+     "id": "yo_annuali",
+     "f": "yose_fees",
+     "tema": "biglietti",
+     "x": "America the Beautiful—National Parks and Federal Recreational Lands Annual Passes do cover park entrance fees (but not reservation requirements or fees if they are in place)."
+    }
+   ],
+   "faq": [
+    {
+     "q": "Do you need reservations for Yosemite?",
+     "query": "do you need reservations for yosemite",
+     "tipo": "testo",
+     "pre": "Not to enter the park in 2026. The National Park Service page says:",
+     "cit": [
+      "yo_no",
+      "yo_perche"
+     ],
+     "post": "This is about the entrance: campgrounds, lodging and some permits have their own bookings."
+    },
+    {
+     "q": "Does Yosemite require reservations in 2026?",
+     "query": "does yosemite require reservations in 2026",
+     "tipo": "testo",
+     "pre": "No:",
+     "cit": [
+      "yo_no"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Will Yosemite require reservations in 2027?",
+     "query": "yosemite reservations 2027",
+     "tipo": "testo",
+     "pre": "The page we read does not say. It covers 2026 only:",
+     "cit": [
+      "yo_no",
+      "yo_data"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Is there timed entry at Yosemite?",
+     "query": "yosemite timed entry",
+     "tipo": "testo",
+     "pre": "Not in 2026:",
+     "cit": [
+      "yo_no"
+     ],
+     "post": ""
+    },
+    {
+     "q": "How much is the Yosemite entrance fee?",
+     "query": "yosemite entrance fee",
+     "tipo": "testo",
+     "pre": "The official fees page lists:",
+     "cit": [
+      "yo_pass",
+      "yo_auto"
+     ],
+     "post": ""
+    },
+    {
+     "q": "How much is the Yosemite entrance fee for foreigners?",
+     "query": "yosemite entrance fee for foreigners",
+     "tipo": "testo",
+     "pre": "Non-US residents pay a per-person fee on top of the standard pass:",
+     "cit": [
+      "yo_pass"
+     ],
+     "post": ""
+    }
+   ],
+   "paese": "United States",
+   "area": "USA",
+   "gratis": null,
+   "orari_speciali": [],
+   "uscite": [],
+   "descrizione": "Yosemite entrance reservations: not required in 2026, nothing published yet for 2027, and the entrance fees, from the official website ({d})."
+  },
+  {
+   "slug": "pearl-harbor",
+   "nome": "Pearl Harbor (USS Arizona Memorial)",
+   "nome_lungo": "USS Arizona Memorial program at Pearl Harbor",
+   "citta": "Honolulu, Hawaii",
+   "fuso": "Pacific/Honolulu",
+   "ora_locale": "Hawaii time (HST)",
+   "chi": "the Recreation.gov page of the Pearl Harbor National Memorial",
+   "sito": "https://www.nps.gov/perl/",
+   "biglietteria": {
+    "url": "https://www.recreation.gov/ticket/facility/233338",
+    "nome": "recreation.gov",
+    "cit": [
+     "ph_fee",
+     "ph_tutti"
+    ],
+    "verbo": "are reserved only at"
+   },
+   "titolo": "Pearl Harbor Tickets 2026-27: Released 8 Weeks Ahead, 3 pm HST",
+   "h1": "Pearl Harbor tickets: released 8 weeks ahead at 3 pm HST, $1 on the official site (2026-27)",
+   "risposta": "tickets for the USS Arizona Memorial program are released every day at 3 pm HST, 8 weeks (56 days) before the visit, with more released one day before; today's 56-day release is for {anticipo:otto}, the memorial is free and the reservation costs $1 on recreation.gov.",
+   "uscite": [
+    {
+     "id": "otto",
+     "tipo": "anticipo",
+     "giorni": 56,
+     "ora": "15:00",
+     "titolo": "Pearl Harbor (USS Arizona Memorial) tickets released",
+     "breve": "Every day at 3 pm HST, 8 weeks (56 days) before the visit",
+     "cit": [
+      "ph_56",
+      "ph_es"
+     ],
+     "indice": "every day at 3 pm HST, 56 days ahead"
+    },
+    {
+     "id": "vigilia",
+     "tipo": "anticipo",
+     "giorni": 1,
+     "ora": "15:00",
+     "titolo": "Pearl Harbor (USS Arizona Memorial) next-day tickets released",
+     "breve": "Every day at 3 pm HST, more tickets for the next day (the day before the visit)",
+     "cit": [
+      "ph_1"
+     ]
+    }
+   ],
+   "gratis_testo": {
+    "titolo": "Always free ($1 reservation charge)",
+    "cit": [
+     "ph_fee"
+    ],
+    "nota": ""
+   },
+   "chiusure": {
+    "md": [
+     "12-25",
+     "01-01"
+    ],
+    "date": [
+     "2026-11-26"
+    ],
+    "settimana": [],
+    "breve": "Thanksgiving Day, December 25, and January 1",
+    "cit": [
+     "ph_chiuso"
+    ],
+    "nota": "Thanksgiving Day changes date every year: the table has the one in the next six months."
+   },
+   "orari": {
+    "breve": "Visitor center 7 am to 5 pm, seven days a week; programs from 8 am, the last at 3:30 pm",
+    "cit": [
+     "ph_ore",
+     "ph_prog"
+    ]
+   },
+   "tour": {
+    "titolo": "Guided tours of Pearl Harbor",
+    "frase": "No reservation left? Guided tours of Pearl Harbor usually cost more than the official reservation. Before you pay, check with the operator that the tour includes a reserved time for the USS Arizona Memorial program: the official page says tickets cannot be transferred or resold."
+   },
+   "citazioni": [
+    {
+     "id": "ph_56",
+     "f": "perl_rec",
+     "tema": "uscita",
+     "x": "Primary Booking Window: Tickets are available 8 weeks (56 days) in advance at 3 pm HST on a rolling daily window."
+    },
+    {
+     "id": "ph_es",
+     "f": "perl_rec",
+     "tema": "uscita",
+     "x": "Example: On Monday, May 2, tickets will be available for Monday, June 27; on Tuesday, May 3, tickets will be available for Tuesday, June 28."
+    },
+    {
+     "id": "ph_1",
+     "f": "perl_rec",
+     "tema": "uscita",
+     "x": "Secondary Booking Window: Additional tickets are available one day in advance at 3 pm HST on a rolling daily window."
+    },
+    {
+     "id": "ph_fee",
+     "f": "perl_rec",
+     "tema": "biglietti",
+     "x": "Pearl Harbor National Memorial is free to visit, although a $1 service charge is collected by recreation.gov to reserve tickets to the USS Arizona Memorial program."
+    },
+    {
+     "id": "ph_minuti",
+     "f": "perl_rec",
+     "tema": "biglietti",
+     "x": "Visitors are encouraged to create and log in to their accounts before tickets are released since tickets are limited and may be reserved in their entirety in several minutes."
+    },
+    {
+     "id": "ph_oggi",
+     "f": "perl_rec",
+     "tema": "biglietti",
+     "x": "Same-day, free tickets are no longer available at the Pearl Harbor Visitor Center."
+    },
+    {
+     "id": "ph_tutti",
+     "f": "perl_rec",
+     "tema": "biglietti",
+     "x": "All visitors to the USS Arizona Memorial, regardless of their age, must have a ticket."
+    },
+    {
+     "id": "ph_no",
+     "f": "perl_rec",
+     "tema": "biglietti",
+     "x": "Tickets are non-transferable and not for resale."
+    },
+    {
+     "id": "ph_rimborso",
+     "f": "perl_rec",
+     "tema": "biglietti",
+     "x": "There are no refunds for the $1.00 reservation fee under any circumstances."
+    },
+    {
+     "id": "ph_ore",
+     "f": "perl_hours",
+     "tema": "orari",
+     "x": "Open Days: Seven days a week, 7 am to 5 pm."
+    },
+    {
+     "id": "ph_chiuso",
+     "f": "perl_hours",
+     "tema": "chiusure",
+     "x": "Closed Days: Thanksgiving Day, December 25, and January 1."
+    },
+    {
+     "id": "ph_prog",
+     "f": "perl_hours",
+     "tema": "orari",
+     "x": "Programs run almost every 15 minutes, starting at 8 am. The last timed program is at 3:30 pm."
+    }
+   ],
+   "faq": [
+    {
+     "q": "When are Pearl Harbor tickets released?",
+     "query": "when are pearl harbor tickets released",
+     "tipo": "uscita",
+     "pre": "Every day at 3 pm HST, 8 weeks (56 days) before the visit, and again one day before. The official page says:",
+     "cit": [
+      "ph_56",
+      "ph_1"
+     ],
+     "post": "",
+     "regola": "otto"
+    },
+    {
+     "q": "What time are USS Arizona Memorial tickets released?",
+     "query": "uss arizona memorial tickets release time",
+     "tipo": "testo",
+     "pre": "At 3 pm HST, and they can go within minutes:",
+     "cit": [
+      "ph_56",
+      "ph_minuti"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Is Pearl Harbor free?",
+     "query": "is pearl harbor free",
+     "tipo": "testo",
+     "pre": "Yes, apart from the reservation charge:",
+     "cit": [
+      "ph_fee"
+     ],
+     "post": ""
+    },
+    {
+     "q": "How much are Pearl Harbor tickets?",
+     "query": "pearl harbor tickets price",
+     "tipo": "testo",
+     "pre": "The memorial is free; reserving a ticket for the USS Arizona Memorial program costs $1, not refundable:",
+     "cit": [
+      "ph_fee",
+      "ph_rimborso"
+     ],
+     "post": ""
+    },
+    {
+     "q": "What is the official site for Pearl Harbor tickets?",
+     "query": "pearl harbor tickets official site",
+     "tipo": "testo",
+     "pre": "recreation.gov. The official page says:",
+     "cit": [
+      "ph_fee",
+      "ph_no"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Can you buy tickets at Pearl Harbor?",
+     "query": "can you buy tickets at pearl harbor",
+     "tipo": "testo",
+     "pre": "Not on the day at the visitor center:",
+     "cit": [
+      "ph_oggi",
+      "ph_tutti"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Is Pearl Harbor open on Thanksgiving?",
+     "query": "is pearl harbor open on thanksgiving",
+     "tipo": "testo",
+     "pre": "No:",
+     "cit": [
+      "ph_chiuso"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Is Pearl Harbor open on Christmas Day?",
+     "query": "is pearl harbor open on christmas day",
+     "tipo": "giorno",
+     "pre": "",
+     "cit": [
+      "ph_chiuso"
+     ],
+     "post": "",
+     "md": "12-25"
+    },
+    {
+     "q": "Is Pearl Harbor open on New Year's Day?",
+     "query": "is pearl harbor open on new year's day",
+     "tipo": "giorno",
+     "pre": "",
+     "cit": [
+      "ph_chiuso"
+     ],
+     "post": "",
+     "md": "01-01"
+    }
+   ],
+   "paese": "United States",
+   "area": "USA",
+   "gratis": null,
+   "orari_speciali": [],
+   "uscite_testo": []
+  },
+  {
+   "slug": "palace-of-versailles",
+   "nome": "Palace of Versailles",
+   "nome_lungo": "Palace of Versailles",
+   "citta": "Versailles",
+   "paese": "France",
+   "area": "Europe",
+   "fuso": "Europe/Paris",
+   "ora_locale": "Paris time",
+   "chi": "the official website of the Palace of Versailles",
+   "sito": "https://en.chateauversailles.fr/",
+   "biglietteria": {
+    "url": "https://billetterie.chateauversailles.fr/index-css5-chateauversailles-lgen-pg1.html",
+    "nome": "the Palace of Versailles online ticketing platform (linked from the official website)",
+    "cit": [
+     "ve_slot",
+     "ve_garantito"
+    ]
+   },
+   "titolo": "Versailles Tickets 2026-27: Official Site, Prices, Closed Days",
+   "h1": "Palace of Versailles tickets: the official site, prices and closing days (2026-27)",
+   "risposta": "every visitor to the Palace must book a time slot, and the official pages give no day on which tickets go on sale, so there is no release to calculate; the Palace is closed on Mondays and on December 25th, January 1st and May 1st, and the next of those three closing days is {next_closure}.",
+   "uscite_testo": [
+    {
+     "titolo": "Timed slot required, no release day published",
+     "cit": [
+      "ve_slot",
+      "ve_garantito"
+     ],
+     "nota": "The pages we read do not say how far ahead time slots open, so we do not calculate a date."
+    }
+   ],
+   "gratis_testo": {
+    "titolo": "First Sunday of the month from November to March",
+    "cit": [
+     "ve_domenica",
+     "ve_u18"
+    ],
+    "nota": "Visitors with free admission still have to book a time slot for the Palace."
+   },
+   "chiusure": {
+    "md": [
+     "12-25",
+     "01-01",
+     "05-01"
+    ],
+    "date": [],
+    "settimana": [
+     0
+    ],
+    "breve": "December 25th, January 1st and May 1st",
+    "cit": [
+     "ve_chiuso"
+    ]
+   },
+   "orari": {
+    "breve": "Palace 9.00 am to 5.30 pm (last entry at 4:45 pm), closed on Mondays",
+    "cit": [
+     "ve_chiuso",
+     "ve_ultimo"
+    ]
+   },
+   "citazioni": [
+    {
+     "id": "ve_slot",
+     "f": "ver_tick",
+     "tema": "uscita",
+     "x": "To access the Palace, all visitors must book a time slot."
+    },
+    {
+     "id": "ve_garantito",
+     "f": "ver_tick",
+     "tema": "biglietti",
+     "x": "Due to the high number of visitors, admission to the Palace within half an hour of the booked time slot can only be guaranteed for tickets purchased online."
+    },
+    {
+     "id": "ve_ultimo",
+     "f": "ver_tick",
+     "tema": "orari",
+     "x": "The Palace closes at 5:30 pm, last entry at 4:45 pm."
+    },
+    {
+     "id": "ve_u18",
+     "f": "ver_tick",
+     "tema": "gratis",
+     "x": "Access to the Palace and the estate of Trianon is free for visitors under 18 (or under 26 residing in the EU). However, visitors eligible for free admission must book a time slot via the online ticketing platform."
+    },
+    {
+     "id": "ve_passport",
+     "f": "ver_tick",
+     "tema": "biglietti",
+     "x": "Low season rate 25 € Buy Passport This ticket gives access to the whole estate of Versailles."
+    },
+    {
+     "id": "ve_trianon",
+     "f": "ver_tick",
+     "tema": "biglietti",
+     "x": "Standard price 15 € Buy Reduced rate 12 € Buy Estate of Trianon ticket"
+    },
+    {
+     "id": "ve_norimborso",
+     "f": "ver_tick",
+     "tema": "biglietti",
+     "x": "Tickets are non-refundable and non-exchangeable."
+    },
+    {
+     "id": "ve_chiuso",
+     "f": "ver_info",
+     "tema": "chiusure",
+     "x": "The Palace 9.00 am - 5.30 pm Closed on Mondays Closed on December 25th, January 1st and May 1st."
+    },
+    {
+     "id": "ve_domenica",
+     "f": "ver_faq",
+     "tema": "gratis",
+     "x": "The Versailles Estate is open and free of charge to visitors on the first Sunday of the month from November to March."
+    }
+   ],
+   "faq": [
+    {
+     "q": "What is the official website for Palace of Versailles tickets?",
+     "query": "palace of versailles tickets official website",
+     "tipo": "testo",
+     "pre": "The official website sells timed tickets on its own online ticketing platform. It says:",
+     "cit": [
+      "ve_slot",
+      "ve_garantito"
+     ],
+     "post": ""
+    },
+    {
+     "q": "How much are Versailles tickets?",
+     "query": "versailles tickets price",
+     "tipo": "testo",
+     "pre": "On the day we read it, the official page listed the low season rate of the Passport, which covers the whole estate, and the Estate of Trianon ticket:",
+     "cit": [
+      "ve_passport",
+      "ve_trianon"
+     ],
+     "post": ""
+    },
+    {
+     "q": "How much is the Versailles Passport ticket?",
+     "query": "versailles passport ticket price",
+     "tipo": "testo",
+     "pre": "The low season rate on the official page:",
+     "cit": [
+      "ve_passport"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Are Versailles tickets free for under 26?",
+     "query": "versailles tickets under 26",
+     "tipo": "testo",
+     "pre": "For visitors under 26 residing in the EU, and for everyone under 18, with a time slot booked online:",
+     "cit": [
+      "ve_u18"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Are Versailles tickets free on some days?",
+     "query": "versailles tickets free",
+     "tipo": "testo",
+     "pre": "On the first Sunday of the month from November to March:",
+     "cit": [
+      "ve_domenica"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Is Versailles closed on Mondays?",
+     "query": "is versailles closed on mondays",
+     "tipo": "testo",
+     "pre": "Yes:",
+     "cit": [
+      "ve_chiuso"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Is Versailles open on Christmas Day?",
+     "query": "is versailles open on christmas day",
+     "tipo": "giorno",
+     "pre": "",
+     "cit": [
+      "ve_chiuso"
+     ],
+     "post": "",
+     "md": "12-25"
+    },
+    {
+     "q": "Is Versailles open on January 1?",
+     "query": "is versailles open on january 1",
+     "tipo": "giorno",
+     "pre": "",
+     "cit": [
+      "ve_chiuso"
+     ],
+     "post": "",
+     "md": "01-01"
+    },
+    {
+     "q": "Is Versailles open on May 1?",
+     "query": "is versailles open on may 1",
+     "tipo": "giorno",
+     "pre": "",
+     "cit": [
+      "ve_chiuso"
+     ],
+     "post": "",
+     "md": "05-01"
+    }
+   ],
+   "gratis": null,
+   "orari_speciali": [],
+   "uscite": [],
+   "descrizione": "Palace of Versailles tickets: the official ticket site, prices, closing days and free Sundays, quoted from the official website, checked on {d}."
+  },
+  {
+   "slug": "9-11-memorial-museum",
+   "nome": "9/11 Memorial & Museum",
+   "nome_lungo": "9/11 Museum",
+   "citta": "New York",
+   "fuso": "America/New_York",
+   "ora_locale": "New York time (ET)",
+   "chi": "the official website of the National September 11 Memorial & Museum",
+   "sito": "https://www.911memorial.org/visit",
+   "biglietteria": {
+    "url": "https://www.911memorial.org/visit/visit-museum-1",
+    "nome": "911memorial.org",
+    "cit": [
+     "nm_sei"
+    ]
+   },
+   "titolo": "9/11 Memorial Tickets 2026-27: Museum Prices, Free Mondays",
+   "h1": "9/11 Memorial and Museum tickets: prices, six months ahead, free Monday tickets (2026-27)",
+   "risposta": "the outdoor 9/11 Memorial is free and open daily, Museum tickets ($24-$36) can be bought up to six months in advance, and Free Admission Monday tickets are released each Monday at 7 a.m. ET: the next release is {next:lunedi}.",
+   "uscite": [
+    {
+     "id": "lunedi",
+     "tipo": "settimanale",
+     "giorno": 0,
+     "ora": "07:00",
+     "titolo": "9/11 Museum: Free Admission Monday tickets released",
+     "breve": "Free Admission Monday tickets: each Monday at 7 a.m. ET",
+     "cit": [
+      "nm_lunedi"
+     ],
+     "indice": "free Monday tickets each Monday at 7 a.m. ET",
+     "etichetta": "Free Monday tickets released"
+    }
+   ],
+   "uscite_testo": [
+    {
+     "titolo": "Paid Museum tickets: up to six months in advance",
+     "cit": [
+      "nm_sei"
+     ],
+     "nota": "The page gives no day or time on which a new date opens, so we do not calculate one."
+    }
+   ],
+   "gratis_testo": {
+    "titolo": "Memorial always free; Museum free on Mondays, 5:30 p.m.-7 p.m.",
+    "cit": [
+     "nm_memoriale",
+     "nm_gratis_lun"
+    ],
+    "nota": "The free Monday tickets are the ones released each Monday at 7 a.m. ET."
+   },
+   "chiusure": {
+    "md": [],
+    "date": [],
+    "settimana": [],
+    "breve": "",
+    "cit": [],
+    "nota": "The page lists no closing days; it says the Museum is open Wednesday through Monday and many Tuesdays."
+   },
+   "orari": {
+    "breve": "Museum 9 a.m. to 7 p.m., Wednesday through Monday and many Tuesdays; Memorial 8 a.m.–8 p.m. daily",
+    "cit": [
+     "nm_ore",
+     "nm_ultimo",
+     "nm_memoriale"
+    ]
+   },
+   "citazioni": [
+    {
+     "id": "nm_sei",
+     "f": "m911_v1",
+     "tema": "uscita",
+     "x": "Museum tickets can be purchased up to six months in advance and include entry to all available exhibitions."
+    },
+    {
+     "id": "nm_lunedi",
+     "f": "m911_v1",
+     "tema": "uscita",
+     "x": "Free Admission Monday tickets are available on the website each Monday beginning at 7 a.m. ET and are first come, first serve."
+    },
+    {
+     "id": "nm_gratis_lun",
+     "f": "m911_v1",
+     "tema": "gratis",
+     "x": "Free Admission Mondays FREE (5:30 p.m.-7 p.m.)"
+    },
+    {
+     "id": "nm_memoriale",
+     "f": "m911_v1",
+     "tema": "gratis",
+     "x": "The 9/11 Memorial is free and open to the public seven days a week, 8 a.m.–8 p.m."
+    },
+    {
+     "id": "nm_prezzo",
+     "f": "m911_v1",
+     "tema": "biglietti",
+     "x": "Museum Admission $24-$36 Tickets, which include entry to all available exhibitions, can be purchased up to six months in advance."
+    },
+    {
+     "id": "nm_timed",
+     "f": "m911_v1",
+     "tema": "biglietti",
+     "x": "Timed tickets must be purchased in advance."
+    },
+    {
+     "id": "nm_bimbi",
+     "f": "m911_v1",
+     "tema": "biglietti",
+     "x": "Children age 6 and under receive free admission, but a ticket is required for entry."
+    },
+    {
+     "id": "nm_cambio",
+     "f": "m911_v1",
+     "tema": "biglietti",
+     "x": "Advanced ticket reservations can be refunded or exchanged up to 24 hours in advance of specified date and time."
+    },
+    {
+     "id": "nm_ore",
+     "f": "m911_v1",
+     "tema": "orari",
+     "x": "The Museum is open Wednesday through Monday and many Tuesdays from 9 a.m. to 7 p.m."
+    },
+    {
+     "id": "nm_ultimo",
+     "f": "m911_v1",
+     "tema": "orari",
+     "x": "Last admission is 60 minutes prior to closing."
+    }
+   ],
+   "faq": [
+    {
+     "q": "How much are 9/11 Museum tickets?",
+     "query": "9/11 museum tickets price",
+     "tipo": "testo",
+     "pre": "Museum admission on the official page:",
+     "cit": [
+      "nm_prezzo",
+      "nm_bimbi"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Is the 9/11 Memorial free?",
+     "query": "is the 9/11 memorial free",
+     "tipo": "testo",
+     "pre": "The outdoor Memorial is; the Museum has paid, timed tickets:",
+     "cit": [
+      "nm_memoriale",
+      "nm_timed"
+     ],
+     "post": ""
+    },
+    {
+     "q": "When are free Monday tickets for the 9/11 Museum released?",
+     "query": "9/11 museum free tickets monday",
+     "tipo": "uscita",
+     "pre": "Each Monday at 7 a.m. ET, for entry between 5:30 p.m. and 7 p.m.:",
+     "cit": [
+      "nm_lunedi",
+      "nm_gratis_lun"
+     ],
+     "post": "",
+     "regola": "lunedi"
+    },
+    {
+     "q": "Is the 9/11 Museum free on Mondays?",
+     "query": "9/11 museum free monday",
+     "tipo": "testo",
+     "pre": "Yes, in the evening; the free tickets are released on Mondays:",
+     "cit": [
+      "nm_gratis_lun",
+      "nm_lunedi"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Do I need to book tickets for the 9/11 Museum?",
+     "query": "do i need to book tickets for 9/11 museum",
+     "tipo": "testo",
+     "pre": "Yes, timed tickets, up to six months ahead:",
+     "cit": [
+      "nm_timed",
+      "nm_sei"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Is the 9/11 Museum open on Tuesdays?",
+     "query": "is the 9/11 museum open on tuesdays",
+     "tipo": "testo",
+     "pre": "On many Tuesdays, not all. The page says:",
+     "cit": [
+      "nm_ore"
+     ],
+     "post": "Check the official calendar for the Tuesday you want."
+    },
+    {
+     "q": "What is the official site for 9/11 Museum tickets?",
+     "query": "9/11 museum tickets official site",
+     "tipo": "testo",
+     "pre": "The official website of the Memorial & Museum, where timed tickets are sold:",
+     "cit": [
+      "nm_sei",
+      "nm_cambio"
+     ],
+     "post": ""
+    }
+   ],
+   "paese": "United States",
+   "area": "USA",
+   "gratis": null,
+   "orari_speciali": []
+  },
+  {
+   "slug": "louvre",
+   "nome": "Louvre",
+   "nome_lungo": "Louvre",
+   "citta": "Paris",
+   "paese": "France",
+   "area": "Europe",
+   "fuso": "Europe/Paris",
+   "ora_locale": "Paris time",
+   "chi": "the official website of the Musée du Louvre",
+   "sito": "https://www.louvre.fr/en",
+   "biglietteria": {
+    "url": "https://ticket.louvre.fr/en",
+    "nome": "ticket.louvre.fr (the official online ticket office)",
+    "cit": [
+     "lo_sito"
+    ]
+   },
+   "titolo": "Louvre Tickets 2026-27: Official Site, Prices, Closed Tuesdays",
+   "h1": "Louvre tickets: the official site, prices, closing days and free Friday evenings (2026-27)",
+   "risposta": "the official page gives no day on which tickets go on sale: it recommends booking a time slot on ticket.louvre.fr; the Louvre is closed every Tuesday and on 1 January, 1 May and 25 December, and the next of those three closing days is {next_closure}.",
+   "uscite_testo": [
+    {
+     "titolo": "Time slots recommended, no release day published",
+     "cit": [
+      "lo_slot",
+      "lo_posto"
+     ],
+     "nota": "The page does not say how far ahead time slots open, so we do not calculate a date."
+    }
+   ],
+   "gratis_testo": {
+    "titolo": "First Friday of the month after 6 p.m. (except in July and August) and 14 July",
+    "cit": [
+     "lo_gratis",
+     "lo_slot"
+    ],
+    "nota": ""
+   },
+   "chiusure": {
+    "md": [
+     "01-01",
+     "05-01",
+     "12-25"
+    ],
+    "date": [],
+    "settimana": [
+     1
+    ],
+    "breve": "1 January, 1 May and 25 December",
+    "cit": [
+     "lo_chiuso",
+     "lo_ore"
+    ]
+   },
+   "orari": {
+    "breve": "9:00 a.m. to 6:00 p.m. (to 9:00 p.m. on Wednesday and Friday), closed Tuesday",
+    "cit": [
+     "lo_ore"
+    ]
+   },
+   "citazioni": [
+    {
+     "id": "lo_ore",
+     "f": "louvre",
+     "tema": "orari",
+     "x": "9:00 a.m. to 6:00 p.m. Monday, Thursday, Saturday and Sunday 9:00 a.m. to 9:00 p.m. Wednesday and Friday Closed Tuesday"
+    },
+    {
+     "id": "lo_chiuso",
+     "f": "louvre",
+     "tema": "chiusure",
+     "x": "Public holidays: the Louvre is closed on 1 January, 1 May and 25 December."
+    },
+    {
+     "id": "lo_posto",
+     "f": "louvre",
+     "tema": "biglietti",
+     "x": "Tickets may be purchased on site when museum attendance is low (subject to availability)."
+    },
+    {
+     "id": "lo_frode",
+     "f": "louvre",
+     "tema": "biglietti",
+     "x": "Do not purchase any tickets that supposedly allow you to jump the queue, and never buy your tickets from illicit street vendors."
+    },
+    {
+     "id": "lo_prezzi",
+     "f": "louvre",
+     "tema": "biglietti",
+     "x": "EEA visitor rate For residents and/or citizens of the European Economic Area (EEA) €22.00 Non-EEA visitor rate For non-residents and non-citizens of the European Economic Area (EEA) €32.00"
+    },
+    {
+     "id": "lo_slot",
+     "f": "louvre",
+     "tema": "uscita",
+     "x": "Time-slot bookings are recommended, including for free-admission visitors."
+    },
+    {
+     "id": "lo_gratis",
+     "f": "louvre",
+     "tema": "gratis",
+     "x": "The Louvre is free for all visitors on the first Friday of the month after 6 p.m. (except in July and August) and on 14 July!"
+    },
+    {
+     "id": "lo_sito",
+     "f": "louvre",
+     "tema": "biglietti",
+     "x": "Book a ticket on https://ticket.louvre.fr/en"
+    },
+    {
+     "id": "lo_data",
+     "f": "louvre",
+     "tema": "biglietti",
+     "x": "Rates applicable as of 14 January 2026"
+    }
+   ],
+   "faq": [
+    {
+     "q": "How much are Louvre tickets?",
+     "query": "louvre tickets price",
+     "tipo": "testo",
+     "pre": "The official page lists two rates, by residence or citizenship:",
+     "cit": [
+      "lo_prezzi",
+      "lo_data"
+     ],
+     "post": ""
+    },
+    {
+     "q": "What is the official site for Louvre tickets?",
+     "query": "louvre tickets official site",
+     "tipo": "testo",
+     "pre": "ticket.louvre.fr. The official page says:",
+     "cit": [
+      "lo_sito",
+      "lo_frode"
+     ],
+     "post": ""
+    },
+    {
+     "q": "How far in advance can you buy Louvre tickets?",
+     "query": "louvre tickets how far in advance",
+     "tipo": "testo",
+     "pre": "The official page we read does not say. It only recommends booking a time slot:",
+     "cit": [
+      "lo_slot",
+      "lo_posto"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Is the Louvre free on the first Friday of the month?",
+     "query": "louvre free first friday of the month",
+     "tipo": "testo",
+     "pre": "Yes, in the evening, except in July and August:",
+     "cit": [
+      "lo_gratis",
+      "lo_slot"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Is the Louvre closed on Tuesdays?",
+     "query": "is the louvre closed on tuesdays",
+     "tipo": "testo",
+     "pre": "Yes:",
+     "cit": [
+      "lo_ore"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Is the Louvre open on Mondays?",
+     "query": "is the louvre open on mondays",
+     "tipo": "testo",
+     "pre": "Yes:",
+     "cit": [
+      "lo_ore"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Is the Louvre open on Christmas Day?",
+     "query": "is the louvre open on christmas day",
+     "tipo": "giorno",
+     "pre": "",
+     "cit": [
+      "lo_chiuso"
+     ],
+     "post": "",
+     "md": "12-25"
+    },
+    {
+     "q": "Is the Louvre open on New Year's Day?",
+     "query": "is the louvre open on new year's day",
+     "tipo": "giorno",
+     "pre": "",
+     "cit": [
+      "lo_chiuso"
+     ],
+     "post": "",
+     "md": "01-01"
+    },
+    {
+     "q": "Is the Louvre closed on May 1?",
+     "query": "is the louvre closed on may 1",
+     "tipo": "giorno",
+     "pre": "",
+     "cit": [
+      "lo_chiuso"
+     ],
+     "post": "",
+     "md": "05-01"
+    }
+   ],
+   "gratis": null,
+   "orari_speciali": [],
+   "uscite": [],
+   "tour": {
+    "titolo": "Guided tours of the Louvre",
+    "frase": "No time slot left on the official site? A guided tour that includes the entry ticket can still be available, usually at a higher price than the official ticket. The Louvre warns against tickets that claim to jump the queue, so check what the tour includes before you pay."
+   },
+   "descrizione": "Louvre tickets: the official ticket site, prices, closing days and free Friday evenings, quoted from the official website, checked on {d}."
+  },
+  {
+   "slug": "van-gogh-museum",
+   "nome": "Van Gogh Museum",
+   "nome_lungo": "Van Gogh Museum",
+   "citta": "Amsterdam",
+   "paese": "Netherlands",
+   "area": "Europe",
+   "fuso": "Europe/Amsterdam",
+   "ora_locale": "Amsterdam time",
+   "chi": "the official website of the Van Gogh Museum",
+   "sito": "https://www.vangoghmuseum.nl/en",
+   "biglietteria": {
+    "url": "https://tickets.vangoghmuseum.com",
+    "nome": "tickets.vangoghmuseum.com",
+    "cit": [
+     "vg_sito",
+     "vg_online"
+    ]
+   },
+   "titolo": "Van Gogh Museum Tickets 2026-27: Official Site, Prices, Hours",
+   "h1": "Van Gogh Museum tickets: the official site, prices and opening hours (2026-27)",
+   "risposta": "tickets are sold online only, with a start time, at tickets.vangoghmuseum.com, and cannot be bought at the door; the official pages give no day on which tickets go on sale, an adult ticket costs € 25 (€ 26 from 1 January 2027) and the museum is open daily.",
+   "uscite_testo": [
+    {
+     "titolo": "Online only, with a start time; no release day published",
+     "cit": [
+      "vg_online",
+      "vg_slot"
+     ],
+     "nota": "The pages we read do not say how far ahead start times open, so we do not calculate a date."
+    }
+   ],
+   "gratis_testo": {
+    "titolo": "Visitors under 18",
+    "cit": [
+     "vg_prezzi"
+    ],
+    "nota": "Free tickets also need a start time booked online."
+   },
+   "chiusure": {
+    "md": [],
+    "date": [],
+    "settimana": [],
+    "breve": "",
+    "cit": [],
+    "nota": "The official page says the museum is open daily and lists no closing day."
+   },
+   "orari": {
+    "breve": "Open daily; the opening hours change with the date",
+    "cit": [
+     "vg_ore",
+     "vg_dic",
+     "vg_gen"
+    ]
+   },
+   "citazioni": [
+    {
+     "id": "vg_sito",
+     "f": "vg",
+     "tema": "biglietti",
+     "x": "Book your tickets in advance online safely at tickets.vangoghmuseum.com or our official resellers."
+    },
+    {
+     "id": "vg_online",
+     "f": "vg",
+     "tema": "uscita",
+     "x": "Tickets are available online only."
+    },
+    {
+     "id": "vg_slot",
+     "f": "vg",
+     "tema": "uscita",
+     "x": "All visitors need a ticket with a start time to have access to the museum."
+    },
+    {
+     "id": "vg_prezzi",
+     "f": "vg",
+     "tema": "biglietti",
+     "x": "Adults: € 25. From 1 January 2027: € 26. Visitors under 18: free. Students: € 16."
+    },
+    {
+     "id": "vg_porta",
+     "f": "vg_faq",
+     "tema": "biglietti",
+     "x": "It is not possible to purchase tickets at the door."
+    },
+    {
+     "id": "vg_attesa",
+     "f": "vg_faq",
+     "tema": "biglietti",
+     "x": "No, there's no waiting list. In case someone cancels, their tickets become available again in the booking system."
+    },
+    {
+     "id": "vg_inutile",
+     "f": "vg_faq",
+     "tema": "biglietti",
+     "x": "There is no point in coming to the museum if you see your preferred date/time is sold out online."
+    },
+    {
+     "id": "vg_ore",
+     "f": "vg_hours",
+     "tema": "orari",
+     "x": "The Van Gogh Museum is open daily and accessible to everyone."
+    },
+    {
+     "id": "vg_dic",
+     "f": "vg_hours",
+     "tema": "orari",
+     "x": "24, 25 and 26 December (Christmas holidays): 9 am to 5 pm."
+    },
+    {
+     "id": "vg_gen",
+     "f": "vg_hours",
+     "tema": "orari",
+     "x": "1 January: 11 am to 6 pm."
+    }
+   ],
+   "faq": [
+    {
+     "q": "How much are Van Gogh Museum tickets?",
+     "query": "van gogh museum tickets price",
+     "tipo": "testo",
+     "pre": "The official page lists:",
+     "cit": [
+      "vg_prezzi"
+     ],
+     "post": ""
+    },
+    {
+     "q": "What is the official website for Van Gogh Museum tickets?",
+     "query": "van gogh museum tickets official website",
+     "tipo": "testo",
+     "pre": "tickets.vangoghmuseum.com. The official page says:",
+     "cit": [
+      "vg_sito",
+      "vg_online"
+     ],
+     "post": ""
+    },
+    {
+     "q": "What if Van Gogh Museum tickets are sold out?",
+     "query": "van gogh museum tickets sold out",
+     "tipo": "testo",
+     "pre": "There is no waiting list: cancelled tickets go back into the booking system. The official page says:",
+     "cit": [
+      "vg_attesa",
+      "vg_inutile"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Can you buy Van Gogh Museum tickets at the door?",
+     "query": "can you buy van gogh museum tickets at the door",
+     "tipo": "testo",
+     "pre": "No:",
+     "cit": [
+      "vg_porta",
+      "vg_online"
+     ],
+     "post": ""
+    },
+    {
+     "q": "How far in advance can you book Van Gogh Museum tickets?",
+     "query": "how far in advance can you book van gogh museum tickets",
+     "tipo": "testo",
+     "pre": "The official pages we read do not say. They say only:",
+     "cit": [
+      "vg_online",
+      "vg_slot"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Do you need to buy tickets in advance for the Van Gogh Museum?",
+     "query": "do you need to buy tickets in advance for van gogh museum",
+     "tipo": "testo",
+     "pre": "Yes, online, with a start time:",
+     "cit": [
+      "vg_slot",
+      "vg_porta"
+     ],
+     "post": ""
+    }
+   ],
+   "gratis": null,
+   "orari_speciali": [],
+   "uscite": [],
+   "descrizione": "Van Gogh Museum tickets: online only with a start time, official prices and opening hours, quoted from the official website, checked on {d}."
+  },
+  {
+   "slug": "us-capitol-tour",
+   "nome": "US Capitol tour",
+   "nome_lungo": "US Capitol tour",
+   "citta": "Washington, DC",
+   "fuso": "America/New_York",
+   "ora_locale": "Washington time (ET)",
+   "viator": false,
+   "chi": "the U.S. Capitol Visitor Center website",
+   "sito": "https://www.visitthecapitol.gov/",
+   "biglietteria": {
+    "url": "https://tours.visitthecapitol.gov/cvc",
+    "nome": "the Capitol Visitor Center booking site (tours.visitthecapitol.gov)",
+    "cit": [
+     "ca_come",
+     "ca_pass"
+    ],
+    "verbo": "are free timed-entry passes, reserved at"
+   },
+   "titolo": "US Capitol Tour 2026-27: Free Timed Passes, Official Booking",
+   "h1": "US Capitol tour: free timed-entry passes, official booking and closing days (2026-27)",
+   "risposta": "Capitol tours are free and are reserved as timed-entry passes on the Capitol Visitor Center website (or through a senator or representative), with same-day passes sometimes available; the pages give no booking window, and the next closing day on their list is {next_closure}.",
+   "uscite_testo": [
+    {
+     "titolo": "Reserved in advance, no booking window published",
+     "cit": [
+      "ca_come",
+      "ca_pass"
+     ],
+     "nota": "The pages we read do not say how far ahead passes can be reserved, so we do not calculate a date."
+    }
+   ],
+   "gratis_testo": {
+    "titolo": "Always free",
+    "cit": [
+     "ca_gratis"
+    ],
+    "nota": ""
+   },
+   "chiusure": {
+    "md": [
+     "12-25",
+     "01-01"
+    ],
+    "date": [
+     "2026-11-26"
+    ],
+    "settimana": [
+     6
+    ],
+    "breve": "Thanksgiving Day, Christmas Day, New Year's Day and Inauguration Day",
+    "cit": [
+     "ca_chiuso"
+    ],
+    "nota": "Thanksgiving Day changes date every year: the table has the one in the next six months. No Inauguration Day falls in the next six months."
+   },
+   "orari": {
+    "breve": "8:30 a.m. to 4:30 p.m. Monday through Saturday; the last tour begins at 3:20 p.m.",
+    "cit": [
+     "ca_ore",
+     "ca_ultimo"
+    ]
+   },
+   "citazioni": [
+    {
+     "id": "ca_gratis",
+     "f": "cap",
+     "tema": "gratis",
+     "x": "All tours, programs, and activities are free of charge."
+    },
+    {
+     "id": "ca_pass",
+     "f": "cap",
+     "tema": "biglietti",
+     "x": "Same day passes may be available at the Capitol Visitor Center, but reservations are recommended."
+    },
+    {
+     "id": "ca_ultimo",
+     "f": "cap",
+     "tema": "orari",
+     "x": "The last tour of the day begins at 3:20 p.m."
+    },
+    {
+     "id": "ca_chiuso",
+     "f": "cap",
+     "tema": "chiusure",
+     "x": "The Capitol Visitor Center is closed on Thanksgiving Day, Christmas Day, New Year's Day and Inauguration Day."
+    },
+    {
+     "id": "ca_cosa",
+     "f": "cap",
+     "tema": "biglietti",
+     "x": "All tours are led by our professional tour guides and visit the Crypt, the Rotunda and National Statuary Hall."
+    },
+    {
+     "id": "ca_no",
+     "f": "cap",
+     "tema": "biglietti",
+     "x": "The tour does not include the Senate and House Galleries."
+    },
+    {
+     "id": "ca_senza",
+     "f": "cap",
+     "tema": "biglietti",
+     "x": "Visitors without reservations are encouraged to arrive at the Capitol Visitor Center as early in the day as possible, but no later than 2:30 p.m., to obtain passes."
+    },
+    {
+     "id": "ca_ore",
+     "f": "cap_hours",
+     "tema": "orari",
+     "x": "The Capitol Visitor Center is open to visitors from 8:30 a.m. to 4:30 p.m. Monday through Saturday except for Thanksgiving Day, Christmas Day, New Year's Day and on Inauguration Day."
+    },
+    {
+     "id": "ca_come",
+     "f": "cap_hours",
+     "tema": "biglietti",
+     "x": "Tours of the U.S. Capitol can be scheduled in advance on the Capitol Visitor Center website or through the office of one of your senators or your representative."
+    }
+   ],
+   "faq": [
+    {
+     "q": "How do you tour the Capitol?",
+     "query": "how to tour the capitol",
+     "tipo": "testo",
+     "pre": "With a free timed-entry pass, reserved online or through a senator or representative. The official pages say:",
+     "cit": [
+      "ca_come",
+      "ca_pass"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Are US Capitol tours free?",
+     "query": "are us capitol tours free",
+     "tipo": "testo",
+     "pre": "Yes:",
+     "cit": [
+      "ca_gratis"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Do you need tickets to tour the Capitol?",
+     "query": "do you need tickets to tour the capitol",
+     "tipo": "testo",
+     "pre": "You need a pass, which is free:",
+     "cit": [
+      "ca_pass",
+      "ca_gratis"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Can you take a US Capitol tour without a reservation?",
+     "query": "us capitol tour without reservation",
+     "tipo": "testo",
+     "pre": "Sometimes, with a same-day pass:",
+     "cit": [
+      "ca_pass",
+      "ca_senza"
+     ],
+     "post": ""
+    },
+    {
+     "q": "What are the US Capitol tour hours?",
+     "query": "us capitol tour hours",
+     "tipo": "testo",
+     "pre": "Monday through Saturday:",
+     "cit": [
+      "ca_ore",
+      "ca_ultimo"
+     ],
+     "post": ""
+    },
+    {
+     "q": "What does the US Capitol tour include?",
+     "query": "us capitol tour what to expect",
+     "tipo": "testo",
+     "pre": "The Crypt, the Rotunda and National Statuary Hall, not the Galleries:",
+     "cit": [
+      "ca_cosa",
+      "ca_no"
+     ],
+     "post": ""
+    }
+   ],
+   "paese": "United States",
+   "area": "USA",
+   "gratis": null,
+   "orari_speciali": [],
+   "uscite": [],
+   "descrizione": "US Capitol tour: free timed-entry passes, the official booking site, hours and closing days, from the official website, checked on {d}."
+  },
+  {
+   "slug": "rocky-mountain-timed-entry",
+   "nome": "Rocky Mountain National Park timed entry",
+   "nome_lungo": "Rocky Mountain National Park timed entry",
+   "citta": "Colorado",
+   "fuso": "America/Denver",
+   "ora_locale": "Colorado time (MT)",
+   "viator": false,
+   "chi": "the National Park Service page for Rocky Mountain National Park",
+   "sito": "https://www.nps.gov/romo/",
+   "biglietteria": {
+    "url": "https://www.recreation.gov/timed-entry/10086910",
+    "nome": "recreation.gov",
+    "cit": [
+     "rm_solo"
+    ],
+    "verbo": "are reservations, made only at"
+   },
+   "titolo": "Rocky Mountain National Park Timed Entry 2026-27: 2026 Schedule",
+   "h1": "Rocky Mountain National Park timed entry: the 2026 release schedule (2027 not published yet)",
+   "risposta": "the page still shows the 2026 season (May 22 to October 18, 2026), which is over: reservations were released at 8 a.m. MDT on the first day of the month (May 1 for the dates to June 30, then each month for the next one), with more at 7 p.m. MDT the night before arrival; the 2027 dates are not on the page yet, so we calculate no release.",
+   "uscite_testo": [
+    {
+     "titolo": "2026 schedule: the 1st of the month at 8 a.m. MDT (2027 not published)",
+     "cit": [
+      "rm_tab",
+      "rm_data"
+     ],
+     "nota": "This table is for the 2026 season. The page does not give the 2027 release dates, so we do not put any in a calendar; we will read the page again when they are published."
+    },
+    {
+     "titolo": "A second release at 7 p.m. MDT the night before",
+     "cit": [
+      "rm_sera"
+     ],
+     "nota": "It applies only while timed entry is in force."
+    }
+   ],
+   "chiusure": {
+    "md": [],
+    "date": [],
+    "settimana": [],
+    "breve": "",
+    "cit": [],
+    "nota": "The page lists no closing days."
+   },
+   "orari": {
+    "breve": "In the 2026 season a reservation was needed from 9 a.m. to 2 p.m. (5 a.m. to 6 p.m. for Bear Lake Road)",
+    "cit": [
+     "rm_quando",
+     "rm_bear"
+    ]
+   },
+   "citazioni": [
+    {
+     "id": "rm_quando",
+     "f": "romo",
+     "tema": "orari",
+     "x": "Timed Entry reservations are needed to enter Rocky Mountain National Park between the hours of 9 a.m. to 2 p.m. daily beginning on Friday, May 22 through Monday, October 12, 2026."
+    },
+    {
+     "id": "rm_senza",
+     "f": "romo",
+     "tema": "biglietti",
+     "x": "You can enter the park before 9 a.m. or anytime after 2 p.m. without a timed entry reservation."
+    },
+    {
+     "id": "rm_bear",
+     "f": "romo",
+     "tema": "orari",
+     "x": "Timed Entry+ Bear Lake Road Reservations are needed to enter the Bear Lake Road Corridor between the hours of 5 a.m. to 6 p.m. daily beginning on Friday, May 22 through Sunday, October 18, 2026."
+    },
+    {
+     "id": "rm_costo",
+     "f": "romo",
+     "tema": "biglietti",
+     "x": "The only cost associated with making a timed entry reservation is a non-refundable $2 Recreation.gov processing fee."
+    },
+    {
+     "id": "rm_tab",
+     "f": "romo",
+     "tema": "uscita",
+     "x": "Timed entry reservations are released on a first-come, first-served basis on Recreation.gov based on the following schedule: Release Date Reservation Dates May 1 at 8 a.m. MDT May 22 - June 30 June 1 at 8 a.m. MDT July 1 - July 31 July 1 at 8 a.m. MDT August 1 - August 31 August 1 at 8 a.m. MDT September 1 - September 30 September 1 at 8 a.m. MDT October 1 - October 18"
+    },
+    {
+     "id": "rm_sera",
+     "f": "romo",
+     "tema": "uscita",
+     "x": "Additional timed entry reservations will be released first-come, first-served on Recreation.gov at 7 p.m. MDT on the night before a desired arrival date."
+    },
+    {
+     "id": "rm_solo",
+     "f": "romo",
+     "tema": "biglietti",
+     "x": "Timed entry reservations can only be made on Recreation.gov."
+    },
+    {
+     "id": "rm_data",
+     "f": "romo",
+     "tema": "uscita",
+     "x": "Last updated: May 14, 2026"
+    }
+   ],
+   "faq": [
+    {
+     "q": "When are Rocky Mountain timed entry reservations released?",
+     "query": "when are rocky mountain timed entry released",
+     "tipo": "testo",
+     "pre": "In the 2026 season, at 8 a.m. MDT on the first day of the month for the following month (May 1 also covered May 22 to June 30), with more the night before at 7 p.m. MDT. The official schedule:",
+     "cit": [
+      "rm_tab",
+      "rm_sera"
+     ],
+     "post": "The 2027 schedule was not on the page when we read it."
+    },
+    {
+     "q": "When do Rocky Mountain timed entry reservations open?",
+     "query": "when do rocky mountain timed entry reservations open",
+     "tipo": "testo",
+     "pre": "The page gives the 2026 dates only:",
+     "cit": [
+      "rm_tab",
+      "rm_data"
+     ],
+     "post": ""
+    },
+    {
+     "q": "When does Rocky Mountain National Park timed entry start?",
+     "query": "when does rocky mountain national park timed entry start",
+     "tipo": "testo",
+     "pre": "In 2026 it started on Friday, May 22:",
+     "cit": [
+      "rm_quando"
+     ],
+     "post": ""
+    },
+    {
+     "q": "When does Rocky Mountain National Park timed entry end?",
+     "query": "when does rocky mountain national park timed entry end",
+     "tipo": "testo",
+     "pre": "In 2026 it ended on October 12 (October 18 for Bear Lake Road):",
+     "cit": [
+      "rm_quando",
+      "rm_bear"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Do you need a reservation for Rocky Mountain National Park?",
+     "query": "do you need a reservation for rocky mountain national park",
+     "tipo": "testo",
+     "pre": "In the season, between certain hours. Outside those hours no reservation is needed:",
+     "cit": [
+      "rm_quando",
+      "rm_senza"
+     ],
+     "post": ""
+    },
+    {
+     "q": "How much is a Rocky Mountain National Park timed entry reservation?",
+     "query": "rocky mountain national park timed entry reservations",
+     "tipo": "testo",
+     "pre": "The reservation itself costs a processing fee, on top of the park entrance fee:",
+     "cit": [
+      "rm_costo",
+      "rm_solo"
+     ],
+     "post": ""
+    }
+   ],
+   "paese": "United States",
+   "area": "USA",
+   "gratis": null,
+   "orari_speciali": [],
+   "uscite": [],
+   "descrizione": "Rocky Mountain National Park timed entry: the 2026 release schedule, quoted from the official page; the 2027 dates are not published yet ({d})."
+  },
+  {
+   "slug": "muir-woods-reservations",
+   "nome": "Muir Woods parking and shuttle",
+   "nome_lungo": "Muir Woods parking and shuttle",
+   "citta": "California",
+   "fuso": "America/Los_Angeles",
+   "ora_locale": "California time (PT)",
+   "viator": false,
+   "chi": "GoMuirWoods.com, the reservation website of the National Park Service concessioner",
+   "sito": "https://www.nps.gov/muwo/",
+   "biglietteria": {
+    "url": "https://gomuirwoods.com/",
+    "nome": "GoMuirWoods.com (the concessioner authorized by the National Park Service)",
+    "cit": [
+     "mw_ace",
+     "mw_nps"
+    ],
+    "verbo": "are reservations, made at"
+   },
+   "titolo": "Muir Woods Reservations 2026-27: Released 90 Days Ahead, 9 am PT",
+   "h1": "Muir Woods reservations: released 90 days ahead at 9:00am Pacific Time, parking and shuttle prices (2026-27)",
+   "risposta": "standard parking and shuttle reservations are released at 9:00am Pacific Time up to 90 days in advance, with a limited number released 3 days in advance: today's 90-day release is for {anticipo:novanta}; reservations are required for all vehicles and shuttle riders, all year.",
+   "uscite": [
+    {
+     "id": "novanta",
+     "tipo": "anticipo",
+     "giorni": 90,
+     "ora": "09:00",
+     "titolo": "Muir Woods parking and shuttle reservations released",
+     "breve": "Every day at 9:00am Pacific Time, up to 90 days before the visit",
+     "cit": [
+      "mw_90"
+     ],
+     "indice": "every day at 9:00am Pacific Time, 90 days ahead"
+    },
+    {
+     "id": "tre",
+     "tipo": "anticipo",
+     "giorni": 3,
+     "ora": "09:00",
+     "titolo": "Muir Woods 3-day reservations released",
+     "breve": "Every day at 9:00am Pacific Time, a limited number 3 days before the visit",
+     "cit": [
+      "mw_3",
+      "mw_90"
+     ]
+    }
+   ],
+   "chiusure": {
+    "md": [],
+    "date": [],
+    "settimana": [],
+    "breve": "",
+    "cit": [],
+    "nota": "The pages we read list no closing days: reservations are required seven days a week, year-round."
+   },
+   "orari": {
+    "breve": "Park hours vary by season",
+    "cit": [
+     "mw_ore"
+    ]
+   },
+   "citazioni": [
+    {
+     "id": "mw_serve",
+     "f": "gomuwo",
+     "tema": "biglietti",
+     "x": "Reservations are required for all vehicles and shuttle riders visiting Muir Woods National Monument."
+    },
+    {
+     "id": "mw_ace",
+     "f": "gomuwo",
+     "tema": "biglietti",
+     "x": "ACE Parking Management, Inc. is an authorized concessioner with the National Park Service and the Department of the Interior, providing parking and shuttle reservations for your visit to Muir Woods National Monument."
+    },
+    {
+     "id": "mw_prezzi",
+     "f": "gomuwo",
+     "tema": "biglietti",
+     "x": "Parking Reservation $10.00 Standard Vehicle $30.00 Medium Vehicle $45.00 Large Vehicle Shuttle Reservation $4.00 per adult round trip ticket (16 years and older) Free - child round trip ticket (15 years and younger) Park Entrance Fee $15.00 per adult (16 years and older) Free - child (15 years and younger)"
+    },
+    {
+     "id": "mw_sep",
+     "f": "gomuwo",
+     "tema": "biglietti",
+     "x": "Entrance fees are separate from parking and shuttle reservations and do not sell out."
+    },
+    {
+     "id": "mw_ore",
+     "f": "gomuwo",
+     "tema": "orari",
+     "x": "Operating hours vary by season, view the hours at the Muir Woods website nps.gov/muwo"
+    },
+    {
+     "id": "mw_sempre",
+     "f": "gomuwo_faq",
+     "tema": "biglietti",
+     "x": "Reservations are required seven days a week, year-round. The system accommodates advance and day-of reservations (dependent on availability)."
+    },
+    {
+     "id": "mw_piedi",
+     "f": "gomuwo_faq",
+     "tema": "biglietti",
+     "x": "Visitors arriving by foot, bicycle, or tour bus are not required to make a reservation."
+    },
+    {
+     "id": "mw_90",
+     "f": "gomuwo_faq",
+     "tema": "uscita",
+     "x": "Standard parking and shuttle reservations can be made online or by phone up to 90 days in advance on a rolling basis. All reservations are released at 9:00am Pacific Time."
+    },
+    {
+     "id": "mw_3",
+     "f": "gomuwo_faq",
+     "tema": "uscita",
+     "x": "For standard, accessible, and electric vehicles, the majority of reservations are released 90 days in advance, and a limited number of reservations are released 3 days in advance."
+    },
+    {
+     "id": "mw_no",
+     "f": "gomuwo_faq",
+     "tema": "biglietti",
+     "x": "Parking reservations are not sold on site, and there is no cell reception to make a phone or web reservation."
+    },
+    {
+     "id": "mw_nps",
+     "f": "muwo_fees",
+     "tema": "biglietti",
+     "x": "Reserve parking/shuttle and pre-purchase entrance fees at GoMuirWoods.com"
+    }
+   ],
+   "faq": [
+    {
+     "q": "Do you need reservations for Muir Woods?",
+     "query": "do you need reservations for muir woods",
+     "tipo": "testo",
+     "pre": "Yes, for every vehicle and shuttle rider, all year:",
+     "cit": [
+      "mw_serve",
+      "mw_sempre",
+      "mw_piedi"
+     ],
+     "post": ""
+    },
+    {
+     "q": "When are Muir Woods parking reservations released?",
+     "query": "muir woods parking reservation time",
+     "tipo": "uscita",
+     "pre": "At 9:00am Pacific Time, up to 90 days ahead, with a limited number 3 days ahead. The official FAQ says:",
+     "cit": [
+      "mw_90",
+      "mw_3"
+     ],
+     "post": "",
+     "regola": "novanta"
+    },
+    {
+     "q": "How much is a Muir Woods parking reservation?",
+     "query": "muir woods parking reservations",
+     "tipo": "testo",
+     "pre": "The official reservation website lists:",
+     "cit": [
+      "mw_prezzi"
+     ],
+     "post": ""
+    },
+    {
+     "q": "How much is the Muir Woods entrance fee?",
+     "query": "muir woods entrance fee",
+     "tipo": "testo",
+     "pre": "It is separate from the parking or shuttle reservation:",
+     "cit": [
+      "mw_prezzi",
+      "mw_sep"
+     ],
+     "post": ""
+    },
+    {
+     "q": "What if Muir Woods parking reservations are sold out?",
+     "query": "muir woods parking reservations sold out",
+     "tipo": "testo",
+     "pre": "Look at the 3-day release, or the shuttle; parking is not sold on site:",
+     "cit": [
+      "mw_3",
+      "mw_no"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Do you need tickets for Muir Woods?",
+     "query": "do you need tickets for muir woods",
+     "tipo": "testo",
+     "pre": "A parking or shuttle reservation, plus the entrance fee:",
+     "cit": [
+      "mw_serve",
+      "mw_sep"
+     ],
+     "post": ""
+    }
+   ],
+   "paese": "United States",
+   "area": "USA",
+   "gratis": null,
+   "orari_speciali": [],
+   "uscite_testo": []
+  },
+  {
+   "slug": "glacier-national-park-reservations",
+   "nome": "Glacier National Park vehicle reservations",
+   "nome_lungo": "Glacier National Park entrance",
+   "citta": "Montana",
+   "fuso": "America/Denver",
+   "ora_locale": "Montana time (MT)",
+   "viator": false,
+   "chi": "the National Park Service page for Glacier National Park",
+   "sito": "https://www.nps.gov/glac/",
+   "biglietteria": {
+    "url": "https://www.nps.gov/glac/planyourvisit/fees.htm",
+    "nome": "the National Park Service fees page",
+    "cit": [
+     "gl_pass"
+    ],
+    "verbo": "are entrance passes, listed on"
+   },
+   "titolo": "Glacier National Park Reservations 2026-27: None in 2026",
+   "h1": "Glacier National Park reservations: no vehicle reservation in 2026, nothing announced for 2027, entrance fees",
+   "risposta": "vehicle reservations are not required in 2026, so there is no release day to calculate; the page announces a ticketed-only shuttle and three-hour timed parking at Logan Pass instead, and the page, last updated on June 22, 2026, says nothing yet about 2027.",
+   "uscite_testo": [
+    {
+     "titolo": "No vehicle reservation in 2026; nothing published for 2027",
+     "cit": [
+      "gl_no",
+      "gl_pilot",
+      "gl_data"
+     ],
+     "nota": "There is no release day to calculate. We will read the page again when the 2027 season is announced."
+    }
+   ],
+   "chiusure": {
+    "md": [],
+    "date": [],
+    "settimana": [],
+    "breve": "",
+    "cit": [],
+    "nota": "The pages we read list no closing days."
+   },
+   "orari": {
+    "breve": "Visitors can enter the park at any time",
+    "cit": [
+     "gl_auto"
+    ]
+   },
+   "citazioni": [
+    {
+     "id": "gl_no",
+     "f": "glac",
+     "tema": "uscita",
+     "x": "Vehicle reservations will not be required in 2026."
+    },
+    {
+     "id": "gl_pilot",
+     "f": "glac",
+     "tema": "uscita",
+     "x": "Glacier National Park will pilot a ticketed-only shuttle system and three-hour limited timed parking at Logan Pass."
+    },
+    {
+     "id": "gl_data",
+     "f": "glac",
+     "tema": "uscita",
+     "x": "Last updated: June 22, 2026"
+    },
+    {
+     "id": "gl_pass",
+     "f": "glac_fees",
+     "tema": "biglietti",
+     "x": "Standard Entrance Pass $20.00–$35.00 Buy pass Non-US residents must pay a $100 per person fee in addition to the standard entrance pass fee."
+    },
+    {
+     "id": "gl_auto",
+     "f": "glac_fees",
+     "tema": "biglietti",
+     "x": "Private Vehicle $35.00 (Winter Rate - $25.00, November 1 to April 30) This is an entrance fee for all persons traveling in a single, private, non-commercial vehicle (car/truck/van). The pass is good for seven days and is non-transferable. Visitors can enter the park at any time"
+    }
+   ],
+   "faq": [
+    {
+     "q": "Do you need a reservation for Glacier National Park?",
+     "query": "do you need a reservation for glacier national park",
+     "tipo": "testo",
+     "pre": "Not a vehicle reservation in 2026. The National Park Service page says:",
+     "cit": [
+      "gl_no",
+      "gl_pilot"
+     ],
+     "post": "Campgrounds, lodging and the Logan Pass shuttle have their own bookings."
+    },
+    {
+     "q": "Do you need Going-to-the-Sun Road reservations?",
+     "query": "going to the sun road reservations",
+     "tipo": "testo",
+     "pre": "No vehicle reservation is required in 2026; Logan Pass has timed parking and a ticketed shuttle:",
+     "cit": [
+      "gl_no",
+      "gl_pilot"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Will Glacier National Park require reservations in 2027?",
+     "query": "glacier national park reservations 2027",
+     "tipo": "testo",
+     "pre": "The page we read does not say. It covers 2026 only:",
+     "cit": [
+      "gl_no",
+      "gl_data"
+     ],
+     "post": ""
+    },
+    {
+     "q": "When do Glacier National Park vehicle reservations open?",
+     "query": "when do glacier national park vehicle reservations open",
+     "tipo": "testo",
+     "pre": "There are none to open in 2026:",
+     "cit": [
+      "gl_no"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Do you need a pass for Glacier National Park?",
+     "query": "do you need a pass for glacier national park",
+     "tipo": "testo",
+     "pre": "Yes, an entrance pass:",
+     "cit": [
+      "gl_pass",
+      "gl_auto"
+     ],
+     "post": ""
+    }
+   ],
+   "paese": "United States",
+   "area": "USA",
+   "gratis": null,
+   "orari_speciali": [],
+   "uscite": [],
+   "descrizione": "Glacier National Park vehicle reservations: not required in 2026, nothing published yet for 2027, from the official website ({d})."
+  },
+  {
+   "slug": "cadillac-mountain-reservations",
+   "nome": "Cadillac Mountain vehicle reservations",
+   "nome_lungo": "Cadillac Summit Road in Acadia National Park",
+   "citta": "Maine",
+   "fuso": "America/New_York",
+   "ora_locale": "Maine time (ET)",
+   "viator": false,
+   "chi": "the National Park Service page for Acadia National Park",
+   "sito": "https://www.nps.gov/acad/",
+   "biglietteria": {
+    "url": "https://www.recreation.gov/timed-entry/400000",
+    "nome": "recreation.gov",
+    "cit": [
+     "cm_costo"
+    ],
+    "verbo": "are vehicle reservations, sold only at"
+   },
+   "titolo": "Cadillac Mountain Reservations 2026-27: The 2026 Release Rule",
+   "h1": "Cadillac Mountain reservations: the 2026 rule, 10 am ET, 90 days and two days ahead (2027 not published yet)",
+   "risposta": "the page still shows the 2026 season (May 20 to Oct 25, 2026), which is over: 30 percent of the vehicle reservations were released at 10 am (ET) 90 days in advance and 70 percent at 10 am (ET) two days in advance, for $6 each on Recreation.gov; the 2027 dates are not on the page yet, so we calculate no release.",
+   "uscite_testo": [
+    {
+     "titolo": "2026 season: 30 percent released 90 days ahead at 10 am (ET)",
+     "cit": [
+      "cm_stag",
+      "cm_90",
+      "cm_data"
+     ],
+     "nota": "The page gives the 2026 season only. Until the 2027 season dates are published we do not know from which day the 90 days count, so we put no date in a calendar."
+    },
+    {
+     "titolo": "70 percent released two days ahead at 10 am (ET)",
+     "cit": [
+      "cm_2"
+     ],
+     "nota": "It applies only while reservations are required."
+    }
+   ],
+   "chiusure": {
+    "md": [],
+    "date": [],
+    "settimana": [],
+    "breve": "",
+    "cit": [],
+    "nota": "The page lists no closing days; outside the reservation season no vehicle reservation is required."
+   },
+   "orari": {
+    "breve": "Sunrise reservations have a 90-minute entry window, daytime reservations a 30-minute one",
+    "cit": [
+     "cm_finestre",
+     "cm_alba"
+    ]
+   },
+   "citazioni": [
+    {
+     "id": "cm_stag",
+     "f": "acad",
+     "tema": "uscita",
+     "x": "Vehicle reservations are required for Cadillac Summit Road from Wed May 20 through Sun Oct 25, 2026."
+    },
+    {
+     "id": "cm_90",
+     "f": "acad",
+     "tema": "uscita",
+     "x": "30 percent of the Cadillac Summit Road Sunrise and Daytime vehicle reservations will be available for purchase at 10 am (ET) 90 days in advance of the reservation date."
+    },
+    {
+     "id": "cm_2",
+     "f": "acad",
+     "tema": "uscita",
+     "x": "70 percent of the Cadillac Summit Road Sunrise and Daytime vehicle reservations will be available for purchase at 10 am (ET) two days in advance of the reservation date."
+    },
+    {
+     "id": "cm_no",
+     "f": "acad",
+     "tema": "biglietti",
+     "x": "Vehicle reservations are not required for any other areas of the park, or for visitors who enter the area by foot, bike, or taxi."
+    },
+    {
+     "id": "cm_pass",
+     "f": "acad",
+     "tema": "biglietti",
+     "x": "Visitors must have a park entrance pass to enter the park in addition to purchasing a vehicle reservation for Cadillac Summit Road."
+    },
+    {
+     "id": "cm_costo",
+     "f": "acad",
+     "tema": "biglietti",
+     "x": "Vehicle reservations cost $6. They are sold online in advance at Recreation.gov. They are not available for purchase at the park."
+    },
+    {
+     "id": "cm_alba",
+     "f": "acad",
+     "tema": "orari",
+     "x": "Sunrise times range from 4:45 am in mid-June to 6:15 am in mid-October."
+    },
+    {
+     "id": "cm_finestre",
+     "f": "acad",
+     "tema": "orari",
+     "x": "Sunrise reservations have a 90-minute entry window. Daytime reservations have a 30-minute entry window."
+    },
+    {
+     "id": "cm_limiti",
+     "f": "acad",
+     "tema": "biglietti",
+     "x": "Sunrise: One vehicle reservation per seven days Daytime: One vehicle reservation per day."
+    },
+    {
+     "id": "cm_data",
+     "f": "acad",
+     "tema": "uscita",
+     "x": "Last updated: November 25, 2025"
+    }
+   ],
+   "faq": [
+    {
+     "q": "When do Cadillac Mountain reservations open?",
+     "query": "when do cadillac mountain reservations open",
+     "tipo": "testo",
+     "pre": "In the 2026 season, at 10 am (ET) 90 days ahead (30 percent) and two days ahead (70 percent). The official page says:",
+     "cit": [
+      "cm_90",
+      "cm_2"
+     ],
+     "post": "The 2027 season dates were not on the page when we read it."
+    },
+    {
+     "q": "What time do Cadillac Mountain reservations open?",
+     "query": "what time do cadillac mountain reservations open",
+     "tipo": "testo",
+     "pre": "At 10 am (ET):",
+     "cit": [
+      "cm_90",
+      "cm_2"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Do you need a reservation for Cadillac Mountain?",
+     "query": "do you need a reservation for cadillac mountain",
+     "tipo": "testo",
+     "pre": "To drive up the Summit Road in the season, yes; not on foot or by bike:",
+     "cit": [
+      "cm_stag",
+      "cm_no"
+     ],
+     "post": ""
+    },
+    {
+     "q": "How much do Cadillac Mountain reservations cost?",
+     "query": "cadillac mountain reservations cost",
+     "tipo": "testo",
+     "pre": "$6 per vehicle, plus the park entrance pass:",
+     "cit": [
+      "cm_costo",
+      "cm_pass"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Do you need a reservation for Cadillac Mountain sunrise?",
+     "query": "do you need a reservation for cadillac mountain sunrise",
+     "tipo": "testo",
+     "pre": "Yes, a sunrise vehicle reservation, limited to one per seven days:",
+     "cit": [
+      "cm_90",
+      "cm_limiti",
+      "cm_alba"
+     ],
+     "post": ""
+    },
+    {
+     "q": "Do you need a reservation to hike Cadillac Mountain?",
+     "query": "do you need a reservation to hike cadillac mountain",
+     "tipo": "testo",
+     "pre": "No, the reservation is for vehicles:",
+     "cit": [
+      "cm_no"
+     ],
+     "post": ""
+    }
+   ],
+   "paese": "United States",
+   "area": "USA",
+   "gratis": null,
+   "orari_speciali": [],
+   "uscite": [],
+   "descrizione": "Cadillac Mountain vehicle reservations: the 2026 release rule and price, quoted from the official page; the 2027 season is not published yet ({d})."
   }
  ],
  "escluse": [
@@ -3323,124 +6346,94 @@
    "motivo": "The official websites of the Greek Ministry of Culture and its ticket site did not answer our server normally on 30 October 2026."
   },
   {
-   "nome": "Colosseum (Rome)",
-   "url": "https://ticketing.colosseo.it/en/",
-   "tipo": "non_risponde",
-   "motivo": "The official ticket website did not answer our server normally on 13 November 2026, and colosseo.it closed the connection, like other sites of the Italian Ministry of Culture."
-  },
-  {
    "nome": "Eiffel Tower (Paris)",
    "url": "https://www.toureiffel.paris/en",
    "tipo": "non_risponde",
-   "motivo": "The official website did not answer our server normally on 13 November 2026."
+   "motivo": "The official website did not answer our server normally on 14 November 2026."
   },
   {
    "nome": "Disneyland Paris",
    "url": "https://www.disneylandparis.com/en-gb/",
    "tipo": "non_risponde",
-   "motivo": "The official website did not answer our server normally on 13 November 2026."
+   "motivo": "The official website did not answer our server normally on 14 November 2026."
   },
   {
    "nome": "Tower of London",
    "url": "https://www.hrp.org.uk/tower-of-london/",
    "tipo": "non_risponde",
-   "motivo": "The official website did not answer our server normally on 13 November 2026."
+   "motivo": "The official website did not answer our server normally on 14 November 2026."
   },
   {
    "nome": "Machu Picchu (Peru)",
    "url": "https://www.machupicchu.gob.pe/",
    "tipo": "nessuna_regola",
-   "motivo": "The official page answered, but on 13 November 2026 it did not say when tickets go on sale."
+   "motivo": "The official page answered, but on 14 November 2026 it did not say when tickets go on sale."
   },
   {
    "nome": "Tokyo Skytree",
    "url": "https://en.tokyo-skytree.jp/ticket/",
    "tipo": "nessuna_regola",
-   "motivo": "The official ticket page answered, but on 13 November 2026 its text did not say when tickets go on sale."
+   "motivo": "The official ticket page answered, but on 14 November 2026 its text did not say when tickets go on sale."
   },
   {
    "nome": "Uffizi Galleries (Florence)",
    "url": "https://www.uffizi.it/en/tickets",
    "tipo": "nessuna_regola",
-   "motivo": "The official page answered, but on 13 November 2026 it did not say when tickets go on sale."
+   "motivo": "The official page answered, but on 14 November 2026 it did not say when tickets go on sale."
   },
   {
    "nome": "Neuschwanstein Castle (Bavaria)",
    "url": "https://www.neuschwanstein.de/englisch/tourist/index.htm",
    "tipo": "nessuna_regola",
-   "motivo": "The official page answered, but on 13 November 2026 it did not say when tickets go on sale."
-  },
-  {
-   "nome": "Palace of Versailles",
-   "url": "https://en.chateauversailles.fr/plan-your-visit/tickets-and-prices",
-   "tipo": "nessuna_regola",
-   "motivo": "The official page answered, but on 13 November 2026 it did not say when tickets go on sale."
+   "motivo": "The official page answered, but on 14 November 2026 it did not say when tickets go on sale."
   },
   {
    "nome": "Wimbledon public ballot (London)",
    "url": "https://www.wimbledon.com/en_GB/tickets/ballot",
    "tipo": "nessuna_regola",
-   "motivo": "The official ballot page answered, but on 13 November 2026 its text did not say when the ballot opens."
-  },
-  {
-   "nome": "Rocky Mountain National Park timed entry",
-   "motivo": "The National Park Service page gives the release schedule of the 2026 season only; the 2027 schedule was not published when we read it on 12 November 2026."
-  },
-  {
-   "nome": "Acadia National Park, Cadillac Summit Road",
-   "motivo": "The National Park Service page describes the 2026 season only (20 May to 25 October 2026); the 2027 dates were not published when we read it on 12 November 2026."
-  },
-  {
-   "nome": "Glacier National Park vehicle reservations",
-   "motivo": "The National Park Service page says vehicle reservations were not required in 2026 (read on 12 November 2026)."
+   "motivo": "The official ballot page answered, but on 14 November 2026 its text did not say when the ballot opens."
   },
   {
    "nome": "teamLab Planets (Tokyo)",
    "url": "https://www.teamlab.art/e/planets/",
    "tipo": "nessuna_regola",
-   "motivo": "The official page answered, but on 13 November 2026 it did not say when tickets go on sale."
+   "motivo": "The official page answered, but on 14 November 2026 it did not say when tickets go on sale."
   },
   {
    "nome": "Shibuya Sky (Tokyo)",
    "url": "https://www.shibuya-scramble-square.com/sky/ticket/",
    "tipo": "nessuna_regola",
-   "motivo": "The official ticket page answered, but on 13 November 2026 its text did not say when tickets go on sale."
+   "motivo": "The official ticket page answered, but on 14 November 2026 its text did not say when tickets go on sale."
   },
   {
    "nome": "Mount Fuji, Yoshida Trail reservations",
    "url": "https://www.fujisan-climb.jp/en/",
    "tipo": "nessuna_regola",
-   "motivo": "The official page answered, but on 13 November 2026 it did not say when the reservations open."
-  },
-  {
-   "nome": "Statue of Liberty crown (New York)",
-   "url": "https://www.nps.gov/stli/planyourvisit/fees.htm",
-   "tipo": "nessuna_regola",
-   "motivo": "The National Park Service page answered, but on 13 November 2026 it only said to book well in advance, with no release day."
-  },
-  {
-   "nome": "Alcatraz (San Francisco)",
-   "url": "https://www.nps.gov/alca/planyourvisit/index.htm",
-   "tipo": "nessuna_regola",
-   "motivo": "The National Park Service page answered, but on 13 November 2026 it did not say when tickets go on sale."
-  },
-  {
-   "nome": "Louvre (Paris)",
-   "url": "https://www.louvre.fr/en/visit/hours-admission",
-   "tipo": "nessuna_regola",
-   "motivo": "The official page answered, but on 13 November 2026 it only recommended booking a time slot, with no release day."
+   "motivo": "The official page answered, but on 14 November 2026 it did not say when the reservations open."
   },
   {
    "nome": "Pokémon Café (Tokyo)",
    "url": "https://www.pokemoncenter-online.com/cafe/",
    "tipo": "non_risponde",
-   "motivo": "The official address we tried did not answer normally on 13 November 2026."
+   "motivo": "The official address we tried did not answer normally on 14 November 2026."
   },
   {
    "nome": "Tokyo Disney Resort",
    "url": "https://www.tokyodisneyresort.jp/en/tdr/ticket/",
    "tipo": "non_risponde",
-   "motivo": "The official website did not answer our server normally on 13 November 2026."
+   "motivo": "The official website did not answer our server normally on 14 November 2026."
+  },
+  {
+   "nome": "Universal Studios Japan (Osaka)",
+   "url": "https://www.usj.co.jp/web/en/us/tickets",
+   "tipo": "nessuna_regola",
+   "motivo": "The official ticket page answered, but on 14 November 2026 its text, which is loaded by scripts, did not say when tickets go on sale."
+  },
+  {
+   "nome": "Buckingham Palace (London)",
+   "url": "https://www.rct.uk/visit/buckingham-palace",
+   "tipo": "non_risponde",
+   "motivo": "The official website did not answer our server normally on 14 November 2026."
   }
  ]
 }

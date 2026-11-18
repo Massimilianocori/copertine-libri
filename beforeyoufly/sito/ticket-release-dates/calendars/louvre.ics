@@ -1,0 +1,64 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Before You Fly//Ticket release dates//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Louvre: ticket releases and closures
+X-WR-TIMEZONE:Europe/Paris
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:louvre-chiusura-chiusure-2026-12-25@before-you-fly.com
+DTSTAMP:20261118T000000Z
+DTSTART;VALUE=DATE:20261225
+DTEND;VALUE=DATE:20261226
+SUMMARY:Louvre: closed
+DESCRIPTION:Official rule: “Public holidays: the Louvre is closed on 1 Ja
+ nuary\, 1 May and 25 December. 9:00 a.m. to 6:00 p.m. Monday\, Thursday\, 
+ Saturday and Sunday 9:00 a.m. to 9:00 p.m. Wednesday and Friday Closed Tue
+ sday”\nSource: https://www.louvre.fr/en/visit/hours-admission (checked o
+ n 14 November 2026)\nDate calculated by Before You Fly from the official r
+ ule. Rules can change: check the official page before you book.\nOfficial 
+ tickets: https://ticket.louvre.fr/en\nhttps://before-you-fly.com/ticket-re
+ lease-dates/louvre/
+URL:https://before-you-fly.com/ticket-release-dates/louvre/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:louvre-chiusura-chiusure-2027-01-01@before-you-fly.com
+DTSTAMP:20261118T000000Z
+DTSTART;VALUE=DATE:20270101
+DTEND;VALUE=DATE:20270102
+SUMMARY:Louvre: closed
+DESCRIPTION:Official rule: “Public holidays: the Louvre is closed on 1 Ja
+ nuary\, 1 May and 25 December. 9:00 a.m. to 6:00 p.m. Monday\, Thursday\, 
+ Saturday and Sunday 9:00 a.m. to 9:00 p.m. Wednesday and Friday Closed Tue
+ sday”\nSource: https://www.louvre.fr/en/visit/hours-admission (checked o
+ n 14 November 2026)\nDate calculated by Before You Fly from the official r
+ ule. Rules can change: check the official page before you book.\nOfficial 
+ tickets: https://ticket.louvre.fr/en\nhttps://before-you-fly.com/ticket-re
+ lease-dates/louvre/
+URL:https://before-you-fly.com/ticket-release-dates/louvre/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:louvre-chiusura-chiusure-2027-05-01@before-you-fly.com
+DTSTAMP:20261118T000000Z
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270502
+SUMMARY:Louvre: closed
+DESCRIPTION:Official rule: “Public holidays: the Louvre is closed on 1 Ja
+ nuary\, 1 May and 25 December. 9:00 a.m. to 6:00 p.m. Monday\, Thursday\, 
+ Saturday and Sunday 9:00 a.m. to 9:00 p.m. Wednesday and Friday Closed Tue
+ sday”\nSource: https://www.louvre.fr/en/visit/hours-admission (checked o
+ n 14 November 2026)\nDate calculated by Before You Fly from the official r
+ ule. Rules can change: check the official page before you book.\nOfficial 
+ tickets: https://ticket.louvre.fr/en\nhttps://before-you-fly.com/ticket-re
+ lease-dates/louvre/
+URL:https://before-you-fly.com/ticket-release-dates/louvre/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

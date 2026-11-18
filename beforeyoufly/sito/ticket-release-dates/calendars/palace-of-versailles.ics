@@ -1,0 +1,64 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Before You Fly//Ticket release dates//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Palace of Versailles: ticket releases and closures
+X-WR-TIMEZONE:Europe/Paris
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:palace-of-versailles-chiusura-chiusure-2026-12-25@before-you-fly.com
+DTSTAMP:20261118T000000Z
+DTSTART;VALUE=DATE:20261225
+DTEND;VALUE=DATE:20261226
+SUMMARY:Palace of Versailles: closed
+DESCRIPTION:Official rule: “The Palace 9.00 am - 5.30 pm Closed on Monday
+ s Closed on December 25th\, January 1st and May 1st.”\nSource: https://e
+ n.chateauversailles.fr/plan-your-visit/practical-information (checked on 1
+ 4 November 2026)\nDate calculated by Before You Fly from the official rule
+ . Rules can change: check the official page before you book.\nOfficial tic
+ kets: https://billetterie.chateauversailles.fr/index-css5-chateauversaille
+ s-lgen-pg1.html\nhttps://before-you-fly.com/ticket-release-dates/palace-of
+ -versailles/
+URL:https://before-you-fly.com/ticket-release-dates/palace-of-versailles/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:palace-of-versailles-chiusura-chiusure-2027-01-01@before-you-fly.com
+DTSTAMP:20261118T000000Z
+DTSTART;VALUE=DATE:20270101
+DTEND;VALUE=DATE:20270102
+SUMMARY:Palace of Versailles: closed
+DESCRIPTION:Official rule: “The Palace 9.00 am - 5.30 pm Closed on Monday
+ s Closed on December 25th\, January 1st and May 1st.”\nSource: https://e
+ n.chateauversailles.fr/plan-your-visit/practical-information (checked on 1
+ 4 November 2026)\nDate calculated by Before You Fly from the official rule
+ . Rules can change: check the official page before you book.\nOfficial tic
+ kets: https://billetterie.chateauversailles.fr/index-css5-chateauversaille
+ s-lgen-pg1.html\nhttps://before-you-fly.com/ticket-release-dates/palace-of
+ -versailles/
+URL:https://before-you-fly.com/ticket-release-dates/palace-of-versailles/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:palace-of-versailles-chiusura-chiusure-2027-05-01@before-you-fly.com
+DTSTAMP:20261118T000000Z
+DTSTART;VALUE=DATE:20270501
+DTEND;VALUE=DATE:20270502
+SUMMARY:Palace of Versailles: closed
+DESCRIPTION:Official rule: “The Palace 9.00 am - 5.30 pm Closed on Monday
+ s Closed on December 25th\, January 1st and May 1st.”\nSource: https://e
+ n.chateauversailles.fr/plan-your-visit/practical-information (checked on 1
+ 4 November 2026)\nDate calculated by Before You Fly from the official rule
+ . Rules can change: check the official page before you book.\nOfficial tic
+ kets: https://billetterie.chateauversailles.fr/index-css5-chateauversaille
+ s-lgen-pg1.html\nhttps://before-you-fly.com/ticket-release-dates/palace-of
+ -versailles/
+URL:https://before-you-fly.com/ticket-release-dates/palace-of-versailles/
+TRANSP:TRANSPARENT
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR
