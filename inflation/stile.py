@@ -356,3 +356,135 @@ table.dati.sintesi td.n{white-space:normal}
 .pull+.stats{margin-top:20px}table.dati td.src{white-space:nowrap}.mini.due{grid-template-columns:repeat(2,minmax(0,1fr))}.mini.due li:last-child{grid-column:auto}
 @media (max-width:560px){table.dati.sintesi td:first-child{min-width:10.5em}}
 """
+
+
+# ---------------------------------------------------------------- costo del pieno (copia di riscaldamento.costo_pieno)
+# galloni in decimi × prezzo EIA in millesimi di dollaro → centesimi, arrotondati al centesimo più vicino (mezzo centesimo per eccesso).
+TANK_MOTORE_JS = r"""
+function costoPieno(gd,mill){return Math.floor((gd*mill+50)/100);}
+"""
+
+TANK_JS = TANK_MOTORE_JS + r"""
+(function(){
+  var f=document.querySelector('[data-tank]');if(!f)return;
+  var D=JSON.parse(document.getElementById('tank-dati').textContent),out=document.querySelector('[data-tank-out]');
+  function usd(c){return '$'+(c/100).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});}
+  function p3(m){return '$'+(m/1000).toFixed(3);}
+  function esc(t){return String(t).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function gal(v){v=String(v||'').trim().replace(/[\s,]/g,'');var m=/^(\d{1,5})(?:\.(\d))?$/.exec(v);if(!m)return NaN;
+    var g=parseInt(m[1],10)*10+(m[2]?parseInt(m[2],10):0);return g>=10&&g<=100000?g:NaN;}
+  function gtxt(g){return (g/10).toLocaleString('en-US',{maximumFractionDigits:1});}
+  function calcola(){
+    var g=gal(f.elements.g.value),a=D.aree[f.elements.s.value];
+    if(isNaN(g)||!a){out.innerHTML='<p class="ris-msg">'+esc(D.t.errore)+'</p>';return;}
+    var c=costoPieno(g,a[1]),G=gtxt(g);
+    var h='<div class="ris-main"><span>'+esc(D.t.titolo.replace('{g}',G).replace('{area}',a[0]))+'</span><b data-tank-costo>'+esc(usd(c))+'</b><span>'+
+      esc(D.t.sotto.replace('{p}',p3(a[1])).replace('{data}',a[2]))+'</span></div>';
+    h+='<p class="formula">'+esc(G+' gallons × '+p3(a[1])+' = '+usd(c))+'</p>';
+    if(a[3]){var c0=costoPieno(g,a[3]),d=c-c0;
+      h+='<ul class="mini due"><li><b data-tank-prima>'+esc(usd(c0))+'</b><span>'+esc(D.t.prima.replace('{p}',p3(a[3])).replace('{data}',a[4]))+'</span></li>'+
+        '<li><b>'+esc(usd(Math.abs(d)))+'</b><span>'+esc(d>0?D.t.piu:(d<0?D.t.meno:D.t.uguale))+'</span></li></ul>';}
+    h+='<p class="small">'+esc(D.t.nota)+'</p>';
+    out.innerHTML=h;}
+  try{var q=new URLSearchParams(location.search);
+    if(q.get('g'))f.elements.g.value=q.get('g').slice(0,8);
+    if(q.get('s')&&D.aree[q.get('s')])f.elements.s.value=q.get('s');}catch(e){}
+  f.addEventListener('input',calcola);f.addEventListener('change',calcola);f.addEventListener('submit',function(e){e.preventDefault();calcola();});
+  f.addEventListener('click',function(e){var b=e.target.closest('[data-g]');if(!b)return;f.elements.g.value=b.getAttribute('data-g');calcola();});
+  calcola();
+})();
+"""
+
+CSS += """
+.graf .lin2{fill:none;stroke:var(--amber);stroke-width:2.5;stroke-dasharray:7 5;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.graf .dot{fill:none;stroke:var(--accent);stroke-width:9;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.leg{display:flex;flex-wrap:wrap;gap:6px 18px;margin:0 0 12px 66px;padding:0;list-style:none;font-size:.85rem;color:var(--ink-2);font-weight:700}
+.leg i{display:inline-block;width:24px;height:0;border-top:3px solid var(--accent);vertical-align:middle;margin-right:7px}.leg i.b{border-top:3px dashed var(--amber)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.chips button{font:inherit;font-weight:700;font-size:.86rem;min-height:38px;padding:6px 13px;border-radius:999px;border:1.5px solid var(--line-2);background:var(--card);color:var(--ink);cursor:pointer}
+.chips button:hover{border-color:var(--accent);color:var(--accent)}
+table.dati td.futuro{color:var(--ink-3)}
+.graf+.tab{margin-top:14px}
+table.dati td.area{min-width:8.5em}
+[data-p],[data-d],[data-r],[data-m],[data-mp],table.dati td.nw{white-space:nowrap}
+table.dati.stretta th.n{white-space:normal}
+@media (max-width:700px){
+.tab.fissa table.dati th:first-child,.tab.fissa table.dati td:first-child{position:sticky;left:0;z-index:1;background:var(--card);box-shadow:1px 0 0 var(--line)}
+.tab.fissa table.dati thead th:first-child{z-index:3;background:var(--mute)}.tab.fissa table.dati thead th{z-index:2}
+.tab.fissa table.dati tr.evid td:first-child{background:var(--amber-2)}
+.tab.c1 table.dati th:first-child,.tab.c1 table.dati td:first-child{min-width:118px}ul.testo.small{margin-top:8px}
+table.dati.stretta th,table.dati.stretta td{padding-left:6px;padding-right:6px}
+}
+"""
+
+
+# ---------------------------------------------------------------- /uk/minimum-wage-2027/: paga dalla tariffa oraria (copia di uk2027.paga)
+PAY_MOTORE_JS = r"""
+function pagaMin(r,od){return {sett:Math.floor((r*od+5)/10),mese:Math.floor((r*od*52+60)/120),anno:Math.floor((r*od*52+5)/10)};}
+"""
+
+PAY_JS = PAY_MOTORE_JS + r"""
+(function(){
+  var f=document.querySelector('[data-pay]');if(!f)return;
+  var D=JSON.parse(document.getElementById('pay-dati').textContent),out=document.querySelector('[data-pay-out]');
+  function gbp(p){return '£'+(p/100).toLocaleString('en-GB',{minimumFractionDigits:2,maximumFractionDigits:2});}
+  function esc(t){return String(t).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function ore(v){v=String(v||'').trim().replace(/[\s,]/g,'');var m=/^(\d{1,3})(?:\.(\d))?$/.exec(v);if(!m)return NaN;
+    var o=parseInt(m[1],10)*10+(m[2]?parseInt(m[2],10):0);return o>=10&&o<=1000?o:NaN;}
+  function otxt(o){return (o/10).toLocaleString('en-GB',{maximumFractionDigits:1});}
+  function calcola(){
+    var o=ore(f.elements.h.value),a=D.fasce[f.elements.k.value];
+    if(isNaN(o)||!a){out.innerHTML='<p class="ris-msg">'+esc(D.t.errore)+'</p>';return;}
+    var p1=pagaMin(a[2],o),p0=pagaMin(a[1],o),d=p1.anno-p0.anno;
+    var h='<div class="ris-main"><span>'+esc(D.t.titolo.replace('{h}',otxt(o)).replace('{r}',gbp(a[2])))+'</span><b data-pay-sett>'+esc(gbp(p1.sett))+'</b><span>'+esc(D.t.sett)+'</span></div>';
+    h+='<ul class="mini due"><li><b data-pay-mese>'+esc(gbp(p1.mese))+'</b><span>'+esc(D.t.mese)+'</span></li><li><b data-pay-anno>'+esc(gbp(p1.anno))+'</b><span>'+esc(D.t.anno)+'</span></li>'+
+      '<li><b data-pay-prima>'+esc(gbp(p0.anno))+'</b><span>'+esc(D.t.prima.replace('{r}',gbp(a[1])))+'</span></li><li><b data-pay-diff>'+esc(gbp(d))+'</b><span>'+esc(d>0?D.t.piu:D.t.uguale)+'</span></li></ul>';
+    h+='<p class="small">'+esc(D.t.nota)+'</p>';
+    out.innerHTML=h;}
+  try{var q=new URLSearchParams(location.search);
+    if(q.get('h'))f.elements.h.value=q.get('h').slice(0,6);
+    if(q.get('k')&&D.fasce[q.get('k')])f.elements.k.value=q.get('k');}catch(e){}
+  f.addEventListener('input',calcola);f.addEventListener('change',calcola);f.addEventListener('submit',function(e){e.preventDefault();calcola();});
+  f.addEventListener('click',function(e){var b=e.target.closest('[data-h]');if(!b)return;f.elements.h.value=b.getAttribute('data-h');calcola();});
+  calcola();
+})();
+"""
+
+# ---------------------------------------------------------------- /rent-increase-cap/…: affitto massimo con il tetto ufficiale (copia di affitti.aumento)
+RENT_MOTORE_JS = r"""
+function affittoMax(c,t){var a=Math.floor(c*t/100000);return {aumento:a,nuovo:c+a};}
+"""
+
+RENT_JS = RENT_MOTORE_JS + r"""
+(function(){
+  var f=document.querySelector('[data-rent]');if(!f)return;
+  var D=JSON.parse(document.getElementById('rent-dati').textContent),out=document.querySelector('[data-rent-out]');
+  function soldi(c){return '$'+(c/100).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});}
+  function pc(t){return (t/1000).toLocaleString('en-US',{maximumFractionDigits:3})+'%';}
+  function esc(t){return String(t).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function cent(v){v=String(v||'').trim().replace(/[\s$,]/g,'');if(!/^\d{1,7}(\.\d{1,2})?$/.test(v))return NaN;
+    var p=v.split('.'),c=parseInt(p[0],10)*100+(p[1]?parseInt((p[1]+'0').slice(0,2),10):0);return c>=100&&c<=100000000?c:NaN;}
+  function periodi(tieni){var v=D.voci[f.elements.v.value],s=f.elements.p,i,prima=tieni?s.value:null;
+    s.innerHTML='';for(i=0;i<v.p.length;i++){var o=document.createElement('option');o.value=String(i);o.textContent=v.p[i][0];s.appendChild(o);}
+    s.value=(prima!==null&&prima<v.p.length)?prima:String(v.d);}
+  function calcola(){
+    var v=D.voci[f.elements.v.value],c=cent(f.elements.r.value);
+    if(!v){return;}
+    var p=v.p[parseInt(f.elements.p.value,10)]||v.p[v.d];
+    if(isNaN(c)){out.innerHTML='<p class="ris-msg">'+esc(D.t.errore)+'</p>';return;}
+    var r=affittoMax(c,p[1]);
+    var h='<div class="ris-main"><span>'+esc(D.t.titolo.replace('{luogo}',v.n))+'</span><b data-rent-nuovo>'+esc(soldi(r.nuovo))+'</b><span>'+
+      esc((p[1]?D.t.sotto:D.t.zero).replace('{pct}',pc(p[1])).replace('{periodo}',p[0]).replace('{valuta}',v.c))+'</span></div>';
+    h+='<p class="formula">'+esc(soldi(c)+' × '+pc(p[1])+' = '+soldi(r.aumento)+' · '+soldi(c)+' + '+soldi(r.aumento)+' = '+soldi(r.nuovo))+'</p>';
+    h+='<ul class="mini due"><li><b data-rent-aumento>'+esc(soldi(r.aumento))+'</b><span>'+esc(D.t.aumento)+'</span></li><li><b data-rent-pct>'+esc(pc(p[1]))+'</b><span>'+esc(D.t.fonte.replace('{fonte}',v.f))+'</span></li></ul>';
+    h+='<p class="small">'+esc(D.t.nota)+'</p>';
+    out.innerHTML=h;}
+  try{var q=new URLSearchParams(location.search);
+    if(q.get('v')&&D.voci[q.get('v')])f.elements.v.value=q.get('v');
+    periodi(false);
+    if(q.get('r'))f.elements.r.value=q.get('r').slice(0,12);}catch(e){periodi(false);}
+  f.elements.v.addEventListener('change',function(){periodi(false);});
+  f.addEventListener('input',calcola);f.addEventListener('change',calcola);f.addEventListener('submit',function(e){e.preventDefault();calcola();});
+  calcola();
+})();
+"""

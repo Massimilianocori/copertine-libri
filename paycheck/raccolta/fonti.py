@@ -5,6 +5,8 @@ Uso (dalla radice del repository):
     python3 paycheck/raccolta/fonti.py            # riscarica tutto (curl, nessun blocco aggirato)
     python3 paycheck/raccolta/fonti.py --locale   # non scarica: rilegge i file già in dati/grezzi/
 
+Le fonti del salario minimo (sezione /minimum-wage/) sono in raccolta/minimo.py, con le espressioni regolari che ne leggono le cifre.
+
 Uscite: dati/fonti.json (una voce per fonte: url, file, sha256, letto_il, http, frasi trovate) e dati/regole.json
 (tabelle e aliquote lette dai file grezzi, ognuna con l'id della fonte). Ogni cifra di regole.json viene da
 un'espressione regolare o da una tabella letta dal file grezzo: se una fonte cambia testo lo script si ferma.
@@ -20,6 +22,7 @@ from pathlib import Path
 QUI = Path(__file__).resolve().parent
 sys.path.insert(0, str(QUI))
 import testo as T  # noqa: E402
+import minimo as MINIMO  # noqa: E402  (salario minimo 2026-2027: fonti e lettura delle cifre)
 
 DATI = QUI.parent / "dati"
 GREZZI = DATI / "grezzi"
@@ -227,6 +230,9 @@ FONTI = [
          "prodotti": "Patriot offers two payroll software products— Basic Payroll and Full Service Payroll . Run unlimited payrolls and pay employees with ease.",
      }),
 ]
+
+
+FONTI += MINIMO.FONTI_MINIMO   # sezione /minimum-wage/: tabella del Department of Labor e pagine degli uffici del lavoro degli Stati
 
 
 def scarica(url, dest):
@@ -502,6 +508,7 @@ def regole(testi):
     for k in ("aliquota", "credito_max", "netta"):
         r["futa"][k] = round(r["futa"][k], 6)
     r["stati"]["CA"]["sdi"] = {k: (round(v, 6) if isinstance(v, float) else v) for k, v in r["stati"]["CA"]["sdi"].items()}
+    r["minimo"] = MINIMO.regole_minimo(testi)   # salario minimo: tariffe 2026 (Department of Labor) e 2027 (uffici del lavoro degli Stati)
     return r
 
 
@@ -553,10 +560,11 @@ def main():
             precedenti.append((prec, dest))
         tmp.replace(dest)
         if dest.suffix in (".html", ".htm"):
-            # 18/11/2026: alcune pagine statali (Illinois) contengono un token Mapbox pubblico «pk.eyJ…» che la protezione
+            # 18/11/2026: alcune pagine statali (Illinois) contengono un token Mapbox pubblico (prefisso «pk.» seguito da «eyJ») che la protezione
             # di GitHub blocca come segreto; nelle copie grezze lo sostituiamo (le frasi citate non lo contengono).
             b = dest.read_bytes()
             b2 = re.sub(rb"pk\.eyJ[A-Za-z0-9._-]+", b"pk.REDACTED", b)
+            b2 = re.sub(rb"(?i)(apikey=)[A-Za-z0-9_-]{16,}", rb"\1-rimossa-", b2)   # chiavi pubbliche di servizi esterni nei link delle pagine (es. Vermont, script BugHerd)
             if b2 != b:
                 dest.write_bytes(b2)
     try:

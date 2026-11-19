@@ -346,7 +346,7 @@ def controlla_fonti():
         attesa = hashlib.sha256("\n".join(f"{k}\t{norm(f['frasi'][k])}" for k in sorted(f["frasi"])).encode("utf-8")).hexdigest()
         ok(f.get("sha256_frasi") == attesa, f"fonte {fid}: impronta delle frasi diversa da fonti.json")
     ufficiali = [f["url"] for fid, f in F.items() if fid not in FONTI_PARTNER]
-    ok(all(re.match(r"https://([\w.-]+\.)?(irs\.gov|doleta\.gov|texas\.gov|floridarevenue\.com|ca\.gov|illinois\.gov|ncdor\.gov|nc\.gov)/", u) for u in ufficiali), "una fonte non è su un dominio ufficiale")
+    ok(all(re.match(r"https://([\w.-]+\.)?(irs\.gov|doleta\.gov|texas\.gov|floridarevenue\.com|ca\.gov|illinois\.gov|ncdor\.gov|nc\.gov|dol\.gov|wa\.gov|ny\.gov|ct\.gov|mi\.gov|mn\.gov|mo\.gov|mt\.gov|nebraska\.gov|nj\.gov|ohio\.gov|rilegislature\.gov|sd\.gov|vermont\.gov|virginia\.gov|oregon\.gov|hawaii\.gov|alaska\.gov)/", u) for u in ufficiali), "una fonte non è su un dominio ufficiale")
     return F, testi
 
 
@@ -469,7 +469,8 @@ def controlla_pagine(F, testi, G, CA, R, dati_home):
             continue
         pagine["/" + str(p.relative_to(SITO)).replace("index.html", "")] = p.read_text(encoding="utf-8")
     attese = ({"/", "/404.html", "/employer-payroll-taxes/", "/how-to-do-payroll/", "/federal-withholding/", "/how-we-check/", "/about/", "/privacy/"}
-              | {f"/{v[1]}/" for v in NOMI.values()} | {f"/{v[1]}-payroll-taxes/" for v in NOMI.values()})
+              | {f"/{v[1]}/" for v in NOMI.values()} | {f"/{v[1]}-payroll-taxes/" for v in NOMI.values()}
+              | {"/minimum-wage/"} | {f"/minimum-wage/{MW_NOMI[x].lower().replace(' ', '-')}/" for x in MW_PAGINE})
     aff = json.loads((DATI / "affiliati.json").read_text(encoding="utf-8"))
     accesi = [p for p in aff["partner"] if p["attivo"]]
     ok(len({p["id"] for p in aff["partner"]}) == len(aff["partner"]), "affiliati.json: id doppi")
@@ -553,7 +554,8 @@ def controlla_pagine(F, testi, G, CA, R, dati_home):
                 ok("data-datore" in html and html.index("data-datore") < html.index("data-partner-box"), f"{u}: riquadro dei partner sopra il calcolatore del datore")
                 fuori = html.replace(box[0], "")
                 ok(not NOMI_PARTNER.search(visibile(fuori)) or u in ("/about/", "/privacy/"), f"{u}: nome di un partner fuori dal riquadro")
-    ok(len(set(titoli.values())) == len(titoli) == 17, f"titoli unici: {len(titoli)}")
+    ok(len(set(titoli.values())) == len(titoli) == 17 + 1 + len(MW_PAGINE), f"titoli unici: {len(titoli)}")
+    controlla_minimo(pagine, G, testi)
 
     # ---- cifre delle pagine contro i valori trascritti a mano
     home = visibile(pagine["/"])
@@ -653,6 +655,121 @@ def controlla_pagine(F, testi, G, CA, R, dati_home):
         if p.is_file() and p.suffix in (".py", ".js", ".json", ".md", ".html", ".txt", ".toml", ".xml", ".css", ".svg") and CHIAVE in p.read_text(encoding="utf-8", errors="ignore"):
             err(f"chiave seodata in {p}")
     return len(pagine)
+
+
+# ---------------------------------------------------------------- salario minimo (/minimum-wage/)
+# Trascritto a mano il 18/11/2026 leggendo le fonti (non da regole.json).
+# 2026: tabella «State Minimum Wage Laws» del Department of Labor (aggiornata il 5/11/2026), prima tariffa di ogni Stato; None = «No state minimum wage law».
+MW_2026 = {"AL": None, "AK": "14.00", "AZ": "15.15", "AR": "11.00", "CA": "16.90", "CO": "15.16", "CT": "16.94", "DE": "15.00", "DC": "18.40", "FL": "15.00", "GA": "5.15",
+           "HI": "16.00", "ID": "7.25", "IL": "15.00", "IN": "7.25", "IA": "7.25", "KS": "7.25", "KY": "7.25", "LA": None, "ME": "15.10", "MD": "15.00", "MA": "15.00",
+           "MI": "13.73", "MN": "11.41", "MS": None, "MO": "15.00", "MT": "10.85", "NE": "15.00", "NV": "12.00", "NH": "7.25", "NJ": "15.92", "NM": "12.00", "NY": "17.00",
+           "NC": "7.25", "ND": "7.25", "OH": "11.00", "OK": "7.25", "OR": "15.55", "PA": "7.25", "RI": "16.00", "SC": None, "SD": "11.85", "TN": None, "TX": "7.25",
+           "UT": "7.25", "VT": "14.42", "VA": "12.77", "WA": "17.13", "WV": "8.75", "WI": "7.25", "WY": "5.15"}
+# 2027: pagina, avviso o legge dello Stato. Chi non è qui non ha una tariffa 2027 letta da una fonte ufficiale: la pagina non deve mostrarne una.
+MW_2027 = {"CA": "17.40", "WA": "17.73", "CT": "17.48", "MI": "15.00", "MN": "11.87", "MO": "15.00", "MT": "11.20", "NE": "15.26", "NJ": "16.48", "OH": "11.40",
+           "RI": "17.00", "SD": "12.30", "VT": "14.91", "VA": "13.75", "NY": "17.00"}
+MW_FEDERALE = "7.25"
+MW_AK_LUGLIO_2027 = "15.00"   # Alaska, dal 1° luglio 2027: comunicato n. 25-11 del Department of Labor and Workforce Development (letto il 18/11/2026)
+MW_PAGINE = ["CA", "NY", "WA", "NJ", "OH", "MI", "VA", "MO", "OR", "MN", "CT", "NE", "RI", "SD", "VT", "MT"]
+MW_NOMI = {"AL": "Alabama", "AK": "Alaska", "AZ": "Arizona", "AR": "Arkansas", "CA": "California", "CO": "Colorado", "CT": "Connecticut", "DE": "Delaware", "DC": "District of Columbia",
+           "FL": "Florida", "GA": "Georgia", "HI": "Hawaii", "ID": "Idaho", "IL": "Illinois", "IN": "Indiana", "IA": "Iowa", "KS": "Kansas", "KY": "Kentucky", "LA": "Louisiana", "ME": "Maine",
+           "MD": "Maryland", "MA": "Massachusetts", "MI": "Michigan", "MN": "Minnesota", "MS": "Mississippi", "MO": "Missouri", "MT": "Montana", "NE": "Nebraska", "NV": "Nevada",
+           "NH": "New Hampshire", "NJ": "New Jersey", "NM": "New Mexico", "NY": "New York", "NC": "North Carolina", "ND": "North Dakota", "OH": "Ohio", "OK": "Oklahoma", "OR": "Oregon",
+           "PA": "Pennsylvania", "RI": "Rhode Island", "SC": "South Carolina", "SD": "South Dakota", "TN": "Tennessee", "TX": "Texas", "UT": "Utah", "VT": "Vermont", "VA": "Virginia",
+           "WA": "Washington", "WV": "West Virginia", "WI": "Wisconsin", "WY": "Wyoming"}
+# Altre cifre delle pagine di Stato, trascritte a mano: (pagina, cifre che devono esserci)
+MW_ALTRO = {"CA": ["$72,384", "$20.00"], "WA": ["$15.07"], "NY": ["$16.00", "$14.15", "$2.85", "$11.35", "$5.65", "$13.30", "$2.70", "$10.70", "$5.30"], "MN": ["$9.31", "$9.68"],
+            "MO": ["$7.50", "$500,000"], "MT": ["$4.00", "$110,000"], "NJ": ["$15.23", "$16.25", "$6.05", "$6.61", "$9.87", "$14.20"], "OH": ["$5.70", "$405,000", "$419,000"],
+            "SD": ["$5.925", "$6.15"], "VT": ["$7.21", "$7.46"], "VA": ["$15.00"], "OR": ["$16.80", "$14.55"], "CT": ["3.2%"], "MI": ["October, 2027"], "NE": [], "RI": ["sixteen dollars"]}
+# Frasi brevi cercate qui nei file grezzi, scritte a mano (non prese da fonti.json): la cifra 2027 deve stare nella fonte dello Stato.
+MW_NEI_GREZZI = [("mw_ca_2027", "will increase to $17.40 per hour"), ("mw_wa", "will be $17.73 an hour"), ("mw_wa_avviso", "$17.73 per hour beginning Jan. 1, 2027"),
+                 ("mw_ct", "will adjust to $17.48 per hour beginning January 1, 2027"), ("mw_ct_dol", "$17.48 effective on January 1, 2027"), ("mw_mi", "Beginning January 1, 2027, $15.00"),
+                 ("mw_dol_stati", "increase on January 1, 2027 to $15.00 per hour"), ("mw_mn_avviso", "to $11.87 an hour"), ("mw_mo", "2027 $15.00"), ("mw_mt_lettera", "increase to $11.20 per hour"),
+                 ("mw_mt", "Effective 1/1/2027: $11.20"), ("mw_ne", "$15.26 Minimum Wage Effective January 1, 2027"), ("mw_nj", "to $16.48 per hour for most employees, effective January 1, 2027"),
+                 ("mw_oh", "$11.40 per hour"), ("mw_ri", "January 1, 2027, the minimum wage is seventeen dollars ($17.00)"), ("mw_sd", "will be $12.30/hour"), ("mw_sd_avviso", "$12.30/Hour"),
+                 ("mw_vt", "01/01/2027: $14.91 per hour"), ("mw_va", "January 1, 2027, the Virginia minimum wage rate shall increase to $13.75"), ("mw_ny", "minimum wage will stay the same"),
+                 ("mw_or", "through June 30, 2027"), ("mw_dol_fed", "$7.25 per hour effective July 24, 2009"), ("mw_hi", "$18.00 per hour beginning January 1, 2028"),
+                 ("mw_ak", "to $14.00 on July 1, 2026, and to $15.00 on July 1, 2027"), ("mw_mi", "effective beginning January 1 of the immediately succeeding year"),
+                 ("mw_dol_stati", "Michigan Applicable to employers of 2 or more employees"), ("mw_dol_stati", "Vermont Applicable to employers of two or more employees"),
+                 ("mw_oh", "under the age of 16 shall be paid no less than the current federal minimum wage rate")]
+
+
+def mw_soldi(t, ore):
+    """Paga lorda: tariffa (stringa in dollari) × ore, con frazioni esatte."""
+    return soldi(cent(Fr(t) * ore))
+
+
+def controlla_minimo(pagine, G, testi):
+    M = G["minimo"]
+    ok(sorted(M["stati"]) == sorted(MW_2026) == sorted(MW_NOMI) and len(MW_2026) == 51, "salario minimo: gli Stati di regole.json non sono i 50 più DC")
+    for fid, pezzo in MW_NEI_GREZZI:
+        ok(norm(pezzo) in testi.get(fid, ""), f"salario minimo: «{pezzo}» non è nel file grezzo di {fid}")
+    for s, att in MW_2026.items():
+        v = M["stati"][s]
+        ok(v["nome"] == MW_NOMI[s] and (v["tariffe"][0][0] if v["tariffe"] else None) == att, f"salario minimo: {s} 2026 in regole.json = {v['tariffe']}, atteso {att}")
+    ok(M["prossimo"]["AK"] == {"dal": "2027-07-01", "tariffa": MW_AK_LUGLIO_2027, "fonte": "mw_ak"} and "$15.00 on July 1, 2027" in visibile(pagine["/minimum-wage/"]), "salario minimo: Alaska, passo del 1° luglio 2027")
+    ok(M["federale"]["tariffa"] == MW_FEDERALE and M["stati"]["NY"]["tariffe"][0] == ["17.00", "16.00"] and M["stati"]["OR"]["tariffe"][0] == ["15.55", "16.80", "14.55"], "salario minimo: tariffa federale o zone di New York e Oregon")
+    ok(sorted(M["dettaglio"]) == sorted(MW_PAGINE), "salario minimo: Stati con pagina diversi da quelli attesi")
+    for s in MW_PAGINE:
+        d = M["dettaglio"][s]
+        ok(d["a2026"] == MW_2026[s] and d["a2027"] == MW_2027.get(s), f"salario minimo: {s} in regole.json = {d['a2026']} → {d['a2027']}, atteso {MW_2026[s]} → {MW_2027.get(s)}")
+    # ---- pagina di tutti gli Stati
+    idx = pagine["/minimum-wage/"]
+    vis_i = visibile(idx)
+    righe = re.findall(r'<tr data-stato="(\w\w)" data-tipo="(\w+)">(.*?)</tr>', idx, re.S)
+    ok([s for s, _, _ in righe] == sorted(MW_2026, key=lambda s: MW_NOMI[s]), "minimum-wage: le righe non sono i 50 Stati più DC in ordine alfabetico")
+    for s, tipo, r in righe:
+        c26 = re.sub(r"<[^>]+>", " ", re.search(r"<td data-a2026>(.*?)</td>", r, re.S).group(1))
+        c27 = re.sub(r"<[^>]+>", " ", re.search(r"<td data-a2027>(.*?)</td>", r, re.S).group(1))
+        dal = "January 1, 2027" if "from January 1, 2027" in c27 else "–"
+        if MW_2026[s] is None:
+            ok("No state minimum wage law" in c26 and re.findall(r"\$[\d.]+", c26) == ["$7.25"], f"minimum-wage: {s} 2026 = {c26}")
+        else:
+            ok(re.findall(r"\$[\d.,]+", c26)[0] == "$" + MW_2026[s], f"minimum-wage: {s} 2026 = {c26}, atteso {MW_2026[s]}")
+        if s in MW_2027:
+            attese_c = ["$17.00", "$16.00"] if s == "NY" else ["$" + MW_2027[s]]
+            ok(re.findall(r"\$[\d.]+", c27) == attese_c and dal == "January 1, 2027", f"minimum-wage: {s} 2027 = {c27} dal {dal}")
+            ok(tipo == ("nuova" if Fr(MW_2027[s]) > Fr(MW_2026[s]) else "uguale"), f"minimum-wage: {s} tipo {tipo}")
+        else:
+            # nessuna tariffa 2027 inventata: l'unica cifra ammessa è il passo del 2028 delle Hawaii, scritto nella fonte
+            # (revisione del 18/11/2026) e il passo del 1° luglio 2027 dell'Alaska, scritto nel comunicato dello Stato: mai come tariffa del 1° gennaio
+            ok(re.findall(r"\$[\d.]+", c27) == ({"HI": ["$18.00"], "AK": ["$" + MW_AK_LUGLIO_2027]}.get(s, [])) and dal == "–" and (s != "AK" or ("No change on January 1" in c27 and "from July 1, 2027" in c27 and tipo == "luglio"))
+               and "2027" not in c27.replace("as of November 18, 2026", "").replace("No 2027 change listed", "").replace("next change July 1, 2027", "").replace("from July 1, 2027" if s == "AK" else "\0", "") and tipo != "nuova", f"minimum-wage: {s} mostra una tariffa 2027 senza fonte: {c27}")
+        ok((f'href="/minimum-wage/{MW_NOMI[s].lower().replace(" ", "-")}/"' in r) == (s in MW_PAGINE), f"minimum-wage: {s} collegamento alla pagina dello Stato")
+    for s in ("AZ", "CO", "ME"):
+        ok(dict((a, b) for a, b, _ in righe).get(s) == "non_letto", f"minimum-wage: {s} dovrebbe essere tra gli Stati non letti")
+    sale = re.findall(r'<tr data-sale="(\w\w)">(.*?)</tr>', idx, re.S)
+    in_salita = sorted((s for s in MW_2027 if Fr(MW_2027[s]) > Fr(MW_2026[s])), key=lambda s: (-Fr(MW_2027[s]), MW_NOMI[s]))
+    ok(sorted(s for s, _ in sale) == sorted(in_salita) and [Fr(MW_2027[s]) for s, _ in sale] == [Fr(MW_2027[s]) for s in in_salita], "minimum-wage: tabella degli Stati che salgono")
+    for s, r in sale:
+        ok(re.findall(r'<td class="n">(.*?)</td>', r) == ["$" + MW_2026[s], "$" + MW_2027[s], mw_soldi(MW_2027[s], 40)], f"minimum-wage: riga {s} della tabella degli aumenti")
+    ok(f">{len(in_salita)}</b>" in idx and "Arizona, Colorado and Maine" in vis_i and "$7.25 per hour effective July 24, 2009" in vis_i and "Not announced as of November 18, 2026" in vis_i, "minimum-wage: riquadro, Stati non letti o tariffa federale")
+    for sl in NOMI.values():
+        ok(f'href="/{sl[1]}/"' in idx, f"minimum-wage: manca il collegamento al calcolatore di {sl[0]}")
+    ok('href="/minimum-wage/"' in pagine["/"] and 'href="/minimum-wage/california/"' in pagine["/california/"], "salario minimo: collegamenti dalla home e dalla pagina della California")
+    # ---- pagine di Stato
+    for s in MW_PAGINE:
+        n = MW_NOMI[s]
+        u = f"/minimum-wage/{n.lower().replace(' ', '-')}/"
+        html = pagine[u]
+        v = visibile(html)
+        ok(f"{n} minimum wage 202" in v and 'href="/minimum-wage/"' in html and "$7.25 per hour effective July 24, 2009" in v, f"{u}: h1, collegamento all'elenco o tariffa federale")
+        m = re.search(rf'<table class="dati mw" data-minimo-tab="{s}">.*?<tbody>(.*?)</tbody>', html, re.S)
+        prima = re.findall(r'<td class="n">(.*?)</td>', re.findall(r"<tr>(.*?)</tr>", m.group(1), re.S)[0]) if m else []
+        if s == "OR":
+            ok(prima == ["$15.55", "Not announced as of November 18, 2026"] and "Not announced as of November 18, 2026" in v, f"{u}: prima riga = {prima}")
+            seconde = [re.findall(r'<td class="n">(.*?)</td>', r)[1] for r in re.findall(r"<tr>(.*?)</tr>", m.group(1), re.S)]
+            ok(len(seconde) == 3 and all("$" not in c for c in seconde), f"{u}: una tariffa dal 1° luglio 2027 non è stata pubblicata, ma la tabella mostra {seconde}")
+        else:
+            ok(prima[:2] == ["$" + MW_2026[s], "$" + MW_2027[s]], f"{u}: prima riga della tabella = {prima}")
+            ok("January 1, 2027" in v, f"{u}: manca la data")
+        for pezzo in MW_ALTRO[s]:
+            ok(pezzo in v, f"{u}: manca {pezzo}")
+        paga = re.findall(r'<tr data-paga="([\d.]+)">.*?<td class="n">(.*?)</td><td class="n">(.*?)</td><td class="n">(.*?)</td></tr>', html, re.S)
+        ok(len(paga) >= 1 and all(c == ["$" + t, mw_soldi(t, 40), mw_soldi(t, 2080)] for t, *c in paga), f"{u}: tabella della paga lorda = {paga}")
+        ok({t for t, *_ in paga} <= {MW_2026[s], MW_2027.get(s), "16.00", "16.80", "14.55"}, f"{u}: tariffa non attesa nella tabella della paga")
+        ok(html.count('<blockquote class="cit"') >= 3 and "data-busta" not in html, f"{u}: meno di 3 frasi ufficiali citate")
+    ok('href="/california/"' in pagine["/minimum-wage/california/"], "minimum-wage/california: manca il calcolatore della California")
 
 
 def strumenti():

@@ -1,6 +1,6 @@
 {
- "_nota": "Volumi medi mensili Google Ads (USA) letti con seodata.dev: 149 ricerche. Servono a scegliere gli Stati, i titoli e le FAQ: ogni FAQ cita una di queste frasi. Le frasi con l'anno risultano quasi sempre a 0 nello strumento.",
- "letto_il": "2026-11-14",
+ "_nota": "Volumi medi mensili Google Ads (USA) letti con seodata.dev: 278 ricerche. Servono a scegliere gli Stati, i titoli e le FAQ: ogni FAQ cita una di queste frasi. Le frasi con l'anno risultano quasi sempre a 0 nello strumento.",
+ "letto_il": "2026-11-18",
  "paese": "us",
  "ricerche": [
   {
@@ -47,6 +47,335 @@
     {
      "frase": "wage calculator",
      "volume_mese": 27100
+    }
+   ]
+  },
+  {
+   "frase": "california minimum wage",
+   "volume_mese": 135000,
+   "cpc_usd": 2.78,
+   "simili": [
+    {
+     "frase": "minimum wage ca",
+     "volume_mese": 135000
+    },
+    {
+     "frase": "minimum wage in ca",
+     "volume_mese": 135000
+    },
+    {
+     "frase": "minimum wage in california",
+     "volume_mese": 135000
+    },
+    {
+     "frase": "ca minimum wage",
+     "volume_mese": 60500
+    },
+    {
+     "frase": "minimum wage california",
+     "volume_mese": 60500
+    },
+    {
+     "frase": "what is california minimum wage",
+     "volume_mese": 60500
+    },
+    {
+     "frase": "what is minimum wage in california",
+     "volume_mese": 60500
+    },
+    {
+     "frase": "what is the minimum wage in california",
+     "volume_mese": 60500
+    },
+    {
+     "frase": "california minimum wage 2025",
+     "volume_mese": 33100
+    },
+    {
+     "frase": "minimum wage in california 2025",
+     "volume_mese": 27100
+    }
+   ]
+  },
+  {
+   "frase": "minimum wage in california",
+   "volume_mese": 135000,
+   "cpc_usd": 2.78,
+   "simili": [
+    {
+     "frase": "california minimum wage",
+     "volume_mese": 135000
+    },
+    {
+     "frase": "minimum wage ca",
+     "volume_mese": 135000
+    },
+    {
+     "frase": "minimum wage in ca",
+     "volume_mese": 135000
+    },
+    {
+     "frase": "ca minimum wage",
+     "volume_mese": 60500
+    },
+    {
+     "frase": "minimum wage california",
+     "volume_mese": 60500
+    },
+    {
+     "frase": "what is california minimum wage",
+     "volume_mese": 60500
+    },
+    {
+     "frase": "what is minimum wage in california",
+     "volume_mese": 60500
+    },
+    {
+     "frase": "what is the minimum wage in california",
+     "volume_mese": 60500
+    },
+    {
+     "frase": "california minimum wage 2025",
+     "volume_mese": 33100
+    },
+    {
+     "frase": "minimum wage in california 2025",
+     "volume_mese": 27100
+    }
+   ]
+  },
+  {
+   "frase": "florida minimum wage",
+   "volume_mese": 110000,
+   "cpc_usd": 3.67,
+   "simili": [
+    {
+     "frase": "minimum salary in florida",
+     "volume_mese": 110000
+    },
+    {
+     "frase": "minimum wage fl",
+     "volume_mese": 110000
+    },
+    {
+     "frase": "minimum wage florida",
+     "volume_mese": 110000
+    },
+    {
+     "frase": "minimum wage in florida",
+     "volume_mese": 110000
+    },
+    {
+     "frase": "what is the minimum wage in florida",
+     "volume_mese": 40500
+    },
+    {
+     "frase": "florida minimum wage 2025",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "minimum wage in florida 2025",
+     "volume_mese": 8100
+    },
+    {
+     "frase": "minimum wage florida 2025",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "current florida minimum wage",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "miami minimum wage",
+     "volume_mese": 1300
+    }
+   ]
+  },
+  {
+   "frase": "minimum wage",
+   "volume_mese": 110000,
+   "cpc_usd": 10.42,
+   "simili": [
+    {
+     "frase": "minimum wages",
+     "volume_mese": 110000
+    },
+    {
+     "frase": "what is a minimum wage",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "what is minimum wage",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "federal minimum wage 2025",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "how much is the minimum wage",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "what is the minimum wage",
+     "volume_mese": 6600
+    },
+    {
+     "frase": "current minimum wage",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "new minimum wage",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "minimum salary",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "labour wages",
+     "volume_mese": 110
+    }
+   ]
+  },
+  {
+   "frase": "minimum wage in new york",
+   "volume_mese": 90500,
+   "cpc_usd": 6.69,
+   "simili": [
+    {
+     "frase": "minimum wage in ny",
+     "volume_mese": 90500
+    },
+    {
+     "frase": "minimum wage new york",
+     "volume_mese": 90500
+    },
+    {
+     "frase": "minimum wage ny",
+     "volume_mese": 90500
+    },
+    {
+     "frase": "minimum wage nyc",
+     "volume_mese": 90500
+    },
+    {
+     "frase": "new york city minimum wage",
+     "volume_mese": 90500
+    },
+    {
+     "frase": "new york minimum wage",
+     "volume_mese": 90500
+    },
+    {
+     "frase": "ny minimum wage",
+     "volume_mese": 90500
+    },
+    {
+     "frase": "nyc minimum wage",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "what is minimum wage in ny",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "what is minimum wage in new york city",
+     "volume_mese": 6600
+    }
+   ]
+  },
+  {
+   "frase": "new york city minimum wage",
+   "volume_mese": 90500,
+   "cpc_usd": 3.15,
+   "simili": [
+    {
+     "frase": "minimum wage in new york",
+     "volume_mese": 90500
+    },
+    {
+     "frase": "minimum wage in ny",
+     "volume_mese": 90500
+    },
+    {
+     "frase": "minimum wage new york",
+     "volume_mese": 90500
+    },
+    {
+     "frase": "minimum wage ny",
+     "volume_mese": 90500
+    },
+    {
+     "frase": "minimum wage nyc",
+     "volume_mese": 90500
+    },
+    {
+     "frase": "new york minimum wage",
+     "volume_mese": 90500
+    },
+    {
+     "frase": "ny minimum wage",
+     "volume_mese": 90500
+    },
+    {
+     "frase": "nyc minimum wage",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "what is minimum wage in ny",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "what is minimum wage in new york city",
+     "volume_mese": 6600
+    }
+   ]
+  },
+  {
+   "frase": "new york minimum wage",
+   "volume_mese": 90500,
+   "cpc_usd": 3.15,
+   "simili": [
+    {
+     "frase": "minimum wage in new york",
+     "volume_mese": 90500
+    },
+    {
+     "frase": "minimum wage in ny",
+     "volume_mese": 90500
+    },
+    {
+     "frase": "minimum wage new york",
+     "volume_mese": 90500
+    },
+    {
+     "frase": "minimum wage ny",
+     "volume_mese": 90500
+    },
+    {
+     "frase": "minimum wage nyc",
+     "volume_mese": 90500
+    },
+    {
+     "frase": "new york city minimum wage",
+     "volume_mese": 90500
+    },
+    {
+     "frase": "ny minimum wage",
+     "volume_mese": 90500
+    },
+    {
+     "frase": "nyc minimum wage",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "what is minimum wage in ny",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "what is minimum wage in new york city",
+     "volume_mese": 6600
     }
    ]
   },
@@ -98,6 +427,53 @@
    ]
   },
   {
+   "frase": "texas minimum wage",
+   "volume_mese": 90500,
+   "cpc_usd": 4.42,
+   "simili": [
+    {
+     "frase": "minimum wage in texas",
+     "volume_mese": 90500
+    },
+    {
+     "frase": "minimum wage texas",
+     "volume_mese": 90500
+    },
+    {
+     "frase": "what is minimum wage in texas",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "what is the minimum wage in texas",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "texas minimum wage 2025",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "minimum wage in texas 2025",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "how much minimum wage in texas",
+     "volume_mese": 720
+    },
+    {
+     "frase": "minimum pay rate in texas",
+     "volume_mese": 70
+    },
+    {
+     "frase": "minimum wage rate texas",
+     "volume_mese": 70
+    },
+    {
+     "frase": "texas minimum wage rate",
+     "volume_mese": 70
+    }
+   ]
+  },
+  {
    "frase": "california paycheck calculator",
    "volume_mese": 60500,
    "cpc_usd": 21.76,
@@ -141,6 +517,53 @@
     {
      "frase": "take-home pay calculator california",
      "volume_mese": 9900
+    }
+   ]
+  },
+  {
+   "frase": "federal minimum wage",
+   "volume_mese": 60500,
+   "cpc_usd": 7.13,
+   "simili": [
+    {
+     "frase": "minimum wages",
+     "volume_mese": 110000
+    },
+    {
+     "frase": "minimum wage federal",
+     "volume_mese": 60500
+    },
+    {
+     "frase": "what is a minimum wage",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "what is minimum wage",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "minimum wage in america",
+     "volume_mese": 22200
+    },
+    {
+     "frase": "what is the federal minimum wage",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "how much is the minimum wage",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "national minimum wage",
+     "volume_mese": 8100
+    },
+    {
+     "frase": "current minimum wage",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "what is the minimum wage in the united states",
+     "volume_mese": 2900
     }
    ]
   },
@@ -192,6 +615,335 @@
    ]
   },
   {
+   "frase": "michigan minimum wage",
+   "volume_mese": 49500,
+   "cpc_usd": 11.95,
+   "simili": [
+    {
+     "frase": "minimum salary michigan",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "minimum wage in michigan",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "minimum wage michigan",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "michigan minimum wage 2025",
+     "volume_mese": 14800
+    },
+    {
+     "frase": "what is the minimum wage in michigan",
+     "volume_mese": 12100
+    },
+    {
+     "frase": "minimum wage michigan 2025",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "michigan state minimum wage",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "state of michigan minimum wage",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "what's michigan's minimum wage",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "what is minimum wage in michigan",
+     "volume_mese": 18100
+    }
+   ]
+  },
+  {
+   "frase": "minimum wage in michigan",
+   "volume_mese": 49500,
+   "cpc_usd": 2.67,
+   "simili": [
+    {
+     "frase": "michigan minimum wage",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "minimum salary michigan",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "minimum wage michigan",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "michigan minimum wage 2025",
+     "volume_mese": 14800
+    },
+    {
+     "frase": "what is the minimum wage in michigan",
+     "volume_mese": 12100
+    },
+    {
+     "frase": "minimum wage michigan 2025",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "michigan state minimum wage",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "state of michigan minimum wage",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "what's michigan's minimum wage",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "what's minimum wage in michigan",
+     "volume_mese": 2400
+    }
+   ]
+  },
+  {
+   "frase": "minimum wage in new jersey",
+   "volume_mese": 49500,
+   "cpc_usd": 8.53,
+   "simili": [
+    {
+     "frase": "minimum salary in new jersey",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "minimum wage in nj",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "minimum wage new jersey",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "minimum wage nj",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "new jersey minimum wage",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "nj minimum wage",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "nj minimum wage 2025",
+     "volume_mese": 14800
+    },
+    {
+     "frase": "what is minimum wage in nj",
+     "volume_mese": 12100
+    },
+    {
+     "frase": "new jersey minimum wage 2025",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "how much is minimum wage in new jersey",
+     "volume_mese": 1600
+    }
+   ]
+  },
+  {
+   "frase": "minimum wage in ohio",
+   "volume_mese": 49500,
+   "cpc_usd": 4.47,
+   "simili": [
+    {
+     "frase": "minimum wage ohio",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "ohio minimum wage",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "what is minimum wage in ohio",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "ohio minimum wage 2025",
+     "volume_mese": 12100
+    },
+    {
+     "frase": "minimum in ohio",
+     "volume_mese": 140
+    },
+    {
+     "frase": "minimum wage for ohio",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "minimum wages in ohio",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "how much is minimum wage in ohio",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "what minimum wage in ohio",
+     "volume_mese": 720
+    },
+    {
+     "frase": "current ohio minimum wage",
+     "volume_mese": 390
+    }
+   ]
+  },
+  {
+   "frase": "minimum wage in washington",
+   "volume_mese": 49500,
+   "cpc_usd": 3.13,
+   "simili": [
+    {
+     "frase": "minimum wage washington",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "washington minimum wage",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "washington state minimum wage",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "minimum wage in washington state",
+     "volume_mese": 40500
+    },
+    {
+     "frase": "seattle washington minimum wage",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "washington state minimum wage 2025",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "seattle minimum wage 2025",
+     "volume_mese": 6600
+    },
+    {
+     "frase": "minimum wage washington 2025",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "minimum wage in seattle",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "seattle minimum wage",
+     "volume_mese": 18100
+    }
+   ]
+  },
+  {
+   "frase": "new jersey minimum wage",
+   "volume_mese": 49500,
+   "cpc_usd": 8.53,
+   "simili": [
+    {
+     "frase": "minimum salary in new jersey",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "minimum wage in new jersey",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "minimum wage in nj",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "minimum wage new jersey",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "minimum wage nj",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "nj minimum wage",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "nj minimum wage 2025",
+     "volume_mese": 14800
+    },
+    {
+     "frase": "what is minimum wage in nj",
+     "volume_mese": 12100
+    },
+    {
+     "frase": "new jersey minimum wage 2025",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "how much is minimum wage in new jersey",
+     "volume_mese": 1600
+    }
+   ]
+  },
+  {
+   "frase": "ohio minimum wage",
+   "volume_mese": 49500,
+   "cpc_usd": 4.47,
+   "simili": [
+    {
+     "frase": "minimum wage in ohio",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "minimum wage ohio",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "ohio minimum wage 2025",
+     "volume_mese": 12100
+    },
+    {
+     "frase": "what is minimum wage in ohio",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "what is ohio minimum wage",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "what minimum wage in ohio",
+     "volume_mese": 720
+    },
+    {
+     "frase": "what's ohio minimum wage",
+     "volume_mese": 720
+    },
+    {
+     "frase": "what is minimum wage in ohio per hour",
+     "volume_mese": 30
+    },
+    {
+     "frase": "minimum wages in ohio",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "how much is minimum wage in ohio",
+     "volume_mese": 1600
+    }
+   ]
+  },
+  {
    "frase": "salary to hourly calculator",
    "volume_mese": 49500,
    "cpc_usd": 1.56,
@@ -235,6 +987,100 @@
     {
      "frase": "salary calculator hourly",
      "volume_mese": 49500
+    }
+   ]
+  },
+  {
+   "frase": "washington minimum wage",
+   "volume_mese": 49500,
+   "cpc_usd": 3.13,
+   "simili": [
+    {
+     "frase": "minimum wage in washington",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "minimum wage in washington state",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "minimum wage washington",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "washington state minimum wage",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "washington state minimum wage 2025",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "minimum wage washington 2025",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "seattle minimum wage 2025",
+     "volume_mese": 6600
+    },
+    {
+     "frase": "minimum wage washington state",
+     "volume_mese": 40500
+    },
+    {
+     "frase": "minimum salary in washington state",
+     "volume_mese": 40500
+    },
+    {
+     "frase": "seattle washington minimum wage",
+     "volume_mese": 18100
+    }
+   ]
+  },
+  {
+   "frase": "washington state minimum wage",
+   "volume_mese": 49500,
+   "cpc_usd": 3.04,
+   "simili": [
+    {
+     "frase": "minimum wage in washington",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "minimum wage in washington state",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "minimum wage washington",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "washington minimum wage",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "minimum wage washington state",
+     "volume_mese": 40500
+    },
+    {
+     "frase": "washington state minimum wage 2025",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "minimum wage washington 2025",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "seattle minimum wage 2025",
+     "volume_mese": 6600
+    },
+    {
+     "frase": "seattle washington minimum wage",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "how much is minimum wage in washington state",
+     "volume_mese": 1300
     }
    ]
   },
@@ -286,6 +1132,53 @@
    ]
   },
   {
+   "frase": "arizona minimum wage",
+   "volume_mese": 40500,
+   "cpc_usd": 6.88,
+   "simili": [
+    {
+     "frase": "minimum salary in arizona",
+     "volume_mese": 40500
+    },
+    {
+     "frase": "minimum wage arizona",
+     "volume_mese": 40500
+    },
+    {
+     "frase": "minimum wage in arizona",
+     "volume_mese": 40500
+    },
+    {
+     "frase": "what is minimum wage in arizona",
+     "volume_mese": 14800
+    },
+    {
+     "frase": "arizona minimum wage 2025",
+     "volume_mese": 12100
+    },
+    {
+     "frase": "minimum wage in arizona 2025",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "minimum wage in phoenix arizona",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "phoenix az minimum wage",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "phoenix minimum wage",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "how much is minimum wage in arizona",
+     "volume_mese": 1600
+    }
+   ]
+  },
+  {
    "frase": "form 941",
    "volume_mese": 40500,
    "cpc_usd": 9.62,
@@ -328,6 +1221,194 @@
     },
     {
      "frase": "taxes 941",
+     "volume_mese": 2400
+    }
+   ]
+  },
+  {
+   "frase": "illinois minimum wage",
+   "volume_mese": 40500,
+   "cpc_usd": 3.81,
+   "simili": [
+    {
+     "frase": "minimum wage illinois",
+     "volume_mese": 40500
+    },
+    {
+     "frase": "minimum wage in illinois",
+     "volume_mese": 40500
+    },
+    {
+     "frase": "what is minimum wage in illinois",
+     "volume_mese": 14800
+    },
+    {
+     "frase": "illinois minimum wage 2025",
+     "volume_mese": 6600
+    },
+    {
+     "frase": "minimum wage illinois chicago",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "chicago minimum wage 2025",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "how much is minimum wage in illinois",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "what minimum wage in illinois",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "il minimum wage",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "what's illinois minimum wage",
+     "volume_mese": 390
+    }
+   ]
+  },
+  {
+   "frase": "minimum wage in arizona",
+   "volume_mese": 40500,
+   "cpc_usd": 6.88,
+   "simili": [
+    {
+     "frase": "arizona minimum wage",
+     "volume_mese": 40500
+    },
+    {
+     "frase": "minimum salary in arizona",
+     "volume_mese": 40500
+    },
+    {
+     "frase": "minimum wage arizona",
+     "volume_mese": 40500
+    },
+    {
+     "frase": "what is minimum wage in arizona",
+     "volume_mese": 14800
+    },
+    {
+     "frase": "arizona minimum wage 2025",
+     "volume_mese": 12100
+    },
+    {
+     "frase": "minimum wage in arizona 2025",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "minimum wage in phoenix arizona",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "phoenix az minimum wage",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "phoenix minimum wage",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "how much is minimum wage in arizona",
+     "volume_mese": 1600
+    }
+   ]
+  },
+  {
+   "frase": "minimum wage in virginia",
+   "volume_mese": 40500,
+   "cpc_usd": 6.43,
+   "simili": [
+    {
+     "frase": "minimum wage va",
+     "volume_mese": 40500
+    },
+    {
+     "frase": "minimum wage virginia",
+     "volume_mese": 40500
+    },
+    {
+     "frase": "virginia minimum wage",
+     "volume_mese": 40500
+    },
+    {
+     "frase": "virginia minimum wage increase",
+     "volume_mese": 12100
+    },
+    {
+     "frase": "virginia minimum wage 2025",
+     "volume_mese": 6600
+    },
+    {
+     "frase": "va minimum wage 2025",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "va minimum wage",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "minimum wage virginia 2025",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "minimum wage in va",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "what's virginia minimum wage",
+     "volume_mese": 90
+    }
+   ]
+  },
+  {
+   "frase": "missouri minimum wage",
+   "volume_mese": 40500,
+   "cpc_usd": 10.18,
+   "simili": [
+    {
+     "frase": "minimum wage in missouri",
+     "volume_mese": 40500
+    },
+    {
+     "frase": "minimum wage missouri",
+     "volume_mese": 40500
+    },
+    {
+     "frase": "minimum wage for missouri",
+     "volume_mese": 33100
+    },
+    {
+     "frase": "what is minimum wage in missouri",
+     "volume_mese": 12100
+    },
+    {
+     "frase": "missouri minimum wage 2025",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "mo minimum wage",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "minimum wage st louis",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "what is missouri minimum wage",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "minimum wage state of missouri",
+     "volume_mese": 40500
+    },
+    {
+     "frase": "what minimum wage in missouri",
      "volume_mese": 2400
     }
    ]
@@ -380,6 +1461,100 @@
    ]
   },
   {
+   "frase": "virginia minimum wage",
+   "volume_mese": 40500,
+   "cpc_usd": 6.43,
+   "simili": [
+    {
+     "frase": "minimum wage in virginia",
+     "volume_mese": 40500
+    },
+    {
+     "frase": "minimum wage virginia",
+     "volume_mese": 40500
+    },
+    {
+     "frase": "virginia minimum wage increase",
+     "volume_mese": 12100
+    },
+    {
+     "frase": "virginia minimum wage 2025",
+     "volume_mese": 6600
+    },
+    {
+     "frase": "va minimum wage",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "minimum wage virginia 2025",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "minimum wage va",
+     "volume_mese": 40500
+    },
+    {
+     "frase": "va minimum wage 2025",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "minimum wage in va",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "what's virginia minimum wage",
+     "volume_mese": 90
+    }
+   ]
+  },
+  {
+   "frase": "california minimum wage 2025",
+   "volume_mese": 33100,
+   "cpc_usd": 2.63,
+   "simili": [
+    {
+     "frase": "minimum wage ca",
+     "volume_mese": 135000
+    },
+    {
+     "frase": "minimum wage in ca",
+     "volume_mese": 135000
+    },
+    {
+     "frase": "minimum wage in california",
+     "volume_mese": 135000
+    },
+    {
+     "frase": "ca minimum wage",
+     "volume_mese": 60500
+    },
+    {
+     "frase": "minimum wage california",
+     "volume_mese": 60500
+    },
+    {
+     "frase": "what is california minimum wage",
+     "volume_mese": 60500
+    },
+    {
+     "frase": "what is minimum wage in california",
+     "volume_mese": 60500
+    },
+    {
+     "frase": "what is the minimum wage in california",
+     "volume_mese": 60500
+    },
+    {
+     "frase": "minimum wage in california 2025",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "ca minimum wage 2025",
+     "volume_mese": 14800
+    }
+   ]
+  },
+  {
    "frase": "california state income tax",
    "volume_mese": 33100,
    "cpc_usd": 6.41,
@@ -423,6 +1598,280 @@
     {
      "frase": "state income tax california",
      "volume_mese": 27100
+    }
+   ]
+  },
+  {
+   "frase": "colorado minimum wage",
+   "volume_mese": 33100,
+   "cpc_usd": 9.58,
+   "simili": [
+    {
+     "frase": "minimum wage colorado",
+     "volume_mese": 33100
+    },
+    {
+     "frase": "minimum wage in colorado",
+     "volume_mese": 33100
+    },
+    {
+     "frase": "colorado minimum wage 2025",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "minimum wage colorado 2025",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "denver colorado minimum wage",
+     "volume_mese": 8100
+    },
+    {
+     "frase": "denver minimum wage",
+     "volume_mese": 8100
+    },
+    {
+     "frase": "minimum wage colorado denver",
+     "volume_mese": 8100
+    },
+    {
+     "frase": "co minimum wage",
+     "volume_mese": 720
+    },
+    {
+     "frase": "what is minimum wage in colorado",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "minimum wage in denver",
+     "volume_mese": 8100
+    }
+   ]
+  },
+  {
+   "frase": "georgia minimum wage",
+   "volume_mese": 33100,
+   "cpc_usd": 4.3,
+   "simili": [
+    {
+     "frase": "minimum salary in georgia",
+     "volume_mese": 33100
+    },
+    {
+     "frase": "minimum wage georgia",
+     "volume_mese": 33100
+    },
+    {
+     "frase": "minimum wage in georgia",
+     "volume_mese": 33100
+    },
+    {
+     "frase": "georgia minimum wage 2025",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "atlanta georgia minimum wage",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "how much is minimum wage georgia",
+     "volume_mese": 110
+    },
+    {
+     "frase": "state minimum wage georgia",
+     "volume_mese": 70
+    },
+    {
+     "frase": "what is the georgia minimum wage",
+     "volume_mese": 50
+    }
+   ]
+  },
+  {
+   "frase": "massachusetts minimum wage",
+   "volume_mese": 33100,
+   "cpc_usd": 4.18,
+   "simili": [
+    {
+     "frase": "minimum salary massachusetts",
+     "volume_mese": 40500
+    },
+    {
+     "frase": "minimum wage ma",
+     "volume_mese": 40500
+    },
+    {
+     "frase": "mass minimum wage",
+     "volume_mese": 33100
+    },
+    {
+     "frase": "minimum wage in ma",
+     "volume_mese": 33100
+    },
+    {
+     "frase": "minimum wage in massachusetts",
+     "volume_mese": 33100
+    },
+    {
+     "frase": "minimum wage massachusetts",
+     "volume_mese": 33100
+    },
+    {
+     "frase": "what is massachusetts minimum wage",
+     "volume_mese": 6600
+    },
+    {
+     "frase": "what is minimum wage in ma",
+     "volume_mese": 6600
+    },
+    {
+     "frase": "what is minimum wage in massachusetts",
+     "volume_mese": 6600
+    },
+    {
+     "frase": "minimum wage massachusetts 2025",
+     "volume_mese": 2400
+    }
+   ]
+  },
+  {
+   "frase": "minimum wage in colorado",
+   "volume_mese": 33100,
+   "cpc_usd": 9.58,
+   "simili": [
+    {
+     "frase": "colorado minimum wage",
+     "volume_mese": 33100
+    },
+    {
+     "frase": "minimum wage colorado",
+     "volume_mese": 33100
+    },
+    {
+     "frase": "colorado minimum wage 2025",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "minimum wage colorado 2025",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "what is minimum wage in colorado",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "minimum wage in colorado springs",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "co minimum wage",
+     "volume_mese": 720
+    },
+    {
+     "frase": "denver colorado minimum wage",
+     "volume_mese": 8100
+    },
+    {
+     "frase": "minimum wage colorado denver",
+     "volume_mese": 8100
+    },
+    {
+     "frase": "minimum wage colorado springs",
+     "volume_mese": 880
+    }
+   ]
+  },
+  {
+   "frase": "north carolina minimum wage",
+   "volume_mese": 33100,
+   "cpc_usd": 3.34,
+   "simili": [
+    {
+     "frase": "minimum salary in north carolina",
+     "volume_mese": 33100
+    },
+    {
+     "frase": "minimum salary north carolina",
+     "volume_mese": 33100
+    },
+    {
+     "frase": "minimum wage in nc",
+     "volume_mese": 33100
+    },
+    {
+     "frase": "minimum wage in north carolina",
+     "volume_mese": 33100
+    },
+    {
+     "frase": "minimum wage north carolina",
+     "volume_mese": 33100
+    },
+    {
+     "frase": "what is the minimum wage in nc",
+     "volume_mese": 390
+    },
+    {
+     "frase": "how much is minimum wage in north carolina",
+     "volume_mese": 720
+    },
+    {
+     "frase": "minimum wage in nc per hour",
+     "volume_mese": 20
+    },
+    {
+     "frase": "nc minimum wage",
+     "volume_mese": 33100
+    },
+    {
+     "frase": "what is minimum wage in north carolina",
+     "volume_mese": 9900
+    }
+   ]
+  },
+  {
+   "frase": "oregon minimum wage",
+   "volume_mese": 33100,
+   "cpc_usd": 3.68,
+   "simili": [
+    {
+     "frase": "minimum salary in oregon",
+     "volume_mese": 33100
+    },
+    {
+     "frase": "minimum wage oregon",
+     "volume_mese": 33100
+    },
+    {
+     "frase": "minimum wage in oregon",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "oregon minimum wage 2025",
+     "volume_mese": 8100
+    },
+    {
+     "frase": "portland oregon minimum wage",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "oregon minimum wage increase",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "portland minimum wage",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "minimum wage portland oregon",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "what minimum wage in oregon",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "portland metro area minimum wage",
+     "volume_mese": 70
     }
    ]
   },
@@ -615,6 +2064,100 @@
    ]
   },
   {
+   "frase": "maryland minimum wage",
+   "volume_mese": 27100,
+   "cpc_usd": 4.64,
+   "simili": [
+    {
+     "frase": "minimum wage in md",
+     "volume_mese": 33100
+    },
+    {
+     "frase": "minimum wage md",
+     "volume_mese": 33100
+    },
+    {
+     "frase": "minimum wage in maryland",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "minimum wage maryland",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "maryland minimum wage 2025",
+     "volume_mese": 6600
+    },
+    {
+     "frase": "md minimum wage",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "maryland state minimum wage",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "what minimum wage in maryland",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "what's minimum wage in maryland",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "how much is md minimum wage",
+     "volume_mese": 210
+    }
+   ]
+  },
+  {
+   "frase": "minimum wage by state",
+   "volume_mese": 27100,
+   "cpc_usd": 1.96,
+   "simili": [
+    {
+     "frase": "minimum wage per state",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "states by minimum wage",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "minimum salary in united states",
+     "volume_mese": 22200
+    },
+    {
+     "frase": "minimum wage by states",
+     "volume_mese": 22200
+    },
+    {
+     "frase": "how much is the minimum wage",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "lowest minimum wage in us",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "lowest minimum wage in the us",
+     "volume_mese": 8100
+    },
+    {
+     "frase": "what state has the highest minimum wage",
+     "volume_mese": 6600
+    },
+    {
+     "frase": "state with highest minimum wage",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "what state has the lowest minimum wage",
+     "volume_mese": 4400
+    }
+   ]
+  },
+  {
    "frase": "net pay calculator",
    "volume_mese": 27100,
    "cpc_usd": 15.52,
@@ -705,6 +2248,53 @@
     {
      "frase": "north carolina take home pay calculator",
      "volume_mese": 2400
+    }
+   ]
+  },
+  {
+   "frase": "state minimum wage",
+   "volume_mese": 27100,
+   "cpc_usd": 2.78,
+   "simili": [
+    {
+     "frase": "minimum wage",
+     "volume_mese": 110000
+    },
+    {
+     "frase": "minimum wages",
+     "volume_mese": 110000
+    },
+    {
+     "frase": "minimum wage by state",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "minimum wage per state",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "states by minimum wage",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "what is minimum wage",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "minimum salary in united states",
+     "volume_mese": 22200
+    },
+    {
+     "frase": "minimum wage by states",
+     "volume_mese": 22200
+    },
+    {
+     "frase": "minimum wage in america",
+     "volume_mese": 22200
+    },
+    {
+     "frase": "minimum wage in united states",
+     "volume_mese": 22200
     }
    ]
   },
@@ -991,6 +2581,241 @@
    ]
   },
   {
+   "frase": "florida minimum wage 2025",
+   "volume_mese": 18100,
+   "cpc_usd": 5.97,
+   "simili": [
+    {
+     "frase": "florida minimum wage",
+     "volume_mese": 110000
+    },
+    {
+     "frase": "minimum wage florida",
+     "volume_mese": 110000
+    },
+    {
+     "frase": "minimum wage in florida",
+     "volume_mese": 110000
+    },
+    {
+     "frase": "what is the minimum wage in florida",
+     "volume_mese": 40500
+    },
+    {
+     "frase": "minimum wage in florida 2025",
+     "volume_mese": 8100
+    },
+    {
+     "frase": "minimum wage florida 2025",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "current florida minimum wage",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "minimum salary in florida",
+     "volume_mese": 110000
+    },
+    {
+     "frase": "minimum wage 2025 florida",
+     "volume_mese": 170
+    },
+    {
+     "frase": "minimum wage fl",
+     "volume_mese": 110000
+    }
+   ]
+  },
+  {
+   "frase": "indiana minimum wage",
+   "volume_mese": 18100,
+   "cpc_usd": 3.96,
+   "simili": [
+    {
+     "frase": "minimum wage in indiana",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "minimum wage indiana",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "what is the minimum wage in indiana",
+     "volume_mese": 6600
+    },
+    {
+     "frase": "indiana minimum wage 2025",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "what's indiana minimum wage",
+     "volume_mese": 390
+    },
+    {
+     "frase": "minimum wage of indiana",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "minimum wage in indianapolis indiana",
+     "volume_mese": 720
+    },
+    {
+     "frase": "state minimum wage indiana",
+     "volume_mese": 260
+    },
+    {
+     "frase": "what is minimum wage in indiana",
+     "volume_mese": 6600
+    },
+    {
+     "frase": "how much is minimum wage in indiana",
+     "volume_mese": 590
+    }
+   ]
+  },
+  {
+   "frase": "minnesota minimum wage",
+   "volume_mese": 18100,
+   "cpc_usd": 11.91,
+   "simili": [
+    {
+     "frase": "minimum wage in minnesota",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "minimum wage minnesota",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "what is minimum wage in minnesota",
+     "volume_mese": 5400
+    },
+    {
+     "frase": "minimum wage minneapolis",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "minneapolis minimum wage",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "how much is minnesota minimum wage",
+     "volume_mese": 320
+    },
+    {
+     "frase": "what minimum wage in minnesota",
+     "volume_mese": 480
+    },
+    {
+     "frase": "minimum wage minnesota small business",
+     "volume_mese": 70
+    },
+    {
+     "frase": "small business minimum wage mn",
+     "volume_mese": 70
+    },
+    {
+     "frase": "minimum wage mn",
+     "volume_mese": 18100
+    }
+   ]
+  },
+  {
+   "frase": "nevada minimum wage",
+   "volume_mese": 18100,
+   "cpc_usd": 3.28,
+   "simili": [
+    {
+     "frase": "minimum wage in nevada",
+     "volume_mese": 14800
+    },
+    {
+     "frase": "las vegas minimum wage",
+     "volume_mese": 8100
+    },
+    {
+     "frase": "minimum wage in nevada las vegas",
+     "volume_mese": 8100
+    },
+    {
+     "frase": "minimum wage las vegas nevada",
+     "volume_mese": 8100
+    },
+    {
+     "frase": "las vegas nevada minimum wage",
+     "volume_mese": 6600
+    },
+    {
+     "frase": "what is nevada minimum wage",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "what is the minimum wage in nevada",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "nevada minimum wage 2025",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "what is minimum wage in las vegas",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "minimum wage in las vegas nevada",
+     "volume_mese": 210
+    }
+   ]
+  },
+  {
+   "frase": "nyc minimum wage",
+   "volume_mese": 18100,
+   "cpc_usd": 2.96,
+   "simili": [
+    {
+     "frase": "minimum wage in new york",
+     "volume_mese": 90500
+    },
+    {
+     "frase": "minimum wage in ny",
+     "volume_mese": 90500
+    },
+    {
+     "frase": "minimum wage new york",
+     "volume_mese": 90500
+    },
+    {
+     "frase": "minimum wage ny",
+     "volume_mese": 90500
+    },
+    {
+     "frase": "minimum wage nyc",
+     "volume_mese": 90500
+    },
+    {
+     "frase": "new york city minimum wage",
+     "volume_mese": 90500
+    },
+    {
+     "frase": "new york minimum wage",
+     "volume_mese": 90500
+    },
+    {
+     "frase": "ny minimum wage",
+     "volume_mese": 90500
+    },
+    {
+     "frase": "what is minimum wage in ny",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "what is minimum wage in new york city",
+     "volume_mese": 6600
+    }
+   ]
+  },
+  {
    "frase": "payroll tax calculator",
    "volume_mese": 18100,
    "cpc_usd": 14.84,
@@ -1179,6 +3004,241 @@
    ]
   },
   {
+   "frase": "south carolina minimum wage",
+   "volume_mese": 18100,
+   "cpc_usd": 3.5,
+   "simili": [
+    {
+     "frase": "minimum wage south carolina",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "sc minimum wage",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "what is minimum wage south carolina",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "how much is the minimum wage in south carolina",
+     "volume_mese": 480
+    },
+    {
+     "frase": "current minimum wage in sc",
+     "volume_mese": 40
+    },
+    {
+     "frase": "what is the minimum wage south carolina",
+     "volume_mese": 40
+    },
+    {
+     "frase": "what is minimum wage in sc",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "what is the minimum wage in south carolina",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "what is minimum wage in south carolina",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "how much is minimum wage in south carolina",
+     "volume_mese": 480
+    }
+   ]
+  },
+  {
+   "frase": "tennessee minimum wage",
+   "volume_mese": 18100,
+   "cpc_usd": 4.42,
+   "simili": [
+    {
+     "frase": "minimum wage in tennessee",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "minimum wage nashville tn",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "tennessee minimum wage 2025",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "what is minimum wage in tn",
+     "volume_mese": 6600
+    },
+    {
+     "frase": "tn minimum wage",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "what is the minimum wage in tn",
+     "volume_mese": 140
+    },
+    {
+     "frase": "minimum wage in tn",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "minimum wage tennessee",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "what is minimum wage tennessee",
+     "volume_mese": 6600
+    },
+    {
+     "frase": "what is the minimum wage in tennessee",
+     "volume_mese": 6600
+    }
+   ]
+  },
+  {
+   "frase": "what is the federal minimum wage",
+   "volume_mese": 18100,
+   "cpc_usd": 6.72,
+   "simili": [
+    {
+     "frase": "minimum wages",
+     "volume_mese": 110000
+    },
+    {
+     "frase": "federal minimum wage",
+     "volume_mese": 60500
+    },
+    {
+     "frase": "minimum wage federal",
+     "volume_mese": 60500
+    },
+    {
+     "frase": "what is a minimum wage",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "what is minimum wage",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "minimum wage in america",
+     "volume_mese": 22200
+    },
+    {
+     "frase": "minimum wage in united states",
+     "volume_mese": 22200
+    },
+    {
+     "frase": "federal minimum wage 2025",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "how much is the minimum wage",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "national minimum wage",
+     "volume_mese": 8100
+    }
+   ]
+  },
+  {
+   "frase": "alabama minimum wage",
+   "volume_mese": 14800,
+   "cpc_usd": 3.19,
+   "simili": [
+    {
+     "frase": "minimum wage alabama",
+     "volume_mese": 14800
+    },
+    {
+     "frase": "minimum wage in alabama",
+     "volume_mese": 14800
+    },
+    {
+     "frase": "what is minimum wage in alabama",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "what is the minimum wage in alabama",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "what is the minimum wage alabama",
+     "volume_mese": 30
+    },
+    {
+     "frase": "state of alabama minimum wage",
+     "volume_mese": 14800
+    },
+    {
+     "frase": "minimum wage by state",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "alabama state minimum wage",
+     "volume_mese": 14800
+    },
+    {
+     "frase": "how much is alabama minimum wage",
+     "volume_mese": 590
+    },
+    {
+     "frase": "current minimum wage alabama",
+     "volume_mese": 50
+    }
+   ]
+  },
+  {
+   "frase": "arkansas minimum wage",
+   "volume_mese": 14800,
+   "cpc_usd": 3.02,
+   "simili": [
+    {
+     "frase": "minimum wage arkansas",
+     "volume_mese": 14800
+    },
+    {
+     "frase": "minimum wage in arkansas",
+     "volume_mese": 14800
+    },
+    {
+     "frase": "arkansas minimum wage 2025",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "state of arkansas minimum wage",
+     "volume_mese": 14800
+    },
+    {
+     "frase": "what is minimum wage in arkansas",
+     "volume_mese": 5400
+    },
+    {
+     "frase": "what is the minimum wage in arkansas",
+     "volume_mese": 5400
+    },
+    {
+     "frase": "how much is arkansas minimum wage",
+     "volume_mese": 590
+    },
+    {
+     "frase": "how much is minimum wage in arkansas",
+     "volume_mese": 590
+    },
+    {
+     "frase": "ar minimum wage",
+     "volume_mese": 260
+    },
+    {
+     "frase": "minimum wage in ark",
+     "volume_mese": 260
+    }
+   ]
+  },
+  {
    "frase": "does florida have state income tax",
    "volume_mese": 14800,
    "cpc_usd": 0,
@@ -1273,6 +3333,53 @@
    ]
   },
   {
+   "frase": "hawaii minimum wage",
+   "volume_mese": 14800,
+   "cpc_usd": 2.23,
+   "simili": [
+    {
+     "frase": "minimum salary in hawaii",
+     "volume_mese": 14800
+    },
+    {
+     "frase": "minimum wage hawaii",
+     "volume_mese": 14800
+    },
+    {
+     "frase": "minimum wage in hawaii",
+     "volume_mese": 14800
+    },
+    {
+     "frase": "minimum wage hi",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "state of hawaii minimum wage",
+     "volume_mese": 14800
+    },
+    {
+     "frase": "what is minimum wage in hawaii",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "what is the minimum wage in hawaii",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "hawaii minimum salary",
+     "volume_mese": 14800
+    },
+    {
+     "frase": "how much is minimum wage in hawaii",
+     "volume_mese": 480
+    },
+    {
+     "frase": "minimum wage in hawaii per hour",
+     "volume_mese": 50
+    }
+   ]
+  },
+  {
    "frase": "how much is social security tax",
    "volume_mese": 14800,
    "cpc_usd": 0.31,
@@ -1320,6 +3427,100 @@
    ]
   },
   {
+   "frase": "michigan minimum wage 2025",
+   "volume_mese": 14800,
+   "cpc_usd": 3.35,
+   "simili": [
+    {
+     "frase": "michigan minimum wage",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "minimum wage in michigan",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "minimum wage michigan",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "minimum wage michigan 2025",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "minimum wage in michigan 2025",
+     "volume_mese": 720
+    },
+    {
+     "frase": "minimum wage in michigan in 2025",
+     "volume_mese": 50
+    },
+    {
+     "frase": "minimum wage increase 2025 michigan",
+     "volume_mese": 110
+    },
+    {
+     "frase": "michigan wage increase 2025",
+     "volume_mese": 70
+    },
+    {
+     "frase": "minimum wage in michigan 2025 per hour",
+     "volume_mese": 30
+    },
+    {
+     "frase": "minimum salary michigan",
+     "volume_mese": 49500
+    }
+   ]
+  },
+  {
+   "frase": "minimum wage increase",
+   "volume_mese": 14800,
+   "cpc_usd": 16.02,
+   "simili": [
+    {
+     "frase": "minimum wages",
+     "volume_mese": 110000
+    },
+    {
+     "frase": "federal minimum wage 2025",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "minimum wage raise",
+     "volume_mese": 14800
+    },
+    {
+     "frase": "how much is the minimum wage",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "what is the minimum wage",
+     "volume_mese": 6600
+    },
+    {
+     "frase": "current minimum wage",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "new minimum wage",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "minimum wage yearly",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "minimum wage",
+     "volume_mese": 110000
+    },
+    {
+     "frase": "increase the minimum wage",
+     "volume_mese": 49500
+    }
+   ]
+  },
+  {
    "frase": "salary paycheck calculator",
    "volume_mese": 14800,
    "cpc_usd": 18.78,
@@ -1363,6 +3564,194 @@
     {
      "frase": "paycheck tax calculator",
      "volume_mese": 27100
+    }
+   ]
+  },
+  {
+   "frase": "wisconsin minimum wage",
+   "volume_mese": 14800,
+   "cpc_usd": 3.05,
+   "simili": [
+    {
+     "frase": "minimum wage in wisconsin",
+     "volume_mese": 14800
+    },
+    {
+     "frase": "minimum wage wisconsin",
+     "volume_mese": 14800
+    },
+    {
+     "frase": "wisconsin minimum wage 2025",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "wi minimum wage",
+     "volume_mese": 480
+    },
+    {
+     "frase": "how much is minimum wage in wisconsin",
+     "volume_mese": 260
+    },
+    {
+     "frase": "minimum wage in wisconsin per hour",
+     "volume_mese": 30
+    },
+    {
+     "frase": "wisconsin minimum salary",
+     "volume_mese": 30
+    },
+    {
+     "frase": "what is the minimum wage in wi",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "what is the minimum wage in wisconsin",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "minimum salary in wisconsin",
+     "volume_mese": 30
+    }
+   ]
+  },
+  {
+   "frase": "arizona minimum wage 2025",
+   "volume_mese": 12100,
+   "cpc_usd": 3.21,
+   "simili": [
+    {
+     "frase": "arizona minimum wage",
+     "volume_mese": 40500
+    },
+    {
+     "frase": "minimum wage arizona",
+     "volume_mese": 40500
+    },
+    {
+     "frase": "minimum wage in arizona",
+     "volume_mese": 40500
+    },
+    {
+     "frase": "what is minimum wage in arizona",
+     "volume_mese": 14800
+    },
+    {
+     "frase": "minimum wage in arizona 2025",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "minimum wage in phoenix arizona",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "phoenix az minimum wage",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "how much is minimum wage in arizona",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "minimum wage 2025 arizona",
+     "volume_mese": 90
+    },
+    {
+     "frase": "minimum salary in arizona",
+     "volume_mese": 40500
+    }
+   ]
+  },
+  {
+   "frase": "dc minimum wage",
+   "volume_mese": 12100,
+   "cpc_usd": 8.38,
+   "simili": [
+    {
+     "frase": "minimum wage dc",
+     "volume_mese": 12100
+    },
+    {
+     "frase": "minimum wage in dc",
+     "volume_mese": 12100
+    },
+    {
+     "frase": "washington dc minimum wage",
+     "volume_mese": 12100
+    },
+    {
+     "frase": "minimum wage washington dc",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "how much is dc minimum wage",
+     "volume_mese": 210
+    },
+    {
+     "frase": "what's minimum wage in dc",
+     "volume_mese": 140
+    },
+    {
+     "frase": "what is minimum wage in dc",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "what is the minimum wage in dc",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "how much is minimum wage in dc",
+     "volume_mese": 210
+    },
+    {
+     "frase": "minimum wage increase dc",
+     "volume_mese": 50
+    }
+   ]
+  },
+  {
+   "frase": "district of columbia minimum wage",
+   "volume_mese": 12100,
+   "cpc_usd": 2.59,
+   "simili": [
+    {
+     "frase": "minimum wage dc",
+     "volume_mese": 12100
+    },
+    {
+     "frase": "minimum wage in dc",
+     "volume_mese": 12100
+    },
+    {
+     "frase": "washington dc minimum wage",
+     "volume_mese": 12100
+    },
+    {
+     "frase": "minimum wage washington dc",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "how much is minimum wage in dc",
+     "volume_mese": 210
+    },
+    {
+     "frase": "what's minimum wage in dc",
+     "volume_mese": 140
+    },
+    {
+     "frase": "what is minimum wage in dc",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "how much is dc minimum wage",
+     "volume_mese": 210
+    },
+    {
+     "frase": "minimum wage for dc",
+     "volume_mese": 12100
+    },
+    {
+     "frase": "minimum wage for washington dc",
+     "volume_mese": 12100
     }
    ]
   },
@@ -1508,6 +3897,147 @@
    ]
   },
   {
+   "frase": "new mexico minimum wage",
+   "volume_mese": 12100,
+   "cpc_usd": 1.74,
+   "simili": [
+    {
+     "frase": "minimum wage in new mexico",
+     "volume_mese": 12100
+    },
+    {
+     "frase": "minimum wage nm",
+     "volume_mese": 12100
+    },
+    {
+     "frase": "minimum wage new mexico",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "minimum wage new mexico albuquerque",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "what is minimum wage in nm",
+     "volume_mese": 170
+    },
+    {
+     "frase": "nm minimum wage",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "what is minimum wage in new mexico",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "minimum wages in new mexico",
+     "volume_mese": 12100
+    },
+    {
+     "frase": "new mexico state minimum wage",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "what is new mexico minimum wage",
+     "volume_mese": 2400
+    }
+   ]
+  },
+  {
+   "frase": "ohio minimum wage 2025",
+   "volume_mese": 12100,
+   "cpc_usd": 2.88,
+   "simili": [
+    {
+     "frase": "minimum wage in ohio",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "minimum wage ohio",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "ohio minimum wage",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "minimum wage in ohio 2025",
+     "volume_mese": 480
+    },
+    {
+     "frase": "what is minimum wage in ohio 2025",
+     "volume_mese": 320
+    },
+    {
+     "frase": "2025 minimum wage ohio",
+     "volume_mese": 140
+    },
+    {
+     "frase": "ohio minimum wage 2025 per hour",
+     "volume_mese": 140
+    },
+    {
+     "frase": "ohio minimum wage increase 2025",
+     "volume_mese": 5400
+    },
+    {
+     "frase": "minimum wage ohio 2025",
+     "volume_mese": 720
+    },
+    {
+     "frase": "ohio 2025 minimum wage",
+     "volume_mese": 140
+    }
+   ]
+  },
+  {
+   "frase": "oklahoma minimum wage",
+   "volume_mese": 12100,
+   "cpc_usd": 3.17,
+   "simili": [
+    {
+     "frase": "minimum wage oklahoma",
+     "volume_mese": 12100
+    },
+    {
+     "frase": "what is minimum wage in oklahoma",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "tulsa ok minimum wage",
+     "volume_mese": 320
+    },
+    {
+     "frase": "ok minimum wage",
+     "volume_mese": 170
+    },
+    {
+     "frase": "minimum wage in okc",
+     "volume_mese": 390
+    },
+    {
+     "frase": "oklahoma state minimum wage",
+     "volume_mese": 110
+    },
+    {
+     "frase": "how much is minimum wage in oklahoma",
+     "volume_mese": 390
+    },
+    {
+     "frase": "what is minimum wage in ok",
+     "volume_mese": 70
+    },
+    {
+     "frase": "current minimum wage in oklahoma",
+     "volume_mese": 50
+    },
+    {
+     "frase": "what is the minimum wage in oklahoma city",
+     "volume_mese": 70
+    }
+   ]
+  },
+  {
    "frase": "texas income tax",
    "volume_mese": 12100,
    "cpc_usd": 5.86,
@@ -1551,6 +4081,100 @@
     {
      "frase": "taxes in texas",
      "volume_mese": 6600
+    }
+   ]
+  },
+  {
+   "frase": "utah minimum wage",
+   "volume_mese": 12100,
+   "cpc_usd": 3.57,
+   "simili": [
+    {
+     "frase": "minimum salary in utah",
+     "volume_mese": 14800
+    },
+    {
+     "frase": "minimum wage utah",
+     "volume_mese": 12100
+    },
+    {
+     "frase": "minimum wage ut",
+     "volume_mese": 12100
+    },
+    {
+     "frase": "minimum wage in ut",
+     "volume_mese": 70
+    },
+    {
+     "frase": "what is minimum wage in utah",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "current minimum wage utah",
+     "volume_mese": 40
+    },
+    {
+     "frase": "what minimum wage in utah",
+     "volume_mese": 30
+    },
+    {
+     "frase": "what is the minimum wage in utah",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "what is utah's minimum wage",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "how much is minimum wage in utah",
+     "volume_mese": 260
+    }
+   ]
+  },
+  {
+   "frase": "colorado minimum wage 2025",
+   "volume_mese": 9900,
+   "cpc_usd": 9.88,
+   "simili": [
+    {
+     "frase": "colorado minimum wage",
+     "volume_mese": 33100
+    },
+    {
+     "frase": "minimum wage colorado",
+     "volume_mese": 33100
+    },
+    {
+     "frase": "minimum wage in colorado",
+     "volume_mese": 33100
+    },
+    {
+     "frase": "minimum wage colorado 2025",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "denver colorado minimum wage",
+     "volume_mese": 8100
+    },
+    {
+     "frase": "denver minimum wage 2025",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "minimum wage colorado denver",
+     "volume_mese": 8100
+    },
+    {
+     "frase": "minimum wage in denver",
+     "volume_mese": 8100
+    },
+    {
+     "frase": "2025 colorado minimum wage",
+     "volume_mese": 260
+    },
+    {
+     "frase": "colorado minimum wage 2025 per hour",
+     "volume_mese": 110
     }
    ]
   },
@@ -1602,6 +4226,288 @@
    ]
   },
   {
+   "frase": "idaho minimum wage",
+   "volume_mese": 9900,
+   "cpc_usd": 3.47,
+   "simili": [
+    {
+     "frase": "minimum wage in idaho",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "minimum wage of idaho",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "what is minimum wage in idaho",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "what is the minimum wage in idaho",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "how much is minimum wage in idaho",
+     "volume_mese": 140
+    },
+    {
+     "frase": "what is minimum wage in idaho 2025",
+     "volume_mese": 70
+    },
+    {
+     "frase": "idaho minimum wage 2025",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "minimum wage boise idaho",
+     "volume_mese": 590
+    },
+    {
+     "frase": "minimum wage in idaho state",
+     "volume_mese": 110
+    },
+    {
+     "frase": "boise idaho minimum wage",
+     "volume_mese": 590
+    }
+   ]
+  },
+  {
+   "frase": "lowest minimum wage state",
+   "volume_mese": 9900,
+   "cpc_usd": 4.47,
+   "simili": [
+    {
+     "frase": "minimum wage by state",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "minimum wage per state",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "states by minimum wage",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "minimum wage by states",
+     "volume_mese": 22200
+    },
+    {
+     "frase": "lowest minimum wage in us",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "lowest minimum wage in the us",
+     "volume_mese": 8100
+    },
+    {
+     "frase": "what state has the highest minimum wage",
+     "volume_mese": 6600
+    },
+    {
+     "frase": "highest state minimum wage",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "state with highest minimum wage",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "what state has the lowest minimum wage",
+     "volume_mese": 4400
+    }
+   ]
+  },
+  {
+   "frase": "maine minimum wage",
+   "volume_mese": 9900,
+   "cpc_usd": 3.61,
+   "simili": [
+    {
+     "frase": "minimum wage in maine",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "minimum wage maine",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "maine minimum wage 2025",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "what is minimum wage in maine",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "what is the minimum wage in maine",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "maine state minimum wage",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "state of maine minimum wage",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "minimum salary maine",
+     "volume_mese": 20
+    },
+    {
+     "frase": "minimum wage increase maine",
+     "volume_mese": 260
+    },
+    {
+     "frase": "current maine minimum wage",
+     "volume_mese": 70
+    }
+   ]
+  },
+  {
+   "frase": "missouri minimum wage 2025",
+   "volume_mese": 9900,
+   "cpc_usd": 4.31,
+   "simili": [
+    {
+     "frase": "minimum wage in missouri",
+     "volume_mese": 40500
+    },
+    {
+     "frase": "minimum wage missouri",
+     "volume_mese": 40500
+    },
+    {
+     "frase": "missouri minimum wage",
+     "volume_mese": 40500
+    },
+    {
+     "frase": "what is minimum wage in missouri",
+     "volume_mese": 12100
+    },
+    {
+     "frase": "mo minimum wage 2025",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "minimum wage missouri 2025",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "minimum wage for missouri",
+     "volume_mese": 33100
+    },
+    {
+     "frase": "minimum wage in missouri 2025",
+     "volume_mese": 880
+    },
+    {
+     "frase": "minimum wage 2025 missouri",
+     "volume_mese": 110
+    },
+    {
+     "frase": "what will minimum wage be in 2025 in missouri",
+     "volume_mese": 50
+    }
+   ]
+  },
+  {
+   "frase": "nebraska minimum wage",
+   "volume_mese": 9900,
+   "cpc_usd": 3.39,
+   "simili": [
+    {
+     "frase": "minimum wage nebraska",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "what is nebraska minimum wage",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "nebraska minimum wage 2025",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "what is the minimum wage in nebraska",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "nebraska minimum wage increase",
+     "volume_mese": 90
+    },
+    {
+     "frase": "how much is minimum wage in nebraska",
+     "volume_mese": 210
+    },
+    {
+     "frase": "current minimum wage nebraska",
+     "volume_mese": 110
+    },
+    {
+     "frase": "current nebraska minimum wage",
+     "volume_mese": 110
+    },
+    {
+     "frase": "minimum wage 2025 nebraska",
+     "volume_mese": 30
+    },
+    {
+     "frase": "what is minimum wage in nebraska",
+     "volume_mese": 3600
+    }
+   ]
+  },
+  {
+   "frase": "oregon minimum wage 2025",
+   "volume_mese": 9900,
+   "cpc_usd": 2.24,
+   "simili": [
+    {
+     "frase": "minimum wage oregon",
+     "volume_mese": 33100
+    },
+    {
+     "frase": "minimum wage in oregon",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "oregon minimum wage",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "minimum wage portland oregon",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "portland oregon minimum wage",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "oregon minimum wage increase",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "portland minimum wage",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "minimum salary in oregon",
+     "volume_mese": 33100
+    },
+    {
+     "frase": "minimum wage oregon 2025",
+     "volume_mese": 720
+    },
+    {
+     "frase": "oregon minimum wage increase 2025",
+     "volume_mese": 140
+    }
+   ]
+  },
+  {
    "frase": "payroll software for small business",
    "volume_mese": 9900,
    "cpc_usd": 108.97,
@@ -1645,6 +4551,429 @@
     {
      "frase": "payroll providers",
      "volume_mese": 2400
+    }
+   ]
+  },
+  {
+   "frase": "texas minimum wage 2025",
+   "volume_mese": 9900,
+   "cpc_usd": 3.58,
+   "simili": [
+    {
+     "frase": "minimum wage in texas",
+     "volume_mese": 90500
+    },
+    {
+     "frase": "minimum wage texas",
+     "volume_mese": 90500
+    },
+    {
+     "frase": "texas minimum wage",
+     "volume_mese": 90500
+    },
+    {
+     "frase": "what is minimum wage in texas",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "what is the minimum wage in texas",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "minimum wage in texas 2025",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "minimum wage texas 2025",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "texas minimum wage 2025 per hour",
+     "volume_mese": 170
+    },
+    {
+     "frase": "minimum wage in texas 2025 per hour",
+     "volume_mese": 110
+    },
+    {
+     "frase": "minimum wage texas 2025 per hour",
+     "volume_mese": 90
+    }
+   ]
+  },
+  {
+   "frase": "west virginia minimum wage",
+   "volume_mese": 9900,
+   "cpc_usd": 4.06,
+   "simili": [
+    {
+     "frase": "minimum wage in west virginia",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "minimum wage west virginia",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "west virginia state minimum wage",
+     "volume_mese": 140
+    },
+    {
+     "frase": "what is minimum wage in the state of west virginia",
+     "volume_mese": 50
+    },
+    {
+     "frase": "what's west virginia's minimum wage",
+     "volume_mese": 30
+    },
+    {
+     "frase": "wv minimum wage",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "what is west virginia's minimum wage",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "what is the minimum wage in west virginia",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "how much is minimum wage in west virginia",
+     "volume_mese": 260
+    },
+    {
+     "frase": "minimum wage near west virginia",
+     "volume_mese": 30
+    }
+   ]
+  },
+  {
+   "frase": "alaska minimum wage",
+   "volume_mese": 8100,
+   "cpc_usd": 12.22,
+   "simili": [
+    {
+     "frase": "minimum wage alaska",
+     "volume_mese": 8100
+    },
+    {
+     "frase": "minimum wage in alaska",
+     "volume_mese": 8100
+    },
+    {
+     "frase": "alaska state minimum wage",
+     "volume_mese": 8100
+    },
+    {
+     "frase": "what is alaska minimum wage",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "what is minimum wage in alaska",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "what alaska minimum wage",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "what is the minimum wage in alaska",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "how much is minimum wage in alaska",
+     "volume_mese": 170
+    },
+    {
+     "frase": "minimum wage in alaska per hour",
+     "volume_mese": 30
+    },
+    {
+     "frase": "alaska minimum wage 2025",
+     "volume_mese": 590
+    }
+   ]
+  },
+  {
+   "frase": "illinois minimum wage 2025",
+   "volume_mese": 8100,
+   "cpc_usd": 4.15,
+   "simili": [
+    {
+     "frase": "illinois minimum wage",
+     "volume_mese": 40500
+    },
+    {
+     "frase": "minimum wage illinois",
+     "volume_mese": 40500
+    },
+    {
+     "frase": "minimum wage in illinois",
+     "volume_mese": 40500
+    },
+    {
+     "frase": "what is minimum wage in illinois",
+     "volume_mese": 14800
+    },
+    {
+     "frase": "chicago minimum wage 2025",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "minimum wage chicago",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "il minimum wage 2025",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "minimum wage illinois 2025",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "what is minimum wage in illinois 2025",
+     "volume_mese": 170
+    },
+    {
+     "frase": "minimum wage illinois chicago",
+     "volume_mese": 18100
+    }
+   ]
+  },
+  {
+   "frase": "iowa minimum wage",
+   "volume_mese": 8100,
+   "cpc_usd": 3.25,
+   "simili": [
+    {
+     "frase": "minimum wage in iowa",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "minimum wage iowa",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "what is minimum wage in iowa",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "what is the minimum wage in iowa",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "iowa minimum wage 2025",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "minimum wage for iowa",
+     "volume_mese": 8100
+    },
+    {
+     "frase": "what is iowa's minimum wage",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "minimum wage$ iowa",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "state of iowa minimum wage",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "iowa state minimum wage",
+     "volume_mese": 8100
+    }
+   ]
+  },
+  {
+   "frase": "mississippi minimum wage",
+   "volume_mese": 8100,
+   "cpc_usd": 4.72,
+   "simili": [
+    {
+     "frase": "minimum wage in mississippi",
+     "volume_mese": 8100
+    },
+    {
+     "frase": "minimum wage mississippi",
+     "volume_mese": 8100
+    },
+    {
+     "frase": "what is minimum wage in mississippi",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "mississippi state minimum wage",
+     "volume_mese": 50
+    },
+    {
+     "frase": "what is minimum wage in mississippi per hour",
+     "volume_mese": 30
+    },
+    {
+     "frase": "what is the minimum wage in mississippi",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "ms minimum wage",
+     "volume_mese": 260
+    },
+    {
+     "frase": "how much is minimum wage in mississippi",
+     "volume_mese": 320
+    },
+    {
+     "frase": "whats the minimum wage in mississippi",
+     "volume_mese": 170
+    },
+    {
+     "frase": "minimum wage in georgia",
+     "volume_mese": 33100
+    }
+   ]
+  },
+  {
+   "frase": "new hampshire minimum wage",
+   "volume_mese": 8100,
+   "cpc_usd": 7.04,
+   "simili": [
+    {
+     "frase": "minimum wage in new hampshire",
+     "volume_mese": 8100
+    },
+    {
+     "frase": "minimum wage in nh",
+     "volume_mese": 8100
+    },
+    {
+     "frase": "minimum wage nh",
+     "volume_mese": 8100
+    },
+    {
+     "frase": "nh minimum wage",
+     "volume_mese": 8100
+    },
+    {
+     "frase": "what is minimum wage in new hampshire",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "what is minimum wage in nh",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "what is the minimum wage in new hampshire",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "what is nh minimum wage",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "what's new hampshire's minimum wage",
+     "volume_mese": 390
+    },
+    {
+     "frase": "how much is minimum wage in new hampshire",
+     "volume_mese": 70
+    }
+   ]
+  },
+  {
+   "frase": "pennsylvania minimum wage",
+   "volume_mese": 8100,
+   "cpc_usd": 7.42,
+   "simili": [
+    {
+     "frase": "minimum wage in pa",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "minimum wage pennsylvania",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "pa minimum wage",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "what is pennsylvania minimum wage",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "minimum wage in pennsylvania",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "pa minimum wage 2025",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "what is the minimum wage in pennsylvania",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "pennsylvania minimum wage 2025",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "minimum wage pa",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "state of pennsylvania minimum wage",
+     "volume_mese": 27100
+    }
+   ]
+  },
+  {
+   "frase": "rhode island minimum wage",
+   "volume_mese": 8100,
+   "cpc_usd": 3.18,
+   "simili": [
+    {
+     "frase": "minimum wage rhode island",
+     "volume_mese": 8100
+    },
+    {
+     "frase": "minimum wage ri",
+     "volume_mese": 8100
+    },
+    {
+     "frase": "what is the minimum wage in rhode island",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "minimum wage in rhode island",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "minimum wage in ri",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "what is rhode island's minimum wage",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "ri minimum wage",
+     "volume_mese": 8100
+    },
+    {
+     "frase": "rhode island minimum wage 2025",
+     "volume_mese": 320
+    },
+    {
+     "frase": "minimum wage providence ri",
+     "volume_mese": 70
+    },
+    {
+     "frase": "minimum wage rhode island 2025",
+     "volume_mese": 70
     }
    ]
   },
@@ -1743,6 +5072,53 @@
    ]
   },
   {
+   "frase": "virginia minimum wage 2025",
+   "volume_mese": 6600,
+   "cpc_usd": 4,
+   "simili": [
+    {
+     "frase": "minimum wage in virginia",
+     "volume_mese": 40500
+    },
+    {
+     "frase": "minimum wage virginia",
+     "volume_mese": 40500
+    },
+    {
+     "frase": "virginia minimum wage",
+     "volume_mese": 40500
+    },
+    {
+     "frase": "virginia minimum wage increase",
+     "volume_mese": 12100
+    },
+    {
+     "frase": "va minimum wage 2025",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "va minimum wage",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "minimum wage virginia 2025",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "virginia 2025 minimum wage",
+     "volume_mese": 40
+    },
+    {
+     "frase": "what is va minimum wage 2025",
+     "volume_mese": 140
+    },
+    {
+     "frase": "minimum wage 2025 virginia",
+     "volume_mese": 90
+    }
+   ]
+  },
+  {
    "frase": "what is federal withholding",
    "volume_mese": 6600,
    "cpc_usd": 0,
@@ -1786,6 +5162,100 @@
     {
      "frase": "federal withholding meaning",
      "volume_mese": 880
+    }
+   ]
+  },
+  {
+   "frase": "what is the minimum wage",
+   "volume_mese": 6600,
+   "cpc_usd": 6.93,
+   "simili": [
+    {
+     "frase": "minimum wage",
+     "volume_mese": 110000
+    },
+    {
+     "frase": "minimum wages",
+     "volume_mese": 110000
+    },
+    {
+     "frase": "what is a minimum wage",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "what is minimum wage",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "federal minimum wage 2025",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "how much is the minimum wage",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "national minimum wage",
+     "volume_mese": 8100
+    },
+    {
+     "frase": "minimum wage yearly salary",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "current minimum wage",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "new minimum wage",
+     "volume_mese": 1900
+    }
+   ]
+  },
+  {
+   "frase": "delaware minimum wage",
+   "volume_mese": 5400,
+   "cpc_usd": 3.38,
+   "simili": [
+    {
+     "frase": "minimum wage delaware",
+     "volume_mese": 5400
+    },
+    {
+     "frase": "minimum wage in delaware",
+     "volume_mese": 5400
+    },
+    {
+     "frase": "delaware minimum wage 2025",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "what is minimum wage in delaware",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "whats the minimum wage in delaware",
+     "volume_mese": 90
+    },
+    {
+     "frase": "minimum wage in de",
+     "volume_mese": 720
+    },
+    {
+     "frase": "how much is minimum wage in delaware",
+     "volume_mese": 140
+    },
+    {
+     "frase": "what's minimum wage in de",
+     "volume_mese": 30
+    },
+    {
+     "frase": "minimum wage increase delaware",
+     "volume_mese": 50
+    },
+    {
+     "frase": "delaware minimum wage increase",
+     "volume_mese": 50
     }
    ]
   },
@@ -1927,6 +5397,194 @@
     {
      "frase": "illinois tax rate income",
      "volume_mese": 5400
+    }
+   ]
+  },
+  {
+   "frase": "minimum wage 2025",
+   "volume_mese": 5400,
+   "cpc_usd": 4.16,
+   "simili": [
+    {
+     "frase": "minimum wages",
+     "volume_mese": 110000
+    },
+    {
+     "frase": "what is minimum wage",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "federal minimum wage 2025",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "what is the minimum wage",
+     "volume_mese": 6600
+    },
+    {
+     "frase": "minimum wage yearly salary",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "current minimum wage",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "new minimum wage",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "minimum wage yearly",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "what is a minimum wage",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "what is the minimum wage in the united states",
+     "volume_mese": 2900
+    }
+   ]
+  },
+  {
+   "frase": "south dakota minimum wage",
+   "volume_mese": 5400,
+   "cpc_usd": 5.17,
+   "simili": [
+    {
+     "frase": "minimum wage in south dakota",
+     "volume_mese": 5400
+    },
+    {
+     "frase": "what is the minimum wage in south dakota",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "what is minimum wage in south dakota",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "how much is minimum wage in south dakota",
+     "volume_mese": 70
+    },
+    {
+     "frase": "minimum wage sd",
+     "volume_mese": 5400
+    },
+    {
+     "frase": "whats the minimum wage in south dakota",
+     "volume_mese": 40
+    },
+    {
+     "frase": "south dakota state minimum wage",
+     "volume_mese": 30
+    },
+    {
+     "frase": "what is the minimum wage in sd",
+     "volume_mese": 30
+    },
+    {
+     "frase": "sd minimum wage",
+     "volume_mese": 880
+    },
+    {
+     "frase": "south dakota minimum wage 2025",
+     "volume_mese": 480
+    }
+   ]
+  },
+  {
+   "frase": "vermont minimum wage",
+   "volume_mese": 5400,
+   "cpc_usd": 3.42,
+   "simili": [
+    {
+     "frase": "minimum wage in vermont",
+     "volume_mese": 5400
+    },
+    {
+     "frase": "minimum wage in vt",
+     "volume_mese": 5400
+    },
+    {
+     "frase": "minimum wage vermont",
+     "volume_mese": 5400
+    },
+    {
+     "frase": "how much is minimum wage in vermont",
+     "volume_mese": 50
+    },
+    {
+     "frase": "vt minimum wage",
+     "volume_mese": 480
+    },
+    {
+     "frase": "what is the minimum wage in vermont",
+     "volume_mese": 260
+    },
+    {
+     "frase": "what is minimum wage in vermont",
+     "volume_mese": 880
+    },
+    {
+     "frase": "vermont state minimum wage",
+     "volume_mese": 40
+    },
+    {
+     "frase": "vermont minimum wage 2025",
+     "volume_mese": 720
+    },
+    {
+     "frase": "minimum wage for vermont",
+     "volume_mese": 5400
+    }
+   ]
+  },
+  {
+   "frase": "washington minimum wage 2025",
+   "volume_mese": 5400,
+   "cpc_usd": 3.83,
+   "simili": [
+    {
+     "frase": "minimum wage washington",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "washington minimum wage",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "washington state minimum wage 2025",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "seattle minimum wage 2025",
+     "volume_mese": 6600
+    },
+    {
+     "frase": "minimum wage washington 2025",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "minimum wage in washington",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "washington state minimum wage",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "seattle washington minimum wage",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "minimum wage 2025 washington state",
+     "volume_mese": 210
+    },
+    {
+     "frase": "washington state minimum wage 2025 per hour",
+     "volume_mese": 170
     }
    ]
   },
@@ -2119,6 +5777,100 @@
    ]
   },
   {
+   "frase": "highest minimum wage state",
+   "volume_mese": 4400,
+   "cpc_usd": 2.04,
+   "simili": [
+    {
+     "frase": "minimum wage by state",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "minimum wage per state",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "states by minimum wage",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "minimum wage by states",
+     "volume_mese": 22200
+    },
+    {
+     "frase": "what state has the highest minimum wage",
+     "volume_mese": 6600
+    },
+    {
+     "frase": "highest minimum wage by state",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "highest state minimum wage",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "state with highest minimum wage",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "states with highest minimum wage",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "what state has the lowest minimum wage",
+     "volume_mese": 4400
+    }
+   ]
+  },
+  {
+   "frase": "louisiana minimum wage",
+   "volume_mese": 4400,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "minimum wage for louisiana",
+     "volume_mese": 6600
+    },
+    {
+     "frase": "minimum wage in louisiana",
+     "volume_mese": 6600
+    },
+    {
+     "frase": "what is the minimum wage in louisiana",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "minimum wage louisiana",
+     "volume_mese": 6600
+    },
+    {
+     "frase": "minimum wage of louisiana",
+     "volume_mese": 6600
+    },
+    {
+     "frase": "minimum wages in louisiana",
+     "volume_mese": 6600
+    },
+    {
+     "frase": "what is minimum wage in louisiana",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "louisiana's minimum wage",
+     "volume_mese": 6600
+    },
+    {
+     "frase": "minimum wage increase louisiana",
+     "volume_mese": 50
+    },
+    {
+     "frase": "louisiana minimum wages",
+     "volume_mese": 6600
+    }
+   ]
+  },
+  {
    "frase": "north carolina income tax rate",
    "volume_mese": 4400,
    "cpc_usd": 7.47,
@@ -2166,6 +5918,53 @@
    ]
   },
   {
+   "frase": "wyoming minimum wage",
+   "volume_mese": 4400,
+   "cpc_usd": 2.7,
+   "simili": [
+    {
+     "frase": "minimum wage in wyoming",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "whats the minimum wage in wyoming",
+     "volume_mese": 140
+    },
+    {
+     "frase": "minimum wage for wyoming",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "minimum wage wy",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "what is minimum wage in wyoming",
+     "volume_mese": 880
+    },
+    {
+     "frase": "wyoming state minimum wage",
+     "volume_mese": 70
+    },
+    {
+     "frase": "how much is minimum wage in wyoming",
+     "volume_mese": 50
+    },
+    {
+     "frase": "wy minimum wage",
+     "volume_mese": 50
+    },
+    {
+     "frase": "minimum wage in wy",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "minimum wage wyoming",
+     "volume_mese": 3600
+    }
+   ]
+  },
+  {
    "frase": "california sdi tax",
    "volume_mese": 3600,
    "cpc_usd": 0,
@@ -2209,6 +6008,53 @@
     {
      "frase": "sdi taxes california",
      "volume_mese": 320
+    }
+   ]
+  },
+  {
+   "frase": "connecticut minimum wage",
+   "volume_mese": 3600,
+   "cpc_usd": 2.48,
+   "simili": [
+    {
+     "frase": "minimum wage ct",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "minimum wage in connecticut",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "minimum wage in ct",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "ct minimum wage 2025",
+     "volume_mese": 8100
+    },
+    {
+     "frase": "ct minimum wage",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "minimum wage connecticut",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "what is the minimum wage in connecticut",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "ct current minimum wage",
+     "volume_mese": 210
+    },
+    {
+     "frase": "current connecticut minimum wage",
+     "volume_mese": 210
+    },
+    {
+     "frase": "state of ct minimum wage",
+     "volume_mese": 210
     }
    ]
   },
@@ -2354,6 +6200,194 @@
    ]
   },
   {
+   "frase": "kansas minimum wage",
+   "volume_mese": 3600,
+   "cpc_usd": 4.52,
+   "simili": [
+    {
+     "frase": "minimum wage in kansas",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "minimum wage kansas",
+     "volume_mese": 6600
+    },
+    {
+     "frase": "what is minimum wage in kansas",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "what is the minimum wage in kansas",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "how much is minimum wage in kansas",
+     "volume_mese": 170
+    },
+    {
+     "frase": "kansas state minimum wage",
+     "volume_mese": 90
+    },
+    {
+     "frase": "kansas city kansas minimum wage",
+     "volume_mese": 40
+    },
+    {
+     "frase": "minimum wage in kansas city",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "ks minimum wage 2025",
+     "volume_mese": 210
+    },
+    {
+     "frase": "minimum wage kansas 2025",
+     "volume_mese": 140
+    }
+   ]
+  },
+  {
+   "frase": "kentucky minimum wage",
+   "volume_mese": 3600,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "minimum wage kentucky",
+     "volume_mese": 8100
+    },
+    {
+     "frase": "ky minimum wage",
+     "volume_mese": 8100
+    },
+    {
+     "frase": "minimum wage ky",
+     "volume_mese": 8100
+    },
+    {
+     "frase": "state of kentucky minimum wage",
+     "volume_mese": 8100
+    },
+    {
+     "frase": "what is minimum wage in kentucky",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "kentucky state minimum wage",
+     "volume_mese": 70
+    },
+    {
+     "frase": "minimum wage in kentucky",
+     "volume_mese": 8100
+    },
+    {
+     "frase": "what is minimum wage in ky",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "what is the minimum wage for kentucky",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "what is the minimum wage in kentucky",
+     "volume_mese": 2400
+    }
+   ]
+  },
+  {
+   "frase": "minimum wage increase 2025",
+   "volume_mese": 3600,
+   "cpc_usd": 6.17,
+   "simili": [
+    {
+     "frase": "federal minimum wage 2025",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "minimum wage 2025",
+     "volume_mese": 5400
+    },
+    {
+     "frase": "new minimum wage",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "minimum wages",
+     "volume_mese": 110000
+    },
+    {
+     "frase": "what is the minimum wage",
+     "volume_mese": 6600
+    },
+    {
+     "frase": "minimum wage yearly",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "2025 minimum wage increase",
+     "volume_mese": 140
+    },
+    {
+     "frase": "what is minimum wage",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "current minimum wage",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "minimum wage",
+     "volume_mese": 110000
+    }
+   ]
+  },
+  {
+   "frase": "montana minimum wage",
+   "volume_mese": 3600,
+   "cpc_usd": 6.86,
+   "simili": [
+    {
+     "frase": "what is minimum wage in mt",
+     "volume_mese": 50
+    },
+    {
+     "frase": "what is minimum wage in montana",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "minimum wage in montana",
+     "volume_mese": 8100
+    },
+    {
+     "frase": "what is montana's minimum wage",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "what is the minimum wage in montana",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "how much is minimum wage in montana",
+     "volume_mese": 110
+    },
+    {
+     "frase": "montana state minimum wage",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "montana minimum wage increase",
+     "volume_mese": 110
+    },
+    {
+     "frase": "montana minimum wage 2025",
+     "volume_mese": 720
+    },
+    {
+     "frase": "missoula montana minimum wage",
+     "volume_mese": 90
+    }
+   ]
+  },
+  {
    "frase": "w-4 calculator",
    "volume_mese": 3600,
    "cpc_usd": 6.04,
@@ -2491,6 +6525,147 @@
     {
      "frase": "employer payroll taxes calculator",
      "volume_mese": 1900
+    }
+   ]
+  },
+  {
+   "frase": "maine minimum wage 2025",
+   "volume_mese": 2900,
+   "cpc_usd": 3.77,
+   "simili": [
+    {
+     "frase": "maine minimum wage",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "minimum wage in maine",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "what is minimum wage in maine",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "what is the minimum wage in maine",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "maine 2025 minimum wage",
+     "volume_mese": 40
+    },
+    {
+     "frase": "maine state minimum wage 2025",
+     "volume_mese": 110
+    },
+    {
+     "frase": "minimum wage maine",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "minimum wage in maine 2025",
+     "volume_mese": 320
+    },
+    {
+     "frase": "what is minimum wage in maine 2025",
+     "volume_mese": 110
+    },
+    {
+     "frase": "state of maine minimum wage 2025",
+     "volume_mese": 140
+    }
+   ]
+  },
+  {
+   "frase": "nebraska minimum wage 2025",
+   "volume_mese": 2900,
+   "cpc_usd": 3.78,
+   "simili": [
+    {
+     "frase": "minimum wage nebraska",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "nebraska minimum wage",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "minimum wage nebraska 2025",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "minimum wage 2025 nebraska",
+     "volume_mese": 30
+    },
+    {
+     "frase": "what is nebraska minimum wage",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "minimum wage omaha ne",
+     "volume_mese": 590
+    },
+    {
+     "frase": "nebraska minimum wage 2025 per hour",
+     "volume_mese": 40
+    },
+    {
+     "frase": "what is minimum wage in nebraska",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "what is the minimum wage in nebraska",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "current minimum wage nebraska",
+     "volume_mese": 110
+    }
+   ]
+  },
+  {
+   "frase": "north dakota minimum wage",
+   "volume_mese": 2900,
+   "cpc_usd": 2.85,
+   "simili": [
+    {
+     "frase": "minimum wage north dakota",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "what is the minimum wage in north dakota",
+     "volume_mese": 720
+    },
+    {
+     "frase": "what is minimum wage in north dakota",
+     "volume_mese": 720
+    },
+    {
+     "frase": "how much is minimum wage in north dakota",
+     "volume_mese": 50
+    },
+    {
+     "frase": "minimum wage for north dakota",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "nd minimum wage",
+     "volume_mese": 390
+    },
+    {
+     "frase": "minimum wage in north dakota",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "north dakota minimum wage 2025",
+     "volume_mese": 90
+    },
+    {
+     "frase": "north dakota minimum wage 2025 per hour",
+     "volume_mese": 40
+    },
+    {
+     "frase": "north dakota overtime laws",
+     "volume_mese": 50
     }
    ]
   },
@@ -2736,6 +6911,53 @@
    ]
   },
   {
+   "frase": "new york minimum wage 2025",
+   "volume_mese": 2400,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "minimum wage in ny",
+     "volume_mese": 90500
+    },
+    {
+     "frase": "minimum wage ny",
+     "volume_mese": 90500
+    },
+    {
+     "frase": "minimum wage nyc",
+     "volume_mese": 90500
+    },
+    {
+     "frase": "new york minimum wage",
+     "volume_mese": 90500
+    },
+    {
+     "frase": "ny minimum wage",
+     "volume_mese": 90500
+    },
+    {
+     "frase": "what is minimum wage in ny",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "what is minimum wage in new york city",
+     "volume_mese": 6600
+    },
+    {
+     "frase": "ny minimum wage 2025",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "what is the minimum wage in new york",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "nyc minimum wage 2025",
+     "volume_mese": 3600
+    }
+   ]
+  },
+  {
    "frase": "paycheck calculator texas hourly",
    "volume_mese": 2400,
    "cpc_usd": 9.33,
@@ -2826,6 +7048,53 @@
     {
      "frase": "what is suta tax",
      "volume_mese": 880
+    }
+   ]
+  },
+  {
+   "frase": "tipped minimum wage",
+   "volume_mese": 2400,
+   "cpc_usd": 11.84,
+   "simili": [
+    {
+     "frase": "minimum wage for servers",
+     "volume_mese": 5400
+    },
+    {
+     "frase": "server minimum wage",
+     "volume_mese": 5400
+    },
+    {
+     "frase": "wait staff minimum wage",
+     "volume_mese": 5400
+    },
+    {
+     "frase": "waitstaff minimum wage",
+     "volume_mese": 5400
+    },
+    {
+     "frase": "tipped wage",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "waitress minimum wage by state",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "waiter waitress minimum wage",
+     "volume_mese": 5400
+    },
+    {
+     "frase": "how much is minimum wage for waitresses",
+     "volume_mese": 140
+    },
+    {
+     "frase": "tipped employee minimum wage",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "tipped workers minimum wage",
+     "volume_mese": 1900
     }
    ]
   },
@@ -3014,6 +7283,53 @@
     {
      "frase": "paystub calculator",
      "volume_mese": 2900
+    }
+   ]
+  },
+  {
+   "frase": "new jersey minimum wage 2025",
+   "volume_mese": 1900,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "minimum wage in new jersey",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "minimum wage in nj",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "minimum wage new jersey",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "minimum wage nj",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "new jersey minimum wage",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "nj minimum wage",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "nj minimum wage 2025",
+     "volume_mese": 14800
+    },
+    {
+     "frase": "what is minimum wage in nj",
+     "volume_mese": 12100
+    },
+    {
+     "frase": "how much is minimum wage in new jersey",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "minimum wage nj 2025",
+     "volume_mese": 880
     }
    ]
   },
@@ -3535,6 +7851,100 @@
    ]
   },
   {
+   "frase": "minimum wage by state 2025",
+   "volume_mese": 1300,
+   "cpc_usd": 2.43,
+   "simili": [
+    {
+     "frase": "minimum wage by state",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "minimum wage per state",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "states by minimum wage",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "federal minimum wage 2025",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "which state has the lowest minimum wage",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "minimum wage in every state",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "what state has the highest minimum wage",
+     "volume_mese": 6600
+    },
+    {
+     "frase": "state with highest minimum wage",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "what state has the lowest minimum wage",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "what is the minimum wage in the united states",
+     "volume_mese": 2900
+    }
+   ]
+  },
+  {
+   "frase": "minnesota minimum wage 2025",
+   "volume_mese": 1300,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "minimum wage in minnesota",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "minimum wage minnesota",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "minnesota minimum wage",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "what is minimum wage in minnesota",
+     "volume_mese": 5400
+    },
+    {
+     "frase": "minimum wage minneapolis",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "minneapolis minimum wage",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "mn minimum wage 2025",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "what is the minimum wage in minnesota",
+     "volume_mese": 5400
+    },
+    {
+     "frase": "what minimum wage in minnesota",
+     "volume_mese": 480
+    },
+    {
+     "frase": "what's minimum wage in minnesota",
+     "volume_mese": 480
+    }
+   ]
+  },
+  {
    "frase": "social security wage base",
    "volume_mese": 1300,
    "cpc_usd": 0,
@@ -3766,6 +8176,53 @@
     {
      "frase": "suta state",
      "volume_mese": 30
+    }
+   ]
+  },
+  {
+   "frase": "connecticut minimum wage 2025",
+   "volume_mese": 1000,
+   "cpc_usd": 2.75,
+   "simili": [
+    {
+     "frase": "ct minimum wage 2025",
+     "volume_mese": 8100
+    },
+    {
+     "frase": "minimum wage ct",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "connecticut minimum wage",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "minimum wage in ct 2025",
+     "volume_mese": 880
+    },
+    {
+     "frase": "minimum wage in ct",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "minimum wage ct january 2025",
+     "volume_mese": 110
+    },
+    {
+     "frase": "ct minimum wage jan 2025",
+     "volume_mese": 40
+    },
+    {
+     "frase": "state of ct minimum wage 2025",
+     "volume_mese": 40
+    },
+    {
+     "frase": "minimum wage in connecticut",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "ct minimum wage 2025 per hour",
+     "volume_mese": 110
     }
    ]
   },
@@ -4095,6 +8552,100 @@
     {
      "frase": "federal employment taxes",
      "volume_mese": 1600
+    }
+   ]
+  },
+  {
+   "frase": "montana minimum wage 2025",
+   "volume_mese": 720,
+   "cpc_usd": 4.01,
+   "simili": [
+    {
+     "frase": "montana minimum wage",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "montana minimum wage 2025 per hour",
+     "volume_mese": 90
+    },
+    {
+     "frase": "what is montana's minimum wage",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "montana state minimum wage",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "what is minimum wage in montana",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "what is the minimum wage in montana",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "how much is minimum wage in montana",
+     "volume_mese": 110
+    },
+    {
+     "frase": "montana minimum wage increase",
+     "volume_mese": 110
+    },
+    {
+     "frase": "what is minimum wage in mt",
+     "volume_mese": 50
+    },
+    {
+     "frase": "minimum wage in montana",
+     "volume_mese": 8100
+    }
+   ]
+  },
+  {
+   "frase": "vermont minimum wage 2025",
+   "volume_mese": 720,
+   "cpc_usd": 3.98,
+   "simili": [
+    {
+     "frase": "minimum wage vermont",
+     "volume_mese": 5400
+    },
+    {
+     "frase": "vermont minimum wage",
+     "volume_mese": 5400
+    },
+    {
+     "frase": "minimum wage in vt",
+     "volume_mese": 5400
+    },
+    {
+     "frase": "vermont minimum wage 2025 per hour",
+     "volume_mese": 50
+    },
+    {
+     "frase": "what is the minimum wage in vermont",
+     "volume_mese": 260
+    },
+    {
+     "frase": "how much is minimum wage in vermont",
+     "volume_mese": 50
+    },
+    {
+     "frase": "what is minimum wage in vermont",
+     "volume_mese": 880
+    },
+    {
+     "frase": "vermont state minimum wage",
+     "volume_mese": 40
+    },
+    {
+     "frase": "minimum wage in vermont",
+     "volume_mese": 5400
+    },
+    {
+     "frase": "vermont minimum wage for tipped employees",
+     "volume_mese": 30
     }
    ]
   },
@@ -4434,6 +8985,53 @@
    ]
   },
   {
+   "frase": "south dakota minimum wage 2025",
+   "volume_mese": 480,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "what is the minimum wage in south dakota",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "minimum wage in south dakota",
+     "volume_mese": 5400
+    },
+    {
+     "frase": "how much is minimum wage in south dakota",
+     "volume_mese": 70
+    },
+    {
+     "frase": "south dakota minimum wage",
+     "volume_mese": 5400
+    },
+    {
+     "frase": "whats the minimum wage in south dakota",
+     "volume_mese": 40
+    },
+    {
+     "frase": "south dakota state minimum wage",
+     "volume_mese": 30
+    },
+    {
+     "frase": "sd minimum wage",
+     "volume_mese": 880
+    },
+    {
+     "frase": "what is the minimum wage in sd",
+     "volume_mese": 30
+    },
+    {
+     "frase": "what is minimum wage in south dakota",
+     "volume_mese": 1300
+    },
+    {
+     "frase": "south dakota minimum wage for tipped employees",
+     "volume_mese": 30
+    }
+   ]
+  },
+  {
    "frase": "texas unemployment tax",
    "volume_mese": 480,
    "cpc_usd": 0,
@@ -4477,6 +9075,53 @@
     {
      "frase": "texas state unemployment tax",
      "volume_mese": 480
+    }
+   ]
+  },
+  {
+   "frase": "tipped minimum wage by state",
+   "volume_mese": 480,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "minimum wage for servers",
+     "volume_mese": 5400
+    },
+    {
+     "frase": "wait staff minimum wage",
+     "volume_mese": 5400
+    },
+    {
+     "frase": "waitstaff minimum wage",
+     "volume_mese": 5400
+    },
+    {
+     "frase": "tipped minimum wage",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "waitress minimum wage by state",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "server minimum wage",
+     "volume_mese": 5400
+    },
+    {
+     "frase": "tipped wage",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "waiter waitress minimum wage",
+     "volume_mese": 5400
+    },
+    {
+     "frase": "minimum wage for tipped employees by state",
+     "volume_mese": 90
+    },
+    {
+     "frase": "minimum wage for servers in california",
+     "volume_mese": 1300
     }
    ]
   },
@@ -4810,6 +9455,53 @@
    ]
   },
   {
+   "frase": "minimum wage 2026",
+   "volume_mese": 320,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "new minimum wage",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "minimum wage increase 2026",
+     "volume_mese": 50
+    },
+    {
+     "frase": "will minimum wage increase in 2026",
+     "volume_mese": 50
+    },
+    {
+     "frase": "how much is the minimum wage",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "minimum wage 2025",
+     "volume_mese": 5400
+    },
+    {
+     "frase": "is minimum wage going up in 2026",
+     "volume_mese": 50
+    },
+    {
+     "frase": "minimum wage",
+     "volume_mese": 110000
+    },
+    {
+     "frase": "what is minimum wage",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "minimum wage raise",
+     "volume_mese": 14800
+    },
+    {
+     "frase": "minimum wage in california 2026",
+     "volume_mese": 2400
+    }
+   ]
+  },
+  {
    "frase": "north carolina payroll tax",
    "volume_mese": 320,
    "cpc_usd": 38.83,
@@ -4994,6 +9686,53 @@
     {
      "frase": "what is the due date for semi weekly 941 deposits",
      "volume_mese": 140
+    }
+   ]
+  },
+  {
+   "frase": "rhode island minimum wage 2025",
+   "volume_mese": 320,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "minimum wage rhode island",
+     "volume_mese": 8100
+    },
+    {
+     "frase": "rhode island minimum wage",
+     "volume_mese": 8100
+    },
+    {
+     "frase": "ri minimum wage 2025",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "minimum wage rhode island 2025",
+     "volume_mese": 70
+    },
+    {
+     "frase": "minimum wage ri",
+     "volume_mese": 8100
+    },
+    {
+     "frase": "what is the minimum wage in rhode island",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "what is rhode island minimum wage",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "minimum wage providence ri",
+     "volume_mese": 70
+    },
+    {
+     "frase": "rhode island minimum wage increase",
+     "volume_mese": 70
+    },
+    {
+     "frase": "what is rhode island's minimum wage",
+     "volume_mese": 1600
     }
    ]
   },
@@ -5891,6 +10630,53 @@
    ]
   },
   {
+   "frase": "what states are raising minimum wage",
+   "volume_mese": 110,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "minimum wage by state",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "minimum wage per state",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "states by minimum wage",
+     "volume_mese": 27100
+    },
+    {
+     "frase": "minimum wage by states",
+     "volume_mese": 22200
+    },
+    {
+     "frase": "lowest minimum wage in us",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "what state has the highest minimum wage",
+     "volume_mese": 6600
+    },
+    {
+     "frase": "state with highest minimum wage",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "what state has the lowest minimum wage",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "what is the minimum wage in the united states",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "which state has the lowest minimum wage",
+     "volume_mese": 1900
+    }
+   ]
+  },
+  {
    "frase": "employer payroll taxes texas",
    "volume_mese": 90,
    "cpc_usd": 16.45,
@@ -6126,6 +10912,53 @@
    ]
   },
   {
+   "frase": "california minimum wage 2027",
+   "volume_mese": 70,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "minimum wage in california 2027",
+     "volume_mese": 70
+    },
+    {
+     "frase": "minimum wage in california 2026",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "minimum wage california 2026",
+     "volume_mese": 210
+    },
+    {
+     "frase": "california minimum wage bill",
+     "volume_mese": 70
+    },
+    {
+     "frase": "minimum salary california",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "raise minimum wage california",
+     "volume_mese": 1000
+    },
+    {
+     "frase": "is $17 the minimum wage in california",
+     "volume_mese": 70
+    },
+    {
+     "frase": "increase the minimum wage",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "proposition 32",
+     "volume_mese": 14800
+    },
+    {
+     "frase": "proposition 32 california",
+     "volume_mese": 3600
+    }
+   ]
+  },
+  {
    "frase": "employer payroll taxes florida",
    "volume_mese": 70,
    "cpc_usd": 4.92,
@@ -6220,6 +11053,53 @@
    ]
   },
   {
+   "frase": "nebraska minimum wage 2027",
+   "volume_mese": 70,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "nebraska minimum wage",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "minimum wage nebraska",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "nebraska minimum wage 2025",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "what is nebraska minimum wage",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "minimum wage in lincoln nebraska",
+     "volume_mese": 170
+    },
+    {
+     "frase": "nebraska minimum wage increase schedule",
+     "volume_mese": 50
+    },
+    {
+     "frase": "what is minimum wage in nebraska",
+     "volume_mese": 3600
+    },
+    {
+     "frase": "current nebraska minimum wage",
+     "volume_mese": 110
+    },
+    {
+     "frase": "nebraska minimum wage 2026",
+     "volume_mese": 90
+    },
+    {
+     "frase": "minimum wage in nebraska",
+     "volume_mese": 9900
+    }
+   ]
+  },
+  {
    "frase": "texas suta rate",
    "volume_mese": 70,
    "cpc_usd": 0,
@@ -6263,6 +11143,53 @@
     {
      "frase": "texas unemployment insurance rate",
      "volume_mese": 70
+    }
+   ]
+  },
+  {
+   "frase": "arizona minimum wage 2027",
+   "volume_mese": 50,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "arizona minimum wage 2025",
+     "volume_mese": 12100
+    },
+    {
+     "frase": "minimum wage in arizona 2025",
+     "volume_mese": 2400
+    },
+    {
+     "frase": "arizona minimum wage",
+     "volume_mese": 40500
+    },
+    {
+     "frase": "minimum wage in arizona",
+     "volume_mese": 40500
+    },
+    {
+     "frase": "florida minimum wage 2025",
+     "volume_mese": 18100
+    },
+    {
+     "frase": "when does $15 minimum wage start",
+     "volume_mese": 390
+    },
+    {
+     "frase": "arizona tipped minimum wage 2025",
+     "volume_mese": 50
+    },
+    {
+     "frase": "server minimum wage az 2025",
+     "volume_mese": 30
+    },
+    {
+     "frase": "will minimum wage increase in 2025 in arizona",
+     "volume_mese": 30
+    },
+    {
+     "frase": "minimum wage arizona",
+     "volume_mese": 40500
     }
    ]
   },
@@ -6357,6 +11284,53 @@
     {
      "frase": "florida payroll taxes percentage",
      "volume_mese": 30
+    }
+   ]
+  },
+  {
+   "frase": "missouri minimum wage 2027",
+   "volume_mese": 50,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "missouri minimum wage 2025",
+     "volume_mese": 9900
+    },
+    {
+     "frase": "minimum wage missouri",
+     "volume_mese": 40500
+    },
+    {
+     "frase": "minimum wage in missouri",
+     "volume_mese": 40500
+    },
+    {
+     "frase": "missouri minimum wage",
+     "volume_mese": 40500
+    },
+    {
+     "frase": "what is minimum wage in missouri",
+     "volume_mese": 12100
+    },
+    {
+     "frase": "mo minimum wage 2025",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "missouri minimum wage increase schedule",
+     "volume_mese": 210
+    },
+    {
+     "frase": "what is the current missouri minimum wage",
+     "volume_mese": 30
+    },
+    {
+     "frase": "what is the minimum wage in missouri right now",
+     "volume_mese": 30
+    },
+    {
+     "frase": "how much is minimum wage in the state of missouri",
+     "volume_mese": 1300
     }
    ]
   },
@@ -6596,6 +11570,100 @@
    ]
   },
   {
+   "frase": "michigan minimum wage 2027",
+   "volume_mese": 40,
+   "cpc_usd": 2.86,
+   "simili": [
+    {
+     "frase": "michigan minimum wage 2025",
+     "volume_mese": 14800
+    },
+    {
+     "frase": "minimum wage michigan 2025",
+     "volume_mese": 1600
+    },
+    {
+     "frase": "minimum wage in michigan",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "minimum wage michigan",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "michigan minimum wage",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "michigan minimum wage 2026",
+     "volume_mese": 170
+    },
+    {
+     "frase": "michigan minimum wage change",
+     "volume_mese": 50
+    },
+    {
+     "frase": "minimum salary michigan",
+     "volume_mese": 49500
+    },
+    {
+     "frase": "mi minimum wage increase",
+     "volume_mese": 880
+    },
+    {
+     "frase": "michigan minimum wage 2025 per hour",
+     "volume_mese": 110
+    }
+   ]
+  },
+  {
+   "frase": "virginia minimum wage 2027",
+   "volume_mese": 40,
+   "cpc_usd": 0,
+   "simili": [
+    {
+     "frase": "virginia minimum wage",
+     "volume_mese": 40500
+    },
+    {
+     "frase": "minimum wage in virginia",
+     "volume_mese": 40500
+    },
+    {
+     "frase": "minimum wage virginia",
+     "volume_mese": 40500
+    },
+    {
+     "frase": "va minimum wage",
+     "volume_mese": 2900
+    },
+    {
+     "frase": "virginia minimum wage 2026",
+     "volume_mese": 720
+    },
+    {
+     "frase": "virginia minimum wage 2025",
+     "volume_mese": 6600
+    },
+    {
+     "frase": "minimum wage virginia 2025",
+     "volume_mese": 1900
+    },
+    {
+     "frase": "va minimum wage 2026",
+     "volume_mese": 140
+    },
+    {
+     "frase": "va minimum wage 2025",
+     "volume_mese": 4400
+    },
+    {
+     "frase": "virginia minimum wage increase 2026",
+     "volume_mese": 30
+    }
+   ]
+  },
+  {
    "frase": "how to do payroll in texas",
    "volume_mese": 30,
    "cpc_usd": 65.64,
@@ -6784,13 +11852,139 @@
    ]
   },
   {
+   "frase": "colorado minimum wage 2027",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "connecticut minimum wage 2027",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "federal minimum wage 2027",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "florida minimum wage 2027",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
    "frase": "futa tax rate 2026",
    "volume_mese": 0,
    "cpc_usd": 0,
    "simili": []
   },
   {
+   "frase": "illinois minimum wage 2027",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
    "frase": "is sdi tax mandatory in california",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "maine minimum wage 2027",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "minimum wage 2027",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "minimum wage by state 2027",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "minimum wage increase 2027",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "minnesota minimum wage 2027",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "montana minimum wage 2027",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "new jersey minimum wage 2027",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "new york minimum wage 2027",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "ohio minimum wage 2027",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "oregon minimum wage 2027",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "rhode island minimum wage 2027",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "south dakota minimum wage 2027",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "state minimum wage 2027",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "texas minimum wage 2027",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "vermont minimum wage 2027",
+   "volume_mese": 0,
+   "cpc_usd": 0,
+   "simili": []
+  },
+  {
+   "frase": "washington minimum wage 2027",
    "volume_mese": 0,
    "cpc_usd": 0,
    "simili": []

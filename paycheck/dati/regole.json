@@ -1258,5 +1258,986 @@
    }
   }
  },
- "letto_il": "2026-11-14"
+ "minimo": {
+  "fonte_tabella": "mw_dol_stati",
+  "tabella_aggiornata": "November 5, 2026",
+  "federale": {
+   "fonte": "mw_dol_fed",
+   "tariffa": "7.25",
+   "dal": "2009-07-24"
+  },
+  "stati": {
+   "AL": {
+    "nome": "Alabama",
+    "slug": "alabama",
+    "tariffe": [],
+    "testo_tariffe": [],
+    "federale_citato": true,
+    "formula_annuale": false
+   },
+   "AK": {
+    "nome": "Alaska",
+    "slug": "alaska",
+    "tariffe": [
+     [
+      "14.00"
+     ]
+    ],
+    "testo_tariffe": [
+     "$14.00"
+    ],
+    "federale_citato": false,
+    "formula_annuale": false
+   },
+   "AZ": {
+    "nome": "Arizona",
+    "slug": "arizona",
+    "tariffe": [
+     [
+      "15.15"
+     ]
+    ],
+    "testo_tariffe": [
+     "$15.15"
+    ],
+    "federale_citato": false,
+    "formula_annuale": false
+   },
+   "AR": {
+    "nome": "Arkansas",
+    "slug": "arkansas",
+    "tariffe": [
+     [
+      "11.00"
+     ]
+    ],
+    "testo_tariffe": [
+     "$11.00"
+    ],
+    "federale_citato": false,
+    "formula_annuale": false
+   },
+   "CA": {
+    "nome": "California",
+    "slug": "california",
+    "tariffe": [
+     [
+      "16.90"
+     ]
+    ],
+    "testo_tariffe": [
+     "$16.90"
+    ],
+    "federale_citato": false,
+    "formula_annuale": true
+   },
+   "CO": {
+    "nome": "Colorado",
+    "slug": "colorado",
+    "tariffe": [
+     [
+      "15.16"
+     ]
+    ],
+    "testo_tariffe": [
+     "$15.16"
+    ],
+    "federale_citato": false,
+    "formula_annuale": false
+   },
+   "CT": {
+    "nome": "Connecticut",
+    "slug": "connecticut",
+    "tariffe": [
+     [
+      "16.94"
+     ]
+    ],
+    "testo_tariffe": [
+     "$16.94"
+    ],
+    "federale_citato": false,
+    "formula_annuale": false
+   },
+   "DE": {
+    "nome": "Delaware",
+    "slug": "delaware",
+    "tariffe": [
+     [
+      "15.00"
+     ]
+    ],
+    "testo_tariffe": [
+     "$15.00"
+    ],
+    "federale_citato": false,
+    "formula_annuale": false
+   },
+   "DC": {
+    "nome": "District of Columbia",
+    "slug": "district-of-columbia",
+    "tariffe": [
+     [
+      "18.40"
+     ]
+    ],
+    "testo_tariffe": [
+     "$18.40"
+    ],
+    "federale_citato": false,
+    "formula_annuale": true
+   },
+   "FL": {
+    "nome": "Florida",
+    "slug": "florida",
+    "tariffe": [
+     [
+      "15.00"
+     ]
+    ],
+    "testo_tariffe": [
+     "$15.00"
+    ],
+    "federale_citato": false,
+    "formula_annuale": true
+   },
+   "GA": {
+    "nome": "Georgia",
+    "slug": "georgia",
+    "tariffe": [
+     [
+      "5.15"
+     ]
+    ],
+    "testo_tariffe": [
+     "$5.15"
+    ],
+    "federale_citato": true,
+    "formula_annuale": false
+   },
+   "HI": {
+    "nome": "Hawaii",
+    "slug": "hawaii",
+    "tariffe": [
+     [
+      "16.00"
+     ]
+    ],
+    "testo_tariffe": [
+     "$16.00"
+    ],
+    "federale_citato": false,
+    "formula_annuale": false
+   },
+   "ID": {
+    "nome": "Idaho",
+    "slug": "idaho",
+    "tariffe": [
+     [
+      "7.25"
+     ]
+    ],
+    "testo_tariffe": [
+     "$7.25"
+    ],
+    "federale_citato": true,
+    "formula_annuale": false
+   },
+   "IL": {
+    "nome": "Illinois",
+    "slug": "illinois",
+    "tariffe": [
+     [
+      "15.00"
+     ]
+    ],
+    "testo_tariffe": [
+     "$15.00"
+    ],
+    "federale_citato": false,
+    "formula_annuale": false
+   },
+   "IN": {
+    "nome": "Indiana",
+    "slug": "indiana",
+    "tariffe": [
+     [
+      "7.25"
+     ]
+    ],
+    "testo_tariffe": [
+     "$7.25"
+    ],
+    "federale_citato": true,
+    "formula_annuale": false
+   },
+   "IA": {
+    "nome": "Iowa",
+    "slug": "iowa",
+    "tariffe": [
+     [
+      "7.25"
+     ]
+    ],
+    "testo_tariffe": [
+     "$7.25"
+    ],
+    "federale_citato": true,
+    "formula_annuale": false
+   },
+   "KS": {
+    "nome": "Kansas",
+    "slug": "kansas",
+    "tariffe": [
+     [
+      "7.25"
+     ]
+    ],
+    "testo_tariffe": [
+     "$7.25"
+    ],
+    "federale_citato": true,
+    "formula_annuale": false
+   },
+   "KY": {
+    "nome": "Kentucky",
+    "slug": "kentucky",
+    "tariffe": [
+     [
+      "7.25"
+     ]
+    ],
+    "testo_tariffe": [
+     "$7.25"
+    ],
+    "federale_citato": true,
+    "formula_annuale": false
+   },
+   "LA": {
+    "nome": "Louisiana",
+    "slug": "louisiana",
+    "tariffe": [],
+    "testo_tariffe": [],
+    "federale_citato": true,
+    "formula_annuale": false
+   },
+   "ME": {
+    "nome": "Maine",
+    "slug": "maine",
+    "tariffe": [
+     [
+      "15.10"
+     ]
+    ],
+    "testo_tariffe": [
+     "$15.10"
+    ],
+    "federale_citato": false,
+    "formula_annuale": true
+   },
+   "MD": {
+    "nome": "Maryland",
+    "slug": "maryland",
+    "tariffe": [
+     [
+      "15.00"
+     ]
+    ],
+    "testo_tariffe": [
+     "$15.00"
+    ],
+    "federale_citato": false,
+    "formula_annuale": false
+   },
+   "MA": {
+    "nome": "Massachusetts",
+    "slug": "massachusetts",
+    "tariffe": [
+     [
+      "15.00"
+     ]
+    ],
+    "testo_tariffe": [
+     "$15.00"
+    ],
+    "federale_citato": false,
+    "formula_annuale": false
+   },
+   "MI": {
+    "nome": "Michigan",
+    "slug": "michigan",
+    "tariffe": [
+     [
+      "13.73"
+     ]
+    ],
+    "testo_tariffe": [
+     "$13.73"
+    ],
+    "federale_citato": false,
+    "formula_annuale": true
+   },
+   "MN": {
+    "nome": "Minnesota",
+    "slug": "minnesota",
+    "tariffe": [
+     [
+      "11.41"
+     ]
+    ],
+    "testo_tariffe": [
+     "$11.41"
+    ],
+    "federale_citato": false,
+    "formula_annuale": true
+   },
+   "MS": {
+    "nome": "Mississippi",
+    "slug": "mississippi",
+    "tariffe": [],
+    "testo_tariffe": [],
+    "federale_citato": true,
+    "formula_annuale": false
+   },
+   "MO": {
+    "nome": "Missouri",
+    "slug": "missouri",
+    "tariffe": [
+     [
+      "15.00"
+     ]
+    ],
+    "testo_tariffe": [
+     "$15.00"
+    ],
+    "federale_citato": false,
+    "formula_annuale": false
+   },
+   "MT": {
+    "nome": "Montana",
+    "slug": "montana",
+    "tariffe": [
+     [
+      "10.85"
+     ],
+     [
+      "4.00"
+     ]
+    ],
+    "testo_tariffe": [
+     "$10.85",
+     "$4.00"
+    ],
+    "federale_citato": false,
+    "formula_annuale": true
+   },
+   "NE": {
+    "nome": "Nebraska",
+    "slug": "nebraska",
+    "tariffe": [
+     [
+      "15.00"
+     ]
+    ],
+    "testo_tariffe": [
+     "$15.00"
+    ],
+    "federale_citato": false,
+    "formula_annuale": false
+   },
+   "NV": {
+    "nome": "Nevada",
+    "slug": "nevada",
+    "tariffe": [
+     [
+      "12.00"
+     ]
+    ],
+    "testo_tariffe": [
+     "$12.00"
+    ],
+    "federale_citato": false,
+    "formula_annuale": false
+   },
+   "NH": {
+    "nome": "New Hampshire",
+    "slug": "new-hampshire",
+    "tariffe": [
+     [
+      "7.25"
+     ]
+    ],
+    "testo_tariffe": [
+     "$7.25"
+    ],
+    "federale_citato": true,
+    "formula_annuale": false
+   },
+   "NJ": {
+    "nome": "New Jersey",
+    "slug": "new-jersey",
+    "tariffe": [
+     [
+      "15.92"
+     ]
+    ],
+    "testo_tariffe": [
+     "$15.92"
+    ],
+    "federale_citato": false,
+    "formula_annuale": true
+   },
+   "NM": {
+    "nome": "New Mexico",
+    "slug": "new-mexico",
+    "tariffe": [
+     [
+      "12.00"
+     ]
+    ],
+    "testo_tariffe": [
+     "$12.00"
+    ],
+    "federale_citato": false,
+    "formula_annuale": false
+   },
+   "NY": {
+    "nome": "New York",
+    "slug": "new-york",
+    "tariffe": [
+     [
+      "17.00",
+      "16.00"
+     ]
+    ],
+    "testo_tariffe": [
+     "$17.00 (New York City, Nassau County, Suffolk County, & Westchester County); $16.00 (remainder of the state)"
+    ],
+    "federale_citato": false,
+    "formula_annuale": false
+   },
+   "NC": {
+    "nome": "North Carolina",
+    "slug": "north-carolina",
+    "tariffe": [
+     [
+      "7.25"
+     ]
+    ],
+    "testo_tariffe": [
+     "$7.25"
+    ],
+    "federale_citato": true,
+    "formula_annuale": false
+   },
+   "ND": {
+    "nome": "North Dakota",
+    "slug": "north-dakota",
+    "tariffe": [
+     [
+      "7.25"
+     ]
+    ],
+    "testo_tariffe": [
+     "$7.25"
+    ],
+    "federale_citato": true,
+    "formula_annuale": false
+   },
+   "OH": {
+    "nome": "Ohio",
+    "slug": "ohio",
+    "tariffe": [
+     [
+      "11.00"
+     ],
+     [
+      "7.25"
+     ]
+    ],
+    "testo_tariffe": [
+     "$11.00",
+     "$7.25"
+    ],
+    "federale_citato": true,
+    "formula_annuale": true
+   },
+   "OK": {
+    "nome": "Oklahoma",
+    "slug": "oklahoma",
+    "tariffe": [
+     [
+      "7.25"
+     ],
+     [
+      "2.00"
+     ]
+    ],
+    "testo_tariffe": [
+     "$7.25",
+     "$2.00"
+    ],
+    "federale_citato": true,
+    "formula_annuale": false
+   },
+   "OR": {
+    "nome": "Oregon",
+    "slug": "oregon",
+    "tariffe": [
+     [
+      "15.55",
+      "16.80",
+      "14.55"
+     ]
+    ],
+    "testo_tariffe": [
+     "$15.55 (standard state rate); $16.80 (Portland Metro Area); $14.55 (Non-Urban counties)"
+    ],
+    "federale_citato": false,
+    "formula_annuale": true
+   },
+   "PA": {
+    "nome": "Pennsylvania",
+    "slug": "pennsylvania",
+    "tariffe": [
+     [
+      "7.25"
+     ]
+    ],
+    "testo_tariffe": [
+     "$7.25"
+    ],
+    "federale_citato": true,
+    "formula_annuale": false
+   },
+   "RI": {
+    "nome": "Rhode Island",
+    "slug": "rhode-island",
+    "tariffe": [
+     [
+      "16.00"
+     ]
+    ],
+    "testo_tariffe": [
+     "$16.00"
+    ],
+    "federale_citato": false,
+    "formula_annuale": false
+   },
+   "SC": {
+    "nome": "South Carolina",
+    "slug": "south-carolina",
+    "tariffe": [],
+    "testo_tariffe": [],
+    "federale_citato": true,
+    "formula_annuale": false
+   },
+   "SD": {
+    "nome": "South Dakota",
+    "slug": "south-dakota",
+    "tariffe": [
+     [
+      "11.85"
+     ]
+    ],
+    "testo_tariffe": [
+     "$11.85"
+    ],
+    "federale_citato": false,
+    "formula_annuale": true
+   },
+   "TN": {
+    "nome": "Tennessee",
+    "slug": "tennessee",
+    "tariffe": [],
+    "testo_tariffe": [],
+    "federale_citato": true,
+    "formula_annuale": false
+   },
+   "TX": {
+    "nome": "Texas",
+    "slug": "texas",
+    "tariffe": [
+     [
+      "7.25"
+     ]
+    ],
+    "testo_tariffe": [
+     "$7.25"
+    ],
+    "federale_citato": true,
+    "formula_annuale": false
+   },
+   "UT": {
+    "nome": "Utah",
+    "slug": "utah",
+    "tariffe": [
+     [
+      "7.25"
+     ]
+    ],
+    "testo_tariffe": [
+     "$7.25"
+    ],
+    "federale_citato": true,
+    "formula_annuale": false
+   },
+   "VT": {
+    "nome": "Vermont",
+    "slug": "vermont",
+    "tariffe": [
+     [
+      "14.42"
+     ]
+    ],
+    "testo_tariffe": [
+     "$14.42"
+    ],
+    "federale_citato": false,
+    "formula_annuale": true
+   },
+   "VA": {
+    "nome": "Virginia",
+    "slug": "virginia",
+    "tariffe": [
+     [
+      "12.77"
+     ]
+    ],
+    "testo_tariffe": [
+     "$12.77"
+    ],
+    "federale_citato": false,
+    "formula_annuale": true
+   },
+   "WA": {
+    "nome": "Washington",
+    "slug": "washington",
+    "tariffe": [
+     [
+      "17.13"
+     ]
+    ],
+    "testo_tariffe": [
+     "$17.13"
+    ],
+    "federale_citato": false,
+    "formula_annuale": true
+   },
+   "WV": {
+    "nome": "West Virginia",
+    "slug": "west-virginia",
+    "tariffe": [
+     [
+      "8.75"
+     ]
+    ],
+    "testo_tariffe": [
+     "$8.75"
+    ],
+    "federale_citato": false,
+    "formula_annuale": false
+   },
+   "WI": {
+    "nome": "Wisconsin",
+    "slug": "wisconsin",
+    "tariffe": [
+     [
+      "7.25"
+     ]
+    ],
+    "testo_tariffe": [
+     "$7.25"
+    ],
+    "federale_citato": true,
+    "formula_annuale": false
+   },
+   "WY": {
+    "nome": "Wyoming",
+    "slug": "wyoming",
+    "tariffe": [
+     [
+      "5.15"
+     ]
+    ],
+    "testo_tariffe": [
+     "$5.15"
+    ],
+    "federale_citato": true,
+    "formula_annuale": false
+   }
+  },
+  "dettaglio": {
+   "CA": {
+    "a2026": "16.90",
+    "a2027": "17.40",
+    "dal": "2027-01-01",
+    "fonti_2026": [
+     "mw_ca"
+    ],
+    "fonti_2027": [
+     "mw_ca_2027"
+    ],
+    "annuncio": "2026-08-13",
+    "mance": "nessun credito",
+    "esenti_annuo": "72384",
+    "fast_food": "20.00"
+   },
+   "WA": {
+    "a2026": "17.13",
+    "a2027": "17.73",
+    "dal": "2027-01-01",
+    "fonti_2026": [
+     "mw_wa"
+    ],
+    "fonti_2027": [
+     "mw_wa",
+     "mw_wa_avviso"
+    ],
+    "mance": "nessun credito",
+    "minori_2027": "15.07"
+   },
+   "NY": {
+    "a2026": "17.00",
+    "a2027": "17.00",
+    "dal": "2027-01-01",
+    "invariato": true,
+    "fonti_2026": [
+     "mw_dol_stati"
+    ],
+    "fonti_2027": [
+     "mw_ny"
+    ],
+    "zone": {
+     "nyc": {
+      "minimo": "17.00",
+      "servizio_contanti": "14.15",
+      "servizio_credito": "2.85",
+      "ristorazione_contanti": "11.35",
+      "ristorazione_credito": "5.65"
+     },
+     "li": {
+      "minimo": "17.00",
+      "servizio_contanti": "14.15",
+      "servizio_credito": "2.85",
+      "ristorazione_contanti": "11.35",
+      "ristorazione_credito": "5.65"
+     },
+     "resto": {
+      "minimo": "16.00",
+      "servizio_contanti": "13.30",
+      "servizio_credito": "2.70",
+      "ristorazione_contanti": "10.70",
+      "ristorazione_credito": "5.30"
+     }
+    },
+    "mance": "tabella"
+   },
+   "CT": {
+    "a2026": "16.94",
+    "a2027": "17.48",
+    "dal": "2027-01-01",
+    "fonti_2026": [
+     "mw_ct"
+    ],
+    "fonti_2027": [
+     "mw_ct",
+     "mw_ct_dol"
+    ],
+    "annuncio": "2026-08-05"
+   },
+   "MI": {
+    "a2026": "13.73",
+    "a2027": "15.00",
+    "dal": "2027-01-01",
+    "fonti_2026": [
+     "mw_mi"
+    ],
+    "fonti_2027": [
+     "mw_mi",
+     "mw_dol_stati"
+    ]
+   },
+   "MN": {
+    "a2026": "11.41",
+    "a2027": "11.87",
+    "dal": "2027-01-01",
+    "fonti_2026": [
+     "mw_mn"
+    ],
+    "fonti_2027": [
+     "mw_mn",
+     "mw_mn_avviso"
+    ],
+    "annuncio": "2026-08-19",
+    "mance": "nessun credito",
+    "formazione_2026": "9.31",
+    "formazione_2027": "9.68"
+   },
+   "MO": {
+    "a2026": "15.00",
+    "a2027": "15.00",
+    "dal": "2027-01-01",
+    "invariato": true,
+    "fonti_2026": [
+     "mw_mo"
+    ],
+    "fonti_2027": [
+     "mw_mo"
+    ],
+    "mance_2026": "7.50"
+   },
+   "MT": {
+    "a2026": "10.85",
+    "a2027": "11.20",
+    "dal": "2027-01-01",
+    "fonti_2026": [
+     "mw_mt"
+    ],
+    "fonti_2027": [
+     "mw_mt",
+     "mw_mt_lettera"
+    ],
+    "annuncio": "2026-10-07",
+    "mance": "nessun credito"
+   },
+   "NE": {
+    "a2026": "15.00",
+    "a2027": "15.26",
+    "dal": "2027-01-01",
+    "fonti_2026": [
+     "mw_dol_stati"
+    ],
+    "fonti_2027": [
+     "mw_ne"
+    ]
+   },
+   "NJ": {
+    "a2026": "15.92",
+    "a2027": "16.48",
+    "dal": "2027-01-01",
+    "fonti_2026": [
+     "mw_dol_stati"
+    ],
+    "fonti_2027": [
+     "mw_nj"
+    ],
+    "annuncio": "2026-09-29",
+    "mance_2026": "6.05",
+    "mance_2027": "6.61",
+    "credito_mance": "9.87",
+    "piccoli_2026": "15.23",
+    "piccoli_2027": "16.25"
+   },
+   "OH": {
+    "a2026": "11.00",
+    "a2027": "11.40",
+    "dal": "2027-01-01",
+    "fonti_2026": [
+     "mw_dol_stati"
+    ],
+    "fonti_2027": [
+     "mw_oh"
+    ],
+    "mance_2027": "5.70",
+    "soglia_2027": "419000",
+    "soglia_2026": "405000"
+   },
+   "RI": {
+    "a2026": "16.00",
+    "a2027": "17.00",
+    "dal": "2027-01-01",
+    "fonti_2026": [
+     "mw_ri"
+    ],
+    "fonti_2027": [
+     "mw_ri"
+    ]
+   },
+   "SD": {
+    "a2026": "11.85",
+    "a2027": "12.30",
+    "dal": "2027-01-01",
+    "fonti_2026": [
+     "mw_sd"
+    ],
+    "fonti_2027": [
+     "mw_sd",
+     "mw_sd_avviso"
+    ],
+    "mance_2026": "5.925",
+    "mance_2027": "6.15"
+   },
+   "VT": {
+    "a2026": "14.42",
+    "a2027": "14.91",
+    "dal": "2027-01-01",
+    "fonti_2026": [
+     "mw_vt"
+    ],
+    "fonti_2027": [
+     "mw_vt"
+    ],
+    "mance_2026": "7.21",
+    "mance_2027": "7.46"
+   },
+   "VA": {
+    "a2026": "12.77",
+    "a2027": "13.75",
+    "dal": "2027-01-01",
+    "fonti_2026": [
+     "mw_va"
+    ],
+    "fonti_2027": [
+     "mw_va"
+    ],
+    "a2028": "15.00"
+   },
+   "OR": {
+    "a2026": "15.55",
+    "a2027": null,
+    "dal": null,
+    "prossimo": "2027-07-01",
+    "fonti_2026": [
+     "mw_or"
+    ],
+    "fonti_2027": [
+     "mw_or"
+    ],
+    "zone": {
+     "portland": "16.80",
+     "standard": "15.55",
+     "rurale": "14.55"
+    }
+   }
+  },
+  "prossimo": {
+   "AK": {
+    "dal": "2027-07-01",
+    "tariffa": "15.00",
+    "fonte": "mw_ak"
+   },
+   "HI": {
+    "dal": "2028-01-01",
+    "tariffa": "18.00",
+    "fonte": "mw_hi"
+   },
+   "FL": {
+    "dal": "2028-01-01",
+    "tariffa": null,
+    "fonte": "mw_dol_stati"
+   },
+   "DC": {
+    "dal": "2027-07-01",
+    "tariffa": null,
+    "fonte": "mw_dol_stati"
+   }
+  },
+  "non_letti": {
+   "AZ": "azica.gov",
+   "CO": "cdle.colorado.gov",
+   "ME": "maine.gov"
+  }
+ },
+ "letto_il": "2026-11-18"
 }

@@ -1,0 +1,892 @@
+{
+ "_nota": "Tetti agli aumenti dell'affitto, scritti dalle pagine ufficiali lette da raccolta/regole2027.py. «tetto» in millesimi di punto percentuale (8700 = 8,7 %). Ogni periodo ha la fonte e la frase da cui viene; verifica.py ritrova ogni frase, rifà i tetti californiani dagli indici BLS/DIR e rilegge la tabella dei tetti locali dall'originale.",
+ "luoghi": [
+  {
+   "id": "california",
+   "slug": "california",
+   "nome": "California",
+   "breve": "California (AB 1482)",
+   "paese": "us",
+   "valuta": "USD",
+   "legge": "Tenant Protection Act (AB 1482), Civil Code § 1947.12",
+   "cambio": "1 August each year",
+   "preavviso": {
+    "fonte": "rent_ca_oag_inquilini",
+    "frase": "If the rent increase is 10% or less, landlords must provide notice 30 days before the increase can take effect."
+   },
+   "regola": {
+    "fonte": "rent_ca_oag",
+    "frase": "Annual rent increases are capped at “5% plus the percentage change in the cost of living,” up to a maximum of 10%."
+   },
+   "testi": {
+    "metodo": {
+     "fonte": "rent_ca_oag",
+     "frase": "The percentage change in the cost of living for most areas is found by looking at the April national consumer price index data published by the U.S. Bureau of Labor Statistics. The Bureau of Labor Statistics publishes separate data for the Los Angeles Area, Riverside Area, San Francisco Area, and San Diego Area. In areas where April data is not published, March data is used. For all other counties, the change in the cost of living is measured using the April California consumer price index data published by the California Department of Industrial Relations."
+    },
+    "copre": {
+     "fonte": "rent_ca_oag",
+     "frase": "These rent increase caps apply to most rental housing in California that is more than 15 years old, including single-family homes and condos owned by corporations, mobilehomes rented from mobilehome park management, and housing rented by Section 8 Housing Choice Voucher recipients."
+    },
+    "nuovo_inquilino": {
+     "fonte": "rent_ca_oag",
+     "frase": "If the tenants of a unit move out and new tenants move in, the landlord may establish the initial rent to charge."
+    },
+    "tabella": {
+     "fonte": "rent_ca_oag",
+     "frase": "For convenience, this chart shows the maximum rent increase currently allowed under the Tenant Protection Act. This chart is informational only"
+    },
+    "locale": {
+     "fonte": "rent_ca_oag",
+     "frase": "If the rent increase cap set by your city or county results in a lower increase than the Tenant Protection Act, then the local rule will apply."
+    },
+    "locale_esenti": {
+     "fonte": "rent_ca_oag",
+     "frase": "Local rent increase caps do not apply to buildings that have a certificate of occupancy issued after February 1, 1995, or to most single-family homes or condos."
+    },
+    "legge_inquilini": {
+     "fonte": "rent_ca_oag_inquilini",
+     "frase": "Landlords cannot raise rent more than 10% total or 5% plus the percentage change in the cost of living - whichever is lower - over a 12-month period."
+    }
+   },
+   "voci": [
+    {
+     "k": "ca_la",
+     "nome": "Los Angeles Area",
+     "contee": [
+      "Los Angeles County",
+      "Orange County"
+     ],
+     "cpi": {
+      "fonte": "bls_cpi_la",
+      "mese": "apr"
+     },
+     "periodi": [
+      {
+       "da": "2025-08-01",
+       "a": "2026-07-31",
+       "tetto": 8000,
+       "etichetta": null,
+       "fonte": "rent_ca_oag",
+       "frase": "Los Angeles Area: Los Angeles County Orange County 8% 8.7%"
+      },
+      {
+       "da": "2026-08-01",
+       "a": "2027-07-31",
+       "tetto": 8700,
+       "etichetta": null,
+       "fonte": "rent_ca_oag",
+       "frase": "Los Angeles Area: Los Angeles County Orange County 8% 8.7%"
+      }
+     ]
+    },
+    {
+     "k": "ca_riverside",
+     "nome": "Riverside Area",
+     "contee": [
+      "Riverside County",
+      "San Bernardino County"
+     ],
+     "cpi": {
+      "fonte": "bls_cpi_riverside",
+      "mese": "mar"
+     },
+     "periodi": [
+      {
+       "da": "2025-08-01",
+       "a": "2026-07-31",
+       "tetto": 7500,
+       "etichetta": null,
+       "fonte": "rent_ca_oag",
+       "frase": "Riverside Area: Riverside County San Bernardino County 7.5% 8.1%"
+      },
+      {
+       "da": "2026-08-01",
+       "a": "2027-07-31",
+       "tetto": 8100,
+       "etichetta": null,
+       "fonte": "rent_ca_oag",
+       "frase": "Riverside Area: Riverside County San Bernardino County 7.5% 8.1%"
+      }
+     ]
+    },
+    {
+     "k": "ca_sandiego",
+     "nome": "San Diego Area",
+     "contee": [
+      "San Diego County"
+     ],
+     "cpi": {
+      "fonte": "bls_cpi_sandiego",
+      "mese": "mar"
+     },
+     "periodi": [
+      {
+       "da": "2025-08-01",
+       "a": "2026-07-31",
+       "tetto": 8800,
+       "etichetta": null,
+       "fonte": "rent_ca_oag",
+       "frase": "San Diego Area: San Diego County 8.8% 8.2%"
+      },
+      {
+       "da": "2026-08-01",
+       "a": "2027-07-31",
+       "tetto": 8200,
+       "etichetta": null,
+       "fonte": "rent_ca_oag",
+       "frase": "San Diego Area: San Diego County 8.8% 8.2%"
+      }
+     ]
+    },
+    {
+     "k": "ca_sf",
+     "nome": "San Francisco Area",
+     "contee": [
+      "Alameda County",
+      "Contra Costa County",
+      "Marin County",
+      "San Francisco County",
+      "San Mateo County"
+     ],
+     "cpi": {
+      "fonte": "bls_cpi_sf",
+      "mese": "apr"
+     },
+     "periodi": [
+      {
+       "da": "2025-08-01",
+       "a": "2026-07-31",
+       "tetto": 6300,
+       "etichetta": null,
+       "fonte": "rent_ca_oag",
+       "frase": "San Francisco Area: Alameda County Contra Costa County Marin County San Francisco County San Mateo County 6.3% 8.8%"
+      },
+      {
+       "da": "2026-08-01",
+       "a": "2027-07-31",
+       "tetto": 8800,
+       "etichetta": null,
+       "fonte": "rent_ca_oag",
+       "frase": "San Francisco Area: Alameda County Contra Costa County Marin County San Francisco County San Mateo County 6.3% 8.8%"
+      }
+     ]
+    },
+    {
+     "k": "ca_altre",
+     "nome": "All other counties",
+     "contee": [],
+     "cpi": {
+      "fonte": "rent_ca_dir",
+      "mese": "apr"
+     },
+     "periodi": [
+      {
+       "da": "2025-08-01",
+       "a": "2026-07-31",
+       "tetto": 7700,
+       "etichetta": null,
+       "fonte": "rent_ca_oag",
+       "frase": "All Other Counties 7.7% 8.6%"
+      },
+      {
+       "da": "2026-08-01",
+       "a": "2027-07-31",
+       "tetto": 8600,
+       "etichetta": null,
+       "fonte": "rent_ca_oag",
+       "frase": "All Other Counties 7.7% 8.6%"
+      }
+     ]
+    }
+   ],
+   "cpi_dir": {
+    "2024": {
+     "fonte": "rent_ca_dir",
+     "frase": "2024 April 342.734",
+     "valore": "342.734"
+    },
+    "2025": {
+     "fonte": "rent_ca_dir",
+     "frase": "2025 April 352.063",
+     "valore": "352.063"
+    },
+    "2026": {
+     "fonte": "rent_ca_dir",
+     "frase": "2026 April 364.746",
+     "valore": "364.746"
+    }
+   }
+  },
+  {
+   "id": "oregon",
+   "slug": "oregon",
+   "nome": "Oregon",
+   "breve": "Oregon",
+   "paese": "us",
+   "valuta": "USD",
+   "legge": "ORS 90.324",
+   "cambio": "1 January each year (published by 30 September)",
+   "regola": {
+    "fonte": "rent_or_das",
+    "frase": "percentage is the lesser of: Ten percent; or Seven percent plus Consumer Price Index (CPI)."
+   },
+   "testi": {
+    "scadenza": {
+     "fonte": "rent_or_das",
+     "frase": "no later than Sept. 30 of each year, the Oregon Department of Administrative Services shall calculate the maximum annual rent increase percentage allowed for the following calendar year"
+    },
+    "grandi": {
+     "fonte": "rent_or_das",
+     "frase": "For tenancies subject to ORS 90.600 (1) in facilities* with more than 30 spaces, as six percent."
+    },
+    "metodo": {
+     "fonte": "rent_or_xlsx",
+     "frase": "7 percent plus the September annual 12-month average change in the Consumer Price Index for All Urban Consumers, West Region (All Items)"
+    },
+    "una_volta": {
+     "fonte": "rent_or_xlsx",
+     "frase": "Only one rent increase may be issued in any 12 month period."
+    },
+    "domande": {
+     "fonte": "rent_or_das",
+     "frase": "Questions related to the administration of the maximum allowable rent increase and other landlord/tenant concerns should be directed to Oregon Housing and Community Services (OHCS)."
+    },
+    "nota_ottobre": {
+     "fonte": "rent_or_xlsx",
+     "frase": "Estimation for October 2025"
+    }
+   },
+   "voci": [
+    {
+     "k": "or",
+     "nome": "Oregon",
+     "periodi": [
+      {
+       "da": "2026-01-01",
+       "a": "2026-12-31",
+       "tetto": 9500,
+       "etichetta": null,
+       "fonte": "rent_or_das",
+       "frase": "The allowable rent increase percentage for the previous year , 2026, was 9.5%."
+      },
+      {
+       "da": "2027-01-01",
+       "a": "2027-12-31",
+       "tetto": 10000,
+       "etichetta": null,
+       "fonte": "rent_or_das",
+       "frase": "For 2027, the maximum allowable rent increase percentage for tenancies subject to ORS 90.324(b) is 10%."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "washington",
+   "slug": "washington",
+   "nome": "Washington State",
+   "breve": "Washington State (HB 1217)",
+   "paese": "us",
+   "valuta": "USD",
+   "legge": "HB 1217 (2025), RCW 59.18.700",
+   "cambio": "1 January each year (published in July)",
+   "regola": {
+    "fonte": "rent_wa_commerce",
+    "frase": "After the first 12 months, a landlord may increase the rent during any 12-month period of the tenancy up to 7% plus the Consumer Price Index, or 10 percent, whichever is less."
+   },
+   "testi": {
+    "primo_anno": {
+     "fonte": "rent_wa_commerce",
+     "frase": "RCW 59.18.700 specifies that a landlord may not increase the rent for any type of tenancy during the first 12 months after the tenancy begins."
+    },
+    "esenti": {
+     "fonte": "rent_wa_commerce",
+     "frase": "Certain properties and situations are exempted, as defined in RCW 59.18.710"
+    },
+    "metodo": {
+     "fonte": "rent_wa_commerce",
+     "frase": "The maximum annual rent increase percentage is calculated using the June 12-month percent change in the Consumer Price Index for all urban consumers, all items, for the Seattle area as published by the United States Bureau of Labor Statistics"
+    },
+    "conto_2026": {
+     "fonte": "rent_wa_commerce",
+     "frase": "Increase calculation: =((364.344-354.824)/354.824)+0.07 = 9.683%"
+    },
+    "conto_2027": {
+     "fonte": "rent_wa_commerce",
+     "frase": "11.5% > 10% (maximum allowable rent increase)"
+    },
+    "indici_2027": {
+     "fonte": "rent_wa_commerce",
+     "frase": "June 2025 index value: 364.344 June 2026 index value: 380.849"
+    },
+    "uscita": {
+     "fonte": "rent_wa_commerce",
+     "frase": "The maximum annual rent increase percentage allowed for each calendar year will be published shortly after release of the June data by the federal U.S. Bureau of Labor Statistics, which is typically in early July of each year."
+    },
+    "conto_2027_intero": {
+     "fonte": "rent_wa_commerce",
+     "frase": "Calculation for 1/1/27 - 12/31/27 June 2025 index value: 364.344 June 2026 index value: 380.849 Increase calculation: =(380.849-364.344)+0.07 = 11.53%"
+    }
+   },
+   "cpi": {
+    "fonte": "bls_cpi_seattle",
+    "mese": "jun"
+   },
+   "voci": [
+    {
+     "k": "wa",
+     "nome": "Washington State",
+     "periodi": [
+      {
+       "da": "2026-01-01",
+       "a": "2026-12-31",
+       "tetto": 9683,
+       "etichetta": null,
+       "fonte": "rent_wa_commerce",
+       "frase": "between 1/1/2026 and 12/31/2026 is 9.683%."
+      },
+      {
+       "da": "2027-01-01",
+       "a": "2027-12-31",
+       "tetto": 10000,
+       "etichetta": null,
+       "fonte": "rent_wa_commerce",
+       "frase": "between 1/1/2027 and 12/31/2027 is 10%."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "nyc",
+   "slug": "new-york-city",
+   "nome": "New York City (rent stabilized)",
+   "breve": "New York City, rent-stabilized apartments",
+   "paese": "us",
+   "valuta": "USD",
+   "legge": "Rent Guidelines Board Order #58",
+   "cambio": "1 October each year (voted in June)",
+   "regola": {
+    "fonte": "rent_nyc_58",
+    "frase": "These rent adjustments will apply to rent stabilized apartments with leases commencing on or after October 1, 2026 and through September 30, 2027 ."
+   },
+   "testi": {
+    "ordine": {
+     "fonte": "rent_nyc_58",
+     "frase": "Order Number 58 - Apartments and Lofts, rent levels for leases commencing October 1, 2026 through September 30, 2027."
+    },
+    "frazioni": {
+     "fonte": "rent_nyc_58",
+     "frase": "any lease or tenancy for a period up to and including one year shall be deemed a one-year lease or tenancy, and any lease or tenancy for a period of over one year and up to and including two years shall be deemed a two-year lease or tenancy"
+    },
+    "altri": {
+     "fonte": "rent_nyc_58",
+     "frase": "Together with such further adjustments as may be authorized by law, the annual adjustment for leases for apartments shall be:"
+    },
+    "data": {
+     "fonte": "rent_nyc_58",
+     "frase": "2026 Apartment & Loft Order #58 June 25, 2026"
+    }
+   },
+   "voci": [
+    {
+     "k": "nyc_1",
+     "nome": "One-year lease",
+     "periodi": [
+      {
+       "da": "2025-10-01",
+       "a": "2026-09-30",
+       "tetto": 3000,
+       "etichetta": null,
+       "fonte": "rent_nyc_57",
+       "frase": "For a one -year lease commencing on or after October 1, 2025 and on or before September 30, 2026 : 3%"
+      },
+      {
+       "da": "2026-10-01",
+       "a": "2027-09-30",
+       "tetto": 0,
+       "etichetta": null,
+       "fonte": "rent_nyc_58",
+       "frase": "For a one -year lease commencing on or after October 1, 2026 and on or before September 30, 2027 : 0%"
+      }
+     ]
+    },
+    {
+     "k": "nyc_2",
+     "nome": "Two-year lease",
+     "periodi": [
+      {
+       "da": "2025-10-01",
+       "a": "2026-09-30",
+       "tetto": 4500,
+       "etichetta": null,
+       "fonte": "rent_nyc_57",
+       "frase": "For a two -year lease commencing on or after October 1, 2025 and on or before September 30, 2026 : 4.5%"
+      },
+      {
+       "da": "2026-10-01",
+       "a": "2027-09-30",
+       "tetto": 0,
+       "etichetta": null,
+       "fonte": "rent_nyc_58",
+       "frase": "For a two -year lease commencing on or after October 1, 2026 and on or before September 30, 2027 : 0%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ontario",
+   "slug": "ontario",
+   "nome": "Ontario",
+   "breve": "Ontario",
+   "paese": "ca",
+   "valuta": "CAD",
+   "legge": "Residential Tenancies Act, 2006",
+   "cambio": "1 January each year",
+   "regola": {
+    "fonte": "rent_on",
+    "frase": "The guideline is the maximum a landlord can increase most tenants’ rent during a year without the approval of the Landlord and Tenant Board."
+   },
+   "preavviso": {
+    "fonte": "rent_on",
+    "frase": "The landlord must give a tenant written notice of a rent increase in the proper form at least 90 days before it takes effect."
+   },
+   "testi": {
+    "dodici": {
+     "fonte": "rent_on",
+     "frase": "In most cases, the rent for a residential unit can be increased if at least 12 months have passed since the: last rent increase, or date the tenancy began"
+    },
+    "esenti": {
+     "fonte": "rent_on",
+     "frase": "new buildings, additions to existing buildings and most new basement apartments that are occupied for the first time for residential purposes after November 15, 2018"
+    },
+    "metodo": {
+     "fonte": "rent_on",
+     "frase": "It is calculated using the Ontario Consumer Price Index , a Statistics Canada tool that measures inflation and economic conditions over a year. Data from June to May is used to determine the guideline for the following year."
+    },
+    "massimo": {
+     "fonte": "rent_on",
+     "frase": "The rent increase guideline is capped at 2.5% to prevent significant one-time rent increases to tenants."
+    },
+    "sopra": {
+     "fonte": "rent_on",
+     "frase": "In some cases, landlords can apply to the Landlord and Tenant Board for approval to raise your rent by more than the rent increase guideline."
+    },
+    "tabella": {
+     "fonte": "rent_on",
+     "frase": "Year guideline (%) 2027 1.9 2026 2.1 2025 2.5 2024 2.5 2023 2.5 2022 1.2 2021 0"
+    }
+   },
+   "voci": [
+    {
+     "k": "on",
+     "nome": "Ontario",
+     "periodi": [
+      {
+       "da": "2026-01-01",
+       "a": "2026-12-31",
+       "tetto": 2100,
+       "etichetta": null,
+       "fonte": "rent_on",
+       "frase": "2026 2.1"
+      },
+      {
+       "da": "2027-01-01",
+       "a": "2027-12-31",
+       "tetto": 1900,
+       "etichetta": null,
+       "fonte": "rent_on",
+       "frase": "The rent increase guideline for 2027 is 1.9% ."
+      }
+     ]
+    }
+   ],
+   "storia": [
+    {
+     "fonte": "rent_on",
+     "frase": "2027 1.9",
+     "anno": 2027,
+     "tetto": 1900
+    },
+    {
+     "fonte": "rent_on",
+     "frase": "2026 2.1",
+     "anno": 2026,
+     "tetto": 2100
+    },
+    {
+     "fonte": "rent_on",
+     "frase": "2025 2.5",
+     "anno": 2025,
+     "tetto": 2500
+    },
+    {
+     "fonte": "rent_on",
+     "frase": "2024 2.5",
+     "anno": 2024,
+     "tetto": 2500
+    },
+    {
+     "fonte": "rent_on",
+     "frase": "2023 2.5",
+     "anno": 2023,
+     "tetto": 2500
+    },
+    {
+     "fonte": "rent_on",
+     "frase": "2022 1.2",
+     "anno": 2022,
+     "tetto": 1200
+    },
+    {
+     "fonte": "rent_on",
+     "frase": "2021 0",
+     "anno": 2021,
+     "tetto": 0
+    },
+    {
+     "fonte": "rent_on",
+     "frase": "2020 2.2",
+     "anno": 2020,
+     "tetto": 2200
+    },
+    {
+     "fonte": "rent_on",
+     "frase": "2019 1.8",
+     "anno": 2019,
+     "tetto": 1800
+    },
+    {
+     "fonte": "rent_on",
+     "frase": "2018 1.8",
+     "anno": 2018,
+     "tetto": 1800
+    }
+   ]
+  },
+  {
+   "id": "bc",
+   "slug": "british-columbia",
+   "nome": "British Columbia",
+   "breve": "British Columbia",
+   "paese": "ca",
+   "valuta": "CAD",
+   "legge": "Residential Tenancy Act",
+   "cambio": "1 January each year",
+   "regola": {
+    "fonte": "rent_bc",
+    "frase": "Rent can only be increased once every 12 months and must be within the yearly rent increase limit, as set by the Residential Tenancy Branch."
+   },
+   "preavviso": {
+    "fonte": "rent_bc",
+    "frase": "Landlords can only increase rent if they provide tenants with at least 3 full months notice."
+   },
+   "testi": {
+    "arrotonda": {
+     "fonte": "rent_bc",
+     "frase": "Rent cannot increase more than the annual limit. Landlords can't round up when calculating the allowable rent increase."
+    },
+    "utenze": {
+     "fonte": "rent_bc",
+     "frase": "If utilities and other fees are included in the rent, the landlord still cannot increase the rent beyond this amount even if their costs are higher."
+    },
+    "solo_anno": {
+     "fonte": "rent_bc",
+     "frase": "Landlords can only apply rent increases for the current year"
+    },
+    "aggiornata": {
+     "fonte": "rent_bc",
+     "frase": "Last updated on August 27, 2026"
+    }
+   },
+   "voci": [
+    {
+     "k": "bc",
+     "nome": "British Columbia",
+     "periodi": [
+      {
+       "da": "2026-01-01",
+       "a": "2026-12-31",
+       "tetto": 2300,
+       "etichetta": null,
+       "fonte": "rent_bc",
+       "frase": "The 2026 rent increase limit for residential tenancies is 2.3%."
+      },
+      {
+       "da": "2027-01-01",
+       "a": "2027-12-31",
+       "tetto": 2200,
+       "etichetta": null,
+       "fonte": "rent_bc",
+       "frase": "The 2027 rent increase limit for residential tenancies is 2.2%."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "stpaul",
+   "slug": "saint-paul",
+   "nome": "Saint Paul, Minnesota",
+   "breve": "Saint Paul, Minnesota",
+   "paese": "us",
+   "valuta": "USD",
+   "legge": "Rent Stabilization Ordinance",
+   "cambio": "fixed percentage, no yearly change",
+   "regola": {
+    "fonte": "rent_stpaul",
+    "frase": "The Ordinance limits residential rent increases to no more than 3% in a 12-month period, however, there are exceptions."
+   },
+   "testi": {
+    "eccezioni": {
+     "fonte": "rent_stpaul",
+     "frase": "Self-Certification Increase Exception: Available for 3%-8% (evaluated annually) Just Cause Vacancy Increase Exception: CPI + 8% Staff Determination Increase Exception: No limit with appropriate justification"
+    },
+    "nuove": {
+     "fonte": "rent_stpaul",
+     "frase": "The amended Ordinance creates an exemption for newly-constructed residential rental properties, among other changes detailed below."
+    },
+    "ritorno": {
+     "fonte": "rent_stpaul",
+     "frase": "The Ordinance also directs the City to create a process for landlords to request an exception to the 3% limit based on the right to a Reasonable Return on Investment."
+    },
+    "modifica": {
+     "fonte": "rent_stpaul",
+     "frase": "May 7, 2025: The City Council adopted an amendment to the ordinance which went into effect on June 13, 2025."
+    }
+   },
+   "voci": [
+    {
+     "k": "stp",
+     "nome": "Saint Paul",
+     "periodi": [
+      {
+       "da": null,
+       "a": null,
+       "tetto": 3000,
+       "etichetta": "Any 12-month period",
+       "fonte": "rent_stpaul",
+       "frase": "Standard Allowable Increase without City approval: 3%"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "california_locali": {
+  "fonte": "rent_ca_oag",
+  "righe": [
+   {
+    "contea": "Alameda County",
+    "comune": "City of Alameda",
+    "massimo": "2.7%",
+    "periodo": "9/1/26– 8/31/27"
+   },
+   {
+    "contea": "Alameda County",
+    "comune": "Berkeley",
+    "massimo": "1%",
+    "periodo": "1/1/26 – 12/31/26"
+   },
+   {
+    "contea": "Alameda County",
+    "comune": "Hayward",
+    "massimo": "5%",
+    "periodo": "Every 12 months"
+   },
+   {
+    "contea": "Alameda County",
+    "comune": "Oakland",
+    "massimo": "2.3%",
+    "periodo": "8/1/26 – 7/31/27"
+   },
+   {
+    "contea": "Alameda County",
+    "comune": "San Leandro",
+    "massimo": "3.3% of the rent that was in effect on July 1, 2025",
+    "periodo": "1/1/27 – 6/30/27"
+   },
+   {
+    "contea": "Contra Costa County",
+    "comune": "Antioch",
+    "massimo": "Check with Antioch for the most current allowable rent increase.",
+    "periodo": "Antioch recalculates the allowable rent increase every 1-2 months."
+   },
+   {
+    "contea": "Contra Costa County",
+    "comune": "Concord",
+    "massimo": "5%",
+    "periodo": "Every 12 months"
+   },
+   {
+    "contea": "Contra Costa County",
+    "comune": "Richmond",
+    "massimo": "1.5%",
+    "periodo": "9/1/26 – 8/31/27"
+   },
+   {
+    "contea": "Los Angeles County",
+    "comune": "City of Los Angeles",
+    "massimo": "3%",
+    "periodo": "7/1/26 – 6/30/27"
+   },
+   {
+    "contea": "Los Angeles County",
+    "comune": "Baldwin Park",
+    "massimo": "3.7% Check with Baldwin Park for the current allowable rent increase.",
+    "periodo": "8/1/26 – 7/31/27"
+   },
+   {
+    "contea": "Los Angeles County",
+    "comune": "Bell Gardens",
+    "massimo": "1.5%",
+    "periodo": "11/1/25 – 10/31/26"
+   },
+   {
+    "contea": "Los Angeles County",
+    "comune": "Beverly Hills",
+    "massimo": "3.6%",
+    "periodo": "7/1/26 – 6/30/27"
+   },
+   {
+    "contea": "Los Angeles County",
+    "comune": "Commerce",
+    "massimo": "Commerce uses the same formula to determine rent increases as the Tenant Protection Act in the Los Angeles Area. During the period listed to the right, the applicable Tenant Protection Act increase is 3.7%. Contact Commerce for the current allowable increase.",
+    "periodo": "7/1/26 – 6/30/27"
+   },
+   {
+    "contea": "Los Angeles County",
+    "comune": "Cudahy",
+    "massimo": "3%",
+    "periodo": "7/1/26 – 6/30/27"
+   },
+   {
+    "contea": "Los Angeles County",
+    "comune": "Culver City",
+    "massimo": "Check with Culver City for the most current allowable rent increase.",
+    "periodo": "Culver City recalculates the allowable rent increase 6 weeks in advance of every month."
+   },
+   {
+    "contea": "Los Angeles County",
+    "comune": "Huntington Park",
+    "massimo": "Check with Huntington Park for the current allowable rent increase.",
+    "periodo": "The allowable increase is recalculated monthly, based on the most recent CPI data."
+   },
+   {
+    "contea": "Los Angeles County",
+    "comune": "Inglewood",
+    "massimo": "For buildings with 5+ units: 3.7% For buildings with 1-4 units: 8.7%",
+    "periodo": "7/1/26 – 6/30/27"
+   },
+   {
+    "contea": "Los Angeles County",
+    "comune": "Los Angeles County (unincorporated areas only)",
+    "massimo": "1.919% For buildings owned by small property landlords: 2.919%",
+    "periodo": "7/1/26 – 6/30/27"
+   },
+   {
+    "contea": "Los Angeles County",
+    "comune": "Maywood",
+    "massimo": "3.7%",
+    "periodo": "7/1/26 – 6/30/27"
+   },
+   {
+    "contea": "Los Angeles County",
+    "comune": "Pasadena",
+    "massimo": "2.25%",
+    "periodo": "10/1/25 – 9/30/26"
+   },
+   {
+    "contea": "Los Angeles County",
+    "comune": "Pomona",
+    "massimo": "5%",
+    "periodo": "1/1/26 – 12/31/26 Pomona’s Rent Stabilization Ordinance will remain in effect only through December 31, 2026, unless reauthorized by the Pomona City Council."
+   },
+   {
+    "contea": "Los Angeles County",
+    "comune": "Santa Monica",
+    "massimo": "2.6%",
+    "periodo": "9/1/26 – 8/31/27"
+   },
+   {
+    "contea": "Los Angeles County",
+    "comune": "West Hollywood",
+    "massimo": "2.25%",
+    "periodo": "9/1/25 – 8/31/26"
+   },
+   {
+    "contea": "Los Angeles County",
+    "comune": "Larkspur",
+    "massimo": "Check with Larkspur for the current allowable rent increase.",
+    "periodo": "The allowable increase is recalculated monthly, based on the most recent CPI data."
+   },
+   {
+    "contea": "Monterey Count",
+    "comune": "Salinas",
+    "massimo": "Salinas will vote whether to repeal its rent stabilization ordinance in November 2026. However, the law remains in effect while the vote is pending. Check with Salinas for the current status of this ordinance.",
+    "periodo": "The allowable increase is recalculated monthly, based on the most recent CPI data."
+   },
+   {
+    "contea": "Orange County",
+    "comune": "Santa Ana",
+    "massimo": "2.87%",
+    "periodo": "9/1/26 – 8/31/27"
+   },
+   {
+    "contea": "Riverside County",
+    "comune": "Palm Springs",
+    "massimo": "Check with Palm Springs for the current allowable rent increase.",
+    "periodo": "The increase is based on comparing the most recent CPI increase available to the base date of September 1979, and comparing that to the rent in effect as of September 1, 1979."
+   },
+   {
+    "contea": "Sacramento County",
+    "comune": "City of Sacramento",
+    "massimo": "8.6%",
+    "periodo": "7/1/26 – 6/30/27"
+   },
+   {
+    "contea": "San Francisco County",
+    "comune": "City and County of San Francisco",
+    "massimo": "1.6%",
+    "periodo": "3/1/26 – 2/28/27"
+   },
+   {
+    "contea": "Santa Clara County",
+    "comune": "Mountain View",
+    "massimo": "2.5%",
+    "periodo": "9/1/26 – 8/31/27"
+   },
+   {
+    "contea": "Santa Clara County",
+    "comune": "San Jose",
+    "massimo": "5%",
+    "periodo": "Every 12 months"
+   },
+   {
+    "contea": "San Mateo County",
+    "comune": "East Palo Alto",
+    "massimo": "2%",
+    "periodo": "7/1/26 – 6/30/27"
+   },
+   {
+    "contea": "Ventura County",
+    "comune": "Ojai",
+    "massimo": "4%",
+    "periodo": "Every 12 months"
+   },
+   {
+    "contea": "Ventura County",
+    "comune": "Oxnard",
+    "massimo": "4%",
+    "periodo": "Every 12 months"
+   },
+   {
+    "contea": "Ventura County",
+    "comune": "Thousand Oaks",
+    "massimo": "Contact Thousand Oaks for further information on how to calculate the allowable rent increase.",
+    "periodo": ""
+   }
+  ]
+ }
+}

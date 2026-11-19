@@ -10,5 +10,15 @@
    {"id": "northwest", "nome": "Northwest Registered Agent", "attivo": false, "link": "https://LINK-DA-INSERIRE.invalid/", "pulsante": "Visit Northwest Registered Agent"},
    {"id": "tailorbrands", "nome": "Tailor Brands", "attivo": false, "link": "https://LINK-DA-INSERIRE.invalid/", "pulsante": "Visit Tailor Brands"}
   ]
+ },
+ "_nota_officine": "Riquadro «Running a repair shop?» delle pagine /auto-repair-laws/ (19/11/2026). SPENTO e senza link: l'editore non è iscritto al programma di Shopmonkey su PartnerStack (compenso letto il 14/11/2026: 300 $ a dimostrazione fatta; ammissione di un editore italiano non scritta) e NON esiste nessun link di affiliazione: \"link\" resta vuoto, non inventarne e non mettere un link diretto senza tracciamento. Spento = nessun riquadro, nessun nome, nessun link in nessuna pagina (verifica.py lo controlla). Per accenderlo: 1) link tracciato vero in \"link\"; 2) il suo dominio in studio-business/strumenti/monetizzazione.json, domini_affiliazione, con la nota del programma; 3) \"attivo\": true sul partner e su \"officine\"; 4) genera.py e verifica.py --browser. Il testo non descrive il prodotto (non letto né provato).",
+ "officine": {
+  "attivo": false,
+  "titolo": "Running a repair shop?",
+  "testo": "Some shops write estimates, authorizations and invoices with shop management software instead of paper forms. The company below is an advertising partner of this site: it charges its own fees, we have not tested its product, and no rule or checklist on this site depends on it. Software does not make a form compliant: check its forms against the state text.",
+  "trasparenza": "Advertisement. If you book a demo or sign up through this link we may earn a commission, at no extra cost to you.",
+  "partner": [
+   {"id": "shopmonkey", "nome": "Shopmonkey", "attivo": false, "link": "", "pulsante": "Visit Shopmonkey"}
+  ]
  }
 }

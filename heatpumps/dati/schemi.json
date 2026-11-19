@@ -1,0 +1,342 @@
+{
+ "gbis": {
+  "pubblicato": "2026-06-25",
+  "periodo": "30 March 2023 to 31 March 2026",
+  "famiglie": 100940,
+  "famiglie_generali": 61900,
+  "famiglie_basso_reddito": 38673,
+  "misure": 139136,
+  "tipi": {
+   "Cavity Wall Insulation": 51413,
+   "Loft Insulation": 39496,
+   "Heating Controls": 34914,
+   "Other Insulation": 7585,
+   "Solid Wall Insulation": 5728
+  },
+  "regioni": {
+   "K03000001": {
+    "nome": "Great Britain",
+    "misure": 139136,
+    "famiglie": 100940,
+    "famiglie_totali": 28415721,
+    "per100k_famiglie": 355.2258976641838
+   },
+   "E92000001": {
+    "nome": "England Total",
+    "misure": 124447,
+    "famiglie": 88966,
+    "famiglie_totali": 24440280,
+    "per100k_famiglie": 364.013832902078
+   },
+   "E12000001": {
+    "nome": "North East",
+    "misure": 17843,
+    "famiglie": 11225,
+    "famiglie_totali": 1221955,
+    "per100k_famiglie": 918.6099324443207
+   },
+   "E12000002": {
+    "nome": "North West",
+    "misure": 21323,
+    "famiglie": 15651,
+    "famiglie_totali": 3279057,
+    "per100k_famiglie": 477.3018584306402
+   },
+   "E12000003": {
+    "nome": "Yorkshire and The Humber",
+    "misure": 15212,
+    "famiglie": 10994,
+    "famiglie_totali": 2419540,
+    "per100k_famiglie": 454.3838911528638
+   },
+   "E12000004": {
+    "nome": "East Midlands",
+    "misure": 13041,
+    "famiglie": 8464,
+    "famiglie_totali": 2128915,
+    "per100k_famiglie": 397.5734118083625
+   },
+   "E12000005": {
+    "nome": "West Midlands",
+    "misure": 21072,
+    "famiglie": 14018,
+    "famiglie_totali": 2526060,
+    "per100k_famiglie": 554.9353538712461
+   },
+   "E12000006": {
+    "nome": "East",
+    "misure": 8967,
+    "famiglie": 6767,
+    "famiglie_totali": 2744058,
+    "per100k_famiglie": 246.6055746635093
+   },
+   "E12000007": {
+    "nome": "London",
+    "misure": 8009,
+    "famiglie": 6222,
+    "famiglie_totali": 3575228,
+    "per100k_famiglie": 174.0308590109498
+   },
+   "E12000008": {
+    "nome": "South East",
+    "misure": 11552,
+    "famiglie": 9497,
+    "famiglie_totali": 3980180,
+    "per100k_famiglie": 238.6072991673744
+   },
+   "E12000009": {
+    "nome": "South West",
+    "misure": 7428,
+    "famiglie": 6128,
+    "famiglie_totali": 2565287,
+    "per100k_famiglie": 238.8816533978459
+   },
+   "W92000004": {
+    "nome": "Wales",
+    "misure": 7727,
+    "famiglie": 5930,
+    "famiglie_totali": 1401715,
+    "per100k_famiglie": 423.0531884156194
+   },
+   "S92000003": {
+    "nome": "Scotland",
+    "misure": 6962,
+    "famiglie": 6044,
+    "famiglie_totali": 2573726,
+    "per100k_famiglie": 234.834632746454
+   }
+  }
+ },
+ "whlg": {
+  "fino_a": "July 2026",
+  "aggiornato": "27 August 2026",
+  "prossima": "2026-11-26",
+  "piano": "The Government has published its Warm Homes Plan to upgrade up to 5 million homes by 2030.",
+  "parte_del_piano": "The Warm Homes: Local Grant (WH:LG) is part of this plan.",
+  "progetti": 74,
+  "council": 271,
+  "progetti_con_dati": 67,
+  "misure": 11247,
+  "famiglie": 5469,
+  "mesi": {
+   "April 2025": {
+    "misure": 12,
+    "famiglie": 4
+   },
+   "May 2025": {
+    "misure": 10,
+    "famiglie": 6
+   },
+   "June 2025": {
+    "misure": 12,
+    "famiglie": 8
+   },
+   "July 2025": {
+    "misure": 36,
+    "famiglie": 29
+   },
+   "August 2025": {
+    "misure": 164,
+    "famiglie": 100
+   },
+   "September 2025": {
+    "misure": 435,
+    "famiglie": 230
+   },
+   "October 2025": {
+    "misure": 622,
+    "famiglie": 353
+   },
+   "November 2025": {
+    "misure": 653,
+    "famiglie": 359
+   },
+   "December 2025": {
+    "misure": 610,
+    "famiglie": 328
+   },
+   "January 2026": {
+    "misure": 887,
+    "famiglie": 550
+   },
+   "February 2026": {
+    "misure": 1628,
+    "famiglie": 831
+   },
+   "March 2026": {
+    "misure": 3516,
+    "famiglie": 1504
+   },
+   "April 2026": {
+    "misure": 933,
+    "famiglie": 413
+   },
+   "May 2026": {
+    "misure": 927,
+    "famiglie": 411
+   },
+   "June 2026": {
+    "misure": 545,
+    "famiglie": 237
+   },
+   "July 2026": {
+    "misure": 257,
+    "famiglie": 106
+   }
+  },
+  "tipi": {
+   "Solar PV": {
+    "misure": 4297,
+    "famiglie": 4297,
+    "costo_medio": 7200
+   },
+   "Batteries": {
+    "misure": 2000,
+    "famiglie": 2000,
+    "costo_medio": 3400
+   },
+   "Loft Insulation": {
+    "misure": 1599,
+    "famiglie": 1599,
+    "costo_medio": 2100
+   },
+   "Air Source Heat Pump": {
+    "misure": 894,
+    "famiglie": 894,
+    "costo_medio": 14800
+   },
+   "Electric Storage Heating": {
+    "misure": 392,
+    "famiglie": 392,
+    "costo_medio": 7700
+   },
+   "Park Home Insulation": {
+    "misure": 355,
+    "famiglie": 355,
+    "costo_medio": 15000
+   },
+   "Cavity Wall Insulation": {
+    "misure": 343,
+    "famiglie": 343,
+    "costo_medio": 3000
+   },
+   "Heating Controls": {
+    "misure": 481,
+    "famiglie": 481,
+    "costo_medio": 800
+   },
+   "Energy Efficient Windows and Doors": {
+    "misure": 231,
+    "famiglie": 231,
+    "costo_medio": 3700
+   },
+   "Double or Triple Glazing": {
+    "misure": 216,
+    "famiglie": 216,
+    "costo_medio": 6800
+   },
+   "External Solid Wall Insulation": {
+    "misure": 138,
+    "famiglie": 138,
+    "costo_medio": 17600
+   },
+   "Internal Solid Wall Insulation": {
+    "misure": 86,
+    "famiglie": 86,
+    "costo_medio": 11600
+   },
+   "Flat Roof Insulation": {
+    "misure": 82,
+    "famiglie": 82,
+    "costo_medio": 7900
+   },
+   "Room in Roof Insulation": {
+    "misure": 68,
+    "famiglie": 68,
+    "costo_medio": 12000
+   },
+   "Hybrid Heat Pump": {
+    "misure": 37,
+    "famiglie": 37,
+    "costo_medio": 13000
+   }
+  },
+  "costo_medio_tutte": 6300,
+  "regioni": {
+   "E12000001": {
+    "nome": "North East",
+    "famiglie": 400,
+    "misure_per_famiglia": 1.63,
+    "misure": 652
+   },
+   "E12000002": {
+    "nome": "North West",
+    "famiglie": 1052,
+    "misure_per_famiglia": 2.33,
+    "misure": 2454
+   },
+   "E12000003": {
+    "nome": "Yorkshire and The Humber",
+    "famiglie": 417,
+    "misure_per_famiglia": 1.68,
+    "misure": 702
+   },
+   "E12000004": {
+    "nome": "East Midlands",
+    "famiglie": 414,
+    "misure_per_famiglia": 2.11,
+    "misure": 874
+   },
+   "E12000005": {
+    "nome": "West Midlands",
+    "famiglie": 374,
+    "misure_per_famiglia": 1.77,
+    "misure": 662
+   },
+   "E12000006": {
+    "nome": "East",
+    "famiglie": 780,
+    "misure_per_famiglia": 2.19,
+    "misure": 1708
+   },
+   "E12000007": {
+    "nome": "London",
+    "famiglie": 412,
+    "misure_per_famiglia": 2.02,
+    "misure": 834
+   },
+   "E12000008": {
+    "nome": "South East",
+    "famiglie": 1260,
+    "misure_per_famiglia": 2.14,
+    "misure": 2691
+   },
+   "E12000009": {
+    "nome": "South West",
+    "famiglie": 360,
+    "misure_per_famiglia": 1.86,
+    "misure": 670
+   }
+  }
+ },
+ "eco4": {
+  "fino_a": "April 2026",
+  "pubblicato": "25 June 2026",
+  "colonna": "Total number of Surplus Actions, ECO3 Interim and ECO4 measures delivered",
+  "misure": 1043846,
+  "case": 306624,
+  "tipi": {
+   "Loft Insulation": 143305,
+   "Boiler": 103339,
+   "First Time Central Heating": 19928,
+   "Solid Wall Insulation": 89043,
+   "Cavity Wall Insulation": 54528,
+   "Solar PV": 65484,
+   "Air Source Heat Pumps": 45870,
+   "Ground Source Heat Pumps": 555,
+   "Hybrid Heat Pumps": 656,
+   "Other Insulation": 13346,
+   "Other Heating": 527490
+  }
+ }
+}

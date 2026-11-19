@@ -528,8 +528,8 @@
    "file": "dati/grezzi/il_ides_tax.html",
    "titolo": "Unemployment Taxes & Reporting",
    "chi": "Illinois Department of Employment Security (IDES)",
-   "sha256": "19c4207f76b99d7cfd28b25549a454ab8082a05b190ed7fad0e7ec0738f1070f",
-   "byte": 91917,
+   "sha256": "dd83581e6407f0055cc2d9d503abec0b212336965214ac3ddae9e11bd602e4c9",
+   "byte": 91828,
    "impronta": "frasi",
    "sha256_frasi": "9b431704bf97d6575d4b5305debe3e6068adc489c6374f79559785591fd55d4f",
    "http": 200,
@@ -548,8 +548,8 @@
    "file": "dati/grezzi/il_idor_reg.html",
    "titolo": "Business Registration",
    "chi": "Illinois Department of Revenue",
-   "sha256": "b63cc9c6e40aceb7054afb09ca9975d703b9110c6c18fc4742e4d882c21706e8",
-   "byte": 73706,
+   "sha256": "fe3111972000b08b321281e4a85f58fb6474c21c6736380c68c24df41ee40579",
+   "byte": 73617,
    "impronta": "frasi",
    "sha256_frasi": "46b2764add5f50f512bfd8d33e19b46c4d2ee1050295e7217f1f8f5158839346",
    "http": 200,
@@ -691,6 +691,604 @@
     "impact": true,
     "pubblico": true,
     "prodotti": true
+   }
+  },
+  "mw_dol_stati": {
+   "url": "https://www.dol.gov/agencies/whd/minimum-wage/state",
+   "file": "dati/grezzi/mw_dol_stati.html",
+   "titolo": "State Minimum Wage Laws",
+   "chi": "U.S. Department of Labor, Wage and Hour Division",
+   "sha256": "14a75b0fc7cea63c3843f944e16c8458b9a06b25bae0df491acb2ecc0ec583d7",
+   "byte": 130914,
+   "impronta": "frasi",
+   "sha256_frasi": "89be40111b1b33f174647acc543284ee1d518408e8a608fbc3b26befcf2278fa",
+   "http": 200,
+   "letto_il": "2026-11-18",
+   "frasi": {
+    "aggiornata": "Updated November 5, 2026",
+    "senza_legge": "No state minimum wage law. Employers subject to the Fair Labor Standards Act must pay the current Federal minimum wage of $7.25 per hour.",
+    "locali": "Some local governments set minimum wage rates higher than their respective state minimum wage.",
+    "avvertenza": "The Wage and Hour Division tries to ensure that the information on this page is accurate, but individuals should consult the relevant state labor office for official information.",
+    "michigan": "The Michigan minimum wage is scheduled to increase on January 1, 2027 to $15.00 per hour and then will be adjusted annually based on a set formula.",
+    "florida": "The Florida minimum wage is scheduled to be updated annually based on a set formula beginning January 1, 2028.",
+    "dc": "The minimum wage is adjusted annually on July 1 based on a set formula."
+   },
+   "trovate": {
+    "aggiornata": true,
+    "senza_legge": true,
+    "locali": true,
+    "avvertenza": true,
+    "michigan": true,
+    "florida": true,
+    "dc": true
+   }
+  },
+  "mw_dol_fed": {
+   "url": "https://www.dol.gov/agencies/whd/minimum-wage",
+   "file": "dati/grezzi/mw_dol_fed.html",
+   "titolo": "Minimum Wage",
+   "chi": "U.S. Department of Labor, Wage and Hour Division",
+   "sha256": "642021b874061339123cc8e407362e4b4445929656fb80f9e4252992f669fd19",
+   "byte": 77987,
+   "impronta": "frasi",
+   "sha256_frasi": "bb41393411567c9cbe80fc4bc0f44fe5998caf2c06e437bb3971c4c7a8c0459b",
+   "http": 200,
+   "letto_il": "2026-11-18",
+   "frasi": {
+    "federale": "The federal minimum wage is $7.25 per hour effective July 24, 2009.",
+    "entrambe": "Many states also have minimum wage laws. Some state laws provide greater employee protections; employers must comply with both."
+   },
+   "trovate": {
+    "federale": true,
+    "entrambe": true
+   }
+  },
+  "mw_ca": {
+   "url": "https://www.dir.ca.gov/dlse/minimum_wage.htm",
+   "file": "dati/grezzi/mw_ca.html",
+   "titolo": "Minimum Wage",
+   "chi": "California Department of Industrial Relations, Labor Commissioner's Office",
+   "sha256": "e50900ec09572be8946591c90db3287829b97ad22e0601551fd41689b78cd4ca",
+   "byte": 53574,
+   "impronta": "frasi",
+   "sha256_frasi": "ad897c3c2added285bdff7d1e8efbadb188ac0f49ba5a47118c4bd951e7c8434",
+   "http": 200,
+   "letto_il": "2026-11-18",
+   "frasi": {
+    "a2026": "The minimum wage in California, effective January 1, 2026, is $16.90/hour for all employers.",
+    "locali": "Some cities and counties have higher minimum wages than the state’s rate.",
+    "fast_food": "Starting April 1, 2024, all “fast food restaurant employees” who are covered by the new law must be paid at least $20.00 per hour."
+   },
+   "trovate": {
+    "a2026": true,
+    "locali": true,
+    "fast_food": true
+   }
+  },
+  "mw_ca_2027": {
+   "url": "https://www.dir.ca.gov/DIRNews/2026/2026-66.html",
+   "file": "dati/grezzi/mw_ca_2027.html",
+   "titolo": "News Release 2026-66: California’s minimum wage set to increase to $17.40 per hour on January 1, 2027",
+   "chi": "California Department of Industrial Relations",
+   "sha256": "cc8677522934716e82d77a1fdc6cc189d3180045c345c084ba16d84d76bd572e",
+   "byte": 91252,
+   "impronta": "frasi",
+   "sha256_frasi": "8a2da2d20094b73eccc18cf22eaca4a3bf35e86acb8f200a6972065b338fa7cb",
+   "http": 200,
+   "letto_il": "2026-11-18",
+   "frasi": {
+    "data": "Date: August 13, 2026",
+    "a2027": "Beginning January 1, 2027, California’s statewide minimum wage will increase to $17.40 per hour",
+    "certificato": "On July 31, 2026, the Department of Finance certified the minimum wage increase for 2027",
+    "esenti": "Beginning January 1, 2027, an employee must earn an annual salary of at least $72,384 to meet the salary threshold for exemption."
+   },
+   "trovate": {
+    "data": true,
+    "a2027": true,
+    "certificato": true,
+    "esenti": true
+   }
+  },
+  "mw_ca_faq": {
+   "url": "https://www.dir.ca.gov/dlse/faq_minimumwage.htm",
+   "file": "dati/grezzi/mw_ca_faq.html",
+   "titolo": "Minimum Wage Frequently Asked Questions",
+   "chi": "California Department of Industrial Relations, Labor Commissioner's Office",
+   "sha256": "deebbdf2772966686d37add4b377a9b3bc6dab18bf04298153657bb9b0c6b8e1",
+   "byte": 63932,
+   "impronta": "frasi",
+   "sha256_frasi": "971925d8e659fb9f5429618658ceb49b1f3b2cb456ee2f3c52aebe6d9e28d496",
+   "http": 200,
+   "letto_il": "2026-11-18",
+   "frasi": {
+    "mance": "An employer may not use an employee's tips as a credit toward its obligation to pay the minimum wage per hour."
+   },
+   "trovate": {
+    "mance": true
+   }
+  },
+  "mw_wa": {
+   "url": "https://www.lni.wa.gov/workers-rights/wages/minimum-wage/",
+   "file": "dati/grezzi/mw_wa.html",
+   "titolo": "Minimum Wage",
+   "chi": "Washington State Department of Labor & Industries",
+   "sha256": "fe752d8344ec3b3b83341e8cdf9214085d030b9052da2712414e7a52dd686d0b",
+   "byte": 15461,
+   "impronta": "frasi",
+   "sha256_frasi": "31705b1b21e21a973b705c8ce544c902b93eb567c8dc9bc0bba2e7d88dd114e1",
+   "http": 200,
+   "letto_il": "2026-11-18",
+   "frasi": {
+    "a2027": "The new minimum wage for 2027 will be $17.73 an hour for most workers. The minimum wage for 14-and 15-year-old workers will be $15.07 an hour. These changes take effect Jan. 1, 2027.",
+    "a2026": "minimum wage in the state of Washington is $17.13 per hour.",
+    "mance": "Businesses may not use tips and service charges paid to an employee as part of an employee’s hourly minimum wage.",
+    "locali": "Some local jurisdictions have higher minimum wage rates and different labor rules than Washington State."
+   },
+   "trovate": {
+    "a2027": true,
+    "a2026": true,
+    "mance": true,
+    "locali": true
+   }
+  },
+  "mw_wa_avviso": {
+   "url": "https://www.lni.wa.gov/workers-rights/_docs/2027-minimum-wage-announcement-Accessible.pdf",
+   "file": "dati/grezzi/mw_wa_avviso.pdf",
+   "titolo": "Announcement: 2027 minimum wage",
+   "chi": "Washington State Department of Labor & Industries",
+   "sha256": "74ea82e06300fb930a5aa065bce650a491448bb0443c699391816a765cb87b7b",
+   "byte": 429871,
+   "impronta": "file",
+   "sha256_frasi": "559b2a0f1aeac6bf0b49507de51f1b95de5ca28aa485560c209007133a352cc7",
+   "http": 200,
+   "letto_il": "2026-11-18",
+   "frasi": {
+    "a2027": "Washington’s minimum wage will be $17.73 per hour beginning Jan. 1, 2027.",
+    "minori": "Workers who are 14 or 15 years old may be paid 85% of the adult minimum wage, or $15.07 per hour."
+   },
+   "trovate": {
+    "a2027": true,
+    "minori": true
+   }
+  },
+  "mw_ny": {
+   "url": "https://dol.ny.gov/minimum-wage-0",
+   "file": "dati/grezzi/mw_ny.html",
+   "titolo": "New York State’s Minimum Wage",
+   "chi": "New York State Department of Labor",
+   "sha256": "e3111da90f45e5d72d899c54d522e801266796872e38277b0f189c5c6942e347",
+   "byte": 55599,
+   "impronta": "frasi",
+   "sha256_frasi": "16ccd837bc1ccc13232437a829494e47d0b8fc1856ce586a2f2f8adbb6533f79",
+   "http": 200,
+   "letto_il": "2026-11-18",
+   "frasi": {
+    "uguale": "On January 1, 2027, New York’s minimum wage will stay the same.",
+    "nyc": "$17.00 per hour in New York City, Long Island, and Westchester County",
+    "resto": "$16.00 per hour in the rest of New York State",
+    "motivo": "For 2027, the conditions for one of the off-ramps has been met.",
+    "riga_nyc": "New York City $17.00 $14.15 Cash Wage $2.85 Tip Credit $11.35 Cash Wage $5.65 Tip Credit",
+    "riga_li": "Long Island & Westchester $17.00 $14.15 Cash Wage $2.85 Tip Credit $11.35 Cash Wage $5.65 Tip Credit",
+    "riga_resto": "Remainder of New York State $16.00 $13.30 Cash Wage $2.70 Tip Credit $10.70 Cash Wage $5.30 Tip Credit",
+    "ospitalita": "Only hospitality employers are allowed to take credit from minimum wage."
+   },
+   "trovate": {
+    "uguale": true,
+    "nyc": true,
+    "resto": true,
+    "motivo": true,
+    "riga_nyc": true,
+    "riga_li": true,
+    "riga_resto": true,
+    "ospitalita": true
+   }
+  },
+  "mw_ct": {
+   "url": "https://portal.ct.gov/governor/news/press-releases/2026/08-2026/governor-lamont-announces-minimum-wage-will-increase",
+   "file": "dati/grezzi/mw_ct.html",
+   "titolo": "Governor Lamont Announces Connecticut’s Minimum Wage Will Increase to $17.48 on January 1, 2027",
+   "chi": "State of Connecticut, Office of the Governor",
+   "sha256": "7e6fbfdc57e3cf7f3c610be4608090d320d03a41c509a53b3f7be3d501a803e4",
+   "byte": 68048,
+   "impronta": "frasi",
+   "sha256_frasi": "aaafe477941b69313eefdac7f1df8d72e651a37c158dbfa1f793d75c057efd1e",
+   "http": 200,
+   "letto_il": "2026-11-18",
+   "frasi": {
+    "data": "8/05/2026 (HARTFORD, CT)",
+    "a2027": "Connecticut’s minimum wage will adjust to $17.48 per hour beginning January 1, 2027—an increase from the 2026 rate of $16.94 per hour.",
+    "indice": "the employment cost index increased by 3.2% over the twelve-month period ending on June 30, 2026, accounting for a $0.54 increase to the state’s minimum wage that will become effective on January 1, 2027."
+   },
+   "trovate": {
+    "data": true,
+    "a2027": true,
+    "indice": true
+   }
+  },
+  "mw_ct_dol": {
+   "url": "https://portal.ct.gov/dol/divisions/wage-and-workplace-standards",
+   "file": "dati/grezzi/mw_ct_dol.html",
+   "titolo": "Wage and Workplace Standards",
+   "chi": "Connecticut Department of Labor",
+   "sha256": "7a3025cef9c8af66159c567f43b1e68d6f92f7cd1f2ca393ab04774d9a9b8f75",
+   "byte": 98101,
+   "impronta": "frasi",
+   "sha256_frasi": "552da236fc17ba68dc6d4658641a017aa84d357511763d4d6937296293360112",
+   "http": 200,
+   "letto_il": "2026-11-18",
+   "frasi": {
+    "elenco": "$17.48 effective on January 1, 2027 $16.94 effective on January 1, 2026"
+   },
+   "trovate": {
+    "elenco": true
+   }
+  },
+  "mw_mi": {
+   "url": "https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-408-934",
+   "file": "dati/grezzi/mw_mi.html",
+   "titolo": "Improved Workforce Opportunity Wage Act, section 408.934: Minimum hourly wage rate",
+   "chi": "Michigan Legislature",
+   "sha256": "743e61e003c9c1b036476b869c255f0d23d5819306a4871d7a45e1ca594501f2",
+   "byte": 22868,
+   "impronta": "frasi",
+   "sha256_frasi": "e368a7c76b7c7a38104d194141192d82085733f44e68671851c85df8e8277473",
+   "http": 200,
+   "letto_il": "2026-11-18",
+   "frasi": {
+    "tariffe": "(b) Beginning January 1, 2026, $13.73. (c) Beginning January 1, 2027, $15.00.",
+    "indice": "Every October beginning in October, 2027, the state treasurer shall calculate an adjusted minimum wage rate."
+   },
+   "trovate": {
+    "tariffe": true,
+    "indice": true
+   }
+  },
+  "mw_mn": {
+   "url": "https://www.dli.mn.gov/minwage",
+   "file": "dati/grezzi/mw_mn.html",
+   "titolo": "Minimum wage in Minnesota",
+   "chi": "Minnesota Department of Labor and Industry",
+   "sha256": "f834238576a86418eebc1c820a162b0250214baf13e1f03a76cbacafe86783bb",
+   "byte": 29455,
+   "impronta": "frasi",
+   "sha256_frasi": "663f0ed056dd2247d602dfec6fe96f4fcd29d44d0dab3d3621973c1abc05653b",
+   "http": 200,
+   "letto_il": "2026-11-18",
+   "frasi": {
+    "tabella": "State minimum wage $11.41 an hour $11.87 an hour 90-day training wage (under 20 years of age) $9.31 an hour $9.68 an hour",
+    "formazione": "The 90-day training wage for workers under age 20 will increase to $9.68.",
+    "mance": "No employer may take a tip credit against minimum wages in Minnesota."
+   },
+   "trovate": {
+    "tabella": true,
+    "formazione": true,
+    "mance": true
+   }
+  },
+  "mw_mn_avviso": {
+   "url": "https://dli.mn.gov/news/minimum-wage-rate-adjusted-inflation-jan-1-2027",
+   "file": "dati/grezzi/mw_mn_avviso.html",
+   "titolo": "Minimum-wage rate adjusted for inflation as of Jan. 1, 2027",
+   "chi": "Minnesota Department of Labor and Industry",
+   "sha256": "644fcb8a30f8c765ecc3829010ea942d7456b16c8fe1e99e60816091b3b824b7",
+   "byte": 21191,
+   "impronta": "frasi",
+   "sha256_frasi": "596e49156ac50c4e268935f12248b6bd87a346a12fdefac4486b5ca540168711",
+   "http": 200,
+   "letto_il": "2026-11-18",
+   "frasi": {
+    "a2027": "Minnesota’s minimum-wage rate will be adjusted for inflation on Jan. 1, 2027, to $11.87 an hour for all employers in the state.",
+    "data": "August 19, 2026"
+   },
+   "trovate": {
+    "a2027": true,
+    "data": true
+   }
+  },
+  "mw_mo": {
+   "url": "https://labor.mo.gov/dls/minimum-wage",
+   "file": "dati/grezzi/mw_mo.html",
+   "titolo": "Minimum Wage",
+   "chi": "Missouri Department of Labor and Industrial Relations",
+   "sha256": "d0796fb2229cce1e86d320db85ad7acd3e26873c2215bb18c60a6d6d73a9b8fa",
+   "byte": 46655,
+   "impronta": "frasi",
+   "sha256_frasi": "231083fbb726f1b3b4226d9932cd8aafe40b0bef3b5ff83b2d5ca5b119a32b8b",
+   "http": 200,
+   "letto_il": "2026-11-18",
+   "frasi": {
+    "storia": "2025 $13.75 2026 $15.00 2027 $15.00",
+    "mance": "Employers are required to pay tipped employees at least 50 percent of the minimum wage, $7.50 per hour, plus any amount necessary to bring the employee’s total compensation to a minimum of $15.00 per hour.",
+    "piccoli": "Employers engaged in retail or service businesses whose annual gross income is less than $500,000 are not required to pay the state minimum wage rate."
+   },
+   "trovate": {
+    "storia": true,
+    "mance": true,
+    "piccoli": true
+   }
+  },
+  "mw_mt": {
+   "url": "https://erd.dli.mt.gov/labor-standards/wage-and-hour-payment-act/state-minimum-wage",
+   "file": "dati/grezzi/mw_mt.html",
+   "titolo": "Montana's Minimum Wage",
+   "chi": "Montana Department of Labor & Industry",
+   "sha256": "8be71627e6ab4841bbd58dcc515693927098968aab0fe79619dd70d8ba75bb4e",
+   "byte": 65912,
+   "impronta": "frasi",
+   "sha256_frasi": "7a7d973c4ea3277bd4c88de1e0b70d727bd04bbdfee6dec3a8dbfd8b049ce9e0",
+   "http": 200,
+   "letto_il": "2026-11-18",
+   "frasi": {
+    "tariffe": "Current Minimum Wage: $10.85 (Effective 1/1/2027: $11.20)",
+    "mance": "No tip credit, meal credit, or training wage is allowed under Montana's Wage & Hour Laws.",
+    "eccezione": "A business not covered by the Fair Labor Standards Act whose gross annual sales are $110,000 or less may pay $4.00 per hour."
+   },
+   "trovate": {
+    "tariffe": true,
+    "mance": true,
+    "eccezione": true
+   }
+  },
+  "mw_mt_lettera": {
+   "url": "https://erd.dli.mt.gov/labor-standards/wage-and-hour-payment-act/MW-Determination-Letter1.pdf",
+   "file": "dati/grezzi/mw_mt_lettera.pdf",
+   "titolo": "2027 Montana Minimum Wage Determination Letter",
+   "chi": "Montana Department of Labor & Industry",
+   "sha256": "8b61332bac346e15ab315ca77d4e42d0b7245aefbc94968081f1d5ebade8a9a3",
+   "byte": 126451,
+   "impronta": "file",
+   "sha256_frasi": "eca68bcdaf482976920c0289d089873b50e852d27f3def1e0977c662ece4b5d7",
+   "http": 200,
+   "letto_il": "2026-11-18",
+   "frasi": {
+    "data": "October 7, 2026",
+    "a2027": "Montana’s Minimum Wage will increase to $11.20 per hour effective January 1, 2027."
+   },
+   "trovate": {
+    "data": true,
+    "a2027": true
+   }
+  },
+  "mw_ne": {
+   "url": "https://dol.nebraska.gov/LaborStandards",
+   "file": "dati/grezzi/mw_ne.html",
+   "titolo": "Labor Standards Home",
+   "chi": "Nebraska Department of Labor",
+   "sha256": "ac5c65f80f417dba837d07fc01ad53e5ec2eaf1ecc4cfbc2a613a1c669c4b155",
+   "byte": 21947,
+   "impronta": "frasi",
+   "sha256_frasi": "f5497fd9c1f27c4ea9ef008e8cceb832c0d22d48d94848c0b555fea0de3ba32e",
+   "http": 200,
+   "letto_il": "2026-11-18",
+   "frasi": {
+    "a2027": "Labor Standards Home - $15.26 Minimum Wage Effective January 1, 2027"
+   },
+   "trovate": {
+    "a2027": true
+   }
+  },
+  "mw_nj": {
+   "url": "https://www.nj.gov/labor/lwdhome/press/2026/20260929_min_wage.shtml",
+   "file": "dati/grezzi/mw_nj.html",
+   "titolo": "New Jersey’s Minimum Wage to Increase to $16.48/Hour for Most Employees on Jan. 1",
+   "chi": "New Jersey Department of Labor and Workforce Development",
+   "sha256": "9cbf362fa2137d9446df49f2c4d8d2cbd8a5002d2cc03674ef41b91fa4cba0f9",
+   "byte": 35163,
+   "impronta": "frasi",
+   "sha256_frasi": "401d1753c60995be1a78d870e120ada431ef2ab6422c1100439dd4b84b39f78a",
+   "http": 200,
+   "letto_il": "2026-11-18",
+   "frasi": {
+    "data": "September 29, 2026",
+    "a2027": "New Jersey’s statewide minimum wage will increase by $0.56 to $16.48 per hour for most employees, effective January 1, 2027.",
+    "piccoli": "The rate for employees of seasonal and small employers (less than six employees) will increase to $16.25 on Jan. 1, up from $15.23.",
+    "agricoli": "Agricultural workers will reach a significant milestone on Jan. 1 when their rate increases to $15 per hour, up from $14.20.",
+    "mance": "The minimum cash wage rate for tipped workers will rise to $6.61 an hour from $6.05, with the maximum tip credit employers are able to claim remaining at $9.87."
+   },
+   "trovate": {
+    "data": true,
+    "a2027": true,
+    "piccoli": true,
+    "agricoli": true,
+    "mance": true
+   }
+  },
+  "mw_oh": {
+   "url": "https://dam.assets.ohio.gov/image/upload/com.ohio.gov/DICO/WageAndHour/2027_Minumum_Wage_Poster.pdf",
+   "file": "dati/grezzi/mw_oh.pdf",
+   "titolo": "State of Ohio 2027 Minimum Wage (poster)",
+   "chi": "Ohio Department of Commerce",
+   "sha256": "cd456550b0b9b567a5f92e29118757e179724143652cef82d429e37f4dd6b4bc",
+   "byte": 212650,
+   "impronta": "file",
+   "sha256_frasi": "f952638978f6b666c544c5e5c764743b93a54dfd1e36ed25999e3fdbc4f13189",
+   "http": 200,
+   "letto_il": "2026-11-18",
+   "frasi": {
+    "titolo": "2027 MINIMUM WAGE",
+    "a2027": "NON-TIPPED EMPLOYEES A Minimum Wage of $11.40 per hour",
+    "mance": "TIPPED EMPLOYEES A Minimum Wage of $5.70 per hour PLUS TIPS",
+    "piccoli": "“Employers” who gross less than $419,000 shall pay their employees no less than the current federal minimum wage rate.",
+    "minori": "“Employees” under the age of 16 shall be paid no less than the current federal minimum wage rate."
+   },
+   "trovate": {
+    "titolo": true,
+    "a2027": true,
+    "mance": true,
+    "piccoli": true,
+    "minori": true
+   }
+  },
+  "mw_ri": {
+   "url": "https://webserver.rilegislature.gov/Statutes/TITLE28/28-12/28-12-3.htm",
+   "file": "dati/grezzi/mw_ri.html",
+   "titolo": "Rhode Island General Laws § 28-12-3: Minimum wages",
+   "chi": "State of Rhode Island General Assembly",
+   "sha256": "8ff8e130c7752f0830776801d66af45318b55b5ec16b54a5eb28e3d1b036d782",
+   "byte": 7944,
+   "impronta": "frasi",
+   "sha256_frasi": "bac2a17217549cd81ed034b1304029cd1ac1e12484abcf47c36738b05bec4d01",
+   "http": 200,
+   "letto_il": "2026-11-18",
+   "frasi": {
+    "a2026": "Commencing January 1, 2026, the minimum wage is sixteen dollars ($16.00) per hour.",
+    "a2027": "Commencing January 1, 2027, the minimum wage is seventeen dollars ($17.00) per hour."
+   },
+   "trovate": {
+    "a2026": true,
+    "a2027": true
+   }
+  },
+  "mw_sd": {
+   "url": "https://dlr.sd.gov/employment_laws/minimum_wage.aspx",
+   "file": "dati/grezzi/mw_sd.html",
+   "titolo": "South Dakota Minimum Wage",
+   "chi": "South Dakota Department of Labor and Regulation",
+   "sha256": "c45f8d5e4233a44a62bb22823c8c8479ab2c83c6ae9b7e10ed6d8b6b541938a4",
+   "byte": 59233,
+   "impronta": "frasi",
+   "sha256_frasi": "9c751d20b632ebe8347d28b4232466c971f25c8aefa660b0c788e622b2633bc9",
+   "http": 200,
+   "letto_il": "2026-11-18",
+   "frasi": {
+    "a2026": "The minimum wage for non-tipped employees in South Dakota is $11.85/hour",
+    "a2027": "the minimum wage for non-tipped employees in South Dakota will be $12.30/hour",
+    "mance_2027": "Effective Jan. 1, 2027, the minimum wage for tipped employees in South Dakota will be $6.15"
+   },
+   "trovate": {
+    "a2026": true,
+    "a2027": true,
+    "mance_2027": true
+   }
+  },
+  "mw_sd_avviso": {
+   "url": "https://dlr.sd.gov/employment_laws/publications/min-wage-poster-2027-english.pdf",
+   "file": "dati/grezzi/mw_sd_avviso.pdf",
+   "titolo": "2027 South Dakota Minimum Wage Requirement (posting)",
+   "chi": "South Dakota Department of Labor and Regulation",
+   "sha256": "fd5217989448945493401f92b7bef1b21e8735471b25dd8622fa86cd224ae5e5",
+   "byte": 524169,
+   "impronta": "file",
+   "sha256_frasi": "6486ae65b0202d7830392218cc6f233aa4508f3ba006820132ccf2e8e1df218b",
+   "http": 200,
+   "letto_il": "2026-11-18",
+   "frasi": {
+    "titolo": "2027 South Dakota Minimum Wage Requirement $12.30/Hour",
+    "mance": "Employers with tipped employees must pay a cash wage of no less than $6.15 per hour, which is no less than 50% of the state minimum wage."
+   },
+   "trovate": {
+    "titolo": true,
+    "mance": true
+   }
+  },
+  "mw_vt": {
+   "url": "https://labor.vermont.gov/rights-and-wages",
+   "file": "dati/grezzi/mw_vt.html",
+   "titolo": "Worker Rights & Protections",
+   "chi": "Vermont Department of Labor",
+   "sha256": "0d2efbdafc628fe15c41357e4e017617d19839c104ebdfa4bbf33e312f4728c7",
+   "byte": 50065,
+   "impronta": "frasi",
+   "sha256_frasi": "89a8bd1b1ed0034b9a97f1a2f4cabad385289059a7bda3afabfdaa0cd6a3a6da",
+   "http": 200,
+   "letto_il": "2026-11-18",
+   "frasi": {
+    "a2027": "Effective 01/01/2027: $14.91 per hour worked/ $7.46 for tipped employees",
+    "a2026": "Effective 01/01/2026: $14.42 per hour worked/ $7.21 for tipped employees"
+   },
+   "trovate": {
+    "a2027": true,
+    "a2026": true
+   }
+  },
+  "mw_va": {
+   "url": "https://doli.virginia.gov/programs/labor-law/payment-of-wage/",
+   "file": "dati/grezzi/mw_va.html",
+   "titolo": "Payment of Wage",
+   "chi": "Virginia Department of Labor and Industry",
+   "sha256": "c99da93cb3cdb2d0b449d4ea27813c56dd6a95f0e3c1eb107ebd1054e94c6b57",
+   "byte": 127069,
+   "impronta": "frasi",
+   "sha256_frasi": "9b8832f7cef3d13509cee485298ece9aa7c2b6428684b58e8771832ff6dedd65",
+   "http": 200,
+   "letto_il": "2026-11-18",
+   "frasi": {
+    "a2026": "For the period of January 1, 2026, until January 1, 2027, the established adjusted state hourly minimum wage is $12.77 per hour.",
+    "a2027": "Beginning January 1, 2027, the Virginia minimum wage rate shall increase to $13.75 per hour.",
+    "a2028": "Beginning January 1, 2028, the Virginia minimum wage rate shall increase to $15.00 per hour.",
+    "agricoli": "Beginning January 1, 2027, farm laborers must be paid at a rate not less than the Virginia minimum wage."
+   },
+   "trovate": {
+    "a2026": true,
+    "a2027": true,
+    "a2028": true,
+    "agricoli": true
+   }
+  },
+  "mw_or": {
+   "url": "https://www.oregon.gov/boli/workers/pages/minimum-wage.aspx",
+   "file": "dati/grezzi/mw_or.html",
+   "titolo": "Oregon Minimum Wage",
+   "chi": "Oregon Bureau of Labor and Industries (BOLI)",
+   "sha256": "005f2a798b3003ae0c8b6f8e6afe73bff7b84837ab03d016f9cd00690ed1ab2a",
+   "byte": 94693,
+   "impronta": "frasi",
+   "sha256_frasi": "b84f23a7c5d92e35d2fd8b30d9a0d3fa102a76a2b973273c74809dfdaf061114",
+   "http": 200,
+   "letto_il": "2026-11-18",
+   "frasi": {
+    "periodo": "Oregon's minimum wage depends on work location. For July 1, 2026, through June 30, 2027, those rates are:",
+    "portland": "$16.80 per hour - Portland metro",
+    "standard": "$15.55 per hour - Standard",
+    "rurale": "$14.55 per hour - Non-urban",
+    "luglio": "Increases to the minimum wage are based on inflation (if applicable) and take effect on July 1st of each year"
+   },
+   "trovate": {
+    "periodo": true,
+    "portland": true,
+    "standard": true,
+    "rurale": true,
+    "luglio": true
+   }
+  },
+  "mw_ak": {
+   "url": "https://labor.alaska.gov/news/2025/news25-11.htm",
+   "file": "dati/grezzi/mw_ak.html",
+   "titolo": "Press release No. 25-11: Alaska Minimum Wage will increase July 1, 2025",
+   "chi": "Alaska Department of Labor and Workforce Development",
+   "sha256": "fc88ba72380d2c791c19140018539b6cce51354231d6ace25fa7e846306bd35c",
+   "byte": 9534,
+   "impronta": "frasi",
+   "sha256_frasi": "4f27e81cf21fc2b1acdba7ea00ad4142ff87d0f379597cfccff0d682d82ed647",
+   "http": 200,
+   "letto_il": "2026-11-18",
+   "frasi": {
+    "data": "June 11, 2025 No. 25-11",
+    "passi": "It will subsequently increase to $14.00 on July 1, 2026, and to $15.00 on July 1, 2027.",
+    "indice": "Thereafter, the minimum wage will be adjusted annually for inflation starting January 1, 2028."
+   },
+   "trovate": {
+    "data": true,
+    "passi": true,
+    "indice": true
+   }
+  },
+  "mw_hi": {
+   "url": "https://labor.hawaii.gov/wsd/minimum-wage/",
+   "file": "dati/grezzi/mw_hi.html",
+   "titolo": "Minimum Wage and Overtime",
+   "chi": "Hawaii Department of Labor and Industrial Relations, Wage Standards Division",
+   "sha256": "0b5966ab5a3d12eaaa6489308a529f01a51d97acedc37748ea3537cbba8f92a2",
+   "byte": 179400,
+   "impronta": "frasi",
+   "sha256_frasi": "0b74721ad7d8d2ff8accd094529651923a2433fa03dc56f37372d2ea69a3e210",
+   "http": 200,
+   "letto_il": "2026-11-18",
+   "frasi": {
+    "tariffe": "$16.00 per hour beginning January 1, 2026; and $18.00 per hour beginning January 1, 2028."
+   },
+   "trovate": {
+    "tariffe": true
    }
   }
  }

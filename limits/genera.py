@@ -46,7 +46,14 @@ LETTO = date.fromisoformat(N.VERIFICATO_IL)
 STATI, CELLE, CAUSE = N.STATI, N.CELLE, N.CAUSE
 OS, OC = N.ORDINE_STATI, N.ORDINE_CAUSE
 MESI = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-NUMERI = {1: "one", 2: "two", 3: "three", 4: "four", 5: "five", 6: "six", 7: "seven", 8: "eight", 9: "nine", 10: "ten"}
+NUMERI = {1: "one", 2: "two", 3: "three", 4: "four", 5: "five", 6: "six", 7: "seven", 8: "eight", 9: "nine", 10: "ten", 11: "eleven", 12: "twelve"}
+N_ST = len(OS)  # numero di Stati pubblicati
+N_ST_P = NUMERI[N_ST] if N_ST in NUMERI else str(N_ST)  # in lettere ("eleven")
+NOMI_STATI = ", ".join(STATI[s]["nome"] for s in OS[:-1]) + " and " + STATI[OS[-1]]["nome"]
+# Titoli e h1 dalle ricerche misurate il 13/11/2026 (dati/volumi-2026-11-13.json): "<state> statute of limitations <claim>" e
+# "statute of limitations on debt" (non "debt collection", che nessuno cerca nella forma del titolo).
+TITOLO_CAUSA = {"personal-injury": "for Personal Injury", "medical-malpractice": "for Medical Malpractice", "wrongful-death": "for Wrongful Death",
+                "debt": "on Debt", "breach-of-contract": "for Breach of Contract", "property-damage": "for Property Damage"}
 
 
 def h(x):
@@ -132,8 +139,9 @@ def controlli():
             cerca(f"{k} {e['titolo']}", e["fonte"], e["testo"])
         if c.get("inizio_testo"):
             cerca(f"{k} inizio", c["inizio_testo"]["fonte"], c["inizio_testo"]["testo"])
-    if len(CELLE) != 59:
-        err.append(f"celle attese 59, trovate {len(CELLE)}")
+    attese = len(OS) * len(OC) - sum(len(STATI[s].get("assente", {})) for s in OS)  # 65 dal 13/11/2026 (Pennsylvania)
+    if len(CELLE) != attese or any(k.split("/")[0] not in OS or k.split("/")[1] not in OC for k in CELLE):
+        err.append(f"celle attese {attese}, trovate {len(CELLE)}")
     if date.today() > LETTO + timedelta(days=400):
         err.append("testi di legge letti più di 13 mesi fa: rileggerli (NOTE.md, aggiornamento annuale)")
     if err:
@@ -296,7 +304,7 @@ def pagina(percorso, titolo, descrizione, corpo, testata="", briciole=None, json
 <footer><div class="wrap">
 <div class="f-grid"><div>
 <a class="logo" href="/">{LOGO}<span>Statute of Limitations <b>by State</b></span></a>
-<p><strong>{NOME}</strong> shows the general deadlines to file common civil lawsuits in ten states, with the text of each statute,
+<p><strong>{NOME}</strong> shows the general deadlines to file common civil lawsuits in {N_ST_P} states, with the text of each statute,
 a link to the legislature's official site and the date we read it. Statutes read on {data_lunga(LETTO)}.</p>
 <p>Not legal advice and not a substitute for the advice of an attorney. <a href="/about/">About</a> · <a href="/how-we-check/">How we check</a> · <a href="/privacy/">Privacy</a></p>
 </div><div>
@@ -304,7 +312,7 @@ a link to the legislature's official site and the date we read it. Statutes read
 </div><div>
 <h2>Claims</h2><ul>{cause_piede}</ul>
 </div></div>
-<p class="f-base">Statute text is quoted from the official websites of each state legislature and from the eCFR; one Washington court ruling is quoted from the state courts' website. This site is not affiliated with
+<p class="f-base">Statute text is quoted from the official websites of each state legislature and from the eCFR; two court rulings (Washington and Pennsylvania) are quoted from the state courts' websites. This site is not affiliated with
 any court, legislature, government agency or law firm.</p>
 </div></footer>
 <script src="/assets/{JS_FILE}" defer></script>
@@ -409,7 +417,7 @@ LIMITI_CALC = ("The result is only the general period counted from the date you 
                "deadline is applied, and the date is not moved when it falls on a weekend or a court holiday.")
 
 
-def calcolatore(stato=None, causa=None):
+def calcolatore(stato=None, causa=None, causa_scelta=None):
     """Calcolatore: completo (Stato, causa, data) o di una sola cella (solo data)."""
     if stato and causa:
         k = f"{stato}/{causa}"
@@ -423,11 +431,11 @@ def calcolatore(stato=None, causa=None):
                 f'<p class="small limiti-calc" style="margin:0">{h(LIMITI_CALC)} Dates you type stay in your browser.</p></div>{script}')
     script = f'<script src="/assets/{DATI_FILE}" defer></script>'
     o_stati = "".join(f'<option value="{s}"{" selected" if s == stato else ""}>{h(STATI[s]["nome"])}</option>' for s in OS)
-    o_cause = "".join(f'<option value="{c}">{h(CAUSE[c]["nome"])}</option>' for c in OC)
+    o_cause = "".join(f'<option value="{c}"{" selected" if c == causa_scelta else ""}>{h(CAUSE[c]["nome"])}</option>' for c in OC)
     return (f'<div class="card calc" data-calc id="calculator"><form>'
             f'<label>State<select name="stato">{o_stati}</select></label>'
             f'<label>Type of claim<select name="causa">{o_cause}</select></label>'
-            f'<label><span data-etichetta>{h(CAUSE[OC[0]]["data"])}</span><input type="date" name="data" required min="1950-01-01" max="2100-12-31"></label>'
+            f'<label><span data-etichetta>{h(CAUSE[causa_scelta or OC[0]]["data"])}</span><input type="date" name="data" required min="1950-01-01" max="2100-12-31"></label>'
             f'<button class="btn" type="submit">{ico("calendar")}Calculate</button>'
             f'<p class="small" data-manca hidden style="grid-column:1/-1;margin:0">Not published for this state: the statute does not state its own deadline.</p></form>'
             f'<div class="esito" hidden aria-live="polite"></div>'
@@ -437,15 +445,18 @@ def calcolatore(stato=None, causa=None):
 
 # ---------------------------------------------------------------- FAQ
 def riempi(t):
+    """Segnaposto delle FAQ: {P:STATO/causa:i} anni della variante i in lettere, {CIT:STATO/causa:i} la sua citazione,
+    {R:STATO/causa} il limite massimo (repose) in lettere. Così le risposte non possono divergere da norme.py."""
     def sost(m):
-        tipo, k, i = m.group(1), m.group(2), int(m.group(3))
-        v = CELLE[k]["varianti"][i]
-        if tipo == "P":
-            return anni(v["anni"], parole=True)
-        if tipo == "CIT":
-            return v["cit"]
-        raise SystemExit(f"segnaposto sconosciuto {m.group(0)}")
-    return re.sub(r"\{(P|CIT):([A-Z]{2}/[a-z-]+):(\d)\}", sost, t)
+        tipo, k, i = m.group(1), m.group(2), m.group(3)
+        if tipo == "R":
+            return anni(CELLE[k]["repose"]["anni"], parole=True)
+        v = CELLE[k]["varianti"][int(i)]
+        return anni(v["anni"], parole=True) if tipo == "P" else v["cit"]
+    out = re.sub(r"\{(P|CIT|R):([A-Z]{2}/[a-z-]+)(?::(\d))?\}", sost, t.replace("{NST}", N_ST_P))
+    if "{" in out:
+        raise SystemExit(f"segnaposto sconosciuto in {t[:60]}")
+    return out
 
 
 def faq_blocco(pid, rim, titolo="Common questions"):
@@ -509,11 +520,15 @@ def tabella_confronto(causa, attuale=None):
         per = "<br>".join(f'{cella_vs(v, k, i)} <small>{h(v["etichetta"])}</small>' for i, v in enumerate(c["varianti"]))
         cit = "<br>".join(h(v["cit"]) for v in c["varianti"])
         rip = anni(c["repose"]["anni"]) if c.get("repose") else "–"
+        if c.get("repose") and c["repose"].get("nota_data"):  # limite stampato ma dichiarato incostituzionale: segnato in tabella
+            rip += ' <a href="' + url_cella(k) + '#exceptions" title="Held unconstitutional by the state supreme court">*</a>'
         righe.append(f'<tr{' class="qui"' if s == attuale else ""}><td><a href="{url_cella(k)}">{h(st["nome"])}</a></td>'
                      f'<td class="n">{per}</td><td>{cit}</td><td class="n">{rip}</td></tr>')
+    asterisco = (" * Printed in the statute but held unconstitutional by the state supreme court (Washington in 2023, Pennsylvania in 2019): "
+                 "see the state page." if any(CELLE.get(f"{s}/{causa}", {}).get("repose", {}).get("nota_data") for s in OS) else "")
     return (f'<div class="tab"><table class="dati"><thead><tr><th>State</th><th>General period</th><th>Statute</th><th>Outer limit</th></tr></thead>'
             f'<tbody>{"".join(righe)}</tbody><caption>General periods from the statute text read on {data_lunga(LETTO)}. “Outer limit” is a '
-            f'statute of repose or similar cap, where the statute sets one.</caption></table></div>')
+            f'statute of repose or similar cap, where the statute sets one.{asterisco}</caption></table></div>')
 
 
 def esempio(chiave):
@@ -522,7 +537,10 @@ def esempio(chiave):
     parti = [f"{et}: {data_lunga(sc)}" for et, sc, _ in ris if sc]
     testo_ = f"For example, counted from {data_lunga(d0)}, the general deadline would be " + "; ".join(parti)
     if rip:
-        testo_ += f", with the outer limit on {data_lunga(rip)}"
+        if CELLE[chiave]["repose"].get("nota_data"):
+            testo_ += f", and the outer limit printed in the statute (held unconstitutional, see below) would fall on {data_lunga(rip)}"
+        else:
+            testo_ += f", with the outer limit on {data_lunga(rip)}"
     return testo_ + ". Exceptions below can move it."
 
 
@@ -536,13 +554,13 @@ def pagina_cella(k):
     prima_cit = vs[0]["cit"]
     sub = (f"Generally <strong>{h(breve)}</strong> under {h(prima_cit)}" + (" and related sections" if len({v['cit'] for v in vs}) > 1 else "") +
            f". Statute text, when the clock starts, exceptions and a deadline calculator. Read on {data_lunga(LETTO)}.")
-    testata = banda(f"{st['nome']} · {cc['nome']}", f"{st['nome']} statute of limitations for {cc['breve']}", sub)
+    testata = banda(f"{st['nome']} · {cc['nome']}", f"{st['nome']} statute of limitations {TITOLO_CAUSA[ca].lower()}", sub)
     celle_cifre = []
     for i, v in enumerate(vs[:3]):
         celle_cifre.append(f'<div class="cifra{" main" if i == 0 else ""}"><b>{cella_vs(v, k, i)}</b><span>{h(v["etichetta"])} · {h(v["cit"])}</span></div>')
     if len(celle_cifre) < 3 and c.get("repose"):
         r = c["repose"]
-        celle_cifre.append(f'<div class="cifra"><b><span data-v="{k}/r">{anni(r["anni"])}</span></b><span>Outer limit · {h(r["cit"])}</span></div>')
+        celle_cifre.append(f'<div class="cifra"><b><span data-v="{k}/r">{anni(r["anni"])}</span></b><span>Outer limit{" as printed (held unconstitutional, see below)" if r.get("nota_data") else ""} · {h(r["cit"])}</span></div>')
     if len(celle_cifre) < 3:
         celle_cifre.append(f'<div class="cifra"><b>{len(c["eccezioni"]) + (0 if c.get("senza_regole_stato") else len(st["regole"]))}</b>'
                            f'<span>exceptions and tolling rules quoted on this page</span></div>')
@@ -582,7 +600,9 @@ def pagina_cella(k):
     if c.get("repose"):
         r = c["repose"]
         corpo += (f'<h3>Outer limit: <span data-v="{k}/r">{anni(r["anni"])}</span></h3><p>Even when the regular period has not run, the statute sets a '
-                  f'final cut-off counted from the act or omission.</p>' + citazione(rim, r["fonte"], r["testo"], r["cit"]))
+                  f'final cut-off counted from the act or omission.</p>' + citazione(rim, r["fonte"], r["testo"], r["cit"]) +
+                  (f'<div class="nota">{ico("info")}<p>{h(r["nota_data"])} The court’s words are quoted under '
+                   f'<a href="#exceptions">exceptions</a>.</p></div>' if r.get("nota_data") else ""))
     corpo += f'<p>{h(esempio(k))}</p>'
     # calcolatore
     corpo += (f'<h2 id="calculator">Deadline calculator: {h(st["nome"])} {h(cc["breve"])}</h2><p>Enter the date to count from. '
@@ -608,18 +628,19 @@ def pagina_cella(k):
     corpo += box_affiliati("cella")
     # confronto e collegamenti
     corpo += (f'<h2 id="compare">{h(cc["nome"])} deadlines in other states</h2><p>The same type of claim has different deadlines from state to state. '
-              f'<a href="/{ca}/">Compare all ten states</a>.</p>' + tabella_confronto(ca, attuale=s))
+              f'<a href="/{ca}/">Compare all {N_ST_P} states</a>.{vista_link(ca)}</p>' + tabella_confronto(ca, attuale=s))
     altre = "".join(f'<li><a href="{url_cella(f"{s}/{x}")}">{h(CAUSE[x]["nome"])}</a></li>' for x in OC if x != ca and f"{s}/{x}" in CELLE)
     corpo += f'<h2>Other {h(st["nome"])} deadlines</h2><ul class="pillole">{altre}<li><a href="/{st["slug"]}/">All {h(st["nome"])} rules</a></li></ul>'
     faq, ld_faq = faq_blocco(k, rim)
     corpo += faq + rim.elenco()
-    titolo = titolo_corto(f"{st['nome']} {cc['titolo']} Statute of Limitations ({breve.replace('years', 'Years').replace('year', 'Year')})",
-                          f"{st['nome']} {cc['titolo']} Statute of Limitations",
-                          f"{st['nome']} {cc['titolo']} Deadline to Sue")
+    tc = TITOLO_CAUSA[ca]
+    titolo = titolo_corto(f"{st['nome']} Statute of Limitations {tc} ({breve.replace('years', 'Years').replace('year', 'Year')})",
+                          f"{st['nome']} Statute of Limitations {tc}",
+                          f"{st['nome']} {cc['titolo']} Statute of Limitations")
     descr = descr_corta(
-        f"{st['nome']} {cc['breve']} statute of limitations: {breve} under {prima_cit}. Statute text, when it starts, exceptions and a deadline calculator.",
-        f"{st['nome']} {cc['breve']} deadline: {breve} ({prima_cit}). Statute text, exceptions and a deadline calculator.",
-        f"{st['nome']} {cc['breve']}: {breve}. Statute text, exceptions and a deadline calculator.")
+        f"{st['nome']} statute of limitations {tc.lower()}: {breve} under {prima_cit}. Statute text, when it starts, exceptions and a deadline calculator.",
+        f"{st['nome']} statute of limitations {tc.lower()}: {breve} ({prima_cit}). Statute text, exceptions and a deadline calculator.",
+        f"{st['nome']} statute of limitations {tc.lower()}: {breve}. Statute text, exceptions and a deadline calculator.")
     pagina(f"{st['slug']}/{ca}/", titolo, descr, corpo, testata,
            briciole=[("Home", ""), (st["nome"], f"{st['slug']}/"), (cc["nome"], f"{st['slug']}/{ca}/")], jsonld=[ld_faq] if ld_faq else None)
 
@@ -628,7 +649,7 @@ def pagina_cella(k):
 def pagina_stato(s):
     st = STATI[s]
     rim = Rimandi()
-    testata = banda(st["nome"], f"{st['nome']} statutes of limitations for civil claims",
+    testata = banda(st["nome"], f"{st['nome']} statute of limitations for civil claims",
                     f"General deadlines to sue for six common claims under the {h(st['codice'])}, with the statute text, the rules that pause "
                     f"them and a calculator. Read on {data_lunga(LETTO)}.", icona="map")
     righe = []
@@ -687,12 +708,14 @@ def pagina_causa(ca):
     minimo, massimo = min(a for _, a in tutti), max(a for _, a in tutti)
     st_min = sorted({STATI[s]["nome"] for s, a in tutti if a == minimo})
     st_max = sorted({STATI[s]["nome"] for s, a in tutti if a == massimo})
-    sub = (f"General periods in ten states range from <strong>{anni(minimo, True)}</strong> ({h(', '.join(st_min))}) to "
+    sub = (f"General periods in {N_ST_P} states range from <strong>{anni(minimo, True)}</strong> ({h(', '.join(st_min))}) to "
            f"<strong>{anni(massimo, True)}</strong> ({h(', '.join(st_max))}). Statute text and exceptions for each state.")
-    testata = banda(cc["nome"], f"{cc['nome']} statute of limitations by state", sub, icona="hourglass")
-    corpo = (f'<div class="card pull"><p style="margin:0">{h(INTRO_CAUSA[ca])} This page compares ten states ({h(cc["esempi"])}).</p></div>')
+    h1_c = "Statute of limitations on debt by state" if ca == "debt" else f"{cc['nome']} statute of limitations by state"
+    testata = banda(cc["nome"], h1_c, sub, icona="hourglass")
+    corpo = (f'<div class="card pull"><p style="margin:0">{h(INTRO_CAUSA[ca])} This page compares {N_ST_P} states ({h(cc["esempi"])}).'
+             f'{vista_link(ca)}</p></div>')
     corpo += avviso()
-    corpo += f'<h2 id="table">{h(cc["nome"])} deadlines in ten states</h2>' + tabella_confronto(ca)
+    corpo += f'<h2 id="table">{h(cc["nome"])} deadlines in {N_ST_P} states</h2>' + tabella_confronto(ca)
     corpo += (f'<h2 id="calculator">Calculate a {h(cc["breve"])} deadline</h2>' + calcolatore())
     if ca == "debt":
         corpo += nota_debito()
@@ -715,19 +738,154 @@ def pagina_causa(ca):
         corpo += '<h2 id="federal">The federal rule on time-barred debt</h2>' + blocco_eccezione(rim, N.REG_F)
     faq, ld_faq = faq_blocco(ca, rim)
     corpo += faq + rim.elenco()
-    titolo = titolo_corto(f"{cc['titolo']} Statute of Limitations by State (10 States)", f"{cc['titolo']} Statute of Limitations by State")
-    descr = descr_corta(f"{cc['nome']} statute of limitations by state: compare general periods in ten states, from {anni(minimo)} to {anni(massimo)}, "
-                        f"with the statute text and exceptions.",
-                        f"{cc['nome']} statute of limitations in ten states, from {anni(minimo)} to {anni(massimo)}, with statute text and exceptions.")
+    if ca == "debt":
+        titolo = titolo_corto(f"Statute of Limitations on Debt by State ({N_ST} States)", "Statute of Limitations on Debt by State")
+        descr = descr_corta(f"Statute of limitations on debt by state: compare the periods to sue on a debt in {N_ST_P} states, from {anni(minimo)} to "
+                            f"{anni(massimo)}, with the statute text.",
+                            f"Statute of limitations on debt in {N_ST_P} states, from {anni(minimo)} to {anni(massimo)}, with statute text and exceptions.")
+    else:
+        titolo = titolo_corto(f"{cc['titolo']} Statute of Limitations by State ({N_ST} States)", f"{cc['titolo']} Statute of Limitations by State")
+        descr = descr_corta(f"{cc['nome']} statute of limitations by state: compare general periods in {N_ST_P} states, from {anni(minimo)} to {anni(massimo)}, "
+                            f"with the statute text and exceptions.",
+                            f"{cc['nome']} statute of limitations in {N_ST_P} states, from {anni(minimo)} to {anni(massimo)}, with statute text and exceptions.")
     pagina(f"{ca}/", titolo, descr, corpo, testata, briciole=[("Home", ""), (cc["nome"], f"{ca}/")], jsonld=[ld_faq] if ld_faq else None)
+
+
+# ---------------------------------------------------------------- viste per situazione (car accident, credit card debt)
+# Pagine nate dalle ricerche misurate il 13/11/2026 ("statute of limitations auto accident" 4.400, "... for car accident" 3.600,
+# "statute of limitations on credit card debt" 1.600): NON sono celle nuove, mostrano i termini già letti delle cause esistenti.
+VISTE = {
+    "car-accident": {"nome": "Car accident", "griglia": "Injury and vehicle damage deadlines side by side",
+                     "cause": ("personal-injury", "property-damage", "wrongful-death"), "link": "car accident deadlines by state"},
+    "credit-card-debt": {"nome": "Credit card debt", "griglia": "Every debt period in the statutes, and the one that names credit cards",
+                         "cause": ("debt",), "link": "credit card debt by state"},
+}
+TERRENI = re.compile(r"real (property|estate)", re.I)  # varianti per i danni a terreni ed edifici: non riguardano un veicolo
+
+
+def vista_link(ca):
+    voci = [f'<a href="/{u}/">{h(v["link"])}</a>' for u, v in VISTE.items() if ca in v["cause"]]
+    return f" See also {' and '.join(voci)}." if voci else ""
+
+
+def varianti_carta(k):
+    """Indici delle varianti di una cella debiti la cui citazione nomina le carte di credito."""
+    return [i for i, v in enumerate(CELLE[k]["varianti"]) if "credit card" in " ".join(v["testo"]).lower()]
+
+
+def pagina_auto():
+    rim = Rimandi()
+    righe = []
+    for s in OS:
+        st = STATI[s]
+        celle_html = []
+        for ca in ("personal-injury", "property-damage", "wrongful-death"):
+            k = f"{s}/{ca}"
+            if k not in CELLE:
+                celle_html.append('<td class="n">not published</td>')
+                continue
+            vs = [(i, v) for i, v in enumerate(CELLE[k]["varianti"]) if not (ca == "property-damage" and TERRENI.search(v["etichetta"]))]
+            celle_html.append('<td class="n">' + "<br>".join(f'<a href="{url_cella(k)}">{cella_vs(v, k, i)}</a> <small>{h(v["etichetta"])}</small>'
+                                                             for i, v in vs) + "</td>")
+        righe.append(f'<tr><td><a href="/{st["slug"]}/">{h(st["nome"])}</a></td>{"".join(celle_html)}</tr>')
+    pi = [v["anni"] for s in OS for v in CELLE[f"{s}/personal-injury"]["varianti"]]
+    sub = (f"A crash can lead to an injury claim and a property damage claim, each with its own deadline. For injuries, general periods in "
+           f"{N_ST_P} states range from <strong>{anni(min(pi), True)}</strong> to <strong>{anni(max(pi), True)}</strong>. Statute text for each state.")
+    testata = banda("Car accident", "Car accident statute of limitations by state", sub, icona="hourglass")
+    corpo = (f'<div class="card pull"><p style="margin:0">The limitations statutes quoted on this site do not set one deadline for “car accidents”. A crash can lead '
+             f'to separate claims, each with its own deadline: this page shows injuries to a person under the '
+             f'<a href="/personal-injury/">personal injury</a> period, damage to the car under the <a href="/property-damage/">property damage</a> '
+             f'period, and a death under the <a href="/wrongful-death/">wrongful death</a> period. Some statutes have separate wording for '
+             f'particular motor vehicle claims (for example Massachusetts General Laws c. 260, § 4), which this table does not use. Matching a crash to these periods is our reading of the statutes, not a quoted '
+             f'rule: the kind of claim, who is sued (for example a government) and the exceptions can change the deadline, so ask an attorney in '
+             f'the state. Insurance claims and their time limits are not covered here.</p></div>')
+    corpo += avviso()
+    corpo += (f'<h2 id="table">Car accident deadlines in {N_ST_P} states</h2><div class="tab"><table class="dati larga"><thead><tr><th>State</th>'
+              f'<th>Injuries (personal injury)</th><th>Damage to the vehicle (property damage)</th><th>Death (wrongful death)</th></tr></thead>'
+              f'<tbody>{"".join(righe)}</tbody><caption>General periods from the statute text read on {data_lunga(LETTO)}. Where a state shows two '
+              f'periods, the statute sets different periods for different kinds of claim (for example negligence and intentional acts). Periods for '
+              f'damage to land and buildings are left out of the vehicle column; they are on each property damage page.</caption></table></div>')
+    corpo += f'<h2 id="calculator">Calculate a car accident deadline</h2><p>Choose personal injury for injuries or property damage for the vehicle.</p>' + calcolatore()
+    corpo += f'<h2 id="states">State by state</h2>'
+    for n_stato, s in enumerate(OS):
+        if n_stato == 3:
+            corpo += '<div class="ad-slot" aria-hidden="true"></div>'  # lontano dal risultato del calcolatore
+        kp, kd = f"{s}/personal-injury", f"{s}/property-damage"
+        vp = CELLE[kp]["varianti"][0]
+        corpo += (f'<h3>{h(STATI[s]["nome"])}: injuries <a href="{url_cella(kp)}">{cella_vs(vp, kp, 0)}</a></h3>'
+                  + citazione(rim, vp["fonte"], vp["testo"], vp["cit"]))
+        vd = [(i, v) for i, v in enumerate(CELLE[kd]["varianti"]) if not TERRENI.search(v["etichetta"])]
+        if vd:
+            i, v = vd[0]
+            corpo += (f'<p class="small">Damage to the vehicle: <a href="{url_cella(kd)}">{cella_vs(v, kd, i)}</a> ({h(v["etichetta"][0].lower() + v["etichetta"][1:])}, '
+                      f'{h(v["cit"])}).</p>')
+    corpo += ('<h2 id="government">If a government vehicle or road is involved</h2><p>Claims against a state, a city or another public body '
+              'often need a written notice within months, long before the lawsuit deadline. Each state page quotes its notice rules in the section '
+              '“Claims against a government”.</p><ul class="pillole">' +
+              "".join(f'<li><a href="/{STATI[s]["slug"]}/#government">{h(STATI[s]["nome"])}</a></li>' for s in OS) + '</ul>')
+    corpo += '<h2 id="changes">Florida changed its negligence period in 2023</h2>' + blocco_cambio(rim, STATI["FL"]["cambi"][0])
+    faq, ld_faq = faq_blocco("car-accident", rim)
+    corpo += faq + rim.elenco()
+    pagina("car-accident/", titolo_corto(f"Car Accident Statute of Limitations by State ({N_ST} States)", "Car Accident Statute of Limitations by State"),
+           descr_corta(f"Car accident statute of limitations by state: deadlines for injury and vehicle damage claims in {N_ST_P} states, with the "
+                       f"statute text and a calculator.", f"Car accident statute of limitations in {N_ST_P} states, with the statute text."),
+           corpo, testata, briciole=[("Home", ""), ("Car accident", "car-accident/")], jsonld=[ld_faq] if ld_faq else None)
+
+
+def pagina_carta():
+    rim = Rimandi()
+    carta = {f"{s}/debt": varianti_carta(f"{s}/debt") for s in OS}
+    nominano = [k for k, ii in carta.items() if ii]
+    nomi = " and ".join(STATI[k.split("/")[0]]["nome"] for k in nominano) or "none"
+    righe, note_tab = [], []
+    for s in OS:
+        k = f"{s}/debt"
+        c = CELLE[k]
+        per = "<br>".join(f'{cella_vs(v, k, i)} <small>{h(v["etichetta"])}{" (names credit cards)" if i in carta[k] else ""}'
+                          f'{" *" if v.get("nota_data") else ""}</small>' for i, v in enumerate(c["varianti"]))
+        note_tab += [f'* {STATI[s]["nome"]}, {v["etichetta"].lower()}: {v["nota_data"]}' for v in c["varianti"] if v.get("nota_data")]
+        cit = "<br>".join(h(v["cit"]) for v in c["varianti"])
+        righe.append(f'<tr><td><a href="{url_cella(k)}">{h(STATI[s]["nome"])}</a></td><td class="n">{per}</td><td>{cit}</td></tr>')
+    sub = (f"The periods to sue on a debt in {N_ST_P} states, from the statute text. Among the sections quoted on this site, only {h(nomi)}'s names credit cards; "
+           f"the others do not say which debt period covers a card account.")
+    testata = banda("Credit card debt", "Statute of limitations on credit card debt by state", sub, icona="hourglass")
+    corpo = (f'<div class="card pull"><p style="margin:0">Among the limitations sections quoted on this site for {N_ST_P} states, only {h(nomi)}’s names credit cards. '
+             f'The other sections set periods for debts, written or oral contracts, accounts or consumer debt, and do not say '
+             f'which of them covers a credit card account; that depends on the card agreement and on how courts read the statute, so it is a '
+             f'question for an attorney in the state. The table shows every debt period each statute sets.</p></div>')
+    corpo += avviso()
+    corpo += (f'<h2 id="table">Debt periods in {N_ST_P} states</h2><div class="tab"><table class="dati"><thead><tr><th>State</th><th>Periods in the '
+              f'statute</th><th>Statute</th></tr></thead><tbody>{"".join(righe)}</tbody><caption>General periods from the statute text read on '
+              f'{data_lunga(LETTO)}. “Names credit cards” marks a period whose quoted text mentions credit cards.</caption></table></div>' +
+              "".join(f'<p class="small">{h(n)}</p>' for n in note_tab))
+    corpo += nota_debito()
+    corpo += f'<h2 id="calculator">Calculate a debt deadline</h2><p>Choose the state and the date of default.</p>' + calcolatore(causa_scelta="debt")
+    corpo += '<h2 id="credit-cards">The statute that names credit cards</h2>'
+    for k in nominano:
+        for i in carta[k]:
+            v = CELLE[k]["varianti"][i]
+            corpo += (f'<h3><a href="{url_cella(k)}">{h(STATI[k.split("/")[0]]["nome"])}</a>: {cella_vs(v, k, i)}</h3>'
+                      + citazione(rim, v["fonte"], v["testo"], v["cit"]))
+        for e in CELLE[k]["eccezioni"]:
+            if "credit card" in e["spiega"].lower():
+                corpo += blocco_eccezione(rim, e)
+    corpo += '<div class="ad-slot" aria-hidden="true"></div>'
+    corpo += '<h2 id="federal">The federal rule on time-barred debt</h2>' + blocco_eccezione(rim, N.REG_F)
+    corpo += (f'<p>Each state page on debt quotes the statute for every period in the table, with the exceptions. '
+              f'<a href="/debt/">Compare all debt periods</a>.</p>')
+    faq, ld_faq = faq_blocco("credit-card-debt", rim)
+    corpo += faq + rim.elenco()
+    pagina("credit-card-debt/", "Statute of Limitations on Credit Card Debt by State",
+           descr_corta(f"Statute of limitations on credit card debt by state: the periods to sue on a debt in {N_ST_P} states, and the one statute "
+                       f"that names credit cards.", f"Statute of limitations on credit card debt in {N_ST_P} states, from the statute text."),
+           corpo, testata, briciole=[("Home", ""), ("Credit card debt", "credit-card-debt/")], jsonld=[ld_faq] if ld_faq else None)
 
 
 # ---------------------------------------------------------------- home
 def home():
     rim = Rimandi()
-    testata = banda("Ten states · six claims", "Statute of limitations by state: deadline calculator",
-                    f"Find the general deadline to file a civil lawsuit in Texas, Florida, Ohio, Washington, Virginia, North Carolina, Michigan, "
-                    f"Arizona, Massachusetts and Minnesota, from the statute text read on {data_lunga(LETTO)}.", icona="hourglass")
+    testata = banda(f"{cap(N_ST_P)} states · six claims", "Statute of limitations by state: deadline calculator",
+                    f"Find the general deadline to file a civil lawsuit in {NOMI_STATI}, from the statute text read on {data_lunga(LETTO)}.", icona="hourglass")
     corpo = f'<div class="pull">{calcolatore()}</div>'
     corpo += avviso()
     righe = []
@@ -757,7 +915,8 @@ def home():
     fl, oh = STATI["FL"]["cambi"][0], STATI["OH"]["cambi"][0]
     corpo += '<h2 id="changes">Recent changes some tables still miss</h2>' + blocco_cambio(rim, fl) + blocco_cambio(rim, oh)
     corpo += '<h2 id="claims">Compare by claim</h2><ul class="griglia">' + "".join(
-        f'<li><a href="/{ca}/"><b>{h(CAUSE[ca]["nome"])}</b><span>{h(cap(CAUSE[ca]["esempi"]))}</span></a></li>' for ca in OC) + "</ul>"
+        f'<li><a href="/{ca}/"><b>{h(CAUSE[ca]["nome"])}</b><span>{h(cap(CAUSE[ca]["esempi"]))}</span></a></li>' for ca in OC) + "".join(
+        f'<li><a href="/{u}/"><b>{h(v["nome"])}</b><span>{h(v["griglia"])}</span></a></li>' for u, v in VISTE.items()) + "</ul>"
     corpo += '<h2 id="all-states">Rules by state</h2><ul class="griglia">' + "".join(
         f'<li><a href="/{STATI[s]["slug"]}/"><b>{h(STATI[s]["nome"])}</b><span>{h(STATI[s]["codice"])}</span></a></li>' for s in OS) + "</ul>"
     faq, ld_faq = faq_blocco("home", rim)
@@ -774,7 +933,7 @@ def home():
 def about():
     corpo = ('<div class="testo pull card">'
              f'<p><strong>{NOME}</strong> is an independent publication, part of a small network of websites that turn official sources into '
-             'plain-language guides. It shows the general deadlines to start common civil lawsuits in ten states, quoting the statute itself, '
+             f'plain-language guides. It shows the general deadlines to start common civil lawsuits in {N_ST_P} states, quoting the statute itself, '
              'linking to the legislature\'s official website and giving the date we read it.</p>'
              '<p>We are not lawyers and not a law firm, we do not give legal advice, and we do not answer questions about individual cases. '
              'Nothing on this site creates an attorney-client relationship. We do not refer readers to lawyers and are not paid by lawyers to '
@@ -783,9 +942,9 @@ def about():
              '<li>Where a statute does not state a deadline for a claim (Washington wrongful death, for example), we do not publish a page instead of guessing.</li>'
              '<li>Where a state has more than one possible period, we show all of them and say that an attorney can tell which one applies.</li>'
              '<li>Court decisions can change how a statute applies. We say so where we know a statute has been tested in court, but we do not summarize case law.</li></ul>'
-             '<h2>Why only ten states</h2><div class="testo"><p>We started with states whose legislatures publish their codes in a form we can read and '
-             'check automatically. California and New York are not included: their official code websites block automated reading, and we do not work '
-             'around that.</p></div>'
+             f'<h2>Why only {N_ST_P} states</h2><div class="testo"><p>We started with states whose legislatures publish their codes in a form we can read and '
+             'check automatically. California and New York are not included: their official code websites answer automated reading with a '
+             'browser check, and we do not work around that.</p></div>'
              '<h2>How the site is paid for</h2><div class="testo"><p>The site shows advertising served by Google AdSense on pages with content. '
              'Advertisers do not choose or change what we publish. We do not run lead forms and do not sell or share anything you type.</p></div>')
     testata = banda("About", f"About {NOME}", "What this site is, what it publishes and how it is paid for.", corta=True, icona="info")
@@ -800,7 +959,7 @@ def come_controlliamo():
     n_cit = sum(len(v["testo"]) for c in CELLE.values() for v in c["varianti"])
     corpo = ('<div class="testo pull card">'
              f'<p>Every period on this site comes from a statute we downloaded from the official website of the state legislature (and, for the '
-             f'federal debt rule, from the eCFR; one Washington court ruling comes from the state courts\' website). On {data_lunga(LETTO)} we saved {len(FONTI)} official pages and documents and recorded a fingerprint '
+             f'federal debt rule, from the eCFR; two court rulings, from Washington and Pennsylvania, come from the state courts\' websites). On {data_lunga(LETTO)} we saved {len(FONTI)} official pages and documents and recorded a fingerprint '
              f'of each. Before every update a separate program re-reads the saved copies, checks that each quotation appears word for word, and '
              f'reads the number of years again from the statute text to compare it with what each page shows.</p></div>')
     corpo += ('<h2>What we check</h2><ul class="testo">'
@@ -853,7 +1012,7 @@ def pagina_404():
              '<ul class="griglia" style="margin-top:20px">' + "".join(
                  f'<li><a href="/{STATI[s]["slug"]}/"><b>{h(STATI[s]["nome"])}</b></a></li>' for s in OS) + "</ul>")
     testata = banda("404", "Page not found", "This address has no page.", corta=True, icona="alert")
-    pagina("", f"Page not found | {NOME}", "Page not found on Statute of Limitations by State: try the deadline calculator or one of the ten states.",
+    pagina("", f"Page not found | {NOME}", f"Page not found on Statute of Limitations by State: try the deadline calculator or one of the {N_ST_P} states.",
            corpo, testata.replace("{bc}", ""), indicizza=False, file="404.html")
 
 
@@ -915,6 +1074,8 @@ def main():
         pagina_cella(k)
     for ca in OC:
         pagina_causa(ca)
+    pagina_auto()
+    pagina_carta()
     about()
     come_controlliamo()
     privacy()

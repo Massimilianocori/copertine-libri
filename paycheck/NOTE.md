@@ -18,7 +18,7 @@ Indirizzo previsto: **`https://us-paycheck-calculator.netlify.app`** (nome liber
 Scartati per questa prova: **Ohio** (22.200; le pagine di tax.ohio.gov e jfs.ohio.gov provate rispondono 404 e quasi tutti i lavoratori pagano tasse comunali e
 scolastiche: fuori portata), **Pennsylvania** (18.100; pa.gov è una pagina JavaScript e l'imposta locale EIT vale quasi ovunque), **New York** (40.500; New York City e Yonkers).
 
-## Pagine (17 indicizzabili + 404; le 11 della mattina del 14/11 più le 6 per i datori, vedi sotto)
+## Pagine (17 indicizzabili + 404 al 14/11: le 11 della mattina più le 6 per i datori; dal 18/11 altre 17 del salario minimo, vedi sotto)
 
 `/` calcolatore (Stato, frequenza, lordo per periodo / stipendio annuo / paga oraria × ore, W-4: stato civile, casella Step 2, Step 3, 4(a), 4(b), 4(c), lordo già
 ricevuto nell'anno; moduli statali DE 4, IL-W-4, NC-4) · `/texas/` `/florida/` `/california/` `/illinois/` `/north-carolina/` (calcolatore con lo Stato scelto, tabella di
@@ -140,6 +140,62 @@ ADP paga 500 $, non 1.000 $. `adp.com/affiliates` e `adp.com/partners/affiliate-
   nel dettaglio), giorno esatto in cui un DE 9 è in ritardo (la pagina EDD «Required Filings and Due Dates» non è tra le fonti).
 - **Seconda revisione indipendente (14/11 sera)**: 30 fonti riscaricate, 106 frasi su 106 ritrovate alla lettera; tutte le cifre, scadenze e soglie delle 6 pagine rilette sulle fonti (0 differenze); riquadro provato acceso con link di prova e rispento. Corretti: «a Illinois paycheck» → «an Illinois», e nella FAQ californiana sull'aliquota ora è nominato lo 0,1 % di ETT compreso nel totale.
 - **Da fare per pubblicare** (insieme agli altri siti): commit di `paycheck/`, poi IndexNow per i 6 indirizzi nuovi.
+
+## Salario minimo 2027 per Stato, aggiunto il 18/11/2026: 17 pagine, NON ancora pubblicate (nessun commit: prima la revisione indipendente)
+
+Idea 3 di `studio-business/intelaiatura/fronti-2026-11-14-sera-regole-2027.md` (da avere online entro il 10/12).
+
+- **Pagine**: `/minimum-wage/` (tabella dei 50 Stati più DC: tariffa 2026, tariffa 2027 dove una fonte ufficiale la dà, fonte; tabella degli Stati che salgono; chi resta
+  uguale; chi non abbiamo potuto leggere; nota federale 7,25 $; 6 FAQ) e 16 pagine `/minimum-wage/<stato>/`: California, New York, Washington, New Jersey, Ohio, Michigan,
+  Virginia, Missouri, Oregon, Minnesota, Connecticut, Nebraska, Rhode Island, South Dakota, Vermont, Montana (tariffe, frasi ufficiali alla lettera, mance solo dove la
+  fonte le dà, paga lorda di 40 ore e di 2.080 ore = aritmetica nostra, 2–5 FAQ). In tutto ora 34 pagine indicizzabili + 404.
+- **Tariffa 2027 ufficiale letta (13 Stati che salgono il 1/1/2027)**: Washington 17,73 (da 17,13), Connecticut 17,48 (16,94), California 17,40 (16,90), Rhode Island 17,00
+  (16,00), New Jersey 16,48 (15,92), Nebraska 15,26 (15,00), Michigan 15,00 (13,73), Vermont 14,91 (14,42), Virginia 13,75 (12,77), South Dakota 12,30 (11,85),
+  Minnesota 11,87 (11,41), Ohio 11,40 (11,00), Montana 11,20 (10,85). **Invariati per dichiarazione ufficiale**: New York (17,00 / 16,00: «will stay the same», scattata una
+  clausola di sospensione dell'aumento) e Missouri (tabella dello Stato: 2026 15,00, 2027 15,00). **Oregon**: cambia il 1° luglio; tariffe fino al 30/6/2027, quelle dal
+  1/7/2027 «not announced as of November 18, 2026». Hawaii (18,00 dal 1/1/2028), Florida (formula dal 1/1/2028) e DC (1° luglio): detto nell'elenco, senza pagina.
+- **Non letti (403, nessun blocco aggirato)**: Arizona (azica.gov), Colorado (cdle.colorado.gov), Maine (maine.gov): nell'elenco hanno la tariffa 2026 del Department of
+  Labor e **nessuna tariffa 2027** («Not shown»), anche se la stampa ne riporta una. Anche michigan.gov e dlt.ri.gov rispondono 403: per Michigan e Rhode Island la cifra
+  viene dalla legge dello Stato (legislature.mi.gov, rilegislature.gov) e, per il Michigan, anche dalla tabella del Department of Labor. Non letti e senza pagina:
+  mass.gov, floridajobs.org, does.dc.gov (403), dws.state.nm.us (richiesta respinta). Illinois: la pagina letta non dice nulla sul 2027, quindi niente pagina propria.
+  Gli altri Stati hanno «No 2027 change listed» (la tabella del Department of Labor non indica cambi; non è un'affermazione che la tariffa non cambierà: detto in pagina).
+- **Fonti** (26 nuove, `raccolta/minimo.py`, importato da `fonti.py`; 80 frasi; in tutto 56 fonti e 186 frasi): tabella «State Minimum Wage Laws» del Department of Labor
+  (aggiornata il 5/11/2026) per le tariffe 2026 di tutti gli Stati; pagina federale (7,25 $ dal 24/7/2009); per il 2027 pagine, comunicati, avvisi o leggi degli Stati
+  (4 PDF con SHA-256 del file: avviso di Washington, lettera del Montana, poster dell'Ohio, avviso del South Dakota; le pagine HTML con `sha256_frasi`).
+  `regole_minimo()` legge ogni cifra con un'espressione regolare dal testo della fonte e si ferma se la tariffa 2026 dello Stato non coincide con la tabella federale o se
+  due fonti dello stesso Stato danno cifre 2027 diverse. Nessuna cifra è calcolata. `regole.json` → `"minimo"`.
+- **Scarico**: il giro completo `fonti.py` del 18/11 ha riletto tutte le fonti ufficiali (frasi trovate) ma si è fermato sulle due pagine PartnerStack di Gusto e ADP,
+  che oggi non contengono più le frasi registrate (5 frasi; riquadro dei partner spento, quindi nessun effetto in pagina: **da riguardare prima di accendere un partner**).
+  Per questo i 26 file nuovi sono stati scaricati con curl (stesso User-Agent) e registrati con `fonti.py --locale`: le 30 fonti di prima restano con data 14/11.
+  `letto_il` di `regole.json` è ora 18/11 (piè di pagina e sitemap).
+- **Token nelle copie grezze**: resta la sostituzione dei token Mapbox (prefisso «pk.» seguito da «eyJ»); aggiunta quella di `apikey=…` nei link (la pagina del Vermont carica uno script
+  BugHerd con una chiave pubblica: sostituita con «-rimossa-»). Ricerca del 18/11 nei file aggiunti (token Mapbox, chiavi Stripe, Google, GitHub e AWS, chiavi private): niente.
+- **Domanda misurata** (seodata, 129 frasi il 18/11, aggiunte a `domanda.json`: 278 in tutto). «<stato> minimum wage» al mese: California 135.000, Florida 110.000,
+  New York 90.500, Texas 90.500, Michigan, New Jersey, Ohio, Washington 49.500 ciascuno, Arizona, Illinois, Missouri, Virginia 40.500, Colorado, Oregon, Georgia,
+  Massachusetts, North Carolina 33.100, Minnesota 18.100, Maine e Nebraska 9.900, Rhode Island 8.100, South Dakota e Vermont 5.400, Connecticut e Montana 3.600.
+  I 16 Stati con pagina: 591.700 al mese; i 51 insieme: circa 1,31 milioni. Generiche: «minimum wage» 110.000, «federal minimum wage» 60.500, «minimum wage by state» 27.100,
+  «state minimum wage» 27.100, «minimum wage increase» 14.800, «lowest minimum wage state» 9.900, «highest minimum wage state» 4.400, «tipped minimum wage» 2.400.
+  Con l'anno: «california minimum wage 2025» 33.100, Florida 18.100, Michigan 14.800, Arizona e Ohio 12.100; le frasi con «2027» sono quasi tutte a 0 (massimo 70):
+  i titoli usano «2027» comunque, le FAQ citano le frasi senza anno o con «2025».
+- **Controlli aggiunti a `verifica.py`** (`controlla_minimo`): le 51 tariffe 2026 e le 15 tariffe 2027 **trascritte a mano** contro `regole.json` e contro ogni cella
+  dell'elenco; nessuno Stato senza fonte può mostrare una cifra 2027 (provato: mettendo 15,65 $ all'Arizona o cambiando una cifra dà errore); 23 frasi brevi cercate nei
+  file grezzi; tabella degli aumenti e paga lorda rifatte con frazioni; cifre secondarie (mance, soglie, zone) per pagina; almeno 3 citazioni per pagina; collegamenti.
+  Domini ufficiali ammessi estesi agli Stati nuovi. `verifica_browser.js` ora visita anche le pagine un livello sotto (`/minimum-wage/<stato>/`): 92 viste, 5 pagine del
+  salario minimo anche in scuro con schermata. Tabelle con classe `mw` (in `stile.py`): su telefono la colonna 2027 si vede senza scorrere.
+- **Collegamenti**: piè di pagina (Guides), home (paragrafo per i datori), `/california/` (riga sotto gli esempi), `/how-to-do-payroll/` e `/how-we-check/`; dall'elenco ai
+  cinque calcolatori di Stato.
+- **Da aggiornare**: appena Arizona, Colorado e Maine sono leggibili da una fonte ufficiale; Oregon entro il 30/4/2027 (BOLI calcola la tariffa di luglio); poster 2027 del
+  Missouri (il link della pagina non restituisce un PDF); a gennaio 2027 la tabella del Department of Labor passa alle tariffe nuove: le colonne «2026» vanno rilette
+  (`minimo.py` si ferma da solo se la tariffa dello Stato e quella federale non coincidono più).
+- **Revisione indipendente del 18/11/2026 (sera)**: le 26 fonti riscaricate, 80 frasi su 80 ritrovate alla lettera, `regole_minimo()` sui file nuovi = `regole.json`; colonna 2026
+  riletta a occhio per tutti i 51. Corretto: (1) **Alaska** aveva «No 2027 change listed» ma il comunicato n. 25-11 dello Stato dà 15,00 $ dal 1° luglio 2027: aggiunta la fonte
+  `mw_ak` (labor.alaska.gov, 3 frasi; ora 57 fonti e 189 frasi), cella «No change on January 1 · $15.00 from July 1, 2027», riga nell'elenco e nella FAQ, controllo in `verifica.py`;
+  (2) Michigan: l'adeguamento all'inflazione è calcolato ogni ottobre dal 2027 e vale dal 1° gennaio seguente (prima «from October 2027»); nota «employers of 2 or more employees»
+  (Michigan) e «two or more» (Vermont) dalla tabella federale; (3) Ohio: la risposta breve dice anche soglia di 419.000 $, minori di 16 anni e 5,70 $ con mance; (4) titolo
+  dell'elenco «Minimum Wage by State 2026-2027: Official Rates, 50 States + DC» (prima lasciava intendere tariffe 2027 per tutti); nota sotto la tabella più chiara;
+  (5) telefono: tabella delle mance di New York a 3 colonne e tabelle `mw` più strette (nessuna tabella delle 17 pagine scorre in orizzontale a 375 px);
+  (6) ricerca dei segreti vuota: la chiave tolta dal file del Vermont ora è «-rimossa-» e le note non scrivono più i prefissi dei token.
+- **Da fare per pubblicare**: commit di `paycheck/`, IndexNow per i 17 indirizzi nuovi.
 
 ## Aggiornare alle tabelle 2027 (fine dicembre 2026 – gennaio 2027)
 

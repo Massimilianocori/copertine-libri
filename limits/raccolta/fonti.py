@@ -8,7 +8,7 @@ Ogni fonte è una pagina (o un PDF / XML) del sito ufficiale del parlamento dell
 Il file grezzo resta in _grezzi/<id>.<estensione>; in dati/fonti.json vanno indirizzo, data di lettura, codice HTTP, byte e
 impronta SHA-256. genera.py e verifica.py leggono SOLO i file salvati (nessuna rete durante la generazione).
 Nessun blocco anti-robot viene aggirato: California e New York non sono nel sito perché i loro siti rispondono 403 ai programmi
-(vedi NOTE.md). Le richieste non portano nulla di nostro (nessun dato personale), una ogni 0,7 secondi.
+(pagina di controllo anti-robot, riprovato il 13/11/2026; vedi NOTE.md). Le richieste non portano nulla di nostro (nessun dato personale), una ogni 0,7 secondi.
 """
 import gzip
 import hashlib
@@ -35,6 +35,10 @@ MI = "https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-{}"
 AZ = "https://www.azleg.gov/ars/12/{}.htm"
 MA = "https://malegislature.gov/Laws/GeneralLaws/PartIII/{}"
 MN = "https://www.revisor.mn.gov/statutes/cite/{}"
+PA = "https://www.legis.state.pa.us/WU01/LI/LI/CT/HTM/42/00.{}.000..HTM"  # Pennsylvania General Assembly, Title 42 Pa.C.S. (testo HTML)
+PA_13_3118 = "https://www.palegis.us/statutes/consolidated/view-statute?txtType=HTM&ttl=13&div=0&chpt=31&sctn=18&subsctn=0&iFrame=true"
+PA_MCARE = ("https://www.palegis.us/statutes/unconsolidated/law-information/view-statute?18&iFrame=true&txtType=HTM&SessYr=2002"
+            "&ActNum=0013.&ChapterNum=005.&SectionNum=013.&SubsectionNum=000.")  # testo dell'Act 13 of 2002 (MCARE) servito nell'iframe ufficiale
 
 # id: (stato, indirizzo, titolo mostrato, chi pubblica)
 FONTI = {
@@ -130,12 +134,34 @@ FONTI = {
     "mn_541_15": ("MN", MN.format("541.15"), "Minnesota Statutes § 541.15", "Minnesota Office of the Revisor of Statutes"),
     "mn_573_02": ("MN", MN.format("573.02"), "Minnesota Statutes § 573.02", "Minnesota Office of the Revisor of Statutes"),
     "mn_466_05": ("MN", MN.format("466.05"), "Minnesota Statutes § 466.05", "Minnesota Office of the Revisor of Statutes"),
+    # ---- Pennsylvania (aggiunto il 13/11/2026: legis.state.pa.us e palegis.us rispondono 200 ai programmi)
+    "pa_5524": ("PA", PA.format("055.024"), "42 Pa.C.S. § 5524 (two year limitation)", "Pennsylvania General Assembly"),
+    "pa_5525": ("PA", PA.format("055.025"), "42 Pa.C.S. § 5525 (four year limitation)", "Pennsylvania General Assembly"),
+    "pa_5529": ("PA", PA.format("055.029"), "42 Pa.C.S. § 5529 (twenty year limitation)", "Pennsylvania General Assembly"),
+    "pa_5502": ("PA", PA.format("055.002"), "42 Pa.C.S. § 5502 (computing periods of limitation)", "Pennsylvania General Assembly"),
+    "pa_5522": ("PA", PA.format("055.022"), "42 Pa.C.S. § 5522 (six months limitation; notice to government units)", "Pennsylvania General Assembly"),
+    "pa_5532": ("PA", PA.format("055.032"), "42 Pa.C.S. § 5532 (absence or concealment)", "Pennsylvania General Assembly"),
+    "pa_5533": ("PA", PA.format("055.033"), "42 Pa.C.S. § 5533 (infancy, insanity or imprisonment)", "Pennsylvania General Assembly"),
+    "pa_5535": ("PA", PA.format("055.035"), "42 Pa.C.S. § 5535 (effect of other actions and proceedings)", "Pennsylvania General Assembly"),
+    "pa_8301": ("PA", PA.format("083.001"), "42 Pa.C.S. § 8301 (death action)", "Pennsylvania General Assembly"),
+    "pa_mcare": ("PA", PA_MCARE, "Medical Care Availability and Reduction of Error (MCARE) Act, Act 13 of 2002, section 513 (statute of repose)",
+                 "Pennsylvania General Assembly"),
+    # aggiunte dal revisore indipendente il 13/11/2026: il termine di sei anni dei titoli negoziabili (Commercial Code) e la sentenza
+    # della Corte Suprema della Pennsylvania che ricorda che il limite di sette anni del MCARE è stato dichiarato incostituzionale
+    "pa_13_3118": ("PA", PA_13_3118, "13 Pa.C.S. § 3118 (Commercial Code: statute of limitations for negotiable instruments)",
+                   "Pennsylvania General Assembly"),
+    "pa_reibenstein": ("PA", "https://www.pacourts.us/assets/opinions/Supreme/out/J-86-2022mo%20-%20105368583206274390.pdf.pdf",
+                       "Reibenstein v. Barax, No. 32 MAP 2021 (Pa. Dec. 12, 2022), opinion of the Supreme Court of Pennsylvania",
+                       "Unified Judicial System of Pennsylvania"),
     # ---- federale
     "cfr_1006_26": ("US", "https://www.ecfr.gov/api/versioner/v1/full/2026-11-01/title-12.xml?part=1006&section=1006.26",
                     "12 CFR 1006.26 (Regulation F): collection of time-barred debts", "eCFR, Office of the Federal Register"),
 }
 # indirizzo da mostrare ai lettori quando quello scaricato è un'API
-LINK_LETTORE = {"cfr_1006_26": "https://www.ecfr.gov/current/title-12/chapter-X/part-1006/subpart-B/section-1006.26"}
+LINK_LETTORE = {"cfr_1006_26": "https://www.ecfr.gov/current/title-12/chapter-X/part-1006/subpart-B/section-1006.26",
+                "pa_13_3118": "https://www.palegis.us/statutes/consolidated/view-statute?txtType=HTM&ttl=13&div=0&chpt=31&sctn=18&subsctn=0",
+                "pa_mcare": ("https://www.palegis.us/statutes/unconsolidated/law-information/view-statute?txtType=HTM&SessYr=2002&ActNum=0013."
+                             "&ChapterNum=005.&SectionNum=013.&SubsectionNum=000.")}
 
 
 def estensione(tipo, url):

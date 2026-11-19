@@ -1,4 +1,5 @@
-// Controllo nel browser di US Paycheck Calculator: tutte le pagine a 375 e 1280 px (chiaro; home, California, employer, «how to do payroll» e due pagine delle paghe per Stato anche scuro):
+// Controllo nel browser di US Paycheck Calculator: tutte le pagine a 375 e 1280 px (chiaro; home, California, employer, «how to do payroll», due pagine delle paghe per Stato
+// e cinque pagine del salario minimo anche scuro):
 // niente scorrimento orizzontale della pagina, niente errori JS, niente richieste fallite, testo >= 11 px.
 // Ogni richiesta che non è del server locale viene bloccata (pubblicità e contatore compresi).
 // Calcolatore: i 10 casi a mano passati da verifica.py in CASI_CALC (netto atteso), stipendio annuo, paga oraria, errori; calcolatore del datore.
@@ -32,7 +33,12 @@ function server() {
 
 function pagine() {
   const p = ['/'];
-  for (const d of fs.readdirSync(SITO)) if (fs.existsSync(path.join(SITO, d, 'index.html'))) p.push('/' + d + '/');
+  for (const d of fs.readdirSync(SITO)) {
+    if (!fs.existsSync(path.join(SITO, d, 'index.html'))) continue;
+    p.push('/' + d + '/');
+    // un livello sotto: /minimum-wage/<stato>/
+    for (const e of fs.readdirSync(path.join(SITO, d))) if (fs.existsSync(path.join(SITO, d, e, 'index.html'))) p.push('/' + d + '/' + e + '/');
+  }
   p.push('/does-not-exist/');
   return p;
 }
@@ -45,7 +51,8 @@ function pagine() {
   const browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' });
   const problemi = [];
   const tutte = pagine();
-  const SCURE = ['/', '/california/', '/employer-payroll-taxes/', '/how-to-do-payroll/', '/texas-payroll-taxes/', '/california-payroll-taxes/'];
+  const SCURE = ['/', '/california/', '/employer-payroll-taxes/', '/how-to-do-payroll/', '/texas-payroll-taxes/', '/california-payroll-taxes/',
+    '/minimum-wage/', '/minimum-wage/california/', '/minimum-wage/new-york/', '/minimum-wage/oregon/', '/minimum-wage/ohio/'];
   let n = 0, bloccate = 0;
   for (const [w, hgt] of [[375, 812], [1280, 900]]) {
     for (const tema of ['light', 'dark']) {
@@ -69,7 +76,8 @@ function pagine() {
         const piccoli = await page.evaluate(() => [...document.querySelectorAll('main *')].filter(e => [...e.childNodes].some(c => c.nodeType === 3 && c.textContent.trim()) &&
           parseFloat(getComputedStyle(e).fontSize) < 11 && e.offsetParent !== null).slice(0, 3).map(e => e.tagName + ':' + e.textContent.trim().slice(0, 30)));
         if (piccoli.length) errori.push('testo sotto 11px: ' + piccoli.join(' | '));
-        if (['/', '/california/', '/employer-payroll-taxes/', '/federal-withholding/', '/texas/', '/how-to-do-payroll/', '/texas-payroll-taxes/', '/california-payroll-taxes/', '/north-carolina-payroll-taxes/'].includes(p)) {
+        if (['/', '/california/', '/employer-payroll-taxes/', '/federal-withholding/', '/texas/', '/how-to-do-payroll/', '/texas-payroll-taxes/', '/california-payroll-taxes/', '/north-carolina-payroll-taxes/',
+          '/minimum-wage/', '/minimum-wage/california/', '/minimum-wage/new-york/', '/minimum-wage/oregon/', '/minimum-wage/ohio/'].includes(p)) {
           const nome = (p === '/' ? 'home' : p.replace(/\//g, '')) + `-${w}-${tema}.png`;
           await page.screenshot({ path: path.join(SHOT, nome), fullPage: true });
         }

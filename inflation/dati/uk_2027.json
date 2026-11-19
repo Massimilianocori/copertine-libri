@@ -1,0 +1,854 @@
+{
+ "_nota": "Cifre del Regno Unito per l'anno 2027-28, scritte dalle fonti GOV.UK lette da raccolta/regole2027.py. Importi in pence interi. Ogni voce ha la fonte e la frase (riga di tabella) da cui viene; verifica.py ritrova ogni frase nel testo scaricato e rilegge le tabelle dall'originale. Le cifre DWP sono «proposed» (titolo del documento) finché non esce l'ordine di rivalutazione: lo dicono anche le pagine.",
+ "anno_prima": "2026 to 2027",
+ "anno_dopo": "2027 to 2028",
+ "paga_minima": {
+  "intestazione": "21 and over 18 to 20 Under 18 Apprentice",
+  "voci": [
+   {
+    "k": "nlw",
+    "nome": "21 and over (National Living Wage)",
+    "colonna": 0,
+    "prima": 1271,
+    "dopo": 1321,
+    "periodo": "hour",
+    "frase_prima": "April 2026 £12.71 £10.85 £8 £8",
+    "fonte": "uk27_nmw",
+    "frase": "April 2027 £13.21 £11.27 £8.31 £8.31",
+    "annuncio": {
+     "fonte": "uk27_lpc",
+     "frase": "National Living Wage (21 and over) £13.21 50p 3.9"
+    }
+   },
+   {
+    "k": "nmw_18_20",
+    "nome": "18 to 20",
+    "colonna": 1,
+    "prima": 1085,
+    "dopo": 1127,
+    "periodo": "hour",
+    "frase_prima": "April 2026 £12.71 £10.85 £8 £8",
+    "fonte": "uk27_nmw",
+    "frase": "April 2027 £13.21 £11.27 £8.31 £8.31",
+    "annuncio": {
+     "fonte": "uk27_lpc",
+     "frase": "18-20 Year Old Rate £11.27 42p 3.9"
+    }
+   },
+   {
+    "k": "nmw_u18",
+    "nome": "Under 18",
+    "colonna": 2,
+    "prima": 800,
+    "dopo": 831,
+    "periodo": "hour",
+    "frase_prima": "April 2026 £12.71 £10.85 £8 £8",
+    "fonte": "uk27_nmw",
+    "frase": "April 2027 £13.21 £11.27 £8.31 £8.31",
+    "annuncio": {
+     "fonte": "uk27_lpc",
+     "frase": "16-17 Year Old Rate £8.31 31p 3.9"
+    }
+   },
+   {
+    "k": "nmw_app",
+    "nome": "Apprentice",
+    "colonna": 3,
+    "prima": 800,
+    "dopo": 831,
+    "periodo": "hour",
+    "frase_prima": "April 2026 £12.71 £10.85 £8 £8",
+    "fonte": "uk27_nmw",
+    "frase": "April 2027 £13.21 £11.27 £8.31 £8.31",
+    "annuncio": {
+     "fonte": "uk27_lpc",
+     "frase": "Apprentice Rate £8.31 31p 3.9"
+    }
+   }
+  ],
+  "alloggio": {
+   "fonte": "uk27_lpc",
+   "frase": "Accommodation Offset £11.53 43p 3.9",
+   "dopo": 1153,
+   "aumento": 43
+  },
+  "tabella": {
+   "fonte": "uk27_nmw",
+   "frase": "21 and over 18 to 20 Under 18 Apprentice April 2026 £12.71 £10.85 £8 £8 April 2027 £13.21 £11.27 £8.31 £8.31"
+  },
+  "storia": [
+   {
+    "fonte": "uk27_nmw",
+    "frase": "April 2025 to March 2026 £12.21 £10 £7.55 £7.55",
+    "periodo": "April 2025 to March 2026",
+    "valori": [
+     1221,
+     1000,
+     755,
+     755
+    ]
+   },
+   {
+    "fonte": "uk27_nmw",
+    "frase": "April 2024 to March 2025 £11.44 £8.60 £6.40 £6.40",
+    "periodo": "April 2024 to March 2025",
+    "valori": [
+     1144,
+     860,
+     640,
+     640
+    ]
+   }
+  ]
+ },
+ "testi": {
+  "nmw_cambio": {
+   "fonte": "uk27_nmw",
+   "frase": "The rates change on 1 April every year."
+  },
+  "nmw_eta": {
+   "fonte": "uk27_nmw",
+   "frase": "aged 21 to get the National Living Wage - the minimum wage will still apply for workers aged 20 and under"
+  },
+  "nmw_apprendisti": {
+   "fonte": "uk27_nmw",
+   "frase": "Apprentices are entitled to the apprentice rate if they’re either: aged under 19 aged 19 or over and in the first year of their apprenticeship"
+  },
+  "nmw_apprendisti_dopo": {
+   "fonte": "uk27_nmw",
+   "frase": "Apprentices are entitled to the minimum wage for their age if they both: are aged 19 or over have completed the first year of their apprenticeship"
+  },
+  "lpc_annuncio": {
+   "fonte": "uk27_lpc",
+   "frase": "The Government has today announced increases to minimum wage rates from April 2027. The National Living Wage (NLW), the minimum wage rate for all workers aged 21 and over, will rise by 3.9 per cent to £13.21."
+  },
+  "lpc_altre": {
+   "fonte": "uk27_lpc",
+   "frase": "The minimum wage for 18-20 year olds will increase to £11.27 and the rates for 16-17 year olds and apprentices will increase to £8.31, all of which are 3.9 per cent increases in line with that for the NLW."
+  },
+  "lpc_accettato": {
+   "fonte": "uk27_lpc",
+   "frase": "In announcing these increases, the Government has accepted in full the recommendations made by the Low Pay Commission."
+  },
+  "dwp_stato": {
+   "fonte": "uk27_dwp_indice",
+   "frase": "This publication lists the benefit rates and pension rates for 2027 to 2028 as set out in the written ministerial statement made by the Secretary of State for Work and Pensions on 28 October 2026."
+  },
+  "dwp_titolo": {
+   "fonte": "uk27_dwp",
+   "frase": "Proposed benefit and pension rates 2027 to 2028"
+  },
+  "dwp_settimanali": {
+   "fonte": "uk27_dwp",
+   "frase": "Weekly rates, unless otherwise stated."
+  },
+  "nsp_chi": {
+   "fonte": "uk27_guida_nsp",
+   "frase": "You’ll be able to claim the new State Pension when you reach State Pension age if you’re: a man born on or after 6 April 1951 a woman born on or after 6 April 1953"
+  },
+  "nsp_importo": {
+   "fonte": "uk27_guida_nsp_importo",
+   "frase": "The full rate of new State Pension is £241.30 a week. Your amount could be different depending on: if you were contracted out before 2016 the number of National Insurance qualifying years you have if you paid into the Additional State Pension before 2016"
+  },
+  "nsp_35": {
+   "fonte": "uk27_guida_nsp_importo",
+   "frase": "If your National Insurance record started after April 2016 you will need 35 qualifying years to get the full rate of new State Pension."
+  },
+  "nsp_protetto": {
+   "fonte": "uk27_guida_nsp_importo",
+   "frase": "If you paid into the Additional State Pension before 2016 and would have got more State Pension under the old rules, you’ll get a ‘protected payment’. This is paid on top of the full rate of new State Pension."
+  },
+  "bsp_chi": {
+   "fonte": "uk27_guida_bsp",
+   "frase": "Everyone eligible for the basic State Pension has now reached State Pension age"
+  },
+  "bsp_nuova": {
+   "fonte": "uk27_guida_bsp",
+   "frase": "If you were born on or after these dates, you’ll claim the new State Pension instead."
+  },
+  "uc_dipende": {
+   "fonte": "uk27_guida_uc",
+   "frase": "Universal Credit is paid monthly . How much you get depends on: your standard allowance any extra amounts that apply to you any money taken off your payment if you’re working, how much you earn"
+  },
+  "uc_una": {
+   "fonte": "uk27_guida_uc",
+   "frase": "You’ll get one standard allowance for your household."
+  },
+  "uc_in_vigore": {
+   "fonte": "uk27_guida_uc",
+   "frase": "If you’re single and under 25 £338.58"
+  },
+  "ssp_regola": {
+   "fonte": "uk27_guida_ssp",
+   "frase": "If you’re eligible, you can get £123.25 a week Statutory Sick Pay ( SSP ) or 80% of your normal weekly earnings - whichever is lower. It’s paid for up to 28 weeks."
+  },
+  "ssp_datore": {
+   "fonte": "uk27_guida_ssp",
+   "frase": "SSP is paid by your employer in the same way as your normal wages, for example weekly or monthly."
+  },
+  "nmw_scuola": {
+   "fonte": "uk27_nmw",
+   "frase": "school leaving age to get the National Minimum Wage"
+  }
+ },
+ "gruppi": [
+  {
+   "id": "state_pension",
+   "titolo": "State Pension",
+   "voci": [
+    {
+     "k": "sp_new",
+     "nome": "New State Pension, full rate",
+     "sezione": "State Pension",
+     "tabella": 0,
+     "intestazione": "New State Pension",
+     "riga": "Full rate",
+     "prima": 24130,
+     "dopo": 25070,
+     "periodo": "week",
+     "fonte": "uk27_dwp",
+     "frase": "Full rate 241.30 250.70"
+    },
+    {
+     "k": "sp_basic",
+     "nome": "Basic State Pension (Category A or B)",
+     "sezione": "State Pension",
+     "tabella": 1,
+     "intestazione": "Old State Pension",
+     "riga": "Category A or B basic pension",
+     "prima": 18490,
+     "dopo": 19210,
+     "periodo": "week",
+     "fonte": "uk27_dwp",
+     "frase": "Category A or B basic pension 184.90 192.10"
+    },
+    {
+     "k": "sp_b_lower",
+     "nome": "Category B (lower) basic pension, on a spouse’s or civil partner’s insurance",
+     "sezione": "State Pension",
+     "tabella": 1,
+     "intestazione": "Old State Pension",
+     "riga": "Category B (lower) basic pension - spouse or civil partner's insurance",
+     "prima": 11075,
+     "dopo": 11505,
+     "periodo": "week",
+     "fonte": "uk27_dwp",
+     "frase": "Category B (lower) basic pension - spouse or civil partner’s insurance 110.75 115.05"
+    },
+    {
+     "k": "sp_cd",
+     "nome": "Category C or D, non-contributory",
+     "sezione": "State Pension",
+     "tabella": 1,
+     "intestazione": "Old State Pension",
+     "riga": "Category C or D - non-contributory",
+     "prima": 11075,
+     "dopo": 11505,
+     "periodo": "week",
+     "fonte": "uk27_dwp",
+     "frase": "Category C or D - non-contributory 110.75 115.05"
+    }
+   ]
+  },
+  {
+   "id": "pension_credit",
+   "titolo": "Pension Credit",
+   "voci": [
+    {
+     "k": "pc_single",
+     "nome": "Standard minimum guarantee, single",
+     "sezione": "Pension Credit",
+     "tabella": 0,
+     "intestazione": "Standard minimum guarantee",
+     "riga": "Single",
+     "prima": 23800,
+     "dopo": 24730,
+     "periodo": "week",
+     "fonte": "uk27_dwp",
+     "frase": "Single 238.00 247.30"
+    },
+    {
+     "k": "pc_couple",
+     "nome": "Standard minimum guarantee, couple",
+     "sezione": "Pension Credit",
+     "tabella": 0,
+     "intestazione": "Standard minimum guarantee",
+     "riga": "Couple",
+     "prima": 36325,
+     "dopo": 37740,
+     "periodo": "week",
+     "fonte": "uk27_dwp",
+     "frase": "Couple 363.25 377.40"
+    }
+   ]
+  },
+  {
+   "id": "uc",
+   "titolo": "Universal Credit",
+   "voci": [
+    {
+     "k": "uc_s_u25",
+     "nome": "Standard allowance, single under 25",
+     "sezione": "Universal Credit (monthly rates)",
+     "tabella": 1,
+     "intestazione": "Single",
+     "riga": "Single under 25",
+     "prima": 33858,
+     "dopo": 35387,
+     "periodo": "month",
+     "fonte": "uk27_dwp",
+     "frase": "Single under 25 338.58 353.87"
+    },
+    {
+     "k": "uc_s_25",
+     "nome": "Standard allowance, single 25 or over",
+     "sezione": "Universal Credit (monthly rates)",
+     "tabella": 1,
+     "intestazione": "Single",
+     "riga": "Single 25 or over",
+     "prima": 42490,
+     "dopo": 44321,
+     "periodo": "month",
+     "fonte": "uk27_dwp",
+     "frase": "Single 25 or over 424.90 443.21"
+    },
+    {
+     "k": "uc_c_u25",
+     "nome": "Standard allowance, joint claimants both under 25",
+     "sezione": "Universal Credit (monthly rates)",
+     "tabella": 2,
+     "intestazione": "Couple",
+     "riga": "Joint claimants both under 25",
+     "prima": 52834,
+     "dopo": 55111,
+     "periodo": "month",
+     "fonte": "uk27_dwp",
+     "frase": "Joint claimants both under 25 528.34 551.11"
+    },
+    {
+     "k": "uc_c_25",
+     "nome": "Standard allowance, joint claimants, one or both 25 or over",
+     "sezione": "Universal Credit (monthly rates)",
+     "tabella": 2,
+     "intestazione": "Couple",
+     "riga": "Joint claimants, one or both 25 or over",
+     "prima": 66697,
+     "dopo": 69571,
+     "periodo": "month",
+     "fonte": "uk27_dwp",
+     "frase": "Joint claimants, one or both 25 or over 666.97 695.71"
+    },
+    {
+     "k": "uc_child_1",
+     "nome": "Child amount, first child born before 6 April 2017",
+     "sezione": "Universal Credit (monthly rates)",
+     "tabella": 3,
+     "intestazione": "Child amounts",
+     "riga": "First child (born prior to 6 April 2017)",
+     "prima": 35188,
+     "dopo": 36420,
+     "periodo": "month",
+     "fonte": "uk27_dwp",
+     "frase": "First child (born prior to 6 April 2017) 351.88 364.20"
+    },
+    {
+     "k": "uc_child_n",
+     "nome": "Child amount, first child born on or after 6 April 2017 and later children",
+     "sezione": "Universal Credit (monthly rates)",
+     "tabella": 3,
+     "intestazione": "Child amounts",
+     "riga": "First child (born on or after 6 April 2017) / subsequent children",
+     "prima": 30394,
+     "dopo": 31458,
+     "periodo": "month",
+     "fonte": "uk27_dwp",
+     "frase": "First child (born on or after 6 April 2017) / subsequent children 303.94 314.58"
+    },
+    {
+     "k": "uc_lcw",
+     "nome": "Limited capability for work amount",
+     "sezione": "Universal Credit (monthly rates)",
+     "tabella": 5,
+     "intestazione": "",
+     "riga": "Limited Capability for Work amount",
+     "prima": 15876,
+     "dopo": 15876,
+     "periodo": "month",
+     "fonte": "uk27_dwp",
+     "frase": "Limited Capability for Work amount 158.76 158.76"
+    },
+    {
+     "k": "uc_lcwra",
+     "nome": "Limited capability for work and work-related activity amount",
+     "sezione": "Universal Credit (monthly rates)",
+     "tabella": 6,
+     "intestazione": "",
+     "riga": "Limited Capability for Work and Work-Related Activity amount",
+     "prima": 21726,
+     "dopo": 21726,
+     "periodo": "month",
+     "fonte": "uk27_dwp",
+     "frase": "Limited Capability for Work and Work-Related Activity amount 217.26 217.26"
+    },
+    {
+     "k": "uc_lcwra_pre",
+     "nome": "Limited capability for work and work-related activity amount (pre-2026 claimant, severe conditions criteria claimant or claimant who is terminally ill)",
+     "sezione": "Universal Credit (monthly rates)",
+     "tabella": 6,
+     "intestazione": "",
+     "riga": "Limited Capability for Work and Work-Related Activity amount (pre-2026 claimant, severe conditions criteria claimant or claimant who is terminally ill)",
+     "prima": 42980,
+     "dopo": 44141,
+     "periodo": "month",
+     "fonte": "uk27_dwp",
+     "frase": "Limited Capability for Work and Work-Related Activity amount (pre-2026 claimant, severe conditions criteria claimant or claimant who is terminally ill) 429.80 441.41"
+    },
+    {
+     "k": "uc_carer",
+     "nome": "Carer amount",
+     "sezione": "Universal Credit (monthly rates)",
+     "tabella": 7,
+     "intestazione": "",
+     "riga": "Carer amount",
+     "prima": 20934,
+     "dopo": 21667,
+     "periodo": "month",
+     "fonte": "uk27_dwp",
+     "frase": "Carer amount 209.34 216.67"
+    },
+    {
+     "k": "uc_wa_high",
+     "nome": "Higher work allowance (no housing amount)",
+     "sezione": "Universal Credit (monthly rates)",
+     "tabella": 10,
+     "intestazione": "Work allowances",
+     "riga": "Higher work allowance (no housing amount), one or more dependent children or limited capability for work",
+     "prima": 71000,
+     "dopo": 73500,
+     "periodo": "month",
+     "fonte": "uk27_dwp",
+     "frase": "Higher work allowance (no housing amount), one or more dependent children or limited capability for work 710.00 735.00"
+    },
+    {
+     "k": "uc_wa_low",
+     "nome": "Lower work allowance",
+     "sezione": "Universal Credit (monthly rates)",
+     "tabella": 10,
+     "intestazione": "Work allowances",
+     "riga": "Lower work allowance, one or more dependent children or limited capability for work",
+     "prima": 42700,
+     "dopo": 44200,
+     "periodo": "month",
+     "fonte": "uk27_dwp",
+     "frase": "Lower work allowance, one or more dependent children or limited capability for work 427.00 442.00"
+    }
+   ]
+  },
+  {
+   "id": "pip",
+   "titolo": "Personal Independence Payment (PIP)",
+   "voci": [
+    {
+     "k": "pip_dl_enh",
+     "nome": "Daily living component, enhanced",
+     "sezione": "Personal Independence Payment",
+     "tabella": 0,
+     "intestazione": "Daily living component",
+     "riga": "Enhanced",
+     "prima": 11460,
+     "dopo": 11860,
+     "periodo": "week",
+     "fonte": "uk27_dwp",
+     "frase": "Enhanced 114.60 118.60"
+    },
+    {
+     "k": "pip_dl_std",
+     "nome": "Daily living component, standard",
+     "sezione": "Personal Independence Payment",
+     "tabella": 0,
+     "intestazione": "Daily living component",
+     "riga": "Standard",
+     "prima": 7670,
+     "dopo": 7940,
+     "periodo": "week",
+     "fonte": "uk27_dwp",
+     "frase": "Standard 76.70 79.40"
+    },
+    {
+     "k": "pip_mob_enh",
+     "nome": "Mobility component, enhanced",
+     "sezione": "Personal Independence Payment",
+     "tabella": 1,
+     "intestazione": "Mobility component",
+     "riga": "Enhanced",
+     "prima": 8000,
+     "dopo": 8280,
+     "periodo": "week",
+     "fonte": "uk27_dwp",
+     "frase": "Enhanced 80.00 82.80"
+    },
+    {
+     "k": "pip_mob_std",
+     "nome": "Mobility component, standard",
+     "sezione": "Personal Independence Payment",
+     "tabella": 1,
+     "intestazione": "Mobility component",
+     "riga": "Standard",
+     "prima": 3030,
+     "dopo": 3135,
+     "periodo": "week",
+     "fonte": "uk27_dwp",
+     "frase": "Standard 30.30 31.35"
+    }
+   ]
+  },
+  {
+   "id": "aa",
+   "titolo": "Attendance Allowance",
+   "voci": [
+    {
+     "k": "aa_high",
+     "nome": "Higher rate",
+     "sezione": "Attendance Allowance",
+     "tabella": 0,
+     "intestazione": "",
+     "riga": "Higher rate",
+     "prima": 11460,
+     "dopo": 11860,
+     "periodo": "week",
+     "fonte": "uk27_dwp",
+     "frase": "Higher rate 114.60 118.60"
+    },
+    {
+     "k": "aa_low",
+     "nome": "Lower rate",
+     "sezione": "Attendance Allowance",
+     "tabella": 0,
+     "intestazione": "",
+     "riga": "Lower rate",
+     "prima": 7670,
+     "dopo": 7940,
+     "periodo": "week",
+     "fonte": "uk27_dwp",
+     "frase": "Lower rate 76.70 79.40"
+    }
+   ]
+  },
+  {
+   "id": "dla",
+   "titolo": "Disability Living Allowance (DLA)",
+   "voci": [
+    {
+     "k": "dla_care_high",
+     "nome": "Care component, highest",
+     "sezione": "Disability Living Allowance",
+     "tabella": 0,
+     "intestazione": "Disability Living Allowance - Care Component",
+     "riga": "Highest",
+     "prima": 11460,
+     "dopo": 11860,
+     "periodo": "week",
+     "fonte": "uk27_dwp",
+     "frase": "Highest 114.60 118.60"
+    },
+    {
+     "k": "dla_care_mid",
+     "nome": "Care component, middle",
+     "sezione": "Disability Living Allowance",
+     "tabella": 0,
+     "intestazione": "Disability Living Allowance - Care Component",
+     "riga": "Middle",
+     "prima": 7670,
+     "dopo": 7940,
+     "periodo": "week",
+     "fonte": "uk27_dwp",
+     "frase": "Middle 76.70 79.40"
+    },
+    {
+     "k": "dla_care_low",
+     "nome": "Care component, lowest",
+     "sezione": "Disability Living Allowance",
+     "tabella": 0,
+     "intestazione": "Disability Living Allowance - Care Component",
+     "riga": "Lowest",
+     "prima": 3030,
+     "dopo": 3135,
+     "periodo": "week",
+     "fonte": "uk27_dwp",
+     "frase": "Lowest 30.30 31.35"
+    },
+    {
+     "k": "dla_mob_high",
+     "nome": "Mobility component, higher",
+     "sezione": "Disability Living Allowance",
+     "tabella": 1,
+     "intestazione": "Disability Living Allowance - Mobility Component",
+     "riga": "Higher",
+     "prima": 8000,
+     "dopo": 8280,
+     "periodo": "week",
+     "fonte": "uk27_dwp",
+     "frase": "Higher 80.00 82.80"
+    },
+    {
+     "k": "dla_mob_low",
+     "nome": "Mobility component, lower",
+     "sezione": "Disability Living Allowance",
+     "tabella": 1,
+     "intestazione": "Disability Living Allowance - Mobility Component",
+     "riga": "Lower",
+     "prima": 3030,
+     "dopo": 3135,
+     "periodo": "week",
+     "fonte": "uk27_dwp",
+     "frase": "Lower 30.30 31.35"
+    }
+   ]
+  },
+  {
+   "id": "carers",
+   "titolo": "Carer’s Allowance",
+   "voci": [
+    {
+     "k": "ca",
+     "nome": "Carer’s Allowance",
+     "sezione": "Carer's Allowance",
+     "tabella": 0,
+     "intestazione": "",
+     "riga": "Carer's Allowance",
+     "prima": 8645,
+     "dopo": 8950,
+     "periodo": "week",
+     "fonte": "uk27_dwp",
+     "frase": "Carer’s Allowance 86.45 89.50"
+    }
+   ]
+  },
+  {
+   "id": "jsa",
+   "titolo": "Jobseeker’s Allowance",
+   "voci": [
+    {
+     "k": "jsa_u25",
+     "nome": "Personal rate, under 25",
+     "sezione": "Jobseeker's Allowance",
+     "tabella": 0,
+     "intestazione": "Personal Rates",
+     "riga": "Under 25",
+     "prima": 7565,
+     "dopo": 7830,
+     "periodo": "week",
+     "fonte": "uk27_dwp",
+     "frase": "Under 25 75.65 78.30"
+    },
+    {
+     "k": "jsa_25",
+     "nome": "Personal rate, 25 or over",
+     "sezione": "Jobseeker's Allowance",
+     "tabella": 0,
+     "intestazione": "Personal Rates",
+     "riga": "25 or over",
+     "prima": 9555,
+     "dopo": 9890,
+     "periodo": "week",
+     "fonte": "uk27_dwp",
+     "frase": "25 or over 95.55 98.90"
+    }
+   ]
+  },
+  {
+   "id": "bereavement",
+   "titolo": "Bereavement Support Payment",
+   "voci": [
+    {
+     "k": "bsp_std_lump",
+     "nome": "Standard rate, lump sum",
+     "sezione": "Bereavement",
+     "tabella": 1,
+     "intestazione": "Bereavement support payment (for deaths occurring on or after 6 April 2017)",
+     "riga": "Standard rate (lump sum)",
+     "prima": 250000,
+     "dopo": 250000,
+     "periodo": "once",
+     "fonte": "uk27_dwp",
+     "frase": "Standard rate (lump sum) 2,500.00 2,500.00"
+    },
+    {
+     "k": "bsp_std_month",
+     "nome": "Standard rate, monthly payments",
+     "sezione": "Bereavement",
+     "tabella": 1,
+     "intestazione": "Bereavement support payment (for deaths occurring on or after 6 April 2017)",
+     "riga": "Standard rate monthly payments",
+     "prima": 10000,
+     "dopo": 10000,
+     "periodo": "month",
+     "fonte": "uk27_dwp",
+     "frase": "Standard rate monthly payments 100.00 100.00"
+    },
+    {
+     "k": "bsp_high_lump",
+     "nome": "Higher rate, lump sum",
+     "sezione": "Bereavement",
+     "tabella": 1,
+     "intestazione": "Bereavement support payment (for deaths occurring on or after 6 April 2017)",
+     "riga": "Higher rate (lump sum)",
+     "prima": 350000,
+     "dopo": 350000,
+     "periodo": "once",
+     "fonte": "uk27_dwp",
+     "frase": "Higher rate (lump sum) 3,500.00 3,500.00"
+    },
+    {
+     "k": "bsp_high_month",
+     "nome": "Higher rate, monthly payments",
+     "sezione": "Bereavement",
+     "tabella": 1,
+     "intestazione": "Bereavement support payment (for deaths occurring on or after 6 April 2017)",
+     "riga": "Higher rate monthly payments",
+     "prima": 35000,
+     "dopo": 35000,
+     "periodo": "month",
+     "fonte": "uk27_dwp",
+     "frase": "Higher rate monthly payments 350.00 350.00"
+    }
+   ]
+  },
+  {
+   "id": "statutory",
+   "titolo": "Statutory payments",
+   "voci": [
+    {
+     "k": "ssp",
+     "nome": "Statutory Sick Pay, standard rate",
+     "sezione": "Statutory Sick Pay",
+     "tabella": 0,
+     "intestazione": "",
+     "riga": "Standard rate",
+     "prima": 12325,
+     "dopo": 12755,
+     "periodo": "week",
+     "fonte": "uk27_dwp",
+     "frase": "Standard rate 123.25 127.55"
+    },
+    {
+     "k": "smp",
+     "nome": "Statutory Maternity Pay, standard rate",
+     "sezione": "Statutory Maternity Pay",
+     "tabella": 0,
+     "intestazione": "",
+     "riga": "Standard rate",
+     "prima": 19432,
+     "dopo": 20111,
+     "periodo": "week",
+     "fonte": "uk27_dwp",
+     "frase": "Standard rate 194.32 201.11"
+    },
+    {
+     "k": "smp_soglia",
+     "nome": "Statutory Maternity Pay, earnings threshold",
+     "sezione": "Statutory Maternity Pay",
+     "tabella": 0,
+     "intestazione": "",
+     "riga": "Earnings threshold",
+     "prima": 12900,
+     "dopo": 13300,
+     "periodo": "week",
+     "fonte": "uk27_dwp",
+     "frase": "Earnings threshold 129.00 133.00"
+    },
+    {
+     "k": "spp",
+     "nome": "Statutory Paternity Pay, standard rate",
+     "sezione": "Statutory Paternity Pay",
+     "tabella": 0,
+     "intestazione": "",
+     "riga": "Standard Rate",
+     "prima": 19432,
+     "dopo": 20111,
+     "periodo": "week",
+     "fonte": "uk27_dwp",
+     "frase": "Standard Rate 194.32 201.11"
+    },
+    {
+     "k": "sap",
+     "nome": "Statutory Adoption Pay, standard rate",
+     "sezione": "Statutory Adoption Pay",
+     "tabella": 0,
+     "intestazione": "",
+     "riga": "Standard rate",
+     "prima": 19432,
+     "dopo": 20111,
+     "periodo": "week",
+     "fonte": "uk27_dwp",
+     "frase": "Standard rate 194.32 201.11"
+    },
+    {
+     "k": "shpp",
+     "nome": "Statutory Shared Parental Pay, standard rate",
+     "sezione": "Statutory Shared Parental Pay",
+     "tabella": 0,
+     "intestazione": "",
+     "riga": "Standard rate",
+     "prima": 19432,
+     "dopo": 20111,
+     "periodo": "week",
+     "fonte": "uk27_dwp",
+     "frase": "Standard rate 194.32 201.11"
+    },
+    {
+     "k": "spbp",
+     "nome": "Statutory Parental Bereavement Pay, standard rate",
+     "sezione": "Statutory Parental Bereavement Pay",
+     "tabella": 0,
+     "intestazione": "",
+     "riga": "Standard rate",
+     "prima": 19432,
+     "dopo": 20111,
+     "periodo": "week",
+     "fonte": "uk27_dwp",
+     "frase": "Standard rate 194.32 201.11"
+    },
+    {
+     "k": "sncp",
+     "nome": "Statutory Neonatal Care Pay, standard rate",
+     "sezione": "Statutory Neonatal Care Pay",
+     "tabella": 0,
+     "intestazione": "",
+     "riga": "Standard Rate",
+     "prima": 19432,
+     "dopo": 20111,
+     "periodo": "week",
+     "fonte": "uk27_dwp",
+     "frase": "Standard Rate 194.32 201.11"
+    },
+    {
+     "k": "ma",
+     "nome": "Maternity Allowance, standard rate",
+     "sezione": "Maternity Allowance",
+     "tabella": 0,
+     "intestazione": "",
+     "riga": "Standard rate",
+     "prima": 19432,
+     "dopo": 20111,
+     "periodo": "week",
+     "fonte": "uk27_dwp",
+     "frase": "Standard rate 194.32 201.11"
+    },
+    {
+     "k": "ma_soglia",
+     "nome": "Maternity Allowance threshold",
+     "sezione": "Maternity Allowance",
+     "tabella": 0,
+     "intestazione": "",
+     "riga": "MA threshold",
+     "prima": 3000,
+     "dopo": 3000,
+     "periodo": "week",
+     "fonte": "uk27_dwp",
+     "frase": "MA threshold 30.00 30.00"
+    }
+   ]
+  }
+ ]
+}

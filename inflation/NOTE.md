@@ -184,3 +184,181 @@ Corretto:
 Controlli aggiunti in `verifica.py`: fonte di legge solo per le voci ammesse, HSA 55+ = 1.000 $ in ogni anno e § 223(g) senza (b)(3), soglia Roth
 coerente tra un anno e l'altro e con la pagina IRS, frasi `mostra`, le 6 frasi IRS della pagina 401(k) presenti e le vecchie formule assenti, nessuna
 cella vuota nella pagina HSA. Prova al contrario: 3 dati alterati → 6 errori.
+
+## Sezione prezzi del gasolio da riscaldamento e del propano per Stato (13/11/2026 sera, NON committata: revisione indipendente, pubblicazione 15/11)
+
+Dall'idea 1 di `studio-business/intelaiatura/fronti-2026-11-13-sera-riscaldamento-additivi.md`. **43 pagine nuove** (190 indicizzabili + 404):
+`/heating-oil-prices/` e `/propane-prices/` (indici: Stati Uniti, tutti gli Stati rilevati, regioni PADD, inverno in corso e scorso, storia dal 1990-91,
+medie per inverno in dollari di oggi con il CPI-U, calcolatore del pieno, 4 FAQ ciascuno) + **13 pagine Stato per il gasolio** (CT, DE, ME, MD, MA, MI,
+NH, NJ, NY, OH, PA, RI, VT) e **28 per il propano** (AR, CO, CT, FL, IL, IN, IA, KS, KY, ME, MD, MA, MI, MN, MO, NE, NH, NJ, NY, NC, OH, OK, PA, RI, TX,
+VT, VA, WI). Codice in `riscaldamento.py` (chiamato da `genera.py`), JS del calcolatore in `stile.TANK_JS` (file `assets/tank.*.js`, solo in queste
+pagine). Menu USA: «Heating oil», «Propane»; piè di pagina, card in home, sezione in How we check, riga in About; sitemap (lastmod = giorno della lettura EIA).
+`SEZIONE_DE` resta `False`; gli indirizzi usano il nome intero dello Stato (`/heating-oil-prices/delaware/`), quindi niente «/de/» nel sito.
+
+**Dati, solo EIA** (`raccolta/eia.py` → `dati/grezzi/eia/`, 7 file con URL, data, HTTP, SHA-256 e byte in `fonti.json`; dominio pubblico, pagina
+«Copyrights and reuse» letta): i due XLS «Weekly Heating Oil and Propane Prices» (prezzo residenziale, **dollari per gallone, tasse escluse**, un prezzo
+per lunedì da ottobre a marzo): gasolio 29 serie × 802 settimane (1/10/1990 → 9/11/2026), propano 46 serie × 805; Stati con prezzo corrente **21 per il
+gasolio** (l'Illinois finisce nel 1991 e il Distretto di Columbia nel 2019: per questo 21 e non 22) e **38 per il propano**; le due tabelle HTML (ultime
+6 settimane), la pagina «Heating Oil and Propane Update» (variazioni su settimana e anno), le definizioni, la pagina sul riuso. Lo script scrive
+`dati/eia_prezzi.json` (quello che legge il generatore) **solo se** i controlli passano: foglio e unità attesi, date tutte di lunedì e crescenti, valori a
+tre decimali tra 0,3 e 15 $, storia mai più corta, nessun valore vecchio cambiato tranne le ultime due settimane (l'EIA dichiara le revisioni della
+settimana precedente), tabella HTML = XLS, frasi delle definizioni ancora presenti; altrimenti esce con errore e non tocca nessun file. Serve `xlrd`.
+Fino all'inverno 1999-2000 la rilevazione era quasi sempre ogni due settimane (12 prezzi per inverno; settimanale dal 2000-01): le pagine lo dicono e mostrano il numero di settimane di ogni inverno.
+
+**Regole dei conti** (in millesimi di dollaro interi, dichiarate nelle pagine): «un anno prima» = 52 settimane prima (364 giorni; se manca, 371 o 357):
+è la stessa regola dell'EIA, controllata su 73 aree della pagina Update. Media di un inverno = media semplice dei prezzi settimanali pubblicati da
+ottobre a marzo, **calcolo nostro** (scritto in ogni pagina: l'EIA non la pubblica). Inverno in corso contro lo scorso = media delle settimane che hanno
+anche il prezzo di 52 settimane prima. Dollari di oggi = media dell'inverno × CPI-U dell'ultimo mese ÷ CPI-U di gennaio di quell'inverno, con la
+spiegazione che il CPI-U misura tutti i prezzi al consumo e non il gasolio (non è un prezzo «reale» ufficiale); il link apre l'esempio nel calcolatore
+dell'inflazione (`/?a=…&f=AAAA-1`). Costo del pieno = galloni × ultimo prezzo medio dello Stato, al centesimo (mezzo centesimo per eccesso), con lo
+stesso pieno al prezzo di un anno prima; il testo dice di inserire i galloni del preventivo, non la capienza della cisterna (nessuna regola
+sull'80 % o sulle cisterne da 275 galloni: non sono in una fonte scaricata).
+
+**Domanda** (127 ricerche seodata country=us, gruppo `riscaldamento` in `dati/domanda.json`): heating oil prices 27.100, propane price per gallon 14.800,
+propane prices 12.100, how much is propane per gallon 5.400, current propane prices 2.900, heating oil prices today 2.400; per Stato: gasolio CT 6.600,
+MA 2.900, ME 2.400, RI 1.900, NY 1.600, NJ 1.300, NH e PA 1.000, DE e MD 390, VT 320, OH 170, MI 110; propano ME 1.900, CT 1.300, NH e MI 1.000, MA e WI
+880, MN 720, OH 590, PA 480 … FL 110. **Regola delle pagine Stato** (`riscaldamento.domanda()`): la frase più cercata tra quelle misurate (con le
+«simili») che nomina il combustibile, «price» o «cost» e un solo Stato (per nome, o per sigla postale a inizio o fine frase; le sigle che sono anche
+parole, come «in» o «me», solo dopo «prices») deve avere ≥ 100 ricerche al mese. Sotto soglia, solo nella tabella dell'indice: gasolio VA 90, NC 50,
+WI 50, IN/IA/KY/MN/NE 0; propano DE, GA, ND, UT 90, ID 70, SD, TN, MS, MT 50, AL 40. FAQ solo nei due indici, 8 in tutto, ognuna da una frase misurata.
+
+**Controlli nuovi in `verifica.py`** (`riscaldamento()`, `tank_motore()`; lettura dell'XLS scritta a parte, non usa `raccolta/eia.py`): 7 file grezzi =
+`fonti.json`; 50.319 valori di `eia_prezzi.json` = XLS; 438 valori delle tabelle HTML = XLS; ultimo prezzo e variazioni di 73 aree = pagina Update;
+**ogni prezzo stampato ha un attributo `data-*` con serie, area e settimana** e viene rifatto dall'XLS: 5.670 prezzi settimanali, 417 differenze, 460
+variazioni %, 1.654 medie, 74 importi CPI, 47 costi del pieno, più 4.206 date accanto ai prezzi; nessun importo in dollari fuori dalle celle etichettate;
+titolo (≤ 65), descrizione (≤ 160) e apertura = ultima settimana; dati dei calcolatori = XLS; JS del pieno = Python su 4.110 casi; pagine Stato = Stati
+con frase misurata ≥ 100; fonte, «excluding taxes», «not a price quote», «our own calculation», data dell'uscita EIA, niente frasi da consiglio
+(«buy now», «lock in», «cheapest»…). Nel browser: 4 pagine nuove × 375/1280 × chiaro/scuro e 7 casi del pieno × 2 larghezze (pulsanti, altro Stato,
+decimali, valori non validi). Se uno Stato non ha il prezzo dell'ultima settimana (l'EIA scrive NA) è un avviso, non un errore: la pagina mostra la
+data del suo ultimo prezzo.
+
+**Aggiornamento settimanale (da ottobre a marzo)**. L'EIA pubblica di norma il mercoledì (la data della prossima uscita è in `dati/eia_prezzi.json`,
+campo `prossima_uscita`, e in ogni pagina; con le feste slitta di un giorno o due):
+1. `python3 -I inflation/raccolta/eia.py` (se l'EIA non ha ancora pubblicato, l'ultima settimana resta la stessa e non cambia niente; se un controllo
+   fallisce lo script non tocca i file: leggere l'errore, di solito una colonna nuova o una frase delle definizioni cambiata; se l'EIA ha rivisto
+   settimane più vecchie delle ultime due, controllare le note della tabella EIA e rilanciare con `--accetta-revisioni`).
+2. `python3 inflation/genera.py && python3 inflation/verifica.py --browser` → 0 errori; `python3 studio-business/strumenti/monetizzazione.py verifica inflation`.
+3. Un commit, una pubblicazione, poi IndexNow per le 43 pagine (i titoli contengono prezzo e data: cambiano ogni settimana).
+Da aprile a settembre l'EIA non pubblica prezzi settimanali: le pagine dicono da sole che l'ultima rilevazione è quella di fine marzo e che si
+riparte a ottobre (`riscaldamento.IN_STAGIONE`); nessun lavoro fino alla prima uscita di ottobre. A ottobre l'inverno nuovo parte da solo.
+Ogni tanto (a inizio stagione) rimisurare la domanda per gli Stati sotto soglia: aggiungere le frasi a `dati/domanda.json` (gruppo `riscaldamento`) e
+le pagine nascono o spariscono da sole; `verifica.py` controlla che ogni pagina abbia la sua frase.
+
+### Revisione indipendente della sezione gasolio/propano (14/11/2026, NON committata)
+
+File EIA riscaricati a parte (stessi SHA-256 dei grezzi) e riletti con un lettore scritto da zero: **11.034 valori stampati nelle 43 pagine rifatti
+dall'XLS, 0 diversi** (titolo, descrizione, apertura, variazioni su settimana e anno, medie d'inverno, tabelle storiche, tabelle per Stato e PADD, 72
+importi CPI rifatti con `bls_cpiu.csv`, costo del pieno) e 219 valori contro la pagina «Heating Oil and Propane Update» dell'EIA, 0 diversi. 21 Stati
+per il gasolio e 38 per il propano confermati; uscita 12/11 e prossima 18/11 confermate sulle tabelle EIA.
+
+Corretto:
+- **Fine stagione**: `IN_STAGIONE` dipendeva solo dalla data di lettura, che non avanza se nessuno rilancia `raccolta/eia.py`: da aprile a ottobre le
+  pagine avrebbero continuato a dire «so far» e «the next release is scheduled for…». Ora l'inverno è in corso solo se anche il lunedì dopo l'ultimo
+  prezzo cade tra ottobre e marzo (dopo l'ultimo lunedì di marzo le pagine passano da sole al testo di fuori stagione).
+- **Prezzi mensili fuori stagione**: l'XLS contiene anche prezzi di aprile-settembre (secondo lunedì del mese, 2024 e 2025; frase EIA ora tra quelle
+  controllate, `fuori_stagione`). Le pagine dicevano «only from October through March» e, con un prezzo mensile come ultimo dato, «weekly survey»: ora
+  lo dicono (nota sui dati, apertura, FAQ) e precisano che quei prezzi non entrano nelle medie d'inverno.
+- **Illinois e District of Columbia** (gasolio): l'indice ora nomina le due serie finite con la data dell'ultimo prezzo (18/3/1991 e 7/10/2019) e dice
+  che non sono tra i 21 Stati; `verifica.py` rifà le date dall'XLS.
+- **FAQ del propano** «cost to fill 500 gallon propane tank»: la risposta dava 300 e 400 galloni; ora dà 300 e 500 e dice che la capienza non è la
+  quantità consegnata (nessuna regola dell'80 %: non è in una fonte scaricata).
+- **Dati vecchi**: `verifica.py` dà errore se in stagione la «prossima uscita» stampata è passata da più di 7 giorni senza una nuova lettura.
+- Tabella delle settimane: una riga dell'inverno scorso senza corrispondente non mostra più una data passata come se fosse futura.
+- **Grafica a 375 px**: prima colonna fissa nelle tabelle larghe (`.tab.fissa`), tabella CPI in quattro colonne senza scorrimento (`table.stretta`),
+  etichette dell'asse «2020» e «2026» non più sovrapposte nel grafico storico (`_etichette_x`, vale per tutti i grafici a linea).
+
+Resta noto: il titolo porta prezzo e data, quindi non invecchia in silenzio, ma l'aggiornamento settimanale è manuale (passi qui sopra).
+
+## Sezioni «cifre 2027»: UK da aprile 2027 e tetti agli aumenti dell'affitto (18/11/2026, NON committate: serve la revisione indipendente)
+
+Dall'idea G di `studio-business/intelaiatura/fronti-2026-11-14-sera-regole-2027.md` e dall'idea A-piccola di `fronti-2026-11-18-affitti.md`.
+**13 pagine nuove** (203 indicizzabili + 404), costruite sopra le sezioni limiti e gasolio/propano (non toccate, a parte menu, piè di pagina e CSS comune).
+
+### A. `/uk/…-2027/` (5 pagine, codice in `uk2027.py`, dati in `dati/uk_2027.json`)
+
+`/uk/rates-april-2027/` (indice), `/uk/minimum-wage-2027/` (4 fasce d'età, calcolatore della paga, paga a 16-40 ore, storia dal 2024),
+`/uk/state-pension-2027/` (nuova e di base, Pension Credit, ×4 e ×52), `/uk/benefit-rates-2027/` (Universal Credit, PIP, Attendance Allowance, DLA,
+Carer's, JSA, Bereavement Support), `/uk/statutory-sick-pay-2027/` (SSP, maternità, paternità, adozione, Maternity Allowance). Menu UK: «April 2027 rates».
+
+**Cifre confermate sulla fonte** (50, in pence, ognuna con la riga di tabella citata): paga minima dal 1/4/2027 13,21 £ (21+), 11,27 (18-20), 8,31 (sotto i 18 e
+apprendisti), da 12,71 / 10,85 / 8,00, +3,9 % (pagina GOV.UK dei tassi = tabella dell'annuncio Low Pay Commission del 28/10/2026; accommodation offset 11,53 £);
+pensione nuova piena 241,30 → 250,70 £ a settimana, di base 184,90 → 192,10; SSP 123,25 → 127,55; SMP/SPP/SAP 194,32 → 201,11; Universal Credit single 25+
+424,90 → 443,21 al mese (under 25 338,58 → 353,87); PIP 114,60 → 118,60 e 80,00 → 82,80; Attendance Allowance 76,70/114,60 → 79,40/118,60; Carer's 86,45 → 89,50.
+Le cifre DWP vengono dal documento «Proposed benefit and pension rates 2027 to 2028» dell'11/11/2026: **le pagine dicono «proposed»** finché non esce l'ordine.
+Le cifre in vigore scritte nelle guide GOV.UK (241,30; 338,58; 123,25) devono essere uguali alla colonna 2026-27 (controllo).
+**Lasciato fuori**: Employment and Support Allowance (le tabelle del documento non distinguono bene contributiva e legata al reddito), Housing Benefit, Income
+Support, deduzioni, benefit cap; Child Benefit e sussidi scozzesi (non sono nel documento DWP: la pagina indice lo scrive); il giorno d'inizio di ogni sussidio (il
+documento dà solo l'anno «2027 to 2028»). Non letta: la dichiarazione ministeriale del 28/10 su questions-statements.parliament.uk (403, in `_non_lette`).
+Ogni pagina ha il confronto con l'ultimo tasso CPI a 12 mesi dell'ONS (serie già caricata dal sito) e quindi l'attribuzione OGL dell'ONS oltre a quella di GOV.UK.
+
+### B. `/rent-increase-cap/` (8 pagine, codice in `affitti.py`, dati in `dati/affitti.json`)
+
+Indice con calcolatore «maximum new rent» + California, New York City, Washington, Oregon, Ontario, British Columbia, Saint Paul. Menu USA: «Rent caps».
+Tetti in millesimi di punto, ognuno con il periodo e la frase ufficiale:
+
+| Luogo | Cifre lette | Fonte |
+|---|---|---|
+| California (AB 1482), aumenti dal 1/8/2026 al 31/7/2027 | Los Angeles 8,7 % · Riverside 8,1 % · San Diego 8,2 % · San Francisco 8,8 % · altre contee 8,6 % (periodo prima: 8 / 7,5 / 8,8 / 6,3 / 7,7) | tabella dell'Attorney General, oag.ca.gov/rentcaps |
+| Oregon | 2027: 10 % · 2026: 9,5 % | DAS, pagina + file Excel del 30/9/2026 |
+| Washington (HB 1217) | 2027: **10 %** (7 % + 4,53 % = 11,53 % → tetto) · 2026: 9,683 % | Commerce, pagina inglese `hb1217-landlord-resource-center` |
+| New York City, affitti stabilizzati | Ordine n. 58 (25/6/2026), contratti dal 1/10/2026 al 30/9/2027: **0 % e 0 %**; Ordine n. 57: 3 % e 4,5 % | Rent Guidelines Board |
+| Ontario | 2027: 1,9 % · 2026: 2,1 % (+ storia 2018-2027) | ontario.ca |
+| British Columbia | 2027: 2,2 % · 2026: 2,3 % | gov.bc.ca |
+| Saint Paul | 3 % in 12 mesi (eccezioni 3-8 %, CPI + 8 %) | stpaul.gov |
+
+**Punti aperti del file di ricerca, chiusi**: (1) le cifre californiane per zona sono ufficiali (Attorney General) e **rifatte da noi** dagli indici BLS delle
+quattro aree (aprile; marzo per Riverside e San Diego) e dal CPI californiano del DIR: 10 tetti su 10 uguali (variazione arrotondata a un decimale + 5 punti);
+regioni e ciclo del 1° agosto confermati sulla stessa pagina; (2) Washington 2027 = 10 %, letto (la copia della ricerca era la pagina spagnola, ferma al 2026);
+(3) Ordine 58 letto dal testo. (4) **Los Angeles, San José, San Francisco**: le pagine dei Comuni non danno la cifra al nostro server (PDF non trovato, 403, 404:
+in `_non_lette`); le cifre mostrate (3 %, 5 %, 1,6 %) sono quelle della tabella «Local Rent Increase Caps» dell'Attorney General (35 Comuni, copiati con
+nome, massimo e periodo) e la pagina lo dice. Il testo di legge (leginfo, 403) non è letto: la regola è citata dall'Attorney General.
+**Lasciato fuori**: case mobili di Washington al 5 % (la frase c'è solo nella pagina spagnola), Washington DC, Oakland come pagina, Montgomery County.
+Calcolatore: affitto × tetto, **per difetto al centesimo** (la British Columbia scrive che non si arrotonda per eccesso), in centesimi interi.
+
+### Domanda misurata (seodata, 18/11/2026, 209 ricerche in `dati/domanda.json`, gruppi `uk_2027` e `affitti`)
+
+gb (104 frasi, 1.832.690 al mese senza «basic state pension», che lo strumento confonde con «state pension» 1.000.000): minimum wage 2025 301.000 · minimum wage uk
+165.000 · state pension increase 2025 90.500 · statutory sick pay 90.500 · national minimum wage 2025 90.500 · pip rates 74.000 · how much is state pension 60.500 ·
+statutory maternity pay 60.500 · minimum wage for 18 year olds 40.500 · for 16 year olds 33.100 · dla rates 27.100 · how much is ssp 27.100 · attendance allowance
+rates 22.200 · how much is universal credit 18.100 · apprentice minimum wage 14.800. Le frasi con «2027» valgono ancora 0-70.
+us (75 frasi, 59.040): rent control 6.600 · how much can a landlord raise rent in california 3.600 · ab 1482 3.600 · los angeles rent control 2.900 · rent guidelines
+board 2.400 · how much can a landlord raise rent 1.900 · rent increase calculator 1.600 · nyc rent increase 1.300 · hb 1217 880 · washington state rent control 720 ·
+st paul rent control 260 · oregon rent control 210. ca (30 frasi, 26.010): bc rent increase 2.900 · rent control ontario 2.900 · rent increase ontario 1.900.
+**Regola delle pagine di luogo** (`affitti.DOMANDA_PAGINA`, soglia 100): ogni pagina ha la sua frase misurata; `verifica_2027.py` lo controlla.
+20 FAQ nuove per il Regno Unito e 26 per gli affitti, ognuna da una frase misurata (86 FAQ in tutto nel sito).
+
+### File e controlli
+
+`raccolta/regole2027.py` (25 fonti: 9 GOV.UK, 11 sugli affitti, 5 serie BLS regionali; testo in `dati/grezzi/regole2027/`, originali tenuti per il documento DWP,
+la pagina dell'Attorney General e l'Excel dell'Oregon; URL, data, HTTP, SHA-256 in `fonti.json`; se una fonte non risponde 200 o una frase citata non c'è più,
+esce senza toccare niente). I due file di dati sono scritti a mano dopo la lettura (frasi comprese) e lo script non li cambia.
+`stile.PAY_JS` / `stile.RENT_JS` (file `assets/pay.*.js`, `assets/rent.*.js`, solo nelle pagine che li usano).
+`verifica_2027.py` (chiamato da `verifica.py`): 165 frasi ritrovate nei testi; tabelle DWP rilette dall'originale con un lettore a parte (50 cifre); paga minima
+GOV.UK = annuncio LPC; 314 cifre e 92 citazioni delle pagine UK rifatte (ogni cella ha `data-uk`); 23 periodi d'affitto con la cifra dentro la frase; 10 tetti
+californiani dagli indici; indici della pagina di Washington = BLS; Oregon dall'Excel; 35 tetti locali = originale; 92 cifre e 61 citazioni delle pagine affitti
+(`data-rent`, `data-ca`, `data-wa`, `data-on`); dati dei calcolatori = file di dati; JS pubblicato = Python = conto con le frazioni (3.072 e 4.114 casi); solo siti
+ufficiali; «proposed», «not legal advice», «not a government website»; niente frasi da consiglio; **errore se l'ultimo periodo di un tetto è scaduto** o se una
+fonte è più vecchia di 120 giorni. Prova al contrario fatta (una cifra UK, due tetti e una cella cambiati → 20 errori).
+18/11/2026: `python3 inflation/verifica.py --browser` → 0 errori, 0 avvisi (30 pagine × 375/1280 × chiaro/scuro, 6 casi della paga e 8 dell'affitto × 2 larghezze);
+`python3 studio-business/strumenti/monetizzazione.py verifica inflation` → 0 errori. Nessuna affiliazione: i riquadri dei programmi per proprietari non sono costruiti.
+
+### Quando aggiornare (le pagine non si aggiornano da sole)
+
+- **Febbraio-marzo 2027**: ordine di rivalutazione DWP → se le cifre restano uguali, togliere «proposed» dai testi (`uk2027.stato_box`, titoli delle descrizioni);
+  dal 1/4/2027 GOV.UK cambia la tabella «Current rates» e le guide (la riga citata e il controllo «cifre in vigore» vanno riscritti: è il segnale).
+- **Metà maggio 2027**: esce l'indice di aprile → si può rifare il tetto californiano del 1/8/2027 (dichiarandolo calcolo nostro finché l'Attorney General non lo pubblica).
+- **Fine giugno 2027** (voto di New York, Ordine 59), **luglio** (Washington 2028), **fine agosto** (British Columbia e Ontario 2028), **30 settembre** (Oregon 2028).
+- Ogni volta: aggiornare URL o frasi in `raccolta/regole2027.py` e nei due JSON, `python3 -I inflation/raccolta/regole2027.py`, poi `genera.py` e `verifica.py --browser`.
+- L'ONS ha pubblicato il CPI di ottobre il 18/11/2026: il confronto con l'inflazione nelle pagine UK usa ancora settembre finché non gira l'aggiornamento mensile.
+
+### Revisione indipendente delle sezioni «cifre 2027» (19/11/2026)
+
+Fonti riscaricate da zero (19 pagine ufficiali): 80 frasi UK e 76 frasi sugli affitti ritrovate nel testo nuovo (le 3 restanti differiscono solo per il trattino
+«–» che `normalizza` scrive «-»); 46 cifre DWP, 4 fasce della paga minima, tutti i tetti (California 8,7/8,1/8,2/8,8/8,6; Oregon 10; Washington 10; Ordine 58
+0 % e 0 % letto nel testo; Ontario 1,9; BC 2,2; Saint Paul 3) uguali alla fonte. Calcolatori: 6 casi paga e 9 casi affitto rifatti a mano, uguali.
+Corretto: «proposed» ora anche nelle intestazioni delle tabelle DWP, nei riquadri in alto, nei sottotitoli, nelle descrizioni e in ogni risposta FAQ delle
+pagine pensione/sussidi/malattia (`uk2027.PROP_TH`, `PROP_FAQ`); 5 descrizioni portate a ≤ 160 caratteri (verifica.py ne ammette 165); frase sul tetto del
+90 % dei guadagni per maternità/paternità (letta su GOV.UK, senza citazione registrata); NYC «leases» al posto di «renewal leases»; riquadro BC «3 full months»;
+intestazione «Period» per Saint Paul. Resta noto: in `dati/affitti.json` Larkspur ha la contea «Los Angeles County» (la tabella dell'Attorney General lascia la
+cella vuota; Larkspur è nella contea di Marin): la contea non è stampata, non stamparla senza correggerla. Dopo le correzioni: `verifica.py --browser` 0 errori,
+monetizzazione 0 errori.

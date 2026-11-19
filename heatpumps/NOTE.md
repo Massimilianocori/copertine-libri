@@ -5,10 +5,11 @@ council di Inghilterra e Galles, regole ufficiali, costo mediano nazionale e qua
 potenza per regione e per council del Regno Unito, costo per kW per regione).
 Nato da `studio-business/intelaiatura/fronti-2026-11-11-impianti-uk.md` (idea 1) e dal riesame `riesame-2026-11-12-concorrenza.md`
 (idea 1 COSTRUIRE); domanda misurata in `volumi-2026-11-12.md` sez. 3.5 (circa 85.000 ricerche al mese, CPC 7-23 £).
-Indirizzo previsto: `https://heat-pump-grants-uk.netlify.app` (nome libero il 12/11/2026: curl → 404; costante `URL_SITO` in
-`genera.py` e in `verifica.py`). **Il sito Netlify non esiste ancora** (passi in fondo).
+Indirizzo: `https://heat-pump-grants-uk.netlify.app` (costante `URL_SITO` in `genera.py` e in `verifica.py`). **Online dal 13/11/2026.**
+Il lavoro del 13/11 (ricerche misurate, titoli, 5 pagine nuove) è descritto nella sezione datata in fondo: **non ancora pubblicato** (revisione
+indipendente, poi pubblicazione dalla sessione principale).
 
-## Pagine (225 indicizzabili + 144 noindex + 404)
+## Pagine (230 indicizzabili dal 13/11, prima 225, + 144 noindex + 404)
 
 | Pagina | Contenuto |
 |---|---|
@@ -20,6 +21,7 @@ Indirizzo previsto: `https://heat-pump-grants-uk.netlify.app` (nome libero il 12
 | `/heat-pump-grants/<contea>/` (21) | come i council, con la tabella dei distretti |
 | `/heat-pump-grants/<council>/` (318: 174 indicizzate, 144 noindex) | contributi pagati maggio 2022 - settembre 2026, per anno 2022/23-2025/26, 2026/27 finora (nostro calcolo), per 1.000 famiglie, posizione nella regione, confronto con regione e Inghilterra+Galles, council vicini, costo NAZIONALE dopo il contributo (riquadro "these costs are national, not local"), regole, solare del council (impianti e MW a fine 2025, 2020, per 1.000 famiglie, costo per kW della regione) |
 | `/solar-panels/` e `/solar-panels/<regione>/` (12, Scozia e Irlanda del Nord comprese) | impianti e MW a settembre 2026, aggiunti in 12 mesi, costo medio per kW 2025/26 per fascia, impianti nuovi per mese, tabella dei council (fine 2025); 2 FAQ nell'hub |
+| `/eco4/`, `/great-british-insulation-scheme/`, `/warm-homes-local-grant/`, `/solar-panel-grants/`, `/heat-pump-grants/scotland/` (13/11) | altri schemi: testo ufficiale citato + cifre DESNZ (vedi sezione del 13/11) |
 | `/about/`, `/how-we-check/` (con modulo `corrections`), `/privacy/`, `404.html` | |
 
 **Regola anti-pagine sottili (lezione AdSense):** una pagina council è indicizzata (canonical + sitemap + AdSense) solo con almeno
@@ -157,3 +159,142 @@ Anche: `python3 studio-business/strumenti/monetizzazione.py verifica heatpumps` 
   fonti presa dalla copertina del file (29/10/2026), non dalla pagina che lo raccoglie (12/11/2026).
 - Rimandi alle fonti [1] portati a 11 px minimi su telefono.
 
+
+## Domanda misurata, titoli, FAQ e pagine nuove (13/11/2026, NON pubblicato: revisione indipendente, poi pubblicazione)
+
+Metodo del 13/11 (come farmaci/, ccnl/, paytax/): misurare la domanda, poi titoli e FAQ sulle frasi misurate, pagine nuove solo dove ci sono
+domanda (≥ 100 al mese) e fonte ufficiale leggibile.
+
+**Misura.** `api.seodata.dev /v1/keyword`, `country=gb`, 13/11/2026: **337 richieste** (174 frasi con volume, 163 non nel database = 404).
+Script nuovo `raccolta/volumi.py`: chiama **curl** (da Python con urllib lo strumento risponde 403) e passa la chiave solo dallo standard input
+(`curl -K -`), quindi mai negli argomenti, nei file o nei messaggi. File `dati/volumi-2026-11-13.json` (volume, cpc £, data del dato, frasi simili).
+`verifica.py` controlla che in `heatpumps/` non ci sia il prefisso della chiave; `grep -r` dello stesso prefisso: vuoto.
+
+**Ricerche più cercate (UK, al mese).** Fuori tema ma enormi: energy performance certificate 110.000, epc check 74.000, warm home discount 33.100
+(sconto in bolletta), ofgem 33.100. Pompe di calore: air source heat pump 33.100 · heat pump cost 8.100 · ground source heat pump 8.100 ·
+heat pump grant(s) 5.400 (cpc 11 £) · air source heat pump cost 5.400 · boiler upgrade scheme 4.400 (cpc 9,7 £) · how much is a heat pump 4.400 ·
+air source heat pump grant(s) 2.900 · how much does a heat pump cost 2.900 · heat pump installation cost 2.400 · government boiler scheme 1.900 ·
+heat pump cost uk 1.900 · government grants for heat pumps 1.600 · ground source heat pump cost 1.600 · boiler upgrade grant 1.300 ·
+heat pump grant uk 880 · government heat pump grant 880 · heat pump grant scotland 590 · heat pump installers 590 · boiler upgrade scheme
+eligibility 480 · ground source heat pump grant 480 · bus grant 480 · heat pump grant eligibility 390 · heat pump grant wales 210 · heat pump grant
+northern ireland 210 · air to air heat pump grant 140. Altri schemi: eco4 scheme 9.900 · eco4 / eco 4 grant / great british insulation scheme /
+loft insulation grant / free boiler scheme / home energy scotland 4.400 · eco4 grant(s) 3.600 · new boiler grant 3.600 · external wall insulation
+grant 2.900 · cavity wall insulation grant 2.400 · warm homes plan 1.900 · gbis scheme 1.900 · warm homes local grant 1.600 · home upgrade grant
+1.600 · eco4 eligibility 1.300 · warmer homes scotland 1.300 · home energy scotland grant 1.000 · nest wales 880 · affordable warmth scheme ni 590.
+Solare: solar panels 60.500 · solar panels cost / uk 9.900 · solar panel grants 8.100 · solar panel grants uk / solar panel grant 6.600 ·
+government grants for solar panels 3.600 · free solar panels 2.400 · smart export guarantee 1.600 · solar panels scotland / northern ireland 1.600 ·
+solar panels grant scotland 1.300 · solar panels grant wales 1.000 · vat on solar panels 390.
+**Non nel database (404):** tutte le 43 frasi "heat pump grant <council/città/contea>" (anche "air source heat pump grant <contea>") (London, Cornwall, Devon, Kent, Leeds, Glasgow…), "£7500 heat pump
+grant" e varianti, "boiler upgrade scheme 2026/9000/air to air/landlords/new build", "heat pump installers near me", "warm homes plan eligibility",
+"eco4 2026", "nest grant". Le pagine council restano per i dati, non per la ricerca: **nessun cambio ai 318 council**.
+
+**Titoli, h1, descrizioni (tutto da `genera.py`; `RICERCHE_PAGINA` lega pagina e ricerche; URL invariati):**
+
+| Pagina | Titolo prima | Titolo dopo | h1 dopo | Ricerca guida (vol.) |
+|---|---|---|---|---|
+| `/` | Heat Pump Grant UK 2026: £7,500 Boiler Upgrade Scheme Figures | invariato | invariato | heat pump grant 5.400, boiler upgrade scheme 4.400; descrizione con "government heat pump grant" 880 |
+| `/eligibility/` | Boiler Upgrade Scheme Eligibility 2026: Who Can Get the Grant | Air Source Heat Pump Grant: Boiler Upgrade Scheme Eligibility | Boiler Upgrade Scheme eligibility: who can get the heat pump grant (era "Who can get the heat pump grant") | air source heat pump grant 2.900, boiler upgrade scheme eligibility 480, heat pump grant eligibility 390 (descrizione) |
+| `/heat-pump-cost/` | Heat Pump Cost UK 2026: Official Median After the Grant | Air Source Heat Pump Cost UK 2026: Official Median After Grant | How much does a heat pump cost? The official median, before and after the grant (era "How much a heat pump costs after the grant") | air source heat pump cost 5.400 (contiene heat pump cost 8.100 e heat pump cost uk 1.900), how much does a heat pump cost 2.900 |
+| `/solar-panels/` | Solar Panel Cost UK 2026 by Region: Official £ per kW | Solar Panels Cost UK 2026: Official £ per kW by Region | invariato | solar panels cost 9.900 |
+| `/heat-pump-grants/wales/` | Heat Pump Grants in Wales: 4,980 Paid, by Council | Heat Pump Grant Wales: 4,980 Paid and the Nest Scheme | Heat pump grants in Wales: Boiler Upgrade Scheme and Nest | heat pump grant wales 210, nest wales 880 |
+| `/eco4/` (nuova) | – | ECO4 Scheme 2026: Eligibility, End Date and What It Covers | ECO4 grant scheme: who is eligible and when it ends | eco4 scheme 9.900, eco4 4.400, eco4 grant 3.600, eco4 eligibility 1.300 |
+| `/great-british-insulation-scheme/` (nuova) | – | Great British Insulation Scheme (GBIS): Ended 31 March 2026 | Great British Insulation Scheme: closed, and what it installed | great british insulation scheme 4.400, gbis 1.600, loft insulation grant 4.400 (FAQ) |
+| `/warm-homes-local-grant/` (nuova) | – | Warm Homes Local Grant 2026: Eligibility and What It Pays For | Warm Homes: Local Grant: who can get it and what it pays for | warm homes local grant 1.600, warm homes plan 1.900 (FAQ), warm homes grant 1.300 (FAQ) |
+| `/solar-panel-grants/` (nuova) | – | Solar Panel Grants UK 2026: Which Official Schemes Cover Them | Solar panel grants in the UK: which official schemes pay for panels | solar panel grants uk 6.600 (contiene solar panel grants 8.100), government grants for solar panels 3.600, free solar panels 2.400 |
+| `/heat-pump-grants/scotland/` (nuova) | – | Heat Pump Grant Scotland: Home Energy Scotland and Warmer Homes | Heat pump grants in Scotland: Home Energy Scotland grant and Warmer Homes Scotland | heat pump grant scotland 590, home energy scotland 4.400, warmer homes scotland 1.300 |
+
+Prima del 13/11 le descrizioni di home ed eligibility non contenevano "government heat pump grant" né "heat pump grant eligibility"; ora sì
+(147 e 148 caratteri). Le altre 9 regioni hanno titolo invariato ("heat pump grant <regione>" non è nel database).
+
+**Pagine nuove (5; erano candidate anche Warm Homes Plan, Irlanda del Nord, Galles: vedi "non fatte").** Ognuna: testo ufficiale citato con il
+rimando, cifre ufficiali DESNZ ricalcolate da `verifica.py`, FAQ, "Other grants and schemes", fonti; contenuto proprio 700+ parole (controllato).
+- `/eco4/`: GOV.UK "Help from your energy supplier" (chiude il **31/12/2026**, benefici, EPC D-G proprietari, E-G affitto privato, social housing
+  E-G) + Ofgem ECO ("will run until 31 December 2026, following a nine-month extension") + DESNZ Household Energy Efficiency tabella 1.6:
+  **1.043.846 misure in 306.624 case** ad aprile 2026 (colonna "Surplus Actions, ECO3 Interim and ECO4"), 45.870 pompe aria-acqua, 65.484 FV,
+  103.339 caldaie, 143.305 sottotetti.
+- `/great-british-insulation-scheme/`: Ofgem (chiuso, aprile 2023 - 31/3/2026, criteri D-G e fasce council tax) + GOV.UK + DESNZ GBIS giugno 2026:
+  **100.940 case, 139.136 misure**, per tipo e per regione/nazione con il tasso DESNZ per 100.000 famiglie (Nord Est 919, Londra 174, GB 355).
+- `/warm-homes-local-grant/`: GOV.UK (solo Inghilterra, reddito di norma ≤ 36.000 £, EPC D-G, "You will not need to pay for it") + DESNZ WH:LG
+  agosto 2026 (dati a luglio): **5.469 case, 11.247 misure**, FV 4.297 (costo medio 7.200 £), pompe aria-acqua 894 (14.800 £), per mese e per
+  regione; citazione DESNZ "The Warm Homes: Local Grant (WH:LG) is part of this plan" (Warm Homes Plan).
+- `/solar-panel-grants/`: nessun contributo nazionale; WH:LG (Inghilterra), Nest (Galles), ECO4; Scozia: la tabella di Home Energy Scotland segna
+  "Not available" come contributo per solare termico e PV-T; IVA a aliquota zero fino al 31/3/2027 (HMRC VAT Notice 708/6, batterie dal 1/2/2024);
+  Smart Export Guarantee (Ofgem); costo per kW dai dati già nel sito. Il Boiler Upgrade Scheme non copre il solare.
+- `/heat-pump-grants/scotland/`: BUS non in Scozia (GOV.UK); Home Energy Scotland: contributo fino a 7.500 £ per la pompa di calore, +1.500 £
+  rurale/isole, fino a 75 % (max 7.500 £) per l'isolamento, fino a 18.000 £ in totale, solo pompe che coprono tutto il riscaldamento (no ibride,
+  aria-aria, aria esausta), tabella dei contributi; Warmer Homes Scotland (≥ 10.000 £, condizioni); ECO4 vale anche in Scozia; GBIS Scozia
+  6.044 case; solare Scozia.
+**Pagine cambiate oltre ai titoli:** Galles (sezione Nest con le parole di GOV.WALES, 2 FAQ); tutte le 10 regioni E+G (paragrafo "Other schemes
+in …" con GBIS della regione e, in Inghilterra, WH:LG: dati propri di ogni regione); home (blocco "Other grants…", FAQ Irlanda del Nord);
+eligibility (blocco altri schemi, FAQ ground source); hub aree (rimando Scozia); hub solare (rimando ai contributi); piè di pagina (5 guide nuove,
+su tutte le 375 pagine); how-we-check e about (fonti nuove, licenze GOV.WALES/nidirect, citazioni Ofgem e Home Energy Scotland attribuite);
+avviso in fondo alle pagine reso generico (prima diceva che l'idoneità la controlla Ofgem: vero solo per il BUS).
+
+**FAQ: 46 (erano 19), +27** da ricerche misurate (campi `misurata`, `volume_gb` in `dati/faq.json`): home (Irlanda del Nord: BUS solo E+G, Boiler
+Replacement Scheme NI chiuso, Affordable Warmth Scheme da nidirect), eligibility (ground source 480), costo ("how much is a heat pump" 4.400:
+mediana per fascia di potenza 2025/26), Galles 2, Scozia 3, ECO4 5 (anche "new boiler grant" 3.600, "eco4 solar panels" 260), GBIS 4 (anche
+"loft insulation grant" 4.400), WH:LG 4 ("warm homes plan" 1.900 risposto con la frase DESNZ), solare 6. Ogni citazione tra “…” è controllata
+dentro una frase verificata della sua fonte (o nel testo dell'xlsx).
+
+**Fonti nuove (lette il 13/11/2026 con lo stesso programma `raccolta/fonti.py`, nessun blocco aggirato):** 3 xlsx DESNZ (OGL) presi dall'API di
+GOV.UK come gli altri: `gbis_xlsx` (GBIS statistics June 2026, ultima uscita mensile; ancora una prevista il 21/1/2027), `whlg_xlsx` (WH:LG
+August 2026, ora trimestrale, prossima 26/11/2026), `hee_xlsx` (Household Energy Efficiency headline June 2026; DESNZ propone ancora un'uscita a
+fine 2026 e una finale). 12 pagine con **102 frasi esatte** in più (tutte trovate; in totale 154): GOV.UK `gov_eco`, `gov_gbis`, `gov_whlg`,
+`hmrc_vat`; Ofgem `ofgem_eco`, `ofgem_gbis`, `ofgem_seg`; Home Energy Scotland `hes_grant`, `hes_whs` (servizio del Scottish Government; testo
+non OGL: solo citazioni brevi attribuite); GOV.WALES `wales_nest`, `wales_nest_free`; nidirect `nid_grants`. **Non lette (403, non aggirate):**
+NIHE Affordable Warmth, Energy Saving Trust (NISEP, Cloudflare). Le 4 xlsx già usate sono identiche (stesse impronte).
+
+**Regola "niente prestiti" e nomi dei sussidi.** ECO4 si spiega solo con l'elenco dei benefici di GOV.UK, che contiene "Universal Credit",
+"Pension Guarantee Credit", "Pension Savings Credit". `verifica.py` toglie **solo questi tre nomi esatti** prima di cercare "credit" (variabile
+`SUSSIDI`); ogni altro "credit" resta vietato. La Scozia: il programma di Home Energy Scotland si chiama "Grant and Loan" e Warmer Homes Scotland
+cita un prestito; il sito nomina solo "Home Energy Scotland grant" e cita solo le frasi sui contributi (titolo della fonte: "Home Energy Scotland:
+funding for homeowners"). **Warm Homes Plan:** nessuna pagina propria perché la sua parte principale per i proprietari è il Warm Homes Loan
+Scheme (GOV.UK 28/10/2026, finanziatori nominati): la ricerca "warm homes plan" (1.900) ha solo la FAQ con la frase DESNZ sul WH:LG.
+
+**Domanda non coperta (nessuna pagina):**
+
+| Tema | Volume UK | Perché no |
+|---|---|---|
+| EPC (energy performance certificate, epc check, epc rating) | 110.000 / 74.000 / 40.500 | servizio GOV.UK di ricerca, non un dato che possiamo dare; solo link al registro nelle pagine ECO4 |
+| Warm home discount | 33.100 | sconto in bolletta, non un contributo per impianti; fuori tema (possibile pagina futura con fonte GOV.UK) |
+| Warm Homes Plan | 1.900 | parte principale = prestiti (regola legale) |
+| Irlanda del Nord (affordable warmth 590+480, boiler replacement NI 390+390, warm homes NI 390, nisep 170) | ~2.400 | NIHE ed EST 403; nidirect ha 2 frasi: solo FAQ in home |
+| Home upgrade grant | 1.600 | nessuna frase ufficiale letta che leghi HUG e WH:LG |
+| Heat pump installers (590; "near me" non nel database) | 590 | nessun dato ufficiale per luogo; il riquadro preventivi resta spento |
+| Boiler grants (free boiler scheme 4.400, new boiler grant 3.600, boiler replacement grant 1.600) | ~11.000 | coperti solo dalla FAQ ECO4 "new boiler grant"; una pagina sarebbe un doppione di /eco4/ |
+| Insulation grants (external wall 2.900, cavity 2.400, free loft 1.900) | ~9.000 | FAQ "loft insulation grant" su GBIS; una pagina "insulation grants" con ECO4+WH:LG+HES è la candidata n. 1 per il prossimo giro |
+
+**Controlli del 13/11 (`verifica.py`, sezioni nuove):** 2b ricalcolo indipendente da `gbis.xlsx`, `whlg.xlsx`, `hee.xlsx` (134 valori su pagine
+nuove, Scozia, Galles, Nord Est, Londra); 4 FAQ: ricerca in `domanda.json` **oppure** volume misurato > 0 uguale a `volume_gb`, citazioni “…”
+dentro le frasi controllate; 4b ricerche per pagina (43 su 10 pagine: volume > 0, la prima tutta nel titolo, le altre in titolo, h1, descrizione
+o FAQ), 5 pagine nuove ≥ 700 parole di contenuto proprio, nessuna chiave dello strumento; nomi dei sussidi (sopra); `--browser` ora su 7 pagine
+(+ /eco4/, /heat-pump-grants/scotland/, /warm-homes-local-grant/). `genera.py` si ferma dopo il **31/12/2026** finché la pagina ECO4 non viene
+riscritta (fine dello schema).
+Risultati: `python3 heatpumps/genera.py` → 230 indicizzabili + 144 noindex + 404; `python3 heatpumps/verifica.py --browser` → **0 errori, 0 avvisi**
+(4.132 cifre BUS/solare + 134 schemi; 46 FAQ; 7 pagine × 375/1280 × chiaro/scuro, richieste esterne bloccate); `python3
+studio-business/strumenti/monetizzazione.py verifica heatpumps` → 0 errori; Playwright a parte su /solar-panel-grants/ e
+/great-british-insulation-scheme/ a 375 e 1280 px (solo file locali serviti, tutto il resto bloccato): niente scorrimento orizzontale, nessun
+errore JS, nessun testo < 11 px. Riquadro preventivi: spento come prima.
+
+**Aggiornamento (in più rispetto alla procedura sopra):** WH:LG trimestrale (prossima 26/11/2026, stesso giorno del BUS): `raccolta/fonti.py`
+la prende da sola. GBIS: un'ultima uscita il 21/1/2027. ECO4: dopo il 31/12/2026 riscrivere `/eco4/`, le FAQ ECO4 e i rimandi "until 31 December
+2026" (anche in `altri_schemi`, Scozia, solare, regioni). IVA a zero e 9.000 £: 31/3/2027 (controllo già presente). Ricerche: rimisurare ogni
+qualche mese con `python3 -I heatpumps/raccolta/volumi.py elenco.txt` (scrive un file nuovo con la data; aggiornare `FILE_VOLUMI` in `verifica.py`).
+
+**Dubbi per il revisore:** (a) eccezione "Universal Credit"/"Pension … Credit" alla parola vietata "credit"; (b) citazioni da Home Energy Scotland
+(non OGL) e omissione della parte prestiti di quello schema; (c) ECO4: la colonna DESNZ comprende ECO3 "interim" e "surplus actions" (detto
+nella didascalia); (d) titolo eligibility "Air Source Heat Pump Grant: …" sulla pagina di tutte le tecnologie (la pagina copre anche
+ground source, aria-aria e biomassa); (e) titolo costo "… Cost UK" con dati solo Inghilterra e Galles (come prima; la pagina lo dice).
+
+**Revisione indipendente (14/11/2026).** Fonti rilette da zero con un programma diverso (curl + estrazione propria): le 3 xlsx DESNZ sono le ultime
+uscite e hanno le stesse impronte dei file in `_grezzi`; 132 frasi esatte su 132 presenti nelle pagine ufficiali; circa 190 cifre delle 5 pagine
+nuove, dei paragrafi delle 10 regioni e delle FAQ confrontate a mano con le tabelle (GBIS T2-T4, WH:LG T1-T3, HEE 1.6): 0 differenze.
+Correzioni fatte in `genera.py` e `dati/faq.json`: (1) ECO4: la nota sotto le cifre e la FAQ "What is the ECO4 scheme?" ora dicono che il conteggio
+DESNZ comprende ECO3 interim e surplus actions (solo ECO4: 952.923 misure, 238.044 case; prima lo diceva solo la didascalia della tabella);
+(2) descrizioni di home, eligibility e costo con "in England and Wales" (i titoli dicono "UK" o non dicono l'ambito); (3) Scozia: la frase copiata
+parola per parola da Home Energy Scotland ora è attribuita e riformulata, la cifra in alto dice "maximum", la didascalia dice "Selected rows".
+Risposte ai dubbi: (a) eccezione per i tre nomi esatti dei sussidi: va bene; (b) Home Energy Scotland: citazioni brevi e attribuite, la parte
+non a fondo perduto resta fuori, va bene (l'unica traccia è l'indirizzo della fonte); (c) risolto con la correzione 1; (d) titolo eligibility:
+tenuto (la pagina risponde alla ricerca e la descrizione nomina ground source, £9,000 e £2,500); (e) titolo costo "UK": tenuto, ambito ora nella
+descrizione. Blocco del generatore dopo il 31/12/2026: sensato, ma ferma anche l'aggiornamento mensile del BUS finché `/eco4/` non è riscritta:
+metterlo in agenda per la settimana del 28/12.

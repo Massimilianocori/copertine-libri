@@ -451,6 +451,9 @@ def pagine():
     tassi_pubblicati()
     pagine_anno()
     pensione()
+    riscaldamento()
+    import verifica_2027 as V27  # sezioni /uk/…-2027/ e /rent-increase-cap/ (cifre GOV.UK e tetti agli affitti)
+    pagine_2027 = V27.controlla(err, ok, G, SITO)
     # link interni
     rotti = set()
     for rel, l in tutti_link:
@@ -468,6 +471,9 @@ def pagine():
     attese = ["", "uk/", "uk/rpi-calculator/", "uk/inflation-rate-by-year/", "us/inflation-rate-by-year/"]
     attese += ["de/inflationsrechner/", "de/inflationsrate-deutschland/"] if DE else []
     attese += list(PEN.PAGINE.values())
+    import riscaldamento as RIS
+    attese += [k["slug"] for k in RIS.COMB.values()] + [RIS.percorso(c, n) for c, _, n, _, _ in RIS.pagine_stato(G)]
+    attese += pagine_2027
     attese += [f"us/{y}-dollars-today/" for y in G.ANNI_US] + [f"us/{x}-dollars-in-{y}/" for x in G.IMPORTI_PAGINA for y in G.DECENNI_IMPORTO]
     mancano = [a for a in attese if f"{G.URL_SITO}/{a}" not in canon]
     if mancano:
@@ -786,6 +792,387 @@ def roth_motore():
            f"bordi delle fasce al centesimo, {minimi} casi al minimo di 200 $, compenso basso, versamenti ad altri IRA); esempio del foglio IRS 2025 = 6.540 $")
 
 
+# ---------------------------------------------------------------- 3c. prezzi EIA di gasolio da riscaldamento e propano
+EIA_DIR = RADICE / "dati" / "grezzi" / "eia"
+EIA_PRODOTTO = {"oil": ("EPD2F", "heating_oil", "rh"), "propane": ("EPLLPA", "propane", "rp")}
+EIA_CONSIGLI = re.compile(r"\b(buy now|best time to (buy|fill|order)|lock in|pre-?buy|cheapest|best (supplier|dealer|company|price)|"
+                          r"should (buy|fill|order|wait)|we recommend|top up now|prices will (rise|fall|go))\b", re.I)
+
+
+def _eia_xls(comb):
+    """Lettura indipendente dell'XLS grezzo (non usa raccolta/eia.py né riscaldamento.py): (date, {area: {data: millesimi}}, nomi, errori)."""
+    import xlrd
+    from datetime import date as _d
+    prodotto, nome, _ = EIA_PRODOTTO[comb]
+    libro = xlrd.open_workbook(str(EIA_DIR / f"{nome}.xls"))
+    f = libro.sheet_by_name("Data 1")
+    e = []
+    date_ = []
+    for r in range(3, f.nrows):
+        d = xlrd.xldate_as_datetime(f.cell_value(r, 0), libro.datemode).date()
+        if d.weekday() != 0:
+            e.append(f"{comb}: {d} non è un lunedì")
+        date_.append(d)
+    if date_ != sorted(set(date_)) or date_[0] != _d(1990, 10, 1):
+        e.append(f"{comb}: date non crescenti o inizio diverso dal 1/10/1990")
+    aree, nomi = {}, {}
+    for j in range(1, f.ncols):
+        chiave, titolo = f.cell_value(1, j), f.cell_value(2, j)
+        m = re.fullmatch(rf"W_{prodotto}_PRS_(?:(NUS|R\w\w)|S(\w\w))_DPG", chiave)
+        if not m or not re.search(r"Residential Price\s+\(Dollars per Gallon\)$", titolo) or not titolo.startswith("Weekly "):
+            e.append(f"{comb}: colonna {chiave} / {titolo}: non è un prezzo residenziale in dollari per gallone")
+            continue
+        cod = m.group(1) or m.group(2)
+        nomi[cod] = (chiave, re.sub(r"\s+(No\. 2 Heating Oil|Propane) Residential Price.*$", "", re.sub(r"^(Weekly )+", "", titolo)))
+        aree[cod] = {}
+        for r in range(3, f.nrows):
+            c = f.cell(r, j)
+            if c.ctype == xlrd.XL_CELL_NUMBER:
+                mill = round(c.value * 1000)
+                if not (300 < mill < 15000) or abs(c.value * 1000 - mill) > 1e-6:
+                    e.append(f"{comb} {cod} {date_[r - 3]}: valore fuori scala o con più di tre decimali ({c.value})")
+                aree[cod][date_[r - 3]] = mill
+            elif c.ctype != xlrd.XL_CELL_EMPTY and str(c.value).strip():
+                e.append(f"{comb} {cod} {date_[r - 3]}: cella inattesa {c.value!r}")
+    return date_, aree, nomi, e
+
+
+def _eia_anno_prima(v, d):
+    from datetime import timedelta
+    for g in (364, 371, 357):
+        if d - timedelta(days=g) in v:
+            return d - timedelta(days=g)
+    return None
+
+
+def _mezzo_su(fr):
+    """Arrotonda una frazione all'intero più vicino, il mezzo per eccesso."""
+    import math
+    from fractions import Fraction
+    return math.floor(fr + Fraction(1, 2))
+
+
+def _eia_stagione(d):
+    return d.year if d.month >= 10 else d.year - 1 if d.month <= 3 else None
+
+
+def riscaldamento():
+    n_err = len(ERR)
+    _riscaldamento()
+    if len(ERR) > n_err:  # con anche un solo errore nessuna riga «ok» della sezione resta
+        OK[:] = [x for x in OK if not (x.startswith("EIA:") or x.startswith("costo del pieno"))]
+
+
+def _riscaldamento():
+    import hashlib
+    from datetime import date as _d, timedelta
+    from fractions import Fraction
+    import riscaldamento as RIS
+    fonti = G.FONTI
+    # A. file grezzi = fonti.json (SHA-256), frasi ancora presenti
+    ids = [k for k in fonti if k.startswith("eia_")]
+    for k in ids:
+        f = fonti[k]
+        b = (RADICE / "dati" / f["file"]).read_bytes()
+        if hashlib.sha256(b).hexdigest() != f["sha256"] or f["http"] != 200 or len(b) != f["byte"] or not f["url"].startswith("https://www.eia.gov/"):
+            err(f"EIA {k}: file grezzo diverso da fonti.json (SHA-256, byte, HTTP o indirizzo)")
+        if f.get("cerca"):
+            t = re.sub(r"\s+", " ", testo(b.decode("utf-8", "replace")))
+            for nome, frase in f["cerca"].items():
+                if frase not in t:
+                    err(f"EIA {k}: frase «{nome}» non più nel file")
+    if len(ids) != 7:
+        err(f"EIA: {len(ids)} fonti invece di 7")
+    # B. XLS riletti da zero; eia_prezzi.json = XLS valore per valore
+    X = {}
+    prezzi = json.loads((RADICE / "dati" / "eia_prezzi.json").read_text(encoding="utf-8"))
+    n_val = 0
+    for comb in EIA_PRODOTTO:
+        date_, aree, nomi, e = _eia_xls(comb)
+        ERR.extend(e)
+        X[comb] = (date_, aree, nomi)
+        pj = prezzi["combustibili"][comb]
+        if pj["date"] != [d.isoformat() for d in date_] or set(pj["aree"]) != set(aree):
+            err(f"EIA {comb}: date o aree di eia_prezzi.json diverse dall'XLS")
+            continue
+        for cod, a in pj["aree"].items():
+            for d, x in zip(date_, a["valori"]):
+                if (None if x is None else round(x * 1000)) != aree[cod].get(d):
+                    err(f"EIA {comb} {cod} {d}: eia_prezzi.json {x} ≠ XLS {aree[cod].get(d)}")
+                n_val += x is not None
+        if fonti[f"eia_{comb}_xls"].get("ultima_settimana") != date_[-1].isoformat():
+            err(f"EIA {comb}: ultima settimana in fonti.json diversa dall'XLS")
+    attivi = {comb: sorted(c for c, v in X[comb][1].items() if len(c) == 2 and any(d in v for d in X[comb][0][-3:])) for comb in X}
+    if (len(X["oil"][1]), len(X["propane"][1])) != (29, 46) or (len(attivi["oil"]), len(attivi["propane"])) != (21, 38):
+        err(f"EIA: serie {len(X['oil'][1])}/{len(X['propane'][1])} (attese 29/46), Stati con prezzo corrente {len(attivi['oil'])}/{len(attivi['propane'])} (attesi 21/38)")
+    if X["oil"][0][-1] != X["propane"][0][-1]:
+        err("EIA: gasolio e propano non hanno la stessa ultima settimana")
+    ultima = X["oil"][0][-1]
+    ok(f"EIA: 7 file grezzi = fonti.json (SHA-256) con le frasi su tasse, stagione, revisioni e dominio pubblico; XLS riletti da zero: gasolio {len(X['oil'][0])} "
+       f"settimane e {len(X['oil'][1])} serie, propano {len(X['propane'][0])} e {len(X['propane'][1])}, tutti lunedì dal 1/10/1990 al {ultima.strftime('%d/%m/%Y')}, "
+       f"dollari per gallone a tre decimali; {n_val} valori di eia_prezzi.json = XLS; Stati con prezzo corrente {len(attivi['oil'])} e {len(attivi['propane'])}")
+    # C. tabelle HTML dell'EIA (ultime 6 settimane) = XLS
+    n_tab = 0
+    for comb, (_, nome, _) in EIA_PRODOTTO.items():
+        t = (EIA_DIR / f"{nome}.htm").read_text(encoding="latin-1")
+        if "(Dollars per Gallon Excluding Taxes)" not in t:
+            err(f"EIA {comb}: la tabella non dice più «Dollars per Gallon Excluding Taxes»")
+        dd = [_d(2000 + int(x[6:8]), int(x[0:2]), int(x[3:5])) for x in re.findall(r'<th class="Series5">(\d\d/\d\d/\d\d)</th>', t)]
+        if dd != X[comb][0][-6:]:
+            err(f"EIA {comb}: settimane della tabella HTML ≠ ultime 6 dell'XLS")
+        per_chiave = {v[0]: c for c, v in X[comb][2].items()}
+        righe = t.split('<tr class="DataRow">')[1:]
+        if len(righe) != len(X[comb][1]):
+            err(f"EIA {comb}: {len(righe)} righe nella tabella HTML, {len(X[comb][1])} serie nell'XLS")
+        for r in righe:
+            ch = re.search(r"[?&;]s=(W_\w+_DPG)", r).group(1)
+            celle = [unescape(c).replace("\xa0", "").strip() for c in re.findall(r'class="(?:DataB|Current2)">(.*?)</td>', r, re.S)]
+            for d, c in zip(dd, celle):
+                x = X[comb][1][per_chiave[ch]].get(d)
+                if (round(float(c) * 1000) if re.fullmatch(r"\d+\.\d{3}", c) else None) != x:
+                    err(f"EIA {comb} {ch} {d}: tabella HTML «{c}» ≠ XLS {x}")
+                n_tab += x is not None
+    # D. pagina "Heating Oil and Propane Update": ultimo prezzo, variazione sulla settimana e sull'anno = nostre regole (7 giorni; 52 settimane)
+    up = (EIA_DIR / "update.htm").read_text(encoding="utf-8")
+    n_up = 0
+    for comb, (_, _, tid) in EIA_PRODOTTO.items():
+        seg = up[up.index(f'id="{tid}"'):]
+        seg = seg[:seg.index("</table>")]
+        m = re.search(r"<th>(\d\d)/(\d\d)/(\d\d)</th>", seg)
+        if not m or _d(2000 + int(m.group(3)), int(m.group(1)), int(m.group(2))) != ultima:
+            err(f"EIA update {comb}: data della tabella diversa dall'ultima settimana dell'XLS")
+        per_nome = {v[1]: c for c, v in X[comb][2].items()}
+        per_nome.update({"U.S. Average": "NUS", "Midwest (PADD 2)": per_nome.get("PADD 2", per_nome.get("Midwest (PADD 2)"))})
+        for r in re.findall(r"<tr[^>]*>(.*?)</tr>", seg, re.S):
+            c = [re.sub(r"\s+", " ", unescape(re.sub(r"<[^>]+>", "", x))).strip() for x in re.findall(r"<td>(.*?)</td>", r, re.S)]
+            if len(c) != 4 or not re.fullmatch(r"\d+\.\d{3}", c[1]):
+                continue
+            if c[0] not in per_nome:
+                err(f"EIA update {comb}: area «{c[0]}» non trovata nell'XLS")
+                continue
+            v = X[comb][1][per_nome[c[0]]]
+            att = [v.get(ultima)]
+            w, y = ultima - timedelta(days=7), _eia_anno_prima(v, ultima)
+            att.append(v[ultima] - v[w] if ultima in v and w in v else None)
+            att.append(v[ultima] - v[y] if ultima in v and y else None)
+            letti = [round(float(x) * 1000) if re.fullmatch(r"-?\d+\.\d{3}", x) else None for x in c[1:]]
+            if letti != att:
+                err(f"EIA update {comb} {c[0]}: pagina EIA {c[1:]} ≠ XLS con le nostre regole {att}")
+            n_up += 1
+    ok(f"EIA: tabelle HTML (6 settimane) = XLS su {n_tab} valori; pagina Update dell'EIA: ultimo prezzo, variazione sulla settimana e sull'anno prima "
+       f"uguali ai nostri conti per {n_up} aree (anno prima = 52 settimane prima)")
+
+    # E. pagine: ogni prezzo stampato rifatto dall'XLS
+    def prezzo(comb, cod, iso):
+        return X[comb][1][cod].get(_d.fromisoformat(iso))
+
+    def p3(m):
+        return f"${m / 1000:.3f}"
+
+    def stag(comb, cod, s):
+        return [m for d, m in sorted(X[comb][1][cod].items()) if _eia_stagione(d) == s]
+
+    def coppie(comb, cod, s):
+        v = X[comb][1][cod]
+        return [(v[d], v[_eia_anno_prima(v, d)]) for d in sorted(v) if _eia_stagione(d) == s and _eia_anno_prima(v, d)]
+
+    def db(d):
+        return f"{G.MESI['en'][d.month - 1][:3]} {d.day}, {d.year}"
+
+    def dl(d):
+        return f"{G.MESI['en'][d.month - 1]} {d.day}, {d.year}"
+
+    def atteso(tipo, chiave):
+        k = chiave.split("|")
+        comb, cod = k[0], k[1]
+        if tipo == "p":
+            return p3(prezzo(comb, cod, k[2]))
+        if tipo in ("d", "r"):
+            a, b = prezzo(comb, cod, k[2]), prezzo(comb, cod, k[3])
+            if tipo == "d":
+                return ("+" if a > b else "−" if a < b else "") + p3(abs(a - b))
+            r10 = _mezzo_su(Fraction(1000 * (a - b), b))
+            if abs(r10 / 10 - (a / b - 1) * 100) > 0.0501:
+                return "?"
+            return ("+" if r10 > 0 else "−" if r10 < 0 else "") + f"{abs(r10) / 10:.1f}%"
+        if tipo == "m":
+            v = stag(comb, cod, int(k[2]))
+            return p3(_mezzo_su(Fraction(sum(v), len(v))))
+        if tipo == "mp":
+            v = [x[0 if k[3] == "cur" else 1] for x in coppie(comb, cod, int(k[2]))]
+            return p3(_mezzo_su(Fraction(sum(v), len(v))))
+        if tipo == "cpi":
+            v = stag(comb, cod, int(k[2]))
+            r = M.calcola(G.C["us"], _mezzo_su(Fraction(sum(v), len(v))) / 1000, (int(k[2]) + 1, 1), G.US_LU)
+            return f"${r['valore']:.2f}"
+        if tipo == "t":
+            return f"${_mezzo_su(Fraction(int(k[3]) * prezzo(comb, cod, k[2]), 100)) / 100:,.2f}"
+        return "?"
+    ps = RIS.pagine_stato(G)
+    pagine_ = [(comb, "NUS", None, RIS.COMB[comb]["slug"]) for comb in EIA_PRODOTTO] + [(c, cod, nome, RIS.percorso(c, nome)) for c, cod, nome, _, _ in ps]
+    conta = {"p": 0, "d": 0, "r": 0, "m": 0, "mp": 0, "cpi": 0, "t": 0}
+    n_date = n_json = 0
+    for comb, cod, nome, perc in pagine_:
+        f = SITO / perc / "index.html"
+        if not f.exists():
+            err(f"EIA: pagina {perc} mancante")
+            continue
+        t = f.read_text(encoding="utf-8")
+        v = X[comb][1][cod]
+        ult = max(v)
+        if ult != ultima:  # l'EIA può non pubblicare uno Stato per una settimana (NA): la pagina mostra la data del suo ultimo prezzo
+            AVV.append(f"{perc}: l'ultimo prezzo dell'area è del {ult}, non dell'ultima settimana {ultima}")
+        for m in re.finditer(r'<(\w+)[^>]*? data-(p|d|r|m|mp|cpi|t)="([^"]+)"[^>]*>(.*?)</\1>', t, re.S):
+            tipo, chiave, mostrato = m.group(2), m.group(3), unescape(m.group(4))
+            try:
+                a = atteso(tipo, chiave)
+            except Exception as ex:  # noqa: BLE001
+                a = f"errore {ex!r}"
+            if mostrato != a:
+                err(f"{perc}: data-{tipo}={chiave}: stampato «{mostrato}», dall'XLS «{a}»")
+            conta[tipo] += 1
+        # la data accanto a ogni prezzo delle tabelle è quella della sua settimana
+        for m in re.finditer(r'<td class="nw[^"]*">([^<]+)</td><td class="n" data-p="\w+\|\w+\|([\d-]+)">', t):
+            if m.group(1) != db(_d.fromisoformat(m.group(2))):
+                err(f"{perc}: data «{m.group(1)}» accanto al prezzo del {m.group(2)}")
+            n_date += 1
+        # apertura: prezzo dell'ultima settimana dell'area, con la sua data; titolo e descrizione con lo stesso prezzo
+        apre = re.search(r'<span class="big"><span data-p="([^"]+)">', t)
+        if not apre or apre.group(1) != f"{comb}|{cod}|{ult.isoformat()}" or f"on Monday, {dl(ult)}, excluding taxes" not in t:
+            err(f"{perc}: il prezzo d'apertura non è quello dell'ultima settimana ({ult}) o manca la data")
+        tit = unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+        des = unescape(re.search(r'<meta name="description" content="([^"]*)"', t).group(1))
+        if f"{p3(v[ult])}/Gallon, {db(ult)}" not in tit or f"{p3(v[ult])} per gallon on {db(ult)}" not in des or len(tit) > 65 or len(des) > 160:
+            err(f"{perc}: titolo o descrizione senza il prezzo e la data dell'ultima settimana, o troppo lunghi ({len(tit)}/{len(des)})")
+        y = _eia_anno_prima(v, ult)
+        m = re.search(r"(\d+\.\d)% (higher|lower) than a year earlier", des)
+        if nome and y and (not m or f"{'+' if m.group(2) == 'higher' else '−'}{m.group(1)}%" != atteso("r", f"{comb}|{cod}|{ult.isoformat()}|{y.isoformat()}")):
+            err(f"{perc}: variazione sull'anno nella descrizione diversa dall'XLS")
+        if nome and (nome not in tit or t.count(f"in {nome}") < 3):
+            err(f"{perc}: il nome dello Stato manca dal titolo o dal testo")
+        # calcolatore: dati nel JSON = XLS; risultato iniziale = Python
+        dj = json.loads(re.search(r'<script type="application/json" id="tank-dati">(.*?)</script>', t, re.S).group(1))
+        if set(dj["aree"]) != set(attivi[comb]) | {"NUS"}:
+            err(f"{perc}: aree del calcolatore diverse dagli Stati con prezzo corrente")
+        for c2, a in dj["aree"].items():
+            v2 = X[comb][1][c2]
+            u2 = max(v2)
+            y2 = _eia_anno_prima(v2, u2)
+            if a[1:] != [v2[u2], dl(u2), v2[y2] if y2 else None, dl(y2) if y2 else None] or (c2 != "NUS" and a[0] != X[comb][2][c2][1]):
+                err(f"{perc}: calcolatore, {c2}: {a} ≠ XLS")
+            n_json += 1
+        gd = RIS.COMB[comb]["gal"] * 10
+        calc = t[t.index('<section class="card calc" id="tank">'):t.index('<script type="application/json" id="tank-dati">')]
+        c0 = f"${RIS.costo_pieno(gd, v[ult]) / 100:,.2f}"
+        if f'data-t="{comb}|{cod}|{ult.isoformat()}|{gd}">{c0}</b>' not in calc or f"gallons × {p3(v[ult])} = {c0}</p>" not in calc or f'<option value="{cod}" selected>' not in calc:
+            err(f"{perc}: risultato iniziale del calcolatore diverso da galloni × ultimo prezzo")
+        if y and f"<b data-tank-prima>${RIS.costo_pieno(gd, v[y]) / 100:,.2f}</b>" not in calc:
+            err(f"{perc}: calcolatore, costo al prezzo di un anno prima diverso dall'XLS")
+        # nessun prezzo a tre decimali fuori dalle celle etichettate (tolti testa, script e il riquadro del calcolatore, controllati qui sopra)
+        resto = t[t.index("<body"):].replace(calc, "")
+        resto = re.sub(r"<script\b.*?</script>", "", resto, flags=re.S)
+        resto = re.sub(r'<span class="gy"[^>]*>[^<]*</span>', "", resto)  # tacche dell'asse dei grafici (numeri tondi, non prezzi)
+        resto = re.sub(r'<(\w+)[^>]*? data-(?:p|d|r|m|mp|cpi|t)="[^"]+"[^>]*>.*?</\1>', "", resto, flags=re.S)
+        liberi = re.findall(r"\$\d[\d,]*\.\d{2,3}\b", unescape(resto))
+        if liberi:
+            err(f"{perc}: importi non etichettati (non verificabili): {liberi[:5]}")
+        vis = re.sub(r"\s+", " ", testo(t))
+        m = EIA_CONSIGLI.search(vis)
+        if m:
+            err(f"{perc}: frase da consiglio d'acquisto «{m.group(0)}»")
+        for serve in ("U.S. Energy Information Administration", "excluding taxes", "not a price quote", "Public domain (work of the U.S. federal government)",
+                      "our own calculation", f"release of {dl(_d.fromisoformat(prezzi['combustibili'][comb]['uscita']))}" if RIS.IN_STAGIONE else "start again in October"):
+            if serve not in vis:
+                err(f"{perc}: manca «{serve}»")
+        if t.count("<svg viewBox") < 2 or 'class="lin2"' not in t:
+            err(f"{perc}: mancano i due grafici (inverno in corso e scorso, storia)")
+        if f"/assets/{G.TANK_FILE}" not in t:
+            err(f"{perc}: manca lo script del calcolatore")
+    # F. pagine per Stato = Stati con domanda misurata ≥ 100 (controllo indipendente dalla regola del generatore)
+    frasi = {}
+    for r in json.loads((RADICE / "dati" / "domanda.json").read_text(encoding="utf-8"))["richieste"]:
+        if r.get("gruppo") == "riscaldamento":
+            for x in [r] + r["simili"]:
+                frasi[x["frase"].lower()] = max(frasi.get(x["frase"].lower(), 0), x["volume"] or 0)
+    for comb, cod, nome, vol, frase in ps:
+        parola = "propane" if comb == "propane" else "oil"
+        if frasi.get(frase, 0) != vol or vol < RIS.SOGLIA or parola not in frase or not re.search(r"price|cost", frase) or not (
+                nome.lower() in frase or cod.lower() in frase.split()):
+            err(f"EIA: pagina {comb}/{nome} senza una frase misurata ≥ {RIS.SOGLIA} che nomini Stato, combustibile e prezzo («{frase}», {vol})")
+        if cod not in attivi[comb]:
+            err(f"EIA: pagina {comb}/{nome} per uno Stato senza prezzo corrente")
+    con = {(c, n) for c, _, n, _, _ in ps}
+    for comb in EIA_PRODOTTO:
+        for cod in attivi[comb]:
+            nome = X[comb][2][cod][1]
+            diretta = frasi.get(("heating oil prices " if comb == "oil" else "propane prices ") + nome.lower(), 0)
+            if diretta >= RIS.SOGLIA and (comb, nome) not in con:
+                err(f"EIA: {nome} ({comb}) ha {diretta} ricerche al mese ma non ha la pagina")
+            esiste = (SITO / RIS.percorso(comb, nome) / "index.html").exists()
+            if esiste != ((comb, nome) in con):
+                err(f"EIA: pagina {comb}/{nome}: esiste={esiste}, attesa={(comb, nome) in con}")
+    # G. serie finite (gasolio: Illinois e District of Columbia): l'indice le nomina con la data dell'ultimo prezzo, rifatta dall'XLS
+    for comb in EIA_PRODOTTO:
+        vis = re.sub(r"\s+", " ", testo((SITO / RIS.COMB[comb]["slug"] / "index.html").read_text(encoding="utf-8")))
+        finite = [c for c, v in X[comb][1].items() if len(c) == 2 and c not in attivi[comb] and v]
+        for c in finite:
+            if f"{X[comb][2][c][1]} (last price: {dl(max(X[comb][1][c]))})" not in vis:
+                err(f"EIA: l'indice {comb} non dichiara la serie finita di {X[comb][2][c][1]} con la data dell'ultimo prezzo")
+        if finite and f"not counted among the {len(attivi[comb])} states" not in vis:
+            err(f"EIA: l'indice {comb} non dice che le serie finite non sono tra i {len(attivi[comb])} Stati")
+        if not finite and "series that ha" in vis:
+            err(f"EIA: l'indice {comb} parla di serie finite che nell'XLS non ci sono")
+        if "second Monday" not in vis:
+            err(f"EIA: l'indice {comb} non dice che da aprile a settembre l'EIA rileva un prezzo al mese")
+    # H. dati non aggiornati: in stagione le pagine dicono «the next release is scheduled for …»; se quella data è passata da più di una
+    # settimana e il file non è stato riletto, le pagine restano ferme senza che nessuno se ne accorga
+    for comb in EIA_PRODOTTO:
+        pross = _d.fromisoformat(prezzi["combustibili"][comb]["prossima_uscita"])
+        if RIS.IN_STAGIONE and (_d.today() - pross).days > 7:
+            err(f"EIA: {comb}, la prossima uscita annunciata ({pross}) è passata da {(_d.today() - pross).days} giorni e i prezzi non sono stati "
+                f"riletti: lanciare python3 -I inflation/raccolta/eia.py e rigenerare (le pagine dicono ancora «next release … {dl(pross)}»)")
+        if RIS.IN_STAGIONE != (RIS.stagione(RIS.ULTIMA) is not None and RIS.stagione(RIS.ULTIMA + timedelta(days=7)) is not None
+                               and (RIS.LETTO - RIS.ULTIMA).days <= 14):
+            err("EIA: riscaldamento.IN_STAGIONE non segue la regola (ultimo prezzo e lunedì successivo tra ottobre e marzo, letto da non più di 14 giorni)")
+    n_o, n_p = sum(c == "oil" for c, _ in con), sum(c == "propane" for c, _ in con)
+    ok(f"EIA: {len(pagine_)} pagine (2 indici, {n_o} Stati gasolio, {n_p} Stati propano, ognuno con una frase misurata ≥ {RIS.SOGLIA}/mese): "
+       f"{conta['p']} prezzi settimanali, {conta['d']} differenze, {conta['r']} variazioni %, {conta['m'] + conta['mp']} medie per inverno, {conta['cpi']} importi "
+       f"in dollari di oggi (CPI-U) e {conta['t']} costi del pieno rifatti dall'XLS, 0 diversi; {n_date} date accanto ai prezzi; nessun importo fuori dalle celle "
+       f"etichettate; titolo, descrizione e apertura = ultima settimana; {n_json} aree dei calcolatori = XLS; fonte, tasse escluse, «not a price quote», nessun consiglio")
+    tank_motore(X)
+
+
+def tank_motore(X):
+    """Motore del costo del pieno pubblicato (sito/assets/tank.*.js) = riscaldamento.costo_pieno, anche con ogni prezzo corrente dell'XLS."""
+    import riscaldamento as RIS
+    from fractions import Fraction
+    js_file = next((SITO / "assets").glob("tank.*.js"))
+    js = js_file.read_text(encoding="utf-8")
+    motore_js = js[:js.index("(function(){")]
+    rnd = random.Random(23)
+    casi = [[rnd.randrange(10, 100001), rnd.randrange(300, 15000)] for _ in range(4000)]
+    casi += [[gd, m] for gd in (10, 15, 995, 1375, 2000, 2755, 100000) for m in (1005, 2826, 5667, 5915, 9995)]  # mezzi centesimi compresi
+    for comb in X:
+        for v in X[comb][1].values():
+            casi.append([RIS.COMB[comb]["gal"] * 10, v[max(v)]])
+    p = subprocess.run(["node", "-"], input=motore_js + "\nvar K=" + json.dumps(casi) + ";process.stdout.write(JSON.stringify(K.map(function(c){return costoPieno(c[0],c[1]);})));",
+                       capture_output=True, text=True)
+    if p.returncode:
+        err("node (pieno): " + p.stderr[:300])
+        return
+    diversi = 0
+    for (gd, m), j in zip(casi, json.loads(p.stdout)):
+        py = RIS.costo_pieno(gd, m)
+        if py != j or py != _mezzo_su(Fraction(gd * m, 100)):
+            diversi += 1
+            if diversi < 4:
+                err(f"costo del pieno JS ≠ Python: {gd / 10} gal × {m / 1000}: {j} / {py}")
+    if RIS.costo_pieno(2000, 5667) != 113340:
+        err("costo del pieno: 200 gal × $5.667 ≠ $1,133.40")
+    if not diversi:
+        ok(f"costo del pieno pubblicato ({js_file.name}) = Python = galloni × prezzo al centesimo su {len(casi)} casi (mezzi centesimi e ogni prezzo corrente)")
+
+
 VIETATE_SENZA_DE = ("/de/", "Inflationsrechner", "Destatis", 'lang="de', "Germany")
 
 
@@ -845,7 +1232,56 @@ def browser():
                                       (PEN.CORRENTE, "mfs", "9,990", False, ""), (PEN.ULTIMO, "single", "120000", True, "5000"), (PEN.CORRENTE, "mfj", "300000", False, ""), (PEN.ULTIMO, "mfs_sep", "165,000", False, "")):
         r = PEN.roth_limite(PEN.roth_dati(y), stato, int(magi.replace(",", "")) * 100, o50, int(comp) * 100 if comp else None)
         casi_roth.append({"y": str(y), "s": stato, "m": magi, "e": o50, "c": comp, "atteso": r["limite"] / 100, "esito": r["esito"]})
-    env = {"CASI_CALC": json.dumps(casi), "CASI_ROTH": json.dumps(casi_roth), "ATTESO_LINK": str(link), "PAGINE": ",".join(pagine_b), "PATH": "/usr/bin:/bin:/usr/local/bin"}
+    # costo del pieno: prezzi letti dall'XLS grezzo dell'EIA (non dal generatore)
+    from fractions import Fraction
+    casi_tank = []
+    xo, xp = _eia_xls("oil")[1], _eia_xls("propane")[1]
+    for pagina_, x, g, chip, s, s_def in (("/heating-oil-prices/", xo, "275.5", None, "CT", "NUS"), ("/heating-oil-prices/connecticut/", xo, None, "150", None, "CT"),
+                                          ("/heating-oil-prices/connecticut/", xo, "1,000", None, "NUS", "CT"), ("/propane-prices/maine/", xp, "400", None, None, "ME"),
+                                          ("/propane-prices/maine/", xp, "0.5", None, None, "ME"), ("/propane-prices/", xp, "abc", None, "WI", "NUS"),
+                                          ("/propane-prices/", xp, "137.5", None, "WI", "NUS")):
+        v = x[s or s_def]
+        u = max(v)
+        y = _eia_anno_prima(v, u)
+        try:
+            gd = round(float((chip or g).replace(",", "")) * 10)
+        except ValueError:
+            gd = 0
+        valido = 10 <= gd <= 100000
+        casi_tank.append({"pagina": pagina_, "g": g, "chip": chip, "s": s, "atteso": _mezzo_su(Fraction(gd * v[u], 100)) / 100 if valido else None,
+                          "prima": _mezzo_su(Fraction(gd * v[y], 100)) / 100 if valido and y else None, "foto": pagina_ == "/propane-prices/maine/" and g == "400"})
+    pagine_b[4:4] = ["/heating-oil-prices/", "/propane-prices/", "/heating-oil-prices/connecticut/", "/propane-prices/maine/"]
+    # sezioni 2027: paga minima (ore × tariffa GOV.UK) e affitto massimo (affitto × tetto ufficiale), rifatti qui con le frazioni
+    uk27 = json.loads((RADICE / "dati" / "uk_2027.json").read_text(encoding="utf-8"))
+    aff27 = json.loads((RADICE / "dati" / "affitti.json").read_text(encoding="utf-8"))
+    tar = {v["k"]: v for v in uk27["paga_minima"]["voci"]}
+    casi_pay = []
+    for k, h_, chip in (("nlw", "40", None), ("nmw_18_20", None, "20"), ("nmw_u18", "12.5", None), ("nmw_app", "abc", None), ("nlw", "0", None), ("nlw", "37.5", None)):
+        try:
+            od = round(float(chip or h_) * 10)
+        except ValueError:
+            od = 0
+        valido = 10 <= od <= 1000
+        f_ = lambda r, per: int(Fraction(r * od * (52 if per != "sett" else 1), 120 if per == "mese" else 10) + Fraction(1, 2)) / 100
+        casi_pay.append({"k": k, "h": h_, "chip": chip, "sett": f_(tar[k]["dopo"], "sett") if valido else None, "mese": f_(tar[k]["dopo"], "mese") if valido else None,
+                         "anno": f_(tar[k]["dopo"], "anno") if valido else None, "prima": f_(tar[k]["prima"], "anno") if valido else None})
+    voci27 = {v["k"]: v for x in aff27["luoghi"] for v in x["voci"]}
+    casi_rent = []
+    for pagina_, k, per, r_ in (("/rent-increase-cap/", "ca_sf", 1, "3,250"), ("/rent-increase-cap/", "wa", 0, "1234.57"), ("/rent-increase-cap/", "nyc_2", 0, "2100"),
+                                ("/rent-increase-cap/", "nyc_1", 1, "2100"), ("/rent-increase-cap/", "on", 1, "abc"), ("/rent-increase-cap/california/", "ca_altre", 0, "1,999.99"),
+                                ("/rent-increase-cap/british-columbia/", None, 1, "1850"), ("/rent-increase-cap/saint-paul/", None, 0, "1400")):
+        pagina_voci = [k] if k else [v["k"] for x in aff27["luoghi"] if "/rent-increase-cap/" + x["slug"] + "/" == pagina_ for v in x["voci"]][:1]
+        t_ = voci27[pagina_voci[0]]["periodi"][per]["tetto"]
+        try:
+            c_ = round(float(r_.replace(",", "")) * 100)
+        except ValueError:
+            c_ = None
+        inc = int(Fraction(c_ * t_, 100000)) if c_ else None
+        casi_rent.append({"pagina": pagina_, "v": k, "p": str(per), "r": r_, "nuovo": (c_ + inc) / 100 if c_ else None, "aumento": inc / 100 if c_ else None,
+                          "pct": f"{t_ / 1000:.3f}".rstrip("0").rstrip(".") + "%", "foto": pagina_ == "/rent-increase-cap/" and k == "ca_sf"})
+    pagine_b[4:4] = ["/uk/rates-april-2027/", "/uk/minimum-wage-2027/", "/uk/state-pension-2027/", "/uk/benefit-rates-2027/", "/uk/statutory-sick-pay-2027/",
+                     "/rent-increase-cap/"] + ["/rent-increase-cap/" + x["slug"] + "/" for x in aff27["luoghi"]]
+    env = {"CASI_CALC": json.dumps(casi), "CASI_ROTH": json.dumps(casi_roth), "CASI_TANK": json.dumps(casi_tank), "CASI_PAY": json.dumps(casi_pay), "CASI_RENT": json.dumps(casi_rent), "ATTESO_LINK": str(link), "PAGINE": ",".join(pagine_b), "PATH": "/usr/bin:/bin:/usr/local/bin"}
     import os
     env = dict(os.environ, **env)
     p = subprocess.run(["node", str(RADICE / "verifica_browser.js")], capture_output=True, text=True, env=env, timeout=900)
@@ -858,7 +1294,7 @@ def browser():
         err("browser: " + x)
     if not out["problemi"]:
         ok(f"browser: {out['viste']} viste ({len(pagine_b)} pagine × 375/1280 px × chiaro/scuro) senza scorrimento orizzontale, errori JS o testo < 11 px; "
-           f"{out.get('roth', 0)} casi del calcolatore Roth × 2 larghezze = Python; {out['casi']} casi del calcolatore × 2 larghezze uguali al motore (anche 1000 $ gen 1980 → set 2025 = 4.174,81 del BLS), cambio CPI→RPI e ritorno al CPI, ottobre 2025 non selezionabile, link condiviso, tema")
+           f"{out.get('roth', 0)} casi del calcolatore Roth × 2 larghezze = Python; {out.get('pay', 0)} casi della paga minima e {out.get('rent', 0)} dell'affitto massimo × 2 larghezze = conto rifatto; {out.get('tank', 0)} casi del costo del pieno × 2 larghezze = galloni × prezzo dell'XLS EIA (anche pulsanti, altro Stato, valori non validi); {out['casi']} casi del calcolatore × 2 larghezze uguali al motore (anche 1000 $ gen 1980 → set 2025 = 4.174,81 del BLS), cambio CPI→RPI e ritorno al CPI, ottobre 2025 non selezionabile, link condiviso, link «in dollari di oggi» delle pagine EIA = calcolatore, tema")
 
 
 def main():

@@ -30,6 +30,9 @@ import motore as M  # noqa: E402
 import serie  # noqa: E402
 import stile  # noqa: E402
 import pensione as PEN  # noqa: E402  (sezione limiti 401(k)/IRA/Roth/HSA: dati/limiti.json)
+import riscaldamento as RIS  # noqa: E402  (prezzi EIA di gasolio da riscaldamento e propano per Stato: dati/eia_prezzi.json)
+import uk2027 as UK27  # noqa: E402  (cifre britanniche da aprile 2027: paga minima, pensione di Stato, sussidi, SSP: dati/uk_2027.json)
+import affitti as AFF  # noqa: E402  (tetti agli aumenti dell'affitto per luogo e periodo, con calcolatore: dati/affitti.json)
 
 # Sezione tedesca (/de/, Destatis): spenta = nessuna pagina /de/, nessun link, nessuna menzione di Germania/Destatis nelle pagine pubblicate.
 # Codice e dati tedeschi restano qui sotto e in dati/: basta rimettere True, rigenerare e rifare verifica.py --browser.
@@ -61,7 +64,8 @@ IMPORTI_PAGINA = [100, 1000]
 MESI = {"en": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
         "de": ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"]}
 NOME_SERIE = {"us": "CPI-U, 1982-84=100", "uk_cpi": "CPI, 2015=100", "uk_rpi": "RPI long-run series, Jan 1974=100", "de": "VPI, 2020=100"}
-LINGUA = {"us": ("en-US", "en_US", "en"), "uk": ("en-GB", "en_GB", "en"), "de": ("de-DE", "de_DE", "de")}
+LINGUA = {"us": ("en-US", "en_US", "en"), "uk": ("en-GB", "en_GB", "en"), "de": ("de-DE", "de_DE", "de"),
+          "ca": ("en-CA", "en_CA", "en")}  # "ca": pagine sugli affitti di Ontario e British Columbia (menu e testi come le pagine USA)
 FAQ_USATE = []  # FAQ pubblicate con la frase di ricerca d'origine: scritte in dati/faq_generate.json, controllate da verifica.py
 
 
@@ -138,10 +142,17 @@ SPRITE = ('<svg xmlns="http://www.w3.org/2000/svg">' +
           "".join(f'<symbol id="i-{k}" viewBox="0 0 24 24">{v}</symbol>' for k, v in stile.ICONE.items()) + "</svg>\n")
 APP_JS = stile.APP_JS.strip() + "\n"
 ROTH_JS = stile.ROTH_JS.strip() + "\n"  # calcolatore Roth (solo nella pagina /roth-ira-income-limit/)
+PAY_JS = stile.PAY_JS.strip() + "\n"  # paga dalla tariffa oraria (solo in /uk/minimum-wage-2027/)
+RENT_JS = stile.RENT_JS.strip() + "\n"  # affitto massimo con il tetto ufficiale (solo nelle pagine /rent-increase-cap/)
+TANK_JS = stile.TANK_JS.strip() + "\n"  # costo del pieno (solo nelle pagine /heating-oil-prices/ e /propane-prices/)
 ASSET = {f"site.{_impronta(CSS)}.css": CSS, f"app.{_impronta(APP_JS)}.js": APP_JS,
          f"favicon.{_impronta(stile.FAVICON_SVG)}.svg": stile.FAVICON_SVG, f"icons.{_impronta(SPRITE)}.svg": SPRITE,
-         f"roth.{_impronta(ROTH_JS)}.js": ROTH_JS}
-CSS_FILE, JS_FILE, FAVICON_FILE, ICONS_FILE, ROTH_FILE = ASSET
+         f"roth.{_impronta(ROTH_JS)}.js": ROTH_JS, f"tank.{_impronta(TANK_JS)}.js": TANK_JS,
+         f"pay.{_impronta(PAY_JS)}.js": PAY_JS, f"rent.{_impronta(RENT_JS)}.js": RENT_JS}
+CSS_FILE, JS_FILE, FAVICON_FILE, ICONS_FILE, ROTH_FILE, TANK_FILE, PAY_FILE, RENT_FILE = ASSET
+TANK_SCRIPT = f'<script src="/assets/{TANK_FILE}" defer></script>'
+PAY_SCRIPT = f'<script src="/assets/{PAY_FILE}" defer></script>'
+RENT_SCRIPT = f'<script src="/assets/{RENT_FILE}" defer></script>'
 LOGO = f'<img src="/assets/{FAVICON_FILE}" width="32" height="32" alt="">'
 
 
@@ -154,13 +165,14 @@ LICENZA_TESTO = {
     "bls": "U.S. Bureau of Labor Statistics. Public domain (work of the U.S. federal government).",
     "ons": "Source: Office for National Statistics licensed under the Open Government Licence v.3.0.",
     "irs": "Internal Revenue Service. Public domain (work of the U.S. federal government).",
+    "eia": "U.S. Energy Information Administration. Public domain (work of the U.S. federal government).",
     "usc": "United States Code, U.S. Government Publishing Office. Public domain (work of the U.S. federal government).",
     "destatis": "Quelle: Statistisches Bundesamt (Destatis). Vervielfältigung und Verbreitung, auch auszugsweise, mit Quellenangabe gestattet. "
                 "Für Inhalte der Datenbank GENESIS-Online gilt die Datenlizenz Deutschland – Namensnennung – Version 2.0:",
 }
 
 
-def fonti_box(ids, lingua="en"):
+def fonti_box(ids, lingua="en", piede=None):
     voci = []
     for i in ids:
         f = FONTI[i]
@@ -171,21 +183,27 @@ def fonti_box(ids, lingua="en"):
             lic = LICENZA_TESTO["irs"]
         elif i.startswith("usc"):
             lic = LICENZA_TESTO["usc"]
+        elif i.startswith("eia"):
+            lic = LICENZA_TESTO["eia"]
         elif i.startswith("ons"):
             lic = (LICENZA_TESTO["ons"] + ' <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="noopener">OGL v3.0</a>')
         elif i.startswith("destatis"):
             lic = LICENZA_TESTO["destatis"] + ' <a href="https://www.govdata.de/dl-de/by-2-0" rel="noopener">dl-de/by-2-0</a>'
+        elif f.get("attribuzione"):  # pagine GOV.UK: Open Government Licence
+            lic = h(f["attribuzione"]) + ' <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="noopener">OGL v3.0</a>'
         letto = (f"Abgerufen am {data_lunga(f['letto_il'], 'de')}" if lingua == "de" else f"Read on {data_lunga(f['letto_il'])}")
         if f.get("stand"):
             letto += f"; Stand der Tabelle: {h(f['stand'])}" if lingua == "de" else f"; table dated {h(f['stand'])}"
         uscita = ""
+        if f.get("pubblicato"):
+            letto += f"; published or dated {h(f['pubblicato'])}"
         if f.get("uscita"):
             uscita = f"; release of {h(f['uscita'].replace('-', '/'))}" if lingua != "de" else f"; Veröffentlichung vom {h(f['uscita'].replace('-', '.'))}"
         lic_html = f"<br><span class=\"small\">{lic if '<a' in lic else h(lic)}</span>" if lic else ""
         voci.append(f'<li><a href="{h(f.get("pagina") or f["url"])}" rel="noopener">{h(f["titolo"])}</a> · {h(f["chi"])}. '
                     f'<span class="small">{letto}{uscita}.</span>{lic_html}</li>')
     tit = "Quellen" if lingua == "de" else "Sources"
-    piede = ("Alle Indexwerte stammen aus den amtlichen Dateien oben; wir laden sie jeden Monat neu und prüfen sie, bevor die Seite aktualisiert wird "
+    piede = piede or ("Alle Indexwerte stammen aus den amtlichen Dateien oben; wir laden sie jeden Monat neu und prüfen sie, bevor die Seite aktualisiert wird "
              f'(<a href="/how-we-check/">Methodik, auf Englisch</a>).' if lingua == "de" else
              'Every index value comes from the official files above. We download them again each month and check them before the pages change '
              '(<a href="/how-we-check/">how we check</a>).')
@@ -195,6 +213,7 @@ def fonti_box(ids, lingua="en"):
 
 # ---------------------------------------------------------------- scheletro
 URLS = []
+LASTMOD = {}  # percorso → data ISO per la sitemap, per le pagine che non seguono la lettura mensile degli indici (prezzi EIA settimanali)
 AD = '<div class="ad-slot" aria-hidden="true"></div>'
 DISCLAIMER = {
     "en": ("<strong>General information, not financial or investment advice.</strong> The results show how an official consumer price index changed "
@@ -211,9 +230,10 @@ def menu(percorso, paese):
     if paese == "de":
         voci.append(("de/inflationsrate-deutschland/", "Inflationsrate"))
     elif paese == "uk":
-        voci += [("uk/inflation-rate-by-year/", "UK rates by year"), ("uk/rpi-calculator/", "RPI")]
+        voci += [("uk/inflation-rate-by-year/", "UK rates by year"), ("uk/rpi-calculator/", "RPI"), ("uk/rates-april-2027/", "April 2027 rates")]
     else:
-        voci += [("us/inflation-rate-by-year/", "US rates by year"), ("retirement-limits/", "401(k) & IRA limits")]
+        voci += [("us/inflation-rate-by-year/", "US rates by year"), ("retirement-limits/", "401(k) & IRA limits"),
+                 ("heating-oil-prices/", "Heating oil"), ("propane-prices/", "Propane"), ("rent-increase-cap/", "Rent caps")]
     return "".join(f'<a href="/{u}"' + (' aria-current="page"' if u == percorso else "") + f">{h(t)}</a>" for u, t in voci)
 
 
@@ -254,7 +274,9 @@ def pagina(percorso, titolo, descrizione, corpo, testata="", paese="us", briciol
                        f"<p>Latest index: {ultimi_txt}. Data read on {data_lunga(CONTROLLO)}.</p>")
         links = [("", "US inflation calculator"), ("us/inflation-rate-by-year/", "US inflation rate by year"), ("uk/", "UK inflation calculator"),
                  ("uk/rpi-calculator/", "RPI calculator"), ("uk/inflation-rate-by-year/", "UK inflation rate by year"),
-                 ("retirement-limits/", "401(k), IRA and HSA limits")]
+                 ("retirement-limits/", "401(k), IRA and HSA limits"), ("heating-oil-prices/", "Heating oil prices by state"),
+                 ("propane-prices/", "Propane prices by state"), ("rent-increase-cap/", "Rent increase caps 2027"),
+                 ("uk/rates-april-2027/", "UK rates from April 2027")]
         if SEZIONE_DE:
             links.append(("de/inflationsrechner/", "Inflationsrechner (DE)"))
         info = [("about/", "About"), ("how-we-check/", "How we check"), ("privacy/", "Privacy")]
@@ -362,7 +384,7 @@ def _etichette_x(x0, x1, fx):
     out = [f'<span class="gx first" style="left:0">{h(fx(x0))}</span>', f'<span class="gx last" style="left:100%">{h(fx(x1))}</span>']
     p = _passo(x1 - x0)
     a = (int(x0) // p + 1) * p
-    while a < x1 - p * 0.45:
+    while a < x1 - p * 0.75:  # un'etichetta troppo vicina all'ultima si sovrappone a 375 px (2020 e 2026)
         if a - x0 > p * 0.45:
             out.append(f'<span class="gx" style="left:{(a - x0) / (x1 - x0) * 100:.1f}%">{a}</span>')
         a += p
@@ -585,7 +607,11 @@ def home():
               + ('<li><a href="/de/inflationsrechner/"><b>DE</b>Inflationsrechner<small>Destatis-VPI, D-Mark und Euro, ab 1962</small></a></li>' if SEZIONE_DE else "") +
               '<li><a href="/us/inflation-rate-by-year/"><b>%</b>US inflation rate by year<small>Every year since 1914, annual average and December to December</small></a></li>'
               '<li><a href="/uk/rpi-calculator/"><b>RPI</b>RPI calculator<small>Retail Prices Index increases since 1800</small></a></li>'
-              f'<li><a href="/retirement-limits/"><b>401(k)</b>Retirement and HSA limits<small>IRS limits for 401(k), IRA, Roth IRA, SIMPLE and HSA, {PEN.PRIMO}–{PEN.ULTIMO}</small></a></li></ul>')
+              f'<li><a href="/retirement-limits/"><b>401(k)</b>Retirement and HSA limits<small>IRS limits for 401(k), IRA, Roth IRA, SIMPLE and HSA, {PEN.PRIMO}–{PEN.ULTIMO}</small></a></li>'
+              f'<li><a href="/heating-oil-prices/"><b>Oil</b>Heating oil prices by state<small>Official EIA weekly prices, week of {RIS.db(RIS.SR["oil"].ultima)}</small></a></li>'
+              f'<li><a href="/propane-prices/"><b>LP gas</b>Propane prices by state<small>Official EIA weekly prices, week of {RIS.db(RIS.SR["propane"].ultima)}</small></a></li>'
+              '<li><a href="/rent-increase-cap/"><b>Rent</b>Rent increase caps 2027<small>California, Oregon, Washington, New York City, Ontario, BC: official limits and calculator</small></a></li>'
+              '<li><a href="/uk/rates-april-2027/"><b>£</b>UK rates from April 2027<small>Minimum wage, State Pension, benefits and Statutory Sick Pay, old and new</small></a></li></ul>')
     m2000 = media_annua("us", 2000, 2025)
     faq, ld_faq = faq_blocco("home", [
         ("What is the normal inflation rate?",
@@ -898,6 +924,7 @@ def uk_calc():
               f'<tbody>{righe}</tbody></table></div><p class="small">Formula: £100 × index of {h(UK_ULT_TXT)} ÷ annual average index of the year.</p>')
     corpo += ('<ul class="griglia"><li><a href="/uk/inflation-rate-by-year/"><b>%</b>UK inflation rate by year<small>CPI since 1989, RPI since 1801</small></a></li>'
               '<li><a href="/uk/rpi-calculator/"><b>RPI</b>RPI calculator<small>Increases by the Retail Prices Index</small></a></li>'
+              '<li><a href="/uk/rates-april-2027/"><b>2027</b>UK rates from April 2027<small>Minimum wage, State Pension, benefits, Statutory Sick Pay</small></a></li>'
               '<li><a href="/"><b>US</b>US inflation calculator<small>BLS CPI-U from 1913</small></a></li>'
               + ('<li><a href="/de/inflationsrechner/"><b>DE</b>Inflationsrechner<small>Destatis-VPI, D-Mark und Euro</small></a></li>' if SEZIONE_DE else "")
               + '</ul>')
@@ -1132,7 +1159,11 @@ def about():
                 'Statistics (United States) and the Office for National Statistics (United Kingdom).</p>') +
              '<p>We are not a government website, a bank or a financial adviser, and we are not linked to any statistics office.</p></div>'
              '<h2>What we publish</h2><ul class="testo"><li>Only index values taken from the official files, with the date we read them.</li>'
-             '<li>The formula and the two index values behind every result.</li><li>Where an index has a gap (such as October 2025 in the US), we say so and do not fill it.</li></ul>'
+             '<li>The formula and the two index values behind every result.</li>'
+             '<li>Other official figures for US households, each with its source: the IRS contribution limits for retirement and health savings accounts, and the '
+             'weekly heating oil and propane prices of the U.S. Energy Information Administration.</li>'
+             '<li>Figures that change on a fixed date, copied from the official page with the sentence they come from: the UK rates from April 2027 (minimum wage, '
+             'State Pension, benefits, Statutory Sick Pay) and the legal limits on rent increases in some US states, New York City and two Canadian provinces.</li><li>Where an index has a gap (such as October 2025 in the US), we say so and do not fill it.</li></ul>'
              f'<h2>Why the pages exist</h2><div class="testo"><p>People search for the value of a dollar from a given year, the inflation rate of a year, '
              + ('and calculators for the UK and Germany. ' if SEZIONE_DE else 'and a calculator for the UK. ') +
              'We built a page for each question that real searches show, and no more: one page per US year, '
@@ -1176,6 +1207,34 @@ def come_controlliamo():
               'the page leaves that number out and changes nothing else). The checks confirm that each sentence is still in the document, that it contains the figure, that the pages print '
               'that figure, and that the calculator in your browser gives the same result as our reference code on thousands of incomes, including the edges of '
               'each range. IRS documents are works of the U.S. federal government and in the public domain.</p></div>')
+    n_eia = len(RIS.pagine_stato(sys.modules[__name__]))
+    corpo += ('<h3>Heating oil and propane prices: EIA</h3><div class="testo"><p>The <a href="/heating-oil-prices/">heating oil</a> and '
+              '<a href="/propane-prices/">propane</a> pages show the Weekly Heating Oil and Propane Prices of the U.S. Energy Information Administration: '
+              'average residential prices in dollars per gallon, excluding taxes, one per Monday from October through March, since 1990. We download the two '
+              'spreadsheets with the full history, the two EIA tables with the last six weeks and the EIA update page, and keep each file with its address, '
+              'reading date and SHA-256 fingerprint. A new download replaces the old one only if the spreadsheet still has the expected series and units, every '
+              'date is a Monday, every value has three decimals, no earlier week has changed (the EIA may revise the last two) and the six weeks of the table '
+              f'match the spreadsheet. Every price printed on the {n_eia + 2} pages carries the series, state and week it belongs to, and the checks read it '
+              'again from the spreadsheet; week-to-week and year-to-year changes are compared with those on the EIA update page; averages per winter and the '
+              'cost of a delivery are recalculated, and the calculator in your browser must give the same result as our reference code. Averages per winter and '
+              'amounts adjusted with the CPI-U are our own calculations and are labelled as such. EIA publications are in the public domain.</p></div>')
+    f27 = [k for k in FONTI if k.startswith(("uk27_", "rent_", "bls_cpi_"))]
+    corpo += ('<h3>UK rates from April 2027: GOV.UK</h3><div class="testo"><p>The <a href="/uk/rates-april-2027/">UK rates</a> pages copy the minimum wage rates from the '
+              'GOV.UK rates page and the Low Pay Commission announcement of 28 October 2026, and the State Pension, benefit and statutory pay rates from the Department '
+              'for Work and Pensions document “Proposed benefit and pension rates 2027 to 2028” of 11 November 2026. Each figure is stored with the row of the official '
+              'table it comes from. The checks find every quoted row and sentence in the text we downloaded, read the tables again from the saved GOV.UK page with a '
+              'separate reader, compare every amount, change and percentage printed on the pages, and recalculate the weekly, monthly and yearly pay shown by the '
+              'minimum wage calculator. The rates in force that GOV.UK gives in its guides must equal the 2026 to 2027 column. The benefit and pension rates are '
+              'labelled as proposed until the legislation is made. GOV.UK content is used under the Open Government Licence v3.0.</p></div>'
+              '<h3>Rent increase caps: state, provincial and city pages</h3><div class="testo"><p>The <a href="/rent-increase-cap/">rent increase cap</a> pages copy '
+              'each percentage from the official page that publishes it: the California Attorney General, the Oregon Department of Administrative Services, the '
+              'Washington State Department of Commerce, the New York City Rent Guidelines Board, the governments of Ontario and British Columbia and the City of Saint '
+              'Paul. Each percentage is stored with the sentence it comes from and the period it covers, and the checks find the sentence in the downloaded text. For '
+              'California we also recalculate the five regional caps from the Bureau of Labor Statistics indexes for the four metropolitan areas and the California CPI '
+              'of the Department of Industrial Relations: they must equal the Attorney General’s chart. For Washington the two index values on the Commerce page must '
+              'equal the BLS Seattle series. The list of local California caps is read again from the saved Attorney General page. The calculator multiplies the rent '
+              'by the published percentage and rounds the increase down to the cent; the result in your browser must equal our reference code. We do not say whether '
+              f'a home is covered by a cap. {len(f27)} files are kept for these two sections, each with its address, reading date and SHA-256 fingerprint.</p></div>')
     corpo += ('<h2>What the checks do</h2><div class="testo"><ul>'
               '<li><strong>Continuity:</strong> no year or month may be missing between the first and the last value of a series. The only gap allowed is a month the '
               'office itself marks as not collected (October 2025 in the US), and it is shown on the pages.</li>'
@@ -1197,9 +1256,12 @@ def come_controlliamo():
               ('Each office publishes a new month in the middle of the following month (the BLS and the ONS) or at '
                'the end of the month with a final figure in the middle of the next (Destatis). ' if SEZIONE_DE else
                'The BLS and the ONS publish a new month in the middle of the following month. ') +
-              'We download the files again each month, run the checks and update the pages only if all of them pass.</p></div>')
+              'We download the files again each month, run the checks and update the pages only if all of them pass. The EIA heating oil and propane '
+              'prices are released weekly from October through March; those pages are updated after each release. The UK rates and the rent caps change on fixed '
+              'dates (1 January, 1 April, 1 August, 1 October, depending on the place): we read the official pages again when a new figure is due.</p></div>')
     corpo += fonti_box([i for i in ["bls_cpiu", "bls_api", "bls_calc", "ons_d7bt", "ons_d7g7", "ons_cdko", "ons_chaw", "ons_czbh", "boe_calc", "destatis_tabelle",
-                                    "destatis_lange_reihen", "fed_target", "ecb_euro", "eurlex_2866"] if SEZIONE_DE or i not in FONTI_DE])
+                                    "destatis_lange_reihen", "fed_target", "ecb_euro", "eurlex_2866", "eia_oil_xls", "eia_propane_xls", "eia_oil_tabella",
+                                    "eia_propane_tabella", "eia_update", "eia_definizioni", "eia_riuso"] + f27 if SEZIONE_DE or i not in FONTI_DE])
     testata = banda("How we check", "How we check every index value", "Our sources and licences, the checks the data must pass and what we could not read.",
                     corta=True, icona="shield")
     pagina("how-we-check/", "How We Check: Sources, Licences and Data Checks",
@@ -1267,7 +1329,7 @@ def extra():
     (SITO / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {URL_SITO}/sitemap.xml\n", encoding="utf-8")
     (SITO / f"{CHIAVE_INDEXNOW}.txt").write_text(CHIAVE_INDEXNOW, encoding="utf-8")
     MON.scrivi_ads_txt(SITO_ID, SITO)
-    voci = "".join(f"<url><loc>{URL_SITO}/{u}</loc><lastmod>{CONTROLLO.isoformat()}</lastmod></url>" for u in URLS)
+    voci = "".join(f"<url><loc>{URL_SITO}/{u}</loc><lastmod>{LASTMOD.get(u, CONTROLLO.isoformat())}</lastmod></url>" for u in URLS)
     (SITO / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{voci}</urlset>\n', encoding="utf-8")
     redirect_de = '[[redirects]]\n  from = "/de/"\n  to = "/de/inflationsrechner/"\n  status = 301\n\n' if SEZIONE_DE else ""
     (SITO / "netlify.toml").write_text(NETLIFY.replace("{redirect_de}", redirect_de), encoding="utf-8")
@@ -1335,6 +1397,9 @@ def main():
     uk_tassi()
     uk_rpi()
     PEN.genera(sys.modules[__name__])  # /retirement-limits/ e pagine per conto (401k, IRA, Roth con calcolatore, HSA, SIMPLE)
+    RIS.genera(sys.modules[__name__])  # /heating-oil-prices/ e /propane-prices/ (indici + Stati con domanda misurata), prezzi settimanali EIA
+    UK27.genera(sys.modules[__name__])  # /uk/rates-april-2027/ e pagine paga minima, pensione di Stato, sussidi, SSP (cifre GOV.UK)
+    AFF.genera(sys.modules[__name__])  # /rent-increase-cap/ (indice + calcolatore) e una pagina per luogo con domanda misurata
     if SEZIONE_DE:  # spenta: nessuna pagina /de/ (la cartella sito/ è stata appena svuotata, quindi niente avanzi)
         de_rechner()
         de_rate()

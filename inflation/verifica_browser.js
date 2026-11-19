@@ -12,6 +12,9 @@ const SHOT = path.join(__dirname, 'cache', 'screenshot');
 fs.mkdirSync(SHOT, { recursive: true });
 const TIPI = { '.html': 'text/html; charset=utf-8', '.json': 'application/json', '.css': 'text/css', '.js': 'text/javascript', '.svg': 'image/svg+xml', '.png': 'image/png', '.xml': 'application/xml', '.txt': 'text/plain' };
 const CASI = process.env.CASI_CALC ? JSON.parse(process.env.CASI_CALC) : [];
+const CASI_TANK = process.env.CASI_TANK ? JSON.parse(process.env.CASI_TANK) : [];  // costo del pieno: casi rifatti dall'XLS dell'EIA
+const CASI_PAY = process.env.CASI_PAY ? JSON.parse(process.env.CASI_PAY) : [];  // paga minima (/uk/minimum-wage-2027/): casi rifatti da verifica.py
+const CASI_RENT = process.env.CASI_RENT ? JSON.parse(process.env.CASI_RENT) : [];  // affitto massimo (/rent-increase-cap/…): casi rifatti da verifica.py
 const CASI_ROTH = process.env.CASI_ROTH ? JSON.parse(process.env.CASI_ROTH) : [];  // calcolatore Roth: casi rifatti con pensione.roth_limite
 // Senza PAGINE: solo USA e UK (la sezione tedesca è spenta, genera.SEZIONE_DE = False).
 const PAGINE = (process.env.PAGINE || '/,/uk/,/us/1970-dollars-today/,/us/inflation-rate-by-year/,/us/100-dollars-in-1970/,/uk/inflation-rate-by-year/,/uk/rpi-calculator/,/how-we-check/,/does-not-exist/').split(',');
@@ -100,6 +103,69 @@ function numero(t, de) {
           await page.close();
         }
       }
+      // sezioni 2027: calcolatore della paga minima e dell'affitto massimo
+      if (tema === 'light') {
+        for (const c of CASI_PAY) {
+          const page = await ctx.newPage();
+          const errori = [];
+          page.on('pageerror', e => errori.push('JS: ' + e.message));
+          await page.goto(base + '/uk/minimum-wage-2027/', { waitUntil: 'load' });
+          await page.selectOption('[data-pay] select[name=k]', c.k);
+          if (c.chip) await page.click(`[data-pay] [data-h="${c.chip}"]`); else await page.fill('[data-pay] input[name=h]', c.h);
+          await page.waitForTimeout(30);
+          const [s, m, a, p0, msg] = await page.evaluate(() => ['[data-pay-sett]', '[data-pay-mese]', '[data-pay-anno]', '[data-pay-prima]', '.ris-msg'].map(q => {
+            const e = document.querySelector('[data-pay-out] ' + q); return e ? e.textContent : null; }));
+          if (c.sett === null) { if (s !== null || !msg) errori.push(`paga: atteso un messaggio d'errore, letto ${s}`); }
+          else for (const [nome, letto, atteso] of [['settimana', s, c.sett], ['mese', m, c.mese], ['anno', a, c.anno], ['anno prima', p0, c.prima]])
+            if (letto === null || Math.abs(numero(letto, false) - atteso) > 0.001) errori.push(`paga ${nome}: atteso ${atteso}, letto ${letto}`);
+          if (w === 375 && c.k === 'nlw' && c.h === '40') await page.screenshot({ path: path.join(SHOT, 'calc_pay.png'), fullPage: false, clip: { x: 0, y: 150, width: 375, height: 812 } }).catch(() => {});
+          for (const e of errori) problemi.push(`paga ${JSON.stringify(c)} ${w}px: ${e}`);
+          await page.close();
+        }
+        for (const c of CASI_RENT) {
+          const page = await ctx.newPage();
+          const errori = [];
+          page.on('pageerror', e => errori.push('JS: ' + e.message));
+          await page.goto(base + c.pagina, { waitUntil: 'load' });
+          if (c.v) await page.selectOption('[data-rent] select[name=v]', c.v);
+          await page.selectOption('[data-rent] select[name=p]', c.p);
+          await page.fill('[data-rent] input[name=r]', c.r);
+          await page.waitForTimeout(30);
+          const [nv, au, pc, msg] = await page.evaluate(() => ['[data-rent-nuovo]', '[data-rent-aumento]', '[data-rent-pct]', '.ris-msg'].map(q => {
+            const e = document.querySelector('[data-rent-out] ' + q); return e ? e.textContent : null; }));
+          if (c.nuovo === null) { if (nv !== null || !msg) errori.push(`affitto: atteso un messaggio d'errore, letto ${nv}`); }
+          else {
+            if (nv === null || Math.abs(numero(nv, false) - c.nuovo) > 0.001) errori.push(`affitto massimo: atteso ${c.nuovo}, letto ${nv}`);
+            if (au === null || Math.abs(numero(au, false) - c.aumento) > 0.001) errori.push(`aumento: atteso ${c.aumento}, letto ${au}`);
+            if (pc !== c.pct) errori.push(`tetto: atteso ${c.pct}, letto ${pc}`);
+          }
+          if (w === 375 && c.foto) await page.screenshot({ path: path.join(SHOT, 'calc_rent.png'), fullPage: false, clip: { x: 0, y: 150, width: 375, height: 812 } }).catch(() => {});
+          for (const e of errori) problemi.push(`affitto ${JSON.stringify(c)} ${w}px: ${e}`);
+          await page.close();
+        }
+      }
+      // costo del pieno (/heating-oil-prices/…, /propane-prices/…): galloni e Stato → costo atteso, rifatto da verifica.py dall'XLS dell'EIA
+      if (tema === 'light') {
+        for (const c of CASI_TANK) {
+          const page = await ctx.newPage();
+          const errori = [];
+          page.on('pageerror', e => errori.push('JS: ' + e.message));
+          await page.goto(base + c.pagina, { waitUntil: 'load' });
+          if (c.chip) await page.click(`[data-tank] [data-g="${c.chip}"]`); else await page.fill('[data-tank] input[name=g]', c.g);
+          if (c.s) await page.selectOption('[data-tank] select[name=s]', c.s);
+          await page.waitForTimeout(30);
+          const [t, t0, msg] = await page.evaluate(() => ['[data-tank-costo]', '[data-tank-prima]', '.ris-msg'].map(s => {
+            const e = document.querySelector('[data-tank-out] ' + s); return e ? e.textContent : null; }));
+          if (c.atteso === null) { if (t !== null || !msg) errori.push(`pieno: atteso un messaggio d'errore, letto ${t}`); }
+          else {
+            if (t === null || Math.abs(numero(t, false) - c.atteso) > 0.001) errori.push(`pieno: atteso ${c.atteso}, letto ${t}`);
+            if (c.prima !== null && (t0 === null || Math.abs(numero(t0, false) - c.prima) > 0.001)) errori.push(`pieno un anno prima: atteso ${c.prima}, letto ${t0}`);
+          }
+          if (w === 375 && c.foto) await page.screenshot({ path: path.join(SHOT, 'calc_tank.png'), fullPage: false, clip: { x: 0, y: 150, width: 375, height: 812 } }).catch(() => {});
+          for (const e of errori) problemi.push(`pieno ${JSON.stringify(c)} ${w}px: ${e}`);
+          await page.close();
+        }
+      }
       // calcolatori: casi attesi (solo una volta per larghezza)
       if (tema === 'light') {
         for (const c of CASI) {
@@ -144,6 +210,15 @@ function numero(t, de) {
     const v = await page.textContent('[data-valore]');
     const atteso = process.env.ATTESO_LINK ? parseFloat(process.env.ATTESO_LINK) : null;
     if (atteso !== null && Math.abs(numero(v, false) - atteso) > 0.006) problemi.push(`link condiviso: atteso ${atteso}, letto ${v}`);
+    // prezzi EIA in dollari di oggi: il link dell'esempio apre il calcolatore dell'inflazione con lo stesso risultato scritto nella pagina
+    for (const p of ['/heating-oil-prices/', '/propane-prices/']) {
+      await page.goto(base + p, { waitUntil: 'load' });
+      const es = await page.evaluate(() => { const par = document.querySelector('#in-todays-dollars').nextElementSibling;
+        return { href: par.querySelector('a[href^="/?a="]').getAttribute('href'), v: par.querySelector('[data-cpi]').textContent }; });
+      await page.goto(base + es.href, { waitUntil: 'load' });
+      const vc = await page.textContent('[data-out] [data-valore]');
+      if (vc !== es.v) problemi.push(`${p}: esempio in dollari di oggi ${es.v}, il calcolatore aperto dal link dà ${vc}`);
+    }
     // (revisione indipendente) passaggio CPI -> RPI: automatico prima del 1988 con la nota visibile, ritorno al CPI quando le due date
     // tornano dal 1988 in poi; una scelta fatta a mano del RPI resta
     await page.goto(base + '/uk/', { waitUntil: 'load' });
@@ -169,5 +244,5 @@ function numero(t, de) {
   }
   await browser.close();
   srv.close();
-  console.log(JSON.stringify({ viste: n, casi: CASI.length, roth: CASI_ROTH.length, problemi }));
+  console.log(JSON.stringify({ viste: n, casi: CASI.length, roth: CASI_ROTH.length, tank: CASI_TANK.length, pay: CASI_PAY.length, rent: CASI_RENT.length, problemi }));
 })();

@@ -51,6 +51,8 @@ _F = carica("fonti.json")
 FONTI = _F["definizioni"]
 ESITI = _F["fonti"]
 FAQ = carica("faq.json")["faq"]
+SC = carica("schemi.json")  # 13/11/2026: Great British Insulation Scheme, Warm Homes: Local Grant, ECO4 (da raccolta/estrai.py)
+GBIS, WH, E4 = SC["gbis"], SC["whlg"], SC["eco4"]
 AFF = carica("affiliati.json")
 # data di uscita scritta nella copertina di ogni file (la pagina GOV.UK che li raccoglie può avere una data più recente)
 USCITA_FILE = {"bus_xlsx": B["pubblicato"], "solare_la_xlsx": S["la_pubblicato"], "solare_et63_xlsx": S["et63_pubblicato"], "solare_costi_xlsx": S["costi_pubblicato"]}
@@ -339,9 +341,9 @@ TITOLI = {}
 AD = '<div class="ad-slot" aria-hidden="true"></div>'
 MENU = [("heat-pump-grants/", "Grants by area"), ("eligibility/", "Eligibility"), ("heat-pump-cost/", "Cost"), ("solar-panels/", "Solar panels"),
         ("how-we-check/", "How we check")]
-DISCLAIMER = ("<strong>General information, not advice.</strong> Grant amounts and rules are taken from GOV.UK and Ofgem; counts and costs from the "
-              "official DESNZ statistics linked on each page. Whether a property qualifies is checked by your installer and by Ofgem, who runs the scheme. "
-              "This site is independent and is not a government website.")
+DISCLAIMER = ("<strong>General information, not advice.</strong> Grant amounts and rules are quoted from the official pages linked on each page (GOV.UK, "
+              "Ofgem and the scheme websites); counts and costs come from official DESNZ statistics. Whether a home qualifies is decided by the scheme: for the "
+              "Boiler Upgrade Scheme, by your installer and Ofgem, who runs it. This site is independent and is not a government website.")
 
 
 def menu_html(percorso):
@@ -369,7 +371,9 @@ def pagina(percorso, titolo, descrizione, corpo, testata="", briciole=None, json
     reg_piede = "".join(f'<li><a href="/heat-pump-grants/{SLUG_REG[r]}/">{h(NOME_REG[r])}</a></li>' for r in REG_EW)
     guide_piede = "".join(f'<li><a href="/{u}">{h(t)}</a></li>' for u, t in [
         ("heat-pump-grants/", "Grants by council"), ("eligibility/", "Who can get the grant"), ("heat-pump-cost/", "Heat pump cost"),
-        ("solar-panels/", "Solar panels by region"), ("about/", "About"), ("how-we-check/", "How we check"), ("privacy/", "Privacy")])
+        ("solar-panels/", "Solar panels by region"), ("solar-panel-grants/", "Solar panel grants"), ("eco4/", "ECO4"),
+        ("warm-homes-local-grant/", "Warm Homes: Local Grant"), ("great-british-insulation-scheme/", "Great British Insulation Scheme"),
+        ("heat-pump-grants/scotland/", "Grants in Scotland"), ("about/", "About"), ("how-we-check/", "How we check"), ("privacy/", "Privacy")])
     testa_ads = MON.script_adsense(SITO_ID, con_pubblicita=indicizza)
     testo = f"""<!DOCTYPE html>
 <html lang="en-GB">
@@ -460,6 +464,25 @@ def descr_corta(*varianti):
     raise SystemExit(f"nessuna descrizione 70-160: {varianti}")
 
 
+# ---------------------------------------------------------------- ricerche misurate (13/11/2026)
+# Ricerche con volume misurato nel Regno Unito (dati/volumi-2026-11-13.json) che ogni pagina deve servire. verifica.py controlla:
+# volume > 0, la prima tutta nel titolo, le altre in titolo, h1, descrizione o testo delle FAQ della pagina.
+RICERCHE_PAGINA = {
+    "": ["heat pump grant", "heat pump grant uk", "boiler upgrade scheme", "heat pump grants", "government heat pump grant"],
+    "eligibility/": ["air source heat pump grant", "boiler upgrade scheme eligibility", "heat pump grant eligibility", "ground source heat pump grant"],
+    "heat-pump-cost/": ["air source heat pump cost", "heat pump cost uk", "heat pump cost", "how much does a heat pump cost", "how much is a heat pump",
+                        "ground source heat pump cost"],
+    "solar-panels/": ["solar panels cost"],
+    "heat-pump-grants/wales/": ["heat pump grant wales", "nest wales", "nest scheme"],
+    "heat-pump-grants/scotland/": ["heat pump grant scotland", "home energy scotland", "home energy scotland grant", "warmer homes scotland"],
+    "eco4/": ["eco4 scheme", "eco4", "eco4 grant", "eco4 eligibility", "energy company obligation", "when does eco4 end"],
+    "great-british-insulation-scheme/": ["great british insulation scheme", "gbis", "loft insulation grant"],
+    "warm-homes-local-grant/": ["warm homes local grant", "warm homes plan", "warm homes grant", "warm homes local grant eligibility"],
+    "solar-panel-grants/": ["solar panel grants uk", "solar panel grants", "solar panel grant", "government grants for solar panels", "free solar panels",
+                            "smart export guarantee", "vat on solar panels"],
+}
+
+
 # ---------------------------------------------------------------- FAQ
 VAL = {
     "n9000": N9000, "quota9000": Q9000, "mese": PERIODO, "pagati_pompe": n(PAGATI_POMPE), "pagati_totale": n(PAGATI_TOT),
@@ -471,6 +494,18 @@ VAL = {
     "sol_mediana_0_4": gbp(SOMM_SOL["mediana_0_4"]), "sol_es_3kw": gbp(3 * SOMM_SOL["mediana_0_4"]), "sol_mediana_4_10": gbp(SOMM_SOL["mediana_4_10"]),
     "sol_mediana_10_50": gbp(SOMM_SOL["mediana_10_50"]),
 }
+_aw = FASCE["Air-to-Water Heat Pumps"]
+VAL.update({
+    "anno_f": ANNO_F, "f_4_6": gbp(_aw["4kW to 6kW"][ANNO_F]["mediana"]), "f_6_8": gbp(_aw["6kW to 8kW"][ANNO_F]["mediana"]),
+    "f_8_10": gbp(_aw["8kW to 10kW"][ANNO_F]["mediana"]), "f_12_14": gbp(_aw["12kW to 14kW"][ANNO_F]["mediana"]),
+    "f_20": gbp(_aw["20kW or greater"][ANNO_F]["mediana"]),
+    "eco4_misure": n(E4["misure"]), "eco4_case": n(E4["case"]), "eco4_fino": E4["fino_a"], "eco4_caldaie": n(E4["tipi"]["Boiler"]),
+    "eco4_solare": n(E4["tipi"]["Solar PV"]), "eco4_ashp": n(E4["tipi"]["Air Source Heat Pumps"]),
+    "gbis_famiglie": n(GBIS["famiglie"]), "gbis_misure": n(GBIS["misure"]), "gbis_loft": n(GBIS["tipi"]["Loft Insulation"]),
+    "whlg_famiglie": n(WH["famiglie"]), "whlg_misure": n(WH["misure"]), "whlg_fino": WH["fino_a"],
+    "whlg_solare": n(WH["tipi"]["Solar PV"]["misure"]), "whlg_solare_costo": gbp(WH["tipi"]["Solar PV"]["costo_medio"]),
+    "whlg_ashp": n(WH["tipi"]["Air Source Heat Pump"]["misure"]),
+})
 _gb = {r: COSTI_SOL[r][ANNO_SOL]["media_0_4"] for r in COSTI_SOL}
 _rmin, _rmax = min(_gb, key=_gb.get), max(_gb, key=_gb.get)
 VAL.update({"sol_min": gbp(_gb[_rmin]), "sol_min_reg": NEL_REG[_rmin], "sol_max": gbp(_gb[_rmax]), "sol_max_reg": NEL_REG[_rmax]})
@@ -800,6 +835,10 @@ def pagina_regione(r):
         corpo += ('<p>County totals: ' + " · ".join(f'<a href="/{c["url"]}">{h(c["nome"])}</a> ({n(c["cumulato"])})' for c in contee) + "</p>")
     corpo += f'<h2 id="cost">What a heat pump costs after the grant</h2>' + nota_costo_nazionale(nel) + tabella_costo(rim)
     corpo += f'<h2 id="rules">Who can get the grant</h2>' + regole_brevi(rim)
+    galles = r == "W92000004"
+    if galles:
+        corpo += sezione_nest(rim)
+    corpo += altri_schemi_regione(r, rim)
     corpo += box_preventivo("regione")
     et = ET[r]
     sn, sp = et["numero"][MESE_ET], et["numero"][MESE_ET_PRIMA]
@@ -808,15 +847,22 @@ def pagina_regione(r):
                    f'{gbp(COSTI_SOL[r][ANNO_SOL]["media_0_4"])} per kW in {ANNO_SOL}.[[solare_costi_xlsx]] '
                    f'<a href="/solar-panels/{SLUG_REG[r]}/">Solar panels in {h(nel)} by council</a>.</p></div>')
     corpo += '<h2>Other regions</h2>' + griglia_regioni(r)
-    corpo += rim.elenco()
+    f_html, f_ld = faq_blocco("wales", rim) if galles else ("", None)
+    corpo += f_html + rim.elenco()
     sub = (f"<strong>{n(tot)}</strong> heat pumps in {h(nel)} have had a Boiler Upgrade Scheme grant paid. Year-by-year and monthly figures, every council, "
            f"and the cost after the grant.")
-    testata = banda("Boiler Upgrade Scheme · region", f"Heat pump grants in {nel}", sub, icona="map")
-    titolo = titolo_corto(f"Heat Pump Grants in {nel}: {n(tot)} Paid, by Council", f"Heat Pump Grants in {nel}: {n(tot)} Paid")
-    descr = descr_corta(f"{n(tot)} Boiler Upgrade Scheme grants paid for heat pumps in {nel} to {PERIODO}: by year, by month and for each of its {len(lista)} councils.",
-                        f"{n(tot)} heat pump grants paid in {nel}: by year, by month and for each council, from DESNZ figures.")
+    if galles:
+        sub += " Plus Nest, the Welsh Government scheme for free home improvements."
+    testata = banda("Boiler Upgrade Scheme · region", "Heat pump grants in Wales: Boiler Upgrade Scheme and Nest" if galles else f"Heat pump grants in {nel}", sub, icona="map")
+    if galles:  # 13/11: ricerche misurate "heat pump grant wales" (210) e "nest wales" (880)
+        titolo = titolo_corto(f"Heat Pump Grant Wales: {n(tot)} Paid and the Nest Scheme")
+        descr = descr_corta(f"Heat pump grant Wales: {n(tot)} Boiler Upgrade Scheme grants paid to {PERIODO}, by council, and Nest Wales, the free Welsh Government scheme.")
+    else:
+        titolo = titolo_corto(f"Heat Pump Grants in {nel}: {n(tot)} Paid, by Council", f"Heat Pump Grants in {nel}: {n(tot)} Paid")
+        descr = descr_corta(f"{n(tot)} Boiler Upgrade Scheme grants paid for heat pumps in {nel} to {PERIODO}: by year, by month and for each of its {len(lista)} councils.",
+                            f"{n(tot)} heat pump grants paid in {nel}: by year, by month and for each council, from DESNZ figures.")
     pagina(f"heat-pump-grants/{SLUG_REG[r]}/", titolo, descr, corpo, testata,
-           briciole=[("Home", ""), ("Grants by area", "heat-pump-grants/"), (nome, f"heat-pump-grants/{SLUG_REG[r]}/")])
+           briciole=[("Home", ""), ("Grants by area", "heat-pump-grants/"), (nome, f"heat-pump-grants/{SLUG_REG[r]}/")], jsonld=[f_ld] if f_ld else None)
 
 
 def hub_aree():
@@ -832,6 +878,8 @@ def hub_aree():
     corpo += rim.t(f'<div class="testo"><p>DESNZ counts every Boiler Upgrade Scheme grant paid by the postcode of the property and publishes the total for each '
                    f'local authority every three months.[[bus_xlsx]] Find your council below, or start from your region.</p></div>')
     corpo += '<h2 id="regions">By region</h2>' + griglia_regioni()
+    corpo += rim.t('<p class="testo">The Boiler Upgrade Scheme covers England and Wales only.[[gov_apply]] For Scotland, see '
+                   '<a href="/heat-pump-grants/scotland/">heat pump grants in Scotland</a> (Home Energy Scotland and Warmer Homes Scotland).</p>')
     corpo += AD
     corpo += (f'<h2 id="councils">Every council in England and Wales</h2><div class="cerca"><input type="search" data-cerca="tab-tutti" placeholder="Type a council or region" '
               f'aria-label="Find a council"></div><div class="tab" id="tab-tutti"><table class="dati"><thead><tr><th scope="col">Council</th><th scope="col">Region</th>'
@@ -879,6 +927,7 @@ def home():
     corpo += barre([(k, tm[k], f"{mese_lungo(k)}: {n(tm[k])} applications") for k in MESI_SERIE[-12:]], "Applications per month, England and Wales",
                    "All technologies")
     corpo += '<h2 id="eligible">Who can get it</h2>' + regole_brevi(rim)
+    corpo += altri_schemi(titolo="Other grants: ECO4, Warm Homes, solar, Scotland and Wales")
     corpo += box_preventivo("home")
     per_n = sorted(REG_EW, key=lambda r: -CUM[r])
     per_t = sorted(REG_EW, key=lambda r: -TASSO_REG[r])
@@ -905,7 +954,8 @@ def home():
     if f_ld:
         ld.append(f_ld)
     pagina("", "Heat Pump Grant UK 2026: £7,500 Boiler Upgrade Scheme Figures",
-           f"Boiler Upgrade Scheme 2026: £7,500 or £9,000 off a heat pump, median cost {gbp(MED)} before the grant, and grants paid in every council area.",
+           descr_corta(f"The government heat pump grant in England and Wales: the Boiler Upgrade Scheme takes £7,500 or £9,000 off. Median cost {gbp(MED)} before it; by council.",
+                       f"Boiler Upgrade Scheme 2026: £7,500 or £9,000 off a heat pump, median cost {gbp(MED)} before the grant, and grants paid in every council area."),
            corpo, testata, jsonld=ld)
 
 
@@ -960,13 +1010,15 @@ def eligibility():
         corpo += f"<tr><td>{h(dt)}</td><td>{h(testo)}</td></tr>"
     corpo += f'</tbody><caption>From the “Scheme background” sheet of the DESNZ statistics.{rim.ref("bus_xlsx")}</caption></table></div>'
     corpo += rim.t(f'<div class="testo"><p>{h(fs["budget"])} {h(fs["fino"])} {h(fs["primo_arrivato"])}[[bus_xlsx]]</p></div>')
+    corpo += altri_schemi()
     corpo += box_preventivo("eligibility")
     f_html, f_ld = faq_blocco("eligibility", rim)
     corpo += f_html + rim.elenco()
-    testata = banda("Boiler Upgrade Scheme · rules", "Who can get the heat pump grant", "Eligibility for the Boiler Upgrade Scheme in England and Wales, with the "
+    testata = banda("Boiler Upgrade Scheme · rules", "Boiler Upgrade Scheme eligibility: who can get the heat pump grant", "Eligibility for the Boiler Upgrade Scheme in England and Wales, with the "
                     f"official wording from GOV.UK and Ofgem, checked on {data_lunga(CONTROLLO)}.", corta=True, icona="shield")
-    pagina("eligibility/", "Boiler Upgrade Scheme Eligibility 2026: Who Can Get the Grant",
-           "Who can get the £7,500, £9,000 or £2,500 heat pump grant: owners, landlords, new builds, EPC, hybrid systems and how the installer applies.",
+    pagina("eligibility/", "Air Source Heat Pump Grant: Boiler Upgrade Scheme Eligibility",
+           descr_corta("Heat pump grant eligibility in England and Wales: £7,500 for an air source or ground source heat pump, £9,000 or £2,500; landlords, new builds, EPC.",
+                       "Who can get the £7,500, £9,000 or £2,500 heat pump grant: owners, landlords, new builds, EPC, hybrid systems and how the installer applies."),
            corpo, testata, briciole=[("Home", ""), ("Eligibility", "eligibility/")], jsonld=[f_ld] if f_ld else None)
 
 
@@ -1022,10 +1074,11 @@ def costo():
     corpo += box_preventivo("cost")
     f_html, f_ld = faq_blocco("cost", rim)
     corpo += f_html + rim.elenco()
-    testata = banda("Boiler Upgrade Scheme · cost", "How much a heat pump costs after the grant", f"Official installed costs for heat pumps with a grant paid in England "
+    testata = banda("Boiler Upgrade Scheme · cost", "How much does a heat pump cost? The official median, before and after the grant", f"Official installed costs for heat pumps with a grant paid in England "
                     f"and Wales: median {gbp(MED)} in {TRIM_L}, about {gbp(MED - GRANT)} after the £7,500 grant.", corta=True, icona="pound")
-    pagina("heat-pump-cost/", "Heat Pump Cost UK 2026: Official Median After the Grant",
-           f"Air source heat pumps cost a median {gbp(MED)} in {TRIM_L} ({gbp(MED - GRANT)} after the £7,500 grant). Costs by size, since 2022 and for ground source.",
+    pagina("heat-pump-cost/", "Air Source Heat Pump Cost UK 2026: Official Median After Grant",
+           descr_corta(f"Air source heat pumps cost a median {gbp(MED)} in England and Wales, {TRIM_L} ({gbp(MED - GRANT)} after the £7,500 grant). By size, and ground source.",
+                       f"Air source heat pumps cost a median {gbp(MED)} in England and Wales ({gbp(MED - GRANT)} after the £7,500 grant). By size, and ground source."),
            corpo, testata, briciole=[("Home", ""), ("Heat pump cost", "heat-pump-cost/")], jsonld=[f_ld] if f_ld else None)
 
 
@@ -1068,12 +1121,14 @@ def solare_hub():
     if dom:
         corpo += rim.t(f'<p class="testo">On homes alone, {n(dom["n"])} installations in {ANNO_SOL} averaged {gbp(dom["media_0_4"])} per kW up to 4 kW and '
                        f'{gbp(dom["media_4_10"])} per kW from 4 to 10 kW.[[solare_costi_xlsx]]</p>')
+    corpo += ('<p class="testo">Grants that fit solar panels for eligible homes, VAT and the Smart Export Guarantee: '
+              '<a href="/solar-panel-grants/">solar panel grants in the UK</a>.</p>')
     corpo += box_preventivo("solar")
     f_html, f_ld = faq_blocco("solar", rim)
     corpo += f_html + rim.elenco()
     testata = banda("Solar panels · official figures", "Solar panels: installations and cost by region", "How many solar installations each UK region has, how fast "
                     "they are growing, and what small systems cost per kW, from DESNZ statistics.", corta=True, icona="solar")
-    pagina("solar-panels/", "Solar Panel Cost UK 2026 by Region: Official £ per kW",
+    pagina("solar-panels/", "Solar Panels Cost UK 2026: Official £ per kW by Region",
            f"Solar panels cost a median {gbp(SOMM_SOL['mediana_0_4'])} per kW (up to 4 kW) in {ANNO_SOL}. Installations and average cost per kW in every UK region.",
            corpo, testata, briciole=[("Home", ""), ("Solar panels", "solar-panels/")], jsonld=[f_ld] if f_ld else None)
 
@@ -1134,12 +1189,401 @@ def solare_regione(r):
 
 
 # ---------------------------------------------------------------- pagine istituzionali
+# ---------------------------------------------------------------- altri schemi (13/11/2026: pagine nate dalle ricerche misurate)
+# Ogni pagina: testo ufficiale citato (GOV.UK, Ofgem, HMRC, Scottish Government tramite Home Energy Scotland, Welsh Government, nidirect)
+# + cifre ufficiali DESNZ. Nessun consiglio, nessun "you qualify": si riportano le regole come le scrive la fonte.
+EPC_LINK = '<a href="https://www.gov.uk/find-energy-certificate" rel="noopener">energy performance certificate register</a>'
+LINK_WALL = '<a href="https://www.gov.uk/guidance/what-to-do-if-you-have-poor-quality-wall-insulation" rel="noopener">what to do about poor quality wall insulation</a>'
+ALTRI_SCHEMI = [("eco4/", "ECO4", "help from energy suppliers, until 31 December 2026"),
+                ("warm-homes-local-grant/", "Warm Homes: Local Grant", "free upgrades through councils, England"),
+                ("great-british-insulation-scheme/", "Great British Insulation Scheme", "closed on 31 March 2026"),
+                ("solar-panel-grants/", "Solar panel grants", "which schemes fit panels"),
+                ("heat-pump-grants/scotland/", "Scotland", "Home Energy Scotland and Warmer Homes Scotland"),
+                ("heat-pump-grants/wales/", "Wales", "Boiler Upgrade Scheme and Nest")]
+
+
+def altri_schemi(attuale=None, titolo="Other grants and schemes"):
+    voci = "".join(f'<li><a href="/{u}">{h(nn)}</a> <span class="small">· {h(d)}</span></li>' for u, nn, d in ALTRI_SCHEMI if u != attuale)
+    return f'<h2 id="schemes">{h(titolo)}</h2><ul class="testo">{voci}</ul>'
+
+
+def nome_reg_gb(cod, nome_file):
+    return NOME_REG.get(cod, nome_file)
+
+
+def link_reg(cod):
+    if cod in SLUG_REG and cod in REG_EW:
+        return f'<a href="/heat-pump-grants/{SLUG_REG[cod]}/">{h(NOME_REG[cod])}</a>'
+    if cod == "S92000003":
+        return '<a href="/heat-pump-grants/scotland/">Scotland</a>'
+    return h(NOME_REG.get(cod, cod))
+
+
+ECO4_RIGHE = [("Loft Insulation", "Loft insulation"), ("Boiler", "Boilers (replacements, upgrades and first-time central heating)"),
+              ("Solid Wall Insulation", "Solid wall insulation"), ("Solar PV", "Solar PV"), ("Cavity Wall Insulation", "Cavity wall insulation"),
+              ("Air Source Heat Pumps", "Air source heat pumps"), ("Other Insulation", "Other insulation (floors, roofs, park homes)"),
+              ("Hybrid Heat Pumps", "Hybrid heat pumps"), ("Ground Source Heat Pumps", "Ground source heat pumps"),
+              ("Other Heating", "Heating controls, storage heaters and other heating")]
+
+
+def asof_xlsx(fid, testo):
+    return f"{testo} DESNZ, published {data_lunga(ESITI[fid]['pubblicato'])}."
+
+
+def pagina_eco4():
+    rim = Rimandi()
+    t = E4["tipi"]
+    corpo = cifre([(n(E4["misure"]), f"measures fitted under ECO4, April 2022 to {E4['fino_a']}", True),
+                   (n(E4["case"]), "homes with at least one measure", False),
+                   (n(t["Air Source Heat Pumps"]), "air source heat pumps fitted", False),
+                   (n(t["Solar PV"]), "solar PV systems fitted", False)],
+                  asof_xlsx("hee_xlsx", f"Household Energy Efficiency statistics to the end of {E4['fino_a']}, Great Britain; DESNZ's ECO4 count includes ECO3 interim delivery and surplus actions."))
+    corpo += '<div class="card pull testo">' + rim.t(
+        '<p>The Energy Company Obligation (ECO) is “a government energy efficiency scheme in Great Britain designed to tackle fuel poverty and help reduce carbon '
+        'emissions”, in Ofgem\'s words. Medium and large energy suppliers have to fund measures that help low-income, fuel-poor and vulnerable households heat '
+        'their homes, such as insulation or a heating upgrade. ECO4 is the current phase: it covers measures installed from 1 April 2022 and runs until '
+        '<strong>31 December 2026</strong>, after a nine-month extension. Ofgem runs it for the Department for Energy Security and Net Zero.[[ofgem_eco]] '
+        'GOV.UK confirms that the scheme is closing on 31 December 2026.[[gov_eco]]</p>') + '</div>'
+    corpo += '<h2 id="eligible">Who ECO4 is for</h2>' + rim.t(
+        '<div class="testo"><p>GOV.UK says you might be able to get help if you claim certain benefits and live in private housing (you own your home or rent from a '
+        'private landlord), or if you live in social housing.[[gov_eco]]</p></div>'
+        '<ul class="testo"><li><strong>Benefits listed by GOV.UK:</strong> Universal Credit, Pension Guarantee Credit, Pension Savings Credit, Income Support, '
+        'income-based Jobseeker\'s Allowance, income-related Employment and Support Allowance, Child Benefit and Housing Benefit.[[gov_eco]]</li>'
+        '<li><strong>If you own your home</strong>, it must have an energy efficiency rating of D, E, F or G.[[gov_eco]]</li>'
+        '<li><strong>If you rent from a private landlord</strong>, the home must be rated E, F or G, and you need the owner\'s permission for the work.[[gov_eco]]</li>'
+        '<li><strong>Social housing</strong> rated E, F or G may get help with insulation or a first heating system.[[gov_eco]]</li></ul>'
+        f'<p class="testo">The rating is the one on the home\'s Energy Performance Certificate: GOV.UK points to the {EPC_LINK} to look it up. Councils can also '
+        'decide which homes are eligible through ECO4\'s “flexible eligibility” route.[[gov_eco,hee_xlsx]]</p>')
+    tot = E4["misure"]
+    tr = "".join(f'<tr><td>{h(et)}</td><td class="n">{n(t[k])}</td><td class="n">{pct(t[k] / tot, 1)}</td></tr>'
+                 for k, et in sorted(ECO4_RIGHE, key=lambda x: -t[x[0]]))
+    corpo += rim.t('<h2 id="measures">What ECO4 has paid for</h2><div class="testo"><p>GOV.UK says the scheme can help with the cost of insulation work, for '
+                   'example to your loft or cavity walls, and with replacing or repairing your boiler, or other upgrades to your heating.[[gov_eco]] The DESNZ '
+                   f'statistics show what has actually been fitted: {n(t["Loft Insulation"])} loft insulation jobs, {n(t["Boiler"])} boiler measures (of which '
+                   f'{n(t["First Time Central Heating"])} first-time central heating systems), and {n(t["Air Source Heat Pumps"])} air source heat pumps.[[hee_xlsx]]</p></div>')
+    corpo += (f'<div class="tab"><table class="dati"><thead><tr><th scope="col">Measure</th><th scope="col" class="n">Fitted</th><th scope="col" class="n">Share of all '
+              f'measures</th></tr></thead><tbody>{tr}</tbody><caption>ECO4 measures in Great Britain, April 2022 to {h(E4["fino_a"])}, including ECO3 “interim” '
+              f'delivery and surplus actions carried over to ECO4, as DESNZ counts them. A home can have several measures. Shares: our calculation on the '
+              f'{n(tot)} total.{rim.ref("hee_xlsx")}</caption></table></div>')
+    corpo += AD
+    corpo += '<h2 id="apply">How to get help</h2>' + rim.t(
+        '<ul class="testo"><li>Contact your local council to find out if it is taking part, or contact an energy supplier directly. Ofgem publishes the contact '
+        'details of the suppliers taking part.[[gov_eco]]</li>'
+        '<li>Installers or agents might contact you directly. If you are not sure an offer is genuine, GOV.UK says to check with your local council or the '
+        'energy supplier they represent.[[gov_eco]]</li>'
+        f'<li>GOV.UK warns of quality issues with some solid wall insulation fitted through the scheme; it explains {LINK_WALL}.[[gov_eco]]</li></ul>')
+    corpo += '<h2 id="heat-pumps">ECO4 and the heat pump grant</h2>' + rim.t(
+        '<div class="testo"><p>ECO4 is for households on certain benefits (or chosen by their council) in homes with a low energy rating. The Boiler Upgrade '
+        'Scheme, in England and Wales, has no such test: it asks that '
+        'you own the property and replace fossil fuel or electric heating, and it takes £7,500 off a heat pump. A property that has already had government '
+        'funding or support for a heat pump cannot get the Boiler Upgrade Scheme grant as well.[[gov_apply]] '
+        '<a href="/eligibility/">The Boiler Upgrade Scheme rules</a>.</p></div>')
+    corpo += rim.t('<h2 id="after">After ECO4</h2><div class="testo"><p>The Great British Insulation Scheme, which ran alongside ECO4, ended on 31 March '
+                   '2026.[[ofgem_gbis]] In England, the Warm Homes: Local Grant pays for insulation, heat pumps and solar panels for households on a low income, '
+                   'run by councils.[[gov_whlg]]</p></div>')
+    corpo += altri_schemi("eco4/")
+    f_html, f_ld = faq_blocco("eco4", rim)
+    corpo += f_html + rim.elenco()
+    testata = banda("Energy Company Obligation · Great Britain", "ECO4 grant scheme: who is eligible and when it ends",
+                    "Help from energy suppliers with insulation and heating for households on certain benefits. The scheme closes on <strong>31 December 2026</strong>.",
+                    corta=True, icona="home")
+    pagina("eco4/", "ECO4 Scheme 2026: Eligibility, End Date and What It Covers",
+           descr_corta(f"ECO4 eligibility, the 31 December 2026 end date and what the Energy Company Obligation has fitted: {n(E4['misure'])} measures in {n(E4['case'])} homes.",
+                       f"ECO4 eligibility and the 31 December 2026 end date of the Energy Company Obligation, with {n(E4['misure'])} measures fitted so far."),
+           corpo, testata, briciole=[("Home", ""), ("ECO4", "eco4/")], jsonld=[f_ld] if f_ld else None)
+
+
+GBIS_RIGHE = [("Cavity Wall Insulation", "Cavity wall insulation"), ("Loft Insulation", "Loft insulation"),
+              ("Heating Controls", "Heating controls (almost all in low-income homes)"), ("Other Insulation", "Other insulation (flat roofs, rooms in roof, floors)"),
+              ("Solid Wall Insulation", "Solid wall insulation")]
+
+
+def pagina_gbis():
+    rim = Rimandi()
+    t = GBIS["tipi"]
+    corpo = cifre([(n(GBIS["famiglie"]), "homes upgraded under the scheme", True), (n(GBIS["misure"]), "measures installed", False),
+                   (n(t["Cavity Wall Insulation"]), "cavity wall insulation jobs", False), (n(t["Loft Insulation"]), "loft insulation jobs", False)],
+                  asof_xlsx("gbis_xlsx", f"Great British Insulation Scheme statistics, {GBIS['periodo']}, Great Britain; provisional."))
+    corpo += '<div class="card pull testo">' + rim.t(
+        '<p><strong>The Great British Insulation Scheme has closed.</strong> Ofgem says it began in April 2023, ended on 31 March 2026 and is now closed to new '
+        'installations.[[ofgem_gbis]] GOV.UK described it as a way to get free or cheaper insulation, with installations to be complete by 31 March 2026, '
+        'when the scheme ended.[[gov_gbis]]</p>') + '</div>'
+    corpo += '<h2 id="what">What the scheme was</h2>' + rim.t(
+        '<div class="testo"><p>The scheme placed an obligation on medium and large energy companies to install measures that cut energy use in the least '
+        'energy-efficient homes in Great Britain. Unlike ECO4\'s “whole house” approach, it mostly delivered single insulation measures.[[ofgem_gbis]]</p>'
+        '<p>It was open to low-income and vulnerable households and also, in Ofgem\'s words, to “those living in homes with an Energy Performance Certificate '
+        'rating of D-G, and within Council Tax bands A-D in England and A-E in Scotland and Wales”.[[ofgem_gbis]] DESNZ counts '
+        f'{n(GBIS["famiglie_generali"])} homes upgraded under that general route and {n(GBIS["famiglie_basso_reddito"])} under the low-income route; a few '
+        'homes have no recorded route, so the two do not add up to the total.[[gbis_xlsx]]</p></div>')
+    tot = GBIS["misure"]
+    tr = "".join(f'<tr><td>{h(et)}</td><td class="n">{n(t[k])}</td><td class="n">{pct(t[k] / tot, 1)}</td></tr>' for k, et in GBIS_RIGHE)
+    corpo += (f'<h2 id="measures">What it installed</h2><div class="tab"><table class="dati"><thead><tr><th scope="col">Measure</th><th scope="col" class="n">'
+              f'Installed</th><th scope="col" class="n">Share</th></tr></thead><tbody>{tr}</tbody><caption>Measures installed {h(GBIS["periodo"])}, Great '
+              f'Britain, {n(tot)} in total; provisional figures from Ofgem data. Shares: our calculation.{rim.ref("gbis_xlsx")}</caption></table></div>')
+    corpo += AD
+    reg = GBIS["regioni"]
+    codici = [c for c in reg if c.startswith(("E12", "W92", "S92"))]
+    per = sorted(codici, key=lambda c: -reg[c]["per100k_famiglie"])
+    tr = "".join(f'<tr><td>{link_reg(c)}</td><td class="n">{n(reg[c]["famiglie"])}</td><td class="n">{n(reg[c]["misure"])}</td>'
+                 f'<td class="n">{n(reg[c]["per100k_famiglie"])}</td></tr>' for c in codici)
+    gb = reg["K03000001"]
+    corpo += rim.t(f'<h2 id="regions">Homes upgraded by region</h2><div class="testo"><p>{h(cap(NEL_REG[per[0]]))} had the most homes upgraded for its size, '
+                   f'{n(reg[per[0]]["per100k_famiglie"])} per 100,000 households, against {n(gb["per100k_famiglie"])} for Great Britain; '
+                   f'{h(NEL_REG[per[-1]])} had the fewest ({n(reg[per[-1]]["per100k_famiglie"])}).[[gbis_xlsx]]</p></div>')
+    corpo += (f'<div class="tab"><table class="dati"><thead><tr><th scope="col">Region</th><th scope="col" class="n">Homes</th>'
+              f'<th scope="col" class="n">Measures</th><th scope="col" class="n">Per 100,000 households</th></tr></thead><tbody>{tr}</tbody>'
+              f'<caption>Homes upgraded and measures installed, {h(GBIS["periodo"])}. Homes upgraded per 100,000 households: DESNZ\'s rate.{rim.ref("gbis_xlsx")}</caption></table></div>')
+    corpo += '<h2 id="now">Help with insulation now</h2>' + rim.t(
+        '<ul class="testo"><li><a href="/eco4/">ECO4</a>: help with insulation such as loft or cavity walls for households on certain benefits, until 31 December '
+        '2026.[[gov_eco]]</li>'
+        '<li><a href="/warm-homes-local-grant/">Warm Homes: Local Grant</a>: wall, loft and underfloor insulation among the improvements councils pay for, in England '
+        'only.[[gov_whlg]]</li>'
+        '<li><a href="/heat-pump-grants/scotland/">Scotland</a>: Home Energy Scotland lists insulation grants, for example up to £1,500 for loft, cavity or '
+        'underfloor insulation.[[hes_grant]]</li>'
+        '<li><a href="/heat-pump-grants/wales/#nest">Wales</a>: the Welsh Government\'s Nest scheme includes insulation in its free improvements.[[wales_nest_free]]</li></ul>'
+        f'<p class="testo">GOV.UK warns of quality issues with some solid wall insulation fitted through the scheme and explains {LINK_WALL}.[[gov_gbis]]</p>')
+    f_html, f_ld = faq_blocco("gbis", rim)
+    corpo += f_html + rim.elenco()
+    testata = banda("Great British Insulation Scheme · closed", "Great British Insulation Scheme: closed, and what it installed",
+                    f"The scheme ended on <strong>31 March 2026</strong>. Who it was for, the {n(GBIS['famiglie'])} homes it upgraded, and where help with insulation "
+                    "is still available.", corta=True, icona="home")
+    pagina("great-british-insulation-scheme/", "Great British Insulation Scheme (GBIS): Ended 31 March 2026",
+           descr_corta(f"The Great British Insulation Scheme (GBIS) ended on 31 March 2026. Eligibility, the {n(GBIS['famiglie'])} homes it upgraded by region, and "
+                       "insulation help now.",
+                       f"The Great British Insulation Scheme (GBIS) ended on 31 March 2026: eligibility, {n(GBIS['famiglie'])} homes upgraded, help now."),
+           corpo, testata, briciole=[("Home", ""), ("Great British Insulation Scheme", "great-british-insulation-scheme/")], jsonld=[f_ld] if f_ld else None)
+
+
+WHLG_RIGHE = [("Solar PV", "Solar PV"), ("Batteries", "Batteries"), ("Loft Insulation", "Loft insulation"), ("Air Source Heat Pump", "Air source heat pump"),
+              ("Heating Controls", "Heating controls"), ("Electric Storage Heating", "Electric storage heating"), ("Park Home Insulation", "Park home insulation"),
+              ("Cavity Wall Insulation", "Cavity wall insulation"), ("Energy Efficient Windows and Doors", "Energy efficient windows and doors"),
+              ("Double or Triple Glazing", "Double or triple glazing"), ("External Solid Wall Insulation", "External solid wall insulation"),
+              ("Internal Solid Wall Insulation", "Internal solid wall insulation"), ("Flat Roof Insulation", "Flat roof insulation"),
+              ("Room in Roof Insulation", "Room in roof insulation"), ("Hybrid Heat Pump", "Hybrid heat pump")]
+
+
+def pagina_whlg():
+    rim = Rimandi()
+    t = WH["tipi"]
+    corpo = cifre([(n(WH["famiglie"]), f"homes upgraded, to the end of {WH['fino_a']}", True), (n(WH["misure"]), "measures installed", False),
+                   (n(t["Solar PV"]["misure"]), "solar PV systems", False), (n(t["Air Source Heat Pump"]["misure"]), "air source heat pumps", False)],
+                  asof_xlsx("whlg_xlsx", f"Warm Homes: Local Grant statistics for England, reported by councils to the end of {WH['fino_a']}; provisional."))
+    corpo += '<div class="card pull testo">' + rim.t(
+        '<p>GOV.UK says you could get free energy saving improvements made to your home if you are on a low income, getting certain benefits or living in a '
+        'certain postcode area. <strong>The Warm Homes: Local Grant is only available in England</strong>, and it is run by local councils.[[gov_whlg]] '
+        f'In DESNZ\'s words: “{h(WH["piano"])} {h(WH["parte_del_piano"])}”[[whlg_xlsx]]</p>') + '</div>'
+    corpo += '<h2 id="eligible">Who is eligible</h2>' + rim.t(
+        '<div class="testo"><p>GOV.UK lists these conditions for the home:[[gov_whlg]]</p></div>'
+        '<ul class="testo"><li>it is in England;</li><li>it is privately owned, either by you or by your landlord;</li>'
+        '<li>it has an Energy Performance Certificate (EPC) rating of D, E, F or G (you can find it out when you apply).</li></ul>'
+        '<div class="testo"><p>Your household income must usually be <strong>£36,000 a year or less</strong>. Above that you might still be eligible if you live '
+        'in a certain postcode area or someone in your household is getting certain benefits.[[gov_whlg]] Social housing is not on the list: the home must be '
+        'privately owned.</p></div>')
+    corpo += '<h2 id="what">What it pays for</h2>' + rim.t(
+        '<div class="testo"><p>If you are eligible and your council has funding available, the council arranges a home survey and might suggest wall, loft and '
+        'underfloor insulation, air source heat pumps, smart controls or solar panels. The council then organises and pays for the work it agrees with you, and '
+        'GOV.UK says you will not need to pay for it; if you have a landlord, they may need to pay for some of the improvements.[[gov_whlg]]</p></div>')
+    tr = "".join(f'<tr><td>{h(et)}</td><td class="n">{n(t[k]["misure"])}</td><td class="n">{gbp(t[k]["costo_medio"]) if pubblicato(t[k]["costo_medio"]) else "–"}</td></tr>'
+                 for k, et in WHLG_RIGHE)
+    corpo += rim.t(f'<div class="testo"><p>Solar panels are by far the most common upgrade so far: {n(t["Solar PV"]["misure"])} solar PV systems, often with a '
+                   f'battery ({n(t["Batteries"]["misure"])}), against {n(t["Air Source Heat Pump"]["misure"])} air source heat pumps. Councils reported an average '
+                   f'total cost of {gbp(t["Solar PV"]["costo_medio"])} per solar PV system and {gbp(t["Air Source Heat Pump"]["costo_medio"])} per air source heat '
+                   f'pump.[[whlg_xlsx]]</p></div>')
+    corpo += (f'<div class="tab"><table class="dati"><thead><tr><th scope="col">Measure</th><th scope="col" class="n">Installed</th><th scope="col" class="n">'
+              f'Average total cost</th></tr></thead><tbody>{tr}</tbody><caption>Measures reported by councils to the end of {h(WH["fino_a"])}, England, '
+              f'{n(WH["misure"])} in total (average across all measures {gbp(WH["costo_medio_tutte"])}). The average is the mean full cost of each measure '
+              f'as reported, including the government funding. Figures are provisional.{rim.ref("whlg_xlsx")}</caption></table></div>')
+    corpo += AD
+    mesi = list(WH["mesi"].items())
+    corpo += barre([(k[:3] + " " + k[-4:], v["famiglie"], f"{k}: {n(v['famiglie'])} homes upgraded") for k, v in mesi[-12:]],
+                   "Homes upgraded per month", "By month of the first installation; recent months are still being reported")
+    reg = WH["regioni"]
+    tr = "".join(f'<tr><td>{link_reg(c)}</td><td class="n">{n(v["famiglie"])}</td><td class="n">{n(v["misure"])}</td>'
+                 f'<td class="n">{n(v["misure_per_famiglia"], 1)}</td></tr>' for c, v in reg.items())
+    top = max(reg, key=lambda c: reg[c]["famiglie"])
+    corpo += rim.t(f'<h2 id="regions">Homes upgraded by region</h2><div class="testo"><p>{h(cap(NEL_REG[top]))} has the most homes upgraded so far '
+                   f'({n(reg[top]["famiglie"])}). The grant is delivered through {WH["progetti"]} projects covering {WH["council"]} local authorities; these '
+                   f'figures come from the {WH["progetti_con_dati"]} projects that had reported.[[whlg_xlsx]]</p></div>'
+                   f'<div class="tab"><table class="dati"><thead><tr><th scope="col">Region</th><th scope="col" class="n">Homes</th><th scope="col" class="n">'
+                   f'Measures</th><th scope="col" class="n">Per home</th></tr></thead><tbody>{tr}</tbody><caption>Homes upgraded, measures installed and measures per home, to the end of {h(WH["fino_a"])}, England.'
+                   f'[[whlg_xlsx]]</caption></table></div>')
+    corpo += '<h2 id="apply">How to apply</h2>' + rim.t(
+        '<div class="testo"><p>You check your eligibility and apply through the <a href="https://www.gov.uk/apply-warm-homes-local-grant" rel="noopener">GOV.UK '
+        'service</a>. Your local council will usually contact you within 10 working days to get more information and arrange a home survey.[[gov_whlg]]</p>'
+        '<p>The Boiler Upgrade Scheme has no income test: it takes £7,500 off a heat pump for owners in England and Wales who replace fossil fuel or electric '
+        'heating.[[gov_apply]] <a href="/eligibility/">Boiler Upgrade Scheme rules</a>.</p></div>')
+    corpo += altri_schemi("warm-homes-local-grant/")
+    f_html, f_ld = faq_blocco("whlg", rim)
+    corpo += f_html + rim.elenco()
+    testata = banda("Warm Homes: Local Grant · England", "Warm Homes: Local Grant: who can get it and what it pays for",
+                    f"Free energy upgrades through councils for homes on a low income. <strong>{n(WH['famiglie'])}</strong> homes upgraded to the end of {h(WH['fino_a'])}.",
+                    corta=True, icona="home")
+    pagina("warm-homes-local-grant/", "Warm Homes Local Grant 2026: Eligibility and What It Pays For",
+           descr_corta(f"Warm Homes: Local Grant eligibility in England (income usually up to £36,000, EPC D to G) and what councils fitted: {n(t['Solar PV']['misure'])} "
+                       f"solar PV systems to {WH['fino_a']}.",
+                       f"Warm Homes: Local Grant eligibility in England and what councils have fitted: {n(WH['misure'])} measures to {WH['fino_a']}."),
+           corpo, testata, briciole=[("Home", ""), ("Warm Homes: Local Grant", "warm-homes-local-grant/")], jsonld=[f_ld] if f_ld else None)
+
+
+def pagina_solare_contributi():
+    rim = Rimandi()
+    ws = WH["tipi"]["Solar PV"]
+    corpo = cifre([(n(ws["misure"]), f"solar PV systems paid for by the Warm Homes: Local Grant, England, to {WH['fino_a']}", True),
+                   (n(E4["tipi"]["Solar PV"]), f"solar PV systems fitted under ECO4, Great Britain, to {E4['fino_a']}", False),
+                   (gbp(SOMM_SOL["mediana_0_4"]), f"median cost per kW, systems up to 4 kW, {ANNO_SOL}", False),
+                   ("Zero rate", "VAT on installing solar panels in homes, until 31 March 2027", False)],
+                  "DESNZ statistics (Warm Homes: Local Grant, Household Energy Efficiency, solar PV costs) and HMRC VAT Notice 708/6.")
+    corpo += '<div class="card pull testo">' + rim.t(
+        '<p>There is no single UK-wide grant for solar panels. Panels are paid for through schemes for eligible households: in England the Warm Homes: Local Grant '
+        'run by councils, in Wales the Nest scheme, and across Great Britain the Energy Company Obligation (ECO4) until 31 December 2026.[[gov_whlg,wales_nest_free,gov_eco]] '
+        'The Boiler Upgrade Scheme does not cover solar panels: its grants are for heat pumps and biomass boilers.[[gov_apply]]</p>') + '</div>'
+    corpo += '<h2 id="england">England: Warm Homes: Local Grant</h2>' + rim.t(
+        '<div class="testo"><p>Solar panels are on the GOV.UK list of improvements the council might suggest, together with insulation, air source heat pumps and '
+        'smart controls. The council organises and pays for the work it agrees with you, and GOV.UK says you will not need to pay for it. The home must be '
+        'privately owned, rated D to G, and household income must usually be £36,000 a year or less (or you live in a certain postcode area, or someone in the '
+        'household gets certain benefits).[[gov_whlg]]</p>'
+        f'<p>Solar PV is the most common measure so far: councils reported <strong>{n(ws["misure"])}</strong> systems by the end of {h(WH["fino_a"])}, at an average '
+        f'total cost of {gbp(ws["costo_medio"])} each, and {n(WH["tipi"]["Batteries"]["misure"])} batteries.[[whlg_xlsx]] '
+        '<a href="/warm-homes-local-grant/">Warm Homes: Local Grant in detail</a>.</p></div>')
+    corpo += '<h2 id="eco4">Great Britain: ECO4, until 31 December 2026</h2>' + rim.t(
+        f'<div class="testo"><p>The Energy Company Obligation helps households on certain benefits with insulation and heating; DESNZ counts {n(E4["tipi"]["Solar PV"])} '
+        f'solar PV systems among the measures fitted under ECO4 to the end of {h(E4["fino_a"])}.[[gov_eco,hee_xlsx]] <a href="/eco4/">ECO4 eligibility</a>.</p></div>')
+    corpo += AD
+    corpo += '<h2 id="wales">Wales: Nest</h2>' + rim.t(
+        '<div class="testo"><p>Nest is a Welsh Government scheme that provides free advice and home improvements. Nest can confirm whether a household is eligible for '
+        'a package of free home energy efficiency improvements, such as a heat pump, insulation or solar panels.[[wales_nest,wales_nest_free]] '
+        '<a href="/heat-pump-grants/wales/#nest">Nest and heat pump grants in Wales</a>.</p></div>')
+    corpo += '<h2 id="scotland">Scotland</h2>' + rim.t(
+        '<div class="testo"><p>Home Energy Scotland\'s funding table for homeowners marks grant funding as “Not available” for solar thermal and for hybrid solar '
+        'PV and water heating systems, the solar technologies it lists; its grants are for heat pumps, insulation and other measures.[[hes_grant]] Warmer Homes '
+        'Scotland, for households on certain benefits, lists installing a home renewables system among its possible improvements.[[hes_whs]] '
+        '<a href="/heat-pump-grants/scotland/">Grants in Scotland</a>.</p></div>')
+    corpo += '<h2 id="ni">Northern Ireland</h2>' + rim.t(
+        '<div class="testo"><p>nidirect\'s energy saving grants page lists the Affordable Warmth Scheme, run by the Northern Ireland Housing Executive, and the '
+        'Northern Ireland Sustainable Energy Programme, and points to NI Energy Advice for referrals to energy grants.[[nid_grants]]</p></div>')
+    corpo += '<h2 id="vat">VAT on solar panels</h2>' + rim.t(
+        '<div class="testo"><p>HMRC says a zero rate applies to the installation of certain energy-saving materials, solar panels among them, from 1 May 2023 to '
+        '31 March 2027, when installed in residential accommodation. Batteries for storing energy were added from 1 February 2024. From 1 April 2027 the reduced '
+        'rate of 5% applies again.[[hmrc_vat]]</p></div>')
+    corpo += '<h2 id="seg">Selling your spare electricity: the Smart Export Guarantee</h2>' + rim.t(
+        '<div class="testo"><p>The Smart Export Guarantee is not a grant. Since 1 January 2020 it has required some electricity suppliers to pay small-scale '
+        'generators for the low-carbon electricity they export to the grid. Suppliers set the rate, contract length and other terms; the rate must always be above '
+        'zero, payments are based on export meter readings, and installations must be in Great Britain. Ofgem advises shopping around for the tariff that suits '
+        'you.[[ofgem_seg]]</p></div>')
+    corpo += rim.t(f'<h2 id="cost">What solar panels cost</h2><div class="testo"><p>DESNZ puts the median cost of systems up to 4 kW installed in {ANNO_SOL} at '
+                   f'{gbp(SOMM_SOL["mediana_0_4"])} per kW of panel capacity, so a 3 kW system comes to about {gbp(3 * SOMM_SOL["mediana_0_4"])} (our arithmetic).'
+                   f'[[solare_costi_xlsx]] <a href="/solar-panels/">Solar panel costs and installations by region</a>.</p></div>')
+    corpo += altri_schemi("solar-panel-grants/")
+    corpo += box_preventivo("solar")
+    f_html, f_ld = faq_blocco("solar_grants", rim)
+    corpo += f_html + rim.elenco()
+    testata = banda("Solar panels · grants", "Solar panel grants in the UK: which official schemes pay for panels",
+                    "Where solar panels are paid for by a government scheme, who those schemes are for, and the VAT and export payments that apply to everyone.",
+                    corta=True, icona="solar")
+    pagina("solar-panel-grants/", "Solar Panel Grants UK 2026: Which Official Schemes Cover Them",
+           descr_corta("Solar panel grants UK: the Warm Homes: Local Grant (England), Nest (Wales) and ECO4 fit panels for eligible homes. Zero VAT until 31 March 2027.",
+                       "Solar panel grants UK: which official schemes fit panels for eligible homes, and zero VAT until 31 March 2027."),
+           corpo, testata, briciole=[("Home", ""), ("Solar panels", "solar-panels/"), ("Solar panel grants", "solar-panel-grants/")], jsonld=[f_ld] if f_ld else None)
+
+
+def pagina_scozia():
+    rim = Rimandi()
+    r = "S92000003"
+    et, cr = ET[r], COSTI_SOL.get(r, {}).get(ANNO_SOL)
+    gs = GBIS["regioni"][r]
+    corpo = cifre([("£7,500", "maximum Home Energy Scotland grant towards a heat pump", True), ("+£1,500", "for rural and island homes", False),
+                   ("£10,000+", "Warmer Homes Scotland support for eligible households", False),
+                   (n(et["numero"][MESE_ET]), f"solar installations in Scotland, end of {mese_lungo(MESE_ET)}", False)],
+                  f"Scheme pages read on {data_lunga(CONTROLLO)}; solar figures from DESNZ.")
+    corpo += '<div class="card pull testo">' + rim.t(
+        '<p>The Boiler Upgrade Scheme does not cover Scotland: GOV.UK says it is open to people in England and Wales.[[gov_apply]] Scotland has its own schemes, '
+        'funded by the Scottish Government and reached through Home Energy Scotland, a free advice service.[[hes_grant]] ECO4, the energy suppliers\' scheme for '
+        'households on certain benefits, covers Scotland too until 31 December 2026.[[ofgem_eco,gov_eco]] <a href="/eco4/">ECO4 eligibility</a>.</p>') + '</div>'
+    corpo += '<h2 id="hes">Home Energy Scotland grant</h2>' + rim.t(
+        '<div class="testo"><p>Home Energy Scotland says homeowners can get grant funding of up to <strong>£7,500</strong> for a heating system such as a heat pump or a heat network connection. '
+        'For insulation and other energy efficiency measures, the grant covers up to 75% of the combined cost, up to £7,500. Rural and island homes can get an '
+        'extra £1,500 on both, so a rural household can claim up to £18,000 in grants.[[hes_grant]]</p></div>'
+        '<ul class="testo"><li><strong>Who can apply:</strong> the homeowner of an existing property in Scotland that is their only or main home. You do not need '
+        'to be getting benefits.[[hes_grant]]</li>'
+        '<li><strong>Heat pumps:</strong> only heat pumps that provide all the heating and hot water are eligible. Hybrid, air-to-air and exhaust air heat pumps '
+        'are not (in England and Wales, the Boiler Upgrade Scheme gives £2,500 for air-to-air).[[hes_grant,ofgem_bus]]</li>'
+        '<li><strong>Installer:</strong> renewable systems need a Microgeneration Certification Scheme (MCS) installer.[[hes_grant]]</li>'
+        '<li><strong>Funding:</strong> first come, first served and subject to availability; funding agreements are valid for nine months.[[hes_grant]]</li>'
+        '<li><strong>EPC:</strong> a valid Energy Performance Certificate is needed to apply for energy efficiency improvements.[[hes_grant]]</li></ul>')
+    corpo += rim.t('<div class="tab"><table class="dati"><thead><tr><th scope="col">Improvement</th><th scope="col" class="n">Grant, up to</th></tr></thead><tbody>'
+                   '<tr class="qui"><td>Air, ground or water source heat pump (to water)</td><td class="n">£7,500</td></tr>'
+                   '<tr><td>Solid wall insulation (external or internal)</td><td class="n">£7,500</td></tr>'
+                   '<tr><td>Flat roof or room-in-roof insulation</td><td class="n">£3,000</td></tr>'
+                   '<tr><td>Loft, cavity or underfloor insulation</td><td class="n">£1,500</td></tr>'
+                   '<tr><td>Heating controls (only with a main improvement)</td><td class="n">£450</td></tr>'
+                   '<tr><td>Solar thermal; hybrid solar PV and water heating</td><td class="n">no grant</td></tr></tbody>'
+                   '<caption>Selected rows from the grant column of the Home Energy Scotland funding table for homeowners; rural and island homes can get £1,500 more on the heating and energy efficiency grants.[[hes_grant]]</caption></table></div>')
+    corpo += rim.t('<p class="testo">To apply, the first step is to contact Home Energy Scotland (freephone 0808 808 2282); an advisor checks which funding fits the '
+                   'home.[[hes_grant]]</p>')
+    corpo += AD
+    corpo += '<h2 id="warmer-homes">Warmer Homes Scotland</h2>' + rim.t(
+        '<div class="testo"><p>The Scottish Government\'s Warmer Homes Scotland programme offers support worth £10,000 or more for energy-saving improvements such as '
+        'heating and insulation, and in most cases the Scottish Government meets all the costs. The work is assessed and installed by Warmworks.[[hes_whs]] '
+        'Home Energy Scotland lists these conditions:[[hes_whs]]</p></div>'
+        '<ul class="testo"><li>you own the home or rent it from a private landlord, and it is your main residence;</li>'
+        '<li>you have lived there for at least six months (with some exceptions);</li>'
+        '<li>the home has a poor energy rating, a floor area of 230 m² or less (typically up to five bedrooms) and is in council tax band A to G;</li>'
+        '<li>someone in the household is 75 or over with no working heating, has a DS1500 or BASRiS certificate, or receives at least one of the qualifying '
+        '(“passport”) benefits on Home Energy Scotland\'s list.</li></ul>'
+        '<div class="testo"><p>Improvements can include wall and loft insulation, draught-proofing, central heating (an electric storage heater, a new gas boiler or '
+        'an air source heat pump) and a home renewables system. Work already completed cannot be funded, and private tenants need their landlord\'s permission.'
+        '[[hes_whs]]</p></div>')
+    corpo += rim.t(f'<h2 id="figures">Scotland in the official figures</h2><div class="testo"><p>The Great British Insulation Scheme, which closed on 31 March 2026, '
+                   f'upgraded {n(gs["famiglie"])} homes in Scotland: {n(gs["per100k_famiglie"])} per 100,000 households, against '
+                   f'{n(GBIS["regioni"]["K03000001"]["per100k_famiglie"])} for Great Britain.[[gbis_xlsx]] At the end of {mese_lungo(MESE_ET)} Scotland had '
+                   f'<strong>{n(et["numero"][MESE_ET])}</strong> solar installations ({n(et["mw"][MESE_ET])} MW).[[solare_et63_xlsx]]'
+                   + (f' Systems up to 4 kW installed in {ANNO_SOL} averaged {gbp(cr["media_0_4"])} per kW.[[solare_costi_xlsx]]' if cr else '')
+                   + ' <a href="/solar-panels/scotland/">Solar panels in Scotland by council</a>.</p></div>')
+    corpo += altri_schemi("heat-pump-grants/scotland/")
+    f_html, f_ld = faq_blocco("scotland", rim)
+    corpo += f_html + rim.elenco()
+    testata = banda("Scotland · Scottish Government schemes", "Heat pump grants in Scotland: Home Energy Scotland grant and Warmer Homes Scotland",
+                    "The Boiler Upgrade Scheme stops at the border. What the Scottish Government's own schemes offer for heat pumps and insulation, and who they are for.",
+                    corta=True, icona="map")
+    pagina("heat-pump-grants/scotland/", "Heat Pump Grant Scotland: Home Energy Scotland and Warmer Homes",
+           descr_corta("Heat pump grant in Scotland: Home Energy Scotland gives homeowners up to £7,500, plus £1,500 for rural homes; Warmer Homes Scotland for homes on benefits.",
+                       "Heat pump grant in Scotland: up to £7,500 from Home Energy Scotland, plus Warmer Homes Scotland for eligible households."),
+           corpo, testata, briciole=[("Home", ""), ("Grants by area", "heat-pump-grants/"), ("Scotland", "heat-pump-grants/scotland/")], jsonld=[f_ld] if f_ld else None)
+
+
+def sezione_nest(rim):
+    return rim.t('<h2 id="nest">Nest: the Welsh Government scheme</h2><div class="testo"><p>Nest is a Welsh Government scheme that provides free advice and home '
+                 'improvements to help you save energy and money. Nest can confirm whether a household is eligible for a package of free home energy efficiency '
+                 'improvements, such as a heat pump, insulation or solar panels. Homes without heating or hot water may be eligible for a repair or replacement '
+                 'of boilers or electric storage heaters.[[wales_nest,wales_nest_free]]</p><p>Nest is free on 0808 808 2244, and calls and emails are welcome in '
+                 'Welsh. The Boiler Upgrade Scheme grant is separate: in Wales it has the same amounts and rules as in England.[[wales_nest,gov_apply]]</p></div>')
+
+
+def altri_schemi_regione(r, rim):
+    """Paragrafo con dati solo della regione: Great British Insulation Scheme (Great Britain) e Warm Homes: Local Grant (solo Inghilterra)."""
+    g = GBIS["regioni"].get(r)
+    w = WH["regioni"].get(r)
+    if not g:
+        return ""
+    nel = NEL_REG[r]
+    testo = (f'<h2 id="other-schemes">Other schemes in {h(nel)}</h2><div class="testo"><p>The <a href="/great-british-insulation-scheme/">Great British '
+             f'Insulation Scheme</a>, closed on 31 March 2026, upgraded {n(g["famiglie"])} homes in {h(nel)} with {n(g["misure"])} insulation and heating '
+             f'control measures: {n(g["per100k_famiglie"])} per 100,000 households, against {n(GBIS["regioni"]["K03000001"]["per100k_famiglie"])} for '
+             f'Great Britain.[[gbis_xlsx]]')
+    if w:
+        testo += (f' The <a href="/warm-homes-local-grant/">Warm Homes: Local Grant</a>, run by councils for homes on a low income, had upgraded {n(w["famiglie"])} '
+                  f'homes in the region by the end of {h(WH["fino_a"])}.[[whlg_xlsx]]')
+    testo += ' Households on certain benefits can also get help through <a href="/eco4/">ECO4</a> until 31 December 2026.[[gov_eco]]</p></div>'
+    return rim.t(testo)
+
+
 def about():
     corpo = ('<div class="testo pull card">'
              f'<p><strong>{NOME}</strong> is an independent publication, part of a small network of websites that turn official data into plain-language guides. '
              'It shows what the Boiler Upgrade Scheme pays, what heat pumps cost after the grant, and how many grants have been paid in each council area of England '
              'and Wales, using the statistics DESNZ publishes every month. The council figures exist in the official spreadsheets but are hard to find; this site puts '
-             'each one on its own page.</p>'
+             'each one on its own page. It also explains the other official schemes people search for (ECO4, the Warm Homes: Local Grant, the Great British '
+             'Insulation Scheme, solar panel grants and the schemes in Scotland and Wales), quoting the official pages.</p>'
              '<p>We are not a government website, an installer or an energy company, and we are not linked to Ofgem, DESNZ or MCS.</p></div>'
              '<h2>What we publish</h2><ul class="testo"><li>Only figures that are in an official file or on an official page, each with its source and date.</li>'
              '<li>Where DESNZ hides a small number, or does not publish a figure at all (costs by region, for example), we say so instead of estimating it.</li>'
@@ -1170,15 +1614,19 @@ def come_controlliamo():
     frasi = sum(len(FONTI[k].get("cerca", [])) for k in FONTI if FONTI[k]["tipo"] == "pagina")
     n_idx = sum(1 for a in COUNCIL if a["indicizza"])
     corpo = ('<div class="testo pull card">'
-             f'<p>Every figure on this site comes from four official spreadsheets published by the Department for Energy Security and Net Zero, and every rule from '
-             f'GOV.UK and Ofgem. On {data_lunga(CONTROLLO)} we downloaded the latest files, recorded their fingerprints, and checked <strong>{frasi}</strong> exact '
+             f'<p>Every figure on this site comes from {sum(1 for k in FONTI if FONTI[k]["tipo"] == "xlsx")} official spreadsheets published by the Department for Energy Security and Net Zero, and every rule from '
+             f'GOV.UK, Ofgem, HMRC, the Scottish and Welsh Governments\' scheme pages and nidirect. On {data_lunga(CONTROLLO)} we downloaded the latest files, recorded their fingerprints, and checked <strong>{frasi}</strong> exact '
              'sentences on the official rule pages. Before any update, a separate program re-reads the spreadsheets and recalculates every number printed on the site.</p></div>')
     corpo += rim.t('<h2>The files</h2><ul class="testo">'
                    f'<li>Boiler Upgrade Scheme statistics: grants paid by council and region, applications by month, installed costs. Monthly; council and cost tables every three months.[[bus_xlsx]]</li>'
                    '<li>Renewable electricity by local authority: solar installations and capacity in every UK council at the end of each year, with household estimates.[[solare_la_xlsx]]</li>'
                    '<li>Solar photovoltaics deployment (Energy Trends table 6.3): installations and capacity by region, monthly.[[solare_et63_xlsx]]</li>'
                    '<li>Solar PV cost data: cost per kW by size and region, every year.[[solare_costi_xlsx]]</li>'
-                   '<li>The rules: GOV.UK “Apply for the Boiler Upgrade Scheme” and Ofgem\'s scheme and property owner pages.[[gov_apply,ofgem_bus,ofgem_owners]]</li></ul>')
+                   '<li>Great British Insulation Scheme statistics, Warm Homes: Local Grant statistics and the Household Energy Efficiency statistics (ECO4).[[gbis_xlsx,whlg_xlsx,hee_xlsx]]</li>'
+                   '<li>The rules: GOV.UK “Apply for the Boiler Upgrade Scheme” and Ofgem\'s scheme and property owner pages.[[gov_apply,ofgem_bus,ofgem_owners]]</li>'
+                   '<li>Other schemes: GOV.UK and Ofgem pages on ECO4, the Great British Insulation Scheme and the Warm Homes: Local Grant; HMRC VAT Notice 708/6; '
+                   'Ofgem on the Smart Export Guarantee; Home Energy Scotland (Scottish Government schemes); GOV.WALES on Nest; nidirect.'
+                   '[[gov_eco,ofgem_eco,gov_gbis,ofgem_gbis,gov_whlg,hmrc_vat,ofgem_seg,hes_grant,hes_whs,wales_nest,wales_nest_free,nid_grants]]</li></ul>')
     corpo += ('<h2>What we calculate ourselves</h2><ul class="testo">'
               '<li><strong>Cost after the grant</strong>: the official installed cost minus £7,500 (or £9,000). DESNZ costs include the grant value.</li>'
               '<li><strong>Grants paid per 1,000 households</strong>: grants paid to date divided by the household estimates in the DESNZ local authority renewables file. '
@@ -1191,7 +1639,9 @@ def come_controlliamo():
               '<p>DESNZ does not publish heat pump costs by region or council, so the cost on every area page is the national figure, and each page says so.</p></div>')
     corpo += ('<h2>Licence and attribution</h2><div class="testo"><p>' + OGL + ' The council and region tables of the Boiler Upgrade Scheme statistics also contain OS data '
               '© Crown copyright and database right 2026 and Royal Mail data © Royal Mail copyright and database right 2026, and use the National Statistics Postcode '
-              'Lookup (Office for National Statistics, Open Government Licence v3.0). GOV.UK content is also Crown copyright under the Open Government Licence.</p></div>')
+              'Lookup (Office for National Statistics, Open Government Licence v3.0). GOV.UK content is also Crown copyright under the Open Government Licence; '
+              'GOV.WALES and nidirect content is Crown copyright under the same licence. Short quotations from Ofgem and Home Energy Scotland pages are '
+              'attributed to them where they appear.</p></div>')
     corpo += ('<h2>When we update</h2><div class="testo"><p>DESNZ publishes the Boiler Upgrade Scheme statistics once a month (next: '
               f'{data_lunga(B["prossima"])}); the council and cost tables change each quarter. Solar deployment is monthly, solar costs every May and the local '
               'authority solar file every September. The site is regenerated after each release, once every figure has passed the checks.</p></div>')
@@ -1285,6 +1735,8 @@ def controlli():
         mancano = [c for c, ok in es.get("trovate", {}).items() if not ok]
         if mancano:
             err.append(f"fonte {fid}: frasi non più presenti {mancano}")
+    if date.today() > date.fromisoformat("2026-12-31"):
+        err.append("ECO4 è finito il 31/12/2026: riscrivere la pagina eco4/ (e le FAQ e i riquadri che dicono «until 31 December 2026») con le fonti nuove")
     if date.today() > date.fromisoformat("2027-03-31"):
         err.append("il contributo da £9,000 e l'IVA a zero valevano fino al 31/3/2027: rileggere le regole (NOTE.md)")
     if err:
@@ -1314,6 +1766,11 @@ def main():
     solare_hub()
     for r in REG_UK:
         solare_regione(r)
+    pagina_eco4()
+    pagina_gbis()
+    pagina_whlg()
+    pagina_solare_contributi()
+    pagina_scozia()
     about()
     come_controlliamo()
     privacy()

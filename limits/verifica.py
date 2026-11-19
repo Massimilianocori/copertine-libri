@@ -13,7 +13,9 @@ Uso (dalla radice del repository):
 5. Pagine: titoli ≤ 65 e descrizioni 70-160 uniche, un h1, canonical, sitemap, link interni, robots, netlify.toml con ignore,
    chiave IndexNow, GoatCounter, frase fissa "not a substitute for the advice of an attorney", parole vietate, temi esclusi,
    nomi di modelli AI, dati personali.
-6. FAQ da ricerche vere (dati/domanda.json) e JSON-LD = testo visibile. 7. Monetizzazione (controlli comuni della rete).
+6. FAQ da ricerche vere (dati/domanda.json, oppure frasi misurate in dati/volumi-2026-11-13.json con il loro volume) e JSON-LD =
+   testo visibile. 6b. Titoli dalle ricerche misurate: ogni frase misurata (≥ 100 al mese) che riguarda una pagina del sito ha tutte le
+   sue parole nel titolo di quella pagina; nessuna chiave nel file misurato. 7. Monetizzazione (controlli comuni della rete).
 """
 import hashlib
 import json
@@ -267,6 +269,14 @@ CASI_A_MANO = [
     ["MN/wrongful-death", "2024-02-29", ["2027-02-28"], "2030-02-28"],
     ["MN/personal-injury", "2000-02-29", ["2006-02-28", "2002-02-28"], None],
     ["MN/medical-malpractice", "2096-02-29", ["2100-02-28"], None],
+    # Pennsylvania (aggiunta del 13/11/2026): 2 anni per lesioni e danni, 4 per contratti e debiti, MCARE 7 anni dal fatto
+    ["PA/personal-injury", "2024-02-29", ["2026-02-28"], None],
+    ["PA/medical-malpractice", "2020-02-29", ["2022-02-28"], "2027-02-28"],
+    ["PA/medical-malpractice", "2025-01-15", ["2027-01-15"], "2032-01-15"],
+    ["PA/wrongful-death", "2023-12-31", ["2025-12-31"], None],
+    ["PA/debt", "2022-05-10", ["2026-05-10", "2026-05-10", "2026-05-10"], None],
+    ["PA/breach-of-contract", "2024-02-29", ["2028-02-29", "2028-02-29"], None],
+    ["PA/property-damage", "2023-03-24", ["2025-03-24", "2025-03-24", "2025-03-24"], None],
 ]
 
 
@@ -395,7 +405,7 @@ def controlla_avvertenze(N, D):
             citati = " ".join(" ".join(v["testo"]) for v in cella["varianti"]) + " " + " ".join(cella.get("inizio_testo", {}).get("testo", []))
             if "payment" not in citati:
                 errore(f"calcolatore {k}: l'etichetta della data parla di pagamenti ma nessuna citazione della cella lo dice")
-    pag_debiti = ["debt/index.html"] + [f"{N.STATI[k.split('/')[0]]['slug']}/debt/index.html" for k in N.CELLE if k.endswith("/debt")]
+    pag_debiti = ["debt/index.html", "credit-card-debt/index.html"] + [f"{N.STATI[k.split('/')[0]]['slug']}/debt/index.html" for k in N.CELLE if k.endswith("/debt")]
     for p in pag_debiti:
         if "data-nota-debito" not in PAGINE[p] or "they do not say that the debt is cancelled or erased" not in TESTI[p]:
             errore(f"{p}: manca la nota «termine scaduto non vuol dire debito cancellato»")
@@ -414,6 +424,17 @@ def controlla_avvertenze(N, D):
     wa = TESTI["washington/medical-malpractice/index.html"]
     if "statute of repose violates the independent state law protections" not in wa or "December 7, 2023" not in wa:
         errore("washington/medical-malpractice: manca la sentenza del 2023 sul limite di otto anni")
+    # Pennsylvania (revisione indipendente 13/11/2026): il limite di sette anni del MCARE è stampato ma dichiarato incostituzionale
+    pa = TESTI["pennsylvania/medical-malpractice/index.html"]
+    for pezzo in ("This Court deemed the statute of repose unconstitutional in Yanakos v. UPMC", "held unconstitutional, see below",
+                  "Shown as printed in the MCARE Act"):
+        if pezzo not in pa:
+            errore(f"pennsylvania/medical-malpractice: manca l'avviso sul limite di sette anni ({pezzo[:40]})")
+    for p_, pezzo in (("pennsylvania/index.html", "held unconstitutional"), ("medical-malpractice/index.html", "held unconstitutional by the state supreme court"),
+                      ("pennsylvania/debt/index.html", "must be commenced within six years after the due date"),
+                      ("credit-card-debt/index.html", "13 Pa.C.S. § 3118")):
+        if pezzo not in TESTI[p_]:
+            errore(f"{p_}: manca «{pezzo}»")
     print(f"Avvertenze: limiti del calcolo accanto a ogni calcolatore e nel risultato, preavvisi agli enti pubblici in "
           f"{sum(1 for c in D['celle'].values() if c.get('gv'))} celle, nota sui debiti in {len(pag_debiti)} pagine, pubblicità lontana dal risultato")
 
@@ -499,19 +520,40 @@ def controlla_pagine():
         for mm in MODELLI:
             if mm in tx:
                 errore(f"{f.relative_to(RADICE)}: nome di modello «{mm}»")
-        if "sd_" + "live" in tx:
+        if "".join(("sd", "_live")) in tx:
             errore(f"{f.relative_to(RADICE)}: contiene una chiave")
     n_idx = sum(1 for v in PAGINE.values() if 'rel="canonical"' in v)
     print(f"Pagine: {len(PAGINE)} file html, {n_idx} indicizzabili (sitemap {len(sitemap)}), titoli e descrizioni unici, frase fissa ovunque")
 
 
 # ---------------------------------------------------------------- 6. FAQ
+def volumi_misurati():
+    """Frase -> volume mensile (USA) dal file misurato il 13/11/2026: frasi cercate e frasi simili restituite dallo stesso servizio."""
+    f = DATI / "volumi-2026-11-13.json"
+    tx = leggi(f)
+    if "".join(("sd", "_live")) in tx:
+        errore("dati/volumi-2026-11-13.json contiene una chiave")
+    frasi = json.loads(tx)["frasi"]
+    vol = {k: v["volume"] for k, v in frasi.items() if v.get("volume")}
+    for v in frasi.values():
+        for s in v.get("simili", []):
+            if s[1]:
+                vol.setdefault(s[0], s[1])
+    return frasi, vol
+
+
 def controlla_faq():
     dom = json.loads(leggi(DATI / "domanda.json"))["radici"]
     tutte = set(dom) | {s for v in dom.values() if isinstance(v, list) for s in v}
+    _, vol = volumi_misurati()
     faq = json.loads(leggi(DATI / "faq.json"))["faq"]
+    n_mis = 0
     for x in faq:
-        if x["ricerca"] not in tutte:
+        if "volume" in x:
+            n_mis += 1
+            if vol.get(x["ricerca"]) != x["volume"] or not x["volume"]:
+                errore(f"FAQ «{x['q']}»: volume {x['volume']} diverso dal file misurato ({vol.get(x['ricerca'])})")
+        elif x["ricerca"] not in tutte:
             errore(f"FAQ «{x['q']}»: la ricerca «{x['ricerca']}» non è in domanda.json")
     n = 0
     for p, html_ in PAGINE.items():
@@ -526,7 +568,63 @@ def controlla_faq():
                         errore(f"{p}: segnaposto non riempito in FAQ")
     if n != len(faq):
         errore(f"FAQ pubblicate {n}, nel file {len(faq)}")
-    print(f"FAQ: {n} domande, tutte da ricerche vere (autocompletamento gl=us)")
+    print(f"FAQ: {n} domande, tutte da ricerche vere ({len(faq) - n_mis} dall'autocompletamento gl=us, {n_mis} da frasi misurate con volume)")
+
+
+# ---------------------------------------------------------------- 6b. titoli dalle ricerche misurate
+CAUSE_RICERCA = [("credit card debt", "credit-card-debt"), ("car accident", "car-accident"), ("personal injury", "personal-injury"),
+                 ("medical malpractice", "medical-malpractice"), ("wrongful death", "wrongful-death"), ("breach of contract", "breach-of-contract"),
+                 ("property damage", "property-damage"), ("debt", "debt")]
+FUORI = ("lemon", "california", "new york", "georgia", "illinois", "new jersey", "fraud", "defamation", "wrongful termination", "how long do you")
+VUOTE = {"of", "on", "for", "the", "in", "by", "a", "to"}
+
+
+def controlla_ricerche(N):
+    frasi, _ = volumi_misurati()
+    nomi = {v["nome"].lower(): v["slug"] for v in N.STATI.values()}
+    titoli = {}
+    for p, html_ in PAGINE.items():
+        m = re.search(r"<title>(.*?)</title>", html_)
+        titoli[p] = unescape(m.group(1)).lower() if m else ""
+    n = 0
+    for q, v in frasi.items():
+        if (v.get("volume") or 0) < 100 or any(x in q for x in FUORI):
+            continue
+        stato = next((nomi[s] for s in sorted(nomi, key=len, reverse=True) if s in q), None)
+        causa = next((c for frase, c in CAUSE_RICERCA if frase in q), None)
+        if stato and causa in ("credit-card-debt", "car-accident"):
+            continue  # Stato + vista: risposta nelle FAQ della cella, non nel titolo
+        if stato and causa:
+            p = f"{stato}/{causa}/index.html"
+        elif stato:
+            p = f"{stato}/index.html"
+        elif causa:
+            p = f"{causa}/index.html"
+        elif "by state" in q or "calculator" in q:
+            p = "index.html"
+        else:
+            continue
+        if p not in titoli:
+            errore(f"ricerca «{q}» ({v['volume']}): manca la pagina {p}")
+            continue
+        n += 1
+        parole_t = set(re.findall(r"[a-z]+", titoli[p]))
+        mancano = [w for w in re.findall(r"[a-z]+", q) if w not in VUOTE and w not in parole_t and w + "s" not in parole_t]
+        if mancano:
+            errore(f"{p}: il titolo non contiene {mancano} della ricerca misurata «{q}» ({v['volume']} al mese)")
+    print(f"Ricerche: {n} frasi misurate (≥ 100 al mese) riportate nel titolo della loro pagina")
+
+
+def controlla_carte(N):
+    nominano = sorted({N.STATI[k.split("/")[0]]["nome"] for k, c in N.CELLE.items() if k.endswith("/debt")
+                       for v in c["varianti"] if "credit card" in " ".join(v["testo"]).lower()})
+    t = TESTI.get("credit-card-debt/index.html", "")
+    atteso = f"only {' and '.join(nominano)}’s names credit cards"  # "Among the limitations sections quoted on this site ... only Arizona’s names credit cards"
+    if (atteso not in t and atteso.replace("’", "'") not in t) or "Among the limitations sections quoted on this site" not in t:
+        errore(f"credit-card-debt: manca «{atteso}» (Stati la cui citazione nomina le carte di credito: {nominano})")
+    for p in PAGINE:
+        if "only Arizona" in TESTI[p] and nominano != ["Arizona"]:
+            errore(f"{p}: dice «only Arizona» ma le citazioni sulle carte di credito sono di {nominano}")
 
 
 # ---------------------------------------------------------------- 7. monetizzazione
@@ -549,7 +647,8 @@ def controlla_monetizzazione():
 
 
 # ---------------------------------------------------------------- browser
-PAGINE_BROWSER = ["/", "/florida/personal-injury/", "/ohio/debt/", "/debt/", "/washington/medical-malpractice/"]
+PAGINE_BROWSER = ["/", "/florida/personal-injury/", "/ohio/debt/", "/debt/", "/washington/medical-malpractice/", "/pennsylvania/medical-malpractice/",
+                  "/car-accident/"]
 
 
 def controlla_browser():
@@ -632,6 +731,8 @@ def main():
     controlla_avvertenze(N, D)
     controlla_pagine()
     controlla_faq()
+    controlla_ricerche(N)
+    controlla_carte(N)
     controlla_monetizzazione()
     if "--browser" in sys.argv:
         controlla_browser()

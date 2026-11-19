@@ -1,0 +1,1304 @@
+{
+ "_nota": "Scritto da raccolta/officine.py. File grezzi in raccolta/_grezzi/officine/ (fuori da git). Le pagine HTML cambiano byte a ogni scarico: fa fede sha256_frasi (le frasi citate alla lettera) e «trovata» per ogni frase; verifica.py le ricerca di nuovo nei file grezzi.",
+ "fonti": {
+  "fl_905": {
+   "url": "https://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0500-0599/0559/Sections/0559.905.html",
+   "titolo": "Florida Statutes § 559.905, Written motor vehicle repair estimate and disclosure statement required",
+   "chi": "The Florida Legislature",
+   "tipo": "html",
+   "file": "fl_905.html",
+   "http": 200,
+   "byte": 25240,
+   "letto_il": "2026-11-19",
+   "sha256_frasi": "47ad39a632e200b83376f0a30d1fed22fa7bdf59525a57776744d1d99017d63d",
+   "frasi": [
+    {
+     "testo": "When any customer requests a motor vehicle repair shop to perform repair work on a motor vehicle, the cost of which repair work will exceed $150 to the customer, the shop shall prepare a written repair estimate, which is a form setting forth the estimated cost of repair work, including diagnostic work, before effecting any diagnostic work or repair.",
+     "trovata": true
+    },
+    {
+     "testo": "Except as provided in subsection (5), a copy of the written repair estimate required by subsection (1) and the disclosure statement required by subsection (2) shall be given to the customer before repair work is begun.",
+     "trovata": true
+    },
+    {
+     "testo": "The name, address, and telephone number of the motor vehicle repair shop.",
+     "trovata": true
+    },
+    {
+     "testo": "The name, address, and telephone number of the customer.",
+     "trovata": true
+    },
+    {
+     "testo": "The date and time of the written repair estimate.",
+     "trovata": true
+    },
+    {
+     "testo": "The year, make, model, odometer reading, and license tag number of the motor vehicle.",
+     "trovata": true
+    },
+    {
+     "testo": "The proposed work completion date.",
+     "trovata": true
+    },
+    {
+     "testo": "A general description of the customer’s problem or request for repair work or service relating to the motor vehicle.",
+     "trovata": true
+    },
+    {
+     "testo": "A statement as to whether the customer is being charged according to a flat rate or an hourly rate, or both.",
+     "trovata": true
+    },
+    {
+     "testo": "The estimated cost of repair which must include any charge for shop supplies or for hazardous or other waste removal and, if a charge is included, the estimate must include the following statement: “This charge represents costs and profits to the motor vehicle repair facility for miscellaneous shop supplies or waste disposal.”",
+     "trovata": true
+    },
+    {
+     "testo": "If a charge is mandated by state or federal law, the estimate must contain a statement identifying the law and the specific amount charged under the law.",
+     "trovata": true
+    },
+    {
+     "testo": "The charge for making a repair price estimate or, if the charge cannot be predetermined, the basis on which the charge will be calculated.",
+     "trovata": true
+    },
+    {
+     "testo": "The customer’s intended method of payment.",
+     "trovata": true
+    },
+    {
+     "testo": "The name and telephone number of another person who may authorize repair work, if the customer desires to designate such person.",
+     "trovata": true
+    },
+    {
+     "testo": "A statement indicating what, if anything, is guaranteed in connection with the repair work and the time and mileage period for which the guarantee is effective.",
+     "trovata": true
+    },
+    {
+     "testo": "A statement allowing the customer to indicate whether replaced parts should be saved for inspection or return.",
+     "trovata": true
+    },
+    {
+     "testo": "A statement indicating the daily charge for storing the customer’s motor vehicle after the customer has been notified that the repair work has been completed.",
+     "trovata": true
+    },
+    {
+     "testo": "If the cost of repair work will exceed $150, the shop must present to the customer a written notice conspicuously disclosing, in a separate, blocked section, only the following statement, in capital letters of at least 12-point type:",
+     "trovata": true
+    },
+    {
+     "testo": "PLEASE READ CAREFULLY, CHECK ONE OF THE STATEMENTS BELOW, AND SIGN:",
+     "trovata": true
+    },
+    {
+     "testo": "I UNDERSTAND THAT, UNDER STATE LAW, I AM ENTITLED TO A WRITTEN ESTIMATE IF MY FINAL BILL WILL EXCEED $150.",
+     "trovata": true
+    },
+    {
+     "testo": "I REQUEST A WRITTEN ESTIMATE.",
+     "trovata": true
+    },
+    {
+     "testo": "I DO NOT REQUEST A WRITTEN ESTIMATE AS LONG AS THE REPAIR COSTS DO NOT EXCEED $",
+     "trovata": true
+    },
+    {
+     "testo": "THE SHOP MAY NOT EXCEED THIS AMOUNT WITHOUT MY WRITTEN OR ORAL APPROVAL.",
+     "trovata": true
+    },
+    {
+     "testo": "I DO NOT REQUEST A WRITTEN ESTIMATE.",
+     "trovata": true
+    }
+   ]
+  },
+  "fl_909": {
+   "url": "https://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0500-0599/0559/Sections/0559.909.html",
+   "titolo": "Florida Statutes § 559.909, Notification of charges in excess of repair estimate; inspection of parts",
+   "chi": "The Florida Legislature",
+   "tipo": "html",
+   "file": "fl_909.html",
+   "http": 200,
+   "byte": 21338,
+   "letto_il": "2026-11-19",
+   "sha256_frasi": "31a9adb87a4e0dab1c66186a000a580ffbf4c775101c49bdc190d91b3eda81cc",
+   "frasi": [
+    {
+     "testo": "It shall be unlawful for a motor vehicle repair shop to charge more than the written estimate plus $10 or 10 percent, whichever is greater, but not to exceed $50, unless the motor vehicle repair shop has obtained authorization to exceed the written estimate in accordance with subsection (1).",
+     "trovata": true
+    },
+    {
+     "testo": "the customer shall be promptly notified by telephone, telegraph, mail, or other means of the additional repair work and estimated cost thereof. A customer so notified shall, orally or in writing, authorize, modify, or cancel the order for repair.",
+     "trovata": true
+    },
+    {
+     "testo": "Upon request made at the time the repair work is authorized by the customer, the customer is entitled to inspect parts removed from her or his vehicle or, if the shop has no warranty arrangement or exchange parts program with a manufacturer, supplier, or distributor, have them returned to her or him.",
+     "trovata": true
+    },
+    {
+     "testo": "the customer shall be promptly notified by telephone, telegraph, mail, or other means of the additional repair work and estimated cost thereof",
+     "trovata": true
+    },
+    {
+     "testo": "A customer so notified shall, orally or in writing, authorize, modify, or cancel the order for repair.",
+     "trovata": true
+    }
+   ]
+  },
+  "fl_911": {
+   "url": "https://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0500-0599/0559/Sections/0559.911.html",
+   "titolo": "Florida Statutes § 559.911, Invoice required of motor vehicle repair shop",
+   "chi": "The Florida Legislature",
+   "tipo": "html",
+   "file": "fl_911.html",
+   "http": 200,
+   "byte": 19185,
+   "letto_il": "2026-11-19",
+   "sha256_frasi": "2c0bdd66f9c9badb713a6ad2cabc0ac686bbdadd382a5f8bf7a43518cdbf06d9",
+   "frasi": [
+    {
+     "testo": "The motor vehicle repair shop shall provide each customer, upon completion of any repair, with a legible copy of an invoice for such repair. The invoice may be provided on the same form as the written repair estimate and shall include the following information:",
+     "trovata": true
+    },
+    {
+     "testo": "The current date and odometer reading of the motor vehicle.",
+     "trovata": true
+    },
+    {
+     "testo": "A statement indicating what was done to correct the problem or a description of the service provided.",
+     "trovata": true
+    },
+    {
+     "testo": "An itemized description of all labor, parts, and merchandise supplied and the costs thereof, indicating what is supplied to the customer without cost or at a reduced cost because of a shop or manufacturer’s warranty.",
+     "trovata": true
+    },
+    {
+     "testo": "A statement identifying any replacement part as being used, rebuilt, or reconditioned, as the case may be.",
+     "trovata": true
+    },
+    {
+     "testo": "A statement indicating what, if anything, is guaranteed in connection with the repair work and the time and mileage period for which the guarantee is effective.",
+     "trovata": true
+    },
+    {
+     "testo": "The registration number from the certificate issued by the department pursuant to this part.",
+     "trovata": true
+    }
+   ]
+  },
+  "fl_904": {
+   "url": "https://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0500-0599/0559/Sections/0559.904.html",
+   "titolo": "Florida Statutes § 559.904, Motor vehicle repair shop registration; application; exemption",
+   "chi": "The Florida Legislature",
+   "tipo": "html",
+   "file": "fl_904.html",
+   "http": 200,
+   "byte": 30556,
+   "letto_il": "2026-11-19",
+   "sha256_frasi": "a05db7a4a64f90226568f50f6796cf74a4e9adba641c4edea292879ae5eaa823",
+   "frasi": [
+    {
+     "testo": "Each motor vehicle repair shop engaged or attempting to engage in the business of motor vehicle repair work must register with the department prior to doing business in this state.",
+     "trovata": true
+    },
+    {
+     "testo": "If the place of business has 1 to 5 employees who perform repairs: $50.",
+     "trovata": true
+    },
+    {
+     "testo": "If the place of business has 6 to 10 employees who perform repairs: $150.",
+     "trovata": true
+    },
+    {
+     "testo": "If the place of business has 11 or more employees who perform repairs: $300.",
+     "trovata": true
+    },
+    {
+     "testo": "Each registration must be renewed biennially on or before the expiration date of the current registration.",
+     "trovata": true
+    },
+    {
+     "testo": "No registration application or fee is required for an individual with no employees and no established place of business.",
+     "trovata": true
+    },
+    {
+     "testo": "Each initial application for registration must be accompanied by copies of the applicant’s estimate and invoice forms.",
+     "trovata": true
+    }
+   ]
+  },
+  "fl_915": {
+   "url": "https://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0500-0599/0559/Sections/0559.915.html",
+   "titolo": "Florida Statutes § 559.915, Motor vehicle repair shop records",
+   "chi": "The Florida Legislature",
+   "tipo": "html",
+   "file": "fl_915.html",
+   "http": 200,
+   "byte": 18115,
+   "letto_il": "2026-11-19",
+   "sha256_frasi": "2126ceb652e3a0456863161faaed1fe6242a6299db6684a9f65e0871fbbea245",
+   "frasi": [
+    {
+     "testo": "Each motor vehicle repair shop shall maintain repair records which shall include written repair estimates and repair invoices. A customer’s records shall be available to the customer for inspection and copying for a period of at least 12 months.",
+     "trovata": true
+    },
+    {
+     "testo": "Each motor vehicle repair shop shall maintain repair records which shall include written repair estimates and repair invoices.",
+     "trovata": true
+    }
+   ]
+  },
+  "fl_916": {
+   "url": "https://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0500-0599/0559/Sections/0559.916.html",
+   "titolo": "Florida Statutes § 559.916, Required disclosure; signs; notice to customers",
+   "chi": "The Florida Legislature",
+   "tipo": "html",
+   "file": "fl_916.html",
+   "http": 200,
+   "byte": 18378,
+   "letto_il": "2026-11-19",
+   "sha256_frasi": "ac5098533c4226eb709f7f4ea124b38b12318755ada09e42afdcbd766639063e",
+   "frasi": [
+    {
+     "testo": "The sign shall contain the toll-free telephone number of the department for consumer information and assistance and shall inform customers that they may request, at the time the work order is taken, the return or inspection of all parts that have been replaced during the motor vehicle repair.",
+     "trovata": true
+    }
+   ]
+  },
+  "fl_fdacs": {
+   "url": "https://www.fdacs.gov/Business-Services/Motor-Vehicle-Repair",
+   "titolo": "Motor Vehicle Repair (questions from businesses)",
+   "chi": "Florida Department of Agriculture and Consumer Services",
+   "tipo": "html",
+   "file": "fl_fdacs.html",
+   "http": 200,
+   "byte": 125681,
+   "letto_il": "2026-11-19",
+   "sha256_frasi": "9cf05d2f5c3048f228d13051a9d33c3a1787b2913448e285d88b594f14175283",
+   "frasi": [
+    {
+     "testo": "Always give the customer a copy of any document requiring their signature.",
+     "trovata": true
+    }
+   ]
+  },
+  "wa_4671": {
+   "url": "https://app.leg.wa.gov/RCW/default.aspx?cite=46.71&full=true",
+   "titolo": "Chapter 46.71 RCW, Automotive repair (complete chapter)",
+   "chi": "Washington State Legislature",
+   "tipo": "html",
+   "file": "wa_4671.html",
+   "http": 200,
+   "byte": 156011,
+   "letto_il": "2026-11-19",
+   "sha256_frasi": "bfe9fd97e8465f8083c7cc34596ff97375b7fd41297a5977e80ad41141ee0b8b",
+   "frasi": [
+    {
+     "testo": "a repair facility prior to providing parts or labor shall provide the customer or the customer's designee with a written price estimate of the total cost of the repair, including parts and labor",
+     "trovata": true
+    },
+    {
+     "testo": "all estimates that exceed one hundred dollars shall be in writing and include the following information",
+     "trovata": true
+    },
+    {
+     "testo": "A written estimate shall not be required when the customer's motor vehicle or component has been brought to an automotive repair facility's regular place of business without face-to-face contact between the customer and the repair facility.",
+     "trovata": true
+    },
+    {
+     "testo": "The repair facility may not charge the customer more than one hundred ten percent, exclusive of retail sales tax, of the total shown on the written price estimate. Neither of these limitations apply if, before providing additional parts or labor the repair facility obtains either the oral or written authorization of the customer, or the customer's designee, to exceed the written price estimate.",
+     "trovata": true
+    },
+    {
+     "testo": "Whether or not a written estimate is required, parts and labor provided by an automotive repair facility shall be clearly and accurately recorded in writing on an invoice",
+     "trovata": true
+    },
+    {
+     "testo": "A copy of the invoice shall be provided to the customer upon completion of the repairs.",
+     "trovata": true
+    },
+    {
+     "testo": "Except for parts covered by a manufacturer's or other warranty or parts that must be returned to a distributor, remanufacturer, or rebuilder, the repair facility shall return replaced parts to the customer at the time the work is completed if the customer requested the parts at the time of authorization of the repair.",
+     "trovata": true
+    },
+    {
+     "testo": "When the department of revenue issues a registration certificate under RCW 82.32.030 to an automotive repair facility, it must give written notice to the person of the requirements of this chapter in a manner prescribed by the director of revenue, including by electronic means.",
+     "trovata": true
+    },
+    {
+     "testo": "Every automotive repair facility shall retain and make available for inspection, upon request by the customer or the customer's authorized representative, true copies of the written price estimates and invoices required under this chapter for at least one year after the date on which the repairs were performed.",
+     "trovata": true
+    },
+    {
+     "testo": "The date",
+     "trovata": true
+    },
+    {
+     "testo": "the name, address, and telephone number of the repair facility",
+     "trovata": true
+    },
+    {
+     "testo": "the name, address, and telephone number, if available, of the customer or the customer's designee",
+     "trovata": true
+    },
+    {
+     "testo": "if the vehicle is delivered for repair, the year, make, and model of the vehicle, the vehicle license plate number or last eight digits of the vehicle identification number, and the odometer reading of the vehicle",
+     "trovata": true
+    },
+    {
+     "testo": "a description of the problem reported by the customer or the specific repairs requested by the customer",
+     "trovata": true
+    },
+    {
+     "testo": "a choice of alternatives described in RCW 46.71.025",
+     "trovata": true
+    },
+    {
+     "testo": "YOU ARE ENTITLED TO A WRITTEN PRICE ESTIMATE FOR THE REPAIRS YOU HAVE AUTHORIZED. YOU ARE ALSO ENTITLED TO REQUIRE THE REPAIR FACILITY TO OBTAIN YOUR ORAL OR WRITTEN AUTHORIZATION TO EXCEED THE WRITTEN PRICE ESTIMATE. YOUR SIGNATURE OR INITIALS WILL INDICATE YOUR SELECTION.",
+     "trovata": true
+    },
+    {
+     "testo": "1. I request an estimate in writing before you begin repairs. Contact me if the price will exceed this estimate by more than ten percent.",
+     "trovata": true
+    },
+    {
+     "testo": "2. Proceed with repairs but contact me if the price will exceed $",
+     "trovata": true
+    },
+    {
+     "testo": "3. I do not want a written estimate.",
+     "trovata": true
+    },
+    {
+     "testo": "The repair facility or its representative shall note on the estimate the date and time of obtaining an oral authorization, the additional parts and labor required, the estimated cost of the additional parts and labor",
+     "trovata": true
+    },
+    {
+     "testo": "the name or identification number of the employee who obtains the authorization, and the name and telephone number of the person authorizing the additional costs",
+     "trovata": true
+    },
+    {
+     "testo": "prior to providing parts and labor, the repair facility must obtain either the oral or written authorization of the customer or the customer's designee",
+     "trovata": true
+    },
+    {
+     "testo": "The repair facility or its representative shall note on the estimate or repair order the date and time of obtaining an oral authorization, the total amount authorized, the name or identification number of the employee who obtains the authorization, and the name of the person authorizing the repairs.",
+     "trovata": true
+    },
+    {
+     "testo": "A description of the repair or maintenance services performed on the vehicle",
+     "trovata": true
+    },
+    {
+     "testo": "a list of all parts supplied, identified by name and part number, if available, part kit description or recognized package or shop supplies, if any, and an indication whether the parts supplied are rebuilt, or used, if applicable or where collision repair is involved, aftermarket body parts or nonoriginal equipment manufacturer body parts, if applicable",
+     "trovata": true
+    },
+    {
+     "testo": "the price per part charged, if any, and the total amount charged for all parts",
+     "trovata": true
+    },
+    {
+     "testo": "the total amount charged for all labor, if any",
+     "trovata": true
+    },
+    {
+     "testo": "the total charge",
+     "trovata": true
+    },
+    {
+     "testo": "the repair facility shall return replaced parts to the customer at the time the work is completed if the customer requested the parts at the time of authorization of the repair",
+     "trovata": true
+    },
+    {
+     "testo": "If a customer at the time of authorization of the repair requests the return of a part that must be returned to the manufacturer, remanufacturer, distributor, recycler, or rebuilder, or must be disposed of as required by law, the repair facility shall offer to show the part to the customer.",
+     "trovata": true
+    },
+    {
+     "testo": "An automotive repair facility shall post in a prominent place on the business premises one or more signs, readily visible to customers, in the following form:",
+     "trovata": true
+    },
+    {
+     "testo": "YOUR CUSTOMER RIGHTS",
+     "trovata": true
+    },
+    {
+     "testo": "YOU ARE ENTITLED BY LAW TO:",
+     "trovata": true
+    },
+    {
+     "testo": "1. A WRITTEN ESTIMATE FOR REPAIRS WHICH WILL COST MORE THAN ONE HUNDRED DOLLARS, UNLESS WAIVED OR ABSENT FACE-TO-FACE CONTACT (SEE ITEM 4 BELOW);",
+     "trovata": true
+    },
+    {
+     "testo": "2. RETURN OR INSPECTION OF ALL REPLACED PARTS, IF REQUESTED AT TIME OF REPAIR AUTHORIZATION;",
+     "trovata": true
+    },
+    {
+     "testo": "3. AUTHORIZE ORALLY OR IN WRITING ANY REPAIRS WHICH EXCEED THE ESTIMATED TOTAL PRESALES TAX COST BY MORE THAN TEN PERCENT;",
+     "trovata": true
+    },
+    {
+     "testo": "4. AUTHORIZE ANY REPAIRS ORALLY OR IN WRITING IF YOUR VEHICLE IS LEFT WITH THE REPAIR FACILITY WITHOUT FACE-TO-FACE CONTACT BETWEEN YOU AND THE REPAIR FACILITY PERSONNEL.",
+     "trovata": true
+    },
+    {
+     "testo": "IF YOU HAVE AUTHORIZED A REPAIR IN ACCORDANCE WITH THE ABOVE INFORMATION YOU ARE REQUIRED TO PAY FOR THE COSTS OF THE REPAIR PRIOR TO TAKING THE VEHICLE FROM THE PREMISES.",
+     "trovata": true
+    },
+    {
+     "testo": "The first line of each sign shall be in letters not less than one and one-half inch in height and the remaining lines shall be in letters not less than one-half inch in height.",
+     "trovata": true
+    },
+    {
+     "testo": "The repair facility shall make available, upon request, a copy of any express warranty provided by the repair facility to the customer that covers repairs performed on the vehicle.",
+     "trovata": true
+    }
+   ]
+  },
+  "mn_56": {
+   "url": "https://www.revisor.mn.gov/statutes/cite/325F.56",
+   "titolo": "Minnesota Statutes § 325F.56, Definitions",
+   "chi": "Minnesota Office of the Revisor of Statutes",
+   "tipo": "html",
+   "file": "mn_56.html",
+   "http": 200,
+   "byte": 66282,
+   "letto_il": "2026-11-19",
+   "sha256_frasi": "7969a5b649bd24d9fbacdcc01d87d015104c6f5b7de24f96b839b867c029a923",
+   "frasi": [
+    {
+     "testo": "\"Repairs\" means work performed for a total price of more than $100, including the price of parts and materials, to restore a malfunctioning, defective, or worn motor vehicle, appliance, or dwelling place used primarily for personal, family, or household purposes and not primarily for business or agricultural purposes.",
+     "trovata": true
+    },
+    {
+     "testo": "the name and address of the shop",
+     "trovata": true
+    },
+    {
+     "testo": "a description of the problem to be repaired as described by the customer and any specific repair requested by the customer",
+     "trovata": true
+    },
+    {
+     "testo": "the charges for parts or materials listed with reasonable particularity and indicating whether the parts are new, used, rebuilt, reconditioned, or replated if this information is known by the shop",
+     "trovata": true
+    },
+    {
+     "testo": "If parts, other than window glass, used in the repair are new parts, the estimate must indicate whether or not those parts are original equipment parts",
+     "trovata": true
+    },
+    {
+     "testo": "a reasonable storage fee, if the shop imposes a fee for storage",
+     "trovata": true
+    },
+    {
+     "testo": "labor charges",
+     "trovata": true
+    },
+    {
+     "testo": "tax",
+     "trovata": true
+    },
+    {
+     "testo": "any delivery charge",
+     "trovata": true
+    },
+    {
+     "testo": "any other charges",
+     "trovata": true
+    },
+    {
+     "testo": "the total estimated price",
+     "trovata": true
+    }
+   ]
+  },
+  "mn_58": {
+   "url": "https://www.revisor.mn.gov/statutes/cite/325F.58",
+   "titolo": "Minnesota Statutes § 325F.58, Estimates",
+   "chi": "Minnesota Office of the Revisor of Statutes",
+   "tipo": "html",
+   "file": "mn_58.html",
+   "http": 200,
+   "byte": 67134,
+   "letto_il": "2026-11-19",
+   "sha256_frasi": "972fa58ec0f682107f8a6b5a762af29266e27227feef0d401ab7794d1d989072",
+   "frasi": [
+    {
+     "testo": "Upon the request of a customer for a written estimate and prior to the commencement of repairs, a shop shall provide the customer with a written estimate.",
+     "trovata": true
+    },
+    {
+     "testo": "The requirement of a written estimate in sections 325F.56 to 325F.66 is fulfilled if a shop orally communicates the contents of a required writing to the customer prior to commencing repairs and provides the writing to the customer upon completion of the repairs.",
+     "trovata": true
+    },
+    {
+     "testo": "If a shop provides a written estimate of the price of repairs, it shall not charge more than 110 percent of the total price stated in its estimate for the repairs",
+     "trovata": true
+    },
+    {
+     "testo": "the shop may charge more than 110 percent of the estimate for the repairs if the shop immediately provides the customer a revised written estimate pursuant to this section and receives authorization to continue with the repairs",
+     "trovata": true
+    },
+    {
+     "testo": "At the time a shop provides a customer with a written estimate, the shop shall inform the customer that any charge for storage or care, a service call or a charge for making an estimate shall be in addition to the estimated price for the repairs.",
+     "trovata": true
+    },
+    {
+     "testo": "If the contents are orally communicated, the shop shall make a notation on the writing of the date, time, and telephone number called, if any, and the name of the person who receives the information and orally authorizes the making of the estimated repairs.",
+     "trovata": true
+    },
+    {
+     "testo": "a shop shall not impose a charge for making an estimate unless the shop informs the customer that there will be a charge and the basis on which the charge will be calculated before making the estimate and receives authorization to make the estimate",
+     "trovata": true
+    },
+    {
+     "testo": "A customer shall have a right to request a written estimate before any additional repairs are commenced on the motor vehicle, appliance, or dwelling place regardless of whether the customer requested a written estimate of the price of the original repairs.",
+     "trovata": true
+    }
+   ]
+  },
+  "mn_59": {
+   "url": "https://www.revisor.mn.gov/statutes/cite/325F.59",
+   "titolo": "Minnesota Statutes § 325F.59, Repairs",
+   "chi": "Minnesota Office of the Revisor of Statutes",
+   "tipo": "html",
+   "file": "mn_59.html",
+   "http": 200,
+   "byte": 61513,
+   "letto_il": "2026-11-19",
+   "sha256_frasi": "195826e2c89faafbb8a63c530ab3c024a5d715c8d11256d5233223eb7263d150",
+   "frasi": [
+    {
+     "testo": "No shop shall charge for unauthorized repairs.",
+     "trovata": true
+    }
+   ]
+  },
+  "mn_60": {
+   "url": "https://www.revisor.mn.gov/statutes/cite/325F.60",
+   "titolo": "Minnesota Statutes § 325F.60, Invoice",
+   "chi": "Minnesota Office of the Revisor of Statutes",
+   "tipo": "html",
+   "file": "mn_60.html",
+   "http": 200,
+   "byte": 63973,
+   "letto_il": "2026-11-19",
+   "sha256_frasi": "88c5e122e4668f762ab4de0de46fe6d82fe1094cb6bd30d512e5e77fc5883930",
+   "frasi": [
+    {
+     "testo": "Upon completion of repairs, a shop shall provide the customer with a copy of a dated invoice for the repairs performed.",
+     "trovata": true
+    },
+    {
+     "testo": "any repair work performed for a total value of more than $50, including the price of parts and materials",
+     "trovata": true
+    },
+    {
+     "testo": "A written estimate may be used as an invoice if the required invoice information is written on the face of the estimate.",
+     "trovata": true
+    },
+    {
+     "testo": "the date of repair",
+     "trovata": true
+    },
+    {
+     "testo": "the name and address of the shop",
+     "trovata": true
+    },
+    {
+     "testo": "a description of all repairs performed",
+     "trovata": true
+    },
+    {
+     "testo": "an itemization of the charges for parts, materials, labor, tax, delivery, storage or care, and any other charges assessed against the customer",
+     "trovata": true
+    },
+    {
+     "testo": "a notation specifying which parts, if any, are new, used, rebuilt, reconditioned, or replated if that information is known by the shop",
+     "trovata": true
+    },
+    {
+     "testo": "If parts, other than window glass, used in the repair are new parts, the invoice must indicate whether or not those parts are original equipment parts",
+     "trovata": true
+    },
+    {
+     "testo": "a statement of any charge for storage or care, a service call or for making an estimate",
+     "trovata": true
+    },
+    {
+     "testo": "a statement of the odometer reading at the time a motor vehicle is presented for repairs",
+     "trovata": true
+    },
+    {
+     "testo": "a statement of the symptoms, as described by the customer, for which the repairs were sought",
+     "trovata": true
+    }
+   ]
+  },
+  "mn_62": {
+   "url": "https://www.revisor.mn.gov/statutes/cite/325F.62",
+   "titolo": "Minnesota Statutes § 325F.62, Required shop practices",
+   "chi": "Minnesota Office of the Revisor of Statutes",
+   "tipo": "html",
+   "file": "mn_62.html",
+   "http": 200,
+   "byte": 65000,
+   "letto_il": "2026-11-19",
+   "sha256_frasi": "ae96b4127cb185550635d2b44cd6b52202d27ff872d30e81ba293b0a2684aa50",
+   "frasi": [
+    {
+     "testo": "If a customer makes a request before repairs are commenced, the shop shall return replaced parts to the customer, except parts which the shop is required to return to the manufacturer, distributor, or other person under a warranty or exchange arrangement, is required to retain pursuant to law, or is necessary for pending litigation. The customer shall be given an opportunity to examine warranty or exchange parts for a period of five business days after completion of repairs.",
+     "trovata": true
+    },
+    {
+     "testo": "When repairs are performed, a shop shall retain for at least one year the name and address of the customer, any written estimates and the repair invoice.",
+     "trovata": true
+    },
+    {
+     "testo": "If a customer makes a request before repairs are commenced, the shop shall return replaced parts to the customer, except parts which the shop is required to return to the manufacturer, distributor, or other person under a warranty or exchange arrangement, is required to retain pursuant to law, or is necessary for pending litigation.",
+     "trovata": true
+    },
+    {
+     "testo": "The customer shall be given an opportunity to examine warranty or exchange parts for a period of five business days after completion of repairs.",
+     "trovata": true
+    },
+    {
+     "testo": "Each shop shall conspicuously display a sign that states the following:",
+     "trovata": true
+    },
+    {
+     "testo": "Upon a customer's request, this shop is required to provide a written estimate for repairs costing more than $100 if the shop agrees to perform the repairs. The shop's final price cannot exceed its written estimate by more than ten percent without the prior authorization of the customer. You must request that the estimate be in writing. An oral estimate is not subject to the above repair cost limitations.",
+     "trovata": true
+    },
+    {
+     "testo": "If the shop charges a fee for the storage or care of repaired motor vehicles or appliances, the shop shall conspicuously display a sign that states the amount assessed for storage or care, when the charge begins to accrue, and the interval of time between assessments.",
+     "trovata": true
+    }
+   ]
+  },
+  "ca_wir": {
+   "url": "https://www.bar.ca.gov/wir",
+   "titolo": "Write It Right: Documentation and authorization requirements for automotive repair dealers",
+   "chi": "California Bureau of Automotive Repair",
+   "tipo": "html",
+   "file": "ca_wir.html",
+   "http": 200,
+   "byte": 80457,
+   "letto_il": "2026-11-19",
+   "sha256_frasi": "709daec72759d9014f1f9a115419b5bfd62f3ccf46333a20b389ddc0ba0b9cd9",
+   "frasi": [
+    {
+     "testo": "An estimate is required for an automotive repair dealer to perform repairs to a motor vehicle. (BPC § 9884.9)",
+     "trovata": true
+    },
+    {
+     "testo": "An estimate must contain a description of the specific job and the estimated price for all parts and labor. Each part listed in the estimate shall be new unless specifically identified as a used, rebuilt, or reconditioned part. (BPC § 9884.9, CCR § 3353(a))",
+     "trovata": true
+    },
+    {
+     "testo": "All repairs must be authorized by the customer in written, oral, or electronic form. The authorization must be obtained and recorded on the estimate before beginning any repairs.",
+     "trovata": true
+    },
+    {
+     "testo": "Authorization is required before beginning any repairs, even when a vehicle is dropped off before or after normal business hours along with a note requesting repairs to be performed. The note does not constitute authorization.",
+     "trovata": true
+    },
+    {
+     "testo": "Before beginning any additional repairs beyond the original estimate, or having any additional charges accrue, complete the following steps:",
+     "trovata": true
+    },
+    {
+     "testo": "The invoice is provided to the customer upon completion of all repairs for a specific job, including any preventative maintenance services defined in BPC § 9880.1(j). (BPC § 9884.8, CCR § 3356)",
+     "trovata": true
+    },
+    {
+     "testo": "Yes, if requested by the customer at the time the estimate is authorized. However, core parts (such as a battery) that are sold on an exchange basis or parts that must be returned to the supplier under warranty are not required to be returned to the customer. In these circumstances, the customer must be offered the opportunity to inspect the replaced parts. Any replaced parts that cannot be returned to the customer must be recorded on the invoice. (BPC § 9884.10, CCR §§ 3355, 3356(i))",
+     "trovata": true
+    },
+    {
+     "testo": "Records must be maintained for at least three years and shall be open for reasonable inspection and/or reproduction by BAR during normal business hours. (BPC § 9884.11, CCR §§ 3340.15(e), 3358(d))",
+     "trovata": true
+    },
+    {
+     "testo": "An estimate must contain a description of the specific job and the estimated price for all parts and labor.",
+     "trovata": true
+    },
+    {
+     "testo": "Each part listed in the estimate shall be new unless specifically identified as a used, rebuilt, or reconditioned part.",
+     "trovata": true
+    },
+    {
+     "testo": "any charges associated with the handling, management, and disposal costs of toxic wastes or hazardous substances directly related to the specific job must be itemized separately in both the estimate and the invoice",
+     "trovata": true
+    },
+    {
+     "testo": "The automotive repair dealer must include with the estimate a statement of any sublet repair to be performed on the vehicle.",
+     "trovata": true
+    },
+    {
+     "testo": "Charging for items generally noted as shop supplies or miscellaneous parts is prohibited.",
+     "trovata": true
+    },
+    {
+     "testo": "sales tax is only included in the invoice",
+     "trovata": true
+    },
+    {
+     "testo": "A work order must contain the authorized estimate for a specific job, the repairs requested and authorized by the customer, and the vehicle’s odometer reading.",
+     "trovata": true
+    },
+    {
+     "testo": "Written authorization consists of the customer’s signature and the date the customer authorized the repairs.",
+     "trovata": true
+    },
+    {
+     "testo": "Oral authorization consists of the date, time, name of the person authorizing the repairs, and telephone number called, if any.",
+     "trovata": true
+    },
+    {
+     "testo": "Electronic authorization consists of the date, time, name of the person authorizing the repairs, and email address or phone number (text messaging) contacted, if any.",
+     "trovata": true
+    },
+    {
+     "testo": "The customer must be provided a copy of any document requiring their signature at the time of signing.",
+     "trovata": true
+    },
+    {
+     "testo": "Prepare a revised work order that describes all additional parts and labor, provides the cost of all additional parts and labor, and includes the total revised cost.",
+     "trovata": true
+    },
+    {
+     "testo": "Contact the customer by phone, email, text, or other electronic means to provide all the information listed in the revised work order and obtain the customer's authorization.",
+     "trovata": true
+    },
+    {
+     "testo": "Properly document the customer’s authorization on both the work order and invoice.",
+     "trovata": true
+    },
+    {
+     "testo": "The automotive repair dealer registration number and the corresponding business name and address as shown in BAR’s records.",
+     "trovata": true
+    },
+    {
+     "testo": "An itemized list of all services and repairs performed and the prices for each. Include any diagnosis, warranty repairs, or repairs performed at no charge.",
+     "trovata": true
+    },
+    {
+     "testo": "An itemized list of each part supplied. List each part in common terms so that the customer can understand what they purchased and the price of the part.",
+     "trovata": true
+    },
+    {
+     "testo": "State if each part is new, used, reconditioned, rebuilt, and whether any crash parts are OEM or non-OEM aftermarket.",
+     "trovata": true
+    },
+    {
+     "testo": "Replaced parts that cannot be returned to the customer, if applicable.",
+     "trovata": true
+    },
+    {
+     "testo": "The subtotal price for all service and repair work performed.",
+     "trovata": true
+    },
+    {
+     "testo": "The subtotal price for all parts supplied, not including sales tax.",
+     "trovata": true
+    },
+    {
+     "testo": "The sales tax, if applicable.",
+     "trovata": true
+    },
+    {
+     "testo": "The toxic waste fee charged, if any, as stated on the original estimate and the automotive repair dealer’s Environmental Protection Agency number.",
+     "trovata": true
+    },
+    {
+     "testo": "The total cost for all service and repair work, parts supplied, and applicable sales tax.",
+     "trovata": true
+    },
+    {
+     "testo": "However, core parts (such as a battery) that are sold on an exchange basis or parts that must be returned to the supplier under warranty are not required to be returned to the customer. In these circumstances, the customer must be offered the opportunity to inspect the replaced parts.",
+     "trovata": true
+    },
+    {
+     "testo": "Any replaced parts that cannot be returned to the customer must be recorded on the invoice.",
+     "trovata": true
+    },
+    {
+     "testo": "Records must be maintained for at least three years and shall be open for reasonable inspection and/or reproduction by BAR during normal business hours.",
+     "trovata": true
+    },
+    {
+     "testo": "all records associated with a specific transaction must have a unique identifier linking the records to that specific transaction",
+     "trovata": true
+    }
+   ]
+  },
+  "ca_apply": {
+   "url": "https://www.bar.ca.gov/apply",
+   "titolo": "Apply for a license",
+   "chi": "California Bureau of Automotive Repair",
+   "tipo": "html",
+   "file": "ca_apply.html",
+   "http": 200,
+   "byte": 50747,
+   "letto_il": "2026-11-19",
+   "sha256_frasi": "453b7559bfcd21b97c2c9650dcffa897fb5211ca28e77c4a254cdb2923ae63d0",
+   "frasi": [
+    {
+     "testo": "Required to diagnose, service, or repair vehicles for compensation. This includes mobile, referral, or sublet repair services.",
+     "trovata": true
+    },
+    {
+     "testo": "Application fee: $200",
+     "trovata": true
+    },
+    {
+     "testo": "Annual renewal fee: $200",
+     "trovata": true
+    },
+    {
+     "testo": "A BAR license is not required to work as a general automotive repair mechanic.",
+     "trovata": true
+    },
+    {
+     "testo": "BAR licenses California's auto repair businesses.",
+     "trovata": true
+    }
+   ]
+  },
+  "ca_signs": {
+   "url": "https://www.bar.ca.gov/licensee-signs",
+   "titolo": "Sign, license display, and online advertising requirements",
+   "chi": "California Bureau of Automotive Repair",
+   "tipo": "html",
+   "file": "ca_signs.html",
+   "http": 200,
+   "byte": 35189,
+   "letto_il": "2026-11-19",
+   "sha256_frasi": "cd011b1110eee6a0f8ae07cb8050434c2c90e888e2b3a5c3b5a7d08e614a6abd",
+   "frasi": [
+    {
+     "testo": "Automotive repair dealers must post required signs for each license they hold.",
+     "trovata": true
+    }
+   ]
+  },
+  "mi_1332": {
+   "url": "https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-257-1332",
+   "titolo": "Michigan Compiled Laws § 257.1332, Written estimate required; waiver; registration number on documents",
+   "chi": "Michigan Legislature",
+   "tipo": "html",
+   "file": "mi_1332.html",
+   "http": 200,
+   "byte": 25967,
+   "letto_il": "2026-11-19",
+   "sha256_frasi": "89e7c0f19894de1421991b4ad03909073cbe77ebeb2eacc6bfd21fad8f01afbc",
+   "frasi": [
+    {
+     "testo": "Before beginning repair work, a motor vehicle repair facility shall give to the customer a written estimate that itemizes as closely as possible the price for labor and parts necessary for the work.",
+     "trovata": true
+    },
+    {
+     "testo": "The waiver must be in 14 point or larger bold capital type face and executed with 1 copy to the customer who is requesting the repairs.",
+     "trovata": true
+    },
+    {
+     "testo": "A facility shall not charge for work done or parts supplied in excess of the estimated price, or in excess of the limit stated by the customer in the waiver described in subsection (3), without the knowing written or oral consent of the customer",
+     "trovata": true
+    },
+    {
+     "testo": "If a waiver is not signed under subsection (3) and the estimated price is exceeded by not more than 10% or $50.00, whichever is lesser, the facility is not required to obtain the written or oral consent of the customer for the excess charge unless specifically requested by the customer.",
+     "trovata": true
+    },
+    {
+     "testo": "A motor vehicle repair facility shall include the facility's registration number, as assigned by the administrator, on each copy of any instrument, form, contract, or other document used by the applicant in dealing with the public in the repair of motor vehicles",
+     "trovata": true
+    },
+    {
+     "testo": "a written estimate that itemizes as closely as possible the price for labor and parts necessary for the work",
+     "trovata": true
+    },
+    {
+     "testo": "The cost of a diagnosis made by the facility, whether or not the customer authorizes the facility to perform those repairs, must be included in the written estimate before the diagnosis is undertaken.",
+     "trovata": true
+    },
+    {
+     "testo": "voluntarily authorize",
+     "trovata": true
+    },
+    {
+     "testo": "to provide services or parts in the repair of the below described motor vehicle without receiving an estimate of repair costs. By signing this form, I understand that I will give up my right to:",
+     "trovata": true
+    },
+    {
+     "testo": "1. Receive a written estimate of the cost for repairs;",
+     "trovata": true
+    },
+    {
+     "testo": "2. Approve in advance any repairs or costs with a total cost under $",
+     "trovata": true
+    },
+    {
+     "testo": "3. Refuse to pay for repairs with a total cost less than the amount stated above.",
+     "trovata": true
+    },
+    {
+     "testo": "The facility may exceed the amount stated above only after I give my written or oral approval.",
+     "trovata": true
+    },
+    {
+     "testo": "Except for a motor vehicle repair facility that is an auxiliary facility, a motor vehicle repair facility shall at all times display, in a place and manner conspicuous to the facility's customers, a current and valid certificate of repair facility registration issued by the administrator.",
+     "trovata": true
+    }
+   ]
+  },
+  "mi_1333": {
+   "url": "https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-257-1333",
+   "titolo": "Michigan Compiled Laws § 257.1333, Right to receive or inspect replaced parts",
+   "chi": "Michigan Legislature",
+   "tipo": "html",
+   "file": "mi_1333.html",
+   "http": 200,
+   "byte": 26984,
+   "letto_il": "2026-11-19",
+   "sha256_frasi": "4f5e780323d8ff870ef81460947af9ed5af66f870616870d64f8e1e8bf1a4f39",
+   "frasi": [
+    {
+     "testo": "A motor vehicle repair facility shall return replaced parts to the customer at the time the repair work is completed.",
+     "trovata": true
+    },
+    {
+     "testo": "A facility that displays the notice described in subsection (2) on a clearly legible sign with lettering not less than 1 inch high, conspicuously displayed in the part of the facility where customers routinely contract for repairs, is not required to provide the notice to a customer in the form of a document described in subsection (2).",
+     "trovata": true
+    },
+    {
+     "testo": "If a facility is obligated to return a replaced part to the manufacturer or a distributor under a warranty agreement, or, subject to subsection (4), under an exchange agreement, the facility is not required to return that part to the customer. However, the facility or mechanic shall offer the customer an opportunity to inspect the replaced part.",
+     "trovata": true
+    },
+    {
+     "testo": "If a facility charges a fee to a customer in connection with the return of replaced parts, the facility shall disclose that fee to the customer in writing before the customer engages the facility to replace the part.",
+     "trovata": true
+    },
+    {
+     "testo": "the facility shall keep the parts for not less than 2 business days after the customer takes possession of the repaired vehicle, unless the customer has specifically authorized immediate disposition of the parts",
+     "trovata": true
+    },
+    {
+     "testo": "A customer must be informed of the customer's right to receive or inspect replaced parts as provided in this section before the customer executes any document or engages the facility or mechanic for the work.",
+     "trovata": true
+    },
+    {
+     "testo": "YOU ARE ENTITLED BY LAW TO THE RETURN OF ALL PARTS REPLACED, EXCEPT THOSE WHICH ARE TOO HEAVY OR LARGE, AND THOSE REQUIRED TO BE SENT BACK TO THE MANUFACTURER OR DISTRIBUTOR BECAUSE OF WARRANTY WORK OR AN EXCHANGE AGREEMENT. YOU ARE ENTITLED TO INSPECT THE PARTS WHICH CANNOT BE RETURNED TO YOU.",
+     "trovata": true
+    },
+    {
+     "testo": "The motor vehicle repair facility shall display a clearly legible sign in a conspicuous place at the entrance to the facility that indicates that customers may make inquiries concerning repair service or complaints to the administrator and states the address and telephone number of the department.",
+     "trovata": true
+    }
+   ]
+  },
+  "mi_1334": {
+   "url": "https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-257-1334",
+   "titolo": "Michigan Compiled Laws § 257.1334, Written statement required upon return of repaired vehicle",
+   "chi": "Michigan Legislature",
+   "tipo": "html",
+   "file": "mi_1334.html",
+   "http": 200,
+   "byte": 20754,
+   "letto_il": "2026-11-19",
+   "sha256_frasi": "7eccb8e770838119f227b9712ee2a522e5b87bea2e45892b9ac0ad9274f590fd",
+   "frasi": [
+    {
+     "testo": "shall give to each customer a written statement upon return of the repaired vehicle to the customer",
+     "trovata": true
+    },
+    {
+     "testo": "The statement shall be signed by the owner of the facility or by a person designated by the owner to represent the facility. The name of the mechanic or mechanics who performed the diagnosis and the repair shall also appear on the statement.",
+     "trovata": true
+    },
+    {
+     "testo": "Repairs needed, as determined by the facility.",
+     "trovata": true
+    },
+    {
+     "testo": "Repairs requested by the customer.",
+     "trovata": true
+    },
+    {
+     "testo": "Repairs authorized by the customer.",
+     "trovata": true
+    },
+    {
+     "testo": "The facility's estimate of repair costs.",
+     "trovata": true
+    },
+    {
+     "testo": "The actual cost of repairs.",
+     "trovata": true
+    },
+    {
+     "testo": "The repairs or services performed, including a detailed identification of all parts that were replaced and a specification as to which are new, used, rebuilt, or reconditioned.",
+     "trovata": true
+    },
+    {
+     "testo": "A certification that the repairs were completed properly or a detailed explanation of an inability to complete repairs properly.",
+     "trovata": true
+    },
+    {
+     "testo": "The statement shall be signed by the owner of the facility or by a person designated by the owner to represent the facility.",
+     "trovata": true
+    },
+    {
+     "testo": "The name of the mechanic or mechanics who performed the diagnosis and the repair shall also appear on the statement.",
+     "trovata": true
+    }
+   ]
+  },
+  "mi_1306": {
+   "url": "https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-257-1306",
+   "titolo": "Michigan Compiled Laws § 257.1306, Motor vehicle repair facility; registration required",
+   "chi": "Michigan Legislature",
+   "tipo": "html",
+   "file": "mi_1306.html",
+   "http": 200,
+   "byte": 19616,
+   "letto_il": "2026-11-19",
+   "sha256_frasi": "cb43b5e787134802d001fe477cb25f6683530ebc85beb13a11e8a3bd6c79889f",
+   "frasi": [
+    {
+     "testo": "Unless the act or practice is otherwise exempt by this act, a person shall not engage in the business or activity of a motor vehicle repair facility unless the person registers the facility with the administrator pursuant to this act.",
+     "trovata": true
+    }
+   ]
+  },
+  "mi_1302": {
+   "url": "https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-257-1302",
+   "titolo": "Michigan Compiled Laws § 257.1302, Definitions",
+   "chi": "Michigan Legislature",
+   "tipo": "html",
+   "file": "mi_1302.html",
+   "http": 200,
+   "byte": 25790,
+   "letto_il": "2026-11-19",
+   "sha256_frasi": "049b9cf67b87bd319f8b44925304d929f954d7e0f070cfb0033d499032ed7ddd",
+   "frasi": [
+    {
+     "testo": "\"Administrator\" means the secretary of state or any individual designated by the secretary of state to act on behalf of the secretary of state.",
+     "trovata": true
+    }
+   ]
+  },
+  "ny_cr82": {
+   "url": "https://dmv.ny.gov/forms/cr82.pdf",
+   "titolo": "Motor Vehicle Repair Shop Regulations, CR-82 (PDF), Part 82",
+   "chi": "New York State Department of Motor Vehicles",
+   "tipo": "pdf",
+   "file": "ny_cr82.pdf",
+   "http": 200,
+   "byte": 446557,
+   "letto_il": "2026-11-19",
+   "sha256_frasi": "7cc59cf9fec6dc210ac7c38f82ade7eefac28fd5a9bb90f1423d4f42f1f432df",
+   "frasi": [
+    {
+     "testo": "Upon the request of any customer make an estimate in writing of the parts and labor necessary for each specific repair or service offered and shall not charge for work done or parts supplied in excess of the estimate without the consent of such customer. The repair shop may charge a reasonable fee for making an estimate.",
+     "trovata": true
+    },
+    {
+     "testo": "Written estimates must indicate the hourly labor charge and how it is computed, i.e., by clock hours or flat rate. If flat rate, the manual used must be specified.",
+     "trovata": true
+    },
+    {
+     "testo": "Not perform any services not authorized by the customer by a work order.",
+     "trovata": true
+    },
+    {
+     "testo": "Provide the customer with an invoice.",
+     "trovata": true
+    },
+    {
+     "testo": "A repair performed under warranty requires an invoice which complies with this subdivision.",
+     "trovata": true
+    },
+    {
+     "testo": "Return replaced parts if a timely written demand is made by the customer. If work is authorized over the telephone, it shall be presumed that the customer wants his parts returned and the repair shop shall keep such parts until the customer or his agent appears to retrieve the motor vehicle at which time the replaced parts shall be given to the customer if he so directs.",
+     "trovata": true
+    },
+    {
+     "testo": "This subdivision does not apply to parts, components or equipment normally sold on an exchange basis or subject to a manufacturer's warranty;",
+     "trovata": true
+    },
+    {
+     "testo": "Every motor vehicle repair shop is required to be registered with the commissioner.",
+     "trovata": true
+    },
+    {
+     "testo": "Each motor vehicle repair shop shall maintain copies of estimates, work orders, invoices, parts purchase orders and appraisals prepared by that repair shop. Such copies shall be kept for two years and shall be available for inspection by the commissioner or his designee during all business hours.",
+     "trovata": true
+    },
+    {
+     "testo": "the customer's name",
+     "trovata": true
+    },
+    {
+     "testo": "the name and facility number of the repair shop",
+     "trovata": true
+    },
+    {
+     "testo": "the date of the estimate",
+     "trovata": true
+    },
+    {
+     "testo": "a list of parts necessary for each specific repair together with the costs for each part, indicating any parts which are not new parts of at least original equipment quality",
+     "trovata": true
+    },
+    {
+     "testo": "the labor charge for each repair together with the costs of each labor charge",
+     "trovata": true
+    },
+    {
+     "testo": "year and make of vehicle, registration plate number or vehicle identification number",
+     "trovata": true
+    },
+    {
+     "testo": "a description of the problem reported by the customer",
+     "trovata": true
+    },
+    {
+     "testo": "a statement informing the customer of his right to receive replaced parts if the customer makes a written request for such return",
+     "trovata": true
+    },
+    {
+     "testo": "for body parts, the repair shop must indicate if the part is a new original equipment manufacturer part, a new after market equipment manufacturer part or a used part",
+     "trovata": true
+    },
+    {
+     "testo": "All information on an estimate must be legible",
+     "trovata": true
+    },
+    {
+     "testo": "If a repair shop prepares a written work order, a copy shall be given to the customer.",
+     "trovata": true
+    },
+    {
+     "testo": "If a written work order is prepared by the customer, such work order shall be attached to the invoice.",
+     "trovata": true
+    },
+    {
+     "testo": "If the customer gives an oral work order, the oral work order shall be noted on the invoice and shall include the date, time and manner of authorization and by whom such authorization was given",
+     "trovata": true
+    },
+    {
+     "testo": "the name, address and facility number of the repair shop",
+     "trovata": true
+    },
+    {
+     "testo": "the date of the invoice",
+     "trovata": true
+    },
+    {
+     "testo": "the date the vehicle was presented to the repair shop for repair or services",
+     "trovata": true
+    },
+    {
+     "testo": "a list of all parts supplied and labor performed, including the cost for each such part and labor",
+     "trovata": true
+    },
+    {
+     "testo": "a notation indicating the status of any part used which is not new and of at least original quality (i.e. used, rebuilt, etc.)",
+     "trovata": true
+    },
+    {
+     "testo": "the odometer reading on the vehicle at the time it was left with the repair shop and the odometer reading at the time the invoice was prepared",
+     "trovata": true
+    },
+    {
+     "testo": "a promised date of delivery, if any such date was given",
+     "trovata": true
+    },
+    {
+     "testo": "the name of the customer, year, make, and plate number and/or vehicle identification number of the vehicle",
+     "trovata": true
+    },
+    {
+     "testo": "the terms and time limit of any guarantee for the repair work performed",
+     "trovata": true
+    },
+    {
+     "testo": "a description of the problem reported by the customer, and the repair shop registration number",
+     "trovata": true
+    },
+    {
+     "testo": "if body parts were used in the repair, the invoice must indicate if each such part is a new original equipment manufacturer part, a new after market equipment manufacturer part or a used part",
+     "trovata": true
+    },
+    {
+     "testo": "All information on an invoice must be legible",
+     "trovata": true
+    },
+    {
+     "testo": "Timely written demand. A request in writing made to the repair shop operator by the customer before any work is done on the vehicle.",
+     "trovata": true
+    },
+    {
+     "testo": "Return replaced parts if a timely written demand is made by the customer.",
+     "trovata": true
+    },
+    {
+     "testo": "If work is authorized over the telephone, it shall be presumed that the customer wants his parts returned and the repair shop shall keep such parts until the customer or his agent appears to retrieve the motor vehicle at which time the replaced parts shall be given to the customer if he so directs.",
+     "trovata": true
+    },
+    {
+     "testo": "Customers may not waive their rights to replaced parts over the telephone.",
+     "trovata": true
+    },
+    {
+     "testo": "This subdivision does not apply to parts, components or equipment normally sold on an exchange basis or subject to a manufacturer's warranty",
+     "trovata": true
+    },
+    {
+     "testo": "A customer may not be charged for storage unless notice in writing is given.",
+     "trovata": true
+    },
+    {
+     "testo": "Such copies shall be kept for two years and shall be available for inspection by the commissioner or his designee during all business hours.",
+     "trovata": true
+    },
+    {
+     "testo": "Every registered repair shop, except those which are registered as repair shops solely to perform appraisal work in connection with insurance, shall post this sign indoors in a place where customers are likely to see it.",
+     "trovata": true
+    },
+    {
+     "testo": "The repair shop shall post an official outdoor repair shop sign.",
+     "trovata": true
+    }
+   ]
+  },
+  "ny_open": {
+   "url": "https://dmv.ny.gov/business/open-a-repair-or-body-shop",
+   "titolo": "Open and Operate a Repair or Body Shop",
+   "chi": "New York State Department of Motor Vehicles",
+   "tipo": "html",
+   "file": "ny_open.html",
+   "http": 200,
+   "byte": 65143,
+   "letto_il": "2026-11-19",
+   "sha256_frasi": "a3e4559bb05caa0d50644409b1fdd9aa0b7fd21ea3bccdc458fa276cb0a2c628",
+   "frasi": [
+    {
+     "testo": "The final bill cannot exceed your written estimate without the consent of the customer.",
+     "trovata": true
+    },
+    {
+     "testo": "If repairs are authorized by telephone, you must record the time, the date, and the name of the person who gave authorization.",
+     "trovata": true
+    },
+    {
+     "testo": "If DMV approves your application, you will receive a repair shop registration.",
+     "trovata": true
+    },
+    {
+     "testo": "DMV does not provide official repair shop signs. You can purchase these signs from various sign shops and automotive supply stores.",
+     "trovata": true
+    }
+   ]
+  }
+ }
+}

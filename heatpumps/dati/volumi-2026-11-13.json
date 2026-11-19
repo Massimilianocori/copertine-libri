@@ -1,0 +1,3449 @@
+{
+ "_nota": "Volumi medi mensili di ricerca su Google nel Regno Unito (Google Ads) letti con api.seodata.dev (country=gb). volume null = la frase non è nel database dello strumento (risposta 404). «dato_del» = data del dato nello strumento. «simili» = frasi vicine restituite dallo strumento con il loro volume (misurate anch'esse). Usati da genera.py per titoli, descrizioni e FAQ.",
+ "misurato_il": "2026-11-13",
+ "strumento": "api.seodata.dev, country=gb",
+ "ricerche_usate": 337,
+ "frasi": {
+  "boiler upgrade scheme": {
+   "volume": 4400,
+   "cpc_gbp": 9.69,
+   "dato_del": "2026-10-07",
+   "simili": {
+    "upgrade boiler scheme": 4400,
+    "government boiler scheme": 1900,
+    "grant to upgrade boiler": 1300,
+    "upgrade boiler grant": 1300,
+    "boiler upgrade scheme uk": 720,
+    "gov boiler upgrade scheme": 260,
+    "boiler upgrade": 210,
+    "uk boiler upgrade scheme": 210,
+    "upgrade boiler": 210,
+    "boiler upgrade scheme wales": 140
+   }
+  },
+  "boiler upgrade scheme eligibility": {
+   "volume": 480,
+   "cpc_gbp": 7.71,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "grants for new gas boilers": 170,
+    "boiler grant eligibility": 140,
+    "uk boiler scheme": 110,
+    "boiler grant scheme eligibility": 70,
+    "boiler upgrade scheme": 4400,
+    "government boiler scheme": 1900,
+    "upgrade boiler grant": 1300,
+    "government grant for new boiler": 480,
+    "boiler upgrade": 210,
+    "government boiler grant eligibility": 140
+   }
+  },
+  "boiler upgrade scheme eligibility criteria": {
+   "volume": null
+  },
+  "boiler upgrade scheme grant": {
+   "volume": 50,
+   "cpc_gbp": 12.08,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "boiler upgrade scheme": 4400,
+    "upgrade boiler scheme": 4400,
+    "government boiler scheme": 1900,
+    "grant to upgrade boiler": 1300,
+    "upgrade boiler grant": 1300,
+    "boiler upgrade scheme uk": 720,
+    "change boiler for free": 320,
+    "gov boiler upgrade scheme": 260,
+    "boiler upgrade": 210,
+    "uk boiler upgrade scheme": 210
+   }
+  },
+  "boiler upgrade scheme uk": {
+   "volume": 720,
+   "cpc_gbp": 10.22,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "boiler upgrade scheme": 4400,
+    "upgrade boiler scheme": 4400,
+    "gov boiler upgrade scheme": 260,
+    "boiler upgrade": 210,
+    "uk boiler upgrade scheme": 210,
+    "upgrade boiler": 210,
+    "boiler upgrade scheme wales": 140,
+    "boiler upgrade scheme bus": 110,
+    "uk boiler scheme": 110,
+    "the boiler upgrade scheme": 70
+   }
+  },
+  "boiler upgrade scheme 2026": {
+   "volume": null
+  },
+  "boiler upgrade scheme apply": {
+   "volume": null
+  },
+  "how to apply for boiler upgrade scheme": {
+   "volume": null
+  },
+  "boiler upgrade scheme ofgem": {
+   "volume": 40,
+   "cpc_gbp": 6.53,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ofgem boiler upgrade scheme": 110,
+    "bus grants": 480,
+    "gov grant for new boiler": 480,
+    "new boiler scheme": 480,
+    "boiler upgrades": 210,
+    "heat pump gov": 90,
+    "heating system upgrade": 90,
+    "bus voucher": 70,
+    "bus vouchers": 70,
+    "pip free boiler": 50
+   }
+  },
+  "boiler upgrade scheme installers": {
+   "volume": null
+  },
+  "boiler upgrade scheme air to air": {
+   "volume": null
+  },
+  "boiler upgrade scheme 9000": {
+   "volume": null
+  },
+  "boiler upgrade scheme £9000": {
+   "volume": null
+  },
+  "boiler upgrade scheme biomass": {
+   "volume": null
+  },
+  "boiler upgrade scheme wales": {
+   "volume": 140,
+   "cpc_gbp": 9.77,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "boiler upgrade scheme": 4400,
+    "upgrade boiler scheme": 4400,
+    "government boiler scheme": 1900,
+    "grant to upgrade boiler": 1300,
+    "boiler upgrade scheme uk": 720,
+    "gov boiler upgrade scheme": 260,
+    "boiler upgrade": 210,
+    "boiler upgrades": 210,
+    "uk boiler upgrade scheme": 210,
+    "upgrade boiler": 210
+   }
+  },
+  "boiler upgrade scheme scotland": {
+   "volume": 140,
+   "cpc_gbp": 9.9,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "boiler grants scotland": 720,
+    "boiler replacement grant scotland": 720,
+    "boiler replacement grants in scotland": 720,
+    "scotland boiler grant": 720,
+    "scotland boiler grants": 720,
+    "free boiler scotland": 480,
+    "free boiler scheme scotland": 210,
+    "boiler replacement scheme scotland": 170,
+    "grants for new boilers scotland": 170,
+    "scotland free boiler scheme": 170
+   }
+  },
+  "boiler upgrade scheme epc": {
+   "volume": null
+  },
+  "boiler upgrade scheme new build": {
+   "volume": null
+  },
+  "boiler upgrade scheme landlords": {
+   "volume": null
+  },
+  "boiler upgrade scheme second home": {
+   "volume": null
+  },
+  "boiler upgrade scheme end date": {
+   "volume": 70,
+   "cpc_gbp": 14.87,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "boiler upgrade scheme": 4400,
+    "upgrade boiler scheme": 4400,
+    "boiler upgrade scheme uk": 720,
+    "uk boiler upgrade scheme": 210,
+    "bus grant": 480,
+    "bus scheme": 320,
+    "upgrade boiler": 210,
+    "boiler upgrade scheme wales": 140,
+    "bus grant heat pump": 70,
+    "the boiler upgrade scheme": 70
+   }
+  },
+  "boiler upgrade scheme extended": {
+   "volume": null
+  },
+  "boiler upgrade scheme statistics": {
+   "volume": 90,
+   "cpc_gbp": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "boiler upgrade scheme": 4400,
+    "upgrade boiler scheme": 4400,
+    "boiler upgrade scheme uk": 720,
+    "uk boiler upgrade scheme": 210,
+    "boiler upgrade scheme wales": 140,
+    "the boiler upgrade scheme": 70,
+    "boiler upgrade": 210,
+    "boiler upgrades": 210,
+    "upgrade boiler": 210,
+    "boiler upgrade scheme bus": 110
+   }
+  },
+  "boiler upgrade scheme mcs": {
+   "volume": null
+  },
+  "boiler upgrade scheme vat": {
+   "volume": null
+  },
+  "boiler upgrade scheme login": {
+   "volume": null
+  },
+  "boiler upgrade scheme northern ireland": {
+   "volume": 50,
+   "cpc_gbp": 3.94,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "boilers grants uk": 2400,
+    "grant for boiler uk": 2400,
+    "uk boiler grant": 2400,
+    "boilers grants": 1900,
+    "grants for boiler": 1900,
+    "government free boiler replacement scheme": 1300,
+    "grants for replacing boiler": 1300,
+    "replacing boiler grant": 1300,
+    "boilers grant": 1000,
+    "gov grants for new boilers": 480
+   }
+  },
+  "boiler upgrade scheme hybrid": {
+   "volume": null
+  },
+  "boiler upgrade scheme oil boiler": {
+   "volume": null
+  },
+  "bus grant": {
+   "volume": 480,
+   "cpc_gbp": 9.79,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "bus scheme": 320,
+    "boiler upgrade scheme bus": 110,
+    "bus grant heat pump": 70,
+    "bus grants": 480,
+    "boiler upgrade scheme scotland": 140,
+    "bus grant eligibility": 90,
+    "boiler upgrade scheme uk": 720,
+    "boiler upgrade scheme eligibility": 480,
+    "boiler upgrade scheme wales": 140,
+    "boiler upgrade scheme end date": 70
+   }
+  },
+  "bus scheme": {
+   "volume": 320,
+   "cpc_gbp": 7.69,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "bus grant": 480,
+    "boiler upgrade scheme bus": 110,
+    "bus grant eligibility": 90,
+    "bus grant heat pump": 70,
+    "ofgem bus scheme": 40,
+    "bus grants": 480,
+    "boiler upgrade scheme scotland": 140,
+    "boiler upgrade scheme end date": 70,
+    "boiler upgrade grants": 1300,
+    "boiler upgrade scheme uk": 720
+   }
+  },
+  "boiler upgrade grant": {
+   "volume": 1300,
+   "cpc_gbp": 9.38,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "boiler upgrade scheme": 4400,
+    "government boiler scheme": 1900,
+    "upgrade boiler grant": 1300,
+    "boiler scheme": 720,
+    "upgrade boiler": 210,
+    "boiler upgrade scheme grant": 50,
+    "gov.uk boiler upgrade scheme": 40,
+    "upgrade boiler scheme": 4400,
+    "grants for boilers in england": 2400,
+    "government boiler schemes": 1900
+   }
+  },
+  "government boiler scheme": {
+   "volume": 1900,
+   "cpc_gbp": 14.66,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "boiler upgrade scheme": 4400,
+    "free boiler scheme": 4400,
+    "upgrade boiler scheme": 4400,
+    "new boiler grant": 3600,
+    "grant for boiler uk": 2400,
+    "grants for boilers england": 2400,
+    "grants for boilers in england": 2400,
+    "uk boiler grant": 2400,
+    "government boiler schemes": 1900,
+    "replacement boiler scheme": 1900
+   }
+  },
+  "grant to upgrade boiler": {
+   "volume": 1300,
+   "cpc_gbp": 9.67,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "boiler upgrade scheme": 4400,
+    "free boiler scheme": 4400,
+    "upgrade boiler scheme": 4400,
+    "grant for boiler uk": 2400,
+    "grants for boilers england": 2400,
+    "grants for boilers in england": 2400,
+    "uk boiler grant": 2400,
+    "boilers grants": 1900,
+    "government boiler schemes": 1900,
+    "grants for boiler": 1900
+   }
+  },
+  "heat pump grant": {
+   "volume": 5400,
+   "cpc_gbp": 11.42,
+   "dato_del": "2026-08-02",
+   "simili": {
+    "grants heat pumps": 5400,
+    "heat pumps grant": 5400,
+    "air heat pump grant": 2900,
+    "air source heat pump grant": 2900,
+    "air source heat pump grants": 2900,
+    "air source heating grant": 2900,
+    "air source heating grants": 2900,
+    "air source pump grant": 2900,
+    "grants air source heat pump": 2900,
+    "government grants for heat pumps": 1600
+   }
+  },
+  "heat pump grants": {
+   "volume": 5400,
+   "cpc_gbp": 9.63,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "heat pump grant": 5400,
+    "heat pumps grant": 5400,
+    "air heat pump grant": 2900,
+    "air source heat pump grant": 2900,
+    "air source heat pump grants": 2900,
+    "air source heating grant": 2900,
+    "grants air source heat pump": 2900,
+    "heat pump gov grant": 1600,
+    "heat pump grant uk": 880,
+    "heat pump grants uk": 880
+   }
+  },
+  "heat pump grant uk": {
+   "volume": 880,
+   "cpc_gbp": 11.11,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "grants heat pumps": 5400,
+    "heat pump grant": 5400,
+    "heat pumps grant": 5400,
+    "air heat pump grant": 2900,
+    "air source heat pump grant": 2900,
+    "air source heat pump grants": 2900,
+    "air source heating grant": 2900,
+    "air source heating grants": 2900,
+    "air source pump grant": 2900,
+    "grants air source heat pump": 2900
+   }
+  },
+  "£7500 heat pump grant": {
+   "volume": null
+  },
+  "7500 heat pump grant": {
+   "volume": null
+  },
+  "£7,500 heat pump grant": {
+   "volume": null
+  },
+  "heat pump grant 7500": {
+   "volume": null
+  },
+  "heat pump grant 2026": {
+   "volume": null
+  },
+  "heat pump grant eligibility": {
+   "volume": 390,
+   "cpc_gbp": 8.66,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "grants heat pumps": 5400,
+    "heat pump grant": 5400,
+    "heat pumps grant": 5400,
+    "air heat pump grant": 2900,
+    "air source heat pump grant": 2900,
+    "air source heat pump grants": 2900,
+    "air source heating grant": 2900,
+    "air source heating grants": 2900,
+    "air source pump grant": 2900,
+    "grants air source heat pump": 2900
+   }
+  },
+  "heat pump grant scotland": {
+   "volume": 590,
+   "cpc_gbp": 10.54,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "heat pump grants scotland": 590,
+    "air source heat pump grant scotland": 210,
+    "air source heat pump grants scotland": 210,
+    "air source heating grants scotland": 210,
+    "scotland heat pump grant": 110,
+    "heating grant scotland": 390,
+    "scotland heating grant": 390,
+    "air source heat pump scotland": 480,
+    "free heating scheme scotland": 90,
+    "central heating grants scotland": 70
+   }
+  },
+  "heat pump grant wales": {
+   "volume": 210,
+   "cpc_gbp": 8.18,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "air source heat pump grant wales": 90,
+    "heat pump grants wales": 260,
+    "air source heat pump grants wales": 70,
+    "heating grant wales": 320,
+    "heating grants wales": 320,
+    "heat pump wales": 90,
+    "heat pumps wales": 90,
+    "grants heat pumps": 5400,
+    "heat pump grant": 5400,
+    "heat pumps grant": 5400
+   }
+  },
+  "heat pump grant northern ireland": {
+   "volume": 210,
+   "cpc_gbp": 3.27,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "heating grant northern ireland": 260,
+    "heating grants ni": 260,
+    "heating grants northern ireland": 260,
+    "ni grants for heating": 260,
+    "heat pumps grants northern ireland": 210,
+    "boiler grants ni": 210,
+    "energy grant northern ireland": 110,
+    "energy grants northern ireland": 110,
+    "ni energy grants": 110,
+    "northern ireland insulation grants": 480
+   }
+  },
+  "heat pump grant england": {
+   "volume": 90,
+   "cpc_gbp": 8.95,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "grants heat pumps": 5400,
+    "heat pump grant": 5400,
+    "heat pumps grant": 5400,
+    "air heat pump grant": 2900,
+    "air source heat pump grant": 2900,
+    "air source heat pump grants": 2900,
+    "air source heating grant": 2900,
+    "air source heating grants": 2900,
+    "grants air source heat pump": 2900,
+    "government grant heat pump": 1600
+   }
+  },
+  "government heat pump grant": {
+   "volume": 880,
+   "cpc_gbp": 12.72,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "grants heat pumps": 5400,
+    "heat pump grant": 5400,
+    "heat pumps grant": 5400,
+    "air heat pump grant": 2900,
+    "air source heat pump grant": 2900,
+    "air source heat pump grants": 2900,
+    "air source heating grant": 2900,
+    "air source heating grants": 2900,
+    "air source pump grant": 2900,
+    "grants air source heat pump": 2900
+   }
+  },
+  "government grants for heat pumps": {
+   "volume": 1600,
+   "cpc_gbp": 13.7,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "grants heat pumps": 5400,
+    "heat pump grant": 5400,
+    "heat pumps grant": 5400,
+    "air heat pump grant": 2900,
+    "air source heat pump grant": 2900,
+    "air source heat pump grants": 2900,
+    "air source heating grant": 2900,
+    "air source heating grants": 2900,
+    "air source pump grant": 2900,
+    "grants air source heat pump": 2900
+   }
+  },
+  "government grant for air source heat pump": {
+   "volume": 390,
+   "cpc_gbp": 15.29,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "grants heat pumps": 5400,
+    "heat pump grant": 5400,
+    "heat pumps grant": 5400,
+    "air heat pump grant": 2900,
+    "air source heat pump grant": 2900,
+    "air source heat pump grants": 2900,
+    "air source heating grant": 2900,
+    "air source heating grants": 2900,
+    "air source pump grant": 2900,
+    "grants air source heat pump": 2900
+   }
+  },
+  "free heat pump": {
+   "volume": 210,
+   "cpc_gbp": 10.22,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "free air source heat pumps": 260,
+    "free heat pumps": 210,
+    "free air source heat pump": 170,
+    "free heat pump uk": 70,
+    "air heat pump grant": 2900,
+    "government grant for air source heat pump": 390,
+    "grants for air source heat pumps uk": 90,
+    "grants heat pumps": 5400,
+    "heat pump grant": 5400,
+    "air source heat pump grants": 2900
+   }
+  },
+  "free heat pump grant": {
+   "volume": null
+  },
+  "free air source heat pump": {
+   "volume": 170,
+   "cpc_gbp": 10.45,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "government grant for air source heat pump": 390,
+    "free air source heat pumps": 260,
+    "free heat pump": 210,
+    "free heat pumps": 210,
+    "free heat pump uk": 70,
+    "air source heat pump grant": 2900,
+    "heat source pump grants": 390,
+    "grant for air source heat pump": 140,
+    "grants heat pumps": 5400,
+    "heat pump grant": 5400
+   }
+  },
+  "heat pump grant for pensioners": {
+   "volume": null
+  },
+  "heat pump grant landlords": {
+   "volume": null
+  },
+  "heat pump grant oil boiler": {
+   "volume": null
+  },
+  "heat pump grant 9000": {
+   "volume": null
+  },
+  "£9000 heat pump grant": {
+   "volume": null
+  },
+  "9000 heat pump grant": {
+   "volume": null
+  },
+  "heat pump grant how to apply": {
+   "volume": null
+  },
+  "apply for heat pump grant": {
+   "volume": null
+  },
+  "how to get heat pump grant": {
+   "volume": null
+  },
+  "how much is the heat pump grant": {
+   "volume": null
+  },
+  "is the heat pump grant still available": {
+   "volume": null
+  },
+  "heat pump grant ending": {
+   "volume": null
+  },
+  "can i get a heat pump grant": {
+   "volume": null
+  },
+  "who is eligible for heat pump grant": {
+   "volume": null
+  },
+  "do i qualify for heat pump grant": {
+   "volume": null
+  },
+  "heat pump grant criteria": {
+   "volume": null
+  },
+  "heat pump grant new build": {
+   "volume": null
+  },
+  "heat pump grant air to air": {
+   "volume": null
+  },
+  "air to air heat pump grant": {
+   "volume": 140,
+   "cpc_gbp": 7.25,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "grants heat pumps": 5400,
+    "heat pump grant": 5400,
+    "heat pumps grant": 5400,
+    "air heat pump grant": 2900,
+    "air source heat pump grant": 2900,
+    "air source heat pump grants": 2900,
+    "air source heating grant": 2900,
+    "air source pump grant": 2900,
+    "grants air source heat pump": 2900,
+    "government grant for heat pumps": 1600
+   }
+  },
+  "air to air heat pump": {
+   "volume": 33100,
+   "cpc_gbp": 5.77,
+   "dato_del": "2026-10-07",
+   "simili": {
+    "air to air heat pumps": 33100,
+    "air to air source heat pump": 33100,
+    "air-to-air heat pumps": 33100,
+    "heat pump air air": 33100,
+    "air heat pump": 1300,
+    "air source heat pump air to air": 260,
+    "heating pump air air": 260,
+    "air and heat": 170,
+    "air to air heating": 140,
+    "heat pump air to air": 70
+   }
+  },
+  "air source heat pump grant": {
+   "volume": 2900,
+   "cpc_gbp": 14.32,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "grants heat pumps": 5400,
+    "heat pump grant": 5400,
+    "heat pumps grant": 5400,
+    "air heat pump grant": 2900,
+    "air source heat pump grants": 2900,
+    "air source heating grant": 2900,
+    "air source heating grants": 2900,
+    "air source pump grant": 2900,
+    "grant air source heat pump": 2900,
+    "grants air source heat pump": 2900
+   }
+  },
+  "air source heat pump grant uk": {
+   "volume": 90,
+   "cpc_gbp": 13.11,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "grants heat pumps": 5400,
+    "heat pump grant": 5400,
+    "heat pumps grant": 5400,
+    "air heat pump grant": 2900,
+    "air source heat pump grant": 2900,
+    "air source heating grant": 2900,
+    "air source heating grants": 2900,
+    "air source pump grant": 2900,
+    "grant air source heat pump": 2900,
+    "grants air source heat pump": 2900
+   }
+  },
+  "air source heat pump grants 2026": {
+   "volume": null
+  },
+  "air source heat pump grant eligibility": {
+   "volume": 140,
+   "cpc_gbp": 10.71,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "heat pump grant": 5400,
+    "air heat pump grant": 2900,
+    "air source heat pump grant": 2900,
+    "air source heat pump grants": 2900,
+    "air source heating grant": 2900,
+    "air source heating grants": 2900,
+    "air source pump grant": 2900,
+    "grants air source heat pump": 2900,
+    "government grant for heat pump": 1600,
+    "heat pump gov grant": 1600
+   }
+  },
+  "air source heat pump grant scotland": {
+   "volume": 210,
+   "cpc_gbp": 10.73,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "heat pump grant scotland": 590,
+    "heat pump grants scotland": 590,
+    "air source heat pump grants scotland": 210,
+    "air source heating grants scotland": 210,
+    "scotland heat pump grant": 110,
+    "air source heat pump grant": 2900,
+    "air source heating grant": 2900,
+    "air source heating grants": 2900,
+    "air source heat pump scotland": 480,
+    "grant for air source heat pump": 140
+   }
+  },
+  "air source heat pump grant wales": {
+   "volume": 90,
+   "cpc_gbp": 10.53,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "heat pump grants wales": 260,
+    "grants heat pumps": 5400,
+    "heat pump grant": 5400,
+    "heat pumps grant": 5400,
+    "government grant for heat pump": 1600,
+    "government grant for heat pumps": 1600,
+    "government grants for heat pumps": 1600,
+    "grants for heat pump": 590,
+    "grants for heat pumps": 590,
+    "heat pump grant eligibility": 390
+   }
+  },
+  "ground source heat pump grant": {
+   "volume": 480,
+   "cpc_gbp": 8.92,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "heat pump grant": 5400,
+    "government grant heat pump": 1600,
+    "government grants for heat pumps": 1600,
+    "heat pump gov grant": 1600,
+    "government heat pump grant": 880,
+    "government heat pump grants": 880,
+    "grants for ground source heat pumps": 480,
+    "grants for ground source heating": 480,
+    "ground source heat grants": 480,
+    "ground source heating grant": 480
+   }
+  },
+  "ground source heat pump grant uk": {
+   "volume": null
+  },
+  "ground source heat pump grant scotland": {
+   "volume": null
+  },
+  "ground source heat pump cost": {
+   "volume": 1600,
+   "cpc_gbp": 5.91,
+   "dato_del": "2026-10-07",
+   "simili": {
+    "cost of geothermal heat pump": 1600,
+    "cost of ground source heat pump": 1600,
+    "ground source heat cost": 1600,
+    "ground source heating costs": 1600,
+    "ground source heat pump uk cost": 320,
+    "ground source heat pump cost uk": 260,
+    "ground source heat pump costs uk": 260,
+    "ground source heat pump installation cost": 210,
+    "cost of ground source heat pump installation": 170,
+    "ground source heat pump cost of installation": 170
+   }
+  },
+  "ground source heat pump": {
+   "volume": 8100,
+   "cpc_gbp": 4.32,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ground source pump": 8100,
+    "ground water heat pumps": 8100,
+    "heat pump ground": 8100,
+    "heat pump ground source": 8100,
+    "heat pumps ground": 8100,
+    "heat pumps ground source": 8100,
+    "heat source ground pump": 8100,
+    "ground source heat pumps": 880,
+    "ground source heat": 480,
+    "ground source heating": 480
+   }
+  },
+  "air source heat pump cost": {
+   "volume": 5400,
+   "cpc_gbp": 8.65,
+   "dato_del": "2026-08-02",
+   "simili": {
+    "cost heat pump": 8100,
+    "heat pump cost": 8100,
+    "heat pumps cost": 8100,
+    "heating pumps cost": 8100,
+    "price for a heat pump": 8100,
+    "price of a heat pump": 8100,
+    "air source heating costs": 5400,
+    "air source pump cost": 5400,
+    "air to air heat pumps cost": 5400,
+    "cost of air source heating": 5400
+   }
+  },
+  "air source heat pump": {
+   "volume": 33100,
+   "cpc_gbp": 5.77,
+   "dato_del": "2026-10-17",
+   "simili": {
+    "air pump heating": 33100,
+    "air source heat pumps": 33100,
+    "air-source heat pump": 33100,
+    "heat pump air": 33100,
+    "heat pumps air source": 33100,
+    "heating air source heat pump": 33100,
+    "heat source pump uk": 4400,
+    "heat source pumps uk": 4400,
+    "heat source pump": 2400,
+    "air source heating": 1300
+   }
+  },
+  "heat pump cost": {
+   "volume": 8100,
+   "cpc_gbp": 7.28,
+   "dato_del": "2026-08-02",
+   "simili": {
+    "cost heat pump": 8100,
+    "heat pumps cost": 8100,
+    "heating pumps cost": 8100,
+    "price for a heat pump": 8100,
+    "price of a heat pump": 8100,
+    "air source heat pump cost": 5400,
+    "air source heating cost": 5400,
+    "air source pump cost": 5400,
+    "air to air heat pumps cost": 5400,
+    "cost of air source heating": 5400
+   }
+  },
+  "heat pump cost uk": {
+   "volume": 1900,
+   "cpc_gbp": 7,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "cost heat pump": 8100,
+    "heat pump cost": 8100,
+    "heat pumps cost": 8100,
+    "price for a heat pump": 8100,
+    "price of a heat pump": 8100,
+    "air source heat pump cost": 5400,
+    "air source pump cost": 5400,
+    "cost of heat pump and installation": 2400,
+    "heat pump installation cost": 2400,
+    "heat pumps installation cost": 2400
+   }
+  },
+  "heat pump installation cost": {
+   "volume": 2400,
+   "cpc_gbp": 10.64,
+   "dato_del": "2026-11-05",
+   "simili": {
+    "cost heat pump": 8100,
+    "heat pump cost": 8100,
+    "heat pumps cost": 8100,
+    "heating pumps cost": 8100,
+    "price of a heat pump": 8100,
+    "air source heat pump cost": 5400,
+    "cost for heat pump and installation": 2400,
+    "heat pump installation price": 2400,
+    "heat pump installed price": 2400,
+    "heat pumps installation cost": 2400
+   }
+  },
+  "how much does a heat pump cost": {
+   "volume": 2900,
+   "cpc_gbp": 6.4,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "cost heat pump": 8100,
+    "heat pump cost": 8100,
+    "heat pumps cost": 8100,
+    "heating pumps cost": 8100,
+    "price for a heat pump": 8100,
+    "price of a heat pump": 8100,
+    "air source heat pump cost": 5400,
+    "air source heating costs": 5400,
+    "air source pump cost": 5400,
+    "cost of air source heating": 5400
+   }
+  },
+  "how much does an air source heat pump cost": {
+   "volume": 390,
+   "cpc_gbp": 9.7,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "cost heat pump": 8100,
+    "heat pump cost": 8100,
+    "heat pumps cost": 8100,
+    "heating pumps cost": 8100,
+    "price for a heat pump": 8100,
+    "price of a heat pump": 8100,
+    "air source heating cost": 5400,
+    "air source pump cost": 5400,
+    "air to air heat pumps cost": 5400,
+    "cost of air source heating": 5400
+   }
+  },
+  "heat pump running costs": {
+   "volume": 720,
+   "cpc_gbp": 4.04,
+   "dato_del": "2026-10-07",
+   "simili": {
+    "air heat pump running costs": 720,
+    "air source heat pump running cost": 720,
+    "air to air heat pump running costs": 720,
+    "cost of running heat pump": 720,
+    "heat pump running cost": 720,
+    "are air source heat pumps expensive to run": 210,
+    "cost to run a heat pump": 90,
+    "cost to run heat pump": 90,
+    "heat pump running cost uk": 90,
+    "heat pump running costs uk": 90
+   }
+  },
+  "heat pump vs gas boiler": {
+   "volume": 1000,
+   "cpc_gbp": 4.78,
+   "dato_del": "2026-08-02",
+   "simili": {
+    "gas boiler vs heat pump": 1000,
+    "boiler vs heat pump": 720,
+    "heat pump vs boiler": 720,
+    "heat pumps vs boilers": 720,
+    "air source heat pump vs gas boiler": 260,
+    "heat pump vs combi boiler": 260,
+    "heat pump vs gas boiler running cost": 210,
+    "heat pumps vs gas boiler": 170,
+    "heat pumps vs gas boilers": 170,
+    "heat pump or gas boiler": 140
+   }
+  },
+  "hybrid heat pump grant": {
+   "volume": null
+  },
+  "hybrid heat pump": {
+   "volume": 880,
+   "cpc_gbp": 3.68,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "heat pump hybrid system": 140,
+    "what is a hybrid heat pump": 40,
+    "hybrid heat pump system": 140,
+    "hybrid heat pump systems": 140,
+    "heat pump combi boiler": 70,
+    "hybrid air source heat pump": 170,
+    "hybrid air source heat pumps": 170,
+    "heat pump boiler systems": 110,
+    "hybrid heat pumps": 880,
+    "hybrid heating systems": 210
+   }
+  },
+  "heat pump cost after grant": {
+   "volume": null
+  },
+  "heat pump installers near me": {
+   "volume": null
+  },
+  "heat pump installers": {
+   "volume": 590,
+   "cpc_gbp": 7.69,
+   "dato_del": "2026-10-17",
+   "simili": {
+    "heat pump installers uk": 210,
+    "pump installer": 90,
+    "heat pump installer": 4400,
+    "pump fitters": 70,
+    "air to air heat pump installers": 1900,
+    "air source heat pump installers": 390,
+    "air source heat pumps installers": 390,
+    "heat pump specialists": 70,
+    "heat pump companies": 210,
+    "heat pump installers scotland": 90
+   }
+  },
+  "air source heat pump installers near me": {
+   "volume": null
+  },
+  "mcs certified installer": {
+   "volume": 590,
+   "cpc_gbp": 11.47,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "mcs approval": 1300,
+    "mcs approved": 1300,
+    "mcs accreditation": 880,
+    "mcs register": 880,
+    "mcs installer database": 320,
+    "mcs installers": 320,
+    "mcs accredited installers": 260,
+    "mcs installation": 170,
+    "mcs installer": 170,
+    "mcs accredited installer": 110
+   }
+  },
+  "mcs installer": {
+   "volume": 170,
+   "cpc_gbp": 10.01,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "mcs certified installer": 590,
+    "mcs installer database": 320,
+    "mcs installers": 320,
+    "mcs accredited installers": 260,
+    "mcs find an installer": 170,
+    "mcs accredited installer": 110,
+    "mcs solar installers": 110,
+    "mcs heat pump installers": 70,
+    "mcs register": 880,
+    "mcs contractors": 110
+   }
+  },
+  "how many heat pumps installed uk": {
+   "volume": null
+  },
+  "heat pump statistics uk": {
+   "volume": null
+  },
+  "heat pump grant london": {
+   "volume": null
+  },
+  "heat pump grant birmingham": {
+   "volume": null
+  },
+  "heat pump grant manchester": {
+   "volume": null
+  },
+  "heat pump grant leeds": {
+   "volume": null
+  },
+  "heat pump grant bristol": {
+   "volume": null
+  },
+  "heat pump grant sheffield": {
+   "volume": null
+  },
+  "heat pump grant liverpool": {
+   "volume": null
+  },
+  "heat pump grant newcastle": {
+   "volume": null
+  },
+  "heat pump grant nottingham": {
+   "volume": null
+  },
+  "heat pump grant leicester": {
+   "volume": null
+  },
+  "heat pump grant cornwall": {
+   "volume": null
+  },
+  "heat pump grant devon": {
+   "volume": null
+  },
+  "heat pump grant kent": {
+   "volume": null
+  },
+  "heat pump grant norfolk": {
+   "volume": null
+  },
+  "heat pump grant suffolk": {
+   "volume": null
+  },
+  "heat pump grant essex": {
+   "volume": null
+  },
+  "heat pump grant yorkshire": {
+   "volume": null
+  },
+  "heat pump grant north yorkshire": {
+   "volume": null
+  },
+  "heat pump grant somerset": {
+   "volume": null
+  },
+  "heat pump grant dorset": {
+   "volume": null
+  },
+  "heat pump grant wiltshire": {
+   "volume": null
+  },
+  "heat pump grant hampshire": {
+   "volume": null
+  },
+  "heat pump grant surrey": {
+   "volume": null
+  },
+  "heat pump grant sussex": {
+   "volume": null
+  },
+  "heat pump grant cumbria": {
+   "volume": null
+  },
+  "heat pump grant lincolnshire": {
+   "volume": null
+  },
+  "heat pump grant northumberland": {
+   "volume": null
+  },
+  "heat pump grant herefordshire": {
+   "volume": null
+  },
+  "heat pump grant shropshire": {
+   "volume": null
+  },
+  "heat pump grant gloucestershire": {
+   "volume": null
+  },
+  "heat pump grant oxfordshire": {
+   "volume": null
+  },
+  "heat pump grant cambridgeshire": {
+   "volume": null
+  },
+  "heat pump grant cardiff": {
+   "volume": null
+  },
+  "heat pump grant swansea": {
+   "volume": null
+  },
+  "heat pump grant glasgow": {
+   "volume": null
+  },
+  "heat pump grant edinburgh": {
+   "volume": null
+  },
+  "heat pump grant aberdeen": {
+   "volume": null
+  },
+  "heat pump grant highlands": {
+   "volume": null
+  },
+  "air source heat pump grant cornwall": {
+   "volume": null
+  },
+  "air source heat pump grant devon": {
+   "volume": null
+  },
+  "air source heat pump grant kent": {
+   "volume": null
+  },
+  "air source heat pump grant norfolk": {
+   "volume": null
+  },
+  "heat pump grant cornwall council": {
+   "volume": null
+  },
+  "eco4": {
+   "volume": 4400,
+   "cpc_gbp": 6.47,
+   "dato_del": "2026-10-07",
+   "simili": {
+    "eco 4 scheme": 9900,
+    "eco4 scheme": 9900,
+    "eco 4": 4400,
+    "eco 4 grant": 4400,
+    "eco4 grant": 3600,
+    "eco4 funding": 720,
+    "eco 4 funding": 590,
+    "eco 4 scheme uk": 210,
+    "eco4 energy grants": 70,
+    "eco4 grants": 3600
+   }
+  },
+  "eco4 scheme": {
+   "volume": 9900,
+   "cpc_gbp": 7.38,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "eco 4 scheme": 9900,
+    "eco 4 grant": 4400,
+    "eco4": 4400,
+    "eco4 grant": 3600,
+    "eco4 grants": 3600,
+    "eco 4 funding": 590,
+    "eco 4 grant scheme": 320,
+    "eco 4 scheme uk": 210,
+    "eco4 scheme uk": 210,
+    "eco4 grant uk": 90
+   }
+  },
+  "eco4 grant": {
+   "volume": 3600,
+   "cpc_gbp": 8.04,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "eco 4 scheme": 9900,
+    "eco4 scheme": 9900,
+    "eco 4": 4400,
+    "eco 4 grant": 4400,
+    "eco4": 4400,
+    "eco4 grants": 3600,
+    "eco4 funding": 720,
+    "eco 4 funding": 590,
+    "eco 4 grant scheme": 320,
+    "eco 4 scheme uk": 210
+   }
+  },
+  "eco4 eligibility": {
+   "volume": 1300,
+   "cpc_gbp": 6.02,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "eco 4 scheme eligibility": 1000,
+    "eco4 scheme eligibility": 1000,
+    "eco4 grant eligibility": 260,
+    "eco 4 eligibility criteria": 110,
+    "eco4 eligibility criteria": 110,
+    "eco 4 criteria": 90,
+    "eco4 criteria": 90,
+    "eco4 qualifying benefits": 110,
+    "eco 4": 4400,
+    "eco4 funding": 720
+   }
+  },
+  "eco4 scheme eligibility": {
+   "volume": 1000,
+   "cpc_gbp": 5.82,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "eco4 eligibility": 1300,
+    "eco 4 scheme eligibility": 1000,
+    "eco4 grant eligibility": 260,
+    "eco 4 eligibility criteria": 110,
+    "eco4 eligibility criteria": 110,
+    "eco4 qualifying benefits": 110,
+    "eco 4 criteria": 90,
+    "eco4 criteria": 90,
+    "eco 4": 4400,
+    "eco 4 scheme uk": 210
+   }
+  },
+  "eco4 boiler": {
+   "volume": 90,
+   "cpc_gbp": 7.99,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "eco4 boiler scheme": 260,
+    "eco4 boiler grant": 210,
+    "ec04 boiler grant": 90,
+    "eco4 boilers": 90,
+    "eco 4 boiler": 90,
+    "eco4 boiler replacement scheme": 70,
+    "eco 4 boiler scheme": 390,
+    "eco4 scheme": 9900,
+    "eco4 grants": 3600,
+    "eco 4 scheme uk": 210
+   }
+  },
+  "eco4 heat pump": {
+   "volume": null
+  },
+  "eco4 grants": {
+   "volume": 3600,
+   "cpc_gbp": 8.04,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "eco4 scheme": 9900,
+    "eco 4 grant": 4400,
+    "eco4 grant": 3600,
+    "eco4 funding": 720,
+    "eco 4 funding": 590,
+    "eco 4 grant scheme": 320,
+    "eco4 government scheme": 260,
+    "eco 4 scheme uk": 210,
+    "eco4 scheme uk": 210,
+    "eco 4 grants uk": 90
+   }
+  },
+  "eco4 ending": {
+   "volume": null
+  },
+  "eco4 2026": {
+   "volume": null
+  },
+  "eco4 scheme ending": {
+   "volume": null
+  },
+  "eco4 benefits list": {
+   "volume": null
+  },
+  "eco4 flex": {
+   "volume": 260,
+   "cpc_gbp": 6.81,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "eco4 flex scheme": 260,
+    "eco4 flex scheme eligibility": 140,
+    "eco flex scheme": 210,
+    "eco4 flex eligibility": 70,
+    "eco 4 flex scheme": 260,
+    "eco4 flex grant": 70,
+    "la flex scheme": 390,
+    "eco 4 flex grant": 70,
+    "eco4 scheme eligibility": 1000,
+    "eco 4 scheme eligibility gov uk": 260
+   }
+  },
+  "eco scheme": {
+   "volume": 720,
+   "cpc_gbp": 7.23,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "eco-scheme": 720,
+    "the eco scheme": 170,
+    "eco scheme funding": 70,
+    "e c o scheme": 720,
+    "ecoscheme": 720,
+    "eco scheme eligibility": 90,
+    "government eco scheme": 320,
+    "eco grant scheme": 170,
+    "eco affordable warmth scheme": 320,
+    "eco government scheme": 320
+   }
+  },
+  "eco 4 grant": {
+   "volume": 4400,
+   "cpc_gbp": 7.48,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "eco 4 scheme": 9900,
+    "eco4 scheme": 9900,
+    "eco 4": 4400,
+    "eco4": 4400,
+    "eco4 grant": 3600,
+    "eco4 grants": 3600,
+    "eco4 funding": 720,
+    "eco 4 funding": 590,
+    "eco 4 grant scheme": 320,
+    "eco4 scheme uk": 210
+   }
+  },
+  "energy company obligation": {
+   "volume": 590,
+   "cpc_gbp": 6.41,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "energy companies obligation": 590,
+    "eco energy company obligation": 90,
+    "eco government scheme": 320,
+    "energy company obligation scheme": 170,
+    "e c o scheme": 720,
+    "government eco scheme": 320,
+    "eco scheme gov uk": 140,
+    "energy company obligation eco4": 90,
+    "eco-scheme": 720,
+    "ecoscheme": 720
+   }
+  },
+  "eco4 solar panels": {
+   "volume": 260,
+   "cpc_gbp": 10.16,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "eco4 scheme solar panels": 260,
+    "eco4 grant solar panels": 90,
+    "grant for solar panels": 8100,
+    "uk free solar panels": 1300,
+    "free solar panels gov": 170,
+    "free solar panels installation": 170,
+    "grants for solar panels uk": 6600,
+    "gov grants solar panels": 3600,
+    "government grants for solar panels": 3600,
+    "government solar panel grants": 3600
+   }
+  },
+  "eco4 insulation": {
+   "volume": 70,
+   "cpc_gbp": 8.13,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "eco 4 insulation": 90,
+    "eco4 scheme uk": 210,
+    "eco 4 grant scheme": 320,
+    "eco4 scheme contact number": 110,
+    "eco4 scheme application": 90,
+    "apply for eco4 grant": 70,
+    "eco 4 scheme": 9900,
+    "eco 4 grant": 4400,
+    "eco4": 4400,
+    "eco4 grants": 3600
+   }
+  },
+  "great british insulation scheme": {
+   "volume": 4400,
+   "cpc_gbp": 7.17,
+   "dato_del": "2026-10-07",
+   "simili": {
+    "gbis scheme": 1900,
+    "government insulation scheme": 720,
+    "the great british insulation scheme": 480,
+    "government scheme for loft insulation": 320,
+    "great british insulation scheme eligibility": 210,
+    "british insulation scheme": 170,
+    "free insulation scheme": 170,
+    "government funded insulation": 140,
+    "government grant insulation": 140,
+    "government insulation funding": 140
+   }
+  },
+  "great british insulation scheme eligibility": {
+   "volume": 210,
+   "cpc_gbp": 5.87,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "great british insulation scheme": 4400,
+    "the great british insulation scheme": 480,
+    "gbis grant": 110,
+    "gbis scheme eligibility": 90,
+    "great british insulation": 90,
+    "gbis eligibility": 70,
+    "gbis eligibility criteria": 70,
+    "uk insulation scheme": 70,
+    "british insulation scheme": 170,
+    "great british energy scheme": 110
+   }
+  },
+  "gbis": {
+   "volume": 1600,
+   "cpc_gbp": 4.54,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "gbis scheme": 1900,
+    "gbis grant": 110,
+    "gbis insulation": 50,
+    "great british insulation scheme": 4400,
+    "the great british insulation scheme": 480,
+    "gbis funding": 170,
+    "great british insulation": 90,
+    "great british insulation scheme eligibility": 210,
+    "british insulation scheme": 170,
+    "gbis eligibility": 70
+   }
+  },
+  "gbis scheme": {
+   "volume": 1900,
+   "cpc_gbp": 5.96,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "great british insulation scheme": 4400,
+    "gbis": 1600,
+    "free insulation": 880,
+    "the great british insulation scheme": 480,
+    "british insulation scheme": 170,
+    "free insulation scheme": 170,
+    "gbis funding": 170,
+    "government funded insulation": 140,
+    "gbis grant": 110,
+    "great british energy scheme": 110
+   }
+  },
+  "insulation grants": {
+   "volume": 1600,
+   "cpc_gbp": 7,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "grant for wall insulation": 2400,
+    "cavity insulation grant": 1900,
+    "free loft insulation": 1900,
+    "grants for insulation england": 1300,
+    "grants for insulation in england": 1300,
+    "home grants for insulation": 1300,
+    "home insulation grants": 1300,
+    "uk insulation grants": 1300,
+    "free house insulation": 1000,
+    "free insulation": 880
+   }
+  },
+  "cavity wall insulation grant": {
+   "volume": 2400,
+   "cpc_gbp": 5.44,
+   "dato_del": "2026-10-07",
+   "simili": {
+    "cavity insulation grant": 1900,
+    "cavity wall insulation government grants": 260,
+    "government grants cavity wall insulation": 260,
+    "cavity wall insulation government scheme": 210,
+    "cavity wall insulation grant uk": 70,
+    "grants cavity wall insulation uk": 70,
+    "cavity wall.insulation grant": 2400,
+    "cavity wall insulation grants": 1900,
+    "grants for cavity insulation": 1900,
+    "government grants for cavity wall insulation": 260
+   }
+  },
+  "loft insulation grant": {
+   "volume": 4400,
+   "cpc_gbp": 7.18,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "loft insulation grants": 4400,
+    "free loft insulation": 1900,
+    "grants for insulation england": 1300,
+    "free house insulation": 1000,
+    "government insulation grant": 880,
+    "grant for loft insulation": 720,
+    "grants for loft insulation": 720,
+    "loft insulation funding": 720,
+    "government grant for loft insulation": 590,
+    "government grants for loft insulation": 590
+   }
+  },
+  "free insulation grants": {
+   "volume": 170,
+   "cpc_gbp": 6.94,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "grants for insulation england": 1300,
+    "home insulation grants": 1300,
+    "uk insulation grants": 1300,
+    "free house insulation": 1000,
+    "free insulation": 880,
+    "government insulation grant": 880,
+    "government grant for insulation": 590,
+    "loft insulation government grant": 590,
+    "grant for insulating your home": 320,
+    "grants for insulating houses": 320
+   }
+  },
+  "free loft insulation": {
+   "volume": 1900,
+   "cpc_gbp": 8.34,
+   "dato_del": "2026-10-07",
+   "simili": {
+    "loft insulation grant": 4400,
+    "loft insulation grants": 4400,
+    "grants for insulation england": 1300,
+    "home insulation grants": 1300,
+    "uk insulation grants": 1300,
+    "free house insulation": 1000,
+    "free cavity insulation": 880,
+    "free insulation": 880,
+    "government insulation grant": 880,
+    "grant for loft insulation": 720
+   }
+  },
+  "free cavity wall insulation": {
+   "volume": 880,
+   "cpc_gbp": 7.93,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "grant for wall insulation": 2400,
+    "cavity insulation grant": 1900,
+    "cavity wall insulation grants": 1900,
+    "grants for cavity insulation": 1900,
+    "grants for cavity wall insulation": 1900,
+    "wall cavity insulation grants": 1900,
+    "free house insulation": 1000,
+    "cavity wall insulation free": 880,
+    "free cavity insulation": 880,
+    "wall cavity insulation free": 880
+   }
+  },
+  "external wall insulation grant": {
+   "volume": 2900,
+   "cpc_gbp": 5.47,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "external insulation grant": 2400,
+    "external wall insulation grants": 2400,
+    "grant for external insulation": 2400,
+    "grants for external house insulation": 2400,
+    "grants for external insulation": 2400,
+    "government grant for external insulation": 590,
+    "government grants for external wall insulation": 590,
+    "wall insulation government grants": 590,
+    "funding for external wall insulation": 480,
+    "government grants for external insulation": 480
+   }
+  },
+  "solid wall insulation grant": {
+   "volume": 390,
+   "cpc_gbp": 4.84,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "external insulation grant": 2400,
+    "external wall insulation grants": 2400,
+    "grant for external insulation": 2400,
+    "grants for external insulation": 2400,
+    "government grant for external insulation": 590,
+    "funding for external wall insulation": 480,
+    "government grants external wall insulation": 480,
+    "government grants for external insulation": 480,
+    "solid wall insulation funding": 390,
+    "outside wall insulation grants": 50
+   }
+  },
+  "warm homes plan": {
+   "volume": 1900,
+   "cpc_gbp": 6.02,
+   "dato_del": "2026-10-07",
+   "simili": {
+    "warm homes plan energy efficiency upgrades": 590,
+    "government warm homes plan": 70,
+    "warm homes plan 2025": 70,
+    "the warm homes plan": 50,
+    "labour warm homes plan": 140,
+    "warm homes plan labour": 90,
+    "warm homes britain": 110,
+    "warmhomes": 480,
+    "warm homes fund": 170,
+    "heat pump planning permission changes": 110
+   }
+  },
+  "warm homes plan grant": {
+   "volume": null
+  },
+  "warm homes plan eligibility": {
+   "volume": null
+  },
+  "warm homes plan 2026": {
+   "volume": null
+  },
+  "warm homes plan solar panels": {
+   "volume": null
+  },
+  "warm homes plan heat pump": {
+   "volume": null
+  },
+  "warm homes local grant": {
+   "volume": 1600,
+   "cpc_gbp": 6.02,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "warm homes grant": 1300,
+    "warm homes: local grant scheme": 210,
+    "warmer homes funding": 170,
+    "warm home grants uk": 90,
+    "warm homes grant uk": 90,
+    "warm homes local grant eligibility": 50,
+    "warm homes: local grant eligibility": 50,
+    "warm home grants": 1300,
+    "warmer homes grant": 1600,
+    "warmer home grants": 1600
+   }
+  },
+  "warm homes local grant eligibility": {
+   "volume": 50,
+   "cpc_gbp": 3.58,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "warm homes local grant": 1600,
+    "warm homes grant": 1300,
+    "warm homes: local grant scheme": 210,
+    "warm homes: local grant eligibility": 50,
+    "warmer homes grant": 1600,
+    "warm home grants": 1300,
+    "warmer homes funding": 170,
+    "warm home grants uk": 90,
+    "warm homes grant uk": 90,
+    "warmer home grants": 1600
+   }
+  },
+  "warm homes grant": {
+   "volume": 1300,
+   "cpc_gbp": 6.32,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "warm homes local grant": 1600,
+    "warmer home grants": 1600,
+    "warmer homes grant": 1600,
+    "warm home grants": 1300,
+    "warmer homes grants": 1300,
+    "warm homes: local grant scheme": 210,
+    "warmer homes funding": 170,
+    "warm home grants uk": 90,
+    "warm homes grant uk": 90,
+    "warm homes local grant eligibility": 50
+   }
+  },
+  "warm home discount": {
+   "volume": 33100,
+   "cpc_gbp": 2.85,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "warm homes discount": 33100,
+    "warm home discount scheme": 22200,
+    "apply for warm home discount": 2900,
+    "apply warm home discount": 2900,
+    "warm home discount scheme payment": 2400,
+    "warm home discount scheme payments": 2400,
+    "warm home discount apply online": 1900,
+    "warm home discount application form": 1300,
+    "warm home discount eligibility": 1300,
+    "warm home discount scheme eligibility": 1000
+   }
+  },
+  "warm home discount 2026": {
+   "volume": null
+  },
+  "warm home discount eligibility": {
+   "volume": 1300,
+   "cpc_gbp": 2.27,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "home warm discount": 33100,
+    "warm home discount": 33100,
+    "warm homes discount": 33100,
+    "warm home discount scheme": 22200,
+    "warm home discount scotland": 3600,
+    "warm homes discount scotland": 3600,
+    "apply for warm home discount": 2900,
+    "apply warm home discount": 2900,
+    "warm home discount dwp payment": 2900,
+    "warm home discount scheme payment": 2400
+   }
+  },
+  "home upgrade grant": {
+   "volume": 1600,
+   "cpc_gbp": 6.56,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "home upgrade grants": 1600,
+    "homes upgrade grant": 1600,
+    "home upgrade": 480,
+    "home upgrade grant hug": 110,
+    "home upgrade grant eligibility": 90,
+    "home upgrade grant scheme": 70,
+    "home upgrade scheme": 70,
+    "the home upgrade grant": 70,
+    "home upgrade grant hug2": 170,
+    "home upgrade scheme hug2": 40
+   }
+  },
+  "home upgrade grant 2": {
+   "volume": null
+  },
+  "sustainable warmth": {
+   "volume": 50,
+   "cpc_gbp": 5.1,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "sustainable warmth grant": 110,
+    "sustainable warmth scheme": 30,
+    "sustainable warmth funding": 30,
+    "sustainable warmth fund": 30,
+    "sustainable warmth competition": 50,
+    "sustainable warmth grant scheme application form": 50,
+    "chelmsford solar panels": 70,
+    "shropshire council grants": 50
+   }
+  },
+  "energy grants": {
+   "volume": 880,
+   "cpc_gbp": 6.15,
+   "dato_del": "2026-10-30",
+   "simili": {
+    "energy grants uk": 1000,
+    "gov energy grant": 880,
+    "government energy grants": 880,
+    "home energy grants": 590,
+    "government grant for energy saving": 480,
+    "energy saving grant": 390,
+    "free energy grants": 140,
+    "home energy government grants": 50,
+    "energy government grant": 880,
+    "energy saving government grants": 480
+   }
+  },
+  "home energy grants": {
+   "volume": 590,
+   "cpc_gbp": 8.11,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "energy grants uk": 1000,
+    "energy grants": 880,
+    "energy grants government": 880,
+    "gov energy grant": 880,
+    "government energy grant": 880,
+    "government energy grants": 880,
+    "energy home grant": 590,
+    "government energy saving grant": 480,
+    "government energy saving grants": 480,
+    "government grants for energy saving": 480
+   }
+  },
+  "government energy grants": {
+   "volume": 880,
+   "cpc_gbp": 6.2,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "energy grants uk": 1000,
+    "uk energy grants": 1000,
+    "energy government grant": 880,
+    "energy government grants": 880,
+    "energy grant from government": 880,
+    "energy grants": 880,
+    "energy grants government": 880,
+    "gov energy grant": 880,
+    "government energy grant": 880,
+    "home energy grants": 590
+   }
+  },
+  "energy efficiency grants": {
+   "volume": 390,
+   "cpc_gbp": 5.66,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "energy saving government grant": 480,
+    "government energy saving grant": 480,
+    "government energy saving grants": 480,
+    "government grants for energy saving": 480,
+    "energy efficiency grant": 390,
+    "energy efficient grant": 390,
+    "energy efficient grants": 390,
+    "energy saving grant": 390,
+    "energy saving grants": 390,
+    "grants for energy saving": 390
+   }
+  },
+  "free boiler grant": {
+   "volume": 1000,
+   "cpc_gbp": 14.27,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "free boiler scheme": 4400,
+    "new boiler grant": 3600,
+    "boiler grants uk": 2400,
+    "boilers grants uk": 2400,
+    "grant for boiler uk": 2400,
+    "grants for boilers england": 2400,
+    "uk boiler grant": 2400,
+    "boiler replacement scheme": 1900,
+    "boilers grants": 1900,
+    "replacement boiler scheme": 1900
+   }
+  },
+  "boiler grant": {
+   "volume": 1300,
+   "cpc_gbp": 18.72,
+   "dato_del": "2026-10-30",
+   "simili": {
+    "new boiler grant": 3600,
+    "new boiler grants": 3600,
+    "boiler grants uk": 2400,
+    "grant for boiler uk": 2400,
+    "grants for boilers england": 2400,
+    "uk boiler grant": 2400,
+    "boiler grants": 1900,
+    "boilers grants": 1900,
+    "government boiler schemes": 1900,
+    "grants for boiler": 1900
+   }
+  },
+  "free boiler scheme": {
+   "volume": 4400,
+   "cpc_gbp": 19,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "new boiler grant": 3600,
+    "new boiler grants": 3600,
+    "grant for boiler uk": 2400,
+    "boiler grants": 1900,
+    "boiler replacement scheme": 1900,
+    "government boiler scheme": 1900,
+    "government boiler schemes": 1900,
+    "grants for boiler": 1900,
+    "replacement boiler scheme": 1900,
+    "grant to upgrade boiler": 1300
+   }
+  },
+  "boiler replacement grant": {
+   "volume": 1600,
+   "cpc_gbp": 8.55,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "new boiler grants": 3600,
+    "boiler free": 1300,
+    "boiler grant": 1300,
+    "grants for replacing boiler": 1300,
+    "replacing boiler grant": 1300,
+    "government grants for new boiler": 480,
+    "boiler free grant": 390,
+    "free grant for boiler": 390,
+    "boiler replaced for free": 320,
+    "help with a new boiler": 320
+   }
+  },
+  "new boiler grant": {
+   "volume": 3600,
+   "cpc_gbp": 11.1,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "free boiler scheme": 4400,
+    "new boiler grants": 3600,
+    "boiler grants uk": 2400,
+    "boilers grants uk": 2400,
+    "grant for boiler uk": 2400,
+    "grants for boilers england": 2400,
+    "grants for boilers in england": 2400,
+    "uk boiler grant": 2400,
+    "boiler replacement scheme": 1900,
+    "boilers grants": 1900
+   }
+  },
+  "government boiler grant": {
+   "volume": 720,
+   "cpc_gbp": 11.48,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "new boiler grants": 3600,
+    "boiler grants uk": 2400,
+    "boilers grants uk": 2400,
+    "grant for boiler uk": 2400,
+    "grants for boilers england": 2400,
+    "grants for boilers in england": 2400,
+    "boiler grants": 1900,
+    "boilers grants": 1900,
+    "government boiler scheme": 1900,
+    "grants for boiler": 1900
+   }
+  },
+  "free boiler for pensioners": {
+   "volume": 590,
+   "cpc_gbp": 6.91,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "free boiler for oap": 590,
+    "free boiler pensioner": 590,
+    "free boiler replacement for pensioners": 260,
+    "new boiler for pensioners": 140,
+    "new boilers for pensioners": 140,
+    "boiler grants for pensioners": 110,
+    "free boiler scheme for pensioners": 110,
+    "boiler replacement for pensioners": 90,
+    "grants for boilers for pensioners": 90,
+    "pensioner boiler grant": 90
+   }
+  },
+  "free boiler grant for pensioners": {
+   "volume": null
+  },
+  "central heating grant": {
+   "volume": 590,
+   "cpc_gbp": 9.73,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "central heating grants": 590,
+    "grant central heating": 590,
+    "grants central heating": 590,
+    "grants for central heating": 590,
+    "government central heating grants": 110,
+    "government funding for central heating": 110,
+    "government grant central heating": 110,
+    "government grants for central heating": 110,
+    "free grants for central heating": 90,
+    "government grants central heating": 90
+   }
+  },
+  "first time central heating grant": {
+   "volume": 320,
+   "cpc_gbp": 9.91,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "first time central heating grants": 320,
+    "first time central heating": 140,
+    "gas central heating grant": 70,
+    "free central heating": 90,
+    "gas central heating grants": 70,
+    "grants for installing central heating": 70,
+    "grants central heating": 590,
+    "central heating free": 110,
+    "free grants for central heating": 90,
+    "central heating installation grants": 70
+   }
+  },
+  "free central heating": {
+   "volume": 90,
+   "cpc_gbp": 16.34,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "central heating grants": 590,
+    "grant central heating": 590,
+    "grants central heating": 590,
+    "grants for central heating": 590,
+    "first time central heating grants": 320,
+    "free heating": 170,
+    "central heating free": 110,
+    "government central heating grants": 110,
+    "government grant central heating": 110,
+    "government grants for central heating": 110
+   }
+  },
+  "free boiler": {
+   "volume": 1300,
+   "cpc_gbp": 15.77,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "free boiler scheme": 4400,
+    "new boiler grant": 3600,
+    "new boiler grants": 3600,
+    "boiler grants uk": 2400,
+    "boiler grants": 1900,
+    "boiler free": 1300,
+    "government free boiler replacement scheme": 1300,
+    "government scheme for free boilers": 1300,
+    "grants for replacing boiler": 1300,
+    "replacement boiler grants": 1300
+   }
+  },
+  "solar panel grants": {
+   "volume": 8100,
+   "cpc_gbp": 10.13,
+   "dato_del": "2026-10-07",
+   "simili": {
+    "grant for solar panels": 8100,
+    "grants for solar panels": 8100,
+    "grants for solar power": 8100,
+    "solar pv panels grants": 8100,
+    "grants for solar panels uk": 6600,
+    "uk solar energy grants": 6600,
+    "uk solar panel grants": 6600,
+    "gov grants for solar panels": 3600,
+    "government grants for solar panels": 3600,
+    "government solar panel grants": 3600
+   }
+  },
+  "solar panel grants uk": {
+   "volume": 6600,
+   "cpc_gbp": 9.65,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "grant for solar panels": 8100,
+    "grants for solar panels": 8100,
+    "grants for solar power": 8100,
+    "solar pv panels grants": 8100,
+    "grants for solar panels uk": 6600,
+    "uk solar energy grants": 6600,
+    "uk solar panel grants": 6600,
+    "gov grants for solar panels": 3600,
+    "government grants for solar panels": 3600,
+    "government solar panel grants": 3600
+   }
+  },
+  "solar panel grant": {
+   "volume": 6600,
+   "cpc_gbp": 8.12,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "grants for solar panels": 8100,
+    "grants for solar power": 8100,
+    "government grants for solar panels": 3600,
+    "government grant solar panels uk": 1000,
+    "grants for solar installation": 880,
+    "government solar scheme": 480,
+    "government funding solar panels": 390,
+    "government funding for solar panels": 210,
+    "government incentives for solar panels": 170,
+    "government incentives solar panels": 170
+   }
+  },
+  "government grants for solar panels": {
+   "volume": 3600,
+   "cpc_gbp": 10.64,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "grant for solar panels": 8100,
+    "grants for solar panels": 8100,
+    "grants for solar power": 8100,
+    "solar pv panels grants": 8100,
+    "grants for solar panels uk": 6600,
+    "uk solar energy grants": 6600,
+    "uk solar panel grants": 6600,
+    "gov grants for solar panels": 3600,
+    "gov grants solar panels": 3600,
+    "government solar panel grants": 3600
+   }
+  },
+  "free solar panels": {
+   "volume": 2400,
+   "cpc_gbp": 9.33,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "grants for solar panels uk": 6600,
+    "government solar panel grants": 3600,
+    "government scheme solar panels": 1600,
+    "free solar panels government scheme": 1300,
+    "free solar panels uk": 1300,
+    "free uk solar panels": 1300,
+    "uk free solar panels": 1300,
+    "government grant solar panels uk": 1000,
+    "government grants for solar panels uk": 1000,
+    "uk government grants solar panels": 720
+   }
+  },
+  "free solar panels uk": {
+   "volume": 1300,
+   "cpc_gbp": 9.23,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "grants for solar panels": 8100,
+    "grants for solar panels uk": 6600,
+    "uk solar energy grants": 6600,
+    "government grants for solar panels": 3600,
+    "government solar panel grants": 3600,
+    "free solar panels": 2400,
+    "government scheme solar panels": 1600,
+    "free government solar panel scheme": 1300,
+    "free uk solar panels": 1300,
+    "uk free solar panels": 1300
+   }
+  },
+  "solar panel grant 2026": {
+   "volume": null
+  },
+  "solar panels grant scotland": {
+   "volume": 1300,
+   "cpc_gbp": 9.63,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "grants for solar panels scotland": 1600,
+    "scotland solar panel grant": 1600,
+    "free solar panels scotland": 390,
+    "funded solar panels scotland": 90,
+    "solar panel grant scotland": 1300,
+    "home energy scotland solar panels": 70,
+    "grant for solar panels scotland": 1300,
+    "grants solar panels scotland": 1300,
+    "solar panel grants in scotland": 1300,
+    "free solar panels scotland for pensioners": 70
+   }
+  },
+  "solar panels grant wales": {
+   "volume": 1000,
+   "cpc_gbp": 7.92,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "grants for solar panels in wales": 1000,
+    "solar panel grants in wales": 1000,
+    "solar panels grants wales": 1000,
+    "welsh government solar panel grants": 50,
+    "grant for solar panels wales": 1000,
+    "solar panel grant wales": 1000,
+    "solar panels wales grants": 1000,
+    "welsh government solar panels grant": 50,
+    "grants for solar panels wales": 1000,
+    "free solar panels wales": 390
+   }
+  },
+  "solar battery grant": {
+   "volume": 70,
+   "cpc_gbp": 7.03,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "grants for solar panels uk": 6600,
+    "uk solar panel grants": 6600,
+    "government grants for solar panels": 3600,
+    "free solar panels government scheme": 1300,
+    "government grant solar panels uk": 1000,
+    "government grants for solar panels uk": 1000,
+    "uk solar grant": 880,
+    "uk solar grants": 880,
+    "free solar panels uk government": 720,
+    "uk government grants solar panels": 720
+   }
+  },
+  "solar panels cost": {
+   "volume": 9900,
+   "cpc_gbp": 10.61,
+   "dato_del": "2026-10-07",
+   "simili": {
+    "cost for solar panel": 9900,
+    "cost of solar modules": 9900,
+    "cost of solar panels": 9900,
+    "cost of solar pv panels": 9900,
+    "photovoltaic panels cost": 9900,
+    "pv panels cost": 9900,
+    "solar pv panels cost": 9900,
+    "cost of solar panels uk": 6600,
+    "uk solar installation cost": 6600,
+    "solar pv panels prices": 5400
+   }
+  },
+  "solar panels uk": {
+   "volume": 9900,
+   "cpc_gbp": 14.78,
+   "dato_del": "2026-11-07",
+   "simili": {
+    "home pv panels": 18100,
+    "home solar power panels": 18100,
+    "solar.panels uk": 9900,
+    "uk solar panel": 9900,
+    "uk solar panels": 9900,
+    "home solar energy system": 1000,
+    "solar system for house": 1000,
+    "cheap solar panels": 720,
+    "home solar power": 480,
+    "home solar panels uk": 390
+   }
+  },
+  "solar panels": {
+   "volume": 60500,
+   "cpc_gbp": 9.57,
+   "dato_del": "2026-10-06",
+   "simili": {
+    "home solar energy system": 1000,
+    "panel solar": 210,
+    "panels solar": 210,
+    "residential solar power systems": 70,
+    "home pv panels": 18100,
+    "solar.panels uk": 9900,
+    "uk solar panel": 9900,
+    "uk solar panels": 9900,
+    "home solar panel system": 1000,
+    "solar systems home": 1000
+   }
+  },
+  "smart export guarantee": {
+   "volume": 1600,
+   "cpc_gbp": 4.01,
+   "dato_del": "2026-10-07",
+   "simili": {
+    "seg": 2900,
+    "seg tariff": 1000,
+    "seg tariffs": 1000,
+    "smart export guarantee rates": 480,
+    "seg payments": 320,
+    "electricity export tariffs": 210,
+    "seg rates uk": 210,
+    "seg rate": 170,
+    "seg rates": 170,
+    "smart export guarantee seg": 170
+   }
+  },
+  "seg tariff": {
+   "volume": 1000,
+   "cpc_gbp": 4.59,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "smart export guarantee": 1600,
+    "seg tariffs": 1000,
+    "best seg tariff": 590,
+    "best seg tariffs": 590,
+    "best solar export tariff uk": 480,
+    "smart export guarantee rates": 480,
+    "best export tariff": 390,
+    "best export tariffs": 390,
+    "seg payments": 320,
+    "seg tariff comparison": 320
+   }
+  },
+  "vat on solar panels": {
+   "volume": 390,
+   "cpc_gbp": 7.85,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "do you pay vat on solar panels": 70,
+    "vat on solar panels hmrc": 50,
+    "solar panels vat": 390,
+    "solar panel vat": 390,
+    "is there vat on solar panels": 110,
+    "vat on solar batteries": 40,
+    "energy saving materials vat": 110,
+    "energy-saving materials vat": 110,
+    "vat on energy-saving materials": 110,
+    "are solar panels vat exempt": 50
+   }
+  },
+  "vat on heat pumps": {
+   "volume": 50,
+   "cpc_gbp": 2.41,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "vat on energy-saving materials": 110,
+    "energy saving materials vat": 110,
+    "vat energy saving materials": 110,
+    "vat energy-saving materials": 110,
+    "vat on energy saving materials": 110,
+    "energy-saving materials vat": 110,
+    "vat on solar panels hmrc": 50,
+    "vat notice 708/6": 110,
+    "vat on solar panels": 390,
+    "vat on air conditioners": 70
+   }
+  },
+  "solar panels scotland": {
+   "volume": 1600,
+   "cpc_gbp": 17.38,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "scotland solar": 170,
+    "cost of installing solar panels scotland": 90,
+    "scotland solar panels": 1600,
+    "scotland solar power": 170,
+    "solar scotland": 170,
+    "are solar panels worth it in scotland": 140,
+    "are solar panels worth it scotland": 70,
+    "solar pv in scotland": 50,
+    "solar panels in scotland": 1600,
+    "solar panel scotland": 110
+   }
+  },
+  "solar panels wales": {
+   "volume": 480,
+   "cpc_gbp": 18.57,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "wales solar panels": 480,
+    "solar wales": 50,
+    "wales solar panel grants": 1000,
+    "grants for solar panels wales": 1000,
+    "free solar panels wales": 390,
+    "south wales solar panels": 70,
+    "solar panel wales": 480,
+    "solar panels in wales": 480,
+    "renewable energy grants wales": 50,
+    "solar panel grants wales": 1000
+   }
+  },
+  "solar panels northern ireland": {
+   "volume": 1600,
+   "cpc_gbp": 8.1,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ni solar panels": 1600,
+    "solar panels ni": 1600,
+    "solar panel northern ireland": 1600,
+    "solar panels in n ireland": 1600,
+    "belfast solar panels": 170,
+    "solar power northern ireland": 1600,
+    "solar northern ireland": 70,
+    "solar panel ni": 1900,
+    "solar panel installation northern ireland": 50,
+    "the solar house ni": 50
+   }
+  },
+  "solar panels for pensioners": {
+   "volume": null
+  },
+  "home energy scotland grant": {
+   "volume": 1000,
+   "cpc_gbp": 6.32,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "energy grants in scotland": 480,
+    "energy scotland grants": 480,
+    "scotland energy grants": 480,
+    "heating grant scotland": 390,
+    "scotland heating grants": 390,
+    "home energy scotland grant and loan": 260,
+    "home energy scotland grant eligibility": 140,
+    "grants for central heating in scotland": 90,
+    "grants for central heating scotland": 90,
+    "home energy scotland loans": 70
+   }
+  },
+  "home energy scotland": {
+   "volume": 4400,
+   "cpc_gbp": 6.57,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "home energy scotland portal": 260,
+    "energy scotland": 210,
+    "energy trust scotland": 170,
+    "energy saving scotland": 90,
+    "home energy scotland phone number": 110,
+    "save scotland energy": 50,
+    "home heating advice scotland": 140,
+    "home improvement scotland": 90,
+    "home energy scotland loan": 70,
+    "home energy scotland grant": 1000
+   }
+  },
+  "home energy scotland heat pump": {
+   "volume": null
+  },
+  "home energy scotland heat pump grant": {
+   "volume": null
+  },
+  "home energy scotland solar panels": {
+   "volume": 70,
+   "cpc_gbp": 14.93,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "grants for solar panels scotland": 1600,
+    "scotland solar panel grant": 1600,
+    "funded solar panels scotland": 90,
+    "home energy scotland loans": 70,
+    "home energy scotland grant and loan": 260,
+    "home energy scotland grant eligibility": 140,
+    "home energy grant scotland": 70,
+    "home energy scotland loan": 70,
+    "home energy scotland grant": 1000,
+    "energy scotland grants": 480
+   }
+  },
+  "home energy scotland grant eligibility": {
+   "volume": 140,
+   "cpc_gbp": 6.07,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "home energy scotland grant": 1000,
+    "scotland energy grants": 480,
+    "home energy scotland grant and loan": 260,
+    "home energy grant scotland": 70,
+    "home energy grants scotland": 70,
+    "home energy scotland loan": 70,
+    "home energy scotland loans": 70,
+    "heating grant scotland": 390,
+    "energy grants in scotland": 480,
+    "energy scotland grants": 480
+   }
+  },
+  "warmer homes scotland": {
+   "volume": 1300,
+   "cpc_gbp": 6.16,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "warm home scotland": 1300,
+    "warm homes scotland": 1300,
+    "warm homes scheme scotland": 170,
+    "warmer homes scheme scotland": 170,
+    "warmer homes scotland scheme": 170,
+    "warmer homes scotland eligibility": 110,
+    "warmer homes scotland phone number": 90,
+    "warmer homes scotland grant": 50,
+    "warm home scheme scotland": 170,
+    "warmworks warmer homes scotland": 50
+   }
+  },
+  "warmer homes scotland eligibility": {
+   "volume": 110,
+   "cpc_gbp": 6.41,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "warm home scotland": 1300,
+    "warm homes scotland": 1300,
+    "warmer homes scotland": 1300,
+    "warm homes scheme scotland": 170,
+    "warmer homes scheme scotland": 170,
+    "warmer homes scotland scheme": 170,
+    "warmer homes scotland grant": 50,
+    "warm home scheme scotland": 170,
+    "warmer homes scotland phone number": 90,
+    "free central heating scotland": 70
+   }
+  },
+  "area based scheme scotland": {
+   "volume": null
+  },
+  "scotland heat pump grant": {
+   "volume": 110,
+   "cpc_gbp": 11.41,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "heat pump grant scotland": 590,
+    "heat pump grants scotland": 590,
+    "air source heat pump grant scotland": 210,
+    "air source heat pump grants scotland": 210,
+    "air source heating grants scotland": 210,
+    "air source heat pump scotland": 480,
+    "heating grant scotland": 390,
+    "scotland heating grant": 390,
+    "energy scotland grants": 480,
+    "heat pumps scotland": 480
+   }
+  },
+  "heat pump grant scotland 2026": {
+   "volume": null
+  },
+  "scottish government heat pump grant": {
+   "volume": null
+  },
+  "nest scheme": {
+   "volume": 260,
+   "cpc_gbp": 8.25,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "nest pension scheme": 2400,
+    "nest workplace pension scheme": 480,
+    "nest for employees": 210,
+    "nest pension provider": 170,
+    "nest pension logo": 140,
+    "nest ees": 70,
+    "nest pension employee": 50,
+    "nest pension for employees": 50,
+    "nest pensions for employees": 50,
+    "nest workplace pension": 480
+   }
+  },
+  "nest wales": {
+   "volume": 880,
+   "cpc_gbp": 8.64,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "wales nest": 880,
+    "nest scheme wales": 320,
+    "wales nest scheme": 320,
+    "nest wales eligibility": 170,
+    "nest boiler scheme": 140,
+    "nest grants": 90,
+    "nest grants wales": 90,
+    "nest wales grants": 90,
+    "warm homes nest scheme": 90,
+    "nest welsh government": 50
+   }
+  },
+  "nest grant": {
+   "volume": null
+  },
+  "nest scheme wales": {
+   "volume": 320,
+   "cpc_gbp": 8.47,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "nest wales": 880,
+    "wales nest": 880,
+    "wales nest scheme": 320,
+    "nest wales eligibility": 170,
+    "nest boiler scheme": 140,
+    "nest grants": 90,
+    "nest grants wales": 90,
+    "nest wales contact number": 90,
+    "nest wales grants": 90,
+    "warm homes nest scheme": 90
+   }
+  },
+  "nest scheme eligibility": {
+   "volume": null
+  },
+  "warm homes nest": {
+   "volume": null
+  },
+  "nest heat pump": {
+   "volume": 20,
+   "cpc_gbp": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "nest heat pump wiring": 10,
+    "nest thermostat wiring diagram heat pump": 10,
+    "aux heat": 210,
+    "auxiliary heat": 210,
+    "nest thermostat installation guide pdf": 210,
+    "nest e thermostat installation": 140,
+    "nest thermostat install manual pdf": 140,
+    "nest thermostat installation manual pdf": 140,
+    "nest thermostat e installation": 110,
+    "nest thermostat e wire diagram": 110
+   }
+  },
+  "optimised retrofit programme": {
+   "volume": 50,
+   "cpc_gbp": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "value optimised retrofit": 50,
+    "orp": 590,
+    "aelwyd housing association": 210,
+    "retrofit decarbonisation": 50,
+    "retrofit installation": 50,
+    "optimised buildings": 40
+   }
+  },
+  "heat pump grant wales 2026": {
+   "volume": null
+  },
+  "welsh government heat pump grant": {
+   "volume": null
+  },
+  "warm homes wales": {
+   "volume": 90,
+   "cpc_gbp": 6.86,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "warm home wales": 90,
+    "warm wales scheme": 40,
+    "welsh government warm homes programme": 40,
+    "warm wales grants": 140,
+    "warm homes nest scheme": 90,
+    "nest welsh government": 50,
+    "wales nest": 880,
+    "wales nest scheme": 320,
+    "nest wales contact number": 90,
+    "nest government scheme": 50
+   }
+  },
+  "nisep": {
+   "volume": 170,
+   "cpc_gbp": 2.8,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "nisep grants": 70,
+    "northern ireland sustainable energy programme": 70,
+    "ni energy grant": 110,
+    "ni energy grants": 110,
+    "ni grants for heating": 260,
+    "energy grant northern ireland": 110,
+    "energy grants northern ireland": 110,
+    "northern ireland renewable energy grants": 70,
+    "renewable energy grants northern ireland": 70,
+    "heating grant northern ireland": 260
+   }
+  },
+  "northern ireland sustainable energy programme": {
+   "volume": 70,
+   "cpc_gbp": 2.01,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "nisep": 170,
+    "nisep grants": 70,
+    "energy grant northern ireland": 110,
+    "energy grants northern ireland": 110,
+    "ni grants for heating": 260,
+    "ni energy grant": 110,
+    "ni energy grants": 110,
+    "northern ireland renewable energy grants": 70,
+    "renewable energy grants northern ireland": 70,
+    "heating grant northern ireland": 260
+   }
+  },
+  "affordable warmth scheme": {
+   "volume": 480,
+   "cpc_gbp": 4.69,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "affordable warmth": 70,
+    "affordable warmth scheme northern ireland": 590,
+    "warm homes scheme ni": 390,
+    "warm homes scheme northern ireland": 390,
+    "warmer homes scheme ni": 390,
+    "warm home scheme northern ireland": 390,
+    "affordable heating scheme": 480,
+    "warmer home scheme ni": 390,
+    "eco affordable warmth scheme": 320,
+    "free window replacement grants ni": 70
+   }
+  },
+  "affordable warmth scheme ni": {
+   "volume": 590,
+   "cpc_gbp": 2.41,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "affordable warmth scheme northern ireland": 590,
+    "warm home scheme northern ireland": 390,
+    "warm homes scheme ni": 390,
+    "warm homes scheme northern ireland": 390,
+    "warmer homes scheme ni": 390,
+    "affordable warmth scheme": 480,
+    "warmer home scheme ni": 390,
+    "affordable warmth scheme ni application form": 70,
+    "free window replacement grants ni": 70,
+    "warm home scheme ni": 480
+   }
+  },
+  "affordable warmth scheme northern ireland": {
+   "volume": 590,
+   "cpc_gbp": 2.45,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "warm home scheme northern ireland": 390,
+    "warm homes scheme ni": 390,
+    "warm homes scheme northern ireland": 390,
+    "warmer home scheme ni": 390,
+    "warmer homes scheme ni": 390,
+    "affordable warmth scheme": 480,
+    "free window replacement grants ni": 70,
+    "grants for windows ni": 70,
+    "nihe boiler replacement scheme": 50,
+    "affordable warmth scheme ni": 590
+   }
+  },
+  "boiler replacement scheme ni": {
+   "volume": 390,
+   "cpc_gbp": 3.34,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "boiler grants northern ireland": 390,
+    "boiler replacement scheme northern ireland": 390,
+    "grant for boiler ni": 390,
+    "grants for boilers in northern ireland": 390,
+    "ni boiler grant": 390,
+    "ni boiler grants": 390,
+    "ni boiler replacement scheme": 390,
+    "northern ireland boiler grant": 390,
+    "northern ireland boiler replacement scheme": 390,
+    "replacement boiler scheme ni": 390
+   }
+  },
+  "boiler replacement scheme northern ireland": {
+   "volume": 390,
+   "cpc_gbp": 5.07,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "boiler grants northern ireland": 390,
+    "boiler replacement scheme ni": 390,
+    "grant for boiler ni": 390,
+    "grants for boilers in northern ireland": 390,
+    "ni boiler grant": 390,
+    "ni boiler grants": 390,
+    "ni boiler replacement scheme": 390,
+    "northern ireland boiler grant": 390,
+    "northern ireland boiler replacement scheme": 390,
+    "replacement boiler scheme ni": 390
+   }
+  },
+  "nihe boiler replacement scheme": {
+   "volume": 50,
+   "cpc_gbp": 3.33,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "boiler replacement scheme ni application form": 70,
+    "boiler replacement scheme ni": 390,
+    "ni boiler grants": 390,
+    "replacement boiler scheme ni": 390,
+    "boiler grants northern ireland": 390,
+    "grants for boilers in northern ireland": 390,
+    "ni boiler replacement scheme": 390,
+    "northern ireland boiler replacement scheme": 390,
+    "boiler grants ni": 210,
+    "grants for new boilers ni": 140
+   }
+  },
+  "warm homes scheme ni": {
+   "volume": 390,
+   "cpc_gbp": 2.08,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "affordable warmth scheme northern ireland": 590,
+    "warm home scheme northern ireland": 390,
+    "warm homes scheme northern ireland": 390,
+    "warmer home scheme ni": 390,
+    "warmer homes scheme ni": 390,
+    "affordable warmth scheme": 480,
+    "warm home discount northern ireland": 90,
+    "free window replacement grants ni": 70,
+    "warm home scheme ni": 480,
+    "heating grant northern ireland": 260
+   }
+  },
+  "ni heat pump grant": {
+   "volume": null
+  },
+  "low carbon heat support scheme": {
+   "volume": null
+  },
+  "heat pump grant ni": {
+   "volume": null
+  },
+  "epc rating": {
+   "volume": 40500,
+   "cpc_gbp": 2.13,
+   "dato_del": "2026-10-17",
+   "simili": {
+    "check epc": 74000,
+    "check epc certificate": 74000,
+    "epc check": 74000,
+    "epc checker": 74000,
+    "energy performance certificate rating": 40500,
+    "epc certificates": 27100,
+    "energy performance certificate find": 14800,
+    "epc find": 14800,
+    "find epc": 14800,
+    "find epc certificate": 14800
+   }
+  },
+  "epc certificate": {
+   "volume": 27100,
+   "cpc_gbp": 3.57,
+   "dato_del": "2026-10-17",
+   "simili": {
+    "energy performance certificate": 110000,
+    "epc check": 74000,
+    "epc certificates": 27100,
+    "energy certificate cost": 4400,
+    "epc certificate check": 3600,
+    "energy certificate": 2900,
+    "epc report": 2400,
+    "epc certificate uk": 1900,
+    "epc certificates uk": 1900,
+    "epcs uk": 1900
+   }
+  },
+  "epc check": {
+   "volume": 74000,
+   "cpc_gbp": 2.55,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "energy performance certificate register": 246000,
+    "epc certificate register": 246000,
+    "epc certificates register": 246000,
+    "energy performance certificate": 110000,
+    "check epc": 74000,
+    "check epc certificate": 74000,
+    "epc checker": 74000,
+    "epc rating": 40500,
+    "epc certificate": 27100,
+    "epc certificates": 27100
+   }
+  },
+  "energy performance certificate": {
+   "volume": 110000,
+   "cpc_gbp": 3.18,
+   "dato_del": "2026-11-01",
+   "simili": {
+    "epc certificate register": 246000,
+    "epcs": 110000,
+    "check epc certificate": 74000,
+    "check epc certificates": 74000,
+    "epc check": 74000,
+    "energy performance certificate rating": 40500,
+    "epc certificate": 27100,
+    "epc certificates": 27100,
+    "energy performance certificate find": 14800,
+    "find epc certificate": 14800
+   }
+  },
+  "heat pump epc requirement": {
+   "volume": null
+  },
+  "boiler upgrade scheme epc requirement": {
+   "volume": null
+  },
+  "heat pump planning permission": {
+   "volume": 210,
+   "cpc_gbp": 2.76,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "air source heat pump planning permission": 170,
+    "air source heat pumps permitted development": 170,
+    "air source heat pumps planning permission": 170,
+    "do you need planning permission for a heat pump": 70,
+    "planning permission heat pump": 40,
+    "permitted development air source heat pump": 170,
+    "heat pump planning permission changes": 110,
+    "heat pump permitted development": 90,
+    "air source heat pump permitted development": 170,
+    "heat pump location rules": 170
+   }
+  },
+  "heat pump permitted development": {
+   "volume": 90,
+   "cpc_gbp": 0,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "air source heat pump permitted development": 170,
+    "air source heat pump planning permission": 170,
+    "air source heat pumps permitted development": 170,
+    "air source heat pumps planning permission": 170,
+    "permitted development air source heat pump": 170,
+    "heat pump planning permission": 210,
+    "do you need planning permission for a heat pump": 70,
+    "planning permission heat pump": 40,
+    "heat pump planning permission changes": 110,
+    "air source heat pump location regulations": 90
+   }
+  },
+  "oil boiler replacement grant": {
+   "volume": 170,
+   "cpc_gbp": 7.06,
+   "dato_del": "2026-10-07",
+   "simili": {
+    "oil fired boiler replacement grants": 320,
+    "oil-fired boiler replacement grants": 320,
+    "grants for oil fired boilers": 140,
+    "oil fired boiler grants": 140,
+    "grant for new oil boiler": 70,
+    "grants for new oil boilers": 70,
+    "new oil boiler grant": 70,
+    "grant for oil heating": 50,
+    "oil heating grant": 50,
+    "oil heating grants": 50
+   }
+  },
+  "lpg boiler replacement grant": {
+   "volume": null
+  },
+  "off grid heat pump grant": {
+   "volume": null
+  },
+  "biomass boiler grant": {
+   "volume": 170,
+   "cpc_gbp": 6.96,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "upgrade boiler grant": 1300,
+    "grant scheme for boilers": 320,
+    "upgrade boiler scheme": 4400,
+    "government boiler scheme": 1900,
+    "boiler upgrade grants": 1300,
+    "boiler upgrade scheme uk": 720,
+    "bus grant": 480,
+    "boiler grant schemes": 320,
+    "bus scheme": 320,
+    "gov boiler upgrade scheme": 260
+   }
+  },
+  "heat pump grants for landlords": {
+   "volume": null
+  },
+  "heat pump grant for businesses": {
+   "volume": null
+  },
+  "heat pump grant for small business": {
+   "volume": null
+  },
+  "heat pump grant listed building": {
+   "volume": null
+  },
+  "heat pump grant flat": {
+   "volume": null
+  },
+  "heat pump grant council house": {
+   "volume": null
+  },
+  "heat pump grant social housing": {
+   "volume": null
+  },
+  "government grants for home improvements": {
+   "volume": 590,
+   "cpc_gbp": 6.51,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "grant for home renovations": 1900,
+    "grant money for home improvement": 1900,
+    "home improvement grant money": 1900,
+    "home improvement grants": 1900,
+    "home renovations grants": 1900,
+    "gov grants home improvements": 590,
+    "government home improvement grants": 590,
+    "government home renovation grant": 590,
+    "government home renovation grants": 590,
+    "grants for private homeowners uk": 590
+   }
+  },
+  "grants for home improvements uk": {
+   "volume": 320,
+   "cpc_gbp": 5.62,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "grant for home renovations": 1900,
+    "grant money for home improvement": 1900,
+    "home improvement grant money": 1900,
+    "home improvement grants": 1900,
+    "home renovations grants": 1900,
+    "gov grants home improvements": 590,
+    "government grants for home improvements": 590,
+    "government grants to remodel home": 590,
+    "government home renovation grants": 590,
+    "home remodeling government grants": 590
+   }
+  },
+  "ofgem boiler upgrade scheme": {
+   "volume": 110,
+   "cpc_gbp": 11.46,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ofgem bus scheme": 40,
+    "boiler upgrade": 210,
+    "uk boiler upgrade scheme": 210,
+    "boiler upgrade scheme": 4400,
+    "upgrade boiler scheme": 4400,
+    "grant to upgrade boiler": 1300,
+    "bus scheme": 320,
+    "boiler upgrade scheme wales": 140,
+    "boiler upgrade scheme bus": 110,
+    "the boiler upgrade scheme": 70
+   }
+  },
+  "ofgem": {
+   "volume": 33100,
+   "cpc_gbp": 6.96,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "ofgem energy": 110,
+    "ofgem uk": 90,
+    "ofgem london": 140,
+    "ofgem website": 110,
+    "ofgem gov uk": 50,
+    "energy regulator uk": 170,
+    "uk energy regulator": 170,
+    "office for gas and electricity markets": 140,
+    "office of gas and electricity markets": 140,
+    "what do ofgem do": 50
+   }
+  },
+  "how long does boiler upgrade scheme take": {
+   "volume": null
+  },
+  "boiler upgrade scheme voucher": {
+   "volume": null
+  },
+  "boiler upgrade scheme how much": {
+   "volume": null
+  },
+  "boiler upgrade scheme criteria": {
+   "volume": null
+  },
+  "heat pump grant how much": {
+   "volume": null
+  },
+  "heat pump grant amount": {
+   "volume": null
+  },
+  "heat pump grant changes": {
+   "volume": null
+  },
+  "heat pump grant increase": {
+   "volume": null
+  },
+  "heat pump grant news": {
+   "volume": null
+  },
+  "heat pump grant 2027": {
+   "volume": null
+  },
+  "boiler upgrade scheme 2027": {
+   "volume": null
+  },
+  "heat pump grant scam": {
+   "volume": null
+  },
+  "heat pump grant oil": {
+   "volume": null
+  },
+  "heat pump grant without epc": {
+   "volume": null
+  },
+  "heat pump grant check": {
+   "volume": null
+  },
+  "heat pump grant calculator": {
+   "volume": null
+  },
+  "heat pump calculator": {
+   "volume": 170,
+   "cpc_gbp": 10.73,
+   "dato_del": "2026-10-14",
+   "simili": {
+    "heat pump size calculator uk": 210,
+    "heat pump calculation": 170,
+    "heat pump size calculator": 170,
+    "heat pump kwh calculator uk free": 90,
+    "air source heat pump calculator": 70,
+    "heat pump cost calculator uk": 720,
+    "heating pump sizing calculator": 110,
+    "heat pump calculations": 170,
+    "heat pump cost calculator": 170,
+    "air source heat pump sizing calculator": 140
+   }
+  },
+  "air source heat pump cost uk": {
+   "volume": 480,
+   "cpc_gbp": 7.72,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "cost heat pump": 8100,
+    "heat pump cost": 8100,
+    "heat pumps cost": 8100,
+    "heating pumps cost": 8100,
+    "price for a heat pump": 8100,
+    "price of a heat pump": 8100,
+    "air source heat pump cost": 5400,
+    "air source heating cost": 5400,
+    "air source heating costs": 5400,
+    "air to air heat pumps cost": 5400
+   }
+  },
+  "air source heat pump price": {
+   "volume": 880,
+   "cpc_gbp": 8.26,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "cost heat pump": 8100,
+    "heat pump cost": 8100,
+    "heat pumps cost": 8100,
+    "price of a heat pump": 8100,
+    "air source heat pump cost": 5400,
+    "air source heating cost": 5400,
+    "air source heating costs": 5400,
+    "air source pump cost": 5400,
+    "air to air heat pumps cost": 5400,
+    "cost of air source heating": 5400
+   }
+  },
+  "ground source heat pump cost uk": {
+   "volume": 260,
+   "cpc_gbp": 4.76,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "cost of geothermal heat pump": 1600,
+    "cost of ground source heat pump": 1600,
+    "ground source heat cost": 1600,
+    "ground source heat pump cost": 1600,
+    "ground source heating costs": 1600,
+    "heat pump geothermal cost": 1600,
+    "ground source heat pump uk cost": 320,
+    "ground source heat pump costs uk": 260,
+    "ground source heat pump uk": 260,
+    "ground source heat pump installation cost": 210
+   }
+  },
+  "heat pump prices": {
+   "volume": 880,
+   "cpc_gbp": 6.72,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "cost heat pump": 8100,
+    "heat pump cost": 8100,
+    "heat pumps cost": 8100,
+    "heating pumps cost": 8100,
+    "price for a heat pump": 8100,
+    "price of a heat pump": 8100,
+    "air source heating cost": 5400,
+    "air source heating costs": 5400,
+    "air to air heat pumps cost": 5400,
+    "cost of air source heating": 5400
+   }
+  },
+  "is eco4 still running": {
+   "volume": null
+  },
+  "when does eco4 end": {
+   "volume": 50,
+   "cpc_gbp": 4.24,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "eco4 scheme uk": 210,
+    "british gas eco4": 140,
+    "ofgem eco 4": 140,
+    "ofgem eco4": 140,
+    "eco 4 insulation": 90,
+    "energy company obligation eco4": 90,
+    "eco 4 news": 70,
+    "eco4 insulation": 70,
+    "ofgem gbis": 70,
+    "ofgem eco": 50
+   }
+  },
+  "eco4 end date": {
+   "volume": null
+  },
+  "great british insulation scheme ended": {
+   "volume": null
+  },
+  "is the great british insulation scheme still running": {
+   "volume": null
+  },
+  "warm homes local grant how to apply": {
+   "volume": null
+  },
+  "warm homes local grant solar panels": {
+   "volume": null
+  },
+  "warm homes local grant heat pump": {
+   "volume": null
+  },
+  "nest scheme wales eligibility": {
+   "volume": null
+  },
+  "nest wales eligibility": {
+   "volume": 170,
+   "cpc_gbp": 8.65,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "nest wales": 880,
+    "wales nest": 880,
+    "nest scheme wales": 320,
+    "wales nest scheme": 320,
+    "nest boiler scheme": 140,
+    "nest grants": 90,
+    "nest grants wales": 90,
+    "nest wales grants": 90,
+    "nest government scheme": 50,
+    "nest welsh government": 50
+   }
+  },
+  "how to get free solar panels": {
+   "volume": 260,
+   "cpc_gbp": 10.33,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "grant for solar panels": 8100,
+    "grants for solar panels": 8100,
+    "grants for solar power": 8100,
+    "solar pv panels grants": 8100,
+    "grants for solar panels uk": 6600,
+    "uk solar energy grants": 6600,
+    "uk solar panel grants": 6600,
+    "gov grants solar panels": 3600,
+    "government grants for solar panels": 3600,
+    "government solar panel grants": 3600
+   }
+  },
+  "solar panels grant england": {
+   "volume": 90,
+   "cpc_gbp": 9.88,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "grant for solar panels": 8100,
+    "grants for solar panels": 8100,
+    "grants for solar power": 8100,
+    "solar pv panels grants": 8100,
+    "grants for solar panels uk": 6600,
+    "uk solar energy grants": 6600,
+    "uk solar panel grants": 6600,
+    "gov grants solar panels": 3600,
+    "government grants for solar panels": 3600,
+    "government solar panel grants": 3600
+   }
+  },
+  "solar panel grants for pensioners": {
+   "volume": 50,
+   "cpc_gbp": 5.47,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "government free solar panel scheme": 1300,
+    "can you get grant for solar panels": 90,
+    "free solar panels for pensioners": 70,
+    "grant for solar panels": 8100,
+    "grants for solar power": 8100,
+    "solar pv panels grants": 8100,
+    "government grants for solar panels": 3600,
+    "government scheme solar panels": 1600,
+    "free government solar panel scheme": 1300,
+    "free uk solar panels": 1300
+   }
+  },
+  "solar panel grants for low income": {
+   "volume": null
+  },
+  "heat pump grants uk": {
+   "volume": 880,
+   "cpc_gbp": 11.38,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "grants heat pumps": 5400,
+    "heat pump grant": 5400,
+    "heat pumps grant": 5400,
+    "air heat pump grant": 2900,
+    "air source heat pump grant": 2900,
+    "air source heat pump grants": 2900,
+    "air source heating grant": 2900,
+    "air source heating grants": 2900,
+    "air source pump grant": 2900,
+    "grants air source heat pump": 2900
+   }
+  },
+  "air source heat pump grants": {
+   "volume": 2900,
+   "cpc_gbp": 14,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "grants heat pumps": 5400,
+    "heat pump grant": 5400,
+    "heat pumps grant": 5400,
+    "air heat pump grant": 2900,
+    "air source heat pump grant": 2900,
+    "air source heating grant": 2900,
+    "air source heating grants": 2900,
+    "air source pump grant": 2900,
+    "grant air source heat pump": 2900,
+    "grants air source heat pump": 2900
+   }
+  },
+  "grants for ground source heat pumps": {
+   "volume": 480,
+   "cpc_gbp": 8.92,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "heat pump gov grant": 1600,
+    "government heat pump grant": 880,
+    "government heat pump grants": 880,
+    "grants for heat pump": 590,
+    "grants for heat pumps": 590,
+    "grants for ground source heating": 480,
+    "ground source heat grants": 480,
+    "ground source heat pump grant": 480,
+    "ground source heating grant": 480,
+    "heat source pump grant": 390
+   }
+  },
+  "home energy scotland grant heat pump": {
+   "volume": null
+  },
+  "home energy scotland air source heat pump": {
+   "volume": null
+  },
+  "warmer homes scotland grant": {
+   "volume": 50,
+   "cpc_gbp": 6.79,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "warm home scotland": 1300,
+    "warm homes scotland": 1300,
+    "warmer homes scotland": 1300,
+    "warm homes scheme scotland": 170,
+    "warmer homes scheme scotland": 170,
+    "warmer homes scotland scheme": 170,
+    "warmer homes scotland eligibility": 110,
+    "warm home scheme scotland": 170,
+    "warmer homes scotland phone number": 90,
+    "grants for central heating in scotland": 90
+   }
+  },
+  "affordable warmth scheme eligibility": {
+   "volume": null
+  },
+  "how much is a heat pump": {
+   "volume": 4400,
+   "cpc_gbp": 5.67,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "cost heat pump": 8100,
+    "heat pump cost": 8100,
+    "heat pumps cost": 8100,
+    "heating pumps cost": 8100,
+    "price for a heat pump": 8100,
+    "price of a heat pump": 8100,
+    "air source heating cost": 5400,
+    "air source heating costs": 5400,
+    "air to air heat pumps cost": 5400,
+    "cost of air source heating": 5400
+   }
+  },
+  "average cost of air source heat pump uk": {
+   "volume": null
+  },
+  "eco4 grant eligibility": {
+   "volume": 260,
+   "cpc_gbp": 7.28,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "eco4 eligibility": 1300,
+    "eco 4 scheme eligibility": 1000,
+    "eco4 scheme eligibility": 1000,
+    "eco 4 eligibility criteria": 110,
+    "eco4 eligibility criteria": 110,
+    "eco4 criteria": 90,
+    "eco 4 grant": 4400,
+    "eco4 grant": 3600,
+    "eco 4 criteria": 90,
+    "eco4 qualifying benefits": 110
+   }
+  },
+  "free solar panels scheme": {
+   "volume": 480,
+   "cpc_gbp": 8.95,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "grant for solar panels": 8100,
+    "grants for solar panels": 8100,
+    "grants for solar power": 8100,
+    "government grants for solar panels": 3600,
+    "government solar panel grants": 3600,
+    "free solar panels": 2400,
+    "gov solar panel scheme": 1600,
+    "government scheme solar panels": 1600,
+    "government schemes on solar panels": 1600,
+    "free government solar panel scheme": 1300
+   }
+  },
+  "smart export guarantee rates": {
+   "volume": 480,
+   "cpc_gbp": 4.84,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "smart export guarantee": 1600,
+    "seg tariff": 1000,
+    "seg tariffs": 1000,
+    "best seg tariff": 590,
+    "best seg tariffs": 590,
+    "e on export tariff": 590,
+    "best solar export tariff uk": 480,
+    "e on seg tariff": 480,
+    "e.on seg tariff": 480,
+    "best export tariff": 390
+   }
+  },
+  "seg payments": {
+   "volume": 320,
+   "cpc_gbp": 3.63,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "seg": 2900,
+    "smart export guarantee": 1600,
+    "seg tariff": 1000,
+    "seg tariffs": 1000,
+    "best seg tariffs": 590,
+    "smart export guarantee rates": 480,
+    "best export tariffs": 390,
+    "seg tariff comparison": 320,
+    "electricity export tariffs": 210,
+    "seg rates uk": 210
+   }
+  },
+  "government grants for insulation": {
+   "volume": 720,
+   "cpc_gbp": 5.27,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "grants for house insulation": 320,
+    "cavity wall insulation government grants": 260,
+    "government grants cavity wall insulation": 260,
+    "government scheme for free cavity wall insulation": 170,
+    "government scheme free cavity wall insulation": 170,
+    "government grant for house insulation": 140,
+    "government grant house insulation": 140,
+    "government grant on insulation": 140,
+    "government grants on insulation": 140,
+    "grants for house insulation uk": 110
+   }
+  },
+  "loft insulation grants": {
+   "volume": 4400,
+   "cpc_gbp": 7.18,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "loft insulation grant": 4400,
+    "free loft insulation": 1900,
+    "grants for insulation england": 1300,
+    "grants for loft insulation": 720,
+    "loft insulation funding": 720,
+    "government grants for loft insulation": 590,
+    "roof insulation grant": 480,
+    "roof insulation grants": 480,
+    "government scheme loft insulation": 320,
+    "government schemes for loft insulation": 320
+   }
+  },
+  "cavity wall insulation grants": {
+   "volume": 1900,
+   "cpc_gbp": 7.59,
+   "dato_del": "2026-11-13",
+   "simili": {
+    "grant for wall insulation": 2400,
+    "cavity insulation grant": 1900,
+    "grants for cavity insulation": 1900,
+    "grants for cavity wall insulation": 1900,
+    "wall cavity insulation grants": 1900,
+    "free house insulation": 1000,
+    "cavity wall insulation free": 880,
+    "free cavity insulation": 880,
+    "free cavity wall insulation": 880,
+    "wall cavity insulation free": 880
+   }
+  }
+ }
+}

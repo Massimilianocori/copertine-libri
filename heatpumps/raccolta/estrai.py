@@ -1,4 +1,4 @@
-"""Estrae dai quattro xlsx ufficiali (raccolta/_grezzi/) le cifre usate dal sito e le scrive in dati/bus.json e dati/solare.json.
+"""Estrae dagli xlsx ufficiali (raccolta/_grezzi/) le cifre usate dal sito e le scrive in dati/bus.json, dati/solare.json e dati/schemi.json.
 
 Uso (dalla radice del repository, dopo raccolta/fonti.py):
     python3 heatpumps/raccolta/estrai.py
@@ -295,11 +295,101 @@ def solare():
     return out
 
 
+# ---------------------------------------------------------------- schemi (13/11/2026): GBIS, Warm Homes: Local Grant, ECO4
+def _righe(ws):
+    return [tuple(pulisci(c) for c in r) for r in ws.iter_rows(values_only=True)]
+
+
+def _riga(righe, primo):
+    """Prima riga la cui prima cella non vuota è `primo`."""
+    for r in righe:
+        v = [c for c in r if c not in (None, "")]
+        if v and str(v[0]).strip() == primo:
+            return v
+    raise SystemExit(f"riga «{primo}» non trovata")
+
+
+GBIS_TIPI = ["Cavity Wall Insulation", "Loft Insulation", "Heating Controls", "Other Insulation", "Solid Wall Insulation"]
+WHLG_TIPI = ["Solar PV", "Batteries", "Loft Insulation", "Air Source Heat Pump", "Electric Storage Heating", "Park Home Insulation",
+             "Cavity Wall Insulation", "Heating Controls", "Energy Efficient Windows and Doors", "Double or Triple Glazing",
+             "External Solid Wall Insulation", "Internal Solid Wall Insulation", "Flat Roof Insulation", "Room in Roof Insulation", "Hybrid Heat Pump"]
+ECO4_TIPI = ["Loft Insulation", "Boiler", "First Time Central Heating", "Solid Wall Insulation", "Cavity Wall Insulation", "Solar PV",
+             "Air Source Heat Pumps", "Ground Source Heat Pumps", "Hybrid Heat Pumps", "Other Insulation", "Other Heating"]
+
+
+def schemi():
+    out = {}
+    # Great British Insulation Scheme (DESNZ, dati Ofgem)
+    wb = openpyxl.load_workbook(GREZZI / "gbis.xlsx", read_only=True, data_only=True)
+    cont = _righe(wb["Contents"])
+    out["gbis"] = {"pubblicato": str(_riga(cont, "Publication date:")[1])[:10], "periodo": _riga(cont, "Data Period:")[1]}
+    t2 = _riga(_righe(wb["T2"]), "Total")
+    out["gbis"]["famiglie"], out["gbis"]["famiglie_generali"], out["gbis"]["famiglie_basso_reddito"] = t2[1], t2[2], t2[3]
+    r3 = _righe(wb["T3"])
+    out["gbis"]["misure"] = _riga(r3, "Total number of measures")[1]
+    out["gbis"]["tipi"] = {k: _riga(r3, k)[1] for k in GBIS_TIPI}
+    out["gbis"]["regioni"] = {}
+    for r in _righe(wb["T4"]):
+        if r[0] and re.match(r"^[EWSK]\d{8}$", str(r[0])):
+            out["gbis"]["regioni"][r[0]] = {"nome": r[1], "misure": r[2], "famiglie": r[4], "famiglie_totali": r[6], "per100k_famiglie": r[8]}
+    # Warm Homes: Local Grant (DESNZ, dati dei council)
+    wb = openpyxl.load_workbook(GREZZI / "whlg.xlsx", read_only=True, data_only=True)
+    tit = testo_foglio(wb["Title"])
+    w = {"fino_a": data_in(tit, r"Data covered in this release is to the end of ([A-Z][a-z]+ \d{4})"),
+         "aggiornato": data_in(tit, r"This workbook was updated on: (\d{1,2} [A-Z][a-z]+ \d{4})"),
+         "prossima": data_in(tit, r"The next update for these statistics is:\s*(\d{4}-\d\d-\d\d)")}
+    ab = testo_foglio(wb["About this release"])
+    w["piano"] = data_in(ab, r"(The Government has published its Warm Homes Plan to upgrade up to [\d.]+ million homes by \d{4}\.)")
+    w["parte_del_piano"] = data_in(ab, r"(The Warm Homes: Local Grant \(WH:LG\) is part of this plan\.)")
+    m = re.search(r"There are (\d+) Warm Homes: Local Grant projects, representing (\d+) LAs.*?based on data submitted by (\d+) of these projects", ab, re.S)
+    w["progetti"], w["council"], w["progetti_con_dati"] = int(m.group(1)), int(m.group(2)), int(m.group(3))
+    r1 = _righe(wb["T1"])
+    tot = _riga(r1, "Total")
+    w["misure"], w["famiglie"] = tot[1], tot[2]
+    w["mesi"] = {}
+    for r in r1:
+        v = [c for c in r if c not in (None, "")]
+        if v and re.match(r"^[A-Z][a-z]+ \d{4}$", str(v[0])) and len(v) >= 3:
+            w["mesi"][v[0]] = {"misure": v[1], "famiglie": v[2]}
+    r2 = _righe(wb["T2"])
+    w["tipi"] = {}
+    for k in WHLG_TIPI:
+        for r in r2:
+            if len(r) > 6 and r[1] == k:
+                w["tipi"][k] = {"misure": r[2], "famiglie": r[4], "costo_medio": r[6]}
+                break
+        else:
+            raise SystemExit(f"WH:LG: tipo {k} non trovato")
+    w["costo_medio_tutte"] = next(r[6] for r in r2 if len(r) > 6 and r[0] == "Total")
+    w["regioni"] = {}
+    for r in _righe(wb["T3"]):
+        if r[0] and re.match(r"^E1\d{7}$", str(r[0])):
+            w["regioni"][r[0]] = {"nome": r[1], "famiglie": r[2], "misure_per_famiglia": r[4], "misure": r[6]}
+    out["whlg"] = w
+    # ECO4 (DESNZ, Household Energy Efficiency statistics, tabella 1.6)
+    wb = openpyxl.load_workbook(GREZZI / "hee.xlsx", read_only=True, data_only=True)
+    tit = testo_foglio(wb["Title"])
+    e = {"fino_a": data_in(tit, r"Data covered in this release is for delivery to the end of ([A-Z][a-z]+ \d{4})"),
+         "pubblicato": data_in(tit, r"were published at [\d:apm]+ [A-Z][a-z]+ (\d{1,2} [A-Z][a-z]+ \d{4})")}
+    h, rr = tabella(wb["T1.6"], "Measure Types")
+    col = next(i for i, x in enumerate(h) if x.startswith("Total number of Surplus Actions, ECO3 Interim and ECO4 measures delivered"))
+    righe = {str(r[0]).strip(): pulisci(r[col]) for r in rr if r[0]}
+    e["colonna"] = h[col]
+    e["misure"] = righe["Total number of measures"]
+    e["case"] = righe["Total number of unique properties"]
+    e["tipi"] = {k: righe[k] for k in ECO4_TIPI}
+    out["eco4"] = e
+    return out
+
+
 def main():
     b = bus()
     s = solare()
     (DATI / "bus.json").write_text(json.dumps(b, ensure_ascii=False, indent=1, default=str) + "\n", encoding="utf-8")
     (DATI / "solare.json").write_text(json.dumps(s, ensure_ascii=False, indent=1, default=str) + "\n", encoding="utf-8")
+    sc = schemi()
+    (DATI / "schemi.json").write_text(json.dumps(sc, ensure_ascii=False, indent=1, default=str) + "\n", encoding="utf-8")
+    print(f"schemi.json: GBIS {sc['gbis']['famiglie']} famiglie, WH:LG a {sc['whlg']['fino_a']}, ECO4 a {sc['eco4']['fino_a']}")
     print(f"bus.json: {b['periodo']}, pubblicato {b['pubblicato']}, {len(b['aree'])} aree; solare.json: {len(s['la'])} enti locali, "
           f"ET 6.3 {s['et63_pubblicato']}, costi {s['costi_pubblicato']}")
 

@@ -145,6 +145,8 @@ blockquote.cit p{margin:0 0 6px;font-family:var(--serif);font-size:1.02rem}block
 .partner-l li p{margin:0;font-size:.9rem;color:var(--ink-2,var(--ink))}
 .partner-l .btn{margin-top:auto;align-self:flex-start}
 .tab.stretta{max-width:620px}.tab.stretta table.dati th[scope=row]{white-space:normal}
+table.dati.mw th[scope=row],table.dati.mw td.n,table.dati.mw thead th{white-space:normal}table.dati.mw td.n{min-width:64px}
+@media (max-width:420px){table.dati.mw{font-size:.82rem}table.dati.mw thead th{font-size:.7rem}table.dati.mw th,table.dati.mw td{padding:7px 4px}table.dati.mw th:first-child{padding-left:10px}table.dati.mw td.n{min-width:54px}table.dati.mw td:last-child:not(.n){overflow-wrap:anywhere}table.dati.mw[data-paga-tab] td.n{white-space:nowrap;min-width:0}table.dati.mw thead th{letter-spacing:0}}
 table.dati.ampia{min-width:640px}table.dati.ampia th[scope=row]{white-space:normal;min-width:150px}
 .passi li b{font-variant-numeric:tabular-nums}
 .griglia.stati a b{font-size:1.05rem}

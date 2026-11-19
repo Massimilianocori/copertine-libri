@@ -3,7 +3,8 @@
 APP_JS does three things, all in the browser, sending nothing:
 - home search: loads /assets/index.<hash>.json (2022 codes and titles, official index entries, old 2017 codes, SIC codes, guides);
 - filterable tables (2017 → 2022, SIC → NAICS): filter by code or word, 100 rows at a time;
-- light/dark theme button (remembered in the browser).
+- light/dark theme button (remembered in the browser);
+- «Print the checklist» button of the auto repair pages: prints only the checklist block.
 """
 
 CSS = """
@@ -223,6 +224,24 @@ details.tutte ul{margin:6px 0;padding-left:18px;font-size:.9rem}
 .llc-f{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}.llc-f .fatto b{font-size:1.02rem;line-height:1.3;display:block}
 .llc-v>h3{display:block;font-size:1.18rem;line-height:1.3}.llc-v>h3 .pill{display:table;margin:0 0 8px}.llc-v>p{margin:6px 0 12px}
 .llc-v blockquote.legge{background:var(--mute);font-size:.98rem;max-width:none;overflow-wrap:anywhere}
+.cl-az{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 4px}
+.check{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px 12px;margin:18px 0 26px;box-shadow:var(--sh-1)}
+.check>h2{margin:0 0 4px}.check>.small{margin:0 0 6px}.check h3{margin:20px 0 8px;font-size:1.08rem;padding-top:14px;border-top:1px solid var(--line)}
+.cl{list-style:none;margin:0;padding:0}
+.cl li{position:relative;padding:7px 0 7px 32px;border-bottom:1px dotted var(--line);overflow-wrap:anywhere;break-inside:avoid}
+.cl li:last-child{border-bottom:0}
+.cl li::before{content:"";position:absolute;left:2px;top:10px;width:16px;height:16px;border:2px solid var(--ink-3);border-radius:4px;background:var(--bg)}
+.cl q{quotes:none;font-family:var(--serif)}
+.cl .rif{display:inline-block;margin-left:6px;font-size:.78rem;font-weight:700;color:var(--ink-3);white-space:nowrap}
+.cl li.dic::before{display:none}.cl li.dic{padding-left:32px;border-bottom:0;padding-top:2px;padding-bottom:2px}
+.cl li.dic q{display:block;font-family:var(--sans);font-size:.92rem;font-weight:700;letter-spacing:.01em;background:var(--mute);border-left:3px solid var(--warm);padding:6px 10px;border-radius:0 6px 6px 0}
+.cl li.dic.pr{margin-top:8px}.cl .et{display:block;font-size:.72rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--warm-ink);margin:0 0 4px}
+.cl .et .rif{margin-left:0;font-size:.72rem;color:var(--warm-ink)}
+.check .pie{margin:14px 0 6px;font-size:.84rem;color:var(--ink-3)}
+@media (max-width:480px){.check{padding:16px 14px 8px}.cl .rif{white-space:normal;margin-left:0;display:block}}
+@media print{html.solo-check .band,html.solo-check .skip,html.solo-check .disclaimer,html.solo-check main .wrap>*:not(.check){display:none!important}
+html.solo-check body{background:#fff;color:#000}html.solo-check .check{border:0;box-shadow:none;padding:0;margin:0}html.solo-check .cl-az,html.solo-check .cl sup{display:none}html.solo-check .cl .et,html.solo-check .cl .et .rif{color:#000}
+html.solo-check .cl li::before{background:#fff;border-color:#000}html.solo-check .cl li.dic q{background:none;border-left:2px solid #000}html.solo-check .cl .rif,html.solo-check .check .pie{color:#000}html.solo-check a{color:#000;text-decoration:none}}
 """
 
 ICONE = {
@@ -309,6 +328,8 @@ if(q){var out=document.querySelector('[data-risultati]');var indice=null,attesa=
     .catch(function(){frasi=0;});}
   q.addEventListener('input',mostra);q.addEventListener('focus',carica);
   var f=q.closest('form');if(f)f.addEventListener('submit',function(ev){ev.preventDefault();var a=out.querySelector('a');if(a)location.href=a.href;});}
+// print button of the auto repair checklists: prints only the checklist block
+document.querySelectorAll('[data-stampa]').forEach(function(b){b.addEventListener('click',function(){var r=document.documentElement;r.classList.add('solo-check');var via=function(){r.classList.remove('solo-check');window.removeEventListener('afterprint',via);};window.addEventListener('afterprint',via);window.print();});});
 // corrections form: sent without leaving the page
 document.querySelectorAll('form[data-correzioni]').forEach(function(form){form.addEventListener('submit',function(ev){ev.preventDefault();
   var err=form.querySelector('[data-errore]');err.hidden=true;if(!form.checkValidity()){form.reportValidity();return;}

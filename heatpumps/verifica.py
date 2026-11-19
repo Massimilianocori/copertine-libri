@@ -1,6 +1,6 @@
 """Controlli di Heat Pump Grants UK. Uso (dalla radice del repository):
     python3 heatpumps/verifica.py            # tutti i controlli sui file e sulle pagine
-    python3 heatpumps/verifica.py --browser  # in più: Playwright a 375 e 1280 px, chiaro e scuro, su 4 pagine
+    python3 heatpumps/verifica.py --browser  # in più: Playwright a 375 e 1280 px, chiaro e scuro, su 7 pagine
 
 Indipendenza: le cifre attese si ricalcolano qui leggendo direttamente gli xlsx ufficiali in raccolta/_grezzi/ (con codice
 proprio, non con estrai.py né con dati/*.json), poi si cercano nelle pagine generate. L'impronta SHA-256 di ogni xlsx deve
@@ -66,6 +66,8 @@ def gbp(x):
 
 
 PAGINE = {str(p.relative_to(SITO)): leggi(p) for p in sorted(SITO.rglob("*.html"))}
+FILE_VOLUMI = DATI / "volumi-2026-11-13.json"
+VOLUMI = json.loads(leggi(FILE_VOLUMI))["frasi"]
 TESTI = {k: testo(v) for k, v in PAGINE.items()}
 FONTI = json.loads(leggi(DATI / "fonti.json"))
 
@@ -280,9 +282,95 @@ def controlla_cifre(X):
     print(f"Cifre: {controllate} valori ricalcolati dagli xlsx e trovati nelle pagine; {len(pagine_area)} pagine area, {len(attesi_codici)} attese")
 
 
+# ---------------------------------------------------------------- 2b. schemi (13/11/2026): GBIS, Warm Homes: Local Grant, ECO4
+# Ricalcolo indipendente: si rileggono gli xlsx con codice proprio (non estrai.py, non dati/schemi.json) e si cercano le cifre nelle pagine.
+def _celle(ws):
+    return [[c for c in r] for r in ws.iter_rows(values_only=True)]
+
+
+def _cerca_riga(righe, col, valore):
+    for r in righe:
+        if len(r) > col and r[col] is not None and str(r[col]).strip() == valore:
+            return r
+    return None
+
+
+def testo_xlsx(nome):
+    wb = openpyxl.load_workbook(GREZZI / nome, read_only=True, data_only=True)
+    return re.sub(r"\s+", " ", " ".join(str(c) for ws in wb.worksheets for r in ws.iter_rows(values_only=True) for c in r if c is not None)).replace("’", "'")
+
+
+def controlla_schemi():
+    attese = {}
+    # GBIS: tabelle T2 (famiglie), T3 (misure per tipo), T4 (regioni)
+    wb = openpyxl.load_workbook(GREZZI / "gbis.xlsx", read_only=True, data_only=True)
+    t2 = _cerca_riga(_celle(wb["T2"]), 0, "Total")
+    t3 = _celle(wb["T3"])
+    tot_m = _cerca_riga(t3, 0, "Total number of measures")[1]
+    tipi = {k: _cerca_riga(t3, 0, k)[1] for k in ("Cavity Wall Insulation", "Loft Insulation", "Heating Controls", "Other Insulation", "Solid Wall Insulation")}
+    reg = {r[0]: r for r in _celle(wb["T4"]) if r[0] and re.match(r"^[EWSK]\d{8}$", str(r[0]))}
+    g = ["gbis", f0(t2[1]), f0(t2[2]), f0(t2[3]), f0(tot_m)] + [f0(v) for v in tipi.values()] + [f"{v / tot_m * 100:.1f}%" for v in tipi.values()]
+    for c, r in reg.items():
+        if c.startswith(("E12", "W92", "S92")):
+            g += [f0(r[4]), f0(r[2]), f0(r[8])]
+    g.append(f0(reg["K03000001"][8]))
+    attese["great-british-insulation-scheme/index.html"] = g[1:]
+    attese["heat-pump-grants/scotland/index.html"] = [f0(reg["S92000003"][4]), f0(reg["S92000003"][8]), f0(reg["K03000001"][8]), "£7,500", "£1,500", "£18,000"]
+    for c, slug_r in (("W92000004", "wales"), ("E12000001", "north-east"), ("E12000007", "london")):
+        attese.setdefault(f"heat-pump-grants/{slug_r}/index.html", []).extend([f0(reg[c][4]), f0(reg[c][2]), f0(reg[c][8])])
+    # Warm Homes: Local Grant: T1 (totali), T2 (tipi e costo medio), T3 (regioni)
+    wb = openpyxl.load_workbook(GREZZI / "whlg.xlsx", read_only=True, data_only=True)
+    t1 = _cerca_riga(_celle(wb["T1"]), 0, "Total")
+    t2 = _celle(wb["T2"])
+    w = [f0(t1[1]), f0(t1[2])]
+    for k in ("Solar PV", "Batteries", "Loft Insulation", "Air Source Heat Pump", "Cavity Wall Insulation", "Electric Storage Heating"):
+        r = _cerca_riga(t2, 1, k)
+        w += [f0(r[2]), gbp(r[6])]
+    tot_costo = _cerca_riga(t2, 0, "Total")[6]
+    w.append(gbp(tot_costo))
+    for r in _celle(wb["T3"]):
+        if r[0] and re.match(r"^E12\d{6}$", str(r[0])):
+            w += [f0(r[2]), f0(r[6]), f1(r[4])]
+            if r[0] == "E12000001":
+                attese["heat-pump-grants/north-east/index.html"].append(f0(r[2]))
+    ab = testo_xlsx("whlg.xlsx")
+    for frase in ("The Government has published its Warm Homes Plan to upgrade up to 5 million homes by 2030.",
+                  "The Warm Homes: Local Grant (WH:LG) is part of this plan."):
+        if frase not in ab:
+            errore(f"whlg.xlsx: frase citata non trovata «{frase}»")
+        w.append(frase)
+    attese["warm-homes-local-grant/index.html"] = w
+    sol = _cerca_riga(t2, 1, "Solar PV")
+    attese["solar-panel-grants/index.html"] = [f0(sol[2]), gbp(sol[6])]
+    # ECO4: Household Energy Efficiency, tabella 1.6, colonna "Surplus Actions, ECO3 Interim and ECO4"
+    wb = openpyxl.load_workbook(GREZZI / "hee.xlsx", read_only=True, data_only=True)
+    t16 = _celle(wb["T1.6"])
+    i_h = next(i for i, r in enumerate(t16) if r[0] and str(r[0]).startswith("Measure Types"))
+    col = next(i for i, x in enumerate(t16[i_h]) if x and str(x).startswith("Total number of Surplus Actions, ECO3 Interim and ECO4 measures delivered"))
+    e = {str(r[0]).strip(): r[col] for r in t16[i_h + 1:] if r[0]}
+    tot = e["Total number of measures"]
+    att = [f0(tot), f0(e["Total number of unique properties"])]
+    for k in ("Loft Insulation", "Boiler", "First Time Central Heating", "Solid Wall Insulation", "Cavity Wall Insulation", "Solar PV", "Air Source Heat Pumps",
+              "Ground Source Heat Pumps", "Hybrid Heat Pumps", "Other Insulation", "Other Heating"):
+        att.append(f0(e[k]))
+        if k != "First Time Central Heating":
+            att.append(f"{e[k] / tot * 100:.1f}%")
+    attese["eco4/index.html"] = att
+    attese["solar-panel-grants/index.html"].append(f0(e["Solar PV"]))
+    n_ = 0
+    for p, valori in attese.items():
+        for v in valori:
+            n_ += 1
+            if v not in TESTI.get(p, ""):
+                errore(f"{p}: cifra attesa «{v}» non trovata (schemi)")
+    print(f"Schemi: {n_} valori ricalcolati da gbis.xlsx, whlg.xlsx e hee.xlsx e trovati nelle pagine")
+
+
 # ---------------------------------------------------------------- 3. pagine, SEO, file
 VIETATE = [(r"\bloans?\b", re.I), (r"\bfinanc(e|ed|es|ing)\b", re.I), (r"\bAPR\b", 0), (r"\bcredit", re.I), (r"(?<![\d.,])0\s?%", 0),
            (r"interest[- ]free", re.I), (r"monthly payments?", re.I), (r"pay monthly", re.I), (r"\bborrow", re.I), (r"\blend(er|ing)?\b", re.I)]
+# Nomi di sussidi (non credito): ECO4 li elenca con le parole di GOV.UK. Si tolgono solo questi nomi esatti prima del controllo.
+SUSSIDI = r"\b(?:Universal Credit|Pension (?:Guarantee |Savings )?Credit)\b"
 MODELLI = ["Cl" + "aude", "Anth" + "ropic", "Chat" + "GPT", "GP" + "T-", "Gem" + "ini", "Op" + "us 5", "Son" + "net", "Hai" + "ku", "Open" + "AI", "LL" + "M"]
 
 
@@ -337,6 +425,7 @@ def controlla_pagine():
                 errore(f"{p}: ancora #{anc} senza destinazione")
         # parole vietate (testo visibile e attributi) e nomi di modelli
         visibile = TESTI[p] + " " + " ".join(re.findall(r'(?:content|title|alt|aria-label|placeholder)="([^"]*)"', html_))
+        visibile = re.sub(SUSSIDI, " ", visibile)
         for pat, fl in VIETATE:
             m = re.search(pat, visibile, fl)
             if m:
@@ -377,12 +466,33 @@ def controlla_faq():
     dom = json.loads(leggi(DATI / "domanda.json"))["radici"]
     tutte = set(dom) | {s for v in dom.values() if isinstance(v, list) for s in v}
     faq = json.loads(leggi(DATI / "faq.json"))["faq"]
+    testi_xlsx = {}
+    n_mis = 0
     for x in faq:
-        if x["ricerca"] not in tutte:
+        if x.get("misurata"):  # 13/11/2026: ricerca con volume misurato nel Regno Unito
+            v = VOLUMI.get(x["ricerca"], {}).get("volume")
+            if not v or v <= 0 or v != x.get("volume_gb"):
+                errore(f"FAQ «{x['q']}»: la ricerca «{x['ricerca']}» non ha il volume misurato dichiarato ({v} contro {x.get('volume_gb')})")
+            n_mis += 1
+        elif x["ricerca"] not in tutte:
             errore(f"FAQ «{x['q']}»: la ricerca «{x['ricerca']}» non è in domanda.json")
         for f in x["fonti"]:
             if f not in FONTI["definizioni"]:
                 errore(f"FAQ «{x['q']}»: fonte {f} sconosciuta")
+        # ogni citazione “…” deve stare in una frase controllata e trovata (pagine) o nel testo del file (xlsx) di una delle sue fonti
+        for cit in re.findall(r"“([^”]+)”", x["a"]):
+            cit_n = cit.replace("’", "'")
+            ok = False
+            for f in x["fonti"]:
+                d = FONTI["definizioni"].get(f, {})
+                if d.get("tipo") == "pagina":
+                    trov = FONTI["fonti"].get(f, {}).get("trovate", {})
+                    ok |= any(cit_n in c.replace("’", "'") and trov.get(c) for c in d.get("cerca", []))
+                elif d.get("tipo") == "xlsx":
+                    testi_xlsx.setdefault(f, testo_xlsx(d["file"]))
+                    ok |= cit_n in testi_xlsx[f]
+            if not ok:
+                errore(f"FAQ «{x['q']}»: la citazione «{cit[:60]}» non è in una frase controllata delle sue fonti")
     n = 0
     for p, html_ in PAGINE.items():
         for blocco in re.findall(r'<script type="application/ld\+json">(.*?)</script>', html_, re.S):
@@ -396,8 +506,57 @@ def controlla_faq():
                         errore(f"{p}: segnaposto non riempito in FAQ")
     if n != len(faq):
         errore(f"FAQ pubblicate {n}, nel file {len(faq)}")
-    print(f"FAQ: {n} domande, tutte da ricerche vere (autocompletamento gl=gb)")
+    print(f"FAQ: {n} domande, tutte da ricerche vere ({n - n_mis} dall'autocompletamento gl=gb, {n_mis} con volume misurato nel Regno Unito); citazioni nelle fonti")
 
+
+# ---------------------------------------------------------------- 4b. ricerche misurate per pagina (13/11/2026)
+def norm_ricerca(s):
+    return " " + re.sub(r"\s+", " ", re.sub(r"[^a-z0-9£ ]", " ", unescape(s).lower().replace("’", "'").replace("'", ""))).strip() + " "
+
+
+PAGINE_NUOVE = ["eco4/index.html", "great-british-insulation-scheme/index.html", "warm-homes-local-grant/index.html", "solar-panel-grants/index.html",
+                "heat-pump-grants/scotland/index.html"]
+
+
+def controlla_ricerche():
+    sys.path.insert(0, str(RADICE))
+    import genera
+    n_r = 0
+    for perc, ricerche in genera.RICERCHE_PAGINA.items():
+        p = perc + "index.html"
+        html_ = PAGINE.get(p)
+        if not html_:
+            errore(f"ricerche: pagina {p} mancante")
+            continue
+        tt = re.search(r"<title>(.*?)</title>", html_).group(1)
+        h1 = re.search(r"<h1>(.*?)</h1>", html_, re.S).group(1)
+        dd = re.search(r'<meta name="description" content="([^"]*)"', html_).group(1)
+        faq_t = " ".join(q["name"] + " " + q["acceptedAnswer"]["text"] for b in re.findall(r'<script type="application/ld\+json">(.*?)</script>', html_, re.S)
+                         for d in [json.loads(b)] if d.get("@type") == "FAQPage" for q in d["mainEntity"])
+        dove = norm_ricerca(" ".join([tt, re.sub(r"<[^>]+>", " ", h1), dd, faq_t]))
+        for i, r in enumerate(ricerche):
+            n_r += 1
+            v = VOLUMI.get(r, {}).get("volume")
+            if not v or v <= 0:
+                errore(f"ricerche: «{r}» ({p}) senza volume misurato")
+            if i == 0 and norm_ricerca(r) not in norm_ricerca(tt):
+                errore(f"ricerche: la ricerca guida «{r}» non è tutta nel titolo di {p} ({unescape(tt)})")
+            elif norm_ricerca(r) not in dove:
+                errore(f"ricerche: «{r}» non è in titolo, h1, descrizione o FAQ di {p}")
+    # pagine nuove: abbastanza contenuto proprio (solo <main>, senza fonti e avviso)
+    for p in PAGINE_NUOVE:
+        m = re.search(r"<main.*?</main>", PAGINE[p], re.S).group(0)
+        m = re.sub(r'<section class="fonti-box".*?</section>', " ", m, flags=re.S)
+        m = re.sub(r'<p class="disclaimer">.*?</p>', " ", m, flags=re.S)
+        parole = len(testo(m).split())
+        if parole < 700:
+            errore(f"{p}: solo {parole} parole di contenuto (minimo 700)")
+    # nessuna chiave dello strumento dei volumi nei file del sito o del progetto
+    for f in RADICE.rglob("*"):
+        if f.is_file() and "_grezzi" not in f.parts and f.suffix in (".py", ".json", ".md", ".html", ".txt", ".xml", ".js", ".css", ".toml"):
+            if "sd_" + "live" in f.read_text(encoding="utf-8", errors="ignore"):
+                errore(f"{f.relative_to(RADICE)}: contiene una chiave dello strumento dei volumi")
+    print(f"Ricerche: {n_r} ricerche misurate su {len(genera.RICERCHE_PAGINA)} pagine (volume > 0, guida nel titolo); {len(PAGINE_NUOVE)} pagine nuove ≥ 700 parole; nessuna chiave")
 
 # ---------------------------------------------------------------- 5. monetizzazione e riquadro preventivi
 def controlla_monetizzazione():
@@ -434,7 +593,8 @@ def controlla_monetizzazione():
 
 
 # ---------------------------------------------------------------- 6. browser
-PAGINE_BROWSER = ["/", "/heat-pump-grants/cornwall/", "/heat-pump-grants/south-west/", "/solar-panels/"]
+PAGINE_BROWSER = ["/", "/heat-pump-grants/cornwall/", "/heat-pump-grants/south-west/", "/solar-panels/", "/eco4/", "/heat-pump-grants/scotland/",
+                  "/warm-homes-local-grant/"]
 
 
 def controlla_browser():
@@ -510,7 +670,9 @@ def main():
     X = ricalcola()
     controlla_cifre(X)
     controlla_pagine()
+    controlla_schemi()
     controlla_faq()
+    controlla_ricerche()
     controlla_monetizzazione()
     if "--browser" in sys.argv:
         controlla_browser()

@@ -238,6 +238,31 @@
    "url": "https://www.irs.gov/pub/irs-drop/rp-18-18.pdf",
    "motivo": "HTTP 404; Rev. Proc. 2018-27 (read) restores the 2018 family HSA limit and cites it",
    "provato_il": "2026-11-13"
+  },
+  "uk_wms_uprating": {
+   "url": "https://questions-statements.parliament.uk/written-statements/detail/2026-10-28/hcws427",
+   "motivo": "HTTP 403 (browser check) to our server; the DWP publication that lists the rates set out in this statement is read instead",
+   "provato_il": "2026-11-18"
+  },
+  "ca_leginfo_1947_12": {
+   "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1947.12.",
+   "motivo": "HTTP 403 to our server; the rule and the regional figures are read on the California Attorney General's page",
+   "provato_il": "2026-11-18"
+  },
+  "ca_sanjose_aro": {
+   "url": "https://www.sanjoseca.gov/your-government/departments-offices/housing/renters-apartment-owners/apartment-rent-ordinance",
+   "motivo": "HTTP 403 to our server; the San Jose figure shown is the one in the Attorney General's chart",
+   "provato_il": "2026-11-18"
+  },
+  "ca_la_rso": {
+   "url": "https://housing.lacity.gov/residents/rso-overview",
+   "motivo": "page read (HTTP 200) but the yearly percentage is only in a linked PDF we did not find; the Los Angeles figure shown is the one in the Attorney General's chart",
+   "provato_il": "2026-11-18"
+  },
+  "ca_sf_rentboard": {
+   "url": "https://www.sf.gov/information--annual-allowable-rent-increases",
+   "motivo": "HTTP 404 on the address tried; the San Francisco figure shown is the one in the Attorney General's chart",
+   "provato_il": "2026-11-18"
   }
  },
  "boe_calc": {
@@ -1501,6 +1526,680 @@
   "licenza": {
    "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
    "nota": "The United States Code is a work of the U.S. federal government, published by the Government Publishing Office."
+  }
+ },
+ "eia_oil_xls": {
+  "chi": "U.S. Energy Information Administration",
+  "titolo": "Residential heating oil, weekly prices by state: series history (XLS)",
+  "url": "https://www.eia.gov/dnav/pet/xls/PET_PRI_WFR_A_EPD2F_PRS_DPGAL_W.xls",
+  "file": "grezzi/eia/heating_oil.xls",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "12cd5326b7b4bf83d1e3961c3565969ca3195ce3d94fa17415c62f4274485751",
+  "byte": 431104,
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "url": "https://www.eia.gov/about/copyrights_reuse.php",
+   "nota": "EIA: U.S. government publications are in the public domain and are not subject to copyright protection; citation requested."
+  },
+  "pagina": "https://www.eia.gov/dnav/pet/pet_pri_wfr_a_EPD2F_prs_dpgal_w.htm",
+  "rilascio": "2026-11-12",
+  "prossimo_rilascio": "2026-11-18",
+  "ultima_settimana": "2026-11-09"
+ },
+ "eia_propane_xls": {
+  "chi": "U.S. Energy Information Administration",
+  "titolo": "Residential propane, weekly prices by state: series history (XLS)",
+  "url": "https://www.eia.gov/dnav/pet/xls/PET_PRI_WFR_A_EPLLPA_PRS_DPGAL_W.xls",
+  "file": "grezzi/eia/propane.xls",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "2eb8875def01b94046b8ed8eb04c0cc0e59a02c8171aa5cd792a8a637670b20f",
+  "byte": 557568,
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "url": "https://www.eia.gov/about/copyrights_reuse.php",
+   "nota": "EIA: U.S. government publications are in the public domain and are not subject to copyright protection; citation requested."
+  },
+  "pagina": "https://www.eia.gov/dnav/pet/pet_pri_wfr_a_EPLLPA_prs_dpgal_w.htm",
+  "rilascio": "2026-11-12",
+  "prossimo_rilascio": "2026-11-18",
+  "ultima_settimana": "2026-11-09"
+ },
+ "eia_oil_tabella": {
+  "chi": "U.S. Energy Information Administration",
+  "titolo": "Weekly Heating Oil and Propane Prices: residential heating oil (table)",
+  "url": "https://www.eia.gov/dnav/pet/pet_pri_wfr_a_EPD2F_prs_dpgal_w.htm",
+  "file": "grezzi/eia/heating_oil.htm",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "7777bbda865e2c11a24d0338045d6c1a7979e9dd6efb02368ecabd6ffba53f33",
+  "byte": 28781,
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "url": "https://www.eia.gov/about/copyrights_reuse.php",
+   "nota": "EIA: U.S. government publications are in the public domain and are not subject to copyright protection; citation requested."
+  },
+  "cerca": {
+   "unita": "(Dollars per Gallon Excluding Taxes)"
+  },
+  "trovate": {
+   "unita": true
+  }
+ },
+ "eia_propane_tabella": {
+  "chi": "U.S. Energy Information Administration",
+  "titolo": "Weekly Heating Oil and Propane Prices: residential propane (table)",
+  "url": "https://www.eia.gov/dnav/pet/pet_pri_wfr_a_EPLLPA_prs_dpgal_w.htm",
+  "file": "grezzi/eia/propane.htm",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "9d7264b718a3511102f5063261ba8cfbb5e8c3ba126313c36ecdcedbb3e16d4e",
+  "byte": 40147,
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "url": "https://www.eia.gov/about/copyrights_reuse.php",
+   "nota": "EIA: U.S. government publications are in the public domain and are not subject to copyright protection; citation requested."
+  },
+  "cerca": {
+   "unita": "(Dollars per Gallon Excluding Taxes)"
+  },
+  "trovate": {
+   "unita": true
+  }
+ },
+ "eia_update": {
+  "chi": "U.S. Energy Information Administration",
+  "titolo": "Heating Oil and Propane Update",
+  "url": "https://www.eia.gov/petroleum/heatingoilpropane/",
+  "file": "grezzi/eia/update.htm",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "8a60820484def93b48728fe05d0a31fab7542b6b8965a13771484bad29350ebd",
+  "byte": 91231,
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "url": "https://www.eia.gov/about/copyrights_reuse.php",
+   "nota": "EIA: U.S. government publications are in the public domain and are not subject to copyright protection; citation requested."
+  },
+  "cerca": {
+   "stagione": "only collected during the heating season, which extends from October through March"
+  },
+  "trovate": {
+   "stagione": true
+  }
+ },
+ "eia_definizioni": {
+  "chi": "U.S. Energy Information Administration",
+  "titolo": "Weekly Heating Oil and Propane Prices: definitions, sources and explanatory notes",
+  "url": "https://www.eia.gov/dnav/pet/TblDefs/pet_pri_wfr_tbldef2.asp",
+  "file": "grezzi/eia/definitions.htm",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "b1dde69ebf17a8df07918e9e1d5c5a4d432eddc40c9fcd3d648baf0d14e8b73a",
+  "byte": 9305,
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "url": "https://www.eia.gov/about/copyrights_reuse.php",
+   "nota": "EIA: U.S. government publications are in the public domain and are not subject to copyright protection; citation requested."
+  },
+  "cerca": {
+   "tasse": "Prices do not include taxes paid by the consumer",
+   "gasolio": "The price charged for home delivery of No.2 heating oil, exclusive of any discounts such as those for prompt cash payment",
+   "propano": "The price charged for home delivery of consumer grade propane intended for use in space heating, cooking, or hot water heaters in residences",
+   "stagione": "collected weekly during the heating season which extends from October through March",
+   "fuori_stagione": "From April through September, heating oil and propane prices are collected on the second Monday of each month",
+   "fonte": "Residential prices are based on data collected by State Energy Offices",
+   "revisioni": "Values shown for the previous week may be revised to account for late submissions and corrections"
+  },
+  "trovate": {
+   "tasse": true,
+   "gasolio": true,
+   "propano": true,
+   "stagione": true,
+   "fuori_stagione": true,
+   "fonte": true,
+   "revisioni": true
+  }
+ },
+ "eia_riuso": {
+  "chi": "U.S. Energy Information Administration",
+  "titolo": "Copyrights and reuse",
+  "url": "https://www.eia.gov/about/copyrights_reuse.php",
+  "file": "grezzi/eia/copyrights_reuse.htm",
+  "http": 200,
+  "letto_il": "2026-11-13",
+  "sha256": "c16dcdd32bd0294eef3dbc8cdc11cd3a815502be1e938f1dfc84736358a4462c",
+  "byte": 52536,
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
+   "url": "https://www.eia.gov/about/copyrights_reuse.php",
+   "nota": "EIA: U.S. government publications are in the public domain and are not subject to copyright protection; citation requested."
+  },
+  "cerca": {
+   "dominio_pubblico": "U.S. government publications are in the public domain and are not subject to copyright protection"
+  },
+  "trovate": {
+   "dominio_pubblico": true
+  }
+ },
+ "uk27_nmw": {
+  "chi": "GOV.UK",
+  "titolo": "National Minimum Wage and National Living Wage rates",
+  "url": "https://www.gov.uk/national-minimum-wage-rates",
+  "http": 200,
+  "letto_il": "2026-11-18",
+  "sha256": "29c71e290fc755dc53b8a7f9b8f8af465faba09e2a95f9eb6891d96afef59494",
+  "byte": 89705,
+  "testo": "grezzi/regole2027/uk27_nmw.txt",
+  "originale": null,
+  "attribuzione": "Contains public sector information licensed under the Open Government Licence v3.0.",
+  "licenza": {
+   "nome": "Open Government Licence v3.0",
+   "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+  },
+  "trovate": {
+   "April 2027 £13.21 £11.27 £8.31 £8.31": true,
+   "21 and over 18 to 20 Under 18 Apprentice April 2026 £12.71 £10.85 £8 £8 April 2027 £13.21 £11.27 £8.31 £8.31": true,
+   "April 2025 to March 2026 £12.21 £10 £7.55 £7.55": true,
+   "April 2024 to March 2025 £11.44 £8.60 £6.40 £6.40": true,
+   "The rates change on 1 April every year.": true,
+   "aged 21 to get the National Living Wage - the minimum wage will still apply for workers aged 20 and under": true,
+   "Apprentices are entitled to the apprentice rate if they’re either: aged under 19 aged 19 or over and in the first year of their apprenticeship": true,
+   "Apprentices are entitled to the minimum wage for their age if they both: are aged 19 or over have completed the first year of their apprenticeship": true,
+   "school leaving age to get the National Minimum Wage": true
+  }
+ },
+ "uk27_lpc": {
+  "chi": "Low Pay Commission",
+  "titolo": "LPC recommendations take the National Living Wage to £13.21 (press release)",
+  "url": "https://www.gov.uk/government/news/lpc-recommendations-take-the-national-living-wage-to-1321",
+  "http": 200,
+  "letto_il": "2026-11-18",
+  "sha256": "3a420f02638c2bc7d28254aad0a57fe0adb92db780e66878db1d2cdee27d8ec7",
+  "byte": 82050,
+  "testo": "grezzi/regole2027/uk27_lpc.txt",
+  "originale": null,
+  "attribuzione": "Contains public sector information licensed under the Open Government Licence v3.0.",
+  "licenza": {
+   "nome": "Open Government Licence v3.0",
+   "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+  },
+  "pubblicato": "28 October 2026",
+  "trovate": {
+   "National Living Wage (21 and over) £13.21 50p 3.9": true,
+   "18-20 Year Old Rate £11.27 42p 3.9": true,
+   "16-17 Year Old Rate £8.31 31p 3.9": true,
+   "Apprentice Rate £8.31 31p 3.9": true,
+   "Accommodation Offset £11.53 43p 3.9": true,
+   "The Government has today announced increases to minimum wage rates from April 2027. The National Living Wage (NLW), the minimum wage rate for all workers aged 21 and over, will rise by 3.9 per cent to £13.21.": true,
+   "The minimum wage for 18-20 year olds will increase to £11.27 and the rates for 16-17 year olds and apprentices will increase to £8.31, all of which are 3.9 per cent increases in line with that for the NLW.": true,
+   "In announcing these increases, the Government has accepted in full the recommendations made by the Low Pay Commission.": true
+  }
+ },
+ "uk27_dwp_indice": {
+  "chi": "Department for Work and Pensions",
+  "titolo": "Benefit and pension rates: 2027 to 2028 (publication page)",
+  "url": "https://www.gov.uk/government/publications/benefit-and-pension-rates-2027-to-2028",
+  "http": 200,
+  "letto_il": "2026-11-18",
+  "sha256": "699ae5ffb1772032b31bb26aa3f458e741f569ed6c7103071c67728ac34875d5",
+  "byte": 67767,
+  "testo": "grezzi/regole2027/uk27_dwp_indice.txt",
+  "originale": null,
+  "attribuzione": "Contains public sector information licensed under the Open Government Licence v3.0.",
+  "licenza": {
+   "nome": "Open Government Licence v3.0",
+   "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+  },
+  "pubblicato": "11 November 2026",
+  "trovate": {
+   "This publication lists the benefit rates and pension rates for 2027 to 2028 as set out in the written ministerial statement made by the Secretary of State for Work and Pensions on 28 October 2026.": true
+  }
+ },
+ "uk27_dwp": {
+  "chi": "Department for Work and Pensions",
+  "titolo": "Proposed benefit and pension rates 2027 to 2028",
+  "url": "https://www.gov.uk/government/publications/benefit-and-pension-rates-2027-to-2028/proposed-benefit-and-pension-rates-2027-to-2028",
+  "http": 200,
+  "letto_il": "2026-11-18",
+  "sha256": "cd1878887da24707767e328425f54f8aa52f7a31d769dd78e712e7694743b564",
+  "byte": 320850,
+  "testo": "grezzi/regole2027/uk27_dwp.txt",
+  "originale": "grezzi/regole2027/uk27_dwp.html",
+  "attribuzione": "Contains public sector information licensed under the Open Government Licence v3.0.",
+  "licenza": {
+   "nome": "Open Government Licence v3.0",
+   "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+  },
+  "pubblicato": "11 November 2026",
+  "trovate": {
+   "Proposed benefit and pension rates 2027 to 2028": true,
+   "Weekly rates, unless otherwise stated.": true,
+   "Full rate 241.30 250.70": true,
+   "Category A or B basic pension 184.90 192.10": true,
+   "Category B (lower) basic pension - spouse or civil partner’s insurance 110.75 115.05": true,
+   "Category C or D - non-contributory 110.75 115.05": true,
+   "Single 238.00 247.30": true,
+   "Couple 363.25 377.40": true,
+   "Single under 25 338.58 353.87": true,
+   "Single 25 or over 424.90 443.21": true,
+   "Joint claimants both under 25 528.34 551.11": true,
+   "Joint claimants, one or both 25 or over 666.97 695.71": true,
+   "First child (born prior to 6 April 2017) 351.88 364.20": true,
+   "First child (born on or after 6 April 2017) / subsequent children 303.94 314.58": true,
+   "Limited Capability for Work amount 158.76 158.76": true,
+   "Limited Capability for Work and Work-Related Activity amount 217.26 217.26": true,
+   "Limited Capability for Work and Work-Related Activity amount (pre-2026 claimant, severe conditions criteria claimant or claimant who is terminally ill) 429.80 441.41": true,
+   "Carer amount 209.34 216.67": true,
+   "Higher work allowance (no housing amount), one or more dependent children or limited capability for work 710.00 735.00": true,
+   "Lower work allowance, one or more dependent children or limited capability for work 427.00 442.00": true,
+   "Enhanced 114.60 118.60": true,
+   "Standard 76.70 79.40": true,
+   "Enhanced 80.00 82.80": true,
+   "Standard 30.30 31.35": true,
+   "Higher rate 114.60 118.60": true,
+   "Lower rate 76.70 79.40": true,
+   "Highest 114.60 118.60": true,
+   "Middle 76.70 79.40": true,
+   "Lowest 30.30 31.35": true,
+   "Higher 80.00 82.80": true,
+   "Lower 30.30 31.35": true,
+   "Carer’s Allowance 86.45 89.50": true,
+   "Under 25 75.65 78.30": true,
+   "25 or over 95.55 98.90": true,
+   "Standard rate (lump sum) 2,500.00 2,500.00": true,
+   "Standard rate monthly payments 100.00 100.00": true,
+   "Higher rate (lump sum) 3,500.00 3,500.00": true,
+   "Higher rate monthly payments 350.00 350.00": true,
+   "Standard rate 123.25 127.55": true,
+   "Standard rate 194.32 201.11": true,
+   "Earnings threshold 129.00 133.00": true,
+   "Standard Rate 194.32 201.11": true,
+   "MA threshold 30.00 30.00": true
+  }
+ },
+ "rent_ca_oag": {
+  "chi": "California Department of Justice, Office of the Attorney General",
+  "titolo": "Limits on Rent Increases",
+  "url": "https://oag.ca.gov/rentcaps",
+  "http": 200,
+  "letto_il": "2026-11-18",
+  "sha256": "5ed868b90f3fbfd3ff7b1c76bc7d8aeb7000e6698216d81c49ab51b76ce4a328",
+  "byte": 80717,
+  "testo": "grezzi/regole2027/rent_ca_oag.txt",
+  "originale": "grezzi/regole2027/rent_ca_oag.html",
+  "trovate": {
+   "Annual rent increases are capped at “5% plus the percentage change in the cost of living,” up to a maximum of 10%.": true,
+   "The percentage change in the cost of living for most areas is found by looking at the April national consumer price index data published by the U.S. Bureau of Labor Statistics. The Bureau of Labor Statistics publishes separate data for the Los Angeles Area, Riverside Area, San Francisco Area, and San Diego Area. In areas where April data is not published, March data is used. For all other counties, the change in the cost of living is measured using the April California consumer price index data published by the California Department of Industrial Relations.": true,
+   "These rent increase caps apply to most rental housing in California that is more than 15 years old, including single-family homes and condos owned by corporations, mobilehomes rented from mobilehome park management, and housing rented by Section 8 Housing Choice Voucher recipients.": true,
+   "If the tenants of a unit move out and new tenants move in, the landlord may establish the initial rent to charge.": true,
+   "For convenience, this chart shows the maximum rent increase currently allowed under the Tenant Protection Act. This chart is informational only": true,
+   "If the rent increase cap set by your city or county results in a lower increase than the Tenant Protection Act, then the local rule will apply.": true,
+   "Local rent increase caps do not apply to buildings that have a certificate of occupancy issued after February 1, 1995, or to most single-family homes or condos.": true,
+   "Los Angeles Area: Los Angeles County Orange County 8% 8.7%": true,
+   "Riverside Area: Riverside County San Bernardino County 7.5% 8.1%": true,
+   "San Diego Area: San Diego County 8.8% 8.2%": true,
+   "San Francisco Area: Alameda County Contra Costa County Marin County San Francisco County San Mateo County 6.3% 8.8%": true,
+   "All Other Counties 7.7% 8.6%": true
+  }
+ },
+ "rent_ca_oag_inquilini": {
+  "chi": "California Department of Justice, Office of the Attorney General",
+  "titolo": "Landlord-Tenant Issues",
+  "url": "https://oag.ca.gov/tenants",
+  "http": 200,
+  "letto_il": "2026-11-18",
+  "sha256": "7a7d1c511c17fadf13a36e14cf6798dc044ce558b40eeb7c80e2b35f13aa8855",
+  "byte": 74407,
+  "testo": "grezzi/regole2027/rent_ca_oag_inquilini.txt",
+  "originale": null,
+  "trovate": {
+   "If the rent increase is 10% or less, landlords must provide notice 30 days before the increase can take effect.": true,
+   "Landlords cannot raise rent more than 10% total or 5% plus the percentage change in the cost of living - whichever is lower - over a 12-month period.": true
+  }
+ },
+ "rent_ca_dir": {
+  "chi": "California Department of Industrial Relations",
+  "titolo": "California Consumer Price Index (1955-2026), all items",
+  "url": "https://www.dir.ca.gov/OPRL/CPI/EntireCCPI.PDF",
+  "http": 200,
+  "letto_il": "2026-11-18",
+  "sha256": "af0b01808a90c70921b26763d5224ec9156740192b673c7b5380ade666ef04d7",
+  "byte": 313705,
+  "testo": "grezzi/regole2027/rent_ca_dir.txt",
+  "originale": null,
+  "trovate": {
+   "2024 April 342.734": true,
+   "2025 April 352.063": true,
+   "2026 April 364.746": true
+  }
+ },
+ "rent_or_das": {
+  "chi": "Oregon Department of Administrative Services, Office of Economic Analysis",
+  "titolo": "Rent Stabilization",
+  "url": "https://www.oregon.gov/das/oea/pages/rent-stabilization.aspx",
+  "http": 200,
+  "letto_il": "2026-11-18",
+  "sha256": "b95f5ffa2ee68c6ed675a3b31dded8efa79538f307638608c87e761a25d230d5",
+  "byte": 76123,
+  "testo": "grezzi/regole2027/rent_or_das.txt",
+  "originale": null,
+  "trovate": {
+   "percentage is the lesser of: Ten percent; or Seven percent plus Consumer Price Index (CPI).": true,
+   "no later than Sept. 30 of each year, the Oregon Department of Administrative Services shall calculate the maximum annual rent increase percentage allowed for the following calendar year": true,
+   "For tenancies subject to ORS 90.600 (1) in facilities* with more than 30 spaces, as six percent.": true,
+   "Questions related to the administration of the maximum allowable rent increase and other landlord/tenant concerns should be directed to Oregon Housing and Community Services (OHCS).": true,
+   "The allowable rent increase percentage for the previous year , 2026, was 9.5%.": true,
+   "For 2027, the maximum allowable rent increase percentage for tenancies subject to ORS 90.324(b) is 10%.": true
+  }
+ },
+ "rent_or_xlsx": {
+  "chi": "Oregon Department of Administrative Services, Office of Economic Analysis",
+  "titolo": "Maximum Annual Rent Increase, 2027 (Excel file)",
+  "url": "https://www.oregon.gov/das/oea/Documents/Oregon-Maximum-Annual-Rent-Increase-2027.xlsx",
+  "http": 200,
+  "letto_il": "2026-11-18",
+  "sha256": "fe59ca229450d0d93b7dc2bd92815830f79f59814bde6f8d6630ec35a37a153e",
+  "byte": 63179,
+  "testo": "grezzi/regole2027/rent_or_xlsx.txt",
+  "originale": "grezzi/regole2027/rent_or_xlsx.xlsx",
+  "pubblicato": "30 September 2026",
+  "trovate": {
+   "7 percent plus the September annual 12-month average change in the Consumer Price Index for All Urban Consumers, West Region (All Items)": true,
+   "Only one rent increase may be issued in any 12 month period.": true
+  }
+ },
+ "rent_wa_commerce": {
+  "chi": "Washington State Department of Commerce",
+  "titolo": "HB 1217 Landlord Resource Center",
+  "url": "https://www.commerce.wa.gov/housing-policy/hb1217-landlord-resource-center/",
+  "http": 200,
+  "letto_il": "2026-11-18",
+  "sha256": "56fec41650c8f679da6960cc3555979f858ae4027100be76934818a58e22b27d",
+  "byte": 109367,
+  "testo": "grezzi/regole2027/rent_wa_commerce.txt",
+  "originale": null,
+  "trovate": {
+   "After the first 12 months, a landlord may increase the rent during any 12-month period of the tenancy up to 7% plus the Consumer Price Index, or 10 percent, whichever is less.": true,
+   "RCW 59.18.700 specifies that a landlord may not increase the rent for any type of tenancy during the first 12 months after the tenancy begins.": true,
+   "Certain properties and situations are exempted, as defined in RCW 59.18.710": true,
+   "The maximum annual rent increase percentage is calculated using the June 12-month percent change in the Consumer Price Index for all urban consumers, all items, for the Seattle area as published by the United States Bureau of Labor Statistics": true,
+   "Increase calculation: =((364.344-354.824)/354.824)+0.07 = 9.683%": true,
+   "11.5% > 10% (maximum allowable rent increase)": true,
+   "June 2025 index value: 364.344 June 2026 index value: 380.849": true,
+   "The maximum annual rent increase percentage allowed for each calendar year will be published shortly after release of the June data by the federal U.S. Bureau of Labor Statistics, which is typically in early July of each year.": true,
+   "between 1/1/2026 and 12/31/2026 is 9.683%.": true,
+   "between 1/1/2027 and 12/31/2027 is 10%.": true
+  }
+ },
+ "rent_nyc_58": {
+  "chi": "New York City Rent Guidelines Board",
+  "titolo": "2026-27 Apartment/Loft Order #58",
+  "url": "https://rentguidelinesboard.cityofnewyork.us/2026-27-apartment-loft-order-58/",
+  "http": 200,
+  "letto_il": "2026-11-18",
+  "sha256": "daca995ed06b62ecc652e3809d847b5812b6d40e3999e278ddd787e005e77901",
+  "byte": 50438,
+  "testo": "grezzi/regole2027/rent_nyc_58.txt",
+  "originale": null,
+  "pubblicato": "25 June 2026",
+  "trovate": {
+   "These rent adjustments will apply to rent stabilized apartments with leases commencing on or after October 1, 2026 and through September 30, 2027 .": true,
+   "Order Number 58 - Apartments and Lofts, rent levels for leases commencing October 1, 2026 through September 30, 2027.": true,
+   "any lease or tenancy for a period up to and including one year shall be deemed a one-year lease or tenancy, and any lease or tenancy for a period of over one year and up to and including two years shall be deemed a two-year lease or tenancy": true,
+   "Together with such further adjustments as may be authorized by law, the annual adjustment for leases for apartments shall be:": true,
+   "2026 Apartment & Loft Order #58 June 25, 2026": true,
+   "For a one -year lease commencing on or after October 1, 2026 and on or before September 30, 2027 : 0%": true,
+   "For a two -year lease commencing on or after October 1, 2026 and on or before September 30, 2027 : 0%": true
+  }
+ },
+ "rent_nyc_57": {
+  "chi": "New York City Rent Guidelines Board",
+  "titolo": "2025-26 Apartment/Loft Order #57",
+  "url": "https://rentguidelinesboard.cityofnewyork.us/2025-26-apartment-loft-order-57/",
+  "http": 200,
+  "letto_il": "2026-11-18",
+  "sha256": "9b8c63141cf0dc5b1a2ff8474285f82522416eb3708fdd1aad266b8988d96c56",
+  "byte": 51528,
+  "testo": "grezzi/regole2027/rent_nyc_57.txt",
+  "originale": null,
+  "trovate": {
+   "For a one -year lease commencing on or after October 1, 2025 and on or before September 30, 2026 : 3%": true,
+   "For a two -year lease commencing on or after October 1, 2025 and on or before September 30, 2026 : 4.5%": true
+  }
+ },
+ "rent_on": {
+  "chi": "Government of Ontario",
+  "titolo": "Residential rent increases",
+  "url": "https://www.ontario.ca/page/residential-rent-increases",
+  "http": 200,
+  "letto_il": "2026-11-18",
+  "sha256": "162ce005750cd719e43261aa1ac58ae0b3581638320db9c4adb7741d39ddf3b8",
+  "byte": 101968,
+  "testo": "grezzi/regole2027/rent_on.txt",
+  "originale": null,
+  "trovate": {
+   "The guideline is the maximum a landlord can increase most tenants’ rent during a year without the approval of the Landlord and Tenant Board.": true,
+   "The landlord must give a tenant written notice of a rent increase in the proper form at least 90 days before it takes effect.": true,
+   "In most cases, the rent for a residential unit can be increased if at least 12 months have passed since the: last rent increase, or date the tenancy began": true,
+   "new buildings, additions to existing buildings and most new basement apartments that are occupied for the first time for residential purposes after November 15, 2018": true,
+   "It is calculated using the Ontario Consumer Price Index , a Statistics Canada tool that measures inflation and economic conditions over a year. Data from June to May is used to determine the guideline for the following year.": true,
+   "The rent increase guideline is capped at 2.5% to prevent significant one-time rent increases to tenants.": true,
+   "In some cases, landlords can apply to the Landlord and Tenant Board for approval to raise your rent by more than the rent increase guideline.": true,
+   "2026 2.1": true,
+   "The rent increase guideline for 2027 is 1.9% .": true
+  }
+ },
+ "rent_bc": {
+  "chi": "Government of British Columbia",
+  "titolo": "Rent increases",
+  "url": "https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies/rent-rtb/rent-increases",
+  "http": 200,
+  "letto_il": "2026-11-18",
+  "sha256": "15cafbd1dc435002fad1026e24c9282369afd045db0dd67457e1204185e16f24",
+  "byte": 258723,
+  "testo": "grezzi/regole2027/rent_bc.txt",
+  "originale": null,
+  "trovate": {
+   "Rent can only be increased once every 12 months and must be within the yearly rent increase limit, as set by the Residential Tenancy Branch.": true,
+   "Landlords can only increase rent if they provide tenants with at least 3 full months notice.": true,
+   "Rent cannot increase more than the annual limit. Landlords can't round up when calculating the allowable rent increase.": true,
+   "If utilities and other fees are included in the rent, the landlord still cannot increase the rent beyond this amount even if their costs are higher.": true,
+   "Landlords can only apply rent increases for the current year": true,
+   "Last updated on August 27, 2026": true,
+   "The 2026 rent increase limit for residential tenancies is 2.3%.": true,
+   "The 2027 rent increase limit for residential tenancies is 2.2%.": true
+  }
+ },
+ "rent_stpaul": {
+  "chi": "City of Saint Paul, Minnesota",
+  "titolo": "Rent Stabilization",
+  "url": "https://www.stpaul.gov/departments/safety-inspections/rent-buy-sell-property/rent-stabilization",
+  "http": 200,
+  "letto_il": "2026-11-18",
+  "sha256": "e83d1c12f2a6722259e56d9eaba4feb2084119a716c1192604eb67d0427031ee",
+  "byte": 257375,
+  "testo": "grezzi/regole2027/rent_stpaul.txt",
+  "originale": null,
+  "trovate": {
+   "The Ordinance limits residential rent increases to no more than 3% in a 12-month period, however, there are exceptions.": true,
+   "Self-Certification Increase Exception: Available for 3%-8% (evaluated annually) Just Cause Vacancy Increase Exception: CPI + 8% Staff Determination Increase Exception: No limit with appropriate justification": true,
+   "The amended Ordinance creates an exemption for newly-constructed residential rental properties, among other changes detailed below.": true,
+   "The Ordinance also directs the City to create a process for landlords to request an exception to the 3% limit based on the right to a Reasonable Return on Investment.": true,
+   "May 7, 2025: The City Council adopted an amendment to the ordinance which went into effect on June 13, 2025.": true,
+   "Standard Allowable Increase without City approval: 3%": true
+  }
+ },
+ "bls_cpi_la": {
+  "chi": "U.S. Bureau of Labor Statistics",
+  "titolo": "CPI for All Urban Consumers (CPI-U), Los Angeles-Long Beach-Anaheim, CA, all items, not seasonally adjusted (series CUURS49ASA0), 1982-84=100",
+  "url": "https://data.bls.gov/timeseries/CUURS49ASA0?years_option=all_years&include_graphs=false&annualAveragesRequested=true",
+  "pagina": "https://data.bls.gov/timeseries/CUURS49ASA0",
+  "file": "grezzi/regole2027/bls_cpi_la.csv",
+  "http": 200,
+  "letto_il": "2026-11-18",
+  "sha256_pagina": "eb7c1fe204f8c80bd4dc5a4cdb757962ea46f30f0acee36bef1d261fcf64905a",
+  "serie": "CUURS49ASA0",
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)"
+  }
+ },
+ "bls_cpi_sf": {
+  "chi": "U.S. Bureau of Labor Statistics",
+  "titolo": "CPI for All Urban Consumers (CPI-U), San Francisco-Oakland-Hayward, CA, all items, not seasonally adjusted (series CUURS49BSA0), 1982-84=100",
+  "url": "https://data.bls.gov/timeseries/CUURS49BSA0?years_option=all_years&include_graphs=false&annualAveragesRequested=true",
+  "pagina": "https://data.bls.gov/timeseries/CUURS49BSA0",
+  "file": "grezzi/regole2027/bls_cpi_sf.csv",
+  "http": 200,
+  "letto_il": "2026-11-18",
+  "sha256_pagina": "3fa9f0f5a65c7c93caffb2efdfecfda1098ad65c517b69d2f6b3d94708f83374",
+  "serie": "CUURS49BSA0",
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)"
+  }
+ },
+ "bls_cpi_riverside": {
+  "chi": "U.S. Bureau of Labor Statistics",
+  "titolo": "CPI for All Urban Consumers (CPI-U), Riverside-San Bernardino-Ontario, CA, all items, not seasonally adjusted (series CUURS49CSA0)",
+  "url": "https://data.bls.gov/timeseries/CUURS49CSA0?years_option=all_years&include_graphs=false&annualAveragesRequested=true",
+  "pagina": "https://data.bls.gov/timeseries/CUURS49CSA0",
+  "file": "grezzi/regole2027/bls_cpi_riverside.csv",
+  "http": 200,
+  "letto_il": "2026-11-18",
+  "sha256_pagina": "c3d164eb30de0f0d7c4c917ebf33e77d005e013de63f6e2ec53542dba56fc557",
+  "serie": "CUURS49CSA0",
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)"
+  }
+ },
+ "bls_cpi_sandiego": {
+  "chi": "U.S. Bureau of Labor Statistics",
+  "titolo": "CPI for All Urban Consumers (CPI-U), San Diego-Carlsbad, CA, all items, not seasonally adjusted (series CUURS49ESA0), 1982-84=100",
+  "url": "https://data.bls.gov/timeseries/CUURS49ESA0?years_option=all_years&include_graphs=false&annualAveragesRequested=true",
+  "pagina": "https://data.bls.gov/timeseries/CUURS49ESA0",
+  "file": "grezzi/regole2027/bls_cpi_sandiego.csv",
+  "http": 200,
+  "letto_il": "2026-11-18",
+  "sha256_pagina": "64830308983841a933b6c42e5d528d4bee4eb363b0bb96af5c235b4970e920e9",
+  "serie": "CUURS49ESA0",
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)"
+  }
+ },
+ "bls_cpi_seattle": {
+  "chi": "U.S. Bureau of Labor Statistics",
+  "titolo": "CPI for All Urban Consumers (CPI-U), Seattle-Tacoma-Bellevue WA, all items, not seasonally adjusted (series CUURS49DSA0), 1982-84=100",
+  "url": "https://data.bls.gov/timeseries/CUURS49DSA0?years_option=all_years&include_graphs=false&annualAveragesRequested=true",
+  "pagina": "https://data.bls.gov/timeseries/CUURS49DSA0",
+  "file": "grezzi/regole2027/bls_cpi_seattle.csv",
+  "http": 200,
+  "letto_il": "2026-11-18",
+  "sha256_pagina": "305c37df47b4a2b716a75461610414011f762fcd89897a0c3b4b899aba1d4275",
+  "serie": "CUURS49DSA0",
+  "licenza": {
+   "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)"
+  }
+ },
+ "uk27_guida_nsp": {
+  "chi": "GOV.UK",
+  "titolo": "The new State Pension: Eligibility",
+  "url": "https://www.gov.uk/new-state-pension",
+  "http": 200,
+  "letto_il": "2026-11-18",
+  "sha256": "ea8bcdaa60249b846acb765127e575f8acc396d5f17f1a65ce44381870bc1d22",
+  "byte": 105667,
+  "testo": "grezzi/regole2027/uk27_guida_nsp.txt",
+  "originale": null,
+  "attribuzione": "Contains public sector information licensed under the Open Government Licence v3.0.",
+  "licenza": {
+   "nome": "Open Government Licence v3.0",
+   "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+  },
+  "trovate": {
+   "You’ll be able to claim the new State Pension when you reach State Pension age if you’re: a man born on or after 6 April 1951 a woman born on or after 6 April 1953": true
+  }
+ },
+ "uk27_guida_nsp_importo": {
+  "chi": "GOV.UK",
+  "titolo": "The new State Pension: What you'll get",
+  "url": "https://www.gov.uk/new-state-pension/what-youll-get",
+  "http": 200,
+  "letto_il": "2026-11-18",
+  "sha256": "ad7bfb9d2b6a544cc56552ee687bbc5a58e5e418f1cf106a3fb75457704f0dd0",
+  "byte": 78999,
+  "testo": "grezzi/regole2027/uk27_guida_nsp_importo.txt",
+  "originale": null,
+  "attribuzione": "Contains public sector information licensed under the Open Government Licence v3.0.",
+  "licenza": {
+   "nome": "Open Government Licence v3.0",
+   "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+  },
+  "trovate": {
+   "The full rate of new State Pension is £241.30 a week. Your amount could be different depending on: if you were contracted out before 2016 the number of National Insurance qualifying years you have if you paid into the Additional State Pension before 2016": true,
+   "If your National Insurance record started after April 2016 you will need 35 qualifying years to get the full rate of new State Pension.": true,
+   "If you paid into the Additional State Pension before 2016 and would have got more State Pension under the old rules, you’ll get a ‘protected payment’. This is paid on top of the full rate of new State Pension.": true
+  }
+ },
+ "uk27_guida_bsp": {
+  "chi": "GOV.UK",
+  "titolo": "The basic State Pension",
+  "url": "https://www.gov.uk/state-pension",
+  "http": 200,
+  "letto_il": "2026-11-18",
+  "sha256": "acd026e3e1760b14f12d591b3f87593dfa3f52f2a32942a3118e9f0f0fe3efae",
+  "byte": 103124,
+  "testo": "grezzi/regole2027/uk27_guida_bsp.txt",
+  "originale": null,
+  "attribuzione": "Contains public sector information licensed under the Open Government Licence v3.0.",
+  "licenza": {
+   "nome": "Open Government Licence v3.0",
+   "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+  },
+  "trovate": {
+   "Everyone eligible for the basic State Pension has now reached State Pension age": true,
+   "If you were born on or after these dates, you’ll claim the new State Pension instead.": true
+  }
+ },
+ "uk27_guida_uc": {
+  "chi": "GOV.UK",
+  "titolo": "Universal Credit: What you'll get",
+  "url": "https://www.gov.uk/universal-credit/what-youll-get",
+  "http": 200,
+  "letto_il": "2026-11-18",
+  "sha256": "5b2c4112ff15e460dd855e9cace35a4f60a5eafeddbe510fee9c1fe3fb25c67a",
+  "byte": 111370,
+  "testo": "grezzi/regole2027/uk27_guida_uc.txt",
+  "originale": null,
+  "attribuzione": "Contains public sector information licensed under the Open Government Licence v3.0.",
+  "licenza": {
+   "nome": "Open Government Licence v3.0",
+   "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+  },
+  "trovate": {
+   "Universal Credit is paid monthly . How much you get depends on: your standard allowance any extra amounts that apply to you any money taken off your payment if you’re working, how much you earn": true,
+   "You’ll get one standard allowance for your household.": true,
+   "If you’re single and under 25 £338.58": true
+  }
+ },
+ "uk27_guida_ssp": {
+  "chi": "GOV.UK",
+  "titolo": "Statutory Sick Pay (SSP): What you'll get",
+  "url": "https://www.gov.uk/statutory-sick-pay/what-youll-get",
+  "http": 200,
+  "letto_il": "2026-11-18",
+  "sha256": "0fbf4752582d483e6ca4169e10f5019e19f2f5022335cc09cf19ccbbe1ba88ca",
+  "byte": 70321,
+  "testo": "grezzi/regole2027/uk27_guida_ssp.txt",
+  "originale": null,
+  "attribuzione": "Contains public sector information licensed under the Open Government Licence v3.0.",
+  "licenza": {
+   "nome": "Open Government Licence v3.0",
+   "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+  },
+  "trovate": {
+   "If you’re eligible, you can get £123.25 a week Statutory Sick Pay ( SSP ) or 80% of your normal weekly earnings - whichever is lower. It’s paid for up to 28 weeks.": true,
+   "SSP is paid by your employer in the same way as your normal wages, for example weekly or monthly.": true
   }
  }
 }

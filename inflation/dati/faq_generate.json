@@ -192,6 +192,330 @@
    "domanda": "What is the SIMPLE IRA catch-up contribution?",
    "ricerca": "simple ira catch up contribution",
    "paese": "us"
+  },
+  {
+   "pagina": "heating-oil-prices",
+   "domanda": "How much is heating oil per gallon?",
+   "ricerca": "how much is heating oil per gallon",
+   "paese": "us"
+  },
+  {
+   "pagina": "heating-oil-prices",
+   "domanda": "What are heating oil prices today?",
+   "ricerca": "heating oil prices today",
+   "paese": "us"
+  },
+  {
+   "pagina": "heating-oil-prices",
+   "domanda": "How much does it cost to fill an oil tank?",
+   "ricerca": "cost to fill oil tank",
+   "paese": "us"
+  },
+  {
+   "pagina": "heating-oil-prices",
+   "domanda": "What is the average heating oil price?",
+   "ricerca": "average heating oil price",
+   "paese": "us"
+  },
+  {
+   "pagina": "propane-prices",
+   "domanda": "How much is propane per gallon?",
+   "ricerca": "how much is propane per gallon",
+   "paese": "us"
+  },
+  {
+   "pagina": "propane-prices",
+   "domanda": "What are current propane prices?",
+   "ricerca": "current propane prices",
+   "paese": "us"
+  },
+  {
+   "pagina": "propane-prices",
+   "domanda": "How much does it cost to fill a 500 gallon propane tank?",
+   "ricerca": "cost to fill 500 gallon propane tank",
+   "paese": "us"
+  },
+  {
+   "pagina": "propane-prices",
+   "domanda": "What is the average propane price?",
+   "ricerca": "average propane price",
+   "paese": "us"
+  },
+  {
+   "pagina": "uk_paga",
+   "domanda": "What is the minimum wage for 18 year olds?",
+   "ricerca": "minimum wage for 18 year olds",
+   "paese": "gb"
+  },
+  {
+   "pagina": "uk_paga",
+   "domanda": "What is the minimum wage for 16 year olds?",
+   "ricerca": "minimum wage for 16 year olds",
+   "paese": "gb"
+  },
+  {
+   "pagina": "uk_paga",
+   "domanda": "What is the apprentice minimum wage?",
+   "ricerca": "apprentice minimum wage",
+   "paese": "gb"
+  },
+  {
+   "pagina": "uk_paga",
+   "domanda": "What is the National Living Wage?",
+   "ricerca": "national living wage",
+   "paese": "gb"
+  },
+  {
+   "pagina": "uk_paga",
+   "domanda": "What is the minimum wage as an annual salary?",
+   "ricerca": "minimum wage annual salary",
+   "paese": "gb"
+  },
+  {
+   "pagina": "uk_paga",
+   "domanda": "How much is the minimum wage increase in April 2027?",
+   "ricerca": "minimum wage increase",
+   "paese": "gb"
+  },
+  {
+   "pagina": "uk_pensione",
+   "domanda": "How much is the State Pension?",
+   "ricerca": "how much is state pension",
+   "paese": "gb"
+  },
+  {
+   "pagina": "uk_pensione",
+   "domanda": "How much is the State Pension increase?",
+   "ricerca": "state pension increase",
+   "paese": "gb"
+  },
+  {
+   "pagina": "uk_pensione",
+   "domanda": "What is the new State Pension?",
+   "ricerca": "new state pension",
+   "paese": "gb"
+  },
+  {
+   "pagina": "uk_pensione",
+   "domanda": "What is the full State Pension?",
+   "ricerca": "full state pension",
+   "paese": "gb"
+  },
+  {
+   "pagina": "uk_sussidi",
+   "domanda": "What are the PIP rates?",
+   "ricerca": "pip rates",
+   "paese": "gb"
+  },
+  {
+   "pagina": "uk_sussidi",
+   "domanda": "How much is Universal Credit?",
+   "ricerca": "how much is universal credit",
+   "paese": "gb"
+  },
+  {
+   "pagina": "uk_sussidi",
+   "domanda": "What are the DLA rates?",
+   "ricerca": "dla rates",
+   "paese": "gb"
+  },
+  {
+   "pagina": "uk_sussidi",
+   "domanda": "What are the Attendance Allowance rates?",
+   "ricerca": "attendance allowance rates",
+   "paese": "gb"
+  },
+  {
+   "pagina": "uk_sussidi",
+   "domanda": "What is the Carer’s Allowance rate?",
+   "ricerca": "carers allowance rate",
+   "paese": "gb"
+  },
+  {
+   "pagina": "uk_malattia",
+   "domanda": "How much is Statutory Sick Pay?",
+   "ricerca": "how much is statutory sick pay",
+   "paese": "gb"
+  },
+  {
+   "pagina": "uk_malattia",
+   "domanda": "How much is SSP?",
+   "ricerca": "how much is ssp",
+   "paese": "gb"
+  },
+  {
+   "pagina": "uk_malattia",
+   "domanda": "What is the SSP rate from April 2027?",
+   "ricerca": "ssp rate",
+   "paese": "gb"
+  },
+  {
+   "pagina": "uk_malattia",
+   "domanda": "How much is Statutory Maternity Pay?",
+   "ricerca": "statutory maternity pay",
+   "paese": "gb"
+  },
+  {
+   "pagina": "uk_malattia",
+   "domanda": "How much is Maternity Allowance?",
+   "ricerca": "maternity allowance",
+   "paese": "gb"
+  },
+  {
+   "pagina": "rent_indice",
+   "domanda": "How much can a landlord raise rent?",
+   "ricerca": "how much can a landlord raise rent",
+   "paese": "us"
+  },
+  {
+   "pagina": "rent_indice",
+   "domanda": "How do I calculate a rent increase?",
+   "ricerca": "rent increase calculator",
+   "paese": "us"
+  },
+  {
+   "pagina": "rent_indice",
+   "domanda": "How much can rent increase in a year?",
+   "ricerca": "how much can rent increase",
+   "paese": "us"
+  },
+  {
+   "pagina": "rent_california",
+   "domanda": "How much can a landlord raise rent in California?",
+   "ricerca": "how much can a landlord raise rent in california",
+   "paese": "us"
+  },
+  {
+   "pagina": "rent_california",
+   "domanda": "What is AB 1482?",
+   "ricerca": "ab 1482",
+   "paese": "us"
+  },
+  {
+   "pagina": "rent_california",
+   "domanda": "Does California have rent control?",
+   "ricerca": "california rent control",
+   "paese": "us"
+  },
+  {
+   "pagina": "rent_california",
+   "domanda": "What is the rent increase limit under Los Angeles rent control?",
+   "ricerca": "los angeles rent control",
+   "paese": "us"
+  },
+  {
+   "pagina": "rent_california",
+   "domanda": "What is the San Francisco rent control increase?",
+   "ricerca": "san francisco rent control",
+   "paese": "us"
+  },
+  {
+   "pagina": "rent_california",
+   "domanda": "What is the San Jose rent control limit?",
+   "ricerca": "san jose rent control",
+   "paese": "us"
+  },
+  {
+   "pagina": "rent_nyc",
+   "domanda": "What did the Rent Guidelines Board vote for 2026–27?",
+   "ricerca": "rent guidelines board",
+   "paese": "us"
+  },
+  {
+   "pagina": "rent_nyc",
+   "domanda": "What is the NYC rent increase for stabilized apartments?",
+   "ricerca": "nyc rent increase",
+   "paese": "us"
+  },
+  {
+   "pagina": "rent_nyc",
+   "domanda": "How does rent stabilization work in NYC?",
+   "ricerca": "rent stabilization nyc",
+   "paese": "us"
+  },
+  {
+   "pagina": "rent_nyc",
+   "domanda": "How much can a landlord raise rent in NYC?",
+   "ricerca": "how much can a landlord raise rent in nyc",
+   "paese": "us"
+  },
+  {
+   "pagina": "rent_washington",
+   "domanda": "What is HB 1217 in Washington State?",
+   "ricerca": "hb 1217",
+   "paese": "us"
+  },
+  {
+   "pagina": "rent_washington",
+   "domanda": "Does Washington State have rent control?",
+   "ricerca": "washington state rent control",
+   "paese": "us"
+  },
+  {
+   "pagina": "rent_washington",
+   "domanda": "What is the maximum rent increase in Washington State?",
+   "ricerca": "rent increase washington state",
+   "paese": "us"
+  },
+  {
+   "pagina": "rent_oregon",
+   "domanda": "Does Oregon have rent control?",
+   "ricerca": "oregon rent control",
+   "paese": "us"
+  },
+  {
+   "pagina": "rent_oregon",
+   "domanda": "How much can a landlord raise rent in Oregon?",
+   "ricerca": "how much can a landlord raise rent in oregon",
+   "paese": "us"
+  },
+  {
+   "pagina": "rent_ontario",
+   "domanda": "What is the rent increase in Ontario for 2027?",
+   "ricerca": "rent increase ontario",
+   "paese": "ca"
+  },
+  {
+   "pagina": "rent_ontario",
+   "domanda": "Does Ontario have rent control?",
+   "ricerca": "rent control ontario",
+   "paese": "ca"
+  },
+  {
+   "pagina": "rent_ontario",
+   "domanda": "How much can a landlord raise rent in Ontario?",
+   "ricerca": "how much can a landlord raise rent in ontario",
+   "paese": "ca"
+  },
+  {
+   "pagina": "rent_ontario",
+   "domanda": "How is the Ontario rent increase guideline calculated?",
+   "ricerca": "ontario rent increase guideline",
+   "paese": "ca"
+  },
+  {
+   "pagina": "rent_bc",
+   "domanda": "What is the BC rent increase for 2027?",
+   "ricerca": "bc rent increase",
+   "paese": "ca"
+  },
+  {
+   "pagina": "rent_bc",
+   "domanda": "Does BC have rent control?",
+   "ricerca": "rent control bc",
+   "paese": "ca"
+  },
+  {
+   "pagina": "rent_bc",
+   "domanda": "How do I calculate a rent increase in BC?",
+   "ricerca": "rent increase calculator bc",
+   "paese": "ca"
+  },
+  {
+   "pagina": "rent_stpaul",
+   "domanda": "What is the rent control limit in St. Paul?",
+   "ricerca": "st paul rent control",
+   "paese": "us"
   }
  ]
 }

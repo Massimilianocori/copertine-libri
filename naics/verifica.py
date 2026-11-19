@@ -23,6 +23,10 @@ Uso (dalla radice del repository):
    suo (html.parser, non raccolta/llc.py); ogni cifra scritta da noi (valore, nota, introduzione, FAQ) è in una frase citata dello stesso Stato;
    ogni frase citata e il link alla sua fonte sono nella pagina; pagina solo con volume misurato ≥ 100; Stati esclusi senza pagina; FAQ solo da
    ricerche misurate; nessuna frase di consiglio legale; riquadro dei partner assente finché affiliati.json è spento (nessun nome, nessun link).
+6d. «Auto repair laws by state»: file grezzi dei testi ufficiali in raccolta/_grezzi/officine; ogni frase dei fatti e ogni voce delle checklist
+   è ricercata di nuovo con il lettore di 6c e deve stare nella pagina dentro il suo blocco; ogni cifra nostra è in una frase citata dello stesso
+   Stato (o nel titolo di una sua fonte); pagina solo con una frase misurata; «not legal advice»; link dalle pagine 811111, 811198 e dalla guida
+   auto repair; riquadro «Running a repair shop?» assente e nome del partner mai in pagina finché è spento, link vuoto in affiliati.json.
 8. Monetizzazione: monetizzazione.controlla_sito("naics").
 """
 import hashlib
@@ -79,13 +83,34 @@ LLC = carica("llc-stati.json")
 LLCF = carica("llc-fonti.json")["fonti"]
 VOLL = carica(FILE_VOLUMI_LLC)
 AFF = carica("affiliati.json")["avvio"]
+FILE_VOLUMI_OFFICINE = "volumi-officine-2026-11-19.json"  # = genera.py
+MIN_VOLUME_OFFICINE = 20  # = genera.py
+OFF = carica("officine-stati.json")
+OFFF = carica("officine-fonti.json")["fonti"]
+VOLO = carica(FILE_VOLUMI_OFFICINE)
+AFFO = carica("affiliati.json")["officine"]
+HOST_OFFICINE = ("www.leg.state.fl.us", "www.fdacs.gov", "app.leg.wa.gov", "www.revisor.mn.gov", "www.bar.ca.gov", "www.legislature.mi.gov", "dmv.ny.gov")
 # link esterni delle pagine LLC: solo gli host delle pagine ufficiali registrate in llc-stati.json
 DOMINI_ESTERNI += sorted({re.match(r"https://([^/]+)", f["url"]).group(1) for f in LLC["fonti"].values()})
+DOMINI_ESTERNI += sorted({re.match(r"https://([^/]+)", f["url"]).group(1) for f in OFF["fonti"].values()})
 
 
 def vol_frase(f):
     v = VOLA["frasi"].get(f, {}).get("volume")
     return v if v is not None else (VOL["frasi"].get(f, {}).get("volume") or 0)
+
+
+def volume_off(s):
+    """Volume della frase più cercata di uno Stato della sezione officine (frasi chieste o restituite come simili)."""
+    vol = {}
+    for f, v in VOLO["frasi"].items():
+        for x, n in (v.get("simili") or {}).items():
+            if n:
+                vol.setdefault(x, n)
+    for f, v in VOLO["frasi"].items():
+        if v.get("volume"):
+            vol[f] = v["volume"]
+    return max((vol.get(f, 0) for f in s["frasi"]), default=0)
 
 
 def misurate():
@@ -95,7 +120,7 @@ def misurate():
         if v.get("volume"):
             out.add(f)
         out |= {x for x, n in (v.get("simili") or {}).items() if n}
-    for f, v in VOLL["frasi"].items():
+    for f, v in list(VOLL["frasi"].items()) + list(VOLO["frasi"].items()):
         if v.get("volume"):
             out.add(f)
         out |= {x for x, n in (v.get("simili") or {}).items() if n}
@@ -532,7 +557,7 @@ def controlla_pagine():
             href = unescape(href)
             if href.startswith(("http://", "https://")):
                 host = re.match(r"https?://([^/]+)", href).group(1)
-                partner = AFF["attivo"] and any(x["attivo"] for x in AFF["partner"]) and MON.dominio_ammesso(href)  # link del riquadro acceso
+                partner = any(a["attivo"] and any(x["attivo"] for x in a["partner"]) for a in (AFF, AFFO)) and MON.dominio_ammesso(href)  # link di un riquadro acceso
                 if not partner and not any(host == d or host.endswith("." + d) for d in DOMINI_ESTERNI):
                     errore(f"{rel}: link esterno non previsto {host}")
                 continue
@@ -632,6 +657,13 @@ def controlla_faq():
         if x["q"] in domande:
             errore(f"FAQ LLC «{x['q'][:40]}»: domanda doppia")
         domande[x["q"]] = x
+    faq_off = [x for s in OFF["stati"] if volume_off(s) >= MIN_VOLUME_OFFICINE for x in s["faq"]] + OFF["indice"]["faq"]
+    for x in faq_off:
+        if x["ricerca"] not in MISURATE:
+            errore(f"FAQ officine «{x['q'][:40]}»: ricerca «{x['ricerca']}» senza volume misurato")
+        if x["q"] in domande:
+            errore(f"FAQ officine «{x['q'][:40]}»: domanda doppia")
+        domande[x["q"]] = x
     n, pagine_faq = 0, 0
     for p in pagine_html():
         html = p.read_text(encoding="utf-8")
@@ -658,8 +690,8 @@ def controlla_faq():
                 for cod, tt in re.findall(r"(?<![\d-])(\d{2,6}(?:-\d{2})?) «([^»]+)»", a):
                     if not ((cod in C and C[cod]["t"] == tt) or (cod in NA["sic"] and NA["sic"][cod]["t"] == tt) or NA["gruppi_sic"].get(cod) == tt):
                         errore(f"{p.relative_to(SITO)}: FAQ con un titolo non ufficiale per {cod}")
-    if n != len(FAQ) + len(faq_llc):
-        errore(f"FAQ: {n} nelle pagine, {len(FAQ)} in faq.json + {len(faq_llc)} in llc-stati.json")
+    if n != len(FAQ) + len(faq_llc) + len(faq_off):
+        errore(f"FAQ: {n} nelle pagine, {len(FAQ)} in faq.json + {len(faq_llc)} in llc-stati.json + {len(faq_off)} in officine-stati.json")
     print(f"FAQ: {n} domande in {pagine_faq} pagine, tutte da ricerche vere ({len(sugg)} suggerimenti salvati il {DOM['letto_il']}, "
           f"{len(MISURATE)} frasi con volume misurato; nelle pagine attività solo ricerche misurate); "
           "JSON-LD FAQPage = testo visibile e solo dove ci sono FAQ")
@@ -1033,6 +1065,172 @@ def controlla_llc():
           f"ufficiali, {n_frasi} frasi citate ritrovate nei file grezzi e nelle pagine, ogni cifra nostra in una frase citata; testo in comune tra due Stati "
           f"al massimo {peggio:.0%}; riquadro dei partner {'ACCESO in ' + str(con_riquadro) + ' pagine' if acceso else 'spento: nessun nome e nessun link in nessuna pagina'}")
 
+# ---------------------------------------------------------------- 6d. «Auto repair laws by state» e riquadro «Running a repair shop?»
+ETICHETTE_OFF = {"estimate", "authorization", "invoice", "parts", "registration", "records"}
+GRUPPI_OFF = ["estimate", "authorization", "invoice", "parts", "shop"]
+LEGALE_OFF = re.compile(r"\b(you should|we recommend|we advise|our advice|you must hire|you need a lawyer|is compliant|will be compliant|legally safe|"
+                        r"you can sue|you do not have to pay|you don't have to pay)\b", re.I)
+
+
+def controlla_officine():
+    grezzi = GREZZI / "officine"
+    testi = {}
+    for fid, f in OFF["fonti"].items():
+        reg = OFFF.get(fid)
+        host = re.match(r"https://([^/]+)", f["url"]).group(1)
+        if host not in HOST_OFFICINE:
+            errore(f"officine, fonte {fid}: {host} non è tra i siti ufficiali ammessi")
+        if not reg or reg["url"] != f["url"] or reg.get("http") != 200:
+            errore(f"officine, fonte {fid}: non letta o indirizzo diverso da officine-fonti.json (lanciare raccolta/officine.py)")
+            continue
+        p = grezzi / reg["file"]
+        if not p.exists():
+            errore(f"officine, fonte {fid}: file grezzo assente ({p.name}): lanciare raccolta/officine.py")
+            continue
+        if f["tipo"] == "pdf":
+            testi[fid] = stretto(subprocess.run(["pdftotext", "-layout", str(p), "-"], capture_output=True, text=True).stdout)
+        else:
+            lettore = _Testo()
+            lettore.feed(p.read_text(encoding="utf-8", errors="replace"))
+            testi[fid] = stretto("".join(lettore.pezzi))
+        if (date.today() - date.fromisoformat(reg["letto_il"])).days > 45:
+            AVV.append(f"officine, fonte {fid}: letta il {reg['letto_il']}, più di 45 giorni fa (rilanciare raccolta/officine.py --rete)")
+    usate, pubblicati, n_frasi, n_voci = set(), set(), 0, 0
+    for s in OFF["stati"]:
+        vol = volume_off(s)
+        html = leggi_pagina(f"/auto-repair-laws/{s['slug']}/")
+        if bool(html) != (vol >= MIN_VOLUME_OFFICINE):
+            errore(f"officine {s['slug']}: pagina {'presente' if html else 'assente'} con volume misurato {vol}")
+        if not html:
+            continue
+        pubblicati.add(s["slug"])
+        vis = visibile(html)
+        if {f["id"] for f in s["fatti"]} - ETICHETTE_OFF or not {"estimate", "authorization", "invoice", "parts"} <= {f["id"] for f in s["fatti"]}:
+            errore(f"officine {s['slug']}: fatti sconosciuti o mancanti (servono preventivo, autorizzazione, fattura, ricambi)")
+        if [g["id"] for g in s["checklist"]] != GRUPPI_OFF:
+            errore(f"officine {s['slug']}: gruppi della checklist diversi da {GRUPPI_OFF}")
+        citate, fonti_stato = set(), set()
+        blocchi = [re.sub(r"^… ", "", unescape(x)) for x in re.findall(r'<blockquote class="legge">(.*?)<cite>', html, re.S)]  # «… » davanti = pezzo preso a metà frase (lo mette genera.py)
+        righe = re.findall(r'<q data-f="([^"]+)">(.*?)</q>', html, re.S)
+        righe = [(a, unescape(b)) for a, b in righe]
+        check = re.search(r'<section class="check" id="checklist".*?</section>', html, re.S)
+        if not check or "data-stampa" not in check.group(0):
+            errore(f"officine {s['slug']}: checklist o pulsante di stampa assente")
+        for f in s["fatti"]:
+            for c in f["citazioni"]:
+                n_frasi += 1
+                usate.add(c["fonte"]); fonti_stato.add(c["fonte"])
+                if stretto(c["testo"]) not in testi.get(c["fonte"], ""):
+                    errore(f"officine {s['slug']}: frase non ritrovata nel file grezzo di {c['fonte']} («{c['testo'][:60]}»)")
+                if c["testo"] not in blocchi:
+                    errore(f"officine {s['slug']}: frase citata assente dalla pagina («{c['testo'][:60]}»)")
+                citate |= cifre(c["testo"])
+            for k in ("valore", "nota", "breve"):
+                if unescape(f[k]) not in vis:
+                    errore(f"officine {s['slug']}: {k} del fatto {f['id']} assente dalla pagina")
+        voci = [c for g in s["checklist"] for c in g["voci"]]
+        for c in voci:
+            n_voci += 1
+            usate.add(c["fonte"]); fonti_stato.add(c["fonte"])
+            if stretto(c["testo"]) not in testi.get(c["fonte"], ""):
+                errore(f"officine {s['slug']}: voce della checklist non ritrovata nel file grezzo di {c['fonte']} («{c['testo'][:60]}»)")
+            if (c["fonte"], c["testo"]) not in righe:
+                errore(f"officine {s['slug']}: voce della checklist assente dalla pagina («{c['testo'][:60]}»)")
+            m = re.search(r"\d[\d.]*[A-Z]?\.?\d*", c["rif"])
+            if m and stretto(m.group(0).rstrip(".")) not in testi.get(c["fonte"], "") and m.group(0).rstrip(".") not in OFF["fonti"][c["fonte"]]["titolo"]:
+                errore(f"officine {s['slug']}: il riferimento «{c['rif']}» non è nel testo né nel titolo della fonte {c['fonte']}")
+            citate |= cifre(c["testo"])
+        if len(righe) != len(voci):
+            errore(f"officine {s['slug']}: {len(righe)} righe di checklist in pagina, {len(voci)} nei dati (nessuna riga può essere scritta da noi)")
+        for fid in fonti_stato:
+            if f'href="{OFF["fonti"][fid]["url"].replace("&", "&amp;")}"' not in html:
+                errore(f"officine {s['slug']}: manca il link alla fonte {fid}")
+            t = cifre(OFF["fonti"][fid]["titolo"])
+            citate |= t | {x.split(".")[0] for x in t}
+        nostri = ([s["intro"], s["titolo"], s["legge"]] + [f[k] for f in s["fatti"] for k in ("valore", "breve", "nota")]
+                  + [g["titolo"] for g in s["checklist"]] + [x[k] for x in s["faq"] for k in ("q", "a")])
+        for t in nostri:
+            if cifre(t) - citate:
+                errore(f"officine {s['slug']}: cifra {sorted(cifre(t) - citate)} non presente in nessuna frase citata («{t[:50]}»)")
+            if LEGALE_OFF.search(t):
+                errore(f"officine {s['slug']}: frase che sembra un consiglio («{LEGALE_OFF.search(t).group(0)}»)")
+        if "not legal advice" not in vis:
+            errore(f"officine {s['slug']}: manca «information, not legal advice»")
+        if f"<title>{s['titolo'].replace('&', '&amp;')}</title>" not in html:
+            errore(f"officine {s['slug']}: titolo diverso dai dati")
+        for x in s["faq"]:
+            if unescape(x["a"]) not in vis:
+                errore(f"officine {s['slug']}: risposta della FAQ «{x['q'][:40]}» assente dalla pagina")
+    for fid in set(OFF["fonti"]) - usate:
+        errore(f"officine, fonte {fid}: registrata ma non citata")
+    cart = SITO / "auto-repair-laws"
+    for d in (cart.iterdir() if cart.exists() else []):
+        if d.is_dir() and d.name not in pubblicati:
+            errore(f"officine: cartella inattesa auto-repair-laws/{d.name}")
+    indice = leggi_pagina("/auto-repair-laws/") or ""
+    vi_ = visibile(indice)
+    for s in OFF["stati"]:
+        if s["slug"] in pubblicati:
+            if f'href="/auto-repair-laws/{s["slug"]}/"' not in indice:
+                errore(f"officine, indice: manca {s['slug']}")
+            for f in s["fatti"]:
+                if f["id"] != "records" and unescape(f["breve"]) not in vi_:
+                    errore(f"officine, indice: manca «{f['breve']}» di {s['slug']}")
+    if "not legal advice" not in vi_:
+        errore("officine, indice: manca «information, not legal advice»")
+    for f in OFF["indice"]["frasi"]:
+        if f not in MISURATE:
+            errore(f"officine, indice: frase «{f}» senza volume misurato")
+    for u in ("/811111/", "/811198/", "/naics-code-for-auto-repair/"):
+        if 'href="/auto-repair-laws/"' not in re.sub(r"<footer.*?</footer>", " ", leggi_pagina(u) or "", flags=re.S):
+            errore(f"officine: {u} non rimanda alla sezione")
+    sm = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    for u in ["auto-repair-laws/"] + [f"auto-repair-laws/{x}/" for x in sorted(pubblicati)]:
+        if f"/{u}</loc>" not in sm:
+            errore(f"officine: {u} assente dalla sitemap")
+    # testo in comune tra le pagine degli Stati (frasi citate comprese): ogni pagina deve avere testo suo
+    g = {x: gruppi5(leggi_pagina(f"/auto-repair-laws/{x}/")) for x in sorted(pubblicati)}
+    conta = Counter(x for v in g.values() for x in v)
+    peggio = 0.0
+    for a, ga in g.items():
+        proprie = sum(1 for x in ga if conta[x] == 1)
+        q = max((len(ga & gb) / len(ga) for b, gb in g.items() if b != a), default=0)
+        peggio = max(peggio, q)
+        if proprie < 300 or q >= 0.55:
+            errore(f"officine {a}: {proprie} gruppi di parole propri, {q:.0%} in comune con un'altra pagina di Stato")
+    # riquadro del partner: spento finché non esiste un link vero
+    acceso = AFFO["attivo"] and any(x["attivo"] for x in AFFO["partner"])
+    nomi = [x["nome"] for x in AFFO["partner"]]
+    con_riquadro = 0
+    for x in AFFO["partner"]:
+        if x["attivo"] and not x["link"].startswith("https://"):
+            errore(f"affiliati.json, officine: {x['id']} attivo senza link")
+        if x["link"] and not MON.dominio_ammesso(x["link"]):
+            errore(f"affiliati.json, officine: il dominio del link di {x['id']} non è in monetizzazione.json")
+    for p in pagine_html():
+        html = p.read_text(encoding="utf-8")
+        rel = str(p.relative_to(SITO))
+        riquadri = re.findall(r'<aside class="partner" data-partner="officine".*?</aside>', html, re.S)
+        if not acceso:
+            if riquadri or any(x in html for x in nomi):
+                errore(f"{rel}: riquadro «Running a repair shop?» o nome del partner con affiliati.json spento")
+            continue
+        con_riquadro += bool(riquadri)
+        if any(x in visibile(re.sub(r'<aside class="partner".*?</aside>', " ", html, flags=re.S)) for x in nomi):
+            errore(f"{rel}: nome del partner fuori dal riquadro")
+        for q in riquadri:
+            if "Advertisement" not in q or AFFO["trasparenza"] not in unescape(q):
+                errore(f"{rel}: riquadro del partner senza la dicitura di pubblicità")
+            for a in re.findall(r"<a\b[^>]*>", q):
+                rl = set(re.search(r'rel="([^"]*)"', a).group(1).split()) if 'rel="' in a else set()
+                if not {"sponsored", "nofollow", "noopener"} <= rl or not MON.dominio_ammesso(unescape(re.search(r'href="([^"]*)"', a).group(1))):
+                    errore(f"{rel}: link del riquadro senza rel=\"sponsored nofollow noopener\" o verso un dominio non ammesso")
+    if acceso and not con_riquadro:
+        errore("riquadro «Running a repair shop?» acceso ma assente dalle pagine")
+    print(f"Auto repair laws by state: {len(pubblicati)} Stati + indice, {len(testi)} testi ufficiali, {n_frasi} frasi dei fatti e {n_voci} voci delle checklist "
+          f"ritrovate nei file grezzi e nelle pagine, ogni cifra nostra in una frase citata; testo in comune tra due Stati al massimo {peggio:.0%}; "
+          f"riquadro «Running a repair shop?» {'ACCESO in ' + str(con_riquadro) + ' pagine' if acceso else 'spento: nessun nome e nessun link in nessuna pagina'}")
+
 
 VIETATE = re.compile(r"\b(claude|anthropic|openai|chatgpt|gpt-?\d|gemini|llama|mistral|copilot|opus|sonnet|haiku)\b", re.I)
 PERSONALI = re.compile(r"massimiliano|\bcori\b|@gmail|@outlook|@libero", re.I)
@@ -1068,6 +1266,9 @@ def controlla_testi():
         if str(p.relative_to(SITO)).startswith("llc/"):
             # frasi ufficiali degli Stati citate parola per parola (controllate sui file grezzi in controlla_llc)
             html = re.sub(r'<blockquote class="legge">.*?</blockquote>', " ", html, flags=re.S)
+        if str(p.relative_to(SITO)).startswith("auto-repair-laws/"):
+            # testi ufficiali citati parola per parola (controllati sui file grezzi in controlla_officine)
+            html = re.sub(r'<blockquote class="legge">.*?</blockquote>|<q data-f="[^"]*">.*?</q>', " ", html, flags=re.S)
         v = visibile(html)
         if CONSIGLI.search(v):
             errore(f"{p.relative_to(SITO)}: frase che sembra un consiglio («{CONSIGLI.search(v).group(0)}»)")
@@ -1094,7 +1295,7 @@ def controlla_monetizzazione():
     e, info = MON.controlla_sito("naics", SITO)
     for x in e:
         errore("monetizzazione: " + x)
-    if info["link_affiliati"] and not (AFF["attivo"] and any(x["attivo"] for x in AFF["partner"])):
+    if info["link_affiliati"] and not any(a["attivo"] and any(x["attivo"] for x in a["partner"]) for a in (AFF, AFFO)):
         errore("link di affiliazione presenti con il riquadro dei partner spento")
     senza = sum(1 for p in pagine_html() if MON.SEGNO_SENZA_ADSENSE in p.read_text(encoding="utf-8"))
     print(MON.riepilogo("naics", info, e) + f"; pagine senza pubblicità (noindex o poco testo): {senza}")
@@ -1102,7 +1303,9 @@ def controlla_monetizzazione():
 
 # ---------------------------------------------------------------- 9. browser
 PAGINE_BROWSER = ["/", "/541511/", "/425120/", "/812113/", "/5415/", "/sic-to-naics/", "/naics-2017-to-2022/", "/how-we-check/", "/naics-code-for/",
-                  "/naics-code-for-restaurant/", "/naics-code-for-manufacturing/", "/llc/", "/llc/texas/", "/llc/new-york/", "/llc/michigan/"]
+                  "/naics-code-for-restaurant/", "/naics-code-for-manufacturing/", "/llc/", "/llc/texas/", "/llc/new-york/", "/llc/michigan/",
+                  "/auto-repair-laws/", "/auto-repair-laws/florida/", "/auto-repair-laws/california/", "/auto-repair-laws/michigan/",
+                  "/auto-repair-laws/new-york/", "/auto-repair-laws/washington/", "/auto-repair-laws/minnesota/", "/811111/", "/naics-code-for-auto-repair/"]
 
 
 def controlla_browser():
@@ -1235,6 +1438,7 @@ def main():
     controlla_indicizzazione()
     controlla_attivita()
     controlla_llc()
+    controlla_officine()
     controlla_testi()
     controlla_monetizzazione()
     if "--browser" in sys.argv:

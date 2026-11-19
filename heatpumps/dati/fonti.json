@@ -44,6 +44,39 @@
    "tipo": "xlsx",
    "licenza": "Open Government Licence v3.0"
   },
+  "gbis_xlsx": {
+   "url": "https://assets.publishing.service.gov.uk/media/6a3bab81d52550a19950f2f2/GBIS_Release_June_2026.xlsx",
+   "pagina": "https://www.gov.uk/government/statistics/great-british-insulation-scheme-release-june-2026",
+   "titolo": "Great British Insulation Scheme statistics (Excel workbook)",
+   "chi": "DESNZ, data from Ofgem",
+   "file": "gbis.xlsx",
+   "titolo_allegato": "Great British Insulation Scheme statistics: June 2026 (Excel)",
+   "uscita": "Great British Insulation Scheme release: June 2026",
+   "tipo": "xlsx",
+   "licenza": "Open Government Licence v3.0"
+  },
+  "whlg_xlsx": {
+   "url": "https://assets.publishing.service.gov.uk/media/6a8ebcbbf5b35599aec18dca/Warm_Homes_Local_Grant_Statistics_-_August_2026.xlsx",
+   "pagina": "https://www.gov.uk/government/statistics/warm-homes-local-grant-statistics-august-2026",
+   "titolo": "Warm Homes: Local Grant statistics (Excel workbook)",
+   "chi": "DESNZ, data reported by the councils that run the grant",
+   "file": "whlg.xlsx",
+   "titolo_allegato": "Warm Homes: Local Grant statistics data tables - August 2026",
+   "uscita": "Warm Homes: Local Grant statistics - August 2026",
+   "tipo": "xlsx",
+   "licenza": "Open Government Licence v3.0"
+  },
+  "hee_xlsx": {
+   "url": "https://assets.publishing.service.gov.uk/media/6a3d1d12da47783d87723a8f/Headline_HEE_tables_June_2026.xlsx",
+   "pagina": "https://www.gov.uk/government/statistics/household-energy-efficiency-statistics-headline-release-june-2026",
+   "titolo": "Household Energy Efficiency statistics, headline tables (Excel workbook)",
+   "chi": "DESNZ, data from Ofgem",
+   "file": "hee.xlsx",
+   "titolo_allegato": "Headline HEE release tables, June 2026 (Excel)",
+   "uscita": "Household Energy Efficiency Statistics, headline release June 2026",
+   "tipo": "xlsx",
+   "licenza": "Open Government Licence v3.0"
+  },
   "gov_apply": {
    "url": "https://www.gov.uk/apply-boiler-upgrade-scheme",
    "titolo": "Apply for the Boiler Upgrade Scheme",
@@ -120,6 +153,204 @@
     "can only be installed in properties with no connection to the gas grid"
    ]
   },
+  "gov_eco": {
+   "url": "https://www.gov.uk/energy-company-obligation",
+   "titolo": "Help from your energy supplier: the Energy Company Obligation",
+   "chi": "GOV.UK",
+   "tipo": "pagina",
+   "cerca": [
+    "You might be able to get help for energy-saving improvements to your home if you either:",
+    "claim certain benefits and live in private housing (for example you own your home or rent from a private landlord)",
+    "insulation work, for example to your loft or cavity walls",
+    "replacing or repairing your boiler - or other upgrades to your heating",
+    "Universal Credit",
+    "Pension Guarantee Credit",
+    "Pension Savings Credit",
+    "Income Support",
+    "income-based Jobseeker's Allowance",
+    "income-related Employment and Support Allowance",
+    "Child Benefit",
+    "Housing Benefit",
+    "If you own your house, it must have an energy efficiency rating of D, E, F or G to be eligible.",
+    "If you rent from a private landlord, the house must have an energy efficiency rating of E, F or G to be eligible.",
+    "You must have the owner's permission to do the work.",
+    "If you live in social housing that has an energy efficiency rating of E, F or G you might be eligible for help with insulation or installing a heating system for the first time.",
+    "The Energy Company Obligation scheme is closing on 31 December 2026.",
+    "Contact your local council to find out if they're taking part in the Energy Company Obligation scheme, or contact an energy supplier directly.",
+    "Installers or agents might contact you directly.",
+    "If you're not sure if an offer is genuine, contact your local council or the energy supplier they represent to check.",
+    "There are quality issues with some solid wall insulation fitted through the Energy Company Obligation scheme."
+   ]
+  },
+  "ofgem_eco": {
+   "url": "https://www.ofgem.gov.uk/environmental-and-social-schemes/energy-company-obligation-eco",
+   "titolo": "Energy Company Obligation (ECO)",
+   "chi": "Ofgem",
+   "tipo": "pagina",
+   "cerca": [
+    "The Energy Company Obligation (ECO) is a government energy efficiency scheme in Great Britain designed to tackle fuel poverty and help reduce carbon emissions.",
+    "ECO4 applies to measures installed from 1 April 2022 and will run until 31 December 2026, following a nine-month extension.",
+    "The ECO scheme works by placing a Home Heating Cost Reduction Obligation (HHCRO) on medium and large energy suppliers.",
+    "Under HHCRO, obligated suppliers must promote measures that improve the ability of low-income, fuel-poor and vulnerable households to heat their homes.",
+    "We administer ECO4 on behalf of DESNZ."
+   ]
+  },
+  "gov_gbis": {
+   "url": "https://www.gov.uk/apply-great-british-insulation-scheme",
+   "titolo": "The Great British Insulation Scheme",
+   "chi": "GOV.UK",
+   "tipo": "pagina",
+   "cerca": [
+    "The Great British Insulation Scheme helps people get free or cheaper insulation to reduce their home's energy bills.",
+    "Installations must be complete by 31 March 2026, when the scheme ends.",
+    "There are quality issues with some solid wall insulation fitted through the Great British Insulation Scheme."
+   ]
+  },
+  "ofgem_gbis": {
+   "url": "https://www.ofgem.gov.uk/environmental-and-social-schemes/great-british-insulation-scheme",
+   "titolo": "Great British Insulation Scheme",
+   "chi": "Ofgem",
+   "tipo": "pagina",
+   "cerca": [
+    "This scheme is now closed to new installations.",
+    "The Great British Insulation Scheme delivered improvements to the least energy-efficient homes in Great Britain to tackle fuel poverty and help reduce energy bills.",
+    "The scheme complements the Energy Company Obligation (ECO4) scheme, yet unlike ECO4's 'whole house' approach, this scheme will mostly deliver single insulation measures.",
+    "As well as supporting low-income and vulnerable households, it was also available to those living in homes with an Energy Performance Certificate rating of D-G, and within Council Tax bands A-D in England and A-E in Scotland and Wales.",
+    "The scheme began in April 2023 and ended on 31 March 2026."
+   ]
+  },
+  "gov_whlg": {
+   "url": "https://www.gov.uk/apply-warm-homes-local-grant",
+   "titolo": "Apply for the Warm Homes: Local Grant to improve a home",
+   "chi": "GOV.UK",
+   "tipo": "pagina",
+   "cerca": [
+    "You could get free energy saving improvements made to your home if you're on a low income, getting certain benefits or living in a certain postcode area.",
+    "The Warm Homes: Local Grant is only available in England.",
+    "wall, loft and underfloor insulation",
+    "air source heat pumps",
+    "smart controls",
+    "solar panels",
+    "Your local council will then organise and pay for any improvement work they've agreed with you.",
+    "You will not need to pay for it.",
+    "If you have a landlord, they may need to pay for some of the improvements.",
+    "be privately owned (either by you or your landlord)",
+    "have an Energy Performance Certificate (EPC) of D, E, F or G",
+    "Your household income must usually be £36,000 a year or less.",
+    "you live in a certain postcode area",
+    "someone in your household is getting certain benefits",
+    "Your local council will usually contact you within 10 working days to get more information and arrange a home survey."
+   ]
+  },
+  "hmrc_vat": {
+   "url": "https://www.gov.uk/guidance/vat-on-energy-saving-materials-and-heating-equipment-notice-7086",
+   "titolo": "Energy-saving materials and heating equipment (VAT Notice 708/6)",
+   "chi": "HM Revenue & Customs, GOV.UK",
+   "tipo": "pagina",
+   "cerca": [
+    "A zero rate applies to the installation of certain specified energy-saving materials from 1 May 2023 to 31 March 2027.",
+    "solar panels (read section 2.11)",
+    "batteries for storing energy converted from electricity",
+    "From 1 April 2027 onwards, supplies of installations of energy-saving materials will revert to the reduced rate of VAT of 5%.",
+    "Energy-saving materials, when installed in residential accommodation"
+   ]
+  },
+  "ofgem_seg": {
+   "url": "https://www.ofgem.gov.uk/environmental-and-social-schemes/smart-export-guarantee-seg",
+   "titolo": "Smart Export Guarantee (SEG)",
+   "chi": "Ofgem",
+   "tipo": "pagina",
+   "cerca": [
+    "The SEG launched on 1 January 2020 and is a government-backed initiative.",
+    "The SEG requires some electricity suppliers, known as SEG Licensees, to pay small-scale generators, known as SEG Generators, for low-carbon electricity which they export back to the National Grid, providing certain criteria are met.",
+    "SEG Licensees determine the rate, contract length and other terms which SEG Generators will receive.",
+    "SEG tariff rates must always be above zero.",
+    "SEG payments are calculated by using export meter readings.",
+    "Installations must be located in Great Britain and meet the applicable eligibility criteria.",
+    "Generators thinking of applying for a SEG tariff should shop around to see which tariff is best for their individual circumstances."
+   ]
+  },
+  "hes_grant": {
+   "url": "https://www.homeenergyscotland.org/home-energy-scotland-grant-loan",
+   "titolo": "Home Energy Scotland: funding for homeowners",
+   "chi": "Home Energy Scotland, funded by the Scottish Government",
+   "tipo": "pagina",
+   "cerca": [
+    "For heating systems such as heat pumps and heat network connections, grant funding of up to £7,500 is available",
+    "For energy efficiency measures such as insulation, grant funding is available up to 75% of the combined cost of measures up to a maximum grant amount of £7,500.",
+    "An uplift of £1,500 is available for rural and island homes to both the heating and energy efficiency grants, meaning rural households can claim up to £18,000 in grant funding.",
+    "the property is an existing property located in Scotland and you are the homeowner – you own the home you live in and it is your only or primary private residence.",
+    "You do not need to be in receipt of benefits to qualify",
+    "Only heat pumps that provide 100% of heating and hot water requirements are eligible for funding.",
+    "Hybrid heat pumps, air-to-air heat pumps and exhaust air heat pumps are not eligible for funding.",
+    "Solid wall insulation (external and internal) £2,500 £7,500",
+    "Flat roof or room-in-roof insulation £1,000 £3,000",
+    "Loft, cavity and underfloor insulation £500 £1,500",
+    "Heating controls £150 £450",
+    "Solar thermal £5,000 Not available",
+    "Hybrid solar PV / water heating¹ £5,000 Not available",
+    "Funding is allocated on a first-come, first-served basis and is subject to availability.",
+    "Funding agreements are valid for nine months.",
+    "you must use both a Microgeneration Certification Scheme (MCS) installer",
+    "a free advice service funded by the Scottish Government",
+    "0808 808 2282",
+    "You'll need a valid Energy Performance Certificate (EPC) if you want to apply for funding for energy efficiency improvements."
+   ]
+  },
+  "hes_whs": {
+   "url": "https://www.homeenergyscotland.org/warmer-homes-scotland",
+   "titolo": "Warmer Homes Scotland",
+   "chi": "Home Energy Scotland, for the Scottish Government",
+   "tipo": "pagina",
+   "cerca": [
+    "The Scottish Government's Warmer Homes Scotland programme offers support worth £10,000 or more for eligible households for energy-saving home improvements like heating and insulation to help make your home warmer and cheaper to heat.",
+    "Be a homeowner or the tenant of a private-sector landlord.",
+    "Live in the home as your main residence.",
+    "Have lived there for at least six months",
+    "Live in a home with a poor energy rating.",
+    "Live in a home with a floor area of 230m2 or less (typically up to five bedrooms).",
+    "Live in a home where the council tax band is A - G.",
+    "Eligible households must include either a person who is aged 75 and over with no working heating, a person who has a DS1500 or BASRiS certificate completed by a medical professional, or a person who receives at least one of the passport benefits",
+    "The work is done by Warmworks' installers and in most cases, the Scottish Government will meet all the costs.",
+    "central heating (including electric storage heater, new gas boiler or air source heat pump)",
+    "installing a home renewables system",
+    "You cannot get funding for work that's already completed.",
+    "Warmworks will need your landlord's permission before any energy-saving home improvements can be installed."
+   ]
+  },
+  "wales_nest": {
+   "url": "https://www.gov.wales/get-help-energy-efficiency-your-home-nest",
+   "titolo": "Get help with energy efficiency in your home from Nest",
+   "chi": "Welsh Government (GOV.WALES)",
+   "tipo": "pagina",
+   "cerca": [
+    "Nest is a Welsh Government scheme which provides free advice and home improvements to help you save energy and money.",
+    "Nest free on 0808 808 2244",
+    "Calls and emails are welcomed in Welsh.",
+    "If your property is without heating or hot water, you may be eligible for a repair or replacement to boilers or electric storage heaters."
+   ]
+  },
+  "wales_nest_free": {
+   "url": "https://www.gov.wales/get-free-home-energy-efficiency-improvements-nest",
+   "titolo": "Get free home energy efficiency improvements: Nest",
+   "chi": "Welsh Government (GOV.WALES)",
+   "tipo": "pagina",
+   "cerca": [
+    "Nest can confirm if you are eligible for a package of free home energy efficiency improvements such as: heat pump insulation solar panels"
+   ]
+  },
+  "nid_grants": {
+   "url": "https://www.nidirect.gov.uk/articles/energy-saving-grants-your-area",
+   "titolo": "Energy saving grants in your area",
+   "chi": "nidirect, Northern Ireland Government",
+   "tipo": "pagina",
+   "cerca": [
+    "The Affordable Warmth Scheme aims to help with the effects of fuel poverty and energy inefficiency.",
+    "It is run by the Northern Ireland Housing Executive (NIHE).",
+    "NI Energy Advice offers independent and impartial energy advice to domestic householders in Northern Ireland - plus referrals to energy grants and other sources of help.",
+    "The Northern Ireland Sustainable Energy Programme fund is collected from all Northern Ireland electricity customers through a public service obligation."
+   ]
+  },
   "mcs_find": {
    "url": "https://mcscertified.com/find-an-installer/",
    "titolo": "Find an MCS certified installer",
@@ -131,35 +362,56 @@
  "fonti": {
   "bus_xlsx": {
    "http": 200,
-   "letto_il": "2026-11-12",
+   "letto_il": "2026-11-13",
    "sha256": "0311344a6f2266656ee157086dd7560e6fe770e6944580ce0e5d980711b5771c",
    "byte": 1143204,
    "pubblicato": "2026-10-29T09:30:16+00:00"
   },
   "solare_la_xlsx": {
    "http": 200,
-   "letto_il": "2026-11-12",
+   "letto_il": "2026-11-13",
    "sha256": "ac5cc6731685c2b24a479f22d019a10577053dc2d65ae12a792f44d5b36ae50e",
    "byte": 3446115,
    "pubblicato": "2026-09-29T09:30:05+01:00"
   },
   "solare_costi_xlsx": {
    "http": 200,
-   "letto_il": "2026-11-12",
+   "letto_il": "2026-11-13",
    "sha256": "1ce7ec3a9671fac704d313f07ee127de1fd0776e312ded7257d219131a45a1ca",
    "byte": 86279,
    "pubblicato": "2026-05-28T09:30:12+01:00"
   },
   "solare_et63_xlsx": {
    "http": 200,
-   "letto_il": "2026-11-12",
+   "letto_il": "2026-11-13",
    "sha256": "6fd2739dda6fbe44c205835c74794f371dcb64190c8b31b9e8944bb4fc943167",
    "byte": 883330,
    "pubblicato": "2026-11-12T09:30:14+00:00"
   },
+  "gbis_xlsx": {
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "sha256": "e1ebcf885663c8ba5734ed3952164f42abc6b019dde20cf93313071c8e4ff99d",
+   "byte": 202847,
+   "pubblicato": "2026-06-25T09:30:03+01:00"
+  },
+  "whlg_xlsx": {
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "sha256": "77ad1a60b81af2844a8aa7b5b472559fcc19fac1ecd3ddd890a926a2555be99d",
+   "byte": 72039,
+   "pubblicato": "2026-08-27T09:30:07+01:00"
+  },
+  "hee_xlsx": {
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "sha256": "7db15096715b486b577f71b78d089d7f3b127e95349f1042b22771da4177482c",
+   "byte": 665370,
+   "pubblicato": "2026-06-25T09:30:00+01:00"
+  },
   "gov_apply": {
    "http": 200,
-   "letto_il": "2026-11-12",
+   "letto_il": "2026-11-13",
    "aggiornata": "2023-01-13T10:11:11+00:00",
    "sha256": "418ed88643b88140f37cc40d493c8c96f2e5336c2e2ec2d12fcf68ab85c3e4bf",
    "trovate": {
@@ -197,7 +449,7 @@
   },
   "ofgem_bus": {
    "http": 200,
-   "letto_il": "2026-11-12",
+   "letto_il": "2026-11-13",
    "aggiornata": null,
    "sha256": "bc661849700746bf873c7b03d13a0b25118e15dedda5c23df2ea6ea659cfd713",
    "trovate": {
@@ -211,7 +463,7 @@
   },
   "ofgem_owners": {
    "http": 200,
-   "letto_il": "2026-11-12",
+   "letto_il": "2026-11-13",
    "aggiornata": null,
    "sha256": "b34c0f7236a0ea72ac71de0f249651d63c8070eeca43d9292e7441130726eaa6",
    "trovate": {
@@ -233,11 +485,209 @@
     "can only be installed in properties with no connection to the gas grid": true
    }
   },
+  "gov_eco": {
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "aggiornata": "2025-01-23T14:00:37+00:00",
+   "sha256": "9160398a97fa1ae0099ebc946ea7d1086842f3f15e41c112cdd1df52b1c486b9",
+   "trovate": {
+    "You might be able to get help for energy-saving improvements to your home if you either:": true,
+    "claim certain benefits and live in private housing (for example you own your home or rent from a private landlord)": true,
+    "insulation work, for example to your loft or cavity walls": true,
+    "replacing or repairing your boiler - or other upgrades to your heating": true,
+    "Universal Credit": true,
+    "Pension Guarantee Credit": true,
+    "Pension Savings Credit": true,
+    "Income Support": true,
+    "income-based Jobseeker's Allowance": true,
+    "income-related Employment and Support Allowance": true,
+    "Child Benefit": true,
+    "Housing Benefit": true,
+    "If you own your house, it must have an energy efficiency rating of D, E, F or G to be eligible.": true,
+    "If you rent from a private landlord, the house must have an energy efficiency rating of E, F or G to be eligible.": true,
+    "You must have the owner's permission to do the work.": true,
+    "If you live in social housing that has an energy efficiency rating of E, F or G you might be eligible for help with insulation or installing a heating system for the first time.": true,
+    "The Energy Company Obligation scheme is closing on 31 December 2026.": true,
+    "Contact your local council to find out if they're taking part in the Energy Company Obligation scheme, or contact an energy supplier directly.": true,
+    "Installers or agents might contact you directly.": true,
+    "If you're not sure if an offer is genuine, contact your local council or the energy supplier they represent to check.": true,
+    "There are quality issues with some solid wall insulation fitted through the Energy Company Obligation scheme.": true
+   }
+  },
+  "ofgem_eco": {
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "aggiornata": null,
+   "sha256": "3a0189d04de1118e6249329f106d580b24ee56f22977079280cdb18035f557eb",
+   "trovate": {
+    "The Energy Company Obligation (ECO) is a government energy efficiency scheme in Great Britain designed to tackle fuel poverty and help reduce carbon emissions.": true,
+    "ECO4 applies to measures installed from 1 April 2022 and will run until 31 December 2026, following a nine-month extension.": true,
+    "The ECO scheme works by placing a Home Heating Cost Reduction Obligation (HHCRO) on medium and large energy suppliers.": true,
+    "Under HHCRO, obligated suppliers must promote measures that improve the ability of low-income, fuel-poor and vulnerable households to heat their homes.": true,
+    "We administer ECO4 on behalf of DESNZ.": true
+   }
+  },
+  "gov_gbis": {
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "aggiornata": "2024-10-28T15:28:29+00:00",
+   "sha256": "d0513e6cead10e208c9c1dfff0400b067e57df167aac8829ddd449d0e6e9a554",
+   "trovate": {
+    "The Great British Insulation Scheme helps people get free or cheaper insulation to reduce their home's energy bills.": true,
+    "Installations must be complete by 31 March 2026, when the scheme ends.": true,
+    "There are quality issues with some solid wall insulation fitted through the Great British Insulation Scheme.": true
+   }
+  },
+  "ofgem_gbis": {
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "aggiornata": null,
+   "sha256": "6eb5db32ee2b16bf8d5a5a573da5cdc17b3d8d75cac779858c8fad060566f2b2",
+   "trovate": {
+    "This scheme is now closed to new installations.": true,
+    "The Great British Insulation Scheme delivered improvements to the least energy-efficient homes in Great Britain to tackle fuel poverty and help reduce energy bills.": true,
+    "The scheme complements the Energy Company Obligation (ECO4) scheme, yet unlike ECO4's 'whole house' approach, this scheme will mostly deliver single insulation measures.": true,
+    "As well as supporting low-income and vulnerable households, it was also available to those living in homes with an Energy Performance Certificate rating of D-G, and within Council Tax bands A-D in England and A-E in Scotland and Wales.": true,
+    "The scheme began in April 2023 and ended on 31 March 2026.": true
+   }
+  },
+  "gov_whlg": {
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "aggiornata": "2025-04-01T10:59:25+01:00",
+   "sha256": "527c3f973428cd57a30aa06c68f9b6c2e12020d4f760b77dd835f5c6b44a9540",
+   "trovate": {
+    "You could get free energy saving improvements made to your home if you're on a low income, getting certain benefits or living in a certain postcode area.": true,
+    "The Warm Homes: Local Grant is only available in England.": true,
+    "wall, loft and underfloor insulation": true,
+    "air source heat pumps": true,
+    "smart controls": true,
+    "solar panels": true,
+    "Your local council will then organise and pay for any improvement work they've agreed with you.": true,
+    "You will not need to pay for it.": true,
+    "If you have a landlord, they may need to pay for some of the improvements.": true,
+    "be privately owned (either by you or your landlord)": true,
+    "have an Energy Performance Certificate (EPC) of D, E, F or G": true,
+    "Your household income must usually be £36,000 a year or less.": true,
+    "you live in a certain postcode area": true,
+    "someone in your household is getting certain benefits": true,
+    "Your local council will usually contact you within 10 working days to get more information and arrange a home survey.": true
+   }
+  },
+  "hmrc_vat": {
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "aggiornata": "2024-01-31T15:08:23+00:00",
+   "sha256": "a71955a821cfe748451bf482b17b83d77f2a9bcc3c6dc9337418a0f47b0f78b0",
+   "trovate": {
+    "A zero rate applies to the installation of certain specified energy-saving materials from 1 May 2023 to 31 March 2027.": true,
+    "solar panels (read section 2.11)": true,
+    "batteries for storing energy converted from electricity": true,
+    "From 1 April 2027 onwards, supplies of installations of energy-saving materials will revert to the reduced rate of VAT of 5%.": true,
+    "Energy-saving materials, when installed in residential accommodation": true
+   }
+  },
+  "ofgem_seg": {
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "aggiornata": null,
+   "sha256": "157abc9ecea1781e523dd0c7125c9653bcd9fe9f4d276ab690d710c827c2bc75",
+   "trovate": {
+    "The SEG launched on 1 January 2020 and is a government-backed initiative.": true,
+    "The SEG requires some electricity suppliers, known as SEG Licensees, to pay small-scale generators, known as SEG Generators, for low-carbon electricity which they export back to the National Grid, providing certain criteria are met.": true,
+    "SEG Licensees determine the rate, contract length and other terms which SEG Generators will receive.": true,
+    "SEG tariff rates must always be above zero.": true,
+    "SEG payments are calculated by using export meter readings.": true,
+    "Installations must be located in Great Britain and meet the applicable eligibility criteria.": true,
+    "Generators thinking of applying for a SEG tariff should shop around to see which tariff is best for their individual circumstances.": true
+   }
+  },
+  "hes_grant": {
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "aggiornata": null,
+   "sha256": "49fe4ccfcdb28bbc685b749fcf51939a0c4c93a84a6855fa717d98463e403891",
+   "trovate": {
+    "For heating systems such as heat pumps and heat network connections, grant funding of up to £7,500 is available": true,
+    "For energy efficiency measures such as insulation, grant funding is available up to 75% of the combined cost of measures up to a maximum grant amount of £7,500.": true,
+    "An uplift of £1,500 is available for rural and island homes to both the heating and energy efficiency grants, meaning rural households can claim up to £18,000 in grant funding.": true,
+    "the property is an existing property located in Scotland and you are the homeowner – you own the home you live in and it is your only or primary private residence.": true,
+    "You do not need to be in receipt of benefits to qualify": true,
+    "Only heat pumps that provide 100% of heating and hot water requirements are eligible for funding.": true,
+    "Hybrid heat pumps, air-to-air heat pumps and exhaust air heat pumps are not eligible for funding.": true,
+    "Solid wall insulation (external and internal) £2,500 £7,500": true,
+    "Flat roof or room-in-roof insulation £1,000 £3,000": true,
+    "Loft, cavity and underfloor insulation £500 £1,500": true,
+    "Heating controls £150 £450": true,
+    "Solar thermal £5,000 Not available": true,
+    "Hybrid solar PV / water heating¹ £5,000 Not available": true,
+    "Funding is allocated on a first-come, first-served basis and is subject to availability.": true,
+    "Funding agreements are valid for nine months.": true,
+    "you must use both a Microgeneration Certification Scheme (MCS) installer": true,
+    "a free advice service funded by the Scottish Government": true,
+    "0808 808 2282": true,
+    "You'll need a valid Energy Performance Certificate (EPC) if you want to apply for funding for energy efficiency improvements.": true
+   }
+  },
+  "hes_whs": {
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "aggiornata": null,
+   "sha256": "0749fdd6ea9bcc66873ebed4b54257f2ebff0e77e807da589b985796678ab913",
+   "trovate": {
+    "The Scottish Government's Warmer Homes Scotland programme offers support worth £10,000 or more for eligible households for energy-saving home improvements like heating and insulation to help make your home warmer and cheaper to heat.": true,
+    "Be a homeowner or the tenant of a private-sector landlord.": true,
+    "Live in the home as your main residence.": true,
+    "Have lived there for at least six months": true,
+    "Live in a home with a poor energy rating.": true,
+    "Live in a home with a floor area of 230m2 or less (typically up to five bedrooms).": true,
+    "Live in a home where the council tax band is A - G.": true,
+    "Eligible households must include either a person who is aged 75 and over with no working heating, a person who has a DS1500 or BASRiS certificate completed by a medical professional, or a person who receives at least one of the passport benefits": true,
+    "The work is done by Warmworks' installers and in most cases, the Scottish Government will meet all the costs.": true,
+    "central heating (including electric storage heater, new gas boiler or air source heat pump)": true,
+    "installing a home renewables system": true,
+    "You cannot get funding for work that's already completed.": true,
+    "Warmworks will need your landlord's permission before any energy-saving home improvements can be installed.": true
+   }
+  },
+  "wales_nest": {
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "aggiornata": null,
+   "sha256": "9b470d541cb729d61c2d365f929e4dc4c93073a0b765649cf502b9853ee7498a",
+   "trovate": {
+    "Nest is a Welsh Government scheme which provides free advice and home improvements to help you save energy and money.": true,
+    "Nest free on 0808 808 2244": true,
+    "Calls and emails are welcomed in Welsh.": true,
+    "If your property is without heating or hot water, you may be eligible for a repair or replacement to boilers or electric storage heaters.": true
+   }
+  },
+  "wales_nest_free": {
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "aggiornata": null,
+   "sha256": "5a13827b2fbddf84bc48075e3d2b383fd5eb905bf224ed3947a1a683bd4db0be",
+   "trovate": {
+    "Nest can confirm if you are eligible for a package of free home energy efficiency improvements such as: heat pump insulation solar panels": true
+   }
+  },
+  "nid_grants": {
+   "http": 200,
+   "letto_il": "2026-11-13",
+   "aggiornata": null,
+   "sha256": "6f59077ef8f2eff1a1cb077cd68d7ebb327956d12ff865213c063f73461442ac",
+   "trovate": {
+    "The Affordable Warmth Scheme aims to help with the effects of fuel poverty and energy inefficiency.": true,
+    "It is run by the Northern Ireland Housing Executive (NIHE).": true,
+    "NI Energy Advice offers independent and impartial energy advice to domestic householders in Northern Ireland - plus referrals to energy grants and other sources of help.": true,
+    "The Northern Ireland Sustainable Energy Programme fund is collected from all Northern Ireland electricity customers through a public service obligation.": true
+   }
+  },
   "mcs_find": {
    "http": 200,
-   "letto_il": "2026-11-12",
+   "letto_il": "2026-11-13",
    "aggiornata": null,
-   "sha256": "24174ed63d8f0ab571cce722af3fc29097da91fe7833e9f63b8a038bbcaa4d0e",
+   "sha256": "52f85dfbf47f638105b3dad185ce08526747456b50a7ad9a5b62176aceebc7ed",
    "trovate": {}
   }
  }

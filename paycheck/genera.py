@@ -185,7 +185,7 @@ def pagina(percorso, titolo, descrizione, corpo, testata="", briciole=None, json
     corpo_tr = corpo + MON.riga_trasparenza(corpo, "en")
     f_stati = "".join(f'<li><a href="/{slug(s)}/">{h(nome_stato(s))} paycheck calculator</a></li>' for s in STATI)
     f_paghe = "".join(f'<li><a href="/{slug(s)}-payroll-taxes/">{h(nome_stato(s))} payroll taxes</a></li>' for s in STATI)
-    guide = "".join(f'<li><a href="/{u}">{h(t)}</a></li>' for u, t in [("", "Paycheck calculator"), ("employer-payroll-taxes/", "Employer payroll taxes"), ("how-to-do-payroll/", "How to do payroll"), ("federal-withholding/", "Federal withholding tables"),
+    guide = "".join(f'<li><a href="/{u}">{h(t)}</a></li>' for u, t in [("", "Paycheck calculator"), ("employer-payroll-taxes/", "Employer payroll taxes"), ("how-to-do-payroll/", "How to do payroll"), ("federal-withholding/", "Federal withholding tables"), ("minimum-wage/", "Minimum wage by state"),
                     ("how-we-check/", "How we check"), ("about/", "About"), ("how-we-check/#corrections", "Report an error"), ("privacy/", "Privacy")])
     testo = f"""<!DOCTYPE html>
 <html lang="en-US">
@@ -499,7 +499,8 @@ def home():
     corpo += NON_INCLUSO
     corpo += (f'<h2>For employers</h2><div class="testo"><p>Hiring someone costs more than the wage. On top of gross pay an employer owes its own {pct(F["ss"])} Social Security and {pct(F["medicare"])} Medicare, '
               f'federal unemployment tax (FUTA) on the first {usd0(FU["base"])} of each employee’s wages and state unemployment tax. '
-              f'See <a href="/employer-payroll-taxes/">employer payroll taxes for {ANNO}</a> for the rates in each of the five states and a cost calculator, and <a href="/how-to-do-payroll/">how to do payroll yourself</a> for the deposits and forms.</p></div>')
+              f'See <a href="/employer-payroll-taxes/">employer payroll taxes for {ANNO}</a> for the rates in each of the five states and a cost calculator, and <a href="/how-to-do-payroll/">how to do payroll yourself</a> for the deposits and forms. '
+              'The hourly floor in each state is on the <a href="/minimum-wage/">minimum wage by state</a> page, with the 2027 rates that states have already published.</p></div>')
     faq = [
         ("how much taxes are taken out of a paycheck", "How much tax is taken out of a paycheck?",
          f"It depends on your pay, your Form W-4 and your state. Every paycheck has {pct(F['ss'])} Social Security and {pct(F['medicare'])} Medicare withheld, plus federal income tax worked out from IRS Publication 15-T. "
@@ -725,6 +726,9 @@ def pagina_stato(s):
               f'<p class="asof">Official {n} and IRS figures for {ANNO}, read on {data_lunga(CONTROLLO)}.</p></div>')
     corpo += f'<h2>{h(n)} take-home pay examples, {ANNO}</h2>' + tabella_esempi(s)
     corpo += '<p class="small">Each row is our arithmetic with the official formulas. Change any entry in the calculator above for your own case.</p>'
+    if s in MWD:
+        corpo += (f'<p class="small">Paid by the hour? The <a href="/{mw_url(s)}">{h(n)} minimum wage</a> is {mw_usd(MWD[s]["a2026"])} an hour in 2026'
+                  + (f' and {mw_usd(MWD[s]["a2027"])} from {mw_giorno(MWD[s]["dal"])}' if MWD[s]["a2027"] and not MWD[s].get("invariato") else "") + '.</p>')
     testo, datore_t = {"TX": stato_tx, "FL": stato_fl, "CA": stato_ca, "IL": stato_il, "NC": stato_nc}[s](rim)
     corpo += testo
     corpo += rim.t('<h2>The federal part</h2><div class="testo"><p>Federal income tax, Social Security and Medicare are the same in every state. The calculator follows Worksheet 1A of IRS Publication 15-T and the rates in Publication 15; '
@@ -1110,7 +1114,7 @@ def pagina_come_fare():
               '<li>Year-end forms: Form W-2 for each employee and Form W-3.</li>'
               '<li>The $100,000 next-day deposit rule, Form 944 for the smallest employers, and farm or household employees.</li>'
               '<li>Deposit schedules for state income tax withholding, local taxes, workers’ compensation insurance and benefits.</li>'
-              '<li>Wage and hour law: minimum wage, overtime, pay frequency and pay stub rules.</li></ul>')
+              '<li>Wage and hour law: overtime, pay frequency and pay stub rules. Minimum wage rates are on the <a href="/minimum-wage/">minimum wage by state</a> page.</li></ul>')
     faq = [
         ("how to do payroll", "How do I do payroll myself?",
          "Get an EIN, register with your state, take a Form W-4 from each employee, and on every payday withhold federal income tax, Social Security, Medicare and any state tax. "
@@ -1235,7 +1239,9 @@ def come_controlliamo():
               '<li>This is a five-state pilot. Other states are not covered, and neither are local income taxes.</li>'
               '<li>California’s annual and daily tables, Forms W-4 from before 2020, supplemental wages and nonresident alien rules are not in the calculator.</li>'
               '<li>For Texas, the pages we read do not say whether a new employer pays the flat components (0.32% in all) on top of the 2.7% entry-level rate; the Texas page shows both figures and the calculator lets you type your own rate.</li>'
-              '<li>Florida’s range of rates for experienced employers is not on the page we read.</li></ul></div>')
+              '<li>Florida’s range of rates for experienced employers is not on the page we read.</li>'
+              f'<li>Minimum wage: the 2026 rates come from the U.S. Department of Labor’s table and each 2027 rate from the state’s own page, notice or statute. The labor agency websites of {h(", ".join(MWS[s]["nome"] for s in sorted(MW["non_letti"], key=lambda s: MWS[s]["nome"])))} '
+              'refused our request, so no 2027 rate is shown for them; for Michigan and Rhode Island, whose agency sites also refused, the figure comes from the state statute. Tipped, youth and local rates are shown only where an official page we read gives them.</li></ul></div>')
     corpo += ('<h2>When we update</h2><div class="testo"><p>The IRS publishes the final Publication 15-T for the new year in December, and the states publish their new tables between November and January. '
               'The site moves to a new year only when the final documents are out and all the checks above pass again.</p></div>')
     corpo += ('<h2 id="corrections">Report an error</h2><div class="testo"><p>Seen a figure that does not match the official document? Tell us which page and, if you can, link the source: we check it and fix the page. '
@@ -1290,6 +1296,485 @@ def pagina_404():
     corpo = f'<div class="pull card"><p>The page you asked for does not exist. Try the <a href="/">paycheck calculator</a>, <a href="/employer-payroll-taxes/">employer payroll taxes</a> or a state below.</p></div><div style="margin-top:18px">{griglia_stati()}</div>'
     testata = banda("404", "Page not found", "This address has no page.", corta=True, icona="alert")
     pagina("", f"Page not found | {NOME}", "Page not found.", corpo, testata.replace("{bc}", ""), indicizza=False, file="404.html")
+
+
+# ---------------------------------------------------------------- salario minimo 2026-2027 (/minimum-wage/)
+# Tariffe 2026 di tutti gli Stati: tabella del Department of Labor. Tariffe 2027: pagina o avviso dell'ufficio del lavoro dello Stato
+# (regole.json → "minimo", scritto da raccolta/minimo.py). Nessuna tariffa è stimata: dove la fonte non la dà, la pagina lo dice.
+MW = G["minimo"]
+MWS, MWD = MW["stati"], MW["dettaglio"]
+MW_FED = MW["federale"]["tariffa"]
+MW_LETTO = date.fromisoformat(FONTI["mw_dol_stati"]["letto_il"])
+MW_PAGINE = ["CA", "NY", "WA", "NJ", "OH", "MI", "VA", "MO", "OR", "MN", "CT", "NE", "RI", "SD", "VT", "MT"]   # in ordine di ricerche misurate («<stato> minimum wage»)
+MW_CALCOLATORI = {s: slug(s) for s in STATI}     # Stati che hanno il calcolatore della busta paga
+ORE_SETTIMANA, ORE_ANNO = 40, 2080
+
+
+def mw_usd(t):
+    """'17.40' -> '$17.40' (la cifra resta scritta come nella fonte: '5.925' -> '$5.925')."""
+    return "$" + t
+
+
+def mw_cent(t):
+    intero, _, dec = t.partition(".")
+    if len(dec) != 2:
+        raise SystemExit(f"tariffa non in centesimi: {t}")
+    return int(intero) * 100 + int(dec)
+
+
+def mw_giorno(iso):
+    return data_lunga(date.fromisoformat(iso))
+
+
+def mw_url(s):
+    return f"minimum-wage/{MWS[s]['slug']}/"
+
+
+def mw_2026_testo(s):
+    """Tariffa in vigore nel 2026 come la scrive la tabella del Department of Labor, con le note per le voci a più tariffe."""
+    v = MWS[s]
+    if not v["tariffe"]:
+        return f'No state minimum wage law<span class="small"> · federal {mw_usd(MW_FED)} applies</span>'
+    prima = v["tariffe"][0]
+    if s == "NY":
+        return f'{mw_usd(prima[0])}<span class="small"> New York City, Long Island, Westchester</span><br>{mw_usd(prima[1])}<span class="small"> rest of the state</span>'
+    if s == "OR":
+        return f'{mw_usd(prima[0])}<span class="small"> standard</span><br>{mw_usd(prima[1])}<span class="small"> Portland metro</span><br>{mw_usd(prima[2])}<span class="small"> non-urban counties</span>'
+    testo = mw_usd(prima[0])
+    if s == "MT":
+        testo += f'<span class="small"> · {mw_usd(v["tariffe"][1][0])} for small businesses not covered by federal law</span>'
+    elif s == "OH":
+        testo += f'<span class="small"> · {mw_usd(v["tariffe"][1][0])} for employers under {usd0(int(MWD["OH"]["soglia_2026"]))} in gross receipts</span>'
+    elif s == "OK":
+        testo += f'<span class="small"> · {mw_usd(v["tariffe"][1][0])} for the smallest employers</span>'
+    elif v["federale_citato"] and mw_cent(prima[0]) < mw_cent(MW_FED):
+        testo += f'<span class="small"> state rate · federal {mw_usd(MW_FED)} applies to employers under federal law</span>'
+    return testo
+
+
+def mw_2027(s):
+    """(testo della cella 2027, data di decorrenza, fonti, tipo) per la tabella di tutti gli Stati."""
+    oggi = data_lunga(MW_LETTO)
+    if s in MWD:
+        d = MWD[s]
+        if s == "NY":
+            return (f'{mw_usd(d["zone"]["nyc"]["minimo"])} and {mw_usd(d["zone"]["resto"]["minimo"])}<span class="small"> · no change</span>', mw_giorno(d["dal"]), d["fonti_2027"], "uguale")
+        if d["a2027"] is None:
+            return (f'Not announced as of {oggi}<span class="small"> · next change {mw_giorno(d["prossimo"])}</span>', "–", d["fonti_2027"], "attesa")
+        if d.get("invariato"):
+            return (f'{mw_usd(d["a2027"])}<span class="small"> · no change</span>', mw_giorno(d["dal"]), d["fonti_2027"], "uguale")
+        return (f'<b>{mw_usd(d["a2027"])}</b>', mw_giorno(d["dal"]), d["fonti_2027"], "nuova")
+    if s in MW["prossimo"]:
+        p = MW["prossimo"][s]
+        if s == "DC":
+            return (f'Not announced as of {oggi}<span class="small"> · adjusted on July 1 each year</span>', "–", [p["fonte"]], "attesa")
+        if p["tariffa"] and p["dal"].startswith("2027-") and p["dal"] != "2027-01-01":
+            # cambio nel corso del 2027 (Alaska, 1° luglio): non è una tariffa del 1° gennaio, ma va detto
+            return (f'No change on January 1<span class="small"> · {mw_usd(p["tariffa"])} from {mw_giorno(p["dal"])}</span>', "–", [p["fonte"]], "luglio")
+        dopo = f'{mw_usd(p["tariffa"])} from {mw_giorno(p["dal"])}' if p["tariffa"] else f'next adjustment {mw_giorno(p["dal"])}'
+        return (f'No change listed<span class="small"> · {dopo}</span>', "–", [p["fonte"]], "uguale")
+    if s in MW["non_letti"]:
+        return ('Not shown<span class="small"> · the state agency’s site refused our request</span>', "–", [], "non_letto")
+    return ("No 2027 change listed", "–", [MW["fonte_tabella"]], "nessuna")
+
+
+def mw_paga(t):
+    c = mw_cent(t)
+    return usd(c * ORE_SETTIMANA), usd(c * ORE_ANNO)
+
+
+def mw_tabella_paga(righe):
+    """righe: (etichetta, tariffa). Paga lorda di una settimana di 40 ore e di un anno di 2.080 ore: aritmetica nostra."""
+    corpo = "".join(f'<tr data-paga="{h(t)}"><th scope="row">{h(e)}</th><td class="n">{mw_usd(t)}</td><td class="n">{mw_paga(t)[0]}</td><td class="n">{mw_paga(t)[1]}</td></tr>' for e, t in righe)
+    return ('<div class="tab stretta"><table class="dati mw" data-paga-tab><caption><span>Gross pay before taxes: our arithmetic, the hourly rate × 40 hours and × 2,080 hours (52 weeks of 40 hours).</span></caption>'
+            f'<thead><tr><th>Rate</th><th class="n">Per hour</th><th class="n">40-hour week</th><th class="n">Full-time year</th></tr></thead><tbody>{corpo}</tbody></table></div>')
+
+
+def mw_federale(rim):
+    return ('<h2 id="federal">The federal minimum wage</h2><div class="testo">' + rim.cit("mw_dol_fed", "federale") + rim.cit("mw_dol_fed", "entrambe")
+            + '<p>So where a state rate is higher than the federal rate, an employer covered by both laws pays the state rate.</p></div>')
+
+
+def mw_scheda(s):
+    """Testi di una pagina di Stato: righe della tabella, paragrafi con le frasi ufficiali, FAQ in più."""
+    d, n = MWD[s], MWS[s]["nome"]
+    a6, a7 = d["a2026"], d["a2027"]
+    x = {"colonne": ("2026", "From January 1, 2027"), "righe": [("State minimum wage", mw_usd(a6), mw_usd(a7) if a7 else "")], "paga": [("2026 rate", a6)] + ([("2027 rate", a7)] if a7 and a7 != a6 else []),
+         "mance_faq": None, "extra_faq": []}
+    if s == "CA":
+        x["intro"] = f"California’s minimum wage rises from {mw_usd(a6)} to {mw_usd(a7)} an hour on January 1, 2027, for employers of every size. The Department of Industrial Relations announced the figure on {mw_giorno(d['annuncio'])}."
+        x["righe"] = [("State minimum wage, all employers", mw_usd(a6), mw_usd(a7))]
+        x["corpo"] = lambda rim: (
+            '<h2 id="official">What the state has published</h2><div class="testo">' + rim.cit("mw_ca", "a2026") + rim.cit("mw_ca_2027", "a2027") + rim.cit("mw_ca_2027", "certificato")
+            + '<p>California adjusts the statewide rate every year for inflation; the news release above is the official statement of the 2027 figure.</p></div>'
+            '<h2 id="tipped">Tipped workers</h2><div class="testo"><p>California has no lower rate for tipped workers. The Labor Commissioner’s FAQ says:</p>' + rim.cit("mw_ca_faq", "mance") + '</div>'
+            '<h2 id="more">Higher rates and the salary test</h2><div class="testo">' + rim.cit("mw_ca", "locali")
+            + '<p>Local rates are not listed here: check your city or county. Some industries also have their own state rate, for example fast food restaurants:</p>' + rim.cit("mw_ca", "fast_food")
+            + '<p>The minimum wage also sets the lowest salary of an employee who is exempt from overtime:</p>' + rim.cit("mw_ca_2027", "esenti") + '</div>')
+        x["mance_faq"] = (f"California does not have a separate tipped minimum wage. The Labor Commissioner’s Office says an employer may not use an employee’s tips as a credit toward its obligation to pay the minimum wage, "
+                          f"so tipped workers are owed the full {mw_usd(a6)} an hour in 2026 and {mw_usd(a7)} from January 1, 2027, before tips.", "mw_ca_faq,mw_ca_2027")
+        x["desc"] = f"California minimum wage: {mw_usd(a6)} an hour in 2026, {mw_usd(a7)} from January 1, 2027, for all employers. No tip credit. Official DIR quotes and sources."
+    elif s == "WA":
+        x["intro"] = f"Washington’s minimum wage rises from {mw_usd(a6)} to {mw_usd(a7)} an hour on January 1, 2027. Workers aged 14 and 15 may be paid {mw_usd(d['minori_2027'])}."
+        x["righe"] = [("State minimum wage, most workers", mw_usd(a6), mw_usd(a7)), ("Workers aged 14 and 15", "–", mw_usd(d["minori_2027"]))]
+        x["corpo"] = lambda rim: (
+            '<h2 id="official">What the state has published</h2><div class="testo">' + rim.cit("mw_wa", "a2027") + rim.cit("mw_wa_avviso", "a2027") + rim.cit("mw_wa_avviso", "minori")
+            + rim.t('<p>The 2026 rate on the same page of the Department of Labor & Industries is $' + a6 + ' an hour.[[mw_wa]]</p></div>')
+            + '<h2 id="tipped">Tipped workers</h2><div class="testo"><p>Washington has no lower rate for tipped workers:</p>' + rim.cit("mw_wa", "mance") + '</div>'
+            '<h2 id="more">Local rates</h2><div class="testo">' + rim.cit("mw_wa", "locali") + '<p>Local rates are not listed here: check the city where you work.</p></div>')
+        x["mance_faq"] = (f"Washington does not have a separate tipped minimum wage. The Department of Labor & Industries says businesses may not use tips and service charges paid to an employee as part of the employee’s hourly minimum wage, "
+                          f"so tipped workers are owed {mw_usd(a7)} an hour from January 1, 2027, before tips.", "mw_wa")
+        x["extra_faq"] = [("washington state minimum wage", "What is the Washington State minimum wage for 14- and 15-year-olds in 2027?",
+                           f"{mw_usd(d['minori_2027'])} an hour from January 1, 2027. The state’s announcement says workers who are 14 or 15 years old may be paid 85% of the adult minimum wage, which is {mw_usd(a7)}.", "mw_wa_avviso")]
+        x["desc"] = f"Washington State minimum wage: {mw_usd(a6)} an hour in 2026, {mw_usd(a7)} from January 1, 2027; {mw_usd(d['minori_2027'])} at ages 14-15. No tip credit. L&I quotes and sources."
+    elif s == "NY":
+        z = d["zone"]
+        x["intro"] = (f"New York’s minimum wage does not change on January 1, 2027: {mw_usd(z['nyc']['minimo'])} an hour in New York City, Long Island and Westchester County and {mw_usd(z['resto']['minimo'])} in the rest of the state. "
+                      "The Department of Labor says the conditions that stop the yearly inflation increase have been met.")
+        x["righe"] = [("New York City", mw_usd(z["nyc"]["minimo"]), mw_usd(z["nyc"]["minimo"])), ("Long Island and Westchester County", mw_usd(z["li"]["minimo"]), mw_usd(z["li"]["minimo"])),
+                      ("Rest of New York State", mw_usd(z["resto"]["minimo"]), mw_usd(z["resto"]["minimo"]))]
+        x["paga"] = [("New York City, Long Island, Westchester", z["nyc"]["minimo"]), ("Rest of New York State", z["resto"]["minimo"])]
+        # tre colonne (non cinque): a 375 px le cifre si vedono senza scorrere
+        tip = "".join(f'<tr data-zona="{k}"><th scope="row">{h(e)}</th><td>{mw_usd(z[k]["servizio_contanti"])} cash wage<br><span class="small">{mw_usd(z[k]["servizio_credito"])} tip credit</span></td>'
+                      f'<td>{mw_usd(z[k]["ristorazione_contanti"])} cash wage<br><span class="small">{mw_usd(z[k]["ristorazione_credito"])} tip credit</span></td></tr>'
+                      for k, e in (("nyc", "New York City"), ("li", "Long Island and Westchester"), ("resto", "Rest of New York State")))
+        x["corpo"] = lambda rim: (
+            '<h2 id="official">What the state has published</h2><div class="testo">' + rim.cit("mw_ny", "uguale") + rim.cit("mw_ny", "nyc") + rim.cit("mw_ny", "resto") + rim.cit("mw_ny", "motivo")
+            + '<p>The same page says the minimum wage for home care aides does rise on January 1, 2027; that separate rate is not covered here.</p></div>'
+            '<h2 id="tipped">Tipped workers in hospitality</h2><div class="testo"><p>In New York a hospitality employer may pay part of the minimum wage as a “cash wage” and count tips for the rest, up to the tip credit. '
+            'The Department of Labor’s table, as of January 1, 2027:</p></div>'
+            + rim.t('<div class="tab"><table class="dati mw" data-mance-ny><caption><span>Cash wage and tip credit per hour as of 01/01/2027, from the New York State Department of Labor.[[mw_ny]]</span></caption>'
+                    '<thead><tr><th>Location</th><th>Tipped service employees</th><th>Tipped food service workers</th></tr></thead>'
+                    f'<tbody>{tip}</tbody></table></div>') + rim.cit("mw_ny", "ospitalita"))
+        x["mance_faq"] = (f"For tipped food service workers the cash wage as of January 1, 2027 is {mw_usd(z['nyc']['ristorazione_contanti'])} an hour in New York City, Long Island and Westchester (tip credit {mw_usd(z['nyc']['ristorazione_credito'])}) "
+                          f"and {mw_usd(z['resto']['ristorazione_contanti'])} in the rest of the state (tip credit {mw_usd(z['resto']['ristorazione_credito'])}). For tipped service employees it is {mw_usd(z['nyc']['servizio_contanti'])} and {mw_usd(z['resto']['servizio_contanti'])}. "
+                          "Only hospitality employers may take a tip credit.", "mw_ny")
+        x["extra_faq"] = [("new york city minimum wage", "What is the minimum wage in New York City in 2027?",
+                           f"{mw_usd(z['nyc']['minimo'])} an hour, the same as in 2026. The New York State Department of Labor says that on January 1, 2027 the minimum wage will stay the same: "
+                           f"{mw_usd(z['nyc']['minimo'])} in New York City, Long Island and Westchester County and {mw_usd(z['resto']['minimo'])} in the rest of the state.", "mw_ny")]
+        x["titolo"] = f"New York Minimum Wage 2027: {mw_usd(z['nyc']['minimo'])} NYC, {mw_usd(z['resto']['minimo'])} Upstate"
+        x["desc"] = (f"New York minimum wage on January 1, 2027: no change. {mw_usd(z['nyc']['minimo'])} in NYC, Long Island and Westchester, {mw_usd(z['resto']['minimo'])} in the rest of the state. Tipped cash wages.")
+    elif s == "CT":
+        x["intro"] = f"Connecticut’s minimum wage rises from {mw_usd(a6)} to {mw_usd(a7)} an hour on January 1, 2027. The Governor announced the figure on {mw_giorno(d['annuncio'])}."
+        x["corpo"] = lambda rim: (
+            '<h2 id="official">What the state has published</h2><div class="testo">' + rim.cit("mw_ct", "a2027") + rim.cit("mw_ct", "indice")
+            + rim.t(f'<p>The Connecticut Department of Labor’s Wage and Workplace Standards page lists the same two rates: {mw_usd(a7)} effective on January 1, 2027 and {mw_usd(a6)} effective on January 1, 2026.[[mw_ct_dol]]</p>'
+                    '<p>The pages we read do not give the rates for tipped workers, so none is shown here.</p></div>'))
+        x["desc"] = f"Connecticut minimum wage: {mw_usd(a6)} an hour in 2026, {mw_usd(a7)} from January 1, 2027. The Governor’s announcement quoted word for word, with sources."
+    elif s == "MI":
+        x["intro"] = f"Michigan’s minimum wage rises from {mw_usd(a6)} to {mw_usd(a7)} an hour on January 1, 2027. The figure is written in state law; each October from 2027 the state treasurer calculates an inflation adjustment that takes effect the following January 1."
+        x["corpo"] = lambda rim: (
+            '<h2 id="official">What the law says</h2><div class="testo"><p>Section 408.934 of the Improved Workforce Opportunity Wage Act sets the hourly rate:</p>' + rim.cit("mw_mi", "tariffe")
+            + '<p>The U.S. Department of Labor’s table of state laws says the same:</p>' + rim.cit("mw_dol_stati", "michigan") + rim.cit("mw_mi", "indice")
+            + rim.t('<p>The same section says the adjusted rate is effective beginning January 1 of the following year, so the first inflation adjustment would apply from January 1, 2028. '
+                    'The federal table notes that Michigan’s law applies to employers of 2 or more employees.[[mw_dol_stati]]</p>')
+            + '<p>The website of Michigan’s Department of Labor and Economic Opportunity refused our request, so this page relies on the statute and on the federal table. '
+            'The rates for tipped workers and for minors are not shown: we could not read an official page that gives them.</p></div>')
+        x["desc"] = f"Michigan minimum wage: {mw_usd(a6)} an hour in 2026, {mw_usd(a7)} from January 1, 2027, as written in state law. Statute and U.S. Department of Labor quoted."
+    elif s == "MN":
+        x["intro"] = f"Minnesota’s minimum wage rises from {mw_usd(a6)} to {mw_usd(a7)} an hour on January 1, 2027, for all employers. The Department of Labor and Industry announced it on {mw_giorno(d['annuncio'])}."
+        x["righe"] = [("State minimum wage, all employers", mw_usd(a6), mw_usd(a7)), ("90-day training wage, under age 20", mw_usd(d["formazione_2026"]), mw_usd(d["formazione_2027"]))]
+        x["corpo"] = lambda rim: (
+            '<h2 id="official">What the state has published</h2><div class="testo">' + rim.cit("mw_mn_avviso", "a2027") + rim.cit("mw_mn", "formazione")
+            + '</div><h2 id="tipped">Tipped workers</h2><div class="testo"><p>Minnesota has no lower rate for tipped workers:</p>' + rim.cit("mw_mn", "mance")
+            + '<p>The same page notes that Minneapolis and St. Paul have their own minimum wage ordinances; city rates are not listed here.</p></div>')
+        x["mance_faq"] = (f"Minnesota does not have a separate tipped minimum wage. The Department of Labor and Industry says no employer may take a tip credit against minimum wages in Minnesota, "
+                          f"so tipped workers are owed {mw_usd(a7)} an hour from January 1, 2027, plus their tips.", "mw_mn")
+        x["desc"] = f"Minnesota minimum wage: {mw_usd(a6)} an hour in 2026, {mw_usd(a7)} from January 1, 2027; training wage {mw_usd(d['formazione_2027'])}. No tip credit. Official quotes."
+    elif s == "MO":
+        x["intro"] = f"Missouri’s minimum wage stays at {mw_usd(a7)} an hour in 2027: the state labor department’s table of rates shows {mw_usd(a6)} for 2026 and {mw_usd(a7)} for 2027."
+        x["righe"] = [("State minimum wage", mw_usd(a6), mw_usd(a7)), ("Tipped employees, paid by the employer", mw_usd(d["mance_2026"]), "")]
+        x["paga"] = [("2026 and 2027 rate", a7)]
+        x["corpo"] = lambda rim: (
+            '<h2 id="official">What the state has published</h2><div class="testo">'
+            + rim.t(f'<p>The “Minimum Wage History” table on the Missouri Department of Labor and Industrial Relations page lists {mw_usd(a6)} for 2026 and {mw_usd(a7)} for 2027, and the page links a 2027 poster dated January 1 to December 31, 2027.[[mw_mo]] '
+                    'We could not open the poster itself, so the 2027 figure here comes from the table.</p></div>')
+            + '<h2 id="tipped">Tipped workers</h2><div class="testo"><p>For 2026 the page says:</p>' + rim.cit("mw_mo", "mance")
+            + '<p>The page does not print a tipped figure for 2027.</p></div>'
+            '<h2 id="more">Who is not covered</h2><div class="testo">' + rim.cit("mw_mo", "piccoli") + '</div>')
+        x["mance_faq"] = (f"For 2026 Missouri employers must pay tipped employees at least 50 percent of the minimum wage, {mw_usd(d['mance_2026'])} an hour, plus any amount needed to bring total pay up to {mw_usd(a6)} an hour. "
+                          "The state page does not print a separate tipped figure for 2027.", "mw_mo")
+        x["titolo"] = f"Missouri Minimum Wage 2027: {mw_usd(a7)} an Hour, No Change"
+        x["desc"] = f"Missouri minimum wage: {mw_usd(a7)} an hour in 2026 and in 2027, from the state’s own table. Tipped employees: {mw_usd(d['mance_2026'])} in 2026. Official quotes and sources."
+    elif s == "MT":
+        x["intro"] = f"Montana’s minimum wage rises from {mw_usd(a6)} to {mw_usd(a7)} an hour on January 1, 2027. The Department of Labor & Industry published the figure in a notice dated {mw_giorno(d['annuncio'])}."
+        x["corpo"] = lambda rim: (
+            '<h2 id="official">What the state has published</h2><div class="testo">' + rim.cit("mw_mt_lettera", "a2027") + rim.cit("mw_mt", "tariffe")
+            + '</div><h2 id="tipped">Tipped workers</h2><div class="testo"><p>Montana has no lower rate for tipped workers:</p>' + rim.cit("mw_mt", "mance")
+            + '</div><h2 id="more">The exception for very small businesses</h2><div class="testo">' + rim.cit("mw_mt", "eccezione") + '</div>')
+        x["mance_faq"] = (f"Montana does not have a separate tipped minimum wage. The Department of Labor & Industry says no tip credit, meal credit or training wage is allowed under Montana’s wage and hour laws, "
+                          f"so tipped workers are owed {mw_usd(a7)} an hour from January 1, 2027, before tips.", "mw_mt")
+        x["desc"] = f"Montana minimum wage: {mw_usd(a6)} an hour in 2026, {mw_usd(a7)} from January 1, 2027. No tip credit. The state’s determination letter quoted, with sources."
+    elif s == "NE":
+        x["intro"] = f"Nebraska’s minimum wage rises from {mw_usd(a6)} to {mw_usd(a7)} an hour on January 1, 2027, according to the Nebraska Department of Labor’s Labor Standards page."
+        x["corpo"] = lambda rim: (
+            '<h2 id="official">What the state has published</h2><div class="testo"><p>The Nebraska Department of Labor states the new rate in the heading of its Labor Standards page:</p>' + rim.cit("mw_ne", "a2027")
+            + rim.t(f'<p>The 2026 rate of {mw_usd(a6)} is the one in the U.S. Department of Labor’s table of state laws, which notes that Nebraska’s law applies to employers of 4 or more employees.[[mw_dol_stati]] '
+                    'The pages we read do not give a rate for tipped workers, so none is shown here.</p></div>'))
+        x["desc"] = f"Nebraska minimum wage: {mw_usd(a6)} an hour in 2026, {mw_usd(a7)} from January 1, 2027, as stated by the Nebraska Department of Labor. Sources linked."
+    elif s == "NJ":
+        x["intro"] = f"New Jersey’s minimum wage for most employees rises from {mw_usd(a6)} to {mw_usd(a7)} an hour on January 1, 2027. The Department of Labor and Workforce Development announced it on {mw_giorno(d['annuncio'])}."
+        x["righe"] = [("Most employees", mw_usd(a6), mw_usd(a7)), ("Seasonal and small employers (fewer than 6 employees)", mw_usd(d["piccoli_2026"]), mw_usd(d["piccoli_2027"])),
+                      ("Tipped workers, cash wage", mw_usd(d["mance_2026"]), mw_usd(d["mance_2027"]))]
+        x["corpo"] = lambda rim: (
+            '<h2 id="official">What the state has published</h2><div class="testo">' + rim.cit("mw_nj", "a2027") + rim.cit("mw_nj", "piccoli") + rim.cit("mw_nj", "agricoli")
+            + rim.t(f'<p>The 2026 rate of {mw_usd(a6)} for most employees is the one in the U.S. Department of Labor’s table of state laws.[[mw_dol_stati]]</p></div>')
+            + '<h2 id="tipped">Tipped workers</h2><div class="testo">' + rim.cit("mw_nj", "mance")
+            + '<p>If the cash wage plus tips does not reach the state minimum wage, the employer must pay the difference, the same release says.</p></div>')
+        x["mance_faq"] = (f"The minimum cash wage for tipped workers in New Jersey rises to {mw_usd(d['mance_2027'])} an hour on January 1, 2027, from {mw_usd(d['mance_2026'])}. The maximum tip credit an employer can claim stays at {mw_usd(d['credito_mance'])}. "
+                          "If the cash wage plus tips does not equal at least the state minimum wage, the employer must pay the difference.", "mw_nj")
+        x["desc"] = f"New Jersey minimum wage: {mw_usd(a6)} in 2026, {mw_usd(a7)} from January 1, 2027; small employers {mw_usd(d['piccoli_2027'])}, tipped cash wage {mw_usd(d['mance_2027'])}. NJDOL quotes."
+    elif s == "OH":
+        x["intro"] = (f"Ohio’s minimum wage rises from {mw_usd(a6)} to {mw_usd(a7)} an hour on January 1, 2027, for non-tipped employees, and to {mw_usd(d['mance_2027'])} plus tips for tipped employees. "
+                      "The figures are on the Ohio Department of Commerce’s 2027 poster.")
+        x["righe"] = [("Non-tipped employees", mw_usd(a6), mw_usd(a7)), ("Tipped employees, before tips", "–", mw_usd(d["mance_2027"])),
+                      ("Employer’s yearly gross receipts below which the federal rate applies", usd0(int(d["soglia_2026"])), usd0(int(d["soglia_2027"])))]
+        x["corpo"] = lambda rim: (
+            '<h2 id="official">What the state has published</h2><div class="testo"><p>The State of Ohio 2027 Minimum Wage poster reads:</p>' + rim.cit("mw_oh", "a2027") + rim.cit("mw_oh", "piccoli") + rim.cit("mw_oh", "minori")
+            + rim.t(f'<p>The 2026 figures ({mw_usd(a6)} an hour, for employers with annual gross receipts of {usd0(int(d["soglia_2026"]))} or more) are those in the U.S. Department of Labor’s table of state laws.[[mw_dol_stati]]</p></div>')
+            + '<h2 id="tipped">Tipped workers</h2><div class="testo">' + rim.cit("mw_oh", "mance")
+            + '<p>The poster adds that employers using the tip credit must be able to show that tipped employees receive at least the minimum wage when cash wages and tips are combined. '
+            'The 2026 tipped rate is not in the sources we read, so it is not shown.</p></div>')
+        x["mance_faq"] = (f"From January 1, 2027 the Ohio minimum wage for tipped employees is {mw_usd(d['mance_2027'])} an hour plus tips. Employers using the tip credit must be able to show that tipped employees receive at least the minimum wage "
+                          f"of {mw_usd(a7)} when direct or cash wages and tips are combined.", "mw_oh")
+        x["desc"] = f"Ohio minimum wage: {mw_usd(a6)} an hour in 2026, {mw_usd(a7)} from January 1, 2027; tipped {mw_usd(d['mance_2027'])} plus tips. From the Ohio Department of Commerce poster."
+    elif s == "RI":
+        x["intro"] = f"Rhode Island’s minimum wage rises from {mw_usd(a6)} to {mw_usd(a7)} an hour on January 1, 2027. Both figures are written in state law."
+        x["corpo"] = lambda rim: (
+            '<h2 id="official">What the law says</h2><div class="testo"><p>Section 28-12-3 of the Rhode Island General Laws lists the rate year by year:</p>' + rim.cit("mw_ri", "a2026") + rim.cit("mw_ri", "a2027")
+            + '<p>The website of the Rhode Island Department of Labor and Training refused our request, so this page relies on the statute as published by the General Assembly. '
+            'The rate for tipped workers is not shown: we could not read an official page that gives it.</p></div>')
+        x["desc"] = f"Rhode Island minimum wage: {mw_usd(a6)} an hour in 2026, {mw_usd(a7)} from January 1, 2027, as written in the General Laws. Statute quoted, with sources."
+    elif s == "SD":
+        x["intro"] = f"South Dakota’s minimum wage rises from {mw_usd(a6)} to {mw_usd(a7)} an hour on January 1, 2027, for non-tipped employees, and from {mw_usd(d['mance_2026'])} to {mw_usd(d['mance_2027'])} for tipped employees."
+        x["righe"] = [("Non-tipped employees", mw_usd(a6), mw_usd(a7)), ("Tipped employees, cash wage", mw_usd(d["mance_2026"]), mw_usd(d["mance_2027"]))]
+        x["corpo"] = lambda rim: (
+            '<h2 id="official">What the state has published</h2><div class="testo">' + rim.cit("mw_sd", "a2026") + rim.cit("mw_sd", "a2027")
+            + '</div><h2 id="tipped">Tipped workers</h2><div class="testo">' + rim.cit("mw_sd", "mance_2027") + rim.cit("mw_sd_avviso", "mance")
+            + rim.t(f'<p>For 2026 the same page gives {mw_usd(d["mance_2026"])} an hour for tipped employees.[[mw_sd]]</p></div>'))
+        x["mance_faq"] = (f"From January 1, 2027 South Dakota employers with tipped employees must pay a cash wage of no less than {mw_usd(d['mance_2027'])} an hour, which is no less than 50% of the state minimum wage. "
+                          f"In 2026 the figure is {mw_usd(d['mance_2026'])}.", "mw_sd,mw_sd_avviso")
+        x["desc"] = f"South Dakota minimum wage: {mw_usd(a6)} an hour in 2026, {mw_usd(a7)} from January 1, 2027; tipped {mw_usd(d['mance_2027'])}. Department of Labor and Regulation quotes."
+    elif s == "VT":
+        x["intro"] = f"Vermont’s minimum wage rises from {mw_usd(a6)} to {mw_usd(a7)} an hour on January 1, 2027, and from {mw_usd(d['mance_2026'])} to {mw_usd(d['mance_2027'])} for tipped employees."
+        x["righe"] = [("State minimum wage, per hour worked", mw_usd(a6), mw_usd(a7)), ("Tipped employees", mw_usd(d["mance_2026"]), mw_usd(d["mance_2027"]))]
+        x["corpo"] = lambda rim: (
+            '<h2 id="official">What the state has published</h2><div class="testo"><p>The Vermont Department of Labor lists both years, each with the rate for tipped employees:</p>' + rim.cit("mw_vt", "a2027") + rim.cit("mw_vt", "a2026")
+            + rim.t('<p>The U.S. Department of Labor’s table of state laws notes that Vermont’s law applies to employers of two or more employees.[[mw_dol_stati]]</p></div>'))
+        x["mance_faq"] = (f"The Vermont Department of Labor lists {mw_usd(d['mance_2027'])} an hour for tipped employees effective January 1, 2027, up from {mw_usd(d['mance_2026'])} effective January 1, 2026.", "mw_vt")
+        x["desc"] = f"Vermont minimum wage: {mw_usd(a6)} an hour in 2026, {mw_usd(a7)} from January 1, 2027; tipped employees {mw_usd(d['mance_2027'])}. Vermont Department of Labor quoted."
+    elif s == "VA":
+        x["intro"] = f"Virginia’s minimum wage rises from {mw_usd(a6)} to {mw_usd(a7)} an hour on January 1, 2027, and to {mw_usd(d['a2028'])} on January 1, 2028."
+        x["colonne"] = ("2026", "From January 1, 2027", "From January 1, 2028")
+        x["righe"] = [("State minimum wage", mw_usd(a6), mw_usd(a7), mw_usd(d["a2028"]))]
+        x["corpo"] = lambda rim: (
+            '<h2 id="official">What the state has published</h2><div class="testo">' + rim.cit("mw_va", "a2026") + rim.cit("mw_va", "a2027") + rim.cit("mw_va", "a2028")
+            + '</div><h2 id="more">Farm workers</h2><div class="testo">' + rim.cit("mw_va", "agricoli")
+            + '<p>The page we read does not give a separate rate for tipped workers, so none is shown here.</p></div>')
+        x["desc"] = f"Virginia minimum wage: {mw_usd(a6)} an hour in 2026, {mw_usd(a7)} from January 1, 2027 and {mw_usd(d['a2028'])} from 2028. Department of Labor and Industry quoted."
+    elif s == "OR":
+        z = d["zone"]
+        oggi = data_lunga(MW_LETTO)
+        x["intro"] = (f"Oregon changes its minimum wage on July 1, not January 1. From July 1, 2026 to June 30, 2027 the rate is {mw_usd(z['standard'])} an hour (standard), {mw_usd(z['portland'])} in the Portland metro area and {mw_usd(z['rurale'])} in non-urban counties. "
+                      f"The rates from July 1, 2027 were not announced as of {oggi}.")
+        x["colonne"] = ("July 1, 2026 to June 30, 2027", "From July 1, 2027")
+        na = f"Not announced as of {oggi}"
+        x["righe"] = [("Standard", mw_usd(z["standard"]), na), ("Portland metro", mw_usd(z["portland"]), na), ("Non-urban counties", mw_usd(z["rurale"]), na)]
+        x["paga"] = [("Standard", z["standard"]), ("Portland metro", z["portland"]), ("Non-urban counties", z["rurale"])]
+        x["corpo"] = lambda rim: (
+            '<h2 id="official">What the state has published</h2><div class="testo">' + rim.cit("mw_or", "periodo") + rim.cit("mw_or", "portland") + rim.cit("mw_or", "standard") + rim.cit("mw_or", "rurale") + rim.cit("mw_or", "luglio")
+            + '<p>So nothing changes in Oregon on January 1, 2027. The Bureau of Labor and Industries page lists which counties fall under each rate; workers inside the Portland urban growth boundary get the Portland metro rate.</p></div>')
+        x["titolo"] = f"Oregon Minimum Wage 2026-2027: {mw_usd(z['standard'])}, Portland {mw_usd(z['portland'])}"
+        x["desc"] = (f"Oregon minimum wage to June 30, 2027: {mw_usd(z['standard'])} standard, {mw_usd(z['portland'])} Portland metro, {mw_usd(z['rurale'])} non-urban. The July 2027 rates are not announced yet.")
+    else:
+        raise SystemExit(f"salario minimo: manca la scheda di {s}")
+    if "corpo" in x and "intro" not in x:
+        raise SystemExit(f"salario minimo: scheda di {s} incompleta")
+    return x
+
+
+def mw_griglia(escludi=None):
+    voci = []
+    for s in MW_PAGINE:
+        if s == escludi:
+            continue
+        d = MWD[s]
+        sotto = f'{mw_usd(d["a2027"])} in 2027' if d["a2027"] else f'{mw_usd(d["a2026"])} to June 2027'
+        voci.append(f'<li><a href="/{mw_url(s)}"><b>{h(MWS[s]["nome"])}</b><small>{h(sotto)}</small></a></li>')
+    return f'<ul class="griglia stati">{"".join(voci)}</ul>'
+
+
+def pagina_minimo_stato(s):
+    rim = Rimandi()
+    d, n = MWD[s], MWS[s]["nome"]
+    x = mw_scheda(s)
+    a6, a7 = d["a2026"], d["a2027"]
+    oggi = data_lunga(MW_LETTO)
+    if s == "NY":
+        st = [(f'{mw_usd(d["zone"]["nyc"]["minimo"])}', "New York City, Long Island and Westchester, 2026 and 2027", True), (f'{mw_usd(d["zone"]["resto"]["minimo"])}', "Rest of New York State, 2026 and 2027", False),
+              (mw_paga(d["zone"]["nyc"]["minimo"])[0], f'Gross pay for a 40-hour week at {mw_usd(d["zone"]["nyc"]["minimo"])}', False)]
+    elif s == "OR":
+        st = [(mw_usd(d["zone"]["standard"]), "Standard rate, July 1, 2026 to June 30, 2027", True), (mw_usd(d["zone"]["portland"]), "Portland metro", False), (mw_usd(d["zone"]["rurale"]), "Non-urban counties", False)]
+    elif d.get("invariato"):
+        st = [(mw_usd(a7), f"{n} minimum wage per hour in 2027, unchanged", True), (mw_usd(a6), "Per hour in 2026", False), (mw_paga(a7)[0], "Gross pay for a 40-hour week", False)]
+    else:
+        st = [(mw_usd(a7), f"{n} minimum wage per hour from {mw_giorno(d['dal'])}", True), (mw_usd(a6), "Per hour in 2026", False), (mw_paga(a7)[0], "Gross pay for a 40-hour week at the 2027 rate", False)]
+    st.append((mw_usd(MW_FED), "Federal minimum wage per hour", False))
+    corpo = ('<div class="stats card pull" data-minimo-stato="' + s + '">' + "".join(f'<div class="stat{" main" if m else ""}"><b>{h(b)}</b><span>{h(t)}</span></div>' for b, t, m in st)
+             + f'<p class="asof">Official figures read on {oggi}. Estimates of pay are before taxes.</p></div>')
+    corpo += f'<div class="testo" style="margin-top:22px"><p>{h(x["intro"])}{rim.ref(sorted(set(d["fonti_2026"] + d["fonti_2027"])))}</p></div>'
+    # ---- tabella delle tariffe
+    col = x["colonne"]
+    righe = "".join('<tr><th scope="row">' + h(r[0]) + "</th>" + "".join(f'<td class="n">{h(c) if c else "Not published"}</td>' for c in r[1:]) + "</tr>" for r in x["righe"])
+    corpo += rim.t(f'<h2 id="rates">{h(n)} minimum wage rates</h2><div class="tab"><table class="dati mw" data-minimo-tab="{s}"><caption><span>Hourly rates as published by the sources below.[[{",".join(sorted(set(d["fonti_2026"] + d["fonti_2027"])))}]]</span></caption>'
+                   f'<thead><tr><th>Who</th>{"".join('<th class="n">' + h(c) + "</th>" for c in col)}</tr></thead><tbody>{righe}</tbody></table></div>')
+    corpo += x["corpo"](rim)
+    # ---- paga lorda
+    corpo += f'<h2 id="pay">What the minimum wage pays in a week and in a year</h2>{mw_tabella_paga(x["paga"])}'
+    if s in MW_CALCOLATORI:
+        corpo += (f'<div class="testo"><p>That is gross pay. To see what is left after federal tax, Social Security, Medicare and {h(n)} tax, use the <a href="/{MW_CALCOLATORI[s]}/">{h(n)} paycheck calculator</a>: '
+                  'choose “Hourly rate” and enter the rate and your hours.</p></div>')
+    else:
+        corpo += (f'<div class="testo"><p>That is gross pay. Federal income tax, Social Security and Medicare are the same in every state: the <a href="/federal-withholding/">federal withholding page</a> shows how they are worked out. '
+                  f'Our <a href="/">paycheck calculator</a> covers Texas, Florida, California, Illinois and North Carolina; it does not yet include {h(n)} state tax.</p></div>')
+    corpo += mw_federale(rim)
+    # ---- FAQ (solo da ricerche misurate)
+    nl = n.lower()
+    if s == "NY":
+        r1 = (f"{mw_usd(d['zone']['nyc']['minimo'])} an hour in New York City, Long Island and Westchester County and {mw_usd(d['zone']['resto']['minimo'])} an hour in the rest of New York State. "
+              "The New York State Department of Labor says these rates stay the same on January 1, 2027.")
+        r2 = ("Not on January 1, 2027. The Department of Labor says that for 2027 the conditions for one of the law’s “off-ramps” have been met, so the minimum wage will not receive an inflation-based increase on that date. "
+              "The minimum wage for home care aides is a separate rate and does increase.")
+    elif s == "OR":
+        z = d["zone"]
+        r1 = (f"From July 1, 2026 through June 30, 2027: {mw_usd(z['standard'])} an hour standard, {mw_usd(z['portland'])} in the Portland metro area and {mw_usd(z['rurale'])} in non-urban counties. "
+              f"The rates that start on July 1, 2027 were not announced as of {oggi}.")
+        r2 = ("On July 1 of each year. The Bureau of Labor and Industries says increases are based on inflation, if applicable, and take effect on July 1st, so the current rates run through June 30, 2027 and nothing changes on January 1, 2027.")
+    elif d.get("invariato"):
+        r1 = f"{mw_usd(a7)} an hour, the same as in 2026. The state’s table of minimum wage rates lists {mw_usd(a6)} for 2026 and {mw_usd(a7)} for 2027."
+        r2 = f"Not in 2027: the state’s table shows {mw_usd(a7)} an hour for both 2026 and 2027."
+    else:
+        r1 = f"{mw_usd(a7)} an hour from {mw_giorno(d['dal'])}. Until December 31, 2026 it is {mw_usd(a6)} an hour."
+        if s == "OH":
+            r1 += (f" The 2027 poster adds that employees of employers who gross less than {usd0(int(d['soglia_2027']))}, and employees under the age of 16, are owed no less than the federal minimum wage of {mw_usd(MW_FED)}; "
+                   f"tipped employees get {mw_usd(d['mance_2027'])} an hour plus tips.")
+        r2 = f"On {mw_giorno(d['dal'])}, when it goes from {mw_usd(a6)} to {mw_usd(a7)} an hour." + (f" It then rises to {mw_usd(d['a2028'])} on January 1, 2028." if d.get("a2028") else "")
+    fonti_faq = ",".join(sorted(set(d["fonti_2026"] + d["fonti_2027"])))
+    faq = [(f"{nl} minimum wage", f"What is the minimum wage in {n} in 2027?", r1, fonti_faq),
+           (f"{nl} minimum wage 2025", f"When does the {n} minimum wage go up?" if not d.get("invariato") else f"Is the {n} minimum wage going up in 2027?", r2, fonti_faq)]
+    if x["mance_faq"]:
+        faq.append(("tipped minimum wage", f"What is the tipped minimum wage in {n}?", x["mance_faq"][0], x["mance_faq"][1]))
+    faq += x["extra_faq"]
+    if volume(f"minimum wage in {nl}") > 0:
+        e, t = x["paga"][0 if s == "NY" else -1]
+        dove = f", the {e}," if e.endswith("rate") else f" ({e})"
+        faq.append((f"minimum wage in {nl}", f"How much is a full-time week at the minimum wage in {n}?",
+                    f"At {mw_usd(t)} an hour{dove} 40 hours come to {mw_paga(t)[0]} before taxes and a year of 2,080 hours to {mw_paga(t)[1]}. That is our arithmetic on the official hourly rate.", fonti_faq))
+    fq, ld = faq_blocco(faq, rim)
+    corpo += fq
+    corpo += f'<h2>Other states</h2>{mw_griglia(s)}<p style="margin-top:12px"><a href="/minimum-wage/">Minimum wage in all 50 states and DC</a></p>'
+    corpo += rim.elenco(nota='<p class="small">Hourly rates and dates are copied from the official pages above; weekly and yearly pay is our arithmetic on those rates. Local (city and county) minimum wages are not covered. '
+                             'See <a href="/how-we-check/">how we check</a>.</p>')
+    if s == "OR":
+        h1, eyebrow = f"{n} minimum wage 2026-2027", f"{n} · July 2026 to June 2027"
+    else:
+        h1, eyebrow = f"{n} minimum wage 2027", f"{n} · 2026 and 2027"
+    sub = h(x["intro"].split(". ")[0].rstrip(".") + ".")
+    testata = banda(eyebrow, h1, sub, icona="cash")
+    titolo = x.get("titolo") or f"{n} Minimum Wage 2027: {mw_usd(a7)} an Hour From January 1"
+    pagina(mw_url(s), titolo, x["desc"], corpo, testata, briciole=[("Home", ""), ("Minimum wage by state", "minimum-wage/"), (n, mw_url(s))], jsonld=[ld])
+
+
+def pagina_minimo():
+    rim = Rimandi()
+    oggi = data_lunga(MW_LETTO)
+    ordine = sorted(MWS, key=lambda s: MWS[s]["nome"])
+    nuove = [s for s in ordine if mw_2027(s)[3] == "nuova"]
+    uguali = [s for s in ordine if s in MWD and MWD[s].get("invariato")]
+    con_tariffa = {s: mw_cent(MWS[s]["tariffe"][0][0]) for s in ordine if MWS[s]["tariffe"]}
+    alto = max(con_tariffa.values())
+    piu_alti = [s for s in ordine if con_tariffa.get(s) == alto]
+    stati_alto = max(v for s, v in con_tariffa.items() if s != "DC")
+    piu_alto_stato = [s for s in ordine if s != "DC" and con_tariffa.get(s) == stati_alto]
+    senza = [s for s in ordine if not MWS[s]["tariffe"]]
+    sotto = [s for s in ordine if MWS[s]["tariffe"] and mw_cent(MWS[s]["tariffe"][0][0]) < mw_cent(MW_FED)]
+    alto27 = max(mw_cent(MWD[s]["a2027"]) for s in nuove)
+    piu_alto27 = [s for s in nuove if mw_cent(MWD[s]["a2027"]) == alto27]
+    corpo = ('<div class="stats card pull" data-minimo-indice>'
+             f'<div class="stat main"><b>{len(nuove)}</b><span>States with a higher rate on January 1, 2027, published by an official source we could read</span></div>'
+             f'<div class="stat"><b>{mw_usd(MW_FED)}</b><span>Federal minimum wage per hour, unchanged since July 24, 2009</span></div>'
+             f'<div class="stat"><b>{mw_usd(MWD[piu_alto27[0]]["a2027"])}</b><span>Highest state rate published for January 1, 2027 ({h(" and ".join(MWS[s]["nome"] for s in piu_alto27))})</span></div>'
+             f'<div class="stat"><b>{len(senza)}</b><span>States with no state minimum wage law, where the federal rate applies</span></div>'
+             f'<p class="asof">Official sources read on {oggi}. The U.S. Department of Labor table was last updated on {h(MW["tabella_aggiornata"])}.</p></div>')
+    corpo += rim.t('<div class="testo" style="margin-top:22px"><p>This page lists the minimum wage in force in 2026 in every state and the District of Columbia, and the rate for 2027 wherever a state has published it. '
+                   'The 2026 column comes from the U.S. Department of Labor’s table of state minimum wage laws; each 2027 figure comes from the state’s own labor department page, notice or statute, linked in the last column.[[mw_dol_stati]] '
+                   f'Nothing here is estimated: where we found no official 2027 figure, the table says so.</p></div>')
+    righe = []
+    for s in ordine:
+        v = MWS[s]
+        cella, quando, fonti, tipo = mw_2027(s)
+        nome = f'<a href="/{mw_url(s)}">{h(v["nome"])}</a>' if s in MW_PAGINE else h(v["nome"])
+        if s in MW_CALCOLATORI:
+            nome += f'<br><a class="small" href="/{MW_CALCOLATORI[s]}/">paycheck calculator</a>'
+        righe.append(f'<tr data-stato="{s}" data-tipo="{tipo}"><th scope="row">{nome}</th><td data-a2026>{mw_2026_testo(s)}</td><td data-a2027>{cella}{f'<span class="small"> from {h(quando)}</span>' if quando != "–" else ""}</td><td>{rim.ref(fonti) if fonti else "–"}</td></tr>')
+    corpo += (f'<h2 id="table">Minimum wage by state: 2026 and 2027</h2><div class="tab"><table class="dati mw" data-minimo-tutti><caption><span>Basic hourly rate for 2026 from the U.S. Department of Labor table (updated {h(MW["tabella_aggiornata"])}); '
+              f'2027 from each state’s own source, read on {oggi}. Local, youth and training rates are not shown.</span></caption>'
+              f'<thead><tr><th>State</th><th>2026 rate</th><th>2027 rate</th><th>Source</th></tr></thead><tbody>{"".join(righe)}</tbody></table></div>')
+    corpo += ('<p class="small">“No 2027 change listed” means that the Department of Labor table shows no scheduled change for that state and we did not find an official 2027 figure as of '
+              f'{oggi}. It is not a statement that the rate will stay the same: a state can change its rate by law or by formula during the year, so check the state labor office before relying on it.</p>')
+    # ---- chi sale
+    corpo += '<h2 id="rising">States with a new rate on January 1, 2027</h2><div class="testo"><p>Each figure below is the one published by the state; the state page quotes the sentence.</p></div>'
+    r2 = "".join(f'<tr data-sale="{s}"><th scope="row"><a href="/{mw_url(s)}">{h(MWS[s]["nome"])}</a></th><td class="n">{mw_usd(MWD[s]["a2026"])}</td><td class="n">{mw_usd(MWD[s]["a2027"])}</td>'
+                 f'<td class="n">{mw_paga(MWD[s]["a2027"])[0]}</td><td>{rim.ref(MWD[s]["fonti_2027"])}</td></tr>' for s in sorted(nuove, key=lambda s: -mw_cent(MWD[s]["a2027"])))
+    corpo += ('<div class="tab"><table class="dati mw" data-minimo-sale><caption><span>Sorted by the 2027 rate. The 40-hour week is our arithmetic, before taxes.</span></caption>'
+              f'<thead><tr><th>State</th><th class="n">2026</th><th class="n">From January 1, 2027</th><th class="n">40-hour week in 2027</th><th>Source</th></tr></thead><tbody>{r2}</tbody></table></div>')
+    # ---- chi resta uguale, chi cambia a luglio, chi non abbiamo potuto leggere
+    corpo += '<h2 id="same">No change on January 1, 2027</h2><div class="testo"><ul>'
+    z = MWD["NY"]["zone"]
+    corpo += rim.t(f'<li><a href="/{mw_url("NY")}">New York</a>: stays at {mw_usd(z["nyc"]["minimo"])} in New York City, Long Island and Westchester County and {mw_usd(z["resto"]["minimo"])} in the rest of the state.[[mw_ny]]</li>'
+                   f'<li><a href="/{mw_url("MO")}">Missouri</a>: the state’s table shows {mw_usd(MWD["MO"]["a2026"])} for 2026 and {mw_usd(MWD["MO"]["a2027"])} for 2027.[[mw_mo]]</li>'
+                   f'<li><a href="/{mw_url("OR")}">Oregon</a>: rates change on July 1; the current ones run through June 30, 2027.[[mw_or]]</li>'
+                   f'<li>Hawaii: {mw_usd(MWS["HI"]["tariffe"][0][0])} since January 1, 2026; the next step, {mw_usd(MW["prossimo"]["HI"]["tariffa"])}, begins on January 1, 2028.[[mw_hi]]</li>'
+                   f'<li>Alaska: {mw_usd(MWS["AK"]["tariffe"][0][0])} since July 1, 2026; the state labor department says it goes to {mw_usd(MW["prossimo"]["AK"]["tariffa"])} on July 1, 2027.[[mw_ak]]</li>'
+                   '<li>Florida: the Department of Labor table says the rate is scheduled to be updated annually by formula beginning January 1, 2028.[[mw_dol_stati]]</li>'
+                   '<li>District of Columbia: adjusted on July 1 each year, according to the same table.[[mw_dol_stati]]</li></ul>')
+    corpo += rim.cit("mw_ny", "uguale") + rim.cit("mw_ak", "passi") + rim.cit("mw_hi", "tariffe") + rim.cit("mw_dol_stati", "florida") + '</div>'
+    nomi = lambda l: ", ".join(MWS[s]["nome"] for s in l[:-1]) + (" and " if len(l) > 1 else "") + MWS[l[-1]]["nome"]   # noqa: E731
+    non_letti = nomi(sorted(MW["non_letti"], key=lambda s: MWS[s]["nome"]))
+    corpo += (f'<h2 id="not-read">States we could not read</h2><div class="testo"><p>The labor agency websites of {h(non_letti)} refused our request when we read the sources on {oggi}. We do not try to get round such blocks, and we do not copy figures from news sites or guess them from a formula: '
+              'for these states the table shows the 2026 rate from the Department of Labor and no 2027 rate. Check the state agency’s own page before relying on a figure.</p></div>')
+    corpo += '<h2 id="notes">How to read the table</h2><div class="testo">' + rim.cit("mw_dol_stati", "senza_legge") + rim.cit("mw_dol_stati", "locali") + rim.cit("mw_dol_stati", "avvertenza") + '</div>'
+    corpo += mw_federale(rim)
+    corpo += ('<h2 id="paycheck">From hourly wage to take-home pay</h2><div class="testo"><p>A minimum wage is gross pay. The <a href="/">paycheck calculator</a> turns an hourly rate and hours into take-home pay after federal tax, Social Security and Medicare, '
+              'with state tax for <a href="/texas/">Texas</a>, <a href="/florida/">Florida</a>, <a href="/california/">California</a>, <a href="/illinois/">Illinois</a> and <a href="/north-carolina/">North Carolina</a>.</p></div>')
+    faq = [
+        ("minimum wage by state", "What is the minimum wage in each state in 2027?",
+         f"It depends on the state. As of {oggi}, {len(nuove)} states have an official rate for January 1, 2027 that we could read: {', '.join(MWS[s]['nome'] + ' ' + mw_usd(MWD[s]['a2027']) for s in nuove)}. "
+         "New York and Missouri keep their 2026 rates, and the table on this page gives the 2026 rate for every state.", "mw_dol_stati," + ",".join(sorted({f for s in nuove for f in MWD[s]["fonti_2027"]}))),
+        ("federal minimum wage", "What is the federal minimum wage in 2027?",
+         f"The U.S. Department of Labor says the federal minimum wage is {mw_usd(MW_FED)} per hour effective July 24, 2009. As of {oggi} its page shows no other figure. Many states have higher rates, and employers must comply with both laws.", "mw_dol_fed"),
+        ("highest minimum wage state", "Which state has the highest minimum wage?",
+         f"In the Department of Labor table updated on {MW['tabella_aggiornata']}, the highest basic rate is {mw_usd(MWS[piu_alti[0]]['tariffe'][0][0])} in {nomi(piu_alti).replace("District of Columbia", "the District of Columbia")}; among the 50 states it is {mw_usd(MWS[piu_alto_stato[0]]['tariffe'][0][0])} in {nomi(piu_alto_stato)}. "
+         f"For January 1, 2027 the highest state rate published by a source we could read is {mw_usd(MWD[piu_alto27[0]]['a2027'])} in {nomi(piu_alto27)}. Some cities set higher local rates.", "mw_dol_stati," + ",".join(MWD[piu_alto27[0]]["fonti_2027"])),
+        ("lowest minimum wage state", "Which states have the lowest minimum wage?",
+         f"{nomi(senza)} have no state minimum wage law, and the state rates of {nomi(sotto)} are below the federal rate. In all of them employers subject to the Fair Labor Standards Act must pay the federal minimum wage of {mw_usd(MW_FED)} per hour.", "mw_dol_stati"),
+        ("tipped minimum wage", "Is the minimum wage different for tipped workers?",
+         "In many states, yes, and the rules differ. Among the states on this site, California, Washington, Minnesota and Montana allow no tip credit, while New York, New Jersey, Ohio, South Dakota and Vermont publish a lower cash wage for tipped workers; "
+         "each state page gives the official figure where one is published.", "mw_ca_faq,mw_wa,mw_mn,mw_mt,mw_ny,mw_nj,mw_oh,mw_sd,mw_vt"),
+        ("minimum wage increase", "Which states raise the minimum wage on January 1, 2027?",
+         f"From official sources read on {oggi}: {nomi(nuove)}. Alaska’s rate goes to {mw_usd(MW['prossimo']['AK']['tariffa'])} later in the year, on July 1, 2027. "
+         "Other states may also change their rate; where we could not read the state’s page or found no 2027 figure, this page does not show one.",
+         ",".join(sorted({f for s in nuove for f in MWD[s]["fonti_2027"]} | {"mw_ak"}))),
+    ]
+    fq, ld = faq_blocco(faq, rim)
+    corpo += fq + f'<h2>State pages</h2>{mw_griglia()}'
+    corpo += rim.elenco(nota='<p class="small">Hourly rates and dates are copied from the official pages above; weekly pay is our arithmetic on those rates. Local (city and county) minimum wages are not covered. '
+                             'See <a href="/how-we-check/">how we check</a>.</p>')
+    testata = banda("2026 and 2027 · all 50 states and DC", "Minimum wage by state 2027",
+                    "The rate in force in 2026 in every state and the 2027 rate wherever a state has published it, each from an official source.", icona="map")
+    pagina("minimum-wage/", "Minimum Wage by State 2026-2027: Official Rates, 50 States + DC",
+           f"Minimum wage by state: 2026 rates for all 50 states and DC and the official January 1, 2027 rate for {len(nuove)} states, with sources. Federal rate: {mw_usd(MW_FED)}.",
+           corpo, testata, briciole=[("Home", ""), ("Minimum wage by state", "minimum-wage/")], jsonld=[ld])
 
 
 # ---------------------------------------------------------------- file accessori
@@ -1366,6 +1851,9 @@ def main():
         pagina_paghe_stato(s)
     pagina_come_fare()
     pagina_federale()
+    pagina_minimo()
+    for s in MW_PAGINE:
+        pagina_minimo_stato(s)
     come_controlliamo()
     about()
     privacy()

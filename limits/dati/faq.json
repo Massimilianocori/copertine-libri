@@ -1,77 +1,372 @@
 {
- "_nota": "Ogni domanda nasce da una ricerca vera (campo 'ricerca' = suggerimento dell'autocompletamento Google gl=us in dati/domanda.json, letto il 13/11/2026). Le risposte usano solo il testo di legge citato sul sito; i termini sono segnaposto {P:STATO/causa:indice} riempiti da norme.py, così non possono divergere dalle pagine. 'pagina': home, una causa (es. debt), uno Stato (es. TX) o una cella (es. TX/debt).",
+ "_nota": "Ogni domanda nasce da una ricerca vera: campo 'ricerca' = suggerimento dell'autocompletamento Google gl=us in dati/domanda.json (13/11/2026) oppure, con il campo 'volume', una frase misurata il 13/11/2026 in dati/volumi-2026-11-13.json (frase cercata o frase simile, volume mensile USA). Le risposte usano solo il testo di legge citato sul sito; i termini sono segnaposto riempiti da norme.py ({P:STATO/causa:i} anni, {CIT:STATO/causa:i} citazione, {R:STATO/causa} limite massimo, {NST} numero di Stati), così non possono divergere dalle pagine. 'pagina': home, una causa (es. debt), una vista (car-accident, credit-card-debt), uno Stato (es. TX) o una cella (es. TX/debt).",
  "faq": [
-  {"pagina": "home", "ricerca": "statute of limitations meaning", "fonti": ["cfr_1006_26"],
+  {
+   "pagina": "home",
+   "ricerca": "statute of limitations meaning",
+   "fonti": [
+    "cfr_1006_26"
+   ],
    "q": "What does statute of limitations mean?",
-   "a": "It is the deadline, set by law, for starting a lawsuit. The federal debt collection rule defines it as the period prescribed by applicable law for bringing a legal action. Each state sets its own periods for each kind of claim, and rules on minors, absence from the state or late discovery can move the date."},
-  {"pagina": "home", "ricerca": "statute of repose vs statute of limitations", "fonti": ["tx_cprc74"],
+   "a": "It is the deadline, set by law, for starting a lawsuit. The federal debt collection rule defines it as the period prescribed by applicable law for bringing a legal action. Each state sets its own periods for each kind of claim, and rules on minors, absence from the state or late discovery can move the date."
+  },
+  {
+   "pagina": "home",
+   "ricerca": "statute of repose vs statute of limitations",
+   "fonti": [
+    "tx_cprc74"
+   ],
    "q": "What is the difference between a statute of repose and a statute of limitations?",
-   "a": "A statute of limitations usually runs from when a claim accrues and can be paused. A statute of repose is an outer limit counted from the act itself. Texas, for example, gives health care claims {P:TX/medical-malpractice:0} under {CIT:TX/medical-malpractice:0} and adds a 10-year cut-off that the statute calls a statute of repose, so that all claims must be brought within 10 years."},
-  {"pagina": "home", "ricerca": "tolling statute of limitations meaning", "fonti": ["tx_cprc16", "wa_4_16"],
+   "a": "A statute of limitations usually runs from when a claim accrues and can be paused. A statute of repose is an outer limit counted from the act itself. Texas, for example, gives health care claims {P:TX/medical-malpractice:0} under {CIT:TX/medical-malpractice:0} and adds a 10-year cut-off that the statute calls a statute of repose, so that all claims must be brought within 10 years."
+  },
+  {
+   "pagina": "home",
+   "ricerca": "tolling statute of limitations meaning",
+   "fonti": [
+    "tx_cprc16",
+    "wa_4_16"
+   ],
    "q": "What does tolling the statute of limitations mean?",
-   "a": "Tolling means the clock stops for a while. For example, Texas does not count the time the person being sued is absent from the state, and Washington does not count the time the person with the claim is under 18 when it accrues. Each state lists its own tolling rules, and they have conditions."},
-  {"pagina": "home", "ricerca": "statute of limitations calculator", "fonti": [],
+   "a": "Tolling means the clock stops for a while. For example, Texas does not count the time the person being sued is absent from the state, and Washington does not count the time the person with the claim is under 18 when it accrues. Each state lists its own tolling rules, and they have conditions."
+  },
+  {
+   "pagina": "home",
+   "ricerca": "statute of limitations calculator",
+   "fonti": [],
    "q": "How does this statute of limitations calculator work?",
-   "a": "Choose a state, a type of claim and the date to count from. The calculator adds the general period written in the statute and shows the date, plus any outer limit. It does not apply tolling or exceptions, does not move weekend dates and is not legal advice: it lists the exceptions so you can ask a licensed attorney."},
-  {"pagina": "home", "ricerca": "statute of limitations for minors", "fonti": ["tx_cprc16", "tx_cprc74", "oh_2305_16"],
+   "a": "Choose a state, a type of claim and the date to count from. The calculator adds the general period written in the statute and shows the date, plus any outer limit. It does not apply tolling or exceptions, does not move weekend dates and is not legal advice: it lists the exceptions so you can ask a licensed attorney."
+  },
+  {
+   "pagina": "home",
+   "ricerca": "statute of limitations for minors",
+   "fonti": [
+    "tx_cprc16",
+    "tx_cprc74",
+    "oh_2305_16"
+   ],
    "q": "Does the statute of limitations run against minors?",
-   "a": "In general, many states pause or delay the deadline while the person with the claim is under 18: Texas does not count the time of the disability, and Ohio lets the claim be brought after the disability is removed. Medical malpractice often has its own shorter rules for children: in Texas a child injured before age 12 has until the 14th birthday."},
-  {"pagina": "debt", "ricerca": "can a debt collector sue after statute of limitations", "fonti": ["cfr_1006_26"],
+   "a": "In general, many states pause or delay the deadline while the person with the claim is under 18: Texas does not count the time of the disability, and Ohio lets the claim be brought after the disability is removed. Medical malpractice often has its own shorter rules for children: in Texas a child injured before age 12 has until the 14th birthday."
+  },
+  {
+   "pagina": "debt",
+   "ricerca": "can a debt collector sue after statute of limitations",
+   "fonti": [
+    "cfr_1006_26"
+   ],
    "q": "Can a debt collector sue after the statute of limitations?",
-   "a": "Under the federal Regulation F, a debt collector must not bring or threaten to bring a legal action against a consumer to collect a time-barred debt, meaning a debt for which the applicable statute of limitations has expired. Which period applies, and whether it has expired, depends on state law and the facts."},
-  {"pagina": "debt", "ricerca": "time barred debt meaning", "fonti": ["cfr_1006_26"],
+   "a": "Under the federal Regulation F, a debt collector must not bring or threaten to bring a legal action against a consumer to collect a time-barred debt, meaning a debt for which the applicable statute of limitations has expired. Which period applies, and whether it has expired, depends on state law and the facts."
+  },
+  {
+   "pagina": "debt",
+   "ricerca": "time barred debt meaning",
+   "fonti": [
+    "cfr_1006_26"
+   ],
    "q": "What is a time-barred debt?",
-   "a": "The federal rule defines a time-barred debt as a debt for which the applicable statute of limitations has expired. The debt may still exist, but a debt collector must not sue or threaten to sue the consumer over it."},
-  {"pagina": "debt", "ricerca": "statute of limitations by state for debt collection", "fonti": ["tx_cprc16", "fl_95_11", "oh_2305_07", "mn_541_053"],
+   "a": "The federal rule defines a time-barred debt as a debt for which the applicable statute of limitations has expired. The debt may still exist, but a debt collector must not sue or threaten to sue the consumer over it."
+  },
+  {
+   "pagina": "debt",
+   "ricerca": "statute of limitations by state for debt collection",
+   "fonti": [
+    "tx_cprc16",
+    "fl_95_11",
+    "oh_2305_07",
+    "mn_541_053",
+    "pa_5525"
+   ],
    "q": "What is the statute of limitations for debt collection by state?",
-   "a": "Among the ten states on this site: Texas {P:TX/debt:0}, Florida {P:FL/debt:0} for written obligations and {P:FL/debt:1} for those not in writing, Ohio {P:OH/debt:0} for consumer debt, Washington {P:WA/debt:0} for written contracts, Virginia {P:VA/debt:0} for signed written contracts, North Carolina {P:NC/debt:0}, Michigan {P:MI/debt:0}, Arizona {P:AZ/debt:0} for written contracts and credit cards, Massachusetts {P:MA/debt:0} and Minnesota {P:MN/debt:0}."},
-  {"pagina": "personal-injury", "ricerca": "statute of limitations by state personal injury", "fonti": ["tx_cprc16", "fl_95_11", "oh_2305_10", "mn_541_05"],
+   "a": "Among the {NST} states on this site: Texas {P:TX/debt:0}, Florida {P:FL/debt:0} for written obligations and {P:FL/debt:1} for those not in writing, Ohio {P:OH/debt:0} for consumer debt, Washington {P:WA/debt:0} for written contracts, Virginia {P:VA/debt:0} for signed written contracts, North Carolina {P:NC/debt:0}, Michigan {P:MI/debt:0}, Arizona {P:AZ/debt:0} for written contracts and credit cards, Massachusetts {P:MA/debt:0}, Minnesota {P:MN/debt:0} and Pennsylvania {P:PA/debt:0} for obligations founded upon a writing."
+  },
+  {
+   "pagina": "personal-injury",
+   "ricerca": "statute of limitations by state personal injury",
+   "fonti": [
+    "tx_cprc16",
+    "fl_95_11",
+    "oh_2305_10",
+    "mn_541_05",
+    "pa_5524"
+   ],
    "q": "What is the personal injury statute of limitations by state?",
-   "a": "The general periods in the ten states on this site are: Texas {P:TX/personal-injury:0}, Florida {P:FL/personal-injury:0} for negligence, Ohio {P:OH/personal-injury:0}, Washington {P:WA/personal-injury:0}, Virginia {P:VA/personal-injury:0}, North Carolina {P:NC/personal-injury:0}, Michigan {P:MI/personal-injury:0}, Arizona {P:AZ/personal-injury:0}, Massachusetts {P:MA/personal-injury:0} and Minnesota {P:MN/personal-injury:0} for negligence. Each state has exceptions."},
-  {"pagina": "medical-malpractice", "ricerca": "statute of limitations by state medical malpractice", "fonti": ["oh_2305_113", "mn_541_076"],
+   "a": "The general periods in the {NST} states on this site are: Texas {P:TX/personal-injury:0}, Florida {P:FL/personal-injury:0} for negligence, Ohio {P:OH/personal-injury:0}, Washington {P:WA/personal-injury:0}, Virginia {P:VA/personal-injury:0}, North Carolina {P:NC/personal-injury:0}, Michigan {P:MI/personal-injury:0}, Arizona {P:AZ/personal-injury:0}, Massachusetts {P:MA/personal-injury:0} Minnesota {P:MN/personal-injury:0} for negligence and Pennsylvania {P:PA/personal-injury:0}. Each state has exceptions."
+  },
+  {
+   "pagina": "medical-malpractice",
+   "ricerca": "statute of limitations by state medical malpractice",
+   "fonti": [
+    "oh_2305_113",
+    "mn_541_076"
+   ],
    "q": "Which states have the shortest medical malpractice deadline?",
-   "a": "Of the ten states on this site, Ohio has the shortest general period, {P:OH/medical-malpractice:0} under {CIT:OH/medical-malpractice:0}, which a written 180-day letter can extend. Minnesota has the longest, {P:MN/medical-malpractice:0} under {CIT:MN/medical-malpractice:0}."},
-  {"pagina": "TX/personal-injury", "ricerca": "statute of limitations texas car accident", "fonti": ["tx_cprc16", "tx_cprc101"],
+   "a": "Of the {NST} states on this site, Ohio has the shortest general period, {P:OH/medical-malpractice:0} under {CIT:OH/medical-malpractice:0}, which a written 180-day letter can extend. Minnesota has the longest, {P:MN/medical-malpractice:0} under {CIT:MN/medical-malpractice:0}."
+  },
+  {
+   "pagina": "TX/personal-injury",
+   "ricerca": "statute of limitations texas car accident",
+   "fonti": [
+    "tx_cprc16",
+    "tx_cprc101"
+   ],
    "q": "What is the statute of limitations for a car accident in Texas?",
-   "a": "For personal injury the general period is {P:TX/personal-injury:0} under {CIT:TX/personal-injury:0}, and the same section covers injury to property. If a governmental unit is involved, the Texas Tort Claims Act also entitles it to notice within six months of the incident."},
-  {"pagina": "TX/medical-malpractice", "ricerca": "texas medical malpractice statute of limitations discovery rule", "fonti": ["tx_cprc74"],
+   "a": "For personal injury the general period is {P:TX/personal-injury:0} under {CIT:TX/personal-injury:0}, and the same section covers injury to property. If a governmental unit is involved, the Texas Tort Claims Act also entitles it to notice within six months of the incident."
+  },
+  {
+   "pagina": "TX/medical-malpractice",
+   "ricerca": "texas medical malpractice statute of limitations discovery rule",
+   "fonti": [
+    "tx_cprc74"
+   ],
    "q": "Does Texas have a discovery rule for medical malpractice?",
-   "a": "The text of {CIT:TX/medical-malpractice:0} counts {P:TX/medical-malpractice:0} from the breach or tort, or from the completion of the treatment or hospitalization; it does not mention discovery. It also sets a 10-year statute of repose. Ask a Texas attorney how courts apply it to a late-discovered injury."},
-  {"pagina": "TX/debt", "ricerca": "texas statute of limitations credit card debt", "fonti": ["tx_cprc16", "tx_fin392"],
+   "a": "The text of {CIT:TX/medical-malpractice:0} counts {P:TX/medical-malpractice:0} from the breach or tort, or from the completion of the treatment or hospitalization; it does not mention discovery. It also sets a 10-year statute of repose. Ask a Texas attorney how courts apply it to a late-discovered injury."
+  },
+  {
+   "pagina": "TX/debt",
+   "ricerca": "texas statute of limitations credit card debt",
+   "fonti": [
+    "tx_cprc16",
+    "tx_fin392"
+   ],
    "q": "What is the statute of limitations on credit card debt in Texas?",
-   "a": "Texas gives {P:TX/debt:0} to sue on a debt under {CIT:TX/debt:0}. A debt buyer may not sue a consumer after that period, and once it is barred a payment or reaffirmation does not revive the claim (Texas Finance Code section 392.307)."},
-  {"pagina": "FL/personal-injury", "ricerca": "how long do you have to sue after a car accident in florida", "fonti": ["fl_95_11", "fl_law_2023_15"],
+   "a": "Texas gives {P:TX/debt:0} to sue on a debt under {CIT:TX/debt:0}. A debt buyer may not sue a consumer after that period, and once it is barred a payment or reaffirmation does not revive the claim (Texas Finance Code section 392.307)."
+  },
+  {
+   "pagina": "FL/personal-injury",
+   "ricerca": "how long do you have to sue after a car accident in florida",
+   "fonti": [
+    "fl_95_11",
+    "fl_law_2023_15"
+   ],
    "q": "How long do you have to sue after a car accident in Florida?",
-   "a": "A claim founded on negligence has {P:FL/personal-injury:0} under {CIT:FL/personal-injury:0} if it accrued after March 24, 2023. For negligence that accrued on or before that date, the old four-year period still applies, because chapter 2023-15 applies the change only to causes of action accruing after its effective date."},
-  {"pagina": "FL/debt", "ricerca": "statute of limitations credit card debt florida", "fonti": ["fl_95_11"],
+   "a": "A claim founded on negligence has {P:FL/personal-injury:0} under {CIT:FL/personal-injury:0} if it accrued after March 24, 2023. For negligence that accrued on or before that date, the old four-year period still applies, because chapter 2023-15 applies the change only to causes of action accruing after its effective date."
+  },
+  {
+   "pagina": "FL/debt",
+   "ricerca": "statute of limitations credit card debt florida",
+   "fonti": [
+    "fl_95_11"
+   ],
    "q": "What is the statute of limitations on credit card debt in Florida?",
-   "a": "Florida gives {P:FL/debt:0} for an action on a contract or obligation founded on a written instrument and {P:FL/debt:1} for one not founded on a written instrument, including store accounts. Which applies depends on the documents behind the account; ask a Florida attorney."},
-  {"pagina": "OH/breach-of-contract", "ricerca": "statute of limitations oral contract ohio", "fonti": ["oh_2305_07", "oh_2305_07_1993"],
+   "a": "Florida gives {P:FL/debt:0} for an action on a contract or obligation founded on a written instrument and {P:FL/debt:1} for one not founded on a written instrument, including store accounts. Which applies depends on the documents behind the account; ask a Florida attorney."
+  },
+  {
+   "pagina": "OH/breach-of-contract",
+   "ricerca": "statute of limitations oral contract ohio",
+   "fonti": [
+    "oh_2305_07",
+    "oh_2305_07_1993"
+   ],
    "q": "What is the statute of limitations for an oral contract in Ohio?",
-   "a": "Ohio gives {P:OH/breach-of-contract:1} for a contract not in writing under {CIT:OH/breach-of-contract:1}. Before June 16, 2021 the same section said six years, which some tables still show."},
-  {"pagina": "OH/medical-malpractice", "ricerca": "ohio statute of limitations medical malpractice", "fonti": ["oh_2305_113"],
+   "a": "Ohio gives {P:OH/breach-of-contract:1} for a contract not in writing under {CIT:OH/breach-of-contract:1}. Before June 16, 2021 the same section said six years, which some tables still show."
+  },
+  {
+   "pagina": "OH/medical-malpractice",
+   "ricerca": "ohio statute of limitations medical malpractice",
+   "fonti": [
+    "oh_2305_113"
+   ],
    "q": "What is the statute of limitations for medical malpractice in Ohio?",
-   "a": "Generally {P:OH/medical-malpractice:0} after the claim accrues, under {CIT:OH/medical-malpractice:0}. A written notice sent before the year runs out allows filing within 180 days of the notice, and a four-year statute of repose applies, with exceptions for late discovery and foreign objects."},
-  {"pagina": "MN/personal-injury", "ricerca": "minnesota statute of limitations personal injury", "fonti": ["mn_541_05", "mn_541_07"],
+   "a": "Generally {P:OH/medical-malpractice:0} after the claim accrues, under {CIT:OH/medical-malpractice:0}. A written notice sent before the year runs out allows filing within 180 days of the notice, and a four-year statute of repose applies, with exceptions for late discovery and foreign objects."
+  },
+  {
+   "pagina": "MN/personal-injury",
+   "ricerca": "minnesota statute of limitations personal injury",
+   "fonti": [
+    "mn_541_05",
+    "mn_541_07"
+   ],
    "q": "What is the statute of limitations for personal injury in Minnesota?",
-   "a": "Minnesota has two possible periods: {P:MN/personal-injury:0} under {CIT:MN/personal-injury:0} for any other injury to the person, which is generally used for negligence, and {P:MN/personal-injury:1} under {CIT:MN/personal-injury:1} for libel, slander, assault, battery, false imprisonment or other tort resulting in personal injury. Ask a Minnesota attorney which applies."},
-  {"pagina": "VA/medical-malpractice", "ricerca": "statute of limitations virginia medical malpractice", "fonti": ["va_8_01_243"],
+   "a": "Minnesota has two possible periods: {P:MN/personal-injury:0} under {CIT:MN/personal-injury:0} for any other injury to the person, which is generally used for negligence, and {P:MN/personal-injury:1} under {CIT:MN/personal-injury:1} for libel, slander, assault, battery, false imprisonment or other tort resulting in personal injury. Ask a Minnesota attorney which applies."
+  },
+  {
+   "pagina": "VA/medical-malpractice",
+   "ricerca": "statute of limitations virginia medical malpractice",
+   "fonti": [
+    "va_8_01_243"
+   ],
    "q": "What is the statute of limitations for medical malpractice in Virginia?",
-   "a": "Generally {P:VA/medical-malpractice:0} under {CIT:VA/medical-malpractice:0}, extended by one year in some cases (a foreign object left in the body, fraud or concealment, a missed cancer diagnosis), but not beyond 10 years from accrual."},
-  {"pagina": "NC/wrongful-death", "ricerca": "statute of limitations north carolina wrongful death", "fonti": ["nc_1_53"],
+   "a": "Generally {P:VA/medical-malpractice:0} under {CIT:VA/medical-malpractice:0}, extended by one year in some cases (a foreign object left in the body, fraud or concealment, a missed cancer diagnosis), but not beyond 10 years from accrual."
+  },
+  {
+   "pagina": "NC/wrongful-death",
+   "ricerca": "statute of limitations north carolina wrongful death",
+   "fonti": [
+    "nc_1_53"
+   ],
    "q": "What is the statute of limitations for wrongful death in North Carolina?",
-   "a": "{P:NC/wrongful-death:0} under {CIT:NC/wrongful-death:0}, and the statute says the claim does not accrue until the date of death. If the person could no longer have sued for the injury when alive, no death action may be brought."},
-  {"pagina": "AZ/debt", "ricerca": "statute of limitations arizona credit card debt", "fonti": ["az_12_548"],
+   "a": "{P:NC/wrongful-death:0} under {CIT:NC/wrongful-death:0}, and the statute says the claim does not accrue until the date of death. If the person could no longer have sued for the injury when alive, no death action may be brought."
+  },
+  {
+   "pagina": "AZ/debt",
+   "ricerca": "statute of limitations arizona credit card debt",
+   "fonti": [
+    "az_12_548"
+   ],
    "q": "What is the statute of limitations on credit card debt in Arizona?",
-   "a": "{P:AZ/debt:1} under {CIT:AZ/debt:1}, which names debts evidenced by or founded on a credit card. The section also says it applies if another state's limitation conflicts with Arizona's."},
-  {"pagina": "MA/breach-of-contract", "ricerca": "statute of limitations massachusetts contract", "fonti": ["ma_260_2"],
+   "a": "{P:AZ/debt:1} under {CIT:AZ/debt:1}, which names debts evidenced by or founded on a credit card. The section also says it applies if another state's limitation conflicts with Arizona's."
+  },
+  {
+   "pagina": "MA/breach-of-contract",
+   "ricerca": "statute of limitations massachusetts contract",
+   "fonti": [
+    "ma_260_2"
+   ],
    "q": "What is the statute of limitations for a contract claim in Massachusetts?",
-   "a": "{P:MA/breach-of-contract:0} under {CIT:MA/breach-of-contract:0}, for contracts express or implied, other than contract actions to recover for personal injuries, which have three years."},
-  {"pagina": "MI/debt", "ricerca": "statute of limitations michigan debt", "fonti": ["mi_5807"],
+   "a": "{P:MA/breach-of-contract:0} under {CIT:MA/breach-of-contract:0}, for contracts express or implied, other than contract actions to recover for personal injuries, which have three years."
+  },
+  {
+   "pagina": "MI/debt",
+   "ricerca": "statute of limitations michigan debt",
+   "fonti": [
+    "mi_5807"
+   ],
    "q": "What is the statute of limitations on debt in Michigan?",
-   "a": "{P:MI/debt:0} for an action to recover damages or money due for breach of contract under {CIT:MI/debt:0}, unless a more specific period applies."},
-  {"pagina": "WA/debt", "ricerca": "statute of limitations washington state debt collection", "fonti": ["wa_4_16"],
+   "a": "{P:MI/debt:0} for an action to recover damages or money due for breach of contract under {CIT:MI/debt:0}, unless a more specific period applies."
+  },
+  {
+   "pagina": "WA/debt",
+   "ricerca": "statute of limitations washington state debt collection",
+   "fonti": [
+    "wa_4_16"
+   ],
    "q": "What is the statute of limitations for debt collection in Washington State?",
-   "a": "{P:WA/debt:0} for a written contract and {P:WA/debt:1} for an account receivable under chapter 4.16 RCW, and {P:WA/debt:2} for a contract that is not in writing."}
+   "a": "{P:WA/debt:0} for a written contract and {P:WA/debt:1} for an account receivable under chapter 4.16 RCW, and {P:WA/debt:2} for a contract that is not in writing."
+  },
+  {
+   "pagina": "home",
+   "ricerca": "how long is the statute of limitations",
+   "volume": 2900,
+   "fonti": [
+    "tx_cprc16",
+    "nc_1_52",
+    "ma_260_2a",
+    "pa_5525",
+    "mi_5807"
+   ],
+   "q": "How long is the statute of limitations?",
+   "a": "There is no single period: each state sets its own for each kind of claim. For personal injury, for example, the general period is {P:TX/personal-injury:0} in Texas ({CIT:TX/personal-injury:0}), {P:NC/personal-injury:0} in North Carolina ({CIT:NC/personal-injury:0}) and {P:MA/personal-injury:0} in Massachusetts ({CIT:MA/personal-injury:0}); for a written contract it is {P:PA/breach-of-contract:0} in Pennsylvania ({CIT:PA/breach-of-contract:0}) and {P:MI/breach-of-contract:0} in Michigan ({CIT:MI/breach-of-contract:0}). Tolling rules and exceptions can move the date."
+  },
+  {
+   "pagina": "TX",
+   "ricerca": "what is statute of limitations in texas",
+   "volume": 880,
+   "fonti": [
+    "tx_cprc16",
+    "tx_cprc74"
+   ],
+   "q": "What is the statute of limitations in Texas?",
+   "a": "Texas sets a different period for each kind of claim. Under the sections quoted on this site the general periods are: personal injury {P:TX/personal-injury:0} ({CIT:TX/personal-injury:0}), health care liability claims {P:TX/medical-malpractice:0} ({CIT:TX/medical-malpractice:0}) with an outer limit of {R:TX/medical-malpractice}, wrongful death {P:TX/wrongful-death:0} ({CIT:TX/wrongful-death:0}), debt {P:TX/debt:0} ({CIT:TX/debt:0}), other contract claims {P:TX/breach-of-contract:0} ({CIT:TX/breach-of-contract:0}) and injury to property {P:TX/property-damage:0} ({CIT:TX/property-damage:0}). Tolling rules and exceptions can change the date."
+  },
+  {
+   "pagina": "FL",
+   "ricerca": "what are the statutes of limitations in florida",
+   "volume": 390,
+   "fonti": [
+    "fl_95_11",
+    "fl_95_051"
+   ],
+   "q": "What are the statutes of limitations in Florida?",
+   "a": "Florida lists its periods in section 95.11. Under the text quoted on this site: an action founded on negligence {P:FL/personal-injury:0} if it accrued after March 24, 2023 ({CIT:FL/personal-injury:0}); medical malpractice {P:FL/medical-malpractice:0} ({CIT:FL/medical-malpractice:0}); wrongful death {P:FL/wrongful-death:0} ({CIT:FL/wrongful-death:0}); a written contract {P:FL/breach-of-contract:0} ({CIT:FL/breach-of-contract:0}); and a contract not founded on a written instrument {P:FL/breach-of-contract:1} ({CIT:FL/breach-of-contract:1}). Under section 95.051, nothing pauses these periods except the reasons listed in that section, section 95.091, the Florida Probate Code or the Florida Guardianship Law."
+  },
+  {
+   "pagina": "OH",
+   "ricerca": "what is the statute of limitations in ohio",
+   "volume": 260,
+   "fonti": [
+    "oh_2305_10",
+    "oh_2305_113",
+    "oh_2125_02",
+    "oh_2305_07",
+    "oh_2305_06"
+   ],
+   "q": "What is the statute of limitations in Ohio?",
+   "a": "Ohio sets a different period for each kind of claim. Under the sections quoted on this site: bodily injury {P:OH/personal-injury:0} ({CIT:OH/personal-injury:0}), medical claims {P:OH/medical-malpractice:0} ({CIT:OH/medical-malpractice:0}), wrongful death {P:OH/wrongful-death:0} ({CIT:OH/wrongful-death:0}), consumer debt {P:OH/debt:0} ({CIT:OH/debt:0}), a written contract {P:OH/breach-of-contract:0} ({CIT:OH/breach-of-contract:0}) and an oral contract {P:OH/breach-of-contract:1} ({CIT:OH/breach-of-contract:1}). Ohio shortened its contract periods in 2021, and a transition rule applies to older claims."
+  },
+  {
+   "pagina": "MI",
+   "ricerca": "what is the statute of limitations in michigan",
+   "volume": 210,
+   "fonti": [
+    "mi_5805",
+    "mi_5807",
+    "mi_5838a"
+   ],
+   "q": "What is the statute of limitations in Michigan?",
+   "a": "Under the sections quoted on this site, Michigan gives {P:MI/personal-injury:0} for injury to a person ({CIT:MI/personal-injury:0}), {P:MI/property-damage:0} for injury to property ({CIT:MI/property-damage:0}), {P:MI/medical-malpractice:0} for malpractice ({CIT:MI/medical-malpractice:0}) with an outer limit of {R:MI/medical-malpractice}, and {P:MI/breach-of-contract:0} for breach of contract ({CIT:MI/breach-of-contract:0}). Exceptions and tolling rules can change the date."
+  },
+  {
+   "pagina": "PA",
+   "ricerca": "what is the statute of limitations in pa",
+   "volume": 210,
+   "fonti": [
+    "pa_5524",
+    "pa_5525",
+    "pa_mcare",
+    "pa_reibenstein"
+   ],
+   "q": "What is the statute of limitations in Pennsylvania (PA)?",
+   "a": "Pennsylvania groups its periods by length in chapter 55 of Title 42. Under the sections quoted on this site: injuries to the person, or death, caused by negligence or another wrongful act: {P:PA/personal-injury:0} ({CIT:PA/personal-injury:0}); taking, detaining or injuring personal property: {P:PA/property-damage:0} ({CIT:PA/property-damage:0}); written and oral contracts: {P:PA/breach-of-contract:0} ({CIT:PA/breach-of-contract:0} and {CIT:PA/breach-of-contract:1}). For medical professional liability claims the MCARE Act prints an outer limit of {R:PA/medical-malpractice}, which the Pennsylvania Supreme Court has held unconstitutional (Yanakos v. UPMC, 2019)."
+  },
+  {
+   "pagina": "PA/debt",
+   "ricerca": "pennsylvania debt statute of limitations",
+   "volume": 720,
+   "fonti": [
+    "pa_5525",
+    "pa_5529",
+    "pa_13_3118"
+   ],
+   "q": "What is the statute of limitations on debt in Pennsylvania?",
+   "a": "Pennsylvania gives {P:PA/debt:0} for an action upon a contract, obligation or liability founded upon a writing ({CIT:PA/debt:0}) and {P:PA/debt:1} for an express contract not founded upon an instrument in writing ({CIT:PA/debt:1}). The statute does not name credit cards. An action upon an instrument in writing under seal has 20 years under section 5529(b)(1), and the Commercial Code gives six years for negotiable notes (13 Pa.C.S. § 3118)."
+  },
+  {
+   "pagina": "PA/medical-malpractice",
+   "ricerca": "pennsylvania medical malpractice statute of limitations",
+   "volume": 390,
+   "fonti": [
+    "pa_5524",
+    "pa_mcare",
+    "pa_reibenstein"
+   ],
+   "q": "What is the medical malpractice statute of limitations in Pennsylvania?",
+   "a": "Pennsylvania has no separate limitations section for malpractice. The general section for injuries caused by negligence gives {P:PA/medical-malpractice:0} ({CIT:PA/medical-malpractice:0}); applying it to malpractice is our reading, so ask a Pennsylvania attorney. The MCARE Act also prints an outer limit of {R:PA/medical-malpractice} from the date of the alleged tort or breach of contract, but the Supreme Court of Pennsylvania has written that it deemed that statute of repose unconstitutional in Yanakos v. UPMC (2019) and that no substitute has been enacted."
+  },
+  {
+   "pagina": "PA/personal-injury",
+   "ricerca": "pennsylvania personal injury statute of limitations",
+   "volume": 320,
+   "fonti": [
+    "pa_5524",
+    "pa_5522"
+   ],
+   "q": "What is the statute of limitations for personal injury in Pennsylvania?",
+   "a": "{P:PA/personal-injury:0} under {CIT:PA/personal-injury:0}, which covers an action to recover damages for injuries to the person caused by the wrongful act or neglect or unlawful violence or negligence of another. Assault and battery have the same period under section 5524(1). Before suing a government unit, a signed written statement is due within six months (section 5522)."
+  },
+  {
+   "pagina": "car-accident",
+   "ricerca": "statute of limitations for a car accident",
+   "volume": 2400,
+   "fonti": [
+    "tx_cprc16",
+    "nc_1_52",
+    "fl_95_11",
+    "va_8_01_243"
+   ],
+   "q": "What is the statute of limitations for a car accident?",
+   "a": "It depends on the state and on the claim. Matching a crash to these sections is our reading of the statutes, not a quoted rule. For injuries, the general period is {P:TX/personal-injury:0} in Texas ({CIT:TX/personal-injury:0}), {P:NC/personal-injury:0} in North Carolina ({CIT:NC/personal-injury:0}) and {P:FL/personal-injury:0} in Florida for negligence that accrued after March 24, 2023 ({CIT:FL/personal-injury:0}). For damage to the car, Virginia gives {P:VA/property-damage:0} ({CIT:VA/property-damage:0}) and Texas {P:TX/property-damage:0} ({CIT:TX/property-damage:0}). The table on this page shows every state; a claim against a government can need a written notice within months."
+  },
+  {
+   "pagina": "credit-card-debt",
+   "ricerca": "statute of limitations for credit card debt",
+   "volume": 1600,
+   "fonti": [
+    "az_12_548",
+    "tx_cprc16",
+    "mn_541_053",
+    "pa_5525"
+   ],
+   "q": "What is the statute of limitations for credit card debt?",
+   "a": "Among the limitations statutes quoted on this site, only Arizona's names credit cards: {P:AZ/debt:1} under {CIT:AZ/debt:1}. The others set periods for debts, contracts, accounts or consumer debt without naming cards, for example Texas {P:TX/debt:0} for a debt ({CIT:TX/debt:0}), Minnesota {P:MN/debt:0} for consumer debt ({CIT:MN/debt:0}) and Pennsylvania {P:PA/debt:0} for an obligation founded upon a writing ({CIT:PA/debt:0}). Which one covers a card account is a question for an attorney in the state."
+  }
  ]
 }

@@ -54,6 +54,8 @@ QUOTA_MODELLO = 0.05  # gruppi di 5 parole presenti in almeno il 5% delle pagine
 FRASE_FISSA = "check with the agency or form that asks for the code"
 FILE_VOLUMI_ATTIVITA = "volumi-attivita-2026-11-13.json"  # misura con data: per rifarla, file nuovo con la data e nome qui (e in verifica.py)
 FILE_VOLUMI_LLC = "volumi-llc-2026-11-14.json"  # misura delle frasi «LLC by State» (raccolta/volumi_llc.py); anche in verifica.py
+FILE_VOLUMI_OFFICINE = "volumi-officine-2026-11-19.json"  # misura delle frasi «Auto repair laws by state» (raccolta/volumi_officine.py); anche in verifica.py
+MIN_VOLUME_OFFICINE = 20  # pagina di uno Stato della sezione officine: almeno una sua frase con 20 ricerche al mese misurate (prova: la domanda per Stato è piccola, quella grande è sulla frase generale)
 MIN_VOLUME_ATTIVITA = 100  # pagina «NAICS code for …» solo con almeno 100 ricerche al mese misurate su una delle sue frasi
 QUOTA_MODELLO_ATTIVITA = 0.25  # gruppi di 5 parole presenti in almeno un quarto delle pagine attività = modello della pagina
 SOGLIA_SETTORE_COMPLETO = 40  # nella pagina attività di un settore: ogni codice a 6 cifre se sono al massimo 40, altrimenti 2 esempi per sottosettore
@@ -78,6 +80,10 @@ LLC = carica("llc-stati.json")  # sezione «LLC by State»: fatti e frasi citate
 LLCF = carica("llc-fonti.json")["fonti"]  # scritto da raccolta/llc.py: HTTP, data di lettura, frasi ritrovate
 VOLL = carica(FILE_VOLUMI_LLC)
 AFF = carica("affiliati.json")["avvio"]  # riquadro dei partner: spento finché "attivo" è false
+OFF = carica("officine-stati.json")  # sezione «Auto repair laws by state»: fatti, checklist e frasi citate dai testi ufficiali
+OFFF = carica("officine-fonti.json")["fonti"]  # scritto da raccolta/officine.py
+VOLO = carica(FILE_VOLUMI_OFFICINE)
+AFFO = carica("affiliati.json")["officine"]  # riquadro «Running a repair shop?»: spento, nessun link esiste
 C = NA["codici"]
 ORDINE = NA["ordine"]
 SIC = NA["sic"]
@@ -180,6 +186,11 @@ for _fid, _f in LLCF.items():
         raise SystemExit(f"llc-fonti.json: nome di fonte già usato ({_fid})")
     FONTI_DEF[_fid] = {"titolo": _f["titolo"], "chi": _f["chi"], "url": _f["url"], "letto": _f["letto_il"]}
 CONTROLLO_LLC = max(date.fromisoformat(x["letto_il"]) for x in LLCF.values())
+for _fid, _f in OFFF.items():
+    if _fid in FONTI_DEF:
+        raise SystemExit(f"officine-fonti.json: nome di fonte già usato ({_fid})")
+    FONTI_DEF[_fid] = {"titolo": _f["titolo"], "chi": _f["chi"], "url": _f["url"], "letto": _f["letto_il"]}
+CONTROLLO_OFF = max(date.fromisoformat(x["letto_il"]) for x in OFFF.values())
 
 
 class Rimandi:
@@ -198,7 +209,7 @@ class Rimandi:
             nums.append(self.ordine.index(i) + 1)
         return '<sup class="ref">' + ",".join(f'<a href="#f{n}" aria-label="source {n}">[{n}]</a>' for n in sorted(set(nums))) + "</sup>"
 
-    def elenco(self, llc=False):
+    def elenco(self, llc=False, ancora="llc"):
         if not self.ordine:
             return ""
         voci = []
@@ -207,7 +218,7 @@ class Rimandi:
             letto = f' Read on {data_lunga(f["letto"])}.' if llc else ""
             voci.append(f'<li id="f{n}"><a href="{h(f["url"])}" rel="noopener">{h(f["titolo"])}</a> · {h(f["chi"])}.{letto}</li>')
         coda = ("Official state pages, quoted without changes; each figure on this page is in one of the quoted sentences. "
-                '<a href="/how-we-check/#llc">How we check</a>.' if llc else
+                f'<a href="/how-we-check/#{ancora}">How we check</a>.' if llc else
                 f'Files read on {data_lunga(CONTROLLO)}. Official texts are reproduced without changes. <a href="/how-we-check/">How we check</a>.')
         return (f'<section class="fonti-box" aria-labelledby="fonti-h"><h2 id="fonti-h">{ico("doc")}Sources</h2><ol>{"".join(voci)}</ol>'
                 f'<p class="small">{coda}</p></section>')
@@ -335,7 +346,8 @@ activities of the official index, the 2017 codes and the 1987 SIC codes. Indepen
 </div><div>
 <h2>Codes</h2><ul><li><a href="/#search">Search a code</a></li><li><a href="/#sectors">All 20 sectors</a></li>
 <li><a href="/naics-2017-to-2022/">NAICS 2017 to 2022</a></li><li><a href="/sic-to-naics/">SIC to NAICS</a></li>
-<li><a href="/naics-code-for/">NAICS codes by activity</a></li><li><a href="/llc/">LLC filing fees by state</a></li></ul>
+<li><a href="/naics-code-for/">NAICS codes by activity</a></li><li><a href="/llc/">LLC filing fees by state</a></li>
+<li><a href="/auto-repair-laws/">Auto repair laws by state</a></li></ul>
 </div><div>
 <h2>The site</h2><ul><li><a href="/how-we-check/">How we check</a></li><li><a href="/how-we-check/#corrections">Report an error</a></li>
 <li><a href="/about/">About</a></li><li><a href="/privacy/">Privacy</a></li></ul>
@@ -544,6 +556,12 @@ def frasi_misurate():
         if v.get("volume"):
             out[f] = v["volume"]
     for f, v in VOLL["frasi"].items():
+        for s, n in (v.get("simili") or {}).items():
+            if n:
+                out.setdefault(s, n)
+        if v.get("volume"):
+            out[f] = v["volume"]
+    for f, v in VOLO["frasi"].items():
         for s, n in (v.get("simili") or {}).items():
             if n:
                 out.setdefault(s, n)
@@ -769,7 +787,7 @@ def pagina_sei(c):
     corpo += blocco_sic(c, rim)
     p5 = v["p"]
     g4 = antenato(c, 4)
-    corpo += blocco_guide(c) + (blocco_avvio() if GUIDE_DI.get(c) else "")
+    corpo += blocco_guide(c) + (blocco_avvio() if GUIDE_DI.get(c) else "") + (blocco_officine() if c in CODICI_OFF else "")
     corpo += f'<h2 id="hierarchy">Where {c} sits in NAICS</h2><ul class="albero">'
     for l in (2, 3, 4):
         a = antenato(c, l)
@@ -1171,7 +1189,7 @@ def pagina_attivita(a):
                   f"Before using a code on a form, {FRASE_FISSA}.", "info", "alert")
     voci = faq_pagina(a["slug"], rim, extra)
     f_html, f_ld = faq_html(voci)
-    corpo += f_html + blocco_avvio()
+    corpo += f_html + blocco_avvio() + (blocco_officine() if a["slug"] == "naics-code-for-auto-repair" else "")
     corpo += ('<p class="small">More activities: <a href="/naics-code-for/">NAICS codes by business activity</a>.</p>' + rim.elenco())
     controlla_codici_attivita(a["slug"], corpo)
     testata = banda("NAICS code by activity", maiuscola(a["h1"]), h(a["descrizione"]), icona="tag")
@@ -1251,11 +1269,12 @@ ASSENTE_LLC = {"tax": "A separate state tax or fee for LLCs", "processing": "A s
                "agent": "A registered agent rule"}
 
 
-def partner_attivi():
-    """Partner da mostrare: nessuno finché "attivo" è false sul riquadro o sul partner. Con un link segnaposto la generazione si ferma."""
-    if not AFF["attivo"]:
+def partner_attivi(aff=None):
+    """Partner da mostrare: nessuno finché "attivo" è false sul riquadro o sul partner. Con un link vuoto o segnaposto la generazione si ferma."""
+    aff = AFF if aff is None else aff
+    if not aff["attivo"]:
         return []
-    out = [x for x in AFF["partner"] if x["attivo"]]
+    out = [x for x in aff["partner"] if x["attivo"]]
     for x in out:
         if "DA-INSERIRE" in x["link"] or ".invalid" in x["link"] or not x["link"].startswith("https://"):
             raise SystemExit(f"affiliati.json: {x['id']} è attivo ma il link di affiliazione non è stato inserito")
@@ -1264,15 +1283,17 @@ def partner_attivi():
     return out
 
 
-def riquadro_partner():
-    """Riquadro «Starting this business?»: stringa vuota finché dati/affiliati.json non ha "attivo": true e link veri."""
-    attivi = partner_attivi()
+def riquadro_partner(aff=None, chiave="avvio"):
+    """Riquadro dei partner («Starting this business?», oppure «Running a repair shop?» con aff=AFFO): stringa vuota finché
+    dati/affiliati.json non ha "attivo": true e link veri."""
+    aff = AFF if aff is None else aff
+    attivi = partner_attivi(aff)
     if not attivi:
         return ""
     bottoni = "".join(f'<a class="btn" href="{h(x["link"])}" rel="sponsored nofollow noopener" target="_blank" data-partner-link="{h(x["id"])}">'
                       f'{h(x["pulsante"])}</a>' for x in attivi)
-    return (f'<aside class="partner" data-partner="avvio"><p class="tag neu">Advertisement · affiliate links</p><h2>{h(AFF["titolo"])}</h2>'
-            f'<p>{h(AFF["testo"])}</p><p class="partner-b">{bottoni}</p><p class="small">{h(AFF["trasparenza"])}</p></aside>')
+    return (f'<aside class="partner" data-partner="{chiave}"><p class="tag neu">Advertisement · affiliate links</p><h2>{h(aff["titolo"])}</h2>'
+            f'<p>{h(aff["testo"])}</p><p class="partner-b">{bottoni}</p><p class="small">{h(aff["trasparenza"])}</p></aside>')
 
 
 def blocco_avvio():
@@ -1458,6 +1479,246 @@ def blocco_metodo_llc(rim):
             + tabella(["State", "Official page", "Read on", "Sentences quoted"], rr, num_=[3], resp="resp7"))
 
 
+# ---------------------------------------------------------------- sezione «Auto repair laws by state» (officine)
+ETICHETTE_OFF = {"estimate": "Written estimate", "authorization": "Customer authorization", "invoice": "Invoice", "parts": "Replaced parts",
+                 "registration": "Shop registration", "records": "Records"}
+OBBLIGATORI_OFF = {"estimate", "authorization", "invoice", "parts"}
+ASSENTE_OFF = {"registration": "a registration or license requirement for the shop", "records": "how long records are kept"}
+GRUPPI_OFF = ("estimate", "authorization", "invoice", "parts", "shop")
+CODICI_OFF = ("811111", "811198")  # pagine di codice che rimandano alla sezione (insieme alla guida naics-code-for-auto-repair)
+DISCLAIMER_OFF = ("<strong>Information from official state texts, not legal advice.</strong> Statutes and regulations change, apply differently to "
+                  "different shops and vehicles, and contain more than what is quoted here: read the official text linked next to each rule and ask "
+                  "the state agency or a lawyer about your own case. A checklist on this site does not make a form compliant. For the NAICS "
+                  f"code, {FRASE_FISSA}. Independent site, not affiliated with the U.S. Census Bureau or any state legislature or agency.")
+
+
+def volume_off(s):
+    return max((MISURATE.get(f, 0) for f in s["frasi"]), default=0)
+
+
+def controlla_stato_off(s):
+    """La generazione si ferma se una frase citata (fatti e checklist) non è stata ritrovata nel testo ufficiale, o se una nostra cifra
+    non è in una frase citata dello stesso Stato (sono ammessi i numeri dei titoli delle sue fonti: numeri di articolo)."""
+    citate, usate = set(), set()
+
+    def trovata(c, dove):
+        fonte = OFFF.get(c["fonte"])
+        if not fonte or fonte["http"] != 200:
+            raise SystemExit(f"officine-stati.json, {s['slug']}: fonte {c['fonte']} non letta (lanciare raccolta/officine.py)")
+        if not any(x["testo"] == c["testo"] and x["trovata"] for x in fonte["frasi"]):
+            raise SystemExit(f"officine-stati.json, {s['slug']}, {dove}: frase non ritrovata nel testo ufficiale ({c['testo'][:60]}…): lanciare raccolta/officine.py")
+        usate.add(c["fonte"])
+        return _cifre(c["testo"])
+
+    for f in s["fatti"]:
+        if f["id"] not in ETICHETTE_OFF or not f["citazioni"]:
+            raise SystemExit(f"officine-stati.json, {s['slug']}: fatto {f['id']} sconosciuto o senza frase citata")
+        for c in f["citazioni"]:
+            citate |= trovata(c, f["id"])
+    if not OBBLIGATORI_OFF <= {f["id"] for f in s["fatti"]}:
+        raise SystemExit(f"officine-stati.json, {s['slug']}: mancano preventivo, autorizzazione, fattura o ricambi")
+    if [g["id"] for g in s["checklist"]] != list(GRUPPI_OFF):
+        raise SystemExit(f"officine-stati.json, {s['slug']}: i gruppi della checklist devono essere {GRUPPI_OFF}")
+    for g in s["checklist"]:
+        if not g["voci"]:
+            raise SystemExit(f"officine-stati.json, {s['slug']}: gruppo {g['id']} della checklist vuoto")
+        for c in g["voci"]:
+            citate |= trovata(c, "checklist " + g["id"])
+            if not c.get("rif"):
+                raise SystemExit(f"officine-stati.json, {s['slug']}: voce della checklist senza riferimento ({c['testo'][:50]})")
+    for fid in usate:  # numeri di articolo dei titoli delle fonti, anche solo il capitolo (559 di 559.905)
+        citate |= _cifre(OFFF[fid]["titolo"]) | {x.split(".")[0] for x in _cifre(OFFF[fid]["titolo"])}
+    nostri = ([s["intro"], s["titolo"], s["legge"]] + [f[k] for f in s["fatti"] for k in ("valore", "breve", "nota")]
+              + [g["titolo"] for g in s["checklist"]] + [x[k] for x in s["faq"] for k in ("q", "a")])
+    for t in nostri:
+        fuori = _cifre(t) - citate
+        if fuori:
+            raise SystemExit(f"officine-stati.json, {s['slug']}: cifra {sorted(fuori)} non presente in nessuna frase citata («{t[:60]}…»)")
+    for x in s["faq"]:
+        if not MISURATE.get(x["ricerca"]):
+            raise SystemExit(f"officine-stati.json, {s['slug']}: la ricerca «{x['ricerca']}» non ha un volume misurato")
+    if len(s["titolo"]) > 65:
+        raise SystemExit(f"officine-stati.json, {s['slug']}: titolo di {len(s['titolo'])} caratteri")
+
+
+STATI_OFF = [s for s in OFF["stati"] if volume_off(s) >= MIN_VOLUME_OFFICINE]
+for _s in STATI_OFF:
+    controlla_stato_off(_s)
+for _f in OFF["indice"]["frasi"]:
+    if not MISURATE.get(_f):
+        raise SystemExit(f"officine-stati.json, indice: la frase «{_f}» non ha un volume misurato")
+
+
+def fatto_off(s, fid):
+    return next((f for f in s["fatti"] if f["id"] == fid), None)
+
+
+def minuscola(t):
+    return t[0].lower() + t[1:]
+
+
+def riquadro_officine():
+    return riquadro_partner(AFFO, "officine")
+
+
+def checklist_off(s, letto, rim):
+    """Checklist stampabile: ogni riga è testo ufficiale citato alla lettera, con l'articolo; le diciture da stampare tali e quali sono a parte."""
+    out = (f'<section class="check" id="checklist" data-check="{s["slug"]}"><h2>{h(s["nome"])} repair shop checklist: estimate, authorization, invoice</h2>'
+           f'<p class="small">Every line is quoted word for word from the official text read on {letto}; the section it comes from is at the end of the '
+           'line. Tick what your own forms already carry.</p>'
+           '<p class="cl-az"><button type="button" class="btn" data-stampa>Print the checklist</button>'
+           '<a class="btn sec" href="#facts">Read the rules first</a></p>')
+    for g in s["checklist"]:
+        out += f'<h3>{h(g["titolo"])}</h3><ul class="cl">'
+        prima = True
+        for c in g["voci"]:
+            rif = f'<span class="rif">{h(c["rif"])}{rim.ref(c["fonte"])}</span>'
+            if c.get("frase"):
+                et = f'<span class="et">Wording to print · {rif}</span>' if prima else ""
+                out += f'<li class="dic{" pr" if prima else ""}">{et}<q data-f="{c["fonte"]}">{h(c["testo"])}</q></li>'
+                prima = False
+            else:  # un pezzo preso a metà frase comincia con la minuscola: i puntini lo dicono
+                out += f'<li>{"… " if c["testo"][0].islower() else ""}<q data-f="{c["fonte"]}">{h(c["testo"])}</q>{rif}</li>'
+                prima = True
+        out += "</ul>"
+    out += (f'<p class="pie">{h(s["nome"])}: {h(s["legge"])}. Quoted from the official text on {letto} by {NOME}, {URL_SITO}/auto-repair-laws/{s["slug"]}/. '
+            'Information, not legal advice: the official text may have changed and contains more than these lines.</p></section>')
+    return out
+
+
+def pagina_officina(s):
+    rim = Rimandi()
+    letto = data_lunga(max(date.fromisoformat(OFFF[c["fonte"]]["letto_il"]) for f in s["fatti"] for c in f["citazioni"]))
+    celle = "".join(f'<div class="fatto"><span>{h(ETICHETTE_OFF[f["id"]])}</span><b>{h(f["breve"])}</b></div>' for f in s["fatti"])
+    corpo = (f'<div class="card pull fatti llc-f">{celle}</div>'
+             f'<p class="asof">{ico("check")}Read in the official texts on {letto}. Each rule below is followed by the sentence it comes from.</p>'
+             f'<div class="testo"><p>{h(s["intro"])}</p></div>'
+             '<p class="cl-az"><a class="btn" href="#checklist">Go to the printable checklist</a></p>')
+    corpo += f'<h2 id="facts">What {h(s["nome"])} requires from a repair shop, in the official words</h2>'
+    for f in s["fatti"]:
+        cit = ""
+        for c in f["citazioni"]:
+            fonte = OFFF[c["fonte"]]
+            cit += (f'<blockquote class="legge">{"… " if c["testo"][0].islower() else ""}{h(c["testo"])}<cite>{h(fonte["chi"])}, <a href="{h(fonte["url"])}" rel="noopener">{h(fonte["titolo"])}</a>, '
+                    f'read on {data_lunga(fonte["letto_il"])}{rim.ref(c["fonte"])}</cite></blockquote>')
+        corpo += (f'<section class="voce llc-v" id="{f["id"]}"><h3><span class="pill">{h(ETICHETTE_OFF[f["id"]])}</span>{h(f["valore"])}</h3>'
+                  f'<p>{h(f["nota"])}</p>{cit}</section>')
+    assenti = [ASSENTE_OFF[k] for k in ("registration", "records") if not fatto_off(s, k)]
+    if assenti:
+        corpo += ('<p class="small">Not in the sections we read: ' + "; ".join(assenti)
+                  + ". That means we did not find it there, not that none applies: ask the state.</p>")
+    corpo += nota("This page repeats what the official texts say on the date shown. It is information, not legal advice: it does not cover every "
+                  "section of the law, local rules, insurance or collision repairs in detail, or your own case.", "info", "alert")
+    corpo += checklist_off(s, letto, rim)
+    cod = " and ".join(f'{link_cod(c)} ({h(C[c]["t"])})' for c in CODICI_OFF)
+    corpo += ('<h2 id="naics">The NAICS code of a repair shop</h2><div class="testo"><p>These rules are state law; the NAICS code is a federal '
+              f'classification of what the business does. The official index puts most car repair work under {cod}: the guide '
+              '<a href="/naics-code-for-auto-repair/">NAICS code for auto repair</a> shows which index entry leads to which code. '
+              f'Before using a code on a form, {FRASE_FISSA}.</p></div>')
+    voci = [(x["q"], x["a"], "") for x in s["faq"]]
+    f_html, f_ld = faq_html(voci)
+    corpo += f_html
+    corpo += '<h2 id="other-states">Other states</h2><ul class="griglia">'
+    corpo += "".join(f'<li><a href="/auto-repair-laws/{x["slug"]}/"><b>{h(x["nome"])}</b><span>Written estimate: <em>{h(minuscola(fatto_off(x, "estimate")["breve"]))}</em></span></a></li>'
+                     for x in STATI_OFF if x is not s)
+    corpo += '</ul><p class="small">All states side by side: <a href="/auto-repair-laws/">auto repair laws by state</a>.</p>'
+    corpo += riquadro_officine() + rim.elenco(llc=True, ancora="auto-repair")
+    descr = (f'{s["nome"]} rules for repair shops: written estimate, customer authorization, invoice contents, replaced parts and registration, '
+             f'quoted from the official text.')
+    if len(descr) > 160:
+        descr = f'{s["nome"]} rules for repair shops: estimate, authorization, invoice, replaced parts and registration, quoted from the official text.'
+    testata = banda("Auto repair laws by state · official texts", f'{s["nome"]} auto repair laws: estimate, invoice and shop rules',
+                    f'What the {h(s["legge"])} asks of a repair shop, with the official sentence next to each rule and a printable checklist.', icona="doc")
+    pagina(f'auto-repair-laws/{s["slug"]}/', s["titolo"], descr, corpo, testata,
+           briciole=[("Home", ""), ("Auto repair laws", "auto-repair-laws/"), (s["nome"], f'auto-repair-laws/{s["slug"]}/')],
+           jsonld=[f_ld] if f_ld else None, disclaimer=DISCLAIMER_OFF)
+
+
+def indice_officine():
+    rim = Rimandi()
+    letto = data_lunga(CONTROLLO_OFF)
+    righe = []
+    for s in STATI_OFF:
+        def cella(fid):
+            f = fatto_off(s, fid)
+            return h(f["breve"]) if f else '<span class="small">not in the sections read</span>'
+        righe.append([f'<a href="/auto-repair-laws/{s["slug"]}/"><strong>{h(s["nome"])}</strong></a><small>{h(s["legge"])}</small>', cella("estimate"),
+                      cella("authorization"), cella("invoice"), cella("parts"), cella("registration")])
+    n = len(STATI_OFF)
+    corpo = ('<div class="card pull"><p style="margin:0"><strong>What state law asks of an auto repair shop: the written estimate, the customer’s '
+             f'authorization, the invoice, replaced parts and registration.</strong> {n} states so far, read in the official texts on {letto}. Each state '
+             'page shows the sentence every rule comes from and a printable checklist. Information, not legal advice.</p></div>')
+    corpo += ('<h2 id="states">Auto repair laws, state by state</h2>'
+              + tabella(["State", "Written estimate", "Customer authorization", "Invoice", "Replaced parts", "Shop registration"], righe, resp="resp7",
+                        caption="Short form of each rule; the state page has the official sentence. «Not in the sections read» means we did not find it in the texts listed on the state page."))
+    corpo += ('<h2 id="checklists">Printable checklists</h2><div class="testo"><p>Each state page ends with a checklist for the shop: what goes on the '
+              'estimate, how an authorization is recorded, what goes on the invoice, what happens to replaced parts, and what the shop itself has to '
+              'do. Every line is the official text, word for word, with its section; statements that the law wants printed as they are, in capital '
+              'letters or in a given type size, are marked. The print button prints only the checklist.</p></div><ul class="griglia">'
+              + "".join(f'<li><a href="/auto-repair-laws/{s["slug"]}/#checklist"><b>{h(s["nome"])}</b><span>{sum(len(g["voci"]) for g in s["checklist"])} quoted lines</span></a></li>'
+                        for s in STATI_OFF) + "</ul>")
+    corpo += ('<h2 id="not-covered">States not covered</h2><div class="testo"><p>These are the first states. We publish a state only when its official text '
+              'can be read from our server and quoted: the statute on the legislature’s site, or the regulation or guide published by the state agency '
+              'that oversees repair shops. Where a legislature’s site did not open, we used the agency’s own publication and say so on the state page; '
+              'we do not fill gaps from other websites. States without a page are not states without rules.</p></div>')
+    cod = " and ".join(f'{link_cod(c)} ({h(C[c]["t"])})' for c in CODICI_OFF)
+    corpo += ('<h2 id="naics">Repair shops and NAICS codes</h2><div class="testo"><p>A NAICS code describes the activity of the business and has nothing to '
+              f'do with these state rules. The official index puts most car repair work under {cod}; the guide '
+              f'<a href="/naics-code-for-auto-repair/">NAICS code for auto repair</a> has the index entries. Before using a code on a form, {FRASE_FISSA}.</p></div>')
+    extra = {"elenco_margini": f"In the official texts read on {letto}, the customer’s authorization is needed, state by state. "
+                               + "; ".join(f'{s["nome"]}: {minuscola(fatto_off(s, "authorization")["breve"])}' for s in STATI_OFF),
+             "elenco_registrazioni": f"In the official texts read on {letto}. "
+                                     + "; ".join(f'{s["nome"]}: {minuscola(fatto_off(s, "registration")["breve"]) if fatto_off(s, "registration") else "not in the sections read"}'
+                                                 for s in STATI_OFF)}
+    voci = []
+    for x in OFF["indice"]["faq"]:
+        if not MISURATE.get(x["ricerca"]):
+            raise SystemExit(f"officine-stati.json, indice: la ricerca «{x['ricerca']}» non ha un volume misurato")
+        a = x["a"]
+        for k, v in extra.items():
+            a = a.replace("{" + k + "}", v)
+        voci.append((x["q"], a, ""))
+    f_html, f_ld = faq_html(voci)
+    corpo += f_html + riquadro_officine()
+    for s in STATI_OFF:
+        for c in [c for f in s["fatti"] for c in f["citazioni"]] + [c for g in s["checklist"] for c in g["voci"]]:
+            rim.ref(c["fonte"])
+    corpo += rim.elenco(llc=True, ancora="auto-repair")
+    testata = banda("Auto repair laws by state · official texts", "Auto repair laws by state",
+                    f"Written estimate, customer authorization, invoice, replaced parts and shop registration in {n} states, each rule quoted from the official text.",
+                    corta=True, icona="doc")
+    pagina("auto-repair-laws/", f"Auto Repair Laws by State: Estimate & Invoice Rules, {n} States",
+           f"Auto repair laws in {n} states: written estimate, customer authorization, invoice, replaced parts and registration, from official texts. Not legal advice.",
+           corpo, testata, briciole=[("Home", ""), ("Auto repair laws", "auto-repair-laws/")], jsonld=[f_ld] if f_ld else None, disclaimer=DISCLAIMER_OFF)
+
+
+def blocco_officine():
+    """Nelle pagine dei codici 811111 e 811198 e nella guida «NAICS code for auto repair»: link alla sezione (blocco ripreso: non conta come
+    testo proprio della pagina) e, se acceso, riquadro del partner."""
+    nomi = ", ".join(s["nome"] for s in STATI_OFF[:-1]) + f' and {STATI_OFF[-1]["nome"]}'
+    return ('<section data-ripreso><div class="avvio"><h2>Opening or running a repair shop?</h2><p>What state law puts on the written estimate and the '
+            f'invoice, when the customer’s authorization is needed and what happens to replaced parts, quoted from the official texts with a printable '
+            f'checklist: <a href="/auto-repair-laws/">auto repair laws by state</a> ({nomi}).</p></div>{riquadro_officine()}</section>')
+
+
+def blocco_metodo_officine():
+    rr = []
+    for s in STATI_OFF:
+        ids = list(dict.fromkeys([c["fonte"] for f in s["fatti"] for c in f["citazioni"]] + [c["fonte"] for g in s["checklist"] for c in g["voci"]]))
+        for fid in ids:
+            f = OFFF[fid]
+            rr.append([h(s["nome"]), f'<a href="{h(f["url"])}" rel="noopener">{h(f["titolo"])}</a><small>{h(f["chi"])}</small>', data_lunga(f["letto_il"]),
+                       str(len(f["frasi"]))])
+    return ('<h2 id="auto-repair">Auto repair laws by state pages</h2><div class="testo"><p>The <a href="/auto-repair-laws/">auto repair laws by state</a> '
+            'pages use only official texts: the statute on the site of the state legislature, or the regulation or guide published by the state agency '
+            'that oversees repair shops. We do not rewrite the rules: the facts and every line of the checklists are pieces of the official text, quoted '
+            'word for word, sometimes from the middle of a sentence, with the section they come from. Before every build each quoted piece is looked '
+            'for again in the page we downloaded: if it is gone, the build stops and the rule is read again or removed. For California we quote the '
+            'guide of the Bureau of Automotive Repair and for New York the regulation published by the Department of Motor Vehicles, because the '
+            'sites with the text of the statutes did not open from our server. These pages are information, not legal advice.</p></div>'
+            + tabella(["State", "Official text", "Read on", "Pieces quoted"], rr, num_=[3], resp="resp7"))
+
+
 # ---------------------------------------------------------------- pagine del sito
 MODULO = """<form name="corrections" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form card" data-correzioni>
 <input type="hidden" name="form-name" value="corrections">
@@ -1505,6 +1766,7 @@ def come_controlliamo(n_idx, n_noidx):
               'official descriptions, and follow a stricter rule of own text: the quoted official texts count as text in common with the code pages, the quoted '
               f'index entries are not counted as text of the page, and less than {int(MAX_SOVRAPPOSIZIONE_ATTIVITA * 100)}% may be in common with the most similar page.</p></div>')
     corpo += blocco_metodo_llc(rim)
+    corpo += blocco_metodo_officine()
     corpo += ('<h2 id="updates">How often we update</h2><div class="testo"><p>Every month we download the Census files again: if a fingerprint changes we '
               'run all the checks. NAICS is revised every five years; when a new edition is published, the site moves to it.</p></div>')
     corpo += ('<h2 id="corrections">Report an error</h2><p>Found a difference with the official files? Tell us the page and, if you can, the link to the '
@@ -1530,7 +1792,10 @@ def about():
              'a code or a text, and nobody pays to appear.</p>'
              + ('<p>Some pages carry a box, marked as advertisement, with affiliate links to companies that file business formation papers: if you '
                 'sign up through one of them we may earn a commission. We have not tested those services, and no code, fee or text on this site '
-                'depends on them.</p>' if partner_attivi() else "") +
+                'depends on them.</p>' if partner_attivi() else "")
+             + ('<p>The auto repair pages carry a box, marked as advertisement, with an affiliate link to a company that sells software for repair '
+                'shops: if you sign up through it we may earn a commission, at no extra cost to you. No rule or checklist on this site depends on it.</p>'
+                if partner_attivi(AFFO) else "") +
              '<p>NAICS Code Lookup is part of a small network of free information sites run by the same '
              'independent publisher. How we check the data: <a href="/how-we-check/">how we check</a>.</p></div>')
     testata = banda("About", "About NAICS Code Lookup", "An independent site that makes the NAICS classification readable.", corta=True, icona="people")
@@ -1540,7 +1805,7 @@ def about():
 
 
 def privacy():
-    cookie = MON.privacy_cookie("en", SITO_ID, bool(partner_attivi())) or ("<h2>Cookies and visit counter</h2><p>To count visits we use GoatCounter, which sets no cookies. "
+    cookie = MON.privacy_cookie("en", SITO_ID, bool(partner_attivi() or partner_attivi(AFFO))) or ("<h2>Cookies and visit counter</h2><p>To count visits we use GoatCounter, which sets no cookies. "
                                                          "This site does not use profiling cookies and shows no advertising.</p>")
     cal = MON.frase_california(SITO_ID) or "California residents: we do not sell or share personal information."
     corpo = ('<div class="card pull testo"><p>This page explains what NAICS Code Lookup collects. In short: very little.</p></div>'
@@ -1555,7 +1820,7 @@ def privacy():
              f'<h2>Your rights</h2><p>We hold no personal data about readers. If you put personal details in a correction by mistake, send another message '
              f'through the same form and we will delete it. {cal}</p>'
              f'<h2>Changes</h2><p>We update this page when the site changes. Last update: {data_lunga(CONTROLLO)}.</p></div>')
-    breve = MON.privacy_breve("en", SITO_ID, bool(partner_attivi())) or "What we collect (very little) and how the visit counter works."
+    breve = MON.privacy_breve("en", SITO_ID, bool(partner_attivi() or partner_attivi(AFFO))) or "What we collect (very little) and how the visit counter works."
     testata = banda("Privacy", "Privacy", h(breve), corta=True, icona="lock")
     pagina("privacy/", "Privacy | NAICS Code Lookup",
            "Privacy at NAICS Code Lookup: the search runs in your browser, a cookie-free visit counter, and Google AdSense ads only with consent where required.",
@@ -1728,6 +1993,9 @@ def main():
     for s in STATI_LLC:
         pagina_llc(s)
     indice_llc()
+    for s in STATI_OFF:
+        pagina_officina(s)
+    indice_officine()
     n_idx = sum(INDICIZZA.values())
     come_controlliamo(n_idx, len(INDICIZZA) - n_idx)
     about()
@@ -1754,7 +2022,8 @@ def main():
           + f". Pagine attività: {len(ATTIVITA)} ({sum(INDICIZZA_ATT.values())} indicizzate"
           + (f"; noindex: {', '.join(p.rstrip('/') for p, v in INDICIZZA_ATT.items() if not v)}" if not all(INDICIZZA_ATT.values()) else "")
           + f"). Indice {len(INDICE) // 1024} KB + voci {len(FRASI) // 1024} KB. LLC by State: {len(STATI_LLC)} Stati + indice; "
-          + f"riquadro dei partner: {'ACCESO (' + ', '.join(x['nome'] for x in partner_attivi()) + ')' if partner_attivi() else 'spento'}.")
+          + f"riquadro dei partner: {'ACCESO (' + ', '.join(x['nome'] for x in partner_attivi()) + ')' if partner_attivi() else 'spento'}. "
+          + f"Auto repair laws: {len(STATI_OFF)} Stati + indice; riquadro officine: {'ACCESO' if partner_attivi(AFFO) else 'spento'}.")
 
 
 if __name__ == "__main__":

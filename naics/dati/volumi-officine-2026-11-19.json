@@ -1,0 +1,1279 @@
+{
+ "_nota": "Volumi medi mensili di ricerca su Google negli Stati Uniti (Google Ads) letti con api.seodata.dev per le pagine «Auto repair shop rules by state». volume null = la frase non è nel database dello strumento (risposta 404). «simili» = frasi vicine restituite dallo strumento con il loro volume (misurate anch'esse: valgono per titoli e FAQ).",
+ "misurato_il": "2026-11-19",
+ "strumento": "api.seodata.dev, country=us",
+ "ricerche_usate": 128,
+ "frasi": {
+  "florida auto repair laws": {
+   "volume": 30,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-19",
+   "simili": {
+    "auto repair laws florida": 30,
+    "state collision repair laws and regulations florida": 30,
+    "motor vehicle repair act florida": 210,
+    "florida motor vehicle repair act": 210,
+    "bureau of automotive repair florida": 40,
+    "auto repair shop storage fees florida": 30,
+    "florida collision repair laws": 20,
+    "shop supply fee law florida": 20,
+    "florida motor vehicle repair license": 70,
+    "motor vehicle repair license florida": 70
+   }
+  },
+  "auto repair laws in florida": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "florida mechanic laws": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "florida auto repair estimate law": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "florida car repair laws": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "florida auto repair shop license": {
+   "volume": 30,
+   "cpc_usd": 0,
+   "dato_del": "2026-06-13",
+   "simili": {
+    "motor vehicle repair license florida": 70,
+    "auto repair license florida": 30,
+    "florida auto repair license": 30,
+    "florida motor vehicle repair license": 70,
+    "mechanic license florida": 50,
+    "mobile mechanic license florida": 30,
+    "how to open a mechanic shop in florida": 20,
+    "mechanic license": 1900,
+    "car repair license": 140,
+    "florida mechanic license": 70
+   }
+  },
+  "florida auto repair license": {
+   "volume": 30,
+   "cpc_usd": 0,
+   "dato_del": "2026-06-13",
+   "simili": {
+    "motor vehicle repair license florida": 70,
+    "florida motor vehicle repair license": 70,
+    "auto repair license florida": 30,
+    "florida auto repair shop license": 30,
+    "mechanic license florida": 50,
+    "mobile mechanic license florida": 30,
+    "florida mechanic license": 70,
+    "motor vehicle repair registration certificate": 40,
+    "florida motor vehicle repair license requirements": 30,
+    "florida motor vehicle repair license search": 30
+   }
+  },
+  "how to open an auto repair shop in florida": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "florida auto repair consumer rights": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "florida auto repair regulations": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "washington state auto repair laws": {
+   "volume": 30,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-19",
+   "simili": {
+    "washington state bureau of automotive repair": 40,
+    "bureau of automotive repair washington state": 40,
+    "auto repair laws": 4400,
+    "auto.repair laws": 4400,
+    "automotive repair quotes": 14800,
+    "bureau of auto repair": 8100,
+    "car repair laws": 1300,
+    "vehicle repair laws": 1300,
+    "car repair warranty law": 260,
+    "can a mechanic keep your car": 210
+   }
+  },
+  "auto repair laws in washington state": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "washington state mechanic laws": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "washington state auto repair estimate law": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "washington state car repair laws": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "washington state auto repair shop license": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "washington state auto repair license": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "how to open an auto repair shop in washington state": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "washington state auto repair consumer rights": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "washington state auto repair regulations": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "minnesota auto repair laws": {
+   "volume": 20,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-19",
+   "simili": {
+    "right to repair minnesota": 20,
+    "minnesota repair": 590,
+    "minnesota right to repair": 30,
+    "minnesota right to repair law": 30,
+    "mn right to repair": 20,
+    "lemon law minnesota": 1600,
+    "lemon law mn": 1600,
+    "minnesota car repair": 170,
+    "minnesota right to repair bill": 40
+   }
+  },
+  "auto repair laws in minnesota": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "minnesota mechanic laws": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "minnesota auto repair estimate law": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "minnesota car repair laws": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "minnesota auto repair shop license": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "minnesota auto repair license": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "how to open an auto repair shop in minnesota": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "minnesota auto repair consumer rights": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "minnesota auto repair regulations": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "california auto repair laws": {
+   "volume": 90,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-19",
+   "simili": {
+    "automotive repair act california": 90,
+    "auto repair laws in california": 90,
+    "california auto repair law": 90,
+    "california automotive repair act": 90,
+    "new auto repair laws in california": 30,
+    "auto repair laws california": 10,
+    "california bureau of automotive repair regulations": 30,
+    "california auto repair warranty law": 20,
+    "california auto repair estimate law": 30,
+    "state collision repair laws and regulations california": 40
+   }
+  },
+  "auto repair laws in california": {
+   "volume": 90,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-19",
+   "simili": {
+    "california auto repair laws": 90,
+    "automotive repair act california": 90,
+    "california auto repair law": 90,
+    "california automotive repair act": 90,
+    "new auto repair laws in california": 30,
+    "california bureau of automotive repair regulations": 30,
+    "bar automotive repair": 8100,
+    "california auto repair warranty law": 20,
+    "auto repair laws california": 10,
+    "california auto repair estimate law": 30
+   }
+  },
+  "california mechanic laws": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "california auto repair estimate law": {
+   "volume": 30,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-19",
+   "simili": {
+    "california auto repair warranty law": 20,
+    "automotive repair act california": 90,
+    "california auto repair law": 90,
+    "california auto repair laws": 90,
+    "auto repair laws california": 10,
+    "auto repair laws in california": 90,
+    "state collision repair laws and regulations california": 40,
+    "california car repair law": 20,
+    "california collision repair laws": 10,
+    "california automotive repair act": 90
+   }
+  },
+  "california car repair laws": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "california auto repair shop license": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "california auto repair license": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "how to open an auto repair shop in california": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "california auto repair consumer rights": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "california auto repair regulations": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "michigan auto repair laws": {
+   "volume": 20,
+   "cpc_usd": 0,
+   "dato_del": "2026-06-23",
+   "simili": {
+    "michigan auto repair act": 30,
+    "michigan motor vehicle service and repair act": 70,
+    "bureau of automotive repair michigan": 40,
+    "michigan auto body repair license": 50,
+    "repair facility license michigan": 40,
+    "michigan repair facility license": 40,
+    "michigan repair facility manual": 20,
+    "michigan auto repair": 260,
+    "michigan repair facility license lookup": 70,
+    "state of michigan auto repair complaints": 70
+   }
+  },
+  "auto repair laws in michigan": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "michigan mechanic laws": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "michigan auto repair estimate law": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "michigan car repair laws": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "michigan auto repair shop license": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "michigan auto repair license": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "how to open an auto repair shop in michigan": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "michigan auto repair consumer rights": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "michigan auto repair regulations": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "new york auto repair laws": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "auto repair laws in new york": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "new york mechanic laws": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "new york auto repair estimate law": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "new york car repair laws": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "new york auto repair shop license": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "new york auto repair license": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "how to open an auto repair shop in new york": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "new york auto repair consumer rights": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "new york auto repair regulations": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "auto repair laws by state": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "auto repair laws": {
+   "volume": 4400,
+   "cpc_usd": 26.47,
+   "dato_del": "2026-06-07",
+   "simili": {
+    "auto.repair laws": 4400,
+    "mechanic law": 30,
+    "auto repair law": 260,
+    "auto repair shop laws": 140,
+    "auto repair act violations": 70,
+    "mechanic laws": 30,
+    "vehicle repair laws": 1300,
+    "auto repair legal rights": 20,
+    "auto repair regulations": 140,
+    "car repair rights": 70
+   }
+  },
+  "auto repair estimate laws": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "mechanic laws": {
+   "volume": 30,
+   "cpc_usd": 0,
+   "dato_del": "2026-06-02",
+   "simili": {
+    "auto repair shop laws": 140,
+    "auto repair law": 260,
+    "mechanic law": 30,
+    "auto repair legal rights": 20,
+    "consumer rights mechanical repairs": 40,
+    "auto repair laws": 4400,
+    "auto.repair laws": 4400,
+    "auto repair regulations": 140,
+    "law auto body": 20,
+    "car repair law": 140
+   }
+  },
+  "car repair laws": {
+   "volume": 1300,
+   "cpc_usd": 35.66,
+   "dato_del": "2026-06-27",
+   "simili": {
+    "car repair law": 140,
+    "vehicle repair laws": 1300,
+    "car repair rights consumer": 70,
+    "mechanic law": 30,
+    "auto.repair laws": 4400,
+    "automotive repair laws": 1300,
+    "car repair rights": 70,
+    "law auto repair": 20,
+    "auto repair laws": 4400,
+    "automotive repair act": 480
+   }
+  },
+  "can a mechanic charge more than the estimate": {
+   "volume": 70,
+   "cpc_usd": 0,
+   "dato_del": "2026-06-02",
+   "simili": {
+    "mechanic charged more than quote": 20,
+    "bureau of auto repair": 8100,
+    "bureau of automotive repairs": 8100,
+    "do mechanics charge for estimates": 30,
+    "auto repair legal rights": 20,
+    "mechanic won't fix my car": 20,
+    "mechanic won't release my car": 20,
+    "auto repair law": 260,
+    "auto repair shop laws": 140,
+    "do mechanics charge to look at your car": 110
+   }
+  },
+  "can a mechanic charge more than quoted": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "can a mechanic keep your car if you don't pay": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "do mechanics have to give you a written estimate": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "written estimate auto repair": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "auto repair invoice requirements": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "can i ask for my old parts back from mechanic": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "do mechanics have to give old parts back": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "do mechanics have to return old parts": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "auto repair estimate template": {
+   "volume": 880,
+   "cpc_usd": 12.76,
+   "dato_del": "2026-10-09",
+   "simili": {
+    "car repair estimate template": 880,
+    "template for auto repair estimate": 590,
+    "auto repair estimate form": 140,
+    "free auto repair estimate template": 140,
+    "mechanic estimate template": 210,
+    "car estimate template": 140,
+    "car repair estimate template free": 140,
+    "free car repair estimate template": 140,
+    "auto body repair estimate template free": 50,
+    "car repair estimate template pdf": 40
+   }
+  },
+  "auto repair invoice template": {
+   "volume": 1000,
+   "cpc_usd": 12.07,
+   "dato_del": "2026-07-12",
+   "simili": {
+    "auto repair invoices": 1300,
+    "vehicle repair invoice template": 1000,
+    "mechanic shop invoice template": 140,
+    "vehicle repair invoice": 1300,
+    "auto parts invoice template": 40,
+    "sample auto repair invoice": 40,
+    "invoice template for car repair": 1000,
+    "sample car repair invoice": 1000,
+    "auto shop invoice template": 480,
+    "auto shop invoice template free": 390
+   }
+  },
+  "auto repair shop invoices": {
+   "volume": 1600,
+   "cpc_usd": 10.52,
+   "dato_del": "2026-11-19",
+   "simili": {
+    "auto repair invoices": 1300,
+    "auto repair shop invoice": 1300,
+    "vehicle repair invoice": 1300,
+    "invoice for auto repair shop": 1300,
+    "auto shop invoice": 140,
+    "invoice for mechanic shop": 40,
+    "automotive repair invoices": 1300,
+    "automotive shop invoice": 140,
+    "auto shop invoices": 1600,
+    "invoice auto repair": 1600
+   }
+  },
+  "auto repair invoices": {
+   "volume": 1300,
+   "cpc_usd": 15.64,
+   "dato_del": "2026-11-19",
+   "simili": {
+    "auto repair shop invoice": 1300,
+    "vehicle repair invoice": 1300,
+    "auto shop invoices": 1600,
+    "invoice for auto repair shop": 1300,
+    "auto repair shop invoices": 1600,
+    "automotive repair invoices": 1300,
+    "automotive invoice": 1000,
+    "auto shop invoice": 140,
+    "invoice car repair": 1600,
+    "auto repair invoice": 1300
+   }
+  },
+  "mechanic invoice": {
+   "volume": 480,
+   "cpc_usd": 19.36,
+   "dato_del": "2026-11-08",
+   "simili": {
+    "auto repair invoices": 1300,
+    "auto repair shop invoice": 1300,
+    "vehicle repair invoice": 1300,
+    "vehicle repair invoice template": 1000,
+    "invoice for mechanic shop": 40,
+    "invoice mechanic": 480,
+    "mechanic car repair bill": 210,
+    "automotive shop invoice": 140,
+    "mechanic invoices": 110,
+    "auto repair shop invoices": 1600
+   }
+  },
+  "mechanic receipt template": {
+   "volume": 390,
+   "cpc_usd": 7.41,
+   "dato_del": "2026-11-14",
+   "simili": {
+    "automotive receipt template": 390,
+    "auto repair receipt maker": 70,
+    "auto service receipt template": 70,
+    "auto repair receipt template": 480,
+    "receipt for auto repair template": 480,
+    "mechanic shop receipt template": 140,
+    "auto mechanic receipt": 90,
+    "mechanic receipt template free": 70,
+    "auto repair invoices": 1300,
+    "car repair receipt": 880
+   }
+  },
+  "repair order template": {
+   "volume": 480,
+   "cpc_usd": 10.62,
+   "dato_del": "2026-11-19",
+   "simili": {
+    "auto repair work order template": 210,
+    "service repair order template": 20,
+    "automotive work order template": 210,
+    "printable auto repair work order template": 90,
+    "sample repair order": 70,
+    "free repair order template": 50,
+    "repair order template free": 50,
+    "auto repair order template free": 40,
+    "automotive repair order template free": 40,
+    "mechanic work order template pdf": 40
+   }
+  },
+  "auto repair work order template": {
+   "volume": 210,
+   "cpc_usd": 5.19,
+   "dato_del": "2026-11-14",
+   "simili": {
+    "automotive work order template": 210,
+    "printable auto repair work order template": 90,
+    "auto repair order template free": 40,
+    "mechanic work order template pdf": 40,
+    "printable repair order template": 30,
+    "service repair order template": 20,
+    "repair order template": 480,
+    "mechanic work order template": 210,
+    "free repair order template": 50,
+    "free printable auto repair order forms": 40
+   }
+  },
+  "auto repair authorization form": {
+   "volume": 50,
+   "cpc_usd": 0.88,
+   "dato_del": "2026-11-14",
+   "simili": {
+    "auto body repair authorization form": 50,
+    "body shop repair authorization forms": 50,
+    "vehicle repair authorization form": 50,
+    "mechanic work authorization form": 30,
+    "authorization to repair form": 30,
+    "repair authorization form": 140,
+    "auto repair authorization form template": 90,
+    "printable repair authorization form": 30,
+    "repair authorization form template": 30,
+    "caliber collision authorization form": 70
+   }
+  },
+  "auto repair waiver form": {
+   "volume": 40,
+   "cpc_usd": 0.94,
+   "dato_del": "2026-11-19",
+   "simili": {
+    "waiver auto repair release form": 30,
+    "auto repair release form": 90,
+    "auto repair release of liability form": 40,
+    "automotive repair release of liability form": 40,
+    "release of liability form auto repair": 40,
+    "mechanic liability waiver": 30,
+    "mechanic liability waiver form": 20,
+    "repair waiver form": 30,
+    "vehicle repair release form": 20,
+    "repair release form template": 30
+   }
+  },
+  "do you need a license to be a mechanic": {
+   "volume": 170,
+   "cpc_usd": 32.45,
+   "dato_del": "2026-06-06",
+   "simili": {
+    "mechanic license": 1900,
+    "mechanics license": 1900,
+    "mechanic license requirements": 110,
+    "license for auto mechanic": 210,
+    "license mechanic": 210,
+    "how to become a mechanic": 4400,
+    "mechanic licensing": 1900,
+    "how to get a mechanic license": 210,
+    "how to get a mechanics license": 210,
+    "mobile mechanic licence requirements": 210
+   }
+  },
+  "do i need a license to open an auto repair shop": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "auto repair shop license": {
+   "volume": 30,
+   "cpc_usd": 0,
+   "dato_del": "2026-05-27",
+   "simili": {
+    "mechanic shop license": 50,
+    "repair shop license": 30,
+    "automotive repair license": 140,
+    "motor vehicle repair license": 110,
+    "business license for auto repair shop": 70,
+    "license for auto repair shop": 30,
+    "license for auto mechanic": 210,
+    "motor vehicle repairers licence": 110,
+    "vehicle repair license": 50,
+    "license auto repair shop": 20
+   }
+  },
+  "auto repair license": {
+   "volume": 70,
+   "cpc_usd": 10.41,
+   "dato_del": "2026-11-19",
+   "simili": {}
+  },
+  "mechanic shop license": {
+   "volume": 50,
+   "cpc_usd": 0,
+   "dato_del": "2026-05-27",
+   "simili": {
+    "repair shop license": 30,
+    "auto repair shop license": 30,
+    "business license for auto repair shop": 70,
+    "license for auto mechanic": 210,
+    "automotive repair license": 140,
+    "motor vehicle repair license": 110,
+    "motor vehicle repairers licence": 110,
+    "automotive business license": 50,
+    "mechanic business license": 30,
+    "automotive license": 3600
+   }
+  },
+  "how to start a mechanic shop": {
+   "volume": 390,
+   "cpc_usd": 4.67,
+   "dato_del": "2026-06-11",
+   "simili": {
+    "starting an auto repair shop": 260,
+    "opening auto repair shop": 1300,
+    "opening a auto repair shop": 70,
+    "start a auto repair shop": 70,
+    "starting a auto repair shop": 70,
+    "how to start an auto shop": 50,
+    "how to start an automotive shop": 50,
+    "opening a mechanic shop": 260,
+    "starting a mechanic shop": 260,
+    "how to start a mechanic business": 90
+   }
+  },
+  "how to open an auto repair shop": {
+   "volume": 90,
+   "cpc_usd": 4.3,
+   "dato_del": "2026-06-11",
+   "simili": {
+    "open auto repair shop": 260,
+    "how to open auto repair shop": 90,
+    "what do i need to start a mechanic shop": 70,
+    "how to open a repair shop": 140,
+    "opening a mechanic shop": 260,
+    "starting an auto repair shop": 260,
+    "starting a auto repair shop": 70,
+    "how to open an automotive shop": 50,
+    "start automotive repair shop": 260,
+    "starting a mechanic shop": 260
+   }
+  },
+  "auto repair shop requirements": {
+   "volume": 20,
+   "cpc_usd": 0,
+   "dato_del": "2026-06-12",
+   "simili": {
+    "auto repair business license": 30,
+    "auto repair shop permits": 40,
+    "what license do you need to open a mechanic shop": 30,
+    "requirements to open a mechanic shop": 20,
+    "vehicle repair license": 50,
+    "motor vehicle repairers licence": 110,
+    "motor vehicle repair license renewal": 30,
+    "opening a repair shop": 20,
+    "what is a licensed repair facility": 20,
+    "what licenses are needed to start a auto repair shop": 20
+   }
+  },
+  "naics code for auto repair shop": {
+   "volume": 70,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-19",
+   "simili": {
+    "naics code for auto mechanic": 30,
+    "automotive repair naics code": 880,
+    "naics code automotive repair": 880,
+    "auto repair shop naics code": 90,
+    "naics code for mechanic shop": 30,
+    "naics auto repair": 210,
+    "auto mechanic naics code": 40,
+    "naics code for automotive repair": 880,
+    "auto repair naics": 210,
+    "naics code mechanic": 50
+   }
+  },
+  "auto repair naics code": {
+   "volume": 480,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-13",
+   "simili": {}
+  },
+  "florida motor vehicle repair act": {
+   "volume": 210,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-14",
+   "simili": {
+    "motor vehicle repair act florida": 210,
+    "florida auto repair laws": 30,
+    "bureau of automotive repair florida": 40,
+    "auto repair laws florida": 30,
+    "state collision repair laws and regulations florida": 30,
+    "florida motor vehicle repair license": 70,
+    "motor vehicle repair license florida": 70,
+    "right to repair act florida": 20,
+    "motor vehicle repair act": 50,
+    "florida auto repair license": 30
+   }
+  },
+  "motor vehicle repair act": {
+   "volume": 50,
+   "cpc_usd": 0,
+   "dato_del": "2026-06-20",
+   "simili": {
+    "motor vehicle service and repair act": 40,
+    "motor vehicle service repair act": 40,
+    "automotive repair act": 480,
+    "vehicle repair laws": 1300,
+    "auto repair act": 20,
+    "auto.repair laws": 4400,
+    "car repair law": 140,
+    "act repair": 50,
+    "bureau of auto repair": 8100,
+    "auto repair laws": 4400
+   }
+  },
+  "fdacs motor vehicle repair": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "florida motor vehicle repair license": {
+   "volume": 70,
+   "cpc_usd": 0,
+   "dato_del": "2026-06-13",
+   "simili": {
+    "motor vehicle repair license florida": 70,
+    "florida auto repair license": 30,
+    "auto repair license florida": 30,
+    "florida auto repair shop license": 30,
+    "mechanic license florida": 50,
+    "mobile mechanic license florida": 30,
+    "florida motor vehicle repair license requirements": 30,
+    "florida mechanic license": 70,
+    "motor vehicle repair registration certificate": 40,
+    "florida motor vehicle repair license search": 30
+   }
+  },
+  "motor vehicle repair shop registration florida": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "florida statute 559.905": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "florida auto repair estimate law 10": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "bureau of automotive repair": {
+   "volume": 8100,
+   "cpc_usd": 6.85,
+   "dato_del": "2026-06-12",
+   "simili": {
+    "bureau of automotive repair california": 8100,
+    "california bureau of automotive repair": 5400,
+    "www bar ca gov": 1600,
+    "bureau of auto repair": 8100,
+    "bureau of automotive repairs": 8100,
+    "ca bureau of automotive repair": 320,
+    "bar bureau automotive repair": 170,
+    "bureau of automotive repair bar": 140,
+    "auto bureau california": 50,
+    "bar automotive repair": 8100
+   }
+  },
+  "bureau of automotive repair license": {
+   "volume": 210,
+   "cpc_usd": 0,
+   "dato_del": "2026-06-05",
+   "simili": {
+    "bureau of automotive repair licensing": 170,
+    "bureau of automotive repair": 8100,
+    "california bureau of automotive repair": 5400,
+    "how to get a bureau of automotive repair license": 40,
+    "bureau of auto repair": 8100,
+    "bureau of automotive repair california": 8100,
+    "www bar ca gov": 1600,
+    "bureau of automotive repair license lookup": 170,
+    "bureau of automotive repair license application": 40,
+    "california bureau of automotive repair license application": 30
+   }
+  },
+  "write it right": {
+   "volume": 140,
+   "cpc_usd": 3.73,
+   "dato_del": "2026-11-19",
+   "simili": {
+    "writeitright": 140,
+    "writing it right": 210,
+    "write it right pdf": 30,
+    "write it": 590,
+    "bar write it right": 140,
+    "write it right bar": 140,
+    "write to right": 140,
+    "california bureau of automotive repair regulations": 30
+   }
+  },
+  "bar write it right": {
+   "volume": 140,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-19",
+   "simili": {
+    "write it right bar": 140,
+    "bar automotive repair": 8100,
+    "write it right": 140,
+    "california bureau of automotive repair regulations": 30,
+    "california bureau of auto repair": 8100,
+    "lemon law sc": 1600,
+    "lemon law south carolina": 1600,
+    "south carolina lemon law": 1600,
+    "ca automotive repair": 1300,
+    "automotive repair california": 480
+   }
+  },
+  "california automotive repair act": {
+   "volume": 90,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-19",
+   "simili": {
+    "automotive repair act california": 90,
+    "auto repair laws in california": 90,
+    "california auto repair laws": 90,
+    "california auto repair law": 90,
+    "california bureau of automotive repair regulations": 30,
+    "new auto repair laws in california": 30,
+    "bar automotive repair": 8100,
+    "california auto repair warranty law": 20,
+    "automotive repair act": 480,
+    "california auto repair estimate law": 30
+   }
+  },
+  "automotive repair dealer license": {
+   "volume": 110,
+   "cpc_usd": 3.84,
+   "dato_del": "2026-06-04",
+   "simili": {
+    "automotive licensing": 2900,
+    "automotive repair license": 140,
+    "automotive repair license california": 90,
+    "how to get a bureau of automotive repair license": 40,
+    "license for auto mechanic": 210,
+    "motor vehicle repairers licence": 110,
+    "business license for auto repair shop": 70,
+    "mechanic shop license": 50,
+    "automotive license": 3600,
+    "bureau of automotive repair license": 210
+   }
+  },
+  "ard license": {
+   "volume": 70,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-19",
+   "simili": {
+    "automotive repair dealer license": 110,
+    "automotive repair license california": 90,
+    "ard license suspension pa": 40,
+    "how to get a bureau of automotive repair license": 40,
+    "bureau of automotive repair license": 210,
+    "bureau of automotive repair licensing": 170,
+    "automotive repair license": 140,
+    "pa ard dui license suspension": 70,
+    "pa dui ard license suspension": 70,
+    "california mechanic license": 50
+   }
+  },
+  "california auto repair estimate requirements": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "california auto repair invoice requirements": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "rcw 46.71": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "washington auto repair act": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "washington state auto repair act": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "minnesota truth in repairs act": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "truth in repairs act": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "minnesota statute 325f.60": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "michigan motor vehicle service and repair act": {
+   "volume": 70,
+   "cpc_usd": 2.53,
+   "dato_del": "2026-11-19",
+   "simili": {
+    "michigan auto repair act": 30,
+    "michigan auto repair laws": 20,
+    "michigan repair facility manual": 20,
+    "bureau of automotive repair michigan": 40,
+    "repair facility license michigan": 40,
+    "michigan auto repair complaints": 70,
+    "state of michigan auto repair complaints": 70,
+    "michigan repair facility license": 40,
+    "motor vehicle service and repair act": 40,
+    "michigan right to repair": 30
+   }
+  },
+  "motor vehicle service and repair act": {
+   "volume": 40,
+   "cpc_usd": 0,
+   "dato_del": "2026-06-19",
+   "simili": {
+    "motor vehicle service repair act": 40,
+    "motor vehicle repair act": 50,
+    "vehicle repair laws": 1300,
+    "auto repair act": 20,
+    "auto.repair laws": 4400,
+    "automotive repair act": 480,
+    "bureau of auto repair": 8100,
+    "auto repair law": 260,
+    "car repair law": 140,
+    "auto repair act violations": 70
+   }
+  },
+  "michigan repair facility license": {
+   "volume": 40,
+   "cpc_usd": 0,
+   "dato_del": "2026-06-13",
+   "simili": {
+    "repair facility license michigan": 40,
+    "michigan repair facility license lookup": 70,
+    "michigan auto body repair license": 50,
+    "motor vehicle repair facility registration renewal": 30,
+    "michigan mechanic license number": 70,
+    "michigan mechanics license renewal": 170,
+    "michigan mechanic certification lookup": 50,
+    "bureau of automotive repair michigan": 40,
+    "sos michigan mechanic certification renewal": 40,
+    "state of michigan mechanic license lookup": 40
+   }
+  },
+  "michigan repair facility registration": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "michigan mechanic license": {
+   "volume": 260,
+   "cpc_usd": 2.58,
+   "dato_del": "2026-06-05",
+   "simili": {
+    "mechanic license michigan": 480,
+    "mechanic certification michigan": 480,
+    "state of michigan mechanics license": 260,
+    "michigan auto mechanic license": 30,
+    "michigan state mechanic certification": 30,
+    "state of michigan auto mechanic license": 30,
+    "michigan mechanic certification": 480,
+    "state of michigan mechanic certification": 480,
+    "state of michigan mechanic license": 260,
+    "state of michigan mechanic license renewal": 170
+   }
+  },
+  "michigan mechanic certification": {
+   "volume": 480,
+   "cpc_usd": 14.8,
+   "dato_del": "2026-06-04",
+   "simili": {
+    "mechanic certification michigan": 480,
+    "michigan state mechanic certification": 30,
+    "michigan auto mechanic license": 30,
+    "state of michigan auto mechanic license": 30,
+    "mechanic license michigan": 480,
+    "state of michigan mechanic certification": 480,
+    "michigan mechanic license": 260,
+    "state of michigan mechanics license": 260,
+    "how to get mechanic license in michigan": 90,
+    "michigan automotive certification": 20
+   }
+  },
+  "ny dmv repair shop": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "nys dmv repair shop registration": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "new york repair shop registration act": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "nys repair shop regulations": {
+   "volume": 20,
+   "cpc_usd": 0,
+   "dato_del": "2026-11-19",
+   "simili": {
+    "new york state repair shop regulations": 40,
+    "nys registered repair shop": 40,
+    "nys auto repair license": 30,
+    "certification of automobile repairs form new york": 50,
+    "registered state of new york motor vehicle repair shop": 50,
+    "auto repair laws new york": 30,
+    "ny certificate of auto repair": 10,
+    "nys repair shop license": 30,
+    "state of new york motor vehicle repair shop": 480,
+    "mobile mechanic license new york requirements": 30
+   }
+  },
+  "ny dmv repair shop complaint": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  },
+  "repair shop registration": {
+   "volume": null,
+   "cpc_usd": null,
+   "dato_del": "",
+   "simili": {}
+  }
+ }
+}

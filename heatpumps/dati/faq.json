@@ -1,65 +1,515 @@
 {
- "_nota": "Ogni domanda nasce da un suggerimento vero dell'autocompletamento Google (gl=gb, dati/domanda.json, campo ricerca). Le cifre tra graffe {nome} le mette genera.py dai dati ufficiali (dati/bus.json, dati/solare.json); verifica.py controlla ricerca, fonti e cifre.",
+ "_nota": "Ogni domanda nasce da un suggerimento vero dell'autocompletamento Google (gl=gb, dati/domanda.json, campo ricerca) oppure, dal 13/11/2026, da una ricerca con volume misurato nel Regno Unito (campo misurata = dati/volumi-2026-11-13.json, volume_gb > 0). Le cifre tra graffe {nome} le mette genera.py dai dati ufficiali (dati/bus.json, dati/solare.json, dati/schemi.json); verifica.py controlla ricerca, fonti, cifre e che ogni citazione tra “…” sia dentro una frase controllata delle sue fonti.",
  "faq": [
-  {"pagina": "home", "ricerca": "how much is the heat pump grant", "fonti": ["gov_apply", "ofgem_bus"],
+  {
+   "pagina": "home",
+   "ricerca": "how much is the heat pump grant",
+   "fonti": [
+    "gov_apply",
+    "ofgem_bus"
+   ],
    "q": "How much is the heat pump grant?",
-   "a": "Under the Boiler Upgrade Scheme you get £7,500 off an air source (air-to-water) or ground source heat pump, £2,500 off an air-to-air heat pump and £5,000 off a biomass boiler. Homes off the gas grid that are heated by oil or LPG can get £9,000 towards an air source or ground source heat pump until 31 March 2027. There is one grant per property, and the installer takes it off your quote."},
-  {"pagina": "home", "ricerca": "heat pump grant 9000", "fonti": ["ofgem_owners", "gov_apply", "bus_xlsx"],
+   "a": "Under the Boiler Upgrade Scheme you get £7,500 off an air source (air-to-water) or ground source heat pump, £2,500 off an air-to-air heat pump and £5,000 off a biomass boiler. Homes off the gas grid that are heated by oil or LPG can get £9,000 towards an air source or ground source heat pump until 31 March 2027. There is one grant per property, and the installer takes it off your quote."
+  },
+  {
+   "pagina": "home",
+   "ricerca": "heat pump grant 9000",
+   "fonti": [
+    "ofgem_owners",
+    "gov_apply",
+    "bus_xlsx"
+   ],
    "q": "Who can get the £9,000 heat pump grant?",
-   "a": "Ofgem lists £9,000 off an air-to-water or ground source heat pump for eligible off-gas-grid properties, available from 21 July 2026 until 31 March 2027. GOV.UK describes it as an extra £1,500 on top of the £7,500 when your property is heated by oil or LPG and has no mains gas connection. DESNZ counted {n9000} applications for the £9,000 grant from July to the end of September 2026, {quota9000} of all applications in those months."},
-  {"pagina": "home", "ricerca": "heat pump grant uk end date", "fonti": ["bus_xlsx", "ofgem_bus"],
+   "a": "Ofgem lists £9,000 off an air-to-water or ground source heat pump for eligible off-gas-grid properties, available from 21 July 2026 until 31 March 2027. GOV.UK describes it as an extra £1,500 on top of the £7,500 when your property is heated by oil or LPG and has no mains gas connection. DESNZ counted {n9000} applications for the £9,000 grant from July to the end of September 2026, {quota9000} of all applications in those months."
+  },
+  {
+   "pagina": "home",
+   "ricerca": "heat pump grant uk end date",
+   "fonti": [
+    "bus_xlsx",
+    "ofgem_bus"
+   ],
    "q": "When does the Boiler Upgrade Scheme end?",
-   "a": "DESNZ says the government confirmed funding for the scheme up to 2029/30, with a budget of £400 million for 2026/27. Vouchers are issued first come, first served until the budget for the financial year runs out. The higher £9,000 rate for oil and LPG homes is available until 31 March 2027."},
-  {"pagina": "home", "ricerca": "can i get a grant for a heat pump", "fonti": ["gov_apply", "ofgem_owners"],
+   "a": "DESNZ says the government confirmed funding for the scheme up to 2029/30, with a budget of £400 million for 2026/27. Vouchers are issued first come, first served until the budget for the financial year runs out. The higher £9,000 rate for oil and LPG homes is available until 31 March 2027."
+  },
+  {
+   "pagina": "home",
+   "ricerca": "can i get a grant for a heat pump",
+   "fonti": [
+    "gov_apply",
+    "ofgem_owners"
+   ],
    "q": "Can I get a grant for a heat pump?",
-   "a": "GOV.UK says you are eligible if you own the property in England or Wales (a home, a second home, a property you let or a business building) and the heat pump replaces fossil fuel or electric heating such as gas, oil, LPG or electric heaters. It must be installed by an MCS certified installer, who applies for you. Most new builds, social housing and properties that already had government funding for a heat pump are excluded. Your installer and Ofgem check each property before a voucher is issued."},
-  {"pagina": "home", "ricerca": "is the boiler upgrade scheme available in scotland", "fonti": ["gov_apply"],
+   "a": "GOV.UK says you are eligible if you own the property in England or Wales (a home, a second home, a property you let or a business building) and the heat pump replaces fossil fuel or electric heating such as gas, oil, LPG or electric heaters. It must be installed by an MCS certified installer, who applies for you. Most new builds, social housing and properties that already had government funding for a heat pump are excluded. Your installer and Ofgem check each property before a voucher is issued."
+  },
+  {
+   "pagina": "home",
+   "ricerca": "is the boiler upgrade scheme available in scotland",
+   "fonti": [
+    "gov_apply"
+   ],
    "q": "Is the Boiler Upgrade Scheme available in Scotland?",
-   "a": "No. The scheme is open in England and Wales only. GOV.UK points people in Scotland to the Scottish Government's own home energy schemes, and says the Boiler Replacement Scheme in Northern Ireland is now closed."},
-  {"pagina": "home", "ricerca": "how many heat pumps installed in uk", "fonti": ["bus_xlsx"],
+   "a": "No. The scheme is open in England and Wales only. GOV.UK points people in Scotland to the Scottish Government's own home energy schemes, and says the Boiler Replacement Scheme in Northern Ireland is now closed."
+  },
+  {
+   "pagina": "home",
+   "ricerca": "how many heat pumps installed in uk",
+   "fonti": [
+    "bus_xlsx"
+   ],
    "q": "How many heat pumps has the grant paid for?",
-   "a": "From May 2022 to the end of {mese}, the scheme paid grants for {pagati_pompe} heat pumps in England and Wales ({pagati_totale} installations including biomass boilers). This counts only installations paid through the Boiler Upgrade Scheme, not every heat pump fitted in the UK."},
-
-  {"pagina": "eligibility", "ricerca": "boiler upgrade scheme eligibility criteria", "fonti": ["gov_apply"],
+   "a": "From May 2022 to the end of {mese}, the scheme paid grants for {pagati_pompe} heat pumps in England and Wales ({pagati_totale} installations including biomass boilers). This counts only installations paid through the Boiler Upgrade Scheme, not every heat pump fitted in the UK."
+  },
+  {
+   "pagina": "eligibility",
+   "ricerca": "boiler upgrade scheme eligibility criteria",
+   "fonti": [
+    "gov_apply"
+   ],
    "q": "What are the Boiler Upgrade Scheme eligibility criteria?",
-   "a": "GOV.UK lists two conditions for you: you must own the property you are applying for (including a business, a second home or a property you rent out) and you must be replacing fossil fuel heating such as oil, gas, electric or LPG. The installer must be MCS certified and must commission the heat pump within 120 days of applying. You are still eligible if you have already had funding for insulation."},
-  {"pagina": "eligibility", "ricerca": "can landlords get heat pump grant", "fonti": ["gov_apply", "ofgem_owners"],
+   "a": "GOV.UK lists two conditions for you: you must own the property you are applying for (including a business, a second home or a property you rent out) and you must be replacing fossil fuel heating such as oil, gas, electric or LPG. The installer must be MCS certified and must commission the heat pump within 120 days of applying. You are still eligible if you have already had funding for insulation."
+  },
+  {
+   "pagina": "eligibility",
+   "ricerca": "can landlords get heat pump grant",
+   "fonti": [
+    "gov_apply",
+    "ofgem_owners"
+   ],
    "q": "Can landlords get the heat pump grant?",
-   "a": "Yes. GOV.UK says you can apply for a property you rent out to tenants. Social housing is excluded: Ofgem defines it as accommodation provided at lower than market value to people who could not otherwise afford it, including shared ownership."},
-  {"pagina": "eligibility", "ricerca": "can you get a heat pump grant on a new build", "fonti": ["gov_apply", "ofgem_owners"],
+   "a": "Yes. GOV.UK says you can apply for a property you rent out to tenants. Social housing is excluded: Ofgem defines it as accommodation provided at lower than market value to people who could not otherwise afford it, including shared ownership."
+  },
+  {
+   "pagina": "eligibility",
+   "ricerca": "can you get a heat pump grant on a new build",
+   "fonti": [
+    "gov_apply",
+    "ofgem_owners"
+   ],
    "q": "Can you get a heat pump grant on a new build?",
-   "a": "Usually not: most new build properties are excluded, and so are new builds the developer is still building. If you move into a finished new build that has a fossil fuel boiler, GOV.UK says you may be able to get the grant. Self-builds are eligible if you or the original owner built them (or paid a builder to) and they have never been owned by a business or organisation."},
-  {"pagina": "eligibility", "ricerca": "boiler upgrade scheme epc requirements", "fonti": ["bus_xlsx", "ofgem_owners"],
+   "a": "Usually not: most new build properties are excluded, and so are new builds the developer is still building. If you move into a finished new build that has a fossil fuel boiler, GOV.UK says you may be able to get the grant. Self-builds are eligible if you or the original owner built them (or paid a builder to) and they have never been owned by a business or organisation."
+  },
+  {
+   "pagina": "eligibility",
+   "ricerca": "boiler upgrade scheme epc requirements",
+   "fonti": [
+    "bus_xlsx",
+    "ofgem_owners"
+   ],
    "q": "Do I need an EPC for the Boiler Upgrade Scheme?",
-   "a": "The rules on Energy Performance Certificates have been loosened twice. From 8 May 2024 you no longer needed to have no outstanding loft and cavity wall insulation recommendations, and the changes of 28 April 2026 include “relaxing the requirement for a valid EPC”, in the words of DESNZ. Ofgem still suggests reading the improvements listed on your EPC if you have one. Your installer confirms what your application needs."},
-  {"pagina": "eligibility", "ricerca": "boiler upgrade scheme air to air 2500", "fonti": ["ofgem_bus", "bus_xlsx"],
+   "a": "The rules on Energy Performance Certificates have been loosened twice. From 8 May 2024 you no longer needed to have no outstanding loft and cavity wall insulation recommendations, and the changes of 28 April 2026 include “relaxing the requirement for a valid EPC”, in the words of DESNZ. Ofgem still suggests reading the improvements listed on your EPC if you have one. Your installer confirms what your application needs."
+  },
+  {
+   "pagina": "eligibility",
+   "ricerca": "boiler upgrade scheme air to air 2500",
+   "fonti": [
+    "ofgem_bus",
+    "bus_xlsx"
+   ],
    "q": "Can I get £2,500 for an air-to-air heat pump?",
-   "a": "Yes, since 28 April 2026 the scheme gives £2,500 off an air-to-air heat pump, for residential properties only. By the end of {mese} DESNZ had counted {aahp_domande} applications for air-to-air heat pumps and no grants paid yet; it will add air-to-air figures once the first grants are paid."},
-  {"pagina": "eligibility", "ricerca": "boiler upgrade scheme how to apply", "fonti": ["gov_apply", "ofgem_owners"],
+   "a": "Yes, since 28 April 2026 the scheme gives £2,500 off an air-to-air heat pump, for residential properties only. By the end of {mese} DESNZ had counted {aahp_domande} applications for air-to-air heat pumps and no grants paid yet; it will add air-to-air figures once the first grants are paid."
+  },
+  {
+   "pagina": "eligibility",
+   "ricerca": "boiler upgrade scheme how to apply",
+   "fonti": [
+    "gov_apply",
+    "ofgem_owners"
+   ],
    "q": "How do I apply for the Boiler Upgrade Scheme?",
-   "a": "You do not apply yourself. You get quotes from MCS certified installers, agree one, and that installer applies to Ofgem for you. Ofgem then asks you to confirm, within 14 calendar days, that the installer acts for you. After approval the installer has three months to fit the system (six months for a ground source heat pump) and claims the grant at the end; the grant is taken off your quote."},
-  {"pagina": "eligibility", "ricerca": "vat on heat pumps uk", "fonti": ["ofgem_owners"],
+   "a": "You do not apply yourself. You get quotes from MCS certified installers, agree one, and that installer applies to Ofgem for you. Ofgem then asks you to confirm, within 14 calendar days, that the installer acts for you. After approval the installer has three months to fit the system (six months for a ground source heat pump) and claims the grant at the end; the grant is taken off your quote."
+  },
+  {
+   "pagina": "eligibility",
+   "ricerca": "vat on heat pumps uk",
+   "fonti": [
+    "ofgem_owners"
+   ],
    "q": "Is there VAT on heat pumps in the UK?",
-   "a": "Ofgem says that from 1 April 2022 to 31 March 2027 the installation of energy-saving materials, including heat pumps and biomass boilers, is charged VAT at the zero rate. Ask your installer to confirm how VAT applies to your property and to show it on the quote."},
-  {"pagina": "eligibility", "ricerca": "is the boiler upgrade scheme available in wales", "fonti": ["gov_apply", "bus_xlsx"],
+   "a": "Ofgem says that from 1 April 2022 to 31 March 2027 the installation of energy-saving materials, including heat pumps and biomass boilers, is charged VAT at the zero rate. Ask your installer to confirm how VAT applies to your property and to show it on the quote."
+  },
+  {
+   "pagina": "eligibility",
+   "ricerca": "is the boiler upgrade scheme available in wales",
+   "fonti": [
+    "gov_apply",
+    "bus_xlsx"
+   ],
    "q": "Is the Boiler Upgrade Scheme available in Wales?",
-   "a": "Yes. The scheme covers England and Wales with the same rules and grant amounts. By the end of {mese} it had paid grants for {pagati_galles} installations in Wales."},
-
-  {"pagina": "cost", "ricerca": "average cost of heat pump installation uk", "fonti": ["bus_xlsx"],
+   "a": "Yes. The scheme covers England and Wales with the same rules and grant amounts. By the end of {mese} it had paid grants for {pagati_galles} installations in Wales."
+  },
+  {
+   "pagina": "cost",
+   "ricerca": "average cost of heat pump installation uk",
+   "fonti": [
+    "bus_xlsx"
+   ],
    "q": "What is the average cost of a heat pump installation in the UK?",
-   "a": "For air source (air-to-water) heat pumps paid through the grant in {trimestre}, the median installed cost in England and Wales was {mediana}, with half of installations between {lq} and {uq}. These costs include the grant value, so the typical price to the owner after £7,500 was {netto}. DESNZ publishes costs only for England and Wales as a whole."},
-  {"pagina": "cost", "ricerca": "how much is a heat pump after grant", "fonti": ["bus_xlsx", "gov_apply"],
+   "a": "For air source (air-to-water) heat pumps paid through the grant in {trimestre}, the median installed cost in England and Wales was {mediana}, with half of installations between {lq} and {uq}. These costs include the grant value, so the typical price to the owner after £7,500 was {netto}. DESNZ publishes costs only for England and Wales as a whole."
+  },
+  {
+   "pagina": "cost",
+   "ricerca": "how much is a heat pump after grant",
+   "fonti": [
+    "bus_xlsx",
+    "gov_apply"
+   ],
    "q": "How much is a heat pump after the grant?",
-   "a": "Taking the £7,500 grant off the official median cost of {mediana} leaves {netto} for a typical air source heat pump ({netto_lq} to {netto_uq} across the middle half of installations). For an oil or LPG home that gets £9,000, the same median leaves {netto9000}. The official cost of the installation already includes the grant, which the installer deducts from your bill."},
-  {"pagina": "cost", "ricerca": "ground source heat pump cost uk", "fonti": ["bus_xlsx"],
+   "a": "Taking the £7,500 grant off the official median cost of {mediana} leaves {netto} for a typical air source heat pump ({netto_lq} to {netto_uq} across the middle half of installations). For an oil or LPG home that gets £9,000, the same median leaves {netto9000}. The official cost of the installation already includes the grant, which the installer deducts from your bill."
+  },
+  {
+   "pagina": "cost",
+   "ricerca": "ground source heat pump cost uk",
+   "fonti": [
+    "bus_xlsx"
+   ],
    "q": "How much does a ground source heat pump cost in the UK?",
-   "a": "The median installed cost of ground source heat pumps paid through the grant was {gshp_mediana} in {trimestre} and {gshp_anno} over the 2025/26 financial year. Ground source costs move a lot from quarter to quarter because far fewer are installed ({gshp_numero} in 2025/26 against {awhp_numero} air source)."},
-
-  {"pagina": "solar", "ricerca": "how much do solar panels cost uk", "fonti": ["solare_costi_xlsx"],
+   "a": "The median installed cost of ground source heat pumps paid through the grant was {gshp_mediana} in {trimestre} and {gshp_anno} over the 2025/26 financial year. Ground source costs move a lot from quarter to quarter because far fewer are installed ({gshp_numero} in 2025/26 against {awhp_numero} air source)."
+  },
+  {
+   "pagina": "solar",
+   "ricerca": "how much do solar panels cost uk",
+   "fonti": [
+    "solare_costi_xlsx"
+   ],
    "q": "How much do solar panels cost in the UK?",
-   "a": "DESNZ puts the median cost of small solar systems up to 4 kW installed in 2025/26 at {sol_mediana_0_4} per kW of panel capacity, including installation and VAT where applicable but not batteries. At that rate a 3 kW system comes to about {sol_es_3kw} (our arithmetic). Systems of 4 to 10 kW had a median of {sol_mediana_4_10} per kW."},
-  {"pagina": "solar", "ricerca": "how much do solar panels cost per kilowatt", "fonti": ["solare_costi_xlsx"],
+   "a": "DESNZ puts the median cost of small solar systems up to 4 kW installed in 2025/26 at {sol_mediana_0_4} per kW of panel capacity, including installation and VAT where applicable but not batteries. At that rate a 3 kW system comes to about {sol_es_3kw} (our arithmetic). Systems of 4 to 10 kW had a median of {sol_mediana_4_10} per kW."
+  },
+  {
+   "pagina": "solar",
+   "ricerca": "how much do solar panels cost per kilowatt",
+   "fonti": [
+    "solare_costi_xlsx"
+   ],
    "q": "How much do solar panels cost per kilowatt?",
-   "a": "In 2025/26 the average (mean) cost of systems up to 4 kW ranged from {sol_min} per kW in {sol_min_reg} to {sol_max} per kW in {sol_max_reg}, on DESNZ's total installed capacity basis. Larger systems cost less per kW: the median for 10 to 50 kW systems was {sol_mediana_10_50}."}
+   "a": "In 2025/26 the average (mean) cost of systems up to 4 kW ranged from {sol_min} per kW in {sol_min_reg} to {sol_max} per kW in {sol_max_reg}, on DESNZ's total installed capacity basis. Larger systems cost less per kW: the median for 10 to 50 kW systems was {sol_mediana_10_50}."
+  },
+  {
+   "pagina": "home",
+   "q": "Is there a heat pump grant in Northern Ireland?",
+   "a": "Not the Boiler Upgrade Scheme, which is open to people in England and Wales only; GOV.UK adds that the Boiler Replacement Scheme in Northern Ireland is now closed. nidirect lists the Affordable Warmth Scheme, which “aims to help with the effects of fuel poverty and energy inefficiency” and is run by the Northern Ireland Housing Executive, and NI Energy Advice, which gives free advice and referrals to energy grants.",
+   "ricerca": "heat pump grant northern ireland",
+   "volume_gb": 210,
+   "misurata": "dati/volumi-2026-11-13.json",
+   "fonti": [
+    "gov_apply",
+    "nid_grants"
+   ]
+  },
+  {
+   "pagina": "eligibility",
+   "q": "Is there a ground source heat pump grant?",
+   "a": "Yes. The Boiler Upgrade Scheme gives £7,500 towards a ground source heat pump, including water source heat pumps and those on shared ground loops, or £9,000 in a home heated by oil or LPG with no mains gas connection, until 31 March 2027. After approval the installer has six months to finish a ground source installation, against three months for other systems. In {anno_f}, {gshp_numero} ground source heat pumps were installed with a grant, against {awhp_numero} air source.",
+   "ricerca": "ground source heat pump grant",
+   "volume_gb": 480,
+   "misurata": "dati/volumi-2026-11-13.json",
+   "fonti": [
+    "gov_apply",
+    "ofgem_owners",
+    "bus_xlsx"
+   ]
+  },
+  {
+   "pagina": "cost",
+   "q": "How much is a heat pump in the UK?",
+   "a": "It depends mostly on the size. For air source heat pumps installed with a grant in {anno_f}, the median installed cost was {f_4_6} for 4 to 6 kW, {f_6_8} for 6 to 8 kW, {f_8_10} for 8 to 10 kW, {f_12_14} for 12 to 14 kW and {f_20} for 20 kW or more. These costs include the £7,500 grant, which the installer takes off the bill. DESNZ publishes them for England and Wales as a whole.",
+   "ricerca": "how much is a heat pump",
+   "volume_gb": 4400,
+   "misurata": "dati/volumi-2026-11-13.json",
+   "fonti": [
+    "bus_xlsx"
+   ]
+  },
+  {
+   "pagina": "wales",
+   "q": "What is the Nest scheme in Wales?",
+   "a": "Nest is a Welsh Government scheme which provides free advice and home improvements to help you save energy and money. Nest can confirm whether a household is eligible for a package of free home energy efficiency improvements, such as a heat pump, insulation or solar panels, and homes without heating or hot water may be eligible for a boiler or storage heater repair or replacement. Nest is free on 0808 808 2244.",
+   "ricerca": "nest wales",
+   "volume_gb": 880,
+   "misurata": "dati/volumi-2026-11-13.json",
+   "fonti": [
+    "wales_nest",
+    "wales_nest_free"
+   ]
+  },
+  {
+   "pagina": "wales",
+   "q": "Is there a heat pump grant in Wales?",
+   "a": "Yes. The Boiler Upgrade Scheme works in Wales exactly as in England: £7,500 off an air source or ground source heat pump, or £9,000 for oil and LPG homes off the gas grid until 31 March 2027, for owners replacing fossil fuel or electric heating. It had paid grants for {pagati_galles} installations in Wales by the end of {mese}. Separately, the Welsh Government's Nest scheme can include a heat pump in the free improvements it offers to eligible households.",
+   "ricerca": "heat pump grant wales",
+   "volume_gb": 210,
+   "misurata": "dati/volumi-2026-11-13.json",
+   "fonti": [
+    "gov_apply",
+    "bus_xlsx",
+    "wales_nest_free"
+   ]
+  },
+  {
+   "pagina": "scotland",
+   "q": "Is there a heat pump grant in Scotland?",
+   "a": "Not the Boiler Upgrade Scheme, which is open to people in England and Wales only. In Scotland, Home Energy Scotland offers homeowners grant funding of up to £7,500 for heating systems such as heat pumps, with an extra £1,500 for rural and island homes. Only heat pumps that provide all the heating and hot water are eligible: hybrid, air-to-air and exhaust air heat pumps are not.",
+   "ricerca": "heat pump grant scotland",
+   "volume_gb": 590,
+   "misurata": "dati/volumi-2026-11-13.json",
+   "fonti": [
+    "gov_apply",
+    "hes_grant"
+   ]
+  },
+  {
+   "pagina": "scotland",
+   "q": "What is the Home Energy Scotland grant?",
+   "a": "It is Scottish Government grant funding for homeowners, reached through Home Energy Scotland, a free advice service. It pays up to £7,500 for heating systems such as heat pumps and, for insulation and other energy efficiency measures, up to 75% of the combined cost with a maximum of £7,500. Rural and island homes get £1,500 more on each, up to £18,000 in grants. The home must be in Scotland and be your only or main home; you do not need to be getting benefits. Funding is first come, first served.",
+   "ricerca": "home energy scotland grant",
+   "volume_gb": 1000,
+   "misurata": "dati/volumi-2026-11-13.json",
+   "fonti": [
+    "hes_grant"
+   ]
+  },
+  {
+   "pagina": "scotland",
+   "q": "Who is eligible for Warmer Homes Scotland?",
+   "a": "Home Energy Scotland lists these conditions: you own the home or rent it from a private landlord and live there as your main residence, usually for at least six months; the home has a poor energy rating, a floor area of 230 m² or less and is in council tax band A to G; and someone in the household is 75 or over with no working heating, has a DS1500 or BASRiS certificate, or gets one of the qualifying benefits. The programme offers support worth £10,000 or more.",
+   "ricerca": "warmer homes scotland eligibility",
+   "volume_gb": 110,
+   "misurata": "dati/volumi-2026-11-13.json",
+   "fonti": [
+    "hes_whs"
+   ]
+  },
+  {
+   "pagina": "eco4",
+   "q": "What is the ECO4 scheme?",
+   "a": "ECO4 is the current phase of the Energy Company Obligation, “a government energy efficiency scheme in Great Britain designed to tackle fuel poverty and help reduce carbon emissions”, in Ofgem's words. Medium and large energy suppliers must fund measures, such as insulation or a heating upgrade, for low-income, fuel-poor and vulnerable households. It covers measures installed from 1 April 2022 and runs until 31 December 2026. By the end of {eco4_fino} DESNZ had counted {eco4_misure} measures in {eco4_case} homes, including ECO3 interim delivery and surplus actions carried over to ECO4.",
+   "ricerca": "eco4 scheme",
+   "volume_gb": 9900,
+   "misurata": "dati/volumi-2026-11-13.json",
+   "fonti": [
+    "ofgem_eco",
+    "gov_eco",
+    "hee_xlsx"
+   ]
+  },
+  {
+   "pagina": "eco4",
+   "q": "Who is eligible for ECO4?",
+   "a": "GOV.UK says you might be eligible if you live in private housing and get one of these benefits: Universal Credit, Pension Guarantee Credit, Pension Savings Credit, Income Support, income-based Jobseeker's Allowance, income-related Employment and Support Allowance, Child Benefit or Housing Benefit. If you own the home it must be rated D, E, F or G; if you rent privately, E, F or G, with the owner's permission. Social housing rated E, F or G may get help with insulation or a first heating system.",
+   "ricerca": "eco4 eligibility",
+   "volume_gb": 1300,
+   "misurata": "dati/volumi-2026-11-13.json",
+   "fonti": [
+    "gov_eco"
+   ]
+  },
+  {
+   "pagina": "eco4",
+   "q": "When does ECO4 end?",
+   "a": "On 31 December 2026. Ofgem says ECO4 will run until 31 December 2026, following a nine-month extension, and GOV.UK says the Energy Company Obligation scheme is closing on 31 December 2026.",
+   "ricerca": "when does eco4 end",
+   "volume_gb": 50,
+   "misurata": "dati/volumi-2026-11-13.json",
+   "fonti": [
+    "ofgem_eco",
+    "gov_eco"
+   ]
+  },
+  {
+   "pagina": "eco4",
+   "q": "Is there a government grant for a new boiler?",
+   "a": "The Energy Company Obligation can help with the cost of replacing or repairing your boiler, or other upgrades to your heating, if you live in private housing and get certain benefits; DESNZ counted {eco4_caldaie} boiler measures under ECO4 by the end of {eco4_fino}. ECO4 closes on 31 December 2026. The Boiler Upgrade Scheme does not pay for a new gas or oil boiler: its grants are for replacing fossil fuel heating with a heat pump or a biomass boiler.",
+   "ricerca": "new boiler grant",
+   "volume_gb": 3600,
+   "misurata": "dati/volumi-2026-11-13.json",
+   "fonti": [
+    "gov_eco",
+    "gov_apply",
+    "hee_xlsx"
+   ]
+  },
+  {
+   "pagina": "eco4",
+   "q": "Does ECO4 cover solar panels?",
+   "a": "Solar panels are among the measures fitted under ECO4: DESNZ counted {eco4_solare} solar PV systems by the end of {eco4_fino}, along with {eco4_ashp} air source heat pumps.",
+   "ricerca": "eco4 solar panels",
+   "volume_gb": 260,
+   "misurata": "dati/volumi-2026-11-13.json",
+   "fonti": [
+    "hee_xlsx"
+   ]
+  },
+  {
+   "pagina": "gbis",
+   "q": "Is the Great British Insulation Scheme still open?",
+   "a": "No. Ofgem says the scheme began in April 2023, ended on 31 March 2026 and is now closed to new installations; GOV.UK says installations had to be complete by that date. Help with insulation is still available through the Energy Company Obligation until 31 December 2026 for households on certain benefits, and through the Warm Homes: Local Grant in England.",
+   "ricerca": "great british insulation scheme",
+   "volume_gb": 4400,
+   "misurata": "dati/volumi-2026-11-13.json",
+   "fonti": [
+    "ofgem_gbis",
+    "gov_gbis",
+    "gov_eco",
+    "gov_whlg"
+   ]
+  },
+  {
+   "pagina": "gbis",
+   "q": "What was GBIS?",
+   "a": "GBIS is the Great British Insulation Scheme. It placed an obligation on medium and large energy companies to install insulation in the least energy-efficient homes in Great Britain, mostly as single measures rather than ECO4's “whole house” approach. DESNZ counted {gbis_famiglie} homes upgraded with {gbis_misure} measures from 30 March 2023 to 31 March 2026 (provisional figures).",
+   "ricerca": "gbis",
+   "volume_gb": 1600,
+   "misurata": "dati/volumi-2026-11-13.json",
+   "fonti": [
+    "ofgem_gbis",
+    "gbis_xlsx"
+   ]
+  },
+  {
+   "pagina": "gbis",
+   "q": "Who was eligible for the Great British Insulation Scheme?",
+   "a": "Low-income and vulnerable households, and also, in Ofgem's words, “those living in homes with an Energy Performance Certificate rating of D-G, and within Council Tax bands A-D in England and A-E in Scotland and Wales”. The scheme has now closed.",
+   "ricerca": "great british insulation scheme eligibility",
+   "volume_gb": 210,
+   "misurata": "dati/volumi-2026-11-13.json",
+   "fonti": [
+    "ofgem_gbis"
+   ]
+  },
+  {
+   "pagina": "gbis",
+   "q": "Can I still get a loft insulation grant?",
+   "a": "The Great British Insulation Scheme, which fitted {gbis_loft} loft insulation measures, has closed. GOV.UK lists loft insulation among the help available through the Energy Company Obligation until 31 December 2026, for households in private housing on certain benefits, and among the improvements the Warm Homes: Local Grant can pay for in England. In Scotland, Home Energy Scotland lists a grant of up to £1,500 for loft, cavity or underfloor insulation.",
+   "ricerca": "loft insulation grant",
+   "volume_gb": 4400,
+   "misurata": "dati/volumi-2026-11-13.json",
+   "fonti": [
+    "gov_eco",
+    "gov_whlg",
+    "hes_grant",
+    "gbis_xlsx"
+   ]
+  },
+  {
+   "pagina": "whlg",
+   "q": "What is the Warm Homes: Local Grant?",
+   "a": "A grant in England, run by local councils, for free energy saving improvements in homes on a low income, getting certain benefits or in certain postcode areas. The council arranges a survey and organises and pays for the work it agrees with you, such as insulation, an air source heat pump, smart controls or solar panels. Councils had reported {whlg_famiglie} homes upgraded with {whlg_misure} measures by the end of {whlg_fino}.",
+   "ricerca": "warm homes local grant",
+   "volume_gb": 1600,
+   "misurata": "dati/volumi-2026-11-13.json",
+   "fonti": [
+    "gov_whlg",
+    "whlg_xlsx"
+   ]
+  },
+  {
+   "pagina": "whlg",
+   "q": "Is the Warm Homes: Local Grant part of the Warm Homes Plan?",
+   "a": "Yes. DESNZ writes: “The Government has published its Warm Homes Plan to upgrade up to 5 million homes by 2030. The Warm Homes: Local Grant (WH:LG) is part of this plan.”",
+   "ricerca": "warm homes plan",
+   "volume_gb": 1900,
+   "misurata": "dati/volumi-2026-11-13.json",
+   "fonti": [
+    "whlg_xlsx"
+   ]
+  },
+  {
+   "pagina": "whlg",
+   "q": "Who is eligible for the Warm Homes: Local Grant?",
+   "a": "GOV.UK says the home must be in England, be privately owned (by you or your landlord) and have an EPC rating of D, E, F or G. Household income must usually be £36,000 a year or less; above that you might still be eligible if you live in a certain postcode area or someone in your household gets certain benefits.",
+   "ricerca": "warm homes local grant eligibility",
+   "volume_gb": 50,
+   "misurata": "dati/volumi-2026-11-13.json",
+   "fonti": [
+    "gov_whlg"
+   ]
+  },
+  {
+   "pagina": "whlg",
+   "q": "Is there a Warm Homes grant in Scotland or Wales?",
+   "a": "The Warm Homes: Local Grant is only available in England. In Scotland, Home Energy Scotland offers grant funding to homeowners for heat pumps and insulation; in Wales, the Welsh Government's Nest scheme provides free advice and home improvements.",
+   "ricerca": "warm homes grant",
+   "volume_gb": 1300,
+   "misurata": "dati/volumi-2026-11-13.json",
+   "fonti": [
+    "gov_whlg",
+    "hes_grant",
+    "wales_nest"
+   ]
+  },
+  {
+   "pagina": "solar_grants",
+   "q": "Are there government grants for solar panels?",
+   "a": "There is no UK-wide solar panel grant. In England, solar panels are among the improvements the Warm Homes: Local Grant can pay for, for households on a low income, on certain benefits or in certain postcode areas; councils had reported {whlg_solare} solar PV systems by the end of {whlg_fino}, at an average total cost of {whlg_solare_costo}. In Wales, Nest's free improvements can include solar panels. The Boiler Upgrade Scheme pays towards heat pumps and biomass boilers, not solar panels.",
+   "ricerca": "government grants for solar panels",
+   "volume_gb": 3600,
+   "misurata": "dati/volumi-2026-11-13.json",
+   "fonti": [
+    "gov_whlg",
+    "whlg_xlsx",
+    "wales_nest_free",
+    "gov_apply"
+   ]
+  },
+  {
+   "pagina": "solar_grants",
+   "q": "Can I get free solar panels?",
+   "a": "Only through schemes for eligible households. Under the Warm Homes: Local Grant in England, the council organises and pays for the work it agrees with you and GOV.UK says you will not need to pay for it; if you rent, your landlord may need to pay for some of it. In Wales, Nest offers a package of free improvements that can include solar panels, and ECO4 has fitted {eco4_solare} solar PV systems. GOV.UK warns that installers or agents might contact you directly: if you are not sure an offer is genuine, check with your council.",
+   "ricerca": "free solar panels",
+   "volume_gb": 2400,
+   "misurata": "dati/volumi-2026-11-13.json",
+   "fonti": [
+    "gov_whlg",
+    "wales_nest_free",
+    "gov_eco",
+    "hee_xlsx"
+   ]
+  },
+  {
+   "pagina": "solar_grants",
+   "q": "Is there a solar panel grant in Scotland?",
+   "a": "Home Energy Scotland's funding table for homeowners marks grant funding as “Not available” for solar thermal and for hybrid solar PV and water heating systems; its grants are for heat pumps, insulation and other measures. Warmer Homes Scotland, for households on certain benefits, lists installing a home renewables system among its possible improvements.",
+   "ricerca": "solar panels grant scotland",
+   "volume_gb": 1300,
+   "misurata": "dati/volumi-2026-11-13.json",
+   "fonti": [
+    "hes_grant",
+    "hes_whs"
+   ]
+  },
+  {
+   "pagina": "solar_grants",
+   "q": "Is there a solar panel grant in Wales?",
+   "a": "Through Nest, a Welsh Government scheme. Nest can confirm whether a household is eligible for a package of free home energy efficiency improvements, such as a heat pump, insulation or solar panels. Nest is free on 0808 808 2244.",
+   "ricerca": "solar panels grant wales",
+   "volume_gb": 1000,
+   "misurata": "dati/volumi-2026-11-13.json",
+   "fonti": [
+    "wales_nest",
+    "wales_nest_free"
+   ]
+  },
+  {
+   "pagina": "solar_grants",
+   "q": "What is the Smart Export Guarantee?",
+   "a": "A government-backed scheme, launched on 1 January 2020, that requires some electricity suppliers to pay small-scale generators (installations up to 5 MW, solar panels among them) for the low-carbon electricity they export to the grid. Suppliers set the rate and terms, the rate must always be above zero, and payments are based on export meter readings. It applies in Great Britain; Ofgem advises shopping around for the tariff that suits you.",
+   "ricerca": "smart export guarantee",
+   "volume_gb": 1600,
+   "misurata": "dati/volumi-2026-11-13.json",
+   "fonti": [
+    "ofgem_seg"
+   ]
+  },
+  {
+   "pagina": "solar_grants",
+   "q": "Is there VAT on solar panels?",
+   "a": "Not on installations in homes at the moment: HMRC says a zero rate applies to the installation of certain energy-saving materials, including solar panels and, from 1 February 2024, batteries, from 1 May 2023 to 31 March 2027. From 1 April 2027 the reduced rate of 5% applies again.",
+   "ricerca": "vat on solar panels",
+   "volume_gb": 390,
+   "misurata": "dati/volumi-2026-11-13.json",
+   "fonti": [
+    "hmrc_vat"
+   ]
+  }
  ]
 }
