@@ -703,21 +703,21 @@
    },
    {
     "tipo": "Subsidized",
-    "chi": "Graduate or professional",
+    "chi": "Graduate or professional students",
     "dal": "2006-07-01",
     "al": "2012-07-01",
     "tasso": "6.80"
    },
    {
     "tipo": "Unsubsidized",
-    "chi": "Undergraduate and graduate",
+    "chi": "Undergraduate and graduate or professional students",
     "dal": "2006-07-01",
     "al": "2013-07-01",
     "tasso": "6.80"
    },
    {
     "tipo": "PLUS",
-    "chi": "Graduate or professional",
+    "chi": "Graduate or professional students and parents of dependent undergraduate students",
     "dal": "2006-07-01",
     "al": "2013-07-01",
     "tasso": "7.90"
@@ -870,6 +870,7 @@
      "anni": 25
     }
    ],
+   "minimo_mese": 50,
    "dal": "2026-07-01"
   }
  },

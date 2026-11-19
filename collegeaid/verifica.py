@@ -55,6 +55,7 @@ M_LIM = {"dip": [(5500, 3500), (6500, 4500), (7500, 5500)], "dip_tot": (31000, 2
 M_RAP = [(10000, None), (20000, 1), (30000, 2), (40000, 3), (50000, 4), (60000, 5), (70000, 6), (80000, 7), (90000, 8), (100000, 9), (None, 10)]
 M_RAP_FISSO, M_RAP_DIP, M_RAP_MIN, M_RAP_RATE, M_RAP_QUOTA = 120, 50, 10, 360, 50
 M_STD = [(25000, 10), (50000, 15), (100000, 20), (None, 25)]
+M_STD_MIN = 50   # 34 CFR 685.208(b)(1)(ii), (b)(8)(ii) e (c)(1)(ii): pagamento di almeno 50 $ al mese
 # Modulo FAFSA 2027-28, pagine 1 e 2: date federali e date dei 10 Stati con una pagina
 M_FAFSA = {"apertura": "2026-10-01", "federale": "2028-06-30"}
 M_STATI = {"CA": ("california", ["2027-03-02", "2027-09-02"]), "TX": ("texas", ["2027-01-15"]), "FL": ("florida", ["2027-05-15"]), "MI": ("michigan", ["2027-07-01"]),
@@ -91,17 +92,20 @@ def rif_anni(saldo_cent):
             return anni
 
 
-def rif_piano(saldo_cent, tasso_pc, mesi):
-    """tasso_pc: stringa «6.52». Rata fissa arrotondata al centesimo; interesse mensile arrotondato al centesimo; l'ultima rata chiude."""
+def rif_piano(saldo_cent, tasso_pc, mesi, minimo=M_STD_MIN * 100):
+    """tasso_pc: stringa «6.52». Rata fissa arrotondata al centesimo, mai sotto il minimo di 50 $ (se si deve meno, si paga il dovuto);
+    interesse mensile arrotondato al centesimo; l'ultima rata chiude."""
     r = Decimal(tasso_pc) / 1200
-    rata = cent(Decimal(saldo_cent) / mesi) if r == 0 else cent(Decimal(saldo_cent) * r / (1 - (1 + r) ** (-mesi)))
+    calcolata = cent(Decimal(saldo_cent) / mesi) if r == 0 else cent(Decimal(saldo_cent) * r / (1 - (1 + r) ** (-mesi)))
+    rata = max(calcolata, minimo)
+    primo_dovuto = saldo_cent + cent(Decimal(saldo_cent) * Decimal(tasso_pc) / 1200)
     resto, pagato, interessi, n = saldo_cent, 0, 0, 0
     while resto > 0:
         i = cent(Decimal(resto) * Decimal(tasso_pc) / 1200)   # prima il prodotto, poi la divisione: i casi a metà centesimo restano esatti
         dovuto = resto + i
         paga = dovuto if (n == mesi - 1 or dovuto < rata) else rata
         resto, pagato, interessi, n = dovuto - paga, pagato + paga, interessi + i, n + 1
-    return {"rata": rata, "mesi": n, "pagato": pagato, "interessi": interessi}
+    return {"rata": min(rata, primo_dovuto), "mesi": n, "pagato": pagato, "interessi": interessi, "minimo": rata > calcolata}
 
 
 def rif_rap(reddito, carico):
@@ -202,6 +206,8 @@ def controlla_dati():
         err("aiuti.json: scaglioni del RAP diversi dalla trascrizione")
     if (R["rap"]["per_dipendente_mese"], R["rap"]["minimo_mese"], R["rap"]["rate_cancellazione"], R["rap"]["quota_capitale_mese"]) != (M_RAP_DIP, M_RAP_MIN, M_RAP_RATE, M_RAP_QUOTA):
         err("aiuti.json: parametri del RAP diversi dalla trascrizione")
+    if R["standard"]["minimo_mese"] != M_STD_MIN:
+        err("aiuti.json: pagamento minimo del piano standard diverso dalla trascrizione")
     if [(f["sotto"], f["anni"]) for f in R["standard"]["fasce"]] != M_STD:
         err("aiuti.json: fasce del piano standard diverse dalla trascrizione")
     # FAFSA: voci rilette dal PDF in un altro modo (tutta la pagina 2 in -raw, senza spazi e trattini: ogni voce deve esserci, e insieme devono coprirla)
@@ -433,7 +439,7 @@ def controlla_cifre(A):
     esempi_rata, esempi_rap = {10000, 20000, 40000, 100000}, {20000, 35000, 50000, 65000, 80000, 100000, 150000, 30000, 30001}
     es_buco = rif_buco(3200000, 4)
     amm = {"federal-student-loan-limits": base, "parent-plus-loans": base | std | {32000, sum(r["resto"] for r in es_buco) // 100},
-           "student-loan-payment-calculator": base | std | esempi_rata, "repayment-assistance-plan": rap | esempi_rap | {50}, "student-loan-interest-rates": {10000},
+           "student-loan-payment-calculator": base | std | esempi_rata | {M_STD_MIN}, "repayment-assistance-plan": rap | esempi_rap | {50}, "student-loan-interest-rates": {10000},
            "": base | std, "how-we-check": {50, 10}}
     for slug, date_ in list(M_STATI.values()):
         amm[f"fafsa-deadlines/{slug}"] = {M_LIM["dip"][0][0]}
@@ -466,6 +472,8 @@ def controlla_cifre(A):
     for c, saldo, anni, r1, i1, r2, i2 in es:
         c = int(c)
         nuovo, vecchio = rif_piano(c, "6.52", rif_anni(c) * 12), rif_piano(c, "6.52", 120)
+        if nuovo["minimo"] or vecchio["minimo"]:
+            err(f"rata: l'esempio {saldo} è sotto il pagamento minimo")
         if (saldo, int(anni), r1, i1, r2, i2) != (usd(c // 100), rif_anni(c), usdc(nuovo["rata"]), usdc(nuovo["interessi"]), usdc(vecchio["rata"]), usdc(vecchio["interessi"])):
             err(f"rata: esempio {saldo} diverso dal conto di riferimento")
         n += 1
@@ -500,7 +508,7 @@ def controlla_cifre(A):
         n += 1
     # regole passate ai calcolatori = trascrizioni
     reg = json.loads(unescape(re.search(r'data-calc="rata" data-regole="([^"]+)"', ra)[1]))
-    if [(f["sotto"], f["anni"]) for f in reg["fasce"]] != M_STD:
+    if [(f["sotto"], f["anni"]) for f in reg["fasce"]] != M_STD or reg["minimo_mese"] != M_STD_MIN:
         err("rata: regole del calcolatore diverse dalla trascrizione")
     reg = json.loads(unescape(re.search(r'data-calc="rap" data-regole="([^"]+)"', rp)[1]))["rap"]
     if [(s["fino_a"], s["pc"]) for s in reg["scaglioni"]] != M_RAP or (reg["per_dipendente_mese"], reg["minimo_mese"], reg["quota_capitale_mese"]) != (M_RAP_DIP, M_RAP_MIN, M_RAP_QUOTA):
@@ -525,12 +533,12 @@ def controlla_js(A):
     casi_rap += [(rnd.randint(0, 400000), rnd.randint(0, 6)) for _ in range(1500)]
     casi_mese = [(rnd.choice([1000, 5000, 7500, 20000, 41667, 150000]), rnd.randint(100, 20000000), rnd.choice(tassi)) for _ in range(800)] + [(1000, 500, "6.52"), (5000, 5000, "0"), (100000, 3000, "9.07")]
     casi_buco = [(c * 100, a) for c in (0, 3000, 5500, 20000, 25500, 27500, 32000, 60000, 500000) for a in range(1, 7)] + [(rnd.randint(0, 9000000), rnd.randint(1, 6)) for _ in range(400)]
-    regole = {"fasce": A["rimborso"]["standard"]["fasce"], "rap": A["rimborso"]["rap"], "limiti": {"dipendente": A["limiti"]["dipendente"], "genitori": A["limiti"]["genitori"]}}
+    regole = {"fasce": A["rimborso"]["standard"]["fasce"], "minimo": A["rimborso"]["standard"]["minimo_mese"] * 100, "rap": A["rimborso"]["rap"], "limiti": {"dipendente": A["limiti"]["dipendente"], "genitori": A["limiti"]["genitori"]}}
     prog = """
 const CA = require(process.argv[2]); const I = JSON.parse(require('fs').readFileSync(0, 'utf8')); const R = I.regole;
 const mill = t => CA.millesimi(t);
 const out = {
-  rata: I.rata.map(([s, t, p]) => { const anni = p === 'nuovo' ? CA.anniStandard(s, R.fasce) : 10; return Object.assign({anni}, CA.piano(s, mill(t), anni * 12)); }),
+  rata: I.rata.map(([s, t, p]) => { const anni = p === 'nuovo' ? CA.anniStandard(s, R.fasce) : 10; return Object.assign({anni}, CA.piano(s, mill(t), anni * 12, R.minimo)); }),
   rap: I.rap.map(([r, c]) => CA.rapMese(r, c, R.rap)),
   mese: I.mese.map(([p, s, t]) => CA.rapUnMese(p, s, mill(t), R.rap)),
   buco: I.buco.map(([c, a]) => CA.buco(c, a, R.limiti).righe),
@@ -567,6 +575,10 @@ console.log(JSON.stringify(out));
     if out["fmt"] != ["$1,234,567.89", "$5", "$5.05", 2700050, None, 6520, 6500, f"in {giorni} days", f"passed {(date(2026, 11, 19) - date(2026, 10, 1)).days} days ago", "today", "tomorrow"]:
         err(f"JS formati: {out['fmt']}")
     # conti a mano (scritti qui, non calcolati): 10.000 $ al 6,52 % in 10 anni = 113,65 $ (r = 0,0054333; (1+r)^120 = 1,91599; 10.000 × r ÷ (1 − 1/1,91599)); RAP 45.000 $ = 4 % = 1.800 $/anno = 150 $ al mese; con 2 persone a carico 50 $
+    # minimo: 3.000 $ al 6,52 % in 10 anni darebbe 34,10 $ -> 50 $; 40 $ di saldo -> un solo pagamento di 40,22 $ (40 $ + 0,22 $ di interesse)
+    m1, m2 = rif_piano(300000, "6.52", 120), rif_piano(4000, "6.52", 120)
+    if (m1["rata"], m1["minimo"], m1["mesi"] < 120) != (5000, True, True) or (m2["rata"], m2["mesi"], m2["pagato"]) != (4022, 1, 4022):
+        err(f"conti a mano del pagamento minimo diversi dal riferimento: {m1} {m2}")
     if rif_piano(1000000, "6.52", 120)["rata"] != 11365:
         err(f"conto a mano: rata di 10.000 $ al 6,52 % = {rif_piano(1000000, '6.52', 120)['rata']}")
     if (rif_rap(45000, 0), rif_rap(45000, 2), rif_rap(8000, 0), rif_rap(12000, 3), rif_rap(120000, 1)) != (15000, 5000, 1000, 1000, 95000):
@@ -595,10 +607,11 @@ def attesi_browser():
     def piano_txt(s, t, p):
         anni = rif_anni(s) if p == "nuovo" else 10
         x = rif_piano(s, t, anni * 12)
-        return {"rata": usdc(x["rata"]), "anni": f"{anni} years ({x['mesi']} payments)", "pagato": usdc(x["pagato"]), "interessi": usdc(x["interessi"])}
+        periodo = (f"{x['mesi']} payment{'' if x['mesi'] == 1 else 's'} (${M_STD_MIN} minimum)") if x["minimo"] else f"{anni} years ({x['mesi']} payments)"
+        return {"rata": usdc(x["rata"]), "anni": periodo, "pagato": usdc(x["pagato"]), "interessi": usdc(x["interessi"])}
     rata = [{"saldo": str(s // 100), "tasso": t, "piano": p, "atteso": piano_txt(s, t, p)} for s, t, p in
             [(2700000, "6.52", "nuovo"), (2700000, "6.52", "vecchio"), (1000000, "6.52", "nuovo"), (2499900, "8.07", "nuovo"), (2500000, "8.07", "nuovo"), (5750000, "6.52", "nuovo"),
-             (6500000, "9.07", "nuovo"), (10000000, "8.07", "nuovo"), (20000000, "8.07", "vecchio"), (500000, "0", "vecchio")]]
+             (6500000, "9.07", "nuovo"), (10000000, "8.07", "nuovo"), (20000000, "8.07", "vecchio"), (500000, "0", "vecchio"), (300000, "6.52", "nuovo"), (300000, "6.52", "vecchio"), (4000, "6.52", "nuovo"), (100000, "0", "vecchio")]]
     rap = []
     for red, car, saldo, tasso in [(45000, 0, 3000000, "6.52"), (45000, 2, 3000000, "6.52"), (8000, 0, None, "6.52"), (30000, 0, 5000000, "8.07"), (30001, 0, 5000000, "8.07"),
                                    (100000, 1, 2000000, "6.52"), (150000, 3, 20000000, "8.07"), (12000, 3, 1000000, "6.52"), (65000, 1, None, "6.52"), (20000, 0, 100000, "6.52")]:

@@ -12,9 +12,9 @@ Pubblicità: AdSense acceso in `monetizzazione.json`, contatore GoatCounter. Man
 `/federal-student-loan-limits/` (tetti dal 1/7/2026, corsi di laurea invariati, prima/dopo, eccezione per chi era già iscritto) · `/student-loan-payment-calculator/`
 (piano standard: 10 anni per i prestiti vecchi, 10-25 anni per fascia di capitale dal 1/7/2026) · `/repayment-assistance-plan/` (formula della legge, calcolatore, un mese sul saldo) ·
 `/parent-plus-loans/` (9,07 %, 20.000/65.000 $, calcolatore di quanto resta scoperto con il costo scritto dall'utente) · `/how-we-check/` (modulo delle correzioni con campo-trappola) · `/about/` · `/privacy/`.
-FAQ: 76, ognuna legata a una ricerca misurata. Frase fissa in ogni pagina: «Information, not financial advice».
+FAQ: 77, ognuna legata a una ricerca misurata. Frase fissa in ogni pagina: «Information, not financial advice».
 
-## Fonti (5 file in `dati/grezzi/`, 47 frasi alla lettera, `dati/fonti.json`)
+## Fonti (7 file in `dati/grezzi/`, 61 frasi alla lettera, `dati/fonti.json`)
 
 | Fonte | Che cosa dà | Impronta |
 |---|---|---|
@@ -23,13 +23,14 @@ FAQ: 76, ognuna legata a una ricerca misurata. Frase fissa in ogni pagina: «Inf
 | Federal Register 2026-08556 (govinfo.gov, 1/5/2026) | 34 CFR 685.203: 20.500/100.000, 50.000/200.000, genitori 20.000/65.000, 257.500 a vita | sha256 del file |
 | Public Law 119-21 (govinfo.gov), sez. 81001 e 82001 | stessi tetti, piano standard a fasce, formula del RAP | sha256 del file |
 | FSA Handbook 2025-26, vol. 8 cap. 4 (fsapartners.ed.gov) | tetti dei corsi di laurea (5.500-12.500; 31.000/57.500) | sha256_frasi |
+| 34 CFR 685.200 e 685.202, edizione 1/7/2025 (PDF di govinfo.gov) | requisito di credito del PLUS dei genitori; commissione trattenuta da ogni erogazione (4 % nel regolamento) | sha256 del file |
 
-- **studentaid.gov il 19/11 chiudeva la connessione** (HTTP 0, anche la home): il PDF del modulo è quello scaricato il 18/11 dalla ricerca (data di lettura 18/11, detta in pagina).
+- **studentaid.gov il 19/11 chiudeva la connessione al nostro server** (HTTP 0, anche la home; riprovato tre volte nella giornata, l'ultima dopo la revisione: sempre HTTP 0 da qui): il PDF del modulo è quello scaricato il 18/11 dalla ricerca (data di lettura 18/11, detta in pagina).
   `fonti.py` tiene il file registrato quando un sito non risponde e lo dice a fine giro. Le pagine web di studentaid.gov (vuote senza JavaScript) e ed.gov (403) non sono usate.
 - Il volume 8 del manuale 2026-27 non è ancora pubblicato: la tabella dei corsi di laurea viene dal 2025-26 **più** la frase della regola finale «remain unchanged» (i due totali devono coincidere). Detto in `/how-we-check/`.
 - I file di govinfo con un indirizzo email cambiano qualche byte a ogni scarico (protezione degli indirizzi): `fonti.py` scrive «file cambiato» anche se le cifre sono le stesse; l'impronta vale per il file conservato.
 - Controlli in `fonti.py`: due letture del PDF (normale e `-raw`) uguali voce per voce; asta + maggiorazione = tasso; legge = regola per ogni tetto; scaglioni consecutivi.
-- Non coperto perché senza fonte letta: commissioni d'apertura dei prestiti, definizione di prestito sussidiato, borsa Pell 2027-28, scadenze 2026-27, scadenze delle singole università, prezzi delle università
+- Non coperto perché senza fonte letta: la commissione esatta di ogni anno (il regolamento dice 4 % per il PLUS; la cifra applicata può essere diversa: in pagina si rimanda all'ufficio aiuti), definizione di prestito sussidiato, borsa Pell 2027-28, scadenze 2026-27, scadenze delle singole università, prezzi delle università
   (il «buco» per università dell'idea A resta fuori: qui c'è solo il calcolatore con il costo dell'utente).
 
 ## Domanda misurata (`dati/domanda.json`, 114 frasi seodata, USA)
@@ -60,3 +61,15 @@ dentro l'insieme delle cifre trascritte; 4.446 casi dei calcolatori (JS pubblica
 
 Modulo FAFSA: a ogni ristampa (uno Stato che cambia data) e ogni ottobre per l'anno nuovo. Tassi: avviso dopo l'asta di maggio (di solito in estate). Manuale 2026-27 vol. 8: quando esce, cambiare l'indirizzo in `fonti.py`.
 `python3 collegeaid/raccolta/fonti.py && python3 collegeaid/genera.py && python3 collegeaid/verifica.py --browser && python3 studio-business/strumenti/monetizzazione.py verifica collegeaid`
+
+## Revisione indipendente del 19/11/2026 (voto 8,2): che cosa è cambiato
+
+1. Tetti: «stesso programma» distinto per tipo di studente (cambio di indirizzo dentro lo stesso titolo solo per i corsi di laurea e il PLUS dei genitori; i laureati che cambiano programma e chiunque cambi università perdono l'eccezione; il cambio di concentrazione nello stesso codice CIP a 4 cifre la conserva). Quattro frasi della regola finale citate; avviso anche nelle FAQ e in `/parent-plus-loans/`.
+2. Calcolatore della rata: pagamento minimo di 50 $ al mese (34 CFR 685.208, letto dalla regola finale in `aiuti.json`, `rimborso.standard.minimo_mese`): sotto i 50 $ si usa 50 e si ricalcolano rate e interessi; saldo sotto 50 $ = un pagamento del dovuto. Nota in pagina con le due frasi; `verifica.py` ha il minimo nel conto di riferimento e due conti a mano.
+3. Tabella 2006-2013: etichette di chi prende il prestito copiate per intero (righe di continuazione).
+4. RAP: anche chi ha solo prestiti precedenti al 1/7/2026 può sceglierlo (sez. 455(d)(1)(F)), punto e FAQ.
+5. PLUS dei genitori: commissione trattenuta da ogni erogazione (34 CFR 685.202) e controllo del credito (685.200(c)), due fonti nuove.
+6. PLUS dei genitori: un prestito nuovo dal 1/7/2026 porta nel piano standard anche i PLUS vecchi.
+7. RAP: dichiarazione congiunta = reddito della coppia, con ripartizione sul debito (685.209(e) e (g)); la quota capitale richiede il pagamento puntuale e si perde nei mesi pagati in anticipo (685.209(o)).
+8. **Non fatto**: rilettura del modulo FAFSA il 19/11. Da questo server studentaid.gov continua a chiudere la connessione; la data di lettura resta il 18/11. Basta rilanciare `fonti.py` da una macchina che lo raggiunge.
+9. `/fafsa-deadlines/`: pulsante «Jump to your state» nella testata.

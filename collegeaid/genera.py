@@ -182,6 +182,8 @@ def piano(saldo, tasso, mesi):
     else:
         r = tasso / 1200000
         rata = js_round(saldo * r / (1 - (1 + r) ** (-mesi)))
+    if rata < STD["minimo_mese"] * 100:
+        raise SystemExit(f"esempio in pagina sotto il pagamento minimo di {STD['minimo_mese']} $: scegliere un saldo più alto")
     resto, pagato, interessi, n = saldo, 0, 0, 0
     while resto > 0:
         i = interesse_mese(resto, tasso)
@@ -383,11 +385,11 @@ with the source next to every figure. Independent site, not a government website
     dest.write_text(testo, encoding="utf-8")
 
 
-def banda(eyebrow, titolo, sub, corta=False, icona="chart"):
+def banda(eyebrow, titolo, sub, corta=False, icona="chart", extra=""):
     return f"""<section class="band{' corta' if corta else ''}"><div class="wrap band-in">{{bc}}
 <p class="eyebrow">{ico(icona)}{h(eyebrow)}</p>
 <h1>{h(titolo)}</h1>
-<p class="sub">{sub}</p>
+<p class="sub">{sub}</p>{extra}
 </div></section>"""
 
 
@@ -557,7 +559,8 @@ def indice_scadenze():
     ], rim)
     corpo += faq_html + rim.elenco()
     testata = banda(f"FAFSA {ANNO} · official form", f"FAFSA deadlines for {ANNO}, state by state",
-                    f"The federal deadline and the wording of the official FAFSA form for every state, with the dates pulled out. Read from the form on {giorno(FONTI['fafsa_2728']['letto_il'])}.", icona="calendar")
+                    f"The federal deadline and the wording of the official FAFSA form for every state, with the dates pulled out. Read from the form on {giorno(FONTI['fafsa_2728']['letto_il'])}.", icona="calendar",
+                    extra=f'<p class="azioni"><a class="btn salta" href="#states">Jump to your state{ico("arrow")}</a></p>')
     pagina(P_SCAD, f"FAFSA Deadline {ANNO} by State: Official Dates, All States",
            f"FAFSA deadlines for {ANNO}: federal deadline {giorno(FAFSA['chiusura_federale'])} and the state deadline for all 50 states, copied from the official form.",
            corpo, testata, briciole=[("Home", ""), ("FAFSA deadlines", P_SCAD)], jsonld=[faq_ld])
@@ -758,7 +761,11 @@ def pagina_limiti():
     corpo += ('<h2 id="exception">Students who were already enrolled keep the old limits for a while</h2><div class="testo">'
               + rim.t(f'<p>The new limits, and the end of Grad PLUS, do not apply to a student who on June 30, 2026 was enrolled in a program and had already received a federal Direct Loan for that program (or whose parent had). '
                       f'The exception lasts for the student’s “expected time to credential”: the time left to finish that program, and never more than {LIM["anni_eccezione"]} academic years. '
-                      'It ends early if the student withdraws or leaves the program. Changing major within the same degree or certificate counts as the same program.[[legge,fr_regola]]</p></div>'))
+                      'It ends early if the student withdraws or leaves the program.[[legge,fr_regola]]</p>'
+                      '<p><strong>What counts as the same program.</strong> For undergraduates (and their parents’ PLUS loans), changing major within the same degree or certificate at the same school counts as the same program. '
+                      'A graduate or professional student who switches to a different program, or any student who transfers to another school, loses the exception. '
+                      'A graduate student who only changes concentration within the same academic field, at the same level and school, keeps it.[[fr_regola]]</p></div>')
+              + rim.cit("fr_regola", "major") + rim.cit("fr_regola", "laureati_programma") + rim.cit("fr_regola", "concentrazione") + rim.cit("fr_regola", "trasferimento"))
     corpo += ('<h2 id="other-rules">Two more rules that can lower your limit</h2><div class="testo">'
               + rim.t('<p><strong>Part-time enrollment.</strong> From July 1, 2026 the annual limit is reduced for students enrolled less than full time, in proportion.[[legge]]</p>') + '</div>' + rim.cit("legge", "tempo_parziale")
               + '<div class="testo">' + rim.t('<p><strong>Limits set by the school.</strong> A college may set a lower loan limit for a whole program of study, as long as it applies the same limit to every student in that program.[[legge]] '
@@ -775,7 +782,7 @@ def pagina_limiti():
          f"It is the most a borrower may owe or borrow in total, on top of the yearly limit. For undergraduates it is {usd(dip['totale'])} (dependent) or {usd(ind['totale'])} (independent), of which at most {usd(dip['totale_sussidiato'])} subsidized. "
          f"From July 1, 2026 there is also a lifetime limit of {usd(LIM['vita'])} for all federal student loans.", "manuale,fr_regola"),
         ("grad plus loan", "Can graduate students still get a Grad PLUS loan?",
-         f"Not for periods of instruction beginning on or after July 1, 2026, unless the student was enrolled in the program on June 30, 2026 and had already received a Direct Loan for it. Those students keep access for the time left in the program, up to {LIM['anni_eccezione']} academic years.", "legge"),
+         f"Not for periods of instruction beginning on or after July 1, 2026, unless the student was enrolled in the program on June 30, 2026 and had already received a Direct Loan for it. Those students keep access for the time left in the program, up to {LIM['anni_eccezione']} academic years. The exception is lost if the student switches to a different program or transfers to another school.", "legge,fr_regola"),
         ("big beautiful bill student loans", "What did the “Big Beautiful Bill” change for student loans?",
          f"Public Law 119-21, which the Department of Education first called the One Big Beautiful Bill Act and now calls the Working Families Tax Cuts Act, capped graduate loans at {usd(LIM['laureato']['anno'])} a year, professional loans at {usd(LIM['professionale']['anno'])} a year and Parent PLUS at {usd(gen['anno'])} a year, "
          f"ended new Grad PLUS loans, and replaced the repayment plans for new loans with a standard plan and the Repayment Assistance Plan, all from July 1, 2026.", "fr_regola,legge"),
@@ -818,7 +825,7 @@ def fasce_testo(f, i):
 def pagina_rata():
     rim = Rimandi()
     saldo0 = sum(LIM["dipendente"]["anni"][min(i, 2)]["totale"] for i in range(4))
-    calc = (f'<div class="card calc pull" data-calc="rata" data-regole="{attr_json({"fasce": STD["fasce"]})}"><form class="calc-in" novalidate>'
+    calc = (f'<div class="card calc pull" data-calc="rata" data-regole="{attr_json({"fasce": STD["fasce"], "minimo_mese": STD["minimo_mese"]})}"><form class="calc-in" novalidate>'
             '<h2>Your loan</h2>'
             f'<label>Loan balance when repayment starts<span class="conprefisso"><span>$</span><input type="text" inputmode="decimal" name="saldo" value="{saldo0:,}" autocomplete="off"></span></label>'
             f'<label>Loan type<select name="tipo">{opzioni_tasso()}</select></label>'
@@ -829,14 +836,18 @@ def pagina_rata():
             '</form><div class="calc-out" aria-live="polite"><p class="errore" data-errore hidden></p><div data-uscita>'
             '<p class="ris-lab">Estimated monthly payment</p><p class="ris-big" data-o="rata">–</p>'
             '<ul class="ris-righe"><li><span>Repayment period</span><b data-o="anni">–</b></li><li><span>Total paid</span><b data-o="pagato">–</b></li><li><span>Of which interest</span><b data-o="interessi">–</b></li></ul>'
-            '<p class="ris-nota" data-o="perche"></p></div>'
+            '<p class="ris-nota" data-o="perche"></p><p class="ris-nota" data-o="minimo"></p></div>'
             '<p class="ris-nota">An estimate from the standard loan payment formula. Your servicer’s figure can differ by a few dollars. Needs JavaScript.</p></div></div>')
     corpo = calc
     corpo += ('<h2 id="how">How the calculator works</h2><div class="testo">'
               '<p>The standard plan is a fixed payment every month until the loan is paid off. The payment is the one that brings the balance to zero in the number of months of the plan:</p></div>'
               '<p class="formula">payment = balance × r ÷ (1 − (1 + r)<sup>−n</sup>)\nr = yearly interest rate ÷ 12, n = number of monthly payments</p>'
               '<div class="testo"><p>The formula is ordinary loan arithmetic, not an official table: interest is counted month by month and each figure is rounded to the cent. Loan servicers count interest by the day, so their numbers differ slightly. '
-              'The calculator does not include loan fees, interest that builds up while you are in school, or any period in which you pay less or nothing.</p></div>')
+              'The calculator does not include loan fees, interest that builds up while you are in school, or any period in which you pay less or nothing.</p>'
+              + rim.t(f'<p><strong>Minimum payment.</strong> Under the regulations a standard plan payment is at least ${STD["minimo_mese"]} a month, in the 10-year plan and in the new plan alike. '
+                      f'If the formula gives less than ${STD["minimo_mese"]}, the calculator uses ${STD["minimo_mese"]} and shows the smaller number of payments and the lower total interest that result; '
+                      f'if you owe less than ${STD["minimo_mese"]}, the payment is what you owe.[[fr_regola]]</p></div>')
+              + rim.cit("fr_regola", "minimo_std") + rim.cit("fr_regola", "minimo_10"))
     righe = "".join(f'<tr><th scope="row">{fasce_testo(f, i)}</th><td class="n forte">{f["anni"]} years</td><td class="n">{f["anni"] * 12}</td></tr>' for i, f in enumerate(STD["fasce"]))
     corpo += ('<h2 id="standard">The standard plan: 10 years, or 10 to 25</h2><div class="testo">'
               + rim.t(f'<p>Which standard plan you get depends on when your loans were made. If all of them were made before July 1, 2026, the repayment plans that existed before that date still apply, including the standard plan with a fixed payment over 10 years. '
@@ -871,7 +882,7 @@ def pagina_rata():
         ("student loan interest calculator", "How much interest will I pay on a student loan?",
          f"It depends on the balance, the rate and above all the time. On {usd(saldo0)} at {T_UG}%, the 10-year plan costs {usdc(piano(saldo0 * 100, mill(T_UG), 120)['interessi'])} of interest and the {anni_standard(saldo0 * 100)}-year plan {usdc(piano(saldo0 * 100, mill(T_UG), anni_standard(saldo0 * 100) * 12)['interessi'])} (our calculation).", "fr_tassi,legge"),
         ("standard repayment plan", "What is the standard repayment plan?",
-         f"A plan with a fixed monthly payment over a fixed period. For borrowers with a loan made on or after July 1, 2026 the period is {STD['fasce'][0]['anni']} years below {usd(STD['fasce'][0]['sotto'])} of principal, {STD['fasce'][1]['anni']} years below {usd(STD['fasce'][1]['sotto'])}, {STD['fasce'][2]['anni']} years below {usd(STD['fasce'][2]['sotto'])} and {STD['fasce'][3]['anni']} years from {usd(STD['fasce'][2]['sotto'])}. It is the plan you get if you do not choose one.", "legge"),
+         f"A plan with a fixed monthly payment over a fixed period. For borrowers with a loan made on or after July 1, 2026 the period is {STD['fasce'][0]['anni']} years below {usd(STD['fasce'][0]['sotto'])} of principal, {STD['fasce'][1]['anni']} years below {usd(STD['fasce'][1]['sotto'])}, {STD['fasce'][2]['anni']} years below {usd(STD['fasce'][2]['sotto'])} and {STD['fasce'][3]['anni']} years from {usd(STD['fasce'][2]['sotto'])}. Payments are at least ${STD['minimo_mese']} a month. It is the plan you get if you do not choose one.", "legge,fr_regola"),
         ("student loan monthly payment calculator", "Does the monthly payment include fees or interest from my school years?",
          "No. The calculator starts from the balance you type. If interest built up while you were in school and was added to the loan, type the balance including it; the figure is on your servicer’s statement.", "legge"),
         ("federal student loan calculator", "Is this an official federal calculator?",
@@ -939,14 +950,19 @@ def pagina_rap():
                       f'<ul><li><strong>Unpaid interest is not charged.</strong> If the payment does not cover the month’s interest, the rest of that interest is not added to what you owe.</li>'
                       f'<li><strong>Principal goes down by up to ${RAP["quota_capitale_mese"]} anyway.</strong> If the payment reduces principal by less than ${RAP["quota_capitale_mese"]}, the government reduces it by the difference, up to the smaller of ${RAP["quota_capitale_mese"]} and the amount you paid.</li>'
                       f'<li><strong>Cancellation after {RAP["rate_cancellazione"]} qualifying payments.</strong> That is {RAP["rate_cancellazione"] // 12} years of monthly payments. Certain payments under other plans count too.</li></ul></div>')
-              + rim.cit("legge", "rap_interessi") + rim.cit("legge", "rap_360"))
+              + rim.cit("legge", "rap_interessi") + rim.cit("legge", "rap_360")
+              + '<div class="testo">' + rim.t('<p><strong>Both protections need an on-time payment.</strong> The regulations count a payment as on time if it arrives on or before the due date for the current month and after the due date for the previous month. '
+                                              'If you pay ahead, so that a payment is credited to a future month and nothing is due that month, you do not receive the matching principal payment for it.[[fr_regola]]</p>') + '</div>'
+              + rim.cit("fr_regola", "anticipo_quota"))
     corpo += ('<h2 id="who">Who can use it</h2><div class="testo">'
               + rim.t('<ul><li>Borrowers with a federal Direct Loan made on or after July 1, 2026 choose between two plans only: the standard plan and RAP. All of the borrower’s loans go into the same plan.[[legge]]</li>'
+                      '<li>Borrowers whose loans were all made before July 1, 2026 can also choose RAP from that date: the law adds it to the plans available for older loans.[[legge]]</li>'
                       '<li>You can switch from the standard plan to RAP, or back, at any time.[[legge]]</li>'
                       '<li>Parent PLUS loans, and consolidation loans that repaid them, cannot be repaid under RAP.[[legge]]</li>'
                       '<li>Borrowers with older loans in an income-contingent plan have to pick another plan before July 1, 2028; RAP is one of the options the law lists.[[legge]]</li>'
-                      '<li>Married borrowers who file a separate federal tax return are assessed on their own income only.[[legge]]</li></ul></div>')
-              + rim.cit("legge", "rap_reddito") + rim.cit("legge", "rap_esclusi"))
+                      '<li>Married borrowers who file a separate federal tax return are assessed on their own income only.[[legge]]</li>'
+                      '<li>Married borrowers who file a joint return are assessed on the couple’s combined income. If the spouse also has eligible loans, each borrower’s payment is then reduced to their own share of the couple’s combined loan balance. The calculator on this page does not do that split.[[fr_regola]]</li></ul></div>')
+              + rim.cit("legge", "rap_reddito") + rim.cit("fr_regola", "coniugi") + rim.cit("legge", "rap_vecchi") + rim.cit("legge", "rap_esclusi"))
     corpo += (f'<h2 id="compare">Compare with the standard plan</h2><div class="testo"><p>The standard plan is a fixed payment based on the balance; RAP is based on income. Which is lower depends on both.</p>'
               f'<p class="azioni"><a class="btn" href="/{P_RATA}">Standard plan payment calculator{ico("arrow")}</a></p></div>')
     faq_html, faq_ld = faq_blocco([
@@ -960,6 +976,8 @@ def pagina_rap():
          f"No, as long as you pay on time. Interest that the monthly payment does not cover is not charged to you, and if your payment reduces principal by less than ${RAP['quota_capitale_mese']} the government makes up the difference, up to the amount you paid.", "legge"),
         ("what is the repayment assistance plan", "Who has to use RAP or the standard plan?",
          "Anyone who receives a federal Direct Loan on or after July 1, 2026: those are the only two plans for such borrowers, and the choice covers all their loans. Parent PLUS loans made from that date must be repaid under the standard plan.", "legge"),
+        ("rap student loan", "Can I use RAP if all my loans are from before July 2026?",
+         f"Yes. From {giorno(RAP['dal'])} the law adds the Repayment Assistance Plan to the repayment plans available to borrowers whose loans were all made before that date, except for Parent PLUS loans and consolidation loans that repaid them.", "legge"),
         ("rap repayment plan", "Can I leave RAP later?",
          "Yes. The law lets a borrower change from RAP to the standard plan, or from the standard plan to RAP, at any time.", "legge"),
     ], rim)
@@ -987,7 +1005,8 @@ def pagina_plus():
               + rim.t(f'<div class="testo"><ul><li>Two parents borrowing for the same child share the same {usd(gen["anno"])} and {usd(gen["totale"])}; a family with two children in college has the limits twice.</li>'
                       f'<li>The {usd(gen["totale"])} is counted “without regard to any amounts repaid”: repaying part of the loan does not make room for new borrowing.</li>'
                       '<li>The loan still cannot exceed the cost of attendance minus the student’s other financial assistance.[[fr_regola]]</li>'
-                      f'<li>If the student was enrolled on June 30, 2026 and a Direct Loan had already been made to the parent or the student for that program, the old rule (up to the cost of attendance) continues for the time left in the program, up to {LIM["anni_eccezione"]} academic years.[[fr_regola,legge]]</li></ul></div>'))
+                      f'<li>If the student was enrolled on June 30, 2026 and a Direct Loan had already been made to the parent or the student for that program, the old rule (up to the cost of attendance) continues for the time left in the program, up to {LIM["anni_eccezione"]} academic years. Changing major within the same degree at the same school keeps the exception; transferring to another school ends it, because the Department treats that as a new program.[[fr_regola,legge]]</li></ul></div>')
+              + rim.cit("fr_regola", "trasferimento"))
     calc = (f'<div class="card calc" id="gap" data-calc="buco" data-regole="{attr_json({"limiti": {"dipendente": dip, "genitori": gen}})}"><form class="calc-in" novalidate>'
             '<h2>How much do the federal limits cover?</h2>'
             '<label>Cost left to pay per year, after grants and scholarships<span class="conprefisso"><span>$</span><input type="text" inputmode="decimal" name="costo" value="32,000" autocomplete="off"></span>'
@@ -1004,6 +1023,9 @@ def pagina_plus():
               + rim.t(f'<p>With the new caps, federal loans can cover at most {usd(quattro)} (student, four years at the dependent limits) plus {usd(gen["totale"])} (parents): {usd(quattro + gen["totale"])} for a four-year degree (our addition).[[manuale,fr_regola]] '
                       f'If the cost left after grants and scholarships is higher, the difference has to come from savings, income, work, more scholarships, a cheaper college or private loans. '
                       f'For example, at {usd(32000)} a year for four years the limits leave {usd(sum(r["resto"] for r in es) // 100)} uncovered.</p></div>') + calc)
+    corpo += ('<div class="testo">' + rim.t('<p><strong>Two things the calculator leaves out.</strong> A loan fee is deducted from each disbursement, so the college receives less than the amount borrowed: the regulations set the fee on a Direct PLUS loan at four percent of the principal. '
+                                             'Ask the financial aid office for the exact fee and the net amount of your loan.[[cfr_202]] And a Parent PLUS loan depends on a credit check: the parent must not have an adverse credit history, or must obtain an endorser or document extenuating circumstances.[[cfr_200]]</p>') + '</div>'
+              + rim.cit("cfr_202", "rate") + rim.cit("cfr_200", "credito"))
     corpo += nota('<p><strong>This is arithmetic, not a recommendation to borrow the maximum.</strong> The limits say how much the federal government will lend, not how much a family can afford to repay. '
                   'The financial aid office of the college can tell you the exact amounts you are eligible for.</p>')
     corpo += (f'<h2 id="rate">Interest rate: {T_PLUS}% for {ANNO_TASSI}</h2><div class="testo">'
@@ -1016,7 +1038,8 @@ def pagina_plus():
         righe.append(f'<tr data-esempio-plus="{c}"><th scope="row">{usd(saldo)}</th><td class="n">{anni_standard(c)} years</td><td class="n forte">{usdc(p["rata"])}</td><td class="n">{usdc(p["interessi"])}</td></tr>')
     corpo += ('<h2 id="repay">Repaying a Parent PLUS loan</h2><div class="testo">'
               + rim.t(f'<p>Parent PLUS loans made on or after July 1, 2026 must be repaid under the standard plan: a fixed monthly payment over {STD["fasce"][0]["anni"]} to {STD["fasce"][-1]["anni"]} years, depending on the principal owed. '
-                      f'They cannot go into the <a href="/{P_RAP}">Repayment Assistance Plan</a>. Paying faster is allowed without penalty.[[legge]]</p></div>')
+                      f'They cannot go into the <a href="/{P_RAP}">Repayment Assistance Plan</a>. Paying faster is allowed without penalty.[[legge]]</p>'
+                      '<p><strong>A new loan also moves the old ones.</strong> A parent who takes a new Parent PLUS loan on or after July 1, 2026 must repay their older Parent PLUS loans under the standard plan too: the law applies the rule to “each excepted loan”, including those made before that date.[[legge]]</p></div>')
               + rim.cit("legge", "genitori_standard") + rim.cit("legge", "eccettuato")
               + tabella(f'Standard plan on a Parent PLUS balance at {T_PLUS}%: our calculation, not official figures. Interest that builds up before repayment starts is not included.{rim.ref("fr_tassi,legge")}',
                         [("Balance", 0), ("Period", 1), ("Monthly payment", 1), ("Total interest", 1)], righe, "ampia")
@@ -1029,7 +1052,7 @@ def pagina_plus():
         ("parent plus loan limit", "Is the Parent PLUS limit per parent or per child?",
          f"Per child. The regulation counts the total of all Direct PLUS Loans that all parents borrow on behalf of each dependent student: {usd(gen['anno'])} a year and {usd(gen['totale'])} overall.", "fr_regola"),
         ("parent plus loan changes", "Do the new limits apply if my child was already in college?",
-         f"Not right away. If the student was enrolled on June 30, 2026 and a Direct Loan had already been made for that program to the parent or the student, the limits do not apply for the student’s expected time to finish, up to {LIM['anni_eccezione']} academic years.", "fr_regola,legge"),
+         f"Not right away. If the student was enrolled on June 30, 2026 and a Direct Loan had already been made for that program to the parent or the student, the limits do not apply for the student’s expected time to finish, up to {LIM['anni_eccezione']} academic years. If the student transfers to another school, the new limits apply.", "fr_regola,legge"),
         ("parent plus loan calculator", "What is the monthly payment on a Parent PLUS loan?",
          f"Under the standard plan at {T_PLUS}%, a balance of {usd(gen['anno'])} is about {usdc(piano(gen['anno'] * 100, mill(T_PLUS), anni_standard(gen['anno'] * 100) * 12)['rata'])} a month over {anni_standard(gen['anno'] * 100)} years, and {usd(gen['totale'])} about {usdc(piano(gen['totale'] * 100, mill(T_PLUS), anni_standard(gen['totale'] * 100) * 12)['rata'])} a month over {anni_standard(gen['totale'] * 100)} years (our calculation).", "fr_tassi,legge"),
         ("direct plus loan", "Can a Parent PLUS loan be repaid based on income?",
@@ -1106,7 +1129,8 @@ MODULO = """<form name="corrections" method="POST" data-netlify="true" netlify-h
 
 USO_FONTE = {"fafsa_2728": ("PDF form", "Federal and state FAFSA deadlines"), "fr_tassi": ("Federal Register notice (text)", "Interest rates for 2026–27 and every year since 2006"),
              "fr_regola": ("Federal Register final rule (text)", "Loan limits in the regulations from July 1, 2026"), "legge": ("Public law (text)", "Loan limits, standard plan periods, Repayment Assistance Plan formula"),
-             "manuale": ("Web page of the official handbook", "Undergraduate annual and aggregate loan limits")}
+             "manuale": ("Web page of the official handbook", "Undergraduate annual and aggregate loan limits"),
+             "cfr_200": ("Code of Federal Regulations (PDF)", "Credit requirement for Parent PLUS loans"), "cfr_202": ("Code of Federal Regulations (PDF)", "Loan fee deducted from each disbursement")}
 
 
 def come_controlliamo():
@@ -1137,7 +1161,7 @@ def come_controlliamo():
     corpo += ('<h2>What we do not do</h2><div class="testo"><ul>'
               '<li>We do not give financial advice, recommend lenders or tell anyone how much to borrow.</li>'
               '<li>We do not use figures from other websites, lenders or news articles.</li>'
-              '<li>We do not cover private student loans, loan forgiveness programs, loan fees, or the deadlines of individual colleges.</li>'
+              '<li>We do not cover private student loans, loan forgiveness programs, the exact loan fee of each year, or the deadlines of individual colleges.</li>'
               '<li>Some official web pages cannot be read by our checking program (they need a browser, or refuse automated visits). We do not try to get round that: we use the official PDF or legal text instead, and say which document we read.</li>'
               '<li>The 2026–27 volume of the official handbook on loan limits was not published when we read the sources, so the undergraduate table comes from the 2025–26 volume, together with the 2026 final rule stating that those limits did not change.</li></ul></div>')
     corpo += ('<h2>When we update</h2><div class="testo"><p>The FAFSA form is published once a year; states sometimes change a date afterwards, and the form is then reissued. Interest rates are announced once a year, after the May Treasury auction. '

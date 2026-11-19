@@ -144,6 +144,7 @@ table.dati tr.ora th,table.dati tr.ora td{background:var(--accent-2)}
 .schede .big{font-family:var(--serif);font-weight:700;font-size:1.9rem;line-height:1.1;color:var(--accent);font-variant-numeric:tabular-nums;margin:4px 0 2px}
 .schede .azioni{margin:auto 0 0;padding-top:4px}
 .formula{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.9rem;background:var(--mute);border:1px solid var(--line);border-radius:var(--r-s);padding:12px 14px;overflow-x:auto;max-width:800px;margin:0 0 14px;white-space:pre-wrap}
+.band .azioni{margin:4px 0 16px}.btn.salta{background:var(--brass);color:#1a1300}.btn.salta:hover{background:#f0b93a;color:#1a1300}
 .tre{grid-template-columns:repeat(3,minmax(0,1fr))}
 @media (max-width:860px){.calc{grid-template-columns:1fr}.calc-out{border-left:0;border-top:1px solid var(--line)}.tre{grid-template-columns:1fr 1fr}}
 @media (max-width:700px){table.dati.scad{min-width:0;display:block}table.scad thead{display:none}table.scad tbody,table.scad tr,table.scad th[scope=row],table.scad td{display:block;border-bottom:0}table.scad tr{border-bottom:1px solid var(--line);padding:6px 0}table.scad tr:last-child{border-bottom:0}table.scad th[scope=row]{font-size:1.02rem;padding-bottom:2px}table.scad td.uff{min-width:0;padding-top:2px;padding-bottom:4px}table.scad td.d{white-space:normal;padding-top:0}table.scad td.d br{display:none}table.scad td.d .conto{display:inline;margin:0 10px 0 6px}}

@@ -74,6 +74,14 @@ FONTI = [
          "genitori_anno": "For periods of enrollment beginning on or after July 1, 2026, the total amount of all Direct PLUS Loans that all parents may borrow on behalf of each dependent student for any academic year of study may not exceed $20,000.",
          "genitori_totale": "For periods of enrollment beginning on or after July 1, 2026, the total amount of all Direct PLUS Loans that all parents may borrow on behalf of each dependent student may not exceed $65,000, without regard to any amounts repaid, forgiven, canceled, or otherwise discharged on any such loan.",
          "vita": "Effective July 1, 2026, the lifetime maximum aggregate amount of loans made, insured, or guaranteed under the Act that a student may borrow, shall be $257,500, excluding Federal Direct PLUS or Federal PLUS loans made to that student as a parent on behalf of another dependent undergraduate student.",
+         "minimo_std": "A borrower's payments under this repayment plan are at least $50 per month, except that when a borrower's balance is less than $50, the minimum payment will be equal to the outstanding amount due.",
+         "minimo_10": "A borrower's payments under this repayment plan are at least $50 per month, except that a borrower's final payment may be less than $50.",
+         "trasferimento": "If a student transfers to a different institution, even in the same program of study, the Department would consider that to be a new program of study.",
+         "laureati_programma": "Conversely, graduate students who change their program of study will be ineligible for the interim exception.",
+         "concentrazione": "students who change concentrations within an academic field, as long as they remain in the same 4-digit CIP code at that credential level and institution, remain eligible for the interim exception.",
+         "major": "a student who changes majors within the same degree or certificate shall be considered to be enrolled in the same program of study.",
+         "coniugi": "For a married borrower filing a joint Federal income tax return, except as provided in paragraph (e)(1)(i)(A) of this section, the combined income of the borrower and spouse is used in the calculation.",
+         "anticipo_quota": "If a borrower's payment is credited to a future monthly payment, and the payment equals or exceeds the monthly repayment amount made under (f)(5)(i) of this section, the Secretary does not provide the borrower a matching principal payment in accordance with paragraph (o)(2)(i) of this section.",
          "prima": "For a graduate or professional student for periods of enrollment beginning before July 1, 2026, $138,500, including any loans for undergraduate study",
      }),
     ("legge", "plaw_119_21.htm", "https://www.govinfo.gov/content/pkg/PLAW-119publ21/html/PLAW-119publ21.htm",
@@ -97,6 +105,7 @@ FONTI = [
          "rap_reddito": "in the case of a married borrower who files a separate Federal income tax return, the term does not include the adjusted gross income of the borrower's spouse.",
          "rap_cambio": "A borrower may change the borrower's selection of--",
          "rap_esclusi": "such Plan shall not be available for the repayment of excepted loans (as defined in paragraph (7)(E)); and",
+         "rap_vecchi": "beginning on July 1, 2026, the income-based Repayment Assistance Plan under subsection (q), provided that--",
          "vecchi_piani": "Paragraphs (1) through (4) of this subsection shall only apply to loans made under this part before July 1, 2026.",
      }),
     ("manuale", "fsa_handbook_2025_26_vol8_ch4.html", "https://fsapartners.ed.gov/knowledge-center/fsa-handbook/2025-2026/vol8/ch4-annual-and-aggregate-loan-limits",
@@ -105,6 +114,17 @@ FONTI = [
          "esempio": "For example, a dependent first-year undergraduate may receive up to $5,500 in Direct Subsidized Loans and/or Direct Unsubsidized Loans for a single academic year, but no more than $3,500 of this amount may be subsidized.",
          "aggregato": "For example, a dependent undergraduate may have up to a maximum of $31,000 in combined subsidized and unsubsidized outstanding loan debt, but no more than $23,000 of this amount may consist of subsidized loans.",
          "interessi": "Capitalized interest (unpaid accrued interest that has been added to the principal balance of a loan) is not counted toward a borrower’s aggregate loan limits",
+     }),
+    ("cfr_200", "cfr_2025_685_200.pdf", "https://www.govinfo.gov/content/pkg/CFR-2025-title34-vol4/pdf/CFR-2025-title34-vol4-sec685-200.pdf",
+     "34 CFR 685.200, Borrower eligibility (Code of Federal Regulations, July 1, 2025 edition)", "U.S. Department of Education (U.S. Government Publishing Office)", {
+         "credito": "Does not have an adverse credit history;",
+         "garante": "Has an adverse credit history, but has obtained an endorser who does not have an adverse credit history, and completes PLUS loan counseling offered by the Secretary; or",
+     }),
+    ("cfr_202", "cfr_2025_685_202.pdf", "https://www.govinfo.gov/content/pkg/CFR-2025-title34-vol4/pdf/CFR-2025-title34-vol4-sec685-202.pdf",
+     "34 CFR 685.202, Charges for which Direct Loan borrowers are responsible (Code of Federal Regulations, July 1, 2025 edition)", "U.S. Department of Education (U.S. Government Publishing Office)", {
+         "commissione": "Deducts the loan fee from the proceeds of the loan;",
+         "rate": "In the case of a loan disbursed in multiple installments, deducts a pro rated portion of the fee from each disbursement; and",
+         "plus": "Charges a borrower a loan fee of four percent of the principal amount of the loan on a Direct PLUS loan.",
      }),
 ]
 
@@ -268,7 +288,13 @@ def tassi(grezzo, fid="fr_tassi"):
         raise SystemExit(f"{fid}: tabella 1 e tabella 2 non coincidono")
     vecchi = []
     for m in re.finditer(r"^(Subsidized|Unsubsidized|PLUS)\.+\s+(.+?)\s+(\d\d/\d\d/\d{4})\s+(?:\\\d\\ )?(\d\d/\d\d/\d{4})\s+(\d\.\d\d)\s*$", t, re.M):
-        vecchi.append({"tipo": m[1], "chi": re.sub(r"\.+$", "", m[2]).strip(), "dal": data_usa(m[3]), "al": data_usa(m[4]), "tasso": m[5]})
+        chi = m[2].strip()
+        # l'etichetta di chi prende il prestito può continuare nelle righe sotto (rientrate, senza cifre): si copia per intero
+        for riga in t[m.end():].split("\n")[1:6]:
+            if not re.match(r"^\s{20,}[A-Za-z]", riga) or re.search(r"\d", riga):
+                break
+            chi += " " + riga.strip()
+        vecchi.append({"tipo": m[1], "chi": re.sub(r"\.+$", "", chi).strip(), "dal": data_usa(m[3]), "al": data_usa(m[4]), "tasso": m[5]})
     if len(vecchi) != 8:
         raise SystemExit(f"{fid}: tabella 3 letta male ({len(vecchi)} righe)")
     return {"dal": data_usa(per[1]), "al": data_usa(per[2]), "asta_data": date(int(asta[3]), 5, int(asta[2])).isoformat(), "asta": asta[4], "asta_arrotondata": asta[5],
@@ -355,9 +381,14 @@ def rimborso(testi):
     v = [soldi(st[i]) for i in (1, 3, 4, 6, 7, 9)]
     if not (v[0] == v[1] and v[2] == v[3] and v[4] == v[5]):
         raise SystemExit("legge: fasce del piano standard non consecutive")
+    rg = testi["fr_regola"]
+    m10 = cerca(r"within ten years from the date the loan entered repayment by making fixed monthly payments\. \(ii\) A borrower's payments under this repayment plan are at least \$(\d+) per month, except that a borrower's final payment may be less than \$(\d+)\.", rg, "fr_regola")
+    mts = re.findall(r"Tiered Standard repayment plan for Direct Loan borrowers who received a Direct Loan.{0,400}?\(ii\) A borrower's payments under this repayment plan are at least \$(\d+) per month, except that when a borrower's balance is less than \$(\d+), the minimum payment will be equal to the outstanding amount due\.", rg)
+    if len(mts) != 2 or len({m10[1], m10[2]} | {x for c in mts for x in c}) != 1:
+        raise SystemExit(f"fr_regola: pagamento minimo del piano standard letto male ({m10.groups()}, {mts})")
     fasce = [{"sotto": v[0], "anni": int(st[2])}, {"sotto": v[2], "anni": int(st[5])}, {"sotto": v[4], "anni": int(st[8])}, {"sotto": None, "anni": int(st[10])}]
     return {"rap": {"scaglioni": scaglioni, "per_dipendente_mese": dip, "minimo_mese": int(minimo[2]), "rate_cancellazione": rate, "quota_capitale_mese": int(quota[2]), "dal": "2026-07-01"},
-            "standard": {"fasce": fasce, "dal": "2026-07-01"}}
+            "standard": {"fasce": fasce, "minimo_mese": int(m10[1]), "dal": "2026-07-01"}}
 
 
 def pulisci_segreti(percorso):
