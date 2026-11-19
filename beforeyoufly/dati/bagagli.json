@@ -1,5 +1,5 @@
 {
- "_nota": "Bagaglio a mano per compagnia: misure lette sulle pagine ufficiali (righe = testo copiato parola per parola, nell'ordine della pagina). incluso: 'tutte' = con ogni tariffa, 'alcune' = solo con alcune tariffe, classi o rotte o a pagamento. cm/pollici nell'ordine della fonte; cm_ufficiali/pollici_ufficiali = la fonte li scrive (altrimenti conversione nostra, 1 in = 2,54 cm). Ricontrollo: raccolta/bagagli.py. escluse: compagnie provate e NON verificate (pagina ufficiale non leggibile da qui: nessun dato pubblicato, nessuna pagina); stato, provato_il e url_provati dicono cosa è stato tentato.",
+ "_nota": "Bagaglio a mano per compagnia: misure lette sulle pagine ufficiali (righe = testo copiato parola per parola, nell'ordine della pagina). incluso: 'tutte' = con ogni tariffa, 'alcune' = solo con alcune tariffe, classi o rotte o a pagamento. cm/pollici nell'ordine della fonte; cm_ufficiali/pollici_ufficiali = la fonte li scrive (altrimenti conversione nostra, 1 in = 2,54 cm). Ricontrollo: raccolta/bagagli.py. escluse: compagnie provate e NON verificate (pagina ufficiale non leggibile da qui: nessun dato pubblicato, nessuna pagina); stato, provato_il e url_provati dicono cosa è stato tentato. Campi facoltativi (19/11/2026): h1 e descrizione scritti a mano ({anno} = anno corrente), chi_personale = soggetto della frase «… no size for it».",
  "controllato_il": "2026-10-18",
  "compagnie": [
   {
@@ -3156,7 +3156,7 @@
    "tariffe": [
     {
      "nome": "Every passenger",
-     "sotto": "Personal item (no size published)",
+     "sotto": "Personal item (no size on the page we could read)",
      "sopra": "1 included",
      "cit": [
       {
@@ -3174,7 +3174,9 @@
    "nota": "Alaska Airlines' own carry-on page showed only its menu, without the text, when we read it on 19 November 2026. The size is quoted from the Travel Tips page on alaskaair.com, which gives no size for the personal item and no fare details: check your booking.",
    "misura": null,
    "personale_senza_misura": true,
-   "nota_strumento": null
+   "nota_strumento": null,
+   "h1": "Alaska Airlines carry-on size {anno}: 22 x 14 x 9 in plus a personal item",
+   "chi_personale": "the Alaska page we could read gives"
   },
   {
    "slug": "avelo",
@@ -3490,7 +3492,7 @@
      "cm_ufficiali": true,
      "pollici": null,
      "pollici_ufficiali": false,
-     "peso": "8 kg (Economy)",
+     "peso": "8 kg (Economy), 10 kg (Premium)",
      "incluso": "alcune",
      "cit": [
       {
@@ -3542,14 +3544,40 @@
      ]
     },
     {
-     "nome": "Economy Light (zones 1-2 and 6), Economy Classic, Choice, Flex and Premium",
+     "nome": "Economy Light (zones 1-2 and 6), Economy Classic, Choice, Flex",
      "sotto": "Included",
-     "sopra": "1 included",
+     "sopra": "1 included (8 kg)",
      "cit": [
       {
        "f": "a",
        "righe": [
         "1 piece included (8 kg)"
+       ]
+      }
+     ]
+    },
+    {
+     "nome": "Premium Classic, Choice, Flex (long-haul, zones 3-5 and 7)",
+     "sotto": "Included",
+     "sopra": "1 included (10 kg)",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Economy Zero",
+        "Economy Classic | Economy Choice | Economy Flex",
+        "Premium Classic | Premium Choice | Premium Flex",
+        "Business Classic | Business Choice | Business Flex"
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "Max. total weight",
+        "8 kg",
+        "8 kg",
+        "10 kg",
+        "16 kg (a single piece of carry-on bagagge must not weigh more than 10 kg)"
        ]
       }
      ]
@@ -3834,7 +3862,14 @@
      ]
     }
    ],
-   "extra": [],
+   "extra": [
+    {
+     "f": "a",
+     "righe": [
+      "If your item exceeds the total dimension of 90 cm/ 35 in (the length, width and height combined), it will be counted as part of your standard cabin baggage allowance. You will then be required to check in either your cabin bag or the additional item."
+     ]
+    }
+   ],
    "ambito": null,
    "nota": null,
    "misura": null,
@@ -3892,7 +3927,7 @@
    "tariffe": [
     {
      "nome": "Every passenger",
-     "sotto": "No separate size published",
+     "sotto": "Not mentioned on IndiGo's cabin baggage page",
      "sopra": "1 included (7 kg)",
      "cit": [
       {
@@ -3930,7 +3965,8 @@
    "nota": "IndiGo's page also writes the size as “22x16x9 in”, which does not match its own centimetres (35 cm is about 13.8 in, 25 cm about 9.8 in). Our bag checker uses the centimetre figures and the 115 cm total.",
    "misura": null,
    "personale_senza_misura": null,
-   "nota_strumento": "IndiGo's inch figures (22x16x9 in) do not match its centimetres: we use 55 x 35 x 25 cm and the 115 cm total."
+   "nota_strumento": "IndiGo's inch figures (22x16x9 in) do not match its centimetres: we use 55 x 35 x 25 cm and the 115 cm total.",
+   "h1": "IndiGo cabin bag size {anno}: one 55 x 35 x 25 cm bag, 7 kg"
   },
   {
    "slug": "air-transat",
@@ -4032,6 +4068,19 @@
        ]
       }
      ]
+    },
+    {
+     "nome": "Other fares (Eco Flex, Club Class)",
+     "sotto": "See Air Transat's baggage checker",
+     "sopra": "See Air Transat's baggage checker",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "If you would like to see the carry-on and checked baggage allowance for your flight and fare family, use our interactive baggage allowance checker."
+       ]
+      }
+     ]
     }
    ],
    "avvisi": [
@@ -4042,14 +4091,7 @@
      ]
     }
    ],
-   "extra": [
-    {
-     "f": "a",
-     "righe": [
-      "If you would like to see the carry-on and checked baggage allowance for your flight and fare family, use our interactive baggage allowance checker."
-     ]
-    }
-   ],
+   "extra": [],
    "ambito": null,
    "nota": null,
    "misura": null,
@@ -4321,7 +4363,9 @@
    "nota": null,
    "misura": "Jetstar changes its rules for Jetstar Airways (JQ) flights departing from 2 February 2027: every booking will include one underseat bag (up to 40 x 30 x 20 cm) and the overhead bag (up to 56 x 36 x 23 cm) will need Priority Carry-on or a bundle that includes it. The table below shows the rules for flights before that date; the new rules are quoted under “Other official details”.",
    "personale_senza_misura": null,
-   "nota_strumento": "Rules for Jetstar Airways (JQ) flights before 2 February 2027. From that date only a 40 x 30 x 20 cm underseat bag is included; the 56 x 36 x 23 cm overhead bag needs Priority Carry-on."
+   "nota_strumento": "Rules for Jetstar Airways (JQ) flights before 2 February 2027. From that date only a 40 x 30 x 20 cm underseat bag is included; the 56 x 36 x 23 cm overhead bag needs Priority Carry-on.",
+   "h1": "Jetstar cabin bag size {anno}: 56 x 36 x 23 cm main item, 7 kg with the small item",
+   "descrizione": "Jetstar {anno}: cabin bag 56x36x23 cm, 7 kg, for flights before 2 Feb 2027; new rules from that date."
   },
   {
    "slug": "virgin-australia",
@@ -4646,7 +4690,7 @@
   },
   {
    "nome": "SAS",
-   "motivo": "flysas.com blocks automated readers (“Access Restricted”), also in a browser"
+   "motivo": "flysas.com blocks automated readers (“Access Restricted”), also in a browser (last tried 18 October 2026)"
   }
  ],
  "ue": {

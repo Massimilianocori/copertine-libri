@@ -2794,6 +2794,20 @@ def n2(x):
     return f"{round(x, 2):g}"
 
 
+def periodo_bag():
+    """Quando sono state lette le pagine delle compagnie: dal controllato_il di ogni compagnia (non la data generale del file),
+    "between 18 October and 19 November 2026" oppure "on 19 November 2026" se la data è una sola."""
+    dd = sorted({C["controllato_il"] for C in COMPAGNIE})
+    if not dd:
+        return "on " + data_lunga(BAG["controllato_il"])
+    if dd[0] == dd[-1]:
+        return "on " + data_lunga(dd[0])
+    a, b = data_lunga(dd[0]), data_lunga(dd[-1])
+    if dd[0][:4] == dd[-1][:4] and a.endswith(" " + dd[0][:4]):
+        a = a[:-5]
+    return f"between {a} and {b}"
+
+
 def dims(a, u, dec=2):
     return " x ".join(f"{round(x, dec):g}" for x in a) + f" {u}"
 
@@ -2875,6 +2889,8 @@ def titoli_bag(C):
 
 
 def h1_bag(C):
+    if C.get("h1"):  # scritto a mano per le compagnie dove "by fare" non ha senso (una sola borsa per tutti)
+        return C["h1"].replace("{anno}", str(ANNO))
     if C["slug"] in PRIMA_PERSONAL_ITEM:
         return f"{C['nome']} personal item size {ANNO}: free personal item and carry-on by fare"
     return (f"{C['nome']} {'carry-on size' if nordamerica(C) else 'cabin bag size'} {ANNO}: "
@@ -2889,6 +2905,8 @@ def descrizioni_bag(C):
     if alt:
         pezzi.append(f"{'carry-on' if nordamerica(C) else 'cabin bag'} {misura_breve(alt, C)}" + (" (every fare)" if alt["incluso"] == "tutte" else " (some fares or paid)"))
     d = f"{C['nome']} {ANNO}: " + ", ".join(pezzi)
+    if C.get("descrizione"):  # scritta a mano (es. Jetstar: regola che cambia a una data)
+        return [C["descrizione"].replace("{anno}", str(ANNO)), f"{d}."]
     return [f"{d}. Quoted from {poss(C['nome'])} official page with the date checked, plus a bag size checker.",
             f"{d}. Quoted from the official page, with the date checked.", f"{d}.", f"{C['nome']} cabin bag size {ANNO}: the official sizes, quoted word for word."]
 
@@ -3106,12 +3124,12 @@ def pagina_compagnia(C):
 <div class="s-body">
 <p class="cifra">What can I take on board for free? <strong>{escape(risposta_bag(C))}{" · " + escape((s or o)["peso"]) if (s or o).get("peso") else ""}</strong></p>
 {"".join(f'<p class="lead">{escape(x)}.</p>' for x in seconda)}
-{f'<p class="lead">Personal item: allowed with every fare, but {escape(C["nome"])} publishes no size for it (see the official wording below).</p>' if C.get("personale_senza_misura") else ""}
+{f'<p class="lead">Personal item: allowed with every fare, but {escape(C.get("chi_personale") or C["nome"] + " publishes")} no size for it (see the official wording below).</p>' if C.get("personale_senza_misura") else ""}
 {ambito}
 {fonte_bag(C)}
 </div></section>
-{AVVISO_BAG}
 {misura}
+{AVVISO_BAG}
 <h2>{escape(C["nome"])} bags you can take on board</h2>
 <div class="tab tab-b"><table><thead><tr><th>Bag</th><th>Where</th><th>Max size</th><th>Weight</th><th>Included</th></tr></thead><tbody>{righe}</tbody></table></div>
 <p class="small">Sizes in the order {escape(C["nome"])} writes them. “≈” marks our conversion; the other figures are {escape(poss(C["nome"]))} own.</p>
@@ -3156,6 +3174,7 @@ def pagina_misura(sl, m):
         b = next((x for x in C["borse"] if x["id"] == q), None)
         dett = (f'{escape(b["nome"])} ({DOVE[b["tipo"]].lower()}), max {escape(misura_testo(b, C))}' if b else
                 "; ".join(f'{escape(x["nome"])} max {escape(misura_testo(x, C))}' for x in C["borse"]))
+        dett += (f' <em>{escape(C["nota_strumento"])}</em>' if C.get("nota_strumento") else "") + f' <span class="small">· checked {data_lunga(C["controllato_il"])}</span>'
         return (f'<tr data-esito="{k}" data-slug="{C["slug"]}"><td data-l="Airline"><a href="{rel}{BAG_BASE}/{C["slug"]}/">{escape(C["nome"])}</a></td>'
                 f'<td data-l="Result"><span class="badge b-{k}">{ESITO[k]}</span></td><td data-l="Allowance">{dett}</td></tr>')
     righe = "".join(riga(C, k) for k in ESITO for C in E[k])
@@ -3171,7 +3190,7 @@ def pagina_misura(sl, m):
 <p class="cifra">Free with every fare at <strong>{len(E["gratis"])} airline{"s" if len(E["gratis"]) != 1 else ""}</strong> <span class="nota-s">{escape(elenco("gratis"))}</span></p>
 <p class="cifra">Only with some fares or as a paid extra at <strong>{len(E["altre"])}</strong> <span class="nota-s">{escape(elenco("altre"))}</span></p>
 <p class="cifra">Too big for the cabin allowances at <strong>{len(E["no"])}</strong> <span class="nota-s">{escape(elenco("no"))}</span></p>
-<p class="fonte">Calculated from the official pages of each airline, checked on {data_lunga(BAG["controllato_il"])}.</p>
+<p class="fonte">Calculated from the official pages of each airline, checked {periodo_bag()} (the date is beside each airline).</p>
 </div></section>
 {AVVISO_BAG}
 <h2>Airline by airline</h2>
@@ -3248,9 +3267,9 @@ def indice_bagagli():
 <h2>New EU rule: a free personal item from 23 October 2027</h2>
 <p>Regulation (EU) 2026/2202 says that airlines “shall permit passengers to carry a personal item into the cabin and at no extra cost”, defined as up to 40 x 30 x 15 cm or a bag that fits under the seat in front. <a href="{rel}{BAG_UE}">What the regulation says, quoted, and its exact status</a>.</p>
 <h2>Airlines not included (yet)</h2>
-<p>We only publish an airline when we can read its official page and the sizes on it. Not included on {data_lunga(BAG['controllato_il'])}:</p>
+<p>We only publish an airline when we can read its official page and the sizes on it. Not included (the date of each attempt is in the reason):</p>
 <ul>{esclusi}</ul>
-<p class="small">Last checked: {data_lunga(BAG['controllato_il'])}. Spotted a change? <a href="{rel}contact/?ref=cabin-bags">Tell us</a>.</p>
+<p class="small">Official pages checked {periodo_bag()} (the date is beside each airline). Spotted a change? <a href="{rel}contact/?ref=cabin-bags">Tell us</a>.</p>
 {f'<p class="altri-pass">{ico("bag")}<span>Taking the train instead? <a href="{rel}{TB_BASE}/">Luggage rules on European trains</a>: Eurostar, TGV INOUI, OUIGO, Avlo, Italo, Deutsche Bahn and more</span></p>' if TB else ""}
 {box_bagagli()}"""
     pagina(f"{BAG_BASE}/", f"Cabin Bag Size by Airline {ANNO}: Free & Paid ({len(COMPAGNIE)} Airlines)",
@@ -3316,7 +3335,7 @@ def pagina_ue():
 {cc("stato", "atto")}
 {fonte_ue(["oeil"])}
 <h2>The airlines on this site today</h2>
-<p>Today (sizes checked on {data_lunga(BAG['controllato_il'])}), a 40 x 30 x 15 cm bag already fits the allowance included in every fare at {len(gia)} of the {len(COMPAGNIE)} airlines we list: {lista(gia)}. It does not fit a bag included in every fare at: {lista(non)}.</p>
+<p>Today (sizes checked {periodo_bag()}), a 40 x 30 x 15 cm bag already fits the allowance included in every fare at {len(gia)} of the {len(COMPAGNIE)} airlines we list: {lista(gia)}. It does not fit a bag included in every fare at: {lista(non)}.</p>
 <p class="small">This is a size comparison, not a legal opinion. The regulation also accepts a personal item defined as a bag that “fits under the seat in front”, and it applies only to the flights covered by Regulation (EC) No 261/2004: we do not judge whether any airline's rules comply. Airlines may change their rules before 23 October 2027.</p>
 <p><a href="{rel}{BAG_BASE}/">Cabin bag size by airline</a> · <a href="{rel}{BAG_STRUMENTO}">Does my bag fit?</a></p>"""
     pagina(BAG_UE, f"EU Free Personal Item Rule: 40x30x15 cm from 23 October 2027",
@@ -9734,7 +9753,7 @@ def about():
 <h2>Liquids rules</h2>
 <p>Each airport's official security page, last read by us on {data_lunga(AER['controllato_il'])} (the date is shown on each page). Some airport sites block simple automated requests or load their text with JavaScript: we read those in a browser and say so on the page. Spanish airports use the general hand-luggage page of Aena, which runs Spain's public airports (it lists no airport- or lane-specific exceptions, and it does not say that it applies at every airport: each Spanish airport page says so); Hong Kong uses the Civil Aviation Department page; the US and Canada each have one national rule (TSA, CATSA). See the full list and the airports we left out on the <a href="{rel}liquids/">liquids page</a>.</p>
 <h2>Cabin bag sizes</h2>
-<p>Each airline's official baggage page, last read by us on {data_lunga(BAG['controllato_il'])} (the date and the link are on each airline page). Most airline sites need JavaScript or block simple automated requests, so we read them in a browser. Every size is quoted word for word; the short labels (“Free with every fare”, “Only with some fares, cabins or as a paid extra”) and the conversions marked “≈” are ours. An airline is included only if its official page shows the sizes; the airlines we left out and why are listed on the <a href="{rel}cabin-bags/">cabin bags page</a>. The bag checker compares the sides sorted from longest to shortest; airlines may measure differently, and their rule decides. The <a href="{rel}cabin-bags/eu-personal-item-rule/">EU personal item page</a> quotes Regulation (EU) 2026/2202 (EUR-Lex), the European Parliament's Legislative Observatory and the European Commission.</p>
+<p>Each airline's official baggage page, last read by us {periodo_bag()} (the date and the link are on each airline page). Most airline sites need JavaScript or block simple automated requests, so we read them in a browser. Every size is quoted word for word; the short labels (“Free with every fare”, “Only with some fares, cabins or as a paid extra”) and the conversions marked “≈” are ours. An airline is included only if its official page shows the sizes; the airlines we left out and why are listed on the <a href="{rel}cabin-bags/">cabin bags page</a>. The bag checker compares the sides sorted from longest to shortest; airlines may measure differently, and their rule decides. The <a href="{rel}cabin-bags/eu-personal-item-rule/">EU personal item page</a> quotes Regulation (EU) 2026/2202 (EUR-Lex), the European Parliament's Legislative Observatory and the European Commission.</p>
 {about_srv(rel)}
 {about_pat(rel)}
 {about_ped(rel)}

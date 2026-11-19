@@ -1219,3 +1219,14 @@ Resta: il prezzo nel titolo di BARK Air va riletto a ogni pubblicazione (rilanci
 - I conteggi di `TEST.md` per i 10 casi dello strumento sono aggiornati a 40 compagnie (i valori attesi `verifica.py` li ricalcola dai dati).
 
 **Controlli (19/11/2026).** `genera.py`: 1.552 pagine indicizzabili + 404 (prima 1.540: +12), bagaglio a mano 40 compagnie; le 12 pagine nuove sono in `sitemap.xml`. `verifica.py`: TUTTO OK (12 avvisi, tutti di altre sezioni e già presenti: copie salvate assenti o vecchie di pedaggi, gomme, patenti, trasporti, treni, scooter, Blue Badge); punto 31: 97 link Amazon in 52 pagine. `monetizzazione.py verifica beforeyoufly`: 0 errori. Revisione indipendente e prova a 375 px delle pagine nuove: da fare prima di pubblicare.
+
+**19/11/2026, dopo la revisione indipendente (voto 8,0; nessun fatto sbagliato): 8 correzioni, non pubblicato, nessun commit.**
+1. Date: indice e pagine per misura non scrivono più la data generale del file (18/10) ma l'intervallo calcolato dal `controllato_il` di ogni compagnia (`periodo_bag()`: «between 18 October and 19 November 2026»), anche nella pagina UE e in About; nelle pagine per misura ogni riga porta la sua data («· checked …»); l'elenco delle escluse dice «Not included (the date of each attempt is in the reason)»; SAS «(last tried 18 October 2026)». La data generale non è stata toccata.
+2. Pagine per misura: `nota_strumento` accanto alla riga (Jetstar e il 2/2/2027; vale anche per Wizz Air, Emirates, WestJet, Delta, IndiGo).
+3. Jetstar: l'avviso del cambio (`misura`) sta subito sotto il riquadro con la risposta, prima dell'avviso generale (vale anche per Wizz Air); descrizione scritta a mano (campo facoltativo `descrizione`).
+4. H1 scritti a mano (campo facoltativo `h1`, `{anno}` = anno corrente) per IndiGo, Jetstar e Alaska, senza «by fare».
+5. Alaska: «the Alaska page we could read gives no size for it» (campo facoltativo `chi_personale`).
+6. IndiGo, tabella tariffe: «Not mentioned on IndiGo's cabin baggage page».
+7. Air Transat: riga «Other fares (Eco Flex, Club Class): see Air Transat's baggage checker» (la copia salvata non dice nulla del carry-on per quelle tariffe); Condor: riga Premium, 1 compreso, 10 kg, dalla tabella del lungo raggio (citata).
+8. Air India: sotto «Other official details» la frase ufficiale sull'oggetto personale oltre 90 cm / 35 in.
+`genera.py`, `verifica.py` (TUTTO OK, 12 avvisi soliti) e `monetizzazione.py verifica beforeyoufly` (0 errori) rilanciati.
