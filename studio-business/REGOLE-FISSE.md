@@ -199,3 +199,12 @@ Ogni push sul ramo mette in coda una build per OGNI progetto Netlify collegato (
 
 ## Netlify Personal dal 19/11/2026
 Massimiliano ha fatto l'upgrade a Personal il 19/11 (9 $/mese, 1.000 crediti al mese, pacchetti da 500 crediti a 5 $). Lo stop alle pubblicazioni è finito. Avvisarlo quando restano meno di ~100 crediti.
+
+## CONTROLLI OBBLIGATORI (regola rigida, Massimiliano 19/11/2026: «non puoi lasciare le cose senza controlli»; «se non facciamo questo perdiamo di credibilità»)
+Con 24 siti serve metodo. Queste regole valgono sempre, prima di qualsiasi lavoro nuovo:
+1. **Ogni mattina** (riassunto delle 08:12) si lancia `python3 studio-business/strumenti/salute.py`. Controlla per ogni sito: pagine e sitemap online, niente noindex o canonical sbagliati, GoatCounter presente, redirect dei vecchi indirizzi, sitemap online = commit, **date già passate nel titolo**, **dati più vecchi della soglia** (calendari EsameB1 7 giorni, resto 45).
+2. **Un ERRORE si corregge lo stesso giorno, prima di costruire cose nuove**, e va nel riassunto con cosa è stato fatto. Un AVVISO di dati vecchi: aggiornare i dati entro la settimana (cadenze in ORGANIZZAZIONE 2.1).
+3. **Siti con date** (EsameB1, Before You Fly biglietti, Italy Strikes, Tourist Tax, scadenze): il giorno dopo ogni data che compare in titolo o home, rigenerare e pubblicare.
+4. **Ogni pubblicazione**: genera → verifica 0 errori → monetizzazione 0 errori → revisione indipendente ≥ 8,5 per i contenuti nuovi → push → controllo online (sitemap = commit, pagine nuove 200) → IndexNow → riga «Pubblicato il…» in DA-PUBBLICARE.md.
+5. **Ogni lunedì**: visite per sito della settimana contro le due precedenti (GoatCounter). Un sito che cala più del 30 % si indaga pagina per pagina e la causa va scritta nel cruscotto.
+6. Un controllo che sbaglia (falso allarme o problema non visto) si corregge nello strumento, non si ignora.
