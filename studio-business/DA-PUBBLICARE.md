@@ -195,3 +195,10 @@ Pubblicato il 1/11/2026 alle 00:15 circa: Visa Income (cerimonie australiane, es
 | USA: costo del divorzio per contea + affiliazione OnlineDivorce (fino a 100 $ a vendita, FlexOffers) | 1.300 a 18, **3.600 a 36** (ottimista 24.000) | 125-165 + 15 min Massimiliano | ~22 | misurare la domanda per contea; iscrizione FlexOffers | fronti-2026-11-12-mercati-grandi.md |
 
 Le idee della riserva entrano nella coda di costruzione nell'ordine della colonna €/ora, appena il loro ostacolo è tolto; i turni di costruzione le prendono quando la coda principale è vuota o in attesa.
+
+## In costruzione 19/11 notte
+| Cosa | Stato |
+|---|---|
+| collegeaid/ (sito nuovo, aiuti universitari USA 2027-28) | in costruzione; poi revisione indipendente; poi collegarlo su Netlify (base collegeaid/sito) |
+| visaincome/ sezione TEFL | in costruzione; poi revisione e pubblicazione |
+| beforeyoufly/ bagaglio a mano: 19 compagnie mancanti (~250.000 ricerche/mese) | in costruzione, sopra le modifiche animali già pronte; poi revisione |
