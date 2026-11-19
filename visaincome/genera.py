@@ -17429,7 +17429,8 @@ def link_f_tf(f):
 def fonte_tf_fonti(fonti):
     fonti = list(dict.fromkeys(fonti))
     return ('<p class="fonte">Source' + ("s" if len(fonti) > 1 else "") + ": " +
-            "; ".join(f'{link_f_tf(f)} ({escape(F_TF[f]["editore"])}, read on {data_lunga(F_TF[f]["letto_il"])})' for f in fonti) + ".</p>")
+            "; ".join(f'{link_f_tf(f)} ({escape(F_TF[f]["editore"])}' + (f'; on the portal, choose {F_TF[f]["scheda"]} in the list' if F_TF[f].get("scheda") else "") +
+                      f', read on {data_lunga(F_TF[f]["letto_il"])})' for f in fonti) + ".</p>")
 
 
 def fonte_tf_p(chiavi):
@@ -17496,7 +17497,7 @@ PAG_TF = [
                  ("Nationality and degree (applicants in the United States)", "Each country has its own JET office and its own page. These are the criteria of the United States office.",
                   ["jp_cittadino", "jp_altri_paesi", "jp_laurea", "jp_lingua", "jp_vissuto", "jp_gia"], ""),
                  ("TEFL and teaching qualifications", "", ["jp_tefl"], ""),
-                 ("Criminal record", "The page lists this among the reasons for disqualification.", ["jp_penale", "jp_penale2"], ""),
+                 ("Criminal record", "The page lists this among the reasons for disqualification:", ["jp_penale"], lambda: "It also lists this among the eligibility criteria: " + q_tf("jp_penale2")),
                  ("Visa", "", ["jp_visto", "jp_familiari"], ""),
                  ("Application steps and dates", "", ["jp_domanda", "jp_colloqui", "jp_esito"], "")],
      "non_dice": ("What these pages do not say, and what we could not read: the JET Programme's international site was showing a temporary maintenance page on the day we read it; the visa "
@@ -17515,7 +17516,7 @@ PAG_TF = [
      "titoli": [f"Teach English in Spain: NALCAP Stipend & Visa Rules ({ANNO})", f"Teach English in Spain: NALCAP Stipend & Visa {ANNO}"],
      "descr": [f"Teach English in Spain as a language assistant: stipend of {ES_MIN} to {ES_MAX} euros a month, {ES_ORE[0]}–{ES_ORE[1]} hours a week, student visa. In the Ministry's words.",
                "Teach English in Spain as a language assistant: official stipend, hours, requirements and visa."],
-     "lead": (f"Spain's Ministry of Education places language assistants (auxiliares de conversación) in public schools. For United States citizens the programme is called NALCAP: the Ministry "
+     "lead": (f"Spain's Ministry of Education places language assistants (auxiliares de conversación) in elementary and secondary schools. For United States citizens the programme is called NALCAP: the Ministry "
               f"says assistants receive a monthly stipend of {ES_MIN} to {ES_MAX} euros, depending on the region, for {ES_ORE[0]} to {ES_ORE[1]} hours a week, and that they apply for a student visa at a Spanish consulate."),
      "righe": lambda: [("Official route we read", "NALCAP (North American Language and Culture Assistants Program), page for United States citizens"),
                        ("Monthly stipend", f"{ES_MIN} to {ES_MAX} euros, depending on the region, plus medical insurance"), ("Hours", f"{ES_ORE[0]} to {ES_ORE[1]} a week"),
@@ -17524,14 +17525,14 @@ PAG_TF = [
      "blocchi": [("What a language assistant does", "", ["es_cosa", "es_periodo"], ""),
                  ("Stipend and hours", lambda: f"The conditions are those the Ministry publishes under the heading {q_tf('es_anno')}.", ["es_stipendio", "es_ore"],
                   lambda: f"The stipend is about {conv_tf(ES_MIN, 'EUR', 'USD')} to {conv_tf(ES_MAX, 'EUR', 'USD')} a month. {NOTA_CAMBI_TF}"),
-                 ("Requirements", "", ["es_cittadino", "es_laurea", "es_laurea2", "es_madrelingua", "es_salute", "es_penale", "es_eta", "es_spagnolo"],
+                 ("Requirements", "", ["es_cittadino", "es_laurea", "es_laurea_us", "es_laurea2", "es_madrelingua", "es_salute", "es_penale", "es_eta", "es_eta2", "es_spagnolo"],
                   "The list does not mention a TEFL certificate or a teaching qualification."),
                  ("Other nationalities", "", ["es_canada"], "We read only the page for United States citizens: each country has its own office and its own conditions."),
                  ("Documents for the application", "", ["es_doc", "es_profex"], ""),
                  ("The visa", "", ["es_visto_obbligo", "es_visto_tipo", "es_visto_dove", "es_visto_quando", "es_apostille", "es_volo"], ""),
                  ("Who decides the visa", "", ["es_visto_consolati", "es_precedenza"], "")],
      "non_dice": ("What these pages do not say: which region pays which amount inside the range, the consular fee and the documents each consulate asks for (each consulate has its own page), "
-                  "and the conditions for citizens of other countries. Work in private language schools is not part of this programme and needs its own work authorisation: we read no official page about it."),
+                  "and the conditions for citizens of other countries. Work in private language schools is not part of this programme; we read no official page about it."),
      "faq": [("teach english in spain", "How can an American teach English in Spain legally?",
               lambda: "One official route is the Ministry of Education's language assistant programme, NALCAP. The Ministry says: " + fr_tf("es_cosa") + " It adds: " + fr_tf("es_visto_obbligo") + "."),
              ("nalcap", "How much does NALCAP pay?", lambda: fr_tf("es_stipendio") + " " + fr_tf("es_ore")),
@@ -17546,22 +17547,21 @@ PAG_TF = [
      "descr": ["Teach English in Korea: the E-2-1 and E-2-2 visas as the official Korea Visa Portal defines them, and what we could not read (EPIK pay, degree rules).",
                "Teach English in Korea: the E-2 visa in the words of the official Korea Visa Portal."],
      "lead": ("South Korea has two visas for foreign language teachers on its official Korea Visa Portal: E-2-1 for conversation instructors at language institutes and E-2-2 for assistant teachers "
-              "hired for public schools. The portal says both need “the qualifications determined by the Minister of Justice”. The EPIK programme's website did not answer our requests, so this page has no EPIK pay scale."),
+              "under contract with the Minister of Education or a school district superintendent. The portal says both need “the qualifications determined by the Minister of Justice”. The EPIK programme's website did not answer our requests, so this page has no EPIK pay scale."),
      "righe": lambda: [("Official source we read", "Korea Visa Portal (Ministry of Justice)"), ("Private language institutes", "E-2-1, Foreign Language Instructor (General)"),
-                       ("Public schools", "E-2-2, Teaching Assistant: contract with the Minister of Education or a superintendent"),
+                       ("Elementary, middle and high schools", "E-2-2, Teaching Assistant: contract with the Minister of Education or a superintendent"),
                        ("Degree, criminal record, TEFL", NON_SCRITTO_TF + ": the portal refers to qualifications set by the Minister of Justice"),
                        ("Official salary", "None read: the EPIK website did not answer")],
      "blocchi": [("E-2-1: conversation instructor", lambda: f"The portal's sheet is titled {q_tf('kr_e21_nome')} and gives this description of who can apply.", ["kr_e21"], ""),
-                 ("E-2-2: assistant teacher in a public school", lambda: f"The sheet is titled {q_tf('kr_e22_nome')}.", ["kr_e22"],
-                  "This is the visa of teachers placed in elementary, middle and high schools through government programmes."),
+                 ("E-2-2: assistant teacher in a public school", lambda: f"The sheet is titled {q_tf('kr_e22_nome')}.", ["kr_e22"], ""),
                  ("A visa is not a guarantee of entry", "", ["kr_rifiuto"], "")],
-     "non_dice": ("What we could not read. The website of EPIK (English Program in Korea), the government programme that publishes a pay scale and eligibility rules, closed the connection or "
+     "non_dice": ("What we could not read. The website of EPIK (English Program in Korea) closed the connection or "
                   "answered HTTP 403 to our requests on the day we tried, and so did the sites of the Korean embassies and of the immigration service. We did not go around the block. "
                   "This page therefore has no EPIK salary, no list of eligible nationalities, and no detail on the degree, the criminal record check or the health check: for those, read "
                   "EPIK's own website and the page of the Korean embassy or consulate where you will apply."),
      "faq": [("teach english in korea", "Which visa do you need to teach English in Korea?",
               lambda: "The Korea Visa Portal has two sheets. E-2-1, " + fr_tf("kr_e21_nome") + ": " + fr_tf("kr_e21") + " E-2-2, " + fr_tf("kr_e22_nome") + ": " + fr_tf("kr_e22") + "."),
-             ("epik", "Is the EPIK salary on this page?", "No. EPIK's website did not answer our requests (connection closed or HTTP 403), and we publish a figure only when we have read it at the official source. EPIK publishes its pay scale on its own website."),
+             ("epik", "Is the EPIK salary on this page?", "No. EPIK's website did not answer our requests (connection closed or HTTP 403), and we publish a figure only when we have read it at the official source. EPIK's own website is the place to look for its pay and eligibility."),
              ("teaching english in korea", "What is the difference between E-2-1 and E-2-2?",
               "On the Korea Visa Portal, E-2-1 is for people who plan to teach conversational language at a foreign language institute or a similar organisation; E-2-2 is for people who have signed an employment contract with the Minister of Education or a superintendent of a school district to teach as an assistant teacher in an elementary, middle or high school."),
              ("epik korea", "Does a visa guarantee entry to Korea?", lambda: "No. The portal says: " + fr_tf("kr_rifiuto"))]},
@@ -17595,44 +17595,48 @@ PAG_TF = [
     {"id": "taiwan", "nome": "Taiwan", "ico": "scale", "frase": "teach english in taiwan", "via": "Work permit for cram school teachers (Ministry of Labor standards)",
      "h1": "Teach English in Taiwan: the degree and TEFL rule for cram school teachers",
      "titoli": [f"Teach English in Taiwan: Degree and TEFL Rule in Law ({ANNO})", f"Teach English in Taiwan: Degree & TEFL Rule {ANNO}"],
-     "descr": [f"Teach English in Taiwan: the legal standards for foreign teachers in cram schools. A degree or a language teaching certificate, {TW_ORE_MIN} to {TW_ORE_MAX} hours a week.",
+     "descr": ["Teach English in Taiwan: the legal standards for cram school teachers. College graduation, plus a language teaching certificate without a bachelor's degree.",
                "Teach English in Taiwan: the legal standards for foreign teachers in cram schools."],
-     "lead": (f"Taiwan writes the conditions for foreign language teachers in private cram schools into a regulation of the Ministry of Labor. Its official English translation says a teacher without a "
-              f"bachelor's degree must have a qualification certificate for language teaching, and sets teaching hours of no less than {TW_ORE_MIN} and no more than {TW_ORE_MAX} a week."),
+     "lead": (f"Taiwan writes the conditions for foreign language teachers in private cram schools into a regulation of the Ministry of Labor. It asks for graduation from college or above; a teacher who has "
+              f"not obtained a bachelor's degree must also have a qualification certificate for language teaching. Teaching hours are no less than {TW_ORE_MIN} and no more than {TW_ORE_MAX} a week."),
      "righe": lambda: [("Official source we read", f"Laws & Regulations Database of the Republic of China (Taiwan): Ministry of Labor standards, amended {data_lunga(TW_DATA)}"),
                        ("Who it covers", "Full-time foreign language teachers hired by registered short-term cram schools"),
-                       ("Degree", "“Graduated from colleges or above” is one of the listed qualifications"),
-                       ("TEFL certificate", "Required for a teacher who has not obtained a bachelor's degree"),
+                       ("Degree", "College graduate or above (Chinese text: all listed qualifications apply)"),
+                       ("TEFL certificate", "Required in addition, if the teacher has no bachelor's degree"),
                        ("Language", "The official language of the country of the teacher's passport"),
                        ("Teaching hours", f"No less than {TW_ORE_MIN} a week; no more than {TW_ORE_MAX} in total"), ("Official salary", "None in the articles we read")],
      "blocchi": [("The kind of work", "Article 3 lists the work covered by the standards. The second item is:", ["tw_lavoro"], ""),
                  ("Who can be the employer", "", ["tw_datore"], ""),
-                 ("Qualifications of the teacher", "Article 5-1, in the official English translation:", ["tw_req", "tw_cert"],
-                  "This is an official translation: the Chinese text is the one that applies. The certificate is described only as “a qualification certificate for language teaching”: the article names no course, provider or number of hours."),
-                 ("Hours with more than one employer", "", ["tw_sei", "tw_max"], ""),
+                 ("Qualifications of the teacher", "Article 5-1, first in the official English translation and then in the Chinese text:", ["tw_req", "tw_cert", "tw_zh_req", "tw_zh_cert"],
+                  "<strong>The English translation is misleading here.</strong> It says “meet one of the following qualifications”, but the Chinese text, which is the one that applies, says 且應具備下列資格: "
+                  "the teacher must have all the listed qualifications (adult age, graduation from college or above, and teaching the official language of the passport country). The certificate is additional "
+                  "(另): a teacher who has not obtained a bachelor's degree needs it as well as college graduation, not instead of it. The certificate is described only as “a qualification certificate for "
+                  "language teaching”: the article names no course, provider or number of hours."),
+                 ("Maximum hours", "The cap applies to every foreign language teacher covered by Article 5-1, with one employer or more:", ["tw_max", "tw_zh_max"], ""),
+                 ("Hours with a second employer", "", ["tw_sei"], ""),
                  ("The three years before the application", "Article 6 lists circumstances that must not have occurred. The first is:", ["tw_tre_anni"], ""),
                  ("Date of the text", "", ["tw_data"], "")],
      "non_dice": ("What these articles do not say: salary, the visa and resident certificate that follow the work permit, and the health check. Teachers in public schools follow other rules: Taiwan's "
                   "Ministry of Education runs its own Foreign English Teacher Program, but its website closed the connection to our requests, so this page has no pay scale from it."),
      "faq": [("teach english in taiwan", "Do you need a degree to teach English in Taiwan?",
-              lambda: "For cram schools the Ministry of Labor's standards say, in the official English translation: " + fr_tf("tw_cert")),
+              lambda: "Yes: graduation from college or above; without a bachelor's degree a language-teaching certificate is also required. For cram schools the Ministry of Labor's standards say, in the official English translation: " + fr_tf("tw_cert")),
              ("teaching english in taiwan", "How many hours can a foreign teacher work in a cram school in Taiwan?",
-              lambda: f"The standards set no less than {TW_ORE_MIN} teaching-related hours a week and say that with more than one employer " + fr_tf("tw_max")),
+              lambda: f"The standards set no less than {TW_ORE_MIN} teaching-related hours a week and say that " + fr_tf("tw_max")),
              ("teach english in taiwan requirements", "Which language can a foreign teacher teach in Taiwan?",
               "The standards list, among the qualifications: “The language to be taught by the foreign teacher is the official language used in the country specified in the passport of the teacher.”")]},
-    {"id": "china", "nome": "China", "ico": "passport", "frase": "teach english in china", "via": "Z visa (embassy in the United States)",
-     "h1": "Teach English in China: the Z visa and its steps",
-     "titoli": [f"Teach English in China: Z Visa Steps and Documents ({ANNO})", f"Teach English in China: Z Visa Steps {ANNO}"],
-     "descr": [f"Teach English in China: the Z work visa at the Chinese Embassy in the US. Work permit notice, online form, {CN_GIORNI} business days, and what is not written.",
-               "Teach English in China: the Z work visa in the words of the Chinese Embassy in the United States."],
-     "lead": (f"Anyone who goes to China to work, teachers included, needs a Z visa. The Chinese Embassy in the United States lists one document for it besides the basic ones: the Notice for the "
-              f"Work Permit for Foreigners, which the employer obtains in China. Regular processing is {CN_GIORNI} business days. The embassy's page says nothing specific about teachers."),
+    {"id": "china", "nome": "China", "ico": "passport", "frase": "china work visa", "via": "Z visa (embassy in the United States)",
+     "h1": "China work visa (Z visa) for English teachers: steps and documents",
+     "titoli": [f"China Work Visa (Z Visa) for English Teachers: Steps ({ANNO})", f"China Work Visa (Z Visa) for English Teachers {ANNO}"],
+     "descr": [f"China work visa (Z visa) for English teachers, at the Chinese Embassy in the US: work permit notice, online form, {CN_GIORNI} business days, and what is not written.",
+               "China work visa (Z visa) for English teachers, in the words of the Chinese Embassy in the United States."],
+     "lead": (f"The Chinese Embassy in the United States issues the Z visa “to those who intend to work in China” and lists one document for it besides the basic ones: the Notice for the "
+              f"Work Permit for Foreigners. Regular processing is {CN_GIORNI} business days. The embassy's page says nothing specific about teachers."),
      "righe": lambda: [("Official source we read", "Embassy of the People's Republic of China in the United States"), ("Visa", "Z: “Issued to those who intend to work in China”"),
                        ("Document for the Z visa", "Notice for the Work Permit for Foreigners"), ("How to apply", "Online form in the New COVA System, then passport to the Visa Office"),
                        ("Processing", f"Regular service {CN_GIORNI} business days, express {CN_GIORNI_EXP}"),
-                       ("Degree, criminal record, TEFL", NON_SCRITTO_TF + ": they belong to the work permit, decided in China"), ("Official salary", "None read")],
+                       ("Degree, criminal record, TEFL", NON_SCRITTO_TF), ("Official salary", "None read")],
      "blocchi": [("The Z visa", "In the embassy's table of visa types, the row of the Z visa has this description and this required document:", ["cn_z", "cn_z_doc"],
-                  "The work permit notice is issued in China at the request of the employer. The conditions for a foreign teacher (degree, experience, certificates, criminal record) are checked at that stage: this embassy page does not list them."),
+                  "This embassy page lists no conditions for a foreign teacher (degree, experience, certificates, criminal record)."),
                  ("Application steps", "", ["cn_cova", "cn_passaporto"], ""),
                  ("Processing time", "", ["cn_tempi", "cn_tempi_nota"], ""),
                  ("Case by case", "", ["cn_caso"], "")],
@@ -17643,7 +17647,7 @@ PAG_TF = [
              ("z visa china", "How long does a Z visa take at the Chinese Embassy in the US?", lambda: "The embassy says: " + fr_tf("cn_tempi") + ". " + fr_tf("cn_tempi_nota")),
              ("china work visa", "How do you apply for a China work visa?", lambda: fr_tf("cn_cova") + " The passport must meet this condition: " + fr_tf("cn_passaporto") + "."),
              ("teaching english in china", "Does the Chinese Embassy ask teachers for a TEFL certificate?",
-              "The embassy page we read does not mention teachers, degrees or TEFL certificates. For a Z visa it asks for the Notice for the Work Permit for Foreigners; the conditions of that permit are decided in China and we could not read them at an official source.")]},
+              "The embassy page we read does not mention teachers, degrees or TEFL certificates. For a Z visa it asks for the Notice for the Work Permit for Foreigners; we could not read the conditions of that permit at an official source.")]},
 ]
 V_TF = {v["id"]: v for v in PAG_TF}
 SEZ_TF_FRASE = "teach english abroad"
@@ -17667,7 +17671,7 @@ RIGHE_IDX_TF = {
     "spain": lambda: ("Degree, or 2nd-year student or higher", "Clean background check", "Not in the list", f"{ES_MIN} to {ES_MAX} euros a month"),
     "south-korea": lambda: (None, None, None, None),
     "thailand": lambda: ("Not in the visa documents", f"Certificate issued within the last {TH_MESI_PENALE} months", "Not in the visa documents", None),
-    "taiwan": lambda: ("College or above, or a certificate", None, "Required without a bachelor's degree", None),
+    "taiwan": lambda: ("College graduate or above (Chinese text: all listed qualifications apply)", None, "Required in addition, if no bachelor's degree", None),
     "china": lambda: (None, None, None, None),
 }
 # Paesi e programmi cercati ma non coperti: (nome, motivo). Niente cifre né regole senza una fonte ufficiale letta.
@@ -17686,11 +17690,11 @@ FAQ_IDX_TF = [
     ("teach english abroad", "What do you need to teach English abroad?",
      lambda: "It depends on the country and on the route. Among the official pages we read: the JET Program in Japan asks United States applicants to " + fr_tf("jp_laurea") + "; Spain's language assistant programme asks them to " + fr_tf("es_laurea") + " and to " + fr_tf("es_penale") + "; the Thai embassy in London asks teachers for a " + fr_tf("th_penale") + "."),
     ("tefl certification", "Is a TEFL certification officially required to teach English abroad?",
-     lambda: "Not everywhere. The JET Program says: " + fr_tf("jp_tefl") + " Taiwan's standards for cram school teachers say: " + fr_tf("tw_cert") + " The pages we read for Spain's language assistants, the Thai teacher visa, Korea's E-2 visa and China's Z visa do not mention a TEFL certificate."),
+     lambda: "Not everywhere. The JET Program says: " + fr_tf("jp_tefl") + " Taiwan's standards for cram school teachers ask for graduation from college or above and add: " + fr_tf("tw_cert") + " The pages we read for Spain's language assistants, the Thai teacher visa, Korea's E-2 visa and China's Z visa do not mention a TEFL certificate."),
     ("teach english abroad salary", "Which countries publish an official salary for English teachers?",
      lambda: f"Among the sources we could read, two. Japan's JET Program: {yen(JET_Y1)} before tax in the first contract year, as of {JET_AL}. Spain's language assistant programme: a monthly stipend of {ES_MIN} to {ES_MAX} euros. We read no official figure for Korea, Thailand, Taiwan or China."),
     ("teach english abroad without a degree", "Can you teach English abroad without a degree?",
-     lambda: "Some official routes allow it in writing. Spain's programme accepts applicants who are “currently enrolled as a 2nd year or higher college student”. Taiwan's standards say: " + fr_tf("tw_cert") + " The JET Program asks for at least a Bachelor's degree."),
+     "One official route we read allows it in writing: Spain's language assistant programme accepts applicants who are “currently enrolled as a 2nd year or higher college student”. The JET Program asks for at least a Bachelor's degree, and Taiwan's standards for cram school teachers ask for graduation from college or above."),
     ("teach english abroad requirements", "Do you need a criminal record check to teach English abroad?",
      lambda: "Often. Spain's programme asks to " + fr_tf("es_penale") + " The Thai embassy in London asks for a " + fr_tf("th_penale") + ". The JET Program can disqualify an applicant " + fr_tf("jp_penale") + "."),
 ]
@@ -17704,7 +17708,7 @@ def box_tefl(pid):
         return ""
     return (f'\n<section class="card aff-r" aria-labelledby="aff-tf-h"><div class="aff-r-t"><span class="ic">{ico("user")}</span>'
             f'<h2 id="aff-tf-h">Thinking about a TEFL course?</h2><span class="aff-tag">Affiliate</span></div>'
-            f'<p>The official rule comes first. The JET Program says: {q_tf("jp_tefl")} Taiwan\'s standards for cram school teachers say: {q_tf("tw_cert")} '
+            f'<p>The official rule comes first. The JET Program says: {q_tf("jp_tefl")} Taiwan\'s standards for cram school teachers, which also ask for graduation from college or above, say: {q_tf("tw_cert")} '
             'The other official pages we read do not mention a TEFL certificate, and none of them names a course or a provider.</p>'
             f'<p>{escape(NOME_TFA)} sells TEFL courses. We have not taken its courses, we do not rank course providers and we cannot tell you whether an employer or an authority will accept a given certificate: ask them before you pay.</p>'
             f'<p class="aff-r-cta"><a class="btn" href="{escape(URL_TFA)}" rel="{REL_TFA}" target="_blank">See {escape(NOME_TFA)}\'s courses{ico("arrow")}'
@@ -17774,7 +17778,7 @@ def pagina_tf_indice():
                   + cella(laurea) + cella(penale) + cella(tefl) + (f'<td>{escape(paga)}</td>' if paga else '<td class="tf-no">No official figure read</td>') + "</tr>")
     omessi = "".join(f"<li><strong>{escape(n)}.</strong> {escape(m)}</li>" for n, m in OMESSI_TF)
     corpo = f"""<section class="hero">{h1_diviso("Teach English abroad: visa and salary rules by country")}
-<p class="lead">What official government and programme pages say about teaching English in {len(PAG_TF)} countries: the visa, the degree, the criminal record check, whether a TEFL certificate is required in writing, and the pay where an official source states it. Japan's JET Program publishes {yen(JET_Y1)} before tax for the first year (as of {JET_AL}); Spain's language assistant programme a monthly stipend of {ES_MIN} to {ES_MAX} euros. Sources read on {data_lunga(LETTO_TF)}.</p></section>
+<p class="lead">What official government and programme pages say about teaching English in {len(PAG_TF)} countries: the visa, the degree, the criminal record check, whether a TEFL certificate is required in writing, and the pay where an official source states it. On TEFL, only two official sources mention teaching qualifications: Japan's JET Program says they are “not required”; Taiwan requires a certificate from cram school teachers without a bachelor's degree. JET publishes {yen(JET_Y1)} before tax for the first year (as of {JET_AL}); Spain's language assistant programme a monthly stipend of {ES_MIN} to {ES_MAX} euros. Sources read on {data_lunga(LETTO_TF)}.</p></section>
 {griglia_tf(rel)}
 {AVVISO_TF}
 <h2>The rules at a glance</h2>
@@ -17783,8 +17787,8 @@ def pagina_tf_indice():
 {fonte_tf_fonti(["jp_elig", "jp_contr", "es_nalcap", "kr_e21", "kr_e22", "th_teach", "tw_cram", "cn_req"])}
 {AD}
 <h2>Is a TEFL certificate officially required?</h2>
-<div class="testo"><p>Only two of the official sources we read speak about teaching qualifications, and they say opposite things.</p>
-<ul class="testo"><li>Japan, JET Program: {q_tf("jp_tefl")}</li><li>Taiwan, cram schools: {q_tf("tw_cert")}</li></ul>
+<div class="testo"><p>Only two of the official sources we read speak about teaching qualifications, and they say different things.</p>
+<ul class="testo"><li>Japan, JET Program: {q_tf("jp_tefl")}</li><li>Taiwan, cram schools: {q_tf("tw_cert")} This comes on top of graduation from college or above: the Chinese text of the article requires all the listed qualifications, and the certificate in addition for a teacher without a bachelor's degree (see the <a href="taiwan/">Taiwan page</a>).</li></ul>
 <p>The pages we read for Spain's language assistants, for the Thai teacher visa, for Korea's E-2 visa and for China's Z visa do not mention a TEFL certificate. None of the official pages names a course, a provider or a number of hours. Employers can ask for more than the law does: that is their choice, and it is not on these pages. We do not rank TEFL courses.</p>{fonte_tf_p(["jp_tefl", "tw_cert"])}</div>{box_tefl("indice")}
 <h2>Official pay figures we could read</h2>
 <div class="testo"><ul class="testo"><li>Japan, JET Program: {q_tf("jp_stipendio")}</li><li>Spain, language assistants (NALCAP): {q_tf("es_stipendio")} {q_tf("es_ore")}</li></ul>
@@ -17875,9 +17879,12 @@ def in_indice_scala():
     return _TIENI
 
 
+FUORI_INDICE_FISSE = {f"{SEZ_TF}south-korea/"}   # 19/11/2026 (revisione): pagina sottile (EPIK non leggibile): noindex, follow, fuori dalla sitemap, linkata dall'indice
+
+
 def fuori_indice(percorso):
-    """True se la pagina è di una sezione in scala e non è tra quelle che restano in indice."""
-    return any(r.match(percorso) for r in SEZIONI_IN_SCALA.values()) and percorso not in in_indice_scala()
+    """True se la pagina è di una sezione in scala e non è tra quelle che restano in indice (o è tra le pagine fisse fuori indice)."""
+    return percorso in FUORI_INDICE_FISSE or any(r.match(percorso) for r in SEZIONI_IN_SCALA.values()) and percorso not in in_indice_scala()
 
 
 def main():

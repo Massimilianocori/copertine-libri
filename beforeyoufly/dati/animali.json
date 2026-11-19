@@ -1,6 +1,6 @@
 {
  "_nota": "Animali in viaggio dalla Gran Bretagna all'UE: citazioni scritte a mano in dati/animali_manuali.json, fonti rilette da raccolta/animali.py (HTTP, data di lettura, impronta della zona citata), tabelle GOV.UK delle rotte approvate e link della Commissione per Paese copiati dalle pagine ufficiali. Non modificare a mano: rilanciare lo script.",
- "controllato_il": "2026-10-31",
+ "controllato_il": "2026-11-18",
  "fonti": {
   "gov_estero": {
    "url": "https://www.gov.uk/api/content/taking-your-pet-abroad",
@@ -10,9 +10,9 @@
    "byte": 41833,
    "ente": "GOV.UK (Animal and Plant Health Agency)",
    "titolo": "GOV.UK: Taking your pet dog, cat or ferret abroad",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-18",
    "impronta": "8bdd0a815b804fb5",
-   "frasi": 20,
+   "frasi": 21,
    "aggiornato_il": "2020-12-21"
   },
   "gov_gb": {
@@ -23,7 +23,7 @@
    "byte": 78901,
    "ente": "GOV.UK (Animal and Plant Health Agency)",
    "titolo": "GOV.UK: Bringing your pet dog, cat or ferret to Great Britain",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-18",
    "impronta": "f430202ba39decc0",
    "frasi": 10,
    "aggiornato_il": "2024-10-24"
@@ -36,7 +36,7 @@
    "byte": 23763,
    "ente": "GOV.UK (Department for Environment, Food & Rural Affairs)",
    "titolo": "GOV.UK: Veterinary sector: preparing your business (SPS agreement)",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-18",
    "impronta": "0752799493919a52",
    "frasi": 4,
    "aggiornato_il": "2026-07-30"
@@ -46,40 +46,40 @@
    "pagina": "https://www.gov.uk/government/publications/pet-travel-approved-air-sea-and-rail-carriers-and-routes",
    "url_finale": "https://www.gov.uk/api/content/government/publications/pet-travel-approved-air-sea-and-rail-carriers-and-routes",
    "http": 200,
-   "byte": 74628,
+   "byte": 74953,
    "ente": "GOV.UK (Animal and Plant Health Agency)",
    "titolo": "GOV.UK: Pet travel: approved air, sea and rail carriers and routes",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-18",
    "impronta": "cc2ab139d631931a",
    "frasi": 2,
-   "aggiornato_il": "2026-10-23"
+   "aggiornato_il": "2026-11-17"
   },
   "gov_aria": {
    "url": "https://www.gov.uk/api/content/government/publications/pet-travel-approved-air-sea-and-rail-carriers-and-routes/approved-air-routes-for-pet-travel",
    "pagina": "https://www.gov.uk/government/publications/pet-travel-approved-air-sea-and-rail-carriers-and-routes/approved-air-routes-for-pet-travel",
    "url_finale": "https://www.gov.uk/api/content/government/publications/pet-travel-approved-air-sea-and-rail-carriers-and-routes/approved-air-routes-for-pet-travel",
    "http": 200,
-   "byte": 113268,
+   "byte": 112845,
    "ente": "GOV.UK (Animal and Plant Health Agency)",
    "titolo": "GOV.UK: Pet travel: airlines and airports you can use",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-18",
    "impronta": "252149bdcf554038",
    "frasi": 2,
-   "aggiornato_il": "2026-10-23",
-   "impronta_tabella": "70174e40391aca66"
+   "aggiornato_il": "2026-11-17",
+   "impronta_tabella": "6ba1d3b0ff187eb3"
   },
   "gov_mare": {
    "url": "https://www.gov.uk/api/content/government/publications/pet-travel-approved-air-sea-and-rail-carriers-and-routes/pet-travel-sea-routes-and-companies-you-can-use",
    "pagina": "https://www.gov.uk/government/publications/pet-travel-approved-air-sea-and-rail-carriers-and-routes/pet-travel-sea-routes-and-companies-you-can-use",
    "url_finale": "https://www.gov.uk/api/content/government/publications/pet-travel-approved-air-sea-and-rail-carriers-and-routes/pet-travel-sea-routes-and-companies-you-can-use",
    "http": 200,
-   "byte": 11984,
+   "byte": 11985,
    "ente": "GOV.UK (Animal and Plant Health Agency)",
    "titolo": "GOV.UK: Pet travel: sea and rail routes and companies you can use",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-18",
    "impronta": "fdb884530ea8d70c",
    "frasi": 1,
-   "aggiornato_il": "2026-10-23",
+   "aggiornato_il": "2026-11-17",
    "impronta_tabella": "761312b709bc89b5"
   },
   "ue_condizioni": {
@@ -87,10 +87,10 @@
    "pagina": "https://food.ec.europa.eu/animals/live-animal-movements/dogs-cats-and-ferrets/bringing-pet-eu-non-eu-country_en",
    "url_finale": "https://food.ec.europa.eu/animals/live-animal-movements/dogs-cats-and-ferrets/bringing-pet-eu-non-eu-country_en",
    "http": 200,
-   "byte": 115684,
+   "byte": 115706,
    "ente": "European Commission (DG Health and Food Safety)",
    "titolo": "European Commission: Bringing a pet into the EU from a non-EU country",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-18",
    "impronta": "5b215bac810617ef",
    "frasi": 11,
    "aggiornato_il": null
@@ -100,10 +100,10 @@
    "pagina": "https://food.ec.europa.eu/animals/live-animal-movements/dogs-cats-and-ferrets/travellers-points-entry_en",
    "url_finale": "https://food.ec.europa.eu/animals/live-animal-movements/dogs-cats-and-ferrets/travellers-points-entry_en",
    "http": 200,
-   "byte": 130515,
+   "byte": 130525,
    "ente": "European Commission (DG Health and Food Safety)",
    "titolo": "European Commission: Travellers' points of entry",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-18",
    "impronta": "603abf9480b0c450",
    "frasi": 1,
    "aggiornato_il": null
@@ -113,12 +113,25 @@
    "pagina": "https://food.ec.europa.eu/animals/live-animal-movements/dogs-cats-and-ferrets/eu-countries-specific-information_en",
    "url_finale": "https://food.ec.europa.eu/animals/live-animal-movements/dogs-cats-and-ferrets/eu-countries-specific-information_en",
    "http": 200,
-   "byte": 134852,
+   "byte": 134860,
    "ente": "European Commission (DG Health and Food Safety)",
    "titolo": "European Commission: EU countries' specific information",
-   "letto_il": "2026-10-31",
+   "letto_il": "2026-11-18",
    "impronta": "ccdc31c5ac7a7853",
    "frasi": 1,
+   "aggiornato_il": null
+  },
+  "es_pets": {
+   "url": "https://help.eurostar.com/faq/uk-en/question/Can-I-take-my-pet-on-Eurostar",
+   "pagina": "https://help.eurostar.com/faq/uk-en/question/Can-I-take-my-pet-on-Eurostar",
+   "url_finale": "https://help.eurostar.com/faq/uk-en/question/Can-I-take-my-pet-on-Eurostar",
+   "http": 200,
+   "byte": 43688,
+   "ente": "Eurostar",
+   "titolo": "Eurostar Help Centre: Can I take my pet on Eurostar?",
+   "letto_il": "2026-11-18",
+   "impronta": "912deb3bbccb778f",
+   "frasi": 3,
    "aggiornato_il": null
   }
  },
@@ -158,11 +171,6 @@
     "tipo": "commerciale",
     "compagnia": "Air Europa",
     "aeroporti": "London Gatwick (AAC)"
-   },
-   {
-    "tipo": "commerciale",
-    "compagnia": "Air France KLM Martinair Cargo",
-    "aeroporti": "Edinburgh, Glasgow, Heathrow (HARC)"
    },
    {
     "tipo": "commerciale",
@@ -302,7 +310,12 @@
    {
     "tipo": "commerciale",
     "compagnia": "KLM Royal Dutch Airlines Cargo",
-    "aeroporti": "Manchester (Pets on Jets), Newcastle (ARC)"
+    "aeroporti": "Edinburgh, Glasgow, London Heathrow (HARC), Manchester (Pets on Jets), Newcastle (ARC)"
+   },
+   {
+    "tipo": "commerciale",
+    "compagnia": "KM Malta Airlines",
+    "aeroporti": "London Heathrow (HARC)"
    },
    {
     "tipo": "commerciale",
@@ -420,7 +433,7 @@
     "aeroporti": "Edinburgh, London Gatwick (AAC), London Heathrow (HARC)"
    }
   ],
-  "charter": 571,
+  "charter": 554,
   "mare": [
    {
     "da": "Falkland Islands",
@@ -759,7 +772,7 @@
     "https://food.ec.europa.eu/document/download/6dd124d4-3777-4666-a8c6-a3d27bb00ca5_en?filename=pm_non-com_entry_ltu.pdf"
    ],
    "info": [
-    "https://vmvt.lt/animal-health/travelling-pets?language=en"
+    "https://vmvt.lrv.lt/en/travelling-with-pet-animals/"
    ]
   },
   {
@@ -967,6 +980,11 @@
    "f": "gov_estero",
    "tema": "passaporto",
    "x": "If you live in England, Scotland or Wales, you cannot use a pet passport to enter the EU - even if it was issued in the EU. If you use a pet passport instead of an animal health certificate, your pet may be refused entry."
+  },
+  {
+   "id": "e_ni",
+   "f": "gov_estero",
+   "x": "You can still enter the EU using an EU pet passport if you live in Northern Ireland."
   },
   {
    "id": "e_tenia",
@@ -1237,10 +1255,36 @@
    "f": "ue_paesi",
    "tema": "arrivo",
    "x": "In this section, you will find general information regarding the animal health requirements applicable to pet animals moved between and into EU countries. You can also get the information about the national measures aimed at restricting the movement of certain species and breeds of pet animals on the basis apart from animal health."
+  },
+  {
+   "id": "es_no",
+   "f": "es_pets",
+   "x": "Unfortunately, we can’t accept pets on board our trains to and from London, between Brussels and Lille or on our Eurostar Suns and Snow routes."
+  },
+  {
+   "id": "es_assist",
+   "f": "es_pets",
+   "x": "We do, however, allow guide and assistance dogs to travel with their owners and request that customers contact us at least 48 hours in advance of travel to make a request."
+  },
+  {
+   "id": "es_altre",
+   "f": "es_pets",
+   "x": "Pets are welcome on all our other routes between Belgium, France, Germany, and the Netherlands."
   }
  ],
  "faq": {
   "indice": [
+   {
+    "query": "animal health certificate cost",
+    "q": "How much does an animal health certificate cost?",
+    "cit": [
+     "e_ahc_ov",
+     "e_ogni_viaggio",
+     "e_5pets"
+    ],
+    "pre": "GOV.UK gives no price on the pages we read: you get the certificate from your vet, not from the government, so the price is the one your vet practice charges. GOV.UK says:",
+    "post": "Ask the practice for its price when you book the appointment. GOV.UK expects pet travel to the EU to become cheaper with the multiuse pet passport planned for mid-2027."
+   },
    {
     "query": "animal health certificate (ahc)",
     "q": "What is an animal health certificate (AHC)?",
@@ -1282,6 +1326,16 @@
     ],
     "pre": "GOV.UK says:",
     "post": "The tapeworm treatment is not needed if you come back directly from Finland, Ireland, Northern Ireland, Malta or Norway."
+   },
+   {
+    "query": "can you take dogs on eurostar",
+    "q": "Can you take dogs on Eurostar?",
+    "cit": [
+     "es_no",
+     "es_assist"
+    ],
+    "pre": "Not on trains to and from London, unless it is a guide or assistance dog. Eurostar says:",
+    "post": "Eurotunnel Le Shuttle, Calais to Folkestone, is the other rail route on GOV.UK’s list of approved routes into Great Britain."
    }
   ],
   "calcolatore": [
@@ -1316,6 +1370,36 @@
    }
   ],
   "passaporto": [
+   {
+    "query": "pet passport uk",
+    "q": "Can I get a pet passport in the UK today?",
+    "cit": [
+     "e_passaporto_no",
+     "e_ogni_viaggio"
+    ],
+    "pre": "Not for travel to the EU if you live in England, Scotland or Wales: you need an animal health certificate for each trip. GOV.UK says:",
+    "post": "GOV.UK expects a multiuse pet passport for EU travel when the UK–EU agreement takes effect, which it intends for mid-2027."
+   },
+   {
+    "query": "dog passport uk",
+    "q": "Is there a dog passport in the UK?",
+    "cit": [
+     "e_ahc10",
+     "e_ni"
+    ],
+    "pre": "For a dog that lives in England, Scotland or Wales, the document for the EU is the animal health certificate, not a passport. GOV.UK says:",
+    "post": ""
+   },
+   {
+    "query": "pet passport uk cost",
+    "q": "How much does a pet passport cost in the UK?",
+    "cit": [
+     "e_ahc_ov",
+     "s_passaporto"
+    ],
+    "pre": "There is no pet passport price to give today: what you pay for is the animal health certificate, at your vet, and GOV.UK gives no price for it on the pages we read. GOV.UK says:",
+    "post": "GOV.UK has not published a cost for the pet passport expected in mid-2027."
+   },
    {
     "query": "uk pet passport 2027",
     "q": "Is the UK pet passport coming back in 2027?",
@@ -1355,6 +1439,17 @@
    }
   ],
   "rotte": [
+   {
+    "query": "dogs on eurostar",
+    "q": "Can dogs go on Eurostar?",
+    "cit": [
+     "es_no",
+     "es_assist",
+     "es_altre"
+    ],
+    "pre": "Only guide and assistance dogs on trains to and from London, although GOV.UK lists the Eurostar route as approved. Eurostar says:",
+    "post": ""
+   },
    {
     "query": "pet friendly airlines to uk",
     "q": "Which airlines can fly my dog to the UK?",

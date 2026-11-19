@@ -1,5 +1,5 @@
 {
- "_nota": "Bagaglio a mano per compagnia: misure lette sulle pagine ufficiali (righe = testo copiato parola per parola, nell'ordine della pagina). incluso: 'tutte' = con ogni tariffa, 'alcune' = solo con alcune tariffe, classi o rotte o a pagamento. cm/pollici nell'ordine della fonte; cm_ufficiali/pollici_ufficiali = la fonte li scrive (altrimenti conversione nostra, 1 in = 2,54 cm). Ricontrollo: raccolta/bagagli.py.",
+ "_nota": "Bagaglio a mano per compagnia: misure lette sulle pagine ufficiali (righe = testo copiato parola per parola, nell'ordine della pagina). incluso: 'tutte' = con ogni tariffa, 'alcune' = solo con alcune tariffe, classi o rotte o a pagamento. cm/pollici nell'ordine della fonte; cm_ufficiali/pollici_ufficiali = la fonte li scrive (altrimenti conversione nostra, 1 in = 2,54 cm). Ricontrollo: raccolta/bagagli.py. escluse: compagnie provate e NON verificate (pagina ufficiale non leggibile da qui: nessun dato pubblicato, nessuna pagina); stato, provato_il e url_provati dicono cosa è stato tentato.",
  "controllato_il": "2026-10-18",
  "compagnie": [
   {
@@ -3110,32 +3110,1543 @@
    "misura": null,
    "personale_senza_misura": null,
    "nota_strumento": "WestJet gives 14 cm and 15 cm for the personal item's depth on the same page: we use 14 cm."
+  },
+  {
+   "slug": "alaska-airlines",
+   "nome": "Alaska Airlines",
+   "paese": "United States",
+   "area": "North America",
+   "fonti": {
+    "a": {
+     "url": "https://www.alaskaair.com/content/travel-info/fly-alaska/travel-tips",
+     "titolo": "Alaska Airlines: Travel Tips",
+     "lettura": "browser"
+    }
+   },
+   "controllato_il": "2026-11-19",
+   "borse": [
+    {
+     "id": "carry-on",
+     "tipo": "sopra",
+     "nome": "carry-on bag",
+     "cm": [
+      55.88,
+      35.56,
+      22.86
+     ],
+     "cm_ufficiali": false,
+     "pollici": [
+      22,
+      14,
+      9
+     ],
+     "pollici_ufficiali": true,
+     "peso": null,
+     "incluso": "tutte",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "You are allowed one carry-on bag that measures up to 22\" x 14\" x 9\" including wheels and handles, plus one smaller personal item. Anything additional or larger must be checked."
+       ]
+      }
+     ]
+    }
+   ],
+   "tariffe": [
+    {
+     "nome": "Every passenger",
+     "sotto": "Personal item (no size published)",
+     "sopra": "1 included",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "You are allowed one carry-on bag that measures up to 22\" x 14\" x 9\" including wheels and handles, plus one smaller personal item. Anything additional or larger must be checked."
+       ]
+      }
+     ]
+    }
+   ],
+   "avvisi": [],
+   "extra": [],
+   "ambito": null,
+   "nota": "Alaska Airlines' own carry-on page showed only its menu, without the text, when we read it on 19 November 2026. The size is quoted from the Travel Tips page on alaskaair.com, which gives no size for the personal item and no fare details: check your booking.",
+   "misura": null,
+   "personale_senza_misura": true,
+   "nota_strumento": null
+  },
+  {
+   "slug": "avelo",
+   "nome": "Avelo Airlines",
+   "paese": "United States",
+   "area": "North America",
+   "fonti": {
+    "a": {
+     "url": "https://www.aveloair.com/help/carry-on-bags",
+     "titolo": "Avelo Airlines: Carry-on bags",
+     "lettura": "browser"
+    }
+   },
+   "controllato_il": "2026-11-19",
+   "borse": [
+    {
+     "id": "personal",
+     "tipo": "sotto",
+     "nome": "personal item",
+     "cm": [
+      43,
+      33,
+      22
+     ],
+     "cm_ufficiali": true,
+     "pollici": [
+      17,
+      13,
+      9
+     ],
+     "pollici_ufficiali": true,
+     "peso": null,
+     "incluso": "tutte",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "One free personal item not larger than 17″L x 13″H x 9″W (43 cm x 33 cm x 22 cm) that can be safely stowed under a seat."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "carry-on",
+     "tipo": "sopra",
+     "nome": "carry-on bag",
+     "cm": [
+      55,
+      35,
+      22
+     ],
+     "cm_ufficiali": true,
+     "pollici": [
+      22,
+      14,
+      9
+     ],
+     "pollici_ufficiali": true,
+     "peso": null,
+     "incluso": "alcune",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "One carry-on bag is permitted in the aircraft cabin for a fee. The carry-on bag must fit into an overhead bin and be no larger than 22”L x 14″H x 9”W (55 cm x 35 cm x 22 cm)."
+       ]
+      }
+     ]
+    }
+   ],
+   "tariffe": [
+    {
+     "nome": "Every fare",
+     "sotto": "Included",
+     "sopra": "Paid extra (carry-on bag fee)",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Customers are permitted one personal item and one carry-on bag (for a fee) on board."
+       ]
+      }
+     ]
+    }
+   ],
+   "avvisi": [
+    {
+     "f": "a",
+     "righe": [
+      "Sizing boxes or charts are located at Avelo’s check-in counters and departure gates. Avelo reserves the right to further restrict carry-on items."
+     ]
+    },
+    {
+     "f": "a",
+     "righe": [
+      "Baggage not qualifying as a personal item or carry-on bag must be checked for a fee."
+     ]
+    }
+   ],
+   "extra": [
+    {
+     "f": "a",
+     "righe": [
+      "Any Customer that is an active-duty military member on official or personal travel and presents a current active-duty military identification card may bring one carry-on bag free of charge."
+     ]
+    }
+   ],
+   "ambito": null,
+   "nota": null,
+   "misura": null,
+   "personale_senza_misura": null,
+   "nota_strumento": null
+  },
+  {
+   "slug": "breeze",
+   "nome": "Breeze Airways",
+   "paese": "United States",
+   "area": "North America",
+   "fonti": {
+    "a": {
+     "url": "https://www.flybreeze.com/support?a=Baggage-Prices-and-Dimensions---id--EvTT15-VRZWup0Ivwy_VhA",
+     "titolo": "Breeze Airways: Bag Allowance and Dimensions",
+     "lettura": "browser"
+    },
+    "b": {
+     "url": "https://www.flybreeze.com/support?a=Carry-On-Bags---id--XBxygfEbS9mEI6P36iGuew",
+     "titolo": "Breeze Airways: Carry-On Bags",
+     "lettura": "browser"
+    },
+    "c": {
+     "url": "https://www.flybreeze.com/shopping/en-us/travel-tips",
+     "titolo": "Breeze Airways: Travel Tips",
+     "lettura": "browser"
+    }
+   },
+   "controllato_il": "2026-11-19",
+   "borse": [
+    {
+     "id": "personal",
+     "tipo": "sotto",
+     "nome": "personal item",
+     "cm": [
+      43.18,
+      33.02,
+      20.32
+     ],
+     "cm_ufficiali": false,
+     "pollici": [
+      17,
+      13,
+      8
+     ],
+     "pollici_ufficiali": true,
+     "peso": null,
+     "incluso": "tutte",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Allowance: All Guests are allowed one personal item on board for no charge. Examples of personal items can be a purse, briefcase, small backpack, laptop bag, or comparable or smaller items."
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "Dimensions: The personal item must fit under the seat directly in front of you and should not exceed the maximum dimension of 17 x 13 x 8 inches."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "carry-on",
+     "tipo": "sopra",
+     "nome": "carry-on bag",
+     "cm": [
+      55.88,
+      35.56,
+      22.86
+     ],
+     "cm_ufficiali": false,
+     "pollici": [
+      22,
+      14,
+      9
+     ],
+     "pollici_ufficiali": true,
+     "peso": "35 lb",
+     "incluso": "alcune",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Dimensions: Carry-on bags must fit in the overhead bin, with the maximum dimensions of 22 x 14 x 9 inches (including handles and wheels), and weigh no more than 35 pounds."
+       ]
+      }
+     ]
+    }
+   ],
+   "tariffe": [
+    {
+     "nome": "No Flex Fare",
+     "sotto": "Included",
+     "sopra": "Not included (can be purchased)",
+     "cit": [
+      {
+       "f": "b",
+       "righe": [
+        "Carry-on bags can be purchased for No Flex Fare reservations."
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "Allowance: Carry-on bags are available for individual purchase or may be included in applicable bundles."
+       ]
+      }
+     ]
+    },
+    {
+     "nome": "Bundles (Nice, Nicer, Nicest)",
+     "sotto": "Included",
+     "sopra": "Included with Nicer and Nicest; for Nice the two official pages differ (see below)",
+     "cit": [
+      {
+       "f": "b",
+       "righe": [
+        "Breeze allows one carry-on bag per Guest. One carry-on bag is included with all our bundles."
+       ]
+      },
+      {
+       "f": "c",
+       "righe": [
+        "Carry-on bags can be up to 22 × 14 × 9 inches and 35 lb, and must fit in the overhead bin. A carry-on is included with Nicer and Nicest bundles or can be added on."
+       ]
+      }
+     ]
+    }
+   ],
+   "avvisi": [
+    {
+     "f": "b",
+     "righe": [
+      "Please note: If there is no room in the overhead bins, we will need to check any remaining carry-on bags that do not fit under a seat."
+     ]
+    },
+    {
+     "f": "b",
+     "righe": [
+      "If your bag is larger than this, please add it as a checked bag."
+     ]
+    }
+   ],
+   "extra": [],
+   "ambito": null,
+   "nota": "Breeze's pages do not agree on the bundles: the Carry-On Bags article says a carry-on is “included with all our bundles”, the Travel Tips page says “with Nicer and Nicest bundles”. Both are quoted below; check what your own booking includes.",
+   "misura": null,
+   "personale_senza_misura": null,
+   "nota_strumento": null
+  },
+  {
+   "slug": "condor",
+   "nome": "Condor",
+   "paese": "Germany",
+   "area": "Europe",
+   "fonti": {
+    "a": {
+     "url": "https://www.condor.com/eu/flight-preparation/baggage-and-animals/carry-on.jsp",
+     "titolo": "Condor: Carry-on Baggage",
+     "lettura": "browser"
+    }
+   },
+   "controllato_il": "2026-11-19",
+   "borse": [
+    {
+     "id": "small-bag",
+     "tipo": "sotto",
+     "nome": "small bag",
+     "cm": [
+      40,
+      30,
+      15
+     ],
+     "cm_ufficiali": true,
+     "pollici": null,
+     "pollici_ufficiali": false,
+     "peso": null,
+     "incluso": "tutte",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Small bag",
+        "Max. size: 40 x 30 x 15 cm"
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "Small bags must be stowed under the seat while larger carry-on baggage may be stowed in the overhead locker."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "carry-on",
+     "tipo": "sopra",
+     "nome": "carry-on",
+     "cm": [
+      55,
+      40,
+      23
+     ],
+     "cm_ufficiali": true,
+     "pollici": null,
+     "pollici_ufficiali": false,
+     "peso": "8 kg (Economy)",
+     "incluso": "alcune",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Carry-on",
+        "Max. size: 55 x 40 x 23 cm"
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "1 piece included (8 kg)"
+       ]
+      }
+     ]
+    }
+   ],
+   "tariffe": [
+    {
+     "nome": "Economy Zero",
+     "sotto": "Included",
+     "sopra": "Not included (can be booked for a fee)",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "The amount of carry-on baggage you are allowed to bring into the cabin on your Condor flight depends on the flight zone of your destination and the booked fare."
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "Not included, bookable from €9,99 until 3 hours prior to departure"
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "not included, bookable from € 29,99 until 8 hours prior to departure"
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "not included, bookable from € 19,99"
+       ]
+      }
+     ]
+    },
+    {
+     "nome": "Economy Light (zones 1-2 and 6), Economy Classic, Choice, Flex and Premium",
+     "sotto": "Included",
+     "sopra": "1 included",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "1 piece included (8 kg)"
+       ]
+      }
+     ]
+    },
+    {
+     "nome": "Business (zones 1 to 6)",
+     "sotto": "Included",
+     "sopra": "2 included",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "2 pieces**"
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "** Important notice: A single piece of baggage must not weigh more than 10 kg."
+       ]
+      }
+     ]
+    }
+   ],
+   "avvisi": [
+    {
+     "f": "a",
+     "righe": [
+      "If the permitted allowance for carry-on is exceeded, excess baggage charges will be charged at check-in. Higher charges may apply at gate (Zones 1, 2 & 6: €75 / US$90; Zonen 3-4: €100 / US$110; Zone 5: €100 / US$120 / CAD$150)."
+     ]
+    },
+    {
+     "f": "a",
+     "righe": [
+      "For safety reasons, the ground staff and cabin crew must stow excess, unpermitted items of baggage in the cargo hold with the other checked baggage."
+     ]
+    }
+   ],
+   "extra": [],
+   "ambito": null,
+   "nota": "Condor publishes these rules as a table by flight zone and fare. In that table the small bag is ticked under each fare that has an entry, and the carry-on cell under Economy Zero reads “not included” in every zone (quoted below). The fare summary on this page is our reading of that table: check your own fare and zone on Condor's page.",
+   "misura": null,
+   "personale_senza_misura": null,
+   "nota_strumento": null
+  },
+  {
+   "slug": "tui",
+   "nome": "TUI Airways",
+   "paese": "United Kingdom",
+   "area": "Europe",
+   "fonti": {
+    "a": {
+     "url": "https://www.tui.co.uk/destinations/info/luggage-allowance",
+     "titolo": "TUI: Luggage Allowance on TUI Airways",
+     "lettura": "browser"
+    }
+   },
+   "controllato_il": "2026-11-19",
+   "borse": [
+    {
+     "id": "personal",
+     "tipo": "sotto",
+     "nome": "small personal item",
+     "cm": [
+      40,
+      30,
+      20
+     ],
+     "cm_ufficiali": true,
+     "pollici": null,
+     "pollici_ufficiali": false,
+     "peso": null,
+     "incluso": "tutte",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "You can also bring one small personal item or laptop, which must be stored under the seat in front of you. The maximum dimensions for this are 40cm x 30cm x 20cm."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "hand-luggage",
+     "tipo": "sopra",
+     "nome": "10kg hand luggage",
+     "cm": [
+      55,
+      40,
+      20
+     ],
+     "cm_ufficiali": true,
+     "pollici": null,
+     "pollici_ufficiali": false,
+     "peso": "10 kg",
+     "incluso": "tutte",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "You can take one piece of hand luggage per person, excluding infants. Each piece of hand luggage can weigh up to 10kg and fit within the maximum dimensions of 55cm x 40cm x 20cm."
+       ]
+      }
+     ]
+    }
+   ],
+   "tariffe": [
+    {
+     "nome": "Every passenger (except infants)",
+     "sotto": "Included",
+     "sopra": "Included (10 kg)",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "You can take one piece of hand luggage per person, excluding infants. Each piece of hand luggage can weigh up to 10kg and fit within the maximum dimensions of 55cm x 40cm x 20cm. You can also bring one small personal item or laptop, which must be stored under the seat in front of you."
+       ]
+      }
+     ]
+    }
+   ],
+   "avvisi": [
+    {
+     "f": "a",
+     "righe": [
+      "If your hand luggage exceeds the size or weight limits, you'll be asked to place it in the aircraft hold and a charge may apply."
+     ]
+    }
+   ],
+   "extra": [
+    {
+     "f": "a",
+     "righe": [
+      "If you're flying with another airline, you'll usually find details of your hand luggage allowance on your e-ticket or confirmation email. If you can’t see your luggage allowance, please contact your airline directly."
+     ]
+    }
+   ],
+   "ambito": "flights operated by TUI Airways (TUI holidays flown by another airline follow that airline's allowance)",
+   "nota": null,
+   "misura": null,
+   "personale_senza_misura": null,
+   "nota_strumento": null
+  },
+  {
+   "slug": "air-india",
+   "nome": "Air India",
+   "paese": "India",
+   "area": "Asia",
+   "fonti": {
+    "a": {
+     "url": "https://www.airindia.com/in/en/travel-information/baggage-guidelines/cabin-baggage.html",
+     "titolo": "Air India: Cabin Baggage or Carry-on Allowances",
+     "lettura": "browser"
+    },
+    "b": {
+     "url": "https://www.airindia.com/in/en/frequently-asked-questions/baggage.html",
+     "titolo": "Air India: Baggage FAQs",
+     "lettura": "browser"
+    }
+   },
+   "controllato_il": "2026-11-19",
+   "borse": [
+    {
+     "id": "personal",
+     "tipo": "sotto",
+     "nome": "personal item",
+     "cm": [
+      40,
+      30,
+      20
+     ],
+     "cm_ufficiali": true,
+     "pollici": [
+      15,
+      11,
+      7
+     ],
+     "pollici_ufficiali": true,
+     "peso": "3 kg",
+     "incluso": "tutte",
+     "cit": [
+      {
+       "f": "b",
+       "righe": [
+        "Additionally, passengers are allowed to bring one personal item, such as a laptop bag or handbag, with dimensions that do not exceed 40 cm/ 15 in x 30 cm/ 11 in x 20 cm/ 7 in."
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "In addition to one piece of cabin baggage, you may also carry one of the following personal items, subject to security regulations, provided it fits under the seat in front of you and does not weigh more than 3 kg / 6 lb:"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "cabin-bag",
+     "tipo": "sopra",
+     "nome": "cabin bag",
+     "cm": [
+      55,
+      40,
+      20
+     ],
+     "cm_ufficiali": true,
+     "pollici": [
+      21,
+      15,
+      7
+     ],
+     "pollici_ufficiali": true,
+     "peso": "7 kg (Economy and Premium Economy)",
+     "incluso": "tutte",
+     "cit": [
+      {
+       "f": "b",
+       "righe": [
+        "The standard dimensions for carry-on bags are limited to a maximum of 55 cm x 40 cm x 20 cm/21 in x 15 in x 7 in, including handles, pockets, and wheels."
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "The total dimensions of the bag",
+        "must not exceed 115 cm / 45 in"
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "Class of travel Premium Economy and Economy First and Business Class",
+        "Maximum weight 7 kg / 15 lb 10 kg / 22 lb"
+       ]
+      }
+     ],
+     "totale": {
+      "cm": 115,
+      "in": 45
+     }
+    }
+   ],
+   "tariffe": [
+    {
+     "nome": "Economy and Premium Economy",
+     "sotto": "Included (3 kg)",
+     "sopra": "1 included (7 kg)",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Class of travel Premium Economy and Economy First and Business Class",
+        "Maximum weight 7 kg / 15 lb 10 kg / 22 lb"
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "You may also carry one small personal item, such as a handbag or a bag for electronic devices, that fits under the seat in front of you."
+       ]
+      }
+     ]
+    },
+    {
+     "nome": "First and Business Class",
+     "sotto": "Included (3 kg)",
+     "sopra": "1 included (10 kg)",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Passengers may carry only one piece of hand baggage in compliance with Indian security regulations (ref. BCAS “One Hand Baggage Rule”, Circular 6/2000, dated 24 Feb 2000)."
+       ]
+      }
+     ]
+    }
+   ],
+   "avvisi": [
+    {
+     "f": "a",
+     "righe": [
+      "Cabin bag weighing more than 12 kg must be checked in, and applicable excess baggage charges will apply."
+     ]
+    }
+   ],
+   "extra": [],
+   "ambito": null,
+   "nota": null,
+   "misura": null,
+   "personale_senza_misura": null,
+   "nota_strumento": null
+  },
+  {
+   "slug": "indigo",
+   "nome": "IndiGo",
+   "paese": "India",
+   "area": "Asia",
+   "fonti": {
+    "a": {
+     "url": "https://www.goindigo.in/baggage/cabin-baggage.html",
+     "titolo": "IndiGo: Cabin Baggage",
+     "lettura": "browser"
+    }
+   },
+   "controllato_il": "2026-11-19",
+   "borse": [
+    {
+     "id": "cabin-bag",
+     "tipo": "sopra",
+     "nome": "cabin bag",
+     "cm": [
+      55,
+      35,
+      25
+     ],
+     "cm_ufficiali": true,
+     "pollici": null,
+     "pollici_ufficiali": false,
+     "peso": "7 kg",
+     "incluso": "tutte",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Cabin baggage dimensions: The maximum dimensions per piece are 55x35x25 cm (22x16x9 in), and the sum of these dimensions may not exceed 115 cm (45 in)."
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "1 piece up to 7 kg and 115 cm (L+W+H). This dimension includes handles and wheels."
+       ]
+      }
+     ],
+     "totale": {
+      "cm": 115,
+      "in": 45
+     }
+    }
+   ],
+   "tariffe": [
+    {
+     "nome": "Every passenger",
+     "sotto": "No separate size published",
+     "sopra": "1 included (7 kg)",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "1 piece up to 7 kg and 115 cm (L+W+H). This dimension includes handles and wheels."
+       ]
+      }
+     ]
+    }
+   ],
+   "avvisi": [
+    {
+     "f": "a",
+     "righe": [
+      "If your carry-on baggage cannot be safely accommodated in the overhead bin due to limited space, it may be checked in to support an on-time departure."
+     ]
+    }
+   ],
+   "extra": [
+    {
+     "f": "a",
+     "righe": [
+      "As baggage requirements are different for every flight, you will find the most accurate details on your reservation information and the baggage information on your ticket."
+     ]
+    },
+    {
+     "f": "a",
+     "righe": [
+      "Non wheeled & soft baggage may need to be stowed under the seat except the Emergency exits & first row."
+     ]
+    }
+   ],
+   "ambito": null,
+   "nota": "IndiGo's page also writes the size as “22x16x9 in”, which does not match its own centimetres (35 cm is about 13.8 in, 25 cm about 9.8 in). Our bag checker uses the centimetre figures and the 115 cm total.",
+   "misura": null,
+   "personale_senza_misura": null,
+   "nota_strumento": "IndiGo's inch figures (22x16x9 in) do not match its centimetres: we use 55 x 35 x 25 cm and the 115 cm total."
+  },
+  {
+   "slug": "air-transat",
+   "nome": "Air Transat",
+   "paese": "Canada",
+   "area": "North America",
+   "fonti": {
+    "a": {
+     "url": "https://www.airtransat.com/en-CA/general-information/general-information-baggage",
+     "titolo": "Air Transat: General information on baggage",
+     "lettura": "browser"
+    },
+    "b": {
+     "url": "https://www.airtransat.com/en-CA/travel-information/fare-options",
+     "titolo": "Air Transat: Our fare classes",
+     "lettura": "browser"
+    }
+   },
+   "controllato_il": "2026-11-19",
+   "borse": [
+    {
+     "id": "personal",
+     "tipo": "sotto",
+     "nome": "personal item",
+     "cm": [
+      43,
+      13,
+      31
+     ],
+     "cm_ufficiali": true,
+     "pollici": [
+      17,
+      5,
+      12
+     ],
+     "pollici_ufficiali": true,
+     "peso": null,
+     "incluso": "tutte",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Personal item maximum dimensions: 43 cm/17\" in length, 13 cm/5\" in width and 31 cm/12\" in height (1 per passenger)."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "carry-on",
+     "tipo": "sopra",
+     "nome": "carry-on baggage",
+     "cm": [
+      40,
+      23,
+      55
+     ],
+     "cm_ufficiali": true,
+     "pollici": [
+      15.5,
+      9,
+      21.5
+     ],
+     "pollici_ufficiali": true,
+     "peso": null,
+     "incluso": "alcune",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Carry-on baggage maximum dimensions: 40 cm/15.5\" in length, 23 cm/9\" in width and 55 cm/21.5\" in height."
+       ]
+      }
+     ]
+    }
+   ],
+   "tariffe": [
+    {
+     "nome": "Eco Budget",
+     "sotto": "Included",
+     "sopra": "Included only on flights to Europe, Africa, Peru and Brazil",
+     "cit": [
+      {
+       "f": "b",
+       "righe": [
+        "A personal item is included for all destinations, and a carry-on bag is also included for flights to Europe, Africa, Peru and Brazil."
+       ]
+      }
+     ]
+    },
+    {
+     "nome": "Eco Standard",
+     "sotto": "Included",
+     "sopra": "1 included",
+     "cit": [
+      {
+       "f": "b",
+       "righe": [
+        "In addition to one carry-on bag, flights to Europe, Africa, Peru and Brazil also include one checked bag."
+       ]
+      }
+     ]
+    }
+   ],
+   "avvisi": [
+    {
+     "f": "a",
+     "righe": [
+      "Remember to verify the dimensions and weight of both your checked and carry-on baggage. If your bags exceed the allowed size and/or weight, additional fees will apply."
+     ]
+    }
+   ],
+   "extra": [
+    {
+     "f": "a",
+     "righe": [
+      "If you would like to see the carry-on and checked baggage allowance for your flight and fare family, use our interactive baggage allowance checker."
+     ]
+    }
+   ],
+   "ambito": null,
+   "nota": null,
+   "misura": null,
+   "personale_senza_misura": null,
+   "nota_strumento": null
+  },
+  {
+   "slug": "porter",
+   "nome": "Porter Airlines",
+   "paese": "Canada",
+   "area": "North America",
+   "fonti": {
+    "a": {
+     "url": "https://www.flyporter.com/en-ca/travel-information/baggage/carry-on-allowance",
+     "titolo": "Porter Airlines: Carry-On Baggage",
+     "lettura": "browser"
+    }
+   },
+   "controllato_il": "2026-11-19",
+   "borse": [
+    {
+     "id": "personal",
+     "tipo": "sotto",
+     "nome": "personal item",
+     "cm": [
+      33,
+      43,
+      16
+     ],
+     "cm_ufficiali": true,
+     "pollici": [
+      13,
+      17,
+      6
+     ],
+     "pollici_ufficiali": true,
+     "peso": null,
+     "incluso": "tutte",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "All passengers are permitted one personal item on board."
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "Size allowance",
+        "33 x 43 x 16 cm (13 x 17 x 6 in)"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "carry-on",
+     "tipo": "sopra",
+     "nome": "standard carry-on bag",
+     "cm": [
+      55,
+      40,
+      23
+     ],
+     "cm_ufficiali": true,
+     "pollici": [
+      21.5,
+      15.5,
+      9
+     ],
+     "pollici_ufficiali": true,
+     "peso": null,
+     "incluso": "alcune",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "If you are travelling on a Basic fare, a standard carry-on bag is not included."
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "Size allowance",
+        "55 x 40 x 23 cm (21.5 x 15.5 x 9 in)"
+       ]
+      }
+     ]
+    }
+   ],
+   "tariffe": [
+    {
+     "nome": "Basic",
+     "sotto": "Included",
+     "sopra": "Not included",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "For example, if you are travelling on a Basic fare you are only permitted one personal item, with all other articles to be checked."
+       ]
+      }
+     ]
+    },
+    {
+     "nome": "Standard, Flexible, Freedom, Navigate and Ultimate",
+     "sotto": "Included",
+     "sopra": "Included",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Depending on the fare purchased, you can bring up to two free carry-on articles onboard, including a personal item and a standard carry-on bag."
+       ]
+      }
+     ]
+    }
+   ],
+   "avvisi": [
+    {
+     "f": "a",
+     "righe": [
+      "All carry-on baggage must fit in the sizing units located both at check-in and the gate areas."
+     ]
+    },
+    {
+     "f": "a",
+     "righe": [
+      "If your carry-on is oversized, it will be checked at the gate for a fee."
+     ]
+    }
+   ],
+   "extra": [],
+   "ambito": null,
+   "nota": null,
+   "misura": null,
+   "personale_senza_misura": null,
+   "nota_strumento": null
+  },
+  {
+   "slug": "jetstar",
+   "nome": "Jetstar",
+   "paese": "Australia",
+   "area": "Middle East and Australia",
+   "fonti": {
+    "a": {
+     "url": "https://www.jetstar.com/au/en/flights/baggage/carry-on-baggage",
+     "titolo": "Jetstar: Carry-on baggage",
+     "lettura": "browser"
+    },
+    "b": {
+     "url": "https://www.jetstar.com/au/en/flights/baggage/carry-on-baggage-updated",
+     "titolo": "Jetstar: Updates to carry-on baggage",
+     "lettura": "browser"
+    }
+   },
+   "controllato_il": "2026-11-19",
+   "borse": [
+    {
+     "id": "main-item",
+     "tipo": "sopra",
+     "nome": "main item",
+     "cm": [
+      56,
+      36,
+      23
+     ],
+     "cm_ufficiali": true,
+     "pollici": null,
+     "pollici_ufficiali": false,
+     "peso": "7 kg combined with the small item",
+     "incluso": "tutte",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Must fit in the overhead locker and not exceed 56cm (H) x 36cm (W) x 23cm (D)."
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "1 main item + 1 small item = combined weight 7kg"
+       ]
+      }
+     ]
+    }
+   ],
+   "tariffe": [
+    {
+     "nome": "Starter fare (flights before 2 February 2027)",
+     "sotto": "1 small item (no size published; must fit under the seat)",
+     "sopra": "1 main item (7 kg combined)",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "These allowances apply if you're travelling before 02 February 2027 or with Jetstar Japan (GK)."
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "Your carry-on allowance depends on the type of fare you've purchased. If you have a Starter fare, your carry-on allowance is 2 items with a combined weight of 7kg."
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "Includes items such as a handbag or thin laptop bag; must fit under seat."
+       ]
+      }
+     ]
+    },
+    {
+     "nome": "With +7kg Extra Carry-On Baggage or a fare or bundle that includes 14kg",
+     "sotto": "1 small item",
+     "sopra": "1 main item (14 kg combined, main item max 10 kg)",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "With 14kg you can bring 2 items: one main item (max 10kg) and one small item."
+       ]
+      }
+     ]
+    }
+   ],
+   "avvisi": [
+    {
+     "f": "a",
+     "righe": [
+      "We monitor baggage at the airport and excess baggage fees apply if you exceed your allowance. Your baggage may also need to be transferred to the hold and checked in."
+     ]
+    }
+   ],
+   "extra": [
+    {
+     "f": "b",
+     "righe": [
+      "We're updating our carry-on options on Jetstar Airways (JQ) flights for travel from 2 February 2027."
+     ]
+    },
+    {
+     "f": "b",
+     "righe": [
+      "All Jetstar Airways (JQ) bookings will include one underseat bag (up to 40 x 30 x 20cm)."
+     ]
+    },
+    {
+     "f": "b",
+     "righe": [
+      "Need more carry-on space? Upgrade to Priority Carry-on (subject to availability) to add an overhead bag (up to 56 x 36 x 23cm) and be one of the first to board."
+     ]
+    },
+    {
+     "f": "b",
+     "righe": [
+      "While we're removing the 7kg carry-on allowance, no single bag can weigh over 10kg for safety reasons."
+     ]
+    },
+    {
+     "f": "b",
+     "righe": [
+      "These changes apply to Jetstar Airways (JQ) flights only. Carry-on baggage allowance for Jetstar Japan (GK) flights remain unchanged."
+     ]
+    }
+   ],
+   "ambito": "Jetstar Airways (JQ) flights departing before 2 February 2027 and Jetstar Japan (GK) flights",
+   "nota": null,
+   "misura": "Jetstar changes its rules for Jetstar Airways (JQ) flights departing from 2 February 2027: every booking will include one underseat bag (up to 40 x 30 x 20 cm) and the overhead bag (up to 56 x 36 x 23 cm) will need Priority Carry-on or a bundle that includes it. The table below shows the rules for flights before that date; the new rules are quoted under “Other official details”.",
+   "personale_senza_misura": null,
+   "nota_strumento": "Rules for Jetstar Airways (JQ) flights before 2 February 2027. From that date only a 40 x 30 x 20 cm underseat bag is included; the 56 x 36 x 23 cm overhead bag needs Priority Carry-on."
+  },
+  {
+   "slug": "virgin-australia",
+   "nome": "Virgin Australia",
+   "paese": "Australia",
+   "area": "Middle East and Australia",
+   "fonti": {
+    "a": {
+     "url": "https://www.virginaustralia.com/au/en/travel-info/baggage/carry-on-baggage/",
+     "titolo": "Virgin Australia: Carry-on baggage",
+     "lettura": "browser"
+    }
+   },
+   "controllato_il": "2026-11-19",
+   "borse": [
+    {
+     "id": "personal",
+     "tipo": "sotto",
+     "nome": "personal item",
+     "cm": [
+      45,
+      33,
+      20
+     ],
+     "cm_ufficiali": true,
+     "pollici": null,
+     "pollici_ufficiali": false,
+     "peso": null,
+     "incluso": "tutte",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Plus, a personal item",
+        "Your carry-on allowance includes bringing one small personal item into the cabin.",
+        "It must be small enough to fit under the seat in front of you.",
+        "Maximum dimensions: L45cm × W33cm × H20cm"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "standard-bag",
+     "tipo": "sopra",
+     "nome": "standard bag",
+     "cm": [
+      56,
+      36,
+      23
+     ],
+     "cm_ufficiali": true,
+     "pollici": null,
+     "pollici_ufficiali": false,
+     "peso": "8 kg",
+     "incluso": "tutte",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "One standard bag",
+        "8kg total weight",
+        "Maximum dimensions:",
+        "L56cm x W36cm x H23cm"
+       ]
+      }
+     ]
+    }
+   ],
+   "tariffe": [
+    {
+     "nome": "Economy (including Velocity Red and Silver members)",
+     "sotto": "Included",
+     "sopra": "1 standard bag (8 kg)",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Guests travelling in Economy Class, including Velocity Red or Silver members:",
+        "may bring one carry-on option for the overhead locker (up to 8kg total)",
+        "plus one personal item."
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "No individual item can exceed 8kg in weight."
+       ]
+      }
+     ]
+    },
+    {
+     "nome": "Business, Economy X, Velocity Gold, Platinum and Platinum Plus",
+     "sotto": "Included",
+     "sopra": "Up to 14 kg combined (one of several options)",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "Guests travelling in Business Class, Velocity Gold, Platinum or Platinum Plus members, and those seated in Economy X may bring:",
+        "One of the carry-on options below (up to 14kg combined weight), and"
+       ]
+      }
+     ]
+    }
+   ],
+   "avvisi": [
+    {
+     "f": "a",
+     "righe": [
+      "Carry-on bags that exceed the permitted size or weight limits cannot be taken into the cabin, as they may pose a safety risk to guests and crew. These items will need to be checked in, and baggage fees may apply."
+     ]
+    },
+    {
+     "f": "a",
+     "righe": [
+      "If the lockers are full, our team may ask you to check your carry-on bag at the boarding gate."
+     ]
+    }
+   ],
+   "extra": [
+    {
+     "f": "a",
+     "righe": [
+      "Guests travelling on flights operated by Alliance Airlines or Link Airways on behalf of Virgin Australia will receive the Economy carry-on allowance, regardless of cabin or Velocity status."
+     ]
+    }
+   ],
+   "ambito": null,
+   "nota": null,
+   "misura": null,
+   "personale_senza_misura": null,
+   "nota_strumento": null
+  },
+  {
+   "slug": "turkish-airlines",
+   "nome": "Turkish Airlines",
+   "paese": "Türkiye",
+   "area": "Europe",
+   "fonti": {
+    "a": {
+     "url": "https://www.turkishairlines.com/en-int/any-questions/carry-on-baggage/",
+     "titolo": "Turkish Airlines: Cabin Baggage Size and Rules",
+     "lettura": "browser"
+    }
+   },
+   "controllato_il": "2026-11-19",
+   "borse": [
+    {
+     "id": "personal",
+     "tipo": "sotto",
+     "nome": "personal item",
+     "cm": [
+      40,
+      30,
+      15
+     ],
+     "cm_ufficiali": true,
+     "pollici": null,
+     "pollici_ufficiali": false,
+     "peso": "4 kg",
+     "incluso": "tutte",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "You may also take one piece of personal item measuring 40x30x15 cm and weighing a maximum of 4 kg."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "cabin-baggage",
+     "tipo": "sopra",
+     "nome": "cabin baggage",
+     "cm": [
+      23,
+      40,
+      55
+     ],
+     "cm_ufficiali": true,
+     "pollici": null,
+     "pollici_ufficiali": false,
+     "peso": "8 kg",
+     "incluso": "tutte",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "For your Economy class travels, you may take one piece of cabin baggage with a maximum dimensions of 23x40x55 cm and a maximum weight of 8 kg."
+       ]
+      }
+     ]
+    }
+   ],
+   "tariffe": [
+    {
+     "nome": "Economy class",
+     "sotto": "Included (4 kg)",
+     "sopra": "1 included (8 kg)",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "For your Economy class travels, you may take one piece of cabin baggage with a maximum dimensions of 23x40x55 cm and a maximum weight of 8 kg. You may also take one piece of personal item measuring 40x30x15 cm and weighing a maximum of 4 kg."
+       ]
+      }
+     ]
+    },
+    {
+     "nome": "Business class",
+     "sotto": "Included (4 kg)",
+     "sopra": "2 included (8 kg each)",
+     "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "For your Business class travels, you may carry two pieces of cabin baggages, each measuring 23x40x55 cm and weighing 8 kg, not exceeding 16 kg in total. You can also take one piece of personal item measuring 40x30x15 cm and weighing a maximum of 4 kg."
+       ]
+      }
+     ]
+    }
+   ],
+   "avvisi": [
+    {
+     "f": "a",
+     "righe": [
+      "During the controls at the boarding gate, payment is taken for cabin baggage that does not comply with the rules and is untagged, and it is carried in the cargo hold of the aircraft in which the passenger is traveling."
+     ]
+    }
+   ],
+   "extra": [
+    {
+     "f": "a",
+     "righe": [
+      "For flights operated with more than one airline (interline), cabin baggage allowances are determined by the operating airline in accordance with IATA rules."
+     ]
+    },
+    {
+     "f": "a",
+     "righe": [
+      "Some conditions and rights may vary depending on the flight, you can obtain the most accurate details about baggage information on the reservation and ticket."
+     ]
+    }
+   ],
+   "ambito": null,
+   "nota": null,
+   "misura": null,
+   "personale_senza_misura": null,
+   "nota_strumento": null
   }
  ],
  "escluse": [
   {
-   "nome": "Turkish Airlines",
-   "motivo": "the carry-on baggage page on turkishairlines.com did not load for automated readers on 18 October 2026 (empty response or blank page, also in a browser)"
+   "nome": "Spirit Airlines",
+   "motivo": "spirit.com and customersupport.spirit.com could not be reached from our reader on 19 November 2026 (no connection), so no size could be read from an official page",
+   "stato": "non verificata",
+   "provato_il": "2026-11-19",
+   "url_provati": [
+    "https://www.spirit.com/optional-services",
+    "https://customersupport.spirit.com/en-us/category/article/KA-01154"
+   ]
+  },
+  {
+   "nome": "Allegiant Air",
+   "motivo": "allegiantair.com answered our reader with an anti-robot check (“Just a moment...”) on 19 November 2026, on two official pages",
+   "stato": "non verificata",
+   "provato_il": "2026-11-19",
+   "url_provati": [
+    "https://www.allegiantair.com/popup/optional-services-fees",
+    "https://www.allegiantair.com/baggage-information"
+   ]
+  },
+  {
+   "nome": "Sun Country Airlines",
+   "motivo": "suncountry.com loaded without its text or refused the request on 19 November 2026, and the contract of carriage on its investor site answered “403”",
+   "stato": "non verificata",
+   "provato_il": "2026-11-19",
+   "url_provati": [
+    "https://www.suncountry.com/bags",
+    "https://www.suncountry.com/help/bags",
+    "https://ir.suncountry.com/static-files/0e75bae8-3e47-4c35-8e63-9f78cf003b6b"
+   ]
+  },
+  {
+   "nome": "Hawaiian Airlines",
+   "motivo": "the carry-on page on hawaiianairlines.com (shared with Alaska Airlines) loaded without its text, navigation only, on 19 November 2026",
+   "stato": "non verificata",
+   "provato_il": "2026-11-19",
+   "url_provati": [
+    "https://www.hawaiianairlines.com/content/travel-info/baggage/carry-on-luggage"
+   ]
+  },
+  {
+   "nome": "Transavia",
+   "motivo": "the hand luggage pages on transavia.com answered with an anti-robot block (“Attention Required!”) or did not answer on 19 November 2026",
+   "stato": "non verificata",
+   "provato_il": "2026-11-19",
+   "url_provati": [
+    "https://www.transavia.com/help/en-eu/baggage/hand-luggage/",
+    "https://www.transavia.com/en-EU/service/hand-luggage/"
+   ]
   },
   {
    "nome": "Aer Lingus",
-   "motivo": "the cabin baggage page on aerlingus.com shows an anti-robot check (“Pardon Our Interruption”), also in a browser; the only page we could read is an undated pop-up that may be out of date"
+   "motivo": "the baggage pages on aerlingus.com show an anti-robot check (“Pardon Our Interruption”), also in a browser, again on 19 November 2026",
+   "stato": "non verificata",
+   "provato_il": "2026-11-19",
+   "url_provati": [
+    "https://www.aerlingus.com/prepare/bags/carry-on-baggage/",
+    "https://www.aerlingus.com/prepare/bags/"
+   ]
+  },
+  {
+   "nome": "Flair Airlines",
+   "motivo": "the baggage pages on flyflair.com answered with an anti-robot block (“Attention Required!”) on 19 November 2026",
+   "stato": "non verificata",
+   "provato_il": "2026-11-19",
+   "url_provati": [
+    "https://www.flyflair.com/travel-info/baggage",
+    "https://www.flyflair.com/travel-info/baggage/allowance-and-fees"
+   ]
   },
   {
    "nome": "SAS",
    "motivo": "flysas.com blocks automated readers (“Access Restricted”), also in a browser"
-  },
-  {
-   "nome": "Transavia",
-   "motivo": "the hand luggage pages on transavia.com returned an error page or a redirect loop on 18 October 2026"
-  },
-  {
-   "nome": "Alaska Airlines",
-   "motivo": "the carry-on page on alaskaair.com loaded without its text (navigation only)"
-  },
-  {
-   "nome": "Spirit Airlines",
-   "motivo": "the help article on customersupport.spirit.com could not be reached (connection refused)"
   }
  ],
  "ue": {

@@ -2971,7 +2971,8 @@ AMAZON_ACCESO = bool((AMAZON_BAG.get("url") or "").strip())
 AMAZON_TAG = dict(AMAZON_BAG.get("tag") or {})
 AMAZON_FRASE = "As an Amazon Associate we earn from qualifying purchases."  # frase richiesta da Amazon Associates
 AMAZON_NOME = {"amazon.co.uk": "Amazon.co.uk", "amazon.com": "Amazon.com"}
-MERCATI_AREA = {"Europe": ["amazon.co.uk"], "North America": ["amazon.com"], "Middle East and Australia": ["amazon.co.uk", "amazon.com"]}
+MERCATI_AREA = {"Europe": ["amazon.co.uk"], "North America": ["amazon.com"], "Middle East and Australia": ["amazon.co.uk", "amazon.com"],
+                "Asia": ["amazon.co.uk", "amazon.com"]}  # Asia (Air India, IndiGo, dal 19/11/2026): pubblico misto, entrambi
 
 
 def amazon_link(dominio, ricerca):
@@ -3220,7 +3221,7 @@ def indice_bagagli():
             return "–"
         return "<br>".join(escape(misura_testo(b, C)) + (f' <span class="small">{escape(b["peso"])}</span>' if b.get("peso") else "") for b in bb)
     tabelle = []
-    for area in ["Europe", "North America", "Middle East and Australia"]:
+    for area in ["Europe", "North America", "Middle East and Australia", "Asia"]:
         if area not in gruppi:
             continue
         righe = "".join(f'<tr data-voce><td data-l="Airline"><a href="{rel}{BAG_BASE}/{C["slug"]}/"><strong>{escape(C["nome"])}</strong></a></td>'
@@ -7051,6 +7052,27 @@ PET_CALC = f"{PET_BASE}/date-calculator/"
 PET_PASS = f"{PET_BASE}/uk-pet-passport-2027/"
 PET_ROTTE = f"{PET_BASE}/approved-routes-great-britain/"
 LIMITE_TITOLO_PET = 70
+# Giro dei titoli della sezione (18/11/2026, studio-business/intelaiatura/fronti-2026-11-18-animali.md): la frase misurata per prima, <= 65 caratteri.
+# Ricerche al mese nel Regno Unito (medie Google Ads, misurate il 18/11/2026): "animal health certificate" 3.600 (cost 720), "pet passport" 6.600,
+# "dog passport" 6.600, "pet passport uk" 4.400, "dog passport uk" 2.900, "dogs on eurostar" 1.300 ("can you take dogs on eurostar" 1.000),
+# "eurotunnel dogs" 480, "taking a dog to france" 2.900 ("taking dog to france" 2.400), "taking a dog to ireland" 390, "… to spain" 260.
+# "taking dog to <Paese> from uk" (la forma di prima): Francia 260, Irlanda 260, Spagna 110, quasi tutti gli altri 0.
+LIMITE_TITOLO_PET_NUOVO = 65
+ARTICOLO_PET = {"NL": "the "}
+
+
+def nome_frase_pet(p):
+    return ARTICOLO_PET.get(p["iso2"], "") + p["nome"]
+
+
+def titoli_paese_pet(p):
+    n = nome_frase_pet(p)
+    return [f"Taking a Dog to {n} from the UK ({ANNO}): AHC and Rules", f"Taking a Dog to {n} from the UK ({ANNO}): AHC Rules", f"Taking a Dog to {n} from the UK ({ANNO})"]
+
+
+TITOLI_INDICE_PET = [f"Animal Health Certificate (AHC) {ANNO}: UK to EU Pet Travel Rules", f"Animal Health Certificate (AHC) {ANNO}: UK to EU Rules"]
+TITOLI_PASS_PET = [f"Pet Passport UK {ANNO}: AHC Now, New Pet Passport Expected 2027", f"Pet Passport UK {ANNO}: AHC Now, New Passport Expected 2027"]
+TITOLI_ROTTE_PET = [f"Dogs on Eurostar? Approved Pet Routes to Great Britain ({ANNO})", f"Dogs on Eurostar? Pet Routes to Great Britain ({ANNO})"]
 TENIA_PET = ["FI", "IE", "MT", "NO"]  # GOV.UK: verme solitario prima di entrare (più l'Irlanda del Nord, che non è una destinazione di questa sezione)
 PET_CIT = {c["id"]: c for c in PET["citazioni"]} if PET else {}
 PET_PAESI = PET["paesi"] if PET else []
@@ -7160,7 +7182,8 @@ def faq_pet(voci, extra_data):
     for f in voci:
         parti = ([f["pre"]] if f.get("pre") else []) + [f"“{testo_cit_pet(PET_CIT[i])}”" for i in f.get("cit", [])] + ([f["post"]] if f.get("post") else [])
         out.append((f["q"], " ".join(parti)))
-    out.append(("Where does this answer come from?", f"From GOV.UK and the European Commission, read on {data_lunga(extra_data)} and quoted word for word on "
+    eurostar = any(PET_CIT[i]["f"] == "es_pets" for f in voci for i in f.get("cit", []))  # 18/11/2026: la risposta di Eurostar sugli animali a bordo
+    out.append(("Where does this answer come from?", f"From GOV.UK{', the European Commission and Eurostar' if eurostar else ' and the European Commission'}, read on {data_lunga(extra_data)} and quoted word for word on "
                                                      "this page. It is information, not veterinary or legal advice: check with your vet and the official page."))
     return out
 
@@ -7182,7 +7205,8 @@ def faq_paese_pet(p):
         q = next((x.format(p=query_pet(p)) for x in m["query"] if x.format(p=query_pet(p)) in RICERCHE_PET), None)
         if not q:
             continue
-        sost = lambda s: s.replace("{paese}", p["nome"])
+        _nf = nome_frase_pet(p)  # "the Netherlands" nelle frasi; maiuscola a inizio frase (19/11/2026)
+        sost = lambda s: (_nf[0].upper() + _nf[1:] + s[len("{paese}"):] if s.startswith("{paese}") else s).replace("{paese}", _nf)
         out.append({"query": q, "q": sost(m["q"]), "cit": m["cit"], "pre": sost(m.get("pre", "")), "post": sost(m.get("post", ""))})
     return out
 
@@ -7398,7 +7422,7 @@ def pagina_indice_pet():
                  ("return", "6. Coming back to Great Britain", ["g_ahc", "g_oltre6", "g_tenia", "e_ritorno_tenia", "g_rotta", "g_quarantena"])]
     passi = "".join(f'<h2 id="{k}">{escape(t)}</h2>{blocco_cit_pet(ii)}' for k, t, ii in ids_passi)
     faq_h, faq_ld = html_faq_pet(faq_pet(PET["faq"]["indice"], data_pet()))
-    corpo = f"""<section class="hero">{h1_diviso(f"Taking a dog or cat from the UK to the EU ({ANNO}): what you need")}
+    corpo = f"""<section class="hero">{h1_diviso(f"Animal health certificate (AHC) {ANNO}: taking a dog or cat from the UK to the EU")}
 <p class="lead" id="answer">{escape(prima_frase_pet())}</p></section>
 {box_2027_pet(rel)}
 {AVVISO_PET}
@@ -7413,12 +7437,13 @@ def pagina_indice_pet():
 {passi}
 <h2>Approved routes into Great Britain</h2>
 <p>To come back by air, sea or rail you must use a carrier and route approved by APHA (except from Ireland, the UK, the Channel Islands and the Isle of Man): <a href="{rel}{PET_ROTTE}">every approved airline, ferry and train</a>.</p>
+{link_da(rel)}
 {faq_h}
 <p class="small">Spotted a change? <a href="{rel}contact/?ref=pets">Tell us</a>. Help from the government: {escape(PET_CIT["e_aiuto"]["x"])}</p>
 {NOTA_OGL_PET}"""
-    desc = scegli([f"Microchip, rabies vaccine and 21-day wait, animal health certificate, tapeworm: taking a dog or cat from the UK to the EU, from GOV.UK, checked {d}.",
-                   f"Taking a dog or cat from the UK to the EU: AHC, rabies, tapeworm and return rules from GOV.UK, checked on {d}."], LIMITE_DESCRIZIONE)
-    pagina(f"{PET_BASE}/", scegli([f"Taking a Dog or Cat from the UK to the EU ({ANNO}): AHC Rules"], LIMITE_TITOLO_PET), desc, corpo,
+    desc = scegli([f"Animal health certificate for a dog or cat from the UK to the EU: microchip, rabies wait, 10-day window, tapeworm, cost. GOV.UK, checked {d}.",
+                   f"Animal health certificate (AHC) from the UK to the EU: rabies, tapeworm and return rules from GOV.UK, checked on {d}."], LIMITE_DESCRIZIONE)
+    pagina(f"{PET_BASE}/", scegli(TITOLI_INDICE_PET, LIMITE_TITOLO_PET_NUOVO), desc, corpo,
            briciole=[("Pets: UK to EU", f"{PET_BASE}/")], ld_extra=faq_ld)
     LASTMOD[f"{PET_BASE}/"] = data_pet()
 
@@ -7479,7 +7504,7 @@ def pagina_passaporto_pet():
                f'<tr><th scope="row">Cost and how to apply</th><td>Not published on the GOV.UK pages we read</td></tr>'
                f'<tr><th scope="row">Checked</th><td>{d} (GOV.UK page updated on {data_lunga(F["aggiornato_il"])})</td></tr>')
     faq_h, faq_ld = html_faq_pet(faq_pet(PET["faq"]["passaporto"], data_pet(ids)))
-    corpo = f"""<section class="hero">{h1_diviso(f"UK pet passport 2027: what GOV.UK says so far")}
+    corpo = f"""<section class="hero">{h1_diviso(f"Pet passport UK ({ANNO}): an animal health certificate now, a new pet passport expected in 2027")}
 <p class="lead" id="answer">According to GOV.UK (Defra), checked on {d}, the UK–EU SPS agreement is intended to take effect in mid-2027, and pet owners will then be able to get a multiuse pet passport valid for EU travel instead of a new animal health certificate for each trip; GOV.UK gives no exact date or cost yet, and until then you still need an animal health certificate.</p></section>
 {AVVISO_PET}
 <h2>At a glance</h2>
@@ -7487,7 +7512,7 @@ def pagina_passaporto_pet():
 <h2 id="official">What GOV.UK says</h2>
 {blocco_cit_pet(ids)}
 <h2 id="today">What you need today</h2>
-{blocco_cit_pet(["e_passaporto_no", "e_ahc10", "e_ogni_viaggio"])}
+{blocco_cit_pet(["e_passaporto_no", "e_ni", "e_ahc10", "e_ogni_viaggio"])}
 {blocco_cit_pet(["u_uk"])}
 <p>Step by step: <a href="{rel}{PET_BASE}/">taking a dog or cat from the UK to the EU</a>, and the <a href="{rel}{PET_CALC}">date calculator</a>.</p>
 {AD}
@@ -7496,10 +7521,9 @@ def pagina_passaporto_pet():
 {faq_h}
 <p class="small">Spotted a change? <a href="{rel}contact/?ref=pets-2027">Tell us</a>.</p>
 {NOTA_OGL_PET}"""
-    desc = scegli([f"Will UK pet passports return in 2027? What GOV.UK says about the SPS agreement and the multiuse pet passport, checked on {d}.",
-                   f"UK pet passport 2027: what GOV.UK says so far, checked on {d}."], LIMITE_DESCRIZIONE)
-    pagina(PET_PASS, scegli([f"UK Pet Passport 2027: What GOV.UK Says So Far (Checked {data_lunga(data_pet(ids)).split(' ', 1)[1]})",
-                             "UK Pet Passport 2027: What GOV.UK Says So Far"], LIMITE_TITOLO_PET), desc, corpo,
+    desc = scegli([f"Pet passport UK: you need an animal health certificate for each EU trip today; GOV.UK expects a new pet passport in mid-2027. Checked on {d}.",
+                   f"Pet passport UK: animal health certificate today, new pet passport expected in mid-2027. GOV.UK, checked on {d}."], LIMITE_DESCRIZIONE)
+    pagina(PET_PASS, scegli(TITOLI_PASS_PET, LIMITE_TITOLO_PET_NUOVO), desc, corpo,
            briciole=[("Pets: UK to EU", f"{PET_BASE}/"), ("UK pet passport 2027", PET_PASS)], ld_extra=faq_ld)
     LASTMOD[PET_PASS] = data_pet(ids)
 
@@ -7525,7 +7549,7 @@ def pagina_rotte_pet():
     col_a = [("compagnia", "Airline"), ("aeroporti", "UK airports (animal reception centre)")]
     faq_h, faq_ld = html_faq_pet(faq_pet(PET["faq"]["rotte"], data_pet(ids)))
     corpo = f"""<section class="hero">{h1_diviso(f"Bringing a pet to Great Britain: approved airlines, ferries and trains ({ANNO})")}
-<p class="lead" id="answer">According to GOV.UK (Animal and Plant Health Agency), in lists updated on {agg} and checked on {d}, you can bring a pet dog, cat or ferret into England or Scotland only with an approved carrier on an approved route ({nc} commercial airlines, {nch} charter operators, {len(R["mare"])} ferry routes, {len(R["treno"])} rail routes and {len(R["crociera"])} cruise routes), unless you travel from the UK, the Channel Islands, the Isle of Man or Ireland; there are no approved routes to Wales.</p></section>
+<p class="lead" id="answer">According to GOV.UK (Animal and Plant Health Agency), in lists updated on {agg} and checked on {d}, you can bring a pet dog, cat or ferret into England or Scotland only with an approved carrier on an approved route ({nc} commercial airlines, {nch} charter operators, {len(R["mare"])} ferry routes, {len(R["treno"])} rail routes and {len(R["crociera"])} cruise routes), unless you travel from the UK, the Channel Islands, the Isle of Man or Ireland; there are no approved routes to Wales. Eurostar is on the rail list, but Eurostar itself says that it accepts only guide and assistance dogs on its trains to and from London.</p></section>
 {AVVISO_PET}
 <h2 id="official">What GOV.UK says</h2>
 {blocco_cit_pet(ids)}
@@ -7533,6 +7557,9 @@ def pagina_rotte_pet():
 <div class="tab tab-b"><table><caption class="cap">Approved ferry routes into Great Britain for pets (GOV.UK, updated on {data_lunga(PET["fonti"]["gov_mare"]["aggiornato_il"])}, checked on {data_lunga(PET["fonti"]["gov_mare"]["letto_il"])})</caption><thead><tr><th>From</th><th>Route</th><th>Company</th></tr></thead><tbody>{righe_rotte_pet(R["mare"], col_m)}</tbody></table></div>
 <h2 id="rail">Rail (Eurotunnel and Eurostar)</h2>
 <div class="tab tab-b"><table><caption class="cap">Approved rail routes for pets (GOV.UK)</caption><thead><tr><th>Country you’re travelling from</th><th>Route</th><th>Company</th></tr></thead><tbody>{righe_rotte_pet(R["treno"], [("da", "From"), ("rotta", "Route"), ("compagnia", "Company")])}</tbody></table></div>
+<h3 id="eurostar">Dogs on Eurostar</h3>
+<p>The Eurostar route is on GOV.UK’s approved list, but the company decides who boards. Eurostar says:</p>
+{blocco_cit_pet(["es_no", "es_assist", "es_altre"])}
 <h2 id="cruises">Cruises</h2>
 <div class="tab tab-b"><table><caption class="cap">Approved cruise routes for pets (GOV.UK)</caption><thead><tr><th>Country you’re travelling from</th><th>Route</th><th>Company</th></tr></thead><tbody>{righe_rotte_pet(R["crociera"], [("da", "From"), ("rotta", "Route"), ("compagnia", "Company")])}</tbody></table></div>
 {AD}
@@ -7544,13 +7571,14 @@ def pagina_rotte_pet():
 <h3>Charter airlines</h3>
 <p>GOV.UK also lists {nch} approved charter operators (private and business flights), each with the UK airports it can fly pets to. We do not copy that list here: see <a href="{escape(PET["fonti"]["gov_aria"]["pagina"])}#charter-airlines" rel="noopener">section 2, “Charter airlines”, of the GOV.UK list</a>.</p>
 <p class="small">Tables copied row by row from GOV.UK. Ask the carrier whether it will take your pet on your date before you book.</p>
+{link_da(rel)}
 {faq_h}
 <p class="small"><a href="{rel}{PET_BASE}/">Taking a dog or cat from the UK to the EU</a> · <a href="{rel}{PET_CALC}">Pet travel date calculator</a> · <a href="{rel}{PET_PASS}">UK pet passport 2027</a></p>
 {NOTA_OGL_PET}"""
-    desc = scegli([f"Which airlines, ferries and trains can bring a dog, cat or ferret into Great Britain: the APHA approved routes from GOV.UK, updated {agg}.",
+    desc = scegli([f"Dogs on Eurostar to London: assistance dogs only. Eurotunnel, ferries and airlines approved for pets entering Great Britain (GOV.UK), updated {agg}.",
+                   f"Which airlines, ferries and trains can bring a dog, cat or ferret into Great Britain: the APHA approved routes from GOV.UK, updated {agg}.",
                    "Approved airlines, ferries and trains for pets travelling to Great Britain, from GOV.UK."], LIMITE_DESCRIZIONE)
-    pagina(PET_ROTTE, scegli([f"Bringing a Pet to Great Britain: Approved Airlines and Ferries ({ANNO})", f"Pets into Great Britain: Approved Airlines and Ferries ({ANNO})"],
-                             LIMITE_TITOLO_PET), desc, corpo, briciole=[("Pets: UK to EU", f"{PET_BASE}/"), ("Approved routes", PET_ROTTE)],
+    pagina(PET_ROTTE, scegli(TITOLI_ROTTE_PET, LIMITE_TITOLO_PET_NUOVO), desc, corpo, briciole=[("Pets: UK to EU", f"{PET_BASE}/"), ("Approved routes", PET_ROTTE)],
            js=APP_JS_FILTRO, ld_extra=faq_ld)
     LASTMOD[PET_ROTTE] = data_pet(ids)
 
@@ -7563,7 +7591,7 @@ def rotte_ritorno_pet(p):
 
 
 def risposta_paese_pet(p):
-    n = p["nome"]
+    n = nome_frase_pet(p)  # "the Netherlands" nelle frasi (19/11/2026)
     base = (f"According to GOV.UK and the European Commission, checked on {data_lunga(data_pet())}, to take a dog, cat or ferret from Great Britain to {n} you need "
             "a microchip, a rabies vaccination given at least 21 full days before you travel and an animal health certificate, valid for entering the EU for 10 days")
     if tenia_pet(p["iso2"]):
@@ -7575,6 +7603,8 @@ def risposta_paese_pet(p):
 def pagina_paese_pet(p):
     rel = "../../"
     c, n = p["iso2"], p["nome"]
+    nf = nome_frase_pet(p)  # "the Netherlands" nelle frasi (19/11/2026)
+    Nf = nf[0].upper() + nf[1:]
     t = tenia_pet(c)
     rotte = rotte_ritorno_pet(p)
     dp = data_lunga(data_pet())
@@ -7584,15 +7614,15 @@ def pagina_paese_pet(p):
         ritorno_rotte = f"<p>Approved routes are not needed from Ireland. GOV.UK says:</p>{blocco_cit_pet(['g_rotta'])}"
         breve_rotte = "Not needed from Ireland (GOV.UK)"
     elif rotte:
-        ritorno_rotte = (f'<div class="tab tab-b"><table><caption class="cap">Approved routes from {escape(n)} to Great Britain for pets (GOV.UK, updated on '
+        ritorno_rotte = (f'<div class="tab tab-b"><table><caption class="cap">Approved routes from {escape(nf)} to Great Britain for pets (GOV.UK, updated on '
                          f'{data_lunga(PET["fonti"]["gov_mare"]["aggiornato_il"])})</caption><thead><tr><th>Route</th><th>Company</th></tr></thead><tbody>'
                          f'{righe_rotte_pet(rotte, [("rotta", "Route"), ("compagnia", "Company")])}</tbody></table></div>')
         breve_rotte = f"{len(rotte)} by sea or rail, plus approved airlines"
     else:
-        ritorno_rotte = (f'<p>GOV.UK lists no approved ferry, rail or cruise route from {escape(n)}: by air, pets travel as cargo with an approved airline, '
+        ritorno_rotte = (f'<p>GOV.UK lists no approved ferry, rail or cruise route from {escape(nf)}: by air, pets travel as cargo with an approved airline, '
                          f'or you can drive to an approved route from another country (for example the ferries and Eurotunnel from France). '
                          f'See <a href="{rel}{PET_ROTTE}#airlines">the approved airlines and UK airports</a> and <a href="{rel}{PET_ROTTE}#ferries">the ferry and rail routes</a>.</p>')
-        breve_rotte = f"No sea or rail route from {n} in the GOV.UK list: approved airlines, or a listed route from another country"
+        breve_rotte = f"No sea or rail route from {nf} in the GOV.UK list: approved airlines, or a listed route from another country"
     sguardo = (f'<tr><th scope="row">Document</th><td>Animal health certificate from an official vet (a pet passport cannot be used if you live in England, Scotland or Wales)</td></tr>'
                f'<tr><th scope="row">Rabies</th><td>At least 21 full days after the first vaccination</td></tr>'
                f'<tr><th scope="row">Tapeworm to enter (dogs)</th><td>{"Yes: 24 to 120 hours before you arrive" if t else "No"}</td></tr>'
@@ -7602,27 +7632,27 @@ def pagina_paese_pet(p):
     faq_h, faq_ld = html_faq_pet(faq_pet(faq_paese_pet(p), data_pet()))
     altri = link_paesi_pet(rel, salta=c)
     guida = link_guida_pet(rel, c)
-    corpo = f"""<section class="hero">{h1_diviso(f"Taking your dog or cat from the UK to {n} ({ANNO})")}</section>
+    corpo = f"""<section class="hero">{h1_diviso(f"Taking a dog or cat to {nome_frase_pet(p)} from the UK ({ANNO})")}</section>
 <section class="card summary" aria-label="Answer">
 <div class="s-top"><span class="sq">{ico("paw")}</span><span>Pets · UK to {escape(n)}</span><span>{ANNO}</span></div>
 <div class="s-body"><p class="lead" id="answer">{escape(risposta_paese_pet(p))}</p></div></section>
 {box_2027_pet(rel)}
 {AVVISO_PET}
 <h2>At a glance</h2>
-<div class="tab tab-g"><table><caption class="cap">Taking a pet from Great Britain to {escape(n)}: our summary of the official sources, checked on {dp}</caption><tbody>{sguardo}</tbody></table></div>
-<section class="card" aria-label="Date calculator" style="margin-top:18px"><h2 style="margin-top:0">{ico("calendar")}Your dates for {escape(n)}</h2>
-<p><a href="{rel}{PET_CALC}?dest={c}">Open the date calculator for {escape(n)}</a>: earliest day for the animal health certificate, the 10-day window{", the tapeworm times" if t else ""} and the date you must be back.</p></section>
+<div class="tab tab-g"><table><caption class="cap">Taking a pet from Great Britain to {escape(nf)}: our summary of the official sources, checked on {dp}</caption><tbody>{sguardo}</tbody></table></div>
+<section class="card" aria-label="Date calculator" style="margin-top:18px"><h2 style="margin-top:0">{ico("calendar")}Your dates for {escape(nf)}</h2>
+<p><a href="{rel}{PET_CALC}?dest={c}">Open the date calculator for {escape(nf)}</a>: earliest day for the animal health certificate, the 10-day window{", the tapeworm times" if t else ""} and the date you must be back.</p></section>
 <h2 id="official">What GOV.UK says</h2>
 {blocco_cit_pet(["e_chip", "e_21", "e_ahc10", "e_ahc_ov", "e_passaporto_no"])}
 <h2 id="tapeworm">Tapeworm treatment for dogs</h2>
-{f"<p>{escape(n)} is on the GOV.UK list:</p>" if t else f"<p>{escape(n)} is not on the GOV.UK list, so there is no tapeworm rule to enter:</p>"}
+{f"<p>{escape(Nf)} is on the GOV.UK list:</p>" if t else f"<p>{escape(Nf)} is not on the GOV.UK list, so there is no tapeworm rule to enter:</p>"}
 {blocco_cit_pet(["e_tenia", "e_tenia_quando"] if t else ["e_tenia"])}
-<h2 id="arrival">Arriving in {escape(n)}</h2>
+<h2 id="arrival">Arriving in {escape(nf)}</h2>
 {blocco_cit_pet(["e_ingresso", "e_regole_paese"])}
-<p>The European Commission links these official pages for {escape(n)}: {ing}{info if info else "(no link to national information on the Commission page on " + dp + ")"}</p>
+<p>The European Commission links these official pages for {escape(nf)}: {ing}{info if info else "(no link to national information on the Commission page on " + dp + ")"}</p>
 {blocco_cit_pet(["p_intro"])}
 {AD}
-<h2 id="return">Coming back to Great Britain from {escape(n)}</h2>
+<h2 id="return">Coming back to Great Britain from {escape(nf)}</h2>
 {blocco_cit_pet(["g_ahc", "g_oltre6"] + (["e_ritorno_tenia"] if t else ["g_tenia"]))}
 {ritorno_rotte}
 {guida}
@@ -7631,9 +7661,9 @@ def pagina_paese_pet(p):
 {faq_h}
 <p class="small">Spotted a change? <a href="{rel}contact/?ref=pets">Tell us</a>. <a href="{rel}{PET_BASE}/">Taking a dog or cat from the UK to the EU: all the rules</a> · <a href="{rel}{PET_ROTTE}">Approved routes</a></p>
 {NOTA_OGL_PET}"""
-    desc = scegli([f"Taking a dog or cat from the UK to {n}: microchip, rabies wait, animal health certificate{', tapeworm' if t else ''} and the way back. Official, checked {dp}.",
-                   f"Taking a dog or cat from the UK to {n}: rules from GOV.UK and the European Commission, checked on {dp}."], LIMITE_DESCRIZIONE)
-    pagina(url_pet(p), scegli([f"Taking a Dog from the UK to {n} ({ANNO}): AHC and Rules", f"Taking a Dog from the UK to {n} ({ANNO})"], LIMITE_TITOLO_PET), desc, corpo,
+    desc = scegli([f"Taking a dog or cat from the UK to {nf}: microchip, rabies wait, animal health certificate{', tapeworm' if t else ''} and the way back. Official, checked {dp}.",
+                   f"Taking a dog or cat from the UK to {nf}: rules from GOV.UK and the European Commission, checked on {dp}."], LIMITE_DESCRIZIONE)
+    pagina(url_pet(p), scegli(titoli_paese_pet(p), LIMITE_TITOLO_PET_NUOVO), desc, corpo,
            briciole=[("Pets: UK to EU", f"{PET_BASE}/"), (n, url_pet(p))], ld_extra=faq_ld)
     LASTMOD[url_pet(p)] = data_pet()
 
@@ -7673,8 +7703,293 @@ def about_pet(rel):
     if not PET:
         return ""
     return f"""<h2 id="{PET_BASE}">Pets: from the UK to the EU</h2>
-<p>Sources: GOV.UK guides of the Animal and Plant Health Agency (“Taking your pet dog, cat or ferret abroad”, “Bringing your pet dog, cat or ferret to Great Britain”), the Defra page on the UK–EU SPS agreement for the veterinary sector, the GOV.UK lists of approved air, sea and rail carriers and routes, read through the GOV.UK Content API, and three pages of the European Commission (DG Health and Food Safety) on bringing pets into the EU, the travellers' points of entry and each country's information, {len(PET["fonti"])} pages in all, read on {data_lunga(PET["controllato_il"])}. GOV.UK text is licensed under the <a href="{OGL}" rel="noopener">Open Government Licence v3.0</a>.</p>
+<p>Sources: GOV.UK guides of the Animal and Plant Health Agency (“Taking your pet dog, cat or ferret abroad”, “Bringing your pet dog, cat or ferret to Great Britain”), the Defra page on the UK–EU SPS agreement for the veterinary sector, the GOV.UK lists of approved air, sea and rail carriers and routes, read through the GOV.UK Content API, three pages of the European Commission (DG Health and Food Safety) on bringing pets into the EU, the travellers' points of entry and each country's information, and Eurostar's own help-centre answer on pets on board, {len(PET["fonti"])} pages in all, read on {data_lunga(PET["controllato_il"])}. GOV.UK text is licensed under the <a href="{OGL}" rel="noopener">Open Government Licence v3.0</a>.</p>
 <p>Rules: every sentence between quotation marks is copied word for word; the tables of approved routes are copied row by row; the summaries and the date calculator are ours. The European Commission's page says that the EU rules are now in Commission Delegated Regulation (EU) 2026/131; EUR-Lex does not answer our automated checks, so we quote the Commission's own summary of the rules rather than the regulation itself. We give no veterinary advice: every page says to check with your vet and the official page. A country gets a page only when people search for taking a pet there from the UK. This is information, not legal advice.</p>"""
+
+
+# ---------------------------------------------------------------- Compagnie aeree per cani a confronto: BARK Air, RetrievAir, K9 Jets (18/11/2026)
+# Piano: studio-business/intelaiatura/fronti-2026-11-18-animali.md (idea A). Fatti scritti a mano in dati/cani_volo_manuali.json (citazioni parola per
+# parola dalle pagine ufficiali di ogni compagnia), riletti da raccolta/cani_volo.py (HTTP 200, data, impronta), che copia anche i voli in vendita e i
+# prezzi dal catalogo ufficiale di BARK Air e le città e le rotte dal sito di RetrievAir. Prezzi solo se scritti sulla pagina ufficiale, con la data.
+# K9 Jets: il sito ufficiale risponde 403 al server: nessun fatto, nessun prezzo di terzi; pagina fuori indice (dati/noindex.json) che lo dice.
+# Riquadro del partner K9 Jets SPENTO (dati/affiliati.json, voce "_k9jets" con url vuoto): si accende solo dopo la decisione di Massimiliano.
+# Informazione, non consiglio: nessuna classifica, nessun "migliore". Controlli: verifica.py, punto 37.
+DA_BASE = "dog-airlines"
+_f_da = DATI / "cani_volo.json"
+DA = json.loads(_f_da.read_text(encoding="utf-8")) if _f_da.exists() else None
+DA_COMP = DA["compagnie"] if DA else []
+DA_LETTE = [C for C in DA_COMP if C["letta"]]
+DA_PER = {C["id"]: C for C in DA_COMP}
+K9_JETS = (AFFILIATI.get("_k9jets") or {}).get("url", "")  # link del partner: vuoto = riquadro spento
+AVVISO_DA = ('<p class="avviso"><strong>This is information, not advice.</strong> We quote each company’s own pages word for word, with the date we read '
+             'them; we do not rank the companies or recommend one. Routes, prices and policies change often: check with the company before you book, '
+             'and check the entry rules for your dog on the official pages of the country you fly to.</p>')
+
+
+def url_da(C=None):
+    return f"{DA_BASE}/" + (f"{C['slug']}/" if C else "")
+
+
+def cit_da(C, i):
+    return next(c for c in C["citazioni"] if c["id"] == i)
+
+
+def fonti_da(C):
+    return list(dict.fromkeys(c["f"] for c in C["citazioni"]))
+
+
+def data_da(C=None):
+    if C is None or not C["letta"]:
+        return DA["controllato_il"]
+    return max(DA["fonti"][f]["letto_il"] for f in fonti_da(C))
+
+
+def blocco_cit_da(C, ids):
+    """Citazioni raggruppate per fonte, con link alla pagina ufficiale, compagnia e data di lettura."""
+    out, gruppi = [], []
+    for i in ids:
+        c = cit_da(C, i)
+        if gruppi and gruppi[-1][0] == c["f"]:
+            gruppi[-1][1].append(c)
+        else:
+            gruppi.append((c["f"], [c]))
+    for fid, cc in gruppi:
+        F = DA["fonti"][fid]
+        out.append(f'<blockquote class="cit">{"".join(f"<p>{escape(c["x"])}</p>" for c in cc)}</blockquote><p class="fonte">Source: '
+                   f'<a href="{escape(F["pagina"])}" rel="noopener">{escape(F["titolo"])}</a> (official site of {escape(F["ente"])}), '
+                   f'checked on {data_lunga(F["letto_il"])}. Quoted word for word.</p>')
+    return "".join(out)
+
+
+def dollari_da(x):
+    return f"${x:,.0f}" if float(x).is_integer() else f"${x:,.2f}"
+
+
+def prezzi_bark_da():
+    """(minimo, massimo) dei biglietti nel catalogo ufficiale di BARK Air alla data di lettura."""
+    rr = DA["bark_voli"]["rotte"]
+    return min(r["min"] for r in rr), max(r["max"] for r in rr)
+
+
+def frase_prezzi_bark_da():
+    a, b = prezzi_bark_da()
+    return (f"On {data_lunga(DA['bark_voli']['letto_il'])}, BARK Air’s site listed tickets from {dollari_da(a)} to {dollari_da(b)} (US dollars), "
+            "depending on the route.")
+
+
+def breve_da(C, k):
+    """Cella della tabella di confronto: parole nostre dai dati; il prezzo di BARK Air si calcola dal catalogo letto."""
+    if not C["letta"]:
+        return "Not read"  # il motivo è nella prima frase e in «Sources» (19/11/2026: cella corta, si legge meglio sul telefono)
+    if C["id"] == "bark" and k == "prezzo":
+        a, b = prezzi_bark_da()
+        return f"{dollari_da(a)} to {dollari_da(b)} per ticket, by route, on {data_lunga(DA['bark_voli']['letto_il'])}; prices can change until you have paid in full"
+    return C["tabella"][k]["breve"]
+
+
+def risposta_da(C):
+    return f"According to {C['chi']}, checked on {data_lunga(data_da(C))}, {C['risposta']}"
+
+
+def faq_da(C):
+    out = []
+    for f in C["faq"]:
+        pre = f["pre"].replace("{prezzi_bark}", frase_prezzi_bark_da())
+        parti = ([pre] if pre else []) + [f"“{cit_da(C, i)['x']}”" for i in f["cit"]] + ([f["post"]] if f["post"] else [])
+        out.append((f["q"], " ".join(parti)))
+    out.append(("Where does this answer come from?", f"From {C['chi']}, read on {data_lunga(data_da(C))} and quoted word for word on this page. "
+                                                     "It is information, not advice: check with the company before you book."))
+    return out
+
+
+def faq_indice_da():
+    out = []
+    for f in DA["faq_indice"]:
+        C = DA_PER[f["c"]]
+        parti = ([f["pre"]] if f["pre"] else []) + [f"“{cit_da(C, i)['x']}”" for i in f["cit"]] + ([f["post"]] if f["post"] else [])
+        out.append((f["q"], " ".join(parti)))
+    out.append(("Where does this comparison come from?", f"From the official sites of {elenco_sc([C['nome'] for C in DA_LETTE])}, read on "
+                                                         f"{data_lunga(DA['controllato_il'])}. It is information, not advice: we do not rank the companies."))
+    return out
+
+
+def tabella_bark_da():
+    V = DA["bark_voli"]
+    righe = "".join(f'<tr data-voce><td data-l="From">{escape(r["da"])}</td><td data-l="To">{escape(r["a"])}</td><td data-l="Flights listed">{r["voli"]}</td>'
+                    f'<td data-l="Ticket price (US dollars)">{dollari_da(r["min"])}{"" if r["min"] == r["max"] else " to " + dollari_da(r["max"])}</td></tr>' for r in V["rotte"])
+    return (f'<div class="tab tab-b"><table><caption class="cap">BARK Air: flights on sale and ticket prices on its official site, read on {data_lunga(V["letto_il"])}</caption>'
+            f'<thead><tr><th>From</th><th>To</th><th>Flights listed</th><th>Ticket price (US dollars)</th></tr></thead><tbody>{righe}</tbody></table></div>'
+            f'<p class="fonte">Source: <a href="{escape(V["url"])}" rel="noopener">BARK Air: Our Routes (flights on sale)</a> (official site of BARK Air), checked on '
+            f'{data_lunga(V["letto_il"])}. One row per route, copied from the list of flights; the price is per ticket.</p>')
+
+
+def tabella_rv_da():
+    R = DA["rv"]
+    citta = ", ".join(f'<a href="{escape(c["url"])}" rel="noopener">{escape(c["nome"])}</a>' for c in R["citta"])
+    righe = "".join(f'<tr data-voce><td data-l="From">{escape(r["da"])}</td><td data-l="To">{escape(r["a"])}</td>'
+                    f'<td data-l="Official page"><a href="{escape(r["url"])}" rel="noopener">RetrievAir: {escape(r["da"])} to {escape(r["a"])}</a></td></tr>' for r in R["rotte"])
+    return (f'<p>Cities in the menu of the official site on {data_lunga(R["letto_il"])}: {citta}.</p>'
+            f'<div class="tab tab-b"><table><caption class="cap">RetrievAir: the route pages on its official site, read on {data_lunga(R["letto_il"])}</caption>'
+            f'<thead><tr><th>From</th><th>To</th><th>Official page</th></tr></thead><tbody>{righe}</tbody></table></div>'
+            f'<p class="small">These are the routes that have a page on the official site; the flight search on retrievair.com shows the dates on sale.</p>')
+
+
+def regole_ufficiali_da(rel):
+    """Collegamento con le regole ufficiali già nel sito (sezione Pets): la frase di GOV.UK sui cani in cabina e i link alle pagine."""
+    if not PET:
+        return ""
+    return (f'<h2 id="rules">Flying a dog to the UK or the EU: the official rules</h2>'
+            f'<p>A seat in the cabin does not change the entry rules: your dog still needs the documents the country asks for. For Great Britain, GOV.UK says:</p>'
+            f'{blocco_cit_pet(["g_cargo"])}'
+            f'<p><a href="{rel}{PET_ROTTE}">Approved routes and carriers for pets into Great Britain</a> · <a href="{rel}{PET_BASE}/">Animal health certificate: taking a dog from the UK to the EU</a> · '
+            f'<a href="{rel}{PET_PASS}">Pet passport UK</a> · <a href="{rel}{PET_CALC}">Pet travel date calculator</a></p>')
+
+
+def box_k9_da():
+    """Riquadro del partner K9 Jets: '' finché dati/affiliati.json non ha il link (voce "_k9jets"). Sempre dopo i fatti, con la trasparenza."""
+    if not K9_JETS:
+        return ""
+    return (f'<section class="card" data-partner="k9jets" aria-label="K9 Jets"><h2 style="margin-top:0">K9 Jets’ own site</h2>'
+            f'<p><a href="{escape(K9_JETS)}" rel="sponsored nofollow noopener">See routes and prices on K9 Jets</a></p>'
+            f'<p class="small">Partner link: if you book through it we may earn a commission, at no extra cost to you. It does not change what this page says.</p></section>')
+
+
+def altre_da(rel, salta=None):
+    return "".join(f'<a href="{rel}{url_da(C)}">{escape(C["nome"])}<small>{"Official pages quoted" if C["letta"] else "Official site not read"}</small></a>'
+                   for C in DA_COMP if C is not salta)
+
+
+def titoli_da(C):
+    if C["id"] == "bark":
+        a, _ = prezzi_bark_da()
+        return [f"BARK Air Flights {ANNO}: Routes and Ticket Prices from {dollari_da(a)}", f"BARK Air Flights {ANNO}: Routes and Ticket Prices"]
+    if C["id"] == "retrievair":
+        return [f"RetrievAir Flights {ANNO}: Routes, Dog Size Rules, Fees, Baggage", f"RetrievAir Flights {ANNO}: Routes, Dog Size Rules and Fees"]
+    return [f"{C['nome']} ({ANNO}): What We Could Not Read on the Official Site"]
+
+
+def pagina_da(C):
+    rel = "../../"
+    d = data_lunga(data_da(C))
+    faq_h, faq_ld = html_faq_pet(faq_da(C))
+    sguardo = "".join(f'<tr><th scope="row">{escape(t)}</th><td>{escape(breve_da(C, k))}</td></tr>' for k, t in DA["righe"])
+    sezioni = "".join(f'<h2 id="{x["id"]}">{escape(x["titolo"])}</h2>{f"<p>{escape(x["intro"])}</p>" if x["intro"] else ""}{blocco_cit_da(C, x["cit"])}' for x in C["sezioni"])
+    if C["id"] == "bark":
+        dove = (f'<h2 id="routes">Routes and ticket prices</h2>{blocco_cit_da(C, ["b_rotte", "b_aeroporti"])}'
+                f'<p>{escape(frase_prezzi_bark_da())} The list also has flights to and from cities that the sentence above does not name.</p>{tabella_bark_da()}')
+        h1 = f"BARK Air ({ANNO}): routes, ticket prices and how it works"
+        desc = [f"BARK Air: routes, ticket prices by route, what a ticket covers, dog size, baggage and documents, from its official site, checked on {d}.",
+                f"BARK Air routes, ticket prices and rules from its official site, checked on {d}."]
+    else:
+        dove = f'<h2 id="routes">Cities and routes</h2>{blocco_cit_da(C, ["r_citta"])}{tabella_rv_da()}'
+        h1 = f"RetrievAir ({ANNO}): routes, dog size rules, fees and how it works"
+        desc = [f"RetrievAir: cities and routes, seats by dog weight, change and cancellation fees, baggage and documents, from its official site, checked on {d}.",
+                f"RetrievAir routes, dog size rules and fees from its official site, checked on {d}."]
+    corpo = f"""<section class="hero">{h1_diviso(h1)}</section>
+<section class="card summary" aria-label="Answer">
+<div class="s-top"><span class="sq">{ico("paw")}</span><span>Dog airlines · {escape(C["nome"])}</span><span>{ANNO}</span></div>
+<div class="s-body"><p class="lead" id="answer">{escape(risposta_da(C))}</p>
+<p class="small">Official site: <a href="{escape(C["sito"])}" rel="noopener">{escape(urlparse(C["sito"]).hostname)}</a>.</p></div></section>
+{AVVISO_DA}
+<h2>At a glance</h2>
+<div class="tab tab-g"><table><caption class="cap">{escape(C["nome"])}: our summary of its official pages, checked on {d}</caption><tbody>{sguardo}</tbody></table></div>
+{dove}
+{AD}
+{sezioni}
+{regole_ufficiali_da(rel)}
+{faq_h}
+<h2>Compare</h2>
+<div class="griglia"><a href="{rel}{url_da()}">All companies side by side<small>Comparison table</small></a>{altre_da(rel, C)}</div>
+<p class="small">Spotted a change? <a href="{rel}contact/?ref=dog-airlines">Tell us</a>. Before You Fly is not connected with {escape(C["nome"])}.</p>"""
+    pagina(url_da(C), scegli(titoli_da(C), LIMITE_TITOLO), scegli(desc, LIMITE_DESCRIZIONE), corpo,
+           briciole=[("Dog airlines compared", url_da()), (C["nome"], url_da(C))], ld_extra=faq_ld)
+    LASTMOD[url_da(C)] = data_da(C)
+
+
+def motivo_da(C):
+    N = DA["non_lette"][C["id"]]
+    return C["motivo"].replace("{data}", data_lunga(N["letto_il"])).replace("{http}", str(N["http"]))
+
+
+def pagina_non_letta_da(C):
+    """Compagnia con il sito ufficiale che non risponde al server: nessun fatto. Pagina fuori indice (dati/noindex.json), senza annunci."""
+    rel = "../../"
+    voci = "".join(f"<li>{escape(t)}</li>" for _, t in DA["righe"])
+    corpo = f"""<section class="hero">{h1_diviso(f"{C['nome']} ({ANNO}): what we could not read on the official site")}
+<p class="lead" id="answer">{escape(motivo_da(C))}</p></section>
+{AVVISO_DA}
+<h2>What to look for on the official site</h2>
+<p>These are the points we compare for the companies we could read. For {escape(C["nome"])}, read them on <a href="{escape(C["sito"])}" rel="noopener">{escape(urlparse(C["sito"]).hostname)}</a>:</p>
+<ul>{voci}</ul>
+{box_k9_da() if C["id"] == "k9" else ""}
+{regole_ufficiali_da(rel)}
+<h2>Companies we could read</h2>
+<div class="griglia"><a href="{rel}{url_da()}">All companies side by side<small>Comparison table</small></a>{altre_da(rel, C)}</div>
+<p class="small">We try the official site again at every update of this section. Spotted a change? <a href="{rel}contact/?ref=dog-airlines">Tell us</a>. Before You Fly is not connected with {escape(C["nome"])}.</p>"""
+    pagina(url_da(C), scegli(titoli_da(C), LIMITE_TITOLO), scegli([f"{C['nome']}: the official site did not answer our server on {data_lunga(DA['non_lette'][C['id']]['letto_il'])}, so this page has no routes or prices. What to check on the official site."], LIMITE_DESCRIZIONE),
+           corpo, briciole=[("Dog airlines compared", url_da()), (C["nome"], url_da(C))])
+
+
+def prima_frase_da():
+    a, b = prezzi_bark_da()
+    non = [C["nome"] for C in DA_COMP if not C["letta"]]
+    return (f"According to the official sites of BARK Air and RetrievAir, checked on {data_lunga(DA['controllato_il'])}, both sell seats on public charter flights "
+            f"where the dog travels in the cabin with its owner: BARK Air on scheduled flights between New York and cities in the United States and Europe, with tickets "
+            f"listed from {dollari_da(a)} to {dollari_da(b)}, and RetrievAir between 12 US cities, with no fare on the pages we read"
+            + (f"; the official site of {elenco_sc(non)} did not answer our server, so we list it without figures." if non else "."))
+
+
+def pagina_indice_da():
+    rel = "../"
+    d = data_lunga(DA["controllato_il"])
+    testa = "".join(f'<th><a href="{rel}{url_da(C)}" style="color:inherit">{escape(C["nome"])}</a></th>' for C in DA_COMP)
+    righe = "".join(f'<tr data-voce data-riga="{k}"><td data-l="Point"><strong>{escape(t)}</strong></td>'
+                    + "".join(f'<td data-l="{escape(C["nome"])}">{escape(breve_da(C, k))}</td>' for C in DA_COMP) + "</tr>" for k, t in DA["righe"])
+    fonti = "".join(f'<li><strong>{escape(C["nome"])}</strong>: ' + (", ".join(f'<a href="{escape(DA["fonti"][f]["pagina"])}" rel="noopener">{escape(DA["fonti"][f]["titolo"].split(": ", 1)[1])}</a>' for f in fonti_da(C))
+                                                                    + f', checked on {data_lunga(data_da(C))}' if C["letta"] else escape(motivo_da(C))) + "</li>" for C in DA_COMP)
+    faq_h, faq_ld = html_faq_pet(faq_indice_da())
+    corpo = f"""<section class="hero">{h1_diviso(f"Airlines for dogs compared ({ANNO}): BARK Air, K9 Jets and RetrievAir")}
+<p class="lead" id="answer">{escape(prima_frase_da())}</p></section>
+<div class="griglia">{altre_da(rel)}</div>
+{AVVISO_DA}
+<h2 id="compare">Side by side</h2>
+<p>Each cell is our short summary of the company’s own pages; the company pages quote the sentences word for word, with the link and the date. A price appears only when the official page states it.</p>
+<div class="tab tab-b"><table><caption class="cap">Dog airlines compared, from each company’s official site, checked on {d}</caption><thead><tr><th>Point</th>{testa}</tr></thead><tbody>{righe}</tbody></table></div>
+{AD}
+<h2 id="sources">Sources</h2>
+<ul>{fonti}</ul>
+{regole_ufficiali_da(rel)}
+{faq_h}
+<h2>How we check</h2>
+<p>We read only the companies’ official sites, from our server, and quote them with the date. We never copy prices from other websites. When an official site does not answer our server we say so and publish no figures. More on the <a href="{rel}about/#{DA_BASE}">About page</a>. Spotted a change? <a href="{rel}contact/?ref=dog-airlines">Tell us</a>.</p>"""
+    desc = scegli([f"BARK Air, K9 Jets and RetrievAir side by side: routes, what a ticket covers, dog size, prices stated on the official sites, policies. Checked {d}.",
+                   f"BARK Air, K9 Jets and RetrievAir compared from their official sites, checked on {d}."], LIMITE_DESCRIZIONE)
+    pagina(url_da(), scegli([f"Airlines for Dogs ({ANNO}): BARK Air, K9 Jets, RetrievAir Compared", f"Airlines for Dogs ({ANNO}): BARK Air, K9 Jets, RetrievAir"], LIMITE_TITOLO), desc, corpo,
+           briciole=[("Dog airlines compared", url_da())], ld_extra=faq_ld)
+    LASTMOD[url_da()] = DA["controllato_il"]
+
+
+def link_da(rel):
+    """Riga nelle pagine Pets (indice e rotte approvate): chi cerca il cane in cabina trova il confronto."""
+    if not DA:
+        return ""
+    return (f'<p class="altri-pass">{ico("paw")}<span>Dog in the cabin, not in the hold? <a href="{rel}{url_da()}">Airlines for dogs compared: '
+            f'{escape(elenco_sc([C["nome"] for C in DA_COMP]))}</a></span></p>')
+
+
+def home_da():
+    if not DA:
+        return ""
+    return (f'<h2>Airlines for dogs</h2><p>Routes, what a ticket covers, dog size and the prices stated on the official sites: '
+            f'<a href="{DA_BASE}/">airlines for dogs compared</a>.</p><div class="griglia">{altre_da("")}</div>')
+
+
+def about_da(rel):
+    if not DA:
+        return ""
+    return f"""<h2 id="{DA_BASE}">Dog airlines compared</h2>
+<p>Sources: the official sites of BARK Air (air.bark.co) and RetrievAir (retrievair.com), {len(DA["fonti"])} pages in all, plus BARK Air’s own list of flights on sale and RetrievAir’s route pages, read on {data_lunga(DA["controllato_il"])}. K9 Jets’ official site did not answer our server, so we publish no figures for it.</p>
+<p>Rules: every sentence between quotation marks is copied word for word from the company’s page; the comparison table is our short summary. A price appears only when the official page states it, with the date we read it; we never copy prices from other websites. We do not rank the companies or recommend one, and we are not connected with them. This is information, not advice.</p>"""
 
 
 # ---------------------------------------------------------------- Blue Badge all'estero, Paese per Paese, e le carte europee (4/11/2026)
@@ -9352,6 +9667,7 @@ def home():
 {home_tr()}
 {home_tb()}
 {home_pet()}
+{home_da()}
 {home_bb()}
 {home_in()}
 {home_sc()}
@@ -9428,6 +9744,7 @@ def about():
 {about_tr(rel)}
 {about_tb(rel)}
 {about_pet(rel)}
+{about_da(rel)}
 {about_bb(rel)}
 {about_in(rel)}
 {about_sc(rel)}
@@ -9691,6 +10008,19 @@ def controlli():
                 errori.append(f"gomme {p['iso2']}: titolo oltre {LIMITE_TITOLO_GOM} caratteri o senza la stagione {STAGIONE_GOM}")
         if NOLEGGIO_AUTO:
             errori += [f"gomme: {e}" for e in MON.controlla_link_pagina(box_noleggio_gom(), "box_noleggio_gom", "en")[0]]
+    if DA:  # compagnie aeree per cani: riquadro K9 Jets solo con un link verso un dominio ammesso; dati coerenti
+        if K9_JETS and (not K9_JETS.startswith("https://") or not MON.dominio_ammesso(K9_JETS)):
+            errori.append("dog-airlines: il link K9 Jets di dati/affiliati.json non è https o non è verso un dominio ammesso in monetizzazione.json")
+        for C in DA_COMP:
+            if C["letta"]:
+                ids = {c["id"] for c in C["citazioni"]}
+                usati = {i for v in C["tabella"].values() for i in v["cit"]} | {i for x in C["sezioni"] for i in x["cit"]} | {i for f in C["faq"] for i in f["cit"]}
+                if not usati <= ids or any(c["f"] not in DA["fonti"] for c in C["citazioni"]):
+                    errori.append(f"dog-airlines {C['id']}: citazione sconosciuta {sorted(usati - ids)} o fonte non letta")
+                if set(C["tabella"]) != {k for k, _ in DA["righe"]}:
+                    errori.append(f"dog-airlines {C['id']}: righe della tabella di confronto diverse da 'righe'")
+            elif C["id"] not in DA["non_lette"]:
+                errori.append(f"dog-airlines {C['id']}: compagnia non letta senza la rilettura in 'non_lette'")
     if BIG:  # biglietti delle attrazioni: fonti lette con HTTP 200, citazioni e regole coerenti (verifica.py, punto 22, ricontrolla tutto)
         for a in BIG_ATT:
             ids = [c["id"] for c in a["citazioni"]]
@@ -9973,6 +10303,10 @@ def main():
         pagina_rotte_pet()
         for p in PET_PAGINE:
             pagina_paese_pet(p)
+    if DA:
+        pagina_indice_da()
+        for C in DA_COMP:
+            (pagina_da if C["letta"] else pagina_non_letta_da)(C)
     if BB:
         pagina_indice_bb()
         pagina_carte_bb()

@@ -1,0 +1,207 @@
+{
+ "_nota": "Domanda misurata per la sezione dog-airlines/: volume medio mensile di Google Ads per frase e Paese, letto il 18/11/2026 con lo strumento dei volumi (api.seodata.dev /v1/keyword, senza chiave nel repository). Chiave della voce: 'frase [paese]'. Ogni FAQ della sezione ha la sua 'query' qui con volume > 0 in almeno un Paese. Le frasi a 0 restano scritte per non rimisurarle.",
+ "misurato_il": "2026-11-18",
+ "fonte": "api.seodata.dev /v1/keyword (volume medio mensile Google Ads)",
+ "frasi": {
+  "pet friendly airlines uk [gb]": {
+   "paese": "gb",
+   "volume": 90,
+   "cpc": 0.81
+  },
+  "airlines that allow dogs in cabin uk [gb]": {
+   "paese": "gb",
+   "volume": 90,
+   "cpc": 0.32
+  },
+  "bark air [us]": {
+   "paese": "us",
+   "volume": 27100,
+   "cpc": 3.16
+  },
+  "bark air cost [us]": {
+   "paese": "us",
+   "volume": 480,
+   "cpc": 3.91
+  },
+  "bark air prices [us]": {
+   "paese": "us",
+   "volume": 110,
+   "cpc": 3.26
+  },
+  "bark air routes [us]": {
+   "paese": "us",
+   "volume": 90,
+   "cpc": 3.32
+  },
+  "bark air reviews [us]": {
+   "paese": "us",
+   "volume": 260,
+   "cpc": 0
+  },
+  "bark air tickets [us]": {
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0
+  },
+  "bark air flights [us]": {
+   "paese": "us",
+   "volume": 1000,
+   "cpc": 2.74
+  },
+  "bark air ticket price [us]": {
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0
+  },
+  "how much is bark air [us]": {
+   "paese": "us",
+   "volume": 50,
+   "cpc": 0
+  },
+  "k9 jets [us]": {
+   "paese": "us",
+   "volume": 6600,
+   "cpc": 3.34
+  },
+  "k9 jets cost [us]": {
+   "paese": "us",
+   "volume": 1600,
+   "cpc": 2.49
+  },
+  "k9 jets price [us]": {
+   "paese": "us",
+   "volume": 590,
+   "cpc": 3.02
+  },
+  "k9 jets reviews [us]": {
+   "paese": "us",
+   "volume": 320,
+   "cpc": 7.83
+  },
+  "k9 jets routes [us]": {
+   "paese": "us",
+   "volume": 110,
+   "cpc": 3.65
+  },
+  "retrievair [us]": {
+   "paese": "us",
+   "volume": 3600,
+   "cpc": 0
+  },
+  "retrievair cost [us]": {
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0
+  },
+  "retrievair prices [us]": {
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0
+  },
+  "retrievair routes [us]": {
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0
+  },
+  "retrievair reviews [us]": {
+   "paese": "us",
+   "volume": 40,
+   "cpc": 0
+  },
+  "retrievair flights [us]": {
+   "paese": "us",
+   "volume": 260,
+   "cpc": 0
+  },
+  "dog airline [us]": {
+   "paese": "us",
+   "volume": 2900,
+   "cpc": 2.96
+  },
+  "airline for dogs [us]": {
+   "paese": "us",
+   "volume": 4400,
+   "cpc": 2.04
+  },
+  "pet airline [us]": {
+   "paese": "us",
+   "volume": 1900,
+   "cpc": 1.68
+  },
+  "dog only airline [us]": {
+   "paese": "us",
+   "volume": 30,
+   "cpc": 1.88
+  },
+  "airlines for dogs [us]": {
+   "paese": "us",
+   "volume": 4400,
+   "cpc": 2.04
+  },
+  "private jet for dogs [us]": {
+   "paese": "us",
+   "volume": 390,
+   "cpc": 3.52
+  },
+  "flying with a large dog [us]": {
+   "paese": "us",
+   "volume": 1300,
+   "cpc": 1.58
+  },
+  "bark air vs k9 jets [us]": {
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0
+  },
+  "dog airlines [us]": {
+   "paese": "us",
+   "volume": 880,
+   "cpc": 2.65
+  },
+  "pet airlines [us]": {
+   "paese": "us",
+   "volume": 880,
+   "cpc": 1.3
+  },
+  "bark air [gb]": {
+   "paese": "gb",
+   "volume": 6600,
+   "cpc": 2.18
+  },
+  "k9 jets [gb]": {
+   "paese": "gb",
+   "volume": 2400,
+   "cpc": 2.51
+  },
+  "bark air cost [gb]": {
+   "paese": "gb",
+   "volume": 0,
+   "cpc": 0
+  },
+  "k9 jets cost [gb]": {
+   "paese": "gb",
+   "volume": 390,
+   "cpc": 2.81
+  },
+  "dog airline [gb]": {
+   "paese": "gb",
+   "volume": 210,
+   "cpc": 0.84
+  },
+  "airline for dogs [gb]": {
+   "paese": "gb",
+   "volume": 210,
+   "cpc": 0.84
+  },
+  "bark air london to new york [gb]": {
+   "paese": "gb",
+   "volume": 0,
+   "cpc": 0
+  },
+  "bark air new york to london [us]": {
+   "paese": "us",
+   "volume": 0,
+   "cpc": 0
+  }
+ }
+}

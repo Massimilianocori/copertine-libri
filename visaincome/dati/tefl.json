@@ -9,7 +9,7 @@
    "url": "https://jetprogramusa.org/eligibility-criteria/",
    "http": 200,
    "letto_il": "2026-11-19",
-   "byte": 53216,
+   "byte": 57659,
    "sha256_testo": "553dfff2ce54cba7acbe9a0779b9725136ed0f285c033240a2a618e166ac0095"
   },
   "jp_contr": {
@@ -19,7 +19,7 @@
    "url": "https://jetprogramusa.org/contract-information/",
    "http": 200,
    "letto_il": "2026-11-19",
-   "byte": 55087,
+   "byte": 59531,
    "sha256_testo": "ada12a590c95bf07a45e1c382127d4ceffd6107549da19bc4ece4694bae01446"
   },
   "jp_pos": {
@@ -29,7 +29,7 @@
    "url": "https://jetprogramusa.org/positions/",
    "http": 200,
    "letto_il": "2026-11-19",
-   "byte": 50982,
+   "byte": 55415,
    "sha256_testo": "9f36fc665fa0468454d9990723e9d4c053967e4b8877c9785464cc5f85c98fae"
   },
   "jp_proc": {
@@ -39,7 +39,7 @@
    "url": "https://jetprogramusa.org/application-departure/",
    "http": 200,
    "letto_il": "2026-11-19",
-   "byte": 56926,
+   "byte": 61133,
    "sha256_testo": "14b1850bafc7dc369d4e6b62ce4266ac44757b6d8de30ff1c38e68504f3b2476"
   },
   "es_nalcap": {
@@ -102,7 +102,7 @@
    "http": 200,
    "letto_il": "2026-11-19",
    "byte": 93801,
-   "sha256_testo": "dfb0eb05054e2d5b57604dc58bcfc0dd2200b9e9f51bfb72da1dd59726b3ab31"
+   "sha256_testo": "e45180643039e7d6b5cf9bb49a95ce4874fb40bbc4828f64f8b5a3d16cfe0999"
   },
   "tw_cram": {
    "paese": "taiwan",
@@ -112,7 +112,17 @@
    "http": 200,
    "letto_il": "2026-11-19",
    "byte": 35999,
-   "sha256_testo": "75c238b9508ee4bc0a9fda448a7c497c70a14f2da30522f8d723f968e3efdfd1"
+   "sha256_testo": "1fc1bb2a2b6c1078f3bef693d63b0fcfff7af633c456edc23a95e83972403dac"
+  },
+  "tw_zh": {
+   "paese": "taiwan",
+   "titolo": "外國專業人才從事短期補習班教師工作資格及審查標準 (the same standards, Chinese text: the text that applies)",
+   "editore": "Laws & Regulations Database of the Republic of China (Taiwan), Ministry of Justice",
+   "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=N0090054",
+   "http": 200,
+   "letto_il": "2026-11-19",
+   "byte": 54807,
+   "sha256_testo": "f45b792c2dad118479c98b254fc60bc992eb23ac5af33a01e11e2c210887b6e0"
   },
   "cn_req": {
    "paese": "china",
@@ -279,6 +289,14 @@
   "es_laurea2": {
    "fonte": "es_nalcap",
    "frammento": "Only college studies undertaken completely in English will be accepted."
+  },
+  "es_laurea_us": {
+   "fonte": "es_nalcap",
+   "frammento": "NALCAP applicants must have a college degree from an accredited university in the US or Canada."
+  },
+  "es_eta2": {
+   "fonte": "es_nalcap",
+   "frammento": "You must be at least 18 years old as of January 1, 2026 and not be 45 or over on January 1, 2027, to participate in the program."
   },
   "es_madrelingua": {
    "fonte": "es_nalcap",
@@ -484,6 +502,18 @@
   "tw_tre_anni": {
    "fonte": "tw_cram",
    "frammento": "none of the following circumstances must not have occurred in the three years prior to the application date: 1. He or she has engaged in work without obtaining an employment permit;"
+  },
+  "tw_zh_req": {
+   "fonte": "tw_zh",
+   "frammento": "每週從事教學相關工作時數不得少於十四小時，且應具備下列資格： 一、成年。 二、大專以上學校畢業。 三、教授之語文課程為該外籍教師護照國籍之官方語言。"
+  },
+  "tw_zh_cert": {
+   "fonte": "tw_zh",
+   "frammento": "前項外國人未取得學士學位者，另應具有語文師資訓練合格證書。"
+  },
+  "tw_zh_max": {
+   "fonte": "tw_zh",
+   "frammento": "第一項及前項外國人每週從事教學相關工作總時數，不得超過三十二小時。"
   },
   "tw_data": {
    "fonte": "tw_cram",
@@ -1146,5 +1176,5 @@
    }
   }
  },
- "impronta": "a0fb44210d73f1864797"
+ "impronta": "c5e2d7ffa99947378b37"
 }

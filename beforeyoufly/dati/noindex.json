@@ -77,6 +77,19 @@
    "visite_28_giorni": 0,
    "pagine_con_visite": 0,
    "motivo": "Pagine «Pets: UK to <Paese>» quasi uguali tra loro: la regola è la stessa per tutta l'UE e queste 9 hanno meno di 50 parole proprie su circa 1.400 (misura del 12/11/2026) e 0 visite in 11 giorni. Restano in indice le pagine con regole proprie del Paese (Francia, Irlanda, Norvegia, Spagna, Paesi Bassi, Germania, Finlandia, Malta, Grecia, Italia, Portogallo) e le 3 con poche parole proprie ma visitate (Cipro, Ungheria, Romania)."
+  },
+  {
+   "prefisso": "dog-airlines/",
+   "anche_indice": false,
+   "solo": [
+    "dog-airlines/k9-jets/"
+   ],
+   "tranne": [],
+   "pagine": 1,
+   "online_dal": "2026-11-19",
+   "visite_28_giorni": 0,
+   "pagine_con_visite": 0,
+   "motivo": "Pagina di K9 Jets senza fatti: il sito ufficiale risponde HTTP 403 al server (18/11/2026), quindi la pagina dice solo che non si è potuto leggere e rimanda al sito ufficiale. Fuori indice e senza annunci finché raccolta/cani_volo.py non legge le pagine ufficiali; allora togliere questa regola. Le altre pagine della sezione restano in indice."
   }
  ],
  "senza_pubblicita": [

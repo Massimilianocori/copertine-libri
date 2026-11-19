@@ -114,6 +114,8 @@ Provati nel browser da `verifica.py` (punto 7) e confrontati compagnia per compa
 
 Pagine per misura (stessa funzione): 40x30x20 21/7/0 · 40x30x15 26/2/0 · 40x20x25 22/6/0 · 45x36x20 12/11/5 · 40x30x25 7/5/16 · 55x40x20 6/11/11 · 55x40x23 6/9/13 · 55x35x25 5/5/18 · 55x40x25 5/3/20 · 56x45x25 2/1/25.
 
+**Aggiornamento del 19 novembre 2026 (40 compagnie, +12).** `verifica.py` ricalcola gli attesi dai dati a ogni giro; i conteggi sopra valgono per le 28 compagnie del 18/10. Con 40 compagnie: caso 1 (40x30x20 cm) 30 / 10 / 0 (solo con alcune tariffe: le 7 di prima più Condor, Air Transat, Porter) · caso 3 (55x40x20) 9 / 14 / 17 · caso 4 (30x30x30) 0 / 0 / 40 · caso 5 (40.5x30x20) 24 / 16 / 0 · caso 6 (45,5x36x20) 16 / 15 / 9 · caso 7 (22x14x9 in) 13 / 6 / 21 · caso 8 (22x14x9.5 in) 5 / 2 / 33 · caso 9 (56x45x25) 2 / 1 / 37 (invariato: Jet2.com, British Airways; easyJet). Pagine per misura: 40x30x20 30/10/0 · 40x30x15 37/3/0 (non gratis con ogni tariffa: United, WestJet, Air Transat) · 40x20x25 31/9/0 · 45x36x20 17/14/9 · 40x30x25 8/5/27 · 55x40x20 9/14/17 · 55x40x23 7/12/21 · 55x35x25 6/5/29 · 55x40x25 5/3/32 · 56x45x25 2/1/37. Le 87 frasi citate delle 12 compagnie nuove sono state ritrovate parola per parola sul testo delle 17 pagine ufficiali lette il 19/11 (copie in `raccolta/.cache/bagagli/`). `verifica.py`: TUTTO OK (12 avvisi, tutti di altre sezioni e già presenti); `monetizzazione.py verifica beforeyoufly`: 0 errori.
+
 ## Controlli del 21 ottobre 2026 (liquidi: titoli, FAQ a sei domande, 11 aeroporti nuovi)
 
 | Controllo | Esito |

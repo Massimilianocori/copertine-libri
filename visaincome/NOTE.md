@@ -1524,3 +1524,10 @@ Dallo studio `studio-business/intelaiatura/fronti-2026-11-14-pagatori-prima.md`,
 - **Ogni mese** `python3 visaincome/raccolta/tefl.py` (le pagine JET e NALCAP cambiano a ogni ciclo: stipendio «as of April 2026», date 2027, «NALCAP CONDITIONS – 2026-2027»). Ogni 3 mesi `--domanda`.
 - Riprovare: epik.go.kr, jetprogramme.org (dopo la manutenzione), tfetp di Taiwan, TAPIF; aggiungere Hong Kong NET se serve.
 - Manca il revisore indipendente su fatti e aspetto prima della pubblicazione.
+
+### Revisione indipendente del 19/11/2026 (7,5/10) — 9 difetti corretti, rigenerato, NON PUBBLICATO (nessun commit)
+- **Taiwan (bloccante)**: la traduzione inglese dell'art. 5-1 («meet one of the following qualifications») è sbagliata. Il testo cinese (fonte nuova `tw_zh`, 3 letture `tw_zh_*`) dice 且應具備下列資格 (tutte le qualifiche) e 另應具有 (il certificato è in più per chi non ha la laurea di primo livello). Corretti tabella dell'indice, descrizione, risposta in breve, FAQ (indice e Taiwan), nota esplicita sotto la citazione. Il tetto di 32 ore ha un titolo suo («Maximum hours») e vale per tutti.
+- Giappone: frase prima della citazione sulla libertà vigilata. Spagna: «elementary and secondary schools», due letture nuove (laurea USA/Canada, età al 1° gennaio). Cina: tolte le frasi senza fonte; titolo sulla frase misurata «china work visa» (800). Corea: tolte le frasi senza fonte; pagina **noindex, follow**, fuori dalla sitemap, senza canonical (`FUORI_INDICE_FISSE`; controlli 34 e 41 aggiornati); accanto alla fonte «choose E-2-1 / E-2-2 in the list».
+- Indice: frase sul TEFL nell'introduzione; «different things».
+- Ora 13 fonti, 87 letture; sitemap 813 URL (+6 in indice, Corea fuori).
+- Esito: `--offline` TUTTO OK; completo online: punto 41 = 0 errori (8 frammenti su 8), unico errore esterno e passeggero un 429 della Commissione Europea (punto dei rifiuti); monetizzazione 0 errori; Playwright 32 su 32; ricerca delle chiavi vuota.

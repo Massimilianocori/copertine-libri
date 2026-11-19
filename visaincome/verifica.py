@@ -282,10 +282,16 @@ def controlla_tf(online=True):
         if not de.lower().startswith(fr_t):
             errori.append(f"41: {p}: la descrizione non comincia con la frase misurata")
         titoli[p], descr[p] = tit, de
-        if f"<loc>{G.URL_SITO}/{p}</loc>" not in mappa or f'<link rel="canonical" href="{G.URL_SITO}/{p}">' not in t:
-            errori.append(f"41: {p}: manca nella sitemap o senza canonical")
-        if 'name="robots" content="noindex' in t:
-            errori.append(f"41: {p}: pagina fuori indice")
+        if p in G.FUORI_INDICE_FISSE:   # Corea: pagina sottile, noindex follow, fuori dalla sitemap, senza canonical, linkata dall'indice
+            if '<meta name="robots" content="noindex, follow">' not in t or 'rel="canonical"' in t or f"<loc>{G.URL_SITO}/{p}</loc>" in mappa:
+                errori.append(f"41: {p}: deve essere noindex, follow, senza canonical e fuori dalla sitemap")
+            if "choose E-2-1 in the list" not in t or "choose E-2-2 in the list" not in t:
+                errori.append(f"41: {p}: manca l'indicazione della scheda da scegliere sul portale")
+        else:
+            if f"<loc>{G.URL_SITO}/{p}</loc>" not in mappa or f'<link rel="canonical" href="{G.URL_SITO}/{p}">' not in t:
+                errori.append(f"41: {p}: manca nella sitemap o senza canonical")
+            if 'name="robots" content="noindex' in t:
+                errori.append(f"41: {p}: pagina fuori indice")
         if '"@type": "FAQPage"' not in t or '"@type": "BreadcrumbList"' not in t:
             errori.append(f"41: {p}: manca FAQPage o BreadcrumbList")
         main = t.split('<main id="main">', 1)[1].split("</main>", 1)[0]
@@ -394,6 +400,14 @@ def controlla_tf(online=True):
         errori.append("41: la home non collega la sezione e tutte le pagine dei Paesi")
     if acceso and con_box != {(G.SEZ_TF if x == "indice" else f"{G.SEZ_TF}{x}/") for x in G.PAGINE_TFA}:
         errori.append("41: riquadro acceso ma non in tutte le pagine previste")
+    if G.FUORI_INDICE_FISSE != {f"{G.SEZ_TF}south-korea/"}:
+        errori.append("41: le pagine fisse fuori indice non sono più solo la Corea")
+    tw = leggi(G.SEZ_TF + "taiwan/index.html")
+    for x in ("且應具備下列資格", "The English translation is misleading here", "all the listed qualifications", L["tw_zh_cert"]["frammento"]):
+        if x not in html.unescape(tw):
+            errori.append(f"41: Taiwan: manca la nota sul testo cinese dell'art. 5-1 ({x[:30]})")
+    if "one of the listed qualifications" in tw or "or a certificate" in leggi(G.SEZ_TF + "index.html"):
+        errori.append("41: Taiwan: la laurea è di nuovo presentata come alternativa al certificato")
     note.append(f"{len(L)} letture, {len(D['fonti'])} fonti, domanda del {D['domanda']['data']} ({'+'.join(D['domanda']['paesi'])})")
     if online:
         spec = importlib.util.spec_from_file_location("tefl_racc", SITO.parent / "raccolta" / "tefl.py")
@@ -5876,7 +5890,7 @@ def controlla_fuori_indice():
     fuori, per_sez, senza_ads, linkate = set(), {k: [0, 0] for k in SEZ}, [], set()
     for p, t in pagine.items():
         sez = next((k for k, r in SEZ.items() if re.match(r, p)), None)
-        atteso_fuori = bool(sez) and p not in tieni
+        atteso_fuori = (bool(sez) and p not in tieni) or p == "teach-english-abroad/south-korea/"   # 19/11/2026: pagina fissa fuori indice (controllo 41)
         if atteso_fuori != G.fuori_indice(p):
             errori.append(f"34: {p}: genera.py la mette {'fuori' if G.fuori_indice(p) else 'in'} indice, il ricalcolo no")
         if sez:

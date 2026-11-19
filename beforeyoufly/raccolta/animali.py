@@ -4,9 +4,11 @@ Uso (dalla radice del repository):
     python3 -I beforeyoufly/raccolta/animali.py             rilegge le fonti, controlla le frasi citate, legge le tabelle, scrive dati/animali.json
     python3 -I beforeyoufly/raccolta/animali.py --cache     come sopra ma senza rete, dalle copie in raccolta/.cache/animali/
     python3 -I beforeyoufly/raccolta/animali.py --domanda   rilegge anche l'autocompletamento di Google (dati/animali_domanda.json)
+    python3 -I beforeyoufly/raccolta/animali.py --domanda-nuove   legge solo le ricerche generali aggiunte dopo (non tocca le altre)
     python3 -I beforeyoufly/raccolta/animali.py --testo ID  stampa il testo normalizzato di una fonte (per scrivere le citazioni)
 
 Regole (decise il 31/10/2026, piano: studio-business/intelaiatura/idee-2026-10-30-animali.md, sezioni 2-4):
+  - Dal 18/11/2026 anche la risposta del centro assistenza di Eurostar sugli animali a bordo (help.eurostar.com, HTTP 200 dal server).
   - Solo fonti ufficiali: GOV.UK (guide dell'APHA e di Defra, lette dall'API dei contenuti di GOV.UK, licenza OGL v3.0) e Commissione europea
     (DG SANTE, food.ec.europa.eu, riutilizzo con citazione della fonte). EUR-Lex risponde 202 vuoto dal server (controllo anti-robot): non si
     aggira; le regole UE (Regolamento delegato (UE) 2026/131: la pagina della Commissione lo cita come testo in vigore e parla di passaporti
@@ -67,6 +69,10 @@ FONTI = {
                     "titolo": "European Commission: Travellers' points of entry"},
     "ue_paesi": {"url": UE + "eu-countries-specific-information_en", "tipo": "html", "ente": "European Commission (DG Health and Food Safety)",
                  "titolo": "European Commission: EU countries' specific information"},
+    # 18/11/2026: la risposta ufficiale di Eurostar sugli animali a bordo (ricerca misurata "dogs on eurostar", 1.300 al mese nel Regno Unito).
+    # GOV.UK elenca Eurostar tra le rotte ferroviarie approvate; chi sale a bordo lo decide Eurostar: si cita la sua pagina, parola per parola.
+    "es_pets": {"url": "https://help.eurostar.com/faq/uk-en/question/Can-I-take-my-pet-on-Eurostar", "tipo": "html", "ente": "Eurostar",
+                "titolo": "Eurostar Help Centre: Can I take my pet on Eurostar?"},
 }
 
 # Destinazioni: i 27 Paesi UE e la Norvegia (stesse regole UE per gli animali, nella lista del verme solitario di GOV.UK).
@@ -91,6 +97,9 @@ DOMANDA_GENERALI = ["animal health certificate", "animal health certificate dog"
                     "tapeworm treatment for dogs travelling", "dog tapeworm treatment before travel", "bringing dog back to uk",
                     "bringing dog back to uk from france", "bringing dog to uk", "pet friendly airlines to uk", "dog friendly ferry",
                     "ferry with dog to", "eurotunnel dog", "flying dog to uk", "approved routes pet travel uk"]
+# Ricerche generali aggiunte dopo la prima lettura (18/11/2026: frasi misurate in studio-business/intelaiatura/fronti-2026-11-18-animali.md).
+# Si leggono con --domanda-nuove, che aggiunge al file solo quelle che mancano e non rilegge le altre (le pagine Paese non cambiano).
+DOMANDA_GENERALI += ["dogs on eurostar", "can you take dogs on eurostar", "dog passport uk", "pet passport cost", "animal health certificate cost"]
 
 
 def leggi(url):
@@ -223,6 +232,19 @@ def domanda():
     print("domanda:", {k: sum(len(v) for v in d.values()) for k, d in out["paesi"].items()}, "generali:", sum(len(v) for v in out["generali"].values()))
 
 
+def domanda_nuove():
+    """Aggiunge a dati/animali_domanda.json solo le ricerche generali di DOMANDA_GENERALI che il file non ha ancora (con la data di lettura)."""
+    f = DATI / "animali_domanda.json"
+    doc = json.loads(f.read_text(encoding="utf-8"))
+    nuove = [q for q in DOMANDA_GENERALI if q not in doc["generali"]]
+    for q in nuove:
+        doc["generali"][q] = _sugg(q)
+        doc.setdefault("aggiunte_il", {})[q] = date.today().isoformat()
+    doc["generali_lette"] = [q for q in DOMANDA_GENERALI if q in doc["generali"]]
+    f.write_text(json.dumps(doc, ensure_ascii=False, indent=1), encoding="utf-8")
+    print("domanda, ricerche nuove:", {q: len(doc["generali"][q]) for q in nuove})
+
+
 def _sugg(q):
     u = "https://suggestqueries.google.com/complete/search?client=firefox&gl=gb&hl=en&q=" + urllib.parse.quote(q)
     try:
@@ -337,4 +359,6 @@ if __name__ == "__main__":
         sys.exit(0)
     if "--domanda" in sys.argv:
         domanda()
+    if "--domanda-nuove" in sys.argv:
+        domanda_nuove()
     main()

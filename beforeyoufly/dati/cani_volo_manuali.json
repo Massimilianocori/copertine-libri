@@ -1,0 +1,798 @@
+{
+ "_nota": "Compagnie aeree per cani a confronto (sezione dog-airlines/, 18/11/2026). Piano: studio-business/intelaiatura/fronti-2026-11-18-animali.md, idea A. Fatti scritti a mano: ogni 'x' è testo della pagina ufficiale della compagnia parola per parola (testo normalizzato da raccolta/cani_volo.py, che lo rilegge dal server con HTTP 200, data e impronta). 'breve' (righe della tabella di confronto), 'risposta', 'intro', 'pre' e 'post' sono parole nostre: nessun numero che non sia nelle citazioni della stessa compagnia; nessun consiglio, nessun giudizio (migliore, più economica). Prezzi: solo quelli scritti sulla pagina ufficiale, con la data di lettura; BARK Air li pubblica volo per volo nel catalogo del suo sito (letto da raccolta/cani_volo.py, non scritto qui); RetrievAir non pubblica tariffe sulle pagine lette (solo le penali). K9 Jets: il sito ufficiale risponde HTTP 403 al server (curl e browser senza trucchi, 18/11/2026): nessun fatto scritto, nessun prezzo di terzi; la pagina dice che cosa non si è potuto leggere e rimanda al sito ufficiale. Ogni FAQ ha una 'query' misurata in dati/cani_volo_domanda.json.",
+ "scritto_il": "2026-11-18",
+ "righe": [
+  [
+   "animali",
+   "Who can fly"
+  ],
+  [
+   "taglia",
+   "Dog size and weight"
+  ],
+  [
+   "biglietto",
+   "What one ticket covers"
+  ],
+  [
+   "rotte",
+   "Where it flies"
+  ],
+  [
+   "prezzo",
+   "Price on the official site"
+  ],
+  [
+   "prenota",
+   "How booking works"
+  ],
+  [
+   "bagagli",
+   "Baggage"
+  ],
+  [
+   "documenti",
+   "Documents the company asks for"
+  ],
+  [
+   "cambi",
+   "Changes and cancellations"
+  ],
+  [
+   "operatore",
+   "Who operates the flights"
+  ]
+ ],
+ "compagnie": [
+  {
+   "id": "bark",
+   "slug": "bark-air",
+   "nome": "BARK Air",
+   "sito": "https://air.bark.co/",
+   "letta": true,
+   "chi": "BARK Air’s official site (air.bark.co)",
+   "query": "bark air",
+   "risposta": "each BARK Air ticket covers one dog and one human, dogs of all sizes and breeds fly in the cabin without a crate, and scheduled flights link New York with Los Angeles, San Francisco, London, Paris, Lisbon and Madrid; the site lists a price for every flight, and BARK Air says prices can change until you have paid in full.",
+   "citazioni": [
+    {
+     "id": "b_ticket",
+     "f": "bk_faq",
+     "x": "Each BARK Air ticket covers one dog and one human (or two dogs if the combined weight is less than 50lbs). Additional tickets are available for purchase."
+    },
+    {
+     "id": "b_chaperone",
+     "f": "bk_faq",
+     "x": "If your human cannot travel with you, we are happy to support your travel plans with our dedicated chaperone services for an additional fee."
+    },
+    {
+     "id": "b_carryon",
+     "f": "bk_faq",
+     "x": "Due to limited cabin and cargo space, we kindly ask that your human bring essential in-flight items in a small carry-on. Additionally, each human is allowed one 50lb wheeled luggage and a small duffle bag, which will both be stowed during travel."
+    },
+    {
+     "id": "b_posti",
+     "f": "bk_faq",
+     "x": "While dogs do not have assigned seats, you are welcome to settle comfortably by your human's side on the cabin floor."
+    },
+    {
+     "id": "b_posto_extra",
+     "f": "bk_faq",
+     "x": "If your human prefers you have your own space on a passenger seat, they are welcome to book an additional ticket."
+    },
+    {
+     "id": "b_arrivo",
+     "f": "bk_faq",
+     "x": "Travelers should arrive at the terminal 60 minutes prior to their flight."
+    },
+    {
+     "id": "b_crate",
+     "f": "bk_faq",
+     "x": "If you’re more comfortable in a carrier, you are welcome to bring one but we do not allow crates in the cabin."
+    },
+    {
+     "id": "b_leash",
+     "f": "bk_faq",
+     "x": "Much like seat belt rules on any standard flight, we must remain on leash, particularly while on the tarmac, during taxiing, take off, and landing (or if any turbulence is expected)."
+    },
+    {
+     "id": "b_cabina",
+     "f": "bk_faq",
+     "x": "On average, our cabins accommodate 7-9 humans and 7-9 pups."
+    },
+    {
+     "id": "b_bimbi",
+     "f": "bk_faq",
+     "x": "Humans under the age of 10 are not permitted to fly on BARK Air."
+    },
+    {
+     "id": "b_18",
+     "f": "bk_faq",
+     "x": "Your human must be at least 18 years old to book and travel with you."
+    },
+    {
+     "id": "b_doc",
+     "f": "bk_faq",
+     "x": "Dogs are required to have up-to-date vaccination records."
+    },
+    {
+     "id": "b_intake",
+     "f": "bk_faq",
+     "x": "Our crew will reach out to your human after they book the flight to gather additional information about your size, any allergies, and your socialization preferences."
+    },
+    {
+     "id": "b_intl",
+     "f": "bk_faq",
+     "x": "International flights will require customs documents certifying we pups meet all criteria set forth by regulating entities. Typically, they require rabies vaccination records, microchip compliance, recent vet physical and tapeworm treatment."
+    },
+    {
+     "id": "b_taglia",
+     "f": "bk_faq",
+     "x": "We welcome dogs of all sizes and breeds."
+    },
+    {
+     "id": "b_razze",
+     "f": "bk_faq",
+     "x": "If you are traveling internationally, particularly to the EU, we highly encourage your human to research any potential breed restrictions to ensure your travel plans are not affected by local governing bodies."
+    },
+    {
+     "id": "b_rifiuto",
+     "f": "bk_faq",
+     "x": "To ensure this, we reserve the right to refuse the boarding of any passenger (human or dog) that demonstrates behaviors that pose a potential safety risk to staff or fellow passengers."
+    },
+    {
+     "id": "b_aeroporti",
+     "f": "bk_faq",
+     "x": "Our current routes serve the metro areas of New York City, Los Angeles, San Francisco, London, Paris, Lisbon, and Madrid."
+    },
+    {
+     "id": "b_cambi",
+     "f": "bk_faq",
+     "x": "Simply have your human contact us, and we’ll work with them to find a solution."
+    },
+    {
+     "id": "b_gatti",
+     "f": "bk_faq",
+     "x": "If your human would like to travel with your cat, bird, or another non-canine companion, we’re happy to explore the possibility of accommodating your pack. Please note, all non-canine travelers must travel in an appropriate carrier and remain inside it at all times."
+    },
+    {
+     "id": "b_shared_def",
+     "f": "bk_faq",
+     "x": "When a traveler charters a BARK Air flight and has extra room, we open up those seats to others headed the same way. Shared Charter flights are crowdsourced and therefore subject to a minimum number of bookings."
+    },
+    {
+     "id": "b_shared_dep",
+     "f": "bk_faq",
+     "x": "In order to hold a spot on a Shared Charter, your human must either make a deposit or pay for the ticket(s) in full upon reserving."
+    },
+    {
+     "id": "b_shared_canc",
+     "f": "bk_faq",
+     "x": "We accept cancellations made at least 90 days prior to departure. For cancellations made less than 90 days in advance, a refund will only be issued if we are able to fill your human’s seat with another paying passenger."
+    },
+    {
+     "id": "b_prezzi",
+     "f": "bk_faq",
+     "x": "All BARK Air ticket prices are subject to change and are only guaranteed once payment has been made in full for a booking."
+    },
+    {
+     "id": "b_costo",
+     "f": "bk_faq",
+     "x": "We hear you, and want you to know that we’re working toward making BARK Air as accessible as possible."
+    },
+    {
+     "id": "b_operatore",
+     "f": "bk_faq",
+     "x": "BARK Air is a public charter operator. It is not a direct air carrier and does not own or operate any aircraft. All flights are operated by licensed U.S. air carrier, Worldwide Jet."
+    },
+    {
+     "id": "b_rotte",
+     "f": "bk_voli",
+     "x": "BARK Air offers regular scheduled service from New York to and from Lisbon, Los Angeles, London, Madrid, Paris and San Francisco—and growing."
+    },
+    {
+     "id": "b_seat",
+     "f": "bk_voli",
+     "x": "Each ticket includes a seat for 1 dog and 1 human."
+    },
+    {
+     "id": "b_lounge",
+     "f": "bk_exp",
+     "x": "Arrive just one hour before boarding for efficient check-in, supervised socialization time, and a personal escort to the plane."
+    },
+    {
+     "id": "b_privato",
+     "f": "bk_charter",
+     "x": "Aircraft availability and pricing vary by route."
+    }
+   ],
+   "tabella": {
+    "animali": {
+     "breve": "Dogs; a cat, bird or other animal only by arrangement, in a carrier for the whole flight",
+     "cit": [
+      "b_taglia",
+      "b_gatti"
+     ]
+    },
+    "taglia": {
+     "breve": "All sizes and breeds; no crates in the cabin",
+     "cit": [
+      "b_taglia",
+      "b_crate"
+     ]
+    },
+    "biglietto": {
+     "breve": "One dog and one human (or two dogs under 50 lb together). The flight list says a ticket includes a seat for the dog; the FAQ says dogs have no assigned seat and settle on the cabin floor by you, unless you book another ticket",
+     "cit": [
+      "b_ticket",
+      "b_seat",
+      "b_posti",
+      "b_posto_extra"
+     ]
+    },
+    "rotte": {
+     "breve": "New York to and from Los Angeles, San Francisco, London, Paris, Lisbon and Madrid, plus other flights on sale (table on the BARK Air page)",
+     "cit": [
+      "b_rotte",
+      "b_aeroporti"
+     ]
+    },
+    "prezzo": {
+     "breve": "",
+     "cit": [
+      "b_prezzi"
+     ]
+    },
+    "prenota": {
+     "breve": "Online, flight by flight; after you book, the crew contacts you about your dog",
+     "cit": [
+      "b_seat",
+      "b_intake"
+     ]
+    },
+    "bagagli": {
+     "breve": "A small carry-on, one 50 lb wheeled bag and a small duffle bag per person",
+     "cit": [
+      "b_carryon"
+     ]
+    },
+    "documenti": {
+     "breve": "Up-to-date vaccination records; customs documents on international flights",
+     "cit": [
+      "b_doc",
+      "b_intl"
+     ]
+    },
+    "cambi": {
+     "breve": "No fixed rule on the scheduled-flight pages we read: BARK Air says to contact it; shared charters: cancel at least 90 days before",
+     "cit": [
+      "b_cambi",
+      "b_shared_canc"
+     ]
+    },
+    "operatore": {
+     "breve": "Worldwide Jet, a licensed US air carrier; BARK Air is a public charter operator",
+     "cit": [
+      "b_operatore"
+     ]
+    }
+   },
+   "sezioni": [
+    {
+     "id": "ticket",
+     "titolo": "What a ticket covers",
+     "intro": "BARK Air words this in two ways. Its list of flights says that a ticket includes a seat for the dog; its FAQ says that dogs have no assigned seat and settle on the cabin floor, unless you book another ticket. We quote both: ask BARK Air which applies to your flight.",
+     "cit": [
+      "b_ticket",
+      "b_seat",
+      "b_posti",
+      "b_posto_extra",
+      "b_chaperone"
+     ]
+    },
+    {
+     "id": "dogs",
+     "titolo": "Which dogs can fly",
+     "intro": "",
+     "cit": [
+      "b_taglia",
+      "b_razze",
+      "b_crate",
+      "b_leash",
+      "b_rifiuto",
+      "b_gatti"
+     ]
+    },
+    {
+     "id": "people",
+     "titolo": "People on board",
+     "intro": "",
+     "cit": [
+      "b_18",
+      "b_bimbi",
+      "b_cabina"
+     ]
+    },
+    {
+     "id": "booking",
+     "titolo": "How booking works",
+     "intro": "You choose a flight on the official site and pay for a ticket; BARK Air then gets in touch about your dog.",
+     "cit": [
+      "b_intake",
+      "b_prezzi",
+      "b_cambi"
+     ]
+    },
+    {
+     "id": "day",
+     "titolo": "On the day and baggage",
+     "intro": "",
+     "cit": [
+      "b_arrivo",
+      "b_lounge",
+      "b_carryon"
+     ]
+    },
+    {
+     "id": "documents",
+     "titolo": "Documents",
+     "intro": "These are the company’s own words, not the entry rules of a country: those are set by each government.",
+     "cit": [
+      "b_doc",
+      "b_intl"
+     ]
+    },
+    {
+     "id": "charters",
+     "titolo": "Shared and private charters",
+     "intro": "Besides its scheduled flights, BARK Air sells seats on flights chartered by other travellers, and whole aircraft.",
+     "cit": [
+      "b_shared_def",
+      "b_shared_dep",
+      "b_shared_canc",
+      "b_privato"
+     ]
+    },
+    {
+     "id": "operator",
+     "titolo": "Who operates the flights",
+     "intro": "",
+     "cit": [
+      "b_operatore"
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "query": "bark air cost",
+     "q": "How much does BARK Air cost?",
+     "cit": [
+      "b_prezzi",
+      "b_costo"
+     ],
+     "pre": "{prezzi_bark} BARK Air says:",
+     "post": ""
+    },
+    {
+     "query": "bark air flights",
+     "q": "Where does BARK Air fly?",
+     "cit": [
+      "b_rotte"
+     ],
+     "pre": "BARK Air says:",
+     "post": "The table on this page lists every route with flights on sale on the day we read the site."
+    },
+    {
+     "query": "flying with a large dog",
+     "q": "Can a large dog fly on BARK Air?",
+     "cit": [
+      "b_taglia",
+      "b_posti"
+     ],
+     "pre": "Yes, according to BARK Air:",
+     "post": ""
+    },
+    {
+     "query": "bark air",
+     "q": "Is BARK Air an airline?",
+     "cit": [
+      "b_operatore"
+     ],
+     "pre": "Not in the strict sense. BARK Air says:",
+     "post": ""
+    }
+   ]
+  },
+  {
+   "id": "retrievair",
+   "slug": "retrievair",
+   "nome": "RetrievAir",
+   "sito": "https://retrievair.com/",
+   "letta": true,
+   "chi": "RetrievAir’s official site (retrievair.com)",
+   "query": "retrievair",
+   "risposta": "RetrievAir flies dogs and cats of any size in the cabin on public charter flights between 12 US cities; each adult can bring one pet, a dog of 75 lbs or more needs its own seat, and the pages we read give no fare (fares are dynamic), only the $50 fee per seat for changing or cancelling a Basic fare.",
+   "citazioni": [
+    {
+     "id": "r_animali",
+     "f": "rv_faq",
+     "x": "Dogs and Cats! While we insist that all cats stay in their carrier for their safety, we accept all friendly dogs and cats."
+    },
+    {
+     "id": "r_taglia",
+     "f": "rv_faq",
+     "x": "We have no limit to pet weight or size."
+    },
+    {
+     "id": "r_uno",
+     "f": "rv_faq",
+     "x": "Each adult can fly with one pet."
+    },
+    {
+     "id": "r_rabbia",
+     "f": "rv_faq",
+     "x": "For the safety of all our customers we require all pets to be up to date on their Rabies vaccine."
+    },
+    {
+     "id": "r_prova",
+     "f": "rv_faq",
+     "x": "Bring proof of rabies vaccination, digital or printed."
+    },
+    {
+     "id": "r_id",
+     "f": "rv_faq",
+     "x": "Every passenger 18 and over needs a REAL ID or passport."
+    },
+    {
+     "id": "r_bimbi",
+     "f": "rv_faq",
+     "x": "For the safety and comfort of all passengers, children (14 and under) can travel with your group but cannot be responsible for a pet."
+    },
+    {
+     "id": "r_aereo",
+     "f": "rv_faq",
+     "x": "We fly public charter planes operating like semi-private flights from private terminals. The airplanes seat 30 people and hold up to 30 pets."
+    },
+    {
+     "id": "r_tariffe",
+     "f": "rv_faq",
+     "x": "Our fares are dynamic — seat prices may rise as a flight fills, so booking earlier usually means a lower fare."
+    },
+    {
+     "id": "r_arrivo",
+     "f": "rv_faq",
+     "x": "We recommend arriving 45 minutes before departure at our pet-friendly private terminal for a calm, crowd-free check-in."
+    },
+    {
+     "id": "r_bagagli",
+     "f": "rv_faq",
+     "x": "2 checked bags per person (up to 50 lbs. each)."
+    },
+    {
+     "id": "r_carryon",
+     "f": "rv_faq",
+     "x": "1 carry-on per person (backpack or blanket for your pet)"
+    },
+    {
+     "id": "r_posto",
+     "f": "rv_faq",
+     "x": "Pets 41 lbs and up ride beside you in the window seat or leg/lay area; smaller pups ride in your lap or at your feet."
+    },
+    {
+     "id": "r_leash",
+     "f": "rv_faq",
+     "x": "Every dog travels on a fixed-length leash and a secure harness. Retractable leashes aren’t allowed, because their locks can slip and the line tangles easily with another dog’s. Cats stay in their carrier."
+    },
+    {
+     "id": "r_canc",
+     "f": "rv_faq",
+     "x": "Changes and cancellations can be made up to 48 hours before your flight. Refunds depend on your fare class:"
+    },
+    {
+     "id": "r_basic0",
+     "f": "rv_faq",
+     "x": "Basic fare"
+    },
+    {
+     "id": "r_basic1",
+     "f": "rv_faq",
+     "x": "Changes (48+ hours out): $50 per seat, per flight, plus any fare difference."
+    },
+    {
+     "id": "r_basic2",
+     "f": "rv_faq",
+     "x": "Cancellations (48+ hours out): full value returned as a RetrievAir flight credit (valid 12 months), minus $50 per seat, per flight. Basic fares are not refunded to your original payment."
+    },
+    {
+     "id": "r_flex0",
+     "f": "rv_faq",
+     "x": "Flex fare"
+    },
+    {
+     "id": "r_flex1",
+     "f": "rv_faq",
+     "x": "Changes (48+ hours out): free, plus any fare difference."
+    },
+    {
+     "id": "r_flex2",
+     "f": "rv_faq",
+     "x": "Cancellations (48+ hours out): fully refunded to your original form of payment, no fees."
+    },
+    {
+     "id": "r_48",
+     "f": "rv_faq",
+     "x": "Within 48 hours of departure, and for no-shows, tickets are not eligible for a refund or credit. This applies to all fares."
+    },
+    {
+     "id": "r_operatore",
+     "f": "rv_faq",
+     "x": "RetrievAir is not a direct air carrier and does not own or operate any aircraft. All flights are operated by RVR Aviation, a licensed U.S. air carrier."
+    },
+    {
+     "id": "r_40",
+     "f": "rv_how",
+     "x": "Up to 40 lbs, your dog can travel in your lap or in the footwell."
+    },
+    {
+     "id": "r_41",
+     "f": "rv_how",
+     "x": "Between 41 and 74 lbs, your dog rides in the footwell — and flies free when two adults are traveling together. If you’re traveling alone, you’ll purchase a second seat."
+    },
+    {
+     "id": "r_75",
+     "f": "rv_how",
+     "x": "At 75 lbs and over, your dog needs a seat of their own."
+    },
+    {
+     "id": "r_due",
+     "f": "rv_how",
+     "x": "If two pet parents are traveling together, you can bring two pets up to 74 lbs. each—both can sit comfortably in the footwell at no extra cost."
+    },
+    {
+     "id": "r_posti48",
+     "f": "rv_how",
+     "x": "Our operations team assigns seats shortly before departure (about 48 hours out), weighing each pet’s size and temperament so everyone has the room they need."
+    },
+    {
+     "id": "r_citta",
+     "f": "rv_dest",
+     "x": "RetrievAir flies routes between 12 major U.S. cities."
+    }
+   ],
+   "tabella": {
+    "animali": {
+     "breve": "Dogs and cats; cats stay in their carrier",
+     "cit": [
+      "r_animali"
+     ]
+    },
+    "taglia": {
+     "breve": "No limit of weight or size; from 75 lbs the dog needs its own seat, from 41 to 74 lbs a second seat if you travel alone",
+     "cit": [
+      "r_taglia",
+      "r_41",
+      "r_75"
+     ]
+    },
+    "biglietto": {
+     "breve": "A seat per person; each adult can bring one pet; a dog up to 40 lbs rides in your lap or in the footwell",
+     "cit": [
+      "r_uno",
+      "r_40"
+     ]
+    },
+    "rotte": {
+     "breve": "Routes between 12 US cities (list on the RetrievAir page)",
+     "cit": [
+      "r_citta"
+     ]
+    },
+    "prezzo": {
+     "breve": "No fare on the pages we read: RetrievAir says fares are dynamic",
+     "cit": [
+      "r_tariffe"
+     ]
+    },
+    "prenota": {
+     "breve": "Online search by passengers and pet weight band; seats are assigned about 48 hours before departure",
+     "cit": [
+      "r_posti48"
+     ]
+    },
+    "bagagli": {
+     "breve": "2 checked bags per person, up to 50 lbs each, and 1 carry-on",
+     "cit": [
+      "r_bagagli",
+      "r_carryon"
+     ]
+    },
+    "documenti": {
+     "breve": "Proof of rabies vaccination; REAL ID or passport for passengers of 18 and over",
+     "cit": [
+      "r_rabbia",
+      "r_prova",
+      "r_id"
+     ]
+    },
+    "cambi": {
+     "breve": "Up to 48 hours before the flight: Basic fare $50 per seat and credit only, Flex fare free and refunded",
+     "cit": [
+      "r_canc",
+      "r_basic0",
+      "r_basic1",
+      "r_basic2",
+      "r_flex0",
+      "r_flex1",
+      "r_flex2",
+      "r_48"
+     ]
+    },
+    "operatore": {
+     "breve": "RVR Aviation, a licensed US air carrier; RetrievAir is not a direct air carrier",
+     "cit": [
+      "r_operatore"
+     ]
+    }
+   },
+   "sezioni": [
+    {
+     "id": "pets",
+     "titolo": "Which pets can fly",
+     "intro": "",
+     "cit": [
+      "r_animali",
+      "r_taglia",
+      "r_uno",
+      "r_leash"
+     ]
+    },
+    {
+     "id": "size",
+     "titolo": "Seats by dog weight",
+     "intro": "Whether you need a second seat depends on the weight of the dog and on how many adults travel.",
+     "cit": [
+      "r_40",
+      "r_41",
+      "r_75",
+      "r_due",
+      "r_posto"
+     ]
+    },
+    {
+     "id": "booking",
+     "titolo": "How booking works and fares",
+     "intro": "The official pages we read do not show a fare: the price appears in the flight search for your dates.",
+     "cit": [
+      "r_tariffe",
+      "r_posti48",
+      "r_bimbi"
+     ]
+    },
+    {
+     "id": "changes",
+     "titolo": "Changes and cancellations",
+     "intro": "",
+     "cit": [
+      "r_canc",
+      "r_basic0",
+      "r_basic1",
+      "r_basic2",
+      "r_flex0",
+      "r_flex1",
+      "r_flex2",
+      "r_48"
+     ]
+    },
+    {
+     "id": "day",
+     "titolo": "On the day and baggage",
+     "intro": "",
+     "cit": [
+      "r_arrivo",
+      "r_bagagli",
+      "r_carryon"
+     ]
+    },
+    {
+     "id": "documents",
+     "titolo": "Documents",
+     "intro": "",
+     "cit": [
+      "r_rabbia",
+      "r_prova",
+      "r_id"
+     ]
+    },
+    {
+     "id": "operator",
+     "titolo": "The aircraft and who operates the flights",
+     "intro": "",
+     "cit": [
+      "r_aereo",
+      "r_operatore"
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "query": "retrievair flights",
+     "q": "Where does RetrievAir fly?",
+     "cit": [
+      "r_citta"
+     ],
+     "pre": "RetrievAir says:",
+     "post": "The cities and the route pages of the official site are listed on this page."
+    },
+    {
+     "query": "retrievair",
+     "q": "How much does RetrievAir cost?",
+     "cit": [
+      "r_tariffe",
+      "r_basic1"
+     ],
+     "pre": "The official pages we read give no fare. RetrievAir says:",
+     "post": "The fee quoted above is the one for changing a Basic fare."
+    },
+    {
+     "query": "flying with a large dog",
+     "q": "Can a large dog fly in the cabin with RetrievAir?",
+     "cit": [
+      "r_taglia",
+      "r_75",
+      "r_41"
+     ],
+     "pre": "Yes, according to RetrievAir:",
+     "post": ""
+    }
+   ]
+  },
+  {
+   "id": "k9",
+   "slug": "k9-jets",
+   "nome": "K9 Jets",
+   "sito": "https://www.k9jets.com/",
+   "letta": false,
+   "query": "k9 jets",
+   "motivo": "K9 Jets’ official site did not answer our server on {data} (HTTP {http}), so we could not read its routes, prices or policies, and we do not copy figures from other websites."
+  }
+ ],
+ "faq_indice": [
+  {
+   "query": "airline for dogs",
+   "q": "Is there an airline just for dogs?",
+   "c": "bark",
+   "cit": [
+    "b_operatore"
+   ],
+   "pre": "There are companies that sell seats for dogs and their owners on charter flights, with the dog in the cabin. They are not airlines in the strict sense. BARK Air, for example, says:",
+   "post": ""
+  },
+  {
+   "query": "dog airline",
+   "q": "Can my dog sit next to me on these flights?",
+   "c": "retrievair",
+   "cit": [
+    "r_posto"
+   ],
+   "pre": "On the two companies we could read, yes, in the cabin. RetrievAir says:",
+   "post": "BARK Air says that dogs settle on the cabin floor by their owner’s side."
+  },
+  {
+   "query": "pet airline",
+   "q": "Can cats fly with these companies?",
+   "c": "retrievair",
+   "cit": [
+    "r_animali"
+   ],
+   "pre": "RetrievAir says:",
+   "post": "BARK Air says it can explore taking a cat or another animal, which must stay in a carrier for the whole flight."
+  },
+  {
+   "query": "k9 jets cost",
+   "q": "How much does K9 Jets cost?",
+   "c": "bark",
+   "cit": [],
+   "pre": "We could not read K9 Jets’ official site from our server, and we do not publish prices taken from other websites: see the price on K9 Jets’ own site.",
+   "post": ""
+  }
+ ]
+}

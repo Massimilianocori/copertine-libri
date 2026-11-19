@@ -15,7 +15,8 @@ Fonti (lette il 19/11/2026 con richieste HTTP dirette, nessun browser; i file gr
   chiusa o 403): nessuna cifra EPIK è pubblicata.
 - Thailandia: Royal Thai Embassy, London, pagina "Non-Immigrant Visa (B) for employment as an academic staff/teacher in Thailand".
 - Taiwan: Laws & Regulations Database of the Republic of China (law.moj.gov.tw), standard del Ministero del Lavoro per gli insegnanti
-  stranieri dei centri di insegnamento privati (cram school), articoli 3, 5 e 5-1.
+  stranieri dei centri di insegnamento privati (cram school), articoli 3, 5 e 5-1, in inglese (traduzione ufficiale) e in cinese (il testo
+  che vale: la traduzione dice "meet one of the following qualifications", il cinese le chiede tutte e il certificato è in più).
 - Cina: Ambasciata della Repubblica Popolare Cinese negli Stati Uniti, "Requirements and Procedures for Chinese Visa Application".
 - LETTURE: ogni frammento è stato letto A MANO il 19/11/2026. A ogni lancio si controlla che sia ancora nella fonte: se ne manca
   uno il JSON NON si aggiorna (codice 1) finché qualcuno non rilegge.
@@ -61,6 +62,8 @@ FONTI = {
                  "url": "https://london.thaiembassy.org/en/page/non-b-visa-for-employment-as-teachers"},
     "tw_cram": {"paese": "taiwan", "titolo": "Qualification and Criteria Standards for the Employment of Foreign Professionals as Teachers by Short-term Supplementary Learning Centers",
                 "editore": "Laws & Regulations Database of the Republic of China (Taiwan), Ministry of Justice", "url": "https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=N0090054"},
+    "tw_zh": {"paese": "taiwan", "titolo": "外國專業人才從事短期補習班教師工作資格及審查標準 (the same standards, Chinese text: the text that applies)",
+              "editore": "Laws & Regulations Database of the Republic of China (Taiwan), Ministry of Justice", "url": "https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=N0090054"},
     "cn_req": {"paese": "china", "titolo": "Requirements and Procedures for Chinese Visa Application (Updated September, 2025)",
                "editore": "Embassy of the People's Republic of China in the United States of America", "url": "https://us.china-embassy.gov.cn/eng/lsfw/zj/qz2021/202509/t20250920_11712385.htm"},
 }
@@ -106,6 +109,8 @@ LETTURE = {
     "es_cittadino": ("es_nalcap", "Be a U.S. citizen and have a valid passport through November 1st, 2027"),
     "es_laurea": ("es_nalcap", "Have a conferred college degree or be currently enrolled as a 2nd year or higher college student."),
     "es_laurea2": ("es_nalcap", "Only college studies undertaken completely in English will be accepted."),
+    "es_laurea_us": ("es_nalcap", "NALCAP applicants must have a college degree from an accredited university in the US or Canada."),
+    "es_eta2": ("es_nalcap", "You must be at least 18 years old as of January 1, 2026 and not be 45 or over on January 1, 2027, to participate in the program."),
     "es_madrelingua": ("es_nalcap", "Be a native-like speaker of English."),
     "es_salute": ("es_nalcap", "Be in good physical and mental health."),
     "es_penale": ("es_nalcap", "Have a clean background check."),
@@ -153,6 +158,10 @@ LETTURE = {
     "tw_sei": ("tw_cram", "their weekly working hours in teaching-related work for each employers shall not be less than 6 hours.", {"valori": [6]}),
     "tw_max": ("tw_cram", "their total weekly working hours in teaching-related work shall not exceed 32 hours.", {"valori": [32]}),
     "tw_tre_anni": ("tw_cram", "none of the following circumstances must not have occurred in the three years prior to the application date: 1. He or she has engaged in work without obtaining an employment permit;"),
+    # testo cinese dell'art. 5-1 (quello che vale): "且應具備下列資格" = tutte le qualifiche; "另應具有" = il certificato è in più
+    "tw_zh_req": ("tw_zh", "每週從事教學相關工作時數不得少於十四小時，且應具備下列資格： 一、成年。 二、大專以上學校畢業。 三、教授之語文課程為該外籍教師護照國籍之官方語言。"),
+    "tw_zh_cert": ("tw_zh", "前項外國人未取得學士學位者，另應具有語文師資訓練合格證書。"),
+    "tw_zh_max": ("tw_zh", "第一項及前項外國人每週從事教學相關工作總時數，不得超過三十二小時。"),
     "tw_data": ("tw_cram", "Amended Date： 2022-10-27"),
     # ------------------------------------------------------------ Cina (ambasciata negli Stati Uniti)
     "cn_z": ("cn_req", "Issued to those who intend to work in China", {"contesto": "Z Issued to those who intend to work in China Notice for the Work Permit for Foreigners"}),

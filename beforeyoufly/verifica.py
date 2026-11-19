@@ -176,8 +176,8 @@ Uso (dalla radice del repository, dopo python3 beforeyoufly/genera.py):
 31. Amazon nel bagaglio a mano ed eSIM (6/11/2026): ogni link verso un dominio Amazon in tutto il sito è https://www.amazon.co.uk o
     https://www.amazon.com, percorso /s con solo k e tag, tag giusto per il dominio (scritti qui: beforeyoufly-21 e beforeyoufl08-20),
     nessun ASIN né pagina prodotto, rel="sponsored noopener", e la pagina mostra «As an Amazon Associate we earn from qualifying
-    purchases.»; link solo nelle 40 pagine del bagaglio a mano (indice, strumento, compagnie, misure), con il mercato ricalcolato qui
-    (Europa e pagine per misura: .co.uk; USA e Canada: .com; Medio Oriente e Australia, indice e strumento: entrambi) e la misura della
+    purchases.»; link solo nelle pagine del bagaglio a mano (indice, strumento, compagnie, misure: 52 dal 19/11/2026), con il mercato ricalcolato qui
+    (Europa e pagine per misura: .co.uk; USA e Canada: .com; Medio Oriente e Australia, Asia, indice e strumento: entrambi) e la misura della
     pagina nella ricerca; frase anche nella privacy. eSIM: link Awin con awinmid 118127, awinaffid 3145171 e ued verso roamable.co;
     riquadro «Before you go» solo nelle pagine passaporto (britannico, canadese, australiano) e nella pagina EES/ETIAS.
     Dal 10/11/2026 anche Vodafone Travel eSIM (awinmid 123870) e Pocket eSIM (awinmid 131040), awinaffid 3145171 (parametri scritti qui):
@@ -4322,7 +4322,11 @@ _spec_ani = importlib.util.spec_from_file_location("raccolta_animali", Path(__fi
 RANI = importlib.util.module_from_spec(_spec_ani)
 _spec_ani.loader.exec_module(RANI)
 # Fonti ammesse: GOV.UK (APHA, Defra) e Commissione europea (DG SANTE)
-FONTI_UFFICIALI_PET = re.compile(r"^https://(?:www\.gov\.uk|food\.ec\.europa\.eu)/")
+FONTI_UFFICIALI_PET = re.compile(r"^https://(?:www\.gov\.uk|food\.ec\.europa\.eu|help\.eurostar\.com)/")  # Eurostar: solo la sua risposta sugli animali (18/11/2026)
+# Giro dei titoli del 18/11/2026: frase misurata per prima (scritta qui a mano, non letta da genera.py) e <= 65 caratteri
+INIZIO_TITOLO_PET = {"pets/": "Animal Health Certificate", "pets/uk-pet-passport-2027/": "Pet Passport UK", "pets/approved-routes-great-britain/": "Dogs on Eurostar?"}
+FRASI_EUROSTAR_PET = ("Unfortunately, we can’t accept pets on board our trains to and from London",
+                      "We do, however, allow guide and assistance dogs to travel with their owners")
 # Paesi della lista del verme solitario, ricavati qui dalla frase di GOV.UK (elenco), non dalla costante di genera.py
 NOMI_ISO_PET = {"Finland": "FI", "Ireland": "IE", "Malta": "MT", "Norway": "NO"}
 # Frasi da consiglio veterinario o da vendita: mai nelle frasi nostre della sezione (citazioni escluse)
@@ -4593,6 +4597,14 @@ def controlla_animali():
         tit = unescape(re.search(r"<title>(.*?)</title>", t).group(1))
         if len(tit) > G.LIMITE_TITOLO_PET or str(G.ANNO) not in tit:
             errori.append(f"{rel}: titolo oltre {G.LIMITE_TITOLO_PET} caratteri o senza l'anno: {tit}")
+        # giro dei titoli del 18/11/2026: frase misurata per prima, <= 65 caratteri (il calcolatore tiene il titolo di prima)
+        if rel != G.PET_CALC and len(tit) > 65:
+            errori.append(f"{rel}: titolo riscritto di {len(tit)} caratteri (> 65): {tit}")
+        if rel in INIZIO_TITOLO_PET and not tit.startswith(INIZIO_TITOLO_PET[rel]):
+            errori.append(f"{rel}: il titolo non comincia con la frase misurata «{INIZIO_TITOLO_PET[rel]}»: {tit}")
+        pp = next((p for p in G.PET_PAGINE if G.url_pet(p) == rel), None)
+        if pp and not re.match(r"Taking a Dog to (?:the )?" + re.escape(pp["nome"]) + r" from the UK \(", tit):
+            errori.append(f"{rel}: il titolo non comincia con «Taking a Dog to <Paese> from the UK»: {tit}")
         lm = re.search(re.escape(f"<loc>{G.URL_SITO}/{rel}</loc><lastmod>") + r"(\d{4}-\d{2}-\d{2})</lastmod>", sm)
         if not G.fuori_indice(rel) and (not lm or lm.group(1) not in {F["letto_il"] for F in G.PET["fonti"].values()}):
             errori.append(f"{rel}: non in sitemap o lastmod diverso da una data di lettura delle fonti")
@@ -4617,6 +4629,7 @@ def controlla_animali():
         nostre = unescape(re.sub(r"<[^>]+>", " ", re.sub(r'(?s)<blockquote class="cit">.*?</blockquote>|<script.*?</script>|<div class="tab tab-b">.*?</table></div>|<footer.*?</footer>|'
                                                       r'<div class="card checker".*?</noscript></div>', " ", t_main)))
         nostre = re.sub(r"\b(?:Regulation|Implementing Regulation|Delegated Regulation) \(EU\)(?: No)? \d+/\d+", " ", nostre)
+        nostre = nostre.replace("K9 Jets", " ")  # nome di una compagnia nel link alla sezione dog-airlines (18/11/2026), non un numero nostro
         extra_ok = {str(G.ANNO), "2027", "3.0", "1", "2", "3", "4", "5", "6"} | ({str(len(G.PET["rotte"][k])) for k in ("mare", "treno", "crociera")} |
                                                                                  {str(len(G.PET["rotte"]["aria"])), str(G.PET["rotte"]["charter"])}
                                                                                  if rel == G.PET_ROTTE else set())
@@ -4706,6 +4719,15 @@ def controlla_animali():
     # gli operatori charter (571 righe, voli privati) non si copiano: alcuni nomi coincidono con nomi di assistenti di IA; link alla sezione di GOV.UK
     if "#charter-airlines" not in tr:
         errori.append(f"{G.PET_ROTTE}: manca il link alla sezione 'Charter airlines' di GOV.UK")
+    # Eurostar (18/11/2026): il titolo-domanda ha la risposta nella prima frase e le frasi di Eurostar citate con link e data
+    lead_r = re.search(r'<p class="lead" id="answer">(.*?)</p>', tr, re.S)
+    if not lead_r or "accepts only guide and assistance dogs on its trains to and from London" not in lead_r.group(1):
+        errori.append(f"{G.PET_ROTTE}: la prima frase non risponde alla domanda del titolo su Eurostar")
+    for x in FRASI_EUROSTAR_PET:
+        if x not in unescape(tr):
+            errori.append(f"{G.PET_ROTTE}: manca la frase di Eurostar «{x[:50]}»")
+    if 'href="https://help.eurostar.com/faq/uk-en/question/Can-I-take-my-pet-on-Eurostar"' not in tr:
+        errori.append(f"{G.PET_ROTTE}: manca il link alla risposta ufficiale di Eurostar")
     # e) passaporto 2027: la pagina segue la data di GOV.UK
     tp = unescape(leggi(G.PET_PASS + "index.html"))
     if "It is our intention that the agreement will take effect in mid-2027." not in tp:
@@ -5648,7 +5670,7 @@ AMAZON_TAG_ATTESI = {"www.amazon.co.uk": "beforeyoufly-21", "www.amazon.com": "b
 AMAZON_FRASE = "As an Amazon Associate we earn from qualifying purchases."
 # mercato atteso per area della compagnia (pubblico della pagina)
 AMAZON_MERCATO_AREA = {"Europe": {"www.amazon.co.uk"}, "North America": {"www.amazon.com"},
-                       "Middle East and Australia": {"www.amazon.co.uk", "www.amazon.com"}}
+                       "Middle East and Australia": {"www.amazon.co.uk", "www.amazon.com"}, "Asia": {"www.amazon.co.uk", "www.amazon.com"}}
 ESIM_PARAMETRI = {"awinmid": "118127", "awinaffid": "3145171", "ued": "https://roamable.co/"}
 # eSIM Awin del 9/11/2026 (accesi il 10/11): voce di affiliati.json -> parametri attesi del link e nome del fornitore in dati/esim.json
 ESIM_ALTRI = {"esim_vodafone": ({"awinmid": "123870", "awinaffid": "3145171"}, "vodafone"),
@@ -6338,6 +6360,256 @@ def controlla_grow():
     return errori, c
 
 
+# ---------------------------------------------------------------- 37. Compagnie aeree per cani a confronto (18/11/2026)
+_spec_da = importlib.util.spec_from_file_location("raccolta_cani_volo", Path(__file__).resolve().parent / "raccolta" / "cani_volo.py")
+RDA = importlib.util.module_from_spec(_spec_da)
+_spec_da.loader.exec_module(RDA)
+# Fonti ammesse: solo i siti ufficiali delle compagnie lette (barkair.com è un dominio parcheggiato: mai)
+FONTI_UFFICIALI_DA = re.compile(r"^https://(?:air\.bark\.co|retrievair\.com)/")
+# Link esterni ammessi nella sezione: siti ufficiali delle tre compagnie, GOV.UK (regole citate dalla sezione Pets) e i siti fratelli del blocco comune
+LINK_AMMESSI_DA = re.compile(r"^https://(?:air\.bark\.co|retrievair\.com|www\.k9jets\.com|www\.gov\.uk)/")
+# Terzi mai nominati né usati come fonte; giudizi e consigli mai scritti (informazione, non consiglio)
+TERZI_DA = re.compile(r"pettravel|bringfido|pet holiday club|thepricer|pawventures|citizenshipper|points guy|barkair\.com|chewy", re.I)
+GIUDIZI_DA = re.compile(r"\b(?:best|cheapest|cheaper|we recommend|our pick|top pick|worth it|great value|better than|winner|luxur\w+|affordable)\b", re.I)
+
+
+def _numeri_da(s_):
+    """Numeri di un testo nostro, senza date e senza separatori delle migliaia."""
+    return _numeri_ped(re.sub(r"\bHTTP \d{3}\b|(?i:k9 ?jets)", " ", s_))
+
+
+def controlla_cani_volo():
+    """Punto 37: dati = manuali; fonti ufficiali HTTP 200 con frasi, impronte, voli e prezzi di BARK Air, città e rotte di RetrievAir ricalcolati
+    dalla copia salvata; pagine = dati; citazioni tutte dei dati; numeri nostri solo dalle citazioni (e dal catalogo per i prezzi); prima frase con
+    fonte e data; FAQ da frasi misurate (JSON-LD = testo visibile); K9 Jets senza fatti né cifre, fuori indice; riquadro del partner spento senza
+    link; nessun terzo, nessun giudizio, 'information, not advice' in ogni pagina."""
+    from html import unescape
+    errori = []
+    conti = {"fonti": 0, "cache": "no", "pagine": 0, "citazioni": 0, "faq": 0, "rotte_bark": 0, "rotte_rv": 0, "celle": 0, "non_lette": 0}
+    if not G.DA:
+        return ["dati/cani_volo.json mancante (rilanciare raccolta/cani_volo.py)"], conti
+    D = G.DA
+    M = json.loads((SITO.parent / "dati" / "cani_volo_manuali.json").read_text(encoding="utf-8"))
+    if M["compagnie"] != D["compagnie"] or M["righe"] != D["righe"] or M["faq_indice"] != D["faq_indice"]:
+        errori.append("dati/cani_volo.json non è aggiornato rispetto a dati/cani_volo_manuali.json (rilanciare raccolta/cani_volo.py)")
+    DOM = json.loads((SITO.parent / "dati" / "cani_volo_domanda.json").read_text(encoding="utf-8"))["frasi"]
+    misurate = {k.rsplit(" [", 1)[0] for k, v in DOM.items() if v["volume"] > 0}
+    # a) fonti
+    for fid, F in D["fonti"].items():
+        conti["fonti"] += 1
+        if F["http"] != 200 or not FONTI_UFFICIALI_DA.match(F["url"]) or F["pagina"] != F["url"]:
+            errori.append(f"dog-airlines fonte {fid}: HTTP {F['http']} o indirizzo non ufficiale {F['url']}")
+        if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", F["letto_il"] or "") or F["letto_il"] > G.OGGI.isoformat():
+            errori.append(f"dog-airlines fonte {fid}: data di lettura non valida {F['letto_il']}")
+        if not F["frasi"]:
+            errori.append(f"dog-airlines fonte {fid}: nessuna frase citata")
+        f_c = RDA.CACHE / f"{fid}.html"
+        if copia_usabile(37, fid, f_c, "cani_volo.py"):
+            ef = []
+            raw = f_c.read_text(encoding="utf-8")
+            t = RDA.testo_html(raw)
+            frasi = RDA.frasi_fonte(D, fid)
+            for x in frasi:
+                if x not in t:
+                    ef.append(f"dog-airlines fonte {fid}: frase non più nel testo salvato: {x[:70]}")
+            if frasi and RDA.impronta_zona(t, frasi) != F["impronta"]:
+                ef.append(f"dog-airlines fonte {fid}: impronta diversa dal testo salvato (rilanciare raccolta/cani_volo.py)")
+            if fid == "bk_voli":
+                pp = [q.read_text(encoding="utf-8") for q in sorted(RDA.CACHE.glob("bk_voli_*.json"))]
+                if RDA.voli_bark(pp) != D["bark_voli"]["rotte"] or RDA.valuta_bark(raw) != D["bark_voli"]["valuta"]:
+                    ef.append("voli e prezzi di BARK Air (o valuta) diversi dal catalogo salvato")
+            if fid == "rv_dest" and RDA.citta_rv(raw) != D["rv"]["citta"]:
+                ef.append("città di RetrievAir diverse dalla copia salvata")
+            conti["cache"] = "sì"
+            errori += esito_copia(37, fid, ef, f_c, F["letto_il"])
+    if D["bark_voli"]["valuta"] != "USD" or not D["bark_voli"]["url"].startswith("https://air.bark.co/"):
+        errori.append("BARK Air: valuta dei prezzi diversa da USD o catalogo non ufficiale")
+    for r in D["bark_voli"]["rotte"]:
+        if not (0 < r["min"] <= r["max"]) or r["voli"] < 1:
+            errori.append(f"BARK Air, rotta {r['da']} → {r['a']}: prezzi o numero dei voli non validi")
+    for r in D["rv"]["rotte"]:
+        if not r["url"].startswith("https://retrievair.com/routes/"):
+            errori.append(f"RetrievAir, rotta {r['da']} → {r['a']}: pagina non ufficiale")
+    for cid, N in D["non_lette"].items():
+        conti["non_lette"] += 1
+        C = G.DA_PER[cid]
+        if C["letta"] or N["http"] == 200 or C.get("citazioni") or C.get("tabella"):
+            errori.append(f"dog-airlines {cid}: 'non letta' ma HTTP {N['http']} o con fatti scritti (ora risponde? leggere le pagine e scrivere le citazioni)")
+    # b) pagine = dati; sitemap; K9 fuori indice
+    sm = leggi("sitemap.xml")
+    attese = {G.url_da()} | {G.url_da(C) for C in G.DA_COMP}
+    trovate = {q.parent.relative_to(SITO).as_posix() + "/" for q in (SITO / G.DA_BASE).rglob("index.html")} if (SITO / G.DA_BASE).exists() else set()
+    if attese != trovate:
+        errori.append(f"pagine dog-airlines diverse dai dati: mancano {sorted(attese - trovate)}, in più {sorted(trovate - attese)}")
+    host_altri = {urlparse(u).hostname for u, _, _ in G.ALTRI_SITI}
+    cit_pet = {c["x"] for c in G.PET["citazioni"]} | {v for c in G.PET["citazioni"] if c.get("elenco") for v in c["elenco"]}
+    prezzi = set().union(*[_numeri_da(G.dollari_da(r[k])) for r in D["bark_voli"]["rotte"] for k in ("min", "max")])
+    for rel in sorted(attese & trovate):
+        conti["pagine"] += 1
+        t = leggi(rel + "index.html")
+        main_ = t.split('<main id="main">', 1)[-1].split("</main>", 1)[0]
+        vis = unescape(re.sub(r"<[^>]+>", " ", main_))
+        tit = unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+        C = next((x for x in G.DA_COMP if G.url_da(x) == rel), None)
+        letta = C is None or C["letta"]
+        if len(tit) > G.LIMITE_TITOLO or str(G.ANNO) not in tit or (C and not tit.startswith(C["nome"])) or (C is None and not tit.startswith("Airlines for Dogs")):
+            errori.append(f"{rel}: titolo oltre {G.LIMITE_TITOLO} caratteri, senza l'anno o che non comincia con la frase misurata: {tit}")
+        in_sm = f"<loc>{G.URL_SITO}/{rel}</loc>" in sm
+        if letta != in_sm or letta == ('<meta name="robots" content="noindex">' in t):
+            errori.append(f"{rel}: in sitemap/indice solo le pagine con i fatti letti (K9 Jets fuori indice finché il sito non si legge)")
+        if "This is information, not advice." not in vis:
+            errori.append(f"{rel}: manca 'This is information, not advice.'")
+        for h in re.findall(r'href="(https?://[^"]+)"', main_):
+            hh = unescape(h)
+            if not (LINK_AMMESSI_DA.match(hh) or urlparse(hh).hostname in host_altri or (G.K9_JETS and hh == G.K9_JETS)):
+                errori.append(f"{rel}: link esterno non ufficiale {hh[:80]}")
+        for rx, cosa in ((TERZI_DA, "sito di terzi"), (GIUDIZI_DA, "giudizio o consiglio"), (VIETATE_SRV, "nome di un assistente")):
+            nostre = unescape(re.sub(r"<[^>]+>", " ", re.sub(r'(?s)<blockquote class="cit">.*?</blockquote>|<section class="faq">.*?</section>', " ", main_)))
+            mm = rx.search(nostre if rx is GIUDIZI_DA else vis)
+            if mm:
+                errori.append(f"{rel}: {cosa} '{mm.group(0)}'")
+        if not G.K9_JETS and ('rel="sponsored' in main_ or "data-partner" in main_ or G.MON.link_affiliati(main_)):
+            errori.append(f"{rel}: riquadro o link del partner con l'interruttore spento")
+        if G.K9_JETS and rel != G.url_da(G.DA_PER["k9"]) and "data-partner" in main_:
+            errori.append(f"{rel}: il riquadro K9 Jets sta solo nella pagina di K9 Jets")
+        # citazioni: ogni paragrafo citato è nei dati della compagnia (o è la frase di GOV.UK della sezione Pets)
+        ammesse = {c["x"] for X in G.DA_LETTE for c in X["citazioni"]} if C is None else ({c["x"] for c in C["citazioni"]} if letta else set())
+        for bq in re.findall(r'(?s)<blockquote class="cit">(.*?)</blockquote>', main_):
+            for x in re.findall(r"(?s)<(?:p|li)>(.*?)</(?:p|li)>", bq):
+                conti["citazioni"] += 1
+                if unescape(x) not in ammesse and unescape(x) not in cit_pet:
+                    errori.append(f"{rel}: testo citato che non è nei dati: {unescape(x)[:70]}")
+        if f'href="../{"" if C is None else "../"}{G.PET_BASE}/"' not in main_ or f'{G.PET_ROTTE}"' not in main_:
+            errori.append(f"{rel}: mancano i link alle regole ufficiali della sezione Pets")
+        if C is None or not letta:
+            continue
+        # pagina di una compagnia letta
+        lead = re.search(r'<p class="lead" id="answer">(.*?)</p>', t, re.S)
+        if not lead or unescape(lead.group(1)) != G.risposta_da(C) or not G.risposta_da(C).startswith(f"According to {C['chi']}, checked on {G.data_lunga(G.data_da(C))}, "):
+            errori.append(f"{rel}: prima frase diversa da 'According to <sito ufficiale>, checked on <data>, <risposta>'")
+        usate = {i for v in C["tabella"].values() for i in v["cit"]} | {i for x in C["sezioni"] for i in x["cit"]}
+        for c in C["citazioni"]:
+            if c["id"] in {i for x in C["sezioni"] for i in x["cit"]} and f"<p>{escape(c['x'])}</p>" not in main_:
+                errori.append(f"{rel}: citazione mancante {c['id']}")
+            if c["id"] not in usate | {i for f in C["faq"] for i in f["cit"]}:
+                errori.append(f"{rel}: citazione {c['id']} nei dati ma mai usata")
+        for f in G.fonti_da(C):
+            F = D["fonti"][f]
+            if f'href="{escape(F["pagina"])}"' not in main_ or f"checked on {G.data_lunga(F['letto_il'])}" not in vis:
+                errori.append(f"{rel}: manca il link o la data della fonte {f}")
+        # numeri nostri: solo dalle citazioni della compagnia (BARK Air: anche i prezzi del catalogo letto)
+        num_cit = set().union(*[_numeri_da(c["x"]) for c in C["citazioni"]]) | {str(G.ANNO)}
+        campi = [("risposta", C["risposta"])] + [(f"riga {k}", G.breve_da(C, k)) for k, _ in D["righe"]] + [(f"sezione {x['id']}", x["titolo"] + " " + x["intro"]) for x in C["sezioni"]]
+        campi += [(f"FAQ «{q['q']}»", q["pre"].replace("{prezzi_bark}", G.frase_prezzi_bark_da()) + " " + q["post"]) for q in C["faq"]]
+        for nome, testo in campi:
+            extra = _numeri_da(testo) - num_cit - (prezzi if C["id"] == "bark" else set())
+            if extra:
+                errori.append(f"{rel}: numeri non presi dalle citazioni in {nome}: {sorted(extra)}")
+        for k, v in C["tabella"].items():
+            if not v["cit"]:
+                errori.append(f"{rel}: riga {k} senza citazione")
+        # At a glance = dati
+        for k, nome in D["righe"]:
+            conti["celle"] += 1
+            if f'<tr><th scope="row">{escape(nome)}</th><td>{escape(G.breve_da(C, k))}</td></tr>' not in main_:
+                errori.append(f"{rel}: riga 'At a glance' {k} diversa dai dati")
+        # FAQ
+        attese_faq = G.faq_da(C)
+        faq_ld = next((x for x in (json.loads(y) for y in re.findall(r'<script type="application/ld\+json">(.*?)</script>', t)) if x.get("@type") == "FAQPage"), None)
+        if not faq_ld or [(e["name"], e["acceptedAnswer"]["text"]) for e in faq_ld["mainEntity"]] != attese_faq:
+            errori.append(f"{rel}: FAQ JSON-LD diversa dalle domande previste")
+        for qd, r_ in attese_faq:
+            conti["faq"] += 1
+            if f"<h3>{escape(qd)}</h3><p>{escape(r_)}</p>" not in t:
+                errori.append(f"{rel}: FAQ visibile diversa dal JSON-LD: {qd}")
+        for q in C["faq"]:
+            if q["query"] not in misurate:
+                errori.append(f"{rel}: FAQ «{q['q']}» senza una frase misurata ({q['query']!r})")
+        if C["query"] not in misurate:
+            errori.append(f"{rel}: pagina senza una frase misurata ({C['query']!r})")
+        if C["id"] == "bark":
+            righe = re.findall(r'<tr data-voce><td data-l="From">(.*?)</td><td data-l="To">(.*?)</td><td data-l="Flights listed">(\d+)</td><td data-l="Ticket price \(US dollars\)">(.*?)</td></tr>', main_)
+            att = [(r["da"], r["a"], str(r["voli"]), G.dollari_da(r["min"]) + ("" if r["min"] == r["max"] else " to " + G.dollari_da(r["max"]))) for r in D["bark_voli"]["rotte"]]
+            conti["rotte_bark"] = len(righe)
+            if [tuple(unescape(x) for x in r) for r in righe] != att:
+                errori.append(f"{rel}: tabella dei voli e dei prezzi diversa dal catalogo letto")
+            m_ = re.search(r"from (\$[\d,]+)$", tit)
+            if m_ and m_.group(1) != G.dollari_da(min(r["min"] for r in D["bark_voli"]["rotte"])):
+                errori.append(f"{rel}: il prezzo del titolo non è il minimo del catalogo letto")
+            if f"read on {G.data_lunga(D['bark_voli']['letto_il'])}" not in vis or 'href="https://air.bark.co/collections/bookings"' not in main_:
+                errori.append(f"{rel}: tabella dei prezzi senza data o senza link al catalogo ufficiale")
+        if C["id"] == "retrievair":
+            righe = re.findall(r'<tr data-voce><td data-l="From">(.*?)</td><td data-l="To">(.*?)</td><td data-l="Official page"><a href="(.*?)"', main_)
+            conti["rotte_rv"] = len(righe)
+            if [tuple(unescape(x) for x in r) for r in righe] != [(r["da"], r["a"], r["url"]) for r in D["rv"]["rotte"]]:
+                errori.append(f"{rel}: tabella delle rotte diversa dai dati")
+            for c_ in D["rv"]["citta"]:
+                if f'<a href="{escape(c_["url"])}" rel="noopener">{escape(c_["nome"])}</a>' not in main_:
+                    errori.append(f"{rel}: manca la città {c_['nome']}")
+    # c) K9 Jets (e ogni compagnia non letta): nessun fatto, nessuna cifra
+    for C in G.DA_COMP:
+        if C["letta"] or not (SITO / G.url_da(C) / "index.html").exists():
+            continue
+        t = leggi(G.url_da(C) + "index.html")
+        main_ = t.split('<main id="main">', 1)[-1].split("</main>", 1)[0]
+        nostre = unescape(re.sub(r"<[^>]+>", " ", re.sub(r'(?s)<blockquote class="cit">.*?</blockquote>', " ", main_)))
+        if escape(G.motivo_da(C), quote=False) not in main_ and escape(G.motivo_da(C)) not in main_:
+            errori.append(f"{G.url_da(C)}: manca la frase che dice che il sito ufficiale non si è potuto leggere")
+        if "$" in nostre or "£" in nostre or "€" in nostre or _numeri_da(nostre) - {str(G.ANNO)}:
+            errori.append(f"{G.url_da(C)}: cifre in una pagina senza fonte letta: {sorted(_numeri_da(nostre) - {str(G.ANNO)})[:6]}")
+        if "adsbygoogle" in t or 'class="ad-slot"' in main_:
+            errori.append(f"{G.url_da(C)}: annunci in una pagina fuori indice")
+    # d) indice: tabella = dati, prima frase, FAQ, link
+    idx = G.url_da() + "index.html"
+    if (SITO / idx).exists():
+        t = leggi(idx)
+        m = re.search(r'<p class="lead" id="answer">(.*?)</p>', t, re.S)
+        if not m or unescape(m.group(1)) != G.prima_frase_da() or f"checked on {G.data_lunga(D['controllato_il'])}" not in unescape(m.group(1)):
+            errori.append(f"{idx}: prima frase diversa dai dati o senza la data")
+        num_tutte = set().union(*[_numeri_da(c["x"]) for X in G.DA_LETTE for c in X["citazioni"]]) | prezzi | {str(G.ANNO)}
+        if _numeri_da(G.prima_frase_da()) - num_tutte:
+            errori.append(f"{idx}: numeri della prima frase non presi dalle fonti: {sorted(_numeri_da(G.prima_frase_da()) - num_tutte)}")
+        for k, nome in D["righe"]:
+            r_ = re.search(r'<tr data-voce data-riga="' + k + r'">(.*?)</tr>', t)
+            celle = [unescape(x) for x in re.findall(r'<td data-l="[^"]*">(.*?)</td>', r_.group(1))][1:] if r_ else []
+            conti["celle"] += len(celle)
+            if celle != [G.breve_da(C, k) for C in G.DA_COMP]:
+                errori.append(f"{idx}: riga {k} della tabella di confronto diversa dai dati")
+        attese_faq = G.faq_indice_da()
+        faq_ld = next((x for x in (json.loads(y) for y in re.findall(r'<script type="application/ld\+json">(.*?)</script>', t)) if x.get("@type") == "FAQPage"), None)
+        if not faq_ld or [(e["name"], e["acceptedAnswer"]["text"]) for e in faq_ld["mainEntity"]] != attese_faq:
+            errori.append(f"{idx}: FAQ JSON-LD diversa dalle domande previste")
+        for qd, r_ in attese_faq:
+            conti["faq"] += 1
+            if f"<h3>{escape(qd)}</h3><p>{escape(r_)}</p>" not in t:
+                errori.append(f"{idx}: FAQ visibile diversa dal JSON-LD: {qd}")
+        for q in D["faq_indice"]:
+            if q["query"] not in misurate:
+                errori.append(f"{idx}: FAQ «{q['q']}» senza una frase misurata ({q['query']!r})")
+            extra = _numeri_da(q["pre"] + " " + q["post"]) - num_tutte
+            if extra or any(i not in {c["id"] for c in G.DA_PER[q["c"]]["citazioni"]} for i in q["cit"]):
+                errori.append(f"{idx}: FAQ «{q['q']}» con numeri non presi dalle fonti o citazione sconosciuta")
+        for C in G.DA_COMP:
+            if f'href="../{G.url_da(C)}"' not in t:
+                errori.append(f"{idx}: manca il link a {G.url_da(C)}")
+    # e) collegamenti in entrata, interruttore, dati senza nomi di assistenti né chiavi
+    if f'href="{G.DA_BASE}/"' not in leggi("index.html"):
+        errori.append("home senza link alla sezione dog-airlines")
+    if f'id="{G.DA_BASE}"' not in leggi("about/index.html"):
+        errori.append("About senza la sezione dog-airlines")
+    for rel in (G.PET_BASE + "/", G.PET_ROTTE):
+        if f'{G.DA_BASE}/"' not in leggi(rel + "index.html"):
+            errori.append(f"{rel}: manca il link alla sezione dog-airlines")
+    A = json.loads((SITO.parent / "dati" / "affiliati.json").read_text(encoding="utf-8")).get("_k9jets")
+    if not A or A.get("url") != G.K9_JETS:
+        errori.append("dati/affiliati.json: voce '_k9jets' mancante o diversa dall'interruttore di genera.py")
+    for nome in ("cani_volo.json", "cani_volo_manuali.json", "cani_volo_domanda.json"):
+        testo = (SITO.parent / "dati" / nome).read_text(encoding="utf-8")
+        if VIETATE_SRV.search(testo) or re.search("sd" + r"_live|pk\.eyJ|sk" + r"_live|AIza|ghp_|apikey=", testo):
+            errori.append(f"dati/{nome}: nome di un assistente di intelligenza artificiale o chiave")
+    return errori, conti
+
+
 # ---------------------------------------------------------------- 36. Giro dei titoli (14/11/2026)
 # Slug scritti qui a mano (non letti da genera.py): le pagine che il giro dei titoli del 14/11/2026 ha riscritto fuori dai modelli per sezione.
 BIGLIETTI_RITITOLATI = {"vatican-museums": "Vatican Museum Tickets", "sagrada-familia": "Sagrada Familia Tickets",
@@ -6712,9 +6984,15 @@ def main():
           f"{c36['visto']} titoli «Need a Visa» con il testo ufficiale citato nella sezione #visa ({c36['visto_senza']} pagine senza testo sui visti "
           f"senza la domanda); Uber {c36['uber']}, liquidi britannici {c36['liquidi_uk']} + TSA, India {c36['india']} + indice, bagagli, "
           f"indici e biglietti: {len(e36)} errori")
+    e37, c37 = controlla_cani_volo()
+    print(f"37. Dog airlines compared: {c37['pagine']} pagine (indice + {len(G.DA_LETTE)} compagnie lette + {c37['non_lette']} non letta, fuori indice e senza cifre), "
+          f"{c37['fonti']} fonti ufficiali (air.bark.co e retrievair.com, HTTP 200; frasi, impronte, voli e prezzi di BARK Air e città di RetrievAir ricalcolati "
+          f"dalla copia salvata: {c37['cache']}), {c37['citazioni']} paragrafi citati tutti nei dati, {c37['rotte_bark']} rotte BARK Air con prezzo = catalogo letto, "
+          f"{c37['rotte_rv']} pagine rotta RetrievAir, {c37['celle']} celle delle tabelle = dati, numeri solo dalle fonti, {c37['faq']} risposte FAQ da frasi misurate "
+          f"(JSON-LD = testo visibile), riquadro K9 Jets {'acceso' if G.K9_JETS else 'spento'}, nessun terzo né giudizio, 'information, not advice': {len(e37)} errori")
     e19, i19 = G.MON.controlla_sito(G.SITO_ID, SITO)  # controllo comune di monetizzazione (monetizzazione.py)
     print("19. " + G.MON.riepilogo(G.SITO_ID, i19, e19))
-    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28 + e29 + e30 + e31 + e32 + e33 + e34 + e35 + e36
+    tutti = e1 + e2 + e3 + e4 + e5 + e6 + (e7 if info else []) + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28 + e29 + e30 + e31 + e32 + e33 + e34 + e35 + e36 + e37
     if AVVISI:  # ricalcoli dalle copie salvati saltati (copia mancante, pagina di blocco, raccolta che non ha aggiornato il JSON): non sono errori
         per_punto = {}
         for k, _ in AVVISI:

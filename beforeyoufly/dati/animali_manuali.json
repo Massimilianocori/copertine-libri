@@ -1,5 +1,5 @@
 {
- "_nota": "Animali in viaggio (sezione pets/, 31/10/2026): citazioni scritte a mano. Ogni 'x' è testo della fonte parola per parola (testo normalizzato da raccolta/animali.py); 'elenco' è la stessa frase divisa nelle voci di un elenco della pagina ufficiale (introduzione + voci, unite da uno spazio = 'x'), per mostrarla come elenco. Le FAQ hanno una 'query' che deve essere una ricerca vera di dati/animali_domanda.json; 'pre' e 'post' sono parole nostre, controllate da verifica.py (punto 26): nessun numero che non sia nelle citazioni, nessun consiglio veterinario.",
+ "_nota": "Animali in viaggio (sezione pets/, 31/10/2026): citazioni scritte a mano. Ogni 'x' è testo della fonte parola per parola (testo normalizzato da raccolta/animali.py); 'elenco' è la stessa frase divisa nelle voci di un elenco della pagina ufficiale (introduzione + voci, unite da uno spazio = 'x'), per mostrarla come elenco. Le FAQ hanno una 'query' che deve essere una ricerca vera di dati/animali_domanda.json; 'pre' e 'post' sono parole nostre, controllate da verifica.py (punto 26): nessun numero che non sia nelle citazioni, nessun consiglio veterinario. Dal 18/11/2026: fonte es_pets (centro assistenza di Eurostar) e FAQ sulle frasi misurate (animal health certificate cost, pet passport uk, dogs on eurostar).",
  "scritto_il": "2026-10-31",
  "citazioni": [
   {
@@ -85,6 +85,11 @@
    "f": "gov_estero",
    "tema": "passaporto",
    "x": "If you live in England, Scotland or Wales, you cannot use a pet passport to enter the EU - even if it was issued in the EU. If you use a pet passport instead of an animal health certificate, your pet may be refused entry."
+  },
+  {
+   "id": "e_ni",
+   "f": "gov_estero",
+   "x": "You can still enter the EU using an EU pet passport if you live in Northern Ireland."
   },
   {
    "id": "e_tenia",
@@ -355,10 +360,36 @@
    "f": "ue_paesi",
    "tema": "arrivo",
    "x": "In this section, you will find general information regarding the animal health requirements applicable to pet animals moved between and into EU countries. You can also get the information about the national measures aimed at restricting the movement of certain species and breeds of pet animals on the basis apart from animal health."
+  },
+  {
+   "id": "es_no",
+   "f": "es_pets",
+   "x": "Unfortunately, we can’t accept pets on board our trains to and from London, between Brussels and Lille or on our Eurostar Suns and Snow routes."
+  },
+  {
+   "id": "es_assist",
+   "f": "es_pets",
+   "x": "We do, however, allow guide and assistance dogs to travel with their owners and request that customers contact us at least 48 hours in advance of travel to make a request."
+  },
+  {
+   "id": "es_altre",
+   "f": "es_pets",
+   "x": "Pets are welcome on all our other routes between Belgium, France, Germany, and the Netherlands."
   }
  ],
  "faq": {
   "indice": [
+   {
+    "query": "animal health certificate cost",
+    "q": "How much does an animal health certificate cost?",
+    "cit": [
+     "e_ahc_ov",
+     "e_ogni_viaggio",
+     "e_5pets"
+    ],
+    "pre": "GOV.UK gives no price on the pages we read: you get the certificate from your vet, not from the government, so the price is the one your vet practice charges. GOV.UK says:",
+    "post": "Ask the practice for its price when you book the appointment. GOV.UK expects pet travel to the EU to become cheaper with the multiuse pet passport planned for mid-2027."
+   },
    {
     "query": "animal health certificate (ahc)",
     "q": "What is an animal health certificate (AHC)?",
@@ -400,6 +431,16 @@
     ],
     "pre": "GOV.UK says:",
     "post": "The tapeworm treatment is not needed if you come back directly from Finland, Ireland, Northern Ireland, Malta or Norway."
+   },
+   {
+    "query": "can you take dogs on eurostar",
+    "q": "Can you take dogs on Eurostar?",
+    "cit": [
+     "es_no",
+     "es_assist"
+    ],
+    "pre": "Not on trains to and from London, unless it is a guide or assistance dog. Eurostar says:",
+    "post": "Eurotunnel Le Shuttle, Calais to Folkestone, is the other rail route on GOV.UK’s list of approved routes into Great Britain."
    }
   ],
   "calcolatore": [
@@ -434,6 +475,36 @@
    }
   ],
   "passaporto": [
+   {
+    "query": "pet passport uk",
+    "q": "Can I get a pet passport in the UK today?",
+    "cit": [
+     "e_passaporto_no",
+     "e_ogni_viaggio"
+    ],
+    "pre": "Not for travel to the EU if you live in England, Scotland or Wales: you need an animal health certificate for each trip. GOV.UK says:",
+    "post": "GOV.UK expects a multiuse pet passport for EU travel when the UK–EU agreement takes effect, which it intends for mid-2027."
+   },
+   {
+    "query": "dog passport uk",
+    "q": "Is there a dog passport in the UK?",
+    "cit": [
+     "e_ahc10",
+     "e_ni"
+    ],
+    "pre": "For a dog that lives in England, Scotland or Wales, the document for the EU is the animal health certificate, not a passport. GOV.UK says:",
+    "post": ""
+   },
+   {
+    "query": "pet passport uk cost",
+    "q": "How much does a pet passport cost in the UK?",
+    "cit": [
+     "e_ahc_ov",
+     "s_passaporto"
+    ],
+    "pre": "There is no pet passport price to give today: what you pay for is the animal health certificate, at your vet, and GOV.UK gives no price for it on the pages we read. GOV.UK says:",
+    "post": "GOV.UK has not published a cost for the pet passport expected in mid-2027."
+   },
    {
     "query": "uk pet passport 2027",
     "q": "Is the UK pet passport coming back in 2027?",
@@ -473,6 +544,17 @@
    }
   ],
   "rotte": [
+   {
+    "query": "dogs on eurostar",
+    "q": "Can dogs go on Eurostar?",
+    "cit": [
+     "es_no",
+     "es_assist",
+     "es_altre"
+    ],
+    "pre": "Only guide and assistance dogs on trains to and from London, although GOV.UK lists the Eurostar route as approved. Eurostar says:",
+    "post": ""
+   },
    {
     "query": "pet friendly airlines to uk",
     "q": "Which airlines can fly my dog to the UK?",

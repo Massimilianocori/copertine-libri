@@ -31,7 +31,12 @@
   "ferry with dog to",
   "eurotunnel dog",
   "flying dog to uk",
-  "approved routes pet travel uk"
+  "approved routes pet travel uk",
+  "dogs on eurostar",
+  "can you take dogs on eurostar",
+  "dog passport uk",
+  "pet passport cost",
+  "animal health certificate cost"
  ],
  "paesi": {
   "AT": {
@@ -1067,6 +1072,714 @@
    "fly dog uk to new zealand",
    "fly dog uk to france"
   ],
-  "approved routes pet travel uk": []
+  "approved routes pet travel uk": [],
+  "dogs on eurostar": [
+   "dogs on eurostar",
+   "dogs on eurostar in car",
+   "dogs on eurostar to paris",
+   "can dogs on eurostar",
+   "sniffer dogs on eurostar",
+   "bringing dogs on eurostar",
+   "service dogs on eurostar",
+   "why no dogs on eurostar",
+   "can you travel on eurostar with a dog",
+   "why are dogs not allowed on eurostar"
+  ],
+  "can you take dogs on eurostar": [
+   "can you take dogs on eurostar",
+   "can you take dogs on eurostar london to paris",
+   "can you take dogs on eurostar train",
+   "can you take dogs on eurostar to paris",
+   "can you take dogs on eurostar to amsterdam",
+   "can you take dogs on eurostar from uk",
+   "can you take pets on eurostar",
+   "can you take pets on eurostar from uk",
+   "can you take small dogs on eurostar",
+   "can you take dogs on the eurostar to france"
+  ],
+  "dog passport uk": [
+   "dog passport uk",
+   "dog passport uk to france",
+   "dog passport uk price",
+   "dog passport uk to spain",
+   "dog passport uk to ireland",
+   "dog passport uk to france cost",
+   "dog passport uk to usa",
+   "dog passport uk to europe",
+   "dog passport uk to italy",
+   "dog passport uk how long does it last"
+  ],
+  "pet passport cost": [
+   "pet passport cost",
+   "pet passport cost uk",
+   "pet passport cost philippines",
+   "pet passport cost in india",
+   "pet passport cost ireland",
+   "pet passport cost netherlands",
+   "pet passport cost france",
+   "pet passport cost usa",
+   "pet.passport costa rica",
+   "pet passport cost greece"
+  ],
+  "animal health certificate cost": [
+   "animal health certificate cost",
+   "animal health certificate cost vets4pets",
+   "animal health certificate cost near me",
+   "animal health certificate cost uk",
+   "animal health certificate cost pets at home",
+   "animal health certificate cost medivet",
+   "animal health certificate cost vets for pets",
+   "animal health certificate cost london",
+   "animal health certificate cost scotland",
+   "animal health certificate cost manchester"
+  ]
+ },
+ "aggiunte_il": {
+  "dogs on eurostar": "2026-11-18",
+  "can you take dogs on eurostar": "2026-11-18",
+  "dog passport uk": "2026-11-18",
+  "pet passport cost": "2026-11-18",
+  "animal health certificate cost": "2026-11-18"
+ },
+ "volumi": {
+  "_nota": "Volume medio mensile di Google Ads (api.seodata.dev /v1/keyword), letto il 18/11/2026 per il giro dei titoli della sezione. Chiave: 'frase [paese]'.",
+  "misurato_il": "2026-11-18",
+  "frasi": {
+   "animal health certificate [gb]": {
+    "paese": "gb",
+    "volume": 3600,
+    "cpc": 3.62
+   },
+   "animal health certificate cost [gb]": {
+    "paese": "gb",
+    "volume": 720,
+    "cpc": 2.74
+   },
+   "ahc cost [gb]": {
+    "paese": "gb",
+    "volume": 90,
+    "cpc": 3.08
+   },
+   "how much is an animal health certificate [gb]": {
+    "paese": "gb",
+    "volume": 210,
+    "cpc": 1.97
+   },
+   "ahc for dogs [gb]": {
+    "paese": "gb",
+    "volume": 70,
+    "cpc": 3.5
+   },
+   "taking dog abroad [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking dog to europe [gb]": {
+    "paese": "gb",
+    "volume": 390,
+    "cpc": 2.03
+   },
+   "taking a dog to europe from uk [gb]": {
+    "paese": "gb",
+    "volume": 590,
+    "cpc": 0.94
+   },
+   "pet travel to europe [gb]": {
+    "paese": "gb",
+    "volume": 210,
+    "cpc": 3.14
+   },
+   "pet passport [gb]": {
+    "paese": "gb",
+    "volume": 6600,
+    "cpc": 2.26
+   },
+   "pet passport uk [gb]": {
+    "paese": "gb",
+    "volume": 4400,
+    "cpc": 2.14
+   },
+   "dog passport [gb]": {
+    "paese": "gb",
+    "volume": 6600,
+    "cpc": 1.31
+   },
+   "dog passport uk [gb]": {
+    "paese": "gb",
+    "volume": 2900,
+    "cpc": 1.48
+   },
+   "pet passport uk cost [gb]": {
+    "paese": "gb",
+    "volume": 260,
+    "cpc": 1.05
+   },
+   "pet passport cost [gb]": {
+    "paese": "gb",
+    "volume": 590,
+    "cpc": 0.95
+   },
+   "dog passport cost [gb]": {
+    "paese": "gb",
+    "volume": 880,
+    "cpc": 0.95
+   },
+   "uk pet passport 2027 [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "how to get a pet passport [gb]": {
+    "paese": "gb",
+    "volume": 590,
+    "cpc": 0.79
+   },
+   "new pet passport rules [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "can you take dogs on eurostar [gb]": {
+    "paese": "gb",
+    "volume": 1000,
+    "cpc": 2.4
+   },
+   "eurotunnel dogs [gb]": {
+    "paese": "gb",
+    "volume": 480,
+    "cpc": 0
+   },
+   "eurotunnel with dog [gb]": {
+    "paese": "gb",
+    "volume": 480,
+    "cpc": 0.95
+   },
+   "le shuttle dogs [gb]": {
+    "paese": "gb",
+    "volume": 70,
+    "cpc": 0
+   },
+   "dog friendly ferries [gb]": {
+    "paese": "gb",
+    "volume": 90,
+    "cpc": 1.23
+   },
+   "ferry with dog to france [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "dog friendly ferries to france [gb]": {
+    "paese": "gb",
+    "volume": 110,
+    "cpc": 1.95
+   },
+   "bringing a dog to the uk [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "bringing dog back to uk [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "flying dog to uk [gb]": {
+    "paese": "gb",
+    "volume": 210,
+    "cpc": 1.48
+   },
+   "how long after rabies vaccine can dog travel [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "tapeworm treatment for dogs [gb]": {
+    "paese": "gb",
+    "volume": 720,
+    "cpc": 1.29
+   },
+   "pet travel calculator [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "rabies vaccination for dogs [gb]": {
+    "paese": "gb",
+    "volume": 1900,
+    "cpc": 2.12
+   },
+   "flying with a dog to usa from uk [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking dog to austria [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking a dog to austria [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking dog to austria from uk [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking a dog to austria from uk [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking dog to belgium [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking a dog to belgium [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking dog to belgium from uk [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking a dog to belgium from uk [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking dog to bulgaria [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking a dog to bulgaria [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking dog to bulgaria from uk [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking a dog to bulgaria from uk [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking dog to croatia [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking a dog to croatia [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking dog to croatia from uk [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking a dog to croatia from uk [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking dog to cyprus [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking a dog to cyprus [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking dog to cyprus from uk [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking a dog to cyprus from uk [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking dog to czech republic [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking a dog to czech republic [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking dog to czech republic from uk [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking a dog to czech republic from uk [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking dog to denmark [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking a dog to denmark [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking dog to denmark from uk [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking a dog to denmark from uk [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking dog to finland [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking a dog to finland [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking dog to finland from uk [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking a dog to finland from uk [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking dog to france [gb]": {
+    "paese": "gb",
+    "volume": 2400,
+    "cpc": 1.59
+   },
+   "taking a dog to france [gb]": {
+    "paese": "gb",
+    "volume": 2900,
+    "cpc": 0.97
+   },
+   "taking dog to france from uk [gb]": {
+    "paese": "gb",
+    "volume": 260,
+    "cpc": 4.19
+   },
+   "taking a dog to france from uk [gb]": {
+    "paese": "gb",
+    "volume": 260,
+    "cpc": 4.19
+   },
+   "taking dog to germany [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking a dog to germany [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking dog to germany from uk [gb]": {
+    "paese": "gb",
+    "volume": 50,
+    "cpc": 0.74
+   },
+   "taking a dog to germany from uk [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking dog to greece [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking a dog to greece [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking dog to greece from uk [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking a dog to greece from uk [gb]": {
+    "paese": "gb",
+    "volume": 30,
+    "cpc": 0.8
+   },
+   "taking dog to hungary [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking a dog to hungary [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking dog to hungary from uk [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking a dog to hungary from uk [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking dog to ireland [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking a dog to ireland [gb]": {
+    "paese": "gb",
+    "volume": 390,
+    "cpc": 0.7
+   },
+   "taking dog to ireland from uk [gb]": {
+    "paese": "gb",
+    "volume": 260,
+    "cpc": 3.19
+   },
+   "taking a dog to ireland from uk [gb]": {
+    "paese": "gb",
+    "volume": 210,
+    "cpc": 0.59
+   },
+   "taking dog to italy [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking a dog to italy [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking dog to italy from uk [gb]": {
+    "paese": "gb",
+    "volume": 40,
+    "cpc": 0.94
+   },
+   "taking a dog to italy from uk [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking dog to lithuania [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking a dog to lithuania [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking dog to lithuania from uk [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking a dog to lithuania from uk [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking dog to malta [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking a dog to malta [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking dog to malta from uk [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking a dog to malta from uk [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking dog to netherlands [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking a dog to netherlands [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking dog to netherlands from uk [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking a dog to netherlands from uk [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking dog to norway [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking a dog to norway [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking dog to norway from uk [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking a dog to norway from uk [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking dog to poland [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking a dog to poland [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking dog to poland from uk [gb]": {
+    "paese": "gb",
+    "volume": 30,
+    "cpc": 0.75
+   },
+   "taking a dog to poland from uk [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking dog to portugal [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking a dog to portugal [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking dog to portugal from uk [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking a dog to portugal from uk [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking dog to romania [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking a dog to romania [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking dog to romania from uk [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking a dog to romania from uk [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking dog to spain [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking a dog to spain [gb]": {
+    "paese": "gb",
+    "volume": 260,
+    "cpc": 0.76
+   },
+   "taking dog to spain from uk [gb]": {
+    "paese": "gb",
+    "volume": 110,
+    "cpc": 1.15
+   },
+   "taking a dog to spain from uk [gb]": {
+    "paese": "gb",
+    "volume": 110,
+    "cpc": 1.15
+   },
+   "taking dog to sweden [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking a dog to sweden [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking dog to sweden from uk [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "taking a dog to sweden from uk [gb]": {
+    "paese": "gb",
+    "volume": 0,
+    "cpc": 0
+   },
+   "dogs on eurostar [gb]": {
+    "paese": "gb",
+    "volume": 1300,
+    "cpc": 0
+   }
+  }
  }
 }
