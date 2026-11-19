@@ -1484,6 +1484,8 @@ def citta_indicizzata(c):
 def elenco_e(voci):
     """["a", "b", "c"] → "a, b e c"."""
     voci = list(voci)
+    if not voci:
+        return ""
     return voci[0] if len(voci) == 1 else ", ".join(voci[:-1]) + " e " + voci[-1]
 
 
@@ -1689,9 +1691,10 @@ def pagina_citta(c, prossime):
         if s:
             fonti_date.append(f'<a href="{escape(s["fonte"])}" rel="noopener">{e}</a>')
     controllo = max((s["verificato_il"] for s in locali), default=None)
-    nota_date = (f'<p class="small">{ic("doc")} Fonti: calendari ufficiali {elenco_e(fonti_date)}'
-                 f'{", controllati il " + data_breve(controllo) if controllo else ""}. '
-                 f'<a href="../../#date">Calendario completo: tutte le {len(prossime)} sessioni di CILS, CELI, PLIDA e CERT.IT</a>.</p>')
+    # 19/11/2026: una città può restare senza sessioni future (date tutte passate): niente elenco di fonti vuoto.
+    nota_date = (f'<p class="small">{ic("doc")} ' + (f'Fonti: calendari ufficiali {elenco_e(fonti_date)}'
+                 f'{", controllati il " + data_breve(controllo) if controllo else ""}. ' if fonti_date else '')
+                 + f'<a href="../../#date">Calendario completo: tutte le {len(prossime)} sessioni di CILS, CELI, PLIDA e CERT.IT</a>.</p>')
     faq = faq_citta(c, enti_prov, mancano, regione, cap)
     corpo = f"""<section class="hero">
 {briciole(("EsameB1", "../../"), ("Città", "../../#citta"), (c["nome"], None))}
