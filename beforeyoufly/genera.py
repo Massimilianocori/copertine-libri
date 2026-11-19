@@ -3152,7 +3152,7 @@ def box_stiva(C):
     if not S["tariffe_fisse"]:
         testa = S.get("avviso_tariffe") or f'{C["nome"]} does not publish one fixed fee for a {"hold" if gb else "checked"} bag.'
         fisse = (f'<p class="avviso"><strong>{escape(testa)}</strong> The price depends on '
-                 f'your route, fare, date or the moment you pay, so we show no number here. For your own trip: '
+                 f'your route, fare, date or the moment you pay, so we show no {"online price" if S.get("avviso_tariffe") else "number"} here. For your own trip: '
                  f'<a href="{escape(calc["url"])}" rel="noopener">{escape(calc["titolo"])}</a>.</p>')
     elif calc:
         fisse = f'<p>For the fee on your own trip: <a href="{escape(calc["url"])}" rel="noopener">{escape(calc["titolo"])}</a>.</p>'

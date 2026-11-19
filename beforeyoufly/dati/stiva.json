@@ -316,8 +316,14 @@
    "voci": [
     {
      "id": "franchigia",
-     "valore": "Depends on where and how you travel: United gives no fixed list by fare on this page. MileagePlus Premier members and up to nine others on the same itinerary can check bags for free on United and United Express flights.",
+     "valore": "Depends on where and how you travel: United gives no fixed list by fare on this page. United Business, United First and United Polaris business class seats come with free checked bags. MileagePlus Premier members and up to nine others on the same itinerary can check bags for free on United and United Express flights.",
      "cit": [
+      {
+       "f": "a",
+       "righe": [
+        "United Business®, United First®, and United Polaris® business class seats come with free checked bags."
+       ]
+      },
       {
        "f": "a",
        "righe": [
@@ -1366,7 +1372,7 @@
     },
     {
      "id": "primo",
-     "valore": "Within the U.S., Latin America, Caribbean and Canada, Main and EvenMore fares, added more than 24 hours before departure, bookings made on or after 11/3: $50 off-peak, $55 peak (these prices include a saving of $10 and $15 on the price within 24 hours of departure).",
+     "valore": "Within the U.S., Latin America, Caribbean and Canada, Main and EvenMore fares, added more than 24 hours before departure, bookings made on or after 3 November (11/3 on JetBlue's page): $50 off-peak, $55 peak (these prices include a saving of $10 and $15 on the price within 24 hours of departure).",
      "cit": [
       {
        "f": "a",
@@ -1389,7 +1395,7 @@
     },
     {
      "id": "secondo",
-     "valore": "Same routes and fares, added more than 24 hours before departure: $70 off-peak, $75 peak (including a saving of $5 and $10).",
+     "valore": "Same routes and fares, added more than 24 hours before departure, bookings made on or after 3 November (11/3 on JetBlue's page): $70 off-peak, $75 peak (including a saving of $5 and $10).",
      "cit": [
       {
        "f": "a",
@@ -1397,6 +1403,12 @@
         "More than 24 hours before departure",
         "2nd Bag: $70 (incl $5 savings)",
         "2nd Bag: $75 (incl $10 savings)"
+       ]
+      },
+      {
+       "f": "a",
+       "righe": [
+        "For bookings made before 11/3, check Manage Trips for applicable bag fees."
        ]
       }
      ]
