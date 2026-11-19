@@ -2615,8 +2615,8 @@ Scegli l'ente: per ognuno trovi i link ai file ufficiali (per CERT.IT la pagina 
 </section>
 {riquadro_libro()}"""
     pagina("esempi/index.html",
-           titolo_pagina("Esempi esame B1 cittadinanza: prove ufficiali PDF e audio, 4 enti"),
-           descrizione_pagina("Prove d'esempio ufficiali e gratuite dell'esame B1 per la cittadinanza (CILS, CELI 2 i, PLIDA, CERT.IT) con PDF, audio e "
+           titolo_pagina("Test lingua italiana B1 per cittadinanza online: prove gratis"),  # 19/11/2026: frase più cercata (1.300/mese, seodata it)
+           descrizione_pagina("Test di italiano B1 per la cittadinanza online: prove ufficiali gratuite (CILS, CELI 2 i, PLIDA, CERT.IT) con PDF, audio e "
                               "soluzioni. Durata e punteggio."), corpo, jsonld)
 
 
