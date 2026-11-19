@@ -51,7 +51,7 @@ document.querySelectorAll('[data-calc]').forEach(function(box){
       if(v.errore){h+='<li class="no"><span>'+esc(v.l)+' · '+esc(v.cit)+'</span><b>'+esc(v.errore)+'</b></li>';return;}
       var g=giorniTra(t,v.scadenza);var st=g>=0?'<span class="stato">'+g+' days from today</span>':'<span class="stato passato">This general date is in the past. Exceptions can change it: talk to a licensed attorney.</span>';
       h+='<li><span>'+esc(v.l)+' · '+v.anni+(v.anni===1?' year':' years')+' · '+esc(v.cit)+'</span><b>'+lunga(v.scadenza)+'</b>'+'<small>'+st+(v.nd?' '+esc(v.nd):'')+'</small></li>';});
-    if(r.repose)h+='<li class="rip"><span>'+esc(r.repose.l)+' (outer limit) · '+r.repose.anni+' years · '+esc(r.repose.cit)+'</span><b>'+lunga(r.repose.scadenza)+'</b><small>Counted from the date you entered. Many exceptions do not extend past this date.'+(r.repose.nd?' '+esc(r.repose.nd):'')+'</small></li>';
+    if(r.repose)h+='<li class="rip"><span>'+esc(r.repose.l)+' (outer limit) · '+r.repose.anni+' years · '+esc(r.repose.cit)+'</span><b>'+lunga(r.repose.scadenza)+'</b><small>Counted from the date you entered. '+(r.repose.nd?esc(r.repose.nd):'Many exceptions do not extend past this date.')+'</small></li>';
     h+='</ol>';
     if(c.e&&c.e.length){h+='<p class="small"><strong>Exceptions that can move this date:</strong></p><ul>'+c.e.map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ul>';}
     if(c.gv&&c.gv.length){h+='<p class="small"><strong>Claim against a government body?</strong> Separate notice rules and deadlines can apply, and a notice deadline is often much shorter. They are not included in the date above:</p><ul>'+c.gv.map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ul>';}
