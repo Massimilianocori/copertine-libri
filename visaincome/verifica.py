@@ -198,6 +198,230 @@ P = {p["slug"]: p for p in G.PROG}
 # Quando una fonte riletta online (controllo 28) risponde con un codice diverso da 200, o con una pagina di blocco o anti-robot, il blocco
 # non si aggira: il frammento non si ricontrolla e si stampa un AVVISO (contato ed elencato in fondo, non è un errore) con la data
 # dell'ultima lettura buona scritta nei dati. Resta un ERRORE solo il caso HTTP 200 con la fonte vera e il frammento assente.
+def controlla_tf(online=True):
+    """41 (19/11/2026): sezione "Teach English abroad" (/teach-english-abroad/): indice + una pagina per Paese; riquadro del partner TEFL
+    (interruttore _tefl in dati/affiliati.json). Impronta e fonti di dati/tefl.json (solo domini ufficiali, https, HTTP 200); elenchi =
+    frammento; valori = numeri scritti nei frammenti; pagine attese, nessuna in più; titoli ≤ 65 con l'anno, che cominciano con la frase
+    misurata; descrizioni 90–160, tutti diversi; sitemap, canonical, FAQPage, BreadcrumbList, avviso "Information, not immigration advice",
+    data di lettura, fonte con link sotto le citazioni; ogni <q class="cit-tf"> = frammento o pezzo di elenco; ogni frase tra virgolette
+    di almeno 25 caratteri = pezzo di un frammento; ogni importo (¥, £, euro, $) delle pagine è scritto in un frammento o è una conversione
+    BCE ricalcolata qui; ogni pagina di un Paese cita solo letture di quel Paese; FAQ legate a frasi con volume; nessuna classifica e nessun
+    nome di venditore di corsi; collegamenti (home, indice, Paesi). Riquadro: spento = nessuna traccia (né riquadro, né link sponsorizzato,
+    né nome, né privacy); acceso = solo nelle pagine previste, una volta, prima delle FAQ, link = dati, rel="sponsored nofollow noopener",
+    etichetta Affiliate, trasparenza, nessun prezzo né promessa. Online: 8 frammenti a caso riletti. Ritorna (errori, pagine, note)."""
+    import hashlib
+    import importlib.util
+    import urllib.parse as up
+    errori, note = [], []
+    D = json.loads((SITO.parent / "dati" / "tefl.json").read_text(encoding="utf-8"))
+    A = json.loads((SITO.parent / "dati" / "affiliati.json").read_text(encoding="utf-8"))
+    errori += [f"41: {e}" for e in G.controlli_tf()]
+    cont = {"url": {k: f["url"] for k, f in D["fonti"].items()}, "letture": D["letture"], "domanda": D["domanda"]}
+    if hashlib.sha256(json.dumps(cont, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:20] != D["impronta"]:
+        errori.append("41: impronta di dati/tefl.json diversa dal contenuto")
+    ufficiali = ("jetprogramusa.org", "educacionfpydeportes.gob.es", "visa.go.kr", "thaiembassy.org", "law.moj.gov.tw", "china-embassy.gov.cn")
+    for k, f in D["fonti"].items():
+        if f.get("http") != 200 or not re.fullmatch(r"[0-9a-f]{64}", f.get("sha256_testo") or "") or f.get("letto_il") != D["letto_il"]:
+            errori.append(f"41: fonte {k} senza HTTP 200, impronta o data di lettura")
+        host = up.urlsplit(f["url"]).netloc
+        if not f["url"].startswith("https://") or not host.endswith(ufficiali):
+            errori.append(f"41: fonte {k} senza https o su un dominio non ufficiale ({host})")
+    L = D["letture"]
+
+    def numeri(fr):
+        return {int(x.replace(",", "")) for x in re.findall(r"\d{1,3}(?:,\d{3})+|\d+", fr)}
+    for k, v in L.items():
+        if "elenco" in v and " ".join(v["elenco"]) != v["frammento"]:
+            errori.append(f"41: elenco di {k} diverso dal frammento")
+        for n in v.get("valori", []):
+            if n not in numeri(v["frammento"]):
+                errori.append(f"41: valore di {k} ({n}) non scritto nel frammento")
+        if v["fonte"] not in D["fonti"]:
+            errori.append(f"41: lettura {k} su una fonte inesistente")
+
+    def volume(frase):
+        return sum((D["domanda"]["query"].get(f"{p}|{frase}") or {}).get("volume") or 0 for p in D["domanda"]["paesi"])
+    attese = {G.SEZ_TF} | {f"{G.SEZ_TF}{v['id']}/" for v in G.PAG_TF}
+    trovate = {str(f.parent.relative_to(SITO)) + "/" for f in (SITO / G.SEZ_TF).rglob("index.html")}
+    if trovate != attese or len(attese) != 7:
+        errori.append(f"41: pagine diverse dalle 7 attese: in più {sorted(trovate - attese)}, mancanti {sorted(attese - trovate)}")
+    mappa = (SITO / "sitemap.xml").read_text(encoding="utf-8")
+    pezzi = set()
+    for v in L.values():
+        pezzi.add(v["frammento"])
+        pezzi.update(v.get("elenco", []))
+    tutto_fr = " ¶ ".join(sorted(pezzi))
+    numeri_ok = set()
+    for v in L.values():
+        numeri_ok |= numeri(v["frammento"])
+    y1 = L["jp_stipendio"]["valori"][0]
+    e_min, e_max = L["es_stipendio"]["valori"]
+    tassi = G.CAMBI["tassi"]
+    conv_ok = {round(G.converti(y1, "JPY", "USD", tassi)), round(G.converti(y1, "JPY", "GBP", tassi)), round(G.converti(e_min, "EUR", "USD", tassi)),
+               round(G.converti(e_max, "EUR", "USD", tassi))}
+    # ricalcolo a mano delle conversioni (1 EUR = tassi[X] X)
+    if abs(round(y1 / tassi["JPY"] * tassi["USD"]) - round(G.converti(y1, "JPY", "USD", tassi))) > 1 or abs(round(e_min * tassi["USD"]) - round(G.converti(e_min, "EUR", "USD", tassi))) > 1:
+        errori.append("41: conversioni BCE diverse dal ricalcolo a mano")
+    frasi_titolo = {G.SEZ_TF: G.SEZ_TF_FRASE, **{f"{G.SEZ_TF}{v['id']}/": v["frase"] for v in G.PAG_TF}}
+    per_id = {f"{G.SEZ_TF}{v['id']}/": v for v in G.PAG_TF}
+    venditori = ("international tefl academy", "bridge tefl", "bridgetefl", "the tefl academy", "i-to-i", "tefl.org", "premier tefl", "ciee", "oxford seminars", "itttt", "ittt")
+    titoli, descr = {}, {}
+    acceso = G.TFA_ATTIVO
+    con_box = set()
+    for p in sorted(attese & trovate):
+        t = leggi(p + "index.html")
+        tit = html.unescape(re.search(r"<title>(.*?)</title>", t).group(1))
+        de = html.unescape(re.search(r'<meta name="description" content="([^"]*)"', t).group(1))
+        fr_t = frasi_titolo[p]
+        if len(tit) > 65 or str(G.ANNO) not in tit:
+            errori.append(f"41: {p}: titolo oltre 65 caratteri o senza l'anno ({tit})")
+        if volume(fr_t) <= 0 or not tit.lower().startswith(fr_t):
+            errori.append(f"41: {p}: il titolo non comincia con la frase misurata «{fr_t}»")
+        if len(de) > 160 or len(de) < 90 or de.endswith("…"):
+            errori.append(f"41: {p}: descrizione fuori da 90–160 caratteri ({len(de)})")
+        if not de.lower().startswith(fr_t):
+            errori.append(f"41: {p}: la descrizione non comincia con la frase misurata")
+        titoli[p], descr[p] = tit, de
+        if f"<loc>{G.URL_SITO}/{p}</loc>" not in mappa or f'<link rel="canonical" href="{G.URL_SITO}/{p}">' not in t:
+            errori.append(f"41: {p}: manca nella sitemap o senza canonical")
+        if 'name="robots" content="noindex' in t:
+            errori.append(f"41: {p}: pagina fuori indice")
+        if '"@type": "FAQPage"' not in t or '"@type": "BreadcrumbList"' not in t:
+            errori.append(f"41: {p}: manca FAQPage o BreadcrumbList")
+        main = t.split('<main id="main">', 1)[1].split("</main>", 1)[0]
+        if len(re.findall(r"<h1[ >]", main)) != 1:
+            errori.append(f"41: {p}: non c'è un solo h1")
+        if "Information, not immigration advice." not in main or "We are not immigration advisers or lawyers" not in main:
+            errori.append(f"41: {p}: manca l'avviso «Information, not immigration advice»")
+        if f"read on {G.data_lunga(D['letto_il'])}" not in main:
+            errori.append(f"41: {p}: manca la data di lettura delle fonti")
+        box = re.search(r'<section class="card aff-r" aria-labelledby="aff-tf-h">.*?</section>', main, flags=re.S)
+        senza_box = main.replace(box.group(0), "") if box else main
+        piano = html.unescape(re.sub(r"<[^>]+>", " ", re.sub(r"<(script|style|svg)\b.*?</\1>", " ", senza_box, flags=re.S)))
+        piano = re.sub(r"\s+", " ", piano)
+        # citazioni
+        citate = [html.unescape(x) for x in re.findall(r'<q class="cit-tf">(.*?)</q>', main, flags=re.S)]
+        if not citate:
+            errori.append(f"41: {p}: nessuna citazione ufficiale")
+        for c in citate:
+            if c not in pezzi:
+                errori.append(f"41: {p}: citazione che non è un frammento ufficiale: {c[:70]}…")
+        for c in re.findall(r"“([^”]{25,})”", piano):
+            if c not in tutto_fr:
+                errori.append(f"41: {p}: frase tra virgolette che non è in un frammento: {c[:70]}…")
+        # ogni blocco di citazioni ha la fonte con il link e la data
+        n_fonte = len(re.findall(r'<p class="fonte">Sources?: <a href="https://', main))
+        if p in per_id:
+            v = per_id[p]
+            if n_fonte < len(v["blocchi"]) + 1:
+                errori.append(f"41: {p}: {n_fonte} righe di fonte per {len(v['blocchi'])} gruppi di citazioni")
+            for _, _, chiavi, _ in v["blocchi"]:
+                for k in chiavi:
+                    if D["fonti"][L[k]["fonte"]]["paese"] != v["id"]:
+                        errori.append(f"41: {p}: lettura {k} di un altro Paese")
+                    for x in (L[k].get("elenco") or [L[k]["frammento"]]):
+                        if x not in citate:
+                            errori.append(f"41: {p}: la lettura {k} non è citata in pagina")
+            for u in {D["fonti"][L[k]["fonte"]]["url"] for _, _, ch, _ in v["blocchi"] for k in ch}:
+                if f'href="{html.escape(u)}"' not in main:
+                    errori.append(f"41: {p}: manca il link alla fonte {u}")
+            if f'href="../../{G.SEZ_TF}"' not in main:
+                errori.append(f"41: {p}: manca il link all'indice della sezione")
+        else:
+            for v in G.PAG_TF:
+                if f'href="{v["id"]}/"' not in main:
+                    errori.append(f"41: indice: manca il link a {v['id']}")
+            if "Countries and programmes we could not cover" not in main or len(re.findall(r"<li><strong>", main)) < len(G.OMESSI_TF):
+                errori.append("41: indice: manca l'elenco dei Paesi non coperti")
+            if "We do not rank TEFL courses" not in main:
+                errori.append("41: indice: manca la frase «We do not rank TEFL courses»")
+        # importi: ogni cifra con una valuta è scritta in un frammento, oppure è una conversione ricalcolata
+        for sim, x in re.findall(r"([¥£$€])\s?(\d{1,3}(?:,\d{3})+|\d+)", piano):
+            n = int(x.replace(",", ""))
+            if n not in numeri_ok and n not in conv_ok and n != y1 // 12:
+                errori.append(f"41: {p}: importo {sim}{x} che non è scritto in un frammento né è una conversione ricalcolata")
+        for x in re.findall(r"(\d{1,3}(?:,\d{3})+|\d+) (?:to \d+ )?euros", piano):
+            if int(x.replace(",", "")) not in numeri_ok:
+                errori.append(f"41: {p}: importo in euro {x} non scritto in un frammento")
+        if any(n in conv_ok for n in [int(x.replace(",", "")) for _, x in re.findall(r"([£$])\s?(\d{1,3}(?:,\d{3})+)", piano)]) and "European Central Bank reference rates" not in piano:
+            errori.append(f"41: {p}: conversione senza la nota sui cambi BCE")
+        # FAQ
+        frasi = G.FAQ_TF.get(p, [])
+        n_faq = t.count('"@type": "Question"')
+        if n_faq != len(frasi) or n_faq < 3:
+            errori.append(f"41: {p}: {n_faq} domande nella FAQ, attese {len(frasi)} (almeno 3)")
+        for f in frasi:
+            if volume(f) <= 0:
+                errori.append(f"41: {p}: FAQ sulla frase «{f}» senza volume misurato")
+        # nessuna classifica, nessun venditore di corsi, nessuna promessa
+        basso = piano.lower()
+        for w in venditori:
+            if re.search(r"(?<![a-z])" + re.escape(w) + r"(?![a-z])", basso):
+                errori.append(f"41: {p}: nomina un venditore di corsi TEFL ({w})")
+        if re.search(r"\b(best tefl|top tefl|cheapest|guarantee[ds]? (a|your) (job|visa)|we recommend)\b", basso):
+            errori.append(f"41: {p}: classifica o promessa nel testo")
+        # riquadro
+        pid = "indice" if p == G.SEZ_TF else p[len(G.SEZ_TF):-1]
+        n_spons = len(re.findall(r'rel="[^"]*sponsored', main))
+        if not acceso:
+            if box or "aff-tf-h" in t or n_spons or (G.NOME_TFA and G.NOME_TFA.lower() in t.lower()):
+                errori.append(f"41: {p}: interruttore spento ma c'è traccia del riquadro, di un link sponsorizzato o del nome del partner")
+        else:
+            previsto = pid in G.PAGINE_TFA
+            if bool(box) != previsto:
+                errori.append(f"41: {p}: riquadro {'mancante' if previsto else 'fuori dalle pagine previste'}")
+            if box:
+                con_box.add(p)
+                b = box.group(0)
+                link = re.findall(r'<a class="btn" href="([^"]+)" rel="([^"]+)" target="_blank"', b)
+                if main.count('aria-labelledby="aff-tf-h"') != 1 or len(link) != 1 or html.unescape(link[0][0]) != A["_tefl"]["url"] or link[0][1] != "sponsored nofollow noopener":
+                    errori.append(f"41: {p}: riquadro doppio o link diverso dai dati o senza rel sponsored nofollow noopener")
+                if '<span class="aff-tag">Affiliate</span>' not in b or G.MON.RIGA_EN not in html.unescape(b) or "The official rule comes first" not in b:
+                    errori.append(f"41: {p}: riquadro senza etichetta Affiliate, riga di trasparenza o regola ufficiale prima")
+                if main.index('aria-labelledby="aff-tf-h"') > main.index("<h2>Questions people ask</h2>"):
+                    errori.append(f"41: {p}: il riquadro non è prima delle FAQ")
+                if re.search(r"[$£€¥]\s?\d|\bbest\b|\bguarantee|\bdiscount|% off", re.sub(r"<[^>]+>", " ", b), flags=re.I):
+                    errori.append(f"41: {p}: prezzo o promessa nel riquadro")
+    if len(set(titoli.values())) != len(titoli) or len(set(descr.values())) != len(descr):
+        errori.append("41: titoli o descrizioni doppi")
+    priv = leggi("privacy.html")
+    if not acceso and G.NOME_TFA and G.NOME_TFA.lower() in priv.lower():
+        errori.append("41: interruttore spento ma la privacy nomina il partner TEFL")
+    if A["_tefl"].get("attivo") is False and A["_tefl"].get("url"):
+        errori.append("41: interruttore spento ma con un link scritto: il link va messo solo quando esiste ed è deciso")
+    casa = leggi("index.html")
+    if f'href="{G.SEZ_TF}"' not in casa or any(f'href="{G.SEZ_TF}{v["id"]}/"' not in casa for v in G.PAG_TF):
+        errori.append("41: la home non collega la sezione e tutte le pagine dei Paesi")
+    if acceso and con_box != {(G.SEZ_TF if x == "indice" else f"{G.SEZ_TF}{x}/") for x in G.PAGINE_TFA}:
+        errori.append("41: riquadro acceso ma non in tutte le pagine previste")
+    note.append(f"{len(L)} letture, {len(D['fonti'])} fonti, domanda del {D['domanda']['data']} ({'+'.join(D['domanda']['paesi'])})")
+    if online:
+        spec = importlib.util.spec_from_file_location("tefl_racc", SITO.parent / "raccolta" / "tefl.py")
+        R = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(R)
+        random.seed()
+        scelte = random.sample(sorted(L), 8)
+        cache = {}
+
+        def testo_fonte(fk):
+            if fk not in cache:
+                f = R.FONTI[fk]
+                st, b = R.get_kvp(f["kvp"]) if f.get("kvp") else R.get(f["url"], tentativi=2)
+                cache[fk] = R.testo(b) if st == 200 and b else None
+            return cache[fk]
+        riletti = 0
+        for k in scelte:
+            x = testo_fonte(L[k]["fonte"])
+            if x is None:
+                avviso(41, f"{k}: fonte {L[k]['fonte']} non raggiungibile ora")
+            elif L[k]["frammento"] not in x:
+                errori.append(f"41: frammento {k} non più presente in {L[k]['fonte']}: rileggere la fonte")
+            else:
+                riletti += 1
+        note.append(f"riletti online: {riletti} frammenti su {len(scelte)}")
+    return errori, len(trovate), note
+
+
 AVVISI = []
 _RE_BLOCCO = re.compile(r"accesso negato|access denied|access to this page has been denied|just a moment|attention required|"
                         r"quick security check|are you a robot|verify you are (a )?human|request (was )?(blocked|rejected)|captcha|"
@@ -6351,7 +6575,14 @@ def main():
           f"titoli sulle frasi misurate, FAQ con volume, avviso (MARA), sitemap, collegamenti, riquadro: {len(e40)} errori")
     for x in r40:
         print("    ·", x)
-    tutti = errori +e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28 + e29 + e30 + e31 + e32 + e33 + e34 + e35 + e36 + e37 + e38 + e39 + e40
+    e41, n41, r41 = controlla_tf(online="--offline" not in sys.argv)
+    print(f"41. Teach English abroad (sezione del 19/11/2026) e riquadro del partner TEFL (interruttore {'acceso' if G.TFA_ATTIVO else 'spento'}): {n41} pagine, impronta e fonti "
+          f"ufficiali (JET Program USA, Ministerio de Educación, Korea Visa Portal, ambasciata thailandese di Londra, leggi di Taiwan, ambasciata cinese negli USA), "
+          f"citazioni = frammenti, importi = frammenti o conversioni BCE ricalcolate, titoli sulle frasi misurate, FAQ con volume, avviso, nessun venditore di corsi, "
+          f"sitemap, collegamenti, riquadro: {len(e41)} errori")
+    for x in r41:
+        print("    ·", x)
+    tutti = errori +e2 + e3 + e4 + e5 + e6 + e7 + e8 + e9 + e10 + e11 + e12 + e13 + e14 + e15 + e16 + e17 + e18 + e19 + e20 + e21 + e22 + e23 + e24 + e25 + e26 + e27 + e28 + e29 + e30 + e31 + e32 + e33 + e34 + e35 + e36 + e37 + e38 + e39 + e40 + e41
     if AVVISI:  # fonti che rispondono non-200 o con una pagina anti-robot (controllo 28): non sono errori
         per_punto = {}
         for k, _ in AVVISI:

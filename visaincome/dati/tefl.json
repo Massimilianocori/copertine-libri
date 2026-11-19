@@ -1,0 +1,1150 @@
+{
+ "_nota": "Generato da raccolta/tefl.py: non modificare a mano. Le letture sono frammenti dei testi ufficiali, ricontrollati a ogni lancio; le cifre si leggono dai frammenti.",
+ "letto_il": "2026-11-19",
+ "fonti": {
+  "jp_elig": {
+   "paese": "japan",
+   "titolo": "JET Program USA: Eligibility Criteria",
+   "editore": "JET Program USA (Embassy of Japan in the United States)",
+   "url": "https://jetprogramusa.org/eligibility-criteria/",
+   "http": 200,
+   "letto_il": "2026-11-19",
+   "byte": 53216,
+   "sha256_testo": "553dfff2ce54cba7acbe9a0779b9725136ed0f285c033240a2a618e166ac0095"
+  },
+  "jp_contr": {
+   "paese": "japan",
+   "titolo": "JET Program USA: Contract, Salary & Benefits",
+   "editore": "JET Program USA (Embassy of Japan in the United States)",
+   "url": "https://jetprogramusa.org/contract-information/",
+   "http": 200,
+   "letto_il": "2026-11-19",
+   "byte": 55087,
+   "sha256_testo": "ada12a590c95bf07a45e1c382127d4ceffd6107549da19bc4ece4694bae01446"
+  },
+  "jp_pos": {
+   "paese": "japan",
+   "titolo": "JET Program USA: JET Program Positions",
+   "editore": "JET Program USA (Embassy of Japan in the United States)",
+   "url": "https://jetprogramusa.org/positions/",
+   "http": 200,
+   "letto_il": "2026-11-19",
+   "byte": 50982,
+   "sha256_testo": "9f36fc665fa0468454d9990723e9d4c053967e4b8877c9785464cc5f85c98fae"
+  },
+  "jp_proc": {
+   "paese": "japan",
+   "titolo": "JET Program USA: Our Application & Departure Process",
+   "editore": "JET Program USA (Embassy of Japan in the United States)",
+   "url": "https://jetprogramusa.org/application-departure/",
+   "http": 200,
+   "letto_il": "2026-11-19",
+   "byte": 56926,
+   "sha256_testo": "14b1850bafc7dc369d4e6b62ce4266ac44757b6d8de30ff1c38e68504f3b2476"
+  },
+  "es_nalcap": {
+   "paese": "spain",
+   "titolo": "North American Language and Culture Assistants Program (NALCAP): programme overview and eligibility",
+   "editore": "Ministerio de Educación, Formación Profesional y Deportes (Government of Spain)",
+   "url": "https://www.educacionfpydeportes.gob.es/eeuu/convocatorias-programas/convocatorias-eeuu/nalcap.html",
+   "http": 200,
+   "letto_il": "2026-11-19",
+   "byte": 28565,
+   "sha256_testo": "ec010b667ab524379cf006063cca02aa404ddf6c1c7a25feee65d119af1117dd"
+  },
+  "es_visa": {
+   "paese": "spain",
+   "titolo": "NALCAP: applying for a visa",
+   "editore": "Ministerio de Educación, Formación Profesional y Deportes (Government of Spain)",
+   "url": "https://www.educacionfpydeportes.gob.es/eeuu/convocatorias-programas/convocatorias-eeuu/nalcap/applying-visa.html",
+   "http": 200,
+   "letto_il": "2026-11-19",
+   "byte": 33494,
+   "sha256_testo": "2ad9cfccfac96297d04b4cfdb46979270126eb167269a8d907938c3964699ec5"
+  },
+  "es_apply": {
+   "paese": "spain",
+   "titolo": "NALCAP: applying to the program",
+   "editore": "Ministerio de Educación, Formación Profesional y Deportes (Government of Spain)",
+   "url": "https://www.educacionfpydeportes.gob.es/eeuu/convocatorias-programas/convocatorias-eeuu/nalcap/applying-program.html",
+   "http": 200,
+   "letto_il": "2026-11-19",
+   "byte": 30498,
+   "sha256_testo": "7664b4afb8fdd39ef582f2143bb2ae6b2834807ff3fc1ee497e6f70970860d6b"
+  },
+  "kr_e21": {
+   "paese": "south-korea",
+   "titolo": "Korea Visa Portal: Foreign Language Instructor (General) (E-2-1)",
+   "editore": "Korea Visa Portal (Ministry of Justice, Republic of Korea)",
+   "url": "https://www.visa.go.kr/openPage.do?MENU_ID=10102",
+   "http": 200,
+   "letto_il": "2026-11-19",
+   "byte": 116773,
+   "scheda": "E-2-1",
+   "sha256_testo": "8ed43f92706cc985fdc678bf076f5caf68d26eb079b736f3d75d1e29617958ce"
+  },
+  "kr_e22": {
+   "paese": "south-korea",
+   "titolo": "Korea Visa Portal: Teaching Assistant (E-2-2)",
+   "editore": "Korea Visa Portal (Ministry of Justice, Republic of Korea)",
+   "url": "https://www.visa.go.kr/openPage.do?MENU_ID=10102",
+   "http": 200,
+   "letto_il": "2026-11-19",
+   "byte": 116666,
+   "scheda": "E-2-2",
+   "sha256_testo": "a5c57ace1035e9b3fd239874f400a5182d5d806955095ae2a603b052ec745c66"
+  },
+  "th_teach": {
+   "paese": "thailand",
+   "titolo": "Non-Immigrant Visa (B) for employment as an academic staff/teacher in Thailand",
+   "editore": "Royal Thai Embassy, London",
+   "url": "https://london.thaiembassy.org/en/page/non-b-visa-for-employment-as-teachers",
+   "http": 200,
+   "letto_il": "2026-11-19",
+   "byte": 93801,
+   "sha256_testo": "dfb0eb05054e2d5b57604dc58bcfc0dd2200b9e9f51bfb72da1dd59726b3ab31"
+  },
+  "tw_cram": {
+   "paese": "taiwan",
+   "titolo": "Qualification and Criteria Standards for the Employment of Foreign Professionals as Teachers by Short-term Supplementary Learning Centers",
+   "editore": "Laws & Regulations Database of the Republic of China (Taiwan), Ministry of Justice",
+   "url": "https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=N0090054",
+   "http": 200,
+   "letto_il": "2026-11-19",
+   "byte": 35999,
+   "sha256_testo": "75c238b9508ee4bc0a9fda448a7c497c70a14f2da30522f8d723f968e3efdfd1"
+  },
+  "cn_req": {
+   "paese": "china",
+   "titolo": "Requirements and Procedures for Chinese Visa Application (Updated September, 2025)",
+   "editore": "Embassy of the People's Republic of China in the United States of America",
+   "url": "https://us.china-embassy.gov.cn/eng/lsfw/zj/qz2021/202509/t20250920_11712385.htm",
+   "http": 200,
+   "letto_il": "2026-11-19",
+   "byte": 91208,
+   "sha256_testo": "818bd65c773754d65aa42875c02cc50983bdcb6c80515b386133b64196e622de"
+  }
+ },
+ "letture": {
+  "jp_cittadino": {
+   "fonte": "jp_elig",
+   "frammento": "Be a citizen of the United States by the application deadline."
+  },
+  "jp_altri_paesi": {
+   "fonte": "jp_elig",
+   "frammento": "Please contact the Embassy of Japan in your home country for information."
+  },
+  "jp_laurea": {
+   "fonte": "jp_elig",
+   "frammento": "Hold at least a Bachelor's degree or obtain such qualifications by June 25th, 2027"
+  },
+  "jp_lingua": {
+   "fonte": "jp_elig",
+   "frammento": "Have excellent standard pronunciation, rhythm, intonation in the English language and possess excellent language ability that can be applied accurately and appropriately"
+  },
+  "jp_tefl": {
+   "fonte": "jp_elig",
+   "frammento": "Be strongly motivated to learn about the teaching of English as a foreign language. To that end, possessing teaching qualifications will be a benefit on your application, although it is not required."
+  },
+  "jp_penale": {
+   "fonte": "jp_elig",
+   "frammento": "When it is determined that an individual's criminal history renders them unsuitable for participation on the JET Program"
+  },
+  "jp_penale2": {
+   "fonte": "jp_elig",
+   "frammento": "Have finished any periods of legal probation and/or paid any fines by the application deadline if a jail term was suspended."
+  },
+  "jp_vissuto": {
+   "fonte": "jp_elig",
+   "frammento": "Not have lived in Japan for a six (6) or more years in total since 2017."
+  },
+  "jp_gia": {
+   "fonte": "jp_elig",
+   "frammento": "Have not participated on the JET Program since 2024 or have not participated on the JET program for more than five (5) years in total."
+  },
+  "jp_stipendio": {
+   "fonte": "jp_contr",
+   "frammento": "Salary before tax for each contract year is, as of April 2026: Year 1: ¥4,020,000 Year 2: ¥4,140,000 Year 3: ¥4,260,000 Year 4/5: ¥4,320,000",
+   "valori": [
+    4020000,
+    4140000,
+    4260000,
+    4320000
+   ],
+   "al": "April 2026"
+  },
+  "jp_stipendio_regola": {
+   "fonte": "jp_contr",
+   "frammento": "The JET participant's salary is determined by the number of years of participation on the JET Program."
+  },
+  "jp_trattenute": {
+   "fonte": "jp_contr",
+   "frammento": "In Japan, joining the national social (health) insurance, contributing to the pension fund program and paying employment insurance are mandatory. A part of these costs are borne by the participant and deducted from the monthly post-tax remuneration each month on payday."
+  },
+  "jp_ore": {
+   "fonte": "jp_contr",
+   "frammento": "Participants are expected to be at work approximately thirty-five hours a week, excluding lunch breaks."
+  },
+  "jp_durata": {
+   "fonte": "jp_contr",
+   "frammento": "The 2026 JET contract is for roughly 12 months and commences on the day after the designated arrival date.",
+   "valori": [
+    12
+   ]
+  },
+  "jp_rinnovo": {
+   "fonte": "jp_contr",
+   "frammento": "The contracting organization may reappoint the JET participant for an additional one-year contract, with a maximum of five years total."
+  },
+  "jp_ferie": {
+   "fonte": "jp_contr",
+   "frammento": "The amount of paid leave per year differs among contracting organizations, but all participants are guaranteed to have at least ten days."
+  },
+  "jp_altro_lavoro": {
+   "fonte": "jp_contr",
+   "frammento": "Participants are prohibited from taking on any work other than that of this Program for the duration of their appointment."
+  },
+  "jp_visto": {
+   "fonte": "jp_contr",
+   "frammento": "The JET Program Office will provide the necessary work visa for candidates who are selected to participate on the JET Program."
+  },
+  "jp_familiari": {
+   "fonte": "jp_contr",
+   "frammento": "Please note that only legal spouses as recognized by Japanese law and children under the age of 18 are eligible for a dependent's visa."
+  },
+  "jp_datore": {
+   "fonte": "jp_contr",
+   "frammento": "Contracting organizations (COs) are the entities which employ JETs (rather than the JET Program itself)."
+  },
+  "jp_condizioni": {
+   "fonte": "jp_contr",
+   "frammento": "The following is a general outline of the terms and conditions, though they may vary from one CO to another."
+  },
+  "jp_alt": {
+   "fonte": "jp_pos",
+   "frammento": "ALTs are engaged in language instruction and make up over 90% of all JET Program participants."
+  },
+  "jp_alt_dove": {
+   "fonte": "jp_pos",
+   "frammento": "They are mainly assigned to local boards of education or elementary, junior high or senior high schools"
+  },
+  "jp_domanda": {
+   "fonte": "jp_proc",
+   "frammento": "The JET Program application is open once a year between late September to mid-November."
+  },
+  "jp_colloqui": {
+   "fonte": "jp_proc",
+   "frammento": "Interviews are typically held in late January or early February."
+  },
+  "jp_esito": {
+   "fonte": "jp_proc",
+   "frammento": "Candidates typically receive notification of their results in late March to mid April."
+  },
+  "es_cosa": {
+   "fonte": "es_nalcap",
+   "frammento": "American college students and graduates - who are native-like speakers of English - partner with elementary and secondary schools in Spain to bolster language programs, as language assistants (TAs) under the supervision and guidance of teachers in Spain."
+  },
+  "es_periodo": {
+   "fonte": "es_nalcap",
+   "frammento": "Placements are offered across Spain, in practically every city and town in the country, running from November 1st to May 31st for most assignments."
+  },
+  "es_stipendio": {
+   "fonte": "es_nalcap",
+   "frammento": "Depending on the assigned region, NALCAP recipients receive a monthly stipend of 800 to 1000 euros and medical insurance from either the Ministry of Education of Spain or the regional governments of Spain.",
+   "valori": [
+    800,
+    1000
+   ]
+  },
+  "es_ore": {
+   "fonte": "es_nalcap",
+   "frammento": "Hours of assistant teaching range from 14 to 16 hours per week also depending on the assignment awarded.",
+   "valori": [
+    14,
+    16
+   ]
+  },
+  "es_anno": {
+   "fonte": "es_nalcap",
+   "frammento": "NALCAP CONDITIONS – 2026-2027 SCHOOL YEAR"
+  },
+  "es_cittadino": {
+   "fonte": "es_nalcap",
+   "frammento": "Be a U.S. citizen and have a valid passport through November 1st, 2027"
+  },
+  "es_laurea": {
+   "fonte": "es_nalcap",
+   "frammento": "Have a conferred college degree or be currently enrolled as a 2nd year or higher college student."
+  },
+  "es_laurea2": {
+   "fonte": "es_nalcap",
+   "frammento": "Only college studies undertaken completely in English will be accepted."
+  },
+  "es_madrelingua": {
+   "fonte": "es_nalcap",
+   "frammento": "Be a native-like speaker of English."
+  },
+  "es_salute": {
+   "fonte": "es_nalcap",
+   "frammento": "Be in good physical and mental health."
+  },
+  "es_penale": {
+   "fonte": "es_nalcap",
+   "frammento": "Have a clean background check."
+  },
+  "es_eta": {
+   "fonte": "es_nalcap",
+   "frammento": "Be aged 18 - 45.",
+   "valori": [
+    18,
+    45
+   ]
+  },
+  "es_spagnolo": {
+   "fonte": "es_nalcap",
+   "frammento": "Participants in the program should have a basic level of Spanish to use in everyday life in Spain"
+  },
+  "es_canada": {
+   "fonte": "es_nalcap",
+   "frammento": "Canadian citizens: Please visit the NALCAP Canada website for specific information pertaining to Canadian applicants."
+  },
+  "es_visto_obbligo": {
+   "fonte": "es_visa",
+   "frammento": "You must apply for a visa to participate in the NALCAP program"
+  },
+  "es_visto_tipo": {
+   "fonte": "es_visa",
+   "frammento": "You will be applying for a Student/Study National Visa. This is the category of visa assigned for the NALCAP program."
+  },
+  "es_visto_dove": {
+   "fonte": "es_visa",
+   "frammento": "You must apply for a visa at your local Consulate of Spain in the US. You cannot apply for a visa once in Spain."
+  },
+  "es_visto_quando": {
+   "fonte": "es_visa",
+   "frammento": "Please be aware that you will not be able to submit your application for your visa under any circumstance until you have received your Placement Letter (Carta de Nombramiento)."
+  },
+  "es_visto_consolati": {
+   "fonte": "es_visa",
+   "frammento": "Visas are issued by the Consulates General of Spain in the U.S. under the jurisdiction of the MInistry of Foreign Affairs of Spain, not the Ministry of Education."
+  },
+  "es_precedenza": {
+   "fonte": "es_visa",
+   "frammento": "Please keep in mind that specific instructions from each consulate overrule any information provided by NALCAP."
+  },
+  "es_apostille": {
+   "fonte": "es_visa",
+   "frammento": "You may begin to gather your paperwork such as the background check - with its corresponding apostille and official translation - as soon as you have a PLAZA ACEPTADA status on the PROFEX portal."
+  },
+  "es_volo": {
+   "fonte": "es_visa",
+   "frammento": "We strongly suggest NOT buying your airline tickets to Spain until you have received the visa and it is in your custody."
+  },
+  "es_doc": {
+   "fonte": "es_apply",
+   "frammento": "A copy of the main page of your valid U.S. passport An official college transcript or a copy of your diploma A signed statement of purpose A letter of recommendation Health Statement and Statutory Declaration",
+   "elenco": [
+    "A copy of the main page of your valid U.S. passport",
+    "An official college transcript or a copy of your diploma",
+    "A signed statement of purpose",
+    "A letter of recommendation",
+    "Health Statement and Statutory Declaration"
+   ]
+  },
+  "es_profex": {
+   "fonte": "es_apply",
+   "frammento": "PROFEX 2 is the new Ministry of Education of Spain's online portal used to apply for NALCAP."
+  },
+  "kr_e21_nome": {
+   "fonte": "kr_e21",
+   "frammento": "Foreign Language Instructor (General)"
+  },
+  "kr_e21": {
+   "fonte": "kr_e21",
+   "frammento": "A person who meets the qualifications determined by the Minister of Justice, and plans to teach conversational language at a foreign language institute, affiliated- language research institute or educational institute of higher than elementary school, or language training institute affiliated with an enterprise or broadcasting company, or other equivalent organization."
+  },
+  "kr_e22_nome": {
+   "fonte": "kr_e22",
+   "frammento": "Teaching Assistant"
+  },
+  "kr_e22": {
+   "fonte": "kr_e22",
+   "frammento": "A person who meets the qualifications determined by the Minister of Justice of ROK and has signed an employment contract with the Minister of Education (or superintendent of a school district) to teach foreign language at an elementary, middle, or high school as an assistant teacher"
+  },
+  "kr_rifiuto": {
+   "fonte": "kr_e21",
+   "frammento": "Even if the foreigner has the valid visa or is subject to visa-free entry, he/she may be denied entry to the Republic of Korea if he's found inadmissible by an immigration officer at the port of entry."
+  },
+  "th_cosa": {
+   "fonte": "th_teach",
+   "frammento": "A Non-Immigrant Visa (B) or Non-B Visa allows foreign nationals to work in academia and the formal education system in Thailand."
+  },
+  "th_chi": {
+   "fonte": "th_teach",
+   "frammento": "are employed by a Thai school, international school, or university, hold valid ordinary passports, hold citizenship or valid proof of immigration status in the UK, Ireland, or British Overseas Territories, and currently reside in the UK, Ireland, or British Overseas Territories.",
+   "elenco": [
+    "are employed by a Thai school, international school, or university,",
+    "hold valid ordinary passports,",
+    "hold citizenship or valid proof of immigration status in the UK, Ireland, or British Overseas Territories, and",
+    "currently reside in the UK, Ireland, or British Overseas Territories."
+   ]
+  },
+  "th_validita": {
+   "fonte": "th_teach",
+   "frammento": "Non-B Visa is valid for a single entry within 90 days from the date of issue.",
+   "valori": [
+    90
+   ]
+  },
+  "th_soggiorno": {
+   "fonte": "th_teach",
+   "frammento": "Visa holders will be permitted to stay in Thailand for up to 90 days from the date of entry.",
+   "valori": [
+    90
+   ]
+  },
+  "th_tariffa": {
+   "fonte": "th_teach",
+   "frammento": "Fee: £60",
+   "valori": [
+    60
+   ]
+  },
+  "th_estensione": {
+   "fonte": "th_teach",
+   "frammento": "If Non-Immigrant visa holders wish to stay for longer than the permitted period or enter Thailand several times, they can request an extension of stay and re-entry permit by directly contacting the Immigration Bureau after arriving in Thailand."
+  },
+  "th_banca": {
+   "fonte": "th_teach",
+   "frammento": "Recent bank statements for the last 3 months issued in the UK, Ireland, or British Overseas Territories, with the applicant's name, address, and a minimum closing balance of £700",
+   "valori": [
+    700,
+    3
+   ]
+  },
+  "th_lettera": {
+   "fonte": "th_teach",
+   "frammento": "An official letter from the Ministry of Education, university, or international school"
+  },
+  "th_penale": {
+   "fonte": "th_teach",
+   "frammento": "Certificate of criminal record clearance issued within the last 6 months",
+   "valori": [
+    6
+   ]
+  },
+  "th_tempi": {
+   "fonte": "th_teach",
+   "frammento": "The current processing time is approximately 15 working days",
+   "valori": [
+    15
+   ]
+  },
+  "th_anticipo": {
+   "fonte": "th_teach",
+   "frammento": "Applicants are recommended to submit their visa applications at least 6-8 weeks before their departure."
+  },
+  "th_altri": {
+   "fonte": "th_teach",
+   "frammento": "However, they may receive the request for additional documents as deemed necessary."
+  },
+  "tw_lavoro": {
+   "fonte": "tw_cram",
+   "frammento": "2. Full-time foreign language teaching work."
+  },
+  "tw_datore": {
+   "fonte": "tw_cram",
+   "frammento": "Employers hiring foreign professionals referred to in Subparagraph 2 or Subparagraph 3, Article 3 shall be short-term cram schools registered in accordance with the Supplementary Education Act."
+  },
+  "tw_req": {
+   "fonte": "tw_cram",
+   "frammento": "When employed to engage in work prescribed in Subparagraph 2, Article 3, the teaching-related weekly working hours of foreign professionals shall be no less than 14 hours and meet one of the following qualifications: 1. Have attained the age of majority. 2. Graduated from colleges or above. 3. The language to be taught by the foreign teacher is the official language used in the country specified in the passport of the teacher.",
+   "valori": [
+    14
+   ]
+  },
+  "tw_cert": {
+   "fonte": "tw_cram",
+   "frammento": "If the foreign nationals mentioned in the preceding paragraph have not obtained a bachelor's degree, they are required to have a qualification certificate for language teaching."
+  },
+  "tw_sei": {
+   "fonte": "tw_cram",
+   "frammento": "their weekly working hours in teaching-related work for each employers shall not be less than 6 hours.",
+   "valori": [
+    6
+   ]
+  },
+  "tw_max": {
+   "fonte": "tw_cram",
+   "frammento": "their total weekly working hours in teaching-related work shall not exceed 32 hours.",
+   "valori": [
+    32
+   ]
+  },
+  "tw_tre_anni": {
+   "fonte": "tw_cram",
+   "frammento": "none of the following circumstances must not have occurred in the three years prior to the application date: 1. He or she has engaged in work without obtaining an employment permit;"
+  },
+  "tw_data": {
+   "fonte": "tw_cram",
+   "frammento": "Amended Date： 2022-10-27"
+  },
+  "cn_z": {
+   "fonte": "cn_req",
+   "frammento": "Issued to those who intend to work in China",
+   "contesto": "Z Issued to those who intend to work in China Notice for the Work Permit for Foreigners"
+  },
+  "cn_z_doc": {
+   "fonte": "cn_req",
+   "frammento": "Notice for the Work Permit for Foreigners",
+   "contesto": "Z Issued to those who intend to work in China Notice for the Work Permit for Foreigners"
+  },
+  "cn_cova": {
+   "fonte": "cn_req",
+   "frammento": "Visa applicants need to log on to the New COVA System (click to redirect) to fill in the forms and upload materials for preliminary review."
+  },
+  "cn_passaporto": {
+   "fonte": "cn_req",
+   "frammento": "Passport remaining validity must be more than 6 months with at least 2 blank visa pages",
+   "valori": [
+    6,
+    2
+   ]
+  },
+  "cn_tempi": {
+   "fonte": "cn_req",
+   "frammento": "Regular service: 4 business days Express service: 3 business days (urgent situation)",
+   "valori": [
+    4,
+    3
+   ]
+  },
+  "cn_tempi_nota": {
+   "fonte": "cn_req",
+   "frammento": "The above processing time is average and for reference only and is calculated from the date of passport submission."
+  },
+  "cn_caso": {
+   "fonte": "cn_req",
+   "frammento": "Since visa applications are processed on a case-by-case basis, please refer to the Chinese Embassy and Consulates-General in the United States for specifics."
+  }
+ },
+ "domanda": {
+  "data": "2026-11-19",
+  "metodo": "strumento dei volumi (api.seodata.dev /v1/keyword): volume medio mensile di Google Ads e costo per clic, per Paese; null = frase non nel database",
+  "paesi": [
+   "us",
+   "gb"
+  ],
+  "query": {
+   "us|teach english abroad": {
+    "volume": 8100,
+    "cpc": 2.36
+   },
+   "us|teaching english abroad": {
+    "volume": 8100,
+    "cpc": 2.36
+   },
+   "us|teach english abroad requirements": {
+    "volume": 140,
+    "cpc": 2.45
+   },
+   "us|teach english abroad salary": {
+    "volume": 110,
+    "cpc": 2.34
+   },
+   "us|teach english abroad without a degree": {
+    "volume": 50,
+    "cpc": 3.39
+   },
+   "us|teach english abroad programs": {
+    "volume": 590,
+    "cpc": 3.5
+   },
+   "us|how to teach english abroad": {
+    "volume": 880,
+    "cpc": 2.62
+   },
+   "us|best countries to teach english": {
+    "volume": 320,
+    "cpc": 1.26
+   },
+   "us|teach english in korea": {
+    "volume": 1600,
+    "cpc": 3.06
+   },
+   "us|teach english in south korea": {
+    "volume": 720,
+    "cpc": 1.91
+   },
+   "us|teaching english in korea": {
+    "volume": 1900,
+    "cpc": 2.36
+   },
+   "us|teaching english in korea salary": {
+    "volume": 320,
+    "cpc": 2.74
+   },
+   "us|epik": {
+    "volume": 9900,
+    "cpc": 8.41
+   },
+   "us|epik korea": {
+    "volume": 720,
+    "cpc": 1.6
+   },
+   "us|epik salary": {
+    "volume": 30,
+    "cpc": 0
+   },
+   "us|e2 visa korea": {
+    "volume": 110,
+    "cpc": 0
+   },
+   "us|e-2 visa korea": {
+    "volume": 40,
+    "cpc": 0
+   },
+   "us|teach english in korea requirements": {
+    "volume": 50,
+    "cpc": 0.63
+   },
+   "us|teach english in japan": {
+    "volume": 5400,
+    "cpc": 3.22
+   },
+   "us|teaching english in japan": {
+    "volume": 5400,
+    "cpc": 3.22
+   },
+   "us|teaching english in japan salary": {
+    "volume": 880,
+    "cpc": 1.89
+   },
+   "us|jet program": {
+    "volume": 8100,
+    "cpc": 1.65
+   },
+   "us|jet programme": {
+    "volume": 8100,
+    "cpc": 2.21
+   },
+   "us|jet program salary": {
+    "volume": 590,
+    "cpc": 2.26
+   },
+   "us|jet program requirements": {
+    "volume": 260,
+    "cpc": 0.69
+   },
+   "us|teach english in japan requirements": {
+    "volume": 260,
+    "cpc": 1.21
+   },
+   "us|english teacher in japan salary": {
+    "volume": 880,
+    "cpc": 1.98
+   },
+   "us|teach english in china": {
+    "volume": 1900,
+    "cpc": 2.53
+   },
+   "us|teaching english in china": {
+    "volume": 1900,
+    "cpc": 2.34
+   },
+   "us|teach english in china requirements": {
+    "volume": 40,
+    "cpc": 0.98
+   },
+   "us|z visa china": {
+    "volume": 320,
+    "cpc": 0
+   },
+   "us|china work visa": {
+    "volume": 590,
+    "cpc": 7.03
+   },
+   "us|teach english in china salary": {
+    "volume": 210,
+    "cpc": 0.69
+   },
+   "us|teach english in vietnam": {
+    "volume": 720,
+    "cpc": 2.09
+   },
+   "us|teaching english in vietnam": {
+    "volume": 720,
+    "cpc": 1.76
+   },
+   "us|teach english in vietnam requirements": {
+    "volume": 20,
+    "cpc": 1.82
+   },
+   "us|vietnam work permit": {
+    "volume": 260,
+    "cpc": 12.25
+   },
+   "us|teach english in thailand": {
+    "volume": 1300,
+    "cpc": 2.69
+   },
+   "us|teaching english in thailand": {
+    "volume": 1600,
+    "cpc": 3.63
+   },
+   "us|teach english in thailand requirements": {
+    "volume": 30,
+    "cpc": 1.49
+   },
+   "us|teaching english in thailand salary": {
+    "volume": 210,
+    "cpc": 1.16
+   },
+   "us|non b visa thailand": {
+    "volume": 50,
+    "cpc": 0
+   },
+   "us|teach english in spain": {
+    "volume": 3600,
+    "cpc": 3.13
+   },
+   "us|teaching english in spain": {
+    "volume": 3600,
+    "cpc": 3.13
+   },
+   "us|auxiliares de conversacion": {
+    "volume": 320,
+    "cpc": 0
+   },
+   "us|auxiliar de conversacion": {
+    "volume": 140,
+    "cpc": 0
+   },
+   "us|nalcap": {
+    "volume": 6600,
+    "cpc": 1.9
+   },
+   "us|nalcap spain": {
+    "volume": 2400,
+    "cpc": 3.24
+   },
+   "us|language assistant spain": {
+    "volume": 40,
+    "cpc": 0
+   },
+   "us|auxiliares de conversacion salary": {
+    "volume": null,
+    "cpc": null
+   },
+   "us|teach english in taiwan": {
+    "volume": 720,
+    "cpc": 2.26
+   },
+   "us|teaching english in taiwan": {
+    "volume": 720,
+    "cpc": 3.36
+   },
+   "us|teach english in taiwan requirements": {
+    "volume": 20,
+    "cpc": 3.62
+   },
+   "us|teach english in dubai": {
+    "volume": 260,
+    "cpc": 2.38
+   },
+   "us|teaching english in dubai": {
+    "volume": 260,
+    "cpc": 0.65
+   },
+   "us|teach english in uae": {
+    "volume": 170,
+    "cpc": 0.58
+   },
+   "us|teach english in czech republic": {
+    "volume": 210,
+    "cpc": 3.02
+   },
+   "us|teach english in prague": {
+    "volume": 210,
+    "cpc": 3.11
+   },
+   "us|teach english in colombia": {
+    "volume": 140,
+    "cpc": 3.33
+   },
+   "us|teach english in mexico": {
+    "volume": 390,
+    "cpc": 1.52
+   },
+   "us|teach english in france": {
+    "volume": 1000,
+    "cpc": 2.93
+   },
+   "us|tapif": {
+    "volume": 1900,
+    "cpc": 2
+   },
+   "us|tapif salary": {
+    "volume": 20,
+    "cpc": 0
+   },
+   "us|teach english in hong kong": {
+    "volume": 170,
+    "cpc": 5.19
+   },
+   "us|net scheme hong kong": {
+    "volume": 30,
+    "cpc": 0.67
+   },
+   "us|teach english in italy": {
+    "volume": 1300,
+    "cpc": 2.64
+   },
+   "us|teach english in germany": {
+    "volume": 260,
+    "cpc": 2.22
+   },
+   "us|tefl certification": {
+    "volume": 18100,
+    "cpc": 5.69
+   },
+   "us|tefl certificate": {
+    "volume": 9900,
+    "cpc": 4.6
+   },
+   "us|tefl": {
+    "volume": 12100,
+    "cpc": 5.24
+   },
+   "us|is tefl required to teach english abroad": {
+    "volume": null,
+    "cpc": null
+   },
+   "us|teach english abroad visa": {
+    "volume": null,
+    "cpc": null
+   },
+   "us|english teacher visa": {
+    "volume": null,
+    "cpc": null
+   },
+   "us|teach english in europe": {
+    "volume": 390,
+    "cpc": 2.29
+   },
+   "us|teach english in saudi arabia": {
+    "volume": 210,
+    "cpc": 1.07
+   },
+   "us|teach english in costa rica": {
+    "volume": 590,
+    "cpc": 2.72
+   },
+   "gb|teach english abroad": {
+    "volume": 2400,
+    "cpc": 1.78
+   },
+   "gb|teaching english abroad": {
+    "volume": 2400,
+    "cpc": 1.78
+   },
+   "gb|teach english abroad requirements": {
+    "volume": 90,
+    "cpc": 1.25
+   },
+   "gb|teach english abroad salary": {
+    "volume": 50,
+    "cpc": 0.41
+   },
+   "gb|teach english abroad without a degree": {
+    "volume": 50,
+    "cpc": 0.83
+   },
+   "gb|teach english abroad programs": {
+    "volume": 70,
+    "cpc": 1.77
+   },
+   "gb|how to teach english abroad": {
+    "volume": 110,
+    "cpc": 2.16
+   },
+   "gb|best countries to teach english": {
+    "volume": 90,
+    "cpc": 1.11
+   },
+   "gb|teach english in korea": {
+    "volume": 390,
+    "cpc": 1.31
+   },
+   "gb|teach english in south korea": {
+    "volume": 260,
+    "cpc": 1.32
+   },
+   "gb|teaching english in korea": {
+    "volume": 480,
+    "cpc": 1.39
+   },
+   "gb|teaching english in korea salary": {
+    "volume": 90,
+    "cpc": 1.28
+   },
+   "gb|epik": {
+    "volume": 1000,
+    "cpc": 1.68
+   },
+   "gb|epik korea": {
+    "volume": 110,
+    "cpc": 1.36
+   },
+   "gb|epik salary": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|e2 visa korea": {
+    "volume": 50,
+    "cpc": 0
+   },
+   "gb|e-2 visa korea": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|teach english in korea requirements": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|teach english in japan": {
+    "volume": 1600,
+    "cpc": 1.57
+   },
+   "gb|teaching english in japan": {
+    "volume": 1600,
+    "cpc": 1.57
+   },
+   "gb|teaching english in japan salary": {
+    "volume": 210,
+    "cpc": 1.17
+   },
+   "gb|jet program": {
+    "volume": 1600,
+    "cpc": 0.89
+   },
+   "gb|jet programme": {
+    "volume": 1600,
+    "cpc": 0.89
+   },
+   "gb|jet program salary": {
+    "volume": 90,
+    "cpc": 1.9
+   },
+   "gb|jet program requirements": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|teach english in japan requirements": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|english teacher in japan salary": {
+    "volume": 210,
+    "cpc": 0.75
+   },
+   "gb|teach english in china": {
+    "volume": 880,
+    "cpc": 1.21
+   },
+   "gb|teaching english in china": {
+    "volume": 880,
+    "cpc": 1.21
+   },
+   "gb|teach english in china requirements": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|z visa china": {
+    "volume": 140,
+    "cpc": 27.05
+   },
+   "gb|china work visa": {
+    "volume": 210,
+    "cpc": 10.4
+   },
+   "gb|teach english in china salary": {
+    "volume": 170,
+    "cpc": 1.27
+   },
+   "gb|teach english in vietnam": {
+    "volume": 390,
+    "cpc": 2.19
+   },
+   "gb|teaching english in vietnam": {
+    "volume": 390,
+    "cpc": 2.19
+   },
+   "gb|teach english in vietnam requirements": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|vietnam work permit": {
+    "volume": 140,
+    "cpc": 5.38
+   },
+   "gb|teach english in thailand": {
+    "volume": 720,
+    "cpc": 1.7
+   },
+   "gb|teaching english in thailand": {
+    "volume": 720,
+    "cpc": 1.7
+   },
+   "gb|teach english in thailand requirements": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|teaching english in thailand salary": {
+    "volume": 110,
+    "cpc": 0.83
+   },
+   "gb|non b visa thailand": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|teach english in spain": {
+    "volume": 880,
+    "cpc": 1.55
+   },
+   "gb|teaching english in spain": {
+    "volume": 880,
+    "cpc": 1.54
+   },
+   "gb|auxiliares de conversacion": {
+    "volume": 70,
+    "cpc": 0
+   },
+   "gb|auxiliar de conversacion": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|nalcap": {
+    "volume": 170,
+    "cpc": 1.64
+   },
+   "gb|nalcap spain": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|language assistant spain": {
+    "volume": 110,
+    "cpc": 0.39
+   },
+   "gb|auxiliares de conversacion salary": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|teach english in taiwan": {
+    "volume": 170,
+    "cpc": 1.32
+   },
+   "gb|teaching english in taiwan": {
+    "volume": 210,
+    "cpc": 1.87
+   },
+   "gb|teach english in taiwan requirements": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|teach english in dubai": {
+    "volume": 390,
+    "cpc": 1.13
+   },
+   "gb|teaching english in dubai": {
+    "volume": 390,
+    "cpc": 1.13
+   },
+   "gb|teach english in uae": {
+    "volume": 110,
+    "cpc": 0.69
+   },
+   "gb|teach english in czech republic": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|teach english in prague": {
+    "volume": 20,
+    "cpc": 2.73
+   },
+   "gb|teach english in colombia": {
+    "volume": 50,
+    "cpc": 1.54
+   },
+   "gb|teach english in mexico": {
+    "volume": 40,
+    "cpc": 1.44
+   },
+   "gb|teach english in france": {
+    "volume": 320,
+    "cpc": 1.37
+   },
+   "gb|tapif": {
+    "volume": 70,
+    "cpc": 0
+   },
+   "gb|tapif salary": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|teach english in hong kong": {
+    "volume": 170,
+    "cpc": 0.87
+   },
+   "gb|net scheme hong kong": {
+    "volume": 50,
+    "cpc": 1.92
+   },
+   "gb|teach english in italy": {
+    "volume": 320,
+    "cpc": 1.47
+   },
+   "gb|teach english in germany": {
+    "volume": 50,
+    "cpc": 0.78
+   },
+   "gb|tefl certification": {
+    "volume": 2400,
+    "cpc": 4.15
+   },
+   "gb|tefl certificate": {
+    "volume": 480,
+    "cpc": 3.8
+   },
+   "gb|tefl": {
+    "volume": 9900,
+    "cpc": 5.61
+   },
+   "gb|is tefl required to teach english abroad": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|teach english abroad visa": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|english teacher visa": {
+    "volume": null,
+    "cpc": null
+   },
+   "gb|teach english in europe": {
+    "volume": 90,
+    "cpc": 0.91
+   },
+   "gb|teach english in saudi arabia": {
+    "volume": 210,
+    "cpc": 1.5
+   },
+   "gb|teach english in costa rica": {
+    "volume": 110,
+    "cpc": 1.35
+   }
+  }
+ },
+ "impronta": "a0fb44210d73f1864797"
+}

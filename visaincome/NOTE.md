@@ -1476,3 +1476,51 @@ Dallo studio `studio-business/intelaiatura/fronti-2026-11-14-pagatori-prima.md`,
 - **dsu-toscana**: bando riletto (PDF 200): tutti gli 8 frammenti (ISEE 27.000, ISPE 60.000, importi, scadenza, estero) presenti. Nessun cambio: l'errore del primo lancio era una lettura fallita.
 - **Australia, riletto in proprio**: Schedule 1 della compilazione n. 291 (F2026C01194, ancora quella in vigore) voce per voce e le tre tabelle dei punti di Home Affairs: tutte le tariffe e tutte le righe dei punti coincidono. Calcolatore: 20 casi a caso nel browser = conto fatto a mano. Soglie 482 date solo con le parole del regolamento e l'avviso sull'indicizzazione; conflitto sull'età 417/462 mostrato con entrambe le fonti; avviso «Information, not migration advice / OMARA» in tutte le 11 pagine. Voto 9,0 → 9,3/10. Corretto: nella pagina working holiday la frase «for both» ometteva la tariffa di 690 AUD (462, passaporto di un Paese del Pacifico): aggiunta nella prima frase e nella tabella.
 - Tolti da questa nota i prefissi letterali delle chiavi (i grep di sicurezza ora sono vuoti su tutta la cartella).
+
+## 19/11/2026 — Sezione "Teach English abroad: visa and salary rules by country" (`/teach-english-abroad/`, 7 pagine) e riquadro del partner TEFL SPENTO — NON PUBBLICATO (nessun commit: segue la revisione indipendente)
+
+Dallo studio `studio-business/intelaiatura/fronti-2026-11-14-pagatori-prima.md`, idea D / n. 4 (International TEFL Academy ≥ 12 %, Bridge 15 %; Massimiliano non è iscritto).
+
+### Pagine (814 URL in sitemap, +7; tutte in indice)
+- **Indice** `/teach-english-abroad/`: griglia dei 6 Paesi, tabella «The rules at a glance» (laurea, casellario, certificato TEFL, paga ufficiale), «Is a TEFL certificate officially required?» (solo JET e Taiwan ne parlano, e dicono cose opposte; «We do not rank TEFL courses»), «Official pay figures we could read», **«Countries and programmes we could not cover»** (9 voci con il motivo), FAQ.
+- **Una pagina per Paese**, schema uguale (risposta in breve, avviso, parole ufficiali a gruppi con fonte e data sotto ogni gruppo, «What we could not read», FAQ, altri Paesi):
+  - `japan/`: JET Program, dalle pagine dell'ufficio degli Stati Uniti (Ambasciata del Giappone). Stipendio lordo ¥4.020.000 / 4.140.000 / 4.260.000 / 4.320.000 (ad aprile 2026), laurea, cittadinanza USA, «teaching qualifications… not required», precedenti penali, 35 ore, visto fornito dal programma, date (domande fine settembre–metà novembre).
+  - `spain/`: NALCAP (auxiliares de conversación, cittadini USA), Ministerio de Educación: 800–1.000 euro al mese, 14–16 ore, laurea o 2° anno, 18–45 anni, «clean background check», visto di studio al consolato, documenti.
+  - `south-korea/`: solo le due schede del Korea Visa Portal (E-2-1 ed E-2-2). **EPIK non letto** (vedi sotto): nessuna paga, detto in pagina.
+  - `thailand/`: Non-Immigrant B per insegnanti, ambasciata di Londra: £60, ingresso singolo, 90 giorni, lettera del Ministero o della scuola, certificato penale ≤ 6 mesi, saldo £700, 15 giorni lavorativi.
+  - `taiwan/`: standard del Ministero del Lavoro per gli insegnanti delle cram school (art. 3, 5, 5-1, 6; modificati il 27/10/2022): senza laurea serve «a qualification certificate for language teaching», 14–32 ore.
+  - `china/`: visto Z dall'ambasciata negli USA (documento: Notice for the Work Permit for Foreigners; COVA; 4 giorni lavorativi). Nessuna regola sugli insegnanti: detto in pagina.
+- **Avviso fisso**: «Information, not immigration advice… We are not immigration advisers or lawyers».
+- **Collegamenti**: blocco nuovo nella home (prima delle cerimonie australiane); dalle pagine nuove verso DTV (Thailandia), visti spagnoli, soglie di stipendio, assicurazioni, calcolatore. Menu, piè di pagina e pagine A/B non toccati; con la rigenerazione sono cambiati solo home, sitemap e `dati/lastmod.json`.
+- Conversioni (solo JET anno 1 in $ e £, stipendio spagnolo in $): cambi BCE del sito, con la nota «Conversions are ours».
+
+### Dati e fonti (`raccolta/tefl.py` → `dati/tefl.json`; 12 fonti, 82 letture, tutte HTTP 200 il 19/11; nessun file grezzo nel repository)
+- jetprogramusa.org (4 pagine), educacionfpydeportes.gob.es (3 pagine NALCAP), visa.go.kr (2 schede: lo script fa le due richieste del modulo del sito, lingua + sigla), london.thaiembassy.org, law.moj.gov.tw (N0090054), us.china-embassy.gov.cn.
+- Ogni frammento letto a mano; a ogni lancio la raccolta si ferma (codice 1, JSON non toccato) se un frammento non è più nella fonte. Le cifre (`valori`) si leggono dal frammento.
+- **Non letti, non aggirati, dichiarati in pagina**: epik.go.kr (connessione chiusa o 403; lo stesso per ambasciate coreane, immigration.go.kr, niied); jetprogramme.org (pagina provvisoria di manutenzione); mofa.go.jp e ambasciate giapponesi (403: niente su Instructor / Specialist in Humanities); portali del governo vietnamita (connessione chiusa; la pagina dell'ambasciata negli USA non dice nulla sugli insegnanti); u.ae e moe.gov.ae (404 agli indirizzi provati); tfetp di Taiwan e english.moe.gov.tw (connessione chiusa); France Éducation international / TAPIF (controllo di sicurezza automatico); British Council (errore di trasferimento); english.beijing.gov.cn letto (guida al permesso di lavoro: nessuna regola per gli insegnanti); Repubblica Ceca, Colombia, Messico: nessuna pagina ufficiale specifica per insegnanti. Hong Kong NET Scheme: pagine EDB leggibili, non costruito (domanda bassa: 340).
+- Punto delicato: l'art. 5-1 di Taiwan nella traduzione ufficiale dice «meet one of the following qualifications»: citato parola per parola, con la nota che vale il testo cinese.
+- Limite: Giappone e Spagna sono le pagine per i candidati dagli Stati Uniti (detto in ogni pagina e nella tabella).
+
+### Domanda misurata (strumento dei volumi, 19/11/2026, us + gb; 76 frasi × 2 Paesi in `domanda`)
+- tefl 22.000; tefl certification 20.500; epik 10.900; teach english abroad 10.500; tefl certificate 10.380; jet program 9.700; teach english in japan 7.000; nalcap 6.770; teach english in spain 4.480; teach english in china 2.780; nalcap spain 2.400; teaching english in korea 2.380; teaching english in thailand 2.320; teach english in korea 1.990; tapif 1.970; teach english in italy 1.620; teach english in france 1.320; teach english in vietnam 1.110; teaching english in japan salary 1.090; teach english in taiwan 890; jet program salary 680; z visa china 460.
+- Senza volume: «auxiliares de conversacion salary», «is tefl required to teach english abroad», «teach english abroad visa», «english teacher visa».
+- Ogni titolo e ogni descrizione cominciano con la frase misurata («teach english abroad», «teach english in japan/spain/korea/thailand/taiwan/china»); ogni FAQ è legata a una frase con volume (controllo 41).
+- Da notare: la domanda più grande dopo le frasi TEFL è «epik» (10.900) e non l'abbiamo potuta servire: riprovare epik.go.kr.
+
+### Riquadro del partner TEFL (interruttore `_tefl` in `dati/affiliati.json`: **SPENTO**, `url` vuoto: nessun link di affiliazione esiste, nessuno inventato)
+- Da spento: nessun riquadro, nessun link sponsorizzato, il nome del partner non compare in nessuna pagina della sezione né nella privacy (controllo 41). Nessun venditore di corsi è nominato nelle pagine.
+- Da acceso (`box_tefl`, forma editoriale): solo in `pagine` (indice, japan, taiwan), prima delle FAQ; prima la regola ufficiale (JET e Taiwan), poi «We have not taken its courses, we do not rank course providers», etichetta Affiliate, `rel="sponsored nofollow noopener"`, riga di trasparenza, nessun prezzo né promessa. Non provato acceso dentro il sito (serve il dominio del link in `monetizzazione.json`, fuori da `visaincome/`).
+- Per accenderlo (decisione di Massimiliano): iscrizione → link in `url`, dominio ammesso in `monetizzazione.json`, `"attivo": true`, rigenerare, `verifica.py`, `monetizzazione.py verifica visaincome`.
+
+### Controlli
+- `genera.py`: `controlli_tf()` (impronta, fonti 200, letture esistenti e del Paese giusto, frasi dei titoli e delle FAQ con volume, valori nel frammento).
+- `verifica.py`, nuovo **punto 41** (`controlla_tf`): domini ufficiali, 7 pagine, titoli ≤ 65 e descrizioni 90–160 sulla frase misurata, sitemap/canonical, FAQPage/BreadcrumbList, avviso, ogni `<q class="cit-tf">` = frammento, ogni frase tra virgolette ≥ 25 caratteri = pezzo di un frammento, ogni importo (¥ £ $ euro) = frammento o conversione BCE ricalcolata, fonte con link sotto ogni gruppo, nessun venditore di corsi né classifica, riquadro, home. Online: 8 frammenti a caso riletti.
+- Esito 19/11/2026: `--offline` TUTTO OK. Completo (online) lanciato 2 volte: **punto 41 = 0 errori** tutte e due (8 frammenti su 8 riletti); il primo lancio ha chiuso con 2 errori esterni e passeggeri del punto 19 (US OPT: due documenti del Federal Register «non leggibili»), il secondo **TUTTO OK** (41 punti).
+- `python3 studio-business/strumenti/monetizzazione.py verifica visaincome`: 0 errori (700 link di affiliazione in 459 pagine su 1310).
+- Playwright 375 e 1280, chiaro e scuro, sulle 7 pagine nuove + home: 32 su 32 (nessuno sfondamento orizzontale fuori dalle tabelle scorrevoli, un solo h1, nessun errore in console).
+- Ricerca dei prefissi delle chiavi note in `visaincome/`: vuota.
+
+### Da ricontrollare
+- **Ogni mese** `python3 visaincome/raccolta/tefl.py` (le pagine JET e NALCAP cambiano a ogni ciclo: stipendio «as of April 2026», date 2027, «NALCAP CONDITIONS – 2026-2027»). Ogni 3 mesi `--domanda`.
+- Riprovare: epik.go.kr, jetprogramme.org (dopo la manutenzione), tfetp di Taiwan, TAPIF; aggiungere Hong Kong NET se serve.
+- Manca il revisore indipendente su fatti e aspetto prima della pubblicazione.

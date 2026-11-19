@@ -271,5 +271,17 @@
       "partner-visa"
     ],
     "nota": "INTERRUTTORE del riquadro Migration Expert «Want a registered migration agent to look at your case?» (box_me in genera.py, 18/11/2026), sezione /australia-visas/. SPENTO in attesa della decisione di Massimiliano (regole del 15/11: riquadri nuovi spenti, forma editoriale): con 'attivo': false (o senza un link https ammesso) le pagine escono senza riquadro, senza alcun link e senza il nome del partner, e senza la frase nella privacy (verifica.py, controllo 40). Per accenderlo, dopo l'iscrizione al programma: 1) mettere in 'url' il link tracciato dato dal programma, mai un link scritto a mano; 2) aggiungere il dominio del link ai domini ammessi di studio-business/strumenti/monetizzazione.json; 3) 'attivo': true; 4) python3 visaincome/genera.py && python3 visaincome/verifica.py && python3 studio-business/strumenti/monetizzazione.py verifica visaincome. Il riquadro compare solo nelle pagine elencate in 'pagine' (calcolatore dei punti e visti dove un agente è più richiesto), sotto le parole ufficiali e prima delle FAQ, con etichetta Affiliate, rel sponsored nofollow noopener, la regola ufficiale su chi può dare assistenza prima del partner, nessun prezzo e nessuna promessa. Le parole sul partner vengono dalla sua home (letture me_agenti e me_consulto in dati/australia_visti.json)."
+  },
+  "_tefl": {
+    "attivo": false,
+    "nome": "International TEFL Academy",
+    "url": "",
+    "programma": "Letto nello studio studio-business/intelaiatura/fronti-2026-11-14-pagatori-prima.md (idea D): «You will receive at least 12% commission for all purchases» (International TEFL Academy); Bridge 15 %, The TEFL Academy 10 % (letti il 31/10). Massimiliano non è iscritto: NESSUN link di affiliazione esiste, nessuno va inventato.",
+    "pagine": [
+      "indice",
+      "japan",
+      "taiwan"
+    ],
+    "nota": "INTERRUTTORE del riquadro del partner TEFL «Thinking about a TEFL course?» (box_tefl in genera.py, 19/11/2026), sezione /teach-english-abroad/. SPENTO in attesa della decisione di Massimiliano (regole del 15/11: riquadri nuovi spenti, forma editoriale): con 'attivo': false (o senza un link https ammesso) le pagine escono senza riquadro, senza alcun link e senza il nome del partner. Per accenderlo: iscrizione al programma, link tracciato in 'url', dominio del link tra i domini ammessi di studio-business/strumenti/monetizzazione.json, 'attivo': true, rigenerare, verifica.py e monetizzazione.py verifica visaincome. Nessuna classifica di corsi, nessun prezzo, nessuna promessa."
   }
 }
