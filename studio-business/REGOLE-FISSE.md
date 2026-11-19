@@ -208,3 +208,8 @@ Con 24 siti serve metodo. Queste regole valgono sempre, prima di qualsiasi lavor
 4. **Ogni pubblicazione**: genera → verifica 0 errori → monetizzazione 0 errori → revisione indipendente ≥ 8,5 per i contenuti nuovi → push → controllo online (sitemap = commit, pagine nuove 200) → IndexNow → riga «Pubblicato il…» in DA-PUBBLICARE.md.
 5. **Ogni lunedì**: visite per sito della settimana contro le due precedenti (GoatCounter). Un sito che cala più del 30 % si indaga pagina per pagina e la causa va scritta nel cruscotto.
 6. Un controllo che sbaglia (falso allarme o problema non visto) si corregge nello strumento, non si ignora.
+
+## NIENTE MASSA DI SITI INUTILI (Massimiliano, 19/11/2026)
+- Fino al 1/12/2026 nessun sito nuovo: ogni idea diventa una sezione di un sito esistente, preferibilmente dei tre da spingere (Visa Income, Before You Fly, EsameB1).
+- Dopo: sito nuovo solo con stima centrale ≥ 5.000 €/anno, voto ≥ 7 e il sì di Massimiliano con i numeri davanti (la regola esisteva: US College Aid è partito a 1.150 €/anno senza rispettarla; si giudica con la prova delle 200 università e la regola «togliere» di ORGANIZZAZIONE sez. 4).
+- Ogni 1° del mese: oltre a togliere, valutare quali siti piccoli unire dentro uno forte (con redirect 301).
