@@ -220,3 +220,9 @@ Lingua: tutti i messaggi a Massimiliano in italiano, anche le risposte brevi tec
 
 ## Decisioni senza chiedere (Massimiliano, 19/11/2026: «non devi chiedere quando una decisione migliora il fatturato probabile»)
 Si decide e si fa da soli tutto ciò che migliora il fatturato probabile e rispetta le altre regole (controlli, revisione ≥ 8,5, niente spese, niente rischi fiscali nuovi, niente siti nuovi prima del 1/12). Si chiede solo per: spese, rischi fiscali o legali, siti nuovi, azioni sui suoi account, dati personali.
+
+## RISPARMIO CREDITI (Massimiliano, 19/11/2026: «abbiamo già utilizzato il 50% del credito da ieri sera alle 21, bisogna rallentare»)
+Il credito settimanale degli agenti si ricarica il mercoledì sera (~21:00). Il 19/11 pomeriggio era già al 50 % dopo meno di un giorno: il ritmo va diviso circa per 4.
+- **Fino alla ricarica di mercoledì 25/11:** nessun agente nuovo tranne le revisioni indispensabili per pubblicare lavori già costruiti; la ricerca serale è sospesa (solo PARTE A); il turno di costruzione di venerdì 20 e lunedì 23 apre al massimo 1 lavoro piccolo.
+- **Da sempre in poi:** un agente alla volta, mai più di 2 insieme; i costruttori usano il modello normale (Fable solo per revisioni e ricerca); le correzioni le fa lo stesso costruttore (riprendendolo, non un agente nuovo); la seconda revisione solo se c'erano difetti BLOCCANTI; turno di costruzione solo lunedì/mercoledì/venerdì; ricerca serale 1 agente solo domenica/martedì/giovedì; ricerca grande del mercoledì 2 agenti.
+- Il lavoro senza agenti (dati, pubblicazioni, controlli, piccole correzioni) continua normalmente.
