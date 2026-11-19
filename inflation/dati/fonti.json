@@ -1534,18 +1534,18 @@
   "url": "https://www.eia.gov/dnav/pet/xls/PET_PRI_WFR_A_EPD2F_PRS_DPGAL_W.xls",
   "file": "grezzi/eia/heating_oil.xls",
   "http": 200,
-  "letto_il": "2026-11-13",
-  "sha256": "12cd5326b7b4bf83d1e3961c3565969ca3195ce3d94fa17415c62f4274485751",
-  "byte": 431104,
+  "letto_il": "2026-11-19",
+  "sha256": "453da31ceee745fde0893c4f3a03a8b856df44bbc7b528f3237949d71cfdfb18",
+  "byte": 431616,
   "licenza": {
    "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
    "url": "https://www.eia.gov/about/copyrights_reuse.php",
    "nota": "EIA: U.S. government publications are in the public domain and are not subject to copyright protection; citation requested."
   },
   "pagina": "https://www.eia.gov/dnav/pet/pet_pri_wfr_a_EPD2F_prs_dpgal_w.htm",
-  "rilascio": "2026-11-12",
-  "prossimo_rilascio": "2026-11-18",
-  "ultima_settimana": "2026-11-09"
+  "rilascio": "2026-11-18",
+  "prossimo_rilascio": "2026-11-25",
+  "ultima_settimana": "2026-11-16"
  },
  "eia_propane_xls": {
   "chi": "U.S. Energy Information Administration",
@@ -1553,18 +1553,18 @@
   "url": "https://www.eia.gov/dnav/pet/xls/PET_PRI_WFR_A_EPLLPA_PRS_DPGAL_W.xls",
   "file": "grezzi/eia/propane.xls",
   "http": 200,
-  "letto_il": "2026-11-13",
-  "sha256": "2eb8875def01b94046b8ed8eb04c0cc0e59a02c8171aa5cd792a8a637670b20f",
-  "byte": 557568,
+  "letto_il": "2026-11-19",
+  "sha256": "008e9a1daea36f7ac6ae9ee479226b616387326720f55f16bf65f451cf2714db",
+  "byte": 558592,
   "licenza": {
    "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
    "url": "https://www.eia.gov/about/copyrights_reuse.php",
    "nota": "EIA: U.S. government publications are in the public domain and are not subject to copyright protection; citation requested."
   },
   "pagina": "https://www.eia.gov/dnav/pet/pet_pri_wfr_a_EPLLPA_prs_dpgal_w.htm",
-  "rilascio": "2026-11-12",
-  "prossimo_rilascio": "2026-11-18",
-  "ultima_settimana": "2026-11-09"
+  "rilascio": "2026-11-18",
+  "prossimo_rilascio": "2026-11-25",
+  "ultima_settimana": "2026-11-16"
  },
  "eia_oil_tabella": {
   "chi": "U.S. Energy Information Administration",
@@ -1572,8 +1572,8 @@
   "url": "https://www.eia.gov/dnav/pet/pet_pri_wfr_a_EPD2F_prs_dpgal_w.htm",
   "file": "grezzi/eia/heating_oil.htm",
   "http": 200,
-  "letto_il": "2026-11-13",
-  "sha256": "7777bbda865e2c11a24d0338045d6c1a7979e9dd6efb02368ecabd6ffba53f33",
+  "letto_il": "2026-11-19",
+  "sha256": "c2f1de98c0a98d459ccfca5f5295ae2e0758912d894836dc00cf13b1b3b92d0b",
   "byte": 28781,
   "licenza": {
    "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
@@ -1593,9 +1593,9 @@
   "url": "https://www.eia.gov/dnav/pet/pet_pri_wfr_a_EPLLPA_prs_dpgal_w.htm",
   "file": "grezzi/eia/propane.htm",
   "http": 200,
-  "letto_il": "2026-11-13",
-  "sha256": "9d7264b718a3511102f5063261ba8cfbb5e8c3ba126313c36ecdcedbb3e16d4e",
-  "byte": 40147,
+  "letto_il": "2026-11-19",
+  "sha256": "8f89ef6da63fa63ceb4966f0e810da4c7b800a4c5fabfecb330bad6d13f3bfcd",
+  "byte": 41167,
   "licenza": {
    "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
    "url": "https://www.eia.gov/about/copyrights_reuse.php",
@@ -1614,9 +1614,9 @@
   "url": "https://www.eia.gov/petroleum/heatingoilpropane/",
   "file": "grezzi/eia/update.htm",
   "http": 200,
-  "letto_il": "2026-11-13",
-  "sha256": "8a60820484def93b48728fe05d0a31fab7542b6b8965a13771484bad29350ebd",
-  "byte": 91231,
+  "letto_il": "2026-11-19",
+  "sha256": "c9c16a910e539d12821b2c903a375af6997483820e937c72d33e8ac87dea5c3a",
+  "byte": 91272,
   "licenza": {
    "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
    "url": "https://www.eia.gov/about/copyrights_reuse.php",
@@ -1635,7 +1635,7 @@
   "url": "https://www.eia.gov/dnav/pet/TblDefs/pet_pri_wfr_tbldef2.asp",
   "file": "grezzi/eia/definitions.htm",
   "http": 200,
-  "letto_il": "2026-11-13",
+  "letto_il": "2026-11-19",
   "sha256": "b1dde69ebf17a8df07918e9e1d5c5a4d432eddc40c9fcd3d648baf0d14e8b73a",
   "byte": 9305,
   "licenza": {
@@ -1668,9 +1668,9 @@
   "url": "https://www.eia.gov/about/copyrights_reuse.php",
   "file": "grezzi/eia/copyrights_reuse.htm",
   "http": 200,
-  "letto_il": "2026-11-13",
-  "sha256": "c16dcdd32bd0294eef3dbc8cdc11cd3a815502be1e938f1dfc84736358a4462c",
-  "byte": 52536,
+  "letto_il": "2026-11-19",
+  "sha256": "33c1a9f95672c78e3ebdbbe5cd30edd0065029174391188f458ca8651204f05a",
+  "byte": 52571,
   "licenza": {
    "nome": "Public domain (U.S. federal government work, 17 U.S.C. § 105)",
    "url": "https://www.eia.gov/about/copyrights_reuse.php",
