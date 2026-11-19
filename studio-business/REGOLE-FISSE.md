@@ -213,3 +213,7 @@ Con 24 siti serve metodo. Queste regole valgono sempre, prima di qualsiasi lavor
 - Fino al 1/12/2026 nessun sito nuovo: ogni idea diventa una sezione di un sito esistente, preferibilmente dei tre da spingere (Visa Income, Before You Fly, EsameB1).
 - Dopo: sito nuovo solo con stima centrale ≥ 5.000 €/anno, voto ≥ 7 e il sì di Massimiliano con i numeri davanti (la regola esisteva: US College Aid è partito a 1.150 €/anno senza rispettarla; si giudica con la prova delle 200 università e la regola «togliere» di ORGANIZZAZIONE sez. 4).
 - Ogni 1° del mese: oltre a togliere, valutare quali siti piccoli unire dentro uno forte (con redirect 301).
+
+## Affiliazioni: decisione del 19/11/2026
+Massimiliano: «se per ora le affiliazioni non prevedono un buon ritorno meglio non correre il rischio». I riquadri di affiliazione NUOVI restano spenti. Si riaprirà il tema solo quando: (a) l'interpello o un testo ufficiale chiarisce che le provvigioni stanno nel 58.19.00 senza Camera di Commercio, oppure (b) i numeri veri mostrano un ritorno che vale il rischio (stima con visite reali, non con ipotesi), da presentare a Massimiliano con le cifre. AdSense e i riquadri già accesi (Genki, Amazon, italki, Viator, Stay22 e gli altri già online) restano come sono.
+Lingua: tutti i messaggi a Massimiliano in italiano, anche le risposte brevi tecniche.
